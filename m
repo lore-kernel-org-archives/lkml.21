@@ -1,82 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.121
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795439046;
-	b=G4lpFfJMNlNUMdg9L5tGv50I/JxoyWRczgccBuPGn136lpmv8ePv4gqj9F+OXh8/WbpQ
-	 4QUYxa245IJldxtE9t1QBfP5KrDw+AoM6MMDdKvzhVK29aQRonrDPEQR8pU5OxHxNVvs6
-	 8+hNDnz9syPqTpA74DnSAKeMIQD3oxtrF0RgbMklLPtgZUtDZVEh5NizVvHkyV/h3ajeZ
-	 aWdaeZItm6fJ9aCVPrcXukfJOj0RS5m9DtRg081TZOjY7z1eB2yUUoK4GJuKcTeT6oz1s
-	 mDMPtdLWN6ywJ7O0su44e/0wOsan1T82aTeHWIAaSzOAnDv+9lg15tifFefwWq4dvlA==
+	t=1795439081;
+	b=Pv7vcqm72FruVw53SimgmsF0Ce8mzKOZjChdABlDkPQ47F8qALY9IMEwW3DbBNFLogcz
+	 Zdl30ua3O71JEd6tOlPjRV2aZP9O4iRsJIn3ZACR1ITTX0CEzP5Cl35a5AXKXbtZflGBF
+	 0UDFGX8OHBmB5tkb6MzDSIhwsoyRAzO/vRBDOWmd9DXEnmyWRvHMn90lZXjOkWxWaHbj+
+	 VI94vHVeGjySdj8XCvRD/9VGX1MPoYLWM88i2brKGYB4Q5xD6FR1qAGFgM4f57urhYbFq
+	 8cxS8OpaMfFBgJaHOLW3eyuCSBHHdiDJQfGBtM1hNZ0mszoOMDSzwcoboTALglWuZaw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795439046;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=J0aNMZGjkaYlYlEiIOgyjzZ61GdzrSA7YGjz7yiOd3U=;
-	b=qSZuf6uvvkKV3vmsoJj9QEaw39o81C8m/z/MmAuyvttRzEsgrK5YKOrwzbT6XJfWdkeS
-	 96hrOx75r0zKudfabKKYh3RmOvfQGqO+zqg8QEI3ksh9kYockFZQR60KddivNb4nJOyMy
-	 WBjcOnnPij4wAVkA3Eavr9UubOddhf7dxClKFxctrEvIt8RifKnqBBlw4sXcl8/hQg1OX
-	 3lnbPYD5BtS67InvgOuRJrG3S0XkCR9ByZMe+opXa/qZIKF2hzYLIZ+wuNdQxzyekprO7
-	 dqqnQqSFxLg7s8/hG4QeuEy1BtvhIvqysZIZIbXVMibtaOE0j+knWPrAyZDPcrlJtXA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795439081;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type;
+	bh=zCDqV6y0doa5WYO5K5fzLNOLmziMydS10KViqm3njzo=;
+	b=zI60hsnGgA4gOBo6RPsD0AjAyXE0BvzyB0LhFGpfAnycwjcs9LFkTR+w87aJvgpCn4Cc
+	 7MQdUjwuXD7wLBRmZ2bjQ0nWWNC3WqN4CL/YR1O9XZNpGs+HF0mL9+CF5g4hQaaFFECp/
+	 01lxJAI8TAVLgiGb1QL/gwj5G3YmQXdcTx4RMt2hfbV4ZLjOpY8SCBYvzH8uaccUpjExM
+	 jG9Bbs6obElYZRZFU2Yjlpai8yZytcjquUPWfOL2/dwTHB/0ryB61S+G6NxjO8Ymp8XPJ
+	 ir6L9Swzxl3cmKYU9dUC300nmarzi0uB339kxZu04vOPeHhEDebX2UuFODyxhsqtp+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=VjTI2dJm;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	dmarc=pass header.from=pm.me;
+	spf=pass smtp.mailfrom=pm.me;
+	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=nnCIjnJ5;
+	arc=none smtp.remote-ip=79.135.106.121
+Received: from mail-106121.protonmail.ch (mail-106121.protonmail.ch [79.135.106.121])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34806606A31E;
-	Mon, 23 Nov 2026 13:04:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34806606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDE13606A32E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:04:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CDE13606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=VjTI2dJm
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANCYj3T1981047;
-	Mon, 23 Nov 2026 13:03:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=J0aNMZ
-	GjkaYlYlEiIOgyjzZ61GdzrSA7YGjz7yiOd3U=; b=VjTI2dJm//EAKkyyho2DMj
-	EXrNf6v0Fu6HhoD091/wzB6L09utq7H8gLgPv13AbelCBhOAklDr9XH3zRPX5q3y
-	wVO5ZP8p/5fsbtfkOiRaSgKr1fOADk6DpmJEegQnp9nms4UymzaGSHnbDY++LXNl
-	MIscfkC+eyyYry7T0X98C8DugoOmM5T/nXDmyB9chP11iwEbjXmBPXJHLxj1Rrn2
-	IF4fgDbnk4HG1v0tzJ/zcZWiy9YVUyUtlLj3+WtmcfPiqPSVItG/kYyXPtfemVE5
-	ga+2j95il9jnfIjAs1Krng+ORKkcu2KZ7WhBL0S4+mTv/EFHEF65y7/WmU5T2A2g
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g338qs-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 13:03:49 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANCJhPr1159476;
-	Mon, 23 Nov 2026 13:03:48 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3p0vf022-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 13:03:48 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AND3jl846006742
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 23 Nov 2026 13:03:45 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E379B20043;
-	Mon, 23 Nov 2026 13:03:44 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A14A220040;
-	Mon, 23 Nov 2026 13:03:44 +0000 (GMT)
-Received: from [9.68.16.159] (unknown [9.68.16.159])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 23 Nov 2026 13:03:44 +0000 (GMT)
-Message-ID: <e53eaebd-c646-4d0e-841d-85ee7e7997d6@linux.ibm.com>
-Date: Mon, 23 Nov 2026 14:03:44 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=nnCIjnJ5
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
+	s=protonmail3; t=1795439078; x=1795698278;
+	bh=zCDqV6y0doa5WYO5K5fzLNOLmziMydS10KViqm3njzo=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=nnCIjnJ5ZmOSizYmh88sfXzIIFh8+ZZGCtuRvtFSnBmaNZ6Te3pmHNpK2KHz3QF8v
+	 +oOZG2DcPJD5rrRwYTxKD8EmoYZXF7lhwhYn28Zg3hnapzRjLsurnzmYamuUltjDbS
+	 2OiLbv14o9owmDycb/LGv1wKC5JqmPxxGFMBQOsT22JvjhU/KI5/Nz4jeQJdOi2bBK
+	 Q4TlMN59MBEb1GwSZDziAxVxNZoqDjFI20rCLvOw06VnOCyvn/TDC1WMpv0oNfPA8c
+	 a5u8sjdjbRULifjkaNim2rGwxn9eMKbiSGVLOSk5hyoS7ALonbKtvMIYAQEfr7HYiQ
+	 +vVL+fDtb6xdw==
+Date: Mon, 23 Nov 2026 13:04:33 +0000
+To: netdev-bot+sashiko@kernel.org
+From: fadouse <fadouse@pm.me>
+Cc: jhs@mojatatu.com, jiri@resnulli.us, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH net v2] net/sched: act_ife: return -EAGAIN after dropping rtnl_lock in load_metaops_and_vet()
+Message-ID: <9VcRS9CU-2EQHb_vgmqLp8_F5UYnRrlqgIlr_IpKMsNgNGXJDg9nJZOILB_d2TuFVAacbsK28Ow9_zpxNdYQeL0Ts6s7oXJUcm1Urs36POk=@pm.me>
+In-Reply-To: <179543813406.3135.15745616872300382040@kernel.org>
+References: <20261122-b4-02-act-ife-rtnl-uaf-v2-102eba468698-v2-1-67c413c45928@pm.me> <179543813406.3135.15745616872300382040@kernel.org>
+Feedback-ID: 173252840:user:proton
+X-Pm-Message-ID: eed5be8e258cc27723349af12f37dff59c8fe4d8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,77 +64,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 0/2] KVM: s390: vsie: Do not overwrite guest 3 state on
- early validity icpt
-To: Gautam Gala <ggala@linux.ibm.com>, kvm@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: frankja@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org,
-        hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
-        svens@linux.ibm.com, pbonzini@redhat.com, seanjc@google.com,
-        shuah@kernel.org, linux-kselftest@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-References: <20261119124936.33396-1-ggala@linux.ibm.com>
-Content-Language: en-US
-From: Christian Borntraeger <borntraeger@linux.ibm.com>
-In-Reply-To: <20261119124936.33396-1-ggala@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=SoQFe/O0 c=1 sm=1 tr=0 ts=6b0439b6 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=3ZShRkCcaKa6pm3BFBwA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA1MCBTYWx0ZWRfX7WbJ7BilDQdB
- E6Ug33bXH4570ZLv5OFv59XGl/Bol4cPTN6H2lM5EAWiurxixYni3uzF3+wie5nFGo5p4X2SQ7i
- TmKMUUvFkII1xC3hu5ASNAbkSobfJfg=
-X-Proofpoint-ORIG-GUID: z6wCqkl77eR2fopJWllk5PdBkRYQiBrK
-X-Proofpoint-GUID: ORYwrD87rb85BxL1DCezvEagYpRKHL2I
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA1MCBTYWx0ZWRfX6oRkM5URu3gJ
- dFUDU4oo1HP6I4Pi7eLYpThcQDC/SpxA1tDhnw9yMTZRY0IlM7dfFtQoGnrGNel+xT0DTYnPcgw
- FDO1/U6h8BF9evulwdsFUSD88zX2flZfP/QkuRelyUmMrrYxMTrb6qWLBKExeKIQUX3PybDxuWX
- +6aVrOGEtH1/AJ83x9wjP+v2mox8MS3KfS0KWNYh9Ch9DWXCa26Irgtihwksr1q/mTMYxySWCO2
- jIlyKv085s+Mt+WZ09Wfh8caszE1yULYFs1QofPjG7C+/W2+JItgfZLelagSX6ObTzV31ralyKL
- exGdxqKxV31U9AlWMBx0wbS1fIVz5kVXQZhCtr7lc3QTk16QA3i52TZCuk4nVwhFLJ+vZimfWVK
- gFQI2oGgNz18F/vqlFijZN9lzJ5jrsE6qybkLMoHjuMmxylh9ED2ClLSyADHkLdvo/nvVzJoRnI
- Uygnk7jaayLVJD6i1Lw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_02,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0 adultscore=0
- lowpriorityscore=0 clxscore=1015 malwarescore=0 impostorscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230050
+Content-Type: multipart/signed; protocol="application/pgp-signature"; micalg=pgp-sha512; boundary="------50a90c1dfec43a8dd15b8afbe1635532f6c0ea395e5089f5674adfdceea9a0aa"; charset=utf-8
+
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------50a90c1dfec43a8dd15b8afbe1635532f6c0ea395e5089f5674adfdceea9a0aa
+Content-Type: multipart/mixed;boundary=---------------------befe82236b17a543bc1350b048947fc5
+
+-----------------------befe82236b17a543bc1350b048947fc5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;charset=utf-8
+
+Hi,
+
+Thanks for the review.  The u32_change() new-key unwind path on an
+unpinned non-root hash table is valid: returning -EAGAIN still reaches
+erridr: idr_remove(&ht->handle_idr, handle).  As noted, that is a
+separate pre-existing cls_u32 issue also reachable via existing
+RTNL-dropping autoload paths such as tc_action_load_ops() (both on
+-EAGAIN and on -ENOENT), and changing act_ife alone cannot fix
+cls_u32's error unwind.
+
+Returning -EAGAIN from load_metaops_and_vet() matches the other
+RTNL-dropping TC autoloaders checked (tc_action_load_ops(),
+tcf_em_validate(), and em_text_change()) so callers unwind instead of
+continuing on the success path with stale filter pointers.  The
+cls_basic replacement UAF was reproduced and verified fixed at runtime;
+by code inspection, cls_flow, cls_fw, cls_route, and cls_u32's
+filter-replacement branch (the `if (n)` path, which destroys `new` on
+error without touching `n`) also avoid their success-path use of the
+old filter pointer.
+
+Since I am respinning v3 to drop the comment per Stephen Hemminger's
+feedback, I will also narrow and clarify the cls_u32 scope in the v3
+commit message accordingly.
+
+pw-bot: cr
+-----------------------befe82236b17a543bc1350b048947fc5--
+
+--------50a90c1dfec43a8dd15b8afbe1635532f6c0ea395e5089f5674adfdceea9a0aa
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wrsEARYKAG0FgmsEOdMJELmdYLfl5tl0RRQAAAAAABwAIHNhbHRAbm90YXRp
+b25zLm9wZW5wZ3Bqcy5vcmeF9uKMBwl7PKMOpqA1eXo4ul0NhAEtc3z91lku
+IgC/hhYhBJlIWqN2fwJwSOCwWLmdYLfl5tl0AAAkwAD+NiV9OOO0c4E+vipV
+15sxybG3N54IlqKJBxIAe6bQyJMBAPfYzYQKFzaCO4VsJCZ1yNgb0Moj35Ox
+26OW76x6o70J
+=+Yjn
+-----END PGP SIGNATURE-----
 
 
+--------50a90c1dfec43a8dd15b8afbe1635532f6c0ea395e5089f5674adfdceea9a0aa--
 
-Am 19.11.26 um 13:49 schrieb Gautam Gala:
-> If prepare_cpuflags() rejects the SCB provided by guest 2 with a
-> validity interception, shadow_scb() still calls unshadow_scb(). That
-> copies the guest state from the shadow SCB back into the guest 2 SCB,
-> although the shadow SCB does not hold guest 3 state at that point. Guest
-> 2 then sees its guest 3 state overwritten with zeroes (new or recycled
-> vsie page) or with the state of the previous run (cached vsie page),
-> without guest 3 having run.
-> 
-> Patch 1 copies back only the interception data in this case and clears
-> the stale interception data (icptstatus, ipa, ipb) when a shadow SCB is
-> reused.
-> 
-> Patch 2 adds a selftest for early and late validity interceptions.
-> 
-> Gautam Gala (2):
->    KVM: s390: vsie: Do not overwrite guest 3 state on early validity icpt
->    KVM: s390: selftests: Add vsie validity interception tests
-> 
->   arch/s390/kvm/s390/vsie.c                     |  24 +-
->   tools/testing/selftests/kvm/Makefile.kvm      |   1 +
->   .../selftests/kvm/s390/vsie_validity_test.c   | 435 ++++++++++++++++++
->   3 files changed, 453 insertions(+), 7 deletions(-)
->   create mode 100644 tools/testing/selftests/kvm/s390/vsie_validity_test.c
-> 
-
-thanks applied.
