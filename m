@@ -1,104 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795448488;
-	b=dq/4JKKIhmMQGzo4+31155SIgFslVK3poMm6k6OP8GhC6ngCZhhLGA2xhfThRH986YZv
-	 rKRlkIJUPKh/rehdWP9adGGBtxT2BMsSzdHuMihJZw1FbabAHnaM4MO0B4KeIx6Wshm8K
-	 lTVAzsnkAnAdWrgzzBnyBHmoqZyuSC3GILI0vk17qFE2DRJOHI0c7YmPpAAELl4OcIKhW
-	 8UpE+s+4iyp/mGXk2WG+kKam2rCuPy/blPxYccHpNNkvJOsuFtlOVbgPB9LsU6HSjC7je
-	 TCBE8CAgYPzJ4PEtfwUyIRAYk5jcB0qjw5Ss3njHU6FhKST6sgNERdDRghf+q1WD3Sw==
+	t=1795448493;
+	b=l/8gs8w7PZBRgEThlRKy64z+uM1LPQOvFQuLopYwUBp7lei+bkwxZY8wHJM69b1aJdmK
+	 ZGBuEp0al3K6HmmLZOnzH6iSj6yDH475cbV4Lq/aBvUHlEU4D92+MhD4rfUQnLailj+Aq
+	 vG9fKvB5+LggPTiEiJQD93IzzrPyRpgLaXEpZVTnUdrOx5nI6xEbk+BuhcPnJBzAoZxtO
+	 SKlWfbshaqn7ao+dm0UiAK2i3zzv6Rmhq4TbBR6VMc3BuSG4RVOIl9VPw709wekcT1jvO
+	 kEFn/3wkhjX+uP6IjJLlPRgfSvHGsGJ1I3ndFAjnHEhty57p2YT8L4BZ8o/8BuUi1bQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448488;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Rspamd-Queue-Id:X-Spam-Level:
-	 X-Rspamd-Server:X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:
-	 X-Spam-Score;
-	bh=8+/2WoxFdpcQdUsqbaVip+amN1KRS8T5dllu47RLv5o=;
-	b=tyP4d0D6ieVQGCCLATQBWuh058bDViv+/GdoZ0EUswPxONCHsMpFecv5cjbTx85gVJ/t
-	 BgOPFTpHv7V4xwmHRbZb/tw9/OsT7uxEuCi61L4S/CNASCk4Q9v/GvP7IVxGUILXIF5mw
-	 5LxLCF8fU3bkUubPMKVuOWoZ+B9YheMOrRp/kstX5bnwOsHhgyHDCqkGByMpgw9230Jc2
-	 bHktmZ+fW3cHNOTc+jMQBMlJaA4Tf8JPoYaxgP31wW81YaKmZDcq866KGNSXJMPz2tSgt
-	 +1nLisKMNPPSpK4t19AqiOI+aWxAhZGSqJCqYCyItz2PK357dKpicC7Zffo/eVGbwFw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448493;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=PwBm1IcM1lfZmkWEHC9cN+WkeWysjbiIwKr8KptSUas=;
+	b=KbJ2GcDmPS61IEtHzB81V6p4iz/AwcTaWGDac9zlIF1VxSPqWmQnyJBQDfodUoW+oBL7
+	 AbBr83zWRfiK+rvaiOb7wUU5IhohOccYpkWcxh3Q7BuQ/CdPM2pC2EJeYwJWy2Pt6HOtf
+	 INZ0tR47okux+uYbCXY2u+nxv7jTQZul/GI30L07xuCC67VwmiotS70cYrHsbPWc0iowP
+	 HLxbqDuFJeW0a76BeFXg6yC8cUdtbxo4bYhpS4LgdArHBqKQf9jHoKg/cw5qTF66KE4ag
+	 ndKbXox9a4SwqiayiVm++9BwIgTtpe3X820VfkN+6wGgiaRZyaH8+puRQPnvyLvP7Gw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=cPUAdIEI;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=MeRVOgbM;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=cPUAdIEI;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=MeRVOgbM;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EoaoBPCk;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EEE2606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:41:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7EEE2606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FF51606A33E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:41:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=cPUAdIEI;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=MeRVOgbM;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=cPUAdIEI;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=MeRVOgbM
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 92E8E1F390;
-	Mon, 23 Nov 2026 15:41:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795448485; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8+/2WoxFdpcQdUsqbaVip+amN1KRS8T5dllu47RLv5o=;
-	b=cPUAdIEIrqM1kE3D/wgLateAtVuXGul9Gi1xOsSPgQ1JLo4wgf89AjtTF1M47E0lBDUy85
-	JC3FpvCNHTPtevWbQ5xcW+etHvlEstYZSTrs1nu89l25yTNCm0bgUiF+bp6shIbSGz1G22
-	NVNsxAwD7u6hUIYS2ZZgN0arqYyuvfQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795448485;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8+/2WoxFdpcQdUsqbaVip+amN1KRS8T5dllu47RLv5o=;
-	b=MeRVOgbMJEh/BOCD0ScBfVEUF9K5YqAqkyMRX/w/HHmCOcaa7rywBY9XW5vMRwS3JaHH+l
-	0oQL5eePSq3xnLAQ==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=cPUAdIEI;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=MeRVOgbM
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795448485; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8+/2WoxFdpcQdUsqbaVip+amN1KRS8T5dllu47RLv5o=;
-	b=cPUAdIEIrqM1kE3D/wgLateAtVuXGul9Gi1xOsSPgQ1JLo4wgf89AjtTF1M47E0lBDUy85
-	JC3FpvCNHTPtevWbQ5xcW+etHvlEstYZSTrs1nu89l25yTNCm0bgUiF+bp6shIbSGz1G22
-	NVNsxAwD7u6hUIYS2ZZgN0arqYyuvfQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795448485;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8+/2WoxFdpcQdUsqbaVip+amN1KRS8T5dllu47RLv5o=;
-	b=MeRVOgbMJEh/BOCD0ScBfVEUF9K5YqAqkyMRX/w/HHmCOcaa7rywBY9XW5vMRwS3JaHH+l
-	0oQL5eePSq3xnLAQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 487CC1352B;
-	Mon, 23 Nov 2026 15:41:25 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id sULWCKVeBGvHJgAAD6G6ig
-	(envelope-from <hare@suse.de>); Mon, 23 Nov 2026 15:41:25 +0000
-Message-ID: <f9d90595-d2cc-4c24-99eb-9e924969aa1d@suse.de>
-Date: Mon, 23 Nov 2026 16:41:24 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EoaoBPCk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA7841F01561
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:41:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795448492;
+	bh=PwBm1IcM1lfZmkWEHC9cN+WkeWysjbiIwKr8KptSUas=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=EoaoBPCk5xlBbmcyZnLlAayGwUrD1lH9GkXZhVLwd6R3Sbgf2pWTuUc9fFkkVxG9O
+	 KRsYj3ZKAn7kTn9kTc9iRxnKgtcsfKXKyMRvxxnGSb7YazKCjk61Ci0xhQiaJZS9fo
+	 fDQ8//zpVBzA4XdMhhCmFeCwA30Tba+zOhWZBFICu7otJSlmUfDnupMUU8KPYNosGx
+	 r3QCPtpAWSkxvgmTf0bgfhYQTjDgZYtXg84kooCVq+mv2rdPABnwLyXLooKHyWZcAf
+	 Yvo8/3Ot1a0XbNJdFolHsyfzSTYGxbCzi6wfQX92YFIfzQJ9Ev8og+OKFGisN0E4X/
+	 9oXiOA8PyZrJQ==
+Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1a2761c69fbso2291584c88.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:41:32 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEw8w4Ng2TgV3xJOZ9F3eYGB0x1LRC7Bp6TxHggoC3HiZlroGjifQ1ZlM2XnGaGUImGIY5FZbrT9sCK8hM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Vbjk5vu0f48osCosEESclbwiCBH7mEyo6GtQC3rt2UacFClT+
+	eyNxhF5S9hcydN4HX9ywSx31D281AnHDSap0irGKym9+am9LY9jIK6RBS/9jiucX1KK7F+erneM
+	C4lZS7xnp134+CwxBeevRtAI477+ouQ==
+X-Received: by 2002:a05:701b:450d:20b0:1b2:4378:3545 with SMTP id
+ a92af1059eb24-1b5568e825emr13210367c88.21.1795448492121; Mon, 23 Nov 2026
+ 07:41:32 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,101 +59,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/9] nvme-auth: switch to use the kernel keyring
-To: Martin Belanger <martin.nvme.dev@gmail.com>,
- Hannes Reinecke <hare@kernel.org>, Keith Busch <kbusch@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
- Sagi Grimberg <sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>
-Cc: linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261123-dhchap-keyring-v4-v5-0-81eefb4c0724@kernel.org>
- <5aa50b65-c502-4b87-8f09-23a456e2ca6a@gmail.com>
- <463a55e8-c2ef-4d83-94ff-7599c7d931e6@gmail.com>
-Content-Language: en-US
-From: Hannes Reinecke <hare@suse.de>
-In-Reply-To: <463a55e8-c2ef-4d83-94ff-7599c7d931e6@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 92E8E1F390
-X-Spam-Level: 
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spamd-Result: default: False [-12.00 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	XM_UA_NO_VERSION(0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FREEMAIL_TO(0.00)[gmail.com,kernel.org,kernel.dk,lst.de,grimberg.me,nvidia.com];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_TRACE(0.00)[suse.de:+];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCPT_COUNT_SEVEN(0.00)[9];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,suse.de:email]
-X-Spam-Score: -12.00
+References: <20261011004248.1117649-1-agentzoan@gmail.com> <20261011004248.1117649-2-agentzoan@gmail.com>
+In-Reply-To: <20261011004248.1117649-2-agentzoan@gmail.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Mon, 23 Nov 2026 15:41:18 +0000
+X-Gmail-Original-Message-ID: <CAAOTY_8_90si7frBxHCtBqk=V+nr3WhkYbc8YYWTcAq=oL40eA@mail.gmail.com>
+X-Gm-Features: Aa3M54qUVOXJZJP1GdyNU65SHuNK_sE0j5xy6sPPN1MXY2yoHWIA_tbhn9S-dUs
+Message-ID: <CAAOTY_8_90si7frBxHCtBqk=V+nr3WhkYbc8YYWTcAq=oL40eA@mail.gmail.com>
+Subject: Re: [PATCH 1/3] drm/mediatek: mtk_crtc: Look up connector routes in
+ the CRTC's own mmsys
+To: zoan37 <agentzoan@gmail.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Jason-JH Lin <jason-jh.lin@mediatek.com>, CK Hu <ck.hu@mediatek.com>, 
+	Nancy Lin <nancy.lin@mediatek.com>, Nathan Lu <nathan.lu@mediatek.com>, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/23/26 4:32 PM, Martin Belanger wrote:
-> 
-> 
-> On 11/23/26 07:59, Martin Belanger wrote:
->> How should nvme-cli determine whether the kernel accepts a key
->> description for DH-HMAC-CHAP?
-> [...]
->> 2. Use a separate option for the key description, for example
->>     dhchap_key=%s and dhchap_ctrl_key=%s. nvme-cli would then detect
->>     support through /dev/nvme-fabrics, as it does for the other
->>     options. It also avoids having one string that can mean either a
->>     description or key data.
-> 
-> Hi Hannes,
-> 
-> A follow-up with test results. I added DH-HMAC-CHAP support to
-> nvme-keysd and tested it with v5 in a VM, with nvmet over TCP and keys
-> in both directions. Import, connect by key description, a wrong key,
-> and a key replacement all work.
-> 
-Cool.
+zoan37 <agentzoan@gmail.com> =E6=96=BC 2026=E5=B9=B410=E6=9C=8811=E6=97=A5=
+=E9=80=B1=E6=97=A5 =E4=B8=8A=E5=8D=8812:43=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> mtk_crtc_update_output() finds the private data of the display
+> controller (mmsys) that a CRTC belongs to with
+>
+>   priv->all_drm_private[drm_crtc_index(crtc)]
+>
+> but all_drm_private[] has one entry per mmsys (mmsys_dev_num entries),
+> not one per CRTC. mtk_crtc_create() gets the right entry from its
+> priv_data_index argument, and the two only agree when every mmsys
+> drives exactly one CRTC and the CRTCs are created in mmsys order.
+>
+> When a CRTC with connector routes sits on an mmsys that drives more
+> than one CRTC, the lookup reads past the end of all_drm_private[] (or
+> picks another mmsys' data), and the route component taken from that
+> data's ddp_comp[] array is bogus. On an MT8189 board with connector
+> routes on the external display path (CRTC 1 on the only mmsys), the
+> first HDMI hotplug oopsed in the compositor's atomic commit.
+>
+> With the route tables currently in the tree (only MT8188 VDOSYS0, whose
+> main path is always CRTC 0 and all_drm_private[0]) the two indices
+> happen to match, so nothing in-tree hits this yet. It triggers as soon
+> as routes are used on a path that is not the first CRTC of the first
+> mmsys.
+>
+> Remember the mmsys private data mtk_crtc_create() used for the CRTC and
+> use it in mtk_crtc_update_output().
 
-> For detection, nvme-keysd now uses add_key(): it fails with ENODEV
-> when the 'dhchap' key type does not exist. On an older kernel, the
-> connect fails with "Invalid DH-CHAP secret <name>", which is clear
-> enough. So nvme-cli does not need a new option for this. A separate
-> option would still avoid the ambiguity between a description and key
-> data, but that is your decision.
-> 
-> One finding: add_key() with the exact secret length, without a
-> trailing NUL, fails at random with EPERM. nvme_dhchap_psk_preparse()
-> treats the payload as a C string and reads past it (the bug Sashiko
-> reported), and base64_decode() returns -1. User space passes the
-> length without a NUL, keyctl(1) too. Could v6 parse exactly
-> prep->datalen bytes? For now nvme-keysd passes the NUL.
-> 
-Yeah, that should be addressed with v6.
+Applied to mediatek-drm-fixes [1], thanks.
 
-Cheers,
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
+log/?h=3Dmediatek-drm-fixes
 
-Hannes
--- 
-Dr. Hannes Reinecke                  Kernel Storage Architect
-hare@suse.de                                +49 911 74053 688
-SUSE Software Solutions GmbH, Frankenstr. 146, 90461 Nürnberg
-HRB 36809 (AG Nürnberg), GF: I. Totev, A. McDonald, W. Knoblich
+Regards,
+Chun-Kuang.
+
+>
+> Fixes: 01389b324c97 ("drm/mediatek: Add connector dynamic selection capab=
+ility")
+> Assisted-by: LLM
+> Signed-off-by: zoan37 <agentzoan@gmail.com>
+> ---
