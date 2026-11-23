@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795409408;
-	b=kMZ+iOh2JMt3WZAMI+OrqpCY8ay9oCYpDVao+yphOE8C3a1OM/bvc++fNuxGL3qPTqy7
-	 T5DO2qOUR9PSF+p3hbAaxWzBgsU8V8nI2Db4Rp9pUS4/7dhX4jnuzWe5S0LzJ/Ltd+/KZ
-	 TzFSWSGSxvDuHxDzclfb1z7M19tPocTU8Bfl6L2+pk10ZNKUIU04zac78tx8sPUGVlB1U
-	 3NL2PxDOlUHWLK6NHrmyXDgsJC/KOHuv9orw/w6KQMtBvr8uCGpdv4+ETY7KhjAWl3Z/V
-	 jRLdwTy8qMLP+snTHtJYupsKcT9fDDMCgFIF1Mpw9wr+eF0owYnGfY/4g5wJZcwrlRg==
+	t=1795409404;
+	b=pt6lOLb02TxRAZJy5ACz93XvnYY/9HV9z5fwvKcaG60rsMe9nVgHraF5mihIaE12ShRU
+	 cmT+W+rGVJ3rVk1bl1MDJFjPyRRMrfcQDAKNgGs5oKR/f/soTg2NTpSHpoDiyrHA7CIQo
+	 ZhAPqrt1z6xNBZLRN5Iqm2FjAbvALw1lJEOtNTOyLtMhKrowWJQlI6dcIN/gmPy6t+7nv
+	 EmnhS9MOec2u6nF/MPIbTqGqaXEu01i6o/fkDiGpvYTce9F8VWVjAPmT19Si8HvT8pc+w
+	 /Xvj1WcJpo9ijCnBohDSEPsTeBNp8FKf6ynjwpBaEgSI1PwHehZfuyrouHLlHGD6vnQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795409408;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795409404;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=TZMq+/zpLeRacFwEoqnJChMXkGO66CqIjVvdz5YYwDY=;
-	b=N8zOiExpDxvEKZAgYfPrzDuQDoP/czjYCCyJixmQ7OEul+Ck1jvorrhYhxC7AR/smpft
-	 uQ3vQx+Xd9m2EcOxNx/dTBjQex86KrgfvQfpW3EW2VOtNOYkFlLmLcwD67inIwCdTzxRz
-	 pExAqYJhS9SigHa35OF5pblnGkWPi8hEee6iQzq0Wk3AYgbAflPMTHXLiGY+962oD6iOu
-	 1CJcasfwBFepDurm5EoLyQUCPDt3WYzYCGwlZuB9vSssqz+3U23Wn1EErbSLfrQcaQRV9
-	 +VM8dymuiydtGzoMINc5T0mb3CTA/LFbymLst5RxFPrh9rPr78rXzlR5GjWoUk5BVSg==
+	bh=yg/KRlw/V2MQ/sD342ulB7AO28VSZsdYlNxvULrEbAA=;
+	b=dbxTRS6wIvVUXNjbenGD0jx7xTEoappVAHPjvIP88xYF86JJnjslqAH6dJ0CJ28r8tPY
+	 vp870o6wAt/48UJPg5m4Ib95YTJdsbnGRUU0iYl6StGF+PnC2tLbmvMC7if51PLU2iB82
+	 kQG7Y2Au5j2P+eV6Nz9ws8UXB5U8LCc65uGd9B3fmIG6f5rxypkuidRrQNsWYEL5ubMWf
+	 0yrctQQKWv6sUgiFOhrMAn7qOx9ol0GdqEYvirFZBTxSdVQp87+zoNlWxfN10rxJJ7UOf
+	 WEZtjFoBwHAXTaB2Peg8YQ5SLQMn0BFMWrphAjGaPyvTaPWZMZvHeI7XDohSwVSi3UQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--skhawaja.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=b15CGNlM;
-	arc=none smtp.remote-ip=209.85.216.70
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=g4w7F7hZ;
+	arc=none smtp.remote-ip=209.85.216.72
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E155606A6AB
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:50:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E155606A6AB
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F11F660A6F55
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:50:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F11F660A6F55
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--skhawaja.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=b15CGNlM
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b18165dc53so3377435a91.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:50:07 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=g4w7F7hZ
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3ae7faf4ff7so3582443a91.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:50:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795409407; x=1796014207; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795409403; x=1796014203; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=TZMq+/zpLeRacFwEoqnJChMXkGO66CqIjVvdz5YYwDY=;
-        b=b15CGNlMkt6eYAZ+UH62i6njhgUTa2NnbQdvL+xaLQczC0wggzr4wENHh3ODkbuKKj
-         y+SkgaKJOoCPIbVTqCk2w0ZC4laF5I/Tbyrz7Ne5pdO7+9NdXuCyymuy68p7TkYOFB0V
-         oiSMXpkW+PwhkGVyLDapa0JoCLyikQGpURfGG4oWx1tnWt1s0Fy2plRvu9U8+1wdl2wS
-         2WuxHRciGjWItBp36aft+SkF6sUlD7EDG8KqTR0sFytLsaT3Vq7y4SSIOucSstswdXE7
-         L8Si4TP6qV+ah41pjloYFbV8EdruGb1boiTqZVdbN84cVOoKnM7WqRGvhYrPMY34kTCh
-         PrKQ==
+        bh=yg/KRlw/V2MQ/sD342ulB7AO28VSZsdYlNxvULrEbAA=;
+        b=g4w7F7hZU262sDcfP0OfVQsUgKsu8yHDZQbTmDBS+yT/phrBYi3JoQs9EotdswIjg8
+         jp8im7SL9ysOmnXu2TZBXgYEDqaiqFZqGBeEwY8aLp9qoX0Qa41u26+4RkIzBQI2FZpY
+         vWaVvfBwp1wcGHVkk4FAf0SxVsxe+8Yvx1tqF3UpV9lCI9rmp8FUiqVcp2rWrAjLEGVa
+         rAa2I5RDaEunxZSnvdDAjlMkcvsClEYG+Vv/M/0W7WcDYzU8lqzWWW+oT5Ot7Laif3sc
+         RdrkTVrlphzsVXjCpZQZz5SRrP7A6HkCQhU0gVCAkM0vIzOdSaB5Ijkp9HrwF5gh3dcv
+         bQEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795409407; x=1796014207;
+        d=1e100.net; s=20260707; t=1795409403; x=1796014203;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TZMq+/zpLeRacFwEoqnJChMXkGO66CqIjVvdz5YYwDY=;
-        b=Pkgncwu73fYYRVzc+Pw6e6Wb6KnL2sRd/0KAHci6xC5+INe/m8/HjSPHLe1z8bzgR4
-         dgHbbogxEbBzqpn7UUzgAcYBfxcQ4ql7nqgLrGnH3YJJb72gYNnBV/+nKfw1QrZubwVG
-         bUQDmcOemt18knSRsCocwQxyHXFT1G5dpPjaggiUvtssGQlx/PLbbA00sqxrP/+bKp3N
-         DekHRTyql+aU6S3HGcuamm/6DACD/jHTC2BCH5txKU4bPi8244lz+IMNP0O3834mPQPv
-         Q0tMiDBNsvDE9U80SwJx5VRyVsbrG1N4WqJnoQt7Wcz98XvA7kR8jYn5cJgvRWcd9oKi
-         m5UA==
-X-Forwarded-Encrypted: i=1; AL+hErE8qC2Hbn3XQLqWRgNg7q0h15b/axkcUJcaKqEJBM6eK82y1zJc6vTekE9C1JcpDLi6UBFTX++7iNAacp8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+TkNEySJ9MyM49hYrCMstgy/0PgmJUFvA3O7g5nhWXlUDzoxrZ
-	6WnevTzGHzFTJ5rjZJcT72xKeXmKVexvDrSThcFmI/9g2z8X8nossuNu818mddY0R7eqC155jvq
-	6UyvoyxcmPd5LDw==
-X-Received: from pjbct21.prod.google.com ([2002:a17:90a:f595:b0:3a5:f1d:43a6])
+        bh=yg/KRlw/V2MQ/sD342ulB7AO28VSZsdYlNxvULrEbAA=;
+        b=YHpsM1QCZAxOuvEUtA3nDt93MDhsBnFVWY9iBMqlAuF6esmv5+3APXcxRUl2GN7kXM
+         2yOcKrahhC2HsaKeypKBLCP8AAVGH/N66M1YmtiSsqwmLAprNdAyQMMIgVD0uhskoqvH
+         xa/D6XPDYbL7NdCBpgu7t+tgKXqz9mMgdWAzsA/UUL/XiPHICpmyvvi4mpzlooktCzhh
+         GXKCu1nJim82eIIqeIa9guPADXBHWXTEIapTGVZqqlcsh621DSRf5ZMgnm6p/apI5ASn
+         pWt+cmplLRyTml7n6B3C3Ixw+E0x8soXPXGLqi+IbIDeTH568XJxqPbSeqW6oTydLxvj
+         xREQ==
+X-Forwarded-Encrypted: i=1; AL+hErFAbSO00XTAIyFMR5sQIRKbrfMDlcCxpYTrSWqckVhhCqTJi96ClamnxGKnfrFZeHrdzl7jcpQ8hqRjW54=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9EEknmaWf8z2vmlnDC63j6R4BVQKQzLki5oM5CBysyKp1Ac4IN
+	QKOTR572ag/N2Ll9o6zfEXfuWvyD7X4t0PKAkVhZwE+Lwz0v94HxAPKeSM0a8uyEd4W8rpBO1vm
+	wuDHHPRn6xx/2+A==
+X-Received: from pjzv20.prod.google.com ([2002:a17:90b:414:b0:3b4:2a5f:97bc])
  (user=skhawaja job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:4d89:b0:3b4:3c33:3e5d with SMTP id 98e67ed59e1d1-3b43c334caemr4000575a91.67.1795409406304;
- Sun, 22 Nov 2026 20:50:06 -0800 (PST)
-Date: Mon, 23 Nov 2026 04:49:49 +0000
+ 2002:a17:90b:560f:b0:3b4:60aa:9b74 with SMTP id 98e67ed59e1d1-3b460aaa7efmr4371271a91.65.1795409403328;
+ Sun, 22 Nov 2026 20:50:03 -0800 (PST)
+Date: Mon, 23 Nov 2026 04:49:45 +0000
 In-Reply-To: <20261123044949.3610702-1-skhawaja@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,509 +81,331 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261123044949.3610702-1-skhawaja@google.com>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261123044949.3610702-19-skhawaja@google.com>
-Subject: [PATCH v8 18/18] iommufd/selftest: Add test to verify iommufd preservation
+Message-ID: <20261123044949.3610702-15-skhawaja@google.com>
+Subject: [PATCH v8 14/18] iommu/vt-d: Handle reattach of the restored domain
 From: Samiullah Khawaja <skhawaja@google.com>
 To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
 	Lu Baolu <baolu.lu@linux.intel.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
 	David Woodhouse <dwmw2@infradead.org>
-Cc: Samiullah Khawaja <skhawaja@google.com>, YiFei Zhu <zhuyifei@google.com>, 
-	Robin Murphy <robin.murphy@arm.com>, Kevin Tian <kevin.tian@intel.com>, 
-	Alex Williamson <alex@shazbot.org>, Shuah Khan <shuah@kernel.org>, iommu@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+Cc: Samiullah Khawaja <skhawaja@google.com>, Robin Murphy <robin.murphy@arm.com>, 
+	Kevin Tian <kevin.tian@intel.com>, Alex Williamson <alex@shazbot.org>, Shuah Khan <shuah@kernel.org>, 
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
 	Pratyush Yadav <pratyush@kernel.org>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
 	David Matlack <dmatlack@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
 	Pranjal Shrivastava <praan@google.com>, Vipin Sharma <vipinsh@google.com>, Ankit Soni <Ankit.Soni@amd.com>, 
 	Nicolin Chen <nicolinc@nvidia.com>, John Starks <dev@jstarks.net>
 Content-Type: text/plain; charset="UTF-8"
 
-Test iommufd preservation by setting up an iommufd with a HWPT and
-preserving it across live update. The test takes the VFIO cdev path of a
-device bound to the vfio-pci driver, binds it to the iommufd and attaches
-it to the HWPT that is marked for preservation. It also checks that the
-iommufd can't be preserved without its memfd or with hole-punched pages.
+Reattach the restored domain to the preserved device using restored
+domain ID. While reattaching do not setup the context and PASID entries
+as those are preserved during liveupdate.
 
-Add IOMMU_TEST_OP_LIVEUPDATE_PRESERVE_DEV to preserve the device, since
-the vfio cdev preservation is not available yet.
-
-On restore, the test verifies that the restored device can't be bound to
-a new iommufd, that the iommufd can't be retrieved, as the iommufd
-restore is not supported yet, and that the LUO session finish fails.
+Note that in this phase nothing clears IOMMU_SER_FLAG_INCOMING of the
+restored domain or the restored state of the device, so the restored
+domain cannot be replaced yet. Replacing it is left to a later phase.
 
 Signed-off-by: Samiullah Khawaja <skhawaja@google.com>
-Signed-off-by: YiFei Zhu <zhuyifei@google.com>
 ---
- drivers/iommu/iommufd/device.c                |  47 ++-
- drivers/iommu/iommufd/iommufd_private.h       |   1 +
- drivers/iommu/iommufd/iommufd_test.h          |   1 +
- drivers/iommu/iommufd/selftest.c              |  29 ++
- tools/testing/selftests/iommu/Makefile        |  21 ++
- .../iommu/iommufd_liveupdate_kexec_test.c     | 276 ++++++++++++++++++
- 6 files changed, 359 insertions(+), 16 deletions(-)
- create mode 100644 tools/testing/selftests/iommu/iommufd_liveupdate_kexec_test.c
+ drivers/iommu/intel/iommu.c      |  36 ++++++-
+ drivers/iommu/intel/iommu.h      |  20 ++++
+ drivers/iommu/intel/liveupdate.c | 170 +++++++++++++++++++++++++++++++
+ 3 files changed, 224 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/iommu/iommufd/device.c b/drivers/iommu/iommufd/device.c
-index ebfc96445f71..95e31d398b84 100644
---- a/drivers/iommu/iommufd/device.c
-+++ b/drivers/iommu/iommufd/device.c
-@@ -1774,17 +1774,8 @@ static bool _iommufd_device_has_pasid_attachments(struct iommufd_device *idev)
- 	return false;
+diff --git a/drivers/iommu/intel/iommu.c b/drivers/iommu/intel/iommu.c
+index a487b6ca0415..3b31d0962e33 100644
+--- a/drivers/iommu/intel/iommu.c
++++ b/drivers/iommu/intel/iommu.c
+@@ -3174,6 +3174,25 @@ intel_iommu_domain_alloc_second_stage(struct device *dev,
+ 	return &dmar_domain->domain;
  }
  
--/**
-- * iommufd_device_preserve() - Preserve an iommufd device across live update
-- * @s: Live update session
-- * @idev: Target iommufd device
-- * @iommufd_tokenp: Pointer to store outgoing iommufd token
-- *
-- * Return: 0 on success, or negative error code.
-- */
--int iommufd_device_preserve(struct liveupdate_session *s,
--			    struct iommufd_device *idev,
--			    u64 *iommufd_tokenp)
-+/* Preserve @idev using @token as its DMA owner token. */
-+int __iommufd_device_preserve(struct iommufd_device *idev, u64 token)
++/*
++ * A restored device translates through the preserved page table, so use the
++ * stage of its preserved RID_PASID entry. The stage allocators reject flags
++ * that the stage doesn't support.
++ */
++static struct iommu_domain *
++intel_iommu_domain_alloc_restored(struct device *dev, struct intel_iommu *iommu,
++				  u32 flags)
++{
++	switch (intel_iommu_restored_pgtt(dev)) {
++	case PASID_ENTRY_PGTT_FL_ONLY:
++		return intel_iommu_domain_alloc_first_stage(dev, iommu, flags);
++	case PASID_ENTRY_PGTT_SL_ONLY:
++		return intel_iommu_domain_alloc_second_stage(dev, iommu, flags);
++	default:
++		return ERR_PTR(-EINVAL);
++	}
++}
++
+ static struct iommu_domain *
+ intel_iommu_domain_alloc_paging_flags(struct device *dev, u32 flags,
+ 				      const struct iommu_user_data *user_data)
+@@ -3185,6 +3204,9 @@ intel_iommu_domain_alloc_paging_flags(struct device *dev, u32 flags,
+ 	if (user_data)
+ 		return ERR_PTR(-EOPNOTSUPP);
+ 
++	if (dev_iommu_restored_state(dev))
++		return intel_iommu_domain_alloc_restored(dev, iommu, flags);
++
+ 	/* Prefer first stage if possible by default. */
+ 	domain = intel_iommu_domain_alloc_first_stage(dev, iommu, flags);
+ 	if (domain != ERR_PTR(-EOPNOTSUPP))
+@@ -3325,6 +3347,9 @@ static int intel_iommu_attach_device(struct iommu_domain *domain,
  {
- 	struct iommufd_hwpt_paging *hwpt_paging;
- 	struct iommufd_hw_pagetable *hwpt;
-@@ -1828,10 +1819,6 @@ int iommufd_device_preserve(struct liveupdate_session *s,
+ 	int ret;
+ 
++	if (dev_iommu_restored_state(dev))
++		return intel_iommu_attach_restored_device(domain, dev);
++
+ 	device_block_translation(dev);
+ 
+ 	ret = paging_domain_compatible(domain, dev);
+@@ -3568,16 +3593,23 @@ static void intel_iommu_release_device(struct device *dev)
+ 		info->pasid_enabled = 0;
  	}
  
- 	hwpt_paging = to_hwpt_paging(hwpt);
--	ret = liveupdate_get_token_outgoing(s, idev->ictx->file, iommufd_tokenp);
--	if (ret)
--		goto out;
--
- 	if (!hwpt_paging->liveupdate_preserved) {
- 		ret = -EINVAL;
- 		goto out;
-@@ -1839,7 +1826,7 @@ int iommufd_device_preserve(struct liveupdate_session *s,
++	if (dev_iommu_restored_state(dev))
++		intel_iommu_detach_restored_device(dev);
++
+ 	mutex_lock(&iommu->iopf_lock);
+ 	if (dev_is_pci(dev) && pci_ats_supported(to_pci_dev(dev)))
+ 		device_rbtree_remove(info);
+ 	mutex_unlock(&iommu->iopf_lock);
  
- 	ret = iommu_preserve_device(hwpt_paging->common.domain,
- 				    idev->dev,
--				    *iommufd_tokenp);
-+				    token);
+-	if (sm_supported(iommu) && !dev_is_real_dma_subdevice(dev) &&
++	if (!dev_iommu_restored_state(dev) && sm_supported(iommu) &&
++	    !dev_is_real_dma_subdevice(dev) &&
+ 	    !context_copied(iommu, info->bus, info->devfn))
+ 		intel_pasid_teardown_sm_context(dev);
  
- 	if (!ret)
- 		idev->liveupdate_preserved = true;
-@@ -1847,6 +1834,34 @@ int iommufd_device_preserve(struct liveupdate_session *s,
- 	mutex_unlock(&igroup->lock);
- 	return ret;
+-	intel_pasid_free_table(dev);
++	if (!dev_iommu_restored_state(dev))
++		intel_pasid_free_table(dev);
++	else
++		kfree(info->pasid_table);
+ 	intel_iommu_debugfs_remove_dev(info);
+ 	kfree(info);
+ }
+diff --git a/drivers/iommu/intel/iommu.h b/drivers/iommu/intel/iommu.h
+index 633747672c22..7e397eed391a 100644
+--- a/drivers/iommu/intel/iommu.h
++++ b/drivers/iommu/intel/iommu.h
+@@ -1322,6 +1322,10 @@ void intel_iommu_shutdown_preserved(struct dmar_drhd_unit *drhd);
+ void intel_iommu_liveupdate_restore_root_table(struct intel_iommu *iommu,
+ 					       struct iommu_hw_ser *iommu_ser);
+ void intel_iommu_handle_drhd_restore_failure(struct intel_iommu *iommu);
++int intel_iommu_attach_restored_device(struct iommu_domain *domain,
++				       struct device *dev);
++int intel_iommu_detach_restored_device(struct device *dev);
++u16 intel_iommu_restored_pgtt(struct device *dev);
+ #else
+ static inline void intel_iommu_shutdown_preserved(struct dmar_drhd_unit *drhd)
+ {
+@@ -1335,6 +1339,22 @@ static inline void intel_iommu_liveupdate_restore_root_table(struct intel_iommu
+ static inline void intel_iommu_handle_drhd_restore_failure(struct intel_iommu *iommu)
+ {
  }
 +
++static inline int intel_iommu_attach_restored_device(struct iommu_domain *domain,
++						     struct device *dev)
++{
++	return -EOPNOTSUPP;
++}
++
++static inline int intel_iommu_detach_restored_device(struct device *dev)
++{
++	return -EOPNOTSUPP;
++}
++
++static inline u16 intel_iommu_restored_pgtt(struct device *dev)
++{
++	return 0;
++}
+ #endif
+ 
+ #ifdef CONFIG_INTEL_IOMMU_SVM
+diff --git a/drivers/iommu/intel/liveupdate.c b/drivers/iommu/intel/liveupdate.c
+index 34651698b8e9..f907e52576e5 100644
+--- a/drivers/iommu/intel/liveupdate.c
++++ b/drivers/iommu/intel/liveupdate.c
+@@ -444,6 +444,176 @@ void intel_iommu_handle_drhd_restore_failure(struct intel_iommu *iommu)
+ 		      iommu->name);
+ }
+ 
++static void domain_detach_restored_iommu(struct dmar_domain *domain,
++					 struct intel_iommu *iommu)
++{
++	struct iommu_domain_info *info;
++
++	/*
++	 * Unlike domain_detach_iommu(), the restored domain ID is not freed
++	 * here. A restored device can be removed and probed again while its
++	 * preserved context and PASID entries still use this domain ID, so it
++	 * stays reserved. Once iommufd reclaims the restored domain, the
++	 * normal detach path frees it.
++	 */
++	guard(mutex)(&iommu->did_lock);
++	info = xa_load(&domain->iommu_array, iommu->seq_id);
++	if (--info->refcnt == 0) {
++		xa_erase(&domain->iommu_array, iommu->seq_id);
++		kfree(info);
++	}
++}
++
++static int domain_attach_restored_iommu(struct dmar_domain *domain,
++					struct intel_iommu *iommu,
++					struct iommu_device_ser *device_ser)
++{
++	struct iommu_domain_info *info, *curr;
++	struct iommu_domain_ser *domain_ser;
++	struct iommu_hw_ser *iommu_hw_ser;
++	int restored_did;
++	int ret;
++
++	if (!iommu_domain_restored_state(&domain->domain))
++		return -EINVAL;
++
++	if (!device_ser->attachment.domain_phys ||
++	    !device_ser->iommu_phys)
++		return -EINVAL;
++
++	domain_ser = phys_to_virt(device_ser->attachment.domain_phys);
++	if (domain_ser->restored_domain != &domain->domain)
++		return -EINVAL;
++
++	iommu_hw_ser = phys_to_virt(device_ser->iommu_phys);
++	if (iommu_hw_ser->type != IOMMU_SER_TYPE_INTEL ||
++	    iommu_hw_ser->intel.phys_addr != iommu->reg_phys)
++		return -EINVAL;
++
++	restored_did = device_ser->attachment.attachment_id;
++	if (!ida_exists(&iommu->domain_ida, restored_did))
++		return -EINVAL;
++
++	info = kzalloc_obj(*info);
++	if (!info)
++		return -ENOMEM;
++
++	guard(mutex)(&iommu->did_lock);
++	curr = xa_load(&domain->iommu_array, iommu->seq_id);
++	if (curr) {
++		kfree(info);
++		if (WARN_ON(curr->did != restored_did))
++			return -EINVAL;
++
++		curr->refcnt++;
++		return 0;
++	}
++
++	info->refcnt	= 1;
++	info->did	= restored_did;
++	info->iommu	= iommu;
++	curr = xa_cmpxchg(&domain->iommu_array, iommu->seq_id,
++			  NULL, info, GFP_KERNEL);
++	if (curr) {
++		ret = xa_err(curr) ? : -EBUSY;
++		goto err_unlock;
++	}
++
++	return 0;
++
++err_unlock:
++	kfree(info);
++	return ret;
++}
++
 +/**
-+ * iommufd_device_preserve() - Preserve an iommufd device across live update
-+ * @s: Live update session
-+ * @idev: Target iommufd device
-+ * @iommufd_tokenp: Pointer to store outgoing iommufd token
++ * intel_iommu_attach_restored_device() - Restore device domain attachment after live update
++ * @domain: Restored domain
++ * @dev: Restored device
 + *
 + * Return: 0 on success, or negative error code.
 + */
-+int iommufd_device_preserve(struct liveupdate_session *s,
-+			    struct iommufd_device *idev,
-+			    u64 *iommufd_tokenp)
++int intel_iommu_attach_restored_device(struct iommu_domain *domain,
++				       struct device *dev)
 +{
++	struct iommu_device_ser *device_ser = dev_iommu_restored_state(dev);
++	struct device_domain_info *info = dev_iommu_priv_get(dev);
++	struct dmar_domain *dmar_domain = to_dmar_domain(domain);
++	struct intel_iommu *iommu = info->iommu;
++	unsigned long flags;
 +	int ret;
 +
-+	if (!idev)
++	if (!device_ser)
 +		return -EINVAL;
 +
-+	/*
-+	 * The iommufd must be preserved in the same session, which also makes
-+	 * sure its HWPT preservation is done before the device is preserved.
-+	 */
-+	ret = liveupdate_get_token_outgoing(s, idev->ictx->file, iommufd_tokenp);
++	ret = domain_attach_restored_iommu(dmar_domain, iommu, device_ser);
 +	if (ret)
 +		return ret;
 +
-+	return __iommufd_device_preserve(idev, *iommufd_tokenp);
++	info->domain = dmar_domain;
++	info->domain_attached = true;
++	spin_lock_irqsave(&dmar_domain->lock, flags);
++	list_add(&info->link, &dmar_domain->devices);
++	spin_unlock_irqrestore(&dmar_domain->lock, flags);
++
++	return 0;
 +}
- EXPORT_SYMBOL_NS_GPL(iommufd_device_preserve, "IOMMUFD");
- 
- /**
-diff --git a/drivers/iommu/iommufd/iommufd_private.h b/drivers/iommu/iommufd/iommufd_private.h
-index df231d1e7d09..b342ee5b8ed3 100644
---- a/drivers/iommu/iommufd/iommufd_private.h
-+++ b/drivers/iommu/iommufd/iommufd_private.h
-@@ -749,6 +749,7 @@ int iommufd_liveupdate_register(void);
- void iommufd_liveupdate_unregister(void);
- 
- int iommufd_hwpt_liveupdate_mark_preserve(struct iommufd_ucmd *ucmd);
-+int __iommufd_device_preserve(struct iommufd_device *idev, u64 token);
- #else
- static inline int iommufd_liveupdate_register(void)
- {
-diff --git a/drivers/iommu/iommufd/iommufd_test.h b/drivers/iommu/iommufd/iommufd_test.h
-index 52b78cbcc920..2f68abe52bfe 100644
---- a/drivers/iommu/iommufd/iommufd_test.h
-+++ b/drivers/iommu/iommufd/iommufd_test.h
-@@ -31,6 +31,7 @@ enum {
- 	IOMMU_TEST_OP_PASID_CHECK_HWPT,
- 	IOMMU_TEST_OP_DMABUF_GET,
- 	IOMMU_TEST_OP_DMABUF_REVOKE,
-+	IOMMU_TEST_OP_LIVEUPDATE_PRESERVE_DEV,
- };
- 
- enum {
-diff --git a/drivers/iommu/iommufd/selftest.c b/drivers/iommu/iommufd/selftest.c
-index 037e54f3d2ba..d904482124e1 100644
---- a/drivers/iommu/iommufd/selftest.c
-+++ b/drivers/iommu/iommufd/selftest.c
-@@ -2115,6 +2115,33 @@ static int iommufd_test_dmabuf_revoke(struct iommufd_ucmd *ucmd, int fd,
- 	return rc;
- }
- 
-+/*
-+ * Preserve the IOMMU state of a device bound to this iommufd, as a vfio cdev
-+ * preserved in the same live update session would. The iommufd must already
-+ * be preserved, so the HWPT of the device is preserved.
++
++int intel_iommu_detach_restored_device(struct device *dev)
++{
++	struct device_domain_info *info = dev_iommu_priv_get(dev);
++	struct intel_iommu *iommu = info->iommu;
++	struct iommu_domain *domain;
++	unsigned long flags;
++
++	if (!info->domain_attached || !info->domain)
++		return -EINVAL;
++
++	domain = &info->domain->domain;
++	if (!iommu_domain_restored_state(domain))
++		return -EINVAL;
++
++	info->domain_attached = false;
++
++	spin_lock_irqsave(&info->domain->lock, flags);
++	list_del(&info->link);
++	spin_unlock_irqrestore(&info->domain->lock, flags);
++
++	domain_detach_restored_iommu(info->domain, iommu);
++	info->domain = NULL;
++
++	return 0;
++}
++
++/**
++ * intel_iommu_restored_pgtt() - Get the translation type of a restored device
++ * @dev: Restored device
++ *
++ * Return: PGTT of the preserved RID_PASID entry of @dev, or 0 if the entry is
++ * not present. Without a preserved PASID table the IOMMU is in legacy mode,
++ * which only supports second stage, so PASID_ENTRY_PGTT_SL_ONLY is returned.
 + */
-+static int iommufd_test_liveupdate_preserve_dev(struct iommufd_ucmd *ucmd,
-+						u32 dev_id)
++u16 intel_iommu_restored_pgtt(struct device *dev)
 +{
-+#ifdef CONFIG_IOMMU_LIVEUPDATE
-+	struct iommufd_device *idev;
-+	int rc;
++	struct iommu_device_ser *ser = dev_iommu_restored_state(dev);
++	struct pasid_entry *table, *pte;
++	struct pasid_dir_entry *dir;
 +
-+	idev = iommufd_get_device(ucmd, dev_id);
-+	if (IS_ERR(idev))
-+		return PTR_ERR(idev);
++	if (!ser->intel.pasid_table)
++		return PASID_ENTRY_PGTT_SL_ONLY;
 +
-+	mutex_lock(&ucmd->ictx->liveupdate_mutex);
-+	rc = __iommufd_device_preserve(idev, 0);
-+	mutex_unlock(&ucmd->ictx->liveupdate_mutex);
++	dir = phys_to_virt(ser->intel.pasid_table);
++	table = get_pasid_table_from_pde(&dir[IOMMU_NO_PASID >> PASID_PDE_SHIFT]);
++	if (!table)
++		return 0;
 +
-+	iommufd_put_object(ucmd->ictx, &idev->obj);
-+	return rc;
-+#else
-+	return -EOPNOTSUPP;
-+#endif
++	pte = &table[IOMMU_NO_PASID & PASID_PTE_MASK];
++	if (!pasid_pte_is_present(pte))
++		return 0;
++
++	return pasid_pte_get_pgtt(pte);
 +}
 +
- int iommufd_test(struct iommufd_ucmd *ucmd)
- {
- 	struct iommu_test_cmd *cmd = ucmd->cmd;
-@@ -2200,6 +2227,8 @@ int iommufd_test(struct iommufd_ucmd *ucmd)
- 		return iommufd_test_dmabuf_revoke(ucmd,
- 						  cmd->dmabuf_revoke.dmabuf_fd,
- 						  cmd->dmabuf_revoke.revoked);
-+	case IOMMU_TEST_OP_LIVEUPDATE_PRESERVE_DEV:
-+		return iommufd_test_liveupdate_preserve_dev(ucmd, cmd->id);
- 	default:
- 		return -EOPNOTSUPP;
- 	}
-diff --git a/tools/testing/selftests/iommu/Makefile b/tools/testing/selftests/iommu/Makefile
-index 84abeb2f0949..89be2ff830c6 100644
---- a/tools/testing/selftests/iommu/Makefile
-+++ b/tools/testing/selftests/iommu/Makefile
-@@ -7,4 +7,25 @@ TEST_GEN_PROGS :=
- TEST_GEN_PROGS += iommufd
- TEST_GEN_PROGS += iommufd_fail_nth
- 
-+TEST_GEN_PROGS_EXTENDED += iommufd_liveupdate_kexec_test
-+
- include ../lib.mk
-+include ../liveupdate/lib/libliveupdate.mk
-+
-+CFLAGS += -I$(top_srcdir)/tools/include
-+CFLAGS += -MD
-+CFLAGS += $(EXTRA_CFLAGS)
-+
-+TEST_O := $(patsubst %, %.o, $(TEST_GEN_PROGS_EXTENDED))
-+$(TEST_O): $(OUTPUT)/%.o: %.c
-+	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $< -o $@
-+
-+TEST_DEP_FILES := $(patsubst %.o, %.d, $(LIBLIVEUPDATE_O) $(TEST_O))
-+-include $(TEST_DEP_FILES)
-+
-+$(TEST_GEN_PROGS_EXTENDED): $(OUTPUT)/%: $(OUTPUT)/%.o $(LIBLIVEUPDATE_O)
-+	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) $< $(LIBLIVEUPDATE_O) $(LDLIBS) -o $@
-+
-+EXTRA_CLEAN += $(TEST_O)
-+EXTRA_CLEAN += $(TEST_DEP_FILES)
-+EXTRA_CLEAN += $(patsubst %, %.d, $(TEST_GEN_PROGS))
-diff --git a/tools/testing/selftests/iommu/iommufd_liveupdate_kexec_test.c b/tools/testing/selftests/iommu/iommufd_liveupdate_kexec_test.c
-new file mode 100644
-index 000000000000..3202272ec27c
---- /dev/null
-+++ b/tools/testing/selftests/iommu/iommufd_liveupdate_kexec_test.c
-@@ -0,0 +1,276 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+/*
-+ * Copyright (c) 2026, Google LLC.
-+ * Samiullah Khawaja <skhawaja@google.com>
-+ */
-+
-+#define _GNU_SOURCE
-+#include <errno.h>
-+#include <fcntl.h>
-+#include <sys/ioctl.h>
-+#include <sys/mman.h>
-+#include <stdbool.h>
-+#include <unistd.h>
-+#include <limits.h>
-+
-+#define __EXPORTED_HEADERS__
-+#include <linux/iommufd.h>
-+#include <linux/types.h>
-+#include <linux/vfio.h>
-+#include <linux/sizes.h>
-+#include <libliveupdate.h>
-+
-+#include "../kselftest.h"
-+#include "../../../../drivers/iommu/iommufd/iommufd_test.h"
-+
-+#define ksft_assert(condition) \
-+	do { \
-+		if (!(condition)) \
-+			fail_exit("Failed: %s", #condition); \
-+	} while (0)
-+
-+static const char *device_cdev_path;
-+static const char state_session[] = "state-iommufd-cdev";
-+static const char iommufd_session[] = "iommufd-test-cdev";
-+
-+static const uint64_t STATE_TOKEN;
-+static const uint64_t IOMMUFD_TOKEN = 0x123456;
-+static const uint64_t HWPT_TOKEN = 0x789012;
-+static const uint64_t MEMFD_TOKEN = 0x890123;
-+
-+static int open_cdev(const char *vfio_cdev_path)
-+{
-+	int cdev_fd;
-+
-+	cdev_fd = open(vfio_cdev_path, O_RDWR);
-+	if (cdev_fd < 0)
-+		ksft_exit_skip("Failed to open VFIO cdev: %s\n", vfio_cdev_path);
-+
-+	return cdev_fd;
-+}
-+
-+static int open_iommufd(void)
-+{
-+	int iommufd;
-+
-+	iommufd = open("/dev/iommu", O_RDWR);
-+	if (iommufd < 0)
-+		ksft_exit_skip("Failed to open /dev/iommu. IOMMUFD support not enabled.\n");
-+
-+	return iommufd;
-+}
-+
-+static int create_memfd(size_t size)
-+{
-+	int fd, ret;
-+
-+	fd = memfd_create("buffer", 0);
-+	if (fd < 0)
-+		fail_exit("memfd_create failed");
-+
-+	ret = ftruncate(fd, size);
-+	if (ret)
-+		fail_exit("ftruncate failed");
-+
-+	return fd;
-+}
-+
-+#define test_ioctl(fd, cmd, arg) \
-+	do { \
-+		if (ioctl(fd, cmd, arg)) \
-+			fail_exit("ioctl(%s) failed", #cmd); \
-+	} while (0)
-+
-+#define test_luo_session_preserve_fd(session, fd, token) \
-+	do { \
-+		if (luo_session_preserve_fd(session, fd, token)) \
-+			fail_exit("luo_session_preserve_fd(%s) failed", #token); \
-+	} while (0)
-+
-+static uint32_t setup_iommufd(int iommufd, int memfd, int cdev_fd,
-+			      uint32_t *dev_id)
-+{
-+	struct vfio_device_bind_iommufd bind = {
-+		.argsz = sizeof(bind),
-+		.flags = 0,
-+		.iommufd = iommufd,
-+	};
-+	struct iommu_ioas_alloc alloc_data = {
-+		.size = sizeof(alloc_data),
-+		.flags = 0,
-+	};
-+	struct iommu_hwpt_alloc hwpt_alloc = {
-+		.size = sizeof(hwpt_alloc),
-+		.flags = 0,
-+	};
-+	struct vfio_device_attach_iommufd_pt attach_data = {
-+		.argsz = sizeof(attach_data),
-+		.flags = 0,
-+	};
-+	struct iommu_hwpt_liveupdate_mark_preserve mark_preserve = {
-+		.size = sizeof(mark_preserve),
-+		.hwpt_token = HWPT_TOKEN,
-+	};
-+	struct iommu_ioas_map_file map_file = {
-+		.size = sizeof(map_file),
-+		.length = SZ_1M,
-+		.flags = IOMMU_IOAS_MAP_WRITEABLE |
-+				IOMMU_IOAS_MAP_READABLE |
-+				IOMMU_IOAS_MAP_FIXED_IOVA,
-+		.iova = SZ_4G,
-+		.fd = memfd,
-+		.start = 0,
-+	};
-+
-+	test_ioctl(cdev_fd, VFIO_DEVICE_BIND_IOMMUFD, &bind);
-+
-+	test_ioctl(iommufd, IOMMU_IOAS_ALLOC, &alloc_data);
-+
-+	hwpt_alloc.dev_id = bind.out_devid;
-+	hwpt_alloc.pt_id = alloc_data.out_ioas_id;
-+	test_ioctl(iommufd, IOMMU_HWPT_ALLOC, &hwpt_alloc);
-+
-+	attach_data.pt_id = hwpt_alloc.out_hwpt_id;
-+	test_ioctl(cdev_fd, VFIO_DEVICE_ATTACH_IOMMUFD_PT, &attach_data);
-+
-+	map_file.ioas_id = alloc_data.out_ioas_id;
-+	test_ioctl(iommufd, IOMMU_IOAS_MAP_FILE, &map_file);
-+
-+	map_file.iova = SZ_4G + SZ_1M;
-+	map_file.start = SZ_1M;
-+	test_ioctl(iommufd, IOMMU_IOAS_MAP_FILE, &map_file);
-+
-+	mark_preserve.hwpt_id = attach_data.pt_id;
-+	test_ioctl(iommufd, IOMMU_HWPT_LIVEUPDATE_MARK_PRESERVE, &mark_preserve);
-+
-+	*dev_id = bind.out_devid;
-+	return alloc_data.out_ioas_id;
-+}
-+
-+/* Preserve the IOMMU state of the device, using the iommufd selftest support. */
-+static int preserve_device(int iommufd, uint32_t dev_id)
-+{
-+	struct iommu_test_cmd cmd = {
-+		.size = sizeof(cmd),
-+		.op = IOMMU_TEST_OP_LIVEUPDATE_PRESERVE_DEV,
-+		.id = dev_id,
-+	};
-+
-+	return ioctl(iommufd, IOMMU_TEST_CMD, &cmd);
-+}
-+
-+static void before_kexec(int luo_fd)
-+{
-+	struct iommu_ioas_unmap unmap = {
-+		.size = sizeof(unmap),
-+		.iova = SZ_4G + SZ_1M,
-+		.length = SZ_1M,
-+	};
-+	int iommufd, cdev_fd, memfd, session;
-+	uint32_t ioas_id, dev_id;
-+
-+	create_state_file(luo_fd, state_session, STATE_TOKEN, /*next_stage=*/2);
-+
-+	session = luo_create_session(luo_fd, iommufd_session);
-+	if (session < 0)
-+		fail_exit("luo_create_session failed");
-+
-+	iommufd = open_iommufd();
-+	memfd = create_memfd(SZ_2M);
-+	cdev_fd = open_cdev(device_cdev_path);
-+
-+	ioas_id = setup_iommufd(iommufd, memfd, cdev_fd, &dev_id);
-+
-+	/* Cannot preserve the device before its HWPT is preserved. */
-+	if (!preserve_device(iommufd, dev_id))
-+		fail_exit("Preserving device before iommufd should fail");
-+	if (errno == ENOTTY)
-+		ksft_exit_skip("IOMMUFD selftest support not enabled\n");
-+
-+	/* Cannot preserve iommufd without preserving memfd. */
-+	if (!luo_session_preserve_fd(session, iommufd, IOMMUFD_TOKEN))
-+		fail_exit("Preserving iommufd without memfd should fail");
-+
-+	if (fallocate(memfd, FALLOC_FL_PUNCH_HOLE | FALLOC_FL_KEEP_SIZE,
-+		      SZ_1M, SZ_1M))
-+		fail_exit("fallocate punch hole failed");
-+
-+	test_luo_session_preserve_fd(session, memfd, MEMFD_TOKEN);
-+
-+	/* Cannot preserve iommufd when mapped memfd pages have a hole punched. */
-+	if (!luo_session_preserve_fd(session, iommufd, IOMMUFD_TOKEN))
-+		fail_exit("Preserving iommufd with hole-punched pages should fail");
-+
-+	unmap.ioas_id = ioas_id;
-+	test_ioctl(iommufd, IOMMU_IOAS_UNMAP, &unmap);
-+
-+	test_luo_session_preserve_fd(session, iommufd, IOMMUFD_TOKEN);
-+
-+	if (preserve_device(iommufd, dev_id))
-+		fail_exit("Preserving device failed");
-+
-+	if (!preserve_device(iommufd, dev_id) || errno != EBUSY)
-+		fail_exit("Preserving device twice should fail with EBUSY");
-+
-+	/* Closing the session unpreserves the device and the iommufd. */
-+	close(session);
-+	session = luo_create_session(luo_fd, iommufd_session);
-+	if (session < 0)
-+		fail_exit("luo_create_session failed");
-+
-+	test_luo_session_preserve_fd(session, memfd, MEMFD_TOKEN);
-+	test_luo_session_preserve_fd(session, iommufd, IOMMUFD_TOKEN);
-+
-+	if (preserve_device(iommufd, dev_id))
-+		fail_exit("Preserving device failed");
-+
-+	close(luo_fd);
-+	daemonize_and_wait();
-+}
-+
-+static void after_kexec(int luo_fd, int state_session_fd)
-+{
-+	struct vfio_device_bind_iommufd bind = {
-+		.argsz = sizeof(bind),
-+		.flags = 0,
-+	};
-+	int iommufd, cdev_fd, session, stage;
-+
-+	restore_and_read_stage(state_session_fd, STATE_TOKEN, &stage);
-+	ksft_assert(stage == 2);
-+
-+	/* The restored device is owned until its iommufd is restored. */
-+	cdev_fd = open_cdev(device_cdev_path);
-+	bind.iommufd = open_iommufd();
-+	if (!ioctl(cdev_fd, VFIO_DEVICE_BIND_IOMMUFD, &bind) || errno != EPERM)
-+		fail_exit("Binding the restored device should fail with EPERM");
-+
-+	session = luo_retrieve_session(luo_fd, iommufd_session);
-+	if (session < 0)
-+		fail_exit("luo_retrieve_session failed");
-+
-+	iommufd = luo_session_retrieve_fd(session, IOMMUFD_TOKEN);
-+	if (iommufd >= 0)
-+		fail_exit("iommufd should not be retrievable yet");
-+
-+	/* Should fail */
-+	if (luo_session_finish(session) == 0)
-+		fail_exit("luo_session_finish should fail if iommufd is not restored");
-+}
-+
-+int main(int argc, char *argv[])
-+{
-+	/* Skip the stage option, luo_test() parses it again. */
-+	while (getopt(argc, argv, "s:") != -1)
-+		;
-+
-+	if (optind >= argc) {
-+		printf("Usage: %s [-s <stage>] <vfio_cdev_path>\n", argv[0]);
-+		return 1;
-+	}
-+
-+	device_cdev_path = argv[optind];
-+
-+	return luo_test(argc, argv, state_session, before_kexec, after_kexec);
-+}
+ enum pasid_lu_op {
+ 	PASID_LU_OP_PRESERVE = 1,
+ 	PASID_LU_OP_UNPRESERVE,
 -- 
 2.56.1.809.ga0b61035b5-goog
 
