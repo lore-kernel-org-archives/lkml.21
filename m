@@ -1,46 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.243.244.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.211
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795440651;
-	b=PIy8gpE8RrbGWlZhbfQUx68249CG6zHZYuqm4qaR9hJ/3VuY5czs+u0gjfalAUW4YXl+
-	 WEa2dojKKSJfbXF3PHg+p/9gxLiIB5pxA99srTEXkN+wRAl7p1UDkmjf0Tzj2Vqgktjm1
-	 va7sP+CWjGPjLidiiXGqmouuLuGreeA+8iAwLOx8HsFnQN6OvGtX8plSMrBY6STvrG7pf
-	 46sdw64iQTUhmlIn89CkJWP4INA5YLOulapMtlDMAzbLAHyDTEWFS7DYsXCslM0w+EWS/
-	 PWk4uIBQal4HiIQSrLqTcZMRBc1UVPJOdsqAZ0T7ra4kVJFAPYd7qE5jFS+wErPCLww==
+	t=1795440701;
+	b=bKVRgOopRgotJpDN+teEEFhJ4/z8SV8XeKRkirZbIRMmLSZS1ddwhMhh7CUC6RtPMoIj
+	 QobblfgxhWRwnJhqvfXSVLT1QUEGVcSnAz0T77BHe53QksuAmGE1TMGXVQRz+6DZOXmHq
+	 /Bg1hV3+TsNAFYbDx0Hyo6E0VGQGyGkCesBcmjml3eMUX8f/JEXl3GyvHboBkLQA+nz4p
+	 z+TQroE/tnzt5z1CsDTPCO/Ouqko3wumAz/QZvq99BhGLVznqHhbPitD8tffHtPqbh4lw
+	 Ge2VdFuk0ejehG0qZojz78veBnH068/lu6nXr5VdMnr3d4qZg7aV8fkSRRitUgL8S7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795440651;
-	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
-	 X-QQ-GoodBg:X-BIZMAIL-ID:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=xBl4LenZgMO7u9uyhu6pCiLNFdtLVtDM8Nkt6YyrMJo=;
-	b=RivDaicMpuWlQX8vhOPx61UkkdiChmLUvoqToKwBgIqROIbncKxwL+4Cc5Mjn0OtFodg
-	 4LqZDMSaMKzcL84rgcdBca4D9kYZaitjvamUqVWaqng6Mk2O8rK7YnOkJ49/nZQZGXBPk
-	 JUh3qOou0cxr7GDEaOZny06zLI/hZH/ubOdPPMH3s4NrCuzcgE8tgyE7U7/9nYTbcAfxx
-	 iT7fRNR5al7S6HlgSV4zSAWdoMPSt9v40lba6nnqW2iHtJlujcIfAWSSmO13NgulfuduB
-	 TrprrGtdWPQYnz9Sx4RcP4TB9gG4teI3Y3wx4s2KTke6GnUMlqtsd+ldySO4W2aT6zw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795440701;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type;
+	bh=hE6L91J5Szg1VQETyjqGGoVl/6tf53hcFvWX/NKBz1E=;
+	b=3Yqxt4joOHUQfykuyBH8/vIbs9RPG09k9MECMfwUHaaHBTnyGkP2FSuES0DRWG4meJPu
+	 OK3enG/6XghWgp5oViONBZkHFkw0qGADlpg3KlhW1Y3O1TXGarZfAivE1xXf0ZLLX/RCx
+	 zLJHHd2ZWzSJ+OlW77Da4GJVn7Nhn0nLE/xOG/kcld399BBQdkVNlv0zRRUsys4mnmVle
+	 4+oRug02gUYSKNDlhBWg+SbQnvVyCFo5UdD+GmWjxMW53QcNx+HP7r4lsPfSH+pBZ3XAv
+	 GNzyEPevECwW92FfuBmg8JJop7QPNBV+EOXUWHhqA8/vPHfX/ttmUgjQiNfUJSZFRig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinsec.com.cn;
-	spf=pass smtp.mailfrom=kylinsec.com.cn;
-	arc=none smtp.remote-ip=54.243.244.52
-Received: from smtpbguseast3.qq.com (smtpbguseast3.qq.com [54.243.244.52])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=FYEr2mW0;
+	arc=none smtp.remote-ip=95.215.58.211
+Received: from mta1.migadu.com (out-211.mta1.migadu.com [95.215.58.211])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98006606A335
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:30:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98006606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinsec.com.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinsec.com.cn
-X-QQ-mid: zesmtpgz9t1795440566t4f637ce5
-X-QQ-Originating-IP: GTrHbK18YCbs2CfsF9VuBtkgPArveTdhmkzt+7qYrNE=
-Received: from [192.168.50.3] ( [113.246.116.110])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 23 Nov 2026 21:29:24 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1721452454829110470
-Message-ID: <07E7C8DDC6521658+9b2f67d7-b3d9-45d7-b86f-39bea74869f2@kylinsec.com.cn>
-Date: Mon, 23 Nov 2026 21:29:44 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDA9C606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:31:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CDA9C606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=FYEr2mW0
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=hE6L91J5Szg1VQETyjqGGoVl/6tf53hcFvWX/NKBz1E=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795440698; v=1; x=1796045498;
+ b=FYEr2mW0PPokR4CVyqFspOLmMZFb1yT2dnoxrjaMX3jv5cZFUVDnbYs5DXKh9DTFH6M1XLU6
+ +U3ACUp4yFFKF09i5C6zbb+DzqZhnUaDYSsH/4SQn3SFVeDjL4uZKe6HUAUAUVhB8mjrc1FzXUj
+ yH9iO2XSalADzu+G9yLdYtaM=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id d2e4a321120fd626;
+	Mon, 23 Nov 2026 13:31:38 +0000
+X-Mizu-Trace-ID: d2e4a321120fd626
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5c144eb2f43so8550e87.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:31:37 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFFE4WgU0rEBgOIGCjbrKzBZas7vO9owi1vs5DLThRB0uqE7HX+EuhOgJZ2e3LCo0k7xo81HUNgSllDNWA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Uc2vs5je6uzawQkDctubR/qf8M8PIukeEye7y4IAiAV4ohBuN
+	mCRIwpd2q+aRjurMUv/7hAAM6MyEaJp1vlWRXJKvrGIkvjyB66EeT5SG2TcXoMklvK+XX9prO73
+	LmUsboaWjRZb7qP/WcAyvSSUi6gyC2v0WeAKM/apv
+X-Received: by 2002:a05:6512:2249:b0:5c1:ac5e:ee43 with SMTP id
+ 2adb3069b0e04-5c212394558mr168130e87.3.1795440696369; Mon, 23 Nov 2026
+ 05:31:36 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -50,106 +66,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] platform/loongarch: laptop: Fix backlight device
- lifetime on unload
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Jianmin Lv <lvjianmin@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
- Yao Zi <ziyao@disroot.org>, "Rafael J . Wysocki"
- <rafael.j.wysocki@intel.com>, Zixing Liu <liushuyu@aosc.io>,
- loongarch@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <9F3855F1130E2878+20261121131820.6759-1-luoqiu@kylinsec.com.cn>
- <awQSXIASqC_MdC5u@ashevche-desk.local>
-Content-Language: en-US
-From: Luo Qiu <luoqiu@kylinsec.com.cn>
-In-Reply-To: <awQSXIASqC_MdC5u@ashevche-desk.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: OGmpL5CFYt/YgBDtf6vAlNUiXf8/TwJXXjRN3ywYqxLio27v2XPzJKur
-	S2M4BSjFiff6dv4hM9cLQf72T5JyfXwrhRL79T/Eg8AydbGEYNzOjZ78ZtY9miWvyojvPCe
-	FY11xCY28rdQ0c5DeVlwJqM+TVLjW5Qc110vS25y6k5G2jm+chNO3uq/cuSOHJarZtxvM6q
-	dQp1faWwB0kvnQ2JNpOuyoYqzyt2h3exVaq3rgxzbgsfHlUOuytOEPxLO3vPBIRnLIX8QBt
-	mXFCWis7KoeIX1VTvthB13WnSiZzuPkyt3ofLB6XpF9MEXojxHpHh+RqjnHIiYn/kMPWQTF
-	r6P+lNI1l9t3k/hLSNODCeZ8ST56hcI8InH9fer52GGOqF28yqXg53SF7TXR6WKHo9XKfup
-	/YjTVY0tULIhElOW416yKvnPUqrpM486rzMwJ9Rb+9nBqWrjuDWKKww6f6mqVx9lJO77ij9
-	KkBZWrruIDgGG45qm+69f14hZF1px0TUjn3XeoFaBKDLk5J11W084c+Se2OLnjax+lVjluh
-	XZgqk0m3aRtWre+W+nVGMfskqqz8WOuu9tEvjBCol7Og1G6R1z2fc1PwTnSy1zFKOyt+/dy
-	pSUnRo2h9VtKXKXyh2jxARsj8Ww9GY52s73feLazk0Gou8Ae2ebHOs/wuLPdezGwGbxNc6X
-	aaSudSHGpdd6ICh8An+g/zcI4EXBztR56djC4/WZ1uL3an/YOAX2q1KnqO1QJih6DoeUd7G
-	nYC+9n/co2cOeZRKzlCxHN+WATJ+7tYW+AsItIfQc6L2Zrc1MbfBaAjB/rdQDdKsoiE1bZF
-	zR0Hi6hBx448cP+ZRV9+7YdFWGwyW9+miodxe9zgmfkosCdj1MfHNpAeZ1zvdIF8HrAE+8l
-	E8q/22lieOKwydQTe9qjqh8GSCEW4qSa97kSE0z3Nl9/+9m9V4k1Igbc3UYfJHVud8H0oYR
-	Gw6Z3BsJUyn0PyxCsqAoXEDyhB1A8cxqSBbAjqR/uwmAEyqO4dIv3M3Bj8T7MB6X3WvCz2H
-	rzSRD+4sH1lMTpf7Ot8Z/PIivyIP6hLqJQnpPpCZz4ZeS2cC8HRFmJTmokr+NaaL+tzJ2D7
-	3WnXDRRXaehKZe5NIj9pS46pE7LAMLkTjtXud8cCxmC
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-RECHKSPAM: 0
+References: <20261116192933.3266502-1-fuad.tabba@linux.dev>
+ <20261116192933.3266502-3-fuad.tabba@linux.dev> <a8d84ea8-c095-e444-dea2-23b92866f970@huawei.com>
+In-Reply-To: <a8d84ea8-c095-e444-dea2-23b92866f970@huawei.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Mon, 23 Nov 2026 13:31:00 +0000
+X-Gmail-Original-Message-ID: <CA+EHjTzgHrodq07u0omn=A+XL9TqbJXTE3QSosz8gicNjFxkuw@mail.gmail.com>
+X-Gm-Features: Aa3M54qhI4OsITxL3yzRVRr9_MTGOX2UfSXre8ktj4oZaW-PPX9DfohxKOkt_8I
+Message-ID: <CA+EHjTzgHrodq07u0omn=A+XL9TqbJXTE3QSosz8gicNjFxkuw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/5] irqchip/gic-v3-its: Clean the GICv4.1 vPE table to PoC
+To: Zenghui Yu <yuzenghui@huawei.com>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Steven Price <steven.price@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, 
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
+Hi Zenghui,
 
-On 11/23/26 6:15 PM, Andy Shevchenko wrote:
-> On Sat, Nov 21, 2026 at 09:18:20PM +0800, Luo Qiu wrote:
->> The driver registers a platform backlight device during module init but
->> discards the returned pointer. Consequently, the device is never
->> unregistered when the module is removed, leaving its ops callbacks
->> pointing into freed module text. After module removal, reading the
->> backlight's actual_brightness attribute can call the stale callback and
->> crash the kernel. Registration failures are also silently ignored.
->>
->> Store the returned pointer, use it for resume, and unregister it on
->> module exit. Check and report backlight registration failures.
-> ...
+On Mon, 23 Nov 2026 at 09:17, Zenghui Yu <yuzenghui@huawei.com> wrote:
 >
->> static int loongson_hotkey_resume(struct device *dev)
->>   {
->>   	int status = 0;
->>   	struct key_entry ke;
->> -	struct backlight_device *bd;
->>   
->> -	bd = backlight_device_get_by_type(BACKLIGHT_PLATFORM);
->> -	if (bd) {
->> -		loongson_laptop_backlight_update(bd) ?
->> +	if (backlight_dev) {
->> +		loongson_laptop_backlight_update(backlight_dev) ?
->>   		pr_warn("Loongson_backlight: resume brightness failed") :
->> -		pr_info("Loongson_backlight: resume brightness %d\n", bd->props.brightness);
->> +		pr_info("Loongson_backlight: resume brightness %d\n",
->> +				backlight_dev->props.brightness);
-> Indentation is broken here.
-Hi Andy,
-
-Thanks for the review. I have fixed the formatting issues in v3.
-
-https://lore.kernel.org/all/C95EAA0918240E5D+20261123131944.77149-1-luoqiu@kylinsec.com.cn/
-
-
-Qiu Luo
+> Hi Fuad,
 >
->>   	}
-> ...
->
->> static int laptop_backlight_register(void)
->>   {
->>   	int status = 0, ret;
->>   	struct backlight_properties props;
->> +	struct backlight_device *bd;
->>   
->>   	memset(&props, 0, sizeof(props));
->
->>   	props.power = BACKLIGHT_POWER_ON;
->>   	props.type = BACKLIGHT_PLATFORM;
->>   
->> -	backlight_device_register("loongson_laptop",
->> +	bd = backlight_device_register("loongson_laptop",
->>   				NULL, NULL, &backlight_laptop_ops, &props);
-> ...and here.
->
->> +	if (IS_ERR(bd))
->> +		return PTR_ERR(bd);
->>   
->> +	backlight_dev = bd;
->>   
->>   	return 0;
->>   }
+> Thanks for Cc'ing me on the GIC stuff. I'm happy to read them ;-)
 
+Thank you for the reviews! :)
+
+[...]
+> Nitpick: would "irqchip/gic-v4.1:" be a better prefix for this patch?
+
+I'll use that in v3.
+
+Cheers,
+/fuad
