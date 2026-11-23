@@ -1,57 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795430574;
-	b=XpEgmTW09kAdZ3N6T9N/Yq4ekS3nlkk4WyBA6Kp88QsovlgRJX7i1EmoH7CDVSRPRGIo
-	 1KN6X83awMfY+hfffPFN9jxW1aQmtbLXgRBIol9yGar3A6WAT1rJ2jVF3EKFIP2huRVa6
-	 GZihQ74M+l9qDS8O4o3wO6Zw1aYXPmDBEEFTs4bNN9rT0ry3TaXlHJEPbzmWGC8mjvgSy
-	 PK4+yXLYeFzAqoAZw1uiSSm3W465ytpTwKTUQVED1FyqZbTrtll4EY5b+hqjIYAG6uCxl
-	 a274jv+GGhU3K52/qP/1Eadnx3O8YhNur3fEDpvtZqsK2xc9oXQHcE0FR9oXMg1UjGQ==
+	t=1795430583;
+	b=koxYz7iTd9Tw6EG+e/KW5P0FM8jC5/XuoQi4mHXMHEo6dWs6iY4m1ZPkMJk2x7IUUSku
+	 JnDy/NOhJIKgrJBzCeqkZxTi7axxauXJm7mJxj1FZcH1wrJHsDX36EDfXeZhh3N0kNahe
+	 M+T3X9T5HBCcAV8nhwiXZs7bkdqX1JH8OfbCWUlLb+ibw9DAS1dFkOZ/oDtWcuz6nYj8e
+	 tsOhmoG1u4eW8b3QAMHuXPfsJ8z7zU9Yp0BUXwaxxP4E8ZFJqDTRmLXJ9erH07e5A86JT
+	 7AUaiSJ9WRvK0OwaTfh7/Yna4wXsJnlZVmXhhUR9BUG9+5ns/f34crfVz0/4e0Bpeqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430574;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430583;
 	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=2QZXCDCUsri/fCqMkv6Sqp8+BO3UKbCWsc2sGVEU9V4=;
-	b=FoWsVHNG0WDv/NcGKj6y5V7+o8oUdwefK2qQBFebVgv6B2EjnycI33xKzcm4QaJde2cP
-	 Ua0hSBON7AdyORGvngtJQLEcPb2LGFoln2EH+XqO689cA3NlMUoln7HsO9FqkR5d5+M/m
-	 gqL0jeZXTVZwTe2dMt9Xyp8F8lP4kO2mBqKTwMlWaKvKdPl4OT3W6nxd6nwagL66KmsDs
-	 XrO2rqgX77mq8u+I6w89Z1eRvgxiiRsS8FGlywcMZWNkJBhAs0sQELtIcT+yxlBm1rIaD
-	 0s7HhsGMMI5rdjCF0JvJ34ZV4ImmSrHM1KoBnX/K+ZXdopDOzNt0GHlUbz8GbcGgN/Q==
+	bh=FCt8v5AUxEJfZRcXCfZ7fMW0n1IyPXSrxCtardRFWtQ=;
+	b=pougMtzsiL285KxX8RxdygJvfLAbq06XnymKeKISxFipuI59GkcyYsfLKuhvwKniek67
+	 oNzn8pp4QQSQ3PXiM+dCVWgoa1EbEUsijWQ5gsAVuAzDhtG4rVThkWo4gCRQP3MFqQLw9
+	 vRFnJ3IGBy8RogOAo8t85Y3LN6Kt0DlD0h7ALHBlygLYL7vR7+5EgXOVidRGWmE/Hlmut
+	 aU9htseaGVPBHgCxJjbTaATWtGQBx81ABA6S2+/BPe7JbfXsvNsvTlb/zEor1ClR+MCJZ
+	 881V2NxuNOWzQdyPpz7UPB17JsArmr6dvxRmyMLXfNUAw4eOpbKsJyAJEOjFFMuMXCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=arm.com;
 	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=UqDpoz2P;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=tz78h8J1;
 	arc=none smtp.remote-ip=217.140.110.172
 Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5A99D606A32A;
-	Mon, 23 Nov 2026 10:42:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A99D606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id C973C606A31E;
+	Mon, 23 Nov 2026 10:43:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C973C606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=UqDpoz2P
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=tz78h8J1
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B8784176B;
-	Mon, 23 Nov 2026 02:42:49 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 726CC175D;
+	Mon, 23 Nov 2026 02:42:59 -0800 (PST)
 Received: from e122027.arm.com (unknown [10.57.63.212])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 836B43F632;
-	Mon, 23 Nov 2026 02:42:47 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EBF523F632;
+	Mon, 23 Nov 2026 02:42:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795430572; bh=Bcn/e1MZmqsfO3HIXSrjDn+qTu+ZI+50S1gKI1SPZp0=;
+	t=1795430582; bh=PWXQD/tP+7ur3ZyactEtuv2uXbf3M98TwHQAtyBCB4g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UqDpoz2PcB35yr90eM0wrsH5uAq6HlLEv56ZXBrsgvClicRR3i6BNZkzbbTqAKJSb
-	 XCW0BNBACXpidZvUXIkXVlI3GsPGm2sf1+KgjF/u2M0pj1obIwrwzyYmILLTfRN5wV
-	 22Mzom+5y4D8OP7SguW4piWPj2FQT7gNd6zyjd/8=
+	b=tz78h8J130KfjJA6BFLz3pak3Kmy7z03HS/69zLFRPgrxLuatWitBXjEniBryyjTM
+	 pPq6pmQzG0y2MjhxA3esC56F+bzmlVJrSgQt6wDzUoDu5N0D/5lMjup+MR1kZp3j7A
+	 Ttgq7EEFsTTvPyTT/wvNf+vLHakD2aWiv70tVmuU=
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Will Deacon <will@kernel.org>,
 	James Morse <james.morse@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -69,10 +68,12 @@ Cc: Steven Price <steven.price@arm.com>,
 	Vishal Annapurve <vannapurve@google.com>,
 	WeiLin.Chang@arm.com,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Kohei Enju <enju.kohei@fujitsu.com>
-Subject: [PATCH v4 01/11] KVM: arm64: guest_memfd: Check mmap support when preparing memslot
-Date: Mon, 23 Nov 2026 10:42:21 +0000
-Message-ID: <20261123104233.95710-2-steven.price@arm.com>
+	Kohei Enju <enju.kohei@fujitsu.com>,
+	Steven Price <steven.price@arm.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Subject: [PATCH v4 03/11] KVM: arm64: Pass range filter to stage2_unmap_range
+Date: Mon, 23 Nov 2026 10:42:23 +0000
+Message-ID: <20261123104233.95710-4-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261123104233.95710-1-steven.price@arm.com>
 References: <20261123104233.95710-1-steven.price@arm.com>
@@ -87,86 +88,126 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Arm64 requires mmap-capable guest_memfd backing because the memslot HVA
-may still be used to access shared memory even when guest faults use
-guest_memfd.
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-The existing check rejects guest_memfd without mmap support based on the
-memslot's gmem-only flag. That stops working when arm64 defines
-kvm_arch_has_private_mem() for realms: in-place conversion then marks all
-guest_memfd memslots gmem-only, including those backed by files without
-GUEST_MEMFD_FLAG_MMAP. Such files would pass the existing check.
+With the introduction of private memory support, we need to
+handle invalidation requests with filters for a given type.
+Pass the range filter down to the stage-2 unmap operation.
 
-Check the backing file's mmap capability directly to keep requiring it
-for every arm64 VM. Expose a helper to reuse kvm_gmem_supports_mmap().
-
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Signed-off-by: Steven Price <steven.price@arm.com>
-
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
-Changes since v3:
-- Explain why in-place conversion makes checking the memslot's
-  gmem-only flag insufficient for arm64.
+ arch/arm64/include/asm/kvm_host.h |  4 +++-
+ arch/arm64/kvm/mmu.c              | 31 +++++++++++++++++++++++--------
+ 2 files changed, 26 insertions(+), 9 deletions(-)
 
-Changes since v2:
-- Require mmap-capable guest_memfd backing for all arm64 VMs, as
-  shared-memory access can use the memslot HVA.
-
-Changes since v1:
-- New patch in v2. Check the guest_memfd backing file rather than the
-  memslot flag when deciding whether arm64 can map the backing memory.
----
- arch/arm64/kvm/mmu.c     | 6 +++---
- include/linux/kvm_host.h | 1 +
- virt/kvm/guest_memfd.c   | 6 ++++++
- 3 files changed, 10 insertions(+), 3 deletions(-)
-
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 8438251e1d1b..9d6258b213d1 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -233,6 +233,7 @@ struct kvm_vcpu_ops {
+ };
+ 
+ struct kvm_gfn_range;
++enum kvm_gfn_range_filter;
+ struct kvm_s2_fault_desc;
+ 
+ struct kvm_vm_s2_ops {
+@@ -243,7 +244,8 @@ struct kvm_vm_s2_ops {
+ 					  u64 nr_pages);
+ 	void (*vm_stage2_unmap_range)(struct kvm_s2_mmu *mmu,
+ 				      phys_addr_t start, u64 size,
+-				      bool may_block);
++				      bool may_block,
++				      enum kvm_gfn_range_filter filter);
+ 	int (*vm_mem_abort)(const struct kvm_s2_fault_desc *s2fd);
+ };
+ 
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 1db10d8d6db7..2825fccd2a19 100644
+index 09c831a49ed3..8a9a80c7cfab 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -2839,10 +2839,10 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
- 		return -EFAULT;
+@@ -324,7 +324,8 @@ static int kvm_pgtable_stage2_unmap_tracked(struct kvm_pgtable *pgt,
  
- 	/*
--	 * Only support guest_memfd backed memslots with mappable memory, since
--	 * there aren't any CoCo VMs that support only private memory on arm64.
-+	 * All VMs need mappable guest_memfd memory, as the memslot's HVA may be
-+	 * used to access shared memory even if guest faults use guest_memfd.
- 	 */
--	if (kvm_slot_has_gmem(new) && !kvm_memslot_is_gmem_only(new))
-+	if (kvm_slot_has_gmem(new) && !kvm_gmem_slot_supports_mmap(new))
- 		return -EINVAL;
+ static void kvm_vm_stage2_unmap_range(struct kvm_s2_mmu *mmu,
+ 				      phys_addr_t start,
+-				      u64 size, bool may_block)
++				      u64 size, bool may_block,
++				      enum kvm_gfn_range_filter filter)
+ {
+ 	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+ 	int (*fn)(struct kvm_pgtable *, u64, u64);
+@@ -339,14 +340,16 @@ static void kvm_vm_stage2_unmap_range(struct kvm_s2_mmu *mmu,
  
- 	/* guest_memfd is incompatible with MTE. */
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index e7fc94e2910a..f65728a713ec 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -2614,6 +2614,7 @@ static inline bool kvm_is_private_gfn(struct kvm *kvm, gfn_t gfn)
- 
- #ifdef CONFIG_KVM_GUEST_MEMFD
- bool kvm_gmem_is_private_gfn(struct kvm *kvm, gfn_t gfn);
-+bool kvm_gmem_slot_supports_mmap(const struct kvm_memory_slot *slot);
- bool kvm_arch_supports_gmem_init_shared(struct kvm *kvm);
- 
- static inline u64 kvm_gmem_get_supported_flags(struct kvm *kvm)
-diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-index 8c97a69b16dc..3dd8d227bebb 100644
---- a/virt/kvm/guest_memfd.c
-+++ b/virt/kvm/guest_memfd.c
-@@ -442,6 +442,12 @@ static bool kvm_gmem_supports_mmap(struct inode *inode)
- 	return GMEM_I(inode)->flags & GUEST_MEMFD_FLAG_MMAP;
+ static void pkvm_stage2_unmap_range(struct kvm_s2_mmu *mmu,
+ 				    phys_addr_t start,
+-				    u64 size, bool may_block)
++				    u64 size, bool may_block,
++				    enum kvm_gfn_range_filter filter)
+ {
+ 	WARN_ON(stage2_apply_range(mmu, start, start + size,
+ 				   pkvm_pgtable_stage2_unmap, may_block));
  }
  
-+bool kvm_gmem_slot_supports_mmap(const struct kvm_memory_slot *slot)
-+{
-+	/* The guest_memfd file is pinned while preparing a new memslot. */
-+	return kvm_gmem_supports_mmap(file_inode(slot->gmem.file));
+ static void no_stage2_unmap_range(struct kvm_s2_mmu *mmu,
+-				  phys_addr_t start, u64 size, bool may_block)
++				  phys_addr_t start, u64 size, bool may_block,
++				  enum kvm_gfn_range_filter filter)
+ {
+ }
+ 
+@@ -388,25 +391,36 @@ static int kvm_pgtable_stage2_unmap_tracked(struct kvm_pgtable *pgt, u64 addr, u
+ }
+ 
+ /**
+- * kvm_stage2_unmap_range -- Clear stage2 page table entries to unmap a range
++ * kvm_stage2_unmap_range_filter -- Clear stage2 page table entries to unmap a
++ * range
+  * @mmu:   The KVM stage-2 MMU pointer
+  * @start: The intermediate physical base address of the range to unmap
+  * @size:  The size of the area to unmap
+  * @may_block: Whether or not we are permitted to block
++ * @filter: Filter for the ipa range (private and/or shared)
+  *
+  * Clear a range of stage-2 mappings, lowering the various ref-counts.  Must
+  * be called while holding mmu_lock otherwise another faulting VCPU may
+  * come in and mess with things behind our backs.
+  */
+-void kvm_stage2_unmap_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
+-			    u64 size, bool may_block)
++static void kvm_stage2_unmap_range_filter(struct kvm_s2_mmu *mmu, phys_addr_t start,
++					  u64 size, bool may_block,
++					  enum kvm_gfn_range_filter filter)
+ {
+ 	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+ 
+ 	lockdep_assert_held_write(&kvm->mmu_lock);
+ 	WARN_ON(size & ~PAGE_MASK);
+ 
+-	kvm->arch.vm_s2_ops->vm_stage2_unmap_range(mmu, start, size, may_block);
++	kvm->arch.vm_s2_ops->vm_stage2_unmap_range(mmu, start, size,
++						   may_block, filter);
 +}
 +
- static vm_fault_t kvm_gmem_fault_user_mapping(struct vm_fault *vmf)
- {
- 	struct inode *inode = file_inode(vmf->vma->vm_file);
++void kvm_stage2_unmap_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
++			    u64 size, bool may_block)
++{
++	kvm_stage2_unmap_range_filter(mmu, start, size, may_block,
++				      KVM_FILTER_PRIVATE | KVM_FILTER_SHARED);
+ }
+ 
+ void kvm_stage2_flush_range(struct kvm_s2_mmu *mmu, phys_addr_t addr, phys_addr_t end)
+@@ -2597,7 +2611,8 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
+ 	if (!kvm->arch.mmu.pgt)
+ 		return false;
+ 
+-	kvm_stage2_unmap_range(&kvm->arch.mmu, gpa, size, may_block);
++	kvm_stage2_unmap_range_filter(&kvm->arch.mmu, gpa, size, may_block,
++				      range->attr_filter);
+ 	kvm_nested_unmap_cipa_range(kvm, gpa, size, may_block);
+ 
+ 	return false;
 -- 
 2.43.0
 
