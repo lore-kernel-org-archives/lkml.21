@@ -1,45 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795455676;
-	b=3ewzbmQu9k0kPnEWiZ5cQTsJYK5JEf/P3yuDL6bPHBCk+xfwtRdZBSFkWm78o0eP/Ei1
-	 0msuVA/SWlvnD41DvpDV0GiIySHGzIlXwVMVaV7MlILF00V1riitG5xi8+kNUgFoav0Ke
-	 mqQBlh6bJNs2hDlx191MVuRzHJBEVzCMtQDge0Pl2v/MerVe6MRpFKaShkFOuw0WTy/xk
-	 z6C6iWZlTuyp2x/iKpM9rgWOuifRpAl4jkg5h9kyMgeIDy2ph0Xchc3AHZujrtzrr33NL
-	 g1c9UPpdRF72GoK39eyyfyCGPhE+2Vh5R7XkL6f94CVB8iX1+oX+UY3BFnuTfn7c3oQ==
+	t=1795455743;
+	b=AZpl1wQIglPtLFEtHVf5gs4he4PfB+rK8jIUidcccsvjNQhgcHAM0J//iHmRQTMoVpCq
+	 oc6gjejDyADAaVuWdN+wUYYLLSdLYhh6Nro8A7TvT0QnGHqnIeu/1PmfWz6n2tz2eplVI
+	 dYwQ7ySjoLb9pDc/jYLtZygbqd0K4BALqrFq8smr6r1F59uP6is4PVbW/X1Th47nps67j
+	 KgDS9rK2MDMPJq5y5J3kmcLncIW+bgtgseNj9qJXXRvmgj27r+B98DpwUt9KsQ6Ch2iGh
+	 TwUsOvaVwbb4krCpa/sAJzDAHgQ5+BSR758BBfLoeU4e6BaonWiXDB1q+bXgphDOQgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795455676;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=ESZysrmfQUFNH+m6FpD5eDnva2LetIZ1aC3sdBbrzF0=;
-	b=LWLVXJohyCStY0LShpneeSyuK73HVkQhFCzZXK8hkrjloR3B+oeTxJvVQspZvwjvojvd
-	 FKPjyPah2kmQRXUOXroF2Gnw1vthrhlnRUTHXs2N2R9zMTCZNotTxuIU/18uGXhjMouge
-	 8SVq6ltEt0v62X350OePVrkIYDuEDT8d7MMHDONYEJ1GnhmI5qylrZ8ItSaA2yjoxTSE+
-	 x3s2ndzuh8la86uznSwUQbp6k2fU2NfYCyUfaxScvJ8qTwc8oLozlR6q1Iwk1QEd+h8+K
-	 RrctfbzVJRnuWv/2Jq3R3qkjEdYBO6l+DYODj+4Hq0NwrPC8koLrfPnfspJIZttNpNg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795455743;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=SIbteC45At9e/phHEDZccWeZUiRHWTYBk94KBVq+cmo=;
+	b=almH0SFaJl2+LwzAuDKPMoXgXv/UEP0fu5N2OpFkqm/XIjv2415rF+4jQJTDrOOX3hgL
+	 Dnz7zsMhIf7uiggY6bIpYPvXLMaWXpnBsBej2JuLcK+UayT6K1qSDppjSoXQSgFnrHyqq
+	 8bXdQ2MfqiWND4XzhoHtaRyzlqrpmiAwqCU3NoKRJYbpmI0FS3MnHIqra8N4BwSRdSUCl
+	 MtavxnNxgyeqYhCPsyKwAgEzcK7LS85nZQD1W5qH/iTCVe6h81yu2WfIZyx13Zkmk/+C3
+	 56fVxdrJMjpI6dwnFRBXWPz3DohNmR1ITNEn2hzZAz1pw3tLqQ19HhGhPlTTSXbnKPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Bnri0tWH;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tKpIFAt9;
+	arc=none smtp.remote-ip=209.85.167.179
+Received: from mail-oi1-f179.google.com (mail-oi1-f179.google.com [209.85.167.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08C56606A31E;
-	Mon, 23 Nov 2026 17:41:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C134E606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:42:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C134E606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Bnri0tWH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CB8C1F000CA;
-	Mon, 23 Nov 2026 17:41:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795455675;
-	bh=ESZysrmfQUFNH+m6FpD5eDnva2LetIZ1aC3sdBbrzF0=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=Bnri0tWHBrn23F2VelVjctxSJFhVSOS5K59OkscgK/fPM5Vyr6JrKnncud6DdlSei
-	 SNXvpTfK3n/ZjTgF+dGy71xSDRTz6pt2UjLQE9ZQfdFK7/1dZAaIRSvR0ngqi7804z
-	 xfUNzkX0T9KWnFqeg6zJwBFvu13myfwSkz3119pfTcvYwNAOMVCZkZLjZjIzIFuHeu
-	 edpbeNjYPBs3wK4eDLVdaXRLVw6GnSc+Oi2jWITym/vNQVIOuXxe+gZWhpHLYrznPW
-	 loGVarnmQwsB3xKO3oA9PKJuURlpizRQcxarAnL70F+82KfdONCgRolDO9VhLG/qu/
-	 qQuQMOYCYGruA==
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tKpIFAt9
+Received: by mail-oi1-f179.google.com with SMTP id 5614622812f47-56431524c22so1447680b6e.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:42:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795455742; x=1796060542; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=SIbteC45At9e/phHEDZccWeZUiRHWTYBk94KBVq+cmo=;
+        b=tKpIFAt9r/n/Lm3zRG2Fua+r9rf03oSaVg2DYFl8RoxfbeETi+nlZ08m2+z+8x0NPR
+         PXPfezQizR0aMqw2hk812sf81/ImWF5pZ+cN4LTOyIM0eueCXq5lRREwzXChcpLP/m2M
+         bVdLbivyukZRb1n3z6yckW3Lm3cye/vASAHPJBzBiMjfi2slDyrZQ1o2kTpMvA2GMgik
+         b3kbLXTDngePv3Rb2C0h5Oydb+v9iR/lj3ntWKX6hxY35967N0w3pYkf9jXP3qwj0FlS
+         7enY/8iq/EhI+2BoVi0z04PvbSw6CSnPsWXVycSPJMohoVqRAmGB/WEutcwgVStBpe4r
+         S49Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795455742; x=1796060542;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SIbteC45At9e/phHEDZccWeZUiRHWTYBk94KBVq+cmo=;
+        b=Mu99UfPiYX11IG6iQwTw7DcQa2pk26Z8lIZ/i0U+7IxF8cRyqfezH79korTX0GVrkb
+         Fj/Ai5P4Uu3dmCGMlrwl/AeymIJOuEKNAMCElk3BtsWzZM+G5YzHvbTv4/q0dcNLSWCf
+         J26XKtDH8ngftmT61yZtEE+6KBr38MlzvGV1JnTwKu5Q3uAV0jERGBAbJm/+qoo9Slnn
+         /PsMxIE6nXGv7TnlEMf1ca40ulVjY9jkHE0tNPx2Plg8Ov9varoWsFC9un7JMopADWlw
+         Wepuf+IBbnNz39upqPC/MBsEhyjZDOuzF9ru5Jw8XMJbI8177Mg8TvuN4F5rCLYu3oqK
+         FnTw==
+X-Forwarded-Encrypted: i=1; AL+hErGe5ytZMybKwBmGk4lnpOUHSzcswwMIvd/5+HUe0vxVeWeqkdgu5KTTJRRs2DBntkqnAux3bNkJSz7LeWY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+hmZm+S7wbkihUBHupfSpfShqHbT8NZ8Z5GqaQ7TAFo7/aUBrv
+	uXQuvEuG9pKc8jahYPmyNQi8Ld4CbKycgwAm7/k+uUhZo9Zv5efV+nUx
+X-Gm-Gg: AZFdTZcXAczkHTZIksqLZjp0kauyITy16uicUJY3E50auFn0D90u/JCyzDsA/h1d8Mh
+	Hwj8dgVMkQJtCclfYSyKtPDbOKCCpAfBzDJDctBgwVSpz7UjSOzqf7JkAQhjccjhXgbwjvZcQxh
+	f084sg8PJBXeJjUDzBMbpVChG1alVUciCLq/L7LQ7Bz+mtUPv6NZQ68Fs5nCNHCetk5Td+nTHeh
+	T/ubYkUQm9Sw31d6dcvpzYuDZRZgij+EhVtCDUpHqLAf5qGYsUGdrRhmaUSNlZil/r47dILYJQV
+	l8wCkzew1cIDNnEB/Y0NIQVFcg3LY/GRr0zbXDrxgonWsMPFATdK6n/8hPGEniOQAadGJjKJpKh
+	lLIc29kFKeWxpn0aZgtBLJX6RyprI7UNCDNEzeDSDIIOluGaREhcMTWTbKabhinaXOTxg5lhk5U
+	yAbCFNfd85Yqv8JefHJ+5L6ejXWQP81eaBsp0c9e327KRR2buJKbqctljoljrpNnTirSAm/J1YA
+	fuWs3C6cuC84cjqloF6xts1kzw3LPPvj3qB0CGRcZihCFurhppbPEm8bIi2QXJ8LeCynsnT6Tc7
+	JOJDTTK1B1QjstPQva2lyHy6uZA4F/eYx4q7v97okNyvwPh/VfRRwFLFj3rbTG/tSEVNn1ooUbM
+	N/sN6FQ==
+X-Received: by 2002:a05:6808:1908:b0:571:b166:3d76 with SMTP id 5614622812f47-57a0ab2460amr14209938b6e.29.1795455741608;
+        Mon, 23 Nov 2026 09:42:21 -0800 (PST)
+Received: from AMD.home.internal (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc5b07d57csm11240123fac.1.2026.11.23.09.42.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 09:42:20 -0800 (PST)
+From: Enzo Adriano <enzo.adriano.code@gmail.com>
+To: andre.przywara@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org
+Cc: Maxime Ripard <mripard@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Pablo Mazzini <pmazzini@gmail.com>,
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+	Alexander Sverdlin <alex@sverdlin.org>,
+	Jun Yan <jerrysteve1101@gmail.com>,
+	Lukas Schmid <lukas.schmid@netcube.li>
+Subject: [PATCH v5 0/3] arm64: dts: allwinner: add A733/Cubie A7S support
+Date: Mon, 23 Nov 2026 12:42:18 -0500
+Message-ID: <20261121-a733-cubie-a7s-dt-v5-0@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,141 +111,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2] clk: rp1: allow the clock provider to be probed
- again
-From: Brian Masney <masneyb@kernel.org>
-To: Joshua Covington <joshuacov@gmail.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Andrea della Porta <andrea.porta@suse.com>, linux-clk@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Brian Masney <masneyb@kernel.org>
-In-Reply-To: <20261121181650.143474-1-joshuacov@gmail.com>
-References: <20261121181650.143474-1-joshuacov@gmail.com>
-Date: Mon, 23 Nov 2026 12:41:10 -0500
-Message-Id: <179545567027.246915.947299820828330388.b4-review@b4>
-X-Mailer: b4 0.17-dev-8145e
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4059; i=masneyb@kernel.org;
- s=20250903; h=from:subject:message-id;
- bh=vYwHTQFaiFcOdFiOEcdPU7jjLxefr+q68VzaqBSCDBI=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLJZqrbf9Dt6NUp5spD0/iMsTMrLGkKEFq70TXhx7toJ5
- Z8+HAfedZSyMIhxMciKKbIsyTUqiEhdZXvvjiYLzBxWJpAhDFycAjCRoB6Gf2rHdxosbp7KZjG3
- 8vqlCdNfLEut/fp+3tqc1dPLPs/4w/iKkWHf9W8Zcb7dcpV7Z3gqW/iuMonMZHC1C44TV8wUPPE
- thgMA
-X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
+Content-Transfer-Encoding: 8bit
 
-Hi Joshua,
+Add initial Allwinner A733 and Radxa Cubie A7S device trees for the
+console, PMIC, microSD, LEDs and EEPROM. The Cubie A7A compatible is
+for Andre Przywara's forthcoming DTS:
+https://lore.kernel.org/r/20261122004008.0ee8e16d@ryzen.lan
 
-> The clock descriptors are static. The clock core clears hw.init when a
-> clock is registered. When RP1 is unbound and bound again, the second
-> probe registers the clocks without init data and oopses:
-> 
->   pc : __clk_register+0x5c/0x9dc
->   Call trace:
->    __clk_register+0x5c/0x9dc (P)
->    devm_clk_hw_register+0x5c/0xe0
->    rp1_register_pll+0x24/0x40
->    rp1_clk_probe+0xc0/0x168
-> 
-> The clock core also leaves hw.core pointing to the freed clk_core on
-> unregister. Some clocks refer to a parent that is registered after
-> them, e.g. clk_mipi0_dpi to clksrc_mipi0_dsi_byteclk. On the second
-> probe, their parent lookup can use the stale clk_core.
-> 
-> Restore hw.init and clear the stale state of all descriptors before
-> registering them.
-> 
-> Fixes: 6486341721a2 ("clk: rp1: Add support for clocks provided by RP1")
-> Signed-off-by: Joshua Covington <joshuacov@gmail.com>
+Base: sunxi/for-next (2ba07dfcd45bb6ec414e68213620490548fd5aec).
+Previous version:
+https://lore.kernel.org/r/cover.1795034153.git.enzo.adriano.code@gmail.com
 
-There's presumably other drivers that will have the same issue as well.
-Rather than having drivers all try to fix this themselves, let's see if
-we can fix this in the core for everyone. Can you try this completely
-untested patch? If that works, then you can take it over. It will need a
-kunit test.
+Changes in v5:
+- 1/3: Add the Cubie A7A compatible.
+- 2/3: Keep one DynamIQ cluster, rename osc to hosc and add I2C0 pins.
+- 3/3: Add LEDs and EEPROM, simplify MMC0, describe the 3.3 V PF path,
+  and revise the PMIC rail descriptions, bounds and always-on flags.
 
-Brian
+The hosc label also affects Vinicius's A7Z and Alastair's U-Boot import:
+https://lore.kernel.org/r/20261111134919.90264-3-vinicius.eduardo.pedrosa@gmail.com
+https://lore.kernel.org/r/20261113023236.569054-26-alastair@d-silva.org
 
+Runtime dependencies in application order:
+[1] AXP318W PMIC v8
+https://lore.kernel.org/r/20260910-axp318-regulator-v8-0-e906a61a7f3d@baylibre.com
+[2] Pinctrl IRQ-bank v3
+https://lore.kernel.org/r/20261025142412.112216-1-pmazzini@gmail.com
+[3] A733 8250_dw v2, patches 1-4
+https://lore.kernel.org/r/cover.1792439398.git.vinicius.eduardo.pedrosa@gmail.com
+[4] Firmware-clock v2 for vendor-firmware warm reboot
+https://lore.kernel.org/r/20261112-a733-fwclk-v2@gmail.com
+[5] Pinctrl voltage-mode v3
+https://lore.kernel.org/r/20261109-a733-pinctrl-v3@gmail.com
 
-diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
-index 673eac47450b..8e5b530d80b5 100644
---- a/drivers/clk/clk.c
-+++ b/drivers/clk/clk.c
-@@ -119,6 +119,7 @@ struct clk_core {
- 	const char		*name;
- 	const struct clk_ops	*ops;
- 	struct clk_hw		*hw;
-+	const struct clk_init_data *hw_init;
- 	struct module		*owner;
- 	struct device		*dev;
- 	struct hlist_node	rpm_node;
-@@ -4450,6 +4451,7 @@ __clk_register(struct device *dev, struct device_node *np, struct clk_hw *hw)
- 	if (dev && dev->driver)
- 		core->owner = dev->driver->owner;
- 	core->hw = hw;
-+	core->hw_init = init;
- 	core->flags = init->flags;
- 	core->num_parents = init->num_parents;
- 	core->min_rate = 0;
-@@ -4498,6 +4500,10 @@ __clk_register(struct device *dev, struct device_node *np, struct clk_hw *hw)
- 		pr_err("%pOF: error %pe: failed to register clk '%s' (%pS)\n",
- 		       np, ERR_PTR(ret), init->name, hw);
- 	}
-+
-+	/* Leave @hw as it was handed to us so that it can be registered again */
-+	hw->init = init;
-+
- 	return ERR_PTR(ret);
- }
- 
-@@ -4654,6 +4660,7 @@ void clk_unregister(struct clk *clk)
- {
- 	unsigned long flags;
- 	const struct clk_ops *ops;
-+	struct clk_hw *hw;
- 
- 	if (!clk || WARN_ON_ONCE(IS_ERR(clk)))
- 		return;
-@@ -4702,6 +4709,21 @@ void clk_unregister(struct clk *clk)
- 	if (clk->core->protect_count)
- 		pr_warn("%s: unregistering protected clock: %s\n",
- 					__func__, clk->core->name);
-+
-+	/*
-+	 * Return the clk_hw to the state it had before registration. Drivers
-+	 * with statically allocated clk_hw structures can then register them
-+	 * again, e.g. when the device is unbound and bound again. This also
-+	 * makes sure that a clk_parent_data.hw reference to this clk_hw is
-+	 * treated as an orphan rather than resolved to the stale clk_core.
-+	 */
-+	hw = clk->core->hw;
-+	if (!WARN_ON(hw->core != clk->core || hw->clk != clk)) {
-+		hw->core = NULL;
-+		hw->init = clk->core->hw_init;
-+		hw->clk = NULL;
-+	}
-+
- 	clk_prepare_unlock();
- 
- 	kref_put(&clk->core->ref, __clk_release);
-diff --git a/include/linux/clk-provider.h b/include/linux/clk-provider.h
-index a355d1ee5189..a4c60ea06361 100644
---- a/include/linux/clk-provider.h
-+++ b/include/linux/clk-provider.h
-@@ -359,7 +359,9 @@ struct clk_init_data {
-  *
-  * @init: pointer to struct clk_init_data that contains the init data shared
-  * with the common clock framework. This pointer will be set to NULL once
-- * a clk_register() variant is called on this clk_hw pointer.
-+ * a clk_register() variant is called on this clk_hw pointer. It is restored
-+ * if registration fails or when the clock is unregistered, so the clk_hw can
-+ * be registered again as long as the init data it points to is still valid.
-  */
- struct clk_hw {
- 	struct clk_core *core;
+The A7S DTB and schema checks use [1] 3/5, [2] 2/3 and [3] 3/4.
+The runtime build uses context adjustments for [1] 5/5 and [5]
+after the regulator allocation and IRQ-bank changes.
 
+Validation: clean application of the mail patches, arm64 defconfig
+Image, arm/sunxi.yaml binding check and warning-free A7S
+W=2 CHECK_DTBS=y.
+
+On a Cubie A7S, a RAM boot with vendor firmware, this DTB and the runtime
+dependencies above reached a responsive console and probed the PMIC.
+Pre-boot U-Boot selector reads put every bounded rail within its bounds;
+none changed at registration (sysfs at about 1 and 91 seconds, and no
+regulator "Bringing" messages). At about 32 seconds unused-regulator
+cleanup disabled DCDC4, BLDO1, BLDO2 and CLDO2; DCDC9, SWOUT1 and
+CLDO5 stayed enabled through their users, and the console remained
+responsive. MMC0 enumerated the card in High Speed, with a 50 MHz clock
+tree reading, and completed a 4 MiB read; its data was not verified.
+Both LEDs registered: green:power was on with trigger none, blue:status
+was off at sampling with heartbeat selected. AT24 registered the 2 KiB
+EEPROM with its WP GPIO; topology sysfs showed one cluster. A warm
+reboot returned to vendor firmware. Not tested: early and repeatable MMC
+reads, MMC ios, SD writes, hotplug and 1.8 V switching; EEPROM contents,
+writes and write protection; visible LED operation; physical rail voltages
+and CPU/cache topology; PMU counting, EL2 interrupts, ITS/MSI, stimulated
+PMIC/NMI interrupts, suspend, power-off and other boards.
+
+---
+Enzo Adriano (3):
+  dt-bindings: arm: sunxi: document Radxa Cubie A7A and A7S
+  arm64: dts: allwinner: add A733 SoC description
+  arm64: dts: allwinner: add Radxa Cubie A7S board
+
+ Documentation/devicetree/bindings/arm/sunxi.yaml  |  10 +
+ arch/arm64/boot/dts/allwinner/Makefile            |   1 +
+ .../boot/dts/allwinner/sun60i-a733-cubie-a7s.dts  | 331 ++++++++++
+ arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi    | 663 ++++++++++++++++++++
+ 4 files changed, 1005 insertions(+)
+
+base-commit: 2ba07dfcd45bb6ec414e68213620490548fd5aec
 -- 
-Brian Masney <masneyb@kernel.org>
+2.53.0
+
