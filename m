@@ -1,82 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=188.121.53.57
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795427005;
-	b=COd4WEkFHL9jQMtf/m2MBcutv/lziYGoiBrkWrvBJRmKM0hvWrj+AznWu8Z3mh9qPywt
-	 sLwpKlR4LBZ8MNWEA5btqbW9NtRASAaOZrekrFq/Y/p+4NrcsIkjET+lGrLLydHA5ZLKg
-	 zrLRydTtnSEJ05PT5/uM4HyM5dVEbr/3wETNkjtJeML0Ndtl0WsyB1JVhaGk3kTPSrWAD
-	 STensIISY5keTdQ4JMt9aNkKwItGlkwHmvdpoPdJi4Z6IzuPsZJg4wpNMmj7GVxenvLQz
-	 JBt3ZUikgbyg5q7eaDYNJblm9QCwsmF/ESkYkHj9ghbpGRTqYdo1S9TklyEWpio7czg==
+	t=1795427006;
+	b=RJaVYm+hgi4gB/XYBDvpZUJLd0heiZ5prl/BEf78M969FNtfbp02QIOpty7m35R5oHSa
+	 Pe2nag9as2K8HBILOKj44WaNCc0TbICuE5d2mxh26QhTYQDk4vWvJ2mmIm0GDPuwCbd8j
+	 C+gibFLVILMl9akvpsZMR9hoRLPYQHq/F2qmehh8Myf54Kxap3MM+Y8SuFPGCsMmMSKPE
+	 3INibTejaMfXkO8ASzor10BHmlF7MX7PDF/WwUQkucgpShvb0PKdr0i2L9nnsZV6MOyHo
+	 ts/939Ty/yJJy89nkJ+oKLCYfN4AA5rXCbBthkJc7blqyBojfdJqq52g5YqIdvYeNiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795427005;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:X-CMAE-Analysis:
-	 Feedback-ID:X-SECURESERVER-ACCT:Date:From:To:Cc:Subject:Message-Id:
-	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
-	 Content-Transfer-Encoding:X-CMAE-Envelope;
-	bh=w7OXqAY9mm19Lhj/6dRjORfhan53pohJxpLHOCcmQxo=;
-	b=YYY1cXLFi833tvXWTygeT33NB0o20maiwGGqKyUKv4lZV+ojownyKj+s0UEoZZilidKo
-	 MjHgWiHykUGQNTPX2maMHzu4VRU0Pp6jIAFtN1ieFm/ZGoN/O7kQa/PfOsQ6yUWHqNus3
-	 5TQ6+Lt3myWf7WIuIm0VByOsZI0DgthyHsVowRz2gNPccviI0gFfsVix1NJff+ZC1rob4
-	 S8hMnYRN8zCGaJ5oz0/bcffB6p1Ca+I6RDqX/FsMkHEbS71pLO+FSxeViPhusebFDnCOJ
-	 7jzY0lphG2LUnEVxFBxpTV6dfTu9DN9L8UVPER2MmojjGKhSJyPsMD6BKAp1g4rOGqw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795427006;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=4J356MHWnNb4uOE0NENBbeFM2roPC3vQr9WKSEBSDyU=;
+	b=t6TPd3GjYrvS89n2Hkzk1zhPHcz4bDWn5PXCIiMnmK2GTbqM1CgqSJblQxfTd5FUy9WO
+	 2j40ZsYdEdzPiPy79B772dXkv8/zvCJMelat8tJgeglr7ij+MUJd5B4pEp6NuK6ZQcP4m
+	 g209S2hpx7I6354gwkbc3kWuqIqgkQjhU+4idPtrC7DbMNq/+brCZetV0xLXg6OSFK7WG
+	 Z59Q7X/FbrgXDkNurEdkF2Kx1xZXvhfO6431kooZr4E28vXazmunB3Hb2jBK+L/nrHUDB
+	 BRfWOqnfP9X9S3gcNqLDaCWwmR0SzjelUF+XcbzJF2w4AItPULadVfeFGI7SmlIg4/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=squashfs.org.uk;
-	spf=pass smtp.mailfrom=squashfs.org.uk;
-	dkim=pass header.d=secureserver.net header.i=@secureserver.net header.a=rsa-sha256 header.s=secureserver2 header.b=UgtBBjrM;
-	dkim=pass header.d=squashfs.org.uk header.i=@squashfs.org.uk header.a=rsa-sha256 header.s=secureserver1 header.b=j14ml+7t;
-	arc=none smtp.remote-ip=188.121.53.57
-Received: from sxplsmtpa04-06.prod.sxb1.secureserver.net (sxplsmtpa04-06.prod.sxb1.secureserver.net [188.121.53.57])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=NqAExSE+;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=gIsy0EOG;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C87DB606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:43:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C87DB606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=squashfs.org.uk
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squashfs.org.uk
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A7FA606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:43:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A7FA606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=secureserver.net header.i=@secureserver.net header.a=rsa-sha256 header.s=secureserver2 header.b=UgtBBjrM;
-	dkim=pass (2048-bit key, unprotected) header.d=squashfs.org.uk header.i=@squashfs.org.uk header.a=rsa-sha256 header.s=secureserver1 header.b=j14ml+7t
-Received: from ravalox ([82.69.79.175])
-	by :SMTPAUTH: with ESMTPSA
-	id VQZtx3IRmpVcJVQZwxegnI; Mon, 23 Nov 2026 09:43:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secureserver.net;
-	s=secureserver2; t=1795426997;
-	bh=w7OXqAY9mm19Lhj/6dRjORfhan53pohJxpLHOCcmQxo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=UgtBBjrMWNLZBNR6nPt6l8eg6SaBu1Byh1KpJdYQ3P7nCkLFrMGUs8IgoRHq6fl5W
-	 JeJ4fdGAHrO4wegvP+JSpO+e1ZVUNAe8oheJ3rfNk6b306yeZimUYO4x3BjP6yAmWs
-	 uce+Vx67VlPwIN+THr83SjoTwHlbyb8GgmYZhSw5FjFj5RAgNNlJXKGH26NF3N6qCZ
-	 i7tIql4MwgFFb18YgnQy7MpsZWO8keV4EXJM4fIWM7bwIlvSdODmyL70WAaMeCKDGW
-	 m/Qxcg9OyIIcYf78BTy1XI2xeiolQ5AXmzssYFK4JE1akTVS/8ZbzzU0/Wo1I1wMYg
-	 oC+hHPChEFH8A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squashfs.org.uk;
-	s=secureserver1; t=1795426997;
-	bh=w7OXqAY9mm19Lhj/6dRjORfhan53pohJxpLHOCcmQxo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=j14ml+7tXFmhZhLLb/Qqpr0/RTtNdKQTHTFl+7z14ALs9CatmhUwqIfqdDT52459b
-	 RaigZeeY3DuSV0Yz14GceZoiVRC87ZRdejT+YaYL5qY0rj/vRaxKgiSi6zGte4SxVD
-	 GuUFPO1BBvLz+mb3+U7kXWM3qwIJTpM5K8jF0wTzPsYQ8ZQOUj6rxyMT0gGiTiEfjz
-	 EWnHxA228exAzM+7mvtlZueg16qVbj7edUDzOdB4yKOlIgRWys8ZIkvkFuHqu9iJz2
-	 7bWoFJDcIZ6Eedh+acUQs7SNLoJ7mnm6KrQrRYDfLX3vGqafkuRcazHpv1Hz2qqVS7
-	 2NHKyTJ2UpNmQ==
-X-CMAE-Analysis: v=2.4 cv=D7/SufRj c=1 sm=1 tr=0 ts=6b040ab5
- a=84ok6UeoqCVsigPHarzEiQ==:117 a=84ok6UeoqCVsigPHarzEiQ==:17
- a=1KwyjEPoHUs1rspk:21 a=kj9zAlcOel0A:10 a=Z4Rwk6OoAAAA:8 a=FXvPX3liAAAA:8
- a=vqM-olim6b1i3-1M514A:9 a=CjuIK1q_8ugA:10 a=HkZW87K1Qel5hWWM3VKY:22
- a=UObqyxdv-6Yh2QiB9mM_:22
-Feedback-ID: 5185fcf3a210c4a3707bef19b92aa32e:squashfs.org.uk:ssnet
-X-SECURESERVER-ACCT: phillip@squashfs.org.uk
-Date: Mon, 23 Nov 2026 09:43:13 +0000
-From: Phillip Lougher <phillip@squashfs.org.uk>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, news@phoronix.com
-Subject: Re: [PATCH v3 00/23] Squashfs: fix a lot of AI issues and AI style
- issues
-Message-Id: <20261123094313.336001b6251857b182339e6a@squashfs.org.uk>
-In-Reply-To: <20261122235453.dc1115a7efdc685dc69e4744@linux-foundation.org>
-References: <20261123034304.261742-1-phillip@squashfs.org.uk>
-	<20261122235453.dc1115a7efdc685dc69e4744@linux-foundation.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; aarch64-unknown-linux-gnu)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=NqAExSE+;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=gIsy0EOG
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795427004;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4J356MHWnNb4uOE0NENBbeFM2roPC3vQr9WKSEBSDyU=;
+	b=NqAExSE+Nirw4cjsl35aP646QZPs77Aip/mU5KSxPRl2mQl/KNZDtcJAP1OGCxFkQWmvjL
+	HdU2Xq2OP/qEMIKy+dHqgE7wirn773Am4ZzkBW9sTkb9YqLvYhhkLSL8dH0VN0OXkyNhsZ
+	Sy2Wqyns/Z0m4w5MfRg+F3T3Z5MFY4w=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-257-UaLI4zfqMjaaGhCkq_t2Mw-1; Mon, 23 Nov 2026 09:43:22 +0000
+X-MC-Unique: UaLI4zfqMjaaGhCkq_t2Mw-1
+X-Mimecast-MFC-AGG-ID: UaLI4zfqMjaaGhCkq_t2Mw_1795427002
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4b764ffc014so24085755e9.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:43:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795427001; x=1796031801; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=4J356MHWnNb4uOE0NENBbeFM2roPC3vQr9WKSEBSDyU=;
+        b=gIsy0EOG46GUIw4z6094Fqa9Kw4kM0sbGHFxhfE5oUfeBHWSId9yWlA5H0Jno4FERl
+         WBeZ+NKGH+u/IDsPZugMuT2vt3ZpY1NUNZ3mfcfA6f+gsDgIX7xrKACPdXJ5/GEFLxrw
+         0g4FfvSMDA/RQBtAyF9Tw8MOz59T43bby4Vs7ue15TFOIj3JcGlcYyKpZA1W0tWhtEeJ
+         siNlsp2pKot09Jpk5o1Xdgc2Q15wahJZyKP+iF+iXHvxboVeXCLxAGqlDbVHwN/mGvdU
+         6leS8xOrRyN31+aLoEgGbkTILj+QteWWxcFv5ca1+JlpmNZ9MsMlLo/daE+AGTGjPPRn
+         RVMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795427001; x=1796031801;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4J356MHWnNb4uOE0NENBbeFM2roPC3vQr9WKSEBSDyU=;
+        b=Oobln7OexKGomPHfUDGNCcsPu5SyZihd5jQmztV9nyscKAA2qdp12W1wNFr3Iz5x6d
+         4u1LFLo4uWQlUtcJUcNZD+uezsW61B8pTsZpZe1s45pVNrjkDAVXFXvvJ3sDVr4LKYP7
+         khRP7W0UPedYyk5TRBvhjf6FoA6O2907hYCW8X/3Y2fQWz+3kAYQRkmoVRVN9hClt62O
+         I8ZIC1JuhnypkQpJ4UGilvOyEio3rkidhIaRWcd4frFAtSM07owdjXabaHBjD+fYERuA
+         Pjvca/v6n1EFFH5VUxb6Rd/5sIX2UZ3BdqX8BhYplqg+K7vHj39waGOti9EKfmU8kPs8
+         QHTA==
+X-Forwarded-Encrypted: i=1; AL+hErFjuNtTUvJ6i6pgRadsSw8Gn+tVpFsd5yOfMrtpWIWlXYqaqFodPMSMrWjhv7+YnP5f1ttRKQisCkyT/AQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9KJPvoUtmqw+HSoWm5lWGBEQ5VziVmj6JJdsFI/PsabsBOqLkq
+	pcjcxpyo6qqmK9P+LeaKk7hi1uGgwAxTE7/2//a1RsHWCkLWg1L4gKzHeARk4xI7hnG0bseq5Ad
+	uRIrIeHoM81aX+1OfQz/noZmWEEn7821AGiUGcOJWZlBeEtF87ADOoF4he/WvaMxaVQ==
+X-Gm-Gg: AZFdTZf/l/n0HFFsG7h9ETfhrtjxa+pqdUEbtu4ddK2dO8IJYcJaShtMzybDHHIWCAH
+	lCLPAL24SCGPhb1CnGnCGgbtMOLseerIe+AbLq6tvz9I1X9PLV5fGPOnshc/c9jc+69vCVsGGwe
+	ccQW6HoqkT3axEph2F+Ne/hj1L6LDHe+Zr91saNdYOkur6Kcr689e11kbAJfCiw701k/eeL8kTj
+	l2YBZEmjZOozbkbV43QZJbmCU59NJQo5NmhH5p43goCjbNTV1qzneb/Ofozuw55tVLFUc1CcYCi
+	6RzKFwaSPaY8h+VAHnaqEvhQqPXHAcJ9h+jsWaCAtiZc/sQbp+R0UHAfEdt/8zbM5j7eXOfBtUz
+	q7+Eu4oUj6NonEDnulKMi4eytnOgkug8m1vhI53gsca9jvuartH8DIw==
+X-Received: by 2002:a05:600c:46cc:b0:4bb:69b3:2b42 with SMTP id 5b1f17b1804b1-4bb888277b3mr231836215e9.16.1795427001520;
+        Mon, 23 Nov 2026 01:43:21 -0800 (PST)
+X-Received: by 2002:a05:600c:46cc:b0:4bb:69b3:2b42 with SMTP id 5b1f17b1804b1-4bb888277b3mr231835605e9.16.1795427001047;
+        Mon, 23 Nov 2026 01:43:21 -0800 (PST)
+Received: from sgarzare-redhat ([80.116.143.202])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853ca452sm334271205e9.15.2026.11.23.01.43.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 01:43:19 -0800 (PST)
+Date: Mon, 23 Nov 2026 10:43:12 +0100
+From: Stefano Garzarella <sgarzare@redhat.com>
+To: Bobby Eshleman <bobbyeshleman@meta.com>
+Cc: Stefan Hajnoczi <stefanha@redhat.com>, 
+	"Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>, 
+	Eugenio =?utf-8?B?UMOpcmV6?= <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	kvm@vger.kernel.org, virtualization@lists.linux.dev, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] vsock: only deliver taps to namespaces that can
+ reach the device
+Message-ID: <awQJo8WE5Gn4nYHp@sgarzare-redhat>
+References: <20261116-vsock-tap-net-v1-1-7e24f45adad3@meta.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,159 +119,197 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CMAE-Envelope: MS4xfPJwHIuZRyHq7P7qalehSwoxLAzu9cgAy536PU/yhNxQLvoDwo3KEdMT4kb6ArfcK3cDFvq5ndAT2Nzg6LHJDtJuuRx4VHUOMpzJmOLELK1Xz8nIbZ6g
- RBBjoDsedb13CW8rr36NDpFcOLU1nwQxz8aWBfrrEu9nMpRjvAWKvjqgNL45yGHi/a5ewwWAulJ2LN0T71GGXZzUf6txTBnSHM52cvrb5PLr2Hl5mDWWltpi
- qAYspUedDQMD1e557p7ju7pcK3ynXx5YP03E43XZP+4=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20261116-vsock-tap-net-v1-1-7e24f45adad3@meta.com>
 
-On Sun, 22 Nov 2026 23:54:53 -0800
-Andrew Morton <akpm@linux-foundation.org> wrote:
+On Mon, Nov 16, 2026 at 03:46:49PM -0800, Bobby Eshleman wrote:
+>vsock_deliver_tap() clones every packet to every vsockmon device on the
+>system. Creating one needs only CAP_NET_ADMIN in the owning user
+>namespace, so an unprivileged user can capture the traffic of local mode
+>namespaces.
+>
+>Pass the packet's netns to vsock_deliver_tap() and only deliver to
+>devices that pass vsock_net_check_mode(), the same rule socket lookups
+>use. vhost passes the vhost_vsock netns, loopback the sending socket's
+>netns, and virtio-vsock NULL (global mode).
 
-> On Mon, 23 Nov 2026 03:42:41 +0000 Phillip Lougher <phillip@squashfs.org.uk> wrote:
-> 
-> > This large patch-set is inspired by the recent spate of AI generated
-> > code reports.
-> 
-> Just to be annoying, I fed this into Claude Fable.  It said a bunch of
-> stuff which looks very optional but the 08/23 blooper is worth fixing,
-> so I queued a -fix.
-> 
+For local namespaces I think we are fine, but what about global?
 
-God forbid,I would never say you're annoying. But the AI assisted ability
-to find fault in everything is exhausting.
+Is it okay that a namespace with global can capture all the packets of 
+other global namespaces?
 
-AI amplifies problems because it lacks context and insight.  Please don't
-say you you've got into the belief everything AI says is correct, because
-it can be contractory depending on the depth of the anaysis, which means
-you will go into endless impossible cycles.
+Asking because at this point the CAP_NET_ADMIN is useless, since an user 
+on a global namespace, without CAP_NET_ADMIN, can just create a 
+namespace to have CAP_NET_ADMIN and access all the traffic. Should we 
+fix also that?
 
-Some of the following is exactly that:
+Thanks,
+Stefano
 
-> Unlike chatgpt, Fable is able to build kernels and run them in VMs all
-> inside its sandbox.  Pretty cool stuff.
-> 
-> 
-> 
-> 
-> [08/23] breaks squashfs_lookup() when its pr_debug is enabled:
-> 
-> 	struct inode *inode = NULL;
-> 	...
-> 	TRACE("Entered squashfs_lookup [%llx:%x]\n",
-> 		squashfs_i(inode)->start, squashfs_i(inode)->offset);
-> 
-> That wants to be "dir".  With CONFIG_DYNAMIC_DEBUG=y,
-> 
+>
+>Fixes: a69686327e42 ("vsock: add netns support to virtio transports")
+>Signed-off-by: Bobby Eshleman <bobbyeshleman@meta.com>
+>---
+> drivers/vhost/vsock.c                   |  4 ++--
+> include/linux/virtio_vsock.h            |  2 +-
+> include/net/af_vsock.h                  |  3 ++-
+> net/vmw_vsock/af_vsock_tap.c            | 10 +++++++---
+> net/vmw_vsock/virtio_transport.c        |  4 ++--
+> net/vmw_vsock/virtio_transport_common.c |  4 ++--
+> net/vmw_vsock/vsock_loopback.c          |  2 +-
+> 7 files changed, 17 insertions(+), 12 deletions(-)
+>
+>diff --git a/drivers/vhost/vsock.c b/drivers/vhost/vsock.c
+>index 88a310390eb0..3de1f1920717 100644
+>--- a/drivers/vhost/vsock.c
+>+++ b/drivers/vhost/vsock.c
+>@@ -229,7 +229,7 @@ vhost_transport_do_send_pkt(struct vhost_vsock *vsock,
+> 		/* Deliver to monitoring devices all packets that we
+> 		 * will transmit.
+> 		 */
+>-		virtio_transport_deliver_tap_pkt(skb);
+>+		virtio_transport_deliver_tap_pkt(skb, vsock->net);
+>
+> 		vhost_add_used(vq, head, sizeof(*hdr) + payload_len);
+> 		added = true;
+>@@ -567,7 +567,7 @@ static void vhost_vsock_handle_tx_kick(struct vhost_work *work)
+> 		total_len += sizeof(*hdr) + skb->len;
+>
+> 		/* Deliver to monitoring devices all received packets */
+>-		virtio_transport_deliver_tap_pkt(skb);
+>+		virtio_transport_deliver_tap_pkt(skb, vsock->net);
+>
+> 		hdr = virtio_vsock_hdr(skb);
+>
+>diff --git a/include/linux/virtio_vsock.h b/include/linux/virtio_vsock.h
+>index f91704731057..46058d354940 100644
+>--- a/include/linux/virtio_vsock.h
+>+++ b/include/linux/virtio_vsock.h
+>@@ -285,7 +285,7 @@ void virtio_transport_recv_pkt(struct virtio_transport *t,
+> void virtio_transport_inc_tx_pkt(struct virtio_vsock_sock *vvs, struct sk_buff *skb);
+> u32 virtio_transport_get_credit(struct virtio_vsock_sock *vvs, u32 wanted);
+> void virtio_transport_put_credit(struct virtio_vsock_sock *vvs, u32 credit);
+>-void virtio_transport_deliver_tap_pkt(struct sk_buff *skb);
+>+void virtio_transport_deliver_tap_pkt(struct sk_buff *skb, struct net *net);
+> int virtio_transport_purge_skbs(void *vsk, struct sk_buff_head *list);
+> int virtio_transport_read_skb(struct vsock_sock *vsk, skb_read_actor_t read_actor);
+> int virtio_transport_notify_set_rcvlowat(struct vsock_sock *vsk, int val);
+>diff --git a/include/net/af_vsock.h b/include/net/af_vsock.h
+>index e8481f12312e..3e28865578eb 100644
+>--- a/include/net/af_vsock.h
+>+++ b/include/net/af_vsock.h
+>@@ -250,7 +250,8 @@ struct vsock_tap {
+>
+> int vsock_add_tap(struct vsock_tap *vt);
+> int vsock_remove_tap(struct vsock_tap *vt);
+>-void vsock_deliver_tap(struct sk_buff *build_skb(void *opaque), void *opaque);
+>+void vsock_deliver_tap(struct sk_buff *build_skb(void *opaque), void *opaque,
+>+		       struct net *net);
+> int __vsock_connectible_recvmsg(struct socket *sock, struct msghdr *msg, size_t len,
+> 				int flags);
+> int vsock_connectible_recvmsg(struct socket *sock, struct msghdr *msg, size_t len,
+>diff --git a/net/vmw_vsock/af_vsock_tap.c b/net/vmw_vsock/af_vsock_tap.c
+>index 7c5cdceabb2a..4c8821835251 100644
+>--- a/net/vmw_vsock/af_vsock_tap.c
+>+++ b/net/vmw_vsock/af_vsock_tap.c
+>@@ -73,19 +73,23 @@ static int __vsock_deliver_tap_skb(struct sk_buff *skb,
+> 	return ret;
+> }
+>
+>-static void __vsock_deliver_tap(struct sk_buff *skb)
+>+static void __vsock_deliver_tap(struct sk_buff *skb, struct net *net)
+> {
+> 	int ret;
+> 	struct vsock_tap *tmp;
+>
+> 	list_for_each_entry_rcu(tmp, &vsock_tap_all, list) {
+>+		if (!vsock_net_check_mode(dev_net(tmp->dev), net))
+>+			continue;
+>+
+> 		ret = __vsock_deliver_tap_skb(skb, tmp->dev);
+> 		if (unlikely(ret))
+> 			break;
+> 	}
+> }
+>
+>-void vsock_deliver_tap(struct sk_buff *build_skb(void *opaque), void *opaque)
+>+void vsock_deliver_tap(struct sk_buff *build_skb(void *opaque), void *opaque,
+>+		       struct net *net)
+> {
+> 	struct sk_buff *skb;
+>
+>@@ -96,7 +100,7 @@ void vsock_deliver_tap(struct sk_buff *build_skb(void *opaque), void *opaque)
+>
+> 	skb = build_skb(opaque);
+> 	if (skb) {
+>-		__vsock_deliver_tap(skb);
+>+		__vsock_deliver_tap(skb, net);
+> 		consume_skb(skb);
+> 	}
+>
+>diff --git a/net/vmw_vsock/virtio_transport.c b/net/vmw_vsock/virtio_transport.c
+>index cf63bc99f3cc..b39c001260a9 100644
+>--- a/net/vmw_vsock/virtio_transport.c
+>+++ b/net/vmw_vsock/virtio_transport.c
+>@@ -150,7 +150,7 @@ static int virtio_transport_send_skb(struct sk_buff *skb, struct virtqueue *vq,
+> 	if (ret < 0)
+> 		return ret;
+>
+>-	virtio_transport_deliver_tap_pkt(skb);
+>+	virtio_transport_deliver_tap_pkt(skb, NULL);
+> 	return 0;
+> }
+>
+>@@ -680,7 +680,7 @@ static void virtio_transport_rx_work(struct work_struct *work)
+> 			if (payload_len)
+> 				virtio_vsock_skb_put(skb, payload_len);
+>
+>-			virtio_transport_deliver_tap_pkt(skb);
+>+			virtio_transport_deliver_tap_pkt(skb, NULL);
+>
+> 			/* Force virtio-transport into global mode since it
+> 			 * does not yet support local-mode namespacing.
+>diff --git a/net/vmw_vsock/virtio_transport_common.c b/net/vmw_vsock/virtio_transport_common.c
+>index 1e762a480df4..027fe41c676a 100644
+>--- a/net/vmw_vsock/virtio_transport_common.c
+>+++ b/net/vmw_vsock/virtio_transport_common.c
+>@@ -190,12 +190,12 @@ static struct sk_buff *virtio_transport_build_skb(void *opaque)
+> 	return skb;
+> }
+>
+>-void virtio_transport_deliver_tap_pkt(struct sk_buff *skb)
+>+void virtio_transport_deliver_tap_pkt(struct sk_buff *skb, struct net *net)
+> {
+> 	if (virtio_vsock_skb_tap_delivered(skb))
+> 		return;
+>
+>-	vsock_deliver_tap(virtio_transport_build_skb, skb);
+>+	vsock_deliver_tap(virtio_transport_build_skb, skb, net);
+> 	virtio_vsock_skb_set_tap_delivered(skb);
+> }
+> EXPORT_SYMBOL_GPL(virtio_transport_deliver_tap_pkt);
+>diff --git a/net/vmw_vsock/vsock_loopback.c b/net/vmw_vsock/vsock_loopback.c
+>index 8068d1b6e851..cacd313a454b 100644
+>--- a/net/vmw_vsock/vsock_loopback.c
+>+++ b/net/vmw_vsock/vsock_loopback.c
+>@@ -138,7 +138,7 @@ static void vsock_loopback_work(struct work_struct *work)
+> 		 * It is freed by the receiver.
+> 		 */
+> 		virtio_transport_consume_skb_sent(skb, false);
+>-		virtio_transport_deliver_tap_pkt(skb);
+>+		virtio_transport_deliver_tap_pkt(skb, sock_net(skb->sk));
+> 		virtio_transport_recv_pkt(&loopback_transport, skb,
+> 					  sock_net(skb->sk));
+> 	}
+>
+>---
+>base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
+>change-id: 20261116-vsock-tap-net-1b09a0945779
+>
+>Best regards,
+>-- 
+>Bobby Eshleman <bobbyeshleman@meta.com>
+>
 
-Yeah a fuckup because the other function used inode not dir.
-
-Easily fixed, no big issue,
-
-> 	echo 'file fs/squashfs/namei.c +p' > /proc/dynamic_debug/control
-> 
-> and then any lookup which misses the dcache gives
-> 
-> 	BUG: unable to handle page fault for address: ffffffffffffffc8
-> 	RIP: 0010:squashfs_lookup+0x57/0x4f9
-> 
-> It is still there at the end of the series.
-> 
-> [10/23] now requires the fragment index to end exactly where the next
-> table starts.  An image with 8 unused bytes there mounts and reads
-> correctly today and fails with -EINVAL with this patch (I made one by
-> hand to check).
-
-This is correct. By design there is never any padding between metadata,
-and any padding is incorrect. This has always been the case back since
-2002.
-
-No Squashfs filesystem should be able to hide information (like
-malicious metadata) by adding padding between metadata tables.
-
-If it is there, then someone is trying to do something naughty.
-
-The fact the previously sanity check didn't check for this, is
-because it was added in the relaxed days of 2011, when the check
-was needed to block a fuzzer, and the check added then was
-sufficient.  Now, if it is not 100% exact, something like
-Sashiko will scream it is not sufficient.
-
-[15/23] similarly starts rejecting a compressed block
-> whose size equals the block size.  Is it certain that no version of
-> mksquashfs, and nothing else which writes Squashfs (squashfs-tools-ng,
-> the various Go and Rust libraries), ever produced either?  If so, please
-> say that in the changelogs.
-
-Well this is the rub isn't it.  I didn't want to put it in, but
-sashishito complained about the lack of it.
-
-Now you're saying another fucking AI is complaining about it being in.
-
-> 
-> [18/23]-[20/23]: with a small index every entry is checked against its
-> neighbour at mount time.  With the cached index that checking is gone
-> and only the range check in *_lookup_start() remains.  I couldn't find
-> a way for that to go wrong, but is the difference intended?
-> 
-> [22/23] fixes a regression in mainline (5641371fd0b3) but sits on top
-> of [14/23].  If it should go to -stable it needs to come first.  None of
-> the series is cc:stable at present - is that intended, given the
-> changelogs describe permission bypasses?
-
-Yes, the difference is intended. The additional sanity checks make up for
-it.
-
-> 
-> Small things:
-> 
-> - [01/23] isn't a pure conversion: SQUASHFS_COMPRESSED_SIZE() returned
->   32768 for a zero length and squashfs_compressed_size() returns 0.
->   Both end up as -EIO in squashfs_read_data(), so it's harmless, but
->   the changelog could say so.
-
-Really.  I don'have an AI and so I didn't notice.  But if the AI
-say so, well I'm only the fucking Squashfs author, and so what do
-I know.
-
-> 
-> - [10/23]'s reproducer says fragment_table_start is at offset 72.  It's
->   at 80, which is what the dd uses.
-
-Shucks.
-
-> 
-> - [20/23] has "Read fragment indexes into memory" in the xattr code.
-> 
-> - msblk->lookup_table is the superblock's lookup_table_start, and
->   msblk->lookup_table_start is something else (the first metadata
->   block).  Same for fragment_table and xattr_id_table.  That's going
->   to confuse people.
-> 
-> I built each patch on x86_64 (W=1) and the result on i386 with and
-> without CONFIG_SQUASHFS_XATTR, and ran small hand-made uncompressed
-> images, including one with 2049-entry fragment and export indexes so
-> that the new caches are used; all read back correctly.  I have not run
-> your reproducers, anything compressed, or xattrs.
-
-
-I'm sorry Andrew but you have completely pissed me off.
-
-I don't want you handling Squashfs from this day forwards.
-
-I am *almost* at the point of resigning from Linu kernel Squashfs maintenance
-due to the endless bullying I have received from you.
-
-But I won't because then *you* will have won.
-
-I am also CC'ing this to the LKML, and Phoronix to show that
-that you have been bullying me for the last 4 weeks with my
-patch sumission to *my* code.
-
-Thanks for nothing.
-
-Dr. Phillip Lougher
-
--- 
-Phillip Lougher <phillip@squashfs.org.uk>
