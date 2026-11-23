@@ -1,76 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795427069;
-	b=0kAWZj4/xhW2xGAKiRJmqDJCnHC7WqY5ZQkOd2wENrBAoRdT/NImoY9D3uNtbbqT+59j
-	 2qOK+5++90n5aPU3pVwUGMpbzQ9q2W6yaOQyxS99pPxkCWwWSI6ol18H5HvZF0bsKcXaW
-	 hUxbc65HCXZX4p6Pkmcj28GU3yivbyt3WcCH8XDQy+MMP+tBgh/95Io8KCwMBLx8KhkWL
-	 0nP1uoZAWRHRK6ffiavpnF2tsq3NolgyNXCT60xAU38n6Yp+stKaXSK1nFldshWW9QjkX
-	 3OsBZOsQkUBnSBTjgQsOOiryEnVn+MAkTMjgbRwRio7pUoc1nb1kGUENQMnM43OMpEw==
+	t=1795427115;
+	b=mkWnWUV7k03U705MzE5ZaiYNMZ0Q7ajdjKW78aB6++5lhP/TFThlT9KALQlnuJw/WoMs
+	 Ze+kBOg/Di8KRngQbqNZow6wDJnB4KqiD+2FTm44HnTCPcEyzujdofkVJra7oPaDOuW0m
+	 7aUfI92GXupLi/DExHw9DU3dzsp1mhjmqjPrK2Y8CSjoVLlMKuulMED7I7BqYmUF2LZVr
+	 Oxz3dGf/TIetN5WBwl7RdK50Qv1r8ZpjMLq7iuLxwVop3yQ9K0vPtSsk+QkQNaYwWhkG1
+	 nft8v5lD54NU1OD6F04AnR4ykatmU+diiq+RzyLNUSikO0bgYaxq1XCcfQxVNCP9xZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795427069;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
-	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
-	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=XXZTF0uTkX+SttFMkG8ioYO8nVRHeycJF30zfifWrrs=;
-	b=bAJdHv26FcB0mobt468wOq6/G/QVqkFHf4+1Zs+4F0RkTA83D6Yj38oqj1mK3gdGoSn1
-	 yrSkbjIcD7dwASOEwAI6NvUlKxmgsLioUPcZvNwf7Wk1xuRsaGLV8SuhlfPx+g76smn3l
-	 zlQhLXbijf68fl3KFkvR2G0cGP37SpILC1FU57MF3S2aVqHBdnfjBy6r+64bCc7i1xFbs
-	 Ru0Yn8GUilIwjtv4lBBs2etLFRga2bT0/eUzqjdNlJGjOUVLb8CheRq4m6av8z/nfOPHJ
-	 w2TpwlYi+wpswiCHcwFYqa1F/PxJvDkiddZb6pIeUNIBiiv/fHTLwGFCniyjqtIeUZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795427115;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=Jf6Sqoi3Qn0aJKe116rFzx97I+WLp3H4fMEI81ndjOw=;
+	b=EkIJkNvFr0TErDRh0wiqVebeIBpEmZd9cty2uEwknYP2ZvCApLvY2KLAdDPWzalVVH79
+	 bZ3xP7wb7lgfNr+OwpI0DTAc+4b/nag78p/iQvLtIFSBmOApzDUAKAnqg4ngnkkTKFqJH
+	 uyDBZetjJ60XUYcp0ZiP0RO/xLNOfJrTH2DzcLBIWtxQGOqIwy9OT2BbYpe9JRQsfxYcu
+	 j36EejGf+4BaVfS2lhWmn5SNCZo8h8y51c8xqVa1p4Gi93Gj/V44dMMviGRs0xNFz+QCW
+	 yeZk2H6B4lmIKme8CTcXxvSddVOs79gILjgmXPWlQ9GffNCCgzsNdUDFRvr4GMuZD6A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=xlmx0CEi;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=iuXWhKmi;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dmarc=pass header.from=arndb.de;
+	spf=pass smtp.mailfrom=arndb.de;
+	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=O7AgBIDQ;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b="b/xkS61/";
+	arc=none smtp.remote-ip=103.168.172.151
+Received: from fout-a8-smtp.messagingengine.com (fout-a8-smtp.messagingengine.com [103.168.172.151])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F290606A32A;
-	Mon, 23 Nov 2026 09:44:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F290606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA3F4606A32E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:45:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA3F4606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=xlmx0CEi;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=iuXWhKmi
-Date: Mon, 23 Nov 2026 09:44:24 -0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795427066;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XXZTF0uTkX+SttFMkG8ioYO8nVRHeycJF30zfifWrrs=;
-	b=xlmx0CEiFRA46pr/T/bZTsTaz+aUTx8wmCDcDS70ygbyfbOW1GygRULPpnJ8nkUxF1NJVe
-	nMM7ot9ElMo51e/8/BT5uJy0OdkDqfCPM1dIzABy6MBb+P3JSZEJPT9FkjZPw/Nz/uPanL
-	9ZfrJESi03/RtlTJuocO3FTny6UBRxSJq5N6+DnLXAdti8OMIKEKCOUP091WpieR11uhZY
-	Y8R0pNvVeG4qaSVomAIkKdqBOIGoyL0JVFhhlY/aF8DjYxjUvM+7lnNpe4ClFsVVpweCoE
-	WECVT/S+mxB33cvY9pZWcEE28hlJ2Wn4xkXmL7j8AosufQGuWK/qOUwJ8INT5A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795427066;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XXZTF0uTkX+SttFMkG8ioYO8nVRHeycJF30zfifWrrs=;
-	b=iuXWhKmiJRhV7QLqxWm+2UUilbpIs9gndkcMF8k7EJPC3FFH46209JH6caOixkuTwluAGZ
-	EPLwbdSj+63PkmCg==
-From: "tip-bot2 for Ibrahim Elshahed" <tip-bot2@linutronix.de>
-Sender: tip-bot2@linutronix.de
-Reply-to: linux-kernel@vger.kernel.org
-To: linux-tip-commits@vger.kernel.org
-Subject: [tip: sched/urgent] sched/core: Don't take the idle fast path while
- the core is forced idle
-Cc: Roman Kagan <rkagan@amazon.de>, Ibrahim Elshahed <lshahed@amazon.de>,
- "Peter Zijlstra (Intel)" <peterz@infradead.org>,
- Ingo Molnar <mingo@kernel.org>, stable@vger.kernel.org, x86@kernel.org,
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261120105822.7770-3-lshahed@amazon.de>
-References: <20261120105822.7770-3-lshahed@amazon.de>
+	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=O7AgBIDQ;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=b/xkS61/
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfout.phl.internal (Postfix) with ESMTP id DA14AEC0AD8
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:45:13 -0500 (EST)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Mon, 23 Nov 2026 04:45:14 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795427107;
+	 x=1795513507; bh=Jf6Sqoi3Qn0aJKe116rFzx97I+WLp3H4fMEI81ndjOw=; b=
+	O7AgBIDQYiGEwcU13yBP7pD9SSA2LG3Y/2zfedNLAskwZiMNiVx/3YiRQCiif00L
+	KR7wbkQkixoe73zVJ1Er/fxNvlv6oup5Qs7tIFLBQvXHlNf2Lls/CBhsRQAvANrx
+	vUnwgy8YyeKjiP9KtWB5j4f+P5wk+IKDzKMPufgsh1nSdormzySXKWxUMBRzZLP4
+	HbZufdcYy1Pd6Ly1p43LoHR+3Vb0Qwnx8PqLg6abpEKgj7bS8ALsGmKzkbvNFBXa
+	MiwlM30/oy4VCzbP2D0Cn/RvckE2/6m1FYYRZEehucfMzUofj1hrRnSQadQl3L8k
+	K8KcORqTkWAcvTDrUnGBuA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795427107; x=
+	1795513507; bh=Jf6Sqoi3Qn0aJKe116rFzx97I+WLp3H4fMEI81ndjOw=; b=b
+	/xkS61/kMaSQuNIi8DG0o5vUJAH7d6Q1xIk97skI5kwzb7tPoAEfcUn2XJqOMww4
+	uf8Sh9s1OXPn6LqvXUYfgtWz+icscUJeCIALVZo6TozAZu0w7OG8m6ae/YqfUECg
+	k4juAs2ogTO8ctEgqAPm3vFT0ppNeEeqIgPHEcEBLM7hm3pLpXsXo5QUVdFEP1/S
+	UkZh2vllQKqkeLfF4kPo9CKZj3Qe9PIXsR15BgQHdGjzXIRTIQBO6ZjEDE6EU8MP
+	X6IKLwE7y81JcCGVdMF0ste0Er3Nm+tWTxhbFCV4yRSDgl3CK22qv3rqFc404Pic
+	SmeAIHQMNgJ5z33uvvV5w==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795427107; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:khCSp+6//O9L7XvH1o0Iu+OkQC7XDr2pQkt/F63Gv9HFT3e
+	+/h3u7RJOqVzdyk5QP0f1VY0bfDBDCaZV/4yIK62k4A6/U8GIlf802xm6ZHdroR1
+	pB77Mf9jTEP6GK83dNgPIJ+bIV73T86D7ZObLl5Hqaklr0UcDMUqdT3ZzswJ+qxm
+	nxCE6CRu9hgaKlxp5TbrIi2jPWHhaHss5wNkWUUROjSZRjPBochUmwZ1UKmqvQ4M
+	amuzDZiEdl32DyT1JqNq5Wah2JHP7QaoXOeFGc6M8ircO2ppeZWgeuxLuzhsqzaC
+	l/z+h9mKrBEM9LMIDQ80zLnmqn3sjSSRH39d6NA==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:n6aZHqmDv56bF8XRSZatVJoaf2cIxLxzDgGBelOCUhY=:k9xBw4n1GQ1b94YYLMbzPhZvmLufZirlyqxW+aNOye4=;
+X-ME-Sender: <xms:HgsEaxOhIy6VSqHjWAAc5S8_-r6-9swBvBxAZEerTD2O5jLd3ZgG0Q>
+    <xme:HgsEa-x69Xr14wICuR1V3aldkqPMHk8AQ7qJe2NS-7QWty46aKqak2PekFIgToWpz
+    PoRPYsUtqMhT7VkM1ce2MJx0QvsB3KlJ6zaH6kNqLo-5eQx8qKiXe0H>
+X-ME-Proxy-Cause: dmFkZTFpjowEKf6THSkdHWlNfLsqi/vZ5GVMYQLFUxpmwMKx15Gn0GblHHreGqWlNSZRJ3
+    6Stix52GCratCpj/7n/ateu49JFA5AjKZNwJ4R9VBgrMnT1kWC9uZL/57j7guCkzp/axZj
+    7i8/C5KOfhgQ77XKEjot0lXHcH9w8HKqAMH3Sqehj7oZCfsAqKXpP+uFG+6U2gp4T7mAIb
+    lPd5PSTOjznfw247G71MJjn0c6a6ZsMiXUIGFEjVlndXWZ8kMdo/fyAm2Icr8OU41WdOww
+    82BaQor6puPLTTo8KDZD6rQ36OvbXVnyqY5z9bIpYMFPhmT2b04eSG2J/h9UtsImG7IdeO
+    b9w35fi2So7GFHUgGGCEXxt5oRewJYy8gfT6oAfvi4NLlTPiFtaBawQqb9/9DoasICM2/w
+    ffH5NjKuoyrFGXpYfuE+zqEYHhuPIItq0tr7E+LmfnS8/tixEooc1ShXYR6S8j14tfzbXp
+    vzLQaphfQaLAl5/NnHlEV6SaEXsvOlJQWNvupyJHK6sIYHYYMIwHwgDnRF/ICBQvKO5/JH
+    dPz6PlKvqNhJMc/zq9fkS/kxOD5L+5/9q7vlw+ymavddfSFaFBHsZ+E8RK4GE5ANtYShX5
+    t2Q81Q/mVgdYPz2HP2pupFNyQEvOwqpN0/DPYeMPIyxKE8Px19JhQ9r8FMaw
+X-ME-Proxy: <xmx:IAsEawGGTpdHb13lBvPvA-EMxmxgd-z86XmyBfAQKnW2yo2D4hi7hg>
+    <xmx:IAsEa-PLkdycf7S3rOl8FXT72ZX879GL4GOYQl-HDahX_Sv_GlAI5Q>
+    <xmx:IAsEaysK0ulq58o5gOXQVpwfq5yCaWkpgPWJ1er_z6kFjW2uDX6ikg>
+    <xmx:IAsEazVFOMlr6GbbnLAYYQyoBUp3w7jHyHBXanRly9aDQskU-2q8Zg>
+    <xmx:IwsEayan8b1DSh4GdNFijLjU6RL3T1AZo6Ww15949JvjYP7Bm8s6GjOk>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 32C9A32A0099; Mon, 23 Nov 2026 04:45:02 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,125 +115,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <179542706459.92412.897398883218691952.tip-bot2@tip-bot2>
-Robot-ID: <tip-bot2@linutronix.de>
-Robot-Unsubscribe:
- Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
-Precedence: bulk
-Content-Type: text/plain; charset="utf-8"
+X-ThreadId: AMjdjL9dYp0J
+Date: Mon, 23 Nov 2026 10:44:40 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ "Kees Cook" <kees@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Linux-Arch <linux-arch@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-s390@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-alpha@vger.kernel.org, "Paul Walmsley" <pjw@kernel.org>,
+ "Andy Chiu" <andybnac@gmail.com>, "Magnus Lindholm" <linmag7@gmail.com>
+Message-Id: <ec5359c1-c16e-4177-8dfa-2ae5ab8a874f@app.fastmail.com>
+In-Reply-To: <20261123-at-vector-size-arch-v3-0-d342dae9e843@linutronix.de>
+References: <20261123-at-vector-size-arch-v3-0-d342dae9e843@linutronix.de>
+Subject: Re: [PATCH v3 00/15] exec: Remove AT_VECTOR_SIZE_ARCH from UAPI
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
-The following commit has been merged into the sched/urgent branch of tip:
+On Mon, Nov 23, 2026, at 10:37, Thomas Wei=C3=9Fschuh wrote:
+> There is nothing userspace can do with this value. In the kernel is
+> always combined with AT_VECTOR_SIZE_BASE, which is not exposed to
+> userspace and also changes from time to time.
+>
+> Move the symbol to kernel-internal headers.
+>
+> Meant to be applied through the asm-generic or execve tree.
+> The default recipient list was huge. I trimmed it to only the
+> architecture lists.
+>
+> Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
 
-Commit-ID:     029c90c449bfe0e200cdeb24c5b1a775764c0006
-Gitweb:        https://git.kernel.org/tip/029c90c449bfe0e200cdeb24c5b1a775764=
-c0006
-Author:        Ibrahim Elshahed <lshahed@amazon.de>
-AuthorDate:    Fri, 20 Nov 2026 10:58:21=20
-Committer:     Ingo Molnar <mingo@kernel.org>
-CommitterDate: Mon, 23 Nov 2026 10:38:26 +01:00
+Hi Thomas,
 
-sched/core: Don't take the idle fast path while the core is forced idle
+I'm happy to take this through the asm-generic tree. I've already
+made sure it all applies and the patches look good to me. I'd
+wait a few more days for additional Ack or any other replies,
+let me know once you think I should apply this version.
 
-Since v6.12, with commit 3dcac251b066 ("sched/core: Introduce SM_IDLE
-and an idle re-entry fast-path in __schedule()"), an idle CPU with an
-empty runqueue skips pick_next_task() when it is rescheduled. Under
-core scheduling that pick also ends or re-examines the core's forced
-idle.
-
-A core-wide selection chooses a task for an idle sibling and reschedules
-it. If the chosen task is migrated away before the sibling schedules
-and it was the sibling's only task, the sibling goes back to idle
-through the fast path. When that selection also forced the other
-sibling idle, because its runnable tasks did not match the chosen
-task's cookie, the core stays forced idle with nothing running on it,
-and two things go wrong:
-
-- Without the previous patch, the idle sibling's rq->core_pick keeps
-  pointing at the migrated task, and with schedstats enabled the forced
-  idle accounting keeps writing through it, even after the task and its
-  cgroup are freed:
-
-  BUG: unable to handle page fault for address: ffff8d6b205f7018
-  #PF: supervisor write access in kernel mode
-  #PF: error_code(0x0002) - not-present page
-  RIP: 0010:__cgroup_account_cputime_field+0x3c/0x70
-  Call Trace:
-   __sched_core_account_forceidle+0xd8/0x140
-   __schedule+0x1390/0x18d0
-   schedule_idle+0x1a/0x30
-   cpu_startup_entry+0x29/0x30
-   start_secondary+0x11e/0x140
-
-- The forced-idle sibling keeps waiting with runnable tasks until some
-  unrelated event reschedules the core. Likewise, when the forced-idle
-  CPU itself loses its last task, the reschedule that
-  sched_core_dequeue() sends to end the forced idle also ends in the
-  fast path.
-
-Take the SM_IDLE fast path only when the core is not forced idle. A
-pending rq->core_pick needs no check of its own: the previous patch
-clears it when the picked task is dequeued, so a CPU with an empty
-runqueue has none.
-
-Fixes: 3dcac251b066 ("sched/core: Introduce SM_IDLE and an idle re-entry fast=
--path in __schedule()")
-Co-developed-by: Roman Kagan <rkagan@amazon.de>
-Signed-off-by: Roman Kagan <rkagan@amazon.de>
-Signed-off-by: Ibrahim Elshahed <lshahed@amazon.de>
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Signed-off-by: Ingo Molnar <mingo@kernel.org>
-Cc: stable@vger.kernel.org
-Link: https://patch.msgid.link/20261120105822.7770-3-lshahed@amazon.de
----
- kernel/sched/core.c | 19 +++++++++++++++++--
- 1 file changed, 17 insertions(+), 2 deletions(-)
-
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 4b1d36c..b2f6b99 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -347,6 +347,15 @@ void sched_core_dequeue(struct rq *rq, struct task_struc=
-t *p, int flags)
- 		resched_curr(rq);
- }
-=20
-+/*
-+ * An idle CPU with an empty runqueue must still call pick_next_task() while
-+ * the core is forced idle. Only that pick ends or re-examines the forced id=
-le.
-+ */
-+static inline bool sched_core_idle_needs_pick(struct rq *rq)
-+{
-+	return sched_core_enabled(rq) && rq->core->core_forceidle_count;
-+}
-+
- static int sched_task_is_throttled(struct task_struct *p, int cpu)
- {
- 	if (p->sched_class->task_is_throttled)
-@@ -550,6 +559,7 @@ void sched_core_put(void)
- static inline void sched_core_enqueue(struct rq *rq, struct task_struct *p) =
-{ }
- static inline void
- sched_core_dequeue(struct rq *rq, struct task_struct *p, int flags) { }
-+static inline bool sched_core_idle_needs_pick(struct rq *rq) { return false;=
- }
-=20
- #endif /* !CONFIG_SCHED_CORE */
-=20
-@@ -7290,8 +7300,13 @@ static void __sched notrace __schedule(int sched_mode)
- 	 */
- 	prev_state =3D READ_ONCE(prev->__state);
- 	if (sched_mode =3D=3D SM_IDLE) {
--		/* SCX must consult the BPF scheduler to tell if rq is empty */
--		if (!rq->nr_running && !scx_enabled()) {
-+		/*
-+		 * SCX must consult the BPF scheduler to tell if rq is empty,
-+		 * and core scheduling may need pick_next_task() to end forced
-+		 * idle.
-+		 */
-+		if (!rq->nr_running && !scx_enabled() &&
-+		    !sched_core_idle_needs_pick(rq)) {
- 			next =3D prev;
- 			rq->next_class =3D &idle_sched_class;
- 			goto picked;
+       Arnd
