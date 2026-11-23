@@ -1,84 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795449726;
-	b=qZCPrO8P72Z1blHvN7RLAfXBpF8D+DKS5QesbMzqmrT6phg6jY24M3i9AyMvXkOfbwWg
-	 /Ufd440S6Lr8fDEkfuMZHfwnDu4GpW6O8QuFywfgl8TXsdfC9mfCub+NXXAvRPFEcBJnv
-	 a7ASTHkB6R3oobwL8wqmAyTWwC+XT/52R1kFGLs1WpgrpKpqtJWiMlKUhnEKgh2Lvn3AO
-	 cd5n3X5b/Y8anaKHBWG2Tigb0hT1I3lYxyBHRprMVcN1rk4rcejbubkq6icMB8mtrv12n
-	 zvNidbRDegccOjuu1UN1BkXkYNyUclNCf3xrXt17FJF1PfU2w3SCPBtI/0+8sIoeyHQ==
+	t=1795449729;
+	b=1YxwwNOuQbSkm1H+IVAZoaaxrNZYWcWUkMVD85vYZYnJOkFSCnvECx8KsHz+i4WSjwPB
+	 jq8J4FpGRbtEUVPMVDjUnTvVEwSQmORGVY+ZoTGFL63CyHhbbkuZ0oCznqbLgCg/55Ujb
+	 YCJ3MQnOHXD+OzdxaBoLB+rOU8sdeAE/NCllQLmnuf+c0hCbzvS2diBdu6eDOLOpIPn7y
+	 /wxxclg1/YH8F2oJzuyumP9CFhXU08ciS4TQleLCLvzPsZy8/4LgyBYJblg70CxEibRvo
+	 bcDLe1Ea8EiG8BdepsQCwd8NlmHd3ITVHRG0yHDcKBDNPbU0EFj1uWqZmqprpk2i/pA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795449726;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
-	bh=y4WiymWQ8hbxf306tYMJr1AN/YqV2ygFqoD2QusV7Jo=;
-	b=ATNUf8y4RElpCH4YBVOeOqAi7HpMmdW6mlNKlwhX+9K8srmGCm/OrkmF7IgtlvYFF+Of
-	 DBeejCzLB3tDJNuXIExvlWP6vQQqQB2PsHi+NtOw5Bvpv0bQbGu6hoqtAFf49xFwydLD8
-	 EGPczi11BDhdhY9qd9WhgUjXoCKeZwrc1wKN9zzxiaFybbKxmuZCY0nAuFEnIKMbRXhwS
-	 fKcfDfTYmvSwPNA2CO2O01BTKF5HbE3/ivmIYo7VFuYg6doH+UYSJ7+yi01wBRaL5hH7p
-	 +RfcKwmxrgQmokKxuJFDlt4gLkiPZ4E/NsKW9lv8QFxDv/5e51IVUDn6ZmrkwIHuitg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795449729;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=N1Kph1Jnk+DxQD2xwzYoq4HTvoREjcNCOFAcKHlvXLQ=;
+	b=MGsCRoPtokpzbIGu76I5l4yMQYQEkNR5ktGNoCkZ7KUVs1peX2yYUaehUwpBg4a90JCJ
+	 RXXNv9AjVML4CDlzpCqGzWcCjrTJgk1+n50c4o0T7gjgDnNCCSS9uLM+FGABRqbCiw6Td
+	 EOO3cPs6E/9mJnH6dIbAHkpHgaMCnKMJBI/1RYmXGbsgOzG8tDivY8p6vvX1l8HAhRYgC
+	 W2pJxyw4F9GGokv5DSmichK9IW974q3AoxkhFeYFfL/5UEl2fEKgims/jcbnXi1H4FYlJ
+	 BgHT/rVtsZF4uWzHOY7qi56RMmL+eX+BQrExVPJskOrofoocrOWw5FjNmeJ6oG+p3Sw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O+cjp4zF;
-	arc=none smtp.remote-ip=74.125.82.173
-Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fbe9rZ1M;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AECA606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:02:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AECA606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75F33606A321;
+	Mon, 23 Nov 2026 16:02:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O+cjp4zF
-Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-38190551625so7193518eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:02:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795449724; x=1796054524; darn=vger.kernel.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=y4WiymWQ8hbxf306tYMJr1AN/YqV2ygFqoD2QusV7Jo=;
-        b=O+cjp4zFNfTyCftHhvEp8PgWz1Jgmqpc5yNNuU8tbUrYtLdoOXED2bRmT1GTkRwnD8
-         CvfeOGTKygbgpKiJq8twMQ/8XNUa/h2YB3OpFbws53r7LYPZlpDH2z8k9vpC0fY21D+3
-         XVjDWyaqSDOoFKrIWIxgloMgtYZygeUPdvHa//X6mE54uKyUPzsD0iAsEA3fTHawFntN
-         l8AbPo7XDX1cPrz05q8yN1rFQlZ0kspCgwb7KnggEg/WyA/E+OBNVziWKeqYcxptFC6a
-         FNEXfUsPrLE3HJ6cIhtarPkELi0yB1m+2U3c+wIoWEvql3lOtfLFk7zxMpFegMsTD/sG
-         BNPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795449724; x=1796054524;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=y4WiymWQ8hbxf306tYMJr1AN/YqV2ygFqoD2QusV7Jo=;
-        b=gYejaImCqYHp0Az6N3bo5UvlfT9RXAKydR3Z45oKXjn28Vh7IrAg4LhaISCjRHH+61
-         G7ABGDqerlOc/HCXNQd3EkauLw9lrO/aiTwvs4PpQJzrR88QzDxZp07MVVVP97/9S2Oy
-         E6jbZxbgE99LwSnVKcjKfFIrFOklhlBwQiaKnFpjwU9xL/bxrJMRHlQIlcXySuzOz0hH
-         vnoS1oTCw5mRruB6H/s/VUJjK309zSgc4E7ac/WhlAf7/bH/a26SnLST0czZGFt9egir
-         79R68nz86T1qAbQul2aKLVLnHtIZvBOrDCenPuK0ocEo9qAG6eE7IDaxcojg6jte8IrF
-         UF5Q==
-X-Forwarded-Encrypted: i=1; AL+hErFkHRk27FPlLva7TImEX4gDgz/LUFmQEoZ/T4zY+kst0ADIzTFXcV6siU6PIsZ4BctRCQreBdEsxINweeg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9yqthbhcudYVhQzgMNO6Zjtod3Rm/m4muHytdsMpbBYnt+f2vY
-	xXi5lmB7xkq4NaAxate2O1gUDt4u+RsxyQaOpl4WC9EMcIAcxqGdO6se6QjwANIO
-X-Gm-Gg: AZFdTZew9iAfGHe3fi3h4HjePBc3EwUvRCnyHCBB8O0ZTeTsi9R8KakNyKCX7ucA+fW
-	W3CBTNWYRon7KKNjW8F+VjrP/m6A0x0SAv72zOdjGlFS/cioaJOl7LF4M55ldc70ObdPwplYfoW
-	ehxnl7aBb5HRAT1PV1RjgiMwO8jTp+hsVvVCiLe1aOcDHnvcKA8vSjYu+zY8LzO1YfTt+JIH3dn
-	s7CKWIV31xAzzZJ9Q9pmJkHmvmv9Z3ZizQiUoffvuYD8l02P7CNZbnMqCrD/BiJfxX/9R/bWcYd
-	xT53I3TD7bCvmJJcvljUIkFU+07IgcgQWp7W20CwMfO8Vz+d1XqABAFrONucNSXND9Jh3hr7gVT
-	JkPSidg/XZPt7Fgx4cqpSSgS6kjrMdFxMEuOx3RwR9olzIstQYHTuVg7deYls5LZLsNO7VzDIN4
-	cdnB4XAu7Iu5T05FiQkImi9HOLRiQiu4glzTGeDcc94PJsMbfLMfAnhesqlxKr0/vNrjg6ExqZw
-	a8q/irJg5aJJBwizpEW3zeRvHYOOp45IhECufF4qjBZ0III++IVjjOpi+6CYuYcBd47pPiSzcbj
-	FYE5lyntscZlM3kCXwto6aPxFXg40E8tlqxrZQ==
-X-Received: by 2002:a05:693c:8642:20b0:386:9e22:ca4c with SMTP id 5a478bee46e88-3869e22cc7emr9286882eec.35.1795449723987;
-        Mon, 23 Nov 2026 08:02:03 -0800 (PST)
-Received: from [192.168.29.85] ([2405:201:8026:213e:b134:e578:f288:cb38])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm38961399eec.28.2026.11.23.08.02.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 08:02:03 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fbe9rZ1M
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33E901F000D2;
+	Mon, 23 Nov 2026 16:02:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795449728;
+	bh=N1Kph1Jnk+DxQD2xwzYoq4HTvoREjcNCOFAcKHlvXLQ=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=fbe9rZ1Mv1u8RJWaAxnCXG49oerJ+CjiUI0zg42zlZTlVgKSbRM7B7/pXkEAdbaNj
+	 IWTlVDP4ABD5HLR/QmfRjs/cj4KIbOQ0B2chPcGTfz5qxNl8H9JbcnD9GX1BVVZyrW
+	 is0BxM+OAQDFWELHwPJhABcimE7uC9rnYVpv2/mLvzaIx5rtlV65/do/WKiemXp6rq
+	 WMTrLCHChMnIUJq+Cx9HaT9SgIyuvlNkbvLX7iugA1rxo75MXLAhdVgYcyMMV1uVpe
+	 xm4OrfE2pmRC8bn+D4fMl6jFugDJckS3YsXafVR7kACdUJ/uL7vVNDwXqIFvjWeU8X
+	 tqb3wafxFup/Q==
+From: Vinod Koul <vkoul@kernel.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org
+In-Reply-To: <20261110-9f141e6bc8-phy-rockchip@mail.sdu.edu.cn>
+References: <20261110-9f141e6bc8-phy-rockchip@mail.sdu.edu.cn>
+Subject: Re: [PATCH] phy: rockchip: inno-hdmi: Fix potential stale clock
+ provider
+Message-Id: <179544972583.261285.10042942204136038609.b4-ty@kernel.org>
+Date: Mon, 23 Nov 2026 21:32:05 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,64 +64,26 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] rtnetlink: fix NULL pointer dereference in
- rtnl_get_link()
-From: mdshahid03@gmail.com
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: mdshahid03@gmail.com, Jakub Kicinski <kuba@kernel.org>, 
- davem@davemloft.net, edumazet@kernel.org, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <250c2bb2-57d7-4f91-a32c-8f6ac7d55a46@redhat.com>
-References: <20261120134548.214126-1-mdshahid03@gmail.com>
- <20261120100415.363fcb19@kernel.org>
- <179525944307.361783.17801110279499293110.b4-reply@b4>
- <250c2bb2-57d7-4f91-a32c-8f6ac7d55a46@redhat.com>
-Date: Mon, 23 Nov 2026 21:31:39 +0530
-Message-Id: <179544969959.175192.4403952228876691788.b4-reply@b4>
-X-Mailer: b4 0.16.0
+X-Mailer: b4 0.14.3
 
-Thanks Paolo.
 
-I think,I may have misunderstood this part from NET documentation guidelines:
-
-"The commit message must disclose whether reproducing the issue required 
-modifying the kernel (e.g. inserting a delay to widen a race, or[[**writing 
-a loadable module to issue the right sequence of calls)**]] or using error injection."
-
-I interpreted this as allowing a out-of-tree test module to produce
-an issue,provided that it uses legitimate kernel APIs.
-
-1.am i intrepretting incorrectly ?
-
-2.This is general question ,i mean ,we can litrally crash the kernel 
-just with loadable module ? How do we distinguish a legitimate kernel 
-bug exposed through a test module from a crash caused by an artificial 
-or unsupported sequence of operations? is this not vulnerablity in a 
-way or design issue ?
-
-3.Don't you see a gap in documentation w.r.t testing with loadable module
-in details.
-
-I am asking because, like to understand the correct approach and apply 
-it to my future kernel contributions.
-
-Have a nice day !!!
-
-Thanks
-Shahid.
-
-On 2026-11-23 11:56 +0100, Paolo Abeni wrote:
-> On 11/21/26 12:10, mdshahid03@gmail.com wrote:
-> > I tested this issue on both original and patched kernels in qemu.
-> > 
-> > First, I used a test module to unregister all PF_UNSPEC handlers.
+On Tue, 10 Nov 2026 22:32:25 +0800, Guangshuo Li wrote:
+> The clock provider remains registered if PHY provider registration fails.
+> Device-managed cleanup then frees the clock hardware and PHY private
+> data still referenced by the provider.
 > 
-> Just in case the are any doubts on the poic: if you need a custom
-> OoO kernel module to trigger a 'bug', it's not a bug.
+> Use a device-managed clock provider so both probe failure and removal
+> unregister it before the clock hardware is released.
 > 
-> /P
-> 
-> 
-> 
+> [...]
+
+Applied, thanks!
+
+[1/1] phy: rockchip: inno-hdmi: Fix potential stale clock provider
+      commit: e7d2f93a4426ea6b33dbca1ce585a9876e3a7344
+
+Best regards,
+-- 
+~Vinod
 
 
