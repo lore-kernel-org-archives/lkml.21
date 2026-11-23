@@ -1,88 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795441310;
-	b=aJ6CNUfm8gCOrxlz4ugfERjSyZ5wUWWkGIdqkj3lTFWRf/xbrcy+H/UoFhYC5njpLLhn
-	 pIU/uYS93xxTT0hMNXbw6JnzgDUzFyPlK3V9UWUn57JXwB5GtY7OhmFymj0eIXOnE/oJA
-	 tf4H800IZag6/qdYuwN1uErnDfpkiox56U2+/q8Tjlj7+tdIUhDiSGIE4oxjpOlSIIVzs
-	 lkOteGvTtfmbAUrsNoe2n7jquxwqhETFqwbW1KNIgtBRJMav4h7iEJ18uKc9bKCgkd+E2
-	 lqWxwb7cJYVDwEL4NxoOW40r62ir/MqO+7GVU2YyvP2F6TBiJTj2aahu0Beu0S2A5RQ==
+	t=1795441300;
+	b=vx/SZpb1t4pNK6SUO44Mpr6WR3O2CkEfzswnr55dRSjljc9WK7Xsgs6n7S3VGVIbWOPZ
+	 lhqj5SfSOV7Yj5/2FqsFjBtLudY8bVbfg4qOJCqswdJ5M+QeM9zD+fy8GIhOsnEcUyDWw
+	 uKYldT8ZQDu3/ohJeLeimzGVOPHIHCDpDaRn33oQjj8GINC4GcrQIEAIF8EHd2owp8KFE
+	 IRJjkamdWsEsLhAsD1PVGitNlGcA/bwFFbF71aWSdFfXhdM7eAajYe0+gDX6noVyNAjYF
+	 2OaxGKk2Ti/PnJafRAml6IoVHaGMm+G/RUCNKY1+QyYClLeocRW2Ep/zuh5+4YkR9rg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795441310;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795441300;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=JEwCxqYSa78a+8RvsiiGGU+aVSJtIui2RNJ0j0sohk8=;
-	b=lP9EhlWMkSFxfcOGu7oO6TdBThxo9qCfykNNv5trI0kFAzj2ezdl80Jz068BxP0EghLv
-	 AW5H8oiua72Rhq4+Pc4WQqUxM2vgG/+B5t6QNipeVm1YrXndn2/+Js2csCHrQ5oVsPuKX
-	 9IQNsmBwdrFDvDtFlbEu06CbCJDnPHtR8HARiHsz2rBbtroH9JHAhx3lofy4hTC0jDx2Q
-	 gZ7K3pbUKIhH4OZYvdCYFGMmztLmUzeHrwhv1iOrj4Vp3T0vmyVBhADoiJBjyPdNDAFZA
-	 5PS1zbzTfW8daWtBRpqvcWxcIqkc5LVnz3PH9SwBWPjGdaEym0bTKViGtLnrmNTlB3Q==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=dojWJPFgnKNqylC7XUFb1f1eXTEneh88WiZp95WzBxo=;
+	b=HTnSXEXircBu5f1gO7yvDdjsVjYImgHIaBRWGMfkvW2L2K/Hy7HPBCXRHsapqcR3a30/
+	 X6U4mN1ZsBK+5WaTAqnvx3sEskBTAFhvXuJPaOQHgHgNT+sjpR3KsgAH9j68hez4LYKrf
+	 gefbn/Rpr7jsO6/0QtBSsrp6ChOCMFENSGuIcZzNttRu3CQZ3wDZIq4j3/3sktyk4iMaC
+	 w/hXOd6OXUBaOn14Xci29JQSYc1fFws8YNS9Ee0c7YtF13NO2haFLhoiZLTTvkvzCyQmB
+	 lwzLYbNdGAFpoDw3z4zpk6LiYWmpX0wmYDaN/WCOA3NXR91LK2C4QrvzRd+fPqZjzMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bairaktaris.de;
 	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=CVBN7bkd;
-	arc=none smtp.remote-ip=209.85.208.42
-Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
+	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=uDKHM7Ss;
+	arc=none smtp.remote-ip=209.85.208.54
+Received: from mail-ed1-f54.google.com (mail-ed1-f54.google.com [209.85.208.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C408A60724FB
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:41:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C408A60724FB
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7482A60A383B
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:41:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7482A60A383B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=CVBN7bkd
-Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6b587538a37so4836299a12.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:41:49 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=uDKHM7Ss
+Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6b596afb4c5so3592260a12.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:41:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795441308; x=1796046108; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JEwCxqYSa78a+8RvsiiGGU+aVSJtIui2RNJ0j0sohk8=;
-        b=CVBN7bkd/BZGPJoW8CbECg3mPq8FieJKLu1s+0qaxSck6Z4P5NwmKDF6tEI/KsSzE+
-         A7jFUFyy88eiwh1NZhPe7R+jGvFJDwR+SP8QYput/zw6r5rHYjGICwgoe0dwNo+xm0Vj
-         CJxpnHAPmp2r5GkdOeiVavT8y8Kius+vnP9CCpwkyKBw5ejEPH3Q96s/gBNZfh8D8ypF
-         +1Q0Qyw0npiFpYbU71Ma04pVkO+T7wxQWCUajREkk5m7PD8WB8Xhz2qwZX+l/4hkNWLB
-         eTmA8PFGJv5cPF9eJDbzitFXBENsb+Jhl43kXf3VWMZd1rEnTX1qpjLZUPlO9VQX9P5J
-         p3Qw==
+        d=bairaktaris.de; s=google; t=1795441299; x=1796046099; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=dojWJPFgnKNqylC7XUFb1f1eXTEneh88WiZp95WzBxo=;
+        b=uDKHM7SsB0qkc2HpeKUX7LIJrt0OPC2vI4JaokDuAKG/PNYS7w6pz7a2sOI/jjkjCW
+         kvXsFGiyVd+CAnDBUWBFfnV4jHsgfXCkvaOpd92pAAcxYpzvlAZL5KiKc7AeXnH+Dsrv
+         qltcajAUj5EpoljOmtCbj/EEfZT5bvaKL++xwxICwz9Gfoq8LylOmAc9i0Os+Yqa1b9s
+         JM9Y7Fmf3APXsII+6cmuoEp7pvuqhyKSLT2F/6swr82993KJ6SyLKW69iygNOOQ5NkWv
+         9GrChOsjErSifiTBO9kLiphjmlOqHDODHiOIy5Fcp2Fzz85Cp+hFmEz6LPQ0mnv5Ceov
+         55pw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795441308; x=1796046108;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JEwCxqYSa78a+8RvsiiGGU+aVSJtIui2RNJ0j0sohk8=;
-        b=Tx1FyMfBOPpq0UHcHFf4w/bEANqVPwq3Hy12u18R7O8hfu72a0i7nHTF9mJzRDO3TZ
-         dwM3IYY4vH6LvV3/kK8yV8wrj63gazUmdn96SeTrQwjcdFhMesGYcFpX0y2IGc3fUn+1
-         ipWlXYy4Ok/enKUwgKRs2idTIahTqhGHQkVm5JlsLpgmXBbnFSdFpXOFQ4F2SO4wzdOT
-         sS2xuP6+O0Yys53OOIHDjely2GhwmknKEWDHa9weDDPnoBqv431yzIwZZ8kd/AdV7e+U
-         /fcSl7I//CFMuoqqAzgf3zzbBFAn1BASGNiGJoXNIIWZfuEhxerNAwzdX1hna2h+Ztnu
-         9j4A==
-X-Forwarded-Encrypted: i=1; AL+hErHkQK21E8SZ/w/1bce/gfnatYme1DS+1kp1TTq1CSl6ZFD58STcLlSchon18N6uEqfviIHGMiV9ndNNE7Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+6C3irFuE1WWZ9A48m4xVhVfSnJugCas4MR7db5y2ezgyLh4wb
-	3umM3MdNL0r2FhyfvcItfKvmQj9n+jSZTimUiBpz47H7F6eKDHijTIts5q4Szfyv7Q==
-X-Gm-Gg: AZFdTZevF4IodF4NkVeolzKkxte76d9wGNyCxwVVgBKv4QqYOV4VLxc2dYfJuljfsGG
-	p5HWhE4zjC0JukG+FqUpwhhj502dhgiumGLKP1vfipn5UQQ5RPvQ0WOm9YLpYZA636tAmwZmEoU
-	DOhomVmEvDPWdcjmauwwP/LHRL7hX3N7BqLD/1jQ49c3hDbPHMHaYP5G1CWfAYJYwjl3BgxOfQ3
-	Z2PtBSKLzkopcAfHtfpWoDvsKCC/xqcfSWopNvi8igxZZSN6WkC/qV2RIIoJcQlRPjNReaB7GNg
-	DogSosJt9OLA47TizVnOY0Dfnvkb3caLhBcXaepTqoEOPBy+fP7BAICpwfEMoau/qxlKHfJAcGm
-	TeQ+yfc3EvlW6GhFGlnmeE2URcd5h6vM4EI9A7Am+ozHWoIuf8nIK+xrUelXrnAVlxwitEEshuU
-	SBTypPpwpC295KhjcJxBfuvhIsvxbDaI7rWPJd2XAy5fP2lo4SNMTvuVcxqdKJIj0BgsrZo43Qa
-	PGOQL2lVXuKd8mS3+3uJp5thLm47DE6P/Ofdr2ejcro8e71E6TjSWGA83SDbPW+iL+Cisej3JQt
-	rY1jEDvqDJJYMPNCdclTwQGk2pldOtXzu3V862YVn/81FUQNiF357NYmcHFSXteOzX6GXzorwGS
-	98EDNeB56yDIOr2hVPctuIinU8X+2zP3RrsFp4j83SmfIphu6vvBQl1B18Ss5ndVFApLrGYnBvo
-	xZdxlGIFTm4Dstr+clVzoEpYF19zpXCceqONyMJ7eAsp57LUEmAykgtvmL7NygRCXFH09cYJuBT
-	7gMCnoSyA+G7DBUxdm/RKGEJvLWizbNcA+knaxTX1ZrpismlC3JJ13PLZg/E1Ljq05ni9W+SUBg
-	RV2ld7YMomU6OvJOePB40KzfmkE1bc+3c+Tx2r8d9t/i6RAg9ZzkikfmS61qBOAwz6rN/keHMg=
+        d=1e100.net; s=20260707; t=1795441299; x=1796046099;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=dojWJPFgnKNqylC7XUFb1f1eXTEneh88WiZp95WzBxo=;
+        b=Lx5zHgiBqbvplGY7QMwOJuZ8WR/9q0EvHwrBIqQFSD4eX1nUwg11qtU+kabq/dXRav
+         BptRMt7ihCYNE7W/aYXfucfLF0fyACArvmH0ZvQ7nGWS66yaWu/CSaGKPJj2KjawkGjh
+         8AdIVILxxCMMQ2U9ZfjnfzTFg2deR6kuCA3cHwLxqMdjC8jwaM6aY7ZRpB/opgUGO3TG
+         DiiUP0Ngzj79mUbxkY/jCQ7/ojESI/+5s7S4LQMsakAsYndxLXDEAAu98cHpvpmqCTAN
+         pnh7G7xe/P07Hs08Hy/Of2i6TtgIfp1NQ62l/qEs62QobG7V+zLb0uro/HzIcFKogctg
+         TzVw==
+X-Forwarded-Encrypted: i=1; AL+hErHDe95ctFr3ctSZ+3UqAqZLlkHpnGZCb1WzkLZcGGZVSyjOdQL7BIiP4ZiIxr25BPNzeVV44JRvaV/KuCs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z84RDU9z3iAo8VhxckBy8t/c4DiuUuPz4dC7TsA/zitBPUBwtN/
+	w6f/kBLpirUGDu1cYD6894Wc4ZKzmcF/z40obAT8tPY66B99RowBkbpEp4GgLIATSQ==
+X-Gm-Gg: AZFdTZf3arvQxBgpe+GemTzLsMHTLHAuAliPSSAYvnjuD3gs9f0lKambUi9/+v5VenS
+	qgwQSmbBpeMQzlBA1linS+cHcN43imKvJ/WszoQRd8EYTzcm6ydsw3inJTa94kaLYZ14MXdlSDf
+	S9ZsWEBrnqzEuPpNoYxA+bpltrdGlXuDsb0yngfYMQifcban0m73ZPDcE+9ECqQoye+it2IXsrT
+	0KdkKJwY84EuWtZpSvx+/ZwJfqoQwWD2sJzcl7KJAmdxByAr+FXcFq2tqAFEVWhG55VFoMWG8Iz
+	shd4O5da9nTPQP0AZ/9JUQ2ialFVzNvfpr53fUEC1aGvQPfhwzTOEdj1a6e8WJhUi4IO8NKmRtG
+	Ob/hnDizz2sh5SzFD9qxWLv12ZN1I+Vz+USgb414vYKOVIcHnrQ6R5a6ZBLUtNeXWIAVpt/uIKM
+	VEXPDzQlNN4req5WFTfmhuulCB13EvPYsxFyxb9i5QXw7G8O3iRcGHZwjz6B4qLmNrEUxroCRVP
+	wKEDIUcAwnI5finalWzjNcejp2kkoKG1sRofbbsHc4fNtGm/sS3EIr5jQY/hdUPHIXdJOl4Yp7y
+	Ijht+ROg5b/kZUBuSylJ4y2X/3NGeNR7RHLjZkCskfJk3UWNfo1NkIRqDamKmZ/sJgz+0anNqvk
+	fL3037WZiXlBCp24CR3q8FgReT81D0tGOXkehRvqeF129MSjKE4n0/UG4ZvMx1vrgHUhT0qpTef
+	q+1rbMPELqHXJE419MrtPEQwqIJT7VAmWNWocC0h/MHaw6GGjihjze/F8qyVr3lpd0fR6vVFL6Y
+	IDZRj1SZjawKCTwZCunVvO6pc+8zHqBGK94NShnGL755enokB9FBYy0IYGaCT9TGuVncmcpe1Yn
+	uguQAenZrSbdyTY79/vbaGN27DObWkG7zJK2FU6nuhl9h6Kqa8aA2wvTKaCgRN3zc3bsyp1bKg=
 	=
-X-Received: by 2002:a05:6402:5411:b0:6ba:1f74:ba6b with SMTP id 4fb4d7f45d1cf-6ba37eed98fmr8090525a12.36.1795441308127;
-        Mon, 23 Nov 2026 05:41:48 -0800 (PST)
+X-Received: by 2002:a05:6402:4501:b0:6b7:b872:27a0 with SMTP id 4fb4d7f45d1cf-6ba37e84aa9mr7855224a12.21.1795441298551;
+        Mon, 23 Nov 2026 05:41:38 -0800 (PST)
 Received: from Desktop.tail070c67.ts.net (p200300f247012000e9a6b19fb24a0d13.dip0.t-ipconnect.de. [2003:f2:4701:2000:e9a6:b19f:b24a:d13])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fbf0esm5339576a12.23.2026.11.23.05.41.47
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fbf0esm5339576a12.23.2026.11.23.05.41.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:41:47 -0800 (PST)
+        Mon, 23 Nov 2026 05:41:38 -0800 (PST)
 From: Julius Bairaktaris <julius@bairaktaris.de>
 To: Jeff Johnson <jjohnson@kernel.org>
 Cc: ath11k@lists.infradead.org,
@@ -95,12 +94,10 @@ Cc: ath11k@lists.infradead.org,
 	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
 	Mark Ruvald Pedersen <wabsie@gmail.com>,
 	Rosen Penev <rosenp@gmail.com>
-Subject: [PATCH ath-next v1 10/10] wifi: ath11k: give the refill buffers their ids a chunk at a time
-Date: Mon, 23 Nov 2026 14:41:37 +0100
-Message-ID: <20261123134137.718575-11-julius@bairaktaris.de>
+Subject: [PATCH ath-next v1 00/10] wifi: ath11k: cut the per-packet cost of the RX path
+Date: Mon, 23 Nov 2026 14:41:27 +0100
+Message-ID: <20261123134137.718575-1-julius@bairaktaris.de>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261123134137.718575-1-julius@bairaktaris.de>
-References: <20261123134137.718575-1-julius@bairaktaris.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,204 +109,91 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The refill takes the buffer table lock of the refill ring once per
-buffer, and the cache line of the lock moves between the CPUs of the REO
-rings, whose reaps take it for every frame: in a profile of bridged
-uplink at 850 Mbit/s (IPQ8074, one run) the compare-and-swap of that
-spin_lock() in ath11k_dp_rxbufs_replenish() takes 0.84 % of all samples.
+The ath11k RX path spends a part of its time per received frame on work
+that the hardware or a cheaper structure already provides: an allocation,
+a DMA map and unmap and an IDR walk per buffer, a peer lookup done twice,
+a cache invalidation per ring entry and per full buffer, bottom-half
+toggles inside a region that already has them off, PPDU stats TLVs nobody
+parses, and a flow hash computed again in software. This series removes
+these one at a time:
 
-Allocate the buffers of a chunk of up to 16 first, outside the lock, and
-give them their ids under one hold of it. A buffer that gets no id or no
-ring entry goes back and ends the refill with what is on the ring, as an
-allocation failure does. The reaps still hold the lock for one table
-entry at a time, so they wait at most for 16 id operations.
+1-2 give the refill ring a page_pool and replace the buffer IDR with a
+    table of ids;
+3   asks the firmware only for the PPDU stats TLVs the driver parses;
+4   sets the skb hash from the receive engine's Toeplitz hash;
+5-6 sync the new entries of a cached ring once per head read and
+    prefetch the buffers of the entries ahead (cached rings only, that is
+    IPQ8074, IPQ6018, QCN9074 and IPQ5018);
+7   looks the peer of an MSDU up once;
+8   drops a nested bottom-half disable in the reap and refill loops;
+9   invalidates only the part of a page pool buffer the device wrote;
+10  takes the buffer table lock once per chunk of refill buffers.
 
-Tested-on: IPQ8074 hw2.0 AHB WLAN.HK.2.9.0.1-02146-QCAHKSWPL_SILICONZ-1
-Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
----
- drivers/net/wireless/ath/ath11k/dp_rx.c | 142 +++++++++++++++---------
- 1 file changed, 92 insertions(+), 50 deletions(-)
+None of them changes interrupt placement or adds work on another CPU;
+each takes work away from the CPU that already handles the frame.
 
-diff --git a/drivers/net/wireless/ath/ath11k/dp_rx.c b/drivers/net/wireless/ath/ath11k/dp_rx.c
-index 313a39f15781..a85edaf19bfb 100644
---- a/drivers/net/wireless/ath/ath11k/dp_rx.c
-+++ b/drivers/net/wireless/ath/ath11k/dp_rx.c
-@@ -497,12 +497,65 @@ static struct sk_buff *ath11k_dp_rx_pp_alloc_skb(struct dp_rxdma_ring *rx_ring)
- 	return skb;
- }
- 
-+/*
-+ * The refill takes buffer ids for this many buffers under one hold of the
-+ * buffer table lock, which the reaps of every REO ring take too.
-+ */
-+#define ATH11K_DP_RX_REFILL_CHUNK	16
-+
-+/* A buffer for the refill of @rx_ring and the address the device writes it at */
-+static struct sk_buff *ath11k_dp_rx_refill_alloc(struct ath11k_base *ab,
-+						 struct dp_rxdma_ring *rx_ring,
-+						 dma_addr_t *paddr)
-+{
-+	struct sk_buff *skb;
-+
-+	if (rx_ring->page_pool) {
-+		skb = ath11k_dp_rx_pp_alloc_skb(rx_ring);
-+		if (skb)
-+			*paddr = ath11k_dp_rx_pp_dma_addr(skb);
-+		return skb;
-+	}
-+
-+	skb = dev_alloc_skb(DP_RX_BUFFER_SIZE + DP_RX_BUFFER_ALIGN_SIZE);
-+	if (!skb)
-+		return NULL;
-+
-+	if (!IS_ALIGNED((unsigned long)skb->data, DP_RX_BUFFER_ALIGN_SIZE))
-+		skb_pull(skb, PTR_ALIGN(skb->data, DP_RX_BUFFER_ALIGN_SIZE) -
-+			      skb->data);
-+
-+	*paddr = dma_map_single(ab->dev, skb->data,
-+				skb->len + skb_tailroom(skb), DMA_FROM_DEVICE);
-+	if (dma_mapping_error(ab->dev, *paddr)) {
-+		dev_kfree_skb_any(skb);
-+		return NULL;
-+	}
-+
-+	return skb;
-+}
-+
-+/* Frees a buffer ath11k_dp_rx_refill_alloc() gave that is not on the ring */
-+static void ath11k_dp_rx_refill_free(struct ath11k_base *ab,
-+				     struct dp_rxdma_ring *rx_ring,
-+				     struct sk_buff *skb, dma_addr_t paddr)
-+{
-+	if (!rx_ring->page_pool)
-+		dma_unmap_single(ab->dev, paddr, skb->len + skb_tailroom(skb),
-+				 DMA_FROM_DEVICE);
-+	dev_kfree_skb_any(skb);
-+}
-+
- /* Returns number of Rx buffers replenished */
- int ath11k_dp_rxbufs_replenish(struct ath11k_base *ab, int mac_id,
- 			       struct dp_rxdma_ring *rx_ring,
- 			       int req_entries,
- 			       enum hal_rx_buf_return_buf_manager mgr)
- {
-+	struct sk_buff *skbs[ATH11K_DP_RX_REFILL_CHUNK];
-+	dma_addr_t paddrs[ATH11K_DP_RX_REFILL_CHUNK];
-+	int ids[ATH11K_DP_RX_REFILL_CHUNK];
-+	int n, got, ided, i, j;
- 	struct hal_srng *srng;
- 	u32 *desc;
- 	struct sk_buff *skb;
-@@ -528,70 +581,59 @@ int ath11k_dp_rxbufs_replenish(struct ath11k_base *ab, int mac_id,
- 	num_remain = req_entries;
- 
- 	while (num_remain > 0) {
--		if (rx_ring->page_pool) {
--			skb = ath11k_dp_rx_pp_alloc_skb(rx_ring);
--			if (!skb)
--				break;
--
--			paddr = ath11k_dp_rx_pp_dma_addr(skb);
--		} else {
--			skb = dev_alloc_skb(DP_RX_BUFFER_SIZE +
--					    DP_RX_BUFFER_ALIGN_SIZE);
-+		n = min(num_remain, ATH11K_DP_RX_REFILL_CHUNK);
-+		for (got = 0; got < n; got++) {
-+			skb = ath11k_dp_rx_refill_alloc(ab, rx_ring, &paddr);
- 			if (!skb)
- 				break;
--
--			if (!IS_ALIGNED((unsigned long)skb->data,
--					DP_RX_BUFFER_ALIGN_SIZE)) {
--				skb_pull(skb,
--					 PTR_ALIGN(skb->data,
--						   DP_RX_BUFFER_ALIGN_SIZE) -
--					 skb->data);
--			}
--
--			paddr = dma_map_single(ab->dev, skb->data,
--					       skb->len + skb_tailroom(skb),
--					       DMA_FROM_DEVICE);
--			if (dma_mapping_error(ab->dev, paddr))
--				goto fail_free_skb;
-+			skbs[got] = skb;
-+			paddrs[got] = paddr;
- 		}
- 
- 		/* bottom halves are off with the ring lock */
- 		spin_lock(&rx_ring->bufs_lock);
--		buf_id = ath11k_dp_rx_buf_get_id(rx_ring, skb);
-+		for (ided = 0; ided < got; ided++) {
-+			buf_id = ath11k_dp_rx_buf_get_id(rx_ring, skbs[ided]);
-+			if (buf_id <= 0)
-+				break;
-+			ids[ided] = buf_id;
-+		}
- 		spin_unlock(&rx_ring->bufs_lock);
--		if (buf_id <= 0)
--			goto fail_dma_unmap;
--
--		desc = ath11k_hal_srng_src_get_next_entry(ab, srng);
--		if (!desc)
--			goto fail_idr_remove;
--
--		ATH11K_SKB_RXCB(skb)->paddr = paddr;
- 
--		cookie = FIELD_PREP(DP_RXDMA_BUF_COOKIE_PDEV_ID, mac_id) |
--			 FIELD_PREP(DP_RXDMA_BUF_COOKIE_BUF_ID, buf_id);
-+		for (i = 0; i < ided; i++) {
-+			desc = ath11k_hal_srng_src_get_next_entry(ab, srng);
-+			if (!desc)
-+				break;
- 
--		num_remain--;
-+			ATH11K_SKB_RXCB(skbs[i])->paddr = paddrs[i];
- 
--		ath11k_hal_rx_buf_addr_info_set(desc, paddr, cookie, mgr);
--	}
-+			cookie = FIELD_PREP(DP_RXDMA_BUF_COOKIE_PDEV_ID, mac_id) |
-+				 FIELD_PREP(DP_RXDMA_BUF_COOKIE_BUF_ID, ids[i]);
- 
--	ath11k_hal_srng_access_end(ab, srng);
-+			num_remain--;
- 
--	spin_unlock_bh(&srng->lock);
-+			ath11k_hal_rx_buf_addr_info_set(desc, paddrs[i], cookie,
-+							mgr);
-+		}
- 
--	return req_entries - num_remain;
-+		/*
-+		 * A buffer that got no id or no ring entry goes back, and the
-+		 * refill ends with what is on the ring.
-+		 */
-+		if (i < got) {
-+			spin_lock(&rx_ring->bufs_lock);
-+			for (j = i; j < ided; j++)
-+				ath11k_dp_rx_buf_put_id(rx_ring, ids[j]);
-+			spin_unlock(&rx_ring->bufs_lock);
-+			for (j = i; j < got; j++)
-+				ath11k_dp_rx_refill_free(ab, rx_ring, skbs[j],
-+							 paddrs[j]);
-+			break;
-+		}
- 
--fail_idr_remove:
--	spin_lock(&rx_ring->bufs_lock);
--	ath11k_dp_rx_buf_put_id(rx_ring, buf_id);
--	spin_unlock(&rx_ring->bufs_lock);
--fail_dma_unmap:
--	if (!rx_ring->page_pool)
--		dma_unmap_single(ab->dev, paddr, skb->len + skb_tailroom(skb),
--				 DMA_FROM_DEVICE);
--fail_free_skb:
--	dev_kfree_skb_any(skb);
-+		if (got < n)
-+			break;
-+	}
- 
- 	ath11k_hal_srng_access_end(ab, srng);
- 
+The profile shares in the commit messages come from perf on an IPQ8074
+access point (Xiaomi AX3600, 4x Cortex-A53, 5 GHz HE160, one station at
+850-900 Mbit/s TCP), one run each, with OpenWrt's version of these
+patches.
+
+On a Xiaomi AX3600 (IPQ8074 hw2.0, firmware
+WLAN.HK.2.9.0.1-02146-QCAHKSWPL_SILICONZ-1) running OpenWrt's wireless
+backports with the RX fixes, with one HE160 station at 830-940 Mbit/s
+TCP and 3 runs per cell, the series lowered the share of the four
+cores the traffic takes in the cells where the station sends: bridged
+IPv4 33.0 -> 27.6 %, bridged IPv6 32.8 -> 27.7 %, routed IPv4
+33.7 -> 27.6 %, and routed IPv6 31.2 -> 27.9 %, which is within the
+spread between runs. Where the station receives, the change was
+between -1.4 and +0.8 points, also within that spread. The share is the time idle-priority spinners lose
+on each core. Switching pktlog (lite and full) and the extended TX
+stats on and off, adding and removing a monitor interface on both
+radios, and unloading and reloading the modules left traffic and dmesg
+clean.
+
+The series applies on top of the RX correctness fixes https://lore.kernel.org/all/20261122210525.2076058-1-julius@bairaktaris.de/: its
+4/10 uses the msdu_start_info2 accessor that series adds.
+
+I used Claude (Anthropic) to help write these patches.
+
+Julius Bairaktaris (10):
+  wifi: ath11k: use page_pool for the RX refill ring
+  wifi: ath11k: replace the RX buffer IDR with a table
+  wifi: ath11k: request only the PPDU stats TLVs it reads
+  wifi: ath11k: set the skb hash of a received frame from the hardware
+  wifi: ath11k: sync a cached ring's new entries once per head read
+  wifi: ath11k: prefetch the buffers of the REO entries ahead of their
+    reap
+  wifi: ath11k: look the peer of a received MSDU up once
+  wifi: ath11k: take the refill buffer lock without a second BH disable
+  wifi: ath11k: hand the CPU only the part of a REO buffer the device
+    wrote
+  wifi: ath11k: give the refill buffers their ids a chunk at a time
+
+ drivers/net/wireless/ath/ath11k/Kconfig   |   1 +
+ drivers/net/wireless/ath/ath11k/core.h    |   5 +
+ drivers/net/wireless/ath/ath11k/debugfs.c |  15 +-
+ drivers/net/wireless/ath/ath11k/debugfs.h |  10 +
+ drivers/net/wireless/ath/ath11k/dp.c      |   9 +-
+ drivers/net/wireless/ath/ath11k/dp.h      |  27 +-
+ drivers/net/wireless/ath/ath11k/dp_rx.c   | 712 +++++++++++++++++-----
+ drivers/net/wireless/ath/ath11k/dp_tx.c   |  34 ++
+ drivers/net/wireless/ath/ath11k/dp_tx.h   |   1 +
+ drivers/net/wireless/ath/ath11k/hal.c     | 107 +++-
+ drivers/net/wireless/ath/ath11k/hal.h     |   1 +
+ drivers/net/wireless/ath/ath11k/hw.c      |  22 +
+ drivers/net/wireless/ath/ath11k/hw.h      |   1 +
+ drivers/net/wireless/ath/ath11k/mac.c     |  13 +-
+ 14 files changed, 765 insertions(+), 193 deletions(-)
+
+
+base-commit: 1983b40acfcb3c3464b291c85977290a785bcfdc
+prerequisite-patch-id: ed566369a9bbda0ac9a48357261e8cfe1cc0f1d1
+prerequisite-patch-id: 726d7737c833da0842192eccececad4a0dedb1a6
+prerequisite-patch-id: cf0b8ff1ac6cef681433247e4b937a3e23af78a3
+prerequisite-patch-id: 03c89df01745ac9a80653431261f9a003dbca7db
+prerequisite-patch-id: cb48c0eddbe0c2fe176e8edc94c6bc40be3c48a9
+prerequisite-patch-id: 1956ec85ad80b68868538070fc0e89c29603467a
 -- 
 2.53.0
 
