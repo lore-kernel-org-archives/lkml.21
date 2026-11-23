@@ -1,101 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795428763;
-	b=VxZ/3OHTl9ULjxzhxSH6Rtl4kbiHYEr1RCIALR2vM7sg73iG5UWNP03NPDJ2owqYbuMq
-	 /kUcluSyxEZeRAeIJmWTKeReNQ1NNo1c33CeSJJzdBt2Gqr7gfl6UXh1sdeYf9PBTVc6K
-	 CMUdT/cgrf0vYUUm/gYlcjtImS201iGG3TCeMHjWhaxuIHimqlAlncuv6xSN0hZ964Hu2
-	 JpT7KDJw1FTt9RFEHBSW+rg016yp1cIgLEpZYAwQB/Gkcf2S9OBcIzOlpSY3LGZJ1u+y2
-	 ZRYgQGv62SQTKLEcYIO5Mc/9Ao4JpzcmnxvEfB+wWk6lSidfPjicSo7ZDmOxjiCWaHQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795428763;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Z6PZb3pWfu3DBOMyeBvBYRTT0i6m3apihG5iiqFet2Q=;
-	b=pEKdVwNomcxw20A2TzAT69zqOhC69eT8aV85KP8O34IadX4/5BQIew7ddN+FHXYNzwxn
-	 HB2QX19slXoCjTnkjfDJrix5zDQyqQ71vOzge6pHAwJbgnEmJVvTleqwIPz6uLUrHiV8c
-	 Qkl3hgMhaKTu7/7XkaHtiA+7UIZVcmdJnMmqLi1PRhc1wICNqDICTqCYHozAiZuyac8cF
-	 ozpK6C9Vg6+nFfWZCLOQENOiPZImNGse1e4fgSHhzX7agDEDEAXiqrFBUUD3Mrm8txqSG
-	 1eylsUP07rydqHgkQ+sMnRuAlREAqMMYNzS1SRyptSDs32MKi6tr+3lxD9yZx66wnRA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=flipper.net;
-	spf=pass smtp.mailfrom=flipper.net;
-	dkim=pass header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=MqfY2WR5;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.52
-Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795428794;
+	b=1u062Qn/9H4eT+gpKSnxpscUasN1vMCnKQzbmCnM4sI+tO0NAuJt0IGR1ClIAGzwzTMh
+	 YjWZ7k7WEeHzQFkf6vsg3CjEWuKi9IDPkNTCetKoqDl1R6swBg2ZhUxv7eblhh03DyU14
+	 5edhDcH/Zfspp3x8Y1XREbEUy3jNrIGDlAeMpRpm0oYwkRrJPq5DNfv7VLqJXPSBAQFo/
+	 4NPZvElwOgF/UZpQrL6Gb6xLDcaKt7EMyai1rgB97g3huK+xFnapIdOMPkQcvgEWnuaSx
+	 v9LwGyP14nX9uA39rNH10NSUcrosE0nsuFzlkXMTaOlKFxqoix/+R8+aNeoZwvLrh+g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795428794;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=aCAKYfoCvQ9vLmGln50tXMVwiUj0VV55OA5yXQEIa6E=;
+	b=LwzoI+4qaewB7nvKs/39JY3ikhpmgeD+daRDrR5BXIk3pheJWNFVqJrTvjYvHFztzCWl
+	 tezruowDBv6BSHNi5nX6RewPdgr+Yh36fIHaQXX6Pv43ffXnCzBMhe3P4QJlZEryJfy9F
+	 yZ6anqZ7l8hDsJpMJxyGFoBDf06x9iSAp5GqeDkHoqMvDdxphSME5Glp3iwC7uMvHVkk3
+	 XH+iH8Qy2lvYj0saLslQWxBQwb324aRQEQcrxs0u9eGw4dF+OcB547wdCP/Qr3/W0l4Fx
+	 8Z+/oTdKdDMLJBQZOQrW7/31y7TcWzDLeeFYY1XmFPxV1nIPn90a42AuusmtLGIiowQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=o1f+q4HZ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE8CA606A330
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:12:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE8CA606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=flipper.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flipper.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF74E606A331;
+	Mon, 23 Nov 2026 10:13:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=MqfY2WR5
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c4203bbb1e9so503852566b.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:12:42 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795428761; cv=none;
-        d=google.com; s=arc-20260327;
-        b=hFGYdH+hrTNUkCrXONcQGl2myEuVDw47G1KqElYZvcnS2mUPWmsCM1TZR/UdOKPGLx
-         JOyMtIF7nYF34RRP/HD99DmUwdOMPCeQn1Lz12bsKnGIaF9H5jvjdHCAXgPTtrxgdX+0
-         A9eJk80FdnvFNtILjJVEhAhwN4y6Ou+G8w6o3DPDJ5SXWU0Enl5bgEEuMFCPHHkP4Ew4
-         326Fy2kREBTkOspznM9a2dwubAG6dr0avcUMGsRoL9LGsVrbQMo6N1JyEnuVFi/c8jCG
-         Nc2pFGsIRvH/rMGFY3X2XpsldGaPNsRdlNw6DyWnIN2AMTEBWptzDFXakWusbYaw49yM
-         jVMw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Z6PZb3pWfu3DBOMyeBvBYRTT0i6m3apihG5iiqFet2Q=;
-        fh=q6ZelaEQjZ0k20iyA7tcpB4DCVHTEZALfUlq1tExBcw=;
-        b=Vl4G6Zl0caViY7L35FB1KmBAlp7yEhV45Mv18hJWZmgbZCIOD6yiWBgF4f9Df+xcPn
-         Xkr58vlHMbamEt6vAp28BTEZ8moQZHfkv6u3MxxdBjEXgEByENfOAo/4Ee7J/9+UJlST
-         bO2MiXBgsqBVZMjdVE4US3Nzw+1Q2oESXGvdcDqQZLlesadN4XbVdA17S353G3By91AQ
-         9mH6VVZ5Db9z0QXjBLNlXvCTdb4/DdLIBM2kg4or/Dtf7jIprj5+9zYSbDN4UM84LUrM
-         JIar9p9QsXxgnp0X44V7hWwaB9IupjNbKFDOuApiXrVJ23kKnefwwmtoLRb6Mz/3AFW4
-         oxag==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1795428761; x=1796033561; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Z6PZb3pWfu3DBOMyeBvBYRTT0i6m3apihG5iiqFet2Q=;
-        b=MqfY2WR5A+tGruAVHjRKrDw5GIaiKkjvwm6WEch6FTIYRq8BLizWLXn5zpDnFwRRwA
-         kwN6xPmj02C+f4K6Pesc/ipxTUWAJ/jX7Z2eV2g3S3/G9Ri2i5mYzwiFBYWE4mKlYNib
-         JaEKi9jzGkUyZfJGjcv+VdtMrCTPstBpK7aXngyyd0uzeK44uGws21jQUKMvEPyX72E9
-         nu0okVVQrxrFvL6Nj9PKzFOum9ntDS1PavLl2r5c/4y05NfY1cHnTTw1MJUAQvpESx1Q
-         qXotT3VmYjML0hmwFGL+p+w5OsqphEiy5AfG0/ACGnd6E2yJhxynpmSns7W94umSVVpc
-         w4qA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795428761; x=1796033561;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Z6PZb3pWfu3DBOMyeBvBYRTT0i6m3apihG5iiqFet2Q=;
-        b=mi/slZV2lKZaXhx+R1T5UyqNzGf9I9UL7Ugmf2BoCG/ivszb9Mz8MI1QivUoa9qRUE
-         8J90cWx8k60PHQDOXj+9Z2eA5pS6LiVD21ZSkIOZkNTiUTZC3CrpAi2f1KnZmwD68NV7
-         YGZzCDecx7BsglO7wNe4tp/tKDDIq3cvz9gtluyJIp0l5ratjii4f24xsuUrWQ+fBZC4
-         YQMF9h+chPcUrCFvrMerXPl92C+tVrPLIoZ3+4jky7eEdBI+dgpw7aZaidqR3o4ZLBT7
-         n7l6zsxpJ1FPJJUTaBaVQzBgScc9Jv4eUrN8vKE1vHE/8WHZPw2/KcwgO2jg/MiqmauY
-         NCyQ==
-X-Forwarded-Encrypted: i=1; AL+hErHJJAKDM4vQifUtiiUKPnY2amN38WSEFQ3wepPx2zN087fhDaGA5NewrZTmKbaQzzvlf+sAG+8BUiv3ZXw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/YZd8OWl2yErK6QZZ1x7ZcgvOsrKbB9bH5kQqKpU1XlUORMWgo
-	hWAyU0CB2m72HbU2hDnndYtBl2yLgJ2qNQv2jfDbNMtAjmg/MwIiy6vcWeIywvEco/0PeHxasCi
-	z0ug/xmRbNRSth5ivT4gKV+xVdNL0ymLGT6kWwQTomWPLdA5aHLTp
-X-Gm-Gg: AZFdTZcTJVkqUDTViNvOapzV8sTl9kSxtCZO4XNLJw+p8tz6v2EtE47LFeJD/wPjdrD
-	mJ0xA2klks0vcUjs4z085jyIO6W0DeggEDYPP4BZaJc0SQ6y8PnkEedD9XEYE6tk1KCHqhtA1RQ
-	P2kZ71fIvQBnmoPSOwah86bnrYX3vrUGBnIzDvokCQMPutm3TG6Z9TwyKd81ghLO6CXUHGhpMzy
-	gN7O/vvtvxgRq573Uhm9UcPY6dQZ5ejZ9jOvCP5cSwM2o6tUv86x1OmcVNAdfI9ohLqR+xxJUEX
-	R2dwgB5P6u0x//2Jx6OZLPCnIRy1UfxTDSwa0v+EUwAeDS7dMTDaB676pWx0vVFlrYYVadZdkmS
-	jttl0xKP6IxmXCSvafVVOANIZAW0dkuaqGsUi2ISPROn0i+6VQJN/42fETOXdj+91mfcZ3JnaHM
-	4sHGVzgRl01OSNkZg=
-X-Received: by 2002:a17:906:115a:b0:c3e:ee86:d2c with SMTP id
- a640c23a62f3a-c513a866684mr820899566b.27.1795428760997; Mon, 23 Nov 2026
- 02:12:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=o1f+q4HZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99F621F000CF;
+	Mon, 23 Nov 2026 10:13:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795428794;
+	bh=aCAKYfoCvQ9vLmGln50tXMVwiUj0VV55OA5yXQEIa6E=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=o1f+q4HZI9J1syulAoNfTREYpzL4c2B8aSA66W94knoBv9IH4KYDmrLt7DJYkg3dO
+	 wlyKITCku7VK/cLSDHFWygw/b8smAASFVcF0UuSbsoAD4Yf3zvzWBmTQ6bpopJxCzI
+	 MpsxOg9Gw/cFv++LZ1gS+9x5sIxnPTZT+5KraLyyF0HHufVjOZZu0IdT1QjY9bAOHA
+	 8WXy6EMMheMjMFcvIKjCG3im0ywkvB8uuLmL/ahnFGx35Axwm0aRpHAokwK4yL8JAv
+	 ze4LnQjttgyJz+ZrweR9/JETH3SZstqj4x4RzIQu2ZHZA5QYd7OkV4GwFNXN3TDYLT
+	 z7OI7+QGIYVTA==
+Subject: Re: [PATCH net-next v7 2/7] dt-bindings: net: ftgmac100: Add AST2700
+ compatible
+From: netdev-bot+sashiko@kernel.org
+To: jacky_chou@aspeedtech.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, kuba@kernel.org,
+ pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ ratbert@faraday-tech.com, edumazet@kernel.org, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, andrew@lunn.ch
+Date: Mon, 23 Nov 2026 10:13:13 +0000
+Message-ID: <179542879318.3135.2219798604934758241@kernel.org>
+In-Reply-To: <20261119-support_ast2700-v7-2-33c8ca2d0dd7@aspeedtech.com>
+References: <20261119-support_ast2700-v7-2-33c8ca2d0dd7@aspeedtech.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,92 +65,143 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122-pcie6_fix-v2-0-2e0fe615d90b@oss.qualcomm.com> <20261122-pcie6_fix-v2-2-2e0fe615d90b@oss.qualcomm.com>
-In-Reply-To: <20261122-pcie6_fix-v2-2-2e0fe615d90b@oss.qualcomm.com>
-From: Alexey Charkov <alchark@flipper.net>
-Date: Mon, 23 Nov 2026 14:12:30 +0400
-X-Gm-Features: Aa3M54q-Xar7VXEu12WPkFbFHzHu90UHCgQbyjxEoWpDnyAZhVgjhAvqOSDzA9E
-Message-ID: <CAKTNdwEuu75UHA2_r9FLmximPjXVHp05Aztk201AjnFGcGSXRw@mail.gmail.com>
-Subject: Re: [PATCH v2 2/4] power: sequencing: pcie-m2: Add support for PCIe
- M.2 Key B connectors
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Hi Krishna,
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-On Sun, Nov 22, 2026 at 10:46=E2=80=AFAM Krishna Chaitanya Chundru
-<krishna.chundru@oss.qualcomm.com> wrote:
->
-> Add support for handling the power sequence of the PCIe M.2 Key B
-> connectors. These connectors are used to attach WWAN Adapters to the
-> host machine over interfaces such as PCIe, USB3.1 Gen1, SSIC, or USB
-> 2.0.
->
-> Currently, this driver only supports driving the 3.3V/VBAT power
-> supply along with the FULL_CARD_POWER_OFF#, RESET#, and W_DISABLE1#
-> GPIOs as a single "pcie" target, since Key B Adapters expose only a
-> discoverable PCIe/USB interface and no non-discoverable bus (unlike
-> Key E's UART-attached Bluetooth device), so no serdev creation is
-> needed. The other signals described in the binding are not supported
-> yet.
->
-> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.co=
-m>
-> ---
->  drivers/power/sequencing/pwrseq-pcie-m2.c | 70 +++++++++++++++++++++++++=
-++++++
->  1 file changed, 70 insertions(+)
->
-> diff --git a/drivers/power/sequencing/pwrseq-pcie-m2.c b/drivers/power/se=
-quencing/pwrseq-pcie-m2.c
-> index 56c5d51293c1..8af4a059b596 100644
-> --- a/drivers/power/sequencing/pwrseq-pcie-m2.c
-> +++ b/drivers/power/sequencing/pwrseq-pcie-m2.c
-> @@ -39,6 +39,8 @@ struct pwrseq_pcie_m2_ctx {
->         struct notifier_block nb;
->         struct gpio_desc *w_disable1_gpio;
->         struct gpio_desc *w_disable2_gpio;
-> +       struct gpio_desc *full_card_power_off_gpio;
-> +       struct gpio_desc *reset_gpio;
->         struct device *dev;
->         struct list_head pci_devices;
->         struct mutex list_lock;
-> @@ -135,6 +137,45 @@ static const struct pwrseq_unit_data pwrseq_pcie_m2_=
-e_pcie_unit_data =3D {
->         .disable =3D pwrseq_pci_m2_e_pcie_disable,
->  };
->
-> +static int pwrseq_pci_m2_b_pcie_enable(struct pwrseq_device *pwrseq)
-> +{
-> +       struct pwrseq_pcie_m2_ctx *ctx =3D pwrseq_device_get_drvdata(pwrs=
-eq);
-> +       int ret;
-> +
-> +       ret =3D gpiod_set_value_cansleep(ctx->full_card_power_off_gpio, 0=
-);
-> +       if (ret)
-> +               return ret;
-> +
-> +       ret =3D gpiod_set_value_cansleep(ctx->reset_gpio, 0);
-> +       if (ret)
-> +               return ret;
-> +
-> +       return gpiod_set_value_cansleep(ctx->w_disable1_gpio, 0);
+Low priority / nit picks for your consideration:
 
-Can this signal be exposed as an rfkill device instead? Otherwise the
-pwrseq driver hogs it enabled with no way for userspace to control the
-radio power, and WWAN power draw is quite non-negligible for portable
-devices. Ditto for w_disable2_gpio (GNSS).
+- [Low] Concern: the commit message for "dt-bindings: net: ftgmac100: Add
+  AST2700 compatible" says "ftgmac100_probe_dt() takes the NC-SI path…
+- [Low] In "dt-bindings: net: ftgmac100: Add AST2700 compatible", the new
+  AST2700 conditional in…
+- [Low] Concern: the binding adds `aspeed,ast2700-mac` as a standalone
+  compatible, but at this commit…
 
-I'm also wondering if the WWAN-related signals should be skipped
-altogether for non-WWAN module configs?
+--
 
-Best regards,
-Alexey
+dt-bindings: net: ftgmac100: Add AST2700 compatible
+
+This commit adds aspeed,ast2700-mac to the ftgmac100 binding. It allows the
+reset line for it and adds it to the clocks/clock-names conditionals. It
+also adds an AST2700-only rule that requires exactly one of phy-mode or
+use-ncsi.
+
+> Require exactly one of "phy-mode" or "use-ncsi" in the device tree
+> when the AST2700 compatible is used. The driver only enforces
+> "phy-mode" when NC-SI is not in use: ftgmac100_probe_dt() takes the
+> NC-SI path before ftgmac100_mii_probe(), where the AST2700 phy-mode
+> check lives, is ever reached.
+
+[Severity: Low]
+At this commit, ftgmac100_mii_probe() in
+drivers/net/ethernet/faraday/ftgmac100.c has no AST2700 phy-mode check. It
+falls back to RGMII when phy-mode is missing.
+
+Does this paragraph refer to the check added later in the series by
+"net: ftgmac100: Require phy-mode for AST2700"?
+
+ftgmac100_mii_probe() {
+    ...
+	err = of_get_phy_mode(np, &phy_intf);
+	if (err) {
+		if (priv->mac_id == FTGMAC100_AST2700) {
+			dev_err(priv->dev, "phy-mode is required for this SoC\n");
+			return -EINVAL;
+		}
+    ...
+}
+
+After the full series is applied, the description matches the code. That
+is because ftgmac100_probe_dt() returns through ftgmac100_probe_ncsi()
+before it reaches ftgmac100_mii_probe(). Could the message say that a
+following patch adds the check, so it is also accurate at this commit?
+
+> diff --git a/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml b/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
+> index 9d352e3686aaf..95f4993939cf6 100644
+> --- a/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
+> +++ b/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
+> @@ -16,6 +16,7 @@ properties:
+>        - aspeed,ast2400-mac
+>        - aspeed,ast2500-mac
+>        - aspeed,ast2600-mac
+> +      - aspeed,ast2700-mac
+
+[Severity: Low]
+At this commit, ftgmac100_of_match[] in
+drivers/net/ethernet/faraday/ftgmac100.c has no entry for
+aspeed,ast2700-mac. There is also no FTGMAC100_AST2700 mac_id and no
+is_aspeed handling. Can a schema-valid AST2700 node bind to the driver at
+this point?
+
+The next patch in the series, "net: ftgmac100: Add AST2700 compatible
+support", appears to fix this by adding:
+
+	{ .compatible = "aspeed,ast2700-mac",
+	  .data = &ftgmac100_match_data_ast2700 },
+
+It also adds FTGMAC100_AST2700 to the is_aspeed branch of
+ftgmac100_probe(). Adding the binding before the driver is the usual
+order, and no in-tree DTS uses this compatible yet. I'm mentioning it only
+for completeness.
+
+[ ... ]
+
+> @@ -79,12 +80,24 @@ allOf:
+>            contains:
+>              enum:
+>                - aspeed,ast2600-mac
+> +              - aspeed,ast2700-mac
+>      then:
+>        properties:
+>          resets: true
+>      else:
+>        properties:
+>          resets: false
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: aspeed,ast2700-mac
+> +    then:
+> +      oneOf:
+> +        - required:
+> +            - phy-mode
+> +        - required:
+> +            - use-ncsi
+
+[Severity: Low]
+oneOf fails when both subschemas match. Will an AST2700 node with both
+phy-mode = "rmii" and use-ncsi then fail dtbs_check?
+
+The driver accepts that combination. ftgmac100_probe_dt() checks use-ncsi
+first:
+
+	if (of_get_property(np, "use-ncsi", NULL))
+		return ftgmac100_probe_ncsi(netdev, priv, pdev);
+
+ftgmac100_probe_ncsi() then always connects with RMII and never reads
+phy-mode:
+
+	err = phy_connect_direct(netdev, phydev, ftgmac100_adjust_link,
+				 PHY_INTERFACE_MODE_RMII);
+
+Existing nodes for this binding already use this pairing, for example
+&mac2 and &mac3 in aspeed-bmc-asus-x4tf.dts:
+
+	phy-mode = "rmii";
+	use-ncsi;
+
+The same pattern appears in aspeed-bmc-inventec-starscream.dts,
+aspeed-bmc-nvidia-gb200nvl-bmc.dts and aspeed-bmc-quanta-s6q.dts.
+
+The commit message's stated reason is to avoid rejecting nodes that only
+have use-ncsi, and anyOf would do that too. Would anyOf fit better here?
+
+If the goal is to stop a non-RMII mode from being used with NC-SI, a rule
+like "if: required: [use-ncsi] then: properties: phy-mode: const: rmii"
+could express that instead.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119-support_ast2700-v7-0-33c8ca2d0dd7%40aspeedtech.com
