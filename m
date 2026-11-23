@@ -1,94 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795442167;
-	b=S8+meg/F5oGY/oRnVQw0a/rv3TfPg90Ltq2KoaZqQGkwaeWjtWVmKHB2J0W760QMTM9v
-	 KoU6hK0/P/BgsvcwbFrDCdk+M3Wwz+U8AbWq8dItm/fyC8dKQnzDxcjWD/C8Sp70xNlRl
-	 EddA5edwOYvUTZ1lQ8FVPHD2EHbzLpK6lunKjEJGR8IDkF0qCWz7z5OyFP3fOuSjVD8or
-	 b5rp5ES5BlRJ9qNsVwzAErqAQUcyj0+otF6sELue1VfBtWr5MyY+Eh16ohtsoIachwUNC
-	 /kfPD+VsSshL7YfmNLHY+LL1qWivvCbN3EkSepA03Ya+kut2Q5tx7hg4BhVNpf5263Q==
+	t=1795442169;
+	b=zZqdPUUtzNCCenrgnkuwWmcWxcEdjzOk7B5Aw1Nr2MQ6syiwrHlsD6JpigRr0NdAgbQk
+	 Qahi1fgs7OZrBvvN8hHZJb+WS/iIDrxyw9wZVkCpiUj1YSCZYWRv95yjXowUb6SSE0Amb
+	 UBk+i1p2wdTmjwwG8CtA9uIsas1KZNw99q+NK3/HxIzJj66YanUVhPt05bkJfw+b/i5SR
+	 uH48UuQsglV1OSJ7AwTZfmo3R2cZI8xw4Kj6jeVNb+S5S1Qk+2Bk8iKqvVeGe1c95whu9
+	 6h+elfxTTvqyGu/qvtqp2+SpGnClD4xcS7k3gWOv/lPtYBPtZVRb+E3lIpxIi2zbf6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795442167;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795442169;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To:User-Agent;
-	bh=fFpI872Cf/0Y3V/7ACsDXrJgZtjpIqvmldliRG0kQ4o=;
-	b=p1avN9g1Xtuc9IPoiHK9V7nCeAtx1b3y4EGtKef3uLE3X5lpzfnYsvAasZX7UW1jSaAa
-	 52Am7PnqxkpXUCS1cuukY44+WaasLhe5UpmixXkL+CmLplYehu1F9vfBGZ6O6gpTQ133c
-	 o/qWpHR2aFy1EH8Qkds3mV2/z4X0lrMfNMpgkgwDDJZ+3/YPMAU1ZRvpIxvlWs3igALnj
-	 1iam4c2yka+EdQ257mN+DjWkboLnnbvS4LsWPYsxUlr/pxmVtCi0fYqHhdy7+W6jjqkua
-	 g2ovZwnr63WjLzeSTE5/JgMAeyIXvx979kF7N36L/q07rVns2d+RETZlNTe3Li1WLKA==
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=Ij5ZTrPk8G8iXLI9NSBhyUCOZ2xz7zXjgCAz0t859Wg=;
+	b=4SFNGdIW8EBS/IT9HysXP5IrgLKHjnc42siEBnYtmk8FIbnzTkThaD0YeayZswVS9/iD
+	 tB+icg0TPJPQiE90evjYO21fGemyv4xJKv0LFRBANYWTqLoHh7EZ6BMMydR3B78aoRg31
+	 ODuDLL/gwAeRcx0ZTYR5hgS9DtdsLecYcvSzjYVMUDSYE7tRdcXwZr1isG7Nqp0CnLRbk
+	 4qobFC7Ey5LA65Woq7mCFX5sNDjCsyTdGde1MGB6IQyPOwAXeQbj4Lp5ZKF/1gKux5Cse
+	 trAe9f3WQKzgXIcqxsPrcXZNM9f1+XHFy4QLUXTXAsggFJ+tfC/3o4/E0OTDShLcCkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=B4TKNR3G;
-	arc=none smtp.remote-ip=209.85.221.51
-Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=jxO2EUN9;
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30B45606A332
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:56:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30B45606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B40E7606A33F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:56:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B40E7606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=B4TKNR3G
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-48e46e449e8so2148084f8f.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:56:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=jxO2EUN9
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4a68190a2a7so2767459f8f.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:56:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795442165; x=1796046965; darn=vger.kernel.org;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=fFpI872Cf/0Y3V/7ACsDXrJgZtjpIqvmldliRG0kQ4o=;
-        b=B4TKNR3GDSOPq1GOrfZ2n0x33dn99brqyZXfHnclARTRlTytkMY3Lc52bL94D9wLz7
-         C6bCLu56IUMRff3wHE5BUV8D784CL3fiN8DVTB/eNQDbij+YuoBbA5InIzhAtZ6RQApT
-         jbze2rFeEipP5KaApt07Oe9J3pnL4V+jkaZl0klL/1uOcvrgg2F6X90pXeWfFvL+S3lR
-         IuFK56Xh7KWWQDqRCoj53IG/ezVUSEsVuMQGjnzJcbqp7u95nj1yo0jDzNHvkVpAqQfn
-         /ZrTRpkKPtHdgI1n4fnEHv7v8PtPpD06DFjMjw0Znmz8nJ+7n4c5c1QZO8l1hYz+IqM0
-         CjIg==
+        d=baylibre.com; s=google; t=1795442167; x=1796046967; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Ij5ZTrPk8G8iXLI9NSBhyUCOZ2xz7zXjgCAz0t859Wg=;
+        b=jxO2EUN9OlTiPBr7yHwhvyHwCmIlMfdEtJqtweAuIfcLjVEqm5h5PUf5S0ooYCmHR0
+         bhUn+pza0dw0vNqR8tkR9+Py+hHTYvWS2fcw+VNRhLvyWYJcRS+Sgp1AiFLt1tMfu/8v
+         dBsGkuTJA4x5M/DshYTETzQXlhQXwjAw4NgS+zcs1pW/3SoLssuI8qsKAMBRMy54uHJ9
+         bbVM5B18Bjv8S98i9w0YFMGnAfCz+CbhFbOQqizkdKzcccybXYD7qczOAyA6Vs+Qiatr
+         B95SuXoQOIbrBCVEydoO9x7gBBHARAN2EDyviNymcAF8r28I8FoirOZxliq5cGKQ0lGy
+         BmXg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795442165; x=1796046965;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795442167; x=1796046967;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=fFpI872Cf/0Y3V/7ACsDXrJgZtjpIqvmldliRG0kQ4o=;
-        b=Hmy2xw69KtFuwSvKELXC12ZFLHFvQkGoc9ohOoK+TIiJ3CK/kfkanM9lHsek6iHDjC
-         v0ZLA+zxlcUJI4S0fNxvrz2x5u6Ezrm5HGUNzUlbz+Tzv2Css0OWZ6aGyIHCT/jqld5o
-         JmeSKGuqWc0Hn4MzZLs5qOGT2XHT+hlZdHpncKTbHrO8lQCwZPZokOhKE6zv+RUCdtEI
-         5y9ccTAyoS+U2ePgrJABpLdi3wQEqbWSUJT1zuecBBO5HX13+E86Zy49zd2F37Y4mmjF
-         xYCjs0VoqHpENwQCIya5cytI9+NXtQmTvsJXT7pmG7LDkACFFcrvo/RKjD1Bg8P6K+h2
-         ct1g==
-X-Forwarded-Encrypted: i=1; AL+hErEUPhLEVfDTKjRPbxPvNl/rExzyy+pNUMfDMlFpDu1yr8IsrfVOTva7B+I6CBQ2v7aj51qoqcmnrpmqPwY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8nwdRcAzx41TDub6P/iFVFcNwRGOYmR6c9jLrVZIt8mJHUvzNA
-	7YiPImfO4Lr+PoJARk5PUswd01LHgzX6ZECKoPjtvb5HIT0rcHaqZ5W010OafJtbng==
-X-Gm-Gg: AZFdTZeAma3db0J0bUnEG3QKmGvt6qAwLbuQq41b0imTy3Sa52B0NQxCzeNQc8W4gC6
-	U4v6D8k0qTju2skcTz9npcFouDDro/C62JnRkNaVqWzj7AqiRB5cDoAbs7qB38qftbi/faQcYOb
-	N29t/0sKewLwFDYfYKsuHRH+mG2CTiCrbbFPzmBokcJ0wjQLm71m+K3lIrVzeDGBMNT38mQhMOy
-	gO6U2by02k4/EFH9akFmnX2RDruAS9AZ9nul5Q6wssJSvgERcKFpxFZCbKign4lrwod+hciIlc5
-	g38sGkMJaD7gnzJGubb5b7LMGypeXhX+1WXzsmEJA3hSzmLgz4ir7RZRnsM7eOYFN2Kn95FvsOs
-	p8c48rYvsBapAlxYsp18LGXd/OxBh/kVlHWTxPwRMUFxY4yFC+7ySGowDkzB6NP0oi08J0j1FW7
-	S4BF47eTjwtu4q5KeU+60tWzR4+L4+MN7Q6NvQKV1bbKYAh27UjXqB1qx2V7CCr3I7q3HX2Z/BW
-	Ud03cKyKV0fqqlr2fGI+RuA9+VKUS/CyeSUraUYrqlOAq0peB4SwOD2mIzIhbprT6UtepGQnuNY
-	F07AA1j99xsJlJ1bN7pCtqI4I6RpE2vJa/zB+oIMRQ40C0CKtSv0D18dWxP9bTD90z8rriGZlUo
-	=
-X-Received: by 2002:a05:6000:188b:b0:4af:e519:cce8 with SMTP id ffacd0b85a97d-4afe519cf4fmr11119558f8f.34.1795442164921;
-        Mon, 23 Nov 2026 05:56:04 -0800 (PST)
-Received: from elver.google.com (124.100.205.35.bc.googleusercontent.com. [35.205.100.124])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb98b4dsm23244162f8f.53.2026.11.23.05.56.03
+        bh=Ij5ZTrPk8G8iXLI9NSBhyUCOZ2xz7zXjgCAz0t859Wg=;
+        b=Xvk22Acf4DtUAfEEcI2LT+PsfqOpq/VrUaMZzXWigFcJuwaC+G/VNpszwLKvGGwYYW
+         1Obvu2tOvKYcha5U1CihIrhRZyjSGTwSR27Rm4QusQx6411OtRjPcN8AzkIQR7jpzLgJ
+         4tsGMtpwgpCN12pP+8h9WBLU4W03X5I9R6toHaNSbvtb/SQ8q+pPgW4MD/y3RUfo8eYW
+         pFIYEm3MlRL80ub0Wfm/2N/RCpScVYsDOeyoutoFBp1M6llkA3h+1ay3pAjy6Bg9qze2
+         7HnxhKT35Yfj+8Z9yP3gTaDhdch5Wrj5KVVxMHbkTQ2yzAaYWKTCaLn8c/8UUOAevayO
+         S9AA==
+X-Forwarded-Encrypted: i=1; AL+hErGeYvwb3kg2WDLvfNYuGsGHTu5fVGgoWzfVgFCPjIoXH2Z3AyAku/RrQa6eev96DtJvoJEvtdwBjlGS/V8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/8ht4ZxOFmux1zvc9CzmA+gpBVZyIcJTnRMAHQBgQBI1MDc6zo
+	1NgLZ0eYJylPA4XRakegEtUjaggMW73/+yrrld3kRsUFejB0RHpHcx0AevQYC5JHSRU=
+X-Gm-Gg: AZFdTZfxzrKMeupbWsQFm6SnAEMx9V1kov/kzqu2zEfZsf6K8lA8BIaP0UMhq8TcOMO
+	928CF6eZYXPvoB1aH/EsSjxdlWQSipbY3ymQet7Adxt65KUeFEUE0HSvqHSJIZesIXfxmAGDqiu
+	oGfJfakvHnaSw9u/3rNQE6bN4JK/nNf1lcJKXQXAlc9PQG3WBfnoIS9hFGdNuyokBv3OqPsuosj
+	dJnHBELCY7g+Nqi/st9OKM1G1EFrf+gdK/9VpIEQeNXVrdRQ04h0iX0F7Wvgxh88/zLCT10BBIw
+	8DzGOP5BGqTefYUX50xD2WElQkes3hNSbphhnFZ4QVHyn6UX8w18pAOvKh1CybY8T/5SPve7Bsk
+	iezk98zA9HppktO+zbJXo6sxsMYKZ8vOH4SglOi8C2+UBKradryBGhF2IvuYwPq8p7bzrf2QeIw
+	T3QmXWHrA6xfTsX4JWe2cpU4ZKf6+4EothQC5WJ6Xf5tihtIi2MUfTHSUPaQ3eDdSk2QEHrYsu8
+	6Brx/DuQ156zHjTYHbyxC7EVsW5tSOeHs7VFUwfRRs3LqCB/3ES3zncFKEYtPPO8CpqacKzWkGY
+	r5hrf+yBAmL4QPbUNvpd0HjgcCinNGsHCe8=
+X-Received: by 2002:a05:600c:3ba3:b0:4bb:7571:5743 with SMTP id 5b1f17b1804b1-4bb88813444mr267490555e9.27.1795442167038;
+        Mon, 23 Nov 2026 05:56:07 -0800 (PST)
+Received: from localhost ([2a02:8071:56d1:2de0:1d24:d58d:2b65:c291])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb884a3a3dsm336572585e9.10.2026.11.23.05.56.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:56:03 -0800 (PST)
-Date: Mon, 23 Nov 2026 13:55:59 +0000
-From: Marco Elver <elver@google.com>
-To: KunWu Chan <kunwu.chan@gmail.com>
-Cc: Dmitry Vyukov <dvyukov@google.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>, kasan-dev@googlegroups.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC] KCSAN support for *_THIS_CPU()
-Message-ID: <awRF7-R1JjQczRgn@elver.google.com>
-References: <CAN_Opa-WpbC9wXTYPybiZCrkMjQbSTnfJvUck7YiMP9wG59y4Q@mail.gmail.com>
+        Mon, 23 Nov 2026 05:56:06 -0800 (PST)
+Date: Mon, 23 Nov 2026 14:56:04 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Hikmah Gumelar <hikmahgumelar@gmail.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v2 3/7] media: i2c: add s5k5e8 image sensor driver
+Message-ID: <awRDMjtMC74v5zQq@monoceros>
+References: <20261123110805.119610-1-hikmahgumelar@gmail.com>
+ <20261123123546.152162-1-hikmahgumelar@gmail.com>
+ <20261123123546.152162-4-hikmahgumelar@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,66 +103,271 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="od2jan737ze6e64n"
 Content-Disposition: inline
-In-Reply-To: <CAN_Opa-WpbC9wXTYPybiZCrkMjQbSTnfJvUck7YiMP9wG59y4Q@mail.gmail.com>
-User-Agent: Mutt/2.3.2 (2026-04-26)
+In-Reply-To: <20261123123546.152162-4-hikmahgumelar@gmail.com>
 
-On Mon, Nov 23, 2026 at 04:15PM +0800, KunWu Chan wrote:
-> Hi Marco and Dmitry,
-> 
-> Paul suggested I get in touch about helping with KCSAN support for
-> *_THIS_CPU(). The wrappers [1] and the got_idle_tick annotation [2]
-> are now in tip's timers/nohz branch. The idle task and the tick
-> hardirq intentionally race on their CPU's flag. A conflicting access
-> from another CPU to the same instance should still be detectable.
-> 
-> I'd start with static per-CPU objects in strict mode. One option is
-> to keep the lvalue API and pass the actual address and a THIS_CPU
-> tag to KCSAN, which could warn on a known remote instance. This
-> would let us check the pointer the tick callback gets from
-> container_of().
-> 
-> If both accesses are tagged and verified as local, a hardirq hit on
-> the same byte range would leave the task's watchpoint armed for a
-> later cross-CPU hit. With a per-CPU record, the sampled task would
-> stay non-preemptible while the record is live. We'd also record
-> permitted local writes, since they can explain a value change when
-> no other hit is captured.
-> 
-> Does leaving the watchpoint armed on a permitted local hit fit
-> KCSAN? For the ownership check, would you prefer a separate check in
-> KASAN or in the primitives? Would it be better for the primitives
-> to take a __percpu pointer and resolve the instance themselves?
 
-This is a lot more complex than needed. KCSAN already has the building
-blocks:
+--od2jan737ze6e64n
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH v2 3/7] media: i2c: add s5k5e8 image sensor driver
+MIME-Version: 1.0
 
-1. Same-CPU races: if the watchpoint is armed with interrupts (and
-   NMI checking) disabled, a local hardirq can never hit it, and the
-   interrupted task can never hit the hardirq's watchpoint. KCSAN
-   already does this by default, and for reordered accesses even with
-   CONFIG_KCSAN_INTERRUPT_WATCHER=y. No per-CPU record, no "permitted
-   local hit" state, no recording of local writes.
+Hello,
 
-2. Cross-CPU races: READ_ONCE/WRITE_ONCE are atomic to KCSAN, so today
-   the *_THIS_CPU() wrappers aren't checked at all. Making them
-   ASSERT_EXCLUSIVE_WRITER/ACCESS-style checks reports any concurrent
-   access from another CPU, marked or not.
+On Mon, Nov 23, 2026 at 07:35:42PM +0700, Hikmah Gumelar wrote:
+> diff --git a/drivers/media/i2c/s5k5e8.c b/drivers/media/i2c/s5k5e8.c
+> new file mode 100644
+> index 000000000000..80931e5a1c6b
+> --- /dev/null
+> +++ b/drivers/media/i2c/s5k5e8.c
+> @@ -0,0 +1,500 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +#include <linux/clk.h>
+> +#include <linux/delay.h>
+> +#include <linux/gpio/consumer.h>
+> +#include <linux/i2c.h>
+> +#include <linux/mod_devicetable.h>
 
-So the whole thing is a new KCSAN_ACCESS_THIS_CPU flag that forces
-interrupts off for that watchpoint, plus the wrappers calling
-kcsan_check_access() with ASSERT|THIS_CPU. It works for any object
-(static or dynamic per-CPU, container_of() or not) and in both strict
-and non-strict mode. A separate ownership check (KASAN, a __percpu
-pointer API, "known remote instance" lookups) is out of scope; it's
-a different class of bug, and if a wrong instance is used concurrently,
-the assertion catches it anyway.
+<linux/i2c.h> already provides of_device_id, so please drop
+<linux/mod_devicetable.h> (which adds a lot of unneeded dependencies).
 
-I have a patch with tests [1]; would you mind giving it a spin on
-your end?
+> +#include <linux/module.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/regulator/consumer.h>
+> +#include <linux/unaligned.h>
+> +#include <media/v4l2-ctrls.h>
+> +#include <media/v4l2-device.h>
+> +#include <media/v4l2-fwnode.h>
+> +
+> +#define S5K5E8_CHIP_ID_REG		0x0000
+> +#define S5K5E8_CHIP_ID			0x5e80
+> +#define S5K5E8_REG_MODE_SELECT		0x0100
+> +#define S5K5E8_MODE_STANDBY		0x00
+> +#define S5K5E8_MODE_STREAMING		0x01
+> +#define S5K5E8_REG_VTS			0x0340
+> +#define S5K5E8_REG_EXPOSURE		0x0202
+> +#define S5K5E8_REG_ANALOG_GAIN		0x0204
+> +#define S5K5E8_REG_TEST_PATTERN		0x0600
+> +#define S5K5E8_XVCLK_FREQ		24000000
+> +#define S5K5E8_LINK_FREQ_418MHZ		418000000ULL
+> +#define S5K5E8_PIXEL_RATE		167200000ULL
+> +
+> +struct s5k5e8_reg { u16 address;
+> +u8 val;
+> +};
+> +struct s5k5e8_mode {
+> +	u32 width, height, hts_def, vts_def, vts_min, num_regs;
+> +	const struct s5k5e8_reg *regs;
+> +};
+> +
+> +static const char * const s5k5e8_supply_names[] = { "avdd", "dvdd", "dovdd" };
+> +#define S5K5E8_NUM_SUPPLIES ARRAY_SIZE(s5k5e8_supply_names)
+> +
+> +static const struct s5k5e8_reg s5k5e8_common_regs[] = {
+> +	{ 0x0100, 0x00 }, { 0x3906, 0x7e }, { 0x3c01, 0x0f }, { 0x3c14, 0x00 },
+> +	{ 0x3235, 0x08 }, { 0x3063, 0x2e }, { 0x307a, 0x10 }, { 0x307b, 0x0e },
+> +	{ 0x3079, 0x20 }, { 0x3070, 0x05 }, { 0x3067, 0x06 }, { 0x3071, 0x62 },
+> +	{ 0x3072, 0x16 }, { 0x3203, 0x43 }, { 0x3205, 0x43 }, { 0x320b, 0x42 },
+> +	{ 0x3007, 0x00 }, { 0x3008, 0x14 }, { 0x3020, 0x58 }, { 0x300d, 0x34 },
+> +	{ 0x300e, 0x17 }, { 0x3021, 0x02 }, { 0x3010, 0x59 }, { 0x3002, 0x01 },
+> +	{ 0x3005, 0x01 }, { 0x3008, 0x04 }, { 0x300f, 0x70 }, { 0x3010, 0x69 },
+> +	{ 0x3017, 0x10 }, { 0x3019, 0x19 }, { 0x300c, 0x62 }, { 0x3064, 0x10 },
+> +	{ 0x3c08, 0x0e }, { 0x3c09, 0x10 }, { 0x3c31, 0x0d }, { 0x3c32, 0xac },
+> +};
+> +
+> +static const struct s5k5e8_reg s5k5e8_2592x1944_regs[] = {
+> +	{ 0x0100, 0x00 }, { 0x0136, 0x18 }, { 0x0137, 0x00 }, { 0x0305, 0x06 },
+> +	{ 0x0306, 0x18 }, { 0x0307, 0xa8 }, { 0x0308, 0x34 }, { 0x0309, 0x42 },
+> +	{ 0x3c1f, 0x00 }, { 0x3c17, 0x00 }, { 0x3c0b, 0x04 }, { 0x3c1c, 0x47 },
+> +	{ 0x3c1d, 0x15 }, { 0x3c14, 0x04 }, { 0x3c16, 0x00 }, { 0x0820, 0x03 },
+> +	{ 0x0821, 0x44 }, { 0x0114, 0x01 }, { 0x0344, 0x00 }, { 0x0345, 0x08 },
+> +	{ 0x0346, 0x00 }, { 0x0347, 0x08 }, { 0x0348, 0x0a }, { 0x0349, 0x27 },
+> +	{ 0x034a, 0x07 }, { 0x034b, 0x9f }, { 0x034c, 0x0a }, { 0x034d, 0x20 },
+> +	{ 0x034e, 0x07 }, { 0x034f, 0x98 }, { 0x0900, 0x00 }, { 0x0901, 0x00 },
+> +	{ 0x0381, 0x01 }, { 0x0383, 0x01 }, { 0x0385, 0x01 }, { 0x0387, 0x01 },
+> +	{ 0x0340, 0x07 }, { 0x0341, 0xb0 }, { 0x0342, 0x0b }, { 0x0343, 0x28 },
+> +	{ 0x0200, 0x00 }, { 0x0201, 0x00 }, { 0x0202, 0x03 }, { 0x0203, 0xde },
+> +	{ 0x3303, 0x02 }, { 0x3400, 0x00 }, { 0x323b, 0x02 }, { 0x3301, 0x00 },
+> +	{ 0x3321, 0x04 }, { 0x3306, 0x00 }, { 0x3307, 0x08 }, { 0x3308, 0x0a },
+> +	{ 0x3309, 0x27 }, { 0x330a, 0x01 }, { 0x330b, 0x01 }, { 0x330e, 0x00 },
+> +	{ 0x330f, 0x08 }, { 0x3310, 0x07 }, { 0x3311, 0x9f }, { 0x3312, 0x01 },
+> +	{ 0x3313, 0x01 },
+> +};
 
-Thanks,
--- Marco
+Is this a reverse engineered table of initial register values? A comment
+would be awesome.
 
-[1] https://lore.kernel.org/all/20261123135148.1146372-1-elver@google.com/
+> +static const struct s5k5e8_mode supported_modes[] = {
+> +	{
+> +		.width = 2592, .height = 1944, .hts_def = 2856,
+> +		.vts_def = 1968, .vts_min = 1968,
+> +		.num_regs = ARRAY_SIZE(s5k5e8_2592x1944_regs),
+> +		.regs = s5k5e8_2592x1944_regs,
+> +	},
+> +};
+> +
+> [...]
+> +static int s5k5e8_enum_frame_size(struct v4l2_subdev *sd, struct v4l2_subdev_state *sd_state,
+> +		struct v4l2_subdev_frame_size_enum *fse)
+> +{
+> +	if (fse->index >= ARRAY_SIZE(supported_modes) ||
+> +	    fse->code != MEDIA_BUS_FMT_SGRBG10_1X10)
+> +		return -EINVAL;
+
+ARRAY_SIZE(supported_modes) is one. Does supported_modes really need to
+be an array?
+
+> +	fse->min_width = fse->max_width = supported_modes[fse->index].width;
+> +	fse->min_height = fse->max_height = supported_modes[fse->index].height;
+> +	return 0;
+> +}
+> +
+> [...]
+> +static int s5k5e8_probe(struct i2c_client *client)
+> +{
+> +	struct device *dev = &client->dev;
+> +	struct s5k5e8 *s5k5e8;
+> +	u32 val = 0;
+> +	unsigned int i;
+> +	int ret;
+> +
+> +	s5k5e8 = devm_kzalloc(dev, sizeof(*s5k5e8), GFP_KERNEL);
+> +	if (!s5k5e8)
+> +		return -ENOMEM;
+> +	s5k5e8->dev = dev;
+> +	v4l2_i2c_subdev_init(&s5k5e8->sd, client, &s5k5e8_subdev_ops);
+> +	s5k5e8->xvclk = devm_v4l2_sensor_clk_get(dev, NULL);
+> +	if (IS_ERR(s5k5e8->xvclk))
+> +		return dev_err_probe(dev, PTR_ERR(s5k5e8->xvclk), "xvclk\n");
+> +	clk_set_rate(s5k5e8->xvclk, S5K5E8_XVCLK_FREQ);
+> +	s5k5e8->reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
+> +	if (IS_ERR(s5k5e8->reset_gpio))
+> +		return dev_err_probe(dev, PTR_ERR(s5k5e8->reset_gpio), "reset\n");
+> +	for (i = 0; i < S5K5E8_NUM_SUPPLIES; i++)
+> +		s5k5e8->supplies[i].supply = s5k5e8_supply_names[i];
+> +	ret = devm_regulator_bulk_get(dev, S5K5E8_NUM_SUPPLIES, s5k5e8->supplies);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "regulators\n");
+> +	ret = s5k5e8_power_on(dev);
+> +	if (ret)
+> +		return ret;
+> +	ret = s5k5e8_read_reg(s5k5e8, S5K5E8_CHIP_ID_REG, 2, &val);
+> +	if (ret || val != S5K5E8_CHIP_ID) {
+> +		dev_err(dev, "failed to identify s5k5e8 (ret=%d, id=0x%x)\n", ret, val);
+
+Use dev_err_probe() for error messages in the probe function.
+
+> +		ret = ret ? ret : -ENXIO;
+> +		goto err_power;
+> +	}
+> +	dev_info(dev, "identified Samsung S5K5E8 sensor (0x%04x)\n", val);
+
+Degrade to dev_dbg() or drop. Once the driver is considered ok, messages
+of this kind only clutter the kernel log with very little value and add
+to the boot time.
+
+> +	mutex_init(&s5k5e8->mutex);
+> +	s5k5e8->cur_mode = &supported_modes[0];
+> +	ret = s5k5e8_init_controls(s5k5e8);
+> +	if (ret)
+> +		goto err_mutex;
+> +	s5k5e8->sd.internal_ops = &s5k5e8_internal_ops;
+> +	s5k5e8->sd.flags |= V4L2_SUBDEV_FL_HAS_DEVNODE;
+> +	s5k5e8->sd.entity.ops = &s5k5e8_entity_ops;
+> +	s5k5e8->sd.entity.function = MEDIA_ENT_F_CAM_SENSOR;
+> +	s5k5e8->pad.flags = MEDIA_PAD_FL_SOURCE;
+> +	ret = media_entity_pads_init(&s5k5e8->sd.entity, 1, &s5k5e8->pad);
+> +	if (ret)
+> +		goto err_ctrl;
+
+Use newlines to separate function call + its error handling from the
+other code.
+
+> +	s5k5e8->sd.state_lock = &s5k5e8->mutex;
+> +	ret = v4l2_subdev_init_finalize(&s5k5e8->sd);
+> +	if (ret)
+> +		goto err_media;
+> +	ret = v4l2_async_register_subdev_sensor(&s5k5e8->sd);
+> +	if (ret)
+> +		goto err_media;
+> +	pm_runtime_set_active(dev);
+> +	pm_runtime_enable(dev);
+> +	pm_runtime_idle(dev);
+> +	return 0;
+> +err_media: media_entity_cleanup(&s5k5e8->sd.entity);
+> +err_ctrl: v4l2_ctrl_handler_free(s5k5e8->sd.ctrl_handler);
+> +err_mutex: mutex_destroy(&s5k5e8->mutex);
+> +err_power: s5k5e8_power_off(dev);
+
+A label should be on its own line.
+
+> +	return ret;
+> +}
+> +
+> +static void s5k5e8_remove(struct i2c_client *client)
+> +{
+> +	struct v4l2_subdev *sd = i2c_get_clientdata(client);
+> +	struct s5k5e8 *s5k5e8 = to_s5k5e8(sd);
+> +
+> +	v4l2_async_unregister_subdev(sd);
+> +	media_entity_cleanup(&sd->entity);
+> +	v4l2_ctrl_handler_free(sd->ctrl_handler);
+> +	mutex_destroy(&s5k5e8->mutex);
+> +	pm_runtime_disable(&client->dev);
+> +	if (!pm_runtime_status_suspended(&client->dev))
+> +		s5k5e8_power_off(&client->dev);
+> +	pm_runtime_set_suspended(&client->dev);
+> +}
+> +
+> +static const struct dev_pm_ops s5k5e8_pm_ops = { SET_RUNTIME_PM_OPS(s5k5e8_power_off,
+> +		s5k5e8_power_on, NULL) };
+
+This looks strange. I'd add a \n before SET_RUNTIME_PM_OPS. In general
+align continuation lines to the previous opening brace or parenthesis.
+
+> +static const struct of_device_id s5k5e8_of_match[] = { { .compatible = "samsung,s5k5e8" }, { } };
+
+Please fix the layout of this struct. It should look like:
+
+static const struct of_device_id s5k5e8_of_match[] = {
+	{ .compatible = "samsung,s5k5e8" },
+	{ }
+};
+
+
+> +MODULE_DEVICE_TABLE(of, s5k5e8_of_match);
+> +static struct i2c_driver s5k5e8_i2c_driver = {
+> +	.driver = { .name = "s5k5e8", .pm = &s5k5e8_pm_ops, .of_match_table = s5k5e8_of_match },
+> +	.probe = s5k5e8_probe, .remove = s5k5e8_remove,
+
+This also lacks newlines.
+
+> +};
+> +module_i2c_driver(s5k5e8_i2c_driver);
+> +MODULE_DESCRIPTION("Samsung S5K5E8 5MP sensor driver");
+> +MODULE_LICENSE("GPL");
+
+The same critics apply to (at least) patch #5, too.
+
+Best regards
+Uwe
+
+--od2jan737ze6e64n
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsERfIACgkQj4D7WH0S
+/k6aQwf+IZj2GNT6Pnyg4+VzCfG5XXa2gKc5nz7HLJKLGnhUebr36dGQdI4je8Ve
+aAI99ctvkHP51gYEBv7DMXXsGX0YWQmdSRBqZDtZkqhLb7Ym+9w1i8g5Z7by7d1/
+EW3aUs70aoa6iXs7GKdpZXgBVIakHhAeX3y2BLkH/RzeoCB3c/JrA3kWh8/bkSSs
+rMdybxyI+GyQ0GMC8EgIusYetPTc4NPDjV6W/l/fBmZzDaREdzwUI0egdTm+O16s
+8ZchJXgZeKfx17B9OGZ91y9uXE0kEDmcl/4qIHnDtKigfGP/6z6Fwdc/L8C7AGZI
+uBAIXDmF0DomZGuRHBfXOpJxe7hvVA==
+=9kNX
+-----END PGP SIGNATURE-----
+
+--od2jan737ze6e64n--
