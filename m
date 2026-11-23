@@ -1,81 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.98
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795462223;
-	b=V3vqfeXN8enlev+nbdXJk7lSek62nxTKlSFopoXqBiike/nBnefxZIIzwFfmXBkMd6to
-	 RywyWV5cpG67nvFKIFsFFU+reWcvxCjGI7yFEdePo+AcNy/G0QS45PLuuzY7DlIFq4cA3
-	 bMIm1U61BdE2rxBWgKjxzCPaeb72IFR5xJrJ6fTMN/4TWFXRm1hAvHRdrzhBtcB7tMEgT
-	 XPDL8+60Cbp8mroOIKkjnurdXopSd6z6CgbWPiVt81yiHIn50jlEHT7pswSfhMfSSTa84
-	 oXZcnSLM9LxUMUjlIOODgw704OSgWY6Pzvg+QVpN9Kg4X8S9nkJeh84jUVxH/AOEskg==
+	t=1795462335;
+	b=U8X29X8dBEJxNaPcN6+G4qt5RRT8xhK8IDpr8qVC7SZVwq1eUcDaGLuOdeaczS9dM7BX
+	 756h4MRYpJGhp300wPQGJk7gp6J5rsEoF1NiqHHq7rQESPJlIuUUo6+7+D2EP2EbC2N5c
+	 sWaRSYbaGWW/+X9V0nyHEJSAQ5kwJzwjlegGJKTuFngloMMGwecBjPMRiaaoDTQWecqYS
+	 9ke5suzbzWcU5DSbIf8swk1jAQ6zTe1hJYpGUPQIxBbGziEsbYuSSHgH4NbKlSCgRcHd/
+	 SRrkfPcGx3jDUfmjz/x19oJI8nF2J0j4FaPLcz+OD6/6wpge48k8Fo7BWzzlx9paRUQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795462223;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Received:From:To:Cc:
-	 Subject:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:
-	 X-Scanned-By;
-	bh=WgnRz/bOt+pL6/L7HTI2otxAkXdfRrZjAr91Ov9Xees=;
-	b=g4q3jj5likFmH/KNOXzLJyo0oFjki4Nj+g8XT9o04oAH+zDnTxMDvVuUtXs6/EcMCcZD
-	 bo4cWMlfgDyqmrzeqYyZLaCjuOuPjvJ55BQFaSiBjFCBpsbJYHnKKf+YjCnFiyEDXs7bH
-	 w5BhjpBR+fwY+P26HnQEMRAG4H5udow2sxqYOgLeTcBxenTs1EejkJ2WSX2jbtcq8ol6D
-	 xGlgdt6v0aTRTKmOskXDIC1vzCHqKkR/5M6em1oT2lsS/FzycrJXHG2XjQ30CZH4dgCMP
-	 ofmpXMlUqTqrMHpMi0ASEpXwmLXM7rChZShKwK+BIq6BeqL0fBUxAGhafhdXhcWu4ug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795462335;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=ZhoRZJWv5WDLgSJ4NW+wzm1D4iqQUFLyqGAdX1OGoBc=;
+	b=E5GxoeltOv6scA4wU+gp5za/GZeDI3JjKJbpLo7lbtDtVc5DECPeAfJwsEoUHbYTvPmH
+	 3hEzf3PfXNzIWEzFNW0n2I82nt9OcFvOJxBPCDLomZ5+D/RPKRFLhMisw6xxSD7di/HqC
+	 wPtvjTNSNZpSWIvekXAv7PTYc/ZWO7IHsC8WYsj3Rc2TlxetuEgbEuuIU/Hn7VzOBN32C
+	 Hoii9IeHJhcaj9s22RKU8Z7B9yEOILsf5CgrvJtUg/aYHBQ1XHwAo3W2RpbLzCVzqX8w+
+	 ZGAtBGdDe/wDs24ozcxkEX+ZMLYZaUoROuBjqSS/q/GBRx/zo2E5XyUxT0KUOz75vmA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=jDTUkZKX;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=D8IR7l22;
+	arc=none smtp.remote-ip=209.85.216.98
+Received: from mail-pj1-f98.google.com (mail-pj1-f98.google.com [209.85.216.98])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57521606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:30:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57521606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F30BC606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:32:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F30BC606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=jDTUkZKX
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795462221;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=WgnRz/bOt+pL6/L7HTI2otxAkXdfRrZjAr91Ov9Xees=;
-	b=jDTUkZKXiRb2rFN2IhjQmNDKN6MkrT3WEKpRoPS5IssonImWM3MB4H5uRv4f8+96vmY62T
-	0+co9FT07CQnbSe5olwHD5TbthVQ336rMdbffw0/6TjrtMpPC6nEjF3fV6dpyBD+sybInY
-	ubOZpR0LwlT+6S2Ic05V6BrlhiVkZPU=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-146-DRIsK4-cPVGlnQHBMcqflg-1; Mon,
- 23 Nov 2026 19:30:17 +0000
-X-MC-Unique: DRIsK4-cPVGlnQHBMcqflg-1
-X-Mimecast-MFC-AGG-ID: DRIsK4-cPVGlnQHBMcqflg_1795462209
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6E5C8180034E;
-	Mon, 23 Nov 2026 19:30:08 +0000 (UTC)
-Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (bmarzins-01.fast.eng.rdu2.dc.redhat.com [10.6.23.12])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 56162195608B;
-	Mon, 23 Nov 2026 19:30:06 +0000 (UTC)
-Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (localhost [127.0.0.1])
-	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.17.1) with ESMTPS id 6ANJU5xw3419490
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 14:30:05 -0500
-Received: (from bmarzins@localhost)
-	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.18.1/Submit) id 6ANJU0FN3419460;
-	Mon, 23 Nov 2026 14:30:00 -0500
-From: Benjamin Marzinski <bmarzins@redhat.com>
-To: Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>
-Cc: Hannes Reinecke <hare@suse.de>, Keith Busch <kbusch@kernel.org>,
-        "Martin K . Petersen" <mkp@kernel.org>,
-        Mikulas Patocka <mpatocka@redhat.com>,
-        Mike Snitzer <snitzer@kernel.org>, linux-block@vger.kernel.org,
-        linux-kernel@vger.kernel.org, dm-devel@lists.linux.dev
-Subject: [PATCH v2 RESEND] block: stack max_hw_discard_sectors on bottom max_discard_sectors
-Date: Mon, 23 Nov 2026 14:30:00 -0500
-Message-ID: <20261123193000.3419445-1-bmarzins@redhat.com>
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=D8IR7l22
+Received: by mail-pj1-f98.google.com with SMTP id 98e67ed59e1d1-3ac9f49b984so2099487a91.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:32:14 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795462334; x=1796067134;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=ZhoRZJWv5WDLgSJ4NW+wzm1D4iqQUFLyqGAdX1OGoBc=;
+        b=zjfJ6vxueZpQ7zy1u5er+IkK+LP9dEQK6aA4jS790/fZIMyQto5rtZGBkeiz6kqO6j
+         fjtOvOCkQ8sUyL+7neG3DuEDD2386fv+3cQtVpDpe5FC0v754bg3CehCzbNMYxxLks6u
+         JA7CgGXYF8Xal/wpLqzD7Vi764RNx7UewRluWEYXBoY4cF31TubgCN4P5A/7ISxl9fbD
+         HKKhEhlVBM7nnrPPl8v6UPTQHlbadK5e9kHzLtoxiCI+hDvbKZM7uuNxihoRHky1khKj
+         VrlJEpcf3DGOW+H8YJzl5WVbAq0ZcKan8Yw8j5gxA3QcLgRlVMN8AxAloVdnjLEhu/m5
+         Rqvg==
+X-Forwarded-Encrypted: i=1; AL+hErG4pgWQarT2X0ADgrCf79XdhfrWvyBnwxYtTdItEPkpJG37zpcSDEKcRS6hOzwsiB/oWaMpxek/NFFWQOU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8HQlDoxksOFC7xTjTlKA63K4rRdDnS6d8BFFZaczhPRD2WxMgv
+	lcMuYYowX0iKlYIkFQpice4Zd1UpOlF8Pza9AeiBAMN3ZVAkhWnYOinrK2Frtdr3IbjYMY/lXBu
+	QSWgpT0YnQ4+uoxf5NgMSXg1HZVqnlCC8PbslMQJicErmCmRdkaUYMnhsk4kRAoO1KYT+9MZJtn
+	zE4mUvBzpHlSt9DZGWrm+pZ75XfPVBcOWKyzj/JzZrUbGAm4XOxCdwmf0TWHxbnkD11iKjAfgCo
+	+/sRW6IYiBL+xXOhRAKK+Xx
+X-Gm-Gg: AZFdTZdNZFsptGQwRY1plQ+iYH+2lybSQ67xLtMJQyDQ1hJjtAhJJLHAICsUoCszPRA
+	cwCr5UzX8R0uoA8QuBOd+SKFD1rGwwa38t+pEt4L5L3lxYGJrPncPLphUtgLEgvUg8NLlUVG7Rq
+	v69eh1pyz6z6soN8gldhRN+xVuWVKw1aovVRCofdbDkDaE6+zf3zM/KGMi4uZYJN6GLHPfeKw75
+	ZNSkygDE9tU1zOpri43JW8oj4BLzNd7VZHliy/5r+uuykcDvsgqg5mDsmDvolI1zMF9hIGGkHq7
+	cJ1MD4H7m8mYMy0IFaYEhsjVU/GwkDguUzH6WDESbkxJGT7g5P3wICaRoWsHRPwBRKa9U/e3/TD
+	6MZGYzQqmbe4Opy9Tq0SItwztj74+StaiT8Q0uW8otbviimuAm956HXEJP6b4cTCWp6smcgoZj3
+	TQ6UkRGwvAHttB3Aa+S+x+SqAlQ9QKLSSislj52y6fl5c=
+X-Received: by 2002:a17:90a:d2cf:b0:3a0:e568:ed63 with SMTP id 98e67ed59e1d1-3b41c8e0507mr7673361a91.8.1795462334418;
+        Mon, 23 Nov 2026 11:32:14 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41add899dsm8739016a91.3.2026.11.23.11.32.13
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 23 Nov 2026 11:32:14 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-3817a0ffd5eso4542604eec.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:32:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795462332; x=1796067132; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZhoRZJWv5WDLgSJ4NW+wzm1D4iqQUFLyqGAdX1OGoBc=;
+        b=D8IR7l226jkbPt2XLGzFEHKpeTcJaBjbSqQsPqZ4b+DQwih2VLzrUFRMbRraJLMovl
+         HQiaquV5UJtPt5sWGhLWFQKjTH1xYDbOJ9fl76z0bqCCbgp/epo72Jc1kJY/iT4nkJj4
+         bltyeyFPizUCr+Qnt1NacASIfizPqZyw+2iWY=
+X-Forwarded-Encrypted: i=1; AL+hErGvYprb9b9fn5CU7AF8LVCSpYeDIeL5cSGZdXRzf6VwTRE+NFmYgRYF1Oab315EmDd/KoNm1iJPmYjjZkc=@vger.kernel.org
+X-Received: by 2002:a05:701b:4550:10b0:1b5:337a:6456 with SMTP id a92af1059eb24-1b55247eff6mr12630852c88.5.1795462331708;
+        Mon, 23 Nov 2026 11:32:11 -0800 (PST)
+X-Received: by 2002:a05:701b:4550:10b0:1b5:337a:6456 with SMTP id a92af1059eb24-1b55247eff6mr12630821c88.5.1795462330903;
+        Mon, 23 Nov 2026 11:32:10 -0800 (PST)
+Received: from [192.168.10.3] (ip70-187-214-22.oc.oc.cox.net. [70.187.214.22])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55684c85fsm42340205c88.14.2026.11.23.11.31.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 11:32:10 -0800 (PST)
+Message-ID: <60b6bd4a-c508-44e2-ae22-3f8bcc594457@broadcom.com>
+Date: Mon, 23 Nov 2026 11:31:49 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,85 +106,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 13/13] mmc: sdhci-brcmstb: Handle absent optional
+ sdio_freq clock in probe
+To: Lee Jones <lee@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ Kamal Dasu <kamal.dasu@broadcom.com>, Al Cooper <alcooperx@gmail.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ulf Hansson <ulfh@kernel.org>,
+ linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+References: <20261123191703.179283-1-lee@kernel.org>
+ <20261123191703.179283-14-lee@kernel.org>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20261123191703.179283-14-lee@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-blk_validate_limits() sets a device's max_discard_sectors from the
-minimum of max_hw_discard_sectors and max_user_discard_sectors. For a
-stacked device to correctly limit max_discard_sectors to a value that
-the lower device can handle, max_hw_discard_sectors should be based on
-the lower device's max_discard_sectors. Otherwise the stacked device can
-pass down discards that are over the size limit of a lower device whose
-max_discard_sectors is smaller than its max_hw_discard_sectors.  This is
-a particular problem for request-based dm-multipath devices, where the
-underlying device does not have a chance to split the discard.
 
-Use the upper device's max_hw_discard_sectors to limit this, instead of
-max_user_discard_sectors, to ensure that it respects the lower device's
-limits, including their user settings. A user raising the upper device's
-max_user_discard_sectors should not be able to make it send larger
-discards than the underlying devices can handle.
 
-Device-mapper does stacking in two passes. Each target calculates its
-limits from its underlying devices, and applies any target io_hints.
-Then the overall device calculates its limits from all its targets. For
-the overall limits to be stacked correctly with this change, each target
-needs to set its max_discard_sectors to its max_hw_discard_sectors
-before being stacked into the overall limit. Otherwise the
-max_hw_discard_sectors io_hints values from the targets will be ignored.
+On 11/23/2026 11:15 AM, Lee Jones wrote:
+> Standard MMC Device Tree nodes may specify "clock-frequency" on SoCs
+> that do not provide the optional 72116B0 "sdio_freq" clock, in which
+> case devm_clk_get_optional() legitimately returns NULL.  However,
+> sdhci_brcmstb_probe() only checks IS_ERR(base_clk): when base_clk is
+> NULL, clk_get_rate(base_clk) evaluates to 0 and overwrites
+> SDHCI_CLOCK_V3_BASE_MASK in host->caps with 0 MHz while leaving
+> priv->base_freq_hz non-zero for system resume.
+> 
+> Check IS_ERR_OR_NULL(base_clk) and clear priv->base_freq_hz on the
+> fallback path before jumping to add_host.
+> 
+> Fixes: 97904a59855c ("mmc: sdhci-brcmstb: Add ability to increase max clock rate for 72116b0")
+> Closes: https://sashiko.dev/#/bug/linux-88799a75-1ece-4f9d-bdab-eeb713627ab2
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lee Jones <lee@kernel.org>
 
-Fixes: 4f563a64732d ("block: add a max_user_discard_sectors queue limit")
-Signed-off-by: Benjamin Marzinski <bmarzins@redhat.com>
----
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 
-Resent because I forgot to include dm-devel. Sorry for the noise. See:
-https://lore.kernel.org/all/20261109193927.595104-1-bmarzins@redhat.com/
-for the original thread.
-
-Changes from v1 (sent as "block: stack max_user_discard_sectors")
-- switch from stacking max_user_discard_sectors to
-  max_hw_discard_sectors
-- Adapt device-mapper to the change.
-
- block/blk-settings.c  | 6 +++++-
- drivers/md/dm-table.c | 5 ++++-
- 2 files changed, 9 insertions(+), 2 deletions(-)
-
-diff --git a/block/blk-settings.c b/block/blk-settings.c
-index 1f5ee2453269..52ac00c59a0e 100644
---- a/block/blk-settings.c
-+++ b/block/blk-settings.c
-@@ -919,8 +919,12 @@ int blk_stack_limits(struct queue_limits *t, struct queue_limits *b,
- 
- 		t->max_discard_sectors = min_not_zero(t->max_discard_sectors,
- 						      b->max_discard_sectors);
-+		/*
-+		 * Use bottom device's max_discard_sectors to limit the top
-+		 * device by what the bottom device can actually handle.
-+		 */
- 		t->max_hw_discard_sectors = min_not_zero(t->max_hw_discard_sectors,
--							 b->max_hw_discard_sectors);
-+							 b->max_discard_sectors);
- 		t->discard_granularity = max(t->discard_granularity,
- 					     b->discard_granularity);
- 		t->discard_alignment = lcm_not_zero(t->discard_alignment, alignment) %
-diff --git a/drivers/md/dm-table.c b/drivers/md/dm-table.c
-index 48f25ab6b7fa..4cabe2645094 100644
---- a/drivers/md/dm-table.c
-+++ b/drivers/md/dm-table.c
-@@ -1834,8 +1834,11 @@ int dm_calculate_queue_limits(struct dm_table *t,
- combine_limits:
- 		/*
- 		 * Merge this target's queue limits into the overall limits
--		 * for the table.
-+		 * for the table. In blk_stack_limits() the upper device's
-+		 * max_hw_discard_sectors is based on the lower device's
-+		 * max_discard_sectors, so copy this value over first.
- 		 */
-+		ti_limits.max_discard_sectors = ti_limits.max_hw_discard_sectors;
- 		if (blk_stack_limits(limits, &ti_limits, 0) < 0)
- 			DMWARN("%s: adding target device (start sect %llu len %llu) "
- 			       "caused an alignment inconsistency",
+Not sure this deserves a Fixes: tag.
 -- 
-2.56.0
+Florian
 
