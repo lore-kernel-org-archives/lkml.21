@@ -1,75 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.99
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795477195;
-	b=R4iwZoZMW9sZmmHc9oHPfMZ7NLCaUhOD1SVmedlPkQUWrivVEJGmwBwx0msAVfAQMfn8
-	 HL8GtDmn3Lxx1SDAemavKM2sdbZ8HUsNhtoQ5YIOqy9gDchBkndZ8RI2fIs9hON45oeYy
-	 Cv9oem8lZ2ckO3UZxAI7xAWdLCWTzymKQD98EBduVuTzafk6ajH9hGXDGaEwwJiZeI4Y7
-	 J5bsNfKlay6Pmvgr/FKeUh1t1ndbyETiT8zT0jlbV2KugpPFy3pFwf4YRdbYpoJWMehAx
-	 kJ2uHFitp+dXEIMJ3gXdKUbaEzx3wf8Aivtr9dTK0W1yrlzGbzwY+GTPSczXwQRZ9Dw==
+	t=1795477194;
+	b=mxnI532ObZ0qgx77CAKb9JgdK74IwOfESumBAhmxA+33cFl7LoWzNKw5ZJxiyjAY+Zpp
+	 d0ORj2df6Z+N92PU70MdthWC6Ji+1bo883Z1U0cbeyIAMoFGkY3S53FZRhHqJ0I7EmtE3
+	 S2Z+YmEv5nE4fM2wU9x/mY7BA3ggsnybBshBkEr0rs7b5bcr3KU/Lz9BB+GyHEeXKN2EL
+	 u6ZGsCWMrq3j3Khr2ktTztiHyz6bJgB+jmBHOqkr9PB8UFj4v+kIf0FDF6e+sKL9vbaGU
+	 ImIswzwwqiPnUA6CjzTI2i8KJYAQTaXedAZ2HNNAnFuUzkmzlvnyImKz8zOSJzSAXag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795477195;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=TfpmwInLEGo5frDChwR3ktzWoQYmqPnvABEvfJfxR3I=;
-	b=ymiYwffrZ3mm00waahJTVOnYyXnVjLS9EoLKq/eEfWujLEEdNOjod+2d3uKELhDLGyn8
-	 Zs3HXvjnvvBB8Wb8DAqAVAEmT/KwKDzKQV0jbiFjHuo9nggzq4t2QFbLCrakaXHg/rXPo
-	 bvzZjWhO6bY5lVhzMxlDitXARVehne8luFzE4FqCVhwTVR4OKY6D/3eT0+LEtU7032lwu
-	 +z9hgMeHh4Cy13qQZ0RlOrPdqHpHwBLRW79ed6qJW+YD8JKTdyCNBFyGggXfJJek1zKX2
-	 L0DlktIYJ/GU+nrRoNGSOuZEwsNZfEt0OQom53cSuJMBGk4yw0AYFNm1Iq76w4jHxjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795477194;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=GQphScNATQHHldgFgEcB68heOuz1yKCUAO9uOSn7l/E=;
+	b=shMrdllPTn2ZAej1UaGZHVO/S4fY3MRMxAJghEOs+kEjGHhOyVfnz0RFfuYtlING26ET
+	 3XfGMItT85M3BBy6PPnUPYJPPxmDEBrQu8ZdbFu06t8SokSWpjHCWLKCBPO5gFwqJfufa
+	 oVTnAoGgjkWdy8I4WlrDRxQ9LbqN1qEK50hnqkYgvs4PpCHDWDEne1psjTTiG3FdM4NpV
+	 L/dhvsHj82bpCFICtFEpHfRXXz8roWb/eZGh6vKp0uKNn30bAsnDRFCanXzJBf41J8HIe
+	 9lvxFaEWwQiERyOCIBLni5XazX+pTLhD8dx0AE+BP19AVd1nswIHylLE9bFDycavOHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--dmatlack.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bo42ieLu;
-	arc=none smtp.remote-ip=209.85.167.197
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=xiaopeng.com;
+	spf=pass smtp.mailfrom=xiaopeng.com;
+	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=DF42BqXj;
+	arc=none smtp.remote-ip=115.124.28.99
+Received: from out28-99.mail.aliyun.com (out28-99.mail.aliyun.com [115.124.28.99])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F20D560A263A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:39:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F20D560A263A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--dmatlack.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4466606A6A6;
+	Mon, 23 Nov 2026 23:39:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4466606A6A6
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bo42ieLu
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-4cbf700ddccso2915336b6e.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:39:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795477194; x=1796081994; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TfpmwInLEGo5frDChwR3ktzWoQYmqPnvABEvfJfxR3I=;
-        b=bo42ieLuaUMLViV72TKfVu77byDyZce5t8h1kVdQlCwltYkFPBjmQeRC2usKNtI/Sc
-         gJtOtni6o+woM1LHi57DZSvKUlDZKPBmIr8e73KK4vS0rZrEao4Uf2kPKgY236TUzIfS
-         P3N3GNRsBYkfiRxKVesSAxl8Zd9BecAudyCjyiQn7FC1T1DXljtlIJs8jeUBbRF06D+A
-         jrrnxhTy+BpJ2oYj69KI7K3FZt7Lgl0MQDSXHiRidPWPFkigLv7yg+dC2VIVfHHbdnYA
-         WDa7bVDYW6vuuZDDqGuc7qmBd+lrAjjKtb2oF8NuQHf5Kowo9KxKYxvGPJILb9X3MPb4
-         fHww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795477194; x=1796081994;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TfpmwInLEGo5frDChwR3ktzWoQYmqPnvABEvfJfxR3I=;
-        b=onQfj8ozNh3ALczyjzy9kJQ6/4S7lTt3uqpLS6K7bEMZDs1QoTkIcGKTTL1+WO+P0I
-         G8AemTCfULL6ntLND3QwrNJ14c92TFsRXaaM28c7rUZiZUqFHZItWYTQAPx8WIJNC/oL
-         yjZmkqpQfk7c+nLUTkGklOZ3jFHG12bmLgoDzP2OmwXPgAwVLdogZkoQIqooXmnncMmq
-         ejVoNyJAQ78xZWsSfyYu6f48jqQzjKkk1R5NL2JRXfy+J7W3fGfccI8tEpCoD6VG7OT9
-         r8NyC3GzC+8pCJ7SLZIuw0RtF2NNADRcNLgFoaiU4ILSDi5cq7sUv3cArOkAvp1pp9bG
-         7ZSA==
-X-Forwarded-Encrypted: i=1; AL+hErFRcz2NAqM4ysbgcSJz+VU78u5/ncW0BgKP360C2DMEvvbRDQpSi41NwYcYaCo+USSAItQqc++Xfi1/MdU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9hl184cq41fn4j3bJ/h7aYQhfoczMfvkChAnT+7dxsH9YusNy2
-	FHAjfOcNp3kanIOJpG67UcINi6T3e+bEyOshvYoO3AJYAvMdfftqjfgzgE2bukAX3ILgae6B6Nu
-	PR+fvz+U7o6zyQw==
-X-Received: from jats20.prod.google.com ([2002:a05:6638:2594:b0:61c:f132:938b])
- (user=dmatlack job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:c3d2:b0:579:293a:52ac with SMTP id 5614622812f47-57a06a0f737mr14141383b6e.9.1795477193657;
- Mon, 23 Nov 2026 15:39:53 -0800 (PST)
-Date: Mon, 23 Nov 2026 23:39:23 +0000
-In-Reply-To: <20261123233924.3970932-1-dmatlack@google.com>
+	dkim=pass (1024-bit key, unprotected) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=DF42BqXj
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xiaopeng.com; s=default;
+	t=1795477184; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=GQphScNATQHHldgFgEcB68heOuz1yKCUAO9uOSn7l/E=;
+	b=DF42BqXjUdPkQLpCBC5CtznPLQOQTUGHZFL+h9zdNSlL6hvmVlslfN2+9T1AN8aFdDyCTn01AiPsF1WML9OU6BY/VLNjO8yXZfYpN2nLf8gomaaJ81EJwf/NpjftDJjfcJgDzuaDaf7lVgxjUQ6+KfVReX0uCoKs9I54yL5Uzsw=
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.04998161|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00557952-0.000104749-0.994316;FP=12015874423884973311|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037032112;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=16;RT=16;SR=0;TI=SMTPD_---.k8dSJk7_1795477180;
+Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k8dSJk7_1795477180 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Tue, 24 Nov 2026 07:39:42 +0800
+From: Fang Xieyan <fangxy@xiaopeng.com>
+To: netdev-bot+sinfo@kernel.org
+Cc: Chandrashekar Devegowda <chandrashekar.devegowda@intel.com>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	netdev@vger.kernel.org,
+	Liu Haijun <haijun.liu@mediatek.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Lin Qiaojie <linqj@xiaopeng.com>
+Subject: Re: [PATCH net v2] net: wwan: t7xx: validate PIT data before building RX skb
+Date: Tue, 24 Nov 2026 07:39:36 +0800
+Message-ID: <20261123233936.51601-1-fangxy@xiaopeng.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <179545421789.3294.8652562780118952990@kernel.org>
+References: <20261123171519.33975-1-fangxy@xiaopeng.com> <179545421789.3294.8652562780118952990@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,409 +73,49 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261123233924.3970932-1-dmatlack@google.com>
-X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261123233924.3970932-19-dmatlack@google.com>
-Subject: [PATCH v5 18/18] selftests/liveupdate: Test block accounting of
- retrieved tmpfs files
-From: David Matlack <dmatlack@google.com>
-To: kexec@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-mm@kvack.org
-Cc: Alexander Graf <graf@amazon.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Christian Brauner <brauner@kernel.org>, 
-	David Hildenbrand <david@kernel.org>, Hugh Dickins <hughd@google.com>, Jonathan Corbet <corbet@lwn.net>, 
-	"Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>, 
-	Mike Rapoport <rppt@kernel.org>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
-	Pratyush Yadav <pratyush@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	Samiullah Khawaja <skhawaja@google.com>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
-	David Matlack <dmatlack@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Add test cases to luo_tmpfs for how the blocks of a retrieved file are
-charged: The file fits a mount of exactly its size, and a large folio
-that extends past the end of the file is charged in full. Running out of
-space on the mount, or hitting the memcg limit, fails permanently,
-leaves the target empty and nothing charged to the mount or the memcg,
-and the session can still be finished.
+The issue was found during a security review of the t7xx driver's
+device-supplied input paths, assisted by the Hawkeye agent
+(LLM-based code analysis).
 
-Enable CONFIG_TRANSPARENT_HUGEPAGE for the large folio test cases, and
-CONFIG_CGROUPS and CONFIG_MEMCG for the memcg test case. They are
-skipped without them.
+It is reproduced at runtime, not only theoretical. No t7xx hardware
+is available, so a fault-injection harness in a KASAN-enabled QEMU
+guest synthesizes malformed PIT entries and drives the RX assembly
+paths; this is a synthetic trigger, not a natural one.
 
-tmpfs quotas are not tested.
+On the normal path, a PIT data address 128 bytes below the BAT DMA
+base yields an int offset of -128. The unpatched code accepts it,
+skb_reserve() moves skb->data before skb->head, and reading the
+payload triggers:
 
-Signed-off-by: David Matlack <dmatlack@google.com>
----
- tools/testing/selftests/liveupdate/config     |   3 +
- .../testing/selftests/liveupdate/luo_tmpfs.c  | 283 +++++++++++++++++-
- 2 files changed, 284 insertions(+), 2 deletions(-)
+  BUG: KASAN: slab-out-of-bounds in t7xx15_harness_run+0x1a5e/0x2340 [mtk_t7xx]
+  Read of size 1 at addr ff110000013bd000 by task insmod/71
+  Call Trace:
+   <TASK>
+   dump_stack_lvl+0x55/0x70
+   print_report+0x10d/0x5d0
+   kasan_report+0x96/0xd0
+   t7xx15_harness_run+0x1a5e/0x2340 [mtk_t7xx]
+   t7xx_pci_init+0x9/0xff0 [mtk_t7xx]
+   do_one_initcall+0x84/0x350
+   do_init_module+0x29d/0x800
+   load_module+0x510c/0x6630
+   init_module_from_file+0x15d/0x180
+   idempotent_init_module+0x320/0x670
+   __x64_sys_finit_module+0xbd/0x120
+   do_syscall_64+0xee/0x500
+   entry_SYSCALL_64_after_hwframe+0x77/0x7f
+   </TASK>
+  The buggy address belongs to the object at ff110000013bcd00
+   which belongs to the cache skbuff_small_head of size 704
+  The buggy address is located 64 bytes to the right of
+   allocated 704-byte region [ff110000013bcd00, ff110000013bcfc0)
 
-diff --git a/tools/testing/selftests/liveupdate/config b/tools/testing/selftests/liveupdate/config
-index 37230f4c488f..7f38291c979d 100644
---- a/tools/testing/selftests/liveupdate/config
-+++ b/tools/testing/selftests/liveupdate/config
-@@ -1,4 +1,5 @@
- CONFIG_BLK_DEV_INITRD=y
-+CONFIG_CGROUPS=y
- CONFIG_DEVTMPFS=y
- CONFIG_KEXEC_FILE=y
- CONFIG_KEXEC_HANDOVER=y
-@@ -7,7 +8,9 @@ CONFIG_KEXEC_HANDOVER_DEBUGFS=y
- CONFIG_KEXEC_HANDOVER_DEBUG=y
- CONFIG_LIVEUPDATE=y
- CONFIG_LIVEUPDATE_TEST=y
-+CONFIG_MEMCG=y
- CONFIG_MEMFD_CREATE=y
- CONFIG_TMPFS=y
- CONFIG_TMPFS_XATTR=y
- CONFIG_SHMEM=y
-+CONFIG_TRANSPARENT_HUGEPAGE=y
-diff --git a/tools/testing/selftests/liveupdate/luo_tmpfs.c b/tools/testing/selftests/liveupdate/luo_tmpfs.c
-index 7911ac28188f..df2bc1488c01 100644
---- a/tools/testing/selftests/liveupdate/luo_tmpfs.c
-+++ b/tools/testing/selftests/liveupdate/luo_tmpfs.c
-@@ -62,8 +62,9 @@
- 
- /*
-  * Everything happens on a tmpfs mounted at TEST_DIR. In stage 1, the source
-- * files are created on the tmpfs mounted at TEST_DIR/src. In stage 2, each
-- * case runs in the directory TEST_DIR/<name of the case>.
-+ * files are created on the tmpfs mounted at TEST_DIR/src, or at
-+ * TEST_DIR/src_huge for files that need large folios. In stage 2, each case
-+ * runs in the directory TEST_DIR/<name of the case>.
-  */
- #define TEST_DIR		"/luo_tmpfs"
- 
-@@ -145,6 +146,7 @@ struct test_case {
- static unsigned long page_size;
- static int dev_fd;
- static int session_fd;
-+static bool have_huge_src;
- 
- /* nolibc doesn't have these, so use syscall() where needed. */
- static int do_fcntl(int fd, int cmd, long arg)
-@@ -213,6 +215,16 @@ static long mnt_used(const char *path)
- 	return buf.f_blocks - buf.f_bfree;
- }
- 
-+static long mnt_free(const char *path)
-+{
-+	struct statfs buf;
-+
-+	if (do_statfs(path, &buf))
-+		return -1;
-+
-+	return buf.f_bfree;
-+}
-+
- /* Mount a tmpfs with room for @pages pages at @dir. */
- static int mount_tmpfs(const char *dir, unsigned long pages, const char *opts)
- {
-@@ -248,6 +260,26 @@ static long read_long(const char *path)
- 	return strtol(buf, NULL, 10);
- }
- 
-+/* Write @str to the file at @path. Return 0 or -errno. */
-+static int write_file(const char *path, const char *str)
-+{
-+	ssize_t len = strlen(str), ret;
-+	int fd;
-+
-+	fd = open(path, O_WRONLY);
-+	if (fd < 0)
-+		return -errno;
-+
-+	ret = write(fd, str, len);
-+	if (ret != len)
-+		ret = ret < 0 ? -errno : -EIO;
-+	else
-+		ret = 0;
-+
-+	close(fd);
-+	return ret;
-+}
-+
- /* Retrieve with the argument @arg. Return the new fd or -errno. */
- static int retrieve_arg(__u64 token, struct liveupdate_shmem_retrieve_arg *arg)
- {
-@@ -462,6 +494,33 @@ static int preserve_memfd(struct test_case *tc, unsigned int flags,
- 	return ret;
- }
- 
-+/* Preserve a file from the tmpfs mounted with huge=always. */
-+static int preserve_huge_file(struct test_case *tc)
-+{
-+	char path[128];
-+	int fd, ret;
-+
-+	if (!have_huge_src)
-+		return KSFT_SKIP;
-+
-+	snprintf(path, sizeof(path), "src_huge/%s", tc->name);
-+	fd = create_source(path, tc->size, tc->token);
-+	CHECK(fd >= 0);
-+
-+	/* The test needs the last, partial page to be in a large folio. */
-+	if (tc->size % page_size && file_pages(fd) <= nr_pages(tc->size)) {
-+		ksft_print_msg("%s: No large folio for the source file\n",
-+			       tc->name);
-+		close(fd);
-+		return KSFT_SKIP;
-+	}
-+
-+	ret = preserve_fd(fd, tc->pos, tc->token);
-+	close(fd);
-+
-+	return ret;
-+}
-+
- /* Skip a case whose source file couldn't be preserved in stage 1. */
- static int skip_not_preserved(struct test_case *tc)
- {
-@@ -1335,6 +1394,186 @@ static int exec_after_finish(struct test_case *tc)
- 	return KSFT_PASS;
- }
- 
-+static int mount_fits_verify(struct test_case *tc)
-+{
-+	unsigned long pages = nr_pages(tc->size);
-+	int fd;
-+
-+	/* The file can be retrieved into a mount it fits exactly. */
-+	CHECK_EQ(mount_tmpfs("fit", pages, NULL), 0);
-+	fd = retrieve_new(tc->token, "fit");
-+	CHECK(fd >= 0);
-+	TRY(check_restored(tc, fd));
-+	CHECK_EQ(mnt_used("fit"), pages);
-+	CHECK_EQ(mnt_free("fit"), 0);
-+
-+	CHECK_EQ(ftruncate(fd, 0), 0);
-+	CHECK_EQ(mnt_used("fit"), 0);
-+
-+	close(fd);
-+	return KSFT_PASS;
-+}
-+
-+static int mount_too_small_verify(struct test_case *tc)
-+{
-+	unsigned long pages = nr_pages(tc->size);
-+	int target;
-+
-+	/* The failure leaves the target empty, and the mount untouched... */
-+	CHECK_EQ(mount_tmpfs("small", pages - 1, NULL), 0);
-+	target = new_target("small");
-+	CHECK(target >= 0);
-+	CHECK_EQ(retrieve_into(tc->token, target), -ENOSPC);
-+	CHECK_EQ(file_size(target), 0);
-+	CHECK_EQ(file_pages(target), 0);
-+	CHECK_EQ(mnt_used("small"), 0);
-+	close(target);
-+
-+	/*
-+	 * ... but the preserved contents were restored before it was detected,
-+	 * so the failure is permanent. Finishing the session frees them.
-+	 */
-+	CHECK_EQ(mount_tmpfs("big", pages, NULL), 0);
-+	CHECK_EQ(retrieve_new(tc->token, "big"), -ENOSPC);
-+	CHECK_EQ(luo_session_retrieve_fd(session_fd, tc->token), -ENOSPC);
-+	CHECK_EQ(mnt_used("big"), 0);
-+
-+	return KSFT_PASS;
-+}
-+
-+static int huge_folios_verify(struct test_case *tc)
-+{
-+	unsigned long pages = nr_pages(tc->size);
-+	int fd;
-+
-+	CHECK_EQ(mount_tmpfs("dst", pages, "huge=never"), 0);
-+	fd = retrieve_new(tc->token, "dst");
-+	if (fd == -ENOENT)
-+		return skip_not_preserved(tc);
-+	CHECK(fd >= 0);
-+	TRY(check_restored(tc, fd));
-+	CHECK_EQ(mnt_used("dst"), pages);
-+
-+	/* LUO keeps a reference to the file until the session is finished. */
-+	close(fd);
-+	CHECK_EQ(mnt_used("dst"), pages);
-+
-+	return KSFT_PASS;
-+}
-+
-+static int huge_folios_after_finish(struct test_case *tc)
-+{
-+	CHECK_EQ(mnt_used("dst"), 0);
-+	return KSFT_PASS;
-+}
-+
-+static int huge_folio_tail_verify(struct test_case *tc)
-+{
-+	long pages;
-+	int fd;
-+
-+	CHECK_EQ(mount_tmpfs("dst", 4096, "huge=never"), 0);
-+	fd = retrieve_new(tc->token, "dst");
-+	if (fd == -ENOENT)
-+		return skip_not_preserved(tc);
-+	CHECK(fd >= 0);
-+	CHECK_EQ(file_size(fd), tc->size);
-+	TRY(check_contents(fd, tc->size, tc->token));
-+
-+	/* The whole folio is charged, including the part past EOF. */
-+	pages = file_pages(fd);
-+	CHECK(pages > 1);
-+	CHECK_EQ(mnt_used("dst"), pages);
-+
-+	CHECK_EQ(ftruncate(fd, 0), 0);
-+	CHECK_EQ(mnt_used("dst"), 0);
-+
-+	close(fd);
-+	return KSFT_PASS;
-+}
-+
-+static int huge_folio_tail_enospc_verify(struct test_case *tc)
-+{
-+	int ret;
-+
-+	/* There is room for the file, but not for its last folio. */
-+	CHECK_EQ(mount_tmpfs("small", 1, "huge=never"), 0);
-+	ret = retrieve_new(tc->token, "small");
-+	if (ret == -ENOENT)
-+		return skip_not_preserved(tc);
-+	CHECK_EQ(ret, -ENOSPC);
-+	CHECK_EQ(mnt_used("small"), 0);
-+
-+	return KSFT_PASS;
-+}
-+
-+static int memcg_limit_child(struct test_case *tc)
-+{
-+	long limit = tc->size / 2, usage;
-+	int ret;
-+
-+	/*
-+	 * Charging a large folio doesn't invoke the memcg OOM killer, but the
-+	 * source may have gotten small folios. Protect the child, so that the
-+	 * retrieve fails with -ENOMEM instead.
-+	 */
-+	CHECK_EQ(write_file("/proc/self/oom_score_adj", "-1000"), 0);
-+	CHECK_EQ(write_file("memcg/small/cgroup.procs", "0"), 0);
-+
-+	/* The folios are charged to the memcg of the caller, which is full. */
-+	ret = retrieve_new(tc->token, "dst");
-+	if (ret == -ENOENT)
-+		return skip_not_preserved(tc);
-+	CHECK_EQ(ret, -ENOMEM);
-+
-+	/* The failure leaves the mount and the memcg untouched. */
-+	CHECK_EQ(mnt_used("dst"), 0);
-+	usage = read_long("memcg/small/memory.current");
-+	CHECK(usage >= 0 && usage < limit);
-+
-+	return KSFT_PASS;
-+}
-+
-+static int memcg_limit_verify(struct test_case *tc)
-+{
-+	unsigned long pages = nr_pages(tc->size);
-+	char limit[32];
-+	int ret;
-+
-+	CHECK_EQ(mkdir("memcg", 0755), 0);
-+	if (do_mount("cgroup2", "memcg", "cgroup2", 0, NULL)) {
-+		ksft_print_msg("%s: cgroup2 is not available\n", tc->name);
-+		return KSFT_SKIP;
-+	}
-+	if (write_file("memcg/cgroup.subtree_control", "+memory")) {
-+		ksft_print_msg("%s: The memory controller is not available\n",
-+			       tc->name);
-+		return KSFT_SKIP;
-+	}
-+
-+	CHECK_EQ(mount_tmpfs("dst", pages, "huge=never"), 0);
-+
-+	/* A memcg without room for the file. */
-+	CHECK_EQ(mkdir("memcg/small", 0755), 0);
-+	snprintf(limit, sizeof(limit), "%zu", tc->size * 3 / 4);
-+	ret = write_file("memcg/small/memory.max", limit);
-+	if (ret) {
-+		ksft_print_msg("%s: Can't set memory.max: %d\n", tc->name, ret);
-+		ret = KSFT_FAIL;
-+	} else {
-+		ret = run_child(memcg_limit_child, tc);
-+	}
-+	rmdir("memcg/small");
-+	if (ret != KSFT_PASS)
-+		return ret;
-+
-+	/* The preserved contents were restored, so the failure is permanent. */
-+	CHECK_EQ(retrieve_new(tc->token, "dst"), -ENOMEM);
-+	CHECK_EQ(mnt_used("dst"), 0);
-+
-+	return KSFT_PASS;
-+}
-+
- static int memfd_preserve(struct test_case *tc)
- {
- 	return preserve_memfd(tc, 0, 0);
-@@ -1661,6 +1900,42 @@ static struct test_case test_cases[] = {
- 		.verify = exec_verify,
- 		.after_finish = exec_after_finish,
- 	},
-+	/* Block accounting. */
-+	{
-+		.name = "mount_fits",
-+		.size = 2 << 20,
-+		.verify = mount_fits_verify,
-+	},
-+	{
-+		.name = "mount_too_small",
-+		.size = 2 << 20,
-+		.verify = mount_too_small_verify,
-+	},
-+	{
-+		.name = "huge_folios",
-+		.size = 4 << 20,
-+		.preserve = preserve_huge_file,
-+		.verify = huge_folios_verify,
-+		.after_finish = huge_folios_after_finish,
-+	},
-+	{
-+		.name = "huge_folio_tail",
-+		.size = 100,
-+		.preserve = preserve_huge_file,
-+		.verify = huge_folio_tail_verify,
-+	},
-+	{
-+		.name = "huge_folio_tail_enospc",
-+		.size = 100,
-+		.preserve = preserve_huge_file,
-+		.verify = huge_folio_tail_enospc_verify,
-+	},
-+	{
-+		.name = "memcg_limit",
-+		.size = 4 << 20,
-+		.preserve = preserve_huge_file,
-+		.verify = memcg_limit_verify,
-+	},
- 	/* memfds. */
- 	{
- 		.name = "memfd",
-@@ -1765,6 +2040,10 @@ static void run_stage_1(int luo_fd)
- 	if (chdir(TEST_DIR) || mount_tmpfs("src", 4096, "huge=never"))
- 		fail_exit("Failed to mount the source tmpfs");
- 
-+	have_huge_src = !mount_tmpfs("src_huge", 4096, "huge=always");
-+	if (!have_huge_src)
-+		ksft_print_msg("[STAGE 1] huge=always is not supported\n");
-+
- 	session_fd = luo_create_session(luo_fd, SESSION_NAME);
- 	if (session_fd < 0)
- 		fail_exit("luo_create_session for '%s'", SESSION_NAME);
--- 
-2.56.1.809.ga0b61035b5-goog
-
+A second input, where the u64 address difference narrows to a small
+positive int, is also accepted by the unpatched code. On the
+fragment path, a negative offset likewise reaches the page copy and
+faults on an unmapped address. With this patch applied, all of
+these inputs are rejected (-ENOBUFS on the normal path, -EINVAL on
+the fragment path) and no KASAN report or fault is produced.
