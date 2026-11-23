@@ -1,113 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795427744;
-	b=L40utZimWoQvWxWQFWM9/5dKkRDQCjNG9cGDmUP9/4vIdeuy/we0TbyRzhu7QaTh71cN
-	 clzlzWLYjgcFkboiMdQfL2T9jHwYAukOynB/0sGXO/79Z6qG6sJQM4rayw3ffemImSPfb
-	 6BnK3R+2QHhb1Cm+Ei1nHn9QwVeh4Whh4UM0aiaHNkhyjJvE4zKP4XK+JoxUUhMUOk7hp
-	 d3cZ5HWDE7C1ezEOlPdW9DGAdilr/N3ToFkBFb0PNseN8EjVw+0z04PP1w0JF3Xw6vgtL
-	 iTbxEWfAoBeJhHGplly3KWjNoeBN7IcHIOpklXrOWezha13NwuWs1JFCBX5ziyzp+Vw==
+	t=1795427749;
+	b=H3XF33Np0hFj6cCFnxVqlblJpCyzoeolpbi+PKmo2ZXvfhzsMthfRkf72zGxBdSSNzrg
+	 HHDPgO80pv93/QSL7qO9JNevwL9lXDUr3FcoqfL8Rf2SjuxeWfP89JoMrmmfTD096s4up
+	 uoNP9e0I9XSgIrUZ8rCd6PkpTXK6sUYUsSwRg7q/i0ZAut9o7QCL4l+TOND5tmJ5WVxnK
+	 B6VcKcA6tJO0Z4yVhB6RUfiFm9oIhurnlpZbF6YJISSqQHJE0u86Uz+prL64vn02d1rnh
+	 7JTMQjTblgk9kZRvD8/8OUg4KtvuQFFlpF/WvwqA/pRa7PiFwXhII2d2JlNt+mTN0/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795427744;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:
-	 X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
-	bh=rgoNuDkqEE6/XLCYK+MqMrq9yvTsYpNIi/CFbubIxQs=;
-	b=AsqsnMlkqiZ3AZE13vaSQowaMuc3uV1ayHy++NmlHVOg5eZdUUP+QIMEuTa8TRlM8XiF
-	 kp/WGVEnSxGRpDdJi7ZeMIoecLVRMC4MT7gl2v62GJColTyOK0u0v2uIS//2iBThWkPMB
-	 mYtAtGNSBtnY1wKa4fFTMpot3rurToAVXY1Un2rRu8Ovdqsta7VmY+RPGLIvBAIfpDB/I
-	 WOeoR+d037iZdQbW3ynAQAtvA2ymCAxQgwT+Gbmo92cLa3IcI1cyGF7KutqwEpFh0GBXA
-	 6/1BLBHD+KkTP0p/Pj1euHCkvlW97QKMtyAAWDdgoxKBQBk77msAtDrbeD47+Ow4how==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795427749;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Received:From:
+	 To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=i5Bb6LQ0JNsmImryWzNQLJ90C7blcTOwp5oThaKLOI0=;
+	b=EojpvVmIWbg4Q92sC5rEEJAHtVAcu6u7xxtlpRgFnDt8g8rE0HrN0oZt6oOXsUtis5Qt
+	 ReJY3XR+4Q03SamPCPCCH94b3cCvETc+kNsncRcyEutRg2UJwJu0BPDqvVRLVyehg4FYb
+	 +ssX4g/O+oWVcLzx5jqXkHAGAdx/OfrZTjt1JYb30s4DlQZVS26eIbm+t4ghlT600DaTW
+	 obiT5vcYk8KtrlZhLNV770ObcMgGWwhl8zMtcUjXfUJdb4mjEubrRhASd5fg02puOkxR5
+	 zSEp1J7aL5ehlILLwQPgjVP/DGimRsV98l8qxn16Q8acWEEt/WnPCYeByZxvDW//VCg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=1DCNN3MZ;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=k1jEXeog;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=MPxohavb;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=K79Y+slm;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=KFow5d2R;
+	arc=none smtp.remote-ip=113.46.200.219
+Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99801606A321;
-	Mon, 23 Nov 2026 09:55:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99801606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C32B606A31A;
+	Mon, 23 Nov 2026 09:55:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C32B606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=1DCNN3MZ;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=k1jEXeog;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=MPxohavb;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=K79Y+slm
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 5383321F63;
-	Mon, 23 Nov 2026 09:55:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795427741; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rgoNuDkqEE6/XLCYK+MqMrq9yvTsYpNIi/CFbubIxQs=;
-	b=1DCNN3MZ4B6aQWFnfDJNKAtwTT7/VOuCv/ueinYT5R3cM91RXG6G9Sjjmw7jGqzZ1u/5DJ
-	HF+7+MfJedw4sZIGpeClfjwWlWqV6plYC+0sIKIhpWX1bWcm9l9tGd+kN21KrBdsUnjQTZ
-	hAMvh39nXsDB0z/PmzMjcgU3IbOS7Ls=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795427741;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rgoNuDkqEE6/XLCYK+MqMrq9yvTsYpNIi/CFbubIxQs=;
-	b=k1jEXeogzPNadSptgKWUibxBmXqgQcqUixgz2as2tHyyIH0P0ZOUGE32goJrY4pJhEg2AX
-	NiM3C7nFUHZ/coDA==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=MPxohavb;
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=K79Y+slm
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795427740; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rgoNuDkqEE6/XLCYK+MqMrq9yvTsYpNIi/CFbubIxQs=;
-	b=MPxohavb+35oUD0xZZNVF4sXIA3YwiyZq+me2KnEwyj1k0BVsGnP8ugaPhsJmzvtyJ3FJ5
-	/ylobmZRXJy28sK3tBtxSpI5+Wrt+IEyYt6ED4evaUU5Q3+BOY9Fcv2Kch/jAqSIt4OXTR
-	epnn6T/M1tAECMcIs1+NRyEfZlT8f1U=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795427740;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rgoNuDkqEE6/XLCYK+MqMrq9yvTsYpNIi/CFbubIxQs=;
-	b=K79Y+slmsPJfxExDcsEktpUpRHZV6QwT5R9gxUalDh9VEw5Yg2STMUT3lx2QDMVyhOJ+Er
-	Z7UxGpVTTDZ7keAw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 2D9F113510;
-	Mon, 23 Nov 2026 09:55:40 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id WJPqApwNBGvEPgAAD6G6ig
-	(envelope-from <jack@suse.cz>); Mon, 23 Nov 2026 09:55:40 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id B574427634; Mon, 23 Nov 2026 10:55:39 +0100 (CET)
-Date: Mon, 23 Nov 2026 10:55:39 +0100
-From: Jan Kara <jack@suse.cz>
-To: NeilBrown <neil@brown.name>
-Cc: Jan Kara <jack@suse.cz>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Amir Goldstein <amir73il@gmail.com>, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, Ian Kent <raven@themaw.net>, 
-	Jake Edge <jake@lwn.net>
-Subject: Re: [PATCH v5 2/5] fsnotify: update children flags only when adding
- mask bits
-Message-ID: <gm4htzbmvnabg7pvvkzge4atqxgwjy7zlrbmofpx4ahuujw67e@excduwsuxzaz>
-References: <20261119025942.2848130-1-neilb@ownmail.net>
- <20261119025942.2848130-3-neilb@ownmail.net>
- <mk7u4brorzgbyol7x4nyolufk3s3piqwqd5hnya3nhoq43d5ui@x5sdqeyrhde6>
- <179539972541.1728055.8282722306710793371@noble.neil.brown.name>
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=KFow5d2R
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=i5Bb6LQ0JNsmImryWzNQLJ90C7blcTOwp5oThaKLOI0=;
+	b=KFow5d2RIBojVpe8IQ8W5FXByr0v16wXcBcCY8ieqhiE8AuKH+BNGrQNUeMIZFcE7WKcBPj59
+	GrjEFK0tATviKN9ZaYVBiorWi7f8lv1GE31HYR22EcG8PTauKgZT7aEREEHrmB+KEnLvvbmWXAp
+	YCSEo0M1AsevDvI5FMW2VBA=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jY1XH4zXsz1prmh;
+	Mon, 23 Nov 2026 17:55:27 +0800 (CST)
+Received: from whupemk100014.china.huawei.com (unknown [7.152.184.20])
+	by mail.maildlp.com (Postfix) with ESMTPS id 89C194056E;
+	Mon, 23 Nov 2026 17:55:43 +0800 (CST)
+Received: from kwepemf100015.china.huawei.com (7.202.181.14) by
+ whupemk100014.china.huawei.com (7.152.184.20) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Mon, 23 Nov 2026 17:55:42 +0800
+Received: from kwepemf100015.china.huawei.com ([7.202.181.14]) by
+ kwepemf100015.china.huawei.com ([7.202.181.14]) with mapi id 15.02.2562.045;
+ Mon, 23 Nov 2026 17:55:42 +0800
+From: "Liuwenliang (Abbott Liu)" <liuwenliang@huawei.com>
+To: "tony.luck@intel.com" <tony.luck@intel.com>, "bp@alien8.de"
+	<bp@alien8.de>, "Guohanjun (Hanjun Guo)" <guohanjun@huawei.com>,
+	"rafael.j.wysocki@intel.com" <rafael.j.wysocki@intel.com>, "jic23@kernel.org"
+	<jic23@kernel.org>, "mchehab+huawei@kernel.org" <mchehab+huawei@kernel.org>,
+	"ardb@kernel.org" <ardb@kernel.org>, "danielf@os.amperecomputing.com"
+	<danielf@os.amperecomputing.com>, luoshengwei <luoshengwei@huawei.com>,
+	"jason@os.amperecomputing.com" <jason@os.amperecomputing.com>,
+	"linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+CC: "yangzhuohao (A)" <yangzhuohao1@huawei.com>, douzhaolei
+	<douzhaolei@huawei.com>, zouyipeng <zouyipeng@huawei.com>, Wangbing
+	<wangbing6@huawei.com>, Nixiaoming <nixiaoming@huawei.com>
+Subject: Re: [PATCH v6 0/2] RAS: Fix ARM processor error bounds checking
+Thread-Topic: [PATCH v6 0/2] RAS: Fix ARM processor error bounds checking
+Thread-Index: Ad17L+za6KtM0f1WQxuNnF458ub2Yg==
+Date: Mon, 23 Nov 2026 09:55:42 +0000
+Message-ID: <4f5a15f093a44588bed88884e2bbe648@huawei.com>
+Accept-Language: en-US
+Content-Language: zh-CN
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,125 +87,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <179539972541.1728055.8282722306710793371@noble.neil.brown.name>
-X-Rspamd-Queue-Id: 5383321F63
-X-Spam-Level: 
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spamd-Result: default: False [-13.01 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RCVD_TLS_LAST(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_COUNT_THREE(0.00)[3];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FREEMAIL_CC(0.00)[suse.cz,zeniv.linux.org.uk,kernel.org,gmail.com,vger.kernel.org,themaw.net,lwn.net];
-	DKIM_TRACE(0.00)[suse.cz:+];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[9];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	MISSING_XM_UA(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,brown.name:email,suse.com:email]
-X-Spam-Score: -13.01
 
-On Mon 23-11-26 13:08:45, NeilBrown wrote:
-> On Fri, 20 Nov 2026, Jan Kara wrote:
-> > On Thu 19-11-26 13:57:02, NeilBrown wrote:
-> > > From: Amir Goldstein <amir73il@gmail.com>
-> > > 
-> > > Since we only ever set the PARENT_WATCHED flag from
-> > > fsnotify_recalc_mask(), there is never a need to update children flags
-> > > when removing mark mask bits only when adding them.
-> > > 
-> > > Add a helper fsnotify_recalc_mask_and_update_children() to be called
-> > > in cases where updating children flags may be needed (i.e. add mark).
-> > > 
-> > > Also avoid update children walk with mark spinlock held.
-> > > This was only done by dnotify and can be easily avoided.
-> > > 
-> > > neilb: added update_children flag in fcntl_dirnotify() so we only
-> > >   do the update when needed.
-> > > 
-> > > Fixes: 172e422ffea20 ("fsnotify: clear PARENT_WATCHED flags lazily")
-> > > Signed-off-by: Amir Goldstein <amir73il@gmail.com>
-> > > Signed-off-by: NeilBrown <neil@brown.name>
-> > 
-> > One question to Amir below. Otherwise I like it.
-> > 
-> > > +/*
-> > > + * Recalculate mask and update children dentry PARENT_WATCHED flags if the
-> > > + * connector started watching children.  When parent stops watching, we
-> > > + * clear false positive PARENT_WATCHED flags lazily in __fsnotify_parent().
-> > > + *
-> > > + * The caller must make sure connector and connector->obj cannot disappear
-> > > + * under us.  This is achieved by holding mark->group->mark_mutex for a
-> > > + * mark on this list.  mark->lock must not be held by the caller.
-> > > + */
-> > > +void fsnotify_recalc_mask_and_update_children(
-> > > +					struct fsnotify_mark_connector *conn)
-> > > +{
-> > > +	if (fsnotify_recalc_mask(conn))
-> > >  		fsnotify_conn_set_children_dentry_flags(conn);
-> > >  }
-> > >  
-> > > @@ -367,8 +383,8 @@ void fsnotify_modify_mark_mask(struct fsnotify_mark *mark, u32 set, u32 clear)
-> > >  		recalc = true;
-> > >  	spin_unlock(&mark->lock);
-> > >  
-> > > -	if (recalc)
-> > > -		fsnotify_recalc_mask(mark->connector);
-> > > +	if (recalc && fsnotify_recalc_mask(mark->connector) && set)
-> > 
-> > Amir, why is the '&& set' check here? Under normal circumstances if
-> > fsnotify_recalc_mask() return's true, 'set' is true as well. We can be
-> > racing with other updates to the connector list of marks and in that case our
-> > fsnotify_recalc_mask() call could be the first one that noticed the marks
-> > attached to the inode are now watching children and is thus resposible for
-> > setting children dentry flags even if 'set' was false. So I think it can do
-> > only harm...
-> > 
-> > And for similar reasons I believe fsnotify_recalc_mask() call in
-> > fanotify_remove_mark() needs to be updated to
-> > fsnotify_recalc_mask_and_update_children() as well. Standalone
-> > fsnotify_recalc_mask() is simply never safe unless it is followed by the
-> > update children later - perhaps make it __must_check?
-> 
-> Hmmm.... I had thought that the group lock would prevent these races but
-> I guess not.  Maybe one mark can be in multiple groups???
+> Commit 87880af2d24e ("APEI/GHES: ARM processor Error: don't go past
+> allocated memory") and commit 05954511b73e ("RAS: Report all ARM
+> processor CPER information to userspace") introduced bounds checking
+> for malformed ARM processor error records in log_arm_hw_error().
+> However, two issues remain:
+>=20
+> 1. The ctx_info bounds check condition is inverted: it adds
+>    ctx_info->size when the context header is already past the end of
+>    the section instead of when it is within bounds.
+>=20
+> 2. When vsei_len < 0, the error path does not verify pei_len and
+>    ctx_len. Since these are derived from err_info_num and
+>    context_info_num, they may describe regions beyond the allocated
+>    record, causing trace_arm_event() to read out of bounds.
+>=20
+> Patch 1 fixes the inverted bounds check for context info iteration.
+> Patch 2 sanitizes pei_len/ctx_len/ven_err_data in the vsei_len < 0
+> error path to prevent out-of-bounds reads in trace_arm_event().
+>=20
+> The ctx_info->size overflow (a size over 0x7fffffff making the signed
+> sz negative, as reported by Hanjun Guo) is deliberately left
+> unaddressed in this series: a size overflow implies a corrupted
+> firmware record, and then section_length may be corrupted as well.
+> For example, a real section length of 1024 could be reported as
+> 16000, and the context walk can go out of bounds even without any
+> size overflow. Guarding ctx_info->size alone therefore does not add
+> meaningful protection.
+>=20
+> Changes in v6:
+>   - Drop patch 3 ("RAS: Fix integer overflow in ARM processor error
+>     context walk"): an overflowing ctx_info->size implies a corrupted
+>     firmware record, in which case section_length may be corrupted as
+>     well, and the context walk can go out of bounds even without a
+>     size overflow, so guarding ctx_info->size alone does not add
+>     meaningful protection.
+>   - Add a note to the patch 1 commit message with the same
+>     reasoning, as cover letters are not preserved in git history.
+>   - No code changes in this version.
+>=20
+> Changes in v5:
+>   - Collect Reviewed-by tags from Hanjun Guo for patches 1 and 2.
+>   - Added comments to patch 3.
+>   - No code changes in this version.
+>=20
+> Changes in v4:
+>   - Remove the empty line between the Fixes: and Signed-off-by: tags
+>     in patches 1 and 2, per Hanjun Guo's comments.
+>   - Add braces around the else branch that assigns ven_err_data in
+>     patch 2, as suggested by Hanjun Guo.
+>   - Add new patch 3 to check each context entry with 64-bit
+>     arithmetic and stop the walk at the first entry that does not fit
+>     in the section, so a ctx_info->size over 0x7fffffff cannot
+>     overflow the signed int sz and walk ctx_info past the section,
+>     addressing Hanjun Guo's overflow comment.
+>=20
+> Changes in v3:
+>   - There was no change, and the email was sent by mistake.
+>=20
+> Changes in v2:
+>   - Split the original single patch into two separate patches, one
+>     for each distinct fix, to ease review and backporting.
+>=20
+> v5:
+>   RAS: Fix ARM processor error bounds checking
+>   https://lore.kernel.org/all/20260921080337.3000957-1-liuwenliang@huawei=
+.com/
+>=20
+> v4:
+>   RAS: Fix ARM processor error bounds checking
+>   https://lore.kernel.org/all/20260909112832.805314-1-liuwenliang@huawei.=
+com/
+>=20
+> v2:
+>   RAS: Fix ARM processor error bounds checking
+>   https://lore.kernel.org/all/20260825134323.4181892-1-liuwenliang@huawei=
+.com/
+>=20
+> v1:
+>   RAS: Fix out-of-range section_length in ARM processor error handling
+>   https://lore.kernel.org/all/20260820131829.1006371-1-liuwenliang@huawei=
+.com/
+>=20
+> Abbott Liu (2):
+>   RAS: Fix inverted context info bounds check in ARM processor errors
+>   RAS: Fix out-of-bounds read when tracing arm_event
+>=20
+>  drivers/ras/ras.c | 24 +++++++++++++++++++-----
+>  1 file changed, 19 insertions(+), 5 deletions(-)
+>=20
+> --=20
+> 2.43.0
+>
 
-Mark belongs to a single group. But fsnotify_recalc_mask() calculates mask
-from all marks attached to an inode and different marks can belong to
-different groups. So group->lock indeed doesn't protect us from parallel
-changes to the list.
+Hi,
+Friendly ping on these patches in v6 versions:
+https://lore.kernel.org/all/20261012131140.1526599-1-liuwenliang@huawei.com=
+/
 
-> Given that, I don't think I can form a sensible opinion on Amir's
-> revised patch.  It looks OK and I think I can see what it is trying to
-> achieve and how it achieves it, but I'm less confident that I can see if
-> that is the thing that needs to be achieved.
-> 
-> So Jan - if you could review that so I can add your reviewed-by when I
-> repost, that would be great.
+Please let me know if there is anything inappropriate in the patch
+or if it is ready to be applied to the tree.
 
-Yes, the patch looks good to me now.
-
-								Honza
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+Best regards,
+Abbott Liu
