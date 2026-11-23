@@ -1,79 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.169
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795459465;
-	b=d+YwOYlsthVht+jJ8SHuY47pYOKtGJgJWwPsRw/4Bq3/NxuiOnDHWVIboRpTy13JoZ+v
-	 rhk1axt4ixx16w/i0rWRZsL53qLYT8HCBnabXjqQX4H1l/FdCfeiYP9+Psosc3n2XWK9I
-	 7lpwpeovSEzKijdCckCDwUefaq+Nyvkt/7aSlcYY4dniBS14jtM6uafbYxaj+VlfvJ599
-	 yXgDRrGA3S+fuiYZspvxlLwJe8occppbcKRiH/HxoxPCPeKwQFHU6QpfBu8/wh7agRdVp
-	 fe0Zw2MKrDb5w84e0+vPnUgdGLaO8Zp58v2mquQKKib8yZGSWgQe3VuBxNOqMa17YEw==
+	t=1795459467;
+	b=D3bUGLF6fTfMeqMhjvVT0BGPQ9kOhbCesTlRt1uCD4MyiZw1m99/59MQjqhr3ElNwuus
+	 WI//ZYrQ+vtN98WavitAG8dJSmAOpQbAjnBSf7aHAPlUsNvFARcPzP7DEdj4k6W3Gvsdd
+	 sjVmjro4b1WMUMhqqk4RtnUe6jotu7JG0pnzLEcHdD/AZS5jOCHKcX044ylqq9MPCRBPv
+	 IpVZHW0tFfgkqsIFBITFzTGXHFwa2v3D9U8FSnwKyr0KvMHYtXYyDgF5RfXh5+7cy8q44
+	 QSOJpEeyFTomKk3ni8ym44IOrOSPxTtp/Hl7fUT0Tn7mETMKv0jHYAINmFNYvXQk2Gg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795459465;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=o723m0djv4llTVaMLMWyJBdlGd6TGnVmWvYWsA2QBxE=;
-	b=vZgorXH7PCpfrXZAf8ZwxY4dZ+dPpTMxNLuInMhk467W4Rs6OgbCgFophKCjS2pYzgws
-	 wc/txAoDqYn7XesIH4Y4T0hLiOYGRc+9ZyERvOr+Re4ZIUf0EQhQc9Rtff72ejgxlPmYg
-	 RABiBI69TueQDaSqoVkJ9cI7rI2pn5yWXZMNXRaOvAL6pK6IlFdySK0vAB9h9zrVxLK55
-	 4JyX7c0YxsT6oxZDp10eEprgVigSWBIO79Bt2oCKP/52XybSJZd4dIV1YeTY5lViNpqut
-	 SIScK33f1zAVtVdYbHM7ZUFli17euAa5JndTaV94qqpszKGq2awr2JzBhIRcdTWYqOQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795459467;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Qpy9q3tA9qQtSLTg1mBMWXjE/nQplNi9tWL6pr4AjbI=;
+	b=JYtsGrDISqJ3ZzEn3txxVWtdAEoR19Gl4dt8tv6uYGLGdCM63Mt/g2fkn4ZeJJrA6xZe
+	 br7VTTgLsdvJQWk7i5D0CZNOMXj7GRz/JYqA74JaSTM1cZ3p1phxRjmGLzZyrFda19tKq
+	 zhZO/N1I4UplEu4VoPooB+3mdbNnBxU94ex4mk+VlrgFF+b72Pn12Qzj+t35AZHDFPGzV
+	 BQ0RILtpG9LhHtnSsmnthz/mTI23cbOBQ1e00KwxlAjCbL1fW05GBPKleDq/hd32y1rLi
+	 c2GIfsDDkfPnZw6qg5nFbcONCfoPkQRkR7CKySkKEbAi81CM2+Z8UJyAUXSK5Imx23A==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WjdELp7n;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7CEA606A32A;
-	Mon, 23 Nov 2026 18:44:25 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WjdELp7n
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795459465;
-	b=FAg3B6bouq3U+ydWXpOhDHsbouVTsvWSLcnpIQS+GTb763yBw1Ii00tuoam7ckyhkpoW
-	 eOJI+1NNlW7wBbdqEmHYJEYE4Hx4M2F6fX/H0rimIbz5Yw8LCxOkJOyTSBqkdQ0Esd19j
-	 ZecO5Wi/9N6FbzVJmryssT7WAWjvxJ+IU4ISFNrw7fN5Es3wNqnGjsuWlbx1n0aNrMnur
-	 QqfGLA2wqww3Ea03E9tV1Sfb8bLrNLHIzmYURgFRCOWXP/zr5YRL5/kMO914MnFuyYMbz
-	 T4OIzm0E6JlI/ngAVuv1TCe/kroOtHzz3f9y2SCsUR0iQ9mHzUSMwv2H4K0w+kX7cfw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795459465;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=o723m0djv4llTVaMLMWyJBdlGd6TGnVmWvYWsA2QBxE=;
-	b=aMm/l40pQ6j2r2Vqhnx5Um2h4vZ9DKIQcOybm4IlwdQA+R7Agkw29SoXRlMbVW4MOE3y
-	 m7+3+HAPodjFr+ba35Ky1DM57umnki9VQLF6HegGvragPSImfj13bfAn0l6q2uOkmdthW
-	 dYLUdMqbffSfolqOdQ0/P/q7jRh03UprovQBo4xWm8doWrR8t29WOrP+bDZRAUgyPqBJ6
-	 P3N8d4J98/2H0GGwOrl8XLDonpcpbPD35/X5fSuPlPkc+zgp/q3Dmx2rSNQaCqcZd8FDv
-	 yUShuBSdDyo/wfygNLq+7OQU7ci7S35FKQ0v41OXQkPIvJrdZ2ubsyj2NkWG+5xfyaQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="IT5JsX/d";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.169
+Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com [209.85.160.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id F05881F000ED;
-	Mon, 23 Nov 2026 18:44:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795459465;
-	bh=o723m0djv4llTVaMLMWyJBdlGd6TGnVmWvYWsA2QBxE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=WjdELp7nmuH604FdNWK/Lf2muE6pEPhUmUCEAn/9lMtnAObRVyLb/jBf58faUGQE6
-	 kbYFpN8MvaX9+w91K6kQlfG51TcW9AanwRzTkPUxWwneVK/Hy4pGcjiWLkvDf6eDtH
-	 vcrrvPyuxL9ycSXQ2tAz5u8WDeDkx9IMZ+aLyMYjQACurvE5MBq8MRIZfSgOjJVoBi
-	 mDwQL8g+QhOn4vwFRd4Uz6bnvymxJRm8jPVzCOxoyLio9GTreVEM09WJJIDugA+F6Y
-	 ePHGWar9FUhIfInmxUAiLGUt++73yV4AnCZvQ5mjj0kSRVF0sOt2FB7v9M1DvjuTcA
-	 hYaVrTyz0PEtA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 53A454C5F5;
-	Mon, 23 Nov 2026 18:44:13 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Mon, 23 Nov 2026 21:44:11 +0300
-Subject: [PATCH net-next 2/5] reset: Add Cortina CS7542 network engine
- domain control
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6CD4606A69A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:44:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6CD4606A69A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IT5JsX/d
+Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-55be673e029so501611cf.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:44:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795459466; cv=none;
+        d=google.com; s=arc-20260327;
+        b=VwF2w49n0zoKuka18lZhE9Iz+zQ81eRcbqPrsDW5ZX7WNXBg9ZqstmcQp0c98pDj9w
+         4hinQbkoh+9sMBd2NgQiJ39HRO/E1ZsKNTkMkwz0X7DPnQdwnmA8HRF5liW0HNJuVmaA
+         3tDGEZLjiCBT/mO6odRdypU1VlpLiiOOMkVPXYYapXnMMU1EPkQ8cd07quGM3AZmsVT6
+         2w2N7t0q+8x7heMrfm5/hFdCY9hQpIyHx1Rm08RYH+LJPeydkh8emfViISIl6mWhGE4A
+         DBPXPfbFRHXeNMLTZh1k9eZz/Unqu5aeMeZUlpJUt6lytBA7mp/8LvbixzfVFXwEWBnH
+         wN0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Qpy9q3tA9qQtSLTg1mBMWXjE/nQplNi9tWL6pr4AjbI=;
+        fh=rAtHp51y+4YSYrjFT0JIDmp14eyRo2KlW/wiZYn9Xu0=;
+        b=Iwj4GUYorU8hTfagsShRZI6aKl21NOvLf9Cj50lN2oYkzFaso8fflkfvyAVukfy7Wl
+         W3T8Z55atjnXUuXFBiaIknrqmWlwkfFHDV4ZQ1kllqXmSr6KMYya8kAI2R0XfriULHTc
+         VT6FoIVaDv8IwN/7EazcybOPF5OaWEC52AN2G7vyIjeov4MG/l6OWqPxuXqscVGJjT8i
+         GBL6y3/JlJ2yzINUHCilMjlFxfuV+cwipHel4n7TOYauYizCxz+yR2GJl6qtU8Rxzwho
+         eCXsvTo/1DHHBGZawOodcW+HhLKbprOvXbxNKSzw/+mKDnNb4aTno1tnSKSKw2XcNUsw
+         8TcA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795459466; x=1796064266; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Qpy9q3tA9qQtSLTg1mBMWXjE/nQplNi9tWL6pr4AjbI=;
+        b=IT5JsX/dtjOhmY9E/JG/x89RsilUFdKcK1wywxQLw0TFNzHPUuuGDilgqzyY6G/RJj
+         tWXE/l/tpsOcHGScQSh3t34esQf5ZhMHQ3DRaox9hGo+os1FwebSyw+6zXg55Q6q32X9
+         XyupyygjD6ha8TYu3qioTgsLYrcYLTmIDoF621+7FzTOX6WFcW9WDj9bETKNfEo895Hi
+         FdJPOIOKyYLHui61RW+dglVJX+1Kxm6u2Ck3DHOdhHrtOAdZoNabB/p4k7mNObJH3hz7
+         4yvmlu4UX8vVnQNzzOFkScUhdO9yv+E3fBhcqAX1Yf5uacAHMmAytP/houVeVqchPuvj
+         ceXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795459466; x=1796064266;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Qpy9q3tA9qQtSLTg1mBMWXjE/nQplNi9tWL6pr4AjbI=;
+        b=s83vW9NBesr1ousQKtvMYdkczSHpwpEXwA3f+Jmf9XcFvybKV0AAVwWdKy1vacSVub
+         48EAGcQhSCmVqb/GN0CGhNq7AVHSSfbH29YKLpAxxFhT6s+aKCdVIegEEQO8HUo2PZp7
+         XDS/iXUDNPwoLCuZ4r3mMloGuNRCOd/UxFCaFgyNFLcUJtqCkPRSJXEyH4D9GtwQR7Tb
+         Lebt6XftKwo39A/oqI1cY/BXVvIG6uR/Atvco5VAscQfLEqz0bjp07MV5/OE6AknJeFa
+         zO7Cnei2S/xH66x2jWse7RlVW4lGaEXHfA1Xq/yRndDnG8FxK6hmYWeHvX1FIFnrEGdQ
+         HTaA==
+X-Forwarded-Encrypted: i=1; AL+hErFvJVHwbnbb/IAH5eXRUl++O2i9GS/3wWH8su0kJKGL79/zjsl67VDeTGYjhRR0mG5p4c7hR0iUmy2LVao=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8PVU508c93/Y+tKil7K2VSYhZdxqlprn95d3uYlFTVSNtUjO0M
+	VpWDUaC4PrYvUjEZPJ9EV3iAVPW1N1H92+RH4juXgpT4h93xFEhLxJSb7J5WqfL7Zob7FZOyA/e
+	OOAvzbKuh4+XpiM31b/eInKxFKbtDnIqv31gg0yYc49TnTmQNVgCouptc
+X-Gm-Gg: AZFdTZfg4r1ge/qL5YqWc6gpSveyhG1cHrNxtHpSH3+ocCsbKrKivmiF+frxeUKvLc3
+	xSq6WuLFvK2O7kAlnCpNEjLz9zOM8P705iDcMHRo6csqznwT31WUdLlHZCp+PvbKKvGTyfHEMHA
+	4UQp6yHVKN7T+54oGrqW3Q+gq0HBV1Vf8Eq2ySihLzq+sDDKMChDXsPxBMtC2m28rMPfYHWM3pu
+	ToANZNcYixiLrUQvP2J03TQRO/Oj4mp1T4jdPsbfKex70CtXGdhcln5mZp5/WnWa8yiI1BgysFn
+	EaH3PH1W3oq7Ry/AHOreNwo3viuoAbycldAYJ42Zyz8bAN+zxpuPgT4ZCc/4YOEV2PSZ4SJFWLh
+	jX3GGbX/T255DCwCEI1bAjXppeBogFOrcnaHi
+X-Received: by 2002:a05:622a:2598:b0:533:9731:f0f1 with SMTP id
+ d75a77b69052e-55d890363c8mr39729921cf.10.1795459464949; Mon, 23 Nov 2026
+ 10:44:24 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,200 +104,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-b4-cs7542-ethernet-v1-2-fdb5e8c2d508@gmail.com>
-References: <20261123-b4-cs7542-ethernet-v1-0-fdb5e8c2d508@gmail.com>
-In-Reply-To: <20261123-b4-cs7542-ethernet-v1-0-fdb5e8c2d508@gmail.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
- Linus Walleij <linusw@kernel.org>, Russell King <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795459449; l=5565;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=Ad0mfeyBbvzfZar0R5EFFyw87GP4uLfbc0CLfuGkDwY=;
- b=Y1kLU2a4JK6H4FID7LfLwqIXJMTjXZtgobCgCmdZNXVXcHeu66v8erxtssLMEV41yW1On2LKq
- lqixskegE8lDwvyNATBw6iPbcMb6q8Dc0iuW5yK27rjhuvNSIg/p89w
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
-Reply-To: filipp.dunsky@gmail.com
-Content-Transfer-Encoding: 7bit
+References: <20261123-james-perf-late-parse-attr-v1-1-cfebcd81a962@linaro.org>
+In-Reply-To: <20261123-james-perf-late-parse-attr-v1-1-cfebcd81a962@linaro.org>
+From: Ian Rogers <irogers@google.com>
+Date: Mon, 23 Nov 2026 10:44:12 -0800
+X-Gm-Features: Aa3M54p16W7pU3nt1aynmNQ3smtylrp8OV-U9T0DYy6BSjG3aVS2eWBmNAGg92s
+Message-ID: <CAP-5=fXuQWTt1F6BvKSXqgSkEtBQPKvKg6gmAe-ngyr4VGyGig@mail.gmail.com>
+Subject: Re: [PATCH] perf build: Only enable context analysis with Clang 23 or later
+To: James Clark <james.clark@linaro.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+On Mon, Nov 23, 2026 at 8:46=E2=80=AFAM James Clark <james.clark@linaro.org=
+> wrote:
+>
+> Context analysis requires Clang 23 or later (see
+> Documentation/dev-tools/context-analysis.rst), otherwise the build fails
+> on older versions, e.g. Clang 18:
+>
+>   util/env.h:142:39: error: use of undeclared identifier 'lock'
+>     142 |    struct rb_root          infos __guarded_by(&lock);
+>
+> Only enable it when the Clang version is supported. Leave the other
+> thread safety options enabled if they exist because they don't cause
+> build failures at the moment, and might provide benefits even without
+> -DWARN_CONTEXT_ANALYSIS.
 
-Expose the NI, FE, TM, scheduler, QM, DMA-LSO/SSP and XRAM resets as one
-exclusive logical domain. Change all owned bits in one masked
-global-regmap update, preserve neighboring resets and require bounded
-hardware readback. Return an error for a partially asserted domain.
+So we've had -Wthread-safety for a long time in the perf tree, I'm
+guessing __guarded_by is missing on older clang versions. Can we just
+stub out the __guarded_by for these old clang versions and keep the
+lock checking?
 
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
----
- drivers/reset/Kconfig           |  10 ++++
- drivers/reset/Makefile          |   2 +
- drivers/reset/reset-cs7542-ne.c | 114 ++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 126 insertions(+)
+Thanks,
+Ian
 
-diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-index eda9c698a..8218d639f 100644
---- a/drivers/reset/Kconfig
-+++ b/drivers/reset/Kconfig
-@@ -15,6 +15,16 @@ menuconfig RESET_CONTROLLER
- 
- if RESET_CONTROLLER
- 
-+config RESET_CS7542_NE
-+	tristate "Cortina CS7542 network engine reset domain"
-+	depends on OF && HAS_IOMEM
-+	select MFD_SYSCON
-+	help
-+	  Control the combined NI/FE/TM/SCH/QM/XRAM and DMA-LSO/SSP domain.
-+	  The consumer must exclusively own the entire network and DMA block.
-+	  Use this with the network engine driver when no separate SSP DMA
-+	  consumer is enabled; the NAND controller may operate through PIO.
-+
- config RESET_A10SR
- 	tristate "Altera Arria10 System Resource Reset"
- 	depends on MFD_ALTERA_A10SR || COMPILE_TEST
-diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-index 489fafd6b..c24b8e281 100644
---- a/drivers/reset/Makefile
-+++ b/drivers/reset/Makefile
-@@ -55,3 +55,5 @@ obj-$(CONFIG_RESET_UNIPHIER) += reset-uniphier.o
- obj-$(CONFIG_RESET_UNIPHIER_GLUE) += reset-uniphier-glue.o
- obj-$(CONFIG_RESET_ZYNQ) += reset-zynq.o
- obj-$(CONFIG_RESET_ZYNQMP) += reset-zynqmp.o
-+
-+obj-$(CONFIG_RESET_CS7542_NE) += reset-cs7542-ne.o
-diff --git a/drivers/reset/reset-cs7542-ne.c b/drivers/reset/reset-cs7542-ne.c
-new file mode 100644
-index 000000000..81442c6a9
---- /dev/null
-+++ b/drivers/reset/reset-cs7542-ne.c
-@@ -0,0 +1,114 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/* The network engine and DMA-LSO/SSP reset domain has one exclusive owner. */
-+#include <linux/bitfield.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/slab.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/reset-controller.h>
-+
-+#define CS7542_GLOBAL_RESET	0x04
-+/* NI, FE, TM, SCH, QM, DMA-LSO/SSP, NI XRAM; never reset SDRAM (bit 4). */
-+#define CS7542_NE_RESET_MASK	(GENMASK(3, 0) | BIT(5) | BIT(16) | BIT(17))
-+
-+struct cs7542_ne_reset {
-+	struct reset_controller_dev rcdev;
-+	struct regmap *map;
-+};
-+
-+static int cs7542_ne_reset_update(struct reset_controller_dev *rcdev,
-+				  unsigned long id, bool asserted)
-+{
-+	struct cs7542_ne_reset *rst = container_of(rcdev, struct cs7542_ne_reset, rcdev);
-+	unsigned int value, target = asserted ? CS7542_NE_RESET_MASK : 0;
-+	int ret;
-+
-+	if (id)
-+		return -EINVAL;
-+	ret = regmap_update_bits(rst->map, CS7542_GLOBAL_RESET,
-+				 CS7542_NE_RESET_MASK, target);
-+	if (ret)
-+		return ret;
-+	return regmap_read_poll_timeout(rst->map, CS7542_GLOBAL_RESET, value,
-+				       (value & CS7542_NE_RESET_MASK) == target,
-+				       1, 1000);
-+}
-+
-+static int cs7542_ne_reset_assert(struct reset_controller_dev *rcdev, unsigned long id)
-+{
-+	return cs7542_ne_reset_update(rcdev, id, true);
-+}
-+
-+static int cs7542_ne_reset_deassert(struct reset_controller_dev *rcdev, unsigned long id)
-+{
-+	return cs7542_ne_reset_update(rcdev, id, false);
-+}
-+
-+static int cs7542_ne_reset_status(struct reset_controller_dev *rcdev, unsigned long id)
-+{
-+	struct cs7542_ne_reset *rst = container_of(rcdev, struct cs7542_ne_reset, rcdev);
-+	unsigned int value;
-+	int ret;
-+
-+	if (id)
-+		return -EINVAL;
-+	ret = regmap_read(rst->map, CS7542_GLOBAL_RESET, &value);
-+	if (ret)
-+		return ret;
-+	value &= CS7542_NE_RESET_MASK;
-+	if (value && value != CS7542_NE_RESET_MASK)
-+		return -EIO;
-+	return !!value;
-+}
-+
-+static int cs7542_ne_reset_xlate(struct reset_controller_dev *rcdev,
-+				 const struct of_phandle_args *spec)
-+{
-+	return spec->args_count ? -EINVAL : 0;
-+}
-+
-+static const struct reset_control_ops cs7542_ne_reset_ops = {
-+	.assert = cs7542_ne_reset_assert,
-+	.deassert = cs7542_ne_reset_deassert,
-+	.status = cs7542_ne_reset_status,
-+};
-+
-+static int cs7542_ne_reset_probe(struct platform_device *pdev)
-+{
-+	struct cs7542_ne_reset *rst;
-+
-+	rst = devm_kzalloc_obj(&pdev->dev, *rst);
-+	if (!rst)
-+		return -ENOMEM;
-+	rst->map = syscon_node_to_regmap(pdev->dev.of_node->parent);
-+	if (IS_ERR(rst->map))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(rst->map), "global syscon\n");
-+	rst->rcdev.dev = &pdev->dev;
-+	rst->rcdev.owner = THIS_MODULE;
-+	rst->rcdev.ops = &cs7542_ne_reset_ops;
-+	rst->rcdev.nr_resets = 1;
-+	rst->rcdev.of_node = pdev->dev.of_node;
-+	rst->rcdev.of_reset_n_cells = 0;
-+	rst->rcdev.of_xlate = cs7542_ne_reset_xlate;
-+	return devm_reset_controller_register(&pdev->dev, &rst->rcdev);
-+}
-+
-+static const struct of_device_id cs7542_ne_reset_match[] = {
-+	{ .compatible = "cortina,cs7542-ne-reset" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, cs7542_ne_reset_match);
-+
-+static struct platform_driver cs7542_ne_reset_driver = {
-+	.probe = cs7542_ne_reset_probe,
-+	.driver = {
-+		.name = "cs7542-ne-reset",
-+		.of_match_table = cs7542_ne_reset_match,
-+	},
-+};
-+module_platform_driver(cs7542_ne_reset_driver);
-+
-+MODULE_DESCRIPTION("Cortina CS7542 exclusive network engine reset domain");
-+MODULE_LICENSE("GPL");
-
--- 
-2.53.0
-
-
+> Fixes: 321967859933 ("perf build: Enable context analysis and Clang threa=
+d-safety flags")
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+> Assisted by Claude Opus 5.5
+> ---
+>  tools/perf/Makefile.config | 12 ++++++++----
+>  1 file changed, 8 insertions(+), 4 deletions(-)
+>
+> diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
+> index aed2e952c8f3..f5adceee5589 100644
+> --- a/tools/perf/Makefile.config
+> +++ b/tools/perf/Makefile.config
+> @@ -65,11 +65,15 @@ ifeq ($(CC_NO_CLANG), 0)
+>      CXX :=3D $(CXX) $(CLANG_FLAGS) -fintegrated-as
+>    endif
+>
+> -  # Enable context analysis (linux/compiler-context-analysis.h gates its=
+ Clang
+> -  # attributes behind WARN_CONTEXT_ANALYSIS) and Clang thread-safety che=
+cks.
+> -  CFLAGS +=3D -DWARN_CONTEXT_ANALYSIS -Wthread-safety
+> +  CFLAGS +=3D -Wthread-safety
+>    CFLAGS +=3D $(call cc-option,-Wthread-safety-pointer -Wthread-safety-b=
+eta)
+> -  CFLAGS +=3D $(call cc-option,-fexperimental-late-parse-attributes)
+> +
+> +  # Enable context analysis (linux/compiler-context-analysis.h gates its=
+ Clang
+> +  # attributes behind WARN_CONTEXT_ANALYSIS). Requires Clang 23 or later=
+.
+> +  CLANG_MAJOR :=3D $(shell echo __clang_major__ | $(CC) -E -P -x c - 2>/=
+dev/null)
+> +  ifeq ($(shell test "$(CLANG_MAJOR)" -ge 23 2>/dev/null && echo y),y)
+> +    CFLAGS +=3D -DWARN_CONTEXT_ANALYSIS -fexperimental-late-parse-attrib=
+utes
+> +  endif
+>  endif
+>
+>  include $(srctree)/tools/scripts/Makefile.arch
+>
+> ---
+> base-commit: eb79d2fbc230d41b009e49f20671303c6efbd946
+> change-id: 20261123-james-perf-late-parse-attr-4e996381859f
+>
+> Best regards,
+> --
+> James Clark <james.clark@linaro.org>
+>
