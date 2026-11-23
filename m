@@ -1,93 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795412069;
-	b=YbV1hRL4dOpByslw71Oki6Qo61/DH1miBpjvkELmZNXaVNZmXW9NRyAuQSMlj+X0CPSH
-	 QQ6Pe5W4cnodb9qPBzTMCtn3w56r/yDIrzZV9ax91EKzIV2XpnPEuSikK8U0qSASfnOwh
-	 3RkVSqYz2X85jzTEtoUSdj31wMtPExEoSGWyzE1z6s8k1kLmLvQ5lgEPW39Xyhsg5I6M5
-	 /ds7lEd4eHOOdhIObNOqPrGydGolEtHhZsmh/GRYJyDhkNUGSq/A0336X6OPIaYCNq0oL
-	 vNQbQGnpDpsDPb904RK+DNbt6Xb7baVQs9PL8xWqa51NNqZr/6f7+CN8EZnf77u/yUw==
+	t=1795412095;
+	b=cRkLCaCt0a3LSDjZ6ownv9qIY1xNkR0iTOzMrFLt0ASpoMxM1nQgeL79B87Q5nE4/Uah
+	 cAPHqBjtquwt53MKybIiy1BjobqZ4Poh9p7zb+TCI9eeN3/JxfO64hyj0cIJBe9wLxnbl
+	 v1q2sMpFHOW7EEGej9VUXGQk/UQOJpTR4KY6ad1miUTjQXD7/W7dkR1dAAFIPqWhF0+Q7
+	 V/Ijt5ewLatSy0vCMimEv3ngARWkj1ehNONTSl5SO2X/hwRa9yo2HVjGoWqAH8N1xUUSK
+	 t0TJRpyaE+ZTPG1J8FCmsAHqdrWoNIGtcTrW6/2KnJeAo7dMOPON0VrSMGst5Ii8QOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795412069;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795412095;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=TL6UwEo4t7VzBEu1IbZXOdiAUAUzzK5wSbC1wgdlVr0=;
-	b=oP8F1dPv68ql2QeJeqgVXsN/nyrzw7DRlX2Norte0iE8heo00QKgGqxZJTQqmgcRJir5
-	 fnbQgtmDYtHFsninRg704iAJAcxJpN8HITL90XFUM+jpyupVkyHkXIrV3Twhh1OK9hB5B
-	 KXPH/JZbPK05X6807GtTdb2ZAJtnaqySDmVzGH9UPzksm0E8xk44Ycg6LLKje9PHsd5tw
-	 6tkWRtCrwNeE36BXNO3VUka4fl5ZM+lvjPPVYyf5IK1zsAi/6UNOUpVuxqhJYMqtmPOT1
-	 3DzDysGCCLGTW4eCblfm+oBDp77X3J+2Hm60gUA/3nYdGgeLe8oR+cOBNg+s8EUEeKA==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=JW3ojJgWSSpYVKAj1rpR53Wt7zgOalc2QFQ9CWv61+4=;
+	b=D11tF7Y72xSQOMgleW0jKJx5utjpApIgwq45FRVHWIkhgh7xwuLo+dz4M0KRFkIMDNWt
+	 a2O5xzPedd484m+vFZ0vfWWlr1zDF9JlYtmdUnpYGknfam1Pye+j+p/dfQAkMGboBnd4h
+	 tKz2Ro1U65JjUDRLwlqyWDBE2mQvGPtlZB7nIB9+v23fz/Ykrjer+mO0C5dW1Q9SKWSN2
+	 rJclPVsUYreP7dNQWM0p8pwht42F2PjT5bslZW0+AeAsfBIm8bIEyEH8aOUWLIWLkryEc
+	 igN74vOAFsSqTKXxr/evz3vKVIBYohpBSwCMPvDygz2nC04CTIHMtDtWo9Y9OhQ+TWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Bkh3Clqf;
-	arc=none smtp.remote-ip=209.85.128.41
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=zRhWVqwP;
+	arc=none smtp.remote-ip=74.125.82.41
+Received: from mail-dl1-f41.google.com (mail-dl1-f41.google.com [74.125.82.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA052606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:34:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA052606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C21DF606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:34:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C21DF606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Bkh3Clqf
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so35069975e9.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:34:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=zRhWVqwP
+Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-1b546061d58so6584478c88.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:34:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795412067; x=1796016867; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TL6UwEo4t7VzBEu1IbZXOdiAUAUzzK5wSbC1wgdlVr0=;
-        b=Bkh3ClqfZW8YDFCp8x3h+qrByx9HiwGPmEHmKo5SOE/0SSUKA9gYOTUs7I4/IU92+Z
-         tqFW0FZZ8SXDMGb9YQJK+rIqAsfImVCwYeIQDyMkHOC8bPr/sqgSFCApXNyf+3b6hboB
-         fuCo7Ptp4EnspSR10dDuabgkfAM7fCEF8Yd5NDtmNdDp2rtqSrVu8pTAPMkBaMu79HbK
-         gL+r1IhRgmrVwy5Eafk8URJH28nmAnOSHYo60/JbvUWbfVx5yU0BepF/cgwmH0F6p6sp
-         wTMFX1UStr9g6gn9y7Mhvd0NmO5kmvG0PtIB9vsq//OB6SklOTc03UeGwbchLuI6NeRz
-         j2VA==
+        d=linaro.org; s=google; t=1795412094; x=1796016894; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=JW3ojJgWSSpYVKAj1rpR53Wt7zgOalc2QFQ9CWv61+4=;
+        b=zRhWVqwPzRdS/S3SNWc6pwEH2rZiRiN1XxRt0Y7KM5Q6Fi710yUMjd4YtxarNqt3OS
+         ktE28kOUcVycRnFnsqYdBhW3ccFDE1wODV3eL2dtbGGTHezxLtT2mi7jCscT+eRY0PxI
+         x39GN01oGijKwbCMqk7V5ytBwIuYGuF5Q+mleloxdbRncsb6FVZXYcIFIS+ldK3FiJ9q
+         5xrT4mwHcTPMx8s7k8COAd4eEHRNDdgFl7Hr35FkJfeH5vElDmse0ofxLKthcp+r6qVe
+         Vc1kU/gWiYRu3zVYp0PRZC6n63bq1EVi76ixJhkMxZ1tRdvtpV89u9DsHRRSFKuk2qS3
+         TpMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795412067; x=1796016867;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TL6UwEo4t7VzBEu1IbZXOdiAUAUzzK5wSbC1wgdlVr0=;
-        b=Vkjr7f4bZ29S1IMm2MU/8SNF6queGKGZgjjFfTx3pBsvTAnjzDFwaZfMDCXgcABcZi
-         YwHsUZfwMIKVXOnrC8qReAGyTGDVjjOh1HZVaa880cI8Jq/A31pXvRL7aSbK8xlUZgzU
-         Bd8ITzx6gc1rnNt0McNi5iT22pB7J8jzVQA27yZBqS+U6OsIveV0tE7n++GHgNtxZWxO
-         eMyULThyVHDx+y23A28s8WgIYBjQRiR5PfztBc999ZnVi2Zzbs/pHAO9CUcDzz9BY6wa
-         3WZ3O+pliDT251TwcnkguJ42El71DJGbIjPcjUcI6rY06FA+qlB3Z/OIEmp2J5pDzZBo
-         tIiQ==
-X-Forwarded-Encrypted: i=1; AL+hErEziM9TKSSFbCKrtRStuTV/JwMCytFU8FQD0d+p2ZE5MTMJ5XpYYSySP66HzyK7MopZX6Fx92RKaT3I7IE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9fr9Nr0yU9g4ocF5ZP7p/ycUnfpR/3+mgAH1wNrHzgiWE99VY2
-	sUlnkNHicPPINMxyrIKDg5Yn5tYu52+JP1kf7vYqIjRf4cSsbcFMfg/V
-X-Gm-Gg: AZFdTZfC6p5hRydSI+jEpPNTPICQmBGzVrIX6tAAe4xkUtinMlLXQynkCuFhCc+6DrC
-	6P7ojFg8yCdtClXhw3QDKGkXGvWF3vHC3j/d1RmBZ4ChxX3vjZ1HY/daCSmpIsByax/iPxAgAPa
-	c8VslOZ2unHK9vEa++nkvQflxV/IBKq/cfEQ8SbIMzry4A27NxTegz3io0Xfe6rOWZUXRSF8+9h
-	+hKmClaUXbjTnVfaEpoCSbqSt72bcCy2NK1JPtQdMluA2+rE2GYc2CkR8tIOuPlePcKKYa7tMQm
-	IF32e6dZl8I7Z5QLY7wmAS/5wFIEiGg1/lCBkXI7BS/vh9eUvxAGvfq2vZPbYmBHIfKtuBocJd+
-	gmqXzzV4ll8FKSGAf3x1s+/9nox4ktbCDj/y+rKlerh7JUTs6rY/ej+LyfiXwgCCuadqI+QAUKn
-	SIxmhtagTMg//9iFeP+K+btY8Fzw2dxLzgwndav3q7RYy2RzWBbYtxNKMzpDTT6e0YjANm3HBvV
-	kJC404G8gfrgtVHIYkXWOrigom+gbO2OrQuorfJKIiPlsr+CJK9VK3vTjNW+d/7nxCMyFVifm3O
-	TLXQ7E8/8NogPanj6MpBpszZzRnHQbKVTpDz+Qrm0tSrQ58UpuHFXps=
-X-Received: by 2002:a05:600c:1d83:b0:4bb:687c:4fbe with SMTP id 5b1f17b1804b1-4bb88805c26mr190080905e9.8.1795412066659;
-        Sun, 22 Nov 2026 21:34:26 -0800 (PST)
-Received: from DESKTOP-V28CTA4.localdomain ([37.111.157.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8d4f9aa8sm273173265e9.4.2026.11.22.21.34.24
+        d=1e100.net; s=20260707; t=1795412094; x=1796016894;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JW3ojJgWSSpYVKAj1rpR53Wt7zgOalc2QFQ9CWv61+4=;
+        b=cS5GWp7lFAJ/gZBQ/EfJjDJzofXnY6OFbxLwvYT6nrWhzHvKBu6iiaiTBBBJMxb5hE
+         B20yka2HRsQcx3HKrBacH3E7Tdl1MLOxcQw9njR1tWnIH9iiFB6PS2KZdSyizdQT84Ab
+         x8KGjcPkdFBtfbehB7e2WqCrW5X+qEyBm9OBDj2YMe0yrr7eX1PWSmWwVFG3ZlJGpmkR
+         pbo+Ipi/kWRNTYxM7yyn8bXs6j5BOatXHWCGPcTvltBrn4hLKPSYx12qd0PBQvx6mpW1
+         FP/OxLyPTXd0/RzL68D8QzFDOlhO1ToCnJnfxdPXx5O1an38ROfv8y1VxLp474/Zlm6Z
+         oFSw==
+X-Forwarded-Encrypted: i=1; AL+hErFEcfgSK64q3/HtS/SZKmEhw/nMXnEnAk0TXQTv34nMVOH+4iGWzOGkZ6lS9Xy/dPJz3XtK3Qu8PMPTne8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9HiFizwZHEkykVNOpelcdXj2rIga+9/Cz7yPYEJd/tKM2a/+bW
+	c7oCo0EEsy6QOopLr5Qyg+zBE+4YrUQ/d+EMg6v/2zN/MWEbv67FDWwNrVLFvR96/Q8=
+X-Gm-Gg: AZFdTZdYxmJEds/BKdh2gEIDpKK5XFEkLzGtFa6iteiFHaZ63l+JrZzdKfOCye49l+y
+	L5fM4+CbgBKAOMhOhSbMq6kuEpM4JFxmHKY81EQ5NuNsvQmNfXBcaCLfe5K7r8aXoHMfjoQ9fUe
+	qsgsXs/Xm95e9VyO9hpClC8eko1xAM/JAe3HubpIrEEAJe0dUd+YQBTqi2JSJpPoVH3Dca3ThJh
+	IawMbbere0qd+gSwJNN2cuiEjgXXPzboKdumxj0oeAxrEYwf4trdc7Jg9Exohugu9f96Y/uMrLr
+	qlCL+R/0oIScNYLha+35VBDwFa+jsa0aCMDGx8yNZeL3l+WW7u9Z5h0NViS/U52q6fyaWxnCRT8
+	IOXrbs3AegbK9KQwHMEDipZt1HdjIQNSSBEt0b3CxBgweUHQTOyrk6dyH9f2JBjEYSnR/fGFRKc
+	7vr+Mcg/LXpL1lgnp+4r0UoRoiDmswnFXKUKPnwTA9u9carRnNfcAoSgBtkJWZaw8EyeXV2zO8v
+	bCTvfVazh6OiihnfbXSc2HGOOumdWFWxrZY9051VKlLRC6XQmmUi31pc/p4syOqJibL3gXPMhmQ
+	xGCZw28EK9CtkzHmVZQ3fUW004xlxg==
+X-Received: by 2002:a05:701a:ccd9:20b0:1b5:7351:955f with SMTP id a92af1059eb24-1b573519624mr2091488c88.27.1795412093505;
+        Sun, 22 Nov 2026 21:34:53 -0800 (PST)
+Received: from localhost ([122.172.83.36])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5569bffd2sm23537896c88.0.2026.11.22.21.34.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 21:34:26 -0800 (PST)
-From: Arbab Haider <arbabhaider649@gmail.com>
-To: Dave Kleikamp <shaggy@kernel.org>
-Cc: jfs-discussion@lists.sourceforge.net,
-	linux-kernel@vger.kernel.org,
-	syzbot+9c3df8acb6283d0cf12d@syzkaller.appspotmail.com,
-	stable@vger.kernel.org,
-	Arbab Haider <arbabhaider649@gmail.com>
-Subject: [PATCH] jfs: validate inode link counts before decrementing in rmdir, unlink, and rename
-Date: Mon, 23 Nov 2026 10:34:09 +0500
-Message-ID: <20261123053409.53956-1-arbabhaider649@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        Sun, 22 Nov 2026 21:34:52 -0800 (PST)
+Date: Mon, 23 Nov 2026 11:04:50 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: shyckless@gmail.com
+Cc: rafael@kernel.org, peter.griffin@linaro.org, krzk@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, alim.akhtar@samsung.com,
+	linux-pm@vger.kernel.org, zhongqiu.han@oss.qualcomm.com
+Subject: Re: [PATCH v2 0/3] cpufreq: Fix leaks on probe error paths in three
+ drivers
+Message-ID: <awPQeliuPmaBF8cG@vireshk-B250M-D3H>
+References: <20261123-cpufreq-leaks-v2-0-29277f2f0ddd@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,117 +99,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123-cpufreq-leaks-v2-0-29277f2f0ddd@gmail.com>
 
-syzbot reported a WARN_ON(inode->i_nlink == 0) in drop_nlink() called
-from jfs_rmdir() when removing subdirectories from a corrupted JFS
-directory with an undercounted on-disk di_nlink:
+On 23-11-26, 05:21, Suyuan Wang via B4 Relay wrote:
+> Three small fixes for resources that are not released when a cpufreq
+> driver fails to probe: the cpu clock in highbank, the three clocks in
+> kirkwood (also on unbind), and the regulators and register mappings in
+> s5pv210, and its reboot notifier, when cpufreq_register_driver() fails.
+> 
+> Found with a static analysis tool and checked by hand. Compile tested
+> on arm (W=1, multi_v5 for kirkwood); I don't have the hardware.
+> 
+> Changes in v2:
+> - 3/3: fix the Fixes tags. The regulator and reboot notifier leaks come
+>   from e8b4c1986efb and fe7f1bcbff91, and e0e5b2b4f427 did not add a
+>   leak (Zhongqiu Han). No code change.
+> - 1/3, 2/3: unchanged.
+> 
+> v1: https://lore.kernel.org/all/20261122-cpufreq-leaks-v1-0-96fc17ff7339@gmail.com/
+> ---
+> Suyuan Wang (3):
+>       cpufreq: highbank: Put cpu clock if clk notifier registration fails
+>       cpufreq: kirkwood: Put clocks on error and in remove
+>       cpufreq: s5pv210: Fix resource leaks on probe error paths
+> 
+>  drivers/cpufreq/highbank-cpufreq.c |  1 +
+>  drivers/cpufreq/kirkwood-cpufreq.c | 15 ++++++++++++---
+>  drivers/cpufreq/s5pv210-cpufreq.c  | 12 +++++++++---
+>  3 files changed, 22 insertions(+), 6 deletions(-)
 
-  inode->i_nlink == 0
-  WARNING: fs/inode.c:408 at drop_nlink+0xc5/0x110 fs/inode.c:408
-  Call Trace:
-   inode_dec_link_count include/linux/fs.h:2276 [inline]
-   jfs_rmdir+0x416/0x850 fs/jfs/namei.c:395
-   vfs_rmdir+0x3e9/0x700 fs/namei.c:5533
+While sending a new version, you need to add the tags you have
+received so far. Please resend with Reviewed by tags you have
+received.
 
-In JFS, every valid directory containing at least one subdirectory has
-i_nlink >= 3 (its own entry, '.', and the child's '..'), and every valid
-empty directory has i_nlink == 2.  If a corrupted on-disk directory has
-an undercounted di_nlink, jfs_rmdir() decrements dip->i_nlink down to
-0 and then underflows it on the next rmdir, triggering the drop_nlink()
-warning and wrapping i_nlink to 0xffffffff.
-
-The same link-count underflow can occur in jfs_unlink() if ip->i_nlink
-is already 0, and in jfs_rename() when moving or overwriting a
-directory (old_dir->i_nlink < 3 or target directory new_ip->i_nlink != 2)
-or overwriting a non-directory with new_ip->i_nlink == 0.
-
-Validate the expected link counts before starting a transaction in
-jfs_rmdir(), jfs_unlink(), and jfs_rename(), reporting filesystem
-corruption via jfs_error() and returning -EIO.
-
-Tested locally in QEMU (x86_64, KASAN+UBSAN) using syzbot's C
-reproducer and a corner-case suite covering corrupt rmdir (nlink=1, 2),
-corrupt rename (parent nlink=1, target dir nlink=1), and valid rmdir
-and directory-overwrite rename operations: triggered the exact
-drop_nlink() warning before the patch, and returned -EIO cleanly with
-zero warnings or regressions after the patch.
-
-Reported-by: syzbot+9c3df8acb6283d0cf12d@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=9c3df8acb6283d0cf12d
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Cc: stable@vger.kernel.org
-Signed-off-by: Arbab Haider <arbabhaider649@gmail.com>
----
- fs/jfs/namei.c | 34 ++++++++++++++++++++++++++++++++++
- 1 file changed, 34 insertions(+)
-
-diff --git a/fs/jfs/namei.c b/fs/jfs/namei.c
-index 8ab2e952c..5a06fd8c4 100644
---- a/fs/jfs/namei.c
-+++ b/fs/jfs/namei.c
-@@ -357,6 +357,14 @@ static int jfs_rmdir(struct inode *dip, struct dentry *dentry)
- 		goto out;
- 	}
- 
-+	if (dip->i_nlink < 3) {
-+		jfs_error(dip->i_sb,
-+			  "corrupt parent directory link count (%u)\n",
-+			  dip->i_nlink);
-+		rc = -EIO;
-+		goto out;
-+	}
-+
- 	if ((rc = get_UCSname(&dname, dentry))) {
- 		goto out;
- 	}
-@@ -483,6 +491,12 @@ static int jfs_unlink(struct inode *dip, struct dentry *dentry)
- 	if (rc)
- 		goto out;
- 
-+	if (!ip->i_nlink) {
-+		jfs_error(ip->i_sb, "corrupt inode link count (0)\n");
-+		rc = -EIO;
-+		goto out;
-+	}
-+
- 	if ((rc = get_UCSname(&dname, dentry)))
- 		goto out;
- 
-@@ -1135,13 +1149,33 @@ static int jfs_rename(const struct mnt_idmap *idmap, struct inode *old_dir,
- 	}
- 
- 	if (S_ISDIR(old_ip->i_mode)) {
-+		if ((new_ip || old_dir != new_dir) && old_dir->i_nlink < 3) {
-+			jfs_error(old_dir->i_sb,
-+				  "corrupt parent directory link count (%u)\n",
-+				  old_dir->i_nlink);
-+			rc = -EIO;
-+			goto out3;
-+		}
- 		if (new_ip) {
- 			if (!dtEmpty(new_ip)) {
- 				rc = -ENOTEMPTY;
- 				goto out3;
- 			}
-+			if (new_ip->i_nlink != 2) {
-+				jfs_error(new_ip->i_sb,
-+					  "corrupt target directory link count (%u)\n",
-+					  new_ip->i_nlink);
-+				rc = -EIO;
-+				goto out3;
-+			}
- 		}
- 	} else if (new_ip) {
-+		if (!new_ip->i_nlink) {
-+			jfs_error(new_ip->i_sb,
-+				  "corrupt target inode link count (0)\n");
-+			rc = -EIO;
-+			goto out3;
-+		}
- 		IWRITE_LOCK(new_ip, RDWRLOCK_NORMAL);
- 		/* Init inode for quota operations. */
- 		rc = dquot_initialize(new_ip);
 -- 
-2.53.0
-
+viresh
