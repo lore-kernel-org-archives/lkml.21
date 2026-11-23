@@ -1,98 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795454992;
-	b=bf0ea2mvxHXBWk+6Sz0oIvoo4tT9WhVBWI/Wl/9Yp6APjB8vuW5YGklzdSBkgV4huzA6
-	 PX5HPHkFPbNAnsZ3NBR7tLJAANf5RnDqvsL8Cb9XdolmEsvNsf07xP33LBsc90yF+QQf7
-	 aSsWUJmWcXXCoJgbsDme4JmkxEblc4vVIctjSZ9J08E5dkuy3fvoLj7NA93gwWNDTNmEC
-	 ikbsIkz/Kdou5ucd8Idm6TvLQ/dK0Jh1SeKJIz9MS9pKJAClfdcrHrhGNbNjUWboefy7N
-	 GjweMwor2ySgr9FYTd+cve5fF5g04JgvMX6087g1f1ZSg7GZeA4ELIw26YGQpg21ecQ==
+	t=1795455063;
+	b=YH/SMWemDLD8DB44PCiB0D3NNFhk6TLclTLIBIg/W5B85YHLDRyMAqtAkfxn5oN7YjBa
+	 GCUetp3M/pCoy2jbygI7+RNW19DYe/jxOkhatO07nwX3kQv56+zpG32Vt/MXjTeDvkDAi
+	 US6sCJ40ECbCuxgdvxHufqJOraZBXPTKDp1q5gFF/TxRwXAua3xNhdYIX16++gFF1gfLm
+	 yNV+O8hqJPYBDed6saob7s1UYf7CIKxDZi4yKLU7Vvf/yA3L2L2StGm2O4QQr1rzCGk4y
+	 zVguhhLv9iDV27YC0UePjV70oJ6NkfnnSv4Px6Iop6v9g1w/eEcd5iRorPMAqGsEhWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795454992;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=P7Nne5ji9F4bYhC6KrYcAqIhYijl8pxHpY3INoGZQk0=;
-	b=FQfVis7krP/2ho52TyjSAP/IFM2mtmnLaPgNwtBGCDfTsq4fCyGgLqUF03/QM8eHeYvP
-	 TTv7VCQ9no08DDrLeUMLNUVsd/EZ7TcmEdhUBY0QTKRoAFzy7RJU0Rdm7U7UkERZ+dZI2
-	 mM/cuc6xG8/5LNMMVNKsGgDNWbXfYkjLPZGEDMsBZn5rZPcRSqECN9LiokH2z0uQmpdUE
-	 blgJWkvzMNwsKbT3rR31pQDYdgQG1a9Wl7ue6a9gFbM/bJ1iCobtkAlEaxpyWTsKuEtQt
-	 qycGI7bfmoMfejrqRL4veJB4Og43yDQwk1sAGJADHtp1hGg3DnUIWpKllS0nxfUVlxw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795455063;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=H5+Lix3xzZSXhmyLmSdI/jrXb/6kX811TwJY7/S4SQU=;
+	b=X05NJbIq8wfaqakRnBf5BaJ5+pc9SSFT8dtnhjJtdKjlVU69/mnslB7MtyRXymg63d8y
+	 TuAfydM68VVak1Bp0ML7rjf8v2bJP6Ex87RaLBMK1Ro48HuqHT94v2F1RhlTsX9+7fywJ
+	 Zv0Oa4nCwhbyQfCtBAU0jvtVdxvS/mrAItD2qS3LUTqgtN+Uee/mMSEvGKHj/05jqV4p0
+	 oNbN4yUl+TPzTmOO7OmMU+u7F9YBNMHaWThqysVtXx5fJbYKBJBtDmUWA+1NBSnnA422P
+	 wWLQEiu6cACtHRSGU/SvYZzZ6QWSmNqCnl8ReBYdcNEyMUD9YFM36hABOGNXrcWq5hQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w7hm4+LN;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=amLS0Yjn;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07AD0606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:29:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07AD0606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0557606A327;
+	Mon, 23 Nov 2026 17:31:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w7hm4+LN
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb70074ab2so37522835e9.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:29:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795454990; x=1796059790; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=P7Nne5ji9F4bYhC6KrYcAqIhYijl8pxHpY3INoGZQk0=;
-        b=w7hm4+LN5fPT+lPHeN+Pd1qlDmizClPSVuPvglSoPGeKJTBGsmiMXPdY6qYaPtU4K7
-         iTjGQnTEoGCtJEBLYztxRH6behZf9WBrMr+9x+zmNjU3WCuHJc1X0Ju+fN4ovrWB6Ade
-         JxtmMyysijUudXYO/m3LL71e+hfH5bsR+mX45WtlyyGP+0PYCAedihbGLgJu7yp/hkJM
-         NmS7QR1dwftYSrgfT3l8DxsCzBQYfAgHY/bfuz75kLCJ1zfPHxDe745HaAVXXE1MI1oO
-         fGi7FbddhY+fig+yQhoaFAZUJmOpS+8+qjUpdXe68rKICR5OXHMBCg9D7l6lo0runOQz
-         yltw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795454990; x=1796059790;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=P7Nne5ji9F4bYhC6KrYcAqIhYijl8pxHpY3INoGZQk0=;
-        b=I6MAN20TOiIyEEw6968AwtCGwRHLCo9tOmcz2r1Pr2ZQu/uV9nLA1/7IEnt6eLeMW2
-         1M2dyqQNRFPFxlhPnrYJRBLGbX+Hbe8rk3Zxll6ehjpMLYLdWAVKTR1hHLcqKWr3MfkA
-         Soi/njgOWvWEMyUsZo4kjqY9dmAXoo1BpUenhSLCAdjaFofgrmEMMGGTFJdIorfp8uVm
-         E9XjJPRqdvVj3Uvu8PVj94k34CZTdhhf/6qz0/RgvafZB+F4k8ZUsGAKTrIqeeE40I5/
-         AaoELdSgkNGFSWLs96nzAEX2+MDGtwlt5rkh9ng/eJC9binUIDgF1/vFmVNZaLXb0Dl+
-         nM9A==
-X-Forwarded-Encrypted: i=1; AL+hErG94Duad/JIIyswnx3Fpuh49WAHjdT3qO4ZJGgBJBhROlSCMmpZt1By7/Kx0EbDqwrR1FZxqt6+Z/oYtzU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8aVdV2F48vnGMbSWhEBIRDBVov4L0s3mOmuaLl1JfQsDYEIMvX
-	zr9EUIlcdj2uXAY71XmxWwfKO4temn0jw3hvroUdi2rYondUCTnekt7T
-X-Gm-Gg: AZFdTZcKVi57ThWeTV6XMu5VwzfEvaRSFNrD3RnpCKuV/RdOLPawAZxJppmuB37/cOb
-	48wo/SZ5s26c4aZQI0n4zPfHzPOW3OAuS/AE12hSeT2sYn44oMxF4YWyCImOauBbHAZvUG06hMG
-	bqI6fv06N/Gwj9pg8DdE6Ysx1DPtHMv+Q1gH3iLb27BzVj29Cx2uuXCc5L2QWCU0MO3VvxGSJB2
-	w0zoCIlIbs2vu+JeTOCQprO+KSQtY3/NWlcGaStcdlNlQVatDrALmrkblf0MAcLUwFbue0dGj5W
-	xRJGkCmCnx7OOWWuVo1S/TixY6ilDmGZg3hJn2COV0fkBtvRjRlfPq3+yU8WwxC95sE3McJHfkB
-	7L5tEoLAsda5u0b5JbGJ4IErhlAVOrNEBDTPMqlXNu++gv+PO6cmX1/CcwM/s5O/CmECQ5befbt
-	HRg9qD2a3MZc9mfecvjIzka99fnOoS4I7qNdRlTbOD+g35R6d5gaEpCIunTq1pMoXu4hVdihT7Y
-	60YhZDIzc2Im1NJ+6hV3LVILhGKJV09WMjIdAYVvVXgW1fLnpFAxBw4NTIv+bHNL+2BvuoHpczy
-	eI77llbtzgye/SO5FXWHyOgqDP9sg7N7XpMq5pwi3ovwCYxNLiI+KKQc
-X-Received: by 2002:a05:600c:4e0d:b0:4a5:e6fd:65e5 with SMTP id 5b1f17b1804b1-4bb88922a67mr247745395e9.31.1795454990125;
-        Mon, 23 Nov 2026 09:29:50 -0800 (PST)
-Received: from DESKTOP-V28CTA4.localdomain ([103.125.177.105])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906cdcc1sm180101075e9.2.2026.11.23.09.29.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 09:29:49 -0800 (PST)
-From: Arbab Haider <arbabhaider649@gmail.com>
-To: Theodore Ts'o <tytso@mit.edu>
-Cc: Andreas Dilger <adilger.kernel@dilger.ca>,
-	Baokun Li <libaokun@linux.alibaba.com>,
-	Jan Kara <jack@suse.cz>,
-	Ojaswin Mujoo <ojaswin@linux.ibm.com>,
-	Ritesh Harjani <ritesh.list@gmail.com>,
-	Zhang Yi <yi.zhang@huawei.com>,
-	linux-ext4@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Arbab Haider <arbabhaider649@gmail.com>
-Subject: [PATCH v3] ext4: fix inline data conversion races when !EXT4_STATE_MAY_INLINE_DATA
-Date: Mon, 23 Nov 2026 22:28:57 +0500
-Message-ID: <20261123172856.100887-2-arbabhaider649@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=amLS0Yjn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE51D1F000CF;
+	Mon, 23 Nov 2026 17:30:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795455062;
+	bh=H5+Lix3xzZSXhmyLmSdI/jrXb/6kX811TwJY7/S4SQU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=amLS0YjncvNQ8pmJUK54pkqj7g6R+BvKyP09zvF4FpC6ZYJmXf1rqrz7cnIDa8kEs
+	 EUWLGPx3cl2WgTRKDzJkV84pGWBytW6j9+dXVHk7oe7IXom0C0t1BBtDTglYuoGEr2
+	 +dudUVBvI0XE2yWAg43iUgkd3VALtI0xsoRsEWxc32FATRGUvTqFUJgYjC2wPW2ejR
+	 3OYKYRxwTZ9nqFnxGFvdZog3FoMn5f+9VHIRADSYUm3uJ0DVSAP7h+a0vgFv4PVXYB
+	 mCIrobfQpnSLlKmUBRL2VRuQAqVkSDv29/242VxHYj768lQqO4v6kUn4Wd1DakW3nd
+	 HKQpbNyYBIH8Q==
+Date: Mon, 23 Nov 2026 17:30:54 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Olivier Moysan <olivier.moysan@foss.st.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Philipp Stanner <phasta@kernel.org>,
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org, linux-sound@vger.kernel.org
+Subject: Re: [PATCH v2 01/11] dt-bindings: iio: adc: add stm32mp2 mdf filter
+Message-ID: <20261123-barbecue-trickily-4ae8d9f01b3d@spud>
+References: <20261118-upstream_mdf_v2-v2-0-7939d3c3720a@foss.st.com>
+ <20261118-upstream_mdf_v2-v2-1-7939d3c3720a@foss.st.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,222 +77,422 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="qmIYYbkYuRL7omxq"
+Content-Disposition: inline
+In-Reply-To: <20261118-upstream_mdf_v2-v2-1-7939d3c3720a@foss.st.com>
 
-Commit ef09ed5d37b8 ("ext4: fix bug_on in ext4_writepages") attempted to
-prevent ext4_convert_inline_data() from racing with delayed-allocation
-inline data conversion by calling filemap_flush() when
-EXT4_STATE_MAY_INLINE_DATA is already cleared.
+--qmIYYbkYuRL7omxq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-However, filemap_flush() is asynchronous (WB_SYNC_NONE) and can return 0
-while folio 0 is locked by a concurrent buffered write and
-ext4_has_inline_data(inode) is still true.  ext4_convert_inline_data()
-then proceeds to ext4_convert_inline_data_nolock() even though
-EXT4_STATE_MAY_INLINE_DATA is already cleared (meaning
-ext4_da_convert_inline_data_to_extent() has already moved the data into
-dirty folio 0).  This causes multiple bugs:
+With an eye to accepting something of this nature, rather than a rework,
+I have some initial questions before suggesting some remodeling of what
+is here.
 
-1. If ext4_convert_inline_data_nolock() succeeds, it copies stale
-   on-disk inline data into the newly allocated block instead of the
-   newer dirty data in folio 0.
-2. If ext4_map_blocks() fails (e.g. -ENOSPC or a corrupted block
-   bitmap), ext4_destroy_inline_data_nolock() has temporarily cleared
-   EXT4_INODE_INLINE_DATA and set EXT4_INODE_EXTENTS before
-   ext4_restore_inline_data() restores EXT4_INODE_INLINE_DATA and
-   unconditionally re-sets EXT4_STATE_MAY_INLINE_DATA.  This races with
-   ext4_do_writepages() and triggers:
+On Wed, Nov 18, 2026 at 04:17:46PM +0100, Olivier Moysan wrote:
+> Add bindings that describes STM32 MDF settings to support
+> digital filtering for Pulse Density Modulation (PDM) microphones
+> and analog sigma delta modulators, on STM32MP2 SoCs.
+>=20
+> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
+> ---
+>  .../bindings/iio/adc/st,stm32mp25-mdf.yaml         | 341 +++++++++++++++=
+++++++
+>  1 file changed, 341 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/iio/adc/st,stm32mp25-mdf.y=
+aml b/Documentation/devicetree/bindings/iio/adc/st,stm32mp25-mdf.yaml
+> new file mode 100644
+> index 000000000000..e4925a38012d
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/iio/adc/st,stm32mp25-mdf.yaml
+> @@ -0,0 +1,341 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/iio/adc/st,stm32mp25-mdf.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: STMicroelectronics STM32 Multi-function Digital Filter (MDF) ADC
+> +
+> +maintainers:
+> +  - Olivier Moysan <olivier.moysan@foss.st.com>
+> +
+> +description: |
+> +  STM32 MDF ADC is a sigma delta analog-to-digital converter dedicated to
+> +  interface external sigma delta modulators to STM32 micro controllers.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - st,stm32mp23-mdf
+> +      - st,stm32mp25-mdf
+> +
+> +  reg:
+> +    minItems: 1
+> +    maxItems: 2
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  "#clock-cells":
+> +    enum: [0, 1]
+> +
+> +  clock-output-names:
+> +    description: |
+> +      CCK0 and CCK1 are optional output clocks, which share the same clo=
+ck frequency,
+> +      but can be gated independently to save power.
+> +    minItems: 1
+> +    items:
+> +      - enum: [cck0, cck1]
+> +      - const: cck1
+> +
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 1
+> +
+> +  ranges: true
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  access-controllers:
+> +    maxItems: 1
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  st,interleave:
+> +    description: |
+> +      Number of interleaved filters, starting from filter 0. For a value=
+ N,
+> +      filters 0 through N - 1 participate in interleaving. Their samples=
+ are
+> +      multiplexed into a single channel and retrieved through the device
+> +      associated with filter 0. Filters 1 through N - 1 must be enabled =
+and
+> +      inherit their configuration from filter 0. If absent, interleaving=
+ is
+> +      disabled.
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 2
+> +    maximum: 8
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - ranges
+> +  - clocks
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +
+> +additionalProperties: false
+> +
+> +patternProperties:
+> +  "^sitf@[0-9]+$":
+> +    type: object
+> +    description: |
+> +      Serial interface configuration, managed by the MDF core. Pin contr=
+ol
+> +      states for the serial interface pins belong to the MDF parent node.
+> +
+> +    properties:
+> +      reg:
+> +        description: Specify the SITF serial interface instance
+> +        maxItems: 1
+> +
+> +      clocks:
+> +        description: |
+> +          Serial interface clock (optional depending on interface mode)
+> +        maxItems: 1
+> +
+> +      st,sitf-mode:
+> +        description: |
+> +          Select serial interface protocol
+> +          - spi: SPI mode
+> +          - lf_spi: low frequency SPI mode for low power applications
+> +        $ref: /schemas/types.yaml#/definitions/string
+> +        enum:
+> +          - spi
+> +          - lf_spi
+> +
+> +    required:
+> +      - reg
+> +      - st,sitf-mode
+> +
+> +    additionalProperties: false
+> +
+> +  "^filter@[0-9]+$":
+> +    type: object
+> +    description: Digital filter path child node
+> +
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - st,stm32mp25-mdf-dmic
+> +          - st,stm32mp25-mdf-adc
 
-     kernel BUG at fs/ext4/inode.c:2949!
-     RIP: 0010:ext4_do_writepages+0x25c0/0x39a0
-     Call Trace:
-      ext4_writepages+0x285/0x500
-      do_writepages+0x205/0x520
-      filemap_writeback+0x1a6/0x250
-      file_write_and_wait_range+0x8c/0x150
-      ext4_sync_file+0x2cf/0x950
-      ext4_buffered_write_iter+0x428/0x5d0
-      ext4_file_write_iter+0x7cb/0x1450
+These two compatibles don't represent different hardware, just different
+roles from the same hardware, right?
 
-3. A concurrent ext4_da_convert_inline_data_to_extent() can also clear
-   EXT4_STATE_MAY_INLINE_DATA between the initial check in
-   ext4_convert_inline_data() and acquiring ext4_write_lock_xattr().
+> +
+> +      reg:
+> +        description: Specify the MDF filter instance
+> +        maxItems: 1
+> +
+> +      interrupts:
+> +        maxItems: 1
+> +
+> +      dmas:
+> +        maxItems: 1
+> +
+> +      dma-names:
+> +        items:
+> +          - const: rx
+> +
+> +      "#io-channel-cells":
+> +        const: 1
+> +
+> +      '#address-cells':
+> +        const: 1
+> +
+> +      '#size-cells':
+> +        const: 0
+> +
+> +      st,cic-mode:
+> +        description: |
+> +          Cascaded-integrator-comb (CIC) filter configuration
+> +          - 0: MCIC & ACIC filters in FastSinc mode
+> +          - [1-3]: MCIC & ACIC filters in Sinc mode order 1 to 3
+> +          - [4-5]: Single CIC filter in Sinc mode order 4 to 5
+> +          For audio purpose it is recommended to use CIC Sinc4 or Sinc5
+> +          This property is mandatory for filter 0 or filters not used in=
+ interleave mode.
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        minimum: 0
+> +        maximum: 5
+> +
+> +      st,delay:
+> +        description: Filter delay in samples
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        maximum: 127
+> +
+> +      st,rs-filter-bypass:
+> +        description: Bypass RSFLT reshaping filter.
+> +        $ref: /schemas/types.yaml#/definitions/flag
+> +
+> +      st,hpf-filter-cutoff-bp:
+> +        description: |
+> +          High Pass Filter (HPF) cut-off frequency expressed as a fracti=
+on of the PCM sampling rate.
+> +          Cut-off frequency =3D st,hpf-filter-cutoff-bp x Fpcm / 10000.
+> +          If this property is not defined the HPF is disabled.
+> +        enum: [625, 1250, 2500, 9500]
+> +
+> +      st,sync:
+> +        description:
+> +          Synchronize to another filter.
+> +          Must contain the phandle of the filter providing the synchroni=
+zation.
+> +        allOf:
+> +          - $ref: /schemas/types.yaml#/definitions/phandle-array
+> +          - maxItems: 1
+> +
 
-In addition, ext4_inline_data_truncate() mishandles inodes that are
-already in the delayed-allocation transition (!EXT4_STATE_MAY_INLINE_DATA):
+> +      st,sitf:
+> +        $ref: /schemas/types.yaml#/definitions/phandle-array
+> +        items:
+> +          - items:
+> +              - description: Phandle of the serial interface connected t=
+o the digital filter
+> +              - description: |
+> +                  The phandle's argument selects the bitstream on the fa=
+lling or rising edge
+> +                  of the serial interface clock:
+> +                  - 0: rising edge
+> +                  - 1: falling edge
+> +                enum: [0, 1]
+> +                default: 0
+> +        description:
+> +          Should be phandle/bitstream pair.
 
-- When truncated to i_size == 0, truncate_pagecache() drops dirty folio 0
-  and ext4_es_remove_extent() removes delayed extents, but
-  EXT4_INODE_INLINE_DATA was left set with !EXT4_STATE_MAY_INLINE_DATA and
-  no dirty pages, causing subsequent synchronous writeback in
-  ext4_convert_inline_data() to leave EXT4_INODE_INLINE_DATA set.
-- When truncated to 0 < i_size <= inline_size, ext4_inline_data_truncate()
-  removed delayed extents starting from block 0 (instead of last_block)
-  when i_size < inline_size and skipped removal when i_size == inline_size,
-  evicting block 0's delayed extent while dirty folio 0 remained in the
-  page cache and triggering WARN_ON_ONCE(!err) in ext4_do_writepages().
+Can this ever be more than a single phandle?
 
-Fix both functions so that EXT4_STATE_MAY_INLINE_DATA transitions are
-strictly monotonic and ext4_convert_inline_data_nolock() is never called
-with !EXT4_STATE_MAY_INLINE_DATA:
+> +
+> +      mdf-dai:
+> +        type: object
+> +        description: Audio interface for the MDF filter
+> +
+> +        properties:
+> +          compatible:
+> +            const: st,stm32mp25-mdf-dai
+> +
+> +          "#sound-dai-cells":
+> +            const: 0
+> +
+> +          io-channels:
+> +            description:
+> +              From common IIO binding. Used to pipe external sigma delta
+> +              modulator or internal ADC output to MDF channel.
+> +
+> +          power-domains:
+> +            maxItems: 1
+> +
+> +          port:
+> +            $ref: /schemas/sound/audio-graph-port.yaml#
+> +            unevaluatedProperties: false
+> +
+> +        required:
+> +          - compatible
+> +          - "#sound-dai-cells"
+> +          - io-channels
+> +
+> +        additionalProperties: false
+> +
+> +    required:
+> +      - compatible
+> +      - reg
+> +      - interrupts
+> +      - dmas
+> +      - dma-names
+> +      - "#io-channel-cells"
+> +      - "#address-cells"
+> +      - "#size-cells"
+> +      - st,sitf
+> +
+> +    patternProperties:
+> +      "^channel@([0-7])$":
+> +        type: object
+> +        $ref: adc.yaml
+> +        description: Represents the external channel which is connected =
+to the MDF.
+> +
+> +        properties:
+> +          reg:
+> +            maximum: 7
+> +
+> +          io-backends:
+> +            description:
+> +              Used to pipe external sigma delta modulator or internal AD=
+C backend to MDF
+> +              channel.
+> +            maxItems: 1
+> +
+> +        required:
+> +          - reg
+> +
+> +        unevaluatedProperties: false
+> +
+> +    allOf:
+> +      - if:
+> +          properties:
+> +            compatible:
+> +              contains:
+> +                const: st,stm32mp25-mdf-adc
+> +
+> +        then:
+> +          patternProperties:
+> +            "^channel@[0-7]$":
+> +              required:
+> +                - io-backends
+> +          properties:
+> +            mdf-dai: false
+> +
+> +    unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    mdf1: filter@504d0000 {
+> +      compatible =3D "st,stm32mp25-mdf";
+> +      ranges =3D <0 0x504d0000 0x1000>;
+> +      reg =3D <0x504d0000 0x8>, <0x504d0ff0 0x10>;
+> +      #address-cells =3D <1>;
+> +      #size-cells =3D <1>;
+> +      clocks =3D <&rcc CK_KER_MDF1>;
+> +      #clock-cells =3D <1>;
+> +      clock-output-names =3D "cck0", "cck1";
+> +
+> +      sitf5: sitf@300 {
+> +        reg =3D <0x300 0x4>;
+> +        st,sitf-mode =3D "spi";
+> +        clocks =3D <&mdf1 0>;
+> +        assigned-clocks =3D <&mdf1 0>;
+> +        assigned-clock-rates =3D <2048000>;
+> +      };
+> +
+> +      filter0: filter@84 {
+> +        compatible =3D "st,stm32mp25-mdf-dmic";
+> +        reg =3D <0x84 0x70>;
+> +        #io-channel-cells =3D <1>;
+> +        interrupts =3D <GIC_SPI 184 IRQ_TYPE_LEVEL_HIGH>;
+> +        dmas =3D <&hpdma 63 0x63 0x12 0>;
+> +        dma-names =3D "rx";
+> +        st,cic-mode =3D <5>;
+> +        st,sitf =3D <&sitf5 0>;
+> +        #address-cells =3D <1>;
+> +        #size-cells =3D <0>;
+> +
+> +        channel@0 {
+> +          reg =3D <0>;
+> +        };
+> +
+> +        mdf-dai {
+> +          compatible =3D "st,stm32mp25-mdf-dai";
+> +          #sound-dai-cells =3D <0>;
+> +          io-channels =3D <&filter0 0>;
+> +        };
+> +      };
+> +
+> +      filter@104 {
+> +        compatible =3D "st,stm32mp25-mdf-adc";
+> +        reg =3D <0x104 0x70>;
+> +        #io-channel-cells =3D <1>;
+> +        interrupts =3D <GIC_SPI 185 IRQ_TYPE_LEVEL_HIGH>;
+> +        dmas =3D <&hpdma 64 0x63 0x12 0>;
+> +        dma-names =3D "rx";
+> +        st,cic-mode =3D <2>;
+> +        st,sitf =3D <&sitf5 1>;
 
-- In ext4_convert_inline_data():
-  * Use synchronous filemap_write_and_wait() instead of filemap_flush()
-    when !EXT4_STATE_MAY_INLINE_DATA.
-  * If ext4_has_inline_data(inode) is still true after writeback, return
-    ext4_emergency_state(inode->i_sb) or -EIO instead of falling through
-    to ext4_convert_inline_data_nolock().
-  * Re-check EXT4_STATE_MAY_INLINE_DATA under ext4_write_lock_xattr()
-    and retry via filemap_write_and_wait() if it was cleared concurrently.
-- In ext4_inline_data_truncate():
-  * When !EXT4_STATE_MAY_INLINE_DATA and inode->i_size == 0, remove all
-    delayed extents and finish converting the empty inode out of inline
-    data via ext4_destroy_inline_data_nolock().
-  * Otherwise when !EXT4_STATE_MAY_INLINE_DATA, remove only delayed
-    extents from last_block onward so block 0's delayed extent is
-    preserved while dirty folio 0 remains in the page cache.
+Is this a realistic example, with multiple devices connected to the same
+sitf? I assume it is technically possible, given what I have seen in the
+docs but would anyone do this in reality?
 
-Tested locally in QEMU (x86_64, 4 CPUs, KASAN+UBSAN+PROVE_LOCKING) with:
-- A 14-case inline_data torture suite covering delalloc -> fallocate/mmap,
-  delalloc -> ftruncate(0/16/60) -> fallocate/mmap, 1KB blocksize, ENOSPC
-  recovery, 2-CPU ftruncate(0) vs fsync races, and 4-thread concurrent
-  write/ftruncate/fallocate/mmap torture (all passed, 0 errors/lockdep).
-- A multi-mount concurrent mmap + O_SYNC write reproducer on a corrupted
-  inline_data image: hit kernel BUG at fs/ext4/inode.c:2949 on mount #1
-  before the patch, and completed 30 fresh mounts with zero BUG, WARNING,
-  KASAN, or lockdep reports after the patch.
+Cheers,
+Conor.
 
-Fixes: ef09ed5d37b8 ("ext4: fix bug_on in ext4_writepages")
-Cc: stable@vger.kernel.org
-Signed-off-by: Arbab Haider <arbabhaider649@gmail.com>
----
-Changes in v3:
-- Address Sashiko v2 review feedback: in ext4_inline_data_truncate(), when
-  !EXT4_STATE_MAY_INLINE_DATA and inode->i_size == 0, destroy inline data
-  via ext4_destroy_inline_data_nolock() so truncating a delalloc-pending
-  inline file to 0 does not leave an orphaned !MAY_INLINE state that would
-  cause spurious -EIO in ext4_convert_inline_data().
-- In ext4_inline_data_truncate(), remove delayed extents starting from
-  last_block (rather than 0) when !EXT4_STATE_MAY_INLINE_DATA and
-  i_size > 0, preserving block 0's delayed extent for dirty folio 0.
-- Simplify ext4_convert_inline_data() retry/error handling using
-  ext4_emergency_state().
+> +        #address-cells =3D <1>;
+> +        #size-cells =3D <0>;
+> +
+> +        channel@1 {
+> +          reg =3D <1>;
+> +          settling-time-us =3D <1000>;
+> +          io-backends =3D <&sd_adc1>;
+> +        };
+> +      };
+> +    };
+> +
+> +...
+>=20
+> --=20
+> 2.43.0
+>=20
 
-Changes in v2:
-- Address Sashiko v1 review feedback: prevent ext4_convert_inline_data()
-  from calling ext4_convert_inline_data_nolock() when
-  !EXT4_STATE_MAY_INLINE_DATA (using filemap_write_and_wait() and
-  re-checking under xattr_sem).
- fs/ext4/inline.c | 62 ++++++++++++++++++++++++++++++++++++++----------
- 1 file changed, 49 insertions(+), 13 deletions(-)
+--qmIYYbkYuRL7omxq
+Content-Type: application/pgp-signature; name=signature.asc
 
-diff --git a/fs/ext4/inline.c b/fs/ext4/inline.c
-index ceee69a66..a74054961 100644
---- a/fs/ext4/inline.c
-+++ b/fs/ext4/inline.c
-@@ -1890,6 +1890,25 @@ int ext4_inline_data_truncate(struct inode *inode, int *has_inline)
- 	if ((err = ext4_orphan_add(handle, inode)) != 0)
- 		goto out;
- 
-+	/*
-+	 * If the file was already moved to delayed allocation
-+	 * (!EXT4_STATE_MAY_INLINE_DATA) and is now truncated to zero,
-+	 * truncate_pagecache() has already dropped dirty folio 0. Finish
-+	 * converting the empty inode out of inline data here instead of
-+	 * leaving EXT4_INODE_INLINE_DATA set with !EXT4_STATE_MAY_INLINE_DATA
-+	 * and no dirty pages.
-+	 */
-+	if (!ext4_test_inode_state(inode, EXT4_STATE_MAY_INLINE_DATA) &&
-+	    inode->i_size == 0) {
-+		down_write(&EXT4_I(inode)->i_data_sem);
-+		EXT4_I(inode)->i_disksize = 0;
-+		ext4_es_remove_extent(inode, 0, EXT_MAX_BLOCKS);
-+		up_write(&EXT4_I(inode)->i_data_sem);
-+
-+		err = ext4_destroy_inline_data_nolock(handle, inode);
-+		goto out;
-+	}
-+
- 	if ((err = ext4_get_inode_loc(inode, &is.iloc)) != 0)
- 		goto out;
- 
-@@ -1898,16 +1917,21 @@ int ext4_inline_data_truncate(struct inode *inode, int *has_inline)
- 	inline_size = ext4_get_inline_size(inode);
- 	EXT4_I(inode)->i_disksize = i_size;
- 
--	if (i_size < inline_size) {
--		/*
--		 * if there's inline data to truncate and this file was
--		 * converted to extents after that inline data was written,
--		 * the extent status cache must be cleared to avoid leaving
--		 * behind stale delayed allocated extent entries
--		 */
--		if (!ext4_test_inode_state(inode, EXT4_STATE_MAY_INLINE_DATA))
--			ext4_es_remove_extent(inode, 0, EXT_MAX_BLOCKS);
-+	/*
-+	 * If this file was moved to delayed allocation (EXT4_STATE_MAY_INLINE_DATA
-+	 * cleared), remove delayed extents beyond the new i_size while keeping
-+	 * block 0 if i_size > 0 (folio 0 is still dirty in the page cache).
-+	 */
-+	if (!ext4_test_inode_state(inode, EXT4_STATE_MAY_INLINE_DATA)) {
-+		ext4_lblk_t last_block =
-+			(inode->i_size + i_blocksize(inode) - 1) >>
-+			inode->i_blkbits;
- 
-+		ext4_es_remove_extent(inode, last_block,
-+				      EXT_MAX_BLOCKS - last_block);
-+	}
-+
-+	if (i_size < inline_size) {
- 		/* Clear the content in the xattr space. */
- 		if (inline_size > EXT4_MIN_INLINE_DATA_SIZE) {
- 			if ((err = ext4_xattr_ibody_find(inode, &i, &is)) != 0)
-@@ -1977,6 +2001,7 @@ int ext4_convert_inline_data(struct inode *inode)
- 	handle_t *handle;
- 	struct ext4_iloc iloc;
- 
-+retry:
- 	if (!ext4_has_inline_data(inode)) {
- 		ext4_clear_inode_state(inode, EXT4_STATE_MAY_INLINE_DATA);
- 		return 0;
-@@ -1984,14 +2009,18 @@ int ext4_convert_inline_data(struct inode *inode)
- 		/*
- 		 * Inode has inline data but EXT4_STATE_MAY_INLINE_DATA is
- 		 * cleared. This means we are in the middle of moving of
--		 * inline data to delay allocated block. Just force writeout
--		 * here to finish conversion.
-+		 * inline data to delay allocated block. Force synchronous
-+		 * writeout here to finish conversion.
- 		 */
--		error = filemap_flush(inode->i_mapping);
-+		error = filemap_write_and_wait(inode->i_mapping);
- 		if (error)
- 			return error;
- 		if (!ext4_has_inline_data(inode))
- 			return 0;
-+		error = ext4_emergency_state(inode->i_sb);
-+		if (error)
-+			return error;
-+		return -EIO;
- 	}
- 
- 	needed_blocks = ext4_chunk_trans_extent(inode, 1);
-@@ -2008,8 +2037,15 @@ int ext4_convert_inline_data(struct inode *inode)
- 	}
- 
- 	ext4_write_lock_xattr(inode, &no_expand);
--	if (ext4_has_inline_data(inode))
-+	if (ext4_has_inline_data(inode)) {
-+		if (!ext4_test_inode_state(inode, EXT4_STATE_MAY_INLINE_DATA)) {
-+			ext4_write_unlock_xattr(inode, &no_expand);
-+			ext4_journal_stop(handle);
-+			brelse(iloc.bh);
-+			goto retry;
-+		}
- 		error = ext4_convert_inline_data_nolock(handle, inode, &iloc);
-+	}
- 	ext4_write_unlock_xattr(inode, &no_expand);
- 	ext4_journal_stop(handle);
- out_free:
--- 
-2.53.0
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCawR4TgAKCRB4tDGHoIJi
+0t1eAP9+SKDfz/fXqCrDw0Xq8RD8jyl2939S/hKOCEEMY+AzcQEA8kFKkJ2Ma5xy
+MH26truzNzaIE4lDOb7gNwiUWblYrgk=
+=JJBX
+-----END PGP SIGNATURE-----
+
+--qmIYYbkYuRL7omxq--
