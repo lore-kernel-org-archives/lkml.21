@@ -1,64 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.95.11.211
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795426293;
-	b=h136vepGkqj827sfGjoWxiu/wkAZjrCGsQKIgT3ZVvqMI6REv3TVlHO9R+Fm/VgMAj7j
-	 8cOi+YmlIEq/7pvBr2N5c96q7Aq+36psRyWjh/AieCk/ifhXOf1s/0IWSBb3Yfo3RgfiE
-	 ciABNU0jX0Ttp37jt/P93kWbkht7m6ZQ2dJicO5rmFhJqmdWsEhJXeAxU5G9O3MR1qioi
-	 TH2dGVoCCpyCv4Ex0koqfoC00z67oYZ/i7rd9idN0feNwvtjwKUX6cjtcwGQbtfpEEiC0
-	 2UIB2WF9ovCn5Y5Xj6h2JYR0grpgv9mDckIoAC5iRS5pJBzq4zRPkYqLl19d/KKodww==
+	t=1795426301;
+	b=cMLFaJ5qVWzjy5TlG0oXnM6F8lJP7trN0fgV/cwzel6lCrieNXh4Fs6xTQ1BsYDZgHgu
+	 Lf9h+gfbWsAB2G0lSIvfIFiLHyyW2UoN6yEDdBxpGGlpQDiaJwvt316zxNUwLCnd5oJhM
+	 sXT7luxBh32al+J9t9MQxPlYImsSEP4sqJSSR855XAp7aXEKgcU+doaGxGGEQHlEFEvlJ
+	 osKvARlayC23feXraSCKRowiRR+PYjFSobqXfx6F3tBUM3hE2wZ9qxQ52HsT//+2ECKMF
+	 H9z12tbx4O0knLfROV8vQDZhxwe8mYIMfBrG018vFY2CrDVDrfxaoOZM7V7RutkMzwA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795426293;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=LEZQPbX7zIrfyumi30Iuldtbz8hOyWeoj1cQmTHb/4c=;
-	b=UlJRDRiECBrEuDBNV6EkPpvQ9XJsTkLjs+qVHhXNUci8B8f6RfHD/7n4TyrSGugnEVBr
-	 04/r66nCtXVRxNklvGTMf3rJt4I2oqK+X+uv1Yo97eCz2c9PoKbWO8UuWk+HBe/npS2Ci
-	 ozLREL02WL8qjFEEZCnf4+qLUsHYNesLL6pDACbUgQX/W5YiiP28jXmtTRrHEBQHbj16C
-	 6yvVG2wsF7QVnnFfWMaf4VoSJT3hN6OxggBWdGZbh7ASsc5Tjm3VXidMo61MABwdSoXD9
-	 Sn61ER5r3jm080g/+c15Dl8wNEhDYiwizNgugM3n6T0xA9wcuqHA0FRZt3vrGaH+fJQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795426301;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
+	bh=qTfZwRq4CVPyDhqahNCbHKrfBgzSh0zQAJnCCnO1BqA=;
+	b=Z3D7ulNtRou5zk8p6zh1CXbW6t3cxAbO+joN2s0otld8tE7QBt9mty04bZxugrOlooqD
+	 50EQkl1d9LLIersaIoksCQgDGmgn/Kpun2Rz2DgUWKm5N3UCrQg70WJmBZ0sKIah5cToL
+	 I3C8RYBqGJ4p2eAhtZ7r3B0vF+/4zzndgX27CoOJ8dnkGfKahZh2z2vdvaDEaJ7R9eKTr
+	 D/qhO6nqZRzNKeEiN4ud03i1aX0C4w/S1V/q5DpCYE5jbglJR6yD2ulQkUfZMexXaWjxf
+	 SB83eFOXL0pzQVIhQU+9dmXAxLZPf15U6cPQ3MPqMgWBXELs44BUq/5KYDnUvTuwUrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NYbQqOrh;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=lst.de;
+	spf=pass smtp.mailfrom=lst.de;
+	arc=none smtp.remote-ip=213.95.11.211
+Received: from verein.lst.de (verein.lst.de [213.95.11.211])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D388C606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:31:33 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NYbQqOrh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BC0E1F000C4;
-	Mon, 23 Nov 2026 09:31:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795426293;
-	bh=LEZQPbX7zIrfyumi30Iuldtbz8hOyWeoj1cQmTHb/4c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NYbQqOrhzX2/icuZaJsZyU3TkKk9NJM791Bmy6zOLVKfGocWltOuytH3cgylFY7Mb
-	 5Ixrx865urTwyPPEF9dgo6bU7esfYBSqkSVS/vrh+IqAZSBlyEN/wI3ihPQbCavVo3
-	 Msj3yTqgMDe0VbwJpS3sAtCU0PXUI+sCOrlfqA6uNPvHrnIx2QepvrL/7zFfAg/WbR
-	 AwAJdBJXlwnl0COoVh8tfxyvtj7tGaFNr8c9FREDmzYSfwVvPpSbjtp48sYQhk7cC2
-	 auYy6LCrLGJZixGstmvRHkie8DL0K8sujRegIfMjkqAVv0sEYCEh14uG8n9bffadmU
-	 hP5qDSdcqFyTw==
-Date: Mon, 23 Nov 2026 10:31:25 +0100
-From: "Oscar Salvador (SUSE)" <osalvador@kernel.org>
-To: Muchun Song <songmuchun@bytedance.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>, Michal Hocko <mhocko@suse.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	Li Zhe <lizhe.67@bytedance.com>, Andrew Popple <apopple@nvidia.com>,
-	Balbir Singh <balbirs@nvidia.com>, Lorenzo Stoakes <ljs@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	James Houghton <jthoughton@google.com>,
-	Lance Yang <lance.yang@linux.dev>, Qi Zheng <qi.zheng@linux.dev>,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 05/11] mm/hugetlb: drop boot-time HVO handling for
- gigantic folios
-Message-ID: <awQH7ZAWKC2Zrhy8@localhost.localdomain>
-References: <20261120100856.16929-1-songmuchun@bytedance.com>
- <20261120100856.16929-6-songmuchun@bytedance.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33632606A321;
+	Mon, 23 Nov 2026 09:31:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33632606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lst.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lst.de
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id B75C368B05; Mon, 23 Nov 2026 10:31:34 +0100 (CET)
+Date: Mon, 23 Nov 2026 10:31:34 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: Laveesh Bansal <laveeshb@laveeshbansal.com>
+Cc: Jens Axboe <axboe@kernel.dk>, Eric Biggers <ebiggers@kernel.org>,
+	Christoph Hellwig <hch@lst.de>, "Theodore Y. Ts'o" <tytso@mit.edu>,
+	Jaegeuk Kim <jaegeuk@kernel.org>,
+	syzbot+20d60aafd9a0d1f2a380@syzkaller.appspotmail.com,
+	linux-block@vger.kernel.org, linux-fscrypt@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] blk-crypto: avoid fs reclaim under profile->lock in
+ the fallback
+Message-ID: <20261123093134.GA23224@lst.de>
+References: <20261122213120.20974-1-laveeshb@laveeshbansal.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,25 +55,23 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261120100856.16929-6-songmuchun@bytedance.com>
+In-Reply-To: <20261122213120.20974-1-laveeshb@laveeshbansal.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 
-On Fri, Nov 20, 2026 at 06:08:50PM +0800, Muchun Song wrote:
-> HugeTLB HVO is currently supported on x86-64, riscv64, and LoongArch.
-> On x86-64 and riscv64, gigantic HugeTLB pages are larger than the
-> section size, so the existing section-based vmemmap optimization
-> infrastructure is already sufficient to cover the whole folio.  On
-> LoongArch, HugeTLB HVO is supported without gigantic HugeTLB pages.
+On Sun, Nov 22, 2026 at 01:31:20PM -0800, Laveesh Bansal wrote:
+> Setting a key in blk-crypto-fallback can deadlock on profile->lock.
+> blk_crypto_get_keyslot() holds it across keyslot_program, whose setkey
+> allocates with GFP_KERNEL (Adiantum); direct reclaim can evict an fscrypt
+> inode, and blk_crypto_evict_key() then takes profile->lock again. syzbot
+> reports it as an fs_reclaim vs profile->lock cycle. Since
+> commit 5acc6f649a68 ("fscrypt: Always use blk-crypto for contents on
+> block-based filesystems") hitting it no longer needs -o inlinecrypt.
 > 
-> Therefore, boot-time HugeTLB HVO folios can rely on the section-based
-> vmemmap optimization infrastructure directly, without the extra bulk
-> optimization and fallback handling.
-> 
-> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+> Use memalloc_noio_save() around both setkey calls (keyslot_program and
+> the blank-key clear in evict_keyslot), as blk_crypto_alloc_enc_bio()
+> does.
 
-Acked-by: Oscar Salvador (SUSE) <osalvador@kernel.org>
+Pleawe move these into blk_crypto_hw_enter/exit so that it is tied
+to the lock for which you enforce the NOIO context instead of hacking
+around the issue for specific allocations.
 
- 
-
--- 
-Oscar Salvador
-SUSE Labs
