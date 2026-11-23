@@ -1,83 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795470309;
-	b=yLKxGQnBx9Bm7f9cD+pN3iyE6nWhjKVqHry9Sp0/0qREKTLw5BJyE0dBVfvU/rXRa9Ik
-	 aSS/glDjGR0KxrlTLvrVbCldja/fG5O7zJuG5I27ZHCNaKFsNa+4hqh09YwKTWSkBdxPI
-	 c9O7fgd6aGGN4mbuDNGGOR9M8XESfGx3pHFiMGrlz89lTEwxlRzdu15TJovMv1gctUmPG
-	 2MibqA2vQKGQIjUjtRecZ2SfWadc1DTGsyDDCZM1vPl2FtmghKnJAz/IXK3J6BABwsX73
-	 k5o6HGdQypYaiHQZ6ikmXpD9R4lW3r4nuwSDwpotPkPP+Pd+1GohkSyj4dbmAdqotdQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795470309;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Type:Date:Message-Id:Cc:Subject:From:To:X-Mailer:
-	 References:In-Reply-To;
-	bh=LkpmMbGmbwOY5rWgpls3HX12a8MYucO7aG0St1F+2Jo=;
-	b=bsfq8N/g1JzgwrjOdN5JhD9SKUxhlU60bnGY2L9Y6RwRJmBnZ7yubNTJqDZuGoOyjWDq
-	 l7ISsD2YNAzuKZF1Dz5FRQvIzXguOJl06x0x6sMr6yc9uBEEPwoGABqL4SoRjlCN0DNqm
-	 uyWEFbqPkEqQCPXZydBMTomsBpH/55WYU8gCEP68zIAuU6edmf2r1/wzqofgd76zcbmSH
-	 9ZH5sGGGHDUrTrClZLKTvIsLU0hiyP7KaCDcSiP6dfDsLzwJts8q5mWhuyXNfX7UhbtJh
-	 1FnC0xyB/8MrjZ+d5q1UCtq4V/svfs88tTJHSRO2vfvWf6sMj2VG/O4vmAkh/FSVarw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VZ0qknZT;
-	arc=none smtp.remote-ip=209.85.128.46
-Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795470346;
+	b=xLE3zMIARmOPxYR4oLb5Acd3K2YG0eDXEK4EO7PH6iY7vFsXGaOUAf1Fb/jvYlM75+uD
+	 6PJNqnDAC1Euk2tjq6mtIoL/+KnOBS9H3EIZl++ZXQqoaEujn1a0Dl3IzJSvTgKJqzpKZ
+	 j77ftkrKhv2yPtvR2nGAKnnua4dHcdeat9ic8VBkRuvxrhBvtg177SYGr0Ao3KpQqMyK1
+	 j9j42GzLgVcL5PLssgb/B6Wz+L6DFXgeAqNbELsGvuU38HzMlr/IjugkSmFEL2m5Fsy3F
+	 8Wlr80kIz8X4zbqMn0txALGf2ZbBJKeqFjsm7Tbl0l2N54yozKaVaaX/xnGiLxvbQDA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795470346;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
+	 References:In-Reply-To:Reply-To:From:Date:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding:
+	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=f8CTs4H0e4+xV/JFm+XfAOVDKNKiSc6f11sR45iH4HU=;
+	b=EoHTdmQr6E4BOn0apRkBKFypX7i3RNW7rZErb+M2YAm2WOasOmmiCChOJ5lr9lIw1J89
+	 48Xy4PsmWtDpbIwWxYsTOluw+WO7lfXJ/tyALldEG9W8AtU7LSLBfIx0YPPitjXSsIG6r
+	 dh8dp1aYailZSRSOl7roETBCe3uoHCmu0V/uao37qc4Nqv3YpJr6Bg37b9a6UDvbMztKx
+	 ujFRe4UWKc1SQad7vhxqKkrK+dD7DKMODvHeytqDB3/cy6Ca2LdXmersoG06hYkp4XdDW
+	 iIKEDtwdcSNBcQkFIsGz4aXze2/RXP+zzoyLk+WjyaoVfSzLxy9a71cH/t8couxcbqA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=grRu29bG;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=UKu7qd4W;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60D1D606A32E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:45:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60D1D606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C568F606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:45:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C568F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VZ0qknZT
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a00so30323695e9.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:45:09 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=grRu29bG;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=UKu7qd4W
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJudhx2827537
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:45:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:to; s=
+	qcppdkim1; bh=f8CTs4H0e4+xV/JFm+XfAOVDKNKiSc6f11sR45iH4HU=; b=gr
+	Ru29bGUeD20KN15hfdTn/v0tDcsuI0iM4aVP34KjIOqVlJ589XfwK0rRJ9PRxYhg
+	j/oQV/f4gL+HRYAx75aI7FJrTvxi3/PrY0LLPXMwFPR8zWzNnySCrt84iVe2Latp
+	slWABwSdOefa0MzvVtR+BIyPkFUlROB2RKAE+5icheqxjRYxJPep/me+ukfClyj7
+	aNh+4VpO1/Ecoco+CGRKaaVIBej+gEZdAQo8ZyIBUpueTJrT3F6nQncdjdDqiPL0
+	VuBFXnVIhvDU3y3iMcjlWw7vgyYYYUErrM7iJQGubIrkwyUsRqj9ewqz5EzCEUCC
+	fCePHonyWP62mxUs4lew==
+Received: from mail-oa1-f71.google.com (mail-oa1-f71.google.com [209.85.160.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4exx3shw-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:45:45 +0000 (GMT)
+Received: by mail-oa1-f71.google.com with SMTP id 586e51a60fabf-45e6091d8a1so2822131fac.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:45:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795470344; cv=none;
+        d=google.com; s=arc-20260327;
+        b=QE7iMLIXWcCoWWGfYTxl+MSYdAF1whNYB512x+XLM3A+4p6FjPIVZcbMQZRi6bM/mX
+         QA/9NaIM4IZWDbartSZ6hOWuDkMRUrr6eSIdLX7EHzQMIQMrf3Qh6wbnEEba7tkLxVf+
+         AnQHhbiOq1WcUa1RWsoshTFjBQKp6sJqNnUtDTDXIlbGqsn234H43b9EM9cRTAc9hgzl
+         MAUEga0tUEiSieNVG0j0zMQNQ8wrITwY+XUAU+0pmfuAwADkqMeXdR+6nKZfVyKxp6uV
+         G3s/yBrfypmxCIC6Vm8fc0uXG1sanpMOD7XObg/0v7mnL/GTC3pb2+9j/tobAnPcq5DY
+         Vb1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:dkim-signature;
+        bh=f8CTs4H0e4+xV/JFm+XfAOVDKNKiSc6f11sR45iH4HU=;
+        fh=2G1jwR1IZaqdM7GDeT/qJQ+k4ssZRrk24qcjSpKMtKQ=;
+        b=SWBEnC+zBa6gnwsAZ5UuSnYrDqRNUGpW0xjYuznQsr7u/xQeT0zvTPcenZb/lhuf/2
+         FeHyyJK2Uc79RSFRRAvo4HR2QWU649/PJ+9lB3+bYaIm+UBaPxY9T/0q0VwIXP6aDI41
+         luKQdw0Kcioalo00nl5+C/p/iazfMC9broRxrrPVNLpLSQilwC0b1v587BSlD6EmXNCs
+         6ha0KfPW4JBSEp/4A2FGC3oxIJFhzO0lfQ6GPTX3MWNty/7BirfNiul/h+k1zPjq44XZ
+         uPeEZxd8evtZog1brX8QCqV6ukxtx2p4qnBUra6mYOCgsIeZ69QDzJwH0FTwizQPMoUk
+         KosA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795470308; x=1796075108; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:mime-version:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=LkpmMbGmbwOY5rWgpls3HX12a8MYucO7aG0St1F+2Jo=;
-        b=VZ0qknZT6G8jiDP7QwV1V0pKiCHfdpHhv+ble/Qqp2dsIvFkJZWZEQo9bOyiSNJfxd
-         S62RlIDUJbUvN3ioWmiGkyqYIloVbEYSHTae7xvHfTYjToSl0gWsie7uEe66mU9suH3p
-         OVMHRCvIk0WsbVuDVgcLSNPF7Ec0HXwEKBtOuom5CsvElRQA+M09E4cfcpO+i6PBdryb
-         ntAhjU6XZ90W6FYquDYaWxhvbvTHEcYGCuWP5AiwluJI8NENSfLLy/pk0lrjhY0kyvi0
-         bgVXn3+C6HgJDHqY72JeJyuVhniaC40uz87cw3lEvo4xKYC0niCxsDe90FBOCsZpGKYq
-         0TKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795470308; x=1796075108;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+        d=oss.qualcomm.com; s=google; t=1795470344; x=1796075144; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:reply-to:in-reply-to:references:mime-version:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=LkpmMbGmbwOY5rWgpls3HX12a8MYucO7aG0St1F+2Jo=;
-        b=DjCDpfuxrSHZtwNy2OItu6lElMMUNvyJ5D/L/lQVDpvtO0ujYFFaN12l39/gKqps7n
-         gN+QJftilaFBxugdA/MNPpAalloS1mbVz4lnwIVoFenhGN2vJHE6wM/+qvjZQCUybP0U
-         EaXvfD12EOtlSMr1fojRHXbylzLyzcGFqzpcuLcpW/fwHAVZiD0W3MEo/5Dq7d7bdsev
-         dca3l6CsJebZN8Xeqb6b4md6nlhOZobsj42DEj3TIdSYre79xZwtLKk7Br5WtNelezoj
-         bmwSdx4M+Wu4QlMKsnfJ6FVDHISDJoWobZRr+P/0kfwWf2AZqcab4wj9lwHEEb06tIZe
-         JG6w==
-X-Forwarded-Encrypted: i=1; AL+hErEraTX9HMIvveUED4t2IRa89Ipx1r3Iq658QoswMCB1dKGLGadfugFbHzMpaaG1Ie9myKPkoQxs6wl6gbc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/LR1LYkltVRR3Des0ff3mBh+tN5cGwnPvUXXrUNO2T+7jbWSdH
-	M61lWXrRlbBW0QY4j7bWXzek/orGhwS9SvCGtgfGRSvU4e6CAT99W9xz
-X-Gm-Gg: AZFdTZemP3n3mQjHnrDub3n6WB53TjFysInfeI+4Z9PdUK44nlxHkAoGVTZNtKUZ2WB
-	xDHAP9yz92tiGGr0Lj6BlSzBuLHpOOHlSmto6b0MYnU39Ms443q6+KVJru0xbQMCgwRP22GPs97
-	29S42h0BrwWVPSWPCx0qGJgj0k3ZiLoT3PTjwcLnu6ffADbdBKEJmsD0P6qtaIYaTNS2eHSCUOS
-	rw4NQ3uCQL2TGtJaPmF1946+GhjkO4nZinhF5fVWg3OnME25SLJ70x3OHvPkGgDnCDs3MMv8yzA
-	jR8qhs9kd5dC8ojTFMcmtfHByVmz5O/SEWUte8AS95unYbU6GVy1dVQN3X2lw56dSPeh8arfWUB
-	N3jRaPCYIlXjiXKVtT2jp34Ze2LU5cvTkKI6adKknaXjwB7TQsKplH5h/6TDZSwusa5IgzXOA3/
-	Hr8htQPpMKR4Q9yFRdpQwE1ENEHUjt5qOsqUjF3r5iZ1yZbe8eRvG9ObYjJ4iUT4xbw+4XyE5P5
-	Wuaj6t5nVtKHSVgazs1L7Pic0MlPC36qWgvoLGvIKCgAWSkjbwQWLISHejiREERrP8rpij/xKZ8
-	1PXlSppZ3sCb3jB0RcChxi5rPOQKcP3mt/CmNLf/sJ++SoE=
-X-Received: by 2002:a05:600c:a08b:b0:4a5:87b3:ddc1 with SMTP id 5b1f17b1804b1-4bb88922c52mr247479825e9.13.1795470307434;
-        Mon, 23 Nov 2026 13:45:07 -0800 (PST)
-Received: from localhost ([2001:b07:5d26:7a6a:365a:60ff:fe0d:cfc6])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88442995sm390803475e9.2.2026.11.23.13.45.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 13:45:06 -0800 (PST)
+        bh=f8CTs4H0e4+xV/JFm+XfAOVDKNKiSc6f11sR45iH4HU=;
+        b=UKu7qd4WEbSKPsNFfj+pHRYixCa/7b6VDiWTtOWAll2AZw5y//VVdKPNcPX8MmDI5o
+         lGa1PY67uXz3olImtl6TKpojqvebh/rIl5cVj9a8zcCWLH4xzc54oIhjO7T5K1hLGW2n
+         TsINYtVfh04NPCFLUuEgqZbWs3+7ixdXGqLxMHyc+f6LfydTn3jQIJxiaWk6UGgTe3wg
+         wzZAtwBMsoCxzAfU3iuBMh5ydZXWJDPewH0vTmDcnCFGU2XdeP2rMiq8UDt9LD9MWwgk
+         zavh8wgcBSypsZXfxe76IaNKtO1JepoFCZ3gsFdI1udaU9wguas19FykSCaXYh1ls+e9
+         twWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795470344; x=1796075144;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=f8CTs4H0e4+xV/JFm+XfAOVDKNKiSc6f11sR45iH4HU=;
+        b=GYx4uLjumhDevC4HyvuEMX0HQQ4ZekUMcqFWAciYdSn4RI5GIBElOAc7/5x/dK9Vax
+         09qRPikkSxOboMV6zONyiezANq2heacM7sXFExb5aLi2bz1UyAv9mvIUZeBqewHOXs22
+         DGiTEgtTCrLqDhebCfYUlth7yxzdaU3NaPW0Kr11FmVcpxddGcC1JlR9ctC1/k12HPBY
+         hv0/muWPn6zCSKb1qrAXp+tmjdyMNa78mjqqBYve9OxU7+NFugtFq4pLJgqErJpiZ3D9
+         Z3+nRYrNiVhQKVEz4+HkrtNdQSzFKcamj6/sRXZTha9j0BL8QXzvYdjttRodicHwjGK7
+         ok1g==
+X-Forwarded-Encrypted: i=1; AL+hErGIjh2yc4gcolFURkA/RSxAQS+N6lklohdj8pvwhnvZ8Ej+lz4dAF06MNGtI0Enk9ynft5xhNuSAyeXxuM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9TeaactA03Iq8yhnJ4jk2U9yzhfaQ0hGZ+goukwJ0YVREGS5Ck
+	9CTHyNAh/MjixKvL9F0Tj2E4+zbmKnvhKi2kPdokUYS26s14vUF/8rOJ/8aejvCbPi9eMT6Drca
+	HO25ybsOMXfYgYRKjdIyEsKaA+eDTzTSj+LkWq8BSPBM6KRh/hWH536mWsBHCWTgu9mBxHLGkF9
+	VdVsmuesRcfgxQPe7upGq1FhLSOUdiUR1jEbyIynvh0g==
+X-Gm-Gg: AZFdTZeMtMgKRdipQ+mkpbJZT6B7JO7K/akyzK5Lt8vs8q0U8Q1Y3tB286cIQ4ui9PD
+	7KHhak3b3QowcD1PLw9FHh1tUSbZQHzGPQ59OcIVMNohEADpyFEHaD+/Slft7SmTRZ58G7eJo2c
+	KjkrEPxwZpj9n0cnTOndupnfmHPT3xUwKb+krmxnAqlfIsaI20Np9IIWxCqpbFVb1o91LQXvh32
+	8U0CK4YOmjAr/WZ8nYlqw==
+X-Received: by 2002:a05:6870:5b9a:b0:4b4:8c0f:40b6 with SMTP id 586e51a60fabf-4bc821920bcmr11250547fac.20.1795470344138;
+        Mon, 23 Nov 2026 13:45:44 -0800 (PST)
+X-Received: by 2002:a05:6870:5b9a:b0:4b4:8c0f:40b6 with SMTP id
+ 586e51a60fabf-4bc821920bcmr11250511fac.20.1795470343685; Mon, 23 Nov 2026
+ 13:45:43 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,96 +127,110 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=f93e91cd8129c4ef5a6623f4aac998269e771b61eaa5f43d069bef622e5a;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Mon, 23 Nov 2026 22:45:05 +0100
-Message-Id: <DN2X3RC5JUFQ.2LNGLQOUX4ZPF@gmail.com>
-Cc: "Namjae Jeon" <linkinjeon@kernel.org>, "Hyunchul Lee"
- <hyc.lee@gmail.com>, "Alexander Viro" <viro@zeniv.linux.org.uk>, "Christian
- Brauner" <brauner@kernel.org>, "Chuck Lever" <cel@kernel.org>, "Jeff
- Layton" <jlayton@kernel.org>, "Jan Kara" <jack@suse.cz>, "Darrick J . Wong"
- <djwong@kernel.org>, "Andrey Albershteyn" <aalbersh@kernel.org>,
- =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, "Lauri Gates"
- <lauri.gates@gmail.com>, "Christoph Hellwig" <hch@infradead.org>, "Dave
- Chinner" <dgc@kernel.org>, <linux-btrfs@vger.kernel.org>,
- <linux-xfs@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-fsdevel@vger.kernel.org>, <ntfs@lists.linux.dev>,
- <linux-nfs@vger.kernel.org>, <linux-api@vger.kernel.org>
-Subject: Re: [PATCH 0/3] Add f*_xflags_{rw,ro}_mask flags to the fileattr
- API
-From: "koraynilay" <koray.fra@gmail.com>
-To: "Amir Goldstein" <amir73il@gmail.com>, "koraynilay"
- <koray.fra@gmail.com>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261122000856.536902-1-koray.fra@gmail.com>
- <CAOQ4uxgf2KE=Ag13EPAu5=KnrFwt7zRH=im-qmLc8+i10Tjd+Q@mail.gmail.com>
-In-Reply-To: <CAOQ4uxgf2KE=Ag13EPAu5=KnrFwt7zRH=im-qmLc8+i10Tjd+Q@mail.gmail.com>
-
---f93e91cd8129c4ef5a6623f4aac998269e771b61eaa5f43d069bef622e5a
+MIME-Version: 1.0
+References: <20261123181306.420017-1-robin.clark@oss.qualcomm.com> <e4ecc291-026d-4ae1-a391-5f3856df8ce1@oss.qualcomm.com>
+In-Reply-To: <e4ecc291-026d-4ae1-a391-5f3856df8ce1@oss.qualcomm.com>
+Reply-To: rob.clark@oss.qualcomm.com
+From: Rob Clark <rob.clark@oss.qualcomm.com>
+Date: Mon, 23 Nov 2026 13:45:32 -0800
+X-Gm-Features: Aa3M54rCKbnTmosWYAIUHrhm3070EypXS245eQnX6lbW45gG_2uvaZLev6Ye9i8
+Message-ID: <CACSVV021qzsi-s+9GfOqx4syzb0=eAtv5nTV7u3thOqLrRa63g@mail.gmail.com>
+Subject: Re: [PATCH v2] drm/msm/a8xx: Add missing preempt_record_size
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org, Connor Abbott <cwabbott0@gmail.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+X-Authority-Analysis: v=2.4 cv=FKKOVOos c=1 sm=1 tr=0 ts=6b04b409 cx=c_pps
+ a=CWtnpBpaoqyeOyNyJ5EW7Q==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=_K5XuSEh1TEqbUxoQ0s3:22 a=EUspDBNiAAAA:8 a=pGLkceISAAAA:8
+ a=OkJ-WEULEOmYfeJtPDwA:9 a=QEXdDO2ut3YA:10 a=vh23qwtRXIYOdz9xvnmn:22
+X-Proofpoint-ORIG-GUID: 5GIrruSz4mzDpHmFwk4urBQfEujtIZWJ
+X-Proofpoint-GUID: 5GIrruSz4mzDpHmFwk4urBQfEujtIZWJ
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA4NiBTYWx0ZWRfXy3FJagS3qnHS
+ 1U2jowTWqpjY1G7tHQ+PS0XdsL2MxpH9jBAfo1W5P09z5r+HIDgcM7j2PGU8kjQbgxtziwbyFaJ
+ WNF9iI9LDgeBaJ4iGh69kMr4slvNgao=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA4NiBTYWx0ZWRfX5wNX3xulnaGM
+ 5pFYG7h/AOV5izbPLk+0ghL/dvZ7SDE88Q/kHPlQDKiGQ8ebr24jr/MiyID2MFQssmei2NXcIep
+ JdKmwDBouZQQuQ7s01pl6bfTWrrh5C/ymDK8Y7CzI9gwmkrcKGyQ8sPz4GfVKV7RYcvLaUrI3NQ
+ 4xfuN75d2LNHHsz648QCRROcz0LBmmWur/iZKo/1rYtNA8rE2lFMD+nOvToZ29m2WZEt4YbVsIL
+ ilFMDBimSZdXgbJ+GpCMqOspiL0uANxZ08B12FyQDf9H9VdgYgatV6a5otFyq/FwetMwfQPiN1K
+ eCtC+MAjs6LkE7N4CokT27mHNZSoQ6lz5QDfr5YCG2mNpDDT7fa+YM8QxUYQefSQ+87jg2ruuHE
+ U3rL/OGQwcj+U2+4zVA21MtEJxzklYIptuXUKiAMvrGVtSiQc1ZCLgv+Jr5Dc2sZDUE3Ei9/6kX
+ ur7ysQDQhJd5rKw/ZgA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_05,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 spamscore=0 bulkscore=0 priorityscore=1501 malwarescore=0
+ lowpriorityscore=0 impostorscore=0 phishscore=0 suspectscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230086
 
-On Mon Nov 23, 2026 at 2:35 PM CET, Amir Goldstein wrote:
-> On Sun, Nov 22, 2026 at 1:09=E2=80=AFAM koraynilay <koray.fra@gmail.com> =
-wrote:
->>
->> This is a follow up patch series stemmed from [1] and [2], splitting the
->> _mask change for the fileattr API into its own separate patch.
->>
->> The first patch is a preparatory patch so that the code in the patch
->> after can be formatted better.
->>
->> The second patch is the actual implementation, which introduces:
->> - fa_xflags_{rw,ro}_mask fields to struct file_attr
->> - fsx_xflags_{rw,ro}_mask fields and has_masks selector to struct file_k=
-attr
->>
->> These masks have the following semantics:
->> - rw_mask:
->>   * for filesystems: advertise which xflags they support changing
->>   * for userspace: specify which xflags it wants to modify
->> - ro_mask:
->>   * for filesystems: advertise which xflags they support only reading
->>   * for userspace: ignored
+On Mon, Nov 23, 2026 at 12:02=E2=80=AFPM Akhil P Oommen
+<akhilpo@oss.qualcomm.com> wrote:
 >
-> Nice!
-> I think this API description is very clear and coherent
+>
+>
+> On 11/23/2026 11:43 PM, Rob Clark wrote:
+> > Somehow this got overlooked, and Glymur/Mahua were falling back to the
+> > default 4MB.  Which is way too small for the amount of GMEM on these
+> > devices, causing faults in cases where preemption needs to save GMEM
+> > contents.
+> >
+> > Reported-by: Connor Abbott <cwabbott0@gmail.com>
+> > Fixes: 7fad33097e67 ("drm/msm/a6xx: Enable Preemption on X2-85")
+> > Signed-off-by: Rob Clark <robin.clark@oss.qualcomm.com>
+> > Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+>
+> Reviewed-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+>
+> I think it is a good idea to add a WARN_ONCE when the default size is use=
+d.
 
-By the way, should I use this description in the commit message (and
-integrate it with missing information before/after the bullet points),
-or should I keep the current one?
+More generally, we should probably just warn if the preemption record
+size is less than gmem size.. (we could probably also make the
+preemption record size smaller on ring0, I think?)
 
-(current one:)
-> This lets filesystems advertise their support for specific xflags, like
-> statx.stx_attributes_mask does, and userspace can specify only which
-> xflags it wants to change without needing a RMW cycle:
-> - on GET: each filesystem that wants to support this new API fills the
->   masks according to its supported and read-only xflags, then:
->   * for boolean xflags: it fills fsx_xflags with the current on-disk valu=
-e
->   * for value xflags: it sets the xflag bit to 1 in fsx_xflags and the
->     xflag value in the struct field;
-> - on SET: userspace fills the rw_mask with the bits of the xflags it
->   wants to change, then:
->   * for boolean xflags: it provides the xflag value as a bit in fa_xflags
->   * for value xflags: it sets the xflag bit to 1 in fa_xflags and then
->     provides the value in the struct field; if the xflag bit is set to 0
->     instead, this informs the kernel to unset/clear that value.
+BR,
+-R
 
-Thanks,
-koraynilay
-
---f93e91cd8129c4ef5a6623f4aac998269e771b61eaa5f43d069bef622e5a
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSgVimKafU5DQMcjcDmj22qf5IGXAUCawSz4QAKCRDmj22qf5IG
-XFP0AQDoHuI0GUaYOoQkPYkvkC952uJ2NGRvnCWrDXc2mGNcRgD8D3IvRyNkeRF4
-hY+IdbU3Ldb+X7gx8ejbGnOW7iQXcAM=
-=P1l+
------END PGP SIGNATURE-----
-
---f93e91cd8129c4ef5a6623f4aac998269e771b61eaa5f43d069bef622e5a--
+> -Akhil.
+>
+> > ---
+> > v2: Fix typo in commit msg
+> >
+> >  drivers/gpu/drm/msm/adreno/a8xx_catalog.c | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >
+> > diff --git a/drivers/gpu/drm/msm/adreno/a8xx_catalog.c b/drivers/gpu/dr=
+m/msm/adreno/a8xx_catalog.c
+> > index 0c6dde3cbea9..20fe93b83c0b 100644
+> > --- a/drivers/gpu/drm/msm/adreno/a8xx_catalog.c
+> > +++ b/drivers/gpu/drm/msm/adreno/a8xx_catalog.c
+> > @@ -1337,6 +1337,7 @@ static const struct adreno_info a8xx_gpus[] =3D {
+> >                               { /* sentinel */ },
+> >                       },
+> >               },
+> > +             .preempt_record_size =3D 23088 * SZ_1K,
+> >               .speedbins =3D ADRENO_SPEEDBINS(
+> >                       { 0,   0 },
+> >                       { 388, 1 },
+> > @@ -1469,6 +1470,7 @@ static const struct adreno_info a8xx_gpus[] =3D {
+> >                               { /* sentinel */ },
+> >                       },
+> >               },
+> > +             .preempt_record_size =3D 17712 * SZ_1K,
+> >               .speedbins =3D ADRENO_SPEEDBINS(
+> >                       { 0,   0 },
+> >                       { 388, 1 },
+>
