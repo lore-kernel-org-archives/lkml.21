@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.187
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795420348;
-	b=LpTFTymFFQf81KPrUs05sxZzj82MO7YARZebalYHiZWWygbypCTfdZ31vTEVO7xfH0/c
-	 vRGrFEC7FVM73fJTlHegBzm67F9fwbj865lqxfyfLfZVHHtqMGVR6rYbwunUzNVKTE/RM
-	 pJr95OzYsSirDf20xGuotlLc0LwVx3kUJ7/ZvfNuEV8WdjpJ2stStlA1QO9vEcmzqotx1
-	 Nfk7vPhhBSw+mibrX2DWVmTPqWITKVjKrc20wo54wYBBx5IBXlLgUPRe//wRoSswxo8IW
-	 pjcKdWA62+AuJEQQcyJC33ja5rGGe0vBT99gabZYnFlRT7hUO/gpJRqE4n582ig92rg==
+	b=k/KJxnEKmy5Q5/+pi6dKQFH5BXutlTQKuV4Ujcd1HzhO2GsDYThQo+v5Z6JjobnglkHm
+	 dXego4UOIlmtZqJzcJvZ8olENGm/FeV+0arEkGFgFfT3ibIUHVnZlOWBT5JCzRunNxtIN
+	 dkwRT3QNxDibpDpAGE+JWY+SUp+UwyPAuDwY3SJzGqPBS4jyh8O8ENq5GnrRQU5CQvfpn
+	 BxZE1dBcY4B+ODWwCiPy4nQ4yQ/oLWRa2riZkeE5CNvBqlraOPZy8EnsggdoDJIt1NhtH
+	 KN9vIG6At09MPnFHlsqGZcmNd3mBQ3escuqruMGtn0/3X4FKB2MyWvNhbRPJyz3Ghgw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795420348;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=VUq1FwUBes476hqYf0N3+rNKTNIoG0zuocLy5Eg3cmU=;
-	b=2krV1/0tX4EpKWZvPyLzGxwoHBERXxXZjARC2z1Dalgcb3Db00X9UfFe4jbsg7E8JcJZ
-	 KnBMKQgx5fZf1up2t7ZLOfQcbSShPhyDh6wW0a/vDdtgBsupKKFjRmf03Ih8mT/dE01fB
-	 avShbP+2R/NaBPRDJ1CaiygA6wH4tNFdlgztkdls+U/ib7LM+qCmBQ1BxYxUN03Ai5DW1
-	 y3chOgII9Ddk11T0d6/xOLcEMTsieTeXSAoBlpMvzXqNdjl55FSxDJmFwVYpefh+Dfr3d
-	 0rjUjJF3FrGVafVq0aFXS3wi8inSB45zd3PYFU488Ub8W4CJ9BvzBsYQd8rLR/SCtLQ==
+	bh=ovUFY90e6TBeDEMLcD+XQ14+5xbpH/4Hs85p1IaHKwc=;
+	b=vh0yZKrsdydzu8ox+p3ayxEbvcjIF+DQVhDBR+bYt4vWr4EbKZffW2Rn1hbD/uL+2fHG
+	 XTC4ecVkzUTr5ua566dgYaECFoQdgrQLSRKyczLXZNIV996ckKxqyZ+HtHe2bN/vPJ6wg
+	 r9YP7oOaoD/svRUJl5lOIvtx4Mg5Dvm7+ZX+Xln9Jli+RXioybWyYU23T3Me2+uWCEVIe
+	 5N96XbSf2PutOETL2TtKnXNvpSmPFD0Ew7qZzbKO4OOJVYgkTrLywwPezTO709kX08Wv3
+	 q6S9bgA/lRQrILA6w1fz8Fv/yYAfpA5p1GVQllH6Qm6uQiM+YgLtSQ8Y0ACgKtihcAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="j55B32L/";
-	arc=none smtp.remote-ip=95.215.58.137
-Received: from mta1.migadu.com (out-137.mta1.migadu.com [95.215.58.137])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oLbU4aP6;
+	arc=none smtp.remote-ip=91.218.175.187
+Received: from mta0.migadu.com (out-187.mta0.migadu.com [91.218.175.187])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A5C9606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B540606A31A
 	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:52:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A5C9606A33B
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B540606A31A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=j55B32L/
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oLbU4aP6
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=PA8f4ndtDotBrMDWYs5zhgHdu0JkHQRg3GkPu9g17Y4=;
+DKIM-Signature: a=rsa-sha256; bh=0Wb1aSE//fFVyU0JXIDWtBGcmmyyDDV9MfInC/0NCF0=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795420345; v=1; x=1796025145;
- b=j55B32L/YJCn19yUNEE3qLhbHeudFU/ZtaS0F1MM4PtBi+TOqHPHBmXzGB8AVgI1Z8bYG0Bq
- XGSo6Gh4RWWnvgyXvj5skRHSJHGaxMhyIcvW8l4BSEfWDCaFnHrHmfnhijYWiCOeCDF78VWqVbR
- e00o49yPhbetxBPAHkHIy1Cc=
+ t=1795420346; v=1; x=1796025146;
+ b=oLbU4aP6+t1oBCPfyT4jNAr4PNz8033nOYN4BFFbBWhBdJ03CFJBYynFPsKCk7xk/cyKaHvn
+ UF0YiUEMIs4AAkTR/xLqjA7P+mSuS6pYe3VjmIPTbOuCxYH+qhyip/pLDlK3u/Uwu7ZLfUBdAeh
+ 0Rsmzhn0Za3CRVw2tQsD9BOw=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 5fb6a7c82f35303c;
+Received: by smtp.migadu.com with ESMTPS id d63a0246b9e4f8c7;
 	Mon, 23 Nov 2026 07:52:25 +0000
-X-Mizu-Trace-ID: 5fb6a7c82f35303c
+X-Mizu-Trace-ID: d63a0246b9e4f8c7
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Catalin Marinas <catalin.marinas@arm.com>,
@@ -59,9 +59,9 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH 1/9] arm64: sysreg: Map MPAM1_EL12 to MPAM1_EL1
-Date: Mon, 23 Nov 2026 07:52:11 +0000
-Message-ID: <20261123075219.369042-2-fuad.tabba@linux.dev>
+Subject: [PATCH 2/9] arm64: sysreg: Remove the dead range check from parse_bitdef()
+Date: Mon, 23 Nov 2026 07:52:12 +0000
+Message-ID: <20261123075219.369042-3-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261123075219.369042-1-fuad.tabba@linux.dev>
 References: <20261123075219.369042-1-fuad.tabba@linux.dev>
@@ -76,33 +76,33 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-MPAM1_EL12 is the EL12 alias of MPAM1_EL1, but its entry in the sysreg
-file is "Fields MPAM1_ELx", and the file doesn't have an MPAM1_ELx
-block. Since commit 6ae7fab7d9d33 ("arm64: sysreg: Emit RESx/UNKN values
-for Mapping/Fields definitions"), the generator's MPAM1_EL12_RES0, _RES1
-and _UNKN expand to MPAM1_ELx_RES0 and the like, which aren't defined.
-They aren't used yet, but the first user would fail to build.
+parse_bitdef() ends by testing "low > high", but the script doesn't
+assign either variable, so the test compares two empty values and never
+fires. The "msb < lsb" test just above it already rejects an inverted
+range.
 
-Describe the register as a mapping of MPAM1_EL1.
+Remove the dead test.
+
+No functional change intended.
 
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/tools/sysreg | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/tools/gen-sysreg.awk | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 997c62ab72e68..ebe5c5bd6fef6 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -5501,7 +5501,7 @@ Field	63:0	ADDR
- EndSysreg
+diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
+index 53844f5c5e525..b299342463631 100755
+--- a/arch/arm64/tools/gen-sysreg.awk
++++ b/arch/arm64/tools/gen-sysreg.awk
+@@ -100,8 +100,6 @@ function parse_bitdef(reg, field, bitdef, _bits)
+ 		fatal(reg "." field " invalid low bit in '" bitdef "'")
+ 	if (msb < lsb)
+ 		fatal(reg "." field " invalid bit-range '" bitdef "'")
+-	if (low > high)
+-		fatal(reg "." field " has invalid range " high "-" low)
  
- Sysreg	MPAM1_EL12	3	5	10	5	0
--Fields	MPAM1_ELx
-+Mapping	MPAM1_EL1
- EndSysreg
- 
- Sysreg	CONTEXTIDR_EL12	3	5	13	0	1
+ 	next_bit = lsb - 1
+ }
 -- 
 2.47.3
 
