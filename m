@@ -1,60 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795448497;
-	b=Q60zul8z4cr7q+0Cu1d+fpzAnCaOb/e3oarw+O7svylof1v6UGrYY+fqaI5CF48GA256
-	 nfPBA12STEFtMZ5uSgX8oiyD0a2XXDBg+8eqSGjl3c2xl8GcXHEqj3YNIiZgwtO789YWx
-	 heinHmO5DpC+RJaTpD1TCwto0m7tv5tr52chwUnQBggIa+XNbETIW8ztYiVJy9Ny55qdT
-	 EPBPPa6lcoJlh/B8Jiq3nnM7UlzOrscoH5DYt9mpnsbsS2k0KzR8t558h1LK4KhSkcN9u
-	 M1P3IlwqCsnC03xAQrJFHeF/olvqFGzYqjvZeUIxRhMGYbmyItOLRS4CLaaCCcVO50A==
+	t=1795448501;
+	b=Uv32Yab/YM7ONGcV/HnblBZPCZonQfhEbbXVxZ1WTSxplN8QnseWNCZelB7o0fHrnLf9
+	 G9C4hYCGYDWNgjo9mPKYg5eFeNWZD1lfaLE4kyUd+F+KwvZ5/nNgyoSDwW3t1Iy1ZX46v
+	 OSD/JMqQZ9uDwq2ImmOXK4XYBYl4xlcaLTGvz4iIUDJYe7R8hxto5p/oRJFo2RfmGSQfL
+	 3OA2bVLFwMyjC6pT2yoJu+pkSQxzDf+Oiu0I6uBDDdxb+FhScs+qr1LoMDLkZVbqz0EXt
+	 cDyapeF524yjLarj3zIczkH1lOd12pUpA01FGq1zOlgeAz1puCXuatxKvE2JQFNcdQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448497;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=ajq0I1jTHg94BEb2kR+C72Yoj6Dn+cM5m8kty+Pico0=;
-	b=aHeJJBXN1+Knb4TqRxXCWgnnaQOpZ+9q3sM/QmCMaEta/QXjK8QPcasCyPMYY5QumsC/
-	 38SleuWIDBh6g1smYi7tDMr2Lo7OU4AotNIWQSvfgYRfr4bEY1UPVTkK1L8NCPtTLyCxB
-	 sGWuXU7uvI1B85pRghGthzvVIryHeonVOxxqpTc17ZMpjujvGVRpvfRx6Rq6UkBzAdSt/
-	 UdR9NQ5R6tkM5KAZztR7umerf0xb5qp8K4ZvgIIektoDEnWlv+KNsPFs1dvKNSD6D+aEY
-	 Zg40vrijkTPDvh5m7K4/pD93xZKoROCIN3jbuVIlRS5LKqLAPf9WPLruuDQffZNK7hw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448501;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=dFeejFp+b6lfL7BUAUr19CJqBLSUo9uMnCRR5A9zrR4=;
+	b=qxKJ18VdPX/X76RTJ7+QHgmcKs+3G11kjlhpu+5I67QB7WYNQ0cXe1NLdcbnTiASXwgc
+	 AtW/5+wqMVNmoF+r4RXurNyLAwUmP85HBEr+1dIl83mO95ldqesbZ1fUvElf3fukfN9Yu
+	 ljLiOFO0MKp+XRAFI8RdWS/3+nWle69Hf3MmbWCiz+iAn14hX8yxmEwAgFAMMjWTNLnEZ
+	 lkKLSbJ2Ww27iCPwAqknCz7gFRGL1DhMNa9kAQAint2ZrUY7BLfehNZxUPB71AH8yrwC1
+	 +Vrs7TPAyE8h0bpXuHI45uAhP7+X03eKrdforbkgGBYaKubOXKzIzHoFokIn2JColHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=heo5z1JP;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g8d9D+gx;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 747F8606A33E;
-	Mon, 23 Nov 2026 15:41:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9167A606A333;
+	Mon, 23 Nov 2026 15:41:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=heo5z1JP
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id B7A601F00A36;
-	Mon, 23 Nov 2026 15:41:35 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g8d9D+gx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F40DE1F00A19;
+	Mon, 23 Nov 2026 15:41:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795448496;
-	bh=ajq0I1jTHg94BEb2kR+C72Yoj6Dn+cM5m8kty+Pico0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=heo5z1JP8A5yxkIctS+s13VURgxZBYP4NbGicVeLFprLdGRLp4z++VF4P5Ksijb9J
-	 19GXOsxzXFHDoK08+NSy4F2C7QAknIiaW+6LkddaRjovaFzj39ZV/dCUB0skHJ1nK5
-	 qCq/Z+3ohu5obCI5WdGdDC27j1GmEWrYpKQba9bbqUgBZsulHdXpevCylt16SuslTt
-	 Ay1PFtS8BNU9Om11cKrCm51zB0DYk/tYFx9AMtRgSFpEhUgdgy2+sIl5Jc6ExQRhZE
-	 MnZnRwc6fw9hE4wPenPq8ZzZACGh9cMfRaKbcboytfz5FUriXvOU7QspbkxuAb3ZDc
-	 pcGMAuXy8e+Hw==
-Date: Mon, 23 Nov 2026 16:41:32 +0100
-From: Bartosz Golaszewski <brgl@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Arnd Bergmann <arnd@kernel.org>, Linus Walleij <linusw@kernel.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Johannes Berg <johannes@sipsolutions.net>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Kent Gibson <warthog618@gmail.com>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-sh@vger.kernel.org, "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
-	linux-wireless@vger.kernel.org
-Subject: Re: [PATCH 0/2 v8] gpiolib: finish the legacy cleanup
-Message-ID: <7dpg3x3gkypkznzhuetjsqmk5fhqwuwkc6kupbs52zqh5mibgx@fjow6eodw4pf>
-References: <20261123085723.156933-1-arnd@kernel.org>
- <tdc6h325jthjgyik2ne4oistkm563maoc2cpnffqu7hh34tpl7@oscripzv4dwq>
- <qvmy7iaxc7cjy2gkajqkr5ma6b4lwxz5ff64a5zsqrgewkxodr@odbjlv5x3hix>
- <8296a5c2-0aa2-4fc7-b65b-9d336bc4dff6@app.fastmail.com>
+	s=k20260515; t=1795448501;
+	bh=dFeejFp+b6lfL7BUAUr19CJqBLSUo9uMnCRR5A9zrR4=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=g8d9D+gx2a/3an3ASut3qGr5oEpHsivWwQ+UhHDR0If1A3yyPv/kY7+BfgFR+NqdN
+	 ZilHQFqqtx5WVOsA+ayKiYVOpVN0DJ4xEqjQMQPZHlMIzEV111GVQAL12ViWVllJxE
+	 uqwzndF29p437xSVCDrf7jtrYVdWIwGJvjPA5J4hSbeN46HM9EzluuidNMdzO24s3N
+	 YWtgQBBPfU9Af9QzmP5IZAfKaXsoOnPaPPBVN0kxzbf0UtbpWqyhs9Q1Y7zGFQ1+wA
+	 RdS/K8RPYtdzVeOcb9bMYsMb6vOIrvbe/Tu/BPBRs7gKLN/TLa2I8++UmaQPxRtGiU
+	 YAEvmrqXg/xuA==
+From: Brian Masney <masneyb@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, 
+ Carlo Caione <ccaione@baylibre.com>
+Cc: Brian Norris <briannorris@chromium.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ David Laight <david.laight.linux@gmail.com>, linux-clk@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, 
+ Brian Masney <masneyb@kernel.org>
+In-Reply-To: <20261119-upstream-clk-divider-large-rates-v3-0-838eccd2e497@baylibre.com>
+References: <20261119-upstream-clk-divider-large-rates-v3-0-838eccd2e497@baylibre.com>
+Subject: Re: [PATCH v3 0/4] Fix clk-divider rates above 4.29 GHz on 64-bit
+Message-Id: <179544848919.209212.7567602584693765343.b4-ty@b4>
+Date: Mon, 23 Nov 2026 10:41:29 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,41 +64,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <8296a5c2-0aa2-4fc7-b65b-9d336bc4dff6@app.fastmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev-8145e
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1175; i=masneyb@kernel.org;
+ s=20250903; h=from:subject:message-id;
+ bh=KN50npO1UZYjwZAAlLSlkjQVocXNnwkgImXNgPQP4Vc=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLJZ4tbkSSRmTry0Y8q+yQfFnz4L3XKXw1LQ4ydPe8JG2
+ 3aP34F9HaUsDGJcDLJiiixLco0KIlJX2d67o8kCM4eVCWQIAxenAExkUxfDb1bFVccdeCKWead5
+ qVot3mM2YdONgKrL4f8NdGb6VLgEezIybE/Y5XLwgu6fHyd6OZKsp699wX9lI6fmh/lGh/72Bhc
+ VcwMA
+X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
+ fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
 
-On Mon, Nov 23, 2026 at 04:24:49PM +0100, Arnd Bergmann wrote:
-> On Mon, Nov 23, 2026, at 16:08, Bartosz Golaszewski wrote:
-> > On Mon, Nov 23, 2026 at 03:59:24PM +0100, Bartosz Golaszewski wrote:
-> >> On Mon, Nov 23, 2026 at 09:57:21AM +0100, Arnd Bergmann wrote:
-> >> > 
-> >> > This was planned for 7.3 originally[1], but kept conflicting with
-> >> > ongoing cleanups for the broken rsk7203 board. I've skipped the
-> >> > oneline rsk change now, which will be fixed properly by Dmitry's
-> >> > patch [2].
-> >> 
-> > Sashiko is right:
-> >
-> >   CC      arch/sh/boards/mach-rsk/devices-rsk7203.o
-> > arch/sh/boards/mach-rsk/devices-rsk7203.c: In function 
-> > ‘rsk7203_devices_setup’:
-> > arch/sh/boards/mach-rsk/devices-rsk7203.c:127:9: error: implicit 
-> > declaration of function ‘gpio_request’; did you mean ‘symbol_request’? 
-> > [-Wimplicit-function-declaration]
-> >   127 |         gpio_request(GPIO_FN_TXD0, NULL);
-> >       |         ^~~~~~~~~~~~
-> >       |         symbol_request
+
+On Thu, 19 Nov 2026 21:49:30 +0100, Carlo Caione wrote:
+> Fix clk-divider rates above 4.29 GHz on 64-bit
 > 
-> Yes, this just seemed the easiest way out to avoid clashing with Dmitry's
-> patches again. If you want the version that doesn't break the build,
-> you can still apply v7 [1], but that likely means his series has go
-> through another revision to undo my change and remove the linux/gpio/legacy.h
-> inclusion.
->
+> On 64-bit platforms, the clk-divider truncates requested rates above
+> 4.29 GHz when computing a divisor. Fix it and add KUnit tests.
+> 
+> Sebastian Reichel fixed this in 2023 [1], but later versions moved to a
+> new generic macro and were never applied. Patch 1 builds on his v1 and
+> rounds up with (parent_rate - 1) / rate + 1, which does not overflow
+> with clk_round_rate(clk, ULONG_MAX). Patch 2 fixes a division by zero
+> found by the new tests. Patch 3 stops truncating divisors to int.
+> 
+> [...]
 
-Can I apply v7 and provide it to the SH maintainers on an immutable
-branch?
+Applied, thanks!
 
-Bart
+[1/4] clk: divider: Fix the divisor for rates above 4.29 GHz
+      https://git.kernel.org/clk/linux/c/485c1514fb97
+[2/4] clk: divider: Fix round-closest for rates above the parent rate
+      https://git.kernel.org/clk/linux/c/9964715d4729
+[3/4] clk: divider: Don't truncate divisors to int
+      https://git.kernel.org/clk/linux/c/e69c78b9782b
+[4/4] clk: divider: test: Add tests for rates above 4.29 GHz
+      https://git.kernel.org/clk/linux/c/7e4d9e345c64
+
+Best regards,
+-- 
+Brian Masney <masneyb@kernel.org>
+
