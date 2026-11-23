@@ -1,89 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795466053;
-	b=vxGQBiEpjsuCoMOkZgadApjFOUKuYkQ8eDeiLIvBaybKuwlrFWl/mk2cGbOCdyBroKZN
-	 KHcVf9EnCtmVQxa+3T0nXECCwlg/zngIB5l1zwnuWP44RSacP6ee/TAA1nwjlFUMm8EgG
-	 h5mR/jcT9oojXcB1MYfXuVvvgbdmIKtf4gbeqgbIBqVbIVK/8bJ8/zlqtLePcmrhurIf6
-	 z9082Mn/oLdOQTrDCQ7BpRirwoMze8GRyzwFhTqf03OFBKt9Bg3Bm/upGfal83325VCg/
-	 e8bJr+se2ry3dtdg/DVRqAbEe13qct4RDp2qdVx6aWOzmWKnbHnH1VBg2vT3OtDlsNQ==
+	t=1795466054;
+	b=FqxiRLUBbLzheZPVGGZM7EQF3+s1qz6x0GM4g0Y/TrBYnVuXzhTxObl+5D8LAgImYzP7
+	 FuwvSVIsLGkSLAZknzQuwtkoGce90ey4+QFml8BM2mGlThJcL1cm1sDmZ4XC6n2Jj9I99
+	 NZf6j0EIL1Gzn7c96Z31340QaB1UQQ+P3vK1pTBrDdw8wOo0qBcX7P7e+njVDmUbsP4Zi
+	 y4u06vAroMfBhhj1OLGWLzPQBeqgx782BnONpxv8hRY15lV8xAhaMVnI296yNnxuCESQX
+	 Qu4n8LDdstE1+TNEcgfcBw+Dm2yrBuXDXNTbohZY9gUZ9RLicAR0K5/9vJb/kHFNS9w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795466053;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795466054;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=veXzAwmEVfaxeQ226TGV88z3qOLGC1lncdwhds4Uw+A=;
-	b=L7eSloy1Iz/cdbRaZtyX2OCetBLbmnyZE5BGpegki44pwYyyIl36MzdCzx2TRdtCbbcL
-	 uk8//tUWPBi6fLFmMNlqXIv5PYlxjDZawkpBazaYCYF0sFi96D2UbVxsTz56VZxc8sioh
-	 djl3WKyJ4q/ZQvDQ9nZEqIZ8EM1l+he2fpkTVgs8dWUwPsSBbV96i8Kg5Y336zi+dAoRu
-	 o5BxhYohh3qJCVZSD9CSGbC0JXBvHA/btbYbZsshDwX0MR7kxMlnXkwUcxo8c2M8W0F+X
-	 iXIA+8mj212dlOttW5aMKBMbip8j1tSuarTXiEf86JzdURIqFbwf9te7wG6ZpVlkYUw==
+	bh=6OR603YV4U0OwPPTqnIgdhTgPtFX3ZXpQfBjAD1u2oU=;
+	b=nprKaCIqf2TIfMIDTOThR6F8WrUgGS7kVJZNCLHtG17aKCH4HTUFa9Yb37sEGkvqDKGT
+	 mOFDM6QcMxbbBIZLEM2Qrpgl+8flPx0HitL+PVMHYw95YiIUkvyM9X0o5GwI7r8CnofWC
+	 lq0KEJxZYNtgh1m18x/tgaiZhqsb8Rws1cbHOupZ/vkxI9gqdHqzw5EoqVwhUM6AZgaYN
+	 ik8ObI6cnf5tZY5ch91E5wRxVIbhrEP3f6sSlulr+uq1oCFv2GT85X0Tb/O1IDKeevvKU
+	 C7Cvqz8rxN9860YjJRTYVh/QdJe8XCTkIk/54ltoRcc0OtY5fpOfOBrNFDJwPhvfPNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=j9Lonnad;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z8KvwE2H;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFAAD606A69B
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:34:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DFAAD606A69B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50A88606A6B7
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:34:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50A88606A6B7
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=j9Lonnad
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a35d5d4a20so37039985e9.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:34:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z8KvwE2H
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4bb55cda775so24029885e9.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:34:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795466051; x=1796070851; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795466053; x=1796070853; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=veXzAwmEVfaxeQ226TGV88z3qOLGC1lncdwhds4Uw+A=;
-        b=j9LonnadtBhcTf4uh0U0BZsh53ugsoPcyeMsAx4M8zEVoUIQZWgx4sd536/f4ke42W
-         lzpj1Ltt/hVcEt2NDsDcjBsjhL6TXdtnvHQMM6vxeTXSbmsmCnrbv9f2vKNLe2soN22A
-         xBSpTQBvE0IWZwTBwqSReay0ZHWtXtnruWfGeur0k1HgM0c5idG2KW8x5QJpC4dNUx2D
-         nLCHdA9w2UntGxU/xuBNR/F2HFG3eohxP+9a9N1MJF6/6vo9XkTN+coK4w3WIriaiLOu
-         pPkMuVQgWIesEeKg7fWMjPwkWRDjfxCg5grGIMotONuHmg050PYWgRr4AFL7LyhxCeFn
-         Pc5g==
+        bh=6OR603YV4U0OwPPTqnIgdhTgPtFX3ZXpQfBjAD1u2oU=;
+        b=Z8KvwE2HmbcjiuKTw78Oy+YNYHN8GNMgYBZwyBWDc/CS0fSAzLEia6d20eoogHK0Hn
+         vOuMZc1tGZkHl7DRiiN+t3bG2IFgC252SnyjViZZKXxG9fRFGcYKfrBO+gk8UHSk3PWe
+         S4iem9nIFGhaqX9NQ4Js9uiYZ1+inGXClZv/XXVbBl4Y69Qr784kcrIcx08WVIOgzljm
+         plrZjF8lPFXblMkh0/Wvq2uMJQ9p88D/hQep5TZFnT808MyazsF/ICLskauneupXUkER
+         9bkaRo6Qx+GEcxY/itzEn9R2ug2yuZuI5MRf0EGq41C1Fta/MjuipuTd+qCOu4na/voY
+         H/Zg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795466051; x=1796070851;
+        d=1e100.net; s=20260707; t=1795466053; x=1796070853;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=veXzAwmEVfaxeQ226TGV88z3qOLGC1lncdwhds4Uw+A=;
-        b=Iy6Zovy0W4JzRPYTS2Oxj53w3wCILirwPxUw0TdkuDtWQjHawZ9431m5FWvLYmva77
-         6br/q8aRrSKEZfPItfRYqW+udEcHuYNG2iskl/UrDIaPZ4AVvVsiueKpjfJzLmJZCmlQ
-         ob/GM2An/C4Ur4MHS4OBFIdX9RLf0g2prsWjw1JSwk9l5dudSTtQWsZOrC9jXyhEP9CK
-         lIMKsn8syLIIP0TJTE/lf5hNqqCxhuI6yFeD41lkJTfBYuQB8jNjJJaSYczvNSWxgHA1
-         l5dyC/CeZk9DpfW6GZDg9vl9pEZkx9087p6SjoZDcBQX9FGtSjphEGnic93GQ1HXqhtN
-         kgKg==
-X-Forwarded-Encrypted: i=1; AL+hErHNlKpziZvGjVfngyoskAouEHDs1zd9p5Dp8kQKdp+lvwigNsdxmY2TAxBjDRa7IWmao9V5EdnE4+QOfL0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z91HExwAsEHmibUtp8AadjcFJFDcoYnwDiXqjj0j0lMGTtE9g6G
-	7gT284A0HktidCOBU/64JKROrHXOIvIbPPycPsz7p5wpNWX0URIlNrw4
-X-Gm-Gg: AZFdTZfqOd9X2+w0XIlQGDflxbKrys1FPe7Th8xi2fbSjzJg/WKSLuicTbj6LZ8EIL5
-	ZTGv1fW2iNTmXvjiiJ/xOW7qo5oAlvO+3C8KEU8i5mPoJ6a0QHGLsOCNaVcVKaznv7PZNmr2AUf
-	771TFWL0q8TmYqyTalOUY/wlFP+0/vDLt4SfqFvA+zZRY2Qd143rXi50Ul9jqIQfdz/Vm+onahp
-	IG1m0d0G/7ArJ+hUBcqlW7iZHCKjw5Z4bGyWadsj2zts0rucV5xQt+lOsZhZcDRv6LbzwGmnFDl
-	K3ufR9lBeY+uhyr0UJFZzW/qfWlrDhkzCCe7OkL20EXYuI9xJiEXWcwmOtlfdHCqWzWzcUYONQN
-	yIWlRMi7pKO4jVND7MqsMBFyEa9x0OvRcVNJ17ZGFEgpI1y9ybX4oL13mI15GT+Ce2I2Y1qwPkD
-	BcrW9rBajk7KF0zzZWkGaobvP6/edmZiws6iupurnGvRf3zxY6ooFRHz8imErZAVKip2crGnFhM
-	VfeBjuGcGcIB0IgioXmAqth45YEWH61a8snjdLYLeCEr/8SD7pgP1n+i9FEKtn+w2qaCjNHrXHd
-	lu0GBoVBeBXKRMhmZYDISK4ffpyE3d1vOv1GAE3E/c/io2QSBVk=
-X-Received: by 2002:a05:600c:1548:b0:4a3:5aea:21e5 with SMTP id 5b1f17b1804b1-4bb887fe7e0mr275033015e9.9.1795466051182;
-        Mon, 23 Nov 2026 12:34:11 -0800 (PST)
+        bh=6OR603YV4U0OwPPTqnIgdhTgPtFX3ZXpQfBjAD1u2oU=;
+        b=AckwrEOceL46qi+W8lwgKrkxN3gBtuWAEQRt5JXGPJdZGOf4C2rsCelOoJcjZO3wNA
+         FKBh7+G6G3xRDWyWzoSN2URhUK5l/wjgFccco7TMu+75EgUaUQrBq/RlLaqwQzbxVSoY
+         G/QSlY/nz8nwn75NZ3OGlq4oaf5p7Pr3Kr5cJWQY46BDoRhOGaTajCcEZ9VDzlgOiQLt
+         WTwXrzYp/c0XtINASZNGWp2B7bBdyv1VhXE3qogFA/IyiwPkYGTo76bys8lY5ONNN4MH
+         uoid1CVROcIkn7jrCw+BkFFxZamkN7ZInvafSBrEehVaR4j/q/jxHp6dk8/UecyQPfJ/
+         RT+g==
+X-Forwarded-Encrypted: i=1; AL+hErF/v4IbG1kg1i2KH/brAEzgeJmdq0nHtPvoeLRp7E1TlkJ9MQvnQUdgjbdcCa4RJ4jKN1ZLqAUjEZH6yro=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+K88NpGSd7MGidW8985l8fkfBPNTgXPnW525kal/KAvnwxMloF
+	kjmP7WBpWM9yZIg8dJaJ1DzWxuQmETCZdtpHfqaSLyz6lmNufc3ZpG4p
+X-Gm-Gg: AZFdTZfKQ/ghShahAyyq+hsNCDyNTEB/jM3WzGZBX2F3qEjbUgvsL1uYWTKDXrhMaYx
+	cL0cPaWbIdD0kdA6A7h3//1H9yFyhah8FkmLZEWTw54KIHHYnC9MlSPzVb8TZ8CLJ5kYtLJW9Ry
+	uu8RBCzqX+Z4NP8YdPyalRTu4bKiXQNXIRXf6wSZ3JpAhsJkjqDmOTSh6l4QMy/fVJQ5K1wV670
+	z9Tbq815mjxl+8ADZ80pDVpQnY9xlzopBpyokFVZNZ9ifwNSfhTPR+kK66e4K50FekAwVO6E5sr
+	XL5TWeOUNBi8mG7rdEFirg749FoUx7bto7pNIFwouLKWIrzcoTs7Lf09UrzIA7X83pbwIXD0GT8
+	eqn4NFjMSwIMVQuTUOCiMuHjLOA2jD8y2A/TdSudhRQRfs4iwbh/6KhDTty1kL0BWwQ5+my7Z0o
+	uwTSPWNsxdhEhzigWSJUacB8e1KmNuZySdbWuC7+B4Q2zur8IGLxlMYNdyCvKX+f2nlMDsEiDFz
+	WZ2Rbd4r97m8xqciLzcWhqmQxOGY3wcwOOnllrbxYqeS9w+jN0qBSVSfy/OsGSv/TM9EyyyuYJ7
+	q3GrUXblqL7DewqlGzFpYqv/jmGZlA==
+X-Received: by 2002:a05:600c:1d09:b0:4bb:66fd:ad68 with SMTP id 5b1f17b1804b1-4bb888160cdmr275019355e9.14.1795466052668;
+        Mon, 23 Nov 2026 12:34:12 -0800 (PST)
 Received: from unknown.local ([151.34.53.154])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb884b7515sm515946805e9.13.2026.11.23.12.34.09
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb884b7515sm515946805e9.13.2026.11.23.12.34.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 12:34:10 -0800 (PST)
+        Mon, 23 Nov 2026 12:34:12 -0800 (PST)
 From: Gianluca Boiano <morf3089@gmail.com>
-Date: Mon, 23 Nov 2026 21:33:54 +0100
-Subject: [PATCH 2/5] media: qcom: camss: Look up link frequency from the
- sub-device on the CSI-2 link
+Date: Mon, 23 Nov 2026 21:33:55 +0100
+Subject: [PATCH 3/5] media: ccs: Store the format set on a sink pad
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,7 +94,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-b4-ccs-imx376-v1-2-2b26850a6f11@gmail.com>
+Message-Id: <20261123-b4-ccs-imx376-v1-3-2b26850a6f11@gmail.com>
 References: <20261123-b4-ccs-imx376-v1-0-2b26850a6f11@gmail.com>
 In-Reply-To: <20261123-b4-ccs-imx376-v1-0-2b26850a6f11@gmail.com>
 To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
@@ -106,68 +105,55 @@ To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
  Hans Verkuil <hverkuil@kernel.org>
 Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
  linux-kernel@vger.kernel.org, phone-devel@vger.kernel.org, 
- David Heidelberg <david@ixit.cz>, Gianluca Boiano <morf3089@gmail.com>
+ David Heidelberg <david@ixit.cz>, stable@vger.kernel.org, 
+ Gianluca Boiano <morf3089@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795466045; l=2505;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795466045; l=1782;
  i=morf3089@gmail.com; s=20240402; h=from:subject:message-id;
- bh=SE9OTwNvO9+JP6HZCDsYQZuthYLCpe7RvJgDUw4zQ8k=;
- b=hp2zuUZq1Czsv84vJJBNUjKi1nRxNsBpPpdGFETpRZzJgomrKPLSiFPYImHQcAeT+XcHEeqRD
- dUfY47p4cu+CtXJ/2yK8asGvU6efWWj6ePDXG3u1MfbzlagG0IgUUpw
+ bh=4SRiFW3bBAJ1IlBIN9DDyNFw3BbzT3m+KdYlz1JrA0Y=;
+ b=l6DYb4OFrWa8aj8hDAV/Ql3Ppfpp3sLbxSS9XESSX/YP2O41q74bDTNHZvj54ZnsZPqr/xJx3
+ rqMTCmBBAI2BQpjfkeyJakYJMMHHDCYCa1+p9Lfedm9CmP0aFocujWP
 X-Developer-Key: i=morf3089@gmail.com; a=ed25519;
  pk=HsGrEQ3ia8BGGGO8/nUM2K2UX9JKvRPV+nbrVDGrYhA=
 
-camss_find_sensor_pad() returns the pad of the first sub-device found
-upstream of the CSIPHY that has the MEDIA_ENT_F_CAM_SENSOR function. This
-is the pixel array for a sensor that consists of several sub-devices, such
-as a MIPI CCS one, and the link frequency and the pixel rate are then
-looked up from the controls of the pixel array.
+Setting the format on the sink pad of the binner or the scaler only
+updated the crop and compose rectangles of the sub-device and its source
+pad, the format itself was never stored in the sub-device state. Reading
+the format back returned the one set up by ccs_init_state(), i.e. the
+size of the pixel array, and the selection rectangles, which depend on
+the size of the sink pad format, were bounded by it.
 
-The pixel array does not have a link frequency control, and the pixel rate
-it has is the rate at which pixels are read out from the array, not the
-one on the CSI-2 bus. The link frequency used for the CSIPHY clock and
-the settle count and the pixel clock used for the VFE clock rate are then
-derived from the wrong rate. On Sony IMX376 that is 800 MHz instead of
-400 MHz at a 500 MHz link frequency, and the kernel warns:
+Link validation then fails with -EPIPE for any readout mode that does not
+output the full pixel array: the scaler's sink pad format is the pixel
+array size whereas the binner's source pad format is the binned size, and
+there is no way to make the two match from user space since setting the
+sink format has no effect.
 
-  v4l2_get_link_freq_ctrl: Link frequency estimated using pixel rate:
-  result might be inaccurate
+Before the sub-device active state was used, the active sink format was
+stored in struct ccs_subdev (sink_fmt) in ccs_set_format(). The switch to
+the sub-device state dropped storing it. Store it in the state again.
 
-The controls describing the CSI-2 bus (V4L2_CID_LINK_FREQ and the CSI-2
-V4L2_CID_PIXEL_RATE) are those of the sub-device that transmits on the
-bus, i.e. the one that CAMSS has bound. Return the pad of that sub-device
-instead, as the other CSI-2 receiver drivers do.
-
-For a sensor consisting of a single sub-device the result is the same.
-
+Fixes: d8bca3ed1d70 ("media: ccs: Use sub-device active state")
+Cc: stable@vger.kernel.org
 Signed-off-by: Gianluca Boiano <morf3089@gmail.com>
 ---
- drivers/media/platform/qcom/camss/camss.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ drivers/media/i2c/ccs/ccs-core.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-index c54185c93a8a..cf86bf04dfe7 100644
---- a/drivers/media/platform/qcom/camss/camss.c
-+++ b/drivers/media/platform/qcom/camss/camss.c
-@@ -4513,6 +4513,10 @@ void camss_disable_clocks(int nclocks, struct camss_clock *clock)
-  * camss_find_sensor_pad - Find the media pad via which the sensor is linked
-  * @entity: Media entity to start searching from
-  *
-+ * The sensor pad is the source pad of the sub-device bound to CAMSS, i.e. the
-+ * one that transmits on the CSI-2 bus. For a sensor made of several sub-devices
-+ * this is not necessarily the pad of the pixel array.
-+ *
-  * Return a pointer to sensor media pad or NULL if not found
-  */
- struct media_pad *camss_find_sensor_pad(struct media_entity *entity)
-@@ -4530,7 +4534,7 @@ struct media_pad *camss_find_sensor_pad(struct media_entity *entity)
+diff --git a/drivers/media/i2c/ccs/ccs-core.c b/drivers/media/i2c/ccs/ccs-core.c
+index 1cc4350856fd..a4af27de5453 100644
+--- a/drivers/media/i2c/ccs/ccs-core.c
++++ b/drivers/media/i2c/ccs/ccs-core.c
+@@ -2275,6 +2275,9 @@ static int ccs_set_format(struct v4l2_subdev *subdev,
+ 		      CCS_LIM(sensor, MIN_Y_OUTPUT_SIZE),
+ 		      CCS_LIM(sensor, MAX_Y_OUTPUT_SIZE));
  
- 		entity = pad->entity;
++	*v4l2_subdev_state_get_format(sd_state, ssd->sink_pad,
++				      CCS_STREAM_PIXEL) = fmt->format;
++
+ 	crop = v4l2_subdev_state_get_crop(sd_state, ssd->sink_pad,
+ 					  CCS_STREAM_PIXEL);
  
--		if (entity->function == MEDIA_ENT_F_CAM_SENSOR)
-+		if (v4l2_get_subdev_hostdata(media_entity_to_v4l2_subdev(entity)))
- 			return pad;
- 	}
- }
 
 -- 
 2.56.1
