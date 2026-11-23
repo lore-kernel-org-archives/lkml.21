@@ -1,60 +1,41 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=94.136.29.106
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795446682;
-	b=QTRw46qL0HWNv7iDH6gyBDEBeaKtzUivl3o0zfpzT6O/0pWACBFOEKnI9E2kW7FxpW4t
-	 OiZ0hchRKXu+KjH5KwTyFxeF0khH3EHpkJ6hePuoAVJl3/OcKzUapmHmqmUA8F1p8ahkk
-	 FpSkEuHNSBkplk1jxWtDayzKbbY3Py6CyX5yD75OPqgiNAIUD79egIuhpxvFLnz+qD1+W
-	 zTl5drlo6s+dfjI8u4LIH7FxRRyDldyUvE4dqLT8qedlAzL1o+OLD5U5zFcuYz8TnDcDw
-	 BRjB9ngYSJBjYerTg2tSVk2N9I+1/+2icTuXzXGY22BK4Xsog0V2Kj2i5M36Q1nJgRA==
+	t=1795446683;
+	b=a8r09CBKd9umAuMVAEj/4LkcO+Tan1Sa6LMG175QI8+nWtSGlhITJE8J7LyfGtoS/GgQ
+	 vnw6g+1wqRd4IBhsi1BsbPElVWoeXS8moROua68INZaaVDmgEnIsztWxcTYl5/o8O6HRY
+	 MMcQWMhRJhC9VZwT53Qiv/wIFQfQm94xjZc08rsMg3D2XLacQcFbC6lmSxYNwOuQs7k/u
+	 XzLkslbIxdE62ElBHzXL840+x34gsYwrUugrZzS+Zo8mm3f5JPF8pT0KO1uwTM5yOnESq
+	 C/gajrD9ck1kwlJzwicLBR5wNqmMdnNzta6aSleOT3cvoSgfttSSKtw8Q1dY2GDEM0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795446682;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=hPXU2bp2qVBky501pym5ITbQERgal8i7JlWJJLX9Ua4=;
-	b=KAP0UkIy2mRd/cjPNYIDkRj8+7YCECYiOU8KkPRGK71UJUiOYUKlfYwlRxFr6EqXiNoD
-	 gWlX6EYxyWV1TX8/NF8aMEvByEgLf7TsK8x0ZifHa19VpbyabDj57yxoL6bZY/uQ0PeQT
-	 FWeSaI8OC6tlU3kd9SnBgyEaSLksLshadvRy8a/ZpKN2ZGSkFcK6l099NJkKQBdBoJsxS
-	 bRsEQ+EAFoG4YvB96kYE7PrfgN1C4tF5MAhbQTURFSlhaoTWZDtOO/Ge94ajgxY/N6G+V
-	 uwnSBLiia6tA/1QRJHQ3DuJI1GnB8Y+s/jR2+e9HirOKFeGjBXClW8zhtxwLZZkGMMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795446683;
+	h=DMARC-Filter:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Bm-Milter-Handled:X-Bm-Transport-Timestamp;
+	bh=4g+57NcIYL3QlojIx2fxjF8f/AubFeNsYW9DPqlJVLM=;
+	b=RAVQ3uXhcxqMO469fm4xldm/lIkPGmveRyeTo/WH1LrAgYa4k+O0mGg2lKe7RCTk28f2
+	 BrRqUG1wVZPcGn7sviCedbn4Z1usBlkeU0NHu5kT6ycuqUQ5BEysT/BEni3MaNJSsxRun
+	 IQGLsQrhdx49VmM3/xQxDAbaPV/ItVBMXMhCsq/uv4X3zfZwKr8poBlfrGSl+2ncDuNdq
+	 GtfwRZRV2LBC2SJbL5yby7uo/xRWG+3SCweH2ZxWn9Xk3mRSKcRryIW81Funf7Leqy4LT
+	 fahxMD21b0FXE5XBL3R6OxQwx1LISL4yTJXevdl42OJkCmh4NzqMEX5NuRhYhgxKxjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DRvXtDMV;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=proxmox.com;
+	spf=pass smtp.mailfrom=proxmox.com;
+	arc=none smtp.remote-ip=94.136.29.106
+Received: from proxmox-new.maurer-it.com (proxmox-new.maurer-it.com [94.136.29.106])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85AA8606A31A;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 748C2606A31E;
 	Mon, 23 Nov 2026 15:11:22 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DRvXtDMV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F40101F000EC;
-	Mon, 23 Nov 2026 15:11:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795446682;
-	bh=hPXU2bp2qVBky501pym5ITbQERgal8i7JlWJJLX9Ua4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DRvXtDMV8Xq3IB/fqMU8ftZglRfo6AkjwDFvnYXM+iVZErHW7s5UrOv+UrztMAV7I
-	 dJAgJ3xZGXN89SkOgjZSEbwLz+ToRM3X5aZgVxFTz9aDPHR7HRMNHiq5UzPCfIwbZc
-	 kusVfRrMJR4cEHPDote8g02LQAbF4xqW3LUg4TVtpZ3xkogCyll31ONTir52OkEmv5
-	 Sx8qN+VjQlc2WLi5qof6Pxa0UTe53rvlplKmod8SUFGbMLBAlEpsdAnbLS6JdZsorY
-	 HDYE4tKBxkj220k9j5oMp+jLQencM3bgkcR3ZvLxpAd+/LUSEaUYgX8VgJpiaVxb8B
-	 xdufvS8teT2cg==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org,
-	Srujana Challa <schalla@marvell.com>,
-	Bharat Bhushan <bbhushan2@marvell.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH 02/10] crypto: marvell - Fix AEAD key buffer overflow for SHA-384/512 HMAC
-Date: Mon, 23 Nov 2026 15:09:53 +0000
-Message-ID: <20261123151055.2533735-3-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-In-Reply-To: <20261123151055.2533735-1-lee@kernel.org>
-References: <20261123151055.2533735-1-lee@kernel.org>
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 748C2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=proxmox.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proxmox.com
+Received: from proxmox-new.maurer-it.com (localhost.localdomain [127.0.0.1])
+	by proxmox-new.maurer-it.com (Proxmox) with ESMTP id 240B8433F8;
+	Mon, 23 Nov 2026 16:11:20 +0100 (CET)
+From: Gabriel Goller <g.goller@proxmox.com>
+Date: Mon, 23 Nov 2026 16:10:06 +0100
+Subject: [PATCH net-next v2] vxlan: always report local address
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,63 +45,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-vxlan_preserve_local-v2-1-72d89179a98d@proxmox.com>
+X-B4-Tracking: v=1; b=H4sIAF1XBGsC/32OQQ6CMBREr0L+2hp+AU1deQ9DSKkfqcGWtLWpI
+ dzdgnuXk5k3Mwt4cpo8XIoFHEXttTVZ8EMBapTmQUzfswZe8hNiWbOYJmm62VEGI3WTVXJiqhq
+ kaASJMzaQ0WwPOu21NzAUmKEUoP05/t0/SYWtdcuO2gfrPvuDiDvxfywiQ0aib3DgWPG+vs7Op
+ pdNR2Vf0K7r+gXNksEM1gAAAA==
+X-Change-ID: 20261104-vxlan_preserve_local-c3fa959e9715
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Ido Schimmel <idosch@nvidia.com>, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Gabriel Goller <g.goller@proxmox.com>
+X-Mailer: b4 0.17-dev
+X-Bm-Milter-Handled: 55990f41-d878-4baa-be0a-ee34c49e34d2
+X-Bm-Transport-Timestamp: 1795446678922
 
-Commit 311eea7e37c4 ("crypto: octeontx - Fix authenc setkey") and commit
-7ccb750dcac8 ("crypto: octeontx2 - Fix authenc setkey") updated
-aead_hmac_init() in the OcteonTX and OcteonTX2 CPT VF drivers to hash
-authentication keys only when authkeylen exceeds the hash block size
-(128 bytes for SHA-384 and SHA-512), copying shorter keys directly into
-ctx->key followed by the encryption key.
+When a VXLAN device has no local address, link dumps and notifications
+contain neither IFLA_VXLAN_LOCAL nor IFLA_VXLAN_LOCAL6. If the device
+also has no remote or group address, userspace can't tell whether it is
+an IPv4 or IPv6 device, even though the kernel stores the family. FRR
+runs into this when it finds existing VXLAN devices after a restart.
 
-However, OTX_CPT_MAX_HASH_KEY_SIZE and OTX2_CPT_MAX_HASH_KEY_SIZE are
-defined as 64 rather than 128, sizing ctx->key at only 96 bytes.  An
-HMAC-SHA384 or HMAC-SHA512 AEAD key with an authentication key between
-65 and 128 bytes writes up to 160 bytes into ctx->key, clobbering the
-adjacent hashalg, sdesc, ipad, and opad pointers in struct
-otx_cpt_aead_ctx and struct otx2_cpt_aead_ctx before writing through
-ctx->ipad.
+Report the local address even when it is unset, as IFLA_VXLAN_LOCAL
+0.0.0.0 or IFLA_VXLAN_LOCAL6 ::, so the attribute type shows the
+family.
 
-Increase OTX_CPT_MAX_HASH_KEY_SIZE and OTX2_CPT_MAX_HASH_KEY_SIZE to
-128 to accommodate a full SHA-384/512 block-sized HMAC key.
-
-Fixes: 311eea7e37c4 ("crypto: octeontx - Fix authenc setkey")
-Fixes: 7ccb750dcac8 ("crypto: octeontx2 - Fix authenc setkey")
-Closes: https://sashiko.dev/#/bug/linux-bf3e3416-972b-4a32-bb3c-9fe7d3f28c9d
-Cc: stable@vger.kernel.org
-Signed-off-by: Lee Jones <lee@kernel.org>
+Signed-off-by: Gabriel Goller <g.goller@proxmox.com>
 ---
- drivers/crypto/marvell/octeontx/otx_cptvf_algs.h   | 2 +-
- drivers/crypto/marvell/octeontx2/otx2_cptvf_algs.h | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+Changes in v2:
+- rebase
+- Link to v1: https://lore.kernel.org/20261104-vxlan_preserve_local-v1-1-e9b51f2132b4@proxmox.com
+---
+ drivers/net/vxlan/vxlan_core.c | 19 +++++++++----------
+ 1 file changed, 9 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/crypto/marvell/octeontx/otx_cptvf_algs.h b/drivers/crypto/marvell/octeontx/otx_cptvf_algs.h
-index a50b5e2f8d00..29976126d5cf 100644
---- a/drivers/crypto/marvell/octeontx/otx_cptvf_algs.h
-+++ b/drivers/crypto/marvell/octeontx/otx_cptvf_algs.h
-@@ -15,7 +15,7 @@
- #include "otx_cpt_common.h"
+diff --git a/drivers/net/vxlan/vxlan_core.c b/drivers/net/vxlan/vxlan_core.c
+index d11028b37472..b7ad60cb5d12 100644
+--- a/drivers/net/vxlan/vxlan_core.c
++++ b/drivers/net/vxlan/vxlan_core.c
+@@ -4765,18 +4765,17 @@ static int vxlan_fill_info(struct sk_buff *skb, const struct net_device *dev)
+ 	if (cfg->remote_ifindex && nla_put_u32(skb, IFLA_VXLAN_LINK, cfg->remote_ifindex))
+ 		goto nla_put_failure;
  
- #define OTX_CPT_MAX_ENC_KEY_SIZE    32
--#define OTX_CPT_MAX_HASH_KEY_SIZE   64
-+#define OTX_CPT_MAX_HASH_KEY_SIZE   128
- #define OTX_CPT_MAX_KEY_SIZE (OTX_CPT_MAX_ENC_KEY_SIZE + \
- 			      OTX_CPT_MAX_HASH_KEY_SIZE)
- enum otx_cpt_request_type {
-diff --git a/drivers/crypto/marvell/octeontx2/otx2_cptvf_algs.h b/drivers/crypto/marvell/octeontx2/otx2_cptvf_algs.h
-index d29f84f01cee..cbc590e9e020 100644
---- a/drivers/crypto/marvell/octeontx2/otx2_cptvf_algs.h
-+++ b/drivers/crypto/marvell/octeontx2/otx2_cptvf_algs.h
-@@ -12,7 +12,7 @@
- #include "cn10k_cpt.h"
+-	if (!vxlan_addr_any(&cfg->saddr)) {
+-		if (cfg->saddr.sa.sa_family == AF_INET) {
+-			if (nla_put_in_addr(skb, IFLA_VXLAN_LOCAL,
+-					    cfg->saddr.sin.sin_addr.s_addr))
+-				goto nla_put_failure;
++	/* Report the address family even when the local address is unspecified. */
++	if (cfg->saddr.sa.sa_family == AF_INET) {
++		if (nla_put_in_addr(skb, IFLA_VXLAN_LOCAL,
++				    cfg->saddr.sin.sin_addr.s_addr))
++			goto nla_put_failure;
+ #if IS_ENABLED(CONFIG_IPV6)
+-		} else {
+-			if (nla_put_in6_addr(skb, IFLA_VXLAN_LOCAL6,
+-					     &cfg->saddr.sin6.sin6_addr))
+-				goto nla_put_failure;
++	} else {
++		if (nla_put_in6_addr(skb, IFLA_VXLAN_LOCAL6,
++				     &cfg->saddr.sin6.sin6_addr))
++			goto nla_put_failure;
+ #endif
+-		}
+ 	}
  
- #define OTX2_CPT_MAX_ENC_KEY_SIZE    32
--#define OTX2_CPT_MAX_HASH_KEY_SIZE   64
-+#define OTX2_CPT_MAX_HASH_KEY_SIZE   128
- #define OTX2_CPT_MAX_KEY_SIZE (OTX2_CPT_MAX_ENC_KEY_SIZE + \
- 			       OTX2_CPT_MAX_HASH_KEY_SIZE)
- enum otx2_cpt_request_type {
--- 
-2.56.1.750.gf70dc682cf-goog
+ 	if (nla_put_u8(skb, IFLA_VXLAN_TTL, cfg->ttl) ||
+
+---
+base-commit: 2388bb763e323442f4dd8189238ac0c5f334c4a0
+base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git main
+change-id: 20261104-vxlan_preserve_local-c3fa959e9715
+
+Best regards,
+--  
+Gabriel Goller <g.goller@proxmox.com>
+
 
