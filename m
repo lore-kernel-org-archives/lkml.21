@@ -1,72 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.135
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795402669;
-	b=jRw5C6FvqBTYrk2fBcvVmhUddhfaYRfxnuop4YVty8rNJtGUq/3Ur79ohnUAyHjksbVR
-	 gmhru4S2qtO9uZZAB+qmJxSaERiMCO8TU04md0t+n61YZvRO7qNQRx1/QVxEwBqm8yXq+
-	 GYya1YszUjxfxOVIAtKDf97YnBT0sbElvvLTh+IHfMI1/OF23kE5GjT8Z/KUm8oK/oxOx
-	 RLtGF/wJ6mdPmsDMIAyjoc/TmKD9QEoYupn1BA66x6Q65SumF9yBOUlBoL+DNrjAjVKAA
-	 t7ZBT74uNtXGE0m1ImCWQ188Zp44B+3YxACQvQFtW5/lkGjIBCLtIEb+lqxNG+0hdtw==
+	t=1795402884;
+	b=pz8jEtgEPfD0Lrvx8zVs/wbEAUoztLc7zgII/ujVOaLwTTzLApHya41bMjEhG5DAY9f2
+	 ufr4zcmt6p/454GUA+ml8vrIA/b73qzZC3Nev0w/1eA0xra58gQ97xK2sFwBq4L0wQSaD
+	 sLPeaRkf03XFU5pF63/x+Ai1fgbNJuJ4XXSdFJyo7DfDZ/RsWoUE4C3ehTsoaZWfOqzpe
+	 FxzOdTScPyCW+4r7t52NoCqKGZRNaC3EGAtF/SffkNWMEnMRbFSwwv2xPt0hkemdm7+JN
+	 S4i1OTC25S34eJts6HWTe8tqosW1GsnPjqZnD3DjJt97aVTdyR+0rkgy4/U0IDO4+eQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795402669;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=bLm68QDPa2RhRjjYUtOaDtc063dohvVN41bdUVpg0TE=;
-	b=p1xan77YZvhPlcR9IMH1Bl79CWjWSEmRq9z0m/C1tZdl6kZkmjGNAFN6XhW3C+JrJEma
-	 pRfVaSLK9e2hWWNxQ0bC984UMYr7t/2iojFVYvM5yuSNnTW1ZGwNR/aZTVs4NkUrKRQld
-	 qR1EMVFSLTOGhbacEn4qKTl30UhIC2PtEZsZuu+DtKen51KY95P3UrDTj1/CU1jOIeY88
-	 5beXtNjJBzVwyDOqkO962UhjGED1JYa7Yr8yJMc2flcVUHAoG90msVpvvjC3WXoP1pIkd
-	 yekPDlXIhx4hZqD0y1UL+1NO/H7V/oy6c74UDlvE6brda4jOR88pwS6FaELK04N4Y3w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795402884;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=D8O+YZ7geHUioOfRz7r3O1SenNYmei/5V7Pdoaj2fz8=;
+	b=T8gtzC/X1UAbjjz0E6YtfzauurziG8UP9tM/pBitVNfPHYjPtNmt4kP46Qks0ekY0yx8
+	 onkKB+fp9WaemuXAVWnqifosQAni6jOcaEK2YRMsnvSSqHvSfELuEqcqEFoKpNO0lv+hM
+	 Zczvsgo76g6zDcvBIGcKPSS193XnhH7tjqDk0XMnO4t3C3x0SPvDZT54T2f7DE0STq4sJ
+	 tptPMWy5ii/+E87WG2hjNZSQ+UIXX2BTebXud+LzTHi/r1p5qZH4JmQUVMK/X07+cJWyY
+	 4VCgNWYv56PeA1wGF/IVa9hF2gf334zBazBZeF/VioMOirAtm3E6Poohakd6WyhO0zA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--powenkao.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MqYCGATe;
-	arc=none smtp.remote-ip=209.85.216.70
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCF9A606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:57:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BCF9A606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--powenkao.bounces.google.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=mMDFJLoa;
+	arc=none smtp.remote-ip=111.22.67.135
+Received: from cmccmta2.chinamobile.com (cmccmta2.chinamobile.com [111.22.67.135])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8DD96606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:01:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8DD96606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MqYCGATe
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b41aa2b9a8so2063529a91.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:57:48 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=mMDFJLoa
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795402668; x=1796007468; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bLm68QDPa2RhRjjYUtOaDtc063dohvVN41bdUVpg0TE=;
-        b=MqYCGATepzYEtafcvmIyQQjkjXJeHWb2xod+telncm+SzE7zr+mYVnIkx5UqUaeFfx
-         RS0jM8TaVCnm0oVah8bSJn8zATDAmARiLgP53pCrx00Gbm92YyEPZA38uFL1UmJ75iEB
-         4Zvy7npMhf6uV+rR7Y+zKzK/kD1t0MqjRQVlVuot+Tg3jKRu5ow4MlrJdQthV4kIN5+X
-         mVUTxYYebZsZS0/fvpY1Qyr5czGLC1xVSPhHkNGm1CmjcYr3sRc04vg1j8VcVhXNeQbf
-         r8IYcacEPhy3WCkJ6s3wq6u+5AoxxQBVaY0R6uIHyL8vvnUO4VsiqAoelhk6aD3G8QzF
-         CY9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795402668; x=1796007468;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bLm68QDPa2RhRjjYUtOaDtc063dohvVN41bdUVpg0TE=;
-        b=HI3r72I/Dnt2a3O7q3SrOPGKFDC7siW/ecHWc73PEokokWEW2kY/8g5zgeMC8UuD3R
-         zui+cNr8nBoW3zWpopsQqineI62eDgyTdzEhSD66XMSUIhg33HUO31hEzrLhbSryu8LY
-         PS0prfXJ9Ii295yA5IDIGMCSdNDX0QxdH2bo2mbjTcIb0+RINFWO66Uqhd//IDPa7pQt
-         bDH+xyeHqo4R5cp3KT/JahcyKUZG+6sutnadztOV6t3AqZ1AaMA0bS5iRoFPhbOlVWvC
-         +mdQh6pkSglUY5wjdgxA+yX6S+lqOk/xUgvK8560tsCY8C+/zXVA9tqSW3j4kCl1YH7V
-         TKSA==
-X-Forwarded-Encrypted: i=1; AL+hErEZjYfNyf8vDPbKXrkGG96kTXpV1Tn9eVrNp5nrhUXaFxTu1hR3DAT5PLFeCR6+T6fNudFjdSPhK/pomUc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+4nwRlUG+J3B7+6TYAfOcToUq9f7Vwv7aF5FmiqBdpfvZxtAij
-	xpAUKdjp5YKaG3apgpxTz8S3gNwEqkN6ANVwRR0C4eLg3O0V7cprzYtdjKRFWbdOX35wv95tflZ
-	A1EyWlWqoHDiBHA==
-X-Received: from pjyl12.prod.google.com ([2002:a17:90a:ec0c:b0:3b4:1ffc:7a20])
- (user=powenkao job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:498c:b0:3b3:8b61:c44a with SMTP id 98e67ed59e1d1-3b41c7d5c1cmr7900978a91.4.1795402667813;
- Sun, 22 Nov 2026 18:57:47 -0800 (PST)
-Date: Mon, 23 Nov 2026 10:57:33 +0800
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=mMDFJLoaoyT25HS7Qk1IKlsW/D4xB1plgL8OhDwWu8WpyBf5coGOyOLSbFRZxdygn+IA/+tubnrc5
+	 6uaN6T+lFsBbyCeDBM0LtjMqtdsUT9PyDEBqOx2F5T/hIzo7e27CNMAYXU7Ihq+L/xlKPVmNhjZ4mm
+	 R1tylPk3KwlfC6zM=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app07-12007 (RichMail) with SMTP id 2ee76b03ac7ffb5-39116;
+	Mon, 23 Nov 2026 11:01:20 +0800 (CST)
+X-RM-TRANSID:2ee76b03ac7ffb5-39116
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
+	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86b03ac7e1c3-ec53c;
+	Mon, 23 Nov 2026 11:01:20 +0800 (CST)
+X-RM-TRANSID:2ee86b03ac7e1c3-ec53c
+From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+To: tzungbi@kernel.org
+Cc: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>,
+	bleung@chromium.org,
+	lee@kernel.org,
+	groeck@chromium.org,
+	jthies@google.com,
+	chrome-platform@lists.linux.dev,
+	mfd@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] mfd: cros_ec: Drop OF node reference in ec_device_probe()
+Date: Mon, 23 Nov 2026 11:01:20 +0800
+Message-ID: <20261123030120.1799-1-laixiangwu@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
+In-Reply-To: <awOfCgL-eriqrws7@google.com>
+References: <awOfCgL-eriqrws7@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,315 +74,36 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261123025745.1743640-1-powenkao@google.com>
-Subject: [PATCH] scsi: ufs: core: Add debugfs for PA TFS/FEC error counters
-From: Po-Wen Kao <powenkao@google.com>
-To: linux-scsi@vger.kernel.org
-Cc: Konstantin Vyshetsky <vkon@google.com>, Brian Kao <powenkao@google.com>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
-	Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
-	"Martin K. Petersen" <mkp@kernel.org>, Peter Wang <peter.wang@mediatek.com>, 
-	Can Guo <can.guo@oss.qualcomm.com>, John Garry <john.garry@linux.dev>, 
-	Li Qiang <liqiang01@kylinos.cn>, open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-From: Brian Kao <powenkao@google.com>
+Hi Tzung-Bi,
 
-MIPI UniPro v3.0 introduces the Transport Framing Structure (TFS) with
-Reed-Solomon Forward Error Correction (FEC) in the Physical Adapter
-(PA) layer, along with five PA MIB attributes (0x15C3-0x15C7) that
-count TFS frames with uncorrectable FEC errors, TFS CRC errors, TFS
-format errors, and 64-bit corrected FEC symbols. Exposing these
-counters allows observing pre-FEC symbol correction and framing errors
-for HS-G6 (1b1b) link-margin diagnostics without dropping the link.
+Thanks for the review of "[PATCH v2] mfd: cros_ec: Drop OF node
+reference in ec_device_probe()"
+(https://lore.kernel.org/all/20261118062949.1250-1-laixiangwu@cmss.chinamobile.com/).
 
-Define the PA_TFS_* attributes in include/ufs/unipro.h and expose them
-under debugfs:
+Both comments are addressed in v3
+(https://lore.kernel.org/all/20261123025022.1761-1-laixiangwu@cmss.chinamobile.com/):
 
-  /sys/kernel/debug/ufshcd/<dev>/pa_err_stats/{host,device}/
-    - fec_err_cnt
-    - crc_err_cnt
-    - format_err_cnt
-    - recovered_fec_symbols
+> __free() is defined in <linux/cleanup.h>.  Please include it in the file.
+>
+> Alternatively, simply calling `of_node_put()` after using `np` also works.
 
-Each file reads the corresponding local (host) or peer (device) PA
-attribute and resets it to 0 when '0' is written. Per MIPI UniPro v3.0
-Section 5.6.7, writing PA_TFS_RecErrorCountL clears the full 64-bit
-PA_TFS_RecErrorCount counter, while reads sample the high/low words
-using a bounded hi-lo-hi retry loop to avoid 32-bit rollover tearing.
-These hardware counters increment only while the TFS/FEC path (1b1b
-line coding) is active and may be reset across link startup, link-off
-suspend, or host reset.
+v3 adds the missing #include <linux/cleanup.h>.  I kept the
+__free(device_node) approach since it avoids explicit cleanup on every
+exit path of the block.
 
-Because ufs_debugfs_hba_init() runs before hba->ufs_version and the
-device descriptor are probed, support is checked at access time
-(attached device W-LUN, UFSHCI >= 5.0, UFS device >= 5.0 for peer
-entries, and UFSHCD_STATE_OPERATIONAL under host_sem). Positive UniPro
-UIC command result codes from DME helpers are translated to standard
-negative errno values before returning to userspace because seq_file
-treats a positive ->show() return as SEQ_SKIP and a positive ->write()
-return is interpreted as bytes written.
+> CHECK: Alignment should match open parenthesis
+> #61: FILE: drivers/mfd/cros_ec_dev.c:280:
+> +                       retval = mfd_add_hotplug_devices(ec->dev,
+> +                                                         cros_ec_ucsi_cells,
+> +                                                         ARRAY_SIZE(cros_ec_ucsi_cells));
 
-Signed-off-by: Brian Kao <powenkao@google.com>
----
- drivers/ufs/core/ufs-debugfs.c | 215 +++++++++++++++++++++++++++++++++
- include/ufs/unipro.h           |   5 +
- 2 files changed, 220 insertions(+)
+Fixed in v3: the continuation lines were indented one column too far;
+they now line up with the first argument of the call.
 
-diff --git a/drivers/ufs/core/ufs-debugfs.c b/drivers/ufs/core/ufs-debugfs.c
-index 9f83628f3e2c..004d3c2ae11f 100644
---- a/drivers/ufs/core/ufs-debugfs.c
-+++ b/drivers/ufs/core/ufs-debugfs.c
-@@ -206,6 +206,219 @@ static const struct file_operations ufs_saved_err_fops = {
- 	.release	= single_release,
- };
- 
-+#define UFS_PA_ERR_REC_READ_RETRIES	3
-+
-+struct ufs_pa_err_attr {
-+	const char *name;
-+	u32 mib_attr;
-+	u8 peer;
-+};
-+
-+static int ufs_dme_err_to_errno(int err)
-+{
-+	if (err <= 0)
-+		return err;
-+
-+	switch (err) {
-+	case UIC_CMD_RESULT_INVALID_ATTR:
-+		return -EOPNOTSUPP;
-+	case UIC_CMD_RESULT_INVALID_ATTR_VALUE:
-+		return -EINVAL;
-+	case UIC_CMD_RESULT_READ_ONLY_ATTR:
-+		return -EPERM;
-+	case UIC_CMD_RESULT_BUSY:
-+		return -EBUSY;
-+	default:
-+		return -EIO;
-+	}
-+}
-+
-+static int ufs_pa_err_check_supported(struct ufs_hba *hba, u8 peer)
-+{
-+	if (!hba->ufs_device_wlun)
-+		return -ENODEV;
-+
-+	if (hba->ufs_version < ufshci_version(5, 0) ||
-+	    (peer == DME_PEER && hba->dev_info.wspecversion < 0x500))
-+		return -EOPNOTSUPP;
-+
-+	return 0;
-+}
-+
-+static int ufs_pa_err_read_rec_cnt(struct ufs_hba *hba, u8 peer, u64 *val)
-+{
-+	u32 hi_before, lo, hi_after;
-+	int err, retry;
-+
-+	for (retry = 0; retry < UFS_PA_ERR_REC_READ_RETRIES; retry++) {
-+		err = ufshcd_dme_get_attr(hba,
-+					  UIC_ARG_MIB(PA_TFS_RECERRORCOUNTH),
-+					  &hi_before, peer);
-+		if (err)
-+			return ufs_dme_err_to_errno(err);
-+
-+		err = ufshcd_dme_get_attr(hba,
-+					  UIC_ARG_MIB(PA_TFS_RECERRORCOUNTL),
-+					  &lo, peer);
-+		if (err)
-+			return ufs_dme_err_to_errno(err);
-+
-+		err = ufshcd_dme_get_attr(hba,
-+					  UIC_ARG_MIB(PA_TFS_RECERRORCOUNTH),
-+					  &hi_after, peer);
-+		if (err)
-+			return ufs_dme_err_to_errno(err);
-+
-+		if (hi_before == hi_after) {
-+			*val = ((u64)hi_after << 32) | lo;
-+			return 0;
-+		}
-+	}
-+
-+	return -EAGAIN;
-+}
-+
-+static int ufs_pa_err_cnt_show(struct seq_file *s, void *data)
-+{
-+	const struct ufs_pa_err_attr *attr = s->private;
-+	struct ufs_hba *hba = hba_from_file(s->file);
-+	int err;
-+
-+	err = ufs_pa_err_check_supported(hba, attr->peer);
-+	if (err)
-+		return err;
-+
-+	err = ufs_debugfs_get_user_access(hba);
-+	if (err)
-+		return err;
-+
-+	if (hba->ufshcd_state != UFSHCD_STATE_OPERATIONAL) {
-+		err = -EBUSY;
-+		goto out;
-+	}
-+
-+	if (attr->mib_attr == PA_TFS_RECERRORCOUNTL) {
-+		u64 val;
-+
-+		err = ufs_pa_err_read_rec_cnt(hba, attr->peer, &val);
-+		if (!err)
-+			seq_printf(s, "%llu\n", val);
-+	} else {
-+		u32 val;
-+
-+		err = ufshcd_dme_get_attr(hba, UIC_ARG_MIB(attr->mib_attr),
-+					  &val, attr->peer);
-+		err = ufs_dme_err_to_errno(err);
-+		if (!err)
-+			seq_printf(s, "%u\n", val);
-+	}
-+
-+out:
-+	ufs_debugfs_put_user_access(hba);
-+	return err;
-+}
-+
-+static ssize_t ufs_pa_err_cnt_write(struct file *file, const char __user *buf,
-+				    size_t count, loff_t *ppos)
-+{
-+	const struct ufs_pa_err_attr *attr = file->f_inode->i_private;
-+	struct ufs_hba *hba = hba_from_file(file);
-+	unsigned int val;
-+	int err;
-+
-+	err = ufs_pa_err_check_supported(hba, attr->peer);
-+	if (err)
-+		return err;
-+
-+	err = kstrtouint_from_user(buf, count, 0, &val);
-+	if (err)
-+		return err;
-+
-+	if (val != 0)
-+		return -EINVAL;
-+
-+	err = ufs_debugfs_get_user_access(hba);
-+	if (err)
-+		return err;
-+
-+	if (hba->ufshcd_state != UFSHCD_STATE_OPERATIONAL) {
-+		err = -EBUSY;
-+		goto out;
-+	}
-+
-+	/*
-+	 * Per MIPI UniPro v3.0 Section 5.6.7, setting PA_TFS_RecErrorCountL
-+	 * clears the entire 64-bit PA_TFS_RecErrorCount counter to 0.
-+	 */
-+	err = ufshcd_dme_set_attr(hba, UIC_ARG_MIB(attr->mib_attr),
-+				  ATTR_SET_NOR, 0, attr->peer);
-+	err = ufs_dme_err_to_errno(err);
-+
-+out:
-+	ufs_debugfs_put_user_access(hba);
-+	return err ? err : count;
-+}
-+
-+static int ufs_pa_err_cnt_open(struct inode *inode, struct file *file)
-+{
-+	return single_open(file, ufs_pa_err_cnt_show, inode->i_private);
-+}
-+
-+static const struct file_operations ufs_pa_err_cnt_fops = {
-+	.owner		= THIS_MODULE,
-+	.open		= ufs_pa_err_cnt_open,
-+	.read		= seq_read,
-+	.write		= ufs_pa_err_cnt_write,
-+	.llseek		= seq_lseek,
-+	.release	= single_release,
-+};
-+
-+static const struct ufs_pa_err_attr ufs_host_pa_err_attrs[] = {
-+	{ "fec_err_cnt", PA_TFS_FECERRORCOUNT, DME_LOCAL },
-+	{ "crc_err_cnt", PA_TFS_CRCERRORCOUNT, DME_LOCAL },
-+	{ "format_err_cnt", PA_TFS_FORMATERRORCOUNT, DME_LOCAL },
-+	{ "recovered_fec_symbols", PA_TFS_RECERRORCOUNTL, DME_LOCAL },
-+	{ }
-+};
-+
-+static const struct ufs_pa_err_attr ufs_dev_pa_err_attrs[] = {
-+	{ "fec_err_cnt", PA_TFS_FECERRORCOUNT, DME_PEER },
-+	{ "crc_err_cnt", PA_TFS_CRCERRORCOUNT, DME_PEER },
-+	{ "format_err_cnt", PA_TFS_FORMATERRORCOUNT, DME_PEER },
-+	{ "recovered_fec_symbols", PA_TFS_RECERRORCOUNTL, DME_PEER },
-+	{ }
-+};
-+
-+static void ufs_debugfs_pa_err_init(struct ufs_hba *hba)
-+{
-+	static const struct {
-+		const char *name;
-+		const struct ufs_pa_err_attr *attrs;
-+	} dirs[] = {
-+		{ "host", ufs_host_pa_err_attrs },
-+		{ "device", ufs_dev_pa_err_attrs },
-+	};
-+	const struct ufs_pa_err_attr *pa_attr;
-+	struct dentry *pa_dir, *sub_dir;
-+	unsigned int i;
-+
-+	pa_dir = debugfs_create_dir("pa_err_stats", hba->debugfs_root);
-+	if (IS_ERR_OR_NULL(pa_dir))
-+		return;
-+
-+	for (i = 0; i < ARRAY_SIZE(dirs); i++) {
-+		sub_dir = debugfs_create_dir(dirs[i].name, pa_dir);
-+		if (IS_ERR_OR_NULL(sub_dir))
-+			continue;
-+
-+		d_inode(sub_dir)->i_private = hba;
-+		for (pa_attr = dirs[i].attrs; pa_attr->name; pa_attr++)
-+			debugfs_create_file(pa_attr->name, 0600, sub_dir,
-+					    (void *)pa_attr,
-+					    &ufs_pa_err_cnt_fops);
-+	}
-+}
-+
- static const struct ufs_debugfs_attr ufs_attrs[] = {
- 	{ "stats", 0400, &ufs_debugfs_stats_fops },
- 	{ "saved_err", 0600, &ufs_saved_err_fops },
-@@ -494,6 +707,8 @@ void ufs_debugfs_hba_init(struct ufs_hba *hba)
- 	debugfs_create_u32("exception_event_rate_limit_ms", 0600, hba->debugfs_root,
- 			   &hba->debugfs_ee_rate_limit_ms);
- 
-+	ufs_debugfs_pa_err_init(hba);
-+
- 	if (!(hba->caps & UFSHCD_CAP_TX_EQUALIZATION))
- 		return;
- 
-diff --git a/include/ufs/unipro.h b/include/ufs/unipro.h
-index 9c168703b104..b82f9a9e838f 100644
---- a/include/ufs/unipro.h
-+++ b/include/ufs/unipro.h
-@@ -200,6 +200,11 @@
- #define PA_PACPFRAMECOUNT	0x15C0
- #define PA_PACPERRORCOUNT	0x15C1
- #define PA_PHYTESTCONTROL	0x15C2
-+#define PA_TFS_FECERRORCOUNT	0x15C3
-+#define PA_TFS_CRCERRORCOUNT	0x15C4
-+#define PA_TFS_FORMATERRORCOUNT	0x15C5
-+#define PA_TFS_RECERRORCOUNTL	0x15C6
-+#define PA_TFS_RECERRORCOUNTH	0x15C7
- #define PA_TXHSG4SYNCLENGTH	0x15D0
- #define PA_PEERRXHSG4ADAPTINITIAL		0x15D3
- #define PA_TXHSADAPTTYPE	0x15D4
+Best regards,
+Xiangwu Lai
 
-base-commit: 08fec21faae44fe002467976befd68e6e62969b5
--- 
-2.56.1.750.gf70dc682cf-goog
 
