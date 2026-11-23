@@ -1,61 +1,82 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795454382;
-	b=DxMdMSPhuszX0g8kKQ7aJifEknLJhomUrh24YWH2kNuZ8KIEDSHdibsbEmfoo8CeG5d8
-	 UGpB4SaJd6HMd0+o+kmkXWn30lqStM6cwIMhU1Se0sHqM5PK2tRMC1AbgPkL47s8gxDAy
-	 XF8FGt0Vsk8git4OBKbG5JuS0Qt02WWXW1Wu2UyRxw/WN/oTlZEW7W9yPNwgVoH+W02Hh
-	 zHJyu1L1KmnXJJZiyqAxnHVqXsjBi+IdFx0bUUUct2N67xR55deyih71AlTDbAHwKE9FV
-	 2UrCF0/q9PWsLUy8f8eSYR/4n6wqtm3qgg10yMOyRuBVCrkM/31oEB4U+08MkuofZWA==
+	t=1795454410;
+	b=l26j+WVR05nWeiG8rQTMeG9P9Bi/Q0bdatF0W2ogkglbku55ujlelBG/U04KQUYAebRA
+	 IYSJTekqJixoNv3veIiUdyhkLdzNRNMky2gc60TGo4jOvOxwlXjZS/uCqcazITHVYDU32
+	 P2JjFlKaulq/393HcstOgCrTqYP+enVkYOAsefLADsBRQ7hObldCWIfWrq619d2yI2UIg
+	 YinlV98QVhdDp2wKJma9UaRFgoUFwFKb4BO4T4WWaOrhB7TwPciXrGeMGifDzxTpRY1jA
+	 4kEcayVvchenPXsWuU8hfjy7r3j7Pshj9W5Fd6+XTYsbeyIMqFLpnwk0xZETuoyiuIA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795454382;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=+FrBWwyWG2ofrr4+eX/hR4EQoleVZwLseOTkT4V6vlI=;
-	b=3vhUMx0w1ek6O3MqR9SL77wL54zt3NqES3KudcICUtNXB5hsDsl7bgsla6IVeWV8RtYY
-	 t3WuC3utdsceDNZ5ZzkJIOI+CgpJ2iRM0P8GB9f38N0FHrO3F8DuSNbTWpE4f5kC2pcHo
-	 7fHm9ib4vEoF+T4k5wnp1OW7MS8zXwmIkEGPMJkf9aKQBjNjfeqon1IyY1JD8y8NgJAwg
-	 Td6+tVMyAJhzMCmuC42ub3zC5aYSNmFAng3wPnVZMu0iPMHQS+dP4T11CcG20ZYA9aBBn
-	 jJM2t7Tr/29pyjWLDSRmtHKBZozg67QNQAModtA3/UAGQ6IexSbmlTinrxnq+dFCttA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795454410;
+	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
+	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
+	 X-SA-Exim-Scanned;
+	bh=oGfpPu9gr9IBoVaVzDyYn6H9qOc8GM5ox900QdAqGB8=;
+	b=Y2Gl4RBhZ/kEBrCo+RiaHDJ1qu/liRslSEhUOcQ6zwcfSWYf3YtbncIrBN7TIZuF9SSQ
+	 pqLhAoc9Q9E2ljxuJU+WVDAW5UpeuoQBbZ1YUomYoNPXeDZV7xQnaU9No3qlZDubbEeCO
+	 9tnHI4YzaFLLKEu7xq+AJU6KwE0L+cYuXhnnF6JOBg0aZdasIniDZ7f+D8qhB8IRDZVPN
+	 +qBIPY2CrYdwgu+6rZ2tckYEVC/FoVuHWHqKfsAQLuHGGyJXn8qwVGoRQpAkYtqd77bd1
+	 +awhmS5A448TMx+9DUx5ZThFSOUBRjGLPp+CUVpHRepOZ3xXVV9JakGUX98yRsUBRWA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VIwVVeNh;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UnEfzNiL;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBB2A606A31F;
-	Mon, 23 Nov 2026 17:19:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34DE4606A31F;
+	Mon, 23 Nov 2026 17:20:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VIwVVeNh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 288E81F000ED;
-	Mon, 23 Nov 2026 17:19:33 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UnEfzNiL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33E221F000C6;
+	Mon, 23 Nov 2026 17:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795454382;
-	bh=+FrBWwyWG2ofrr4+eX/hR4EQoleVZwLseOTkT4V6vlI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VIwVVeNhymyUQbQGqVW+YvmnbRNxn3o3mDgtXy2kVL1odzz+6vHr3rCL+goN9oazP
-	 xs4kvt2oTdgnqOqWqY2FkW723eDXl7qikinE6Guq8722FcmwaCF694l4SS7R8+2noh
-	 q+/8zFyWiI2pvGhVQgvCkQbVkvchKaeDHtHSIDkHR1oJoamLhwGxZrgnkHc7gN1h+s
-	 Uf5LnSW5vBIv369w4YmF2j1ZX139ZyOivzs34UdGX/m2OgpEVzFjG1CtHzEmx0/jk/
-	 FtuVbXaTY9r4923X4trQ7gXKaLBoalcTruyuAbtUUJZ7nyBctAuwnWwx14gN37jWiC
-	 A47d6bJ5Vs09Q==
-Date: Mon, 23 Nov 2026 17:19:30 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Usama Arif <usama.arif@linux.dev>
-Cc: Andrew Morton <akpm@linux-foundation.org>, apopple@nvidia.com, 
-	byungchul@sk.com, david@kernel.org, gourry@gourry.net, jannh@google.com, 
-	joshua.hahnjy@gmail.com, liam@infradead.org, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, matthew.brost@intel.com, mhocko@suse.com, 
-	pfalcato@suse.de, rppt@kernel.org, surenb@google.com, vbabka@kernel.org, 
-	ying.huang@linux.alibaba.com, ziy@nvidia.com, kas@kernel.org, hannes@cmpxchg.org, 
-	riel@surriel.com, shakeel.butt@linux.dev, kernel-team@meta.com, 
-	baolin.wang@linux.alibaba.com, Nico Pache <nico.pache@linux.dev>, ryan.roberts@arm.com, 
-	dev.jain@arm.com, baohua@kernel.org, lance.yang@linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH v3 1/5] mm/migrate_device: avoid leaking folio references
- during THP splitting
-Message-ID: <awR1nOpAuZ48BXFk@gremlin>
-References: <20261123163301.1568240-1-usama.arif@linux.dev>
- <20261123163301.1568240-2-usama.arif@linux.dev>
+	s=k20260515; t=1795454409;
+	bh=oGfpPu9gr9IBoVaVzDyYn6H9qOc8GM5ox900QdAqGB8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=UnEfzNiLgh2CDX2b+d3Smms3qMKcqnyozT00s6XocFhOkS7x2tV931WGfPqKEvQpB
+	 w2dWPboF0hP8MbVd7XATAoaa6Z79hwZfCqldawUWJyWvweCzL8qiQTG6aQ3ctQFD6m
+	 3fr0ypskBJLYsAOeuB8ip7R/vGMHEB5JEz8av9um4SKPhBDBLltdmfS/UhA/3xpOf2
+	 MXvAbcklkyy60QPzz6ODPBkb7BBQOSbo4ZB6HkRXaxbQ2oLFRFMoPdbkNXkWo8D3kA
+	 UGGqsHMwv3y2H69Bm6JLDKSv3CG8t5RG4Pli+HDcwa4Szhw4drNnm8IKiwopEEMXKB
+	 kpBR+3IKTHeGw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xVXi2-000000026r2-3t1k;
+	Mon, 23 Nov 2026 17:20:07 +0000
+Date: Mon, 23 Nov 2026 17:20:06 +0000
+Message-ID: <86eccbzcqh.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jia He <justin.he@arm.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Lorenzo Stoakes <ljs@kernel.org>
+Subject: Re: [PATCH 1/3] KVM: arm64: Don't load hardware vCPU state before first run
+In-Reply-To: <20261123150917.2679600-2-justin.he@arm.com>
+References: <20261123150917.2679600-1-justin.he@arm.com>
+	<20261123150917.2679600-2-justin.he@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,70 +85,75 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123163301.1568240-2-usama.arif@linux.dev>
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: justin.he@arm.com, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, pbonzini@redhat.com, seanjc@google.com, shuah@kernel.org, Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, ljs@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 
-On Mon, Nov 23, 2026 at 08:32:07AM -0800, Usama Arif wrote:
-> migrate_vma_split_unmapped_folio() takes an extra folio reference because
-> split_huge_pmd_address(..., true) drops one when it splits a PMD.
->
-> However, migrate_vma only holds mmap_lock for reading. A concurrent
-> MADV_DONTNEED can clear the migration PMD, or split it into PTE migration
-> entries, before the split helper takes the PMD lock. The helper then does
-> nothing and leaves the extra reference behind. folio_split_unmapped()
-> fails with -EAGAIN due to the unexpected reference, and the reference is
-> never dropped, so the source THP is leaked.
->
-> If a THP is faulted in at the same address inside that window it is
-> worse: freeze = true replaces the new folio's mappings with migration
-> entries that nothing will ever remove, and drops a reference the caller
-> never took.
->
-> An existing migration PMD is expanded into PTE migration entries even
-> with freeze = false. Use that mode and remove the extra folio_get(). The
-> reference already held by migration keeps the source folio alive whether
-> or not its PMD migration entry still exists.
->
-> Reported-by: Zi Yan <ziy@nvidia.com>
-> Closes: https://lore.kernel.org/all/DLZ48KMS7YG8.3BTM0UUU8CTU2@nvidia.com/
-> Fixes: 4265d67e405a ("mm/migrate_device: add THP splitting during migration")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Usama Arif <usama.arif@linux.dev>
-> Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
-> Reviewed-by: Zi Yan <ziy@nvidia.com>
-> Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+[+ Lorenzo]
 
-LGTM so:
+Hey Jia,
 
-Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+On Mon, 23 Nov 2026 15:09:15 +0000,
+Jia He <justin.he@arm.com> wrote:
+> 
+> KVM_PRE_FAULT_MEMORY calls vcpu_load() as soon as KVM_ARM_VCPU_INIT has
+> completed. On arm64, however, kvm->arch.sysreg_masks, the trap
+> configuration, vncr_tlb and nested vGIC state are only set up on the
+> first KVM_RUN in kvm_arch_vcpu_run_pid_change().
 
-> ---
->  mm/migrate_device.c | 7 +------
->  1 file changed, 1 insertion(+), 6 deletions(-)
->
-> diff --git a/mm/migrate_device.c b/mm/migrate_device.c
-> index 9e19fadfa65c67..3286bb8a4b73ee 100644
-> --- a/mm/migrate_device.c
-> +++ b/mm/migrate_device.c
-> @@ -920,12 +920,7 @@ static int migrate_vma_split_unmapped_folio(struct migrate_vma *migrate,
->  	unsigned long flags;
->  	int ret = 0;
->
-> -	/*
-> -	 * take a reference, since split_huge_pmd_address() with freeze = true
-> -	 * drops a reference at the end.
-> -	 */
-> -	folio_get(folio);
-> -	split_huge_pmd_address(migrate->vma, addr, true);
-> +	split_huge_pmd_address(migrate->vma, addr, false);
->  	ret = folio_split_unmapped(folio, 0);
->  	if (ret)
->  		return ret;
-> --
-> 2.53.1-Meta
->
+I think I'm going to queue a patch disabling prefaulting immediately,
+and then we can fix this crap.
 
---
-Cheers, Lorenzo
+> 
+> Running the full vcpu_load() path before then reads unsanitised guest
+> sysregs and touches uninitialised nested state: get_s2_mmu_nested()
+> populates nested_mmus[] from raw VTTBR_EL2/VTCR_EL2/HCR_EL2 values, FGT
+> and HCRX_EL2 are written before kvm_calculate_traps() has run, and
+> kvm_vgic_load() can enter vgic_v3_load_nested() early. In particular, if
+> userspace creates an EL2 vCPU with ID_AA64MMFR4_EL1.NV_frac cleared to 0
+> (so vncr_tlb is never allocated), sets HCR_EL2.NV=1 and an EL1 PSTATE,
+> and calls KVM_PRE_FAULT_MEMORY, kvm_vcpu_load_hw_mmu() queues
+> KVM_REQ_MAP_L1_VNCR_EL2. The next KVM_RUN then dereferences a NULL
+> vncr_tlb in kvm_map_l1_vncr() with preemption disabled and kvm->mmu_lock
+> held for read:
+> 
+>   [   73.636014] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000078
+>   [   73.801972] pc : kvm_map_l1_vncr+0x48/0x2d0
+>   [   73.884820] Call trace:
+>   [   73.887253]  kvm_map_l1_vncr+0x48/0x2d0 (P)
+>   [   73.891422]  check_nested_vcpu_requests+0xb8/0x168
+>   [   73.896200]  check_vcpu_requests+0x2a0/0x428
+>   [   73.900458]  kvm_arch_vcpu_ioctl_run+0x2d8/0x6d8
+>   [   73.905062]  kvm_vcpu_ioctl+0x388/0xaf0
+> 
+> KVM_PRE_FAULT_MEMORY still needs generic vcpu_load() to set
+> kvm_running_vcpu for dirty-ring tracking in mark_page_dirty_in_slot(),
+> but kvm_arch_vcpu_pre_fault_memory() only walks and populates
+> &kvm->arch.mmu and does not use any hardware vCPU state. Skip the arch
+> vcpu_load()/vcpu_put() callbacks until vcpu_has_run_once() is true. In
+> KVM_RUN, vcpu->pid is set under vcpu->mutex right after
+> kvm_arch_vcpu_run_pid_change() succeeds and before
+> kvm_arch_vcpu_ioctl_run() calls vcpu_load().
+> 
+> Since kvm_running_vcpu can now be set without VHE state on the CPU, use
+> host_ctxt->__hyp_running_vcpu in VHE enter_vmid_context() (matching
+> nVHE)
+
+Can you clarify under which circumstances we end-up on the TLB
+invalidation path? Simply faulting things in should not result in
+invalidation. Unless we end-up with MMU notifiers firing?
+
+> and check vcpu_has_run_once() in vgic_maintenance_handler().
+
+I have similar questions here. It isn't obvious how you end-up getting
+a VGIC MI if you don't run and don't load the state on the CPU.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
