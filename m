@@ -1,101 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.182
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795457748;
-	b=QmdTWqAmUkh6mFno5Cbcq2eV1cpozwHbAxiSjXRecGbnH1nXP0fWxYXIHCMr1rLE/0+1
-	 WlEmj/q8mEzaIKQvS5xhXvCBcq/QCHBxzzSYNrB6n+A3TWjIejOXT/sJLgEKUsVYVJKzs
-	 BTN4DKfjG+FUoHNYHLfQ+Z/94qZ9CpHRqnSgkp4Igme7lErPKLyoT6Xl3wHJuN8jpVafE
-	 /b7449Tblq7aqLVTIPcSuHRy81T5GnTfZLWazqM9soqLgWWcpec0rOnn1bfGw88C8s8xC
-	 2HkEhpgRwUTQ515P5mjGviCymGZZfld4YQtBp/jc+WMe7DmyJ3kHNLeiib27Ooc80gQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795457748;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=nMsBK5JZkeseYTz3X1TgvJ2SrDeEmSZ7YqTTt41Yzdk=;
-	b=huVGzlE3CCDBaqDTEG6RfwtK/WDWkwAsBDfJuO2bm6s9DQw7fZ+o1LuN5puQaljSXPcv
-	 ObvTnj5t6EimI3nuXgkzP9NRQG4Ug+6gDGSD2iO/+VOuhtzBvlJAOKMwxS5qFD4DGO2fg
-	 J5mVmPCtRqK+NG4EwG2gBnA8JBKuiBnvppvs/BHMCI3lVx/QXx6gRWxNsRJdeoVGLMwMe
-	 0mHegU9QZG/GOUAFnnT90UGtZJvIszviWvljy4pz74yquJobEeCIndFfnezzM5+c44J1g
-	 yBJAcdPd2nCTlT6XxLKGCSFg5ubM8CaEZCDsQVdWh7VL7YQzgMcpenn0pJGs+02jNig==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QAvQ0XWo;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.182
-Received: from mail-yw1-f182.google.com (mail-yw1-f182.google.com [209.85.128.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD6AC606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:15:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD6AC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795457759;
+	b=mYCJae0dZTFM/v63QKxjpwIUjMTx6HGI3KmRf3PMy4qiqjLSFTkYGv+tY7mOCz8zhYqP
+	 UQtOn0pA8KbGFK8b5vtUgj5ls6LpzorLQWwRC1mIJwfDA7mQO7JBIhfEGwEUaGop3jHRo
+	 GzwIRGM5WXzj/2GAw2wZp6pUv56x0v+ELJ9/9TniVnziQ8p6dfoTtzjy+oG+cYlfp34Et
+	 zj5jYdvyyS3Nia82f5GBhM3Pt/Fx0aap4fO+qEINp2nI7RgExBo/WAy6nDvvrdaXj+DsT
+	 X5HP4YHY/sPX0QKX0590jdqITVZAptiygBDPAulRtQhTKq45LOy1Yt6qSdlbMg8sH/w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795457759;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=D2qAmA528vK6K1GBYBMu/erklfls5RIaGcSEzCYHqdE=;
+	b=NuCbg9HHkDrfDch9Yj4NdiBRPUET2KD5GP6TMQabV3FQRORJonJNlzYduE7Ik3eahEJy
+	 PB+6Zl2YR96ILp//Qwkqa3n3QI3KewlkP73VYhanW1n/3WCkG/9Bgqnlz96Kt2cTMCIvT
+	 IaTn8JcJ04538hbkKCIXuVPs11ehkQyE52TKHL0ORfALfU6P7M6B5UJiwLSieavDT33dW
+	 IYo7OJIgCT2HSpjMzn0mvzDRrjThsD38F/jPkqItKXJ+lKegytkYdzr2UjBFwDWCYvx4I
+	 zYI8sfFJ7PXcz1XVx2eucVWj8PALagW4WXnJlSM9B3dyEfNpeYcHmQVjqkNZWdAi11Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Czm1T7ve;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7B277606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:15:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B277606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QAvQ0XWo
-Received: by mail-yw1-f182.google.com with SMTP id 00721157ae682-8b4cd576f2aso26772127b3.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:15:47 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795457747; cv=none;
-        d=google.com; s=arc-20260327;
-        b=rfHa23iqZmRCwtcSVa0+h8VWlPyacZ/ccfBGEPby0hUhxd+h+2KZrrqsjJSt3oOjUz
-         KpV5zYA8kB7s+mQejpY7BB/xwrP6D9TGsxIbJcie1iR4/vag9HrL64Um9AcJ7KS4a11j
-         Jscfk3T0Cs/rrMWMGyLwHWaI+5ruhSLok/dEyGfqCrW3Luwai8ndp+jxPnZooXCUk2K1
-         xwZW5w0z0CZR2ucwXJl6AKhk+PspAuUWHkTsyXBeuvssFKgArHf1k+N9JQIFeGqK0eii
-         +siQYctoi2DL1MWe3IXaWTHcezdD9HNK2ug+B/aHLYQrvs3PyGKyaoioCxaoFvUWnBKj
-         j3hg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=nMsBK5JZkeseYTz3X1TgvJ2SrDeEmSZ7YqTTt41Yzdk=;
-        fh=x5LgXrRM2Dc3Tm1cxzqtwAt5je/oVXk995POctBVVQ0=;
-        b=JIGCcHdP7/EWbBz0DcRcR+sdNhAvBSH+XSHohWWHGS2ker60bZgRJQNSjRwDdtlnzg
-         Jg+pgh4MP5VqV6572j0RE1xPFHNir5QcgDAlC2uA/O2S5XvreVGwAEeJc0eGKsufShw8
-         7eV5eSvAG5eSNjIIICzmb1rdvwySLCA2y/pULxg9U3zIVPLxmSz/JjpCm1EzqNB7Ru4n
-         UgpypTm6rrecslxsZI0Q/UVOsaL0kT94cp8MhxLxPMFzox+K72HG/QMXFPFTLWKjnmx1
-         8WK5XUKSDDSBBtxgB0RyXTTyyCZIbSZnayq2O7zDQqzhFtKEHV22kFCHMv/8EspqzAWg
-         Okhw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795457747; x=1796062547; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=nMsBK5JZkeseYTz3X1TgvJ2SrDeEmSZ7YqTTt41Yzdk=;
-        b=QAvQ0XWo0tcExbNOFzJESQZNbHYBLhpD32HKNvni4HEhtOqZEL5GCt+suncaWlBUiO
-         FZtlYyNOqn9GHma1eRgPcYdd0NoljW9zR1Rc3Q6xInR6kvJqQNoPNRRrvYNNLbRwErFT
-         C5Xb2wcOQSFScBdI2yQWvbeXEHGwhJMNY699xitU3dlCIUs7wu1tGJEo+Yar4GHnXN0U
-         wLc//ydgb6yiwdJhE/yc8kHeO5YrOdlZnMqS9IH1XC7S+sN200e2Re8+RSKxq2UlZI6C
-         C4TtJme+P2FM5uP3jC74YS73mzHG34FPYNDILJ0QBlMq6nWOwr9hYQ0pZ6Zj3bui1vtz
-         H+nw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795457747; x=1796062547;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nMsBK5JZkeseYTz3X1TgvJ2SrDeEmSZ7YqTTt41Yzdk=;
-        b=Wwp3TdEm8caWmAYhrMkr0qjzfFydA6n5aFylabH9uv6uFO4M21VuzUOPBtTMqW9m4p
-         9QLx4Xl/3xJ2bpD2s/K2zmdjCuo4rYmMj0JVtGOsIlTN+OORCz3hktjEY6rj7azhJSvO
-         XU563OPBn+im6ulHjweyxXjhqU7Z/AjT7MZ8YIs0sS8PaesJhFOtc9h6LZgrNdS0+20k
-         5MIHxiMTGXCFfh2EBrIuoDV2OQUz74Wp3XNEL3mCGpVpYWH+Kw963SO8K5Y/sGh7L7kA
-         atf6c3ovhfStt2OfhsMLvjSNXvib6TOUxDQ5mnehfoe44hafKG0NvBCNwGydecBr0XmB
-         y4iw==
-X-Forwarded-Encrypted: i=1; AL+hErF3mxdEBsC40HOhiWqV8mlNzHMThvx4Q8hH6CHyMk/so//49r7Buy8ns7ul6n4BZzWrT3KYvIh+x18Cm8g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+suQjE5OFZsTtXemYvG3V/liYFCLmH78n4O/LQgeEHkrw5EqF0
-	fvMdlmJLtl6cpo/ZMI/QJONvEksMNMEsd7ZbYX2s4W9P1f3vkOgbw1C0/rI23CgKaxApU+4I861
-	xFyKwPVHS55haiwPNvb5V/zHAI3QdjT8=
-X-Gm-Gg: AZFdTZdXpUrpuHsGrGRIFWIo0jD98W9ef3b9CmA5KA8eZUSeNWUg0m5Dfbd/+oZH5Gb
-	vtz/Kw3h/0gproPYF+VlO60Sd+288+QsapRTSomRKCYg6kd0bpI8lN8BtP9/u5iuGMhMzqn9B0q
-	/MWsMITez194HWugFP7upmMZ/10OPr/6Eexwg1etcjf/SjVvBC9uRT7pYhA4lS58t5Pb1YpQxJX
-	szdutIyd0S13ZiWhBYn1N6bD5YWzqQemuzIAoDFOOOXyemaoRwQgXsawP94n8wHtvQAVRFeOvUV
-	PsDGRlCqX/0LOz1GYdRlZGWwJOovVxfSo7I1YrZNR7xE6tAxZIooDSG9+8WSp085NibHHWuWQ8q
-	mepi47u6751z1/5IMN7A9R3HkWPLGlqwZePKazSI+wxokNfNVo9NVHhZ7j0Zi+wvRT9cettLUNf
-	oY6BQBsi+7rueoNrA=
-X-Received: by 2002:a05:690c:797:b0:8ae:87e7:9ab8 with SMTP id
- 00721157ae682-8b5205437abmr48277337b3.67.1795457746844; Mon, 23 Nov 2026
- 10:15:46 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Czm1T7ve
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2BE2143D;
+	Mon, 23 Nov 2026 10:15:53 -0800 (PST)
+Received: from [10.57.71.117] (unknown [10.57.71.117])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A4DEF3F763;
+	Mon, 23 Nov 2026 10:15:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795457756; bh=nyF04ZUWuqnaVt2LZsIw4vE84TUwhq8y8DbC4Ndiq4o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Czm1T7veFQiIrIRd7AebV+FS9k5GjNL4svKxp4YKVdFF+lT5oGfDi1zLFhVVRR0pv
+	 XgOENK+qs+GPEPzIZ9Le7uoWBSOtGzU94fJRYqNGYCkKDjVq8RIGituz3GA2Rx5pPO
+	 U6RZjfto0cMELkNPWpJ9lMm5bPg2Xfa9VQml3sts=
+Message-ID: <8150e8ee-cd2c-41c0-8c5c-3f0c7a087ac2@arm.com>
+Date: Mon, 23 Nov 2026 18:15:52 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,87 +53,145 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261121-vmlinux-lds-v1-0-49818f3f5cc0@gmail.com>
- <20261121-vmlinux-lds-v1-6-49818f3f5cc0@gmail.com> <a6fdcd6d4bce5ace3b4e34d1393f5cfe58e17c0d.camel@perches.com>
-In-Reply-To: <a6fdcd6d4bce5ace3b4e34d1393f5cfe58e17c0d.camel@perches.com>
-From: jim.cromie@gmail.com
-Date: Mon, 23 Nov 2026 11:15:20 -0700
-X-Gm-Features: Aa3M54oFOAYf6UTkbI4OQkVdZIf4cCrnHVvp22FVwZTxOnodSxK6PbkkLux5L8g
-Message-ID: <CAJfuBxxJMwrBKTrwC8RoLKRs7uBBPrgfWmPom_r49JmnOPvMvQ@mail.gmail.com>
-Subject: Re: [PATCH 6/6] checkpatch.pl: generalize linker script macro exceptions
-To: Joe Perches <joe@perches.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Jason Baron <jbaron@akamai.com>, 
-	Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>, 
-	Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
-	Aaron Tomlin <atomlin@atomlin.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-modules@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/3] sched/uclamp: Fix race condition leading to
+ imbalanced uclamp_rq
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: Qais Yousef <qyousef@layalina.io>, Ingo Molnar <mingo@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, John Stultz <jstultz@google.com>,
+ linux-kernel@vger.kernel.org, Kayra Cizmeci <kayracizmeci@gmail.com>,
+ Wei Wang <wvw@google.com>
+References: <20261121041507.39582-1-qyousef@layalina.io>
+ <20261121041507.39582-2-qyousef@layalina.io>
+ <282a3922-91da-4145-94b6-d1a6459b6da6@arm.com>
+ <CAKfTPtAT_gPBMaw_xyjkY4TTEA6+kuPBAAyNvMvT4Uq6T42xkA@mail.gmail.com>
+From: Christian Loehle <christian.loehle@arm.com>
+Content-Language: en-US
+In-Reply-To: <CAKfTPtAT_gPBMaw_xyjkY4TTEA6+kuPBAAyNvMvT4Uq6T42xkA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 21, 2026 at 7:27=E2=80=AFPM Joe Perches <joe@perches.com> wrote=
-:
->
-> On Sat, 2026-11-21 at 15:49 -0700, Jim Cromie via B4 Relay wrote:
-> > From: Jim Cromie <jim.cromie@gmail.com>
-> >
-> > checkpatch skips macro-rule checks in linker scripts; 3 of them
-> > explicitly check for vmlinux.lds.h, and 1 (the 1st) skips on any
-> > *.lds.h.  Generalize the 3 to match the 1st, including the escapes on
-> > the dots, so they're literal checks for '.'
->
-> Please remember to email the checkpatch maintainer too.
+On 11/23/26 17:23, Vincent Guittot wrote:
+> On Mon, 23 Nov 2026 at 15:38, Christian Loehle <christian.loehle@arm.com> wrote:
+>>
+>> On 11/21/26 04:15, Qais Yousef wrote:
+>>> Static keys are not guaranteed to be enabled atomically across CPUs.  Or
+>>> across callsites on the same CPUs. Which means when sched_uclamp_used is
+>>> enabled, some CPUs/callsites will return true for uclamp_is_used() while
+>>> others won't, leading to asymmetric uclamp_rq_{inc, dec}_id. If we
+>>> decrement without increment this is safe as documented in the code. But
+>>> an increment without a decrement is a problem and will leave the
+>>> uclamp_rq in a corrupt state.
+>>
+>> So if we only need decrement to work then we can rely on
+>> p's uclamp_se.active and decrement regardless of uclamp_is_used() and call it
+>> a day?
+> 
+> The static key prevents overhead for those who don't use uclamp. It's
+> a default rule for features like numa, cache aware, eas, uclamp etc to
+> not impact those who don't use it.
+> I'm afraid that the executing  uclamp_rq_dec up to
+> p->uclamp[clamp_id].active will not be free of overhead
 
-ack.
-I missed that b4 prep -c didnt add you.
+I get why the static branch is there, but as long as p->uclamp[clamp_id].active
+never changes from 0, like when uclamp is never used, the check should be virtually
+free on any half-decent branch predictor.
+Also in any case the enqueue path ought to be the expensive part for uclamp.
 
->
-> >
-> > Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
-> > ---
-> >  scripts/checkpatch.pl | 6 +++---
-> >  1 file changed, 3 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
-> > index b8b64f720191..318e1f2577fd 100755
-> > --- a/scripts/checkpatch.pl
-> > +++ b/scripts/checkpatch.pl
-> > @@ -6016,7 +6016,7 @@ sub process {
-> >  # Usually multi-statement macros should be enclosed in a do {} while
-> >  # (0) loop.  Grab the first statement and ensure its the whole macro
-> >  # if its not enclosed in a known good container
-> > -             if ($realfile !~ m@/vmlinux.lds.h$@ &&
-> > +             if ($realfile !~ m@/\.lds\.h$@ &&
->
-> Probably better to have something like
-> my $is_linker_file =3D '\.lds\.h$';
-> or maybe
-> my $is_linker_file =3D '\Q.lds.h\E$';
->
-> and use that everywhere
+I can come back with some numbers though, including the original netperf that
+introduced the static key.
 
-yup.
+> 
+>> See the attached patch.
+>>
+>>>
+>>> The reported case seems to happen due to callsites on the same CPU not
+>>> seeing the flipped state.
+>>>
+>>> Plugging the race is hard as discussed in [1]. Take it for granted and
+>>> do correction actions on going to idle to guarantee this state is
+>>> transient for a short period after uclamp_sched_used is enabled.
+>>>
+>>> [1] https://lore.kernel.org/lkml/CANDhNCqyXsZ6G77z+9s=rTO6BZifRG9+hVxMTah+tAv6pB6h3w@mail.gmail.com/
+>>>
+>>> Reported-by: Wei Wang <wvw@google.com>
+>>> Signed-off-by: Qais Yousef <qyousef@layalina.io>
+>>> ---
+>>>  kernel/sched/core.c  |  2 +-
+>>>  kernel/sched/idle.c  | 19 +++++++++++++++++++
+>>>  kernel/sched/sched.h |  3 +++
+>>>  3 files changed, 23 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+>>> index d7c3b43158dea..c6780358a7975 100644
+>>> --- a/kernel/sched/core.c
+>>> +++ b/kernel/sched/core.c
+>>> @@ -2111,7 +2111,7 @@ static void uclamp_post_fork(struct task_struct *p)
+>>>       uclamp_update_util_min_rt_default(p);
+>>>  }
+>>>
+>>> -static void __init init_uclamp_rq(struct rq *rq)
+>>> +void init_uclamp_rq(struct rq *rq)
+>>>  {
+>>>       enum uclamp_id clamp_id;
+>>>       struct uclamp_rq *uc_rq = rq->uclamp;
+>>> diff --git a/kernel/sched/idle.c b/kernel/sched/idle.c
+>>> index 76f3c84ca6846..84301fc49e699 100644
+>>> --- a/kernel/sched/idle.c
+>>> +++ b/kernel/sched/idle.c
+>>> @@ -502,6 +502,25 @@ static void set_next_task_idle(struct rq *rq, struct task_struct *next, enum snt
+>>>        * lost_idle_time of clock_pelt
+>>>        */
+>>>       update_idle_rq_clock_pelt(rq);
+>>> +
+>>> +     /*
+>>> +      * Due to a race condition when enabling sched_uclamp_used static key,
+>>> +      * we can end up with imbalance where uclamp_rq_inc_id() has happened
+>>> +      * on a CPU without uclamp_rq_dec_id() on another CPU that hasn't seen
+>>> +      * the static key flipped. The race condition is unlikely, but ensure
+>>> +      * the uclamp_rq() state is set properly on each entry to idle.
+>>> +      *
+>>> +      * The reset will cause the uclamp_max from uclamp_idle_value() to be
+>>> +      * lost. Since we are imbalanced, hard to know what is right. So just
+>>> +      * cleanup. This should be a transient error state once we recover
+>>> +      * everything should work as expected.
+>>> +      *
+>>> +      * We need to be careful of some paths that can force idle with tasks
+>>> +      * are still queued.
+>>
+>> It wouldn't hurt spelling these paths out IMO.
+>>
+>>> +      */
+>>> +     if (uclamp_is_used() &&
+>>> +         !rq->nr_running && unlikely(!uclamp_rq_is_idle(rq)))
+>>> +             init_uclamp_rq(rq);
+>>
+>> I guess this means init_uclamp_rq() will need to use WRITE_ONCE() for .value at least?
+>>
+>>>  }
+>>>
+>>>  struct task_struct *pick_task_idle(struct rq *rq, struct rq_flags *rf)
+>>> diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+>>> index 7d2ec527b8a25..d87bdbd2121df 100644
+>>> --- a/kernel/sched/sched.h
+>>> +++ b/kernel/sched/sched.h
+>>> @@ -3704,6 +3704,7 @@ static inline unsigned long cpu_util_rt(struct rq *rq)
+>>>  #ifdef CONFIG_UCLAMP_TASK
+>>>
+>>>  unsigned long uclamp_eff_value(struct task_struct *p, enum uclamp_id clamp_id);
+>>> +void init_uclamp_rq(struct rq *rq);
+>>>
+>>>  /*
+>>>   * When uclamp is compiled in, the aggregation at rq level is 'turned off'
+>>> @@ -3802,6 +3803,8 @@ uclamp_eff_value(struct task_struct *p, enum uclamp_id clamp_id)
+>>>       return SCHED_CAPACITY_SCALE;
+>>>  }
+>>>
+>>> +static inline void init_uclamp_rq(struct rq *rq) {}
+>>> +
+>>>  static inline bool uclamp_rq_is_capped(struct rq *rq) { return false; }
+>>>
+>>>  static inline bool uclamp_is_used(void)
 
->
-> > @@ -6175,7 +6175,7 @@ sub process {
-> >
-> >  # check for line continuations outside of #defines, preprocessor #, an=
-d asm
-> >
-> > -             } elsif ($realfile =3D~ m@/vmlinux.lds.h$@) {
-> > +             } elsif ($realfile =3D~ m@/\.lds\.h$@) {
->
-> >                   $line =3D~ s/(\w+)/$maybe_linker_symbol{$1}++/ge;
-> >                   #print "REAL: $realfile\nln: $line\nkeys:", sort keys=
- %maybe_linker_symbol;
-> >               } else {
-> > @@ -6192,7 +6192,7 @@ sub process {
-> >  # single-statement macros do not need to be enclosed in do while (0) l=
-oop,
-> >  # macro should not end with a semicolon
-> >               if ($perl_version_ok &&
-> > -                 $realfile !~ m@/vmlinux.lds.h$@ &&
-> > +                 $realfile !~ m@/\.lds\.h$@ &&
-> >                   $line =3D~ /^.\s*\#\s*define\s+$Ident(\()?/) {
-> >                       my $ln =3D $linenr;
-> >                       my $cnt =3D $realcnt;
