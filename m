@@ -1,92 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795431879;
-	b=gpUZCvxpdiZIoZVGbEKlQf4SDoPW4zSIymyGWioojCor0vvZgXcvQKCCEyHYu1qh2xjc
-	 WX7d6weEfhN9oO5cKWFd1ZNJNYMVa+tq5wyT1EiJKxGNDsSJMdrIvtzT3gLTaopk15izx
-	 OJihOtNpsJi72HOp2+cYBdospmPojkGgWHd05dOoN+sNshDNqIGZa2mdwLMXrYEC49PMv
-	 S0h6hj3Fcs5JsNBs9BlsougrehWAagla1aB3dxNdbdGYVwBkwI3nKNUkFal832WK5L+2W
-	 maRSyrzW390bkmDOJ32WTRuYtjkLUBuyUBymHTyLYi/mYVZYOcEY/Ih6a9syxQgQSyA==
+	t=1795431956;
+	b=jM9aE2psAuQ8ZYueBDcRiJXCsBUrh36idRriipUNkD/eMA7LADdstf43hz+RMO5zVu8l
+	 GwANxx6ZchlQhcA184BHa35kzxk206ttTHTYexc0E0F2gVA0PWTaiqZoyZMuP7Deeq372
+	 eZp+CQoPklnvfIEj3LJg+tHvPbDtaH0YhZxwjw9y6k/5IYhE8Q2CliTgQ/B3V88+tH9PP
+	 rBVbg9q1g1XPNSoTwSDkOhJMuOIIUTDAjid2SNqvt23y1sEj48NXixLJ3gAZrrB+d6Gu9
+	 VgCJIz9R6ESoRkN3gQk8LmwlorL6rix9rQqFbodaiIxAQ+WpoJktHKIzFfh+JVCCZPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795431879;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=KwKJYzn8WLQVMy0cXsVtL9y2X6vJwk+tvAqZ0nntlug=;
-	b=hGvUMPu5bScP9oaO9av8xQVD1bQAniJWlVMNXz55oj4d7s3ULTPlf4A1VouHWrtPbZyu
-	 XgLaQ+RQMlE10ZYes2z2CT/yUfaf128f9MBno7CRt7O6aLJSzX4/uMTQ8x+HRRHFW146m
-	 K79TcFmZtzdKcaIpNo9reweYSFGcZMdaTx04CIcN6WYBt0ssCsqKr8KbhIvDFRBNIjofW
-	 w+KhBwhhA0E8qWE3Wm1SC7dbBhMrPvPRBwrJRZYkHo0O8kK58dNNROX8zt7k0X6l+Xjh6
-	 tDbkgmn3YL6U5k8MB4OmZsQ2qi8337QowPT5wlHr8DFKXZXL3t8ONLxKgIOl1gaUV/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795431956;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=cuMhs9MxlBL0fy/9YlMvcsamK52UjZ9Dphft59nHtEs=;
+	b=zeTQOHxFVdzBJBz51G7yjaJpi8ZHV8u922QtxUFouPHVqg0YxWc9jyU5Qc2fH/3CxGKk
+	 2YRxiTkPYCOSeG64v1zPhVDXNWfnP0Np0VEV/2degY/Isn2mOEaZTWdgUvuuC52n4U83q
+	 XKu4mL/X68FjPGhsd9jZOjTwDeCDbPVAdSK2RvgxVgQEL2xpxQx8/GpCC7XX3nKqfjmXz
+	 6qcVSHD3lvd0OM0ow6GNSOWiGl3x1QFskhvWcRJXQLXZBRKceqMqFxXQ1KUS5rIx2W4Rn
+	 AclMazHiZ34KUlZpJww7aS/Hze7zaQn5a1sv/BZakhh0yhqw7m2OWJDZ8qsogwkwCEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=KbRP1oa5;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DHNtcvsw;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82DAC606A690
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:04:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82DAC606A690
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 606DD606A31A;
+	Mon, 23 Nov 2026 11:05:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=KbRP1oa5
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9Z9Pj3196021;
-	Mon, 23 Nov 2026 11:04:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=KwKJYzn8WLQVMy0cXsVtL9y2X6vJwk
-	+tvAqZ0nntlug=; b=KbRP1oa5AZ4JlYwpONu3FypgrplczvmHk2hlydqYySpVFa
-	TCcgl+gwvPQqqkFbuR6HBidx2m+qk59S0WrzpqYeVplhzDbltQIriwK9qS0QI3i0
-	E3aAx0m/GFuM3+xSc23ZXv2sZV4yJUDn1ZwX5frcW/t7qUJp2FE/tp9sCqVblCwX
-	dpkAx2pAwfGZ/Ex4YEp34J7bxfy22IM4FYBDgETnkezzMrMnafKcguIL7hHTjfJL
-	DhiOfkshVojuGvBsgGE6OkIRXgLX2bF7FLueZG6oCK1xqEEx++pGh2hiX4G1YZlJ
-	mJd1H6vsajHjvna4XKQQaOL0v/Z5h+bF38X4Whtg==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34gv2jk3-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 11:04:25 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9JFB01708379;
-	Mon, 23 Nov 2026 11:04:24 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j3raye82n-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 11:04:24 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ANB4M4V48366048
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 23 Nov 2026 11:04:22 GMT
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 307402004F;
-	Mon, 23 Nov 2026 11:04:22 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B40C52004B;
-	Mon, 23 Nov 2026 11:04:21 +0000 (GMT)
-Received: from osiris (unknown [9.87.148.25])
-	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon, 23 Nov 2026 11:04:21 +0000 (GMT)
-Date: Mon, 23 Nov 2026 12:04:20 +0100
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-        Oliver Upton <oupton@kernel.org>, Mark Brown <broonie@kernel.org>,
-        Sascha Bischoff <Sascha.Bischoff@arm.com>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH 8/9] arm64: sysreg: Reject an out-of-range register
- encoding
-Message-ID: <20261123110420.20959-H-seiden@linux.ibm.com>
-References: <20261123075219.369042-1-fuad.tabba@linux.dev>
- <20261123075219.369042-9-fuad.tabba@linux.dev>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DHNtcvsw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD22D1F000D4;
+	Mon, 23 Nov 2026 11:05:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795431955;
+	bh=cuMhs9MxlBL0fy/9YlMvcsamK52UjZ9Dphft59nHtEs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=DHNtcvswe64wykBGCeW18mWpGkl5J31TaQlJDSYsljjsQSlAlqW4S1kJd/QUBMQ49
+	 aiAOrYJPmKynqnBJllf8+kYBvp9pvVJ/eSkNDASO1PSRMr8lMkcCi5kvJyWBuZAgTB
+	 wA0NxtWGTm/ouxLscqW655BM+hHYNkEDMACxGTDvGBrPc/KMIAZ1KQ9j5TZNto+ClG
+	 DyjpOOjFVEGD56gpCGnk83vrrTxowHEJiAOTEbG8RqcH3PH6SMroHMmcRZSaEGpMay
+	 NB1gWkMYa/ILJklSlZ930outO6MNL49mTQvHMEm4VzFEpeecafoShWZxNhyVoFPzes
+	 GJFPX6jiLyJIg==
+Date: Mon, 23 Nov 2026 12:05:52 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: CL Wang <cl634@andestech.com>
+Cc: Linus Walleij <linusw@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, tim609@andestech.com
+Subject: Re: [PATCH 1/3] dt-bindings: gpio: Add support for ATCGPIO100 GPIO
+ controller
+Message-ID: <20261123-precise-funny-wildcat-5bbbf8@quoll>
+References: <20261116040914.368298-1-cl634@andestech.com>
+ <20261116040914.368298-2-cl634@andestech.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,51 +60,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261123075219.369042-9-fuad.tabba@linux.dev>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=CYCdd7rl c=1 sm=1 tr=0 ts=6b041db9 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
- a=149SWqO4EUXa_a3VMKkA:9 a=CjuIK1q_8ugA:10 a=zgiPjhLxNE0A:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA0NCBTYWx0ZWRfX/p/mgF/oVxwu
- MsWELUFlQ6fnyRTu433DmD26/OiHwcfnxDAlvH/iOXjfzQYZ96VijlBOBWSXUFGfSzQT+0JUwY/
- OjnDcjwbiCrn+3utPYoA725c6kbcy7A=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA0NCBTYWx0ZWRfX4TwFNvg/RiSm
- WcrZcGrn01rRCUhDkBJwUbcARVUX1vucRYyzvyP8o5uQUWDpezU12kpVRpdElNzJof5bTzfE7cQ
- 1KDA7E/zAw/GK81JckyG78FtxAlF/5XOQ3Ku0n/CbSJNQc6MQF9MUScUFbLaK22JYQ8IYdlgWWc
- YKZVJ8lIcX41AKWEEcL3HVAvx/d2Sy/7+6k78P+aZwQibT8s1ZWHoE1nKZWllbuUdYvRf6U0iw3
- vAPSi/IC8g/H3tp+enPuZKNoxd3sFRK6Tqa0pIGtZveaWPu2fuXhIvylxVS5a0YabIQ3i23W/Ct
- N31AsB/dpOCsOq2a8G+B7u0YKFZIn0vMbr9nWGzqEKU/1re2/DQC3fwixggOWlQCbEARDr+bTdo
- uAZd2xKZZXINSB2f1FNSjObVD2F1hGy+VSWZzHw+7IcYloW48rFQ9sWeJqVnEZluuHu0JZEm7z/
- IvdFqY1VbZMavt6Bsug==
-X-Proofpoint-ORIG-GUID: qrxfSx8q008Zk296eaXtaSfY9F604lpj
-X-Proofpoint-GUID: tvYF5jnjzUW0RPVVdEUe5xUsxMQa5N1k
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_02,2026-11-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 priorityscore=1501 lowpriorityscore=0
- clxscore=1015 spamscore=0 bulkscore=0 impostorscore=0 adultscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611230044
+In-Reply-To: <20261116040914.368298-2-cl634@andestech.com>
 
-On Mon, Nov 23, 2026 at 07:52:18AM +0000, Fuad Tabba wrote:
-> The generator copies a register's op0, op1, CRn, CRm and op2 into
-> SYS_<reg> without checking them. sys_reg() shifts each into place
-> without masking it, so a value too wide for its field spills into the
-> next one. SYS_<reg> then names a different register's encoding, and the
-> build doesn't report it.
+On Mon, Nov 16, 2026 at 12:09:12PM +0800, CL Wang wrote:
+> Document devicetree bindings for the Andes ATCGPIO100 GPIO controller.
 > 
-> Require each of the five to be a decimal number that fits its field (two
-> bits for op0, three for op1 and op2, four for CRn and CRm). Reject a
-> leading zero too, since C reads such a value as octal.
-> 
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ATCGPIO100 is the name of the IP, which is integrated in the Andes AE350
+> platform and in SoCs such as Qilai. As in the ATCSPI200 SPI controller
+> binding, the compatibles follow the platform and SoC rather than the IP
+> name: andestech,ae350-gpio is the fallback, and an SoC that integrates
+> the IP adds its own compatible, such as andestech,qilai-gpio, in front
+> of it. Drivers can then match on the fallback and still add SoC-specific
+> handling later.
 
-Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
- 
+Do not paste here LLM. LLM should not be used for writing commit msgs,
+because this is a test if you understood what you did here. You explain
+heer basics of DT and driver, which is exactly what LLM would do.
+
+> 
+> The controller has up to 32 lines, and ngpios gives the number of lines
+> implemented. The debounce logic can run from either of two clocks: pclk,
+
+Are you saying that SoC has multiple controllers with different number
+of GPIOs? Where is the DTS, can you link it?
+
+> the APB bus clock, which is required, or extclk, an optional external
+> clock that allows longer debounce periods. The interrupt is optional, as
+> the controller also works as a plain GPIO controller without it.
+
+SoC routing is fixed, no?
+
+> 
+> Signed-off-by: CL Wang <cl634@andestech.com>
+> ---
+>  .../bindings/gpio/andestech,ae350-gpio.yaml   | 92 +++++++++++++++++++
+>  1 file changed, 92 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/gpio/andestech,ae350-gpio.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/gpio/andestech,ae350-gpio.yaml b/Documentation/devicetree/bindings/gpio/andestech,ae350-gpio.yaml
+> new file mode 100644
+> index 000000000000..01badd2a1342
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/gpio/andestech,ae350-gpio.yaml
+> @@ -0,0 +1,92 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/gpio/andestech,ae350-gpio.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Andes ATCGPIO100 GPIO controller on AE350 platform
+> +
+> +maintainers:
+> +  - CL Wang <cl634@andestech.com>
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - andestech,qilai-gpio
+> +          - const: andestech,ae350-gpio
+> +      - const: andestech,ae350-gpio
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  interrupt-controller: true
+> +
+> +  "#interrupt-cells":
+> +    const: 2
+> +
+> +  gpio-controller: true
+> +
+> +  "#gpio-cells":
+> +    const: 2
+> +
+> +  ngpios:
+> +    minimum: 1
+> +    maximum: 32
+> +
+> +  gpio-line-names:
+> +    minItems: 1
+> +    maxItems: 32
+> +
+> +  clocks:
+> +    minItems: 1
+
+Why is this flexible?
+
+> +    items:
+> +      - description: APB bus clock
+> +      - description: External clock for debounce
+
+Best regards,
+Krzysztof
+
