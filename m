@@ -1,79 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.133.124
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795448835;
-	b=P6Rw/IMoLB9xY8lFC8b9smJZ94sMxE09rT8akA/zSPUKEbm3lWmssNWEZPgPvdUlQLl7
-	 XOxzaHdMGrHy4eB+b/s5mlTBLqktrMMMABe3KeUd1FKnWa1v54z7obuYsir40rth3nzwd
-	 7RnUNIfRIv7cwUI/2smpIP9IT84uX650wtDtD3Dk5ags/8ad4WQCJxke3vPpgGLCbJ+RZ
-	 mJGdj1J5uBl+bry6dboHHKsQzthw51MxU67GPWoJmdNTdOKtBCdu3HMfO+7qsbmnuDy39
-	 5LA1BoJdSCClPYsa12NIsrmslX+OfScWV4i42F2wiRx8NHVfkVc4pJhClg1CZrgo5Ew==
+	t=1795448906;
+	b=aAoKz/L1MsdLWhJS6Jx+fExa3Z6tt4AeqoQIKZCQxUIyujfj9x2YmsV2qEUj+wj57cLX
+	 Eb6mTyCnAybaf4v2l9wR0OWtq3HS9cibGofeSAgsdjm6OxcuUp3SiII+gBUA2Q/FOm91T
+	 7tFb8vmEaA0e0MiT52KjWmhiYp0RHex1JnryXvtA6p/WuNdVuKbiVtXk1ZL4po7Mk/TA2
+	 OeYXY/1tAkTAMAzVn2rre53PyoGgTDDB/GDJo/Tg2flB1t09IXmEfHGoCkFbakh+Vj1QU
+	 PooAeHbcnb15vUwZxQss66yifpm/b64S6n0NZrmlHrLHXTYXRE7+FF1Z8lYSSOmzyNA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448835;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=w6GSaQZ1YWPu7r01oRscCvKngFyipxtXhFF9Dl0tkUI=;
-	b=dk4YLJx/aJ05CMOM/iyhYu8LUrAnE7u3S+8cF458TyAk0A0K1vwfDVcwigKkB7NR/Iqx
-	 KNomcjWhDBnSp8TTRO09P/uq9Uth8gpqBMEIXFVVeDGvHi/SR+TGdTnVreLUBehKM5Ks1
-	 aGmRc6pKi1AToXMvgFd6F9GN4JzOW8oe/E5spw/Gd/fROTVCAA5zh4hAFIp6tlSSc9EbZ
-	 gfgI0C9TIiuKZQKOX3aPPnSFT1IqytQ8UUmIXxYjc/kKXkETCbxApZQ7HspuHeqyj/YYO
-	 rAwGNz1BkeQXSqq1rHftH2WSW7itqKccvVf6pVTcLP5F90dsoFySsFOSjDuq+3jV7dA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448906;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=OWmsxzAWhp8YogqWe/sWTbGuQ3w1HS7FA6g8w4z3/dM=;
+	b=iefOmOJiQe4ZiHTqlhlTcCUFvqea5gkWUIm81c3HVxFW4i5qXTVGtQV6hKg/EJ4TS2Lt
+	 xY9nVoBEqXTPMD3tICVmkP6WTXH3yeokB2Jl2nJBMxu6/aNNQbUzvhrmlMqd/61Bb2GFD
+	 LqzwqARTZpWV06Klw54YoXuoLlv97bzkqjPRy/C3sOSsOjLS4lgkYZ97rYTOg0N1pRfmv
+	 2bBVgN4MUwgmoM0uVSPTLJAoEIcGP9dFZ8Lv/Cfh7G3XUpRRGan/P4dn5umySnS88WuwO
+	 4pdMkAyw3i0zbN1joSbHL+mmfjQRySFg8g/7WILkTehzyEhfvqCZlRlCeGWl7SX7ViA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ImKEQIYr;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65A83606A31E;
-	Mon, 23 Nov 2026 15:47:15 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ImKEQIYr
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795448834;
-	b=XnYBIAURtWhMH4hN41KCeocIyp3iW0jlycJmYCmQ9a//s9J0fJ+kUZ2D1bLWdY5sWDVb
-	 0wAEQQM8bcrOYRoSjSdAZVc7nl9oWoc4dte4NfJwTu9c/zYRzMxJxccczXjhBVrQccDLw
-	 QpY1qCAqGPR5mZjRrLkHL730ckwONT7QM5LI4J9zVmigzJpFBPwCDT/syd6c12QH91sVF
-	 7QaK9WSXDR6M67VopRGAi86Q1cWGqdxXV3IY/VsYdxxZFLHHka28SA1MRjwkJTUqZpLKT
-	 0KD1GDXVCef1T0hs8IVrjxH2xuUfzWv1geN33LYiX7mw82aXTso+rxYwAebOw75MUyg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795448834;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=w6GSaQZ1YWPu7r01oRscCvKngFyipxtXhFF9Dl0tkUI=;
-	b=vPDm2zVwrKLh7HCN6F1wrnqOXQjmoihFxpnrsbeNB+vf2dCEhekwP+nWp+w00YtgMaVy
-	 tH/Y6Iq0gp88/EeDti2ETionhuqFg8oTi6zRYCuvN/yCEBNyqr5tsWU9hmH2bDtk2sfaJ
-	 SulJtrhDVEOEKojxaZ1hV9Shjf4Vq+kP8tPcws81D1J9oj9+u7DJ4xZZMnOya97dM6iYs
-	 6UcHaRsewsEaTYuO6+x7EtHfXguMa9o1fI1xRC7zwstGp2E/NcR7gWYs7pfwpE+Q0Cb9T
-	 PrwafwOjkz8h0kZ4sk9L78fbqFmcgzcrB9oGSukIdk50HQY3A7skVaXMtOPNYjM2pYg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Mbt1JdmK;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=JLh66vfR;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 12CE51F000D4;
-	Mon, 23 Nov 2026 15:47:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795448834;
-	bh=w6GSaQZ1YWPu7r01oRscCvKngFyipxtXhFF9Dl0tkUI=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=ImKEQIYrYNyjnhpEsdUJ1WTKWXXvvYLRL9g217ZqLAF3wcODuw6gZx0ne6lPDpXzP
-	 O/QSeLo2UF5uQ+Zt22cOKzHz0hFvbgTp42/4yPGQAedITdhiskQdRORf89ej4e5DXl
-	 kYbw+P1GeuElVH+XD5qBf3dOgka5xjwbZIcWMFo0kzfWv60D2U9CW3RXHqrRlAQQr1
-	 rHTT1JywTsQXAYzADo8plqC8kuFSlbgVcBi929xN1BDycfbOF+dJIEfJndfepAhPnu
-	 FgDun8ecII1o9Kn7fr0hzulbfZl1lVlIAB1NDmYb4iAXODhlfSndNTpQSG4CLw6CR0
-	 WyvAwDBT5J0Qg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 6437C4C535;
-	Mon, 23 Nov 2026 15:47:03 +0000 (UTC)
-From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Date: Mon, 23 Nov 2026 16:47:01 +0100
-Subject: [PATCH v9] arm64: dts: qcom: sdm845-google: Add STM FTS
- touchscreen support
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A02E8606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:48:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A02E8606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Mbt1JdmK;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=JLh66vfR
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795448904;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OWmsxzAWhp8YogqWe/sWTbGuQ3w1HS7FA6g8w4z3/dM=;
+	b=Mbt1JdmK1AyJOIbMwV/jO1KHp57Acl/HXHw2EDf6MzsCI5jR3Q8dutqkzgLDV/gGyRssaK
+	venGwI/P/vth4U2CPdp7M5JL5jAQQ/4K0uad5rDa0I5wUF1A83VSbWviwphHFslZPSE25J
+	2MQSh5pTPOAgaSWGdwT8OGKgmw7adUc=
+Received: from mail-yx1-f71.google.com (mail-yx1-f71.google.com
+ [74.125.224.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-374-Zqiwt-BsNF2ShNoInGJ8_Q-1; Mon, 23 Nov 2026 15:48:22 +0000
+X-MC-Unique: Zqiwt-BsNF2ShNoInGJ8_Q-1
+X-Mimecast-MFC-AGG-ID: Zqiwt-BsNF2ShNoInGJ8_Q_1795448902
+Received: by mail-yx1-f71.google.com with SMTP id 956f58d0204a3-67dcb5f084cso6138801d50.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:48:22 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795448902; cv=none;
+        d=google.com; s=arc-20260327;
+        b=U0R7dokg9osA4vajlmJ7TwMo6CNHbpwvkOUbDdxilWbZzAKMruoqsItEKhS0W+2Ayv
+         UXeY92nzZkuickN/VgIhAd+6dbaYEIbH3PnM+FxIw0Ozi7WCREklyz/v8KLdf6pYLxSW
+         A5vPRd8swNuQu3kMY41G8VLKZZcpfVl1GuS1oEKpEec+vIm8S9LG7ml2LlFH4K+vw24f
+         cYWJ4KuzvqB5C9EWDmVpu0iDm4SJWaiuXOoM+H83FdlmM8GpXkLDjDaQEQLjlwm3tVMs
+         s3qNaZal3QhHAgWpigiEY26gU/9svF3r+sUWzJJLxCEtNLgZo1olDf2+eAWWRyFW3lUG
+         yvnw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=OWmsxzAWhp8YogqWe/sWTbGuQ3w1HS7FA6g8w4z3/dM=;
+        fh=+zUkIdCLP1Q7WppREDFO7Fcp8fnzOreeWP2DNtboXeQ=;
+        b=omlNvE3V5DoLJAtBze60YepJGsO6HOkvwqBE3376QfsAxTOKiqBPhcL1twRJ6y4nw/
+         9wL3S6KLEgh3Mo7gCMe3nz5ognMQTHIgpbgXHbugFYAi6fbZrMxZxdf1gqSIx4Q96QYV
+         CFPuQiQcWBZ0EgXSUM2aezhdp/3SgI2+C+AalDxG9hmW8bK3tOxIePKZfc4WtPnR3Ex2
+         0bIeq12gGxOANc6eoOXL5mKrZ1eYJDKzD/rbFkupIeXoGGpJzMLORV7FpHm/gUauz3tx
+         CJQj/dvhb2X75hMmlrDj6wNDe9Ru+S3zsRyQo/rlqPlHErT8YANdECeVQcIgL1oSuc6X
+         H9WA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795448902; x=1796053702; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=OWmsxzAWhp8YogqWe/sWTbGuQ3w1HS7FA6g8w4z3/dM=;
+        b=JLh66vfRg7qYDbK+G9m/GEZdNqr54zgMc0tieYm+p8HLGTbqsAW0uS/dYxIDFd+7+T
+         aSzO+97apFk8RqlGR1kBf5nI6U9omtbCbjh24TWJMK+HrzClkmKENQm6wZ4+tW+pNVTb
+         McvdUb+0uy6Yke+vRXcaYkWbYhhSdj8QipIrW44Uthdgpa+nwjOuE5CZFdLprBGWdC2Z
+         eoYsFM+4E4/BbQQyj/PEJrW8gBPUDV9l+TrVIVRYDQG1GrKlUyqzGzFpM/N6xy7SXG10
+         guusQxamxBzd+O63oGh1Y6bzYlf6GWG/FhQqH9Dq3l+EoxXyPwGu31TqJHZNBWtu8AGr
+         13dQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795448902; x=1796053702;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OWmsxzAWhp8YogqWe/sWTbGuQ3w1HS7FA6g8w4z3/dM=;
+        b=YqKDJqsw//in2gjh1+HcR6o13FibT5A7pwSivfUDRmpWgRQpxevLoTFTqn1Ze+v2Wl
+         KL1nn+rDVjwDvCltPainnCGaHpAtGPne9VEh1TbDbYebUfNkBS75K1w50G8E9MYUh8ad
+         PagYyEmBdHmHDzfGerPzsWiIwlM42I2/FGIHKe37fiS3tOLxqA0LFuzYqTqr2e0BT68c
+         q9ShpSotcvlXynRVU8m49sJxkIOXT1fH1Lt8A1qPonzpXN+tnHx90a4NXxJXgc2IyiAZ
+         Gi7yDumt2wHwvptJ391z5tjBttLKmJ61eW6Ms8cp02AeeYSjsoacWmdCbyMPgbUx3Hmm
+         8vjw==
+X-Forwarded-Encrypted: i=1; AL+hErElSqW3DT+l+f8JDKgwyLWOFTjs3hDYYh0uaXBotawaBXMh6GCE0iDSCChv07E47WJaiN1I76CM9WSkSOQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9UpBf5C95rAnDKA1UXaQfqWhVi2SDYpA0jGKiqkj3BAvJCzNAL
+	mQbj/r7gBDcUkcHXImVOCYPAoeKpm31mvKaUyvtwNzknfz2Z393uCkTJjpsPsTYAmXBXogfLPs/
+	jwbigcI5CuSWyU0mG6/0ikJhnaeslejm6EZHSw84JY8A/7PequJVQSD0axLVzLkYoYxmENW+7CM
+	ImrJpTbnXQIVSU/kXgxBwJxaAVa+gBpgTOVQBviGDf
+X-Gm-Gg: AZFdTZfIQTFem3q7HILjjwSMmi8OyjSBSbCnUbkI/IgmxkZTS6haxPkWk6OtEMKfv5R
+	UJ5397uX9w3uNfaqU/LoA4laDL4BuVfwQkXamHnRxM3ZawWZ1uaIkuHYZcl4QHPH+e6FujK05fz
+	z5jbf3pYgDVxVmWeaXlCB3yfBubHLaabPNjBquG+0SV4cfEeVIc1y/4RW8hgnvqMCbz9OWN3Pl5
+	n9GgQY2rFhnggX1kHlc/MwDEHqEa9EB8+R6M+dVBojnqnq3S2jm6Gjah6k=
+X-Received: by 2002:a05:690e:150e:b0:677:b670:bc2 with SMTP id 956f58d0204a3-67df4497b11mr3158233d50.131.1795448901293;
+        Mon, 23 Nov 2026 07:48:21 -0800 (PST)
+X-Received: by 2002:a05:690e:150e:b0:677:b670:bc2 with SMTP id
+ 956f58d0204a3-67df4497b11mr3158224d50.131.1795448900838; Mon, 23 Nov 2026
+ 07:48:20 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,237 +125,185 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-stmfts5-v9-1-3ab247cd32c0@ixit.cz>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/13Qy07DMBAF0F+pvCZoPH6MzYr/QCz8pF7QojiKC
- lX+HadIOMny2nOuRnNnNY0lVfZyurMxzaWW66UF+3Ri4ewuH2kosWWGgBqQy6FOn3mqavCSBOf
- ZRxLI2vTXmHK5PZre3ls+lzpdx+9H8czX178OAfy/Y+YDDIhBKuOtC9q8lluZnsMPWxtm3Ciuu
- sKmCHwwIiWrLN8r0ZUE0ZVoSkVH2oQcEQ5KbpXtSjalZU66fVH0aq9UV4ZDV6opCCQoWrSW9F7
- prizorvS6IWSftcuG+OEatFXUFTUlnRLC8BBBHJTZKNzc0Kwb5pClTRiMyl0ty/ILzIIP/RYCA
- AA=
-X-Change-ID: 20260214-stmfts5-b47311fbd732
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
- linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org, 
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Abel Vesa <abel.vesa@oss.qualcomm.com>, David Heidelberg <david@ixit.cz>, 
- Abel Vesa <abelvesa@kernel.org>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7114; i=david@ixit.cz;
- h=from:subject:message-id;
- bh=BZ0jNhMewCco0W3GXqptMNj2qzAX+JOz+BtCMJgBCLQ=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBrBF/2l+atC2bSO1qox+encpqS3x3oTwbR9q7P1
- lPMQNUewEOJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCawRf9gAKCRBgAj/E00kg
- ckQkD/wLWCfHtUy1Alv7HMK0uwsEWGQx7am6tJx3Xevd6TXHu3eW0yb3UPBFvEVDMTnrw9I/7uJ
- L0pvQj0EKAPLLRxfF+IOpYfOgYae/siKX3/Ybq76Rna6oxqBnjrroXC87AJG3iDyykB+SWKME1i
- WGfOJ2eBYx6G0rVwP3p17VwH4SGe9KgLZdAN7vpyGxJHJkHTXUqaqWhDD2wYLxLh579ro/0OZsp
- TD/LdMuqnPsRpEC3YyQ5x8fwOipEe5iO8X6eGEgFpqe8O/fb5c0vwV98VjJMe42HoDHeJmEKCaM
- ymOPyKevexWYrQIeiMCnaVJtFEDuCE16SBNvAzvR1EK4qtanVjpJITPPcM2GvemKy++TJNtuv5Y
- 3tu9ezw9RmJPjfBcgs9kWixfwqe7QaMUJjxBdp+9uMkox4JqZ8YyBBumsMNbjs/+bDxpr2KkOZz
- FDArT1MI5ZMB3CIE6ATcYP9uq0eFRuMA02JK1U+tuFtpHVBzTEJ7GtLyerNIkyihM3t7T6WDh40
- SIoguFUqZgc0iqC2/ZQmtIUAmeV8v02DP9EiLOM8SfMcSpxf1NIFZqz0+WRfDHmalyupW33H7OE
- fDVlfEFPWnTyeH5hYzC+LJrnlwTU7uiFj9tL2JGzxekvqCkbNhbxdZn10u45/XHepZ0/wHcuW8E
- F87mQ3iaVyufD/Q==
-X-Developer-Key: i=david@ixit.cz; a=openpgp;
- fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
-X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
-X-Original-From: David Heidelberg <david@ixit.cz>
-Reply-To: david@ixit.cz
+References: <20261123135646.3962652-2-dtatulea@nvidia.com> <20261123135646.3962652-5-dtatulea@nvidia.com>
+In-Reply-To: <20261123135646.3962652-5-dtatulea@nvidia.com>
+From: Eugenio Perez Martin <eperezma@redhat.com>
+Date: Mon, 23 Nov 2026 16:47:44 +0100
+X-Gm-Features: Aa3M54o4ueCnunOOjRD8BYS6eetZBocpj0aR00-pSGaCcCscH__3XBFasy8mITE
+Message-ID: <CAJaqyWeVfFBohQ+x1_MCmNCt0FgvepgKV+H_u4GqR+GLCqf6Mw@mail.gmail.com>
+Subject: Re: [PATCH 3/3] vdpa/mlx5: Don't flush the workqueue under reslock
+To: Dragos Tatulea <dtatulea@nvidia.com>
+Cc: "Michael S . Tsirkin" <mst@redhat.com>, virtualization@lists.linux.dev, kvm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Gal Pressman <gal@nvidia.com>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Petr Hodina <petr.hodina@protonmail.com>
+On Mon, Nov 23, 2026 at 3:00=E2=80=AFPM Dragos Tatulea <dtatulea@nvidia.com=
+> wrote:
+>
+> The control VQ work (mlx5_cvq_kick_handler()) runs on mvdev->wq and
+> takes reslock. Device reset and the error path of .set_status take
+> reslock and then call unregister_link_notifier() which flushes the same
+> workqueue. A deadlock occurs if a CVQ kick arrives just before the reset
+> for the CVQ work.
+>
+> Lockdep caught this when QEMU quits (pkill qemu) and closes the
+> vhost-vdpa device:
+>
+>  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+>  WARNING: possible circular locking dependency detected
+>  ------------------------------------------------------
+>  qemu-system-x86/5785 is trying to acquire lock:
+>  ff110001cd292940 ((wq_completion)mlx5_vdpa_wq){+.+.}-{0:0}, at: touch_wq=
+_lockdep_map+0x7a/0x180
+>
+>  but task is already holding lock:
+>  ff11000136eb4928 (&ndev->reslock){+.+.}-{4:4}, at: mlx5_vdpa_compat_rese=
+t+0xed/0x760 [mlx5_vdpa]
+>
+>  which lock already depends on the new lock.
+>
+>  the existing dependency chain (in reverse order) is:
+>
+>  -> #2 (&ndev->reslock){+.+.}-{4:4}:
+>         lock_acquire+0x126/0x330
+>         down_write+0x87/0x1d0
+>         mlx5_cvq_kick_handler+0xb1/0x1180 [mlx5_vdpa]
+>         process_one_work+0x8df/0x1660
+>         worker_thread+0x62c/0x1030
+>         kthread+0x377/0x490
+>         ret_from_fork+0x4d7/0x720
+>         ret_from_fork_asm+0x11/0x20
+>
+>  -> #1 ((work_completion)(&ndev->cvq_ent.work)){+.+.}-{0:0}:
+>         lock_acquire+0x126/0x330
+>         process_one_work+0x874/0x1660
+>         worker_thread+0x62c/0x1030
+>         kthread+0x377/0x490
+>         ret_from_fork+0x4d7/0x720
+>         ret_from_fork_asm+0x11/0x20
+>
+>  -> #0 ((wq_completion)mlx5_vdpa_wq){+.+.}-{0:0}:
+>         check_prev_add+0xe8/0xdb0
+>         __lock_acquire+0x1801/0x23e0
+>         lock_acquire+0x126/0x330
+>         touch_wq_lockdep_map+0x93/0x180
+>         __flush_workqueue+0xed/0x1090
+>         unregister_link_notifier+0x10c/0x170 [mlx5_vdpa]
+>         mlx5_vdpa_compat_reset+0xfe/0x760 [mlx5_vdpa]
+>         mlx5_vdpa_reset+0x15/0x30 [mlx5_vdpa]
+>         _compat_vdpa_reset+0x29b/0x3b0 [vhost_vdpa]
+>         vhost_vdpa_release+0x16f/0x380 [vhost_vdpa]
+>         __fput+0x36a/0xaa0
+>         task_work_run+0x111/0x1f0
+>         do_exit+0x7ba/0x2590
+>         do_group_exit+0xb8/0x250
+>         get_signal+0x1f46/0x2020
+>         arch_do_signal_or_restart+0x79/0x4a0
+>         exit_to_user_mode_loop+0xbe/0x450
+>         do_syscall_64+0x257/0x4f0
+>         entry_SYSCALL_64_after_hwframe+0x4b/0x53
+>
+>  other info that might help us debug this:
+>
+>  Chain exists of:
+>    (wq_completion)mlx5_vdpa_wq --> (work_completion)(&ndev->cvq_ent.work)=
+ --> &ndev->reslock
+>
+>   Possible unsafe locking scenario:
+>
+>         CPU0                    CPU1
+>         ----                    ----
+>    lock(&ndev->reslock);
+>                                 lock((work_completion)(&ndev->cvq_ent.wor=
+k));
+>                                 lock(&ndev->reslock);
+>    lock((wq_completion)mlx5_vdpa_wq);
+>
+>   *** DEADLOCK ***
+>
+>  locks held by qemu-system-x86/5785: 3, last CPU#9:
+>   #0: ff1100021d7c2068 (&dev->mutex#3){+.+.}-{4:4}, at: vhost_vdpa_releas=
+e+0x4b/0x380 [vhost_vdpa]
+>   #1: ff11000136eb44c8 (&vdev->cf_lock){++++}-{4:4}, at: _compat_vdpa_res=
+et+0x16b/0x3b0 [vhost_vdpa]
+>   #2: ff11000136eb4928 (&ndev->reslock){+.+.}-{4:4}, at: mlx5_vdpa_compat=
+_reset+0xed/0x760 [mlx5_vdpa]
+>
+> vhost_vdpa_release() resets the device before stopping the kick
+> handlers, so CVQ kicks can still be queued while the reset runs.
+>
+> The fix is to move unregister_link_notifier() calls outside of
+> reslock. The function doesn't need the reslock.
+>
+> Fixes: c384c2401eed ("vdpa/mlx5: Avoid losing link state updates")
+> Cc: stable@vger.kernel.org
 
-Basic touchscreen connected to second i2c bus.
+Acked-by: Eugenio P=C3=A9rez <eperezma@redhat.com>
 
-Signed-off-by: Petr Hodina <petr.hodina@protonmail.com>
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
-Co-developed-by: David Heidelberg <david@ixit.cz>
-Signed-off-by: David Heidelberg <david@ixit.cz>
----
-Changes in v9:
-- Only Device-tree patch remains, rebased against next-20261120.
-- Link to v8: https://patch.msgid.link/20260925-stmfts5-v8-0-0fcf49e2c85f@ixit.cz
+Thanks!
 
-Changes in v8:
-- Split DT binding example changes into own commit (Krzysztof, Dmitry)
-- Refectored the stmfts_power_on fix. (Dmitry)
-- Added ABS_MT_TOOL_TYPE. (Dmitry, Sashiko)
-- Link to v7: https://patch.msgid.link/20260907-stmfts5-v7-0-4a53381cd038@ixit.cz
-
-Changes in v7:
-- Added 'Input: stmfts - wait for controller ready after reset',
-  the waiting is done for both FTS4 and FTS5, similarly to the
-  downstream driver. Should improve reliability everywhere.
-- Link to v6: https://patch.msgid.link/20260906-stmfts5-v6-0-50fbf6af8718@ixit.cz
-
-Changes in v6:
-- Enable only the multi-touch scan on FTS5 sense-on (0xff was wrong,
-  only 0x01 is needed. This broke Xiaomi Mi 8 toucschreen).
-- Fixed Y-coordinate comments. (Dmitry)
-- Corrected event[0] parsing. (Dmitry)
-- Dropped checking < 0 on unsigned area. (Dmitry)
-- Dropped unnecessary i2c writes after reset. Verified against
-  downstream driver. (Dmitry, Sashiko)
-- Added pieces for supporting non-OF integration. (Sashiko)
-- Shared input open/close into one impl. (Dmitry).
-- Link to v5: https://patch.msgid.link/20260810-stmfts5-v5-0-0c737d929976@ixit.cz
-
-Changes in v5:
-- 3.3V is analog, 1.8V is digital supply. Fix that.
-- Name the error variables "err" (Dmitry)
-- Use scoped_guard() for ->running, and only set it once the scan
-  mode has actually been enabled. (Dmitry)
-- Use i2c_master_send() instead of open-coding a single-message
-  i2c_transfer(). (Dmitry)
-- Drivers may report coordinates outside the declared min/max, so
-  remove the clamping. (Dmitry)
-- BTN_TOUCH and INPUT_PROP_DIRECT are already set up by
-  input_mt_init_slots(..., INPUT_MT_DIRECT). (Dmitry)
-- Let the input core track contacts: drop the touch_id/stylus_id
-  bitmaps and the hand-rolled BTN_TOUCH reporting, and sync the frame
-  once per interrupt with input_mt_sync_frame() instead of calling
-  input_sync() per contact event. The controller pushes contacts one
-  by one into the event FIFO and only resends the ones that changed,
-  so INPUT_MT_DROP_UNUSED is wrong here and is dropped as well. (Dmitry)
-- Restore the FTS4 interrupts accidentally dropped by introduction of
-  FTS5.
-- mode-switch-gpios isn't required with stmfts5. Some designs, such as
-  Xiaomi Mi 8, has no such GPIO connected and is limited to AP mode.
-- Nit: updated example to use interrupts-extended.
-- Nit: (maximum x/y coordinate reported + 1), corrected example.
-- Link to v4: https://lore.kernel.org/r/20260409-stmfts5-v4-0-64fe62027db5@ixit.cz
-
-Changes in v4:
-- Wrap everything below enabling the supplies into stmfts_configure()
-  to avoid bunch of gotos to power off on error (Dmitry T.)
-- Finished chip specific ops and removed is_fts5. (Dmitry T.)
-- Link to v3: https://lore.kernel.org/r/20260403-stmfts5-v3-0-5da768cfd201@ixit.cz
-
-Changes in v3:
-- s/touchscreen_pins/touchscreen_irq_n. (Konrad)
-- Use interrupts-extended. (Konrad)
-- Fixed rebase conflict against 8665ceb926ec ("Input: stmfts - use guard notation when acquiring mutex")
-- Rename switch-gpios to mode-switch-gpios.
-- Do not define properties in if:then: branches. (Krzysztof)
-- Link to v2: https://lore.kernel.org/r/20260315-stmfts5-v2-0-70bc83ee9591@ixit.cz
-
-Changes in v2:
-- Fix typo in the binding s/switch-gpio/switch-gpios/.
-- Deduplacate allOf. (Rob yamllint)
-- Add missing S-off-by. (Dmitry B.)
-- Dropped irq-gpios as it's not needed. (Konrad)
-- Correct x and y touchscreen area size. (Konrad)
-- Correct reset introduction commit description. (Krzysztof)
-- Partially implemented chip specific ops. (Dmitry T.)
-- Separeted license naming cleanup into separate commit (Dmitry T.)
-- Link to v1: https://lore.kernel.org/r/20260301-stmfts5-v1-0-22c458b9ac68@ixit.cz
-
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>
-To: Petr Hodina <petr.hodina@protonmail.com>
-To: David Heidelberg <david@ixit.cz>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Henrik Rydberg <rydberg@bitmath.org>
-To: Bjorn Andersson <andersson@kernel.org>
-To: Konrad Dybcio <konradybcio@kernel.org>
-To: Abel Vesa <abelvesa@kernel.org>
-Cc: linux-input@vger.kernel.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-msm@vger.kernel.org
----
- arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts | 19 ++++++++++++++++++-
- arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi  |  2 +-
- 2 files changed, 19 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts b/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts
-index a000c75494f1c..f65263955229c 100644
---- a/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts
-+++ b/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts
-@@ -21,17 +21,34 @@ &framebuffer0 {
- 	stride = <(1080 * 4)>;
- };
- 
- &i2c2 {
- 	clock-frequency = <1000000>;
- 
- 	status = "okay";
- 
--	/* ST,FTS @ 49 */
-+	touchscreen@49 {
-+		compatible = "st,stmfts5";
-+		reg = <0x49>;
-+
-+		pinctrl-0 = <&touchscreen_irq_n>, <&touchscreen_reset>;
-+		pinctrl-names = "default";
-+
-+		interrupts-extended = <&tlmm 125 IRQ_TYPE_LEVEL_LOW>;
-+
-+		mode-switch-gpios = <&tlmm 136 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&tlmm 99 GPIO_ACTIVE_LOW>;
-+
-+		avdd-supply = <&vreg_l19a_3p3>;
-+		vdd-supply = <&vreg_l14a_1p8>;
-+
-+		touchscreen-size-x = <1080>;
-+		touchscreen-size-y = <2160>;
-+	};
- };
- 
- &mdss_dsi0 {
- 	vdda-supply = <&vdda_mipi_dsi0_1p2>;
- 
- 	status = "okay";
- 
- 	panel@0 {
-diff --git a/arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi b/arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi
-index 3c9656b88b696..7d90c0be485ff 100644
---- a/arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi
-@@ -525,17 +525,17 @@ firmware-pins {
- 
- 	touchscreen_reset: ts-reset-state {
- 		pins = "gpio99";
- 		function = "gpio";
- 		drive-strength = <8>;
- 		bias-pull-up;
- 	};
- 
--	touchscreen_pins: ts-pins-gpio-state {
-+	touchscreen_irq_n: ts-irq-n-gpio-state {
- 		pins = "gpio125";
- 		function = "gpio";
- 		drive-strength = <2>;
- 		bias-disable;
- 	};
- };
- 
- &uart6 {
-
----
-base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
-change-id: 20260214-stmfts5-b47311fbd732
-
-Best regards,
---  
-David Heidelberg <david@ixit.cz>
-
+> Signed-off-by: Dragos Tatulea <dtatulea@nvidia.com>
+> ---
+>  drivers/vdpa/mlx5/net/mlx5_vnet.c | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/vdpa/mlx5/net/mlx5_vnet.c b/drivers/vdpa/mlx5/net/ml=
+x5_vnet.c
+> index f1c5f72032a3..a175f734517d 100644
+> --- a/drivers/vdpa/mlx5/net/mlx5_vnet.c
+> +++ b/drivers/vdpa/mlx5/net/mlx5_vnet.c
+> @@ -2908,6 +2908,8 @@ static void unregister_link_notifier(struct mlx5_vd=
+pa_net *ndev)
+>
+>         ndev->nb_registered =3D false;
+>         mlx5_notifier_unregister(ndev->mvdev.mdev, &ndev->nb);
+> +       /* mlx5_cvq_kick_handler() work needs the reslock. */
+> +       lockdep_assert_not_held(&ndev->reslock);
+>         if (ndev->mvdev.wq)
+>                 flush_workqueue(ndev->mvdev.wq);
+>  }
+> @@ -3215,6 +3217,7 @@ static void mlx5_vdpa_set_status(struct vdpa_device=
+ *vdev, u8 status)
+>  {
+>         struct mlx5_vdpa_dev *mvdev =3D to_mvdev(vdev);
+>         struct mlx5_vdpa_net *ndev =3D to_mlx5_vdpa_ndev(mvdev);
+> +       bool unregister_nb =3D false;
+>         int err;
+>
+>         print_status(mvdev, status, true);
+> @@ -3257,12 +3260,14 @@ static void mlx5_vdpa_set_status(struct vdpa_devi=
+ce *vdev, u8 status)
+>         return;
+>
+>  err_driver:
+> -       unregister_link_notifier(ndev);
+> +       unregister_nb =3D true;
+>  err_setup:
+>         mlx5_vdpa_clean_mrs(&ndev->mvdev);
+>         ndev->mvdev.status |=3D VIRTIO_CONFIG_S_FAILED;
+>  err_clear:
+>         up_write(&ndev->reslock);
+> +       if (unregister_nb)
+> +               unregister_link_notifier(ndev);
+>  }
+>
+>  static void init_group_to_asid_map(struct mlx5_vdpa_dev *mvdev)
+> @@ -3301,9 +3306,9 @@ static int mlx5_vdpa_compat_reset(struct vdpa_devic=
+e *vdev, u32 flags)
+>
+>         print_status(mvdev, 0, true);
+>         mlx5_vdpa_info(mvdev, "performing device reset\n");
+> +       unregister_link_notifier(ndev);
+>
+>         down_write(&ndev->reslock);
+> -       unregister_link_notifier(ndev);
+>         vq_reset =3D needs_vqs_reset(mvdev);
+>         if (vq_reset) {
+>                 teardown_vq_resources(ndev);
+> --
+> 2.54.0
+>
 
