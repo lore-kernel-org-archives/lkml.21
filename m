@@ -1,65 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.184
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.121
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795477074;
-	b=nFUz/y2/KmU6+MUaOMeKPNR2QJgnPLn0paxJYWAc08raN9aJvNW9qVJik1/NgvxqVSVT
-	 I3yg/xnI/g88BDa4B/gGvlQ2gYwCnlrpoIwLYsZA8EyqeycLRaGK7Vbyw9iyliXY0hyJo
-	 TE9ldvG1x00NgZOWJfBGAF2KabNnKCzsbcGkjMagascPrN1kpmkppcECa0rkm85YtHXFq
-	 thSoQqDFQtokfIOJM2C7wp/R60d1SwKgcQpx294P0N9MMdEG4k4BLNj8Hh219nMNSwng2
-	 s2Kcj76+W31oEWSVY5VCmAooEr70ASzXPqlDQOrJvOfmw5Ml9FlG+v0LPIqlM4Cd31Q==
+	t=1795477086;
+	b=uUuDFv/hbnzixK9f3AqKZQUtGjLFDC7Z/h74zCGThzDVCiUrTDmGVmQFHe01Aw+Saxcg
+	 CgxS4OfWMo08PoQ5ogQb+Ps6K4lsj5+XNoz3ytCNVfevwoJ8CabgBS+BeWG3wJt8kYl+t
+	 2XZzDzTyaaJgRbZLgCcah0D7p+Mcm/+7dAUSNc/grYHrdx1hAF1EP84mPBqZivvBuF9FJ
+	 My5xI3zww4buzrJ36XF1Whi0bDiFjKLSTJaM4x1tAu30HJlHLITYlLAANdpkrSgPE2r+I
+	 k39LL82N/0jAW/kESRTPwtOcfs/KZMJwvwx5+J9rlFJiuMbb7GX3iV4otosXk5mk16w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795477074;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:CC:Subject:In-Reply-To:
-	 References:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=sE5nDKAHylHfXNljU8ESqvkfFS6Rp3ffmStIQMjK4pg=;
-	b=ytpORge/GUT5XV5rSeJZOLqLz4r2bxTkzfJoJaQ0Gulu8Dv0NwXjSZuBqJzTn7fs+sqO
-	 Wbi7Hffvt9iya0zpaleEdOEbWCFufUxQ4Tl8MDIY0DLNy5R53xP/UA7Syq6fZp9LTUDO/
-	 BiBEsxN5bo+4d6HsHsG/wsgO2PIl3nwOaq55SdN9hCPVvukjBwlgMNiE7coLtF8evFY/S
-	 1a4/3i+6Xl2D7af1F/avE7RIgBYaEAfYm5AcR9ntI/ZlJTwJB45OFg+Djq7j0fiPpQBbe
-	 91XXSTxGng16PIQqBdSqxVlR2FkvJb3YOf91DPLywnboM0Ao69QWAMB0yIMHEvqfPQA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795477086;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=XH/awogagchCAYNUOz49w7DXegBFWyWWFw00RGQO90o=;
+	b=dJEPHIWvCG4Q/Hxr/hlcQ5b+oqJTktREuDrB7pFnVe/vBIVNBhhn487U6Oofz9PMI7IM
+	 otFNdC94RsfwfyaAoMk851KVz2mM3+b4vXRlarJFx4KOraLQ31cqRzACKCafmr9pQt1QE
+	 JerT5DZvyw125C6OIERtws5WhstABe1wCsmLE8w2wUyeVkd1fDnWcQ7ZaovTirIvGCtl4
+	 K576kspcb8ATQoUt0xbzAUfuFfPYs3IT1bZje82GEA/jVhWt+zZeLQ6jguH9e5JD8Jazp
+	 kGhH2wuwBwuUnVXzjN2NUxJqRvtE1gd6bfnyIG3XXv9NpfZmqp2NvuDJnAKu9NUIR8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=aBBvyYBC;
-	arc=none smtp.remote-ip=95.215.58.184
-Received: from mta1.migadu.com (out-184.mta1.migadu.com [95.215.58.184])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=CaKjXISF;
+	arc=none smtp.remote-ip=79.135.106.121
+Received: from mail-106121.protonmail.ch (mail-106121.protonmail.ch [79.135.106.121])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B49E0606A322
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:37:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B49E0606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89A79606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:38:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89A79606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=aBBvyYBC
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=QkepU0YqvWHLf6nRIVGbSSor8TIXHFH03gy6YgNP/ns=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795477072; v=1; x=1796081872;
- b=aBBvyYBCNPERWY6bOOcVE+I3hfHXRtVQh2KAAfYsIcCIM+dZReQPHzJnI5xrZO1awZwKxS0y
- o+kDurghSH5u5EeZlbHZbYqg/QlQjMHnpIn9Aebo32QtR7Tu/k+3EmzZM0sNkT+8Myv0IhgAmy8
- 0VuF0kvKA4eEdoq7pTb9GFZ8=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 58d118af36727f68;
-	Mon, 23 Nov 2026 23:37:51 +0000
-X-Mizu-Trace-ID: 58d118af36727f68
-X-Migadu-Flow: FLOW_OUT
-Date: Tue, 24 Nov 2026 00:37:49 +0100
-From: Luka Gejak <luka.gejak@linux.dev>
-To: Mehmet Fide <mehmet.fide@gmail.com>, Ping-Ke Shih <pkshih@realtek.com>
-CC: Sascha Hauer <s.hauer@pengutronix.de>, Zong-Zhe Yang <kevin_yang@realtek.com>,
- Tzu-En Huang <tehuang@realtek.com>, Yan-Hsuan Chuang <yhchuang@realtek.com>,
- Kalle Valo <kvalo@kernel.org>, Stanislaw Gruszka <sgruszka@redhat.com>,
- Brian Norris <briannorris@chromium.org>, linux-wireless@vger.kernel.org,
- linux-kernel@vger.kernel.org, mehmet.fide@screeningeagle.com
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_rtw-next_v4_1/4=5D_wifi=3A_rtw88=3A_free_the_?=
- =?US-ASCII?Q?reserved_pages_of_an_interface_on_firmware_recovery?=
-In-Reply-To: <20261121191528.591334-2-mehmet.fide@gmail.com>
-References: <20261121191528.591334-1-mehmet.fide@gmail.com> <20261121191528.591334-2-mehmet.fide@gmail.com>
-Message-ID: <38F350DD-D749-4754-AF9D-EBA4F8B430E6@linux.dev>
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=CaKjXISF
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1795477082; x=1795736282;
+	bh=XH/awogagchCAYNUOz49w7DXegBFWyWWFw00RGQO90o=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=CaKjXISFINBXtYOPgF5wSFeWAuDbqgR3BDoU3JVin8bvGrZ2sCCN6bDQZdpt+HAYD
+	 yAG5Q567CZPEz+KqG/vg9f/82ugDSDQTYm1ienMHw3Ix35+oNAU2LIMCd9wdRbee//
+	 oSDwG8uwEDKM7+IrcgMbfgC5KhrJllBLUYkKCIvQ/qRUisZP8utq2L4fXxG29VPHJk
+	 PBBTp+vBjb7hKBDuk20pQ5bpQF3/RZdvyYYDgg0XCotNKLirDokJ4+oYsJeMBkHU0I
+	 Z5jNMiykEjolv3RdS/py05q6BO1g1IRtosX2ua4SjzGQUeclZuE5PvXSdBIDqbzSxl
+	 XfCi/vvlvtpAA==
+Date: Mon, 23 Nov 2026 23:37:56 +0000
+To: linux-bluetooth@vger.kernel.org
+From: cochcoder <cochcoder@proton.me>
+Cc: linux-kernel@vger.kernel.org, luiz.dentz@gmail.com, marcel@holtmann.org
+Subject: Re: [PATCH v5 1/1] Bluetooth: btusb: support larger LE packets on TP-Link UB500
+Message-ID: <8NaE3sxC1VT7TQZ6Q4QMDfOoJSegqGy7q7FCVjheOEzBNpefA5_eeoKnDORi-q0nNJy1ZuIfVFl1bnzcWBDvSmZGUnY8dhobOfP-yy40HpE=@proton.me>
+In-Reply-To: <WioHtJe5UoBDypyj0zDKYKksSKYCyTLi_RJLX-8uaxbN9WWssCjald6Lc6_MDAaw0Owixufqc4h_JnPMwFBVGzgtMmXMfJD3jIDh_0UHxZ4=@proton.me>
+References: <20261013032742.497402-1-cochcoder@proton.me> <20261029023235.1280321-1-cochcoder@proton.me> <20261029023235.1280321-2-cochcoder@proton.me> <7136cfd8f427b90d6d931a836e93dad5ea6164a0.1793296023.git.cochcoder@proton.me> <5a7311d6f4cc94931fd753e5fe0d54a2a65f631a.1793315289.git.cochcoder@proton.me> <WioHtJe5UoBDypyj0zDKYKksSKYCyTLi_RJLX-8uaxbN9WWssCjald6Lc6_MDAaw0Owixufqc4h_JnPMwFBVGzgtMmXMfJD3jIDh_0UHxZ4=@proton.me>
+Feedback-ID: 97716137:user:proton
+X-Pm-Message-ID: 05637f6a4a66d1f67a30253c9ee5764478062220
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,42 +64,136 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On November 21, 2026 8:15:25 PM GMT+01:00, Mehmet Fide
-<mehmet.fide@gmail.com> wrote:
->From: Mehmet Fide <mehmet.fide@screeningeagle.com>
->
->After a firmware crash, mac80211 adds the interfaces again without
->removing them first. rtw_ops_add_interface() then reinitializes the
->reserved page list, and the pages allocated before the crash leak:
->
->unreferenced object 0xffff0000cbe22c60 (size 96):
->  comm "hostapd", pid 25545, jiffies 4296463067
->  backtrace (crc cbdc21c4):
->    kmemleak_alloc+0xcc/0xe4
->    __kmalloc_cache_noprof+0x234/0x3bc
->    rtw_add_rsvd_page+0x38/0xa8 [rtw88_core]
->    rtw_add_rsvd_page_bcn+0x30/0x58 [rtw88_core]
->    rtw_ops_add_interface+0x144/0x2cc [rtw88_core]
->
->mac80211 zeroes the driver data of a new and of a removed interface, so
->track in struct rtw_vif whether the list was initialized, and free the
->old pages when the interface is added again. Until then the pages stay
->on the list, so a download before the reconfiguration, from the beacon
->update work or a WoWLAN suspend, still finds them.
->
->Fixes: 5c831644e1f4 ("rtw88: handle and recover when firmware crash")
->Suggested-by: Zong-Zhe Yang <kevin_yang@realtek.com>
->Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
->---
->
+Hi,
 
-Looks good to me,
+Following up on this patch, is there anything else needed to move it forwar=
+d?
 
-Reviewed-by: Luka Gejak <luka.gejak@linux.dev>
+Thanks,
+Kyle Pepper
 
-Best regards,
-Luka Gejak
+
+
+On Friday, November 6th, 2026 at 4:34 PM, cochcoder <cochcoder@proton.me> w=
+rote:
+
+> Hi,
+>=20
+> I've been using this patch for the past couple of days and haven't notice=
+d any issues with it in that time. I'm unsure if I've managed to use all 8 =
+credits however.
+>=20
+> Kyle Pepper
+>=20
+>=20
+>=20
+> On Thursday, October 29th, 2026 at 7:08 PM, Kyle Pepper <cochcoder@proton=
+.me> wrote:
+>=20
+> > The TP-Link UB500 (2357:0604) reports a 27-byte LE ACL packet length an=
+d
+> > eight LE packets, although its reported maximum LE TX data length is
+> > 251 bytes. The small HCI packet length fragments ASHA audio packets.
+> > Direct controller testing received 251-byte LE HCI packets intact.
+> >
+> > Set the host LE ACL MTU to the reported maximum after initialization fo=
+r
+> > the observed 27/eight/eight-available/251 reports. Skip other reports
+> > without failing controller initialization.
+> >
+> > Keep the controller-reported packet count and available credits unchang=
+ed
+> > so transfers can use all eight credits. Leave BR/EDR accounting unchang=
+ed.
+> >
+> > Assisted-by: LLM
+> > Signed-off-by: Kyle Pepper <cochcoder@proton.me>
+> > ---
+> > v5:
+> > - Keep the reported eight LE packet credits instead of reducing them to
+> >   one, addressing Luiz's throughput concern.
+> > - Keep automatic MTU selection and nonfatal handling of mismatched repo=
+rts.
+> >
+> > Matched 60-second single-N8 playback tests on the UB500 passed at host =
+MTU
+> > 167/eight and 251/eight, with CLEAR listening and verified stock restor=
+ation
+> > between tests. The control had 3,236 complete audio SDUs and 3,262/3,26=
+2 HCI
+> > completions; the 251-byte setting had 3,234 SDUs and 3,260/3,260 comple=
+tions.
+> > Both used whole 167-byte HCI audio packets, reached three outstanding p=
+ackets,
+> > returned all credits and had no socket EAGAIN or disconnection. PipeWir=
+e's
+> > actual SO_SNDBUF stayed 4608. Tests used the exact callback ported to t=
+he
+> > Arch-based ASHA 7.2.9 kernel; fresh upstream object builds run before s=
+ending.
+> >
+> > An earlier 251/eight trial sounded clear but stalled after about 40 sec=
+onds
+> > of audio transmission and ended with HCI Connection Timeout (0x08), wit=
+h seven
+> > completions pending. Restoration succeeded. Its cause remains unexplain=
+ed;
+> > the successful comparison does not erase that failure.
+> >
+> > These are normal single-CI playback results. They do not establish eigh=
+t
+> > physical 251-byte slots, mixed BR/EDR+LE capacity, bilateral recovery,
+> > exceptional congestion behavior, other firmware or long-duration reliab=
+ility.
+> >
+> >  drivers/bluetooth/btusb_main.c | 16 ++++++++++++++++
+> >  1 file changed, 16 insertions(+)
+> >
+> > diff --git a/drivers/bluetooth/btusb_main.c b/drivers/bluetooth/btusb_m=
+ain.c
+> > index 92a78a7e6..9cc3dd240 100644
+> > --- a/drivers/bluetooth/btusb_main.c
+> > +++ b/drivers/bluetooth/btusb_main.c
+> > @@ -2972,6 +2972,19 @@ static int btusb_setup_realtek(struct hci_dev *h=
+dev)
+> >  =09return ret;
+> >  }
+> >
+> > +static int btusb_ub500_post_init(struct hci_dev *hdev)
+> > +{
+> > +=09if (hdev->le_mtu !=3D 27 ||
+> > +=09    hdev->le_pkts !=3D 8 || hdev->le_cnt !=3D 8 ||
+> > +=09    hdev->le_max_tx_len !=3D 251)
+> > +=09=09return 0;
+> > +
+> > +=09bt_dev_info(hdev, "LE ACL MTU 27 -> %u; LE packets 8 unchanged",
+> > +=09=09    hdev->le_max_tx_len);
+> > +=09hdev->le_mtu =3D hdev->le_max_tx_len;
+> > +=09return 0;
+> > +}
+> > +
+> >  static int btusb_recv_event_realtek(struct hci_dev *hdev, struct sk_bu=
+ff *skb)
+> >  {
+> >  =09if (skb->len >=3D HCI_EVENT_HDR_SIZE + 1 &&
+> > @@ -4715,6 +4728,9 @@ static int btusb_probe(struct usb_interface *intf=
+,
+> >  =09    (id->driver_info & BTUSB_REALTEK)) {
+> >  =09=09btrtl_set_driver_name(hdev, btusb_driver.name);
+> >  =09=09hdev->setup =3D btusb_setup_realtek;
+> > +=09=09if (le16_to_cpu(data->udev->descriptor.idVendor) =3D=3D 0x2357 &=
+&
+> > +=09=09    le16_to_cpu(data->udev->descriptor.idProduct) =3D=3D 0x0604)
+> > +=09=09=09hdev->post_init =3D btusb_ub500_post_init;
+> >  =09=09hdev->shutdown =3D btrtl_shutdown_realtek;
+> >  =09=09hdev->reset =3D btusb_rtl_reset;
+> >  =09=09hdev->hw_error =3D btusb_rtl_hw_error;
+> >
+> > base-commit: 1081a6ef8f1e0661fd52eb3f878691b0b96cdff9
+> > --
+> > 2.56.0
+> >
+> >
