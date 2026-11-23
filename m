@@ -1,101 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795437478;
-	b=aFp4ScNwtdJEzfnng8kmSch0urCLU6JI4iQMHg3WuN9vGvI+j5GjeJHyGEfoiejO54YU
-	 JG9h61lJKMqm11XJY3bm3fT0Huhwdja/gxksJzQ13EbbByuXiKjSG70jJzbHqB6FQloLP
-	 gNDnTszU+kC2j3F8zNPTX2tJ89ZzU8XI22/Sp6Tyjk4cpnjTzgoo9Dowb8FcR6gIYmxqL
-	 M2S12bMjJwiT2s/8uaVrvIJqwuO7ftTxEnUN1ojbosDkhQR2d5MXJAahnF1acaRHB21g4
-	 z1H9FgGyqNSNCvZaOPxV+15IpEvJSoh3XjUYoQRLoGS2W3KBOSq+kgigdFbcvWK0kMw==
+	t=1795437494;
+	b=qIzQ6DTYDEZsJdg4vpwU+Y/LU4Ua9VLArAsyDr3MYw+EmoZTK3nkklhXkUt2aCJOG2XO
+	 /EAoJYQ+Y/NqD0jNxn+PSSIxayAO6GeTrc43RXnFLSZzPHvbT0FowPSzEv3Zsi4j1+4a0
+	 y4x/LjGAHilMMaBNC5t5YIXdd24t2FzOueh9ZFydrxztDCdcvOky2bK9JZVCNQPMl3+M5
+	 /BxAHQTFQMX1VRhnn3L9Q2cRK3i4FzuCUmlbyxbjC+zjEg0j3tbjgAEHSmNL3hqoN+/08
+	 kXPP8GXVxLPJbZBatmLSfFoeeoDKc4V4XZv/zwxrlLqu/1mBjJszeGATuGGbbW13cGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795437478;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=4FHRYHmmGVRFcPlTDGmzx/L3A2zzLoxUicG8IqEA4p8=;
-	b=tKjxAfbpiyUsHtcvLOsdgiufD28iLY/NgsJDmNpTBoP6ngpzRReNgBtuWKd7ia2LTET9
-	 TZS54nAlVuOmRIDe6uMuSwh/Ws4ivOq6pjwAten9Ae5Z63nfIxWKGDXek+zxtAMbUiy/J
-	 gRaVnurkMm8JmqPT7/J+YrgiNQdNlU9NO55YF3aoDOnWCJvq7W8y8kGLmnyoTlk9RaiHF
-	 8MfhRtVf7NfkkMFbJe4EpZoYFyjeSfWh87nzDub1Cn4+Iv6lEUuHnohZETNYoDZrXz0bF
-	 Pl6sHIwFN3U8DRBTkRO4mFiDD6ucD8LJUbHxwd3B6xmNGPdEHLyW6jZ2YcV7/LXQmwA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795437494;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=gyeIde0avqusqT9a3dBuxFK7Sej2s1ySii6jTsMJ9Xo=;
+	b=zJip896D6DSUHC82wybniDoTB56u4/YdqUFnaM0qUCDMljt/DPoc1rZTilhscqVJcoEq
+	 xwAkCLhf/0nYQBYxf/qc0GP0u+JTKQQeucGmkouU5/Sc5ss7WjbYzwiJIC7k5i6EdTd/s
+	 XpwlkIb+3hkAt1nESuB06+ynnAXVBY1RcGHhqyzKNbYGjT5lZ6Qljd0rzrkDooHji0q+s
+	 pbC45+yg7jtTxj5/m+GfylmnqwE3x+9/0wlJb3NRwTjNd39QxNOJospypJt0lDSlFseMi
+	 9qhacONFTTDtD+i3m8VkUVTP/21Hjm3Ui0UkikzP7ZFJ8methATHikdyDy5XQfqxNhA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="JQujt/H5";
-	arc=none smtp.remote-ip=209.85.214.171
-Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=NxaAZuj4;
+	arc=none smtp.remote-ip=198.175.65.11
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F262606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:37:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F262606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC5F7606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:38:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC5F7606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JQujt/H5
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f020d0169eso14382435ad.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:37:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795437477; x=1796042277; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4FHRYHmmGVRFcPlTDGmzx/L3A2zzLoxUicG8IqEA4p8=;
-        b=JQujt/H5E/i5WTl+jz+YqJXcKepX9mWQBC3heidVAz/a/MvDYSx4nPL8nqCIz1q22E
-         KO89UAnp22TmDevPiP/iTEcZwthcMvD5tDn3E2Qf+mzC1yPgUelC+U7VgR9tHGjvhK79
-         5Fe9Zr94KqaAMqlpyD0qT7MNTr66FO5GdB/7ISOdrtWSIWCnkpI3/jUWNrhJhOAppYC4
-         jcUwz0gXM6YIRC0drO/x3YE2ERT0wSjVCJpkrsS84ekfi5v1eFop50QSswk8Tu3WWPHj
-         f6uGbkd6z+B5nSGlKQgLaje2ut13Nx9utjDRqHgkud0N/BgbVpT7CuYydhC6eOmUfNiO
-         As4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795437477; x=1796042277;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4FHRYHmmGVRFcPlTDGmzx/L3A2zzLoxUicG8IqEA4p8=;
-        b=RDXzcNVjPNrXSpl2z8eBTZqVwaQ7ZHJausOogf3u0pMETIoz11NI8TYyz+tqLv/TCq
-         g3xkAF31CJpIFSIRSUINsld8VWgzJ+c/6sajACiRqPWftAzBCcygwkt5T9TRWi9bfizq
-         tseSaqokP+IKRJCW/slIgVcEIcydYNcC+9fHtrSL3SfVzRDYoZ6sfe7wwp0AcomUmLZZ
-         bbkiFBp8hbMzq+DRTNde/ZNLCNNEJ/FShfm5nx91o6JkpuwPOHDclFc1y0Je0+qytmJm
-         TIjaO11D3XFWNV8YG3rNSRXwUp3+TveXUMZW/RfuqrI036fqRy3bbEq++4a69z5K/z/r
-         +gcw==
-X-Forwarded-Encrypted: i=1; AL+hErFURYh6lnuH4ybi+R+Dufr+IJUsFgPWvTLIU6J+OPeKUzDXu7tEexJrXJzGz/24q4v5Qz/H9QJzFhywk+g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/OXCRN70j95i/FUkJTeU58bUAwnluMjW9YIvivunzn1slaJb5e
-	6Q4z4t5iaVTtVxGtBB/9mLp9zWolNDDBYKtao1QVBKbTXLLA1RCrZ1Yz
-X-Gm-Gg: AZFdTZc4lSAfKu7e/S6z6Ay9qbGFIFg6ccYDale/kBJpDLOvkiXbFuSpg4VNmtDycjV
-	jSnGW+HXxMdaSi8tfkEKvx5P7OloIj1DDTfGET/GTh6NilYBLBA+t644ybp1oxNzMAD5QGd5rgh
-	XW/uE38/NTRuktYsNFZcD8Tdy9sc/I+ImvPdOQbn90HmuLDTyL2ZJ5YJ8DzI1Q4L83BX/cHVrcZ
-	xTY59nRA0vm+/xngW+mBHB3nZQ0MSuKrf2RakIruOAfgHjBMaqqRDo4INFaroWCJo49Ho+VhRDf
-	qNmtn20zySov8CBmo6ySXZ2dwWPqao/zNcLZJCCWFfI8c+K9vJjngz4TyL85PpRWCPyBD2vkzhj
-	8p107aUvrbREoqSMGICtLu9cDFiVxbqRdlP9FDArSCVDG0YAE3hZnoW5AC93WbwHWMPoxSC4sH0
-	fwUqhf5TfX0S9r78DRUrdpnkOt0f8fcG7uuD8Jm/w15yRTv8s+6VeaaJoPwaTKV5zA8V4xhwlxh
-	YI/AlthD1JU3kvGirusYSnLPDR7fCeS/VTc/jxCbQ7frwtfD9zTHP9PyPCB0RbK5RkpxkpOZrNk
-	r4qsIRrvZAySN9vQtX2bLoWm2aABXIranw==
-X-Received: by 2002:a17:902:e847:b0:2ed:c9bf:9570 with SMTP id d9443c01a7336-2f03f1a4599mr114769615ad.26.1795437477376;
-        Mon, 23 Nov 2026 04:37:57 -0800 (PST)
-Received: from arm-a100.. ([140.112.28.118])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f06c02a92esm32318165ad.40.2026.11.23.04.37.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 04:37:56 -0800 (PST)
-From: Tzu-Ching Yang <shingekinocore@gmail.com>
-To: "Maciej W. Rozycki" <macro@orcam.me.uk>
-Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-mips@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	linux-kernel@vger.kernel.org,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
-	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>,
-	=?UTF-8?q?Beno=C3=AEt=20Monin?= <benoit.monin@bootlin.com>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>
-Subject: Re: [PATCH] MIPS: Make cpu_has_mips64r6 constant on 64-bit r6 kernels
-Date: Mon, 23 Nov 2026 20:37:46 +0800
-Message-Id: <20261123123746.2963491-1-shingekinocore@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <alpine.DEB.2.21.2611231038330.54328@angie.orcam.me.uk>
-References: <20261030140430.1857741-1-shingekinocore@gmail.com> <alpine.DEB.2.21.2610301515350.42255@angie.orcam.me.uk> <20261123035732.728281-1-shingekinocore@gmail.com> <alpine.DEB.2.21.2611231038330.54328@angie.orcam.me.uk>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=NxaAZuj4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795437494; x=1826973494;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=noXsiV34IzHrnUGMjWMJk9K0TE4u0xXSkekc5W2Cx7U=;
+  b=NxaAZuj4zofRryDmdfOjOflh7rmEtix/+O+CpIbq9Zzf5IXaHInA9N+A
+   LBoFb1Jvh4fBAF2dQz1/++uoN8WwgOx90imgLMI2MM1AK7U1NfofZtCpk
+   ZEp+y6v56b9+ck445JdCM07rKYn+r8r8QqZ/ENKHette4YPKnujxm2EDz
+   Jqz+061INAHFr4sod7kSdFlQPmVXfl8cV1O3v02nmz5iozZxQuhJ6bEIj
+   J8gUh0ApwA3qa11kk1QV9fGjkhhbzQAqoA5f8sFghHYVbOpmK7rWPYIUo
+   cVFqw+rrfHooXneA2mtVx2p7iRumJ1DcQFuFdNYdltNJOQLM/t1hLIBhI
+   g==;
+X-CSE-ConnectionGUID: KivRZhekQTSw/8G6w2kAbw==
+X-CSE-MsgGUID: UE0l2WQZRJm539zBt5iD2Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4141054"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4141054"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 04:38:13 -0800
+X-CSE-ConnectionGUID: VkO5xzvHQgerGP59zkgMEQ==
+X-CSE-MsgGUID: 9FKoM4l4T/ak9kNjYPh1EQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11649063"
+Received: from soc-pf6038af.clients.intel.com (HELO [10.217.180.38]) ([10.217.180.38])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 04:38:12 -0800
+Message-ID: <d9b91e95-243d-4e3c-92b0-0355dca59a63@linux.intel.com>
+Date: Mon, 23 Nov 2026 13:38:09 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,45 +72,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] MAINTAINERS: Add Dawid Osuchowski as Intel VPU maintainer
+To: Dawid Osuchowski <dawid.osuchowski@linux.intel.com>,
+ dri-devel@lists.freedesktop.org
+Cc: oded.gabbay@gmail.com, jeff.hugo@oss.qualcomm.com, lizhi.hou@amd.com,
+ andrzej.kacprowski@linux.intel.com, linux-kernel@vger.kernel.org
+References: <20261123122007.2580451-1-dawid.osuchowski@linux.intel.com>
+Content-Language: en-US
+From: Karol Wachowski <karol.wachowski@linux.intel.com>
+In-Reply-To: <20261123122007.2580451-1-dawid.osuchowski@linux.intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Mon, 23 Nov 2026, Maciej W. Rozycki wrote:
-> > Your form and v1 differ only on pre-r6 kernels. I built both on
->
->  Then you're doing something wrong; with __isa_ge_or_flag() I get:
-[...]
-> $ objdump -d vmlinux-base | grep -c dclz
-> 18
-> $ objdump -d vmlinux-has-mips64r6 | grep -c dclz
-> 1430
+On 23-Nov-26 13:20, Dawid Osuchowski wrote:
+> Add myself as a new accel/ivpu driver maintainer.
+> 
+> Signed-off-by: Dawid Osuchowski <dawid.osuchowski@linux.intel.com>
+> ---
+>   MAINTAINERS | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index bcade5bfbafe..0afa391498d0 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -8198,6 +8198,7 @@ F:	include/linux/power/smartreflex.h
+>   DRM ACCEL DRIVERS FOR INTEL VPU
+>   M:	Karol Wachowski <karol.wachowski@linux.intel.com>
+>   M:	Andrzej Kacprowski <andrzej.kacprowski@linux.intel.com>
+> +M:	Dawid Osuchowski <dawid.osuchowski@linux.intel.com>
+>   L:	dri-devel@lists.freedesktop.org
+>   S:	Supported
+>   T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
 
-Sorry, I worded that badly: I compared your form with v1, not with
-mainline. Against mainline, in bytes of bloat-o-meter -t with GCC
-16.2:
-
-  defconfig   your form   v1
-  ---------   ---------   -------
-  64r6el        -105340   -105340
-  32r6el              0         0
-  64r2el           +264         0
-  32r2el          +3352         0
-
-On the r6 kernels the two give the same vmlinux, byte for byte, so
-your form has all of the gain that you show. On the pre-r6 kernels it
-makes cpu_has_mips64r6 a run-time test, hence the growth; v1 leaves
-their vmlinux as it is.
-
->  I maintain that __isa_ge_or_flag() is the correct approach.
-
-Understood. v2 will use your form: cpu_has_mips64r6 as cpu_has_64bits
-&& __isa_ge_or_flag(6, MIPS_CPU_ISA_M64R6), with __isa_ge_and_flag()
-removed.
-
->  FWIW an early check for the ISA mismatch might be worth having if at all
-> feasible, reporting the issue via a firmware printf()-like callback where
-> available.  Said JR instruction could be recoded as JALR $0, ... if this
-> turns out feasible.  Not a requirement for your change of course.
-
-Thanks, I will look into that separately.
-
-Tzu-Ching
+Reviewed-by: Karol Wachowski <karol.wachowski@linux.intel.com>
