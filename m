@@ -1,60 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795456820;
-	b=0xp7aKnqYd1vLTpMHC0PZAOdQwf/x3AXi6EXGWkYq2opF4SByiqjt25kGGHBkbUtgDYl
-	 2SG+KswCjj8iRH7qOt6NBHprKIqdsTrWKFdQYxwdIi3A+89mJGKWHPjXQ2ABcdyh3vZj0
-	 A2vMIN2PNA39Khz9h45UWMiWxvYF49TWPRiw05w3SuNHrgSIqsiCedTnNV/qebTVFyjUH
-	 cQ5a234WMUW2FfIG5mpLq7RFBXArodZB+W30ekmMGfaqaG347hzexeK2d63OXUhMX+er0
-	 HKP6G/RcclXJt9ggsrxKJB2xswZW1memY6tYtP72MNnRVn2L2qxuUSPQiXVlb8bFfAg==
+	t=1795456917;
+	b=LA0YrOC1JNhBOAP95NE0/ZNWAbB8iqna1+DjI2cjTN1uP2GDxFBChf4leQcQZDfoUGVu
+	 iDenq0XMwpILB308nPs43Eda7GNV3aGXn8NHO9jfIeYPhd73O9vwe7UeVQ45HFj/ZQvVk
+	 u37Jr4TxcsSy/x9lxP6VXQLUmBkbOTSgM13KwzcrUjw9OFMasLTpbleMWo1Nd7xbuCCSu
+	 Pe+9Tm77F00g6GuAOvKnM8q+M9L9aCqhDxo8chKmR8djHnjajl7sH3mNeEf/2HC33CV0T
+	 H1uyFR5iItxOxpr2hPm8F6U+YuMzrw1Y5NAaelwv7vMBIJ1/NJxvqv/AbGE/RBQj0KA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795456820;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=VCDgVwIkgLge8GbQvw7KHx7sko0csoUykFdgfMQXgFM=;
-	b=APxG5/Qv+h2iXU1tUFCnlpkbPJh5n1PPKvbVNxnMf896YyS02Iqi0vkwcLHqmtww7ksE
-	 pGTu+DjbVkBCVTsc4CThmKGA4tK6IB9Pq9J8D8/K0EHnDoNGRZyOMuVyN9idlGm7fsdW1
-	 /fwoSb7wJqcOyCuQTfDQgCbua3N9iFgzJrpz9WgRTbMwWc0aPL/06P3HPvq75k39yQou1
-	 yxb3DHUMNMQMrxNlgpN60S9gYPAWBUwEAMNwr9NXtq4MkW5Wi6C5TBYi4k5jxg5WWVpkK
-	 ImFxzN9FSNe5qcgb1QtlsOJqpfSxTNz7Cy3LJSW9/C6QEzW86SnscelznuWi2Wu5zUw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795456917;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=tMSmWi4PmO8P9evCtaCCqvLcTiNowVONOK61eDxOosg=;
+	b=N/qIpxTzujOcgsIexw9yXZJ8gCinh4qZaw4oaXUq9mivmHsdYvUVu4xFg+GCR4NGsT1L
+	 rRWj3xvUdaYPk+5wH4cq5xctRRwm8EEW9/ZyLOxK6P2O+HB5YnmLjc9Cr9weUhO8iE9jd
+	 T622lqQ645x178yqUWn/a1S7OyCujCKmu5vgSsuuhm+yxO7ozcLVSr0w9T/iHQ3EdDVq7
+	 TjKcM/jzjyS020tQf8c/KWouCmhpwq7etV546t8fjqHvqu0SR6A+OxouW94ZwzHv4w8by
+	 ugV4i2tY2zL7fzLUDZYLaVq7AEKnvTr8eV99wyaPpYEoqNDn21ehju7obSC0LOgANIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SiAZc5ki;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eG5+Frx8;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99C3F606A321;
-	Mon, 23 Nov 2026 18:00:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF642606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:01:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SiAZc5ki
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 502661F000D1;
-	Mon, 23 Nov 2026 18:00:19 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eG5+Frx8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5968D1F000EF
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795456820;
-	bh=VCDgVwIkgLge8GbQvw7KHx7sko0csoUykFdgfMQXgFM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=SiAZc5kiVYEA2z4xL5BwqF+GHuzD7MWu9w6aGI7XCDZPo3LBsrS93UFXFoFXDY0o0
-	 lJcVCtQRmWGmd8ImF4sBgYj4e6EkmDM3kCtWrd3I9Eqy4DMVsDzGb8hkWEEYEcHKJ8
-	 KQ0Zmpv2Gd3mCSSy12qeK5ErOyqf89+DNZLW4DKUJrr0qmh0fERtNA2KOwP5kTJU7J
-	 xQoBH66qED4WJP5lRE2lmxUHDa5o2sckcDt7EGkzGAsCTmaPFdPc0nwYeKrpc34C1x
-	 A6KDnAN36sRVjh8XZ8hAu24LD4kLsw1xeqXjmN7hb8926J0YVWki3sI7bCdbeUsCI1
-	 jbsY1bqrvmOgg==
-Subject: Re: [PATCH net-next] net: dsa: tag_rtl8_4: add support for RTL9607C
- tag variant
-From: netdev-bot+sashiko@kernel.org
-To: adilov@disroot.org
-Cc: andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- alvin.sipraga@analog.com, linusw@kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, zectaiga@gmail.com
-Date: Mon, 23 Nov 2026 18:00:18 +0000
-Message-ID: <179545681886.3135.12744267158619416896@kernel.org>
-In-Reply-To: <20261119165129.26693-1-adilov@disroot.org>
-References: <20261119165129.26693-1-adilov@disroot.org>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795456916;
+	bh=tMSmWi4PmO8P9evCtaCCqvLcTiNowVONOK61eDxOosg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=eG5+Frx8GVX/c/z8PXyzsWlQ3dvQGju5CuqfTFpLzNVh+WruclO4HH56q2lKR2BGy
+	 dMNPyKR51mAo2/u2nFEqWnnJu6kEN9eRGjEey8NNwMGdm+NRB6QrK+Iv+q5iihp94Q
+	 MfyhCylceSyDzCMbJl3gsDLSMTbF3VHlFvP7jz8bptuQmcE1NqU7rUyHne9kvB4uCC
+	 xl4xv41GxPWNfzdlMM5WvR0M10oZbuSLwebreh0awE1Ul52jly2/6pJs1jvdBbHNUi
+	 +Y99pwWxYzhLIHNWgUhDkaJv6uDeX+PeVnEMqFx/HdSisjNSMuCNS6suwP/4rIqu2D
+	 qQ9EtNMh7thxQ==
+Received: by mail-oa1-f46.google.com with SMTP id 586e51a60fabf-4adae187d94so2460702fac.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:01:56 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFVxghwBdCv749mlfsht1V7tGb08CIO4p8JMT6gKkpi/2VP2Fd9VBP/mBHSWzuKroiiDRNW5ZjKdSxCS6A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/inPLo77EOpKvvc5GMCluxk88aGRpqd/I7wdrD/AQ4KG0oJboN
+	wb1NCTUxTHWcfjQ/V3SaZRsGzOtlRx3pHkIE8t1zs2fPubkeRd8UBhEke6hMHmRBF9CX5PmkWCU
+	LuP9IURwx3CTJsZeReAQ3tk60dj8Xp2I=
+X-Received: by 2002:a05:6871:4396:b0:49e:472c:6b12 with SMTP id
+ 586e51a60fabf-4bc860f9b97mr10968896fac.52.1795456915652; Mon, 23 Nov 2026
+ 10:01:55 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,200 +59,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261120134548.214126-1-mdshahid03@gmail.com> <20261120100415.363fcb19@kernel.org>
+ <179525944307.361783.17801110279499293110.b4-reply@b4> <250c2bb2-57d7-4f91-a32c-8f6ac7d55a46@redhat.com>
+ <179544969959.175192.4403952228876691788.b4-reply@b4>
+In-Reply-To: <179544969959.175192.4403952228876691788.b4-reply@b4>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Mon, 23 Nov 2026 19:01:44 +0100
+X-Gmail-Original-Message-ID: <CAL4WiipNiCm9nBMt+ZB1+U3o9j8KY1L2Lo0vKb5QHORpBgDCiA@mail.gmail.com>
+X-Gm-Features: Aa3M54pP93d9ftwDviKwv8Mss2IlcC8MVW5kDbHlRC_286VLxTw7dgxd5mF-bYc
+Message-ID: <CAL4WiipNiCm9nBMt+ZB1+U3o9j8KY1L2Lo0vKb5QHORpBgDCiA@mail.gmail.com>
+Subject: Re: [PATCH] rtnetlink: fix NULL pointer dereference in rtnl_get_link()
+To: mdshahid03@gmail.com
+Cc: Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+Le lun. 23 nov. 2026 =C3=A0 17:02, <mdshahid03@gmail.com> a =C3=A9crit :
+>
+> Thanks Paolo.
+>
+> I think,I may have misunderstood this part from NET documentation guideli=
+nes:
+>
+> "The commit message must disclose whether reproducing the issue required
+> modifying the kernel (e.g. inserting a delay to widen a race, or[[**writi=
+ng
+> a loadable module to issue the right sequence of calls)**]] or using erro=
+r injection."
+>
+> I interpreted this as allowing a out-of-tree test module to produce
+> an issue,provided that it uses legitimate kernel APIs.
+>
+> 1.am i intrepretting incorrectly ?
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 2
+Yes.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+This sentence is a disclosure requirement, so that reviewers know how
+much weight to give to the reproducer. It does not say that any crash
+obtained this way is a bug.
 
-- [Medium] This patch adds a new DSA tag protocol, DSA_TAG_PROTO_RTL8_4AP
-  (value 38), and the tagger rtl8_4ap_netdev_ops.
-- [Medium] rtl8_4ap_read_tag() (net/dsa/tag_rtl8_4.c, lines 296-306) uses
-  a deny-list to decide whether the switch already forwarded a received…
-- [Low] The patch makes tag_rtl8_4.c cover a second chip family, but some
-  existing documentation was not updated and the new comment contradicts…
-- [Low] The comment and the code in net/dsa/tag_rtl8_4.c disagree on what
-  REASON means for the rtl8_4ap tagger.
+A test module (or an added delay) is fine when it only makes it easier
+to reach a state that the unmodified kernel can reach by itself, for
+instance to widen a race window, or to exercise an in-tree code path
+that is hard to trigger from user space.
 
---
+Your module does something different: it creates a state that no
+in-tree code can create.
 
-net: dsa: tag_rtl8_4: add support for RTL9607C tag variant
+rtnl_msg_handlers[PF_UNSPEC] is populated from rtnetlink_init(), which
+is built-in and panics if the registration fails. Nothing in the tree
+calls rtnl_unregister_all(PF_UNSPEC), the only callers are for
+PF_PHONET, PF_INET6, PF_MPLS and PF_CAN.
 
-This commit adds a new DSA tag protocol, rtl8_4ap (DSA_TAG_PROTO_RTL8_4AP),
-for the variant of the 8 byte Realtek protocol 4 tag used by the switch
-embedded in RTL9607C SoCs. The tag sits after the source MAC, as with
-rtl8_4, but the fields are laid out differently and the TX and RX layouts
-differ from each other.
+So the PF_UNSPEC table is never NULL once the kernel has booted, and
+rtnl_get_link() relies on this.
 
-> diff --git a/include/net/dsa.h b/include/net/dsa.h
-> index 09f3043d57f06..6f86c76253043 100644
-> --- a/include/net/dsa.h
-> +++ b/include/net/dsa.h
-> @@ -63,6 +63,7 @@ struct tc_action;
->  #define DSA_TAG_PROTO_MT7628_VALUE		35
->  #define DSA_TAG_PROTO_KS8995_VALUE		36
->  #define DSA_TAG_PROTO_LAN9645X_VALUE		37
-> +#define DSA_TAG_PROTO_RTL8_4AP_VALUE		38
+This is what Jakub asked in his first reply ("How can this happen?"),
+and the changelog should have answered it.
 
-[Severity: Medium]
-Which switch driver is expected to select DSA_TAG_PROTO_RTL8_4AP?
+>
+> 2.This is general question ,i mean ,we can litrally crash the kernel
+> just with loadable module ? How do we distinguish a legitimate kernel
+> bug exposed through a test module from a crash caused by an artificial
+> or unsupported sequence of operations? is this not vulnerablity in a
+> way or design issue ?
 
-The only in-tree user of the protocol 4 taggers is rtl8365mb. It only
-returns the two existing values:
+Of course a module can crash the kernel. A module runs with full
+kernel privileges, it can call panic(), or overwrite any memory.
+Loading one requires CAP_SYS_MODULE. There is no security boundary
+between a module and the rest of the kernel, so this is not a
+vulnerability.
 
-drivers/net/dsa/realtek/rtl8365mb_main.c:rtl8365mb_get_tag_protocol() {
-    ...
-	if (cpu->position == RTL8365MB_CPU_POS_BEFORE_CRC)
-		return DSA_TAG_PROTO_RTL8_4T;
+Exported functions are not hardened against callers misusing them.
+We do not add checks for conditions that can not happen, they add
+code, and they hide the invariants from people reading the code.
 
-	return DSA_TAG_PROTO_RTL8_4;
-}
+The question to ask is: can the unmodified kernel reach this state,
+from user space, from the network, or from a device?
 
-Likewise, rtl8365mb_change_tag_protocol() only accepts DSA_TAG_PROTO_RTL8_4
-and DSA_TAG_PROTO_RTL8_4T.
+If yes, you should be able to describe the in-tree call chain in the
+changelog, and in most cases to trigger it without a module.
 
-So nothing in mainline can reach rtl8_4ap_tag_xmit() or rtl8_4ap_tag_rcv().
-The patch still permanently reserves protocol ID 38 and adds the module
-aliases "id-38" and "rtl8_4ap".
+If the only way is to add new kernel code calling an API in a way no
+in-tree user does, there is nothing to fix.
 
-The commit message says:
+Note that clang-analyzer does not know about this kind of invariant.
+Its reports are a starting point for an analysis, they are not a proof
+that a bug exists.
 
-    Add basic necessities for this cpu tag variant to function.
+>
+> 3.Don't you see a gap in documentation w.r.t testing with loadable module
+> in details.
 
-However, the RTL9607C switch driver that would use this tagger is not part
-of the submission. The only testing mentioned was on an out-of-tree OpenWrt
-6.18 kernel.
+Not really. The documentation asks how the bug was confirmed to be
+real. A module unregistering the PF_UNSPEC handlers does not confirm
+anything about the upstream kernel.
 
-Could this be resubmitted together with the switch driver that consumes it?
-
-[ ... ]
-
-> diff --git a/net/dsa/tag_rtl8_4.c b/net/dsa/tag_rtl8_4.c
-> index 4da3beebef75e..c934c232d330e 100644
-> --- a/net/dsa/tag_rtl8_4.c
-> +++ b/net/dsa/tag_rtl8_4.c
-> @@ -74,6 +74,54 @@
-
-[ ... ]
-
-> + * On CPU->Switch however the byte 3 is also different:
-> + *
-> + *  |-----------------------------------+-----------------------------------|
-> + *  |              (8-bit)              |             (8-bit)               |
-> + *  |          Protocol [0x04]          |         TX_PORTMASK_LOW           |
-> + *  |-----------------------------------+-----------------------------------|
-> + *  |     (3-bit)    |(1)|   (1)  | (3) |(1) |(1)|   (1)   |(1) |(2)| (1) |1|
-> + *  |TX_PORTMASK_HIGH| X | PRI_EN | PRI |KEEP| X |LEARN_DIS|PSEL| X |DIRTX|X|
-
-[Severity: Low]
-This isn't a bug, but the CPU->switch diagram calls the forwarding port
-mask TX_PORTMASK_LOW and TX_PORTMASK_HIGH. The glossary earlier in the file
-says "RX (CPU->switch): forwarding port mask", and the code names the same
-fields RTL8_4AP_RX_LO and RTL8_4AP_RX_HI. Should the diagram say RX to
-match?
-
-The new macros also mix two prefixes: RTL9607C_RX_HI_MSK sits next to
-RTL8_4AP_RX_LO and RTL8_4AP_RX_HI.
-
-A few existing descriptions were not updated for the new variant. The file
-header still says:
-
- * NOTE: Currently only supports protocol "4" found in the RTL8365MB, hence
- * named tag_rtl8_4.
-
-The tag placement text only mentions "rtl8_4" and "rtl8_4t". The
-NET_DSA_TAG_RTL8_4 help text in net/dsa/Kconfig only mentions the
-RTL8365MB-VC:
-
-	  switches with 8 byte protocol 4 tags, such as the Realtek RTL8365MB-VC.
-
-Could these be updated to cover RTL9607C and rtl8_4ap?
-
-[ ... ]
-
-> @@ -97,13 +146,63 @@
->  #define RTL8_4_REASON			GENMASK(7, 0)
->  #define   RTL8_4_REASON_FORWARD		0
->  #define   RTL8_4_REASON_TRAP		80
-> +#define   RTL8_4AP_REASON_BCAST_TRAP	203
-> +#define   RTL8_4AP_REASON_RESV_TRAP	215
-> +#define   RTL8_4AP_REASON_IGMP		219
-> +#define   RTL8_4AP_REASON_RMA		220
-> +#define   RTL8_4AP_REASON_ACL		227
-
-[Severity: Low]
-The only REASON documentation in this file is the shared table:
-
- *    REASON     | reason for forwarding packet to CPU
- *               | 0: packet was forwarded or flooded to CPU
- *               | 80: packet was trapped to CPU
-
-The new RTL9607C section says only bytes 4-7 differ on switch->CPU. That
-suggests REASON means the same thing on this SoC.
-
-However, rtl8_4ap_read_tag() treats 203, 215, 219, 220 and 227 as traps,
-and none of these codes appear in the comment. It also treats 80 as
-forwarded, which is the opposite of the documented meaning.
-
-The new FBI description ("Only relevant when REASON is FB (aka < 64)") also
-implies that 0..63 are flow based reasons. That conflicts with "0: packet
-was forwarded or flooded to CPU".
-
-Could the RTL9607C REASON codes be documented, and the existing table
-marked as RTL8365MB specific?
-
-[ ... ]
-
-> @@ -153,6 +252,84 @@ static struct sk_buff *rtl8_4t_tag_xmit(struct sk_buff *skb,
-
-[ ... ]
-
-> +	/* Parse REASON */
-> +	reason = FIELD_GET(RTL8_4_REASON, ntohs(tag16[1]));
-
-[ ... ]
-
-> +	switch (reason) {
-> +	case RTL8_4AP_REASON_BCAST_TRAP:
-> +	case RTL8_4AP_REASON_RESV_TRAP:
-> +	case RTL8_4AP_REASON_IGMP:
-> +	case RTL8_4AP_REASON_RMA:
-> +	case RTL8_4AP_REASON_ACL:
-> +		break;
-> +	default:
-> +		dsa_default_offload_fwd_mark(skb);
-> +		break;
-> +	}
-
-[Severity: Medium]
-Is a deny-list safe here? Every REASON value except these five ends up in
-dsa_default_offload_fwd_mark():
-
-net/dsa/tag.h:dsa_default_offload_fwd_mark() {
-	struct dsa_port *dp = dsa_user_to_port(skb->dev);
-
-	skb->offload_fwd_mark = !!(dp->bridge);
-}
-
-That covers the flow based reasons (< 64) from the FBI description, code
-80, and any other trap reason the RTL9607C can emit.
-
-Suppose the switch traps a frame to the CPU on a bridged port for one of
-those unlisted reasons. Wouldn't the bridge then treat the frame as already
-forwarded in hardware, and skip software forwarding to the other ports in
-the same hardware domain? That frame would be silently lost.
-
-Whether this happens depends on which reason codes the hardware emits and
-how the switch driver configures trapping. Neither is visible in the tree.
-
-Would it be safer to set offload_fwd_mark only for reasons that are known
-to mean the switch already forwarded or flooded the frame?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119165129.26693-1-adilov%40disroot.org
+>
+> I am asking because, like to understand the correct approach and apply
+> it to my future kernel contributions.
+>
+> Have a nice day !!!
+>
+> Thanks
+> Shahid.
+>
+> On 2026-11-23 11:56 +0100, Paolo Abeni wrote:
+> > On 11/21/26 12:10, mdshahid03@gmail.com wrote:
+> > > I tested this issue on both original and patched kernels in qemu.
+> > >
+> > > First, I used a test module to unregister all PF_UNSPEC handlers.
+> >
+> > Just in case the are any doubts on the poic: if you need a custom
+> > OoO kernel module to trigger a 'bug', it's not a bug.
+> >
+> > /P
+> >
+> >
+> >
+>
+>
