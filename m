@@ -1,99 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=50.112.246.219
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795448234;
-	b=xF1PIy4V8wvWb4lqLvS7vlBdVkCLsRKbs8bWC/F24fCsLoV0DfzL5nVwtcR5PKVK48fb
-	 1cB740ev0An2JOkpi5Yj9pS7wxDxQk1vvSpT7/aouLwjxbp4gqJlMEhMRXu0NCvW3VMFH
-	 Ru487x5aMbt2pZMjisqr4ovRfcDA54ZvM4F7e+z3lZycuQS4zbvT/xceltqnbz4S+PXkF
-	 MsxYSNzhCAbIugljQjsXY/WFyedMT+7okW1DhLjfMkB3Gaf1lQrrtqMDlTASvyRF9crJT
-	 SRoJfokwj42A5/FbLT64cy9+fT8VleKA5yeZaMg/LniK1u3noqFLnobyTgc2m9jpysQ==
+	t=1795448255;
+	b=XU7KCkc+7yGGUCvoMPAyfW1XxwmeFURY+ewM/MsPxaiSiWYdOoIQLMfw8bb0jlW5hbHt
+	 cAmoBJgsTWEWSgmlZtOjLqB9aeJZHXm/6Mr77TpJM7uawhZpTN0Hl/LuUbSRLPe7aU8q+
+	 5IHr7T3nz3i6aX7SCqPRtVy348T7ym9i8qA7ZrOBDO8+qZigDxBRZ4rZlxLuOYadV/YL2
+	 rwrCwF0ZQ1X+7vNfoL9yk3WD9ao0XVGHc8qxhM2Enc7QAfoOzmP0UDOjmLlVF3qyBrUow
+	 zVfLDRMyEIGYRPsAwHh0638PObCLgLC4+HDavjq6QDxySRZpsV6WgmzQu/P/ZH1xJvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448234;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=rF0mx83XmYPM2qNwRzWvVTGOMjzCPdNgkj+Hi/DwTQk=;
-	b=JcT6WAiwdQ1L/JjBPwrg0FkvcI5+mq2ga+MPPJmaq0QaZL6KLCm/Fc3VEi3KrFBNRMuB
-	 XQ+lebKuNXkdj0pGJ10mjQfIxUtt+qOG9/9URXdXGqbaqVG9BMIGQug/2Y35muLLpwM2h
-	 Pi4AzuJtTIhppIJGy3S5ndzCz13s1CnmxpUl3Po++szUGaC0WXRGs9xkIxtVlNhSF+KtV
-	 VRYTv0S2ZE4XJnYHhnWqTMOySA68sJ7gLhOa5SYMJobdaMiVMRGZ0Pa/BGXNusXB4XDVI
-	 +hqGBO9pFDBc8j8NCkIM5j/Yjc4N2GWtGt3y0Sd2SqWorYxkUTlv+8BiOvmzXAPbTvQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448255;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:X-Originating-IP:X-ClientProxiedBy:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=K+rx6yYPpyPiJ2YjTMZ/suaeoif0QipuumgsrYY9fs4=;
+	b=yRAOapEzzp/WQdf8wPshzcNtONxu2T3dpZFzTJ6SXK/T0GrcpKj79K5siNIn9m0X8Tmc
+	 d/vS4iVsev7NomP7url+l1d+hGfHyRaMzZaxWKu6ckBJkDF03pAbqG6PvbiV5GZ5T2Aud
+	 JJ2yJzB9oSiKzDJP5WdWFczMlKUTt2TRvInHCqYctEGNp/oGxjJY1mGZXl88aaaxmCYRL
+	 IZgdps4ILeFlBTw5vPJ5zdXWQGoEkc46X5pV8+JNTSJcDmZFDuGFgEFq2/j6F24MUp/4s
+	 ivLPHls8PTNJrV32+gpXUry3g1c9vSnYiCZgarDbjcBFBLrf/7k9ZPVea/ms3+F0u2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ttCI1wx0;
-	arc=none smtp.remote-ip=209.85.216.52
-Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=amazon.com;
+	spf=pass smtp.mailfrom=amazon.com;
+	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=YK5KN96x;
+	arc=none smtp.remote-ip=50.112.246.219
+Received: from pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com [50.112.246.219])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDF80606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:37:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BDF80606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B370B606A31E;
+	Mon, 23 Nov 2026 15:37:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B370B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ttCI1wx0
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b40a522c00so369880a91.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:37:13 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=YK5KN96x
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795448233; x=1796053033; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rF0mx83XmYPM2qNwRzWvVTGOMjzCPdNgkj+Hi/DwTQk=;
-        b=ttCI1wx0aaqMSTE1b4pbgAQXeBS6wuUkYvonNVSXOfd9WYHb5ef37UrQePoPZA6FPK
-         drl15Pk9fYg5nM9vcpFPJlthr0SS7aqklu9XFZxuCvYjVoroZA9rBN9tkgo34DfWsjVm
-         QDNF2SDfIbrPBnZmxSXSDm54wCfigwB2rkOoVIjzpBlnqmXLn0DnGxLCNWMpL3VhnYtO
-         DFHOy6y0cV9jQ69o0jcZtQ2qeChfhsmhoigNsPMbIx1fh1icwwtkWGcRXTAa3S8zmCBy
-         spJU1JSA+OTmgk87oDL4Up5uika/3Ke7F59rYaH+FvWnmCdLTwJ2GR8Zt7N5x3ex+l7N
-         khBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795448233; x=1796053033;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rF0mx83XmYPM2qNwRzWvVTGOMjzCPdNgkj+Hi/DwTQk=;
-        b=Z/AXW+Vm1KTOYzKTMCco7ePBqjS/m0g7WV3KGwlbeicdAuRNih7a+9O9npzjCAzOpb
-         8yVh5Mfcl2llqXBtvv+FGtgbSzU5hVO831AS1kNHCIxEkTObD/7PkomOBTrli0/pUW7c
-         OwSIfCkLutMFuDcLvzg7fbSjQ6rDm/Uo/Mi3x14V3juRuESPaoP1rNgs2QGoVkwvhLlc
-         7u9sXsYuAk2sVo2dHQdtSzOSidZPO9NUTXVsuVI0VtzWlAEzaWlbaP+dZ8HNtHel6FEK
-         237c3O9+xvDCuZT6jPzcwCxTUF4HVhnaQJfstE9qx04br89pVGEc/EbwPGjgDnoLO09U
-         jkPw==
-X-Forwarded-Encrypted: i=1; AL+hErHpfyYDTHb79O3DImYv/tdfSHgh4yOozW8H9n+cpMvDapaJh12/HhqijFTdNB0wvuLoHtMrdNtj8pPqslg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/apNJNjTwz5MNRUDrchBa5eF7Q5yTOna1IfwkIcfEddWeL+hmv
-	OmQ5bG/DU/GDgjlThS67hzSkyMWVu2mYGYir4eoce3hzXNw5aieBks55
-X-Gm-Gg: AZFdTZfy6VTsjvO5Wj2GCph6mqtftmmWBCXw02A2UxrlxHnbD8uYDVuMbj6nqVyyvaS
-	8Pl4cKKshkPo0ZyTn5LMDiQPk0bUFKugzQHiSqgKGcWpG8D0Jv8qQgmtLTAlG5+9wtA4GwP/X5P
-	x5mmrVMmlo7XhcJvCdEtrnuiNx69zfF9rezevakx2HYARXVu5zxQnRXSNHe/i2j9g4c/r5ZkCez
-	ARQ5JpIk22869LtVDyXTrQtLazd5iy7ghTSeN+ZiaoQROQr0Z3Lm9K8BjIzhSpjU4QKqhtQfpv/
-	VAvK5l655rOnnvF21suRhL12lUzASP3Pu/xF0VqggjJQyw49geEttMY8n4D/E1wqsH/WWmcv4qW
-	bxk8hDGcBhhj2DhuXtkgHf/B/lbU6npXM6IZlDzDC+dCqw5Xq858bAcLdkpSfU3NYBCENb3Jf28
-	a3Iik8Ufvsqm3w+OP4KtcIvGeQj6rC066Eb3eD8+NmZfxEZB/Yhbzwak0lAhoLFMqmmW+5MLT9o
-	jU2cj5fDxIDJQAYR3W09i11z3Y4841o5T8lIEs/0y1pPMhQ4IqyG5etCi4vhXu0krDscepCOs9f
-	9GGlJYAIoTLDFak0lQHozLQbCsOeIPt9Qa1R5U+6
-X-Received: by 2002:a17:90b:3d8d:b0:3ab:a188:b898 with SMTP id 98e67ed59e1d1-3b41c80b970mr17701792a91.2.1795448233074;
-        Mon, 23 Nov 2026 07:37:13 -0800 (PST)
-Received: from gmail.com ([36.112.205.124])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde797af60dsm4050341a12.29.2026.11.23.07.37.02
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 07:37:12 -0800 (PST)
-From: Ziyu Zhang <ziyuzhang201@gmail.com>
-To: ian.ray@gehealthcare.com,
-	david@ixit.cz
-Cc: clement.perrochaud@nxp.com,
-	sameo@linux.intel.com,
-	oe-linux-nfc@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	ziyuzhang201@gmail.com,
-	baijiaju1990@gmail.com
-Subject: Re: [PATCH v2] NFC: nxp-nci: fix deadlock between firmware download and IRQ handler
-Date: Mon, 23 Nov 2026 23:36:34 +0800
-Message-Id: <20261123153634.66973-1-ziyuzhang201@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <b707c629-97a7-4766-955b-64a2a7626004@ixit.cz>
-References: <b707c629-97a7-4766-955b-64a2a7626004@ixit.cz>
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1795448254; x=1826984254;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=K+rx6yYPpyPiJ2YjTMZ/suaeoif0QipuumgsrYY9fs4=;
+  b=YK5KN96xrNBmuBMy/m9HRb9ZP9IKhfUYVe0IutnYoC9Msf2lPCusZJ0T
+   E4Uap8JKSOM1UWp0049lB8vUPyvMZhn3dICv2FSEHwrah1rJZnZCU1FpC
+   q2B4CwKmHRbRvJcI+6vRhciOFpW3OvlPgibJ8xphiwDt7/LCBG72W4p5D
+   X3X6bNaHzjuy5pcBMvlTjdLSvsHPeJU6mSsUP3QEfuqOrx5MV1MPOEDrw
+   dERmFFjpQj9VWVm1RByQheCAMQUzX2HWwpAO2pSkb1MK4sH+KoOVBGGmN
+   bXspITe1V7w9x6IhbfsYxjLU6Zgl32lkCEzwNQ/LY3Gmsq8QJ3LTQHVZA
+   A==;
+X-CSE-ConnectionGUID: 7bnPM5+JRyu5Y1+PK+Y6mw==
+X-CSE-MsgGUID: 0iTn6TunQuy+ALvqr7SD4Q==
+X-IronPort-AV: E=Sophos;i="6.27,229,1787011200"; 
+   d="scan'208";a="34720616"
+Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
+  by internal-pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 15:37:32 +0000
+Received: from EX19MTAUWB002.ant.amazon.com [205.251.233.48:16665]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.36.204:2525] with esmtp (Farcaster)
+ id 52d19a38-26bb-465d-85d4-058a1cd6f6f9; Mon, 23 Nov 2026 15:37:31 +0000 (UTC)
+X-Farcaster-Flow-ID: 52d19a38-26bb-465d-85d4-058a1cd6f6f9
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
+ Mon, 23 Nov 2026 15:37:31 +0000
+Received: from dev-dsk-sieberf-metal-1a-7543e84d.eu-west-1.amazon.com
+ (172.19.116.227) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57; Mon, 23 Nov 2026
+ 15:37:30 +0000
+From: Fernand Sieber <sieberf@amazon.com>
+To: Peter Zijlstra <peterz@infradead.org>
+CC: Ingo Molnar <mingo@kernel.org>, <linux-tip-commits@vger.kernel.org>,
+	<x86@kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [tip: sched/urgent] selftests/sched: Add a core-sched forced-idle DL server test
+Date: Mon, 23 Nov 2026 17:37:25 +0200
+Message-ID: <20261123153725.33870-1-sieberf@amazon.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <179538776573.92412.6375274230600382710.tip-bot2@tip-bot2>
+References: <20261112161548.78189-6-sieberf@amazon.com> <179538776573.92412.6375274230600382710.tip-bot2@tip-bot2>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,64 +85,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: EX19D031UWA002.ant.amazon.com (10.13.139.96) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-Hi Ian and David,
+Hi Peter,
 
-Thanks for the patch and review.
+Thanks for picking these up. I think there's an issue with the split:
+sched/urgent has the two fixes and the new selftest:
 
-For the timeout/late-response race David pointed out, I suggest checking
-info->mode at the start of nxp_nci_fw_work(), after taking info_lock.
+  d2583cb03113 ("sched/deadline: Clear stale rq->dl_server when core-sched replaces a pick")
+  f4626e1c3c14 ("sched/deadline: Don't charge core-sched forced idle to the DL servers")
+  6d6fca38f51f ("selftests/sched: Add a core-sched forced-idle DL server test")
 
-On timeout, nxp_nci_fw_work_complete() sets the mode to NXP_NCI_MODE_COLD
-and releases the firmware while the worker holds info_lock. When the
-work queued by a late response runs after this cleanup, the mode check
-makes it exit before accessing the released firmware data.
+but the ranking patch went to sched/core:
 
-The diff below combines Ian's unlock/wait/relock fix with this additional
-check and applies to the original code before v2.
+  87a825f3c680 ("sched/core: Rank DL server picks as deadline in the core-wide pick")
+  https://lore.kernel.org/all/179542773720.92412.4774760214632371644.tip-bot2@tip-bot2/
 
-I have not fixed the other two issues yet. I think these would be best addressed in separate
-patches.
+Without it the selftest fails on sched/urgent (8/8 in QEMU, the CFS
+task gets 0-1% against the 2.5% floor), and passes with it.
 
-Signed-off-by: Ziyu Zhang <ziyuzhang201@gmail.com>
----
- drivers/nfc/nxp-nci/firmware.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+Could you move 87a825f3c680 to sched/urgent too? If you would rather
+keep it for the merge window, the selftest should go to sched/core with
+it.
 
-diff --git a/drivers/nfc/nxp-nci/firmware.c b/drivers/nfc/nxp-nci/firmware.c
-index a953397..33193fe 100644
---- a/drivers/nfc/nxp-nci/firmware.c
-+++ b/drivers/nfc/nxp-nci/firmware.c
-@@ -154,8 +154,10 @@ static int nxp_nci_fw_send(struct nxp_nci_info *info)
- 		if (fw_info->fw)
- 			schedule_work(&fw_info->work);
- 	} else {
-+		mutex_unlock(&info->info_lock);
- 		completion_rc = wait_for_completion_interruptible_timeout(
- 			&fw_info->cmd_completion, NXP_NCI_FW_ANSWER_TIMEOUT);
-+		mutex_lock(&info->info_lock);
- 		if (completion_rc == 0)
- 			return -ETIMEDOUT;
- 	}
-@@ -174,6 +176,9 @@ void nxp_nci_fw_work(struct work_struct *work)
- 
- 	mutex_lock(&info->info_lock);
- 
-+	if (info->mode != NXP_NCI_MODE_FW)
-+		goto out_unlock;
-+
- 	r = fw_info->cmd_result;
- 	if (r < 0)
- 		goto exit_work;
-@@ -190,6 +195,7 @@ void nxp_nci_fw_work(struct work_struct *work)
- exit_work:
- 	if (r < 0 || fw_info->size == 0)
- 		nxp_nci_fw_work_complete(info, r);
-+out_unlock:
- 	mutex_unlock(&info->info_lock);
- }
- 
--- 
-2.34.1
+Thanks,
+Fernand
+
+
+
+Amazon Development Centre (South Africa) (Proprietary) Limited
+29 Gogosoa Street, Observatory, Cape Town, Western Cape, 7925, South Africa
+Registration Number: 2004 / 034463 / 07
 
