@@ -1,58 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795430711;
-	b=vUjSfQUXc1oXATIab1qkPyzCcbrUodka0nHz3iNig/1S4VghhfnMO+PhdsgnjI7VwdJ9
-	 g2o4zFFbG8+jwADOjTfG8K8LRTPNgyKATeqwNcevS/LN2QN+vM8B0z3/JfHY3QWIeDrsW
-	 4K6sizByR4C5cVfFbq8Yu0qmmEY6IoboV1VBuX10DJvIQ7MWuQLr876ABrfCS63ihHMz/
-	 7bP3qwZMp9R+abQ2gw14QqCFUQKjL30zbZARDQIDEbjF5MHToX3Y1LP3l3NU1mYWiyI3n
-	 OIb0Hhwsx8S1kpjtBK5SQR2fPWeP4r71KRDXrjSm+thE5o2DpEVECZRmAvJysfkaEmQ==
+	t=1795430726;
+	b=zuJ6m8k6j86iVfilNYymhTXIjw/MV+6bP/U/ZydxEpdQjNzHTBFpIlqXPMfdITXGKv5v
+	 r5GIxq11dvp0faPnwAIXkXlQklfV+7RlGi/avopZvxHU4LY0Yvb6FCaD4rb7hYl1zTaBc
+	 LGocoTgUQDa+JSIiNRnLo3YeQf7gWwiXwtZGH8PEcQVSwKrkTuIdlGoqdlfWTnAHzJnPI
+	 5/kFlGIwxz+wAuIUlQwQytfJAP+V17oNDC4FqwVJ5ASYwmEEH5ogJu8mMLwfin5poEav0
+	 TUFhpSox42u52bjEDc5etK5/GUaXPUsF8E0PD/AdeOYobJSai1uaX1XcWwxI+epPo7Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430711;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=WE6ErQRgC8wJSMhBoOsm1vUlEXt3CzOEmJvfGzWVO2U=;
-	b=1TpbsschuhYFFWey6FVeGPOP9K/p3kGGRkOTQhVsu2bCxlDxLE9ZqzgrSsywgJ4g+Dkf
-	 zaDN6Z5SyAM4QZKmN4I/W/IhrPdoI0TxFZ51ggdV+5jnhu6bk4rMzoQJeNeHYEt4c9F1+
-	 s+8rZ6P7nCI/mlBD1gRuaG36NvyRcsJorBY2weBZW3+PgfzmvyWzgQWy9EWRbgV4WsSLC
-	 BPuPSC5rcEdb1mxf+mQ4xg8Zuak2q+2231lVkwcNyQVbGg7ehmx8GIGWCTooY2UJ/hVss
-	 a3OBFEXUrwTv3YUSIxViyCosX6c7uDFLent/OtDWyoNbi1kHKU6fHkloSjtZiuUT/3w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430726;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=/qPYmDvU6/tNYx5q3aQ8plRWWnZskWOlIWsw9PX0tvk=;
+	b=sr6x+6tA+2H1JzuAyP9cLXZLxyLLRbw4GABlDC6aGz6INny+HDtm5sa+qbqjOyRvb9pG
+	 OiQ8patqrd8WY2twGB2ePloK9vxrdnp9AI5RE9LYh9nLr/fJr9m5jOEi4MlCKoZdnO4eE
+	 oX5Hkd1RCcsF30E0J6/HErtxwgcM7FiZu91Hd6h4730ILawj4x6etnda3t7pkcWTHRDq0
+	 6QF8jYRCQYIS4ZQ4ib7IWHO6dSo3SNpdmtV9pNliT1fjuoHoDfqfjBlUl02x6NnGTWZT5
+	 0AFOUX0TYz467/vry09y85ipr3mX/Ali/eD55NkRAl8O1Xm5BRqcfFk155Kf8euaqqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q9O01lhF;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=xiaopeng.com;
+	spf=pass smtp.mailfrom=xiaopeng.com;
+	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=TDY5wph7;
+	arc=none smtp.remote-ip=115.124.28.50
+Received: from out28-50.mail.aliyun.com (out28-50.mail.aliyun.com [115.124.28.50])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBFB4606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:45:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16844606A31A;
+	Mon, 23 Nov 2026 10:45:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16844606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q9O01lhF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 553C41F000C0;
-	Mon, 23 Nov 2026 10:45:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795430710;
-	bh=WE6ErQRgC8wJSMhBoOsm1vUlEXt3CzOEmJvfGzWVO2U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Q9O01lhFujjJBzBnuEnYazam8NAPmXlSLSSX03JtBPh6GqA3cPeDKAm8z6wPKpqB3
-	 fjC5Txx4MYsYS2Knk9pIU+9WODPuyfMi+1N7WMo3rUJv6R/2Qye1j/tJX9iG32SAXf
-	 2E190GHwZW/jQdLxQXjvDQjOIlJol5BHZEYsbOy1vESrQuYhg9T9Wm2yY+ifjiqF/w
-	 nom7G1BIg0QJHu9GZZ8UUbvnJTV1HUuAKorJip5Ak45giyVzAnqLcnYe9BhgLAH3Q8
-	 TJGJnXQfFvo3YEjri1KFoyXUDEUXZdZ/WiouMhTHHEYV98Qs1Tm8trdIlGnhcs+Jh8
-	 7YTl0GImMCC2Q==
-Date: Mon, 23 Nov 2026 11:45:08 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: michael@amarulasolutions.com, linux-amarula@amarulasolutions.com, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 1/8] drm/bridge: Add atomic_sro_install_state hook
-Message-ID: <awQZEEqMK7bZ8dEq@houat>
-References: <20261122153032.2782768-1-dario.binacchi@amarulasolutions.com>
- <20261122153032.2782768-2-dario.binacchi@amarulasolutions.com>
+	dkim=pass (1024-bit key, unprotected) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=TDY5wph7
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xiaopeng.com; s=default;
+	t=1795430714; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=/qPYmDvU6/tNYx5q3aQ8plRWWnZskWOlIWsw9PX0tvk=;
+	b=TDY5wph75b0CUpz8TLBqKHs3xYNAUiJqPNbnSkkv7rdH/wIvQvLacDGDgMlM2XcOlf17ecSZs8KUiA8VYVZzGfCCp/wl7+LnVWMqWvzgJuAzll6i7uYsATgeud88dfvNLR9PdsWtjPv56tqLNnUNYFsh2SqbmGNoWOI8dAEFavg=
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.06318961|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_regular_dialog|0.0252662-0.000486688-0.974247;FP=15535778311839784065|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037034184;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=4;RT=4;SR=0;TI=SMTPD_---.k8JXEr._1795430713;
+Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k8JXEr._1795430713 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Mon, 23 Nov 2026 18:45:13 +0800
+From: Fang Xieyan <fangxy@xiaopeng.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>
+Subject: Re: [PATCH] asm-generic: bitsperlong: Remove the disabled BITS_PER_LONG check
+Date: Mon, 23 Nov 2026 18:45:12 +0800
+Message-ID: <20261123104512.58227-1-fangxy@xiaopeng.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <423ac235-513e-4850-ba1c-5fe98eb2b294@app.fastmail.com>
+References: <423ac235-513e-4850-ba1c-5fe98eb2b294@app.fastmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,49 +62,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="sqipkz2e5yi745k7"
-Content-Disposition: inline
-In-Reply-To: <20261122153032.2782768-2-dario.binacchi@amarulasolutions.com>
+Content-Transfer-Encoding: 8bit
 
+On Mon, Nov 23, 2026, at 09:08, Arnd Bergmann wrote:
+> I think the correct fix would be to stop the x86 vdso from including
+> this header. The general rule is that any VDSO code should only
+> include headers from include/vdso/, but not include/linux or
+> include/asm.
 
---sqipkz2e5yi745k7
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [RFC PATCH 1/8] drm/bridge: Add atomic_sro_install_state hook
-MIME-Version: 1.0
+Thanks, that makes sense.
 
-Hi,
+The compat vDSO ABI difference is valid, but it should not require
+the VDSO to include this kernel-internal header. I'll drop this
+removal.
 
-Thanks a lot for looking into it :)
+I re-enabled the check in a test build to see what actually breaks.
+On x86-64 the vdso32 build passes, because fake_32bit_build.h
+undefines CONFIG_64BIT to fake a 32-bit configuration. The failures
+are the realmode build (32-bit code with the real 64-bit config),
+and the arm64/parisc compat vDSO builds, which include this header
+via <vdso/gettime.h> -> <linux/types.h> without faking the config.
 
-On Sun, Nov 22, 2026 at 04:30:01PM +0100, Dario Binacchi wrote:
-> The CRTCs, planes, connectors and private objects can acquire the
-> resources needed to keep the hardware state active when a state read
-> out from the hardware is installed. Bridges can't, even though they
-> usually hold a runtime PM reference and track their enable state
-> while the pipeline is active.
->=20
-> Add the atomic_sro_install_state hook to the bridge funcs. It is
-> called only for the bridges of a pipeline that was read out as active.
->=20
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+I'll investigate the include chains and look into removing the
+dependencies on include/linux and include/asm before revisiting the
+check.
 
-This is now part of the v9, so you won't need it
-
-Maxime
-
---sqipkz2e5yi745k7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCawQZMwAKCRAnX84Zoj2+
-dnHvAYCET/dmHAvACi46xA5DrorXuIavkm1jIpnP0lKH4hlN98aoe+l62suseq/4
-vJlgdoYBgLQ/tmWmV/ikNfs9bgmJ7kbYUKfll2wI0MItqSXErN2HdbWnHwCJT1UR
-e3Dap0J+Cw==
-=e6Qm
------END PGP SIGNATURE-----
-
---sqipkz2e5yi745k7--
+Thanks,
+Fang Xieyan
