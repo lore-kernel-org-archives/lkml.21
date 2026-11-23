@@ -1,54 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795426163;
-	b=JSxXKNN+sDQnHh3VEYEPJmeIrQLnnrzJ4YCUkZvugCADRqyZKWycrMhCHurrg5Nqnuim
-	 EoPyTdRnmm6aIdDSB6PwjPB04XjD+ZZSVgnQpkiqjXAivmiISCkr0fy7Cf4FQDNZJtegD
-	 wPSoX9jWoLKtM+zsrQDgHthzEoVvFxHitvN9ZcXPXuc1NNZOSS838AaY+2yBDm9yvRa6Y
-	 aJiZ3Kk6A46fRSDOJ5v4dk+0VVzpqhGTo/RekM02qdSkkIYnErpUYgo6XqEUcpthP+DIA
-	 lvv8o+8GzX88z+uIRnnOvZ8ZoDlkBPqmu5/mvwNbpt2ZSqpDqy7bVEJXdPqMM+WRdig==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795426163;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=53LL2D2w2EtJWe1+ddsR6vv92olybDI66APL3fli6Ak=;
-	b=hDSD2bsuVEJMTQ2Iob8olPaPra0Nl5gRW5vPgBrefDZncv1jOSkMlEXr09QLy1YRTwm+
-	 UFR+pqlJsqI7ulvrHrAaLd6H9FWaludUC/9TP9pi1nGip1b26Zs40j90CMvGiTVAZ3oig
-	 swxpYvwSfHzpItmlJqXRTVkmdNpr3KzCduxB8Y2im5QKExmLT6ZHz655B+ggFa878SftX
-	 kR0+xN8mDrBazJvKkxdnVsXZzK/8d75kJbBm4soyjGznb8nfd0BpAvLz4nub7UwSXc1O6
-	 0v4CS57vQzN8Z36kdlZL5eC8yTPwRE/MSNc1WMnsaLDR3sM/Eh67xdwTgfsWtJyQTfw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=DQj9+7CG;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795426208;
+	b=S7tC5Z+nliXdKvT7cQVWDyV5qwwDq84HiiewyZF7SDwEg5U2M5KXVGSKuQWcmCGJwqK0
+	 5fywXKkV8Mg2O3SE4XcwdA6l8CMRfA39xwT7xcO7pcTROafB0rC7qjZkL3WYMexit9V6B
+	 XuaiZoCtvaePJ2498yuv+q2TRS+P3htH3cigS/Eb4YFrHyOP01I1pZLSzrlXJcVFrRsgD
+	 A6aNKw6z24Tc4y/2LBvzPpEgVTlSJEA9p5fe436arVBa/GlnS/rEIyMLeE+JuQj6/Q+ee
+	 1hiYaMjLs6uoTBuZywlaFg8vR0y8mfsYVYQOjtSx/7Xv4N/zl1stUTMlPPyFVAXfIiw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795426208;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=t4U+ldndWXYiv8sPaqw7sW8lRoYP2EKLyk9iA28Ai0s=;
+	b=3prpsvStsAMCQzb2P3AHuqbapWKZe3SGplfx++EbyWdSy7NvmAjjWt53NoKC02KdG8Ac
+	 3MCmFHGndvg1+uACcdp7nDrcBBwHhUzz4DCwpCkNFrJ3xBRcEg7tcDQxm3C1pG7uj+t3V
+	 uo4Janu8zaQW4/IyVs82WS0t8iaiExzNXDkuP4o17EiR1B0tkFOgjnyEa3doZP2VYnVZH
+	 mtw6HGDvGk1AHc6xNOKJ8429StGNjbCpCZ30DTjaFlNP1mk3rQk/kxip78nE1/w3pQ+fG
+	 C7MEXksuXDuj4RK639IIqkStAuw2QZu03Y4UjQ8kKeRCZylYkvtbKoeqlyHWfRzQ1Bw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=As8kJMj+;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A39E606A31A;
-	Mon, 23 Nov 2026 09:29:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A39E606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EC44606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:30:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=DQj9+7CG
-ARC-Seal: i=1; a=rsa-sha256; t=1795426122; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=TgqzDKVEL05neW6G3OiXqN/NYFeY0JBuHTOpsKcaNHJ/7MlsUSMQ1snWnTLodHVpybgZhsii0ccE/eydlvwpzpWDn3TWDII7ON++Q24OnUhwgsqbahhN4Nuzp4//msYTulAZTgGdAllaqAzsxp9RIc2by3M4AGCTmjLCB6P3fV0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795426122; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=53LL2D2w2EtJWe1+ddsR6vv92olybDI66APL3fli6Ak=; 
-	b=Wn32+qDuW+Qgs2SnyxdeAWxG347VXmalFRCh6dyUQHASp1SbrJ/6Lvv7JUeF8JP0k85V6bQYye/qOczGtvIHhLg99uoDCdQOxGnG+rAS+Au0CXiWednfhkeSzLHvExC3WaUF7yba71/Mwjc7MnhWvq51skMYEHKdWayMSwrCFio=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=DQj9+7CGafMRyuGqodovNZbhyVhriEePnrEDodKxF/BU9L8aNqTKtKsJeOdLJSmTTLJbYQ6iivtbuXVV+HxZt4b8QmkMyONezmeoK0tM1jaxB5XDJRYvG2AjbMlZMkRvCtuw0JkRjf6E8T4C5Lgn9R25dUj5t9S0tSckMHjyyog=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=53LL2D2w2EtJWe1+ddsR6vv92olybDI66APL3fli6Ak=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795426120017335.5726507575188;
-	Mon, 23 Nov 2026 01:28:40 -0800 (PST)
-Message-ID: <ad73cef4-0212-4749-8950-140dcfe4438c@collabora.com>
-Date: Mon, 23 Nov 2026 10:28:34 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=As8kJMj+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA18D1F000C6;
+	Mon, 23 Nov 2026 09:30:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795426208;
+	bh=t4U+ldndWXYiv8sPaqw7sW8lRoYP2EKLyk9iA28Ai0s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=As8kJMj+D8cbkW8Y/3kujuVU1nEpni9qbmetR+F67FjFi1i4FzY669m04DvTtv34D
+	 UbK5WYzNqTLHFOhddaows9iinulzDzs3W1gbRicH15wJk4Sx2OfqqNeZ1ioz4qf2tq
+	 ov0eF2fzTnjETRuOG0oq9efrzqt6n0queknW/xs0rQkX81Nv5DPQUlAVAAHb0ki86W
+	 3d/Luz4ygugGwnOK/3H/ylIIwNyMIzA4DxBn6ST57ruH06dt/80YWoS5Sr/iwD6g9g
+	 URV/h6w6UyBt5NKjCq+K8CAW3CtjH8Abng0oU+GOzwHDQq6tjYJfMk8m3QICP2l/2l
+	 t3zg+q93JTJ7A==
+Date: Mon, 23 Nov 2026 10:30:05 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>
+Cc: Mario Limonciello <mario.limonciello@amd.com>, 
+	Alex Deucher <alexander.deucher@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+	Javier Martinez Canillas <javierm@redhat.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Harry Wentland <harry.wentland@amd.com>, 
+	Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>, 
+	Mario Limonciello <superm1@kernel.org>, Xaver Hugl <xaver.hugl@gmail.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, nouveau@lists.freedesktop.org
+Subject: Re: [PATCH v12 01/12] drm: add connector LUMINANCE property
+Message-ID: <awQGSuf2UJjItcO0@houat>
+References: <20261119-superm1-backlight-property-v12-0-89d5217d3618@amd.com>
+ <20261119-superm1-backlight-property-v12-1-89d5217d3618@amd.com>
+ <awB4Qe83u0l0XPKA@intel.com>
+ <8713bae1-9782-41d4-b09c-f14031203e88@amd.com>
+ <awPvoLCDeq1YFLE_@houat>
+ <awPzsMWZ7e0i6i54@intel.com>
+ <awP0nasqAc4pAeMR@houat>
+ <awP8hAy3Gim4eNxz@intel.com>
+ <awQAlSSks2We5h2z@houat>
+ <awQENQN5SswJRtWw@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,76 +72,219 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] media: verisilicon: Set need_postproc before
- resetting the CAPTURE format
-To: aiyengar1990@gmail.com, Nicolas Dufresne
- <nicolas.dufresne@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Andrzej Pietrasiewicz <andrzej.p@collabora.com>,
- Hans Verkuil <hverkuil@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20261115-hantro-fixes-v2-0-bfecfb07a3e7@gmail.com>
- <20261115-hantro-fixes-v2-2-bfecfb07a3e7@gmail.com>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <20261115-hantro-fixes-v2-2-bfecfb07a3e7@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="krfptbljx3eyphdm"
+Content-Disposition: inline
+In-Reply-To: <awQENQN5SswJRtWw@intel.com>
 
 
-Le 15/11/2026 à 09:39, Arun Iyengar via B4 Relay a écrit :
-> From: Arun Iyengar <aiyengar1990@gmail.com>
->
-> hantro_reset_raw_fmt() sets bit_depth and need_postproc only after
-> hantro_set_fmt_cap(), so hantro_try_fmt() sizes the format with the old
-> values: after AV1 film grain is turned off, the CAPTURE buffers lack the
-> motion vector area. Set them first and restore them on error.
->
-> Fixes: 80c7373a456e ("media: verisilicon: Conditionally ignore native formats")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+--krfptbljx3eyphdm
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v12 01/12] drm: add connector LUMINANCE property
+MIME-Version: 1.0
 
-Reviewed-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+On Mon, Nov 23, 2026 at 11:15:33AM +0200, Ville Syrj=E4l=E4 wrote:
+> On Mon, Nov 23, 2026 at 10:03:50AM +0100, Maxime Ripard wrote:
+> > On Mon, Nov 23, 2026 at 10:42:44AM +0200, Ville Syrj=E4l=E4 wrote:
+> > > On Mon, Nov 23, 2026 at 09:10:17AM +0100, Maxime Ripard wrote:
+> > > > On Mon, Nov 23, 2026 at 10:05:04AM +0200, Ville Syrj=E4l=E4 wrote:
+> > > > > On Mon, Nov 23, 2026 at 08:50:29AM +0100, Maxime Ripard wrote:
+> > > > > > On Fri, Nov 20, 2026 at 11:19:13AM -0600, Mario Limonciello wro=
+te:
+> > > > > > >=20
+> > > > > > >=20
+> > > > > > > On 11/20/26 10:41, Ville Syrj=E4l=E4 wrote:
+> > > > > > > > On Thu, Nov 19, 2026 at 05:27:28PM -0600, Mario Limonciello=
+ wrote:
+> > > > > > > > > Panel brightness is a property of a display, and thus of =
+a DRM
+> > > > > > > > > connector. Add an atomic per-connector LUMINANCE range pr=
+operty so
+> > > > > > > > > compositors can manage relative panel luminance together =
+with the rest
+> > > > > > > > > of the display state.
+> > > > > > > > >=20
+> > > > > > > > > Keep the core backend-agnostic. Drivers create the proper=
+ty with their
+> > > > > > > > > hardware range and implement connector helper callbacks t=
+o set luminance
+> > > > > > > > > or disable panel emission. The atomic helpers sequence th=
+ose callbacks
+> > > > > > > > > around pipeline enable and disable, including luminance-o=
+nly commits.
+> > > > > > > > > The panel is left lit when the pipeline enters self refre=
+sh, and the
+> > > > > > > > > luminance is only reprogrammed when it changes or a modes=
+et enables the
+> > > > > > > > > pipeline.
+> > > > > > > > >=20
+> > > > > > > > > The stored property value is independent of display power=
+=2E A commit made
+> > > > > > > > > while the connector is inactive is retained and applied o=
+n the next
+> > > > > > > > > enable; disabling the pipeline does not overwrite it.
+> > > > > > > > >=20
+> > > > > > > > > LUMINANCE values are relative, driver-defined levels rath=
+er than
+> > > > > > > > > absolute luminance in cd/m^2. The interface supports emis=
+sive panels as
+> > > > > > > > > well as panels with a separate backlight.
+> > > > > > > > >=20
+> > > > > > > > > Keep the interface behind a default-off DRM_LUMINANCE opt=
+ion. Migrated
+> > > > > > > > > drivers retain their legacy backlight class ABI unless th=
+e new interface
+> > > > > > > > > is explicitly selected, allowing the DRM UAPI and legacy =
+compatibility
+> > > > > > > > > policy to remain separate.
+> > > > > > > > >=20
+> > > > > > > > > Acked-by: Javier Martinez Canillas <javierm@redhat.com>
+> > > > > > > > > Signed-off-by: Mario Limonciello <mario.limonciello@amd.c=
+om>
+> > > > > > > > > ---
+> > > > > > > > > v11:
+> > > > > > > > >   * Don't call .disable_luminance when the CRTC enters se=
+lf refresh (Sashiko)
+> > > > > > > > >   * Only call .set_luminance when the luminance changes o=
+r on a modeset
+> > > > > > > > >     that isn't a self refresh exit (Leo Li, Sashiko)
+> > > > > > > > >   * Fix the .set_luminance self refresh documentation
+> > > > > > > > > v10:
+> > > > > > > > >   * Add tag
+> > > > > > > > > ---
+> > > > > > > > >   drivers/gpu/drm/Kconfig                    | 14 +++++
+> > > > > > > > >   drivers/gpu/drm/drm_atomic_helper.c        | 98 +++++++=
+++++++++++++++++++++++-
+> > > > > > > > >   drivers/gpu/drm/drm_atomic_state_helper.c  |  7 +++
+> > > > > > > > >   drivers/gpu/drm/drm_atomic_uapi.c          |  5 ++
+> > > > > > > > >   drivers/gpu/drm/drm_connector.c            | 57 +++++++=
+++++++++++
+> > > > > > > > >   drivers/gpu/drm/tests/drm_connector_test.c | 28 +++++++=
+++
+> > > > > > > > >   include/drm/drm_atomic_helper.h            |  3 +
+> > > > > > > > >   include/drm/drm_connector.h                | 16 +++++
+> > > > > > > > >   include/drm/drm_modeset_helper_vtables.h   | 28 +++++++=
+++
+> > > > > > > > >   9 files changed, 255 insertions(+), 1 deletion(-)
+> > > > > > > > >=20
+> > > > > > > > > diff --git a/drivers/gpu/drm/Kconfig b/drivers/gpu/drm/Kc=
+onfig
+> > > > > > > > > index 61111d50b1c65..1bbe2c2d7c76f 100644
+> > > > > > > > > --- a/drivers/gpu/drm/Kconfig
+> > > > > > > > > +++ b/drivers/gpu/drm/Kconfig
+> > > > > > > > > @@ -33,6 +33,20 @@ endmenu
+> > > > > > > > >   if DRM
+> > > > > > > > > +config DRM_LUMINANCE
+> > > > > > > > > +	bool "DRM connector luminance support"
+> > > > > > > > > +	help
+> > > > > > > > > +	  Expose relative luminance as an atomic DRM connector =
+property. Values
+> > > > > > > > > +	  are driver-defined levels rather than absolute lumina=
+nce in cd/m^2.
+> > > > > > > > > +	  Drivers provide connector helper callbacks to program=
+ their hardware;
+> > > > > > > > > +	  the DRM core does not depend on a particular backend.
+> > > > > > > > > +
+> > > > > > > > > +	  Drivers migrated to this interface will use it instea=
+d of registering
+> > > > > > > > > +	  a legacy backlight class device. Leave this disabled =
+to preserve the
+> > > > > > > > > +	  de-facto userspace ABI in /sys/class/backlight.
+> > > > > > > >=20
+> > > > > > > > I don't think this will fly if it breaks the backlight clas=
+s interface.
+> > > > > > > > No one can actually enable this outside of some niche embed=
+ded use
+> > > > > > > > cases where backwards compatibility is not an issue. I thin=
+k what
+> > > > > > > > you need is a generic backlight class implementation on top=
+ of this.
+> > > > > > > >=20
+> > > > > > >=20
+> > > > > > > The idea with this was:
+> > > > > > > 1) to get the series landed
+> > > > > > > 2) let compositors merge solutions around it.
+> > > > > > > 3) Then add backwards compatibility to kernel so we can flip =
+the Kconfig
+> > > > > > > default.
+> > > > > >=20
+> > > > > > I said this a few times already, but we keep having those discu=
+ssions
+> > > > > > while the backlight sysfs handling is far from being the main p=
+oint. You
+> > > > > > should *really* consider adding support for the luminance prope=
+rty for
+> > > > > > something that isn't tied to that interface (like DDC/CI for HD=
+MI), and
+> > > > > > treat the sysfs API as a sysfs series.
+> > > > > >=20
+> > > > > > It looks like people just have conflicting opinions on this par=
+ticular
+> > > > > > part that isn't going to solve itself easily. You should not tr=
+eat this
+> > > > > > sysfs discussion as a blocker for the infrastructure work.
+> > > > >=20
+> > > > > You want to be sure backwards compatibility with the backlight
+> > > > > class is a solvable problem before you land *anything*. Otherwise
+> > > > > you might just paint yourself into a corner with no way out.
+> > > >=20
+> > > > I disagree. The luminance property is more useful than *just* for
+> > > > backlights but is also useful for HDMI, DP, and MIPI-DSI that would=
+ all
+> > > > use it.
+> > >=20
+> > > DSI and eDP are all over the place when it comes how backlight
+> > > is implemented, so very much would not all use it. Some HDMI and
+> > > external DP displays might have DDC/CI support, so I'll give you
+> > > those.
+> > > =20
+> > > > If that's the corner we paint ourselves into, it's still a pretty n=
+ice
+> > > > corner.
+> > >=20
+> > > Separate APIs for different outputs on different drivers is just
+> > > a bad idea. Every userspace implementation will have to support
+> > > all of them until the end of the world.
+> >=20
+> > I agree, but then there's an easy answer: don't enable it on drivers
+> > that would expose it on both APIs. We do have a lot of drivers where
+> > there's just no backlight involved and would greatly benefit from these,
+> > and without the history of i915 or amdgpu to deal with.
+>=20
+> It's not the history of the drivers you need to worry about. It's
+> the history of userspace that actually matters. All existing
+> userspace expects a working backlight class interface. And if you
+> don't care about userspace compatibility then we're very much
+> back in the "only usable in niche embedded use cases" or "only
+> usable on external displays" territories.
 
-> ---
->   drivers/media/platform/verisilicon/hantro_v4l2.c | 11 ++++++++---
->   1 file changed, 8 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/media/platform/verisilicon/hantro_v4l2.c b/drivers/media/platform/verisilicon/hantro_v4l2.c
-> index 83af9fa1ce94..5939fffc350d 100644
-> --- a/drivers/media/platform/verisilicon/hantro_v4l2.c
-> +++ b/drivers/media/platform/verisilicon/hantro_v4l2.c
-> @@ -449,6 +449,8 @@ hantro_reset_raw_fmt(struct hantro_ctx *ctx, int bit_depth, bool need_postproc)
->   {
->   	const struct hantro_fmt *raw_vpu_fmt;
->   	struct v4l2_pix_format_mplane raw_fmt, *encoded_fmt;
-> +	bool old_need_postproc = ctx->need_postproc;
-> +	int old_bit_depth = ctx->bit_depth;
->   	int ret;
->   
->   	raw_vpu_fmt = hantro_get_default_fmt(ctx, false, bit_depth, need_postproc);
-> @@ -465,14 +467,17 @@ hantro_reset_raw_fmt(struct hantro_ctx *ctx, int bit_depth, bool need_postproc)
->   	hantro_reset_fmt(&raw_fmt, raw_vpu_fmt);
->   	raw_fmt.width = encoded_fmt->width;
->   	raw_fmt.height = encoded_fmt->height;
-> +
-> +	ctx->bit_depth = bit_depth;
-> +	ctx->need_postproc = need_postproc;
->   	if (ctx->is_encoder)
->   		ret = hantro_set_fmt_out(ctx, &raw_fmt, need_postproc);
->   	else
->   		ret = hantro_set_fmt_cap(ctx, &raw_fmt);
->   
-> -	if (!ret) {
-> -		ctx->bit_depth = bit_depth;
-> -		ctx->need_postproc = need_postproc;
-> +	if (ret) {
-> +		ctx->bit_depth = old_bit_depth;
-> +		ctx->need_postproc = old_need_postproc;
->   	}
->   
->   	return ret;
->
+Depending on what your perspective is, fastboot was "only usable in
+niche i915 use cases" just like color management for amdgpu or leases
+were. Let's not be judgemental and / or dismiss others use cases.
+
+If some established driver like, say, vc4 that only has external
+displays can pave the way for everyone else to use them eventually, how
+is it a downside that it's only usable on external displays?
+
+And even if it's still usable by less established drivers, slow-rolling
+it into more drivers, fixing the bugs, rough edges, etc. while
+consolidating the code still has a lot of value. Just like it had for
+color management or fastboot.
+
+Maxime
+
+--krfptbljx3eyphdm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCawQHnQAKCRAnX84Zoj2+
+dv/IAX9eEMFvOITWTZmbmaZRs5cttfIv53qo1lTfjicUHXYndBi+lFMhUfQkVVAu
+QasRx0cBgJfCcGl18yTL+HrxkoGnsNUdtOCnuw4m8Ib6T9gnf+Fb2mCiowaup437
+90mwIf/Gpw==
+=oDlh
+-----END PGP SIGNATURE-----
+
+--krfptbljx3eyphdm--
