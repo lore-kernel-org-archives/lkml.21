@@ -1,60 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.157.23.187
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795434122;
-	b=FX069KcDZsF/BxHSTRXVVkm+ubXHvWp0WU5YSsVxQd51rii4HYIzMvsOTTKW+jKjojsQ
-	 JAJS4brdNZkYNBFQquoeF6MNh/6wEG6rgqB1s5I30k640cLf2KcRjI8Vhg9ego/vDa3W6
-	 8HVcrio4CjidHI46Y/WWeBIhjKjAjow+Y3qoVeVBXjr33b3wCKfc+fYjaCNbO0j6iDHZo
-	 Px1hDsH2G33t61R7lxwsAhoGwAUv43uyaJXkhvC4dR+0+C5UGVqj3i/XW0ZahfZ8rV2Jk
-	 xKM+OjXxN+zrDL3q9S5PpdcUunZqUcUKGyWRIOqgsDn257q1Tk/y/x6aP7PmRq3fEaA==
+	t=1795434137;
+	b=4+vCDpTv7BiQY7wCC5qbEGXJMNC2f2Cna4oA0rQEIt5tq3vX2NkoR3qoGxWW2Ee5E7Jl
+	 dWEJ9bGtBJZSPBQ+CYdBFiRltLJX7iw8qV/BItNE8ScMeh5u853B+y35f7pxNdE0Bjsqx
+	 qvwRYxoLtdYnyQBKPizWco/FGVjL+qmv9hc4qvRswiGMi5fnPB5lUq4c4VBrq3ALmzoDt
+	 xtjh+oNc6XbgobRjZJhx1vrDSNjNk91qd3h/9Qb2gufWTiVDWQ59JKAQkkTIRjbb/AHDi
+	 1PrNDP0J6mliBLo65LEEhHZpNd/44TFFnB1ZCZn6HFCpvMnliJAQcbiAjTjoleRyIyA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795434122;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
-	bh=RV5KC3iZ1ej2HaOJpSpPN88tsmvHdspNBiKJQsIda+E=;
-	b=0UiEly3DekVtI8hyQeqW/ywIsxXiR+pzBgkIR+lfHuRUVB2k54Zt3bsxRaEheHBsnJ56
-	 o+uwlSTMWkw6K6BO4ZZq4KXPyICKxAuqMuIe5Fv2vHQHmonrHeamwJEzsobTTvisCSF1a
-	 m3CT6VQ1u8vqp7NBfkVaRHJc8NlbRAWKifVC77qipAkDavSk7sCNvYl06MA+bSjmE/65Q
-	 kPax1je92lqUzHZqpsfNSpBSJpzOSSqe/QGHpKSquGsTgK2S5vH+c1CYq9n1BE3FpeMUw
-	 FdXGW17CAK/93enPDKWSo5lMi2t94AFzXapnH9DT9A0Zu8LCJ7fUgEkDcK6/wAAxHEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795434137;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=ir6z+1QO+ZehukLrcRk3cS0RS9cUAR81T7iwjbCFauE=;
+	b=QC/MFMd38wOZml8muyAOOrQNwAtzH3RbceaHcDhujEfcyBsfjVrMhU8ocIYZ4BDXgZYi
+	 DTARBPZLUFhMNWSYSS070FGZCBq+Vb6WfjseP6/7WwzftFRLbcTbhaM4ahLD1aPSBG3N+
+	 HMDJaVmGm2NzAdPKGfzf9+X0LDElp1XGzCxl55MG7bOz7Kk23U/LIscCJCZjrcaWjFsaG
+	 tij2yscxqo9hLsuxxUJmbpK1kCUBN0OGxPcomX3F8ovFRff8fO5k0dmS4xxrpWIyf2Rz+
+	 j2yZ461/RhKWOI23p3k9nsNu9hOuh+JMejcKkOwK+ItWBqNIzAvD9KhnkfgkFpBOLsw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=paragon-software.com;
-	spf=pass smtp.mailfrom=paragon-software.com;
-	dkim=pass header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=D2HBlXwI;
-	arc=none smtp.remote-ip=35.157.23.187
-Received: from relayaws-01.paragon-software.com (relayaws-01.paragon-software.com [35.157.23.187])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UJCbp4Bz;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28A0C606A31F;
-	Mon, 23 Nov 2026 11:42:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28A0C606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=paragon-software.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paragon-software.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FC61606A32D
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:42:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FC61606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=D2HBlXwI
-Received: from relayfre-01.paragon-software.com (relayfre-01.paragon-software.com [176.12.100.13])
-	by relayaws-01.paragon-software.com (Postfix) with ESMTPS id B9E071D4D;
-	Mon, 23 Nov 2026 11:42:42 +0000 (UTC)
-Authentication-Results: relayaws-01.paragon-software.com;
-	dkim=pass (1024-bit key; unprotected) header.d=paragon-software.com header.i=@paragon-software.com header.b=D2HBlXwI;
-	dkim-atps=neutral
-Received: from dlg2.mail.paragon-software.com (vdlg-exch-02.paragon-software.com [172.30.1.105])
-	by relayfre-01.paragon-software.com (Postfix) with ESMTPS id 4759BF7;
-	Mon, 23 Nov 2026 11:42:00 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UJCbp4Bz
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso29135635e9.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:42:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=paragon-software.com; s=mail; t=1795434120;
-	bh=RV5KC3iZ1ej2HaOJpSpPN88tsmvHdspNBiKJQsIda+E=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=D2HBlXwI9cI2y3DOnEN1nUVLJYEMv5kHMRgdGdoP9yLK70r8BMaM5PP1fczpQyXvr
-	 LGq1x6rwTeS9TSbaemXADoNAn1iKmjfMRXm07J/8MwfKNNiJUDEA6/51079JFCY6sX
-	 vJ1y+NIwyocXLZ9cVEI1ceQOya7PzHrR1tRPNsQk=
-Received: from [192.168.95.128] (172.30.20.204) by
- vdlg-exch-02.paragon-software.com (172.30.1.105) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.7; Mon, 23 Nov 2026 14:41:58 +0300
-Message-ID: <4c3c3e35-81b7-4879-bc7f-e1a5437b816a@paragon-software.com>
-Date: Mon, 23 Nov 2026 12:41:56 +0100
+        d=gmail.com; s=20260707; t=1795434136; x=1796038936; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ir6z+1QO+ZehukLrcRk3cS0RS9cUAR81T7iwjbCFauE=;
+        b=UJCbp4Bzy1ZHHz/xeg0gqvcKdeVezUb6m0Mo8hJL273XKnukNrQq6GOFSTmBAcjtIX
+         s2GCR8GWmHxvC5uOozGY8scUgUfrOwY3kE8bhlboNv5IqSm5yui9SXAymUYKwiGcRWsc
+         J6LYhl6L51UcZv8m0kzMHi2MsoLzuS5JL4Q8P/lj4Rh3rfIv7+JUU/zYEdDe7S8tuMXl
+         PwVs2ncrraM02QiyFfnunkB4h88mWWkhFQvqLR1D37opDahhfF+iYWsTYetkcqzCG9ns
+         U/19A+I4PiRujN03OKyHf9g+Dfcld0t9JK8l+ZULcO/dMujm4FM8SkQE5BXk1aj/U6r3
+         8PuQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795434136; x=1796038936;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ir6z+1QO+ZehukLrcRk3cS0RS9cUAR81T7iwjbCFauE=;
+        b=A2q+VjjjgC/Uf+NWykgauyI2SgVWUCJsb3fNEeCSIyv4/GO23E4aoZKCviJAmFMa1B
+         Kzr7oddKkFPGNR/v5ru752u2GxqyEeSP6e7jTW2PyEWKJgc+hozhSHrP+VetwzLydJVW
+         /xNK2QvOXtyP2e4feCadueAdd3rcG3PyPpKx23yJ1TYjMZvmKFT2WUz8jAqmeCELVx6r
+         u1Dq5LAJYbBZOLlJ4DtHOF9BJEQ6sAsrGjdanwTnDVud50uh8Ii98xFTZMzQf6N/0UA0
+         ms6AzGXvpzNMXvE+uv5nF0K5bqK/mKlREl9WmIDpryj+Z1HDp4btzRd6K5X784Pe2skz
+         7pmA==
+X-Forwarded-Encrypted: i=1; AL+hErG43P+YeHc5dtT+ELqpMhC9wbhK1sQDzj1g1M7VDMVKTiwZ1tVvRv63do8PkTzB9uy5n/VmQJjyE3ElUSU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z++hL7rxHF/fhSTIS4K40HbRqUL22zxP27fwHlaELpBUd/VkjQ1
+	Dx6ej26bkO6bPC52GgYuOCVcUDE7L8p0av2imx6MEprYzZsHTW4YYiFSuDnSdqtG
+X-Gm-Gg: AZFdTZcUQ4DTMA+PSxbM42OLCZVxatfNXSwV5sUrpYmh0eQbmv504vpe0HStmBdQup4
+	l3JrJurnD331NpAu/wqW72B96agdEhDyYOZyH9ycc2JpDllncJLnyCTdJwlVsHSZmOlVrFJHlUT
+	nPWdQVFmg8EPSVrgeo5OsxkVHrNpRCCXT0+tscNAOUJqvTBTS63OlnktKVDdvPyLHk1PhpAtlyU
+	uhoieb6qCw7EpblOaCvgHToaumpH8aP5Mgk6atLT8URV8i8Oi40lM4eIeJ8BY8MPK3ASpN8ts9Q
+	uPJmg7+TJB/jxiCZOY2wTL5+StlGH4hFqExozIE3+uFKwGX1LMgnwKWEM5cuzaIEqtgRXd2nFCe
+	flX1ckx4ycWGqLEn2F7PGn5m10dBefOS5pdhytycovIXNMAwMVoik8zSf/WkXedOZfUAIz8U3+Z
+	yO7ZxIG2TCz+UZEZWLKNBJtfOmlJ93MxXXHijecUP24eKcC1mY1UEn6s6S6BsEs74x1it8QKgOf
+	OeMl9Aq1YAYRfruMEpbAUuGJRzn/C8lAxwsm/dHW3GhzOn0J3WFmS2AgevsFIzPFwgx9TVPZtKJ
+	XsLlVi6dDFDBMzl+cEmGc8SurEOS/KuxT0HKWGmVpA==
+X-Received: by 2002:a05:600c:a51:b0:4bb:5f43:23bb with SMTP id 5b1f17b1804b1-4bb88828173mr215608255e9.33.1795434135562;
+        Mon, 23 Nov 2026 03:42:15 -0800 (PST)
+Received: from localhost.localdomain ([102.187.134.136])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853368d3sm351369625e9.1.2026.11.23.03.42.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 03:42:15 -0800 (PST)
+From: Mohamed Dawod <mhm.dawod@gmail.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org,
+	vinicius.gomes@intel.com,
+	jhs@mojatatu.com,
+	jiri@resnulli.us,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	ye.zh-yuan@socionext.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] net/sched: cbs: fix 32-bit overflow in transmission time estimate
+Date: Mon, 23 Nov 2026 13:42:08 +0200
+Message-Id: <20261123114208.2112278-1-mhm.dawod@gmail.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261119053357.2033707-1-mhm.dawod@gmail.com>
+References: <20261119053357.2033707-1-mhm.dawod@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,75 +106,17 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] fs/ntfs3: fix slab-out-of-bounds write in
- ntfs_create_inode
-To: "Cen Zhang (Microsoft Security FORGE Labs)" <cenzhang@linux.microsoft.com>
-CC: <ntfs3@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<stable@vger.kernel.org>, <AutonomousCodeSecurity@microsoft.com>,
-	<xmei5@asu.edu>, <tgopinath@linux.microsoft.com>, <kys@microsoft.com>
-References: <20260901175834.8557-1-cenzhang@linux.microsoft.com>
-Content-Language: en-US
-From: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
-In-Reply-To: <20260901175834.8557-1-cenzhang@linux.microsoft.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: vdlg-exch-02.paragon-software.com (172.30.1.105) To
- vdlg-exch-02.paragon-software.com (172.30.1.105)
+Content-Transfer-Encoding: 8bit
 
-On 9/1/26 19:58, Cen Zhang (Microsoft Security FORGE Labs) wrote:
+Thank you for the review.
 
-> ntfs_create_inode() sizes the non-resident reparse run list as
-> record_size - offset - SIZEOF_NONRESIDENT, then sets the attribute size
-> to SIZEOF_NONRESIDENT + ALIGN(run_pack(), 8). It does not reserve space
-> for the trailing ATTR_END, so a maximally packed run list places that
-> 4-byte sentinel just past the allocated MFT record.
->
-> BUG: KASAN: slab-out-of-bounds in ntfs_create_inode+0x4390/0x5220
->    ntfs_create_inode+0x4390/0x5220 fs/ntfs3/inode.c:1796
->    ntfs_symlink+0x108/0x170 fs/ntfs3/namei.c:224
->    vfs_symlink+0x137/0x420
->    filename_symlinkat+0x326/0x460
->    __x64_sys_symlink+0x79/0xb0
->
-> After packing the run list, check that the 8-byte ATTR_END slot still
-> fits in the MFT record. Return -EINVAL if the aligned run list would
-> place it past the buffer.
->
-> Fixes: 82cae269cfa9 ("fs/ntfs3: Add initialization of super block")
-> Reported-by: Xiang Mei (Microsoft) <xmei5@asu.edu>
-> Cc: AutonomousCodeSecurity@microsoft.com
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Cen Zhang (Microsoft Security FORGE Labs) <cenzhang@linux.microsoft.com>
-> ---
->   fs/ntfs3/inode.c | 5 +++++
->   1 file changed, 5 insertions(+)
->
-> diff --git a/fs/ntfs3/inode.c b/fs/ntfs3/inode.c
-> index 56b4f6469a28..d6e4b4b3154d 100644
-> --- a/fs/ntfs3/inode.c
-> +++ b/fs/ntfs3/inode.c
-> @@ -1769,6 +1769,11 @@ int ntfs_create_inode(struct mnt_idmap *idmap, struct inode *dir,
->                          }
->
->                          asize = SIZEOF_NONRESIDENT + ALIGN(err, 8);
-> +                       if (asize + PtrOffset(rec, attr) + 8 >
-> +                           sbi->record_size) {
-> +                               err = -EINVAL;
-> +                               goto out5;
-> +                       }
->                          /* Write non resident data. */
->                          err = ntfs_sb_write_run(sbi, &ni->file.run, 0, rp,
->                                                  nsize, 0);
->
-> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-> --
-> 2.55.0
+Regarding the two additional findings:
 
-Hello,
+Both issues concerning the signed 64-bit rate conversions in cbs_change() and cbs_set_port_rate() are already addressed by a separate patch series submitted by Jack Wang:
 
-Your patch is applied, thanks.
+[PATCH net v3] net/sched: cbs: perform rate conversions in signed 64-bit arithmetic
+https://lore.kernel.org/netdev/
 
-Regards,
-Konstantin
+My patch addresses a separate issue in cbs_dequeue_soft(), where the multiplication of len by NSEC_PER_SEC overflows on 32-bit architectures, resulting in an incorrect packet transmission-time estimate.
 
+I intend to keep these fixes separate to avoid duplicating the changes already covered by Jack Wang's patch series.
