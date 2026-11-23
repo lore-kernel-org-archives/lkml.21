@@ -1,49 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795424313;
-	b=MX8VnnDg6+dapCRaei1gQAV5zlkZj42jkiUbAQ6r5DyPJz6Xh9ueRKxTF5nggP3a53iQ
-	 vs88pShsQ4865GfIj9u00Y/ueuI/+UaxgpR4yhHb4d5dJdWLlBjGTVDVv6oOy1Etsd3ib
-	 BEEpA/6oRsYns4Ysw1/mIBKqHE8D/6Eu0RCd68NoOZ6bUO0vq7DohqcS6zSF13DCEH0d/
-	 oaNBkwEJ5Awcpbr0x/xe4c2JWet5ulEmTNHaVF8YCnXmrbMOO5JMBOc+OnIIZp7AwZfxn
-	 gDOEkOHFwl8w6XccR69uFo/OkOw7H/SdnEd0GlFujeB99XHGWtr0yGl4T3xZbG1EMTQ==
+	t=1795424335;
+	b=viGYxD+m59Mkkb64K7KtU4ZEbdQ51tL62/ghSL4BiG32hiLuO3rtdk8A2BCVEqaZs39x
+	 bx4Vd7DR/VXnV7dpHcFSw7idj8JBFOLleAoYAm35d7Dr77y7X9hfyiY09hldvOpX/X/V1
+	 PCeVeEcjCW71IZuc/CkyqR+K2X59cA70WuOecTkMsOMGr5dUPO5GBObcriauYZdB4X4lA
+	 IDCzir6xa+SNEvra9LrAz6J4U3MuZrQyqBcDnykVWzmGXUQUarxmoNcIVrdFXmbigF/lQ
+	 MtcS9U/2+QQ5Dj0nLWMh1hSdYcBP/fGn6KD9GB8YFVY+4aPKZjJYle1f+KiystjfM9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795424313;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=b3WMjSBwi5PFDvIaCpQd7Axi/XWPxIYqZlMheE6sk7Q=;
-	b=sIvehgBMbjwdqGlTAQ9AwBphQxzmF7BmJTV11amiST1OX3VsFf06jx2ezQlZy7iqeD5q
-	 Etgv6ovvgQH5t44cDSKf+ILioqxoq6lLqS7Zn5trSFjr0a8945Q9X9jMz/MAIL8kNjuvC
-	 FS2Sj6NXf+zAcTaeQBNVREPfsXGfHHsnM9LX7Q+HaVOTMhF2DUB5Ro+lEKp8mjK6O5zLM
-	 UXurJKAQiEEHq9q3jefuIbgeyoHI8d8zqADkZdoVhf8RRR6SWufARGKccPyyHT5imEte8
-	 gwXkZ2n58PewiLgwtDvXs4/1SyeTwO2y80+N23VMGpdSnaHMoQEjhuZoRATKaUFbI5g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795424335;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Fw/YKdGx/bEJxv6m8dJuQDKu0hTKbF1u6pYTLgihK3c=;
+	b=qSVcpPzp+3r9w8dI8Zyv9WHESJN/KMBGZDy6QAHT76YiIGufSLJKQ7TxWpnr8rasra9G
+	 jFzrbcF4/vhWgFpcu+zKnlKO7Ps3PHwy93/voj7/0zkmLkSe2Ab3lgjewJmBvbk9K2a/C
+	 f2gxcDEelufvnsr7nuXkhFQ3yOg3wvmgoSatdQDjurSjkJQThk1Pfc7MYi1Exu4uV5R/x
+	 jHMWKZhCPSq+crlQAja+AyeFc/BAvY88MH2w0RPYen30i4a1KO0tRxTx0MlWiNm63aPLV
+	 9I8z8Wutt+RiTzbBOAguVgCIMcf1LC+a6J1NrqlYgYRGN0qi3PVmFga25IrbdoDDnMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ljFKBqmi;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6A6C7606A31E;
-	Mon, 23 Nov 2026 08:58:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A6C7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BG3Ypb0E;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4A66606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:58:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4A66606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ljFKBqmi
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DB6561A25;
-	Mon, 23 Nov 2026 00:58:28 -0800 (PST)
-Received: from [10.57.91.245] (unknown [10.57.91.245])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BFF623F882;
-	Mon, 23 Nov 2026 00:58:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795424311; bh=IyuQOHegOm7o8+idks5YbotHgA2kGInEw/MsLFSwZbI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ljFKBqmieG86A9o17mg2OKClKeqYmywjsi88qro4DKa+Bzf6DMkYNr9cZvknPpkUp
-	 MK+dIkOffcqanqO2jC1axlvaTs8nppW4q108uU909LcHYNdp1I6oK5movdwY5TJcih
-	 uXIzdw84Y8RliXz46ZJI31Ytyxy9qn1kOEfkLx1Q=
-Message-ID: <7a3ffc6a-866d-472b-91d6-886ca8095008@arm.com>
-Date: Mon, 23 Nov 2026 08:58:20 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BG3Ypb0E
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a210470b49so28273135e9.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:58:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795424333; x=1796029133; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Fw/YKdGx/bEJxv6m8dJuQDKu0hTKbF1u6pYTLgihK3c=;
+        b=BG3Ypb0EPki8K0XfjcKNMNuWucIAzL1bgG6ic8Fl526qhYmAzeJDj04amPik0ZIyEv
+         krByJmeBrF2EX27hvuynzUkunMkRLag4getHQ7U61x3hmWpf0mbHApq2FDGN4WcadM1b
+         hKrWEIaFZuIiUEsHWT+L3n6n2vGpXrBHUzRMjkjxIt3zt9VGNIj9wvkm3TxCwsJKULRv
+         0lOp3y3mHl2HWuQZOnT+senHO7IIyQCtRhkt5vPFG+unrx0G8z6mp5tUFrDw0bWj5e3E
+         ypKaAoimHoA3QkKyr3CjJU6ZOz4Q00PfVy/Hy5U9Tim91UYEs4FWfISIww6Sjsx3yXGx
+         Z/hg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795424333; x=1796029133;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Fw/YKdGx/bEJxv6m8dJuQDKu0hTKbF1u6pYTLgihK3c=;
+        b=J4P+t3JUPHGcmkKkmu8ismcaCTeTWaxAIUoWWmGHG2zgv5+r82cPnHAaHLrGC63oIq
+         zJJm3BQLo6h+droYivX9NHOh5jVLoplgTwt+FkMF1GRF4FEe/iPk2ydtz+vPrPwokOQW
+         E+QqhYdvwpGJfGjvJTd68qA1aLxi+ndkGCkxCPQiznwelS1v2kYb3VC/ST+TeUyUTgVr
+         0aPTjYKGeI+g5ea9KcpJ0nxg20DfskueS0rvkfQ8k0mTdsxibIf3D9CF12nNtcf14nbx
+         pyOdDWBeM65R+x19Eu6rMCMVk5Oz0v+gmMtfjAaF9BOknmEnLO0gD2iKzXRaY2bKgSnJ
+         QcnQ==
+X-Forwarded-Encrypted: i=1; AL+hErGRwqxHE4JB5jKYeLOA8W5LRfwsCmKX1r1ZmBB4UhS0B8tg60VcJJJLZB5bIIN+c8D3v89TBY8DTA1hgVU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+R2wpQL3CtMAPd9uju3sraqG6GX7dToava9Ta2yaOQ3mAwzHas
+	n5QMTDc+FO9W1q0jl+8eXKbn1P0sKQcfVIc4dAAB8Tgcf0XLbXEELEOWCSlOA51R1Pc=
+X-Gm-Gg: AZFdTZe2XrAs5qeQ0Ptj830gZfzOzJR6zmO6nJxXIGPr2G7uB2pU5S9KL3i3ZylSixw
+	oUIYiIkIBytLib6wMztKjAvsXmH58JR/MxaiUdqVguwju+7Zol70ifqx25MplCCvzkxVKgcHZXQ
+	PXUOGY5wOWZVmyt9/49Qj4bQBlH6fSKInbrTpnQl9vT4Gm1pgYFcSM932RMQONUVjlrzhH4ZPnp
+	wNv+5a2BkXdQCaqg+j8YXWplsYfVifw3K0en6eZT2ZwpBKQH/6f2WVEQeE2yNftz6+3TFZeMWJh
+	BNy3I1He4RVHB7ns58tMc0PMBv5+aOhPLBQhVBo96sFwIPlSFi2qnaHGkX0Vo8YepZZa4krqv6G
+	yMKirk2thAN0Tgvp+OtNhMZkIS+NJA56IHQU0cEzFnJ3VvTdRMb3ZBHcIp7c1tgZWkSNZQ6tAXc
+	MYvponnUT7x3nJqKhDrDHWY9NIPhP6qvNfTL+RCc/O+TIQfcj4JBbrHGBdqvQxk1HC9DxOXmsU7
+	8giP/MQOsYSXYk6UM+Qiiec8kK0PMAvh8Jecd69bUf1KhCkdn0OSUI96vv8FB0SKO6S8yGadYuI
+	UyCZjdOfF7tZRCXhxiQwvLvAPg==
+X-Received: by 2002:a05:600c:190d:b0:4ba:2bfc:c8b5 with SMTP id 5b1f17b1804b1-4bb888267aemr217464265e9.10.1795424332866;
+        Mon, 23 Nov 2026 00:58:52 -0800 (PST)
+Received: from luca-vm.lan ([154.61.61.58])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853b216esm375960755e9.12.2026.11.23.00.58.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 00:58:52 -0800 (PST)
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+To: linux-mediatek@lists.infradead.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	CK Hu <ck.hu@mediatek.com>,
+	Jitao shi <jitao.shi@mediatek.com>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 0/2] arm64: dts: mediatek: mt8167: Add DRM nodes
+Date: Mon, 23 Nov 2026 09:57:53 +0100
+Message-ID: <20261123085840.8687-1-l.scorcia@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,131 +111,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] mm/kasan/kunit: add page_alloc_skip_kasan test
-To: Jeff Xu <jeffxu@chromium.org>, Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Vlastimil Babka <vbabka@kernel.org>,
- Johannes Weiner <hannes@cmpxchg.org>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>
-Cc: Lorenzo Stoakes <ljs@kernel.org>, "Liam R . Howlett"
- <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>,
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>, Marco Elver
- <elver@google.com>, Boris Brezillon <boris.brezillon@collabora.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Chia-I Wu <olvaffe@gmail.com>,
- Dev Jain <dev.jain@arm.com>, Ian Rickards <ian.rickards@arm.com>,
- Jann Horn <jannh@google.com>, Jeff Vander Stoep <jeffv@google.com>,
- Jeff Xu <jeffxu@google.com>, Kees Cook <kees@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Peter Collingbourne <peter@pcc.me.uk>,
- =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
- Tomasz Figa <tfiga@chromium.org>, Will Deacon <will@kernel.org>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- Miklos Szeredi <miklos@szeredi.hu>, Baoquan He <baoquan.he@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Pratyush Yadav <pratyush@kernel.org>, Allison Henderson
- <achender@kernel.org>, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- linux-mm@kvack.org, kasan-dev@googlegroups.com,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- fuse-devel@lists.linux.dev, kexec@lists.infradead.org,
- netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
- rds-devel@oss.oracle.com, linux-kernel@vger.kernel.org
-References: <20261123033111.2349160-1-jeffxu@chromium.org>
- <20261123033111.2349160-3-jeffxu@chromium.org>
-From: Ryan Roberts <ryan.roberts@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20261123033111.2349160-3-jeffxu@chromium.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 23/11/2026 03:31, Jeff Xu wrote:
-> Add a KUnit test (page_alloc_skip_kasan) to verify that page allocations
-> using __GFP_SKIP_KASAN (GFP_KERNEL | __GFP_SKIP_KASAN, GFP_HIGHUSER, and
-> GFP_HIGHUSER_MOVABLE) under CONFIG_KASAN_HW_TAGS:
-> 
-> 1. Reset page_kasan_tag() to KASAN_TAG_KERNEL (0xff) across all sub-pages
->    of a high-order allocation, and
-> 2. Return a match-all (0xff) linear-map pointer from page_address() that
->    does not trigger a KASAN fault even when the underlying physical
->    granules carry a mismatched tag (such as KASAN_TAG_INVALID or
->    restored userspace PROT_MTE tags).
-> 
-> Tested on arm64 with CONFIG_KASAN_HW_TAGS under QEMU (virt,mte=on) with
-> kasan.mode=sync, async and asymm.
-> 
-> Signed-off-by: Jeff Xu <jeffxu@chromium.org>
+This series adds support for the main display pipeline on the MediaTek
+mt8167 SoC.
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+The driver bits have already been applied in CK Hu drm-next branch,
+together with the first patch of this series regarding the DPI block DT
+binding. I am including the latter again in this series because it was
+un-acked by DT maintainers last week due to the addition of un-documented
+alias section [1]. Those aliases are currently required by the driver to
+drive the secondary (external) display pipeline, but the main display
+pipeline does not require them and they can be safely omitted.
 
-> ---
->  mm/kasan/kasan_test_c.c | 44 +++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 44 insertions(+)
-> 
-> diff --git a/mm/kasan/kasan_test_c.c b/mm/kasan/kasan_test_c.c
-> index f34163e19bd6..72342137bb18 100644
-> --- a/mm/kasan/kasan_test_c.c
-> +++ b/mm/kasan/kasan_test_c.c
-> @@ -380,6 +380,49 @@ static void page_alloc_uaf(struct kunit *test)
->  	KUNIT_EXPECT_KASAN_FAIL_READ(test, ((volatile char *)ptr)[0]);
->  }
->  
-> +static void page_alloc_skip_kasan_helper(struct kunit *test, gfp_t gfp)
-> +{
-> +	struct page *pages;
-> +	size_t order = 2;
-> +	char *ptr;
-> +	size_t i;
-> +
-> +	pages = alloc_pages(gfp, order);
-> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, pages);
-> +
-> +	for (i = 0; i < (1UL << order); i++) {
-> +		/*
-> +		 * __GFP_SKIP_KASAN allocations must carry the match-all tag
-> +		 * in page->flags, and so in page_address(), not a random tag.
-> +		 */
-> +		KUNIT_EXPECT_EQ(test, page_kasan_tag(pages + i),
-> +				(u8)KASAN_TAG_KERNEL);
-> +
-> +		ptr = page_address(pages + i);
-> +		KUNIT_EXPECT_EQ(test, (u8)get_tag(ptr), (u8)KASAN_TAG_KERNEL);
-> +
-> +		/*
-> +		 * The memory tags of such pages are arbitrary: stale poison,
-> +		 * or tags set by userspace through PROT_MTE. Accesses via
-> +		 * page_address() must not fault regardless.
-> +		 */
-> +		kasan_poison(ptr, PAGE_SIZE, KASAN_TAG_INVALID, false);
-> +		KUNIT_EXPECT_KASAN_RESULT(test, WRITE_ONCE(*ptr, 0),
-> +					  "WRITE_ONCE(*ptr, 0)", false);
-> +	}
-> +
-> +	__free_pages(pages, order);
-> +}
-> +
-> +static void page_alloc_skip_kasan(struct kunit *test)
-> +{
-> +	KASAN_TEST_NEEDS_CONFIG_ON(test, CONFIG_KASAN_HW_TAGS);
-> +
-> +	page_alloc_skip_kasan_helper(test, GFP_KERNEL | __GFP_SKIP_KASAN);
-> +	page_alloc_skip_kasan_helper(test, GFP_HIGHUSER);
-> +	page_alloc_skip_kasan_helper(test, GFP_HIGHUSER_MOVABLE);
-> +}
-> +
->  static void krealloc_more_oob_helper(struct kunit *test,
->  					size_t size1, size_t size2)
->  {
-> @@ -2369,6 +2412,7 @@ static struct kunit_case kasan_kunit_test_cases[] = {
->  	KUNIT_CASE(kmalloc_large_invalid_free),
->  	KUNIT_CASE(page_alloc_oob_right),
->  	KUNIT_CASE(page_alloc_uaf),
-> +	KUNIT_CASE(page_alloc_skip_kasan),
->  	KUNIT_CASE(krealloc_more_oob),
->  	KUNIT_CASE(krealloc_less_oob),
->  	KUNIT_CASE(krealloc_large_more_oob),
+In version v2 I removed the nodes related to the secondary display pipeline
+to add display support for 90% of the devices that only use the main
+display pipeline while an acceptable alternative to aliases is devised.
+
+The series has been tested on Xiaomi Mi Smart Clock (X04G), Lenovo Smart
+Clock 2 (CD-24502F), Lenovo Tab Essential 7 (TB-7104F).
+
+Changes in v2:
+- Removed the secondary pipeline nodes (rdma1, dpi1);
+- Removed the aliases block;
+- Implemented the complete OF graph for the main pipeline, using the same
+  path that is currently hardcoded fallback in DRM driver code (output to
+  DSI display). This improves backward compatibility for the upstream
+  mt8167 Pumpkin board.
+
+v1: [2]
+
+[1] https://lore.kernel.org/linux-mediatek/bbefcf0b-b31e-4f74-bf79-b0ccc983f62b@kernel.org/
+[2] https://lore.kernel.org/linux-mediatek/20261117122802.728987-1-l.scorcia@gmail.com/
+
+Luca Leonardo Scorcia (2):
+  dt-bindings: display: mediatek: dpi: Add compatible for mt8167
+  arm64: dts: mediatek: mt8167: Add DRM nodes for primary display path
+
+ .../display/mediatek/mediatek,dpi.yaml        |   1 +
+ arch/arm64/boot/dts/mediatek/mt8167.dtsi      | 297 ++++++++++++++++++
+ 2 files changed, 298 insertions(+)
+
+-- 
+2.43.0
 
