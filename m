@@ -1,84 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795437534;
-	b=VAvrZnXwISaND0XSIb7Ey+xQF/WTOifYbR64AaiGFmoB79J0gYWGMXcuNRbOPGPoz8QI
-	 lZ6x0nmEo5BZMHA/A4EIhCjK0EVGhMFxFkCUw78Ewp4MC/trAAznPsbmhzp3l7/bWjESY
-	 RfmIorbyYNvT1fldQ0akxXKZGO08pUmaBJPs9XjaTc2Cngt2woYBXXGLZtr3+bQQEw83e
-	 CeKFjydX1d/6SeHrtHzM+86nR4tF8e9Lc/cHYk3ghUt7Ngff1QSkgFMYKCI7zwNFDeJaF
-	 jTgF0hp1x9m/TeqIM05WPIuVF0JkvQWhIW7DDXjDwz+NOS2jQRLWWGzMQP1yzz+fjyw==
+	t=1795437565;
+	b=uR4gYBBWKO9zGQzIOEXToGDt022YEtaDU+ziSogQpfMYBWhiuoAq9Z1GfNZKe+ZlXJXs
+	 ANYbnvOgQz15130YteGSWQrmTZVfJaLAZSOdbYH3PvrKiHN501TRvgDYruxhLwRpAIumT
+	 LXo7y7UkpWvTGfbnPcifUig7C21yT5ebvP1ApDb6wdW9jPdCUlFbVrG8AXHsuqlGQ7Rk5
+	 gIw7eG1htFz7xbTIIsrNUFHFqcpgDTF1AjG4fCRnu8IAxm09KeqcegNIrSTrx8zDNiamQ
+	 mzMZyUTZlYNXHv294rEWT8/RmrStx5UhMGI17jYIkoVCTE1VqcyJe7jHoVniLXOlfjw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795437534;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 Subject:From:To:Cc:X-Mailer:References:In-Reply-To;
-	bh=59RxTHGvhltoNw2gc0/13upvGG9pwIkmUmOzptR+Lb0=;
-	b=Vfpx+soZgflKocPixXN+4liMDOgkJhpcYwrdzlYFjpFrC0A7anbswh4jJlbWuSe9WPy7
-	 rJOglECq8TR7VLZ2kIf/yZfXlUghVQ0eJy0VcgYvxRXr+vw5wVLzs9n/qYW8JMv2H3uaK
-	 8stIsyzbrUENGEnwK6yNAWjaIbWIX7S3JiGkYfyJclAok85SNLBGbJ1tJRaPnV+/h8BIi
-	 OFlhg6tjmlOW+Z1tagmmC77xbGiXl3l6iHu5NCjib0DL1O7+ZQ71Ol5lHgl4inn+qdXcj
-	 Dg6jsa5MgnFx4cW9T6Vz0qZWoYfT/R1jT3AOh/9rU7MD24QkW6eKRrYbgoAcoCYcTYg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795437565;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Reinject:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=kQBqYCwf9S2wKWqSXTTi29m0C2tNyGGu5EalsVstefI=;
+	b=DUs6VLiAdcroZYCIS4DJXeVtuAHKB5l1FZ6gnjGPUnl/SlbDPtWLEgpcqVMrTnvPBxho
+	 u3OkSeGvt/ADEBcY26BnyhtMrxp1qK4eTsMLaXz19sSIsIO1yMnNJ6VKbzquU3tXarxZT
+	 5vXLs3KWmd3KYzbPTrs93CLASSIfppEi9KiFg8F9SL9YHAqJ6Ps6BMXolQK92X2IDBhcp
+	 SHH/EGBBm4E+jn31Qz6PKBn06oaVUSdVTIdbsT9Lj9sn2wXdxd3LJGaHsGw+SK1MYUIlJ
+	 r+3r7uJbuNHZypfMjhPaLT+YUgasLOv4YAQeqyuMg4ASA1U9Bme7aW0y9GDUmFpqq3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ieGbhYkm;
-	arc=none smtp.remote-ip=209.85.128.170
-Received: from mail-yw1-f170.google.com (mail-yw1-f170.google.com [209.85.128.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=PlfRJSsZ;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 936AA606A32C
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:38:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 936AA606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1857606A31A;
+	Mon, 23 Nov 2026 12:39:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B1857606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ieGbhYkm
-Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-8b3402105b9so21062727b3.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:38:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795437533; x=1796042333; darn=vger.kernel.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=59RxTHGvhltoNw2gc0/13upvGG9pwIkmUmOzptR+Lb0=;
-        b=ieGbhYkmA1tVgB8nYy25uSifUEyfNr8bR6537VLozGv55qw9nCYaRuq9fAxvEmCRMq
-         MTqXrhD+3lp5K8wNSXipcOgFNc/jazfFRTKaErMwRbDBigni1Tb19BJY2WoKKTi0ep9s
-         UjF0IVRN+sVlNPIACAkprYnZ0OvYo5JDiWaty9hcMySXmPn+ddeePMFFVt3Hhb0bwLbb
-         XVSw+IGS2sDadCblffLCz7CnkDF7L4XIR89egfCjJefrxkrx6BgzEkyAcxdenqz4+GnO
-         S9o3fIUHacY7saE0XJ9vYdy8r/BVcuXNE9yh3x5s4FT53/9eTtvj6SiefaVycA4XGlEl
-         FmQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795437533; x=1796042333;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=59RxTHGvhltoNw2gc0/13upvGG9pwIkmUmOzptR+Lb0=;
-        b=NStedC1le59PGppOw37GVSQ0UtK03j4WcmpKG+MBZljoiOr2I5ZCZY+e7S66FL3iXm
-         rO/QDGz2yk3L+zRhYkvRLLlzpfIxIma9P4V+sHvPLGzEKT63qdMvfWMcxPv5/64gslc4
-         LQ87NauWOC23YAWlKvPOp/ebksoqOmBpbAgYoY99gLCIqG8/t+L9yszY5uqUsO4ehqu4
-         pNPIgn8hI8wj3rpLDUrPVAuTvhjk+2tMA0NSChH1XMqWGPnql4jNnOu+IBQzJ3c20Q4x
-         PsXE8/W+tifPpqeQ1EWNWs+ulWfJh7BRlvd53eZVW7kvCxASwTvchxjKA06MmlFtO9U+
-         H8SQ==
-X-Forwarded-Encrypted: i=1; AL+hErGMT1dgfLZPJ/DouBiCN23+c4h8BBlu4zvQcxj+GRZjFKh13aVuZbFfOOmVCwu7uGHNZgGPAueMMeIwo8Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/b7Jfm8bfOXPqjohotZ7jDE29EW+2hygSWpZ/XMr1eAXzpRdMH
-	VGTLXDRMLPcsEufkia8o7kYXRnipylGXds3cTU7Jh7L7wi7Hs+aw73i3
-X-Gm-Gg: AZFdTZcYD0xCmVq5ILfm/zISWXr87efcnecDe3R2pDk22FPYd2elSF3iCsPYtpTgXQh
-	MLGlDDdtyQRuXZpQ+BSCvYpN0HOgt9f+WiU4WPWiXVZ+5N1yo4zJf7n3Y1aerc0sol6+mV3yZ5t
-	oKG9fttms6tCK5RGm0KSkkIt/VgIs+BJQTg8VxmAoPEg/fCTvBnxAWGfwp7yeZ42qlU4zsvrEtk
-	w29xLUNStGDD+eVYi4/MTia6SKtAPSkK2fFaakpPafePwMPfQ+0bIxpCrDCqFnqe1CEs1mYxc8D
-	UdFx3pHGuVOWz7hZ2gzTHecD5pIKGb7tyDKvecVL1Dwt6VNYrkaK127TAs5l+XI5fJRqIquSZ1B
-	hYWO6gVG8G2NKxnTEYgqKsGdBoeFHfNKa1CY1tFrL2xxXP06D40Igt0xIujpqeIfggkBCp50ubq
-	SjPrI1oBjbpo/NZj2NrZ0xzYk2q8aLY98v1+EWiCwph0Di0DrAf4sIx7IZPm+Brlp+ULT9ziBzR
-	l4DpNbjqkiQuwgGrGtTNbNsXtKjwk7RJs9/BFDEOzZO4ltIvNnoE9KtJ4hase6djHRYUo0LY2o1
-	tJv6xxHZdyYsbzU=
-X-Received: by 2002:a05:690c:3749:b0:8a9:d5f2:f5a6 with SMTP id 00721157ae682-8b5204cd1b8mr37167077b3.67.1795437532672;
-        Mon, 23 Nov 2026 04:38:52 -0800 (PST)
-Received: from localhost ([2600:1700:4a51:2210::11])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5201b8cdbsm43605117b3.1.2026.11.23.04.38.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 04:38:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=PlfRJSsZ
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANCZDuV3621772;
+	Mon, 23 Nov 2026 12:39:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=kQBqYC
+	wf9S2wKWqSXTTi29m0C2tNyGGu5EalsVstefI=; b=PlfRJSsZtUhVsuZbCasMds
+	u41MvRcVV2ycj7SlgNF97/TWxW5XhywEXt2e/QJldvP7yj0aLn2Q1k1MKOQJKnrJ
+	8WzimtH2CPpZMlxysCbhB6d/bXc3SR2+xFgGBuO9zE2FKa6WC53IQga2e0U87Re+
+	zspGE1WFNqoakIj0eBmdNPFaeC+CCAuq0STB7g18nuVUIrgI47KYAYuxStuDdNsL
+	3Wzr3/aaK5mdU93/aq/C1S60H49yfXHUr2qbf2PjHDcLRQVAHuNwrPcn801Bb33P
+	v3YEa04BKZHdLuZigCZ7557D9ZVKpQJtPZWjTTvlRyTw4SB8pNWFTUvyzE3UvwYw
+	==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34fkb5xw-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 12:39:08 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANCJeqq1912199;
+	Mon, 23 Nov 2026 12:39:08 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j3rayeg5n-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 12:39:07 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ANCd6hk31916702
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 23 Nov 2026 12:39:06 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 275892004F;
+	Mon, 23 Nov 2026 12:39:06 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B6A7120040;
+	Mon, 23 Nov 2026 12:39:05 +0000 (GMT)
+Received: from [9.68.16.159] (unknown [9.68.16.159])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon, 23 Nov 2026 12:39:05 +0000 (GMT)
+Message-ID: <1055394b-aa87-4474-883f-b489298d4a1f@linux.ibm.com>
+Date: Mon, 23 Nov 2026 13:39:05 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,157 +85,96 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Nov 2026 07:38:51 -0500
-Message-Id: <DN2LHJ9Y8KM2.1GHH6E9738JCS@gmail.com>
-Subject: Re: [PATCH net-next v5 1/6] psp: support rx rekey operation
-From: "Daniel Zahka" <daniel.zahka@gmail.com>
-To: <netdev-bot+sashiko@kernel.org>, <daniel.zahka@gmail.com>
-Cc: <kuba@kernel.org>, <willemdebruijn.kernel@gmail.com>,
- <davem@davemloft.net>, <edumazet@kernel.org>, <pabeni@redhat.com>,
- <horms@kernel.org>, <corbet@lwn.net>, <skhan@linuxfoundation.org>,
- <rdunlap@infradead.org>, <donald.hunter@gmail.com>,
- <andrew+netdev@lunn.ch>, <shuah@kernel.org>, <netdev@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
- <linux-kselftest@vger.kernel.org>, <willemb@google.com>
-X-Mailer: aerc 0.21.0-threadmapfix
-References: <20261118-psp-v5-1-b9ec840e0296@gmail.com>
- <179530218118.3135.6547111851222246419@kernel.org>
-In-Reply-To: <179530218118.3135.6547111851222246419@kernel.org>
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/6] s390/smp: Export arch_smp_send_reschedule() for
+ KVM
+To: Sean Christopherson <seanjc@google.com>,
+        Paolo Bonzini <pbonzini@redhat.com>
+Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Satish Kharat <satishkh@cisco.com>,
+        Sashiko Bot <sashiko-bot@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Marc Zyngier <maz@kernel.org>, linux-s390 <linux-s390@vger.kernel.org>
+References: <20261119235656.70315-1-seanjc@google.com>
+ <20261119235656.70315-2-seanjc@google.com>
+Content-Language: en-US
+From: Christian Borntraeger <borntraeger@linux.ibm.com>
+In-Reply-To: <20261119235656.70315-2-seanjc@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA1MCBTYWx0ZWRfX1DqLe5478UpH
+ WRfGvv5W0Q66aqZIXcbGvCjuEkj6dtAbvc9ivJmYnFveP2tbZfKHSzZuGztUDwV8PbrgywECrv/
+ W09VhypNqiqfwmjTzB8OyRguYMcRUxk8Uzpgnv61y7Ec0pA3jUQUJDqdyKVfeFKDr6mymr0tLRD
+ EcO+wk9nGU/8/VvvMsozdNj5Oq3IDegfzR6c1HcE+NBBKToCe0jGPVRDpR58HEb1Y0uCDYq5j4I
+ qy8Yz8gAieXdPx7U/kpkD7WjJPBZDsc+B+kOMWj/bl9IoSKyRgciE5b7+9uTYCKXFWUmLqKaisg
+ 4NRd/6/HsGBVAH+07XPeIKOLxdz6UxQNss77Q4m74rghgXvh8pJXgu+b0UzYEeJc3LaT6gAhCK7
+ CwJjXu1UvpOy4zl25d1gbGKVfgVPQ/uxkrJNaK/fNqd8hwORybGyS9hk6X+VvHOQqalkysk2WRL
+ YkXZCt6HCwrBZkrWe4w==
+X-Proofpoint-ORIG-GUID: NKAYPwZMZL993F7nte_6XosNhNLC9quw
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA1MCBTYWx0ZWRfX2EVVFZjiynQg
+ SY6a5x+DiW/BrFsFo1H4E+T2I5zDpsnS14e5nGOlo1iIHS+qFb889OOknnqrRDGlJDk3AyrwRUL
+ 2m7yCNAH37YmXaZ3OH76c4EvgpYL1q0=
+X-Authority-Analysis: v=2.4 cv=A9z5rKWG c=1 sm=1 tr=0 ts=6b0433ed cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8
+ a=1XWaLZrsAAAA:8 a=VnNF1IyMAAAA:8 a=4WT1KQsdlCIwYG2GvGEA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: JTvesJqtQU-nzvdge1ZWT3QuPbyhM-s4
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_02,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 adultscore=0 phishscore=0 priorityscore=1501 impostorscore=0
+ bulkscore=0 malwarescore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230050
 
-On Sat Nov 21, 2026 at 6:03 PM EST, netdev-bot+sashiko wrote:
-> Thank you for your contribution! Sashiko AI review found more severe
-> issue(s) in other patches of this series. This mail is only an FYI, in ca=
-se
-> you want to address the nit picks below when you respin.
->
-> Low priority / nit picks for your consideration:
->
-> - [Low] The uAPI doc for the rx-assoc op in
->   Documentation/netlink/specs/psp.yaml now reads "If the socket already=
-=E2=80=A6
-> - [Low] psp_assocs_key_rotated() (net/psp/psp_sock.c) now does a plain
->   read-modify-write `pas->prev_generation |=3D ~PSP_GEN_VALID_MASK` on=E2=
-=80=A6
->
-> --
->
-> psp: support rx rekey operation
->
-> This commit lets rx-assoc run on a socket that already has full PSP
-> state. It creates a new psp_assoc that keeps the existing Tx state and
-> gets new Rx state. The previous Rx SPI and generation are kept as a
-> fallback, so packets sent by the peer before it switches keys are still
-> accepted.
->
->> diff --git a/Documentation/netlink/specs/psp.yaml b/Documentation/netlin=
-k/specs/psp.yaml
->> index f3266763c3253..d5713f5d1af7e 100644
->> --- a/Documentation/netlink/specs/psp.yaml
->> +++ b/Documentation/netlink/specs/psp.yaml
->> @@ -265,7 +265,9 @@ operations:
->> =20
->>      -
->>        name: rx-assoc
->> -      doc: Allocate a new Rx key + SPI pair, associate it with a socket=
-.
->> +      doc: |
->> +        Allocate a new Rx key + SPI pair, associate it with a socket.
->> +        If the socket already has PSP state, rekey its Rx direction.
->
-> [Severity: Low]
-> Does this doc match the behaviour for every socket that has PSP state?
-> psp_sock_rx_rekey() in net/psp/psp_sock.c rejects the rekey unless both
-> directions are set up:
->
-> 	if (!prev->tx.spi || !prev->peer_tx) {
-> 		NL_SET_ERR_MSG(extack, "Socket PSP state is not fully established");
-> 		return -EBUSY;
-> 	}
->
-> So a second rx-assoc on a socket that only has Rx state still fails with
-> -EBUSY.
->
-> psp.rst describes this precondition, but the YAML spec, which ynl and
-> the generated docs use, does not. Should the op doc say something like
-> "If the socket already has fully established PSP state, rekey its Rx
-> direction."?
->
->>        attribute-set: assoc
->>        do:
->>          request:
->
-> [ ... ]
->
->> diff --git a/net/psp/psp_sock.c b/net/psp/psp_sock.c
->> index f2cba3fa3a235..c1e38845f08c3 100644
->> --- a/net/psp/psp_sock.c
->> +++ b/net/psp/psp_sock.c
->
-> [ ... ]
->
->> @@ -302,8 +333,21 @@ void psp_assocs_key_rotated(struct psp_dev *psd)
->>  	 */
->>  	list_for_each_entry_safe(pas, next, &psd->prev_assocs, assocs_list) {
->>  		pas->generation |=3D ~PSP_GEN_VALID_MASK;
->> +		pas->prev_generation |=3D ~PSP_GEN_VALID_MASK;
->>  		psd->stats.stales++;
->>  	}
->> +
->> +	/* Don't allow SPI from two generations ago to alias one from the
->> +	 * current generation. Rx rekeying under the same device key generatio=
-n
->> +	 * is currently permitted, so skip if the previous SPI is from just on=
-e
->> +	 * generation ago.
->> +	 */
->> +	list_for_each_entry(pas, &psd->active_assocs, assocs_list) {
->> +		if ((pas->rx.spi ^ pas->prev_spi) &
->> +		    cpu_to_be32(PSP_SPI_KEY_PHASE))
->> +			pas->prev_generation |=3D ~PSP_GEN_VALID_MASK;
->> +	}
->
-> [Severity: Low]
-> Can these plain writes to prev_generation race with the Rx datapath?
->
-> These assocs are still published through sk->psp_assoc. The only lock
-> held here is psd->lock, which the pre-hook of psp_nl_key_rotate_doit()
-> takes.
->
-> The reader in psp_pse_matches_pas() runs without psd->lock and without
-> READ_ONCE():
->
-> 	(pas->prev_spi && pas->prev_spi =3D=3D pse->spi &&
-> 	 pas->prev_generation =3D=3D pse->generation));
->
-> It is reached from paths that hold only the socket lock or RCU:
->
->   tcp_v4_do_rcv() / tcp_v6_do_rcv()
->     -> psp_sk_rx_policy_check()
->       -> __psp_sk_rx_policy_check()
->         -> psp_pse_matches_pas()
->
->   psp_twsk_rx_policy_check()  (RCU only)
->     -> __psp_sk_rx_policy_check()
->       -> psp_pse_matches_pas()
->
-> So a key-rotate running while PSP packets arrive on an rx-rekeyed socket
-> is an unannotated data race that KCSAN would report. The field is a u8,
-> so it can't tear, and the result is unordered against the rotation in
-> any case.
->
-> The existing pas->generation write already works this way. This patch
-> applies the same pattern to a new field that the datapath reads, and
-> adds a second write site in the active_assocs loop.
->
-> Would it make sense to use WRITE_ONCE() here and READ_ONCE() in
-> psp_pse_matches_pas()?
->
->> +
->>  	list_splice_init(&psd->prev_assocs, &psd->stale_assocs);
->>  	list_splice_init(&psd->active_assocs, &psd->prev_assocs);
 
-This review is the same as two revisions ago, so I'll just refer to:
-https://lore.kernel.org/all/DMQOJPJ4AT7P.3DUQ9O213TZBI@gmail.com/
+Am 20.11.26 um 00:56 schrieb Sean Christopherson:
+> Export arch_smp_send_reschedule() so that KVM can use smp_send_reschedule()
+> in common "kick vCPU" code without running afoul of build issues on s390.
+> KVM currently uses smp_call_function_many() when kicking multiple vCPUs,
+> but several KVM architectures (at least arm64 and x86) kick vCPUs with IRQs
+> disabled.  Using SMP function calls with IRQs disabled is unsafe as it can
+> lead to two CPUs waiting for each other to respond to the function call,
+> i.e. KVM needs to use smp_send_reschedule() to avoid potential deadlock on
+> other architectures.
+> 
+> Alternatively, KVM could go out of its way to avoid smp_send_reschedule()
+> on s390, as KVM does when kicking a single vCPU, but given that all modules
+> can reach smp_send_reschedule() via kick_process(), forcing KVM to dance
+> around s390 adds no practical value and would add non-trivial complexity to
+> KVM.
+> 
+> Note, thanks to s390 now building kvm.ko and kvm-arm64.ko, using
+> EXPORT_SYMBOL_FOR_KVM doesn't Just Work.  Exporting the symbol just for KVM
+> would also complicate backporting the upcoming fixes to older kernels.  For
+> now, keep it simple.
+> 
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+
+Adding linux-s390
+
+Acked-by: Christian Borntraeger <borntraeger@linux.ibm.com>
+
+
+> ---
+>   arch/s390/kernel/smp.c | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/s390/kernel/smp.c b/arch/s390/kernel/smp.c
+> index 32499cad86f0..39318aa7ab7f 100644
+> --- a/arch/s390/kernel/smp.c
+> +++ b/arch/s390/kernel/smp.c
+> @@ -531,6 +531,7 @@ void arch_smp_send_reschedule(int cpu)
+>   {
+>   	pcpu_ec_call(per_cpu_ptr(&pcpu_devices, cpu), ec_schedule);
+>   }
+> +EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
+>   
+>   #ifdef CONFIG_IRQ_WORK
+>   void arch_irq_work_raise(void)
+
