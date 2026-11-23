@@ -1,90 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795461337;
-	b=Zrz9tcxOXCQ3+8DeTK3cMZQX/Roxf3T6zuGS0a7smXgETJ0UXpxhJTjyZIiuMMWlGOdX
-	 hfjFaIgB1VAI2mHZABdzdI1eBakamOCPrF4v3/BhNAQZVC20N0pDMAT2JXpPhW6BQLFls
-	 HKFF5sEfrCi3yrRZt5Di46Y3bzXySzE8bRqFWma/NjrOHUvIjjyTmtrFFTKVs7Ex083QO
-	 IAP/K7cKBhkWnHxjf0Busj9KF9JAomU9asekeMGJI2wakgqLgBF0ePFYzTMf+TyilhDBc
-	 uQ6mBls0VI6ddV93vAiSjq7TFS3CBRfb/DkbjY1iN8HwYRGIrVbSw4FTcthXIhl2fxg==
+	t=1795461358;
+	b=WfMi5btYBdoNTpSb8hKmDf4lInqFhQLB4cTTFIxes1+zpecUVIeUrea7H7Iy9SvfGIKU
+	 E9kZ31WgXJgwBnUVHuRcPysRhlnhYq5OE7sH231exlCfjjCVb5DAB+O8ZhQSHSn7UwWCP
+	 zSPPjqmOI0maE2t6+xc5pKGckI+3eGgF8UYYQUCPw6PyFNaIBrQZwhcoxbxiBdiSUUNW1
+	 8R2AhFa9NrGzFFmvMLOkqIrp57JYVWrqXxjQ7gkWONU2rQP0w/R0L+BC/gebk7YOGDp/A
+	 jw+MLf3ir635+8led8PUDaijSxzAawGzHSuyhqxJUtB02sIt+Eu0mss3Hif6zcIFI9Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795461337;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=xIfLP4TvL3JwjjTh8/f5cPWGdzjswtvoPPK4nfCYMWc=;
-	b=TDpvMdXo3g3sVFxLfUSZ9GKQoMmHb1pEPkDm75MMFUP+Qtdzuhz5Zu9K7bEM5qCZImAi
-	 iZxaqjDphZi5yeV2iyjO3eL6oE1w78oT3XmFqTVbxA1NoorXsKPnvSh33RdIKwzsrqEGt
-	 XfKbeLtb0N5b+A2EKfWG9kJoJuBPUaBe5YA8eLtEn94mobIvaynACP43yqkWR9qGlobIa
-	 d3+5LDfTan3BPzKwJrrTy6OGibanX8db/4f7VdlroBhn2mu6QXxxi1WFZY0tFzqGf11zp
-	 QDIZ2FQtv8TWSoauDm+/ZWqsc/mWoPPTUR1o9Zr8RqiJjoTdZ4KWBBpFgkMz5l5Cvzw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795461358;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=qAs74jBfCRNPtI3AOE74mg6KQR8ffuqRFJJYUzByJPM=;
+	b=VaMCIzRaTV82mR/aWrKPEYw4Jk/zdLNESynQIx/gikNHh/kWEFjItiFnEffIjkcQKlM5
+	 4q/VtbUU75G4fZes9l/rzmovUt40QoypxKetpVB9FIUinOBy3rPZCwoEAKaZFvCOP5xhf
+	 Soeil62juz/AfPcNs6/e7VjQUpVb0kX3UfBT7xcCv7+jP8iZoovatyAp67yBJXYFj+/I6
+	 WI6v+EqU2NXpmscdoy2IDInp9hUw57lWLOYeywofhT3U305KasfJPj+vXuvKA6uiu7YS7
+	 763FOY7BmYCMRrHwb+xeCWmF6UZc2lJ4pi9wvzWjZAWJYuvrGD+VRjYMz08KcnZKbSQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b="Yw9w/oFP";
-	arc=none smtp.remote-ip=209.85.218.51
-Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kTHZpENp;
+	arc=none smtp.remote-ip=192.198.163.19
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA1E2606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:15:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA1E2606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA38B606A321;
+	Mon, 23 Nov 2026 19:15:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CA38B606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Yw9w/oFP
-Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c513a854320so608923466b.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:15:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795461335; x=1796066135; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=xIfLP4TvL3JwjjTh8/f5cPWGdzjswtvoPPK4nfCYMWc=;
-        b=Yw9w/oFPvu1PiV1BgkmCGryn2el2h9iRZiwF2ZZQabr6uvBx3tSqIO2BIQHm4bMbMm
-         0NQz0A7VWEQbud0xnpdQwkTNaht6/T9qdjLs92+dt4AL2/Lje3glJZcAnXzImjgjqZ1u
-         dH22HOfxIz01XPg4T+wG6v26vqwQ+tzDd1mNY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795461335; x=1796066135;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xIfLP4TvL3JwjjTh8/f5cPWGdzjswtvoPPK4nfCYMWc=;
-        b=upsNOYUq/1db1EdK7nSwIxlw6qIqeRJo3Sr/x7Bu0zeICqIBPF8ibcEB1muIG3bnS3
-         KnlAreruNpfCwsaIUpOrxgVwXY/3EorJ4nv+71Fn8EYOkgsvY5VkAFiZW40HVSBzvolk
-         mEj0NdPh/aYpDssumXN7zwWOwNTNxjPc8PPfIsftflhzb3fdQ75650EJp4BF8w2sxx4L
-         7rit1dgJY1cFLdPdZez6rwvum+JBEKZllUsOpjrhH93lP36rAjieFk0gRwbg9FJXD7oI
-         Llf0bcYKdlVGPkvCzHmuNa93vxbCtHXTUuMaylNuSxMe5mIiNg7Ll0Jc/p9vYbtvtnk/
-         v2Hg==
-X-Forwarded-Encrypted: i=1; AL+hErHpSXnmkLAx7+jvPr0j//IYSnK51mry3QsU8CnSvvc9KFvrVY0yNprPT/F5cMPVi/p1X3q/pw0hJ865xQo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/A3RjJnwfe7awQp8RrelIjG1a3IzU60xli5lI3+H3vXvLfMBEk
-	HcggoqZTqDd/Ct1zJZVXFzuEEIg8jiVzl/S3v0Dc2RuvfB7j9F5N9RXHNeDiNG3q0KTJFchbJMd
-	PYf1WCcfE
-X-Gm-Gg: AZFdTZcmqS/4yT7Qd6uoTQ6HLL/arV4WJL/WfwcXjSCqhbsdOUuoTkVxDzT9tSxrz03
-	MaJL4fOYPQxLMuLhfTePMX5iMek5F6RkROhatIT+sxXLP7KszGcO+02Gk5J5HswZoWspRf3oUjc
-	Hc2RjzO3sU5y8O19P3sOL15QkwxSh8QfgQmb4IwI9eqqxmR9LY/boFZPDaBsHeyU/2NWcEPVv2V
-	5QkpN99m2l/lqg1+TCRiK0PJwlrEpUqvILepIHzsUGgtjYj4VCWoDZy9ROwuQb114dC8Ygzp9nL
-	IMqxf77l3MufGrDX/lwzppROuXxPtnE4PQDZnHcl79DRGN1wuIGauXT34UuIzDKQCyyzITNjKwx
-	2xgZOX/Kzta+LvgYgkbG6VmojGlMQjG9WYmfKfMxDbXVxqH4YIn5CW+5Fhz2um1/X4wDAGN24NI
-	2+HKXqijQIZd1KqsCoaZsrs7wWrpIFnf+ZeTrpC1OGyE5dGC3c/OQNlnMHU6qzzTPuiQ1uCECJ+
-	MbDMNlwq6/DgUMWIC8RYRUWvndFtJn/1IB5dHowxKEA/U5dIqrTnG4d3+AVfcibMuu1U25aHqV9
-	JxE6ZdPxjeP+8HaNJ/2BmBK/2Sr7PXhJLc02BKeAnZTveCGOns7rOPEQy+uT1tc/gmsU
-X-Received: by 2002:a17:906:1b15:b0:c40:6ed9:b962 with SMTP id a640c23a62f3a-c513a9ab46cmr811631966b.26.1795461335022;
-        Mon, 23 Nov 2026 11:15:35 -0800 (PST)
-Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com. [209.85.218.43])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afed607sm432819266b.77.2026.11.23.11.15.34
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 11:15:34 -0800 (PST)
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c51373ae637so563490466b.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:15:34 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHb7XrmSxijj164CrfC7ijcnZHvqH78GIJnzE2HsDJcK2sqp1bAQ5wSZCGnepGNZM9/L9Z90547UjL5oqk=@vger.kernel.org
-X-Received: by 2002:a5d:5847:0:b0:49d:1ce3:1849 with SMTP id
- ffacd0b85a97d-4abb47b2449mr22428102f8f.21.1795460833131; Mon, 23 Nov 2026
- 11:07:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kTHZpENp
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795461358; x=1826997358;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=afgsSvKNOpdLty9LX+bzFllsXyW9QCkKJpk+kJGgG0U=;
+  b=kTHZpENpmeC9s1p48wU74BoumqFHCwkEmepmkCHHnesTk31Q3WycFFV3
+   QJEvRq0V6MLcD+VrxV+cRBudQwDujrUEdaEMygYHaZCz6nVQXBpQfj5JZ
+   tpndBk/+iplHGRwqsofgDvzOll36Nh5aqA3gCgozzc+1gn+C/vxeS1dYj
+   jzD16Rw8IK/RGxdZGVnVOzWfQkyUWkmszPyaU9yq/e3O4s6XBCPV5QDTA
+   xUYzmSwb9ybitasuHsZya/GgDd5OwJ4eZwWHJa8xQw9AvAnKxbTrxedzi
+   ENsxVGmesANUFjDitjlJekI4EBcsrysvhN5VT+xPMCrr/SMZFd6lKk3z4
+   A==;
+X-CSE-ConnectionGUID: du/Is8ioRVulDFFMJMdcDw==
+X-CSE-MsgGUID: cYlNzMFDTWKwyfzmIestaA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4388181"
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="4388181"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:15:57 -0800
+X-CSE-ConnectionGUID: auFMWyztRaix2iCl1LUAHw==
+X-CSE-MsgGUID: BFpFdJ6BQeiWglTZFhWPSg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="11279516"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:15:55 -0800
+Date: Mon, 23 Nov 2026 21:15:52 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Arnav Kapoor <kapoorarnav43@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Yasin Lee <yasin.lee.x@gmail.com>, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/5] iio: proximity: hx9023s: check the sampling
+ frequency index
+Message-ID: <awSQ6HD5Y5pBhxKH@ashevche-desk.local>
+References: <20261123165255.239490-1-kapoorarnav43@gmail.com>
+ <20261123165255.239490-3-kapoorarnav43@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,76 +84,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116205320.1621386-1-dianders@chromium.org>
- <20261116205320.1621386-9-dianders@chromium.org> <20261118095418.51d30ee8@pumpkin>
- <CAD=FV=XZP5ZD8J8k5wD5XgQP-sF1SEoZNkRkXyYL1ZeuU187_A@mail.gmail.com> <av6J47fOAYxejSgr@gractus.seuss>
-In-Reply-To: <av6J47fOAYxejSgr@gractus.seuss>
-From: Doug Anderson <dianders@chromium.org>
-Date: Mon, 23 Nov 2026 11:07:01 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=UQ-LSqJ0m4h3nvatYOV6Jc_gezOb+SHTzUcx2twytEaA@mail.gmail.com>
-X-Gm-Features: Aa3M54rVuIOpXpREPYHEaLP2UUxHM1aMZ8x1gcb9luvKIP99K21qY4Li68E5VW0
-Message-ID: <CAD=FV=UQ-LSqJ0m4h3nvatYOV6Jc_gezOb+SHTzUcx2twytEaA@mail.gmail.com>
-Subject: Re: [PATCH v4 08/14] libfdt: Speed up fdt_find_string_len_() with memchr()
-To: David Gibson <david@gibson.dropbear.id.au>
-Cc: David Laight <david.laight.linux@gmail.com>, Devicetree-compiler@vger.kernel.org, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Devicetree@vger.kernel.org, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Chen-Yu Tsai <wenst@chromium.org>, 
-	Saravana Kannan <saravanak@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Simon Glass <sjg@chromium.org>, linux-kernel@vger.kernel.org, 
-	Brian Norris <briannorris@chromium.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	Julius Werner <jwerner@chromium.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123165255.239490-3-kapoorarnav43@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-Hi,
+On Mon, Nov 23, 2026 at 10:22:48PM +0530, Arnav Kapoor wrote:
+> hx9023s_get_samp_freq() uses the PRF_CFG register value as an index
+> into hx9023s_samp_freq_table[], which has 32 entries, without checking
+> it. The driver only writes valid indexes itself, but the configuration
+> file loaded by hx9023s_bin_load() writes arbitrary register/value pairs,
+> so PRF_CFG can hold any 8-bit value. Reading sampling_frequency then
+> reads past the end of the table and divides KILO by whatever it finds
+> there, which may be zero.
+> 
+> Return -EINVAL if the index is outside the table.
 
-On Wed, Nov 18, 2026 at 9:38=E2=80=AFPM David Gibson
-<david@gibson.dropbear.id.au> wrote:
->
-> > Agreed. Since `p <=3D last` (`strtab + tabsize - (slen + 1)`), `p[slen]=
-`
-> > is always in bounds, and checking `!p[slen]` (i.e. `p[slen] =3D=3D '\0'=
-`)
-> > before `memcmp(p, s, slen) =3D=3D 0` cuts the `memcmp()` call count acr=
-oss
-> > that 855-string replay from 187k down to 14.3k (the exact same 14.3k
-> > `memcmp()` calls you'd get from scanning for `'\0'` with a `*p =3D=3D *=
-s`
-> > pre-check, just with half as many `memchr()` stops).
-> >
-> > Timing 200 replays of that 855-string (11,259-byte) Qualcomm
-> > `dt_strings` block with `gcc 15.2 -O2` on x86_64:
-> > * Original (per-byte `memcmp`): 3.45 s
-> > * Scan for `'\0'`, `memcmp(nul - slen, s, slen)`: 0.45 s
-> > * Scan for `'\0'`, `*p =3D=3D *s` then `memcmp`: 0.36 s
-> > * Scan for `s[0]`, `memcmp` then `!p[slen]` (merged `c954f9dd8357`):
-> >   0.27 s
-> > * Scan for `s[0]`, `!p[slen]` then `memcmp`: 0.21 s (~20% faster)
-> >
-> > Since you already applied this patch to `main` (`c954f9dd8357`), so
-> > I'll include a 1-line follow-up patch swapping the check order (with
-> > `Suggested-by:` you) in v5.
->
-> Uh.. "you" seems to be referring to two different people here.  I
-> applied the patch, David Laight suggested the optimization.
+...
 
-Whoops, that's embarassing. I definitely glazed over the last names.
-Who could have expected two people named David?!? I will read more
-carefully.
+>  	odr = hx9023s_samp_freq_table[index];
+>  	*val = KILO / odr;
+>  	*val2 = div_u64((KILO % odr) * MICRO, odr);
+
+Side note: Also here, strange to see 64-bit division where it's not required.
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
-> Fwiw, since this further optimization is essentially free in terms of
-> code complexity, I'm certainly happy to apply it.  I am absolutely not
-> keen on further micro-optimization of this.
-
-OK, fair. Do you want me to drop the 1-line patch from my v5 draft
-then? It's basically this:
-
--               if (memcmp(p, s, slen) =3D=3D 0 && p[slen] =3D=3D '\0')
-+               if (p[slen] =3D=3D '\0' && memcmp(p, s, slen) =3D=3D 0)
-
-While it is a micro-optimization, the code is no harder to read so it
-feels like a nice free speedup. ...but fine to drop it, too. ;-)
-
--Doug
