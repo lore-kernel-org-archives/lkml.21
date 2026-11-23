@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795413038;
-	b=ssbSdiM6Th5YB9QMkmydmv40c2/N3frTFwWR7FM5QcUEfYh++RJEz7oFOU4CipyBzuAu
-	 mXIU+ZnCnrVXAXwDsjWxcPM03IgP1KjtEWND4uU0uZahZP1lIrc1VxUMAhPfDqiDIi2p8
-	 +yjSl9VFKPAHvHXFMMv49jApCXHjA7JNKX48lMqmkpZAFBs3le0a5rTV3ZmOJnXCflHE/
-	 AM/1mLesf/x56EAZINUHb5HCfGh8VeBmJJqq8CGY3Oav4eJFJHQ4X2Rhac03rLNN3z9rZ
-	 RJv5pb9z5fNRShlhdSUcIezeKTJCBdbtN6yG7ZIBM1WAJ0KdShOYDfY+vEb63hZgFkA==
+	t=1795413034;
+	b=JmBGYjnDhFYiKmD/vP8GfnwFHfItAxrBxyvUB5WiQHH9v+Y0WH30dt5VvPWfIPqD8EP6
+	 aiXzs4cWN6QNK5bMcYEdR9UELvr5E72N0+fODTC6HwuqtYhxi/WVEaymz3Ie+eudTL7be
+	 cUxrYiURaYPMO9NPicEuiG8IK43CWl8ANFvYa/ZzMRJzBYQ8aLv4vQYKf8YbdKGYTsj9O
+	 yRCTA2t09LGRXsrZ+L0o8JXHA1mUXWWeAj3qk7E/HUrXXkwcnSUD6jj56mgnH3aNvJIR/
+	 54AtoYzJErlrCvwzQez3eH5r6cE4uX3j5F5YebPIbZZrl2lakqdtbSEz45PMziC0huw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795413038;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795413034;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-Id:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=uJIPp/YyH4t38dxL7yEdpa792ArQgfxLDKaGrdyjVJQ=;
-	b=Zno8f8v/T2UXeX0mTyFnPGJg09HX/gA1JGPyfjU9NHQTgl45fvQ4l1LRPkMR0oesek4w
-	 YVbTdScNo2Ju8S8jbVtwLDUt0DrvJa+rdtA94bzPZ4SYPmGSEko5a4jxIV6CidecCbmwR
-	 DDH+mdBsTx9AqJjPksqDJizmXM0mifJXXWxFHFvhJTQLZ+KOhsRTg+JLNwqjyoc1TCeK8
-	 bU7LlwCBCLWplnSMqwAI4KULt+YJMkFgehZGwBvL/Bm5kfggxxROKqht8maQ8ND8NKv+0
-	 kMUofODGEMoBrGmkyAwSvzWbBRo/cqW9wHZO1ZV+fMEoS9BH9rUUzXoKMmikGtd2TEA==
+	bh=gmnXF3v4tuK1ZqxzI4mf7SiDYhBDjm5JKI84VQtIpT0=;
+	b=4IPr4hYk+0JVlkVBFls7JGYBRt5BEicQWpf2pVzDtnIbFgcnlLysnQHoykq/VLpcsWiO
+	 ANVfcwEatIiMi2tt/kWwf6AQg9b9l1t2+aSaiciJTfQ9u6soJ4nalcTeTKYGy9YbIwOUO
+	 9xvGLQAd3hJ/6PzH+4Y3wmPBjjv4bYFAwKbEB7aJ3rpG2SZZlEtaCLEmMZZemg4bAysGj
+	 FyC09qZx4hlrw2HHxgvAq7J6kxnYb/f6fdfxuBjfaIB2oJXktWkA8RXQ9aK8wyHa2w26t
+	 54nySaWW576jbSoaiequXw+AusLgfRBLLKl08dJhlefAM1QXLYb1eYmNNYmeXUKNL5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WHDZge1j;
-	arc=none smtp.remote-ip=209.85.214.169
-Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MaCefyWN;
+	arc=none smtp.remote-ip=209.85.216.42
+Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21891606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:50:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21891606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EC72606A336
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:50:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EC72606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WHDZge1j
-Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2f052ae3c86so13306795ad.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:50:37 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MaCefyWN
+Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3ae7626d14aso1312078a91.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:50:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795413037; x=1796017837; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795413033; x=1796017833; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=uJIPp/YyH4t38dxL7yEdpa792ArQgfxLDKaGrdyjVJQ=;
-        b=WHDZge1jB23OVAiOmLpeLZ28nlSM+3aAA/NXF6HndWhhNj4mrT3lZRDFMWyppgiSVs
-         6YrjR0YQWh/x5Vd2cOcyFj2Zu5tvE+quFJutdeXd6Hg5qj1WywPiz/Rdj0UX4fdlGnBM
-         f5apwJ43l1FLhmFJDWx++mDahzop0AvufOpYlpF4JVEgal80DTJA/nBFX4tZ03bTWT4i
-         9BshYlB3MOCib1lrn775NvHahUF4IRBpgcwt+iSPvBO6nlS7KRQTMpNpKZoCI5GaFm8s
-         PDgr7QtLP7vZd6UQHr7w69islf70WAmbgyzBhBefam7XTUpu+Ss09BEgdEy1m3IgK1Dy
-         ckhg==
+        bh=gmnXF3v4tuK1ZqxzI4mf7SiDYhBDjm5JKI84VQtIpT0=;
+        b=MaCefyWNF2cOmGDz6mbeZjQJ/Jx+o5v5psYM9WcsUjqh7gfNMjSQYU3XOeiI15dGVx
+         GCWtnaP78WuzGWRzneSUz4XtATw665rnBy40iMtzcbeR5Dre5/MGfb7aICf7Pgv865ZZ
+         huKF9F9+18i+hg/ICQIeuKUe1THosKMrakQ+qhnqLe0Higfmd2BQ+b67jg4ENrbKmxip
+         lrWQmbJMY/NZBAS79cJAPO+McaYp9WMuK+Sq3HdNfLkyMK2GZLjev4AadyIwIk1cvdsK
+         sDsvbLNp3Qm9UJK87XshqU8LJUKHQrBdxx4J5k7apgSz3g2K8uBXSd0QIcuUHRzkrENS
+         CuRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795413037; x=1796017837;
+        d=1e100.net; s=20260707; t=1795413033; x=1796017833;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=uJIPp/YyH4t38dxL7yEdpa792ArQgfxLDKaGrdyjVJQ=;
-        b=1rT4cQls9AnSd8wnaXJTyLB1vS+3ujb7UMtSCjWgI1p4pgDJ0b4zv6UKF5A+GPcm5N
-         Iratt+ecdfBrEDe4B33vZhnpKeYtkn2iP6TFqZkavD/Wtd2iOtEV5HcaQY4nmXk8iSre
-         JGtSI5jm7XUbjFXp9NFUzEdZX+OlIpHUuxwSnfC7GwcxD+GfIs7StgK25zL9O5UWJvKS
-         OI6Zmx6ZsiYPYZilGHGARENEkifm6FPdUZt40LN+1gQSJN+/9svMy8QoWUHblv9seyXq
-         NYIKEbdM40VFZqFQ/uU89li12oOQIB2pS/ZddpiaAP/fOVHeXn/Zi2fu0+ExgCRuspHP
-         p3hg==
-X-Forwarded-Encrypted: i=1; AL+hErGsUOqdHKSMyqhvw+VBm1jvKZ74e9tc3DMdNEGh2h9fig7hSV6p+C+nayBcWajKm4FXxb9LPS/nfS/OiI0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8meOgdiHMMmbDCQlytuX5kLwXYK65xkKlNwwvGIvZCZvDm2MJC
-	sSkbB0Z4swBuhShSY9d/O1mG06HRRuySyJi3Kj4wOWGo6FMWyLmzdE1n
-X-Gm-Gg: AZFdTZcyGASldefTII756Ums1g7dXf1qeYzM0m7ZchlQWNIgPp1nOwolXcaq3UrpO55
-	FzVXVfAopL0pYOw2u6oXOw23fhF/QBiyFhoO8Ek276A0e9sv0kexzqCcBjPIrM1hWM3ILjWiRd6
-	oaZw/P4OF2+yXrAUpM2ohRSe3DYGHK+7Tyap1ayLfn4YzBcDiCSuhU1EpdsZbuxDyM7RuHFl7mC
-	0Q1iPaQ+CnMROaJHhHo/0ujJw0ZF0cvZqVh54iRG2Dg7LP1MkFQMEJKeYqro6P47B9gJxA2cPJD
-	XCMg2u5Yw4na1F4xraDdSLhuFhk8lvmx2xGY9eDgg6GPjmuMq9NQrXuBIkxPUgD/WOsC2B2joD3
-	aULz38eR3nKSany4Sk8DhGKgRv/0+q4a2M4I8KivCaIYXS7pFuVGwnZ90duqjK7JSW9SCNO2067
-	A/NmH6yd4po/wPj9lO9NRWhpYhqNw76Q6jSZyY7tEgyT22Zb0EJfcb/t2zqU85hnEctunyhBI0S
-	cVN1+4zLtEe2uATTZdJLz5d0mDlAGhBVpQVNnpSe9DTa1yL6LswWdSOl1JKNmg+NjYsb9hjCerT
-	ETtdTuxbmLS4APmS7/2FfYbPqIQlwA==
-X-Received: by 2002:a17:90b:17cd:b0:3b3:c998:6d6d with SMTP id 98e67ed59e1d1-3b41c95da50mr8892234a91.47.1795413037396;
-        Sun, 22 Nov 2026 21:50:37 -0800 (PST)
+        bh=gmnXF3v4tuK1ZqxzI4mf7SiDYhBDjm5JKI84VQtIpT0=;
+        b=U0REuR+fQz+0MP0Rc7i2P5d28ab4omEjbW9wPZWis1yseOXdxznjBfpFw5Ej3lCc12
+         QZy7xQOwJJ03hfL54bK3qb4Rp5qCoYcOYEZQNmCVd6QGKBtGy4ZUam251i5MKAre1lC3
+         3Sc2KWXQuALXPZU9c88suuVpU7wjU4q7qSsX5Y9MvAbJJD2xov+StSSRduhFnLWJZ703
+         7GycitMgl0TBalrTBDEKX/+15ZkLvlmOJp3gDlL27gDd+vjhHLsxOhjS6lyngeIG3v1N
+         UDr/0DO8HWDn38toDOBIWX2mRiUIUFENSnWW30yzQmgmk+AeKksg6RDONYOMYcYINlg0
+         XQBQ==
+X-Forwarded-Encrypted: i=1; AL+hErEB1whSIejC0AMIjJwgwMJCJ8NGO3O8XQ+0s0JG7N2fmbeOZq0n3PdO8sC2qpAqwLQ4QloiLN/qbiR+rpo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+oDRblW9uUuXZJO1d+for2QBOFupjSjUQJQqxHViQ5CVAssYh5
+	iIoCqTC6o8iYyamgSopBDt9rkw2rX3q/+7Bq4YmmjNKBRnuAQkKf9896
+X-Gm-Gg: AZFdTZdRDmgtV38i+0gPN6EYvrUnlbBImRBnxWtbeUliFBEcEsyjwR/oeWeG+4HRBNl
+	60pJrhKfQKbyTusuJlv0ihmcGkPGUKdqFyWvImmU6j83JiAvO4Pr8nYSGi4oVU6Juvx4YsT/49L
+	s4dp+JgeEHAzzkItEyfeR0cbD04DQvgX0mVtWf6g963K5LLe2HabsHvdcJFJAloWmFQtXt2TNLV
+	StPsiZN6WhVHD1Jvai6xfGZjdCRrIxglx085Na+ojdCi58i/WkN2PiI1PzGo+gyuOuCPz22AklH
+	k9wBCq0ZnBbGc/gEUsWTxMldCE4QnYyo3GgQbdCnRXbMnR2BysYKLUwS5oWSUzbUOo9UHUpgCVo
+	brWuSfhkgN9o8snAUMuT4Z2+fWkLsGjxt530tmfuDdvr2Sk2RMsLkMz4YhKpfduKoAuS0OJ3Ucx
+	Bn/zf2tM+JQL+30yTn+AomlRDsbiL6wwD0HBNuEjm+VHp/emxCrmVzbi64q/yCY/xHzIns2aFsr
+	oAW5rMSu47zn/rc++IHI16i4DuhdsqaZuIep1I71J6oKVf41nnWe/7GuZAf8lrf7cIls8aKBVld
+	59wkl+e6oE9mmQstzwk5uUr/MmjUjg==
+X-Received: by 2002:a17:90b:4490:b0:3ae:a531:4e73 with SMTP id 98e67ed59e1d1-3b41c7b606cmr9764335a91.7.1795413033347;
+        Sun, 22 Nov 2026 21:50:33 -0800 (PST)
 Received: from server225.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f105b76sm46486325ad.50.2026.11.22.21.50.35
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f105b76sm46486325ad.50.2026.11.22.21.50.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 21:50:37 -0800 (PST)
+        Sun, 22 Nov 2026 21:50:33 -0800 (PST)
 From: "ping.li" <leeonion.muyu@gmail.com>
 X-Google-Original-From: "ping.li" <ping.li@horizon.auto>
 To: miquel.raynal@bootlin.com,
@@ -86,9 +86,9 @@ To: miquel.raynal@bootlin.com,
 Cc: linux-mtd@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Ping Li <leeonion.muyu@gmail.com>
-Subject: [PATCH 2/3] mtd: rawnand: intel: declare NAND_USES_DMA
-Date: Mon, 23 Nov 2026 13:50:19 +0800
-Message-Id: <20261123055020.1995251-3-ping.li@horizon.auto>
+Subject: [PATCH 1/3] mtd: rawnand: fsmc: declare NAND_USES_DMA
+Date: Mon, 23 Nov 2026 13:50:18 +0800
+Message-Id: <20261123055020.1995251-2-ping.li@horizon.auto>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261123055020.1995251-1-ping.li@horizon.auto>
 References: <20261123055020.1995251-1-ping.li@horizon.auto>
@@ -105,40 +105,43 @@ Content-Transfer-Encoding: 8bit
 
 From: Ping Li <leeonion.muyu@gmail.com>
 
-ebu_nand_read_page_hwecc()/ebu_nand_write_page_hwecc() feed the
-page buffers provided by the NAND core straight to the DMA
-engine, but the driver never declares NAND_USES_DMA.  Because of
-this, nand_base cannot know the controller DMAs these buffers and
-never bounces non-linear-map ones (see the use_bounce_buf logic
-in nand_do_read_ops()/nand_do_write_ops()).
+fsmc_exec_op() passes the data buffers provided by the NAND core
+straight to dma_map_single() when the controller runs in DMA mode,
+but the driver never declares NAND_USES_DMA.  Because of this,
+nand_base cannot know the controller DMAs these buffers and never
+bounces non-linear-map ones (see the use_bounce_buf logic in
+nand_do_read_ops()/nand_do_write_ops()).
 
 Since the mtdchar MEMREAD/MEMWRITE ioctls allocate their buffers
 with kvmalloc(), a heavily fragmented system can already feed a
-vmalloc'd buffer into the controller's DMA engine, which is not a
-valid dma_map_single() input.
+vmalloc'd buffer into fsmc's DMA engine, which is not a valid
+dma_map_single() input.
 
 Declare NAND_USES_DMA so that nand_base bounces non-linear-map
 buffers through chip->data_buf, as the other DMA-capable
-controllers already do.
+controllers (arasan, denali, meson, mtk, nuvoton...) already do.
 
 Fixes: 83208e106a8e8 ("mtdchar: use kvmalloc() for potentially large allocations")
 Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
 ---
- drivers/mtd/nand/raw/intel-nand-controller.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/mtd/nand/raw/fsmc_nand.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/mtd/nand/raw/intel-nand-controller.c b/drivers/mtd/nand/raw/intel-nand-controller.c
-index cfb4b231e067..1f493fb426d6 100644
---- a/drivers/mtd/nand/raw/intel-nand-controller.c
-+++ b/drivers/mtd/nand/raw/intel-nand-controller.c
-@@ -688,6 +688,7 @@ static int ebu_nand_probe(struct platform_device *pdev)
- 	nand = &ebu_host->chip;
- 	nand->controller = &ebu_host->controller;
- 	nand->controller->ops = &ebu_nand_controller_ops;
-+	nand->options |= NAND_USES_DMA;
+diff --git a/drivers/mtd/nand/raw/fsmc_nand.c b/drivers/mtd/nand/raw/fsmc_nand.c
+index eee00c6f43e0..2c3da9242a14 100644
+--- a/drivers/mtd/nand/raw/fsmc_nand.c
++++ b/drivers/mtd/nand/raw/fsmc_nand.c
+@@ -871,7 +871,7 @@ static int fsmc_nand_probe_config_dt(struct platform_device *pdev,
+ 	u32 val;
+ 	int ret;
  
- 	/* Scan to find existence of the device */
- 	ret = nand_scan(&ebu_host->chip, 1);
+-	nand->options = 0;
++	nand->options = NAND_USES_DMA;
+ 
+ 	if (!of_property_read_u32(np, "bank-width", &val)) {
+ 		if (val == 2) {
+
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
 -- 
 2.34.1
 
