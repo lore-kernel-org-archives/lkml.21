@@ -1,91 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795396464;
-	b=QEQleL3c/pIVdXmWL/gjmPvCS1fUmNTGJlrMy8YC5FHjdSiyd1dxOdeZNHwGu6HknHWi
-	 ULLtNIQ6aB3sN4FOoWw5f0j1a6Z52yxFIm+cVf6xC5A5+MpB9+YaOOjpgPJ2KaGRwwLVX
-	 LADTfvK2749Pv733Rn0izB+4BxC3YbR5VcR3sufe9J52uyxGGx4rk4OaiHdJ/pXrfia7u
-	 cpAoW2rX9t524pg8PkvBM74aEJXcT2YUxNL87KVwfenP+p3MDKHHIYNBgn55JpJL1tQuZ
-	 z5KTHI5OSHeV0bMSVjeggdTx8nNsZCYeztwwG7qnf5BsCjeHiYRBpM31zGF9nbsR4yQ==
+	t=1795396633;
+	b=A0qUBeI0NB6oMekOmOfYQwuFdW8alnhKjK03rcRLq58AXi78zJaszNFlWmnL+oKm6HFG
+	 PvakIjV9jYOoduf4Tb4DExWGGIk7mYh54n8xf4HRuvQm94iiVtU+MlxWWhxNAi99Z0Ovl
+	 mQNXe0eP9HtNFuuGDKJPWSh+LlR4ZaEayTQry5RVGEP3zoCczF5dmPMOzGoIj7RWCLW5p
+	 SgLMwCXwlqwa7iK+BQpjmkEUCuqr/M/jiLS323ONrtuje2HQCznBAaaKOpSOdvniCJJCh
+	 sPFCHwbeoQEKio7YGmZ0wxNOakpPys7VYA1eHVNzhoEz86htNCjSG1p9ZoIvnxj6F8A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795396464;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795396633;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=CHXXmkVwlU35isuKQoqN5mwPu5Ltu0MHi54EypRJlu0=;
-	b=ne9aaRLhkvEFbJIpHhzOPaxEhY1XTadVLwyOylTvxj5/R8FOYfQi7Ym/kY/hzKPVT1+k
-	 pUrW4xgV6ayEGxKO3BrxFypel7Fdbv9NRkBIgCf/qTyKYYUI16K/yGxZ1BzAy/4HBMDJf
-	 ZaTswaf6laEbvj+7ndCt0csE5qBxG+ZBdSiDm3Mm7mS6lT8k0tJWo/lRcIMgjHeTJ+C+T
-	 K0av46LTgGZbqONVrXFriHJe72y5TrCp7VjSUtKEFky+g5JsTWaOfO2+wbfsLMDBxBhDE
-	 jN1rA/CzW6S1mq08PU13R11B7IGffevk1N/u1c/ofzm6XXWzXmnLaFAN+rhR7CUvSQg==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=7UgZ/UaOfprcYE1+TJLcwuO2nl1zM9v7WpMLhsF+tYU=;
+	b=EPLNbvpi3tXbYCkeLliwKBmg3EvbAx4bOhbuNUuq3mud6fZshfSy8MtB5gw44BkLPQzW
+	 Tl1ufjRRt/qxPHNwwKFnkwsHmyfMMVrPYrnofS/CCJ1GGZjHp425w4+jNsqKDf14+Cg0o
+	 GZAQw33PwuT8Yg+ltneRwNyj4qmJuKlrih+KH13oBp5STLknSgsJDQE7xLAovpK6cHxoS
+	 /dBVw2ub56iRSnOELMTiMyotH8p1dEdUkCLXUea/PudeCNZjtweVo2luwwfhTzX+WW5By
+	 oWNzszkpn5pMCkcnIsS3y3IMkZDIo1FPO26g7pNVaqMvLvd+dcRYxxsrFZhLiUXtrxA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lLYfZxYM;
-	arc=none smtp.remote-ip=209.85.221.42
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D3oiXrb7;
+	arc=none smtp.remote-ip=74.125.82.50
+Received: from mail-dl1-f50.google.com (mail-dl1-f50.google.com [74.125.82.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F7DB606A33D
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:14:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F7DB606A33D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68664606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:17:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68664606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lLYfZxYM
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-4a3e706b5dfso1775975f8f.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:14:24 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D3oiXrb7
+Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-170135e43c7so3874962c88.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:17:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795396462; x=1796001262; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CHXXmkVwlU35isuKQoqN5mwPu5Ltu0MHi54EypRJlu0=;
-        b=lLYfZxYMSWmA1kHYYVmuloqDhwWyKpx9LPpB+YnK6yqlB4mSQb+5Hcpwr3kS5Rhzbn
-         qISBeMDJC0bUkBW6N1b3qVISFlGRiAeSHrxg3qSnGKzIRAayoEFzuw6zw3z5SZ3IUZCO
-         Cxb7SEcv6Zbqy3KF1ctTkGA8MmIB3MgaNPZIflb+43G/b0jAblyNdwvWt7fW1ycS6OiC
-         cJ9ULSCo4wW8wmN2sE6o6CUVYbsUavY9pB3coDVMEHG4JIQw83wWyK1AqokgK6GqjtQz
-         ESRspAsHGyGiRCDu6cDyR1DV1JOs1wows42eauZ5Z7f5QToolN1t7kNBfNxfJTnUGPuM
-         hqmw==
+        d=gmail.com; s=20260707; t=1795396632; x=1796001432; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=7UgZ/UaOfprcYE1+TJLcwuO2nl1zM9v7WpMLhsF+tYU=;
+        b=D3oiXrb7ZmV6BWAyg9ScNT/pB4kPE7fyRC3Fy7kYNpwrjx3he5btiKZvcUhIe41p/G
+         JhAEMuGmmzQPQd4cLdMi6Pji+ComVY+E5+WpVWCvDkb/KE2VjWuqoPzDYDw+vNYAoZHm
+         vh9EZrh06QHbkwflnvIKtYD8TWxfbCB9hquDR+zecgKzlth6KSPemD9z+BExFCcES+5c
+         mERpZRe01ozEDuHbKLe1TRWij5M38D8FHyCfRGJq9CB6LPzvK6hIlkzov7jmAe2JvRdQ
+         +P4NMcO4Vox5Eh/HgYXXkOjWQ/n2T3ZWjhmWkYnLVc5+4WbXYzFcr3PblxFCJhAlcePW
+         OtPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795396462; x=1796001262;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=CHXXmkVwlU35isuKQoqN5mwPu5Ltu0MHi54EypRJlu0=;
-        b=LbyqTw0euzpRBuRNDFIjJ+fRRLWGJ7QSigdITke8wkkxNEMCwZSOYQfDM8Wi0ov5mm
-         oO63vEVLnO2NNZybHIzFBVHfh9nqfkVBeCTDiv6gM8kJC1feBrWLvEQrct3G5VKMtHXo
-         MoaLylicNxcSjl9DWu0813wG3xNmTrVnudQxExCNQQzoA4jc6VEwf0DNh41ca8TpkxjW
-         l4Xfn568iQCU6Xo/5GHcXGU+Y0suR1/cl+MzMZ9mTByR9Cr0U4LvRM5a5gSWy6iT8hCg
-         9cCFlUlLxo0zqe7xpsJLuKkxvvXsI9xupPNZRjj/1zw/Fzu13WMifm/ZdRr9aoIs/b1a
-         bfrg==
-X-Forwarded-Encrypted: i=1; AL+hErHwjdV9aNgXWeMGScnYY42yKdPOuMXD4xSPIJITC/mnB5YVMGckiA1bAM77iSHD0rVQAsCDIy3J/gPqlvQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/h1wlxtALV08SgXbV0aK2Fglh8zn23YZdOLovOwRIm505scnLV
-	3PuSMYCar0efe/r1SQlHYnvCUS+3wR2TEC4BvRNJ7KhZINj5IqxkOq0S
-X-Gm-Gg: AZFdTZd6Fum2lYtPRNqcFOzZzPjg9qDCJ21RhX46oGkk4g/FeoUddd2lQ+aBk6dvods
-	OgK7CkNHPdjPvL2bf6176HuHhWCCD/P6SOpQaW3Wr0HHRy0oncJusA4UrFl+8VQdg0jKaI/M1yR
-	kZ8hPXHXCqV2SzenaS+hibFe/mpjIGGDl90X2DgPWMAJtCOqy1t503i2/LxEupzONBPu52RS8T/
-	yyBHQq/7RTVH1aSmDc8DdOeHwfL2FnTfGudXarfF8KS4Kxo6NQxVE3igQWfCdlPsMpRdSScpN2s
-	CnJ4+5rARqVOHAbqRHLtvst5kryYyz4BfpMdUyAMPs5Md8WK2H6lgXvly/CyMO7tksjD9b1w0f8
-	gap0LghuwZkgclvWADYqIuYdwNWF0KwL+Bhd5DdLva/Z6rDNj57vOhODv2YdNphLEgnNRCvJ/9v
-	+W4XVYhPFmyHyCVTk0hwUkVMGOki/lE6nbAatasXaHKqsUh6SM29Aip7X9uYaEveQS44sYD+euT
-	CBoM01zJC/BF9wGTkzS5lgVhodxClO0qqyIe/PV9z0CowFubvWgkh5V732D7D1KzmcsgvUmO3s+
-	KQkxtTR3cQ5JRv62Ly9d7NnmnHng3twxQQn4ig==
-X-Received: by 2002:adf:e009:0:10b0:4a9:2728:fdfc with SMTP id ffacd0b85a97d-4abb4c7af34mr12900963f8f.28.1795396462348;
-        Sun, 22 Nov 2026 17:14:22 -0800 (PST)
-Received: from unknown.m0rf30.ray ([2a02:b027:11:deba:33a1:e72c:924d:d172])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f281sm18046903f8f.22.2026.11.22.17.14.21
+        d=1e100.net; s=20260707; t=1795396632; x=1796001432;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7UgZ/UaOfprcYE1+TJLcwuO2nl1zM9v7WpMLhsF+tYU=;
+        b=au+Y5D/CXO6lFUg0pbD6JxUpPZ+t8tRkefqtP1U4AofEL/PQ+x0JpMXyv4T5H/1Pzo
+         NKpyIn63SEW96tqwJXohoxK6eBBEM7rGdw7n/tmt5yQcSN/W9pfk6sIqw4rNso1Q6OB1
+         GOjoCWkCXDM82TFfe64YjX9BgNmivpGCZM1mQIIdt8wsCL/Tudf1Wv7g2pPncoiHeS5y
+         pXWiU9t7mmMVvfJD8FCf303g33k8Q08zs+uFwhZ1czJ4zwvgFssnuiQE13vOr84HLmhi
+         TWTvqwxKyq4U2//3um7hc1LV4Q+Li6+0kU0Fu+udroK8DdIDgEemMDZsYo2OqImz64yx
+         uZ1w==
+X-Forwarded-Encrypted: i=1; AL+hErG/OIAMH3UbhPN6Lf+2iAEbSI0dTFQ3XYcIJJaA2N2nxvEkg8cQqciEFs8NLkWFgffRSIOmTJjN3ysBTEc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/4brj8vAiQ3RHEKKvfmW17p8FBJeQcX9vDtILYuv65ie8NSmt4
+	yFWU0EDGHE/9EH+Gh+3v0QGZl0HdmcAW4vP4K8qt7v1ZmAeef9TV/Xia
+X-Gm-Gg: AZFdTZcPeu+Pc8r6GGLW7NCYfpIlYgWNoHNQBRxzTtUriIB1fWFc19pt7rAPKwZ3AWP
+	ffOWp/82ruXSq9Bk32TIL5gDCIVmhZI4TSpuGs/hP/p54ZpAYJXMBZHWOSFM45EzZbl3EFY4j6U
+	/ewr3aatP/TMNfVULjmT5ilLy7pw2wQGCih5cqmzMQDokGgrAPR55r/zOARgIW1d+UhtvyAquLr
+	Fvpn5akNkrX37DtRgHvnzC/K4kGGVHOTN24QMg1j5k9lucSgpfUYg6rA98tunXDyzOJ9st+9Wne
+	875JIC7yjRAeaqDFEY6HiYqKgxULxBd8M0Mdb1FMoDGFu7VlqwcrWQgqazm46VZSGNwAnLxXpj0
+	bjuSxewjgtwUIRElNjGAp0e/kGguddiSMnD3We3vccZLoIma1xJXmyIkuZJpAcWA/O02Pk2z+YG
+	K4y5k6DtZ/5E2MgXxZJMa4sbZQlSvvqSdWgtkJ94cw75DRaLC9AiXYKsP0yuS5e5p8hbRvaFg5m
+	HkOQosl/GRiboE4UlXchR5rMEytfbBta6HsnV0ryJDZ/2xwV+cwXxN3mgnLuKL6Ez4k178qfWQS
+	kpF6G/WE6tDwwJwGB0Cb38O86Op+4VO2pspo05LNlWhfeDl9snkwlnHEh6uPjArnlGkhfM0=
+X-Received: by 2002:a05:7022:4181:b0:1b0:4272:4282 with SMTP id a92af1059eb24-1b5568ba440mr16998658c88.17.1795396632411;
+        Sun, 22 Nov 2026 17:17:12 -0800 (PST)
+Received: from google.com ([2a00:79e0:2ebe:8:f002:4621:aeeb:e0e7])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c3052sm23764321c88.1.2026.11.22.17.17.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 17:14:21 -0800 (PST)
-From: Gianluca Boiano <morf3089@gmail.com>
-To: Takashi Iwai <tiwai@suse.com>
-Cc: Jaroslav Kysela <perex@perex.cz>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ALSA: usb-audio: Enable native DSD for Fosi Audio DS2
-Date: Mon, 23 Nov 2026 02:14:01 +0100
-Message-ID: <20261123011401.1545242-1-morf3089@gmail.com>
-X-Mailer: git-send-email 2.56.1
+        Sun, 22 Nov 2026 17:17:11 -0800 (PST)
+Date: Sun, 22 Nov 2026 17:17:07 -0800
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Henk Vergonet <Henk.Vergonet@gmail.com>, 
+	Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Christophe Leroy <chleroy@kernel.org>
+Cc: Oliver Neukum <oneukum@suse.com>, Martin Diehl <m-diehl@gmx.de>, 
+	"Alfred E . Heggestad" <aeh@db.org>, Thomas Reitmayr <treitmayr@devbase.at>, 
+	Slawomir Stepien <sst@poczta.fm>, Jie Wang <jie.wang@intel.com>, 
+	Manuel Ebner <manuelebnerli@mailbox.org>, Randy Dunlap <rdunlap@infradead.org>, usbb2k-api-dev@nongnu.org, 
+	linux-input@vger.kernel.org, linux-usb@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/2] Input: remove obsolete yealink USB phone driver
+Message-ID: <awOT9WG0ZdNkIm69@google.com>
+References: <20261111215723.3802209-1-dmitry.torokhov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,40 +104,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261111215723.3802209-1-dmitry.torokhov@gmail.com>
 
-The Fosi Audio DS2 (USB ID 262a:0001, Savitech controller with a
-Cirrus Logic CS43131 DAC) exposes a UAC2 RAW_DATA playback altsetting
-(altset 4, bmFormats 0x80000000, 32-bit subslot), but ALSA reports it
-as SPECIAL without the DSD_RAW quirk, preventing native DSD playback.
+On Wed, Nov 11, 2026 at 01:57:21PM -0800, Dmitry Torokhov wrote:
+> This short series removes the obsolete yealink driver for the mid-2000s
+> Yealink USB-P1K (0x6993:0xb001) USB 1.1 Skype/VoIP telephone handset
+> and drops its module selection from ppc6xx_defconfig.
+> 
+> The hardware relied on dedicated userspace bridge utilities (such as
+> usbb2k-api / kb2kskype for the defunct legacy Skype desktop API, or
+> yeaphone for liblinphone) to drive its keypad, segmented LCD, and tones
+> through custom sysfs attributes. That userspace ecosystem has been
+> unmaintained for over 15 years, and the driver itself has seen no
+> functional updates, hardware testing, or new device IDs since 2008
+> while continuing to attract syzbot USB fuzzing reports and drive-by
+> cleanup patches.
+> 
+> Thanks.
+> 
+> Dmitry Torokhov (2):
+>   powerpc/configs: drop CONFIG_INPUT_YEALINK from ppc6xx_defconfig
+>   Input: yealink - remove driver
 
-Add the device to the quirk flags table with QUIRK_FLAG_DSD_RAW, as
-already done for the ddHiFi TC44C (262a:9302) using the same vendor's
-controller. With the quirk enabled, altset 4 is exposed as DSD_U32_BE
-and stereo DSD64, DSD128 and DSD256 streams (88200, 176400 and 352800
-frames/s) play through it.
+Applied the lot.
 
-Tested using snd-usb-audio quirk_flags=262a:0001:DSD_RAW on
-Linux 7.3.5.
-
-Signed-off-by: Gianluca Boiano <morf3089@gmail.com>
----
- sound/usb/quirks.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/sound/usb/quirks.c b/sound/usb/quirks.c
-index a4eb0d0cd..7b359a568 100644
---- a/sound/usb/quirks.c
-+++ b/sound/usb/quirks.c
-@@ -2801,6 +2801,8 @@ static const struct usb_audio_quirk_flags_table quirk_flags_table[] = {
- 		   QUIRK_FLAG_SET_IFACE_FIRST),
- 	DEVICE_FLG(0x25aa, 0x600b, /* TAE1159 */
- 		   QUIRK_FLAG_FORCE_IFACE_RESET | QUIRK_FLAG_IFACE_DELAY),
-+	DEVICE_FLG(0x262a, 0x0001, /* Fosi Audio DS2 */
-+		   QUIRK_FLAG_DSD_RAW),
- 	DEVICE_FLG(0x262a, 0x9302, /* ddHiFi TC44C */
- 		   QUIRK_FLAG_DSD_RAW),
- 	DEVICE_FLG(0x2772, 0x0502, /* Musical Fidelity M6s DAC */
 -- 
-2.56.1
-
+Dmitry
