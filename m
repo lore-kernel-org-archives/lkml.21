@@ -1,68 +1,63 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795420543;
-	b=qyvEA7py9GJbXWvsBbMc5hEx3qyvemm/5gRgJ+MYf1ylroQ01KU1+U1MarKJ35KPNVKN
-	 4ZGLrpkwGsh6S9Lu+NLO1o1FIa9+5sCYyVO2SFWqDX+n4I0uZVQebnRZspfz7G9VkxbWd
-	 wOAig3H47n4HXlP8demfyf4OfTtbTLqdojQJCN7j0RohHtt7MmPOYJgAo3oA5sUrRrZ0d
-	 v8Aq0Kbo04QWeBuvLAR2U5/R1wfXuZiO+zRDZyxAjO1j/Hbb9rrM3dIOsNbiBLKwRKwCt
-	 7hphuONDgxa988cAmxhfpJnO18B0nVJ1kdHRZ10TEL3PtHHx/pZzyC2TMTOg0PxeKpw==
+	t=1795420544;
+	b=nLQTQ3w5BQEnibdmNgVZjAeTNqyWchaEIyS0IQElHboQFNye+DcHxUtXwEPcn2Pl2VPo
+	 mYLZRBNOTMVWRQuSogYFpPwtetbijIaWWXK9fPxLVUTBuLe0/AdG5XYGhQc5j+llFT7AB
+	 XPDWZV4NlMStixjqAXE0/bCFwK1P5e99Kzp82xhz4z5LmxbkDTQUFugX1vFr71OjBxcHO
+	 GSkQwmOzk2Sn4jKDujz1JFDUnE9nZtFbpSWgZ2mklvDJ/AMKL+M+yS6oAMKyWS2PMSTXb
+	 OzUI6StQlWi7x9Fu8aF+XMIkAN6CY+0P9GzoJr2GpqaLE8XMsVbmA9b9dB7REseh7JQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795420543;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=nYLwjkPeDoYKPQ9fpj7sj29JLi9BGT+W9npk3A58FDA=;
-	b=o9B/i3izBlyr0Qa1r2BgY64A3uej8F5vmFFnB6yn4gVytjDRuA+5UzQOc5wTez7WU2pk
-	 4NRtEdkmQFk3tEzabw5qhnfKCYVWuCbvUqEpizCnwPmCiv4jt4V+UyitPWos/gsoPjH6F
-	 vVGBVrcWfYDOXtUksTVVjOLIIX1pdPHV0QvDGJ8hRR0d0ZzBRSdfaeOVxDL2EeuUecia9
-	 fGg2xYV5lJZGwiMJaad6l/jPXmCESXhdkjtFwqx0xCV6yRkliOEJJ/AdnmzbIyXnbpA9c
-	 VxqNTxL6oxW9i53Oypy6NE8g6G48701w8RPkIC6ISJ8iHJj26hRlqiGzbJu12NZ3xHg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795420544;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=zr7xOrFQd9ywAmzbZcP2cP671fzwOOv2pkwVgDP0L9w=;
+	b=c9stC6mBy2PiX7CntIQxBUx5uGpfNlaWUBDRpR/Jm7U9TYa8zr5a+0/1eyFJTOymjU6N
+	 FJfzIZLF6vKUnvsm5UaMX6i8DtPQjctuv/FJL8ydV/WUGH8XXPgwHG46SbRl3WJZ52Ljl
+	 V/ffH704fbBj78Nv5SBHJAyP7ZSBkUexD89pBzhKapkESTHHKPwDuO3cHGxk5b6+0AeQA
+	 DzXyIxwkBqJciw/pthmKjfk9xpHa0JYAAbwxjshZ7YYszmYEgbopM38NQhmhkmvSuGGmQ
+	 spZUFvg4run/EZdkcRZ/NBg7ihYtsv19pRVtsRc+vo/GeHLtw35VP6NAYxpNg5rkktw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YXAvsKFi;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dPmmxzjj;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0D20606A336;
-	Mon, 23 Nov 2026 07:55:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA263606A685;
+	Mon, 23 Nov 2026 07:55:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YXAvsKFi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AA821F000C6;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dPmmxzjj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49A271F000C0;
 	Mon, 23 Nov 2026 07:55:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795420543;
-	bh=nYLwjkPeDoYKPQ9fpj7sj29JLi9BGT+W9npk3A58FDA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YXAvsKFiWSvpBAh0r/bLzhP/mDijS6wWiRAI/eNzzlW42pXDN4k8BL54YfASB4YyZ
-	 KDaG4gPrLUiNxP8Y53xiVgpDqyQYPNbffcEa5ycmQNLiBTR+5HEYIMJYvdAThv6YH9
-	 HpUjHRD3AKwKVwH6wIB1q+2q2wI63zezLOdt1UVU2EDTOuJDj6XbRN9XB1c4M1qRwJ
-	 nNsYrkMkn/h6oyq0H7wZPcnDLbwg1Mo1uDNj1WKorr/U67FRXRdTJ2zYV89UO4yI1c
-	 A8yJwwgZo6rSUPiINE2/hvWe4cJZZZanigQdCdzOb55tcn4lLBhSTUMLTCFRqbJA6u
-	 SjNDfuq17V90Q==
-Date: Mon, 23 Nov 2026 08:55:40 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: codykang.hk@gmail.com
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Haylen Chu <heylenay@4d2.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Yao Zi <me@ziyao.cc>, 
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, Guodong Xu <docular.xu@gmail.com>, 
-	Icenowy Zheng <uwu@icenowy.me>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
-	Sarah Emery <sarah.emery@canonical.com>, Ze Huang <ze.huang@oss.qualcomm.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Cody Kang <codykang@vsit.ai>, dri-devel@lists.freedesktop.org, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, spacemit@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v3 10/17] drm/spacemit: add Saturn DPU KMS pipeline
-Message-ID: <awPxPHpr4NYxqdmf@houat>
-References: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
- <20261121-k3-display-v3-10-ec419e8e96b8@gmail.com>
+	s=k20260515; t=1795420544;
+	bh=zr7xOrFQd9ywAmzbZcP2cP671fzwOOv2pkwVgDP0L9w=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=dPmmxzjjgPy/OeeJJYpTH4IsrnPXRm0XWHm54/m6QyfbptBUvWOebrX1KL9kQwwKn
+	 9D0oxdAAa4DCWzQfItkGQISCsJpBcSzUbyFg4mLW/UeOaJJjIb0xRgsOva0Ow2y6EU
+	 xgHXl2mhvNg7imboK3sJmnkdO9yc6Exs3BHlqo5lmRiXAvCbkUrUiHBTYljvn+4pUZ
+	 ouK0+qNOQJnjGXX8mzNj99qSn3B49YqyhloyyTO3zVw8/lRFHI3mJlg5jcpmPYci0a
+	 4gNxH0EReSUCdGWy+Oe+mdq3nyDEBybv4gs7EdQi8CSFAwN81v+jggvuYpy9NOmip5
+	 MMKIpSDEWtwMw==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org,
+	Vinod Koul <vkoul@kernel.org>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+	Takashi Sakamoto <o-takashi@sakamocchi.jp>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Charles Keepax <ckeepax@opensource.cirrus.com>,
+	HyeongJun An <sammiee5311@gmail.com>
+Subject: [PATCH v3 02/10] soundwire: sysfs: Use sysfs_emit_at() in array show callbacks
+Date: Mon, 23 Nov 2026 07:54:23 +0000
+Message-ID: <20261123075522.405347-3-lee@kernel.org>
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+In-Reply-To: <20261123075522.405347-1-lee@kernel.org>
+References: <20261123075522.405347-1-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,80 +67,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="psp6wiqhchja3kyl"
-Content-Disposition: inline
-In-Reply-To: <20261121-k3-display-v3-10-ec419e8e96b8@gmail.com>
+Content-Transfer-Encoding: 8bit
 
+words_show() and the show callbacks generated by sdw_dpn_array_attr()
+format firmware-supplied property arrays into the sysfs buffer using
+unbounded sprintf(buf + size, ...) loops.  If firmware provides a large
+array count, sprintf() can write past PAGE_SIZE and corrupt kernel
+memory.
 
---psp6wiqhchja3kyl
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v3 10/17] drm/spacemit: add Saturn DPU KMS pipeline
-MIME-Version: 1.0
+Replace the sprintf(buf + size, ...) calls with bounds-checked
+sysfs_emit_at() calls.
 
-Hi,
+Closes: https://sashiko.dev/#/bug/linux-543ff498-3bed-412d-8972-4855c5aa6008
+Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+Tested-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+Tested-by: HyeongJun An <sammiee5311@gmail.com>
+Signed-off-by: Lee Jones <lee@kernel.org>
+---
 
-On Sat, Nov 21, 2026 at 03:40:49PM +0800, Cody Kang via B4 Relay wrote:
-> +static int spacemit_drm_master_bind(struct device *dev)
-> +{
-> +	struct spacemit_drm_private *priv = dev_get_drvdata(dev);
-> +	struct spacemit_crtc *a_crtc;
-> +	struct drm_device *drm;
-> +	int ret;
-> +
-> +	ret = aperture_remove_all_conflicting_devices(spacemit_drm_drv.name);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret,
-> +				     "failed to remove existing framebuffers\n");
-> +
-> +	/*
-> +	 * Bind-scoped, not devm: the aggregate can rebind without this
-> +	 * device being re-probed, and each bind must release its own
-> +	 * drm_device.
-> +	 */
-> +	drm = drm_dev_alloc(&spacemit_drm_drv, dev);
-> +	if (IS_ERR(drm))
-> +		return PTR_ERR(drm);
-> +	priv->ddev = drm;
-> +	drm->dev_private = priv;
-> +
-> +	ret = spacemit_drm_mode_config_init(drm);
-> +	if (ret)
-> +		goto err_dc;
-> +
-> +	a_crtc = spacemit_drm_pipeline_init(drm);
-> +	if (IS_ERR(a_crtc)) {
-> +		ret = PTR_ERR(a_crtc);
-> +		goto err_dc;
-> +	}
-> +	priv->a_crtc = a_crtc;
-> +
-> +	/*
-> +	 * component_bind_all() unbinds what it bound before returning an error.
-> +	 */
-> +	ret = component_bind_all(dev, drm);
-> +	if (ret) {
-> +		dev_err_probe(dev, ret, "failed to bind all components\n");
-> +		goto err_dc;
-> +	}
-> +
-> +	drm_mode_config_reset(drm);
+v2 => v3:
+ - Collect Reviewed-by and Tested-by tags (Charles, HyeongJun)
 
-You need to use drm_mode_config_create_initial_state().
+v1 => v2:
+ - Drop Fixes and Stable tags
 
-Maxime
+ drivers/soundwire/sysfs_slave.c     | 6 +++---
+ drivers/soundwire/sysfs_slave_dpn.c | 8 ++++----
+ 2 files changed, 7 insertions(+), 7 deletions(-)
 
---psp6wiqhchja3kyl
-Content-Type: application/pgp-signature; name="signature.asc"
+diff --git a/drivers/soundwire/sysfs_slave.c b/drivers/soundwire/sysfs_slave.c
+index a2ee064147e0..35272cfe9fc8 100644
+--- a/drivers/soundwire/sysfs_slave.c
++++ b/drivers/soundwire/sysfs_slave.c
+@@ -161,9 +161,9 @@ static ssize_t words_show(struct device *dev,
+ 	int i;
+ 
+ 	for (i = 0; i < slave->prop.dp0_prop->num_words; i++)
+-		size += sprintf(buf + size, "%d ",
+-				slave->prop.dp0_prop->words[i]);
+-	size += sprintf(buf + size, "\n");
++		size += sysfs_emit_at(buf, size, "%d ",
++				      slave->prop.dp0_prop->words[i]);
++	size += sysfs_emit_at(buf, size, "\n");
+ 
+ 	return size;
+ }
+diff --git a/drivers/soundwire/sysfs_slave_dpn.c b/drivers/soundwire/sysfs_slave_dpn.c
+index d2561400da77..16872ea64b1f 100644
+--- a/drivers/soundwire/sysfs_slave_dpn.c
++++ b/drivers/soundwire/sysfs_slave_dpn.c
+@@ -134,10 +134,10 @@ static ssize_t field##_dpn_show(struct sdw_slave *slave,		\
+ 	for_each_set_bit(bit, &mask, 32) {				\
+ 		if (bit == N) {						\
+ 			for (j = 0; j < dpn[i].num_##field; j++)	\
+-				size += sprintf(buf + size,		\
+-						format_string,		\
+-						dpn[i].field[j]);	\
+-			size += sprintf(buf + size, "\n");		\
++				size += sysfs_emit_at(buf, size,	\
++						      format_string,	\
++						      dpn[i].field[j]);	\
++			size += sysfs_emit_at(buf, size, "\n");		\
+ 			return size;					\
+ 		}							\
+ 		i++;							\
+-- 
+2.56.1.750.gf70dc682cf-goog
 
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCawPxewAKCRAnX84Zoj2+
-dnHQAX9iDOtufQbymoduwPA/eIzFT4DPhesCne28+rDvff2JXlYtbNrRxUrTcGWq
-XGPo3ywBgIkbYttgELJJr4UywnFDhIGMTRi83oG6Mg+R1tb0t9izOxptosxvIQK+
-fEnXpcLERQ==
-=seld
------END PGP SIGNATURE-----
-
---psp6wiqhchja3kyl--
