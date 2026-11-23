@@ -1,96 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.191.142
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.52
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795442396;
-	b=YWu+ph5GCoWZTifVYcfYS2kBAn++Lwdy4nUGICO1EyrYwmadcqIniU3HXspeRu3MaUqC
-	 1FujuWcMo+Bfx5HmgogZlfntMeGzPlTS+ML0DBfQgb04H/8y1FdFZGjJTUvVVWtwtNk06
-	 iUrK+1r34u3cSyWmutYUqiCiAbdBJ2+LkG/xwzzUT0Va1WZ8f0yBQBH+JEnytc3lz09GJ
-	 EStRjszs+Cx8cgF9u9nYCrN9/qlvJzPounjP+rhifW00cu+LNCgc9KLjYwRMEIn/8jF62
-	 guAHMhpaWIpwBQg7zuD9RXJNvPgPQKJZfW/2h3i1PFj2DNgotSBm998+ledSTTlvulw==
+	t=1795442400;
+	b=xsdha97UYdP/g+VYth05Sw7LjcNbB9QIDcO6ocyf+vDdKO6l+On9NGNtZg6BcUCgkJAB
+	 mNFAMi9JdavmOBqZwNB3f32zNUVBa0pBDR6LUpugBadcd+SGVrV5sAp35euWRtopNNZUZ
+	 7xgBvKEmRXuYYYUAjC+AMJjTIQx4m8HS6bdw6agjEojMJeMgYtmF8yRwYxmcRHHNao4if
+	 15jaYGkpzx8vETOMuZUL3q2iIanein8g7qaG+9SehK/1yyeNTGA7xjSG/uX3a8+EczPbA
+	 rXx7sAQzgG2yblQLlI+EKSozthyqxifC3xAruRXbKwhlh44TVW4XwT/nLid1tJMol5A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795442396;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795442400;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-NV-OnPremToCloud:X-EOPAttributedMessage:
 	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
 	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
 	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
 	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
 	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=TGrIdYTJoItW1yAgFtDw6K8HXQRTTrCT5hRS8teyozU=;
-	b=WcoomXipMtKkrAj5loCHgRLK1DGF06a1hbV/BBuVn4EAxjzNVNWdF8BTiLkcMUMUxNQ7
-	 U8FeSdK5yKfPJhQACDEOM9knT9wkcXAAAZu6bmXoZ6kFY0uQ5zm+49+JdyUqJEqpXvOom
-	 E9wbQqFbDvLetNP9/9zpvUE8gbZY8oJDg+dfDNOnUg8/CjA6RR4TO7e6HDhWs5UxSihay
-	 fXZJVH4djmydrRlo/pgT4JBoc+PappZy1G3fhTWQkeeZKPiNVYlOmXpZCirYTyfH/pcbB
-	 9T86FZDBcMcXt2My3Mr8wqrCfs5YoHBGOXVTMr+YyOYxpRmThk78XlNiGMNWOCAoEcQ==
+	bh=8/Ai0ZIeqooEunehz+6+0YRKMkDutU6G8QBtg0XNroU=;
+	b=khuGLsRsVNiXYxhZCU6ir2c+xlZhC5jvqRj43jNijeyhbhxSufw/bQaA0L9qnASm+sa6
+	 UEIcyKQHV7w7koVmIfuRz3ylpyCPir7f3SVZpA/zgmHoqcsonn5980A72dmJ0Qoj8ByTF
+	 Nim0a2hH8uaxmaP+o7fY9KXvRvBVWIpFZJxNeTL/cQZJe8NMd0EaZt8ijGoolAZYYcsVy
+	 bCXwb3cA1MhwmqEXf3cWQ4OmxTS/O9W0IXM3WQRUd/kZ0OOYedyZw2HB7sZBqxVkNh9Fr
+	 Lzx+4K+fsAY8EGJi9XtXqFKGLD777RPfoV+Q+zChmiMTE+2+mUQAoo3+FaqJfbK5UmA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=R6b2tNFi;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.191.142
-Received: from YQZPR01CU011.outbound.protection.outlook.com (mail-canadaeastazon11020142.outbound.protection.outlook.com [52.101.191.142])
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="oBu/QvoG";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.52
+Received: from DM5PR21CU001.outbound.protection.outlook.com (mail-centralusazon11011052.outbound.protection.outlook.com [52.101.62.52])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C386606A331
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:59:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C386606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98F7D606A31A;
+	Mon, 23 Nov 2026 13:59:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98F7D606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=R6b2tNFi
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=oBu/QvoG
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZkJliermXFLGQ7E5c417qOWcVduxe8EDn5WB2tVbvU4gAHz1CsifDUKNdEUAEIvbwU177U3Z65t578Sirb6WOkNJEDq/oUB1H6LFyZh1vdlvWLkiVzVvjGPIp7Dw6IMEoavNp1/DYIJVAu2GkCul2XXb5YfQHzLgtQrhFH7vrKoLWdvj8HI9aDhKgiygi8SFGCcQkzOQPzaFfzUPT+QbjljfCpHZ0zv0de2Siy/kdFd7Ke4WDpldKDOo48NL8m98nwWhfHGbYAi5Nue7zGRAO7XvJGpT1GgMMFRs9i6cMtfm13Wg+H2g87OJ7Rghc2iqPfdmVWWbOB7adC0OV1Pg7Q==
+ b=kOaOLhOwSPhjh4qlfULOGtDPAEGjrzqvlX0JDRDMYdtsfOpXJh+87NTrH2Ak94IkX/X5KrUJqk8Pc1PJG1DByhcBpL2Zjho2HnK9PWZ/dHdMQ/TUhrmxorwYcXI2zAF55Nzq7UkAdJq54y/SXZ0d6jdrxviNNq99M+be2FUTp8b0u7fhatXm+jNZ5b5iYysT+o3PqVhaNt+VXy1MyUfPMH9OrW4utVKEklm2HCsSv0lKpbb4H/KRXgPgfoGtVSov7+oP2xDXGO1t23RA7cenfvr2EhBVPLP/KQREeW6JDIjNQGlkcYLZ+lxph/AJ7quW9w0H8GJMR0L/oq16goVDjw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TGrIdYTJoItW1yAgFtDw6K8HXQRTTrCT5hRS8teyozU=;
- b=H7ErqGoPX4pQ+yM8OiCxlklxVY6Vr79WhW8boefECqJzpaVxqaXQjHJTmmvUQ8yYms2SUBPG9qqu72taxHNwzl8ILZTrAIhfvGOyjncSX9bwkZpAlNa6taHDQ3GKbfWZx2Begtb6w9+jZRq7xoINRbfNXTIsqETgtJNxCl9Axi/N0zbQs/VZJyf7jVdNXlL0JFpJPPGkd6xMa0K6Tu+CosvJmQIWlFmsbY1sAG+HyZgxEYxZRSaPDdfbNS9hkHUdggBR1ro1TdRoVQ2QSxySumNsGb7NGuvhleMEwk+5uw0wiyPdjpsPOGzXHY9S4KkRVRTbNsSzh1gTwMiNJOuXVA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
+ bh=8/Ai0ZIeqooEunehz+6+0YRKMkDutU6G8QBtg0XNroU=;
+ b=aC+D8CGdkzMBwzxdIjnFcJvibK2PQaR1MhM8Y66p1mtq4kcGlV/B5RMz84d/2gS650ui96qEBvTLf1SF4jgSrd5MiVAEIIXhAUzlrromc3X+FO4PTSLVKPwZZz47p13xvvgmZGnjGDfQVhjzS/fiXJIDrLDiLrHrxYKciQFsiulEsbq7nNXgRfcff+lPASX3zw7bw0Xs4M08mKM9eJGf9taXjwavTtCekd1V92nEdRGW8rLd5c+J7sFLKU0JjJmGKShQCwwdsi+0EPWxoG2zZZEUDTDPLUUZQVNCV4JKEXLQVD9qqrQaI5ZWgX1Z4dRxCN9+KIGkIVfaOEowp3hXaw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TGrIdYTJoItW1yAgFtDw6K8HXQRTTrCT5hRS8teyozU=;
- b=R6b2tNFiU+oY+vGJNY8H5p+AE9kUVV7i9FlzA7PuWKVOltH583wMWbJbmx3b9FZ6OqaLnMW1luGlse6rIY4Msv8yVA4JWQrxXu0NAS3GjN2MfgAzlommJGv8l9Mmb5BHvOlACLRT3FkW0+ZF9r4g/CBHgfsodKCbqM7Dr49mzcFR3op1Y7w/RF8wx8br14oEAnSFD3yT+BFzrRvLSVz6vRuT2T3Ocll3WKZaA6UaqG2SKPMF3sf4pRf52udajKrz8ZLsOpSdQzyP8BxypW4SI1ourQsSXcbXeAQkl31lBXtDYxUt/je4/gPFQ9f4pEMuB9s2ZcQxk7ZpGkbsF87Q+Q==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YT5PR01MB452843.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b00:18::24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
- 2026 13:59:52 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 13:59:52 +0000
-Message-ID: <1934e37e-c061-421c-86ca-4382761657a4@efficios.com>
-Date: Mon, 23 Nov 2026 08:59:51 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 26/40] sched/deadline: Replenish a throttled task
- boosted while asleep
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org
-References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
- <9c0cc7d7c43e0562a9fc9f363898178b36c6e9c2.1795207232.git.mathieu.desnoyers@efficios.com>
- <sashiko-outbox-226168@kernel.org>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <sashiko-outbox-226168@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQBPR0101CA0087.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:4::20) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+ bh=8/Ai0ZIeqooEunehz+6+0YRKMkDutU6G8QBtg0XNroU=;
+ b=oBu/QvoGbLVlMPpEGudpsGWGPB+wwECSpdWGDtzG5c6kGUg3g0v8Cpmip0A14QQGwYYAUJy6te8BduO7zjBh75PgxDeola/Js+EpuTmHXJHqovpCyEZjQcPNmzyh/1XjFHBBtxfrtX5oBgcDntOTa6WGUV3duwknIrb0uPo/1BoiA3fz5SqgjTyK1opjN1KzLuf9t9MMjtLxVCwKLfJ21zaISkqRFX9GRQWZeZsr/hgBFa8xWd8guqwO7rUrkY4FvtRdWVq7zCdMzDDKaSUWm8p4+rJHdz4GDLgpCyp6tor51U5EWI628htbaSsY8qj/y905vFsQcY60zn/oZxnbJw==
+Received: from CH0PR03CA0306.namprd03.prod.outlook.com (2603:10b6:610:118::35)
+ by BY5PR12MB4212.namprd12.prod.outlook.com (2603:10b6:a03:202::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 23 Nov
+ 2026 13:59:40 +0000
+Received: from CH2PEPF00000144.namprd02.prod.outlook.com
+ (2603:10b6:610:118:cafe::34) by CH0PR03CA0306.outlook.office365.com
+ (2603:10b6:610:118::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
+ 23 Nov 2026 13:59:40 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.118.233) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ CH2PEPF00000144.mail.protection.outlook.com (10.167.244.101) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 13:59:40 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
+ 2026 05:59:24 -0800
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Mon, 23 Nov 2026 05:59:24 -0800
+Received: from f43.com (10.127.8.9) by mail.nvidia.com (10.126.190.180) with
+ Microsoft SMTP Server id 15.2.2562.57 via Frontend Transport; Mon, 23 Nov
+ 2026 05:59:21 -0800
+From: Dragos Tatulea <dtatulea@nvidia.com>
+To: "Michael S . Tsirkin" <mst@redhat.com>, Eugenio Perez Martin
+	<eperezma@redhat.com>, <virtualization@lists.linux.dev>
+CC: Dragos Tatulea <dtatulea@nvidia.com>, <kvm@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Gal Pressman <gal@nvidia.com>,
+	<stable@vger.kernel.org>
+Subject: [PATCH 3/3] vdpa/mlx5: Don't flush the workqueue under reslock
+Date: Mon, 23 Nov 2026 15:56:46 +0200
+Message-ID: <20261123135646.3962652-5-dtatulea@nvidia.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261123135646.3962652-2-dtatulea@nvidia.com>
+References: <20261123135646.3962652-2-dtatulea@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,91 +116,179 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT5PR01MB452843:EE_
-X-MS-Office365-Filtering-Correlation-Id: 12bf6e9b-bfdf-41a5-d3c5-08df496a0bc5
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000144:EE_|BY5PR12MB4212:EE_
+X-MS-Office365-Filtering-Correlation-Id: 40c5d42e-9ccd-4307-5b07-08df496a04be
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|18002099003|22082099003|3023799007|261022105027099003|261026140227099003|261026121527099003|261028144727099003|4143699003|10067099003|56012099006;
+	BCL:0;ARA:13230040|36860700016|82310400026|1800799024|376014|23010399003|261009221727099003|22082099003|18002099003|261009223327099003|261009223027099003|261009220027099003|261009221227099003|11063799006|261102123227099003|56012099006|261026121527099003|261028144727099003|261021121427099003|10067099003|261026140227099003|261022105027099003|261021123027099003;
 X-Microsoft-Antispam-Message-Info:
-	+mHvPBrSf4SKqK1wPf76AlTpXVzIKpTi254/CpcsoWitk+wZxmZJ5PQW37S/phF2XFU6zk1qXSm07UNroOec9UKBM4ZZKRcVJUoKei+Ex1sIHAucjF6pBe1QSsTXV7u+ez4shwDJitaumIh7srZVeERuB0PYnLBs+On2SSYt1wwRGney66WA7mh8gGt8Lfba4BSMCoM9Uj2NOZa46XBOwpsBgLAEGHzpykfZX3LAQ7QLmMdM4FrQRtEwClG1HG6wKv5kVhkE1TJcEwMASsH2lNkjgRQjKxt4V3uVWm0B7wib6YaHxUuztTwoyCOC/2o21BwsGDFc/RybGBBXLgJ9FUMyum15bFLK8d+zf6FyIoI+10LSo/9zQOEJnliRyHLrRS0TyBzo5Z2f7QrID7uqnbQ8+yXdOotoiX9udusW+fvr+oSDuLsonBXu2ug9VAzHbjJkAp9XgFr/AkdWy6WIhrP/oxbMEZd3O28F6+BIjncw5oJ15EhmMIdZ4ui6BuuaN/l1MAuePj3l+wa9nNr8jwvlhneAqi1H3WIf89dopiEg0lRuVb/RkQstcv7JNiF7oRC6hef1Qu+TJAkXV4ry5IhzUqfmWrtylxd+ePmRK8Q=
+	s0Tls5cZEd67qSKT/o/TjOmRqZ0WYJB2LUrEVj4JGkH2R/w+IsUjMZxyoZkMsQIBtfbPkwVoJul+4yx/5y8egeW9CMwMXDpD5BAo+tU7mwCZdSNjm0UgmgJmMD3msUZG5pvMnvX/sEcd4UT917ghBoWebYs9uhdfeOT5JyDw6aZkQUWDvNUTEwyJODRKQ7LDJp46bq6Zrpt18yi8VkIY5fHuaYHrspRS24pd6nmzN9R8nXwRXNdhA37Z5ajTeWGsV7Wu9c2D8ZLp21uClwEW6IxjksCb2rewtoAMhshXB7kcvkQbmNuhjgyZbijVoPcyUcSPmbi+Vw2zZozDm5h9lGItrm7vBa2OTHC7gEsuJ0G/LlqwAHCq3nHsjzB14x0F5iWIfPYCHTlwlPFzn/c396iUiKGoOPxgT2JQe10iPTqLvUZwUjp/o/5cCHDu161sXzXHtAq4saztCQAoB02BfOn0jKO4CnyGu4VfXVhEkb5zDoorYufXCfT94fh34bfdJPRcj/di/ZCbJ8ETBFkpU/uIM3G75XJ23G2MSIUUuPG8P++pMVelAL02zzQI4PpaG4RTDJVohtzWdvuEaclyfnKEPyYxjyAr7ujpyiILvVu3vtqkgOZXBHvnc00mTPOwcH/6+1EvHJFPifaVNPNBLxixyJ/AgHBkCdQxp/5Okmc2YAiVvhjzllw84TRF8l6v+rfdUlaVX32GuUbFoxp+Hw==
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(18002099003)(22082099003)(3023799007)(261022105027099003)(261026140227099003)(261026121527099003)(261028144727099003)(4143699003)(10067099003)(56012099006);DIR:OUT;SFP:1102;
+	CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(376014)(23010399003)(261009221727099003)(22082099003)(18002099003)(261009223327099003)(261009223027099003)(261009220027099003)(261009221227099003)(11063799006)(261102123227099003)(56012099006)(261026121527099003)(261028144727099003)(261021121427099003)(10067099003)(261026140227099003)(261022105027099003)(261021123027099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?am9LOUExQzJSdU5Tb2hQSkZ1L05yc2tsUkc2V0crVWt2MjdUVU1xRHp1Si9q?=
- =?utf-8?B?aFNXSlp6YWNZVXdIay9Sd2ZQMTNEa0NmL1pndEZpMmtzRlpybXVNbmFrTkZC?=
- =?utf-8?B?azRlWHhwa29EUnJGVnlRWXViTmhVdFdQekxWT1dLdFNwVGI3dXMrYjRXRHJS?=
- =?utf-8?B?MXBEY0NBeWdrYVowOFBpbnZkRjE2ckE3TXhWdjZFd1JaQ1Q2UHBZVXVUQWtr?=
- =?utf-8?B?Zlk2YzNYb0RFbzZhV0UwMk1aS0NNRi9WOHJhSWZoSDBXUElBUWFsTzB6bC9m?=
- =?utf-8?B?WVBkNk5aS0JqMTZyUDdBS0tmd1liV2FibVVuVmJCQXlBSE1YNE90emw1NTh5?=
- =?utf-8?B?eW1iOFNIbWgvcFFVdXdOOWIrcGkvOWtkbi9CZG5DbWozMEpZQkhWVnd1THVp?=
- =?utf-8?B?Y2g3czZRaEdUWjU2R3UyTndHTW1VVlJHWERiVzM1WEVhVnp3VDgwdmxsY1hH?=
- =?utf-8?B?VDh3VURSRWpkZkJYSzlyZm1MMDhRSTB1Ti9Fdk1rMGxDWEtzeHZOL2V0TGpE?=
- =?utf-8?B?UFNQdDE4QVRYMXM3WFNMS21WZWFnQ1BmUHFVZXVtZ05GZUxIMnBxUE9oZjFZ?=
- =?utf-8?B?a0xBek1RMGZNT25GSkZRZWV5ZHNObFNaYTNOZVVNZkREY3hUN1Q5Z3VTb0NY?=
- =?utf-8?B?R0dFeG9kOFFKOUJCTGl2YTY2dGZ0L29pb09GZzJXVjYvOEZGT3lxaXRrQ3ZE?=
- =?utf-8?B?a3o5NGgxdFBQM0VOdnJiSW5UTHhhT1hqSC9BTWc3YlRCSnNyNnVtQWRVV3Qy?=
- =?utf-8?B?TTJjQXV4eG1NaDBiUmdDWFhoQ0hHK1p2ZG45Ni8zZmIxaHBhcmtkRVFvaW41?=
- =?utf-8?B?VmQ0K1J1T0dmTmd6VnEwU0JhaDlIcU5TODNTOVZIVUt4dEtNOUZWcGRyU3V6?=
- =?utf-8?B?alorT0JaMHF6NVJvSllTZ1N4d1VtQkVRMWtLb3ZsY0VDaUtxZ2dqa0NNcXBH?=
- =?utf-8?B?bjFyYjlTTlFVUDdTZ0RBdG9JK3ZvMnUvMENFMHU4MUtHaEU2NEMzRnFnZnBB?=
- =?utf-8?B?QkFCSmVLK1g3SEViaXVZZDJRd2JOU2RVcVdrMU1PT1hmbTBYZ2ZOeEI0Qlkw?=
- =?utf-8?B?c3VNZnFlbUdGUVlCQUJqUUhZN3lJa2FpTHpqbldFZzZibW1xRFFDbFNDS1NO?=
- =?utf-8?B?U056MVJ4T2V5UE51bXViYXJuVng5MXlJcUNiNnM4ZGFKZWJqLzVMeWxZdTcw?=
- =?utf-8?B?eEdEZEZxZldzbWtRT1A1dnhiVlZydmpwbDVoUEU3eUVPbGlrelR2VVNmaHhy?=
- =?utf-8?B?QXN2aDJGUzNLcjlLQ0NCUkJveVNiWlRIT1F2ZGRTU2JBWXBHWW5HaHpTSG5u?=
- =?utf-8?B?anB3SGJXcmNpcVREdWRReEVpb3FqSEFzcHVaNU1oUXRJTEtnYTdHVmU2ZEJj?=
- =?utf-8?B?VXkveFhacnlYVHNoNTlSVVBjaWVOU0NYbEQwem82dkM1UlEwU0psNkRocTVx?=
- =?utf-8?B?bXJLVUU0M2xQRmtTNDV3WWFOWU9QNlZnNVZraXBPWEIxWktVbHUyeGJEd3FL?=
- =?utf-8?B?azF5Z2xPS0p2bFd0eWZMKytHclBNWmRubHNwTG56K2FMRkZqbWFscTBiL0hu?=
- =?utf-8?B?SzVaa1NiZ2V4ViswK0JmOGd5aGxRdEIwNU1qK2xjWkNrK09saDh0eGxGN0c0?=
- =?utf-8?B?Z2lQMjRYUENJNklJWGk0Qkd2b1NSSE1sdUVyZ2NNZVlQRGVrOVFOTmd2Q1E0?=
- =?utf-8?B?eE5JSEVyTlIwVXFmd2Y1OFhFN1JXd1Q3cVBqUFBtMWozZmdoZDZXS1dVUkly?=
- =?utf-8?B?RTZVb3BnMFBIQ2tIUXJhb1Jabmt4cmhsNU1TVkFWdllMLzVoUVhENTArMExT?=
- =?utf-8?B?M0NIYlFmeURiRDFEeGZMRjcxdjV0a2kzWjhSUExHV1dJVkZUR1RrOWw4L0pV?=
- =?utf-8?B?U2Q4V0RmNnprNnhBMm5WWGN2S0VWK3VzWGFhNXl6cy9Ja3ovbnp6OU1UZjQy?=
- =?utf-8?B?aTJiZEFtcGpJYXRKWC84bldWT2Roam9IMkllMDVkUzRNMUlqa0o4VTZuWW5s?=
- =?utf-8?B?SDNiWkxiSkVldm1Oc2ZsK2M3MWsxWlcwRnYzWnpZOThlUlBZZjZTL3lqSUkw?=
- =?utf-8?B?a1FGWkEyNlg0dVlFWjd1dlEveFVGeXJkaG9PNzlqcThOamlrVUVBYVJGckdp?=
- =?utf-8?B?QzQ1Y09tc29VTkt2Y29jUVJaSlgxUTFnRHowbFdrTG9QYUZBQkIvWXIxb0Zn?=
- =?utf-8?B?MlNkb1FRZ01rQk8wV0NXS1FpdmVTSUg3L21EU2d3dzlzTElkeE9ZNXQyakhi?=
- =?utf-8?B?aGJJOFdMenJ3Q0NMTDY5cGlFTHJobmJTc2E2V2ZYVlJqVFAzTU9zR2FRQlp0?=
- =?utf-8?B?VEdEdDZvR0F6dGRlRGMwZHZ6V0NIbmNZYWZZTDF5azJJM3h1bEUwNCtmTWtP?=
- =?utf-8?Q?3nvqhenBuAcnylMM=3D?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 12bf6e9b-bfdf-41a5-d3c5-08df496a0bc5
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 13:59:52.3524
+	gMjgW4YD6uEuHqEhEIdjpOsJunXzo4zdtTci4he+v8B67X8g1l9h2afKqfiRhY98HNLz6X8EOSlL6H7pmyPoUseT1v0+VwNLUs8FljoCffLFrNesup8lH9C0dy1DexWYScdzApcLJKFnnLcZJB2VVcsIJ0YHE2YBnbv/E4dfjGDRu7yuH+CY1TrYfMJ8X8afw+GkiNamU6sHq7H/KFGrdQTRq4hvJw2xf/f7bbsC1SbetFnRy48qsRU2Ch0bPpJlRjQjDl/WWGfa/S/1HwIDmSKk4hKm6/cY5yvYG2q+Kf2eQxoIbUq+uv5GCidmTVMwEH7OjFfnwZLibkhtbNN3Yxy7uOkWNyWUNgGZbsR09YrzMyYdnjt9j9mygS3NZ2hU6Q7cLS+QQiJI8/8YR09Rh7H8JCkZ8yT36t8Scoqx/MnzP4W8RlZKYWLuJjZaz27o
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 13:59:40.3330
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: S2wZXboqS5C0dgSmhJBxzee8uPsvfaGN2MhzZAZ+TcfjxRWq07Bu23iVZpG5EbeV3bsF9D9mrn4o9JjzVG89IZLp7AWLu2enJWoHjIHQI3M=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT5PR01MB452843
+X-MS-Exchange-CrossTenant-Network-Message-Id: 40c5d42e-9ccd-4307-5b07-08df496a04be
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	CH2PEPF00000144.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4212
 
-> Can replenish_dl_entity() leave dl_se->dl_donor_refill unset when a
-> sleeping SCHED_DEADLINE task's donor has its parameters cleared before
-> dl_task_timer() fires?
+The control VQ work (mlx5_cvq_kick_handler()) runs on mvdev->wq and
+takes reslock. Device reset and the error path of .set_status take
+reslock and then call unregister_link_notifier() which flushes the same
+workqueue. A deadlock occurs if a CVQ kick arrives just before the reset
+for the CVQ work.
 
-Yes, by reading. In v11, that branch will note a donor refill for any
-boosted entity. The deboost then starts a period of the task's own.
+Lockdep caught this when QEMU quits (pkill qemu) and closes the
+vhost-vdpa device:
 
-> Does calling replenish_dl_entity() from dl_task_timer() refill a sleeping
-> task's pre-boost runtime debt using the donor's parameters?
+ ======================================================
+ WARNING: possible circular locking dependency detected
+ ------------------------------------------------------
+ qemu-system-x86/5785 is trying to acquire lock:
+ ff110001cd292940 ((wq_completion)mlx5_vdpa_wq){+.+.}-{0:0}, at: touch_wq_lockdep_map+0x7a/0x180
 
-Yes in v10. v11 will close it with your patch 38 findings. A boost of a
-throttled owner will start a period of its donor at once. The deboost
-will put back the owner's saved values. It will throttle the owner
-again if its runtime is used up.
+ but task is already holding lock:
+ ff11000136eb4928 (&ndev->reslock){+.+.}-{4:4}, at: mlx5_vdpa_compat_reset+0xed/0x760 [mlx5_vdpa]
 
-Thanks,
+ which lock already depends on the new lock.
 
-Mathieu
+ the existing dependency chain (in reverse order) is:
 
+ -> #2 (&ndev->reslock){+.+.}-{4:4}:
+        lock_acquire+0x126/0x330
+        down_write+0x87/0x1d0
+        mlx5_cvq_kick_handler+0xb1/0x1180 [mlx5_vdpa]
+        process_one_work+0x8df/0x1660
+        worker_thread+0x62c/0x1030
+        kthread+0x377/0x490
+        ret_from_fork+0x4d7/0x720
+        ret_from_fork_asm+0x11/0x20
+
+ -> #1 ((work_completion)(&ndev->cvq_ent.work)){+.+.}-{0:0}:
+        lock_acquire+0x126/0x330
+        process_one_work+0x874/0x1660
+        worker_thread+0x62c/0x1030
+        kthread+0x377/0x490
+        ret_from_fork+0x4d7/0x720
+        ret_from_fork_asm+0x11/0x20
+
+ -> #0 ((wq_completion)mlx5_vdpa_wq){+.+.}-{0:0}:
+        check_prev_add+0xe8/0xdb0
+        __lock_acquire+0x1801/0x23e0
+        lock_acquire+0x126/0x330
+        touch_wq_lockdep_map+0x93/0x180
+        __flush_workqueue+0xed/0x1090
+        unregister_link_notifier+0x10c/0x170 [mlx5_vdpa]
+        mlx5_vdpa_compat_reset+0xfe/0x760 [mlx5_vdpa]
+        mlx5_vdpa_reset+0x15/0x30 [mlx5_vdpa]
+        _compat_vdpa_reset+0x29b/0x3b0 [vhost_vdpa]
+        vhost_vdpa_release+0x16f/0x380 [vhost_vdpa]
+        __fput+0x36a/0xaa0
+        task_work_run+0x111/0x1f0
+        do_exit+0x7ba/0x2590
+        do_group_exit+0xb8/0x250
+        get_signal+0x1f46/0x2020
+        arch_do_signal_or_restart+0x79/0x4a0
+        exit_to_user_mode_loop+0xbe/0x450
+        do_syscall_64+0x257/0x4f0
+        entry_SYSCALL_64_after_hwframe+0x4b/0x53
+
+ other info that might help us debug this:
+
+ Chain exists of:
+   (wq_completion)mlx5_vdpa_wq --> (work_completion)(&ndev->cvq_ent.work) --> &ndev->reslock
+
+  Possible unsafe locking scenario:
+
+        CPU0                    CPU1
+        ----                    ----
+   lock(&ndev->reslock);
+                                lock((work_completion)(&ndev->cvq_ent.work));
+                                lock(&ndev->reslock);
+   lock((wq_completion)mlx5_vdpa_wq);
+
+  *** DEADLOCK ***
+
+ locks held by qemu-system-x86/5785: 3, last CPU#9:
+  #0: ff1100021d7c2068 (&dev->mutex#3){+.+.}-{4:4}, at: vhost_vdpa_release+0x4b/0x380 [vhost_vdpa]
+  #1: ff11000136eb44c8 (&vdev->cf_lock){++++}-{4:4}, at: _compat_vdpa_reset+0x16b/0x3b0 [vhost_vdpa]
+  #2: ff11000136eb4928 (&ndev->reslock){+.+.}-{4:4}, at: mlx5_vdpa_compat_reset+0xed/0x760 [mlx5_vdpa]
+
+vhost_vdpa_release() resets the device before stopping the kick
+handlers, so CVQ kicks can still be queued while the reset runs.
+
+The fix is to move unregister_link_notifier() calls outside of
+reslock. The function doesn't need the reslock.
+
+Fixes: c384c2401eed ("vdpa/mlx5: Avoid losing link state updates")
+Cc: stable@vger.kernel.org
+Signed-off-by: Dragos Tatulea <dtatulea@nvidia.com>
+---
+ drivers/vdpa/mlx5/net/mlx5_vnet.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/vdpa/mlx5/net/mlx5_vnet.c b/drivers/vdpa/mlx5/net/mlx5_vnet.c
+index f1c5f72032a3..a175f734517d 100644
+--- a/drivers/vdpa/mlx5/net/mlx5_vnet.c
++++ b/drivers/vdpa/mlx5/net/mlx5_vnet.c
+@@ -2908,6 +2908,8 @@ static void unregister_link_notifier(struct mlx5_vdpa_net *ndev)
+ 
+ 	ndev->nb_registered = false;
+ 	mlx5_notifier_unregister(ndev->mvdev.mdev, &ndev->nb);
++	/* mlx5_cvq_kick_handler() work needs the reslock. */
++	lockdep_assert_not_held(&ndev->reslock);
+ 	if (ndev->mvdev.wq)
+ 		flush_workqueue(ndev->mvdev.wq);
+ }
+@@ -3215,6 +3217,7 @@ static void mlx5_vdpa_set_status(struct vdpa_device *vdev, u8 status)
+ {
+ 	struct mlx5_vdpa_dev *mvdev = to_mvdev(vdev);
+ 	struct mlx5_vdpa_net *ndev = to_mlx5_vdpa_ndev(mvdev);
++	bool unregister_nb = false;
+ 	int err;
+ 
+ 	print_status(mvdev, status, true);
+@@ -3257,12 +3260,14 @@ static void mlx5_vdpa_set_status(struct vdpa_device *vdev, u8 status)
+ 	return;
+ 
+ err_driver:
+-	unregister_link_notifier(ndev);
++	unregister_nb = true;
+ err_setup:
+ 	mlx5_vdpa_clean_mrs(&ndev->mvdev);
+ 	ndev->mvdev.status |= VIRTIO_CONFIG_S_FAILED;
+ err_clear:
+ 	up_write(&ndev->reslock);
++	if (unregister_nb)
++		unregister_link_notifier(ndev);
+ }
+ 
+ static void init_group_to_asid_map(struct mlx5_vdpa_dev *mvdev)
+@@ -3301,9 +3306,9 @@ static int mlx5_vdpa_compat_reset(struct vdpa_device *vdev, u32 flags)
+ 
+ 	print_status(mvdev, 0, true);
+ 	mlx5_vdpa_info(mvdev, "performing device reset\n");
++	unregister_link_notifier(ndev);
+ 
+ 	down_write(&ndev->reslock);
+-	unregister_link_notifier(ndev);
+ 	vq_reset = needs_vqs_reset(mvdev);
+ 	if (vq_reset) {
+ 		teardown_vq_resources(ndev);
 -- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+2.54.0
+
