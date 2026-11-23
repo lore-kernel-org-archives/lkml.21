@@ -1,101 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.43
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.13
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795457213;
-	b=U7wmserK7cXFff23oa7hGEX83AFcF17teV1EJXNrzATcQePxEm/vRsTiEBWDrM+sRH3b
-	 8x/Pf1/OlemYj+XbO+SgYeLljbI9/VOeV6Jx8bMgd3Jc01BZA5Q5CuKSWIQhEgTOY2412
-	 SWbsOAflODfUuuU4LgAo9C7PAJ5c5Yb46TtJwxPckMTK2pU0LMgjdquBgzFgFBOk7ABr7
-	 kzRjAVC8jXZ5pQhiWDR2JIdrIcCKJ5boMn9SOdhAffQSqYmCwSosB1IfJYSL3FgTvGIZS
-	 tj6fnIEwBfkeZ22vsxv1GfercoOlCoU/v3+1p/tw+q72WrmNlUuV5DbaVlrmstn510w==
+	t=1795457221;
+	b=HC2VU3f1cnrj1oPUXrIJXchTa46928BPW8PXYFU1iPFbjn87Q9PXL+/EabxUVJhpta5b
+	 q4xW+TJ6U1hZk27to2D1Y7cmxzfO9V63vN7giLGlZ84lEFbXjGdmAWW2qtEnpzLVXjO5o
+	 arnzX36HpFKxo4jWydXF2zS+/aCh2+NIJN94hZBBeCMG4Y/9qfQ5pjhNstRfBGXkDdXUk
+	 F9Z5Zu7SoD7dzhPCOkFvr0q5/FWena24SIl+U81QFntRtsry9Ado8Yxwvz0+A4UGUQfr6
+	 q0gMEfzG4csEgYCfCwiwhim3jfZLVOG7+XtkqKDXBJ0O9wvmmtWUw1VcMoaxoJxmTwg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795457213;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=K/gC1WzVIylwK716jBr23A7FWq/AYO9T9Wc9DElVC74=;
-	b=inBMPvROJcit89Cf+W6KYK0/ZXQrvdcxCECeLmtxOnMpx2uvdBbUegEMlDT1DF5Djxfu
-	 qvQYXaNrWxOCQj5F1vPdBJq8hgwAcmCRozY/3zBiW2HM2nr/buEQM/HSsN9PK51eaNsih
-	 RJZ1Ws+gLPGx1fVXtaW8s+gwJ/JVUOV3BhdmqOtnZhUeNB9Yue8Mc0DnQZXQcpUdNeCSh
-	 9qJmZTZlb2AVM4F+6d1oZatI8FC9DImVDoR9RdZANVIgRJuUZa0B0sNhqfYn7hGTiUCXu
-	 OhwBmUX4OPnBzcsjA+4O0rMLkcszWQUgI+IORN8IvfrI29U2IYYDe2pA4pktJbmOasA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795457221;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 Content-Language:To:CC:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=IHTmxbHxn82H4dc/UJblkO6uxMI03/2+cMb5keHMoM4=;
+	b=jS8XloM3b4W2HtEvjzmeqSb5SV5/VCJAk3vHQ2otcotc/9EGrobSuZI9DndIiPOOPRGG
+	 LX7+6yBuw+JHOCrXuLDvoC5M0n0jv0F57UNMhy5hRCTp4ShF2TOPdFUKP62h3Ww3EeAaU
+	 oGQzeuy2EfBNzegWywOErZkNxEj8ME8MM0gj56T3zgC5zQ+SPf17xPqifsF+g2RxkQl0Z
+	 TuTGEXalqAke+eqE7+BfIT5srBKTvJdlKaOJYhydirHpZOe2x3QLrmibFSUksc1IGBh/Z
+	 EYdbOrrwxMYCvV094KhW3w6q5jW4VTM2XKynhXrPl5yTE8nGaqijab3L+USM/ec2Tnw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ynGHK7uE;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.43
-Received: from mail-yx1-f43.google.com (mail-yx1-f43.google.com [74.125.224.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=LebVdegQ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.13
+Received: from SN4PR2101CU001.outbound.protection.outlook.com (mail-southcentralusazon11012013.outbound.protection.outlook.com [40.93.195.13])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 036ED606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:06:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 036ED606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C91D606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:07:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C91D606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ynGHK7uE
-Received: by mail-yx1-f43.google.com with SMTP id 956f58d0204a3-67be4f2f4d4so4091295d50.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:06:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795457212; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Z60qKByTJ1+vl9g3wbr4/5J46RqOvQ9tO6+gbg/zlJC41fYjgjnCtuxOIjpCMlx4Xu
-         0IX78YaMA/65V+Fw2s7xB/iioXu0ss/PCDKao1nv2WZ3huP6oWH6SVOU8j7GmgRZm4C3
-         o5OTtRyAsRF51b4WYq4JK/1YPFA6uFTTNPGnPqgXK+kXcZrOLg3ApAqFEM3KBsEtGt9r
-         ZVR+HnCPIYwIp5751y2u24hTeJO1FLL5R+/I8GFdekav3W5CSpfnRtIOxBn9FHsrZfFP
-         h4i5ELBR58JrL6lmbGAbd5fv4VCOIZQBD3C4N/45klLcwhGbFjnnbD34hB1Nxys+G+Eu
-         7/4g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=K/gC1WzVIylwK716jBr23A7FWq/AYO9T9Wc9DElVC74=;
-        fh=563nRlPXCe/ZjT/ZTwd/wvxJKRIG3SqTgrrKVbPWbpg=;
-        b=j62FLwnSkuUhAXh4JhgktGAmiQBEpAwo+s2KaywVwOMHo10gHTvgC56lyNFm1Z/I2B
-         lmIhweBaXkRtCQZK+7OZjBQsWUSEj0oU1aVy9t80CRLmghSryBjgKgg/plaeaapDv5yS
-         LUY8eUaCkKFqhpvJIxb6I+e/vGCs14bazgKyuN5+HXFQ49gZhS0iwza6zVz9xtSvDQis
-         JAeXaG8ZsEbl86U56UU9K6LCC7IixDLrs7+hCv1SY+h7Z7Kox1Bi6okXHUVQYVIM3FQN
-         BWv18xGBNtKbBlvfUarozOFQKAKwlM8vieI5NWEAfs9VWHC/3V+/wWenUBCB7e3v9B9m
-         oa5A==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795457212; x=1796062012; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=K/gC1WzVIylwK716jBr23A7FWq/AYO9T9Wc9DElVC74=;
-        b=ynGHK7uEvexHqw48hCg85zxO03l0VsE5U57hLmfl8nlbBwF68tlK9YYvxVRN1kOjF+
-         Cbka8q+ONjU3JwYA1L0RANsDs2irI3NaRWoI7Dpspzw37m38nwFmAiHEv4sZuKvhDawl
-         oDiAVcf4tLb3OhjvhyQ1xS9zval+bi/EMfItyd/aykMxzB2ZfNdre/eisMt2A51pA0yd
-         nFl0/q2Qd2KXdZnucHrhHZUO2D8HJzCfP+vwZLuaoaSeMerJ8Yg2hnYK7rmXrKQjwvrC
-         2nNOFZsDhXdOi6JDe0EbMkqMTDY+9m8n+IEOdp53olcPjsXqg9kIgrra/3JhH9jJeMWZ
-         3oWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795457212; x=1796062012;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=K/gC1WzVIylwK716jBr23A7FWq/AYO9T9Wc9DElVC74=;
-        b=paY/9ujdAtrZ5ce2Vh3+8XdyzDsls7yzFkFuTR9CxhyzzOakNfTB2HmUuw8JQM1NNi
-         Nmg75abRUbhli68Y6WAC6WRPeFiOwYywQ4epEK6jcw0uGRAe1AA0392cgrVJ7a1Lp8DA
-         LXarr19PbkgpykyTK8WYPPwVUzR9fon8GPqtk8axSGXNCZVdR+2KqTfab0ZGxy9O2BK8
-         /JroTfn7YLCE276+7AWtJOXv5JfpOSJJtmsHdBsuAeNTr/D2iV6913T0xq5jsamLp12+
-         SGyDe/42+qlmXChxuyFWYjp6W+0SpWJtoHnZoDFDRGBVYOEuNy3iIVYsX2BpbXlwoi6c
-         BJWQ==
-X-Forwarded-Encrypted: i=1; AL+hErEWnuhj7EH2OtN4RwUoRl3I1/JpdkACl7KenyrwiN1lObfVgOCh2V8xhfftXBj/zDqJ7Ujl7gqio5D9XJc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/qtDr+YI5QvjqAFGsMv46BHPdGrp47O7JBzdbTBM7Qn0PPr4Vo
-	l9q0M958VQzjpGjtgRrPMwt+7zMDGxJpmWFdG2ygCz8MOVVS9e1n9HjJbRlFovsc12IBP87Afje
-	EJjpODuyLCD/d55y2+hRav3Oh/YAUDDI=
-X-Gm-Gg: AZFdTZeHlJPwKNH83mTMVptYu1BNYkzAJFS19mzXN0a9jqsUkBmoQUFIA/7J7HH7K18
-	UlZommvzzEjuhEcy6vqiSx9CNaZJVpPfFHBMTKnLdnQv2T7Y3q/fD9h3sWErfUReVIWUPqTrLT3
-	vfZNTdBG/96dcl4ji8CeQ0T16QmdjOjBenVjujifihC0TyEMvCIfEMykFxTiH4Ccdn4RdRKSSZv
-	LLo6bzTv16qK0E0UUashwmwJ3ZZRCPVXVF1qFXatrfeHDf2OGMxan8ohn8xY4gfXDsl5v2ovzf2
-	KFpdtrDCCE1kIraYAhc+PJVOvsCohJ0FR4W/rqfSAHS8nMxO4fwZFSbbDvWXfstIlU0dJ4YUdRO
-	bazfnFLKHoDRxsp1WPyZ0LCNPM5is9BHiOGDIx3RruLx/hLk9pGXiCK2nliviB/VCAhI98i9ouH
-	/NSVFBZzCxszUSSBfJdPqxDPj1Nn3+nyU+18A9ObFhGOhDEcl5zw+5JbxV5oU=
-X-Received: by 2002:a05:690e:440f:b0:679:b5ef:a0e4 with SMTP id
- 956f58d0204a3-67df44ff8cemr2520240d50.100.1795457211899; Mon, 23 Nov 2026
- 10:06:51 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=LebVdegQ
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fSDxQZetUhlNverBMjGGa52v5DwX3IPL04E4E4TNdgKnac5o1+h3OshUitYrQy11gINS7ECIDaQgTdTuw3qh5o8ihQo6KL6A47MxAIU9na+pa/SFfDVAxs51DnZ/rGPGSqMICMip1UCTa308oBBrZySzXwKKF/Rz+Djxajj2MYBzSM0KbLJvUrxKqhaQ17/zwdYOo4Yn4U3ojF2fImIErVkr8o0zHaBQnK7Hge+t/JvszLTDp/piy5wKuC+27KQEkLKu1komiX0CMGVZl3jLWmc5rxUxWQM2vy2JX9Rg2/kewKP2jXd0vE5gbLJ9/wBq2diesMucOD/N97P2lCuv6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IHTmxbHxn82H4dc/UJblkO6uxMI03/2+cMb5keHMoM4=;
+ b=OKaf+3hclN2oa/2Hh4H9YcY++gNscLdJ6PymNwtwXHgtS6ObQohPsHucPHorKz8ZN1jHj9NDa/QV+ZYupsjguqVEUb5ySMqhQpyKXndIUm231UIAeOMsYD5CnAJoOs5gBaKVNhPPi82NLmASFN0dvd3pAF9SabTwWkrbM+calN4/QoREZ8rsLF6wnYnb9vz0icOy7KKezzyooGuYn6zebOJ5xh08M+53ThVuAFd1YJrgAoxm0PR49/DhN4n0V9rpmtLuXSiKonKb/jo7SXmauAGsC8UwiQlJhjNKd2CMIGbfYdITEhepuluNmdP+AWxvoGn37OUI2P2V/k0SXSy1Gg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IHTmxbHxn82H4dc/UJblkO6uxMI03/2+cMb5keHMoM4=;
+ b=LebVdegQmv+uIEeiG5NUxWSm+nC/rg4MqhY0WkyrV7oO2u7i3AZQXwloMl7KRjPirEGFUP0Zppzxg/XF8Bxv4jV6tocGc2bHV8WQj0mdgjo7MaWikIvaQUUw4xYAwOhVvqXnUFtupItURPThltQ8mDb0k4+1Gfj2NygFSJ8FPMc=
+Received: from CH2PR19CA0022.namprd19.prod.outlook.com (2603:10b6:610:4d::32)
+ by IA0PR12MB8839.namprd12.prod.outlook.com (2603:10b6:208:493::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 23 Nov
+ 2026 18:06:53 +0000
+Received: from CH2PEPF00000147.namprd02.prod.outlook.com
+ (2603:10b6:610:4d:cafe::39) by CH2PR19CA0022.outlook.office365.com
+ (2603:10b6:610:4d::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
+ 23 Nov 2026 18:06:53 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CH2PEPF00000147.mail.protection.outlook.com (10.167.244.104) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 18:06:52 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
+ 2026 12:06:52 -0600
+Received: from [172.19.71.207] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Mon, 23 Nov 2026 12:06:51 -0600
+Message-ID: <937f65e2-7b23-f523-8ede-9a166a28d00a@amd.com>
+Date: Mon, 23 Nov 2026 10:06:51 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,44 +101,128 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <pm-bluetooth-objects-candidate-0218-v8-da37c8a6b33c9d2d8efc-0@gmail.com>
-In-Reply-To: <pm-bluetooth-objects-candidate-0218-v8-da37c8a6b33c9d2d8efc-0@gmail.com>
-From: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
-Date: Mon, 23 Nov 2026 13:06:40 -0500
-X-Gm-Features: Aa3M54oC2JPHwdLbrzUoRb6BHLhu1-ajOv4wUQhdYutOJfAao_ufgCkye0yzpeY
-Message-ID: <CABBYNZJMr848DGgcX-SUjf5UfcwYfrB12bGRc0ZVzLWsMhc_rw@mail.gmail.com>
-Subject: Re: [PATCH 0/2] Bluetooth: RFCOMM: Protect sockets during teardown
- and TTY handoff
-To: Cen Zhang <zzzccc427@gmail.com>
-Cc: marcel@holtmann.org, linux-bluetooth@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, baijiaju1990@gmail.com, jjzuming@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.11.0
+Subject: Re: [PATCH V1] accel/amdxdna: Reject a zero sized buffer in
+ amdxdna_gem_prime_import()
+Content-Language: en-US
+To: =?UTF-8?Q?Christian_K=c3=b6nig?= <christian.koenig@amd.com>,
+	<ogabbay@kernel.org>, <quic_jhugo@quicinc.com>,
+	<dri-devel@lists.freedesktop.org>, <mario.limonciello@amd.com>,
+	<karol.wachowski@linux.intel.com>, <max.zhen@amd.com>,
+	<linaro-mm-sig@lists.linaro.org>
+CC: <linux-kernel@vger.kernel.org>, <sonal.santan@amd.com>
+References: <20261120023540.888381-1-lizhi.hou@amd.com>
+ <48d1dd13-9ec6-402f-8a72-ce417f331332@amd.com>
+ <a94437f4-f0e0-dccf-3dac-1bc1f0dda835@amd.com>
+ <b59cd917-4709-4f9c-8cd8-afdc24138d85@amd.com>
+From: Lizhi Hou <lizhi.hou@amd.com>
+In-Reply-To: <b59cd917-4709-4f9c-8cd8-afdc24138d85@amd.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000147:EE_|IA0PR12MB8839:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6c956167-32f4-47cf-8694-08df498c8d93
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|36860700016|82310400026|23010399003|261022105027099003|261009223027099003|261022075727099003|56012099006|11063799006|261026121527099003|4143699003|261021121427099003|261026140227099003|261028144727099003|261102123227099003|10067099003|261102130727099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	yknLkrEzVqdp/8zBJ9iEzXOemf3rOHSTZPTuBAWOLWPx4JrhS83Hq9TzwCk+tkKytsSLeSLPNeOVkVq/dc5KRaX6OhSI4C60YROryoN5sqg2iZMcJvvH4NQVh+FfHEAoLZpk4EjBWM10l/Rkm35UKINEDIi9m7pr8Ix7pr8H1DoxExCqLTMrdGEHa5zN+nw6n4DvcVxqbR9eeqvQTjlqNYkM9vAXdt6MeN9qwCXZzQfo3BTK/9GGEQYqxeobLClx3n+g6mpkkUs+38+QdXbCWom/5d8Y/IbAOXfNtjxyrc4RGx2eQrFT1tWuEr8ai7AehlTC8J/DL+vbQEbcdu0HoIYlhEua8lwM3e7NwLpnCZAmS3s4U9zE2mNha33wRmRlL2lsXj+R7YFbWWFjzUg5DiOXSTlgizXsLVjxkqlNKyrFb2grkfu1orq2HCN8hBlLyIWgWzLBfZXucHJMqjaN73MyKQeQ1cUgseRXHt6Xd+ULl5QPxdPeGPJY/pNc9zsullEe+S1/ixQ8X7TDfG868hei1rt3rE1t9j/rUSyKAY2yLBP3EF697cac6kbDAKXpRZ7P1OL12MyHhEoodaxP5cjjyvRaf4b5BR1i5WERyipdoSnFeTNf8kljcF5zlAHhhD65N0vvSLTJxNhXC8h2QQ==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700016)(82310400026)(23010399003)(261022105027099003)(261009223027099003)(261022075727099003)(56012099006)(11063799006)(261026121527099003)(4143699003)(261021121427099003)(261026140227099003)(261028144727099003)(261102123227099003)(10067099003)(261102130727099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	+3keNc4PKzJqRw86eigIFr/4cxH9G0Q47qxLbe2yJSm6bgrc1EBeR/uZlCHlVkovSe4Kr/zT81F04QivNDdkZX57YffFHRKYIuVgXpjsKhPpoh6MKvqDKPfCmPZUyUczdh5+YqlMOpqTCD9n1ysD84cDEJdOOYqUfBNNJqL7ptiL5xRZrcmhLbrkC7N5opteehyeyaQmCRDMGzzHk9BWjJDRV/PYcI/E+JX+xR4sVBozuaDIhp7aZ0sVUVm5IgE/agwiMJaRtFwfs8bXkaTbi6BWkt/m19tKNiXP+ER4D/C+L1qeelfkQ4G/sDZzXA6AX45FvOWa0cosAenrKokeQo4NyQENTNLGwuNL+XB5WhZcR2nKXm7dz0szhrOCxe90S6NU3wagiJwP/ZyL23ue6d2YaBki59mRjAIN+wjXuMQS6qnhichqhGrvlGxk3doX
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 18:06:52.9101
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6c956167-32f4-47cf-8694-08df498c8d93
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	CH2PEPF00000147.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8839
 
-Hi Cen,
 
-On Sat, Nov 21, 2026 at 2:03=E2=80=AFAM Cen Zhang <zzzccc427@gmail.com> wro=
-te:
+On 11/23/26 00:53, Christian König wrote:
+> On 11/20/26 19:44, Lizhi Hou wrote:
+>> On 11/20/26 04:32, Christian König wrote:
+>>> On 11/20/26 03:35, Lizhi Hou wrote:
+>>>> Zero sized buffer is not supported. Check the buffer size and return
+>>>> -EINVAL if the size is zero.
+>>> Oh that is surprising a zero sized buffer shouldn't be supported by DMA-buf in the first place.
+>>>
+>>> Doesn't DMA-buf check that somewhere?
+>> No. I built a local test to reproduce.  The test driver calls dma_buf_export() with exp_info.size=0, and it successes. Then, import that buffer and get the stack.
+>>
+>> It looks other drm drivers check the size as well, e.g. drivers/accel/qaic/qaic_data.c, qaic_gem_prime_import().
+>>
+>> Maybe it is better to add the check to dma_buf_attach()? Or I can use the check in amdxdna for now?
+> Yeah, I think attaching to a zero sized DMA-buf doesn't make any sense at all.
 >
-> Socket notification and TTY handoff can outlive the object which made
-> the socket's borrowed pointers valid. Keep the listener alive across
-> child unlink and notification, and finish old socket users before the
-> TTY replaces its DLC callbacks.
+> Alternatively the the check could be in dma_buf_export() prevent even creation of zero sized DMA-bufs, but it is remotely possible that somebody uses this for driver internal buffers so I'm not 100% sure if that doesn't regress anything.
 >
-> Cen Zhang (2):
->   Bluetooth: RFCOMM: Hold the listener across child unlink
->   Bluetooth: RFCOMM: Close the socket before transferring its DLC
+> But the check should definitely be in DMA-buf, otherwise you can do very naughty things with drivers who doesn't check that.
+
+Thanks for your guidance. I have submitted a patch to check in 
+dma_buf_attach.
+
+https://lore.kernel.org/all/20261123171114.1451429-1-lizhi.hou@amd.com/
+
+
+Lizhi
+
 >
->  net/bluetooth/rfcomm/sock.c | 17 ++++++++++++-----
->  net/bluetooth/rfcomm/tty.c  | 20 ++++++++------------
->  2 files changed, 20 insertions(+), 17 deletions(-)
+> Regards,
+> Christian.
 >
-> ---
-
-Netdev sashiko found a couple of problems:
-
-https://netdev-ai.bots.linux.dev/sashiko/#/patchset/pm-bluetooth-objects-ca=
-ndidate-0218-v8-da37c8a6b33c9d2d8efc-0%40gmail.com
-
---=20
-Luiz Augusto von Dentz
+>> [89432.394897] RIP: 0010:amdxdna_gem_prime_import+0xb/0x120 [amdxdna]
+>> [89432.394905] Code: a2 29 c1 5d 31 f6 31 ff c3 cc cc cc cc 66 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 0f 1f 44 00 00 48 83 3e 00 75 14 <0f> 0b 48 c7 c0 ea ff ff ff 31 d2 31 f6 31 ff c3 cc cc cc cc 55 b8
+>> [89432.394908] RSP: 0018:ffffd04344fd79d8 EFLAGS: 00010246
+>> [89432.394911] RAX: ffffffffc10b4bb0 RBX: ffff8ddb05863a00 RCX: 0000000000000000
+>> [89432.394912] RDX: 0000000000000000 RSI: ffff8ddb084ebc00 RDI: ffff8dd94b17f000
+>> [89432.394914] RBP: ffffd04344fd7a10 R08: 0000000000000000 R09: 0000000000000000
+>> [89432.394915] R10: 000000000000000c R11: 0000000000000000 R12: ffff8dd94b17f000
+>> [89432.394916] R13: ffffd04344fd7ad0 R14: ffff8ddb05863b20 R15: ffff8ddb084ebc00
+>> [89432.394917] FS:  00007f8216e08740(0000) GS:ffff8de0c09bd000(0000) knlGS:0000000000000000
+>> [89432.394919] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+>> [89432.394921] CR2: 000055c3644b51e9 CR3: 000000011237f000 CR4: 0000000000750ef0
+>> [89432.394923] PKRU: 55555554
+>> [89432.394924] Call Trace:
+>> [89432.394926]  <TASK>
+>> [89432.394929]  ? drm_gem_prime_fd_to_handle+0xdb/0x220 [drm]
+>> [89432.394974]  ? __pfx_drm_prime_fd_to_handle_ioctl+0x10/0x10 [drm]
+>> [89432.395003]  drm_prime_fd_to_handle_ioctl+0x37/0x50 [drm]
+>> [89432.395029]  drm_ioctl_kernel+0xb0/0x110 [drm]
+>> [89432.395069]  drm_ioctl+0x2d6/0x580 [drm]
+>>
+>>
+>> Thanks,
+>>
+>> Lizhi
+>>
+>>> Regards,
+>>> Christian.
+>>>
+>>>> Fixes: e486147c912f ("accel/amdxdna: Add BO import and export")
+>>>> Signed-off-by: Lizhi Hou <lizhi.hou@amd.com>
+>>>> ---
+>>>>    drivers/accel/amdxdna/amdxdna_gem.c | 3 +++
+>>>>    1 file changed, 3 insertions(+)
+>>>>
+>>>> diff --git a/drivers/accel/amdxdna/amdxdna_gem.c b/drivers/accel/amdxdna/amdxdna_gem.c
+>>>> index ffe12a722dfe..4d7f3de88cd3 100644
+>>>> --- a/drivers/accel/amdxdna/amdxdna_gem.c
+>>>> +++ b/drivers/accel/amdxdna/amdxdna_gem.c
+>>>> @@ -1133,6 +1133,9 @@ amdxdna_gem_prime_import(struct drm_device *dev, struct dma_buf *dma_buf)
+>>>>        struct sg_table *sgt;
+>>>>        int ret;
+>>>>    +    if (!dma_buf->size)
+>>>> +        return ERR_PTR(-EINVAL);
+>>>> +
+>>>>        get_dma_buf(dma_buf);
+>>>>          attach = dma_buf_attach(dma_buf, dev->dev);
