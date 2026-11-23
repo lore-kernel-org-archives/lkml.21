@@ -1,84 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.107
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795457622;
-	b=HYo33ye/zex3ESuvyiGYS66UZBi1fC0+peceemmQz2gmueksHxjWEIR1M3oXj2kbiWHv
-	 OtQ1TQDxoaykaMaOAidKdjpe+sJQWDoeY7+H9cAxVn2DcJzJzHUGvrEhzR6TXgMrt9jO7
-	 M7I2xCAXiSfbxCDk29UQJPzJ9xrUd8Sa5jY4v+ji3+se0njyh6h2pttvPCA/SljoC4rpa
-	 6wFkSB2FkIoPCNXWYM9XNNs1oEdnIKrXZ2nGcvwoqjIvwCCwd5//igaeAcWM9vVKWBRmc
-	 Lx8cSUlg7Fwj4rNr/GFS1tA82yE1I/ZOqP7Oqh+s9toj+MzxWpL/QH1UfmfnRm/HTuA==
+	t=1795457627;
+	b=pgYoS48fgpKXwZuQaXcohlwbu6DXEBOSC0wgNIDmxz+q89H4vVsebjMQfC9GVkbBXXH+
+	 BsgKBOtnrdLOFPso1Bqxi3eZZwaMMUHGrWjx2YJ/rA3MDllQUcXHgMbNXb1Dj6+tHp/cE
+	 aWUB63JBTU9F18stdgEKV5jkE1d7IQxbc3zQDziTm9OLlulLhvV94tSa2Q0PAVgyJvu3C
+	 OvX+GVxjrNprGEICynvsdXCUUVPBSrjMXA8qHOk13ZJuk9MRjfyZeOERnPjxd0+PWkvMq
+	 axZy+aFvAEtDve98WiacoxxyGSPOOB/dDQXJlzY+FSo9IKwAzvkBzYOoifql4YLC2og==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795457622;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
-	bh=JF9DK5BWLD1MHzXf1P6k3Cfpg7JcJUIjQB9CILaEZzU=;
-	b=GauKTRh51NjiI/HsJpgHuvrkw8BXj5RbuUCqDmL4+BGXuDTo6faT8ep8dyF19LGQnnlZ
-	 CTY6SJ7IsRzUl5B2JHs2lEqi+4GBj3ubKKvIIEO5GoR0NDWN2zLYioemLh8sFqV9nOZgg
-	 iWeRIlsc9iCclCEvdk4SpWYmBg3rIYpE8xamUTYJeClHby9ZgXXJceGlOgn4N3v7eriWm
-	 Ps1/q/4fLEEq3mY8+FfgzC1NkYWpDAEi0DNR/79tamk4wQ7+3e12hnMs6OZGveHZxIzoG
-	 TmvmRV7zCVks49GkviCpT+RUgyNlSL9btXFQelNX4mtUrhDovCGLHNzDXChH2wLL+gA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795457627;
+	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=x0kr1cDZLM2J/Od71XUbuvFQlM07AOKq8fnDsRaeOtU=;
+	b=OWnz5Xd/WCRrd5YD8/oTU1EQ2vZJtQl4DL2MHo+JsqC2F2J12mZWh76CAkw+9unrEws+
+	 bI0d0poqe/0mi9ifXDNebs7Ad0nuiAqUJ0USlbB3I++Sab6Q7PCci+/+H2ZcdZOdOoK4I
+	 GpREpwTHL5IoXTWX+6PaVpUT/+k6/ivo5dUDj+g3U5ZWJ+HjmyooZ0x2RlSLigLaTVy7u
+	 d9++q10Yek05QqBqUnPo6oETJ1/CG30YigqeS/2l4G5FWvEzoY42arqg3Iz5D7lXzX2qn
+	 JwK+U1ak2T9a17IEMa5G+YLwwZ51ZtJU2xJgMrgZqb5/lA1hwUFXwwl1UEfa1pdpvvA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="LQWETw6/";
-	arc=none smtp.remote-ip=209.85.210.178
-Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=onurozkan.dev;
+	spf=pass smtp.mailfrom=onurozkan.dev;
+	dkim=pass header.d=onurozkan.dev header.i=@onurozkan.dev header.a=rsa-sha256 header.s=protonmail2 header.b=gFPI4GSc;
+	arc=none smtp.remote-ip=109.224.244.107
+Received: from mail-244107.protonmail.ch (mail-244107.protonmail.ch [109.224.244.107])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8CD4606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:13:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8CD4606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78F72606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:13:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78F72606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=onurozkan.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=onurozkan.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LQWETw6/
-Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8b6b22be970so1364687b3a.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:13:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795457621; x=1796062421; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=JF9DK5BWLD1MHzXf1P6k3Cfpg7JcJUIjQB9CILaEZzU=;
-        b=LQWETw6/ke0AGLdFlDY+tyTnXcM9ROpZvf/O9lyXAKa6wTIzmashTimz/E8kj1KApA
-         wb4OsxJEdFKQdpnrylbAc42fPkjMV9KF6K5tcEN6czX3uToTayip/oLkXxIG44Oewo2j
-         MnnCSjRgOJKruiyA99C3EbhjfljR7wIStjR/a84mepa1x1FVSs1JtWc0fFVh63kUIson
-         HJov0EerlPzZQ4dQgXomLFGaaoxSNLWEYtE5swf8nnXCl6H6b0kleCeF4Zv70ND1cx5a
-         IX5N0gwKAPBH3iEnAfOKtpavO5WHYBp1Hokm1R1yD5Y8sY5kTe7kVg+IWh4KLrEAjnli
-         PRhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795457621; x=1796062421;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JF9DK5BWLD1MHzXf1P6k3Cfpg7JcJUIjQB9CILaEZzU=;
-        b=EWa1r/dUfLGoCp7cZS2mU4bgL7e3lt4zTw/Se92vsAENCFRWYeQ/HQJxSQ4YtEjd/W
-         zy6imcqPWtmHnMSB9YEb4qTK5V4gN1cHNpHT0eJH35DLCIsAZ+Y1DLkwSFGa1/Y0SyUc
-         K1IlBsdF9z9pGSSvdG5Ngvz3k5nTIE+mfKsehq36LHWmFirb3dOgjlcNrPq0GejXwSeB
-         ccxGMN6RgWo0Ix65jgWP6UiI9MbXAY+m8W9GE574k6E+28QlYMZ/rDj9KzkOfcXWhhei
-         zT0TrIa+o4B/RRhYRcRyLfnCJys1ZabBTzxByKVQL7SOlIP528ALQXjR5KrFRNGpsCfO
-         oGsw==
-X-Forwarded-Encrypted: i=1; AL+hErHRoNvL9CuplRhthUOSQzBjxQNcsBgtDA6wbZk4yxM7kDCuTEGyAXy8Q3l5UUngGSqKSnFZfi4V83nfaKg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8aiKcVGuiap0fNpzGowlZxRVWGccIxUp4x77/FAm9zViyKLBZf
-	mmKfJXJiPVRV2WwwDlWTczG28fTsqel3pFiIIN+Nbr5/RGy6FVxn68KqWGQciwSoIQ==
-X-Gm-Gg: AZFdTZewp1s8mT1HJ6n/CuzbDuUg/lK7bWsXqd4FOOE9Axlv7KC7C/Pt/ckWugU29L7
-	SQC7zrDtw8eezldwxiU8RozGnYX2h7EXnkaKqEQAN5o1LvKaxAYnvJUELQ6TzbhrTtWsYauQf+M
-	e8qSDRibvxCGtclffQpu7CqE0IqddSXLk+qof1tz2rTfZg2ok6tqE048HI5+gNuQuq7hGNPXFi+
-	15W1PZFwfLI1WDaIFQqdBUIxvkKgzx+Gl1lG5Uehiw+JG0MZ9i+aKpZY6VdbVjoYDrj36DNRjvk
-	gz/OVxr6Gb1JLtj5QTNOTb5KxgFbeyegP3/Ls339AEidRz4Y6tp8mhWqUYu2vwspcEPMjF50fk/
-	gmu9w5oqLNhWUqnsAVi/nw/DlmqbtqGKrXnKCk57tZ/Uwd/ADIWGDlGaJKVyZPwY2jnOFSriIi+
-	+BB4rnvFwm+RM4GQmemgQCI/XAitM9sLB23DTzmw+/ZXcTedqMBAsvWyJ/QooX6oc1r8LcrByZT
-	EE2ejzb1oAO6lk864QUQo6aClMbVnFfvZ8kv6/tjkEfTDATiNDk4B4ImWXcwOfgRD5tFuXDdQRe
-	r1WJLnMf0AVInzXxWR/Hny7UDNy+sYj1tTAxV6pK3HCzrpAJF19N79Nh5bywdu3G
-X-Received: by 2002:a05:6a00:9084:b0:89e:9c7e:fd56 with SMTP id d2e1a72fcca58-8c87c768251mr11001006b3a.33.1795457620349;
-        Mon, 23 Nov 2026 10:13:40 -0800 (PST)
-Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285c263sm5956386b3a.11.2026.11.23.10.13.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 10:13:38 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=onurozkan.dev header.i=@onurozkan.dev header.a=rsa-sha256 header.s=protonmail2 header.b=gFPI4GSc
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=onurozkan.dev;
+	s=protonmail2; t=1795457620; x=1795716820;
+	bh=x0kr1cDZLM2J/Od71XUbuvFQlM07AOKq8fnDsRaeOtU=;
+	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:From:To:
+	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=gFPI4GSceUGJhtUhlapm287AolRPmbwLr5a1cW2eyfZonamk0YS4kTzo1GbwAYpq0
+	 E/ZrAClPeggrU84oX23s9ZvSte8XqnGyFJn1scVmTa1UMhPGQkGSGZhydEippq/C8c
+	 wcjdLmEUMC8XWPF24oxh7K30ERPqU17T6e+RVD0jd6wWHkTkStQ6mGCr5N2jW2dWb1
+	 4Htenj2vXj1CXO4PLfvx1OI1Dru0wdXCeyHnPVig1lDatGcqcdyptoH8MxiCSWhkWt
+	 qfd7hoxpPP5o4to0RA5Pw008DI8zMMjjDhecCntf12IV0yZb8Dh0tjnXf9EOfz/ioO
+	 pw+4dCB4ZwcXA==
+X-Pm-Submission-Id: 4jYDb42p0Qz1DDKY
+From: =?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>
+To: Laura Nao <laura.nao@collabora.com>
+Cc: Daniel Almeida <daniel.almeida@collabora.com>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Trevor Gross <tmgross@umich.edu>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	rust-for-linux@vger.kernel.org,
+	kernel@collabora.com,
+	Onur Ozkan <work@onurozkan.dev>
+Subject: Re: [PATCH v7 1/3] drm/tyr: add HwGate::try_access_atomic()
+Date: Mon, 23 Nov 2026 21:13:31 +0300
+Message-ID: <20261123181334.18856-1-work@onurozkan.dev>
+X-Mailer: git-send-email 2.51.2
+In-Reply-To: <20260728-tyr-irq-v2-v7-1-4e172e58e28c@collabora.com>
+References: <20260728-tyr-irq-v2-v7-0-4e172e58e28c@collabora.com> <20260728-tyr-irq-v2-v7-1-4e172e58e28c@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,72 +80,172 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Nov 2026 10:13:37 -0800
-Message-Id: <DN2SLUVNO0L5.3NUHFPC0J7QTG@google.com>
-Cc: <kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
- <linux-mm@kvack.org>, "Alexander Graf" <graf@amazon.com>, "Andrew Morton"
- <akpm@linux-foundation.org>, "Baolin Wang" <baolin.wang@linux.alibaba.com>,
- "Christian Brauner" <brauner@kernel.org>, "David Hildenbrand"
- <david@kernel.org>, "Hugh Dickins" <hughd@google.com>, "Jonathan Corbet"
- <corbet@lwn.net>, "Liam R. Howlett" <liam@infradead.org>, "Lorenzo Stoakes"
- <ljs@kernel.org>, "Michal Hocko" <mhocko@suse.com>, "Mike Rapoport"
- <rppt@kernel.org>, "Pasha Tatashin" <pasha.tatashin@soleen.com>, "Randy
- Dunlap" <rdunlap@infradead.org>, "Samiullah Khawaja" <skhawaja@google.com>,
- "Shuah Khan" <skhan@linuxfoundation.org>, "Suren Baghdasaryan"
- <surenb@google.com>, "Vlastimil Babka" <vbabka@kernel.org>
-Subject: Re: [PATCH v4 07/19] liveupdate: Add helpers to track the files
- that LUO manages
-From: "David Matlack" <dmatlack@google.com>
-To: "Pratyush Yadav" <pratyush@kernel.org>, "David Matlack"
- <dmatlack@google.com>
-X-Mailer: aerc 0.21.0
-References: <20261111002358.1842967-1-dmatlack@google.com>
- <20261111002358.1842967-8-dmatlack@google.com>
- <2vxzbj7j3ga2.fsf@kernel.org>
-In-Reply-To: <2vxzbj7j3ga2.fsf@kernel.org>
+Content-Transfer-Encoding: quoted-printable
 
-On Fri Nov 20, 2026 at 3:15 AM PST, Pratyush Yadav wrote:
-> On Wed, Nov 11 2026, David Matlack wrote:
->> @@ -788,8 +797,7 @@ int luo_file_finish(struct luo_file_set *file_set)
->>  		luo_file_finish_one(file_set, luo_file);
->> =20
->>  		if (luo_file->file) {
->> -			xa_erase(&luo_preserved_files,
->> -				 luo_get_id(luo_file->fh, luo_file->file));
->> +			luo_untrack_file(luo_file->fh, luo_file->file);
->
-> This looks dangerous.
->
-> Since the previous patch set luo_file->file when xa_insert() failed,
-> this will trigger in a failed retrieve. Except, the file was never
-> tracked to begin with.
->
-> While I don't see anything that actually breaks because of this today,
-> I think it is a bug in the making.
->
-> I think the below is a bit better. Although this change probably makes
-> more sense in the previous patch, since that introduced the problem.
-> This patch should just replace the xa_erase() with luo_untrack_file().
->
-> 	if (luo_file->file)
-> 		fput(luo_file->file);
->
-> 	if (luo_file->retrieve_status > 0)
-> 		luo_untrack_file(luo_file->fh, luo_file->file);
-
-Good catch, I'll fix this in the previous patch in v5.
-
-(But luo_untrack_file() needs to be called before fput() in case the
-latter drops the last reference.)
-
-So:
-
-	if (luo_file->retrieve_status > 0)
-		luo_untrack_file(luo_file->fh, luo_file->file);
-
-	if (luo_file->file)
-		fput(luo_file->file);
+On Mon, 23 Nov 2026 15:58:45 +0100=0D
+Laura Nao <laura.nao@collabora.com> wrote:=0D
+=0D
+> From: Daniel Almeida <daniel.almeida@collabora.com>=0D
+> =0D
+> HwGate::access() takes gate_lock, which is a mutex, so it cannot be=0D
+> called from atomic context. IRQ handlers need to access the GPU=0D
+> registers, and those are only reachable through the gate.=0D
+> =0D
+> Add HwGate::try_access_atomic(). It enters SRCU without taking gate_lock=
+=0D
+> and returns None if the reset worker has closed the gate. close() now=0D
+> sets a closed flag before waiting for SRCU readers, and HwClosedGuard=0D
+> clears it when dropped. SRCU guarantees that a reader either sees the=0D
+> flag set or is waited for.=0D
+> =0D
+> An IRQ handler that gets None cannot acknowledge its interrupt, so its=0D
+> interrupt has to stay masked while the gate is closed. Document this on=0D
+> close(). No caller needs to do this yet: the only reset runs at probe,=0D
+> before any IRQ handler is registered.=0D
+> =0D
+> There are no users yet. The Job IRQ handler will be the first one.=0D
+> =0D
+> Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>=0D
+=0D
+LGTM=0D
+=0D
+Reviewed-by: Onur Ozkan <work@onurozkan.dev>=0D
+=0D
+> ---=0D
+>  drivers/gpu/drm/tyr/reset/hw_gate.rs | 55 ++++++++++++++++++++++++++++++=
+++++--=0D
+>  1 file changed, 53 insertions(+), 2 deletions(-)=0D
+> =0D
+> diff --git a/drivers/gpu/drm/tyr/reset/hw_gate.rs b/drivers/gpu/drm/tyr/r=
+eset/hw_gate.rs=0D
+> index 201f8c953078..40b38f07c472 100644=0D
+> --- a/drivers/gpu/drm/tyr/reset/hw_gate.rs=0D
+> +++ b/drivers/gpu/drm/tyr/reset/hw_gate.rs=0D
+> @@ -6,10 +6,18 @@=0D
+>  //! access with reset. Readers hold the mutex while entering SRCU, then =
+release=0D
+>  //! it before accessing hardware. The reset worker holds the mutex while=
+ waiting=0D
+>  //! for admitted readers and resetting hardware.=0D
+> +//!=0D
+> +//! Readers that cannot sleep use [`HwGate::try_access_atomic`] instead.=
+ It=0D
+> +//! enters SRCU without taking the mutex and fails if the reset worker h=
+as set=0D
+> +//! `closed`, which it does before waiting for readers.=0D
+>  =0D
+>  use kernel::{=0D
+>      prelude::*,=0D
+>      sync::{=0D
+> +        atomic::{=0D
+> +            Atomic,=0D
+> +            Relaxed, //=0D
+> +        },=0D
+>          new_mutex,=0D
+>          srcu,=0D
+>          Mutex,=0D
+> @@ -32,6 +40,9 @@ pub(crate) struct HwGate<'hw> {=0D
+>      /// Drains readers that entered before the reset worker acquired `ga=
+te_lock`.=0D
+>      #[pin]=0D
+>      srcu: Srcu,=0D
+> +    /// Set while the reset worker owns the hardware. Checked by readers=
+ that=0D
+> +    /// cannot take `gate_lock`.=0D
+> +    closed: Atomic<bool>,=0D
+>  }=0D
+>  =0D
+>  impl<'hw> HwGate<'hw> {=0D
+> @@ -41,6 +52,7 @@ pub(crate) fn new(iomem: IoMem<'hw>) -> impl PinInit<Se=
+lf, Error> {=0D
+>              iomem,=0D
+>              gate_lock <- new_mutex!(()),=0D
+>              srcu <- kernel::new_srcu!(),=0D
+> +            closed: Atomic::new(false),=0D
+>          })=0D
+>      }=0D
+>  =0D
+> @@ -60,15 +72,45 @@ pub(crate) fn access(&self) -> HwAccessGuard<'_, 'hw>=
+ {=0D
+>          }=0D
+>      }=0D
+>  =0D
+> +    /// Enters a reset-sensitive hardware-access section without sleepin=
+g.=0D
+> +    ///=0D
+> +    /// Returns `None` while the reset worker owns the hardware, in whic=
+h case=0D
+> +    /// the caller must skip its hardware access.=0D
+> +    #[expect(dead_code)]=0D
+> +    pub(crate) fn try_access_atomic(&self) -> Option<HwAccessGuard<'_, '=
+hw>> {=0D
+> +        let srcu =3D self.srcu.read_lock();=0D
+> +=0D
+> +        // `close()` sets `closed` before waiting for readers, so SRCU g=
+uarantees=0D
+> +        // that this reader either sees it set or is waited for.=0D
+> +        if self.closed.load(Relaxed) {=0D
+> +            return None;=0D
+> +        }=0D
+> +=0D
+> +        Some(HwAccessGuard {=0D
+> +            gate: self,=0D
+> +            _srcu: srcu,=0D
+> +        })=0D
+> +    }=0D
+> +=0D
+>      /// Stops new readers and drains admitted readers for the reset work=
+er.=0D
+>      ///=0D
+>      /// Callers must serialize write-side access. The reset controller's=
+ state=0D
+>      /// machine provides that serialization.=0D
+> +    ///=0D
+> +    /// An IRQ handler that uses [`HwGate::try_access_atomic`] cannot ac=
+knowledge=0D
+> +    /// its interrupt while the gate is closed. Callers must mask such a=
+n=0D
+> +    /// interrupt before closing the gate and keep it masked until the g=
+ate=0D
+> +    /// reopens.=0D
+>      pub(super) fn close(&self) -> HwClosedGuard<'_, 'hw> {=0D
+>          let gate_lock =3D self.gate_lock.lock();=0D
+>  =0D
+> -        // Holding `gate_lock` prevents new readers from entering SRCU. =
+Readers=0D
+> -        // admitted before us are enrolled, so wait for their read-side =
+work.=0D
+> +        // Stop `try_access_atomic()` readers. This must happen before w=
+aiting=0D
+> +        // for readers below.=0D
+> +        self.closed.store(true, Relaxed);=0D
+> +=0D
+> +        // Holding `gate_lock` prevents new readers from entering SRCU t=
+hrough=0D
+> +        // `access()`. Readers admitted before us are enrolled, so wait =
+for their=0D
+> +        // read-side work.=0D
+>          self.srcu.synchronize();=0D
+>  =0D
+>          HwClosedGuard {=0D
+> @@ -104,3 +146,12 @@ pub(super) fn iomem(&self) -> &IoMem<'hw> {=0D
+>          &self.gate.iomem=0D
+>      }=0D
+>  }=0D
+> +=0D
+> +impl Drop for HwClosedGuard<'_, '_> {=0D
+> +    fn drop(&mut self) {=0D
+> +        // Reopen for `try_access_atomic()`. A reader that races with th=
+is and=0D
+> +        // still sees `closed` set returns `None`, as it would have befo=
+re the=0D
+> +        // store.=0D
+> +        self.gate.closed.store(false, Relaxed);=0D
+> +    }=0D
+> +}=0D
+> =0D
+> -- =0D
+> 2.39.5=0D
+> =0D
