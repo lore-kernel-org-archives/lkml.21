@@ -1,65 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.225
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795419068;
-	b=bRb74VGw7BUUZO84f3jlDHHQdQz0VnS30rxFV3hntzJUQIZStYwwN92P2dgoho4vYhwe
-	 0aubBBNAYe/sBkWz/34TakoaRzuqJTH4x/KURZ2Zji6lngSHhrWeSFrbNvg4glTGukVYT
-	 M64rR+cOXhkqHrwrtw8BkvkXLn02thGzVQMOCxBcT2qpgdVP8i78GREk4z+fnmu1X9oja
-	 z+Glg/tiAAdAxn6HliuzduQbKmeyUWgrdiF9exBkhPFAtHatNCmPL79o2rUSRp9zlM4Lc
-	 Ij9DpsmcGkY0KzkzgJyHSlBC+ZB6ZIZHEeCQZyvlP5tuBmozeEYkq1u1otLyerJxwFQ==
+	t=1795419226;
+	b=iOsNcAy1mHUqd4QnMpkHKRVWCwlmypH56/QjCxmecv9nwqIhCvyktaaMaxYzOaDZ7H7c
+	 CnPTGX9E2+yuBmzGu/rL3O77qyVEkqHbe1e/qnCFeNq0HMiQ6LAdo4LWePB1SuZYB1VIy
+	 0ygXPrXMv275EGSgsRsZCcDGjWDeAarJoDZ39wJ/8pIodmop/S1Kz0NPkloiZTyX8seE3
+	 WAsBkirY+f2jg83zDk1aB+bc1pn28Th9iUQ/Sx4A2xPtaF+YHt/Xmrfv3qg6Nk5hjdlM6
+	 6j8alq20f9MYDztjZpoYdglfKfzG6OLH2wXwW3YVnGQ6WZItud9FJwILyD2B15MjeLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795419068;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=EMgFF2FML6uL9zrt5WHLoYV9AIrdLm8XoVsSXqWQsaA=;
-	b=CrRrVA8qH1+ozVsgBMr8ND8IgOEALFWNF0fAlQznJCdPXdf9yShLY8GTY3VI8lHsfLpT
-	 k8GE8KZSQJUoV/HRnNPcvJW6YoWBQcTTaS3xUlpyuAw+b1JjskbxmZAUPs54dq/Bn+Fyq
-	 pSXzDRawG6ePI8wRGWYI5nazp1OWxU2iudKeJA06qCa8QPmCryRluHOkuXnv4lIxDnO8x
-	 rkbHJiNMXWWbuxwsbZ8SO3ep73m8MBObgsGKdNq6Cr6bzA9RAaOfoiFHir4Kf4CXBFb/a
-	 ZxFLO0uv+MFJgLD5MYPNQZGdj1wmMG6g7+bWC9jpg5ntyzy/u6gMUudDEIVib+NiN2w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795419226;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:CC:Subject:To:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=Tu2DqMM+ZYfQaMG7ADHRtxgkDLAvEOYaekIz0Cq8T3Q=;
+	b=bwUTorKkNun+9sOmkGEd5/UGzrwi6rZVSj8+oTah5otbN88Ti2frJtlho9xgKkO1x8tu
+	 Ocg5ShaAQeVwbRt8QqA6egzXZfxRoEvMgFGfHMlnKZa+/P5SU6xTBRux5nZzjmwcA6krc
+	 hvJKAx7e3RiGSTdURCHGtrh6C9TPJOiafz+BtNa95JmU1L55dUXb9fuZIT+x5hjxpoEG6
+	 FsIMYKXMMwbyaq93T2Iu/qLa7kGuGNVy/pb1BVqeACwbfwKgVQLMOyYaPbaoqAFZpF06s
+	 aIIEiDPj+2yY+uWWUY2ptqP51IXDrk2ZPLPYsYEFgcwl4H8ogzHkF8wmZbBgY1R+zSA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=J+tqSZIi;
-	arc=none smtp.remote-ip=220.197.31.3
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b="LE/qs1ME";
+	arc=none smtp.remote-ip=113.46.200.225
+Received: from canpmsgout10.his.huawei.com (canpmsgout10.his.huawei.com [113.46.200.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C997F606A31A;
-	Mon, 23 Nov 2026 07:31:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C997F606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E760D606A31E;
+	Mon, 23 Nov 2026 07:33:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E760D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=J+tqSZIi
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=EM
-	gFF2FML6uL9zrt5WHLoYV9AIrdLm8XoVsSXqWQsaA=; b=J+tqSZIidsHfJ48Dl3
-	aRUspqFOZ+HSZ9KHTOqWhu91prGQMExnakg26C2fpeENLfIDW+PwA0J+3KZyXELV
-	6Wmp+7fNaV+qDMWHRzopAHfHy6VInr2Ne6FRr3G7WkLGkLP9JJYoG9DpcsRwe+yZ
-	sl/13ptJAAkJpHdaAch4ZiUBA=
-Received: from leoqi-System-Product-Name.. (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgBHUn9h6wNrVnuZHg--.56083S2;
-	Mon, 23 Nov 2026 15:29:43 +0800 (CST)
-From: Can Qi <qican5708@163.com>
-To: anup@brainfault.org
-Cc: atish.patra@linux.dev,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] KVM: riscv: Allow rescheduling during G-stage unmap
-Date: Mon, 23 Nov 2026 15:29:37 +0800
-Message-Id: <20261123072937.1655496-1-qican5708@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261123064935.1608890-1-qican5708@163.com>
-References: <20261123064935.1608890-1-qican5708@163.com>
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=LE/qs1ME
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Tu2DqMM+ZYfQaMG7ADHRtxgkDLAvEOYaekIz0Cq8T3Q=;
+	b=LE/qs1MEjoNp8+qbJatKZUj69K/AIAohvCbKhGKps6xkHt1HlPP8mvGjPnCYBhKa7t/1Jgddo
+	vK1H8qyimiz3bupdCzAqC4wg773aruaJFUG2HLvULx9nmSX9pVPXxgMbSdbFEv0u3ZZLInafX0W
+	L7rF3L9u3MY/Sptv5n1g8E8=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4jXyNN1B5bz1K9Vq;
+	Mon, 23 Nov 2026 15:33:24 +0800 (CST)
+Received: from kwepemo500018.china.huawei.com (unknown [7.202.195.199])
+	by mail.maildlp.com (Postfix) with ESMTPS id D277D40586;
+	Mon, 23 Nov 2026 15:33:40 +0800 (CST)
+Received: from [10.67.121.233] (10.67.121.233) by
+ kwepemo500018.china.huawei.com (7.202.195.199) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Mon, 23 Nov 2026 15:33:40 +0800
+Message-ID: <a727a596-2718-4aaa-8baf-69b1aee9df43@huawei.com>
+Date: Mon, 23 Nov 2026 15:33:39 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,456 +62,243 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+CC: <shaojijie@huawei.com>, <davem@davemloft.net>, <edumazet@kernel.org>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <andrew+netdev@lunn.ch>,
+	<shenjian15@huawei.com>, <liuyonglong@huawei.com>, <chenhao418@huawei.com>,
+	<yangshuaisong@h-partners.com>, <ningwei15@huawei.com>,
+	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 net 3/4] net: hns3: fix interface stuck after OOM with
+ full hardware rx queue
+To: <netdev-bot+sashiko@kernel.org>
+References: <20261118130330.3026625-4-shaojijie@huawei.com>
+ <179535384062.3135.791733868582964041@kernel.org>
+From: Jijie Shao <shaojijie@huawei.com>
+In-Reply-To: <179535384062.3135.791733868582964041@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PygvCgBHUn9h6wNrVnuZHg--.56083S2
-X-Coremail-Antispam: 1Uf129KBjvAXoW3CrW5uFyUAFyDuw1fXryxZrb_yoW8Wr45Go
-	W0ya1rWF48ury0yFyIyw17tFyjqFW0krZrWF15XFWYqryjq34rurWjkrZ8Ja47Wr1UWFyf
-	ZFWSqr9rXF18G3Wxn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUFGQDUUUUU
-X-CM-SenderInfo: ptlft0avxqmqqrwthudrp/xtbC8AiwbmsD62iR1wAA3L
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemo500018.china.huawei.com (7.202.195.199)
 
-Removing a populated memslot or destroying a VM can require walking a
-large G-stage range under mmu_lock. Allow these paths to drop the write
-lock and reschedule during the walk.
 
-Snapshot the shared root under mmu_lock and verify it before walking
-again after a yield. Flush each pending batch before dropping the lock
-so another invalidator cannot miss PTEs that the walker cleared.
+on 2026/11/22 21:24, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 3 potential
+> issue(s) to consider.
+>
+> Critical: 0 · High: 1 · Medium: 2 · Low: 0
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+>
+> - [High] hns3_oom_task() (hns3_enet.c:4456-4470) reads
+>    HNS3_NIC_STATE_DOWN once into the local `down` at entry.
+> - [Medium] The patch adds a new private ethtool -S string,
+>    HNS3_TQP_STAT("rx_oom_cnt", rx_oom_cnt), to hns3_rxq_stats[] in…
+> - [Medium] rx_oom_cnt can be incremented twice in one NAPI poll, which
+>    contradicts the stated v5 semantics ("Count rx_oom_cnt for each NAPI…
+>
+> --
+>
+> net: hns3: fix interface stuck after OOM with full hardware rx queue
+>
+> This patch adds a 250ms delayed_work that re-schedules NAPI for RX rings
+> that hit an allocation failure. A per-ring bitmap tracks those rings. The
+> patch also replaces the earlier approach of returning budget from
+> hns3_clean_rx_ring() on allocation failure, and adds a per-ring rx_oom_cnt
+> ethtool counter.
+>
+>> diff --git a/drivers/net/ethernet/hisilicon/hns3/hns3_enet.c b/drivers/net/ethernet/hisilicon/hns3/hns3_enet.c
+>> index 5677e32fc3da4..60fc296020ab2 100644
+>> --- a/drivers/net/ethernet/hisilicon/hns3/hns3_enet.c
+>> +++ b/drivers/net/ethernet/hisilicon/hns3/hns3_enet.c
+> [ ... ]
+>
+>> @@ -4161,6 +4163,7 @@ static int hns3_add_frag(struct hns3_enet_ring *ring)
+>>   			if (unlikely(!new_skb)) {
+>>   				hns3_rl_err(ring_to_netdev(ring),
+>>   					    "alloc rx fraglist skb fail\n");
+>> +				hns3_ring_set_oom_state(ring);
+>>   				return -ENXIO;
+>>   			}
+>>   
+>> @@ -4450,6 +4453,30 @@ static int hns3_handle_rx_bd(struct hns3_enet_ring *ring)
+>>   	return 0;
+>>   }
+>>   
+>> +static void hns3_oom_task(struct work_struct *work)
+>> +{
+>> +	struct hns3_nic_priv *priv = container_of(work, struct hns3_nic_priv,
+>> +						  oom_task.work);
+>> +	bool down = test_bit(HNS3_NIC_STATE_DOWN, &priv->state);
+>> +	struct hnae3_handle *h = priv->ae_handle;
+>> +	struct hns3_enet_ring *ring;
+>> +	u16 i;
+>> +
+>> +	for (i = 0; i < h->kinfo.num_tqps; i++)
+>> +		if (test_and_clear_bit(i, priv->rx_ring_oom_bm) && !down) {
+>> +			ring = &priv->ring[i + h->kinfo.num_tqps];
+>> +			napi_schedule(&ring->tqp_vector->napi);
+>> +		}
+>> +}
+> [Severity: High]
+> Can the stale down value here lose a recovery bit that was set after the
+> interface came back up?
+>
+> hns3_nic_net_down() doesn't cancel oom_task, so an instance can still be
+> running while hns3_nic_net_up() runs. Consider this sequence:
+>
+> hns3_oom_task()
+>    down = test_bit(HNS3_NIC_STATE_DOWN, ...);   /* true */
+>    <preempted before reaching ring i>
+>
+>                      hns3_nic_net_up()
+>                        clear_bit(HNS3_NIC_STATE_DOWN, &priv->state);
+>                        hns3_enable_irqs_and_tqps(netdev);
+>
+>                      NAPI poll on ring i, allocation fails
+>                      hns3_clean_rx_ring()
+>                        hns3_ring_set_oom_state(ring);  /* sets bit i */
+>                        hns3_oom_task_schedule(ring);   /* queues new run */
+>                        return recv_pkts;               /* NAPI completes */
+>
+> hns3_oom_task() resumes
+>    test_and_clear_bit(i, ...) returns true, but down is still true,
+>    so napi_schedule() is skipped and bit i is now clear
+>
+> 250ms later the newly queued instance finds bit i clear and does nothing.
+>
+> hns3_clean_rx_ring() now returns recv_pkts instead of budget, so NAPI has
+> already exited. If ring i has no armed RX buffers left, the hardware won't
+> raise another RX interrupt. Wouldn't the ring then stay stuck? That is the
+> condition this patch is meant to fix.
+>
+> The commit message says:
+>
+>    If it runs while DOWN is set, it clears the per-ring bits without
+>    scheduling NAPI. [ ... ] Both outcomes are harmless.
+>
+> That doesn't seem to hold for this interleaving. Two possible ways to
+> close the window:
+>
+> - return early without clearing any bits when DOWN is set, or
+> - re-check DOWN after each test_and_clear_bit() and set the bit again.
+>
+> Would either of these work here?
 
-Return the number of pages in the trailing range that still needs a
-flush. The memslot and MMU notifier paths can then flush just that
-range while holding mmu_lock. Detaching the root still requires a
-full VM flush before freeing it, even when the last batch was empty.
+I don't think this is reachable.  hns3_nic_net_up() rebuilds the rings
+before it clears HNS3_NIC_STATE_DOWN:
 
-Free the VM-owned split-page cache in kvm_arch_destroy_vm(), after MMU
-notifier callbacks have completed. Both address-space teardown and
-notifier unregister can invoke the release callback.
+	ret = hns3_nic_reset_all_ring(h);
+	if (ret)
+		return ret;
+	clear_bit(HNS3_NIC_STATE_DOWN, &priv->state);
 
-Codex assisted with implementation and validation. Sashiko identified
-the redundant final range flush during review.
+If the rebuild fails, DOWN stays set and net_open() returns an error, so
+the interface never comes up.  If it succeeds, hns3_nic_reset_all_ring()
+calls hns3_reuse_buffer() on every descriptor, so the ring is full when
+the interface comes up.
 
-Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Can Qi <qican5708@163.com>
----
-Changes in v3
 
-- Carry the unflushed tail length back to the memslot and MMU notifier
-  callers. A v2 trace showed a final request for all 262144 pages of a
-  memslot when only 255 pages remained after the last batch.
+>
+>> +
+>> +static void hns3_oom_task_schedule(struct hns3_enet_ring *ring)
+>> +{
+> [ ... ]
+>
+>> @@ -4489,10 +4519,15 @@ int hns3_clean_rx_ring(struct hns3_enet_ring *ring, int budget,
+>>   	 * FBD number with head pointer
+>>   	 */
+>>   	if (unused_count > 0)
+>> -		failure = failure ||
+>> -			  hns3_nic_alloc_rx_buffers(ring, unused_count);
+>> +		failure |= hns3_nic_alloc_rx_buffers(ring, unused_count);
+>> +
+>> +	if (unlikely(failure))
+>> +		hns3_ring_set_oom_state(ring);
+> [Severity: Medium]
+> Can rx_oom_cnt be incremented twice in a single NAPI poll here?
+>
+> The commit message says the counter is "incremented for each NAPI poll
+> that hits an RX allocation failure". When the fraglist napi_alloc_skb()
+> fails in hns3_add_frag(), the path looks like this:
+>
+> hns3_clean_rx_ring()
+>    hns3_handle_rx_bd()
+>      hns3_add_frag()
+>        hns3_ring_set_oom_state(ring);   /* rx_oom_cnt++ */
+>        return -ENXIO;
+>    goto out;
+>    failure |= hns3_nic_alloc_rx_buffers(ring, unused_count);
+>    if (unlikely(failure))
+>        hns3_ring_set_oom_state(ring);   /* rx_oom_cnt++ again */
+>
+> -ENXIO doesn't match the new err == -ENOMEM check. But failure can still
+> be true, either from a failed exit refill or from an earlier failed
+> in-loop refill. Under the memory pressure that caused the fraglist
+> failure, the refill is likely to fail too.
+>
+> hns3_ring_set_oom_state() has no per-poll dedup, so in this case the
+> counter goes up by two for one poll.
 
-Changes in v2
+The second increment only happens when a second allocation actually
+failed.  hns3_add_frag() counts its failed napi_alloc_skb() and returns
+-ENXIO, which doesn't set `failure`, so the exit refill still runs and
+bumps the counter again only if it fails too.  Two increments mean two
+failures.  I agree "for each NAPI poll" can read as at most once per
+poll, that's just imprecise wording.
 
-- Skip the final range flush when the walk has already synchronized
-  every cleared PTE. Keep the full flush when detaching the root.
 
-Testing
+>
+> [ ... ]
+>
+>> diff --git a/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c b/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
+>> index 7b92a3c73ef6d..14642f81efe1a 100644
+>> --- a/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
+>> +++ b/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
+>> @@ -62,6 +62,7 @@ static const struct hns3_stats hns3_rxq_stats[] = {
+>>   	HNS3_TQP_STAT("non_reuse_pg", non_reuse_pg),
+>>   	HNS3_TQP_STAT("frag_alloc_err", frag_alloc_err),
+>>   	HNS3_TQP_STAT("frag_alloc", frag_alloc),
+>> +	HNS3_TQP_STAT("rx_oom_cnt", rx_oom_cnt),
+> [Severity: Medium]
+> Should this value go through the standard per-queue rx-alloc-fail qstat
+> rather than a new ethtool -S string?
+>
+> hns3_ring_set_oom_state() increments rx_oom_cnt on RX skb and buffer
+> allocation failures. That is the event the alloc_fail field of struct
+> netdev_queue_stats_rx tracks. Documentation/netlink/specs/netdev.yaml
+> describes rx-alloc-fail as:
+>
+>    Number of times skb or buffer allocation failed on the Rx datapath.
+>    Allocation failure may, or may not result in a packet drop, depending
+>    on driver implementation and whether system recovers quickly.
+>
+> The commit message says:
+>
+>    It is a diagnostic counter for this recovery path, not the standard
+>    rx-alloc-fail qstat.
+>
+> Counting per poll instead of per allocation looks like a granularity
+> choice, and the standard definition leaves that choice to the driver.
+>
+> hns3 doesn't implement netdev_stat_ops or get_queue_stats_rx yet.
+> Implementing them would expose this value through the standard uAPI.
+>
+> The same failures already increment the existing sw_err_cnt ("dropped")
+> counter in hns3_alloc_skb() and hns3_nic_alloc_rx_buffers().
+>
+> This patch carries a Fixes: tag, and the new user-visible counter makes it
+> harder to take through the net tree as-is. Could the counter be split out
+> of this fix?
 
-- Built the RV64 kernel image and modules and ran mmu_stress_test
-  -c 2 -m 2 -s 1 under QEMU. The trace showed a final memslot flush
-  of 154 of 262144 pages and a notifier flush of 506 of 262144
-  pages. Root teardown still requested a full flush with an empty tail.
+I answered this in v4 and the reasoning still holds.  hns3 has no
+netdev_stat_ops, alloc_fail is an exact failure count while this is a
+diagnostic for the recovery path, and the existing per-queue stats and
+customer tooling read ethtool -S.  The new string is additive and
+doesn't change any existing one.
 
- arch/riscv/include/asm/kvm_gstage.h |  15 +++-
- arch/riscv/kvm/gstage.c             |  35 +++++++--
- arch/riscv/kvm/mmu.c                | 112 ++++++++++++++--------------
- arch/riscv/kvm/vm.c                 |   3 +
- 4 files changed, 96 insertions(+), 69 deletions(-)
 
-diff --git a/arch/riscv/include/asm/kvm_gstage.h b/arch/riscv/include/asm/kvm_gstage.h
-index aaf080ba1..a576940f3 100644
---- a/arch/riscv/include/asm/kvm_gstage.h
-+++ b/arch/riscv/include/asm/kvm_gstage.h
-@@ -77,8 +77,9 @@ enum kvm_riscv_gstage_op {
- bool kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
- 			     pte_t *ptep, u32 ptep_level, enum kvm_riscv_gstage_op op);
- 
--bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
--				  gpa_t start, gpa_t size, bool may_block);
-+/* Return the number of trailing pages to flush, or zero if none remain. */
-+u64 kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
-+				 gpa_t start, gpa_t size, bool may_block);
- 
- bool kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end);
- 
-@@ -104,13 +105,21 @@ static inline unsigned long kvm_riscv_gstage_mode(unsigned long pgd_levels)
- 	}
- }
- 
--static inline void kvm_riscv_gstage_init(struct kvm_gstage *gstage, struct kvm *kvm)
-+/* The caller must hold mmu_lock while accessing the shared page tables. */
-+static inline bool kvm_riscv_gstage_init(struct kvm_gstage *gstage, struct kvm *kvm)
- {
-+	lockdep_assert_held(&kvm->mmu_lock);
-+
-+	if (!kvm->arch.pgd)
-+		return false;
-+
- 	gstage->kvm = kvm;
- 	gstage->flags = 0;
- 	gstage->vmid = READ_ONCE(kvm->arch.vmid.vmid);
- 	gstage->pgd = kvm->arch.pgd;
- 	gstage->pgd_levels = kvm->arch.pgd_levels;
-+
-+	return true;
- }
- 
- #endif
-diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
-index be70607a3..76a2f7c78 100644
---- a/arch/riscv/kvm/gstage.c
-+++ b/arch/riscv/kvm/gstage.c
-@@ -414,8 +414,8 @@ bool kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
- 	return flush;
- }
- 
--bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
--				  gpa_t start, gpa_t size, bool may_block)
-+u64 kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
-+				 gpa_t start, gpa_t size, bool may_block)
- {
- 	int ret;
- 	pte_t *ptep;
-@@ -423,9 +423,19 @@ bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
- 	bool found_leaf;
- 	unsigned long page_size;
- 	gpa_t addr = start, end = start + size;
--	bool flush = false;
-+	gfn_t last_flush_gfn = start >> PAGE_SHIFT;
-+	bool pending_flush = false;
-+
-+	if (!(gstage->flags & KVM_GSTAGE_FLAGS_LOCAL))
-+		lockdep_assert_held_write(&gstage->kvm->mmu_lock);
- 
- 	while (addr < end) {
-+		/* A concurrent teardown may have freed the root while unlocked. */
-+		if (!(gstage->flags & KVM_GSTAGE_FLAGS_LOCAL) &&
-+		    (!gstage->kvm->arch.pgd ||
-+		     gstage->pgd != gstage->kvm->arch.pgd))
-+			break;
-+
- 		found_leaf = kvm_riscv_gstage_get_leaf(gstage, addr, &ptep, &ptep_level);
- 		ret = gstage_level_to_page_size(gstage, ptep_level, &page_size);
- 		if (ret)
-@@ -434,10 +444,10 @@ bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
- 		if (!found_leaf) {
- 			addr = ALIGN(addr + 1, page_size);
- 		} else {
--			if (!(addr & (page_size - 1)) && ((end - addr) >= page_size))
--				flush |= kvm_riscv_gstage_op_pte(gstage, addr, ptep,
-+			if (!(addr & (page_size - 1)) && ((end - addr) >= page_size)) {
-+				pending_flush |= kvm_riscv_gstage_op_pte(gstage, addr, ptep,
- 								 ptep_level, GSTAGE_OP_CLEAR);
--			else {
-+			} else {
- 				WARN_ONCE(1, "Skip unmap range addr: %#llx, end: %#llx, page_size: %#lx\n",
- 						addr, end, page_size);
- 			}
-@@ -448,12 +458,21 @@ bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
- 		/*
- 		 * If the range is too large, release the kvm->mmu_lock
- 		 * to prevent starvation and lockup detector warnings.
-+		 * Flush first so another invalidator cannot miss cleared PTEs.
- 		 */
--		if (!(gstage->flags & KVM_GSTAGE_FLAGS_LOCAL) && may_block && addr < end)
-+		if (!(gstage->flags & KVM_GSTAGE_FLAGS_LOCAL) && may_block && addr < end &&
-+		    (need_resched() || rwlock_needbreak(&gstage->kvm->mmu_lock))) {
-+			if (pending_flush) {
-+				kvm_flush_remote_tlbs_range(gstage->kvm, last_flush_gfn,
-+							    (addr >> PAGE_SHIFT) - last_flush_gfn);
-+				pending_flush = false;
-+			}
-+			last_flush_gfn = addr >> PAGE_SHIFT;
- 			cond_resched_rwlock_write(&gstage->kvm->mmu_lock);
-+		}
- 	}
- 
--	return flush;
-+	return pending_flush ? (end >> PAGE_SHIFT) - last_flush_gfn : 0;
- }
- 
- bool kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end)
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 738d9ee1e..092376a94 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -26,12 +26,11 @@ static void mmu_wp_memory_region(struct kvm *kvm, int slot)
- 	phys_addr_t start = memslot->base_gfn << PAGE_SHIFT;
- 	phys_addr_t end = (memslot->base_gfn + memslot->npages) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
--	bool flush;
--
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	bool flush = false;
- 
- 	write_lock(&kvm->mmu_lock);
--	flush = kvm_riscv_gstage_wp_range(&gstage, start, end);
-+	if (kvm_riscv_gstage_init(&gstage, kvm))
-+		flush = kvm_riscv_gstage_wp_range(&gstage, start, end);
- 	write_unlock(&kvm->mmu_lock);
- 	if (flush)
- 		kvm_flush_remote_tlbs_memslot(kvm, memslot);
-@@ -44,7 +43,7 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
- 	pgprot_t prot;
- 	unsigned long pfn;
- 	phys_addr_t addr, end;
--	unsigned long pgd_levels = kvm->arch.pgd_levels;
-+	unsigned long pgd_levels = kvm_riscv_gstage_max_pgd_levels;
- 	struct kvm_mmu_memory_cache pcache = {
- 		.gfp_custom = (in_atomic) ? GFP_ATOMIC | __GFP_ACCOUNT : 0,
- 		.gfp_zero = __GFP_ZERO,
-@@ -52,8 +51,6 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
- 	struct kvm_gstage_mapping map;
- 	struct kvm_gstage gstage;
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
--
- 	end = (gpa + size + PAGE_SIZE - 1) & PAGE_MASK;
- 	pfn = __phys_to_pfn(hpa);
- 	prot = pgprot_noncached(PAGE_WRITE);
-@@ -72,7 +69,10 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
- 			goto out;
- 
- 		write_lock(&kvm->mmu_lock);
--		ret = kvm_riscv_gstage_set_pte(&gstage, &pcache, &map);
-+		if (kvm_riscv_gstage_init(&gstage, kvm))
-+			ret = kvm_riscv_gstage_set_pte(&gstage, &pcache, &map);
-+		else
-+			ret = -EFAULT;
- 		write_unlock(&kvm->mmu_lock);
- 		if (ret)
- 			goto out;
-@@ -88,12 +88,11 @@ out:
- void kvm_riscv_mmu_iounmap(struct kvm *kvm, gpa_t gpa, unsigned long size)
- {
- 	struct kvm_gstage gstage;
--	bool flush;
--
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	bool flush = false;
- 
- 	write_lock(&kvm->mmu_lock);
--	flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
-+	if (kvm_riscv_gstage_init(&gstage, kvm))
-+		flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
- 	write_unlock(&kvm->mmu_lock);
- 
- 	if (flush)
-@@ -146,7 +145,7 @@ static bool mmu_split_huge_pages(struct kvm_gstage *gstage,
- 			write_lock(&kvm->mmu_lock);
- 		}
- 
--		if (!kvm->arch.pgd)
-+		if (!kvm->arch.pgd || gstage->pgd != kvm->arch.pgd)
- 			return flush;
- 
- 		flush |= kvm_riscv_gstage_split_huge(gstage, pcache, addr, 0, false);
-@@ -167,7 +166,8 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
- 	phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	if (!kvm_riscv_gstage_init(&gstage, kvm))
-+		return;
- 
- 	kvm_riscv_gstage_wp_pt_masked(&gstage, base_gfn, mask);
- 
-@@ -205,16 +205,15 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
- 	gpa_t gpa = slot->base_gfn << PAGE_SHIFT;
- 	phys_addr_t size = slot->npages << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
--	bool flush;
--
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	u64 nr_pages = 0;
- 
- 	write_lock(&kvm->mmu_lock);
--	flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
-+	if (kvm_riscv_gstage_init(&gstage, kvm))
-+		nr_pages = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, true);
-+	if (nr_pages)
-+		kvm_flush_remote_tlbs_range(kvm, slot->base_gfn + slot->npages - nr_pages,
-+					    nr_pages);
- 	write_unlock(&kvm->mmu_lock);
--	if (flush)
--		kvm_flush_remote_tlbs_range(kvm, gpa >> PAGE_SHIFT,
--					    size >> PAGE_SHIFT);
- }
- 
- static void mmu_split_memory_region(struct kvm *kvm, int slot)
-@@ -224,12 +223,11 @@ static void mmu_split_memory_region(struct kvm *kvm, int slot)
- 	phys_addr_t start = memslot->base_gfn << PAGE_SHIFT;
- 	phys_addr_t end = (memslot->base_gfn + memslot->npages) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
--	bool flush;
--
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	bool flush = false;
- 
- 	write_lock(&kvm->mmu_lock);
--	flush = mmu_split_huge_pages(&gstage, start, end);
-+	if (kvm_riscv_gstage_init(&gstage, kvm))
-+		flush = mmu_split_huge_pages(&gstage, start, end);
- 	write_unlock(&kvm->mmu_lock);
- 
- 	if (flush)
-@@ -332,20 +330,17 @@ out:
- bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
- {
- 	struct kvm_gstage gstage;
--	bool flush;
--
--	if (!kvm->arch.pgd)
--		return false;
-+	u64 nr_pages;
- 
- 	lockdep_assert_held_write(&kvm->mmu_lock);
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
--	flush = kvm_riscv_gstage_unmap_range(&gstage, range->start << PAGE_SHIFT,
--					     (range->end - range->start) << PAGE_SHIFT,
--					     range->may_block);
--	if (flush)
--		kvm_flush_remote_tlbs_range(kvm, range->start,
--					    range->end - range->start);
-+	if (!kvm_riscv_gstage_init(&gstage, kvm))
-+		return false;
-+	nr_pages = kvm_riscv_gstage_unmap_range(&gstage, range->start << PAGE_SHIFT,
-+						(range->end - range->start) << PAGE_SHIFT,
-+						range->may_block);
-+	if (nr_pages)
-+		kvm_flush_remote_tlbs_range(kvm, range->end - nr_pages, nr_pages);
- 	return false;
- }
- 
-@@ -356,12 +351,11 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- 	u64 size = (range->end - range->start) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
- 
--	if (!kvm->arch.pgd)
-+	if (!kvm_riscv_gstage_init(&gstage, kvm))
- 		return false;
- 
- 	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
- 	if (!kvm_riscv_gstage_get_leaf(&gstage, range->start << PAGE_SHIFT,
- 				       &ptep, &ptep_level))
- 		return false;
-@@ -376,12 +370,11 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- 	u64 size = (range->end - range->start) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
- 
--	if (!kvm->arch.pgd)
-+	if (!kvm_riscv_gstage_init(&gstage, kvm))
- 		return false;
- 
- 	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
- 	if (!kvm_riscv_gstage_get_leaf(&gstage, range->start << PAGE_SHIFT,
- 				       &ptep, &ptep_level))
- 		return false;
-@@ -563,12 +556,12 @@ static bool kvm_riscv_mmu_dirty_log_write_fault_fast(struct kvm *kvm,
- 	bool dirty_marked = false;
- 	bool ret;
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
- 	mmu_seq = kvm->mmu_invalidate_seq;
- 
- 	read_lock(&kvm->mmu_lock);
- 
--	if (mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn)) {
-+	if (!kvm_riscv_gstage_init(&gstage, kvm) ||
-+	    mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn)) {
- 		ret = false;
- 		goto out_unlock;
- 	}
-@@ -640,8 +633,6 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 	struct kvm_gstage gstage;
- 	struct page *page;
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
--
- 	/* Setup initial state of output mapping */
- 	memset(out_map, 0, sizeof(*out_map));
- 
-@@ -649,8 +640,8 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 	    kvm_riscv_mmu_dirty_log_write_fault_fast(kvm, memslot, gpa, out_map))
- 		return 0;
- 
--	/* We need minimum second+third level pages */
--	ret = kvm_mmu_topup_memory_cache(pcache, kvm->arch.pgd_levels);
-+	/* Size the cache before acquiring the shared root under mmu_lock. */
-+	ret = kvm_mmu_topup_memory_cache(pcache, kvm_riscv_gstage_max_pgd_levels);
- 	if (ret) {
- 		kvm_err("Failed to topup G-stage cache\n");
- 		return ret;
-@@ -722,6 +713,11 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 
- 	write_lock(&kvm->mmu_lock);
- 
-+	if (!kvm_riscv_gstage_init(&gstage, kvm)) {
-+		ret = -EFAULT;
-+		goto out_unlock;
-+	}
-+
- 	if (mmu_invalidate_retry(kvm, mmu_seq)) {
- 		unused = true;
- 		goto out_unlock;
-@@ -829,24 +825,24 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
- 	bool flush = false;
- 
- 	write_lock(&kvm->mmu_lock);
--	if (kvm->arch.pgd) {
--		kvm_riscv_gstage_init(&gstage, kvm);
-+	if (kvm_riscv_gstage_init(&gstage, kvm)) {
- 		flush = kvm_riscv_gstage_unmap_range(&gstage, 0UL,
--			kvm_riscv_gstage_gpa_size(kvm->arch.pgd_levels), false);
--		pgd = READ_ONCE(kvm->arch.pgd);
--		kvm->arch.pgd = NULL;
--		kvm->arch.pgd_phys = 0;
--		kvm->arch.pgd_levels = 0;
-+			kvm_riscv_gstage_gpa_size(gstage.pgd_levels), true);
-+		/* Only the caller that still owns the root may detach it. */
-+		if (gstage.pgd == kvm->arch.pgd) {
-+			pgd = kvm->arch.pgd;
-+			kvm->arch.pgd = NULL;
-+			kvm->arch.pgd_phys = 0;
-+			kvm->arch.pgd_levels = 0;
-+		}
- 	}
--	write_unlock(&kvm->mmu_lock);
--
--	if (flush)
-+	/* Synchronize before another invalidator can observe the detached root. */
-+	if (flush || pgd)
- 		kvm_flush_remote_tlbs(kvm);
-+	write_unlock(&kvm->mmu_lock);
- 
- 	if (pgd)
- 		free_pages((unsigned long)pgd, get_order(kvm_riscv_gstage_pgd_size));
--
--	kvm_mmu_free_memory_cache(&kvm->arch.pgd_split_page_cache);
- }
- 
- void kvm_riscv_mmu_update_hgatp(struct kvm_vcpu *vcpu)
-diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
-index 58500a19b..7d467b0c5 100644
---- a/arch/riscv/kvm/vm.c
-+++ b/arch/riscv/kvm/vm.c
-@@ -54,6 +54,9 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
- 	kvm_destroy_vcpus(kvm);
- 
- 	kvm_riscv_aia_destroy_vm(kvm);
-+
-+	/* MMU notifier callbacks have finished before VM destruction. */
-+	kvm_mmu_free_memory_cache(&kvm->arch.pgd_split_page_cache);
- }
- 
- int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irql,
-
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
--- 
-2.34.1
 
