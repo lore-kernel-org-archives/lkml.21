@@ -1,45 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795449884;
-	b=t8FshaiL82Igrzm5D3/7fhYqEdfnQwVIVunNAW2759LhzBtxj+8GXcNLX1mMha8aTH54
-	 AlmgVuyVUBnOZVBNH8UUrdcMi/QvhBCKqDYbHoa8wxt++eS7qZNUcu6PF+vycq8T40S7T
-	 3p/kU6Dyc+1/78KL/gyDt/R51P4DkrJBFtGc4RYFeKcSKpqh0CqJmgJhaCUgCseenST+P
-	 C3/1vu/vvCQ/8Z5pjqEL08Mya/RX2TRd5VtEkciAaXI42cqyRnFAVSXZlAutYaWd47EJ9
-	 vWaxoiGsgNu2aUjFiZm6cLpClm5QpDXrzWtHoUTb7f5Wsx8ewUfu0032rgeFjyZZPFw==
+	t=1795449977;
+	b=vUo+9uVcwDfqs1QWapB/hZO1FUu+xc92UBoivMw9q/Zm9tS8YfGKNwsudU/7Xng3XhGZ
+	 ZqAZA5sIXA4DVZDajxTvYwFukMIGcVRQU+CQzrg8Hn7DBlRgYgD5Q5FfEvSkOVfSgGiDb
+	 Q9n805+VqL7KPTjHoIA29hHeoXQ8qbCgVesm07PzdE5BsdIqCXA96bMaaA8yKb7qa9DmJ
+	 BiKINytomFxrYbSscE57EUiVeJUrSiB7xZRyvo/Ju+BQjLRGPo2x8belWtptT9xRHLob9
+	 KhpSjhyFt04tpcKhphjqgIA2B2EEL0/Zj72Qnw2MQb9FYF82bqW0CDTP/hoJI4R5yMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795449884;
-	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
-	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=JXF19oCv45/26B2URve3iHY/PwWZHPECRP1mP/rGn9s=;
-	b=qmOq/20F8FI4Y5GR+wpitRzkSbxEni3Ts7BS2wb7DyUYT06RCv7ZtvDGpzzRJHPeb/HN
-	 JhAguNqj+BqmnwLBcFgBNg0c0vPHsCmTx6yskhv6lJ6E+/HBeyLGk/w+irIjujV2byscV
-	 v4hJcZ7il+TIUmEiHXSKr+heVs3/q03QLm85yUEKgMZSxOeJFfw13nkNe7QHoUzFTWr/B
-	 BgU5V5zA2cXTULXcB9mhkTupVJ2v6hyMAeoRHM7WdUYwb4fKcMzC8VnNfNLEPesXBSqOB
-	 mKrxchxDMDh7K/F4kpjh+M6KlxG5UtJAZsXiIM7ijgSkidvuNnFoD7gnEmgAKTewaqg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795449977;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=0aJ5NufMkA0oD7AZywus5LCK/c7Fmr+e+ufWOzcP874=;
+	b=Mxzf7Tge5oM18foQtlRY7d7f1qSDmrnT9CO0z9/VhLFHWCffUQE4/pr3NPSUMxWR3sYb
+	 bCe98fOdEbLJ/QBZ7lCP5sGOeK9trVirnJTJRiz3pueZllf3oZbohfq1JdkynvODiMmAI
+	 Xsy4pNSxrzQJpLQOTN8mT7VSq7FRUVfzot4cvC6UhTnOIHGWUJeFnawMD1qc8KsWrvnTo
+	 sA8XwN3i3AWV9ObdQJvQiEEGTIDrRBwZ1Kikb/qaxFJCiEaOengHEGWXPuVgmV53dfKKS
+	 SHEbf5rmbqJTE2Nb5oNQ9oH7iPtejMcezF31kjxKeQHgaIRHGOR+SzpCfzmVFQK/sKA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aoRNsUdI;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NhSYPe9l;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C2F5606A31F;
-	Mon, 23 Nov 2026 16:04:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA05D606A31A;
+	Mon, 23 Nov 2026 16:06:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aoRNsUdI
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FA2C1F000D0;
-	Mon, 23 Nov 2026 16:04:41 +0000 (UTC)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NhSYPe9l
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E8AB1F000C6;
+	Mon, 23 Nov 2026 16:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795449884;
-	bh=JXF19oCv45/26B2URve3iHY/PwWZHPECRP1mP/rGn9s=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=aoRNsUdIaNfcVa236VVofCAmbV8oEgvab3Jsb7vFzHtwQ3PPnDEO64CS60tu2+8Bs
-	 89LpNdymL0WBHszAHakvjT/Awt3onzNFZhMxjSqTunnDIBZ0xQcdHy3a/njIVWNru8
-	 LtuPQjPBcOZ231b504Han7ThKxpnR5/zbC0UHJmjWr693bwNo2hRPwC8oQiETKY2Nv
-	 2ldihjBzwjX8KE5f9AG5r8NIGmG+SGVPnwE+C6MXJf/GAvBshDbgBqHz6SiQ+LnJ3o
-	 XBNtu5d6tZh2bK9A82RYPvSgKO+6SpxQnsV27YeF45K3VINnntis53I2LoJEkoGl5T
-	 Y+CjNYONrRqww==
-Content-Type: multipart/mixed; boundary="===============7834733793104834582=="
+	s=k20260515; t=1795449977;
+	bh=0aJ5NufMkA0oD7AZywus5LCK/c7Fmr+e+ufWOzcP874=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=NhSYPe9lfkgnjIr0bn0lVFAu74Gql+ImttqV88SSuZvfqujeqgyPWhfkEFENt/3r1
+	 ljaq1vYZcEqdY0QaOOL0xJ4faDwMsTQWFhuc/DLEh7F5S53TUi76y7pRy5/2KBJ/Do
+	 R/AaittP7TCCqVaLAbG5/xg6ENb9TGCtEL+H/GAXsuuZOXoKaJz8LwIN0Ih2Sz6fQq
+	 SG7WQ/80to5vqtqJf8jhdVTBv1i7WdongDEm5KiOJKob1tyqgknECSUJa6CRaEcXdy
+	 YQjXCHSPa4xaMWqbotNc8S9Xm+c8go1+kbdWfwbW/aLlsp9GODhkQTb7wDZfjNFCul
+	 ywN2gZCgmj4mw==
+From: Vinod Koul <vkoul@kernel.org>
+To: Coia Prant <coiaprant@gmail.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261006162807.2843858-1-coiaprant@gmail.com>
+References: <20261006162807.2843858-1-coiaprant@gmail.com>
+Subject: Re: [PATCH v13 0/2] phy: rockchip: naneng-combphy: add SGMII MAC
+ selection for RK3568
+Message-Id: <179544997369.275844.18034015183144679963.b4-ty@kernel.org>
+Date: Mon, 23 Nov 2026 21:36:13 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,88 +64,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <d3920bd7ae0cc6a941895e00534e8f8818402a673351894d0bf98639272f7d7e@mail.kernel.org>
-In-Reply-To: <20261123152743.19629-8-leon.hwang@linux.dev>
-References: <20261123152743.19629-8-leon.hwang@linux.dev>
-Subject: Re: [PATCH bpf-next v3 7/9] selftests/bpf: Test tracing_multi link_create logs
-From: bot+bpf-ci@kernel.org
-To: leon.hwang@linux.dev,bpf@vger.kernel.org
-Cc: ast@kernel.org,daniel@iogearbox.net,john.fastabend@gmail.com,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,rostedt@goodmis.org,mhiramat@kernel.org,mathieu.desnoyers@efficios.com,kpsingh@kernel.org,matt@bobrowski.net,shuah@kernel.org,leon.hwang@linux.dev,linux-kernel@vger.kernel.org,linux-trace-kernel@vger.kernel.org,linux-kselftest@vger.kernel.org,netdev@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Mon, 23 Nov 2026 16:04:41 +0000 (UTC)
-
---===============7834733793104834582==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-
-> selftests/bpf: Test tracing_multi link_create logs
-
-TL;DR: Test issue: the migrate_disable denylist subtest's skip may not trigger
-on !CONFIG_SMP kernels, since the function still exists in BTF, so it could
-fail instead of skipping.
-
-> diff --git a/tools/testing/selftests/bpf/prog_tests/tracing_link.c b/tools/testing/selftests/bpf/prog_tests/tracing_link.c
-> --- a/tools/testing/selftests/bpf/prog_tests/tracing_link.c
-> +++ b/tools/testing/selftests/bpf/prog_tests/tracing_link.c
-[ ... ]
-> +static void test_multi_log_denylist(void)
-> +{
-> +	const char *msg = "Cannot attach to denylist btf id %u.\n";
-> +	const char *target = "migrate_disable";
-> +	struct btf *btf;
-> +
-> +	btf = btf__load_vmlinux_btf();
-> +	if (!ASSERT_OK_PTR(btf, "btf__load_vmlinux_btf"))
-> +		return;
-> +
-> +	/* migrate_disable is only in the denylist on SMP kernels. */
-> +	if (btf__find_by_name_kind(btf, target, BTF_KIND_FUNC) == -ENOENT)
-> +		test__skip();
-> +	else
-> +		test_multi_log_target(btf, "fentry", target, -EINVAL, msg);
-
-Is this skip reachable on a !CONFIG_SMP kernel?
-
-kernel/sched/core.c always builds an out-of-line, exported
-migrate_disable() with no CONFIG_SMP guard:
-
-    void migrate_disable(void)
-    {
-            __migrate_disable();
-    }
-    EXPORT_SYMBOL_GPL(migrate_disable);
-
-while the denylist in kernel/bpf/verifier.c adds it only under
-CONFIG_SMP:
-
-    BTF_SET_START(btf_id_deny)
-    BTF_ID_UNUSED
-    #ifdef CONFIG_SMP
-    BTF_ID(func, ___migrate_enable)
-    BTF_ID(func, migrate_disable)
-    BTF_ID(func, migrate_enable)
-    #endif
-
-So btf__find_by_name_kind() should find migrate_disable even when
-CONFIG_SMP=n, and test__skip() would never run.
-
-On such an x86_64 kernel, bpf_check_attach_btf_id_multi() would not deny
-the id, the link would be created, and the subtest would fail at
-ASSERT_LT(fd, 0, "bpf_link_create") instead of skipping.
-
-Should the skip check the kernel's SMP configuration directly, for
-example through a __kconfig extern, or should the comment and skip be
-dropped?
-
-> +
-> +	btf__free(btf);
-> +}
-[ ... ]
+X-Mailer: b4 0.14.3
 
 
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+On Wed, 07 Oct 2026 00:28:04 +0800, Coia Prant wrote:
+> Changes since v12:
+> 
+> - Only write pipe_sgmii_mac_sel when the property is present, leaving the
+>   routing unchanged otherwise (Shawn).
+> - Validate the value in the driver and reject anything other than 0 or 1
+>   (Shawn).
+> - Drop "default: 1" from the binding; the property is tri-state, so no
+>   'default' in the schema is appropriate (Rob).
+> 
+> [...]
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45209424655
---===============7834733793104834582==--
+Applied, thanks!
+
+[1/2] dt-bindings: phy: rockchip: naneng-combphy: add rockchip,sgmii-mac-sel property
+      commit: 0451ac710ad1627f48116204f6fcf3aec72cc87b
+[2/2] phy: rockchip: naneng-combphy: add SGMII MAC selection for RK3568
+      commit: 7827b62741ea75d24b3db1ad01d09b6d15423a62
+
+Best regards,
+-- 
+~Vinod
+
+
