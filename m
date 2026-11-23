@@ -1,97 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795407785;
-	b=Y+sRXcHFCyS9FYyttb0v3L/QXIJHKMmJd+GnMZ11RzHSCuJUQOfzFcEoELB0ylw8EYlv
-	 a8mMUPJNndRSujxxGH4hZ8Ewss3s4bz08kwTvq5uU/b7jkMSULY9zCco0yoP0EdpIrfTl
-	 5GfyPsoFwZEsWlb/FvXONbUct7bDonLNTayjh/k0J5KjbLx+Pncwqr8U7FCHwxeiP9DkJ
-	 5KTvQxh/Tkn1HYaJ1V7YK5pt6W3Md1yxirJC/hE6VwGyu/1IgRR39J/PmeK8fM/ktfX2e
-	 eF0rFJJkJ8MY7nRdyzsAnA/gYhNkhWCaATGICyUBa4MxCz1IFy5i8zVDFy4ekpiqZeA==
+	t=1795408172;
+	b=Cz0KdLyL4qKzOiPDmVdoqjKcRS6Xl8PZp8lKynwObMGeloNBGnZGrl9SGgNpmAuyvL4a
+	 RbT5PN9g5EXhU68gE5tRDFkzWycgfe625NOToHN/OaJ8uWkJQenk6cEh7DIXfM8+zXVpe
+	 XpN3HvJnMDWR4mbWmEhdMo6yBgIH3xaY8+0mT0KFA+WtcmjVzeWuUXuERxRx4tkYe3PMk
+	 rSTcBFCmWoF9hrpM8NU2ydKa+GYVpoN8o7CjK90uDhhNL0Aw+UsAnmeqvAvJB5T1Ni/4V
+	 EzmP1olHSRftiZZtl9awlXWTq2ptZZjk2gZELQVyYsS4cXxMnJZv4q+KM19LFvG2EmQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795407785;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795408172;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Z7nPTI5arwtfLvJ1u0SNc3tfHxfngmeM3rWmqkRPFe0=;
-	b=jARieKFadjO+HSbFSHv9pe0ZG7Dkgl8ZpFBNhVkSU7B5R8UYN5Qspch/6Upg/6sALm6V
-	 X0fMwL+q3kaC2P1yo/REQ8CjG0AnnsQFgrTg/3CLm8yTq3kmbQ/0qjX4Q3rJifhHUAQ39
-	 C5kKF6DEV0WJ0FJFxXlMAkuNpjZAUCGA37xhQ3tpBlvuExZJCpgvQcec5vH3uBNgbNFMq
-	 I1p1/vuabVzMeGk18Z8S4PrJRXBfW847H7JBhKVwa/n37j4/MpEihUbld+rf7fJ+9fzhq
-	 KHGL1YhprGRsFfiiDAa6OdjuxjcNnpDSB2GMldxZRvEqU2fT257Eb3TjmJ6Kr5h/0gQ==
+	 Date:From:To:Cc:Subject:In-Reply-To:References:Message-ID:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=BGWy1pjF8M7tvt0E1vHaI6fHDpcMXUISfZ4Pwpf8MNk=;
+	b=lso/IWZB6+VpxiO2Tw8GAzmhDsuv84+MK14TgpCr/xJaJ0EJM63vMVbeklSQIpZohrgg
+	 HqE9kySByS4vWueeq9MLG63taa3dzT1E6Rp3HbpRdOURxMhohVKHcGDpz47Ob6xcUH34S
+	 AWJ+wXSQ4jsKLpkfgIbu2DXssTVvfaAwjMCV7+LbH9SVNXaPr4VLWUgHP5ZUGD/m+qGZn
+	 czkfPjMrFCp5YmuAbgJ0ySWSXnJF7AKh9vUm9MiX+jAJyRADX8lPQDktDyptk4x4QbF7P
+	 EPb5simRdKP5hNToKrU6bLlhIgvheUBHBTp9iyBzHwtL3iOm34pC7yuNHgCT0gE9Rbg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cs.unc.edu;
-	spf=pass smtp.mailfrom=cs.unc.edu;
-	dkim=pass header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=Akvb2KTo;
-	arc=none smtp.remote-ip=209.85.222.177
-Received: from mail-qk1-f177.google.com (mail-qk1-f177.google.com [209.85.222.177])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ycAU7qou;
+	arc=none smtp.remote-ip=74.125.82.42
+Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 786A4606A32A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:23:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 786A4606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cs.unc.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cs.unc.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFE8C606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:29:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFE8C606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=Akvb2KTo
-Received: by mail-qk1-f177.google.com with SMTP id af79cd13be357-9495f083657so345651285a.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:23:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ycAU7qou
+Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1b3beeaf6f9so3446970c88.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:29:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cs.unc.edu; s=google; t=1795407783; x=1796012583; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Z7nPTI5arwtfLvJ1u0SNc3tfHxfngmeM3rWmqkRPFe0=;
-        b=Akvb2KToJ3Ak1XsuDnYKBtbnhh9DBx5jCOEwkXgnAWKJ1gOMmH78uj2GxxBO9gCO6t
-         GMt8G8Mqg3loK9qNScCW+6j/7XOvuTeqYCQZlHM1+earUWSLsh/SpnyfnGV70d64iCPn
-         6hvDtDHLV1GNruB06Gsukzt+tYEQ3lamByTnCv3vBIwLPmRqUNcdQl1qzCVH9tnVjpXu
-         3zp+Ixy2fD4tL6Nyl3HL9sKrUcyufJGYp/c7X/CwpDeNtlSJSGClfjEqPDCnzSGwdrCt
-         Q4LD2xw+qGpGsL1TrBKx1iV2YizypbOUYUfiSsq6Shnz3VoWUz9cg7SEZzBRjnTSABfn
-         9BDw==
+        d=gmail.com; s=20260707; t=1795408171; x=1796012971; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:content-type:message-id
+         :references:in-reply-to:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=BGWy1pjF8M7tvt0E1vHaI6fHDpcMXUISfZ4Pwpf8MNk=;
+        b=ycAU7qouECyNA9bMClDxuXfr6DZs0g1Sf2Pg0WrrDqUMPpsrTt/AQugiJXguy/X6em
+         YW18LdBkW5AU7bkwlnHDdoLydhAxBt5ZVBhH3J6M2zbpPx96pGIzvZfz84LmtBp9KBcm
+         cMrjl3PTPjG3K2bOf2hIZ42LwvrFfZK+mRwYr0Uhk/KOiaTfsgjIc0gyrGmlhyuUTLEG
+         nt6HvTPEHr3VBdL3jSX4ln6VUpLDsDwHOEzI0JNGbx5dL1RDpuPnOnSsVQg0rhsQEBkr
+         K3AKQa4Qfs/SspzV02Gy6iI3lFlQqPsG/hYkoRmYOnoedIQtukVJMFi62OIBfH94kbtM
+         +iCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795407783; x=1796012583;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Z7nPTI5arwtfLvJ1u0SNc3tfHxfngmeM3rWmqkRPFe0=;
-        b=EKcSnkJ05/tFBdnbInPTCP82xqQ/ghVzT1aBLvMwpdUUVsuLr1zngoRO2iZhbyLowz
-         AXHbl6L9ZA1GlNwvGxpygB3Dp4rowTp9BqaOnaQIxEuNOtx3K6sJCRy+g3RrskFf+fWy
-         5ZKTI+7TSu3xlxHEtlYUvIkUHrxNtWqlyMU4wPxelkmJlUfTQ18/KyTXqsqWLLoBB/81
-         nrJhumAWFNCKnGm4yqA76+/5YdTyKBDuH4MfoyQ0ca8glz7u5w5bDGZXO08ZYDfQ8/6T
-         P8XlrhkyF38zasTihs8ub+3BdsFW0sik0K6TOs7sh6UN/xZ+Nazp45qkTY+ItWshwo4l
-         fXTA==
-X-Forwarded-Encrypted: i=1; AL+hErE3F0dEZbn4L/Wjsv66LtOQesCUC4sB3/HEAPPw46Ud8ViuedOzS8rsTy2JNQSqOk41PUHE7gxQzXAjwRA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9PpgAzzhksIypgw0VCNo8n46tOMIPT/kmsTcHlzMD49WpQXqNM
-	2o6BjOvXgDKrJTtQ7IbafDgAU5kE4m2WuZffLsa4BC26a6n3oZxw/Sm5cet/8w8jeiE/sWrkcs6
-	eINjQMQ==
-X-Gm-Gg: AZFdTZfcjLxmRH+i73YjbcXvNlf2vCf6Vz9pyaQWA89jv60+nFoSOYkdUapWKoTJu9Q
-	gfUZdpVMzFBa7bQ9rRwp6WSpsEweDNoElpAAfztpaT88IF2lpV5E+dr2xw9eDIl9GhNmEWJi/2Q
-	vSjPSJbtRpzZu5NnTkPNZS66P9HxOUaHs8GjwVtd54OnFq2M7nYdbyI6m0e/kDwVvuAWMqn4MR0
-	rbvI1UpgcgI7g1VumKRj3lt/qbC92dWlzDZV1JNoxkwtYLTU9dpqKpgzQnc8tXydqcceohhF0hC
-	a3GOmJHDcau0C0X9BY3k3Ub67H5ntAa3jh+HuP5Ov461InKhG4N1+5oWGhHMtevH1y+txJmimsn
-	r9d8Hyv9t5T4F+sIBYjYXR/AY06Y5UuYScuA/zTj4jQiOB30x+kuExiqA0Rcgx2kTSPBYoJmJ0E
-	5RGL+r0BOl7GZlNrv14lHvx+PrgHhZZLbH5s8E2aWsPY4+D+q0HF7LdVDb/JepJsKgTtm1aMnSZ
-	8jDl0vfhovlm4sLC2faSWv2cqk25z52fj0OIeQIzZqi+kzgo3ooYJKRqH2Fc0gdeCKkPO5MCZuN
-	jgjVEmD9nifitpF6XPkv/ZyJcaUeLWxN7zvgbcyV987F19GZWYob
-X-Received: by 2002:a05:620a:4397:b0:93c:8e3f:3036 with SMTP id af79cd13be357-949ba827abemr1807820185a.4.1795407783349;
-        Sun, 22 Nov 2026 20:23:03 -0800 (PST)
-Received: from cobra01.cs.unc.edu (cobra01.cs.unc.edu. [152.2.130.143])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb34a38bsm717421185a.13.2026.11.22.20.23.02
+        d=1e100.net; s=20260707; t=1795408171; x=1796012971;
+        h=mime-version:content-transfer-encoding:content-type:message-id
+         :references:in-reply-to:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BGWy1pjF8M7tvt0E1vHaI6fHDpcMXUISfZ4Pwpf8MNk=;
+        b=LCYz8CtoAmJK+kN45UccYOR2SkwbROWLcnudEFisZSqDECPv7jXQysJEQrPk4bFvwh
+         hjCaX0FjioLCao31JGn0V3HYzoUyCKGaqb4LW90CseKQVFOFaCPJjMo4sfgPpidTD5lb
+         ZSn/uf7lEapms7F6cs178ex/zjUDWmyA/j8MC09gVJr3q8BDdn1lx3T27+b1v3YNCd1/
+         D0SS4gUkCzPyN38tVWN24Srw3guScCS+qNnyIlr67Z9PQZBSfJzFwlZOrJzm9Vv4dFA7
+         1RNBi7S8choTiYvoCNW6ITwnP4hk1p8nqhr8/ubfwxjiCH6am+MdEiv9Sh5EuT4nxVoG
+         lwSA==
+X-Forwarded-Encrypted: i=1; AL+hErEwClGhi9MMPyK/QtiuSKIyPo7qhRIvjGamIIv6N62E+HTX5+Qzzvtmul5ST64Tmq6xeqgdn0RG0mIbNKk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+o8U3+v+y/eZETxBDXQRgnpFEcQSctqYtsTpfqZVYmDfCEqHl3
+	ZhlklKlu74agy9KiUG2N66175ZZPeomV9PcwFDlTyRkleCYdA0239MgxlePB+6Ly
+X-Gm-Gg: AZFdTZc/zdfU7FlSdfbGkGhoHf4FeAZ5Bqd2ZIlLvoPY+EQ8NCNNLqEVxb/L9osE0FP
+	05IsOQ33TnzvU9VAAbf7/gFfs5AsVJFv43sDGUqwSBMGyaspmwYFkUymtxF6W0bEmfoh0dfkZWH
+	RVQS3lezpvvEZZjTYbFwv7rZdWDfa61PMaBhqxd6YOa//Xv2TUQZ/WZYa7Z4x1acKVjIGkH50sP
+	EdzqDb5tQLMRIHRSUkJ1eHqWKpHa4xx1jRtJ4XNMAvaXgDwLAVRsgViV8HQ4yjPkuUcRZ/VhI+e
+	2u5PIowMz8b2xPJPyncSkAoKIkx7IEKPsgTDWcUu1nMcMBWHHDbdWA4g8T3uz6ksst8kBwydaH2
+	J5AHzxxtTAjA58rRvA4bNXfHFlX2FbagwC3PrRdSp8rjJUg6VgcyoJroQTbJjwbTo1nBQ0L3EwF
+	Rh0kR723PA94UvX4Q+nLs4eigsLqGGr1NTD7Y3Z5k+gj5ePjnxFFnR1aRxR30Yy0DM3YRG9NHgK
+	qYc5ik88wi/3dRMge1mXP7QDeV62396+d+yWUkKM41aUVM8URxho3bBopExgC4w5L4bh0E=
+X-Received: by 2002:a05:701b:2091:10b0:1b2:366a:e7d1 with SMTP id a92af1059eb24-1b556912a4bmr12148980c88.32.1795408170982;
+        Sun, 22 Nov 2026 20:29:30 -0800 (PST)
+Received: from [172.21.0.2] (vldb.skku.ac.kr. [115.145.173.180])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm39902948c88.9.2026.11.22.20.29.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 20:23:03 -0800 (PST)
-From: Hengyu Liang <hengyul@cs.unc.edu>
-To: "Michael S. Tsirkin" <mst@redhat.com>
-Cc: Jason Wang <jasowangio@gmail.com>,
-	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	kvm@vger.kernel.org,
-	virtualization@lists.linux.dev,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v2] vhost/net: ignore extra words in VHOST_SET_FEATURES_ARRAY
-Date: Sun, 22 Nov 2026 23:22:59 -0500
-Message-ID: <20261123042259.3484334-1-hengyul@cs.unc.edu>
-X-Mailer: git-send-email 2.53.0
+        Sun, 22 Nov 2026 20:29:30 -0800 (PST)
+Date: Sun, 22 Nov 2026 20:29:30 -0800 (PST)
+From: Kyuwon Cho <kyuwoncho18@gmail.com>
+To: Hangbin Liu <hangbin.liu@linux.dev>
+Cc: netdev@vger.kernel.org, Jay Vosburgh <jv@jvosburgh.net>,
+ Nikolay Aleksandrov <razor@blackwall.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, linux-kernel@vger.kernel.org
+Subject:
+ Re: [PATCH net v3 2/2] bonding: don't let an 802.3ad slave change its type
+In-Reply-To: <20261123032537.GE10218@Liu-laptop>
+References: <179535729502.2645501.5219010464870440@gmail.com>
+ <179535729502.2645501.271186140389290426@gmail.com>
+ <20261123032537.GE10218@Liu-laptop>
+Message-ID: <179540710966.3093990.1416762538136490909@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,74 +104,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Commit 333c515d1896 ("vhost-net: allow configuring extended features")
-added VHOST_SET_FEATURES_ARRAY. The ioctl reads the number of feature
-words from user space, copies the words it supports, and then reads
-every remaining word, one at a time, to check that it is zero.
+On Mon, Nov 23, 2026 at 11:25:37AM +0800, Hangbin Liu wrote:
+> Hmm, I personally prefer the approach used by vlan and team, which disallows
+> changing the slave type after enslavement. If you think we should only disable
+> the 802.3ad-specific part, this change should be merged with patch 1, as they
+> address the same issue.
 
-That loop has no upper bound and no scheduling point. A caller can pass
-a count of U64_MAX and a pointer into a large zero-filled mapping. The
-ioctl then stays in the kernel for as long as the mapping is readable,
-and a fatal signal is not handled until it ends. On a v6.18 debug kernel
-booted with preempt=none, two such calls from a non-root user, each on a
-4 GiB mapping, froze a 2-CPU VM for 56 s with soft lockup reports.
+For net I would keep it to 802.3ad, where the type change leads to the
+out-of-bounds read, and merge it into patch 1 as you suggest. Refusing
+the type change in every mode would also make the enslave of the nlmon
+device in bond-eth-type-change.sh fail. The test would still pass, as
+it does not check that enslave, but it would no longer change the type
+it is there to test, so that change seems better made in net-next.
 
-The check is not needed: the extra words can only hold features that
-this kernel does not know about, and they are never stored. Drop the
-loop and ignore them. A nonzero extra word is now ignored instead of
-failing with EOPNOTSUPP. Unsupported bits in the words the kernel knows
-still fail with EOPNOTSUPP.
+Nikolay, would you rather have the general check?
 
-Fixes: 333c515d1896 ("vhost-net: allow configuring extended features")
-Cc: stable@vger.kernel.org # v6.17+
-Suggested-by: Michael S. Tsirkin <mst@redhat.com>
-Signed-off-by: Hengyu Liang <hengyul@cs.unc.edu>
----
-Changes in v2:
-- Drop the loop instead of rejecting counts above one page (Michael).
-- v1: https://lore.kernel.org/r/20261122120919.1718445-1-hengyul@cs.unc.edu
+I will send v4 with the two patches merged once this is settled.
 
-I found this while comparing the behavior of different kernel versions.
-I used an LLM to analyze the problem and to draft the patch and this
-message, and I analyzed the result myself.
-
-Tested on the vhost tree at 44293796526f with KASAN and lockdep. With a
-count of U64_MAX on a 1 GiB zero-filled mapping, the ioctl now returns
-at once (before: EFAULT after 27.4 s), and a SIGKILL sent during the
-call no longer waits for the walk. Counts of 0, 2, 3, 512 and 514 with
-zero words succeed as before. Unsupported bits in the first two words
-still give EOPNOTSUPP. A nonzero third word now succeeds instead of
-giving EOPNOTSUPP. VHOST_GET_FEATURES_ARRAY is unchanged.
- drivers/vhost/net.c | 12 ------------
- 1 file changed, 12 deletions(-)
-
-diff --git a/drivers/vhost/net.c b/drivers/vhost/net.c
-index 631855064b3d..f6b59def4a21 100644
---- a/drivers/vhost/net.c
-+++ b/drivers/vhost/net.c
-@@ -1802,18 +1802,6 @@ static long vhost_net_ioctl(struct file *f, unsigned int ioctl,
- 		if (copy_from_user(all_features, argp, copied * sizeof(u64)))
- 			return -EFAULT;
- 
--		/*
--		 * Any feature specified by user-space above
--		 * VIRTIO_FEATURES_BITS is not supported by definition.
--		 */
--		for (i = copied; i < count; ++i) {
--			if (copy_from_user(&features, featurep + 1 + i,
--					   sizeof(features)))
--				return -EFAULT;
--			if (features)
--				return -EOPNOTSUPP;
--		}
--
- 		for (i = 0; i < VIRTIO_FEATURES_U64S; i++)
- 			if (all_features[i] & ~vhost_net_features[i])
- 				return -EOPNOTSUPP;
-
-base-commit: 44293796526f4343639f87b2acc53811c78b5d54
--- 
-2.53.0
-
+Thanks,
+Kyuwon Cho
