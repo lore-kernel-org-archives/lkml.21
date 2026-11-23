@@ -1,96 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795429445;
-	b=bzSPdSjf57++0QUUKDRf0cciygRS7QaaNJoBQ6AgrKAs1PYp+Dns9nHGoKUJ5VPOvmQL
-	 v6hToxuX3OQSpI+N2klvY8GrXCo4fuCX/6eajTjFEvznCxW06vzno0YM40mAy1XEFWguW
-	 naHnqcDRSK0+00Om+lOyMF+iaK5G6vYrgE4WhOcH9CxuaHFaeSOtN3gK3IfweDdlvo7d8
-	 IVxDcqcPikjwZ/m+3ZcNk3EszAB8JhyshiAF0vdlTRzxSSSenlm+lLgZ2UL4BNiYXv9Sc
-	 DgcK/PoRtNI8rQVqQn4kPRWbXaWvhEIJmrzO0f3shThi4n6NrhMwCxUsxJ/HXBaEHlQ==
+	t=1795429441;
+	b=qftCEdXFmFoxMzh9OQ2pEK2wmlR6EnanpVab6GhJqAiZ+XG4yhpnXc7nZ6MvdmUKC91V
+	 G6rodwGohpPW7w+qLMJXuRJiWfj7vHY9+SwGix7vsJn2XS14nVAC+epaeZl/F9TkjD4/W
+	 FAd0Ps0TBlbOUQZDdZ1eZNtpTZU7XdE0oU8Zd8xEJYyl/oF/rHE63MblgsUFRyaYXts/D
+	 +fsFIW5IcW28PoaVvlzFUJoKSGQlxmRCBoisjIN8Hwh92I4pcM1KZggOwBySr8L0Kjwog
+	 Y/JThQM9ija72q2X2S+on3Ih1j/6x8vDx0tfGLQEFyLQhYCaoP7BKURIJdk2UO6MlBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795429445;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=jtPmF+KNP7DwnoRQ+DopIkz1VDyOzRPcRfk8tIoDwYo=;
-	b=EtHgpLz/5StWoxcVS+RQCIG6pvdAylMoII/jwRwI2xm7ktKlw+n1Q2/F6c5lcQgfh9IS
-	 TlTfd8lVJEGnPCFL8P/RhZflm0mQxRA5t3qjuBMzFnt8gQL3ktQ7XmFM/9EfWEwPGVSdT
-	 jwUn7ABdMmbzJDK6QDe6VLSwzgS02m9JoDONiwzU/cFiFyQFVwdLp0E+11JQ5Rz0nyQqO
-	 4jtDxOAF4VwMGKeOS7d4Eb/7ds1vPR+u0zHbShPY13nJtirNC0YjcCoZUyBEvhLpVJjkB
-	 IevorGFI/ZqNKxLEA4YWHZq6SPuZXk/rUebT1oubhlc1/9gkLMQs0QwD83XQujMAzaQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795429441;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=xgdl5iT4rjRql/T0yly1xc7NN6NRkZoCr5drGDPOf9I=;
+	b=ocNBWZJ2kKJEEMYUGIjgH8Tc6+veiGpfrw3txLtTrKKQMWkl8Ov/YtnpHLwlhgSPMKaO
+	 G00CYgrv1uqmUJ0LUd+PbeBKW322HD0Gg1PhO9M58Z7VoLsOcZe93KWrm8SisOE8dIMvw
+	 MLrd4+RQutRntJsHhcL3/SOIUOEtZV6wocgBH9q7/R3NWzCXiqBGoTSbYDOD0uJiK8cI4
+	 r8FBDpdNiGRMhUvT884OjbujNM4JGBZZCmnR7fQKxSEc3zSikDZqbLUJiql7QyeBF4Nqs
+	 lYrnx21cBiFHuL/nbM7muE+t7x8wHuaWvO5Ae6IH0Pthpkd+kVjaq/65qpmthAe0PLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=boYRQZiB;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=No13YbAe;
+	arc=none smtp.remote-ip=220.197.31.2
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4D0D606A335;
-	Mon, 23 Nov 2026 10:24:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4D0D606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 757F8606A330;
+	Mon, 23 Nov 2026 10:23:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 757F8606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=boYRQZiB
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9Ys5K3194885;
-	Mon, 23 Nov 2026 10:23:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=jtPmF+KNP7DwnoRQ+
-	DopIkz1VDyOzRPcRfk8tIoDwYo=; b=boYRQZiBje8iYLu3CRhdqZoL/FaD+to/e
-	ITmjPE04YVBx3hdx/sNJrPDyMmT39xdlC3z39a1qW4bvEfwiDp19exAPloJXeUTD
-	XZHd6/7C0hp0RHAjuhBEHAo5XxGZj47tSfldjC8yruMtXkkAf3+AQz7WnT1eTc3c
-	6+6lNBNEF1x+MqWUmZiLhUftlPKMBVzGLvTMWfIEmth4EdC3auK0wyGMQyfSxZ+F
-	ihTY9xWZstum5NYbMGVeQzbHPtH5kcFXyf6OcV1293WFamLLBkoTMz5TZOOGaRW4
-	VGok5GHFS8ar2KNUlseFgA8dqmvQIRV+ypP14kAoiqDRiDe29UC8A==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34gv2avc-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 10:23:40 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9JJCs537969;
-	Mon, 23 Nov 2026 10:23:39 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j3qufp4kv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 10:23:39 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ANANYqb49807830
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 23 Nov 2026 10:23:34 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BC8CB2004F;
-	Mon, 23 Nov 2026 10:23:34 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id EFA572004B;
-	Mon, 23 Nov 2026 10:23:31 +0000 (GMT)
-Received: from Narayanas-MacBook-Pro.bl1-in.ibm.com (unknown [9.123.4.64])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 23 Nov 2026 10:23:31 +0000 (GMT)
-From: Narayana Murty N <nnmlinux@linux.ibm.com>
-To: Madhavan Srinivasan <maddy@linux.ibm.com>,
-        "Oliver O'Halloran" <oohall@gmail.com>,
-        Timothy Pearson <tpearson@raptorengineering.com>,
-        Alex Williamson <alex@shazbot.org>, sourabhjain@linux.ibm.com
-Cc: Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
-        Christophe Leroy <chleroy@kernel.org>,
-        Ritesh Harjani <ritesh.list@gmail.com>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
-        linux-kernel@vger.kernel.org, kvm@vger.kernel.org, sbhat@linux.ibm.com,
-        harshpb@linux.ibm.com
-Subject: [PATCH v7 4/4] powerpc/powernv/eeh: Map generic EEH error types to OPAL
-Date: Mon, 23 Nov 2026 15:52:42 +0530
-Message-ID: <20261123102237.95860-10-nnmlinux@linux.ibm.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261123102237.95860-6-nnmlinux@linux.ibm.com>
-References: <20261123102237.95860-6-nnmlinux@linux.ibm.com>
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=No13YbAe
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=xg
+	dl5iT4rjRql/T0yly1xc7NN6NRkZoCr5drGDPOf9I=; b=No13YbAePkykBIeV4j
+	oNIJ5IQ4IAcsZHsYRCSBs3YI6c5s7UOQFuC4288LGEBzQCdVQw29lsYZCUE3pH6v
+	gay6TCiP9znrdIArwYwUYOqspXvwElRIU1lhCAlFh+NtH1WY7EpsP0Go34ExNc2I
+	G3Pin2zGSNoRT/NFwl5LU8Uok=
+Received: from user-VMware-Virtual-Platform.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wD3n7cYFARrJ4RhJQ--.49247S2;
+	Mon, 23 Nov 2026 18:23:21 +0800 (CST)
+From: Ziheng Wei <zihengw03@163.com>
+To: "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
+	"Martin K . Petersen" <mkp@kernel.org>
+Cc: linux-scsi@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-kernel@vger.kernel.org,
+	Sashiko <sashiko-bot@kernel.org>,
+	stable@vger.kernel.org
+Subject: [PATCH] scsi: bvme6000: fix request_irq failure cleanup
+Date: Mon, 23 Nov 2026 18:23:20 +0800
+Message-ID: <20261123102320.8590-1-zihengw03@163.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,107 +64,43 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=CYCdd7rl c=1 sm=1 tr=0 ts=6b04142d cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=6j_9x97VlVn643bU65YA:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA0MCBTYWx0ZWRfXwdjUZqs4vZYB
- BMK/hx0YONotOxcP9Ff8DjLRTOclbE0Jp+oWTbZlnrq0ZLuXSNIHxXrqLUnas9E/7ThV2GYwOde
- qiRfW/ChZye83YYqUNswzwoNbPnYdJ0=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA0MCBTYWx0ZWRfXwD6U1v1wL/Vo
- TIK40VamQC9l7jt82KS4sQNewCuTf0PBzp7y3q/Xj0ra485S/s++pCD+HmkrxLdIS3MoA/zaXI9
- u8IHkQWZ5VJmtFyg7dUsJiCOJKRr/0VRpNy9nUu2pMPyoSoEpzNqqm5YX+di/BhK3vhjRd9JZab
- vhynzIwS6Ixpw9BalMsx/wJeyi1lNOL1oV71GJNIvu3mzsmoXgus5iOXY1TtPKWuKlfqKEaSA1r
- 4Xc51gNGZwYOg/r/mkobQtYZBKSS1/WtsJthokX3ANVhup/Sq0x+kNQWAJK/SzlHvgOhNCfVTF6
- C22qSpTA+PdwQgeUg41y0kCavM3Y9q5uUxs1T2PrsXDMZDSZCH2EMpT3BW7eZO1DUEigKGQ1OIc
- ZJ5Cy+yfSMPqGgb34JP6nRgNt0b3Ecte46IZD2a7ZuW0I9fHrLIrMZHEkSbcQyIJS6njg6AIOEp
- 3wcAt0v+SRZZSOlO/ig==
-X-Proofpoint-ORIG-GUID: paRPP-DI402auDZFI1P0G5zRdj-gVTQr
-X-Proofpoint-GUID: tuj9zBvf19msDLUzhRQgPRqA_08rBzYK
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_02,2026-11-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 priorityscore=1501 lowpriorityscore=0
- clxscore=1015 spamscore=0 bulkscore=0 impostorscore=0 adultscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611230040
+X-CM-TRANSID:_____wD3n7cYFARrJ4RhJQ--.49247S2
+X-Coremail-Antispam: 1Uf129KBjvdXoW7XFW5ArWxKryrAw1fKFy3urg_yoWkXrbE9a
+	n0gw1xXrWkGrn3tr18JrnxZrs0yF45Xr95Zw4YqFZ3Cr13Zwnak3Wkurs5A3yUXw4kJa45
+	Aw1DZan5uw17WjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUn6wZ3UUUUU==
+X-CM-SenderInfo: p2lkv0ljzqjqqrwthudrp/xtbC7hnmN2sEFBn9vQAA3E
 
-eeh_pe_inject_err() is called with generic EEH error types defined in
-the VFIO/EEH userspace ABI (EEH_ERR_TYPE_32, EEH_ERR_TYPE_64). The
-PowerNV backend previously compared these generic values directly against
-OPAL firmware constants (OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR and
-OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR64).
+NCR_700_detect() registers the SCSI host and allocates the script DMA
+memory. If request_irq() fails, bvme6000_probe() only drops the host
+reference, leaving the host registered and the DMA memory allocated.
 
-This is fragile: it relies on the generic EEH ABI values being
-numerically identical to OPAL-specific values, and would silently
-misbehave if they ever diverged.
+Unregister the host and release the NCR_700 resources before dropping the
+reference.
 
-The preceding patches introduce RTAS-based error injection on pSeries,
-mapping generic EEH error types to PAPR error-injection classes. Apply
-the same explicit translation in the PowerNV backend, which uses OPAL
-instead of RTAS.
-
-Add an explicit mapping in pnv_eeh_err_inject() that translates:
-EEH_ERR_TYPE_32 -> OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR
-EEH_ERR_TYPE_64 -> OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR64
-
-Return -ERANGE for unsupported error types, preserving the behavior
-of the original code. This decouples the VFIO/EEH interface from OPAL
-implementation details.
-
-No change to the existing userspace ABI or PowerNV behavior.
-
-Signed-off-by: Narayana Murty N <nnmlinux@linux.ibm.com>
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Link: https://lore.kernel.org/linux-scsi/sashiko-outbox-228089@kernel.org/
+Fixes: 8276b58af4dd ("[SCSI] 53c700: m68k BVME6000 NCR53C710 SCSI")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ziheng Wei <zihengw03@163.com>
 ---
- arch/powerpc/platforms/powernv/eeh-powernv.c | 22 +++++++++++++++-----
- 1 file changed, 17 insertions(+), 5 deletions(-)
+ drivers/scsi/bvme6000_scsi.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/powerpc/platforms/powernv/eeh-powernv.c b/arch/powerpc/platforms/powernv/eeh-powernv.c
-index db3370d1673c..01dae760cecb 100644
---- a/arch/powerpc/platforms/powernv/eeh-powernv.c
-+++ b/arch/powerpc/platforms/powernv/eeh-powernv.c
-@@ -1167,12 +1167,24 @@ static int pnv_eeh_err_inject(struct eeh_pe *pe, int type, int func,
- {
- 	struct pci_controller *hose = pe->phb;
- 	struct pnv_phb *phb = hose->private_data;
-+	int opal_err_type;
- 	s64 rc;
+diff --git a/drivers/scsi/bvme6000_scsi.c b/drivers/scsi/bvme6000_scsi.c
+--- a/drivers/scsi/bvme6000_scsi.c
++++ b/drivers/scsi/bvme6000_scsi.c
+@@ -86,6 +86,8 @@ bvme6000_probe(struct platform_device *dev)
+ 	return 0;
  
--	if (type != OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR &&
--	    type != OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR64) {
--		pr_warn("%s: Invalid error type %d\n",
--			__func__, type);
-+	/*
-+	 * eeh_pe_inject_err() receives generic EEH error types from the
-+	 * VFIO/EEH userspace ABI.  The PowerNV backend must not rely on
-+	 * these generic values being numerically identical to OPAL firmware
-+	 * values.  Translate to OPAL-specific types before calling firmware.
-+	 */
-+	switch (type) {
-+	case EEH_ERR_TYPE_32:
-+		opal_err_type = OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR;
-+		break;
-+	case EEH_ERR_TYPE_64:
-+		opal_err_type = OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR64;
-+		break;
-+	default:
-+		pr_warn("%s: Invalid error type %d\n", __func__, type);
- 		return -ERANGE;
- 	}
- 
-@@ -1192,7 +1204,7 @@ static int pnv_eeh_err_inject(struct eeh_pe *pe, int type, int func,
- 
- 	/* Do error injection */
- 	rc = opal_pci_err_inject(phb->opal_id, pe->addr,
--				 type, func, addr, mask);
-+				 opal_err_type, func, addr, mask);
- 	if (rc != OPAL_SUCCESS) {
- 		pr_warn("%s: Failure %lld injecting error "
- 			"%d-%d to PHB#%x-PE#%x\n",
+  out_put_host:
++	scsi_remove_host(host);
++	NCR_700_release(host);
+ 	scsi_host_put(host);
+  out_free:
+ 	kfree(hostdata);
+
+base-commit: 97d73c8251226cf27cc6656b4c542869bb8c69fa
 -- 
-2.54.0
+2.43.0
 
