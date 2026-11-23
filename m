@@ -1,53 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=132.226.202.154
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.186
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795405291;
-	b=SwduPoLoE1NYK8zAlSSmFjKQG+C8ZVbXu4P5oDYBk+K7eN42Ykwv26ValVGRwRd7V7gU
-	 elnvdKv1ULbDjJbyfBqIOzD+iw8VeX9XcA7s8zCrRt+eQTpUNDuksR36EaBHmPj7JWf23
-	 VtwrFQs8MIQIHI8dFPlF8g9JXfZlLZ1TwdnGusaAEFwZgksJrTXeTOoIZ2QRe/8UMP3D8
-	 Ja6QFhv0CNt23B+zu0fym/EFunY1sfmlTRKZOD4oSE13+3uF6f3xkONrP0d/1a6+IvlUM
-	 espew2XvHVS9Tk6WmQdI0BfVevj8nB+RmkxMKO6HpwKeWrYdd5din2VVPMKPl395Y/w==
+	t=1795405320;
+	b=C25NFY0IMTjYxzhCSAi1PDjmraobqUk0R66koi1f5r1UKR9cquRLWRvThsGJgTBNmB2w
+	 ihld5lYJoPB8BTDpg3pgSpw0A5bepZv2zXCb6fW7hMvtIL7cTBqdM0/Sl3S5VkiPB110y
+	 aA2Q3OkhKuYWfas+7V1UQxwNXvv0aLJHNk4Bvv5Ni5Ds3UuCH3iXDBA+K+3YuTokrv5yV
+	 w9kxpB6AKktic2Al+OZyPtOoB7xJjfpZ2NmP6VQ1FJyVdjbYpNu1l93r2JeV3cXFP3tCf
+	 A0+R8M2YTdpGXvfGxCJR4/RsfCagEU993M/GcHxnTrUmPm720gYDtwYnQ9LXW9/003A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795405291;
-	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-CM-SenderInfo:
-	 X-CM-DELIVERINFO:X-Coremail-Antispam;
-	bh=azLotfhPz62cI6ap9RyhSVO5lLTwfrHkxru9oRkeOnA=;
-	b=Yhr3iElMf3d4+OWHZ5QZaNFWzygNU/OtnsuVxUjCSSbYA+5CTbMKWTVenlqbRtTv/rFX
-	 tWIqv5SK5vhDwx0wi7LL8EZEtHWHXMMPIvHN2AWeOf+KY6XliNIqTc/MF4BCH1VlLNKCG
-	 0RURa9deDyqhLoS/kgKpTz7sTGi/Y8QBiWUbI7+DtQCP2ybYSX+W5qK5ZqybGWkycX8Ll
-	 vZwX7jPJH4zYBJ4Ncbdse5+k2wzMPIrMC0a2xu6gx0mLcN7/9QAd5dpSfIxl+Y0htwzyn
-	 EIHgmtOOVu2hLRS2JgP/S6NhlfIAcvZ0rawitSB9op1CWAtYNUUG0sBixPb04zXxJjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795405320;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=Dh1feaCWNPCzI3ZTC+VWOZAtNmxgTq2L6B7MJWElwiw=;
+	b=qrfRSSISrGgmRcV74TwiX3fI1cMoe+h4Taet6+rsj47i+5iDQOxhbBlqysOOKDKJ62QC
+	 ZkhE9radmsYoBC1UHX76ehqRhojQ59B57ok/w/8XuEYuRwS8XZu23EZ8i7QJH7p02/WVm
+	 UfAU58hFdt5GIslnjLGvGA4Q1cLWsYQ30nvzb1fdAJGIEtjVE4/EZABr6KJayui7nilzc
+	 irrjJ3ajHY02f2SdcZLSBBaxVE7vpEXN7yAikYE6VO4wmMnzTyvHa/QlBVTtgfM2Ek1Bq
+	 tTi2tKG/oOXM3TmyHH+5lPAVCbPsB5OBxwwiGwSVjY0eljQKjDvLf2RWGAvtIU5HgKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=zju.edu.cn;
-	spf=pass smtp.mailfrom=zju.edu.cn;
-	arc=none smtp.remote-ip=132.226.202.154
-Received: from fraori-sdnproxy-3.icoremail.net (fraori-sdnproxy-3.icoremail.net [132.226.202.154])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id E1F01606A31A;
-	Mon, 23 Nov 2026 03:41:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1F01606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zju.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zju.edu.cn
-Received: from zju.edu.cn (unknown [123.60.231.41])
-	by mtasvr (Coremail) with SMTP id _____wBXQT_jtQNrujQtAg--.206S3;
-	Mon, 23 Nov 2026 11:41:24 +0800 (CST)
-Received: from ubuntu2404-234226.. (unknown [123.60.231.41])
-	by mail-app2 (Coremail) with UTF8SMTPSA id zC_KCgCn_XvftQNrPGoFAQ--.43947S4;
-	Mon, 23 Nov 2026 11:41:20 +0800 (CST)
-From: Lin Ma <linma@zju.edu.cn>
-To: netdev-bot+sinfo@kernel.org
-Cc: David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>,
-	netdev@vger.kernel.org,
-	linux-afs@lists.infradead.org,
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=PAENAZh1;
+	arc=none smtp.remote-ip=95.215.58.186
+Received: from mta1.migadu.com (out-186.mta1.migadu.com [95.215.58.186])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04EC7606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:41:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 04EC7606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=PAENAZh1
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=LbvXmZsFJJ0KApBfSklAegm2ypvSM8utExD74OIXo2Y=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795405318; v=1; x=1796010118;
+ b=PAENAZh1oW50MKFjN2afLxN09iQJ7rfA2bIMFqhREF3fF8KSiXX/OfGuKQIjs2xecS7btDS+
+ A2acdpl/nw+5cQ25spfRBpTjobxCjsXKmaHhPSfXID9iBbw5wqF236pX2gd/QJ0n7662FdmgCLI
+ AGIYlkdb5LCjlbtpuLDcAWNE=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id 8d10001b3924a972;
+	Mon, 23 Nov 2026 03:41:57 +0000
+X-Mizu-Trace-ID: 8d10001b3924a972
+X-Migadu-Flow: FLOW_OUT
+From: "Xu Xin (vivo)" <xu.xin@linux.dev>
+To: David Hildenbrand <david@kernel.org>
+Cc: akpm@linux-foundation.org,
+	chengming.zhou@linux.dev,
+	linux-mm@kvack.org,
+	stable@vger.kernel.org,
+	xu.xin@linux.dev,
 	linux-kernel@vger.kernel.org,
-	Lin Ma <linma@zju.edu.cn>
-Subject: Re: [PATCH net] rxrpc: Fix missing lower bound in rxrpc_resend_tlp()
-Date: Mon, 23 Nov 2026 11:40:31 +0800
-Message-ID: <20261123034031.4039623-1-linma@zju.edu.cn>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179535620364.3294.15218868114054377349@kernel.org>
-References: <20261122135515.3989708-1-linma@zju.edu.cn> <179535620364.3294.15218868114054377349@kernel.org>
+	donettom@linux.ibm.com
+Subject: [PATCH v3 0/3] mm/ksm: fix ksm_zero_pages accounting on fork
+Date: Mon, 23 Nov 2026 11:41:36 +0800
+Message-Id: <20261123034136.209410-1-xu.xin@linux.dev>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,40 +69,49 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:zC_KCgCn_XvftQNrPGoFAQ--.43947S4
-X-CM-SenderInfo: qtrwiiyqvtljo62m3hxhgxhubq/1tbiAwAMEmryeh4flAAysY
-X-CM-DELIVERINFO: =?B?BE6+LgXKKxbFmtjJiESix3B1w3tPqcowV1L23Bze5QtIr9Db75bEBiiEybVhThS0pI
-	APHnkvfpsecr7gZmVpD/pedGcJgL4JeUGI23A+VlFyLKqioogTwNHZZ/No11c6+1MrpssW
-	4zTpECUvEJiCCFcCXeDkI+McodZ3My3mpEjY9W5swLa7aL9TrYPqQporRIXIRw==
-X-Coremail-Antispam: 1Uk129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7
-	ZEXasCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29K
-	BjDU0xBIdaVrnRJUUUvmb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26c
-	xKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vE
-	j48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxV
-	AFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x02
-	67AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI
-	0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280
-	aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0Y48Icx
-	kI7VAKI48G6xCjnVAKz4kxMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4U
-	MI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67
-	AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0
-	cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z2
-	80aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI
-	43ZEXa7IU801v3UUUUU==
 
-Hi,
+Currently, fork() wrongly inherits the parent's ksm_zero_pages counter
+and keeps the KSM dirty-bit marker on zero-page PTEs, inflating both the
+child's per-mm counter and the global ksm_zero_pages counter.
 
-Found by code inspection while reviewing the RACK/TLP retransmission
-path, then reproduced on a KASAN kernel.
+Patch 1 fixes this by resetting the child's mm->ksm_zero_pages to 0 in
+ksm_fork() and clearing the KSM zero-page marker when copying present
+PTEs, and documents the behavior.
 
-The symptom is a KASAN null-ptr-deref in the
-rxrpc_resend_tlp() -> rxrpc_retransmit_data() path: a write of size 4 to
-NULL+0x24 (txb->flags |= RXRPC_TXBUF_RESENT), because the TLP fast path
-selects a slot below the tail queue segment's base.  That happens when
-rxrpc_transmit_fresh_data() advances tx_qtail/tx_top and
-rxrpc_send_data_packet() then fails to allocate its wire header before
-tx_transmitted is updated.
+Patch 2 fixes false-positive and racy bugs in the existing KSM fork
+selftest by dropping init_global_file_handles() in the child, avoiding
+8-bit exit status truncation, and pausing ksmd before fork().
 
-Thanks,
-Lin Ma
+Patch 3 extends the selftest to verify that neither ksm_merging_pages
+nor ksm_zero_pages is inherited across fork().
+
+---
+Changes in v3:
+- Rename might_clear_ksm_zero_pte() to ksm_fork_pte() and refactor the
+  PTE marker check and comments (David Hildenbrand).
+
+- Add Tested-by tag from Karl Mehltretter to patch 1/3.
+
+- Refine exit status handling and add ksm_pause() in patch 2/3 and patch
+  3/3 to prevent races and 8-bit truncation (Sashiko AI).
+
+Changes in v2:
+- Encapsulate zero-page PTE marker clearing into a dedicated helper and document ksm_zero_pages fork behavior (David).
+- Fix compilation error for !CONFIG_KSM and address initial KSM fork selftest bug fixes.
+
+Xu Xin (vivo) (3):
+  mm/ksm: do not inherit ksm_zero_pages counter or PTE markers on fork
+  selftests/mm: fix false-positive and racy KSM fork test
+  selftests/mm: verify ksm_zero_pages is not inherited on fork
+
+ Documentation/admin-guide/mm/ksm.rst          |  7 ++-
+ include/linux/ksm.h                           | 22 +++++++--
+ mm/memory.c                                   |  5 +-
+ .../selftests/mm/ksm_functional_tests.c       | 48 +++++++++++++++----
+ tools/testing/selftests/mm/vm_util.c          | 16 +++++++
+ tools/testing/selftests/mm/vm_util.h          |  1 +
+ 6 files changed, 85 insertions(+), 14 deletions(-)
+
+-- 
+2.34.1
 
