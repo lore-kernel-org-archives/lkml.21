@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795451894;
-	b=dNZzwCqbvIfi90zPwsM+ULbe8tfZZYKPnkj8Ke7lYoUbhsDFu6iBcQQvjjd5eLblWs4X
-	 MnchFP4aMLlpMU3yE5FU8h3kaRKTZsLLlZrTom2n12M9OgmxltmuSyEdsayd/br5SPF/G
-	 4db5F0M5ivQgiJ6ELkbikeKQ+a59nevzj47PoKUVDu7ZB0Uu0Vl6rD9wkZZeUFrm13mtg
-	 rl6Lsx4/RLT6WYQzGVPyfb4gIkf90CH9L5AsMqxV2/i+qY4BL4rPIJF3R4UHO0q6I0Aur
-	 OSTkg14tC2QzD3oOtxaCwltNjRcxZUONKOHD5bC2W9seDw6AowuO0MIOAHzk1Zqxq5A==
+	t=1795451972;
+	b=FIgXnzKnU2zvPk6ddBX4idGcLc7hiETchCzmMpcv50wX/cJtwcjVvuafRzeFxQ9HfFyM
+	 I4uS1w8mwIaQ21X51/7Olps8uhAVwqqb9lNYK/wIZsNwiJXka9dX0oYWOiUe1LDKLY5SG
+	 OaSlVZV/N6Qf2QMg9THsEBDJIOLmFcIWmBzFTuC+II1adNVcyhHzI8u7HvJauH8XDyP9/
+	 LIljdDGm3wNVTffk1OG50zA/qZ6/6n23nVtIuLI4A9o709iv1aaqlTuoXHaBgg1IRy9gl
+	 +tUDmFLYZ7bFCqxn4kmyKROpayq+mtYdCra38uvnfE2+e/1P/HPS6tQCOUkSf5Pb4Wg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795451894;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795451972;
 	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
 	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=BX2g8Y4HGKdlZ1kRSAOIsbxsW5G+eW95mvD7IhCq3Nk=;
-	b=2eMm0Z400jGIkWA9dMRPhtjDEruQz3Z0BxOgv05kUEJ8fmKwFKz6+Dan26FCkrtPs7Uj
-	 JFXRijaHjzDEGheRyK2VITmy2qCsrQDNM2aaYGs+uYInZt0XERt5FxJOqDg3saz8CiQJI
-	 Olghq6eQAQkndNr9obGH6NozHbec7yKWd8vSPs6K6nckkCFKvTb9PnzTRZnOJr2LpUr5q
-	 YYdtgtjO3d2IFLhjezf+Q/57Op/v81uCuJZke20t4ov17xi+ByIAZ82jnO5JFLoPp0+5U
-	 4ZnGnX1KvgYd2wj8nu6t0+AfhduzuZp0Zz3pUC3vRevta5wPYPRdfSJnMsrKOH7g0Iw==
+	bh=QoC8VeyjF0+Mog0U8JnDSd6gF7tcAM4m8//3Ikwmab4=;
+	b=zcnBJdEWFq36h9WnUsbSaCy7jHK3Ds8gdhQ+SlNfSJ6xyw+7nhXnGP5ppo0F65QBYfGM
+	 RmSf6NLoFGQuzMQVWrJedejY0++2uBZIrqQ7wjnTb+bvEhC9vDRshP0LfWrQNjfrmJ/Yd
+	 vqwK4IV45kqqjmCnoJIIGn1j+2qwwxooAoRsSxEuKHY5jQxbq7kjHOYTJmxmAbBxaAtVy
+	 cX5Ys/CENDyEiTrHCdvzYhXHFKto+yIqjnhZK+uzdKOQ+bUq5iSbWtvhNvrdbvX5FCAUh
+	 KgwGhH+QwgoU4C0ZlTBqPMEKX1dNboku+3lqaaXuc7Qufbc/k1DS6dPKLjfCSrSM8lg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eRBwAeck;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Taj+v62Q;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D4CF606A31A;
-	Mon, 23 Nov 2026 16:38:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 992D6606A31E;
+	Mon, 23 Nov 2026 16:39:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eRBwAeck
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 584FB1F000C4;
-	Mon, 23 Nov 2026 16:38:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Taj+v62Q
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4517E1F000CA;
+	Mon, 23 Nov 2026 16:39:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795451893;
-	bh=BX2g8Y4HGKdlZ1kRSAOIsbxsW5G+eW95mvD7IhCq3Nk=;
+	s=k20260515; t=1795451972;
+	bh=QoC8VeyjF0+Mog0U8JnDSd6gF7tcAM4m8//3Ikwmab4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=eRBwAeckG0wIXF13+5haRM83QgRUvcGG5FS1ubKeHVkvDr3k65QyJcsTA+0TW+aoY
-	 3U8kOTLamW1dN0MDrNuBUQpFmQpQc/Oe5NcKSDiwYKK4EiNZZBvWM8rFbBA2fizqSs
-	 baZ9FmtEe47sdBH1KJYkvwTGBa2c03cFCjE5d6TA4egY4dEIzbSJO7MJP3Mf/KIwmY
-	 RBL4cZm+/K1/jDmrQeV9wCbcJ0FSLViAFKVaUgSbAIPrR7NebZ4YQwYfXpXODwIKAv
-	 QiA5DOz+EeGSIUphl35vUfT/UU+0X/fa8yUuSBRtAGOr8V+YoJ+7XFcNg0ZFMbSlLE
-	 yNfTAgeqIeRyQ==
-Message-ID: <43ecd498-71a8-4b60-9f03-3cd96810a4ca@kernel.org>
-Date: Mon, 23 Nov 2026 17:38:08 +0100
+	b=Taj+v62QgPHxpB8d9+I5Kzm36wIZ5C+CyK/N4+jeqGlv7QRd/x79v2NpY0Cu+Jsjp
+	 d0vU30f7GoJmbCxpluAbyaNwd6Q5u4Lte4AEPzcFefyG6jmtNi7l85+ojwutG9vBDz
+	 ZTthD0Nql51hWshdogCmrcbdApOwSs21bRZOQu4T8jIn+ri3x+YlOVVTVM4XWhn7fo
+	 D4rSgygbqZ0RqxerJLYDYb+h2IV5DS0O/Buq+Df2ju1tuMGPYJ7CHlksQmgZP6pEh+
+	 JlPPsBz7DDOTFgh3Nf5/ehamr741AzkBJXyWu4srl5es4+65gQn14S0/aNZHiBtf6C
+	 ON8OcHY+GmCUQ==
+Message-ID: <3682be02-3e2a-4e01-8066-15b51215854a@kernel.org>
+Date: Mon, 23 Nov 2026 17:39:14 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,153 +52,89 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] mm/ksm: do not inherit ksm_zero_pages counter or
- PTE markers on fork
-To: "Xu Xin (vivo)" <xu.xin@linux.dev>
-Cc: akpm@linux-foundation.org, chengming.zhou@linux.dev,
- donettom@linux.ibm.com, linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- stable@vger.kernel.org, Karl Mehltretter <kmehltretter@gmail.com>
-References: <20261123034136.209410-1-xu.xin@linux.dev>
- <20261123034331.236509-1-xu.xin@linux.dev>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH v2 1/2] dt-bindings: pinctrl: qcom,sc7280-lpass-lpi: add
+ ext_mclk1_c
+To: Suraj Sonawane <surajsonawane0215@gmail.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Srinivas Kandagatla <srini@kernel.org>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ linux-arm-msm@vger.kernel.org, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261115174237.48908-1-surajsonawane0215@gmail.com>
+ <20261115174237.48908-2-surajsonawane0215@gmail.com>
+ <20261116-nondescript-buffalo-of-whirlwind-6a5008@quoll>
+ <9997e6c6-2e5e-4314-88b2-a8547ab035f2@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261123034331.236509-1-xu.xin@linux.dev>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <9997e6c6-2e5e-4314-88b2-a8547ab035f2@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 11/23/26 04:43, Xu Xin (vivo) wrote:
-> As documented in Documentation/admin-guide/mm/ksm.rst, ksm_zero_pages
-> accounts only for zero pages actually placed by KSM.  However, the
-> current implementation wrongly accounts for forked zero-page PTEs as
-> KSM's contribution, inflating both the child's per-mm counter and the
-> global ksm_zero_pages counter.
+On 22/11/2026 18:22, Suraj Sonawane wrote:
 > 
-> Originally, commit e2942062e01d ("ksm: count all zero pages placed by
-> KSM") marked KSM-placed zero-page PTEs with the dirty bit for unmap
-> accounting, but forgot to clear this marker during fork().  Later, to
-> prevent ksm_might_unmap_zero_page() from underflowing the counters on
-> child exit[1], commit 4d6fc29f3634 ("mm/ksm: fix incorrect KSM counter
-> handling in mm_struct during fork") kept the child's inherited per-mm
-> counter and added it to the global counter.
 > 
-> Instead of inflating the counters, fix the root cause by resetting the
-> child's mm->ksm_zero_pages to 0 in ksm_fork() and clearing the KSM
-> zero-page marker via ksm_fork_pte() when copying present PTEs in
-> copy_present_ptes().  With the marker cleared,
-> ksm_might_unmap_zero_page() will not decrement the counters on child
-> exit, MADV_UNMERGEABLE in the child will not unnecessarily unshare
-> inherited zero pages, and the global counter remains untouched.
+> On 16/11/26 18:10, Krzysztof Kozlowski wrote:
+>> On Sun, Nov 15, 2026 at 11:12:36PM +0530, Suraj Sonawane wrote:
+>>> LPASS LPI gpio5 can mux EXT_MCLK1_C. The SC7280 driver names that
+>>> function ext_mclk1_c, matching SC8280XP, but the binding enum does
+>>
+>> I do not see it in the driver, so are you sure you used correct reason
+>> for the patch? Mentioning driver means you document existing ABI being
+>> used.
+> You are correct, thank you. In mainline, gpio5 in
+> drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c is currently:
 > 
-> [1] https://lore.kernel.org/all/53a7bf3d-843d-4e19-b0a3-cc6852fe72c1@redhat.com/
+>    LPI_PINGROUP(5, 12, swr_rx_data, _, _, _),
 > 
-> Fixes: 4d6fc29f3634 ("mm/ksm: fix incorrect KSM counter handling in mm_struct during fork")
-> Cc: stable@vger.kernel.org
-> Tested-by: Karl Mehltretter <kmehltretter@gmail.com>
-> Signed-off-by: Xu Xin (vivo) <xu.xin@linux.dev>
-> ---
-> Changes in v3:
-> - Rename might_clear_ksm_zero_pte() to ksm_fork_pte() and move the
->   is_ksm_zero_pte() check into copy_present_ptes() under the !page
->   branch, as suggested by David Hildenbrand.
-> - Expand the comment above ksm_fork_pte() to explain why the marker is
->   cleared on fork.
-> - Add Tested-by tag from Karl Mehltretter.
-> 
->  Documentation/admin-guide/mm/ksm.rst |  7 ++++++-
->  include/linux/ksm.h                  | 22 +++++++++++++++++++---
->  mm/memory.c                          |  5 ++++-
->  3 files changed, 29 insertions(+), 5 deletions(-)
-> 
-> diff --git a/Documentation/admin-guide/mm/ksm.rst b/Documentation/admin-guide/mm/ksm.rst
-> index c329ca747b8c..8968ae3f55c0 100644
-> --- a/Documentation/admin-guide/mm/ksm.rst
-> +++ b/Documentation/admin-guide/mm/ksm.rst
-> @@ -214,7 +214,12 @@ stable_node_dups
->          number of duplicated KSM pages
->  ksm_zero_pages
->          how many zero pages that are still mapped into processes were mapped by
-> -        KSM when deduplicating.
-> +        KSM when deduplicating. Note: on fork(), the child process does not
-> +        inherit the ``ksm_zero_pages`` counter, and any inherited KSM-placed
-> +        zero-page mappings are converted into ordinary shared zero-page
-> +        mappings. Consequently, these mappings are neither accounted for in
-> +        the child's counter nor unshared when ``MADV_UNMERGEABLE`` is called
-> +        in the child.
->  
->  When ``use_zero_pages`` is/was enabled, the sum of ``pages_sharing`` +
->  ``ksm_zero_pages`` represents the actual number of pages saved by KSM.
-> diff --git a/include/linux/ksm.h b/include/linux/ksm.h
-> index 596c04ca7326..f29aec4496d0 100644
-> --- a/include/linux/ksm.h
-> +++ b/include/linux/ksm.h
-> @@ -32,6 +32,17 @@ void __ksm_exit(struct mm_struct *mm);
->   */
->  #define is_ksm_zero_pte(pte)	(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte))
->  
-> +/*
-> + * Since the inherited mappings on fork are not expected to be accounted for
-> + * in the child's ksm_zero_pages counter (reset in ksm_fork()), we must
-> + * clear KSM's dirty-bit marker on KSM-placed zero-page PTEs to avoid
-> + * underflowing the counters on child exit.
-> + */
-> +static inline pte_t ksm_fork_pte(pte_t pte)
-> +{
+> so ext_mclk1_c is not implemented for SC7280 yet. I described it
+> wrongly as existing ABI.
 
-Instead of the long function comment, I'd just have here instead:
+Did you just paste LLM output?
 
-/*
- * Strip KSM information from the PTE for the child to simplify
- * ksm_zero_pages accounting, and to indicate each deduplicated zeropage
- * only once towards the user.
- */
-
-I can fix that up when applying.
-
--- 
-Cheers,
-
-David
+Best regards,
+Krzysztof
