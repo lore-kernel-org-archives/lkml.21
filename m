@@ -1,65 +1,138 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.59
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795417773;
-	b=Z8IdmZeFw9oCIrSVBq4mQL/BPLgfLC+yH9+4Dfop8SzuE27rEEGwZFmuIjY3ea/dNsLd
-	 BrwqDQnSmLALnVSc921ynm0WmD5XAEgR3rUme/QmcZYJ+/bxIQEIcxUHd5qFx8V4LCnqd
-	 4MedzoQW5oYXRSODtSefGnZGnSeP0WxeBT8jMAycw5bpkrX+KinY+wkWvgxIbaLnTrT6s
-	 JcOcJ0FsHIMEElEhN6cgGwq1FYSNn4GjfUU1QwYOi/i0KXIgV31bKULtVLCKLoaQ+oXfL
-	 UiNXw9Ki3pULZbaabEhj63v/RvKjjR5dqfDRM1k7btU/8l91UsjSay3Y4D980q5Y37g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795417773;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=iKeZ2tXUAbc+Q1yEFhsgCE9SEarvq7KvC09KIeMlRqg=;
-	b=5ddqoYzu8Dtopn1ZxvakhP1hCKi7yN4L7cQuUUxwt1gSnRYtoRejcFwMUVP+7I6u+XOW
-	 xEjkT/jwTTOET6oPrMJdzcdTgcFPX3P4Og9/KunnJ6Uwb25c8bcB8GZdtEWvZ8THGfIwh
-	 Si2lrdRH0H6fH2k8Q0BM4vNbyFU/TtgTB/aog4sg+E0cuCXWXCePZQbnUKhbdipaFBSF/
-	 MbajSL5cP9hljxOYfD2BQeQ/K+VjEUpLV1LzXs1uCtxwq/9N8xsO57uahsWi2SE3kqeH5
-	 CFAik1BsZRMJYhrOx9WAwZhtJlrSXxkYS9WIoYg2s/UxJBMSn5mrZJHeTS4fNRAWBZA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=slSYe7we;
-	arc=none smtp.remote-ip=91.218.175.59
-Received: from mta0.migadu.com (out-59.mta0.migadu.com [91.218.175.59])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.21
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795417861;
+	b=06+nmClV4PCw/d82jqtRqO2A0vty4wiyG6GdxfG8DCuGYlUP/8bm5inbcKUKzucEozna
+	 MfhqjNRABo0VbpeNQx8DU+lD2dEvb4KbamNA9zt4SLYmcQuUcBkWjuxl8GfFm9Xbl+opm
+	 fLUcZXTknWROt1WslEQDb+bfKs1stAMQqLQaKmNaSJKKpHX17qcuL2r4omlY+ef7u7mir
+	 6OiQVz/nZhmP9z2aoXboJAUXlIImZgh0L8lgcnbKCBuui9E9G7KZZHDfYI0q6tF90e5EB
+	 ChbKTM5qUU/o5E9vI0CRgwELUN2uW/W9F9x0oMVir/uT/DDtHAwXJPP6EyiEPt0hc8g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795417861;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
+	 Message-ID:References:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=56ngRHOPavPPMWIA0sui9O2a1alHhAeRxIW13fKq7jE=;
+	b=KiwFNKzvmVUHHX+8H2stbu7qG6kwSC385TGPPMUru3ONOl2LCfARxi2WC5ZBG5vM2v1c
+	 QPDfGIC9/dKslNCwow/7oYTw8uz1h1c28GJf6jouqAym3n7FLpMG8sPFXidTYlHMtDwjY
+	 VJYvxgJbPQunDgGb8rddjHKS3V2TXwt5P3ryygBaHfU1tNbs8cD7Wyl8pbF7BejXnTXi4
+	 JPTwUWmDaHLoU/OOzRceETbrxlwH7NHl1xeOD86ywzF7ginViozR+oOnTJgwQGwyN+xRe
+	 pr4X/nAxrIR/8Po6ChpqVObtaA02RjfClZR3s4CX+RjZjCXyP6DHU6nQ8I5G3arBlKg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mHDqtszN;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=at+6E29p;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.21
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FB02606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:09:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1FB02606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09C0E606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:10:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09C0E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=slSYe7we
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=q3tQG3ndRBja5RIwJmSbJq8oOy/7QF8ip5BzTsP8piU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795417770; v=1; x=1796022570;
- b=slSYe7weT505Px2/vLvB70Al9S5OgU2HDX15Bp2NVZAJR7Xj7Pska8bqp65nCf+FNHhtXRDN
- fQFYCKcEL5vhQRBbt91tp5qHTF1+yU9FeKiSfX1v1Aw+HH/jIMb7o73f9lkgOuP7PCsH1O8THAQ
- opMMcZCWEDBJvVRpczQSiwYU=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 34a5fd8e430d72d2;
-	Mon, 23 Nov 2026 07:09:30 +0000
-X-Mizu-Trace-ID: 34a5fd8e430d72d2
-X-Migadu-Flow: FLOW_OUT
-Date: Mon, 23 Nov 2026 08:09:24 +0100
-From: Richard Leitner <richard.leitner@linux.dev>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, linux-remoteproc@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, weinshec@holodeck2.de, stable@vger.kernel.org
-Subject: Re: [PATCH] remoteproc: imx_rproc: revert channel freeing order in
- imx_rproc_free_mbox
-Message-ID: <awPmc_4VFkcpW0C_@bombadil>
-References: <20261110-imx-rproc-free-mbox-v1-1-3e33ff98570d@linux.dev>
- <avMgJNyGez2Eyr3a@nxa18884-linux-1.ap.freescale.net>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mHDqtszN;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=at+6E29p
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795417860; x=1826953860;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=s50ukQvUI9CDiyzNHZPmxC/B4Dfb6KbePqsru6Umr1k=;
+  b=mHDqtszN85HynpWnk4M/81jKnDtz3sJQtWa/+WemsagwvRxixqdPczuA
+   PiFgkgD//eOm1rmseQqbYX8Qb1JXjSxBETzhm+Ix3/xeAsinBO9vVostO
+   5nAMOr/LEli60dfwD6KroPDyEhpCOhShZUT408bnZHS+xTnhvn8W0z22U
+   I+kmw3Lh84kJmgevLu14vbRKjWUCLsIeHWymnQi7alyfpGcDp5yNhVh8g
+   SL2/fCOXoZ85F4LTg53k0ElJHS7vBTychxYTHN0e0qCJ6vL1fZEf/+RPV
+   XALbVBWFbahhNgiQQqd3rOQeIU0FQY6Puz7VgMDv4fxkm/vGULz3oqn7R
+   g==;
+X-CSE-ConnectionGUID: 29MhQxBtTAiTgtodJVXXhQ==
+X-CSE-MsgGUID: 6SKvjevKQXSbTrvxCAI3tQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4303632"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4303632"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 23:10:59 -0800
+X-CSE-ConnectionGUID: 3SLJDTrNTAqkNVPDBtxs4Q==
+X-CSE-MsgGUID: SZgTwv2hTeq7PbpLi72xVQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11174641"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 23:11:00 -0800
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Sun, 22 Nov 2026 23:10:58 -0800
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57 via Frontend Transport; Sun, 22 Nov 2026 23:10:58 -0800
+Received: from CH5PR02CU005.outbound.protection.outlook.com (40.107.200.13) by
+ edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Sun, 22 Nov 2026 23:10:58 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QBFAxKdP5yb4yFT0j8omYMPji31YCjlqOWms1yH5QI8Hoz4Bs/wMMPJ2uuzxiQC1ckxcgg98lBbyjZSgUtIxExBNZWS2TaYO9Prpq9G83wfky2dZy4B+uErpoQO8O0t89Rix212SypUdX1SVZrI2p1bkQy9bSSJ30AUyooduJQtGNqBD7BfI6TAlbUHbBLIhojeCRZqCCAB2bgrp55IxsD/MB6uodCt26pqlW54gEGEb63tTbLQSE5YXVSsMu4FTsjcKWe8v/qf67Z7WLDHsg47W8CaAV8Doo2oN8DXJhKmXNDGLbJEK2TBmYXM01DGwG1Qt4lw4+C96Lf5kG0HF2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=56ngRHOPavPPMWIA0sui9O2a1alHhAeRxIW13fKq7jE=;
+ b=bHRZ1tszoWwgGYy9G48tFHOlouF2Mz5mSgDgQDcynoURjavydtLHfq2sXretU/n8j3+ovnOQTTzpS8ksUm9WQm5IkQw2G76I00xmgX2vEEk6WDdr83Y6bRCOZqrAvrcJnpyfGURnT+cTvDi7JbWa6Z5XvmxYf6cR6No6IYOHZt536eVbSpzFaGqbbhFXXrR9A18AwM5YtfywS/UDR4Fcwmxc5xyhVP4JyR98+r/pK/PQMsgJZqX6tCgXSbIVkCKrKE7XWOIZYPmHh0FvuWQ1aBWQW38byk51SubBpBaF4OCDvCwTEwEo0R3v4mRPkmOLInP+Rzx8cVvv0mSkCsoSMA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=56ngRHOPavPPMWIA0sui9O2a1alHhAeRxIW13fKq7jE=;
+ b=at+6E29pv1DXNZFGrzpSzP1xtSpBx1QcxQ7H1RGO+ME6ds1aO9wQOiXXDXyX/lME+mxmzwuVU0STtBVO3A/4ni3cCuM0CNAvv7K8Kz//XgTiCV8/2EngS5lTSU9js77yPNzYtMDlnTK9Y06PEdiq+aLeYOr9dHPLq73UyOc/yAw=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DM4PR11MB6020.namprd11.prod.outlook.com (2603:10b6:8:61::19) by
+ SJ2PR11MB7645.namprd11.prod.outlook.com (2603:10b6:a03:4c6::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
+ 2026 07:07:53 +0000
+Received: from DM4PR11MB6020.namprd11.prod.outlook.com
+ ([fe80::3058:1480:e4ac:5765]) by DM4PR11MB6020.namprd11.prod.outlook.com
+ ([fe80::3058:1480:e4ac:5765%3]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 07:07:53 +0000
+Date: Mon, 23 Nov 2026 14:56:50 +0800
+From: Chen Yu <yu.c.chen@intel.com>
+To: kernel test robot <yi1.lai@intel.com>, K Prateek Nayak
+	<kprateek.nayak@amd.com>, Peter Zijlstra <peterz@infradead.org>
+CC: K Prateek Nayak <kprateek.nayak@amd.com>, <oe-lkp@lists.linux.dev>,
+	<lkp@intel.com>, <linux-kernel@vger.kernel.org>, Peter Zijlstra
+	<peterz@infradead.org>, Vincent Guittot <vincent.guittot@linaro.org>,
+	<aubrey.li@linux.intel.com>
+Subject: Re: [linus:master] [sched/fair]  486c3d06b9:
+ stress-ng.switch.ops_per_sec 33.3% regression
+Message-ID: <awPjsi/FiElpwjM+@chenyu-dev>
+References: <202611230853.e2e6401-lkp@intel.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <202611230853.e2e6401-lkp@intel.com>
+X-ClientProxiedBy: SG2PR01CA0181.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:189::13) To DM4PR11MB6020.namprd11.prod.outlook.com
+ (2603:10b6:8:61::19)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,82 +142,135 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <avMgJNyGez2Eyr3a@nxa18884-linux-1.ap.freescale.net>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR11MB6020:EE_|SJ2PR11MB7645:EE_
+X-MS-Office365-Filtering-Correlation-Id: c44584f3-8370-4c68-d796-08df49307ddc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|22082099003|18002099003|3023799007|13003099007|11063799006|56012099006|261026140227099003|261026121527099003|261102123227099003|261028144727099003|261022105027099003|261021123027099003|261022075727099003|261021121427099003|261009223027099003|10067099003;
+X-Microsoft-Antispam-Message-Info: RrTig1BrgWUTlvH3EEAfbco6ZYF6iHVslTM3v8kh+Rlhp2KJkHLY7XKgXCtVI4O2tg0Ev0bZ7haNhznH3D94rebIhoetZVY55shwwp86yKQ8zuyt22oowzSjWI/8QD14VAk0TgIe0rJK2bZP8Mk5iECeEXaNSYR+M0qp1heMNuRKy5IAAVsKID0bntxokwoRHZFgsidoD/Nk7M6bOD6NzjG/WwMNu9TkpLN/GFMBao+iKTdPzmrbmlsWTt2FcUF0t2B17yf8I7xMyk8VkeZYQA00g4MTlH0vtldPLhLlp1e+AcwCVQBqQShtlDkDEGj712Jp6LPhK1rKJDNpEyJngo8gIZr94sxHYwt6UFtX7ZOjGhXXR5I2CzuwWxP1AktIlhgPZUefrVROBjWLPAr9BgtqyCW0LJivxBjTbUKVESIxq7fuXDtMnCj5FacfJGzQ7a0T2hAtK6cuaa+ER2rFTI9Q09H186swAXNGktxwGm6AEvkcvyTl9vOCg5RFW5YKS9kIutL/R8gCC+jXwgGmGWoJcW90go3gva2aJDAg5cfCdAsBv0BnHxtC+RAIHj/FQUNBKtaTVuxOH47hfpVpH5Ynq2usRC0Tn6w0FSdSn6vysAXrrR7niJLeOkGqN8Tx
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR11MB6020.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(22082099003)(18002099003)(3023799007)(13003099007)(11063799006)(56012099006)(261026140227099003)(261026121527099003)(261102123227099003)(261028144727099003)(261022105027099003)(261021123027099003)(261022075727099003)(261021121427099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hEvXiRfzXGaOJzl7Fc1pgO12DvcjlzGpBItJA4GHJFlTXp6Cw0FHdmmSLwjV?=
+ =?us-ascii?Q?2B1of614mDmhUqkVgI2I0Wj5ihw+lcxi1qSEuMONOHdIZH6VwZx+dGTfFCyj?=
+ =?us-ascii?Q?Gwri4nG6VodnuxOvX9506DX+zW8YuupULIWLXnSko0iT45a9jPUpgmtWzS4T?=
+ =?us-ascii?Q?IUST5SRd2AvvI6IXKB7tQ6IAU4qvc/bdLOpSoxrPKxLdOXAtRUz+tW/tG/Os?=
+ =?us-ascii?Q?1XQX0B3Ffqjo6QVoeSPtcqZlcCDBu0SiwHtY9l3fnf36eLXuKGLNQGGzsLPY?=
+ =?us-ascii?Q?4c9MTWJ4paO1jU+BoQaIhnIP+eW6Lf2E7h38acJBmgWqzFxkC2eJSKaRUzi8?=
+ =?us-ascii?Q?vreltoEiYZ6J6ATqT18cTE9cJCIMu44Id9w7+EqXy16lRyZ6w6mgyq9Mr+Y2?=
+ =?us-ascii?Q?IWrXfJkYfAogJ/iZ1oUAWWDgpU3B1fIp4FjMSljMfK30t5xWn3gHvUICTnYd?=
+ =?us-ascii?Q?VtI6oMcpXp9JA3WiIriqdw1me1Wkm0SEjC4lkqMftyR7Vqe+Nqc1un5d8mSO?=
+ =?us-ascii?Q?jB+pcJehwQYdf7CWoHd36Y5F8XORAdIQ3dprdCthDXsI/QIMrvCGNp+5gfxb?=
+ =?us-ascii?Q?VN/7Z+F4Wc5GnPMqazY5h4RFuBdrldzcijgU5U2C+n1qc7gz5pWyyTjQ7nvD?=
+ =?us-ascii?Q?ZnF2tMgERJkxZ8KrzHcHpw3rlbrlwJIi5Lqh8xNU5aKV9qE8Tz8pE1WJt5/h?=
+ =?us-ascii?Q?+TQYhvc3Klme9wWSo1HXt01jD8/mHCOZPyDuQujsF60I8b0YJcikZvJwaBoh?=
+ =?us-ascii?Q?SPSYdwfp/ePM2nkiLWGu1+8FC3IGhf4xRSG7eB2lQA1tjJym0SZhycPfIgHj?=
+ =?us-ascii?Q?vfEKOquPbsWb1QcmoJwZwnQBQWTTtSBxaA5NCcTRgdHIgtJmO68v/4ygVGJV?=
+ =?us-ascii?Q?mdpVkNAtBYQ427teaOkcS/ttt5iRea1NLS7/O2dsOS5y7K/A7u9gAZ4flvlz?=
+ =?us-ascii?Q?+tSkouEuK1wcI3+07J2nkfb/LgYpCfG2Ut7lBw79WQIR9oUzFGzVe645wi+k?=
+ =?us-ascii?Q?F89hdkpO0OVgSXK5Ko+jVDY+rxnHyPWMXmaAk2dcX0rW5JXKfMPzwrLZhpr5?=
+ =?us-ascii?Q?YpuxvcrvVqHliW/5i2ivbVXgG3NT5uzQ7HoY4219xXGEfwXjO1EhM/pdflv/?=
+ =?us-ascii?Q?+5vfTDU/VT6iFrGzyVDg4MTtWt6HqgXctliwBmvEJZywgQducV/U3BzWRsgd?=
+ =?us-ascii?Q?5pVJBASqr7C8isa3v03YG05AIde5AyKtQZE9ttcVH4zMvttvtcSNTYjb0aah?=
+ =?us-ascii?Q?qxWjgWxFhY2ErbnpjvxeOvt1d3dVLjLn/8Q6+iShHHje3wXIUt+kopt4Bdqw?=
+ =?us-ascii?Q?Xicw8vRg6SSSS8m+5M4b1wV+ysKLw/AqhA0KIPrf2EoljIUSGIv4JliHy/Hm?=
+ =?us-ascii?Q?DhBGIC8izxKqyceKOTdEebPw+iYMnSN1tEstvg9UxVHmPlMINCJTqxkWrCjp?=
+ =?us-ascii?Q?w2thLbGjP4bdabTmxBZeTMiKSTCBJwOjLefTZRHMJMDoQ/27UEeBBEx70j0d?=
+ =?us-ascii?Q?uER45wjYS8PdfoGXSXihUEW2do7LQuy7eFqmCt79B9WBNTx1RiYvzm6QH3ys?=
+ =?us-ascii?Q?giYL2th0fxBq9laukpRSaPWlO8aP//WOIWHYl2SfjSg9UZHRgxu5gLvS4V6u?=
+ =?us-ascii?Q?NgnbPzsXFucxvWlqmpa523ToIsnkKsRY2OFBa/h5+ZJr90+oD6DE5/ymKjGR?=
+ =?us-ascii?Q?QrhuouG9oTi9e5iSBd64OR8xZt7u8zkLn1xpdKLDa1ya6BSLFj/UkPLn+XiQ?=
+ =?us-ascii?Q?8Pu937VT7A=3D=3D?=
+X-Exchange-RoutingPolicyChecked: goobZpQZ+Tsn10RDwX4FvEWztie6V9yUaR+ePvRjVZYP2Kn/7xNiJ6u//TaJyb2eALsS0DSW3HY8is0rYjtfAN+e3sHNU5Ql3Dx1mgzq8420HHMBbRQEC64E2q/sKn/PQJ7HGgy7z78EG9QUf6IkonM/tcKeikh+ATwF3ad8If3cw/kqzIfcDE4e9d6V0vyTn5/1tpdsSLNMlpV10syivvUDfjjZeL4PDhIExAZp2lQEGwW2N46F8A4U7QAfQhTa6S3GWQsFkXH+7GXxZhfDv1tjJuywa6pF3WLRG5k/2QPb2j5M4AFzu2njV3hSnl52bNtyRryptd7G82jR4WL6+g==
+X-MS-Exchange-CrossTenant-Network-Message-Id: c44584f3-8370-4c68-d796-08df49307ddc
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR11MB6020.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 07:07:53.1214
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NQeFTbKCoswol9hnTZbhYUoz8VoPS1gM4joq1IFX4BBUcitPZidEzrQ7IumvcUOaBNR4KpWbwqxGTPLZuyHqvg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR11MB7645
+X-OriginatorOrg: intel.com
 
-On Tue, Nov 10, 2026 at 09:46:12PM +0800, Peng Fan wrote:
-> On Tue, Nov 10, 2026 at 01:29:08PM +0100, Richard Leitner wrote:
-> >The imx_rproc driver is affected by a race condition in the shutdown
-> >ordering in imx_rproc_free_mbox(). A received message might cause a
-> >virtqueue_kick resulting in tx_ch access. When imx_rproc_free_mbox() is
-> >triggered between the if (!priv->tx_ch) check and the mbox_send_message()
-> >call in the imx_rproc_kick() function the mbox_send_message() then tries
-> >to dereference a NULL pointer on the tx_ch (as seen in the call trace
-> >below).
-> >
-> >Therefore fix this behaviour by first freeing the rx channel, so no new
-> >messages are received and therefore no kicking on tx_ch can happen.
-> >Afterwards release the tx channel.
-> >
-> >This problem was encountered on a fleet of i.MX8MP devices on about 1 in
-> >500 system shutdowns, resulting in Oops below. This Oops was recorded
-> >from a v7.3.0 kernel before the work-queue removal.
-> >
-> >    remoteproc remoteproc0: stopped remote processor imx8mp-cm7
-> >    Unable to handle kernel NULL pointer dereference at virtual address 0000000000000008
-> >    Internal error: Oops: 0000000096000004 [#1]  SMP
-> >    CPU: 0 UID: 0 PID: 32710 Comm: kworker/0:1 Not tainted 7.3.0-XXX #1 PREEMPT
-> >    Hardware name: XXX (DT)
-> >    Workqueue: imx8mp-cm7 imx_rproc_vq_work [imx_rproc]
-> >    pstate: 40000005 (nZcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> >    pc : mbox_send_message+0x8c/0x178
-> >    lr : mbox_send_message+0x88/0x178
-> >    sp : ffff8000897f3b70
-> >    x29: ffff8000897f3b70 x28: ffff80007a07b248 x27: ffff0000d90e1a20
-> >    x26: ffff80007a07b328 x25: ffff0000c1d31300 x24: ffff0000d90e1a40
-> >    x23: 0000000000000001 x22: 0000000000000005 x21: ffff8000897f3ba4
-> >    x20: 000000000000000b x19: ffff0000c1b24240 x18: 0000000000000000
-> >    x17: ffff80006a453000 x16: ffff800081ac8000 x15: 0000000000000000
-> >    x14: 0000000000000040 x13: 0000000000000228 x12: ffff0000c115a3e8
-> >    x11: 0000000000000000 x10: 0000000000000001 x9 : ffff800080cd6570
-> >    x8 : ffff8000897f3ba0 x7 : 0000000000000002 x6 : 0000000000000000
-> >    x5 : 000000000000000c x4 : 0000000004400000 x3 : 0000000000000000
-> >    x2 : 0000000000000000 x1 : ffff0000cb268000 x0 : 0000000000000000
-> >    Call trace:
-> >     mbox_send_message+0x8c/0x178 (P)
-> >     imx_rproc_kick+0x50/0xc0 [imx_rproc]
-> >     rproc_virtio_notify+0x3c/0xa0
-> >     virtqueue_kick+0x4c/0x68
-> >     rpmsg_recv_done+0x224/0x658 [virtio_rpmsg_bus]
-> >     vring_interrupt+0xbc/0x158
-> >     rproc_vq_interrupt+0x40/0xb0
-> >     imx_rproc_notified_idr_cb+0x20/0x40 [imx_rproc]
-> >     idr_for_each+0x74/0x100
-> >     imx_rproc_vq_work+0x2c/0x40 [imx_rproc]
-> >     process_one_work+0x194/0x520
-> >     worker_thread+0x19c/0x320
-> >     kthread+0x134/0x148
-> >     ret_from_fork+0x10/0x20
-> >    Code: 37f80574 aa1303e0 97ffff39 f9400a60 (39402001)
-> >
-> >Fixes: 99b142cf7191 ("remoteproc: imx_rproc: Request mbox channel later")
-> >Cc: stable@vger.kernel.org
-> >Signed-off-by: Richard Leitner <richard.leitner@linux.dev>
+On Mon, Nov 23, 2026 at 08:47:54AM +0800, kernel test robot wrote:
 > 
-> LGTM:
+> Hello,
 > 
-> Reviewed-by: Peng Fan <peng.fan@nxp.com>
+> kernel test robot noticed a 33.3% regression of stress-ng.switch.ops_per_sec on:
 > 
-> BTW: would you plan to fix the other issue that sashiko reported
-> regarding imx_rproc_xtr_mbox_init()?
-
-Thanks for the review and sorry for the late reply.
-
-Sure. Should this be a separate patch or added to a v2 of this series?
-
-regards;rl
-
 > 
-> Regards
-> Peng
+> commit: 486c3d06b90240860e99686d29ed9f15637dc314 ("sched/fair: Avoid transient double accounting for delayed tasks") https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git master
+> 
+> testcase: stress-ng
+> config: x86_64-rhel-9.4
+> compiler: gcc-14
+> test machine: 224 threads 2 sockets Intel(R) Xeon(R) Platinum 8480CTDX (Sapphire Rapids) with 256G memory
+> parameters:
+> 
+>   nr_threads: 100%
+>   testtime: 60s
+>   test: switch
+>   method: pipe
+>   cpufreq_governor: performance
+> 
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <yi1.lai@intel.com>
+> | Closes: https://lore.kernel.org/oe-lkp/202611230853.e2e6401-lkp@intel.com
+
+I fed this to AI and asked it to reproduced it on a server, later AI told me:
+-	int h_nr_runnable = 0;
++	int h_nr_runnable = 1;
+was missing in dequeue_hierarchy() from https://lore.kernel.org/all/20261112083447.25603-1-kprateek.nayak@amd.com/
+when merging into 486c3d06b902
+
+From 850d8788c72d6ae459034b85584cd5ea01df920e Mon Sep 17 00:00:00 2001
+From: Chen Yu <yu.c.chen@intel.com>
+Date: Mon, 23 Nov 2026 14:27:20 +0800
+Subject: [PATCH] sched/fair: Fix h_nr_runnable leak in dequeue_hierarchy()
+
+commit 486c3d06b902 ("sched/fair: Avoid transient double
+accounting for delayed tasks") changed the default of h_nr_runnable in
+dequeue_hierarchy() from 0 to 1 and only cleared it for an already
+delayed entity:
+
+	int h_nr_runnable = 1;
+	...
+	/* Already accounted via set_delayed(). */
+	if (se->sched_delayed)
+		h_nr_runnable = 0;
+
+The adjust of h_nr_runnable to 1 was lost when merging into vanilla,
+h_nr_runnable is now 0 for every dequeue, which breaks logic consuming
+h_nr_runnable.
+
+Bring back the adjustment for h_nr_runnable.
+
+[1] https://lore.kernel.org/all/20261112083447.25603-1-kprateek.nayak@amd.com/
+
+Fixes: 486c3d06b902 ("sched/fair: Avoid transient double accounting for delayed tasks")
+Reported-by: kernel test robot <yi1.lai@intel.com>
+Closes: https://lore.kernel.org/oe-lkp/202611230853.e2e6401-lkp@intel.com
+Signed-off-by: Chen Yu <yu.c.chen@intel.com>
+---
+ kernel/sched/fair.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index da0d9e19c457..8a55571b9719 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -8242,7 +8242,7 @@ static void dequeue_hierarchy(struct task_struct *p, int flags)
+ {
+ 	struct sched_entity *se = &p->se;
+ 	bool task_throttled = flags & DEQUEUE_THROTTLE;
+-	int h_nr_runnable = 0;
++	int h_nr_runnable = 1;
+ 	int h_nr_idle = task_has_idle_policy(p);
+ 	bool dequeue = true;
+ 
+-- 
+2.25.1
+
