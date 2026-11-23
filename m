@@ -1,86 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795411604;
-	b=iWCDdcPI6TWfERsoVE0FCjOSPhJhgfcuRxBSOCiq7EjXGE8x1mI0p8D9LTY2CVAB65O5
-	 ttKDs1iRXgFBi5NuL6fT/Wr424gfIpU1AeKDOWZvHd1gqAPgUzat/dUR2myxFcrKfxeJs
-	 ZgopcGisiP1oAYynLHrOW1epzr6aRhfjetoe/92lh+KoIKmlQMK/RPtIXUG2tMvytFSo/
-	 DCUFTLcJxHXQjfGRnsCL8zXGGGPxpk1WQxCNBoTI7sd1/kA/EkQJyZG+m+LH8pM9WnI5W
-	 lkbC3okfjCL9nB/i0dF+JOqM7UcR/X93re44PaKhiZ/Ky2x8SJ/aZFVAEDED5YIBohg==
+	t=1795411644;
+	b=xSPifC47K3mKMbhUR+Ttmti+VDKxuQEwTJ0CgWkbuK3pwZDow0B6hqpBrQpl6JJ8p+Gy
+	 gV1YT4h0hitGDVeIR61+IH74kwXGwUEQkSqQozb4M3AnjWccgy593hL6T5H7Bw7kPYsf/
+	 jlt7a/TNxKhFpoddNBfcFDLn+8x0e5qgfWJDT5g6nWWzxGCd0qHKV0KZIDBPCZy+bL5Tu
+	 dvEL7PQQXBwuMnU0IXN6BxIzAc1y36F1tEpG5H9+JEayAqp45W2doGKgkxpcAjzr/AcJ+
+	 mSVx7Yhay8o/jza86+dvFEoBMham4cgYoLkXv86TpEbMTxh0+XEa+qGGlrrtEnq2LKg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795411604;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=uOn8zdpKhoiEr4LfwPlbQlbGhchooXKwDyef2Q+wxQE=;
-	b=Qw0LZfKBJTwjSuxjUDB31zwJvFNKusGOYl3GP1a20lEzw7rB/6SOyNXwTQtGGvpVj/e5
-	 TVbwdwsVaj4bkzygCDp7PnIIkb1BEoO9fUv1JY6Q1k3CnenFunMXorJo6G4DOJP8kkqNb
-	 bC5yC5SebOcXLMDy/H8YTKvj5UvFB3IUP0X3eH9w1z8XxkZ++aDALdHseJPFa6RMob1a8
-	 X5+DsB4OmVtak0vqP1XEW3Tbg2Q74iltNWhQn6Fh449MqnwKAdb5nOIF++GKBH9Oow9E5
-	 l7Sm3hVPZ4k4eCGmBQb2lMi0p+pK1KIwYnoEqZpPbVaO890uF6Cg6ivpysNBVxJnHmg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795411644;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 Mime-Version:Subject:Reply-To:Sender:From:To:CC:X-Priority:
+	 X-Content-Kind-Code:In-Reply-To:X-CPGS-Detection:X-Drm-Type:
+	 X-Msg-Generator:X-Msg-Type:X-Reply-Demand:Message-ID:Date:
+	 X-CMS-MailID:Content-Transfer-Encoding:Content-Type:X-Sendblock-Type:
+	 CMS-TYPE:X-CPGSPASS:X-CPGSPASS:cpgsPolicy:X-CFilter-Loop:
+	 X-CMS-RootMailID:References;
+	bh=7DjN14704yiowaIqyEGYRNsbumCAuKtOz7zG7vlkpsk=;
+	b=v33DxQkNzdCW9rN5IYXkayVwyfb82ZOplCn0YaY1R7LlnFz2ZQ39DlM9bisvNQyuoj1e
+	 UFbpaXIBvrEJ2zIQblHjbs5NmkhU/yghv61YwfuEuTNrtOgvx479WHIw3FoGQXm/QHT2F
+	 4dEmkF81AtXUceD/Ms0MQLC0duXWwW4ZvX9WvgZmdTMoamDR6g2i2Z2HSiXjSlMh6BXr2
+	 yloQNeOo7TibSr10uldWF3osZFBa6mrV2Pt829++VuyalZPUbIjuBmxekZybNErGpFKez
+	 9VGLktXODVTl6Q5tzruJdbYBLEhJKgFyoix50F4c3evNZP9wJphh/h1OVApRp4iQAxQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=VFdjkQVC;
-	arc=none smtp.remote-ip=209.85.208.52
-Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com [209.85.208.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=apVk5raI;
+	arc=none smtp.remote-ip=203.254.224.33
+Received: from mailout3.samsung.com (mailout3.samsung.com [203.254.224.33])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA501606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:26:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA501606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EA7A606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:27:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2EA7A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=VFdjkQVC
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6b87040a20bso267814a12.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:26:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795411602; x=1796016402; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=uOn8zdpKhoiEr4LfwPlbQlbGhchooXKwDyef2Q+wxQE=;
-        b=VFdjkQVCTr+2rGCs2sPvK1f+KLVE2dcqaD/LsNJLxOtuO2Njt3w0jrBjxQY+fhYMFB
-         RKGA3950hmwSqq2cyUp3tlJvu44WfKuwYTYuVIFpEs9XOfVeGOEitXQ8ZKUDl2T4c5yp
-         L+Q9LuddDGjRtFqBAwsacmvTqKKfcZ8GRKMrLwL9OVnNajLBn+ITjdmTOPnMyYf8dstL
-         TfcpM27Jj8i1rUs7b47/zjlVnlQl14XDBSmrHoHtfNYT10rBs3qzEZEeXeK6wiXX/eqo
-         fmDx1AqNzJTJs6B178qlRcUN2UmbZ+BjycLflJ4sTxqKtLqhygL68C9oGyYHaAGV5jMq
-         pGJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795411602; x=1796016402;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=uOn8zdpKhoiEr4LfwPlbQlbGhchooXKwDyef2Q+wxQE=;
-        b=Z6+HthjJiX36r8t0HArm/pRP1H4ny2/PKy379AasrHrsw0FRKEFSD9AiTWQ8eSMZkL
-         NAVACe433+1tZ73D2WuuMJIXsTj4ZJRNq79sOx3uGjsSRagy/QMkfAWpVWd6z+ZBlL8P
-         MEvFTd4O9iGJPkIGXqFlYVwo9UR3khTNfx/DMgJgoJIJGl/QfMtlnUJIaXCbk0Oee4ZI
-         clNknge0tNQionOOw/T3joCh8qPu1f2037Dzn1gpv26wtHRMU3nP/Fk8Qc1piO5PStVR
-         /umlptEbAJQy1CI1ksaYx94ks+PCCnO8JX7MWx6oOatMyby01xnbnJxzVhOqZBCAYmvT
-         gLCA==
-X-Forwarded-Encrypted: i=1; AL+hErHoAF//qIOpk17Vrbiye+qNOoo0JU10zibx4xeOluxSYEe2+ZVrS/r2okuFPMIw5tvPaQvE1wZHbS9VGWA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/LjWIITkells01CoQdbJ/U3OIWMHq7p0HeS09TC8Wht4C630sA
-	Ydeb2bmLrWD1z7z5lG5aWiqisVLbT80xHexKMCZo+xIOetqt18OScE04SKhLQ031alI=
-X-Gm-Gg: AZFdTZd9+vCwrtrZWDj9ef9OQGSBXXz/i+N133I9lc1BQg61A4PEioJan+IeKxtuJNK
-	6DORx4LD0EG41ZxqBy9we3GDCys2meiKpcdVhpbU26DGAsXICuIog71/br9X3nEIqABeMyTQuHJ
-	VU9Dmg+HiMRN2TC0PEE8eY7IIA6vGCrCk0/Akcm8IQREOB1ZB/sDAgHujtIv06UPQaJJ3A7iL06
-	U7l5Q3rYEDm48HepKQaK2/RUt2uu70M2wgmBE+lG9mkS4c0h/BDqO2xn8Y0O9/6HXSbMVt9zKNf
-	rqNFkiwhtCV13RB20SfE+j20ee/P2TdMaKWgdXAJqg8a62j8HFadxL46/zpVba1Sq87ecp+rcn8
-	ZfOm7sJzwGMug2OP9BVWnSBgn7fm/qW+ovehhQpEpxnHziCN4mvaMitHeCBgdV0KX4/d1RjDBNd
-	caNFZUjUKokaqoXMvdgB1xbvev8eEHl10mPml9vHXw1uckp11NNCW/tZVr3N7vqLzagrG3PwdFz
-	aW/+anpo2pSetZeId6OBhICbtGEXgDtZlK0CnK3QZbRv0yY6hJP1TCjIEDqtvmQhgGmFzrXF+Rx
-	WhlUWwIYAyrcCIJP/yM3jt72+bCgR5H2nxc=
-X-Received: by 2002:a17:906:fcb7:b0:c50:d900:8536 with SMTP id a640c23a62f3a-c513a3a33dcmr799689966b.1.1795411602207;
-        Sun, 22 Nov 2026 21:26:42 -0800 (PST)
-Received: from [10.202.112.30] ([202.127.77.110])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41adcfe23sm15945748a91.15.2026.11.22.21.26.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 21:26:41 -0800 (PST)
-Message-ID: <595a50d5-b2d7-4162-bbb7-03bbba129ac8@suse.com>
-Date: Mon, 23 Nov 2026 13:26:36 +0800
+	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=apVk5raI
+Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20261123052721epoutp03108c6fa0fac6ac1b9e11d248fb08d322~qlWAK9Jjc2686526865epoutp03i
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:27:21 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20261123052721epoutp03108c6fa0fac6ac1b9e11d248fb08d322~qlWAK9Jjc2686526865epoutp03i
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795411641;
+	bh=7DjN14704yiowaIqyEGYRNsbumCAuKtOz7zG7vlkpsk=;
+	h=Subject:Reply-To:From:To:CC:In-Reply-To:Date:References:From;
+	b=apVk5raIaiAkm+DpRE0NO73GwWy4uBC9qJUv1OT1bPTThKIzjD3wpqEJB7LLbNKXk
+	 b8+AhhZK1lQgGQzHIOjkFL/ycOtuCw2rnYxCZyCPFVA6zSN95bHEepeBp/Sk3NUkBG
+	 SJy5IEpK9ZkPgNDVctfo2UXATo1uYgzX3XgzODp8=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
+	20261123052720epcas2p3c28e60beda29b106799ffbf512a18ae8~qlV-frHuI2883428834epcas2p3x;
+	Mon, 23 Nov 2026 05:27:20 +0000 (GMT)
+Received: from epcas2p4.samsung.com (unknown [182.195.38.212]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4jXvZw0dPtz3hhTD; Mon, 23 Nov
+	2026 05:27:20 +0000 (GMT)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,355 +62,541 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v9 2/3] ocfs2: switch DIO read path from buffer_head
- to iomap
-To: Joseph Qi <joseph.qi@linux.alibaba.com>
-Cc: mark@fasheh.com, jlbec@evilplan.org, hch@lst.de,
- ocfs2-devel@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20261120060014.12087-1-heming.zhao@suse.com>
- <20261120060014.12087-3-heming.zhao@suse.com>
- <77d9e06a-9111-44d8-b09d-c91bab908327@linux.alibaba.com>
-From: Heming Zhao <heming.zhao@suse.com>
-Content-Language: en-US
-In-Reply-To: <77d9e06a-9111-44d8-b09d-c91bab908327@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+Subject: [RFC PATCH RESEND 3/3] blk-cgroup: add cgroup-based write stream
+ placement
+Reply-To: suho.son@samsung.com
+Sender: Suho Son <suho.son@samsung.com>
+From: Suho Son <suho.son@samsung.com>
+To: "axboe@kernel.dk" <axboe@kernel.dk>, "linux-block@vger.kernel.org"
+	<linux-block@vger.kernel.org>
+CC: "tj@kernel.org" <tj@kernel.org>, "hannes@cmpxchg.org"
+	<hannes@cmpxchg.org>, "mkoutny@suse.com" <mkoutny@suse.com>,
+	"corbet@lwn.net" <corbet@lwn.net>, "skhan@linuxfoundation.org"
+	<skhan@linuxfoundation.org>, "rdunlap@infradead.org"
+	<rdunlap@infradead.org>, "viro@zeniv.linux.org.uk"
+	<viro@zeniv.linux.org.uk>, "brauner@kernel.org" <brauner@kernel.org>,
+	"jack@suse.cz" <jack@suse.cz>, "io-uring@vger.kernel.org"
+	<io-uring@vger.kernel.org>, "cgroups@vger.kernel.org"
+	<cgroups@vger.kernel.org>, "linux-fsdevel@vger.kernel.org"
+	<linux-fsdevel@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "ngeol564@gmail.com" <ngeol564@gmail.com>,
+	KiYoung Lee <kiyoung77.lee@samsung.com>, JinHeon Kim
+	<jinheon09.kim@samsung.com>, Suho Son <suho.son@samsung.com>
+X-Priority: 3
+X-Content-Kind-Code: NORMAL
+In-Reply-To: <20261123051521epcms2p2445107f926f3acaa2d51c5e12abea90e@epcms2p2>
+X-CPGS-Detection: blocking_info_exchange
+X-Drm-Type: N,general
+X-Msg-Generator: Mail
+X-Msg-Type: PERSONAL
+X-Reply-Demand: N
+Message-ID: <20261123052718epcms2p7a27038aca05d1af19c7c26c4a60b4176@epcms2p7>
+Date: Mon, 23 Nov 2026 14:27:18 +0900
+X-CMS-MailID: 20261123052718epcms2p7a27038aca05d1af19c7c26c4a60b4176
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+X-CPGSPASS: Y
+X-CPGSPASS: Y
+cpgsPolicy: CPGSC10-223,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20261123051521epcms2p2445107f926f3acaa2d51c5e12abea90e
+References: <20261123051521epcms2p2445107f926f3acaa2d51c5e12abea90e@epcms2p2>
+	<CGME20261123051521epcms2p2445107f926f3acaa2d51c5e12abea90e@epcms2p7>
 
-Hi Joseph,
+From: Suho Son <suho.son=40samsung.com>
 
-On 11/22/26 22:41, Joseph Qi wrote:
-> 
-> 
-> On 11/20/26 2:00 PM, Heming Zhao wrote:
->> Migrates the DIO read path from the legacy buffer_head infrastructure
->> to the modern and more efficient iomap framework.
->>
->> Under the current code, ocfs2 holds a cluster lock during DIO via
->> ocfs2_iocb_set_rw_locked(), and releases the cluster lock in
->> ocfs2_dio_end_io() via ocfs2_iocb_clear_rw_locked(). The lock level is
->> stashed in iocb->private.
->>
->> However, iomap DIO owns that field (it stores a bio there for polled I/O
->> and unconditionally clears it before calling ->end_io). Any side-channel
->> state packed into iocb->private is corrupted, which trips the end_io
->> lock-state check.
->>
->> Instead, encode the unlock level by passing distinct iomap_dio_ops methods
->> (ocfs2_iomap_dio_ops_pr for PRMODE or ocfs2_iomap_dio_ops_ex for EXMODE).
-> 
-> The code only defines ocfs2_iomap_dio_ops_r_pr, and ocfs2_iomap_dio_ops_w_pr /
-> ocfs2_iomap_dio_ops_w_ex are defined in next commit.
-> 
->> Additionally, the *_iter() functions use the split __iomap_dio_rw() +
->> iomap_dio_complete() API so they can determine unambiguously, from the
->> return value, whether the completion handler already dropped the lock
->> (real I/O, sync or -EIOCBQUEUED) or whether the caller must drop it
->> (no I/O issued, or buffered fallback).
->>
->> The new function ocfs2_iomap_begin() performs a similar role to
->> ocfs2_get_block(). While ocfs2_get_block() retrieves only one block per
->> call, ocfs2_iomap_begin() can handle multiple blocks at once. Limit the
->> map offset and length in ocfs2_iomap_begin() to OCFS2_MAX_LOGICAL_BLOCK
->> to avoid overflow issues.
->>
-> It seems OCFS2_MAX_LOGICAL_BLOCK not defined.
-> 
+NVMe Flexible Data Placement (FDP) allows writes with similar
+lifetimes to be placed in separate reclaim units, reducing write
+amplification.  However, existing write stream interfaces require
+applications to explicitly assign streams, leaving unmodified
+buffered-I/O workloads without an operator-controlled placement
+mechanism.
 
-Do I need to send v10 to fix the mistakes above?
+Introduce io.stream, a cgroup v2 I/O controller interface that allows
+operators to assign write streams on a per-device basis.  Write I/O
+attributed to the cgroup carries the tag via bio->bi_write_stream:
+direct writes issued by tasks in the cgroup, and buffered writeback
+owned by the cgroup (wbc_init_bio() re-associates writeback bios with
+the writeback owner's blkcg_css; requires CONFIG_CGROUP_WRITEBACK).
+Devices that support write streams (e.g. NVMe FDP) translate the tag
+into a placement identifier so similarly-aged data ends up in the
+same reclaim unit.
 
-Thanks for the careful review.
-Heming
+Key properties:
 
->> Co-developed-by: Joseph Qi <joseph.qi@linux.alibaba.com>
->> Signed-off-by: Joseph Qi <joseph.qi@linux.alibaba.com>
->> Signed-off-by: Heming Zhao <heming.zhao@suse.com>
->> ---
->>   fs/ocfs2/Kconfig |   1 +
->>   fs/ocfs2/aops.c  | 107 +++++++++++++++++++++++++++++++++++++++++++++--
->>   fs/ocfs2/aops.h  |   5 +++
->>   fs/ocfs2/file.c  |  60 ++++++++++++++++++++++----
->>   4 files changed, 161 insertions(+), 12 deletions(-)
->>
->> diff --git a/fs/ocfs2/Kconfig b/fs/ocfs2/Kconfig
->> index 2514d36cbe01..bf1678a5eb01 100644
->> --- a/fs/ocfs2/Kconfig
->> +++ b/fs/ocfs2/Kconfig
->> @@ -7,6 +7,7 @@ config OCFS2_FS
->>   	select CRC32
->>   	select QUOTA
->>   	select QUOTA_TREE
->> +	select FS_IOMAP
->>   	select FS_POSIX_ACL
->>   	select LEGACY_DIRECT_IO
->>   	help
->> diff --git a/fs/ocfs2/aops.c b/fs/ocfs2/aops.c
->> index 64fcf6eb3d89..21cdc5c29331 100644
->> --- a/fs/ocfs2/aops.c
->> +++ b/fs/ocfs2/aops.c
->> @@ -4,6 +4,7 @@
->>    */
->>   
->>   #include <linux/fs.h>
->> +#include <linux/iomap.h>
->>   #include <linux/slab.h>
->>   #include <linux/highmem.h>
->>   #include <linux/pagemap.h>
->> @@ -126,6 +127,19 @@ static int ocfs2_lock_get_block(struct inode *inode, sector_t iblock,
->>   	return ret;
->>   }
->>   
->> +static int ocfs2_lock_map_blocks(struct inode *inode,
->> +				 struct ocfs2_map_block *map, int flags)
->> +{
->> +	int ret = 0;
->> +	struct ocfs2_inode_info *oi = OCFS2_I(inode);
->> +
->> +	down_read(&oi->ip_alloc_sem);
->> +	ret = ocfs2_map_blocks(inode, map, flags);
->> +	up_read(&oi->ip_alloc_sem);
->> +
->> +	return ret;
->> +}
->> +
->>   /* ocfs2 never allocates in this function */
->>   int ocfs2_map_blocks(struct inode *inode, struct ocfs2_map_block *map,
->>   		    int flags)
->> @@ -171,8 +185,11 @@ int ocfs2_map_blocks(struct inode *inode, struct ocfs2_map_block *map,
->>   			map->flags |= OCFS2_MAP_MAPPED;
->>   	}
->>   
->> +	past_eof = ocfs2_blocks_for_bytes(inode->i_sb, i_size_read(inode));
->> +
->>   	if (!ocfs2_sparse_alloc(osb)) {
->> -		if (map->pblk == 0) {
->> +		/* detected a hole (unallocated extent) in a file */
->> +		if (map->pblk == 0 && map->lblk < past_eof) {
->>   			err = -EIO;
->>   			mlog(ML_ERROR,
->>   			     "iblock = %llu p_blkno = %llu blkno=(%llu)\n",
->> @@ -187,8 +204,6 @@ int ocfs2_map_blocks(struct inode *inode, struct ocfs2_map_block *map,
->>   		}
->>   	}
->>   
->> -	past_eof = ocfs2_blocks_for_bytes(inode->i_sb, i_size_read(inode));
->> -
->>   	if (create && (map->lblk >= past_eof))
->>   		map->flags |= OCFS2_MAP_NEW;
->>   
->> @@ -2532,6 +2547,92 @@ static ssize_t ocfs2_direct_IO(struct kiocb *iocb, struct iov_iter *iter)
->>   				    ocfs2_dio_end_io, 0);
->>   }
->>   
->> +static int ocfs2_iomap_begin(struct inode *inode, loff_t offset, loff_t length,
->> +		unsigned int flags, struct iomap *iomap, struct iomap *srcmap)
->> +{
->> +	int ret;
->> +	struct ocfs2_map_block map;
->> +	u8 blkbits = inode->i_blkbits;
->> +	u64 max_lblk = (inode->i_sb->s_maxbytes - 1) >> blkbits;
->> +
->> +	if ((offset >> blkbits) > max_lblk)
->> +		return -EINVAL;
->> +
->> +	/*
->> +	 * Calculate the first and last logical blocks respectively.
->> +	 */
->> +	map.lblk = offset >> blkbits;
->> +	map.len = min_t(loff_t, (offset + length - 1) >> blkbits,
->> +			max_lblk) - map.lblk + 1;
->> +	map.flags = 0;
->> +
->> +	if (flags & IOMAP_WRITE) {
->> +		return -EOPNOTSUPP;
->> +	}
->> +
->> +	ret = ocfs2_lock_map_blocks(inode, &map, 0);
->> +	if (ret < 0)
->> +		return ret;
->> +
->> +	iomap->bdev = inode->i_sb->s_bdev;
->> +	iomap->offset = (u64)map.lblk << blkbits;
->> +	iomap->length = (u64)map.len << blkbits;
->> +
->> +	if (map.pblk == 0) {
->> +		iomap->type = IOMAP_HOLE;
->> +		iomap->addr = IOMAP_NULL_ADDR;
->> +	} else {
->> +		if (map.flags & OCFS2_MAP_UNWRITTEN) {
->> +			iomap->type = IOMAP_UNWRITTEN;
->> +		} else if (map.flags & OCFS2_MAP_MAPPED) {
->> +			iomap->type = IOMAP_MAPPED;
->> +		} else {
->> +			WARN_ON_ONCE(1);
->> +			return -EIO;
->> +		}
->> +		iomap->addr = (sector_t)map.pblk << blkbits;
->> +	}
->> +
->> +	if (map.flags & OCFS2_MAP_NEW)
->> +		iomap->flags |= IOMAP_F_NEW;
->> +
->> +	return 0;
->> +}
->> +
->> +int ocfs2_iomap_next(const struct iomap_iter *iter, struct iomap *iomap,
->> +			    struct iomap *srcmap)
->> +{
->> +	int ret;
->> +
->> +	if (iomap->length) {
->> +		ret = iomap_iter_continue(iter, iomap, srcmap, 0);
->> +		if (ret <= 0)
->> +			return ret;
->> +	}
->> +
->> +	ret = ocfs2_iomap_begin(iter->inode, iter->pos, iter->len, iter->flags,
->> +				iomap, srcmap);
->> +	return ret < 0 ? ret : 1;
->> +}
->> +
->> +static int ocfs2_dio_end_io_r_pr(struct kiocb *iocb, ssize_t size,
->> +				int error, unsigned int flags)
->> +{
->> +	struct inode *inode = file_inode(iocb->ki_filp);
->> +
->> +	if (error)
->> +		mlog_ratelimited(ML_ERROR, "Direct IO failed, bytes = %lld errno:%d",
->> +				 (long long)size, error);
->> +
->> +	ocfs2_rw_unlock(inode, 0);
->> +
->> +	return error;
->> +}
->> +
->> +const struct iomap_dio_ops ocfs2_iomap_dio_ops_r_pr = {
->> +	.end_io = ocfs2_dio_end_io_r_pr,
->> +};
->> +
->>   const struct address_space_operations ocfs2_aops = {
->>   	.dirty_folio		= block_dirty_folio,
->>   	.read_folio		= ocfs2_read_folio,
->> diff --git a/fs/ocfs2/aops.h b/fs/ocfs2/aops.h
->> index 8dd6edd7c1a1..72de1e764a57 100644
->> --- a/fs/ocfs2/aops.h
->> +++ b/fs/ocfs2/aops.h
->> @@ -7,6 +7,11 @@
->>   #define OCFS2_AOPS_H
->>   
->>   #include <linux/fs.h>
->> +#include <linux/iomap.h>
->> +
->> +extern const struct iomap_dio_ops ocfs2_iomap_dio_ops_r_pr;
->> +int ocfs2_iomap_next(const struct iomap_iter *iter, struct iomap *iomap,
->> +			    struct iomap *srcmap);
->>   
->>   int ocfs2_map_folio_blocks(struct folio *folio, u64 *p_blkno,
->>   			  struct inode *inode, unsigned int from,
->> diff --git a/fs/ocfs2/file.c b/fs/ocfs2/file.c
->> index 82c88fa8e98f..e309ff9a56e5 100644
->> --- a/fs/ocfs2/file.c
->> +++ b/fs/ocfs2/file.c
->> @@ -9,6 +9,7 @@
->>   
->>   #include <linux/capability.h>
->>   #include <linux/fs.h>
->> +#include <linux/iomap.h>
->>   #include <linux/types.h>
->>   #include <linux/slab.h>
->>   #include <linux/highmem.h>
->> @@ -2399,6 +2400,26 @@ static int ocfs2_prepare_inode_for_write(struct file *file,
->>   	return ret;
->>   }
->>   
->> +static bool ocfs2_should_use_dio(struct kiocb *iocb, struct iov_iter *iter,
->> +				struct inode *inode)
->> +{
->> +	struct ocfs2_super *osb = OCFS2_SB(inode->i_sb);
->> +
->> +	/*
->> +	 * Fallback to buffered I/O if we see an inode without
->> +	 * extents.
->> +	 */
->> +	if (OCFS2_I(inode)->ip_dyn_features & OCFS2_INLINE_DATA_FL)
->> +		return false;
->> +
->> +	/* Fallback to buffered I/O if we do not support append dio. */
->> +	if (iocb->ki_pos + iter->count > i_size_read(inode) &&
->> +	    !ocfs2_supports_append_dio(osb))
->> +		return false;
->> +
->> +	return true;
->> +}
->> +
->>   static ssize_t ocfs2_file_write_iter(struct kiocb *iocb,
->>   				    struct iov_iter *from)
->>   {
->> @@ -2588,7 +2609,8 @@ static ssize_t ocfs2_file_read_iter(struct kiocb *iocb,
->>   	if (!direct_io && nowait)
->>   		return -EOPNOTSUPP;
->>   
->> -	ocfs2_iocb_init_rw_locked(iocb);
->> +	if (!iov_iter_count(to))
->> +		return 0; /* skip atime */
->>   
->>   	/*
->>   	 * buffered reads protect themselves in ->read_folio().  O_DIRECT reads
->> @@ -2606,8 +2628,6 @@ static ssize_t ocfs2_file_read_iter(struct kiocb *iocb,
->>   			goto bail;
->>   		}
->>   		rw_level = 0;
->> -		/* communicate with ocfs2_dio_end_io */
->> -		ocfs2_iocb_set_rw_locked(iocb, rw_level);
->>   	}
->>   
->>   	/*
->> @@ -2628,17 +2648,39 @@ static ssize_t ocfs2_file_read_iter(struct kiocb *iocb,
->>   	}
->>   	ocfs2_inode_unlock(inode, lock_level);
->>   
->> -	ret = generic_file_read_iter(iocb, to);
->> +	if (direct_io && ocfs2_should_use_dio(iocb, to, inode)) {
->> +		/*
->> +		 * Use the split iomap DIO API so we can tell who owns the
->> +		 * rw_lock on return; reads always hold it at PR level, dropped
->> +		 * by ocfs2_iomap_dio_ops_r_pr(). Call it directly rather than
->> +		 * through generic_file_read_iter(): iomap advances iocb->ki_pos
->> +		 * itself, so the generic helper would advance ki_pos twice.
->> +		 */
->> +		struct iomap_dio *dio;
->> +
->> +		dio = __iomap_dio_rw(iocb, to, ocfs2_iomap_next,
->> +				&ocfs2_iomap_dio_ops_r_pr, 0, NULL, 0);
->> +		if (dio == NULL) {
->> +			/* No I/O issued; rw_lock still held. */
->> +			ret = 0;
->> +		} else if (IS_ERR(dio)) {
->> +			ret = PTR_ERR(dio);
->> +			if (ret == -EIOCBQUEUED)
->> +				rw_level = -1;
->> +		} else {
->> +			ret = iomap_dio_complete(dio);
->> +			rw_level = -1;
->> +		}
->> +		/* never fall back to buffered read */
->> +	} else {
->> +		iocb->ki_flags &= ~IOCB_DIRECT;
->> +		ret = generic_file_read_iter(iocb, to);
->> +	}
->>   	trace_generic_file_read_iter_ret(ret);
->>   
->>   	/* buffered aio wouldn't have proper lock coverage today */
->>   	BUG_ON(ret == -EIOCBQUEUED && !direct_io);
->>   
->> -	/* see ocfs2_file_write_iter */
->> -	if (ret == -EIOCBQUEUED || !ocfs2_iocb_is_rw_locked(iocb)) {
->> -		rw_level = -1;
->> -	}
->> -
->>   bail:
->>   	if (rw_level != -1)
->>   		ocfs2_rw_unlock(inode, rw_level);
-> 
+- Per-device entries are upserts; =22MAJ:MIN inherit=22 restores the
+  default state, which adopts the parent's effective stream for the
+  device.  An explicit stream 0 is a real entry which pins the cgroup
+  to the device default and stops the inheritance walk.
+- Configured streams are validated against the device queue limits;
+  devices without write streams are rejected with -EOPNOTSUPP, and
+  the reserved sentinel (255) is not selectable.
+- Only bios still carrying the WRITE_STREAM_NONE sentinel are
+  filled: explicit application placement (an io_uring per-I/O stream,
+  and filesystem-internal assignments such as f2fs) always wins.
+- The policy state is a single word read with READ_ONCE() on the
+  submission path; writers are serialized by the queue lock held
+  across blkg_conf_prep()/blkg_conf_unprep().  Policy data is freed
+  via kfree_rcu() so lockless readers are safe against policy
+  deactivation, and the policy activates lazily on first use per
+  disk, mirroring blk-throttle.
 
+Link: https://doi.org/10.1145/3837053.3837343
+
+Signed-off-by: Suho Son <suho.son=40samsung.com>
+---
+ Documentation/admin-guide/cgroup-v2.rst =7C  58 ++++-
+ block/Kconfig                           =7C  16 ++
+ block/Makefile                          =7C   1 +
+ block/blk-core.c                        =7C   2 +
+ block/blk-iostream.c                    =7C 315 ++++++++++++++++++++++++
+ block/blk-iostream.h                    =7C  18 ++
+ 6 files changed, 408 insertions(+), 2 deletions(-)
+ create mode 100644 block/blk-iostream.c
+ create mode 100644 block/blk-iostream.h
+
+diff --git a/Documentation/admin-guide/cgroup-v2.rst b/Documentation/admin-=
+guide/cgroup-v2.rst
+index 9e3c67b02ae2e..b0fd93f86027f 100644
+--- a/Documentation/admin-guide/cgroup-v2.rst
++++ b/Documentation/admin-guide/cgroup-v2.rst
+=40=40 -2020,8 +2020,9 =40=40 blk-throttle and apply to all devices, while =
+weight based proportional
+ distribution is provided by the iocost cost model controller
+ (CONFIG_BLK_CGROUP_IOCOST) and, when the BFQ I/O scheduler is in use
+ for a device, by BFQ's own cgroup support.  Latency-based protection
+-(CONFIG_BLK_CGROUP_IOLATENCY) and I/O priority assignment
+-(CONFIG_BLK_CGROUP_IOPRIO) are also available.
++(CONFIG_BLK_CGROUP_IOLATENCY), I/O priority assignment
++(CONFIG_BLK_CGROUP_IOPRIO), and per-device write stream placement
++(CONFIG_BLK_CGROUP_IOSTREAM) are also available.
+=20
+=20
+ IO Interface Files
+=40=40 -2443,6 +2444,59 =40=40 The algorithm to set the I/O priority class =
+for a request is as follows:
+   into the maximum of the I/O priority class policy number and the numeric=
+al
+   I/O priority class.
+=20
++IO Stream Placement
++=7E=7E=7E=7E=7E=7E=7E=7E=7E=7E=7E=7E=7E=7E=7E=7E=7E=7E=7E
++
++The stream placement cgroup policy (CONFIG_BLK_CGROUP_IOSTREAM) allows
++an operator to assign write streams on a per-device basis for write
++I/O attributed to a cgroup.  Write streams are a block-layer hint
++(bio->bi_write_stream) that devices which support write placement
++directives, such as NVMe Flexible Data Placement (FDP), translate into
++placement identifiers, so that data with similar lifetimes is grouped
++into the same reclaim unit.  Write I/O is attributed to the cgroup as
++follows: direct writes issued by tasks in the cgroup, and buffered
++writeback owned by the cgroup; the writeback case requires
++CONFIG_CGROUP_WRITEBACK.
++
++Only bios that do not already carry a stream are affected: a stream
++explicitly assigned by an application or by a file system always
++wins, and a write that expresses no stream at all is placed in the
++device-default stream.
++
++  io.stream
++	A read-write flat-keyed file which exists on non-root
++	cgroups.  Lines are keyed by =24MAJ:=24MIN device numbers.
++
++	Writing =22MAJ:MIN <stream>=22 assigns the write stream to use on
++	that device.  Valid stream numbers are 0 up to the device's
++	maximum write stream count: 0 explicitly selects the
++	device-default stream, larger values select the corresponding
++	device stream.  Writing the same device twice replaces the
++	previous value.  Writing =22MAJ:MIN inherit=22 restores the
++	default state, and a cgroup in the default state adopts the
++	effective stream of the closest ancestor with an entry for
++	that device; an explicit 0 is a real entry which stops this
++	inheritance walk.
++
++	Stream numbers above the device's maximum, and the reserved
++	value 255, are rejected with -EINVAL.  Configuring a device
++	which does not support write streams is rejected with
++	-EOPNOTSUPP.
++
++	Reading returns only the explicit entries; a cgroup in the
++	inherit state has no line for the device.  For example::
++
++	  8:16 3
++
++	To place the writes of a cgroup in stream 3 of a device
++	currently exposed as 8:16, write::
++
++	  echo =228:16 3=22 > io.stream
++
++On direct I/O to a raw block device, the file's write lifetime hint
++(F_SET_RW_HINT) takes precedence over the cgroup value; the cgroup
++value only applies to writes that express no stream.
++
+ PID
+ ---
+=20
+diff --git a/block/Kconfig b/block/Kconfig
+index 70e4a66d941ff..558d1251c4343 100644
+--- a/block/Kconfig
++++ b/block/Kconfig
+=40=40 -170,6 +170,22 =40=40 config BLK_CGROUP_IOPRIO
+ 	scheduler and block devices process requests. Only some I/O schedulers
+ 	and some block devices support I/O priorities.
+=20
++config BLK_CGROUP_IOSTREAM
++	bool =22Cgroup I/O controller for assigning a per-device write stream=22
++	depends on BLK_CGROUP
++	help
++	Enable the io.stream interface that lets a cgroup associate a
++	block-layer write stream tag with a specific block device. Writes
++	attributed to the cgroup then carry that tag via
++	bio->bi_write_stream. This covers direct I/O issued by tasks in
++	the cgroup as well as buffered writeback owned by the cgroup
++	(which requires CONFIG_CGROUP_WRITEBACK), so devices that support
++	write streams (e.g. NVMe FDP) can group similarly-aged data into
++	the same reclaim unit, reducing write amplification and tail
++	latency for multi-tenant workloads.
++
++	If unsure, say N.
++
+ config BLK_DEBUG_FS
+ 	bool =22Block layer debugging information in debugfs=22
+ 	default y
+diff --git a/block/Makefile b/block/Makefile
+index e7bd320e3d697..4b76d99bec298 100644
+--- a/block/Makefile
++++ b/block/Makefile
+=40=40 -21,6 +21,7 =40=40 obj-=24(CONFIG_BLK_CGROUP_RWSTAT)	+=3D blk-cgroup=
+-rwstat.o
+ obj-=24(CONFIG_BLK_CGROUP_FC_APPID) +=3D blk-cgroup-fc-appid.o
+ obj-=24(CONFIG_BLK_DEV_THROTTLING)	+=3D blk-throttle.o
+ obj-=24(CONFIG_BLK_CGROUP_IOPRIO)	+=3D blk-ioprio.o
++obj-=24(CONFIG_BLK_CGROUP_IOSTREAM)	+=3D blk-iostream.o
+ obj-=24(CONFIG_BLK_CGROUP_IOLATENCY)	+=3D blk-iolatency.o
+ obj-=24(CONFIG_BLK_CGROUP_IOCOST)	+=3D blk-iocost.o
+ obj-=24(CONFIG_MQ_IOSCHED_DEADLINE)	+=3D mq-deadline.o
+diff --git a/block/blk-core.c b/block/blk-core.c
+index 5054a6e21020c..ac346f8fe0aa9 100644
+--- a/block/blk-core.c
++++ b/block/blk-core.c
+=40=40 -51,6 +51,7 =40=40
+ =23include =22blk-cgroup.h=22
+ =23include =22blk-throttle.h=22
+ =23include =22blk-ioprio.h=22
++=23include =22blk-iostream.h=22
+ =23include =22error-injection.h=22
+=20
+ struct dentry *blk_debugfs_root;
+=40=40 -952,6 +953,7 =40=40 static void bio_set_ioprio(struct bio *bio)
+ 	if (IOPRIO_PRIO_CLASS(bio->bi_ioprio) =3D=3D IOPRIO_CLASS_NONE)
+ 		bio->bi_ioprio =3D get_current_ioprio();
+ 	blkcg_set_ioprio(bio);
++	blkcg_set_iostream(bio);
+ =7D
+=20
+ /**
+diff --git a/block/blk-iostream.c b/block/blk-iostream.c
+new file mode 100644
+index 0000000000000..c3577c0e24601
+--- /dev/null
++++ b/block/blk-iostream.c
+=40=40 -0,0 +1,315 =40=40
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Block cgroup policy that assigns a per-device write stream tag.
++ *
++ * The user writes =22MAJ:MIN <stream>=22 into io.stream of a cgroup. Writ=
+e
++ * I/O attributed to that cgroup then carries the tag via
++ * bio->bi_write_stream. This covers direct writes issued by tasks in
++ * the cgroup and buffered writeback owned by the cgroup (wbc_init_bio()
++ * re-associates writeback bios with the writeback owner's blkcg_css).
++ * Devices that support write streams (e.g. NVMe FDP) translate the tag
++ * into a placement identifier so similarly-aged data ends up in the
++ * same reclaim unit.
++ *
++ * Per-device entries are upserted, not appended: writing the same
++ * MAJ:MIN twice replaces the previous value. The default state of a
++ * cgroup is inherit, which adopts the parent's effective stream for
++ * that device. An explicit stream of 0 is a distinct configuration
++ * that pins the cgroup to the device default stream and blocks
++ * inheritance. Writing =22MAJ:MIN inherit=22 restores the default
++ * inherit state.
++ */
++
++=23include <linux/bio.h>
++=23include <linux/blk-mq.h>
++=23include <linux/blk_types.h>
++=23include <linux/blkdev.h>
++=23include <linux/kernel.h>
++=23include <linux/module.h>
++=23include <linux/rcupdate.h>
++=23include <linux/seq_file.h>
++=23include <linux/slab.h>
++=23include <linux/string.h>
++
++=23include =22blk-cgroup.h=22
++=23include =22blk-iostream.h=22
++
++static struct blkcg_policy blkcg_policy_iostream;
++
++/*
++ * Per-(cgroup, device) data. The first member must embed
++ * struct blkg_policy_data so the blkcg core can hand us a pd pointer
++ * that round-trips through container_of().
++ *
++ * =40stream is the whole policy state in a single word:
++ *
++ *	IOSTREAM_INHERIT (-1): the default state; adopt the parent's
++ *			      effective stream for this device.
++ *	0:		      explicit device-default placement; a real
++ *			      entry that stops the inheritance walk.
++ *	1..max_write_streams:  explicit stream identifier.
++ *
++ * Writers are serialized by the queue lock, which blkg_conf_prep()
++ * holds until blkg_conf_unprep() (see iostream_write()). A lockless
++ * READ_ONCE() of the single word therefore yields either the previous
++ * or the new complete configuration, never a mix of both.
++ */
++=23define IOSTREAM_INHERIT	(-1)
++
++struct iostream_grp =7B
++	struct blkg_policy_data	pd;
++	int			stream;
++	struct rcu_head		rcu;
++=7D;
++
++static struct iostream_grp *pd_to_isg(struct blkg_policy_data *pd)
++=7B
++	return pd ? container_of(pd, struct iostream_grp, pd) : NULL;
++=7D
++
++static struct iostream_grp *blkg_to_isg(struct blkcg_gq *blkg)
++=7B
++	return pd_to_isg(blkg_to_pd(blkg, &blkcg_policy_iostream));
++=7D
++
++static struct blkg_policy_data *iostream_pd_alloc(struct gendisk *disk,
++						  struct blkcg *blkcg,
++						  gfp_t gfp)
++=7B
++	struct iostream_grp *isg;
++
++	isg =3D kzalloc_node(sizeof(*isg), gfp, disk->node_id);
++	if (=21isg)
++		return NULL;
++
++	return &isg->pd;
++=7D
++
++static void iostream_pd_init(struct blkg_policy_data *pd)
++=7B
++	struct iostream_grp *isg =3D pd_to_isg(pd);
++
++	isg->stream =3D IOSTREAM_INHERIT;
++=7D
++
++static void iostream_pd_free(struct blkg_policy_data *pd)
++=7B
++	/*
++	 * blkcg_set_iostream() dereferences the pd from the bio submission
++	 * path under rcu_read_lock() without holding the queue or blkcg
++	 * lock, so the memory must survive an RCU grace period after it is
++	 * detached from blkg->pd=5B=5D. This covers both free paths:
++	 * blkcg_deactivate_policy(), which frees the pd immediately while
++	 * bios may still be in flight, and blkg_free_workfn(), which only
++	 * runs once the last blkg reference (including the one held by any
++	 * in-flight bio) is dropped.
++	 */
++	kfree_rcu(pd_to_isg(pd), rcu);
++=7D
++
++static u64 iostream_prfill(struct seq_file *sf, struct blkg_policy_data *p=
+d,
++			   int off)
++=7B
++	struct iostream_grp *isg =3D pd_to_isg(pd);
++	const char *dname =3D blkg_dev_name(pd->blkg);
++	int stream;
++
++	/*
++	 * Called under rcu_read_lock() from blkcg_print_blkgs(), so the
++	 * pd dereference is safe against iostream_pd_free(). Report every
++	 * explicit configuration, including an explicit stream 0, so the
++	 * readback reflects what was written.
++	 */
++	if (=21dname)
++		return 0;
++
++	stream =3D READ_ONCE(isg->stream);
++	if (stream =3D=3D IOSTREAM_INHERIT)
++		return 0;
++
++	seq_printf(sf, =22%s %u=5Cn=22, dname, stream);
++	return 0;
++=7D
++
++static int iostream_show(struct seq_file *sf, void *v)
++=7B
++	blkcg_print_blkgs(sf, css_to_blkcg(seq_css(sf)), iostream_prfill,
++			  &blkcg_policy_iostream, 0, false);
++	return 0;
++=7D
++
++static ssize_t iostream_write(struct kernfs_open_file *of, char *buf,
++			      size_t nbytes, loff_t off)
++=7B
++	struct blkcg *blkcg =3D css_to_blkcg(of_css(of));
++	struct blkg_conf_ctx ctx;
++	struct iostream_grp *isg;
++	char *body;
++	unsigned int v;
++	char dummy;
++	int ret;
++
++	blkg_conf_init(&ctx, buf);
++
++	ret =3D blkg_conf_open_bdev(&ctx);
++	if (ret)
++		goto out_finish;
++
++	/*
++	 * The policy is activated lazily on first use of io.stream for a
++	 * given disk, mirroring blk-throttle's blk_throtl_init() pattern.
++	 * Devices that do not support write streams are rejected up front.
++	 */
++	if (=21bdev_max_write_streams(ctx.bdev)) =7B
++		ret =3D -EOPNOTSUPP;
++		goto close_bdev;
++	=7D
++
++	if (=21blkcg_policy_enabled(ctx.bdev->bd_queue, &blkcg_policy_iostream)) =
+=7B
++		ret =3D blkcg_activate_policy(ctx.bdev->bd_disk,
++					    &blkcg_policy_iostream);
++		if (ret)
++			goto close_bdev;
++	=7D
++
++	ret =3D blkg_conf_prep(blkcg, &blkcg_policy_iostream, &ctx);
++	if (ret)
++		goto close_bdev;
++
++	isg =3D blkg_to_isg(ctx.blkg);
++	body =3D strim(ctx.body);
++	ret =3D -EINVAL;
++
++	if (body=5B0=5D && =21strncasecmp(body, =22inherit=22, 7) && body=5B7=5D =
+=3D=3D '=5C0') =7B
++		/* restore the default inherit state */
++		WRITE_ONCE(isg->stream, IOSTREAM_INHERIT);
++		ret =3D 0;
++	=7D else if (sscanf(body, =22%u %c=22, &v, &dummy) =3D=3D 1 &&
++		   v <=3D bdev_max_write_streams(ctx.bdev) &&
++		   v <=3D U8_MAX && v =21=3D WRITE_STREAM_NONE) =7B
++		/*
++		 * bi_write_stream is a u8 that reserves 255
++		 * (WRITE_STREAM_NONE) as the =22unset=22 sentinel, hence the
++		 * U8_MAX bound and the WRITE_STREAM_NONE exclusion: a
++		 * device advertising more than 254 streams cannot have
++		 * its stream 255 selected through this interface. The
++		 * single-word =40stream state and its locking are
++		 * described at struct iostream_grp.
++		 */
++		WRITE_ONCE(isg->stream, (int)v);
++		ret =3D 0;
++	=7D
++
++	blkg_conf_unprep(&ctx);
++
++close_bdev:
++	blkg_conf_close_bdev(&ctx);
++out_finish:
++	return ret ?: nbytes;
++=7D
++
++/**
++ * blkcg_set_iostream - apply the cgroup's per-device write stream to a bi=
+o
++ * =40bio: the bio about to be submitted
++ *
++ * Called from bio_set_ioprio() in the submit_bio() path with
++ * bio->bi_blkg already attached (see bio_associate_blkg() in
++ * bio_init/bio_reset). All write bios funnel through this hook: direct
++ * I/O issued by tasks in the cgroup and buffered writeback owned by
++ * the cgroup (wbc_init_bio() associates writeback bios with the
++ * writeback owner's blkcg_css, which requires CONFIG_CGROUP_WRITEBACK).
++ * Reads are naturally skipped by the op_is_write() filter. Devices
++ * that do not advertise write streams are skipped.
++ *
++ * Inheritance: the walk visits the bio's blkg and its ancestors and
++ * stops at the first one with an explicit entry for this device. A
++ * cgroup in the default inherit state (no entry) adopts the parent's
++ * effective stream; an explicit 0 is a real entry that stops the walk
++ * and pins the bio to the device default stream.
++ *
++ * Precedence: if the bio already carries a concrete bi_write_stream
++ * (i.e. anything other than WRITE_STREAM_NONE, e.g. set by an io_uring
++ * per-I/O write attribute), leave it alone =E2=80=94=20the=20more=20speci=
+fic=20source=0D=0A+=20*=20wins.=20The=20cgroup=20value=20only=20fills=20in=
+=20a=20bio=20that=20expressed=20no=20stream.=0D=0A+=20*=20A=20residual=20WR=
+ITE_STREAM_NONE=20(no=20issuer=20stream=20and=20no=20cgroup=20stream)=0D=0A=
++=20*=20is=20resolved=20to=20the=20device-default=200=20later=20in=20the=20=
+submit=20path=0D=0A+=20*=20(submit_bio_noacct_nocheck()),=20so=20the=20driv=
+er=20never=20sees=20the=20sentinel.=0D=0A+=20*=0D=0A+=20*=20Locking:=20the=
+=20blkg=20and=20its=20->parent=20chain=20are=20stable=20for=20the=20lifetim=
+e=0D=0A+=20*=20of=20the=20bio's=20blkg=20reference=20(blkg_tryget_closest()=
+,=20blkg_get(parent)=0D=0A+=20*=20at=20creation),=20but=20the=20per-device=
+=20policy=20data=20is=20not:=20it=20can=20be=20freed=0D=0A+=20*=20by=20blkc=
+g_deactivate_policy()=20while=20a=20bio=20is=20still=20in=20flight.=20The=
+=20pd=0D=0A+=20*=20is=20therefore=20only=20dereferenced=20inside=20an=20RCU=
+=20read-side=20critical=0D=0A+=20*=20section,=20pairing=20with=20the=20kfre=
+e_rcu()=20in=20iostream_pd_free().=20The=0D=0A+=20*=20enabled=20check=20is=
+=20repeated=20inside=20the=20RCU=20section=20so=20the=20walk=20cannot=0D=0A=
++=20*=20race=20past=20policy=20deactivation.=20See=20struct=20iostream_grp=
+=20for=20the=0D=0A+=20*=20locking=20of=20the=20single-word=20policy=20state=
+.=0D=0A+=20*/=0D=0A+void=20blkcg_set_iostream(struct=20bio=20*bio)=0D=0A+=
+=7B=0D=0A+=09struct=20blkcg_gq=20*blkg=20=3D=20bio->bi_blkg;=0D=0A+=09int=
+=20stream=20=3D=20IOSTREAM_INHERIT;=0D=0A+=0D=0A+=09if=20(=21op_is_write(bi=
+o->bi_opf))=0D=0A+=09=09return;=0D=0A+=09if=20(bio->bi_write_stream=20=21=
+=3D=20WRITE_STREAM_NONE)=0D=0A+=09=09return;=0D=0A+=09if=20(=21bdev_max_wri=
+te_streams(bio->bi_bdev))=0D=0A+=09=09return;=0D=0A+=0D=0A+=09rcu_read_lock=
+();=0D=0A+=09if=20(blkcg_policy_enabled(blkg->q,=20&blkcg_policy_iostream))=
+=20=7B=0D=0A+=09=09/*=0D=0A+=09=09=20*=20Walk=20up=20to=20find=20the=20firs=
+t=20ancestor=20with=20an=20explicit=0D=0A+=09=09=20*=20entry=20for=20this=
+=20device,=20including=20an=20explicit=200.=0D=0A+=09=09=20*/=0D=0A+=09=09w=
+hile=20(blkg)=20=7B=0D=0A+=09=09=09struct=20iostream_grp=20*isg=20=3D=20blk=
+g_to_isg(blkg);=0D=0A+=09=09=09int=20s;=0D=0A+=0D=0A+=09=09=09if=20(=21isg)=
+=0D=0A+=09=09=09=09break;=0D=0A+=09=09=09s=20=3D=20READ_ONCE(isg->stream);=
+=0D=0A+=09=09=09if=20(s=20=21=3D=20IOSTREAM_INHERIT)=20=7B=0D=0A+=09=09=09=
+=09stream=20=3D=20s;=0D=0A+=09=09=09=09break;=0D=0A+=09=09=09=7D=0D=0A+=09=
+=09=09blkg=20=3D=20blkg->parent;=0D=0A+=09=09=7D=0D=0A+=09=7D=0D=0A+=09rcu_=
+read_unlock();=0D=0A+=0D=0A+=09if=20(stream=20=21=3D=20IOSTREAM_INHERIT)=0D=
+=0A+=09=09bio->bi_write_stream=20=3D=20stream;=0D=0A+=7D=0D=0A+=0D=0A+stati=
+c=20struct=20cftype=20iostream_files=5B=5D=20=3D=20=7B=0D=0A+=09=7B=0D=0A+=
+=09=09.name=09=09=3D=20=22stream=22,=0D=0A+=09=09.flags=09=09=3D=20CFTYPE_N=
+OT_ON_ROOT,=0D=0A+=09=09.seq_show=09=3D=20iostream_show,=0D=0A+=09=09.write=
+=09=09=3D=20iostream_write,=0D=0A+=09=7D,=0D=0A+=09=7B=20=7D=20/*=20sentine=
+l=20*/=0D=0A+=7D;=0D=0A+=0D=0A+static=20struct=20blkcg_policy=20blkcg_polic=
+y_iostream=20=3D=20=7B=0D=0A+=09.dfl_cftypes=09=3D=20iostream_files,=0D=0A+=
+=0D=0A+=09.pd_alloc_fn=09=3D=20iostream_pd_alloc,=0D=0A+=09.pd_init_fn=09=
+=3D=20iostream_pd_init,=0D=0A+=09.pd_free_fn=09=3D=20iostream_pd_free,=0D=
+=0A+=7D;=0D=0A+=0D=0A+static=20int=20__init=20iostream_init(void)=0D=0A+=7B=
+=0D=0A+=09return=20blkcg_policy_register(&blkcg_policy_iostream);=0D=0A+=7D=
+=0D=0A+=0D=0A+static=20void=20__exit=20iostream_exit(void)=0D=0A+=7B=0D=0A+=
+=09blkcg_policy_unregister(&blkcg_policy_iostream);=0D=0A+=7D=0D=0A+=0D=0A+=
+module_init(iostream_init);=0D=0A+module_exit(iostream_exit);=0D=0Adiff=20-=
+-git=20a/block/blk-iostream.h=20b/block/blk-iostream.h=0D=0Anew=20file=20mo=
+de=20100644=0D=0Aindex=200000000000000..eb3ca243ad791=0D=0A---=20/dev/null=
+=0D=0A+++=20b/block/blk-iostream.h=0D=0A=40=40=20-0,0=20+1,18=20=40=40=0D=
+=0A+/*=20SPDX-License-Identifier:=20GPL-2.0=20*/=0D=0A+=0D=0A+=23ifndef=20_=
+BLK_IOSTREAM_H_=0D=0A+=23define=20_BLK_IOSTREAM_H_=0D=0A+=0D=0A+=23include=
+=20<linux/kconfig.h>=0D=0A+=0D=0A+struct=20bio;=0D=0A+=0D=0A+=23ifdef=20CON=
+FIG_BLK_CGROUP_IOSTREAM=0D=0A+void=20blkcg_set_iostream(struct=20bio=20*bio=
+);=0D=0A+=23else=0D=0A+static=20inline=20void=20blkcg_set_iostream(struct=
+=20bio=20*bio)=0D=0A+=7B=0D=0A+=7D=0D=0A+=23endif=0D=0A+=0D=0A+=23endif=20/=
+*=20_BLK_IOSTREAM_H_=20*/=0D=0A--=20=0D=0A2.43.0=0D=0A=0D=0A
