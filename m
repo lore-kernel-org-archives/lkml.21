@@ -1,101 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795463738;
-	b=5OfdBe0MKME4sNUSIUmsr0SVsR/Jr5ZiqjHgvqKxdOqbd4r6u607JRnbyk/BQtm81cTc
-	 FFO/MQXeicGWWkuX0XMmVDHEXnq45TTYqnN9VQKsX/6Vk8xWEhmZYKEEKvTauAMgK31s/
-	 Ozodd8kyIYw8uF4VxcYdIxE2/q8imVwuXxfRa40jRJKy+zvIw/rZQgpDHnlp7ix74P1pD
-	 Yu+76gY626VtZezzHck+6FGfAjlpECXWnU+AZfGNFDfm0QodR/Hzf2yK3VG9TMS9iunED
-	 NGLv+G/uAPbYjSJYsefZKC2e4IPVlEUmiRFmq6q9h+LngLaMniEKKp6Gg3aDv72nM7A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795463738;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795463766;
+	b=ct1n95AXxu3h2KFQo3fPbd4gH7Sdu1gMLuA0lq6dJOYQKnNUMpwRRNXlv4YhOZmlw/7g
+	 5Mo5eooWtI5zbAWGJi8hqkqkVbYhZq+eBgVtD4Mfyt2qyFO0OzQIn7AICEk28OWTJBlpR
+	 ZKq5ns+DmbjhXP+eq173cYOOvjrJijZAbxBIOw/GZhtj/Mzd/R/S6OwHGWA1PJ/zFVcer
+	 EEqJCE5c3EgdcWB9heCqnNAk4eLV2P8gP0JtmySKFEQo9yI8UyTK4ppYXFhYeWiTozbU2
+	 CJNUouEiirQ01zPWwIVCBIDqghB/aBDEB0nG425omwtN3tk3vPaf9G/QlPQ9o/m9NMg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795463766;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Gd5vkS8rekRzrNw14AZBHfRH+N9fBKRzF69D+TwAlOc=;
-	b=iWG+KoXHgh++Cc6NzBbOh3nKXMDN8eYg6VCOc70Ko/YshxbJPm0hkYzW9rPcGiPP6FvR
-	 PUCWSv+SXPzIt/o8VHWycepnoVyVObfJ35BkxTEUsTC6rRKIq+t9h8/EY0Hkbz3MwNYu6
-	 nhPx6B4v4NX6Dsums/xDoeu2Az8ny+Ixk+AKakYviXnmI9Q43CE+tBXnQmS09RiP9gOZC
-	 cGFLt3MrYYlVENBA+dPr1+S2lnW0Xj9Z1Yu6QIgz1ymLx7Zq7SHZhU5Vg3x5qKS9grzFm
-	 m/GvXjDRTA9h11wWsk0wDO+FBJVpyeJPAbA+WJphH+wbv2IavSoZL9bxl68+0+ZpcPw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=1MbpLLQj1VpGSo6dlmyla02LckOZ3odw3KGGh5M7V2Y=;
+	b=eYCwNe/aCqhaoI8pk7BJ9sqhSTbRViG5TgPPh/1fjQHQhy2dbERfhzFQA+uCCQzPgP59
+	 gxGtlQPMM68yVfxF+VGbtPjcKpxhaBEFWE+sbDjluP+fF6ZdyMVMOQwXmbQ1jGseCe3bo
+	 tIlqXn/sD3ZJ70zl1EdLAE3eOYclxiq6RGxvqvcG00B425Pip1mdISyK/uyxlA+wWZ6/6
+	 eUpyD1NOpyxWb38BOqyqgSv/NetCqGAMzY2xscj8UrQNGPhzR20FMsB73oqyylKJLqW+e
+	 C7/VOxPApnWMBtTlrxKChzGf5/ROLVgiw96hylCKMsX/FGY0PVNZo3tkUSoTrDGc/ew==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=klX4BZ2S;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.45
-Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ILRa8rMf;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54156606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:55:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54156606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7546A606A33C
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:56:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7546A606A33C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=klX4BZ2S
-Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-4a3e706b5dfso2449855f8f.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:55:38 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795463737; cv=none;
-        d=google.com; s=arc-20260327;
-        b=hfxTx9OjOjboGX1meob+1Y8QrZC56LsNuQlpntlpvNgVAJer2wZdPVEFA2nbSuYr4k
-         lkbe1j9iiaX8MwINiV5Bf5uTw1MA48RMf/7gk1AhxHQVlq6TIitU2MPeo1nxy0d+v7Rh
-         warwLJYcGCVbscmLhRGk4vOjXuzKXge5VUHJDSWhz2Y49EQF35TVLgqrQBLf/PIS2KJ1
-         YL7dceEqcLIYp48hLTU/IB+USFhvkUXJ48jfZqIZsaCsAvVevgVuqN6zmWTzwVcnYUqU
-         8sIRr/FnvOHIVBQ5/T+bCnvHOBhuvq1HLUX8MRLmqpUKEs0HKH4oRKig/Ae05T+Avh0U
-         Dm1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Gd5vkS8rekRzrNw14AZBHfRH+N9fBKRzF69D+TwAlOc=;
-        fh=vqqNJKISnVoxrzlv+gBie7Y8rM5FIOIsA1i7yiCTPKY=;
-        b=RyYBZtZieHOj92T7KIrxgluCE3jE7/6zYpIPkYX7rePC+eO+40qE48mEuV6aTOdX40
-         YfvfQKoj8OjfXoPoTej8mnRPYiUiSHgHGStj/ICnjVsFviLyM6k46wvDdtaJ7I4DaKi7
-         RLY/9hJ+wXSBuE20Vc+ccKuf4DqW/o3GyyVC8FvUdMfCDfNAservVUqEZAFfgfDiQoQJ
-         rPJ0HQmMYrL9Tm/12eUU/ili0S0+QNJwbxQV+T8PIpEioFBN/aj2phxGlR2DS0d3Rlse
-         4WgiB7erdEdFyIn0EF8KOWN0w6alAhymvnI2dHLVzYuL54gquAwxR2NKdFoI4Zyxbf/l
-         4+rw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ILRa8rMf
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso35901325e9.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:56:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795463737; x=1796068537; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795463761; x=1796068561; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=Gd5vkS8rekRzrNw14AZBHfRH+N9fBKRzF69D+TwAlOc=;
-        b=klX4BZ2SJNTMSrywDGSIV/16noC15wpAvjoBOkCL6VprZy61rDcD9QTHuztfR9Tuzg
-         ya2nK4c06Oxw/VjQ01rYZooWGjRYhIlcehQDLDYYHAihJcTUhaX+DcZEH7BVZC7b8DdI
-         3VE9xpA6SNF0jRhObUVsSkdyTgO/dD9XZSshAODtcgr/63eyBQDMfk2w21S/AWnlOAmx
-         C6Nxy8ygfimfdk7a67J7QXglsWVIVZ87KpZL0j3iWCA02hOY1H6mCULb6CwOnFGgqsaJ
-         Z1GsKqUmNaVZa85kFWwKTasKVepJYI+oWjQPr8BOLjrBomj0HKFEKJN0TbNA9qYZJyZo
-         rGiQ==
+        bh=1MbpLLQj1VpGSo6dlmyla02LckOZ3odw3KGGh5M7V2Y=;
+        b=ILRa8rMfEQRXX8PcvtS2W7TKDKsM/DcDJL5LU18Pte2U3PaLYKSECik2nz2JiQebGB
+         h8U3yV6/FiIFQ2ZDOyRMyEX+8hp3azU5Girn+v8Y2xGN9J2Z2eVmV3Tq/PwodzA+8cfD
+         w8ReIPvGA0X+f6F0X2YkV7fIkV3M7BgT+20Nw8w/o2zGFYbHApXNxHMEf+s3Ry9Ptf01
+         u3ctDnm6bVmTmpv/ngofyCrsB2nhuyJfhkUoT2h1TGQblcjuPDkKDkopCxBxnpZYDdn7
+         XI0GrpacwDINdZe30tCByNNsUhEC5sXD8qUQ5v+TUmA7KhsksF5KZR9hdFHNtPGKhK90
+         hUmQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795463737; x=1796068537;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795463761; x=1796068561;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Gd5vkS8rekRzrNw14AZBHfRH+N9fBKRzF69D+TwAlOc=;
-        b=HNtUC5KRVwloqRzKOPUG7WTmob6CnpwqrVI9N4uiS8bHuzJmjzuahuV1dQQE7t3ZIj
-         yMMsZpcWqhZmAVnZ9GjkzLPBc05BOmIdjn/AYgIhegobeef6CKS6PXcmTvrsMAeR8PDi
-         2GMGi0JrcJLbxzkLBd59macLeFKG8foNJaXbZ6pLXoPcH9tj6PhVk22VSxnFX7RmNReI
-         nhhLvHCHZ7x2lBZhDpPjv9WGdEKiSBvARol3RbiMpT6N/UFmoJ+4QBnF1sboU/ZksuDb
-         lryv92P5bBD3nHe9U4KeOijXDuNByOV38heChj1YPWhCGeVcxAFJaSfBxXIQrHHicWRl
-         IqyQ==
-X-Forwarded-Encrypted: i=1; AL+hErEjXmLu/C54TOa7Xn/mjvLHeUxt8RJX6hdqf0sO3n4pMDq0cGJNGPndwMuGExW3RWRAUk0X3D3Ge+oYReI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/htNULyfuxmukETW6XcmbDrcURo2oLyXiKY4TXpqIXWezc4mor
-	EAn3vjz1D8gIkq0T4nT5lxd7qvFRIKqVuMD+/ULZIsDD0B50TaVlhC4OKvnEP5EwJg+wDysXonz
-	n7VMAgCW5TvYKsdFtfluwGH3ygSEFVkM=
-X-Gm-Gg: AZFdTZfZDUGnS5aqYq1I6CDRqQ5L5G3h1eTZZgtoYteBCQ0eTu0aBSgoAVnzydZ0va1
-	5bJnKPhLRQkNxNMBBCT9ed4ZzhX/FbL8BFIuDMh6SwsxMkJ+QF2HcgOW4yztNr/xyFKeXWzlxsU
-	PbqFuCts7zQw54cu+tSsTknXBV1/OCFQk7gUiM85T6+1gWRpyyJsmUI1aCZyhzOYWNVx9kJsp/p
-	l+7o/Yhc8ur2JF0GJ3ailuAvyPcF4wRHHeVG4Y2NUox3SzTd6RwJqjCFPsrYpqLGKK3U9tJJ3RQ
-	8fLo0v8FOVqDRERcP54dOlPPRiCju+chlK+5YfQACUSiFzvye8+LnsXjS3aHwXHDWusTuT/3DuB
-	CUqg2KgCtfwpa83cso8t604Qg+98mPVNwZkT5cdUKiZmZf+8dz2SOWXseb34LgGipmHh1zjq9t4
-	vL6lDc/B6snupCSI/BE5bjTL4Logvf2ev3ug==
-X-Received: by 2002:a05:6000:29d2:b0:4aa:831a:d0eb with SMTP id
- ffacd0b85a97d-4abb3c37a50mr16976489f8f.9.1795463736432; Mon, 23 Nov 2026
- 11:55:36 -0800 (PST)
+        bh=1MbpLLQj1VpGSo6dlmyla02LckOZ3odw3KGGh5M7V2Y=;
+        b=yE8uaGJvRyK0v/B8lj8aAQmkpx65OoymSgVEYJ1FtLpm1mzll77xXbXuOn3KF6VfZy
+         TxqSnyF2/znKi3nn0BjrJIsKjnhO7i1dlx6HA9oJDtVtajLMuEuzDDSPTXcUH4TFgudK
+         fa1TQT2RozbTc6pjSMZQCjyaTPIv+uixgDQpaslEDu7LgeJOlHd4ZXsJJZGsG30H3oJF
+         Uezv5IUJh6th2mCuHwiVT77rSP9KTCRz9N0VQPW+HVN6LelCbhupKVdjD+/0KXYoZInA
+         A0qB+P4UxKLZ9+0hJExxhBaKdwtYmudol6s56GC9PeCdxkj+CfHyhl8MLHfc6YHrSnIQ
+         sQMQ==
+X-Forwarded-Encrypted: i=1; AL+hErE5yKoRkKnxHzhbUMb/mV4RkUWF2a4CMg3In9eVtUGyG9+tGjDGpJZLoX/e/ilbmAIzjc1ksCG41nMKoII=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9HYgaJkvLMl6RxKVITzjNwxYcOxG7ev8IT4l7SplRuqvvU37Vb
+	l/zmvIyNogO0CTTMr1CrVfsKJzBBfzAmrSHe2LDO5MJV3XBHLnfBItND7Wv0Bg==
+X-Gm-Gg: AZFdTZfVgxauFZXAmfhVE95arhW9lroMkClFsonAZ1ZcWDlyGrzp+MUqXvwtKtNOiiU
+	+eYhvEJscF2zJHIPqzfci0fyy6zj6hNGezk/pokc4Y+dW+i66TRyVm14IeaVHEpEkiRCmohAuW+
+	V/VPPjQc8dFPmtRxiS7IBT9bacGlufCciZisO/lq9oxYA836HZBZfUNy5lD84kC6IV9qch/lWPv
+	nd08AmE+XFb5S99tkDCA0e5wsIhjs+r53lr32KChdpGjKLBiOQoZF4j7mJiYWdfJDy+ZQIYfwyN
+	4LlqAdyBzVh1NWaBKHVdS8gvmhw+QHSKjsZ3ofX3ywtOiZ8m1orh/cz1a+K3homg6KcOfMIDkw/
+	ZpMKZUFgDF183IEUduJCn3iaMUDEmerJdjpXQ3wTXRMi5LqxqHphpZO7+6ls1J2vPW7k6RvugAZ
+	wItCC7Q6KbRgU1i9UkE36jcYby36aX2RaPeXX6h+EMz9wtjRHlf/mIeVU5J/GER8dlOamIKkOdX
+	pJ3cDabdK3qh3K1KfQ09sOxyOf0bCh8dzN3qADWuxPGTY1PX5kvSN+yRpd0w+E4IBSI8mmBVPyZ
+	KnPbkK63e0a3Ru5fdXH/0JOh+FZZUYkXCZE0Yu/O
+X-Received: by 2002:a05:600c:828e:b0:4a1:e6a9:4086 with SMTP id 5b1f17b1804b1-4bb88785a99mr241947155e9.0.1795463761275;
+        Mon, 23 Nov 2026 11:56:01 -0800 (PST)
+Received: from foxbook (bfh118.neoplus.adsl.tpnet.pl. [83.28.45.118])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884911e3sm445229305e9.6.2026.11.23.11.56.00
+        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
+        Mon, 23 Nov 2026 11:56:01 -0800 (PST)
+Date: Mon, 23 Nov 2026 20:56:04 +0100
+From: Michal Pecio <michal.pecio@gmail.com>
+To: Alex Kononov via B4 Relay <devnull+alex.albefly.com@kernel.org>
+Cc: alex@albefly.com, Mathias Nyman <mathias.nyman@intel.com>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] usb: xhci: Demote isoch buffer overrun message to debug
+ level
+Message-ID: <20261123205604.5bf490f0.michal.pecio@gmail.com>
+In-Reply-To: <20261123-xhci-overrun-dbg-v1-1-4e5a2f11740d@albefly.com>
+References: <20261123-xhci-overrun-dbg-v1-1-4e5a2f11740d@albefly.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,90 +99,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <d85ece6e-27f9-4d9f-83af-4101bc76fef6@app.fastmail.com>
- <356db94e-f5d6-4fb2-839a-b97aef72256b@app.fastmail.com> <CAHC9VhR9sjunJRnM9gy-BkBZkapQTrr8a8FtmaK7JkAmUqTrLA@mail.gmail.com>
- <CAEf4BzZKmn6g0SK8OddjKFj_vAmZFvpZv32Hs_S+GHgT7VNfrg@mail.gmail.com>
- <9d6bdc31-e57c-4187-be78-29d82471f710@app.fastmail.com> <9695ec3d-7b81-488d-989f-0bd411d673f2@linux.dev>
- <CAPa8sAh6b5xn4rZzPfM0nZ+_kkywWj22fy8deLq+6qYews0rdQ@mail.gmail.com>
- <MRYP264MB7057096D13282544720793F2E67A2@MRYP264MB7057.FRAP264.PROD.OUTLOOK.COM>
- <CAEf4BzZWEU24+ZC0W_20hc3t+qnEHncQA1ztTF7ZPPOf3DDPVA@mail.gmail.com> <CAHC9VhSFvOiP5Tyt=rOFMwg=Ro1jRw+hfcw4AdCkEyftZJHQCQ@mail.gmail.com>
-In-Reply-To: <CAHC9VhSFvOiP5Tyt=rOFMwg=Ro1jRw+hfcw4AdCkEyftZJHQCQ@mail.gmail.com>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Mon, 23 Nov 2026 11:55:24 -0800
-X-Gm-Features: Aa3M54rW4zsDQnYRhxM3Ycfdbtgyp7iJNkovd2OcGLgGuI-HlydZfB9BSFPhl3s
-Message-ID: <CAEf4BzZqjiWR4EzBFdV-czH-GnxqOeOAsMLgXtQ6TwN2ZiiT8w@mail.gmail.com>
-Subject: Re: [BUG] bpf, lsm: new first argument in 7.4 inode hooks silently
- breaks BPF LSMs
-To: Paul Moore <paul@paul-moore.com>
-Cc: Paul Mabileau <paul.mabileau@harfanglab.fr>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, Daan De Meyer <daan@amutable.com>, 
-	Ihor Solodrai <ihor.solodrai@linux.dev>, roblabla <linux@roblab.la>, 
-	"bpf@vger.kernel.org" <bpf@vger.kernel.org>, 
-	"linux-security-module@vger.kernel.org" <linux-security-module@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Andrii Nakryiko <andrii@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 19, 2026 at 11:37=E2=80=AFAM Paul Moore <paul@paul-moore.com> w=
-rote:
->
-> On Thu, Nov 19, 2026 at 12:59=E2=80=AFPM Andrii Nakryiko
-> <andrii.nakryiko@gmail.com> wrote:
-> > On Wed, Nov 18, 2026 at 7:14=E2=80=AFAM Paul Mabileau
-> > <paul.mabileau@harfanglab.fr> wrote:
-> > >
-> > > Hello,
-> > >
-> > > On our end, we also have already merged code to adapt our eBPFs to th=
-e argument order change. However, we would still prefer if this easily-avoi=
-dable breakage could be fixed by moving the argument to the end, even if it=
- means having to revert our fix.
-> > >
-> > > This is motivated by the fact that such a change is not made in place=
- on our end because we ship our software to environments we don't control, =
-meaning that any and potentially all versions ranging from 4.11 to the very=
- latest should be supported, so the change is made by compiling and shippin=
-g a new variant of the concerned eBPFs for the version interval it is valid=
- for (7.4+ in this case). And that has to be done every time there is an up=
-stream change like this, so the total installation size and overall complex=
-ity grows accordingly.
-> > >
-> > > If we could avoid that, especially for such trivial root causes, it w=
-ould be nice.
-> > >
-> >
-> > I agree, and that's why I'm asking Paul to accept the patch reordering
-> > the newly added argument before 7.4 final is released.
-> >
-> > I do not think that the maintainer's personal preference for argument
-> > ordering beats real user pain.
->
-> As stated several times in the past, the problem lies not with the LSM
-> framework but with the lack of an abstraction layer in the BPF LSM
-> providing a stable API.  As far as I can tell the lack of an
+On Mon, 23 Nov 2026 13:26:32 -0500, Alex Kononov via B4 Relay wrote:
+> From: Alex Kononov <alex@albefly.com>
+> 
+> An isochronous Buffer Overrun event means the device sent more
+> data than the TD could hold.
+> This is triggered by the device, not by a driver bug, and the
+> error is already reported to the class driver as
+> -EOVERFLOW in iso_frame_desc[].status.
+> 
+> Logging it with xhci_warn() can flood the kernel log.
+> A USB S/PDIF adapter (262a:9123) whose S/PDIF input loses its
+> signal produces this event on nearly every microframe,
+> about 7,200 messages per second, keeping systemd-journald
+> busy at 100% of a CPU.
+> 
+> Use xhci_dbg() like the other device-triggerable completion codes.
+> 
+> Suggested-by: Michal Pecio <michal.pecio@gmail.com>
+> Signed-off-by: Alex Kononov <alex@albefly.com>
+> ---
+> As suggested by Michal and agreed by Mathias in the discussion:
+> https://lore.kernel.org/linux-usb/2ffafaa3-bdea-4d67-b224-2f18d76134be@linux.intel.com/T/
+> 
+> COMP_BANDWIDTH_OVERRUN_ERROR is arguably device-triggerable as well and
+> has been reported to flood logs (https://bugs.debian.org/1035939);
+> I left it alone here. Happy to send a separate patch if you think
+> it should get the same treatment.
 
-I think the problem lies neither in the LSM framework itself nor in
-the BPF LSM in particular. Neither have any abstractions built on top
-of LSM hook prototypes to guard against argument reshuffling. And
-that's fine and basically inevitable. If you change LSM hook
-prototype, you'd need to adjust source code of all LSM frameworks
-relying on that LSM hook (which is easy for in-tree source code, of
-course). For BPF LSM, if argument is added at the end, that pain can
-be avoided completely.
+That's not device triggerable, it means URB size exceeded bandwidth
+allocation. Such URBs shouldn't pass validation by usb_submit_urb().
+Only a buggy host controller can produce this warning without any
+fault of the kernel.
 
-> abstraction layer in the BPF LSM is by design, and while that does
-> provide some advantages, one of the notable disadvantages is that the
-> API is unstable.  If you want to be upset at anyone, direct your
-> frustrations towards the design and current implementation of the BPF
-> LSM.
+My Etron does, when multi-TRB isochronous TDs are used. Apparently
+it doesn't support those, maybe it needs some ludicrous out-of-spec
+workaround. Sadly, patching qemu-xhci to pretend being Etron makes
+Windows bluescreen at boot, so IDK how / if Windows deals with the
+numerous bugs in those chips.
 
-What upsets me is that your personal grudges against BPF community
-(or, perhaps, just particular members of it, doesn't matter) gets in
-the way of doing the right thing as a maintainer and putting Linux
-users' pain above your personal preferences and/or dislikes. And
-hiding this behind "I like this specific order of arguments" or "BPF
-LSM should have better architecture" is just petty.
+If somebody sees this warning on current kernel releases with spec-
+compliant xHCI controllers, we would be curious to hear about it.
 
->
-> --
-> paul-moore.com
+Regards,
+Michal
