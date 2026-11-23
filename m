@@ -1,78 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.72
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795442242;
-	b=csBE4P65uehfwq0O2zY8RoB0OGj6ZH4amAztyNU807NQJGbZqunwVf9ES5HqYybgSYho
-	 VA0rxSH57pcp7bqQMOerqnmTtYfxDM3FiEJJD/d5op6M552YnjCeSM9iszU7ml8dy2gnU
-	 +d/uSNvIyNgEKft41tIW6Tp9M1QUa7qpBunkAuj+YEOQ0QqsCXaFNgVjBNuJPy/lIBQLC
-	 ci7meeZag2s3twArNGXPU6Xtc1fcEr+Q2+poIPB30tcYeDQwlKKEal05LHbJRw2/xl/uJ
-	 /hcAtF9nliEBvDgq9AbvimKPw0D5/r+SbexMLbImu+ptO6WuR1TB8kWCh7w491ASURA==
+	t=1795442252;
+	b=3TjeM5O3jvUeAmBbetyB1tah7GrmgU2ijqx6YqxFfJBMvUbj+hMzRjQpbPYqj4VKAB/N
+	 Xx1lf7G5242jRokOKTvL7qTp08UkurVy5sH2ZYjHTqnNC8amneVqoVjN1g3XZBfE94Tn4
+	 nLWqlweWELzVt1hPqgXm61H/EbAEKpmWPk41MdCSM0M47JRuLFoXWN6GNY3hLe6j/hTKD
+	 NQroHH6I1C9CRY/6vvLYumy91AnC3mkgSM3bx1Wn70O8tyo6I8QvGTF/hVdiepenqcXyI
+	 sOjg+kdTfLwPd8SxU4QLv46bZY51cS5FWG4Vd/7kaR67hpjdE0tdqklAx/et6psz3AA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795442242;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=oXuuckTvGczOJsjM6e+2rqbUWut7YDoeHY3ZcMcgqtw=;
-	b=eRTAPxxFL/urk14pWa840MP5Kk4oSWYueRZluUpKXslt6KC0+/5Q03X60QU/FocNONpr
-	 gLoNPm3Spub3iobm3kq4l3GXsjBXlAhhOqICQzT96unbeKU2LrtZ+Ns8WaIZ0DGSwcXwo
-	 Y67A97ci+5G+xBu7MdKN43uQS/qdcXz0rOayBC16T8h4RS5h83667f/u/PoRsIahKmlVI
-	 9jQGVD1lTfQHQePC/HloC2ZB6ZhXUnuMp4MK+nOfQh7rsVSe/BSX5kVEhR1z9Ppjx6R5e
-	 cF6mJecy+XuZFQdlk26gavQ5Hyi7kpAHUpix/MhRYUyLR10/m+sTap++sXZEg37v8BQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795442252;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=/dY9JgruKbWx4GdY/zRzxoDiMmuXM1kyEY9Ljq27QPc=;
+	b=Lg1ybD1rSRHxORx9jIOBdjxtMmjbi0kYIWZ4js7ClasOu0hHgqZ3P3wVaJR5mJR5yA8o
+	 9FNQfQPwgsPmWfecajvVabrRNHUwMtdrAlxq8niVGyaDOkp5cJxld1orVJaKhN9ZLpy9P
+	 Btjuqk6NU+ASnSsLQJXpoaMuJOjbStbTB9YdfqinOa0qGGazD5uMOBdIE2sGNT/nBGt0n
+	 QdbOAfB0q/WRpqStO/j5NvHE9WyWrb3eE1X3y/d6nWbC0E7rsFAY3HiM6gKUOadOtzh+o
+	 SI+ohpS7r/RotXMCbcaYsox9lmbDQjDbncKxcZf46dHsTEOgSdYT9Khc5a6Q8n8ycSQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dEZxKNH7;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=Bc5ftud9;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.72
+Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022072.outbound.protection.outlook.com [40.107.193.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49A95606A33A;
-	Mon, 23 Nov 2026 13:57:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96216606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:57:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96216606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dEZxKNH7
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795442241;
-	b=KvVwlDYf+XW4THnrLI7X12dt6bsXfM612oFb02XWqCdV7FnHs1pdJgWBQt88zD3DzP9T
-	 wJrdpIV5PxTWaRL6lP0gHARgptA2oL7M3zyLfpBnd1RauiwEpzaLhC/tHWVUK9xCGTTBs
-	 GBWzS4xhGEOQBaW0SwH+paJICwwPjxwL7n6NauBV7b6k6zQuJhmXnVF9cjmz/lD7UD1NL
-	 +9Sz3ePehaJvxZmX6M57JORswKKLg+5HpPkVS4EyzcVFnywQdEC+9St79DT8ASVByUm2A
-	 ktp71ZBv58faoIIjl3kHnxQY8SDI33sOaSzqQJ3TxYxiom2w3GW3BACWwqS8Rw0VQkw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795442241;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=oXuuckTvGczOJsjM6e+2rqbUWut7YDoeHY3ZcMcgqtw=;
-	b=L/3kLN/rhrYQXw9GwgJ2FpZw1kYxUnhmnv3BnqAalNW28aXcWm7V8mctdWPj0q1PqDJP
-	 ruMQakUTUH9U3gwjixo+6x6NI8uYhQkil/xSxZY3hKrJm7XefX9QvLrm8AhO0+ClkoRXk
-	 BX0iXhdF33KmazgcTnjnDS085r6JsmmNM4JpfW3epLtmFOHZMhCnUGrnlPRmsGi0osp/X
-	 rwnzFcOrcQsdxTdMV/e27x6mV2BYT5BG7z+2rOA31HOijp8LAVWwZL61zUMm8eZpwFz/u
-	 9t0zr5UqgaXOgD5HvwOi/8uL7THJUyt8+/8d2ZNvQO+PXSXh28uLaKcltaePfcXsT4w==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 019941F0093E;
-	Mon, 23 Nov 2026 13:56:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795442241;
-	bh=oXuuckTvGczOJsjM6e+2rqbUWut7YDoeHY3ZcMcgqtw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=dEZxKNH73PfBtorU+i74AZ+Jjj3e2T54LEROGumH6m0I60lKHqagSRauJVPv9pwzO
-	 QKGg++cduSIwAMlLk2GcpuarGilPaPk0jpCVWqUoL10GgnfeB+XltLtc9FUTQHx7dK
-	 ZSk6FS4Na2hYv1/2pEr2560XwCcSVIFpU5YzwXUp5NjNdm0s1RX6Rbpmkgcdb1sTz6
-	 fp44NL5oSSwu4b6x7C/Es5ZaGQJdD4M3pI1BOdrfiefz2AEFNtmj79VYwLoOYw4Qk6
-	 VGLGkAcd5A3OkRaawF2S33IgjM3hsE6EyIVHbjOX3eiVa/4+3nGsKIH//mDrUsqodD
-	 Nbktz2HscRlMA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 7EAF24C4C4;
-	Mon, 23 Nov 2026 13:56:52 +0000 (UTC)
-From: Ziqiang Xia via B4 Relay <devnull+xiazq123666.gmail.com@kernel.org>
-Date: Mon, 23 Nov 2026 05:56:52 -0800
-Subject: [PATCH v2 2/2] platform/x86: Add Emdoor Intel EWMI platform driver
+	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=Bc5ftud9
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=w0pKpZscZz9kSI8vzG4iBV9vc3cnIwRL4dUPR7gdSE5BOGW3IBe6aaDI9cUVDonSejS2YSmjUmLQRJNq8OeIChEfLvTOvqEaHR/4GGIwICTuyfJtKDMYh14RqoNl3NE2pHBtHTbiGaughLHpTQhp6EP4XbqSwNkSYhbVq0D6/V9gOFfh4fqm6AjbDq5W3OWf2q7vW1WQ8Bc1sMN7NKQTMDq99vpavvhuK2FR7D+wiIVDb/VgfM2cgipsA96SLUGaz19FejfQWZ78RgiKrzlt3rlG3/mdNXY7RDnzBxF5crwNCWdevHQofY2OC2AA5BIZHnwoTYC8EMIn0FUarQaWNg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/dY9JgruKbWx4GdY/zRzxoDiMmuXM1kyEY9Ljq27QPc=;
+ b=U57gdq1nrGUm+tMpDVFPTmqVX+ve+dZfG+BSqUGkg3DeqmGlaN3BTjGgfAjR58Rb/bIC4gGT1Oez2Z3AEwCK+j57zk3UeSuXLgKq8ysLJXse9ZKtxFWkcv7ze1KmDmV9sJqSR+d17zxtMY+ICwULKl7XMmVl5QYPIZxbAHH0yjMUp0aZyJ4UBZ/1/sxuYu560x4dAX7/y9NqUK9WmPmTX2sBaC2GaXFC1836FygfxZ4/0EnO32KVDb3CAaEWi7eQUX2nAafggyyE4TBEr1yLDaWcpAYKaq3WlZG8JLgFqN6jj5qzdOl3UwC82YaulJL1u825X4T9n/rhcGpoAws3gA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/dY9JgruKbWx4GdY/zRzxoDiMmuXM1kyEY9Ljq27QPc=;
+ b=Bc5ftud9O3dK6K4GHL8yiCR8vmcwwo3H7fCXBw+M3r4TQM/4eXeosc+7aETD8MQrCo4VqINEfa66ZLHVtKdsa3rTQQe9ACuH9xVEYFrjlDYBkbgpwiXIvzXXJ+PwffvxLXE43+UByq6zszlrj/iClzAP/xR07/ydSCH8LsYrZK+ARKRO2oSV7JZof4yFZsl0o/DxacNWNq/e5w9Ol5B0/wOlPjBpQ1sE7bs3BmZYviOR9w5fO+t68B1tYIvzZkJOKqF5y16tzxMaemrYzIlCkr8TtHt2QJEUk1OmaE3cRmIXOXw23QcUWk731dG3ULvd+h4xwT91Tzy4dGL9jQj/Zg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10) by YQXPR01MB5199.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:2f::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
+ 2026 13:57:28 +0000
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 13:57:28 +0000
+Message-ID: <043dbfe8-f1a0-46f0-b4eb-373a1abeb7f4@efficios.com>
+Date: Mon, 23 Nov 2026 08:57:27 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 13/40] sched/deadline: Make a rebuild count a task in
+ the root domain it runs in
+To: sashiko-reviews@lists.linux.dev
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
+ mkoutny@suse.com, linux-kernel@vger.kernel.org
+References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
+ <c7c27e2c74c13bb8580f84ac9ed12a5a8001947a.1795207232.git.mathieu.desnoyers@efficios.com>
+ <sashiko-outbox-226138@kernel.org>
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Content-Language: en-US
+In-Reply-To: <sashiko-outbox-226138@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: YQBPR0101CA0108.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:5::11) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,599 +100,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-emdoor-intel-wmi-rfc-v2-2-3f4a03095f2e@gmail.com>
-References: <20261123-emdoor-intel-wmi-rfc-v2-0-3f4a03095f2e@gmail.com>
-In-Reply-To: <20261123-emdoor-intel-wmi-rfc-v2-0-3f4a03095f2e@gmail.com>
-To: Armin Wolf <W_Armin@gmx.de>, Hans de Goede <hansg@kernel.org>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Guenter Roeck <linux@roeck-us.net>
-Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-hwmon@vger.kernel.org, Ziqiang Xia <xiazq123666@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795442211; l=16965;
- i=xiazq123666@gmail.com; s=20261113; h=from:subject:message-id;
- bh=DyIB/jTgjFxwudLy4JBPyQW9bYryBZNAIwRQId1fwzU=;
- b=HmM/dNohYlSKMJjsSvISJstX/HnooeCAzA5F7J6HIYHH0fQ+7srQDl9B3plWREjaTUaqXpztW
- GmEHzpdEm5UAtWUX8dTH5ZlDypPsrP0Ap/HhbyAJaZ5iw7a3jWa9JLC
-X-Developer-Key: i=xiazq123666@gmail.com; a=ed25519;
- pk=mrJQOUoyemvqamFAwqXZF59Z8eZnI11ZI+BEtDNxq7Q=
-X-Endpoint-Received: by B4 Relay for xiazq123666@gmail.com/20261113 with
- auth_id=1513
-X-Original-From: Ziqiang Xia <xiazq123666@gmail.com>
-Reply-To: xiazq123666@gmail.com
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YQXPR01MB5199:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4816464a-9189-4694-a4df-08df4969b5f7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|18002099003|22082099003|261009223027099003|261022075727099003|56012099006|4143699003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	A9hRY001stif9dBU4WkwhP32YJv7T06Tt7eGmYKFky06PWMCyE4FON6oH6bZIkG9tUXnh0yXLA7YJkBjPZCzQBn+4rG36hgPspz+Fb+9pA96aWz6LS6+wvqezW6A8RB1/OV9FBXMwJSZxTBTxsz6RVX2eC0dP+rnzXHvj7CC+ySSwTXFAlIX2m6XeRokWGEmA/dGMqXlzB06VxQ4P0RLb8br4uKH0ZIgSFgSAxEf6LA/OzMLAXfosCxP7oDA9ESahcenLvzg5qnguggPQ6NSbUrvffj+Rde329ipHzz2DSiionj9FSsYFB+68mhIGYQt+X05XdzzhoiYpLvtvLPFC/6xlspLcpOkO/0CemVkwwunnV2Au0NKCakJ5h50iNS/eQr/Wk24yNR8bwDAChQmUVIKvNJxLrwBEreO/Q+vvK/X+DOFOwp3iMwJAXLA5Bp4Op84bGH6r7VQvvVU7/+Q/Al4ssHRrC+fb/QWBhinJf/ZpS9aFPDbThNeXvzU5j1a/39IREiPlSkCi7ZEft+2/WZknfGreqmUHKqdYB6iByeXd4hRpTwpZt1T6kR85dELYbEAR8QZbRNYUOjuJRVj4zuVTl8C43LO7fJLYZBqRMs=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(18002099003)(22082099003)(261009223027099003)(261022075727099003)(56012099006)(4143699003)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?ZWNLWFc1Z0dpKzZBT205MFdqUFgyQXFtcjZhN2l2dEg4NHEydWsyakdKbi9Q?=
+ =?utf-8?B?VVNNdmk2aFMvUTVVUExLeDcrb3VsTC92QkFaZFdpN0cwN0xiRjFicjlialJL?=
+ =?utf-8?B?bVJiUlR1OWdWWGgrbDljb04yYS84MlFjR2ZjVDl2RDNieVdtNm9vV3dlU0xa?=
+ =?utf-8?B?VzVlWGpDNVJFTzBjVUtYOXlFZjZQQzMxOXF1aGE3TzgwRDBST2xiM200bG9s?=
+ =?utf-8?B?cmU5RDUxZjFOT2hDbGFBUHpGZDJBN2dnQmN3S24xQ1oxSXNzZmV2T3VxTUND?=
+ =?utf-8?B?b2tIakVFYitkU1Y0aHo2YzFqR3pZNG1Tb2dnb2dkSnVJUDk4ckNnOW5xSFM2?=
+ =?utf-8?B?VXk4b0gxU3dlVk1HYjZJeGZXZm0xTWE4Zm5rcURjOGp1KzdvNFhoN2phSFR3?=
+ =?utf-8?B?WHNzcDEvYmVjSmVKMkpWWThzK0VzY1JQYVBGa21NMEYwZDNUQUlHWkNqeUNH?=
+ =?utf-8?B?aVlrUEpUbkxyN0JTVEFRN0p1UW5YR1pQcDF2RmpFRHJ4ZEoxUG4xOEx4OHJR?=
+ =?utf-8?B?ZzBaY2NkV1loUldyVnBpR0NHVjIweUJOTE4wRDlNeUFqaVhFcjUzN2FUeWJC?=
+ =?utf-8?B?VVhlTXdZSGkyb2haY0FwQVVoenhKbjBDSitSajZxM04vT3lnVTRXWk1zWThu?=
+ =?utf-8?B?TUNwMW5GL2d5bDFrMmI5cWVQdmZlMW1vbDR6VWlCSmh1VE9yR2RTR09uRmlK?=
+ =?utf-8?B?R2NFcElqMDE3UFVtWG15dmh1NGgrNndzY0gvWExpa1VZY0ZIVXJuWWUzTWtn?=
+ =?utf-8?B?REtla2o2aUNIMEN3YUlESjdLT0dyaHhnbHh2QWx5RXlyK2krcE9UeUd0ZGNB?=
+ =?utf-8?B?cWNlZkFwWU1ENnVQT0VQbjNRa1pUV3N4Q0VTMU9Wb3dsS2wxNFFSZXh1Wjhy?=
+ =?utf-8?B?YytnODlMQTRqRER5L21sSnhLbDB2Slo5Z0puTVRQeFhhU242WWppS0FpYjJM?=
+ =?utf-8?B?cFZwS3ZNME9GZjlsV251TnNYNmRsd2ZTRjlsUExNVlJOMllJRHR4dmJoRkY5?=
+ =?utf-8?B?ZWtIQS94dFJVS09TS3g0L2tTUytONUJ6U0gyWDZmR3hwOUhHamsvb0RxT2Zp?=
+ =?utf-8?B?cWFQNmN0L1pmYUU3end5d0tka1U5bURMNEI3WHk4Umpubk9BWkZ0UjBib3Ba?=
+ =?utf-8?B?cE1OampHMFZwKzAzT0VHRkFsNUhjeXFSb0tBVzJ5MEd6Z0trVDJYN1lIa0Mr?=
+ =?utf-8?B?U3l2Y3VOYkF6cTBWL3h3clJpaDMySG41RUtsZXhGNGlseWFwamMvRXlRbkdO?=
+ =?utf-8?B?amRvM2plSjZ0WDFYTGgzRXB1QWl5T1RMVi9RQWZBQjJTQXlEY21MTm4zRmtX?=
+ =?utf-8?B?SjQ3ajUrOWorQ3NEUmpmMjEyc0xsaEVNZ0lPOVAxMnRheHlVMnRpMXJUakl3?=
+ =?utf-8?B?UCttT3phZXVSeWRKcVdDd2NZa3BpQmliSU9CbTNvcHV4Z0d1QnpBUS9qTnhm?=
+ =?utf-8?B?K0s3YzNTWkhjbUVHVTdjVUc4anY0TDY2Y3oxMUJXRGVVbUpoNVVETlY4dHpx?=
+ =?utf-8?B?NWlvblZmZ3E0TUFkMFI4NURxYStnRkUweDJFNDVpR1FqQkZ5WnBOZU4yL3dh?=
+ =?utf-8?B?b3g4akZNVmduUkV2MzlJWkxFSXdoeXlvSHB6R2VOZ1Qza2crTHZLYkRXdFpi?=
+ =?utf-8?B?WXYzcEN5Q3g1eGZGbysrN2ZTV1pKSG5VVUJncExrNEZGc0wxMDltTXR1WkIv?=
+ =?utf-8?B?d2UrbFNQbUhZWW9saDk2Sjd1aDhzRThjdXBDeUhWczlzTTB2clV4ZW5QQjF3?=
+ =?utf-8?B?RWl0Mm0waVJma1QxS3Z3cU1XRXE1N1pZQ1pRcFBzcVVGTS9wWU1VemMvb214?=
+ =?utf-8?B?OTRveFRhK2Y0Uk1Dd3NCdVlBd1d0SFFxZm5aQWpLTzBpcFl1NDVhNWF5d2lr?=
+ =?utf-8?B?WVdmcUJRZnRUdHF5ejd6RlY4Z2NiRi95b0tVaHI5VUdBRVYrRmhtNUpXVGZC?=
+ =?utf-8?B?YUg4Q3pFRmp1OU4vczBDYTNvenREZk50VHc0blllODR3alN3dG1aSmttTXRs?=
+ =?utf-8?B?QWZ2V2o3TEZlSGk2OUFQNTlObmpMZlFVVHZpMzgxLytYTFVBbVVRTWxYeHlW?=
+ =?utf-8?B?VGZpcGRmRlVKUHEyQmZKaVMrKzZNRmM1dExoZkc0UWllc2VvZDRCcEVmQjhv?=
+ =?utf-8?B?SHpJZEZTMndVWkRBUjVpczRUL2hIWUVXZEVTR1JLZ0E4Y0lkTFVqSjk3SGQ0?=
+ =?utf-8?B?T014ZGhQUzRIbExxVXN6M3p0eXNqQTRNL25HSThWeGRubGNHbVFIT3dBRW1y?=
+ =?utf-8?B?WXY3Y0NrQlNrYXFsWnVKcER0eUlJNVpzRFJ0aWV0eU90ODNIT1Zza1RXQ280?=
+ =?utf-8?B?K1BYY2FaczlYdmk0dUFxZkhKd3VTbzdRc01zZFptRmlsZzlNU0s0U1ExN2NJ?=
+ =?utf-8?Q?uqyyS35cP3s/wJoU=3D?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4816464a-9189-4694-a4df-08df4969b5f7
+X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 13:57:28.4476
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: S+207Cfu1+Vf+BioVon5lpnak6YbILQwhw92BCzM0Cb9JB9Ug7SfPMxaJAzke3qeIChI/V2x+KUZJEHs3xT5cgUsmeZg8D8259pEir0TnMc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQXPR01MB5199
 
-From: Ziqiang Xia <xiazq123666@gmail.com>
+> Can this early return drop the departing bandwidth of a task that was 
+> migrated outside its mask by dl_task_offline_migration() and exited
+> during the rebuild?
 
-Add a pure-WMI platform driver for the Emdoor Intel EWMI (\_SB.EWMI)
-interface (protocol version 1.0.1.0, verified on MECHREVO Wujie 14
-2026 / WUJIE Series-Lark4-LNL, BIOS EM_LNL326_V1.0.19), exposing
-hwmon dual fan tachometers, platform_profile (balanced/performance),
-touchpad_enabled state, and WMI hotkey sparse keymap events without
-direct EC register access.
+Yes, by reading. It needs admission control off, every CPU of the mask
+offline, and an exit during the rebuild. In v11, the check for a task
+with no active CPU will come after the check for a departed task, under
+dl_departed_lock. A departed task will then be counted on the CPU
+recorded with it. No case will test it.
 
-Signed-off-by: Ziqiang Xia <xiazq123666@gmail.com>
----
- MAINTAINERS                             |   1 +
- drivers/platform/x86/Kconfig            |  16 ++
- drivers/platform/x86/Makefile           |   1 +
- drivers/platform/x86/emdoor-intel-wmi.c | 494 ++++++++++++++++++++++++++++++++
- 4 files changed, 512 insertions(+)
+Thanks,
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 70c976ffe..1a377dd56 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -9853,6 +9853,7 @@ M:	Ziqiang Xia <xiazq123666@gmail.com>
- L:	platform-driver-x86@vger.kernel.org
- S:	Maintained
- F:	Documentation/ABI/testing/sysfs-bus-wmi-devices-emdoor-ewmi
-+F:	drivers/platform/x86/emdoor-intel-wmi.c
- 
- EMMC CMDQ HOST CONTROLLER INTERFACE (CQHCI) DRIVER
- M:	Adrian Hunter <adrian.hunter@intel.com>
-diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
-index b2c6cc923..27ae34206 100644
---- a/drivers/platform/x86/Kconfig
-+++ b/drivers/platform/x86/Kconfig
-@@ -120,6 +120,22 @@ config BITLAND_MIFS_WMI
- 	  To compile this driver as a module, choose M here: the module will
-           be called bitland-mifs-wmi.
- 
-+config EMDOOR_INTEL_WMI
-+	tristate "Emdoor Intel EWMI laptop support"
-+	depends on ACPI_WMI
-+	depends on HWMON
-+	depends on INPUT
-+	select ACPI_PLATFORM_PROFILE
-+	select INPUT_SPARSEKMAP
-+	help
-+	  This is a pure-WMI driver for Emdoor Intel EWMI laptops implementing
-+	  protocol version 1.0.1.0 (such as the MECHREVO Wujie 14 2026). It
-+	  exposes hwmon fan tachometers, platform_profile, touchpad state, and
-+	  WMI hotkey events.
-+
-+	  To compile this driver as a module, choose M here: the module will be
-+	  called emdoor-intel-wmi.
-+
- config ACERHDF
- 	tristate "Acer Aspire One temperature and fan driver"
- 	depends on ACPI_EC && THERMAL
-diff --git a/drivers/platform/x86/Makefile b/drivers/platform/x86/Makefile
-index 88f45e03e..45adabafb 100644
---- a/drivers/platform/x86/Makefile
-+++ b/drivers/platform/x86/Makefile
-@@ -12,6 +12,7 @@ obj-$(CONFIG_XIAOMI_WMI)		+= xiaomi-wmi.o
- obj-$(CONFIG_REDMI_WMI)			+= redmi-wmi.o
- obj-$(CONFIG_GIGABYTE_WMI)		+= gigabyte-wmi.o
- obj-$(CONFIG_BITLAND_MIFS_WMI)		+= bitland-mifs-wmi.o
-+obj-$(CONFIG_EMDOOR_INTEL_WMI)		+= emdoor-intel-wmi.o
- 
- # Acer
- obj-$(CONFIG_ACERHDF)		+= acerhdf.o
-diff --git a/drivers/platform/x86/emdoor-intel-wmi.c b/drivers/platform/x86/emdoor-intel-wmi.c
-new file mode 100644
-index 000000000..eedfd424c
---- /dev/null
-+++ b/drivers/platform/x86/emdoor-intel-wmi.c
-@@ -0,0 +1,494 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Emdoor Intel EWMI platform driver.
-+ *
-+ * Verified on MECHREVO Wujie 14 2026 (WUJIE Series-Lark4-LNL,
-+ * BIOS EM_LNL326_V1.0.19).
-+ */
-+
-+#include <linux/bitops.h>
-+#include <linux/cleanup.h>
-+#include <linux/container_of.h>
-+#include <linux/delay.h>
-+#include <linux/device.h>
-+#include <linux/err.h>
-+#include <linux/errno.h>
-+#include <linux/hwmon.h>
-+#include <linux/input.h>
-+#include <linux/input/sparse-keymap.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/notifier.h>
-+#include <linux/platform_profile.h>
-+#include <linux/slab.h>
-+#include <linux/string.h>
-+#include <linux/sysfs.h>
-+#include <linux/types.h>
-+#include <linux/unaligned.h>
-+#include <linux/wmi.h>
-+#include <linux/workqueue.h>
-+
-+#define EWMI_METHOD_GUID	"0B30FD67-1B62-4FCA-B10B-50DC7ADE6A39"
-+#define EWMI_EVENT_GUID		"0B30FD67-1B62-4FCA-B10B-50DC7ADE6DDD"
-+
-+#define EWMI_INPUT_SIZE		64
-+#define EWMI_OUTPUT_SIZE	256
-+
-+enum {
-+	EWMI_FAN_COUNT = 2,
-+	EWMI_PROFILE_RETRIES = 3,
-+	EWMI_PROFILE_SETTLE_MS = 100,
-+};
-+
-+struct ewmi_reply {
-+	u8 reserved[4];
-+	u8 status;
-+	u8 data[EWMI_OUTPUT_SIZE - 1];
-+};
-+
-+static_assert(sizeof(struct ewmi_reply) == 260);
-+
-+struct ewmi_method {
-+	struct wmi_device *wdev;
-+	struct mutex lock; /* Serializes WMCD firmware calls. */
-+	struct device *profile;
-+	struct notifier_block event_nb;
-+	struct work_struct profile_work;
-+	bool profile_dirty; /* A partial set must not become a successful no-op. */
-+};
-+
-+struct ewmi_event {
-+	struct input_dev *input;
-+	struct mutex lock; /* Serializes input press/release sequences. */
-+};
-+
-+static BLOCKING_NOTIFIER_HEAD(ewmi_event_chain);
-+
-+/*
-+ * WMCD returns Package(Buffer(4), Buffer(256)). The WMI core marshals
-+ * both buffers into 260 bytes; the firmware status is at byte 4.
-+ * Always check the full result size before accessing the payload.
-+ */
-+static int ewmi_call_status(struct ewmi_method *priv, u8 group, u8 command,
-+			    u8 argument, void *result, size_t result_len,
-+			    bool *firmware_failure)
-+{
-+	u8 request[EWMI_INPUT_SIZE] = { group, command, argument };
-+	struct wmi_buffer in = { .length = sizeof(request), .data = request };
-+	struct wmi_buffer out = { };
-+	const struct ewmi_reply *reply;
-+	int ret;
-+
-+	lockdep_assert_held(&priv->lock);
-+	if (firmware_failure)
-+		*firmware_failure = false;
-+	if (result_len > sizeof(reply->data))
-+		return -EINVAL;
-+
-+	ret = wmidev_invoke_method(priv->wdev, 0, 1, &in, &out, sizeof(*reply));
-+	if (ret) {
-+		dev_warn_ratelimited(&priv->wdev->dev,
-+				     "WMCD %02x/%02x transport error %d\n",
-+				     group, command, ret);
-+		return ret;
-+	}
-+
-+	reply = out.data;
-+	if (reply->status) {
-+		if (firmware_failure && reply->status == 1)
-+			*firmware_failure = true;
-+		dev_warn_ratelimited(&priv->wdev->dev,
-+				     "WMCD %02x/%02x firmware status %u, data %8ph\n",
-+				     group, command, reply->status, reply->data);
-+		ret = -EIO;
-+	} else if (result_len) {
-+		memcpy(result, reply->data, result_len);
-+	}
-+	kfree(out.data);
-+	return ret;
-+}
-+
-+static int ewmi_call(struct ewmi_method *priv, u8 group, u8 command,
-+		     u8 argument, void *result, size_t result_len)
-+{
-+	return ewmi_call_status(priv, group, command, argument, result,
-+				result_len, NULL);
-+}
-+
-+static ssize_t touchpad_enabled_show(struct device *dev,
-+				     struct device_attribute *attr, char *buf)
-+{
-+	struct ewmi_method *priv = dev_get_drvdata(dev);
-+	u8 value;
-+	int ret;
-+
-+	guard(mutex)(&priv->lock);
-+	ret = ewmi_call(priv, 0x03, 0x07, 0, &value, sizeof(value));
-+	if (ret)
-+		return ret;
-+	if (value > 1)
-+		return -EPROTO;
-+	return sysfs_emit(buf, "%u\n", value);
-+}
-+static DEVICE_ATTR_RO(touchpad_enabled);
-+
-+static struct attribute *ewmi_attrs[] = {
-+	&dev_attr_touchpad_enabled.attr,
-+	NULL
-+};
-+ATTRIBUTE_GROUPS(ewmi);
-+
-+static const char * const ewmi_fan_labels[EWMI_FAN_COUNT] = {
-+	"Fan 1", "Fan 2"
-+};
-+
-+static int ewmi_hwmon_read(struct device *dev, enum hwmon_sensor_types type,
-+			   u32 attr, int channel, long *value)
-+{
-+	struct ewmi_method *priv = dev_get_drvdata(dev);
-+	__le16 rpm;
-+	int ret;
-+
-+	if (type != hwmon_fan || attr != hwmon_fan_input)
-+		return -EOPNOTSUPP;
-+	if (channel < 0 || channel >= EWMI_FAN_COUNT)
-+		return -EOPNOTSUPP;
-+
-+	guard(mutex)(&priv->lock);
-+	ret = ewmi_call(priv, 0x02, 0x01, channel, &rpm, sizeof(rpm));
-+	if (!ret)
-+		*value = le16_to_cpu(rpm);
-+	return ret;
-+}
-+
-+static int ewmi_hwmon_read_string(struct device *dev,
-+				  enum hwmon_sensor_types type, u32 attr,
-+				  int channel, const char **str)
-+{
-+	if (type == hwmon_fan && attr == hwmon_fan_label &&
-+	    channel >= 0 && channel < EWMI_FAN_COUNT) {
-+		*str = ewmi_fan_labels[channel];
-+		return 0;
-+	}
-+	return -EOPNOTSUPP;
-+}
-+
-+static const struct hwmon_ops ewmi_hwmon_ops = {
-+	.visible = 0444,
-+	.read = ewmi_hwmon_read,
-+	.read_string = ewmi_hwmon_read_string,
-+};
-+
-+static const struct hwmon_channel_info * const ewmi_hwmon_info[] = {
-+	HWMON_CHANNEL_INFO(fan,
-+			   HWMON_F_INPUT | HWMON_F_LABEL,
-+			   HWMON_F_INPUT | HWMON_F_LABEL),
-+	NULL
-+};
-+
-+static const struct hwmon_chip_info ewmi_hwmon_chip = {
-+	.ops = &ewmi_hwmon_ops,
-+	.info = ewmi_hwmon_info,
-+};
-+
-+static int ewmi_profile_probe(void *drvdata, unsigned long *choices)
-+{
-+	set_bit(PLATFORM_PROFILE_BALANCED, choices);
-+	set_bit(PLATFORM_PROFILE_PERFORMANCE, choices);
-+	return 0;
-+}
-+
-+static int ewmi_profile_get(struct device *dev,
-+			    enum platform_profile_option *profile)
-+{
-+	struct ewmi_method *priv = dev_get_drvdata(dev);
-+	u8 mode;
-+	int ret;
-+
-+	guard(mutex)(&priv->lock);
-+	ret = ewmi_call(priv, 0x03, 0x09, 0, &mode, sizeof(mode));
-+	if (ret)
-+		return ret;
-+	switch (mode) {
-+	case 1:
-+		*profile = PLATFORM_PROFILE_BALANCED;
-+		return 0;
-+	case 2:
-+		*profile = PLATFORM_PROFILE_PERFORMANCE;
-+		return 0;
-+	default:
-+		return -EPROTO;
-+	}
-+}
-+
-+static int ewmi_profile_set(struct device *dev,
-+			    enum platform_profile_option profile)
-+{
-+	struct ewmi_method *priv = dev_get_drvdata(dev);
-+	bool firmware_failure;
-+	u8 mode, actual;
-+	int attempt, ret;
-+
-+	switch (profile) {
-+	case PLATFORM_PROFILE_BALANCED:
-+		mode = 1;
-+		break;
-+	case PLATFORM_PROFILE_PERFORMANCE:
-+		mode = 2;
-+		break;
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+
-+	guard(mutex)(&priv->lock);
-+	/* Avoid a redundant firmware command when userspace reapplies this profile. */
-+	ret = ewmi_call(priv, 0x03, 0x09, 0, &actual, sizeof(actual));
-+	if (ret)
-+		return ret;
-+	if (actual == mode && !priv->profile_dirty)
-+		return 0;
-+
-+	/*
-+	 * SPFM arms the EC (ZZTT/TIZZ) before Notify(IETM, 0x88) and before
-+	 * writing EC5F, so an EC scan during the notify can consume a stale
-+	 * EC5F and return RTNC=0 without updating PPMD; SPFM can also report
-+	 * RTNC=1 after changing mode. Reissue this absolute mode command up
-+	 * to three times when RTNC=1 or 03/09 still reads back the old mode.
-+	 */
-+	priv->profile_dirty = true;
-+	for (attempt = 0; attempt < EWMI_PROFILE_RETRIES; attempt++) {
-+		ret = ewmi_call_status(priv, 0x03, 0x0a, mode, NULL, 0,
-+				       &firmware_failure);
-+		if (ret) {
-+			if (!firmware_failure ||
-+			    attempt + 1 == EWMI_PROFILE_RETRIES)
-+				return ret;
-+			msleep(EWMI_PROFILE_SETTLE_MS);
-+			continue;
-+		}
-+		ret = ewmi_call(priv, 0x03, 0x09, 0, &actual, sizeof(actual));
-+		if (ret)
-+			return ret;
-+		if (actual == mode) {
-+			priv->profile_dirty = false;
-+			return 0;
-+		}
-+		msleep(EWMI_PROFILE_SETTLE_MS);
-+		ret = ewmi_call(priv, 0x03, 0x09, 0, &actual, sizeof(actual));
-+		if (ret)
-+			return ret;
-+		if (actual == mode) {
-+			priv->profile_dirty = false;
-+			return 0;
-+		}
-+		if (attempt + 1 < EWMI_PROFILE_RETRIES)
-+			dev_dbg(dev,
-+				"Profile 03/0a requested %u, readback %u on attempt %d/%d; retrying\n",
-+				mode, actual, attempt + 1,
-+				EWMI_PROFILE_RETRIES);
-+	}
-+	dev_warn_ratelimited(dev,
-+			     "Profile 03/0a requested %u, settled readback %u\n",
-+			     mode, actual);
-+	return -EIO;
-+}
-+
-+static const struct platform_profile_ops ewmi_profile_ops = {
-+	.probe = ewmi_profile_probe,
-+	.profile_get = ewmi_profile_get,
-+	.profile_set = ewmi_profile_set,
-+};
-+
-+static void ewmi_profile_work(struct work_struct *work)
-+{
-+	struct ewmi_method *priv = container_of(work, struct ewmi_method,
-+						profile_work);
-+
-+	platform_profile_notify(priv->profile);
-+}
-+
-+static int ewmi_method_event(struct notifier_block *nb, unsigned long code,
-+			     void *data)
-+{
-+	struct ewmi_method *priv = container_of(nb, struct ewmi_method,
-+						event_nb);
-+	struct wmi_device *event_wdev = data;
-+
-+	if (event_wdev->dev.parent != priv->wdev->dev.parent)
-+		return NOTIFY_DONE;
-+	if (code == 0 || code == 0x41 || code == 0x42)
-+		schedule_work(&priv->profile_work);
-+	return NOTIFY_OK;
-+}
-+
-+static void ewmi_method_stop(void *data)
-+{
-+	struct ewmi_method *priv = data;
-+
-+	blocking_notifier_chain_unregister(&ewmi_event_chain, &priv->event_nb);
-+	cancel_work_sync(&priv->profile_work);
-+}
-+
-+static int ewmi_method_probe(struct wmi_device *wdev, const void *context)
-+{
-+	static const u8 expected_version[] = { 1, 0, 1, 0 };
-+	struct ewmi_method *priv;
-+	struct device *hwmon;
-+	u8 version[4];
-+	int ret;
-+
-+	priv = devm_kzalloc(&wdev->dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+	priv->wdev = wdev;
-+	mutex_init(&priv->lock);
-+	INIT_WORK(&priv->profile_work, ewmi_profile_work);
-+	dev_set_drvdata(&wdev->dev, priv);
-+
-+	scoped_guard(mutex, &priv->lock)
-+		ret = ewmi_call(priv, 0x01, 0x01, 0, version, sizeof(version));
-+	if (ret)
-+		return dev_err_probe(&wdev->dev, ret,
-+				     "Cannot query protocol version\n");
-+	if (memcmp(version, expected_version, sizeof(version)))
-+		return dev_err_probe(&wdev->dev, -ENODEV,
-+				     "Unsupported protocol version\n");
-+
-+	priv->profile = devm_platform_profile_register(&wdev->dev,
-+						       "emdoor-intel-wmi",
-+						       priv, &ewmi_profile_ops);
-+	if (IS_ERR(priv->profile))
-+		return dev_err_probe(&wdev->dev, PTR_ERR(priv->profile),
-+				     "Cannot register platform profile\n");
-+
-+	priv->event_nb.notifier_call = ewmi_method_event;
-+	ret = blocking_notifier_chain_register(&ewmi_event_chain,
-+					       &priv->event_nb);
-+	if (ret)
-+		return ret;
-+	ret = devm_add_action_or_reset(&wdev->dev, ewmi_method_stop, priv);
-+	if (ret)
-+		return ret;
-+
-+	hwmon = devm_hwmon_device_register_with_info(&wdev->dev, "emdoor_ewmi",
-+						     priv, &ewmi_hwmon_chip,
-+						     NULL);
-+	if (IS_ERR(hwmon))
-+		return dev_err_probe(&wdev->dev, PTR_ERR(hwmon),
-+				     "Cannot register hwmon\n");
-+
-+	return 0;
-+}
-+
-+/* Firmware already changes these states; never request a second toggle. */
-+static const struct key_entry ewmi_keymap[] = {
-+	{ KE_KEY, 0x30, { KEY_TOUCHPAD_OFF } },
-+	{ KE_KEY, 0x31, { KEY_TOUCHPAD_ON } },
-+	{ KE_KEY, 0xa0, { KEY_PROG1 } },
-+	{ KE_KEY, 0xa1, { KEY_PROG2 } },
-+	{ KE_KEY, 0xa2, { KEY_PROG3 } },
-+	{ KE_IGNORE, 0x00, { 0 } },
-+	{ KE_IGNORE, 0x41, { 0 } },
-+	{ KE_IGNORE, 0x42, { 0 } },
-+	{ KE_IGNORE, 0x20, { 0 } },
-+	{ KE_IGNORE, 0x21, { 0 } },
-+	{ KE_IGNORE, 0x22, { 0 } },
-+	{ KE_IGNORE, 0x50, { 0 } },
-+	{ KE_IGNORE, 0x51, { 0 } },
-+	{ KE_END, 0 }
-+};
-+
-+static int ewmi_event_probe(struct wmi_device *wdev, const void *context)
-+{
-+	struct ewmi_event *priv;
-+	int ret;
-+
-+	priv = devm_kzalloc(&wdev->dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+	mutex_init(&priv->lock);
-+	priv->input = devm_input_allocate_device(&wdev->dev);
-+	if (!priv->input)
-+		return -ENOMEM;
-+	priv->input->name = "Emdoor EWMI hotkeys";
-+	priv->input->phys = "wmi/input0";
-+	priv->input->id.bustype = BUS_HOST;
-+	ret = sparse_keymap_setup(priv->input, ewmi_keymap, NULL);
-+	if (ret)
-+		return ret;
-+	dev_set_drvdata(&wdev->dev, priv);
-+	return input_register_device(priv->input);
-+}
-+
-+static void ewmi_event_notify(struct wmi_device *wdev,
-+			      const struct wmi_buffer *event)
-+{
-+	struct ewmi_event *priv = dev_get_drvdata(&wdev->dev);
-+	u32 code = get_unaligned_le32(event->data);
-+
-+	blocking_notifier_call_chain(&ewmi_event_chain, code, wdev);
-+	guard(mutex)(&priv->lock);
-+	if (!sparse_keymap_report_event(priv->input, code, 1, true))
-+		dev_dbg(&wdev->dev, "Unknown event 0x%x\n", code);
-+}
-+
-+static const struct wmi_device_id ewmi_method_ids[] = {
-+	{ EWMI_METHOD_GUID, NULL },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(wmi, ewmi_method_ids);
-+
-+static const struct wmi_device_id ewmi_event_ids[] = {
-+	{ EWMI_EVENT_GUID, NULL },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(wmi, ewmi_event_ids);
-+
-+static struct wmi_driver ewmi_method_driver = {
-+	.driver = {
-+		.name = "emdoor-ewmi",
-+		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
-+		.dev_groups = ewmi_groups,
-+	},
-+	.id_table = ewmi_method_ids,
-+	.no_singleton = true,
-+	.probe = ewmi_method_probe,
-+};
-+
-+static struct wmi_driver ewmi_event_driver = {
-+	.driver = {
-+		.name = "emdoor-ewmi-events",
-+		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
-+	},
-+	.id_table = ewmi_event_ids,
-+	.no_singleton = true,
-+	.min_event_size = sizeof(__le32),
-+	.probe = ewmi_event_probe,
-+	.notify_new = ewmi_event_notify,
-+};
-+
-+static int __init ewmi_init(void)
-+{
-+	int ret;
-+
-+	ret = wmi_driver_register(&ewmi_method_driver);
-+	if (ret)
-+		return ret;
-+	ret = wmi_driver_register(&ewmi_event_driver);
-+	if (ret)
-+		wmi_driver_unregister(&ewmi_method_driver);
-+	return ret;
-+}
-+
-+static void __exit ewmi_exit(void)
-+{
-+	wmi_driver_unregister(&ewmi_event_driver);
-+	wmi_driver_unregister(&ewmi_method_driver);
-+}
-+
-+module_init(ewmi_init);
-+module_exit(ewmi_exit);
-+
-+MODULE_AUTHOR("Ziqiang Xia <xiazq123666@gmail.com>");
-+MODULE_DESCRIPTION("Emdoor Intel EWMI platform driver");
-+MODULE_LICENSE("GPL");
+Mathieu
 
 -- 
-2.56.1
-
-
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
