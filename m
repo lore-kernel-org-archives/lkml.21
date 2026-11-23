@@ -1,72 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.70
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795430781;
-	b=CC+WszVnDjwYd9P2zH+ZU6sC1oAB/EXMvOLmh1u339f5Rs8R5Bq6+x1P/PeGETN+wG84
-	 iqDdN2R5ltus2L/CamIGtl88VGGbXhXrCqEsjC+fhFL5mbEQogDOS87o5pF3iWtelxbn/
-	 +/EHsh5YvfcJi/YKleuQB6Hq1HJ1VtUUiBeHbCw3heg0LrZ86wnl1QjPET4nGBx8f1+4/
-	 o9oOejoUJf/Wen+9sGdMlhzXp3AAya+EvvVvI2TiYytCF1TlHKLQb44YxNd/VpAP685tJ
-	 h2HAtU+Fdt4MwFpSvnGaPS152+3O3CsBVJA1SRWI0DJvEZF8uHx7m4Agrk33gpj3uEQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430781;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=0uCdHZiVVTDG+XttRZzpcPvSV82rXD7vMjRz82vFZNM=;
-	b=gUwteFpANmaBxQRA4AvjTXN524tmhkeZAO+ySIIZ0U1/ofzeTBmFbvZu2L1rA45SfDLx
-	 GtLWw7YzS+lS4vBTmce96BfATAyQbkDOIAijmnDyNgl4PBFpDisIDVjCtINYN2Tly4VKs
-	 iLOxk3iCV6kyn9iD0uFz9c+E61ZjNaqNzQRvUCWyOlSDENew0Tz43G4C8EFfA/H1BjLn8
-	 UE6ViZTBBRfh2bPLdW66tVjh6d74AQC6OHgOUGnlcQdjUHFZqZBjA3+ep0xu1S40NIErT
-	 9QW2rCKVEiWzQB6+AP5QGv3fB27fGsoie7ugc7G7jofkjUT/VmMXJfajAWfpEorhjOQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--elver.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=FDtXaCnF;
-	arc=none smtp.remote-ip=209.85.128.70
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.12
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795430805;
+	b=B0DdPe2bo9acLtadG42YJCrOwiKyjn+snqhT9IpAw7ZhOXtCGaa/vyCeknFMsii2+dT7
+	 dyLOnLV6BwtaoRHRnrqUAr52YUk2OO1LOwb5/kB/Pvx88abtPDQkZR3+565o2FYKbQj8v
+	 VvixR9hGkEQC6x3mDnb6DdCaxEh3KPqhG6ZUHuqqb1nPhHtqIbexgDRKLJ/tqnDHY0iJo
+	 r301ePdf6Oc3Ne64E4mX/Cz1l4MHFiyCCtpKSBLl4fZ2zxAKXQRD+9HsOhG9oCWMCeelI
+	 I2TARCeFj/PEgUUS47pgT2jOlaKyT7aH/+JCEvDVKfZ6PElbps1wpw5c9B6rp8sUhuw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430805;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=AOObROQUJb56vGpxps8TrQAgu6J9Wp/MDFghOPRMBs4=;
+	b=UkxOvcpaDgfEQhAPev1qvj4v0bA5iS6scNnG3D1R33BOaYvL07dgjf7nAbINbYyY7y1i
+	 GnFm068BKic/DXsrD5J9zV5Ng1XFfAj070QYZH42e8XL/oL3ixEUesJjuU0lCHYqWaEQI
+	 sCVmUxEU/FUG6KMA6yxjJxC/at08iWGYSAY7W6dZ5DWnDW73ri3SUKfp4xWuYBFGXAuKt
+	 2cximS6qpfJ0VOQBlAK56wVNa66Wbk0Inv88CP9ODGxO6yzIjK8NbqCkEP/WndAeDHyDH
+	 AVt1pnzTb3qUr9QZ29zMdWrJjrrCt7uifzRt3gueaF1a/NMG8nAjwrBfUobXfi9o/Ww==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=fu2A4vqV;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.12
+Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010012.outbound.protection.outlook.com [52.101.85.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF091606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:46:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF091606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elver.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAABD606A31E;
+	Mon, 23 Nov 2026 10:46:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BAABD606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=FDtXaCnF
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4ba01393800so19783145e9.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:46:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795430779; x=1796035579; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0uCdHZiVVTDG+XttRZzpcPvSV82rXD7vMjRz82vFZNM=;
-        b=FDtXaCnF5YBz9nSbpmdTRRkgJY6iWfjQ/yv3scqyu46KbV5RVsULytvwf+2Ee4lGvn
-         DZgnct4Dw2Vsgrnqgjl1WuT6ieF9sPdJNzgeg3OBFj3X4XCxTXTiq3eO9/fq6n8IAp7A
-         5Tp8UQkUIYVQrv8awz0WyooXf5bgCs69qw28N8egmIkU1hQWbQgINGPFugYItldb0U9K
-         IKPr9/ktxd9m/QX4gSdOlbTMTqDwfnCC1adB6TTJKyCOYh3YtzuV1pq2cDkrWoPEw5tg
-         EyIl81L+NNdKDKIxjjmGDyRr4SF9w3+wH1wYtJIPq2O6p04a4QOqUdDUsyWFfLIx05uc
-         RO9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795430779; x=1796035579;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0uCdHZiVVTDG+XttRZzpcPvSV82rXD7vMjRz82vFZNM=;
-        b=meMigY8GWX0cSh3/fV7iWGSPnTe18ZZUsj2mPSu/mhGva9ga8ATMb2qsghtqdweWsU
-         fZmy+W4kaeOcCfHmjmUYXLjTkAQLwQzsPeFfLDc5m7RZPiXfyN4OlCY1Nk402yQAeNXc
-         ux33pEFZiols8wYvfCcXnzomvDrGgYP7tem+1cq+XXZ27c4ydGwy+aC9gtLmM9flkwi+
-         DYQ058n2MDequ9YTplviJTlgoNnanKnXuLuUtABNNponUUhcDkzNd6pm/L6IZGFXLwVY
-         XU3aYsfup43Chcb1UBEdPw+AYNqUdxgOWld/3+nRh/r9OxNU/MbydAJVcSMqYt0nnF3Z
-         alCA==
-X-Forwarded-Encrypted: i=1; AL+hErEePZoQG8fnMZ/6Nx8kZHcmCLAaDeT2F7Y+2BXH9r0u60qTzUQpgoMjEkyV3HzysvtVeJ8Gw0b+JklymPo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9unFWZxpI3wk4vMKbhY8DxaCmjZQEQ7sQmE6082Fiu+erlX+KU
-	tjxetGtiLh9qP0lBF0ddZRtWHzq5y3ZZbtd0sonKU8lC5RYuXfdaQPbfMg1jJL+6sTo2esbSdrK
-	BgQ==
-X-Received: from wmdn12.prod.google.com ([2002:a05:600c:294c:b0:4bb:5ea0:79c])
- (user=elver job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4514:b0:4bb:6823:3d3c
- with SMTP id 5b1f17b1804b1-4bb888169d0mr241187105e9.20.1795430778882; Mon, 23
- Nov 2026 02:46:18 -0800 (PST)
-Date: Mon, 23 Nov 2026 10:45:50 +0000
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=fu2A4vqV
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DGHzZbVwyUsADuMDijEBfu0vbI6jHB11IiJzQn8LxdIB4F47iS2bAAovX0f2Gqm3Ode6XLc1WM9x3z++fyQVq880xoL9PxaJmb1JCzxljGYTIFW2ruwS1z7aH+0ppEd8ee85lWYmp1Khu1oVzyI0dbV/iVBR8ustseJ2C8E9OBxAlt054MTiL6RJjRLz+9evDqauOATYtTffxnq9gVdxcwOgOFG9JWguNxoy8Q5y8cFsVkseh9LYmxta0CLU0XBAwNPq0Qtw+ld48cT7wume5BWMS9VJcznNtcIRgIV03oUjTL8s4T3S8Hc06txd7o+Z1BMuSF78CU+WJBBYbHzemQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AOObROQUJb56vGpxps8TrQAgu6J9Wp/MDFghOPRMBs4=;
+ b=dXj4cFnCW+g1sziE6tjgAXBxDylQaCQ4bi8cRZtEwr4iE50FiuDtdf2X7VDSGLzy9ncbdnV3BcU1ddB1Kiv7GZ5xvoxDCJrepyvgO3RHuVjx4HxdaGm1gVnKsVKwUSDJldcPw2qOILsycD/KQGI4jBUJYY4IqIsY/CC3bEebyPJlBuPiZ+74NLLX4GIvftGgoALSOT9wsiIPGM/2mJGoCIyIjAIWivgTMR4z/Bapq8Wk5ythOFfWUKbysJtew/U2sueGPIf1mmghlUa+IUTtApEH7HGkkNi/wCei/pvr7Xwarf85+tF/R4nLKSAKcUZDeSTJSv07DtCzj94Gei3t5w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AOObROQUJb56vGpxps8TrQAgu6J9Wp/MDFghOPRMBs4=;
+ b=fu2A4vqVzkrYsgCE0g+jqGGYJTEwq7hlRLc/JR/HvXcRPMR2EzpzotBHraIi5VWPlNIkm5BlsAu/5P9hhb0gSud4GSeLFmaYqL1BjScVjNE6TjknKt48W4H9SWGZzfkH7r+nyGaabfWryXr+3SYjYGKEqJAaKdU+YNcgk08W1P4=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from IA1PR12MB292992.namprd12.prod.outlook.com
+ (2603:10b6:208:5a1::21) by CY8PR12MB7491.namprd12.prod.outlook.com
+ (2603:10b6:930:92::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
+ 2026 10:46:39 +0000
+Received: from IA1PR12MB292992.namprd12.prod.outlook.com
+ ([fe80::4b88:460d:65c0:def1]) by IA1PR12MB292992.namprd12.prod.outlook.com
+ ([fe80::4b88:460d:65c0:def1%6]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 10:46:39 +0000
+Message-ID: <6ad8b75a-85a2-410b-9584-b8989cd6dfc1@amd.com>
+Date: Mon, 23 Nov 2026 16:16:31 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] platform/x86/amd: hfi: Stand down when amd-pstate CAS
+ is active
+To: Mario Limonciello <mario.limonciello@amd.com>, ray.huang@amd.com,
+ rafael@kernel.org, viresh.kumar@linaro.org, perry.yuan@amd.com,
+ kprateek.nayak@amd.com, hansg@kernel.org, ilpo.jarvinen@linux.intel.com,
+ platform-driver-x86@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Cc: Krishnamoorthi M <krishnamoorthi.m@amd.com>
+References: <20261114150310.1377654-1-Vishal.Badole@amd.com>
+ <20261114150310.1377654-3-Vishal.Badole@amd.com>
+ <404553c5-60b3-464a-8d76-7850120f3d58@amd.com>
+Content-Language: en-US
+From: "Badole, Vishal" <vishal.badole@amd.com>
+In-Reply-To: <404553c5-60b3-464a-8d76-7850120f3d58@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MA5P287CA0217.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1b4::13) To IA1PR12MB292992.namprd12.prod.outlook.com
+ (2603:10b6:208:5a1::21)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,242 +101,123 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261123104616.226112-1-elver@google.com>
-Subject: [PATCH v3] coccinelle: locks: Add must_hold.cocci
-From: Marco Elver <elver@google.com>
-To: elver@google.com
-Cc: Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>, 
-	linux-kernel@vger.kernel.org, cocci@inria.fr, kasan-dev@googlegroups.com, 
-	Bart Van Assche <bvanassche@acm.org>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR12MB292992:EE_|CY8PR12MB7491:EE_
+X-MS-Office365-Filtering-Correlation-Id: fd4f854c-5146-44bf-6ec2-08df494f0d97
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|18002099003|22082099003|261009223027099003|261021121427099003|921020|261026140227099003|261026121527099003|261102123227099003|261022075727099003|261022105027099003|261028144727099003|4143699003|56012099006|10067099003|11063799006;
+X-Microsoft-Antispam-Message-Info:
+	Ii6C+TDywP1SNQbDX0e8MrFAWftISJIY+AbTBtClIaOODytHm92kiI7oev3Tx2fwcHK/n/CzKNXBFks8ynsxL8S7tyoR9pCc7fid+JdF+T+ShSUtM4IxPmyz48UtBlWpRIPFAoXu/zvkUbgALCBzDcd84rdtqEtgKdH93WN4hsk5gkH0nac0gxNc4/cG/UGB8PteNrtbvb2QBRX5Ujq/iBOxRicEl4IepTjdGH+veoW0uDcvl8lyWLpX/H0ZNQOXoxd90wK3ZK+QMRIIN0yXYesYj1dXGKIZZzP+/7bWEj/KHfRJTIaszcA0XePxMmS/L9G/P6zwLuROmWVf9Vo/+PL8GvrkGMyHEkuuISDpNCCbzpCqiduKdmFxc7GXqoQJcolDj7uQLQ6O6i/35FwsY97nPY616RKzxHQP9MnfJCY8tP9Foi4sJGNj1st60MS1ZoUXow5WNhlvYtO2S1e8uc2QS8Z9efw9h0xMwCDRzif6e531ukMi6sjy8kLYHXwJJiG3587YhYAf3Fx1p2nA6nOX8diYCusk1rN3lYAU+5qzEIEjPiY7gfAdky5GkcJ9L2Wcrs8FtZmPX+Y7tIgKvPLxy8iFFilsjBTu2ecVC2oKx0KlHbi63R/2tBhzvFfi9oWQJkd8ZJZvcpRkfjGOBOuA23shNmBOX9VrqW0UMBYOnNsBdeoT/YP0IWZHM3U1MuyAFTspZlGx8AM9puD9yg==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB292992.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(18002099003)(22082099003)(261009223027099003)(261021121427099003)(921020)(261026140227099003)(261026121527099003)(261102123227099003)(261022075727099003)(261022105027099003)(261028144727099003)(4143699003)(56012099006)(10067099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?TkhpOXdFY1lsbzVSSFpLZ1lDWHVpYThGblVQQktLVnVvUmdZL3UwT2M3cHpY?=
+ =?utf-8?B?TlVOb1VLVE01Qk84OWw1dmswU3Qvd0NYQ3JHbXdXK2hYdEwrYlU3Z0RzZmJz?=
+ =?utf-8?B?eTQwVm1xM2RZTElhWHVtb3hOSGZONm12ZlVlMnc1dUpKNG5Vbkhnb0ZFdG1j?=
+ =?utf-8?B?SnlmNGpibmF3VnA5OE9oS29kRU1KWEd1d1N6M3NHWlBteWlKSXdtdWxqZDJi?=
+ =?utf-8?B?aHI1cVhIWmxHTVh6bGpTcTlWMTgyVEM5cWttYlVqeUt1aEZ6d0xkdXZLOUNw?=
+ =?utf-8?B?K2VyTzk1cUlCV0cwd3JkZ21PbmlNQWhQbVhDL1UxTjVDUmJMNWsyK0tGS2FZ?=
+ =?utf-8?B?cmcyajBmMTdJQjZUbjdKSWx5ZkY1OC9vM0dxeHRaOWFNWEhZby9HWHQwbzR4?=
+ =?utf-8?B?TlF5WWZPeStLbWE0VDB4ZnI4eFJUTElwOTd5ODdubVR2bml6WGpOVGxwUnM2?=
+ =?utf-8?B?SC8zT0FNZW9QODl1ekkvR3FmYTNIbzJzcGJ5WUlObU1uTklVaUUyZmFSVWxu?=
+ =?utf-8?B?VTF6NzY1R1ByTGcyam1hdkpQaHBWZXp6V0toWWpBcGdiM0p0bFRmOXlxYlNV?=
+ =?utf-8?B?TVF4cjQ1TExMN0RNem9mQ3V2ajJKZzVweUxTZnBEMDliamoxVWFZQU9HN3lS?=
+ =?utf-8?B?UFAxNEdLd0NxNk1EYmVlV0NsMmZMQTFVcEFrcmRoeEhDTzJNbkhSUW42YzVJ?=
+ =?utf-8?B?dmxqbzAwZGxUY3J3VzJuUnpEMURnU0tVeHd1V1VwcGRZTHVnUTE5K0p4T0NF?=
+ =?utf-8?B?YmlZZGYzWC9iVzh1WVAyb3JValRaSjdYVmI0bll1SUN3OFdtdzBYU2VzeTdN?=
+ =?utf-8?B?QWtCdTJOTy9qQmtYdm5IMDZmWUpiYk5pc2NKWCtBYjVXM0NLVXRXaGtjbTZV?=
+ =?utf-8?B?d093YnA5bnRlZDBoSDNaUi9sWkNmQ2RnWjZKUHcrdzhabk5tVGo3MHc4YXlC?=
+ =?utf-8?B?MXNvai83aDZxZm9PbksxNnpQcGxvd2N5VnpxclJhTHFEMmprRDJRWjVBMTJE?=
+ =?utf-8?B?YVAzd1pVUjYvTmxIK0pKRFVxTlZmdkVLd0xURU1WYkpQWWEwaTdGYkhncnEv?=
+ =?utf-8?B?ZXE5Y3BzeU1nQ1JoaVVwaDdQTUl3aHhyQVNkYXpNWVpMQmg4RE9YUFJJTzA5?=
+ =?utf-8?B?SUxsTHkvNlZIc3lRajlydFBROS83R3BWYURYMmUrM2VCU3BCdWlJTWkzRlRE?=
+ =?utf-8?B?SHdPQkJjYS9mYmN6dnE1YnB1cGJkdW56U3g4VFR6ZkQ4WkhsZWR3T0labkph?=
+ =?utf-8?B?NkRPK3ZqM0xVTFpycmJ3dWpiK2IyWmNiclVQd2xpTTRrK2ZyNitvY09CSUpu?=
+ =?utf-8?B?bXV5NHlTa05SeHFuOEdjMVowTlhUUExMYW1PRGVHc3h3YysxbVZqMG1JU3dp?=
+ =?utf-8?B?Qm5TK0tqNm1WRjhoT2FneVRLSGRTUDF4eC8yK0IxTTlYV2twemxXNS9BY2RL?=
+ =?utf-8?B?aEpjWmljbjZMNVZPdlVZMUJGUVJxbThXZzlMc3g5bGw1bzIwL3AzODNpQnlw?=
+ =?utf-8?B?dlhheVc1THYyU2JpZnM1WnlVVlJRZkZ2M1l0cjQ2L2JsVVhEV1Q2VEFCaXlM?=
+ =?utf-8?B?VUZKN2trVnp3Vk5rOGxuZnNMYVk5OEtJeDYyblg5NEZkOUZReUp6d0JtSTNH?=
+ =?utf-8?B?OWl4WnpueVh2YTZ5Wmc5aGMzdXN5UFBVYnRWVzdFcXZLYmlCUWMwaS9Qb2Rm?=
+ =?utf-8?B?Yzd3NUlVb0dwczBXZHY5TW8xTHU2SnAwR1lTdlFsSU5uVFJZS25XdFBsdFV4?=
+ =?utf-8?B?ellURDZCUWF4ZkxHZHcyQ0p6SkZzY2NSUXRBQmVLTC9KYW1hUGxYYjBINmFv?=
+ =?utf-8?B?cUQ0bnF3Y2lSWG45aExVSDFNQXJ6ZkRXVzYyMmJVNkVhbUd1azh0OHZKNGNK?=
+ =?utf-8?B?a0JWSTJ5ZWNQamlKS0NYSk15M1RhcEtHV1VCdnozV1dQand1aTdzdkZTeHFK?=
+ =?utf-8?B?QXE0bFdpYkE1K3F1eDlEQmxDSjd1aHh1WERyK0N4bHV6bGpjVlE1N0g0RWEz?=
+ =?utf-8?B?T2ZjQmg2TmtJN2tDR3Q1dWdlMDRaa3NJTm10RXpOQ3lBbG5ybTVON0NrYkhl?=
+ =?utf-8?B?RzF4Y1dpV3FRVlZYNElwa1JDNWRLcmtDUGRLT2xJNGlaK2wxYitZLzhWZm1t?=
+ =?utf-8?B?a2loS2VZZkkyMWhsQWxWOEJXSUNLWENlYkp5RTdxeFN3bFhxb09SVjdHcStY?=
+ =?utf-8?B?emJWQjVJM292WGdWbEJscFZhakFmSFpqTGtMeU83U1l1cGNmL0Q4M2ltYTh6?=
+ =?utf-8?B?WThFeWpKWTlpSlFJenVyeWh1L1Z2ZjhpZVY3UzFnc2ZZTTlUamhUbXUybzBH?=
+ =?utf-8?Q?XO1rWOKnoM/VNFBYx5?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fd4f854c-5146-44bf-6ec2-08df494f0d97
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR12MB292992.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 10:46:38.9868
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WT6ypwIkliupNVzY0QYt7xzBwisruPM8wICwwwzi/TTug+jLP8A3H15w/DUw3MIjWP1j/KG63rnPX6e/DQGUTw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7491
 
-Clang's context analysis treats lockdep_assert_held*() as an assumption
-that the lock is held. A function that asserts instead of being
-annotated with __must_hold() therefore passes the analysis, but its
-callers are never checked.
 
-Add a script that reports functions which assert on all paths that a
-lock is held, where the lock can be named in a function attribute, and
-which are not annotated with __must_hold*(), __releases*(),
-__cond_releases*(), __context_unsafe() or __no_context_analysis. A lock
-can be named if all identifiers in the lock expression are parameters or
-member names, or if it is a global of the form &name or &name.member.
-Functions that mention the lock before asserting it, e.g. to acquire it,
-are skipped.
 
-lockdep_assert_held() passes for any mode, so for it the script cannot
-tell __must_hold() from __must_hold_shared() and reports both.
-
-For example, on v7.4-rc2:
-
-  kernel/locking/rwsem.c:396:1-20: rwsem_del_waiter() asserts &sem->wait_lock is held but lacks __must_hold(&sem->wait_lock) or __must_hold_shared(&sem->wait_lock)
-  kernel/futex/pi.c:919:1-20: fixup_pi_state_owner() asserts q->lock_ptr is held but lacks __must_hold(q->lock_ptr) or __must_hold_shared(q->lock_ptr)
-  drivers/nvme/host/fabrics.c:650:1-20: nvmf_lookup_transport() asserts &nvmf_transports_rwsem is held but lacks __must_hold(&nvmf_transports_rwsem) or __must_hold_shared(&nvmf_transports_rwsem)
-
-Limitations:
-
- - Annotations on a prototype in another file are not seen; non-static
-   functions are reported with "check prototype".
- - Annotations are detected textually and are not matched against the
-   asserted lock.
- - Functions that require a lock without asserting it are not found.
- - Only lockdep_assert_held{,_write,_read,_once}() and
-   assert_{raw_,}spin_locked() are matched; wrappers such as
-   lockdep_assert_wiphy() are not.
- - Functions that test the lock expression before the assertion, e.g.
-   __futex_unqueue(), are skipped along with those that acquire it.
- - &name.member is assumed to be a global.
- - Lock expressions that contain a cast are skipped.
- - spatch 1.3 fails to parse functions annotated with __cond_acquires*()
-   or __cond_releases*(), so these are not checked unless a macro file
-   defines these as MACROANNOTATION.
-
-Cc: Bart Van Assche <bvanassche@acm.org>
-Link: https://lore.kernel.org/all/CANpmjNNM=qBJMvBkRu-WbhKA0hnkb_Bk8fyF9DTTsVmENDvZuQ@mail.gmail.com/
-Signed-off-by: Marco Elver <elver@google.com>
----
-v3:
-* Also skip functions annotated with __cond_releases*() (Bart).
-* Keep whitespace between words in the lock expression (Bart).
-* Read each file once, and only record parameters of functions that
-  contain an assertion (Bart).
-* Document that casts and __cond_*() annotated functions are not handled.
-
-v2:
-* Report both __must_hold() and __must_hold_shared() for
-  lockdep_assert_held() (Bart).
-* Fix detection of annotations on prototypes in the same file (Bart).
-* Make "forall" explicit (Bart).
-* Skip functions that mention the lock before asserting it (Bart).
-* Require all identifiers in the lock expression to be parameters or
-  member names; accept &name.member as a global (Bart).
-* Match parameter names and "static" in SmPL instead of with regular
-  expressions (Bart).
-* Also match lockdep_assert_held_once() and assert_{raw_,}spin_locked()
-  (Bart).
-* Document skipped attributes and further limitations.
----
- scripts/coccinelle/locks/must_hold.cocci | 149 +++++++++++++++++++++++
- 1 file changed, 149 insertions(+)
- create mode 100644 scripts/coccinelle/locks/must_hold.cocci
-
-diff --git a/scripts/coccinelle/locks/must_hold.cocci b/scripts/coccinelle/locks/must_hold.cocci
-new file mode 100644
-index 000000000000..a393d229d2bf
---- /dev/null
-+++ b/scripts/coccinelle/locks/must_hold.cocci
-@@ -0,0 +1,149 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/// Find functions that unconditionally assert that a lock is held, but lack
-+/// the corresponding __must_hold() annotation. The compiler's context
-+/// analysis does not check the callers of such functions.
-+///
-+/// Only locks that can be named in a function attribute are reported: either
-+/// all identifiers in the lock expression are parameters or member names, or
-+/// the lock is a global of the form &name or &name.member. Functions that
-+/// mention the lock before asserting it (e.g. to acquire it) are skipped, as
-+/// are functions annotated with __must_hold*(), __releases*(),
-+/// __cond_releases*(), __context_unsafe() or __no_context_analysis.
-+//
-+// Confidence: Moderate
-+// Comments: Annotations on a prototype in another file are not seen; such
-+//	     functions are reported with "check prototype". Annotations are
-+//	     detected textually and are not matched against the asserted lock.
-+//	     Wrappers like lockdep_assert_wiphy() are not handled, nor are
-+//	     lock expressions that contain a cast. Functions annotated with
-+//	     __cond_acquires*() or __cond_releases*() are not parsed unless a
-+//	     macro file defines these as MACROANNOTATION.
-+// Options: --no-includes --include-headers
-+
-+virtual report
-+virtual org
-+
-+@initialize:python@
-+@@
-+
-+import re
-+
-+# All of these imply that the lock is held on entry, or disable the analysis.
-+ATTRS = re.compile(r'__(must_hold|must_hold_shared|releases|releases_shared|'
-+		   r'cond_releases|cond_releases_shared|'
-+		   r'context_unsafe|no_context_analysis)\b')
-+
-+# Parameters and linkage of the functions matched by rule r.
-+params = {}
-+static = set()
-+# The most recently read file: (name, text, lines).
-+src = (None, None, None)
-+
-+def key(pf):
-+	return (pf[0].file, pf[0].line)
-+
-+def missing_must_hold(f, a, E, pf, p):
-+	global src
-+	k = key(pf)
-+	# Drop whitespace, except where it separates two words.
-+	e = re.sub(r'\s+(?=\W)|(?<=\W)\s+', '', E)
-+
-+	# Identifiers that are neither member names nor called functions.
-+	free = re.findall(r'(?<![\w.>])[A-Za-z_]\w*(?!\w*\()', e)
-+	if not (all(i in params.get(k, ()) for i in free) or
-+		re.fullmatch(r'&\w+(\.\w+)*', e)):
-+		return None	# Cannot be named in an attribute.
-+
-+	if src[0] != k[0]:
-+		with open(k[0], errors='replace') as fp:
-+			text = fp.read()
-+		src = (k[0], text, text.splitlines(True))
-+
-+	# Attributes on the definition, or on a prototype in the same file.
-+	hdr = ''
-+	for l in src[2][int(k[1]) - 1:]:
-+		hdr += l
-+		if '{' in l:
-+			break
-+	if ATTRS.search(hdr.split('{')[0]):
-+		return None
-+	for d in re.finditer(r'\b%s\s*\([^;{}]*;' % re.escape(f), src[1]):
-+		if ATTRS.search(d.group(0)):
-+			return None
-+
-+	if a == 'lockdep_assert_held_read':
-+		want = "__must_hold_shared(%s)" % e
-+	elif a == 'lockdep_assert_held':
-+		want = "__must_hold(%s) or __must_hold_shared(%s)" % (e, e)
-+	else:
-+		want = "__must_hold(%s)" % e
-+	return "%s() asserts %s is held but lacks %s%s" % (
-+		f, e, want, "" if k in static else "; check prototype")
-+
-+@r forall@
-+identifier f;
-+identifier a = {lockdep_assert_held, lockdep_assert_held_write,
-+		lockdep_assert_held_read, lockdep_assert_held_once,
-+		assert_spin_locked, assert_raw_spin_locked};
-+expression E;
-+position pf, p;
-+@@
-+
-+f@pf(...)
-+{
-+	... when != E
-+	a@p(E);
-+	...
-+}
-+
-+@prm@
-+identifier f, x;
-+type T;
-+position r.pf;
-+@@
-+
-+f@pf(..., T x, ...) { ... }
-+
-+@script:python@
-+x << prm.x;
-+pf << r.pf;
-+@@
-+
-+params.setdefault(key(pf), set()).add(x)
-+
-+@st@
-+identifier f;
-+position r.pf, ps;
-+@@
-+
-+static f@pf@ps(...) { ... }
-+
-+@script:python@
-+ps << st.ps;
-+@@
-+
-+static.add(key(ps))
-+
-+@script:python depends on report@
-+f << r.f;
-+a << r.a;
-+E << r.E;
-+pf << r.pf;
-+p << r.p;
-+@@
-+
-+msg = missing_must_hold(f, a, E, pf, p)
-+if msg:
-+	coccilib.report.print_report(p[0], msg)
-+
-+@script:python depends on org@
-+f << r.f;
-+a << r.a;
-+E << r.E;
-+pf << r.pf;
-+p << r.p;
-+@@
-+
-+msg = missing_must_hold(f, a, E, pf, p)
-+if msg:
-+	coccilib.org.print_todo(p[0], msg)
--- 
-2.56.1.750.gf70dc682cf-goog
+On 11/15/2026 7:46 PM, Mario Limonciello wrote:
+> 
+> 
+> On 11/14/26 09:03, Vishal Badole wrote:
+>> From: Krishnamoorthi M <krishnamoorthi.m@amd.com>
+>>
+>> When amd-pstate CAS is active, it takes ownership of per-CPU capacity
+>> values that the scheduler uses to distinguish performance and efficiency
+>> cores. amd-hfi manages the same scheduler state through its ranking
+>> mechanism. Running both simultaneously would cause them to overwrite
+>> each other's settings, leading to unpredictable task placement on hybrid
+>> platforms.
+>>
+>> Avoid loading amd-hfi if CAS is enabled.
+>>
+>> Signed-off-by: Krishnamoorthi M <krishnamoorthi.m@amd.com>
+> 
+> When a patch is authored by another person and you send it on their 
+> behalf you need to add your own S-o-b as well.
+> 
+> Think of it like a chain of custody.
+> 
+Ack! Thanks for Pointing this.
+>> ---
+>>   drivers/platform/x86/amd/hfi/hfi.c | 8 ++++++++
+>>   1 file changed, 8 insertions(+)
+>>
+>> diff --git a/drivers/platform/x86/amd/hfi/hfi.c b/drivers/platform/ 
+>> x86/amd/hfi/hfi.c
+>> index 86a7f4332c35..b6878614e2bc 100644
+>> --- a/drivers/platform/x86/amd/hfi/hfi.c
+>> +++ b/drivers/platform/x86/amd/hfi/hfi.c
+>> @@ -29,6 +29,8 @@
+>>   #include <asm/cpu_device_id.h>
+>> +#include <linux/amd-pstate.h>
+>> +
+>>   #include <acpi/pcc.h>
+>>   #include <acpi/cppc_acpi.h>
+>> @@ -536,6 +538,12 @@ static int __init amd_hfi_init(void)
+>>           !cpu_feature_enabled(X86_FEATURE_AMD_WORKLOAD_CLASS))
+>>           return -ENODEV;
+>> +    /* amd-pstate CAS owns heterogeneous core scheduling when 
+>> enabled. */
+>> +    if (amd_pstate_cas_active()) {
+>> +        pr_debug("amd-pstate CAS is active, not loading amd-hfi\n");
+>> +        return -ENODEV;
+>> +    }
+>> +
+>>       ret = platform_driver_register(&amd_hfi_driver);
+>>       if (ret)
+>>           pr_err("failed to register HFI driver\n");
+> 
 
