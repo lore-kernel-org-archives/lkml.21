@@ -1,82 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795402564;
-	b=TYd1H0Rbxb6VStjCAnh8TUoa8fMG3IP6WqudMcSjoOW3b3JEqmHQC7VixmLe8spYjxO6
-	 L0g5SMT9Yyen0PHkFX3H7/wGcxjiSQOp+TY4V5C+YKoXWUmTxJXWePhRgeL9F+tOAxeM+
-	 VxWZg7WytLKEFTa34rzyVdHk9IhW+F94HQ7vypLuFdZ+dTtjEG14TNC1uIVbui7P6D6ZQ
-	 g+pv1lI7cO8ey74bXhhX5TaIwFj+/ct2pvLqELCL6inxxh1dPdgBNKy0HkLbE00PkO4O6
-	 AF3HEOsiCnqVTpnp8Pu83sX/EFLEeHJ7i4NzJ6smgZd7qGOZLKXlXr26kcagkpHJPzQ==
+	t=1795402628;
+	b=jH6GIiMepiKt5tkiv4pGPYV9FI3KO586M1LiJwOFySEqAZEXZrllHrnm/iEUO3/A+xG7
+	 Q8H8vG0HXa+oCJ40qmiQlALvLa2HOsVz/shjGs9RxtTLsvA+aVytI5qY4NPQiK2jvIWKZ
+	 wg77w5eS3AcEJ03evxIjrQou2qfcjl08RRJ4CPNTtWvxQkN2HNZFzoZru1XrxJoSDWzbG
+	 qkFYq8ATFpogtFTNZbKz/bGJqxvO4G28evNOQZydfxclJyOpNpe6BLSyPWhQepPW6AK6b
+	 KQqAMXUSFPLyFo+uooFzAEdo3W4EkBYNTkiqfJVYwDR95lZNU/N1ccKALmmBHIbrWZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795402564;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=YFSznwul4THjiRPoamb1lX23kbVJJNs3MzKLdDW2q64=;
-	b=x16a0f9DRvI/tLVOKoimtOdovr3T8Gjs0awBP+r0GnnP78d0y8ivuLte5V64C0hW2mcw
-	 laJiUEQ9J0Y07f4rbIV1KqMcUCr3MaVfBVEtJg1NqwzabkjpBlV8tlNWNnKzirWUgZAsY
-	 wnxABGTCvYqpr+ER1/3kVZfxDd/Bmd7aWX2sZ+c54DqXPzxoaYp0Jqb0LdZDZQ0Wy6Xn6
-	 jZe1MXQGw9ggRUVWzunGxlDNn5+cshGzPhhCmqTjXtI5CMNKUrc/ZtJ3PcqzvRPsfFHkP
-	 t0N2IhykAY3lAMIbrjjyvYOhWBImqGhqSFsOxDPululCXK7mkNlsT2nrkn7tr+NqIgQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795402628;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=GDNT0b/bhyDzKt86MPLi6HOpcuh4V0yz8R1khihljtE=;
+	b=ZhaTgiOxaV5KinwTDe7Q/WcevwdB6T3LMUKHUsZOxbnfbPP0YdVEBus/+H8O/QtbhgAf
+	 YgXKJiUiPLbTJsjWEkywj/WKc3V6hhVTHZdM4H+1/Q88C966feBMn6+309o2drizElKqU
+	 KWrECjt/VWvRvQb6a7aun1t8DlNaxgSAaW/sriCHbCugzlBh9ZdS1i22BRzvkF4rEcoIi
+	 5uw5Z9Gv6izt7Xgb3YcFnfy3vQAtMpWWPROYmHij4c3MUnweH+2WPtxYAx7S6lngM0KEP
+	 r/EB8UDZHifXtgMjoxYaOXpn2qnK2zd2dl7UC7ALb/3cBH3j60H1w66veVS45+vnLBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=thnyPV7n;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FgYVjWGm;
+	arc=none smtp.remote-ip=209.85.216.51
+Received: from mail-pj1-f51.google.com (mail-pj1-f51.google.com [209.85.216.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4092F606A32D
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:56:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4092F606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E20FC606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:57:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E20FC606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=thnyPV7n
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN057hI708047;
-	Mon, 23 Nov 2026 02:55:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=YFSznw
-	ul4THjiRPoamb1lX23kbVJJNs3MzKLdDW2q64=; b=thnyPV7n4lxnB53k1W+8k7
-	Zh22DgL2x4kpzxCU4n8h98ZgdUTT29ZQmvugRgrBJyAhwCUcM0zbThhlmlyIGMwt
-	QPUwTHUQJ6FFEdmZLFe6Piluw2FA/AFJ4L/au6ss3mI3hImP+J2AoI0uPNaDnCEw
-	skH4qxzysDaTmomtULCPY8Bay2b72tqjyLZdGtBxM+seX7+flerMI0U9nCfxu6yM
-	biXemCw1/kVFJXwMCyJFKIZaYL7SaMxRYcFwy2FVQCHnYnd+7vqwVyt3xm5QshjF
-	Hvj7pzsZKWeTfz9pn3kKZjwnaj22FmsRTwiFKfKEVQi+2BBmBrczhjpt6UZF2kZQ
-	==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34p48y12-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 02:55:53 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN04Ier2492322;
-	Mon, 23 Nov 2026 02:55:52 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3pmjw4mq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 02:55:52 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AN2toC148890356
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 23 Nov 2026 02:55:50 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B181F2004E;
-	Mon, 23 Nov 2026 02:55:50 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B92552004B;
-	Mon, 23 Nov 2026 02:55:48 +0000 (GMT)
-Received: from [9.124.222.251] (unknown [9.124.222.251])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 23 Nov 2026 02:55:48 +0000 (GMT)
-Message-ID: <7446f558-5cbe-4efc-b6bb-686d0dca9f42@linux.ibm.com>
-Date: Mon, 23 Nov 2026 08:25:47 +0530
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FgYVjWGm
+Received: by mail-pj1-f51.google.com with SMTP id 98e67ed59e1d1-3b3e85baf7cso1544717a91.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:57:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795402627; x=1796007427; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=GDNT0b/bhyDzKt86MPLi6HOpcuh4V0yz8R1khihljtE=;
+        b=FgYVjWGmL1QtXCI2mQBKnfn2O8L/QNW0xtlxCmFqhqKTJ9rKCS0VeYFIfrZNHPkng5
+         JSy0mkS4C7m5RIPnRV3MRpbI/OosOXlQXt8oEcHflv7O/vSNQaN5+1pSBP0B1O6TREue
+         mQjNHGxbGkNLM+DS9nT5kz6YTaBbLxIL1EGw0fDLi4dWTDnsjWGS2VK1epjWKizRksWw
+         tk69j75W+Y34KvN5F7AfeNmrrEQrOBeyv85iQtX7RUSe7nLJLc4YFI+YnK+/K1oEhgPM
+         b7k97jCWm1nDKnQ7gyYT12iSMEHODazFXmbOAJ2znT5eTYuOxdiwVgxA7J0JWfQGlDcv
+         vqdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795402627; x=1796007427;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=GDNT0b/bhyDzKt86MPLi6HOpcuh4V0yz8R1khihljtE=;
+        b=xOAMT1lNr5jLAnLvUzixTqEA6nkdbg7+H1Csd8XFRt+998tlLvsnfcvULQrNMDH1lF
+         bujoJFsH9FbTlA5niDpRL35tTiQFUSF09ca/ntH9qwh5UIRKVgnSycfGrvhsrWpyiia5
+         Q4R+taaaR3E/cB5M0tZ4C9f60odAOrjEIm42SHgPwRM4htn5iGWaPI3BCI3VVhjrn89c
+         uAly96p+5d6WpR6wyXysMXawgAmaaH4sp30YwhmiqMCD++244f8j/Z5FaxRxGi5Ybk6v
+         9MktwWFJY3ROXvmZWYwbqhPREk32QRDuoaa1PwWEGYh0FzCPnb4H7lkQdhCen9ZgLBqQ
+         DE5A==
+X-Forwarded-Encrypted: i=1; AL+hErEUjrbffzbm+jhsLbj+poXQxCprjqd0mQmisamzu2YuAmKKf9Dx6Bs9R10NmJ4IMO+gGE0CTFLB9byt39Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8cj1xluzkIfGtT5HnAuimj/eFWudaZnN+gtJqYef2mv9+K/X4L
+	Yq+I09uzb+fWxcx/Xq7zXjynj94i1QVZueUcWQz0lSR1jOwAp5do4sKs
+X-Gm-Gg: AZFdTZfApJxDeQqmg4FG5MgzY8zN4JeV7iRloWnMLV32nc49wpXrs9zUaXivyImFlNN
+	rlWOYEMEZNhIyVbIq+dzckntaamXwGhnqyeYCA0yHmEiQ4jU6SLO7eFJ0ZqLoPVfzvE+zqz2JZ8
+	l9FSfVaQSYGQbenRWfqzSWWILG4SuNWpQVtAoliPWT3C3V/RjTflldOAIt0wjR6tEE0uvVpwvhx
+	+J74krZdUV8gqD/SnT5Vq+gwhvgJka6g26+0K3Z+P62CYD13x+/AL6VwZ+UvTPA5nxTxDiUKd8+
+	q+vcvqMsU5PUYJmBYqP7YZ9TLTJdODKvVh755PHz9nrzWqmW2LJx+Q/nhWuslHQinpY3KjB1dTj
+	wq1vaDlL1rUnxKerc5Q7GbHraghwXzPzCHRYGYpvGJ3xITuQHZC0j51a4V0S+ALXTqXedUQD6la
+	jiZZnq5mqGTIb1XB4eyS3TvvCCUzD7eAKzhx4uHwLBxWef22aH/PSTYKtLhrcp0m88jCPDmA6Jh
+	JvKzjL/3w7GwX8C7m402x1gNcIUPCHUiJk/kfdy4sA07d/cegF23PrwPv2Zukkg9YDMEi2o8DDP
+	+Ikq3ZVg4aiPbdLvMnevdUHvFp5LO939Xw==
+X-Received: by 2002:a17:90b:1a90:b0:3b0:e388:d9da with SMTP id 98e67ed59e1d1-3b41c92ce29mr8507796a91.29.1795402627197;
+        Sun, 22 Nov 2026 18:57:07 -0800 (PST)
+Received: from arm-a100.. ([140.112.28.118])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad92c13sm15279137a91.14.2026.11.22.18.57.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 18:57:06 -0800 (PST)
+From: Tzu-Ching Yang <shingekinocore@gmail.com>
+To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: "Maciej W. Rozycki" <macro@orcam.me.uk>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-mips@vger.kernel.org,
+	llvm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kernel test robot <lkp@intel.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] MIPS: Fix genex.S build with LLVM before 21
+Date: Mon, 23 Nov 2026 10:56:45 +0800
+Message-Id: <20261123025645.2385330-1-shingekinocore@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,168 +104,141 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [linus:master] [virt/steal_governor] 1fb28c664a:
- WARNING:at_kernel/sched/core.c:#set_task_cpu
-To: kernel test robot <yi1.lai@intel.com>
-Cc: oe-lkp@lists.linux.dev, lkp@intel.com, linux-kernel@vger.kernel.org,
-        Peter Zijlstra <peterz@infradead.org>,
-        Yury Norov <yury.norov@gmail.com>, Ingo Molnar <mingo@redhat.com>,
-        Vincent Guittot <vincent.guittot@linaro.org>
-References: <202611230353.1fedceba-lkp@intel.com>
-From: Shrikanth Hegde <sshegde@linux.ibm.com>
-Content-Language: en-US
-In-Reply-To: <202611230353.1fedceba-lkp@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAxMCBTYWx0ZWRfX0v3I1rnqiqPT
- LarYbEp5VfXMe+9g001tqkysy95On7woTE0Byy6R2DDoOwGCOSTDH0C0D9v8hknZgyPIMQ+gVrR
- JmyZUwR3mFy2oWztfNN/RcHscro6yFI=
-X-Proofpoint-GUID: bD7wYORhpYACfIPFGE1PpanjkWif1fc2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAxMCBTYWx0ZWRfX9NXgGu5yiOgc
- TQV/LHUT1oBfLhkVz9t5A/glICSohW5RUA8mbwV7t4RzGPHP0txAA9fzKGoD5qBDA5a+JWK06x1
- Yo1ymvxCnwwfgXVnA6HoH3vPSrZkpCNMJvVDY6P2JpBcCXstwfZ6p6PE+ePE33/2utmuk8FbgAB
- SwpP8MEPHQuMxxtpORslFd5OgGt/tQ2pJpeou+Z/eXDS2uW4lfaZIFcNpw5U2Rw9A3DYvg7R/Ub
- FrlNizbg6wc4K0D0gCplBVJbzo/n9BZeuMj96MrBE4enPpmvbf44XLf3bKRjfxdtwahfrid+0AP
- +jzRzGlwgM2weQp6jA7PPbVYP9S11w8moTnMEKa3zWPDJcACdYMz5Q+oI9oL9DHm3VTcUBQ1yoy
- x/YGgWF1HUCsCGwihdqSh/cy7RLNxIarCvRDUSOtsQCyw9Dqft29uLetYJorwGJDVNnoqlJskdP
- fnmqY6p6NPvm2fv9uiQ==
-X-Proofpoint-ORIG-GUID: HnhvroMrt56rqqaZH5zbMCxsznf6p5so
-X-Authority-Analysis: v=2.4 cv=QabzLcbv c=1 sm=1 tr=0 ts=6b03ab39 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VwQbUJbxAAAA:8
- a=QyXUC8HyAAAA:8 a=i3X5FwGiAAAA:8 a=NEAV23lmAAAA:8 a=fFnH5_pNhh8L5P8pgyUA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=mmqRlSCDY2ywfjPLJ4af:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-22_06,2026-11-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0 adultscore=0
- bulkscore=0 priorityscore=1501 clxscore=1011 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230010
 
-Hi.
+Since commit 56651128e2fb ("MIPS: Fix idle VS timer enqueue"),
+BUILD_SKIPOVER_PROLOGUE uses label differences as the immediates of ORI
+and PTR_ADDIU. The LLVM integrated assembler accepts such an immediate
+only from LLVM 21 on, so LLVM=1 builds of every MIPS configuration fail
+with LLVM 17 to 20 unless LLVM_IAS=0 is set:
 
-On 11/23/26 8:17 AM, kernel test robot wrote:
-> 
-> Hello,
-> 
-> kernel test robot noticed "WARNING:at_kernel/sched/core.c:#set_task_cpu" on:
-> 
-> commit: 1fb28c664a19df8d45a6afa04d28d102b04ea680 ("virt/steal_governor: Enable the driver") https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git master
-> 
-> [test failed on linux-next/master 909ef7a9a30fa139e69e555e3606680f5cca7726]
-> 
-> in testcase: trinity
-> version: trinity-i386-abe9de86-1_20230429 with following parameters:
-> 
-> 	runtime: 300s
-> 	group: group-00
-> 	nr_groups: 5
-> 
-> 
-> config: i386-randconfig-2105-20261109
-> compiler: gcc-14
-> test machine: qemu-system-i386 -enable-kvm -cpu Haswell-noTSX,enforce,lm=off -smp 4 -m 4G
-> 
-> Additional analysis by LLM: This commit only adds Kconfig/Makefile wiring for the STEAL_GOVERNOR driver. It contains no scheduler logic changes. Its effect is to flip on CONFIG_PREFERRED_CPU for the first time in the series, which activates a block of previously-dead code under #ifdef CONFIG_PREFERRED_CPU in core.c that had been unreachable until now. The commit to be blamed should be 74699f56ebcf — "sched/core: Push current task from non preferred CPU".
-> 
-> (please refer to attached dmesg/kmsg for entire log/backtrace)
-> 
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <yi1.lai@intel.com>
-> | Closes: https://lore.kernel.org/oe-lkp/202611230353.1fedceba-lkp@intel.com
-> 
-> 
-> [   61.829095][   T33] ------------[ cut here ]------------
-> [   61.830984][   T33] is_migration_disabled(p)
-> [   61.830988][   T33] WARNING: kernel/sched/core.c:3422 at set_task_cpu+0xb7/0x180, CPU#3: migration/3/33
-> [   61.834561][   T33] Modules linked in:
-> [   61.835867][   T33] CPU: 3 UID: 0 PID: 33 Comm: migration/3 Not tainted 7.3.0-rc1-00053-g1fb28c664a19 #1 PREEMPT(full)
-> [   61.838952][   T33] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-> [   61.852825][   T33] Stopper: sched_non_preferred_cpu_push_stop+0x0/0x120 <- sched_push_current_non_preferred_cpu (sched/core.c:11340)
-> [   61.859715][   T33] EIP: set_task_cpu (sched/core.c:3422 (discriminator 2))
-> [   61.861346][   T33] Code: 6c 08 00 00 83 c0 28 83 c0 10 e8 a4 a9 ff ff 85 c0 75 02 0f 0b 0f a3 35 5c 65 60 b4 72 02 0f 0b 66 83 bb 5c 02 00 00 00 74 02 <0f> 0b 3e 8d 74 26 00 eb 32 64 a1 14 50 7e b4 0f a3 05 5c 65 60 b4
-> All code
-> ========
->     0:	6c                   	insb   (%dx),%es:(%rdi)
->     1:	08 00                	or     %al,(%rax)
->     3:	00 83 c0 28 83 c0    	add    %al,-0x3f7cd740(%rbx)
->     9:	10 e8                	adc    %ch,%al
->     b:	a4                   	movsb  %ds:(%rsi),%es:(%rdi)
->     c:	a9 ff ff 85 c0       	test   $0xc085ffff,%eax
->    11:	75 02                	jne    0x15
->    13:	0f 0b                	ud2
->    15:	0f a3 35 5c 65 60 b4 	bt     %esi,-0x4b9f9aa4(%rip)        # 0xffffffffb4606578
->    1c:	72 02                	jb     0x20
->    1e:	0f 0b                	ud2
->    20:	66 83 bb 5c 02 00 00 	cmpw   $0x0,0x25c(%rbx)
->    27:	00
->    28:	74 02                	je     0x2c
->    2a:*	0f 0b                	ud2		<-- trapping instruction
->    2c:	3e 8d 74 26 00       	ds lea 0x0(%rsi,%riz,1),%esi
->    31:	eb 32                	jmp    0x65
->    33:	64 a1 14 50 7e b4 0f 	movabs %fs:0x5c05a30fb47e5014,%eax
->    3a:	a3 05 5c
->    3d:	65 60                	gs (bad)
->    3f:	b4                   	.byte 0xb4
-> 
-> Code starting with the faulting instruction ===========================================
->     0:	0f 0b                	ud2
->     2:	3e 8d 74 26 00       	ds lea 0x0(%rsi,%riz,1),%esi
->     7:	eb 32                	jmp    0x3b
->     9:	64 a1 14 50 7e b4 0f 	movabs %fs:0x5c05a30fb47e5014,%eax
->    10:	a3 05 5c
->    13:	65 60                	gs (bad)
->    15:	b4                   	.byte 0xb4
-> [   61.870903][   T33] EAX: 00000002 EBX: f5381300 ECX: 00000000 EDX: 00000003
-> [   61.873346][   T33] ESI: 00000003 EDI: b614bf00 EBP: b614bebc ESP: b614beac
-> [   61.875803][   T33] DS: 007b ES: 007b FS: 00d8 GS: 0000 SS: 0068 EFLAGS: 00010002
-> [   61.882493][   T33] CR0: 80050033 CR2: a6af0000 CR3: 45267000 CR4: 001506d0
-> [   61.884849][   T33] Call Trace:
-> [   61.889217][   T33]  move_queued_task (sched/core.c:2596)
-> [   61.890818][   T33]  __migrate_task (sched/core.c:2644)
-> [   61.892297][   T33]  sched_non_preferred_cpu_push_stop (sched/core.c:11292)
-> [   61.897538][   T33]  ? tracer_preempt_off (trace/trace_irqsoff.c:692 (discriminator 1))
-> [   61.899325][   T33]  ? trace_preempt_off (trace/trace_preemptirq.c:127)
-> [   61.901048][   T33]  ? preempt_count_add (sched/core.c:6056)
-> [   61.906016][   T33]  ? __balance_push_cpu_stop (sched/core.c:8397)
-> [   61.907819][   T33]  ? preempt_latency_start (sched/core.c:6030 (discriminator 1) sched/core.c:6023 (discriminator 1))
-> [   61.909635][   T33]  ? __balance_push_cpu_stop (sched/core.c:8397)
-> [   61.911466][   T33]  cpu_stopper_thread (stop_machine.c:510)
-> [   61.913093][   T33]  smpboot_thread_fn (smpboot.c:160)
-> [   61.917838][   T33]  kthread (kthread.c:436)
-> [   61.919260][   T33]  ? sort_range (??:?)
-> [   61.920703][   T33]  ? kthread_affine_node (kthread.c:378)
-> [   61.925663][   T33]  ret_from_fork (x86/kernel/process.c:158)
-> [   61.927228][   T33]  ? kthread_affine_node (kthread.c:378)
-> [   61.928980][   T33]  ret_from_fork_asm (x86/entry/entry_32.S:736)
-> [   61.933831][   T33]  entry_INT80_32 (x86/entry/entry_32.S:940)
-> [   61.935410][   T33] irq event stamp: 108
-> [   61.936744][   T33] hardirqs last  enabled at (107): _raw_spin_unlock_irqrestore (linux/spinlock_api_smp.h:210 (discriminator 1) locking/spinlock.c:221 (discriminator 1))
-> [   61.943224][   T33] hardirqs last disabled at (108): __schedule (sched/core.c:7225 (discriminator 1))
-> [   61.946108][   T33] softirqs last  enabled at (0): copy_process (fork.c:2239 (discriminator 1))
-> [   61.948970][   T33] softirqs last disabled at (0): 0x0
-> [   61.955261][   T33] ---[ end trace 0000000000000000 ]---
-> 
-> 
-> The kernel config and materials to reproduce are available at:
-> https://download.01.org/0day-ci/archive/20261123/202611230353.1fedceba-lkp@intel.com
-> 
-> 
-> --
-> 0-DAY CI Kernel Test Service
-> https://github.com/intel/lkp-tests/wiki
-> 
-> 
+  <instantiation>:7:11: error: expected an immediate
+   ori $26, r4k_wait_idle_size - 2
+            ^
+  <instantiation>:10:14: error: expected an immediate
+    addiu $26, r4k_wait_exit - r4k_wait_insn + 2
+               ^
 
+Wrap both expressions in %lo(). For that operator, LLVM 17 to 20
+emit a LO16 fixup instead of rejecting the operand, and resolve it when
+writing the object, since both expressions are constants by then; no
+relocation is left. Both values are between 2 and 30, so %lo() does
+not change them. GNU as and LLVM 21 to 23 emit the same code as
+before, except on microMIPS, where GNU as now uses the 32-bit ADDIU in
+the delay slot instead of the 16-bit one. With GCC, the 2 extra bytes
+replace the 16-bit NOP that padded the end of the prologue, so all
+symbols keep their addresses; with Clang and LLVM_IAS=0, except_vec_vi
+and the code after it, up to nmi_handler, move by 4 bytes.
 
-Could you please try with below patch included?
-Symptoms seems to be similar.
+Fixes: 56651128e2fb ("MIPS: Fix idle VS timer enqueue")
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202505071331.Z0N2eSkr-lkp@intel.com/
+Link: https://github.com/llvm/llvm-project/commit/b65e0947cade9bd39036a7700b54c1df4ec00756
+Cc: stable@vger.kernel.org # 6.6.x: 56651128e2fb: MIPS: Fix idle VS timer enqueue
+Cc: stable@vger.kernel.org # 6.6.x: b713f27e32d8: MIPS: Move r4k_wait() to .cpuidle.text section
+Cc: stable@vger.kernel.org # 6.6.x: 2b6d718c8dbe: MIPS: Fix whitespace damage in r4k_wait from VS timer fix
+Cc: stable@vger.kernel.org # 6.6.x
+Signed-off-by: Tzu-Ching Yang <shingekinocore@gmail.com>
+---
+v2: only the stable tags change; the code and the rest of the changelog
+are those of v1 [v1]. The tags now start at 6.6.x and name the two
+prerequisites Maciej suggested [review] plus b713f27e32d8.
 
-https://lore.kernel.org/all/179538776083.92412.4311246927428883759.tip-bot2@tip-bot2/
+What each stable series has today, and what it will get with the tags:
+
+  series  56651128e2fb  b713f27e32d8  2b6d718c8dbe  will get
+  ------  ------------  ------------  ------------  --------------------
+  7.3.y   yes           yes           yes           this patch
+  6.18.y  yes           yes           no            2b6d718c8dbe + this
+  6.12.y  no            no            no            all three + this (a)
+  6.6.y   no            no            no            all three + this (a)
+  6.1.y   no            no            no            nothing (b)
+
+(a) On 6.12.118 and 6.6.162 the three cherry-picks and this patch apply
+    cleanly. For malta_defconfig, genex.o builds with GCC 8.1 and 16.2
+    and with LLVM 13.0.1, 17.0.1 and 21.1.8 (6.6.162: also 11.1.0),
+    and kernels built with GCC 16.2 and LLVM 17.0.1 boot under QEMU.
+    56651128e2fb needs b713f27e32d8: without it, all the code after
+    r4k_wait in genex.S is placed in .init.text. Both were queued for
+    6.12 and 6.6 in 2025 and dropped because of the build failure
+    fixed here ([1] below).
+(b) 56651128e2fb conflicts in idle.c on 6.1.y and older.
+
+[v1] https://lore.kernel.org/r/20261104030147.3117325-1-shingekinocore@gmail.com/
+[review] https://lore.kernel.org/r/alpine.DEB.2.21.2611040746160.6502@angie.orcam.me.uk/
+
+The notes of v1, unchanged:
+
+> No MIPS hardware here. Against mips-fixes (v7.4-rc1). All builds use
+> W=1 and kernel.org toolchains.
+>
+> - genex.o, before and after, with GCC 8.1 to 16.2 and with LLVM 17 to
+>   23, both with the integrated assembler and with LLVM_IAS=0. Configs:
+>   64r6el, 32r6el, 64r2el, 32r2el, eyeq5, eyeq6, malta (little and big
+>   endian, MIPS32r1, microMIPS little and big endian), ip22, ip27,
+>   loongson3 and cavium_octeon.
+>   - The objects are byte-identical before and after with GCC, with
+>     LLVM_IAS=0 and with LLVM 21 to 23. The only exception is the
+>     microMIPS ADDIU above. The 4-byte move with LLVM_IAS=0 is harmless:
+>     set_vi_handler() computes the offsets and the length of the vectored
+>     handler from symbols before copying it, and ejtag_debug_handler and
+>     nmi_handler are only referenced through their symbols.
+>   - LLVM 17 to 20 now assemble genex.o for all of these configs except
+>     microMIPS and Octeon, which the integrated assembler rejects for
+>     other reasons. For malta (little and big endian, MIPS32r1), ip22
+>     and ip27, these objects are byte-identical to the LLVM 21 genex.o.
+> - vmlinux of 64r2el, 32r2el and malta, built with GCC 8.1 and 16.2,
+>   LLVM 17, 20, 21 and 23, and LLVM 17 with LLVM_IAS=0. Where both sides
+>   build, vmlinux is byte-identical before and after. With LLVM 17 and
+>   20, genex.o was the only object that failed before, and vmlinux links
+>   after. No new warnings.
+> - The malta kernels built with GCC 8.1 and 16.2, LLVM 17, 20 and 23, and
+>   LLVM 17 with LLVM_IAS=0 boot under QEMU 6.2 -cpu 24Kf. That CPU uses
+>   r4k_wait(), so interrupts go through skipover_handle_int. Each kernel
+>   boots to an init that keeps the CPU going in and out of idle and then
+>   reboots; a QEMU trace shows every interrupt that lands in the idle
+>   region resuming at r4k_wait_exit. A microMIPS kernel does not boot
+>   under QEMU -cpu M14Kc with or without this patch, so the microMIPS
+>   change was not run.
+>
+> In the 2025 thread [2], Nathan suggested requiring LLVM 21 for MIPS in
+> min-tool-version.sh, and Maciej an #error for older Clang. Both would
+> also stop LLVM 17 to 20 builds with LLVM_IAS=0, which work today, and
+> the stable trees would need the same change before 56651128e2fb could
+> go back to them.
+>
+> On 6.18.y, which also allows LLVM 15 and 16, the patch applies after
+> 2b6d718c8dbe, and LLVM 15 and 16 fail and are fixed the same way.
+>
+> The 56651128e2fb backport was dropped from the 6.14, 6.12 and 6.6
+> stable queues because of this build failure [1], so 6.12.y and 6.6.y
+> still lack that fix.
+>
+> [1] https://lore.kernel.org/r/2025051415-unloader-likely-b0e6@gregkh/
+> [2] https://lore.kernel.org/r/20250521224450.GA2412476@ax162/
+
+ arch/mips/kernel/genex.S | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/mips/kernel/genex.S b/arch/mips/kernel/genex.S
+index be1b049d856f..ef27965f6ad9 100644
+--- a/arch/mips/kernel/genex.S
++++ b/arch/mips/kernel/genex.S
+@@ -146,10 +146,10 @@ r4k_wait_exit:
+ 	MFC0	k0, CP0_EPC
+ 	/* Subtract/add 2 to let the ISA bit propagate through the mask.  */
+ 	PTR_LA	k1, r4k_wait_insn - 2
+-	ori	k0, r4k_wait_idle_size - 2
++	ori	k0, %lo(r4k_wait_idle_size - 2)	/* %lo() for LLVM < 21 */
+ 	.set	noreorder
+ 	bne	k0, k1, \handler
+-	 PTR_ADDIU	k0, r4k_wait_exit - r4k_wait_insn + 2
++	 PTR_ADDIU	k0, %lo(r4k_wait_exit - r4k_wait_insn + 2) /* ditto */
+ 	.set	reorder
+ 	MTC0	k0, CP0_EPC
+ 	.set pop
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+-- 
+2.34.1
+
