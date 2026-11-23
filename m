@@ -1,56 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.206.34.216
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795440065;
-	b=QxucE0aQE+BJD+HbukhnqHHO22cQvQQVHhpmG1NNt2t/jXLzK/6jl0+r3oYiQLBQeX5q
-	 V228n6qXkSFMeqAArAmMLSHevriXLojDkmt/8B31H/QflPdbYcps3bLrTJpSUbXDkRQx0
-	 U4BlxHMx3RwHIX5GRgtt4UgvsALijbXE7NzYLErK0tZ08IcIa+cuxyitNlzt8u6rqpeg2
-	 Y0nz6RnIvDveYH6YjVtutOnkn+P+H4aH10x0YFTGp6oVD3GdXbXl4MC3W8bROA/bHWJve
-	 4lKu1nMP0mwgU+rS6MoFMzVkhDBlwB7j84C2c9z7ipZ/T73NSmQ426y6hzw7YC3jq/Q==
+	t=1795440123;
+	b=dLTOiFqrMWM/ZtKfLXo6JdK6JKZPOscFmEEskEdGPkO7NX/+BJDzYlze0BnmlJSeoQXh
+	 TCRXicO/x4+SsMD5BvK6Fmteap4s4D6wObO45VbvpFhuffmK/COUlGqwXejl3Vcr0eZCC
+	 YpJoGds3WJ5AV2iu8ldoOP0jhafaYOiQ6GI5BTQKqvZHX+DzXY5ebM/zXK5XVme+lKooO
+	 SfAHPCHm6GexKdDYH8YCjKw+/jQdYwJJxrSD2S0cDi3bwnugS6axliYJcMqzhulXQROuP
+	 mQfi9iiZ3QvrjVYndjQOTpAo2ZGmgtS0fVEWs2NeZMdkQZLhBCPVNZj4YiWPAAf/Fnw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795440065;
-	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
-	 X-QQ-GoodBg:X-BIZMAIL-ID:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=oDb7/5u+YnPeqHf4ZzAH5ZXhy4WXYRV6NDUqhDTLi2U=;
-	b=f/hoi4JSCCjedsORrUanS23LT1BwWjfnqRaYGDC8brqJGDm27XZgWDoXBZtp40bArmnJ
-	 k+pcky4ZA8bhDnWwcpxStTSRjFIZ6042GnH0zoTHdfWbyxGty8pKo/QmoFW9hgxl0cIId
-	 n/kYsfGcQAIuYP320zTLf3iR5XGe6Qvjx34PmVRK+dWC9svzmvp2BGRAmfCUow6LGEIqe
-	 GDvAYULq4txsX4vK56oGavjWFyHp8hsmbd6lCdQUqTalgtc6YiMDP01PtRagQk/Fi9UPH
-	 omWDnfRnqt7JL3oVXBGYsjLEytihZg9YZ3qb6Z1GlftT7g8W/Pz1RipPmCmMxsjkohw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795440123;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=KZfX+ZF6d3jxSf9WpYrXx6unSUfJtLVOGgikrC1kH6U=;
+	b=kxP1WuJooXVlqecEBBqWXP23uS+UeNkaHGxPzUvt8kYao2XfKlncETsdUR/kSaEipmOV
+	 oV4Er11Qi2NkmC/DysPW2beusVhmK8h91sMHB9pisSz4GHV+hvEYMsoN38o97k3XOo01e
+	 KDdQmi7KXJZuvOOhmGOp+gJGC21J69ihuav7j5VIsFtv1feslXXz/WbGPB6i4mEU98PNu
+	 x4Ri8+YvffDLeMKUkI9zFd52OhQeDXrLp2xnYs92E/BlClWg2phcsrsTvTEgmYi/tp+C7
+	 4BtBPwHFKVi+v3ssWNZsPK/og09+RS4uBaRZASbDAUnm4rq5/jZYvtYzff56EY8tLMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinsec.com.cn;
-	spf=pass smtp.mailfrom=kylinsec.com.cn;
-	arc=none smtp.remote-ip=54.206.34.216
-Received: from smtpbgau2.qq.com (smtpbgau2.qq.com [54.206.34.216])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TMGgafaP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5066606A327
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:21:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5066606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinsec.com.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinsec.com.cn
-X-QQ-mid: esmtpsz19t1795439983t8360dc36
-X-QQ-Originating-IP: 8K8vIEcxTTj1hnr8PTB0ssAJXbxSDHLAKXRFev7MtWU=
-Received: from yoga14s ( [113.246.116.110])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 23 Nov 2026 21:19:41 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8098164807800772953
-From: Luo Qiu <luoqiu@kylinsec.com.cn>
-To: Jianmin Lv <lvjianmin@loongson.cn>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Yao Zi <ziyao@disroot.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>,
-	Zixing Liu <liushuyu@aosc.io>
-Cc: loongarch@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] platform/loongarch: laptop: Fix backlight device lifetime on unload
-Date: Mon, 23 Nov 2026 21:19:44 +0800
-Message-ID: <C95EAA0918240E5D+20261123131944.77149-1-luoqiu@kylinsec.com.cn>
-X-Mailer: git-send-email 2.56.1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C03DF606A31A;
+	Mon, 23 Nov 2026 13:22:03 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TMGgafaP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D687A1F000C0;
+	Mon, 23 Nov 2026 13:21:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795440123;
+	bh=KZfX+ZF6d3jxSf9WpYrXx6unSUfJtLVOGgikrC1kH6U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TMGgafaPHDfKrZrodW+958mBFtGiFovNSmKRRX3mzyYR+/UORFpEttx/f+kDZn2xd
+	 QjD8bvURHYb75aSBEz3uIb23mWlLOwfcBOnObmFKGvzQMYHVmBG00LBl4CgM/7+z80
+	 Ec//Y1Z4SzUEKwmzZ3zWebqjccK8P++vImIEz8kTys/hyjl86N/SWsE3vvW/A52swj
+	 +dLefTXln+SHLtCt1Oe/jvYTP9poeKBS8aEUz6JHxc3ikl5TgfOdM1R398BjxG7EKx
+	 s1nn8g+AQB5aQo1KEAfEociw01ShjHDkYOiWTZoAaquGWYwqyQ5vzAjJjbpVvYYObu
+	 CEXOexUivKJGw==
+Date: Mon, 23 Nov 2026 21:01:37 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Richard GENOUD <richard.genoud@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v2 00/13] arm64: add Synaptics SL2610 SoCs and RDK boards
+Message-ID: <awQ5MYARkTBxQpjC@xhacker>
+References: <20261115102401.3520-1-jszhang@kernel.org>
+ <avrx2EhgZ10ED40P@xhacker>
+ <26aa0b74-e3f8-4405-ab87-743f5f8ef197@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,115 +69,163 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: M5znx2hx04lbgtJ759KREz7HgKXjmpAIlpL3TPjBNk9OE0DUtH9rtcbO
-	BGgK1IxppcjR8Bi3TU8zM7JXMMjAH63dwA6LEfaviV4R4Y9yjlbsLuOBLsDsNSoPcVLmC/Z
-	A/o5SQe6FjrI1UEpMCZGgm+pnSzDkgFWObd0zp/IWmNFkeGtbo1yrjrXDskqqwLFwagejTA
-	TiOmyHBg63138hg5nYd9vtM73YLih11y7eZLORsbp6/dt3Z/WEsc3jf1kWEvko9ia22ySlq
-	V2StcJeGUgX7Rf+GQqE8RCb15taEvQPEXhFHCiUwbVLSdWfoYMsBKtNF2Ym0hiVcLjC8fYu
-	ttL+GJNQ9eG2/vJmYiYCsxyU34plZ28wMg4s8wMXc5slKy5rZO3E8oWjcemxgwtBnbzHdDz
-	dCoFFk8tuFObaIjsAmjI6dRR+Ser7Azpuguhb/FkKzqCBr0KGkT6ZDthO9WgKQFziZO7GlD
-	jgTKMcioZ55qu3KX3KS/BT6mz/dct8TkEOdtUEQjmx2Lv8Fk+VcuplQaUEzcUNzVN9DzJvB
-	Jn1KjWu3nyC4Cm/q3qGfIkvRQ1aDYY1L6HslQuZ3pTBhD+VoSa1Nyns7uvN9WsVZ/JXlBRC
-	KB5lHGvnDVlrZncZxNIEdQO+km2gAbidlXiFSPXqYzWoiZQYi++6yrIbY/yYpXM4fC/whT8
-	nPKj2+Z6xXd80jpQiP3vath6y0kMcnuMPDTVQuqo0FeXlgzWweJ6N/tU24u1MfPx6bfH3N3
-	Bez5tUn18Gy7rxbR8+gR4lKoSXCh8PGW1ZF+WgPdy/4axXLgwnUvI13pzF1CTASSem/Bbpn
-	AdXuJdf1f0QIPY/XGJ9JYeNn8GyI1nUBpA+sW1XiZoZywnZuAtjwwX0gwXMry1h/pc8XfHM
-	mBObCLnSVp8EDTgqJVZkQU3k8SHuDNYrYn/tYuObXgPJ3em4ztjTKlxpbqYmZRCPq7rkVSE
-	FpE9fGwnkiWegcR+h/zDbO8LbVRBARfbon5EtEGZnWfU4he2dkZpLrNdb+g+qFvSfnbNT9F
-	i7oBREK1dF7Md/hKs/69iymRrEbaM=
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
-X-QQ-RECHKSPAM: 0
+In-Reply-To: <26aa0b74-e3f8-4405-ab87-743f5f8ef197@bootlin.com>
 
-The driver registers a platform backlight device during module init but
-discards the returned pointer. Consequently, the device is never
-unregistered when the module is removed, leaving its ops callbacks
-pointing into freed module text. After module removal, reading the
-backlight's actual_brightness attribute can call the stale callback and
-crash the kernel. Registration failures are also silently ignored.
+On Wed, Nov 18, 2026 at 08:54:05AM +0100, Richard GENOUD wrote:
+> Le 16/11/2026 à 13:06, Jisheng Zhang a écrit :
+> > On Sun, Nov 15, 2026 at 06:23:39PM +0800, Jisheng Zhang wrote:
+> > > Add initial support for the Synaptics SL261X SoCs and corresponding
+> > > RDK boards.
+> > > 
+> > > The SL261X SoCs include five pin-to-pin compatible SoCs: SL2611, SL2613,
+> > > SL2615, SL2617, and SL2619.
+> > > 
+> > > Only reset, pinctrl, clk/pll, uart, gpio, i2c, spi, i3c are included in
+> > > this series. The support for Ethernet, USB, SDHCI, CAN, DMAC, XSPI will
+> > > be submitted after this series is merged.
+> > > 
+> > > since v1:
+> > >   - rebase on latest rcN
+> > >   - drop some patches which have been merged
+> > >   - let the "gbl" node export pinctrl/reset/clk devices with
+> > >     MFD_CELL_NAME()
+> > >   - use <linux/platform_device.h> instead of <linux/mod_devicetable.h>
+> > >   - adopt some coding suggestions from Uwe
+> > >   - Use 0 and 1 to select normal and strong pull-up on 10-bit pads
+> > 
+> > Other SoCs doesn't use this defintion for pull up or strong pull up.
+> > After consulting our HW people, the strong pull up isn't used at
+> > all, so I will remove strong pull up support in newer version. We can
+> > add back its support when it's really needed in the future, nothing
+> > breaks.
+> I've found a similar definition here:
+> https://elixir.bootlin.com/linux/v7.3.1/source/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml#L73-L78
 
-Store the returned pointer, use it for resume, and unregister it on
-module exit. Check and report backlight registration failures.
+This one looks strange, and changes the meaning of bias-pull-up, I.E
+if adding "bias-pull-up" to any pin node, then it means strong pull up
+because the pinctrl subsys framework adds 1 by default. To use normal
+pull up, this binding needs "bias-pull-up = <0>;", which looks ugly
+IMHO.
 
-Fixes: 6246ed09111f ("LoongArch: Add ACPI-based generic laptop driver")
-Signed-off-by: Luo Qiu <luoqiu@kylinsec.com.cn>
----
-Changes in v3:
-- Fix continuation line indentation and argument alignment.
+> But also a plain new property here:
+> https://elixir.bootlin.com/linux/v7.3.1/source/Documentation/devicetree/bindings/pinctrl/starfive,jh7100-pinctrl.yaml#L153-L155
 
-No functional changes.
+I like this. But I'm not sure whether it's accepted or not.
 
- drivers/platform/loongarch/loongson-laptop.c | 25 +++++++++++++-------
- 1 file changed, 17 insertions(+), 8 deletions(-)
+> And another with the real strong pull-up value:
+> https://elixir.bootlin.com/linux/v7.3.1/source/Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml#L94-L99
 
-diff --git a/drivers/platform/loongarch/loongson-laptop.c b/drivers/platform/loongarch/loongson-laptop.c
-index 4ec56621db24..c9170330e630 100644
---- a/drivers/platform/loongarch/loongson-laptop.c
-+++ b/drivers/platform/loongarch/loongson-laptop.c
-@@ -56,6 +56,7 @@ static acpi_handle hotkey_handle;
- static struct key_entry hotkey_keycode_map[GENERIC_HOTKEY_MAP_MAX];
- 
- static bool bl_powered;
-+static struct backlight_device *backlight_dev;
- static int loongson_laptop_backlight_update(struct backlight_device *bd);
- 
- /* 2. ACPI Helpers and device model */
-@@ -194,13 +195,12 @@ static int loongson_hotkey_resume(struct device *dev)
- {
- 	int status = 0;
- 	struct key_entry ke;
--	struct backlight_device *bd;
- 
--	bd = backlight_device_get_by_type(BACKLIGHT_PLATFORM);
--	if (bd) {
--		loongson_laptop_backlight_update(bd) ?
--		pr_warn("Loongson_backlight: resume brightness failed") :
--		pr_info("Loongson_backlight: resume brightness %d\n", bd->props.brightness);
-+	if (backlight_dev) {
-+		loongson_laptop_backlight_update(backlight_dev) ?
-+			pr_warn("Loongson_backlight: resume brightness failed") :
-+			pr_info("Loongson_backlight: resume brightness %d\n",
-+				backlight_dev->props.brightness);
- 	}
- 
- 	/*
-@@ -409,6 +409,7 @@ static int laptop_backlight_register(void)
- {
- 	int status = 0, ret;
- 	struct backlight_properties props;
-+	struct backlight_device *bd;
- 
- 	memset(&props, 0, sizeof(props));
- 
-@@ -426,9 +427,12 @@ static int laptop_backlight_register(void)
- 	props.power = BACKLIGHT_POWER_ON;
- 	props.type = BACKLIGHT_PLATFORM;
- 
--	backlight_device_register("loongson_laptop",
--				NULL, NULL, &backlight_laptop_ops, &props);
-+	bd = backlight_device_register("loongson_laptop", NULL, NULL,
-+				       &backlight_laptop_ops, &props);
-+	if (IS_ERR(bd))
-+		return PTR_ERR(bd);
- 
-+	backlight_dev = bd;
- 
- 	return 0;
- }
-@@ -622,6 +626,11 @@ static void __exit generic_acpi_laptop_exit(void)
- 				generic_subdriver_exit(&generic_sub_drivers[i]);
- 		}
- 	}
-+
-+	if (backlight_dev) {
-+		backlight_device_unregister(backlight_dev);
-+		backlight_dev = NULL;
-+	}
- }
- 
- module_init(generic_acpi_laptop_init);
--- 
-2.56.1
+This is standard solution.
 
+> As you said, if it's not used, we can skip it and add a property in
+> the future (or the real value if we have it).
+
+skipping it makes sense now.
+
+> 
+> But we won't be able to use 1 for strong and 0 for normal.
+> 
+> Regards,
+> Richard
+> > 
+> > >   - collect Acked-by tag
+> > > 
+> > > Jisheng Zhang (13):
+> > >    arm64: kconfig: let ARCH_BERLIN cover Synaptics arm64 SoCs
+> > >    pinctrl: berlin: use u16 instead of u8 for the offset
+> > >    pinctrl: berlin: enable module build support
+> > >    pinctrl: berlin: add optional pinconf support
+> > >    dt-bindings: soc: synaptics: add SL2610 system controllers
+> > >    soc: synaptics: add SL2610 system controller support
+> > >    reset: add Synaptics SL2610 reset controller support
+> > >    pinctrl: berlin: add Synaptics SL2610 pin controller support
+> > >    clk: berlin: add Synaptics clock controller helpers
+> > >    clk: berlin: add Synaptics SL2610 clocks and PLLs
+> > >    dt-bindings: arm: berlin: add Synaptics SL2610 SoCs and RDK boards
+> > >    arm64: dts: synaptics: add SL2610 family SoCs
+> > >    arm64: dts: synaptics: add SL2610 family RDK boards
+> > > 
+> > >   .../bindings/arm/marvell,berlin.yaml          |  20 +
+> > >   .../soc/synaptics/syna,sl2610-soc-syscon.yaml | 178 ++++
+> > >   MAINTAINERS                                   |   8 +
+> > >   arch/arm64/Kconfig.platforms                  |   4 +-
+> > >   arch/arm64/boot/dts/synaptics/Makefile        |   5 +
+> > >   arch/arm64/boot/dts/synaptics/sl2611-rdk.dts  |  16 +
+> > >   arch/arm64/boot/dts/synaptics/sl2611.dtsi     | 457 +++++++++++
+> > >   arch/arm64/boot/dts/synaptics/sl2613-rdk.dts  |  16 +
+> > >   arch/arm64/boot/dts/synaptics/sl2613.dtsi     |  12 +
+> > >   arch/arm64/boot/dts/synaptics/sl2615-rdk.dts  |  16 +
+> > >   arch/arm64/boot/dts/synaptics/sl2615.dtsi     |  46 ++
+> > >   arch/arm64/boot/dts/synaptics/sl2617-rdk.dts  |  16 +
+> > >   arch/arm64/boot/dts/synaptics/sl2617.dtsi     |  46 ++
+> > >   arch/arm64/boot/dts/synaptics/sl2619-rdk.dts  |  16 +
+> > >   arch/arm64/boot/dts/synaptics/sl2619.dtsi     |  44 +
+> > >   .../boot/dts/synaptics/sl261x-rdk-common.dtsi | 135 ++++
+> > >   drivers/clk/Kconfig                           |   1 +
+> > >   drivers/clk/berlin/Kconfig                    |  34 +
+> > >   drivers/clk/berlin/Makefile                   |   4 +
+> > >   drivers/clk/berlin/clk-sl2610.c               | 360 +++++++++
+> > >   drivers/clk/berlin/sl-clk.c                   | 279 +++++++
+> > >   drivers/clk/berlin/sl-clk.h                   |  31 +
+> > >   drivers/clk/berlin/sl-sysmgr-clk.c            | 241 ++++++
+> > >   drivers/clk/berlin/sl-sysmgr-clk.h            |  44 +
+> > >   drivers/clk/berlin/sl2610-pll.c               | 145 ++++
+> > >   drivers/clk/berlin/sl2610-pll.h               |  14 +
+> > >   drivers/pinctrl/berlin/Kconfig                |  16 +
+> > >   drivers/pinctrl/berlin/Makefile               |   1 +
+> > >   drivers/pinctrl/berlin/berlin.c               | 259 +++++-
+> > >   drivers/pinctrl/berlin/berlin.h               |  17 +-
+> > >   drivers/pinctrl/berlin/pinctrl-sl2610.c       | 759 ++++++++++++++++++
+> > >   drivers/reset/Kconfig                         |  13 +
+> > >   drivers/reset/Makefile                        |   1 +
+> > >   drivers/reset/reset-sl2610.c                  | 224 ++++++
+> > >   drivers/soc/Kconfig                           |   1 +
+> > >   drivers/soc/Makefile                          |   1 +
+> > >   drivers/soc/synaptics/Kconfig                 |  14 +
+> > >   drivers/soc/synaptics/Makefile                |   2 +
+> > >   drivers/soc/synaptics/sl2610-syscon.c         |  84 ++
+> > >   include/dt-bindings/clock/syna,sl2610.h       | 131 +++
+> > >   include/dt-bindings/reset/syna,sl2610-reset.h |  80 ++
+> > >   41 files changed, 3771 insertions(+), 20 deletions(-)
+> > >   create mode 100644 Documentation/devicetree/bindings/soc/synaptics/syna,sl2610-soc-syscon.yaml
+> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2611-rdk.dts
+> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2611.dtsi
+> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2613-rdk.dts
+> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2613.dtsi
+> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2615-rdk.dts
+> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2615.dtsi
+> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2617-rdk.dts
+> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2617.dtsi
+> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2619-rdk.dts
+> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2619.dtsi
+> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl261x-rdk-common.dtsi
+> > >   create mode 100644 drivers/clk/berlin/Kconfig
+> > >   create mode 100644 drivers/clk/berlin/clk-sl2610.c
+> > >   create mode 100644 drivers/clk/berlin/sl-clk.c
+> > >   create mode 100644 drivers/clk/berlin/sl-clk.h
+> > >   create mode 100644 drivers/clk/berlin/sl-sysmgr-clk.c
+> > >   create mode 100644 drivers/clk/berlin/sl-sysmgr-clk.h
+> > >   create mode 100644 drivers/clk/berlin/sl2610-pll.c
+> > >   create mode 100644 drivers/clk/berlin/sl2610-pll.h
+> > >   create mode 100644 drivers/pinctrl/berlin/pinctrl-sl2610.c
+> > >   create mode 100644 drivers/reset/reset-sl2610.c
+> > >   create mode 100644 drivers/soc/synaptics/Kconfig
+> > >   create mode 100644 drivers/soc/synaptics/Makefile
+> > >   create mode 100644 drivers/soc/synaptics/sl2610-syscon.c
+> > >   create mode 100644 include/dt-bindings/clock/syna,sl2610.h
+> > >   create mode 100644 include/dt-bindings/reset/syna,sl2610-reset.h
+> > > 
+> > > -- 
+> > > 2.55.0
+> > > 
+> > > 
+> > 
+> 
+> 
+> -- 
+> Richard Genoud, Bootlin
+> Embedded Linux and Kernel engineering
+> https://bootlin.com
