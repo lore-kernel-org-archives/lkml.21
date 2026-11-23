@@ -1,67 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795402070;
-	b=yvGikpQ+1jrWMI4gvua8PGoB1joM/nFViJGDMdredwhQz7MXCQRzCTOcUE5d2KlLrxKa
-	 jhjP4t3/fLeNAwKDujsxdSTJf0sGbBOnV/eWPCrjFwP2fnOvHkJy24u3qSSkYLh2ym1ZK
-	 c3mF2LHgfPpg893cqqNhEwYhD1NHqPPZkZsKO971gWth4V/Hx3bwcWQxT7p9MRjBT/Ay1
-	 0NobgNhHPqEKMpbacQcTk1KCDW5NpkrrQZBboGyk4E1qGDyeXGrBrhlN7nzuANvuZwGbc
-	 0X9Dv3r0YQW9kBRMeQwaZZEse+pfLjDWJe3xklOYMuEZ6xqUEWqO9E2zLJO70xGsxdg==
+	t=1795402071;
+	b=TYBZiyfk6bLIuGpqzn/IdWNuP0XXpYKrL9IEYI0OumWvw+MfdEJSS28JBV99kh6ohQs2
+	 KgO5IFZZVsOvU2gd7RWSlYTPfKQ/pGTGhcJvWCHWfaVii207RCmTRmotQiQIs5XTVRxPp
+	 eTnF0ZRH8b1h5wfSGqJVXMB5gg8swVilQWVMZbn3hmzykaMrNbrkVNPC59MAHaRZXYTrw
+	 QMYetQWGcAvY+cCPCEkzu+juWqgckguzzVaNa8x9Y8Kf6E1nzW0TIokAchkFUU1WpL1k/
+	 g7UclULaUW/BSUNs7hzL8yGnWEAmMazq+6n+rx8vWSFGY5w4+V7ISSo0kAbkN2tLgxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795402070;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=w/EDch5cn3q5fGmwJDkw1LiwddtdffCknsqNOpXSWKo=;
-	b=FpMQTwlVNgwjeevcYhk5/c6DsMrgYeALYjeX0lRVRnUtRcvsTYo5WmBrENCZxAMzP/xM
-	 SIxotn8Uf9Gse6qSBP2z0lAMc0qNkEEQZbrCruhXWFww4a90gR2a6xNTBSWhic3ReQC14
-	 thD3lNyqquGYHnA9ol3eVrLApEk1zOCZY0kFw+dblsn4HZppBU3W7CZaYPeG/XDEzQf17
-	 VbPB/wJPkAPW+BBJ71lF+Pqpz02Rt3XTWNAM4WIt6C5glRFqhdJd2hQcJiH5AW618XVe3
-	 l+RWOJno6m8aXbNAbu1V64fhG4XUcA4n0GJ9JB8LBadnECtHjGMR4ctBxH/mg46RGeQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795402071;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
+	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
+	 To:X-Mailer;
+	bh=keQB3M+G/U6WjdBKTwroAHxhrPCNUChEnSJ8dtIR1rc=;
+	b=EXw3TV0OaGbWmGjtpYk+31aQtlc1ZwuKLOEZn+0/DWD7mi1mucnZvYJz/hx55oFQ7T04
+	 qFeJO+4qixRHSJ+f3BcHPIkmNx6YmlQZvVkFU2xZQ3acjBnMMdNeXltfIxzb1Dw5O+a2r
+	 RxNINAdSM9csr+vZ9aosnO5GTk4Zh4GSuKMs0GN++zGAZ/S5zFPy43rb9wcnieLxYPsEI
+	 ePXXh2gTGLUDqJmBdR/uMgknpnjQmFVtBG2W8vN8JNhqbFCQetqxHFwPeCcU4/fVw4yTl
+	 N5MtkxElfP5HYCFKFkg7FSptKMDeH6Y8c5U+iwvwtU6/BHR1iQCEOQ5eI5Dt4gsEcfw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="G/Wbqf0a";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IYs+Dzbd;
+	arc=none smtp.remote-ip=91.218.175.151
+Received: from mta0.migadu.com (out-151.mta0.migadu.com [91.218.175.151])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F23B2606A31A;
-	Mon, 23 Nov 2026 02:47:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C122E606A32E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:47:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C122E606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G/Wbqf0a
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A9A71F000CF;
-	Mon, 23 Nov 2026 02:47:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795402069;
-	bh=w/EDch5cn3q5fGmwJDkw1LiwddtdffCknsqNOpXSWKo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=G/Wbqf0aiFlLq+dVgb7Jh5UkkAXZznHLQDCfFrIci4wio3CzgKQuOoqj26RhOUoRg
-	 IGwiF9NQvM1xt9a49knvRK2VBJqSVVMY9dShPYkT+d/1G95fmoRpNrsr1gnnMWwfKi
-	 elqUhdlbrO2PZ9JaOZUWm9e+j976xeRZUm0Ywa6mqdAI42xhjMplcY/QcqUUSUYtdT
-	 ql3MXLFSk9YpKtkQlTBXPGDQ+MsblQPTP5+gouEDiXUAgn87hASpoffGaSHZzro188
-	 VNwegnqxRBkXYYhb5JuDPb44qTiB0IcgNq2b88G3y/QFaYIIPcyZqI+wpWTHv7VN3S
-	 0SXQM1HgxSS9A==
-From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-To: Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Lukas Zobernig <lukas.zobernig@gmail.com>
-Cc: "H . Peter Anvin" <hpa@zytor.com>,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	Pablo Fraile Alonso <pablo@pablofraile.net>,
-	Edgecombe Rick P <rick.p.edgecombe@intel.com>
-Subject: [PATCH 3/5] x86/insn: Reject invalid REX2 encodings in insn_get_opcode()
-Date: Mon, 23 Nov 2026 11:47:44 +0900
-Message-ID: <179540206412.233843.17514240300180929695.stgit@devnote2>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179540203033.233843.12951034848925983867.stgit@devnote2>
-References: <179540203033.233843.12951034848925983867.stgit@devnote2>
-User-Agent: StGit/0.19
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IYs+Dzbd
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=nnvohv3LVojod6b27B4KpgPlDmXt/sOZCq2yD9lZsww=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795402068; v=1; x=1796006868;
+ b=IYs+DzbdoUB/2VyxbAb7oDGq6nRMXsX5EHi7ficM+zbFLgpcgHaa2vKl93lFEKb3C2ytlrva
+ 62gP4n3WAjLUk3lMxfvhOGd+c47xdMc79gvDZd1IXDp7+L7yLwAdTW+VzfWyptNI+NVBm/Hr6G5
+ ha5RUcyaQ4Ti2fwi1L80FasI=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 6a387cbfdc5f01e9;
+	Mon, 23 Nov 2026 02:47:48 +0000
+X-Mizu-Trace-ID: 6a387cbfdc5f01e9
+X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain;
+	charset=us-ascii
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,126 +57,277 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH v3 04/19] hugetlb_vmemmap: Use try_update_vmemmap_pte to
+ update in-use PTEs
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20261122184453.2668189-5-jthoughton@google.com>
+Date: Mon, 23 Nov 2026 10:47:33 +0800
+Cc: Muchun Song <muchun.song@linux.dev>,
+ Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Oscar Salvador <osalvador@suse.de>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Nikos Nikoleris <nikos.nikoleris@arm.com>,
+ Linu Cherian <linu.cherian@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ David Hildenbrand <david@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>,
+ Nanyong Sun <sunnanyong@huawei.com>,
+ Yu Zhao <yuzhao@google.com>,
+ Frank van der Linden <fvdl@google.com>,
+ David Rientjes <rientjes@google.com>,
+ linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <4508589C-2E30-4DAB-9465-73121835D0D8@linux.dev>
+References: <20261122184453.2668189-1-jthoughton@google.com>
+ <20261122184453.2668189-5-jthoughton@google.com>
+To: James Houghton <jthoughton@google.com>
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
 
-From: Masami Hiramatsu <mhiramat@kernel.org>
 
-Although INAT_NO_REX2 and INAT_REX2_VARIANT attributes are generated from
-x86-opcode-map.txt, insn_get_opcode() never checked them for REX2-prefixed
-instructions. It also accepted REX2 M0=0 followed by an escape byte (0x0f),
-legacy/REX/REX2/VEX prefix bytes, or 64-bit invalid opcodes, as well as
-REX2 M0=1 followed by 3-byte escape opcodes (0x38/0x3a) or VEX-only
-opcodes.
 
-In particular, REX2 M0=0 + 0x0f (0xd5 0x00 0x0f) returned success with
-opcode.bytes[0] = 0x0f and opcode.nbytes = 1, which can confuse callers
-such as uprobes.
+> On Nov 23, 2026, at 02:44, James Houghton <jthoughton@google.com> =
+wrote:
+>=20
+> set_pte_at() cannot be used to replace in-use vmemmap PTEs on arm64, =
+so
+> replace it with a more specific routine, try_update_vmemmap_pte().
+>=20
+> try_update_vmemmap_pte() is used for modifying page table entries such
+> that there is a guarantee that no fault will be taken.
+>=20
+> For the generic implementation, please note one difference: set_pte()
+> does not invoke page_table_check_ptes_set(), but set_pte_at(), the =
+call
+> we are about to replace, does. However, this is a functional no-op
+> because page_table_check_ptes_set() does nothing for init_mm PTEs, =
+which
+> vmemmap PTEs are.
+>=20
+> Signed-off-by: James Houghton <jthoughton@google.com>
+> ---
+> arch/loongarch/include/asm/pgtable.h |  2 ++
+> arch/riscv/include/asm/pgtable.h     |  2 ++
+> arch/x86/include/asm/pgtable.h       |  2 ++
+> include/linux/pgtable.h              | 22 +++++++++++++++++++
+> mm/hugetlb_vmemmap.c                 | 32 +++++++++++++++++++++++-----
+> 5 files changed, 55 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/arch/loongarch/include/asm/pgtable.h =
+b/arch/loongarch/include/asm/pgtable.h
+> index f87603135131..123eda3f6035 100644
+> --- a/arch/loongarch/include/asm/pgtable.h
+> +++ b/arch/loongarch/include/asm/pgtable.h
+> @@ -633,6 +633,8 @@ static inline long pmd_protnone(pmd_t pmd)
+> #define pmd_leaf(pmd)		((pmd_val(pmd) & _PAGE_HUGE) !=3D 0)
+> #define pud_leaf(pud)		((pud_val(pud) & _PAGE_HUGE) !=3D 0)
+>=20
+> +#define ARCH_WANTS_GENERIC_POPULATE_VMEMMAP_PTE
+> +
+> /*
+>  * We provide our own get_unmapped area to cope with the virtual =
+aliasing
+>  * constraints placed on us by the cache architecture.
+> diff --git a/arch/riscv/include/asm/pgtable.h =
+b/arch/riscv/include/asm/pgtable.h
+> index 2ebd5fa5adc5..c8d05bc12cc8 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -1172,6 +1172,8 @@ static inline pud_t pud_modify(pud_t pud, =
+pgprot_t newprot)
+>=20
+> #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+>=20
+> +#define ARCH_WANTS_GENERIC_POPULATE_VMEMMAP_PTE
+> +
+> /*
+>  * Encode/decode swap entries and swap PTEs. Swap PTEs are all PTEs =
+that
+>  * are !pte_none() && !pte_present().
+> diff --git a/arch/x86/include/asm/pgtable.h =
+b/arch/x86/include/asm/pgtable.h
+> index 000fc6c1ca37..271cdc61de3a 100644
+> --- a/arch/x86/include/asm/pgtable.h
+> +++ b/arch/x86/include/asm/pgtable.h
+> @@ -1372,6 +1372,8 @@ static inline pmd_t pmdp_establish(struct =
+vm_area_struct *vma,
+> }
+> #endif
+>=20
+> +#define ARCH_WANTS_GENERIC_POPULATE_VMEMMAP_PTE
+> +
+> #ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
+> static inline pud_t pudp_establish(struct vm_area_struct *vma,
+> 		unsigned long address, pud_t *pudp, pud_t pud)
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index bc1353f03b08..ab33df268955 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -458,6 +458,28 @@ static inline void set_ptes(struct mm_struct *mm, =
+unsigned long addr,
+> #endif
+> #define set_pte_at(mm, addr, ptep, pte) set_ptes(mm, addr, ptep, pte, =
+1)
+>=20
+> +#ifdef ARCH_WANTS_GENERIC_POPULATE_VMEMMAP_PTE
 
-Add inat_is_no_rex2() and inat_is_rex2_variant() helpers and reject
-invalid REX2 encodings with -EINVAL in insn_get_opcode().
+Why not ARCH_WANTS_VMEMMAP_UPDATE_PTE? Then x86, loogarch and RISC-V do =
+not need define
+this macro in their ptable.h.
 
-Fixes: eada38d575a2 ("x86/insn: Add support for REX2 prefix to the instruction decoder logic")
-Cc: stable@vger.kernel.org
-Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
----
- arch/x86/include/asm/inat.h       |   10 ++++++++++
- arch/x86/lib/insn.c               |   16 ++++++++++++++++
- tools/arch/x86/include/asm/inat.h |   10 ++++++++++
- tools/arch/x86/lib/insn.c         |   16 ++++++++++++++++
- 4 files changed, 52 insertions(+)
+> +/*
+> + * try_update_vmemmap_pte - Remap PTEs used by the vmemmap.
+> + * @addr: Base address of the remapped PTE.
+> + * @ptep: Page table pointer to be overwritten.
+> + * @pte: Page table entry to write.
+> + *
+> + * This function is only to be used to update PTEs that map the =
+vmemmap. The
+> + * only valid transitions supported by this function are: leaf-level
+> + * (PAGE_SIZE), valid-to-valid. The pfn and prot bits may be changed.
+> + *
+> + * Implementations of this function must ensure that, while the =
+update is taking
+> + * place, CPUs will not fault on the remapped virtual address.
+> + */
+> +static inline int try_update_vmemmap_pte(unsigned long addr, pte_t =
+*ptep,
+> +					 pte_t pte)
 
-diff --git a/arch/x86/include/asm/inat.h b/arch/x86/include/asm/inat.h
-index 1b3060a3425c..26edd32dbabc 100644
---- a/arch/x86/include/asm/inat.h
-+++ b/arch/x86/include/asm/inat.h
-@@ -263,4 +263,14 @@ static inline int inat_is_invalid64(insn_attr_t attr)
- {
- 	return attr & INAT_INV64;
- }
-+
-+static inline int inat_is_no_rex2(insn_attr_t attr)
-+{
-+	return attr & INAT_NO_REX2;
-+}
-+
-+static inline int inat_is_rex2_variant(insn_attr_t attr)
-+{
-+	return attr & INAT_REX2_VARIANT;
-+}
- #endif
-diff --git a/arch/x86/lib/insn.c b/arch/x86/lib/insn.c
-index 225af1399c9d..36c477daf370 100644
---- a/arch/x86/lib/insn.c
-+++ b/arch/x86/lib/insn.c
-@@ -335,6 +335,22 @@ int insn_get_opcode(struct insn *insn)
- 			insn->attr = inat_get_escape_attribute(op, pfx_id, esc_attr);
- 		} else {
- 			insn->attr = inat_get_opcode_attribute(op);
-+			if (inat_is_legacy_prefix(insn->attr) ||
-+			    inat_is_rex_prefix(insn->attr) ||
-+			    inat_is_rex2_prefix(insn->attr) ||
-+			    inat_is_vex_prefix(insn->attr) ||
-+			    inat_is_invalid64(insn->attr)) {
-+				insn->attr = 0;
-+				return -EINVAL;
-+			}
-+		}
-+		if (inat_is_escape(insn->attr) ||
-+		    inat_must_vex(insn->attr) ||
-+		    (inat_is_no_rex2(insn->attr) &&
-+		     !inat_is_rex2_variant(insn->attr))) {
-+			/* This instruction is bad */
-+			insn->attr = 0;
-+			return -EINVAL;
- 		}
- 		goto end;
- 	}
-diff --git a/tools/arch/x86/include/asm/inat.h b/tools/arch/x86/include/asm/inat.h
-index 099e926595bd..5e7648e50c2b 100644
---- a/tools/arch/x86/include/asm/inat.h
-+++ b/tools/arch/x86/include/asm/inat.h
-@@ -263,4 +263,14 @@ static inline int inat_is_invalid64(insn_attr_t attr)
- {
- 	return attr & INAT_INV64;
- }
-+
-+static inline int inat_is_no_rex2(insn_attr_t attr)
-+{
-+	return attr & INAT_NO_REX2;
-+}
-+
-+static inline int inat_is_rex2_variant(insn_attr_t attr)
-+{
-+	return attr & INAT_REX2_VARIANT;
-+}
- #endif
-diff --git a/tools/arch/x86/lib/insn.c b/tools/arch/x86/lib/insn.c
-index 1d1c57c74d1f..9eb81232874a 100644
---- a/tools/arch/x86/lib/insn.c
-+++ b/tools/arch/x86/lib/insn.c
-@@ -335,6 +335,22 @@ int insn_get_opcode(struct insn *insn)
- 			insn->attr = inat_get_escape_attribute(op, pfx_id, esc_attr);
- 		} else {
- 			insn->attr = inat_get_opcode_attribute(op);
-+			if (inat_is_legacy_prefix(insn->attr) ||
-+			    inat_is_rex_prefix(insn->attr) ||
-+			    inat_is_rex2_prefix(insn->attr) ||
-+			    inat_is_vex_prefix(insn->attr) ||
-+			    inat_is_invalid64(insn->attr)) {
-+				insn->attr = 0;
-+				return -EINVAL;
-+			}
-+		}
-+		if (inat_is_escape(insn->attr) ||
-+		    inat_must_vex(insn->attr) ||
-+		    (inat_is_no_rex2(insn->attr) &&
-+		     !inat_is_rex2_variant(insn->attr))) {
-+			/* This instruction is bad */
-+			insn->attr = 0;
-+			return -EINVAL;
- 		}
- 		goto end;
- 	}
+Please rename it to vmemmap_update_pte, all HVO-related helpers will be =
+prefixed
+with vmemmap.
+
+Again, I still recommend having this function return void. That will =
+make the
+overall code simpler. If we actually run into related issues in the =
+future, we
+can add support for it then. I don't want to introduce unnecessary code
+maintenance now.
+
+Thanks,
+Muchun
+
+> +{
+> +	set_pte(ptep, pte);
+> +	return 0;
+> +}
+> +#endif
+> +
+> #ifndef __HAVE_ARCH_PTEP_SET_ACCESS_FLAGS
+> extern int ptep_set_access_flags(struct vm_area_struct *vma,
+> 				 unsigned long address, pte_t *ptep,
+> diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
+> index 2e9cf8d39c89..b4d0311bcc4a 100644
+> --- a/mm/hugetlb_vmemmap.c
+> +++ b/mm/hugetlb_vmemmap.c
+> @@ -218,15 +218,19 @@ static int alloc_vmemmap_page_list(struct =
+list_head *head,
+> 	return -ENOMEM;
+> }
+>=20
+> +/*
+> + * Copy @src into the first page on @vmemmap_pages and return it. The =
+page is
+> + * left on the list; the caller must remove it only once it has =
+successfully
+> + * been installed in the vmemmap.
+> + */
+> static struct page *vmemmap_dup_page_from_list(const struct page *src,
+> 		struct list_head *vmemmap_pages)
+> {
+> 	struct page *dst =3D list_first_entry(vmemmap_pages, struct =
+page, lru);
+>=20
+> -	list_del(&dst->lru);
+> 	copy_page(page_address(dst), page_address(src));
+>=20
+> -	/* Ensure updates to @dst page are visible before set_pte_at(). =
+*/
+> +	/* Ensure updates to @dst page are visible before =
+try_update_vmemmap_pte(). */
+> 	smp_wmb();
+>=20
+> 	return dst;
+> @@ -248,6 +252,8 @@ static int vmemmap_optimize_pte(pte_t *pte, =
+unsigned long addr,
+> 	const struct page *page =3D (const struct page *)addr;
+> 	const struct folio *folio =3D page_folio(page);
+> 	struct page *src =3D pte_page(ptep_get(pte)), *dst;
+> +	bool dup =3D false;
+> +	int ret;
+>=20
+> 	if (likely(vmemmap_optimizable_pfn(page_to_pfn(page), =
+folio_order(folio)))) {
+> 		dst =3D folio_vmemmap_shared_tail_page(folio);
+> @@ -255,16 +261,27 @@ static int vmemmap_optimize_pte(pte_t *pte, =
+unsigned long addr,
+> 			return -ENOMEM;
+> 	} else {
+> 		dst =3D vmemmap_dup_page_from_list(src, =
+walk->vmemmap_pages);
+> +		dup =3D true;
+> 	}
+>=20
+> -	list_add(&src->lru, walk->vmemmap_pages);
+> 	/*
+> 	 * Map the shared tail page writable intentionally. A lockless =
+get that
+> 	 * read a non-zero refcount before the remap can still do its =
+cmpxchg
+> 	 * after it. The refcount is zero, so the cmpxchg fails and =
+leaves the
+> 	 * page unchanged.
+> 	 */
+> -	set_pte_at(&init_mm, addr, pte, mk_pte(dst, PAGE_KERNEL));
+> +	ret =3D try_update_vmemmap_pte(addr, pte, mk_pte(dst, =
+PAGE_KERNEL));
+> +	if (ret)
+> +		return ret;
+> +
+> +	/*
+> +	 * We successfully overwrote the vmemmap PTE, so the page that =
+was just
+> +	 * unmapped can be freed, and if we mapped a duplicated page, =
+remove it
+> +	 * from the list so that it doesn't get freed later.
+> +	 */
+> +	if (dup)
+> +		list_del(&dst->lru);
+> +	list_add(&src->lru, walk->vmemmap_pages);
+>=20
+> 	return 0;
+> }
+> @@ -275,6 +292,7 @@ static int vmemmap_restore_pte(pte_t *pte, =
+unsigned long addr,
+> 	const struct page *page =3D (const struct page *)addr;
+> 	const struct folio *folio =3D page_folio(page);
+> 	struct page *src =3D pte_page(ptep_get(pte)), *dst, *tail;
+> +	int ret;
+>=20
+> 	if (unlikely(!vmemmap_optimizable_pfn(page_to_pfn(page), =
+folio_order(folio))))
+> 		return 0;
+> @@ -291,7 +309,11 @@ static int vmemmap_restore_pte(pte_t *pte, =
+unsigned long addr,
+> 		return 0;
+>=20
+> 	dst =3D vmemmap_dup_page_from_list(src, walk->vmemmap_pages);
+> -	set_pte_at(&init_mm, addr, pte, mk_pte(dst, PAGE_KERNEL));
+> +	ret =3D try_update_vmemmap_pte(addr, pte, mk_pte(dst, =
+PAGE_KERNEL));
+> +	if (ret)
+> +		return ret;
+> +
+> +	list_del(&dst->lru);
+>=20
+> 	return 0;
+> }
+> --=20
+> 2.56.1.809.ga0b61035b5-goog
+>=20
 
