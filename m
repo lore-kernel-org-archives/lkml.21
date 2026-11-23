@@ -1,66 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795454829;
-	b=A5yApZ+Bnhn6GkC6JH5go4cJmKZEpJGf65luR3Ds5h7k8xDVlpI4EPm0mDnAG9wj7i/8
-	 zdpELmwe1WRX0r6fquo/N7JQr4m9gwG//e7X3V7MUqfJtqeu1xY4co30jLzkuYM9yds1C
-	 5QxlfKHHgsKP7O04tIX3jXlDTc69sVWBcch8PPiRa+cJPKEl+pC13vXaxYlpv37NV4mmI
-	 eYcDbiqzW0NQFQMD48u8wSuY0KnJwA0DY+nwzx9FRL/8jX1e4m3i94zDhDjUJGKSyFXEl
-	 vsjW5s6nGh+8Qu5XR+PR5emsmfjZFTqvrW9C+FnorgHI+G7TyrhkNLtkkQ+P6A6aYfQ==
+	t=1795454867;
+	b=L5H+bQbOoyvDxLxWKJDemzYJBg+zE1tDapgB3TAuKw0u99ynhbgc354triccp88ZMsxz
+	 1sPFg9oQXamyEymOQaNOfnM5xNkbwR+hOqtMZmUli1ecwe6MltfgjcOzLXAUAgQTg4uOJ
+	 oMuWjiuYe9MJbWYHd4IMCJTE6zCVQy8jn0h5Y76TXo+iSuKcvvUEqIQ4PZ/RaxuzSigvK
+	 ObVqcuy0n5ly32vLI6gBPwqs54OZiuqw4hJj3Bcc4K/IKtdrsNsR0mXrh8s1HTB09gQop
+	 Jgv22zWUYOAQnqFsP5Z9bXR5OnHzvKB4G26Iv+W90l9POXlC12k70ZMUki2xl5PGjjA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795454829;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=rwO0qR/5dA2BfbWBM6Y4o8lfCur4ww/twWJTPGcgLzQ=;
-	b=mF2jdwlX6qlAzCkL1qH3BCy5bnjTytgSqahba4euill8/SWSO1pJc+ZPuconyRJwU5Vs
-	 tunK4m3uwF0fNItKk8O5yr8ntMIHg1EBXlcGWHIDTsCOGSpacW1PA4QyuOV2ouk9e4zuE
-	 aKpf3DXs7s+PCg3tww0tEXvub/ECtNygxiGw8aS0hSRPBBxGQ1OCvQ8OkS3Gfjb1TX8cV
-	 RlU9TCjBZWV6TNCcBv7mxrDBTT89Z2Y40hU+omUFOLIERhQxIbmz0KIBUD4QI+hQsQb3T
-	 a9g8xBWMDkvxkyR8PhtmtqkDFLcjN7p+A36mxBrZhdkQFv7qYPhCH7Audz84hbJONiA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795454867;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 Organization;
+	bh=BGorJs6MAne/EhbfWhhLdgvrIugkfOpSJMie/q8kNWI=;
+	b=OxNwdHsctn0mX4qKHkctcLXVeOCmH3pr8tFxtFtO1tSR7Uvx4WBOlws0aAdAS8JP2Ab/
+	 CfZynS9LIUbMTw4oUdCkC8bthYaGQYmA5/FA1yYYI23OhUrGpG4CFJHB2RQT1gtR9zQTx
+	 H8/XU2WI1AZVkoYwnffpG8QI96kdT2EsaDPCRjiEyOc2YuAWBxCW9LTtWaLayqdN5DEVS
+	 G7ynUlkChaMmysjHSzfFXky9jUeGmAaUkwBLXgrcjUBroWYyaNnGFVJeufp79zqYBiAXK
+	 zNYjffpTF84AG9IuKJAicMXPsnpj2sZw7gMB7DCMKKGjgVRwQfnHxsKOlp/hjOHsqQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KHG0DSDK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eSbP3CbG;
+	arc=none smtp.remote-ip=192.198.163.9
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B030606A31A;
-	Mon, 23 Nov 2026 17:27:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C288606A31E;
+	Mon, 23 Nov 2026 17:27:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C288606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KHG0DSDK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3ECDA1F000C0;
-	Mon, 23 Nov 2026 17:26:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795454828;
-	bh=rwO0qR/5dA2BfbWBM6Y4o8lfCur4ww/twWJTPGcgLzQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KHG0DSDKmw1s9Nld6eJQBGskQxG8+fGTfS95ZXpiCvzSvsH1WR5GDMuTbP4yuvTqb
-	 53THpea6CtIlrN+S8vwrcuVZQbjJTfTwzn15sm4B/NhslGZtmZRvwhi7/PphkfRRgP
-	 z4uiJdMAGxS+AsEYtm49AzUp7LCEV2LXBWsuRg9eaoBPyRzuV6Y1Ncx+pJvT1gQW1F
-	 +gitMGVoD9V/qvRIdqZHfmk9fmWjQAi5Spjv09gQES9NRAZyFz+N2VxxrT8UpWT9Dj
-	 XSQEy+w41yKaJAw7w2hgwyhk6WNnVMGODwVNKEnA02f00qhxSh0HmnV7vYvqrBx8p3
-	 5ay1qBdDu4svA==
-Date: Mon, 23 Nov 2026 17:26:57 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	"Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
-	Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
-	Kiryl Shutsemau <kas@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, William Kucharski <william.kucharski@oracle.com>, 
-	Heiko Carstens <hca@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Johannes Weiner <hannes@cmpxchg.org>, 
-	Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, 
-	Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, 
-	Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Miklos Szeredi <miklos@szeredi.hu>, 
-	Joanne Koong <joannelkoong@gmail.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, stable@vger.kernel.org, Chris Mason <mason@kernel.org>
-Subject: Re: [PATCH 1/2] mm/huge_memory: use NOFS when allocating while
- splitting folios
-Message-ID: <awR3IxFld3ms836N@gremlin>
-References: <20261122-migrate_reclaim_deadlock-v1-0-83c56185b0fb@kernel.org>
- <20261122-migrate_reclaim_deadlock-v1-1-83c56185b0fb@kernel.org>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eSbP3CbG
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795454866; x=1826990866;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=BTSVDrbAJDTCXRKEQem0cmfMprjd3jaaHHt/48c53dI=;
+  b=eSbP3CbGHAnQHZFYGJLFyMshITGP5K/OCFtxZ5o6PUvkcVebZM5Sf4I+
+   gwE37CngAzVuwRK81pTywUbAtVwe5h5KZOalByCIvKUuqTYoSxgshkH96
+   UPiYRIQTInpd5rPZoqdniuBdRzWEZejPGg35nNhL8FOyszzyqqeCwOpg/
+   V5jMIiTGJpBMtp0XVbPCPsCV6Q1+vfmb50Xll9Wxf/tBJHVjNR48Il18j
+   n3vpMpxfwim9PUqqGFzhEmD8t0feXcxCotf5kNlrUFTI5EOrPpjI89dE3
+   gJDrkcMkgZPzvBIrmMRd2wcfh7/fn0aVOHhyZJ7TlwbpZkhkAR4WuwxSE
+   g==;
+X-CSE-ConnectionGUID: i07d+L4SQR6+vw8KNYfDSw==
+X-CSE-MsgGUID: ShDOCOK9Tn2poofhNAmPlA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4160034"
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="4160034"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 09:27:45 -0800
+X-CSE-ConnectionGUID: EJOu3Ye0QOiLP7SCRiYRsA==
+X-CSE-MsgGUID: Udz6c8q8TN+hoMFsvXLt0A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="11714619"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 09:27:42 -0800
+Date: Mon, 23 Nov 2026 19:27:40 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: imx@lists.linux.dev, linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kernel@pengutronix.de,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Johan Hovold <johan@kernel.org>, Mark Brown <broonie@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	LKML <linux-kernel@vger.kernel.org>,
+	kernel-janitors@vger.kernel.org,
+	Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Michal Simek <michal.simek@amd.com>
+Subject: Re: [PATCH] spi: imx: Use devm_clk_get_enabled() calls in
+ spi_imx_probe()
+Message-ID: <awR3jGcH97PrYNqc@ashevche-desk.local>
+References: <895d50a6-3a42-44d2-8625-3b8cba8fbfff@web.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,109 +88,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261122-migrate_reclaim_deadlock-v1-1-83c56185b0fb@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <895d50a6-3a42-44d2-8625-3b8cba8fbfff@web.de>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Sun, Nov 22, 2026 at 01:42:17PM +0100, David Hildenbrand (Arm) wrote:
-> Various callers (migration, memory-failure, s390_wiggle_split_folio) split
-> locked folios without holding a reference on the folio's inode.
->
-> Splitting a file folio might allocate memory for the xarray and call
-> filemap_release_folio(). If either ends up in direct reclaim with
-> __GFP_FS, reclaim can evict the inode through the dcache shrinker, and
-> wait in truncate_inode_pages_final() for the folio that we hold locked:
->
->     try_split_folio()
->       folio_lock(A)
->       split_folio_to_list(A)
->         xas_split_alloc()
->           try_to_free_pages()
->             super_cache_scan()
->               prune_dcache_sb()
->                 iput_final()
->                   evict()
->                     truncate_inode_pages_final()
->                       folio_lock(A)
->
-> This requires that nothing else holds a reference on the inode, and can
-> be triggered most easily with FUSE, which evicts inodes on the last
-> reference.
->
-> Further, xas_split_alloc() charges the XArray nodes to the memcg, and on
-> cgroup v1, memcg reclaim waits for file folios under writeback if
-> __GFP_FS is set. That can deadlock if writeback waits for a folio lock
-> that we hold, for example with ext4.
->
-> Let's fix it by splitting folios in a NOFS scope, so callers don't have
-> to care. A NOFS scope also covers allocations that filesystems make with
-> their own gfp flags, for example in filemap_release_folio().
->
-> On NFS, splitting folios with pending writes or ongoing writes to
-> fscache might now fail slightly more often, until these writes have
-> completed. On netfs, only folios that are being written to fscache are
-> affected. All fairly irrelevant.
->
-> This has medium urgency.
+On Mon, Nov 23, 2026 at 05:23:12PM +0100, Markus Elfring wrote:
+> 
+> * Reuse existing functionality from devm_clk_get_enabled() instead of
+>   keeping duplicate source code.
+> 
+> * Delete clk_disable_unprepare() calls on error handling paths.
+> 
+> * Omit the label “out_put_per”.
+> 
+> This issue was detected by using the Coccinelle software.
 
-But medium-rare tests best!
+This now messes up with the PM callbacks at remove stage.
+It's not trivial how to make it correct.
 
->
-> Fixes: 6b24ca4a1a8d ("mm: Use multi-index entries in the page cache")
-> Fixes: eef88fe45ac9 ("s390/uv: Split large folios in gmap_make_secure()")
-> Fixes: 789763523fb4 ("xarray: honor XA_FLAGS_ACCOUNT in xas_split_alloc()")
-> Cc: stable@vger.kernel.org
-> Reported-by: Chris Mason <mason@kernel.org>
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+-- 
+With Best Regards,
+Andy Shevchenko
 
-LGTM so:
 
-Acked-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-
-> ---
->  mm/huge_memory.c | 10 ++++++++++
->  1 file changed, 10 insertions(+)
->
-> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> index e22daf846dbe3..c4f6c642c2620 100644
-> --- a/mm/huge_memory.c
-> +++ b/mm/huge_memory.c
-> @@ -4425,11 +4425,20 @@ static int __folio_split(struct folio *folio, unsigned int new_order,
->  	const bool is_swapcache = folio_test_swapcache(folio);
->  	int old_order = folio_order(folio);
->  	struct folio *new_folio, *next;
-> +	unsigned int nofs_flags;
->  	int ret;
->
->  	VM_WARN_ON_ONCE_FOLIO(!folio_test_locked(folio), folio);
->  	VM_WARN_ON_ONCE_FOLIO(!folio_test_large(folio), folio);
->
-> +	/*
-> +	 * We might not hold a reference on a locked folio's inode, but we might
-> +	 * allocate memory under the folio lock. Direct reclaim could try
-> +	 * evicting the inode, or wait for writeback on cgroup v1, to then
-
-Ahhh. Cgroup v1. Of course.
-
-> +	 * deadlock on folio locks.
-> +	 */
-> +	nofs_flags = memalloc_nofs_save();
-> +
->  	if (folio != page_folio(split_at) || folio != page_folio(lock_at)) {
->  		ret = -EINVAL;
->  		goto out;
-> @@ -4478,6 +4487,7 @@ static int __folio_split(struct folio *folio, unsigned int new_order,
->  	if (is_pmd_order(old_order))
->  		count_vm_event(!ret ? THP_SPLIT_PAGE : THP_SPLIT_PAGE_FAILED);
->  	count_mthp_stat(old_order, !ret ? MTHP_STAT_SPLIT : MTHP_STAT_SPLIT_FAILED);
-> +	memalloc_nofs_restore(nofs_flags);
->  	return ret;
->  }
->
->
-> --
-> 2.56.1
->
-
---
-Cheers, Lorenzo
