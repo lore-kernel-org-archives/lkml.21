@@ -1,93 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795446122;
-	b=YKtHRKuf4G3YeCsVBVWNXM3JW+7PBE8U9/keP25pn554hTlT6cLbrmmgG6zWu+G1FSjL
-	 3aXX2jKpf8pmmMPDnQXOuprP5WE4ye1Cd1y5OsVZy/0ZdA1pVARCqA7abV58jFIlewkcT
-	 KmvNBIiv7yK6zTGEISPHQMy8WAkydunepguMp00w5r3JI6zSwnR1ECOWaYnGynGN0Qf+Y
-	 f9rcxd9fRXVCs2mchwVg5TmKEyNXvVO2A5oUjhz83Kd3KQvMe1dDD9n7dN4tC9uwquZB7
-	 VSYq0vCPGXNsEFRguouDMx0rSgVRQPl3Pz4N4mTRhiN16qomH0Goz18ZYTlqEpdX8Ow==
+	t=1795446164;
+	b=iHO+jxN6EWDZboymKj5nV2M5HBO0lEMwBOJ5TlIDDkTM0Natk+n5aMFJxbjycPlFrbYq
+	 MqZLVD2RPk+9HZX0CYrW7R+tjgvNpxIZMY5W0lo3asVBGmW8B5AGDFrPXd6opIx+r1imA
+	 RIChKrdu3ek1BTwOHm4B38V7T4vY29lTW2JLgngI64eGsScno/zQstpz3rkK14lnJFsVS
+	 Cxen0MBvt27OaMghurwmmSzkpArgaBWMFHi2eG2j79IfUjoOsBjY2EPIVdlQy4yLEphGu
+	 4CHRexMc92CpseGwhw4kVISGGJjP6ai01oJFBmSlvZytMAWcixN7BkuOwlLONNNzTyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795446122;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795446164;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=pOYA2Qi1LlJis/jVtzIzVcnlnxrkX7HcTKZW7RMWJJU=;
-	b=r4eW+OYmATZxUhUbPtF3XytCVNUuuyWq/f7PIlrHjJ+8eM/HOD+fH/+gVArjrf++OLC0
-	 91yvxecLZQVFLKmHLH7YAtKzuTLowo35eXzX4YGAX/gq29pmqdDgsnU64qoDnYBUUm8Gq
-	 sCSxBSkEgOOdzfewNIEVwQfEdC9rtSBOg1HSGi16gmEYXAGrjI9NqVZoN6lXC08nuiodE
-	 IxN18qgwv+Q92U5w4wICJ648ISXBtuVTLHlcJgpktyK+hK4medmBK2L83T5UEI3nGpFLB
-	 CkiEJC4YMENdz6GC2hqwhiBZncZjCYZ9xJ+jMN5xwod4mbNbpv86PNDGyH6gQnlpS2g==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=MfZsZ4QikXFqFqBCPSrLqvcJjVdMXTA7lYQIKPsnGiA=;
+	b=efqij14OJYE6jgHrSYUWrn0Ohog+gGzQa4ZSkFsbx0WS/YoGuBdUKvwbmrptnYD8rIt3
+	 +6vy6UANTd0rlZKRE51XDmMKtkV65hrkmwKrnp77xgLRKDoJyAukpzLSjERiDbQPgU5tI
+	 Az4ujIQw+lxplbnq9hYj04a5WqrNxkwbSYuf2W7bSjIOqS4Frz/o8Z5xupcFLb5zEdzbC
+	 0tPtSgUZWK6tkkfiWO7/F3naF8tWF+n1nkrZId2DR23x/1ysncj/qF9J2tKBmVNMQxpkq
+	 wvZFslD3n/fTN78EL2Ve++UOCJXsZe+5reKdtPil+CD8OfmwZOxMw6X5T9w8EM+jxCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="PFGY/RjX";
-	arc=none smtp.remote-ip=209.85.218.46
-Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com [209.85.218.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RX47pmgS;
+	arc=none smtp.remote-ip=209.85.218.43
+Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12AD5606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:02:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 12AD5606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37CDC606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:02:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37CDC606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PFGY/RjX
-Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-c4d21051042so555618766b.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:02:01 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RX47pmgS
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c51373ae637so515349366b.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:02:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795446120; x=1796050920; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795446162; x=1796050962; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pOYA2Qi1LlJis/jVtzIzVcnlnxrkX7HcTKZW7RMWJJU=;
-        b=PFGY/RjXbySdDDj/pp6OdOvHoO/0OOP8E7WNKI70NcGhBkY4msp0/7Vx5qsuwJfvdL
-         I/hrefBfj31N7LpxF1azSYXgIqtw5bsCsHQsASenFuwavkFlY4tWEw/tl1AxFykZji3N
-         xMRbo0+XVluQPZ8sXqtWkaUM+VvArmxnAKZXiEAquJBE/+62gRn5exC5U2aqkd1qbRqZ
-         rwMP836ZeG8yzYTByyr2vhshRX05z5PnfT0qh1x32mwKThJvqFE8FFULPthw7TlrYXDt
-         S+Z8uA0PkopmzFGyMZmXIoQnQEdzKq8DxfG8Rmtp+t8Y8nhYCrmt3tB/vbimaxocWHsd
-         OGhg==
+        bh=MfZsZ4QikXFqFqBCPSrLqvcJjVdMXTA7lYQIKPsnGiA=;
+        b=RX47pmgS6eAVp4IDiHSKFNIwzGNgVcBON8YEC3wo//o622kCQM3IeN5IuUOW5hjPzl
+         GXbJ9SaVBehL2PXBdBdHrolbxf29Wn/fBJAsHrS42/jb6vpOyebIsFJfn8+x83gFNzKu
+         k6PjWzTqsAonLARjKwB0E0Wk51s9IL/xgU07B6xwO3rEzy7xDaxZbPSPGASkdoBEWcoI
+         Jbeh3D4TXoLi+nBGtp30LKmYh4H38s9Hxzv15C9Hzm+zX1/lkDwQ8VRhw44NUbjTHmhq
+         CpjYxt2BAKB3qMzYKeqEITZqQSRdNrlgG9GKLU2/O+kIeCfyV5SoFGZqRCHeVOOGabau
+         YCFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795446120; x=1796050920;
+        d=1e100.net; s=20260707; t=1795446162; x=1796050962;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=pOYA2Qi1LlJis/jVtzIzVcnlnxrkX7HcTKZW7RMWJJU=;
-        b=JQuIdy2Hnge1DqWS2GSsGCLcU7KMSp6dJ3Uvs9PJlKzhespF/pRAHNJ2D2l/tgg9V7
-         WOqc0gi3trEeFuFWTvA1IjnaiiKuyOYfYEWzd3iSVA81jP9qfzg83CwUj1pBSd/dcv9B
-         wPxNR7Xgce+Fp6cDwMCszgtQpp3NxI07gr0K0hSrYlQJxZCN7qQlTxF5obezEdKHqwVZ
-         PApeC2f1YXOGZS4Fix7rv7+9gILF8NhO3qKOgqs3WYu4683ELDSL7aYudoBNhThrQt7y
-         Mwl3CgHk6jDnJQwVhjpcxiFcWo3pHowciMyDf3cwoWkR5qEoAyqGuTzVX/jqFz8jDGa5
-         sJmA==
-X-Forwarded-Encrypted: i=1; AL+hErFhjcoImOvITxxIoIdDlex3QtBDHOF6HkFG8MUZdNQNysJSftnLXSWm+Y5vUM+xWYNUo4k+yuehn81b0wE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8i4y7zbMCxiy8IEi5TTbGIX0GGJhyaGAPtXVrjQS7Dwi3uFxqZ
-	7GR2FrPAcnfb/E2yaeztCiYcgFvLpjq6l82srrM8G+ujYl3wjQe3mC9o
-X-Gm-Gg: AZFdTZeE6JyCa54eR2TYBPhzfBCGlcJoiCUs+x97TFZe7Jrlt0TATCjpkv70X7Ny7uL
-	o820Jq7tJILo7qlYYOiCLro3rXQ2oA7+UkVSWIGMs7mKpN5SHtxcLUJaMwr9YnIJQGqUHos8l19
-	6N6JfEovOrDju/nYXufTR5/d8F3QN+fQp6jtO26Cln9FbMXnwCWz8F6qEXVInuWpAAHHSetDywJ
-	ca56hQjN5H1Qbxq2T5wKP+FEUBzXae7EpZKVIh6vhE9N3i18EuH7OKi3XwcizZuK/B8ca98ljKP
-	QVVChjsyJzK8K5hbPeXBpkYD1BXCL5rwMC4NQXZlvM8oOT/Xv0Zs8GGTXD9qh5WY4x9zJC2qg7l
-	BOf6bEISZk4RaN4FuVCdlo/54G8uTPjD+Se3f0wM2wyq3KPSzdYz85V0v6oVZUlV9IPPT/pi95U
-	EdpnaLvEQfmSolFXibydgO+G3GBTZq7sS7RpWroLyrFh8XDw+d4Hz+rBgQ+3lN55O1gUBbu2JFO
-	4xaf4Bed9zE89daHmFniB2RuKCWyvQ2wlqth8xNbMHPVN4htpUHb/9cwIq/DPP4Iwk8oG5VZFGT
-	38Q/0pNTgw73pkxw0XwrN2EYy2ZU8Bp5U9HX1dQuvGQKqPxO2sXST6uBpEGYK9r2S/HcN+bcMdH
-	xhaM0Lunv45S/S2aX5Spo
-X-Received: by 2002:a17:906:9c84:b0:c44:16ad:c31d with SMTP id a640c23a62f3a-c513a3a720fmr1021359566b.4.1795446120175;
-        Mon, 23 Nov 2026 07:02:00 -0800 (PST)
-Received: from localhost.localdomain (86-95-26-230.fixed.kpn.net. [86.95.26.230])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc42bbsm418398366b.61.2026.11.23.07.01.57
+        bh=MfZsZ4QikXFqFqBCPSrLqvcJjVdMXTA7lYQIKPsnGiA=;
+        b=T70uCuJ/fP08fp3FXYMXSvrNNO9PKFHvuaEexVJ2Jh1yUDjVi7QdNrD2CjE9Si1x4s
+         mCOUEHLdObx7Vton1PoO7Yg6/2t2C6a3yxez90agp+80rXP3J+kTHZcRFvGWxihWUiPY
+         fxLqEAg/jN+UlYKgqV1mWsnOk2G7DEnBBcZHgfd4jdKdRhCXHy4OIsdH197WOUmgiNnq
+         RWk0b+LqYpyXzvvvzoxxaNXndxOADqJvMTWUSDXMwk9HJjHLjMWucFuI+MOgyjuA3Saf
+         0nyl5M8+rNS0E4dIlbelOtBvxIxWqXgPq05K9yBq7FFeWasmUpcO33HaX49jIXY1lpck
+         kEEQ==
+X-Gm-Message-State: APuU4Z9THvl+KswJ58J8b+gQvkTj3KGpRrbbV26wiGvMWUQUFMDuQSNf
+	6zqeFJebMnmDft4uhKEwfRmifwmsJ+KY48asoIA6NYGWLP6MnrQ3WHUv
+X-Gm-Gg: AZFdTZebVfb4RffiPS61bfPAuyGBt42bRK9yLOIYA6VTCJEQMl7epWni/wfmMjdnnlp
+	HmsY09dLXlF2lil3k5Tuesy2QleI8D94tnalQtQtWHKFfFmc95K2PvA6TdGN3QujlH3viWYTA8A
+	soml7F/IOIRjwQ6AGqONuyQHpowBA82JRE0NA6dDFBeIL60HoQnwXqfrcjxeC+Yvb7a4KEePFu7
+	k/ByX8nWDxGfpCEoM5JEedcO/FTmapiEhKMNuYmMUbWa4Bid/ApOmBzwAhZtlyxlIi+VmrYsDUY
+	fQB+dcb3GZERT/mSpDQG9bNLrEaLA7GL8/UK0kKK42ufvgX8YRO/2JnNOKEOjt3WTObYAYdnNua
+	WU6ejzDh30hruItLyxIwE7r4dEUwFpSQG8cWcTFMUxwtUZu3zvEsIXbfd2sj8PXZ93HUlFjjAoP
+	SKzSEWrlZFtlKR+7OzB/SyglbxA2fz5MzMTRhYpVEIceJURWoMzWOTYWq/1YlZZNAyTUvVCwZjH
+	fT/Czi4eTbws7VEGkWNpZIfZ60f1m5J5IYrT2okVMx57Zj/Oql8EytLFet5fQAfoDxmqVHZ91x3
+	/kZXiCCSluuw4qNks7+UW6IkImSoEQxfrAfyQ6BaxVFrPxLwWDStg/esP4OipiY3sZJ/HvyWxNu
+	AR9auuzjUUQ==
+X-Received: by 2002:a17:907:f447:b0:c51:3b74:9d07 with SMTP id a640c23a62f3a-c513b74a25fmr971881966b.18.1795446162362;
+        Mon, 23 Nov 2026 07:02:42 -0800 (PST)
+Received: from xeon ([188.163.112.54])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acfe3b0sm418484866b.8.2026.11.23.07.02.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 07:01:58 -0800 (PST)
-From: Ezra George <georgeezra017@gmail.com>
-To: Christian Brauner <brauner@kernel.org>,
-	Shuah Khan <shuah@kernel.org>
-Cc: linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Ezra George <georgeezra017@gmail.com>
-Subject: [PATCH] selftests: pidfd: declare pidfd_poll_test TAP plan
-Date: Mon, 23 Nov 2026 16:01:27 +0100
-Message-ID: <20261123150127.635412-1-georgeezra017@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Mon, 23 Nov 2026 07:02:41 -0800 (PST)
+From: Svyatoslav Ryhel <clamor95@gmail.com>
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Svyatoslav Ryhel <clamor95@gmail.com>
+Cc: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	mfd@lists.linux.dev
+Subject: [PATCH v6 0/5] mfd: max8907: Schema, pdata and poweroff
+Date: Mon, 23 Nov 2026 17:02:19 +0200
+Message-ID: <20261123150224.199601-1-clamor95@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,35 +102,48 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-pidfd_poll_test.c uses the low-level kselftest.h helpers, but does not
-call ksft_print_header() or ksft_set_plan(1) before reporting its result.
+Convert existing txt documentation file to DF schema. Remove
+platform data use. Switch to device managed poweroff handler.
+Add restsrt handler.
 
-This produces incomplete TAP output and a plan mismatch:
-
-  # Planned tests != run tests (0 != 1)
-
-Add the TAP header and declare the single expected result.
-
-Tested: tools/testing/selftests/pidfd/pidfd_poll_test 1
-Signed-off-by: Ezra George <georgeezra017@gmail.com>
 ---
- tools/testing/selftests/pidfd/pidfd_poll_test.c | 3 +++
- 1 file changed, 3 insertions(+)
+Changes in v2:
+- fixed max8907_power_off return
 
-diff --git a/tools/testing/selftests/pidfd/pidfd_poll_test.c b/tools/testing/selftests/pidfd/pidfd_poll_test.c
-index 232304f818c7..416a136bb6eb 100644
---- a/tools/testing/selftests/pidfd/pidfd_poll_test.c
-+++ b/tools/testing/selftests/pidfd/pidfd_poll_test.c
-@@ -31,6 +31,9 @@ int main(int argc, char **argv)
- 
- 	fds.events = POLLIN;
- 
-+	ksft_print_header();
-+	ksft_set_plan(1);
-+
- 	if (argc > 2)
- 		ksft_exit_fail_msg("Unexpected command line argument\n");
- 
+Changes in v3:
+- added idata check in max8907_regulator_probe() for BBAT/SDBY/VRTC
+- added conversion to devm_ helpers commit
+- switch to devm_register_power_off_handler() and
+  of_device_is_system_power_controller()
+
+Changes in v4:
+- dropped in-supply type definitions in schema
+
+Changes in v5:
+- rebased to be applicable on top of devm_kzalloc_obj conversion
+- added restart handler
+
+Changes in v6:
+- rebased on top of latest next
+- resolved conflict with Lee commit
+---
+
+Svyatoslav Ryhel (5):
+  regulator: dt-bindings: maxim,max8907: Convert to DT schema
+  mfd: max8907: Remove platform_data based probing
+  mfd: max8907: Switch to resource-managed versions of helpers
+  mfd: max8907: Convert to use device managed poweroff handler
+  mfd: max8907: Add restart handler
+
+ .../devicetree/bindings/regulator/max8907.txt |  69 -----
+ .../bindings/regulator/maxim,max8907.yaml     | 283 ++++++++++++++++++
+ drivers/mfd/max8907.c                         | 168 ++++-------
+ drivers/regulator/max8907-regulator.c         |   8 +-
+ include/linux/mfd/max8907.h                   |   6 +-
+ 5 files changed, 349 insertions(+), 185 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/regulator/max8907.txt
+ create mode 100644 Documentation/devicetree/bindings/regulator/maxim,max8907.yaml
+
 -- 
-2.43.0
+2.53.0
 
