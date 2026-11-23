@@ -1,79 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795394122;
-	b=HXu3dBqK57+PVWi49CspJXKiWoVIgzL3FpLM6RSrQaDDOgML3V9zBWKAiShXijGSKG9p
-	 Yb2ZZlfU5kFFBR3VTgcMqBmVFh7QR7lk8097+UBU7mVyPfg3JDdFS42QrSObE3lOYaLh8
-	 8nSFFAjZE+txMJg0pvUT17KndzrKPPw2LxRaRMtfR7mUtSf/GLEduq1ZFKUr14PiM1iNb
-	 Y0Y7w6xSAhKD0I6QZqaIItGYP5NVqrbpPpRD7S0gWLeXXYJQSTtDYVG1uUQ2iLAWWuFO+
-	 jC5pvPdDokrx5NuUGdis2US5aaMbBPzSxP6lAL1f7WnXEqVAl3ZGqGzrHB20kVP2kag==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795394122;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=gQB8IK1b/xYXcMQGxGk0o/WwdPaO6iLlyEsVf0P+2VQ=;
-	b=3JiEoO0lpcn0MWhl55IExco87iEuwTFS0eia2UICCB3xBbUKw6H0+ybkA+p9ST+fE+gt
-	 54p9tuy5/GA8JzJTY2BJ2VgZlCfjJZhYPJeEEXOaq1Tsbfewnv8WCbV1vQtfAOj1yJOlv
-	 UxLsuf1AFexME3B7ZVr8zvcl1N7sJW0UtYjmqs7gLLdg+ZLzX+rRu53EzW54unRjsImKn
-	 ccnDe9tS7XECe8F3+uvHH2h1TbWEMsc5k57AKpwN+KRCgqpysU39TpzFS3wC9mDp0k2mD
-	 gFw56jWhoC3/+5sdMngx6Wfi+dh9w5cZ4eFhcAkQQ0Cal3XGa2hGxJRsmzXVHeqtXtw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K0Fgclo1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CC03606A31E;
-	Mon, 23 Nov 2026 00:35:22 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K0Fgclo1
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795394121;
-	b=DhXB6EzFGHEO/CYTJWDxtyEjGEjJcxEyK2BfHlxO8BF4/WDhd92uWnshwQ8A2hQsHLH1
-	 Z0cRK8sFomjGhns4GLFz0tr1iE6PRjig+eaS3XzvjyJRqUrOPcAK/b/IG5YW4fBf8KIYd
-	 fLJlDoka93muWks6L3yanx3JYDkV27qgV78BF2+wSrLkOg4fkDl8vakqZlAKaFvE+fZ/i
-	 lGgw9g3rRZ34cd9t2EEW01N48rOTtiyjqrN0J3yEsUK5PgXqfwTI0n6M2utq3264+vVOP
-	 AKkXwXVNhdCag0jTr3Nygl52vrAblF2Ohp6vTq8bmEOc4xUu2jTzfN9zsCnbwk5DAcg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795394121;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=gQB8IK1b/xYXcMQGxGk0o/WwdPaO6iLlyEsVf0P+2VQ=;
-	b=vwzRcl7Y5BBeEwZ0UT0ZJBms9v52Cw9+Ii4NyI93gJd/5eznxlf6mb7Qv0ByMQ3gk3mE
-	 oz60AIuXfNBHD8w7KqouTCbP4mfIGEGGo4RtoWqXHDMyEbze/lgDLVGrzCqKnUKwAFwNl
-	 SLUey/4SBtYWO7VLkQFTMNfLMUt6VhzWSRzEzdhgzRgmPw6H1K+N23Sk0r2fa8DfN33uk
-	 SRu9ESe/5YZzzEmQb1v00j+9lKJmGX3e1QGLkeEWHHRFoDxm2VCJw/v4yKeY0Pva7VAaK
-	 7ezfPk7FLvTlsXYl1ojNfNrhyooGMp6HrFrJYv9XqMveMi+blK/b/ImqKxZcY8IWWtQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795394181;
+	b=iVPuV5rbBTVHNNkBxr/SQf0TdmQ3tpwKnYapR4uHxfMRi2F2D62W20bA6ohGWbTHkI+y
+	 UKscQvY/vS9yK58+cfb//NqiLdTeK03Rp60WtBn6KVrmC7v03hfi6Bhl5+q/vl8kI2rME
+	 c8Y3RjjyZqyBsLOukPIgiYgFibWpNodThBHT5A3E+FCFTHUzblL+MqKhtRO+0jjErkzLG
+	 Ne7HPCCYjH5p27FYZ9VSA3h4VJFUms5HcYO/FoCmJY0z2gkrEo443fVoZdn1+DAqMR3RC
+	 l/TUhSAysMVka0HGrpfCLrSJ3geFzazEn8mMY1lrs67tjU4JGjF/NYkhp3F9b/ebkVg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795394181;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
+	 References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=v2QWS0e/e1SuVjnzWDCaj247XeVq8auKrTH1XswjL0I=;
+	b=mLQIeshMQOKZ5wUzPpD4XBccChqTTFuXy20eQpL4z0XXFGx3R4Mf+ZKLuYDS2PAc5Xlc
+	 euCHfKdZ5cbZiWAXZ+OU8tvlW1xTTM6Lyy+sm9RFyjtQ6V6AooTNmwPHBxTqSNUUPoZmI
+	 qAoOaEyu/wshzJ+E1AMag0nt2/xxnYgfNcdXCdyMctE/zLVOPs0IUnjxcYyBbF42pk0Z9
+	 OKM+6BC+qLkmyIk7TVi8TMo6dD6u/hLCedzxU6vbgkCt4YbeqoyNlO0TqMA8cWquZJhbI
+	 mqbE70MHjc5VwdxKae/S4wYLYBW8ZdG8Lh4TSorlQw0NecX3UKyHLNMvfKybkU0qS0A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=SQyfErWg;
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 0D3961F000CA;
-	Mon, 23 Nov 2026 00:35:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795394121;
-	bh=gQB8IK1b/xYXcMQGxGk0o/WwdPaO6iLlyEsVf0P+2VQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=K0Fgclo1w2tFgD9BibZyDNMasM3CSUfszyTxfjG65KnhmS7waydUBNcft+i+j9T8E
-	 LI7kJZHJXmacdAiq6QDVk5uUwMK/DEp/7asUeCi/4T1F4Oh1aM18EFxDP9VCDFRTFR
-	 yQwBf61A/xdLvnyo8ypMdcyv916r4SI52ElQuUps2my9zwZeKEcblj5TVDjz6uMygj
-	 XjQeM817Hh4ahXN45Dl0r3CLB8pNCtJl5UJbide/85kMx8u1pv2EQS5JVBvfNvrO5X
-	 tHign9EXnqU0fWDdSHmGgscFLHGWNNFAJ/6EHKRGV9dHQ4FfoloGdSHjYaOLrfpFbU
-	 kHmSq0Uk9zSgA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 8A1364C26D;
-	Mon, 23 Nov 2026 00:35:12 +0000 (UTC)
-From: Mani Tofigh via B4 Relay <devnull+mt4022.columbia.edu@kernel.org>
-Date: Sun, 22 Nov 2026 19:35:13 -0500
-Subject: [PATCH v2 2/2] sched/wait: Pass wq_flags to
- __wait_event_interruptible_locked()
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 861E2606A31A;
+	Mon, 23 Nov 2026 00:36:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 861E2606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=SQyfErWg
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AN0a67M11167701, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795394166; bh=v2QWS0e/e1SuVjnzWDCaj247XeVq8auKrTH1XswjL0I=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=SQyfErWgAKzf7UPDky4huXMjPEx9tsqyn1qibIk76OhVPnEzQ8x8V8cM3cTDeaen/
+	 1txqrAbtI/Pvsp8WJeTHyJmV9NHobjB5cSfwi0/qJiYD70N3I7FP8ybGz1lL9Oungl
+	 c3eFllLfvaLG3ShFsVi+2vKe5y4CHssS2wBJ8YL39i/O6xlqddBFtwDwW20YUbXP5w
+	 AjBbwClbY35awqIXEzewV1LmlJi+/90clHAhtx3AFHNmQjETsC+eZs553pgc1WnCJi
+	 cN8DGhpDpsyWDERO3u0B9YlauGwX3Dizp9p9kqGUBqSXAzUdfwR7HTo5bGswKWkqHA
+	 xQPEhK6IQiwfQ==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AN0a67M11167701
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 23 Nov 2026 08:36:06 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Mon, 23 Nov 2026 08:36:07 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Mon, 23 Nov 2026 08:36:06 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: "niko3x@proton.me" <niko3x@proton.me>, Jes Sorensen
+	<Jes.Sorensen@gmail.com>
+CC: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH rtw-next v2 3/3] wifi: rtl8xxxu: honour the bandwidth of
+ injected frames on gen1 chips
+Thread-Topic: [PATCH rtw-next v2 3/3] wifi: rtl8xxxu: honour the bandwidth of
+ injected frames on gen1 chips
+Thread-Index: AQHdekapbnug4U+jM0K+j8ORm0fLdLc60F9g
+Date: Mon, 23 Nov 2026 00:36:06 +0000
+Message-ID: <49878bf447554507aaf06d40d25c70d8@realtek.com>
+References: <20261122-b4-inject-v2-0-0ee720fe706d@proton.me>
+ <20261122-b4-inject-v2-3-0ee720fe706d@proton.me>
+In-Reply-To: <20261122-b4-inject-v2-3-0ee720fe706d@proton.me>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,89 +84,19 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261122-b4-sched-wait-intr-head-v2-2-4a764b64e8ce@columbia.edu>
-References: <20261122-b4-sched-wait-intr-head-v2-0-4a764b64e8ce@columbia.edu>
-In-Reply-To: <20261122-b4-sched-wait-intr-head-v2-0-4a764b64e8ce@columbia.edu>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>
-Cc: Oleg Nesterov <oleg@redhat.com>, 
- Linus Torvalds <torvalds@linux-foundation.org>, 
- Christian Brauner <brauner@kernel.org>, 
- Michal Nazarewicz <mina86@mina86.com>, Wen Yang <wen.yang@linux.dev>, 
- linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
- tz2294@columbia.edu, Mani Tofigh <mt4022@columbia.edu>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795394112; l=2225;
- i=mt4022@columbia.edu; s=20261026; h=from:subject:message-id;
- bh=roZMgbnlfY7Z0LN5dKGYogcKymzGcKkdtpGYCk/T+Jo=;
- b=xrysl58p2Ru8qL/I34WaiTlZ2Jjlmo/1OMOvsM2VNL7THSVyD3N/OCDGp5pMp2Ksr7eY+X8KH
- qunO9+E8kDRAfZ4Y/6VV4B2u8uLcrt/ykpUfKJ1YllQaWphsSXSRhno
-X-Developer-Key: i=mt4022@columbia.edu; a=ed25519;
- pk=gljCMQDuxyKPmd5y37CRpEJGSPXDV1MyAnHBhCgXl0I=
-X-Endpoint-Received: by B4 Relay for mt4022@columbia.edu/20261026 with
- auth_id=1322
-X-Original-From: Mani Tofigh <mt4022@columbia.edu>
-Reply-To: mt4022@columbia.edu
-Content-Transfer-Encoding: 7bit
 
-From: Mani Tofigh <mt4022@columbia.edu>
-
-Commit cea5f91daa3a ("wait-event: clean up the internal helper
-arguments") made ___wait_event() take the wait entry's flags instead of
-a 0/1 argument for whether it is exclusive.
-__wait_event_interruptible_locked() still takes the 0/1 argument.
-
-Pass wq_flags here too, so the _exclusive_locked variants say
-WQ_FLAG_EXCLUSIVE rather than an unexplained 1.
-
-No functional change.
-
-Signed-off-by: Mani Tofigh <mt4022@columbia.edu>
----
- include/linux/wait.h | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
-
-diff --git a/include/linux/wait.h b/include/linux/wait.h
-index b3e94c71cd3e..6c039d92c770 100644
---- a/include/linux/wait.h
-+++ b/include/linux/wait.h
-@@ -770,12 +770,11 @@ do {										\
- extern int do_wait_intr(wait_queue_head_t *, wait_queue_entry_t *);
- extern int do_wait_intr_irq(wait_queue_head_t *, wait_queue_entry_t *);
- 
--#define __wait_event_interruptible_locked(wq, condition, exclusive, fn)		\
-+#define __wait_event_interruptible_locked(wq, condition, wq_flags, fn)		\
- ({										\
- 	int __ret;								\
- 	DEFINE_WAIT(__wait);							\
--	if (exclusive)								\
--		__wait.flags |= WQ_FLAG_EXCLUSIVE;				\
-+	__wait.flags = (wq_flags);						\
- 	do {									\
- 		__ret = fn(&(wq), &__wait);					\
- 		if (__ret)							\
-@@ -870,7 +869,8 @@ extern int do_wait_intr_irq(wait_queue_head_t *, wait_queue_entry_t *);
-  */
- #define wait_event_interruptible_exclusive_locked(wq, condition)		\
- 	((condition)								\
--	 ? 0 : __wait_event_interruptible_locked(wq, condition, 1, do_wait_intr))
-+	 ? 0 : __wait_event_interruptible_locked(wq, condition,			\
-+						 WQ_FLAG_EXCLUSIVE, do_wait_intr))
- 
- /**
-  * wait_event_interruptible_exclusive_locked_irq - sleep until a condition gets true
-@@ -901,7 +901,8 @@ extern int do_wait_intr_irq(wait_queue_head_t *, wait_queue_entry_t *);
-  */
- #define wait_event_interruptible_exclusive_locked_irq(wq, condition)		\
- 	((condition)								\
--	 ? 0 : __wait_event_interruptible_locked(wq, condition, 1, do_wait_intr_irq))
-+	 ? 0 : __wait_event_interruptible_locked(wq, condition,			\
-+						 WQ_FLAG_EXCLUSIVE, do_wait_intr_irq))
- 
- 
- #define __wait_event_killable(wq, condition)					\
-
--- 
-2.53.0
-
-
+QWhtZXQgWmVyZW4gdmlhIEI0IFJlbGF5IDxkZXZudWxsK25pa28zeC5wcm90b24ubWVAa2VybmVs
+Lm9yZz4gd3JvdGU6DQo+IEZyb206IEFobWV0IFplcmVuIDxuaWtvM3hAcHJvdG9uLm1lPg0KPiAN
+Cj4gSW5qZWN0ZWQgZnJhbWVzIGFyZSBhbHdheXMgc2VudCBhdCAyMCBNSHosIGV2ZW4gd2hlbiB0
+aGV5IGFzayBmb3IgNDAgTUh6DQo+IG9uIGEgNDAgTUh6IGNoYW5uZWwsIGJlY2F1c2Ugb25seSBR
+b1MgZGF0YSBmcmFtZXMgZ2V0IHRoZSA0MCBNSHogYml0cyBpbg0KPiB0aGUgVFggZGVzY3JpcHRv
+ci4NCj4gDQo+IFNldCB0aGVtIGZvciBpbmplY3RlZCBmcmFtZXMgd2l0aCBJRUVFODAyMTFfVFhf
+UkNfNDBfTUhaX1dJRFRILg0KPiANCj4gVGVzdGVkIG9uIFJUTDgxOTJDVSAoMGJkYTo4MTc4KSBv
+biBjaGFubmVsIDYgSFQ0MCsgYW5kIEhUNDAtLCByZWNlaXZlZA0KPiBieSBhIHNlY29uZCByYWRp
+byBzbmlmZmluZyBhdCA0MCBNSHo6IE1DUyAwIGFuZCA3IHJlcXVlc3RlZCBhdCA0MCBNSHoNCj4g
+YXJyaXZlIGF0IDQwIE1IeiAod2l0aG91dCB0aGlzIHBhdGNoOiAyMCBNSHopLCByZXF1ZXN0ZWQg
+YXQgMjAgTUh6IHRoZXkNCj4gc3RheSBhdCAyMCBNSHouDQo+IA0KPiBBY2tlZC1ieTogUGluZy1L
+ZSBTaGloIDxwa3NoaWhAcmVhbHRlay5jb20+DQoNCkkgd3JvbmdseSByZXBsaWVkIEFja2VkLWJ5
+LiBJJ2xsIGNoYW5nZSBpdCB0byBSZXZpZXdlZC1ieSBkdXJpbmcgY29tbWl0dGluZy4gDQoNClJl
+dmlld2VkLWJ5OiBQaW5nLUtlIFNoaWggPHBrc2hpaEByZWFsdGVrLmNvbT4NCg0KPiBTaWduZWQt
+b2ZmLWJ5OiBBaG1ldCBaZXJlbiA8bmlrbzN4QHByb3Rvbi5tZT4NCg0KDQo=
