@@ -1,60 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.122
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.157.23.187
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795434097;
-	b=qXGFKQu6Ax2wmNpyEmA2EHRmOJJnOYCsLs2Yj1pub0iMzkLtY/ySF0r8VeZBAOaDcxkC
-	 t2ITXz8R8VltH0s+xb10dJMjRjTjdKjwCyiWqlFRxlCyL51giF2veuE2cp12zaP/7caLR
-	 sSLbOL7MGAFpzzdqY17nttyNyaZhkCFM2QZlTz03RO764gxU173uB9+XFi2z4VxPHl0YK
-	 Bc8oQsc/xygV4Rx90eziiyjCfKpfO0UGwI1R8OtnL8pMJqFyM1BC2VUcALYT/Km/TyZRt
-	 vnXwe7Q/K8v+oIJwIa9gdWLzCCtXOUX7d2R/UREV7EbAJXT4JTkdbJaw0hfOFtNFipw==
+	b=oum24KAid7r4Y2cSKPk1vEJs26qSULGWvJOc+2rSUYkotGUPqGtyzRkMTXO9rwf69jJ8
+	 7qgmkLumtBAa3YH2SY7munDU1In/ZkfCiw8rGuzwFJ1dDGnwi994xfkz941n5sKpQjGga
+	 a8y2+Z4FlftVLBBIYXwXVLGjsUPin0HBySP87bZQZ665GNKISi24771+Gy4S/qR9yF/Fj
+	 Pk8lLryhvqS/Dw+9+1Bvkvm/y544EyaVGn28tH6fDxTEDCJUn+4b+nNdPeuys5HvP303q
+	 qPRR9FJ5B6EGMDZ/5Hz+e20LoioxhSJLK1H8F0VzTD7l/K0NmZLREyuM6P73C581Hug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795434097;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=hPH+xwQQ5YvRprFEfig6JwjI4JJt7gcVnXPnZvpsz58=;
-	b=qvy4DPtj9P2eS/37fjb2pQAeVns3f9n8Ht5vEYAASFDWUGrLyg4L8iDg+n10pJjaGx8E
-	 /kzv2lTSwiLEMGE3r3fAZYvLSQk8NXQSyoCwBtHiwVGhif96G2thhwzaFewxMzNPeAc25
-	 gygc+tzX4RzyAJne5LhKKCdjarLMhQRuYiRqXN0jRGfBrENI6O1F7KWB5iEDSZbdc5y3U
-	 jc3AJ0C6sXmvKcNH7ybX386rjiCwfz/ebbfVHW5gp54wQY7vYFdZfxkRSgfiYOVx3SYRK
-	 TiEsKGThCqzBYx3cdcvDmSvRa/AZfyTTTx3zQ7GGnqgECt5Srm++QN5uXEHlRGu/T5g==
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
+	bh=9oFz6UDT8gjmviaKWCp1t0akVQqvfGRhOXiu+f5jWeo=;
+	b=UhEW1dIF7Py0JuvvDmM5eatdxJAAeMHQMXCKAmrS63FuHTUfsVMU11dibqUn8LMMoBNp
+	 wfh6MEc+yfluRPnlV/XXBk3Fanu8eLd22Iy7bk4Z/05nrxvLWl+CwbV4UwUWYHOzWSaae
+	 RSw978EOu1xtiWIKejQxgr1VIrqh/KO3DymEYpQW2qP2pZyAQDOkKvAM0x/Asj2luqw4y
+	 WwnMyW4owFPDZ8MC67Ao8tKcbLGuh8RSbqIRmzB+3eDjFtIkA7pcbGq89spxCyRZzuqdP
+	 4tr7BmnIqJiP6v4OxWmu+lIh42YS2E7fvf8FcyrUcBC8pZ9ipqm1kqjntgK3z6pnjqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=protonmail.com;
-	spf=pass smtp.mailfrom=protonmail.com;
-	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=AqvTCW5q;
-	arc=none smtp.remote-ip=109.224.244.122
-Received: from mail-244122.protonmail.ch (mail-244122.protonmail.ch [109.224.244.122])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=paragon-software.com;
+	spf=pass smtp.mailfrom=paragon-software.com;
+	dkim=pass header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=VZA9A8z+;
+	arc=none smtp.remote-ip=35.157.23.187
+Received: from relayaws-01.paragon-software.com (relayaws-01.paragon-software.com [35.157.23.187])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52C2B606A32A;
-	Mon, 23 Nov 2026 11:41:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52C2B606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48F5E606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:41:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48F5E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=paragon-software.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paragon-software.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=AqvTCW5q
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1795434092; x=1795693292;
-	bh=hPH+xwQQ5YvRprFEfig6JwjI4JJt7gcVnXPnZvpsz58=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=AqvTCW5qPw2qcd8PAjH5z5PbIyHUU6oizOI+s+K7cDDXtV7PFmj9IPlnbrb215L2x
-	 m/RWi1veWIhSUlB/2yxBLWKrJ69FXS+kDOfxoOAtKdY0VGw8HX5V4CcN9NMqqdSUOO
-	 TkIY/hivq//dNMMUveqVLQH7TGTHMWrbAEWJz1WnXIp5tUbeopHRYv8Nald0kGqiD6
-	 +ZHfgxEipxsOUqfvrohVIY580xB1XNgjb6Uv0ukoGEnvbw3xOJCRhfzLNO0s80dZKr
-	 coDUkztBL3JK1cVGJ9a4XYR96VHe4UDIgcQUy1tcuYlBRkExLmlf0LDqW/KmalhSrC
-	 CcDxrCenLvhJw==
-Date: Mon, 23 Nov 2026 11:41:26 +0000
-To: Alexander Letuchiy <asalde.le1@gmail.com>
-From: Roman Vivchar <rva333@protonmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@mediatek.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Mattijs Korpershoek <mkorpershoek@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-serial@vger.kernel.org, linux-input@vger.kernel.org, phone-devel@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v3 0/7] arm64: mediatek: Add initial MT6895 and Xiaomi Poco X4 GT support
-Message-ID: <ckJZtdZ4-fPzsa3vkozNyEYYUbG9qd134hYb0hHEuq2nL8WMAR1PS87OpDfXrkU-E-85rsG1I4V99_M41j6-ewkD_41XPguDel3z8z0lmMk=@protonmail.com>
-In-Reply-To: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
-References: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
-Feedback-ID: 173184497:user:proton
-X-Pm-Message-ID: c6b719aaffbb9f16cf86df1433c20e78eaceb862
+	dkim=pass (1024-bit key) header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=VZA9A8z+
+Received: from relayfre-01.paragon-software.com (relayfre-01.paragon-software.com [176.12.100.13])
+	by relayaws-01.paragon-software.com (Postfix) with ESMTPS id 8CFFD1D4D;
+	Mon, 23 Nov 2026 11:42:11 +0000 (UTC)
+Authentication-Results: relayaws-01.paragon-software.com;
+	dkim=pass (1024-bit key; unprotected) header.d=paragon-software.com header.i=@paragon-software.com header.b=VZA9A8z+;
+	dkim-atps=neutral
+Received: from dlg2.mail.paragon-software.com (vdlg-exch-02.paragon-software.com [172.30.1.105])
+	by relayfre-01.paragon-software.com (Postfix) with ESMTPS id 169C8F7;
+	Mon, 23 Nov 2026 11:41:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=paragon-software.com; s=mail; t=1795434089;
+	bh=9oFz6UDT8gjmviaKWCp1t0akVQqvfGRhOXiu+f5jWeo=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=VZA9A8z+wHineDXqarlsc1pc2fix7YhKwUB1ZRkQsMhmEpw1LSLuKb24HjGs2EREp
+	 ZOnJPo384wF+KIFvGVvgpJ1qMt3/GJwmCHBdsxdbCdt8Bf0l45ThhsDTN/bzvTnknY
+	 nSJmEhQFshyJDYHYNmXeGKKoTKD7U87T3JXkmjZU=
+Received: from [192.168.95.128] (172.30.20.204) by
+ vdlg-exch-02.paragon-software.com (172.30.1.105) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.7; Mon, 23 Nov 2026 14:41:28 +0300
+Message-ID: <e010d85b-62aa-47db-af91-fb43026c8b65@paragon-software.com>
+Date: Mon, 23 Nov 2026 12:41:26 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,60 +64,162 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] fs/ntfs3: validate target index entry in
+ check_if_alloc_index/check_if_root_index
+To: Tabriz Hasanli <cybersec467@gmail.com>, <linux-kernel@vger.kernel.org>,
+	<ntfs3@lists.linux.dev>
+CC: <w@1wt.eu>
+References: <20260831142344.472594-1-cybersec467@gmail.com>
+ <20260831142344.472594-2-cybersec467@gmail.com>
+Content-Language: en-US
+From: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
+In-Reply-To: <20260831142344.472594-2-cybersec467@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: vdlg-exch-02.paragon-software.com (172.30.1.105) To
+ vdlg-exch-02.paragon-software.com (172.30.1.105)
 
-Hi,
+On 8/31/26 16:23, Tabriz Hasanli wrote:
 
-On Monday, November 23rd, 2026 at 1:19 PM, Alexander Letuchiy <asalde.le1@g=
-mail.com> wrote:
+> check_if_alloc_index() and check_if_root_index() walk the index entry
+> chain to verify that lrh->attr_off lands on a valid entry boundary.
+> However they have two gaps:
+>
+> (a) They do not stop at de_is_last() — they walk past the last real
+>      entry into the trailing gap between the last entry's end and
+>      hdr->used, which check_index_header() leaves unvalidated.
+>
+> (b) They do not validate the TARGET entry at attr_off — the walk exits
+>      as soon as o == attr_off without checking the entry's size, flags,
+>      or bounds.
+>
+> This allows attr_off to point to an attacker-controlled "fake entry"
+> in the trailing gap of a crafted NTFS image's $LogFile.  Four do_action()
+> cases then use the unvalidated entry:
+>
+>    SetIndexEntryVcnAllocation / SetIndexEntryVcnRoot:
+>      de_set_vbn_le() writes 8 bytes at e + e->size - 8.
+>      Crafted e->size yields an 8-byte OOB write up to ~64KB past the
+>      buffer.
+>
+>    UpdateFileNameAllocation / UpdateFileNameRoot:
+>      memmove() writes 56 bytes at a fixed offset from e.  If e is near
+>      the buffer end, this overflows by up to 0x50 bytes.
+>
+> The sibling DeleteIndexEntryAllocation case (commit fc4626bb3656) and
+> UpdateRecordData cases (commit 3e127829e57f) already carry per-site
+> guards for the same class of attack; this patch closes the gap at the
+> validator level so all current and future callers are protected.
+>
+> Fix both functions to:
+>    - stop walking at de_is_last()
+>    - validate the target entry: size is 8-byte aligned, >= minimum
+>      entry size, and does not extend past hdr->used
+>
+> Found by static source analysis and confirmed with userspace ASan
+> harnesses transcribing the kernel's exact validation logic on a
+> 512-byte INDEX_BUFFER with faithful check_index_buffer() geometry.
+>
+> Signed-off-by: Tabriz Hasanli <cybersec467@gmail.com>
+> ---
+>   fs/ntfs3/fslog.c | 42 ++++++++++++++++++++++++++++++++++++------
+>   1 file changed, 36 insertions(+), 6 deletions(-)
+>
+> diff --git a/fs/ntfs3/fslog.c b/fs/ntfs3/fslog.c
+> index ed50c1d0c..d73e3ff1e 100644
+> --- a/fs/ntfs3/fslog.c
+> +++ b/fs/ntfs3/fslog.c
+> @@ -2953,10 +2953,13 @@ static inline bool check_if_root_index(const struct ATTRIB *attr,
+>          u32 o = PtrOffset(attr, hdr) + de_off;
+>          const struct NTFS_DE *e = Add2Ptr(hdr, de_off);
+>          u32 asize = le32_to_cpu(attr->size);
+> +       u32 used = le32_to_cpu(hdr->used);
+> +       bool has_subnode = hdr_has_subnode(hdr);
+> +       u32 min_de = has_subnode ? sizeof(struct NTFS_DE) + sizeof(u64)
+> +                               : sizeof(struct NTFS_DE);
+> +       u16 esize;
+>
+>          while (o < ao) {
+> -               u16 esize;
+> -
+>                  if (o >= asize)
+>                          break;
+>
+> @@ -2964,11 +2967,24 @@ static inline bool check_if_root_index(const struct ATTRIB *attr,
+>                  if (!esize)
+>                          break;
+>
+> +               if (de_is_last(e))
+> +                       break;
+> +
+>                  o += esize;
+> +               de_off += esize;
+>                  e = Add2Ptr(e, esize);
+>          }
+>
+> -       return o == ao;
+> +       if (o != ao)
+> +               return false;
+> +
+> +       /* Validate the target entry itself. */
+> +       esize = le16_to_cpu(e->size);
+> +       if (!IS_ALIGNED(esize, 8) || esize < min_de ||
+> +           size_add(de_off, esize) > used)
+> +               return false;
+> +
+> +       return true;
+>   }
+>
+>   static inline bool check_if_alloc_index(const struct INDEX_HDR *hdr,
+> @@ -2978,10 +2994,12 @@ static inline bool check_if_alloc_index(const struct INDEX_HDR *hdr,
+>          u32 o = offsetof(struct INDEX_BUFFER, ihdr) + de_off;
+>          const struct NTFS_DE *e = Add2Ptr(hdr, de_off);
+>          u32 used = le32_to_cpu(hdr->used);
+> +       bool has_subnode = hdr_has_subnode(hdr);
+> +       u32 min_de = has_subnode ? sizeof(struct NTFS_DE) + sizeof(u64)
+> +                               : sizeof(struct NTFS_DE);
+> +       u16 esize;
+>
+>          while (o < attr_off) {
+> -               u16 esize;
+> -
+>                  if (de_off >= used)
+>                          break;
+>
+> @@ -2989,12 +3007,24 @@ static inline bool check_if_alloc_index(const struct INDEX_HDR *hdr,
+>                  if (!esize)
+>                          break;
+>
+> +               if (de_is_last(e))
+> +                       break;
+> +
+>                  o += esize;
+>                  de_off += esize;
+>                  e = Add2Ptr(e, esize);
+>          }
+>
+> -       return o == attr_off;
+> +       if (o != attr_off)
+> +               return false;
+> +
+> +       /* Validate the target entry itself. */
+> +       esize = le16_to_cpu(e->size);
+> +       if (!IS_ALIGNED(esize, 8) || esize < min_de ||
+> +           size_add(de_off, esize) > used)
+> +               return false;
+> +
+> +       return true;
+>   }
+>
+>   static inline void change_attr_size(struct MFT_REC *rec, struct ATTRIB *attr,
+> --
+> 2.53.0
 
-> This series adds initial support for the MediaTek MT6895 (Dimensity
-> 8000/8100) SoC and the Xiaomi xaga board, sold as Xiaomi Poco X4 GT, Redm=
-i
-> Note 11T Pro/Pro+ and Redmi K50i. It is enough to boot to an initramfs
-> with a serial console, CPU idle, the CPU and DSU PMUs and the volume down
-> key.
->=20
-> Dependencies
-> ------------
-> The SoC DT describes the pin controller and the board DT uses its pinmux
-> macros, so this series depends on the MT6895 pinctrl series:
-> https://patch.msgid.link/20261118-pinctrl-mt6895-v2-0-0728c4eddcac@gmail.=
-com
->=20
-> Bootloader dependency
-> ---------------------
-> This was tested with a modified LK bootloader that is not public.
+Hello,
 
-How are other xaga users supposed to boot the kernel? You might want to
-port uniLoader instead, or if you're on an old enough security patch you
-can even replace stock LK with U-Boot. U-Boot chainloading is also
-possible.
+The patch was applied, thank you.
 
-> The stock LK cannot boot this DT, as its Android fixups expect nodes
-> that are not present here.
->=20
-> The DT relies on the bootloader to:
->=20
->  - update the /memory node
->  - add all firmware carveouts to /reserved-memory
->  - pass the command line from the boot image
->=20
-> The carveout addresses are therefore not listed in the DT, as the
-> bootloader allocates some of them dynamically. I can describe the
-> fixed ones in the DT if that is preferred.
->=20
-> Firmware behaviour
-> ------------------
-> Two things in the stock TF-A affect what the DT describes, but not the
-> DT itself:
->=20
->  - TF-A rejects CPU_SUSPEND for about the first 40 seconds after boot.
->    The vendor kernel lifts this earlier with a SiP call, so with this
->    series the idle states only start to be used after that time.
+Regards,
+Konstantin
 
-It might be worth porting upstream TF-A too.
-
-Best regards,
-Roman
