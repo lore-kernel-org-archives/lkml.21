@@ -1,44 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.224.83.146
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795396376;
-	b=jz+db/PADeIA9PgpB1lAYdpSjzrPUmaay56wUt4rh4oMNfU5PJ9DvvCZLURK2/5eNWLh
-	 ZXAKmUNfxbiirGOIQi/Vw2Pubz6uC2B2YirVhQpWJKrzJo6cLVAKAxXrDhBSfT9Yv4Ba/
-	 8lkUOZ/XRvCHpgMmVPQMed/H1XzLx9GjrhigtbjqpN4FIJggl/u4Z7cJctO6mfc10wjuI
-	 XqUVGMNawBHGcmnDqLICOvrafgF2FOjjn0BlCIo5i8aOb40d22zX+GaKwryivcdpYJQf8
-	 1EjY6JEGd/DvjinaOy9CQOBjvbw4zJRLSVyvf0DNQjFjQFEAnhBatN/5R8Q5TGFiYsA==
+	t=1795396440;
+	b=WlbruDO/uIp19qK1fqd3U9JsYMVZe9gFuMoNWxmoLkI1kLMoQ+n2QU1jphBHL4khm4Ft
+	 wOuUi5KPpg7VDDjnZC2M8pSDAR79KNJm1hn3WheY2j+ljjhbeKo97MGVTY+wDl7tOU0Re
+	 nchfTaaZBG23a2NtTTypFawWKwHB2XYQY9GxvwLBGb0kB0e/DsB3aDVxIdG6CQj9IdaQD
+	 SfFNX9qr0yifmm3MiNO5fo977I+Z5+OWVUHTq4kjbsdcqdzAzpkllWcDy5eFsdm8Ha7Uu
+	 6MCTbVxGPNbNxD5cxN077Xe51QRiAjDq1YSq095pGTNezyXepIcq8zUj04u9e0c7CQw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795396376;
-	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=0Gp1eyUb1TRq0HLGTC1lCi4kXREArXMUBnkCXCJmk+g=;
-	b=t8gisx50qKKd9GSNeLc5Sm+Y42ehUrX026NUC0+yUIJ3f1lSLIBpiOK62aC6Hi+jSOHC
-	 JJPhqXNMqo5Hryebg8u4Yyi6n1+K7FJvhPIL386Lu9tV2zPNE8mX2OleMmDisPzcGzqHS
-	 KcglUE5XM4aSwAKRdWNgBfZnBFUNE6LGGlWVWjA5e2fL96dL2VM76IuqNPF/f9ZyL2kT8
-	 /uyanvL5/Vkid7F5ULjmWtmu4ZATvk6helb/NNLsnVl8tYHnCsyT/UzBT4ygiAYmzuLuk
-	 ieAM960N5aFMgx426FlVZERDt5y7ENfBTvU9wrIsaZfEugg+NsPmNsZiuAhfHv9CLhg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795396440;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=wOmSSxBUHRnLgd4e6+O9z5R2jz4T0d7JhRnt5K045pM=;
+	b=gVKa+bBlMNAXdlUvIMOZcGjt39fWB7Gk0rRInA+HpAz0Tt46IScdVBpxkfWBCl+YeQD7
+	 cMl5ED04OjpJaedwEkxJHfKGGM9k/2VuKoHQtSwv+dOggvjEova5CmWjthZqeL44MLZp/
+	 a9md64NGy1VLLjkA+DvWLhzvHD0PbnBtOPnIDEtHtKPyhU1Yvve9NeK0i+KUMuihR0l9m
+	 LFJzhSnRyBVjrZf3dTAYJXNHQdwnCqX2nsv/qC1/N9xACy0EFhxem+EhecUvAC05i0pFe
+	 YNzdDFWcT5Wm3sEv44RGsFA4diZU+Ryl0R7HmlPid9vZAlMwbJtUkqoA13KvXrczPDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rock-chips.com;
-	spf=pass smtp.mailfrom=rock-chips.com;
-	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=XfVFItQf;
-	arc=none smtp.remote-ip=156.224.83.146
-Received: from mail-m83146.xmail.ntesmail.com (mail-m83146.xmail.ntesmail.com [156.224.83.146])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FN9NMEdt;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 199BF606A31D
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:12:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 199BF606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 481D6606A31A;
+	Mon, 23 Nov 2026 01:14:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=XfVFItQf
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5594437e6;
-	Mon, 23 Nov 2026 09:12:44 +0800 (GMT+08:00)
-Message-ID: <04e31b87-e766-4fb8-a361-0e92b1ab12ae@rock-chips.com>
-Date: Mon, 23 Nov 2026 09:12:42 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FN9NMEdt
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16DD91F000C6;
+	Mon, 23 Nov 2026 01:13:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795396439;
+	bh=wOmSSxBUHRnLgd4e6+O9z5R2jz4T0d7JhRnt5K045pM=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=FN9NMEdtMJA9GH5kpjH71QHTkf8sRJGmZ+SAQ9Dtpe344cU2Los23ZDyOjM043uRu
+	 gskmUdWAEA6Khpseovipvoo4GxT4JuAWfTSIYG496lGMPZZ1l8KmfCsvPAFTtHsLt0
+	 tr7sVDxw1Y/VlxaomGz0GBAyxGDZZpsKvyTIwnptX48pfpAAdyyeTM/SFazRT/nO7v
+	 IB7K+9r0KChFNtEVTbvdfnZ2ODKLmohSDTiUR7LJqP+W2bcqvn2jC6AsyuvUlzeNv4
+	 rBsYW9yNJCm8mhHJeUI6TFYrXYoOWxwpOdaIPtPaFYl3WzhyKT335+LQ51Bs5oIeYv
+	 fqgqpdNIHO5Jg==
+Content-Type: multipart/mixed; boundary="===============7245609043603540761=="
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -48,85 +49,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] drm/rockchip: dsi: enable RK3506 PHY data lanes in GRF
-To: ZhuXiangyu <1194781887@qq.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>,
- Andy Yan <andyshrk@163.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <tencent_C4C715C962613597F98212938F8940633306@qq.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <tencent_C4C715C962613597F98212938F8940633306@qq.com>
-Content-Type: text/plain; charset=UTF-8
+Message-Id: <ef9a71b38c0ce6eb0a5112debcb242e7b52694ab5284c7a589e5952c299b3b68@mail.kernel.org>
+In-Reply-To: <20261122-bpf-rhtab-irqs-disabled-v2-3-207aedcc2215@columbia.edu>
+References: <20261122-bpf-rhtab-irqs-disabled-v2-3-207aedcc2215@columbia.edu>
+Subject: Re: [PATCH bpf v2 3/4] bpf: Don't spin on rhtab bucket locks with IRQs disabled
+From: bot+bpf-ci@kernel.org
+To: mt4022@columbia.edu,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,yatsenko@meta.com,herbert@gondor.apana.org.au,akpm@linux-foundation.org,shuah@kernel.org
+Cc: tgraf@suug.ch,eddyz87@gmail.com,memxor@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,bpf@vger.kernel.org,linux-crypto@vger.kernel.org,linux-kernel@vger.kernel.org,linux-kselftest@vger.kernel.org,tz2294@columbia.edu,mt4022@columbia.edu,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Mon, 23 Nov 2026 01:13:57 +0000 (UTC)
+
+--===============7245609043603540761==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0aa205f6674d03a7kunme2eb5a24b4b784
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDQkNCVh9OSUMZQkJCGBgfHVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=XfVFItQf3zmtTWT5dWXxy2+IBA8SoihxLBFhsNLWJcR0kd+7H5NxCN2UyNu0YbRlNkuiCF9rw4bezgW1BndNvr62M/1nDpAcngQmjKtky4966raCiSNBJY9/C7Wgv5JxF8h18TGc6sW32EFQM/dv5qqsrGHFw04XfoWBG7cS2Is=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=0Gp1eyUb1TRq0HLGTC1lCi4kXREArXMUBnkCXCJmk+g=;
-	h=date:mime-version:subject:message-id:from;
 
-On 11/22/2026 1:10 AM, ZhuXiangyu wrote:
-> rk3506_chip_data currently only clears the turnaround, force-rx, and
-> force-tx-stop fields in RK3506_SYS_GRF_SOC_CON6. As a result, the DSI
-> PHY data lanes remain disabled unless the bootloader happens to enable
-> them.
-> 
-> Set RK3506_DSI_PHY_ENABLE_LANE0 and RK3506_DSI_PHY_ENABLE_LANE1 in
-> lanecfg1 so the data lanes are reliably enabled by the driver.
-> 
-> Tested on an RK3506B board: the panel receives the low-power init
-> sequence and the framebuffer console displays properly.
-> 
-> Fixes: cabeacc7eadc ("drm/rockchip: dsi: Add support for rk3506")
-> Signed-off-by: Xiangyu Zhu <1194781887@qq.com>
-> ---
-> Changes in v2:
-> - Split out from the combined drm/phy patch into a standalone drm
->   subsystem patch per Heiko's review.
-> - Limit recipients to drm and Rockchip maintainers/lists.
-> - Fix Signed-off-by author name formatting.
-> 
->  drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-> index 30d6f83c..116cc140 100644
-> --- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-> +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-> @@ -199,6 +199,8 @@
->  
->  #define RK3506_SYS_GRF_SOC_CON6		0x0018
->  #define RK3506_DSI_FORCETXSTOPMODE	(0xf << 4)
-> +#define RK3506_DSI_PHY_ENABLE_LANE1	BIT(9)
-> +#define RK3506_DSI_PHY_ENABLE_LANE0	BIT(8)
->  #define RK3506_DSI_TURNDISABLE		BIT(2)
->  #define RK3506_DSI_FORCERXMODE		BIT(0)
->  
-> @@ -1727,7 +1729,9 @@ static const struct rockchip_dw_dsi_chip_data rk3506_chip_data[] = {
->  		.lanecfg1_grf_reg = RK3506_SYS_GRF_SOC_CON6,
->  		.lanecfg1 = (FIELD_PREP_WM16_CONST(RK3506_DSI_TURNDISABLE, 0) |
->  			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCERXMODE, 0) |
-> -			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCETXSTOPMODE, 0)),
-> +			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCETXSTOPMODE, 0) |
-> +			     FIELD_PREP_WM16_CONST(RK3506_DSI_PHY_ENABLE_LANE0, 1) |
-> +			     FIELD_PREP_WM16_CONST(RK3506_DSI_PHY_ENABLE_LANE1, 1)),
->  		.max_data_lanes = 2,
->  		.max_bit_rate_per_lane = 1500000000UL,
->  		.dphy_get_timing = dw_mipi_dsi_phy_px30_get_timing,
+> bpf: Don't spin on rhtab bucket locks with IRQs disabled
 
-Reviewed-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+TL;DR: On CONFIG_SMP=n kernels without DEBUG_SPINLOCK, setting trylock_irqsoff
+on rhtab may make every new-key insert and delete fail with -EBUSY when IRQs
+are disabled, even if the bucket is unlocked, contrary to the commit message.
 
--- 
-Best, 
-Chaoyi
+> diff --git a/kernel/bpf/hashtab.c b/kernel/bpf/hashtab.c
+> --- a/kernel/bpf/hashtab.c
+> +++ b/kernel/bpf/hashtab.c
+> @@ -2983,6 +2983,7 @@ struct bpf_rhtab {
+>  static const struct rhashtable_params rhtab_params = {
+>  	.head_offset = offsetof(struct rhtab_elem, node),
+>  	.key_offset  = offsetof(struct rhtab_elem, data),
+> +	.trylock_irqsoff = true,
+>  };
 
+On CONFIG_SMP=n kernels without CONFIG_DEBUG_SPINLOCK, can this make every
+insert of a new key and every delete fail with -EBUSY whenever the caller
+has IRQs disabled, even when no CPU holds the bucket lock?
+
+rht_lock_or_busy() does this:
+
+    if (!params.trylock_irqsoff || !irqs_disabled()) {
+        *flags = rht_lock(tbl, bkt);
+        return true;
+    }
+    /* bit_spin_trylock() always succeeds on UP without DEBUG_SPINLOCK */
+    if (!IS_ENABLED(CONFIG_SMP) && !IS_ENABLED(CONFIG_DEBUG_SPINLOCK))
+        return false;
+
+The check happens before any test of the bucket, so
+__rhashtable_insert_fast() returns ERR_PTR(-EBUSY) and
+__rhashtable_remove_fast_one() returns -EBUSY every time.
+rhtab_map_update_elem() then frees the new element and returns -EBUSY, and
+rhtab_delete_elem() returns -EBUSY.  Updates of existing keys still work,
+because rhtab_map_update_existing() takes no lock.
+
+Programs running with IRQs disabled (int3-based kprobes, perf_event
+programs, tracepoint, fentry and struct_ops programs in IRQs-off regions,
+hardirq context) could insert and delete on UP before this patch, since
+bit_spin_lock() only disables preemption there and never spins.  Most
+programs ignore the helper's return value, so the failure may go
+unnoticed.
+
+The commit message says these operations "now fail with -EBUSY when the
+bucket is locked, by this CPU or another one, and work as before
+otherwise".  Is that accurate on such kernels?
+
+Only the earlier rhashtable patch mentions the UP behaviour ("On UP
+without DEBUG_SPINLOCK the lock bit isn't kept, so these callers always
+get -EBUSY there").  Could this patch state that limitation too, or could
+the lock bit be kept on UP for trylock_irqsoff tables so that rhtab fails
+only when the bucket is actually held?
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45090312341
+--===============7245609043603540761==--
