@@ -1,102 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795432755;
-	b=DD7hYSU6/nzmXTel1K4fpD8+F0Td9pWCXyeuowcJqmO0+Ma05tb6I8ec7F1YZU988uU8
-	 VeZ77Vc8yobsZzlybloeM9sgRHij0x2zExz2tzmtPmbJ6aEluak3s3zZ+UZ2Lh1UCxXtz
-	 JVYe1WuOTVsDWUo+R9uYK/O0DQRfnseEPxGOEcXg97k8ED+G3qMyyZiUVYBw7wswNL6tr
-	 2mj8R4Co6mBrzgFfDTGMayoLutf8hBK5Cmg1TQQqY8Zx5eNus1OrRP4d4YrUip7nhMyKQ
-	 jhyB3bcUmw2L2Ye1YviXwzVVic5NrmA5QfetCuHyy+kWjyfHalSqN1vFyLg6hOVJi4g==
+	t=1795432757;
+	b=sulcE6ThKMPkDcbwylcLRRQfT3mmppZjU6pn2VZt7aSqHD/BkP7kO6u/9qcrbAvctafl
+	 G7S94+QPjNR83arpPYXNrjar2G4KhA/CaGJ9tjkIO67W8Jtjs3VSG2pD3o6Y46Iqb2ooL
+	 oiZZW/01/2m5HVkGiYZ4kKwIBs7SoDUFM7WAIZZBPkSHbsGkHbyujhLiTqsuM29SLxUBc
+	 8PrAEtmPt+EDlnCuKUXENpfQJdgHzTG/LlbAd2nEDZbYhw3w6VeaaEqw8oMFZG9clMmSP
+	 nW2dls9xx1D+dabPAA/Ujr2kwVSDwBLEaoaw3hDWFYYBhinrtrSsd2DsEp+2OPk4Lkw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795432755;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432757;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:X-Developer-Signature:X-Developer-Key:
-	 Content-Transfer-Encoding;
-	bh=tsoBXjOa7hArC6ZxKTNtqNgzpzMWZ3WS6d1t6Lz3KOk=;
-	b=VFfhfbrQlf4StLsbGr8CSvvO8QurGZ+9vxh4A2gHrGKlr1YaqxDz/XPo+eIMLWWCYQjR
-	 Ct2f+bas3WRy1o6a6D9OcF0D2DdRr/14mzpfcIBmZ5ODzaymE4jl12PC3LF4rzHuO9ntY
-	 CZuQz0ccEbm9gFYK1/dtDigML48OhB2VPJ+WmOhsBbte3iyIj88oNb+b7/X4taudy/aO7
-	 e6ZeJ/WSZSq/H0d5D92SIbu3EIuFP50FCPBIqwbjuoYWtoeHW3BUyNL8amMFbBfKEZPlI
-	 SgufkwPyVfdTIq8obGf05EDPxzPweofnlvW4F1tm5g+9VMlZmvQqU5B6euqVf/33QaA==
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=2ImmBlyem+dKD8BtksWY7e6g1iRuBiOaIKzcItgpI8E=;
+	b=qrRmnj3vKL//d2Ps7XmBHXmy+SrOQGixvEyMe78rWWqtFNMOt4bfGb3Kcv2naPSfLj7y
+	 hKKkwtIQ+nJBETUirUE5gfrizaYkd0ai+szJNyTZxzlt40lWS2Vra9DhWuaATSCbj5PQF
+	 Dn4pGxp2zxplVbjJbyvr9Lq9ONVxJ1N1Rlkny5qlTOR3FOa38LpX7Ic/71HTPSE9OSI2f
+	 jvlVf86ERPVvHVttbzfTQ33+gEmJDK+CorfcJlTc3iwU51euiRDjOPdHfXzRbvEJAb7qI
+	 eYUsdBaLiEc0VUkxy7vZNBRjg9LKSn89v8GN2ovSQemV/+RvwYcLVULyTrhZ3Z8+qyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=FYRxtT0I;
-	arc=none smtp.remote-ip=209.85.128.45
-Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MwUrRDJL;
+	arc=none smtp.remote-ip=209.85.218.44
+Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39589606A335
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:19:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39589606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97E7A60A3815
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:19:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97E7A60A3815
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=FYRxtT0I
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4bb5b8ef642so25846815e9.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:19:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MwUrRDJL
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c4d581da0aaso412009666b.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:19:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795432753; x=1796037553; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=tsoBXjOa7hArC6ZxKTNtqNgzpzMWZ3WS6d1t6Lz3KOk=;
-        b=FYRxtT0IT8qgigr5nclKZ0tW6RQHbihW3BIM7pVYAaewAqheqbm7oe5nHw/yjZ62dh
-         O4H5A1H7wAqAbQVkE+v0PupIjcl3dnQ3DLICH3nzd/r4dJi2kU/pD2zJeXQgiDLhdpbJ
-         SAq0PdYaGy9VzM0Ql4AnyI9cVtrY8Mc1DgUErYiVTyPCDli8vyO3o66ErdLQOboYJOFz
-         4dz4Cf+kLHTmxJUbwsJn6mRpedkqoNs3UNhqaIW2jIb15vtL2tRvczwSdtKIEjTXmnHZ
-         1F7bkKWFaDHyBAKlZxy5DedLH9WMlUGm2SG5KNgnjv/lEQ1XlTVVOV0V6547OgGo4ZLb
-         2M7g==
+        d=gmail.com; s=20260707; t=1795432755; x=1796037555; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2ImmBlyem+dKD8BtksWY7e6g1iRuBiOaIKzcItgpI8E=;
+        b=MwUrRDJLnchwNtDlt8SAh1z+IMAJEBqogwbomLpDDeb8yctiEBj3QnOTTaMZhg2bPD
+         kzqJVr3CR0iWr394g4fHYFxeYrQui+9sXdLnLqhQrkZdiDU4BPdbrtiQNb9495P60sSB
+         qYotueOsKWk1kV+fTt8sBV+MBjIZfwORKQjF++GTv1A26bN7XfebFYgqj5cH4LL/RlBj
+         E7OLwDAAKzoMwLTwWVcPhZVN5E48ob0+L+sxOiLF94Wg7K6nYOyUDCa6p2n+q8AaCbaF
+         CJOxSm41df3WgHI0R+qHCdzRuh2T5CxblDPBILCOCUusr8ZGRFBX8cS/D6wgoznlpbrn
+         vJ7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795432753; x=1796037553;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1795432755; x=1796037555;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=tsoBXjOa7hArC6ZxKTNtqNgzpzMWZ3WS6d1t6Lz3KOk=;
-        b=QklPYHExieAMjL1DdpvqnnTKRCO3y0w6vIzhwg7jF3cBlMFeHspPJuAWpdj3HMgl8k
-         LL69gnpy6Eg5EdAYn6rEgTagD48L/YyywrK8bwG7Gg118mjhI/U1fjUtsrdO0iKWde5g
-         nPUgh9J6giZieZ6+C394ZGrp3FHeikom0goJHF8Wt2iTD5ySX/xW/v/mekO+fnivsVyI
-         xQOAsx6Bm0K3A1NA5HA1PW8btNZXFngWlEBQRv3u3sl48uS9bmabeuwRutXKllwCicmy
-         FuVIG9bqzksO1cnJ6GIlC0xzGql5QMpebAOliHRYUeGCobXqVg0hpMTWn5vdgY2nn4Ye
-         SQ6g==
-X-Forwarded-Encrypted: i=1; AL+hErETN9r34ONIJ6rWysgUsi1akEaX6RVWdPS7C5X713Vmc1u/iFLp6vKOKHbH+eatPs/IellLVowDzZwMjAg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Uv9UdL0ehqzSB8hWBKt4qD96pHKcIeXE+hiuV9t7ZBMNHh6i/
-	l/awxI1NMySAapLiJWeN+p/8HLV+WoSmSBSqv4SgVyybRa4Wx6LR6KUw4VoIKF3QrtQmv8IZ+8m
-	IepYa
-X-Gm-Gg: AZFdTZciXpWdPBNraQHthImeNeUI39a7fYBEYP+504cyiD74SdfpqIC29+qEGYPQJbs
-	5vjRfBMDY3Ujs5ZMOtoKjC8Q1WBdZIlGLJcLbf2DxXaP66Si1RVNPQx1cOtqyWv9zO3YzHEgQFf
-	f/7TAj5CICyAzzNzDjSYEEY7LnWajShNzn0kQKNqp2liuIzkE2VWcga7WnPJJmlRxUNvw1TLm5c
-	bdVfZV18762g/aFIHsA/+vhfWgZsKCiHSVs/8wL7r2upt2vvqb3IdgEK3C1OaulIlxbYpouMixk
-	0xw9QXJ1nVohYligXeb079SAUwFMYR79OhkjYsHRLu5m3HFxfa+yXcn9FuxYEOgkLk7TqkMffct
-	9m2upyOXpz+vvXgIK5vMOg1eyVEIlY0eUcwudDsuKlhvwxmO5X1PVUi35DeQ/WCaSCJETjFJNZ8
-	jlak00kfmcONI5H9rgwCsppgkd9Mcl7pHI2phgUTof8nINd078jx0RnUJYHUmdtRKANGsWTIkjD
-	l1s9Lxgt1AqDCeLjalUxByo3+e8tjMInBVX9u+501eOpsqTdt+roOu1TEHIrEwkE4rkIZa+LnHZ
-	knpimwbvgpcvcrU14U0dpViYAF88xBFUOd8LYxhAQ4GeDoVwKKXTQopQOns8Py9V/egY4LOU2i3
-	KbxMF0gnvyrmEteRO
-X-Received: by 2002:a05:600c:3e1a:b0:4bb:6814:7391 with SMTP id 5b1f17b1804b1-4bb8881921cmr219874935e9.25.1795432753450;
-        Mon, 23 Nov 2026 03:19:13 -0800 (PST)
-Received: from localhost (p200300f65f19a90438645cebc2ee104e.dip0.t-ipconnect.de. [2003:f6:5f19:a904:3864:5ceb:c2ee:104e])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab6a67fec7sm20288415f8f.26.2026.11.23.03.19.12
+        bh=2ImmBlyem+dKD8BtksWY7e6g1iRuBiOaIKzcItgpI8E=;
+        b=1DIaiS5MoCXsNTUNlv55nI5HU+WmZ6Hry4TKfoptslBun0iNVp3p7u2GAKBF1s0ZoH
+         J0TwDkhC3TTazkvNSh/7qWD+TNwoBqiaSUCjNA370LCl/je3u4Ad3PPXvP1yMlnxHFAf
+         uRo7xuHycisy6rOoDLclVX/MDmXxuUbRJHShKi88xq3/QnbpiYF4aaqayS8oUIu3muMr
+         zy1ie2WjSgnsGFLeQHxwuMVUdGBQVBg0RqMboFKIrDD2qkbH7xDEfsuYm7m8RdhZh0dr
+         TpoyWmlpUuglfJw+8S/myhpBtseUjaipTS6iBdHLIWlJYxNQxS/6bs+FEshqnf2y/3Ux
+         ktwQ==
+X-Forwarded-Encrypted: i=1; AL+hErEE45AD0MgDFeJXzDrNFzpCkCn+CS4SGIw93sGziwUzPCtp/bnbhGacR/puQS05crBetuHImjGeoodRtg8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Ro7F3YqXBVrNGgiH3UFFBnEpc3dlXQi3MLuE7vnoLW6gOqql1
+	8kN+tyGVnAOqmipZmxLdF7QIjHlZ29U8IpZqgKu3dV19vs8NyDdyB4vRTcwLg/MRKJwpWzjmVD4
+	=
+X-Gm-Gg: AZFdTZci5WsGrU4Ifp1RYYB8d3ig2e+3zLFbWRHc/xW4MY3ea1DZdimpb65edsUa5+1
+	h561UIjM8R38gFbOkDZo1+3sUq/omxuCnJQxfrddNHyUejv92mUGhtOucdEYjD+PnshJdAVFUs5
+	z0ezJQizTMRfdknembTOOImI4Vy+ks9qlwP7M2tFDuzm0VWUKmkGubh39cPIvN5N+aMCvHBzO8g
+	2WsxLkhXthg3H/mEH7Tze1rQ1/RpupVD4zsG0etLh9TplWbgMX0YfXvLlUc/BStaiWbOACv+92o
+	0Ga7vaYUHPni/CBf4zn6fDedcpbBTjml0a6sN0f8SGqDoj9jebUbV3knt+0iRBSxKjMlc8c6+jd
+	sH5u6nuz2LR4tUBXcyIQEHWni5TKw1FQpyNwZAU4zZKazOF615bRDOV6XrlL3xuA3Ka+ykwPj1M
+	1b+vh2/RKDs8WxHGrnobEaBHIXK/CY43YynoSSqysRhukckmtnhBvtIduvRjOZzyFbEAfCEzja7
+	PReoE9VhaCJauGN+F0xmfEKry2HqmYhIeIwAHKi+2XNvJUeQDKchZlu/fQE3pU1rjRChzgz6sx5
+	AtFwbVB2HTvL9I9utMpWz471l2QHHFGf4cSAUHj746nc+yhfKEmIWqmpn5eVeT0U3g==
+X-Received: by 2002:a17:907:d40a:b0:c40:f89f:d91d with SMTP id a640c23a62f3a-c513ab2082fmr899555066b.28.1795432754704;
+        Mon, 23 Nov 2026 03:19:14 -0800 (PST)
+Received: from [10.120.183.232] ([50.7.123.82])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc679bsm392442266b.63.2026.11.23.03.19.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 03:19:13 -0800 (PST)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Lee Jones <lee@kernel.org>
-Cc: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
-	Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>,
-	Xu Yilun <yilun.xu@intel.com>,
-	Tom Rix <trix@redhat.com>,
-	mfd@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Linus Walleij <linusw@kernel.org>
-Subject: [PATCH v5 09/17] mfd: intel-m10-bmc-pmci: Use named initializers for dfl_device_id array
-Date: Mon, 23 Nov 2026 12:18:07 +0100
-Message-ID:  <422064899e61f8265ec9aeb73f60ac6d37b6440e.1795431460.git.u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1795431460.git.u.kleine-koenig@baylibre.com>
-References: <cover.1795431460.git.u.kleine-koenig@baylibre.com>
+        Mon, 23 Nov 2026 03:19:14 -0800 (PST)
+From: Alexander Letuchiy <asalde.le1@gmail.com>
+Date: Mon, 23 Nov 2026 14:18:39 +0300
+Subject: [PATCH v3 6/7] arm64: dts: mediatek: Add MT6895 SoC
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,43 +92,524 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1285; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=NyYODZOs4QqPpo8EPg0xidXW1ul5pfGAFUJrCD2s98I=; b=kA0DAAoBj4D7WH0S/k4ByyZiAGsEIP3I49+DK2nEjPWZAx6JWaDG0SSUyR2luKCrhZwqTTAbI okBMwQAAQoAHRYhBD+BrGk6eh5Zia3+04+A+1h9Ev5OBQJrBCD9AAoJEI+A+1h9Ev5O7ugH/jhi 46vSDOIzZ/yDXyWZ3cyF098qB4lZQv9TRG9Sezwhq9Yu6e29VGYrzySYPclk6kUyAzvB6kb7WeB fPodMEsZC8SELAur/fpRsoa+x5eyT7lji//vKsZC+pGYvNOApDoVCGXE5HSmqvtyonfyAKPMrYK CYTVc/0cw3ds6h2z7V9gfAru8Y+VXt+27WQjkBDdorahmwsGe5WjtNqox3E8CTQ5iRdZVbz2x0H ei5W2EMHNL78X90xrS4JkcejU8NeyR9g9kn6NZC9Rczt94ehlbV8YdWfJuVZ1HJpJrt4FW5kRqg +eqFFM+UA5LheZ3t2Ml5pYg88SvK+LubWzWmRFc=
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-initial-mt6895-v3-6-95c46597e63d@gmail.com>
+References: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
+In-Reply-To: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sean Wang <sean.wang@mediatek.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Mattijs Korpershoek <mkorpershoek@kernel.org>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Kees Cook <kees@kernel.org>, 
+ Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-serial@vger.kernel.org, linux-input@vger.kernel.org, 
+ phone-devel@vger.kernel.org, Alexander Letuchiy <asalde.le1@gmail.com>
+X-Mailer: b4 0.15.2
 
-From: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+Add initial support for the MediaTek MT6895 (Dimensity 8000/8100) SoC,
+which has four Cortex-A55 and four Cortex-A78 cores sharing a DynamIQ
+cluster with 4 MiB of L3 cache.
 
-While being less compact, using named initializers allows to more easily
-see which members of the structs are assigned which value without having
-to lookup the declaration of the struct. And it's also more robust
-against changes to the struct definition.
+Describe the CPUs with their caches, PSCI, the GICv3 interrupt
+controller, the CPU and DSU PMUs, the architected timer, the system
+timer, the pin controller, two UARTs, the watchdog and the keypad.
+There is no clock controller driver for this SoC yet, so the UARTs and
+the keypad use a fixed 26 MHz clock, and the system timer a fixed
+13 MHz clock derived from it.
 
-The mentioned robustness is relevant for a planned change to struct
-dfl_device_id that replaces .driver_data by an anonymous union.
+Only the CPU and cluster power down idle states are described. The
+deeper states that also power down the MCUSYS or the whole system need
+the SPM and the vendor low power driver, which aren't supported yet.
+The system timer serves as the broadcast timer while the CPUs are in
+these states.
 
-This patch doesn't modify the compiled array, only its representation
-in source form benefits.
+The cache geometry was checked against the CCSIDR registers of each
+core.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Alexander Letuchiy <asalde.le1@gmail.com>
 ---
- drivers/mfd/intel-m10-bmc-pmci.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/boot/dts/mediatek/mt6895.dtsi | 461 +++++++++++++++++++++++++++++++
+ 1 file changed, 461 insertions(+)
 
-diff --git a/drivers/mfd/intel-m10-bmc-pmci.c b/drivers/mfd/intel-m10-bmc-pmci.c
-index 825a4cfd5d98..06b2abc9d4cf 100644
---- a/drivers/mfd/intel-m10-bmc-pmci.c
-+++ b/drivers/mfd/intel-m10-bmc-pmci.c
-@@ -434,7 +434,7 @@ static void m10bmc_pmci_remove(struct dfl_device *ddev)
- #define FME_FEATURE_ID_M10BMC_PMCI	0x12
- 
- static const struct dfl_device_id m10bmc_pmci_ids[] = {
--	{ FME_ID, FME_FEATURE_ID_M10BMC_PMCI },
-+	{ .type = FME_ID, .feature_id = FME_FEATURE_ID_M10BMC_PMCI },
- 	{ }
- };
- MODULE_DEVICE_TABLE(dfl, m10bmc_pmci_ids);
+diff --git a/arch/arm64/boot/dts/mediatek/mt6895.dtsi b/arch/arm64/boot/dts/mediatek/mt6895.dtsi
+new file mode 100644
+index 000000000000..62584cec0f4f
+--- /dev/null
++++ b/arch/arm64/boot/dts/mediatek/mt6895.dtsi
+@@ -0,0 +1,461 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2026 Alexander Letuchiy <asalde.le1@gmail.com>
++ */
++
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++#include "mt6895-pinfunc.h"
++
++/ {
++	compatible = "mediatek,mt6895";
++	interrupt-parent = <&gic>;
++	#address-cells = <2>;
++	#size-cells = <2>;
++
++	clk13m: clock-13m {
++		compatible = "fixed-factor-clock";
++		#clock-cells = <0>;
++		clocks = <&clk26m>;
++		clock-div = <2>;
++		clock-mult = <1>;
++		clock-output-names = "clk13m";
++	};
++
++	clk26m: clock-26m {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <26000000>;
++		clock-output-names = "clk26m";
++	};
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		cpu-map {
++			cluster0 {
++				core0 {
++					cpu = <&cpu0>;
++				};
++
++				core1 {
++					cpu = <&cpu1>;
++				};
++
++				core2 {
++					cpu = <&cpu2>;
++				};
++
++				core3 {
++					cpu = <&cpu3>;
++				};
++
++				core4 {
++					cpu = <&cpu4>;
++				};
++
++				core5 {
++					cpu = <&cpu5>;
++				};
++
++				core6 {
++					cpu = <&cpu6>;
++				};
++
++				core7 {
++					cpu = <&cpu7>;
++				};
++			};
++		};
++
++		cpu0: cpu@0 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a55";
++			reg = <0x0>;
++			enable-method = "psci";
++			capacity-dmips-mhz = <380>;
++			cpu-idle-states = <&cpu_off_l &cluster_off_l>;
++			i-cache-size = <32768>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <128>;
++			d-cache-size = <32768>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <128>;
++			next-level-cache = <&l2_0>;
++		};
++
++		cpu1: cpu@100 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a55";
++			reg = <0x100>;
++			enable-method = "psci";
++			capacity-dmips-mhz = <380>;
++			cpu-idle-states = <&cpu_off_l &cluster_off_l>;
++			i-cache-size = <32768>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <128>;
++			d-cache-size = <32768>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <128>;
++			next-level-cache = <&l2_1>;
++		};
++
++		cpu2: cpu@200 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a55";
++			reg = <0x200>;
++			enable-method = "psci";
++			capacity-dmips-mhz = <380>;
++			cpu-idle-states = <&cpu_off_l &cluster_off_l>;
++			i-cache-size = <32768>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <128>;
++			d-cache-size = <32768>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <128>;
++			next-level-cache = <&l2_2>;
++		};
++
++		cpu3: cpu@300 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a55";
++			reg = <0x300>;
++			enable-method = "psci";
++			capacity-dmips-mhz = <380>;
++			cpu-idle-states = <&cpu_off_l &cluster_off_l>;
++			i-cache-size = <32768>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <128>;
++			d-cache-size = <32768>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <128>;
++			next-level-cache = <&l2_3>;
++		};
++
++		cpu4: cpu@400 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a78";
++			reg = <0x400>;
++			enable-method = "psci";
++			capacity-dmips-mhz = <1024>;
++			cpu-idle-states = <&cpu_off_b &cluster_off_b>;
++			i-cache-size = <65536>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <256>;
++			d-cache-size = <65536>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <256>;
++			next-level-cache = <&l2_4>;
++		};
++
++		cpu5: cpu@500 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a78";
++			reg = <0x500>;
++			enable-method = "psci";
++			capacity-dmips-mhz = <1024>;
++			cpu-idle-states = <&cpu_off_b &cluster_off_b>;
++			i-cache-size = <65536>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <256>;
++			d-cache-size = <65536>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <256>;
++			next-level-cache = <&l2_5>;
++		};
++
++		cpu6: cpu@600 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a78";
++			reg = <0x600>;
++			enable-method = "psci";
++			capacity-dmips-mhz = <1024>;
++			cpu-idle-states = <&cpu_off_b &cluster_off_b>;
++			i-cache-size = <65536>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <256>;
++			d-cache-size = <65536>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <256>;
++			next-level-cache = <&l2_6>;
++		};
++
++		cpu7: cpu@700 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a78";
++			reg = <0x700>;
++			enable-method = "psci";
++			capacity-dmips-mhz = <1024>;
++			cpu-idle-states = <&cpu_off_b &cluster_off_b>;
++			i-cache-size = <65536>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <256>;
++			d-cache-size = <65536>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <256>;
++			next-level-cache = <&l2_7>;
++		};
++
++		idle-states {
++			entry-method = "psci";
++
++			cluster_off_b: cluster-off-b {
++				compatible = "arm,idle-state";
++				local-timer-stop;
++				entry-latency-us = <100>;
++				exit-latency-us = <250>;
++				min-residency-us = <1900>;
++				arm,psci-suspend-param = <0x01010102>;
++			};
++
++			cluster_off_l: cluster-off-l {
++				compatible = "arm,idle-state";
++				local-timer-stop;
++				entry-latency-us = <100>;
++				exit-latency-us = <250>;
++				min-residency-us = <2100>;
++				arm,psci-suspend-param = <0x01010101>;
++			};
++
++			cpu_off_b: cpu-off-b {
++				compatible = "arm,idle-state";
++				local-timer-stop;
++				entry-latency-us = <50>;
++				exit-latency-us = <100>;
++				min-residency-us = <1400>;
++				arm,psci-suspend-param = <0x00010002>;
++			};
++
++			cpu_off_l: cpu-off-l {
++				compatible = "arm,idle-state";
++				local-timer-stop;
++				entry-latency-us = <50>;
++				exit-latency-us = <100>;
++				min-residency-us = <1600>;
++				arm,psci-suspend-param = <0x00010001>;
++			};
++		};
++
++		l2_0: l2-cache0 {
++			compatible = "cache";
++			cache-level = <2>;
++			cache-size = <131072>;
++			cache-line-size = <64>;
++			cache-sets = <512>;
++			next-level-cache = <&l3_0>;
++			cache-unified;
++		};
++
++		l2_1: l2-cache1 {
++			compatible = "cache";
++			cache-level = <2>;
++			cache-size = <131072>;
++			cache-line-size = <64>;
++			cache-sets = <512>;
++			next-level-cache = <&l3_0>;
++			cache-unified;
++		};
++
++		l2_2: l2-cache2 {
++			compatible = "cache";
++			cache-level = <2>;
++			cache-size = <131072>;
++			cache-line-size = <64>;
++			cache-sets = <512>;
++			next-level-cache = <&l3_0>;
++			cache-unified;
++		};
++
++		l2_3: l2-cache3 {
++			compatible = "cache";
++			cache-level = <2>;
++			cache-size = <131072>;
++			cache-line-size = <64>;
++			cache-sets = <512>;
++			next-level-cache = <&l3_0>;
++			cache-unified;
++		};
++
++		l2_4: l2-cache4 {
++			compatible = "cache";
++			cache-level = <2>;
++			cache-size = <524288>;
++			cache-line-size = <64>;
++			cache-sets = <1024>;
++			next-level-cache = <&l3_0>;
++			cache-unified;
++		};
++
++		l2_5: l2-cache5 {
++			compatible = "cache";
++			cache-level = <2>;
++			cache-size = <524288>;
++			cache-line-size = <64>;
++			cache-sets = <1024>;
++			next-level-cache = <&l3_0>;
++			cache-unified;
++		};
++
++		l2_6: l2-cache6 {
++			compatible = "cache";
++			cache-level = <2>;
++			cache-size = <524288>;
++			cache-line-size = <64>;
++			cache-sets = <1024>;
++			next-level-cache = <&l3_0>;
++			cache-unified;
++		};
++
++		l2_7: l2-cache7 {
++			compatible = "cache";
++			cache-level = <2>;
++			cache-size = <524288>;
++			cache-line-size = <64>;
++			cache-sets = <1024>;
++			next-level-cache = <&l3_0>;
++			cache-unified;
++		};
++
++		l3_0: l3-cache {
++			compatible = "cache";
++			cache-level = <3>;
++			cache-size = <4194304>;
++			cache-line-size = <64>;
++			cache-sets = <4096>;
++			cache-unified;
++		};
++	};
++
++	dsu-pmu {
++		compatible = "arm,dsu-pmu";
++		interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH 0>;
++		cpus = <&cpu0>, <&cpu1>, <&cpu2>, <&cpu3>,
++		       <&cpu4>, <&cpu5>, <&cpu6>, <&cpu7>;
++	};
++
++	pmu-a55 {
++		compatible = "arm,cortex-a55-pmu";
++		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH &ppi_cluster0>;
++	};
++
++	pmu-a78 {
++		compatible = "arm,cortex-a78-pmu";
++		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH &ppi_cluster1>;
++	};
++
++	psci {
++		compatible = "arm,psci-1.0";
++		method = "smc";
++	};
++
++	soc {
++		compatible = "simple-bus";
++		ranges;
++		#address-cells = <2>;
++		#size-cells = <2>;
++
++		gic: interrupt-controller@c000000 {
++			compatible = "arm,gic-v3";
++			reg = <0 0x0c000000 0 0x40000>,
++			      <0 0x0c040000 0 0x200000>;
++			#interrupt-cells = <4>;
++			interrupt-controller;
++			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH 0>;
++
++			ppi-partitions {
++				ppi_cluster0: interrupt-partition-0 {
++					affinity = <&cpu0 &cpu1 &cpu2 &cpu3>;
++				};
++
++				ppi_cluster1: interrupt-partition-1 {
++					affinity = <&cpu4 &cpu5 &cpu6 &cpu7>;
++				};
++			};
++		};
++
++		pio: pinctrl@10005000 {
++			compatible = "mediatek,mt6895-pinctrl";
++			reg = <0 0x10005000 0 0x1000>,
++			      <0 0x11c20000 0 0x1000>,
++			      <0 0x11c30000 0 0x1000>,
++			      <0 0x11c40000 0 0x1000>,
++			      <0 0x11d10000 0 0x1000>,
++			      <0 0x11d30000 0 0x1000>,
++			      <0 0x11d40000 0 0x1000>,
++			      <0 0x11d50000 0 0x1000>,
++			      <0 0x11d60000 0 0x1000>,
++			      <0 0x11e10000 0 0x1000>,
++			      <0 0x11ea0000 0 0x1000>,
++			      <0 0x11eb0000 0 0x1000>,
++			      <0 0x11f20000 0 0x1000>,
++			      <0 0x11f30000 0 0x1000>,
++			      <0 0x11e50000 0 0x1000>,
++			      <0 0x11ce0000 0 0x1000>,
++			      <0 0x11de0000 0 0x1000>,
++			      <0 0x11fe0000 0 0x1000>,
++			      <0 0x1c01e000 0 0x1000>;
++			reg-names = "base", "rm", "rt", "rmm", "bl", "bm", "br",
++				    "brr", "lb", "lm", "rtt", "tr", "tl", "lt",
++				    "eint-w", "eint-e", "eint-s", "eint-n", "eint-c";
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&pio 0 0 227>;
++			interrupt-controller;
++			interrupts = <GIC_SPI 259 IRQ_TYPE_LEVEL_HIGH 0>;
++			#interrupt-cells = <2>;
++		};
++
++		uart0: serial@11001000 {
++			compatible = "mediatek,mt6895-uart", "mediatek,mt6577-uart";
++			reg = <0 0x11001000 0 0x1000>;
++			interrupts = <GIC_SPI 141 IRQ_TYPE_LEVEL_HIGH 0>;
++			clocks = <&clk26m>, <&clk26m>;
++			clock-names = "baud", "bus";
++
++			status = "disabled";
++		};
++
++		uart1: serial@11002000 {
++			compatible = "mediatek,mt6895-uart", "mediatek,mt6577-uart";
++			reg = <0 0x11002000 0 0x1000>;
++			interrupts = <GIC_SPI 142 IRQ_TYPE_LEVEL_HIGH 0>;
++			clocks = <&clk26m>, <&clk26m>;
++			clock-names = "baud", "bus";
++
++			status = "disabled";
++		};
++
++		watchdog: watchdog@1c007000 {
++			compatible = "mediatek,mt6895-wdt";
++			reg = <0 0x1c007000 0 0x100>;
++		};
++
++		keypad: keypad@1c00e000 {
++			compatible = "mediatek,mt6895-keypad",
++				     "mediatek,mt6779-keypad";
++			reg = <0 0x1c00e000 0 0x1000>;
++			wakeup-source;
++			interrupts = <GIC_SPI 106 IRQ_TYPE_EDGE_RISING 0>;
++			clocks = <&clk26m>;
++			clock-names = "kpd";
++
++			status = "disabled";
++		};
++
++		systimer: timer@1c011000 {
++			compatible = "mediatek,mt6895-timer",
++				     "mediatek,mt6765-timer";
++			reg = <0 0x1c011000 0 0x1000>;
++			interrupts = <GIC_SPI 280 IRQ_TYPE_LEVEL_HIGH 0>;
++			clocks = <&clk13m>;
++		};
++	};
++
++	timer {
++		compatible = "arm,armv8-timer";
++		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>;
++	};
++};
+
 -- 
-2.47.3
+2.56.0
 
