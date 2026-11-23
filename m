@@ -1,59 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795522448;
-	b=Ouf2cyrg0+3mJOkaOs3k20hoPEOIFTDt1bLy1PMaBKAvBx2UtfFJMBYON0KrfOFfF0qq
-	 k+Zw81oUAdCTVEk/XKhwuXtsNTm5Ue6V+/l9RXmBst+gmy01+l8c/G9KbdnlqXEsUBjDD
-	 75RduAglC2HzJ8uCfH54o9oX9A0CJOKv9hwhCVP7fByxUTZNC9NCR3L8JS+bzjygeVFRe
-	 RBNtGnO0ML5fuskDd+hjZCHEF5Ho0eYBJl+K8SABFIfi13PZCt3AWjk66O9yVdr49a+dy
-	 X6JrdZ4TJGVsbLSKslLYaRkwUsAZpwhgpR/TMXAmgof9Gzup98K2BMwxUWw5OQv1FJg==
+	t=1795522453;
+	b=5FuiHZZCjhYPTKnPnKWVtbVxQkfOAXwijA+LQWlovOrOHOUzcEl6pQs3eYkwjdiOW6SI
+	 UZczEqLmjOiLjEwCJ9T4O4RTih97pEmfu/PlKIiyiRJlGA8Evo5ucv0QblLRh21ykabue
+	 AGwk9CfVYSXO2nd0n4cR+9mnC79Vj47u1J1t0qBiws8ZJJYMMcBcSd/zPFAmWHrRrcNv+
+	 HbRidNmtftMFt210QMD6J+a/N68BEzFk3EDFDu9dWx6L5mQinzHrBxQ9X5Y+PgiD9QE3e
+	 K0GuARciqMHFoislcVrNdxJoWbIcnBKmKJLk/18a90kku7MY+i1GuUa1veQKzoRmuIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795522448;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795522453;
 	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
 	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=8IQP6+LjELPqxZ68IqsA0UX7HOkypEPSY/Xrk/5T/nw=;
-	b=cgYajSC2Ypaz7CbeYnUMfrG0g1VzqRNWnHXKuh0N756eWMBQZIotIB7x3Jlm2ZiKTQVE
-	 wTTEUXcCBPno08UMOOkn7sg+E/2GKokdUtF0+q8QGuZAaPfTLnOBy/VyHi2nrQupMS7mr
-	 DthcZtnI5YSjlvDGXZRRubWfP89H14+qfjy7W00H54AYR8Xgu3256qoix0Bc0MEPpzQjj
-	 p/a1U1gKKFVHsnPj1HnK0OmCSjI8Q3+uIGYx8qTbAbPc8qGr8eWNVEu7JavedxLgdOjBf
-	 qfitF5VgNnp2rUYbUcAHZOLZr+5ujYLZpvw3JzW+tvCSI6Fa60qIPIdALj1nfzJG6Vw==
+	bh=rCFII6oo86vIdq1LVcbevRfZTvtQd+XmVF7qbvAbR/4=;
+	b=5hhrCX9rSd1/87FHoVDnuDr3eabALz4tFhaI6YeyAKiCMWiJ6hsIa3EB6O9bXcR8zEzR
+	 0phag0mD6Kq5/MY8WQ7JVpC1Q0NlLX4fWP0RoK5IRkin0kW4O5e4mTX7gxauJXVmuHYd8
+	 gYDvWw9DH5wWZC2aUlFXnom0UUmmC4cO6gyYeV7JQPIQd2MhJnHJtXN0JjvV7jeXOUcZg
+	 0F60XGRoZv1t7TxmqBp1GIQpZNat7CYB/6nGfh9K6vtwo4SdOSQPfaj9cFQoZ2jwPlAUB
+	 pH8xr9mbUUBFPdy/g9P7uqQys3O8D8RKu4mbaCguKKESmFpWPRSNQ3yHkxcQOzro5hg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f9WnWcZb;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j2jf+7nI;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59217606A31E;
-	Tue, 24 Nov 2026 12:14:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB42D606A31E;
+	Tue, 24 Nov 2026 12:14:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f9WnWcZb
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5FDF1F000C0;
-	Tue, 24 Nov 2026 12:14:05 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j2jf+7nI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEB191F000E1;
+	Tue, 24 Nov 2026 12:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795522447;
-	bh=8IQP6+LjELPqxZ68IqsA0UX7HOkypEPSY/Xrk/5T/nw=;
+	s=k20260515; t=1795522453;
+	bh=rCFII6oo86vIdq1LVcbevRfZTvtQd+XmVF7qbvAbR/4=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=f9WnWcZbBrsgVuT2da2zP3kNYit6klaRV5TI+XxfWFoSsIhQ1EBtkBZiBgEOar2lh
-	 ZFYNRFZKSnkHJHKp8N2sU4EoxCfJSkKKSUS3GEzbYgUHBTLhEUgoSBwDFmmBJBeRG5
-	 Dq16ZQnxyS/bpCu3tRojTUCHju0XhAHiQmFBEQ6z3gGX5gWMy4ujfnD9VAbKANLCCk
-	 lUH9wLII+m+tDN04/j+bNc26yBrjajxiB43+gpL2ZEoGRFC0y/asicaB58r+nKt1pC
-	 CDNpI/fQ9G3VJ7kFvFpF1wiSh+zJCDfQzpk74d6yHGBboXOZo+Zl8UDTH72fHZIb1H
-	 Nk/x7W4Nkr2Bg==
+	b=j2jf+7nIHfPiTJViGYxlvNuGiTUXieT1ndjeGIQ9HMUtfI7DL8Nw+iD+zydrsYnNz
+	 StPQ5scBgZJizWvjSyxQCKu1bxlmq0R1efsFS4ok90jZXYefG59g5/8w6cv2MLIIhw
+	 vqrHtLJAhuKuJD9Yrus6ztkz3APIMzf/Wl0L3/UFf0mJMupFZYdfDHAnDu4maFOssF
+	 PGU9D03uemPyiTQ/Hyj1Lu4BPdZfMIFQw3STITauJq4Acmp1J9nBrKuClWURNfX6bS
+	 WU8NA/z+95EnOKHC9S7Rht/xsA2ytkygtL9l69M7lLp2HKKtSimKJMYT4ht27ZHHo/
+	 QHGbcmLueHlxA==
 From: Mark Brown <broonie@kernel.org>
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Andrei Simion <andrei.simion@microchip.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, phucduc.bui@gmail.com
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261116042633.497423-1-phucduc.bui@gmail.com>
-References: <20261116042633.497423-1-phucduc.bui@gmail.com>
-Subject: Re: [PATCH v2 0/2] ASoC: atmel-classd: Improve clock and probe
- handling
-Message-Id: <179546158517.25092.4588094985508101442.b4-ty@b4>
-Date: Mon, 23 Nov 2026 19:19:45 +0000
+To: Haowen Tu <tuhaowen@uniontech.com>
+Cc: support.opensource@diasemi.com, lgirdwood@gmail.com, perex@perex.cz, 
+ tiwai@suse.com, linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <0D45FEC273BAD5EF+20261118021134.3827729-1-tuhaowen@uniontech.com>
+References: <0D45FEC273BAD5EF+20261118021134.3827729-1-tuhaowen@uniontech.com>
+Subject: Re: [PATCH] ASoC: da7213: Disable runtime PM on component
+ registration failure
+Message-Id: <179546054110.25092.12023244729326576501.b4-ty@b4>
+Date: Mon, 23 Nov 2026 19:02:21 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,26 +62,17 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1451; i=broonie@kernel.org;
- h=from:subject:message-id; bh=ep+Dg/OTQrrUr8QHP2WNK+T2zk1oiHyVdSjj6q25MnA=;
- b=kA0DAAoWL+9zsLPQOIkByyZiAGsFf4uhXarYbXiGRbip4BWJMIqpXkDRQfpd54xbKFGQgBRxs
- Ih1BAAWCgAdFiEEXmoL6X9066wOwaGGL+9zsLPQOIkFAmsFf4sACgkQL+9zsLPQOIkWnAD/Vwzy
- y8n7QHpROhnHy2c8hLDwTST7uqDKK3jD7/Ie+MABAJGoKEX3xMh7l3q589T3XJXUsmCB2CRpi8Z
- AX4CRQJQK
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1147; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=f5RzvjBn+O5QMC2DL+F/6WIFTUQxESMJHaFFkUbi2Qk=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJZ6yc1PfjFXCbmOPGcekiY2fFVCtx7/kusUbCqkTXbI
+ /xNy3x9RykLgxgXg6yYIktcFvfL+pLXa/gOLmyDmcPKBDKEgYtTAC6ygeGf0fyghR9e1Qmv3vd1
+ ydQFl2tkl/0UydvUtmW63tuoyss96YwMB4JKuc9NmyQycUuG80XXkp69b/4xHTNc2pjjaKOZ6Ov
+ KBQA=
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-On Mon, 16 Nov 2026 11:26:31 +0700, phucduc.bui@gmail.com wrote:
-> ASoC: atmel-classd: Improve clock and probe handling
-> 
-> From: bui duc phuc <phucduc.bui@gmail.com>
-> 
-> Hi all,
-> 
-> This series simplifies probe error handling and fixes the
-> peripheral clock lifecycle management in the Atmel CLASSD driver.
-> 
-> [...]
+On Wed, 18 Nov 2026 10:11:34 +0800, Haowen Tu wrote:
+> ASoC: da7213: Disable runtime PM on component registration failure
 
 Applied to
 
@@ -93,10 +80,8 @@ Applied to
 
 Thanks!
 
-[1/2] ASoC: atmel-classd: Simplify probe error handling
-      https://git.kernel.org/broonie/sound/c/94531f24f5b4
-[2/2] ASoC: atmel-classd: Enable pclk during probe
-      https://git.kernel.org/broonie/sound/c/76f1c241d10c
+[1/1] ASoC: da7213: Disable runtime PM on component registration failure
+      https://git.kernel.org/broonie/sound/c/9af3cacff4ad
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
