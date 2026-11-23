@@ -1,83 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.240
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447769;
-	b=f3KGnWP3k1VZxDwO8J0vUnSILSzdZtySFMpDhcfVDKLntdvKWVqNqkQb6CbrCb72IJzZ
-	 BBWX965S+NviGpa8/vwWDMOC36IXa5u8roOmQs15EUhWtYF9ttWVnadX/AB52JCGPLHV/
-	 kTRPHz2Po8FS7mhu0BJnqYEfuBP6zjNP70puMausOWGF29yfWYa3UhqvlWtpAPJvx0Y5v
-	 hFfupbcAeRULmKh4S3GMEpRxDfA8YPccYdBliqRF343igrTOxKAmVEW8qsZueSDCDh+oy
-	 2NCpE5XzFxK7Vh15Cv42gg7aAwfcjn3PV/n/coEQYGHB7/8dYd2IyqJGxb5ixDNmRmg==
+	t=1795447771;
+	b=kj0eU0MCJjAxQWywTWRO/zpD14q10/Xs2yfxqGVnwmYzHUdWJnoUivMebx0fCzehDJKy
+	 oA8GMLh/Pz7Nszzup/cX+exVdScbAZee9YcJxfXZYa+bHtfQjgSrARPC5GnHNVnEKb0h5
+	 0aXy35lC9mUH1ZoEn4x8LI5cvyey4Mraj4SXUwQhQfjChzdt9XPrVQYHvnbZyPyEpzbEZ
+	 KI4ZPm3ysyEBsgEsSaBfmjgLwCnrx9Jo6e7KMgUhlRTEoCml2mOIRD7PX8Di4L4TNBCN+
+	 eowhNwCEyU6hlxD4D7CVa1Srs2wT1jDGGnJTwmZIFXlS7zT44A+q5nGEVSUaEb7WVcg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447769;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=H6PziSLqPTzS9HBPfg5QQ/gEygKMc5DzRkKWa0XTeR0=;
-	b=oScgD33yWCs31kk3UhXy4ww7GKO5oTSNfZ1cdrtHRHCHYWEHUgUb+ntCEC5CTvOi8PRK
-	 geNdIbqRi/VYsMPgqynzUy6Aql/S9jlnIz8NsI3+DHq2/cIjFEPLWYiglmfVn8lV7VJMF
-	 uCZ85zG7OOMqXi6QghWLrx5xLoKhW/4E/Nv+HbP0Pf3oZ8hduYqBuWXTb4mZzRQ/nKnZf
-	 vC9ko+otTTYZVQCPB01l5NvslLnQDGSjz3CrHPwcuXLrML0E/0Q91X7JE+4pmIWDEa279
-	 mh515yx84TNiXkCvvj7S/jLDgE5PndEJ8dSj01nqwbjLgwWr0Md5SW4kB+0yLQC9rwg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447771;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=42pe+2UMicZlITyFPJxiB15+3uk5mJXNcVaAM4zz0rk=;
+	b=pxWwWIZSSstSVLu/bbMcbHO2DdL2GAMfzYyLonSqarL7EzAbjOd+GkbHLggQa/lJZqPq
+	 5czw6QoxdTykNcHJw9k5lfeD4Y4BtJf8RIYIaf+ZCOBfj0FsKu3hTCIXWYsdjhtI8X49a
+	 gfkUbFpfdF7UT7gQ1OK/cRNhJOybX406XK0A1gsJQ6bTfLILCADf6DctM92ct0VH4+p3C
+	 2MCXfiVRzWwejw6ytSjW6IuzUZQLddShBqNjIg8lOJxSjTIzCarO3zTjMa5GqhwCdCmoo
+	 4f3Di7QUHyQqc+/IPLUNabR6Ovt5xI2rS3+TpHzIxrIaCR4dbKNNqLgtbLRyLSOWlqA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=n1tnZEK0;
-	arc=none smtp.remote-ip=91.218.175.240
-Received: from mta0.migadu.com (out-240.mta0.migadu.com [91.218.175.240])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3C72606A327
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:29:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3C72606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="JY/Va0iH";
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id C4E28606A335
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:29:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4E28606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=n1tnZEK0
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=jdK8DOtnkkfscOqrQ68q/uc2xuxHiXyMXu2IRA4cCmA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795447767; v=1; x=1796052567;
- b=n1tnZEK0t4Is9HyJxe4UzpqglRu0s9OaSbL9nmyLmFr4MA6Zsoc29hSXiEw5F/Vwu4t0I3iH
- 4npsejPi2I6MW3aA/b5O44x6rnLBZjzC3AIlQX2Le87hAnEVTAYHVV7zMGkoXJ308AtV5rEXICk
- oNpG2qv+2J63vCjjXvkv4Z9s=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 007334bf78bc86a7;
-	Mon, 23 Nov 2026 15:29:26 +0000
-X-Mizu-Trace-ID: 007334bf78bc86a7
-X-Migadu-Flow: FLOW_OUT
-From: Leon Hwang <leon.hwang@linux.dev>
-To: bpf@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Matt Bobrowski <matt@bobrowski.net>,
-	Shuah Khan <shuah@kernel.org>,
-	Leon Hwang <leon.hwang@linux.dev>,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: [PATCH bpf-next v3 7/9] selftests/bpf: Test tracing_multi link_create logs
-Date: Mon, 23 Nov 2026 23:27:41 +0800
-Message-ID: <20261123152743.19629-8-leon.hwang@linux.dev>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261123152743.19629-1-leon.hwang@linux.dev>
-References: <20261123152743.19629-1-leon.hwang@linux.dev>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=JY/Va0iH
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 243B3143D;
+	Mon, 23 Nov 2026 07:29:27 -0800 (PST)
+Received: from [10.57.63.212] (unknown [10.57.63.212])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D9073F632;
+	Mon, 23 Nov 2026 07:29:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795447770; bh=0xbcGpMrwScqUYzspFMcy4M1QTBeI7Y5dmo8IAPpgqo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JY/Va0iH6nnTm3ZCQ1P7bWW987arEPgcPp0idnNLsxO1wSYW0dvJvX7Thmdqkcx+q
+	 bMbePNqN+MqqRt4ewHMzSstT+FzKDVWQibB5NCMakFs22XmyyGWpShlWFPpl2urfsP
+	 a1XUe6lSzAB2MI9MvwrAa+scQhKwHN97tfT+Kbxw=
+Message-ID: <a9a404e8-66fc-4595-9d14-7ab97cd08583@arm.com>
+Date: Mon, 23 Nov 2026 15:29:25 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,446 +53,123 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/panfrost: Gate the RK3399 GPU clock in runtime
+ suspend
+To: Igor Velkov <iav@iav.lv>, =?UTF-8?Q?Adri=C3=A1n_Larumbe?=
+ <adrian.larumbe@collabora.com>
+Cc: Boris Brezillon <boris.brezillon@collabora.com>,
+ Rob Herring <robh@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Heiko Stuebner <heiko@sntech.de>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20261030-panfrost-rk3399-pm-rt-v1-1-e94437159a9d@iav.lv>
+ <autNWETrwrHbD2H9@sobremesa>
+ <20261104-panfrost-rk3399-pm-rt-larumbe-reply-1@iav.lv>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20261104-panfrost-rk3399-pm-rt-larumbe-reply-1@iav.lv>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Check the errno, log message and reported log size when tracing_multi
-link creation rejects invalid parameters, duplicate IDs or a target.
+On 04/11/2026 19:59, Igor Velkov wrote:
+> Hi Adrián,
+> 
+> On 04.11.2026, Adrián Larumbe wrote:
+>>> On ROCK Pi 4A restore from hibernation hangs in genpd_restore_noirq()
+>>> of the GPU while panfrost is bound. With the clock gated in runtime
+>>> suspend, as on the Allwinner H616 and the Renesas parts, it restores.
+>>
+>> I find the wording in the preceding paragraph a bit confusing . Would
+>> you mind clarifying what 'parts' means here? I guess you refer to
+>> specific SoCs.
+> 
+> Yes, SoCs: allwinner,sun50i-h616-mali, renesas,r9a08g046-mali and
+> renesas,r9a09g047-mali already use default_pm_rt_data. v2 will name
+> them.
+> 
+>> Also, I wonder why not disabling the clocks would forestall coming back
+>> from a power suspension state. Have you raised this matter to the
+>> maintainers of the RK3399 SoC subsystem?
+> 
+> The kernel that reads the image never binds panfrost, so after
+> clk_disable_unused() aclk_gpu stays gated. The restored image still has
+> it enabled in software (enable count 1 since probe), so powering the GPU
+> domain back on, whose clocks include aclk_gpu, only bumps the count, and
+> the QoS writes that follow in rockchip_pd_power() go to a gated block
+> and hang. I traced this for rkvdec [1]; for the GPU I see the hang at
+> the same spot, genpd_restore_noirq(), and gating in runtime suspend
+> removes it. I haven't raised it separately; Heiko is on To.
+> 
+>> Would you also mind describing what you did to reproduce this
+>> resume-from-suspend issue? Lately we've been getting some fixes for
+>> similar SoC issues and I wonder whether mine also has it.
+> 
+> It is hibernation (restore from disk), not suspend to RAM. ROCK Pi 4A,
+> drm-misc-next 33ed26235db9 plus [1], panfrost as a module, bound, GPU
+> idle, swap file with resume= and resume_offset=: systemctl hibernate,
+> power off and on. Without the patch restore hangs at "panfrost
+> ff9a0000.gpu: calling genpd_restore_noirq" 2 of 2, with it restores
+> 6 of 6. A quick check on another board: with panfrost bound and the GPU
+> idle, its core clock keeps enable count 1 in clk_summary.
+> 
+>> If this patch depends on another fix being merged first, I think it's
+>> best you delay sending a v2 until it's been committed to its relevant
+>> subsystem tree and changes pulled into drm-misc-next.
+> 
+> It applies and builds without [1]; [1] only gets this board through
+> restore up to the GPU. [1] goes through linux-media, so I'd rather not
+> tie v2 to it, but fine either way.
+> 
+>> I'm not entirely sure about what patch submission guidelines say about
+>> testing information, but normally commit trailers must come about
+>> last. Would you mind then moving this to right before the S-o-b?
+> 
+> The test notes are below the "---" on purpose, so they stay out of the
+> commit.
+> 
+>>> +	{ .compatible = "rockchip,rk3399-mali", .data = &default_pm_rt_data },
+>>
+>> You're effectively adding support to a whole new SoC. This made me
+>> wonder, are we sure suspension resumption not working is only because of
+>> GPU_PM_RT? Shouldn't we know first about its supplies and power domains,
+>> and any potential GPU quirks? I think this goes beyond my knowledge, so
+>> maybe Steven Price can pitch in.
+> 
+> The node already carries "rockchip,rk3399-mali", "arm,mali-t860" and
+> binds through the fallback today. default_pm_rt_data differs from
+> default_data only in GPU_PM_RT; supplies and the power domain stay as
+> they are. The RK3399 GPU node has no bus clocks and no resets, so
+> GPU_PM_RT changes only aclk_gpu here. Steven's view is welcome.
 
-Cover invalid BTF IDs and types, unsupported prototypes, noreturn
-FEXIT_MULTI targets, targets whose addresses cannot be resolved, targets
-without an ftrace location, and sleepable attachment restrictions. Check
-the diagnostic when tracing_multi is unavailable.
+Sorry for the slow response, I've got quite behind on my emails.
 
-Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
----
- .../selftests/bpf/prog_tests/tracing_link.c   | 349 ++++++++++++++++++
- .../selftests/bpf/progs/tracing_link_multi.c  |  36 ++
- .../selftests/bpf/test_kmods/bpf_testmod.c    |   5 +
- 3 files changed, 390 insertions(+)
- create mode 100644 tools/testing/selftests/bpf/progs/tracing_link_multi.c
+As you say the platform will previously have been able to use the
+fallback compatible. So this is such opting in this platform to use
+GPU_PM_RT. If we've got a report of this working (thanks for Igor) then
+I don't see why we wouldn't want to enable it. Basically we've taken the
+approach of being conservative until we see that GPU_PM_RT doesn't cause
+problems.
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/tracing_link.c b/tools/testing/selftests/bpf/prog_tests/tracing_link.c
-index 9e582b2fae54..f958f084c6f0 100644
---- a/tools/testing/selftests/bpf/prog_tests/tracing_link.c
-+++ b/tools/testing/selftests/bpf/prog_tests/tracing_link.c
-@@ -6,6 +6,7 @@
- #include "xdp_dummy.skel.h"
- #include "kprobe_write_ctx.skel.h"
- #include "tracing_link_ctx.skel.h"
-+#include "tracing_link_multi.skel.h"
- 
- static void test_fentry_link_create_log(int target_fd, __u32 target_btf_id, int cookie,
- 					enum bpf_attach_type attach_type,
-@@ -390,3 +391,351 @@ void test_tracing_link_log(void)
- 	if (test__start_subtest("freplace_ctx_size"))
- 		test_log_freplace_ctx_size();
- }
-+
-+static void test_tracing_multi_link_create_log(const char *prog_name, int target_fd,
-+					       struct bpf_link_create_opts *opts,
-+					       int err_exp, const char *msg)
-+{
-+	struct tracing_link_multi *skel;
-+	struct bpf_program *prog;
-+	char log_buf[128] = {};
-+	int err, fd;
-+	LIBBPF_OPTS(bpf_log_opts, log_opts,
-+		    .buf = log_buf,
-+		    .size = sizeof(log_buf),
-+		    .level = 1,
-+	);
-+
-+	skel = tracing_link_multi__open();
-+	if (!ASSERT_OK_PTR(skel, "tracing_link_multi__open"))
-+		return;
-+
-+	prog = bpf_object__find_program_by_name(skel->obj, prog_name);
-+	if (!ASSERT_OK_PTR(prog, "bpf_object__find_program_by_name"))
-+		goto out;
-+
-+	bpf_program__set_autoload(prog, true);
-+	err = tracing_link_multi__load(skel);
-+	if (!ASSERT_OK(err, "tracing_link_multi__load"))
-+		goto out;
-+
-+	opts->log_opts = &log_opts;
-+	fd = bpf_link_create(bpf_program__fd(prog), target_fd,
-+			     bpf_program__expected_attach_type(prog), opts);
-+	opts->log_opts = NULL;
-+	if (!ASSERT_LT(fd, 0, "bpf_link_create")) {
-+		close(fd);
-+		goto out;
-+	}
-+
-+	ASSERT_EQ(fd, err_exp, "err");
-+	ASSERT_STREQ(log_buf, msg, "log_buf");
-+	ASSERT_EQ(log_opts.true_size, msg[0] ? strlen(msg) + 1 : 0, "log_size");
-+
-+out:
-+	tracing_link_multi__destroy(skel);
-+}
-+
-+static void test_multi_log_excessive_count(void)
-+{
-+	const char *msg = "tracing_multi.cnt 2147483647 is above the limit 1048576.\n";
-+	__u32 id = 0;
-+	LIBBPF_OPTS(bpf_link_create_opts, opts,
-+		    .tracing_multi.ids = &id,
-+		    .tracing_multi.cnt = INT_MAX,
-+	);
-+
-+	test_tracing_multi_link_create_log("fentry", 0, &opts, -E2BIG, msg);
-+}
-+
-+static void test_multi_log_invalid_flags(void)
-+{
-+	const char *msg = "flags must be zero.\n";
-+	__u32 id = 0;
-+	LIBBPF_OPTS(bpf_link_create_opts, opts,
-+		    .flags = 1,
-+		    .tracing_multi.ids = &id,
-+		    .tracing_multi.cnt = 1,
-+	);
-+
-+	test_tracing_multi_link_create_log("fentry", 0, &opts, -EINVAL, msg);
-+}
-+
-+static void test_multi_log_invalid_target_fd(void)
-+{
-+	const char *msg = "target_fd must be zero.\n";
-+	__u32 id = 0;
-+	LIBBPF_OPTS(bpf_link_create_opts, opts,
-+		    .tracing_multi.ids = &id,
-+		    .tracing_multi.cnt = 1,
-+	);
-+
-+	test_tracing_multi_link_create_log("fentry", -1, &opts, -EINVAL, msg);
-+}
-+
-+static void test_multi_log_duplicate_ids(void)
-+{
-+	struct btf *btf;
-+	char msg[128];
-+	__u32 ids[2];
-+	int id;
-+	LIBBPF_OPTS(bpf_link_create_opts, opts,
-+		    .tracing_multi.ids = ids,
-+		    .tracing_multi.cnt = ARRAY_SIZE(ids),
-+	);
-+
-+	btf = btf__load_vmlinux_btf();
-+	if (!ASSERT_OK_PTR(btf, "btf__load_vmlinux_btf"))
-+		return;
-+
-+	id = btf__find_by_name_kind(btf, "bpf_fentry_test1", BTF_KIND_FUNC);
-+	if (!ASSERT_GT(id, 0, "target_btf_id"))
-+		goto out;
-+
-+	ids[0] = ids[1] = id;
-+
-+	snprintf(msg, sizeof(msg), "id %u is in tracing_multi.ids more than once.\n", id);
-+	test_tracing_multi_link_create_log("fentry", 0, &opts, -EINVAL, msg);
-+
-+out:
-+	btf__free(btf);
-+}
-+
-+static void test_multi_log_target(struct btf *btf, const char *prog_name, const char *target,
-+				  int err_exp, const char *format)
-+{
-+	char msg[128];
-+	__u32 id;
-+	int ret;
-+	LIBBPF_OPTS(bpf_link_create_opts, opts,
-+		    .tracing_multi.ids = &id,
-+		    .tracing_multi.cnt = 1,
-+	);
-+
-+	ret = btf__find_by_name_kind(btf, target, BTF_KIND_FUNC);
-+	if (!ASSERT_GT(ret, 0, "target_btf_id"))
-+		return;
-+
-+	id = ret;
-+	snprintf(msg, sizeof(msg), format, id, target);
-+	test_tracing_multi_link_create_log(prog_name, 0, &opts, err_exp, msg);
-+}
-+
-+static void test_multi_log_vmlinux_target(const char *prog_name, const char *target,
-+					  int err_exp, const char *format)
-+{
-+	struct btf *btf;
-+
-+	btf = btf__load_vmlinux_btf();
-+	if (!ASSERT_OK_PTR(btf, "btf__load_vmlinux_btf"))
-+		return;
-+
-+	test_multi_log_target(btf, prog_name, target, err_exp, format);
-+	btf__free(btf);
-+}
-+
-+static void test_multi_log_module_target(const char *prog_name, const char *target,
-+					 int err_exp, const char *format)
-+{
-+	struct btf *vmlinux, *btf;
-+
-+	if (!env.has_testmod) {
-+		test__skip();
-+		return;
-+	}
-+
-+	vmlinux = btf__load_vmlinux_btf();
-+	if (!ASSERT_OK_PTR(vmlinux, "btf__load_vmlinux_btf"))
-+		return;
-+
-+	btf = btf__load_module_btf("bpf_testmod", vmlinux);
-+	if (!ASSERT_OK_PTR(btf, "btf__load_module_btf"))
-+		goto out;
-+
-+	test_multi_log_target(btf, prog_name, target, err_exp, format);
-+	btf__free(btf);
-+
-+out:
-+	btf__free(vmlinux);
-+}
-+
-+static void test_multi_log_noreturn_fexit(void)
-+{
-+	const char *msg = "Cannot attach fexit/fsession_multi prog to noreturn btf id %u.\n";
-+
-+	test_multi_log_vmlinux_target("fexit", "do_exit", -EINVAL, msg);
-+}
-+
-+static void test_multi_log_denylist(void)
-+{
-+	const char *msg = "Cannot attach to denylist btf id %u.\n";
-+	const char *target = "migrate_disable";
-+	struct btf *btf;
-+
-+	btf = btf__load_vmlinux_btf();
-+	if (!ASSERT_OK_PTR(btf, "btf__load_vmlinux_btf"))
-+		return;
-+
-+	/* migrate_disable is only in the denylist on SMP kernels. */
-+	if (btf__find_by_name_kind(btf, target, BTF_KIND_FUNC) == -ENOENT)
-+		test__skip();
-+	else
-+		test_multi_log_target(btf, "fentry", target, -EINVAL, msg);
-+
-+	btf__free(btf);
-+}
-+
-+static void test_multi_log_invalid_btf_id(void)
-+{
-+	const char *msg = "Cannot resolve type of btf id 4294967295.\n";
-+	__u32 id = ~0U;
-+	LIBBPF_OPTS(bpf_link_create_opts, opts,
-+		    .tracing_multi.ids = &id,
-+		    .tracing_multi.cnt = 1,
-+	);
-+
-+	test_tracing_multi_link_create_log("fentry", 0, &opts, -EINVAL, msg);
-+}
-+
-+static void test_multi_log_non_function(void)
-+{
-+	const char *target = "bpf_fentry_test_t";
-+	struct btf *btf;
-+	char msg[128];
-+	__u32 id;
-+	int ret;
-+	LIBBPF_OPTS(bpf_link_create_opts, opts,
-+		    .tracing_multi.ids = &id,
-+		    .tracing_multi.cnt = 1,
-+	);
-+
-+	btf = btf__load_vmlinux_btf();
-+	if (!ASSERT_OK_PTR(btf, "btf__load_vmlinux_btf"))
-+		return;
-+
-+	ret = btf__find_by_name_kind(btf, target, BTF_KIND_STRUCT);
-+	if (!ASSERT_GT(ret, 0, "target_btf_id"))
-+		goto out;
-+
-+	id = ret;
-+	snprintf(msg, sizeof(msg), "Type of id %u is not function.\n", id);
-+	test_tracing_multi_link_create_log("fentry", 0, &opts, -EINVAL, msg);
-+
-+out:
-+	btf__free(btf);
-+}
-+
-+static void test_multi_log_too_many_args(void)
-+{
-+	const char *msg = "The function bpf_trace_run12 has 13 arguments. Too many.\n";
-+
-+	test_multi_log_vmlinux_target("fentry", "bpf_trace_run12", -EINVAL, msg);
-+}
-+
-+static void test_multi_log_varargs(void)
-+{
-+	const char *msg = "The function _printk with variable args is unsupported.\n";
-+
-+	test_multi_log_vmlinux_target("fentry", "_printk", -EINVAL, msg);
-+}
-+
-+static void test_multi_log_large_return(void)
-+{
-+	const char *msg = "The function bpf_kfunc_call_test_ret_big return type STRUCT is unsupported.\n";
-+
-+	test_multi_log_module_target("module_fentry", "bpf_kfunc_call_test_ret_big", -EINVAL, msg);
-+}
-+
-+static void test_multi_log_large_arg(void)
-+{
-+	const char *msg = "The function bpf_testmod_large_arg arg0 type STRUCT is unsupported.\n";
-+
-+	test_multi_log_module_target("module_fentry", "bpf_testmod_large_arg", -EINVAL, msg);
-+}
-+
-+static void test_multi_log_large_return_fexit(void)
-+{
-+	const char *msg = "Attach to target %u:%s with a >8 byte return value is not supported for this attach type.\n";
-+
-+	test_multi_log_module_target("module_fexit", "bpf_kfunc_call_test_ret_pair",
-+				     -EOPNOTSUPP, msg);
-+}
-+
-+static void test_multi_log_missing_address(void)
-+{
-+	const char *msg = "Cannot resolve address of target %u:%s.\n";
-+
-+	/* The type is visible through base BTF, but the symbol is in vmlinux. */
-+	test_multi_log_module_target("module_fentry", "bpf_fentry_test1", -ENOENT, msg);
-+}
-+
-+static void test_multi_log_notrace(void)
-+{
-+	const char *msg = "Target %u:%s is not ftrace attachable.\n";
-+
-+	test_multi_log_vmlinux_target("fentry", "__bpf_tramp_enter", -ENOENT, msg);
-+}
-+
-+static void test_multi_log_not_sleepable(void)
-+{
-+	const char *msg = "Target %u:%s is not sleepable.\n";
-+
-+	test_multi_log_vmlinux_target("fentry_sleepable", "bpf_fentry_test2", -EINVAL, msg);
-+}
-+
-+#ifndef __x86_64__
-+static void test_multi_log_kernel_unsupported(void)
-+{
-+	const char *msg = "This kernel does not support tracing_multi.\n";
-+	__u32 id = 0;
-+	LIBBPF_OPTS(bpf_link_create_opts, opts,
-+		    .flags = 1,
-+		    .tracing_multi.ids = &id,
-+		    .tracing_multi.cnt = 1,
-+	);
-+
-+	test_tracing_multi_link_create_log("fentry", 0, &opts, -EOPNOTSUPP, msg);
-+}
-+#endif
-+
-+void test_tracing_multi_link_log(void)
-+{
-+#ifndef __x86_64__
-+	if (test__start_subtest("kernel_unsupported"))
-+		test_multi_log_kernel_unsupported();
-+	return;
-+#endif
-+
-+	if (test__start_subtest("excessive_count"))
-+		test_multi_log_excessive_count();
-+	if (test__start_subtest("invalid_flags"))
-+		test_multi_log_invalid_flags();
-+	if (test__start_subtest("invalid_target_fd"))
-+		test_multi_log_invalid_target_fd();
-+	if (test__start_subtest("duplicate_ids"))
-+		test_multi_log_duplicate_ids();
-+	if (test__start_subtest("noreturn_fexit"))
-+		test_multi_log_noreturn_fexit();
-+	if (test__start_subtest("denylist"))
-+		test_multi_log_denylist();
-+	if (test__start_subtest("invalid_btf_id"))
-+		test_multi_log_invalid_btf_id();
-+	if (test__start_subtest("non_function"))
-+		test_multi_log_non_function();
-+	if (test__start_subtest("too_many_args"))
-+		test_multi_log_too_many_args();
-+	if (test__start_subtest("varargs"))
-+		test_multi_log_varargs();
-+	if (test__start_subtest("large_return"))
-+		test_multi_log_large_return();
-+	if (test__start_subtest("large_arg"))
-+		test_multi_log_large_arg();
-+	if (test__start_subtest("large_return_fexit"))
-+		test_multi_log_large_return_fexit();
-+	if (test__start_subtest("missing_address"))
-+		test_multi_log_missing_address();
-+	if (test__start_subtest("notrace"))
-+		test_multi_log_notrace();
-+	if (test__start_subtest("not_sleepable"))
-+		test_multi_log_not_sleepable();
-+}
-diff --git a/tools/testing/selftests/bpf/progs/tracing_link_multi.c b/tools/testing/selftests/bpf/progs/tracing_link_multi.c
-new file mode 100644
-index 000000000000..11380c004da0
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/tracing_link_multi.c
-@@ -0,0 +1,36 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <vmlinux.h>
-+#include <bpf/bpf_helpers.h>
-+#include <bpf/bpf_tracing.h>
-+
-+char _license[] SEC("license") = "GPL";
-+
-+SEC("?fentry.multi")
-+int BPF_PROG(fentry)
-+{
-+	return 0;
-+}
-+
-+SEC("?fexit.multi")
-+int BPF_PROG(fexit)
-+{
-+	return 0;
-+}
-+
-+SEC("?fentry.multi.s")
-+int BPF_PROG(fentry_sleepable)
-+{
-+	return 0;
-+}
-+
-+SEC("?fentry.multi/bpf_testmod:*")
-+int BPF_PROG(module_fentry)
-+{
-+	return 0;
-+}
-+
-+SEC("?fexit.multi/bpf_testmod:*")
-+int BPF_PROG(module_fexit)
-+{
-+	return 0;
-+}
-diff --git a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-index 1fbc0061cc24..4b011330a5a1 100644
---- a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-+++ b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-@@ -88,6 +88,11 @@ struct bpf_testmod_oob {
- 
- __bpf_hook_start();
- 
-+noinline int bpf_testmod_large_arg(struct prog_test_ret_big a)
-+{
-+	return a.a + a.b + a.c;
-+}
-+
- noinline int
- bpf_testmod_test_struct_arg_1(struct bpf_testmod_struct_arg_2 a, int b, int c) {
- 	bpf_testmod_test_struct_arg_result = a.a + a.b  + b + c;
--- 
-2.55.0
+I have to admit hibernation isn't something I've tested, so it's
+possible we need to look at fixing something related to that. But it's
+also quite likely that hibernation is more fundamentally broken on
+platform that don't have GPU_PM_RT, so it might not be something we can
+usefully fix.
+
+Other than the somewhat confusing commit message (e.g. a subject of
+"Enable GPU_PM_RT for RK3399" would be clearer), this is fine:
+
+Reviewed-by: Steven Price <steven.price@arm.com>
+
+Thanks,
+Steve
+
+> [1] https://lore.kernel.org/r/20261030-rkvdec-runtime-pm-clocks-v2-1-8ff510a231de@iav.lv
+> 
+> --
+> Igor Velkov
 
