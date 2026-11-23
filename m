@@ -1,55 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795449569;
-	b=AAQPM7c4VaVPzrx0Smh/DFK/oi9qh+tWKNj1rxWjX8/ayT0pEGxJMKj2PNI34iI8yRPj
-	 7ne3A/M2p8MuhFNT5xwn8FzNrYQwiH/MqcuIfdpQY1XAp+Pv6ivzSiee3DV+ag7Agi0q8
-	 jbLisha3SZUYRgb868VGmHO795XsY2F++b+jgBUdXTY0w2S73haptN51xF2WIsjex1y+F
-	 VDp62OzgSSZCWYpGPYuqEaO529JLsdOpgP2LhNVSaFg27gHgB3BI/H0sSCiJKBy+nhrg2
-	 r2MGrNx/rjgVtpUMJJ6PtBfZllYiviMf2Owx4JV2RGSmJF47F8RlF6lSwo6929WJlVg==
+	t=1795449726;
+	b=qZCPrO8P72Z1blHvN7RLAfXBpF8D+DKS5QesbMzqmrT6phg6jY24M3i9AyMvXkOfbwWg
+	 /Ufd440S6Lr8fDEkfuMZHfwnDu4GpW6O8QuFywfgl8TXsdfC9mfCub+NXXAvRPFEcBJnv
+	 a7ASTHkB6R3oobwL8wqmAyTWwC+XT/52R1kFGLs1WpgrpKpqtJWiMlKUhnEKgh2Lvn3AO
+	 cd5n3X5b/Y8anaKHBWG2Tigb0hT1I3lYxyBHRprMVcN1rk4rcejbubkq6icMB8mtrv12n
+	 zvNidbRDegccOjuu1UN1BkXkYNyUclNCf3xrXt17FJF1PfU2w3SCPBtI/0+8sIoeyHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795449569;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=z1gOcE4sJDHdxNv2xjdQJHwE41dUt343uBhIQUVlSbo=;
-	b=fDOT85dlKuOKmKs8npe6VXjPNpsOZDDb1vFM+MizAvlV7LjYnJuzjUvusr3T8Zsr9w1P
-	 01re0JxZeD6DX+tH6H/wM3HKZCyeIyBUEJHjK0Ru+ZkzGKLPV9CmMkjE+w0aEmFESTUT6
-	 I5sZsvIeCqV3DVzgsRpBKrLN3IobK5dEESLo+i/GF4aq9wfF3CpNoy1iI5HGQOjwP/YmQ
-	 BDAM57WhiYq5bI8qO7T4LWiDh79UoF+ljsZ5LYhRC5ahrwVubQx9C/mm4smSEX1VMOvsi
-	 Y1Kllv49kOtndYrHDkVRfpMa9atG3+mYqUoPPQ41XYrCeh+gr4c7kSmswXb3695KEuw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795449726;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
+	bh=y4WiymWQ8hbxf306tYMJr1AN/YqV2ygFqoD2QusV7Jo=;
+	b=ATNUf8y4RElpCH4YBVOeOqAi7HpMmdW6mlNKlwhX+9K8srmGCm/OrkmF7IgtlvYFF+Of
+	 DBeejCzLB3tDJNuXIExvlWP6vQQqQB2PsHi+NtOw5Bvpv0bQbGu6hoqtAFf49xFwydLD8
+	 EGPczi11BDhdhY9qd9WhgUjXoCKeZwrc1wKN9zzxiaFybbKxmuZCY0nAuFEnIKMbRXhwS
+	 fKcfDfTYmvSwPNA2CO2O01BTKF5HbE3/ivmIYo7VFuYg6doH+UYSJ7+yi01wBRaL5hH7p
+	 +RfcKwmxrgQmokKxuJFDlt4gLkiPZ4E/NsKW9lv8QFxDv/5e51IVUDn6ZmrkwIHuitg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NyE4WWr2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O+cjp4zF;
+	arc=none smtp.remote-ip=74.125.82.173
+Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F396606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:59:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AECA606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:02:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AECA606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NyE4WWr2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AF781F000D4
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:59:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795449569;
-	bh=z1gOcE4sJDHdxNv2xjdQJHwE41dUt343uBhIQUVlSbo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=NyE4WWr2bYRyPrtQ0BjND99uXDUVHjV+msu5AQC0qgAw9hX/r+VNrMLcx9T7n81fe
-	 KpKL0RkZox1E86XW7DiiT1SQPvuXfKfEN0AX2YJWgJL2HQHwyGXPfkAdDr3e0Sm1v7
-	 CTL60zgorXfY0BW9Bs7JUIiB4+PkhBjmBbNpl7PHIchzibkMaGHvn7oFXGHm9tJi3Q
-	 F09Dfj/3szF+1Af86s15Tzpu7ffaRvExTQBld/V4GjVbowyoPQojKTPKrCWYtq+y7s
-	 0lTKmCxccJgZ15Hkq/OPevcuuZ5UDqD54fOWLadPibHRFirQpl6nSMXqwdJ6tdz2Ls
-	 ldSfzOa1P1HHw==
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-15dd124bbe7so2336687c88.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:59:29 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGOP8odiJuSnbfpTCCRBUE1g+aMyUOAUWCosqGo6Q8ger3ctYy18Vc+EMxLBDttS4KSwSha/zp8H1FDqVg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9clVEG6T8tfGzeQg8JL+AQtktgYxG8u/Gz0OKI6AG72ZBXOw3G
-	mvt5DKbqvkLBK17pELAgouJW046YrkZn7Yxm7cnbyfG7QG3llDl+bkCIcsC9vtce8I/6fNUrX1e
-	aKcr07VY2X4Y79F2hkuZVd+sjtR/KLw==
-X-Received: by 2002:a05:7022:1587:b0:1b2:6d5b:36bc with SMTP id
- a92af1059eb24-1b5568efd35mr14176365c88.23.1795449568635; Mon, 23 Nov 2026
- 07:59:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O+cjp4zF
+Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-38190551625so7193518eec.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:02:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795449724; x=1796054524; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=y4WiymWQ8hbxf306tYMJr1AN/YqV2ygFqoD2QusV7Jo=;
+        b=O+cjp4zFNfTyCftHhvEp8PgWz1Jgmqpc5yNNuU8tbUrYtLdoOXED2bRmT1GTkRwnD8
+         CvfeOGTKygbgpKiJq8twMQ/8XNUa/h2YB3OpFbws53r7LYPZlpDH2z8k9vpC0fY21D+3
+         XVjDWyaqSDOoFKrIWIxgloMgtYZygeUPdvHa//X6mE54uKyUPzsD0iAsEA3fTHawFntN
+         l8AbPo7XDX1cPrz05q8yN1rFQlZ0kspCgwb7KnggEg/WyA/E+OBNVziWKeqYcxptFC6a
+         FNEXfUsPrLE3HJ6cIhtarPkELi0yB1m+2U3c+wIoWEvql3lOtfLFk7zxMpFegMsTD/sG
+         BNPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795449724; x=1796054524;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=y4WiymWQ8hbxf306tYMJr1AN/YqV2ygFqoD2QusV7Jo=;
+        b=gYejaImCqYHp0Az6N3bo5UvlfT9RXAKydR3Z45oKXjn28Vh7IrAg4LhaISCjRHH+61
+         G7ABGDqerlOc/HCXNQd3EkauLw9lrO/aiTwvs4PpQJzrR88QzDxZp07MVVVP97/9S2Oy
+         E6jbZxbgE99LwSnVKcjKfFIrFOklhlBwQiaKnFpjwU9xL/bxrJMRHlQIlcXySuzOz0hH
+         vnoS1oTCw5mRruB6H/s/VUJjK309zSgc4E7ac/WhlAf7/bH/a26SnLST0czZGFt9egir
+         79R68nz86T1qAbQul2aKLVLnHtIZvBOrDCenPuK0ocEo9qAG6eE7IDaxcojg6jte8IrF
+         UF5Q==
+X-Forwarded-Encrypted: i=1; AL+hErFkHRk27FPlLva7TImEX4gDgz/LUFmQEoZ/T4zY+kst0ADIzTFXcV6siU6PIsZ4BctRCQreBdEsxINweeg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9yqthbhcudYVhQzgMNO6Zjtod3Rm/m4muHytdsMpbBYnt+f2vY
+	xXi5lmB7xkq4NaAxate2O1gUDt4u+RsxyQaOpl4WC9EMcIAcxqGdO6se6QjwANIO
+X-Gm-Gg: AZFdTZew9iAfGHe3fi3h4HjePBc3EwUvRCnyHCBB8O0ZTeTsi9R8KakNyKCX7ucA+fW
+	W3CBTNWYRon7KKNjW8F+VjrP/m6A0x0SAv72zOdjGlFS/cioaJOl7LF4M55ldc70ObdPwplYfoW
+	ehxnl7aBb5HRAT1PV1RjgiMwO8jTp+hsVvVCiLe1aOcDHnvcKA8vSjYu+zY8LzO1YfTt+JIH3dn
+	s7CKWIV31xAzzZJ9Q9pmJkHmvmv9Z3ZizQiUoffvuYD8l02P7CNZbnMqCrD/BiJfxX/9R/bWcYd
+	xT53I3TD7bCvmJJcvljUIkFU+07IgcgQWp7W20CwMfO8Vz+d1XqABAFrONucNSXND9Jh3hr7gVT
+	JkPSidg/XZPt7Fgx4cqpSSgS6kjrMdFxMEuOx3RwR9olzIstQYHTuVg7deYls5LZLsNO7VzDIN4
+	cdnB4XAu7Iu5T05FiQkImi9HOLRiQiu4glzTGeDcc94PJsMbfLMfAnhesqlxKr0/vNrjg6ExqZw
+	a8q/irJg5aJJBwizpEW3zeRvHYOOp45IhECufF4qjBZ0III++IVjjOpi+6CYuYcBd47pPiSzcbj
+	FYE5lyntscZlM3kCXwto6aPxFXg40E8tlqxrZQ==
+X-Received: by 2002:a05:693c:8642:20b0:386:9e22:ca4c with SMTP id 5a478bee46e88-3869e22cc7emr9286882eec.35.1795449723987;
+        Mon, 23 Nov 2026 08:02:03 -0800 (PST)
+Received: from [192.168.29.85] ([2405:201:8026:213e:b134:e578:f288:cb38])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm38961399eec.28.2026.11.23.08.02.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 08:02:03 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,55 +88,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <confirmed-20261105-38-2e09963f1b23@gmail.com>
-In-Reply-To: <confirmed-20261105-38-2e09963f1b23@gmail.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Mon, 23 Nov 2026 15:59:15 +0000
-X-Gmail-Original-Message-ID: <CAAOTY_8cH0mYNqneRvrLnXoiYfDajs2mC1QDQNLFBbO_h6jzDg@mail.gmail.com>
-X-Gm-Features: Aa3M54ouwi-KBChskOnrEwzeqY5DzbDhQkaCtvHg-m39Wxz8dX26BLU8Xe3rDyA
-Message-ID: <CAAOTY_8cH0mYNqneRvrLnXoiYfDajs2mC1QDQNLFBbO_h6jzDg@mail.gmail.com>
-Subject: Re: [PATCH] drm/mediatek: Keep the mutex node reference across
- deferred binds
-To: Yige Jiang <yigejiang86@gmail.com>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] rtnetlink: fix NULL pointer dereference in
+ rtnl_get_link()
+From: mdshahid03@gmail.com
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: mdshahid03@gmail.com, Jakub Kicinski <kuba@kernel.org>, 
+ davem@davemloft.net, edumazet@kernel.org, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <250c2bb2-57d7-4f91-a32c-8f6ac7d55a46@redhat.com>
+References: <20261120134548.214126-1-mdshahid03@gmail.com>
+ <20261120100415.363fcb19@kernel.org>
+ <179525944307.361783.17801110279499293110.b4-reply@b4>
+ <250c2bb2-57d7-4f91-a32c-8f6ac7d55a46@redhat.com>
+Date: Mon, 23 Nov 2026 21:31:39 +0530
+Message-Id: <179544969959.175192.4403952228876691788.b4-reply@b4>
+X-Mailer: b4 0.16.0
 
-Yige Jiang <yigejiang86@gmail.com> =E6=96=BC 2026=E5=B9=B411=E6=9C=886=E6=
-=97=A5=E9=80=B1=E4=BA=94 =E4=B8=8A=E5=8D=889:20=E5=AF=AB=E9=81=93=EF=BC=9A
->
-> mtk_drm_probe() acquires private->mutex_node and releases that reference
-> on probe failure or in mtk_drm_remove(). The component bind callback does
-> not acquire another reference, so it must not put the node when the mutex
-> platform device is not available.
->
-> If this bind failure propagates through component_master_add_with_match()=
-,
-> the probe error path puts the same reference again. A bind attempted afte=
-r
-> probe has returned can also leave the stored node without its reference
-> for a later bind or remove.
->
-> Remove the bind-time put and leave the node reference with its probe/remo=
-ve
-> owner.
+Thanks Paolo.
 
-Applied to mediatek-drm-fixes [1], thanks.
+I think,I may have misunderstood this part from NET documentation guidelines:
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-fixes
+"The commit message must disclose whether reproducing the issue required 
+modifying the kernel (e.g. inserting a delay to widen a race, or[[**writing 
+a loadable module to issue the right sequence of calls)**]] or using error injection."
 
-Regards,
-Chun-Kuang.
+I interpreted this as allowing a out-of-tree test module to produce
+an issue,provided that it uses legitimate kernel APIs.
 
->
-> Fixes: 119f5173628a ("drm/mediatek: Add DRM Driver for Mediatek SoC MT817=
-3.")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
-> ---
+1.am i intrepretting incorrectly ?
+
+2.This is general question ,i mean ,we can litrally crash the kernel 
+just with loadable module ? How do we distinguish a legitimate kernel 
+bug exposed through a test module from a crash caused by an artificial 
+or unsupported sequence of operations? is this not vulnerablity in a 
+way or design issue ?
+
+3.Don't you see a gap in documentation w.r.t testing with loadable module
+in details.
+
+I am asking because, like to understand the correct approach and apply 
+it to my future kernel contributions.
+
+Have a nice day !!!
+
+Thanks
+Shahid.
+
+On 2026-11-23 11:56 +0100, Paolo Abeni wrote:
+> On 11/21/26 12:10, mdshahid03@gmail.com wrote:
+> > I tested this issue on both original and patched kernels in qemu.
+> > 
+> > First, I used a test module to unregister all PF_UNSPEC handlers.
+> 
+> Just in case the are any doubts on the poic: if you need a custom
+> OoO kernel module to trigger a 'bug', it's not a bug.
+> 
+> /P
+> 
+> 
+> 
+
+
