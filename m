@@ -1,49 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795433709;
-	b=L+eBWBF3D5/9Cx5f+pjRrwMppTife/dHUClMKhQ0PX+sQSgMi30Ynnf8L+roX3MJ/0dV
-	 XOoSma77N7GaNh9qmANGanJwS0xCamKXYaWR0bMATnPxw0GYtq8MyMI8CnsFJds77lnXb
-	 /4NU6ikJGqVaQxBYYiQ/VKezC3xLElklJtOWtT+kJtLw75YHI5LzLv+yUZ930aMfiBWFG
-	 LRLMvcj9UZBlzPBpRLulkaXR5ZsI9ZuMSv2o8zPy8eaOvnCHTqn+TwntPgfx91AJx5ynY
-	 beal20iweZUJM/KRZ/okDq4DzAvA1Ajr4vqk6TQrFNeQCcjf3sozFJ7MmeOMiJanYPw==
+	t=1795433761;
+	b=YdqvFN0fSEs9Jyn8ntQOEefbo8uyJewkrinOx4MgEkUg/5COUu6rFxw8FYKT/QZ5kyGk
+	 1u+LpQZigarviCTyXFaw+Gyz8oYWvvacKrFALNGSj7XDJ6vkceTg/QqHKudjVdNB8lJu7
+	 /4rZADDTS5oUgAWjAwdvkWGtauO0ps1IINBqsJBbCSOgvd6Q/4fATwivbXmFahXivjTfm
+	 WON+gmes5PgwO5MV0AvmMgXy7iXBpHXjlYWyxolZewpR6pONa5RajeSiws3dI6W4kUDk9
+	 386pxbReL0+yRyxZ6vuhzubRqmQNZOBITk87m/LKQl53inJNqC3gooEWP85YXPwyRkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795433709;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=bFQeSIonQoNAJlvVjuvJ7vB2WO8yi3wgzbUUjHoVyjo=;
-	b=qPCnlwRqCBfkhlEBqDghM4sOLzEtQL6BLDs4X6JsSHs042RbuKoAkXa3r/0uZQsRLmrZ
-	 TKDIWjJtLD8gcex6D0CJ0wUd74/rJEJP2bJLaE+5VVvJpteAxiKW+M9sAEozHvNxSVRg/
-	 6F6K4END4GOCayWDwALHusi6Hllwlm0kW7QmtuXr2nrwe3JLB/k604kKSc+C2VixuBGyi
-	 WS+w0lAy8VsU9m3IZXx3N8bC/a/QyKhmCKnWzrnNVjdyABvplKM81muUWkwYQZK7GUKYP
-	 Ymc240Bp6CnyyeCIv2NG7GBPkCPnHTbGEk1ha+HKB4BZfklKGNpDzJyVAXeX6WaoVbQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795433761;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=PeGmCYBVQQI7hkfHmQc/r9yNXZgIQ3sY2oKMCBPb1+c=;
+	b=OMsqDFSEVVjjf/iV7/jMnv+lWqsPZl32IwhnhHrtsDTcT/4Xq3BHvcMqUbyG/mY+IZPB
+	 PRB0C8DNZs9uWOtNTWBwjkEtGrMNSNW7bfmlW7djJT+NICvMu1oqo8jVyG3HghCzIEYv/
+	 UEig8yh9znMoDBspq80lKJSyYw/wcmXpof+EQ5UvowWG/PTDsXiB8mt8Oy4buEmj4LAfo
+	 dhtST+aZmdIJAoII5nMjRxAnuehRdmXEAo9pozDk0JuKMoQ5F1wbMg/vsIkhDHYTErT5r
+	 7Fo7T4Oth7ltEJa+/Gmq1eo+YWfSuUqsvBsFDK/BYfXf2jk3iFP4v/wf/PIuaKWpYzQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=uVOvnrOT;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id B14A1606A31F;
-	Mon, 23 Nov 2026 11:35:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B14A1606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jV2dXUSf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 437B7606A31E;
+	Mon, 23 Nov 2026 11:36:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=uVOvnrOT
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EE5BB143D;
-	Mon, 23 Nov 2026 03:35:04 -0800 (PST)
-Received: from [10.0.129.12] (Suzukis-MBP.cambridge.arm.com [10.0.129.12])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 80E383F9AB;
-	Mon, 23 Nov 2026 03:35:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795433707; bh=z2UjvLOic3835pBC+7T3rWMtMHbQw/5uf0dNP5+l1zY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uVOvnrOTwpVLMcG+Dlh+WlY7FSjZJK+7KsCxa4yQPWdBcAsUxKfmHFNlhpfRP2QKw
-	 04JoSaUxntF0XyMj2D/TDk44iVt+iM0RY5dNlmXWk9T66VIIvSB9igiX2YEyN7au3r
-	 BqwK97UJttJ9K3rBNG3rmC7kiFx4hn+AfGk1vJG8=
-Message-ID: <882a401c-c701-4770-bb7b-970d8869ae61@arm.com>
-Date: Mon, 23 Nov 2026 11:35:03 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jV2dXUSf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7C671F000D2;
+	Mon, 23 Nov 2026 11:35:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795433760;
+	bh=PeGmCYBVQQI7hkfHmQc/r9yNXZgIQ3sY2oKMCBPb1+c=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=jV2dXUSf2JMPV59/83jfRfac5Iqp20IvAYReViUv1gFv5UhXhnyIZXCL+o8MkKLfi
+	 O/UA/btjlOgbq0t1PM6ONFuaHf7MaUb8liFbwUDHklTzDkHBt56UEZFhVCBt/6mkCT
+	 GjV5IrbhP3xZ96i28XkBNdR8b+4aNQp/5D+n2A6YMRxGwuTIIEENNjzBvoyDykPhN+
+	 bDlxgaJceMNdVOoXuv0E4ws2jNC6qLfmL5oVNUj2WNpi+6S4WQQfKk/4u/ReI7P5lk
+	 mCIdJGKmN8h8CnacheR0n6ou0u43K/GI3KllcUtlmyqKgEAkkiTQ/V1FgN1FcsaAkq
+	 HrcRsXfsLWQ6A==
+Subject: Re: [PATCH net] net: pse-pd: tps23881: Fix reported power class
+From: netdev-bot+sashiko@kernel.org
+To: kory.maincent@bootlin.com
+Cc: pabeni@redhat.com, o.rempel@pengutronix.de, kuba@kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org
+Date: Mon, 23 Nov 2026 11:35:59 +0000
+Message-ID: <179543375923.3135.13985748487135407652@kernel.org>
+In-Reply-To: <20261119112511.239208-1-kory.maincent@bootlin.com>
+References: <20261119112511.239208-1-kory.maincent@bootlin.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,277 +63,120 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 05/11] KVM: arm64: CCA: Add basic infrastructure for
- creating a realm
-Content-Language: en-GB
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Kohei Enju <enju.kohei@fujitsu.com>
-References: <20261123104233.95710-1-steven.price@arm.com>
- <20261123104233.95710-6-steven.price@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20261123104233.95710-6-steven.price@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-On 23/11/2026 10:42, Steven Price wrote:
-> Introduce the skeleton functions for creating and destroying a realm.
-> The requested IPA size is checked against both the KVM and RMM limits.
-> 
-> The actual work of constructing the realm will be added in future
-> patches.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> 
-> ---
-> Changes since v3:
-> - Use the preceding destruction dispatch instead of a temporary
->    Realm-specific check in kvm_stage2_destroy().
-> 
-> Changes since v2:
-> - Move ARM_RMM_RMI selection and rmi.o build registration here.
->    Store the RD physical address from the outset and free SRO state
->    on Realm teardown errors.
-> 
-> Changes since v1:
-> - Cap the Realm IPA size at the smaller KVM and RMM limit, and record
->    the selected IPA size when initializing Realm state.
-> ---
->   arch/arm64/include/asm/kvm_rmi.h | 23 ++++++++++++
->   arch/arm64/kvm/Kconfig           |  1 +
->   arch/arm64/kvm/Makefile          |  2 +-
->   arch/arm64/kvm/arm.c             |  9 +++++
->   arch/arm64/kvm/mmu.c             |  7 +++-
->   arch/arm64/kvm/rmi.c             | 63 ++++++++++++++++++++++++++++++++
->   6 files changed, 103 insertions(+), 2 deletions(-)
->   create mode 100644 arch/arm64/kvm/rmi.c
-> 
-> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-> index 67f16793b4d0..4ac1af622872 100644
-> --- a/arch/arm64/include/asm/kvm_rmi.h
-> +++ b/arch/arm64/include/asm/kvm_rmi.h
-> @@ -6,6 +6,9 @@
->   #ifndef __ASM_KVM_RMI_H
->   #define __ASM_KVM_RMI_H
->   
-> +#include <linux/arm-smccc-rmi.h>
-> +#include <linux/kvm.h>
-> +
->   /**
->    * enum realm_state - State of a Realm
->    *
-> @@ -50,10 +53,30 @@ enum realm_state {
->   /**
->    * struct realm - Additional per VM data for a Realm
->    *
-> + * @rd_phys: Physical address of the RMM-managed Realm Descriptor (RD) granule
-> + * @sro: Preallocated SRO state context for Realm MMU operations
->    * @state: The lifetime state machine for the realm
-> + * @ia_bits: Number of valid Input Address bits in the IPA
-> + * @start_level: Starting level of the Realm Translation Table
->    */
->   struct realm {
-> +	phys_addr_t rd_phys;
-> +	/*
-> +	 * Reused by RTT map/unmap SRO commands. Those commands are only
-> +	 * issued from Realm stage-2 map/unmap paths while kvm->mmu_lock is
-> +	 * held for write, including Realm fault handling where
-> +	 * kvm_fault_lock() takes the write side, so concurrent use is
-> +	 * serialized.
-> +	 */
-> +	struct rmi_sro_state *sro;
->   	enum realm_state state;
-> +	unsigned int ia_bits;
-> +	int start_level;
->   };
->   
-> +u32 kvm_rmm_ipa_limit(void);
-> +
-> +int kvm_init_realm(struct kvm *kvm);
-> +void kvm_destroy_realm(struct kvm *kvm);
-> +
->   #endif /* __ASM_KVM_RMI_H */
-> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-> index cecea0820e52..d067063a3686 100644
-> --- a/arch/arm64/kvm/Kconfig
-> +++ b/arch/arm64/kvm/Kconfig
-> @@ -34,6 +34,7 @@ menuconfig KVM
->   	select GUEST_PERF_EVENTS if PERF_EVENTS
->   	select KVM_GUEST_MEMFD
->   	select KVM_GENERIC_PRE_FAULT_MEMORY
-> +	select ARM_RMM_RMI
->   	help
->   	  Support hosting virtualized guest machines.
->   
-> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-> index 7aaeeb84e788..66a719ab5b6b 100644
-> --- a/arch/arm64/kvm/Makefile
-> +++ b/arch/arm64/kvm/Makefile
-> @@ -16,7 +16,7 @@ CFLAGS_handle_exit.o += -Wno-override-init
->   kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
->   	 inject_fault.o va_layout.o handle_exit.o config.o \
->   	 guest.o debug.o reset.o sys_regs.o stacktrace.o \
-> -	 vgic-sys-reg-v3.o fpsimd.o pkvm.o \
-> +	 vgic-sys-reg-v3.o fpsimd.o pkvm.o rmi.o \
->   	 arch_timer.o trng.o vmid.o emulate-nested.o nested.o at.o \
->   	 vgic/vgic.o vgic/vgic-init.o \
->   	 vgic/vgic-irqfd.o vgic/vgic-v2.o \
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index d79e5451923d..7c22d9474a38 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -300,6 +300,13 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
->   
->   	bitmap_zero(kvm->arch.vcpu_features, KVM_VCPU_MAX_FEATURES);
->   
-> +	/* Initialise the realm bits after the generic bits are enabled */
-> +	if (kvm_vm_is_realm(kvm)) {
-> +		ret = kvm_init_realm(kvm);
-> +		if (ret)
-> +			goto err_uninit_mmu;
-> +	}
-> +
->   	return 0;
->   
->   err_uninit_mmu:
-> @@ -364,6 +371,8 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
->   
->   	kvm_destroy_nested(kvm);
->   	kvm_arm_teardown_hypercalls(kvm);
-> +	if (kvm_vm_is_realm(kvm))
-> +		kvm_destroy_realm(kvm);
->   }
->   
->   static bool kvm_has_full_ptr_auth(void)
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index fab915ddeaab..84b02699f103 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -981,10 +981,14 @@ static struct kvm_pgtable_mm_ops kvm_s2_mm_ops = {
->   
->   static int kvm_init_ipa_range(struct kvm_s2_mmu *mmu, unsigned long type)
->   {
-> +	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
->   	u32 kvm_ipa_limit = get_kvm_ipa_limit();
->   	u64 mmfr0, mmfr1;
->   	u32 phys_shift;
->   
-> +	if (kvm_vm_is_realm(kvm))
-> +		kvm_ipa_limit = min(kvm_ipa_limit, kvm_rmm_ipa_limit());
-> +
->   	phys_shift = KVM_VM_TYPE_ARM_IPA_SIZE(type);
->   	if (is_protected_kvm_enabled()) {
->   		phys_shift = kvm_ipa_limit;
-> @@ -1097,6 +1101,8 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
->   		return -EINVAL;
->   	}
->   
-> +	mmu->arch = &kvm->arch;
-> +
->   	err = kvm_init_ipa_range(mmu, type);
->   	if (err)
->   		return err;
-> @@ -1105,7 +1111,6 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
->   	if (!pgt)
->   		return -ENOMEM;
->   
-> -	mmu->arch = &kvm->arch;
->   	err = KVM_PGT_FN(kvm_pgtable_stage2_init)(pgt, mmu, &kvm_s2_mm_ops);
->   	if (err)
->   		goto out_free_pgtable;
-> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-> new file mode 100644
-> index 000000000000..fafca2439c46
-> --- /dev/null
-> +++ b/arch/arm64/kvm/rmi.c
-> @@ -0,0 +1,63 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2023-2026 ARM Ltd.
-> + */
-> +
-> +#include <linux/arm-rmi-cmds.h>
-> +#include <linux/kvm_host.h>
-> +
-> +#include <asm/kvm_emulate.h>
-> +#include <asm/kvm_mmu.h>
-> +#include <asm/kvm_pgtable.h>
-> +#include <asm/virt.h>
-> +
-> +u32 kvm_rmm_ipa_limit(void)
-> +{
-> +	return u64_get_bits(rmi_feat_reg(0), RMI_FEATURE_REGISTER_0_S2SZ);
-> +}
-> +
-> +void kvm_destroy_realm(struct kvm *kvm)
-> +{
-> +	struct realm *realm = &kvm->arch.realm;
-> +	size_t pgd_size = kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtcr);
-> +
-> +	if (!kvm_realm_is_created(kvm))
-> +		goto out_free_sro;
-> +
-> +	kvm_set_realm_state(kvm, REALM_STATE_DYING);
-> +
-> +	if (realm->rd_phys) {
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Do we expect this to be otherwise ? Or do we get called twice
-on this function ?
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-> +		phys_addr_t rd_phys = realm->rd_phys;
-> +
-> +		if (WARN_ON(rmi_realm_terminate(rd_phys, realm->sro)))
-> +			goto out_free_sro;
-> +
-> +		if (WARN_ON(rmi_realm_destroy(rd_phys, realm->sro)))
-> +			goto out_free_sro;
-> +		rmi_free_delegated_page(rd_phys);
-> +		realm->rd_phys = 0;
-> +	}
-> +
-> +	if (WARN_ON(rmi_undelegate_range(kvm->arch.mmu.pgd_phys,
-> +					 pgd_size)))
-> +		goto out_free_sro;
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-In the integration branch, we undelegate the Stage2 root RTTs, if the
-Realm create fails. Is there a particular reason why we may have the
-delegated S2 RTTs with realm->rd_phys = 0 ?
+- [High] The new lookup table in tps23881_pi_get_pw_class()
+  (drivers/net/pse-pd/tps23881.c) maps four raw class codes to -ERANGE:…
 
-Suzuki
+--
 
+net: pse-pd: tps23881: Fix reported power class
 
-> +
-> +	kvm_set_realm_state(kvm, REALM_STATE_DEAD);
-> +
-> +out_free_sro:
-> +	kfree(realm->sro);
-> +	realm->sro = NULL;
-> +}
-> +
-> +int kvm_init_realm(struct kvm *kvm)
-> +{
-> +	struct realm *realm = &kvm->arch.realm;
-> +
-> +	realm->ia_bits = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
-> +	realm->start_level = 4 - VTCR_EL2_LVLS(kvm->arch.mmu.vtcr);
-> +	realm->sro = kmalloc_obj(*realm->sro);
-> +	if (!realm->sro)
-> +		return -ENOMEM;
-> +
-> +	return 0;
-> +}
+This commit adds a lookup table to tps23881_pi_get_pw_class() that
+translates the raw classification register value into the IEEE 802.3
+class number. Before this, the raw value was reported directly.
 
+> diff --git a/drivers/net/pse-pd/tps23881.c b/drivers/net/pse-pd/tps23881.c
+> index 244ce596d845c..58ea7e0ffa996 100644
+> --- a/drivers/net/pse-pd/tps23881.c
+> +++ b/drivers/net/pse-pd/tps23881.c
+> @@ -402,6 +402,25 @@ tps23881_pi_get_chan_current(struct tps23881_priv *priv, u8 chan)
+>  	return (int)tmp_64;
+>  }
+>  
+> +static int tps23881_class_table[] = {
+> +	-ERANGE,
+> +	1,
+> +	2,
+> +	3,
+> +	4,
+> +	0,
+> +	0,
+> +	-ERANGE,
+> +	5,
+> +	6,
+> +	7,
+> +	8,
+> +	4,
+> +	5,
+> +	-ERANGE,
+> +	-ERANGE,
+> +};
+> +
+
+[ ... ]
+
+> @@ -416,7 +435,8 @@ static int tps23881_pi_get_pw_class(struct pse_controller_dev *pcdev,
+>  	if (ret < 0)
+>  		return ret;
+>  
+> -	return tps23881_calc_val(ret, chan, 4, 0x0f);
+> +	ret = tps23881_calc_val(ret, chan, 4, 0x0f);
+> +	return tps23881_class_table[ret];
+
+[Severity: High]
+Will this make the whole PSE status query fail on a port with no
+classified PD?
+
+The table maps four raw codes to -ERANGE: 0x0 (unknown / not
+classified), 0x7 (overcurrent during classification), 0xE (reserved)
+and 0xF (class mismatch). Code 0x0 is the register's reset value. It is
+what an empty, disabled or still-detecting port normally reads.
+
+pse_ethtool_get_status() in drivers/net/pse-pd/pse_core.c treats any
+negative return as fatal:
+
+	if (ops->pi_get_pw_class) {
+		ret = ops->pi_get_pw_class(pcdev, psec->id);
+		if (ret < 0)
+			goto out;
+
+The error then goes back to userspace through this path:
+
+  pse_prepare_data()
+    -> pse_get_pse_attributes()
+      -> pse_ethtool_get_status()
+        -> tps23881_pi_get_pw_class()  /* returns -ERANGE */
+
+The admin state and power status, which were already read, are thrown
+away. Actual power, power limit and limit ranges are never read.
+
+Before this patch, raw 0 set c33_pw_class to 0. pse_fill_reply() in
+net/ethtool/pse-pd.c then just left the attribute out:
+
+	if (st->c33_pw_class > 0 &&
+	    nla_put_u32(skb, ETHTOOL_A_C33_PSE_PW_CLASS,
+			st->c33_pw_class))
+
+For the same op, pd692x0_pi_get_pw_class() returns 0 for unknown or
+out-of-range classes:
+
+	class = buf.data[3] >> 4;
+	if (class <= 8)
+		return class;
+
+	return 0;
+
+Could these four entries be 0 instead of -ERANGE, so that ethtool
+--show-pse still works on unclassified ports and on ports in the fault
+states (0x7, 0xF)?
+
+The commit message also doesn't say that some register values now cause
+the status query to fail.
+
+>  }
+>  
+>  static int
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119112511.239208-1-kory.maincent%40bootlin.com
