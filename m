@@ -1,88 +1,118 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795456071;
-	b=YMne/pk0BRRkBbYzHLZI7X+ZE71JvfDBPLvp2DLa2xVegrntl20sZhXWy14m0B/zM81l
-	 JpxCP1au3sKQXn/BnfuVVufvvDgg4/NWNU/pmHB3aeTwIe6pkEtIHV4NihEO8+Hbe+CVx
-	 NkCuUeETgw/o+UP6cExxzM6VYOrEp8KFZBn+dy/BigLIV1B7g/TaJTOCX9hqju+O5dL+b
-	 9cyh/EywXDhf2sFJhS4MA5PEv6vXdhLYEovDCV4zXeESxkZw66EU+Dc9iNburOULZhCmQ
-	 B7ZYwDJQFl6JvnGyvoL9IVm3htC0qwH7mZgzPrkQpUxXS+o6mCnqbbrfZmms4yaR2Vg==
+	t=1795456094;
+	b=FEx6EccIomJ63tY4KU2vgC6bkXxMOBvmQqAU1v4+K8GiW2/tFzdfh66E5t2IjIiry8Jo
+	 LfHorZtTfgT/QARrbt6U9ltcsENaSfEN27DX0gfpAZvRjunbT7+sDFJpKK0KxIpJw0V9L
+	 QDjxlpCz2EvZtsKhPnH1+qG9JMqKq2Zcct/Ij7aLeorfpTYQgWIdvCvTRyhmlK58JcohL
+	 hbZ4sdlf43bXtEHTqDC8pXfG2RGUzP+8L5OotrabVV/FynUtKgbXmRkHvJ8NleRgNHf8H
+	 1AOSaX3Gigq7EEUY1egjQugwMM+HFv0/SD2zYhvnnMoZdu7OTm9HTnwSmY+9RBJq3MQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795456071;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=EyFKKviFKEdPA1/mTIAZMpdo9jg03KTsm1zg5y/5lIo=;
-	b=UJeVoKIZDA5P3BDK/RZg98MiPOF0t+tosEEWUxuwz+xz6ZOyiAhqKiCXtKp12AiHJVV6
-	 r2wDHqaTV10Uygw4zYFzE/iEbhRm/Qlu7vguqc8dNVTyXeMw2DzKgaAo7lYEyCbqot8PI
-	 ccBf7ibr/Um/ViwkHNhSVS1myTYGYLVmy2/Lkxad/HCzLeNSmwKCurMdWqcZjWt9ML4+H
-	 3Rg3pX9yTZ68lAGufbZUiosTIOhNQ7gCHgS2Q/16d0RBYT7tt6Nt/bVBaHi/uAXul24Ut
-	 vurbwyEtXk5jRJAj36g9SYbXxiqTG49UE2ozk+8EEbjC5JWZqS7Qjv6/ho5OFGiJF1Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795456094;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=efi+X92Ps3JgkqQpyvgXaDyiPmGb9o+2rCD9ipnlxzQ=;
+	b=fHOqVj7lRVy0Ujz/tJSpe3t0gtcCBaKjgJ/z7ShfzxHPkZUtZ/Vkhi/ruuNjgYHuUstd
+	 pHr8NQUZzTkp+D4HJzz7HFyXifnyrp/sTPcXo+4CAMRz2/76eJbuayZ6DJh0ljQ4POI1T
+	 yGgL3+slga9cfcPX7eKYkcwLBvqjU71w+WvfINCORnQxvpeVgXtfzEX0ZWZ2LVdfxea7P
+	 91oD1ScXlsvYWpGaZzQYzgxTdxpsvTcT6XP/yRx2QLrpnE4LeXcoDQmU3XRAfiXs4zbXw
+	 W987jQVgttoTndjlrcl/7KwqOGHcH2dnEufxY3Yo3JRdZ/Z0+Fb2czpcS/dbih5ZWPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b="k/THwyR0";
-	arc=none smtp.remote-ip=209.85.221.42
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=DC2ruBvK;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=I7zYFimT;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53DDC606A680
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:47:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53DDC606A680
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 217B8606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:48:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 217B8606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=k/THwyR0
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-4a34ffd3e39so1958613f8f.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:47:51 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=DC2ruBvK;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=I7zYFimT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795456092;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=efi+X92Ps3JgkqQpyvgXaDyiPmGb9o+2rCD9ipnlxzQ=;
+	b=DC2ruBvK68FqKAPO8c+opMoY15WQZ+7KU8zL3zFjry9Xxp+Y+nUignJ/KJk9kor/dDbeco
+	Pyp5FbADaS+hgmbMXundBK7X9nhPlTY+H2jQsx9gKR7HdsVZsLYZl5/JZE2wrgU0f45BnW
+	hxImU3O/Suw1ugSKMSAOMRjgoDFkXc8=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-134-5Nhjn7R0O2iC15FAe7DBeg-1; Mon, 23 Nov 2026 17:48:05 +0000
+X-MC-Unique: 5Nhjn7R0O2iC15FAe7DBeg-1
+X-Mimecast-MFC-AGG-ID: 5Nhjn7R0O2iC15FAe7DBeg_1795456084
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-4a9be7586ccso1798292f8f.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:48:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795456070; x=1796060870; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EyFKKviFKEdPA1/mTIAZMpdo9jg03KTsm1zg5y/5lIo=;
-        b=k/THwyR0d/kYN8jVRNojARRFxxxiAO0kuqrAtLFFTSpwtPjuxlq/wBQyJQa31ZNuLT
-         H6E69lTaU/KOobsWmEdX7ZgUyo+oCDtHwBBcSk0wwThIN1JbRTc9F2LuNBFTst+Fvh5T
-         uK4lCNe1leRBVxygJGRawJOHy76JfYj+mXsbmy7lH+tszWJBwKxaTtYPxtHqYSc7mz7Y
-         her70CVbo6pYPt9s8sB5UIJPE2UJ6sXRO1W6oDfwnF28e4PAHBlYI+0jPNfCmXhbj95o
-         4TXIjElcCAOMoFZBRJeGqdKyWR9NYGgO/7DNxmyaLmOHp9CPrbgzoW4ptKTl47qz4dnu
-         +q8g==
+        d=redhat.com; s=google; t=1795456084; x=1796060884; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=efi+X92Ps3JgkqQpyvgXaDyiPmGb9o+2rCD9ipnlxzQ=;
+        b=I7zYFimTiLk4Rzqu2GcOQhrgfJCXrZm/XNcZ2tfv+D2MLltzagr/s2AK5ziRgSrbFf
+         521KK/PuYN5ONOC+Kvi5yJpoS84/Ex7dtnbWIV75OSFSAKDRQyHrzyo7ewFA5UieNJuB
+         fHFMjJp0i7VnmC1G3+Up7P3E9bM+uJK/KX1TIP+qP+JxtbvI/io5V2ejRC9Zm+T4SZx+
+         S/QJvDnxMFT7uFygTGaZc1/qf3kDhzukUzq9fWvJ9Q8C0PPhnRkFhRh51CDBBqwkCQkY
+         4c/zJS5tFpDoIsQzUT7bzxnZ2eTamuJdMLjG1LJAIHYKvlUEUk3nt6AGUbi5QXBl0eBF
+         u/yg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795456070; x=1796060870;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1795456084; x=1796060884;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=EyFKKviFKEdPA1/mTIAZMpdo9jg03KTsm1zg5y/5lIo=;
-        b=xWWOsqz5wAE7od0wnATzvBlUPx/0FSfPyUEr7NWA1VfYktwk3xFLs1+/FV99Z7sI2s
-         Al+Dp8DeFcUanRRtqF1kdhaqh4/aokpsPCnD4e+6HcBuTCoY+Dq/mX/VA1LCQOodkvYF
-         QTKI9NXNFd9/xMsvoABeo3L9SHDd9IqPF5YzeJ1U7uNxyLZLmywcc7g3dk2/aWSJQoS7
-         /T30bmZ/c4b8lAajOH8leW44deSORVCYoNH7gJ9y8ltuECUZKXuX+hVBTHwpWW0pkPCA
-         yByU3DZhWGj0a/7oEXmzUHS0Y2uvWGSmJx83ZwHMtLOZhufJVEBj8fS2T+t4uxAN6RRL
-         f7mg==
-X-Forwarded-Encrypted: i=1; AL+hErGN8by7LvdQMcC4nbcxT+5LwqNNTmyifCZplxFt/rzskiY552XzcyumLwvMwTVjRltVzSegM52BnjDYxY8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/wojxE/Pv+Ho+O93rWRSoSuQ6wIwurn3SZBCO3SNl817b1CFdq
-	YoIbARrCJd2ad2bQCOj3kqjc5Q1vzRkc3FtltLRWjO/mPZL45DShc/aOOHDlImE69zI=
-X-Gm-Gg: AZFdTZcSuY9uUQuiqIjPh+DT1XjwOaMQreUxIcgPXf7gCK0MbTsOPgz30Pso7rMnhvf
-	NCx7ex33EXTLPxQO4T5M2hLHKIV18yfIRr8VacdsAyhJp8SYXQj05CTv7hEyrnNlrML5x3mDKkP
-	9rgdGzpR57ofUjm3vyYCjdqS1N0kTwXPeWHi0SK9Bp/lFLQRaScIq8mi5xPtn+2vYqSOAod4VVN
-	PpYEHgz2j/R0euex3rfmTgFjLLJ0CHvH1sSciKhVHuuDiqX9Ei76OaHtjF5UEH663q9zQ6fY6RU
-	GmLXf753FvQvUFTgqvMZd7Xv4AGDz3Kxvww5w/ZmdzB8xHzkLVoUFSGSfK6YpBV5bkudUt8pRFI
-	CAnIPPfa91x/jNNiXo0WUdKq0QFwkNydXubKYW6KA1rFJnd2CA1pyjpHwrsVY7m5HFShoBY74+J
-	WXQtS66Li1csDc/NwJ9aPxlD2JCfyNV0+yw14ljWj+nL6erPZrBIkbK4Kf0UT2fz6vlGtywIXzv
-	J8Vi8jdzPdu4g98siQNAIDjNhk4+k5vBt1wh/7af9Y5DOkNs4swJMhC77FzGBfRSeT07Ay42+7l
-	KhRI13iHfp6TQRjtTRfDeyvHh22LMlIR+iGkZLseOYDP5mxG0Jg=
-X-Received: by 2002:a05:6000:3107:b0:4aa:1ae2:ff2a with SMTP id ffacd0b85a97d-4abaa977260mr29586809f8f.2.1795456069512;
-        Mon, 23 Nov 2026 09:47:49 -0800 (PST)
-Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bc8ce06sm22961413f8f.47.2026.11.23.09.47.48
+        bh=efi+X92Ps3JgkqQpyvgXaDyiPmGb9o+2rCD9ipnlxzQ=;
+        b=o2L03nlHuEvqboaFvTyLV3Z8tyw86l2ruc7mfmyJii5Yuuj+C94g4OXZTVUcBYY1Vf
+         uzyFS+I/3M0y3HFgdUA/y7TQF0E2+WaW+9s1O2jAo4Zqh9zqQRQstEar3mfLqi724bII
+         23l7yfxssKrPnVo1iS193WQkZHFYqHtMGDnQhz+2nPTSTS9mulYog7YVRGsmxu8vCfgo
+         NxXzvIXT+ylVVbQIIfBLqcUJoxi5N91kfUPhOnsiKlT+x3+SsmgsyTbYD2tqecMc3I+A
+         c6lPVfDIUswi/FPvG8sphpe2iJIQXeEYKHHADo9MFGzGODzxz6A/WmjVm4JShvFZK2be
+         5ITg==
+X-Forwarded-Encrypted: i=1; AL+hErF2hn8u/3ok5M53X7pPA5+/1a2Yzt9KOUB+N8IBls5xobVM+gEmhtKDzgl0LcQ7Exik+uqtuHaN2qvA9HU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z88uAEWzfae8fvfb5JAsYh9s8vEkq441pk2EFT/nzkHXRWX47LQ
+	2+JW+JXI3v6m59gh5W1QClP3rXdv2j35ulkRR7SEBS2v8b460Szr3UuNWLVbc75JFBB7j1KX718
+	9bVRT3zCbHzjrZ8R11q90IFjPgx/2m1jBkMPiQH2U8Hw+PUXoM7MaIH0WS/Zi8LlT4g==
+X-Gm-Gg: AZFdTZfjEG4VOwWWsaHq9pCXrxROw12Co7VRIQwk8oZq6eAYU1mAWW5/pSxr4YpcE0T
+	MwDalqGnvBjVzR8qxlQVz5PjIiawllROLdsalavUdstLOsc2kfkDFcYLlGdSOH3sM52lC3aIuUS
+	cqr3AxaG5/S35BpQxkloWzCaj3X2VemCEnSbZeHzZg6d0AWbZg2sIGKgVYXUj9ket0xziWfck8m
+	fz+fAhpyKeqErNkehAt5roZqNOioFBPM8sds4smKk04Gb5oc30NpHW7/UhepfJO+0jLYUZ9BqvF
+	TKTX2kOTTlZSzCirBh8roH1tfKreSzz2rwYZiGkGeH8RjwnNvzhv6nsgR0jsNzS42QWU8SySvzH
+	7JK0mVobPgzoaD0hETWEbwUGDuKe5ay031CzsWZQ+
+X-Received: by 2002:a05:6000:4012:b0:4a8:f1a5:efb3 with SMTP id ffacd0b85a97d-4aa550796b2mr30453925f8f.11.1795456084356;
+        Mon, 23 Nov 2026 09:48:04 -0800 (PST)
+X-Received: by 2002:a05:6000:4012:b0:4a8:f1a5:efb3 with SMTP id ffacd0b85a97d-4aa550796b2mr30453857f8f.11.1795456083757;
+        Mon, 23 Nov 2026 09:48:03 -0800 (PST)
+Received: from redhat.com ([2a0d:6fc0:1524:9e00:c39b:a740:e7:3fcf])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989eesm23541150f8f.50.2026.11.23.09.48.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 09:47:49 -0800 (PST)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Date: Mon, 23 Nov 2026 18:47:45 +0100
-Subject: [PATCH v7 2/3] unaligned: introduce be56 unaligned accessors
+        Mon, 23 Nov 2026 09:48:03 -0800 (PST)
+Date: Mon, 23 Nov 2026 12:47:59 -0500
+From: "Michael S. Tsirkin" <mst@redhat.com>
+To: Nguyen Dinh Phi <phind.uet@gmail.com>
+Cc: Stefan Hajnoczi <stefanha@redhat.com>,
+	Stefano Garzarella <sgarzare@redhat.com>,
+	Bobby Eshleman <bobbyeshleman@meta.com>,
+	Jason Wang <jasowangio@gmail.com>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+	Asias He <asias@redhat.com>, kvm@vger.kernel.org,
+	virtualization@lists.linux.dev, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] vhost/vsock: annotate lockless accesses to guest_cid
+Message-ID: <20261123124426-mutt-send-email-mst@kernel.org>
+References: <20261117164916.2332953-1-phind.uet@gmail.com>
+ <20261118012321-mutt-send-email-mst@kernel.org>
+ <a7752192-b417-4e70-8f39-a3cdc983f447@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,91 +122,101 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-topic-sm8x50-iio-max34417-adc-v7-2-d8f87edc5086@linaro.org>
-References: <20261123-topic-sm8x50-iio-max34417-adc-v7-0-d8f87edc5086@linaro.org>
-In-Reply-To: <20261123-topic-sm8x50-iio-max34417-adc-v7-0-d8f87edc5086@linaro.org>
-To: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Michael Hennerich <Michael.Hennerich@analog.com>
-Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org, 
- Neil Armstrong <neil.armstrong@linaro.org>, linux@analog.com, 
- Marius Cristea <marius.cristea@microchip.com>, 
- Andy Shevchenko <andriy.shevchenko@intel.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1503;
- i=neil.armstrong@linaro.org; h=from:subject:message-id;
- bh=VWjXeVXU6bySoahX+1zByOy26x+PcpghUtYIOiReO0U=;
- b=owEBbQKS/ZANAwAKAXfc29rIyEnRAcsmYgBrBHxCKVwROIzlOFhKTAItsb1EQoCQGdgdGttWwo7O
- zvU7RAyJAjMEAAEKAB0WIQQ9U8YmyFYF/h30LIt33NvayMhJ0QUCawR8QgAKCRB33NvayMhJ0TgBD/
- 9KycuSjLlv5KmEbce9bO/wNf3KxVrhyzQMrEvhwhrAeChz7eZIdwsSnM4NB5Yj/fz9rzLKHrvVv7iw
- vEgi9gfVPy1CYJu4BLo8jOXJydH25WI043z2LmHlNEnVIUMVQ/lHHcX/3Vbd5lOMZZ80l9w+tJLCs6
- ofmMsIZFDjuvnQo//6TpUvIM6whhxfeJ+ZAUJOj/7cmLog/3yArX6nVrLpB9xvfS2WalcYRGKTQYap
- MvyLZRRaEtLulm41Eu0hmnnpodRhNVbnqj+w9FX+zamfmm3BdRwmJKmA+P6PfqBq/3LN1ACMXYKrqE
- ec7C7KNgcAaUqI1Lgm16fRfWMkk71iZrxa+IHTDA/k48EPZnhRDaMwk/G94lZPdoXiI/VrkgRsHNpl
- 4EKIRgLE8KrQqTdQs4I+Rhmoscc2Szqa0yKXmhwfcoDlMK0KPjIdZUyOeWMKh0CHkgD3zvuH0y1Qjb
- zkLpStVbaGi/pO7bsn2ho85Zh4SZjNAKcpcwMfoj/H144pYK894GerchgtM94ofUQv16c+CoRymS8A
- rxZPpKSpnoqjTqZJ6Vn9ykZ3TlQoj18AUf2B3YH/zSxKc83R1cXlA3BcyxOKYXz8e+x+mNhHWolvyw
- EG3/GU94NxwO4M+vYDwoew10lthgjICcFnCrnlqlOQ0RjyVmnjpR+/ULT4+g==
-X-Developer-Key: i=neil.armstrong@linaro.org; a=openpgp;
- fpr=89EC3D058446217450F22848169AB7B1A4CFF8AE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a7752192-b417-4e70-8f39-a3cdc983f447@gmail.com>
 
-From: Marius Cristea <marius.cristea@microchip.com>
+On Tue, Nov 24, 2026 at 12:48:34AM +0800, Nguyen Dinh Phi wrote:
+> On 11/18/2026 2:33 PM, Michael S. Tsirkin wrote:
+> > On Wed, Nov 18, 2026 at 12:48:43AM +0800, Nguyen Dinh Phi wrote:
+> >> vhost_vsock.guest_cid is written by vhost_vsock_set_cid() under
+> >> vhost_vsock_mutex, but It is also read without that mutex in
+> >> vhost_vsock_handle_tx_kick(), and vhost_vsock_get().
+> >>
+> >> KCSAN will report data-race if we issue VHOST_VSOCK_SET_GUEST_CID
+> >> ioctl while the device has TX traffic. For example:
+> >>
+> >>  write to 0xffff88810f1596ac of 4 bytes by task 7914 on cpu 1:
+> >>    vhost_vsock_dev_ioctl+0x25f/0x720
+> >>    __x64_sys_ioctl+0xc2/0x110
+> >>    x64_sys_call+0x299/0x20a0
+> >>    do_syscall_64+0xc9/0x510
+> >>    entry_SYSCALL_64_after_hwframe+0x76/0x7e
+> >>
+> >>   read to 0xffff88810f1596ac of 4 bytes by task 7910 on cpu 3:
+> >>    vhost_vsock_handle_tx_kick+0x41b/0x740
+> >>    vhost_run_work_list+0x97/0xc0
+> >>    vhost_task_fn+0x98/0x1f0
+> >>    ret_from_fork+0x2e2/0x3c0
+> >>    ret_from_fork_asm+0x1a/0x30
+> >>
+> >>   value changed: 0x0000004d -> 0x00000032
+> >>
+> >> Both readers load the CID once and works correctly with either the
+> >> old or the new value.
+> >>
+> >> Mark the store with WRITE_ONCE() and the two lockless loads with
+> >> READ_ONCE(), so KCSAN knows the race is intentional.
+> > 
+> > You make it sounds like it is just KCSAN false positive.
+> > Is it?
+> > if yes, this should be data_race. If no, document why.
+> >
+> 
+> This is an actual data race, not a false positive. The value of guest_cid
+> can change while the TX worker or lookup path reads it with plain accesses.
+> Because each check loads the CID once and either value is valid, the result
+> is equivalent to the read running just before or just after the ioctl.
 
-The MAX34417, IIO driver, is using some unaligned 56-bit registers.
-Provide some helper accessors in preparation for the new driver.
+So, no bug. Pls clarify in commit log.
 
-Signed-off-by: Marius Cristea <marius.cristea@microchip.com>
-[narmstrong: update commit message and move to include/linux/unaligned.h]
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
----
- include/linux/unaligned.h | 27 +++++++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+> Even so, plain concurrent accesses are a data race under the Linux kernel
+> memory model, and using READ_ONCE()/WRITE_ONCE() also prevents
+> compiler re-fetching or tearing rather than just silencing KCSAN.
 
-diff --git a/include/linux/unaligned.h b/include/linux/unaligned.h
-index 18c4b0c00e2a..d7937088b2af 100644
---- a/include/linux/unaligned.h
-+++ b/include/linux/unaligned.h
-@@ -142,4 +142,31 @@ static inline u64 get_unaligned_be48(const void *p)
- 	return __get_unaligned_be48(p);
- }
- 
-+static inline void __put_unaligned_be56(const u64 val, u8 *p)
-+{
-+	*p++ = (val >> 48) & 0xff;
-+	*p++ = (val >> 40) & 0xff;
-+	*p++ = (val >> 32) & 0xff;
-+	*p++ = (val >> 24) & 0xff;
-+	*p++ = (val >> 16) & 0xff;
-+	*p++ = (val >> 8) & 0xff;
-+	*p++ = val & 0xff;
-+}
-+
-+static inline void put_unaligned_be56(const u64 val, void *p)
-+{
-+	__put_unaligned_be56(val, p);
-+}
-+
-+static inline u64 __get_unaligned_be56(const u8 *p)
-+{
-+	return (u64)p[0] << 48 | (u64)p[1] << 40 | (u64)p[2] << 32 |
-+		(u64)p[3] << 24 | p[4] << 16 | p[5] << 8 | p[6];
-+}
-+
-+static inline u64 get_unaligned_be56(const void *p)
-+{
-+	return __get_unaligned_be56(p);
-+}
-+
- #endif /* __LINUX_UNALIGNED_H */
+It never happens of course, but avoiding this
+in case code is refactored could be ok.
+Pls document that as the reason to prefer READ_ONCE.
 
--- 
-2.34.1
+
+> >>
+> >> Fixes: 433fc58e6bf2 ("VSOCK: Introduce vhost_vsock.ko")
+> >> Signed-off-by: Nguyen Dinh Phi <phind.uet@gmail.com>
+> >> ---
+> >>  drivers/vhost/vsock.c | 6 +++---
+> >>  1 file changed, 3 insertions(+), 3 deletions(-)
+> >>
+> >> diff --git a/drivers/vhost/vsock.c b/drivers/vhost/vsock.c
+> >> index 88a310390eb0..f26c59013075 100644
+> >> --- a/drivers/vhost/vsock.c
+> >> +++ b/drivers/vhost/vsock.c
+> >> @@ -78,7 +78,7 @@ static struct vhost_vsock *vhost_vsock_get(u32 guest_cid, struct net *net)
+> >>  
+> >>  	hash_for_each_possible_rcu(vhost_vsock_hash, vsock, hash, guest_cid,
+> >>  				   lockdep_is_held(&vhost_vsock_mutex)) {
+> >> -		u32 other_cid = vsock->guest_cid;
+> >> +		u32 other_cid = READ_ONCE(vsock->guest_cid);
+> >>  
+> >>  		/* Skip instances that have no CID yet */
+> >>  		if (other_cid == 0)
+> >> @@ -572,7 +572,7 @@ static void vhost_vsock_handle_tx_kick(struct vhost_work *work)
+> >>  		hdr = virtio_vsock_hdr(skb);
+> >>  
+> >>  		/* Only accept correctly addressed packets */
+> >> -		if (le64_to_cpu(hdr->src_cid) == vsock->guest_cid &&
+> >> +		if (le64_to_cpu(hdr->src_cid) == READ_ONCE(vsock->guest_cid) &&
+> >>  		    le64_to_cpu(hdr->dst_cid) ==
+> >>  		    vhost_transport_get_local_cid())
+> >>  			virtio_transport_recv_pkt(&vhost_transport, skb,
+> > 
+> > Will prevent compiler from hoisting the reads out of the loops.
+> > Does it matter?
+> > 
+> 
+> Not much in practice: because the loop body calls non-inline functions, the
+> field needs to be reloaded across calls anyway (and in `vhost_vsock_get()`,
+> the `vsock` pointer changes on every iteration). I checked with gcc 16.2 and
+> clang 21, and the compiler does not hoist the load out of the loop even
+> without the patch.
+> 
 
