@@ -1,47 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795421010;
-	b=KPZCF/vG2RLRsHAYtM5iQawsJ2DHN9kZLtPliU+ApQ79vdQ9QYdcAceh/ZMTVoCl3ROV
-	 MeuzY7oqb7b1upkAw8jR4pK9ayGerJveCHkbgGJpYSW1QGygR04D7MzQKN+jxow1HmN6Z
-	 soQTgMzJPj25kVyYSqQsD68Ij65jpS1+11mNYSn+RIx9zSnyVjwupfGp63Qozuab/rQLm
-	 Zzdaf8qTw9H4uQyeb1RUxmJzSiIZiv7sdICqY7VyI/M2oT5mJUiBAjZh8J01v2Iu4wHP7
-	 W6Qpxy31NA3NLY69uSOtqQ36ghtNR/JCZOUSSEF01HcO4u5uuSP4zntn3wXLoGjOCSg==
+	t=1795421007;
+	b=nuNvS4RZrIzKDw5Pq8KTw1uQslydsTldMSR3FWFkBgYk8ukjBd++y07htsMfrOEXXGp+
+	 ydjIl5mZGvFlgm4GqjweeCBhBAMKbOt4/V1iILE3ZQQ6rB4cpj22RPhSuD0bF0rvbtkZX
+	 krWvCYapk9RaL6kayN6JXJz+3ZwyKHxzjtPXxRtPnLfhY/JMbllKfQzYqGawALq0AeG6n
+	 4RH25042BkQEAE7D7W8dWu6NAz+7q99MjyMickR0QIYRsMprqFUs9bnqg+cZb5Je0RT9w
+	 Q6pG5ElACzlS/UndCRG3DwRLgy8d62Oq3umivN+zB6+KhruTLtFUdODkdFbODrx+FkQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795421010;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=iSp+6Y67zsfn/WpLtVUfCKIyxWtLaKdyUG5apCNSwDw=;
-	b=yA7AxeCzKohKmx84tiutO+XCrEbPuBwdNbxFSigRMQbmlKYHYQeTQHb+NmnbuiJg4vlz
-	 2DNAl9pDxd/QkN0N6h6T1r/HQYLAsCoO1b0pFrFrneBfKzIp+FF9folE5yMiALYTzhndn
-	 U5ROw9dL1ifWW6m4/vFrzxW5xnxqxCAH9RipncupS8/qS6lgeK4Q5Gdx9Qde3c3gC55bq
-	 eImmmA90VMUyWbnHuLgTQHkZCNXdYpkfgmS/mYIIj/3pfP50cps/SopZRH6lGneRRYc7M
-	 wCOi3TbapoV2cVJSF3ahjAFQ15M7vrMECgtRfXMw+sHytzU1TGzDxOy1XGQem4yKEmQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795421007;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=56qIsCsRYahPEGbFo42LTUf6UE/vtnz8sOVyn3tuhYw=;
+	b=43NiTfsROE013abvsStYdo/e/XTSk07eg7jy8COL2rq8eZqvJsmZ56bTvZGFY0HpoZ9N
+	 CLPESi2QEDb7fg58tWqPppjq8eDdR2khuV60viMzwH8/FbgM7DG796kcsZKWSikgj7J92
+	 uG49hYFY8mfpe6l+rXwikNifcyax9ZdloWugJk2O153TvkCq1Qzg3Fno9/+5LHyAlvF4N
+	 U0+ABv6F2IlHyqKyOsbeCI4aPLN3bzDNEAkSJ/yfGPGw3KSyYwYmDNt3c/OuCjKlDRRy/
+	 xsS87eho0PeEVekIoaQzeocWhSMxp6iHDdIm/+G2Q9uyol7Ax5e02Wa21rwl135s3cQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AkUu4qcH;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WXDWdY2C;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22B7D606A6A5;
-	Mon, 23 Nov 2026 08:03:30 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AkUu4qcH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF5F51F000D4;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D28B606A692;
 	Mon, 23 Nov 2026 08:03:26 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WXDWdY2C
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61A661F000D0;
+	Mon, 23 Nov 2026 08:03:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795421010;
-	bh=iSp+6Y67zsfn/WpLtVUfCKIyxWtLaKdyUG5apCNSwDw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=AkUu4qcH9drXb9xgMaNlzw5vEkS/7ZFFrwoAA347UQxbFPH7hcyVVXYvx7WweNV3r
-	 XsnNHS0pQ0brOTh8KFBXpS02vnsNZvzyPOisZ4jZSmCTdngWtMR5Dwb5r8NuDZ9LG5
-	 luLttXNHT4JseguiRjYpECtk3bjJHyIDolwXmG2d57HaUqnhTyT4rPDhH+SlvEVQis
-	 TfVy8mZlVEfpae7EzS46JBDGifFJSanFgv8fBY9CgkqG4MhCmiZwGgDi0Lk/XIEEDg
-	 fATFrwNAWsrcT9+Jdke3LXtdDOsghDlriY3wfR1miyjAjEjxjYnnjd6rhemc/yEAZJ
-	 wkwcvUYgdHybw==
-Message-ID: <bc070af5-62f1-4836-baa6-3749f2fba6e6@kernel.org>
-Date: Mon, 23 Nov 2026 09:03:28 +0100
+	s=k20260515; t=1795421006;
+	bh=56qIsCsRYahPEGbFo42LTUf6UE/vtnz8sOVyn3tuhYw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WXDWdY2CoEV4UWyZSScfG4er2dUyJViQN7Dm2bh3eR3n1mm1tpCKmjOlwb8hxLgLL
+	 y0N2cfQMeg+R7d+StHduLrTGUtxkYsJKNrTI33vpxy/8bN8WUWW3ioKHnMQ0JU7Flq
+	 vonuoACr2bT/s0vYmHuFhC2QXubxYSx32PP6yGwE/G2Rmqk23ZGJLR3rvrkYkSZeay
+	 LtF7HcgO04iPTtgk60TsfMPYoRWUWoDX0ylNypywXnNkB4HfziwURbm4w/8euODn/J
+	 TB/+9MpvI6cAtYAguCcNT+0zJag06mSTXgDh782vxnvBQ3Jr7bivTPPfGB7bKNNv2J
+	 XSRVEpjleKAGA==
+Date: Mon, 23 Nov 2026 09:03:22 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Tapio Reijonen <tapio.reijonen@vaisala.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Markus Probst <markus.probst@posteo.de>, linux-serial@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Lukas Wunner <lukas@wunner.de>, 
+	Christoph Niedermaier <cniedermaier@dh-electronics.com>, Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, 
+	Lino Sanfilippo <l.sanfilippo@kunbus.com>, Hugo Villeneuve <hvilleneuve@dimonoff.com>
+Subject: Re: [PATCH 2/7] dt-bindings: serial: Add the line transceiver enable
+ GPIO
+Message-ID: <20261123-transparent-coucal-of-persistence-8cfbdd@quoll>
+References: <20261111-serial-transceiver-supply-v1-0-40bad0f912f2@vaisala.com>
+ <20261111-serial-transceiver-supply-v1-2-40bad0f912f2@vaisala.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,33 +63,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Subject: Re: [PATCH v5 6/8] iio: adc: at91_adc: pass struct device to
- at91_ts_register()
-To: Abdelnasser Hussein <abdelnasserhussein11@gmail.com>, jic23@kernel.org,
- linux-iio@vger.kernel.org
-Cc: dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
- nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
- claudiu.beznea@tuxon.dev, giorgitchankvetadze1997@gmail.com,
- amin.gattout@gmail.com, antoniu.miclaus@analog.com,
- gregkh@linuxfoundation.org, mripard@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261123070101.53868-1-abdelnasserhussein11@gmail.com>
- <20261123070101.53868-7-abdelnasserhussein11@gmail.com>
-Content-Language: en-US
-From: Joshua Crofts <crofts@kernel.org>
-In-Reply-To: <20261123070101.53868-7-abdelnasserhussein11@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261111-serial-transceiver-supply-v1-2-40bad0f912f2@vaisala.com>
 
-On 23-Nov-26 8:00, Abdelnasser Hussein wrote:
-> The at91_ts_register() helper only uses its platform_device argument to
-> obtain the parent struct device.  Pass that device directly and simplify
-> the function signature and its call site.
-> 
-> Signed-off-by: Abdelnasser Hussein <abdelnasserhussein11@gmail.com>
-> ---
-Reviewed-by: Joshua Crofts <crofts@kernel.org>
+On Wed, Nov 11, 2026 at 12:28:01PM +0000, Tapio Reijonen wrote:
+> A UART's line transceiver (RS-232, RS-485, an isolated or a
+> multiprotocol part) is a dumb device with no node of its own, yet on
+> many boards it is the largest consumer behind the port and can be
+> switched off, through a shutdown input of the part or a switch in its
+> supply. Device trees have no way to say so, and the transceiver stays
+> powered for as long as the system is up, whether or not the port is
+> open.
 
--- 
-Kind regards,
-Joshua Crofts
+To me transceiver is part of the UART device node, so this should be
+handled by device schema. Commit msg lacks actual hardware names
+justifying the change.
+
+Best regards,
+Krzysztof
+
