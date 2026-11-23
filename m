@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795471626;
-	b=C2igu09+v4NjMssW7BtD5sTC8lev2Yr9s/+AwaZAWeDg/VjlU9KbfKNi4vWlLTLaRnBg
-	 bx2d0SJjV2xGow8EZD8INPDA90foU2zGAkdxjdW4bNnVN0kSIyEVLR/WGKKaYg/oMZVSv
-	 PkPyELllSVjVL30+sj6heBnI/j+9kelPucnYlHfqNNMUi9tlpQ5QzFMo7UfjgJ7ufgP2d
-	 kQWBtWS8dxt5B/ojDr7SpsI3cxmp8OMTAOf1c2e8Nruhd0VG67tFhHD38x32eZgwbryzw
-	 OiU6yvljbJUH+K3rHj4C88BdiZKcaA8RUx2vKAjb34QEZ1Te+NMO0GY6WSH9yWk4zlQ==
+	t=1795471627;
+	b=L1rlzbU7oim1Y9q9wJM69SzdZceA/4cro81mamKNl+wOYYHANWHYT1AIzRz+PIxMswBA
+	 MtGFTZfwJ53NaNnDAaOWN9CcF4ryheZikGhUprMRkdJNVqBP/QoWR1KHQUi2apHKxCuSS
+	 7IuoyGJrUrykngqfrWG+DGbpPUtELFr40aJwvO+dXMJxLQchAobaRNKL39dhP3gXAOixP
+	 bFXkOQfGYHYNpdetb0/ml1DjTKEerDpEN34jCMw30XaMUnG50lEFowkfJ9ze0JtJQa/wH
+	 wWZCcnbvaI0AMLuoH1bDn/pR0HAZpaEW4t4sF8EwnWj9rAIMLpqaJE6z432ehN4NBcg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795471626;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795471627;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=2A2uXjB+0bzchrY2vV2nfV3+nn4kAAzYbCNxqbBXeCI=;
-	b=LwNblcWRWqJAf8S/mdUTmNlc7a3E3p8XIDs9mmKtd9gAIUgb3Ct1CgdXmAWf6x4dyZpA
-	 /xSzJfntPZYUN37bGIANbmqMHSujkG3VT9076JwUMlc7lf2Jx08uaQtL8c/m538StogDQ
-	 z7jjNjerZPG4OJ88gHVUw5fn/K3OjIraSp66kkK6AHEOOawOfSkdtXUJFZQHk+pd8NB4D
-	 yu0Zn7ozoeZYqCO91YuCm+Ombil0h7UVSsrXSNRMKoEsBOX4TV6FtEGgFDAnIEk6Rg3gs
-	 XNPdfE/jGrXCtaDZpfIeUMCcS8vkNQQvfm8dFtE1/wGVCrc6S3ROHpby8sDehve/xcg==
+	bh=2Wn4ycrprsEYpxFTIDDs955RXGY/aWC7MHO3eiRlG/o=;
+	b=wK7epVB5LvA+It0OlBL5+eHwJNghQAdIKXalnkCDtz0fM2e3AIy1TQdJJNO9kmsLx2dF
+	 sb71K0Ht4SSG25wnXsGpzY0GEG0ggY0wuvvLGiuQqz8gV6TB+Zfw8kPl0+KH+UWKgkpgd
+	 9NPBFhakkjn95K2obIwgTTwNW0BkiriYdnbAUJMV/6spZ3YB+lnCTajKJ6rCPZWZi02Um
+	 1YORmOOG6xWJluoiMR+u8uyASfNKwItoDmDHAXks23msHWk9fnkRvE9jiZdLb8uWSd+09
+	 Y6ypvq2ZdzcZtZoK/LXnLhuCLKO14VqOewdAy3Re0lvpRf4pJ8gq3TgFDYmehFFpWBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b8mVBdXh;
-	arc=none smtp.remote-ip=209.85.167.50
-Received: from mail-lf1-f50.google.com (mail-lf1-f50.google.com [209.85.167.50])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jRvUA3EG;
+	arc=none smtp.remote-ip=209.85.208.173
+Received: from mail-lj1-f173.google.com (mail-lj1-f173.google.com [209.85.208.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED6BC606A33D
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:07:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED6BC606A33D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AA90606A33B
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:07:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5AA90606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b8mVBdXh
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5c14f3dab66so3054264e87.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:07:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jRvUA3EG
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-3adf87fc0c6so32944711fa.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:07:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795471624; x=1796076424; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795471626; x=1796076426; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=2A2uXjB+0bzchrY2vV2nfV3+nn4kAAzYbCNxqbBXeCI=;
-        b=b8mVBdXhorwXtY/YNR5kRqgbjNIC/yQbC7/YJdXpv7HkUx1+QYbk1AhzkZhr2Gi115
-         1OxV/ic+O/1R1TbyXNPFXBYVELF2Y0JB4x+4Cib0X1cym5U/S7v3QiB9ej0etFkMqDvt
-         vCuqo6EsXzT1ckyul4S8f/XMdLuZxBoV2CFgxybLsIP8PAb5DSkv2kCDzCWO831fa7zH
-         uZL7/lqKUT3vkIyWKZGUQI7tImrY7/eSMUjBvk/eXGEv95kBIKkuLJSNnshA2vS7JUcx
-         ioNjnjAfTRD/TGsu/digRPdtrr6HTpQQ1pfhHwySjrv8dAmwug3g2Cej/CUN9FYUjxZM
-         /wJg==
+        bh=2Wn4ycrprsEYpxFTIDDs955RXGY/aWC7MHO3eiRlG/o=;
+        b=jRvUA3EGFqhKqeQken3DAP1tNWb7GE9oi++ZNu9bBetTzacQ8OIi73Iok4Wq5V2Wcu
+         MOwJNF1ukSBPJZN4E1aw7v/5OLtL1E19Ehtpxh55xrS+uJ7iEKqyWs2q9HNtZYDPWsf4
+         VXUST5heajjuzNJORkJGhpeJRt2ER1AwiUxjYvlXSe1NNr3Pbw/mNXriHi2aFGek8Op+
+         PoU1R2rOYUyO9e9BOSeSMrKX8GiG3oo+gcXSsrZ6rEox2t3QAijYHebZp4i/4G3/2cNr
+         fFxtR3Gcjac70uMruzcl1S2OQGCVzn69h8r5eQdvAvEVyMzmSA952pnB8IwPZTzUAsLp
+         OEkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795471624; x=1796076424;
+        d=1e100.net; s=20260707; t=1795471626; x=1796076426;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2A2uXjB+0bzchrY2vV2nfV3+nn4kAAzYbCNxqbBXeCI=;
-        b=GVhiwyo07joKgrWd77AyAVv1GCiK90caOsuvv7VsCwyCBgZsEj1M5e7shQM9oZTMII
-         yfNG6IodCAGECvMtzqvLrV4ukXy7hYqejpaZDlOUPuXWnVeeOLA4JG2gwOWVkL8BvxjC
-         ZWaGzlZ+0XdCr6qx85fDJpc+3BkLkrjq+HQvv1XRPcNpFMN5Y2Dt38N7ZTfRnOM45dpx
-         cN7Ed1/ZwK2KaDmhhQGd0TTpcSx2U99SF4bDAtiDHVIKJr7sgdr4tN1mqZ7pS/CxqKWN
-         FxYZMTvMxm94IjycZyBRLcfHlI93YM5jQdXpbaQd2+rSdbSkZDWbhjXmIX4c9ft0jcY7
-         B97A==
-X-Forwarded-Encrypted: i=1; AL+hErHuByhV/Fc0Vg5JKBm5rUZAhSn3tYJFKY6JmoTugWiuBiZjY0hfmp1Bn+yoCsh+ntXZ/kMhnyAq0S1+a/M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/x13xf39KN0gBg4kJF47mzEh8vOCBz8wgUP5J9FvrpXPlQvVfV
-	a5Yi9kS2fD8XXBr1rdxzdOwxofckgsPW1fyRb15cDRrgOoLAqydoqgDd
-X-Gm-Gg: AZFdTZeGwr4GYp1/F1AvrEuV/IUwrOVF4HGF71oZAZj3kdQWHnDwJViCxwcwZ5igM0W
-	hzM/ZWUfU6l4gnNsMxw/ZA+NxwQpVWwnMG2B3CbN8B7YeegsY6QVuJzOR3wk21uMW9ts47LR9AY
-	VGOItsk/5buUF8rXRPLMOv6KtXCJNK2VbzNquQJ4gc+0l3UExcI5oivymGoafOBBrntcnajhu3H
-	Xfdmq/5Rev4qg+rPhfFltqzfeMT1kLMF6lG5WJhOuBerCGtFIqOCkUjUp04xfcrQh60IdoEIgUg
-	bHJV8qaNdRaJguQrYWVOK3hVGAiIci1jQk9Jl+2hTlkXcvWUY8Y10a9V43LM/gMxCWRUlaHocRt
-	Q1PSbDDQ+ZaKyQ+76GOd9hqcRLdgciYInEbyGrNWGc6LzMfKFGg3SQ72HOZ/DqW5Nkxp2KVkwk2
-	vyQLwo9jSaukol1mUtKRqf3ZF2En/lUjneOItzGPwbGswSft6XZhMYx82z8B4Zj0QubjthuedLt
-	lfBhvhnxyUfmpZ8ajttDSIxRINa+ZwBwYhhn+OL5Nn5ROGLu6JQtGUVcKjSkkZ6U9X850r7WDJt
-	FU2R5WSzISDponiBjLlrO7/yWBtYbClUEgf0CNKN0TEsWNUiWpYSshsN5b54eo++fzxwROPFw6b
-	NQ8I1Tsxk2WbF5hluaF3au2cl0bz0KMvguGl2CpSQfOBjW6mj6GdwVt2U5zc=
-X-Received: by 2002:a05:6512:114c:b0:5c1:4bb3:afbc with SMTP id 2adb3069b0e04-5c1b7c42d53mr3575738e87.26.1795471623995;
-        Mon, 23 Nov 2026 14:07:03 -0800 (PST)
+        bh=2Wn4ycrprsEYpxFTIDDs955RXGY/aWC7MHO3eiRlG/o=;
+        b=fTYkIYCHzGPhjjU0Q8GHWUe/g4fsndev2IAjIC34NWsJBZSOQouF5KYMrsI+rXYC6B
+         3GpEz6QXD4r+CUX9241R3Ivlt2MBZ3BB0QrxCc5yxJypoYkDstwt2GeTIXY8S325R8l1
+         hjgpD2NxfY+dzpjj/sf6CsfeF5DwXni27H5WDT2JPoN7BtYaYjTmBWtMu/QJlxo9F6sr
+         ECASJv2LTh8S431Kw1ldlxFSWP9MoR5LmRDNG1uaI9yXWAlOrnf613Q3ukwhMQ0YhmX6
+         eymW6E+u+O6H+j5wbCNRK+aVYucDwo/R4QA+47E5N2vB292ygWDPlAJDWOALLAqb1Ob4
+         jGrQ==
+X-Forwarded-Encrypted: i=1; AL+hErF6QSaxu4xmuL+quvNxiSXoXCZCEw8/yYzFRUyDKj8nbbD7MwMtCRyfCjDg7IcvFrHAU4KNI+MFl2ElUJ8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+6U21GCbGQiANhWz6Fe6b+3uCMtekpFdwySp7Zv0NuFvQv+oU5
+	67Vd4f3+/PpAXpjuepw4cLJjAbiwy0b/L025WN+4eiraCagUtzK9ZBvK
+X-Gm-Gg: AZFdTZc3X73+lqzxHcAQYL8gQTPSwdUUzeRAKFSsvlql/ARyfCoKLK59sPGVnW2m5lh
+	h5JNQVFCxTdx8Tn1uFHercdNdzlYdPgQO7KV2U46UnP5PQQv3Z3gXxXOqQHdJQGuYHi6y9LotK9
+	M3grlUcymZDF+GmIDWHm5I+pN1Q8jVP/ghe0Kk6Ig/Jjn4R4PXC5zcg9EGJyc7IskAIZHrfY/mJ
+	6sGrM8TEFXzemCatCSEZHayxADoAcpd/0Yt68tEZnxX0eRJr4NCepi/iDbS+1Bnrb72wnqCVE7k
+	1H8VlUg+oBsqFQWMkVuetOfZK7OhxRhRBTAiRoSo7CEnqrO1zjZn1xOem19Wcxh97kOIxi2zxw4
+	xROcGyDkq5hq+kqUAHjT1zQUn0PWHkIMFmyrTX/yDG7PzvF1rdgV83M74k3a/k8F1QRWZy2lmKu
+	ZZ+Vnmb40lajNpmWFUilG3rzJcL3gxdmv1W0f3QAgp6eWtjbpYUxzGT2HhNq5T71W9SZYpNwdKy
+	pmtCyNPoX/0JwLynvgXQBZvmczcEkvqdJXPmKTIerLhREC9SUPVLA1LjOpzmi7H3jmYErSXsHb8
+	E5hMRs+5QkIT+Cksp67wTIhWpS/d0ShAc/6k1q7wcW8q/l1iKIOdEJZlm++yTokkNHoWK34vN4M
+	ncR7cUGYYFP5nyx4sHJBZpikDkL3IwXwGw9FLaA==
+X-Received: by 2002:a2e:a9a5:0:b0:3ae:25c8:dc3a with SMTP id 38308e7fff4ca-3ae7f9a6918mr42861991fa.8.1795471625467;
+        Mon, 23 Nov 2026 14:07:05 -0800 (PST)
 Received: from yantra.. (nekmmqsyyquzw1lm5eb-1.v6.elisa-laajakaista.fi. [2001:99a:d7d:c300:3cd2:d52a:a1ef:5dd3])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae805215ccsm34272021fa.21.2026.11.23.14.07.01
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae805215ccsm34272021fa.21.2026.11.23.14.07.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 14:07:02 -0800 (PST)
+        Mon, 23 Nov 2026 14:07:05 -0800 (PST)
 From: Rupesh Majhi <zoone.rupert@gmail.com>
 To: Andy Shevchenko <andy@kernel.org>,
 	David Lechner <dlechner@baylibre.com>,
@@ -88,9 +88,9 @@ To: Andy Shevchenko <andy@kernel.org>,
 Cc: linux-iio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Rupesh Majhi <zoone.rupert@gmail.com>
-Subject: [PATCH 5/7] iio: pressure: dps310: use time unit macros for sleeps and timeouts
-Date: Tue, 24 Nov 2026 00:06:47 +0200
-Message-ID: <20261123220649.36887-6-zoone.rupert@gmail.com>
+Subject: [PATCH 6/7] iio: pressure: dps310: drop the unused i2c_set_clientdata()
+Date: Tue, 24 Nov 2026 00:06:48 +0200
+Message-ID: <20261123220649.36887-7-zoone.rupert@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261123220649.36887-1-zoone.rupert@gmail.com>
 References: <20261123220649.36887-1-zoone.rupert@gmail.com>
@@ -105,56 +105,32 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Write the microsecond values as multiples of USEC_PER_MSEC, like the
-poll timeout next to them already uses USEC_PER_SEC. Wait the 15 ms
-after a reset with fsleep(), which allows less slack than the old
-55 ms upper bound.
+Nothing reads the client data back.
 
 Signed-off-by: Rupesh Majhi <zoone.rupert@gmail.com>
 ---
- drivers/iio/pressure/dps310.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ drivers/iio/pressure/dps310.c | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
 
 diff --git a/drivers/iio/pressure/dps310.c b/drivers/iio/pressure/dps310.c
-index e5a89dac1325..eb5715f75e9e 100644
+index eb5715f75e9e..7581ea4c99ba 100644
 --- a/drivers/iio/pressure/dps310.c
 +++ b/drivers/iio/pressure/dps310.c
-@@ -20,6 +20,7 @@
+@@ -1633,13 +1633,7 @@ static int dps310_probe(struct i2c_client *client)
+ 			return rc;
+ 	}
  
- #include <linux/bitfield.h>
- #include <linux/cleanup.h>
-+#include <linux/delay.h>
- #include <linux/devm-helpers.h>
- #include <linux/i2c.h>
- #include <linux/interrupt.h>
-@@ -103,7 +104,7 @@
- #define DPS310_DRAIN_MAX_MS	(2 * MSEC_PER_SEC)
- 
- /* Make sure sleep time is <= 30ms for usleep_range */
--#define DPS310_POLL_SLEEP_US(t)		min(30000, (t) / 8)
-+#define DPS310_POLL_SLEEP_US(t)		min(30 * USEC_PER_MSEC, (t) / 8)
- /* A period plus a measurement time; silently handle error in rate value */
- #define DPS310_POLL_TIMEOUT_US(rc)	(2 * USEC_PER_SEC / max(rc, 1))
- 
-@@ -370,7 +371,8 @@ static int dps310_startup(struct dps310_data *data)
- 	 * They are available 40ms after the device has started
- 	 */
- 	rc = regmap_read_poll_timeout(data->regmap, DPS310_MEAS_CFG, ready,
--				      ready & DPS310_COEF_RDY, 10000, 40000);
-+				      ready & DPS310_COEF_RDY,
-+				      10 * USEC_PER_MSEC, 40 * USEC_PER_MSEC);
- 	if (rc)
- 		return rc;
- 
-@@ -558,7 +560,7 @@ static int dps310_reset_wait(struct dps310_data *data)
- 		return rc;
- 
- 	/* Wait for device chip access: 15ms in specification */
--	usleep_range(15000, 55000);
-+	fsleep(15 * USEC_PER_MSEC);
- 	return 0;
+-	rc = devm_iio_device_register(dev, iio);
+-	if (rc)
+-		return rc;
+-
+-	i2c_set_clientdata(client, iio);
+-
+-	return 0;
++	return devm_iio_device_register(dev, iio);
  }
  
+ static const struct i2c_device_id dps310_id[] = {
 -- 
 2.43.0
 
