@@ -1,116 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795437042;
-	b=m64f7+8pFykFZghm2S/ZO8lFmSG95lhO+wMI5B4d8q6KU8es/txqNmVn2+2DiP0ijLUG
-	 KbjgOXFI33sM1JAEG61yJP8JPoc4IGtAu/PF7J9LSPZvw5kkhADBO2b40HXhByz7U1Sc5
-	 L3LceWs6NLridP+AEitm6Z3QgNAdS9uCPzy6WXvLkNPJeWjIT/WQ02wU9zVQvidZF1opE
-	 9jPUd9ZMATdVnXnN9lCnJtX6mRMkTbffQzN1ZC57edtG4sntEvMkASoUqBFUCUrBkiQqu
-	 NFvbZFgijR9+ODrF+gGAxYO32Ye1C43u/XsPwQhChE78HnwsNvOW6DB6eIwheyCjf1g==
+	t=1795437052;
+	b=bGiSubVp8XLPWpZNOoSZ6QOWkwb4+qiE+mBzVXM74tqofeQ/7N3d5z5RQ0JR9yNWMhO+
+	 ySgfjGg70Q5WOiQ6yZ9zlaEwxinJz+dyucIwBXadILeMzbe38M+pjbXF478YtVwsyk9/+
+	 0+kCJOBMNgWrf+TyHAZ/qmzmDY546tfBUoDuHNzIpASaBsilz/sYaHK8JIB7sIems+c5y
+	 jav/4aHENCmKyvFG6F3+oDERm31mi6C5+eRjEVwXxT+HZZs5KATVeUgubEmAGDo1Ayj9v
+	 29lxxRdLtCdpDSZ+TnRQlXPNOhLzlZjCz6EOYWGvqcpO7SwwCypF7FghTiSwY++6lOQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795437042;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
-	 Subject:In-Reply-To:References:Date:Message-ID:MIME-Version:
-	 Content-Type;
-	bh=pgnxGqH8FthlsEichz+tm7DA6jv0/wD4jOInsJE6H4o=;
-	b=sGKMay5FnQgfWzqy7ZxRYs+nxbiyDIr68sRHiKwvWoUcoilnZtxjbd7hkKOTrH3i8ez6
-	 nL0Y/QZEmgfW44pqUIuUT1brnFcF7/ik0LcdI2ol//avW8oNDMlB1msWhJe42ekVTMrgF
-	 UmM7FxIFx9L0nxB7u8l4gSRvTBicDJTXFSBjt5jsJ2PXx2e8YrsORxdTZ0JYs6K3km4On
-	 6aYVdZ92IhoecrNdYJA38AxOxUqP5JBHUunO4zc7hm5GCCJ/8C3J/kxpjyQH2A02t9gsU
-	 zjdRSZDV4TrPRGKAkWhZUrlXKJERj5ptQAGnpAdl4uGWHrMUMcrjVkeYiF7YLsezHgg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795437052;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=IvwQY8SLzqMXTEsIq2u8alrkPfd4VmYg0fzyhZJHZhk=;
+	b=MlZvPrTO/CDBktvUvtFYrD2f8SnQ2wEGdAyFoYQKXhbkJgXkGxxmxHsy1XJ4oLp+KBh1
+	 lJqyrL5lYIAH+rBMMwTAy/CciR1nsP6GcazMHlHZrOr3V3umO1gsx3OCgR95DnyjCninT
+	 3HpXiykawnIbbBVx1j7+oCcOfLghjgV51tj48FgsMRJK7I7P3fqEU2bTaZ7YsUL931hkV
+	 eYs4WwNylMWcVzxQX9hAH85RdKo6IJlEM89M83oWCQRuSKgDX6KBDUUkfmfwpcLE1Ylar
+	 Ksdc8aWxdox+L/mVvfEvs/sbfVPvROErezSjRG1xaEfofkbJveQfkWcvIsDe9nJDVig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XcJxtPCW;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=jyAwNJGN;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="F9dWfn/B";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94F55606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:30:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94F55606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 762F1606A31E;
+	Mon, 23 Nov 2026 12:30:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XcJxtPCW;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=jyAwNJGN
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795437040;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pgnxGqH8FthlsEichz+tm7DA6jv0/wD4jOInsJE6H4o=;
-	b=XcJxtPCWAjHF15LjEDYO4+b99nziJkV2rg1RnGKYOM9VGUVq3/LmHuC7GnHzSqlc4NQgAc
-	waRNooB1DYYh7EN7M+8pd6xA9XhKGc9yRo7ClnxNJQqLW+ViXR+Ipma1KR0ptiG0Gs3WdG
-	Mza/FTklYwYoXeoTgrqQbVDkVIXCQkk=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-471-MdPhAIvEO6mroLDtWGLRCw-1; Mon, 23 Nov 2026 12:30:38 +0000
-X-MC-Unique: MdPhAIvEO6mroLDtWGLRCw-1
-X-Mimecast-MFC-AGG-ID: MdPhAIvEO6mroLDtWGLRCw_1795437038
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4a204f135ffso16442215e9.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:30:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795437037; x=1796041837; darn=vger.kernel.org;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pgnxGqH8FthlsEichz+tm7DA6jv0/wD4jOInsJE6H4o=;
-        b=jyAwNJGNhiGgkuwIDb4eY+AmDrjRiP+FQ5skIJJEEiSkxBOOjko3hWkZlOzSr72bMD
-         jSU4FYMZ8UDUiaH9cyYoVaE807hBwTnskiPCrRotr8JZrrpbjLCFQqCkVKxlAD1gAv3+
-         /1e0uSI/CZdM0xYXaPTM3tXWqr086ZCuhUiwris8x6kERLJ9h8wslpLEidT4juT7UoI1
-         9QCMiKEo3geQl4K2fklsSOjRpU1PpQ9XqNIbwC3XC5AMmKPXdpl4GnLDA9hmdEG68aM9
-         O4V0NpAh5WeZcU59cvOilTUkmL/oO+4nmjmLBRk98WwV7hRsgnKBrIIJyHHpEsTajJpL
-         r4UQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795437037; x=1796041837;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=pgnxGqH8FthlsEichz+tm7DA6jv0/wD4jOInsJE6H4o=;
-        b=spQn/PvJr9yI94Ve7g4hmajzFfrD2r3+2p9Ghb+d3eQEsrbUlwU+KeqQh0RRVQ5IMV
-         jqveddEv+nrSRw9HM8EeEWZ/r1OGy5KLx14x45YTfSec5IoGzPWXjv8V1IMSoaW9+c0b
-         H6AcI8Bm2xqbUI2SzhY7VsLcP8DKIEVSAVI2fz350jYX6DhRQyVeVb31b0skqMKI3+uv
-         za5M+qd458iq70hPEYGnD7yacC9d54R0/dzAyIpBUVb8cEiRTyiwdwuAP8+BWptDbCzG
-         PIzJqYMkMVgqvQssKtcvWy4oizA5BxivpUyy+8HwtMAtO+DHuMksLR1uxuoguWtzx6Vi
-         DVpg==
-X-Gm-Message-State: APuU4Z9ZZqr/n9fYBZA8iQ8dQ8hgbL10MP0gftI2FMoLqaa5waisBSLP
-	QvzG1iWn9SqjQuTaMC3s/Q2rbWLL2i3g/mzPMP7uYsVWHgs+h3v2aRARNSt7H+PQO3VundK32SJ
-	JyUqnuNs+aBXyyAZPpW/QZ+C+/oUALqryzbk3xqul4+RExTkdVN9ieUiecjLhdwS1Xg==
-X-Gm-Gg: AZFdTZdZyL0MyME7jk/05DkW924LfRXzL6aVeL2JVD9T5xyOJZczTG1WolAFkfGQ/Ze
-	NNGQ1nUECHsFVZHCBu8E/swKgCb/9bnAJ9fNpq0zo15MF1bAbau/QqjVdVA68eYCrlCP66I0HGp
-	bsLmXd91FLCpmMZ5HZsHg8LTbkyzm00D4f0d7JcE59a72tN/XlKTpfRnV7RHj/MiWiltipxiQVy
-	JodLVVxPxpqHuKnYBxA2khfIOqqUAOAg0EcIeweleHZev69vNfaAby2OEv1DFLNTX5m2hWvtJwO
-	Ps0aAg1kU+LkX9bLXt8vS0JyyAAkkk5y81IsvdmEuCyeoxwIJsNyT6tf6QdGFYPyWOak0Bqe6uo
-	Y9aAWqe5cq0ZI4BMIAlqE0zvjA5RAoh5w4GAXFgoSeXB0UKe1inAVEcMS5rTJx9VhiheUL5/ynC
-	bAlLUat1Q6r21QNdVWrwNzMgVoseL/EIIMdw==
-X-Received: by 2002:a05:600c:1549:b0:4bb:741d:ea8 with SMTP id 5b1f17b1804b1-4bb8880ad4amr226584655e9.7.1795437037603;
-        Mon, 23 Nov 2026 04:30:37 -0800 (PST)
-X-Received: by 2002:a05:600c:1549:b0:4bb:741d:ea8 with SMTP id 5b1f17b1804b1-4bb8880ad4amr226584405e9.7.1795437037266;
-        Mon, 23 Nov 2026 04:30:37 -0800 (PST)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-135-146.abo.bbox.fr. [213.44.135.146])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9066e34esm188352465e9.3.2026.11.23.04.30.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 04:30:36 -0800 (PST)
-From: Valentin Schneider <vschneid@redhat.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: linux-kernel@vger.kernel.org, Ingo Molnar <mingo@redhat.com>, Juri Lelli
- <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt
- <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman
- <mgorman@suse.de>, K Prateek Nayak <kprateek.nayak@amd.com>
-Subject: Re: [PATCH] sched/fair: Don't let task_tick_cache() IPI dyntick CPUs
-In-Reply-To: <20261120154015.GY2668564@noisy.programming.kicks-ass.net>
-References: <20261119203825.2732984-1-vschneid@redhat.com>
- <20261120083440.GL2668564@noisy.programming.kicks-ass.net>
- <xhsmhv75rojdy.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
- <20261120154015.GY2668564@noisy.programming.kicks-ass.net>
-Date: Mon, 23 Nov 2026 13:30:35 +0100
-Message-ID: <xhsmhse0rohlg.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F9dWfn/B
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 640461F000C0;
+	Mon, 23 Nov 2026 12:30:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795437052;
+	bh=IvwQY8SLzqMXTEsIq2u8alrkPfd4VmYg0fzyhZJHZhk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=F9dWfn/Bsx6nfEV69VN+Bwli+1liqO3hOgQUdVvcSXmY0nSkI2QVYa70rIcuYv4VJ
+	 B+mxuwvssGDfjZekuOzOCxYPdemUAub4iwxFmH8HAajGAH4ky1msGLY9UP/u6jWr4h
+	 2P+YzisJtKp+yci0TRUd34CtVSaRm6rE+hqFKE4QuBVayzMpWH7Z8twUDqUrB6fQdr
+	 f0AP9wJ+FOOhOmgyaeR7KHI5E3v+y2CQvyFf6aWbjUdt7OFU3h4s2lKwYNbTnp9ZGA
+	 Jhb6koXcD4nyp0NNFuKUdAf0c4bmaqthmKivwhmHzx0tPrRBK+JArvnmRrHVntdJMJ
+	 ZUDfYO0oMitxA==
+Date: Mon, 23 Nov 2026 13:30:48 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Adil =?utf-8?Q?H=C3=BCsrev?= Tepe <tadilhusrev@gmail.com>
+Cc: sre@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] power: supply: s2mu106-fuelgauge: add standalone
+ driver
+Message-ID: <20261123-tasteful-famous-dragon-00ee8d@quoll>
+References: <20261117104328.1176951-1-tadilhusrev@gmail.com>
+ <20261117104328.1176951-3-tadilhusrev@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,35 +60,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20261117104328.1176951-3-tadilhusrev@gmail.com>
 
-On 20/11/26 16:40, Peter Zijlstra wrote:
-> On Fri, Nov 20, 2026 at 12:02:49PM +0100, Valentin Schneider wrote:
->> > +	/*
->> > +	 * If there is no root domain; there is no balancing, and none of this
->> > +	 * matters.
->> > +	 */
->> > +	if (!rq->rd)
->> > +		return;
->> > +
->>
->> What if the setup involves a separate root domain where all the CPUs are in
->> dynticks mode?
->>
->> Methinks the signal we want is:
->>
->>   is that task on a NOHZ_FULL CPU with the tick disabled?
->>
->> If so then we shouldn't do anything about it. Let the other CPUs in its LLC
->> / RD run some balancing. If they're all dynticks, well then there is
->> nothing to do is there?
->>
->> And that should also apply to the NUMA stuff like you pointed out.
->
-> If you have a root domain with more than 1 CPU in it, you get balancing,
-> deal with it.
+On Tue, Nov 17, 2026 at 01:43:28PM +0300, Adil H=C3=BCsrev Tepe wrote:
+> Add a standalone driver for the fuel gauge in the Samsung S2MU106
+> PMIC, as fitted on the Samsung Galaxy XCover5 (own I2C address, 0x3b).
+> It shares the S2MU005 fuel gauge's STATUS/RVBAT/RCURCC/RSOC register
+> layout and scaling, which this driver reads directly with the stock
+> fixed-point formulas; it has no MONOUT average-monitoring registers,
+> so unlike s2mu005-battery.c it never reads VOLTAGE_AVG/CURRENT_AVG or
+> uses current_avg to decide POWER_SUPPLY_STATUS.
+>=20
+> This replaces a previous version of this series
+> (https://lore.kernel.org/all/20261116074000.355176-1-tadilhusrev@gmail.co=
+m/)
+> that instead extended s2mu005-battery.c with a samsung,s2mu106-fuel-gauge
+> fallback compatible; see "dt-bindings: power: supply: add
+> samsung,s2mu106-fuelgauge" in this series for why that shape was
+> dropped.
 
-I think I can live with that. It means we mandate complete CPU isolation
-for NOHZ_FULL to work, but then again that's what you should do in a sane
-setup.
+No relevant
+
+>=20
+> The driver was drafted with an AI coding assistant (Claude Code,
+> Anthropic) from this register map; I reviewed every line, built it
+
+Not relevant!
+
+> (arm64, 0 warnings), ran checkpatch --strict (clean), and tested it on
+> a Samsung Galaxy XCover5 (re-confirmed 2026-11-17, kernel
+> 7.4.0-rc1-00023-gdcb8b91fb779+ #30): it probes, and
+> /sys/class/power_supply/s2mu106-battery/ reports plausible voltage,
+> capacity and charging-status values that track the device's actual
+> state (confirmed live, including across a flash/reboot cycle).
+
+Even less relevant, drop. AI usage goes to changelog.
+
+
+> +static int s2mu106_fg_probe(struct i2c_client *client)
+> +{
+> +	struct s2mu106_fg *fg;
+> +	struct power_supply_config cfg =3D {};
+> +
+> +	fg =3D devm_kzalloc(&client->dev, sizeof(*fg), GFP_KERNEL);
+> +	if (!fg)
+> +		return -ENOMEM;
+> +
+> +	fg->dev =3D &client->dev;
+> +	mutex_init(&fg->lock);
+> +
+> +	fg->regmap =3D devm_regmap_init_i2c(client, &s2mu106_fg_regmap_config);
+> +	if (IS_ERR(fg->regmap))
+> +		return PTR_ERR(fg->regmap);
+> +
+> +	i2c_set_clientdata(client, fg);
+> +
+> +	cfg.drv_data =3D fg;
+> +	fg->psy =3D devm_power_supply_register(&client->dev, &s2mu106_fg_desc, =
+&cfg);
+> +	if (IS_ERR(fg->psy))
+> +		return PTR_ERR(fg->psy);
+> +
+> +	dev_info(&client->dev, "S2MU106 fuel gauge registered (addr 0x%02x)\n",
+> +		 client->addr);
+
+Drop, drivers should be silent on success.
+
+> +	return 0;
+
+Why do you need a new driver instead of integrating it into existing
+s2mu005?
+
+
+Best regards,
+Krzysztof
 
