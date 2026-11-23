@@ -1,62 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795420036;
-	b=hduAFfuBPWvztsiabPQtDEpcMNkGtnyYDOKf7UOh0O5jo/LiF40w9YPMmZ/GH/e9RgfB
-	 TAL9/E4c0adYn/kraOBaZRXqRvpFwq4fVTSkuXfITL+HpweXe5N9DwgEUbw5QFh4XZ4B8
-	 caXfhtXV07rUy6JkEI2jrXZY1kOs0UUieHw9hckkMHLDVtbMh2/ZzV0KNJhT/LCynXjpE
-	 qcuBCKhEIMTi+H2Nypd2If6FLyltIL3B+yGWshua3nrUhUwrGsNRz8heIm8JWUa6KCHL6
-	 4lTiF2VpRjvM+rxbQcmeVIIBM27V9n1GQWeCqqAGQWugBrM9iekFsWaGCWTyU7PM66Q==
+	t=1795420058;
+	b=ryTJQO8bIPcqNUxLngzWPcKAL7bpqfCN1RXfci4FW2XWRAzbn8sahafBuNDuComblSXX
+	 +caAMC9NpDPTkUdviRi+CmigwLQv6VnSBiTou3X7RwbIORJ0M6f5xDiW+tpZGQMMjQlGZ
+	 Ej/CHCa0v4aLr4VlAIPcFG1olfNQeGNjcYHmDNLECkepaRsIwsgEHnx5bB2MoEdlPDpEq
+	 kZXGCiJUxi0pbkJSnsulycLp/bZjzRRN8MnhB7c8m+KpNUds9BTYiYq2elzbNT6ycdd6X
+	 RDQgzvODHdhIDKst347C4s+7nz/zxUF7+m4wyAlNauuNyfSHmhzeZhp08FEonY3QeHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795420036;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
-	bh=Dr1iKVrv9/eBqSO8/xSdTONwVVAExyf79+TG9olwstM=;
-	b=jW+6GHPOE/i7MzIkzHsFAEct3GZLjMj2Ux5SNYPrv+IIeumTfqcXOIeJGLsew0bLMxpX
-	 PhWThlHOyHhoANsbK0jtYJS6JxCmOmfiIiggM2yNm6PIUMB0xd0H1gOGV41DHxEbU6D/k
-	 pBvGg67PiLjMEi5I9a0ih739h6Vl9aRa7G4Atr7m5q4V2xT2D8L3G5Kcv7MQWX3+UcCTK
-	 0sSKIrF/027ZO63vIVx+7gAbrTpBN+g36tdXS+YN30HsRxF5eUZMGHIeCi1J91HOIXeE3
-	 YX+1pmaX7BRVBjM4OWySPRc5rRcoq6xNr9Rrfu2FWUAk+L1xzTFexIXt6ZfuIbDXuGg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795420058;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
+	bh=IMHR1UHlaSkYXvI5f6seP3SqRyBf4Dtza4yGLxiVPJk=;
+	b=m/zAPlIN7PnpADApe8EGd2g/0U+QitldcBCC7SEULI1Y9tww7JBFgHCYdiHyid0pbLsa
+	 +K63EubYCnTLaoGARI4II9ZRJK+6/tBYunSAWm+wQz+f0Z65IucfvLHNKgIjxSWEyftKZ
+	 sopJf21eTO9QGGFrQ29K6pjP1CNDI196z2TWtVUeAvcgtHLNR5bY7o1ytwyFhgDK4rpwi
+	 7GVCUt7JXCdyVTya3ok5zIkCn2EuvF11edKwtWarIGFllKqn1416sp36sIps0HyyrukPg
+	 c2mQGjA1Ek6kv3LzaJuJG4HTNzRB/IwKCpUH5AKrRdqImAhRWlQSJNhRiOlTARCdc6A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=OdeLPQi7;
-	arc=none smtp.remote-ip=113.46.200.219
-Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=n6KT8gsm;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5B08606A31A;
-	Mon, 23 Nov 2026 07:47:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5B08606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6125E606A31A;
+	Mon, 23 Nov 2026 07:47:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6125E606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=OdeLPQi7
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Dr1iKVrv9/eBqSO8/xSdTONwVVAExyf79+TG9olwstM=;
-	b=OdeLPQi7av4eFetgOW7gmJ2uA8HEKWdiGvd9Q4UyaU+RgjE8O6Bn7GlEaKy3v/fPucetd+0hJ
-	xx1KNV9uQthppb7212n3GNLBh4tWNY4LyDh84y6zB5CESKbopZMJRW7VTvtuEZ6HAl3YJ5k9FTk
-	zF113MK7P+qTA3m3BS6qRUY=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jXyh04vw2z1prKb;
-	Mon, 23 Nov 2026 15:46:56 +0800 (CST)
-Received: from dggpemr200003.china.huawei.com (unknown [7.185.36.25])
-	by mail.maildlp.com (Postfix) with ESMTPS id 817C34056D;
-	Mon, 23 Nov 2026 15:47:12 +0800 (CST)
-Received: from whupemq100006.china.huawei.com (7.152.184.206) by
- dggpemr200003.china.huawei.com (7.185.36.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Mon, 23 Nov 2026 15:47:12 +0800
-Received: from [10.67.110.154] (10.67.110.154) by
- whupemq100006.china.huawei.com (7.152.184.206) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Mon, 23 Nov 2026 15:47:10 +0800
-Message-ID: <6f594d21-f5c5-4224-b4ff-04ba3183a414@huawei.com>
-Date: Mon, 23 Nov 2026 15:46:56 +0800
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=n6KT8gsm
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795420058; x=1826956058;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=v1D4E2zzMlccfi2a2QCIuXxcWfSFz5vqwAawLHwyTco=;
+  b=n6KT8gsmCcp+qsMGwIIlUsQusEA53MT1FhgUB2E9xMtQxvICegnRIedl
+   PqrXFWoSc1WdqnKnURKUA8ZT+JynkutQ4yIrxCR6HPuloODbjMSwofeZd
+   zhiOiOlrZSC5CXISX2WHiBp+JuGuoryTlXvo1uNultdXGpPxsgFzxpoSG
+   nhffuLxBsWYVTJAPd7QUqjYkBbZgn36ao2Ut/HjDxB7zE4ihAUb+iQIng
+   si45RZuxTdyhwIYM/K5Pk+YDUkekoTc4QRiG0pVd4lTnb2lEi0g+gFXwR
+   FSUgP2g7O6DwFYDywZ+act9ALcT4vqba3Az+3n84WrBPXqoUOW5LEJDx/
+   A==;
+X-CSE-ConnectionGUID: +8UgUA2aRues3WtxT18cmg==
+X-CSE-MsgGUID: UEvgIfXASj6DDBM9z/VO3Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4104621"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4104621"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 23:47:37 -0800
+X-CSE-ConnectionGUID: HSICQss7TA+aU/+uM2riVA==
+X-CSE-MsgGUID: 7mBmUESYSOCdnWkF0sg3AQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11139912"
+Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
+  by orviesa005.jf.intel.com with ESMTP; 22 Nov 2026 23:47:32 -0800
+Date: Mon, 23 Nov 2026 15:37:54 +0800
+From: Xu Yilun <yilun.xu@linux.intel.com>
+To: Artem Bityutskiy <artem.bityutskiy@linux.intel.com>
+Cc: x86@kernel.org, linux-coco@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Kiryl Shutsemau <kas@kernel.org>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>, dave.hansen@intel.com,
+	kvm@vger.kernel.org, yilun.xu@intel.com, xiaoyao.li@intel.com,
+	sohil.mehta@intel.com, adrian.hunter@intel.com,
+	kishen.maloor@intel.com, tony.lindgren@linux.intel.com,
+	peter.fang@intel.com, baolu.lu@linux.intel.com,
+	zhenzhong.duan@intel.com, chao.gao@intel.com, nik.borisov@suse.com
+Subject: Re: [PATCH v5 2/6] x86/virt/tdx: Configure add-on features on TDX
+ module init
+Message-ID: <awPtUgf+YZ0xfD6v@yilunxu-OptiPlex-7050>
+References: <20261111-tdx-module-ext-v5-0-c74f764abc3d@linux.intel.com>
+ <20261111-tdx-module-ext-v5-2-c74f764abc3d@linux.intel.com>
+ <d012c58931efa38a782ac3484ea930d05a6407a9.camel@linux.intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,122 +88,136 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 bpf-next 0/3] riscv: bpf: Add BPF private stack support
-To: <ast@kernel.org>, <daniel@iogearbox.net>, <andrii@kernel.org>
-CC: Chen Pei <cp0613@linux.alibaba.com>, <memxor@gmail.com>,
-	<bjorn@kernel.org>, <puranjay@kernel.org>, <alexei.starovoitov@gmail.com>,
-	<eddyz87@gmail.com>, <martin.lau@linux.dev>, <song@kernel.org>,
-	<yonghong.song@linux.dev>, <jolsa@kernel.org>, <emil@etsalapatis.com>,
-	<ihor.solodrai@linux.dev>, <pjw@kernel.org>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <luke.r.nels@gmail.com>,
-	<xi.wang@gmail.com>, <shuah@kernel.org>, <rgbi3307@gmail.com>,
-	<guoren@kernel.org>, <bpf@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20261106181558.1564-1-cp0613@linux.alibaba.com>
-Content-Language: en-US
-From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <20261106181558.1564-1-cp0613@linux.alibaba.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- whupemq100006.china.huawei.com (7.152.184.206)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <d012c58931efa38a782ac3484ea930d05a6407a9.camel@linux.intel.com>
 
-Hi Alexei, Daniel, Andrii,
+On Sun, Nov 22, 2026 at 05:50:41AM +0200, Artem Bityutskiy wrote:
+> Hi Yilun,
+> 
+> The patch looks good, but its framing can be improved.
+> 
+> Remove references to enabling all add-ons to improve it. This patch adds
+> plumbing, it should not dictate/discuss whether all or only some add-ons
+> should be enabled. See comments below.
 
-Gentle ping on this series -- it looks good to me and bpf selftests pass 
-on RV64. Some upcoming patches will conflict with these changes, so it 
-would be helpful to get this applied first.
+The get_tdx_usable_addon_features0() in this patch is enabling all
+add-ons that *the kernel supports*. And this policy definitely needs
+explanation.
 
-Thanks,
-Lehui
+The current kernel code highly depends on tdx_sysinfo.features.tdx_features0
+to decide if a feature is available. So if we enable *some* add-ons, the
+contract no longer holds. So I do think we need clear words on the
+policy.
 
-On 2026/11/7 2:15, Chen Pei wrote:
-> This series adds private-stack support to the RV64 BPF JIT.
+But yes, maybe the word "all" reads like we enable all add-ons that the TDX
+module supports. I'll see how to avoid that.
+
 > 
-> The verifier rejects a struct_ops program that requests a private stack
-> with -EACCES when the JIT does not report
-> bpf_jit_supports_private_stack(), and sched_ext requests one for its
-> dispatch callback, so no sched_ext scheduler can load on riscv64 today.
+> On Wed, 2026-11-11 at 11:48 +0800, Xu Yilun wrote:
+> > The TDX architecture identifies some features that are off by default.
+> > They are classified as add-on features because enabling them affects
+> > existing TDX systems: they may change existing feature behavior, or
+> > reserve more memory.
+> > 
+> > However, the impact of the first add-on features will be low enough to
+> > pursue a simple approach - the kernel just enables them when supported.
+> > If a feature with a very high overhead appears in the future, this can
+> > be revisited.
 > 
-> Allocation, the guard value and the lifetime handling follow arm64,
-> x86-64 and powerpc64; the 16 byte two-copy guard layout follows arm64
-> and powerpc64, since x86-64 uses an 8 byte guard with a single copy.
-> What is specific to riscv64 is where the pointers end up:
+> This sounds like all supported add-ons will be enabled for simplicity.
+
+Maybe the first sentence is not clear. I want to say we enable add-on
+features when *the kernel* supports them. I'll change it.
+
 > 
->   - Every BPF stack access goes through BPF_REG_FP (S5), so pointing S5
->     at the top of the per-CPU area and leaving SP on the kernel stack is
->     all the JIT has to do. S5 is callee-saved and each subprog derives
->     its own, so bpf2bpf calls need no extra save and restore.
->   - The outgoing stack argument area stays in the kernel frame: callers
->     write it relative to SP while callees read it relative to RV_REG_FP.
->     Unlike x86-64, no register here is shared with the private-stack
->     frame pointer, so no verifier-side exclusion is needed and stack
->     arguments keep working together with a private stack. arm64 already
->     does the same, and patch 3 tests that combination.
->   - The per-CPU lookup is emitted after the tail call entry point. A
->     program using a private stack can still be entered as a tail call
->     target, at RV_TAILCALL_OFFSET, so it has to set up its own S5 there;
->     and since that offset is a constant added to the target's bpf_func,
->     everything in front of it must be the same size in every program.
+> The reviewer keeps this in mind now.
 > 
-> The base address is materialized with absolute moves, as on arm64,
-> x86-64 and powerpc64, which reach the per-CPU offset through gs:, TPIDR
-> or r13; riscv64 has no such register, so the address of __per_cpu_offset
-> is loaded too. Patch 1 has the detail, including why emit_imm() is a
-> choice there and why the prologue length stays fixed across passes.
+> ... snip ...
 > 
-> RV32 does not declare support and keeps the existing behaviour; the
-> prologue signature is unchanged, so bpf_jit_comp32.c needs no edit.
+> > Pass the bitmap of features that are supported by both kernel & TDX
+> > module to TDH.SYS.CONFIG. Initially, the bitmap is 0. It will be updated
+> > to contain specific feature bits as full kernel support lands.
 > 
-> Changes since v2:
->   - Patch 1: PRIV_STACK_GUARD_VAL moved to bpf_jit.h.
->   - Patch 3: The test redone as two asm programs in
->     progs/verifier_stack_arg.c.
+> But this says that it enables no add-ons. Now reviewer needs to spend
+> brain cycles to process the contradiction, unnecessarily.
+
+I see the concern. There is actually no contradiction, we enable all
+kernel-supported add-ons, but for now kernel supports no add-ons, so
+nothing is enabled.
+
+v4 explains this point in one paragraph, I split it in v5 which may
+causes the disconnection. I'd like to roll back:
+
+    Although add-on features can introduce overhead to TDX runtime, the
+    impact of the first features will be low enough to pursue a simple
+    approach - just enable them when kernel support lands. Pass the bitmap
+    of features that are supported by both kernel & TDX module to
+    TDH.SYS.CONFIG. Initially, the bitmap is 0; it will be updated to
+    contain specific feature bits as subsequent kernel changes support them.
+    If a feature with high overhead appears in the future, this can be
+    revisited.
+
 > 
-> Changes since v1:
->   - Patch 1 commit message: guard layout credited to arm64 and powerpc64,
->     value alone to x86-64; __per_cpu_offset described as a choice.
->   - Patch 3: test_private_stack_runtime() renamed to
->     serial_test_private_stack_runtime(), and the stack argument skip
->     prints a reason.
+> ... snip ...
 > 
-> Testing
-> =======
-> QEMU virt rv64, an 8 vCPU SMP kernel and a 1 vCPU UP kernel, both built
-> on the base commit below, source tree clean at the head of this series,
-> selftests built from these patches. There are no private-stack related
-> failures, and the private-stack suites logged no BUG, WARNING, unknown
-> opcode or guard corruption. On UP, kfunc_call/subprog,
-> kfunc_call/subprog_lskel and scx_simple are not run: all three fail on
-> the unpatched base as well.
+> >  arch/x86/virt/vmx/tdx/tdx.c | 19 +++++++++++++++++++
+> >  1 file changed, 19 insertions(+)
+> > 
+> > diff --git a/arch/x86/virt/vmx/tdx/tdx.c b/arch/x86/virt/vmx/tdx/tdx.c
+> > index c7bd0b01786d..3bfe78b4b538 100644
+> > --- a/arch/x86/virt/vmx/tdx/tdx.c
+> > +++ b/arch/x86/virt/vmx/tdx/tdx.c
+> > @@ -1033,9 +1033,19 @@ static __init int construct_tdmrs(struct list_head *tmb_list,
+> >  
+> >  #define TDX_SYS_CONFIG_DYNAMIC_PAMT	BIT(16)
+> >  
+> > +/* List all kernel-supported add-on features0 bits here */
+> > +#define TDX_KERNEL_SUPPORTED_ADDON_FEATURES0	(0)
 > 
->   - verifier_private_stack, struct_ops_private_stack.
->   - tailcalls, stack_arg, subprogs, fentry_fexit, kfunc_call,
->     percpu_alloc, async_stack_depth, arena_atomics, arena_ldsx.
->   - verifier_stack_arg, stack_arg_precision.
->   - may_goto_priv_stack, may_goto_far, verifier_may_goto_1,
->     verifier_may_goto_2.
->   - scx_simple.
->   - sched_ext runner sweep on SMP: 40 cases, 39 pass. enable_cmask fails
->     because its ops.enable() takes a struct scx_cmask __arena pointer and
->     riscv64 does not implement bpf_jit_supports_arena_args().
->   - patch 3's test again on x86-64 and arm64, so all three
->     architectures it is gated on have run it.
+> Suggested comment:
 > 
-> Chen Pei (3):
->    riscv: bpf: Add BPF private stack support
->    selftests/bpf: Enable private stack tests for riscv64
->    selftests/bpf: Test a private stack together with stack arguments
+> /* Specify add-on feature bits to enable” instead */
 > 
->   arch/riscv/net/bpf_jit.h                      |  2 +
->   arch/riscv/net/bpf_jit_comp64.c               | 42 +++++++++-
->   arch/riscv/net/bpf_jit_core.c                 | 82 +++++++++++++++++--
->   .../bpf/prog_tests/struct_ops_private_stack.c |  3 +-
->   .../bpf/progs/verifier_private_stack.c        | 41 +++++++++-
->   .../selftests/bpf/progs/verifier_stack_arg.c  | 49 +++++++++++
->   6 files changed, 205 insertions(+), 14 deletions(-)
+> I think that this patch should not dictate "all" vs "some", no need.
+
+Yes, will do.
+
 > 
+> ... snip ...
 > 
-> base-commit: a3c8813409f13779fec225468aba7d4067a66468
+> > +	/*
+> > +	 * Use SEAMCALL version 1 that supports add-on features if any are
+> > +	 * requested. Otherwise use version 0 for backward compatibility.
+> > +	 */
+> > +	if (addon_features0) {
+> > +		args.r9 = addon_features0;
+> > +		args.version = 1;
+> > +	}
+> 
+> Separate nitpick for the comment.
+> 
+> Suggested comment:
+> 
+> /*
+>  * Avoid unnecessarily requiring version 1 when no add-on features to
+>  * request.
+>  */
+> 
+> I was confused by "for backward compatibility”, which sounds like the
+> kernel or the seamcall falls back to version 0 if version 1 is not
+> supported.
+
+It is for backward compatibility, but we don't try v1 then fallback to v0.
+
+How about the following. I want to keep the compatibility statement but
+still fit in 2 lines.
+
+	/*
+	 * Avoid unnecessarily using version 1 when no add-ons to request. This
+	 * retains compatibility with older modules that don't recognize v1.
+	 */
+
+> 
+> Thanks, Artem.
