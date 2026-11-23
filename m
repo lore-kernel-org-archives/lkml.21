@@ -1,79 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795462700;
-	b=Tn9CWNxXOAZZJw5vH6fWZ+2s/4HS/DuTC4R+K3hScN6PMMelJ9lTAFsmgkmqYkQxrTBp
-	 eSydkrtim1B4npvzMrPRlLnNoyccYNZ8nX99lfNdTXcR2B/KFAVT0E8PToofKTk3DiN7K
-	 FeX6zjZHwFq19w16wl83LgxH+cflyNrjebYew8OZEy/cEW1gN7o/NUf0RSQ/NyJN2sUoe
-	 bN7KOcMqOJiB9ck4u3V//mfsjpPn/nKMPB4CdSgb5xl8TVnxVLQbT5tMdQz5G6i632UaI
-	 sPH87ukGA3o5zWPWRbTA4h7dqsY50GqBvumS27A5ITKuH3bQgVfUUa5/Y0JsC1noslQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795462700;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=jnPu9C8U78zwh2haTTxt6kMsYkBetNfurHLTgZHI+MM=;
-	b=y7sypBtY4DzjCObmHP1qRTXrfYJHhpE7hHhQXp4puTFxA5w6FMIy585TZiQsIzLKp2jq
-	 9eku9/Ew5yUacM8g4uO7T6kpsjl/IbQgvDQ5y1FVTZTKWh45uN8X4B45CxCF+fjNHUER7
-	 NfEvGy0nwzbyNIYRHHwZ+jywHiBgyhqPN0O0n6HKoaWA/i8lCSCj8Q/ZvFqoQFysNMDQe
-	 PVfowgyIUokWKbM55nqjgzRKZzYP7qyHQc99vkHSY13VHSohTJTPRSrIs4b3O2rxqpwT3
-	 mxceG7Mw4KYkyIiDhV00aLw8qfLegoxhjHOdQqtLqFOlbyI0rnKvA1fllPBmvDuDjFg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mdG9XM7E;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795462703;
+	b=dr62JT6ZI+Ah+B1Nvts2v+s2gr/XpszQKP5P5ePBkJ+FtPctKMGt90F7s8bpD7olyNVG
+	 pekIBiEAQytbkJQSvDweObY3ebztdWBX/nLmz6DuZrtxrNRuTQbMiFo+GaTD/0ZkhrlMD
+	 wAfMR6eW3+pdZ7FJgEKPPMpmv3iVAKb9eZUJ6juJILeQd+7mFOlER6lYlWF/vM0fFFsxS
+	 fazgVLLhAyee6ki03NvsoT7NAstAG32QYUyTM0eThhO9P6L6pWfK53ixvjBLLMWUFTJeV
+	 DIUkclhUIqjM4ly+1Ubi+HfhhGCv3i+2g4yWp4f38FkB5c4VRgwi7Km7h70f7JhXA+w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795462703;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=qlsfwH5iDwzzT2NBuzVFKYURRUdXTETxGoySmkxe1eU=;
+	b=uy8l5X3DDA8+Z7dSWiQG16sCylq1ArXg/eB8l7jolFee54B9vSVPQCn6C13+3SfqI6Ow
+	 J2FUBE0YL+WqgR2iGM+BEYTb60zB2xfQx4zhPYQKxJidq/PiJ6+i8oGGzlpwH7cIMw7sH
+	 dNpr4LRT+SElZgsX2/YKyix5rJx7/Z10VmVKJnry/RPUYdWXJdVZ0+PQRp9TXK3jU8dJT
+	 CEyKznDlp1nJucdVsLn5P6QzQnVLR/SZoz3KFmfZ+Bfu0Tg6/ueJtwWqOnLf6daIfAx7s
+	 5pJLmYAq614wrROWc9t6YnDvi9ozNNm5FOlVhue5uu/Dj6y0YOVglikrEAvyEwQ4kGg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P1ijykeE;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A9AF60A261F;
-	Mon, 23 Nov 2026 19:38:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 2570760A3801;
+	Mon, 23 Nov 2026 19:38:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mdG9XM7E
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795462700;
-	b=PtGBAvaCs3Toqe6Ir4zB5F3llg2x1HAXwJeIYze1KfeFfcdtwF2kEOWJZEGbCKxPQC3i
-	 hiCk9i3kHt5IfNGASQJMpj3eU8ieHZabdNHICybHfBgzeWNCHsnk4NSUnfFEFKt8LBmUH
-	 4LG2h80A0COeu9ikE1smceYhmgOMvhqUCQpmrvrR62slNanZRlEhvcYzqei+5jCgBTAT/
-	 SPzfnF+cbMn4Oi+yFhA4K56w9Ig4CO6i3UYtLer1l6ur9G0kURfBWbY+AHD8d74S9DFxh
-	 /R6u+avqh1f/i4NuhSvnpFyZ/BaYZLpztuEg6O7CZyfUQrPXwadN9+CgJbej+vwyAaA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795462700;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=jnPu9C8U78zwh2haTTxt6kMsYkBetNfurHLTgZHI+MM=;
-	b=geITENjSIP8gb4OODgWiikXH+6QqPm8U+CDvwugOzxbxE/gWaUzv7r49k8ALHZasNVLb
-	 Sp14n9G9fjImAvyTfjmD99REbD5K66vgXXKnf9NAkdZQvndsBa/nAL3uN5sIGDSfsej5K
-	 eFJzLhIEYK4ZLV1wClMJQThm3VOWDZqrysiledDTB6aOul5LBaL5MVLSLp0Djn0YByeAK
-	 DgQtQmrUfDPiFhi/ZTlnOVvKMDLYQbXHDCPxGGlAKBhxW/6vBSIJm+JgCOeM7WF6lGH6c
-	 f9mPryomkbF34EkIMdHoaznoUM4ppG7/UQCGrXHqnHSBd9lFv4EzHegIH1Hc/jaKQ4g==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 712331F000E0;
-	Mon, 23 Nov 2026 19:38:10 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P1ijykeE
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 478181F0283C;
+	Mon, 23 Nov 2026 19:38:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795462700;
-	bh=jnPu9C8U78zwh2haTTxt6kMsYkBetNfurHLTgZHI+MM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=mdG9XM7EvziQLSc36dVIbBEzHAaBv3DNTi5uwyXDRn0buLB9XgVWabiBauK1fMip0
-	 t3Hy9JwYqV3iXVmhzgUECJl/1o/ddHJ75k0B7dTVNLIGLeWpRy3t49SkrObPdLmPa+
-	 jjoaCMWxvPpoWwUVRJkn/yYwizTECjLvs8u+xMOrOZAWtwkYjDl8GXkip92Vza6KL7
-	 Wuz2NUmuVafoU3fSOZgoy9yXVxqSDAbsVPNIayngtzHzNQmD2h6MTY2zBUb//18FC4
-	 HwQS1729xdi7Ij+5OMbqpMFoMPK8R1+sZSQOFrhMYkQGcaMkTTbLCyZ1JGCG1FU8wN
-	 nNEpvq7oGqxzA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 707E24C6A5;
-	Mon, 23 Nov 2026 19:38:01 +0000 (UTC)
-From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
-Date: Mon, 23 Nov 2026 20:37:39 +0100
-Subject: [PATCH v4 07/11] drm/meson: dw-hdmi: Drop manual HHI clock and
- memory PD setup
+	s=k20260515; t=1795462702;
+	bh=qlsfwH5iDwzzT2NBuzVFKYURRUdXTETxGoySmkxe1eU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=P1ijykeEJumWyoLTQoKWfaIxyFipXk8Sc/7YAifOwm4mEQIURt/8ju0zP8y2M4ZqL
+	 W1xTzOyrkwq9ASP7FcBpASYSN21wV76G7N1reOirN/BC7SqVkCp/eg4UYHtvtMe8rO
+	 C8YBlrc/BQk0mZncHY8byUlTruz0duT7E652ApcSkdKl2aP+7uMq+3QhudFKuCK3MR
+	 frD+h3OPio4jbE4HSdlsPjgsuzgt71ItzYg7Pme3WZQRQJYh303cA6Mx33KAlyNlY4
+	 vEJaV1s6zIYM8Mdo1BSE+syRGbA2ydFngK8pY97EaqkVeDH8C0noei0A/rn/RmzqQS
+	 6xiIZrmuMzpXw==
+Date: Mon, 23 Nov 2026 21:38:19 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Casey Schaufler <casey@schaufler-ca.com>
+Cc: Andy Lutomirski <luto@amacapital.net>,
+	Andy Lutomirski <luto@kernel.org>,
+	"Hallgrimur H. Gunnarsson" <halg@google.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Serge Hallyn <sergeh@kernel.org>, Paul Moore <paul@paul-moore.com>,
+	James Morris <jmorris@namei.org>,
+	David Howells <dhowells@redhat.com>, Kees Cook <kees@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
+	Jonathan Calmels <jcalmels@3xx0.net>, Jann Horn <jannh@google.com>,
+	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
+	Singh KP <kpsingh@kernel.org>, linux-fsdevel@vger.kernel.org,
+	linux-security-module@vger.kernel.org, linux-api@vger.kernel.org,
+	containers@lists.linux.dev, keyrings@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] userns: introduce capability bounding set for
+ user namespacesg
+Message-ID: <awSWK7o9PCk4ApM8@kernel.org>
+References: <20261119104208.782900-1-halg@google.com>
+ <20261119104208.782900-2-halg@google.com>
+ <CALCETrVqc+1bjH1bhqHee9bsUdk2B6314z7PMexbsnNpMhk14g@mail.gmail.com>
+ <CALCETrV=zSxb6sgA08DLiK2bQovdMEj9ycG=Cc71mLn2C5Pgeg@mail.gmail.com>
+ <4db941ba-3001-4019-8910-63e534b29f89@schaufler-ca.com>
+ <awSVO9Zc-233M7_P@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,159 +79,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-meson-drm-create-hdmitx-phy-v4-7-3fb94f5534ca@aliel.fr>
-References: <20261123-meson-drm-create-hdmitx-phy-v4-0-3fb94f5534ca@aliel.fr>
-In-Reply-To: <20261123-meson-drm-create-hdmitx-phy-v4-0-3fb94f5534ca@aliel.fr>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Ulf Hansson <ulfh@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-phy@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- Ronald Claveau <linux-kernel-dev@aliel.fr>, linux-pm@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4251;
- i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
- bh=Va7r71zAoY5+1f1lapvKRBrSntc7NXGNh523dnCyfas=;
- b=owGbwMvMwCWm1SvKXP3cUInxtFoSQzbLNIHfK5aqzi3t3uQvwjXf8pbLr5Pv57z8vIRZ+funw
- FwHzkSFjlIWBjEuBlkxRZb+uZYn3l0+eubrHvUUmDmsTCBDGLg4BWAiMrsZ/ue0ndXWYi1gvRM6
- Nbdj0zz+9DxfwU2lbW8fSt9+VRF4rIGR4bV7n0X2BaFnx9nWP+tN/aUh+kXCVm7HitWaRlPld1l
- MZAAA
-X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
- fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
-X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
- auth_id=744
-X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Reply-To: linux-kernel-dev@aliel.fr
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <awSVO9Zc-233M7_P@kernel.org>
 
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+On Mon, Nov 23, 2026 at 09:35:16PM +0200, Jarkko Sakkinen wrote:
+> On Mon, Nov 23, 2026 at 09:22:29AM -0800, Casey Schaufler wrote:
+> > On 11/20/2026 9:09 AM, Andy Lutomirski wrote:
+> > >> On Nov 19, 2026, at 2:52 PM, Andy Lutomirski <luto@kernel.org> wrote:
+> > >> ﻿On Thu, Nov 19, 2026 at 2:43 AM Hallgrimur H. Gunnarsson
+> > >> <halg@google.com> wrote:
+> > >>> When a process creates a new user namespace, it receives a full set of
+> > >>> capabilities (CAP_FULL_SET) scoped to that namespace. While namespaced
+> > >>> in scope, several of these capabilities (such as CAP_NET_ADMIN and
+> > >>> CAP_NET_RAW) expose broad kernel attack surface that many sandboxes and
+> > >>> containers never need. However, there is currently no configurable way
+> > >>> to withhold such capabilities from user namespaces while still granting
+> > >>> them to workloads that require them.
+> > >>
+> > >> One thought (from the rootns thread): the other decent sized attack
+> > >> surface here is CAP_MOUNT_ADMIN.  Which doesn't exist as a capability
+> > >> bit.
+> > >>
+> > >> A sort of horrible solution (but maybe not so awful) would be to
+> > >> declare that the bits in cap_userns aren't actually capability bits,
+> > >> and that you need the bit in cap_userns *and* the bit in cap_effective
+> > >> to do sensitive things, and that mounting needs cap_userns to have
+> > >> NSCAP_MOUNT_ADMIN *and* cap_effective to have CAP_SYS_ADMIN.
+> > >>
+> > >> I want to sleep on this.  It might actually solve several problems,
+> > >> e.g. controlling creation of ipv4 and ipv6 loopback or tunnel devices
+> > >> or whatever.
+> > > I slept on it. Here’s a counterproposal.  I’m not saying I think this
+> > > is better than this patch set, but I think it’s worth weighting the
+> > > options.
+> > >
+> > > Define a whole new set of privilege bits.  As a
+> > > poorly-painted-bikeshed option, I’ll call them eprivs (for exposure
+> > > privileges - it’s a crappy name but at least it’s pronounceable).
+> > 
+> > I played with a mechanism I called "chits" (all the good terms for security
+> > bits have been consumed for a very long time) that looks a lot like
+> > what you're proposing. I did it to address the CAP_SYS_ADMIN problem,
+> > where any use of the capability opens up a whole barrel of worms.
+> > I cannot, unfortunately, find my patches. :( The basic approach is:
+> > 
+> > A process has an optional set of chits. A process without a chit set is
+> > unaffected by the mechanism. A process with a chit set is allowed only
+> > those operations for which it has a chit. The existing but empty chit set
+> > allows no operations. A process may drop a chit, but not the set, which,
+> > again, can be empty.
+> > 
+> > Because I was after CAP_SYS_ADMIN, I envisioned a call
+> > 	cap_able_chit(capability, chit-list)
+> > but there's no reason there couldn't be a
+> > 	chit_able(chit-list)
+> > as well.
+> > 
+> > I wrote this as an LSM, but the system-wide aspect of it made that
+> > a questionable choice.
+> > 
+> > If you have any interest, I could dig more deeply to try to find the
+> > patches. Otherwise, I'm happy to look at what you come up with.
+> 
+> What if eprivs or chits would take each capability and subvidide
+> them into pieces? CAP_MAC_ADMIN would be formally a set of chits
+> (or eprivs).
+> 
+> And process having e.g., CAP_MAC_ADMIN, would actually have the
+> set of chits that are included to CAP_MAC_ADMIN.
+> 
+> Without that type of relation there's just a space full of chit
+> ;-)
 
-meson_dw_hdmi_init() programs two HHI registers by hand: the HDMI clock
-mux/divider/gate (HHI_HDMI_CLK_CNTL) and the HDMITX memory power-down
-bits (HHI_MEM_PD_REG0). Both are already covered by resources described
-in the DT:
+This would not prevent from combining your own collections of chit
+that do not map to any specific cap, only that each cap should map
+to a specific set.
 
- - the HDMI clock is selected and rated through assigned-clocks
-   (CLKID_HDMI_SEL parented to xtal, CLKID_HDMI at 24 MHz), and gated
-   through the "isfr" clock, which the driver already enables at bind
-   time;
- - the memory power-down bits are handled by the VPU power domain
-   referenced by "power-domains".
-
-Remove the open-coded register writes. Take an explicit runtime PM
-reference in probe and release it on removal, so that the domain is
-guaranteed to be on for the lifetime of the device.
-
-The driver now relies on runtime PM to power the HDMITX memory, so make
-it depend on PM.
-
-Those properties are optional in the binding and were only added to the
-in-tree DTs in v6.11, so DTs without them would no longer get the
-registers programmed by the kernel. This is not a concern in practice:
-
- - the DT used by the kernel often comes from U-Boot, which used a DT
-   based on Linux v6.2 before v2024.07 and has used the DT synchronized
-   with Linux since then, matching the v6.11 DT with the clock changes;
- - U-Boot already sets HHI_HDMI_CLK_CNTL and HHI_MEM_PD_REG0 when
-   probing dw_hdmi, since v2019.04, so both registers are already in the
-   expected state when Linux boots, even with an older U-Boot and DT.
-
-The risk of regression is therefore very low.
-
-Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
----
- drivers/gpu/drm/meson/Kconfig         |  1 +
- drivers/gpu/drm/meson/meson_dw_hdmi.c | 31 ++++++++++++++++++++++---------
- 2 files changed, 23 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/gpu/drm/meson/Kconfig b/drivers/gpu/drm/meson/Kconfig
-index 417f79829cf8..6645665f6038 100644
---- a/drivers/gpu/drm/meson/Kconfig
-+++ b/drivers/gpu/drm/meson/Kconfig
-@@ -17,6 +17,7 @@ config DRM_MESON
- config DRM_MESON_DW_HDMI
- 	tristate "HDMI Synopsys Controller support for Amlogic Meson Display"
- 	depends on DRM_MESON
-+	depends on PM
- 	default y if DRM_MESON
- 	select DRM_DW_HDMI
- 	imply DRM_DW_HDMI_I2S_AUDIO
-diff --git a/drivers/gpu/drm/meson/meson_dw_hdmi.c b/drivers/gpu/drm/meson/meson_dw_hdmi.c
-index eb33c70f29c3..20a821936b3a 100644
---- a/drivers/gpu/drm/meson/meson_dw_hdmi.c
-+++ b/drivers/gpu/drm/meson/meson_dw_hdmi.c
-@@ -12,6 +12,7 @@
- #include <linux/of.h>
- #include <linux/of_graph.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
- #include <linux/regulator/consumer.h>
- #include <linux/reset.h>
- 
-@@ -102,8 +103,6 @@
- #define HDMITX_DWC_CTRL_REG	0x18
- 
- /* HHI Registers */
--#define HHI_MEM_PD_REG0		0x100 /* 0x40 */
--#define HHI_HDMI_CLK_CNTL	0x1cc /* 0x73 */
- #define HHI_HDMI_PHY_CNTL0	0x3a0 /* 0xe8 */
- #define HHI_HDMI_PHY_CNTL1	0x3a4 /* 0xe9 */
- #define  PHY_CNTL1_INIT		0x03900000
-@@ -599,12 +598,6 @@ static void meson_dw_hdmi_init(struct meson_dw_hdmi *meson_dw_hdmi)
- {
- 	struct meson_drm *priv = meson_dw_hdmi->priv;
- 
--	/* Enable clocks */
--	regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL, 0xffff, 0x100);
--
--	/* Bring HDMITX MEM output of power down */
--	regmap_update_bits(priv->hhi, HHI_MEM_PD_REG0, 0xff << 8, 0);
--
- 	/* Reset HDMITX APB & TX & PHY */
- 	reset_control_reset(meson_dw_hdmi->hdmitx_apb);
- 	reset_control_reset(meson_dw_hdmi->hdmitx_ctrl);
-@@ -829,9 +822,29 @@ static int __maybe_unused meson_dw_hdmi_pm_resume(struct device *dev)
- 	return 0;
- }
- 
-+static void meson_dw_hdmi_pm_put(void *dev)
-+{
-+	pm_runtime_put_sync(dev);
-+}
-+
- static int meson_dw_hdmi_probe(struct platform_device *pdev)
- {
--	return component_add(&pdev->dev, &meson_dw_hdmi_ops);
-+	struct device *dev = &pdev->dev;
-+	int ret;
-+
-+	ret = devm_pm_runtime_enable(dev);
-+	if (ret)
-+		return ret;
-+
-+	ret = pm_runtime_resume_and_get(dev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to power on HDMI TX\n");
-+
-+	ret = devm_add_action_or_reset(dev, meson_dw_hdmi_pm_put, dev);
-+	if (ret)
-+		return ret;
-+
-+	return component_add(dev, &meson_dw_hdmi_ops);
- }
- 
- static void meson_dw_hdmi_remove(struct platform_device *pdev)
-
--- 
-2.56.1
-
-
+Br, Jarkko
