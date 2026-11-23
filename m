@@ -1,56 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=128.30.2.78
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795461359;
-	b=y4wY0Oeutm8tKv6aq1JjNGSo14kHJfoE+Kun/K8P2/qkD99Z3J378oTFdaY4lq+KUmmG
-	 PFYmaoTbvTuTmMHSoXKm56sksDIivGOwuPhfqyg672PeUzb3WMXAjH6ZUuqOwOyVEc39e
-	 hyMpeL/dj7YCC0oifJfr+TOaz9T8wUj+noDMDkV4dYFuQYXruOwUHNMjVEJMGoKLu3TZ7
-	 fBiJR3FXfRF/j0YkVfkJFTm7jqC6j/0UNyaUMgpIEpkF3cxyKAIWvfjT5FFIEr4vIV/Jv
-	 WPGyv/OD7yppzHWPbtrfCXFZYFou99p9G1RDTcptq/6Ot/LkzV7Jm0Da5VDDIWgPEzA==
+	t=1795461386;
+	b=c/AQ3/sY4Bbj4lzcmITfDWNVgxFkTkXtLZXIP745Iwkbpw+WQ6QwcnjOIpmcBn8UB2SM
+	 s7ywgexufMgZ8PRdmwtKcVH/eleQfIkaMPj696X6+GgKZUE6aAXCbDUisFhqnDzUxGyKr
+	 Nvg+x232G8KStFltNc8uHxLOKUiiMPoGH2ihyqUf/aBTUBkP9BtohOIXS+Ob4fd7BDmoS
+	 G5VmGmPmgsonxYIxnAKkX9YJ5AsRzVMH0NxdPW6wKKJjtIAK9s7cC2ZCZnPfm41N0q/Z2
+	 VIiF33vdf15uejY2yT+eJVYpocl4V9E8Hw+6pd9FMxX9wUH1N1YCYnwuDht3ae7BWYA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795461359;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=PvW4g6854DmgXR4PJGdaXsGlS+qMtRehARbQ3GAMNvs=;
-	b=kdIIXJdSL3k7gxmJDpuK3INihzn5BWltIGMPHtjHuDkzZ6Tc7EZKZDynZNlycWZBS0fl
-	 bEmSiX09tArfM81ugp8LWFb9OY0c6WzqQS7233cuOnksucw7DzM7XCyQ7pmzmeLzEIOeH
-	 s2GX8EhYkah9CULd3UxssGgtnyikjQBcFW5pAXaLR8FpCbcwTt+CoeyonfwxdB6YuqzaQ
-	 O/EMcJ/k1+Slv67hL1F4BKwvyrX2M64SUjN9g0Sxsllg2LWBZYeb7BEGkSGhb6Ly+Ovy7
-	 EFkGVowKYPbFYAgoeZV7z27zl659g0UeCGFupaVIOIyvHe1cM49l/mqpqUO8a6fRqOg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795461386;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=bht87HU90ydQuqNwMWxnyUlGx5v3MiB0Rcrd/VnWTho=;
+	b=qPyNmurokI5zqSYgZBM7OQC8IXFX9230AEGZsk+ylxK0JfenQZQtbk3G6Wu7amG0yf7F
+	 wlHd+blocqF3XnezwEk4RylyuY3pKGJzo8zyW4eH16fQd44MNod0p1lb/UV+YSfkKH62h
+	 tMx9QAWHxz9/08yPhWY60auyj+WnsS0ZYaKlaleYTs7ujPTBvO4UqyMryO5/frd4hXYr2
+	 xte6zD8BXgXaZEc/PPhRmk56Qp8h2tpjQFgI38fCg68C8ArIhvgSTizehQukV7HELtjWs
+	 is7dORijhJb3mRP8rKpK5rtPZoT8eEflUvVGxhHpLDmOTL0J2s4V7TOGO+rbmXqr5Zw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZUeJKkoO;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=csail.mit.edu;
+	spf=pass smtp.mailfrom=csail.mit.edu;
+	dkim=pass header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=Acw6sZ0+;
+	arc=none smtp.remote-ip=128.30.2.78
+Received: from outgoing2021.csail.mit.edu (outgoing2021.csail.mit.edu [128.30.2.78])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 6DE0A606A32D;
-	Mon, 23 Nov 2026 19:15:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C754606A31A;
+	Mon, 23 Nov 2026 19:16:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C754606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=csail.mit.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=csail.mit.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZUeJKkoO
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 963B01F00A01;
-	Mon, 23 Nov 2026 19:15:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795461359;
-	bh=PvW4g6854DmgXR4PJGdaXsGlS+qMtRehARbQ3GAMNvs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZUeJKkoO+n5PbaowjiMJA2PUR8NZVJDGadCFC5uRagLWmV4RSWr/Hr2Kqw9jtpq1F
-	 pEgAYgYfudCkygpgwktdVfM7458ZPWwk6v8t3ctxO9ZOCk8ShiueDy+dCwbzGsjLhC
-	 ekUQ9O9N/QmlNKsNolEgw5qE1IaQRCrgp+wbBu9IuVEFUo4F5XXfv0YApBu3V+2N/V
-	 IIQtLgjCJS8BF0PqZuwwNGy/8GuwAmGmGi3hQ1ViS0FekpAX/IyPvfnAjliEPzc+r9
-	 nYAzT+BbyXnd1hn00K8tzO52fIwL1KbobUoGGCVy5z69J+p6ZSgofAWVW15gErqCDC
-	 T0M9mM8BrQ63Q==
-Date: Mon, 23 Nov 2026 21:15:55 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Rustam Mustafin <rmustafin@cloudlinux.com>
-Cc: Peter Huewe <peterhuewe@gmx.de>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Shuah Khan <shuah@kernel.org>, Jaewon Yang <yong010301@gmail.com>,
-	linux-integrity@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] tpm: Do not allow io_uring for /dev/tpm0 and
- /dev/tpmrm0
-Message-ID: <awSQ61-xFIsMY6N4@kernel.org>
-References: <awBff_fSk9HDh896@kernel.org>
- <20261123173321.2363162-1-rmustafin@cloudlinux.com>
+	dkim=pass (2048-bit key) header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=Acw6sZ0+
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=outgoing.csail.mit.edu; s=test20231205; h=In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=bht87HU90ydQuqNwMWxnyUlGx5v3MiB0Rcrd/VnWTho=; t=1795461386; x=1796325386; 
+	b=Acw6sZ0+cO2Ay2bPeImF8UCrD7k4IaKB9SkFD4k3A5bqiEOtsQdw8szhOcuZkKLpdpkI9tyvf/O
+	sAjY509ctLaHfEO32Q72Z0RNxwhg/W+wzkyF9Swz3EU9/Ox873Jw/Tn7zUhX51YzAH2HXlUwaqsAl
+	U9KpwFRhA+UUiEChXmxBg+FU59UhoW8Bj94hwC5PKtzDXdLt7WxCU2om/kkgwKjM6VCFxfd/pu5+e
+	xv6OyjcQnSMzLg3dqX8W0y7648iYChADWoYkI3YREXuzE9nunpo+zrw6CZ6nJJig4j28x3uufHiJ1
+	Mi0Dl39OpU8/32w/3/tytRNeMZjvxCeuO4RA==;
+Received: from [49.207.211.146] (helo=csail.mit.edu)
+	by outgoing2021.csail.mit.edu with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <srivatsa@csail.mit.edu>)
+	id 1xVZVX-006Xqr-OR;
+	Mon, 23 Nov 2026 14:15:20 -0500
+Date: Tue, 24 Nov 2026 00:45:01 +0530
+From: "Srivatsa S. Bhat" <srivatsa@csail.mit.edu>
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Baoquan He <baoquan.he@linux.dev>, Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Pratyush Yadav <pratyush@kernel.org>, Rich Felker <dalias@libc.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>, x86@kernel.org,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Cong Wang <cwang@multikernel.io>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	WANG Xuerui <kernel@xen0n.name>, kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev
+Subject: Re: [PATCH 1/2] MAINTAINERS: add kernel/Kconfig.kexec to KEXEC
+Message-ID: <awSQtauit5QObOPQ@csail.mit.edu>
+References: <20261119-arch-kconfig-v1-0-37c276fe4d26@kernel.org>
+ <20261119-arch-kconfig-v1-1-37c276fe4d26@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,229 +107,24 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261123173321.2363162-1-rmustafin@cloudlinux.com>
+In-Reply-To: <20261119-arch-kconfig-v1-1-37c276fe4d26@kernel.org>
 
-On Tue, Nov 24, 2026 at 12:33:21AM +0700, Rustam Mustafin wrote:
-> io_uring passes its own file offset to the TPM character devices, although
-> they are opened with nonseekable_open(): IORING_OP_READ copies sqe->off
-> into ki_pos without checking FMODE_PREAD, and loop_rw_iter() hands it to
-> ->read(). This offset used to index data_buffer and allowed out-of-bounds
-> reads. The devices keep a single command and response per open file, which
-> does not fit asynchronous requests.
+On Thu, Nov 19, 2026 at 08:16:57AM +0200, Mike Rapoport (Microsoft) wrote:
+> kernel/Kconfig.kexec is not matched by the KEXEC entry, so
+> get_maintainer.pl does not report kexec maintainers for changes in that
+> file.
 > 
-> Add tpm_common_read_iter() and tpm_common_write_iter(), which fail io_uring
-> requests with -EIO, and AIO requests, which the new callbacks would
-> otherwise enable. A multishot read uses a synchronous kiocb, so also reject
-> IOCB_NOWAIT attempts and requests from io-wq workers. read() and write()
-> are not affected, as the VFS still calls ->read() and ->write() for them.
+> Add it to the KEXEC entry.
 > 
-> readv() and writev() now reach the new callbacks instead of the VFS loop
-> over ->read() and ->write(). A readv() can split a response, for example
-> the 10-byte header into one buffer and the body into another, so the
-> callbacks keep that loop and call tpm_common_read() and tpm_common_write()
-> once per iovec.
-> 
-> Update the tpm2 io_uring selftest to expect -EIO, and check that the
-> rejected request leaves the whole response for the following read().
-> 
-> Assisted-by: Claude:claude-opus-5-5
-> ---
-> This applies on top of [PATCH v3] selftests: tpm2: test that io_uring
-> reads ignore the file offset:
-> https://lore.kernel.org/all/20261123165638.2161305-1-rmustafin@cloudlinux.com/
-> 
-> Changes in v2:
-> - message starts with the use case, rewrapped (Jarkko)
-> - drop the CONFIG_IO_URING guards (Jarkko)
-> - drop Suggested-by and the Link to the review
-> - selftest part on the Python UringTest of the v3 selftest
-> 
-> preadv2() and pwritev2() at offset -1 now reach the new callbacks, so
-> RWF_SYNC, RWF_DSYNC, RWF_APPEND and RWF_NOAPPEND are accepted and ignored
-> instead of failing with -EOPNOTSUPP in the VFS loop.
-> 
-> v1 (RFC): https://lore.kernel.org/all/20261120142116.1630010-1-rmustafin@cloudlinux.com/
-> 
->  drivers/char/tpm/tpm-dev-common.c          | 70 ++++++++++++++++++++++
->  drivers/char/tpm/tpm-dev.c                 |  2 +
->  drivers/char/tpm/tpm-dev.h                 |  2 +
->  drivers/char/tpm/tpmrm-dev.c               |  2 +
->  tools/testing/selftests/tpm2/tpm2_tests.py | 11 ++--
->  5 files changed, 82 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/char/tpm/tpm-dev-common.c b/drivers/char/tpm/tpm-dev-common.c
-> index 553fc6aca94d..5189c1d72058 100644
-> --- a/drivers/char/tpm/tpm-dev-common.c
-> +++ b/drivers/char/tpm/tpm-dev-common.c
-> @@ -13,8 +13,10 @@
->   * Device file system interface to the TPM
->   */
->  #include <linux/poll.h>
-> +#include <linux/sched.h>
->  #include <linux/slab.h>
->  #include <linux/uaccess.h>
-> +#include <linux/uio.h>
->  #include <linux/workqueue.h>
->  #include "tpm.h"
->  #include "tpm-dev.h"
-> @@ -253,6 +255,74 @@ ssize_t tpm_common_write(struct file *file, const char __user *buf,
->  	return ret;
->  }
->  
-> +/*
-> + * Reject io_uring and AIO. IORING_OP_READ_MULTISHOT requests use a
-> + * synchronous kiocb, so also check for NOWAIT attempts and io-wq workers.
-> + */
-> +static bool tpm_iter_is_async(struct kiocb *iocb)
-> +{
-> +	return !is_sync_kiocb(iocb) ||
-> +	       (iocb->ki_flags & IOCB_NOWAIT) ||
-> +	       (current->flags & PF_IO_WORKER);
-> +}
-> +
-> +/* Preserve the VFS fallback's per-iovec read/write semantics. */
-> +ssize_t tpm_common_read_iter(struct kiocb *iocb, struct iov_iter *to)
-> +{
-> +	struct file *file = iocb->ki_filp;
-> +	ssize_t ret = 0;
-> +
-> +	if (tpm_iter_is_async(iocb) || !user_backed_iter(to))
-> +		return -EIO;
-> +
-> +	while (iov_iter_count(to)) {
-> +		size_t len = iter_iov_len(to);
-> +		ssize_t nr;
-> +
-> +		nr = tpm_common_read(file, iter_iov_addr(to),
-> +				     len, &iocb->ki_pos);
-> +		if (nr < 0) {
-> +			if (!ret)
-> +				ret = nr;
-> +			break;
-> +		}
-> +		ret += nr;
-> +		iov_iter_advance(to, nr);
-> +		if (nr != len)
-> +			break;
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +ssize_t tpm_common_write_iter(struct kiocb *iocb, struct iov_iter *from)
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
-These should be static.
+Reviewed-by: Srivatsa S. Bhat (Microsoft) <srivatsa@csail.mit.edu>
 
-> +{
-> +	struct file *file = iocb->ki_filp;
-> +	ssize_t ret = 0;
-> +
-> +	if (tpm_iter_is_async(iocb) || !user_backed_iter(from))
-> +		return -EIO;
-> +
-> +	while (iov_iter_count(from)) {
-> +		size_t len = iter_iov_len(from);
-> +		ssize_t nr;
-> +
-> +		nr = tpm_common_write(file, iter_iov_addr(from),
-> +				      len, &iocb->ki_pos);
-> +		if (nr < 0) {
-> +			if (!ret)
-> +				ret = nr;
-> +			break;
-> +		}
-> +		ret += nr;
-> +		iov_iter_advance(from, nr);
-> +		if (nr != len)
-> +			break;
-> +	}
-> +
-> +	return ret;
-> +}
-> +
->  __poll_t tpm_common_poll(struct file *file, poll_table *wait)
->  {
->  	struct file_priv *priv = file->private_data;
-> diff --git a/drivers/char/tpm/tpm-dev.c b/drivers/char/tpm/tpm-dev.c
-> index 74488f0a7b78..9c2f0ad826be 100644
-> --- a/drivers/char/tpm/tpm-dev.c
-> +++ b/drivers/char/tpm/tpm-dev.c
-> @@ -62,6 +62,8 @@ const struct file_operations tpm_fops = {
->  	.open = tpm_open,
->  	.read = tpm_common_read,
->  	.write = tpm_common_write,
-> +	.read_iter = tpm_common_read_iter,
-> +	.write_iter = tpm_common_write_iter,
->  	.poll = tpm_common_poll,
->  	.release = tpm_release,
->  };
-> diff --git a/drivers/char/tpm/tpm-dev.h b/drivers/char/tpm/tpm-dev.h
-> index 34efb1ffa491..2f2186e6f094 100644
-> --- a/drivers/char/tpm/tpm-dev.h
-> +++ b/drivers/char/tpm/tpm-dev.h
-> @@ -28,6 +28,8 @@ ssize_t tpm_common_read(struct file *file, char __user *buf,
->  			size_t size, loff_t *off);
->  ssize_t tpm_common_write(struct file *file, const char __user *buf,
->  			 size_t size, loff_t *off);
-> +ssize_t tpm_common_read_iter(struct kiocb *iocb, struct iov_iter *to);
-> +ssize_t tpm_common_write_iter(struct kiocb *iocb, struct iov_iter *from);
->  __poll_t tpm_common_poll(struct file *file, poll_table *wait);
->  
->  void tpm_common_release(struct file *file, struct file_priv *priv);
-> diff --git a/drivers/char/tpm/tpmrm-dev.c b/drivers/char/tpm/tpmrm-dev.c
-> index 19e8f2779265..0c8c1a1b0b3b 100644
-> --- a/drivers/char/tpm/tpmrm-dev.c
-> +++ b/drivers/char/tpm/tpmrm-dev.c
-> @@ -49,6 +49,8 @@ const struct file_operations tpmrm_fops = {
->  	.open = tpmrm_open,
->  	.read = tpm_common_read,
->  	.write = tpm_common_write,
-> +	.read_iter = tpm_common_read_iter,
-> +	.write_iter = tpm_common_write_iter,
->  	.poll = tpm_common_poll,
->  	.release = tpmrm_release,
->  };
-> diff --git a/tools/testing/selftests/tpm2/tpm2_tests.py b/tools/testing/selftests/tpm2/tpm2_tests.py
-> index dc4e642450d6..dc1814e0c701 100644
-> --- a/tools/testing/selftests/tpm2/tpm2_tests.py
-> +++ b/tools/testing/selftests/tpm2/tpm2_tests.py
-> @@ -9,6 +9,7 @@ from tpm2 import ProtocolError
->  import unittest
->  import logging
->  import struct
-> +import errno
->  
->  class SmokeTest(unittest.TestCase):
->      def setUp(self):
-> @@ -386,15 +387,15 @@ class UringTest(unittest.TestCase):
->                            tpm2.TPM2_PT_FIXED, 1)
->          try:
->              client.tpm.write(cmd)
-> -            # Offset 10 stays inside the response, so an unpatched kernel
-> -            # skips the header instead of reading out of bounds
-> -            res, rsp = uring_read(client.tpm.fileno(), 4096, 10)
-> +            res, _ = uring_read(client.tpm.fileno(), 4096, 10)
-> +            # The rejected read must leave the whole response in place
-> +            rsp = client.tpm.read(4096)
->          finally:
->              client.close()
->  
-> -        self.assertGreaterEqual(res, 10)
-> +        self.assertEqual(res, -errno.EIO)
->          sz, rc = struct.unpack('>II', rsp[2:10])
-> -        self.assertEqual(sz, res)
-> +        self.assertEqual(sz, len(rsp))
->          self.assertEqual(rc, 0)
->  
->      def test_read_tpm(self):
-> -- 
-> 2.52.0
-> 
+In the spirit of finding any other misses in listing out relevant
+files under the kexec and crash entries in MAINTAINERS, I found a few
+other files that need to be added (unrelated to the Kconfig.kexec
+which is the focus of your current patchset). I'm planning to send
+a follow-up series to address that.
 
-I think it would be best if you would squash the test part to your
-other patch that adds python test. You can then change the license
-too while at it.
-
-I.e. add the whole test as part of this patch set.
-
-Br, Jarkko
+Regards,
+Srivatsa
