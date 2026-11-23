@@ -1,80 +1,138 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=139.219.17.99
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795416930;
-	b=HUEFje0Y6+qKckpB8DFUUIau4UspihwDOi2FLrNYjduzfaDj0QYz4NAuWgZ1pK7FerOC
-	 YQb8CDIuAGWvv7/B0Yh2q7vdfqN7LSIsRIXyh1gVmW7hQq7NUJVwGQeY/GTgSS37a2k2E
-	 rjFYDf5jL+PxwqEid9mZi/xNJDV8GyEp5ymQ+yKopoGmHJWPav8hI9Sls68qvn0qAB848
-	 GCfkK7HNbbYaO/1gwqc+vCsO9LzQxgYin162qju01tHe5R5ng7WrIXGdmdTOSzGUI1EMy
-	 Dkq2pF2Aaaj1KX14pYcJ8zrrkh6yYpEIuSjzRoVWxOI1/Oh9RNJF/aUtTr+CVpEHk7g==
+	t=1795416958;
+	b=JbQybCrhURtDAKNwiIQAz/GtUHZbZBVxRjoChGOwJD9bd5iSaFfGNIUTxZcldsBKLZ4H
+	 gMpAf4otrqD44rn4Iu+dp5cRiQQ7eZj7WY4ynXycbmEIxn37uRewZSZJaiC+wCNcj6N4N
+	 IkA99Tm+HMcCofvDv+y0JnIYNWTEYIEG5XF8RlmOqhCzvZCOKom/ZFGlogxSdIIVPt6IN
+	 Nzn20K6gFjWeDRHBHMewVaagbPUdS7FgFnnfB13ulmm5yuRIHJeHeKJt+yc6ptzuCuYpN
+	 v/cIXRKWYVR0q8SahGgcafB4LBybHbMC9bRlDWOnX+Kwgi35yS5s4KkDGrnUDdw2a1A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795416930;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=7ehb2ffeeQuJE9D3QIhTk8CC01gvV6R9A9P0MLypKbQ=;
-	b=oOvWb+icYlAt1xsX4uJEq0gHPmzcdNI/I5NFUI2izfa/E+YVuxyCf0OHCwCxDamM4Tq1
-	 UgYzDRH9eciPBzSXe4gKENUWKJZPLnGS/oUxb0swm4o0JB/iVUbCWguKC4uvBbx3N3bMB
-	 HMythU/Sl9a1YPmgU+IwrUgWjkLyW3zrdt1aoH2ZENieghqKAknjucxJT/aAHUwRt9Jcp
-	 yNfwU8fxWMpUSBqdXfa74swFM9e5vbtE4e8RhkYxYBAUPcwvpCMgZ3idxuz+jqLXVQzF5
-	 DgazKbjfk3k5P3Q8B0Leno5iVNsSUlkxy4QsGy6ZcFrApLTs84TL2LRsRVAU46o0FJw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795416958;
+	h=DMARC-Filter:Received:Received:From:To:CC:Subject:Thread-Topic:
+	 Thread-Index:Date:Message-ID:References:In-Reply-To:Accept-Language:
+	 Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-microsoft-antispam:x-microsoft-antispam-message-info:
+	 x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=cWu2fjBgRMu6XotY4k45TD39wYOY8o3RUdYExEukgBg=;
+	b=I1K8jB6fDcTPtMHaL8mHfk5ptip27fz5kfFkcS+bzKKGQiLkKzkqoWmp9UwEL3vvPFcU
+	 mZUdEwPHHYaYXnW3fxb3xR99hNdgl/lC6TNvMOd11/iPQzbFN7ET8WAFP0qZh9/o5s6Pi
+	 Hj1hndZDFSRvJhgYxRm3GnP0LzP04lwdeNTnHl5aaq9HYlNLlRLBAuaziAdkAgiI5U1gQ
+	 61iatNwk+BnvkunWb+KoTv3XlsRhfRfdpgjgF7sC34CV3Z++fUGSTA6fZj6K9gLYSxThD
+	 W2n0pVtpXEi1ND8tZeH/OPfFFpyEgGlsYIsUVEsI/heobQD6nHpMWC4BMao4RXU5/dw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZkPZbkYj;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=starfivetech.com;
+	spf=pass smtp.mailfrom=starfivetech.com;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=139.219.17.99
+Received: from CHN02-BJS-obe.outbound.protection.partner.outlook.cn (mail-bjschn02on2099.outbound.protection.partner.outlook.cn [139.219.17.99])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF7F2606A33B;
-	Mon, 23 Nov 2026 06:55:30 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZkPZbkYj
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795416930;
-	b=V5+6gKaEZDZDVP8JG94YBpdWZJydHQFwdJZljA9bdm3h6ABVQF1+ziKcsnkU3224I/YE
-	 RRJ9o3bCerWLXLhrvYJwokByHTdDhTirh7OgOvSf6wNB6ZSI6Oe5z0Lr56W8uTbqPJ94L
-	 8yb8BUnonTDL1sDXeowm7kXwVjN5YjUDm3VkdkHeQ2kee8Gd3D0/Av25fUNliAoIJomBp
-	 OCgaZrpEJksO84IG/6vQMnJlxbtLoj9MEASOkM64vBkbnCp8GF3sr4P7ph6AyENOj75ZT
-	 5GHM6nzbgWWZfWZxZbrvsN6sHblUe1aiKc/SSuZ/eqP8DED4ga+CCOd6y+XokVUe7/A==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795416930;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=7ehb2ffeeQuJE9D3QIhTk8CC01gvV6R9A9P0MLypKbQ=;
-	b=TSBCN+IefpJaM8oqt+eb1ZgQZmhyrGde9RdRWtVajrLRy1lZe5YHk+ukO15JT1XjgYDs
-	 miW09SOU4eoWNTaKG2UgUk3/HOZ+NKAHGDDNyHF+mjjiQ7SvqhegsEDIH2FYcAXwA1HaU
-	 ePSsNXn7ICrnZwA3s9uW9vB70TyEq5FJyLF2n1zODY2K+QwPbj8yl8AYJvnga9Zh+tUni
-	 640ALazk9nS+7+KJyW2MrW5HdQSqaRNt42Mu82TwSCB9XZJEfH/8YSlDnSHISt0I5PgXo
-	 Zh8uWE1ZFAlAzzt2Lvp+aupkpQOy1g22f8luzJNW34ba7+8xqb/8oJT4k8fg3lMnBcA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 7DBA41F000C4;
-	Mon, 23 Nov 2026 06:55:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795416930;
-	bh=7ehb2ffeeQuJE9D3QIhTk8CC01gvV6R9A9P0MLypKbQ=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=ZkPZbkYjykDMUIIDoFAasg97TNp0CLL9M3X+r6h0UXTje6hNJ656/1gct2epic9Ic
-	 4nrSQbjgyS9akZ34MT2CKpxWagerTTB7iknSCyUrOHlU3HPQ/E3jfMCtkQXp7dLk4Q
-	 VMHJiGbSAa6bZTXBLN8mG2m+bPaIkLb1bk9CS3vka892K7FarlsaaotQImNtS7RrH7
-	 V2K6RNsp1JAQyWimFTgH2jLSJLn2VRDoCnPKg9ui90rf8eqNrip+aMx/U2qi7OzRvr
-	 eQWQPxER/1tChK5Ok/OEtNMBrNpp0I+mxw6EM+vm/MOpoAdKyvU9Zg/OEdf/TFhDev
-	 YM43L3ilaoBmA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id CE84F4C3A2;
-	Mon, 23 Nov 2026 06:55:15 +0000 (UTC)
-From: Bobek Brzeczyszczykiewicz via B4 Relay <devnull+admin.roadbobek.com@kernel.org>
-Subject: [PATCH v2 0/3] usb/phy: sunxi: Assert reset before deasserting on
- init
-Date: Mon, 23 Nov 2026 06:54:06 +0000
-Message-Id: <20261123-usb-sunxi-reset-fix-v2-0-4e51d3a64964@roadbobek.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E31D0606A31A;
+	Mon, 23 Nov 2026 06:55:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E31D0606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=starfivetech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=starfivetech.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=jZxJ3tpZnTLnUKrRLQ/UQeAxZFOR72un7R+rPzbJLab5ArtM0eQBPyMB+wOL7lHqi22jwybo56hZiXTE5Q7OIOyv1zEO+lSz6SRHbRuxW3PLizIAz3eMKGrLSN6BevrhYx2BdfzrB1ThMUzJRnO9lEPn1kH5hB+0+6BigFyzqA4kunSC2JhiNur4EltrI8sUFO4iPevp1eqdTSXl9vsjLLrAqzPdh6cJVoSQg8tj0K39KMp3gseHerU5Yoq3S08x9VdkYejqYr4arZvcAdZw++uFp6xPowDyCSd9SizXBVfT1pZm63K7wFmBU87kadh1Ao0B8qUP3FVd3Tbt05H47A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cWu2fjBgRMu6XotY4k45TD39wYOY8o3RUdYExEukgBg=;
+ b=Y56C2Zb1mD5J+APz3hHYbjFKDyI55YXyqZ6BPQFZVyucucKE3GndcfUegISif5swyxsx7oVR7AR/F/yBB62jkltx9JnFV//66trQyQIIM+2C1ZgP2CA4QSiYjqggbsKoLh3MEsBK3PhYYHHDe39uh4cKrnQMhkvauNYtq3iVzb4wArF5bxwCQkWD5exDEz6aMg6RfVULqvSvYu4tvtHteUOxAjApwoKvEH/Lnal1RGJISlzrDSpGP25N02guUwR07qQigplFDMLCEyzA7mHzMfVgTLAwMAOS5A+PXfnI3qOAud7OLH3BlKDKWyl3Mp/sWiSobAUJ2SqeXrOkbRga9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:7::10) by NT0PR01MB1101.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:6::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.19; Mon, 23 Nov
+ 2026 06:55:45 +0000
+Received: from NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn
+ ([fe80::be4a:d29e:5188:b37e]) by
+ NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn ([fe80::be4a:d29e:5188:b37e%6])
+ with mapi id 15.21.0615.017; Mon, 23 Nov 2026 06:55:45 +0000
+From: Hal Feng <hal.feng@starfivetech.com>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>, Brian Masney
+	<bmasney@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Emil Renner
+ Berthing <kernel@esmil.dk>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH v2 1/6] clk: starfive: jh7110-sys: Fix memory leak in
+ reset controller register
+Thread-Topic: [PATCH v2 1/6] clk: starfive: jh7110-sys: Fix memory leak in
+ reset controller register
+Thread-Index: AQHdd0Rce99/kSz/EUK8g4P+8hRztrc7QHFQ
+Date: Mon, 23 Nov 2026 06:55:45 +0000
+Message-ID:
+ <NT0PR01MB1102513D2CCEC7C9DC93B796E6452@NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn>
+References: <20261118100523.11395-1-changhuang.liang@starfivetech.com>
+ <20261118100523.11395-2-changhuang.liang@starfivetech.com>
+In-Reply-To: <20261118100523.11395-2-changhuang.liang@starfivetech.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: NT0PR01MB1102:EE_|NT0PR01MB1101:EE_
+x-ms-office365-filtering-correlation-id: 012f29ec-cb0d-49fe-9dd9-08df492ecc21
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|4143699003|261009223027099003|18002099003|22082099003|10067099003|56012099006|261102123227099003|261028144727099003|261022105027099003|261021123027099003|261021121427099003|261026140227099003|38070700021;
+x-microsoft-antispam-message-info:
+ m6kBYAzYqQ/Nu0wCNpLx/P7Z4sD6TlsIhT5fPMrLvMOzeVHw9oKiI8uDQ8kh41Hz1y7ujQrf1MKisB84PVP0jVcM8xSR1uD9LRVyhu2LQwiSLi/BEJBrSkEZFr/XUSK/EexC/xSzknJSLyiEnbV5VcMQIxWYzOOAojMG+SrhjCHjFDR9FxuwAnNFOPBNO7KtC27Wxh2hXBsqQXsmm65yvDWKICccVxbevlJzYYch/V1j21WUQFATOlzBgwzVOWaxooL0Ki1LsS9B5ugpg4q227f+1wgnU+qTFuA6Yhtch7YnQgkEu5R4FAM03Oo/PgD4I5gwQCivY3gDnf0bXG9PkPOKqdZuOdLQ0sbyNX+Sn7c86irZwApeT14/JnwK/ODIi96/1vkmETps9f6hl1RjYbKiECAeUev8owkT1sRHiDr2JPQz9jgS0OK4LCn6omfaZydAMTbxyQQkTlNuzRAQopYEDqXuE4RFImIu+oL45TSf15JIyAf+j0AsF/jMCk7dPqIQUT0GZ8p3PpIlCIcdm3nbxIVU8NQY1lGx0ElN8kPvVK4+4uq+vKXh2xcxWBf5
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(4143699003)(261009223027099003)(18002099003)(22082099003)(10067099003)(56012099006)(261102123227099003)(261028144727099003)(261022105027099003)(261021123027099003)(261021121427099003)(261026140227099003)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?sAhVCh/agPmVJIq9RgSzAlNWcv3cs6RY2AztRd2TmOT409V3Cje9hq5TtGH/?=
+ =?us-ascii?Q?PAdmAWTsEOViEoZDJTY5vEyqBj5tOQh26NrZmi54Ldq59DpBfrsbJJB9KGXz?=
+ =?us-ascii?Q?uwyjSZO7OCJOCQUsTevhkfonNVQNa/F9+S7xUnqLApOUlnBqS82NETg+R5I7?=
+ =?us-ascii?Q?T6diEGhzWGJruG1G/C8Jg9b8pWo73G9iPUqwzwLherZoFex91yMBzMwGT4Hj?=
+ =?us-ascii?Q?FUT+8CtHJvBvQ05WKxfgjuDmYyu144A/AW3PxKj1IkSo+hUjOvHuj81vD8KS?=
+ =?us-ascii?Q?o6TgKXIAP6SG+wCy0lf2omALuP0jp9J9OKKh+BVllSEXZfEhKmGQ8qiDktPk?=
+ =?us-ascii?Q?cyXOSNE/tseAjjeSjT23M8r1NLna/RZZj2do1i0bNLjsTemze4ugS/4r1Rwb?=
+ =?us-ascii?Q?i4j7H6G9cs3SmWaWHqsVMV+z1ys7e4HJNO3MTr7V5GlJ7USyZBd+7BZu3McV?=
+ =?us-ascii?Q?10HgTaQrtotX0hRyaAyKd72KOgjbMqvoDV/zmV1jX+IOcosB9GbOPHvjP2l1?=
+ =?us-ascii?Q?aP/jYEdKmYtya4p2N2/HpW22WJfXQubj5IKrTTRkU9S6taQFYM4ZyTQiDr3A?=
+ =?us-ascii?Q?wHAnqkSi93n0y6omKz1HybW4heTWq98qDfqVOHq38PqDLe/geYMAYf9zZdcc?=
+ =?us-ascii?Q?Nq5OhJwI/VTxyj2+mXA5OAVMCc8hctRvjByC/6qjZvLPRV9vLEUS3vvTQgK4?=
+ =?us-ascii?Q?33A3FhqyymVnVt8j1AkvPDTVnT1zTQgU40JDXQeDaXJPIrwJJ8LxbWJr+18o?=
+ =?us-ascii?Q?IEcxz0WuzNQt8sZtgE5qGdK7/AasXnvLy0CyPo6OiYD9S0qUuaovCqDGWyXJ?=
+ =?us-ascii?Q?u6UMsq/8zPfiZytF/hQ0IIntUdF247ve+MMByGMXwlkVqPnEj1jKKh0JxfAH?=
+ =?us-ascii?Q?ZPqqj8Jtv3VRW31yOiloUrwFc9HCDnHoxTcw+cDs+HFZY3hTLlQm00sY8SCT?=
+ =?us-ascii?Q?+zWwWYDABaqUm95hiQUF1sdyEtR1sLrOGE69ctm1iFmmPe/jIT1NFEkyPWuc?=
+ =?us-ascii?Q?KEWBVnFKKvJVZsI+pnQzEy5gQubgRQcmg7BcEm9kAjnXvk6nktxP8Typ7A4y?=
+ =?us-ascii?Q?cl00CmzyrhGLNy3V1zvMumdwFv4rNEdXNHOHV/kK4DbH3ERXgZkCG476toNS?=
+ =?us-ascii?Q?2UEtrbdvLFCEN2/kpQWzQRGeRhxtuoa6jOIHP/QqZEHjFOJBU4MsoEDkZ/3H?=
+ =?us-ascii?Q?HkovAR6CkmJ9vF4xMO7KZv2d4xCe98DKVQwfXXdD2H3sBeQ31biDPG2OX8OX?=
+ =?us-ascii?Q?TVgG0zcmQ5iIxieNLFurhaHUcMgbES1I3LMUGN/BQueCtQIQsYG9ETOIaGa6?=
+ =?us-ascii?Q?wl0WJiOfBLBfEqlLEWFl18Ndnol+Tu1KszQmj2R6qx3M9cneBGjbASCMqMqf?=
+ =?us-ascii?Q?VNg7b/EY0QyoyrMX3G95jEUB5nmn2GipEin6NNQwq+0jncGTOdnRfHXmwsng?=
+ =?us-ascii?Q?6W16Q9BqNEKmuiyu8OjZ/my2+iS9dD9j965S9GhxglgYtk9JHFkKRUWAeUsF?=
+ =?us-ascii?Q?5kZePJKwSm2tBNF5ub7ztA5tFOm3m64OU/pzElQ6o7jU2FglADz6f8+Ygf4B?=
+ =?us-ascii?Q?v/qVy5pBun5KKIH/f0Blb1OGXxzn6blLWorL8+wgqVtxA3tYfXOuWBO+slcx?=
+ =?us-ascii?Q?VVhZU8sVEudj5UrkhLVNi+QWNy1cVvLr2SruzLZjLTxZDc+P6dWIp4gfOW5N?=
+ =?us-ascii?Q?IFd2MHZ1c8FmFg4qld7tSyFRf8GCHerKLvTA+6Tfm4GHLyLLefCFSw1oj8aM?=
+ =?us-ascii?Q?IzDzdlvt7A=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,111 +142,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NwQ6CMBBEf8Xs2TXdhoB68j8Mh7asshqp6QLBE
- P7dgnePbzIzbwblJKxw3s2QeBSV2GWw+x2E1nV3RmkygzW2JKIKB/WoQzcJJlbu8SYTNuSMMVQ
- Uxp0gL9+Jc7y9Xusf6+AfHPr1am20on1Mn0070tr7bxgJDQbrq5INHwumS4qu8dHz8xDiC+plW
- b4tySluzAAAAA==
-X-Change-ID: 20261117-usb-sunxi-reset-fix-d1a0001440a9
-To: Bin Liu <b-liu@ti.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Hans de Goede <hansg@kernel.org>, 
- Felipe Balbi <balbi@ti.com>, Kishon Vijay Abraham I <kishon@kernel.org>, 
- Maxime Ripard <mripard@kernel.org>, Andre Przywara <andre.przywara@arm.com>
-Cc: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- linux-phy@lists.infradead.org, 
- Bobek Brzeczyszczykiewicz <admin@roadbobek.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795416949; l=3231;
- i=admin@roadbobek.com; s=20261117; h=from:subject:message-id;
- bh=o4DGixHbPlv/wmE6A4a2ry81udTO6L0xxBAxUf67t/Q=;
- b=MiwFtyzfknvO4YOvokSa0ZFcN0x5K4it0EctWcPSiBPfa05z7gGm/THCuR94ANntFQeEDF4do
- 4F1EaYz6N7HCooIce+oMzx7c1k4KZo9IJKtQuYxIHB8iltqyWlqIm33
-X-Developer-Key: i=admin@roadbobek.com; a=ed25519;
- pk=TcWSTwITMylwCZLYbw80sv2LQx1zButqiT90TFVvhas=
-X-Endpoint-Received: by B4 Relay for admin@roadbobek.com/20261117 with
- auth_id=1548
-X-Original-From: Bobek Brzeczyszczykiewicz <admin@roadbobek.com>
-Reply-To: admin@roadbobek.com
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 012f29ec-cb0d-49fe-9dd9-08df492ecc21
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 06:55:45.1389
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: s2kgTcwpyONIEvN32SEHWkJ/5hvzH0gN/oU00vxUuj9FX5iT5qTUT835nzoXrRgKOtpAInaRcyyqV7hgLyGRx7Ih7f9CVdvsImmvbm0WLps=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: NT0PR01MB1101
 
-When a bootloader such as U-Boot (for example with
-CONFIG_USB_MUSB_HOST=y) initializes USB host mode and boots Linux
-without stopping USB first, both the MUSB controller and USB PHY
-reset lines are already deasserted when Linux probes them.
+> On 26.11.18 18:05, Changhuang Liang wrote:
+> auxiliary_device_init() returns an error before device_initialize() is ca=
+lled, so
+> the release callback never runs on this path and the rdev allocated in
+> jh7110_reset_controller_register() is leaked.
+>=20
+> Free rdev when auxiliary_device_init() fails.
+>=20
+> Fixes: edab7204afe5 ("clk: starfive: Add StarFive JH7110 system clock dri=
+ver")
+> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> ---
+>  drivers/clk/starfive/clk-starfive-jh7110-sys.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+> b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+> index 44766b094b60..c938c62a863a 100644
+> --- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+> +++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+> @@ -360,8 +360,10 @@ int jh7110_reset_controller_register(struct
+> jh71x0_clk_priv *priv,
+>  	adev->id =3D adev_id;
+>=20
+>  	ret =3D auxiliary_device_init(adev);
+> -	if (ret)
+> +	if (ret) {
+> +		kfree(rdev);
+>  		return ret;
+> +	}
+>=20
+>  	ret =3D auxiliary_device_add(adev);
+>  	if (ret) {
 
-Because reset_control_deassert() alone is a no-op on an already
-deasserted reset line, stale hardware register state persists across
-boot. On Allwinner A33, MUSB stays wedged in a_wait_bcon with
-DevCtl=0x99, Power=0xf0, and a frozen Frame counter even across
-hot-unplug and replug.
-
-This series ensures both the MUSB controller and USB PHYs are reset
-cleanly regardless of prior bootloader state, and fixes a related
-PHY2 clock reference imbalance spotted during review:
-
-- Patch 1 uses devm_reset_control_get_exclusive() and briefly asserts
-  glue->rst in sunxi_musb_init().
-- Patch 2 uses devm_reset_control_get_exclusive() and asserts all PHY
-  resets in sun4i_usb_phy_probe() before registering the PHY provider,
-  avoiding disrupting shared PHY2 on SoCs with needs_phy2_siddq.
-- Patch 3 fixes a pre-existing phy2->clk2 reference imbalance in
-  sun4i_usb_phy_init() on SoCs with needs_phy2_siddq.
-
-Tested on an Allwinner A33 Q8 tablet (Laser MID-786).
-
-Signed-off-by: Bobek Brzeczyszczykiewicz <admin@roadbobek.com>
----
-Changes in v2:
-- Use devm_reset_control_get_exclusive() in both sunxi_musb_probe() and
-  sun4i_usb_phy_probe() (Philipp Zabel).
-- Move the USB PHY reset assertion from sun4i_usb_phy_init() to
-  sun4i_usb_phy_probe() so initializing PHY2 on SoCs with
-  needs_phy2_siddq does not reset an already active shared PHY2.
-- Add Fixes tags to both reset patches.
-- Add Patch 3 fixing the pre-existing phy2->clk2 clock reference
-  imbalance in sun4i_usb_phy_init().
-- Link to v1: https://patch.msgid.link/20261117-usb-sunxi-reset-fix-v1-0-c2b76e0e84e1@roadbobek.com
-
-To: Bin Liu <b-liu@ti.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Chen-Yu Tsai <wens@kernel.org>
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-To: Samuel Holland <samuel@sholland.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-To: Hans de Goede <hansg@kernel.org>
-To: Felipe Balbi <balbi@ti.com>
-To: Vinod Koul <vkoul@kernel.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>
-To: Manivannan Sadhasivam <mani@kernel.org>
-To: Kishon Vijay Abraham I <kishon@kernel.org>
-To: Maxime Ripard <mripard@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: linux-usb@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-sunxi@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-phy@lists.infradead.org
-
----
-Bobek Brzeczyszczykiewicz (3):
-      usb: musb: sunxi: Assert reset before deasserting on init
-      phy: sun4i-usb: Assert PHY resets in sun4i_usb_phy_probe()
-      phy: sun4i-usb: Fix phy2->clk2 reference imbalance in sun4i_usb_phy_init()
-
- drivers/phy/allwinner/phy-sun4i-usb.c | 23 +++++++++++++++++++++--
- drivers/usb/musb/sunxi.c              |  5 ++++-
- 2 files changed, 25 insertions(+), 3 deletions(-)
----
-base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
-change-id: 20261117-usb-sunxi-reset-fix-d1a0001440a9
+Acked-by: Hal Feng <hal.feng@starfivetech.com>
 
 Best regards,
---  
-Bobek Brzeczyszczykiewicz <admin@roadbobek.com>
-
-
+Hal
