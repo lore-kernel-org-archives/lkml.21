@@ -1,101 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.184.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795438045;
-	b=KGABeKOUX00ayO8wCECTIAKAc23jH1p0x3SLv5sTbRVum3uiNr9vrjSkXUMNs4expqYH
-	 pl3GuAvZ42sz9sRIgMeW5jczR8oVsbb1fkWnn2KaeugRT8CtFR1jfhmuaPLM2P8evaRI9
-	 NZUAQ65EGnkmqo778ryp0CPS83EAXNue7vhuIHjaV2uTUscb3O5f6paGR48QOCTDsxUJW
-	 fXEbZ5j+v+B7jfhlk3OdI83BvzMn48W+4kKUsJJSXo4yt6j0m3fRQ1gTM7NQwEDo6lw37
-	 gK6ZkQVzyOT0XTUzdOtviNRb80p9gY0I7HT0k5AIByoayyrL9+WmQWTWb5oMi1ftO9Q==
+	t=1795438068;
+	b=tvzOUYSGr/ylnR7jSUqvu+7rnXVcGCRCZ6b6rX+GPcOnA09H7CKtBX/NbZ4F1203V9Vh
+	 3P23FNHQMluPLksrBBdsgWoQplrSZx8JAtUvzaDRrvg16HR1VnZ/EdIH/FwXVpRiS4Du7
+	 oSDMImuR5caUPUeB1nHKSyQnNyW/JUoTxCtnwRBycHevvwVRbiqyLKmwo+KildKgjR2gx
+	 nyd97+qGr/54i46wzIuq5QpmQ8lh96TJUyfmzz9hEdp586JJrYWWbfYv+tLZ99v7OznQe
+	 vVr4piDCqf7UYRfUXDJe6nIv6Wq8UxA8eiDYrGMG1b+1i/FtbmTTS4A9q1ITdNulTvg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438045;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=JLWRIyW6L3H78bd/BFlmj2ybIy9WVHoAXMpJ3dEd5x4=;
-	b=M9U2scJcERs2Ta+Vcs+FZglc35jHtQ2/wg84c1EOf/lYZ7n9zQWjC53l0bxwtDMXwAnx
-	 CIBMi9GaUqJnx0R9YUhhwCXsyT2Z+b0XaDJOOheOdlhdaWBvNDKtAlrvisww+t/W5CYsr
-	 by6Q4TBZ/cFUa/jmn+8GocqF+SEm0nLsY4V7EzVPlUZv+z+GbQt0hElAD1napzcWShkGw
-	 Wr4aYG63FD1dRhYEOzVUC1o6AcRqd8vAuUwn0qQpj+3J5ixYczOaj1z2FlJc3/NVd70Ql
-	 GVligMG6Bk9lFz536S5A6t2bbJoH9UkFJlKjBdcz9Fbh7OSmtHpaji6Zej2bBxlqoNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438068;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Mailer;
+	bh=orrWhwI38eNtu/8XCVAnDu9Zutnik9Tw9G8jO+qCzzg=;
+	b=1ckiQfvtsF5Of9GI8R77SlUBAXbaN0w7eB1ZAYmeLUdb6qPaMxftZerbpcAXaGsHlisY
+	 3XWlfWu9II0aTeW0MgX5NEgAUl88Kw+WbB/aBrQ+6/m7d20ee80CRhQaK9nVGCAHTTpGC
+	 /ZM8uBzFbX3V2Wp1IMnA4co3Tyxb/2dXfQPtmgDQmHJpFoVdxdcSXRkkknFce9vNnRfyM
+	 oYHFbwVDyOoMlHJMgrfIqYuK0e9SaipCRW2GO7wrQAKIz7tBhJtjUCR86xT8ReRi3bUHS
+	 gZXClo4QLpxImqrvdD2Y0VdGmYxOSKgVUYDPGie4ahlkjXeU6v/AZZ3u7z310R+nfKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="DbwGP/cw";
-	arc=none smtp.remote-ip=209.85.214.182
-Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b="ceLpo/QP";
+	arc=none smtp.remote-ip=66.163.184.45
+Received: from sonic317-34.consmr.mail.ne1.yahoo.com (sonic317-34.consmr.mail.ne1.yahoo.com [66.163.184.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C647606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:47:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C647606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5727B606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:47:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5727B606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DbwGP/cw
-Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f0621eec70so17724485ad.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:47:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795438045; x=1796042845; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JLWRIyW6L3H78bd/BFlmj2ybIy9WVHoAXMpJ3dEd5x4=;
-        b=DbwGP/cwdpTOtGUruhFiB4Bmbuh2pxwLCoG+NMc7KVnrn5W8cxeooMpUbVXi4UvOi6
-         hS5h6/P1Z59KqHBq7Ng0wA2hkJqtDssAYfcAkXL7UJycIZaImTndQpoyc+ZKGQbqJ9oz
-         7RXaj8VKPYVwUW+V3RM91bTPIkbNnN7NbjE6FnRfs2Vzp7vxxyyMLDth2in5ckFdfbbE
-         eC6Nuufo3B8NI9pxMF6q5PqWeCq/gWXUFCbq8MFeqFtXU+myIoCeWnRXitZKpiJTUbFN
-         zPjU1+BFBmn6sI3GuLspEKKoFSsj9eX2fCFuHQowYFDZTf5b2bispBLdHQC3nFW3uZ2e
-         apyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795438045; x=1796042845;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JLWRIyW6L3H78bd/BFlmj2ybIy9WVHoAXMpJ3dEd5x4=;
-        b=tYB8o1WhDkkJCZuV/Cu6AQ5t/z9mXFC6aS23nlrmGsNf1lTbMkSgzRI8A6v6CBEEgn
-         3qLMCrMkYoWDT5JcbMpo4AYZdC+PgSiqFAoSsYv1QR4RXgMuwcYVgIxog6FtyNGJPqEL
-         ghqFnk2bH6zW/GGzhfhVyKfo6bVK8lztI+34PRJ93aVrP+wj8r+O7lsypf/Ux7KH3P+y
-         Lr4/pUVQxAHKSynCgh4BCsEEic8bsXo90nzdhoJwI37yg6i53ra1oRVrK0E3CJXsJumc
-         U46tJyfQHQixfbCUOCyaf0xzPhcFy7WNBaGYxhs9n2IBRGIU8Ign+ui+WsB86n6FQeQ2
-         1wJg==
-X-Forwarded-Encrypted: i=1; AL+hErFtQfz0gALtN+244rhRW7dm3qBjCKIKmHRZpUFqeseMkYrhAvs+IuN/a6SfcTTD0QTbpBax1mVBF9bU+3I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z84n7n8P+lpM5OqKQIHCDuo6B+h3I+x7bkugo53XGw14UinRF5E
-	td6Wck2Vh3PdqWRDEH9J/SVzcHeCH1Pt/SI7xvLs7kXHZ++quJpHkSby
-X-Gm-Gg: AZFdTZcPLeJVY6ONkGgG6qiySVjZVNi3HIj8h7Yd64PNPCVy/Or7T/aBdxqGTEyBJtk
-	osQharW1I0Txbz324HfcgWIewruMc1xI9k6Sk37+ZwW/ma1GrNCgVquMZnuDlHekpPPCi8mpl/j
-	iiU9n7iq66NuPmnk5QJrBVCe4lyAZ2AChZ9gybEQFfSLaMfacwq86lktWaUGjPIz9UlZfIPFXxf
-	lBR8ZnEIlSNF0k0Xjser3UPSYE6NIeB7P7MX7ZHWUbnMvf4yEecVeAqNipJhQzxyhN6PGtjubH7
-	2dAKCnoMAX9gBrkyGVecP4yyx+zEQZ59b+yX518Ly7xAbOUM+A3Xx5SRGzeE9U6Ch4Tv1lm4UwD
-	WigPxi8JAxqZd0eL4hqMM8ttEK3V4wCuKoV2OPY8N1jo6712mvsagnWmYnYxBAHJhYyhPpnhVhV
-	FoGrTZQ8OgfYbXUjQg4KngRCnsYYRNCqBcKvaJtkcm3LfE4EIhyfKQhGi8l+06lYv2S0Z5w3S37
-	0+18rOUHLpiWM/dqbuFCs3w8yVY/fX6NphwkuutltIDbFcg6iCaejqv28Otlb+tQxgHuB0mjYKY
-	yXhCHWwpVZA86t4y5IHoMTmv/t4VwnapMbToZRjgvH630mv//wE=
-X-Received: by 2002:a17:902:e803:b0:2ef:effd:4606 with SMTP id d9443c01a7336-2f03efb019emr116976325ad.2.1795438044765;
-        Mon, 23 Nov 2026 04:47:24 -0800 (PST)
-Received: from gb05.tail50fddd.ts.net ([139.5.199.74])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0dc0f8sm51919435ad.27.2026.11.23.04.47.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 04:47:24 -0800 (PST)
-From: Ayaan Mirza Baig <ayaanmirzabaig85@gmail.com>
-To: Jiri Kosina <jikos@kernel.org>,
-	Benjamin Tissoires <bentiss@kernel.org>,
-	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
-	Jonathan Cameron <jic23@kernel.org>
-Cc: Zhang Lixu <lixu.zhang@intel.com>,
-	Zheng Shuhao <viennaoffh@gmail.com>,
-	Arnav Kapoor <kapoorarnav43@gmail.com>,
-	Lee Jones <lee@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-input@vger.kernel.org,
-	linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	syzbot+fb951970a334aaff00ba@syzkaller.appspotmail.com,
-	Ayaan Mirza Baig <ayaanmirzabaig85@gmail.com>
-Subject: [PATCH v3] HID: hid-sensor-hub: avoid lock inversion in sensor_hub_remove()
-Date: Mon, 23 Nov 2026 18:17:15 +0530
-Message-ID: <20261123124715.351511-1-ayaanmirzabaig85@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=ceLpo/QP
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795438067; bh=orrWhwI38eNtu/8XCVAnDu9Zutnik9Tw9G8jO+qCzzg=; h=Date:Subject:To:Cc:References:From:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=ceLpo/QPIXDkwQNFAnKkgbqcLWlpZ+XSwk9MrjcKuZ5mj2ig01ryEOcdqVQ/TDqSyK9JPmd9Dmpdv2Au4FM/Yj4+2JzhHvI02HuLHAvaUrL1Cdb56apNYCp+3VEktfO/BXw9BhrHMMiOgjMoJeURWHLQ8peeaZ8w8ava6OBe6bN0z7FpHSHRFaVvin6esq0S0kTVsQijXLmems/79HqPc25YcHTHwb6JeCjGTJISJCaz7QRJuBt8PzOTA/2V8jFULRVRAg2JUZcfkdlLeKKzP5LxkukooBhcOHxekl/a9fSG9ak5FBT+w+G+xuojsmvSmAx131n+UruunU7Q/pCr7w==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795438067; bh=3LMuNOxW8zKYTBKQm3BNccZdU2n9C5W1yY55HXhrbvd=; h=X-Sonic-MF:Date:Subject:To:From:From:Subject; b=Lb/8jBMmBAup5ZYuUOYgqUqY9JrAIgx58OJXgm8XlvyHUeWz2LYxfPOkSz2qiWejstrP59eQ3utPj6p/OZgr8UrornEiLjnElmvvdoDSMUmjDz3In5V1FFV5IVm8XPJg2fDgWX7jpWODQXkaQ6bAySmf1fHV3SVVZOGsD5bBNZb9QXvh6ElNiBV3AFWk/KQEz0GTc4clGmsdqqB+strcc823l8w/jss+5T5mSiqFioext1ab19Zrfh5LWg2sEBJpFWAwseyx5y8DUlIoU+lFdSFqyZrAXk8btOUKT0itHAWuVV1pjW2m7OOW7hKlRlvjRkPb30Ktq64F2LEIT0ve/w==
+X-YMail-OSG: a93BEHcVM1lwrnw8poiQoAhNQqt0NJ4tAKAVlTdTwoDNeMs50BxComSCYx8Xl9Q
+ Ap0jQXw7doCu7HpYFgABDH7lxT8IZMBeWpcVEYeuuoRqn._aR.HHncWa5hBmEC3Dl2RXA5st_EgS
+ Nnzjxo5XNQBYUSYtnWDIUJbHxbfqb09QzbdyJOljdd7ebC1mEX3ieCICyIr1NBFbAe_ugjbhjuMK
+ fcDRBqyWK2X5NZyf4fHi8FypUJCTfMLwigp075gIU03WjiDp8fUzfxLShqNi1_Ai1JiI82_ImJnD
+ jfPyUheLevr6sqxLs73WwfFT6zdnEikiH4wzD5PXrueTzDsw2HEeswUfpQKOp.wZ4ub6AsKE.zhQ
+ 4gqBiMJo8.klOMfmHOkZHmxBokRGcwfaUoivQVmWq.qk9Cf0gzPzCasVh1uPMcD5o0kLs1W6Nrcd
+ 63s.ooAoVCfYgRBF9Uy9VfV5B0tbflsWjjnJLr8yu7a9C_m382JjiF3L_f8Z.QdcWb7ls1oVLF9H
+ D6Zl15RczWdYhmPZfKK_ozzQNQdchHB3srTl1vEdRsSS9ezrQovYZCC7MUiXYyRC72kDu67x0psK
+ N3lf_LRhftoQ6uu.7kDht00KcciXcyombKjlVSDqqPzjMw4jivTGvLdX09e4xAz908yZfR.EvxS1
+ YqPoBM__d_9ndN9CEP6uNW7caV.xqIg56Xy1.43mf2NhhH9EHHo3GlyEa0atVVupLQE2Ae4aR.Kb
+ HI_1Rev4fsyVTUZdP4jxqjj_SpQiAdiWqKiQq1sw5i_RtyUsBZx3YOXfIvZ5jOKAAf_NMBCeyUTg
+ jJwZ_MRODW45GwWDAaxPKVx0L7xi2thX15KgoCvszWmiZmzWrV98XSohKVJ7SMA.KavzpPbGQDYp
+ fG54Upbo1jK..bq1c8Jtdb1cOmg3gAmYgBF7M97Pf3XAbcLnDrL9BaOKajHbHuKPpmPylNbxXbmW
+ aMM5kLn9BSLbLxgNe53CS1WewdsRy36KraocT6UxaJ5QbVpKuFDn.YFCgvELdyznhlQic3O2FAis
+ DA.r5Pg1qlqfQ.rsgcvvhVACCKB9muQQh5yzgC8AYQoWb9riXEKRmTrrb1rb2NoDY.LYp2zt2C1w
+ o4Pqos9JFERZv8Rm_ZoXHdpWvNnyXlN6ZOsNLX1FxPvt28QQ7OkEA9WY9cYFGE0fWiGFdDuxZpIn
+ IDctyLp8jt9A9ySmS8sUchEStUuQiw49U1tzLERFuOF6g7x8.IMAOcFNGEy_lT9F2IvdvgzNYm5D
+ 1dveduYEqApWdMw.1XlpekBxXWz_vtqnW02ZV0j_CUYcUUAF.lCWy3LWfkiVXsuPwwnw9u15fzZ7
+ ku2jGNZ8KdS8FnSycJo3LoZvG3tfCCwI5ioRyb.n4IOErDhF_jGRkGrr1tOwGlGcHqG2qUX2I4Ux
+ hhORGNI8H0grbl7.phtx3Y.f90ATMo2wtClorZq670G_afF3UuIquMHR9ohNjac3oUP60qpA3MCQ
+ gayt6ycrwtMGDLV7u3a4pG8wMR3TS30RDK5AQZFKBjlUAelD9U6wrZg1EAhitA9nAYI.uj02fMxH
+ 4m767jgHTV7DHdSY.ShbXSQRZywS6unbVmte5VLg4aRgmbFXyltmAilzGyPgD1siQ3hCMWmapXC3
+ CvRPFNRKZYsvP5WLAMz.kv7Mk1iKmNN.YyCHYNUdnJqlS1K.2YPQsbMt53rmHnZH1Y.DnXCBZ0Q3
+ MpwlQEdHOAJX469r7EwEYjNq4aZLYiW4SNA6g59gLbVJeFUq7DhzECJekNsFqHq75HXBPFdN028E
+ iH0ajBcKB2pg2MYh_l_0BX8If07m82NHbbK5li5rLanvID0m1psL56nHBMpQA813YWfsQoyjggW5
+ NX0f0cX2Mj031xEx14yvv5Aoc99TaaXC._a.ucPG6.0u5Lt_eLQN9MGfkY2.n4FrrYK8Tbijeoln
+ pZgs94ZkktPioOcWuIcFNLqf5jqJ_yGqCjbF6r35DKscprUnzGxhytlowx0z08TAVuipf9UGjzxT
+ Us4iMRiMbOxRt5F3i82Y_62r0n9WOxEI7hzVVlgUJCeL67qEzrd7e2DvZyyU_aQq44t1yZE0wiiv
+ k_mISmXt97DhNNnwsCPfh2LmU_8f7FF7fNNG1InJdB7L1tKpDrpZhliizbPEXR0HSoDd2UEvtuRx
+ NQPwZn2vExE3Hqwf6Qn84ldrTsI7tOF_i7xnQ5RifBHUAzYs7KAKC9VNk7Ick6Lg6aImbPDa_Ksh
+ qJGsTe3uP2TsewCrWb9f5TtAlXMiR3iHhy8Yp5K5tw78yrOF83BhTSzIJB13fMgDtnrVZMekpPUz
+ SwPOsY6OUwenXexuNHRTmCdY-
+X-Sonic-MF: <namiltd@yahoo.com>
+X-Sonic-ID: eef3ac1d-69b4-426f-8e94-9319f1c7c173
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic317.consmr.mail.ne1.yahoo.com with HTTP; Mon, 23 Nov 2026 12:47:47 +0000
+Received: by hermes--production-ir2-7c4859dc89-9kgzz (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 3522ec87fe67852f4cc02edda797809b;
+          Mon, 23 Nov 2026 12:47:44 +0000 (UTC)
+Message-ID: <b9f22af1-f0d0-4beb-8a4b-f4e0cf225363@yahoo.com>
+Date: Mon, 23 Nov 2026 13:47:44 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,81 +84,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v12 13/13] net: dsa: realtek: rtl8365mb: add
+ support for RTL8367S-VB
+To: Oleksij Rempel <o.rempel@pengutronix.de>,
+ Gustavo Foletto Mora <gusfmora@gmail.com>
+Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com,
+ gabonpivovich@gmail.com, contact@c127.dev
+References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
+ <729eeb67-d812-4f1d-81e2-4f4437181744@yahoo.com>
+ <CAK+kzgzzcGPWVoXQ=VKFeojk+-=9S_mWBhMdcN44M9QXkihn-g@mail.gmail.com>
+ <c848fe82-a534-410b-80a6-8d7fb35ab0ae@yahoo.com>
+ <CAK+kzgxmgdFoBhzNhfxB29yS_Hz13LOm7rZvKb6fpyVKb8kwdw@mail.gmail.com>
+ <awPy7Wxq-_ukUNfG@pengutronix.de>
+Content-Language: pl
+From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+In-Reply-To: <awPy7Wxq-_ukUNfG@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-In sensor_hub_remove(), spin_lock_irqsave(&data->lock, flags) is held
-while calling device_for_each_child(), which iterates child devices via
-klist_next() and acquires the driver core's &k->k_lock.
+Hi Oleksij,
 
-Because &data->lock is acquired in softirq context by
-sensor_hub_raw_event() while &k->k_lock is acquired elsewhere with
-softirqs enabled, nesting &k->k_lock under &data->lock triggers a
-SOFTIRQ-safe -> SOFTIRQ-unsafe lockdep warning and risks an ABBA
-deadlock between process context and softirq context.
+On Mon, Nov 23, 2026 at 01:46:00PM +0100, Oleksij Rempel wrote:
+ > Hi Gustavo, Mieczyslaw,
+ >
+ > thank you. I have no family D hardware, so only some pointers from
+ > family C.
+ >
+ > On 21/11/2026 Gustavo Foletto Mora wrote:
+ > > On 21/11/2026 Mieczyslaw Nalewaj wrote:
+ > >> 1. Does a non-zero value written to 0x0851 on your board change
+ > >>    anything (PCP of untagged frames, or the register reading back)?
+ > >
+ > > Not yet answered: on my test image the switch registers are read-only
+ >
+ > On family C the added tag takes its PCP from 0x0851/0x0852. If family
+ > D ignores that field, the tag probably carries the internal priority
+ > unconverted.
 
-Move spin_lock_irqsave()/spin_unlock_irqrestore() into
-sensor_hub_finalize_pending_fn() and pass data through
-device_for_each_child(), so &data->lock is only held while inspecting
-and completing each child's pending state after klist_next() releases
-&k->k_lock.
+That matches what Gustavo observed on the RTL8367S-VB: without
+0x0851/0x0852, newly inserted 802.1Q tags take their PCP directly from
+the frame's internal priority.
 
-Fixes: 8a5b38c3fd70 ("HID: hid-sensor-hub: don't use stale platform-data on remove")
-Reported-by: syzbot+fb951970a334aaff00ba@syzkaller.appspotmail.com
-Closes: https://lore.kernel.org/all/6afddf21.a11fe2ad.1b4426.0003.GAE@google.com/T/
-Suggested-by: Zheng Shuhao <viennaoffh@gmail.com>
-Signed-off-by: Ayaan Mirza Baig <ayaanmirzabaig85@gmail.com>
----
-Changes in v3:
- - Actually pass 'data' instead of NULL to device_for_each_child()
-   (missed in the v2 submission).
- - Drop the NULL platform_data guard since hid/for-next already checks
-   dev_is_platform() and !hsdev.
+ > Other places that can set this PCP on family C, in case they matter
+ > on family D:
+ >
+ > - remarking, bit 12 of 0x000e + 0x20 * port (off after reset)
+ > - 0x093a bit 0: when set, an untagged IPv4 frame takes its PCP from
+ >   the DSCP table
 
-Changes in v2:
- - Attempted to pass 'data' instead of NULL to device_for_each_child().
+Good to know, thanks. Numbering the internal priorities like PCP values
+on family D (matching the vendor RTL8367D API) makes the newly inserted
+tag match the traffic type without needing remarking.
 
- drivers/hid/hid-sensor-hub.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ > > [...] so an inverse table would also turn tagged PCP 5 into PCP 0
+ >
+ > Agreed, without PCP trust that table would change tagged frames too.
+ >
+ > Family D is not merged, so the DCB code has no bug in net-next and
+ > needs no Fixes: tag. I think the family D part belongs behind a hook
+ > in rtl8365mb_family_info, like VLAN, PVID and L2 in v12.
 
-diff --git a/drivers/hid/hid-sensor-hub.c b/drivers/hid/hid-sensor-hub.c
-index e9d6eb3b3831..090e5a232efa 100644
---- a/drivers/hid/hid-sensor-hub.c
-+++ b/drivers/hid/hid-sensor-hub.c
-@@ -808,6 +808,8 @@ static int sensor_hub_probe(struct hid_device *hdev,
- static int sensor_hub_finalize_pending_fn(struct device *dev, void *data)
- {
- 	struct hid_sensor_hub_device *hsdev;
-+	struct sensor_hub_data *sd = data;
-+	unsigned long flags;
- 
- 	if (!dev_is_platform(dev))
- 		return 0;
-@@ -816,8 +818,10 @@ static int sensor_hub_finalize_pending_fn(struct device *dev, void *data)
- 	if (!hsdev)
- 		return 0;
- 
-+	spin_lock_irqsave(&sd->lock, flags);
- 	if (hsdev->pending.status)
- 		complete(&hsdev->pending.ready);
-+	spin_unlock_irqrestore(&sd->lock, flags);
- 
- 	return 0;
- }
-@@ -825,14 +829,11 @@ static int sensor_hub_finalize_pending_fn(struct device *dev, void *data)
- static void sensor_hub_remove(struct hid_device *hdev)
- {
- 	struct sensor_hub_data *data = hid_get_drvdata(hdev);
--	unsigned long flags;
- 
- 	hid_dbg(hdev, " hardware removed\n");
- 
--	spin_lock_irqsave(&data->lock, flags);
- 	device_for_each_child(&hdev->dev, NULL,
- 			      sensor_hub_finalize_pending_fn);
--	spin_unlock_irqrestore(&data->lock, flags);
- 
- 	mfd_remove_devices(&hdev->dev);
- 	/* Clients share one HID open; release it if references remain. */
--- 
-2.56.1
+Agreed. I have refactored the QoS priority handling behind
+rtl8365mb_family_info hooks (qos_iprio_to_hw, qos_hw_to_iprio and
+qos_set_untag_pcp) and implemented the PCP-numbered family D hooks on
+top of that in v14, which I will send shortly.
+
+Regards,
+Mieczyslaw
 
