@@ -1,74 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795438883;
-	b=G2yQ7JCB2DF0OrBKAvk6dX1/fW6QxeIUl/UzbSGA75TvvqKnA9D85E3kLd8yTYv295IF
-	 suXPhjjJBpoGk+E/hiIblTa2WXpaSnMPgrOyLjb7yT2lSAug3btwBfOr+h529RoIYA8LM
-	 3SVczBXq2cVFoiveY1T4fEB/6qkYP76Az0T3lNcexoinQfVg6ec6oZRmfR40r1mt6d7Me
-	 JItk8frKFEgMMkfRsQO9V4nNO+uDyvquC1isSg7nJlaI5MN6yTLGjuEAnwkl8Is3c9k3r
-	 SpfTEcsFbt/TgCl3s6m7ydPaMtIcO0DYA7otxqLb1btuK5fYOwuKcy199hdYmdnFrXA==
+	t=1795438891;
+	b=dL6lwHzPtSPxvhEAP7Ud5LfVXEdGD9T19SZBt51zwJPcm34I+Nd0Uke6MPfmLe+jKWP2
+	 nwoGENC4Ggf+RxEsifzyc9Vt7RJUJTN3NC6TqFtb3Q8Ch7bFufPVCSeXAoqEfIuQ2Whhv
+	 0fuN73t7Hc3Vv9GAkdZB4lApsZ4SxV3HfDewNfsDoVlAQRl9TA0dgEfDL3h2egK4WjEis
+	 5BnCAWHemoC6LS2q4T1g/27il/5GovaHJqTzVY1YcwP1w+OuyRW1CIt6dqQA7Cr6J1j1P
+	 ylOBZTM/h+cWCr26sHztB+QYo0B0MECoAvbPwqhvmgQC2pKQpNi44whtiQw6aLWJVzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438883;
-	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
-	 X-SA-Exim-Scanned;
-	bh=f/CLwrc5waSKUo+/4figVP/7jz8OonesKXu7+E62yJ8=;
-	b=RMHzYYyth7EP2DksQd3Bo1nSc+5YOMOQUcn0BJhZPPQ1Y627kkrDEEKdHnvz9iPWl9FO
-	 JFFvbKmdjESV9opon6jVit/KKx+YXTbzLCO5FdLLAdmaZIK29kaTjQ8h+E3jvr9fSQwWj
-	 G6Og4LClWQZ8s29lQnKdWeCZ/6N6eUtI+Uj4jgAPlppLKBvHKXIRGwUSEgEXp4Mvjnwnf
-	 lj8KTSyWS5tUt3GuJ3F/pBbTIhbMGNMl6Pyf9qAe5So/T3BE1E+1cNYHIV9v6jNiiFMFA
-	 dlFOl4z2Et7/23phwE2u6G+mIpH2Hpf50kTcrtC+aGhjOCumHHiTKZSJx5FiiwU5zXQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438891;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=7eHgAUF6b9K1iuUvmb5aLHuZl4vVt6BbaMArUNeQ1AE=;
+	b=cpJjJwloCjBt6NSl4FiKAQ/Qu3Og6uXG0LIP2NrMKg24bbPMDr8r4AdF3ih/7odthmvJ
+	 3970QbIXUE/+67DxSMKa5es07FFuCGYL3p8pOcu0lBamq1tllbs8ce5pngupXwOWYOADP
+	 9qj9kaXbINhWI+LS6kXkQYoRSwmfjuJH1/YRv811PQb24eKAzSVmhBBmPOxvrAUdD3LP9
+	 yZZisWZjhTt6vVY6wQlfcchvBKEM/NkXDJEZzVdy+/UuLa4W0xcjRYjY5awl024FPyEsI
+	 2CmF0QgFdfCKNE1cnwMZUf9gdxvooRCHpU/AB3wSgwx39YQZUwPga9xba0IxH+BgfCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Lrgz+gK2;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jP+52d5g;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADBE4606A333
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:01:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3C03606A32D
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:01:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Lrgz+gK2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D62371F000E0;
-	Mon, 23 Nov 2026 13:01:22 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jP+52d5g
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDFA21F000D0;
+	Mon, 23 Nov 2026 13:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795438882;
-	bh=f/CLwrc5waSKUo+/4figVP/7jz8OonesKXu7+E62yJ8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Lrgz+gK28QFkC5sArMrEjtdBx9R3KwdMYv02P7IrD1uL/w4RGnzN0Cbtzt9HkdvOv
-	 fh/PzLK6dMVoxGDNyFDtjrw9GbG7unClsKRhVNtWc3CNnzbRhVJ5M0wVImfQnKWMKL
-	 RmLvxepPnh4cFz1mQVBRNfDZRq+otywXEM6JsXmKeg/OKBziw2hyKPevrYpd9iUE2I
-	 Q4njtfCZdMekRtPdQBSlkaJKxQMtxrvqbV2zje+ynWGFtNBXhQ6qV/aGje0q3EcLQF
-	 JLEuyJY0jywiJBuk6FlBNSN2ngzbwiSvoSlu6ceFpwzsOOKEfFoAbsbQ12ydQJ0K43
-	 DTBRrDsIrUlVw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xVTfd-00000001yqX-0MTk;
-	Mon, 23 Nov 2026 13:01:21 +0000
-Date: Mon, 23 Nov 2026 13:01:20 +0000
-Message-ID: <86ik1nzopr.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/5] irqchip/gic-v3-its: Align sub-page ITTs to 256 bytes
-In-Reply-To: <20261116192933.3266502-4-fuad.tabba@linux.dev>
-References: <20261116192933.3266502-1-fuad.tabba@linux.dev>
-	<20261116192933.3266502-4-fuad.tabba@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	s=k20260515; t=1795438890;
+	bh=7eHgAUF6b9K1iuUvmb5aLHuZl4vVt6BbaMArUNeQ1AE=;
+	h=From:To:Cc:Subject:Date;
+	b=jP+52d5ge/wZmjJ9NXFAd2oqQBOjyvHIXexJ3xt8oF/leitOQkmOzVZQ1HRbPYd/h
+	 VMM5GDP9z4zv0oyOprBXzDSC6XDrbaRSeq8d4i/FuDsClXKuj9xDah6QEjh9U/dgz8
+	 K0gTrSDuYWeVCHtEx4MNE+n7OpgCd53e32zXEpNLowjHlbE6Mt/X4JDex1glku4bXe
+	 YNkCeXUtggnVaDMQND4LQmT4UwRGfzve4YLrZGZDLGxQIX3wGE/7il3Aweuz5KM4Kj
+	 ewszvahP566oAAGzmy/jTKVN7tQLEth8eZ0ZViPBNtd3F2auZq3JHiZrcmbTXy6QUE
+	 xytCGRuhQabyQ==
+From: Pratyush Yadav <pratyush@kernel.org>
+To: Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>
+Cc: kexec@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: [PATCH v3] mm/memfd_luo: don't use memfd_pin_folios()
+Date: Mon, 23 Nov 2026 13:01:09 +0000
+Message-ID: <20261123130115.4021199-1-pratyush@kernel.org>
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,56 +59,481 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, tglx@kernel.org, radu@rendec.net, yuzenghui@huawei.com, lpieralisi@kernel.org, steven.price@arm.com, suzuki.poulose@arm.com, aneesh.kumar@kernel.org, will@kernel.org, tabba@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Mon, 16 Nov 2026 19:29:31 +0000,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> Commit e36d4165f0796 ("irqchip/gic-v3-its: Rely on genpool alignment")
-> dropped the ALIGN() of the ITT address in MAPD, on the premise that the
-> ITT pool returns 256-byte aligned blocks. However, the pool's minimum
-> allocation order is get_order(ITS_ITT_ALIGN), which is 0, so its
-> granule is a single byte. An ITT whose size is not a multiple of 256
-> leaves the next device's ITT misaligned. MAPD drops the low bits of its
-> address, so that device's ITEs land on the previous device's ITT.
-> QEMU's emulated ITS has 12-byte ITEs, so two devices with 32 vectors
-> each are enough to hit it.
-> 
-> Create the pool with a granule of ITS_ITT_ALIGN.
-> 
-> Fixes: e36d4165f0796 ("irqchip/gic-v3-its: Rely on genpool alignment")
-> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> ---
->  drivers/irqchip/irq-gic-v3-its.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-> index 6932dd0a02c42..5756ffe4ec13e 100644
-> --- a/drivers/irqchip/irq-gic-v3-its.c
-> +++ b/drivers/irqchip/irq-gic-v3-its.c
-> @@ -5854,7 +5854,7 @@ int __init its_init(struct fwnode_handle *handle, struct rdists *rdists,
->  	bool has_v4_1 = false;
->  	int err;
->  
-> -	itt_pool = gen_pool_create(get_order(ITS_ITT_ALIGN), -1);
-> +	itt_pool = gen_pool_create(ilog2(ITS_ITT_ALIGN), -1);
->  	if (!itt_pool)
->  		return -ENOMEM;
->  
+From: "Pratyush Yadav (Google)" <pratyush@kernel.org>
 
-This one really wants a
+memfd_luo takes a snapshot of the folios in the file's mapping. To make
+sure the snapshot does not go out of sync, it pins the folios in the
+file via memfd_pin_folios(). The pinning also migrates the folios out of
+MIGRATE_MOVABLE to make sure doesn't land in KHO boot memory or in a CMA
+region.
 
-Cc: stable@vger.kernel.org
+memfd_pin_folios() does not lock the folios. So it can race with
+shmem_writeout(). A folio returned by memfd_pin_folios() might already
+be in swap cache. This happens to work but is fragile. memfd_luo looks
+at folio flags and index on a folio that isn't in the memfd's page
+cache.
 
-Thanks,
+In addition, memfd_pin_folios() needs the caller to allocate an array of
+folios. memfd_luo does not really need that since it will vmalloc
+folios_ser and store the information there anyway. The folios array is
+unnecessary overhead.
 
-	M.
+Finally, memfd_pin_folios() fills in holes in the memfd. This makes
+preserving sparse memfds very expensive in both compute and memory.
+While this patch doesn't yet stop filling in the holes, it sets up the
+infrastructure to make it simpler.
 
+Fix all this by walking the page cache directly using shmem_get_folio()
+with SGP_CACHE. This returns a locked folio with an elevated refcount.
+memfd_luo holds that reference until the memfd is unpreserved. This
+blocks compaction, migration, etc.
+
+There is still a need to migrate folios out of MIGRATE_MOVABLE page
+blocks. This is because those might be CMA or KHO scratch. memfd_luo
+will hold a longterm reference to the folios so it will block migration
+in that pageblock. Introduce memfd_luo_migrate_folio() to do this.
+
+Also factor out folio unpreservation logic into memfd_luo_put_folios()
+and use it from memfd_luo_unpreserve_folios() and from error paths in
+memfd_luo_preserve_folios().
+
+Since shmem_get_folio() always returns uptodate folios, drop the folio
+zeroing logic.
+
+This change also improves preservation performance, shown in the table
+below.
+
+|------------------+----------+------------+-------|
+| memfd            | baseline | this patch | delta |
+|------------------+----------+------------+-------|
+| 4K pages, 32 GiB | 748 ms   | 600 ms     |  -20% |
+| THP, 4 GiB       | 0.59 ms  | 0.59 ms    |    0% |
+| THP, 16 GiB      | 2.99 ms  | 2.61 ms    |  -13% |
+| THP, 32 GiB      | 4.83 ms  | 5.21 ms    |   +8% |
+| sparse, 32 GiB   | 8695 ms  | 7269 ms    |  -16% |
+|------------------+----------+------------+-------|
+
+Acked-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Signed-off-by: Pratyush Yadav (Google) <pratyush@kernel.org>
+
+---
+
+The diff is unfortunately hard to read. It would be easier to review the
+patch by applying it and looking at the final code.
+
+This patch is picked from a separate series I sent [0]. It is more or
+less an independent change. It fixed a race for that series so I added
+it there, but since that series might take longer to go through, I think
+it is useful to take this patch separately.
+
+[0] https://lore.kernel.org/all/20261027173031.763213-2-pratyush@kernel.org/
+
+Changes since v2:
+
+- Reword the comments on memfd_luo_migrate_folio(), memfd_luo_get_folio()
+  and the allocation comment in memfd_luo_preserve_folios() so they no
+  longer say folios are "held until the next kernel". Instead, say that
+  preservation holds a longterm reference on them.
+- Use a bounded for loop in memfd_luo_get_folio() instead of an open
+  ended one with a separate busy retry counter.
+- Collect tags.
+
+Changes since v1:
+
+- Add memfd_luo_get_folio() which combines shmem_get_folio() and the
+  migration logic.
+- Collect tags.
+- Rebase to v7.4-rc1.
+
+---
+ mm/memfd_luo.c | 306 ++++++++++++++++++++++++++++++-------------------
+ 1 file changed, 190 insertions(+), 116 deletions(-)
+
+diff --git a/mm/memfd_luo.c b/mm/memfd_luo.c
+index 6b68220275eb..c963bc3522e6 100644
+--- a/mm/memfd_luo.c
++++ b/mm/memfd_luo.c
+@@ -77,26 +77,161 @@
+ #include <linux/kexec_handover.h>
+ #include <linux/kho/abi/memfd.h>
+ #include <linux/liveupdate.h>
++#include <linux/migrate.h>
++#include <linux/sched/mm.h>
++#include <linux/sched/signal.h>
+ #include <linux/shmem_fs.h>
++#include <linux/swap.h>
+ #include <linux/vmalloc.h>
+ #include <linux/memfd.h>
+ #include <uapi/linux/memfd.h>
+ 
+ #include "internal.h"
+ 
++static void memfd_luo_put_folios(const struct memfd_luo_folio_ser *folios_ser,
++				 u64 nr_folios)
++{
++	u64 i;
++
++	for (i = 0; i < nr_folios; i++) {
++		const struct memfd_luo_folio_ser *pfolio = &folios_ser[i];
++		struct folio *folio;
++
++		if (!pfolio->pfn)
++			continue;
++
++		folio = pfn_folio(pfolio->pfn);
++
++		kho_unpreserve_folio(folio);
++		folio_put(folio);
++	}
++}
++
++/* How many times to try migrating a folio that is not longterm pinnable. */
++#define MEMFD_LUO_MIGRATE_RETRIES	3
++
++/*
++ * Preservation holds a longterm reference on the folio. This would block
++ * migration in ZONE_MOVABLE or CMA. Move it out.
++ *
++ * Must be called with folio unlocked. Drops the reference to folio. The caller
++ * must look it up again.
++ *
++ * Returns 0 on success, -EBUSY if the folio could not be isolated (e.g.
++ * because someone else has it isolated right now), or -ENOMEM if migration
++ * failed.
++ */
++static int memfd_luo_migrate_folio(struct folio *folio)
++{
++	struct migration_target_control mtc = {
++		.nid = NUMA_NO_NODE,
++		/* Not movable, so the target is neither in ZONE_MOVABLE nor CMA. */
++		.gfp_mask = GFP_USER | __GFP_NOWARN,
++		.reason = MR_LONGTERM_PIN,
++	};
++	LIST_HEAD(source);
++	bool isolated;
++
++	/* Flush per-CPU LRU batches holding the folio so isolation works. */
++	lru_cache_drain_for_folio(folio, 1, NULL);
++	isolated = isolate_folio_to_list(folio, &source);
++	/* Isolation holds its own reference. */
++	folio_put(folio);
++	if (!isolated)
++		return -EBUSY;
++
++	if (migrate_pages(&source, alloc_migration_target, NULL,
++			  (unsigned long)&mtc, MIGRATE_SYNC, MR_LONGTERM_PIN,
++			  NULL)) {
++		putback_movable_pages(&source);
++		return -ENOMEM;
++	}
++
++	return 0;
++}
++
++/*
++ * Look up the folio at @index, allocating it if needed. Preservation holds a
++ * longterm reference on the folio, so folios that are not longterm pinnable are
++ * migrated out first, retrying a few times if someone else has them isolated.
++ *
++ * On success, returns 0 with *@foliop locked and holding a reference.
++ */
++static int memfd_luo_get_folio(struct inode *inode, pgoff_t index,
++			       struct folio **foliop)
++{
++	struct folio *folio;
++	int err, retry;
++
++	for (retry = 0; retry < MEMFD_LUO_MIGRATE_RETRIES; retry++) {
++		err = shmem_get_folio(inode, index, 0, &folio, SGP_CACHE);
++		if (err)
++			return err;
++
++		if (likely(folio_is_longterm_pinnable(folio))) {
++			*foliop = folio;
++			return 0;
++		}
++
++		folio_unlock(folio);
++		err = memfd_luo_migrate_folio(folio);
++		/* Someone else might have it isolated, retry a bit. */
++		if (err && err != -EBUSY)
++			return err;
++	}
++
++	return -EBUSY;
++}
++
++static int memfd_luo_preserve_folio(struct folio *folio,
++				    struct memfd_luo_folio_ser *pfolio)
++{
++	int err;
++
++	err = kho_preserve_folio(folio);
++	if (err)
++		return err;
++
++	/*
++	 * A dirty folio is one which has been written to. A clean folio
++	 * is its opposite. Since a clean folio does not carry user
++	 * data, it can be freed by page reclaim under memory pressure.
++	 *
++	 * Saving the dirty flag at prepare() time doesn't work since it
++	 * can change later. Saving it at freeze() also won't work
++	 * because the dirty bit is normally synced at unmap and there
++	 * might still be a mapping of the file at freeze().
++	 *
++	 * To see why this is a problem, say a folio is clean at
++	 * preserve, but gets dirtied later. The pfolio flags will mark
++	 * it as clean. After retrieve, the next kernel might try to
++	 * reclaim this folio under memory pressure, losing user data.
++	 *
++	 * Unconditionally mark it dirty to avoid this problem. This
++	 * comes at the cost of making clean folios un-reclaimable after
++	 * live update.
++	 */
++	folio_mark_dirty(folio);
++
++	pfolio->pfn = folio_pfn(folio);
++	pfolio->flags = MEMFD_LUO_FOLIO_DIRTY | MEMFD_LUO_FOLIO_UPTODATE;
++	pfolio->index = folio->index;
++
++	return 0;
++}
++
+ static int memfd_luo_preserve_folios(struct file *file,
+ 				     struct kho_vmalloc *kho_vmalloc,
+ 				     struct memfd_luo_folio_ser **out_folios_ser,
+ 				     u64 *nr_foliosp)
+ {
++	struct memfd_luo_folio_ser *folios_ser, *shrunk;
+ 	struct inode *inode = file_inode(file);
+-	struct memfd_luo_folio_ser *folios_ser;
+-	unsigned int max_folios;
+-	long i, size, nr_pinned;
+-	struct folio **folios;
+-	int err = -EINVAL;
+-	pgoff_t offset;
+-	u64 nr_folios;
++	u64 nr_folios = 0, max_folios;
++	unsigned int pin_flags;
++	pgoff_t index = 0, end;
++	int err;
++	loff_t size;
+ 
+ 	size = i_size_read(inode);
+ 	/*
+@@ -113,98 +248,65 @@ static int memfd_luo_preserve_folios(struct file *file,
+ 	 * Guess the number of folios based on inode size. Real number might end
+ 	 * up being smaller if there are higher order folios.
+ 	 */
+-	max_folios = PAGE_ALIGN(size) / PAGE_SIZE;
+-	folios = kvmalloc_objs(*folios, max_folios);
+-	if (!folios)
++	end = DIV_ROUND_UP_ULL(size, PAGE_SIZE);
++	max_folios = end;
++	folios_ser = vmalloc_array(max_folios, sizeof(*folios_ser));
++	if (!folios_ser)
+ 		return -ENOMEM;
+ 
+ 	/*
+-	 * Pin the folios so they don't move around behind our back. This also
+-	 * ensures none of the folios are in CMA -- which ensures they don't
+-	 * fall in KHO bootmem. It also moves swapped out folios back to memory.
++	 * Preservation holds a longterm reference on the folios, so keep newly
++	 * allocated ones out of ZONE_MOVABLE and CMA -- which also ensures they
++	 * don't fall in KHO bootmem. Existing ones are migrated below.
+ 	 *
+-	 * A side effect of doing this is that it allocates a folio for all
+-	 * indices in the file. This might waste memory on sparse memfds. If
+-	 * that is really a problem in the future, we can have a
+-	 * memfd_pin_folios() variant that does not allocate a page on empty
+-	 * slots.
++	 * A side effect of this is that it allocates a folio for all indices in
++	 * the file. This might waste memory on sparse memfds. If that is really
++	 * a problem in the future, this loop can be taught to skip empty slots.
+ 	 */
+-	nr_pinned = memfd_pin_folios(file, 0, size - 1, folios, max_folios,
+-				     &offset);
+-	if (nr_pinned < 0) {
+-		err = nr_pinned;
+-		pr_err("failed to pin folios: %d\n", err);
+-		goto err_free_folios;
+-	}
+-	nr_folios = nr_pinned;
++	pin_flags = memalloc_pin_save();
++	while (index < end) {
++		struct folio *folio;
+ 
+-	folios_ser = vcalloc(nr_folios, sizeof(*folios_ser));
+-	if (!folios_ser) {
+-		err = -ENOMEM;
+-		goto err_unpin;
+-	}
++		cond_resched();
+ 
+-	for (i = 0; i < nr_folios; i++) {
+-		struct memfd_luo_folio_ser *pfolio = &folios_ser[i];
+-		struct folio *folio = folios[i];
++		if (fatal_signal_pending(current)) {
++			err = -EINTR;
++			goto err_restore;
++		}
+ 
+-		err = kho_preserve_folio(folio);
++		if (WARN_ON_ONCE(nr_folios >= max_folios)) {
++			err = -EINVAL;
++			goto err_restore;
++		}
++
++		err = memfd_luo_get_folio(inode, index, &folio);
+ 		if (err)
+-			goto err_unpreserve;
+-
+-		folio_lock(folio);
+-
+-		/*
+-		 * A dirty folio is one which has been written to. A clean folio
+-		 * is its opposite. Since a clean folio does not carry user
+-		 * data, it can be freed by page reclaim under memory pressure.
+-		 *
+-		 * Saving the dirty flag at prepare() time doesn't work since it
+-		 * can change later. Saving it at freeze() also won't work
+-		 * because the dirty bit is normally synced at unmap and there
+-		 * might still be a mapping of the file at freeze().
+-		 *
+-		 * To see why this is a problem, say a folio is clean at
+-		 * preserve, but gets dirtied later. The pfolio flags will mark
+-		 * it as clean. After retrieve, the next kernel might try to
+-		 * reclaim this folio under memory pressure, losing user data.
+-		 *
+-		 * Unconditionally mark it dirty to avoid this problem. This
+-		 * comes at the cost of making clean folios un-reclaimable after
+-		 * live update.
+-		 */
+-		folio_mark_dirty(folio);
+-
+-		/*
+-		 * If the folio is not uptodate, it was fallocated but never
+-		 * used. Saving this flag at prepare() doesn't work since it
+-		 * might change later when someone uses the folio.
+-		 *
+-		 * Since we have taken the performance penalty of allocating,
+-		 * zeroing, and pinning all the folios in the holes, take a bit
+-		 * more and zero all non-uptodate folios too.
+-		 *
+-		 * NOTE: For someone looking to improve preserve performance,
+-		 * this is a good place to look.
+-		 */
+-		if (!folio_test_uptodate(folio)) {
+-			folio_zero_range(folio, 0, folio_size(folio));
+-			flush_dcache_folio(folio);
+-			folio_mark_uptodate(folio);
+-		}
++			goto err_restore;
+ 
++		err = memfd_luo_preserve_folio(folio, &folios_ser[nr_folios]);
++		index = folio_next_index(folio);
+ 		folio_unlock(folio);
+-
+-		pfolio->pfn = folio_pfn(folio);
+-		pfolio->flags = MEMFD_LUO_FOLIO_DIRTY | MEMFD_LUO_FOLIO_UPTODATE;
+-		pfolio->index = folio->index;
++		if (err) {
++			folio_put(folio);
++			goto err_restore;
++		}
++		nr_folios++;
+ 	}
++	memalloc_pin_restore(pin_flags);
++
++	/*
++	 * Free the unused tail so it doesn't get preserved. If vrealloc fails,
++	 * the folios_ser is still valid.
++	 */
++	shrunk = vrealloc(folios_ser, array_size(nr_folios, sizeof(*folios_ser)),
++			  GFP_KERNEL);
++	if (shrunk)
++		folios_ser = shrunk;
+ 
+ 	err = kho_preserve_vmalloc(folios_ser, kho_vmalloc);
+ 	if (err)
+-		goto err_unpreserve;
++		goto err_put;
+ 
+-	kvfree(folios);
+ 	*nr_foliosp = nr_folios;
+ 	*out_folios_ser = folios_ser;
+ 
+@@ -215,15 +317,11 @@ static int memfd_luo_preserve_folios(struct file *file,
+ 	 */
+ 	return 0;
+ 
+-err_unpreserve:
+-	for (i = i - 1; i >= 0; i--)
+-		kho_unpreserve_folio(folios[i]);
++err_restore:
++	memalloc_pin_restore(pin_flags);
++err_put:
++	memfd_luo_put_folios(folios_ser, nr_folios);
+ 	vfree(folios_ser);
+-err_unpin:
+-	unpin_folios(folios, nr_folios);
+-err_free_folios:
+-	kvfree(folios);
+-
+ 	return err;
+ }
+ 
+@@ -231,26 +329,11 @@ static void memfd_luo_unpreserve_folios(struct kho_vmalloc *kho_vmalloc,
+ 					struct memfd_luo_folio_ser *folios_ser,
+ 					u64 nr_folios)
+ {
+-	long i;
+-
+ 	if (!nr_folios)
+ 		return;
+ 
+ 	kho_unpreserve_vmalloc(kho_vmalloc);
+-
+-	for (i = 0; i < nr_folios; i++) {
+-		const struct memfd_luo_folio_ser *pfolio = &folios_ser[i];
+-		struct folio *folio;
+-
+-		if (!pfolio->pfn)
+-			continue;
+-
+-		folio = pfn_folio(pfolio->pfn);
+-
+-		kho_unpreserve_folio(folio);
+-		unpin_folio(folio);
+-	}
+-
++	memfd_luo_put_folios(folios_ser, nr_folios);
+ 	vfree(folios_ser);
+ }
+ 
+@@ -287,15 +370,6 @@ static int memfd_luo_preserve(struct liveupdate_file_op_args *args)
+ 	ser->pos = args->file->f_pos;
+ 	inode_size = i_size_read(inode);
+ 
+-	/*
+-	 * memfd_pin_folios() caps at UINT_MAX folios; refuse larger
+-	 * files to avoid silently preserving only a prefix.
+-	 */
+-	if (DIV_ROUND_UP_ULL(inode_size, PAGE_SIZE) > UINT_MAX) {
+-		err = -EFBIG;
+-		goto err_free_ser;
+-	}
+-
+ 	ser->size = inode_size;
+ 	ser->seals = seals;
+ 
+
+base-commit: 4209b08181c75ea02164832cd8f47526de28d40c
 -- 
-Without deviation from the norm, progress is not possible.
+2.56.1.750.gf70dc682cf-goog
+
