@@ -1,113 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795429552;
-	b=F58LTTceYa9ZrO1/jcCG731vhqQYSYibYA6HpycJgbz8R3AkyKcF5VZKJx22ypu5rNq3
-	 6AelwA5NmrybiORmoLpqjHzE+q9c7vVjaklNAyhfz/xi/q6QFjUz8G/0BkKJYrc7aBYKd
-	 /xMp/qUE+Z2GzkQi5ttNh5hhiCtGyRWadZH4G9aDkYw0reyBuBWRtXR9ucOcG8Q36S4HK
-	 M0aeAkNqpl9xGFyg9lYCpPIoOqdJPhu5yVsc8Xf35SbJeyyML0BZj9YgyJHsCi8EEjcnQ
-	 pTnIFlzZie+OvIJ0eHRwI+F9kKK9/WuE/lcvqoZb+XmpPmLwPx1/T+yNGbuWw98qXUA==
+	t=1795429570;
+	b=neVU/Tp6nlcB6ghxEFJuvX0YxrVihi4M9wiJfm5Gy+EVlSmD1VVaUkWfIRToU6MV47L4
+	 GXRg+8UE/k0DKi9BBF0ifm1DpBCQkP037RacAzmodLE5JWzjESLkc4scz5hq9gDYH5TxO
+	 cWs1lsVVn/2Et9ZOiYOadOTURX6swKsgnBxcblMaVu4aHcunBz/CRteT+cIcKKQCpBK0e
+	 reXr9wt/Fgxk2epuO4iLAnl3SZrG5oVTuc+im7NtaKUSGydPMlxKcZCvtn3RINIH/CldT
+	 5YHsjWbVNrk57JDUpTcxdfyml3vGNJV3kZuD6p+2n8RoC+szBzIM4Ptbb0iPgRimmYA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795429552;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=l725BNYLpyce4ybNAMMn0uFOEMIGFpqz4Kp5oSPcRaY=;
-	b=RyXaUp6f3pLEUbcptesmwwgp1D9AwRx5czfkpc96GQPfULScMb4wZYozXRE6dQvHn0ED
-	 2PI8Q4c5HZXQTZ3fBtr8FE0mkChvvZoX3i8NzgP8h40CsEZCR8hwUMvtTYpEon5GD+MAs
-	 UQ+nH1z0Vktehm9uJGrrH72/5uoOeHTGmn0O1EovyuZrpCYHwGIcmsPicUWF4ZHWmiuEy
-	 m1rTQwPr+HwX0ygChDNyFOFNKvgePdiBBuQiKHs0T5fIgDbnckZ7uJ4sU7CM0cRQfN+hT
-	 ztNgst4t8Fi8zSUUxY6GDNeUKFKetI971hWeyN5dFo3fGtCP9hC4+ZR6PD9NEm2girQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795429570;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=GspHiISsMAJGMf3UxXzlbBZfXcuYxjQHDRAjesilWu4=;
+	b=OIaRZuZhubHFSaEdKqxwuWJCMNmQHdLDVYH0Ff2uj+aSWSs31iOX2dCxKWZM6e8JJdg+
+	 ljT0xcZ38cAlX7B03t/KO91I5VwYRww1Zij7qj6Sg7cjke3Q/c+lJ4/BY93GHMTu5+P41
+	 FK3jcHCaR+FjTd48WqRnKIDdKjwaTMyMD64gtvie4FDQ3bOPPQ5P7PWrK/5gB4VEos1eP
+	 KDRx8zlnR4WUR7VIVTj+FXyWWwULzBaWyfbRNdBciTKSsseNuesTTs1viBUO4hEYJWW3u
+	 RRnELuQfzIbCGMx66TJC2521lfOZFSfUwZc0SUKfcpQRMrZl2G2Mg7W/fOfURq7ND1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=FCwEvqXU;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=e8zGynrN;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fhe16LJb;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2F82606A6BC
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:25:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2F82606A6BC
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F40A606A31E;
+	Mon, 23 Nov 2026 10:26:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=FCwEvqXU;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=e8zGynrN
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9FuFP1543946
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:25:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	l725BNYLpyce4ybNAMMn0uFOEMIGFpqz4Kp5oSPcRaY=; b=FCwEvqXUkkteeyjh
-	1S1Ho07mY7+MKpmHGjEpw/u01sly2+/FTvEP3DbYOaNMFdyedfCc8KpP9x4lRn+9
-	A9GvoI3DZmwdpWJy7r5424xDBZvy9bHCD2b4MJVnhGdPCaMGywtJC9FT0qyGlyV+
-	bjZVkDxJfYFsLjwgM4l7A3g07KPRdR6XcdRDPUFjrpV4ADTfOqjI4cy2TRrxtL0L
-	k0tF4GRKq+GJzOwgd3Yob6c3gzAJmcmbno9BC2LCe6dX4WZiMeOPxPjLe9DpAkKQ
-	6wyyiVcFN7ERh2eHiLdm9ZmEZiukHkjJ1FJw+go9wSXTvq1YjNAf0r1CP0fvc5sn
-	6oo4BQ==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4fy00xyr-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:25:49 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93f33438950so563153585a.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:25:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795429549; x=1796034349; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=l725BNYLpyce4ybNAMMn0uFOEMIGFpqz4Kp5oSPcRaY=;
-        b=e8zGynrNkJF/Ka7jkUNs3W2xbr22U/K+qfrV82Uj3K2D5z1zhv3c1ZjhGXe66em4Er
-         I3+fN7Pf1rj/xTgz1nYhQ6T2e/7LIQrMLycClEsS3ajg+jO1QmGWtiREX7s2epLFJSmY
-         KCxqRpiEqT9eEc6Flm/TtoydTyEIqVe1x3iirasxDyKazg6nIpCH4ta+FudOJqofGFvn
-         A4lUe9nVetnxq/c7qju3fB2b7vVy2dr+9CXpJSJhczi+qUgGW7pJ6SHb7y7C+wlMiRej
-         UKzNcKOj/X5lUMq1JoYAu8dMhsyxXo2t5qeNCAWCWGxEOQF8sBTfB8O88g0f0HV5m6no
-         BDRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795429549; x=1796034349;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=l725BNYLpyce4ybNAMMn0uFOEMIGFpqz4Kp5oSPcRaY=;
-        b=HfPh97HrreBGJoIQAD5WPPCFwQDyFgtrGUMhxs/Wt4dJcEonIxIHcm0/ulEao9L6Wq
-         1bAcxaRHFGZ8r9qEQgWeGBm0nNmNdAWa6uMuzmeWATyxON/dY2u8FAFF+JhBNsgxJ5uw
-         0VLF8MlO8llLWv8CCKZsW6lk7zDgcQSWY4mMV2nkiJKFZ+DHh3Ul1T45rYhCY+JZhAMJ
-         xyttbE1KekvqlnMotb4ZJmwkG61+ZzqMFgPaeWCrnudTFsPv7WYB6ZzYB4Ypw9kWoQWd
-         rnakgJCSIAplX8rwXqREutOD+MCrVxoqxmLxtfzIjMrWfHXh24C2AHLpLwe7cfwnv82k
-         A4Hw==
-X-Forwarded-Encrypted: i=1; AL+hErGotU9JCfgiDKklOYJo2lRjbHKOGg76BP1pG/r7JVjH7DvR7of1O2pmASaECNqFN6SO3neWnD1O/NiXXyY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9kQtfSfg7OIoiz1IpSmFNgsqicnDd/HGbN+OoHiHVJC23SSpJw
-	UpgZCpy0VP7Ev8XScNcCR+3T92XAftFcmokFDh/TXaHFthm+j8Ng/p7Unz6s253VcbiTg7OqKhs
-	jFVpJbuatMYNe1R9wzdxnDrBPxf5H2ZUlW5bEmdDQ8lLysxU787gk+s2KEve+MuZ4+bY=
-X-Gm-Gg: AZFdTZeLLTSEr1LbfmKq9EO3bp2nWen9OnWKnQ8y4vIG/xnII7BJ3mnb0yVE5rmquvN
-	tIIw6fFb+kdebIlvr3ZWOD/X4Nq4jWCxjuXWnRUhih1pcwNapR8adnSsnWte0/+Yu9nLBPdiod0
-	Y7tcvjcKf7RZlSt50CtTw45Vqrwq0x6EqG+bYy9gprbzQ7xbomOrLJ7dip9qOFwDKjYokk5o4fe
-	R58P+wZFbDpYbuq06e3n8jh7BYBNATntWJs73063OPusl4c0mJctjXodIAoxKOQ2bCQ8jpv8Wwm
-	aFB08g56aIZ6lpyNP3lpKh3Faj7XTrhuPeUDuOaVikZ1XmYBKrTeOyiTrsPDitl+GZCiWa9chFm
-	YmxHX8QuWrefGxFGQqQYwRQ09nkHHa2uIiH/9XP+t65ZGFE9c1CHlONwPNa3Rsz3vBjByG/gNaS
-	6RcDsytmlnkT44O00lJb/vRklIxkmn9UKNveDqKQKWR4D8ue/LhoVdCpE0BpBAjvpfZvVbPbz92
-	ZP4Spf6hIRI/k3GNPD2aO7ipVOh
-X-Received: by 2002:a05:620a:890c:b0:949:6e5f:7395 with SMTP id af79cd13be357-949bab350f0mr1756202985a.79.1795429549248;
-        Mon, 23 Nov 2026 02:25:49 -0800 (PST)
-X-Received: by 2002:a05:620a:890c:b0:949:6e5f:7395 with SMTP id af79cd13be357-949bab350f0mr1756200385a.79.1795429548752;
-        Mon, 23 Nov 2026 02:25:48 -0800 (PST)
-Received: from QCOM-eG0v1AUPpu.na.qualcomm.com ([2a01:e0a:830:450:58b4:dc38:81d5:3c3e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b09bsm634166845e9.4.2026.11.23.02.25.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 02:25:48 -0800 (PST)
-From: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Date: Mon, 23 Nov 2026 11:25:39 +0100
-Subject: [PATCH v8 8/8] arm64: dts: qcom: monaco-arduino-monza: Add QCA2066
- M.2 WiFi/BT support
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fhe16LJb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 496B71F000E6;
+	Mon, 23 Nov 2026 10:26:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795429569;
+	bh=GspHiISsMAJGMf3UxXzlbBZfXcuYxjQHDRAjesilWu4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Fhe16LJbqMv4h0EgzpTJNPVpQXaFwFrx0yzWMfj/jW6j7JpWRk7ZDGrO77/YbSj40
+	 CgXtUZfv8+vXCSjLOYrbDGjTkXWBx99hSz0sxS48QjmlFwGBbR22yj3rQIUQaL/vRv
+	 yi3NJ2f7SQj0f+PMeS8P3pQaW7aYDKmdykoLLXb9FMmaOS66tFG6BIwgFdwNhTwmZl
+	 imJXhRplH3PJVPjM8WmNwC9T7r1YbWlSvV9lV7EFIlL8eVLJ8VgaRSa6yKenPurl8i
+	 MS9xlGI1Wf23urMxv4aBRm7PW2WegvAAolhDbxW1ZzS6GdEuCf4ZM4RtZe0Wy9KjpB
+	 KXvtOyecECg+w==
+Date: Mon, 23 Nov 2026 10:26:05 +0000
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Dale Whinham <daleyo@gmail.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Sibi Sankar <sibi.sankar@oss.qualcomm.com>,
+	Dhruva Gole <d-gole@ti.com>, Haipeng Lin <jimmie.lin@gmail.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Charlie Garner <charlie@akao.au>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] firmware: arm_scmi: Don't mark OPPs as turbo without a
+ sustained frequency
+Message-ID: <20261123-eccentric-ludicrous-roadrunner-0a7efe@sudeepholla>
+References: <20261121-sp11-noturbo-v1-1-37e1083cec5b@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,177 +63,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-monza-wireless-v8-8-a8b38604be6c@oss.qualcomm.com>
-References: <20261123-monza-wireless-v8-0-a8b38604be6c@oss.qualcomm.com>
-In-Reply-To: <20261123-monza-wireless-v8-0-a8b38604be6c@oss.qualcomm.com>
-To: Manivannan Sadhasivam <mani@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Marcel Holtmann <marcel@holtmann.org>,
-        Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-Cc: linux-pci@vger.kernel.org, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-bluetooth@vger.kernel.org, devicetree@vger.kernel.org,
-        Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
-        Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA0MSBTYWx0ZWRfX+gYidmsvVQ7W
- P19D9hLEYDfvSNMCix0OLH0Maoc4ecx9JYWLGOi6KhPqO3vfUWPoKGckqIPY5DHwOv2nGN+QCb5
- mrnyEI0wtCz7HAUFa6uvM53qQ3wfiPJYOjw1JILmC2qhtiFPoya3dTvkZaWieJc3TtyzV7DTXtO
- yMKuRWq3I7ltPoRA63THzTicMonvo3bSK7Owm0YM6q6Vo1DdbkrccVBEWuMDUL4jobeoUpSec/a
- 5Kd8hF0XY2wzEvijx4OUnwOckwzgitbr5QDLMH6RvXr6CpxltglP8HaR3vCmkhEhmDnwAO2RP7E
- hsoOC1gC5K1dChLIN+snUvdJtc/4zoN26HxkMB7SxJvme9nwSnNOpGb9/NrWBYKLmR+S0wKLIfA
- mX1OjzEcc3z7NyjhCZzuu8T7EvPcCSPN4/x4sdqaN8quO9xXFKuC9TwudBFhrFI+4VoxvDOD8At
- C4dYbutQCoWEBb3kfbw==
-X-Proofpoint-ORIG-GUID: A0fEQJYxOTPzoHQAlIbhpi5erkUB9WDi
-X-Authority-Analysis: v=2.4 cv=QrXLTlyd c=1 sm=1 tr=0 ts=6b0414ad cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=EUspDBNiAAAA:8
- a=VwQbUJbxAAAA:8 a=EzCDy3pf2FPqfMyO2-oA:9 a=QEXdDO2ut3YA:10
- a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-GUID: A0fEQJYxOTPzoHQAlIbhpi5erkUB9WDi
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA0MSBTYWx0ZWRfX5flKlH0lcOi4
- v0woU7Zx2f2Db5KjI5vqdGIPKSA/65NIwxx8FpDFw+jEuiY2qYSgl/AATyG4EZQIhQFxxDCQHJm
- IXhuLo0i2+lXX/GZUzNT8bmfmfIp2cQ=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_02,2026-11-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 impostorscore=0 suspectscore=0 phishscore=0 spamscore=0
- lowpriorityscore=0 adultscore=0 clxscore=1015 malwarescore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230041
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261121-sp11-noturbo-v1-1-37e1083cec5b@gmail.com>
 
-Add support for the QCA2066 (QCNFA765) WiFi/Bluetooth module on the
-Arduino VENTUNO Q board. The module is interfaced via LGA and is
-compatible with the M.2 Key E.
+On Sat, Nov 21, 2026 at 12:56:02AM +0000, Dale Whinham wrote:
+> If the firmware reports a sustained frequency of 0, every OPP is marked
+> as turbo. With boost disabled, cpufreq then has no usable frequencies and
+> fails to create a policy for the domain.
+> 
+> The Surface Pro 11 (X1P64100) CPUCP firmware does this for the two
+> clusters that have a core fused off.
+> 
+> Treat 0 as "not provided" and don't mark any OPPs as turbo.
+> 
 
-Add wireless-lga-connector node using pcie-m2-e-connector binding,
-connecting PCIe port 0 to the WiFi interface and UART10 port 3 to
-the Bluetooth interface.
+Charlie had posted a fix for this a while ago but never got back to my
+comments.[1]
 
-Add pcie@1,0 downstream port node with pciclass,0604 compatible so
-the pci-pwrctrl driver can acquire the power sequencer and enable
-the M.2 slot before PCIe enumeration.
+> Fixes: a897575e79d7 ("firmware: arm_scmi: Add support for marking certain frequencies as turbo")
+> Cc: stable@vger.kernel.org
+> Tested-by: Haipeng Lin <jimmie.lin@gmail.com>
+> Signed-off-by: Dale Whinham <daleyo@gmail.com>
+> ---
+> From decompiling the CPUCP firmware: it reports as sustained the first
+> LUT entry rated for exactly the cluster's fused core count, or 0 if
+> there is none. On X1P64100, clusters 1 and 2 have 3 cores but only
+> 4-core LUT entries, so they get 0. X1E80100 reports non-zero values and
+> is unaffected.
+> ---
+>  drivers/firmware/arm_scmi/perf.c | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/firmware/arm_scmi/perf.c b/drivers/firmware/arm_scmi/perf.c
+> index 0116ffb2b279..d4394984a0f5 100644
+> --- a/drivers/firmware/arm_scmi/perf.c
+> +++ b/drivers/firmware/arm_scmi/perf.c
+> @@ -879,8 +879,13 @@ static int scmi_dvfs_device_opps_add(const struct scmi_protocol_handle *ph,
+>  		else
+>  			freq = dom->opp[idx].indicative_freq * dom->mult_factor;
+>  
+> -		/* All OPPs above the sustained frequency are treated as turbo */
+> -		data.turbo = freq > dom->sustained_freq_khz * 1000UL;
+> +		/*
+> +		 * All OPPs above the sustained frequency are treated as turbo.
+> +		 * A sustained frequency of 0 means the firmware didn't provide
+> +		 * one, so don't mark anything as turbo in that case.
+> +		 */
+> +		data.turbo = dom->sustained_freq_khz &&
+> +			     freq > dom->sustained_freq_khz * 1000UL;
 
-Add nfa725b_default_state pinctrl for the W_DISABLE1/2 GPIOs
-(gpio56/gpio55) used by the power sequencer.
+I worked out something very similar as a solution. Anyways does it work
+if we also add the check for non-zero dom->sustained_perf_level ?
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/monaco-arduino-monza.dts | 64 +++++++++++++++++++++--
- 1 file changed, 60 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/qcom/monaco-arduino-monza.dts b/arch/arm64/boot/dts/qcom/monaco-arduino-monza.dts
-index 9ac2a04b302d90728d2302e81ed4b27b9467c23d..132f28df555b3ca3bbb411fd38155cc57f22698c 100644
---- a/arch/arm64/boot/dts/qcom/monaco-arduino-monza.dts
-+++ b/arch/arm64/boot/dts/qcom/monaco-arduino-monza.dts
-@@ -180,6 +180,40 @@ vreg_nvme: regulator-3p3-m2 {
- 		enable-active-high;
- 		startup-delay-us = <20000>;
- 	};
-+
-+	wireless-lga-connector {
-+		compatible = "qcom,pcie-m2-1418-lga-connector",
-+			     "pcie-m2-e-connector";
-+		vpcie3v3-supply = <&vdc_3v3>;
-+		vpcie1v8-supply = <&vdc_1v8>;
-+		w-disable1-gpios = <&tlmm 56 GPIO_ACTIVE_LOW>;
-+		w-disable2-gpios = <&tlmm 55 GPIO_ACTIVE_LOW>;
-+		pinctrl-0 = <&nfa725b_default_state>;
-+		pinctrl-names = "default";
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			/* WiFi/PCIe */
-+			port@0 {
-+				reg = <0>;
-+
-+				lga_pcie_ep: endpoint {
-+					remote-endpoint = <&pcie_ep>;
-+				};
-+			};
-+
-+			/* Bluetooth/UART */
-+			port@3 {
-+				reg = <3>;
-+
-+				lga_uart_ep: endpoint {
-+					remote-endpoint = <&uart10_ep>;
-+				};
-+			};
-+		};
-+	};
- };
- 
- &cci1 {
-@@ -548,6 +582,22 @@ pcie@0,0 {
- 		ranges;
- 		reg = <0x010000 0x00 0x00 0x00 0x00>;
- 
-+		pcie@1,0 {
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			device_type = "pci";
-+			compatible = "pciclass,0604";
-+			bus-range = <0x00 0xff>;
-+			ranges;
-+			reg = <0x020800 0x00 0x00 0x00 0x00>;
-+
-+			port {
-+				pcie_ep: endpoint {
-+					remote-endpoint = <&lga_pcie_ep>;
-+				};
-+			};
-+		};
-+
- 		pcie@2,0 {
- 			#address-cells = <3>;
- 			#size-cells = <2>;
-@@ -706,6 +756,12 @@ max98091_default: max98091-default-state {
- 		bias-pull-up;
- 	};
- 
-+	nfa725b_default_state: nfa725b-default-state {
-+		pins = "gpio55", "gpio56";
-+		function = "gpio";
-+		bias-disable;
-+	};
-+
- 	pcie1_default_state: pcie1-default-state {
- 		wake-pins {
- 			pins = "gpio21";
-@@ -757,10 +813,10 @@ &uart7 {
- &uart10 {
- 	status = "okay";
- 
--	bluetooth: bluetooth {
--		compatible = "qcom,qca2066-bt";
--		enable-gpios = <&tlmm 55 GPIO_ACTIVE_HIGH>;
--		clocks = <&sleep_clk>;
-+	port {
-+		uart10_ep: endpoint {
-+			remote-endpoint = <&lga_uart_ep>;
-+		};
- 	};
- };
- 
+No need to repost if you agree, I will fix it up while applying ?
 
 -- 
-2.34.1
+Regards,
+Sudeep
 
+[1] https://lore.kernel.org/arm-scmi/20260923152245.44624-1-charlie@akao.au
