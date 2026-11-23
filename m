@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445651;
-	b=bjETjniA/cxeCeMGNxyKAG1JgqZU5lp5bRxfb1ZPuCXCxuGICe9j5HKfavL9iySu1Y8a
-	 d5jg8pW4HheqmsDqx5FpawruSQDCV1rvFg6KSGXkpHGAXt8ILY14mwQ7fwZc8jHi5Il4D
-	 8tJL3q7JsOMkGk19j4pXMDnxZwE+su9UpUMkMspX4Ll7ndnQx56/64jinimJ79EdkGBuS
-	 5SZrlF4L8dfSoip9vKcuARkALGhD7O2zvg093M6u3DtgQH5PqZ1Dk1goO3ZOy0nZoQlhj
-	 dnjOo4IiZM53twQyJMq/olhitoprCTfSRwv2ddg9s27QOczJgHEz8NOTZOnaaqfHGyQ==
+	t=1795445652;
+	b=YuzEUxzy++wSyvLCrviCEIETqr+xyrlqU4ER2OoYAQx6kYzBYIMZQCh16EJRJku1BccC
+	 ut7J1jRvVyVZfafx0UUkx9I4ka40KEVKLkIxqW37idho5WQIzA2A/vjY8QYjQzVWdaft7
+	 YOQ4QXSKKDrwD3ihDsEfaC8TsDQaWcBZWf875gRhKJj5E62f338S7HvQ/b9gE2wv9OxHT
+	 2PYbTzqQEcxCIcSjbzyDHUVWv7VvoqXc27G+drINvvmTpToa8iYzYmmIORI2HsEuuUAui
+	 ZVgQKdf6EEytf4eD8ZSsMjj9VYVg/BEaJie2a9i6r/mf9hgT8+tDtfZLWf63XVzgbJA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445651;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445652;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=FEdGm/AcXh2womt9GiV7Pf7HrO6Vbc46kckpe+SSelU=;
-	b=iCpiWiYmiDbGS5JN+suZcsUplsA5ZqbT7cNPxoOvRQMH3M/adp5Utgj3p2OZ7RjqaB2s
-	 ZotapDyuAtPsAqIT1HEsoTdUP2vDl/BgbifBWl+dlVbMf9jx7thdaF5mTYqRbwSGKgjhS
-	 p30Elk6XWIZJ+5uFP+LXp63a/TzmPEDFCM7Aa1t5V1gpa5DN2k5aa7FsTS0aD3ZWBaHRA
-	 AQ1GvzyeAvwqoQu05aOqtWN/A80JaL0vVMzumVeBBYJk0UcasdqmbnkGsNH04d596c4RF
-	 6srM9fIorpq5678Z7hhqUXhonF9TDdjQYodSbbfZ7E44vmY8ln6IwdQlZkSWjQFmGuA==
+	bh=4LzrFFR+hhT71ELT3fY+ftWxMDxLj5bwX900H4igILI=;
+	b=EMKNJeud6Asxx7HeEl7uui9D7t3C6WooMu/HVTU4iK4kA0WG3o6SUxwAi8uV7Gk9pQjq
+	 hLRCsxDHogvH/HLwkTfr4sge5XjUlUGO+HApySkaVRlJQT8CtLsk7vqFHrUeMg1PUxfO/
+	 tgOVCQskmPvB4bszKjycPwVRtMp13bviiGdSg3aVPT+/uBTM5hgHF4mV4mILclozdxXsy
+	 j4EiY43L6kKeWVmQRdJnaLVjkKD22PB5t344phttpM2dZqquxyd+nmmJl9cLXw5OaYY3Z
+	 XScOsIZ4j9QoPZXMoo2p7b2VFIjT9OItSUtArxsxWPBIyLK4Gv9pg+QKqgp8VsxqOqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=suse.com;
 	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=HL5uLzsn;
-	arc=none smtp.remote-ip=209.85.221.47
-Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=DzYTfl6c;
+	arc=none smtp.remote-ip=209.85.221.45
+Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C902E606D150
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:54:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C902E606D150
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBA26606D15E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:54:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EBA26606D15E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=HL5uLzsn
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-49465892f7bso2474783f8f.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:54:10 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=DzYTfl6c
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-4aa5833c263so3229484f8f.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:54:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795445649; x=1796050449; darn=vger.kernel.org;
+        d=suse.com; s=google; t=1795445650; x=1796050450; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=FEdGm/AcXh2womt9GiV7Pf7HrO6Vbc46kckpe+SSelU=;
-        b=HL5uLzsnZ0HLGVR9tCA2U0cJX9QOExXCdawGBp8kA/TdqLrTwxqEKO7J5+0hyIpiqw
-         Q6vXaVD9pW6ZsRoOzUdxG5bhK+dKc7P66U0qcMArv6mMI5cWA+2NLbEIGZJ2NXAum7Qg
-         0+gjxCFuE1HvC3IhRJQcTZv0UKI6f3HPWtx5/sqmT0wBmaKU9fXvFN7XWSwZjsmv4ho2
-         qLFT3lS7Li50VOoU81rpMkvgGicgdiaSXZ1AxdwiDW4DzsB0A2yR2i8HxnHIX6HqEL1L
-         DuUXLdGzJCT62dBdQ0bGBy/IqIuhHeHJXgK3g3wp/PsuVAH5Xbbm/tD2KMzCBfEGCPdT
-         sh+A==
+        bh=4LzrFFR+hhT71ELT3fY+ftWxMDxLj5bwX900H4igILI=;
+        b=DzYTfl6cD/WSjpjEKM0f8QXZw/9LFLq5s47ekiK01Yb5jiZqNHvITc49zeK2FSdF1J
+         rVH3+eQsQwvlCYZ2dtdeKfeeZKpjDjPs2eXrzgF2J0UxoD1gg5TQQtGsnvtoIQ2rCpVO
+         7VvVhInqYDtvDnlXFHkj4b94cB5JXane+2fX/FMXtbQQiVIaajFxeFoDbTF0KnK5pi/D
+         hiunvss/Zi/G+8nGPGyosqf21CgmcPIctwjs1vqKcwdZuc1B4bxEFwc9UKJ4C7mhBJVX
+         SMmwBg095gqDY09thmHMFZLgkJMI6eYhPTZZSKk6styZ32Ihicvo8zaIfuz3qSakP62b
+         tQTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795445649; x=1796050449;
+        d=1e100.net; s=20260707; t=1795445650; x=1796050450;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FEdGm/AcXh2womt9GiV7Pf7HrO6Vbc46kckpe+SSelU=;
-        b=V76gWwtaHUlNTbq6d73mAZRLMWsZdwKDb/28uq17OFId4Z47OiBqXPLyZQq9YJq+Y4
-         ++T+lqD95mSFEMx1TtkUdhHUWWAnAexcWBkcwqwb7oC6Zefr3trjmPJIxRpoEuGL+GGo
-         nU8XhTwXx11BTgRgfowg7QOiyKgB4y1AUBLcAIF50Y+dPVXAKGMEQdj1xNH8lqGiLbwR
-         2sf9DiXgpmpgqkhrWEuwf/lRxsBMfObWDfeGY3idgerptQnUwSJicdmXBDyujXDMtMTk
-         5fywdqYBHpeaKCBPh7msBi+w2iQLjYNcOCXDZSmFGf72ixjAeBmb2YC7G+ULcuGlfwVi
-         +SKw==
-X-Forwarded-Encrypted: i=1; AL+hErHnF7aDXfoBTIuQhJ5pfqeOtgoz6pKbZvl9UMeCHGQxvkhHrX8xINQVkQh7ioKbBDSLAw40OFuJHz8WcCI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z85q0sjfg/LZGKzuUqd1M0sDVZulA5BiB1DAa0JBxQib5VHXV+6
-	eNTe3S153JScUOqCLaqWFy/tbL6Kl7FedfmqQTpBs20GHzYrWAIAUB2m2eenAdyo73Q=
-X-Gm-Gg: AZFdTZfJjlMZZV/L0VXS70hU9TquyGsYsJAg0BnJ2sGqXr71q55prymFIUvkS7eTzXI
-	3j3GA19wzrgpZ8s6WKkOh/KXc7DCdKVK1icjcYei2T5Actp2DuXVBwG9AGO5AWXYmfAHQbCeLwO
-	soxZMvdrPeRLhCXIH8TCCaXU1RzzXOvn8qoIa1qvLTyRSLbDvKYMBsd9YnBmilUKTPyGNRiW2Al
-	LAWqiWhO+KjLoFT6uY6Jo7aDIRuL5K9x45seYfdK3ku9wKIe0mqDKpXhjSLHZq/PGf3GSlpO3yR
-	1red4nul+8eCb2YCl09lo7LPzhPv/Q4b7hFmL3HPmXTh9hXUTwSdpTTz/vdB5ZjXp73iwbJ1Kw2
-	PMk9Vq5TLVwfbMglp2eiCuulcp9VyL0AxC5CUKVDZ0VrEhGQdvcqcfMIdaqZEtpo2SOem9I47Ht
-	h4iJaxTxKvFqbDTzqCsM1AAaOEmBJQJuhbNc+JxbUq+qdYHMDWnISRePXAMe0GpY+3YAjkx8j6U
-	04ccRL4NTTv2B1XnnPPxtH451z2D4du6HOcmdOiqadbhpHTakjC58nSpVHFINZsSsYSCy35TQgd
-	T42KHX89+THPOZA1lFFHTyhPdzM=
-X-Received: by 2002:a05:6000:4617:b0:487:27f9:840 with SMTP id ffacd0b85a97d-4abb59e2898mr22790459f8f.53.1795445649226;
-        Mon, 23 Nov 2026 06:54:09 -0800 (PST)
+        bh=4LzrFFR+hhT71ELT3fY+ftWxMDxLj5bwX900H4igILI=;
+        b=Gfh9sCuZzmA/Zz6I1FryPm+GzY4c/OmX3I7dEV9EAj+xp/Mof0kq2fQPTDDA0BZ5G4
+         weWInO4sUjCqjhsmii6ecu9/wRGdhAQ5gjfP17NLie6LEbE0hV59UbGmgnypdFBC2fyy
+         jX27sN9RohjaNfzeaZHP+cSf0MBwv1e0iG4RozIg42z2TeLfMxr26brA/pTi2yOcmd7I
+         1lqT6emTl63+fgth2cb+TPvwAlGDmwSLvIKblSxvC33nIfwarzkVHgNnI4+RJiKQaNXx
+         I4bWf0ZtjDq99BFkSOta5PS8EgjLvooieUVo/LnqmVw2pv5/yRM8EIWb4gHB+FiBb7Co
+         rBuQ==
+X-Forwarded-Encrypted: i=1; AL+hErGS3wrF2PNlTTbbwZzjbN3vXbvdXjA2fV3wcsFOvB9md/jOZZVEpDw6kI/Va4t5L8/5hQ2RZaqaHnRxFX0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9No1CFd0Yy3mjcUwsROfiQV/urYXqg2NmfiAPVqVvoRjVUPele
+	UbJdf86zOvkQQN9UYLUyQBCPyihOgujlNJoB3iZPm7jxFpJQGtppEuA946CF1vRVBMg=
+X-Gm-Gg: AZFdTZcjCHk8Fv43rGZVZDOdd5wukUahvLDBY6CZ4vAG6b3ka20dzKAQ8Mkyd141ldm
+	JT+8zSkCw/Zm6JDomc88CF+yjKmJLFh0//pZQ0rz/mfQNbPGMZXvHGvZGFOoh4gflrOu82psjdZ
+	fP5I9xkwlbiol07LHi4bpeBfL0SyHBWEMANIdPPm+z5d+KeoBI/VukyroXKOjkcdPqT1TthQIpd
+	DR/3h+z2LBeNr5lU9dX0uV9XtE+HHRcYl29F+oBJNdFfZyIGzJpOXI8GajCl/53sqNbgvAf3i1W
+	3jkLWlmviXVM3GOJ1w3VpxSP6LAfvhjlPsY2fVFUf2fP4eWVxwtos795bjwR72cvNzU79rmk2EX
+	l2rnKKD1z2i3eu68SKS+Z1j0+XIqfrijq5hRjoY2GkWZbUo0ldyLgLxb81zvbr+jEPPGTGt3zM9
+	QI8wxdgdTfWSO2SiZy95hHzuEW+jTgXXXyhgfnAubMEcXmK7tVUXmqXXi1c56PYI4V01ZPqWLSb
+	h95GOulIKsb/usmQyhDndeLaKXbrgikx+OywzpSOwmmzUZpKBnEWlejjpZ4pJGpKdpdbDXWG0Em
+	VkhJjtmUP+a4P4cST4XVZU4V/jg=
+X-Received: by 2002:a05:6000:299c:10b0:4a7:9630:7b5a with SMTP id ffacd0b85a97d-4abb47b2043mr16463654f8f.47.1795445650449;
+        Mon, 23 Nov 2026 06:54:10 -0800 (PST)
 Received: from localhost ([82.192.120.76])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b2052c8sm22701444f8f.41.2026.11.23.06.54.08
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b2c9sm23615057f8f.31.2026.11.23.06.54.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 06:54:08 -0800 (PST)
+        Mon, 23 Nov 2026 06:54:10 -0800 (PST)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: Vinod Koul <vkoul@kernel.org>
 Cc: Frank Li <Frank.Li@kernel.org>,
@@ -101,9 +101,9 @@ Cc: Frank Li <Frank.Li@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Andrea della Porta <andrea.porta@suse.com>
-Subject: [PATCH v3 27/28] ARM: dts: broadcom: Set the DMA flags of the HDMI audio channel on BCM283x
-Date: Mon, 23 Nov 2026 15:57:05 +0100
-Message-ID: <20261123145728.29082-28-andrea.porta@suse.com>
+Subject: [PATCH v3 28/28] arm64: dts: broadcom: bcm2712: Enable HDMI audio
+Date: Mon, 23 Nov 2026 15:57:06 +0100
+Message-ID: <20261123145728.29082-29-andrea.porta@suse.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20261123145728.29082-1-andrea.porta@suse.com>
 References: <20261123145728.29082-1-andrea.porta@suse.com>
@@ -118,38 +118,65 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The upper bits of the DMA specifier of the BCM2835 DMA controller carry
-per-channel flags, which nothing uses in the upstream device trees so
-far.
+The HDMI controllers of BCM2712 feed their MAI FIFO through the 40-bit
+DMA channels. Describe them, so that vc4 registers the HDMI audio
+devices.
 
-Request wide (128-bit) source reads and skip waiting for the AXI write
-responses on the HDMI audio channel of BCM283x, as done for years by the
-downstream Raspberry Pi device trees. This reduces the bus traffic
-needed to feed the MAI FIFO.
-
-BCM2711 is left alone: the downstream device trees route its HDMI audio
-through the 40-bit channels, so there is no established set of flags for
-its legacy channels.
+The DREQ lines of the HDMI audio changed between the C1 and D0 steppings
+(10/17 and 12/13 respectively), while the flags request multi-beat
+bursts, wide source reads and the AXI priorities used by the downstream
+Raspberry Pi device trees, where these values come from.
 
 Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 ---
- arch/arm/boot/dts/broadcom/bcm2835-common.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts | 9 +++++++++
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi          | 6 ++++++
+ 2 files changed, 15 insertions(+)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi b/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
-index 39eea8ce1058..6267f0a67565 100644
---- a/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
-@@ -130,7 +130,8 @@ hdmi: hdmi@7e902000 {
- 			clocks = <&clocks BCM2835_PLLH_PIX>,
- 				 <&clocks BCM2835_CLOCK_HSM>;
- 			clock-names = "pixel", "hdmi";
--			dmas = <&dma 17>;
-+			/* DREQ 17, no AXI write response wait, wide source reads */
-+			dmas = <&dma (17 | (1 << 27) | (1 << 24))>;
- 			dma-names = "audio-rx";
+diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
+index ae4b7c587dbc..97a4b819c01a 100644
+--- a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
++++ b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
+@@ -8,6 +8,15 @@ / {
+ 	model = "Raspberry Pi 5 d0 Stepping";
+ };
+ 
++/* The HDMI audio DREQs changed on D0 */
++&hdmi0 {
++	dmas = <&dma40 (12 | (1 << 30) | (1 << 24) | (10 << 16) | (15 << 20))>;
++};
++
++&hdmi1 {
++	dmas = <&dma40 (13 | (1 << 30) | (1 << 24) | (10 << 16) | (15 << 20))>;
++};
++
+ &gio_aon {
+ 	brcm,gpio-bank-widths = <15 6>;
+ 
+diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+index 7ba0fc540257..b7d7623ee9c8 100644
+--- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
++++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+@@ -483,6 +483,9 @@ hdmi0: hdmi@7c701400 {
+ 			interrupt-names = "cec-tx", "cec-rx", "cec-low",
+ 					  "hpd-connected", "hpd-removed";
+ 			ddc = <&ddc0>;
++			/* DREQ 10, burst, wide source reads, priority 10, panic 15 */
++			dmas = <&dma40 (10 | (1 << 30) | (1 << 24) | (10 << 16) | (15 << 20))>;
++			dma-names = "audio-rx";
  			status = "disabled";
  		};
+ 
+@@ -513,6 +516,9 @@ hdmi1: hdmi@7c706400 {
+ 			interrupt-names = "cec-tx", "cec-rx", "cec-low",
+ 					  "hpd-connected", "hpd-removed";
+ 			ddc = <&ddc1>;
++			/* DREQ 17, burst, wide source reads, priority 10, panic 15 */
++			dmas = <&dma40 (17 | (1 << 30) | (1 << 24) | (10 << 16) | (15 << 20))>;
++			dma-names = "audio-rx";
+ 			status = "disabled";
+ 		};
+ 
 -- 
 2.51.0
 
