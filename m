@@ -1,76 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795402048;
-	b=uSZHKKqpvm3g2372NiggiWDj4d4TlZxxLipgKMiEdbUPjDnhPD5yScB3uF9Xc0t3OTp/
-	 sxaFWQLPfeA07UgTDjFmtFXjr83tQ1zCTtne4QdwL657gcKswJXuJGixEqpa0sQ7OU/6K
-	 AUi3sPNSQ9yPSrO4UVgik3z0CztKcX7L48NwVXoFKOgt2YKmIKx0uQYDod/QC7J813c1W
-	 K4Vz5rtOTkDJe8q+Ovx3N2iEO6nUji6OVdW8XyIsAZcZ22IkCEu8AfFEMzrOdBNNQoDfx
-	 5LZKz8wX/BEsk4oCNA08yActISkAoff9rQ+xk2NsbJG/9cCJTMNc7jnnupH3u653DLw==
+	t=1795402059;
+	b=uK0eaNYdSNWZLdx3NcwCAsckZUBNYseYZM+wl2JRCoVW9QAHRU+R4/bt1gVWq1EKtECi
+	 Bq+1RknaUbzBs8bSDA0EqbPYC7HjdcQpQV5RPMPf5Q7Jc6fAut2dI0ta0VJZ0IezJBtAu
+	 D6ouwxZggOfEVlLC8UIn3zcQMdyzkjQbHN3cK0lWDwMcWqPYxU2ER79+zF+3ONCs+6X99
+	 8cXV3nK0xKSKlHPCr9dXfg53EhzjvJDFIZw3P9qg/06f1IyNXv45Efy6yQmjhR+naZ4ho
+	 6UiKZb96pgyFyh+LApnNaMJUctHVvf3WLpGv5ss4AVqj2wZJRHhWn0Cg1yzWB/J2vlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795402048;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:MIME-Version:Content-Type:Content-Disposition:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795402059;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=oG0c5qQQcxzpHYBGBAQj2eT5qTFbKNFjign4WSAgxgM=;
-	b=z86PqHndVBbMnShpasPNAniZmvS3P4+AMwfytZrKbpMGJIekCqNfo3qOStRgpTgTeFll
-	 5Zp/P3k3dbqZ0JojHxXayLDxPCsQYDlAZGKL6IbdJNEbPWFsh0fvGgwhA9iTU+DwD7YIN
-	 dUBSgo8vdpA3r7OdNJ8Dx9oV4uEaGU0wouicxgtIFGgg2gF+1Vytd9aQKu4tmIPmMgqvV
-	 c9h6uDLdcop6E7nyP1c61oELMwlvacJY20qDUpt+SJFPrm+k9olD+o34EoEUv59ugeVr/
-	 Snia+ke1F8yLb+aWW+wc6Uc+s7tbqcTz54RrCxL1xxwuSJ+sHhCuAX51Mc9/gy0uM7g==
+	bh=4NgAHlgiACfP9WNr97wsTdXrW6wyD1bio75846g2GlU=;
+	b=zht2sLBLZ+CANL7pTzWqb/8/pnCKyF75QLJAPZjxA5P8nPUyYrHMx+MGyqAJMoL2U9mz
+	 M8xdD2Bw3O/3R3ZqD663YZKIFL/4v92refcJJSbkFU+iZ5kbp+BO4KpNi3qDKvJJNfYOK
+	 M++GztavIt9JMl6ywg0HYDLNEENOqVeLRqvquIY+OMN2S+ScNFMe/gZVNuNGh23PchKlt
+	 kdPZMmgGwIt0Aca4HO7PT1ciPqd1ZiWnuxfC6lU14k1JNDAjg7vdge2IAjXcdkOSe1pEX
+	 SnDBp9FaylOxtGHBrWVlzhCBhazd2RrZridUhbeSf8eaExmo+ezeyEOmmw1rYDSzWdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZvFROG2E;
-	arc=none smtp.remote-ip=192.198.163.16
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MsoHMHYP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36560606A689
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:47:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36560606A689
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19483606A31E;
+	Mon, 23 Nov 2026 02:47:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZvFROG2E
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795402048; x=1826938048;
-  h=date:from:to:cc:subject:message-id:mime-version:
-   content-transfer-encoding;
-  bh=7Zf/EQ8Gehkd/U1cItl+QYkoEEnUS3b4Vu+6fAxzSdc=;
-  b=ZvFROG2EFLzkdw3c5cF8jarZLmovNUl84SLAJYK0inAd26jCeF8rtabw
-   yaDJRgvu3Z9tdq/8NkfCOKWEa2Q5yLQ57b53ruuixBqhE5YB0QFJj/6Mm
-   vcUz1epX1FyXkiSToP7BxLfjRG4WGZSkAzwCKVJqic0WPx4jQrc6yBHc6
-   Jes7TbHAsO/OvC7cfDTqEC/X094Xx65tXe4O12NouLirKCGq5AeFiwmH9
-   K2b4P+lHtZ9bmbGM6pzlhiwUdX6++dcBVd7V7ds9pkf2TbHpsiFbVYkjM
-   2O+swS5gUOgF7uvqpp5KFOysA8vhHLKiKXGN0vbojs8J6O/C/4Ctqm9b6
-   w==;
-X-CSE-ConnectionGUID: gPd1t5brS3WN2fRy4VqFPA==
-X-CSE-MsgGUID: MTSoZjMgT9yXlhhyDP3bbQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4232169"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4232169"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 18:47:27 -0800
-X-CSE-ConnectionGUID: 7EevzJimRoSuPww4vxqchg==
-X-CSE-MsgGUID: QGQ8E/b/SXmrwW4gL5PdhQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11167438"
-Received: from ly-workstation.sh.intel.com (HELO ly-workstation) ([10.239.182.64])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 18:47:26 -0800
-Date: Mon, 23 Nov 2026 10:47:21 +0800
-From: kernel test robot <yi1.lai@intel.com>
-To: Shrikanth Hegde <sshegde@linux.ibm.com>
-Cc: oe-lkp@lists.linux.dev, lkp@intel.com, linux-kernel@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MsoHMHYP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 753CB1F000C6;
+	Mon, 23 Nov 2026 02:47:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795402058;
+	bh=4NgAHlgiACfP9WNr97wsTdXrW6wyD1bio75846g2GlU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=MsoHMHYPlxhuXmneGllAp7IwF/VK4DRYJ9PkX1XgI8gZd9sN4zSllozH3f8voZ3Sr
+	 yUR2TlR4kDenYjf1hIgtZ8TPQdTMmMM7k8O87vKWfjajXjhujv2c89ZaJsG0S0izG8
+	 oyLOcrY8RiFXlgLmPUGdMqN37LjlHxayqpVU7UBNJy+I5GTN1y5u7s8Ens+KNreyhH
+	 keP8gEFt9ELyTxm0M+vNE6VzJPd/RgWnUytjBEEf14seMhaK3ztpPxBqiI3uJHX0xV
+	 kWeW6azize8vFSi62GgXnajLSnEyADJl9NRwZjGVMDathNxEGdm8In9q0aXE45TBzu
+	 VmBp5F/Jlj3EA==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Oleg Nesterov <oleg@redhat.com>,
 	Peter Zijlstra <peterz@infradead.org>,
-	Yury Norov <yury.norov@gmail.com>, Ingo Molnar <mingo@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>, yi1.lai@intel.com
-Subject: [linus:master] [virt/steal_governor]  1fb28c664a:
- WARNING:at_kernel/sched/core.c:#set_task_cpu
-Message-ID: <202611230353.1fedceba-lkp@intel.com>
+	Lukas Zobernig <lukas.zobernig@gmail.com>
+Cc: "H . Peter Anvin" <hpa@zytor.com>,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	Pablo Fraile Alonso <pablo@pablofraile.net>,
+	Edgecombe Rick P <rick.p.edgecombe@intel.com>
+Subject: [PATCH 2/5] x86/insn: Fix gen-insn-attr-x86.awk to emit INAT_REX2_VARIANT
+Date: Mon, 23 Nov 2026 11:47:33 +0900
+Message-ID: <179540205326.233843.2135456283107403299.stgit@devnote2>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <179540203033.233843.12951034848925983867.stgit@devnote2>
+References: <179540203033.233843.12951034848925983867.stgit@devnote2>
+User-Agent: StGit/0.19
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,119 +71,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
+From: Masami Hiramatsu <mhiramat@kernel.org>
 
-Hello,
+In gen-insn-attr-x86.awk, the check for the (REX2) superscript tag was
+placed after 'if (length(flags) == 0) continue'. For opcode 0xa1
+('MOV rAX,Ov (!REX2) | JMPABS O (REX2),(o64)'), the JMPABS alternative
+has no flags set by convert_operands(), so the loop skipped before
+emitting INAT_REX2_VARIANT and no entry in inat-tables.c ever received
+INAT_REX2_VARIANT.
 
-kernel test robot noticed "WARNING:at_kernel/sched/core.c:#set_task_cpu" on:
+Move the rex2_expr check before the empty-flags skip so INAT_REX2_VARIANT
+is properly added to flags and emitted in inat-tables.c.
 
-commit: 1fb28c664a19df8d45a6afa04d28d102b04ea680 ("virt/steal_governor: Enable the driver") https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git master
+Fixes: eada38d575a2 ("x86/insn: Add support for REX2 prefix to the instruction decoder logic")
+Cc: stable@vger.kernel.org
+Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+---
+ arch/x86/tools/gen-insn-attr-x86.awk       |    6 ++++--
+ tools/arch/x86/tools/gen-insn-attr-x86.awk |    6 ++++--
+ 2 files changed, 8 insertions(+), 4 deletions(-)
 
-[test failed on linux-next/master 909ef7a9a30fa139e69e555e3606680f5cca7726]
-
-in testcase: trinity
-version: trinity-i386-abe9de86-1_20230429 with following parameters:
-
-	runtime: 300s
-	group: group-00
-	nr_groups: 5
-
-
-config: i386-randconfig-2105-20261109
-compiler: gcc-14
-test machine: qemu-system-i386 -enable-kvm -cpu Haswell-noTSX,enforce,lm=off -smp 4 -m 4G
-
-Additional analysis by LLM: This commit only adds Kconfig/Makefile wiring for the STEAL_GOVERNOR driver. It contains no scheduler logic changes. Its effect is to flip on CONFIG_PREFERRED_CPU for the first time in the series, which activates a block of previously-dead code under #ifdef CONFIG_PREFERRED_CPU in core.c that had been unreachable until now. The commit to be blamed should be 74699f56ebcf — "sched/core: Push current task from non preferred CPU".
-
-(please refer to attached dmesg/kmsg for entire log/backtrace)
-
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <yi1.lai@intel.com>
-| Closes: https://lore.kernel.org/oe-lkp/202611230353.1fedceba-lkp@intel.com
-
-
-[   61.829095][   T33] ------------[ cut here ]------------
-[   61.830984][   T33] is_migration_disabled(p)
-[   61.830988][   T33] WARNING: kernel/sched/core.c:3422 at set_task_cpu+0xb7/0x180, CPU#3: migration/3/33
-[   61.834561][   T33] Modules linked in:
-[   61.835867][   T33] CPU: 3 UID: 0 PID: 33 Comm: migration/3 Not tainted 7.3.0-rc1-00053-g1fb28c664a19 #1 PREEMPT(full)
-[   61.838952][   T33] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-[   61.852825][   T33] Stopper: sched_non_preferred_cpu_push_stop+0x0/0x120 <- sched_push_current_non_preferred_cpu (sched/core.c:11340)
-[   61.859715][   T33] EIP: set_task_cpu (sched/core.c:3422 (discriminator 2))
-[   61.861346][   T33] Code: 6c 08 00 00 83 c0 28 83 c0 10 e8 a4 a9 ff ff 85 c0 75 02 0f 0b 0f a3 35 5c 65 60 b4 72 02 0f 0b 66 83 bb 5c 02 00 00 00 74 02 <0f> 0b 3e 8d 74 26 00 eb 32 64 a1 14 50 7e b4 0f a3 05 5c 65 60 b4
-All code
-========
-   0:	6c                   	insb   (%dx),%es:(%rdi)
-   1:	08 00                	or     %al,(%rax)
-   3:	00 83 c0 28 83 c0    	add    %al,-0x3f7cd740(%rbx)
-   9:	10 e8                	adc    %ch,%al
-   b:	a4                   	movsb  %ds:(%rsi),%es:(%rdi)
-   c:	a9 ff ff 85 c0       	test   $0xc085ffff,%eax
-  11:	75 02                	jne    0x15
-  13:	0f 0b                	ud2
-  15:	0f a3 35 5c 65 60 b4 	bt     %esi,-0x4b9f9aa4(%rip)        # 0xffffffffb4606578
-  1c:	72 02                	jb     0x20
-  1e:	0f 0b                	ud2
-  20:	66 83 bb 5c 02 00 00 	cmpw   $0x0,0x25c(%rbx)
-  27:	00 
-  28:	74 02                	je     0x2c
-  2a:*	0f 0b                	ud2		<-- trapping instruction
-  2c:	3e 8d 74 26 00       	ds lea 0x0(%rsi,%riz,1),%esi
-  31:	eb 32                	jmp    0x65
-  33:	64 a1 14 50 7e b4 0f 	movabs %fs:0x5c05a30fb47e5014,%eax
-  3a:	a3 05 5c 
-  3d:	65 60                	gs (bad)
-  3f:	b4                   	.byte 0xb4
-
-Code starting with the faulting instruction ===========================================
-   0:	0f 0b                	ud2
-   2:	3e 8d 74 26 00       	ds lea 0x0(%rsi,%riz,1),%esi
-   7:	eb 32                	jmp    0x3b
-   9:	64 a1 14 50 7e b4 0f 	movabs %fs:0x5c05a30fb47e5014,%eax
-  10:	a3 05 5c 
-  13:	65 60                	gs (bad)
-  15:	b4                   	.byte 0xb4
-[   61.870903][   T33] EAX: 00000002 EBX: f5381300 ECX: 00000000 EDX: 00000003
-[   61.873346][   T33] ESI: 00000003 EDI: b614bf00 EBP: b614bebc ESP: b614beac
-[   61.875803][   T33] DS: 007b ES: 007b FS: 00d8 GS: 0000 SS: 0068 EFLAGS: 00010002
-[   61.882493][   T33] CR0: 80050033 CR2: a6af0000 CR3: 45267000 CR4: 001506d0
-[   61.884849][   T33] Call Trace:
-[   61.889217][   T33]  move_queued_task (sched/core.c:2596)
-[   61.890818][   T33]  __migrate_task (sched/core.c:2644)
-[   61.892297][   T33]  sched_non_preferred_cpu_push_stop (sched/core.c:11292)
-[   61.897538][   T33]  ? tracer_preempt_off (trace/trace_irqsoff.c:692 (discriminator 1))
-[   61.899325][   T33]  ? trace_preempt_off (trace/trace_preemptirq.c:127)
-[   61.901048][   T33]  ? preempt_count_add (sched/core.c:6056)
-[   61.906016][   T33]  ? __balance_push_cpu_stop (sched/core.c:8397)
-[   61.907819][   T33]  ? preempt_latency_start (sched/core.c:6030 (discriminator 1) sched/core.c:6023 (discriminator 1))
-[   61.909635][   T33]  ? __balance_push_cpu_stop (sched/core.c:8397)
-[   61.911466][   T33]  cpu_stopper_thread (stop_machine.c:510)
-[   61.913093][   T33]  smpboot_thread_fn (smpboot.c:160)
-[   61.917838][   T33]  kthread (kthread.c:436)
-[   61.919260][   T33]  ? sort_range (??:?)
-[   61.920703][   T33]  ? kthread_affine_node (kthread.c:378)
-[   61.925663][   T33]  ret_from_fork (x86/kernel/process.c:158)
-[   61.927228][   T33]  ? kthread_affine_node (kthread.c:378)
-[   61.928980][   T33]  ret_from_fork_asm (x86/entry/entry_32.S:736)
-[   61.933831][   T33]  entry_INT80_32 (x86/entry/entry_32.S:940)
-[   61.935410][   T33] irq event stamp: 108
-[   61.936744][   T33] hardirqs last  enabled at (107): _raw_spin_unlock_irqrestore (linux/spinlock_api_smp.h:210 (discriminator 1) locking/spinlock.c:221 (discriminator 1))
-[   61.943224][   T33] hardirqs last disabled at (108): __schedule (sched/core.c:7225 (discriminator 1))
-[   61.946108][   T33] softirqs last  enabled at (0): copy_process (fork.c:2239 (discriminator 1))
-[   61.948970][   T33] softirqs last disabled at (0): 0x0
-[   61.955261][   T33] ---[ end trace 0000000000000000 ]---
-
-
-The kernel config and materials to reproduce are available at:
-https://download.01.org/0day-ci/archive/20261123/202611230353.1fedceba-lkp@intel.com
-
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
+diff --git a/arch/x86/tools/gen-insn-attr-x86.awk b/arch/x86/tools/gen-insn-attr-x86.awk
+index 7ea1b75e59b7..186506a3db22 100644
+--- a/arch/x86/tools/gen-insn-attr-x86.awk
++++ b/arch/x86/tools/gen-insn-attr-x86.awk
+@@ -354,6 +354,10 @@ function convert_operands(count,opnd,       i,j,imm,mod)
+ 		if (match(ext, no_rex2_expr))
+ 			flags = add_flags(flags, "INAT_NO_REX2")
+ 
++		# check REX2 variant
++		if (match(ext, rex2_expr))
++			flags = add_flags(flags, "INAT_REX2_VARIANT")
++
+ 		# check REX prefix
+ 		if (match(opcode, rex_expr))
+ 			flags = add_flags(flags, "INAT_MAKE_PREFIX(INAT_PFX_REX)")
+@@ -395,8 +399,6 @@ function convert_operands(count,opnd,       i,j,imm,mod)
+ 			lptable3[idx] = add_flags(lptable3[idx],flags)
+ 			variant = "INAT_VARIANT"
+ 		}
+-		if (match(ext, rex2_expr))
+-			table[idx] = add_flags(table[idx], "INAT_REX2_VARIANT")
+ 		if (!match(ext, lprefix_expr)){
+ 			table[idx] = add_flags(table[idx],flags)
+ 		}
+diff --git a/tools/arch/x86/tools/gen-insn-attr-x86.awk b/tools/arch/x86/tools/gen-insn-attr-x86.awk
+index 7ea1b75e59b7..186506a3db22 100644
+--- a/tools/arch/x86/tools/gen-insn-attr-x86.awk
++++ b/tools/arch/x86/tools/gen-insn-attr-x86.awk
+@@ -354,6 +354,10 @@ function convert_operands(count,opnd,       i,j,imm,mod)
+ 		if (match(ext, no_rex2_expr))
+ 			flags = add_flags(flags, "INAT_NO_REX2")
+ 
++		# check REX2 variant
++		if (match(ext, rex2_expr))
++			flags = add_flags(flags, "INAT_REX2_VARIANT")
++
+ 		# check REX prefix
+ 		if (match(opcode, rex_expr))
+ 			flags = add_flags(flags, "INAT_MAKE_PREFIX(INAT_PFX_REX)")
+@@ -395,8 +399,6 @@ function convert_operands(count,opnd,       i,j,imm,mod)
+ 			lptable3[idx] = add_flags(lptable3[idx],flags)
+ 			variant = "INAT_VARIANT"
+ 		}
+-		if (match(ext, rex2_expr))
+-			table[idx] = add_flags(table[idx], "INAT_REX2_VARIANT")
+ 		if (!match(ext, lprefix_expr)){
+ 			table[idx] = add_flags(table[idx],flags)
+ 		}
 
