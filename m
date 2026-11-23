@@ -1,68 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.19
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795409511;
-	b=1JoI0TJukQlzphAm80eXCO+ieEL3biDC43Kb3LoI1L4VBBD7wx7PjbPomUlXj/W/x0II
-	 JIotM9YuRYNgF5Dfw8sxDPm5DxF4xgQ6F9StFD4FJUk+KnFNgGf1r+XFLeOSKLYbEOrKz
-	 qRCIAplXkl0rr9EcnRKfo8d/3aZ4ycN7D0bmKA0p2ZUHtaCFtEBHI8YHsVSysZNOZYEG1
-	 CMuKOoPDDvNta97vXqvnMGOTnaub+69hmDlfciM5fAaucOrl4Ad4WfHCEOLYSp0vSAobh
-	 jpKvMNZEsUxTWOjt2z/juZi/ZsIOOMSbWMJ84Ff0PxGoSWVr7EiURU6X3vLjR1yYKBQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795409511;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Cc:Subject:To:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=7fAmMaiUPDgzxUIirHcZv/9ixx+ut7rJdqmw0V+8t2o=;
-	b=1yGtPytgsqcyvj8/baGvppgGioeTb8DDErTT8xfUEACsevjkuxMoJeGt7ShOdh8CGVWj
-	 CUN65/RcmiTR+MbTI/V+Avz9QKGnJDmXwLLxEHThzhabWWuYjnntphQKrDy1zgUjbdMgt
-	 My1u0Ye/RZEVrm2BJzMBEJie25DL0cMW/FcA6XfG4mq7oBvS83E0X+TmVKIpUa+zaN9NS
-	 uOKY9qk5I+8XyN60WnXcD7Nss+y9SVrWQo9ZHVUuiT6cKlxkHtg8X5zEe51ufbkZhZsIW
-	 Ww2x8XNsBJvVvvUPsdtn7LCIXX4yunSLJFqviKkZT0nOWes1NuKWfZvX5UHAT1Zuqng==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kQDCD6cU;
-	arc=none smtp.remote-ip=192.198.163.19
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.25
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795409655;
+	b=Q6O8z/jDaAcJJps5xLHWTux6y3gE0E/K4mG7KF+H1MneACbM0nwWGVsoRS2ShayMxCTi
+	 Mz+rBPeNHlIY6aQxcOwcAXpa3Gn0oJhXjgJR+S+YVWHOynFD2e3sGY/Jcc7tj5AmgLOcf
+	 ry6yD8tkGuFflbrwSSeVVITQ8vKLNkt6WGdfXVrMzH2aWyDsVAvuv35qsID1bmiLjLiV7
+	 jfQfCOjHM7qthZ6zj7lnHO3ySkAE1W29RCavp+UkTRj0ZyfyaB50CqhCngQTb/B9b2vXY
+	 HQa1Jy0IGcqWHLAe5h7wm74pXk0KgO81vK7iLexoSk/pfTDICiuKrNvR8tsfx0xEmDg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795409655;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=KT4o8nt4llyColJJhwIRSZnGIF/d+XeGV38+L12l4L4=;
+	b=yGSJVc6a04/0Pos1cT/Y4CVxeqfOtOXXldDwdujahDnZA6XHUaK6OE7lroVCSkUp64pL
+	 2HqUDpd2+CrwaCrEWChAVuhHjSGTVYtTXNbOkT+4eCtq9ly9Uxbh1910Qw2U0EAvT8gz0
+	 a+IT3k0LVBrOUmAypRJgFWMk0sOLv9BUuAD6a+C1g12qjkvwuNtuWe21+43oTxuG5PcdR
+	 iEgQTANOU+NDmYRwf75rbZYUL7lzsXq3FUlTgGy3HwChWnFsKYyG/bGDjrokrTJvXYy0h
+	 sbCKZ/bqaKrJppWqR3jOqqkO4D3nyl2IqO50XriQW1BVkNmQXAGEP8e6iHjCSaYoFuA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=uOiYFirB;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.25
+Received: from BN1PR04CU002.outbound.protection.outlook.com (mail-eastus2azon11010025.outbound.protection.outlook.com [52.101.56.25])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C78FA606A31A;
-	Mon, 23 Nov 2026 04:51:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C78FA606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D19B606A339;
+	Mon, 23 Nov 2026 04:54:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D19B606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kQDCD6cU
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795409510; x=1826945510;
-  h=message-id:date:mime-version:cc:subject:to:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=WzLuMbzuFNFek+LLgWAg5DpJARYEwx2sHm0/ACrnLYg=;
-  b=kQDCD6cUtq7WVvjYawr6vHvBgNdHDVihyt30JF42cWu0EOZ5MnlETLJn
-   UB3+YEyRPKTEmKMw90I3X/bP6Dwlyq6MtxyHBn8qvWDpvXTAd+M4+iR+s
-   VLW/3sQcWUHQNPkJMkB5tZIPUzm8xwO1QZPtc48+cNbj1jGEKPUTrhBXf
-   m6YHEnQ+LW8Kx5yO5JO1/hONh3rn7N5uB/zlhTPJV302a0PoeKp7WU6ZY
-   8S9ZfYDW+Rtzw/h9kww36MbGYPUftfYUkW6CUA+wdoqwEwJ/pDqRY4Qlv
-   Zte5yZ3HcMDKvsiHetpbOtH+vXroh9BMwrAFHWsPYVBWy6kImzU8E998q
-   A==;
-X-CSE-ConnectionGUID: Kfn5yEsDQbehgbg1++aLsQ==
-X-CSE-MsgGUID: Qj2v3epAQAWGBSRreZXrWQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4306971"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4306971"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 20:51:49 -0800
-X-CSE-ConnectionGUID: cYq88QI+RfaykNMl2xLLUg==
-X-CSE-MsgGUID: YQGrMIldTtWxBDJt+fPyrw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11619999"
-Received: from unknown (HELO [10.238.1.144]) ([10.238.1.144])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 20:51:45 -0800
-Message-ID: <479a91e0-fe36-43ac-b915-c839afe1672b@linux.intel.com>
-Date: Mon, 23 Nov 2026 12:51:43 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=uOiYFirB
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bY65t3voyZ9aUnDf447FLv2o0APhFSN+lT75ztdFNUFv/8jVDQ3VQSubRo2p3laTUW25h/sJlVzDopnGsNSQHx9e/C69MRObc9jt+bi5Fnv6uQ5UDjK6N4JzOmsFXuc+Xq6RUn3fUG8BDkmPWBKlFxsBf4bTIZ+/8SE4vWE+RN8yvVI3vE0M2ZFYVT/4lA/hmv88E57n4hOUKdRByBOJJF2LAF2bZpKCGai/DsF7/9pwqy7Y0QqUVTrYwqc/RWuYxc7GZG2QJO09wWZHQjBv1A0TkSux5DloiFNDvJ2NFf7X+A+axE70cl+QUVoeofXdpHy7eF1JF9mqxbQSrCGS6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KT4o8nt4llyColJJhwIRSZnGIF/d+XeGV38+L12l4L4=;
+ b=qVkg7LrSBgl3pmj+ZoUlHxohiUNUOJna36lGVtWL6JTWXe9maObf6BpA4F2CxPcFGMdDfVQZvSbVVw281yrOgoRHIBmo2UyoUUIBk8JzYwazjiXntw8cBrDo9UQP2OaTwP4YLQyZ7V5IjdRNZl9FxlFdX6Ooisq2ikvkf4vu1VHM9mJm0C+k4HS4oGq3/lOTGi8NkhFqkvX98bnUEi6yTEq2aOTWnuf9QugL3TI1wYrKOK6Jrxd8B5keyK1+hJObPgo6Y1An1BxJjMbQiQKFXQM+QiaO/0LGufiFR7d973jvI1WCravQevQcAJOjBWbV1I+mb3DVY+DeEqfKPJBTaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=cmss.chinamobile.com
+ smtp.mailfrom=nvidia.com; dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=nvidia.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KT4o8nt4llyColJJhwIRSZnGIF/d+XeGV38+L12l4L4=;
+ b=uOiYFirBBBNpBtuieaoZ2m6ndnnYFT7KtRmRGXcR+wjN8/RVAupsEUIPeirc+QItnyKsFz8UugceMBuu24Rx+d15SLRPa1Z4xkt/EFqQZyET2FSeEJ6i2eoWEn+9ZOWkHNniajfSX48VJ/o6kcPGLrFHW5Qmnbvva/2J1L4HIb+oV77P0odMAj0ngxIzmU/hQxozFNg7flV8IL5t0NMSMxRiyabHhYuMs7dgPdsJh1Vz9z1+rjnO0/kLn4708j/WEKI3Yk1cd6QeDwyewic8R8SCyEg4xD+C3RwC4oiBp3jEqW/QKRepfftQzncViL/V87DjmIQ96wCeF2J/3Z7FiQ==
+Received: from PH8PR07CA0018.namprd07.prod.outlook.com (2603:10b6:510:2cd::15)
+ by LV1PR12MB891283.namprd12.prod.outlook.com (2603:10b6:408:516::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
+ 2026 04:54:12 +0000
+Received: from SJ1PEPF000037A7.namprd04.prod.outlook.com
+ (2603:10b6:510:2cd:cafe::99) by PH8PR07CA0018.outlook.office365.com
+ (2603:10b6:510:2cd::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
+ 23 Nov 2026 04:54:12 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SJ1PEPF000037A7.mail.protection.outlook.com (10.167.244.139) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 04:54:11 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Sun, 22 Nov
+ 2026 20:54:00 -0800
+Received: from [10.221.192.64] (10.126.231.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Sun, 22 Nov
+ 2026 20:53:56 -0800
+Message-ID: <bad9d7cf-1f34-4027-82aa-42f8e4d50d82@nvidia.com>
+Date: Mon, 23 Nov 2026 06:53:54 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,275 +105,70 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Cc: baolu.lu@linux.intel.com, iommu@lists.linux.dev, x86@kernel.org,
- linux-coco@lists.linux.dev, kvm@vger.kernel.org,
- Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>,
- Kiryl Shutsemau <kas@kernel.org>, Rick Edgecombe
- <rick.p.edgecombe@intel.com>, yilun.xu@linux.intel.com,
- xiaoyao.li@intel.com, Binbin Wu <binbin.wu@linux.intel.com>,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 9/9] coco/tdx-host: Enable trusted DMA on IOMMUs on
- device connect
-To: Chao Gao <chao.gao@intel.com>
-References: <20261112043054.2664857-1-baolu.lu@linux.intel.com>
- <20261112043054.2664857-10-baolu.lu@linux.intel.com>
- <av1dr3IGMqWA1-7r@intel.com>
+Subject: Re: [PATCH net v2] net/mlx5: fix a stack over-read in the QP debugfs
+To: Aibing Chen <chenaibing@cmss.chinamobile.com>, Saeed Mahameed
+	<saeedm@nvidia.com>, Leon Romanovsky <leon@kernel.org>, Tariq Toukan
+	<tariqt@nvidia.com>, Mark Bloch <mbloch@nvidia.com>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, <netdev@vger.kernel.org>,
+	<linux-rdma@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20261122145152.1473-1-chenaibing@cmss.chinamobile.com>
 Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <av1dr3IGMqWA1-7r@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Moshe Shemesh <moshe@nvidia.com>
+In-Reply-To: <20261122145152.1473-1-chenaibing@cmss.chinamobile.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000037A7:EE_|LV1PR12MB891283:EE_
+X-MS-Office365-Filtering-Correlation-Id: aea3a74d-01aa-4c4f-d2fe-08df491dd0d6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|82310400026|7416014|376014|23010399003|36860700016|22082099003|18002099003|3023799007|11063799006|56012099006|261026121527099003|261026140227099003|261102123227099003|261028144727099003|261022105027099003|261021121427099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	ZrGyGybsqFGt/Qrv2tW4homE4cA0Y3X8UfG+/yb6eR9QDcj6KLKnJ3ttD7TfaJVEhDWqF9rc/l2uO8XtiuC71IThjcu7bxQIp/NtZXhiSomeaJ7UGKBtE0swMVW9QW3FmcjQmWs2CtUW2Ctg0o8x55az4drJ62ySuyeX177sSSjYr45FoRixhdbQGi9iBXNQs7OOHTZ4yDw4wa2ALbqH92JpBltmLguZ73WpB630WG+yItqnI6N4+egRHP0TIWw2I0E2t5ceheFxi2zGT7LuyzH/3xOuclMOSO034VGc7E/nd9okNQZKCNpKjOVg6aXxmoOAUK6TYWrSYDZzInjOfCJ9BnWdMURpYEUH1I2kFzsTG3C6hOWWzNT+ooAQ9zKkbakyoAlJpRBvpXguTgcL3gIBNE4gJ/8X+DmRopmSa07Q/C8SQYKCXtxHeAS4PWRvIuijiOX+5bHi4moPLLk/jlqNYGhg+3tbT0QL5ChEquPG0f3DLb9/jUGI4NbBHzUr5kII1diZ3TLQ2GAUyGJlCf/Fm6R7NJIF8u4HDwDRNnpc+OJVMNtoXz58Ve5DHnOgE/wCv0XB6IHqB4Dj/eyj9hvjtrRDenl/+5+4RYgkf9IKmejHGymdmajayU+xG1AJ+D610Y3zCNU6nDIuzNj3/eisZqOSui4vceMZzq/szYbVceAN25EWmJS2cBTiOWva1IZ8YLGBc+eAua6zoJQF3g==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(7416014)(376014)(23010399003)(36860700016)(22082099003)(18002099003)(3023799007)(11063799006)(56012099006)(261026121527099003)(261026140227099003)(261102123227099003)(261028144727099003)(261022105027099003)(261021121427099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	OlLFFT9tCLfxhaxXmXJwj2Iw7ZPvMrg1pCzkY7ldfU4XOm7rDyTXxvQ80ChewvrnVXHFnjKRKP6eXKPSeAhZdGByeb4o9qJdCQ6eZMf2nMBAD3acvM3C41rDyV2TTeIGxWHx2rSkRu8SJpR9ZfhBq519g96IVAAqZRROyvemP03rO1oxt/U6T3g9OjuJxXGQAnqaE3p7e03s3mGBamFm5cNffaaFtrt+GfRUbJXTJYSX0D42VKWPH/RSWQBBG63aDQHjjSgT0PYYxLtLqP73iuNxoWsQHfmNzN5ZUoVRBLq7dzHFNetQ6blpJoQoGuWoJQVwMEwz2UPLHixOPqt/sBq6VvUsxr4UZ/wVDFmXcfi6fPJRpBSCvfBWzapmPCmwNUEGMRALZzifnjxgZjj7QL/d56NUFJWN8VFNPk9/u1OaMkgQESv8ZTs/YM2Ohm5H
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 04:54:11.5916
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: aea3a74d-01aa-4c4f-d2fe-08df491dd0d6
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	SJ1PEPF000037A7.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV1PR12MB891283
 
-On 11/18/2026 4:11 PM, Chao Gao wrote:
-> On Thu, Nov 12, 2026 at 12:30:54PM +0800, Lu Baolu wrote:
->> Assigning a device to a TD for private memory access requires that DMA
->>from that device be translated by structures the TDX module controls.
->> An Intel IOMMU that implements the trusted DMA extension provides a
->> parallel set of translation and invalidation resources for this purpose.
->> They become usable once TDH.IOMMU.SETUP puts the IOMMU into Secure TDX
->> Mode and the TDX module initializes them. The host keeps the regular
->> translation path.
->>
->> Issue TDH.IOMMU.SETUP on demand, when the first device behind an IOMMU
->> is connected through the TSM, rather than for every capable IOMMU at
->> probe time. Secure TDX Mode costs host resources: the TDX module's
->> metadata pages and half of the IOMMU's domain ID space. That cost should
->> only be paid for IOMMUs that actually serve such devices.
->>
->> tdx_iommu_get() and tdx_iommu_put() keep a per-IOMMU refcount. The first
->> get() issues TDH.IOMMU.SETUP and the last put() issues TDH.IOMMU.CLEAR.
->> A single mutex covers both the refcount and the SEAMCALL that follows,
->> so a device cannot join an IOMMU that is being cleared or whose setup
->> has not finished. The refcount lives here rather than in the VT-d
->> driver because tdx-host already owns the per-IOMMU state that must
->> outlive TDH.IOMMU.SETUP: the IOMMU_MT pages and the TDX IOMMU ID.
->>
->> The IOMMU_MT parameter page lists two contiguous buffers for the
->> trusted invalidation queue, followed by the metadata pages. The TDX
->> module reports how many metadata pages it needs in its global metadata.
->>
->> With Dynamic PAMT, every 4K page given to the TDX module needs PAMT
->> backing first. Take it for each page of the invalidation queue buffers
->> and the metadata pages before TDH.IOMMU.SETUP, and drop it if setup
->> fails or once TDH.IOMMU.CLEAR succeeds. The parameter page itself only
->> carries the page list into the SEAMCALL and needs no backing.
->>
->> If TDH.IOMMU.CLEAR fails, the TDX module may still reference the
->> IOMMU_MT pages, so they are leaked together with their PAMT backing,
->> and the IOMMU is marked unusable. Later get() calls for that IOMMU fail
->> with -EBUSY rather than reuse an IOMMU in an unknown state. tdx-host
->> pins itself while such an IOMMU exists, so unloading can't lose track
->> of it. If the failure happens during unload itself, only the tracking
->> entry is freed; the VT-d driver still has the IOMMU acquired and keeps
->> rejecting it.
+
+
+On 11/22/2026 4:51 PM, Aibing Chen wrote:
+> dbg_read() formats the field into char tbuf[18] and passes the return
+> value of snprintf() to simple_read_from_buffer() as the number of
+> available bytes.  snprintf() returns the length the output would have
+> had, not the number of bytes written, so when the string does not fit
+> that value is larger than the buffer: the longest QP transport string is
+> "Invalid transport type" (22 characters), so with the trailing newline
+> the function returns 23 while only 18 bytes were written.
 > 
-> If the pin can fail anyway, what's the point of taking it at all?
+> simple_read_from_buffer() uses that length to bound the copy to
+> userspace, so reading .../qp/<qpn>/transport copies up to 23 bytes out of
+> the 18 byte stack array, leaking 5 bytes of stack.
 > 
-> If tdx-host is reloaded, we can rely on the VT-d driver or the TDX module
-> to reject transitioning the IOMMU to secure mode.
-
-You are right. VT-d already refuses to reuse an IOMMU whose clear
-failed, even after tdx-host is reloaded. I will drop this.
-
->>
->> Signed-off-by: Lu Baolu <baolu.lu@linux.intel.com>
->> ---
->> drivers/virt/coco/tdx-host/Kconfig   |   5 +
->> drivers/virt/coco/tdx-host/Makefile  |   1 +
->> drivers/virt/coco/tdx-host/private.h |  21 ++
->> drivers/virt/coco/tdx-host/main.c    |  11 +
->> drivers/virt/coco/tdx-host/viommu.c  | 401 +++++++++++++++++++++++++++
->> 5 files changed, 439 insertions(+)
->> create mode 100644 drivers/virt/coco/tdx-host/private.h
->> create mode 100644 drivers/virt/coco/tdx-host/viommu.c
->>
->> diff --git a/drivers/virt/coco/tdx-host/Kconfig b/drivers/virt/coco/tdx-host/Kconfig
->> index f8c8cc29d46c..1395929f05bb 100644
->> --- a/drivers/virt/coco/tdx-host/Kconfig
->> +++ b/drivers/virt/coco/tdx-host/Kconfig
->> @@ -6,3 +6,8 @@ config TDX_HOST_SERVICES
->> 	select FW_UPLOAD
->> 	select PCI_TSM
->> 	default m
->> +
->> +config TDX_CONNECT
->> +	def_bool y
->> +	depends on TDX_HOST_SERVICES
->> +	depends on INTEL_IOMMU
+> Enlarge the buffer so the longest string fits and use scnprintf(), which
+> returns the number of bytes actually written.
 > 
-> Do we need this TDX_CONNECT config? We can just add "depends on
-> INTEL_IOMMU" to TDX_HOST_SERVICES, and then drop the stub functions
-> in private.h. Patch 7 already makes TDX_HOST_SERVICES depend on PCI
-> in the same way.
-> 
-> The cost is that without INTEL_IOMMU, none of the tdx-host services
-> are available, including TDX module updates. But I doubt anyone would
-> want to launch CoCo VMs while compiling out INTEL_IOMMU entirely.
-> 
-> We can always add this option back if such a configuration turns out
-> to be practical.
+> Fixes: db81a5c374b5 ("mlx5_core: Improve debugfs readability")
+> Signed-off-by: Aibing Chen<chenaibing@cmss.chinamobile.com>
 
-I'd like to accept this unless anyone has concerns about the downside.
+Reviewed-by: Moshe Shemesh <moshe@nvidia.com>
 
-> 
->> +/*
->> + * Serializes the refcounts together with TDH.IOMMU.SETUP and
->> + * TDH.IOMMU.CLEAR, so a device can't join an IOMMU that is being
->> + * cleared, or one whose setup hasn't finished.
->> + */
->> +static DEFINE_MUTEX(tdx_iommu_lock);
->> +static LIST_HEAD(tdx_iommu_list);
->> +
->> +static void *tdx_iommu_alloc_pages(int node, size_t size)
->> +{
->> +	struct folio *folio;
->> +
->> +	if (node == NUMA_NO_NODE)
->> +		node = numa_mem_id();
->> +
->> +	folio = __folio_alloc_node(GFP_KERNEL | __GFP_ZERO, get_order(size), node);
-> 
-> Would kzalloc_node() work here? kzalloc_node() handles NUMA_NO_NODE
-> itself, and there's no need to convert between folios and void *.
-
-Yes. kzalloc_node() returns naturally aligned buffers for power-of-two
-sizes, which covers the 4K and 8K allocations here. Will switch to it in
-the next version.
-
-> 
->> +	if (!folio)
->> +		return NULL;
->> +
->> +	return folio_address(folio);
->> +}
->> +
->> +static void tdx_iommu_free_pages(void *virt)
->> +{
->> +	if (!virt)
->> +		return;
->> +
->> +	folio_put(virt_to_folio(virt));
->> +}
->> +
->> +/* Number of 4K pages backing IOMMU_MT entry @i. */
->> +static unsigned int mt_entry_nr_pages(unsigned int i)
->> +{
->> +	return i < TDX_IOMMU_MT_IQ_NR ? IQ_BUFFER_SIZE >> PAGE_SHIFT : 1;
->> +}
->> +
->> +/*
->> + * Drop the PAMT backing of the first @nr 4K pages handed to the TDX
->> + * module, in the order mt_pamt_get() took it. Pass UINT_MAX for all.
->> + */
->> +static void mt_pamt_put(struct tdx_iommu_pages *mt, unsigned int nr)
->> +{
->> +	unsigned int i, j;
->> +
->> +	for (i = 0; i < mt->nr_entries && nr; i++) {
->> +		unsigned long pfn = PHYS_PFN(__pa(mt->pages[i]));
->> +
->> +		for (j = 0; j < mt_entry_nr_pages(i) && nr; j++, nr--)
->> +			tdx_pamt_put(pfn + j);
->> +	}
->> +}
->> +
->> +/*
->> + * With Dynamic PAMT, every 4K page handed to the TDX module needs PAMT
->> + * backing first. This covers the IQ buffers and the metadata pages, not
->> + * the root page, which only carries the list of pages into the
->> + * SEAMCALL. tdx_pamt_get() is a no-op without Dynamic PAMT.
->> + */
->> +static int mt_pamt_get(struct tdx_iommu_pages *mt)
->> +{
->> +	unsigned int i, j, nr = 0;
->> +	int ret;
->> +
->> +	for (i = 0; i < mt->nr_entries; i++) {
->> +		unsigned long pfn = PHYS_PFN(__pa(mt->pages[i]));
->> +
->> +		for (j = 0; j < mt_entry_nr_pages(i); j++) {
->> +			ret = tdx_pamt_get(pfn + j, NULL);
->> +			if (ret) {
->> +				mt_pamt_put(mt, nr);
->> +				return ret;
->> +			}
->> +			nr++;
->> +		}
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +static void free_mt_pages(struct tdx_iommu_pages *array)
->> +{
->> +	unsigned int i;
->> +
->> +	if (IS_ERR_OR_NULL(array))
->> +		return;
->> +
->> +	mt_pamt_put(array, UINT_MAX);
->> +
->> +	for (i = 0; i < array->nr_entries; i++)
->> +		tdx_iommu_free_pages(array->pages[i]);
->> +
->> +	tdx_iommu_free_pages(array->root);
->> +	kfree(array->pages);
->> +	kfree(array);
->> +}
->> +
->> +DEFINE_FREE(free_mt_pages, struct tdx_iommu_pages *, free_mt_pages(_T))
->> +
->> +static void **alloc_mt_pages(unsigned int nr_entries, int node)
->> +{
->> +	unsigned int i;
->> +	void **pages;
->> +	void *vaddr;
->> +
->> +	pages = kzalloc_objs(*pages, nr_entries);
->> +	if (!pages)
->> +		return NULL;
->> +
->> +	/* Allocate two contiguous buffers for the invalidation queue. */
->> +	pages[0] = tdx_iommu_alloc_pages(node, IQ_BUFFER_SIZE);
->> +	if (!pages[0])
->> +		goto free_pages;
->> +
->> +	pages[1] = tdx_iommu_alloc_pages(node, IQ_BUFFER_SIZE);
->> +	if (!pages[1])
->> +		goto free_pages;
-> 
-> You can use mt_entry_nr_pages() to fold the two IQ buffer allocations
-> into the loop below.
-
-Good point. I'll fold them into a single loop, using mt_entry_nr_pages()
-for the size.
-
-     for (i = 0; i < nr_entries; i++) {
-         pages[i] = kzalloc_node(mt_entry_nr_pages(i) << PAGE_SHIFT,
-                     GFP_KERNEL, node);
-         if (!pages[i])
-             goto free_pages;
-     }
-
-> 
->> +
->> +	/* Allocate the required number of pages for the IOMMU metadata. */
->> +	for (i = TDX_IOMMU_MT_IQ_NR; i < nr_entries; i++) {
->> +		vaddr = tdx_iommu_alloc_pages(node, SZ_4K);
->> +		if (!vaddr)
->> +			goto free_pages;
->> +		pages[i] = vaddr;
->> +	}
->> +
->> +	return pages;
->> +
->> +free_pages:
->> +	for (i = 0; i < nr_entries; i++)
->> +		tdx_iommu_free_pages(pages[i]);
->> +	kfree(pages);
->> +
->> +	return NULL;
->> +}
-
-Thanks,
-baolu
+Thanks.
