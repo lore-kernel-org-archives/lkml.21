@@ -1,68 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.216
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=188.121.53.39
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795405427;
-	b=ggWmDsCOigynN+v3xrHCwY+5K+hpI6NWH8Wd5DGP3RlsTnTStezvGaFFcMtMe8mD74Ec
-	 jLe+S7S26hTwJUThx7YTKP2uthxKQZAxtEwitpL/4Qgkx90a/o+EydspeU5MiLfE0qFtR
-	 788Tfm6GEAjH8rnSUP7KDFCzTkL7g4ZjnTGgF3jHF3VLMtONTfFGwlEJ9l6Q9VDkt6twI
-	 CDLOBAogA7rJWJCzF/LSEFkAPpaoj1f7k6vraV8erWuhcSQK/mEfsdrNQ/efoLh25E4Q5
-	 kbnAE1d2IPPIICeCrJfkhUm81IHMFhRVpWAhvRba9xT8Wx+FkOzvoD7kw81ovkz3BIQ==
+	t=1795405430;
+	b=OImMvgts1qdRcoG1vxk6HjinnWvj5X/GcuzCrpBS3ZPxEIphNVe0PmZfgYr9wmB8p330
+	 Tf6zY+IMDOoyO4zS5eR4sL//++cSq/AWoFanpj8IeLWaHUxwwPHkLHzNF+489W44k+wsc
+	 KZV02lQ3x80lcd/wcf6tjgag/Xhh+vrtAgjBdaXM2oKppf1TN57L24kXhCvSbZRoGFrW7
+	 Tji0pilFUndh7S2h1mvj1syNrXyCNgKr2PgTI/qgEpHksUwxc0NIzv3zF3Qjy/IWiEJhA
+	 2H5iYjWPPkq0a6m/h3K3YJhq0XijjZepiFBFkREjLYQWODM19bQwF89TrNj6mwPINLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795405427;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795405430;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:X-CMAE-Analysis:
+	 Feedback-ID:X-SECURESERVER-ACCT:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=u/dSSnvt29VXMuqEAAa81mXAdbrbhqEv++QT9+xRYhg=;
-	b=EKHw8zDzE9yJO34/9GW6FoAQOcduRRrl3RlAzhHUaNR2Wh4+j225ki5mpRcVOR02CjHp
-	 fsTFXlHPo6HbZiWxqhDNfvUDiNpRPKNNQgtZ+Z76DYRcPk8yxv3zixXGNnC0A8Sl5QDs5
-	 NHHjlnnj2ZsVvXTUWLsoy2tcG27W+ucaqZC1qItcMbY7tX8fCOAnId9SaFgvENA/ox8uq
-	 ju4GMptO7mFecEiE9jqaX88qWcAIlM2ZJs8kmqDWo7emdD24lM3Wy+giriLTwEYbbetA5
-	 I33QWPY5WnBiHhCNoqvhkC+GizjPKleDccIaXuy3H7OZykePX55Jz3UiGOGboeA92Pg==
+	 Content-Transfer-Encoding:X-CMAE-Envelope;
+	bh=9wlDNnuCvBStgBEGoigiOA7iJ7WaSzOQIuxUEhH7lXI=;
+	b=0zx8OsWIhWBbFVG1/EHvuishWZd4XmSfPkmzS3ysnIisxfyzHn9l1hGrRrDXpG7TVsl6
+	 sVMu6O7Q7G+uHzHLBya92AD7BQRbrnEyB3gAMOyeBMmHeK5fJ1SfYZIZSFKhTQzcAOQZA
+	 fcyS/DJqUwag5vqi4K6v7Swhhx5QmvFx+uwKqPhP1hh9GUDwH7khD2L3s13gaeV+0YHwZ
+	 CouYnPu8OJ5e8qAHGmfqMpzDNMEAX5rtM8biwtBUXlJOQZ0X1qIMwtbTLOkjDgq5ruiFV
+	 agMhbRDU5LGboFw0nXI41VQVq66aQp0vIW+SGyLZ7c8OjjAnrTsTqQKncuCr0ikiHhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oEIIGS9K;
-	arc=none smtp.remote-ip=91.218.175.216
-Received: from mta0.migadu.com (out-216.mta0.migadu.com [91.218.175.216])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=squashfs.org.uk;
+	spf=pass smtp.mailfrom=squashfs.org.uk;
+	dkim=pass header.d=secureserver.net header.i=@secureserver.net header.a=rsa-sha256 header.s=secureserver2 header.b=lO94Pohb;
+	dkim=pass header.d=squashfs.org.uk header.i=@squashfs.org.uk header.a=rsa-sha256 header.s=secureserver1 header.b=YiKA4uaM;
+	arc=none smtp.remote-ip=188.121.53.39
+Received: from sxplsmtpa04-04.prod.sxb1.secureserver.net (sxplsmtpa04-04.prod.sxb1.secureserver.net [188.121.53.39])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9B35606A332
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:43:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9B35606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 773FA60A261B
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:43:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 773FA60A261B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=squashfs.org.uk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squashfs.org.uk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oEIIGS9K
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=u4K0EQqDi4+xhHfJPHjH7LQ7MYMicDcjgwVFleEBNuM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795405424; v=1; x=1796010224;
- b=oEIIGS9Ka5spYlhYLlfawa+ZXJ12Zna0ZEFeJEE7giXqmS3hI6VfU5abnWm9O5dKcBXdhDr3
- chFS9abhBmm/TkSVGVES9Fbe9qxxhndJ2h06+g34MMv9B9xjfE5uGLlQjOAPDphORiVdJwtVHXf
- T8NO827T1NAkp4Q7nbd81vvk=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id cec765d6627a4390;
-	Mon, 23 Nov 2026 03:43:44 +0000
-X-Mizu-Trace-ID: cec765d6627a4390
-X-Migadu-Flow: FLOW_OUT
-From: "Xu Xin (vivo)" <xu.xin@linux.dev>
-To: xu.xin@linux.dev
-Cc: akpm@linux-foundation.org,
-	chengming.zhou@linux.dev,
-	david@kernel.org,
-	donettom@linux.ibm.com,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	stable@vger.kernel.org,
-	Karl Mehltretter <kmehltretter@gmail.com>
-Subject: [PATCH v3 1/3] mm/ksm: do not inherit ksm_zero_pages counter or PTE markers on fork
-Date: Mon, 23 Nov 2026 11:43:31 +0800
-Message-Id: <20261123034331.236509-1-xu.xin@linux.dev>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261123034136.209410-1-xu.xin@linux.dev>
-References: <20261123034136.209410-1-xu.xin@linux.dev>
+	dkim=pass (2048-bit key, unprotected) header.d=secureserver.net header.i=@secureserver.net header.a=rsa-sha256 header.s=secureserver2 header.b=lO94Pohb;
+	dkim=pass (2048-bit key, unprotected) header.d=squashfs.org.uk header.i=@squashfs.org.uk header.a=rsa-sha256 header.s=secureserver1 header.b=YiKA4uaM
+Received: from avalon.fritz.box ([82.69.79.175])
+	by :SMTPAUTH: with ESMTPA
+	id VKxRxJoOeZuU3VKxrxiqQc; Mon, 23 Nov 2026 03:43:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secureserver.net;
+	s=secureserver2; t=1795405416;
+	bh=9wlDNnuCvBStgBEGoigiOA7iJ7WaSzOQIuxUEhH7lXI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=lO94Pohb6bZdpSN/Sl1CAeiaMmzCA9jWXcKTF9V1po4AFz7lR1eJFDivM+7HhKNHy
+	 zKG2i54xZ5xKydBZjOC1FQk/2VppHEeanDBu08W0n663kv2I/KlScv6qmaiaPRc2ws
+	 vCvyjmylFn21KzZBLkxTTBxdytX4AkxMyEJQjl/xOSzHZNljZnPve3WziY2qUxcOvN
+	 qgSzMWio/kRF9ZTyom57eNiFyHy40EGTrZemvlVeeWVXGxXOadTehN+/P5XZLAwi01
+	 aPrG2vdHrPQsbxstFQUjSKtcn9kAuLerS6A7cgk+HJ0BQmiH6LyqhAfummUEbZtmgK
+	 BFH3TXnt5wQmQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squashfs.org.uk;
+	s=secureserver1; t=1795405416;
+	bh=9wlDNnuCvBStgBEGoigiOA7iJ7WaSzOQIuxUEhH7lXI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=YiKA4uaMYXAzzRWs9M7er8g0vdYanxmxb8gBPRpw4tTQCC/t6ExogkxNVwLHO2Emt
+	 TC6yhWHD2cPwxtmhQ2Km5/SrzNBK8lxFZOaUKGTvCVYRv82MZBunZ90aEUz3zG2PTU
+	 uUPmJ89Bk7Wttcl3VWhMEOWTrIRDkwhVGChwasJv8JlsJ11/HxlMQsG/SH0BZvUs7N
+	 S0y4JLG2on6YK8UK2SjwmNcaSFedVcqUWJQBixH+f7hC3JMalpGrNjMS1KWBjEPvcY
+	 D9kDqbwdAmnbF7SMrlGqTtBdfk37eWmQ4cuF9sjtrW29N34RwQTkwGJ6AAlX0QcAIU
+	 qHOPqyu5tznKw==
+X-CMAE-Analysis: v=2.4 cv=CvYq4X4D c=1 sm=1 tr=0 ts=6b03b668
+ a=84ok6UeoqCVsigPHarzEiQ==:117 a=84ok6UeoqCVsigPHarzEiQ==:17 a=FXvPX3liAAAA:8
+ a=UIc8XRgxpZH_YXcB3xwA:9 a=UObqyxdv-6Yh2QiB9mM_:22
+Feedback-ID: ac6a052ce4826977e1c9069078f38460:squashfs.org.uk:ssnet
+X-SECURESERVER-ACCT: phillip@squashfs.org.uk
+From: Phillip Lougher <phillip@squashfs.org.uk>
+To: akpm@linux-foundation.org,
+	linux-kernel@vger.kernel.org
+Cc: Phillip Lougher <phillip@squashfs.org.uk>
+Subject: [PATCH v3 07/23] Squashfs: fix offset in squashfs_read_inode() TRACE statements
+Date: Mon, 23 Nov 2026 03:42:48 +0000
+Message-ID: <20261123034304.261742-8-phillip@squashfs.org.uk>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261123034304.261742-1-phillip@squashfs.org.uk>
+References: <20261123034304.261742-1-phillip@squashfs.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,140 +84,98 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CMAE-Envelope: MS4xfMAUTAhY1A/epJhoDbfarFqKYcNh44eIVEQodLJ5wSBY5YFhYfLWY4RF4ED8hWVgmGoDSNp84XXN30JkOyD3fDFMl/voM8Rodpu2wf2gGKQi8mzmuJWW
+ QUXcpHl6Djpn3+HWps24ZcgKvnxNzxnTgYTmMc9RYL2A3q32kRQXh4xBBjxCNwAUKhODfo5Ct9rn+MomYg55/i2UewmwVGonddydgy2XxTg4uzuFVPG/Sl+j
+ b3k4RVJbrSBjBpYcvRCFYdTNyi+Xw50EAvf0MKNh6xZvDs35MxTqLudEgshaywIg
 
-As documented in Documentation/admin-guide/mm/ksm.rst, ksm_zero_pages
-accounts only for zero pages actually placed by KSM.  However, the
-current implementation wrongly accounts for forked zero-page PTEs as
-KSM's contribution, inflating both the child's per-mm counter and the
-global ksm_zero_pages counter.
+The offset used in the TRACE statements has been advanced past the start
+of the inode header by the squashfs_read_metadata() call.  This means
+the offset printed is incorrect.
 
-Originally, commit e2942062e01d ("ksm: count all zero pages placed by
-KSM") marked KSM-placed zero-page PTEs with the dirty bit for unmap
-accounting, but forgot to clear this marker during fork().  Later, to
-prevent ksm_might_unmap_zero_page() from underflowing the counters on
-child exit[1], commit 4d6fc29f3634 ("mm/ksm: fix incorrect KSM counter
-handling in mm_struct during fork") kept the child's inherited per-mm
-counter and added it to the global counter.
+Fix this by using the original offset, which is obtained by calling
+squashfs_inode_offset(ino).
 
-Instead of inflating the counters, fix the root cause by resetting the
-child's mm->ksm_zero_pages to 0 in ksm_fork() and clearing the KSM
-zero-page marker via ksm_fork_pte() when copying present PTEs in
-copy_present_ptes().  With the marker cleared,
-ksm_might_unmap_zero_page() will not decrement the counters on child
-exit, MADV_UNMERGEABLE in the child will not unnecessarily unshare
-inherited zero pages, and the global counter remains untouched.
-
-[1] https://lore.kernel.org/all/53a7bf3d-843d-4e19-b0a3-cc6852fe72c1@redhat.com/
-
-Fixes: 4d6fc29f3634 ("mm/ksm: fix incorrect KSM counter handling in mm_struct during fork")
-Cc: stable@vger.kernel.org
-Tested-by: Karl Mehltretter <kmehltretter@gmail.com>
-Signed-off-by: Xu Xin (vivo) <xu.xin@linux.dev>
+Fixes: 6545b246a2c81 ("Squashfs: inode operations")
+Signed-off-by: Phillip Lougher <phillip@squashfs.org.uk>
 ---
-Changes in v3:
-- Rename might_clear_ksm_zero_pte() to ksm_fork_pte() and move the
-  is_ksm_zero_pte() check into copy_present_ptes() under the !page
-  branch, as suggested by David Hildenbrand.
-- Expand the comment above ksm_fork_pte() to explain why the marker is
-  cleared on fork.
-- Add Tested-by tag from Karl Mehltretter.
+ fs/squashfs/inode.c | 22 ++++++++++++++--------
+ 1 file changed, 14 insertions(+), 8 deletions(-)
 
- Documentation/admin-guide/mm/ksm.rst |  7 ++++++-
- include/linux/ksm.h                  | 22 +++++++++++++++++++---
- mm/memory.c                          |  5 ++++-
- 3 files changed, 29 insertions(+), 5 deletions(-)
-
-diff --git a/Documentation/admin-guide/mm/ksm.rst b/Documentation/admin-guide/mm/ksm.rst
-index c329ca747b8c..8968ae3f55c0 100644
---- a/Documentation/admin-guide/mm/ksm.rst
-+++ b/Documentation/admin-guide/mm/ksm.rst
-@@ -214,7 +214,12 @@ stable_node_dups
-         number of duplicated KSM pages
- ksm_zero_pages
-         how many zero pages that are still mapped into processes were mapped by
--        KSM when deduplicating.
-+        KSM when deduplicating. Note: on fork(), the child process does not
-+        inherit the ``ksm_zero_pages`` counter, and any inherited KSM-placed
-+        zero-page mappings are converted into ordinary shared zero-page
-+        mappings. Consequently, these mappings are neither accounted for in
-+        the child's counter nor unshared when ``MADV_UNMERGEABLE`` is called
-+        in the child.
+diff --git a/fs/squashfs/inode.c b/fs/squashfs/inode.c
+index bc7c81d442f2..66858fabed1a 100644
+--- a/fs/squashfs/inode.c
++++ b/fs/squashfs/inode.c
+@@ -184,7 +184,8 @@ int squashfs_read_inode(struct inode *inode, long long ino)
  
- When ``use_zero_pages`` is/was enabled, the sum of ``pages_sharing`` +
- ``ksm_zero_pages`` represents the actual number of pages saved by KSM.
-diff --git a/include/linux/ksm.h b/include/linux/ksm.h
-index 596c04ca7326..f29aec4496d0 100644
---- a/include/linux/ksm.h
-+++ b/include/linux/ksm.h
-@@ -32,6 +32,17 @@ void __ksm_exit(struct mm_struct *mm);
-  */
- #define is_ksm_zero_pte(pte)	(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte))
- 
-+/*
-+ * Since the inherited mappings on fork are not expected to be accounted for
-+ * in the child's ksm_zero_pages counter (reset in ksm_fork()), we must
-+ * clear KSM's dirty-bit marker on KSM-placed zero-page PTEs to avoid
-+ * underflowing the counters on child exit.
-+ */
-+static inline pte_t ksm_fork_pte(pte_t pte)
-+{
-+	return pte_mkclean(pte);
-+}
-+
- extern atomic_long_t ksm_zero_pages;
- 
- static inline void ksm_map_zero_page(struct mm_struct *mm)
-@@ -57,11 +68,9 @@ static inline void ksm_fork(struct mm_struct *mm, struct mm_struct *oldmm)
- {
- 	/* Adding mm to ksm is best effort on fork. */
- 	if (mm_flags_test(MMF_VM_MERGEABLE, oldmm)) {
--		long nr_ksm_zero_pages = atomic_long_read(&mm->ksm_zero_pages);
--
- 		mm->ksm_merging_pages = 0;
- 		mm->ksm_rmap_items = 0;
--		atomic_long_add(nr_ksm_zero_pages, &ksm_zero_pages);
-+		atomic_long_set(&mm->ksm_zero_pages, 0);
- 		__ksm_enter(mm);
+ 		TRACE("File inode %x:%x, start_block %llx, block_list_start "
+ 			"%llx, offset %x\n", squashfs_inode_blk(ino),
+-			offset, squashfs_i(inode)->start, block, offset);
++			squashfs_inode_offset(ino),
++			squashfs_i(inode)->start, block, offset);
+ 		break;
  	}
- }
-@@ -95,6 +104,8 @@ bool ksm_process_mergeable(struct mm_struct *mm);
+ 	case SQUASHFS_LREG_TYPE: {
+@@ -244,7 +245,8 @@ int squashfs_read_inode(struct inode *inode, long long ino)
  
- #else  /* !CONFIG_KSM */
+ 		TRACE("File inode %x:%x, start_block %llx, block_list_start "
+ 			"%llx, offset %x\n", squashfs_inode_blk(ino),
+-			offset, squashfs_i(inode)->start, block, offset);
++			squashfs_inode_offset(ino), squashfs_i(inode)->start,
++			block, offset);
+ 		break;
+ 	}
+ 	case SQUASHFS_DIR_TYPE: {
+@@ -266,7 +268,8 @@ int squashfs_read_inode(struct inode *inode, long long ino)
+ 		squashfs_i(inode)->parent = le32_to_cpu(sqsh_ino->parent_inode);
  
-+#define is_ksm_zero_pte(pte)	false
-+
- static inline vma_flags_t ksm_vma_flags(struct mm_struct *mm,
- 		const struct file *file, vma_flags_t vma_flags)
- {
-@@ -114,6 +125,11 @@ static inline void ksm_exit(struct mm_struct *mm)
- {
- }
+ 		TRACE("Directory inode %x:%x, start_block %llx, offset %x\n",
+-				squashfs_inode_blk(ino), offset,
++				squashfs_inode_blk(ino),
++				squashfs_inode_offset(ino),
+ 				squashfs_i(inode)->start,
+ 				le16_to_cpu(sqsh_ino->offset));
+ 		break;
+@@ -293,7 +296,8 @@ int squashfs_read_inode(struct inode *inode, long long ino)
+ 		squashfs_i(inode)->parent = le32_to_cpu(sqsh_ino->parent_inode);
  
-+static inline pte_t ksm_fork_pte(pte_t pte)
-+{
-+	return pte;
-+}
-+
- static inline void ksm_might_unmap_zero_page(struct mm_struct *mm, pte_t pte)
- {
- }
-diff --git a/mm/memory.c b/mm/memory.c
-index 6a23198c1c67..f0b5df879e6f 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -1184,8 +1184,11 @@ copy_present_ptes(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma
- 	int err, nr;
+ 		TRACE("Long directory inode %x:%x, start_block %llx, offset "
+-				"%x\n", squashfs_inode_blk(ino), offset,
++				"%x\n", squashfs_inode_blk(ino),
++				squashfs_inode_offset(ino),
+ 				squashfs_i(inode)->start,
+ 				le16_to_cpu(sqsh_ino->offset));
+ 		break;
+@@ -337,8 +341,8 @@ int squashfs_read_inode(struct inode *inode, long long ino)
+ 		}
  
- 	page = vm_normal_page(src_vma, addr, pte);
--	if (unlikely(!page))
-+	if (unlikely(!page)) {
-+		if (unlikely(is_ksm_zero_pte(pte)))
-+			pte = ksm_fork_pte(pte);
- 		goto copy_pte;
-+	}
+ 		TRACE("Symbolic link inode %x:%x, start_block %llx, offset "
+-				"%x\n", squashfs_inode_blk(ino), offset,
+-				block, offset);
++				"%x\n", squashfs_inode_blk(ino),
++				squashfs_inode_offset(ino), block, offset);
+ 		break;
+ 	}
+ 	case SQUASHFS_BLKDEV_TYPE:
+@@ -361,7 +365,8 @@ int squashfs_read_inode(struct inode *inode, long long ino)
+ 		squashfs_i(inode)->parent = 0;
  
- 	folio = page_folio(page);
+ 		TRACE("Device inode %x:%x, rdev %x\n",
+-				squashfs_inode_blk(ino), offset, rdev);
++				squashfs_inode_blk(ino),
++				squashfs_inode_offset(ino), rdev);
+ 		break;
+ 	}
+ 	case SQUASHFS_LBLKDEV_TYPE:
+@@ -386,7 +391,8 @@ int squashfs_read_inode(struct inode *inode, long long ino)
+ 		squashfs_i(inode)->parent = 0;
  
+ 		TRACE("Device inode %x:%x, rdev %x\n",
+-				squashfs_inode_blk(ino), offset, rdev);
++				squashfs_inode_blk(ino),
++				squashfs_inode_offset(ino), rdev);
+ 		break;
+ 	}
+ 	case SQUASHFS_FIFO_TYPE:
 -- 
-2.34.1
+2.47.3
 
