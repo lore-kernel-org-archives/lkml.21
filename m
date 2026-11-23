@@ -1,83 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.127
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447723;
-	b=i/LfTafclWUAe5HPF/LMzcQK5ZsC8PtqNrPw1IfZGkQsxr9eI4WyoE9r8Ea3qne2b8ZU
-	 vy2lO82ZUny8eYTA1gm9el+20KBi+dJfOlW+FxIMDjvGoGNmhJ4v5eSN+coNxHcVGvKzY
-	 5rA7g7+OMKLIomqgRaYkJudAMXf98CqjNi5c5nQB8VmTG4j+KpDjqHwqPGK9+1PKJCw5c
-	 pkiKaF0qmixnRctcMAsBCwdG7OE+p0WmX/ye0y+zK2uIxVxXHF31csXl1NNN+aXJmItWF
-	 /c9Kvtq1DVIk4EHjAxxq4o4iDW+iLBswSo/i/XEniYVCyWrgEfyHBHdjD+x6tW1oCnQ==
+	t=1795447724;
+	b=IEFwOFZLCJq13vgMkBwi5g6vUo3Rp0B9EdR/DFQGuZB+kaZhQ7ThxD7lEJOZLYv6dQC9
+	 j95dqJ/xBORatgBOCTodaEbdWpq3I0md0ZmnVIjsJJ/+Ot02Usy3+EJNiQOTWx/agyqk5
+	 lnbyZCgO4r/YI5A1CM1EA9hJI5EuraSJx6Os1jG/wXp9Ik1Aq4ObVGC6FJcxcnkl+8EIg
+	 xtEgHcCBh3efgsKVNs82R0vwC2bntZF7BqGBhcSgIwi7/WgPcnWwuJZx4IOHc8N0Pybzs
+	 7Qju8xHiASQ7RDGFtS/ujqiTYZNCNWWuNjytrtZgPFir2HmGFBz8hyRzPXexT2qkt9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447723;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=WBawq0kefs4fX8JwtKrMJzGzKJgEuJuO/xjcFfq6ot8=;
-	b=XBXHluPx4Y1FzzGBDUw3yjkC2cxEQyUZjn/eY+LCVY/9aR75MjxVK4OAmmc5AML6A4LP
-	 ffgJC5sMebjqRgPSpNusrtlK3ii6fysoIRt67qOWblSBYjqu/PP8CmpDVIRtE4fEmNW0v
-	 gmNrsU0nCU3Er149Z+qF9ZrKbcDyOgJlpYqEXEvZnK18DXeHUfqiKubuDan5nBnnxZt7+
-	 0FhoZSUhIm2yuwkux0+OAvSL5yJIJCZDLtdlB2kp/qdJtPBcYXGZBF/EU3On1sE6yOucG
-	 6IbweUvHmch46EvFS+QxsTiq21AvMtVMsaYJtiBjramnyD3DtWnrB4//ePnqdPXucjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447724;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=5DQ4nUiYeunRFOSY9YE+opZLL40y/jePvd4SaAvI8c0=;
+	b=Y9DgKcHIYWd9MlUDgi7b7VH7C7pYIPlw4CSUDo6ksagpzw/ApN0TqJ8CB43HYRza9BwS
+	 kdQbKk0/G7Nz8rdM2lGw69MDb+FOuRS5lE69aLjHEOPmxAdeTRvzuRw/j0q8foJJMANoC
+	 EzDoLsMebgKUlDlH2QeQDhg5Dzgyc+St2cPmXWbYTp0gmnScZzqMjdBAyAMyMRAkHae8a
+	 zX925uoIZj7gP719Bq9etZRH9Gc0keJ3AIEUwWaR7RlCpLOBxlwrq4KXgsPAveHHzPsJD
+	 wqpnK8QJsOje+XWwJk5qv0lxF/kNQ28fIT6ge/GIxU9rwrS7yPn5sPVkfI3rgZDC6XA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=j5XgoxkM;
-	arc=none smtp.remote-ip=95.215.58.127
-Received: from mta1.migadu.com (out-127.mta1.migadu.com [95.215.58.127])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=anfmZC5V;
+	arc=none smtp.remote-ip=74.125.82.177
+Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F390F606A32C
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:28:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F390F606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0B18606A339
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:28:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0B18606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=j5XgoxkM
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=beLoumSdtXSUDe0bLh5ibk4kp0kr7kK5ZnUjBRr8qLs=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795447720; v=1; x=1796052520;
- b=j5XgoxkMY/Ku49xpJBtydBIcv70bAeNW9LmQFRm+bkb2BNFWWclx9XSxNWohPpDbf8cPqpxQ
- 9tG4HYV7faGp3HOSg04hhlrc7Nq42f96tExcK+o3npifNi8I0QLQBJYe+DeoX2ka60CZaq76VTB
- ZwKn4dp7pSpar/LNltpWqAGQ=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id e7fb2cfc6f1efa96;
-	Mon, 23 Nov 2026 15:28:39 +0000
-X-Mizu-Trace-ID: e7fb2cfc6f1efa96
-X-Migadu-Flow: FLOW_OUT
-From: Leon Hwang <leon.hwang@linux.dev>
-To: bpf@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Matt Bobrowski <matt@bobrowski.net>,
-	Shuah Khan <shuah@kernel.org>,
-	Leon Hwang <leon.hwang@linux.dev>,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=anfmZC5V
+Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-3866a784546so4337057eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:28:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795447723; x=1796052523; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5DQ4nUiYeunRFOSY9YE+opZLL40y/jePvd4SaAvI8c0=;
+        b=anfmZC5VLhD4VBfDaPjGHgAcEImV4TaGeS1aBn4RpFdLo1qnz02JcKS1L5OyWTncNY
+         3OQstA5KZmrpRSCmyy5YYdRxM5Pf+w4Vyq9gFYi/WD/kyA2f2vWC9sO1LyYDUzcfv2Ru
+         TmBL0aMKk+Fj4WizI8LMbngiINE5VbZOCPJV2hXEQ3CbHVjm0g322WVpF5yyAllj72iy
+         +PHw9p0nKMwUiMQflCRRLrQJbCBQRtQp1l8dPyij3m1T0zyrpRFZiKXSlMcaw02gXS6d
+         YHt1tqroIZRQ8QoAZL/sU1AP/0SzPce8VGPWDQ2t0wCzUgWBd2/o2K8K6fmWY0jtom03
+         zlVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795447723; x=1796052523;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5DQ4nUiYeunRFOSY9YE+opZLL40y/jePvd4SaAvI8c0=;
+        b=oJcW2+OfKxhzkDR+1ODqGwI9Ln+6vr2d1hEBKsuCBsoD4BBNLuDpSAfVf+xV9kreWN
+         EBGZzM+OQP06XipDvIvxcZ0RPnjZalt5DOVLu/4usLBRz7iu6vOr30tzQwEvOFjV4evk
+         6ih4yWuL3QQ6d5oYXIpsoOW8LXRo6DHTrBT3uCD09nb7B2zp8/MlruxAbKloCPby8hPS
+         TNPGuhos5DMr3/8Fvm5Tu2hbQ5SxHZcgO+REndmOXJ7fW1lCyUogOXQHb0GUnPPkWwLb
+         2LNceMDne0+KpAJwktX33zVZS17qO8KKSiZGir3DCrooFA9NoUtVekaSjR5ngvYAFFwQ
+         nvpQ==
+X-Forwarded-Encrypted: i=1; AL+hErGKf2F6Wj0xami+GVpNvqHXHHp+0+11+0ed3WygUdeWe3s0i3Mi/eKvK77DCMzx2jEyFKqmwcozOvNFkLA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9O6k0fRnQTxrlI07XLIPn/f8GU04wrLdy6kDY/drkqg/se0JEP
+	z0VS+Z0JDyUd4EiULyLaV6bS18YJjlHmcq1cqFwik5GHkm4MfIkHFUDk
+X-Gm-Gg: AZFdTZdHHwjudiWto8Ict1KMY+HGhUjJs3ExpeJhB9c2AQK5hj4asbJrpZrllUpykMJ
+	BZ7CvNik2ArtxeDU3rIwA+dOpNen8HbaIyVrL7iU7wOC9mvmSJT5CNMZIN72Ygapp9YVeyuD7NH
+	QuVCGOQpcHwfKJlXRmeXSRGbr9lIbQA+qNJ22Xue++NrI0IVrYxuSBr1wuCkB6IwBVHnKQctYnK
+	XpnsVN2Hs4KH6TLwawrMJMkef1cgcA06Yf11gk+dzni49lhQz92iApVUkHEs1QDRRmed4YPysmc
+	dh8eH2OwjNzO0ZeUxNpw/3484J73gKbfFsnyh9Hdc0g4Hi1mQ575fPqS1EpGRb3XS91mA463LEh
+	Wsk6vxLAWdHuXwkqll2Ly34Ys8LhLgGbOknEelhs49BkK1KAufaMJCIdF0Ubfp2hC8sguAv1/iA
+	O5p32A/uYF4sjshJ8Ei+H87Kz1ima0nCbt84tyzg2G9zAi0F+pGI36zlmGunEgz+i7Ig1brCYUP
+	jWJ4hJWQVjDqA2iBVhPYnEkoWt+o4XZU7JLrp7h9YUSaQzYjHowCEuUWyX0tJJcH7dsTY/Erglc
+	qZ43OCmNgvhVHud+JEfeGVZCMzh33plPK+XTqBSdbaoIAA==
+X-Received: by 2002:a05:7301:6908:b0:382:f0d4:1e77 with SMTP id 5a478bee46e88-38571219f03mr12415282eec.36.1795447722735;
+        Mon, 23 Nov 2026 07:28:42 -0800 (PST)
+Received: from localhost.localdomain ([2404:c0:aa07:12b3:e89:dfdd:d14b:d911])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm46569087eec.5.2026.11.23.07.28.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 07:28:42 -0800 (PST)
+From: Hikmah Gumelar <hikmahgumelar@gmail.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Hikmah Gumelar <hikmahgumelar@gmail.com>,
+	linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: [PATCH bpf-next v3 4/9] bpf: Add log support for cgroup prog link_create
-Date: Mon, 23 Nov 2026 23:27:38 +0800
-Message-ID: <20261123152743.19629-5-leon.hwang@linux.dev>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261123152743.19629-1-leon.hwang@linux.dev>
-References: <20261123152743.19629-1-leon.hwang@linux.dev>
+	linux-arm-msm@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Subject: [PATCH v3 6/7] arm64: dts: qcom: msm8953: add CAMSS node and MCLK pinctrl states
+Date: Mon, 23 Nov 2026 22:27:21 +0700
+Message-ID: <20261123152722.168879-7-hikmahgumelar@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261123152722.168879-1-hikmahgumelar@gmail.com>
+References: <20261123123546.152162-1-hikmahgumelar@gmail.com>
+ <20261123152722.168879-1-hikmahgumelar@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,286 +115,176 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Cgroup prog BPF_LINK_CREATE returns errors without explaining invalid
-flags, target FDs, or relative attachment parameters. Revision mismatches,
-cgroup hierarchy restrictions, conflicting attachment flags, and the
-per-cgroup program limit can also cause unexplained failures.
+Add the camera subsystem (CAMSS) node and MCLK0/1/2 pin control states to the Qualcomm MSM8953 SoC Devicetree.
 
-Pass the BPF_LINK_CREATE log through the cgroup attachment helpers and
-report these failures at the checks that reject the attachment. Diagnose
-relative link attachments that omit BPF_F_LINK.
-
-Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+Signed-off-by: Hikmah Gumelar <hikmahgumelar@gmail.com>
 ---
- include/linux/bpf-cgroup.h |  6 ++-
- kernel/bpf/cgroup.c        | 76 +++++++++++++++++++++++++++-----------
- kernel/bpf/syscall.c       |  4 +-
- 3 files changed, 60 insertions(+), 26 deletions(-)
+ arch/arm64/boot/dts/qcom/msm8953.dtsi | 145 ++++++++++++++++++++++++++
+ 1 file changed, 145 insertions(+)
 
-diff --git a/include/linux/bpf-cgroup.h b/include/linux/bpf-cgroup.h
-index dfa7a75507c9..0b63c2cc1399 100644
---- a/include/linux/bpf-cgroup.h
-+++ b/include/linux/bpf-cgroup.h
-@@ -428,7 +428,8 @@ int cgroup_bpf_prog_attach(const union bpf_attr *attr,
- 			   enum bpf_prog_type ptype, struct bpf_prog *prog);
- int cgroup_bpf_prog_detach(const union bpf_attr *attr,
- 			   enum bpf_prog_type ptype);
--int cgroup_bpf_link_attach(const union bpf_attr *attr, struct bpf_prog *prog);
-+int cgroup_bpf_link_attach(const union bpf_attr *attr, struct bpf_prog *prog,
-+			   struct bpf_verifier_log *log);
- int cgroup_bpf_prog_query(const union bpf_attr *attr,
- 			  union bpf_attr __user *uattr, u32 uattr_size);
+diff --git a/arch/arm64/boot/dts/qcom/msm8953.dtsi b/arch/arm64/boot/dts/qcom/msm8953.dtsi
+index 753167c3f861..396472ba8f28 100644
+--- a/arch/arm64/boot/dts/qcom/msm8953.dtsi
++++ b/arch/arm64/boot/dts/qcom/msm8953.dtsi
+@@ -753,6 +753,27 @@ i2c_6_sleep: i2c-6-sleep-state {
+ 				bias-disable;
+ 			};
  
-@@ -455,7 +456,8 @@ static inline int cgroup_bpf_prog_detach(const union bpf_attr *attr,
- }
++			camss_mclk0_default: camss-mclk0-default-state {
++				pins = "gpio26";
++				function = "cam_mclk";
++				drive-strength = <2>;
++				bias-disable;
++			};
++
++			camss_mclk1_default: camss-mclk1-default-state {
++				pins = "gpio27";
++				function = "cam_mclk";
++				drive-strength = <2>;
++				bias-disable;
++			};
++
++			camss_mclk2_default: camss-mclk2-default-state {
++				pins = "gpio28";
++				function = "cam_mclk";
++				drive-strength = <2>;
++				bias-disable;
++			};
++
+ 			cci0_default: cci0-default-state {
+ 				pins = "gpio29", "gpio30";
+ 				function = "cci_i2c";
+@@ -1214,6 +1235,130 @@ mdss_dsi1_phy: phy@1a96400 {
+ 			};
+ 		};
  
- static inline int cgroup_bpf_link_attach(const union bpf_attr *attr,
--					 struct bpf_prog *prog)
-+					 struct bpf_prog *prog,
-+					 struct bpf_verifier_log *log)
- {
- 	return -EINVAL;
- }
-diff --git a/kernel/bpf/cgroup.c b/kernel/bpf/cgroup.c
-index f195d5fcae6c..4dff4a178af3 100644
---- a/kernel/bpf/cgroup.c
-+++ b/kernel/bpf/cgroup.c
-@@ -901,7 +901,8 @@ static struct bpf_prog *bpf_get_anchor_prog(u32 flags, u32 id_or_fd)
- }
- 
- static struct bpf_prog_list *get_prog_list(struct hlist_head *progs, struct bpf_prog *prog,
--					   struct bpf_cgroup_link *link, u32 flags, u32 id_or_fd)
-+					   struct bpf_cgroup_link *link, u32 flags, u32 id_or_fd,
-+					   struct bpf_verifier_log *log)
- {
- 	bool is_link = flags & BPF_F_LINK, is_id = flags & BPF_F_ID;
- 	struct bpf_prog_list *pltmp, *pl = ERR_PTR(-EINVAL);
-@@ -914,20 +915,30 @@ static struct bpf_prog_list *get_prog_list(struct hlist_head *progs, struct bpf_
- 	is_after = flags & BPF_F_AFTER;
- 	if (is_link || is_id || id_or_fd) {
- 		/* flags must have either BPF_F_BEFORE or BPF_F_AFTER */
--		if (is_before == is_after)
-+		if (is_before == is_after) {
-+			bpf_log(log, "Specify exactly one of BPF_F_BEFORE or BPF_F_AFTER.\n");
- 			return ERR_PTR(-EINVAL);
--		if ((is_link && !link) || (!is_link && !prog))
-+		}
-+		if (is_link && !link)
-+			return ERR_PTR(-EINVAL);
-+		if (!is_link && !prog) {
-+			bpf_log(log, "BPF_F_LINK is required for relative link attachment.\n");
- 			return ERR_PTR(-EINVAL);
-+		}
- 	} else if (!hlist_empty(progs)) {
- 		/* flags cannot have both BPF_F_BEFORE and BPF_F_AFTER */
--		if (is_before && is_after)
-+		if (is_before && is_after) {
-+			bpf_log(log, "BPF_F_BEFORE and BPF_F_AFTER are mutually exclusive.\n");
- 			return ERR_PTR(-EINVAL);
-+		}
- 	}
- 
- 	if (is_link) {
- 		anchor_link = bpf_get_anchor_link(flags, id_or_fd);
--		if (IS_ERR(anchor_link))
-+		if (IS_ERR(anchor_link)) {
-+			bpf_log(log, "Invalid relative link %s.\n", is_id ? "ID" : "FD");
- 			return ERR_CAST(anchor_link);
-+		}
- 	} else if (is_id || id_or_fd) {
- 		anchor_prog = bpf_get_anchor_prog(flags, id_or_fd);
- 		if (IS_ERR(anchor_prog))
-@@ -952,13 +963,16 @@ static struct bpf_prog_list *get_prog_list(struct hlist_head *progs, struct bpf_
- 	hlist_for_each_entry(pltmp, progs, node) {
- 		if ((anchor_prog && anchor_prog == pltmp->prog) ||
- 		    (anchor_link && anchor_link == &pltmp->link->link)) {
--			if (!!(pltmp->flags & BPF_F_PREORDER) != preorder)
-+			if (!!(pltmp->flags & BPF_F_PREORDER) != preorder) {
-+				bpf_log(log, "Relative attachment BPF_F_PREORDER mismatch.\n");
- 				goto out;
-+			}
- 			pl = pltmp;
- 			goto out;
- 		}
- 	}
- 
-+	bpf_log(log, "Relative attachment not found in target cgroup.\n");
- 	pl = ERR_PTR(-ENOENT);
- out:
- 	if (anchor_link)
-@@ -970,11 +984,11 @@ static struct bpf_prog_list *get_prog_list(struct hlist_head *progs, struct bpf_
- 
- static int insert_pl_to_hlist(struct bpf_prog_list *pl, struct hlist_head *progs,
- 			      struct bpf_prog *prog, struct bpf_cgroup_link *link,
--			      u32 flags, u32 id_or_fd)
-+			      u32 flags, u32 id_or_fd, struct bpf_verifier_log *log)
- {
- 	struct bpf_prog_list *pltmp;
- 
--	pltmp = get_prog_list(progs, prog, link, flags, id_or_fd);
-+	pltmp = get_prog_list(progs, prog, link, flags, id_or_fd, log);
- 	if (IS_ERR(pltmp))
- 		return PTR_ERR(pltmp);
- 
-@@ -999,6 +1013,7 @@ static int insert_pl_to_hlist(struct bpf_prog_list *pl, struct hlist_head *progs
-  * @flags: Option flags
-  * @id_or_fd: Relative prog id or fd
-  * @revision: bpf_prog_list revision
-+ * @log: Optional log for attachment errors
-  *
-  * Exactly one of @prog or @link can be non-null.
-  * Must be called with cgroup_mutex and cgroup_bpf_mutex held.
-@@ -1007,7 +1022,7 @@ static int __cgroup_bpf_attach(struct cgroup *cgrp,
- 			       struct bpf_prog *prog, struct bpf_prog *replace_prog,
- 			       struct bpf_cgroup_link *link,
- 			       enum bpf_attach_type type, u32 flags, u32 id_or_fd,
--			       u64 revision)
-+			       u64 revision, struct bpf_verifier_log *log)
- {
- 	u32 saved_flags = (flags & (BPF_F_ALLOW_OVERRIDE | BPF_F_ALLOW_MULTI));
- 	struct bpf_prog *old_prog = NULL;
-@@ -1045,23 +1060,33 @@ static int __cgroup_bpf_attach(struct cgroup *cgrp,
- 	atype = bpf_cgroup_atype_find(type, new_prog->aux->attach_btf_id);
- 	if (atype < 0)
- 		return -EINVAL;
--	if (revision && revision != cgrp->bpf.revisions[atype])
-+	if (revision && revision != cgrp->bpf.revisions[atype]) {
-+		bpf_log(log, "Cgroup revision mismatch: expected %llu, actual %llu.\n",
-+			revision, cgrp->bpf.revisions[atype]);
- 		return -ESTALE;
-+	}
- 
- 	progs = &cgrp->bpf.progs[atype];
- 
--	if (!hierarchy_allows_attach(cgrp, atype))
-+	if (!hierarchy_allows_attach(cgrp, atype)) {
-+		bpf_log(log, "Cgroup hierarchy does not allow attachment.\n");
- 		return -EPERM;
-+	}
- 
--	if (!hlist_empty(progs) && cgrp->bpf.flags[atype] != saved_flags)
-+	if (!hlist_empty(progs) && cgrp->bpf.flags[atype] != saved_flags) {
- 		/* Disallow attaching non-overridable on top
- 		 * of existing overridable in this cgroup.
- 		 * Disallow attaching multi-prog if overridable or none
- 		 */
-+		bpf_log(log, "Attachment flags conflict with existing flags.\n");
- 		return -EPERM;
-+	}
- 
--	if (prog_list_length(progs, NULL) >= BPF_CGROUP_MAX_PROGS)
-+	if (prog_list_length(progs, NULL) >= BPF_CGROUP_MAX_PROGS) {
-+		bpf_log(log, "Too many programs attached to cgroup (limit %u).\n",
-+			BPF_CGROUP_MAX_PROGS);
- 		return -E2BIG;
-+	}
- 
- 	pl = find_attach_entry(progs, prog, link, replace_prog,
- 			       flags & BPF_F_ALLOW_MULTI);
-@@ -1083,7 +1108,7 @@ static int __cgroup_bpf_attach(struct cgroup *cgrp,
- 			return -ENOMEM;
- 		}
- 
--		err = insert_pl_to_hlist(pl, progs, prog, link, flags, id_or_fd);
-+		err = insert_pl_to_hlist(pl, progs, prog, link, flags, id_or_fd, log);
- 		if (err) {
- 			kfree(pl);
- 			bpf_cgroup_storages_free(new_storage);
-@@ -1143,13 +1168,14 @@ static int cgroup_bpf_attach(struct cgroup *cgrp,
- 			     struct bpf_prog *prog, struct bpf_prog *replace_prog,
- 			     struct bpf_cgroup_link *link,
- 			     enum bpf_attach_type type,
--			     u32 flags, u32 id_or_fd, u64 revision)
-+			     u32 flags, u32 id_or_fd, u64 revision,
-+			     struct bpf_verifier_log *log)
- {
- 	int ret;
- 
- 	cgroup_bpf_lock_hierarchy();
- 	ret = __cgroup_bpf_attach(cgrp, prog, replace_prog, link, type, flags,
--				  id_or_fd, revision);
-+				  id_or_fd, revision, log);
- 	cgroup_bpf_unlock_hierarchy();
- 	return ret;
- }
-@@ -1635,7 +1661,7 @@ int cgroup_bpf_prog_attach(const union bpf_attr *attr,
- 
- 	ret = cgroup_bpf_attach(cgrp, prog, replace_prog, NULL,
- 				attr->attach_type, attr->attach_flags,
--				attr->relative_fd, attr->expected_revision);
-+				attr->relative_fd, attr->expected_revision, NULL);
- 
- 	if (replace_prog)
- 		bpf_prog_put(replace_prog);
-@@ -1765,19 +1791,24 @@ static const struct bpf_link_ops bpf_cgroup_link_lops = {
- 	 BPF_F_PREORDER |	\
- 	 BPF_F_LINK)
- 
--int cgroup_bpf_link_attach(const union bpf_attr *attr, struct bpf_prog *prog)
-+int cgroup_bpf_link_attach(const union bpf_attr *attr, struct bpf_prog *prog,
-+			   struct bpf_verifier_log *log)
- {
- 	struct bpf_link_primer link_primer;
- 	struct bpf_cgroup_link *link;
- 	struct cgroup *cgrp;
- 	int err;
- 
--	if (attr->link_create.flags & (~BPF_F_LINK_ATTACH_MASK))
-+	if (attr->link_create.flags & (~BPF_F_LINK_ATTACH_MASK)) {
-+		bpf_log(log, "Invalid flags.\n");
- 		return -EINVAL;
-+	}
- 
- 	cgrp = cgroup_get_from_fd(attr->link_create.target_fd);
--	if (IS_ERR(cgrp))
-+	if (IS_ERR(cgrp)) {
-+		bpf_log(log, "Invalid target_fd.\n");
- 		return PTR_ERR(cgrp);
-+	}
- 
- 	link = kzalloc_obj(*link, GFP_USER);
- 	if (!link) {
-@@ -1797,7 +1828,7 @@ int cgroup_bpf_link_attach(const union bpf_attr *attr, struct bpf_prog *prog)
- 	err = cgroup_bpf_attach(cgrp, NULL, NULL, link,
- 				link->link.attach_type, BPF_F_ALLOW_MULTI | attr->link_create.flags,
- 				attr->link_create.cgroup.relative_fd,
--				attr->link_create.cgroup.expected_revision);
-+				attr->link_create.cgroup.expected_revision, log);
- 	if (err) {
- 		bpf_link_cleanup(&link_primer);
- 		goto out_put_cgroup;
-@@ -3253,7 +3284,8 @@ int cgroup_bpf_struct_ops_attach(struct bpf_map *map, const union bpf_attr *attr
- 	cgrp->bpf.flags[atype] = BPF_F_ALLOW_MULTI;
- 
- 	err = insert_pl_to_hlist(pl, progs, NULL, link,
--				 flags | BPF_F_ALLOW_MULTI, attr->link_create.cgroup.relative_fd);
-+				 flags | BPF_F_ALLOW_MULTI,
-+				 attr->link_create.cgroup.relative_fd, NULL);
- 	if (err)
- 		goto unlock;
- 
-diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
-index f485e68a14ee..56b3f42fded0 100644
---- a/kernel/bpf/syscall.c
-+++ b/kernel/bpf/syscall.c
-@@ -5929,7 +5929,7 @@ static int link_create(union bpf_attr *attr, bpfptr_t uattr, struct bpf_common_a
- 	case BPF_PROG_TYPE_CGROUP_DEVICE:
- 	case BPF_PROG_TYPE_CGROUP_SYSCTL:
- 	case BPF_PROG_TYPE_CGROUP_SOCKOPT:
--		ret = cgroup_bpf_link_attach(attr, prog);
-+		ret = cgroup_bpf_link_attach(attr, prog, log);
- 		break;
- 	case BPF_PROG_TYPE_EXT:
- 		ret = bpf_tracing_prog_attach(prog,
-@@ -5952,7 +5952,7 @@ static int link_create(union bpf_attr *attr, bpfptr_t uattr, struct bpf_common_a
- 		else if (prog->expected_attach_type == BPF_TRACE_ITER)
- 			ret = bpf_iter_link_attach(attr, uattr, prog, log);
- 		else if (prog->expected_attach_type == BPF_LSM_CGROUP)
--			ret = cgroup_bpf_link_attach(attr, prog);
-+			ret = cgroup_bpf_link_attach(attr, prog, log);
- 		else if (is_tracing_multi(prog->expected_attach_type))
- 			ret = bpf_tracing_multi_attach(prog, attr, log);
- 		else
++		camss: camss@1b00020 {
++			compatible = "qcom,msm8953-camss";
++
++			reg = <0x1b00020 0x10>,
++			      <0x1b30000 0x100>,
++			      <0x1b30400 0x100>,
++			      <0x1b30800 0x100>,
++			      <0x1b34000 0x1000>,
++			      <0x1b00030 0x4>,
++			      <0x1b35000 0x1000>,
++			      <0x1b00038 0x4>,
++			      <0x1b36000 0x1000>,
++			      <0x1b00040 0x4>,
++			      <0x1b31000 0x500>,
++			      <0x1b10000 0x1000>,
++			      <0x1b14000 0x1000>;
++			reg-names = "csi_clk_mux",
++				    "csid0",
++				    "csid1",
++				    "csid2",
++				    "csiphy0",
++				    "csiphy0_clk_mux",
++				    "csiphy1",
++				    "csiphy1_clk_mux",
++				    "csiphy2",
++				    "csiphy2_clk_mux",
++				    "ispif",
++				    "vfe0",
++				    "vfe1";
++
++			clocks = <&gcc GCC_CAMSS_AHB_CLK>,
++				 <&gcc GCC_CAMSS_CSI0_CLK>,
++				 <&gcc GCC_CAMSS_CSI0_AHB_CLK>,
++				 <&gcc GCC_CAMSS_CSI0PHY_CLK>,
++				 <&gcc GCC_CAMSS_CSI0PIX_CLK>,
++				 <&gcc GCC_CAMSS_CSI0RDI_CLK>,
++				 <&gcc GCC_CAMSS_CSI1_CLK>,
++				 <&gcc GCC_CAMSS_CSI1_AHB_CLK>,
++				 <&gcc GCC_CAMSS_CSI1PHY_CLK>,
++				 <&gcc GCC_CAMSS_CSI1PIX_CLK>,
++				 <&gcc GCC_CAMSS_CSI1RDI_CLK>,
++				 <&gcc GCC_CAMSS_CSI2_CLK>,
++				 <&gcc GCC_CAMSS_CSI2_AHB_CLK>,
++				 <&gcc GCC_CAMSS_CSI2PHY_CLK>,
++				 <&gcc GCC_CAMSS_CSI2PIX_CLK>,
++				 <&gcc GCC_CAMSS_CSI2RDI_CLK>,
++				 <&gcc GCC_CAMSS_CSI_VFE0_CLK>,
++				 <&gcc GCC_CAMSS_CSI_VFE1_CLK>,
++				 <&gcc GCC_CAMSS_CSI0PHYTIMER_CLK>,
++				 <&gcc GCC_CAMSS_CSI1PHYTIMER_CLK>,
++				 <&gcc GCC_CAMSS_CSI2PHYTIMER_CLK>,
++				 <&gcc GCC_CAMSS_ISPIF_AHB_CLK>,
++				 <&gcc GCC_CAMSS_MICRO_AHB_CLK>,
++				 <&gcc GCC_CAMSS_TOP_AHB_CLK>,
++				 <&gcc GCC_CAMSS_VFE0_CLK>,
++				 <&gcc GCC_CAMSS_VFE0_AHB_CLK>,
++				 <&gcc GCC_CAMSS_VFE0_AXI_CLK>,
++				 <&gcc GCC_CAMSS_VFE1_CLK>,
++				 <&gcc GCC_CAMSS_VFE1_AHB_CLK>,
++				 <&gcc GCC_CAMSS_VFE1_AXI_CLK>;
++			clock-names = "ahb",
++				      "csi0",
++				      "csi0_ahb",
++				      "csi0_phy",
++				      "csi0_pix",
++				      "csi0_rdi",
++				      "csi1",
++				      "csi1_ahb",
++				      "csi1_phy",
++				      "csi1_pix",
++				      "csi1_rdi",
++				      "csi2",
++				      "csi2_ahb",
++				      "csi2_phy",
++				      "csi2_pix",
++				      "csi2_rdi",
++				      "csi_vfe0",
++				      "csi_vfe1",
++				      "csiphy0_timer",
++				      "csiphy1_timer",
++				      "csiphy2_timer",
++				      "ispif_ahb",
++				      "micro_ahb",
++				      "top_ahb",
++				      "vfe0",
++				      "vfe0_ahb",
++				      "vfe0_axi",
++				      "vfe1",
++				      "vfe1_ahb",
++				      "vfe1_axi";
++
++			interrupts = <GIC_SPI 51 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 52 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 153 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 78 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 79 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 315 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 55 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 57 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 29 IRQ_TYPE_EDGE_RISING>;
++			interrupt-names = "csid0",
++					  "csid1",
++					  "csid2",
++					  "csiphy0",
++					  "csiphy1",
++					  "csiphy2",
++					  "ispif",
++					  "vfe0",
++					  "vfe1";
++
++			iommus = <&apps_iommu 0x14>;
++
++			power-domains = <&gcc VFE0_GDSC>,
++					<&gcc VFE1_GDSC>;
++			power-domain-names = "vfe0", "vfe1";
++
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++			};
++		};
++
+ 		cci: cci@1b0c000 {
+ 			compatible = "qcom,msm8953-cci";
+ 			reg = <0x1b0c000 0x4000>;
 -- 
-2.55.0
+2.47.3
 
