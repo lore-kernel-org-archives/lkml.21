@@ -1,111 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795424533;
-	b=lLCXLBcsDWUbpN1rSLqE/vtK5MBR+R0qrGkC5M1AdBTpLV9qud4N4pMJSGJgdJkcJS8T
-	 AiAFeirA/XNMkeo3uUs+LlbLrhWIpGiJUlDVo06gBFCRCAed42akfWAk87t5o2QbRQrvA
-	 o8SQ4G8sPTOFex5vf2ScwPR6W1g53smNmTMjk9PSCgSzvUcfYRRtfMv17kjdzFftaKtZb
-	 AMsyLG+ZbYiZEJmy5/PY3+MhVBl4RNMNuDsNNbsjOMF2El4iTiaI4NsmbKpIaiMKG3XCR
-	 3SPoxMJ6cOPoPOVh/PavgZTP4EDZqfEE8pstIDa4zvXIKEpjcyaCSYlw5VipLMV5b3w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795424533;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=bkGDFO70vWBKhUp1LATRTjL4dgwHVoXab95WIO6BG2Y=;
-	b=X+DRPlaip0K1TX/xlRGa2mrDxeeJ85vWhvi6Sld13xExn9V0Q550BfwjVcrr48m3hV+9
-	 VILR1N05BdNAfU4epYENQ7U2VAsZYMirj5D36yuftKNXR1uJhup1aa9ntk5TKQXk6gZIu
-	 y4KcKb6v+hPNXHWkk9ugaq6dhl1TO3t089HezorwfBS2lu0frDqXiDCSdzFuujY06nsGD
-	 l0nUJ6JkJJoipp4Celfr64Oioo7BRqnfVGaozca3tJDFtt5ND7n084nmXP6OZnbJncoHl
-	 Szrm2VHZ05ZXsVQIlgwrUu65empxgeucXVgafjCdj1yK7hxzt3TeMUQV1VUY+nezu+g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b="EnuGc/iS";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.18
-Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012018.outbound.protection.outlook.com [52.101.53.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.216
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795424538;
+	b=nyxWI3qknzH1ndyND6U0qYFAiRklQXMKbk12SHmWYWe84LP88qO/lzFiz0ByOgZYsFVi
+	 hhnwde/uwmuRLLuB6e1ZDN7P567rxj95S02IkNMcoQRj0CeSMtczcrIRVt1BCg/5tnTpZ
+	 GqGK80XI91HnjmZVI8ykjAfmwxszAZ7LKBFivPvDLsy3RSXlOzl4D5gRzpw+g6Cl2nRIB
+	 wNgs8GRCqx3d3uBEKyQh22qmHhRWEo0XpOb7vvhGQLGYv8xPSxFT/3a1YqGeei//n9yJY
+	 7McEJprtolGjk+7sWl56ofzcdrdYHW3fBt7pUMqHntQXJjzCXjKUA9sMjHC58blE2+g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795424538;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=Kz/WeYWTkRBkgARC8Rr4+yrZNQ8k1MIDWWfsVImsn28=;
+	b=Kf52zgKoFpynKfaGvVuw6dhYHuksXSNwKi1CGmE4X+IBbKVdWvfWgseyfD4Bq+satcgk
+	 P3wudrh/IsJNQHYNmgXkfbqU7LpiQ2u1DL5RfTYU4cuXZ0Z6UTPcosp2h8+HhyFMp082z
+	 N+HWvY65f5V5SKnxlL2/7hu3Npw1cwFLAFTJwcdEXBtVcZEbZ5fX4W8di9U10Yj7kiSVE
+	 RPBtMX87MoJ5YnMyDAuCXulQwoKhf40IV86FOngLvs+LRL687XW8xGWTbJCs06ZU+6cs2
+	 eUJFIMkrzqYw8lkcH883rMvT2RfmBoRDJghMvT9kShDsa+RoQ6XAfgE1eH9Okqdw0BQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="VF82/Jev";
+	arc=none smtp.remote-ip=95.215.58.216
+Received: from mta1.migadu.com (out-216.mta1.migadu.com [95.215.58.216])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 839DD606A31A;
-	Mon, 23 Nov 2026 09:02:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 839DD606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBFDC606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:02:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CBFDC606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=EnuGc/iS
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xd7Hfpp2m0aNMv+hYwVXTztiZ1vHqRwsdt5JnLjFnSGbLYcMnkCibiKtx/8fJv5em4RgJNbg5hf+L9w0+Dwtf1g3+4tURUwC/vPJ2Y5cHI4pKbXc3YFnR9Kqt3g9AiHvV+PFeFM/Hs8aDFib73u1bll7bjIW069txJMXxQwwNPlAGEHy7uLasnK86oaZ72bldFOE1PamVXlnadjFNI3uK5jEgdeFgj+FqEl/SPrsI8Axo7g2wlVxgjL3pDdk3zF87EikGOtfkYEa76tZ7FNV4EexaI/tfdOB53PXOv0Ygxl3o+AWNKi5/X60aeG6sq0YAghenSm1XMucNZjZ89DZVQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bkGDFO70vWBKhUp1LATRTjL4dgwHVoXab95WIO6BG2Y=;
- b=OzAuDSpmwfsDOxBoS1Y80a8mn+JLSCvxpSl7Lh8Jvgm7ffrsn/DXjCK6GlKFIAJ5VlMowQV1h4F1iEGwcxub2D+pnnovSv7lpC8JweunM/+rmRgklKOGin4QxC3nwxL0qHJrtkqneQY9RWcsUFxth74SygNFBNSO+yHcoO0FjzOkRDT/xz/GP/pK7OEAnyYBPVtGEBapxqkLybKoBTTJ4d8mk83w1k8BnwysbSbexRg86p4IDGGHR1tAsvRCAGBJTEARIheaeb8XHY5lyINqOzvOTHRaf/PyqU48SZ7KBNlHG55xPR9RB5e0+w0LLsIptK6leDIkCgft0yoNBQBMxg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bkGDFO70vWBKhUp1LATRTjL4dgwHVoXab95WIO6BG2Y=;
- b=EnuGc/iSMQRxfkdXByUxpLaViiQIjNBRblex5FSCGoIb8kk636YqgEYfBDaRVAm/75jt7wZe2wKODOFvJbx0PX9a15U23sOY6pua+Wz1N28dlRGSE07d/q1MIMFhvRwLM1phvh8A/r6DUvWrFwh2o834U9c0MVRxPFAsPSuSk4w=
-Received: from SJ2PR07CA0010.namprd07.prod.outlook.com (2603:10b6:a03:505::27)
- by SN7PR12MB7155.namprd12.prod.outlook.com (2603:10b6:806:2a6::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
- 2026 09:02:07 +0000
-Received: from SJ1PEPF0000231F.namprd03.prod.outlook.com
- (2603:10b6:a03:505:cafe::af) by SJ2PR07CA0010.outlook.office365.com
- (2603:10b6:a03:505::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
- 23 Nov 2026 09:02:07 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SJ1PEPF0000231F.mail.protection.outlook.com (10.167.242.235) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 09:02:06 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
- 2026 03:02:06 -0600
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
- 2026 03:02:06 -0600
-Received: from localhost.amd.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Mon, 23 Nov 2026 03:02:04 -0600
-From: Baorui.Liu <baorliu@amd.com>
-To: "Rafael J . Wysocki" <rafael@kernel.org>
-CC: Len Brown <lenb@kernel.org>, Robert Moore <robert.moore@intel.com>,
-	<linux-acpi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<acpica-devel@lists.linuxfoundation.org>, kernel test robot <lkp@intel.com>,
-	"Baorui . Liu" <baorliu@amd.com>
-Subject: Re: [PATCH v8] ACPI: button: Report wakeup key only for power button wakeups
-Date: Mon, 23 Nov 2026 17:02:03 +0800
-Message-ID: <20261123090203.573-1-baorliu@amd.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <CAJZ5v0gxGtEENP9kBmwFvcrSxPMyguYsYoYKpa6oa7hhvAvN=A@mail.gmail.com>
-References: <CAJZ5v0gxGtEENP9kBmwFvcrSxPMyguYsYoYKpa6oa7hhvAvN=A@mail.gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=VF82/Jev
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=T5OWg7LERcGWKGnCk5JE+7blmKJIrMPN4iidLxTf5Lc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795424534; v=1; x=1796029334;
+ b=VF82/JevBb1t224HAAO+zHzJj+42iU1JZd0ELL0yz8e0yW/+iyWXflxwZZ9vyf74o3r3qL9D
+ q0NhWrbZahPJQNE+cnwTedCVT/HY6SEnBXURA3SDRLvrBaDWGZvSZk9tei9VdINANSeM07r5DJC
+ 3VImKEKJns+fo0oCXxldClhQ=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id ade3eca2258fcfa0;
+	Mon, 23 Nov 2026 09:02:14 +0000
+X-Mizu-Trace-ID: ade3eca2258fcfa0
+X-Migadu-Flow: FLOW_OUT
+From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+To: netdev@vger.kernel.org,
+	tariqt@nvidia.com
+Cc: saeedm@nvidia.com,
+	leon@kernel.org,
+	mbloch@nvidia.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+Subject: [PATCH net-next v2] net/mlx5e: TX, Do not open a multi-packet WQE for a single packet
+Date: Mon, 23 Nov 2026 18:02:00 +0900
+Message-ID: <20261123090200.1284018-1-xuanqiang.luo@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,59 +74,116 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF0000231F:EE_|SN7PR12MB7155:EE_
-X-MS-Office365-Filtering-Correlation-Id: b9f52c03-d57f-46cc-378d-08df49407345
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|23010399003|82310400026|1800799024|376014|261102123227099003|261026121527099003|261026140227099003|261021121427099003|261028144727099003|261022105027099003|11063799006|56012099006|10067099003|18002099003|22082099003|6133799003|261009223027099003;
-X-Microsoft-Antispam-Message-Info:
-	n7Z4vpLudtUpgXGHObI4QF6/8ABnKhyB3CF/TnfMsa/PRzdQGTs2UjanJMNAGa9yhu8JP4nN4i+t/RQPWqssWrGJzGfjn1BPvQTgL/GccNii9xD/hWol59DqnsSHHn/nZaEOQ1CwRpFvpAlNZ2ICtRLWRg7NWlT2m7WphsU3bFcOaTxrGDPT6BPJFLbv1UIBtHTegbGurqoHI58CKPratfJhLWuVRb/byuPZMgWqoqu70mwO4bKFDt7juu2BhNuCqlmz6S+v5kfXYLf3Bwc9vqOUzAzmbt8XUIijRfH2P4HtAdmf7MlMTSH1FEVmY4J3yLb5EF3+9vf41OX0/EY1g9qfC62SUqvIn/Qg9rV+cBwpSaMhrizAniZPrJ2gdqXxZT7ifPs1LerRm8m+LX49bA5sTVxfiDnXWuB9+ek1PtucU2qpQcQOzru4yni1TzMDQ6x7+IMvtacDxjYp/7A1ajymtrjlaBn7qB6ig3U6nGoGLjBLp0zkcKOrTzOqf9TFl29A0pd5aKX31sA8eE/xnj8kJJftfmCMxZ2y8SANHkT9GVUyDZBeLMMnMsRrlGe2DPPTVK5OHB0GCRiYvLnFj6B/za/DiaF5Svxx6YnT938jJmfEZbhXzr2q0Y2DKGA1utz0B9CpJmPeh5zwH4axQQ==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(1800799024)(376014)(261102123227099003)(261026121527099003)(261026140227099003)(261021121427099003)(261028144727099003)(261022105027099003)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003)(6133799003)(261009223027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	LGOuj9t+FblZsk+tfHp2FmI2nmpvEPdkh9JBPHfGnp5oFfeVfez15bn35u3vRV7KWZHhW2K3PTQYwsmP7vrb7tc50IUVbnfzUyxeMF/UZ2h1XvhC8USKxPWRXhZvFBfugg9LyBNEcQsBuowFNUopyS6ZPzbU1wEVuG3n07ikzMirF1h237br/zAyL2m07eNEy1HtSeu3lMD1CNGfR61EmZiF4OUD6VgAGPTmur/csYS3/mnzaVRgpqh+CM9T1enfStNPACIP1R5yTbe5R944TYWlodoFzvXofETDEOfIFTH0gNGJuzKRtU1xodj36rHQeeRMiVpiBTsATTfLpC8bsqy88iMIQsX71muS70Lu9Dql/GzLrrYqVaSK3SkcQfuW1Ziez/ZtVFjs9DWlBiIn3cEgp1SwU40sAhgh9KuG0aVaa077brKDj5UxZUiY4Aod
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 09:02:06.9816
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b9f52c03-d57f-46cc-378d-08df49407345
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	SJ1PEPF0000231F.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7155
 
-On Fri, Nov 20, 2026 at 2:56 PM Rafael J. Wysocki (Intel) wrote:
-> Please let me know what you think about it.
-> Also, if you decide to send a new version, please do so in a new thread.
+From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 
-I agree with the three comments Sashiko kept, and v9 is sent as a new
-thread:
+A multi-packet WQE (MPWQE, added by commit 5af75c747e2a ("net/mlx5e:
+Enhanced TX MPWQE for SKBs")) lets several packets share one WQE, so the
+control and Ethernet segments are fetched by the device once per batch
+instead of once per packet. This saves PCIe bandwidth and CPU cycles, but
+only if the WQE carries more than one packet.
 
-https://lore.kernel.org/linux-acpi/20261123085607.476-1-baorliu@amd.com/
+With skb_tx_mpwqe enabled, which is the default, mlx5e_xmit() sends every
+skb accepted by mlx5e_tx_skb_supports_mpwqe() through an MPWQE session.
+A session stays open between two calls only while the stack sets
+xmit_more. A packet without xmit_more closes the session and rings the
+doorbell. Hence a packet that comes without xmit_more while no session is
+open opens a session just for itself and closes it right away. Such a WQE
+takes one WQEBB, as a regular WQE does for the same packet, and the
+doorbell is rung for each packet either way, so nothing is saved.
 
-1. The fixed-button flag is consumed before it is combined with
-   wakeup_pending, and only by ACPI_BUS_TYPE_POWER_BUTTON, so a
-   short-circuit cannot leave it set.
+This is the case for the IP fragments of a large UDP datagram and for
+UDP request/response traffic, which reach the driver one packet at a
+time. With pktgen and burst 1 every MPWQE carries one packet (mpwqe_blks
+equals mpwqe_pkts, xmit_more is 0) and the packet rate is 15% lower than
+with skb_tx_mpwqe turned off.
 
-2. suspended and wakeup_pending now use SMP barriers, and resume checks
-   wakeup_pending again after clearing suspended.
+Use the regular WQE path for a packet that has no xmit_more and no open
+session. Packets with xmit_more still open and extend a session, and the
+last packet of a batch still closes it, so batching is unchanged.
 
-3. The commit message has
+The only visible change besides the performance is in the statistics:
+tx*_mpwqe_blks and tx*_mpwqe_pkts no longer count a packet sent alone.
+Such a packet is counted in tx*_packets, as any packet sent with a
+regular WQE.
 
-   Fixes: 16f70feaabe9 ("ACPI: button: trigger wakeup key events")
+netperf and pktgen between two 10G ConnectX-5 hosts, 2-socket Hygon
+C86-4G 7490 sender on net-next, the patch switched at run time by a
+temporary module parameter (not part of this patch) so that before and
+after run in the same boot, mean of 3 boots x 2 rounds. "far" is a sender
+on the other socket than the NIC, "near" one on the NIC NUMA node:
 
-   and the version changelog is below '---'.
+  test                                 before    after   change
+  UDP_STREAM 65507, far, Mbps            3255     3815   +17.2%
+  UDP_STREAM 65507, near, Mbps           5619     5870    +4.5%
+  UDP_RR 1 B, far, trans/s              57667    60688    +5.2%
+  UDP_RR 1 B, near, trans/s             70538    71230    +1.0%
+  TCP_RR 1 B, far, trans/s              56822    57124    +0.5%
+  TCP_RR 1 B, near, trans/s             70048    70011    -0.1%
+  pktgen 64 B burst 1, kpps              1487     1748   +17.5%
+  pktgen 64 B burst 16, kpps             3192     3194    +0.1%
 
-I am not changing the three dismissed items: the Signed-off-by name,
-the CONFIG_ACPI_SLEEP guard already in v8, and
-acpi_os_wait_events_complete() in button resume.
+Batches do not regress: with burst 16, which uses xmit_more, the rate is
+unchanged. TCP_RR does not change beyond the noise, its skbs carry the
+data in page fragments and cannot use MPWQE.
 
-Thanks,
-Baorui
+The price is that the regular path runs a little more code for a packet
+than a single packet MPWQE does (mlx5e_sq_calc_wqe_attr(),
+mlx5e_accel_tx_finish()): the instructions per byte of UDP_STREAM 65507
+go up by 0.3-0.4%, which the gains above outweigh.
+
+Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+---
+Changes:
+v2:
+  - Check xmit_more and the open session first, so that a lone packet
+    skips the skb checks. (Suggested by Tariq.)
+  - Run the tests again with the new code and add netperf results to the
+    commit message. (Suggested by Tariq.)
+  - Rebase onto the latest net-next/main.
+
+v1: https://lore.kernel.org/all/20261117085036.3138779-1-xuanqiang.luo@linux.dev/
+
+ drivers/net/ethernet/mellanox/mlx5/core/en_tx.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c
+index 14479da98f42..5b5651c14750 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c
+@@ -646,6 +646,7 @@ netdev_tx_t mlx5e_xmit(struct sk_buff *skb, struct net_device *dev)
+ {
+ 	struct mlx5e_priv *priv = netdev_priv(dev);
+ 	struct mlx5e_accel_tx_state accel = {};
++	bool xmit_more = netdev_xmit_more();
+ 	struct mlx5e_tx_wqe_attr wqe_attr;
+ 	struct mlx5e_tx_attr attr;
+ 	struct mlx5e_tx_wqe *wqe;
+@@ -678,11 +679,13 @@ netdev_tx_t mlx5e_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	mlx5e_sq_xmit_prepare(sq, skb, &accel, &attr);
+ 
+ 	if (test_bit(MLX5E_SQ_STATE_MPWQE, &sq->state)) {
+-		if (mlx5e_tx_skb_supports_mpwqe(skb, &attr)) {
++		/* An MPWQE for a lone packet saves nothing, use a regular WQE. */
++		if ((xmit_more || mlx5e_tx_mpwqe_session_is_active(sq)) &&
++		    mlx5e_tx_skb_supports_mpwqe(skb, &attr)) {
+ 			struct mlx5_wqe_eth_seg eseg = {};
+ 
+ 			mlx5e_txwqe_build_eseg(priv, sq, skb, &accel, &eseg, attr.ihs);
+-			mlx5e_sq_xmit_mpwqe(sq, skb, &eseg, netdev_xmit_more());
++			mlx5e_sq_xmit_mpwqe(sq, skb, &eseg, xmit_more);
+ 			return NETDEV_TX_OK;
+ 		}
+ 
+@@ -697,7 +700,7 @@ netdev_tx_t mlx5e_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	mlx5e_accel_tx_finish(sq, wqe, &accel,
+ 			      (struct mlx5_wqe_inline_seg *)(wqe->data + wqe_attr.ds_cnt_inl));
+ 	mlx5e_txwqe_build_eseg(priv, sq, skb, &accel, &wqe->eth, attr.ihs);
+-	mlx5e_sq_xmit_wqe(sq, skb, &attr, &wqe_attr, wqe, pi, netdev_xmit_more());
++	mlx5e_sq_xmit_wqe(sq, skb, &attr, &wqe_attr, wqe, pi, xmit_more);
+ 
+ 	return NETDEV_TX_OK;
+ }
+-- 
+2.43.0
+
