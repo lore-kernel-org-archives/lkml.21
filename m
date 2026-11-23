@@ -1,116 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795436259;
-	b=K4VEZt0VWMPaB0HK+xNzfTboorDJofweWLhN2bgDhUSH6I9zyXsoY9kYXyjwHMj+AFfW
-	 pQK87Z/MAVGhXZ4WL1U5Ve853p3jO1qEoDGw2ScqeQbpEbP5Ria2zQpbFFli4hJxvJUv4
-	 fMB6MoMmrxx2HMH3Qg1VleCwDJEGxrmXakvc7SBbAewHugsI1F+Hw3OYcIlqQGQb5xCX0
-	 bxXfb/P8QUKamaE7brP1I0n/GbMoazPflaEWFk3Qfa2nlpJQGO0Lz/qI0wncCvzQaEmeE
-	 gK53d4N/3S3l0qk4V35cucjH1as6vYLMaA08CA5OVCItdiIKYW0Oo+u5QAPifARNK5Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436259;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
-	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=ENIBo4TW/TNvgyJmwawzafOY2EW2zkIQk5w7ugEVjzY=;
-	b=mmV1JmgTmv0M/RyaLocXp/4SSEdTBdAdjPvFe1zsPLY4oHf8momljtBp58W1A+KwRSoZ
-	 ICC6ZBR3YuqG+X8xqYk8VnZDqiDsyVU7KL2bWr7sX8uGR4JNRgfujrul5+lTzJy4tA/zH
-	 TY2TY3xrK46REt+WWlxRwNPk75s0GFa6pEJZtzZMbquTygO/N1inaC7oF1dk17c4IDFvl
-	 qP2c5G8OzWzDcm2Qy/HxxNdATJO+gePM8H3Idvwqd2SYEbUF9cfcUFvDNPlaHqTlCXSv8
-	 n3oKihkp02lMcNeiaZ/eB9VvQ9C2rc9cBCaRNJ3fZYrzte7+uVPU1WrJ1SUCpITZWmQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XS0+RJtX;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=etT+Bikg;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.36
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795436257;
+	b=zFNfPRIP4KvxMPE9dd76O6N7I6dSBm7KUTsYAKGdp0h9FgClKEL+DThnLX5Zvxggs8Xu
+	 9k13G8Xh9DF1jX0YxKGdWt39p5m0M823f84NkvF0UdO8jEXm8m6643S2g6OlxAVPFA4mk
+	 /TmIfCExE1nuahIy0dzw9BOazNxu+5rFDqwawd/p9LHCPmDyvz3YFN+cJNNJT+QtdoUWq
+	 Hy5LEC/RYCE4BWCp/md4wbT3ajfYnZ7GiIxYgW3fyK7heoXmPChBn7FqQIO8Q7XrnGM4m
+	 EwAA+Muw3C+xaa1QZlgjN+g7kH+AcvGWlfU6LHiAJA1tCCMQVAfIQ+sP7Il6Rv3i3GA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436257;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=ct7kQPJlN2m3mSe5kGWfiuVdiZ6QDKvCP50z5NF6brg=;
+	b=cs2lgO7JFvWaMpXxzdyCiisxAHGHkOZ1qiLs4AB5F0fs8lUbwJyjTI36lgv67DVpdAUa
+	 LDAR/1F4dtPYGTuHZ44yi+4IGZ7I3E7lYSD/eIugG/cD0EkjhqMNSW0Mkxi/jghLBTXCt
+	 PbgFUIEB8yO8F0C5J+3tGVs0XVnS2Z/2c5PKas0FNFs2zz5kpGXm8CTyS2dW3eO36FMwA
+	 om8Ow9c7zJw+6191vaWWiJFe+OO2VfTQeJrt/tH2HBa1aPTNVcuZ+D1JQ/lmPIqlh0A64
+	 K8RfvsV2StPcSVi3T+LiwDSIQ4DVsOKu9PqCGWWA+j2BwnCgZHkY0Ssil9VYJeqQrGg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="S3q/dVH0";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.36
+Received: from BN1PR04CU002.outbound.protection.outlook.com (mail-eastus2azon11010036.outbound.protection.outlook.com [52.101.56.36])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76692606A335
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:17:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76692606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA440606A31E;
+	Mon, 23 Nov 2026 12:17:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA440606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XS0+RJtX;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=etT+Bikg
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANCG2tC551169
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:17:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=ENIBo4TW/TNvgyJmwawzafOY2EW2zkIQk5w
-	7ugEVjzY=; b=XS0+RJtX105nSFxgAukR6L9PMcjowkTDVLfpGA0AI9qgnMOxQq4
-	C7JcSK24Hatf7WtNOJUqcwiK1S2v1bDB5IIE1HvDRuboh6Q41O+QHYsWpWJXsSFF
-	taDm1FBtoeBL9ZWbu1GXSWPoL5mGEcH+peg0KQVK99yiNxBqrTVqNV50xJ7t34xL
-	MoiKfxMeM2oN+FR19wwJgu3eZOKst2qDzN7QJ3WIWzzhItt7G2vDm/bXmWvDke6s
-	mG5XJskkvSP7ft3Zoc+n+ikobK9SuJh+pVgD9tTB19SCK9uf+Paz6KCxB7TRHHpj
-	sx/rf6M9CjjgwHOZA0hLjXnwSLImDLMPkBA==
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4ma0r7sd-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:17:37 +0000 (GMT)
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-375bac6bd21so3689696eec.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:17:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795436252; x=1796041052; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ENIBo4TW/TNvgyJmwawzafOY2EW2zkIQk5w7ugEVjzY=;
-        b=etT+Bikg2W09oGnMwrz4e5x7MPh4HI4IZaEj7TqA4oYLvUEpRwazwqIRAM/KMlU7xO
-         nIJ6jRA6rEWTkU9YafuASLT9QoHD3Zr1BPC9kHTQ3NSBxmZ3i3LCQ7q6FOdqlkkAKSHa
-         fDPKuoxmKPeBISkqMLf6+ZEgrtt4xPcaFszYW5jR5j3FjIBn944uVkOEL3DG8Q0Eb0Cd
-         W+MImVoxsCCasYS2JZPthCiFqQj34vXMbkTxCOQT7WrTy60Nf0SAMuy775ajjzPxNG0T
-         X9T2Jf/Pk31wc15eBCYzXASe1Y0rU5vLJJa/muw+1xzvCNAwWgWa7VHkBBDFnvjqec2A
-         oYtg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795436252; x=1796041052;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ENIBo4TW/TNvgyJmwawzafOY2EW2zkIQk5w7ugEVjzY=;
-        b=Xtagq3eg/ys2bw12AfjQ2KI2Hj8Iz1MtxbPjFKuh3Imska948LCEyEHKcyRSbAQwbZ
-         fRJsryMx0PCTQgrK8QgO26DQZZBhWgVwcBFh42gZ+bIeKKi2BwzdNNTGfkkXIIYXkWfT
-         Pdhc73JYFLnBUmRyr5ZQHHA0WDCua5IuOUmAlLgv4qKHodzXgRP1KYwjI9nrRfzeaFGf
-         GqBXja21S58ZWJz+Uwk/f2iWys+oCB9UEWQszGsozFXEdeQ5i6wRandY7Ija51JooXVN
-         WVMZrX8MRVT9gb6vJjDpFl+P9BfojCpcXwnGQknKnRLK2DLluzffjnco30SNaIc1NpEj
-         kxQQ==
-X-Gm-Message-State: APuU4Z/chYV+wzzmg5DXC37sVu1WsL7j5pzOCqFcNgGm19iCvfLWWRxW
-	2TajntB/zl41YPq0p5GZwQ3VYq/hcI94mXhrLwnyZtc0NPLTS4q3UCf6BGr8PHP6YpVp9SZnTpb
-	F3tVFr10Mqt/vMTp8xywjsuKBWjPUDj6ndFxAlU3qBzInqcVYm4vuH8+WP4MdnzGYclQ=
-X-Gm-Gg: AZFdTZcBIO4Ti13barSnX6kjDAk0lGBfsfcl+MxkFuYocsZ1n5c/k3x0xRj+bQSzqe0
-	62AEn5d6oFYjONWhDKoGBuhTF5D9yCDWTc2BMncrpbXo6YnfKH7wRVbJUe1JoU6b6iDGQPtDt2M
-	qkRpa35x+Ked5Mlp5rH2HkoVHmLvpzo6aRCBQvP0euCXMgOzIPoYA9rRq3BWRaV7KZDCKlsOcA5
-	gpt67qe0SXPy9vZwWJH5sZjovokEMXF+b1h32artqY8xL498oYIVRVnwpq5TqY5MTIuPe5xn3Dt
-	laiz8kG6fGwrlloSsrB59JISZkbudT5whAU9eafuKZbmbUJvctJeRfqfNHn52AGAtLsb2jrAZKw
-	IYDDBLq6TCezSyIbkkjCpKLW/RPSEFWwAS9v+zHVoe8ZNuhrpEbsH3xU4IaRo5KAVr5Mc7G2IsG
-	Avxw==
-X-Received: by 2002:a05:7300:a228:b0:386:6685:1492 with SMTP id 5a478bee46e88-386668523cfmr10189042eec.12.1795436251658;
-        Mon, 23 Nov 2026 04:17:31 -0800 (PST)
-X-Received: by 2002:a05:7300:a228:b0:386:6685:1492 with SMTP id 5a478bee46e88-386668523cfmr10189017eec.12.1795436251060;
-        Mon, 23 Nov 2026 04:17:31 -0800 (PST)
-Received: from hu-akakum-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e96bdsm34338054eec.7.2026.11.23.04.17.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 04:17:30 -0800 (PST)
-From: Akash Kumar <akash.kumar@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org
-Subject: [PATCH] arm64: dts: qcom: shikra: Add CYPD6129/CYPD6229 Type-C controller support
-Date: Mon, 23 Nov 2026 17:42:08 +0530
-Message-ID: <20261123121729.2418019-1-akash.kumar@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=S3q/dVH0
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Y/0Tu+ovwQ3HOQZRp5snRPp9VI4ALvP3twEraYB/H21B6XdbltTpV7/9r2w2ZovE6W+t+n/2Mwdy9ba8fRAO+YE1rmTIwQQHMqmvIOKURZmfIJVZTjpiOl3zAeOr4BGr6mFrtsfxaqWwhhftH3zHvWOZ+n2SqRNFKXHHvL8eqfajj2QVdG0Jn3b1+QtblvEstfWE8YisqzSAm3vrKl6uLxQiHDBowLFGF11SLXtYbnGRW4XdUEU4UoUGQy/pyVZv0GewZ6yEcqxR0AcdASAlvXZXN3/xOJLpm+xAEaG8/WxcOHJZd8y0aqi2q62gNCir8NOafs/iZuQXIc9zMavjMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ct7kQPJlN2m3mSe5kGWfiuVdiZ6QDKvCP50z5NF6brg=;
+ b=UlctK8NqGpZ/+bs/D1PSFb6yosiznq1lfIwWYb4jMaEpT9RpIYveDGaXInELjGS7cgM9R3o60Mkc5nuSD1AuKvynVYkvn324/NHW1qKPUCYDZOzrv52WMMGpekx/iv3xt7Dc+8y9g/GMFAAL5qCQWM44YifpA6IYMIZP/liZplEKuMpKXAcrGZd1h62FG+FIsu8gyI3XhsOBKL+7ySFWIOvXBWMti/WrplRJD+21GIf78Ms9lLTzZBspI6csrizDlHFxiZTqvjqZsuhDI7DC8p1Tug+XTFP6Tll3IsGxJxpoPX7yQyrEUPkiYa1TlI4blQgAbcuMkFi6qkkFgO4nEw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ct7kQPJlN2m3mSe5kGWfiuVdiZ6QDKvCP50z5NF6brg=;
+ b=S3q/dVH0xS7FkJdBrbeHSitpL2ClkMVjapUtGiMA5h68QRVYhylK0N00izW78I3K93s4ZxjMD+j4u88KukU0vTLk/bX2A4MY8Wtq0nFc6sjwCNzgtu59u1ipecg6NQY4hecqmAZjgzpUDavZ2nIlUh5GTs7KzqaCa5+5xQrE6W40qfRSZAlkPNbS60TwzPAbMmBr1mzNsMG/ZjEDphHz6aQi2QlBTDCHCMjbcWOgX0taJHMycsXrW/EfQ9gW2VKIY42Km+FFKHvQ4jLP31eBDehQJB7yyOqIE/WPrXAUN2vPyivET5fcdasdYxI+SxGhz0J4OAXew6V6M9FrArUH+w==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SA0PR12MB4367.namprd12.prod.outlook.com (2603:10b6:806:94::13)
+ by PH0PR12MB7957.namprd12.prod.outlook.com (2603:10b6:510:281::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Mon, 23 Nov
+ 2026 12:17:31 +0000
+Received: from SA0PR12MB4367.namprd12.prod.outlook.com
+ ([fe80::2815:8a95:1a44:be1c]) by SA0PR12MB4367.namprd12.prod.outlook.com
+ ([fe80::2815:8a95:1a44:be1c%6]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 12:17:30 +0000
+Message-ID: <68f37077-d5b6-404e-a243-22d248eb2b24@nvidia.com>
+Date: Mon, 23 Nov 2026 14:17:25 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net/mlx5e: TC, fix a NULL pointer write in the peer
+ flow error path
+To: Zhao Li <enderaoelyther@gmail.com>, Saeed Mahameed <saeedm@nvidia.com>,
+ Tariq Toukan <tariqt@nvidia.com>, Leon Romanovsky <leon@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Moshe Shemesh <moshe@nvidia.com>, Shay Drory <shayd@nvidia.com>,
+ Akiva Goldberger <agoldberger@nvidia.com>, netdev@vger.kernel.org,
+ linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261118025708.86215-1-enderaoelyther@gmail.com>
+Content-Language: en-US
+From: Mark Bloch <mbloch@nvidia.com>
+In-Reply-To: <20261118025708.86215-1-enderaoelyther@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TL2P290CA0008.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:2::11) To SA0PR12MB4367.namprd12.prod.outlook.com
+ (2603:10b6:806:94::13)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,382 +103,125 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: sFCZyl6Tb7PAqjiobzdsU_syfvTvDuyO
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA0OCBTYWx0ZWRfX/Votp42udNyW
- VJBdAh0YztAcALtGG1Gp0L95OQoxwPf3AbQKgKGv6NQ+IixpqlQ12Vhs8mdE/QEUeAN4cfHLFEA
- TNnvKBr4jodUuSyuG3wsSp4D6OtsQsw=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA0OCBTYWx0ZWRfX1wXasqsutNxY
- wp3NNTXfCz/sfTFg1CFGu8OKKPTJUOQWtjKSeIG/LIvPMphsUSOzONQTVkQ4HxnZh+4yLAgj8fx
- SDRH7z/USHAPUD8fnTPmvU2aZQ4tz/NaSaVnRr3G2Cbx3bhMef6W4qGQ5PSwSlM2ARZPo4SEypD
- ZQfzDnRd2Utr9CpGAFBnhT3FTUhmA6weTgYbl/O24vHJdo6z5xlQd2WsyEUb6xNjBwHpSNJ7znb
- JQBVh8WUQIHiM/j7eXOWArb382trXNdNGxSs+Epm8suiys31k+N3ApK9Twac+ymuE2HsvpHjrgI
- sA/hqCcGc4jQdzs25SDurd1Y++BKILPyvY9A+jnlnkR3Z9hI4fFL8LXukVzALv1oz9HTC0JS7Mq
- GgCa9Ru3kSsgG8rM64FPy01L4Sq7YiuPo0ovnqtB3er6hjsL/3gXL6wfR9tcMU5xpcCdLakKcJS
- Xm9SD52xpDj+/IBOxQg==
-X-Authority-Analysis: v=2.4 cv=Yr+a1IYX c=1 sm=1 tr=0 ts=6b042ee1 cx=c_pps
- a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=EUspDBNiAAAA:8
- a=3W-5HPClo8dsW9dVm38A:9 a=bBxd6f-gb0O0v-kibOvt:22
-X-Proofpoint-ORIG-GUID: sFCZyl6Tb7PAqjiobzdsU_syfvTvDuyO
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_02,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 adultscore=0 impostorscore=0 malwarescore=0 suspectscore=0
- clxscore=1015 phishscore=0 spamscore=0 priorityscore=1501 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230048
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA0PR12MB4367:EE_|PH0PR12MB7957:EE_
+X-MS-Office365-Filtering-Correlation-Id: c2bb9ccb-1181-4d1d-1c12-08df495bbf13
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|376014|1800799024|7416014|366016|18002099003|22082099003|11063799006|56012099006|261022105027099003|261022075727099003|261026140227099003|261102123227099003|261021121427099003|261021123027099003|261028144727099003|261009223027099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	wQ5rFuMGy1mG7cKYHuSS+pYACxB/mFh0xBs3DptsOTK+90yBv/7FOt9lRcnp8nbRoYd7a81gAflGhk+9Y5nYsL2mhWfizPW3vm3IpxDM2Hmm9aoX/UUecrAnamvwYviDZJSMQtOIYZwIiQuBZCPW/06UGkHJ84CKH4t/dAAsAikvqQO2H3pQXo1PLv1zArRXIfn62VW4/swjtKCzVlfPJUGAvfdConpNf8p4lPVTgUrxTiDKGfN35SaGleoeVTIsDAQjEouPq8T19/3RYGXXK6ChJtn59pDHxByrei7VAIaKy0CLlZemNRM8gj9nM75jf7UBj2qdP1l9+XjG64DZ7B8Jc5qCcrUexvz8fGDLFr2SyUGqKtYpJ3pEsaV2QcbweQ1p6UasGJRPCvnuZwZeUoKRPa/YJJot7zGRv6l4WrZdOfgccj3fWL8mxdwSLu5TWvUryj8HpeMqBPpytX+QYPInvOp4YhJSbwJi9XSiZdnG2cN+j6rTe85atc/ybNTY3yusGBFO6bkYc6uqLB4Syfu1cUUzIAxHaWUKdgLukBP/tUiutfhZmSSIui4am5tPXuRq+3L0Sn7SZsAI3RL9ePyZYEQKk6l9bbN35QntSNJ6FO7C11D82/8X/isVCaexFxnsKd/BKJpZEj6ROkQv+QmfOUHsYt9kMmc8r57IXX8=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA0PR12MB4367.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(7416014)(366016)(18002099003)(22082099003)(11063799006)(56012099006)(261022105027099003)(261022075727099003)(261026140227099003)(261102123227099003)(261021121427099003)(261021123027099003)(261028144727099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?dVJXS2FnaitwbEg3RGl1UnE3R0tmd1FUa0RWS0kvS2hqUlM3VVgrOGV0dkoz?=
+ =?utf-8?B?d3FIQ1RGbzZVRVhlbE8vcTZMOElSNGkyK2pMcWw2Yy9odDNHMjcvZHNyVjlk?=
+ =?utf-8?B?NGp2bGY1VmorRjI1d1FUeW5VWDhURy9kL0prbm5MandTL25kZHV0TFRRQWpY?=
+ =?utf-8?B?ZzNaaVpmUHUrSkJZK1Rmd2RiT2dlYUFXM21tZlA2d3ZLMmtsRWcyTm0rY0s4?=
+ =?utf-8?B?UEE5a2FWcHlDTnQwUzRUeE9uejRtZDYrN0h5aE5wcUlHanBzVDVJOW42cXgz?=
+ =?utf-8?B?RERWQjZHa2g2SG9WZC9rbVpFdGxiQS9CTU5GSCt2N28xZDdxZUxpaURhQmtS?=
+ =?utf-8?B?clozd2MxaXJ0SDBkdzhmUVBPS1hDUjRHUE80YmpvMWdncHJ0R0o5T3lUQzFl?=
+ =?utf-8?B?ZWlIT1BjNnZxMWZsU0V0eEVkTlR6VjUvQnZGMEZqWHpYdDFTQWhZbm93SWZX?=
+ =?utf-8?B?S01oSngxaTh2SmFEVjUvYk9nOVNQdjc3R3VwcmxUQWlqckl6WVNqYjRMUUhW?=
+ =?utf-8?B?aWhzTWJpYytYemFyZzNlTnFyU0pnMXhKYVV2b012a2doZ0tXclJoQmJvdjJB?=
+ =?utf-8?B?MzE2UFpVS2hCcDVPUm40Mjh3czZMY01RWE5oTmxldU5MTUdrOWdJQWNLaDFL?=
+ =?utf-8?B?dkJaYlU2VnJFRlIrRExBUWRlS3VPa1p1QW9GeGtzeldEWTVLWHZrQ2p4bzVt?=
+ =?utf-8?B?dVorYTNZTTNESUJBbVVlZFlucjVPbHJ4K2dFc0w5RmFmYWF6UUdTME9RZDFj?=
+ =?utf-8?B?M0IyTjdXdjR4cnlwM0U1V3N3SVQxT0FtaWpaYTdyeVV4VmRyQ21vVGZMall3?=
+ =?utf-8?B?R2paL3BkRGlvRjl5RjdKclllN1VWc0Raa2J5TDArUFpWcERVOW5nK1R2QkJt?=
+ =?utf-8?B?RGtiU0RWVnpNZ3R3WGlteVNZRExjMmxtdWF6Wk1VSlVJT1luaVFYWjJMQ05W?=
+ =?utf-8?B?ajloTkQ3YzhPK2oyTE5WQU5HSkd5Uk9xajNMRHIxaGF0c0NwT3A1azIwcytH?=
+ =?utf-8?B?Ym51anI1UURkZWd2bGlSaE9PUWt3aVBWUjk3K3ZKSk5GSUtiNlBBTmZGdlQ2?=
+ =?utf-8?B?ZlJxUVdrVzI2ZGplNXI4ZDI0N0FhU2VucFVEdVYyYWFJRW5kS3RCQzRuYlR0?=
+ =?utf-8?B?ZjY2TlFuc0ZESW12MkZmeENFaTg2UGtPdktNS000dFlPb1VMaUl3V1o3YkN5?=
+ =?utf-8?B?Z2JJSFU2YUQxWmNjRXd1dXZLdHdkZFp4bWpyaVg3OW8zanM1YTJwYlJNZVZJ?=
+ =?utf-8?B?c1FUWUVIYU9WYW9hclZESzlnWTdycXVZK0JCREpWRllBS2lQbm1BUks4eTRr?=
+ =?utf-8?B?SklsTTZLaENzMFowdVZ3ZXJwY0pvakZLQTloTkJGWGdDVWhWcWMwVThsc3dz?=
+ =?utf-8?B?YkVuRVF6NU1EZ3ljS0JKR3VOV1JBcWNVdG12WGhXcTBsTXhNd0ltUGtZL0sr?=
+ =?utf-8?B?UmNKUjVBK3NwY3M1TDdJclJhd1pWR3pueWZITXU3SWcvQU8xeDZmU0FjRWtv?=
+ =?utf-8?B?a3c5d3lzQmdReFBGSWMxTjVITzB1dXN5bUpIazh3YmhFaHgwS1VpM2Vqc3Vr?=
+ =?utf-8?B?ZTFTb3RTSDV5bWcvWW5aNkl5VGNTcUU2b2RlMlRXWXlYQ1VjR2JIdFgvWHIy?=
+ =?utf-8?B?VEdpUG1QQ3UxM0Y0SGN6aTNJQU9XUW9UYll4bldycms3eEhjMnZodkwxUWRL?=
+ =?utf-8?B?MmEyRFQ0VTJHWFgyVU5DakUvV2JvalAwT09UT0VITUV4NUEzRzlnQzBZY1lh?=
+ =?utf-8?B?V2psSWpFZ0p0cGpRM3pUQjRCSVNYeER1aTBZTkJxMFhJMHNYM1UzWXdvSUFZ?=
+ =?utf-8?B?NXVaWnJGNXFnK2EzTWFnWHZ4alFacS9zRHcwZ3plWDJmbDJRalZuaHYxV2dM?=
+ =?utf-8?B?aStxcFRKdWpjVnN4eUJCSVNuNFYvNlBtUndQZ1Bwa0l2cHhoWnpmUVpiaW9P?=
+ =?utf-8?B?SjcrbHd6cUhIektVRS9TVnFPem1VWjZJQks0WDByRTZFUVhXUzkvcWRYTkE2?=
+ =?utf-8?B?cVg1ODJzb0xISHVCaUdQUEs5VVZFam5ueU5iWXpPQzRFVUx2SE4ybmt3ZWFM?=
+ =?utf-8?B?RU5Qakg4NVh4cWFFYWFaT3M2cnMwYVZSdEVxOFJWcUNXZ3V5Z2k0WjFNTGdo?=
+ =?utf-8?B?ZFl5SDlnOVcrUUlPbEJ6TDcxamRxVEpETXRYK1UxMm9mT3RFdDROS3hOQjBo?=
+ =?utf-8?B?Y21xM1FVbWtyMXFlcEVaZVpiSkI1R2RWM1Z5aisyUzZDdnJYM3RlUjhvQWIy?=
+ =?utf-8?B?Q3JlNmxKZWJJdGx4OVo2OEIveXFqQmd0RjM5dFhkNGlyaXlPcDlIQVM4VW02?=
+ =?utf-8?B?OFRmbk9QNldxT05zemxJTU9iR3hHV3U0aVpRcFQ5a2lwcFc5QzQyZz09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c2bb9ccb-1181-4d1d-1c12-08df495bbf13
+X-MS-Exchange-CrossTenant-AuthSource: SA0PR12MB4367.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 12:17:30.7976
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: S7gKWhKqMVih2YGxXnDEdUTV0v6j3AtodUGpOg+Vhl1eOuFRNCBz+hxVFzQL7undB/C8kira+5N/pwt6ycD7ZA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7957
 
-From: Akash Kumar <akakum@qti.qualcomm.com>
 
-Add the Cypress CYPD6129/CYPD6229 Type-C PD controllers used on the
-Shikra CQM, CQS and IQS platforms, and wire up their connectors to
-the corresponding USB controllers.
 
-CQM and CQS each expose a single USB-C port driven by a CYPD6129 on
-I2C3, connected to the HS-only usb_2 controller. IQS exposes two
-USB-C ports driven by a CYPD6229 (CYPD6129-compatible) on I2C3: the
-first port is HS-only and connects to usb_2, while the second port
-carries both the HS and SuperSpeed lanes and connects to usb_1 and
-its QMP SS PHY.
+On 18/11/2026 4:57, Zhao Li wrote:
+> The peer flow add path hands the duplicated flow over to the origin
+> flow before it looks up the peer entry for the peer vhca_id. When
+> that entry is missing, the function returns -ENODEV, and the caller
+> then deletes the duplicated flow with list_del() on its peer node, a
+> list head that was never initialised and never linked. list_del() on
+> such a node writes through the NULL page.
+> 
+> Look the peer entry up before the duplicated flow is created and
+> handed over, so that a missing entry is reported without leaving a
+> duplicated flow behind. The entry cannot change in between: the peer
+> loop in mlx5e_add_fdb_flow() holds the devcom component's read lock,
+> and peer_flows entries are only stored and erased by the pair and
+> unpair events, under its write lock.
+> 
+> Found by code review and not reproduced; compile-tested only.
+> 
+> AI assistance was used.
+> 
+> Fixes: 9d608a40c2d4 ("net/mlx5e: TC, track peer flows in a vhca_id xarray")
+> Signed-off-by: Zhao Li <enderaoelyther@gmail.com>
 
-Both affected USB controllers are switched from the board-default
-peripheral-only mode to OTG, so that the role-switch framework can
-move them between host and device roles based on the data role the
-PD controller negotiates.
+Acked-by: Mark Bloch <mbloch@nvidia.com>
 
-The PD controller's interrupt line is routed through a TLMM pin and
-marked as a wakeup source, since Type-C attach/detach and role
-events need to wake the SoC. On IQS, the 5V VBUS boost supply is
-driven by a GPIO rather than a PMIC rail, so it is modeled as a
-regulator-fixed node, matching the existing boost-supply pattern
-used elsewhere on Shikra/Purwa, and wired to both connectors via
-vbus-supply, giving the regulator and connector frameworks control
-over it instead of unconditionally latching it on with a GPIO hog.
-
-Signed-off-by: Akash Kumar <akakum@qti.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/shikra-cqm-evk.dts |  55 ++++++++++
- arch/arm64/boot/dts/qcom/shikra-cqs-evk.dts |  55 ++++++++++
- arch/arm64/boot/dts/qcom/shikra-iqs-evk.dts | 108 ++++++++++++++++++++
- 3 files changed, 218 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/qcom/shikra-cqm-evk.dts b/arch/arm64/boot/dts/qcom/shikra-cqm-evk.dts
-index bde3b7d81ace..46835a44cfbb 100644
---- a/arch/arm64/boot/dts/qcom/shikra-cqm-evk.dts
-+++ b/arch/arm64/boot/dts/qcom/shikra-cqm-evk.dts
-@@ -15,6 +15,7 @@ / {
- 	chassis-type = "embedded";
- 
- 	aliases {
-+		i2c3 = &i2c3;
- 		mmc0 = &sdhc_1;
- 		mmc1 = &sdhc_2; /* SDC2 SD card slot */
- 		serial0 = &uart0;
-@@ -29,6 +30,43 @@ &audiocorecc {
- 	status = "okay";
- };
- 
-+&i2c3 {
-+	status = "okay";
-+
-+	typec@40 {
-+		compatible = "cypress,cypd6129";
-+		reg = <0x40>;
-+		interrupts-extended = <&tlmm 136 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-0 = <&usb0_intr_state>;
-+		pinctrl-names = "default";
-+		wakeup-source;
-+
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		connector@0 {
-+			compatible = "usb-c-connector";
-+			reg = <0>;
-+			label = "USB-C";
-+			data-role = "dual";
-+			power-role = "dual";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					ucsi_ccg_port: endpoint {
-+						remote-endpoint = <&usb_2_dwc3_hs>;
-+					};
-+				};
-+			};
-+		};
-+	};
-+};
-+
- &pm4125_hs_in {
- 	remote-endpoint = <&usb_1_dwc3_hs>;
- };
-@@ -79,6 +117,15 @@ &sdhc_2 {
- 	status = "okay";
- };
- 
-+&tlmm {
-+	usb0_intr_state: usb0-intr-state {
-+		pins = "gpio136";
-+		function = "gpio";
-+		drive-strength = <2>;
-+		bias-pull-up;
-+	};
-+};
-+
- &usb_1 {
- 	dr_mode = "otg";
- };
-@@ -106,6 +153,14 @@ &usb_qmpphy_out {
- 	remote-endpoint = <&pm4125_ss_in>;
- };
- 
-+&usb_2 {
-+	dr_mode = "otg";
-+};
-+
-+&usb_2_dwc3_hs {
-+	remote-endpoint = <&ucsi_ccg_port>;
-+};
-+
- &usb_2_hsphy {
- 	vdd-supply = <&pm4125_l12>;
- 	vdda-pll-supply = <&pm4125_l13>;
-diff --git a/arch/arm64/boot/dts/qcom/shikra-cqs-evk.dts b/arch/arm64/boot/dts/qcom/shikra-cqs-evk.dts
-index 2ded25c4304e..de058d2978a9 100644
---- a/arch/arm64/boot/dts/qcom/shikra-cqs-evk.dts
-+++ b/arch/arm64/boot/dts/qcom/shikra-cqs-evk.dts
-@@ -15,6 +15,7 @@ / {
- 	chassis-type = "embedded";
- 
- 	aliases {
-+		i2c3 = &i2c3;
- 		mmc0 = &sdhc_1;
- 		mmc1 = &sdhc_2; /* SDC2 SD card slot */
- 		serial0 = &uart0;
-@@ -25,6 +26,43 @@ chosen {
- 	};
- };
- 
-+&i2c3 {
-+	status = "okay";
-+
-+	typec@40 {
-+		compatible = "cypress,cypd6129";
-+		reg = <0x40>;
-+		interrupts-extended = <&tlmm 136 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-0 = <&usb0_intr_state>;
-+		pinctrl-names = "default";
-+		wakeup-source;
-+
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		connector@0 {
-+			compatible = "usb-c-connector";
-+			reg = <0>;
-+			label = "USB-C";
-+			data-role = "dual";
-+			power-role = "dual";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					ucsi_ccg_port: endpoint {
-+						remote-endpoint = <&usb_2_dwc3_hs>;
-+					};
-+				};
-+			};
-+		};
-+	};
-+};
-+
- &pm4125_hs_in {
- 	remote-endpoint = <&usb_1_dwc3_hs>;
- };
-@@ -75,6 +113,15 @@ &sdhc_2 {
- 	status = "okay";
- };
- 
-+&tlmm {
-+	usb0_intr_state: usb0-intr-state {
-+		pins = "gpio136";
-+		function = "gpio";
-+		drive-strength = <2>;
-+		bias-pull-up;
-+	};
-+};
-+
- &usb_1 {
- 	dr_mode = "otg";
- };
-@@ -102,6 +149,14 @@ &usb_qmpphy_out {
- 	remote-endpoint = <&pm4125_ss_in>;
- };
- 
-+&usb_2 {
-+	dr_mode = "otg";
-+};
-+
-+&usb_2_dwc3_hs {
-+	remote-endpoint = <&ucsi_ccg_port>;
-+};
-+
- &usb_2_hsphy {
- 	vdd-supply = <&pm4125_l12>;
- 	vdda-pll-supply = <&pm4125_l13>;
-diff --git a/arch/arm64/boot/dts/qcom/shikra-iqs-evk.dts b/arch/arm64/boot/dts/qcom/shikra-iqs-evk.dts
-index 5df30ad8211f..4fde2ddb5393 100644
---- a/arch/arm64/boot/dts/qcom/shikra-iqs-evk.dts
-+++ b/arch/arm64/boot/dts/qcom/shikra-iqs-evk.dts
-@@ -15,6 +15,7 @@ / {
- 	chassis-type = "embedded";
- 
- 	aliases {
-+		i2c3 = &i2c3;
- 		mmc0 = &sdhc_1;
- 		mmc1 = &sdhc_2; /* SDC2 SD card slot */
- 		serial0 = &uart0;
-@@ -23,6 +24,84 @@ aliases {
- 	chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
-+
-+	vbus_boost_5v: regulator-vbus-boost-5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vbus_boost_5v";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		gpio = <&tlmm 79 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		regulator-boot-on;
-+	};
-+};
-+
-+&i2c3 {
-+	status = "okay";
-+
-+	typec@40 {
-+		compatible = "cypress,cypd6229", "cypress,cypd6129";
-+		reg = <0x40>;
-+		interrupts-extended = <&tlmm 50 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-0 = <&usb0_intr_state>;
-+		pinctrl-names = "default";
-+		wakeup-source;
-+
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		connector@0 {
-+			compatible = "usb-c-connector";
-+			reg = <0>;
-+			label = "USB2-Type-C";
-+			data-role = "dual";
-+			power-role = "dual";
-+			vbus-supply = <&vbus_boost_5v>;
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					ucsi_ccg_port0_hs: endpoint {
-+						remote-endpoint = <&usb_2_dwc3_hs>;
-+					};
-+				};
-+			};
-+		};
-+
-+		connector@1 {
-+			compatible = "usb-c-connector";
-+			reg = <1>;
-+			label = "USB3-Type-C";
-+			data-role = "dual";
-+			power-role = "dual";
-+			vbus-supply = <&vbus_boost_5v>;
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					ucsi_ccg_port_1_hs: endpoint {
-+						remote-endpoint = <&usb_1_dwc3_hs>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					ucsi_ccg_port_1_ss: endpoint {
-+						remote-endpoint = <&usb_qmpphy_out>;
-+					};
-+				};
-+			};
-+		};
-+	};
- };
- 
- &remoteproc_cdsp {
-@@ -67,6 +146,23 @@ &sdhc_2 {
- 	status = "okay";
- };
- 
-+&tlmm {
-+	usb0_intr_state: usb0-intr-state {
-+		pins = "gpio50";
-+		function = "gpio";
-+		drive-strength = <2>;
-+		bias-pull-up;
-+	};
-+};
-+
-+&usb_1 {
-+	dr_mode = "otg";
-+};
-+
-+&usb_1_dwc3_hs {
-+	remote-endpoint = <&ucsi_ccg_port_1_hs>;
-+};
-+
- &usb_1_hsphy {
- 	vdd-supply = <&pm8150_l4>;
- 	vdda-pll-supply = <&pm8150_l12>;
-@@ -82,6 +178,18 @@ &usb_qmpphy {
- 	status = "okay";
- };
- 
-+&usb_qmpphy_out {
-+	remote-endpoint = <&ucsi_ccg_port_1_ss>;
-+};
-+
-+&usb_2 {
-+	dr_mode = "otg";
-+};
-+
-+&usb_2_dwc3_hs {
-+	remote-endpoint = <&ucsi_ccg_port0_hs>;
-+};
-+
- &usb_2_hsphy {
- 	vdd-supply = <&pm8150_l4>;
- 	vdda-pll-supply = <&pm8150_l12>;
--- 
-2.43.0
+> ---
+>  drivers/net/ethernet/mellanox/mlx5/core/en_tc.c | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+> index 708b7987ea4c..d41969117d30 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+> @@ -4630,6 +4630,10 @@ static int mlx5e_tc_add_fdb_peer_flow(struct flow_cls_offload *f,
+>  	else
+>  		in_mdev = priv->mdev;
+>  
+> +	dup_peer_flows = xa_load(&esw->offloads.peer_flows, peer_vhca_id);
+> +	if (!dup_peer_flows)
+> +		return -ENODEV;
+> +
+>  	flow_flags |= BIT(MLX5E_TC_FLOW_FLAG_PEER);
+>  	parse_attr = flow->attr->parse_attr;
+>  	peer_flow = __mlx5e_add_fdb_flow(peer_priv, f, flow_flags,
+> @@ -4643,9 +4647,6 @@ static int mlx5e_tc_add_fdb_peer_flow(struct flow_cls_offload *f,
+>  	peer_flow->peer_orig = flow;
+>  	list_add_tail(&peer_flow->peer_flows, &flow->peer_flows);
+>  	flow_flag_set(flow, DUP);
+> -	dup_peer_flows = xa_load(&esw->offloads.peer_flows, peer_vhca_id);
+> -	if (!dup_peer_flows)
+> -		return -ENODEV;
+>  	mutex_lock(&esw->offloads.peer_mutex);
+>  	list_add_tail(&peer_flow->peer, dup_peer_flows);
+>  	mutex_unlock(&esw->offloads.peer_mutex);
+> 
+> base-commit: 6b4b543fa18757297ac756a6fe6e64f506b7844a
 
