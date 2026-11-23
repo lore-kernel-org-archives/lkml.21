@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795446463;
-	b=3m/5dnf9y9bmpr4bkyAw/quuCmqfdChCxKk2CvXrZ6qzDFQXzVa9Ver0+XyeCrt5vO9t
-	 RRh7+aKcp812k2U5XnvBjitNwiv5NP7CbQbcpzroj+V+NkzVx+gL/znUgzt/SGWRDKohi
-	 gsVgcd5O3ndNRtQBvdPwAtupPPTdZ6nM8Njs6Ggytixq+yWuz5+jUiirTnUxwAXL2944G
-	 ZOCOkx6snLgrKZWoJS7nJ4Dw7O984Tx4LMlvNBZ1WcpWIz0syeJ1iZKUnLH6t864Q4ghG
-	 DusiPg80EL+lygXk4+NrmOWWfiNrKftMMaod0Hue4l/TtTmq2VfYTCgDbeMv8bGm3Cw==
+	t=1795446465;
+	b=XUC5FyL6hNHEeDpDL0IzXLgX8FfNxfw4/hBp6THJ1qFsUIBpV/8/HluhGZrZoGB1MMIh
+	 jfAUP2820MtOvKkKfytysVgDVX7dQA3tfW5t04/UU1sfF/GZUrPNVrI9OZZpUxjEFRSLd
+	 /LjX/78inLLVRib6/mt6/JYcDzkmOl1UnLEA1UYzjAICnaw/kfxBEegzGpmpkkggTAqhR
+	 2fZVcGi1oF2DMjKYOldvPv8KVFrmcWHZ/EmAcjUV30pJERmahLfspOTCGxiA3/gpsyfWW
+	 IVDn58I0AjsvCSI1piNOT0/iAurqQUdA5pSw/lCS3IJEyqvVF6uml7AXurqkYkI/lug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795446463;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795446465;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=YYIF8RkppipMffW3zldT0xJTZtUWxbFsBpGgswJx78w=;
-	b=v97aK4+LBYqOLrv82I9iAiO83NQqCxw3oDbmGLPTR+UMWzc2XHTXNb3uinn/3vhKTUFk
-	 Rfsow+dFV7+UjF1D9qO6UHXaFHKrKQH2qB2+8aDybVB2iBD9TW2catJCXscRUeU3t2THi
-	 IMuCqIKXBgM73/EQh++I1kbtueItIFpE5VbDaOw3RYdd6OTLTBfPLgyvRhW/ooy/czJl7
-	 wXDpLGP8cLheqLJvEHomPuzsdiL6H9bx/9Vui/z+n9FIpiC/v6ZhLsISCqFw/33WGmGMJ
-	 a+5BB4qeMT8juMSFVvj1dd5ORG/g3iotDolyRR7uPLG1t86U3lZj0AeyyQ2navpTWdw==
+	bh=4K5M6eIEHJCEe+j2qdGOKPIFDzNJEjCy8IZr0uebMwE=;
+	b=bHcxjpWMd3ND55pbZwGEaS0ZJVSL0dXTEuRsvDI4kaiiMgMnKcQBG9ro6hePhndUZaJ0
+	 qKFo1+/ZYP9Plfy6UPDSOMsCJmt4UUGTnysh/iLRYfyHenB6kNWAdLaHk/+fkF0Y04kjJ
+	 kQ+4Sz2mXdPDFIMKscZJZeHa4kdBrp17ZPXFLZ3+45gsu3lVzHooQbuI0hLIoSc4k8+Mz
+	 QengPXnTjxLRw3LvVklvQFSWFzKr3/r3A0MCdO0tbJwdVLp6K6xYKYfuWSfP+NKf1pQjv
+	 wofKqSW2yK7AfQ76l+nbnKr9DFGsnF2i0akruDnsFvFItDP0aunmGhiptE2hk6Gb/Aw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TfA421co;
-	arc=none smtp.remote-ip=209.85.208.44
-Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com [209.85.208.44])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mQXONmWc;
+	arc=none smtp.remote-ip=209.85.208.53
+Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com [209.85.208.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3309606A333
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:07:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3309606A333
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BE10606A334
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:07:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4BE10606A334
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TfA421co
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-6bab10842f8so2018545a12.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:07:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mQXONmWc
+Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-6b8c60e0d39so4361746a12.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:07:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795446461; x=1796051261; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795446464; x=1796051264; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=YYIF8RkppipMffW3zldT0xJTZtUWxbFsBpGgswJx78w=;
-        b=TfA421comjFBVbbEMmsL749if8t/plGgmb6d1AxvnpKwqaF9MibkRxyxNAT5zg/tks
-         c6LQXh7BNTIowGXReJdjFY5Dt7y6bFU/Udj7Ekwn1aEY2rm27N42MzOecrrVIXh/elA8
-         MzIcviteHv8a6xn+WyORl5Xc8TRj2+je6BEH/GLltKfG/AX82VtXvlVvtV8JlzghVGGI
-         kKj1FfgMCxenXBernHt5dUwc/DdHFhYNZchOYssKRgL6RtNHqK4LS6tKnFnszzhxnYTy
-         NPnnBcioA/GxQPoelYLTQ1nncVOwrFje39Uwh9et3GJ69nc0P/ylnnDb5Jr17joZhQ2Q
-         izyA==
+        bh=4K5M6eIEHJCEe+j2qdGOKPIFDzNJEjCy8IZr0uebMwE=;
+        b=mQXONmWck/zYv4xAHnqQ4dFbY13/2oKuosJUYa7yen4DH68IKVPm0W/xzWIt6++SJn
+         4+e6wPxyqkGV2Gk8FvdviYcIZ0TUK7Mf+ptSyjNckvDICr5gj8xC2uDNd9qUUW0KeiLX
+         Pzi8VTCxHfwlioFnPYGrUHSvI5RLhPOL7vd4pK/jEG2t/IpDMa9s046fZfGJOWGBD55j
+         bcvbow9dNkeKySSBCyU1/ViIii1AKi5dpq46KQMAWubtljnQr36lt7bIhPWzTzc4+jyO
+         gDRJolT6GJkGxa0rjX7M0wiXxWiZ9uO19gdQrYQZWYQu64Kt1uhWuy0n3Zi4Hto1uuvK
+         8yvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795446461; x=1796051261;
+        d=1e100.net; s=20260707; t=1795446464; x=1796051264;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YYIF8RkppipMffW3zldT0xJTZtUWxbFsBpGgswJx78w=;
-        b=kqM/CQYwEymdRiU+w7P622dKhqQ6kQ+VLwcKgUzd16jPEbuh8vwzbceHXZ0vxTGTbb
-         yiaI/3SwZwDfwIZnfnEwv2w16oNER0RkFqEOYSKB6VYmoOKE8GXAjm33XuIAMg43a0Lz
-         U8CpLukLIonbXjHqIeOxe2CR4CymxBKIBSpQlhmVC0nuJ30IL5kPrKzDpwTl5tOsnwXx
-         nzucwYGEt6yXP24iSmc+jiVX3736IDysrYJdEbnjyVwGUh5yXTrgSUZAn1oz1p7IgYa3
-         Oe6GgZXYptiIEH6zkrBtgEJvwedXHjsGnndcQ66g3Ik6QJmTv2Rg+VRGbSeBGv+OdExg
-         FLGg==
-X-Gm-Message-State: APuU4Z8Z+4V5BThgzf+23rI9CDwg+2QnzYmTeg0imaH8JHSCYcXmQpPd
-	hzasYCUVPwGAbMcEk5AmSHSBSWrKM0d1XJbvR+1RLossZ/Bf83FB1lQy
-X-Gm-Gg: AZFdTZfZIPTHpa0ENwPONkh6WG7OspWuAknB91rs93HCuU1i6azPFIoZdIuC1tuBr1r
-	3hiwvnCHsNOsxtDtBtg4taTbflzOffg4W/5gvBLbfslgDwR7cgxMRNqgrxPcp4ZPZnLZNV1zMp6
-	msmH2zo8Ae4dHohY+stuC18raNCsMRQGEXiekTyq8l5UaMa8PIDrFs/63u9RMH86DSf/+lQYFrF
-	h3PQvonmFdVj4Atl8Qtw8L28RbhWU1bicDDA8tLGVS6MrzH/wOvy0GCMMCaYpWvvX9dm4lVhkcS
-	ftrYg2XCg/IV6rrtSMCt7xSlAk6Qt5AItBtgK6D5RYAhLCGUQWnZNwjzCt1TDtUyhs05hHYncik
-	ABb5awlB+6m5rm9hsnEGYRxBp3XzS8KUZVd9XKfcN4NPliLtj7hfdMsvD0Lg6uzlIbSuyGVEMyC
-	ga6QBLIv1JZLCP4E/PPaiLmCcyJvPnrc8y3H8h/sf3J/cJVpWrlYuqdwHLGyyX7akf7z4nD7z96
-	vG8imXZ8NNu/C362vtftIQToii8UkGwd2ue7Wwlmhs4N8ALIGLhk9FcM/pfWBIK48MvIDL2PKso
-	X9aVroYq6ACW/gNW4Jng6qLBqqxAtmHR02lHDzWA7ajXzDb6UTXf6otP4fASnl6sMX0gWRr0ISL
-	CpKW8phEfaQ==
-X-Received: by 2002:aa7:d402:0:b0:6a9:8863:ada4 with SMTP id 4fb4d7f45d1cf-6ba1fae103fmr6832292a12.3.1795446460920;
-        Mon, 23 Nov 2026 07:07:40 -0800 (PST)
+        bh=4K5M6eIEHJCEe+j2qdGOKPIFDzNJEjCy8IZr0uebMwE=;
+        b=qUO3q7jEEgDrdBRDXP0fTdmr0nLAhiC8mo6jZ2CGNT/70h+spe19G486EKky2uX2/r
+         tf5VVoGWakPylYKzHJyUkAwCghaBstE/niGrBo0IGLJKcDKHUcqnm7gaHUCK5tzdTRdH
+         4xmA1cfLX4C9AXSHDUtaUo99nrYLSjR7CyhmJNFgytg9R8xHlxiLs+q4VQbYUqwWwxD7
+         eNieSO3/2zWzhiqx8TqjA+I+GgErIyecDM3FzR7S6v6+V0lcWVBQu6aXavadGlFz6nYu
+         bFSJXC74m/Ti0Ku+w/693E9MOHnRzoYPmNZc/jk2POM3FAQ/3NddgAFJxI8xxZYbsWJe
+         emig==
+X-Gm-Message-State: APuU4Z9GyK8yv6nGXtuIlv5LQGLPMrv4rj/+r7pve6UxhMi0wmVB5bRi
+	mpM85xOV7gYTsFUUSTUXXOtsj82VplgOFs/xcfjDtj8HOXjiYWGERGbA
+X-Gm-Gg: AZFdTZdpduKJvKDCE/vieyn1fr2FhP1wsOfDx8+sBy4BVX6ML+X3tQHacA1QwUbMdK5
+	AAboIGFJIFflhRad6daNQvKE2PFDOevYblo3f7xAuPhfhuK6D17pInx03SoY8MEUv1FKrbYaukn
+	n06lhvo44nPAUhq7CaXyS8SZE2t5mCUYQTx35j5YTKQM8phx89BKgp9W7G7m7zaLrHZqvPhMY/P
+	vCpYp4SoLDkTwgcEU2mUC1xhaUFVcrRI/8U3tCxEM2u/a/WLinReFHZ4qxpDjHphikDM0Ba4Pxx
+	h7ZgfZhgZZsDkRU4b09p3sk/eEEKEnJdHa5gj79hGZg2TnTN0f+xd618w/EeEpK2ggZTumTmcj+
+	fD28kAkb5HEAgMa0glE59gqiYFSK750jf9HhQF+NpZh8YZNWM8DTe2z4cXBDR6MLGTOVH8ObwgL
+	cVc6rQuq82UUOCcjYI/P1DqEBoab/y4wfd0FOsXnsZuIWLfHHQz7XJe7D45e7cTGt19l4IIG81y
+	WtpVBuduykjMlLUGh4/NLYYgJprJP9rjIE4OuNH2g61cI1BhLXq+D+wIs4pa1sEdNeJvSORPgOL
+	lrqIg/HeY/4xrBAkpQmj8VdQ5L9Ob674iZNmxYQ4uUaX6GQv6AWRBnXcIQzSekfN4eKpv0ifRMM
+	3WwfOX7mA4g==
+X-Received: by 2002:a05:6402:51a:b0:6b7:c9d3:f3d with SMTP id 4fb4d7f45d1cf-6ba37d606c8mr7093734a12.15.1795446463532;
+        Mon, 23 Nov 2026 07:07:43 -0800 (PST)
 Received: from xeon ([188.163.112.54])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fc020sm5446279a12.25.2026.11.23.07.07.38
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fc020sm5446279a12.25.2026.11.23.07.07.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 07:07:39 -0800 (PST)
+        Mon, 23 Nov 2026 07:07:42 -0800 (PST)
 From: Svyatoslav Ryhel <clamor95@gmail.com>
 To: Liam Girdwood <lgirdwood@gmail.com>,
 	Mark Brown <broonie@kernel.org>,
@@ -94,9 +94,9 @@ Cc: linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-iio@vger.kernel.org,
 	mfd@lists.linux.dev
-Subject: [PATCH v3 2/4] mfd: max8907: Add ADC client support
-Date: Mon, 23 Nov 2026 17:07:23 +0200
-Message-ID: <20261123150725.212836-3-clamor95@gmail.com>
+Subject: [PATCH v3 3/4] iio: adc: Add support for MAX8907 ADC cell
+Date: Mon, 23 Nov 2026 17:07:24 +0200
+Message-ID: <20261123150725.212836-4-clamor95@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261123150725.212836-1-clamor95@gmail.com>
 References: <20261123150725.212836-1-clamor95@gmail.com>
@@ -111,212 +111,238 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The Maxim MAX8907 has an 8-channel ADC at a fixed location. Add client
-support for it along with its regmap and interrupts.
+The MAX8907 PMIC has a dedicated ADC cell, which provides 8 ADC channels
+with information about different parts of the power system, including the
+battery, charger/plug, jack and thermal readings.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
 ---
- drivers/mfd/max8907.c       | 74 +++++++++++++++++++++++++++++++++++++
- include/linux/mfd/max8907.h | 53 ++++++++++++++++++++++++++
- 2 files changed, 127 insertions(+)
+ drivers/iio/adc/Kconfig       |  10 ++
+ drivers/iio/adc/Makefile      |   1 +
+ drivers/iio/adc/max8907-adc.c | 181 ++++++++++++++++++++++++++++++++++
+ 3 files changed, 192 insertions(+)
+ create mode 100644 drivers/iio/adc/max8907-adc.c
 
-diff --git a/drivers/mfd/max8907.c b/drivers/mfd/max8907.c
-index b511c57026188..103294c76b97d 100644
---- a/drivers/mfd/max8907.c
-+++ b/drivers/mfd/max8907.c
-@@ -113,6 +113,48 @@ static const struct regmap_config max8907_regmap_rtc_config = {
- 	.cache_type = REGCACHE_MAPLE,
- };
+diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
+index 1d6ed49041ab5..a5d0f8727af70 100644
+--- a/drivers/iio/adc/Kconfig
++++ b/drivers/iio/adc/Kconfig
+@@ -1194,6 +1194,16 @@ config MAX77541_ADC
+ 	  To compile this driver as a module, choose M here:
+ 	  the module will be called max77541-adc.
  
-+static bool max8907_adc_is_volatile_reg(struct device *dev, unsigned int reg)
++config MAX8907_ADC
++	tristate "Maxim MAX8907 ADC driver"
++	depends on MFD_MAX8907
++	help
++	  Say yes here to build support for 8 channel 12-bit ADC
++	  interface found in the Maxim MAX8907 PMIC.
++
++	  To compile this driver as a module, choose M here:
++	  the module will be called max8907-adc.
++
+ config MAX9611
+ 	tristate "Maxim max9611/max9612 ADC driver"
+ 	depends on I2C
+diff --git a/drivers/iio/adc/Makefile b/drivers/iio/adc/Makefile
+index 769965295dccb..af89115978316 100644
+--- a/drivers/iio/adc/Makefile
++++ b/drivers/iio/adc/Makefile
+@@ -100,6 +100,7 @@ obj-$(CONFIG_MAX14001) += max14001.o
+ obj-$(CONFIG_MAX34408) += max34408.o
+ obj-$(CONFIG_MAX40080) += max40080.o
+ obj-$(CONFIG_MAX77541_ADC) += max77541-adc.o
++obj-$(CONFIG_MAX8907_ADC) += max8907-adc.o
+ obj-$(CONFIG_MAX9611) += max9611.o
+ obj-$(CONFIG_MCP320X) += mcp320x.o
+ obj-$(CONFIG_MCP3422) += mcp3422.o
+diff --git a/drivers/iio/adc/max8907-adc.c b/drivers/iio/adc/max8907-adc.c
+new file mode 100644
+index 0000000000000..895b313a6e01f
+--- /dev/null
++++ b/drivers/iio/adc/max8907-adc.c
+@@ -0,0 +1,181 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#include <linux/bits.h>
++#include <linux/iio/iio.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/property.h>
++#include <linux/regmap.h>
++#include <linux/types.h>
++
++#include <asm/byteorder.h>
++
++#include <linux/mfd/max8907.h>
++
++#define MAX8907_ADC_SCHED_AUTOSCH_ENABLE	BIT(1)
++#define MAX8907_ADC_SCHED_AUTOSCH_TIME		BIT(0)
++
++#define MAX8907_TO_REG(n)			((n) & 0xff)
++#define MAX8907_TO_MEASURE(n)			(((n) >> 8) & 0xff)
++
++enum {
++	TDIE = 0,
++	THM = 1,
++	ISNS = 2,
++	VMBATT = 3,
++	VBBATT = 4,
++	VCHG = 5,
++	AUX2 = 6,
++	AUX1 = 7,
++};
++
++static const u32 max8907_default_ref[] = {
++	[TDIE] = 4096,
++	[THM] = 4096,
++	[ISNS] = 4096,
++	[VMBATT] = 8192,
++	[VBBATT] = 8192,
++	[VCHG] = 8192,
++	[AUX2] = 2500,
++	[AUX1] = 4096,
++};
++
++#define MAX8907_CHAN(_type, _idname, _datasheet_name) {		\
++	.type = (_type),					\
++	.address = MAX8907_REG_##_idname##_MSB |		\
++		   MAX8907_REG_##_idname##_MEASURE << 8,	\
++	.indexed = 1,						\
++	.channel = (_idname),					\
++	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW) |		\
++			      BIT(IIO_CHAN_INFO_SCALE),		\
++	.scan_index = (_idname),				\
++	.scan_type = {						\
++		.format = IIO_SCAN_FORMAT_UNSIGNED_INT,		\
++		.realbits = 12,					\
++		.storagebits = 16,				\
++		.endianness = IIO_CPU,				\
++	},							\
++	.datasheet_name = (_datasheet_name),			\
++}
++
++static const struct iio_chan_spec max8907_adc_channels[] = {
++	MAX8907_CHAN(IIO_VOLTAGE, TDIE,   "tdiode"),
++	MAX8907_CHAN(IIO_VOLTAGE, THM,    "thermistor"),
++	MAX8907_CHAN(IIO_CURRENT, ISNS,   "isense"),
++	MAX8907_CHAN(IIO_VOLTAGE, VMBATT, "vmbatt"),
++	MAX8907_CHAN(IIO_VOLTAGE, VBBATT, "vbbatt"),
++	MAX8907_CHAN(IIO_VOLTAGE, VCHG,   "vcharge"),
++	MAX8907_CHAN(IIO_VOLTAGE, AUX2,   "aux2"),
++	MAX8907_CHAN(IIO_VOLTAGE, AUX1,   "aux1"),
++};
++
++static int max8907_adc_read(struct iio_dev *indio_dev,
++			    struct iio_chan_spec const *chan,
++			    int *val, int *val2, long mask)
 +{
-+	switch (reg) {
-+	case MAX8907_REG_TSC_STA_INT:
-+	case MAX8907_REG_AUX1_MSB ... MAX8907_REG_TDIE_LSB:
-+		return true;
++	struct regmap **regmap = iio_priv(indio_dev);
++	__be16 data;
++	int ret;
++
++	switch (mask) {
++	case IIO_CHAN_INFO_RAW:
++		ret = regmap_write(*regmap, MAX8907_TO_MEASURE(chan->address), 0);
++		if (ret)
++			return ret;
++
++		ret = regmap_bulk_read(*regmap, MAX8907_TO_REG(chan->address), &data, sizeof(data));
++		if (ret)
++			return ret;
++
++		*val = be16_to_cpu(data) >> 4;
++
++		return IIO_VAL_INT;
++
++	case IIO_CHAN_INFO_SCALE:
++		*val = max8907_default_ref[chan->channel];
++		*val2 = chan->scan_type.realbits;
++
++		return IIO_VAL_FRACTIONAL_LOG2;
++
 +	default:
-+		return false;
++		return -EINVAL;
 +	}
 +}
 +
-+static bool max8907_adc_is_precious_reg(struct device *dev, unsigned int reg)
++static const struct iio_info max8907_adc_info = {
++	.read_raw = &max8907_adc_read,
++};
++
++static int max8907_adc_init(struct regmap *regmap)
 +{
-+	switch (reg) {
-+	case MAX8907_REG_TSC_STA_INT:
-+		return true;
-+	default:
-+		return false;
-+	}
-+}
++	u32 value;
++	int ret;
 +
-+static bool max8907_adc_is_writeable_reg(struct device *dev, unsigned int reg)
-+{
-+	switch (reg) {
-+	case MAX8907_REG_TSC_STA_INT:
-+	case MAX8907_REG_AUX1_MSB ... MAX8907_REG_TDIE_LSB:
-+		return false;
-+	default:
-+		return true;
-+	}
-+}
-+
-+static const struct regmap_config max8907_regmap_adc_config = {
-+	.reg_bits = 8,
-+	.val_bits = 8,
-+	.volatile_reg = max8907_adc_is_volatile_reg,
-+	.precious_reg = max8907_adc_is_precious_reg,
-+	.writeable_reg = max8907_adc_is_writeable_reg,
-+	.max_register = MAX8907_REG_TDIE_MEASURE,
-+	.cache_type = REGCACHE_MAPLE,
-+};
-+
- static const struct regmap_irq max8907_chg_irqs[] = {
- 	{ .reg_offset = 0, .mask = 1 << 0, },
- 	{ .reg_offset = 0, .mask = 1 << 1, },
-@@ -175,6 +217,20 @@ static const struct regmap_irq_chip max8907_rtc_irq_chip = {
- 	.num_irqs = ARRAY_SIZE(max8907_rtc_irqs),
- };
- 
-+static const struct regmap_irq max8907_adc_irqs[] = {
-+	{ .reg_offset = 0, .mask = BIT(0), },
-+	{ .reg_offset = 0, .mask = BIT(1), },
-+};
-+
-+static const struct regmap_irq_chip max8907_adc_irq_chip = {
-+	.name = "max8907 adc",
-+	.status_base = MAX8907_REG_TSC_STA_INT,
-+	.mask_base = MAX8907_REG_TSC_INT_MASK,
-+	.num_regs = 1,
-+	.irqs = max8907_adc_irqs,
-+	.num_irqs = ARRAY_SIZE(max8907_adc_irqs),
-+};
-+
- static int max8907_power_off(struct sys_off_data *data)
- {
- 	struct max8907 *max8907 = data->cb_data;
-@@ -227,6 +283,18 @@ static int max8907_i2c_probe(struct i2c_client *i2c)
- 		return dev_err_probe(dev, PTR_ERR(max8907->regmap_rtc),
- 				     "RTC regmap init failed\n");
- 
-+	max8907->i2c_adc = devm_i2c_new_dummy_device(dev, i2c->adapter, MAX8907_ADC_I2C_ADDR);
-+	if (IS_ERR(max8907->i2c_adc))
-+		return PTR_ERR(max8907->i2c_adc);
-+
-+	i2c_set_clientdata(max8907->i2c_adc, max8907);
-+
-+	max8907->regmap_adc = devm_regmap_init_i2c(max8907->i2c_adc,
-+						   &max8907_regmap_adc_config);
-+	if (IS_ERR(max8907->regmap_adc))
-+		return dev_err_probe(dev, PTR_ERR(max8907->regmap_adc),
-+				     "ADC regmap init failed\n");
-+
- 	ret = devm_regmap_add_irq_chip(dev, max8907->regmap_gen, max8907->i2c_gen->irq,
- 				       IRQF_ONESHOT | IRQF_SHARED, -1, &max8907_chg_irq_chip,
- 				       &max8907->irqc_chg);
-@@ -245,6 +313,12 @@ static int max8907_i2c_probe(struct i2c_client *i2c)
- 	if (ret)
- 		return dev_err_probe(dev, ret, "Failed to add rtc irq chip\n");
- 
-+	ret = devm_regmap_add_irq_chip(dev, max8907->regmap_adc, max8907->i2c_gen->irq,
-+				       IRQF_ONESHOT | IRQF_SHARED, -1, &max8907_adc_irq_chip,
-+				       &max8907->irqc_adc);
++	/* Enable internal voltage reference. Exact purpose of bits is not known. */
++	ret = regmap_update_bits(regmap, MAX8907_REG_TSC_CNFG1, GENMASK(1, 0), BIT(1));
 +	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to add adc irq chip\n");
++		return ret;
 +
- 	ret = devm_mfd_add_devices(dev, -1, max8907_cells, ARRAY_SIZE(max8907_cells),
- 				   NULL, 0, NULL);
- 	if (ret)
-diff --git a/include/linux/mfd/max8907.h b/include/linux/mfd/max8907.h
-index 9865ae52877fd..ac4532d172331 100644
---- a/include/linux/mfd/max8907.h
-+++ b/include/linux/mfd/max8907.h
-@@ -153,6 +153,51 @@
- #define MAX8907_REG_MPL_CNTL		0x1E
- 
- /* ADC and Touch Screen Controller register map */
-+#define MAX8907_REG_TSC_STA_INT		0x00
-+#define MAX8907_REG_TSC_INT_MASK	0x01
-+#define MAX8907_REG_TSC_CNFG1		0x02
-+#define MAX8907_REG_TSC_CNFG2		0x03
-+#define MAX8907_REG_TSC_CNFG3		0x04
-+#define MAX8907_REG_ADC_RES_CNFG1	0x06
-+#define MAX8907_REG_ADC_AVG_CNFG1	0x07
-+#define MAX8907_REG_ADC_ACQ_CNFG1	0x08
-+#define MAX8907_REG_ADC_ACQ_CNFG2	0x09
-+#define MAX8907_REG_ADC_SCHED		0x10
-+#define MAX8907_REG_X_MSB		0x50
-+#define MAX8907_REG_X_LSB		0x51
-+#define MAX8907_REG_Y_MSB		0x52
-+#define MAX8907_REG_Y_LSB		0x53
-+#define MAX8907_REG_Z1_MSB		0x54
-+#define MAX8907_REG_Z1_LSB		0x55
-+#define MAX8907_REG_Z2_MSB		0x56
-+#define MAX8907_REG_Z2_LSB		0x57
-+#define MAX8907_REG_AUX1_MSB		0x60
-+#define MAX8907_REG_AUX1_LSB		0x61
-+#define MAX8907_REG_AUX2_MSB		0x62
-+#define MAX8907_REG_AUX2_LSB		0x63
-+#define MAX8907_REG_VCHG_MSB		0x64
-+#define MAX8907_REG_VCHG_LSB		0x65
-+#define MAX8907_REG_VBBATT_MSB		0x66
-+#define MAX8907_REG_VBBATT_LSB		0x67
-+#define MAX8907_REG_VMBATT_MSB		0x68
-+#define MAX8907_REG_VMBATT_LSB		0x69
-+#define MAX8907_REG_ISNS_MSB		0x6A
-+#define MAX8907_REG_ISNS_LSB		0x6B
-+#define MAX8907_REG_THM_MSB		0x6C
-+#define MAX8907_REG_THM_LSB		0x6D
-+#define MAX8907_REG_TDIE_MSB		0x6E
-+#define MAX8907_REG_TDIE_LSB		0x6F
++	/* Check for internal reference IRQ */
++	ret = regmap_read_poll_timeout(regmap, MAX8907_REG_TSC_STA_INT, value,
++				       !(value & MAX8907_MASK_NREF_OK), 10, 1000);
++	if (ret)
++		return ret;
 +
-+#define MAX8907_REG_AUX1_MEASURE	0xC0
-+#define MAX8907_REG_AUX2_MEASURE	0xC8
-+#define MAX8907_REG_VCHG_MEASURE	0xD0
-+#define MAX8907_REG_VBBATT_MEASURE	0xD8
-+#define MAX8907_REG_VMBATT_MEASURE	0xE0
-+#define MAX8907_REG_ISNS_MEASURE	0xE8
-+#define MAX8907_REG_THM_MEASURE		0xF0
-+#define MAX8907_REG_TDIE_MEASURE	0xF8
++	return regmap_update_bits(regmap, MAX8907_REG_ADC_SCHED,
++				  MAX8907_ADC_SCHED_AUTOSCH_ENABLE |
++				  MAX8907_ADC_SCHED_AUTOSCH_TIME,
++				  MAX8907_ADC_SCHED_AUTOSCH_ENABLE);
++}
 +
-+/* Regulator stride */
- #define MAX8907_CTL			0
- #define MAX8907_SEQCNT			1
- #define MAX8907_VOUT			2
-@@ -166,6 +211,8 @@
- #define MAX8907_MASK_OUT5V_EN		0x01
- #define MAX8907_MASK_SOFT_RESET		0x20
- #define MAX8907_MASK_POWER_OFF		0x40
-+#define MAX8907_MASK_INT_REF_EN		0x01
-+#define MAX8907_MASK_NREF_OK		0x10
- 
- /* Regulator IDs */
- #define MAX8907_MBATT	0
-@@ -226,6 +273,9 @@ enum {
- 
- 	MAX8907_IRQ_RTC_ALARM1 = 0,
- 	MAX8907_IRQ_RTC_ALARM0,
++static int max8907_adc_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct max8907 *max8907 = dev_get_drvdata(dev->parent);
++	struct iio_dev *indio_dev;
++	struct regmap **regmap;
++	int ret;
 +
-+	MAX8907_IRQ_TSC_STICK = 0,
-+	MAX8907_IRQ_TSC_NSTICK,
- };
- 
- struct regmap_irq_chips_data;
-@@ -235,11 +285,14 @@ struct max8907 {
- 	struct mutex			irq_lock;
- 	struct i2c_client		*i2c_gen;
- 	struct i2c_client		*i2c_rtc;
-+	struct i2c_client		*i2c_adc;
- 	struct regmap			*regmap_gen;
- 	struct regmap			*regmap_rtc;
-+	struct regmap			*regmap_adc;
- 	struct regmap_irq_chip_data	*irqc_chg;
- 	struct regmap_irq_chip_data	*irqc_on_off;
- 	struct regmap_irq_chip_data	*irqc_rtc;
-+	struct regmap_irq_chip_data	*irqc_adc;
- };
- 
- #endif
++	indio_dev = devm_iio_device_alloc(dev, sizeof(*regmap));
++	if (!indio_dev)
++		return -ENOMEM;
++
++	regmap = iio_priv(indio_dev);
++
++	*regmap = max8907->regmap_adc;
++
++	indio_dev->modes = INDIO_DIRECT_MODE;
++	indio_dev->channels = max8907_adc_channels;
++	indio_dev->num_channels = ARRAY_SIZE(max8907_adc_channels);
++	indio_dev->name = dev_name(dev);
++	indio_dev->info = &max8907_adc_info;
++
++	/*
++	 * The ADC does not require a dedicated node; hence, the PMIC is set as
++	 * the iio_dev parent to enable the use of the PMIC node phandle in the
++	 * Device Tree bindings.
++	 */
++	iio_device_set_parent(indio_dev, dev->parent);
++
++	ret = regmap_set_bits(max8907->regmap_gen, MAX8907_REG_RESET_CNFG,
++			      MAX8907_MASK_INT_REF_EN);
++	if (ret)
++		return ret;
++
++	ret = max8907_adc_init(max8907->regmap_adc);
++	if (ret)
++		return ret;
++
++	return devm_iio_device_register(dev, indio_dev);
++}
++
++static struct platform_driver max8907_adc_driver = {
++	.driver.name = "max8907-adc",
++	.probe = max8907_adc_probe,
++};
++module_platform_driver(max8907_adc_driver);
++
++MODULE_ALIAS("platform:max8907-adc");
++MODULE_AUTHOR("Svyatoslav Ryhel <clamor95@gmail.com>");
++MODULE_DESCRIPTION("Maxim MAX8907 ADC driver");
++MODULE_LICENSE("GPL");
 -- 
 2.53.0
 
