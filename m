@@ -1,127 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795477925;
-	b=ybozgWlUhoMcUc+A7XJK3sJ3Why+HN3zYfJXuRYOGr6Y7ZJeArAFayHHMWcNf/ZKYXoz
-	 7eo7PWRHb1zN/jTdpcAWoLWRVkkblHYowqpI/ZIsJhm/e0BkBk5jC6ydSwDyz7TrrK5C2
-	 STXC6yP9DL1fHxCb6yMy8hlrr603ToLX2/QU75Hn/pzMyw0opilek9V4PWJ/M64B5E7SC
-	 4lu451Nnw+br/WNTdoE+7eSyX3pkw74ieQT8tjdn9imkMLpIlfncmRvNGL6aCGDKYWqGu
-	 WsfZfXlgdtNuCpof0yCjudiUr2KsHRt9QyWkP6mfg7Z7ZO4cPK6V/uJU8fIJa0fJA2Q==
+	t=1795477976;
+	b=NwC5Y2ySYCOSZxitwrWIQ2ylics2VyVQ3RbtJwEwI8wI4EAD6Aoau43UOSY0R79cT92Q
+	 Hq7hpGzVNpEc1roBUn/mN+r+JICM2DDPgit+2yTeBfT++d4XHOiZJT4fO+QleA/hFRao4
+	 zudlSXp+wNgGeJVw7MnjKFaHvFzT+3eM5t5kTA7cg2SuWlZWYR1IoczuUn3bX113/Dme6
+	 SRVby+tU0jP6Az68zEQz3eU9ZPR5I/2EtjcJjpcHP/vP6MY0hP2swK78fENpMtua9kd1r
+	 sNK1WtC3oSXBuSCtQ/lsl+lsy0xZOjDSoVbPq3oUjAtJ/88BMQ9vYMQxY0Pz3GYZr4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795477925;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=IybjlPb0LVZ7QOrAFKKCkNNJ886YmIr8unCCc4l7uQU=;
-	b=uFDnbh3bX6Mn2hcyQYWMYtYef9tC/Wn8zpSMraFSmtQvVj6CeOc7uXi1ShmEhfYvWx4i
-	 X2q13lDWlgfUARmP2OdiHzwIhhtIIPf5aOM9CrqED4jOP95W0CUGC6abIm5X+6YlOVAq9
-	 ufWoVkwovoXLIFgccAcew2S6ANMYhudZukqLgmBCKed6zrldI/3gqRDNBVPTfUtw+NmeD
-	 mAvelVGWeixETNdwScnj1FP2lLh2XT/GXoB0BuwUwWRQCRUv67GVg2u9SYZjAugOMmsqg
-	 wr4irYzLWnF+6kYarCMcK2UneZO/QkMUsSMnXgqSKw9Pl78yV75WJ7v6qLqX1jZy7zw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795477976;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:X-Forwarded-Encrypted:X-Received:Received:From:In-Reply-To:
+	 References:MIME-Version:Date:X-Gmail-Original-Message-ID:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
+	bh=t9R+ZhJLVRQZ6TU9eO+IUsJlMED8zPj1Twrn9PsgD0A=;
+	b=zM2tjbH145qlKWNMR/a/BW4kPtIVaeaRNX6YX+mS4oHdV2kqRHPnRAxwUT6B1XAFsgxx
+	 dTVYCMJ2wNSq30ZCU2SHtwm+NFGwEyG0bpre88T2cE7S2avX+6Hqy3i41Npy4RtOePOYL
+	 5CGpW2mQ1KEvH2IkSiuAM8kf9MLIBIEt4F2gCI4m8LH9w78xzhDo2MM3ghoxYgNL1QELR
+	 YeugZBoz8idTWgYeLpDmsP3E0Ujen6T2ZM3CkL6Bj609MaAZTRGM/f8LY6IBcjLWXJBA5
+	 1zHyI0xQL/C8P/koTDTUyeW5O31S5m0fSK8QbUipypqUEaFWd8LdJVk/2LVADfHqWtA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gahingwoo.com;
-	spf=pass smtp.mailfrom=gahingwoo.com;
-	dkim=pass header.d=gahingwoo.com header.i=@gahingwoo.com header.a=rsa-sha256 header.s=fm2 header.b=CPYfRbcB;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=uTacps4U;
-	arc=none smtp.remote-ip=202.12.124.151
-Received: from fout-b8-smtp.messagingengine.com (fout-b8-smtp.messagingengine.com [202.12.124.151])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=linux-foundation.org;
+	spf=pass smtp.mailfrom=linuxfoundation.org;
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=ESePs0Zz;
+	arc=none smtp.remote-ip=209.85.218.46
+Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com [209.85.218.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E231B606A326
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:52:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E231B606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gahingwoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gahingwoo.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33BFD606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:52:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33BFD606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gahingwoo.com header.i=@gahingwoo.com header.a=rsa-sha256 header.s=fm2 header.b=CPYfRbcB;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=uTacps4U
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfout.stl.internal (Postfix) with ESMTP id 6ADBF1D005B3
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:52:04 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-01.internal (MEProxy); Mon, 23 Nov 2026 18:52:04 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to; s=fm2; t=1795477922; x=1795564322; bh=IybjlPb0LV
-	Z7QOrAFKKCkNNJ886YmIr8unCCc4l7uQU=; b=CPYfRbcBBrg7/V9O3wjaPCSf5J
-	k7ahECh+Td41Nh3WV874GvdzmLJrXDD/OlBAXv8e9eLflbum4+/Dx+jYK2Ql+IZo
-	ntHexnWr8jTjyTDPFL79OqXvUCW8zSvPic8moGM1uIK3iXo9eHFOcaZWxK1woHcK
-	GhkCz763bnkmfJEl983rsOBp2ivPYuIw+srDOeXOVzHbDqTkZ9ShpN7uXD1hieRj
-	oUKVIdwMcSmqQPX7G0bTKUFx82u8pLcCduzJjZql9QWlkrm3C+mwEH4OqGPlx2Y3
-	izD/qOjcnDp1wZJsLxt6RfYQWboBVyPJvbBv430vTMk743FJoekPCohP3n4Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795477922; x=1795564322; bh=IybjlPb0LVZ7QOrAFKKCkNNJ886YmIr8unC
-	Cc4l7uQU=; b=uTacps4UBTdqNXSA/ZYq/EdYMuORnzKAjwshymbVPFPMZeiLpsO
-	mjBxTVc8GbLrHQjKqtoWMsAYF+UNR+w02vIHtcAjQyDxyswD/koZJO/dDaz3ScHe
-	8rTpL/g37zcbmrwhdWNy0/1gUE2hVD3K7BgjWX+e0d3lgpF27wIg9CI9jQgbkLBY
-	jd/wHDLDNt3/C6vR0C2xJ18LS57b4Sgapm9vzaVlgwPbcCw06pPnlvSa0L+RVLBx
-	fyIY/+GkA7epr8FoTCRReFZP6j5WgIdhvytF8UA5mSh9Nu/CqUPJmHcjZWpuoCX0
-	uKekc0czs23FP+aZUyezKwberEiPwiomwoA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=gahingwoo.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795477922; d=gahingwoo.com;
-	mf=PGdhaGluZ0BnYWhpbmd3b28uY29tPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:EiBAOt05kVYG0sJT4Q6kiH5eUGuEDJmQz69f+KQjDhmbCzq
-	g0ohTe++vtb3hcG5YOBk5//QieZCCZm9snFsKymVcDt2ZbWaFAGtnMD3ZsfDvBkU
-	PyV4+a3PBsHJOvYfcVonQwPO9hREpF45rbZJgsDhOudrDJuvz66a20xSZAUdaQEY
-	aQF0KKEOnDakjbI2wI6tTCfcfsXv6uVsbpXzqCt4bt9sU1J+SRUiuEDOYUMwPzfZ
-	BGBydut0001vEZX62bvpX2vaoJihSCVt4WwscQmf5dh0niACp1OPOSGBNeZh0Gnc
-	8cza0zJxImRLzKupofqXc51ZPXzKDpYthoyyKjQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=9;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	message-id,mime-version,subject,to;
-Message-Instance: m=1; h=sha256:snLsPNsbCz4VYOV2yj47o6aRDOxjWYqyPbozGNNs8VY=:P1o165xLoA2qPuWrWFB5pBAq5tFyty/t5vGj9pxnMhE=;
-X-ME-Sender: <xms:oNEEayNBhIsU1UsD4wcEKvo0F7MVcHuRFBk7UpQ2QN0e_m-K_rFQdw>
-    <xme:oNEEa9Wt-eCR0KFCQfpEhkNvInUAZuyiqoWWNKM09uQfu_Bc5yFMli7BFEpsIbvpJ
-    pijCkXMummPZerpiV_S3AU-fOMt_VJCNnVTDJ7N72szWB7KVigdK7U>
-X-ME-Received: <xmr:oNEEa9vyk1XhCip0WNq7twhcbfXgFs_dXjNlOTmLOOFXifPBa3VIt-6z5WOys9_whlW3fzKY>
-X-ME-Proxy-Cause: dmFkZTGJb1GdD04PLpCAwZXXn7KZFUQpgvhFpeiMNWdTsgQSXg4su9r1wkz1eWzPIWOfBk
-    FJ9NY1WQK6z+GMRPOeRa/xAcpLpGhZ3i3rHu5zB/D89kM2qY3MxfXxhF110D0CRcXEf2fs
-    4MN8MAYO53DHxq/1TxDxLsW5l7z73MpX6FTTFOLL15TnPkCKO8+O8eTU+J7YY12pzpLN9D
-    p/Kfr1ryp9Wgd2f7QZubaklTf0nB4k6SUJquczvZb3B/7xgpFlcJ0khWtpNl6yBmu4hGTG
-    rRsYCFoUn1baSUqCSDWvFHpznLOQrwKiCna74wQ9/Gjj2KmMpF+aQXmxNWCHIUGenuXuJh
-    7S3H+o9zDSJGKzoghBTYfKDpTcrMP8uXEMuxALYb/6VCSTKN566GB/8nyz/Wod6HIjG1RJ
-    ggCKta78hvrnZZZmTSy5AjuBmN0Z+eCbSKfT0pxpOhQol3WDC/xm0duisMs4leMcI2X4bm
-    vElPhLbZwcp8fFyfcud8QwdbASs/s9OHFa2l34KCDcDJoVV73h7OYUsJMoCVtX8tY4kYra
-    YBGMqVPC1naNhEqezi3z9gcD/pzGewTMhtrXBkjPD4czMToAIjEwz8zslcpWt72BD8ThG+
-    s4aY8/tdWsw96+Mj9zvaymtCPXiBR2ss+/GFpYC+3lTl90JY7qAdmQgEvcMw
-X-ME-Proxy: <xmx:oNEEaw0-SK_YQXOqR6vG6JDwO3SMTOonxH7AI6Qkpj3Jt0T5AtOmfw>
-    <xmx:oNEEa265RLCMuUWeLqN_Et1li24zw51GNx9ZNrpsXJJ8mKxMmU3XUA>
-    <xmx:oNEEa_XrqjxsazoJvxACg2og9xgDzysaS0fyq_8BQ0efYoVFd_GZLw>
-    <xmx:oNEEa2iay_QGchCQCamWbZuZRRbbAd7njZtZxz1iT-B5qsHgXdVYTA>
-    <xmx:otEEa9IbXmXQVeWTV5gWRzJeSD0Si6hsRP_FhIDNSdEyRkWZo8GclPrN>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 23 Nov 2026 18:51:56 -0500 (EST)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	heiko@sntech.de
-Cc: tomeu@tomeuvizoso.net,
-	ddrake@baylibre.com,
-	sidong.yang@furiosa.ai,
-	anton.sovetov@gmail.com,
-	chaoyi.chen@rock-chips.com,
-	iommu@lists.linux.dev,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] iommu/rockchip: Disable paging on banks that still page before a force reset
-Date: Tue, 24 Nov 2026 12:51:54 +1300
-Message-ID: <20261123235154.315460-1-gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=ESePs0Zz
+Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-c4d581da0aaso536869866b.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:52:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1795477973; x=1796082773; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=t9R+ZhJLVRQZ6TU9eO+IUsJlMED8zPj1Twrn9PsgD0A=;
+        b=ESePs0ZzSggI+VzMWqelC4Yx0zHIrVU87QR1fMX4XPfmdG5ClB1PY3Ip3Of0c5//5Y
+         HglffGog0hkfe7vnaak2YbVQpddDyL2dVK5d4ZZ8QlSgVFHiJeAnKJvjBtiMGXVJYNKb
+         yzV2wrPglrHFGI9j3ghtnsEACh6foF73mbzjI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795477973; x=1796082773;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=t9R+ZhJLVRQZ6TU9eO+IUsJlMED8zPj1Twrn9PsgD0A=;
+        b=bOID8QPoSuKuBs+y87KD1Dk2H5orUy6EAxotHOrMemokZN8sqxlJskZaqMWAB8gETA
+         kXyMf9CEyu9bBc6dO029xvTdRrCocSESoQbFgs9Y8E92nMZcruQjB+iDqeFaDRXH5F+E
+         dIUhUvMtIQ5QVah5TLJlpx+WyYRGoABHy2MEALfZ5Tq3ziwq6ek3R4ThWHTSjYhByMM0
+         4xZ5tbbr+dFCi5GE3ANCnRpgX/4ghjYtziMoSH+leWPDQrwA7qlQSHwsr+oMADuVgU5m
+         f4TvcS5/94aaOVFDdyElnYR0Upbv3rBkZCsnNfQUyw5uZ0PxPWnEhyJXVVxnjPQNOU3p
+         rkAg==
+X-Forwarded-Encrypted: i=1; AL+hErEWeHrGYTKJXG5j03FwSx9AeB8J6lR8QWdXa4/Wn6S1oWqxlkE/vCubcfpCH/cFhJMDksFomMj6pBvNBPY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9SHm6naCM+zEs6AbW0XH8WH6QpYR70qMmCxO1F41BgXqia5qk0
+	5+lqJU7pA15cstGTIKp5M56x/4DcYx8E5BYjJDzV3XMEERnQCnvTRCo07jLWCCdgQFff1mOSk58
+	vzq3shVc=
+X-Gm-Gg: AZFdTZcuJj353adZbkS/+7Cjw5xDAeJWKtbciChRdoV3yBpj8LR1Q4bSql56cyMHwb8
+	qy7r6BImMMeOYpdMhEk6GjBxO0Ev4E1t8+fCbQwv+N5h0SI22jcmKqafdoLE5v7gfMgNvpvfjWg
+	+8cVl1+r8KMn4Ci9rtoU9V96EKH5LLOPg5mznAruMZ12PsebpMpYLIZ/LPyUOe9YIjeir93ookA
+	LnDKmS3abGUJrr+C6gU+yoEIgnDBHoCH1p3jV/HwDMoY2T6ktfmq6GVaXPCA1ogFOOpl/uNo6O9
+	+dh92Cr143B9i4oFHKzt/z2GPVdeEY36mYRS0YQUihrsQ++UnJXuPxqF3X/hRMVkQ2urN21paGD
+	j5fVDZukMUBzBateD5O9cXhHjMQnvAd6I4W/WDatORvLeJ5zatQOHr04XCBcyi9f3OyCwVK2B69
+	GooKLucDyOjkEZ4pFd9bcVUk6dIoibIP04gkxssj8q7M29VCeCxHsD/Cu20E+8pLqfoLV0fKKDx
+	USnRrKSePszfl3SuqW78PesifRiA3p2ij9RNjuvlqaY6Hw3E3eREfp4nPvJuzHzfhVwSdNAReBz
+	4hb0mgWGmrPgA0b+gz65rBJSq2Fytrb8cBajrLWUNdhLoSl/q1petL9siZW6qnXxpJCiE44hi0B
+	Ag1SO
+X-Received: by 2002:a17:907:1c81:b0:c3f:7e8:235d with SMTP id a640c23a62f3a-c513a4b0ca4mr1041096766b.5.1795477973356;
+        Mon, 23 Nov 2026 15:52:53 -0800 (PST)
+Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com. [209.85.218.51])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513aea6e29sm447927666b.43.2026.11.23.15.52.52
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 15:52:52 -0800 (PST)
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c4d581da0aaso536868266b.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:52:52 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGgZxoAV6/PlPga/pAPlNViGZdK7E1zWUsbgxyXuqWkW4YqXYcqZtm2/TEdhOMfsKol8IypYQf2gFvWFRQ=@vger.kernel.org
+X-Received: by 2002:a17:907:934c:b0:c51:282b:5489 with SMTP id
+ a640c23a62f3a-c513a4aea3bmr1033595066b.3.1795477972186; Mon, 23 Nov 2026
+ 15:52:52 -0800 (PST)
+Received: from 425495914135 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 23 Nov 2026 15:52:51 -0800
+From: Linus Torvalds <torvalds@linux-foundation.org>
+In-Reply-To: <20261122-b4-sched-wait-intr-head-v2-1-4a764b64e8ce@columbia.edu>
+References: <20261122-b4-sched-wait-intr-head-v2-0-4a764b64e8ce@columbia.edu> <20261122-b4-sched-wait-intr-head-v2-1-4a764b64e8ce@columbia.edu>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -131,114 +99,521 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Date: Mon, 23 Nov 2026 15:52:51 -0800
+X-Gmail-Original-Message-ID: <CAHk-=wj_eqNh+gNhCQh3exrL5Pmo5hbZBcL0W-4Ah_Nw0Kegzw@mail.gmail.com>
+X-Gm-Features: Aa3M54pEsdOqyFc5KVu7dlQgkogc1dFe3WsuMPH19Iy8jaujyc-mlv_689cT_78
+Message-ID: <CAHk-=wj_eqNh+gNhCQh3exrL5Pmo5hbZBcL0W-4Ah_Nw0Kegzw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] sched/wait: Queue non-exclusive waiters at the
+ head in do_wait_intr*()
+To: mt4022@columbia.edu, Jens Axboe <axboe@kernel.dk>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Oleg Nesterov <oleg@redhat.com>, Christian Brauner <brauner@kernel.org>, 
+	Michal Nazarewicz <mina86@mina86.com>, Wen Yang <wen.yang@linux.dev>, linux-fsdevel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, tz2294@columbia.edu, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-After an RK3576 NPU job timeout resets the core, the banks of its IOMMU
-can be left in different states: bank 0 is still paging while bank 1
-has been reset.
+On Sun, 22 Nov 2026 at 16:35, Mani Tofigh via B4 Relay
+<devnull+mt4022.columbia.edu@kernel.org> wrote:
+>
+> A task blocked in read() on an eventfd or timerfd can sleep forever
+> while the file is readable, if an epoll(EPOLLEXCLUSIVE) watcher of the
+> same file was added before it.
 
-In this state the existing stall and paging helpers do nothing, so the
-force reset that follows fails as well. The IOMMU can then no longer be
-enabled, and the NPU stops working.
+Honestly, I don't think this is the right approach.
 
-When the banks disagree, stop paging on the banks that still page
-first, then run the existing sequence.
+We need to fix the disaster area that is epoll, rather than work around
+more epoll bugs elsewhere and make other places more fragile and
+complex.
 
-Tested on a ROCK 4D with repeated forced job timeouts. Without this
-patch, one in every 2 to 10 timeouts was not recovered from; with it,
-20 out of 20 recovered.
+I think we should stop playing games with wait-queue ordering entirely.
 
-Fixes: cd6438c5f844 ("iommu/rockchip: Reconstruct to support multi slaves")
-Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
----
-Not tested on the RK3588.
+The problem WQ_EXCLUSIVE tries to fix is the thundering herd issue, and
+I think we could afford to just always walk the whole wait-queue list -
+just not wake up multiple exclusive waiters.
 
-LLM-assisted.
+The wait-queue traversal itself was never the problem, and stopping
+early was a premature optimization that causes these kinds of problems.
 
- drivers/iommu/rockchip-iommu.c | 61 ++++++++++++++++++++++++++++++++++
- 1 file changed, 61 insertions(+)
+For example, right now that ordering means not only that we have that
+subtle __add_wait_queue_entry_tail() vs __add_wait_queue() thing - we
+also have that disgusting WQ_FLAG_PRIORITY thing.
 
-diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-index 1fa3110b142a..5eabefb0ad14 100644
---- a/drivers/iommu/rockchip-iommu.c
-+++ b/drivers/iommu/rockchip-iommu.c
-@@ -507,6 +507,64 @@ static int rk_iommu_disable_paging(struct rk_iommu *iommu)
- 	return ret;
- }
- 
-+/*
-+ * The helpers above only act when every bank agrees. After a reset of the
-+ * master, one bank can still be paging; stop it bank by bank.
-+ */
-+static void rk_iommu_quiesce_paging_banks(struct rk_iommu *iommu)
-+{
-+	int i, ret;
-+	u32 status;
-+
-+	for (i = 0; i < iommu->num_mmu; i++) {
-+		void __iomem *base = iommu->bases[i];
-+
-+		if (!(rk_iommu_read(base, RK_MMU_STATUS) & RK_MMU_STATUS_PAGING_ENABLED))
-+			continue;
-+
-+		dev_warn_ratelimited(iommu->dev, "bank %d still paging, status %#08x; disabling it\n",
-+				     i, rk_iommu_read(base, RK_MMU_STATUS));
-+
-+		if (rk_iommu_read(base, RK_MMU_STATUS) & RK_MMU_STATUS_PAGE_FAULT_ACTIVE)
-+			writel(RK_MMU_CMD_PAGE_FAULT_DONE, base + RK_MMU_COMMAND);
-+
-+		rk_iommu_base_command(base, RK_MMU_CMD_ENABLE_STALL);
-+		ret = readl_poll_timeout(base + RK_MMU_STATUS, status,
-+					 status & RK_MMU_STATUS_STALL_ACTIVE,
-+					 RK_MMU_POLL_PERIOD_US, RK_MMU_POLL_TIMEOUT_US);
-+		if (ret)
-+			dev_err(iommu->dev, "bank %d: stall timed out, status %#08x\n",
-+				i, status);
-+
-+		rk_iommu_base_command(base, RK_MMU_CMD_DISABLE_PAGING);
-+		ret = readl_poll_timeout(base + RK_MMU_STATUS, status,
-+					 !(status & RK_MMU_STATUS_PAGING_ENABLED),
-+					 RK_MMU_POLL_PERIOD_US, RK_MMU_POLL_TIMEOUT_US);
-+		if (ret)
-+			dev_err(iommu->dev, "bank %d: disable paging timed out, status %#08x\n",
-+				i, status);
-+
-+		rk_iommu_base_command(base, RK_MMU_CMD_DISABLE_STALL);
-+		ret = readl_poll_timeout(base + RK_MMU_STATUS, status,
-+					 !(status & RK_MMU_STATUS_STALL_ACTIVE),
-+					 RK_MMU_POLL_PERIOD_US, RK_MMU_POLL_TIMEOUT_US);
-+		if (ret)
-+			dev_err(iommu->dev, "bank %d: disable stall timed out, status %#08x\n",
-+				i, status);
-+	}
-+}
-+
-+static bool rk_iommu_banks_disagree_on_paging(struct rk_iommu *iommu)
-+{
-+	int i, n = 0;
-+
-+	for (i = 0; i < iommu->num_mmu; i++)
-+		n += !!(rk_iommu_read(iommu->bases[i], RK_MMU_STATUS) &
-+			RK_MMU_STATUS_PAGING_ENABLED);
-+
-+	return n && n != iommu->num_mmu;
-+}
-+
- static int rk_iommu_force_reset(struct rk_iommu *iommu)
+I think the (single) user of add_wait_queue_priority_exclusive() should
+just walk the queue itself, and not mess up the global wait queue logic
+with its braindamage.
+
+It's literally just kvm eventfd that is being special - and it's the "my
+mom told me I'm special" kind of special, not the "it's really important
+and fundamental" kind of special.
+
+The whole hypervisor WQ_FLAG_EXCLUSIVE | WQ_FLAG_PRIORITY games should
+be removed from the core entirely and the those eventfd things should
+move to their own helpers that nobody else needs to care about.
+
+And I think we should always add new waiters to the end of the queue,
+and stop any other games. Just walk the whole queue at wakeup time.
+
+Finally, I think we should make the return value from the wakeup
+function be a bitmask, and count "exclusive" as only "we haven't seen
+this bit returned yet". And then *real* exclusive users that actually
+guarantee that they react to the wakeup return all bits set, but the
+sh*t-for-brains garbage that is "epoll" only returns its own bit set -
+so we only wake up *one* epoll user, but we wake up other users anyway,
+because epoll clearl yis lying about its "exclusivity".
+
+Because trying to fix the mess that epoll has caused is not worth it. We
+need to just accept the fact that epoll is garbage, but we also need to
+fundamentally make that garbage not mess with the rest of the kernel.
+
+Anyway, because I wanted to see who plays games with the wake-up
+function, and because that thing is horribly named ('func' - not exactly
+unambiguous), I did the attached patch. It makes it a bit more obvious
+who actually uses anything but the normal wakeup functions.
+
+It incidentally also made it obvious that very few people knew about out
+'init_wait_func()' helper. We had a couple of users. But we had more
+users that did
+
+        init_wait(wait);
+        wait->func = im_so_special_wake_fn;
+
+by hand instead. And memcontrol-v1 - that everybody loves - didn't do
+even that, but seemed to write things out by hand entirely.
+
+And the i915 driver did its own thing entirely and re-implemented the
+whole wakeup side. Christ. nilfss is doing something odd too.
+
+No, this patch has not been tested. It seems to compile, at least on
+x86-64 allmodconfig.
+
+Comments? Would anybody be willing to do a deep dive into the whole
+wakeup situation? I'd also love to make the wakeup functions return void
+instead of the number of things woken - because of that whole "exclusive
+would be better off not entirely exclusive" issue, but it looks like the
+sbitmap code actually uses it. Nobody else seems to.
+
+Added Jens because he's the sbitmap person.
+
+               Linus
+
+--- untested patch just because I couldn't tell who played games ---
+
+ drivers/gpu/drm/i915/display/intel_display_rps.c |  2 +-
+ drivers/gpu/drm/i915/i915_active.c               |  2 +-
+ drivers/gpu/drm/i915/i915_sw_fence.c             | 10 +++++-----
+ drivers/gpu/drm/radeon/radeon_fence.c            |  2 +-
+ fs/dax.c                                         |  9 +++------
+ fs/eventpoll.c                                   |  3 +--
+ fs/gfs2/glock.c                                  |  3 +--
+ fs/nfs/nfs4proc.c                                |  3 +--
+ fs/nilfs2/segment.c                              |  2 +-
+ include/linux/sbitmap.h                          |  2 +-
+ include/linux/wait.h                             | 12 ++++++------
+ include/linux/wait_bit.h                         |  2 +-
+ io_uring/io-wq.c                                 |  2 +-
+ io_uring/rw.c                                    |  2 +-
+ kernel/sched/wait.c                              |  4 ++--
+ kernel/sched/wait_bit.c                          |  8 ++++----
+ mm/filemap.c                                     |  6 ++----
+ mm/memcontrol-v1.c                               |  5 +----
+ 18 files changed, 34 insertions(+), 45 deletions(-)
+
+diff --git a/drivers/gpu/drm/i915/display/intel_display_rps.c
+b/drivers/gpu/drm/i915/display/intel_display_rps.c
+index 2f8248458826..fa707a144d5b 100644
+--- a/drivers/gpu/drm/i915/display/intel_display_rps.c
++++ b/drivers/gpu/drm/i915/display/intel_display_rps.c
+@@ -68,7 +68,7 @@ void intel_display_rps_boost_after_vblank(struct
+drm_crtc *crtc,
+ 	wait->fence = dma_fence_get(fence);
+ 	wait->crtc = crtc;
+
+-	wait->wait.func = do_rps_boost;
++	wait->wait.wake_up_fn = do_rps_boost;
+ 	wait->wait.flags = 0;
+
+ 	add_wait_queue(drm_crtc_vblank_waitqueue(crtc), &wait->wait);
+diff --git a/drivers/gpu/drm/i915/i915_active.c
+b/drivers/gpu/drm/i915/i915_active.c
+index b2442f05825e..1c207ddab5ba 100644
+--- a/drivers/gpu/drm/i915/i915_active.c
++++ b/drivers/gpu/drm/i915/i915_active.c
+@@ -666,7 +666,7 @@ static int __await_barrier(struct i915_active
+*ref, struct i915_sw_fence *fence)
+ 	}
+
+ 	wb->base.flags = 0;
+-	wb->base.func = barrier_wake;
++	wb->base.wake_up_fn = barrier_wake;
+ 	wb->base.private = fence;
+ 	wb->ref = ref;
+
+diff --git a/drivers/gpu/drm/i915/i915_sw_fence.c
+b/drivers/gpu/drm/i915/i915_sw_fence.c
+index f24f616e23ee..156a65f009eb 100644
+--- a/drivers/gpu/drm/i915/i915_sw_fence.c
++++ b/drivers/gpu/drm/i915/i915_sw_fence.c
+@@ -161,7 +161,7 @@ static void __i915_sw_fence_wake_up_all(struct
+i915_sw_fence *fence,
+ 			if (pos->flags & I915_SW_FENCE_FLAG_FENCE)
+ 				list_move_tail(&pos->entry, continuation);
+ 			else
+-				pos->func(pos, TASK_NORMAL, 0, continuation);
++				pos->wake_up_fn(pos, TASK_NORMAL, 0, continuation);
+ 		}
+ 	} else {
+ 		LIST_HEAD(extra);
+@@ -174,7 +174,7 @@ static void __i915_sw_fence_wake_up_all(struct
+i915_sw_fence *fence,
+ 				if (pos->flags & I915_SW_FENCE_FLAG_FENCE)
+ 					wake_flags = fence->error;
+
+-				pos->func(pos, TASK_NORMAL, wake_flags, &extra);
++				pos->wake_up_fn(pos, TASK_NORMAL, wake_flags, &extra);
+ 			}
+
+ 			if (list_empty(&extra))
+@@ -291,7 +291,7 @@ static bool __i915_sw_fence_check_if_after(struct
+i915_sw_fence *fence,
+ 		return true;
+
+ 	list_for_each_entry(wq, &fence->wait.head, entry) {
+-		if (wq->func != i915_sw_fence_wake)
++		if (wq->wake_up_fn != i915_sw_fence_wake)
+ 			continue;
+
+ 		if (__i915_sw_fence_check_if_after(wq->private, signaler))
+@@ -309,7 +309,7 @@ static void
+__i915_sw_fence_clear_checked_bit(struct i915_sw_fence *fence)
+ 		return;
+
+ 	list_for_each_entry(wq, &fence->wait.head, entry) {
+-		if (wq->func != i915_sw_fence_wake)
++		if (wq->wake_up_fn != i915_sw_fence_wake)
+ 			continue;
+
+ 		__i915_sw_fence_clear_checked_bit(wq->private);
+@@ -375,7 +375,7 @@ static int __i915_sw_fence_await_sw_fence(struct
+i915_sw_fence *fence,
+
+ 	INIT_LIST_HEAD(&wq->entry);
+ 	wq->flags = pending;
+-	wq->func = i915_sw_fence_wake;
++	wq->wake_up_fn = i915_sw_fence_wake;
+ 	wq->private = fence;
+
+ 	i915_sw_fence_await(fence);
+diff --git a/drivers/gpu/drm/radeon/radeon_fence.c
+b/drivers/gpu/drm/radeon/radeon_fence.c
+index 8e9402b8811b..d254278d0cb5 100644
+--- a/drivers/gpu/drm/radeon/radeon_fence.c
++++ b/drivers/gpu/drm/radeon/radeon_fence.c
+@@ -409,7 +409,7 @@ static bool radeon_fence_enable_signaling(struct
+dma_fence *f)
+
+ 	fence->fence_wake.flags = 0;
+ 	fence->fence_wake.private = NULL;
+-	fence->fence_wake.func = radeon_fence_check_signaled;
++	fence->fence_wake.wake_up_fn = radeon_fence_check_signaled;
+ 	__add_wait_queue(&rdev->fence_queue, &fence->fence_wake);
+ 	dma_fence_get(f);
+ 	return true;
+diff --git a/fs/dax.c b/fs/dax.c
+index 9d161d7ef3ef..4e8cad4dcb95 100644
+--- a/fs/dax.c
++++ b/fs/dax.c
+@@ -215,8 +215,7 @@ static void *get_next_unlocked_entry(struct
+xa_state *xas, unsigned int order)
+ 	struct wait_exceptional_entry_queue ewait;
+ 	wait_queue_head_t *wq;
+
+-	init_wait(&ewait.wait);
+-	ewait.wait.func = wake_exceptional_entry_func;
++	init_wait_func(&ewait.wait, wake_exceptional_entry_func);
+
+ 	for (;;) {
+ 		entry = xas_find_conflict(xas);
+@@ -248,8 +247,7 @@ static void *wait_entry_unlocked_exclusive(struct
+xa_state *xas, void *entry)
+ 	struct wait_exceptional_entry_queue ewait;
+ 	wait_queue_head_t *wq;
+
+-	init_wait(&ewait.wait);
+-	ewait.wait.func = wake_exceptional_entry_func;
++	init_wait_func(&ewait.wait, wake_exceptional_entry_func);
+
+ 	while (unlikely(dax_is_locked(entry))) {
+ 		wq = dax_entry_waitqueue(xas, entry, &ewait.key);
+@@ -279,8 +277,7 @@ static void wait_entry_unlocked(struct xa_state
+*xas, void *entry)
+ 	struct wait_exceptional_entry_queue ewait;
+ 	wait_queue_head_t *wq;
+
+-	init_wait(&ewait.wait);
+-	ewait.wait.func = wake_exceptional_entry_func;
++	init_wait_func(&ewait.wait, wake_exceptional_entry_func);
+
+ 	wq = dax_entry_waitqueue(xas, entry, &ewait.key);
+ 	/*
+diff --git a/fs/eventpoll.c b/fs/eventpoll.c
+index b959af04772c..0e13477f8be5 100644
+--- a/fs/eventpoll.c
++++ b/fs/eventpoll.c
+@@ -2333,8 +2333,7 @@ static int ep_poll(struct eventpoll *ep, struct
+epoll_event __user *events,
+ 		 * performance issue if a process is killed, causing all of its
+ 		 * threads to wake up without being removed normally.
+ 		 */
+-		init_wait(&wait);
+-		wait.func = ep_autoremove_wake_function;
++		init_wait_func(&wait, ep_autoremove_wake_function);
+
+ 		spin_lock_irq(&ep->lock);
+ 		/*
+diff --git a/fs/gfs2/glock.c b/fs/gfs2/glock.c
+index d22a088c66cd..cd3ad3cb91a8 100644
+--- a/fs/gfs2/glock.c
++++ b/fs/gfs2/glock.c
+@@ -1009,8 +1009,7 @@ static struct gfs2_glock
+*find_insert_glock(struct lm_lockname *name,
+ 	struct gfs2_glock *gl;
+
+ 	wait.name = name;
+-	init_wait(&wait.wait);
+-	wait.wait.func = glock_wake_function;
++	init_wait_func(&wait.wait, glock_wake_function);
+
+ again:
+ 	prepare_to_wait(wq, &wait.wait, TASK_UNINTERRUPTIBLE);
+diff --git a/fs/nfs/nfs4proc.c b/fs/nfs/nfs4proc.c
+index 6759fa61b9b4..d817d12249da 100644
+--- a/fs/nfs/nfs4proc.c
++++ b/fs/nfs/nfs4proc.c
+@@ -7757,8 +7757,7 @@ nfs4_retry_setlk(struct nfs4_state *state, int
+cmd, struct file_lock *request)
+ 	if (!test_bit(NFS_STATE_MAY_NOTIFY_LOCK, &state->flags))
+ 		return nfs4_retry_setlk_simple(state, cmd, request);
+
+-	init_wait(&waiter.wait);
+-	waiter.wait.func = nfs4_wake_lock_waiter;
++	init_wait_func(&waiter.wait, nfs4_wake_lock_waiter);
+ 	add_wait_queue(q, &waiter.wait);
+
+ 	do {
+diff --git a/fs/nilfs2/segment.c b/fs/nilfs2/segment.c
+index af0c3560444f..ec14365762c2 100644
+--- a/fs/nilfs2/segment.c
++++ b/fs/nilfs2/segment.c
+@@ -2297,7 +2297,7 @@ static void nilfs_segctor_wakeup(struct
+nilfs_sc_info *sci, int err, bool force)
+ 			atomic_set(&wrq->done, 1);
+ 		}
+ 		if (atomic_read(&wrq->done)) {
+-			wrq->wq.func(&wrq->wq,
++			wrq->wq.wake_up_fn(&wrq->wq,
+ 				     TASK_UNINTERRUPTIBLE | TASK_INTERRUPTIBLE,
+ 				     0, NULL);
+ 		}
+diff --git a/include/linux/sbitmap.h b/include/linux/sbitmap.h
+index cc7ad189caa5..6317a60d8df2 100644
+--- a/include/linux/sbitmap.h
++++ b/include/linux/sbitmap.h
+@@ -595,7 +595,7 @@ struct sbq_wait {
+ 		.sbq = NULL,							\
+ 		.wait = {							\
+ 			.private	= current,				\
+-			.func		= autoremove_wake_function,		\
++			.wake_up_fn	= autoremove_wake_function,		\
+ 			.entry		= LIST_HEAD_INIT((name).wait.entry),	\
+ 		}								\
+ 	}
+diff --git a/include/linux/wait.h b/include/linux/wait.h
+index b3e94c71cd3e..0252fc690b26 100644
+--- a/include/linux/wait.h
++++ b/include/linux/wait.h
+@@ -28,7 +28,7 @@ int default_wake_function(struct wait_queue_entry
+*wq_entry, unsigned mode, int
+ struct wait_queue_entry {
+ 	unsigned int		flags;
+ 	void			*private;
+-	wait_queue_func_t	func;
++	wait_queue_func_t	wake_up_fn;
+ 	struct list_head	entry;
+ };
+
+@@ -46,7 +46,7 @@ struct task_struct;
+
+ #define __WAITQUEUE_INITIALIZER(name, tsk) {					\
+ 	.private	= tsk,							\
+-	.func		= default_wake_function,				\
++	.wake_up_fn	= default_wake_function,				\
+ 	.entry		= { NULL, NULL } }
+
+ #define DECLARE_WAITQUEUE(name, tsk)						\
+@@ -81,7 +81,7 @@ static inline void init_waitqueue_entry(struct
+wait_queue_entry *wq_entry, struc
  {
- 	int ret, i;
-@@ -947,6 +1005,9 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
- 	if (ret)
- 		return ret;
- 
-+	if (rk_iommu_banks_disagree_on_paging(iommu))
-+		rk_iommu_quiesce_paging_banks(iommu);
-+
- 	ret = rk_iommu_enable_stall(iommu);
- 	if (ret)
- 		goto out_disable_clocks;
+ 	wq_entry->flags		= 0;
+ 	wq_entry->private	= p;
+-	wq_entry->func		= default_wake_function;
++	wq_entry->wake_up_fn	= default_wake_function;
+ }
 
-base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
--- 
-2.43.0
+ static inline void
+@@ -89,7 +89,7 @@ init_waitqueue_func_entry(struct wait_queue_entry
+*wq_entry, wait_queue_func_t f
+ {
+ 	wq_entry->flags		= 0;
+ 	wq_entry->private	= NULL;
+-	wq_entry->func		= func;
++	wq_entry->wake_up_fn	= func;
+ }
 
+ /**
+@@ -1228,7 +1228,7 @@ int autoremove_wake_function(struct
+wait_queue_entry *wq_entry, unsigned mode, i
+ #define DEFINE_WAIT_FUNC(name, function)					\
+ 	struct wait_queue_entry name = {					\
+ 		.private	= current,					\
+-		.func		= function,					\
++		.wake_up_fn	= function,					\
+ 		.entry		= LIST_HEAD_INIT((name).entry),			\
+ 	}
+
+@@ -1237,7 +1237,7 @@ int autoremove_wake_function(struct
+wait_queue_entry *wq_entry, unsigned mode, i
+ #define init_wait_func(wait, function)						\
+ 	do {									\
+ 		(wait)->private = current;					\
+-		(wait)->func = function;					\
++		(wait)->wake_up_fn = function;					\
+ 		INIT_LIST_HEAD(&(wait)->entry);					\
+ 		(wait)->flags = 0;						\
+ 	} while (0)
+diff --git a/include/linux/wait_bit.h b/include/linux/wait_bit.h
+index af077ed4caf6..0bec1e7ea485 100644
+--- a/include/linux/wait_bit.h
++++ b/include/linux/wait_bit.h
+@@ -41,7 +41,7 @@ int wake_bit_function(struct wait_queue_entry
+*wq_entry, unsigned mode, int sync
+ 		.key = __WAIT_BIT_KEY_INITIALIZER(word, bit),			\
+ 		.wq_entry = {							\
+ 			.private	= current,				\
+-			.func		= wake_bit_function,			\
++			.wake_up_fn	= wake_bit_function,			\
+ 			.entry		=					\
+ 				LIST_HEAD_INIT((name).wq_entry.entry),		\
+ 		},								\
+diff --git a/io_uring/io-wq.c b/io_uring/io-wq.c
+index 9609ae50dbd7..faf159d37026 100644
+--- a/io_uring/io-wq.c
++++ b/io_uring/io-wq.c
+@@ -1409,7 +1409,7 @@ struct io_wq *io_wq_create(unsigned bounded,
+struct io_wq_data *data)
+ 	wq->acct[IO_WQ_ACCT_UNBOUND].max_workers =
+ 				task_rlimit(current, RLIMIT_NPROC);
+ 	INIT_LIST_HEAD(&wq->wait.entry);
+-	wq->wait.func = io_wq_hash_wake;
++	wq->wait.wake_up_fn = io_wq_hash_wake;
+ 	for (i = 0; i < IO_WQ_ACCT_NR; i++) {
+ 		struct io_wq_acct *acct = &wq->acct[i];
+
+diff --git a/io_uring/rw.c b/io_uring/rw.c
+index cf20597ba6a8..3e29bf8a1e57 100644
+--- a/io_uring/rw.c
++++ b/io_uring/rw.c
+@@ -804,7 +804,7 @@ static bool io_rw_should_retry(struct io_kiocb *req)
+ 	    !(req->file->f_op->fop_flags & FOP_BUFFER_RASYNC))
+ 		return false;
+
+-	wait->wait.func = io_async_buf_func;
++	wait->wait.wake_up_fn = io_async_buf_func;
+ 	wait->wait.private = req;
+ 	wait->wait.flags = 0;
+ 	INIT_LIST_HEAD(&wait->wait.entry);
+diff --git a/kernel/sched/wait.c b/kernel/sched/wait.c
+index f8d6d8b9d03e..5339faf2c84d 100644
+--- a/kernel/sched/wait.c
++++ b/kernel/sched/wait.c
+@@ -105,7 +105,7 @@ static int __wake_up_common(struct wait_queue_head
+*wq_head, unsigned int mode,
+ 		unsigned flags = curr->flags;
+ 		int ret;
+
+-		ret = curr->func(curr, mode, wake_flags, key);
++		ret = curr->wake_up_fn(curr, mode, wake_flags, key);
+ 		if (ret < 0)
+ 			break;
+ 		if (ret && (flags & WQ_FLAG_EXCLUSIVE) && !--nr_exclusive)
+@@ -269,7 +269,7 @@ void init_wait_entry(struct wait_queue_entry
+*wq_entry, int flags)
+ {
+ 	wq_entry->flags = flags;
+ 	wq_entry->private = current;
+-	wq_entry->func = autoremove_wake_function;
++	wq_entry->wake_up_fn = autoremove_wake_function;
+ 	INIT_LIST_HEAD(&wq_entry->entry);
+ }
+ EXPORT_SYMBOL(init_wait_entry);
+diff --git a/kernel/sched/wait_bit.c b/kernel/sched/wait_bit.c
+index 348f7211b4aa..2936887fad6f 100644
+--- a/kernel/sched/wait_bit.c
++++ b/kernel/sched/wait_bit.c
+@@ -198,10 +198,10 @@ void init_wait_var_entry(struct
+wait_bit_queue_entry *wbq_entry, void *var, int
+ 			.bit_nr = -1,
+ 		},
+ 		.wq_entry = {
+-			.flags	 = flags,
+-			.private = current,
+-			.func	 = var_wake_function,
+-			.entry	 = LIST_HEAD_INIT(wbq_entry->wq_entry.entry),
++			.flags	    = flags,
++			.private    = current,
++			.wake_up_fn = var_wake_function,
++			.entry	    = LIST_HEAD_INIT(wbq_entry->wq_entry.entry),
+ 		},
+ 	};
+ }
+diff --git a/mm/filemap.c b/mm/filemap.c
+index a1b2ca5b933c..931de8fedc36 100644
+--- a/mm/filemap.c
++++ b/mm/filemap.c
+@@ -1263,8 +1263,7 @@ static inline int folio_wait_bit_common(struct
+folio *folio, int bit_nr,
+ 		thrashing = true;
+ 	}
+
+-	init_wait(wait);
+-	wait->func = wake_page_function;
++	init_wait_func(wait, wake_page_function);
+ 	wait_page.folio = folio;
+ 	wait_page.bit_nr = bit_nr;
+
+@@ -1430,8 +1429,7 @@ void softleaf_entry_wait_on_locked(softleaf_t
+entry, spinlock_t *ptl)
+ 		thrashing = true;
+ 	}
+
+-	init_wait(wait);
+-	wait->func = wake_page_function;
++	init_wait_func(wait, wake_page_function);
+ 	wait_page.folio = folio;
+ 	wait_page.bit_nr = PG_locked;
+ 	wait->flags = 0;
+diff --git a/mm/memcontrol-v1.c b/mm/memcontrol-v1.c
+index b7f286888507..cc5c64cbdfff 100644
+--- a/mm/memcontrol-v1.c
++++ b/mm/memcontrol-v1.c
+@@ -1053,10 +1053,7 @@ bool mem_cgroup_oom_synchronize(bool handle)
+ 		goto cleanup;
+
+ 	owait.memcg = memcg;
+-	owait.wait.flags = 0;
+-	owait.wait.func = memcg_oom_wake_function;
+-	owait.wait.private = current;
+-	INIT_LIST_HEAD(&owait.wait.entry);
++	init_wait_func(&owait.wait, memcg_oom_wake_function);
+
+ 	prepare_to_wait(&memcg_oom_waitq, &owait.wait, TASK_KILLABLE);
+ 	mem_cgroup_mark_under_oom(memcg);
