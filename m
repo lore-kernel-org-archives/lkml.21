@@ -1,62 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795449992;
-	b=VetfWb+XuWQaOYSu2ewM/0nkwRyicEYoI82Ptgc8ZydL/oME+ynOIgiZSGrj+PdHqvvk
-	 NDZLa3H4NCASZOXPSgZd0okdjk4fYx2KAoJJjziK4WDbGZ66TLiH9tbThGRPkpecS2NOC
-	 LY+sOqv2JRCSQooC2yrUKq2F+xYDispMrpphf3tvvHzk91PMb9Sgj8nmC5n1T7x4z0AQT
-	 K3yttZM/6qlIXCjGTtL22ie4qEEIsOSNQvEd8pXwmMozdJZkAZuQ3s0rQVwu7yZO9INwT
-	 JmVKqk1JSDlWyGrmCJJ2UYZeVYo+gjfdXjQQW+sdFWlh24cjLm+cjhh4Gfs95kqqUjg==
+	t=1795450004;
+	b=k6Bl3SrSV3U3tGFvOWWGU39eRNyC5SHTBy7Xr7/hhdH7VH//ZH81cYSSrLzpy3nzqZ7D
+	 P9RFto00BVRWdO9da3Zxhphbz5ZnHAcK8KOxbN2H6cqVSd9/GXg3KgFQTFhyUaNGkqstN
+	 BQ7TlGhZyDEJ3Q/psa+I5No/2F0qalnJPhwFV8A5KmsgoK9zOAxVtky2uNBCu5GEHlR9l
+	 R9m3J1oK20FB0+Xwcumh5+0l6pScwdKmmsoSkB/aO+RF+gXqoSn7pEpu15VbZ2yWebG4O
+	 N3oQpLZndtCt/WkWYD3bTjBTrB2g0ExfvjxgxUhJ9pjX3me0OqE+RKYcTsl+kM9lRHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795449992;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=3r+hUQa+rAKmwXtdf1nQj3yrmAj5PM06tZTg7mvEGIc=;
-	b=rwF+Fs2VwvhCsII83J+Tzr2PtBlzCmEKu01ClNvqey3qME2AVqtWr6192CK9fHub0TrS
-	 Y/XdFRzVFgeCZvCfpZ0r9GUwb9IwD/x+Qc2IqSLWS4Z44yxFzmvZ5/GKMrhKDDuhcbIJp
-	 irw6+4anHd3P4MCvqnRItupZhbsgSClJgWSdMCqT4z6UpWk4JVdTOPyRwrdZZy+V5CUFI
-	 QzfTMm82ZY65GdeQlI/UKCrO1jnC/YzgIkWG0rR8GodPV5g2AvcFw2/v0MsJI378KAIT/
-	 jEz7R6saaZ79VOJzfx4DswGZasdEvKevpySJUDWXiLnASpaGCbm8pA+Y4rBATqp1Z7g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795450004;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=l4IBb4xjYzTBoSi6YXuP+odsV5j50E3nqTxEjgiJFXU=;
+	b=Jm02sWTOb79sacQTNpOOUO+2FuFWhDZFSd5MLPqDHZ7d2EG0TVOmnPkHndlh7iKBQxD/
+	 lj/31cgPX3lhmZRcPzBV06TPwsDyg8vQCOtzN/8/DKl8QbAYrNfIPSWjroxorFs3cxn5Y
+	 UmGerr7uTdofLqLUWG3WS9xeSle7FMv+toLwmAgObE5yNjZBygVlRXbuqCUTJOY9L4Qyu
+	 wqU1MNCicU8ER+iM3YNsIwsGGbvFV3myaXHEHdEcRHW6RuP40reAByacejVMfNCh/D+Jc
+	 Xti8AqCf2ubhs9W5uOc+XRRDF5myIVoSeYgBXqL1kx8glel0/FqLC8P16xNW2sgBVNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QqgJ7d2v;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ScMHru2V;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B423606A31E;
-	Mon, 23 Nov 2026 16:06:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3AE6606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:06:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QqgJ7d2v
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A887F1F000EF;
-	Mon, 23 Nov 2026 16:06:27 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ScMHru2V
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DD3F1F000CA
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:06:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795449991;
-	bh=3r+hUQa+rAKmwXtdf1nQj3yrmAj5PM06tZTg7mvEGIc=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=QqgJ7d2vWDd1Bxz2cm7/D6YBpeuDuZd/TLwC9GimcjA4zKcJGl1TFB/vS1+nBe5d4
-	 680Sp0UlADSTr80BWXvTIKtZf4xOcoFDPi9PqKdiUaYDQO+2GFvhhgZo5hsOYTx/2z
-	 XSYwXXUI3jcy1H8H0TQStRsDaNUUn0X5JMJUTivqCkQJkUN2ph5ZZJMl/WQEYCuhXb
-	 Ti1ZGej91s1q7GZaiFnb2qpcdw6+V4OWUoXHiRAaW/y1TTPoHq5yz0XH/m0cPcg6s6
-	 tGVk/E8bc8e0nsa02ndV53bCs5XeNCTmh8E/hDar7mj8Cb9FJx4jHHxurNpDSRqxc6
-	 jtiZfCJmWH6UQ==
-From: Vinod Koul <vkoul@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Damon Ding <damon.ding@rock-chips.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Dave Jones <s.dave.jones@gmail.com>, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261114083339.600986-1-damon.ding@rock-chips.com>
-References: <20261114083339.600986-1-damon.ding@rock-chips.com>
-Subject: Re: (subset) [PATCH v6 0/4] Add eDP support for RK3568
-Message-Id: <179544998732.275844.17211132534453781481.b4-ty@kernel.org>
-Date: Mon, 23 Nov 2026 21:36:27 +0530
+	s=k20260515; t=1795450004;
+	bh=l4IBb4xjYzTBoSi6YXuP+odsV5j50E3nqTxEjgiJFXU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=ScMHru2VIvuBRXLr3rU7S50QEYGVjq8CNRcZ90X1RmgFFmqUXmI3YULA3G4VvlSEq
+	 6mWi0Mkcg2NuWySrlMfFaQ4/x2Y4L6H8elSGIcBStc29EiUNOuhieiTLqJpRHA7mWU
+	 GR8SMyiofhxm+IP4nVcQwSQZzhs3MV1VXi+S/zSDs4xJP2J2jqOTFed7e+gIF0Ss+C
+	 SHJj9cl6aFc/v7iLXUiIWzzKBMuJU8l0Mp/CyL1OHWbZXjGWWJt9D5TqcYLtSuWfeB
+	 KnvoDyxvXa6KA+WRga2yvZfaxAnV3N2jlDdP+Cpzr6WRV6vy+ctOrPsqL/m7vH5am+
+	 cXJXpWRXCxqUQ==
+Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1b3a05f8b5bso4376236c88.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:06:44 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHWcHEfGr4oDSPDOozsHpujtPIhGCAI66Di+ohJcKcNmL3czvp9lCtauvfRYVjw9FsDDlorSxV7zmSZN0s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8TDJi7j1qwL91JTKHdyGNoSWENALjeOJSJNTBwMQPpecoX2vC0
+	WePRoGjgBCkgJNLpJcGXxtnvrGLd2mPNVpdCNk22kIU5c8sHnGprjIIh1GRi57JkVt2zLhUMJfa
+	uuefTUCn6BcPuDET0C+iW8LY1FZ617w==
+X-Received: by 2002:a05:7022:b056:20b0:1b3:ac53:da84 with SMTP id
+ a92af1059eb24-1b5568e371bmr13106997c88.32.1795450004014; Mon, 23 Nov 2026
+ 08:06:44 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,32 +59,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+References: <20261117-6768-dsi-fix-v2-1-6654a072884e@protonmail.com>
+In-Reply-To: <20261117-6768-dsi-fix-v2-1-6654a072884e@protonmail.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Mon, 23 Nov 2026 16:06:30 +0000
+X-Gmail-Original-Message-ID: <CAAOTY__tykvuoNWOD3ZMy1etCEwPPJrvY=y5xOO7h7DL=ErRdA@mail.gmail.com>
+X-Gm-Features: Aa3M54q66gFGZx_hKSNABqOrF2C_XAAy0XYCXxVeneDbJLO5H6L8BwiOx2EzBXg
+Message-ID: <CAAOTY__tykvuoNWOD3ZMy1etCEwPPJrvY=y5xOO7h7DL=ErRdA@mail.gmail.com>
+Subject: Re: [PATCH v2] drm/mediatek: mtk_dsi: do not enable HS clock in
+ pre-enable for LPM panels
+To: rva333@protonmail.com
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, CK Hu <ck.hu@mediatek.com>, 
+	Gary Bisson <bisson.gary@gmail.com>, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+=E6=96=BC 2026=E5=B9=B411=E6=9C=8817=E6=97=A5=E9=80=B1=E4=BA=8C =E4=B8=8B=
+=E5=8D=886:27=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> From: Roman Vivchar <rva333@protonmail.com>
+>
+> Commit 76255024cadb ("drm/mediatek: mtk_dsi: enable hs clock during
+> pre-enable") moved HS clock enablement from mtk_output_dsi_enable()
+> to mtk_dsi_poweron(). Later, the commit 3e191eddbdcb ("drm/mediatek:
+> mtk_dsi: Enable HS clock only at pre-enable") moved the call to the
+> mtk_dsi_bridge_atomic_pre_enable().
+>
+> However, mtk_dsi_lane_ready() explicitly sets mtk_dsi_clk_hs_mode(dsi, 0)
+> so that DSI panels with MIPI_DSI_MODE_LPM can transmit initialization
+> commands in Low-Power mode during their prepare() callback. Enabling the
+> HS clock unconditionally in mtk_dsi_bridge_atomic_pre_enable() overrides
+> this before panel prepare() runs, causing command transmission to fail.
+>
+> Only enable the HS clock in mtk_dsi_bridge_atomic_pre_enable(), when
+> MIPI_DSI_MODE_LPM is not set, and restore mtk_dsi_clk_hs_mode(dsi, 1) in
+> mtk_output_dsi_enable(). This is a no-op for non-LPM bridges.
 
-On Sat, 14 Nov 2026 16:33:35 +0800, Damon Ding wrote:
-> Picked from:
-> https://lore.kernel.org/all/20261030064905.2248999-1-damon.ding@rock-chips.com/
-> 
-> The 'rockchip,rk3568-edp' display binding, the RK3568 support for the
-> Analogix DP bridge driver and the RK3568 support for the Rockchip
-> Analogix DP driver have been applied to the drm-misc-next tree.
-> 
-> [...]
+Applied to mediatek-drm-fixes [1], thanks.
 
-Applied, thanks!
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
+log/?h=3Dmediatek-drm-fixes
 
-[1/4] dt-bindings: phy: Add rockchip,rk3568-edp-phy
-      commit: f634e1dd3528fe4341ddc7fa44ad448821afbd21
-[2/4] phy: rockchip: Add support for Naneng eDP phy
-      commit: ecf8bf37197560c0dd8222ae2dc8791b6271c9f8
-[4/4] MAINTAINERS: Add entry for Rockchip eDP phy
-      commit: 3f63ca7ce197c661bbe53fc808d0cec444b40042
+Regards,
+Chun-Kuang.
 
-Best regards,
--- 
-~Vinod
-
-
+>
+> Fixes: 76255024cadb ("drm/mediatek: mtk_dsi: enable hs clock during pre-e=
+nable")
+> Fixes: 3e191eddbdcb ("drm/mediatek: mtk_dsi: Enable HS clock only at pre-=
+enable")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> ---
