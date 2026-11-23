@@ -1,63 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445904;
-	b=0lZBCIMA14aEFNy3pNBmFHMIG3gEGw0JC7ZZjbcb/UZbxzeQg5aRQWl8I9LWkEO6n1Aa
-	 lvGIgx59fpTjjykw7mMtHuUFdJI1qESeOatJBJia5N1BsMiWwrsoO0p7BQwmU/cr3x0Jo
-	 mcXWEFPIbmbnkUGDYFReVbjDDjTsnG26IkVdiDEMrVbB6c4nYLSsuZk5HcFN3HZ/DF9Pj
-	 Va/Zg9ivxXyHtml2NUd7n/A8hAfMwXAdWGOWe1kQssYW0MgTTlTSYiRik2U1j7bChz6US
-	 f1UL8T1aexeel3HfFcJ0DODHNJS3qjIfX5wBZrDjYVGswLHpNRM889WDP9XO/BfXpjg==
+	t=1795445919;
+	b=zDdjNIfXe+YUDWUtz3cr0IX+D2VfHrm1qbVbVOzaNKz1yHLrZG41dLR57WnNkFJhaRcc
+	 4aWfnLeT82XBhs0APmWTtOnLGQ/d/5RfOZTvGRTDPbxQAh5Fdb1lsJbjL6tc1kZ0vriUV
+	 Cft6JL1n0Q23tEtZNAPB4TNTEO2kIEC/0kL0uU2ba4Q+AedckD8NdZ7yzy7wwIBvijtfJ
+	 L/TGg7dVks0ULpJ9YXo80zNGSwI5cjpTjV/uxXXXSgn5Tik6cbZGJhW/bvb4qLamo86gU
+	 XRSP8WoL9cjy6xGkUpDRDevB1WWawcDnQ1o1tSTm2Z5OR5eMCT2i+6a6M/9RtDo2B7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445904;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=JHXeULIVQNGIXkg/gHNyxlKSvwy0n+U/9gspP4hp0zQ=;
-	b=CMnG/hypH0AbLZzVoGEaJ1Dwr3O7YewCbQcwQH3b9IeNNNGkLUTPCDg2HeUOgwMAliA7
-	 Mekrlv10N0KnueOjhNoplSRvJ729MUjE6Ldhs5I8n1swbJXb7FXOuCKgPc2OeAZVTWeUG
-	 LfpTIKhSPIt3buRmwIo4fPCdIBk+n3QqiCOdfV34InFnEQUhjfB8hLsUmEY/XbxxN3YKA
-	 TL7u3ERpHjPq3g8h5rjtNXG6jYsVlj/upW92v5v+3eSwY93w80V24/2tMcxrPQsv++qWZ
-	 gUttAW48pkjqFC5ePxK2+bPcSnm8zHFBrtMKABgXWl+YunCqhMCZGfh/HIorOw6FY9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445919;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=ZQvS7z6b0AGal/0iSKLTcxhwhRK+gpszSACJINCNrvk=;
+	b=wL4FqUV8YdUNm4fNogeIYLYUYVMkQjbpkaUuOOeNjQm1G9RGWVTGp/h7A27+y42aQRP9
+	 F2C/wHHsHeyBQDDUeXVhI+/0sVVtxBmkX3GpgiktqsVIMsEWXhaSrSPn30vwoDqmhri+3
+	 shnTlkD5qkISyxVXexBhxFC8unWyej2oo5gS1fMwEEp/0F/q7pzCP1o0RrAffyTL+QAFR
+	 ZZl+1kLa9FSjjcQAqYi3cFVhOck510rHcOOCgLbveVtjj4DVkhexMU0rNheGD5aaoZkyf
+	 natBnrAlH5k6GKGujD4FN/kj9iIrTDuM5bHHPi6HIZp8sWblZdjQCwKMmF9eDImLUbw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="h9eopam/";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=anKXnO0N;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=LM5pEx9X;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F7F9606A6AF;
-	Mon, 23 Nov 2026 14:58:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 711DA606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:58:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 711DA606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h9eopam/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AA791F000E6;
-	Mon, 23 Nov 2026 14:58:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795445903;
-	bh=JHXeULIVQNGIXkg/gHNyxlKSvwy0n+U/9gspP4hp0zQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=h9eopam/9BaQtoy2o9kETxgS9rKnidAWxZI6v6Zl2EQlCIKJJiyaMdmtsKf+FjChb
-	 7aDlFzZReYBzKrU4SbMH8Sz0AyNafHJmq7SOMWqnEg67GALkaaTSmTmoCUN8Rig5E5
-	 /sznT28wrFpm9TWFExhKLqjmQj6Pw0pvMQrp2fEba9mtoyebJ+YFShr5Wk0/nUiM1C
-	 Hult1fQc0aenaz6jetYgETtqKTsEQSO9SEJHQzduEYDsZzI6ddn24upJmn63XgBuzh
-	 KcYchdDwhQg4PbSYf5eNWBopIdQEe9N58wVVmcUEecLVq+h4mPuegyCdL4t+JWBOkB
-	 xO5xOsF0AFH2w==
-Subject: Re: [PATCH net-next v3 8/9] net: sparx5/lan969x: scale the TAS guard
- band with the MTU
-From: netdev-bot+sashiko@kernel.org
-To: daniel.machon@microchip.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, Steen.Hegelund@microchip.com,
- UNGLinuxDriver@microchip.com, richardcochran@gmail.com, linux@armlinux.org.uk,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, robert.marko@sartura.hr,
- horatiu.vultur@microchip.com, jensemil.schulzostergaard@microchip.com,
- horms@kernel.org
-Date: Mon, 23 Nov 2026 14:58:21 +0000
-Message-ID: <179544590174.3135.13752120910636082921@kernel.org>
-In-Reply-To: <20261120-sparx5-mtu-change-v3-8-55c272fe1acc@microchip.com>
-References: <20261120-sparx5-mtu-change-v3-8-55c272fe1acc@microchip.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=anKXnO0N;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=LM5pEx9X
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795445917;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZQvS7z6b0AGal/0iSKLTcxhwhRK+gpszSACJINCNrvk=;
+	b=anKXnO0N2W9sMKqDN4tZKsgxjnrO7vf2kg5z7ITBfn+8E4IabNpxWI3GGWE6btVoTVVxHX
+	xttlfXMkxUhpYlR7f/lkap5LIOSsVsuV6kRLXx07rLDBb9JzxsvchbyP+Voinw1oOwvlrQ
+	LhzG0/TkcFb87AHPUjMiFYroi9NbpQU=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-88-P3Kbmg1RPYOrRKEeMcaKyg-1; Mon, 23 Nov 2026 14:58:35 +0000
+X-MC-Unique: P3Kbmg1RPYOrRKEeMcaKyg-1
+X-Mimecast-MFC-AGG-ID: P3Kbmg1RPYOrRKEeMcaKyg_1795445913
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-49953abe51fso23612125e9.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:58:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795445913; x=1796050713; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZQvS7z6b0AGal/0iSKLTcxhwhRK+gpszSACJINCNrvk=;
+        b=LM5pEx9XH0O/dMDqIT/nDZ+yH036ZgtFkFTZ0sg9Fbkw//noqGopspakB6mTlKYTGo
+         OTBZ3f3za/z+tSf4px/M6sM1p7dr047P/djP3hY9p/5j/a7sbPAGWTVXnSjm/i9lKE48
+         4lMBaCjIzl7c+CEmyBRRURLBuR5A/jomPJlxp1DnQmeixWyvgqd37eF59YwNWw19tRoG
+         aptp8gov7UR6WIhcVLZAjJ0zVkM3bw0WpNOwmTAYpjNfP+YpJJK7TMJyz4lN8Hrxd+Xt
+         Ou4frgDTFzlg6yTv/c6ggWDRVfrKLULEMR7De7iceHSALxg2sIS8mBNs3YprkOz3B6FR
+         hUtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795445913; x=1796050713;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZQvS7z6b0AGal/0iSKLTcxhwhRK+gpszSACJINCNrvk=;
+        b=etYwxFSnG6rDDKiH23/o/A23l0Odu80ra5ybT2/OcT99HsNDYJFC2ERzqSTGrh2BW6
+         8mLjsvX+H4BI40K87v4ugzs/tA21CkE+/6TvP/bSHCHyA/lo8fAwASzA4CL0nsiqe9WT
+         DbiXK0Z2do3Krtuzg8XEhLSX2ilMiKvfBpXswoecv/ZBtB8sst312hBY3/p2454CL4Jc
+         t9CsgorS06MZm2RXR1KeM0P2dvPB7O/GfgvUznsROJbodOjiBlJ6Gv5n/SCbT11r8By/
+         kbr1w44ZXA5fBVyoMJ9QaM8jq9ORzkU7E1aAWjN9agTnbMRNGYjmw5dwClV6BV73xe0Z
+         n4kg==
+X-Forwarded-Encrypted: i=1; AL+hErGSBp39qyRRBJYuACkgkdb17PeBa2to9VXD3WWXjbJoxHBGWZ12jwGXm9Aas9JHHEB8yPAxk4eavurwyPA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9CjXI3kzQvDqSmGMcEonf2TAsL9xjoAblxLQ5m4+UaoOenFVkF
+	zM0bvgOLaZ/xfPrx7zLTxqNW8uJchYqC59Wt+bOM0sKqs8pK7jOHdO5B6v58+ke88usWHJvym2Y
+	i3pzKM0yFmpAVWdmZHSZJC64PSBdqMUkbnBPZAzXO4m4xIcTtpOzFK11adt+yCrDpWQ==
+X-Gm-Gg: AZFdTZflj/EP3a99c3qdQ6awh8z0BW49e3ZL9gSSfeESHPzD04OcOms45js3lmy8f4v
+	Q0nOD014jh0B5AUSIdtq7a4HURa+OV6kSMtEMPS8fas9AKMaFx4AYZUUn2T9WNIFvhbXe88FEVX
+	Z10Rfa6cVcXlGuhwWE5bZVp3H0f8/pBXnEnJBuRaDmpwWUMMik+ML9yAPSKlgDD24n3zBczIL+l
+	X2SBIMmrTVUL4XnFOYjGH5rWmlO5sKDaRUIi41kme33MSWKTsuzB2FeaZqV0pPYyYfmrPWtUpD7
+	L4VePwSUWgygIGBHhZk6F3TJ4Vypsj+lJs8p9Zd2sMULxCtjk4O93GillcdDN84ncmV2ALZK4RU
+	J0nEcyErURO5+oMYcNCrrDYYO3Dl+Z+M/63QESCZjnSCTgXQUUwfdZlb/KfaklDscCL5Ie4IT4L
+	dHL2YZc2kpDKP5x18ffxzxJIIGqnNfPlK7Kxmg2QExiUsX
+X-Received: by 2002:a05:600c:1c1b:b0:4bb:87be:c138 with SMTP id 5b1f17b1804b1-4bb8893e021mr266098425e9.32.1795445912676;
+        Mon, 23 Nov 2026 06:58:32 -0800 (PST)
+X-Received: by 2002:a05:600c:1c1b:b0:4bb:87be:c138 with SMTP id 5b1f17b1804b1-4bb8893e021mr266098035e9.32.1795445912294;
+        Mon, 23 Nov 2026 06:58:32 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c248b75sm23206193f8f.54.2026.11.23.06.58.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 06:58:31 -0800 (PST)
+Message-ID: <15ef5667-23d6-4c8d-8cb9-ac3853677c81@redhat.com>
+Date: Mon, 23 Nov 2026 15:58:30 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,146 +112,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3] net: sparx5: check DT port reg against chip
+ port count
+To: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>,
+ Daniel Machon <daniel.machon@microchip.com>,
+ Steen Hegelund <Steen.Hegelund@microchip.com>, UNGLinuxDriver@microchip.com
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>
+References: <20261118162156.17688-1-wanghr2026@mail.zgclab.edu.cn>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20261118162156.17688-1-wanghr2026@mail.zgclab.edu.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On 11/19/26 10:46, Haoran Wang wrote:
+> From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+> 
+> mchp_sparx5_probe() reads the DT ethernet-port 'reg' property into
+> portno, which sparx5_create_port() later uses to index the fixed-size
+> sparx5->ports[] array:
+> 
+>      sparx5->ports[config->portno] = spx5_port;
+> 
+> The value is never validated, so an out-of-range 'reg' (runtime overlay,
+> corrupted or attacker-controlled DTB, kexec-supplied or bootloader
+> fixed-up DT) turns probe into an out-of-bounds write.
+> 
+> Skip port nodes with an out-of-range 'reg'.  lan966x_probe_port() has
+> the same bounds check but fails probe with -EINVAL; skipping here keeps
+> the remaining valid ports working.  The bound is the per-chip port count
+> from the match data (sparx5->data->consts->n_ports), so lan969x, which
+> shares this probe path and has only 30 ports, is bounded correctly as
+> well.
+> 
+> Found by a scripted scan of of_property_read_u32() call sites used to
+> index fixed-size arrays, followed by manual review. Verified at runtime
+> on a pristine v7.4-rc2 arm64 QEMU virt machine (inline KASAN,
+> CONFIG_SPARX5_SWITCH=m): an out-of-tree module supplies only a
+> malicious DT overlay, the unmodified in-tree driver performs the store.
+> reg = 15839 yields a KASAN use-after-free, reg = 0x20000000 a wild
+> write 4 GiB out (paging oops), and reg = 65 silent in-struct corruption
+> with a later NULL oops. With this patch all three are skipped. The PoC
+> and full logs are posted in the thread. Not tested on real hardware,
+> QEMU virt (cortex-a57) and compile testing only.
+> 
+> Fixes: f3cad2611a77 ("net: sparx5: add hostmode with phylink support")
+> Signed-off-by: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+For future memory: please send new revisions in new threads.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Thanks,
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Paolo
 
-- [Medium] sparx5_tas_gb_update()
-  (drivers/net/ethernet/microchip/sparx5/sparx5_tas.c) takes the largest…
-- [Low] In sparx5_tas_gb_update()
-  (drivers/net/ethernet/microchip/sparx5/sparx5_tas.c:738) the guard…
-
---
-
-net: sparx5/lan969x: scale the TAS guard band with the MTU
-
-This commit programs the TAS guard band (HSCH_TAS_QMAXSDU_CFG) for all
-ports and traffic classes. The value comes from the largest MTU of all
-ports, plus the Ethernet header, FCS and two VLAN tags, rounded up to
-64 bytes. It adds sparx5_tas_gb_update(), calls it from sparx5_tas_init(),
-and makes it available for use when the MTU changes.
-
-> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c b/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
-> index ec80bc69371ab..32e502bc4f18f 100644
-> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
-> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
-
-[ ... ]
-
-> @@ -718,6 +721,40 @@ int sparx5_tas_disable(struct sparx5_port *port)
->  	return err;
->  }
->  
-> +/* Size the guard band of all ports for a frame of the largest MTU of all
-> + * ports, as a port can transmit frames forwarded from any port.
-> + */
-> +void sparx5_tas_gb_update(struct sparx5 *sparx5)
-> +{
-> +	u32 max_mtu = 0, gb;
-> +	int i, tc;
-> +
-> +	for (i = 0; i < sparx5->data->consts->n_ports; i++) {
-> +		if (sparx5->ports[i])
-> +			max_mtu = max_t(u32, max_mtu,
-> +					READ_ONCE(sparx5->ports[i]->ndev->mtu));
-> +	}
-> +
-> +	gb = DIV_ROUND_UP(SPX5_HW_MTU(max_mtu) + 2 * VLAN_HLEN,
-> +			  TAS_QMAXSDU_UNIT);
-
-[Severity: Low]
-Should the 8 byte preamble/SFD be counted here?
-
-The guard band is sized from the L2 frame only, F = mtu + 26, rounded up
-to 64 bytes. A frame of F bytes that starts just before the guard band
-needs F + 8 byte-times on the wire to finish.
-
-When F mod 64 is 0 or 57..63, the rounding leaves less than 8 bytes of
-slack. For example, mtu=2022 gives F=2048 and mtu=9190 gives F=9216, both
-with no slack. mtu=4000 gives F=4026, with 6 bytes of slack.
-
-Suppose the HSCH turns QMAXSDU_VAL * 64 directly into time at LINK_SPEED,
-without adding L1 overhead itself. Could a maximum size double tagged
-frame then overrun the gate close by up to 8 byte-times? The default MTU
-of 1500 is fine (1526 vs 1536).
-
-For comparison, felix/vsc9959 adds L1 overhead explicitly when it
-calculates the guard band. The tree doesn't show whether the
-sparx5/lan969x hardware adds the preamble time internally.
-
-> +
-> +	mutex_lock(&sparx5->tas_lock);
-> +
-> +	/* Each port uses the TAS profile of its own number */
-> +	for (i = 0; i < sparx5->data->consts->n_ports; i++) {
-> +		if (!sparx5->ports[i])
-> +			continue;
-> +
-> +		for (tc = 0; tc < SPX5_PRIOS; tc++)
-> +			spx5_rmw(HSCH_TAS_QMAXSDU_CFG_QMAXSDU_VAL_SET(gb),
-> +				 HSCH_TAS_QMAXSDU_CFG_QMAXSDU_VAL,
-> +				 sparx5,
-> +				 HSCH_TAS_QMAXSDU_CFG(i, tc));
-
-[Severity: Medium]
-What happens to taprio schedules already offloaded on other ports when
-this loop rewrites the guard band?
-
-The loop writes the new guard band into every port's profile for all 8
-traffic classes. That includes ports whose lists are already pending or
-operating. sparx5_tas_init() sets ALWAYS_GUARD_BAND_SCH_Q, so the guard
-band applies to every class:
-
-sparx5_tas_init() {
-    ...
-	spx5_rmw(HSCH_TAS_CFG_CTRL_LIST_NUM_MAX_SET(list_num_max) |
-		 HSCH_TAS_CFG_CTRL_ALWAYS_GUARD_BAND_SCH_Q_SET(1),
-    ...
-}
-
-Later in this series, "net: sparx5/lan969x: add support for changing the
-MTU" calls sparx5_tas_gb_update() from sparx5_port_change_mtu(). After
-that, "ip link set dev ethB mtu 9000" raises the guard band on every port
-from 1536 to 142 * 64 = 9088 bytes. That is about 72.7 us at 1 Gbps and
-727 us at 100 Mbps. At the maximum MTU it reaches 219 * 64 = 14016 bytes.
-
-Take a schedule on ethA with a 20-50 us window at 1G. It works with the
-1536 byte guard band (about 12.3 us). The commit message notes that the
-scheduler starts no frame inside the guard band.
-
-After the MTU change on ethB, wouldn't that window never open? The queue
-would then fill and tail-drop, and no error would be reported.
-
-sparx5_tas_gb_update() returns void and doesn't recheck the programmed
-lists. sparx5_tas_enable() checks intervals only against
-TAS_MIN_CYCLE_TIME_NS and TAS_MAX_CYCLE_TIME_NS, not against the guard
-band, so such schedules are also accepted without a warning:
-
-sparx5_tas_enable() {
-    ...
-		if (interval < TAS_MIN_CYCLE_TIME_NS) {
-    ...
-}
-
-The taprio max_sdu[] values, which correspond to this register, are also
-ignored. So the guard band can't be limited per class.
-
-felix/vsc9959 handles this in vsc9959_tas_guard_bands_update(). It
-recomputes the per-TC QMAXSDU from the schedule's minimum gate lengths
-whenever the MTU or the schedule changes. It also enables oversize
-dropping, so short windows can still carry smaller frames.
-
-Using the switch-wide maximum MTU seems reasonable, since ports forward
-and mirror frames from each other. The concern is only that running
-schedules can stop transmitting without any error.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-sparx5-mtu-change-v3-0-55c272fe1acc%40microchip.com
