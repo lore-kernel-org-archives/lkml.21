@@ -1,93 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795414399;
-	b=e7hnL9ERSA8oLirpbaITmjZwaFCVTSVPj5/7QP55cDdzgfZp+HvemZhszpBsDkCkWADh
-	 ZNRdfZb3E3/2HzC1HkQmm4BBJsg9sbbT2RyTQX31fdtw5Jf/kGTm/pdZp6zmXfrVJRmHq
-	 1+RBoZon0xkIo3mT/eLCqNRgTB5Lh1gzeeaL5jGMiz5RFUHjEWycpPhNkAufnreJSvdDp
-	 NHiTAivXrzIkbaOwYYK8QmNhC8t/H6+ArW2qdgJGqegD/nh1YHCqsE7MUDXbDbRInWpzn
-	 2gwfky3a/J0niBI01EVbuXhXgADsIPA83w3xmhL4WOrGZEPqnucKKM+pfjXp9CmjrkQ==
+	t=1795414412;
+	b=NstyulCVVVneldUk3jeZwTTyNDDS9V4NnDOS1xDSf6KuvaAHpURoyL5c4Nd3dWdTOWA7
+	 sA/3NBf/NJPTLkK94I1Ecctprwhsk89aOfeji2GXK4qv2jLqB5Tvj4De4QyXJM6FpfdMQ
+	 dBpNG3cihXIaMbGlwzm0sg1LE+GYh0cNA8qC6WaWUBTbJkEcuDvOdo8F8phKZ641OT7as
+	 A0g+FopaPq6kFivo3FCAviO3h7/p3pnUrpA11S3QahXA2Q4WZnXMdavJ0x7uY4UZlG+BK
+	 bxq5eYYKHfG6k/P30Xap8TYhU51L3am5cKmIO5cse62OMOq9qsAGAWd5MgO7ruM1MSQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795414399;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=0N7YienSVgGQFxcgNWuK1q2ts4qQJpa04K9gom3nhoA=;
-	b=vw4zV91SVvUerK+XanhI9p5MA4VqFbg2UUKs43g4PVAjUm/jZtIbZrsLqeqrsbn5vRIG
-	 Bb/I+6KNH01vxpivK+YYJteVsMiQDNYdJ5KwgpZDZvHxtMuNKixRaeDM71zNW9n0E1laE
-	 3U9QYsODcEo/3Ic8bJIae+DW5gtbnQ4Ix8BpMeq3NXKW1jT0QK1QGxmj2GWVfe78nCHJS
-	 8a1EbnVX3Ea9NEuATaThJC8+Y7VOJb6ki+O5PhBSogktdx0mnsti0/eYddwyqcr5cbKS5
-	 MF5onb0owf5b2Q9O6HzfsuzEZ/qwdSwS5F9h875tR71JncwZ0+QsXIzIOCuoMCWxn3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795414412;
+	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=ZWjueH6EuZn1xYNyYWbihZE5Mj/7NmXTCnPzzqgLWwc=;
+	b=KFanEs6RyKbUBdokrk0TQd3ybbMQei50uxwfTP8hD54bpYyBVyirhB8Bs58WdsllX8xq
+	 6CrFQwXaqvR4L3YnbzUl8TmVorCB7jZ15sACWfSH93E6O+AeuMhwgmtpuxx4h+ynn26l2
+	 YNwdMjMoKS6thWaxhgy6QnGFKo1OJlCsLU6jN/ZsHAIt89nT4+8opAIa25EXmbM0WbT/M
+	 iqNtzVLv0F8cd04KEFNYQdSbgelWfoZTRmy4WoRUn16PWnYuHUvX7uKT2L5XE/wnM6CRt
+	 lV80xWyo58u2YkybAYSCVSJIZRKimQNs7Ze5ef21mlaETbcLpUIABKWmWf/qEr9AWpw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LFRV01aJ;
-	arc=none smtp.remote-ip=74.125.82.171
-Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=BIuvXjRF;
+	arc=none smtp.remote-ip=117.135.210.4
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8CF7606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:13:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8CF7606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23FC2606A31A;
+	Mon, 23 Nov 2026 06:13:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23FC2606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LFRV01aJ
-Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-3282db206d3so8872010eec.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:13:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795414398; x=1796019198; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=0N7YienSVgGQFxcgNWuK1q2ts4qQJpa04K9gom3nhoA=;
-        b=LFRV01aJZ928UOLxtn3AwpeoQyM7QlLD+7FOoyteQ1ImcG8cp0kL6t5Gz/pxFC1j1Q
-         3mOu+DHuYYifyjLaIEz5gsPajo53med11ulGky4DEt0YeMqXH/JEos3L3D+c4oPRL015
-         sCQh2Ba9EwLNu3CYyLkRGZngiBegROhZZPqYkRzO5o9BqxBtgOIZXl+BKyUNZpOYB+7C
-         5x+BBkrBHbutaNdF2bRZapnU2964h1pbx8Ciu/W6CDBoF/1uxFa+62uc6zBxnzOGS8BJ
-         s64EqiXX+ANTjOYZYuA9ExCcw+3pDgbv6c1vKdNo35TLcTysA7xAhwaWqLNGeQS56wV6
-         2b6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795414398; x=1796019198;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0N7YienSVgGQFxcgNWuK1q2ts4qQJpa04K9gom3nhoA=;
-        b=fRDNoqQfddmzsmGYqDDUMqx9IENw/o8mI40DDhN3FfHG9WuzC8nS2CSsXc0/bYb5QN
-         UZ0P9+JXicP9+9lO/TucSG3BMSmmHT5AoBt6YyU3B/IOCmdT6AzU4GEDyCxHy1BcQYN0
-         xVusoZN1TUjsZ+lqfxeA+QyK0N5hRn4chN0f8OkODo5Pq9kcqrvc2dE3Of0m/xDhMY8N
-         YxHbGa892JI8oFLlyj3HXKE0jizuQkp+6HtCufH1CmaRef0cRZNQ5NBFOSmFn/7WzR1y
-         kkwTIOd9Vy+rzzs5s40BXEDe+c1hwsVF33tpWScSuagftRdP0y8RSpbgSgJdK4T9V/H9
-         K4ZA==
-X-Forwarded-Encrypted: i=1; AL+hErFjlS45OFoQL3GyTXZ/B2/y5lv29DVahkSNWh+UA2aCflNqX41ZvcbGvSRoO5ZT+6XUr28EHNYUCqvYkI4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ElKsMNRlKm/JXxJ8pOldbkIELbfe2xmzJzgq4qwJrtUP2t8qm
-	QZZuX7sO1nFuYnfslF5Llk9tOdpJcSFgK3syERO7yHzygVkHbg2gU5ko
-X-Gm-Gg: AZFdTZclfrWtkzpUkjgShcrLEMR0iiBzKfuXswTxPfKu9ea+UInsmlWrT/7j5KOllWl
-	iqPSdjvUkzWAJ0ipMdpTsKrOXhfZKTReUJudgPsczjyjek7BTaGbKcoWfqCrCjFtYVrRBCD4UHr
-	IS9NnWnGqUuGfm3l22E0Dnm7yj/VVw2dDHkt+TdsQ5TVZpyhHjn/sPNNebje0+fVFzlk5A6hs8k
-	3Y6el+/TxDMrm8Noc0VHV95A0tzsg99/zPjseYP7/EV767VbwG2pFxuOPxPYsV5L+dOzEY09RtU
-	k6thbfriWujReJO3X/S32ygtDaV2T0JZVN3UUTl0+YtTj+lmQY3MpCSREeDCx/AnrJhQe3EyrXp
-	x9FQfeaA+iOQcWfMDAISLA+CvT194b9JbFOq/akW0ugVM/d4QdlCP8ld1mVMYKGgHnJXH7aMRto
-	/CPKTLC3Bcxj/jQad25yT43loUx8mPKQ+ZIl96WPfNhA6MI6JxLDvOPHIJBHg2ZmqdNX/tyvaT0
-	me+S7VhdmDn1pRdODRN6fxEKINCLFIqMt/P9OVu5YSQR4gLlhQOYc0wr8JU++a8tsEavd0X8qBj
-	EQDzyn2tfZhg/h7RUOxEhhy7ef8gtiIL1CpdljyJCKvIjexZ8Bm8iI/JdPE+MFqkn2GhbYw=
-X-Received: by 2002:a05:693c:6205:b0:386:a498:3ab1 with SMTP id 5a478bee46e88-386a4983cc5mr5716537eec.25.1795414397956;
-        Sun, 22 Nov 2026 22:13:17 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd46c5sm38645290eec.11.2026.11.22.22.13.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 22:13:17 -0800 (PST)
-Date: Sun, 22 Nov 2026 22:13:14 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Kim Kyuwon <q1.kim@samsung.com>, Evgeniy Dushistov <dushistov@mail.ru>
-Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>, 
-	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] Input: max7359_keypad - drop platform data support
- and style fixes
-Message-ID: <awPZcfJPvdseLBsE@google.com>
-References: <20261112065059.1802480-1-dmitry.torokhov@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=BIuvXjRF
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=ZW
+	jueH6EuZn1xYNyYWbihZE5Mj/7NmXTCnPzzqgLWwc=; b=BIuvXjRFGdLp543amF
+	vOMDs1eB+NGtRGH+U9R8UPTHd13hsp6O/6DnG+lvQshkKtUFyBu1suSp5D3r2DYI
+	IH/1svFnpnmt15oeY3gb01pWgDYO4XWgF73jBisLBqtZYXvWjcWFJoBJK7WBmZjd
+	C74xo4crjnnLlm3E2iCqvkEq8=
+From: Alan Pluto <alanpluto@163.com>
+To: platform-driver-x86@vger.kernel.org
+Cc: mpearson-lenovo@squebb.ca,
+	derekjohn.clark@gmail.com,
+	i@rong.moe,
+	W_Armin@gmx.de,
+	corbet@lwn.net,
+	skhan@linuxfoundation.org,
+	rdunlap@infradead.org,
+	hansg@kernel.org,
+	ilpo.jarvinen@linux.intel.com,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] platform/x86: lenovo-wmi-other: Add raw GetDataByPackage interface
+Date: Mon, 23 Nov 2026 14:11:20 +0800
+Message-ID: <20261123061120.18740-1-alanpluto@163.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261116040532.154928-1-alanpluto@163.com>
+References: <20261116040532.154928-1-alanpluto@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,23 +68,346 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261112065059.1802480-1-dmitry.torokhov@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wD3n5Qd2QNrVlNJKQ--.51074S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3KFW8GFyfCw1xuFy8XF18Zrb_yoWDArW8pF
+	s8Ca4rJrZ5Kr17Ga4xCF12vwnY9w48Zw15Wry7WF1jkF1Iyr95XF1FyFWvvrW7XrZrGw1F
+	qayUKF45ur4DWrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jQ0edUUUUU=
+X-CM-SenderInfo: hdod01poxw0qqrwthudrp/xtbC0R8ZDWsD2R-PHwAA3k
 
-On Wed, Nov 11, 2026 at 10:50:56PM -0800, Dmitry Torokhov wrote:
-> This short series drops unused platform data support from the
-> max7359_keypad driver so it relies exclusively on device properties via
-> matrix_keypad_build_keymap(), and cleans up register bit definitions and
-> argument alignment.
-> 
-> Thanks.
-> 
-> Dmitry Torokhov (2):
->   Input: max7359_keypad - drop platform data support
->   Input: max7359_keypad - fix coding style issues
+Lenovo's userspace utility uses the Other Mode WMI GetDataByPackage
+method (99) to check device readiness. Expose the method through debugfs
+so the firmware request and response can be inspected on Linux without
+adding a stable userspace ABI.
 
-Applied the lot.
+The interface is disabled by default and can be enabled by passing
+enable_get_data_by_package=1 when loading the module.
 
--- 
-Dmitry
+Signed-off-by: Alan Pluto <alanpluto@163.com>
+---
+Changes in v2:
+- Replace the character device with a debugfs file, disabled by default.
+- Allow one open per WMI device and require a single read for the response.
+- Use scoped locks, lockdep checks, automatic buffer cleanup, and the
+  WMI helper's minimum response size check.
+
+ Documentation/wmi/devices/lenovo-wmi-other.rst |  12 +-
+ drivers/platform/x86/lenovo/wmi-other.c        | 208 +++++++++++++++++++++++++
+ 2 files changed, 219 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/wmi/devices/lenovo-wmi-other.rst b/Documentation/wmi/devices/lenovo-wmi-other.rst
+index 011054d64eac5b601333373c4d405f9c5117ffc2..42e1525a8852bd7c8ddc04cc4047b1f09c5b770f 100644
+--- a/Documentation/wmi/devices/lenovo-wmi-other.rst
++++ b/Documentation/wmi/devices/lenovo-wmi-other.rst
+@@ -33,6 +33,15 @@ under the following path:
+ 
+ Additionally, this driver also exports attributes to HWMON.
+ 
++GetDataByPackage diagnostics
++~~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++The driver does not create the diagnostic file by default. To enable it,
++pass ``enable_get_data_by_package=1`` when loading ``lenovo-wmi-other``.
++The file is at ``lenovo_wmi/<WMI device>/get_data_by_package``.
++Not all devices support the method. Use only commands whose behavior and
++side effects are understood.
++
+ LENOVO_CAPABILITY_DATA_00
+ -------------------------
+ 
+@@ -107,7 +116,8 @@ WMI interface description
+ =========================
+ 
+ The WMI interface description can be decoded from the embedded binary MOF (bmof)
+-data using the `bmfdec <https://github.com/pali/bmfdec>`_ utility:
++data using the `bmfdec <https://github.com/pali/bmfdec>`_ utility. This older
++example lists ``Max(40)`` for GetDataByPackage; newer firmware uses 100 bytes.
+ 
+ ::
+ 
+diff --git a/drivers/platform/x86/lenovo/wmi-other.c b/drivers/platform/x86/lenovo/wmi-other.c
+index bd64e7b44669db684145298ae088dd2c7f539d29..827b4215c612fbfc052bbadff0672e68e65517f0 100644
+--- a/drivers/platform/x86/lenovo/wmi-other.c
++++ b/drivers/platform/x86/lenovo/wmi-other.c
+@@ -27,13 +27,16 @@
+  */
+ 
+ #include <linux/acpi.h>
++#include <linux/atomic.h>
+ #include <linux/bitfield.h>
+ #include <linux/cleanup.h>
+ #include <linux/component.h>
+ #include <linux/container_of.h>
++#include <linux/debugfs.h>
+ #include <linux/device.h>
+ #include <linux/export.h>
+ #include <linux/firmware_attributes.h>
++#include <linux/fs.h>
+ #include <linux/gfp_types.h>
+ #include <linux/hwmon.h>
+ #include <linux/idr.h>
+@@ -41,9 +44,12 @@
+ #include <linux/kobject.h>
+ #include <linux/limits.h>
+ #include <linux/module.h>
++#include <linux/mutex.h>
+ #include <linux/platform_profile.h>
+ #include <linux/power_supply.h>
++#include <linux/slab.h>
+ #include <linux/types.h>
++#include <linux/uaccess.h>
+ #include <linux/wmi.h>
+ 
+ #include <acpi/battery.h>
+@@ -90,6 +96,8 @@ enum lwmi_feature_id_psu {
+ 
+ #define LWMI_FEATURE_VALUE_GET 17
+ #define LWMI_FEATURE_VALUE_SET 18
++#define LWMI_DATA_PACKAGE_GET 99
++#define LWMI_DATA_PACKAGE_INPUT_MAX 100
+ 
+ #define LWMI_FAN_ID_BASE 1
+ #define LWMI_FAN_NR 4
+@@ -141,6 +149,8 @@ struct lwmi_om_priv {
+ 	struct device *fw_attr_dev;
+ 	struct kset *fw_attr_kset;
+ 	struct wmi_device *wdev;
++	struct dentry *debugfs_dir;
++	atomic_t package_opened;
+ 	int ida_id;
+ 
+ 	struct lwmi_fan_info fan_info[LWMI_FAN_NR];
+@@ -156,6 +166,23 @@ struct lwmi_om_priv {
+ 	bool bh_registered;
+ };
+ 
++struct lwmi_package_response {
++	__le32 data_size;
++	u8 data[];
++};
++
++struct lwmi_package_file {
++	struct lwmi_om_priv *priv;
++	/* Protects the pending response on shared descriptors. */
++	struct mutex lock;
++	struct lwmi_package_response *response;
++	size_t response_len;
++};
++
++static bool enable_get_data_by_package;
++module_param(enable_get_data_by_package, bool, 0400);
++MODULE_PARM_DESC(enable_get_data_by_package, "Enable the GetDataByPackage debugfs interface");
++
+ /*
+  * Visibility of fan channels:
+  *
+@@ -1611,6 +1638,174 @@ static void lwmi_om_fw_attr_remove(struct lwmi_om_priv *priv)
+ 
+ /* ======== Self (master: lenovo-wmi-other) ======== */
+ 
++static int lwmi_package_open(struct inode *inode, struct file *file)
++{
++	struct lwmi_om_priv *priv = inode->i_private;
++	struct lwmi_package_file *state __free(kfree) = NULL;
++
++	if ((file->f_mode & (FMODE_READ | FMODE_WRITE)) != (FMODE_READ | FMODE_WRITE))
++		return -EINVAL;
++
++	state = kzalloc_obj(*state);
++	if (!state)
++		return -ENOMEM;
++
++	if (atomic_cmpxchg(&priv->package_opened, 0, 1))
++		return -EBUSY;
++
++	mutex_init(&state->lock);
++	state->priv = priv;
++	file->private_data = no_free_ptr(state);
++
++	return stream_open(inode, file);
++}
++
++static int lwmi_package_release(struct inode *inode, struct file *file)
++{
++	struct lwmi_package_file *state = file->private_data;
++	struct dentry *dentry = file->f_path.dentry;
++
++	kfree_sensitive(state->response);
++	mutex_destroy(&state->lock);
++
++	/* Unlike read and write, release can run after debugfs removal. */
++	if (!debugfs_file_get(dentry)) {
++		atomic_set(&state->priv->package_opened, 0);
++		debugfs_file_put(dentry);
++	}
++
++	kfree(state);
++	return 0;
++}
++
++static int lwmi_package_invoke(struct lwmi_package_file *state, u8 *data)
++{
++	struct lwmi_om_priv *priv = state->priv;
++	struct wmi_buffer input = { .length = LWMI_DATA_PACKAGE_INPUT_MAX, .data = data };
++	struct wmi_buffer output;
++	u32 data_size;
++	int ret;
++
++	lockdep_assert_held(&state->lock);
++
++	/* The tested firmware needs two calls before its response is usable. */
++	ret = wmidev_invoke_method(priv->wdev, 0, LWMI_DATA_PACKAGE_GET,
++				   &input, &output, 0);
++	if (ret)
++		return ret;
++
++	kfree_sensitive(output.data);
++
++	ret = wmidev_invoke_method(priv->wdev, 0, LWMI_DATA_PACKAGE_GET,
++				   &input, &output, sizeof(struct lwmi_package_response));
++	if (ret)
++		return ret;
++
++	struct lwmi_package_response *response __free(kfree_sensitive) = output.data;
++
++	data_size = le32_to_cpu(response->data_size);
++	if (data_size > output.length - sizeof(*response))
++		return -EPROTO;
++
++	state->response_len = struct_size(response, data, data_size);
++	state->response = no_free_ptr(response);
++	return 0;
++}
++
++static ssize_t lwmi_package_write(struct file *file, const char __user *buffer,
++				  size_t count, loff_t *ppos)
++{
++	struct lwmi_package_file *state = file->private_data;
++	u8 input[LWMI_DATA_PACKAGE_INPUT_MAX] = {};
++	int ret;
++
++	if (!count || count > sizeof(input))
++		return -EINVAL;
++
++	ACQUIRE(mutex_try, state_guard)(&state->lock);
++	if (ACQUIRE_ERR(mutex_try, &state_guard) || state->response)
++		return -EBUSY;
++
++	if (copy_from_user(input, buffer, count))
++		return -EFAULT;
++
++	ret = lwmi_package_invoke(state, input);
++	if (ret)
++		return ret;
++
++	return count;
++}
++
++static ssize_t lwmi_package_read(struct file *file, char __user *buffer,
++				 size_t count, loff_t *ppos)
++{
++	struct lwmi_package_file *state = file->private_data;
++	size_t len;
++
++	if (!count)
++		return 0;
++
++	ACQUIRE(mutex_try, state_guard)(&state->lock);
++	if (ACQUIRE_ERR(mutex_try, &state_guard))
++		return -EBUSY;
++
++	if (!state->response)
++		return 0;
++
++	len = state->response_len;
++	if (len > count)
++		return -ENOSPC;
++
++	if (copy_to_user(buffer, state->response, len))
++		return -EFAULT;
++
++	kfree_sensitive(state->response);
++	state->response = NULL;
++	return len;
++}
++
++static const struct file_operations lwmi_package_fops = {
++	.owner = THIS_MODULE,
++	.open = lwmi_package_open,
++	.release = lwmi_package_release,
++	.read = lwmi_package_read,
++	.write = lwmi_package_write,
++};
++
++static void lwmi_package_debugfs_remove(void *data)
++{
++	debugfs_remove_recursive(data);
++}
++
++static int devm_lwmi_package_debugfs_add(struct lwmi_om_priv *priv)
++{
++	struct device *dev = &priv->wdev->dev;
++	struct dentry *dir, *entry;
++	int ret;
++
++	if (!wmidev_instance_count(priv->wdev))
++		return 0;
++
++	dir = lwmi_debugfs_create_dir(priv->wdev);
++	if (IS_ERR(dir))
++		return PTR_ERR(dir);
++
++	atomic_set(&priv->package_opened, 0);
++
++	ret = devm_add_action_or_reset(dev, lwmi_package_debugfs_remove, dir);
++	if (ret)
++		return ret;
++
++	entry = debugfs_create_file("get_data_by_package", 0600, dir, priv, &lwmi_package_fops);
++	if (IS_ERR(entry)) {
++		devm_release_action(dev, lwmi_package_debugfs_remove, dir);
++		return PTR_ERR(entry);
++	}
++
++	priv->debugfs_dir = dir;
++	return 0;
++}
++
+ /**
+  * lwmi_om_master_bind() - Bind all components of the other mode driver
+  * @dev: The lenovo-wmi-other driver basic device.
+@@ -1693,6 +1888,7 @@ static int lwmi_other_probe(struct wmi_device *wdev, const void *context)
+ {
+ 	struct component_match *master_match = NULL;
+ 	struct lwmi_om_priv *priv;
++	int ret;
+ 
+ 	priv = devm_kzalloc_obj(&wdev->dev, *priv);
+ 	if (!priv)
+@@ -1708,12 +1904,24 @@ static int lwmi_other_probe(struct wmi_device *wdev, const void *context)
+ 	if (IS_ERR(master_match))
+ 		return PTR_ERR(master_match);
+ 
++	if (enable_get_data_by_package) {
++		ret = devm_lwmi_package_debugfs_add(priv);
++		if (ret)
++			dev_warn(&wdev->dev, "failed to create GetDataByPackage debugfs files: %d\n",
++				 ret);
++	}
++
+ 	return component_master_add_with_match(&wdev->dev, &lwmi_om_master_ops,
+ 					       master_match);
+ }
+ 
+ static void lwmi_other_remove(struct wmi_device *wdev)
+ {
++	struct lwmi_om_priv *priv = dev_get_drvdata(&wdev->dev);
++
++	if (priv->debugfs_dir)
++		devm_release_action(&wdev->dev, lwmi_package_debugfs_remove, priv->debugfs_dir);
++
+ 	component_master_del(&wdev->dev, &lwmi_om_master_ops);
+ }
+ 
+
