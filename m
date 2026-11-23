@@ -1,47 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795451050;
-	b=GKE2g5hsxqkRjSELF6dSi8GFs1d72rtu9bWkq3vtmp8oGLS1pz0mN4pgBy7IU0B3RyhH
-	 OgtQ+mM1902SjMorj5V8S/FmSV9dAXXRJb71/2ddHZ+JimakkqKeilLvC7LsNE0EhbVMR
-	 vHWtipw1M0vRl6RaxmBfuN+3eLl4ibBmpGFfDZ3SnfuOIg/ScQLeQH8novBbjGoBGdSEN
-	 tOsqyzoAip7AWDJb3nlCv0ZZSxprumr4szPY6zbgW8Nboszz/7qejm8nAefTmSXFpCPBX
-	 6WrgimmknKpDGqlBOTiuqE2geVn1D+N2cVacFcF3XYhL5IWI3T7er0X/GTRntHDa70Q==
+	t=1795451046;
+	b=cIMyrwO16xVhcpEZ2SUp4J4mMrkaEay3ap123rqrhpdmrs68/8LFhUCnIEE6nwug/ZH7
+	 Te6e0P4uvJLZ8O+mXw4EVs/2QaeHSsloqGd6LYPlB7JS7+IQma0Pq+1kfpWaC5yyqnovm
+	 PudfkESGoKLt8U5W2IFTME6/zMhhyYnwWw/dVIPL5B0LuY+ZHakyuweCxWWYLLEKMMM9A
+	 qSPKI2r+GpT7mDIDTpIWI/6H0sa/tzb7pxNc5TarOJqQM2qoGANJvyDXyVaUtQdF6zyQ5
+	 shl+JGccFF8lq5OoAflxcFZXeTi+kPUo4UKNekq1FcZhbs5E6QBciEhn/vz2umfArYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795451050;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=Hocg6r2Db135JYLEsNalRyOeUZY+BqePEKepI9oMCMo=;
-	b=Vy7Ddq24a4d/5VocX6p7/y7QI1qMrBXuB2VOSQWFeA7NqV9N/nGM2MFjbPHMYk+GKkGY
-	 AP0qPIeWWGvyrCgnxF1BjABwEREYBSneODwysGmFtHovrhR/gE/B6a0RCMybogj+VqmZE
-	 5Z3XIW9QH0fQTeY0F1Qfgf74FQlBBFJBWOAf5SEeflFK5/2VpVbiDXJF6KGUBkVTyvY2O
-	 tESAY+ubmaI1HxbNbTZ0CHDZC82+0rHwKZ6wMysMNOsqrDMhQgtXBLbsoJMG8g8fJ6OQo
-	 f7+bjbAXWkhYBCJ+y83PPI8HSPDdJ7STc0f4sDMBG/L9aRHEv8Ks8JX2caW0KCiUIBw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795451046;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=ME4azgngOCTJNfnpv6QdSj8+9zz0mmaxRAUYJ+dI6fs=;
+	b=V5ggBzkb7wfFCYzoWvifeTY7gz7aQcDUPVth0zRXxRls2WJ4WTpzmC8nN8GmGgUb3Ywv
+	 B2t/5e9GkSTJPmJaF0WISKUKsQHy8oLuS/cJbw8CiupfJW+uTUAJQ0qj7lSJuPNC/QiPP
+	 cssxYcoPy0WlBY8MUGAqquhbKXrKZC0simMdmmlZv+cXj15weiYbrpzbIFzbw3zQR6u9I
+	 OKsn70HcTsNTxZmh+D6/xTor7cSPTeBLGTj/uWzhlBz67LF1Um11jqre/rM0wMK3AEO0U
+	 caEzGzCJKJ/9cqYuEmIoQijLDvsgY4e7o0s7K7g9+e6KodC+6RcV4H//5Mhz/bB10EQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=an7Onk1C;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N0RRJX22;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF077606A33C
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:24:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C440606A685;
+	Mon, 23 Nov 2026 16:24:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=an7Onk1C
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E474F1F000D0;
-	Mon, 23 Nov 2026 16:24:02 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N0RRJX22
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 092631F0093E;
+	Mon, 23 Nov 2026 16:24:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795451049;
-	bh=Hocg6r2Db135JYLEsNalRyOeUZY+BqePEKepI9oMCMo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=an7Onk1Cc1CfpDsZVEB0wsZo8ksvn56rk6glWjghs4Mqhpzjh2ULjAGa7KlmnAydN
-	 9RX/fmvdU3Q+TaqO5VoO1ggXJOglJCuDTV0GZER32mC8FZFbME2NELBQ5uD4wJP4Ca
-	 BcNQF1IvWsPRbhEKf1BA7QMisPP4xZqtB/kOdUk8HxzVOipdBT7SKd3vMz2dLnEnI/
-	 dRbhp7hgVvNFDyfsAi8NSPmMNNhQLcjUAD3nbTPsYtIKFfPAEjtV2r48RaV752gkDU
-	 SiZLJyhYTshqoJqDhr/u8sYkiHTcm7U57vBuLtt4myexUN+p+NaxfjsdITdo6p+vOn
-	 fWSQW2qFvmKOA==
-Message-ID: <7639d5f0-3dfb-4446-ab04-51317f604a69@kernel.org>
-Date: Mon, 23 Nov 2026 17:23:59 +0100
+	s=k20260515; t=1795451046;
+	bh=ME4azgngOCTJNfnpv6QdSj8+9zz0mmaxRAUYJ+dI6fs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=N0RRJX22wIA9TkrEx1tjIGlt3lmxaaFzDw/lSUKyIMt7cEWat0bGVFjYgbHgQQIQ2
+	 wOvA3XXlvtWO1f1JVBiDYbwdK/x8ko0nO7axlVj9H/10hDnuJzbI+fzgQBsZyd3iyf
+	 DS2Cs0ZpiH8PGSjjJTIpPYHpJZwlhtk8WwUWxLJNrRKOvTCggl7YAdMYYNw46WiL/+
+	 xfoCRKY9H1WBegipnLGbXBdh9JpuvtHGFvbLnktk5J4XqkQsAnQ+Eka++pDNeJD5Ez
+	 7/bHrIW1JP4ekQL+qhotAKmiHj52y+Nvpmvdrgob7idGvYtJhV2BwZlSKp22CWiTiw
+	 RJVWToXrKWUFw==
+Subject: Re: [PATCH net 2/3] net: account IPV6_2292PKTOPTIONS and multicast
+ socket state to memcg
+From: netdev-bot+sashiko@kernel.org
+To: x-professor@outlook.com
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, hannes@cmpxchg.org, mhocko@kernel.org,
+ roman.gushchin@linux.dev, shakeel.butt@linux.dev, muchun.song@linux.dev,
+ akpm@linux-foundation.org, vdavydov.dev@gmail.com, cgroups@vger.kernel.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 16:24:04 +0000
+Message-ID: <179545104461.3135.5611486557181472051@kernel.org>
+In-Reply-To: <5f2e25611e300561db512cd3ad3190f4d782484a.1795102467.git.x-professor@outlook.com>
+References: <5f2e25611e300561db512cd3ad3190f4d782484a.1795102467.git.x-professor@outlook.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,272 +66,243 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] mm: introduce copy_mc_highpages() and batch copy in
- folio_mc_copy()
-To: Shivank Garg <shivankg@amd.com>, Andrew Morton
- <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Borislav Petkov <bp@alien8.de>,
- Ankur Arora <ankur.a.arora@oracle.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner
- <tglx@kernel.org>, Bharata B Rao <bharata@amd.com>,
- Hrushikesh Salunke <hsalunke@amd.com>, Ingo Molnar <mingo@redhat.com>,
- "H . Peter Anvin" <hpa@zytor.com>,
- David Laight <david.laight.linux@gmail.com>,
- David Rientjes <rientjes@google.com>,
- Linus Torvalds <torvalds@linuxfoundation.org>,
- Teja Vojjala <tejavojjala@google.com>, Huan Nguyen <nhuhuan@google.com>,
- Pedro Falcato <pfalcato@suse.de>, Peter Zijlstra <peterz@infradead.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, x86@kernel.org
-References: <20261113-batpagecopy-v3-1-297f5b2fd28e@amd.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261113-batpagecopy-v3-1-297f5b2fd28e@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 
-On 11/13/26 18:09, Shivank Garg wrote:
-> folio_mc_copy() copies a folio one page at a time with copy_mc_highpage(),
-> so a 2MB folio makes 512 separate copy_mc_to_kernel() calls. Each page
-> pays the startup cost of the string instruction ("REP; MOVSB" on x86
-> CPUs with ERMS) plus a cond_resched().
-> 
-> Introduce copy_mc_highpages(), the page range variant of
-> copy_mc_highpage(). When copy_mc_to_kernel() is available and the pages
-> are in the linear map, copy the whole range with a single
-> copy_mc_to_kernel() call, so the CPU can optimize for the larger extent.
-> Otherwise, fall back to copy_mc_highpage() one page at a time.
-> 
-> On a machine check, queue the poisoned source page for memory_failure(),
-> as copy_mc_highpage() does, and return -EHWPOISON, as folio_mc_copy()
-> does today.
-> 
-> copy_mc_to_kernel() cannot reschedule, so only take the single-call path
-> when CONFIG_PREEMPTION is set and the copy can be preempted. Since commit
-> 7dadeaa6e851 ("sched: Further restrict the preemption modes"), x86 and
-> powerpc, the only architectures that select ARCH_HAS_COPY_MC, only offer
-> the full, lazy and RT preemption models, also with PREEMPT_DYNAMIC, so
-> they always take this path. The per-page fallback calls cond_resched()
-> before each page, as clear_contig_highpages() does. Other architectures
-> keep copying one page at a time.
-> 
-> Switch folio_mc_copy() to copy the whole folio with copy_mc_highpages().
-> 
-> Signed-off-by: Shivank Garg <shivankg@amd.com>
-> ---
-> On a Zen 6 system with CXL memory, move_pages() gets ~1.4x faster for
-> 2MB THPs and up to ~2.8x faster for 1GB hugetlb pages (numbers below).
-> When demoting to CXL, kswapd uses ~31% less CPU per GB demoted.
-> 
-> Changes in v3:
-> - Copy the whole range with one copy_mc_to_kernel() call only when
->   CONFIG_PREEMPTION is set, otherwise copy page by page with
->   cond_resched(), following clear_contig_highpages() [1] (Pedro, David).
-> - Handle the machine check first in copy_mc_highpages() (Pedro).
-> - Rebase onto mm/core.git for-next.
-> - Link to v2: https://lore.kernel.org/r/20261019-batpagecopy-v2-1-d75e7d0dfaae@amd.com
-> 
-> [1] https://lore.kernel.org/r/20261109-clear-pages-batch-v3-1-6693efe18dff@amd.com
-> 
-> Changes in v2:
-> - Drop the folio_copy() changes as there is little to gain here.
->   On architectures without copy_mc_to_kernel(), copy_mc_highpages()
->   falls back to the per-page copy_mc_highpage(), which ends up in
->   copy_highpage(). A batched copy_highpages() could help there too,
->   but I haven't tested it on those architectures, so that is left for
->   a follow-up.
-> - Add COPY_MC_PAGES_NON_PREEMPT_BATCH to limit how much is copied
->   between cond_resched() calls on non-preemptible kernels.
-> - Rebase onto mm-new (2887e63d2e8e).
-> - v1: https://lore.kernel.org/all/20260427142036.111940-2-shivankg@amd.com
-> 
-> Test setup: AMD EPYC Zen 6, single socket, NPS2 (nodes 0 and 1 are
-> DRAM, node 2 is CXL), with and without this patch.
-> 
-> move_pages() throughput
-> -----------------------
-> A single move_pages() call migrates 1GB of anonymous memory, as 512
-> 2MB THPs or as four 1GB hugetlb pages. Mean ± stddev (10 runs each),
-> in GiB/s:
-> 
-> 2MB THP:
->   direction         base            patched         speedup
->   DRAM0 -> DRAM1    19.57 ± 0.17    27.51 ± 0.78    1.41x
->   DRAM1 -> DRAM0    19.44 ± 0.12    27.33 ± 0.27    1.41x
->   DRAM0 -> CXL      18.66 ± 0.18    26.90 ± 0.51    1.44x
->   CXL   -> DRAM0    15.38 ± 0.59    16.60 ± 0.24    1.08x
-> 
-> 1GB hugetlb:
->   direction         base            patched         speedup
->   DRAM0 -> DRAM1    20.34 ± 0.13    53.88 ± 1.48    2.65x
->   DRAM1 -> DRAM0    19.10 ± 2.65    53.78 ± 0.55    2.82x
->   DRAM0 -> CXL      19.53 ± 0.08    44.10 ± 0.19    2.26x
->   CXL   -> DRAM0    16.41 ± 0.07    20.89 ± 0.06    1.27x
-> 
-> kswapd demotion
-> ---------------
-> Node 0 is limited to 16GB of free memory and demotion is enabled. A
-> single thread bound to node 0 writes 96GB of anonymous THP memory, so
-> ~80GB has to be demoted to CXL. Median of 10 runs:
-> 
->                                base        patched
->   kswapd CPU time              4.25 s      3.44 s     (-19%)
->   kswapd CPU per GB demoted    63.6 ms     44.1 ms    (-31%)
->   demoted by direct reclaim    14.1 GB     0.46 GB
->   allocstall                   7427        370
-> 
-> With the patch, kswapd keeps up with the writer, so the writer rarely
-> falls back to direct reclaim.
-> ---
->  include/linux/highmem.h | 51 +++++++++++++++++++++++++++++++++++++++++++++++++
->  mm/util.c               | 14 ++------------
->  2 files changed, 53 insertions(+), 12 deletions(-)
-> 
-> diff --git a/include/linux/highmem.h b/include/linux/highmem.h
-> index d7aac9de1c8a..a79e9d68359c 100644
-> --- a/include/linux/highmem.h
-> +++ b/include/linux/highmem.h
-> @@ -484,6 +484,57 @@ static inline int copy_mc_highpage(struct page *to, struct page *from)
->  }
->  #endif
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
+
+Critical: 0 · High: 1 (1) · Medium: 1 · Low: 1
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The patch charges the IPV6_2292PKTOPTIONS buffer to memcg only
+  where setsockopt() first allocates it (do_ipv6_setsockopt(),…
+- [Medium] This patch charges the per-socket multicast records but not
+  the per-device objects that the same join and source operations create.
+- [Low] In the source-removal (!add) branch of ip6_mc_source()
+  (net/ipv6/mcast.c:437 in this commit), the code allocates a smaller…
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the commit
+  message describes it as a general sock_kmalloc() issue: 'Allocations…
+
+--
+
+net: account IPV6_2292PKTOPTIONS and multicast socket state to memcg
+
+This commit changes several long-lived socket allocations to
+GFP_KERNEL_ACCOUNT so they are charged to the memory cgroup. The affected
+allocations are the IPV6_2292PKTOPTIONS cmsg buffer, the IPv4 and IPv6
+multicast source lists, and the IPv4 and IPv6 multicast membership
+records. sock_kmalloc() itself is left unchanged because some of its
+callers run in softirq context.
+
+> sock_kmalloc() limits allocations using sk_omem_alloc and optmem_max,
+> but does not request kernel memory cgroup accounting.  Allocations retained
+> by a socket can therefore consume kernel memory without contributing to
+> memory.current.
+
+[ ... ]
+
+> sock_kmalloc() itself is left unchanged: some callers run in softirq
+> context, where current_obj_cgroup() uses an explicitly active memcg or
+> the root memcg, so those allocations have different charge-attribution
+> semantics.
+
+[Severity: High]
+This is a pre-existing issue and was not introduced by this patch. The
+commit message describes this as a general sock_kmalloc() problem, but the
+reason given for leaving sock_kmalloc() alone only covers softirq callers.
+
+Several process-context sock_kmalloc() sites also keep allocations for the
+life of the socket. They are uncharged and limited only by optmem_max:
+
+net/ipv4/tcp_ipv4.c:__tcp_md5_do_add() (TCP_MD5SIG, no capability check):
+
+	key = sock_kmalloc(sk, sizeof(*key), gfp | __GFP_ZERO);
+
+net/ipv4/tcp_ao.c:tcp_ao_key_alloc() (called from tcp_ao_add_cmd()):
+
+	key = sock_kmalloc(sk, size, GFP_KERNEL);
+
+net/ipv6/anycast.c:ipv6_sock_ac_join() (needs ns_capable(CAP_NET_ADMIN),
+which a user namespace provides):
+
+	pac = sock_kmalloc(sk, sizeof(struct ipv6_ac_socklist), GFP_KERNEL);
+
+net/ipv6/exthdrs.c:ipv6_renew_options() (unprivileged via IPV6_RTHDR, also
+HOPOPTS/DSTOPTS; smaller, since each header is at most 8*255 bytes):
+
+	opt2 = sk ? sock_kmalloc(sk, tot_len, GFP_ATOMIC) :
+		    kmalloc(tot_len, GFP_ATOMIC);
+
+The anycast record is the twin of the IPv6 multicast membership record that
+this patch converts in __ipv6_sock_mc_join().
+
+The TCP_MD5SIG keys alone let an unprivileged TCP socket hold close to
+optmem_max (128 KiB by default). That is the same per-socket size as the
+IPV6_2292PKTOPTIONS reproducer.
+
+Should these sites be converted too? If not, could the commit message say
+why they stay uncharged?
+
+> diff --git a/net/ipv4/igmp.c b/net/ipv4/igmp.c
+> index bfa448028f8a1..5fe8736c7b472 100644
+> --- a/net/ipv4/igmp.c
+> +++ b/net/ipv4/igmp.c
+> @@ -2381,7 +2381,7 @@ static int __ip_mc_join_group(struct sock *sk, struct ip_mreqn *imr,
+>  	err = -ENOBUFS;
+>  	if (count >= READ_ONCE(net->ipv4.sysctl_igmp_max_memberships))
+>  		goto done;
+> -	iml = sock_kmalloc(sk, sizeof(*iml), GFP_KERNEL);
+> +	iml = sock_kmalloc(sk, sizeof(*iml), GFP_KERNEL_ACCOUNT);
+>  	if (!iml)
+>  		goto done;
 >  
-> +/**
-> + * copy_mc_highpages() - copy a page range with machine check handling
-> + * @to: first destination page
-> + * @from: first source page
-> + * @nr_pages: number of pages
-> + *
-> + * Range variant of copy_mc_highpage(). On a machine check, the poisoned
-> + * source page is queued for memory_failure().
-> + *
-> + * Context: Process context. May sleep.
-> + * Return: 0 on success, -EHWPOISON if a machine check was handled.
-> + */
-> +static inline int copy_mc_highpages(struct page *to, struct page *from,
-> +		unsigned long nr_pages)
-> +{
-> +	unsigned long len = nr_pages << PAGE_SHIFT;
-> +	unsigned long i, ret;
-> +
-> +	might_sleep();
-> +
-> +	/*
-> +	 * When copying we want to operate on the largest extent possible to
-> +	 * allow for architecture specific extent based optimizations.
-> +	 *
-> +	 * copy_mc_to_kernel() does not call cond_resched(). That is fine on
-> +	 * preemptible kernels, where the scheduler can preempt the copy at
-> +	 * any point, so copy the whole range at once if copy_mc_to_kernel() is
-> +	 * available and the pages are in the linear map. Otherwise, copy one
-> +	 * page at a time and reschedule in between.
-> +	 */
-> +	if (IS_ENABLED(CONFIG_ARCH_HAS_COPY_MC) && IS_ENABLED(CONFIG_PREEMPTION) &&
-> +	    !IS_ENABLED(CONFIG_HIGHMEM)) {
-> +		ret = copy_mc_to_kernel(page_address(to), page_address(from), len);
-> +		if (ret) {
-> +			memory_failure_queue(page_to_pfn(from) +
-> +					     ((len - ret) >> PAGE_SHIFT), 0);
-> +			return -EHWPOISON;
-> +		}
-> +		for (i = 0; i < nr_pages; i++)
-> +			kmsan_copy_page_meta(to + i, from + i);
-> +		return 0;
-> +	}
-> +
-> +	for (i = 0; i < nr_pages; i++) {
-> +		cond_resched();
-> +		if (copy_mc_highpage(to + i, from + i))
-> +			return -EHWPOISON;
-> +	}
-> +	return 0;
-> +}
-> +
->  static inline void memcpy_page(struct page *dst_page, size_t dst_off,
->  			       struct page *src_page, size_t src_off,
->  			       size_t len)
-> diff --git a/mm/util.c b/mm/util.c
-> index c9c3dc4b490f..1277daa3ccd6 100644
-> --- a/mm/util.c
-> +++ b/mm/util.c
-> @@ -776,18 +776,8 @@ EXPORT_SYMBOL(folio_copy);
+
+[Severity: Medium]
+The socket record is charged here. What about the per-device group record
+that __ip_mc_join_group() creates a few lines later?
+
+	rcu_assign_pointer(inet->mc_list, iml);
+	____ip_mc_inc_group(in_dev, addr, mode, GFP_KERNEL);
+
+____ip_mc_inc_group() allocates struct ip_mc_list with:
+
+	im = kzalloc_obj(*im, gfp);
+
+On leave, __ip_mc_dec_group()->igmpv3_add_delrec() creates an IGMPv3 tomb
+with:
+
+	pmc = kzalloc_obj(*pmc, gfp);
+
+Neither allocation uses __GFP_ACCOUNT.
+
+The caller picks the group address, so each charged ip_mc_socklist can pin
+a separate, larger, uncharged ip_mc_list (timer, lock, refcounts).
+
+In a user+net namespace with igmp_max_memberships raised, a socket could
+hold its optmem_max budget in charged records plus several times that in
+uncharged ip_mc_list objects. Join/leave churn on an IGMPv3 device also
+builds up uncharged tombs.
+
+A later patch in this series, "net: multicast: account group and source
+allocations to memcg", charges the IPv6 versions: mca_alloc() for
+ifmcaddr6, plus the ip6_sf_list entries and tombs. It also charges the IPv4
+ip_sf_list entries and tombs. At the end of the series, though, the IPv4
+ip_mc_list and its igmpv3_add_delrec() tombs still seem to be uncharged.
+
+____ip_mc_inc_group() returns void, and __ip_mc_join_group() ignores its
+allocation failure, which may be why it was left out. Could one of the
+commit messages say so, or should these allocations be charged as well?
+
+[ ... ]
+
+> diff --git a/net/ipv6/ipv6_sockglue.c b/net/ipv6/ipv6_sockglue.c
+> index 82573260b7409..89394f8d963f6 100644
+> --- a/net/ipv6/ipv6_sockglue.c
+> +++ b/net/ipv6/ipv6_sockglue.c
+> @@ -748,7 +748,7 @@ int do_ipv6_setsockopt(struct sock *sk, int level, int optname,
+>  		if (optlen > 64*1024)
+>  			break;
 >  
->  int folio_mc_copy(struct folio *dst, struct folio *src)
->  {
-> -	long nr = folio_nr_pages(src);
-> -	long i = 0;
-> -
-> -	for (;;) {
-> -		if (copy_mc_highpage(folio_page(dst, i), folio_page(src, i)))
-> -			return -EHWPOISON;
-> -		if (++i == nr)
-> -			break;
-> -		cond_resched();
-> -	}
-> -
-> -	return 0;
-> +	return copy_mc_highpages(folio_page(dst, 0), folio_page(src, 0),
-> +				 folio_nr_pages(src));
->  }
+> -		opt = sock_kmalloc(sk, sizeof(*opt) + optlen, GFP_KERNEL);
+> +		opt = sock_kmalloc(sk, sizeof(*opt) + optlen, GFP_KERNEL_ACCOUNT);
 
-What bugs me a bit is that we are not tackling copy_user_large_folio(). So this
-looks incomplete.
+[Severity: High]
+This charges the buffer where setsockopt() first allocates it. Can the same
+payload still be copied without any charge?
 
-There, we still have this. That keeps this process_huge_page() machinery alive,
-and a special case for gigantic pages (copy_user_gigantic_page).
+IPV6_2292PKTOPTIONS can be set on an IPv6 TCP listener; the getsockopt()
+side is even limited to SOCK_STREAM. Each child that completes the
+handshake then copies the listener's options:
 
-Meanwhile, folio_zero_user() moved to a range-based approach and abandoned that.
+net/ipv6/tcp_ipv6.c:tcp_v6_syn_recv_sock() {
+    ...
+	opt = ireq->ipv6_opt;
+	if (!opt)
+		opt = rcu_dereference(np->opt);
+	if (opt) {
+		opt = ipv6_dup_options(newsk, opt);
+		RCU_INIT_POINTER(newnp->opt, opt);
+    ...
+}
 
-Can we clean all that up as well while we are at it?
+ipv6_dup_options() copies the full tot_len:
 
-These look like excellent candidats for using copy_mc_user_highpages() as well.
+net/ipv6/exthdrs.c:ipv6_dup_options() {
+    ...
+	opt2 = sock_kmemdup(sk, opt, opt->tot_len, GFP_ATOMIC);
+    ...
+}
+
+That copy uses GFP_ATOMIC with no __GFP_ACCOUNT. It also runs in softirq,
+where current_obj_cgroup() would not pick the user's memcg anyway.
+
+sk_clone_lock() also resets the child's budget:
+
+	atomic_set(&newsk->sk_omem_alloc, 0);
+
+so every child passes its own optmem_max check.
+
+With one charged listener and N connections, does this still keep N copies
+of up to ~64 KiB each (in ~128 KiB kmalloc_large allocations) outside
+memory.max? The copies are held whether the children sit in the accept
+queue (up to the backlog) or have been accepted.
+
+MPTCP (net/mptcp/protocol.c) and SCTP (net/sctp/ipv6.c) make the same
+uncharged copy.
+
+The copy runs in softirq, so __GFP_ACCOUNT at that call would not charge
+the right memcg. Would closing this need a charge against the listener's
+memcg instead?
+
+>  		retv = -ENOBUFS;
+>  		if (!opt)
+>  			break;
+> diff --git a/net/ipv6/mcast.c b/net/ipv6/mcast.c
+> index 0d982f7d29cda..ede1f0825bad5 100644
+> --- a/net/ipv6/mcast.c
+> +++ b/net/ipv6/mcast.c
+
+[ ... ]
+
+> @@ -435,7 +436,7 @@ int ip6_mc_source(int add, int omode, struct sock *sk,
+>  		} else {
+>  			newpsl = sock_kmalloc(sk, struct_size(newpsl, sl_addr,
+>  							      psl->sl_count - 1),
+> -					      GFP_KERNEL);
+> +					      GFP_KERNEL_ACCOUNT);
+>  			if (!newpsl) {
+>  				atomic_add(struct_size(psl, sl_addr, psl->sl_max),
+>  					   &sk->sk_omem_alloc);
+
+[Severity: Low]
+This is the source-removal (!add) branch of ip6_mc_source(). It is reached
+through MCAST_LEAVE_SOURCE_GROUP or MCAST_UNBLOCK_SOURCE when sl_count > 1.
+With the charge added here, can an operation that shrinks the socket's
+memory now fail?
+
+If the cgroup is at memory.max, the charge can enter memcg reclaim or the
+memcg OOM killer. If that cannot make progress, or the task is dying or is
+already the OOM victim, sock_kmalloc() returns NULL. The source then stays
+in the filter and setsockopt() returns -ENOBUFS. The error path does keep
+the filter state consistent.
+
+The IPv4 counterpart, ip_mc_source(), removes the source in place without
+allocating:
+
+	for (j = i+1; j < psl->sl_count; j++)
+		psl->sl_addr[j-1] = psl->sl_addr[j];
+	psl->sl_count--;
+
+Could this allocation stay uncharged? Alternatively, psl could be shrunk in
+place the way IPv4 does it.
+
+[ ... ]
 
 -- 
-Cheers,
-
-David
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795102467.git.x-professor%40outlook.com
