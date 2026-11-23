@@ -1,59 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795449836;
-	b=wpXQHl3wYiF0z7dVEvsQhIikY7dNRceHbTliBAzNJXmALx+4zae+alDs3OLTLZFySFxI
-	 fzsFCGrfFIBWWUSku3smggBsvrJ3dzhfy+wzJYTAlY0ThecNmazk+ZcOGiaN06cY0ByBn
-	 ahWagqG+dGwqXvx4ewvSvf4vxs1oLXdc4AcU1QtyUyaY7p8ncNCdrVT1qMaUafV96iTcA
-	 hJRJDHl403HypVMvM2beF47m+OEUOy2gKvOjKkOc5MiYjE2nYFOgbmxDuyUJ+kD0EF/VW
-	 A7rHUUuZa1Daj4iGKGEBNRsO8kw2eCfe6qY0wV8Gcb+r6FUJ2MJgfG2UBw+G4kgCIqA==
+	t=1795449868;
+	b=FNUoMlXTJO1rAfRWB1beYLxLqBCO3GP7lQP5WWUzIqTYnSR8DxQv5JNxKRfaE96biVbe
+	 Pj99+uDCvQoZYG3y8IAH4D+znnhfxNJEmMRGS5eyAs0uDEE/6ZbmL9vhADI/k6Kfk6LsS
+	 EllOJP0Cg0iJqgJtbCGPk0VxpwpZNA47TI/tIHxigUzOsF6jd7U/IWSKmvAnKM7pxaFt5
+	 gwF4UVchhuvsqId/7QXIRYQcu0ASJml9rBW4+Y7OkeNNfLya200xOjycprhDaN/aDa2zZ
+	 eWWxwRdsJlH5nGi6eXGUc8zwcULANUuGc3geyreBgXXmbjxWCV3Chyq6KQhEhiFaLvQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795449836;
-	h=Received:DKIM-Signature:Message-ID:Date:From:To:Subject:In-Reply-To:
-	 References:Cc:Content-Transfer-Encoding;
-	bh=ImikEajVtw1Ud3tQpZGQiXNpkN9E46qiLZ4YF5GFcnI=;
-	b=aCB8KTRQbFYOVA0LRD3kLxXTQNPL1nvhhgOE/rXSVndIMyvhyEnVaxfcSCoOwIEMmA8U
-	 jIzwu6prVVP73jld+8JY4lQHAhLycnwEG8K1/8tLzRb7ox/0LdCbZNFcFEYJELTc8rkxk
-	 FvNLHwQ+AWJ3KpKM5RZ5vFlnyFa6V3i3OAZkkbNHqnv4LmAnf1+IgWSrHkEqrW2JVznxx
-	 TX0/QMxzy4V2KwWrjA5H9tN97j6WIYFxcfRxLNTPwkSUQrwmewGZhmaZvs/pdyYJcvKz8
-	 uEIEjm6W0x0N1QsbwBizMBRpjYT/gwd39GC0L+TULyF+lX5LuxFeAE062MBxaoVEH2A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795449868;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:Cc:To:
+	 From:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=LwN3fDmMgmrTxD3q1KoPz3VI89oxMTQsPO4gySpZ9os=;
+	b=GIq7aZ0Xxl4eaXKDQ8Pq/yUA/H/8pKU4nLx7TPO0xD0J2UkLVYX6eQfHPey75ZmtVaYS
+	 5h0daWCAbBcFHdSecjrOKNyq52EYNh5O24eYW4/PNcGtxJl4Kp4X0dXd1S+IZH8dJnimr
+	 oiMLgmYQ+mOwKwIMbh4yTryL+v00W+jQPhRtefXnlfgX8m/6pms3gzianYIWfCGJuajBb
+	 01VSD1qDtWmJLHz70z92FvQPYOX7pRm+EAxOqXmdsYObXilKvj6WVlGZqaFWSnScHWh5b
+	 YsGSknN64P8lSxuYY5ii34pX+vffS/kolEFDT+XCiNz7qVkctFRWoUG7joJUWwprrfQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HiApJnJl;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=X4tIIP5i;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C98BF606A31A;
-	Mon, 23 Nov 2026 16:03:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F5D7606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:04:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F5D7606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HiApJnJl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C32651F000C4;
-	Mon, 23 Nov 2026 16:03:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795449836;
-	bh=ImikEajVtw1Ud3tQpZGQiXNpkN9E46qiLZ4YF5GFcnI=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc;
-	b=HiApJnJlu/SccLq2ljVGGeLFPZF+cqxJVBPFtlqcGngaRUW39BeRybbHS7k7pZKio
-	 MJv2luvLilLBnGzqhlyto0eKesX+g/+HVJYsCw1d0tBpaStcgBunE8KX1UemD4kyjC
-	 1PCiHjFwGs/YqCXUMeNTgO1IiTVFRVadLDM3Wof6HgVGc7Qq/zoOB0+exvw0nu9NG2
-	 hY812pA8oHgKatmV/OzfHalCZJNPVpK8R4TFOZFOlPZxdwVDdugwZ3MR9vTH7ApcRr
-	 KsDV4N7aS+Gq3/pk/B4tTkZEkkqvWtPp2zsHR5RhbCBPXprLZL7cOnnegXcFXvFLYk
-	 UyAQw7RmXSCgw==
-Message-ID: <b59e98094e10e9baa3309019c729d576@kernel.org>
-Date: Mon, 23 Nov 2026 16:03:53 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>
-Subject: Re: [PATCH 17/25] drm/tests: connector: Add HDMI source-side
- scrambler coverage
-In-Reply-To: <20261114-drm-conn-hdmi-cleanup-v1-17-20e8a33a2286@collabora.com>
-References: <20261114-drm-conn-hdmi-cleanup-v1-17-20e8a33a2286@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, kernel@collabora.com, linux-fbdev@vger.kernel.org, linux-kernel@vger.kernel.org, "David
- Airlie" <airlied@gmail.com>, "Hans Verkuil" <hverkuil@kernel.org>, "Helge
- Deller" <deller@gmx.de>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Martin
- Bugge" <marbugge@cisco.com>, "Mauro Carvalho Chehab" <mchehab@kernel.org>, "Maxime
- Ripard" <mripard@kernel.org>, "Simona Vetter" <simona@ffwll.ch>, "Thierry
- Reding" <treding@nvidia.com>, "Thomas Zimmermann" <tzimmermann@suse.de>
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=X4tIIP5i
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id BC404C69149;
+	Mon, 23 Nov 2026 16:04:31 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9C05A601E1;
+	Mon, 23 Nov 2026 16:04:24 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7DD5711E68E6C;
+	Mon, 23 Nov 2026 17:04:09 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795449859; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=LwN3fDmMgmrTxD3q1KoPz3VI89oxMTQsPO4gySpZ9os=;
+	b=X4tIIP5iygtUvgvo4MLBe8xMaYOVznmQU+DhBI1yCvQ3ErNnGNeN6YCNkhB8t8R+iJYDFP
+	KgtpS4QQNO9ZmE8W+AwIaokXUf+CURl1t+Og5k/8ixy7a6oGpIS7HQ0MVb+fJbOAIeWAGJ
+	abRa3uGR5+Yrw5akspjsPWaw6R5vsX2F/cs3e6njJc7+FmYNVYaMAkQIjkCBad5gEGQO60
+	4GD5IYBdipJuxAL7fPKJaUQXL72Su6wN5a7aWAgSewXsiFvdOnCC/Wmgtbm227XVQHk+SV
+	zi4AcLc8ENZTeVJGMPbpNHQfGlGyCBrGAx1/jFzma5E57tC31WnZQu9MEJr2aQ==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,17 +58,280 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 23 Nov 2026 17:04:08 +0100
+Message-Id: <DN2PUPUBWLIS.XU99VSML8U14@bootlin.com>
+Subject: Re: [PATCH net-next v7 2/3] net: macb: implement
+ ethtool_ops.get|set_channels()
+Cc: <conor.dooley@microchip.com>, <andrew+netdev@lunn.ch>,
+ <davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+ <pabeni@redhat.com>, <linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <nb@tipi-net.de>, <pvalerio@redhat.com>,
+ <vladimir.kondratiev@mobileye.com>, <gregory.clement@bootlin.com>,
+ <benoit.monin@bootlin.com>, <tawfik.bayouk@mobileye.com>,
+ <thomas.petazzoni@bootlin.com>
+To: <netdev-bot+sashiko@kernel.org>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261118-macb-set-channels-v7-2-2dbc00f686af@bootlin.com>
+ <179537769318.3135.17791912110495668142@kernel.org>
+In-Reply-To: <179537769318.3135.17791912110495668142@kernel.org>
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Sat, 14 Nov 2026 20:03:41 +0200, Cristian Ciocaltea wrote:
-> Add KUnit tests for the HDMI source-side scrambling validation done by
-> the new drmm_connector_hdmi_init() helper.
-> 
-> Connector initialization derives scrambler support from the
-> driver-provided supported_hdmi_ver capability.  Therefore, connectors
-> 
+Hello netdev-bot+sashiko,
+
+On Sun Nov 22, 2026 at 9:01 PM CET,  wrote:
+> Thank you for your contribution! Sashiko AI review found 3 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 2 =C2=B7 Low: 1
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] When TX queues are disabled, their BQL/DQL state is never
+>   reset, so they can stall after a later regrow.
+> - [Medium] The new rollback path in macb_set_channels() restarts TX on
+>   the old rings without realigning the hardware queue pointer.
+> - [Low] The new comment in macb_init_buffers() (line 514) says that
+>   "macb_set_channels(), which is the only way of writing to=E2=80=A6
+>
+> --
+>
+> net: macb: implement ethtool_ops.get|set_channels()
+>
+> This commit moves num_queues from struct macb into struct macb_context an=
+d
+> adds bp->max_num_queues and bp->configured_num_queues. It then implements
+> the ethtool get_channels/set_channels operations, using the existing
+> context swap window to reallocate rings when the interface is running.
+> Queues beyond the active count are disabled by writing QUEUE_DISABLE to
+> their RBQP/TBQP registers.
+>
+>> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethe=
+rnet/cadence/macb_main.c
+>> index 1e06666921160..180da5d62f09a 100644
+>> --- a/drivers/net/ethernet/cadence/macb_main.c
+>> +++ b/drivers/net/ethernet/cadence/macb_main.c
+>> @@ -504,11 +504,25 @@ static void macb_init_buffers(struct macb *bp)
+>>  		macb_writel(bp, TBQPH, upper_32_bits(txq->ring_dma));
+>>  	}
+>> =20
+>> -	for (q =3D 0, queue =3D bp->queues; q < bp->num_queues; ++q, ++queue) =
+{
+>> -		rxq =3D &bp->ctx->rxq[q];
+>> -		txq =3D &bp->ctx->txq[q];
+>> -		queue_writel(queue, RBQP, lower_32_bits(rxq->ring_dma));
+>> -		queue_writel(queue, TBQP, lower_32_bits(txq->ring_dma));
+>> +	for (q =3D 0, queue =3D bp->queues; q < bp->max_num_queues; ++q, ++que=
+ue) {
+>> +		if (q < bp->ctx->num_queues) {
+>> +			rxq =3D &bp->ctx->rxq[q];
+>> +			txq =3D &bp->ctx->txq[q];
+>> +			queue_writel(queue, RBQP, lower_32_bits(rxq->ring_dma));
+>> +			queue_writel(queue, TBQP, lower_32_bits(txq->ring_dma));
+>> +		} else {
+>> +			/* macb_set_channels(), which is the only way of writing
+>> +			 * to bp->configured_num_queues, is only allowed if
+>> +			 * MACB_CAPS_QUEUE_DISABLE.
+>> +			 */
+>
+> [Severity: Low]
+> This isn't a bug, but is this comment accurate? macb_probe() also writes
+> bp->configured_num_queues:
+>
+> 	bp->max_num_queues =3D num_queues;
+> 	bp->configured_num_queues =3D num_queues;
+>
+> The else branch is still only reached on QUEUE_DISABLE hardware, because
+> macb_set_channels() is the only path that can lower the count below
+> bp->max_num_queues.
+>
+> Could the comment say that instead?
+
+Yes but that's nitpicking. Of course we init bp->configured_num_queues
+to the hardware's queue count. By saying
+
+   macb_set_channels is the only way of writing to configured_num_queues
+
+we mean that macb_set_channels() is the only way to make
+
+   bp->configured_num_queues < bp->max_num_queues
+
+>> @@ -3359,10 +3385,6 @@ static void macb_context_swap_start(struct macb *=
+bp)
+>>  	 */
+>>  	netif_tx_disable(bp->netdev);
+>> =20
+>> -	/* Now that everything is stopped, clear DQL. */
+>> -	for (q =3D 0; q < bp->num_queues; ++q)
+>> -		netdev_tx_reset_queue(netdev_get_tx_queue(bp->netdev, q));
+>> -
+>>  	/* Safe to call outside bp->lock because bp->irq_quiesced ensures the =
+IRQ
+>
 > [ ... ]
+>
+>> @@ -3399,16 +3421,26 @@ static void macb_context_swap_end(struct macb *b=
+p,
+>> =20
+>>  	lockdep_assert_held(&bp->mac_cfg_lock);
+>> =20
+>> -	/* Swap contexts & give buffer pointers to HW. */
+>> +	/* Swap contexts & give buffer pointers to HW.
+>> +	 * !new_ctx means that the swap failed and we keep the old context.
+>> +	 */
+>> =20
+>> -	old_ctx =3D bp->ctx;
+>> -	WRITE_ONCE(bp->ctx, new_ctx);
+>> -	wmb(); /* ensure IRQ enabled below read the new context */
+>> -	macb_init_buffers(bp);
+>> +	if (new_ctx) {
+>> +		old_ctx =3D bp->ctx;
+>> +		WRITE_ONCE(bp->ctx, new_ctx);
+>> +		wmb(); /* ensure IRQ enabled below read the new context */
+>> +
+>> +		macb_init_buffers(bp);
+>> +
+>> +		/* Clear DQL (only on successful context swap). */
+>> +		for (q =3D 0; q < bp->ctx->num_queues; ++q)
+>> +			netdev_tx_reset_queue(netdev_get_tx_queue(bp->netdev,
+>> +								  q));
+>> +	}
+>
+> [Severity: Medium]
+> This reset runs after bp->ctx has been switched to new_ctx, so it only
+> covers the new, smaller queue count. Take a running shrink such as
+> "ethtool -L eth0 combined 2" on a 4-queue GEM. What resets the DQL state
+> of queues 2 and 3?
+>
+> macb_free(old_ctx) at the end of this function frees the in-flight skbs o=
+n
+> all 4 old queues. netdev_tx_completed_queue() is never called for those
+> bytes, so num_queued - num_completed stays non-zero on queues 2-3. If BQL
+> had already stopped those queues, __QUEUE_STATE_STACK_XOFF also stays set=
+.
+>
+> macb_close() only resets the active context's queues:
+>
+> 	for (q =3D 0; q < bp->ctx->num_queues; ++q)
+> 		netdev_tx_reset_queue(netdev_get_tx_queue(netdev, q));
+>
+> macb_open() has no reset. netif_set_real_num_tx_queues() does nothing
+> with DQL when queues are re-enabled. So consider this sequence:
+>
+>   ethtool -L eth0 combined 2   (running, TX in flight on queues 2-3)
+>   ip link set eth0 down        (resets queues 0-1 only)
+>   ethtool -L eth0 combined 4   (down, no swap, no reset)
+>   ip link set eth0 up          (no reset)
+>
+> Can queues 2-3 come back with stale in-flight bytes and STACK_XOFF still
+> set? The hardware ring would have nothing to complete, and
+> macb_tx_timeout()->macb_tx_restart() doesn't touch DQL. Flows hashed to
+> those queues would stall. Even after a completion, the stale bytes keep
+> dql_completed() from growing the limit.
+>
+> Before this patch, macb_context_swap_start() and macb_close() both reset
+> every hardware queue. Should these resets cover the old context's queue
+> count, or bp->max_num_queues?
 
-Acked-by: Maxime Ripard <mripard@kernel.org>
+Yes, that is correct. Nicolai, a human, already reported that! [0]
 
-Thanks!
-Maxime
+V7 resets BQL on the new context queues (ie those that will be active
+soon) when we should be resetting the old context queues (ie those that
+were active until now).
+
+To be safe, let's reset all queues here and at close. This will be a
+in-depth defense barrier if we ever reintroduce such a bug. Otherwise
+we risk queues that are stalled forever.
+
+[0]: https://lore.kernel.org/all/cc50263bc4f161b2fff96e04306868cc@tipi-net.=
+de/
+
+>> @@ -4618,6 +4658,75 @@ static int gem_set_rxnfc(struct net_device *netde=
+v, struct ethtool_rxnfc *cmd)
+>> +	if (running) {
+>> +		new_ctx =3D macb_context_alloc(bp, num_queues, netdev->mtu,
+>> +					     bp->configured_rx_ring_size,
+>> +					     bp->configured_tx_ring_size);
+>> +		if (IS_ERR(new_ctx))
+>> +			return PTR_ERR(new_ctx);
+>> +
+>> +		macb_context_swap_start(bp);
+>> +	}
+>> +
+>> +	ret =3D netif_set_real_num_queues(bp->netdev, num_queues, num_queues);
+>> +	if (ret) {
+>> +		if (running) {
+>> +			macb_free(new_ctx);
+>> +			kfree(new_ctx);
+>> +			macb_context_swap_end(bp, NULL);
+>> +		}
+>> +		return ret;
+>> +	}
+>
+> [Severity: Medium]
+> Is it safe to restart TX on the old rings here? By this point
+> macb_context_swap_start() has already cleared NCR.TE:
+>
+> 	ctrl =3D macb_readl(bp, NCR);
+> 	macb_writel(bp, NCR, ctrl & ~(MACB_BIT(RE) | MACB_BIT(TE)));
+>
+> On GEM, clearing TE resets the transmit queue pointer to the TBQP base,
+> i.e. descriptor 0. Commit 881a0263d502 ("net: macb: Shuffle the tx ring
+> before enabling tx") relies on this, which is why macb_mac_link_up() call=
+s
+> gem_shuffle_tx_rings() before it sets TE again.
+>
+> With new_ctx =3D=3D NULL, macb_context_swap_end() skips macb_init_buffers=
+()
+> and doesn't rotate the rings. If bp->link_up is set, it goes straight to:
+>
+> 		ctrl =3D macb_readl(bp, NCR);
+> 		macb_writel(bp, NCR, ctrl | MACB_BIT(RE) | MACB_BIT(TE));
+>
+> The link never went down, so macb_mac_link_up() and its shuffle don't run=
+.
+>
+> Would the hardware then restart at descriptor 0 while txq->tail points
+> somewhere else?
+>
+> If descriptor 0 has TX_USED set, TX stops with TXUBR. macb_tx_restart()
+> then keeps issuing TSTART because TBQP !=3D head, and TX stalls for good.
+>
+> If descriptor 0 is a middle descriptor of an earlier multi-descriptor
+> (SG/TSO) frame, TX_USED is clear. The DMA would then fetch a buffer that
+> macb_tx_unmap() has already unmapped.
+>
+> This path is reached when channels are grown on a running, link-up
+> interface and netif_set_real_num_queues() fails with -ENOMEM while
+> allocating the queue kobjects. Does the !new_ctx path in
+> macb_context_swap_end() need the same gem_shuffle_tx_rings() handling as
+> macb_mac_link_up()?
+
+Yes. Again, Nicolai the human had caught that in his review! [0]
+
+The short summary: stopping the MAC TX engine resets the hardware ring
+cursors. That means our TX SKBs are at some slot in the ring (like 42).
+When we restart the MAC TX engine, it will work on slot 0 and not 42.
+
+We already have a solution for this: gem_shuffle_tx_rings(). So that is
+what's missing from the successful context swap end.
+
+[0]: https://lore.kernel.org/all/cc50263bc4f161b2fff96e04306868cc@tipi-net.=
+de/
+
+Thanks,
+
+--
+Th=C3=A9o Lebrun, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
