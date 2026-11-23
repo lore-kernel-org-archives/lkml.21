@@ -1,85 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795431772;
-	b=EWd8uxE4uAkrYZt43U5i/0PPVCod3HNPInmkcB8XLI02jjM/RFwOSQ7noEAZ6aTfImbQ
-	 P65z5igWbupYqBSH2al04u2MtBicqaiVXj1CGxyI7ElfPjcp54jWOdLqaN7bhBrOM2YoX
-	 E74jmRvBQuhnd7Bq+DeokvWrt/kFpt4Oz//d+Cn5D2MvcCbM2PzKZX/8kzjGGXbqSmmwo
-	 CECjj6wIkSAN/tYKa8q55fGUUUXf3WKTI2lmrjO2Lnd3ys5jdEKkRMXakfABWh7mBFTLA
-	 hHUztbReOEtlwRHk2h6EhlKnuFbA4HmOPzib/0r3EHYrcIxCxG7wkzX2EyAgZXRIhzw==
+	t=1795431774;
+	b=eAxZeN39w7uiXU+iEfGah73+ykidPeG1wu70SpVM3QEviQz9aM3BTziaDB4w8BK1REkM
+	 G1PXUfIG7CXbK0G/RU2P72fn5DxRA/m9bzH1wGBm6NOLJQT/EKstuI1WJGNFodN0Vzz4A
+	 3fhdkitFzohAKr8OvrhoWoYT/gDWTboq8BevV/b2Rw4y0WJWX6JAQAJgFsg9531HwttzQ
+	 KfE9oYRGsPew+uSiEleTol5E/7NRrPqEJj04axoICt6Ka3GDUp+xapWmKIrseQ3BQUVPQ
+	 5XicyhG/vtpGU45g4eMX45BhfmNB5VlatdOC9DEUj5hOzSN6sbpeNLSUMAFTiQcvDtg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795431772;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795431774;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=r0q8e2+fE6SC7LQWl0/+D1d8347EPh+sa3dzN6lIYVc=;
-	b=U/tUGgRZRkc/B0WLVqGOZcpoXImti+kxeyxLMalQhamJ63lmwH/heu0dcNPvdEpY6lS1
-	 GTkUDjhQ5z+BXmO1NI4Ta+fA4Qwf4MUJ98VRkVKwfAlMNQ+C3LOos75F0m0walVg7TtVz
-	 mwrTNO7xKMMPVL0UZIn6jWbVYpnvJTxuhwYK1W+v6dnrpPghXtTHbHqvziCRNquPKTCJJ
-	 4Axi2ENlMJ+z8fKoQOxAvzirYVu76hKRTFnpGZnTW25esQCK9S8YtyLQddivhhMjPlqD+
-	 sPJNlVDupj8eI1oxQKL2WB4Nq8m7yoKhmgnfrKthCyAUe5VsmvtmapzCAVUZ96fHkjA==
+	bh=wqx+iIyAhe2d4XXXu3h+vmHZKd4T7+bh2chBWG5DneU=;
+	b=1tDORsG5CRCMc1Hf6fKeEL8pqXV3gooaTqyNKzefLnYDVTmLBA8jlJGoL4wxYwXYNUI4
+	 NS7HUtxuR/33+2r+4/93iH97un8avR6crab+ItRBSBxf37RCVdqdGCtd78hrsxh8iUKZB
+	 JGZj5NhRzFO22jrUwBI2FVJnSqL+z/9d7mHGR5FBkbhQGLP/cpjgXGMejjQG98rqG/1EB
+	 iazkyuizX/KFhgqTD5ychphjt0JWmfurQob9ef561A/e49pwrImawGrtR0ZCUCULwUn8h
+	 qI/lDQRlrTGsAPl7BfPEjSiHq80tGPt40HURplDxPhZLjP4s1DkMjTRjSrXN498rcYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="bnGBI/3s";
-	arc=none smtp.remote-ip=209.85.214.175
-Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WsgoPZMZ;
+	arc=none smtp.remote-ip=209.85.214.170
+Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com [209.85.214.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A2B1606A686
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:02:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A2B1606A686
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EAFF606A683
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:02:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6EAFF606A683
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bnGBI/3s
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2ed3df47bc7so3259585ad.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:02:51 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WsgoPZMZ
+Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2ee1d54f281so3010895ad.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:02:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795431771; x=1796036571; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795431774; x=1796036574; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=r0q8e2+fE6SC7LQWl0/+D1d8347EPh+sa3dzN6lIYVc=;
-        b=bnGBI/3s93l0mK4QnKx4pvfPIBFpxgTDKMAzHbQdPbvg18kYXGrEgJINcHjjfOqpCG
-         WexBx+nQQSEOsW2ihkVh5iG+F7fIfoLPAZPSkTLCjyJ2BoSUm+swJvnjTP7hDRAP3R4G
-         akoCYEwYH73mwrT0OBAhqe1zzC57lZoaQb3QxwNtHaczhradyIW2pzN+g1iolBZoTJui
-         F0NErFx51URIR+o3rkILcW2fgZ8HgJVjEpwBCLtXQ6z1gf/vncxFBg4FZsr5EvAGXqjc
-         95Ah/Mvpkf8caIHSBAsKtv1w0GdhY/IO7CEYC/fBWa4TQFvpOsY/btpfqaQt2XVGM62T
-         +MlA==
+        bh=wqx+iIyAhe2d4XXXu3h+vmHZKd4T7+bh2chBWG5DneU=;
+        b=WsgoPZMZ7GOqV8mdwmZpVhtampj4ArEE/UDx3w6UCtHjrCsQMcEaL4MOxhXub+DTft
+         qehk6BGifARtbMyp7x8hBMWWzYfBhrzM4kJqAkBTyCFJ6F5xwjqrEv3kgycWTrmwUGIT
+         caO0M6BdvNlx33Ucn7LR9/Kbens4LBZ+RsnuU69fm1CBEsqaqaXdLRpWbWRHDgUzBl19
+         fYbI24rWfaGLvsKNOWRXNSfV2gy4fenOkMWgmfafasqWzephNiIckSzAKMPHuDTeUbsa
+         QRxPSYjc0tfe1187UUcY/QIaqS0xhODteYVmO2W6BGip8SuSZqVlDJjcX1m7ySvezEIQ
+         f/4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795431771; x=1796036571;
+        d=1e100.net; s=20260707; t=1795431774; x=1796036574;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=r0q8e2+fE6SC7LQWl0/+D1d8347EPh+sa3dzN6lIYVc=;
-        b=H7UhdYTXkR96iiDJPw0FXASYylICOQBbwP3AYae0RM3fSO9gdtKVuqjVM/83ikzvij
-         gWqVxHqwj+ank6/dBGBxjL5fcllx2V3um0Vrp8d5js1XkOd7kxQMQkS5ht3Si5M3cEs+
-         fQT791vTUZip6bN+CVndscx7byxdbb5BjZHryT8SM7U2kv7gwZmBgqYzokdewCl0NDSd
-         P7xYWthvPxofepwZ0YdOeMt1dQxO0lAi7mW1XhnTIoUhCAsMpHqIQLSqGN0iSR4KENZ+
-         3XciJXTtkontSM2vha5UJhYI3JR5W07jenRlBTrAvW64sSidJNY+/5rdRnhrsGbP0Xfo
-         qCNg==
-X-Forwarded-Encrypted: i=1; AL+hErGbpZiq2D8mtH6linTKObddqsFWiGLx05Az1C1/mgfrwium8IF8/ijz9plfqLZO+xk/UVnaKeWFYHy2nyY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9s9+qfNlaTVdLff6DbNXmf00ilgYO+ZGeZMC//L/4G+ofJfeHU
-	SgSjeilAzsLFr/nJpwPEhzgjF4aR4xRnBEYZ+FTaKr0r7E1SWcLc73Ap
-X-Gm-Gg: AZFdTZcr7PBZfy7uOlikheXr2ci/4LQRAAKyXqCT0+PqrWh9oEmpJ9xxiLlM5d9+6QZ
-	4wspZN0wDdo2j+I5FxLolAmmHotYc+Gm6Y1SHzYhyK3GC29OGhp8b/GMP4WXDh+G1QWsiw/RtH2
-	fyixR4pY0i7jvBtqrvJpxe3Ko8l8xXm0usJI4GEs0X5lh57kma2QbXsSmzt3/P8HDqRFoM1N9iU
-	Tds40DwzPgvCzHyfLUYL////6P9ZXRZNSH+501tg2Hn54pTYgmvjjzkYATIwquD/ktxWbNPJOxW
-	AOvVSuF4+Le6nyIEXA4cNIeTRKq831xP3DrLxT4fZHFdqUq5RFChVaMpse+prA57kpK7hhB4MP4
-	EuGTV/QTBwF6Tt2jZu1R0+ISJTaXtAqig2qAC7lH5h/sB+4Ki3B4cZ4+FvOwZX9mOPB4afloG1a
-	NMIxJ3iquvjbJeWaDa8uUtv12OSbP45fh+lxduXiDgqk1ZnSQTvIsftQ8QgiuMSqIieBKQ07+Mf
-	BcPchm47dg2jM2LOGR1nm+rGd1Oo9ELfwwdCfzKsg1nc/FJBKmZbYJu9GtPsioYxAGqMwVB4JBM
-	M6MViXxQEsYSxuIW3Iae3Q5C4w+V4YTViqo4GVAAavwhjDPX97U9nwD3ybVWPD0FzSI5AL1sxXm
-	DcMF3yfsJaN/l7HMSnjXBJS6c
-X-Received: by 2002:a17:902:ef45:b0:2ef:d8ce:83e6 with SMTP id d9443c01a7336-2f03edf6f5cmr167023415ad.0.1795431770580;
-        Mon, 23 Nov 2026 03:02:50 -0800 (PST)
+        bh=wqx+iIyAhe2d4XXXu3h+vmHZKd4T7+bh2chBWG5DneU=;
+        b=pz+eKKGXvy3SKAU/pf65JIDD5BRylFWQ3ZYM4/MiPj6VOrHsg7JkVtbk/bXL2ysYLO
+         dhK6lORGeBxzDyQn8VF1Hc5NHa5zBqjm5betF8+tyGMUN8V3/zMH0u655yHqnb+f6VvL
+         okYSBsM1ZZuQ2UVkjxz99xcQSzAEeN1wMz6sEYpsCwRd3qsAtH4xr0Z3B3WcZ2NQKkDf
+         1jmPqxjuewhwMDrQW96WUo7QCbFAfN2U8N6TNanYTgocZ81AY4ixi2ZJ1w6Pvo1E+mVF
+         Pd4zPlKOvfOUl+7MPlrcTizup1Jb6NUbFWTcpkGJsT1WkL0LFRV/hnD5k1/0JBeQixUV
+         /zmw==
+X-Forwarded-Encrypted: i=1; AL+hErF0MMRWyXQDOYxEqGulgdk3+2MUbIOdVNmzTf0jBpnF/XODjIeIdIbUfvSwB0P/dm6zfKIXRhKz8koVtcg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8sHePY3ECmoO/DfUiwZbPWIgJ5TwPrNjKZeoi6PDW2oHmwgygP
+	UCH8/9TOEBo8Ovvsv3Cktmf5ALyzDncvCJY+qu+zSYLBZ4J1TxezvQyF
+X-Gm-Gg: AZFdTZdnIPgGiXlajCI7nD3IRWrinGxbwmND7kyKE3oGVuQBLwoHMEdsBEuskRpOEIm
+	Po/Yo+wD7hHdnoiHJunosOAx1dkxI9u/3zTFQTdJ+PcJC3Wg/vdiRg1YnDDQE5sFL9ARhUEIzMP
+	rPnnKtshUFdUH8y09boiwGRqZSFuk1j/YNPAwZLKzX7oE3J5D/rX8ohKte4sP1ik94392HkMjv1
+	z3JHLtKl1pn5mcllS1xHzK9XsxdN20pcp2cvTZbI+YP+kivdtqM2dcZM7Pp9HuxM0ASZG0M8xS6
+	dx5y5vqnORfBWIxbw5wU9O0zJ22Ku/r3DqA742RzBLbmUZXCq9fhv/ZqBDge3mG0Zn8QV+J12qI
+	dCQMu3gK893Qvsn5LblhmkLAiCN0riuJ4waWtu0hj1tmzgy5CT0WLtCmsk4udcNJQi0KOCR4QKA
+	mUBd+xIqQdGRGkq+E33a6V1f3BC6kemNqyOqbbFfOI/15OuAGr/K8FKXVkgjV7UqdrJWQI1utR+
+	PWTkWXcQsy2ISZB+ffQl86HF1UYBAfP6prTOH6rKxVjtAhApn6UrnKx9BZwRoHFRh1Z8DOsqq35
+	fqb8pZSCPJ2CS7xh1pEUcQdhqdrwS9IhAZOvvQAOQ5ruZAW2GoTYpwUBwtieoqnsmJM15d9FG2S
+	PTM3QHk4f+N1MNnHbSG8i7e9wDQ==
+X-Received: by 2002:a17:902:d547:b0:2f0:33d8:f88d with SMTP id d9443c01a7336-2f03ee6fa4fmr177863675ad.0.1795431773646;
+        Mon, 23 Nov 2026 03:02:53 -0800 (PST)
 Received: from chenyou.ncku.edu.tw ([140.116.19.16])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1aa3sm50380785ad.21.2026.11.23.03.02.47
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1aa3sm50380785ad.21.2026.11.23.03.02.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 03:02:50 -0800 (PST)
+        Mon, 23 Nov 2026 03:02:53 -0800 (PST)
 From: Chen-Yu Yeh <chenyou910331@gmail.com>
 To: alexs@kernel.org,
 	corbet@lwn.net
@@ -89,9 +89,9 @@ Cc: wy@wyuan.org,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Chen-Yu Yeh <chenyou910331@gmail.com>
-Subject: [PATCH v2 08/25] docs/zh_TW: process: sync code-of-conduct-interpretation.rst with the English original
-Date: Mon, 23 Nov 2026 19:01:59 +0800
-Message-ID: <20261123110217.170025-9-chenyou910331@gmail.com>
+Subject: [PATCH v2 09/25] docs/zh_TW: process: sync code-of-conduct.rst with the English original
+Date: Mon, 23 Nov 2026 19:02:00 +0800
+Message-ID: <20261123110217.170025-10-chenyou910331@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261123110217.170025-1-chenyou910331@gmail.com>
 References: <20261123110217.170025-1-chenyou910331@gmail.com>
@@ -107,80 +107,135 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-The previous update claimed to track
-commit 04c4bb90ae6e ("Documentation/CoC: Spell out the TAB role in
-enforcement decisions"), but the conflict mediator contact was still the
-one from before commit 5fddf8962b42 ("docs: update mediator contact
-information in CoC doc") and commit 8bfdfa0d6b92 ("docs: update mediator
-information in CoC docs").  Update it to Joanna Lee
-<jlee@linuxfoundation.org>.
+The translation carried no "update to commit" marker.  A
+section-by-section comparison against the current English text shows
+that every section is present, including the conduct@kernel.org contact
+from commit f3f76d640141 ("Code of Conduct: Change the contact email
+address") and the Interpretation section from commit f7e585843217 ("Code
+of Conduct: Provide links between the two documents"), but the text was
+still a mechanical conversion of zh_CN:
 
-While at it, translate "file" in the Maintainers and Scope sections as
-檔案 and keep the MAINTAINERS file name untranslated, matching the rest
-of process/, and rewrap lines that exceeded 80 columns.
+- fix leftover mainland terms (內核, 社區, 項目, 代碼, 信息, 文檔, 通過,
+  在線/離線, 帳戶) and use 為 instead of 爲
+- retranslate items whose meaning had drifted: "commits" (承諾),
+  "ethnicity" (rendered as 種族 like "race"), "socio-economic status"
+  (split into two items), "empathy", "unwelcome sexual attention or
+  advances", "physical address", "official" project e-mail address and
+  social media account, and "online or offline event"
+- restore "appropriate to the circumstances" in the Enforcement section
+- restructure the Responsibilities sentence so that "inappropriate,
+  threatening, offensive, or harmful" qualifies the behaviors for which
+  a contributor may be banned
 
-update to commit 04c4bb90ae6e ("Documentation/CoC: Spell out the TAB
-role in enforcement decisions")
+update to commit f3f76d640141 ("Code of Conduct: Change the contact
+email address")
 
 Signed-off-by: Chen-Yu Yeh <chenyou910331@gmail.com>
 ---
- .../process/code-of-conduct-interpretation.rst   | 16 +++++++++-------
- 1 file changed, 9 insertions(+), 7 deletions(-)
+ .../zh_TW/process/code-of-conduct.rst         | 54 +++++++++----------
+ 1 file changed, 27 insertions(+), 27 deletions(-)
 
-diff --git a/Documentation/translations/zh_TW/process/code-of-conduct-interpretation.rst b/Documentation/translations/zh_TW/process/code-of-conduct-interpretation.rst
-index 4fc568409198..6f87b104a96d 100644
---- a/Documentation/translations/zh_TW/process/code-of-conduct-interpretation.rst
-+++ b/Documentation/translations/zh_TW/process/code-of-conduct-interpretation.rst
-@@ -2,16 +2,18 @@
+diff --git a/Documentation/translations/zh_TW/process/code-of-conduct.rst b/Documentation/translations/zh_TW/process/code-of-conduct.rst
+index 0266cd74a0b1..d6b253d3bac6 100644
+--- a/Documentation/translations/zh_TW/process/code-of-conduct.rst
++++ b/Documentation/translations/zh_TW/process/code-of-conduct.rst
+@@ -6,69 +6,69 @@
  
- .. include:: ../disclaimer-zh_TW.rst
+ .. _tw_code_of_conduct:
  
--:Original: :ref:`Documentation/process/code-of-conduct-interpretation.rst <code_of_conduct_interpretation>`
-+:Original: :ref:`Documentation/process/code-of-conduct-interpretation.rst
-+           <code_of_conduct_interpretation>`
+-貢獻者契約行爲準則
++貢獻者契約行為準則
+ ++++++++++++++++++
  
- .. _tw_code_of_conduct_interpretation:
+ 我們的誓言
+ ==========
  
- Linux核心貢獻者契約行為準則解釋
- ===============================
+-爲了營造一個開放、友好的環境，我們作爲貢獻者和維護人承諾，讓我們的社區和參
+-與者，擁有一個無騷擾的體驗，無論年齡、體型、殘疾、種族、性別特徵、性別認同
+-和表達、經驗水平、教育程度、社會狀況，經濟地位、國籍、個人外貌、種族、宗教
+-或性身份和取向。
++為了營造一個開放、友好的環境，我們作為貢獻者和維護人員承諾，讓參與我們的專案
++和社群成為每個人都不受騷擾的體驗，無論年齡、體型、身心障礙、族裔、性別特徵、
++性別認同和表達、經驗水平、教育程度、社會經濟地位、國籍、個人外貌、種族、宗教
++或性認同和性取向。
  
--:ref:`tw_code_of_conduct` 準則是一個通用文件，旨在為幾乎所有開源社群提供一套規則。
--每個開源社群都是獨一無二的，Linux核心也不例外。因此，本文描述了Linux核心社群中
--如何解釋它。我們也不希望這種解釋隨著時間的推移是靜態的，並將根據需要進行調整。
-+:ref:`tw_code_of_conduct` 準則是一個通用文件，旨在為幾乎所有開源社群提供一套
-+規則。每個開源社群都是獨一無二的，Linux核心也不例外。因此，本文描述了Linux核心
-+社群中如何解釋它。我們也不希望這種解釋隨著時間的推移是靜態的，並將根據需要
-+進行調整。
+ 我們的標準
+ ==========
  
- 與開發軟體的“傳統”方法相比，Linux核心開發工作是一個非常個人化的過程。你的貢獻
- 和背後的想法將被仔細審查，往往導致批判和批評。審查將幾乎總是需要改進，材料才
-@@ -23,7 +25,7 @@ Linux核心貢獻者契約行為準則解釋
- ------
+-有助於創造積極環境的行爲包括：
++有助於創造積極環境的行為包括：
  
- 行為準則多次使用“維護者”一詞。在核心社群中，“維護者”是負責子系統、驅動程式或
--文件的任何人，並在核心原始程式碼樹的維護者文件中列出。
-+檔案的任何人，並在核心原始程式碼樹的 MAINTAINERS 檔案中列出。
+ * 使用歡迎和包容的語言
+ * 尊重不同的觀點和經驗
+ * 優雅地接受建設性的批評
+-* 關注什麼對社區最有利
+-* 對其他社區成員表示同情
++* 關注什麼對社群最有利
++* 對其他社群成員展現同理心
  
- 責任
- ----
-@@ -39,7 +41,7 @@ Linux核心貢獻者契約行為準則解釋
- 維護人員應該願意在出現問題時提供幫助，並在需要時與社群中的其他人合作。如果您
- 不確定如何處理出現的情況，請不要害怕聯繫技術諮詢委員會（TAB）或其他維護人員。
- 除非您願意，否則不會將其視為違規報告。如果您不確定是否該聯繫TAB 或任何其他維
--護人員，請聯繫我們的衝突調解人 Mishi Choudhary <mishi@linux.com>。
-+護人員，請聯繫我們的衝突調解人 Joanna Lee <jlee@linuxfoundation.org>。
+-參與者的不可接受行爲包括：
++參與者的不可接受行為包括：
  
- 最後，“善待對方”才是每個人的最終目標。我們知道每個人都是人，有時我們都會失敗，
- 但我們所有人的首要目標應該是努力友好地解決問題。執行行為準則將是最後的選擇。
-@@ -64,7 +66,7 @@ Linux核心貢獻者契約行為準則解釋
+-* 使用性意味的語言或意象以及不受歡迎的性注意或者更過分的行爲
+-* 煽動、侮辱/貶損評論以及個人或政治攻擊
++* 使用帶有性意味的語言或圖像，以及不受歡迎的性關注或性挑逗
++* 惡意挑釁、侮辱/貶損的評論以及人身或政治攻擊
+ * 公開或私下騷擾
+-* 未經明確許可，發佈他人的私人信息，如物理或電子地址。
+-* 在專業場合被合理認爲不適當的其他行爲
++* 未經明確許可，公開他人的私人資訊，如實體或電子地址
++* 在專業場合中可被合理認為不適當的其他行為
  
- Linux核心社群主要在一組公共電子郵件列表上進行交互，這些列表分佈在由多個不同
- 公司或個人控制的多個不同伺服器上。所有這些列表都在核心原始程式碼樹中的
--MAINTAINERS 文件中定義。發送到這些郵件列表的任何電子郵件都被視為包含在行為
-+MAINTAINERS 檔案中定義。發送到這些郵件列表的任何電子郵件都被視為包含在行為
- 準則中。
+ 我們的責任
+ ==========
  
- 使用 kernel.org bugzilla和其他子系統bugzilla 或bug追蹤工具的開發人員應該遵循
+-維護人員負責澄清可接受行爲的標準，並應針對任何不可接受行爲採取適當和公平的
++維護人員負責澄清可接受行為的標準，並應針對任何不可接受行為採取適當和公平的
+ 糾正措施。
+ 
+-維護人員有權和責任刪除、編輯或拒絕與本行爲準則不一致的評論、承諾、代碼、
+-wiki編輯、問題和其他貢獻，或暫時或永久禁止任何貢獻者從事他們認爲不適當、
+-威脅、冒犯或有害的其他行爲。
++維護人員有權利和責任刪除、編輯或拒絕與本行為準則不一致的評論、提交、程式碼、
++wiki 編輯、問題和其他貢獻，或暫時或永久禁止任何從事他們認為不適當、威脅、
++冒犯或有害之其他行為的貢獻者。
+ 
+ 範圍
+ ====
+ 
+-當個人代表項目或其社區時，本行爲準則既適用於項目空間，也適用於公共空間。
+-代表一個項目或社區的例子包括使用一個正式的項目電子郵件地址，通過一個正式
+-的社交媒體帳戶發佈，或者在在線或離線事件中擔任指定的代表。項目維護人員可以
+-進一步定義和澄清項目的表示。
++當個人代表專案或其社群時，本行為準則既適用於專案空間，也適用於公共空間。
++代表一個專案或社群的例子包括使用專案的官方電子郵件地址、透過官方社群媒體帳號
++發佈內容，或者在線上或線下活動中擔任指定的代表。專案維護人員可以進一步定義和
++澄清專案的代表方式。
+ 
+ 執行
+ ====
+ 
+-如有濫用、騷擾或其他不可接受的行爲，可聯繫行爲準則委員會<conduct@kernel.org>。
+-所有投訴都將接受審查和調查，並將得到必要和適當的答覆。行爲準則委員會有義務
+-對事件報告人保密。具體執行政策的進一步細節可單獨公佈。
++如有濫用、騷擾或其他不可接受的行為，可聯繫行為準則委員會 <conduct@kernel.org>。
++所有投訴都將接受審查和調查，並將得到視情況認為必要和適當的回應。行為準則委員會
++有義務對事件報告人保密。具體執行政策的進一步細節可另行公佈。
+ 
+ 歸屬
+ ====
+ 
+-本行爲準則改編自《貢獻者契約》，版本1.4，可從
++本行為準則改編自《貢獻者契約》，版本 1.4，可從
+ https://www.contributor-covenant.org/version/1/4/code-of-conduct.html 獲取。
+ 
+ 解釋
+ ====
+ 
+-有關Linux內核社區如何解釋此文檔，請參閱 :ref:`tw_code_of_conduct_interpretation`
+-
++有關 Linux 核心社群將如何解釋此文件，請參閱
++:ref:`tw_code_of_conduct_interpretation` 。
 -- 
 2.43.0
 
