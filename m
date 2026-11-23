@@ -1,63 +1,64 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795426934;
-	b=Uh+ZBJJx6BjP+WUdPYzRYZoiU3prbX2nSaQ0pp7Xe3WjX5/pjOngNTeCYSOcZKK+Na01
-	 WeYXjClPtkhnC+cIwAbVfQOw2ZMXvKz/H+C8JK5oILd8zvJNqjMiFvReudIRcLtKTPXid
-	 ipm5jAAYwrDDe8PMBOT+5ifpFkwevHicsivSXXsGRxwxW7vsYIe6MjC7KZVPBY0KRPZSH
-	 2dEO2ZANdB7u2VAbIwOBhoq4lsuhibprcl7j5wmW8bKQ1jULZy0kSxSKpj0Y69Oe8oL1I
-	 6iNLJIBbXwRAEGqn+K9K7EK9Ef36/17kOxd5/UuyIbdO5MQ+iVK5ozKh/Q1vXC8ybhg==
+	t=1795426967;
+	b=nzvCq0xDQbQZFjFWsfn/Inl2wcx02oBSq6hH9d9/ewKw8gtHF9jb9dlNuzJwG8okOr38
+	 ZjnDpESP8IGzvYl/rPRk9fHUv2kcanmLxIyRCyMuve4i8mlDjjAe+4EKwD/r3u772c6RC
+	 Bf18lfQmEOq5WPOXPXWFwyq3gxeD4LviXBsky/k6jD89G7Hx+cBp6HG7cIiy8qjd2rM0v
+	 pbRTcnrXXXnU95DaLKJ3uNWBYjX+hH+myVneMUe396lC1eg+b4DnRP1V4ivLoRpZeuyDz
+	 wNJsNNcQ9zlMLZR7RclMemS+Gwhr/nI0ZjTcEfJbh1Gwteyk+c6sKr7u51rLJIeRSxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795426934;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795426967;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 Mail-Followup-To:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=FxTobsfCxRYvTDQx8sjXtNySJlBxYXFSYwqfbK6HcX4=;
-	b=lLUb89KikRzVBWGiM9bWAIaldU66kjobDWUnTf974hrPvxbt/8rI4QmjX7FzvIMc7uid
-	 H4Q/vC9QuZjVb8Qy9yw2g8mZJOxS/bRtxh1+JtVhUjcFxsm5w9wr/DUQhSwCfrpYDqgIp
-	 ltNLXI0kP0G6WUQU9WBPS9dWeJT91YQu5HTSfzmIpAY4L8/xUf0KTzSAJZk02oHzxUvby
-	 E4E/eU5k3kkaeAaiT+TR3SR3yhMY4HTg0pCjgpvXB5KSG9H0NSer2UEy1v3IWVce/wwdF
-	 Xtjqn87dt0bpwlvUPb44hly3zlotd2QqMW/C/CwCW9/z35wYblfmwud+ZY2m2AULhUw==
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ou9HbEx7ssMVBMaWAZro4CSQQpcKzmh3Oi4G3bVclIU=;
+	b=CCjJYtmUj34DPzDjQ0qG+L1XLM5BmfI7oxy84wLbzrQU9V/I0qZldMmLPIsnGCJebgaM
+	 wdWQWXEBgl6Dk6vpjesQKdgCTRNcJIwpztd1YoUFJleG1D16mXRsiyfanqYp0504+U2tB
+	 i9BNwkwo326HSvrkJEexpWsHKzmI7jiUI7fT/8iANZ1nZykkEcCgfNm48U3HsmDQwJ4sT
+	 3IbDZE7TaPbp1h/SJ0qdYCYUfChk3Cdmwzeq9P7PN2Pm3HGnf30OB3MOV8XOSPmwLYXpv
+	 uFVxrChV+8Jro+bpc9Aj/Wdl8lTg2BxdqoclNP56m7IN888RVyXAWs0dv+d9Zrcb2QA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="nMW5cnc/";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oWRODS8D;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1661D606A687;
-	Mon, 23 Nov 2026 09:42:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB134606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:42:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nMW5cnc/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A45F81F000C0;
-	Mon, 23 Nov 2026 09:42:03 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oWRODS8D
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90DF71F000CA;
+	Mon, 23 Nov 2026 09:42:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795426933;
-	bh=FxTobsfCxRYvTDQx8sjXtNySJlBxYXFSYwqfbK6HcX4=;
+	s=k20260515; t=1795426967;
+	bh=ou9HbEx7ssMVBMaWAZro4CSQQpcKzmh3Oi4G3bVclIU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nMW5cnc/NvQHD7Fvd7JMUVH4nVd0RekCqwGvZVjrrlJD6Eq3TzZHYyNySVIkxSqV/
-	 M5ftvQn6i+TW3rsFQM/ZU2+QCnlk1jGTKQs+4Y8W/UcJSImkbCLZbrqOAxFlLIlbcQ
-	 Z/nDrVSMPVqUe+ThqOY1h+slyt6DB0UG/nCog2lIw2R77fObhwBaIzlTF7T8eHAVwh
-	 O2k0iNQczR0Ls+EPKX0ZObqyphdoUkg7FiDYQ4/Curt8sUHOAp1WwDQ6wtvlmEBQ0g
-	 29Rj3OcYzYEsAV+9m3+XXXGMavqOE944HjlIvjI9InJr6MTtgidI01ZVJ+RJaJ5cTb
-	 VodgTT9NiFXzQ==
-Date: Mon, 23 Nov 2026 17:41:56 +0800
-From: Zorro Lang <zlang@kernel.org>
-To: Baokun Li <libaokun@linux.alibaba.com>
-Cc: fstests@vger.kernel.org, linux-fscrypt@vger.kernel.org, 
-	ebiggers@kernel.org, jaegeuk@kernel.org, tytso@mit.edu, linux-ext4@vger.kernel.org, 
-	adilger.kernel@dilger.ca, jack@suse.cz, yi.zhang@huawei.com, ojaswin@linux.ibm.com, 
-	ritesh.list@gmail.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] common/encrypt: support block sizes larger than the page
- size
-Message-ID: <awQHLSS4hFskH0Us@zlang-mailbox>
-Mail-Followup-To: Baokun Li <libaokun@linux.alibaba.com>, 
-	fstests@vger.kernel.org, linux-fscrypt@vger.kernel.org, ebiggers@kernel.org, 
-	jaegeuk@kernel.org, tytso@mit.edu, linux-ext4@vger.kernel.org, 
-	adilger.kernel@dilger.ca, jack@suse.cz, yi.zhang@huawei.com, ojaswin@linux.ibm.com, 
-	ritesh.list@gmail.com, linux-kernel@vger.kernel.org
-References: <20261103160906.188544-1-libaokun@linux.alibaba.com>
- <awHJso_ELIgRjbdg@zlang-mailbox>
- <a5ad29d3-eb4d-479d-af48-b679fe8b5d23@linux.alibaba.com>
+	b=oWRODS8DLeadYEUXqdhuAOcb/384tRTJG4ZbW51LNJ3reUaZCz46vEGx6mPoB3eEr
+	 tGcw3pzDrf/vZ8JlXoP+lq8eh5rMF+5Y1nz7meZCVVBckNCr3C42T/B/QD+KLdyASJ
+	 DMJZDKkgucekWw6EvsyEG6tIxK5zkscmCxjYCRU6BATu5Xk1CxrGZe4+1LElfeMRGx
+	 /wTvsef5APv/J47LDC8hRkujWw3UVBcCnF40yWBHuT0HPkIiPB94S8837sTBC4Dizp
+	 XTXgzJlFbbu+QrtDKzwFvI8gvSKKTjRJ7mzEKnNmsb9zFlrpkdMF8Toe/fRGnQWb6y
+	 YBUAf0K4Gi9MA==
+Date: Mon, 23 Nov 2026 10:42:38 +0100
+From: "Oscar Salvador (SUSE)" <osalvador@kernel.org>
+To: Muchun Song <songmuchun@bytedance.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>, Michal Hocko <mhocko@suse.com>,
+	Muchun Song <muchun.song@linux.dev>,
+	Li Zhe <lizhe.67@bytedance.com>, Andrew Popple <apopple@nvidia.com>,
+	Balbir Singh <balbirs@nvidia.com>, Lorenzo Stoakes <ljs@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	James Houghton <jthoughton@google.com>,
+	Lance Yang <lance.yang@linux.dev>, Qi Zheng <qi.zheng@linux.dev>,
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 11/11] mm/mm_init: move pageblock migratetype init to
+ memmap helpers
+Message-ID: <awQKjoEei56eyCcw@localhost.localdomain>
+References: <20261120100856.16929-1-songmuchun@bytedance.com>
+ <20261120100856.16929-12-songmuchun@bytedance.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,82 +70,28 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <a5ad29d3-eb4d-479d-af48-b679fe8b5d23@linux.alibaba.com>
+In-Reply-To: <20261120100856.16929-12-songmuchun@bytedance.com>
 
-On Mon, Nov 23, 2026 at 11:39:19AM +0800, Baokun Li wrote:
-> Hi Zorro,
+On Fri, Nov 20, 2026 at 06:08:56PM +0800, Muchun Song wrote:
+> ZONE_DEVICE memmap initialization already initializes pageblock
+> migratetype after all struct pages have been initialized, while hugetlb
+> bootmem folios have their own duplicate bootmem-specific initialization.
 > 
-> Thank you for your review!
+> Move the MIGRATE_MOVABLE pageblock initialization into the frozen memmap
+> initialization helpers instead, so the ZONE_DEVICE and hugetlb bootmem
+> paths can share the same initialization.
 > 
-> On 2026/11/22 01:04, Zorro Lang wrote:
-> > On Wed, Nov 04, 2026 at 12:09:06AM +0800, Baokun Li wrote:
-> >> +	#
-> >> +	# If the test requires a v2 policy, don't probe with a v1 policy:
-> >> +	# v1 policies are not supported when the block size exceeds the page
-> >> +	# size.  _require_encryption_policy_support() will check for the
-> >> +	# requested policy version below.
-> >> +	if [ "$policy_version" -le 1 ]; then
-> >> +		mkdir $SCRATCH_MNT/tmpdir
-> >> +		if _set_encpolicy $SCRATCH_MNT/tmpdir 2>&1 >>$seqres.full | \
-> >> +			grep -Eq 'Inappropriate ioctl for device|Operation not supported'
-> >> +		then
-> >> +			_notrun "kernel does not support $FSTYP encryption"
-> >> +		fi
-> >> +		rmdir $SCRATCH_MNT/tmpdir
-> >> +
-> >> +		# v1 policies use the block size as their data unit size,
-> >> +		# which doesn't work if the block size exceeds the page size.
-> >> +		_require_v1_encryption_support
-> > 
-> > How about do _require_v1_encryption_support at first:
-> > 
-> >   if [ "$policy_version" -le 1 ]; then
-> >       _require_v1_encryption_support
-> >       mkdir $SCRATCH_MNT/tmpdir
-> >       if _set_encpolicy $SCRATCH_MNT/tmpdir 2>&1 >>$seqres.full | \
-> > 
-> > In that case, if block_size > page_size, we can directly skip the test
-> > with an explicit reason, avoids a redundant mkdir/rmdir and ioctl call.
-> > 
+> The old hugetlb_bootmem_init_migratetype() skipped CMA folios via
+> folio_test_hugetlb_cma(), but the shared helper always initializes
+> pageblocks as MIGRATE_MOVABLE. This is safe because cma_activate_area()
+> later overrides the migratetype for CMA pageblocks.
 > 
-> Yes, this can avoid some unnecessary operations.
-> 
-> 
-> >>  # FS QA Test No. ext4/309
-> >>  #
-> >>  # Verify that file contents encryption works on a filesystem with a block size
-> >> -# larger than the page size.  fscrypt uses the block size as the data unit size
-> >> -# by default, so this tests data units that span multiple pages, both for the
-> >> -# writeback path and for the on-disk ciphertext.
-> >> +# larger than the page size.  fscrypt uses min(block size, page size) as the
-> >> +# default data unit size, so this tests 4K data units on a 32K-block
-> > 
-> > Does ext4/309 hardcode 32k ?
-> > 
-> 
-> No, that's actually just an example using a block size of 32k; I'll
-> rephrase that.
+> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
 
-Great, thanks!
+Acked-by: Oscar Salvador (SUSE) <osalvador@kernel.org>
 
-> 
-> Additionally, the final plan has not been fully confirmed yet. I am
-> still working on the details with Eric. It is expected that all v1 use
-> cases will be converted to v2 later, and in the testing process, the
-> data unit size will be explicitly specified. Please refer to:
-> 
->   https://lore.kernel.org/r/20261104195127.GA1971@quark
 
-Thanks Baokun, good to know you're working on it with Eric Biggers. As the
-kernel patch is still under reviewing, please ping the fstests list when
-it's ready, in case I miss it :-D
 
-Thanks,
-Zorro
-
-> 
-> 
-> Cheers,
-> Baokun
-> 
-> 
+-- 
+Oscar Salvador
+SUSE Labs
