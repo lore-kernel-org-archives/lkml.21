@@ -1,54 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795418465;
-	b=nTy00UoRJhmDkaJkqhDYobss8QSapIY8Xzuzlf9vB7uJBFxbVhnG6lOjxfrDogNgKo98
-	 /t4OLmcZqmsCCeH5zPW4c2hkqkzLSlRQELzqY0FgInP40ndIVxyqeUuB/0asTo/NMwEe9
-	 d6PkAWb7+TVyWL8hSTYROgq4B86ciGVj8PxkNWVDffjtetOCuS3F90e5JEF33xxaD7Qzn
-	 NvF2yY553GFzYwfdj9/p49QH4QPOAeXAyHSg8Fcrh5GJQczYPAbDZ0UIekY+RKRRMgUm6
-	 z9lKoaB/jSt1SRGcyabM+4DRmiLl2SP/aaRGePPoErEMJ+CYmVPlMOaa8vj5a7iUVOA==
+	t=1795418623;
+	b=WouYXzdXI4jhigiY2CuGe+K5vTTXUaZdCYdH6K4GxQQJ7sY3jSd2/wt6NTo7BQdXIYCN
+	 qSyw76feBV4jPBBB8rbcLpv4ePPKSfYxQj40iOu9dtNs+OUAobbevVS4UXX7DxBs5F2Vu
+	 50RnHn1AXvHgKKVrshqROsz1n1AmsZsxw1/qluWihccP1Sq+2TgJ/Z6DN9DNKxEMWrs/p
+	 QlUpjLZmwSf56NoD9HjQYz06k0I+y1TN+V66xSVgAua58wuV9CtDkMXAvviTPKUrZt72f
+	 tsfX6l/ikPU7hE+CXwO3ct5NxS82KKqqMMiFd8ZJYnFwh9xuP6BpGvBcbMgxJTdRihQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795418465;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795418623;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=rUpMUM+HhWr+QKptHzgmQzAAdEuAZRjEoOiMRQIuit0=;
-	b=BfDgnr42EA8Sd8Wnyegqyz95u54pEK7ghFOcS62miiOYIA0EQ0BZ/zg+ySUo99gSn+qy
-	 yen3AzjVkRSWT3f7DNllWK2Qds6gB68lnFoWymLz1ag7cHCDwyn5TyCwcZMW/nbXMYfXR
-	 ZdpJ9Zb1wwWxwORy0YaO8Zd6DTNATvWgjwVbvOpYmo/3sW42pa0j0SwDYg6bFxeSmEZpg
-	 zUMwDp5be1AiZeL0KOEXBZRmy14B0drY+/n+XY31IsnDsVlTPemjtmdPlHh91mbHgzY2c
-	 XtgU2E0aJtxd3FNVpieRS3xsiWne84beyEGVckU+95i2Lt+Ud/hAZSU/4iekYjGnzhg==
+	bh=H8gLzdazFZwlIm2KfjMoHrjel+Sb1VQszOzQk+URMQE=;
+	b=FDzkwU3isgdXL6Iqa1IKc0u7PVSTqNxPOk5WoIC/mzts8zeL+F3hiL9ROcvgvQeEBjUP
+	 v7rPKoe8bctq3WzXXyw1cInWrMwjPZgcoo65C77VaqVN2ijc2WnW3l0JPqzIJFHUypQdP
+	 v3prcAWHeVwceHbQuIaYg7FBj1wJjUbTr4BAXpf7I9xPxUbWXkCZ0yU6DFBh7bUlKPcOS
+	 JQMizPtN4qCZwnIQlnR/GYix1vHo9z9o0RB40lEq15/TFI1WAXz/qz44NEID2Czkd0NCX
+	 iMMXSeew/t0l0mpDxYw9UuocE96JvDSFdvJiYHJQftJTWFd+1YyTj0ML0Uw+IKqzBOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=com4i27i;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ES8KqK+P;
+	arc=none smtp.remote-ip=209.85.216.42
+Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBE78606A31A;
-	Mon, 23 Nov 2026 07:21:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86E70606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:23:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86E70606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=com4i27i
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ABD41F000C0;
-	Mon, 23 Nov 2026 07:21:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795418465;
-	bh=rUpMUM+HhWr+QKptHzgmQzAAdEuAZRjEoOiMRQIuit0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=com4i27ieOVaMX8wjif5QFLPdsps4B/ZX8LlPrI7YJquPs98vS8t/ztq11JKOqvcR
-	 UIxc1YfBFow0LOnH7ack0TWtyNoK6cOXyI9Cxgzdrtqfkm1na5B63gBIqVHfvNfAjB
-	 /Ww4h08bIGr1XypDQqMoXo65BksqDsInbkWpF5yE4dg+XR8TOrna2TP+ss6DplhbgO
-	 xjAPd9I3l5y7rSNh4bKAY4dh3ceG2aNIOQDHjXHDcGUFJbRXvHU8NogASvgy5uya+P
-	 AQWcK4a7L/8DDHDMHZ/n0zDJH6nD2HdhJzS3YAnsIfsbDBNxTiRmGImdqch3wykuHM
-	 K6031nEaovoBQ==
-From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-To: "Masami Hiramatsu" <mhiramat@kernel.org>
-Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Lukas Zobernig <lukas.zobernig@gmail.com>, "H . Peter Anvin" <hpa@zytor.com>, linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Pablo Fraile Alonso <pablo@pablofraile.net>, Edgecombe Rick P <rick.p.edgecombe@intel.com>
-Subject: Re: [PATCH 0/5] x86/insn, uprobes: Fix opcode map handling for multi-byte, REX2, and VEX/EVEX/XOP instructions
-Date: Mon, 23 Nov 2026 16:21:00 +0900
-Message-ID: <undine-1795418460053955073-5d1cb26ac71ed1bf@undined.local>
-X-Mailer: UndineD 0.1
-In-Reply-To: <179540203033.233843.12951034848925983867.stgit@devnote2>
-References: <179540203033.233843.12951034848925983867.stgit@devnote2>
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ES8KqK+P
+Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3ae6b4c669fso3202151a91.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:23:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795418623; x=1796023423; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=H8gLzdazFZwlIm2KfjMoHrjel+Sb1VQszOzQk+URMQE=;
+        b=ES8KqK+POnE7N2UfZ1uvbgSacHLGpSqGufHpfXF0Na82i/vZGN2Z3MAHif5Jd1Rqq3
+         FyCDEwlfp1jdY1KvCjAb4Tb8yHFQELf71uSzBIJxnYiXu8an7glJujhHdDlfHVojNGdt
+         X6wol31g2T2M7FZjRYVENew3OTpOxBcEPLmpyK0DHZR2Jcy0LWqOBrLtlZOYkGoi4zI4
+         PbrOgCFT6JEXzjH2gBXIC9OeSm8jwjjRUEDxfmf62BDXJWpNpYz2yEQ9igJeI3nBQnfJ
+         PIKzYKSZuoJ9aNFiWdhTqZcoxrspTYxjgNysrl251bXzvkfzquN0NV3H9hRfTseFphOS
+         JPLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795418623; x=1796023423;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=H8gLzdazFZwlIm2KfjMoHrjel+Sb1VQszOzQk+URMQE=;
+        b=1ranKmCvOH/hyN0BlPGgx3ho9jBcmFpG3zodzEMCXyp6gidDNcWiiGYxglS9eAWVnt
+         7r7zfXzOEfsmEH4r2cuPhF9oapW+sLNsKbCLm+k6Hazml9m5lIxkYXXR6b0xNXyotiCH
+         Hn8pUd0tuz3HviH/w+7mf/pn1MyE+XE0I3IOOf02ePRmAwEmW+/uAejrCN0rdJWzMG0G
+         8LmG1VZ4RtlN6T5fKmzNlwNciOplUkkJOYg9s7Usvh0pN3b1L9gD/GWigfkEgx1t06kp
+         SlbT0dUYCV2pnYgLCYKs70V3uivyGK0CzRdi94m6kbQWtVS3s2K0L4mQVlwwLF53BUgu
+         HRng==
+X-Forwarded-Encrypted: i=1; AL+hErHnjwt+F2F0iK1s+RtK9ANW7oe5hJm6g73NjqVYJi9xT0jMP7nHM8vSBN6va7jfiHvxoYjoIoHMyFZ3gsg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8V7fJ2WbmAaRa/9uDyRukjVtsj5IPuJpQ2k21IG3K8ipTpZd8F
+	Ke4g8ZUk6Fx0UhDRpqIOVbqAu6YswiBOdqaexV/z5Vw8xce+o7VbeGJW
+X-Gm-Gg: AZFdTZcJbWAY7jbPydfizKH8OHmlfKCdgyx2EKgVJCPB1iVcabRird2V0/p4zmYQfCM
+	ZGi+dNzt1CGeGZeb0wLS8q+dH5ioPIRAoEPoyDM9krmxu3vU28mMKYGCjCIgHjqpFGh4NfC0zVx
+	FN26Vhj8xKjg3WlMaEnByT6g2SwW5K3BMpWKJ/duwjH7fcb1HuB5DgOlldiMMTL5KqYQWLsm7mF
+	y2tQeqQqxjuoBA9APGQeyUGQCBMmZ8bLoeZv0/CA5jqVJDMC3Y1Lm+51Kl3jWQb1qQucbR7zkbU
+	SkQmTHYsYDu0IB9Ek1FAwHY9Z3QxbPn9CeUY70QaL7rf05LF7MnJ7+U07Mu3ogOVC4UmJmmPfa5
+	8TdMpR2hPLVLf2NRST1bCNvQyakw9hyPscSFQdcFPxPxYmOzAviRVSrOA4eR5gcp1f3ZFgKf3+h
+	tyWel2zIjh5wh3d4LAv5OZZOLeKLDhRn/fnhcjWAoeADcQ6LAtoRAj+W3p7LVIirVsG47kxp5KP
+	8TWYmEQgRux3IdNLGLB/UrcOxgXnd6iRAezAvwP3oW+kTJUST+sj5Cu1JusapLjECvGFvwZwdqU
+	aTg/6hAQ9WgMlt5vtFGJ7yGZxWAFOunXvbVF9uC5TVKBJVm9TwXhXbBfHjbVgmR/nK8Za+78EbP
+	CcJU/XUt5UH4O0RMF5Qj4l2M=
+X-Received: by 2002:a17:90b:3d92:b0:3ad:7f4d:2839 with SMTP id 98e67ed59e1d1-3b41c8e0602mr6108571a91.14.1795418622775;
+        Sun, 22 Nov 2026 23:23:42 -0800 (PST)
+Received: from kic-machine.localdomain (122-117-151-175.hinet-ip.hinet.net. [122.117.151.175])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41adcafe0sm17751153a91.16.2026.11.22.23.23.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 23:23:42 -0800 (PST)
+From: Kuangyi Chiang <ki.chiang65@gmail.com>
+To: mathias.nyman@intel.com,
+	gregkh@linuxfoundation.org
+Cc: linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	ki.chiang65@gmail.com
+Subject: [PATCH RESEND] xhci: Handle missing USB2 resume events on Etron hosts
+Date: Mon, 23 Nov 2026 15:23:20 +0800
+Message-Id: <20261123072320.5967-1-ki.chiang65@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,104 +97,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
 
-Oops, it should be my extension bug... From is wrong.
+On Etron xHCs, a USB2 remote wakeup may also move other suspended
+USB2 ports into the resume state without generating individual Port
+Status Change Events.
 
-On Mon, 23 Nov 2026 11:47:10 +0900, None@smtp.subspace.kernel.org <None@smtp.subspace.kernel.org> wrote:
-> Hi,
-> 
-> Following up on Pablo Fraile Alonso's report and patch [1], as well as the
-> additional review points from Sashiko and Rick Edgecombe, this series fixes
-> the underlying x86 instruction decoder issues and the related opcode-map
-> assumptions in x86 uprobes.
-> 
-> Originally, the x86 instruction decoder was designed primarily for
-> instructions typically emitted in the kernel. Since uprobes uses it on
-> arbitrary user-space instruction encodings, several issues around multi-byte,
-> REX2, and VEX/EVEX/XOP encodings have surfaced:
-> 
-> 1. insn_is_nop() in arch/x86/lib/insn-eval.c mutates insn->opcode.value
->    in-place for REX2 M0=1 instructions without updating insn->opcode.nbytes,
->    corrupting struct insn for subsequent callers (e.g. uprobe_init_insn()
->    and branch_setup_xol_ops()).
-> 2. gen-insn-attr-x86.awk skips emitting INAT_REX2_VARIANT for 0xa1 (JMPABS)
->    because the check is placed after 'if (length(flags) == 0) continue'.
-> 3. insn_get_opcode() never checks INAT_NO_REX2 / INAT_REX2_VARIANT or
->    invalid REX2 encodings such as REX2 M0=0 + 0x0f or REX2 M0=1 + 0x38/0x3a.
-> 4. insn->opcode.nbytes represents the physical opcode byte count (needed for
->    field offset calculations such as insn_offset_modrm()), so REX2 M0=1 and
->    VEX/EVEX/XOP instructions all have insn->opcode.nbytes == 1. Callers
->    need a helper to determine the logical opcode map; insn_masking_exception()
->    also lacked this check and could misidentify non-map-0 0x1f/0x8e opcodes.
-> 5. In arch/x86/kernel/uprobes.c, bit 0x0f in good_insns_{32,64} bypassed
->    good_2byte_insns, and uprobe_init_insn(), branch_setup_xol_ops(),
->    arch_uprobe_analyze_insn(), and riprel_analyze() assumed map-0 or 1-byte
->    REX encodings, causing misidentification of AVX/VEX instructions such as
->    VZEROUPPER (c5 f8 77), VPSHUFD (c5 f9 70), VPOR (c5 f9 eb), and VCMPPS
->    (c5 f8 c2), as well as REX2 prefix corruption in riprel_analyze().
-> 
-> Patch overview:
-> - Patch 1: Fix insn_is_nop() not to mutate struct insn.
-> - Patch 2: Fix gen-insn-attr-x86.awk to emit INAT_REX2_VARIANT.
-> - Patch 3: Reject invalid REX2 encodings in insn_get_opcode().
-> - Patch 4: Add insn_opcode_map() / insn_last_opcode() helpers and fix
->            insn_masking_exception().
-> - Patch 5: Fix opcode validation, branch/fixup analysis, and REX2 RIP-rel
->            handling in arch/x86/kernel/uprobes.c.
-> 
-> Notes:
-> - checkpatch.pl reports warnings on patch 5 for using -ENOTSUPP and -ENOSYS
->   in arch/x86/kernel/uprobes.c. Those match the existing error code
->   conventions of uprobe_init_insn() and branch_setup_xol_ops() across
->   uprobes; cleaning up error codes across uprobes should be done separately
->   and is intentionally left out of scope for this fix series.
-> - Auditing whether Group 15 (0f ae: lfence/mfence/sfence, fxsave/fxrstor,
->   CET instructions, etc.) should be enabled in good_2byte_insns (as raised
->   by Rick Edgecombe) is also left for a separate follow-up discussion/patch.
-> - Uprobes should audit the three-byte opcodes and provide good_3bytes1_insns
->   and good_3byte2_insns bit table if needed.
-> 
-> Testing:
-> - insn_decoder_test on vmlinux .text (7,926,007 instructions): 0 errors
-> - insn_sanity (64-bit and 32-bit, 1,000,000 random insns each): 0 errors
-> - Host unit tests covering REX2 (valid/invalid), JMPABS, VEX2, POP/MOV SS
-> - QEMU (KVM, -cpu host) uprobe runtime test verifying rejection of 8
->   disallowed/invalid encodings (0f 05, 0f 0b, REX2 M0=0+0f/e8/a1,
->   REX2 M0=1+05, 10-byte REX2 M0=1, EVEX map 4) and clean XOL/emulation
->   execution + trace hits for 7 allowed instructions (bswap, nop10,
->   vzeroupper, vcmpps, vpshufd, vpor, crc32).
-> 
-> [1] https://lore.kernel.org/r/20261116-x86-uprobes-two-byte-opcode-v1-1-2b6dbabead52@pablofraile.net
-> 
-> Thank you,
-> 
-> ---
-> Masami Hiramatsu (5):
->   x86/insn-eval: Do not mutate struct insn in insn_is_nop()
->   x86/insn: Fix gen-insn-attr-x86.awk to emit INAT_REX2_VARIANT
->   x86/insn: Reject invalid REX2 encodings in insn_get_opcode()
->   x86/insn: Add insn_opcode_map() helper and fix insn_masking_exception()
->   uprobes/x86: Fix opcode validation and analysis for multi-byte, REX2, and VEX/EVEX/XOP instructions
-> 
->  arch/x86/include/asm/inat.h                | 10 +++
->  arch/x86/include/asm/insn.h                | 43 +++++++++++++
->  arch/x86/kernel/uprobes.c                  | 97 +++++++++++++++++++++---------
->  arch/x86/lib/insn-eval.c                   | 17 ++++--
->  arch/x86/lib/insn.c                        | 16 +++++
->  arch/x86/tools/gen-insn-attr-x86.awk       |  6 +-
->  tools/arch/x86/include/asm/inat.h          | 10 +++
->  tools/arch/x86/include/asm/insn.h          | 43 +++++++++++++
->  tools/arch/x86/lib/insn.c                  | 16 +++++
->  tools/arch/x86/tools/gen-insn-attr-x86.awk |  6 +-
->  10 files changed, 225 insertions(+), 39 deletions(-)
-> 
-> base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-> -- 
-> Masami Hiramatsu (Google) <mhiramat@kernel.org>
-> 
->
+The issue can be reproduced as follows:
 
+1. Connect a USB2 hub to each downstream port of the Etron xHC.
+2. Wait for all hubs, including the root hub, to autosuspend.
+3. Connect a USB device, such as a mouse, to each USB2 hub in turn.
+4. The last connected mouse does not work.
+
+The affected USB2 ports may remain in the resume state, preventing
+newly connected devices from enumerating. Reconnecting an affected
+hub or mouse does not help. Reloading the xHCI driver restores
+normal operation.
+
+When handling a USB2 resume event on an Etron xHC, check the other
+USB2 ports for the resume state and track them so the normal resume
+handling can complete.
+
+Before the patch, the root hub status bitmap reported only port 2
+(evt 0004), leaving port 3 in the resume state.
+
+[ 4621.396100] xhci_hcd 0000:01:00.0: Port change event, 3-2, id 2, portsc: 0x400fe3
+[ 4621.396158] xhci_hcd 0000:01:00.0: port resume event for port 2
+[ 4621.396164] xhci_hcd 0000:01:00.0: resume HS port 2
+[ 4621.437164] hub 3-0:1.0: state 7 ports 4 chg 0000 evt 0004
+[ 4621.569169] usb usb3-port2: resume, status 0
+
+After the patch, the bitmap includes both ports (evt 000c), allowing
+port 3 to complete resume through the normal resume handling.
+
+[ 4824.829350] xhci_hcd 0000:01:00.0: Port change event, 3-2, id 2, portsc: 0x400fe3
+[ 4824.829425] xhci_hcd 0000:01:00.0: port resume event for port 2
+[ 4824.829431] xhci_hcd 0000:01:00.0: resume HS port 2
+[ 4824.829439] xhci_hcd 0000:01:00.0: HS port 3 in resume without event, portsc: 0xfe3
+[ 4824.870180] hub 3-0:1.0: state 7 ports 4 chg 0000 evt 000c
+[ 4825.001183] usb usb3-port2: resume, status 0
+[ 4825.027484] usb usb3-port3: resume, status 0
+
+Tested on Etron EJ168 (1b6f:7023) and EJ188 (1b6f:7052).
+
+Signed-off-by: Kuangyi Chiang <ki.chiang65@gmail.com>
+---
+ drivers/usb/host/xhci-ring.c | 35 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
+
+diff --git a/drivers/usb/host/xhci-ring.c b/drivers/usb/host/xhci-ring.c
+index fffd901..c640952 100644
+--- a/drivers/usb/host/xhci-ring.c
++++ b/drivers/usb/host/xhci-ring.c
+@@ -1997,6 +1997,39 @@ static void xhci_cavium_reset_phy_quirk(struct xhci_hcd *xhci)
+ 	} while (!(pll_lock_check & 0x1) && --retry_count);
+ }
+ 
++/*
++ * Etron xHCs may resume other suspended USB2 ports without generating
++ * individual Port Status Change Events. Track those ports so the normal
++ * USB2 resume handling can finish.
++ */
++static void xhci_handle_etron_usb2_resume(struct xhci_hcd *xhci)
++{
++	struct xhci_hub *rhub = &xhci->usb2_rhub;
++	struct xhci_bus_state *bus_state = &rhub->bus_state;
++	struct xhci_port *port;
++	unsigned int i;
++	u32 portsc;
++
++	for (i = 0; i < rhub->num_ports; i++) {
++		if (test_bit(i, &bus_state->resuming_ports))
++			continue;
++
++		port = rhub->ports[i];
++		portsc = xhci_portsc_readl(port);
++		if ((portsc & PORT_RESET) || !(portsc & PORT_PE))
++			continue;
++
++		if ((portsc & PORT_PLS_MASK) == XDEV_RESUME) {
++			xhci_dbg(xhci, "HS port %d in resume without event, portsc: 0x%x\n",
++				 port->hw_portnum + 1, portsc);
++			port->resume_timestamp = jiffies +
++				msecs_to_jiffies(USB_RESUME_TIMEOUT);
++			set_bit(i, &bus_state->resuming_ports);
++			usb_hcd_start_port_resume(&rhub->hcd->self, i);
++		}
++	}
++}
++
+ static void handle_port_status(struct xhci_hcd *xhci, union xhci_trb *event)
+ {
+ 	struct xhci_virt_device *vdev = NULL;
+@@ -2103,6 +2136,8 @@ static void handle_port_status(struct xhci_hcd *xhci, union xhci_trb *event)
+ 			mod_timer(&hcd->rh_timer,
+ 				  port->resume_timestamp);
+ 			usb_hcd_start_port_resume(&hcd->self, hcd_portnum);
++			if (xhci->quirks & XHCI_ETRON_HOST)
++				xhci_handle_etron_usb2_resume(xhci);
+ 			bogus_port_status = true;
+ 		}
+ 	}
 -- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+2.25.1
+
