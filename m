@@ -1,75 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795448029;
-	b=nN+bfnyzn2WIcDplHJ8s3uRuvJGUIcqk7SgiweWSIIaIjMKgkUNDStjzvZPbJpnGLY7M
-	 XwaFRWG/LcdRUfs958eE/dyoVV9miNyrKdURli9OrzsUvhpTVbHbdFqiOSgXHNScH8N8C
-	 rpU6gM2nJw3zikqFBeAVC5L4GVQzl6Khfafl8UoG6ZzNWB/HZBRse06mLKDiCou/Nispy
-	 uAGzU+2p2ME6yBhAV+NQQH5+13SFb5pAscJCAeoqBOdyP+nzhl3rHZl+dWEUEFwuP8mBU
-	 NNrYlKQx1s9GEX2KDWk6eAUwgD9vvuOgl9eEgRAAu78OFHsHEBMuKXygPp9vl4jwkMg==
+	t=1795448082;
+	b=mpcsYHCuD+HhAWOl/2xSJ4XnFrULi0n2Qa9vm/BQ3zpedxAzmfNpdV+Vk1aDlBcoeWsU
+	 INRRQTh3Aq0ZyE5wumKUi0WSytxnlftDzokuvMgyS/+0g2szjQX9t3Iy36geAzJatl8dp
+	 aP/58z9Zrs/9gLNVv0/1iK66ltJxSeh9PdqblN8Dh/ij+D5wSDmUsXUQsc9RmrZRMnTR0
+	 hE6zNL7gVyebjUjojAioiw37Y5YTw3Se9PbJ1fYVWDtAI5dOq6bv3fBCMt3j26TPPaLV5
+	 t+4wHC7BzF+72kzs67oBC+PZJF4vbfUMlcdSaKBhC2UEFwVOz2FN78IPqVoFl8ilF1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448029;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Scanned-By;
-	bh=3eNnmtOvL0VVdRp2LWVT7myjX4/kd8itTt6EcJRcWRA=;
-	b=M2KOKIXVOuFqlCr8PNo5KYwqDVMpvWyNi6zBeiaTlmYQ89Y31Y5YJ1HA16zt6raHK0bB
-	 fE3LFUrfuZrLnOTTXtDWY8gS/n9R3XRvoSX82NXXDYVTFsdYn+fjSWai0tgWObabbv1OW
-	 OAoVRnNpwFwXZZ5DdnCKgIJfWfGWMcjLfU03l4mP/k2Un/L2DPqiVlGFeXOPly2A2/EY8
-	 K9h0uy8OC6s3eBINnW9ij1fv7dgnscoE3qklMBnOQTmjCHr9BnC7/xiqo0Ysx3yDo2QuU
-	 K57Wes7QCHKs8KBkADLtuBx+IvtS5oSO+XMuD3bBc/FqI2qSaGk1vdct0NyryXajAkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448082;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=R2Rh2yIbdTeaHuI1xztP993wm7ZrZNAfJr4c+tXkXFQ=;
+	b=qOjBGhK2etL5JatebhUO2E/AGcYhtUm6ihvtJytEg9kRqgy0zo9R11KUTrMXI9BfzpJH
+	 6Y70lnNkjAVk+v1OECTIOu9kAepEoHl7mJSVMw16Ws4ygqpGyP1TOaGmjCnA/3VIS0cLo
+	 GbM0S2Z1impIwXoC/z6GQqhs+GIDKfU2FwiizFol0YYhJsGkkYh+hqwTJ6AOWw/umSsPE
+	 1jzeMOxQrUzeCm4kKX6h2JAugYgaybYKTeGlW89a2szs3FfU3wFaii/0JzsxZljJS3azx
+	 Qkd5PwKdb9dDY9tcfqwafX5JsfBkwnXpKW//FH6yRCfVVCqMg9K5R4oG1rLmcNYaVCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XnWoiJpy;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Z63ObqCR;
+	arc=none smtp.remote-ip=209.85.128.47
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AC58606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:33:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AC58606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B1D4606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:34:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B1D4606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XnWoiJpy
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795448027;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3eNnmtOvL0VVdRp2LWVT7myjX4/kd8itTt6EcJRcWRA=;
-	b=XnWoiJpyRah4AUBKlZRKEpkQJ/W1Ou6m1MJlrmDJstFKent2J1l9fiZOAvBLiQ6/rSmBYl
-	9BEo07AXjhor2jkauYnwnqA3awknOFmEaneTMFQzOVsJWg/pdxtZW1mIZVw+GGfaF65zan
-	ZASBGETDcL/rNx07QmcUMHnPAlI8T3E=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-608-RRgY3xe6Nx64RryZ1Mtg5A-1; Mon,
- 23 Nov 2026 15:33:43 +0000
-X-MC-Unique: RRgY3xe6Nx64RryZ1Mtg5A-1
-X-Mimecast-MFC-AGG-ID: RRgY3xe6Nx64RryZ1Mtg5A_1795448022
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3D694195E912;
-	Mon, 23 Nov 2026 15:33:23 +0000 (UTC)
-Received: from wcosta-thinkpadt14gen4.rmtbr.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 212E41956053;
-	Mon, 23 Nov 2026 15:33:19 +0000 (UTC)
-Date: Mon, 23 Nov 2026 12:33:18 -0300
-From: Wander Lairson Costa <wander@redhat.com>
-To: Tomas Glozar <tglozar@redhat.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>, John Kacur <jkacur@redhat.com>, 
-	Luis Goncalves <lgoncalv@redhat.com>, Crystal Wood <crwood@redhat.com>, 
-	Costa Shulyupin <costa.shul@redhat.com>, LKML <linux-kernel@vger.kernel.org>, 
-	linux-trace-kernel <linux-trace-kernel@vger.kernel.org>
-Subject: Re: [PATCH] rtla/tests: Get rtla PID correctly when system shell is
- not bash
-Message-ID: <awRcoLq3Q8x8h3B0@wcosta-thinkpadt14gen4.rmtbr.csb>
-References: <20261030145111.238098-1-tglozar@redhat.com>
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Z63ObqCR
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4b467581b98so32476775e9.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:34:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795448080; x=1796052880; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=R2Rh2yIbdTeaHuI1xztP993wm7ZrZNAfJr4c+tXkXFQ=;
+        b=Z63ObqCR/9NvjwLJ3EtP1HgFONQ/gN8IkB6HSzLhwKctqWX8Bq1fyNR7AODqxdLcIR
+         CTTABF4LSN+K2IK1U/KOC3ryVVGvC01Lm+jEhVEOZu9p1yTRXO4PxhrsFXq5GoCRTNSS
+         aPjsX8achvUJG30kTVMjSX5fAoPv0sDooHIODwDk7lQlZTn2Ed4HR2wR36/NUtwtdJjr
+         wQdFEOhQtQ0RX1HZyqlZUe9R+ZnDYO9kVSHgaNAkCXBhTvwLBjvw688XqNK+GvYyFVkI
+         yyduB384pb7+t5ZGawVrEHVPfUjIqqwBOFaBiQEToRh9tTKtFKBnj3KlDmHKrLvKvRNN
+         aVcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795448080; x=1796052880;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=R2Rh2yIbdTeaHuI1xztP993wm7ZrZNAfJr4c+tXkXFQ=;
+        b=TF45AKjUPOgcB7pQMJxRhhvj1nd1n+RtsnOspT8/KFmS2BwrsH+TUOghshn4Y7hVB0
+         pTPjuI9CAmDAPvihOj9JJH2iZKZOH20gKsetwfOSMIZF9UdILjji2XBKhzHyXk4Yd7Vs
+         ccUOyEqg39udjk+RAGkUXlxr8UNZVofpZY0V8rxA1HsyUEiassI5zVSckCe3BpvbN8LA
+         17MHhhI92FFxNZOMEUgXAoRU1luVD+4oMogwvo+qINsY6bTT+/t0uX0HefoR6fLhlCsN
+         ZLhaGX0su8+hCoSfjz5NOUzX1HCx862meELc3Z9xONKyiXiebHoci4P4SA2nfV3t6kW8
+         av+w==
+X-Forwarded-Encrypted: i=1; AL+hErFhA0nWtnksZ/lcEp6IBUYCXmw6oHbDt1leQEPapa/1BK+yDFhgCG0eQWwzWcIoZpL3a4XqgGyZF7hTrI4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8+ZfLRWw64IrwVLZuYeGLGLEVL207Ov+ryg+YWIhCYkngVCKy9
+	gDKT+Jqvd/qvt25TVtyYYkvdkymHsvGUKbBXLNYhJZuPalg5/mW0NTaxs+wXtXCq3NM=
+X-Gm-Gg: AZFdTZe7vyKnqhAO35nOAvypCuaVFsCMX4rX+GwpniiB1kXKvOiuIiCzi6TG46Ahl0h
+	4e8yKFacHrMT0jOlYbVroiuNX5RjNcHWH2lwAIWBFATgbMI/hH9RRTK97Gfied4PXJVepLloBDi
+	bUMVUv9Ou87ZDRS6Wuw+oNUpPzXGXwKFJIC9ViSyxpRYtB6s2e9bTx/XetZ0svd79PoXkPL9FOf
+	d2lfsm14Y04SlggIeBo+p9v5R5Izvd7Rw7xKzb+apDzY4JndnJ8iLQdueWpP26xCJPIS9An7XTv
+	979z7LwX7j60s49G6iQnSPIfvuJvKIWpI4BQjxpsItlExzHgFp8Hb/QntJVx16WAzFnpKsFn83s
+	JzVNx8TTrmLuSo5Bjvk9NCz64gwOD29e2onGEgj5Jawjq6LYzKdvpylxtpJTcofa3F1iFGE9y0M
+	6784Hgl6VpIqERnEF84DGHh1DSA3Wj+XGEcCVVVaP+S87xGYOSDALUM36js0T3lkWvXseHOY+Iy
+	P88JleSpLjbakS1/k6X92I2OPFcB1m1O/WnIt6/Y90SajKRFI6EiRpVkonglVb6O6g1FZau9JDf
+	+3tfBBKYfiUWG52f+hXe5Vo/KZK/EEnp
+X-Received: by 2002:a05:600c:6092:b0:4a1:d537:1c8d with SMTP id 5b1f17b1804b1-4bb8892bb67mr228098905e9.19.1795448080631;
+        Mon, 23 Nov 2026 07:34:40 -0800 (PST)
+Received: from pop-os.local ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a15absm319681185e9.9.2026.11.23.07.34.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 07:34:40 -0800 (PST)
+From: James Clark <james.clark@linaro.org>
+Date: Mon, 23 Nov 2026 15:34:29 +0000
+Subject: [PATCH] perf test: Fix race in "Event re-armed with
+ PERF_EVENT_IOC_REFRESH"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,39 +91,138 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261030145111.238098-1-tglozar@redhat.com>
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-james-perf-event_refresh-v1-1-571efa5395ab@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAARdBGsC/yXMUQrCQAyE4auUPBtwV1zEq4hIm87aFFxLUotQe
+ ndXffwY5l/JYQqnc7OSYVHXZ6kIu4ZkaMsdrH01xX1MIcQDj+0DzhMsMxaU+WbIBh9YBMecuj7
+ lk1C9T3XQ9y99uf7tr26EzN8ebdsHHnI8kXwAAAA=
+X-Change-ID: 20261123-james-perf-event_refresh-cce5f6bd6f8c
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ Francesco Nigro <nigro.fra@gmail.com>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, 
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.15.2
 
-On Fri, Oct 30, 2026 at 03:51:11PM +0100, Tomas Glozar wrote:
-> There are several places where rtla runtime tests call a script with
-> "--on-threshold shell" to verify the trace configuration in the middle
-> of tracing. Some of these checks require the rtla pid.
-> 
-> Currently, the tests assume that rtla is the parent process of the
-> utility script. That is, however, only the case when the system shell is
-> bash, which optimizes the invokation of "sh -c script.sh" used by the
-> system() function into just one process executing script.sh. On systems
-> where the system shell is not bash (including all Debian-based systems),
-> the system shell is the parent of the script, not rtla, and the checks
-> fail.
-> 
-> Pass $PPID resolved in the system shell to rtla's --on-threshold option
-> and use it as the PID for rtla to make the tests pass on all
-> distributions.
-> 
-> Note that some of the tests (the cgroup test, for example) were
-> intending to use rtla's PID, but work with the system shell's PID as
-> well. For consistency, all scripts are updated to use $PPID.
-> 
-> Fixes: d18fd5a34ff3 ("rtla/tests: Add get_workload_pids() helper")
-> Fixes: 7f7ad23bced9 ("rtla/tests: Check -c/--cpus thread affinity")
-> Reported-by: Steven Rostedt <rostedt@goodmis.org>
-> Closes: https://lore.kernel.org/linux-trace-kernel/20260810210425.61435b0b@robin/
-> Signed-off-by: Tomas Glozar <tglozar@redhat.com>
+trigger() is invoked without blocking, but the test expects N events to
+always be received for N triggers. After each trigger, the event is
+disabled and only re-enabled by the signal handler. If the next trigger
+happens before the event is re-enabled, then an event count will be
+dropped. This is possible because signals are delivered asynchronously.
+Fix it by blocking signals then unblocking while waiting for the event
+after each call to trigger().
 
-Reviewed-by: Wander Lairson Costa <wander@redhat.com>
+Blocking results in a 1:1 relation between trigger and signal counts,
+even when there are extra page faults, so remove the comment and change
+>= to == on the final test assert.
 
-[...]
+Timeout after 2 seconds because we already know there are broken kernels
+for the tracepoint test, and the default 120s timeout would be annoying.
+
+This fixes the following failure seen on Arm64:
+
+  $ perf test -vv -r 30000 -S "Event re-armed"
+  ...
+
+  ---- start ----
+  test child forked, pid 1087
+  1000 events, count 999, 999 overflows (999 POLL_HUP), re-arm errno 0
+  ---- end(-1) ----
+   20.1: Software event                   : FAILED!
+
+Fixes: 3dabc8ad8ae0 ("perf test: Add test for events re-armed with PERF_EVENT_IOC_REFRESH")
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+Assisted by Claude Opus-5.5
+---
+ tools/perf/tests/event_refresh.c | 30 +++++++++++++++++++++++++++---
+ 1 file changed, 27 insertions(+), 3 deletions(-)
+
+diff --git a/tools/perf/tests/event_refresh.c b/tools/perf/tests/event_refresh.c
+index 726e5de4c795..0750cbb63866 100644
+--- a/tools/perf/tests/event_refresh.c
++++ b/tools/perf/tests/event_refresh.c
+@@ -6,6 +6,7 @@
+ #include <errno.h>
+ #include <fcntl.h>
+ #include <inttypes.h>
++#include <poll.h>
+ #include <signal.h>
+ #include <string.h>
+ #include <unistd.h>
+@@ -44,6 +45,7 @@ static void sig_handler(int signum __maybe_unused, siginfo_t *info,
+ static int count_overflows(struct perf_event_attr *attr, void (*trigger)(int i))
+ {
+ 	struct sigaction sa, old_sa;
++	sigset_t mask, old_mask, wait_mask;
+ 	uint64_t count = 0;
+ 	int fd, i, err = TEST_FAIL;
+ 
+@@ -68,6 +70,13 @@ static int count_overflows(struct perf_event_attr *attr, void (*trigger)(int i))
+ 		return TEST_FAIL;
+ 	}
+ 
++	/* Block signals so we only receive while waiting after each trigger() */
++	sigemptyset(&mask);
++	sigaddset(&mask, REFRESH_SIGNAL);
++	sigprocmask(SIG_BLOCK, &mask, &old_mask);
++	wait_mask = old_mask;
++	sigdelset(&wait_mask, REFRESH_SIGNAL);
++
+ 	if (fcntl(fd, F_SETFL, O_RDWR | O_NONBLOCK | O_ASYNC) < 0 ||
+ 	    fcntl(fd, F_SETSIG, REFRESH_SIGNAL) < 0 ||
+ 	    fcntl(fd, F_SETOWN, getpid()) < 0) {
+@@ -82,20 +91,35 @@ static int count_overflows(struct perf_event_attr *attr, void (*trigger)(int i))
+ 		pr_debug("PERF_EVENT_IOC_REFRESH failed: %s\n", strerror(errno));
+ 		goto out;
+ 	}
+-	for (i = 0; i < NR_EVENTS; i++)
++	for (i = 0; i < NR_EVENTS; i++) {
++		struct timespec timeout = { .tv_sec = 2 };
++		int before = overflows;
++
+ 		trigger(i);
++
++		/* Unblock signal to count and refresh event before triggering again */
++		while (overflows == before) {
++			if (ppoll(NULL, 0, &timeout, &wait_mask) == 0)
++				break;
++		}
++		if (overflows == before) {
++			pr_debug("no overflow signal for trigger %d\n", i);
++			break;
++		}
++	}
+ 	ioctl(fd, PERF_EVENT_IOC_DISABLE, 0);
+ 
+ 	if (read(fd, &count, sizeof(count)) != sizeof(count))
+ 		pr_debug("failed to read the event count\n");
+ 	pr_debug("%d events, count %" PRIu64 ", %d overflows (%d POLL_HUP), re-arm errno %d\n",
+ 		 NR_EVENTS, count, overflows, hups, refresh_errno);
+-	/* Unrelated page faults can only add overflows, never hide one. */
+-	if (overflows >= NR_EVENTS)
++
++	if (overflows == NR_EVENTS)
+ 		err = TEST_OK;
+ out:
+ 	/* Close first: a late signal must still find our handler. */
+ 	close(fd);
++	sigprocmask(SIG_SETMASK, &old_mask, NULL);
+ 	sigaction(REFRESH_SIGNAL, &old_sa, NULL);
+ 	return err;
+ }
+
+---
+base-commit: eb79d2fbc230d41b009e49f20671303c6efbd946
+change-id: 20261123-james-perf-event_refresh-cce5f6bd6f8c
+
+Best regards,
+--  
+James Clark <james.clark@linaro.org>
 
