@@ -1,123 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795458534;
-	b=pTFdZtjxTX8dDC3eBXlRBDKHTgorj1JJieeybhNvUjpzRxpP4J/3I+1pa8PngyFc4UtX
-	 N1+pR1qr6FuJFg1OY0oLz9i+ZJuqsJR/8aWaC/keAGlpmhUY13K0d9GT5elAu4Ttjudem
-	 Qgx98Fmsx/WytTWTzbXd50WuTbe5+fFOCTS/QiLXyNiV/1A/pQCl7VS0d+0Rsp4Ygh/nD
-	 8x34HVRT1oN8hNjL/lEhYVB/gCzZtTGq6gw/qKh/KhESkgD5cnwrrkDKlnkQBqR0gbebo
-	 OJlAuD6+k/Z19orXh+x5li5kMse/8hs2aA0nHW9IYagXcIXCojMPKuhhiH0H5a713zg==
+	t=1795458578;
+	b=4si5on26j32VDuG+weamhh5+pGieRgTYVjZu4ncOTuvWSwJPAEIDYIb30b17TXg7dXaA
+	 yvTifzq/g89F8uzqc3EAsjLgcquRdrqYKVGaQb6ZrNG6gDU30nKlnv6ymjDyTbGJyHPSy
+	 /bBHeQPlfGr7mtztQoSpc6vRcWZEzPMx8SQ5beQLLWLV420j1sAio0Gcsw6YWoOgfy57c
+	 UMFf0HmtfF12AabKkVzqiJD0Ai8tpI8svEx9U3u0LWUPgtjK8Ja4l+3IqG99laq8l+5xt
+	 70zD6VPfFYtosJHdK5sruxOFTlpL6HW+pOQ6cVLQzwoJN2bznzSGz5iQa4Xi6Ky12Pg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795458534;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=Lq2ckgeFeyG4ruGkCS4DwzZ4m7ssUVEezBWNCadpNus=;
-	b=rbTEXS8KcrKbTu7WdKIKzuY0f+BYNGchJxM/0qLmNHD7sutUAR3OwgN7I04orumXaw1D
-	 qUxyJ1/l93n+BGvh02XhfcHjRKHIkFpZIIuW0WT+ZFDgqJ1OJW8byBB+kkxQbf+GoGNf6
-	 TT90LDGhDCOhTFrlGkAQL3l238/7JfIqoRpddRwJklrbjcCEqspp+3xWaSI6LJZNOaisI
-	 A+glBxFsdPfPja5HLMzXO73v44a16ZwBxE+kDXSnk3Mqtn1WY6s9V7Ye3J5Iz86dvGkGz
-	 WcCm1tLKgbVN1ZGlwA1Fhaiz2bO1IWXh+BsmeL7fdSnVsffMkmsTrTTX91A41a1q+1w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795458578;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=/7EBtZ3ZhYiV3N0p/c5cCwDwkFdY7/hSi3pC7nQcOCI=;
+	b=e+kvUCpHZIXawv/l5eVaM0DH7tVZSr4OiQoFSCygOypD4OnviLLBMvfdyhbbJ/auhueh
+	 r0VwmtJLqIzs79VwmDXP9RfO6N6cxWU/R82zmwkdA1OJqJQ7M+BhFOiGYzg/EdSVcL7g1
+	 svlAW5KU5HkypESh0HwFrsNxmaxUBfMMMiuRUlgpE1iGVAa/flMYCuL9Tv33Q30CD6gdR
+	 TR2IKMCY14adrpquV1r621xFqqFCeBxT6JBGMBJsHqeUyHqfTp3AEIKu14L8pQRkoWvIU
+	 2fB+FP3SIeyuagequamThiWUz76mXQk80XN3bK24P+eG6YaJkolAUBmT+mLU4vjgA1A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=QgmcNHRw;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=PVfKytR7;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dmarc=pass header.from=web.de;
+	spf=pass smtp.mailfrom=web.de;
+	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=oTE+WejT;
+	arc=none smtp.remote-ip=212.227.15.4
+Received: from mout.web.de (mout.web.de [212.227.15.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 669DC606A6A2
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:28:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 669DC606A6A2
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F165606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:29:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F165606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=QgmcNHRw;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=PVfKytR7
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANGH3PD3475231
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:28:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=Lq2ckgeFeyG
-	4ruGkCS4DwzZ4m7ssUVEezBWNCadpNus=; b=QgmcNHRwOTYFltbEnU8CT6eWZm4
-	WXkbo1fYHF5B6WuTtNV2ePmUKqi/DuCVN3/pVec9kVHtH65Mc+wbqHnDno2lAZmz
-	hoYYCMciPSTtJ2ZV44G+YejYZKwrGjjc/0rPGuDm9MlAF+Xmfe+CdG7mkSMresh+
-	1YHX5ztPz6VE8AMXQU7/G7JXDePrPCDcUe+0UD4Ajd62YKiPFuswrEC53TSj1W6T
-	zBSyB/dF7BO88Ucssq62fXRYMNeRNSafS/CrAFcdBtyyqu6OtoMW2Z4Ztddvd+x/
-	sg8dcebxjggFGd1GnTBiDla8MUhhRinwCf4bGrNoC0EANF5WXcRmqAmnIkA==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4hn7tg5f-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:28:53 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-386177b0516so9766176eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:28:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795458532; x=1796063332; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Lq2ckgeFeyG4ruGkCS4DwzZ4m7ssUVEezBWNCadpNus=;
-        b=PVfKytR7uyik7EOhP3PMKvv2wSoWbchKb7P5srh9XzqXBy+D4JROiV7AP/Eaf6zJXk
-         d+ac3+FpunoRRZ+FYoRUEvDqQTTbe+/4NeWVNbMNpSGUq+xTtQvLBhmd4b4iT/ssPRHa
-         LUeGqC0NKd7OmsbhunKBDGznH3+3Jzi8pAy9lkyDC/qyf93ZcRAq80q28fvlHNIwf22L
-         C0qTc6RkUVoWuHIal+Inm+yS4CaElGhhnFSDrjX4VCPvFduVdfk5qk43kb9Ytr0FkVik
-         QbkJVcjLJJ7d/LQUnqNGzPvejSF4txn6besl++DXs+Is6yz7OgzjSAiGWLBINy9RYJQg
-         1TEw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795458532; x=1796063332;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Lq2ckgeFeyG4ruGkCS4DwzZ4m7ssUVEezBWNCadpNus=;
-        b=mRvBA/b7xmx3/Zd+JcDZsfzcbDq/SA/8NR6Bo3HjJFBc2wcccle6DkyEYoMAN+xUQR
-         8+SJdGr37rsIm8Gl6vV118tfyTk+91sbJHQfJslu7TrCSc5nxvHWEujdO6eovo6O42kH
-         2qKMdojov/+c62C2LujHM1WbHx2xrcO8q+GMC8Fd9O3bg2+CbftU5KovokMKXT8qI5pb
-         ecYHO2z1nN46Wx/A4j1oBRAcTCiybig2DfFnu60NGREeejfz0xvWnapON+Qc4qVuyJ+o
-         wNAwJL18ZjLw2GZjv5AFLntunPXZ3/4XriwyOTBYc4eLiLOJyLuD9CzKsq4wrm5i1wiN
-         1a+A==
-X-Forwarded-Encrypted: i=1; AL+hErFqbGz/B3I1ORcmivXHl5wXK2N289MGdLK89alae3Tkash0LqN4SBE8dkm+zt3NWY7SOOqcYhWmGsL8RaE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9drz8LdeSPu7rLvzrdRTkiFN/H2bDC/Tq1RvEppzX2cEBjkXvV
-	Q/9Le9/MaRD80RO1mMZR/8YXvhJR5/bPqwBQO4oDcGku3LbuC7oatopxDBpePE5edOzDoqDAdwB
-	MFDuViab+1EWCuSGg0Nz4YU+9hD2sKGaE62DPW0xBymq0Sm2PHFTNQfKDU4lCK84LpBY=
-X-Gm-Gg: AZFdTZecx8k2tAsf3pz2P8nBTmuIm7YKS9dNVN4bKRm+KlSrt88vbJAgWngevKKaKtz
-	WWsYclgM3W/vlGbdXgrDa6ztDrVlyeHvAx6g/7CTvJIYtMnjqiWcsvrhNUmT7j0wIu5qzdRojhh
-	6KLyvjOuFJpudIiODblNiLwhYT/JHTWoJIaG2IcjY5RuPXvbJd59xp+VCQy1d/QZp8/mOKoXkk3
-	frNkUufKnWEtsh8BRpCDFnxM8Y8kz7qL5ILeV9mlXoOjxD8QtLfD94LXA4+Z09venfvJChWbhL3
-	eqjCTBj2AfHpTfdYsmT7MMglIt6VhbxUZ82A7/MzMcQPXpM0ZS9GZBoTpvJNjJF7ZNNi9Hick96
-	uCHa7bDNGknl/nB3HVi21ATsyIH9ndaEXiETmwgT+jXGEk7teRjx+6bNGkQ9xF8D0T90TyeRyvt
-	lBO/NpDGE0PHrMLL3S4+mgj6/CcQ==
-X-Received: by 2002:a05:7300:2209:b0:386:8d2:929b with SMTP id 5a478bee46e88-38608d2945emr17643555eec.23.1795458532086;
-        Mon, 23 Nov 2026 10:28:52 -0800 (PST)
-X-Received: by 2002:a05:7300:2209:b0:386:8d2:929b with SMTP id 5a478bee46e88-38608d2945emr17643507eec.23.1795458531488;
-        Mon, 23 Nov 2026 10:28:51 -0800 (PST)
-Received: from hu-eserrao-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm47697986eec.5.2026.11.23.10.28.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 10:28:50 -0800 (PST)
-From: Elson Serrao <elson.serrao@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Rob Herring <robh@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Peter Chen <peter.chen@kernel.org>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Gopikrishna Garmidi <gopikrishna.garmidi@oss.qualcomm.com>
-Subject: [PATCH v10 2/7] usb: misc: qcom_eud: add sysfs attribute for port selection
-Date: Mon, 23 Nov 2026 10:28:42 -0800
-Message-Id: <20261123182847.143892-3-elson.serrao@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261123182847.143892-1-elson.serrao@oss.qualcomm.com>
-References: <20261123182847.143892-1-elson.serrao@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=oTE+WejT
+DKIM2-Signature:  i=1; m=1; t=1795458575;
+ mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=web.de;
+ s=s29768273:rsa-sha256:UtZrEbutQhAy+BmlM/hJckX2cQn+
+   fbqqkZ9WfD2o+6tzdooObd4/bqa0v5KC/ORCcci7at2pKcrbCJXOeSKKfbpq5X0yhwvupNP+5aA
+   Ah+ytY9PhhiFtpTmuceSlkjiwZ1Gb8f6ylqsC25a7wKwzCZyBmbdaossvLB7GF/S4CqOPnTUQUA
+   /1426z2PcO/aiBV2QGyd5jN79hQFfTaWiEZjSX62WTpA1NqP1EcEu24Js8jv9aC/qr0wSUL4xIL
+   n1kpk4SDI7F9EILBcM1aWYQKNLL5vrjOrQtqYXtl3SMSX7086sW4eL6HZJ5O4/8BgOGrtQgoz2E
+   UPuwJl6NpoH9/g==;
+Message-Instance:  m=1;
+ h=sha256:
+   xpTSHVp+eMBaHm+tYFOMxDwmuNBiJPF6e3oJb2WvS0U=:
+   McPPzdxviAIqfRgFu/IbKp2UInt39WCQSS5tHQPTT7Y=,
+  sha512:
+   ZZ9PPYG/TMBgE3bBrDp4YHjjWYgbeYCmqEs6bgtbkBLFN4Ai4OzLOXqjUU2OE2LEN4WC5UtPV9lt3cywYLSGKg==:
+   uXNSa3QlsZS2OlqhMgwSYedlM6yDmIsQcxY3KVxoOQsaJEN2E3NnGSHOUlfdXll9oHxSqrM4TT0I3fxpIDbOSg==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1795458500; x=1796063300; i=markus.elfring@web.de;
+	bh=/7EBtZ3ZhYiV3N0p/c5cCwDwkFdY7/hSi3pC7nQcOCI=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=oTE+WejThE04hFoTzclzZX2BxhxuE1CsVjdnIvpWIdlsoAqNmKxGR0GQOo1fYKEe
+	 768ypc4DZuPJRwJhHQ2iJ71M66yrf14eLeE6NMtmUofXhmk5KHhocagGIOy9/gYZ3
+	 is1ef22WNDyxVBXmGhmylnSuQB021ZCETPM2yVuoEXf5G99AE2/0i1wpoX2m+fvi3
+	 1cwPAfUSNEyhcuMk4s6PgVOuTKRIPzECE+6DZbQvS8oeCh45XeKFyL5CdujmEt2zj
+	 jm2GJHa8KjL24yfjqBAA0o7vSQNhQI/utI4EmyBB39DmPGCw3HVXLX32lZnBKj0sb
+	 qJ2b8Wwm8IZkcaX8ZA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1M2xrs-1xWfEm1fxc-00DhEm; Mon, 23
+ Nov 2026 19:28:20 +0100
+Message-ID: <996eeda4-c363-406b-988a-a2ee6262f04b@web.de>
+Date: Mon, 23 Nov 2026 19:28:17 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,160 +81,157 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=Ls0HWXdc c=1 sm=1 tr=0 ts=6b0485e5 cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=qXh0dugIJu6lbCvlF8UA:9 a=PxkB5W3o20Ba91AHUih5:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA3MyBTYWx0ZWRfX6mjbieaG8kAV
- pB2ppKIQ9JF4Bz993W3IvmA3SDpY+08SKaE/AYik7+HHN8AWGPe88IP15Qlhc3rY3V+e2kWpmPv
- TTjeJJ7B1mfxxztDd3QZUHFuZlDa551cTYY+wxm6a0Qp2yg5OiA9I5yrKGv9BTFNLIXj5Tw1UNq
- VWHIjsj7+BRwpvJ7KbDkRHlhnjUqYmYiLqOLuuiHNdRv9PmECnrbcVf9gagY1EsDTvrnHOr8Wv4
- c9kkPDlJ5BNG+KPizHGnOamCqE+QZjUkRKFYjpdBxag5h1TfNoPeF4cIrYqJTXXRwFVbSOz8F1x
- BkupkdLG+FS6ivEHi5Qm06w7ehzUcF/Px8O7g5fuzbe+0M6+eh6+nRb2PZfMzyvederhcvLp47j
- ygraOqpQpBIUONEHsj96otMpCWXKY6CvWdT5D3UuypO+OZG3LNkVb0uY/JXM9A/0ADpOh7sD6NW
- kVB0THVBh7ImBQp4UIg==
-X-Proofpoint-GUID: c0J-xKhnU797YgJVQkq8ts2mI2t8Jzby
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA3MyBTYWx0ZWRfXy5+B4UebawN/
- 2CBLtZW8toN6bVjmXDxBD6+mF6I8pUgGvoQFqse6n05lqU1IPyyJvcxeMKyAlmFKfmJpIYlQneJ
- +t1aD0Qt0aasegsdi0FDT3gsT3z4NEg=
-X-Proofpoint-ORIG-GUID: c0J-xKhnU797YgJVQkq8ts2mI2t8Jzby
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_04,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 malwarescore=0 suspectscore=0
- priorityscore=1501 spamscore=0 phishscore=0 lowpriorityscore=0 adultscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611230073
+User-Agent: Mozilla Thunderbird
+Subject: Re: PCI: xilinx-nwl: Use devm_clk_get_enabled() in nwl_pcie_probe()
+To: Frank Li <Frank.li@oss.nxp.com>, linux-pci@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Bharat Kumar Gogada <bharat.kumar.gogada@xilinx.com>,
+ Bjorn Helgaas <bhelgaas@google.com>, Hyun Kwon <hyun.kwon@xilinx.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Michal Simek
+ <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
+ Sean Anderson <sean.anderson@linux.dev>, LKML
+ <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+ Florian Fainelli <f.fainelli@gmail.com>, Frank Li <Frank.Li@kernel.org>
+References: <f691bbaa-ddb5-45bf-8f85-fcf354a6af03@web.de>
+ <awR8rehnxAE3SNFh@SMW015318>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <awR8rehnxAE3SNFh@SMW015318>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:ULkA1SX0Bji2GQMEaoYexBAynTCg7+tZWjSYvaW++MwYx/7xC6G
+ SN2CZu0MSbNk39gSdzwpezyot01eLX+XR8Q+eaeHYOua20FG/ZVcEH/ZpfUbOOPwefwGVgH
+ 8TOL3Ezs4FVOd+xkBXYQ75r1kzLmuJnUqgEWkhos4ASCx7HMDktm9t5w3x76Gdc62JxsQMY
+ IkTCY0/j1oAAeWBaRY0PA==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:NcbT3qHiMxA=;2c09klyQMaYSH87qYz+YhTAu350
+ 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
+ eZMOQUZ7+H1EJpL6C+2w==
 
-EUD can be mapped to either the primary USB port or the secondary USB port
-depending on the value of the EUD_PORT_SEL register. Add a 'port' sysfs
-attribute to allow userspace to select which port EUD should operate on
-and update the ABI documentation. This is needed for systems with dual
-USB ports where EUD needs to be accessible on either port depending on the
-system configuration and use case.
+>> * Reuse existing functionality from devm_clk_get_enabled() instead of
+>>   keeping duplicate source code.
+>>
+>> * Omit a clk_disable_unprepare() call on an error handling path
+>>   and in the implementation of the function =E2=80=9Cnwl_pcie_remove=E2=
+=80=9D.
+>>
+>> * Delete the label =E2=80=9Cerr_clk=E2=80=9D.
+>=20
+> Needn't * in this case. Not title ahead of a list at body.
+Which wording variation would you prefer finally?
 
-Reviewed-by: Peter Chen <peter.chen@kernel.org>
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Tested-by: Gopikrishna Garmidi <gopikrishna.garmidi@oss.qualcomm.com>
-Signed-off-by: Elson Serrao <elson.serrao@oss.qualcomm.com>
----
- Documentation/ABI/testing/sysfs-driver-eud | 18 ++++++++++
- drivers/usb/misc/qcom_eud.c                | 42 ++++++++++++++++++++++
- 2 files changed, 60 insertions(+)
-
-diff --git a/Documentation/ABI/testing/sysfs-driver-eud b/Documentation/ABI/testing/sysfs-driver-eud
-index 2bab0db2d2f0..fb927a003596 100644
---- a/Documentation/ABI/testing/sysfs-driver-eud
-+++ b/Documentation/ABI/testing/sysfs-driver-eud
-@@ -7,3 +7,21 @@ Description:
- 		EUD based on a 1 or a 0 value. By enabling EUD,
- 		the user is able to activate the mini-usb hub of
- 		EUD for debug and trace capabilities.
-+
-+What:		/sys/bus/platform/drivers/qcom_eud/.../port
-+Date:		January 2026
-+Contact:	Elson Serrao <elson.serrao@oss.qualcomm.com>
-+Description:
-+		Selects which USB port the Embedded USB Debugger (EUD)
-+		is mapped to on platforms providing multiple High-Speed
-+		USB ports.
-+
-+		Valid values:
-+		  primary   - Primary USB port
-+		  secondary - Secondary USB port
-+
-+		Writing any other value returns -EINVAL.
-+
-+		The attribute is writable only while EUD is disabled.
-+		Writing it while EUD is enabled returns -EBUSY. Reading
-+		the attribute returns the currently selected USB port.
-diff --git a/drivers/usb/misc/qcom_eud.c b/drivers/usb/misc/qcom_eud.c
-index 73f9fac22e19..3e4647acd5aa 100644
---- a/drivers/usb/misc/qcom_eud.c
-+++ b/drivers/usb/misc/qcom_eud.c
-@@ -23,13 +23,22 @@
- #define EUD_REG_VBUS_INT_CLR	0x0080
- #define EUD_REG_CSR_EUD_EN	0x1014
- #define EUD_REG_SW_ATTACH_DET	0x1018
-+#define EUD_REG_PORT_SEL	0x1028
- #define EUD_REG_EUD_EN2		0x0000
- 
-+#define EUD_MAX_PORTS		2
-+
- #define EUD_ENABLE		BIT(0)
- #define EUD_INT_PET_EUD		BIT(0)
- #define EUD_INT_VBUS		BIT(2)
- #define EUD_INT_SAFE_MODE	BIT(4)
- #define EUD_INT_ALL		(EUD_INT_VBUS | EUD_INT_SAFE_MODE)
-+#define EUD_PORT_SEL_MASK	BIT(0)
-+
-+static const char * const eud_port_names[] = {
-+	"primary",
-+	"secondary",
-+};
- 
- struct eud_chip {
- 	struct device			*dev;
-@@ -40,6 +49,7 @@ struct eud_chip {
- 	int				irq;
- 	bool				enabled;
- 	bool				usb_attached;
-+	u8				port_idx;
- };
- 
- static int enable_eud(struct eud_chip *priv)
-@@ -104,8 +114,38 @@ static ssize_t enable_store(struct device *dev,
- 
- static DEVICE_ATTR_RW(enable);
- 
-+static ssize_t port_show(struct device *dev, struct device_attribute *attr, char *buf)
-+{
-+	struct eud_chip *chip = dev_get_drvdata(dev);
-+
-+	return sysfs_emit(buf, "%s\n", eud_port_names[chip->port_idx]);
-+}
-+
-+static ssize_t port_store(struct device *dev, struct device_attribute *attr,
-+			  const char *buf, size_t count)
-+{
-+	struct eud_chip *chip = dev_get_drvdata(dev);
-+	int port;
-+
-+	port = sysfs_match_string(eud_port_names, buf);
-+	if (port < 0)
-+		return port;
-+
-+	/* Port selection must be done before enabling EUD */
-+	if (chip->enabled)
-+		return -EBUSY;
-+
-+	writel(port, chip->base + EUD_REG_PORT_SEL);
-+	chip->port_idx = port;
-+
-+	return count;
-+}
-+
-+static DEVICE_ATTR_RW(port);
-+
- static struct attribute *eud_attrs[] = {
- 	&dev_attr_enable.attr,
-+	&dev_attr_port.attr,
- 	NULL,
- };
- ATTRIBUTE_GROUPS(eud);
-@@ -218,6 +258,8 @@ static int eud_probe(struct platform_device *pdev)
- 		return -ENODEV;
- 	chip->mode_mgr = res->start;
- 
-+	chip->port_idx = readl(chip->base + EUD_REG_PORT_SEL) & EUD_PORT_SEL_MASK;
-+
- 	chip->irq = platform_get_irq(pdev, 0);
- 	if (chip->irq < 0)
- 		return chip->irq;
--- 
-2.34.1
-
+Regards,
+Markus
