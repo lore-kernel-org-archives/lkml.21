@@ -1,54 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795404400;
-	b=W1D/Hc2/wN+U3tYkWcjGhmOO4zz8hBbelVI7UrigryF+jbS4WuSDz/b6Lv5Zk9Yavgfy
-	 mLuax3TDMhqxFPIglbZa7+xWXadf36gzmtct2tA+/B0h8BtHSCM53AFvRnn+iBvO1PAXj
-	 2Ij5OUDrgIuXE3ufHV9bh5mI50zOe/tsZPaCkMcf776MnytKZrGZJekzebu4wFkFhBlNi
-	 gODJ0KkzY5z5C3x4kVN0El/2XUKUaqj1dtFuiNIudcwi5ZlncFPjB/SHdvNzb2G1LjWOw
-	 H2XZ/5PGXykyZ/kFUKC6PtlsCYQ5RbzZeTf/j4ln4exYTgZCKCOP3kWMs93nUqxJ26A==
+	t=1795404404;
+	b=s1aB4nw5UV+73XnaPYl6Ox31J8j73MWu8ijzsHzwFvM8HOFjrc5t2NLa9/eeuqBS/vb+
+	 vCzkOKMlq05py0auWlVrWCkQmKS/d/3THvcnO0F05OWkoOIiCjNpWh0Fc5Gf3GVESLhlR
+	 31IrYRLHk5HweOK3k6NtDGqmQihU9OOv99j7DXYqeey8/opY64Vanj4z85Dq0I/u6RZ62
+	 PmLv+ZrHrV51wtl/B1vJPBjVLI1kEpxaTj4JBXhqnaJww36WKxPwYPnUCZ/0J3bVtKqg0
+	 h9qBa6LOMMZheNSrdkFAO884ZbR7XWZ0t4gvK0Grvdo3idEp/XHUO3FFBOoAv4QHl/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795404400;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
-	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
-	 To:X-Mailer;
-	bh=1+cegTBR/Mxg4hlkws6xLAzLLN9NMMKBynuAC4t3778=;
-	b=4PCJOKZ5I+XGXmltvSrBQm9WJ6CopMmAcvl8RUuY4JAN4Rx4nvrBHQb0JBRiwSwiwj3+
-	 G4jzU9Soa4z21QI9oUGsHHF04bTp+/NeRTQuGvZvu/HZCFiH8PWVTqy1TCq61lJ2OyWvA
-	 iE2AvguWUaCZvgpViZz4N9fJ6w1w+HOsG1ScfpJ0y0x8hYUV38qw+SCu05bg/TGgqqhSp
-	 x7FpjH1rS+qmDGlB3Dgq5D1e5l/l+aswhmzCCTjQ8XTFF4f8x4crcgJhefFCC7WiLhZ/r
-	 m0t/11nFKk0BqprUgiKm61Q54pEuv6i0fmZ0Y2kUoVq/cZhoukldglnmQ2PhPfasFgQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795404404;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=wc6ekr9cryGg73k6nk6oY3aWkmjnvr4TDpjauBGQjHM=;
+	b=e8xgRmvRW8ybGTlB2Vzej8xLzZp4yBiGz9tKZuEMyWmv9+biFkr4nfjp/+C25o0Q0t+5
+	 mYaifc1bBYj6Si4nh7G0C1bYmpc4AmnHZtVSC4pa8z0GgKG+cvweYRK7U3CUqIkJR1X5m
+	 nskuAVvpGWzVQ5y2fWuc6DfHRmEmudd3/PJGNVhjpwzU0JagtkBm3UiUjiF3oHVmraLqh
+	 CZi6ysfp9IPjTUt3DGrkeeH3DLVjFFafVXU1yW277u2PwvY+DfROzVGreey3IUK9UXUv8
+	 NgwBgamCsAFKZ32nxIOAMpT9xo34mhlf4pmUgru6stUeacI6zdLuaTrYoWmPpSe51EA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=SGMR0g2y;
-	arc=none smtp.remote-ip=95.215.58.56
-Received: from mta1.migadu.com (out-56.mta1.migadu.com [95.215.58.56])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N9V3oaXf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE088606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:26:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE088606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B394D606A31A;
+	Mon, 23 Nov 2026 03:26:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=SGMR0g2y
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=TkbWYCa4MJQ1BBcXLO39QWi9ZKwMLeD/PRh+069eUio=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795404397; v=1; x=1796009197;
- b=SGMR0g2ysyRhEClMqRQFseFUIrDyr0M4S+pk0yHCer23GYL8Lvu578d2pPzUlcnTeK9mJr+i
- Xd1BziDVTP2R919tmNm966/at3n5YCHGBXAFsr2DJ5nFpLANzVzJxR+x/ypn2Y3eY9Jb1K2WD+J
- glEVjcZZEcd3nsoOdHacvYag=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 2ca7b3a68f8feb45;
-	Mon, 23 Nov 2026 03:26:37 +0000
-X-Mizu-Trace-ID: 2ca7b3a68f8feb45
-X-Migadu-Flow: FLOW_OUT
-Content-Type: text/plain;
-	charset=us-ascii
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N9V3oaXf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C4DE1F000D3;
+	Mon, 23 Nov 2026 03:26:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795404404;
+	bh=wc6ekr9cryGg73k6nk6oY3aWkmjnvr4TDpjauBGQjHM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=N9V3oaXfJVu8TmQHR3rUC4K5ZiDXFHSNdFSVyHLXtdJlCSzqQlSCB783vk6qRg+QB
+	 YYcDkFheTwBssTfubNSjsxc4+L0HiMmXnhF/1bueAtDG3hWzuol3XWEzpWwpkCLzu1
+	 HyKJjj6ICPWgR8HQSeyBLVBkgyUKGXyBOEEu0//yR8lQSKtiZaMWhk/dMgYIe2A1ae
+	 SD4cVlwwbMryHpMlMfLi20YInXo1r48aI6KWzr3ag0OXWLjJRtbxIHQ+tPw0ud7OsK
+	 nNCIWTz92y7PeQiCU5AUSh5kI8cR+84nwLZQSjvV6ehkulr22HUlOmjoWfZaxZT5KA
+	 i2a0/C66QPyaQ==
+Subject: Re: [BUG] sctp: auth: NULL asoc->shkey after a failed
+ SCTP_CMD_ASSOC_SHKEY makes close() oops
+From: netdev-bot+sashiko@kernel.org
+To: kyuwoncho18@gmail.com
+Cc: marcelo.leitner@gmail.com, lucien.xin@gmail.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ junvyyang@tencent.com, linux-sctp@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 03:26:43 +0000
+Message-ID: <179540440300.3135.8565987128928534228@kernel.org>
+In-Reply-To: <179505710266.3511678.14017674052424733262@gmail.com>
+References: <179505710266.3511678.14017674052424733262@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,166 +63,219 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH v3 12/19] arm64: Support hugetlb vmemmap optimization
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <20261122184453.2668189-13-jthoughton@google.com>
-Date: Mon, 23 Nov 2026 11:26:12 +0800
-Cc: Muchun Song <muchun.song@linux.dev>,
- Will Deacon <will@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Oscar Salvador <osalvador@suse.de>,
- Andrew Morton <akpm@linux-foundation.org>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Nikos Nikoleris <nikos.nikoleris@arm.com>,
- Linu Cherian <linu.cherian@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- David Hildenbrand <david@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>,
- Nanyong Sun <sunnanyong@huawei.com>,
- Yu Zhao <yuzhao@google.com>,
- Frank van der Linden <fvdl@google.com>,
- David Rientjes <rientjes@google.com>,
- linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <64639588-CB39-4980-A9E3-8423AB0DF268@linux.dev>
-References: <20261122184453.2668189-1-jthoughton@google.com>
- <20261122184453.2668189-13-jthoughton@google.com>
-To: James Houghton <jthoughton@google.com>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
+MIME-Version: 1.0
 
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
+Critical: 0 · High: 1 (1) · Medium: 0 · Low: 3
 
-> On Nov 23, 2026, at 02:44, James Houghton <jthoughton@google.com> =
-wrote:
->=20
-> Support HVO if HW AF and BBML3 are supported. These are the required
-> features for the vmemmap to be modified in place.
->=20
-> On arm64 systems that do not have the required hardware features to
-> support HVO, the HVO sysctl will not appear, and any attempts to =
-enable
-> HVO (either via the command line or via
-> CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP_DEFAULT_ON=3Dy) will have no =
-effect.
->=20
-> Because HVO support is only known after the vmemmap has been =
-populated,
-> disable the section-based vmemmap optimization in vmemmap_populate(), =
-as
-> LoongArch and powerpc do. Boot-time HugeTLB folios are then optimized
-> when they are gathered.
->=20
-> Signed-off-by: James Houghton <jthoughton@google.com>
-> ---
-> arch/arm64/Kconfig               | 1 +
-> arch/arm64/include/asm/pgtable.h | 6 ++++++
-> arch/arm64/mm/mmu.c              | 9 +++++++++
-> mm/hugetlb_vmemmap.c             | 4 ++++
-> 4 files changed, 20 insertions(+)
->=20
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 4cce60c2de66..b13618f0ace5 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -95,6 +95,7 @@ config ARM64
-> 	select ARCH_WANT_FRAME_POINTERS
-> 	select ARCH_WANT_HUGE_PMD_SHARE if ARM64_4K_PAGES || =
-(ARM64_16K_PAGES && !ARM64_VA_BITS_36)
-> 	select ARCH_WANT_LD_ORPHAN_WARN
-> +	select ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP if ARM64_HW_AFDBM
-> 	select ARCH_WANTS_EXECMEM_LATE
-> 	select ARCH_WANTS_NO_INSTR
-> 	select ARCH_WANTS_THP_SWAP if ARM64_4K_PAGES
-> diff --git a/arch/arm64/include/asm/pgtable.h =
-b/arch/arm64/include/asm/pgtable.h
-> index 7421c0a048ff..5dadaac54bef 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -1931,6 +1931,12 @@ static inline void =
-clear_young_dirty_ptes(struct vm_area_struct *vma,
->=20
-> #endif /* CONFIG_ARM64_CONTPTE */
->=20
-> +#define arch_support_vmemmap_remap arch_support_vmemmap_remap
-> +static inline bool arch_support_vmemmap_remap(void)
-> +{
-> +	return system_supports_bbm_through_af();
-> +}
-> +
-> static inline int try_update_vmemmap_pte(unsigned long addr, pte_t =
-*ptep,
-> 					 const pte_t pte)
-> {
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index a61464cf7367..bc3eea16004c 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -30,6 +30,7 @@
-> #include <linux/mm_inline.h>
-> #include <linux/pagewalk.h>
-> #include <linux/stop_machine.h>
-> +#include <linux/vmemmap-optimization.h>
->=20
-> #include <asm/barrier.h>
-> #include <asm/cputype.h>
-> @@ -1843,6 +1844,14 @@ int __meminit vmemmap_populate(unsigned long =
-start, unsigned long end, int node,
-> 	/* [start, end] should be within one section */
-> 	WARN_ON_ONCE(end - start > PAGES_PER_SECTION * sizeof(struct =
-page));
->=20
-> +	/*
-> +	 * Whether HVO is supported is only known once the system-wide =
-CPU
-> +	 * features have been finalized, which is after the vmemmap has =
-been
-> +	 * populated, so the section-based vmemmap optimization =
-(pre-HVO) is
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-It's better to avoid the term of "pre-HVO", It's an obsolete term. All =
-infrastructure
-of it are removed now.
+- [High] The fix is incomplete.
+- [Low] The changelog leaves out the directly related prior fix
+  a80c9d945aef55 ("sctp: move SCTP_CMD_ASSOC_SHKEY right after…
+- [Low] The recorded commit message is the raw bug-report email, not the
+  patch changelog.
+- [Low] The comment above sctp_auth_send_cid() in net/sctp/auth.c still
+  says "Check if peer requested that this chunk is authenticated".
 
-> +	 * not supported. Boot-time HugeTLB folios are optimized later =
-instead.
-> +	 */
-> +	section_vmemmap_optimization_disable(start, end);
-> +
-> 	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
-> 	    (end - start < PAGES_PER_SECTION * sizeof(struct page)))
-> 		return vmemmap_populate_basepages(start, end, node, =
-altmap);
-> diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
-> index fb6da64bd80d..a01377c37c96 100644
-> --- a/mm/hugetlb_vmemmap.c
-> +++ b/mm/hugetlb_vmemmap.c
-> @@ -79,6 +79,10 @@ static int vmemmap_split_pmd(pmd_t *pmd, struct =
-page *head, unsigned long start,
->=20
-> 		/* Make pte visible before pmd. See comment in =
-pmd_install(). */
-> 		smp_wmb();
-> +		/*
-> +		 * On arm64, this requires BBML3. Its support has =
-already been
-> +		 * checked.
-> +		 */
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the same
+  'authenticated chunk with a NULL key' crash can be reached through a…
 
-Please don't add an architecture specific comment here. That is =
-something architecture
-itself needs to consider.
+--
 
-Thanks,
-Muchun
+sctp: auth: NULL asoc->shkey after a failed SCTP_CMD_ASSOC_SHKEY makes close() oops
 
-> 		pmd_populate_kernel(&init_mm, pmd, pgtable);
-> 		/*
-> 		 * Modern MMUs allow overlapping TLB entries with =
-different mapping
-> --=20
-> 2.56.1.809.ga0b61035b5-goog
->=20
+This patch makes sctp_auth_send_cid() return 0 when asoc->shkey is NULL.
+Chunks are then not marked for authentication after
+sctp_auth_asoc_init_active_key() fails while the INIT-ACK is processed.
+The target is the NULL dereference in sctp_auth_shkey_hold() reached
+from sctp_close()->sctp_make_abort_user() with SO_LINGER {1, 0}.
 
+> sctp: auth: NULL asoc->shkey after a failed SCTP_CMD_ASSOC_SHKEY makes close() oops
+>
+> --===============7735770531491749088==
+> Content-Type: text/plain; charset="us-ascii"
+> Content-Transfer-Encoding: 7bit
+>
+> Hi Marcelo, Xin,
+
+[Severity: Low]
+This isn't a bug, but the recorded commit message looks like the raw
+bug report email rather than the patch changelog. The subject describes
+the symptom, not the change.
+
+The body contains the salutation, MIME boundary lines, Content-Type
+headers, the full repro.c and a base64-encoded config.gz attachment.
+
+The real subject ("sctp: auth: don't authenticate chunks without an
+association key"), the changelog, and the Fixes: and Signed-off-by:
+trailers only appear inside the embedded format-patch attachment.
+
+Could this be resent as a proper patch that uses the attached changelog
+as the commit message?
+
+[ ... ]
+
+> The reference on the shared key comes from 1b1e0bc99474 ("sctp: add
+> refcnt support for sh_key"). ad1320865b18 ("sctp: hold shkey across
+> socket migration") and 52ffeaa358d1 ("sctp: re-point retained control
+> chunks on association migration"), both in v7.4-rc3, handle the
+> migration paths and not this one.
+
+[Severity: Low]
+Should this also mention a80c9d945aef55 ("sctp: move
+SCTP_CMD_ASSOC_SHKEY right after SCTP_CMD_PEER_INIT")? That commit
+handled the same failure: SHKEY fails, shkey stays NULL, auth_capable is
+set, and a chunk is sent with auth=1.
+
+That commit also reordered the commands in sctp_sf_do_5_1C_ack() so
+that this one runs before TIMER_STOP/TIMER_START/NEW_STATE:
+
+    sctp_add_cmd_sf(commands, SCTP_CMD_ASSOC_SHKEY, SCTP_NULL());
+
+Because of that ordering, the failed association stays in COOKIE_WAIT.
+There AUTH is discarded, and T1-init retransmits INIT, so key setup is
+retried. This patch appears to depend on that behaviour.
+
+Trees without a80c9d945aef55 leave the failed association in
+COOKIE_ECHOED with T1-cookie running. Backporters who follow only
+"Fixes: 1b1e0bc99474" get no warning about this. Would it be worth
+stating the dependency here, instead of the two migration-path commits?
+
+> diff --git a/net/sctp/auth.c b/net/sctp/auth.c
+> index cbeb8a87a17a7..5f8e110929d46 100644
+> --- a/net/sctp/auth.c
+> +++ b/net/sctp/auth.c
+> @@ -660,7 +660,7 @@ int sctp_auth_send_cid(enum sctp_cid chunk, const struct sctp_association *asoc)
+>  	if (!asoc)
+>  		return 0;
+>  
+> -	if (!asoc->peer.auth_capable)
+> +	if (!asoc->peer.auth_capable || !asoc->shkey)
+>  		return 0;
+
+[Severity: High]
+Is this check enough to cover the keyless state? After
+SCTP_CMD_ASSOC_SHKEY fails in sctp_sf_do_5_1C_ack(), SCTP_CMD_PEER_INIT
+has already set peer.auth_capable, peer_chunks, peer_hmacs and
+c.peer_vtag. Both asoc->shkey and asoc->asoc_shared_key are still NULL.
+This change only affects the transmit side.
+
+During an INIT collision, the COOKIE_WAIT association can receive the
+peer's COOKIE-ECHO. sctp_sf_do_5_2_4_dupcook() then gets action 'D' from
+sctp_tietags_compare(), because PEER_INIT already set a non-zero
+peer_vtag:
+
+    if ((asoc->c.my_vtag == new_asoc->c.my_vtag) &&
+        (asoc->c.peer_vtag == new_asoc->c.peer_vtag))
+        return 'D';
+
+If an AUTH chunk comes before the COOKIE-ECHO, sctp_sf_do_dupcook_d()
+verifies it against the existing keyless association:
+
+    if (!sctp_auth_chunk_verify(net, chunk, asoc))
+        return SCTP_DISPOSITION_DISCARD;
+
+The call chain
+sctp_auth_chunk_verify()->sctp_sf_authenticate()->sctp_auth_calculate_hmac()
+then uses the NULL key:
+
+    if (key_id == asoc->active_key_id)
+        asoc_key = asoc->asoc_shared_key;
+    ...
+        hmac_sha1_usingrawkey(asoc_key->data, asoc_key->len,
+
+Without that AUTH chunk, dupcook_d moves the association to ESTABLISHED
+and never calls sctp_auth_asoc_init_active_key(), unlike dupcook_a and
+dupcook_b. sctp_sf_eat_auth() checks only peer.auth_capable before it
+calls sctp_sf_authenticate(). Any later AUTH chunk from the remote peer
+then hits the same NULL asoc_shared_key dereference in the receive path.
+
+The patch also changes behaviour in a way the changelog doesn't mention.
+sctp_auth_send_cid() now returns 0 in this state. So DATA, ABORT and any
+other chunk the peer listed in its CHUNKS parameter are sent without
+AUTH. The peer silently drops them in sctp_assoc_bh_rcv():
+
+    if (sctp_auth_recv_cid(subtype.chunk, asoc) && !chunk->auth)
+        continue;
+
+The association then looks established but delivers nothing.
+
+Would it be better to stop a keyless auth-capable association from
+leaving COOKIE_WAIT or processing AUTH? For example, dupcook_d could
+initialise the key or fail, or AUTH could be rejected while
+asoc_shared_key is NULL. That would replace the approach in
+sctp_auth_send_cid() rather than add to it.
+
+>  
+>  	return __sctp_auth_cid(chunk, asoc->peer.peer_chunks);
+
+[Severity: Low]
+The comment above sctp_auth_send_cid() still says:
+
+    /* Check if peer requested that this chunk is authenticated */
+
+After this change, the function also returns 0 when the local
+association key is not set up, even if the peer listed the chunk.
+Callers rely on the documented meaning. sctp_datamsg_from_user() says
+"If the peer requested that we authenticate DATA chunks", and
+_sctp_make_chunk() says "Determine if the chunk needs to be
+authenticated".
+
+Should the comment be updated to mention the local key check?
+
+[Severity: High]
+This isn't a bug introduced by this patch, but the same crash (an
+authenticated chunk with a NULL key) looks reachable through stream
+interleaving. The new !asoc->shkey check does not cover that path.
+
+sctp_datamsg_from_user() picks the per-chunk key by asking about DATA:
+
+    if (sctp_auth_send_cid(SCTP_CID_DATA, asoc)) {
+        ...
+            shkey = asoc->shkey;
+
+With interleaving, the chunk is built by
+sctp_make_idatafrag_empty()->sctp_make_idata()->_sctp_make_chunk(asoc,
+SCTP_CID_I_DATA, ...). That function sets the auth flag by asking about
+I-DATA:
+
+    if (sctp_auth_send_cid(type, asoc))
+        retval->auth = 1;
+
+If the peer lists I-DATA (0x40) but not DATA in its CHUNKS parameter,
+every I-DATA chunk gets auth=1 with shkey=NULL. asoc->shkey itself is
+valid in this case, so the new check does not apply. On transmit,
+sctp_packet_append_chunk()->sctp_packet_bundle_auth() then dereferences
+NULL:
+
+    auth = sctp_make_auth(asoc, chunk->shkey->key_id);
+
+In the reverse case (DATA listed, I-DATA not), shkey is set and auth is
+0. No AUTH chunk is ever bundled, so sctp_packet_will_fit() returns
+SCTP_XMIT_PMTU_FULL every time, even for an empty packet:
+
+    if ((packet->auth && chunk->shkey != packet->auth->shkey) ||
+        (!packet->auth && chunk->shkey &&
+         chunk->chunk_hdr->type != SCTP_CID_AUTH))
+        return SCTP_XMIT_PMTU_FULL;
+
+The I-DATA chunk is then never sent.
+
+No fault injection is needed. The local side has to enable AUTH and
+interleaving (SCTP_FRAGMENT_INTERLEAVE and SCTP_INTERLEAVING_SUPPORTED,
+plus the net.sctp.intl_enable sysctl, which is off by default). The
+first sendmsg() then triggers the NULL dereference.
+
+Should the key selection in sctp_datamsg_from_user() use the same chunk
+type as the chunk that make_datafrag builds?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/179505710266.3511678.14017674052424733262%40gmail.com
