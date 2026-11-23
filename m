@@ -1,99 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.56
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.53
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795476443;
-	b=EQ6BNNl4tEwuKUgwhHuHXgKYOWHFHzEQjAPI2KfftmM+dtAeRJFw3PnEgFnvxH99CgLd
-	 CkCXcISnF8aGtyfCOBiLEjDZkz5sTSgIgX5YrFHpEaX1Ga87YEuJUG7mDs9ES1+W02Qy/
-	 y/CgeF0bNtoFRUbpj0hLqr3Qyys2TFdI7gp4hd0xu+HLURE2v9l73xNipFtjtNyHJ0Y6l
-	 OYgbGK78bnv9i9tdhXE3c7YTbdlXuhGxdafl6LgQwp63oupLeUaCYp8Wrx/s8aEWVp8Xe
-	 UsTv3OVSjg2QXgWA6KDIedVVUvA48A3Ce7TtZW6Y+OwcrWact7uZQwtMqrQaQBK9NNg==
+	t=1795476474;
+	b=J8hCOejcqwt4MZvGRRBNMZAfbTnIjR0ICaVp3oBbEMc0uizbPPXs8sS6D+C0MQ7VzBW+
+	 Xj2KEx4G657/zbGYA85F/Gjwnn/S9i2DBJDhEbQc3hP3+Oehv4GReDZ0gU9X+xm0pBed7
+	 6c//gZqf+TJl9BdXuyjJk/zwTuPbrFpr96WBMX0zCQ5+gEdzHepzUsVQfmdUpI2WW1W6t
+	 te2hvSurFzil7dPKX29vLQ0Wxnl2cy6iOkfdpCHm56Pv6Ao9KbEwYP7yQwZ3w9y8+droW
+	 Ft1rFVqNlwD8cUc8W7Q9PsF0l7nwHBl3ug5tRf0iXnNrYKNimF9E9S3xxPHu51bv1xg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795476443;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=MZq91PpEww6C1HRTg27TsQkx+nbMwiQpta5jBfAyfEI=;
-	b=PW/XBawzu9SudR/ia12qMHp8dXjzKX13zNNdIRodg5bgiHmBclAWFy+ZRDNOXhfc2p7U
-	 kWm0C98a7HL7xhYYew/KMKBJDg9CLzOUyfRZpk3tjVjjw5qn26bIgHa5mQCLx7msIyZzg
-	 uly98xOae2OGKVQX+BXva3C83bywMTwkwcPV/8MI0G8IcQISiXCIXNALrYJ7j9ZNGaEY0
-	 ECTHX+pNKFSgtj4Aoi1hpyyRU0BfF9JUBgGVLx7npZh8yTpWh4dsTNyWFpnQEkmp5sbVW
-	 SK1yfM9BoP8n1qkrWWEGA11e3sjswmvbsqTdBLH/o4X4/MQIqK94m3x7GuLd9XZnWgg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795476474;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=j99f7KwqCGFPCQ5UxSgKf/Q6ehYNM1RCLTZobLCSX8U=;
+	b=YE/o7ujpnnG8RWe9jinWOtzFCDj9wh0D48J8eGIqWtoDJqvmgqBTx6KBezcqZByynRAr
+	 A2arGcz/vk6ybyiV3M6anXjc/YF5RdYgDuPQtJLw4UfEoCCUPkMIGH2+kdfe/+y754GyR
+	 CqLema5XtQdY2ySwnseZRidzL4jVS9k5ytVNxd6FoTDHkj0CH94konoPDm5lj5vxezVnp
+	 db0mwndo6i/xAGzwqEcLQtFobhEyhpihb6nwQASD4l4ANgTt6aM+0LLUdPwE0ixEcF8FA
+	 XFtB5e7RnhQBHTce5WyvIpW6AmrD+OKRj3xBiHaF0JgWitfqdrUyJS+9VMm2B1I0R5g==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b="d/udM+iT";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.56
-Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010056.outbound.protection.outlook.com [40.93.198.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NMcT+Z3E;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.53
+Received: from mail-lf1-f53.google.com (mail-lf1-f53.google.com [209.85.167.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8EBE606A689;
-	Mon, 23 Nov 2026 23:27:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8EBE606A689
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE23E606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:27:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE23E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=d/udM+iT
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=t0BePvGCF3gTld58JCcatBo2P2SHnLqQLC7+R4CDHHON6e4xDrkS874oUCwKRqIsznfBVGN/IMlmkTrlweadftXPSMCIWJHcoqrIkbifii+QWfSJYZFrbhs4I6Z44KxgELf5N2XuXd0FMlZ8a6y9RLoA3SuhfTFnewvwNBE1HUg9VcIRtgHhGXwE/7cJVMiVEuatCSHUgsX2nEs2LbEL1e/FELtqvNWic6HCBJ6BdAU71HwAWJJIOGNMRaTcuyyWIHtA1nIMyZhWkWYfriov0GO76tWPoRX61b90TSMaHnc5X9k+1ZSHvDVQZN4fkVNz7wmw3q84iBvW3hKvalTpJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MZq91PpEww6C1HRTg27TsQkx+nbMwiQpta5jBfAyfEI=;
- b=aH4+9L1G3en+YfCbQUJtSZX9ycPX3WFTRG5MbkJLMUTsm/s8BGe+G5b2jIwSi30HQg4DrI2WlXFCR202zQWW9VSmNHZYm8qjKQSondxH+8WRm1cGffGRSaYvjpA1EyB+s/n1DO/XHCA4TQgeD5brutDWGvcOwEp2wR7eqTHQ95U08COpPuRHlcOL+SErM7Il7l/AA36vUwrKkIH6+0TsO/b4Ak/VkLpQa+G5UnRcvG3JipAsjdhIY4oZXaPejucXvQJT+xzSxV2oc1gSUAgEaU1+7v65UDhO1fbf8GJHjpPYSt07UTA+zBn+fcDJS+Rcr3O9bHclUUO6Stn3F3nlCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MZq91PpEww6C1HRTg27TsQkx+nbMwiQpta5jBfAyfEI=;
- b=d/udM+iTB3TR4aVp8GmMdgieIdnsuXZlHitt+ynuTUxGW1i5eSQslRVp3ahzqtSNxO00qtw+QLTWfFzyoWSsA+sc8OxnE0mCbU+glNHoNFQ+vUnTx8JOawahfyGpWBGCjG1dmKC9v/2WveEOCTmbL01BOowtQUDjPa85dLo/bT4=
-Received: from PH8P221CA0057.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:349::12)
- by SN7PR12MB7834.namprd12.prod.outlook.com (2603:10b6:806:34d::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 23 Nov
- 2026 23:27:14 +0000
-Received: from PH7PEPF00000006.namprd04.prod.outlook.com
- (2603:10b6:510:349:cafe::5c) by PH8P221CA0057.outlook.office365.com
- (2603:10b6:510:349::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
- 23 Nov 2026 23:27:14 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- PH7PEPF00000006.mail.protection.outlook.com (10.167.243.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 23:27:13 +0000
-Received: from quartz-7b1chost (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
- 2026 17:27:11 -0600
-From: Yazen Ghannam <yazen.ghannam@amd.com>
-To: <linux-edac@vger.kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <tony.luck@intel.com>, <x86@kernel.org>
-Subject: [PATCH v2 0/3] Increase MCA bank count
-Date: Mon, 23 Nov 2026 17:26:58 -0600
-Message-ID: <20261123232701.1923094-1-yazen.ghannam@amd.com>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NMcT+Z3E
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5be4b61fd3dso3232928e87.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:27:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795476472; cv=none;
+        d=google.com; s=arc-20260327;
+        b=MoBVWM6sr4hbb+ZGiVOymVzr/FP4EKE2Tc6qg23/JJ7Vn3YygQKRB+/SDB8WdIu7M2
+         OjaMDpwUdq8zpRe2M5RrLGg9sY3HZSaHw/BtIwKno+6nPEQwSUgNXnMh1YLXivVRFBtX
+         ChY3QwCazbdr5fftUwB2MFnAYs3TmWuvqVUX51/CEiTVHnmKVcAlRcdjL4RQu1qKY47S
+         47scCvD7GSapUyewc/Y+AcJgdhhPKxBDN9WJR1SJc1LzGdihJob9ZXtXCCtw5Jui6sDp
+         fvjj4FdATrloTQyARQ+9syVvmoiIfLEEpgeTTk8Z6SQy6AlRn/nxSkPU0Hqs67OY2nxg
+         X0gg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=j99f7KwqCGFPCQ5UxSgKf/Q6ehYNM1RCLTZobLCSX8U=;
+        fh=RvDGoZpzpU5hQZornpWqcxo7rI40cks3aKkXGDDbKcY=;
+        b=griK90aVyIUPO/PgSn5PMic/YSOVdmDYt4lgHK+GrN8QhG5FqqbrnJlipBoiMm3Hgw
+         68x8yJFFE2ALIHT1PYT01uyBc6ovYwHs3az2q1dS7du3lpINg6P240n/PG+OK5MAvszT
+         +Ryt0NbpjrSft0dXN7oLQFFwg3KVMufouAdSbAB7N9wRDeLRtUYPvxymlcQEMo1CtFjc
+         CeJMLtwFiJmvBEj2Ei+d2Aj60fUMH1V3hZpwUofmHNGo5MYZLzwaxXng4gZXax/Hit1t
+         QoOj+U1+RvMlScndn4RTMaZoFUKRh4esZDMrDz8ZcheRdTMG33megy4cwRclRNG4Nwfk
+         NZEw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795476472; x=1796081272; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=j99f7KwqCGFPCQ5UxSgKf/Q6ehYNM1RCLTZobLCSX8U=;
+        b=NMcT+Z3EWVSltCE/coZjzMnbe3jyoET7db2g3MvPumVoKqrqYuKj3k15iFKvzhn3dw
+         /7+k8pCIZ1sKbn7QJ0qUPbq/vvZ6MWRfK6fH6UI9dj5fN2g1mM9z90CZpHy+ikqYj84k
+         Lc0CE+CB58imOUkfsfliZZAvyz6xBlT+op858RjEk+sMC74LRtS6MXIKqV1Y4Ozs4NzI
+         pfb8jZvcWbpUGt2m1xHoXkg0iFhFNxl4qqQtVvsJj9t38u6S6c9YmiTsNY6Xgzg7aJWk
+         +MHl81Rv2Ns1vgXuvZ+6aJaa9t/mSIvXLxRNSlJx9Ox48MoVDZgdNW43jMft7IifD8/q
+         cONQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795476472; x=1796081272;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=j99f7KwqCGFPCQ5UxSgKf/Q6ehYNM1RCLTZobLCSX8U=;
+        b=aLZ+CAH0K4tIv2UR5y94zCJFAjHFaupdJGyFnpdGeQ1HhvRZ6OyyRIGfLfE/3cEgnm
+         5HWB+ul16OobAd0KFVk9WcryqorQH0kl7nQK8U72SlB0+TZvCJZK+d9pgQATqvizQTbW
+         EeNbLp0+xptQOkW5Shc5CPxD2WlGXCJ0uc3gUTRPKMHDOuHeDu5RTK9301sI5oZNlXWn
+         ydkmZmmRKRtYQv4pdo+UNW9EZI2+0P9aSa5vSVJ5M25D/vjrzIQTMWYOOFqR7wE6yb8I
+         Xix4bqrGMKs4bHu5OOk+lwVg1mnX2HgRqGgYOMTmJJB+hnA0uVgd+5XKc9bgXAXBCMYF
+         yEtQ==
+X-Forwarded-Encrypted: i=1; AL+hErERfJXYks911XHFRNIbpWlC39tzox7/edvK0RtH3oLZBys3ZezRaek++RJ9pyET6Hil4tv6I2sEkbvKNzg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9FFjuHtGFi1yDP4+QSjrPKg8uMKozQ1pqGw49bRDdgprk1YgaF
+	kkwBv4vbfV2MdCjW+iP32Z5g9hA5r0Pf/aGHZy+Qb94qo9fKdYO8jVYo7IWBwCGcyudj9f0SDtP
+	iKslfAXqUAceAMVOSU1Pan1zBWdWEZ60Mohii
+X-Gm-Gg: AZFdTZdROQGEUi4Wqb/paeaf1ZZBvVM+Rbn8vhTG2X/pkQZbCVd9i8A7AqiHTZtJWjS
+	vKvnV8wBmI8ku7qyrwhc9IpidwSeMSDLoHCPvGEYIZ+PVp3KRO9jNzMYf05I0ZBxQeQ8Ut9YwGM
+	f78jCUAALi5WEm9NWHXFHIxD6CqoGoiNshB+t4jSYZCfBXsmLh/hG1u8+d0koiwT52C/yYHs/Hr
+	O4TuE+s1oLRGVtM0hUzQqaA8Tbk5Iu85hgNtiM4Dz/r3uz2FW61gVi4drRoqchgvGowVREAAz8p
+	kSvhAr+M9+0DyrxXOaao/v9cHmqJtU/zOJPFK9Mlo+s298nqfxe+8TEfwcQXEkfppDUhbTIirkA
+	oOpXG7v/XLhG56bD84hYGeA4vMx/wDruum0/nlne4nYGpKntaaYms7kRKhSdoryaSd9wqVOfXXU
+	CqA8bAlkv0exgCdV1CiolsrapD/k2GevN5p85vKo61CD2xhJtFhDLb7dQWyYEo
+X-Received: by 2002:a05:6512:3041:b0:5bf:d26e:7992 with SMTP id
+ 2adb3069b0e04-5c1bc81c6femr3148270e87.28.1795476471695; Mon, 23 Nov 2026
+ 15:27:51 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,102 +105,323 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: satlexmb07.amd.com (10.181.42.216) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PEPF00000006:EE_|SN7PR12MB7834:EE_
-X-MS-Office365-Filtering-Correlation-Id: 41d85217-1b4b-458b-148b-08df49b94e41
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|23010399003|82310400026|36860700016|376014|10067099003|56012099006|11063799006|261102123227099003|261026121527099003|261026140227099003|261021121427099003|261022105027099003|261021123027099003|261028144727099003|18002099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info:
-	Mi8u96e7wdmNqLGTTWTXisOROv6LsCU2MWu7d9wkDPfXrZt67N8mtLRCguAMJD6flaClvfbv4yhH1TamQ9Rq0hkbaqKZnwyEAnzw4uViyK5wJTodMAXaW+PIT9ZSTkxJi2rgfjcWpPb0pgfwY1s2GrCKaAH+8We7wWRreq8yPPogZrMBPlyRday0R0osNi75CwIdRPTzxHy+3d+xO1xzsFtpvRF1N4u/kNwklhyItJ2LoaZybZd+kZllpNt6+KW7t/cZhd00CtwrOPAvNu5yqx8uTwxouoFi4WyB86YzMCNQze4lOAxXfDETKxmBPj69fagW/Ntnw3wYyQMUDOZzbOnhzZ+CGO1LqgrTO0933TsmslaIqINOCp9YsJu6wW6Ywqe1lbrVvCbGMXEHXWBpu6GB6f7xNsyVO0wtvYllIOwdbkt0A6whuBx/oGyxPj6XuKGwzrblZaro6ItmCXGV6dk3+FRMLU0HTTElXAik4/Hb3T3d7tKkZfgwE/+gOexwp1d0uvyANJnvRiJcyxy+awyMGMI2qiKqYnFb1y9a6hKcJ+SjgYlqHna6ix4V/7ssxZKigM0oqDI8hMHwFQL0/Jkxtqo416qp5fu/fxuSj4A9pUB4B3V52+1iDb6XFXOuttYg+SEUMYfw/OOa18b8KQ==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(82310400026)(36860700016)(376014)(10067099003)(56012099006)(11063799006)(261102123227099003)(261026121527099003)(261026140227099003)(261021121427099003)(261022105027099003)(261021123027099003)(261028144727099003)(18002099003)(261009223027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	dc0hZSJJigc09MqCoiOzSMPhqorjklfyzG6/VS7KwhbMVuNQ9S2V4DDgwMBiz3S6siy35W057h+XCFiueV43XCv+B70P7whnLI2kirPiCM907uplWVNhqpf2fwEKOW49Zdht4NDp7/f0csvune60wXJin09N190xgUeat1pfndItLCJ//e8+FO2StdmGvvh+97HevzmfNfvG5+Y4YlhdvAN71+DNr9qsGI9x7tLnNYNPvyFLJ5szM0Wa/b39CP3ZMUTIUl7qEPRuocs/IEXIweGGpP6dPzlDSf7UwAlTvn26QyewElPrMHrZrrIKojNf12R9/NTvv0Z3zZyFx9Dt+x4mYx09cfUgAAetjfQ4YkD7ripGOiSc9Ig4neLZLRO0mYlz/qYBp6KqES3ooTgfs9DoRWHU3aB2WV/5lvmbz7OTRGtsjSnSAkPO12FDw/hK
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 23:27:13.9441
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 41d85217-1b4b-458b-148b-08df49b94e41
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	PH7PEPF00000006.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7834
+References: <20261021200841.75370-1-vishnuocv@gmail.com> <6e562b92-afbe-4c01-a703-81d55f2fdc65@app.fastmail.com>
+In-Reply-To: <6e562b92-afbe-4c01-a703-81d55f2fdc65@app.fastmail.com>
+From: Vishnu Sankar <vishnuocv@gmail.com>
+Date: Tue, 24 Nov 2026 08:27:13 +0900
+X-Gm-Features: Aa3M54qGkSlPb6AAF4Q4xv6wOZZMDja4nj8z44oGFfWi0CKH1H0cvTYAtZkZBFM
+Message-ID: <CABxCQKuRk3ZV0bRbcautcfkOWWQF1Y+_DrtHzk2+cfiuDVOVZQ@mail.gmail.com>
+Subject: Re: [PATCH] HID: lenovo: Add keyboard backlight support for the X13
+ detachable folio
+To: Mark Pearson <mpearson-lenovo@squebb.ca>
+Cc: "Derek J . Clark" <derekjohn.clark@gmail.com>, Jiri Kosina <jikos@kernel.org>, 
+	Benjamin Tissoires <bentiss@kernel.org>, linux-input@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Vishnu Sankar <vsankar@lenovo.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi all,
+Hi Jiri, Benjamin, Derek,
 
-This set increases the max MCA bank count (MAX_NR_BANKS) to the
-architectural limit.
+Gentle ping on this one - posted on Oct 21, and I have not had any
+feedback yet.
 
-Patch 1 is a bug fix that came out of code review.
+It still applies to the current mainline and I have
+retested on the X13 Detachable.
+Is there anything you would like changed before this can be picked up,
+or would you prefer that I resend it rebased as v3?
 
-Patch 2 is a pre-patch to avoid a bug for systems with more than 64 MCA
-banks per thread.
-
-Patch 3 is where MAX_NR_BANKS is updated. The commit message includes
-some memory stats like the last time we bumped up MAX_NR_BANKS.
-
-Originally, I intended to include additional patches to consolidate and
-dynamically allocate many of the per-CPU and per-bank structures. These
-still need more work. So I thought to send just this small set to start.
-
-Also, I figure a smaller set would be easier for backporting for those
-who want the feature support but don't want the additional rework.
-
-I'm trying to see if the per-CPU rework can help with the "sysfs
-hotplug" issues reported by syzbot. I'll send rework as a follow up to
-this series.
-
-Testing was done in a KVM guest with a locally patched QEMU that
-emulates SMCA banks, at 255, 65, 64 and 1 banks per thread, and on AMD
-EPYC server systems. Mainline fails at more than 64 banks. Without
-patch 2, banks 64-127 alias to banks 0-63 for thresholding.
-
-An LLM coding assistant was used to help draft and revise the commit
-messages, to measure the size changes listed in patch 3, and to write
-and run the tests above. All code and text were reviewed by me.
-
-I had the measurement data included in patch 3 similar to how we did the
-last time MAX_NR_BANKS got bumped up. Ofc, we can trim this if it's too
-much.
+Mark - Thanks for the "Reviewed-by" tag.
 
 Thanks,
-Yazen
+Vishnu
 
-Changes in v2:
-- Rebase on v7.4-rc4.
-- Patch 1: Split the bank bound check into its own early return. (Boris)
-- Patch 1: Note in the commit message that GHES records are affected
-  too, and that an out-of-range bank makes the address not usable.
-- Patch 3: Explain the cmci_supported() change in the commit message.
-- Patch 3: Add the #MC stack frame and intel-bff.o size changes.
-- Drop the Assisted-by trailers. Tool use is described above, following
-  1e035297ffda ("docs: remove Assisted-by references").
+On Fri, Oct 30, 2026 at 10:02=E2=80=AFPM Mark Pearson <mpearson-lenovo@sque=
+bb.ca> wrote:
+>
+> Thanks Vishnu,
+>
+> On Wed, Oct 21, 2026, at 4:08 PM, Vishnu Sankar wrote:
+> > The keyboard backlight of the ThinkPad X13 detachable folio is reached
+> > over HID rather than through the EC, so thinkpad_acpi exposes nothing
+> > for it and userspace can neither read the level nor set it.
+> >
+> > The folio takes and reports the level over the same vendor reports this
+> > driver already uses for the Fn-lock, mute and mic-mute indicators, so
+> > register a kbd_backlight LED class device on top of them.
+> >
+> > The firmware cycles the level on Fn+Space by itself.  Report the
+> > resulting state to the LED class device instead of the keypress, which
+> > userspace would otherwise act on a second time.
+> >
+> > Tested on a ThinkPad X13 Detachable (17ef:62af), BIOS R3IET32WM.
+> >
+> > Suggested-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+> > Signed-off-by: Vishnu Sankar <vishnuocv@gmail.com>
+> > ---
+> >  drivers/hid/hid-lenovo.c | 122 ++++++++++++++++++++++++++++++++++++++-
+> >  1 file changed, 119 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/drivers/hid/hid-lenovo.c b/drivers/hid/hid-lenovo.c
+> > index 3976d7b53b14..956c26128f40 100644
+> > --- a/drivers/hid/hid-lenovo.c
+> > +++ b/drivers/hid/hid-lenovo.c
+> > @@ -24,6 +24,7 @@
+> >  /*
+> >   */
+> >
+> > +#include <linux/cleanup.h>
+> >  #include <linux/module.h>
+> >  #include <linux/sysfs.h>
+> >  #include <linux/device.h>
+> > @@ -51,6 +52,8 @@ struct lenovo_drvdata {
+> >       struct mutex led_report_mutex;
+> >       struct led_classdev led_mute;
+> >       struct led_classdev led_micmute;
+> > +     struct led_classdev led_kbd_bl;
+> > +     struct work_struct kbd_bl_sync_work;
+> >       struct work_struct fn_lock_sync_work;
+> >       struct hid_device *hdev;
+> >       int press_to_select;
+> > @@ -75,10 +78,19 @@ struct lenovo_drvdata {
+> >  #define TP10UBKBD_FN_LOCK_LED                0x54
+> >  #define TP10UBKBD_MUTE_LED           0x64
+> >  #define TP10UBKBD_MICMUTE_LED                0x74
+> > +#define TP10UBKBD_KBD_BL_LED         0xc4
+> >
+> >  #define TP10UBKBD_LED_OFF            1
+> >  #define TP10UBKBD_LED_ON             2
+> >
+> > +/* Above the levels, 0x04 selects the firmware's own automatic mode. *=
+/
+> > +#define TP10UBKBD_KBD_BL_MAX         2
+> > +
+> > +static bool lenovo_has_kbd_backlight(struct hid_device *hdev)
+> > +{
+> > +     return hdev->product =3D=3D USB_DEVICE_ID_LENOVO_X13_TAB;
+> > +}
+> > +
+> >  /* Function to report raw_events as key events*/
+> >  static inline void report_key_event(struct input_dev *input, int
+> > keycode)
+> >  {
+> > @@ -87,8 +99,8 @@ static inline void report_key_event(struct input_dev
+> > *input, int keycode)
+> >       input_sync(input);
+> >  }
+> >
+> > -static int lenovo_led_set_tp10ubkbd(struct hid_device *hdev, u8
+> > led_code,
+> > -                                 enum led_brightness value)
+> > +static int lenovo_send_led_report_tp10ubkbd(struct hid_device *hdev,
+> > u8 led_code,
+> > +                                         u8 value)
+> >  {
+> >       struct lenovo_drvdata *data =3D hid_get_drvdata(hdev);
+> >       int ret;
+> > @@ -97,7 +109,7 @@ static int lenovo_led_set_tp10ubkbd(struct
+> > hid_device *hdev, u8 led_code,
+> >
+> >       data->led_report[0] =3D TP10UBKBD_LED_OUTPUT_REPORT;
+> >       data->led_report[1] =3D led_code;
+> > -     data->led_report[2] =3D value ? TP10UBKBD_LED_ON : TP10UBKBD_LED_=
+OFF;
+> > +     data->led_report[2] =3D value;
+> >       ret =3D hid_hw_raw_request(hdev, data->led_report[0], data->led_r=
+eport,
+> > 3,
+> >                                HID_OUTPUT_REPORT, HID_REQ_SET_REPORT);
+> >       if (ret !=3D 3) {
+> > @@ -114,6 +126,33 @@ static int lenovo_led_set_tp10ubkbd(struct
+> > hid_device *hdev, u8 led_code,
+> >       return ret;
+> >  }
+> >
+> > +static int lenovo_led_set_tp10ubkbd(struct hid_device *hdev, u8
+> > led_code,
+> > +                                 enum led_brightness value)
+> > +{
+> > +     return lenovo_send_led_report_tp10ubkbd(hdev, led_code,
+> > +                     value ? TP10UBKBD_LED_ON : TP10UBKBD_LED_OFF);
+> > +}
+> > +
+> > +static int lenovo_read_led_state_tp10ubkbd(struct hid_device *hdev, u8
+> > led_code,
+> > +                                        u8 *state)
+> > +{
+> > +     struct lenovo_drvdata *data =3D hid_get_drvdata(hdev);
+> > +     int ret;
+> > +
+> > +     guard(mutex)(&data->led_report_mutex);
+> > +
+> > +     data->led_report[0] =3D led_code;
+> > +     ret =3D hid_hw_raw_request(hdev, data->led_report[0], data->led_r=
+eport,
+> > 2,
+> > +                              HID_FEATURE_REPORT, HID_REQ_GET_REPORT);
+> > +
+> > +     if (ret !=3D 2)
+> > +             return ret < 0 ? ret : -EIO;
+> > +
+> > +     *state =3D data->led_report[1];
+> > +
+> > +     return 0;
+> > +}
+> > +
+> >  static void lenovo_tp10ubkbd_sync_fn_lock(struct work_struct *work)
+> >  {
+> >       struct lenovo_drvdata *data =3D
+> > @@ -725,6 +764,7 @@ static const struct attribute_group
+> > lenovo_attr_group_cptkbd =3D {
+> >  /* Function to handle Lenovo Thinkpad TAB X12's HID raw inputs for fn
+> > keys*/
+> >  static int lenovo_raw_event_TP_X12_tab(struct hid_device *hdev, u32
+> > raw_data)
+> >  {
+> > +     struct lenovo_drvdata *data =3D hid_get_drvdata(hdev);
+> >       struct hid_input *hidinput;
+> >       struct input_dev *input =3D NULL;
+> >
+> > @@ -764,6 +804,15 @@ static int lenovo_raw_event_TP_X12_tab(struct
+> > hid_device *hdev, u32 raw_data)
+> >                       return 1;
+> >               case TP_X12_RAW_HOTKEY_FN_SPACE:
+> >                       /* Keyboard LED backlight toggle*/
+> > +                     if (data && lenovo_has_kbd_backlight(hdev)) {
+> > +                             /*
+> > +                              * The firmware has already cycled the
+> > +                              * backlight; reporting the key as well w=
+ould
+> > +                              * have userspace change the level again.
+> > +                              */
+> > +                             schedule_work(&data->kbd_bl_sync_work);
+> > +                             return 1;
+> > +                     }
+> >                       report_key_event(input, KEY_KBDILLUMTOGGLE);
+> >                       return 1;
+> >               default:
+> > @@ -1178,6 +1227,60 @@ static int lenovo_led_brightness_set(struct
+> > led_classdev *led_cdev,
+> >       return ret;
+> >  }
+> >
+> > +static int lenovo_kbd_bl_brightness_set(struct led_classdev *led_cdev,
+> > +                                     enum led_brightness value)
+> > +{
+> > +     struct hid_device *hdev =3D to_hid_device(led_cdev->dev->parent);
+> > +
+> > +     return lenovo_send_led_report_tp10ubkbd(hdev, TP10UBKBD_KBD_BL_LE=
+D,
+> > +                                             value);
+> > +}
+> > +
+> > +static enum led_brightness
+> > +lenovo_kbd_bl_brightness_get(struct led_classdev *led_cdev)
+> > +{
+> > +     struct hid_device *hdev =3D to_hid_device(led_cdev->dev->parent);
+> > +     u8 state;
+> > +
+> > +     if (lenovo_read_led_state_tp10ubkbd(hdev, TP10UBKBD_KBD_BL_LED, &=
+state))
+> > +             return led_cdev->brightness;
+> > +
+> > +     if (state > TP10UBKBD_KBD_BL_MAX)
+> > +             return led_cdev->brightness;
+> > +
+> > +     return state;
+> > +}
+> > +
+> > +/* Reading the state sleeps, so it cannot be done from the report hand=
+ler. */
+> > +static void lenovo_kbd_bl_sync(struct work_struct *work)
+> > +{
+> > +     struct lenovo_drvdata *data =3D
+> > +             container_of(work, struct lenovo_drvdata, kbd_bl_sync_wor=
+k);
+> > +     enum led_brightness value;
+> > +
+> > +     value =3D lenovo_kbd_bl_brightness_get(&data->led_kbd_bl);
+> > +     data->led_kbd_bl.brightness =3D value;
+> > +     led_classdev_notify_brightness_hw_changed(&data->led_kbd_bl, valu=
+e);
+> > +}
+> > +
+> > +static int lenovo_register_kbd_backlight(struct hid_device *hdev)
+> > +{
+> > +     struct lenovo_drvdata *data =3D hid_get_drvdata(hdev);
+> > +
+> > +     data->led_kbd_bl.name =3D devm_kasprintf(&hdev->dev, GFP_KERNEL, =
+"%s::%s",
+> > +                                            dev_name(&hdev->dev),
+> > +                                            LED_FUNCTION_KBD_BACKLIGHT=
+);
+> > +     if (!data->led_kbd_bl.name)
+> > +             return -ENOMEM;
+> > +
+> > +     data->led_kbd_bl.max_brightness =3D TP10UBKBD_KBD_BL_MAX;
+> > +     data->led_kbd_bl.brightness_set_blocking =3D lenovo_kbd_bl_bright=
+ness_set;
+> > +     data->led_kbd_bl.brightness_get =3D lenovo_kbd_bl_brightness_get;
+> > +     data->led_kbd_bl.flags =3D LED_HW_PLUGGABLE | LED_BRIGHT_HW_CHANG=
+ED;
+> > +
+> > +     return led_classdev_register(&hdev->dev, &data->led_kbd_bl);
+> > +}
+> > +
+> >  static int lenovo_register_leds(struct hid_device *hdev)
+> >  {
+> >       struct lenovo_drvdata *data =3D hid_get_drvdata(hdev);
+> > @@ -1344,6 +1447,7 @@ static int lenovo_probe_tp10ubkbd(struct hid_devi=
+ce *hdev)
+> >               return -ENOMEM;
+> >
+> >       mutex_init(&data->led_report_mutex);
+> > +     INIT_WORK(&data->kbd_bl_sync_work, lenovo_kbd_bl_sync);
+> >       INIT_WORK(&data->fn_lock_sync_work, lenovo_tp10ubkbd_sync_fn_lock=
+);
+> >       data->hdev =3D hdev;
+> >
+> > @@ -1374,7 +1478,16 @@ static int lenovo_probe_tp10ubkbd(struct
+> > hid_device *hdev)
+> >       if (ret)
+> >               goto err;
+> >
+> > +     if (lenovo_has_kbd_backlight(hdev)) {
+> > +             ret =3D lenovo_register_kbd_backlight(hdev);
+> > +             if (ret)
+> > +                     goto err_leds;
+> > +     }
+> > +
+> >       return 0;
+> > +err_leds:
+> > +     led_classdev_unregister(&data->led_micmute);
+> > +     led_classdev_unregister(&data->led_mute);
+> >  err:
+> >       sysfs_remove_group(&hdev->dev.kobj, &lenovo_attr_group_tp10ubkbd)=
+;
+> >       return ret;
+> > @@ -1477,6 +1590,9 @@ static void lenovo_remove_tp10ubkbd(struct
+> > hid_device *hdev)
+> >       if (data =3D=3D NULL)
+> >               return;
+> >
+> > +     cancel_work_sync(&data->kbd_bl_sync_work);
+> > +
+> > +     led_classdev_unregister(&data->led_kbd_bl);
+> >       led_classdev_unregister(&data->led_micmute);
+> >       led_classdev_unregister(&data->led_mute);
+> >
+> >
+> > base-commit: 0fcb05b72344f40806cbe810de8872f1698bf053
+> > --
+> > 2.56.0
+>
+> Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+> Mark
 
-v1: https://lore.kernel.org/r/20260903142049.4126599-1-yazen.ghannam@amd.com
-
-Yazen Ghannam (3):
-  x86/mce/amd: Fix bank lookup in amd_mce_usable_address()
-  x86/mce/amd: Convert bank_map to a bitmap
-  x86/mce: Increase MAX_NR_BANKS to 255
-
- arch/x86/include/asm/mce.h      |  2 +-
- arch/x86/kernel/cpu/mce/amd.c   | 11 +++++++----
- arch/x86/kernel/cpu/mce/core.c  |  6 ------
- arch/x86/kernel/cpu/mce/intel.c |  2 +-
- 4 files changed, 9 insertions(+), 12 deletions(-)
 
 
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
--- 
-2.55.0
+--=20
 
+Regards,
+
+      Vishnu Sankar
