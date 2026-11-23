@@ -1,55 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795432050;
-	b=PC4MDNk93WLLILJ8tNK6no9gMfcuEVfknnbaFxPXOHkOMhPPlXxsPEEe1wJGvIXXUl77
-	 LtjYsCKGJIZsbZVH1JaQ9pyiP3Tw0PHTZjcBTKdh6tSd2Uzws0kK9g4aWOzDrhQOD70zI
-	 ZQortkF1GN2amKLwl+h9abm4N5Uuy5r8q+BSqom1w9FLRvWh97LM+dkvM2mUnU5HwPskq
-	 B2W6ao7na7dTsX8JhD323NaB7T+Kn2Nw7wK43fHFm53xGy8jXGFmU3qhogvWviW6J/dr+
-	 JDqHTPfxan4CF4zYZ/0VwiLw4LyHzaucY/1h6LE2pTmgu+qLFDO1b88Xn2153KUOt7w==
+	t=1795432100;
+	b=u1UxhDvq8PZFTdx6Q7FxPZG0Iw9EnfcsCENMlz+WKJghbyh5wvPoqPETgr+cFsxwugUo
+	 xHS0uMygDTcCELleWXKWSY1HFI18ULNTyAYzFLN+FuwqMpAwnCbL8Q12/X12NuOa3TISf
+	 fNa4gAROVo1KXOBKfc5+SMX2jfuWPIbUzQgyqCPDpdkZHwF+Ay5nlgGR86+qLGAJgMjKO
+	 7ApznlqSIhIUDdAH5V8KJ146Kh0UaG7IEmQJ0936V2HrAJDldDaA4aaZFDQoCUfFQKpTx
+	 3dBVXeg5KU0l/X6OF3CGtyIN3NkP/P2YdJxYnwb0O3A1lpWUyPDxPb35tRqEs0FqKfw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795432050;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:To:From:
-	 Subject:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=6pR8SSegYg1KVe2AG81HovfC0ggHBRsxnqfkLUlHYho=;
-	b=MM9ZJm+Yc1iZ3LSaBwvF9tMlvDuLjE8Ct7Y7US/AMSN/dpQGXt8vFQcscNb6tHrCjI4A
-	 bpOv3U+/iuE+dcg3zaP5d9aC9DDLNjR7bSKfxrVfAWV9RXBPROFO3hS+tLMp53yeL82og
-	 sb/3mKuiyDS1T3OJPt34dR1ApdOlGIEcaCgAbDZky4hh1643b2hF9A8uXy1nGRxcMzl1+
-	 uGQXtXaLklsTfjneCwpB9RHLV3S2W7Nw8ZZNBZBjrrGwvrglbPxHXfCgrE16xZoy8ZOw+
-	 tSItoxTRH4H5WwNXQwYxLEEYVk9W3PtFhQcp1KQqtADoEwAVYJgSRV8ZLe0q1f5dFBA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432100;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=IMN0qsksgNIN9kMeTfgWdFSfENva8adgCXhd53cR/YY=;
+	b=YyLkpZAeTjHJl2A4PNZPmYZtb4dZSBSFSV/eVJ1K4W29vT6TOBpKJ+Kkt9DABc8Xa/tB
+	 Uv8igMUF3oEb6YfgPeSRwc33XsiX9TWfZDBmUxZlXDcsV+YVfo4SjVNdpmeVCMohwPN7D
+	 qxhQGIlT8pnhhhhfqcCuCkcA9QuJc8VphLLZ2c8a5L18gdlzMdbWCRU0HMcuZcNMq9RxZ
+	 yh2bDdpjb5J2m9Msi9P+0BS/TScFeQMa5AVRh07q353Roe8jkzXainUx3LcD/eELk+mT7
+	 28fphNZjixfxSiAmX/Cgs62yprmlPDQIaA90ASGghuMQduEelDg1PEw57MbFAlhw4dA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0KB7+wZ5;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ec3UFjGz;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60986606A6B9;
-	Mon, 23 Nov 2026 11:07:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60986606A6B9
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73DE8606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:08:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73DE8606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0KB7+wZ5
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 20A1BC69149;
-	Mon, 23 Nov 2026 11:07:33 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 26A395FAEB;
-	Mon, 23 Nov 2026 11:07:26 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A070F11E68321;
-	Mon, 23 Nov 2026 12:07:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795432045; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=6pR8SSegYg1KVe2AG81HovfC0ggHBRsxnqfkLUlHYho=;
-	b=0KB7+wZ55Ik74gigHduK29oowjMSoJnPIDU2lWOL4NJ24CeNXqNY1P8tEoZ1hRzXAiMYSI
-	6ADnL6f/pMSLVh152j/UqF92+bJaMEIagBBl5Kyuvldc4rBvKTS39wB/e9MlN4K10Sn/gf
-	fgxfiyxtOuu+Fhh79wX6MXzvSzZcTAYs1+Hc8oSp+nqGH/6AJSHScj1WZ310IFds2SDvLF
-	Ry8y9BXpEXPglXsvB5IQkkhmxq/OYfmiqxRParwF/HKa9sOBn6Vl+QCvafiZdUvC2VYd2B
-	u+mi5aVSC5HpKYcmuJGZsG5fMhE1wM5uolJTBicL1inXTRotS3SWIA8fNtm/XQ==
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ec3UFjGz
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-385d8a00598so4295329eec.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:08:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795432100; x=1796036900; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=IMN0qsksgNIN9kMeTfgWdFSfENva8adgCXhd53cR/YY=;
+        b=ec3UFjGzf+Ax+mOyj+jbqDFmxv1s+/ilYTPPCkCGVgYuPO3q35DWB/+HRF/Oz2sLvL
+         3aQyHI6tHe6HhGEfoUlt+RPLm8ZWtFcdQbDy9jO3MlFzg7xTHIVOcfPEQcIPxRIAVWzQ
+         BZ5lRfv4aUhyVlfNm6x6F94Qj4rbgapEOVaNaU+0o+/9/9iRZAOfOBG6MpyGxIQUt3xO
+         ALHIZuvHue22QtQ81fiHVBB+0KkjfYRpS44nsn1Fob4Ikd3/1INTRshst8/sQFb0hzRj
+         MAVu9TNdZwo0izTaUC/5fX2acbHZrF7RzdRbrdJR8h5+MxGc+rwHlVjLyFEt2n4mkv6k
+         t4sQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795432100; x=1796036900;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=IMN0qsksgNIN9kMeTfgWdFSfENva8adgCXhd53cR/YY=;
+        b=QxHnaSEVxLqC9HAwHaz3P11B4b8sHp+NPY6zz/oHEDweSoA13BEU8+dXqRHdpHSJpG
+         mxNjabJC1NmXuGm3dEugM8nza7/wlRjpYfSlljraG5FwXFGm1eqWVirlTDcQPfAucGgF
+         upjQd2LrvHOwivBehlFmAGFDAcI5Ob3Go1qKXAeEmKhxpWbtfB7dpp0qW/MNPk/RV90h
+         A5O4EETsPmIuKWdaFC9n0SSXN9Xa34KBEQP8QGXi8qQe6zsJ6JxTKhlTJs2OFpcKqura
+         Xi0lsMk3xyXeYiln5d70nFgdrHUqxZ6SpX3YNVVPhwKcpH4ahQ5VErToLF5DiuAfO8EC
+         jC1Q==
+X-Forwarded-Encrypted: i=1; AL+hErFqTp60FJ2ChCnaSvZr8SfnwBIIRiYn8UtgpXO430GeRTv8CNIf4M2MRnsGGsJlTDKjPHvjKhAeYAElzeg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9eVXKv/TeypB52OLla/qO5ucjwgjpv2ZoCE4kjZy//0GG0PU4K
+	+Ap13g9rknU+1zs2BqsTBBU585I/CmuGKw7Noo/oz9KfxOBXaSbzUwx4
+X-Gm-Gg: AZFdTZd/MaevD4+yHbDUOtbQAzDtPbWlSHa3f+QTxTYpMqLzYabW43vhrWd+b+UG4a4
+	f5ghQQMhR06TR6n3fMjhhKUxXTqDPAQ04OFoGVyN7X2h9Rdt4fceyuh9ozrL3crN7P1BpEJ6qZC
+	L6oFL+0xrNDFn4UuzcJfbcgLVfz8VXHJQDXCk5yUtM1C+CbjmBDb963rdvEgy04FCuJT9qHo8iM
+	dtL6RwLlsVC20N6I1JPkFbAabRYdpf/zTIE1Fu2aekkdB1k+VvDgbsPlcZhbaggg5uEdx4NkSHO
+	KKzrWlkD2M7Kf6gaxmGERU6Y4GsoUXjzsUVMEDX29Giun8hUPuh6/+qpxmNFhsWsGNRp/a25GPg
+	bzcItdwlnXyE8PVPK2APkOWcc1Vca1BViVNxw5N7ov2fGALUpVWYdWoQb80JBBO9TQMZKPlB9dw
+	eRY4nKLvQ+nLLoPVhkG59Pk6MNzF4gHpIc31m6fhwfJRwmQNsqzoc5rhOW+Cug4Ro9BZYRzM0z+
+	95Ev65UEXMm6H5q7nsnLkBYfLZ9kd1cMeF4ayQJzqcHXpExq7ViCU0o4wDEBqVz66JNkkQE9+Sf
+	Wgvu/a7Aev9TE7X+atDSdcCDfA7LdR/xmnlRj12KdF/sng==
+X-Received: by 2002:a05:701b:4587:b0:1b5:1a7a:2ebc with SMTP id a92af1059eb24-1b56f87ab60mr3863029c88.16.1795432099526;
+        Mon, 23 Nov 2026 03:08:19 -0800 (PST)
+Received: from localhost.localdomain ([2404:c0:aa07:12b3:e89:dfdd:d14b:d911])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5568592adsm27061102c88.15.2026.11.23.03.08.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 03:08:19 -0800 (PST)
+From: Hikmah Gumelar <hikmahgumelar@gmail.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Hikmah Gumelar <hikmahgumelar@gmail.com>,
+	linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: [PATCH 0/6] arm64: dts: qcom: msm8953-xiaomi-tissot: enable front and rear cameras
+Date: Mon, 23 Nov 2026 18:07:59 +0700
+Message-ID: <20261123110805.119610-1-hikmahgumelar@gmail.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,77 +106,43 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Nov 2026 12:07:21 +0100
-Message-Id: <DN2JJHBVAPCY.2CNUCGCO781D6@bootlin.com>
-Cc: "Roger Quadros" <rogerq@kernel.org>, <linux-usb@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
-To: "Guomin chen" <chenguoming88s@gmail.com>, "Peter Chen"
- <peter.chen@kernel.org>, "Pawel Laszczak" <pawell@cadence.com>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Subject: Re: [PATCH v4] usb: cdns3: fix NULL dereference in
- cdns_host_resume()
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261123044347.3273-1-chenguoming88s@gmail.com>
- <20261123075116.3868-1-chenguoming88s@gmail.com>
-In-Reply-To: <20261123075116.3868-1-chenguoming88s@gmail.com>
-X-Last-TLS-Session-Version: TLSv1.3
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Hello Guomin,
+This series enables both the front (Samsung S5K5E8) and rear (OmniVision
+OV12A10) MIPI CSI-2 cameras on the Xiaomi Mi A1 (msm8953-xiaomi-tissot):
 
-On Mon Nov 23, 2026 at 8:51 AM CET, Guomin chen wrote:
-> From: Guoming Chen <chenguoming88s@gmail.com>
->
-> cdns_host_resume() assumes that the xhci-hcd child is bound and passes
-> platform_get_drvdata() to hcd_to_xhci_priv() unchecked.  The child is
-> created by __cdns_host_init(), but xhci-plat probes it only when it
-> registers; cdns3/ precedes host/ in drivers/usb/Makefile, so with both
-> built in the child is registered before xhci-plat's initcall runs, and
-> with xhci-plat as a module it stays unbound until the module loads.
-> Platforms that allow runtime PM (cdns3-imx is the only in-tree user)
-> autosuspend the controller after 20 ms, so the parent may already be
-> suspended when the child is probed.
->
-> Resuming the parent, either for the child's probe
-> (__driver_probe_device() calls pm_runtime_get_sync(dev->parent)) or on
-> a system-wide resume, runs cdns_host_resume() while the drvdata is
-> still NULL; xhci_plat_probe() sets it later via __usb_create_hcd().
-> hcd_to_xhci_priv(NULL) then dereferences NULL + offsetof(struct
-> usb_hcd, primary_hcd):
->
->   pc : usb_hcd_is_primary_hcd+0x0/0x1c
->   lr : cdns_host_resume+0x24/0x44
->
-> Commit 87e4b043b98a ("usb: cdns3: fix role switching during resume")
-> only skips the callback when the role changes during resume, which is
-> not the case here.
->
-> Return early when there is no hcd to notify: the host role can fail to
-> start after cdns_role_start() set cdns->role, or the child may not be
-> probed yet.  An unbound child has no state to restore, power_lost is
-> only consumed by an initialized host, and cdns_wakeup_irq() already
-> checks cdns->host_dev the same way.  Also publish cdns->host_dev only
-> after platform_device_add() succeeds: the error paths free the child
-> with platform_device_put() while the pointer stays set, and the next
-> resume would dereference freed memory instead of bailing out.
+- Fix the 100 MHz parent entry in ftbl_csi_phytimer_clk_src so
+  gcc_camss_csi0phytimer_clk enables properly on MSM8953.
+- Add Devicetree binding schemas and V4L2 subdev drivers for the Samsung
+  S5K5E8 and OmniVision OV12A10 CMOS image sensors.
+- Wire up CAMSS, CCI, CSIPHY0/CSIPHY2, and both camera sensors in
+  msm8953-xiaomi-tissot.dts.
 
-Your commit is too long and robotic; didn't read!
+Tested on Xiaomi Mi A1 (tissot) using libcamera SimpleISP and GNOME Snapshot.
 
-Reading the patch, you protect against two things:
- - cdns->host_dev =3D=3D NULL
- - platform_get_drvdata(cdns->host_dev) =3D=3D NULL
+Hikmah Gumelar (6):
+  clk: qcom: gcc-msm8953: fix csi_phytimer_clk_src 100MHz parent
+  media: dt-bindings: media: i2c: add Samsung S5K5E8
+  media: i2c: add s5k5e8 image sensor driver
+  media: dt-bindings: media: i2c: add OmniVision OV12A10
+  media: i2c: add ov12a10 image sensor driver
+  arm64: dts: qcom: msm8953-xiaomi-tissot: enable front and rear cameras
 
-Your commit message should say that out loud and give an exact way for
-those two to occur. It should also mention the hardware used to
-reproduce the issue, with full kernel panic log.
+ .../bindings/media/i2c/ovti,ov12a10.yaml      | 115 +++
+ .../bindings/media/i2c/samsung,s5k5e8.yaml    | 103 +++
+ .../boot/dts/qcom/msm8953-xiaomi-tissot.dts   | 114 +++
+ drivers/clk/qcom/gcc-msm8953.c                |   2 +-
+ drivers/media/i2c/Kconfig                     |  26 +
+ drivers/media/i2c/Makefile                    |   2 +
+ drivers/media/i2c/ov12a10.c                   | 720 ++++++++++++++++++
+ drivers/media/i2c/s5k5e8.c                    | 500 ++++++++++++
+ 8 files changed, 1581 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/media/i2c/ovti,ov12a10.yaml
+ create mode 100644 Documentation/devicetree/bindings/media/i2c/samsung,s5k5e8.yaml
+ create mode 100644 drivers/media/i2c/ov12a10.c
+ create mode 100644 drivers/media/i2c/s5k5e8.c
 
-Thanks,
-
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+-- 
+2.47.3
 
