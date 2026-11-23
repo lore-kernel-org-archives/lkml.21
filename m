@@ -1,61 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.38.64.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795427610;
-	b=JErxP6/FIbn6KvKvqV9fFnnLDlHa4RfnuJnU031ohMi4VFGEbuNnCFJHHSptEgp4fMWj
-	 w2DemajBixLj3BLrKu09sRsyU7NnCa3k2gY9xIjGDaBNhA6s+g9Tb2tPQ5EbpFJfS1rcS
-	 dhQQY5tDVzzhztsB41fE4sFXDd53QJGW6kKkvPKS/BVItQ4NLhRmCg8UoxsDh4M84qv+b
-	 ZcvqNTqKztKxtGThF0FAcSn4S24YefGDgc5hwQ0ClHg1dhjLwgO1Aql22v3wUIdc8OlRR
-	 ENOeDb6w02FnzAOyHJOxl21P5XYzhq6LnmwWLxoH/rhDsFmseVaeRp5lDhBkjc4VaAw==
+	t=1795427651;
+	b=Rohe/6mRqA55NGIEilqhHPGSJoqsCz6A69kbXJo9upmjJ29/5YQMDqePYUsKqAVFgRLS
+	 /ydiPLrkFQeSkZmfIXYMq1GTdSbVsAqskw7fh++MoDiiEwzFCrDNyL7XJm4Nhtzs7gLMX
+	 b5pbIqKEw8jiWSG5s2vG6cAkOy8gP2z+Thob0FAyl4fXs9oM3xdA+uWctuH1/ZNfMSa6T
+	 2hag/zHa+hIleFz1inoOXPHfhQHoMR8Trqty1RmHaK2IqcU+WMgzLiAhSh7lP4yK9G/4Z
+	 PMbd6ByllozjFkZ4HpoGPwMj31i/2qq9EwSQBVI9uGUpm17tuoioH0bL70ftCvzQl3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795427610;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=+O0tTK0Qz/9/2+xXc9dxp2drgBuZZFB4rCACRGamuy0=;
-	b=kyTj84U4j/rHdaCo5fTOyXSuaBAmMu4xxiB965iYJpjASAPRXz8t8bdUZQfzdOTorX24
-	 MVM7imwrz171nmyEs0UCXt/aRRXBPj+I2/K4+zafPByBKbUkb/2UtwJxGifhwrEsqTJgZ
-	 ef3YoPgxp3FxJV+x35KVFoHnTBV1kd5345VgQ0IJBFvU/+wD9C1nrgpFzEgWx4PsadOh5
-	 DybssoncvK4Ec4TOTVyFkdmCXfN/R7/IqzmzQ5vcP/DNIl2MNJgw93uHPNqHKeOJQ3MK/
-	 09P8bafHLMvpCHtMlPNXfCkFrr4hoaJe4WiMb6ECXzxapHMYu12wOxQyUA1qF+Blldw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795427651;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=gVlfHHEUqZRERxmYhHaGuD98Z2SfQm74q1NG7Z4SJtc=;
+	b=d+cQAC6kgQt/K8Jmw6roQ6lI8xj8F8X5VCI4USfOhSj9L3F5/kJMoN9wTcw0efuKClZO
+	 nebOpXRVZiahwSncpOggSU/m8ehV2C0P6t0YL4FEtYJpeqe0V0NZtzSVNzsdz6lH2oXIc
+	 upOS15Zcfph4y5fzoV0f0V+NWKFJYhmLv3r9OOiN6jhJMNdPZKANEiGBezl1y/T19Z6h3
+	 Uznv8525wZ+tS3RuS05PNXfZCthJ/1zTELVqfRLmDszDxCAognAfSNg0WsFjuNiALbEsv
+	 kqinEBzttDRpUnxqjTyED2KQGMQ+ovfy+PJQVWlG1VjkLbN884jS0hUkc6idhZAQkFw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.ustc.edu.cn;
-	spf=pass smtp.mailfrom=mail.ustc.edu.cn;
-	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=VFB8mrYv;
-	arc=none smtp.remote-ip=202.38.64.46
-Received: from ustc.edu.cn (smtp.ustc.edu.cn [202.38.64.46])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id EF970606A334;
-	Mon, 23 Nov 2026 09:53:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF970606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.ustc.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.ustc.edu.cn
+	dmarc=none header.from=sang-engineering.com;
+	spf=pass smtp.mailfrom=sang-engineering.com;
+	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=RrpQHqk6;
+	arc=none smtp.remote-ip=194.117.254.33
+Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CECDE606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:54:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CECDE606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=VFB8mrYv
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-ID:In-Reply-To:References:MIME-Version:
-	Content-Transfer-Encoding; bh=+O0tTK0Qz/9/2+xXc9dxp2drgBuZZFB4rC
-	ACRGamuy0=; b=VFB8mrYv3rLrS7KGPykUSiD5IQyv0oHWewc86kQZ+ehVzOcm8E
-	45DY7nr8fzUVSxR4etCop8rr6nAWwc+28CFtqOBKOHgI27mreK4zs8ohvGpEkT0/
-	zMxQALeDCEwBVVv81JFkup7zx7F4xYxQ+9v7yOcuH6DEOpJOSNFflyaL8=
-Received: from xuqianhui.tail7a2807.ts.net (unknown [114.214.185.179])
-	by mailimap2024 (Coremail) with SMTP id 3pYKCgC3KzAGDQRrr9vrAA--.766S4;
-	Mon, 23 Nov 2026 17:53:17 +0800 (CST)
-From: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
-To: Thinh.Nguyen@synopsys.com
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	gregkh@linuxfoundation.org,
-	devicetree@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v12 2/3] usb: roles: look up role switches attached to a graph endpoint
-Date: Mon, 23 Nov 2026 17:53:08 +0800
-Message-ID: <20261123095310.154352-3-xiaqinghuan@mail.ustc.edu.cn>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261123095310.154352-1-xiaqinghuan@mail.ustc.edu.cn>
-References: <20261123095310.154352-1-xiaqinghuan@mail.ustc.edu.cn>
+	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=RrpQHqk6
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=gVlf
+	HHEUqZRERxmYhHaGuD98Z2SfQm74q1NG7Z4SJtc=; b=RrpQHqk6Qzmg9ppdBpLq
+	LiU6chec/SmnwcvFmsItvB0h97GYcOBB6a7qa9arUEUapyI81UcYEG9h0e2u3gAZ
+	oFv4DTk4vysEl4tcRK2KS6PzqvF28qJyz691SVeFegvv5Pt0Tk2s2ioeZukiYA0S
+	9gsMJGnvLGY6FztqHeKLXNIyTCR5YwMnqvwI4gKbQJN3PDRRkbrsylz2w0qAiDL6
+	RSguuUka4iSxDFImlZWbhFkmyGfFRtwRwhMyBY/q2b56XiOLmjs/nFeCkxo6otRv
+	LnxVnO73kNkLm/WRB2oIH08WbAZ/Eei/MrpaFC4bR3GUVAet8OSzRrtRg/Eq9AWS
+	zw==
+Received: (qmail 2646670 invoked from network); 23 Nov 2026 10:54:00 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 23 Nov 2026 10:54:00 +0100
+X-UD-Smtp-Session: l3s3148p1@+Hmyku5gEIwujnsu
+Date: Mon, 23 Nov 2026 10:53:59 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: khendry@reliablecontrols.com
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: clock: r9a06g032-sysctrl: Document
+ reset cells
+Message-ID: <awQNNCw9nCyvmY8B@ninjato>
+References: <20261120-rzn1-miic-resets-v2-0-f1cfa678615b@reliablecontrols.com>
+ <20261120-rzn1-miic-resets-v2-1-f1cfa678615b@reliablecontrols.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,124 +75,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:3pYKCgC3KzAGDQRrr9vrAA--.766S4
-X-Coremail-Antispam: 1UD129KBjvJXoWxJF4fZFy3ur1DCryDZr1kXwb_yoWrJw4kpr
-	y5KF4Fqr4DJFya9w4fGa1DAFWrur4fGFWUJF4xX3WfC3ZaqrWfJr18ta4ayr15CanFgw1Y
-	v348A3409a4DA3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUP2b7Iv0xC_tr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
-	8067AKxVWUXwA2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF
-	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcV
-	CY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv
-	6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c
-	02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE
-	4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lc7CjxVAaw2AFwI0_JF0_Jw1lc2xSY4
-	AK67AK6r4fMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8C
-	rVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8Zw
-	CIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x02
-	67AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr
-	0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0lk
-	sDUUUUU==
-X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiAREAB2sDQttJXQBSsg
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="xU2HxjihksT/uuam"
+Content-Disposition: inline
+In-Reply-To: <20261120-rzn1-miic-resets-v2-1-f1cfa678615b@reliablecontrols.com>
 
-usb_role_switch_get() and fwnode_usb_role_switch_get() look for a switch
-on the caller's parent device node or through device_connection.  That does
-not work when one controller exposes a role switch per connector endpoint:
-the switch is registered against the remote graph endpoint and the
-consumer, the connector, has no phandle to it.
+--xU2HxjihksT/uuam
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Add usb_role_switch_at_endpoint(), which walks the caller's OF graph
-endpoints and matches a switch registered on the remote endpoint, and try
-it after the existing parent lookup.  A switch that is described by the
-graph but not registered yet comes back as -EPROBE_DEFER, as the rest of
-the role-switch API does, so the caller retries instead of concluding that
-the connector has no role switch at all.  There is no behaviour change for
-existing users: if nothing is registered against an endpoint the lookup
-falls through to the previous paths.
 
-This is needed by DWC3 designs where two Type-C receptacles share one High
-Speed data bus.
+> +#define R9A06G032_RST_TS		1
+> +#define R9A06G032_RST_MIIC		2
 
-Signed-off-by: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
----
-*** AI-assistance disclosure ***
-This patch was prepared with the help of an LLM coding assistant.  The
-author reviewed every line and ran the gates quoted in the series notes.
+Given the Sashiko-review for patch 2, it might be easier to start from 0
+after all.
 
- drivers/usb/roles/class.c | 45 +++++++++++++++++++++++++++++++++++++++
- 1 file changed, 45 insertions(+)
+Other than that, the rest looks good to me.
 
-diff --git a/drivers/usb/roles/class.c b/drivers/usb/roles/class.c
-index edec139b68..ee186d542a 100644
---- a/drivers/usb/roles/class.c
-+++ b/drivers/usb/roles/class.c
-@@ -157,6 +157,47 @@ usb_role_switch_is_parent(struct fwnode_handle *fwnode)
- 	return dev ? to_role_switch(dev) : ERR_PTR(-EPROBE_DEFER);
- }
- 
-+/*
-+ * Look up a role switch registered against the remote endpoint of one of the
-+ * caller's OF graph endpoints.  This is how a connector endpoint that shares a
-+ * USB data bus with another connector (for example two Type-C receptacles on a
-+ * single DWC3 controller, selected by a GPIO mux) finds its own role switch.
-+ */
-+static struct usb_role_switch *
-+usb_role_switch_at_endpoint(struct fwnode_handle *fwnode)
-+{
-+	struct fwnode_handle *ep, *remote, *parent;
-+	struct usb_role_switch *sw;
-+	bool available;
-+
-+	fwnode_graph_for_each_endpoint(fwnode, ep) {
-+		parent = fwnode_graph_get_remote_port_parent(ep);
-+		if (!parent)
-+			continue;
-+		available = fwnode_device_is_available(parent);
-+		fwnode_handle_put(parent);
-+		if (!available)
-+			continue;
-+
-+		remote = fwnode_graph_get_remote_endpoint(ep);
-+		if (!remote)
-+			continue;
-+		sw = usb_role_switch_match(remote, "usb-role-switch", NULL);
-+		fwnode_handle_put(remote);
-+		/*
-+		 * ERR_PTR(-EPROBE_DEFER) means the switch is described by the graph
-+		 * but not registered yet: pass it up so the caller defers instead of
-+		 * concluding that this connector has no role switch at all.
-+		 */
-+		if (sw) {
-+			fwnode_handle_put(ep);
-+			return sw;
-+		}
-+	}
-+
-+	return NULL;
-+}
-+
- /**
-  * usb_role_switch_get - Find USB role switch linked with the caller
-  * @dev: The caller device
-@@ -169,6 +210,8 @@ struct usb_role_switch *usb_role_switch_get(struct device *dev)
- 	struct usb_role_switch *sw;
- 
- 	sw = usb_role_switch_is_parent(dev_fwnode(dev));
-+	if (!sw)
-+		sw = usb_role_switch_at_endpoint(dev_fwnode(dev));
- 	if (!sw)
- 		sw = device_connection_find_match(dev, "usb-role-switch", NULL,
- 						  usb_role_switch_match);
-@@ -192,6 +235,8 @@ struct usb_role_switch *fwnode_usb_role_switch_get(struct fwnode_handle *fwnode)
- 	struct usb_role_switch *sw;
- 
- 	sw = usb_role_switch_is_parent(fwnode);
-+	if (!sw)
-+		sw = usb_role_switch_at_endpoint(fwnode);
- 	if (!sw)
- 		sw = fwnode_connection_find_match(fwnode, "usb-role-switch",
- 						  NULL, usb_role_switch_match);
--- 
-2.53.0
 
+--xU2HxjihksT/uuam
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmsEDTQACgkQFA3kzBSg
+Kbbqig/9Epv8XKajU+GJXbYWwmn+xW6rcy824Fm2da0KW5KQk9NTkCiCN8Ec6D+q
+9EzjRPA8Iyk3ny8hCEjrFu926l4mO1drdXGWpGiSdYphYpvZWac1s/rtWy5cidye
+TuO4KRID+MH1WgJmEvxFYHP806WJStAuaqLXgUgLMWr/TL9QXkEL5zY5PX0QPJGi
+0ehY4/Z38at2PWy2vjrY2cmhnNWn6C9UQ2Ps0RFGAGNz5KTAgCSU0La1wx6VIdxe
+GIhvlXNfMc0YPmXFydUwMU5BQ2TdhUe104SvISXBWx8KJ5VflxtXJqPDhnyJZ4Ms
+Xy4GqMJipQJhEk3QTjNChH58ITUQI9hrZgKIH2r6BNbVbwMUrBwrTZWySpnKXo+b
+RdIlVZILFAd+fjGK/mdznzkSgcbXLeMHIOqVcADmQINb/7K2Q14fpFdKK1gXadPs
+1zydOnLEwMCd28d0Tewn+8bsbFNRISnUBJe95DcKtkRkGvwcGYyH8bHZA199aVea
+mZEs2SgtBNycesEaTLnuG/8wOUDMHEyET6K3/T92NvI1ZnnOI/vs/Jr2IRs8RZK9
+pcqlpyvqyDMhEIamspoMfWHGfjaG2PZEHZP4A7ssgaOHv41iPSqTGvLq+di3tIZY
+CJ5KuRpHSCQvNZMMGBO+CFZypkVAjMXi3YgSZTxo4OCWNmAlnDo=
+=We5d
+-----END PGP SIGNATURE-----
+
+--xU2HxjihksT/uuam--
