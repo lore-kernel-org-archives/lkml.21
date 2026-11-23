@@ -1,54 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795451733;
-	b=2jzO/IaQP9Oi14WYTCt+swFXqPqf4zU1F7Swwc/etHcF34wxob7ylawxGN0/rZj/Km9T
-	 cZ+G70MqEMs82B+RLGXTO0Wa2RpINEVTm3Hd6tPdgr9IGpAG0851kNHKRR2V1r7DcnDsu
-	 q+5lgn3O0JbD41AX5C8enkI2yr05FmNhRlZ2xJGeU8yPgj4+IY9D8WGvdKPH8BXTrwEgf
-	 kpANOlc2xVDRkiXIIFBbDQ0heAqNK4DzinqIeiO9LLDSNRZFyHnBf2CqJ3IqlVYPtiRXb
-	 qiBOUFz17roQS0wavTkGElxZePgiuO3jn9lvnYXC3SUtzq8wVovoA0FHtIr2/C6cz7g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795451733;
-	h=DMARC-Filter:DKIM-Signature:Received:Content-Type:Mime-Version:
-	 Subject:From:In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:
-	 References:To:X-Mailer:X-ZohoMailClient;
-	bh=QonMcWfZhIMNw5CEeHP+f4vnHBs+VjAaV445fAEQw3U=;
-	b=1MrK3ZIDOOhMLE4fo6KwQoXUxTwJpVDG3YL2vf3NXno+d+KQF4yhmHB3R/UTyI67L69x
-	 sSu8O1PV6VHpzDI/zrzv7sgpZYnz4YVD3xpgfbjnJhzkEl11vV3eRei2q6jQGTToP/9Y4
-	 hb3Arwi61m3grLOj4cxnlKTmfHjA6lNUXopsphoqimuYpkIMuFhQHyYpEX+rR89QJU2TB
-	 taqAjZfn8qUAY84Noj4dCy3MZ0IOJUoAaUo3Vd6PvNXq8wpKzQuwPa0EBV7KT5//BrztR
-	 Nsu9zHqGt1yX4UqotHirslWI6I+AeRPoaXut80jkgdeIG5Yl5z8rnFzsVfUqmd2lVKQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=GAI6E7T6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.110
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795451831;
+	b=s0bvvZ1xDfRjcnbwOghQkbPWE2Ip+4NKeM3QFyes8hJSdtmCc6kxdnFFc4lhKlvB8Tql
+	 kPRm7QFSFButpGVpnDV1alVcsyevFBeVAHuQZrNLq9FwDxuJYUtrneuC8jIpwbqfMQ9Ud
+	 fZFFZKi2VEN0vBvk4TvcHpRdx17ZBj/o5da3uzQPVbJlPGE5pDVhnoyjeRLeNzY9jdUDs
+	 7jxU1Gu9afjdpPFB5SPN0TwFDGDKBQ0gJNzQ6EWNaSDO3FJH8ufjb4W9/HylYHZmSKASK
+	 pmcv2sfObO3hePFeg7A/RMya6Kxyfyszw3+DymywN0mtar0j9UDTQ11jwVy7QNPhGoQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795451831;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=15VJKiwk2jeEgdaWn6BsC4rhPTrCLdQwZkJQeS6QumA=;
+	b=PtYP5r8VFwdfR5PD/lkkxgKg2zMgs3i+8/6Ec+oh5ff3s6pFKdk8OYySX4b9AfBXzVZg
+	 61lfyRgiSl1EZHhQ1UqG1pTlEE3II4bI+OzOg7C5d6Y1jWRGFFtPsbBNCVGVH6SpLY4/j
+	 fLCeZsZDhTY93p717I1OJOGjl2gVqdW9ZIDjo7lARuQD9vkOZHwH2FKd+9rVv3CC+bHTp
+	 /YpUxdS6CTB1GVaArdY7CJt8OOswq5NpkFs1tXWISHQLGzA3Ww2/8T/MmBhICCNwb0pcb
+	 wF6uevYmpcVH4ihEZUOElIAQ2S6jnGxnOQN00RjDLWXBVnEiLJ+Jax7RuBqfIn7cGgA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=debian.org;
+	spf=none smtp.mailfrom=master.debian.org;
+	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.master header.b=mti1M8cY;
+	arc=none smtp.remote-ip=82.195.75.110
+Received: from master.debian.org (master.debian.org [82.195.75.110])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 593C4606A31E;
-	Mon, 23 Nov 2026 16:35:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 593C4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC523606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:37:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC523606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=master.debian.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=GAI6E7T6
-ARC-Seal: i=1; a=rsa-sha256; t=1795451652; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=ZbOvI+mjMOJdnFUKfoizUppJ6Ex6hbrHj2jxYtGHugqpZ/j92pi6Tu8fPa6z+YesJmcS5LTOgGJXZUsQEQZeANA77QkFFntTa8oUCzlsIRNbUxNOQscyMFVdMuM9wp1aeymCBkDSvpK6lYGDi7Ry7l5QcSyo0GF5tP1Us9l4sho=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795451652; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=QonMcWfZhIMNw5CEeHP+f4vnHBs+VjAaV445fAEQw3U=; 
-	b=eueo9JlUODZxmwySjUsVy3NbbUU3IYimCIEQg5PbyjbjMsD/n4RzU9wTVwSr13IHzmxhOyT9Dr/ukXJqbz6vbb7xT/EH+DjjWoI9wZWEnsaR5adGXRNq3fdI0PRVX9q86X6sV9j2TzQ2/MJsY3Jg68cMCskDUSgt8s1xS1AijdY=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
-	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=GAI6E7T6ob6Nh6q2zHxKPJSqCvgf5vpe25pUS58M/13XUUw2gND7vz4tmSwlpFi/h7R/lAgfsRj9i+/r7Totl7fqnIyBRHU7OcXoxH3I7xTnNpAO3NAWGfg3QFMRRlMi5Tc6rS84L8JVg1WvfeNHFhFhPe5TjibnvVfcQD9RHpQ=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=QonMcWfZhIMNw5CEeHP+f4vnHBs+VjAaV445fAEQw3U=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795451645257569.0456820205015;
-	Mon, 23 Nov 2026 08:34:05 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
+	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.master header.b=mti1M8cY
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.master; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description;
+	bh=15VJKiwk2jeEgdaWn6BsC4rhPTrCLdQwZkJQeS6QumA=; b=mti1M8cYqzayYd2nLTzipH9r0v
+	u/BJwlpjCZ3RrxMRJWyj7y/a2uy1hdxSn2Bi0B5G5znuFPYRuafKZT+43Ix3St8cUFGM6iYBTTWpH
+	YBZz++fPOd056/F5JxgHOf3WgjPwan7v/7g8YrDpjg2iN/lLVwcArNT6k55p4bewoouQKW8JWK1oH
+	ORQtdzh/lc/wypvuVJUyFF5ljV5LWiCdESkLt3p/xpvmLKzk29Ir3tjnWVQciIjBwH8Vrd8yzWJF6
+	d0omWcg6fNAh/8iT8ONzPWesRJCqIhtjTUqaRTfGkAwto0dpOr9meQ8Dw5lqxISK22XIaYpXCiNJ5
+	klO07oJw==;
+Received: from ukleinek by master.debian.org with local (Exim 4.96)
+	(envelope-from <ukleinek@master.debian.org>)
+	id 1xVX1n-009iOp-18;
+	Mon, 23 Nov 2026 16:36:27 +0000
+Date: Mon, 23 Nov 2026 17:36:26 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@debian.org>
+To: Li Chen <me@linux.beauty>, Dave Airlie <airlied@redhat.com>
+Cc: Marek Vasut <marex@nabladev.com>, dri-devel@lists.freedesktop.org, 
+	Danilo Krummrich <dakr@kernel.org>, David Airlie <airlied@gmail.com>, Lyude Paul <lyude@redhat.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Ole Carlsen <ole.carlsen@tutamail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, linux-kernel@vger.kernel.org, 1146033@bugs.debian.org
+Subject: Re: [PATCH] Revert "nouveau: pci: quiesce GPU on shutdown"
+Message-ID: <awRoqijawLNEkKEE@monoceros>
+References: <20261025213027.842978-1-marex@nabladev.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,156 +66,102 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH v6 3/7] rust: clk: use the type-state pattern
-From: Daniel Almeida <daniel.almeida@collabora.com>
-In-Reply-To: <179519333138.3795820.61438010297111723.b4-review@b4>
-Date: Mon, 23 Nov 2026 13:33:47 -0300
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
- Viresh Kumar <viresh.kumar@linaro.org>,
- Danilo Krummrich <dakr@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>,
- David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Michal Wilczynski <m.wilczynski@samsung.com>,
- Drew Fustini <fustini@kernel.org>,
- Guo Ren <guoren@kernel.org>,
- Fu Wei <wefu@redhat.com>,
- =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>,
- Miguel Ojeda <ojeda@kernel.org>,
- Boqun Feng <boqun@kernel.org>,
- Gary Guo <gary@garyguo.net>,
- =?utf-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>,
- Trevor Gross <tmgross@umich.edu>,
- Tamir Duberstein <tamird@kernel.org>,
- Alexandre Courbot <acourbot@nvidia.com>,
- linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org,
- linux-riscv@lists.infradead.org,
- linux-pwm@vger.kernel.org,
- linux-clk@vger.kernel.org,
- rust-for-linux@vger.kernel.org,
- Boris Brezillon <boris.brezillon@collabora.com>,
- =?utf-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- Maurice Hieronymus <mhi@mailbox.org>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="y7gnwzapgxhtolu3"
+Content-Disposition: inline
+In-Reply-To: <20261025213027.842978-1-marex@nabladev.com>
+
+
+--y7gnwzapgxhtolu3
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <4FF31142-6624-4A90-9BE2-F654D896EF22@collabora.com>
-References: <20261013-clk-type-state-v6-0-a5e9977b3509@collabora.com>
- <20261013-clk-type-state-v6-3-a5e9977b3509@collabora.com>
- <179519333138.3795820.61438010297111723.b4-review@b4>
-To: Jerome Brunet <jbrunet@baylibre.com>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
-X-ZohoMailClient: External
+Subject: Re: [PATCH] Revert "nouveau: pci: quiesce GPU on shutdown"
+MIME-Version: 1.0
 
-Hi Jerome,
+Control: forwarded 1146033 https://lore.kernel.org/20261025213027.842978-1-=
+marex@nabladev.com
 
+#regzbot ^introduced: 310326bb7df4bba094a3fc60364c641c547fd923
 
-> On 20 Nov 2026, at 13:48, Jerome Brunet <jbrunet@baylibre.com> wrote:
+Hello,
+
+On Sun, Oct 25, 2026 at 10:30:06PM +0100, Marek Vasut wrote:
+> This reverts commit 310326bb7df4bba094a3fc60364c641c547fd923.
 >=20
->> clk.prepare();
->> clk.enable();
->> clk.enable();
+> This breaks shutdown on ThinkPad W510, without the offending commit
+> the system normally powers off, with the offending commit the system
+> ends up spinning indefinitely and the CPU fan goes full throttle on
+> shutdown.
 >=20
-> This particular sequence is indeed allowed in C. I don't get why it =
-should not
-> be ? (in general and/or in rust)
+> The behavior was already reported in debian bugtracker multiple times
+> for various other computers too, and git bisect lands as this commit.
+> https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=3D1141969
+> https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=3D1146033
 >=20
-> If you dis-allow this in rust, the 2 sides drift apart, don't they ?
-> I mean they start behaving differently. I suppose this is not =
-something
-> desirable ?
-
-
-The problem with the current API is that it does not enforce a proper
-order for the calls, i.e.: prepare() -> enable() -> disable() ->
-unprepare().
-
-For example, getting a clk and repeatedly disabling it is allowed:
-
-while true {
-  clk.disable();
-}
-
-There is also a problem of balancing the refcounts. As you can see from
-the example above, it is trivial to have a decrement without a
-corresponding increment, or the other way around.
-
-What this series aims to do is use Rust's type system to address the two
-points above by enforcing a legal transition between states using a
-small FSM via this "typestate" technique. As a bonus, this also solves
-the balancing problem, because each state owns the appropriate count.
-
-With this series, the broken example above doesn=E2=80=99t even compile =
-anymore.
-
-Note that taking more than one count is still possible. Patch 4 adds
-guards for that: each enable_guard() does a clk_enable(), and the
-matching clk_disable() happens when that guard goes away. So the
-sequence you quoted can still be written. What you can no longer do is
-call disable() without having called enable() first, or forget to
-release the prepare/enabled counts you acquired.
-
-Notice that this doesn't, in and of itself, preclude the usage of the
-old API. Someone can add a new state that allows the old behavior, as a
-Clk<Unknown> or some other name, but if so, they should provide a user,
-and we should _really_ ensure that their usecase can't be adequately
-described by the safer API above.
-
-So no, I do not think it is a deviation from C, more like a safer
-veneer, because Rust makes it much easier for us to provide one.
-
-
-
+> I tested the revert with Linux 7.2.12 from debian unstable, not next
+> or drm trees, mainly because it was easier with debian test-patches
+> script on that machine.
 >=20
->>=20
->> And nothing gets undone on drop().
->>=20
->> c) It does not let a user express the state of the clk through the
->> type system. For example, there is currently no way to encode that a =
-Clk is
->> enabled via the type system alone.
->>=20
->> Following the Regulator abstraction, switch this abstraction to use =
-the
->> type-state pattern instead. It solves both a) and b) by establishing =
-a
->> number of states and the valid ways to transition between them. It =
-also
->> automatically undoes any call to clk_get(), clk_prepare() and =
-clk_enable()
->> as applicable on drop(), so users do not have to do anything special
->> before Clk goes out of scope.
->=20
-> So the point the is automatically clean-up (as in disable()) clock =
-when they
-> go out of scope ? In C, the equivalent would be calling clk_put() with =
-a non
-> NULL enable/prepare count. We do complain loudly when this happen. I =
-don't
-> people should encouraged to not actively care for this.
->=20
-> --=20
-> Jerome
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
 
-Actually, the point would be to forbid this using the type system. By
-using the new types, the abstraction knows which counts it must
-release before calling clk_put.
+Quoting the documentation:
 
-IOW, a Clk<Enabled> knows, on drop, that it must release one count of
-enable, and one count of prepare before clk_put is called. Clk<Prepared>
-knows it must release one count of prepare before clk_put is called, and
-Clk<Unprepared> can simply call clk_put directly. The type states make
-the situation you described unrepresentable in Rust.
+Try to fix regressions quickly once the culprit has been identified;
+fixes for most regressions should be merged within two weeks.
 
-This is not new on the C side either: devm_clk_get_enabled() already
-runs clk_disable_unprepare() and clk_put() on its own when the device
-is unbound. Here the same happens when the value goes away.
+In the meantime this report is more than 4 weeks old with no signal that
+someone looks into it. :-\
 
-=E2=80=94 Daniel
+Can someone with the problem test the following patch please?:
 
+diff --git a/drivers/gpu/drm/nouveau/nouveau_drm.c b/drivers/gpu/drm/nouvea=
+u/nouveau_drm.c
+index 30311688618c..fd3518d4407e 100644
+--- a/drivers/gpu/drm/nouveau/nouveau_drm.c
++++ b/drivers/gpu/drm/nouveau/nouveau_drm.c
+@@ -1111,19 +1111,6 @@ nouveau_drm_shutdown(struct pci_dev *pdev)
+ 	ret =3D nouveau_do_suspend(drm, false);
+ 	if (ret)
+ 		NV_ERROR(drm, "shutdown suspend failed with: %d\n", ret);
+-
+-	pci_save_state(pdev);
+-	pci_disable_device(pdev);
+-	pci_set_power_state(pdev, PCI_D3hot);
+-	/*
+-	 *  This is just to give the pci power transition time to settle
+-	 *  before an immediate kexec jump. it=E2=80=99s mirroring the existing
+-	 *  nouveau_pmops_suspend() behavior, which already does
+-	 *  udelay(200) right after pci_set_power_state(..., pci_d3hot). In
+-	 *  ->shutdown() we=E2=80=99re allowed to sleep, so I used usleep_range()
+-	 *  instead of a busy-wait udelay().
+-	 */
+-	usleep_range(200, 400);
+ }
+=20
+ static int
+
+Bonus points to bisect further in that function (that is, readd lines if
+the above patch fixes the issue or remove further lines from the end if
+it doesn't).
+
+Best regards
+Uwe
+
+--y7gnwzapgxhtolu3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsEa4cACgkQj4D7WH0S
+/k6trggAjnMHkPrw6gikL+ajKxikytRp0RXIk3zAeYPXrTBcoAtW6gN+DcylS2Em
+ZWH9/jLuNQcumkx8iTT1h7X9uibAOWmx0HjUmo1RZWPM6oxfS/L4jyABzWzvL2TT
+dGV/uHk5NYjwkEFXA1XGsQSQqwi97thm8V6QPhWmBzdCDJnhhMSEi11mlqQgaduU
+XsOUTgaflgq+Jce72o1t1HPA8sjiN7VNntiCYqVZAJE9pW0N6a37jxtc2jUpfy5T
+MtZxtCrL/6X6fDosClmW+Xw0olY3xed/FfTiR6Mxh/v74VMmSnYqEyiiYvp3kywx
+f+SPUJeIBdp5tcdoXlu1lMkKiwE3fQ==
+=7OZK
+-----END PGP SIGNATURE-----
+
+--y7gnwzapgxhtolu3--
