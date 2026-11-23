@@ -1,98 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443163;
-	b=SxOy+ihj/ZOrjwo4tBAx8A/gNIpG4BA5rR98FGrrqxiaSGSD92G2UVAM+5ueLsEZRtX7
-	 a4EnSyGT/etoesawO1GTv4dZepcLOvD+rP6pipqAkgTMmai4FzdyThuXz9Q//ezZ497Y4
-	 KN15eveDzTo2k+otRwZCJJrJQnaO6gyB83p5Tz5BE8avrn50DbpxxY2KscZ2gqw0mSmSL
-	 fg7dFfIsfoFw03ug9vpN5Rv5vne/ymB5aL3A3F25l7a7IaLxFrKn/bEpJy41GwagRw81A
-	 oKSfqlydcDxa6aiD7BLdaDo2PSbGihPxsUfVHrm1QetTWj+R/+6g8IKkmaFyvfwGyOg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443163;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.173
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795443165;
+	b=KUTQHAkTNNZaUXt79Ht36WH18thIuyFl7eCJiIpaz7nu7OmT7Zx6eLYS7KkH3Ht2K8FH
+	 N3o77LnWGgQCS7q43fvr376HXTdXS9sP0ZvB/6q8BEnMhJ7JWk9ZCkA3Q4Am7rcUCPabV
+	 gC0iTiG0yAYizL77ozuUANuCvIVZp6OtCLICl0EbO8KKZEmr0+KNRuV8wYCa+BP9EmpaQ
+	 ZMWJQmdiyokxoWbFZQ0i3vtgG3vRag1LURdMogWwFdeoWY/POpvVPqRa7DPSbefeQzFkO
+	 uHednGe8J1vV62e426LPV7xAmZNAHPJe4kdtuN6AmU1oPEFyixy5s7d0I16vlE6YmdA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443165;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=FpQteIPOJ7jso2isVNK/FXoPVqd5TxYTuttF9zGO1yA=;
-	b=KnMY162s8g7dmVWlNJpokbV5IJOFPn1CFtfmmrk+5XcXIEeL4yNsrWb7crD+5+rysLMf
-	 me4meLt4jaKmbPWQo+2OodR5gJ7lPT2gGTIdnA315295FMvJNTG1gowGJKn8RvfJWc7/l
-	 MGV0AbN/edHidlK8pw1rKKh9YTFjlQu4FukUxQEc5xo8b3PDEGxhTvBWWC1mwdhS9//K2
-	 LiRZ5ddYzHU12FrJWCtkwK3GphXhuUh41wEeesgp73qIRfOfkbtaxwYgX0vvI0qa80pHx
-	 6pxQilQvvXoifEcZk5grFouqkjHX34P7qoSMUbc2Au57TeeCtGe9nOhZukv3L5X1K3A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="HSDIN/qx";
-	arc=none smtp.remote-ip=74.125.82.44
-Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=YgMDGcWrMjPej+9nilhSPh1m6I/qFRVA+VWwn5/R8Ds=;
+	b=dqMy82G8ZoyJUklcHiwJx/lM+N8GwnfsjdcBMq0gMTG7k7hmAgqhC+EhoVOVfMKXTJbH
+	 aeJrXihzg9DUjzX4BTUe03aDtp8QiLvqY1CCu3vdUO45Q+84OLzJvPqHPsnkd1dTxMjxp
+	 V7/MZGOMTZtJDp/2ZP0LwoHkkPC6HfbdsqLo2o7ePJY0adydHu1sUfiVkA3oVNRw+Ao53
+	 0aM0XKFY1+zlqwM74MGxVEpRk0BgmdFghYaOujfQrwYC7RI1xgxN6L7Id6paiJctqPOE6
+	 OdtUOMGXBPTZZjaZw4bcez6dqIjhhrhI8k+8t7dYaXUv0bHYMBH1xNJYDlCsps3YMdQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=NCpzLTAq;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.173
+Received: from mail-yw1-f173.google.com (mail-yw1-f173.google.com [209.85.128.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 792FA606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:12:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 792FA606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA5D5606A337
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:12:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA5D5606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HSDIN/qx
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1b50a4bd2f3so4923894c88.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:12:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=NCpzLTAq
+Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-8b335eeb340so27619757b3.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:12:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795443163; cv=none;
+        d=google.com; s=arc-20260327;
+        b=rJABD5Noy9Hy8+89BxjLZvdHMNWprsXucxUTjuCbo3J12yVc5oVItmFC/VGE1+TcAm
+         wVJXYuKz199rh2QGwL9jxtjcOVnkmawNioDHCZ2mlXy81kMhQdxE/iIgrmpVEAZ/Hz91
+         4hL+ufj1eMBCRu4Jk8zU+D0bVrsiqYnM88Z8K+Qn2ZTMMPCP6VY/zD4Zna/UGatUX9dj
+         2+RAIaiuOwcJ0GwxW0M2UMmRhU3J+KvTh0Osw7P30H+nJKLWWbOGobvgk5qzxOWHthGi
+         IBus4G2yZYShhQ5FPzz+tJuIJPTA/PUahWM3j7NKeCTzIU9Vo4lNpo5IF3wacju1MKDq
+         YE1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=YgMDGcWrMjPej+9nilhSPh1m6I/qFRVA+VWwn5/R8Ds=;
+        fh=ARFnSfg4ihVp6x6wCqvtBMXYV12mfUaKR9zjWdKoSSo=;
+        b=LurQJAIAkzQvmP39i8QeEx5DSrEKR9V7HXjaJrRxcc04PO2m0JTKwZ2aKLon7dkAi3
+         BfPXKx+zik19+wrt/KCw6vW5xXU7Eu/8CbcQPVq0LmoH9t3iiciqg23nHkhL/pId0kMt
+         C3vTXO8V1RzjgSksr8ZYeCXqFT7tyCb+wBS97Nhj6BwEOiozXmowc1OK4q16PSUXT7a6
+         MRB1HG4p8tDHOt6d9sD9IjqdMKkd+9XLDoqjKSu4YrBWL7Q0XAsYsHvFdPSImyLmsSz8
+         fvj5fFFv4eRHhEVJe8SMQLfB5wrsMnlFr5vl/zFco9UKQYDSgKLJFJEBTr5qS2xZpJRL
+         rD8g==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795443161; x=1796047961; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FpQteIPOJ7jso2isVNK/FXoPVqd5TxYTuttF9zGO1yA=;
-        b=HSDIN/qxhXjIe8cpCe89tmnGrEkq/g67ziZZmU9iYOrYOh8IF5sUmzhBx+5YJP1wDM
-         f6Ut/vhOK71Vib7hIAvZxFVaDViu80YZrsA9EZJJEnW3+YaEJPT2ContZLY24lpR2SxN
-         QTvzTWO8r1i3mMO8SzY41qYfMuhHGnX+LxVi63vXhkJSCeBixtwQylAyvfS6zpmPxMO+
-         h3h1ALkFm5mP1ylfVejUswRjCOD+Flu8f+wcxbPSV00bKOYKZDznMCpsfwxmn3HVe/B9
-         53/KwBCt/xCPmR7d6yQsPCiSGcVyVstJNVCqsKCFJ9vZ9KB1jpjFBTOmr5rRTxRd0R9B
-         6gqQ==
+        d=linaro.org; s=google; t=1795443163; x=1796047963; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YgMDGcWrMjPej+9nilhSPh1m6I/qFRVA+VWwn5/R8Ds=;
+        b=NCpzLTAqoKBaQ3KVbQj6YwKJp3A1WBpm5bfvC+0PBFFfZAALv3kQhBF+Fst0LotYdE
+         HAvRy9agb63TvB+f6ZNIjNN+m8yQVGiv5qD+OjvUT26OXXWKOjFRdwDBEI5FSgTtqqE/
+         +ZcVV33xN2ewf/Kwvf/XVspehaernWJ0ncrLm3DdkLsl3mJAypnuImVt0ixLX6kj81K0
+         F85t99ITJr1LR7JS1tk8PH9JFF2Cim2TPqfTZb+OF+45kjxL2CIih4JDa4+XZ1qidbjf
+         xnfesk3osKHqa9azZXKG5Y3/48C4F3APkJGRhAazQhVlA5kqWhCPoXMHnDQpR2SVLMbS
+         4NCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795443161; x=1796047961;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=FpQteIPOJ7jso2isVNK/FXoPVqd5TxYTuttF9zGO1yA=;
-        b=WOboRW1RwT0TkfYLnBy5UpGqirAXbZq8r7k+D2zarpunAEGHbhPAKCCGd+hyzv7B6b
-         CRtlWSYqIMCy9PJjwHCA8fTnO+hMK2knjb2ZN9CAFhMXv4JPmQGkxP+91NqXj3jAf3SO
-         2tJTa6nOBlqcQElNYSDx/TrCO5xlUmRn81tRmpRIwayMzG9ZNbjC/6FJQTDj+40zNxJb
-         no1ZGPe8koyzmDlZsELKWlNCBNVOGFQBCs1Je8+Oar+39IWVQ7HK/sVSfI80KU0el8rr
-         /iquW5w3IK9SssD/PgU8Br4Jh67zMBHS0XAVKBoWqrvY46i652G8ZQ4QaQ1OfMghaGSp
-         TbWA==
-X-Forwarded-Encrypted: i=1; AL+hErGt20QaPSIce3ZMX3XYewL86UqEfVZ/P5eXSBIaBKR1JKpvisnTDhX8alvo5E0w1ntZfRZValPyNv8WN30=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9PFdIqPdrrs1FFZMW+NSka6Gq60cCPgk/x1X5kxIAwUxkYnmRz
-	i2Nn0LyL4UiBshTi0Vugkz10dtq4kAocE/HL+87LWzjrJxPtxtM5GO1A
-X-Gm-Gg: AZFdTZcD76/RljrdxdqOyYqcGn9itBhLCartDj8fNO4faXcAcmJ5zFvUrwGjbqigtry
-	FZ+/ghi/S1L5w8R76UYaAf3W29TSS9jmkGpupw7xmJbuy2ikSfwdtMG8eZMHQ3g2tueTz24qZBg
-	OGVDZgz62z2jTL/ttQZT2GGhNZuo/pgi3rWQqIgQgmTzVc/ffTV60TkSYYyKfGMSbTpUjIzy/ir
-	X+0AKnkET4nMuQ7lYNskw2PTtD5/tfCDhB9LOUYnuG3g+e4HBL1F5n8Iz0H+aHLtNcPSpLlc1+H
-	MV3rklaZt95ELEQPdj965STUCevIWD4QkCaBO9OYB29dBOQP7iHmYVHfi3/1hoWSnR/kNLjaVSI
-	YFxbbw1DJZ8jmznaSyoodfySvOLGFE83FoZg4xXYsblaEt6xpSDhNAKpdhUk1/i6sdve6d4HJcg
-	qqsvC9aYgKutLo1qCES2pkiU+9sW1OHuMr3KQqCoGhuYMcm1/r6H4OCLIwHpJwsuXiwmo5Y4puk
-	Z8COB8mjemWSU8diwh0GFHcDd/dQl0eBsuWpiyj3/aIJ4pJxGW6cFqMsR/gbHXU6T2pDx4VerE/
-	RMI7qwdBt054ITcpV5pjxXowzdEH6U6nKOf5pOpwODTl8kdJKw==
-X-Received: by 2002:a05:701b:42d1:20b0:1af:d88f:fc51 with SMTP id a92af1059eb24-1b5568edb1dmr12692628c88.30.1795443161493;
-        Mon, 23 Nov 2026 06:12:41 -0800 (PST)
-Received: from localhost.localdomain ([112.170.44.210])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672c6f31sm35997230eec.15.2026.11.23.06.12.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 06:12:40 -0800 (PST)
-From: Junyoung Jang <graypanda.inzag@gmail.com>
-To: Miklos Szeredi <miklos@szeredi.hu>
-Cc: Junyoung Jang <graypanda.inzag@gmail.com>,
-	Gwanhyun Lee <gwanhyunlee@gmail.com>,
-	Joanne Koong <joannelkoong@gmail.com>,
-	Bernd Schubert <bernd@bsbernd.com>,
-	Dharmendra Singh <dsingh@ddn.com>,
-	Amir Goldstein <amir73il@gmail.com>,
-	fuse-devel@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH 6.12.y] fuse: fix fuse_set_nowrite() race with parallel direct writes
-Date: Mon, 23 Nov 2026 23:12:34 +0900
-Message-ID: <20261123141235.2477526-1-graypanda.inzag@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20260707; t=1795443163; x=1796047963;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=YgMDGcWrMjPej+9nilhSPh1m6I/qFRVA+VWwn5/R8Ds=;
+        b=YjktrZlg3TLawHwkQlYJVP6d+l5V6HviqcS14sVb8CFqAJjpCkHSKK5zVDgq5Zx06a
+         NidyhIfS2tqpXg/qFk7n3MnWg5YOV0eCRClzjaKGC08MTsNsGZV09aYf8pWR4FG+jZPe
+         WD201Te5y7P56m0vfdnylptyWonBpqDiWnT8iJGdwGHhw7FPAjJNcK7ONCgBuxrEPRii
+         G1g6fYfz1IdqkBsvlq1/zYtfWbejl7P9LcljI3WHuPx4Q/2kBfEgsMQmefP1NNsn3nwu
+         zbJRChf/hLCGwA3ymenlTfXBiQ6pRtcHz3H0CFC3jGvcWs5aquTqEsUlb/a19kW845Dm
+         W39w==
+X-Forwarded-Encrypted: i=1; AL+hErFscYhzCUCsz2kL5iDlHTH4VKkmJOUqp0Tw/bu8q3D5cg0h01+HfAWvPzeG2Ztx3SMcsC+ZbT6LY+p7Ujg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+qfgkDp+aRqkaNpwi0LPLU1yVgm+5ERERC/EgyWevNU/2EjoSF
+	qkx/cAT/tb7N6/uo7qHxZNecY92LujhbT+Rub/N8LMraJGkHh54SPMqJh2Q9dm5Xljb3kSobEFp
+	+Kg1VQYNBjMx/+tBS60EwLFln9PdGVOWdspD4iPWLmQ==
+X-Gm-Gg: AZFdTZexdBkXD7ZCAdWkdiTYavAWksuBveEzSsbc2BuP8FADgEHS08AMQsqQrvMNltv
+	NSgIXUMjDU4WLMYr2uDB2Qzl1YeVW438mg5yQ35uDcFqC4LPjc44bSYg4kkCgzvdazdCnpfUqmk
+	sHQEyrCqbWOaJaBwCT9AHqxHhfsC6h5ymXTiTW1ZBAK8JrWi2bshPiGfxha/CmTVW++xRFee1g8
+	+SU1Z17hNLOr3vttPryAUjsjwCfDPLKx4sIYRuRqwkibKpsyRMYBtusEMD/G9ScopxNQYQkDVXl
+	LqUO4JczF95mOnaCZ6+8zrJLF9uUXBfoAxzzsUzWKpNPTGeFeX9MV7SeeGG8T6Bnsfkq7YiXJFC
+	hGIBwZQEzIBKXifdEORXSAwPISXvaL5/5uM/p9MMOnJqq7ezVDbjEbMlkrYhPg8MfiQEFsWQ=
+X-Received: by 2002:a05:690c:4b8f:b0:8b0:e10d:1975 with SMTP id
+ 00721157ae682-8b520435695mr34860627b3.29.1795443162921; Mon, 23 Nov 2026
+ 06:12:42 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,108 +103,92 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261121-rpmsg-config-size-v2-1-d2fd698b6f76@valla.it> <26795897-ccdb-42db-9433-2ecc341fb311@foss.st.com>
+In-Reply-To: <26795897-ccdb-42db-9433-2ecc341fb311@foss.st.com>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Mon, 23 Nov 2026 08:12:31 -0600
+X-Gm-Features: Aa3M54rloAqf4WAjz_5cyU4l0UPfO3oYekEeRTEWNkBzcSFDmJDGM5H-lLlDof4
+Message-ID: <CANLsYkwG-C_CRDr401zZB912U07tQHJHNa+LWd2mgPM9YRgcNQ@mail.gmail.com>
+Subject: Re: [PATCH v2] virtio_rpmsg: Fix config space alignment
+To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+Cc: Francesco Valla <francesco@valla.it>, Bjorn Andersson <andersson@kernel.org>, 
+	Tanmay Shah <tanmay.shah@amd.com>, openamp-rp@lists.openampproject.org, 
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-In 6.12.y, queuing a FUSE_WRITE_CACHE request clears folio writeback
-immediately while keeping the request in fi->writepages until the
-daemon replies. Cached writepage requests can outlive the cached file
-handle in two ways: if write_inode_now() fails in fuse_flush(), it
-returns early before calling fuse_sync_writes(); and if a file is
-mapped with mmap() and closed while clean, final unmapping drops the
-last file reference via fuse_release() without calling fuse_flush().
+On Mon, 23 Nov 2026 at 02:12, Arnaud POULIQUEN
+<arnaud.pouliquen@foss.st.com> wrote:
+>
+>
+>
+> On 11/21/26 00:01, Francesco Valla wrote:
+> > The comment for virtio_rpmsg_config says that this structure is
+> > naturally aligned to 32 bits, and this is desirable by some
+> > architectures that don't get along with unaligned accesses.
+> > The content of the structure itself however isn't aligned, and the
+> > __packed attribute prevent the compiler to add this alignment.
+> >
+> > Fix this by extending the version field to 16 bits.
+> >
+> > Fixes: ca96ea25e51a ("rpmsg: virtio_rpmsg_bus: Get buffer size from config space")
+> > Signed-off-by: Francesco Valla <francesco@valla.it>
+> > ---
+> > Changes in v2:
+> > - version field extended to 16 bits instead of adding a reserved byte.
+> > - Rebased on current master.
+> > - Link to v1: https://patch.msgid.link/20261101-rpmsg-config-size-v1-1-65686b445b22@valla.it
+> > ---
+> >   drivers/rpmsg/virtio_rpmsg_bus.c   | 2 +-
+> >   include/linux/rpmsg/virtio_rpmsg.h | 2 +-
+> >   2 files changed, 2 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/rpmsg/virtio_rpmsg_bus.c b/drivers/rpmsg/virtio_rpmsg_bus.c
+> > index 23ff6c8b7a20..27282475a732 100644
+> > --- a/drivers/rpmsg/virtio_rpmsg_bus.c
+> > +++ b/drivers/rpmsg/virtio_rpmsg_bus.c
+> > @@ -815,7 +815,7 @@ static void rpmsg_virtio_del_ctrl_dev(struct rpmsg_device *rpdev_ctrl)
+> >   static int rpmsg_virtio_get_buf_size(struct virtproc_info *vrp)
+> >   {
+> >       struct virtio_device *vdev;
+> > -     u8 version;
+> > +     u16 version;
+> >       u16 size;
+> >
+> >       vdev = vrp->vdev;
+> > diff --git a/include/linux/rpmsg/virtio_rpmsg.h b/include/linux/rpmsg/virtio_rpmsg.h
+> > index 0872cbca4593..57f48d537de9 100644
+> > --- a/include/linux/rpmsg/virtio_rpmsg.h
+> > +++ b/include/linux/rpmsg/virtio_rpmsg.h
+> > @@ -31,7 +31,7 @@
+> >    * the structure is naturally 32-bit aligned.
+> >    */
+> >   struct virtio_rpmsg_config {
+> > -     u8 version;
+> > +     __virtio16 version;
+> >       __virtio16 size;
+> >       /* The tx/rx individual buffer size (if VIRTIO_RPMSG_F_BUFSZ) */
+> >       __virtio32 txbuf_size;
+>
+>
+> Acked-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+>
 
-Once the cached file is released, FOPEN_PARALLEL_DIRECT_WRITES allows
-concurrent direct writes under inode_lock_shared(). If a request is
-still pending in fi->writepages, two direct writers can both enter
-fuse_set_nowrite(). The first sets FUSE_NOWRITE (making fi->writectr
-negative) and waits on fi->page_waitq; the second sees fi->writectr < 0
-and hits BUG_ON(fi->writectr < 0).
+Applied.
 
-Fix this by waiting on fi->page_waitq in fuse_set_nowrite() while
-fi->writectr < 0 before setting FUSE_NOWRITE, and waking waiters in
-fuse_release_nowrite(). Also still run fuse_sync_writes() in
-fuse_flush() when write_inode_now() returns an error so close() drains
-in-flight writes before returning the error.
+Thanks,
+Mathieu
 
-Mainline is unaffected since commit 0c58a97f919c ("fuse: remove tmp
-folio for writebacks and internal rb tree") removed fi->writepages and
-keeps folio writeback active until the daemon replies. Fix the ordering
-directly in 6.12.y rather than backporting that larger rework.
-
-This bug was found with an in-house LLM-based tool, and the root cause,
-reproducers, and fix were manually verified by the authors.
-
-Fixes: 153524053bbb ("fuse: allow non-extending parallel direct writes on the same file")
-Cc: stable@vger.kernel.org
-Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
----
-Tested on v6.12.116 with KASAN in a 2-vCPU QEMU guest using an
-unprivileged FUSE daemon (UID 1000 via fusermount3). Verified against
-both C reproducers (FUSE_SETATTR -EIO on close, and dirty mmap
-followed by munmap after clean close), which previously triggered
-BUG_ON(fi->writectr < 0) and now complete cleanly without BUG or KASAN
-reports. Standalone reproducers are available on request.
-
-The patch also applies cleanly to linux-6.6.y (5139929c698c), though
-6.6.y was not runtime-tested.
-
- fs/fuse/dir.c  | 10 ++++++++--
- fs/fuse/file.c |  5 +++--
- 2 files changed, 11 insertions(+), 4 deletions(-)
-
-diff --git a/fs/fuse/dir.c b/fs/fuse/dir.c
-index 45cbe0cb2..54b9138fa 100644
---- a/fs/fuse/dir.c
-+++ b/fs/fuse/dir.c
-@@ -1821,8 +1821,13 @@ void fuse_set_nowrite(struct inode *inode)
- 
- 	BUG_ON(!inode_is_locked(inode));
- 
--	spin_lock(&fi->lock);
--	BUG_ON(fi->writectr < 0);
-+	for (;;) {
-+		spin_lock(&fi->lock);
-+		if (fi->writectr >= 0)
-+			break;
-+		spin_unlock(&fi->lock);
-+		wait_event(fi->page_waitq, READ_ONCE(fi->writectr) >= 0);
-+	}
- 	fi->writectr += FUSE_NOWRITE;
- 	spin_unlock(&fi->lock);
- 	wait_event(fi->page_waitq, fi->writectr == FUSE_NOWRITE);
-@@ -1850,6 +1855,7 @@ void fuse_release_nowrite(struct inode *inode)
- 	spin_lock(&fi->lock);
- 	__fuse_release_nowrite(inode);
- 	spin_unlock(&fi->lock);
-+	wake_up(&fi->page_waitq);
- }
- 
- static void fuse_setattr_fill(struct fuse_conn *fc, struct fuse_args *args,
-diff --git a/fs/fuse/file.c b/fs/fuse/file.c
-index 33ba8ae3b..5e01dd2b7 100644
---- a/fs/fuse/file.c
-+++ b/fs/fuse/file.c
-@@ -538,13 +538,14 @@ static int fuse_flush(struct file *file, fl_owner_t id)
- 		return 0;
- 
- 	err = write_inode_now(inode, 1);
--	if (err)
--		return err;
- 
- 	inode_lock(inode);
- 	fuse_sync_writes(inode);
- 	inode_unlock(inode);
- 
-+	if (err)
-+		return err;
-+
- 	err = filemap_check_errors(file->f_mapping);
- 	if (err)
- 		return err;
-
-base-commit: 5c40a1750f44dd6c7292d8c8d0b4ffff1734576e
--- 
-2.43.0
-
+> Thanks,
+>
+> Arnaud
+>
+> >
+> > ---
+> > base-commit: 5f22fb20497f4983094131f00a734362300d22d2
+> > change-id: 20261101-rpmsg-config-size-0dbe9ea63c6d
+> >
+> > Best regards,
+> > --
+> > Francesco Valla <francesco@valla.it>
+> >
+>
