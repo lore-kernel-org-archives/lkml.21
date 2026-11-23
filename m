@@ -1,60 +1,44 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.107
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.79.60.112
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795397115;
-	b=1K0LopWSsVwQrBLefUmZragVrCQYamPnXQDVOJcyVf6zH/+2fF78r/OoIqgO60Fnhkrx
-	 Nj6DGrrQBZ1Dpd8IqBMYsJ5NjEAU0uBq8PD7VrbhgH+lnk+ONwXbWJ76QA8c+9E+vX4rw
-	 WlqzHuyWiZ3YnNttE+Ag1JsIs0ne+NwZXNUG/RYlah0uPMQUnzscCoQgcxmn5Cyy3arXX
-	 9fQpehbuoEWqNTgBj4y5BcNw3f1x9Dvx+ICh1/dHVf60CPcpT99wpKHAIWePnfejjraBK
-	 77B1XKiXpnY3rjuINcYwPcl0hhbOzVnSvbIR/40R1XJ6jPXAxOzUQNL5mkqKFPvskpg==
+	t=1795397140;
+	b=DLMYf/Y1fry4lDRaDFbdOdFmmgxpKW25RvBlwncCnYffDzNP9500aiFePG/7SRS1giJY
+	 BfzIT8IN6F8KEqmR7fTM5eCbCyA2NLjxI3HpvWuJ0G4kY5CFPjFo+nzWPNr11vTu/7hGD
+	 Z+Six95Mz8BgHFTLh5JkwWnjuEVoQEy3QbRsIHGeAljD9NQygx4TMLdvcWKV0hy+t5fRv
+	 5SSs1CRbuo9Yo690teXT90JrdHlPcatuTaj3/VtWtSmuogB2S1eW0WiQ7FQGBMzCiKyFf
+	 DfxlqvaZdP3/8VDCOT4r72ev5n66dwppdsspupGk8LUJyt+B2wodsiIZU+eUjS8f5tg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795397115;
-	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=ENWwzoFL9/nH/B1dYhxmQyjRTmQ8rPWnYy4IFtsJuVo=;
-	b=NapZFy7giu1FzqiUDfpKJvhEUOW/D/FtY1NkvCxgCt8k8vDVHVs3rBK7N2CbdEPTM+el
-	 H1Ksogqinu8LglsZqwQTGJJyPZmB28yOCIOl29Dtn7bJ10xZHmKhrsLkWzf1KlpVkMe0L
-	 jpG/6j/qAYEuClls7R7BIAIWlP0eDRs/LV+MzMcscPsgg0diSmVEKuloSBNH+9SqSyMRY
-	 L50nOOJDuje4h2Qb0aST8oXJtuPe5bdhs3CPIeBv6kH++O2GJ4BWc2fy2qkpZkEdSuSn5
-	 Rg9RJQAkRA3ulWV0+Q56crICg0n4HH2FR1h1NA4ueZMAM8y9lTl1MiyOUOC6TAAhQjw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795397140;
+	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=LliMgjnXMFNyw0KxKrefKqjXgD5lvXyOXgtZPmEuFlM=;
+	b=NzIE+ia/s6N6GsMzXLWED6rUoEfZafp6D6KF35+oqjxeIHrNSngklg7AqLZ1YPr/izdk
+	 V8y1U+kn1jvT0uFFjwrOMjgxFv6easzuoBQcpc4vhzadfVXv4EBrQ8kAl+/Xf8fEGCIt/
+	 T9lCV8avWIeYgr8TPX+8FDbiY13NnOznTVypBmo8EwTP0sEN9no8pe795dJY9z1lPg2mS
+	 TSMrInkboBaveEE30twnQgnZ/ujRmdpcfVYd20Jgy9geZgbGt2BOZTs7H8Fghq7GjxHOS
+	 oeOwneB+3zKff1k1fE+/ZpwXCAhDwOqqSy2R9B9n2UWu68b0xmgvfQrn+G5SWeYGbCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=raidlab.org;
-	spf=pass smtp.mailfrom=raidlab.org;
-	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=LSKZu5tw;
-	arc=none smtp.remote-ip=109.224.244.107
-Received: from mail-244107.protonmail.ch (mail-244107.protonmail.ch [109.224.244.107])
+	dmarc=pass header.from=rock-chips.com;
+	spf=pass smtp.mailfrom=rock-chips.com;
+	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b="GT3jbs/W";
+	arc=none smtp.remote-ip=210.79.60.112
+Received: from mail-m60112.netease.com (mail-m60112.netease.com [210.79.60.112])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 121FF606A31A;
-	Mon, 23 Nov 2026 01:25:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 121FF606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=raidlab.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raidlab.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7926E606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:25:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7926E606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=LSKZu5tw
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raidlab.org;
-	s=protonmail; t=1795397110; x=1795656310;
-	bh=ENWwzoFL9/nH/B1dYhxmQyjRTmQ8rPWnYy4IFtsJuVo=;
-	h=From:To:Cc:Subject:Date:Message-ID:From:To:Cc:Date:Subject:
-	 Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=LSKZu5twbNiigEquKRPH81YOY+9ZnfDifow0OWSKD3IS9ZKOgoUmTvgLLrbqy6L35
-	 sWDBtWfs63cljGUH5JsOEsTI692m4pxNmZasCfWHsFZaRGHd+nvLp//dlWzAs15rr3
-	 tXNICT/U3HJcURMuKCsRajjA4zwO5/QM4+BfwGWJzhAawPBbe4Q8yrvHul3cvA8apg
-	 qAlyoneSTENJTr/2KcBR3aZJdQgKNiLpmZJRt5BG/Z9G3wO1JLcjOt7AbbYIKOFSbE
-	 qTetX+TmBM2tA0O14V1V/GwjZfqA28iiPPhMCCLiXTWUzTS7A17aZ0CH9ocXcLFuIM
-	 HF3B8Z710DBhw==
-X-Pm-Submission-Id: 4jXpCQ20gHz2ScWs
-From: Miroslav Cimerman <mc@raidlab.org>
-To: linux-btrfs@vger.kernel.org
-Cc: David Sterba <dsterba@suse.com>,
-	Chris Mason <mason@kernel.org>,
-	Johannes Thumshirn <johannes.thumshirn@wdc.com>,
-	Filipe Manana <fdmanana@suse.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] btrfs: zoned: fix deadlock between freeze and RECLAIM_ZONES
-Date: Mon, 23 Nov 2026 01:24:59 +0000
-Message-ID: <20261123012459.436826-1-mc@raidlab.org>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=GT3jbs/W
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 5594cef32;
+	Mon, 23 Nov 2026 09:25:29 +0800 (GMT+08:00)
+Message-ID: <0befeff5-c51d-4c4b-a85a-b00835889664@rock-chips.com>
+Date: Mon, 23 Nov 2026 09:25:27 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,114 +48,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] phy: rockchip: inno-dsidphy: fix 1.5 GHz rate units
+To: ZhuXiangyu <1194781887@qq.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>,
+ Manivannan Sadhasivam <mani@kernel.org>, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <tencent_6A9CF9A2529C8FA2C04933F2D5D1A259B506@qq.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <tencent_6A9CF9A2529C8FA2C04933F2D5D1A259B506@qq.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0aa2060212fb03a7kunm415fa07ab4eba9
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZTE4YVhgfQxpKHUweThkYHVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=GT3jbs/WA5Wwx71x54Vye2Ydhd1iE17VsTClqOa7d6cCPDGkX8CbWc7o5X5NBn9zVdfZp66mexixazzG2g15WTqX1CcAUxdW9phTnwi4Q3mrOlCnuuuoIcf97JxnBauQ3YUyHxV9cVtSWjEJSZ1e0IFNxhHEsVjUMi5/Uzre2S8=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=LliMgjnXMFNyw0KxKrefKqjXgD5lvXyOXgtZPmEuFlM=;
+	h=date:mime-version:subject:message-id:from;
 
-RECLAIM_ZONES calls btrfs_reclaim_block_groups() to serve data space
-tickets. That function takes the super write lock with
-sb_start_write(). A writer waiting on such a ticket holds that lock
-already, so a freeze waits for the writer while the reclaim waits for
-the freeze:
+Hi Xiangyu,
 
-  writer             freeze               async data reclaim
-  ------             ------               ------------------
-  sb_start_write()
-  wait on a data
-  space ticket
-                     freeze_super()
-                       wait for writers
-                                          flush_space(RECLAIM_ZONES)
-                                            btrfs_reclaim_block_groups()
-                                              sb_start_write()
-                                              wait for the freeze
+On 11/22/2026 1:11 AM, ZhuXiangyu wrote:
+> The 1.5 GHz Innosilicon DSI PHY timing table stores its rates in Mbps,
+> whereas the other timing tables and the lookup loop use Hz. When
+> enabling a mode, the driver compares inno->pll.rate in Hz (e.g.
+> 372000000) against timings[].rate in Mbps (e.g. 400), so no entry
+> matches. The loop falls through to the last, fastest entry and programs
+> an excessively large TLPX/LPX counter, preventing panels from decoding
+> low-power DCS initialization commands.
+> 
+> Convert the 1.5 GHz timing table rate values to Hz so the lookup
+> selects the matching entry.
+> 
+> Tested on an RK3506B board: the panel receives the low-power init
+> sequence and the framebuffer console displays properly.
+> 
+> Fixes: 785a9d5bb145 ("phy: rockchip: inno-dsidphy: Add support for rk3506")
+> Signed-off-by: Xiangyu Zhu <1194781887@qq.com>
+> ---
+> Changes in v2:
+> - Split out from the combined drm/phy patch into a standalone phy
+>   subsystem patch per Heiko's review.
+> - Limit recipients to phy and Rockchip maintainers/lists.
+> - Fix Signed-off-by author name formatting.
+> 
+>  .../phy/rockchip/phy-rockchip-inno-dsidphy.c  | 28 +++++++++----------
+>  1 file changed, 14 insertions(+), 14 deletions(-)
+> 
+> diff --git a/drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c b/drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c
+> index 6ad04b0c..fcf7aa17 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c
+> @@ -282,20 +282,20 @@ struct inno_mipi_dphy_timing inno_mipi_dphy_timing_table_max_1ghz[] = {
+>  
+>  static const
+>  struct inno_mipi_dphy_timing inno_mipi_dphy_timing_table_max_1_5ghz[] = {
+> -	{ 110, 0x02, 0x7f, 0x16, 0x02, 0x02},
+> -	{ 150, 0x02, 0x7f, 0x16, 0x03, 0x02},
+> -	{ 200, 0x02, 0x7f, 0x17, 0x04, 0x02},
+> -	{ 250, 0x02, 0x7f, 0x17, 0x05, 0x04},
+> -	{ 300, 0x02, 0x7f, 0x18, 0x06, 0x04},
+> -	{ 400, 0x03, 0x7e, 0x19, 0x07, 0x04},
+> -	{ 500, 0x03, 0x7c, 0x1b, 0x07, 0x08},
+> -	{ 600, 0x03, 0x70, 0x1d, 0x08, 0x10},
+> -	{ 700, 0x05, 0x40, 0x1e, 0x08, 0x30},
+> -	{ 800, 0x05, 0x02, 0x1f, 0x09, 0x30},
+> -	{1000, 0x05, 0x08, 0x20, 0x09, 0x30},
+> -	{1200, 0x06, 0x03, 0x32, 0x14, 0x0f},
+> -	{1400, 0x09, 0x03, 0x32, 0x14, 0x0f},
+> -	{1500, 0x0d, 0x42, 0x36, 0x0e, 0x0f},
+> +	{ 110000000, 0x02, 0x7f, 0x16, 0x02, 0x02},
+> +	{ 150000000, 0x02, 0x7f, 0x16, 0x03, 0x02},
+> +	{ 200000000, 0x02, 0x7f, 0x17, 0x04, 0x02},
+> +	{ 250000000, 0x02, 0x7f, 0x17, 0x05, 0x04},
+> +	{ 300000000, 0x02, 0x7f, 0x18, 0x06, 0x04},
+> +	{ 400000000, 0x03, 0x7e, 0x19, 0x07, 0x04},
+> +	{ 500000000, 0x03, 0x7c, 0x1b, 0x07, 0x08},
+> +	{ 600000000, 0x03, 0x70, 0x1d, 0x08, 0x10},
+> +	{ 700000000, 0x05, 0x40, 0x1e, 0x08, 0x30},
+> +	{ 800000000, 0x05, 0x02, 0x1f, 0x09, 0x30},
+> +	{1000000000, 0x05, 0x08, 0x20, 0x09, 0x30},
+> +	{1200000000, 0x06, 0x03, 0x32, 0x14, 0x0f},
+> +	{1400000000, 0x09, 0x03, 0x32, 0x14, 0x0f},
+> +	{1500000000, 0x0d, 0x42, 0x36, 0x0e, 0x0f},
+>  };
+>  
+>  static const
 
-Nothing serves the ticket, and all three wait.
+It seems I cannot apply your patch. Please consider rebase it.
 
-Take the lock with sb_start_write_trylock() and skip the reclaim while
-the filesystem is being frozen or is frozen. The space flushing goes on
-with its next states. If they free nothing, the ticket fails with
-ENOSPC, the same as when the reclaim is skipped for a running balance.
-The block groups stay on the reclaim list, and the cleaner queues the
-reclaim work again after the thaw.
+Other than that, it looks good.
 
-The reclaim worker, which also runs on non-zoned filesystems, skips
-during a freeze as well instead of waiting for the thaw. Commit
-ca5e4ea0beae ("btrfs: zoned: mark relocation as writing") added the lock
-to keep relocations out of a frozen filesystem, and skipping them still
-does that.
+Reviewed-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-Fixes: e2a7fd22378f ("btrfs: zoned: add zone reclaim flush state for DATA space_info")
-CC: stable@vger.kernel.org # 7.1+
-Signed-off-by: Miroslav Cimerman <mc@raidlab.org>
----
-Sashiko pointed at this deadlock in its review of "btrfs: wait for
-block group relocation on remount read-only". It was checked,
-reproduced and fixed with the help of an LLM, which also prepared the
-commit message. I reviewed everything. It needed a test-only delay
-before RECLAIM_ZONES to reproduce: with the delay, 2 of 3 runs hung
-without the patch and none of 3 with it.
-
-This also removes the lockdep dependency Sashiko reported on v2 of that
-patch, from s_umount through cancel_work_sync() of the reclaim works to
-the super write lock. close_ctree() cancels both reclaim works and
-btrfs_remount_ro() the async data reclaim work, with s_umount held. With
-lockdep, after a reclaim, a remount and an unmount, /proc/lockdep showed
-the reclaim works depending on sb_writers without this patch, and no
-such dependency with it. Neither run printed a lockdep warning.
-
-Johannes's pending "btrfs: zoned: wait for a running block group reclaim
-in RECLAIM_ZONES" (v7 15/27) adds a flush_work() of the reclaim worker
-to RECLAIM_ZONES. The worker calls btrfs_reclaim_block_groups() too and
-blocks on the freeze the same way, so that flush_work() can hang as
-well. In my test with that patch applied, the flusher got past the
-flush_work() and hung in the direct call, 2 of 3 runs. With the trylock
-none of 3 hung.
-
- fs/btrfs/block-group.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
-
-diff --git a/fs/btrfs/block-group.c b/fs/btrfs/block-group.c
-index a40eedc65dd2..0736132624f8 100644
---- a/fs/btrfs/block-group.c
-+++ b/fs/btrfs/block-group.c
-@@ -2098,10 +2098,16 @@ void btrfs_reclaim_block_groups(struct btrfs_fs_info *fs_info, unsigned int limi
- 	if (!btrfs_should_reclaim(fs_info))
- 		return;
- 
--	guard(super_write)(fs_info->sb);
-+	/*
-+	 * Skip the reclaim while the filesystem is frozen or being frozen.
-+	 * RECLAIM_ZONES calls this for a space ticket, and a writer waiting
-+	 * on the ticket holds off the freeze, which holds off sb_start_write().
-+	 */
-+	if (!sb_start_write_trylock(fs_info->sb))
-+		return;
- 
- 	if (!btrfs_exclop_start(fs_info, BTRFS_EXCLOP_BALANCE))
--		return;
-+		goto out;
- 
- 	/*
- 	 * Long running balances can keep us blocked here for eternity, so
-@@ -2109,7 +2115,7 @@ void btrfs_reclaim_block_groups(struct btrfs_fs_info *fs_info, unsigned int limi
- 	 */
- 	if (!mutex_trylock(&fs_info->reclaim_bgs_lock)) {
- 		btrfs_exclop_finish(fs_info);
--		return;
-+		goto out;
- 	}
- 
- 	spin_lock(&fs_info->unused_bgs_lock);
-@@ -2159,6 +2165,8 @@ void btrfs_reclaim_block_groups(struct btrfs_fs_info *fs_info, unsigned int limi
- 	list_splice_tail(&retry_list, &fs_info->reclaim_bgs);
- 	spin_unlock(&fs_info->unused_bgs_lock);
- 	btrfs_exclop_finish(fs_info);
-+out:
-+	sb_end_write(fs_info->sb);
- }
- 
- void btrfs_reclaim_bgs_work(struct work_struct *work)
-
-base-commit: 65101fe10b3008186b813b628ee3a611b0e70ce6
 -- 
-2.53.0
+Best, 
+Chaoyi
 
