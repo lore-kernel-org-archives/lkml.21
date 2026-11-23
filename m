@@ -1,60 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795476438;
-	b=dMV3njYV2wYf9QflnjCz+PxkIalKyT+dneMXSBbEtBY3wCv1ou6zV8mI5b0hESRWTLm7
-	 x4o3L4VAW+wEPwWz3vguip4kZ0qBgYr+H6LoGkhrnAlfvi5cnDr++CdT190lj9zCczdCP
-	 aTSUmaiiJPM8lZ8CyqGdriLskYSKiAlQNs7rc1g+PxFwTgORCOZQckCtoXR6CO3qyBBod
-	 QvmbIGRj3lANE6nQgjz/4e49jIKMpkv4vUqyZXE47emwg0D+R/TzSQSpfGQ/JvS0HGFoT
-	 x2zERuozmRcTmfdWyDN4Wf1uZQf7F3vzcUG7yqywWbLnBjvdNJuWl9b4g3CEyHeZG5A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795476438;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=UOCsuUblKp6MHryyZUEo50kZApMDVw34hVNlsTMvdFE=;
-	b=GtlrvhqZl8W2p2u9pj1TbksVy8lm7vibzfuUUq3R/zDGX0uDFP9Vw1XexZMzALYtFjId
-	 GP72fSyZCQ7Rgbv8o4OQk+rn54cjzDBkLSejmtuZ+2FMNDhzeTSjHUWnuAA7wezIoZCLv
-	 JUAbAgNQSTmiUqf0Ns2mWceEqc4hRogv1WDXt4KsVS+UF+8MhHUfZnJ0jGYuuUcTp+F8A
-	 vr/1xkdVh9eZwRfWqPRjLMM+5Blfq1R0wKX3a4vVi8GPRCUADpigDFgZLEZfDHPtG7zuL
-	 LCjkylNSKvcQhSUbhkcCyONaRad1Y41tXf2bXmsnpSQLyH49OQ9yHyvPg6+g/jdlgTA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UDWicosc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.56
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795476443;
+	b=EQ6BNNl4tEwuKUgwhHuHXgKYOWHFHzEQjAPI2KfftmM+dtAeRJFw3PnEgFnvxH99CgLd
+	 CkCXcISnF8aGtyfCOBiLEjDZkz5sTSgIgX5YrFHpEaX1Ga87YEuJUG7mDs9ES1+W02Qy/
+	 y/CgeF0bNtoFRUbpj0hLqr3Qyys2TFdI7gp4hd0xu+HLURE2v9l73xNipFtjtNyHJ0Y6l
+	 OYgbGK78bnv9i9tdhXE3c7YTbdlXuhGxdafl6LgQwp63oupLeUaCYp8Wrx/s8aEWVp8Xe
+	 UsTv3OVSjg2QXgWA6KDIedVVUvA48A3Ce7TtZW6Y+OwcrWact7uZQwtMqrQaQBK9NNg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795476443;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=MZq91PpEww6C1HRTg27TsQkx+nbMwiQpta5jBfAyfEI=;
+	b=PW/XBawzu9SudR/ia12qMHp8dXjzKX13zNNdIRodg5bgiHmBclAWFy+ZRDNOXhfc2p7U
+	 kWm0C98a7HL7xhYYew/KMKBJDg9CLzOUyfRZpk3tjVjjw5qn26bIgHa5mQCLx7msIyZzg
+	 uly98xOae2OGKVQX+BXva3C83bywMTwkwcPV/8MI0G8IcQISiXCIXNALrYJ7j9ZNGaEY0
+	 ECTHX+pNKFSgtj4Aoi1hpyyRU0BfF9JUBgGVLx7npZh8yTpWh4dsTNyWFpnQEkmp5sbVW
+	 SK1yfM9BoP8n1qkrWWEGA11e3sjswmvbsqTdBLH/o4X4/MQIqK94m3x7GuLd9XZnWgg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b="d/udM+iT";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.56
+Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010056.outbound.protection.outlook.com [40.93.198.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B6E6606A331;
-	Mon, 23 Nov 2026 23:27:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8EBE606A689;
+	Mon, 23 Nov 2026 23:27:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8EBE606A689
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UDWicosc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A670D1F000C4;
-	Mon, 23 Nov 2026 23:27:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795476437;
-	bh=UOCsuUblKp6MHryyZUEo50kZApMDVw34hVNlsTMvdFE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=UDWicoscz+gwBCeeIbs6ZafS0cpggEBbyyvTfSdljeZO6T/Ki0UVBlV7Mv2mRtNcb
-	 NRvoKu7JYtVH53OGzub6cwH7n9tDwTbsUHMpDiQxByHO159Kxt2H5Da+edGXW7AzeG
-	 z6MEoHNqKsSpE1UF8/Eu87vKtueFo4GMmb7KWC/RaxcyqOShE+7mm0jFT+l5Ve7jAd
-	 BdHzfjT8FizFbVlER3x32eYPnxjIiI7JZymI+aj1pdRpiqPvPf+JSydrv/UwrbS20b
-	 QCsOoVNDeiwrGAf8KrOC5QLZVk+FvBQjndCZzI0yUnFpZskigLGUHlNA+NtMIgPetC
-	 7qhK8/+NkH2hQ==
-Subject: Re: [PATCH net-next] net: mdio: handle broken-turn-around for non-PHY
- MDIO devices
-From: netdev-bot+sashiko@kernel.org
-To: bage@debian.org
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux@armlinux.org.uk, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- olteanv@gmail.com
-Date: Mon, 23 Nov 2026 23:27:16 +0000
-Message-ID: <179547643618.3135.12985709493556442247@kernel.org>
-In-Reply-To: <20261119231319.1256419-1-bage@debian.org>
-References: <20261119231319.1256419-1-bage@debian.org>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=d/udM+iT
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=t0BePvGCF3gTld58JCcatBo2P2SHnLqQLC7+R4CDHHON6e4xDrkS874oUCwKRqIsznfBVGN/IMlmkTrlweadftXPSMCIWJHcoqrIkbifii+QWfSJYZFrbhs4I6Z44KxgELf5N2XuXd0FMlZ8a6y9RLoA3SuhfTFnewvwNBE1HUg9VcIRtgHhGXwE/7cJVMiVEuatCSHUgsX2nEs2LbEL1e/FELtqvNWic6HCBJ6BdAU71HwAWJJIOGNMRaTcuyyWIHtA1nIMyZhWkWYfriov0GO76tWPoRX61b90TSMaHnc5X9k+1ZSHvDVQZN4fkVNz7wmw3q84iBvW3hKvalTpJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MZq91PpEww6C1HRTg27TsQkx+nbMwiQpta5jBfAyfEI=;
+ b=aH4+9L1G3en+YfCbQUJtSZX9ycPX3WFTRG5MbkJLMUTsm/s8BGe+G5b2jIwSi30HQg4DrI2WlXFCR202zQWW9VSmNHZYm8qjKQSondxH+8WRm1cGffGRSaYvjpA1EyB+s/n1DO/XHCA4TQgeD5brutDWGvcOwEp2wR7eqTHQ95U08COpPuRHlcOL+SErM7Il7l/AA36vUwrKkIH6+0TsO/b4Ak/VkLpQa+G5UnRcvG3JipAsjdhIY4oZXaPejucXvQJT+xzSxV2oc1gSUAgEaU1+7v65UDhO1fbf8GJHjpPYSt07UTA+zBn+fcDJS+Rcr3O9bHclUUO6Stn3F3nlCQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MZq91PpEww6C1HRTg27TsQkx+nbMwiQpta5jBfAyfEI=;
+ b=d/udM+iTB3TR4aVp8GmMdgieIdnsuXZlHitt+ynuTUxGW1i5eSQslRVp3ahzqtSNxO00qtw+QLTWfFzyoWSsA+sc8OxnE0mCbU+glNHoNFQ+vUnTx8JOawahfyGpWBGCjG1dmKC9v/2WveEOCTmbL01BOowtQUDjPa85dLo/bT4=
+Received: from PH8P221CA0057.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:349::12)
+ by SN7PR12MB7834.namprd12.prod.outlook.com (2603:10b6:806:34d::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 23 Nov
+ 2026 23:27:14 +0000
+Received: from PH7PEPF00000006.namprd04.prod.outlook.com
+ (2603:10b6:510:349:cafe::5c) by PH8P221CA0057.outlook.office365.com
+ (2603:10b6:510:349::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
+ 23 Nov 2026 23:27:14 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ PH7PEPF00000006.mail.protection.outlook.com (10.167.243.37) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 23:27:13 +0000
+Received: from quartz-7b1chost (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
+ 2026 17:27:11 -0600
+From: Yazen Ghannam <yazen.ghannam@amd.com>
+To: <linux-edac@vger.kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <tony.luck@intel.com>, <x86@kernel.org>
+Subject: [PATCH v2 0/3] Increase MCA bank count
+Date: Mon, 23 Nov 2026 17:26:58 -0600
+Message-ID: <20261123232701.1923094-1-yazen.ghannam@amd.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,147 +103,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: satlexmb07.amd.com (10.181.42.216) To satlexmb07.amd.com
+ (10.181.42.216)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PEPF00000006:EE_|SN7PR12MB7834:EE_
+X-MS-Office365-Filtering-Correlation-Id: 41d85217-1b4b-458b-148b-08df49b94e41
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|23010399003|82310400026|36860700016|376014|10067099003|56012099006|11063799006|261102123227099003|261026121527099003|261026140227099003|261021121427099003|261022105027099003|261021123027099003|261028144727099003|18002099003|261009223027099003;
+X-Microsoft-Antispam-Message-Info:
+	Mi8u96e7wdmNqLGTTWTXisOROv6LsCU2MWu7d9wkDPfXrZt67N8mtLRCguAMJD6flaClvfbv4yhH1TamQ9Rq0hkbaqKZnwyEAnzw4uViyK5wJTodMAXaW+PIT9ZSTkxJi2rgfjcWpPb0pgfwY1s2GrCKaAH+8We7wWRreq8yPPogZrMBPlyRday0R0osNi75CwIdRPTzxHy+3d+xO1xzsFtpvRF1N4u/kNwklhyItJ2LoaZybZd+kZllpNt6+KW7t/cZhd00CtwrOPAvNu5yqx8uTwxouoFi4WyB86YzMCNQze4lOAxXfDETKxmBPj69fagW/Ntnw3wYyQMUDOZzbOnhzZ+CGO1LqgrTO0933TsmslaIqINOCp9YsJu6wW6Ywqe1lbrVvCbGMXEHXWBpu6GB6f7xNsyVO0wtvYllIOwdbkt0A6whuBx/oGyxPj6XuKGwzrblZaro6ItmCXGV6dk3+FRMLU0HTTElXAik4/Hb3T3d7tKkZfgwE/+gOexwp1d0uvyANJnvRiJcyxy+awyMGMI2qiKqYnFb1y9a6hKcJ+SjgYlqHna6ix4V/7ssxZKigM0oqDI8hMHwFQL0/Jkxtqo416qp5fu/fxuSj4A9pUB4B3V52+1iDb6XFXOuttYg+SEUMYfw/OOa18b8KQ==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(82310400026)(36860700016)(376014)(10067099003)(56012099006)(11063799006)(261102123227099003)(261026121527099003)(261026140227099003)(261021121427099003)(261022105027099003)(261021123027099003)(261028144727099003)(18002099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	dc0hZSJJigc09MqCoiOzSMPhqorjklfyzG6/VS7KwhbMVuNQ9S2V4DDgwMBiz3S6siy35W057h+XCFiueV43XCv+B70P7whnLI2kirPiCM907uplWVNhqpf2fwEKOW49Zdht4NDp7/f0csvune60wXJin09N190xgUeat1pfndItLCJ//e8+FO2StdmGvvh+97HevzmfNfvG5+Y4YlhdvAN71+DNr9qsGI9x7tLnNYNPvyFLJ5szM0Wa/b39CP3ZMUTIUl7qEPRuocs/IEXIweGGpP6dPzlDSf7UwAlTvn26QyewElPrMHrZrrIKojNf12R9/NTvv0Z3zZyFx9Dt+x4mYx09cfUgAAetjfQ4YkD7ripGOiSc9Ig4neLZLRO0mYlz/qYBp6KqES3ooTgfs9DoRWHU3aB2WV/5lvmbz7OTRGtsjSnSAkPO12FDw/hK
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 23:27:13.9441
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 41d85217-1b4b-458b-148b-08df49b94e41
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	PH7PEPF00000006.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7834
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Hi all,
 
-Critical: 0 · High: 0 · Medium: 1 (1) · Low: 1
+This set increases the max MCA bank count (MAX_NR_BANKS) to the
+architectural limit.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Patch 1 is a bug fix that came out of code review.
 
-- [Medium] The fix marks only BIT(addr), where addr is the device-tree
-  `reg` of the non-PHY MDIO device.
-- [Low] The kernel-doc for struct mii_bus::phy_ignore_ta_mask
-  (include/linux/phy.h:427) reads 'PHY addresses to ignore the TA/read…
+Patch 2 is a pre-patch to avoid a bug for systems with more than 64 MCA
+banks per thread.
 
-Pre-existing issues:
-- [Medium] This patch does not introduce the problem, but the PHY path
-  that the commit message cites as the place where the property already…
+Patch 3 is where MAX_NR_BANKS is updated. The commit message includes
+some memory stats like the last time we bumped up MAX_NR_BANKS.
 
---
+Originally, I intended to include additional patches to consolidate and
+dynamically allocate many of the per-CPU and per-bank structures. These
+still need more work. So I thought to send just this small set to start.
 
-net: mdio: handle broken-turn-around for non-PHY MDIO devices
+Also, I figure a smaller set would be easier for backporting for those
+who want the feature support but don't want the additional rework.
 
-This commit parses the "broken-turn-around" property in
-of_mdiobus_register_device(), so that non-PHY MDIO devices such as DSA
-switches have their address set in phy_ignore_ta_mask. Before this, only
-PHY devices registered through fwnode_mdiobus_phy_device_register()
-honoured the property.
+I'm trying to see if the per-CPU rework can help with the "sysfs
+hotplug" issues reported by syzbot. I'll send rework as a follow up to
+this series.
 
-> diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
-> index b8d298c04d3ff..0695ae83b83be 100644
-> --- a/drivers/net/mdio/of_mdio.c
-> +++ b/drivers/net/mdio/of_mdio.c
-> @@ -56,6 +56,9 @@ static int of_mdiobus_register_device(struct mii_bus *mdio,
->  	struct mdio_device *mdiodev;
->  	int rc;
->  
-> +	if (fwnode_property_read_bool(fwnode, "broken-turn-around"))
-> +		mdio->phy_ignore_ta_mask |= BIT(addr);
+Testing was done in a KVM guest with a locally patched QEMU that
+emulates SMCA banks, at 255, 65, 64 and 1 banks per thread, and on AMD
+EPYC server systems. Mainline fails at more than 64 banks. Without
+patch 2, banks 64-127 alias to banks 0-63 for thresholding.
 
-[Severity: Medium]
-Does setting only BIT(addr) cover the addresses these switches actually
-use on the bus?
+An LLM coding assistant was used to help draft and revise the commit
+messages, to measure the size changes listed in patch 3, and to write
+and run the tests above. All code and text were reviewed by me.
 
-Bus drivers check phy_ignore_ta_mask against the address of each transfer,
-not against the registered device. For example, in unimac_mdio_read():
+I had the measurement data included in patch 3 similar to how we did the
+last time MAX_NR_BANKS got bumped up. Ofc, we can trim this if it's too
+much.
 
-	if (!(bus->phy_ignore_ta_mask & 1 << phy_id) && (cmd & MDIO_READ_FAIL)) {
-		ret = -EIO;
-		goto out;
-	}
+Thanks,
+Yazen
 
-The comment above that check names the Broadcom BCM53125 as the broken
-device. b53_mdio_probe() accepts a reg of either 0 or 30:
+Changes in v2:
+- Rebase on v7.4-rc4.
+- Patch 1: Split the bank bound check into its own early return. (Boris)
+- Patch 1: Note in the commit message that GHES records are affected
+  too, and that an out-of-range bank makes the address not usable.
+- Patch 3: Explain the cmci_supported() change in the commit message.
+- Patch 3: Add the #MC stack frame and intel-bff.o size changes.
+- Drop the Assisted-by trailers. Tool use is described above, following
+  1e035297ffda ("docs: remove Assisted-by references").
 
-	if (mdiodev->addr != BRCM_PSEUDO_PHY_ADDR && mdiodev->addr != 0) {
+v1: https://lore.kernel.org/r/20260903142049.4126599-1-yazen.ghannam@amd.com
 
-But b53_mdio_op() sends all switch register traffic to
-BRCM_PSEUDO_PHY_ADDR (30), whatever reg is:
+Yazen Ghannam (3):
+  x86/mce/amd: Fix bank lookup in amd_mce_usable_address()
+  x86/mce/amd: Convert bank_map to a bitmap
+  x86/mce: Increase MAX_NR_BANKS to 255
 
-	for (i = 0; i < 5; ++i) {
-		v = mdiobus_read_nested(bus, BRCM_PSEUDO_PHY_ADDR,
-					REG_MII_ADDR);
-		if (!(v & (REG_MII_ADDR_WRITE | REG_MII_ADDR_READ)))
-			break;
-		usleep_range(10, 100);
-	}
+ arch/x86/include/asm/mce.h      |  2 +-
+ arch/x86/kernel/cpu/mce/amd.c   | 11 +++++++----
+ arch/x86/kernel/cpu/mce/core.c  |  6 ------
+ arch/x86/kernel/cpu/mce/intel.c |  2 +-
+ 4 files changed, 9 insertions(+), 12 deletions(-)
 
-	if (WARN_ON(i == 5))
-		return -EIO;
 
-There is an in-tree BCM53125 node with reg = <0> in
-bcm47094-linksys-panamera.dts. If broken-turn-around were added to a node
-like that, only bit 0 would be set.
-
-Wouldn't every read at address 30 still return -EIO from
-unimac_mdio_read()? Once that is truncated into the u16 v, the busy bits
-look set. b53_mdio_op() would then hit WARN_ON(i == 5), and the switch
-could not be programmed.
-
-b53_mdio_phy_read16() also reads the internal PHYs at their own addresses
-on the same bus. The mask does not cover those addresses either.
-
-mv88e6xxx in single-chip mode (reg = <0>, sw_addr == 0) looks similar.
-There, mv88e6xxx_smi_direct_read() calls:
-
-	ret = mdiobus_read_nested(chip->bus, dev, reg);
-
-for many different dev addresses, so no single reg value would cover the
-chip.
-
-How much of this matters depends on which of the chip's addresses really
-have the broken turn-around. Should the commit message say that this
-change only helps when reg is the only address the device uses? Or should
-devices like these get a wider set of addresses?
-
-[Severity: Medium]
-This is a pre-existing issue, not one introduced by this patch. The commit
-message cites the PHY path as already handling the property, but that path
-seems to apply it too late.
-
-In fwnode_mdiobus_register_phy(), a PHY without an explicit
-ethernet-phy-idXXXX.XXXX compatible goes through:
-
-	if (is_c45 || fwnode_get_phy_id(child, &phy_id))
-		phy = get_phy_device(bus, addr, is_c45);
-
-get_phy_device() reads the PHY ID registers over MDIO. The mask is only
-set later, in fwnode_mdiobus_phy_device_register():
-
-	if (fwnode_property_read_bool(child, "broken-turn-around"))
-		mdio->phy_ignore_ta_mask |= 1 << addr;
-
-During that ID read, mdiobb_read_common() would return 0xffff and
-unimac_mdio_read() would return -EIO. Wouldn't get_phy_device() then fail
-with -ENODEV before the property takes effect?
-
-The new non-PHY path sets the bit before mdio_device_create(). So after
-this patch, the PHY and non-PHY paths set the bit in a different order.
-
-[Severity: Low]
-This isn't a bug, but the kernel-doc for struct mii_bus in
-include/linux/phy.h still says:
-
-	/** @phy_ignore_ta_mask: PHY addresses to ignore the TA/read failure */
-
-The comment in mdiobb_read_common() also mentions "this PHY is listed in
-phy_ignore_ta_mask". After this patch the mask is set for non-PHY MDIO
-devices too.
-
-"PHY address" is the usual name for the Clause 22 PHYAD field, and
-phy_mask uses the same wording, so the text is not wrong. Would it still
-be worth rewording it to say MDIO device addresses?
-
->  
->  	mdiodev = mdio_device_create(mdio, addr);
->  	if (IS_ERR(mdiodev))
-
-[ ... ]
-
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119231319.1256419-1-bage%40debian.org
+2.55.0
+
