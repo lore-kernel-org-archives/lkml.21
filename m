@@ -1,110 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.121
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795471944;
-	b=ATndBZ1saZvIuzVuBDEoKq/zR6MUwAOx3j2/jrv9k5xk3BbZjj6QaRc1wc2paEDZ9qTt
-	 JsdfpjiiWSHgfp1/VOcHhesrCpMPtKLL0nhZS4YMH077YrBtV+5TB0d5TJAUJiO02NaLb
-	 ItPD1NJvN+CTygM2KC51XuQkqKsrnIDTQNxNVtG1dqCCCI57wEYjAS0VmwdAwsbZl+Vck
-	 YH36Mfzws92e3OU3NTGcOGnyFOqk6fs65NSnPYdvgmDbD7oGDLoABO/10WIiPhLgECX1Y
-	 l7AA7Tu5pEaDVwCCJQfLr6N9SgJwApWfgBFDo1bercGFpjxBUFqcjVuRSO0ujX0Gb3A==
+	t=1795471961;
+	b=ys5GqNIp8anlPDrGGBercDYjPQo/n/8PrtF5/OyDl0MJysi6gJ0JjRSncoXIMoPH16DJ
+	 a5N2najInQ8KHLHnBc7CQVNdX1317RjKNJQVhCakjjkDU2NpWBS18NSATiI0MxhaNhuxi
+	 FGOLet0AQtFTdFDZDi/kJzt7X4to7bu9UaJi6IRbGv41HhIX2hbnawngTHJ3cE2U8Cnqa
+	 2JDy4V7Dxk2N+KFHfutK64JUfJewVni3pKNGlN+KAEYBSlVMYvI0j5W8B05TvepJCT7qq
+	 YV+KkQEy2pFyGZnSqamOMsfq+8OwiBlKR1cFExAlDLoTcWti90AzMJxm7jUc53ayWwQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795471944;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
-	 X-Received:X-Received:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=vAR5+zSsownz5t35od5w2H9aLmJex5vLwmm0AzMVyS0=;
-	b=JXl+vk1tU3MErgWuRRO2e1gVrFQNCcDUAOgTIfVmM5a3xwNiv/kjbeBiuSZCOxngulrM
-	 9SNYvRpgOfhF9CCT/Yfnf7gg3XYfFZ48CIBm+OOhhhFgx7pcTEqYGhtfBaqO5XaBs1Z7A
-	 be3sp+WieNECzSX7oTz1/LSrTCj8/AtB4HQHWcjC+5svVDexoIh2i9yucWz+helMMqxwW
-	 QSgh1ufHu39mK7ovqb6eu4WeinUIYwNIjWpNfjY7xsqEFaI4H6haskJTPux+bOexktiv7
-	 4ClWgcCzC9bztDd7mLLTMOSxNh/IJf6sM8D3k+kTggyJ3KXP6jEpHE+1OevIJqSK4Jw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795471961;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=EoUAkHlkPWrbFcfVkFGABpxquYoMskuMcC6gsYkiFA4=;
+	b=LM3c0OQ1tdX89oweMjYuqxe4i3+yXDiwggeX38RCnfhib0llD4bK3udIwxLwvQgfK4VH
+	 U6MOn0WxWa3oj3lMPmtj3YxzR5iywrJwbRF0clJH6n2IBNS4lWv9Sw0ThI8sPJHoH2cVx
+	 a0X4kR5iboKk7NtG1rhJlHkE9GkMxgCBOW/rInkMmzkTp5kZcM4vxbk2bz3SJS3t98buy
+	 /AZbSQPPo8THLbnJM2TR+9LfEIh8LD2e8r5lHK+UGhRNODFoZSFiI5arflj0zuFhHnOAH
+	 Otz+YmOBy1daAm8SLdQJeHnOyT7nOzYDsIXZL8TdSdM192JlzeCbX04s9i/5D78enTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=UO52xKIt;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=YISgUhDu;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=XdBktN39;
+	arc=none smtp.remote-ip=79.135.106.121
+Received: from mail-106121.protonmail.ch (mail-106121.protonmail.ch [79.135.106.121])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86C63606A338
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:12:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86C63606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59C2A606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:12:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59C2A606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=UO52xKIt;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=YISgUhDu
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJunLK2827791
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:12:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	vAR5+zSsownz5t35od5w2H9aLmJex5vLwmm0AzMVyS0=; b=UO52xKItNj5Iayy3
-	s4XevmllE0jqlx9CoG+WqvSZuoyU0bGOSxtpY3t15Yj+lIXZrCrqSYkrAW26CEL6
-	3OOfdwUZ8X2yMtAxnmuFq+GlbI0xXODD8N1gdqh8qs3jZ4U9XLhciJohvXEm4dKO
-	Uy3sDonNjw5uu/gYGIbaB4YWnPe16ktIfiThwW0479EskRAU9uL7MZhf2fq7GPgz
-	p8H+HcFik3HEQKYoXgCsPwFuMtUlRiOyGHSGJnpmSu+/mnO9ilXk+M38AEN6bqBQ
-	LGcir6VOefD7M97NGNKFtJzBLB+WnclutXPXqPir2dkmCjiRe3NDs08SAmH7nIRM
-	uLLb8Q==
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4exx3v7t-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:12:22 +0000 (GMT)
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-9212d968d19so72271736d6.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:12:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795471942; x=1796076742; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=vAR5+zSsownz5t35od5w2H9aLmJex5vLwmm0AzMVyS0=;
-        b=YISgUhDu2cqcVDBpoKXKWYzbgrxRjfyFZHsamLnMkVrJJVKH/EqFCtSXVaU+Y76Ipp
-         zMUVMTv4IZvdhOoU8Of1Jwh+Oy1DTAiuuEPwOagH67CGVsfmi6mPGEmAKsu/qFu2HwrX
-         YsDeoxsWUhcypHFM2CGnL/ssumNBWsI1c8LgvzDaWBqQFPA/XrTDJAUanW4i5t0sHhZs
-         kyJCH/ZAutkLz1ADQ7/kvv3Nuii+LyvV9hHoiJBTdzLwE9/KLvkbcF9CaK8clLFUb2bx
-         ntwoVDPECSDx6CrmHixo7mRcv5upvFc9XAVYqJb7liN7FxAkuYeJ3LIVF2mr7njEv0Sz
-         /zlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795471942; x=1796076742;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vAR5+zSsownz5t35od5w2H9aLmJex5vLwmm0AzMVyS0=;
-        b=xNVsOz4bifh9kUTqEMcTZJaVLLK7jONhRViMX61T4qupOdT2IGXQxMKFpwsxK5AXH7
-         S54IyDac8SusfKocNo28LXAZ8cTvUO5S9IDWbF1NPv8sTsvcrnMCQC7EYMZHTjObqGaG
-         SZPxFMQmkXzOQe+8w4fTrZYHOTLgAKwGoyh38iKV8Z3FioJpvcDWMkPovRK64U2PuQNr
-         Z52BzUalZzGzY1EGhaNCZIpLoJwM5/fjwOKsM5Wt2pAFqGydD3dVn4mCy1yXCv1XgVWm
-         P9T/b5FlWLufbBFRHQiVBC0EAwTiwKTBCkqq55dzamXKGPc3VOiteAXF4B3/4E7jBjGo
-         COcw==
-X-Gm-Message-State: APuU4Z/nh+pUZU/fgub4HmIMDCf+FQevcSeMJvNDsixEoeMlT/SMGvSO
-	cTRPaIwjUw0MYVsOvBeqQ+75KdhuD1v/dY++eexJjBA5cqe1lWNCcfQwyzcu6P46qHJkcdgesEQ
-	tLHIP89qjpsgJEQ6zC5e9zmEIgEPU3uiaPrbMY2c+OUmMSY2YZXe2Lhfy95gdchYjo5E=
-X-Gm-Gg: AZFdTZfUa686VupsBars1a42Vy8I3EvkMIAKEiv4Y/t2ZsJ0K2Y1jjFptBu5rLZAjad
-	FTGCyy0th/WSpHqH2em3kx9yqTEQCyjBj4VrwAhnhhNEXpbYhBKdiHaXDLJC239fh91Q2RFZwEF
-	q8aeZL1rvG56uFng+mnSZrIDxd8Q+9ci4AWdzBjOcGpmjYLH8XdIWstaeM9QR472mQZVWdEJqjZ
-	q3UfybvLkDyYw5Pxp+VxEmGWkJvs4YYOLHBvCCjNUKTJcARX607gau6HBhw9tf8Ogx77vn0EnEb
-	bscMB3ZeJ3OSwGyDLwLRbe8ZZ+tTBM4HWB4vCh+ddZ3ahebe71VcIuQ6Qls4M7G/aSS9kEKfaiG
-	zqKl8AhQtZlVegDcnDFat64c1zIeUUfb5ZSa9gLgWMshvD9v7k/2CIug+vDcFYN2mWfY=
-X-Received: by 2002:a05:620a:2907:b0:949:6bee:1b4a with SMTP id af79cd13be357-949baa04ac4mr2324965785a.64.1795471941897;
-        Mon, 23 Nov 2026 14:12:21 -0800 (PST)
-X-Received: by 2002:a05:620a:2907:b0:949:6bee:1b4a with SMTP id af79cd13be357-949baa04ac4mr2324960185a.64.1795471941414;
-        Mon, 23 Nov 2026 14:12:21 -0800 (PST)
-Received: from localhost ([178.197.218.7])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8526cbd0sm500012825e9.0.2026.11.23.14.12.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 14:12:20 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Date: Mon, 23 Nov 2026 23:12:11 +0100
-Subject: [PATCH v2 2/2] dt-bindings: qcom: qcom,ids: Remove unneeded ID
- constants
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=XdBktN39
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1795471958; x=1795731158;
+	bh=EoUAkHlkPWrbFcfVkFGABpxquYoMskuMcC6gsYkiFA4=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=XdBktN39ddyd3DFNpaloFn4CJYg6xMtGy0plg8t/oXHFD22tkQHlnYDQBYZKLD+1G
+	 rKU4ZrHEi6oGTCDr7k+MHzMU/selkooRrEZLInqzE9pRQvlRvIr7/hyC3M7KpWBjk+
+	 TBXbHZffomFCP4+ea7Ue58oxRUnckM1TtvBo6m1z7QMOvi19ilxP7X2mfTt1YLEZba
+	 rovjJ9pYyuRwNceriP1BqYd32eD8kycQPskOLctszcAexAkb+7y06J0nq4z04xRBnN
+	 VTqY5tJP2qqv9BXp/Q0i6ralp/4pNogljaNDScGOwkKmKejD1yCRHZgtAz+m8fZep4
+	 Vuys/XVf2ly8A==
+Date: Mon, 23 Nov 2026 22:12:33 +0000
+To: linux-bluetooth@vger.kernel.org
+From: Kyle Pepper <cochcoder@proton.me>
+Cc: luiz.dentz@gmail.com, marcel@holtmann.org, sean.wang@mediatek.com, linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v2] Bluetooth: request LE data length for MT7922
+Message-ID: <20261123221218.215154-1-cochcoder@proton.me>
+In-Reply-To: <20261016170122.27119-1-cochcoder@proton.me>
+References: <20261016170122.27119-1-cochcoder@proton.me>
+Feedback-ID: 97716137:user:proton
+X-Pm-Message-ID: 943ecc765d5ae44366246513eba7e6e3b93db50b
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,193 +64,226 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-qcom-socinfo-id-dt-bindings-v2-2-4504c1ce869a@oss.qualcomm.com>
-References: <20261123-qcom-socinfo-id-dt-bindings-v2-0-4504c1ce869a@oss.qualcomm.com>
-In-Reply-To: <20261123-qcom-socinfo-id-dt-bindings-v2-0-4504c1ce869a@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-        Brian Masney <bmasney+clk@redhat.com>,
-        Jerome Brunet <jbrunet+clk@baylibre.com>,
-        Ilia Lin <ilia.lin@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Viresh Kumar <viresh.kumar@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-        linux-pm@vger.kernel.org,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4216;
- i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=K+HF+Osd+hPnuAw+6Z8+zElC+vz4XRee9p0SrByTY4g=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBrBLo9ZiLiSCHGiOxePFC250k+Ad4lftkkiPlfM
- cHgtyGjZVSJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCawS6PQAKCRDBN2bmhouD
- 10U2D/9zHakAfW0uIhMlZUEe3iYazF4w3BGMgqAwSPuKUPDux1EUPsRET90xW0NzAQtjPcKyeX4
- QP2mdmtsiKnR1Ga6BrF2OWz+bWUVjEC1Gks5k3LRQa9VOcibz/q6z2+ivqEdGAJzJes2nQEgKnh
- HriWmIc/nwoT3G565FeNQvLmDxX/5cGiuYZAkH+4EGnihmsTS6XRnXDwtZYRh/vs+lytfmxCXM+
- EWZPmKu5AiV/Ehmi/yPCzSjrKnqua0kwcQrzhs/R4/iVN8FTxVPdyQSAeHISeH2M8S5s6U+XOO9
- lEQNV1IDfzPaL/WZnusQZLJ+IyJHUnOAiX1oddz1gTygtexssGG+NHFePCY9niWuOed0W/+6HG1
- anMfNFY1BHdmEv1RZEys2vwd9nOMplOOBf/afwhZhOrDDDrfe1oIYtNpSAm28rE84cz3IaLmwg4
- aQGBvOnG0jaBj74Gt8v02gQMvcthXwEvOyUubPChzsBwYcTDHNRCX3LE47lX5epj02oz1G+lpBH
- SW52ZwYY/3r1+MGqGuo4v0549bMb4SFD6zUaVbeiA46/RcAbndRPiRT8oQ75GGYvIPpQboCJsId
- Pcnr8IGJ1j8hziRd2dxpP69Wp04KHhWWifGURSDTBahFy+tic5d1u0O5eUUwzo3A0idY9xKLIPs
- gQh7HPjz/eZolGg==
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Authority-Analysis: v=2.4 cv=FKKOVOos c=1 sm=1 tr=0 ts=6b04ba46 cx=c_pps
- a=UgVkIMxJMSkC9lv97toC5g==:117 a=uyPgTw0bjBTS2cVxpiNm5w==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=EUspDBNiAAAA:8 a=9Iw9l5jZwusWHIt2LTYA:9 a=QEXdDO2ut3YA:10
- a=1HOtulTD9v-eNWfpl4qZ:22
-X-Proofpoint-ORIG-GUID: Ll4UI3RGYe1Ua9rXajdQK6vr1lRP6GQy
-X-Proofpoint-GUID: Ll4UI3RGYe1Ua9rXajdQK6vr1lRP6GQy
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA4OCBTYWx0ZWRfX1ww4R52ZOEf+
- OP1Fp6tGRKMnCCUZCi8sll2QiDBphEPhulZGgcuf2SVMRWCQdtCjjBUuxvm3EQnjwQ9+3r1LWSV
- zgeWu33IQjCn9V9VpWSF6dDXB5wJnL4=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA4OCBTYWx0ZWRfX4SC2cOQheXjW
- MxGNv5t327mGlpDOggeDxaLZHuVgh2x25CWzbz06hPOQXjq9wGi0hWkU9cSJ0ct6+EqFnVCd6Vt
- CNMyX6WqWU9iW7wLtGTUCW/xV0vFFkVuuDgOYcisM3iqNHOVymA+tStaZq4Ys0PMrYacgnJxFPh
- UrohpOnmn7buzzQaHj9jp6XvMHIuRyg5kjZNUiJ3JIIfEaaE88ThrlHc0aWk8Lx7IUJ2g2GwUVl
- HdTT5csmePebb3PMnHGu6Y8v3mO7Mas9q4YQACGVVHAfzc9UaMo/qxl8hP2iu4dJC0of225T/aj
- 74KQU2petsCLWNBxoZpyKFTnyQInRERsyCUYHmIi9YxK/SAglN2oL07c3xmnJ23eLGSG1ut6Vzo
- CXGpmcW6o/OrJh/nBB6N+ZMvznx64gAPIHluYaFnM1xXWlf3U/dMyRT/64CvvFxZPCvnMRBYq+j
- WCnH9n8uCqBVlABqU1w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_05,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 spamscore=0 bulkscore=0 priorityscore=1501 malwarescore=0
- lowpriorityscore=0 impostorscore=0 phishscore=0 suspectscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230088
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-The IDs of newer Qualcomm SoCs, as reported by hardware or firmware, are
-currently used only in the socinfo.c driver.  There should not nbe and
-there is no in-tree DTS user of these, so none of these constants are
-really proper Devicetree ABI.  IDs of older SoCs were being used in DTS,
-thus that part matches the concept behind DT bindings.
+Hi Luiz,=20
+Since there hasn't been a response from
+the MediaTek folks in over 5 weeks I've gone
+ahead and prepared this v2 quirk patch that=20
+will work for USB MT7922 controllers.
+Thanks,=20
+Kyle Pepper
 
-Drivers have local copies of these defines, thus these can be dropped.
-This has no impact on in-tree ABI, but any outside users would be
-affected.
+MT7922 USB firmware can accept maximum LE suggested default data lengths
+without negotiating a larger transmit data length on a new connection.
+On an ASUS G614PR with USB ID 0489:e0f6 and firmware 20260724143815,
+ASHA playback remains choppy until an explicit LE Set Data Length request.
+A request on the same Cochlear Nucleus 8 connection raises delivery from
+21.5 to 50 audio SDUs/s and reduces peak outstanding packets from 32 to 3.
 
-Note, that DT bindings do not allow qcom,msm-id ABI for anything newer
-than SM8250 or SM7225.
+Set a quirk for MT7922 in USB setup and request the current suggested
+defaults after successful remote feature exchange on central-role links.
+Require local and remote DLE support and the LE Set Data Length command.
+Keep suggested-default initialization and PHY negotiation unchanged.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Do not restrict the workaround to the tested firmware build or OEM USB
+ID: the affected firmware range has not been confirmed. Other MediaTek
+chips do not enable the quirk. The request also applies to 1M peers that
+support DLE, and ordinary link-layer negotiation determines the result.
+
+Hold a connection reference while queued and revalidate its membership,
+state, role and capabilities before sending. Release the reference on
+completion, cancellation or queue failure. A failed optional request
+does not reject connection setup.
+
+Assisted-by: OpenCode:gpt-6.1-sol
+Assisted-by: Codex
+
+Signed-off-by: Kyle Pepper <cochcoder@proton.me>
 ---
- include/dt-bindings/arm/qcom,ids.h | 91 +-------------------------------------
- 1 file changed, 1 insertion(+), 90 deletions(-)
+Contingency revision: MediaTek has been asked about a firmware fix and its
+affected scope. No reply has been received as of November 23. This does
+not establish that a firmware fix is unavailable or that every MT7922
+firmware release is affected. A firmware fix remains preferable.
 
-diff --git a/include/dt-bindings/arm/qcom,ids.h b/include/dt-bindings/arm/qcom,ids.h
-index d89d3b5dd00c..ecf99553ddb0 100644
---- a/include/dt-bindings/arm/qcom,ids.h
-+++ b/include/dt-bindings/arm/qcom,ids.h
-@@ -230,97 +230,8 @@
- #define QCOM_ID_SC8280XP		449
- #define QCOM_ID_IPQ6005			453
- #define QCOM_ID_QRB5165			455
--#define QCOM_ID_SM8450			457
- #define QCOM_ID_SM7225			459
--#define QCOM_ID_SA8295P			460
--#define QCOM_ID_SA8540P			461
--#define QCOM_ID_QCM4290			469
--#define QCOM_ID_QCS4290			470
--#define QCOM_ID_SM7325			475
--#define QCOM_ID_SM8450_2		480
--#define QCOM_ID_SM8450_3		482
--#define QCOM_ID_SC7280			487
--#define QCOM_ID_SC7180P			495
--#define QCOM_ID_QCM6490			497
--#define QCOM_ID_QCS6490			498
--#define QCOM_ID_SM7325P			499
--#define QCOM_ID_IPQ5000			503
--#define QCOM_ID_IPQ0509			504
--#define QCOM_ID_IPQ0518			505
--#define QCOM_ID_SM7450			506
--#define QCOM_ID_SM6375			507
--#define QCOM_ID_IPQ9514			510
--#define QCOM_ID_IPQ9550			511
--#define QCOM_ID_IPQ9554			512
--#define QCOM_ID_IPQ9570			513
--#define QCOM_ID_IPQ9574			514
--#define QCOM_ID_SM8550			519
--#define QCOM_ID_IPQ5016			520
--#define QCOM_ID_IPQ9510			521
--#define QCOM_ID_QRB4210			523
--#define QCOM_ID_QRB2210			524
--#define QCOM_ID_SAR2130P		525
--#define QCOM_ID_SM8475			530
--#define QCOM_ID_SM8475P			531
--#define QCOM_ID_SA8255P			532
--#define QCOM_ID_SA8650P			533
--#define QCOM_ID_SA8775P			534
--#define QCOM_ID_QRU1000			539
--#define QCOM_ID_SM8475_2		540
--#define QCOM_ID_QDU1000			545
--#define QCOM_ID_SM7450P			547
--#define QCOM_ID_X1E80100		555
--#define QCOM_ID_SM8650			557
--#define QCOM_ID_SM4450			568
--#define QCOM_ID_SAR1130P		579
--#define QCOM_ID_QDU1010			587
--#define QCOM_ID_QRU1032			588
--#define QCOM_ID_QRU1052			589
--#define QCOM_ID_QRU1062			590
--#define QCOM_ID_IPQ5332			592
--#define QCOM_ID_IPQ5322			593
--#define QCOM_ID_IPQ5312			594
--#define QCOM_ID_IPQ5302			595
--#define QCOM_ID_QCS8550			603
--#define QCOM_ID_QCM8550			604
--#define QCOM_ID_SM8750			618
--#define QCOM_ID_IPQ5300			624
--#define QCOM_ID_SM7635			636
--#define QCOM_ID_SM6650			640
--#define QCOM_ID_SM6650P			641
--#define QCOM_ID_IPQ5321			650
--#define QCOM_ID_IPQ5424			651
--#define QCOM_ID_QCM6690			657
--#define QCOM_ID_QCS6690			658
--#define QCOM_ID_SM7750			659
--#define QCOM_ID_SM8850			660
--#define QCOM_ID_IPQ5404			671
--#define QCOM_ID_QCS9100			667
--#define QCOM_ID_QCS8300			674
--#define QCOM_ID_QCS8275			675
--#define QCOM_ID_QCS9075			676
--#define QCOM_ID_QCS615			680
--#define QCOM_ID_SA8797P			690
--#define QCOM_ID_SM8975			707
--#define QCOM_ID_CQ7790M			731
--#define QCOM_ID_CQ7790S			732
--#define QCOM_ID_SM8950			735
--#define QCOM_ID_CQ2390M			756
--#define QCOM_ID_CQ2390S			758
--#define QCOM_ID_IQ2390S			759
--#define QCOM_ID_IPQ5200			765
--#define QCOM_ID_IPQ5210			766
--#define QCOM_ID_QCF2200			767
--#define QCOM_ID_QCF3200			768
--#define QCOM_ID_QCF3210			769
--#define QCOM_ID_IPQ9620			770
--#define QCOM_ID_IPQ9650			771
--#define QCOM_ID_IPQ9610			778
--#define QCOM_ID_IPQ9630			779
--#define QCOM_ID_IPQ9640			780
--#define QCOM_ID_IPQ9670			781
--#define QCOM_ID_QCF3211			801
--#define QCOM_ID_IPQ5211			802
-+/* Do not grow the list with entries which are not used as Devicetree ABI */
- 
- /*
-  * The board type and revision information, used by Qualcomm bootloaders and
+Changes in v2:
+- Match MT7922 in USB setup, without a firmware-build or OEM USB-ID gate.
+- Remove firmware-header matching and its setup-time clear/recheck logic.
+- Rebase on current bluetooth-next; retain guarded referenced queue work.
 
--- 
-2.53.0
+Previous patch:
+https://lore.kernel.org/linux-bluetooth/20261016170122.27119-1-cochcoder@pr=
+oton.me/
+Luiz requested checking firmware-fix plans and avoiding a single-build
+gate unless MediaTek confirms an image-specific regression. This v2 is
+prepared in case a validated firmware fix is not forthcoming; his reply
+is conditional guidance, not an Acked-by or approval of this revision.
+
+Historical evidence: manual same-link request on 0489:e0f6 with firmware
+20260724143815 gave 21.5 -> 50 SDUs/s. Automatic requests worked in the
+local patched 7.2.9 stack. No new hardware result is claimed for v2, for
+other firmware/OEM boards, or for vanilla upstream. Suspend/resume,
+other profiles, native concurrency and power regressions remain untested.
+
+Local validation on base ffb95458a0f7: GCC and Clang baseline/candidate
+builds each compile four Bluetooth objects with W=3D1 and zero warnings.
+82 source-extracted ASan/UBSan controls pass; the baseline and five
+mutation controls detect missing behavior and guards. LeakSanitizer is
+disabled because the command runner uses ptrace; these are model tests.
+Source-only strict checkpatch is clean. Stock full-mail checkpatch flags
+the retained Assisted-by trailers as BAD_SIGN_OFF. No checker is changed
+or attribution removed; remote CI and human-signed mail remain unchecked.
+
+No introducing kernel commit has been established for this firmware bug,
+so no Fixes or stable tag is inferred. No extra patch/MR dependency.
+Human review and DCO sign-off are required before publication.
+
+AI assistance: the retained request/queue implementation originated with
+OpenCode:gpt-6.1-sol. Codex adapted matching, rebased it, and prepared this
+message, review notes and offline validation in response to Luiz's review.
+
+ drivers/bluetooth/btmtk.c        |  4 +++
+ include/net/bluetooth/hci.h      |  5 +++
+ include/net/bluetooth/hci_sync.h |  1 +
+ net/bluetooth/hci_event.c        |  8 +++++
+ net/bluetooth/hci_sync.c         | 58 ++++++++++++++++++++++++++++++++
+ 5 files changed, 76 insertions(+)
+
+diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
+index 1b3dab0d1..1869815cc 100644
+--- a/drivers/bluetooth/btmtk.c
++++ b/drivers/bluetooth/btmtk.c
+@@ -1858,6 +1858,10 @@ int btmtk_usb_setup(struct hci_dev *hdev)
+=20
+ =09btmtk_data->dev_id =3D dev_id;
+=20
++=09/* MT7922 needs per-link requests despite suggested defaults. */
++=09if (dev_id =3D=3D 0x7922)
++=09=09hci_set_quirk(hdev, HCI_QUIRK_NEEDS_LE_SET_DATA_LEN);
++
+ =09err =3D btmtk_register_coredump(hdev, btmtk_data->drv_name, fw_version)=
+;
+ =09if (err < 0)
+ =09=09bt_dev_err(hdev, "Failed to register coredump (%d)", err);
+diff --git a/include/net/bluetooth/hci.h b/include/net/bluetooth/hci.h
+index efb85c781..85a4931e5 100644
+--- a/include/net/bluetooth/hci.h
++++ b/include/net/bluetooth/hci.h
+@@ -348,6 +348,11 @@ enum {
+ =09 */
+ =09HCI_QUIRK_BROKEN_READ_ENC_KEY_SIZE,
+=20
++=09/* The controller needs an explicit LE Set Data Length request for
++=09 * each central-role connection despite accepting suggested defaults.
++=09 */
++=09HCI_QUIRK_NEEDS_LE_SET_DATA_LEN,
++
+ =09/*
+ =09 * When this quirk is set, the reserved bits of Primary/Secondary_PHY
+ =09 * inside the LE Extended Advertising Report events are discarded.
+diff --git a/include/net/bluetooth/hci_sync.h b/include/net/bluetooth/hci_s=
+ync.h
+index 509ec4161..eab827dfa 100644
+--- a/include/net/bluetooth/hci_sync.h
++++ b/include/net/bluetooth/hci_sync.h
+@@ -195,6 +195,7 @@ int hci_le_read_remote_features(struct hci_conn *conn);
+=20
+ int hci_acl_change_pkt_type(struct hci_conn *conn, u16 pkt_type);
+ int hci_le_set_phy(struct hci_conn *conn, u8 tx_phys, u8 rx_phys, u16 phy_=
+opts);
++int hci_le_set_data_len(struct hci_conn *conn);
+ int hci_le_set_cig_params_sync(struct hci_dev *hdev, u8 cig_id);
+ int hci_le_create_big_sync(struct hci_conn *conn, struct bt_iso_qos_ext *q=
+os,
+ =09=09=09   u8 num_bis);
+diff --git a/net/bluetooth/hci_event.c b/net/bluetooth/hci_event.c
+index b6c7f9a9f..7ef2c4d19 100644
+--- a/net/bluetooth/hci_event.c
++++ b/net/bluetooth/hci_event.c
+@@ -7436,6 +7436,14 @@ static void hci_le_remote_feat_complete_evt(struct h=
+ci_dev *hdev, void *data,
+ =09=09=09 */
+ =09=09=09conn->le_tx_def_phys &=3D ~HCI_LE_SET_PHY_HDT;
+ =09=09=09conn->le_rx_def_phys &=3D ~HCI_LE_SET_PHY_HDT;
++
++=09=09=09if (hci_test_quirk(hdev, HCI_QUIRK_NEEDS_LE_SET_DATA_LEN) &&
++=09=09=09    conn->role =3D=3D HCI_ROLE_MASTER &&
++=09=09=09    (hdev->commands[33] & BIT(6)) &&
++=09=09=09    (hdev->le_features[0] & HCI_LE_DATA_LEN_EXT) &&
++=09=09=09    (conn->le_features[0] & HCI_LE_DATA_LEN_EXT) &&
++=09=09=09    hdev->le_def_tx_len > 27)
++=09=09=09=09hci_le_set_data_len(conn);
+ =09=09}
+=20
+ =09=09if (conn->state =3D=3D BT_CONFIG) {
+diff --git a/net/bluetooth/hci_sync.c b/net/bluetooth/hci_sync.c
+index 2e88af51b..ac82aa085 100644
+--- a/net/bluetooth/hci_sync.c
++++ b/net/bluetooth/hci_sync.c
+@@ -9286,3 +9286,61 @@ int hci_le_eks_oppt_encrypt(struct hci_conn *conn)
+=20
+ =09return err;
+ }
++
++static void le_set_data_len_complete(struct hci_dev *hdev, void *data, int=
+ err)
++{
++=09struct hci_conn *conn =3D data;
++
++=09bt_dev_dbg(hdev, "err %d", err);
++=09if (err && err !=3D -ECANCELED && err !=3D -ENODEV)
++=09=09bt_dev_warn(hdev, "Failed to set LE data length (%d)", err);
++=09hci_conn_put(conn);
++}
++
++static int hci_le_set_data_len_sync(struct hci_dev *hdev, void *data)
++{
++=09struct hci_conn *conn =3D data;
++=09struct hci_cp_le_set_data_len cp;
++
++=09hci_dev_lock(hdev);
++
++=09if (!hci_conn_valid(hdev, conn) || conn->type !=3D LE_LINK ||
++=09    conn->role !=3D HCI_ROLE_MASTER ||
++=09    (conn->state !=3D BT_CONNECTED && conn->state !=3D BT_CONFIG)) {
++=09=09hci_dev_unlock(hdev);
++=09=09return -ECANCELED;
++=09}
++
++=09/* Use the current suggested defaults, including later host changes. */
++=09if (!hci_test_quirk(hdev, HCI_QUIRK_NEEDS_LE_SET_DATA_LEN) ||
++=09    !(hdev->commands[33] & BIT(6)) ||
++=09    !(hdev->le_features[0] & HCI_LE_DATA_LEN_EXT) ||
++=09    !(conn->le_features[0] & HCI_LE_DATA_LEN_EXT) ||
++=09    hdev->le_def_tx_len <=3D 27) {
++=09=09hci_dev_unlock(hdev);
++=09=09return 0;
++=09}
++
++=09cp.handle =3D cpu_to_le16(conn->handle);
++=09cp.tx_len =3D cpu_to_le16(hdev->le_def_tx_len);
++=09cp.tx_time =3D cpu_to_le16(hdev->le_def_tx_time);
++
++=09hci_dev_unlock(hdev);
++
++=09return __hci_cmd_sync_status(hdev, HCI_OP_LE_SET_DATA_LEN,
++=09=09=09=09     sizeof(cp), &cp, HCI_CMD_TIMEOUT);
++}
++
++int hci_le_set_data_len(struct hci_conn *conn)
++{
++=09struct hci_dev *hdev =3D conn->hdev;
++=09int err;
++
++=09err =3D hci_cmd_sync_queue_once(hdev, hci_le_set_data_len_sync,
++=09=09=09=09      hci_conn_get(conn),
++=09=09=09=09      le_set_data_len_complete);
++=09if (err)
++=09=09hci_conn_put(conn);
++
++=09return (err =3D=3D -EEXIST) ? 0 : err;
++}
+
+base-commit: ffb95458a0f70dcab620eee0ecf5ef7750971b2f
 
