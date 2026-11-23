@@ -1,75 +1,75 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795427740;
-	b=IIa+3DsaDzepG3OznLCuv/S/GoS91PkHcfeF1+DTTpBN4UGio0VXv4UbVuMVYOBbY2m4
-	 iwOdBy0GFIP7ZxNspZMbUMLuWcS927BPWlOT0s22wRLq0QUS/XcYmzyG8FutXqQNduWlL
-	 3MHEGvx7W/o9yKzF0cNsJ6tfyqeftc/SfOI4Y7qCi+kHvsfUQoZNDydYrDnAFw4uIVs1C
-	 o2h+2ystHQgdh2lNZCS5ubHmm/2mVys1zzD3rwPYEdaZ3/6pw8wDJIcSDc758OOQFeeap
-	 4DQJWz8S8eEpJ5WlBw6X0me4wEDQHBiFnd19Bw4mYEbpMmi0XURReNcptX80FRRrLZg==
+	b=MqTrWNihTR/LTW9/GpyQTiSieytCAveNiihsqDjgcO3Mjt4Ylflx3ZFmQ+hbdnOL0S+u
+	 1eZvoEflJs287Ci1N2HGKbVGCTeNHuDAHp6CDyhkGiwRQBbKDLDLCCjGE9GMtbDmuubOC
+	 YfmUPGG0J6QCUC48hj2AGlYZrQd9e36SHjVJBgyQhUoNfIuRr7qbMyEKCqCRZnTk6Kxo4
+	 vTYXoO20xVxdyCT4dn1NjIKjh2vMNdV6Ngnhjv87XY6FaANTfuk5Xq8AUTG5xKVoq3VdD
+	 RgVAMXAl3SlFT43kSL99UWQSd8N+7Wh5T2o5e8rlJdi1c4uwPCafqTWRxm6BVL+wg5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795427740;
 	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
 	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
 	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=TKYDhv3lDU03DMsWA1GglyrygDSGzWOh/g5np7veJ0E=;
-	b=pLKY3+VQHWVy9CZI+nN2UbQZiYJi5buSkgNS32cckzNCWEmjtDsVd2kvIQGWroGTUu8O
-	 sBHS2GUssQZ98vuruNtD1kj8T0taQ/dD4HSUoR8TO02eD6s1pr0GRZYk36ObiVpnaSBnL
-	 xq33WsAPNIaQmdBITQTm4l46+fn4Nw/+EJdfJbkIQCLntbv/MBQkshsT5ovHjuHh/BkCA
-	 Kd/vaT0cFT9wAdPiAxhG4XSmUztd/MZJJ8+evbcoAObMpMcucWlIe1ya8qYPsD40m3jky
-	 GApbB/INZW3odZsJclnxJRtOGIGSHgK0Q3ibqdsqBzQqA5q1nH+n89/g1bE1B2KzxmQ==
+	bh=8iR8eZjq+ITJI+3ZgUVvAbOsPm/AOq+IfCArO9x+3ZM=;
+	b=UAqrH3JbTiIVFDjwmrR9Xn7m99EyAHky4GaWx65a5TiZAMSH1fUt8TQz9EiuanF/+oY3
+	 6PuhQIdis9v7sAIe/SF9d0pKgxxNsxIVO6EIa3bAhnKVwGienjDPxr99/VbBPH0inekop
+	 eaLg152ImphPprYdzN7ffEPc9oBYNQ3xCRIdAvXgUWdR1M2kyxUnmA/gMYgGrI5qLdT85
+	 DACg4MH7LGLIOsHRAzp4vEa6GCHjnLJmKJlOHcAuJry+l6AXImigyGKg+gqaPIlUDvkzm
+	 IxBdO6tE0u3ZgBSz57qx1ePqXdFai3cNgv5mNEe9U/1cV2Bk++MDFcjDF3WC5jvEkIw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linutronix.de;
 	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Hy+Zpucq;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=czpytC4A;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b="LHQrf/9c";
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=OYwTCfQy;
 	arc=none smtp.remote-ip=193.142.43.55
 Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A5B1606A31E;
-	Mon, 23 Nov 2026 09:55:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A5B1606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63FDD606A327;
+	Mon, 23 Nov 2026 09:55:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63FDD606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Hy+Zpucq;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=czpytC4A
-Date: Mon, 23 Nov 2026 09:55:35 -0000
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=LHQrf/9c;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=OYwTCfQy
+Date: Mon, 23 Nov 2026 09:55:37 -0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795427737;
+	s=2020; t=1795427738;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=TKYDhv3lDU03DMsWA1GglyrygDSGzWOh/g5np7veJ0E=;
-	b=Hy+ZpucqTmWCZ7NF+umyOmttXBX60EUuw7SZTP+m0gmh9UG0cjDiJRo07re/kBZYe2wc9B
-	Ps4W+0JFu6FJ0amKIX7hlccsEYE3+ld5A/2csO/IIgif8Mgyk/PiqmGwEFUfbSbBWU4o7R
-	Is/GseefK0l7tspdOuoHrRIjGj6q3chnAL+5O+jv4ZjvHTjlTDCFGzhYat/xIO9rJJN590
-	0uI0CqhpGHH4WX+lppY6IuXZU+PF6NvlOErtBlSy8Pa4LT1srerwOheAACPca5hwMSMGRe
-	nrOEud3o55a9E48DcWNL6hZJl656v91TimKPO9FRJKK1w3SA8ubsnX7IFum1IQ==
+	bh=8iR8eZjq+ITJI+3ZgUVvAbOsPm/AOq+IfCArO9x+3ZM=;
+	b=LHQrf/9cLk3LiICngxMfl8yqpA0hEWq5ltC2c4BTVJ0Jl8m8qnaNp1yLhaCsXG3/ruQ/nJ
+	f49cZzDJRj1HrIqpPKrbVj5CEbaVKMOzYNHhzTPQc/fDvJizsVC23LtvV/E0se/SXsDNQw
+	RG+0aQu66nzG3n1Gh/yX4orgkuA4gGS94huW4SZU4fALzg27InMMSeXvKD/GAdVmIOeA8u
+	jNiJoTJwylomk1jiK73Gs0iH7HPo4FZJCf+SFIY6xMclmIt5fV3rJZxHn4k/dANziNJ4+K
+	PcjHvv7rcBfgYup6LCoiNECsnekqISIaIdvp6D5QiAKCD2V8lZDSwz8fXUm25w==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795427737;
+	s=2020e; t=1795427738;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=TKYDhv3lDU03DMsWA1GglyrygDSGzWOh/g5np7veJ0E=;
-	b=czpytC4A2tyfq0f/QFM4vvH+nYTcKadbXTpQbsNjzo0InbNHwQRrfk/u+1Isd3795fwaql
-	uJ3/Dens9ulMvWBQ==
-From: "tip-bot2 for Ibrahim Elshahed" <tip-bot2@linutronix.de>
+	bh=8iR8eZjq+ITJI+3ZgUVvAbOsPm/AOq+IfCArO9x+3ZM=;
+	b=OYwTCfQyfwDvQXWCsSgoe2IhG1Ph52wlV4EXiBgrqYaEhGi6Mm+uxqjXBFBxD8b6QVAubT
+	txh8mKMZUKYSrRBg==
+From: "tip-bot2 for Fernand Sieber" <tip-bot2@linutronix.de>
 Sender: tip-bot2@linutronix.de
 Reply-to: linux-kernel@vger.kernel.org
 To: linux-tip-commits@vger.kernel.org
-Subject: [tip: sched/core] selftests/sched: Add a test for stuck forced idle
- under core scheduling
-Cc: Ibrahim Elshahed <lshahed@amazon.de>,
+Subject: [tip: sched/core] sched/core: Rank DL server picks as deadline in the
+ core-wide pick
+Cc: Fernand Sieber <sieberf@amazon.com>,
  "Peter Zijlstra (Intel)" <peterz@infradead.org>,
  Ingo Molnar <mingo@kernel.org>, x86@kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261120105822.7770-4-lshahed@amazon.de>
-References: <20261120105822.7770-4-lshahed@amazon.de>
+In-Reply-To: <20261112161548.78189-4-sieberf@amazon.com>
+References: <20261112161548.78189-4-sieberf@amazon.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,7 +79,7 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <179542773559.92412.12982399186905365467.tip-bot2@tip-bot2>
+Message-ID: <179542773720.92412.4774760214632371644.tip-bot2@tip-bot2>
 Robot-ID: <tip-bot2@linutronix.de>
 Robot-Unsubscribe:
  Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
@@ -89,553 +89,157 @@ Content-Transfer-Encoding: quoted-printable
 
 The following commit has been merged into the sched/core branch of tip:
 
-Commit-ID:     c47af85667065c6dd5b79564203c2d29948ef60e
-Gitweb:        https://git.kernel.org/tip/c47af85667065c6dd5b79564203c2d29948=
-ef60e
-Author:        Ibrahim Elshahed <lshahed@amazon.de>
-AuthorDate:    Fri, 20 Nov 2026 10:58:22=20
+Commit-ID:     87a825f3c680474eeb5c2a28398ad625bb69319e
+Gitweb:        https://git.kernel.org/tip/87a825f3c680474eeb5c2a28398ad625bb6=
+9319e
+Author:        Fernand Sieber <sieberf@amazon.com>
+AuthorDate:    Thu, 12 Nov 2026 18:15:46 +02:00
 Committer:     Ingo Molnar <mingo@kernel.org>
-CommitterDate: Mon, 23 Nov 2026 10:45:55 +01:00
+CommitterDate: Mon, 23 Nov 2026 10:45:41 +01:00
 
-selftests/sched: Add a test for stuck forced idle under core scheduling
+sched/core: Rank DL server picks as deadline in the core-wide pick
 
-Add cs_forceidle_test, which checks that a core does not stay forced
-idle after the task that a core-wide selection picked for an idle SMT
-sibling is migrated away before the sibling schedules, and that the
-pick left behind is not used once that task is freed.
+Commit 4b26cfdd3956 ("sched/core: Fix priority checking for DL server
+picks") made the core-wide selection rank a task picked through a DL
+server as deadline, so that a fair task competing with RT tasks under
+core scheduling still gets its server's bandwidth. It keys on
+p->dl_server, which pick_task() used to set.
 
-On one SMT core, a task with its own cookie yields in a loop on one
-sibling. Each attempt wakes a SCHED_FIFO task with another cookie on
-the other sibling, so the core-wide selection picks it there and forces
-the first sibling idle, and migrates it to a CPU of another core 0-50 us
-later. The yielding task must make progress again within 20 ms; an
-attempt where it does not counts as a stall, and the first test fails if
-there is any.
+Since commit bd9bbc96e835 ("sched: Rework dl_server"), pick_task()
+records the server in rq->dl_server and p->dl_server is only set once
+the task is switched in. The core-wide selection still ranks each
+sibling's pick with prio_less(), so a task the sibling's server has
+just picked ranks as a plain fair or ext task and loses to an RT task
+on another sibling. The server's CPU then runs a task with the RT
+task's cookie or is forced idle, and the fair task gets none of the
+server's bandwidth for as long as the RT task runs.
 
-The woken task also runs in its own cgroup. After a stall the test kills
-it, removes its cgroup, waits 100 ms for RCU to free both, and runs a
-short-lived task on the sibling. A kernel that kept the freed task in
-the sibling's rq->core_pick then charges forced idle time to it and its
-cgroup, and crashes in __cgroup_account_cputime_field() or reports a
-use-after-free with KASAN. Forced idle time is only accounted with
-schedstats, so the test turns them on for its duration if they are off.
-This second test is on by default and is skipped with -n, without cgroup
-v2, or without schedstats.
+Rank each sibling's pick by the server it came through, rq_i->dl_server.
+prio_less() keeps using p->dl_server for the core tree, whose tasks are
+not being picked.
 
-The test runs for 30 s by default, -t sets the duration. It is skipped
-when not run as root, without an SMT core and two other online CPUs, or
-when core scheduling is unavailable. Also list CONFIG_SCHED_CORE in the
-config fragment, which cs_prctl_test needs as well.
-
-Signed-off-by: Ibrahim Elshahed <lshahed@amazon.de>
+Fixes: bd9bbc96e835 ("sched: Rework dl_server")
+Signed-off-by: Fernand Sieber <sieberf@amazon.com>
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 Signed-off-by: Ingo Molnar <mingo@kernel.org>
-Link: https://patch.msgid.link/20261120105822.7770-4-lshahed@amazon.de
+Link: https://patch.msgid.link/20261112161548.78189-4-sieberf@amazon.com
 ---
- tools/testing/selftests/sched/.gitignore          |   1 +-
- tools/testing/selftests/sched/Makefile            |   1 +-
- tools/testing/selftests/sched/cs_forceidle_test.c | 471 +++++++++++++-
- 3 files changed, 473 insertions(+)
- create mode 100644 tools/testing/selftests/sched/cs_forceidle_test.c
+ kernel/sched/core.c | 51 ++++++++++++++++++++++++++++++--------------
+ 1 file changed, 35 insertions(+), 16 deletions(-)
 
-diff --git a/tools/testing/selftests/sched/.gitignore b/tools/testing/selftes=
-ts/sched/.gitignore
-index 4e3a025..8fcb37a 100644
---- a/tools/testing/selftests/sched/.gitignore
-+++ b/tools/testing/selftests/sched/.gitignore
-@@ -1,2 +1,3 @@
- cs_prctl_test
-+cs_forceidle_test
- cs_dl_server_test
-diff --git a/tools/testing/selftests/sched/Makefile b/tools/testing/selftests=
-/sched/Makefile
-index fa50d13..7d3e9cc 100644
---- a/tools/testing/selftests/sched/Makefile
-+++ b/tools/testing/selftests/sched/Makefile
-@@ -10,5 +10,6 @@ LDLIBS +=3D -lpthread
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 46ccaa8..ea89471 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -196,12 +196,13 @@ __read_mostly int scheduler_running;
+ DEFINE_STATIC_KEY_FALSE(__sched_core_enabled);
 =20
- TEST_GEN_FILES :=3D cs_prctl_test cs_dl_server_test
- TEST_PROGS :=3D cs_prctl_test cs_dl_server_test
-+TEST_GEN_PROGS :=3D cs_forceidle_test
+ /* kernel prio, less is more */
+-static inline int __task_prio(const struct task_struct *p)
++static inline int __task_prio(const struct task_struct *p,
++			      const struct sched_dl_entity *dl_server)
+ {
+ 	if (p->sched_class =3D=3D &stop_sched_class) /* trumps deadline */
+ 		return -2;
 =20
- include ../lib.mk
-diff --git a/tools/testing/selftests/sched/cs_forceidle_test.c b/tools/testin=
-g/selftests/sched/cs_forceidle_test.c
-new file mode 100644
-index 0000000..ca89a46
---- /dev/null
-+++ b/tools/testing/selftests/sched/cs_forceidle_test.c
-@@ -0,0 +1,471 @@
-+// SPDX-License-Identifier: GPL-2.0-only
+-	if (p->dl_server)
++	if (dl_server)
+ 		return -1; /* deadline */
+=20
+ 	if (rt_or_dl_prio(p->prio))
+@@ -223,12 +224,19 @@ static inline int __task_prio(const struct task_struct =
+*p)
+  * ge(a,b) :=3D !l(a,b)
+  */
+=20
+-/* real prio, less is less */
+-static inline bool prio_less(const struct task_struct *a,
+-			     const struct task_struct *b, bool in_fi)
 +/*
-+ * Check that core scheduling does not leave a core forced idle after the
-+ * task a core-wide selection picked for an idle SMT sibling is migrated
-+ * away before the sibling schedules, and that the pick it leaves behind is
-+ * not used once that task is freed.
++ * real prio, less is less
 + *
-+ * On one SMT core with siblings A and B, a task U with its own cookie
-+ * yields in a loop on A. Each attempt wakes a SCHED_FIFO task V with
-+ * another cookie on B, so that the core-wide selection picks V for B and
-+ * forces A idle, then migrates V to a CPU of another core 0-50 us later.
-+ * U must make progress again within STALL_MS; an attempt where it does not
-+ * is a stall.
-+ *
-+ * Unless -n is given, each V also runs in its own cgroup. After a stall,
-+ * V is killed and its cgroup removed, and once RCU had time to free both,
-+ * a short-lived task is run on B. A kernel that kept the migrated V in
-+ * B's rq->core_pick then charges forced idle time to the freed task and
-+ * cgroup, which crashes it in __cgroup_account_cputime_field() or makes
-+ * KASAN report a use-after-free. Forced idle time is only accounted with
-+ * schedstats, so the test turns them on for its duration if they are off.
-+ * This part is skipped when cgroup v2 is not mounted or schedstats are
-+ * unavailable.
++ * @a_dl_server and @b_dl_server are the DL servers @a and @b run on
++ * behalf of, if any.
 + */
-+#define _GNU_SOURCE
-+#include <errno.h>
-+#include <fcntl.h>
-+#include <getopt.h>
-+#include <limits.h>
-+#include <sched.h>
-+#include <signal.h>
-+#include <stdint.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <sys/mman.h>
-+#include <sys/prctl.h>
-+#include <sys/stat.h>
-+#include <sys/wait.h>
-+#include <time.h>
-+#include <unistd.h>
-+
-+#include "../kselftest.h"
-+
-+#ifndef PR_SCHED_CORE
-+#define PR_SCHED_CORE			62
-+#endif
-+#ifndef PR_SCHED_CORE_CREATE
-+#define PR_SCHED_CORE_CREATE		1
-+#endif
-+#define PIDTYPE_PID			0
-+
-+#define STALL_MS			20
-+#define FREE_WAIT_MS			100
-+#define DEFAULT_SECS			30
-+#define SCHEDSTATS			"/proc/sys/kernel/sched_schedstats"
-+#define CG_PATH_MAX			(2 * PATH_MAX + 64)
-+
-+static uint64_t *progress;
-+
-+/* cgroup part: parent cgroup of the per-attempt cgroups, if in use */
-+static char cg_parent[CG_PATH_MAX];
-+static int cg_active;
-+static int schedstats_restore =3D -1;
-+
-+static uint64_t now_ns(void)
++static inline bool __prio_less(const struct task_struct *a,
++			       const struct sched_dl_entity *a_dl_server,
++			       const struct task_struct *b,
++			       const struct sched_dl_entity *b_dl_server,
++			       bool in_fi)
+ {
+-
+-	int pa =3D __task_prio(a), pb =3D __task_prio(b);
++	int pa =3D __task_prio(a, a_dl_server), pb =3D __task_prio(b, b_dl_server);
+=20
+ 	if (-pa < -pb)
+ 		return true;
+@@ -239,18 +247,13 @@ static inline bool prio_less(const struct task_struct *=
+a,
+ 	if (pa =3D=3D -1) { /* dl_prio() doesn't work because of stop_class above */
+ 		const struct sched_dl_entity *a_dl, *b_dl;
+=20
+-		a_dl =3D &a->dl;
+ 		/*
+-		 * Since,'a' and 'b' can be CFS tasks served by DL server,
++		 * Since 'a' and 'b' can be tasks served by a DL server,
+ 		 * __task_prio() can return -1 (for DL) even for those. In that
+ 		 * case, get to the dl_server's DL entity.
+ 		 */
+-		if (a->dl_server)
+-			a_dl =3D a->dl_server;
+-
+-		b_dl =3D &b->dl;
+-		if (b->dl_server)
+-			b_dl =3D b->dl_server;
++		a_dl =3D a_dl_server ?: &a->dl;
++		b_dl =3D b_dl_server ?: &b->dl;
+=20
+ 		return !dl_time_before(a_dl->deadline, b_dl->deadline);
+ 	}
+@@ -266,6 +269,12 @@ static inline bool prio_less(const struct task_struct *a,
+ 	return false;
+ }
+=20
++static inline bool prio_less(const struct task_struct *a,
++			     const struct task_struct *b, bool in_fi)
 +{
-+	struct timespec ts;
-+
-+	clock_gettime(CLOCK_MONOTONIC, &ts);
-+	return ts.tv_sec * 1000000000ULL + ts.tv_nsec;
++	return __prio_less(a, a->dl_server, b, b->dl_server, in_fi);
 +}
 +
-+static int pin(pid_t pid, int cpu)
-+{
-+	cpu_set_t set;
-+
-+	CPU_ZERO(&set);
-+	CPU_SET(cpu, &set);
-+	return sched_setaffinity(pid, sizeof(set), &set);
-+}
-+
-+static int create_cookie(void)
-+{
-+	return prctl(PR_SCHED_CORE, PR_SCHED_CORE_CREATE, 0, PIDTYPE_PID, 0);
-+}
-+
-+static int write_str(const char *path, const char *val)
-+{
-+	ssize_t len =3D strlen(val);
-+	int fd, ret;
-+
-+	fd =3D open(path, O_WRONLY);
-+	if (fd < 0)
-+		return -1;
-+	ret =3D write(fd, val, len) =3D=3D len ? 0 : -1;
-+	close(fd);
-+	return ret;
-+}
-+
-+/* Find an SMT core with two online siblings and two CPUs outside it. */
-+static int find_cpus(int *a, int *b, int *helper, int *ctl)
-+{
-+	long ncpus =3D sysconf(_SC_NPROCESSORS_ONLN);
-+	char path[128];
-+	int cpu, s0, s1;
-+	FILE *f;
-+
-+	*a =3D *b =3D *helper =3D *ctl =3D -1;
-+	for (cpu =3D 0; cpu < ncpus && *a < 0; cpu++) {
-+		snprintf(path, sizeof(path),
-+			 "/sys/devices/system/cpu/cpu%d/topology/thread_siblings_list",
-+			 cpu);
-+		f =3D fopen(path, "r");
-+		if (!f)
-+			continue;
-+		if (fscanf(f, "%d%*[,-]%d", &s0, &s1) =3D=3D 2 && s0 !=3D s1) {
-+			*a =3D s0;
-+			*b =3D s1;
+ static inline bool __sched_core_less(const struct task_struct *a,
+ 				     const struct task_struct *b)
+ {
+@@ -6316,6 +6325,7 @@ pick_next_task(struct rq *rq, struct rq_flags *rf)
+ 	__must_hold(__rq_lockp(rq))
+ {
+ 	struct task_struct *next, *p, *max;
++	struct sched_dl_entity *max_dl_server;
+ 	bool fi_before =3D false;
+ 	bool core_clock_updated =3D (rq =3D=3D rq->core);
+ 	unsigned long cookie;
+@@ -6429,6 +6439,7 @@ restart:
+ 	 * Tie-break prio towards the current CPU
+ 	 */
+ 	max =3D NULL;
++	max_dl_server =3D NULL;
+ 	for_each_core_cpu_wrap(i, rq) {
+ 		rq_i =3D cpu_rq(i);
+=20
+@@ -6452,8 +6463,16 @@ restart:
+ 		rq_i->core_pick =3D p;
+ 		rq_i->core_dl_server =3D rq_i->dl_server;
+=20
+-		if (!max || prio_less(max, p, fi_before))
++		/*
++		 * p->dl_server is only set once @p runs; rank a pick that
++		 * came through a DL server by that server.
++		 */
++		if (!max || __prio_less(max, max_dl_server,
++					p, rq_i->dl_server,
++					fi_before)) {
+ 			max =3D p;
++			max_dl_server =3D rq_i->dl_server;
 +		}
-+		fclose(f);
-+	}
-+	if (*a < 0)
-+		return -1;
-+
-+	for (cpu =3D 0; cpu < ncpus; cpu++) {
-+		if (cpu =3D=3D *a || cpu =3D=3D *b)
-+			continue;
-+		if (*helper < 0)
-+			*helper =3D cpu;
-+		else if (*ctl < 0)
-+			*ctl =3D cpu;
-+	}
-+	return *ctl < 0 ? -1 : 0;
-+}
-+
-+/* Probe in a child so this process keeps no cookie. */
-+static int core_sched_available(void)
-+{
-+	int status;
-+	pid_t pid;
-+
-+	pid =3D fork();
-+	if (pid < 0)
-+		return 0;
-+	if (!pid)
-+		_exit(create_cookie() ? 1 : 0);
-+	if (waitpid(pid, &status, 0) !=3D pid)
-+		return 0;
-+	return WIFEXITED(status) && !WEXITSTATUS(status);
-+}
-+
-+static void cg_cleanup(void)
-+{
-+	if (cg_active)
-+		rmdir(cg_parent);
-+	if (schedstats_restore >=3D 0)
-+		write_str(SCHEDSTATS, schedstats_restore ? "1" : "0");
-+}
-+
-+/*
-+ * Set up the cgroup part: find the cgroup v2 mount and this process's
-+ * cgroup in it, create a parent for the per-attempt cgroups below it, and
-+ * turn on schedstats. Returns NULL on success or why it is unavailable.
-+ */
-+static const char *cg_setup(void)
-+{
-+	char line[PATH_MAX], mnt[PATH_MAX] =3D "", own[PATH_MAX] =3D "";
-+	char *sep;
-+	FILE *f;
-+	int val;
-+
-+	f =3D fopen("/proc/self/mountinfo", "r");
-+	if (!f)
-+		return "cannot read /proc/self/mountinfo";
-+	while (fgets(line, sizeof(line), f)) {
-+		sep =3D strstr(line, " - ");
-+		if (sep && !strncmp(sep + 3, "cgroup2 ", 8) &&
-+		    sscanf(line, "%*s %*s %*s %*s %s", mnt) =3D=3D 1)
-+			break;
-+		mnt[0] =3D '\0';
-+	}
-+	fclose(f);
-+	if (!mnt[0])
-+		return "cgroup v2 not mounted";
-+
-+	f =3D fopen("/proc/self/cgroup", "r");
-+	if (!f)
-+		return "cannot read /proc/self/cgroup";
-+	while (fgets(line, sizeof(line), f)) {
-+		if (!strncmp(line, "0::", 3)) {
-+			line[strcspn(line, "\n")] =3D '\0';
-+			snprintf(own, sizeof(own), "%s", line + 3);
-+			break;
-+		}
-+	}
-+	fclose(f);
-+	if (!own[0])
-+		return "not in a cgroup v2 cgroup";
-+
-+	f =3D fopen(SCHEDSTATS, "r");
-+	if (!f)
-+		return "schedstats unavailable (CONFIG_SCHEDSTATS=3Dn)";
-+	if (fscanf(f, "%d", &val) !=3D 1)
-+		val =3D -1;
-+	fclose(f);
-+	if (val < 0)
-+		return "cannot read " SCHEDSTATS;
-+
-+	snprintf(cg_parent, sizeof(cg_parent), "%s%s/cs_forceidle_test.%d",
-+		 mnt, strcmp(own, "/") ? own : "", getpid());
-+	if (mkdir(cg_parent, 0755))
-+		return "cannot create a cgroup";
-+	cg_active =3D 1;
-+	atexit(cg_cleanup);
-+
-+	if (!val) {
-+		if (write_str(SCHEDSTATS, "1")) {
-+			rmdir(cg_parent);
-+			cg_active =3D 0;
-+			return "schedstats off and cannot be turned on";
-+		}
-+		schedstats_restore =3D 0;
-+	}
-+	return NULL;
-+}
-+
-+static void run_u(int cpu)
-+{
-+	if (pin(0, cpu) || create_cookie())
-+		_exit(1);
-+	for (;;) {
-+		sched_yield();
-+		__atomic_fetch_add(progress, 1, __ATOMIC_RELAXED);
-+	}
-+}
-+
-+static void run_v(int cpu, int ready, int go)
-+{
-+	struct sched_param sp =3D { .sched_priority =3D 50 };
-+	uint64_t t0;
-+	char c;
-+
-+	if (create_cookie() || sched_setscheduler(0, SCHED_FIFO, &sp) ||
-+	    pin(0, cpu))
-+		_exit(1);
-+	if (write(ready, "r", 1) !=3D 1 || read(go, &c, 1) !=3D 1)
-+		_exit(1);
-+	/*
-+	 * Run briefly so the migration can catch V runnable, then block: a
-+	 * spinning FIFO task would force idle the CPUs it shares a core with.
-+	 */
-+	t0 =3D now_ns();
-+	while (now_ns() - t0 < 200000)
-+		;
-+	for (;;)
-+		pause();
-+}
-+
-+/* Run a task on @cpu that exits right away, so that @cpu schedules. */
-+static void poke(int cpu)
-+{
-+	pid_t pid;
-+
-+	pid =3D fork();
-+	if (!pid)
-+		_exit(pin(0, cpu) ? 1 : 0);
-+	if (pid > 0)
-+		waitpid(pid, NULL, 0);
-+}
-+
-+static void cg_remove(const char *cg)
-+{
-+	int i;
-+
-+	/* The cgroup can stay busy until the killed task is fully released. */
-+	for (i =3D 0; i < 1000 && rmdir(cg) && errno =3D=3D EBUSY; i++)
-+		usleep(1000);
-+}
-+
-+/*
-+ * One attempt; returns 1 on a stall, 0 if U made progress, -1 on error.
-+ * Increments @freed when it frees a stalled V and its cgroup.
-+ */
-+static int attempt(int b, int helper, unsigned int *seed, unsigned long *fre=
-ed)
-+{
-+	static unsigned long nr;
-+	int ready[2], go[2], stall =3D 1;
-+	uint64_t t0, spin, start;
-+	char cg[CG_PATH_MAX + 32], path[CG_PATH_MAX + 64];
-+	char pid[16];
-+	pid_t v;
-+	char c;
-+
-+	if (pipe(ready))
-+		return -1;
-+	if (pipe(go)) {
-+		close(ready[0]);
-+		close(ready[1]);
-+		return -1;
-+	}
-+	if (cg_active) {
-+		snprintf(cg, sizeof(cg), "%s/v%lu", cg_parent, nr++);
-+		if (mkdir(cg, 0755)) {
-+			close(ready[0]);
-+			close(ready[1]);
-+			close(go[0]);
-+			close(go[1]);
-+			return -1;
-+		}
-+	}
-+
-+	v =3D fork();
-+	if (v < 0) {
-+		stall =3D -1;
-+		goto out_pipes;
-+	}
-+	if (!v) {
-+		close(ready[0]);
-+		close(go[1]);
-+		run_v(b, ready[1], go[0]);
-+	}
-+	close(ready[1]);
-+	close(go[0]);
-+
-+	if (cg_active) {
-+		snprintf(path, sizeof(path), "%s/cgroup.procs", cg);
-+		snprintf(pid, sizeof(pid), "%d", v);
-+		if (write_str(path, pid)) {
-+			stall =3D -1;
-+			goto out;
-+		}
-+	}
-+
-+	if (read(ready[0], &c, 1) !=3D 1) {
-+		stall =3D -1;
-+		goto out;
-+	}
-+	usleep(1000);			/* let V block on the pipe */
-+
-+	spin =3D (rand_r(seed) % 51) * 1000ULL;
-+	if (write(go[1], "w", 1) !=3D 1) {
-+		stall =3D -1;
-+		goto out;
-+	}
-+	t0 =3D now_ns();
-+	while (now_ns() - t0 < spin)
-+		;
-+	pin(v, helper);
-+
-+	start =3D __atomic_load_n(progress, __ATOMIC_RELAXED);
-+	t0 =3D now_ns();
-+	while (now_ns() - t0 < STALL_MS * 1000000ULL) {
-+		if (__atomic_load_n(progress, __ATOMIC_RELAXED) !=3D start) {
-+			stall =3D 0;
-+			break;
-+		}
-+	}
-+out:
-+	kill(v, SIGKILL);
-+	waitpid(v, NULL, 0);
-+	close(ready[0]);
-+	close(go[1]);
-+	if (cg_active)
-+		cg_remove(cg);
-+	if (cg_active && stall =3D=3D 1) {
-+		/* Let RCU free V and its cgroup, then make B schedule. */
-+		usleep(FREE_WAIT_MS * 1000);
-+		poke(b);
-+		(*freed)++;
-+	}
-+	return stall;
-+
-+out_pipes:
-+	close(ready[0]);
-+	close(ready[1]);
-+	close(go[0]);
-+	close(go[1]);
-+	if (cg_active)
-+		cg_remove(cg);
-+	return stall;
-+}
-+
-+int main(int argc, char **argv)
-+{
-+	unsigned long attempts =3D 0, stalls =3D 0, freed =3D 0;
-+	int a, b, helper, ctl, opt, ret =3D 0;
-+	const char *cg_skip =3D NULL;
-+	int secs =3D DEFAULT_SECS;
-+	unsigned int seed;
-+	uint64_t end;
-+	pid_t u;
-+
-+	while ((opt =3D getopt(argc, argv, "nt:")) !=3D -1) {
-+		switch (opt) {
-+		case 'n':
-+			cg_skip =3D "disabled with -n";
-+			break;
-+		case 't':
-+			secs =3D atoi(optarg);
-+			break;
-+		default:
-+			fprintf(stderr, "usage: %s [-n] [-t seconds]\n",
-+				argv[0]);
-+			return KSFT_FAIL;
-+		}
-+	}
-+
-+	ksft_print_header();
-+	ksft_set_plan(2);
-+
-+	if (geteuid())
-+		ksft_exit_skip("must be run as root\n");
-+	if (find_cpus(&a, &b, &helper, &ctl))
-+		ksft_exit_skip("needs an SMT core and two other online CPUs\n");
-+	if (!core_sched_available())
-+		ksft_exit_skip("core scheduling unavailable\n");
-+
-+	progress =3D mmap(NULL, sizeof(*progress), PROT_READ | PROT_WRITE,
-+			MAP_SHARED | MAP_ANONYMOUS, -1, 0);
-+	if (progress =3D=3D MAP_FAILED)
-+		ksft_exit_fail_msg("mmap: %s\n", strerror(errno));
-+
-+	if (!cg_skip)
-+		cg_skip =3D cg_setup();
-+	if (cg_skip)
-+		ksft_print_msg("freeing stalled tasks with their cgroups skipped: %s\n",
-+			       cg_skip);
-+
-+	if (pin(0, ctl))
-+		ksft_exit_fail_msg("sched_setaffinity: %s\n", strerror(errno));
-+
-+	u =3D fork();
-+	if (u < 0)
-+		ksft_exit_fail_msg("fork: %s\n", strerror(errno));
-+	if (!u)
-+		run_u(a);
-+	usleep(100000);
-+
-+	ksft_print_msg("core %d,%d, migrate to %d, %d s%s\n", a, b, helper,
-+		       secs, cg_active ? ", one cgroup per woken task" : "");
-+	seed =3D getpid();
-+	end =3D now_ns() + (uint64_t)secs * 1000000000ULL;
-+	while (now_ns() < end) {
-+		ret =3D attempt(b, helper, &seed, &freed);
-+		if (ret < 0)
-+			break;
-+		attempts++;
-+		stalls +=3D ret;
-+	}
-+
-+	kill(u, SIGKILL);
-+	waitpid(u, NULL, 0);
-+
-+	ksft_print_msg("attempts=3D%lu stalls=3D%lu (no progress for %d ms)\n",
-+		       attempts, stalls, STALL_MS);
-+	if (ret < 0)
-+		ksft_test_result_fail("attempt failed: %s\n", strerror(errno));
-+	else
-+		ksft_test_result(!stalls, "no stuck forced idle\n");
-+
-+	if (cg_skip)
-+		ksft_test_result_skip("free a stalled task and its cgroup: %s\n",
-+				      cg_skip);
-+	else if (ret < 0)
-+		ksft_test_result_fail("free a stalled task and its cgroup: attempt failed\=
-n");
-+	else
-+		ksft_test_result_pass("free a stalled task and its cgroup (%lu freed)\n",
-+				      freed);
-+	ksft_finished();
-+}
+ 	}
+=20
+ 	cookie =3D rq->core->core_cookie =3D max->core_cookie;
