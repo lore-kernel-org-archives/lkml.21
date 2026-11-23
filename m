@@ -1,54 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.251
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795422317;
-	b=eonrIpjnjEEdp7f/wOpmNb3kLKONFbnhysZNTurbNvU/RV0wvLqgc21sN2jlh9O4aakF
-	 QMBnaPqeulWXJzq1Fis/rJ6xU5KMvnnOycFtnMaaG999VF98Qwif1tPC/vV9RjjQzeRZT
-	 5aUO53XZ7QEgiqazWWhKPs07KbEqxDbIepe5iTd8EUF9KCqoTH0ikAg7+nzya/Yi+kIsO
-	 aWr/F8ayPpuM6+rrbmsqvwMGNwtIS2PFxU9qgqOGJ6NXYxJ4yQy4CzfmAAAYnoaMr2fT2
-	 SzJlDTbgojEblTGnYUtSRZEivM8gmT3z93/SjJP2kM4oUQbHAJyjsGTgSeHzij4YVCg==
+	t=1795422369;
+	b=ZNPC/mnJZYpFTYxiSt2V6mMn0KKBLkYLBTMeVkrYBPtuqShpxrHWE/KRgftwOADeNjWT
+	 00v9LuD21V9msSOkhN4dDymyfTUHVQRAw+RKTU7cBXVwmdYP8tYygksV+q3WI4aC5UfaA
+	 hgZFgQ1pGW5qUdV1dv8tgnsq1aLEcuZEQ6fK2x8O8T214G6Vc8Wf3zmKyMtB5VFhZP436
+	 Ay68I3leOmHnYxWqrWtY4rEW4B2L2Glo+SG13ViwXDLK6w1QP6lOxEH36WPzVOrz4NJ9M
+	 fmBzk6vC2qvscSYNOqitZuO7xX6ULUJ9vx959g+wmV4HEDcF/SPwgXWcudN9HwPMgqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795422317;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=8YkplbXySmaATV+c/q6e7xLQY22MT4Kz4HxoeelC/D0=;
-	b=YYKmLUWCxbQwJ0E3Q71V3eSV7FTKH0a9sw18sm0z0ZE5uw/2Zi+jAtmVkqdHKov+j+Ks
-	 biPbd5JesBjnjwOZw3sJsri+d7Mlx0P1hCuClZCHyYYDPiZaTriDExEXZHFWq9M0ZOIFJ
-	 jD1Qg9RTN+h7yBQJb8dn5IMJzXuidzYbpzcgyR3DqSUpOa+HgOnBQpDCVneS+J7+qTYe2
-	 iE7BWlGGpGeyG/KylqVHut/0xrsppLDfTqNrumSh6C4X+3ezwXy+jh9G3OTr9cdvzxsXi
-	 JE8DTj8uEtzBjXZ0eSOavTglcDjMEzgq11+ZC4F5ct7ZR1tJpn7PvY4+DFYZuWnTM4Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795422369;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=2ZXYzpMsSpVMbq5bALXeiDcyDHaH4rSnY+t2qNogl3c=;
+	b=ADRVEGJUdiQ1KLOjKaz+GUxFvkezVZRz9NUZ4oO6O81GkwUTqxlo3/qhuQ/i6uV2do8t
+	 lJJH9qdmyxi9agx/mm8/UXrj4Be+eJ4DTXg+Ngbl179BtrtZPhV5rcv7BQuz7nGbYXLzq
+	 dgWpxuMIUcKmQ3VViUdOUjWXbXkAQPV3Cc/Gf+Fnt4ayoYvAGPZdtklv5xAHYjf8BYp8/
+	 OnkNPiwPk9QT641SvsxoGwyx5Mc+njrAskZ9PNNo2iPFB6q6KBRPiDV2gY9YF7kmWETDV
+	 w433GLgu4u7TQaRvLXPYQmRltBFv/kPtxOkEWRNBmYUXYEI60mdWo4N+cyou9EIn1sA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=K4tdWnI7;
-	arc=none smtp.remote-ip=91.218.175.251
-Received: from mta0.migadu.com (out-251.mta0.migadu.com [91.218.175.251])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hG9R1cT4;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C18E606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:25:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C18E606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31E4B606A31A;
+	Mon, 23 Nov 2026 08:26:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=K4tdWnI7
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=l4Q+B3ckN95O70apojBJmX15Pn2GOJj1UkSRM7DYdlM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795422314; v=1; x=1796027114;
- b=K4tdWnI7VAaOpGFYykIOHfraLSZpvDCbo4InoudFv3P5AUuX3dru72rbEbJ6Bz6yqjUSV9jW
- jwFpqdz7hvbsQDEU5+IuJMhaTjjWKQKypul1pV3Gru5SAThd4I0mUmtXFvqga8+kBn79vbhYWg+
- VdqgRbudRCYd7k1p1/Azwttk=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id d3238756a42eef48;
-	Mon, 23 Nov 2026 08:25:13 +0000
-X-Mizu-Trace-ID: d3238756a42eef48
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <c861d701-09f8-4fc1-a527-e4efd911ef5f@linux.dev>
-Date: Mon, 23 Nov 2026 16:25:01 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hG9R1cT4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BCE11F000C4;
+	Mon, 23 Nov 2026 08:26:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795422368;
+	bh=2ZXYzpMsSpVMbq5bALXeiDcyDHaH4rSnY+t2qNogl3c=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=hG9R1cT4I778FIhn9+UnCNDcoR0RghBICzDHiYHixQahjyOswRk8B+/IIHceoKVmM
+	 /xEmFoR8oJvHBtjGToResk/kU1fR8t3juUbfgppPOQ6nW5GD8iuYb4yDzoifl6rYJ2
+	 uymziFFSfMMjkLVV1KUl+qCF7J2ZNfoVsfGezQHPjoblSSKWe6M5sodasfGgF9rJPP
+	 /IG0CdLeds+JE05IIzItpNLvLNMBplTnue/NwuCXYhEn4+F4Ene3jV/1VjfPUPkT6M
+	 9dwCHsG9RculA4+82o71pCuTDRcBzlFagnA5U3hYkT5oCYnez0mSU2N+hwNCqQB8wW
+	 sQap6TZqvNlWQ==
+Subject:
+ Re: [PATCH] net: dsa: mt7530: disable the power rails on setup failure
+From: netdev-bot+sashiko@kernel.org
+To: wanghr2026@mail.zgclab.edu.cn
+Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
+ olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 08:26:07 +0000
+Message-ID: <179542236717.3135.17350424891277003723@kernel.org>
+In-Reply-To: <1795076103951-10-8fa23d94@mail.zgclab.edu.cn>
+References: <1795076103951-10-8fa23d94@mail.zgclab.edu.cn>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,144 +66,201 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 02/11] mm/mm_init: factor out common struct page
- initialization
-To: Qi Zheng <qi.zheng@linux.dev>
-Cc: "Liam R . Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, Michal Hocko <mhocko@suse.com>,
- Li Zhe <lizhe.67@bytedance.com>, Andrew Popple <apopple@nvidia.com>,
- Balbir Singh <balbirs@nvidia.com>, Lorenzo Stoakes <ljs@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>,
- James Houghton <jthoughton@google.com>, Lance Yang <lance.yang@linux.dev>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Muchun Song <songmuchun@bytedance.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Oscar Salvador <osalvador@suse.de>,
- Mike Rapoport <rppt@kernel.org>
-References: <20261120100856.16929-1-songmuchun@bytedance.com>
- <20261120100856.16929-3-songmuchun@bytedance.com>
- <a3add5b9-a69e-4e06-b91c-c23db9b6e1ca@linux.dev>
-Content-Language: en-US
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <a3add5b9-a69e-4e06-b91c-c23db9b6e1ca@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
 
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
+Critical: 0 · High: 1 · Medium: 1 · Low: 2
 
-On 2026/11/23 15:00, Qi Zheng wrote:
->
->
-> On 11/20/26 6:08 PM, Muchun Song wrote:
->> Several struct page fields have the same initial values for every 
->> page in
->> a zone. __init_single_page() initializes this state as part of its
->> per-page setup, while the shared vmemmap tail path open-codes only a
->> subset.
->>
->> Factor the PFN-independent state into memmap_init_page() and use it for
->> both regular and shared tail struct pages. Keep section-, PFN- and
->> instance-specific initialization in __init_single_page().
->>
->> This also initializes the last cpupid and KASAN tag for shared tail
->> struct pages consistently with regular struct pages. Since
->> memmap_init_page() marks ZONE_DEVICE pages reserved, remove the 
->> redundant
->> update from the memory hotplug path.
->>
->> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
->> ---
->> v3:
->> - Rename memmap_init_page_common() to memmap_init_page() (suggested by
->>    Mike Rapoport)
->> - Remove redundant ZONE_DEVICE reserved-page initialization 
->> (suggested by
->>    Mike Rapoport)
->>
->> v2:
->> - Remove __meminit from memmap_init_page_common() so HVO shared tail
->>    pages can call it after init text is freed (reported by Sashiko).
->> ---
->>   include/linux/mm.h  |  8 --------
->>   mm/mm_init.c        | 37 +++++++++++++++++++++----------------
->>   mm/mm_init.h        |  1 +
->>   mm/sparse-vmemmap.c |  7 +------
->>   4 files changed, 23 insertions(+), 30 deletions(-)
->
-> Reviewed-by: Qi Zheng <qi.zheng@linux.dev>
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Thanks.
+- [High] The fix is incomplete.
+- [Medium] The new error-path disable in mt7530_setup() can be followed
+  by a second disable of the same rails, because mt7530_remove()…
+- [Low] In mt7530_setup(), suppose mt7530_setup_gpio() has registered the
+  GPIO chip with devm_gpiochip_add_data() and the later…
+- [Low] Speculative.
 
->
-> One nit below.
->
->>
->> diff --git a/include/linux/mm.h b/include/linux/mm.h
->> index 8883b780b76d..d8bafcd92791 100644
->> --- a/include/linux/mm.h
->> +++ b/include/linux/mm.h
->> @@ -3096,14 +3096,6 @@ static inline void set_page_node(struct page 
->> *page, unsigned long node)
->>       page->flags.f |= (node & NODES_MASK) << NODES_PGSHIFT;
->>   }
->>   -static inline void set_page_links(struct page *page, enum 
->> zone_type zone,
->> -    unsigned long node, unsigned long pfn)
->> -{
->> -    set_page_zone(page, zone);
->> -    set_page_node(page, node);
->> -    set_page_section_from_pfn(page, pfn);
->> -}
->> -
->>   /**
->>    * folio_nr_pages - The number of pages in the folio.
->>    * @folio: The folio.
->> diff --git a/mm/mm_init.c b/mm/mm_init.c
->> index 0129152b74d8..08d6e47bde22 100644
->> --- a/mm/mm_init.c
->> +++ b/mm/mm_init.c
->> @@ -602,15 +602,27 @@ static inline void 
->> vmemmap_optimization_verify_zone(struct page *page)
->>               page_zone_id(page));
->>   }
->>   -void __meminit __init_single_page(struct page *page, unsigned long 
->> pfn,
->> -                unsigned long zone, int nid)
->> +/* Initialize PFN-independent fields common to pages in the same 
->> zone. */
->> +void memmap_init_page(struct page *page, enum zone_type zone, int nid)
->>   {
->>       mm_zero_struct_page(page);
->> -    set_page_links(page, zone, nid, pfn);
->> -    init_page_count(page);
->> -    atomic_set(&page->_mapcount, -1);
->> +    set_page_zone(page, zone);
->> +    set_page_node(page, nid);
->>       page_cpupid_reset_last(page);
->>       page_kasan_tag_reset(page);
->> +    atomic_set(&page->_mapcount, -1);
->> +#ifdef CONFIG_ZONE_DEVICE
->> +    if (zone == ZONE_DEVICE)
->> +        __SetPageReserved(page);
->> +#endif
->> +}
->> +
->> +void __meminit __init_single_page(struct page *page, unsigned long pfn,
->> +        unsigned long zone, int nid)
->
->                 ^ enum zone_type zone?
+--
 
-You are right. But actually, I didn't modify this line, this should be a Git
-display issue. Otherwise, this patch will end up mixing in the declaration
-changes for this function. I think the right approach is to submit a
-separate patch later to handle this cleanup.
+net: dsa: mt7530: disable the power rails on setup failure
 
-Thanks,
-Muchun
+This commit changes the early returns in mt7530_setup() that come after
+the core and io regulator enables. They now jump to new unwind labels,
+which disable io_pwr and core_pwr when priv->id == ID_MT7530. The goal is
+to stop the switch rails from staying enabled after a failed probe.
 
->
->
-> Thanks,
-> Qi
+> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+> index d5a199293f78a..769f733f80d2a 100644
+> --- a/drivers/net/dsa/mt7530.c
+> +++ b/drivers/net/dsa/mt7530.c
 
+[ ... ]
+
+> @@ -2579,16 +2581,25 @@ mt7530_setup(struct dsa_switch *ds)
+>  	if (of_property_read_bool(priv->dev->of_node, "gpio-controller")) {
+>  		ret = mt7530_setup_gpio(priv);
+>  		if (ret)
+> -			return ret;
+> +			goto err_disable_pwrs;
+>  	}
+>  #endif /* CONFIG_GPIOLIB */
+>  
+>  	/* Flush the FDB table */
+>  	ret = mt7530_fdb_cmd(priv, MT7530_FDB_FLUSH, NULL);
+>  	if (ret < 0)
+> -		return ret;
+> +		goto err_disable_pwrs;
+
+[Severity: Low]
+Suppose mt7530_setup_gpio() has already registered the gpiochip with
+devm_gpiochip_add_data() and the FDB flush then fails. This goto turns
+off io_pwr and core_pwr while the gpiochip is still registered.
+
+The gpiochip is only removed when devres on priv->dev is released. In a
+single-switch tree that happens at the end of the failed probe. If another
+switch's probe drove the tree setup and the MT7530 stays bound, it does
+not happen at all.
+
+During that window, could mt7530_gpio_get(), mt7530_gpio_set() and
+mt7530_gpio_direction_*() do regmap accesses over MDIO to a switch whose
+supplies are off? Should the gpiochip be removed before the hardware
+loses power?
+
+>  
+>  	return 0;
+> +
+> +err_disable_pwrs:
+> +	if (priv->id == ID_MT7530)
+> +		regulator_disable(priv->io_pwr);
+> +err_disable_core_pwr:
+> +	if (priv->id == ID_MT7530)
+> +		regulator_disable(priv->core_pwr);
+> +
+> +	return ret;
+>  }
+
+[Severity: High]
+Does this fully cover the leak described in the commit message? These
+labels only handle failures inside mt7530_setup(). The rails can still be
+left enabled when something fails after mt7530_setup() has returned 0.
+
+mt753x_setup() calls priv->info->sw_setup(), which is mt7530_setup() for
+ID_MT7530, and then does this:
+
+drivers/net/dsa/mt7530.c:mt753x_setup() {
+    ...
+	ret = mt7530_setup_irq(priv);
+	if (ret)
+		return ret;
+
+	ret = mt7530_setup_mdio(priv);
+	if (ret)
+		return ret;
+    ...
+}
+
+mt7530_setup_irq() can fail with -EPROBE_DEFER from of_irq_get() when the
+interrupt parent hasn't probed yet. Neither of these returns disables
+core_pwr or io_pwr.
+
+Something similar happens in dsa_switch_setup() and dsa_tree_setup().
+Failures after ds->ops->setup() succeeds (tag protocol setup, user MDIO
+bus, ports, conduit, lags) only unwind through ds->ops->teardown, which is
+mt753x_teardown():
+
+static void
+mt753x_teardown(struct dsa_switch *ds)
+{
+	struct mt7530_priv *priv = ds->priv;
+
+	if (priv->bus)
+		cancel_delayed_work_sync(&priv->stats_work);
+}
+
+In all of these cases dsa_register_switch() fails, so mt7530_probe() fails
+and mt7530_remove() never runs. When devres later calls regulator_put(),
+the regulator core would hit WARN_ON(regulator->enable_count). On
+-EPROBE_DEFER, every re-probe enables the rails again:
+
+mt7530_probe()
+  dsa_register_switch()
+    dsa_tree_setup()
+      dsa_switch_setup()
+        mt753x_setup()
+          mt7530_setup()       <- rails enabled, returns 0
+          mt7530_setup_irq()   <- -EPROBE_DEFER, rails left enabled
+
+Would it be better to tie the regulator lifetime to the whole
+setup/teardown pair instead of using local labels in mt7530_setup()? One
+option is to disable the rails in mt753x_teardown() and on the
+mt753x_setup() error paths, and change mt7530_remove() to match. Another
+is to use devm-managed enables.
+
+[Severity: Medium]
+Can these new disables lead to unbalanced regulator disables later in
+mt7530_remove()?
+
+mt7530_remove() in drivers/net/dsa/mt7530-mdio.c disables both rails
+whenever priv->id == ID_MT7530. It does not know whether setup succeeded:
+
+drivers/net/dsa/mt7530-mdio.c:mt7530_remove() {
+    ...
+	if (priv->id == ID_MT7530) {
+		ret = regulator_disable(priv->core_pwr);
+		...
+		ret = regulator_disable(priv->io_pwr);
+    ...
+}
+
+The driver supports port 5 as a DSA link (see the
+dsa_is_dsa_port(priv->ds, 5) check in mt7530_setup_port5()). In a
+multi-switch tree, dsa_tree_setup() returns 0 while the tree is
+incomplete:
+
+	complete = dsa_tree_setup_routing_table(dst);
+	if (!complete)
+		return 0;
+
+So mt7530_probe() can succeed, and mt7530_setup() then runs later from
+another switch's dsa_register_switch(). Suppose it fails there after the
+rails are enabled. These labels bring the enable counts back to 0, and the
+error goes to the other switch's probe. The MT7530 stays bound with its
+drvdata set.
+
+On a later unbind, mt7530_remove() would call regulator_disable() again.
+_regulator_disable() would then WARN with "unbalanced disables" and return
+-EIO. Before this patch the rails stayed enabled after a setup failure, so
+remove was balanced in this case.
+
+[Severity: Low]
+This one is speculative: should the switch be put back into reset before
+the rails are dropped here? By the time any of these gotos run, the chip
+has already been taken out of reset earlier in mt7530_setup():
+
+	if (priv->mcm) {
+		reset_control_assert(priv->rstc);
+		usleep_range(5000, 5100);
+		reset_control_deassert(priv->rstc);
+	} else {
+		gpiod_set_value_cansleep(priv->reset, 0);
+		usleep_range(5000, 5100);
+		gpiod_set_value_cansleep(priv->reset, 1);
+	}
+
+On the non-MCM path, the host keeps driving the reset GPIO at its run
+level, and the MDIO controller keeps driving MDC/MDIO, into a chip whose
+supplies have just been released. On boards where regulator_disable()
+actually removes the rail, could that back-power the I/O domain?
+
+Asserting reset with gpiod_set_value_cansleep(priv->reset, 0) or
+reset_control_assert(priv->rstc) before the regulator_disable() calls
+would avoid this. mt7530_remove() has the same ordering, but this patch
+adds a new power-off sequence that is reached more often.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/1795076103951-10-8fa23d94%40mail.zgclab.edu.cn
