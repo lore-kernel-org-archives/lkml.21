@@ -1,114 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.149
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795407607;
-	b=DN0dWNhWeKZOUjtGMl4UsiTCrwuL8XDaKNoTxpnUiik0RCV0bisqj+fDvL8MV7rKCWqU
-	 xihBJKkM+yTGvRDe99mdmWu/cYK0HASqDuA/O96mf26vv9w7TRGW9Tve8EGbhF28Q0eRb
-	 Lo7dBTB6GPo/LayGdZy2xE73l456hUfvuCMrYP6zYux+8/Bm6nEXMrovNyCELso2Z7ai0
-	 vMW0NeUUQtj7l1MF0hM+tjxuQ57OwhxjnfGiJjBmOeA9Sttm9GBbuUchbnFag5pGk1vpN
-	 AZV20cFLMMgfv9KtN1djZ2OgUpKv4bl8+DM2utLAya009g2wyslee2ky0Vb7iUKhLiQ==
+	t=1795407661;
+	b=HeMYVHC6n32R45axM6JFZRp3lLVCeOt5xxwHqsTfF9GCFqXQN96rmducEZn6lC8HqvP2
+	 QqQIplVPrw5aVYzYQfyrIM3aBgGcd4DBMv1xN5/7zezWNGjE5tFJ5gW7KYFVIKv0il4B4
+	 +ShlGuyM/dey5caMnIAbe4MANYWcV9TwRe11V51A458ekH0WSz242qkYcLfNbbNrimooC
+	 XEDR4Pp5rsKYTDgQ1NDz01toguSKtqbl4CEFKmWsfhjRsYS8zsDLSzvd6Gdv7Lz9Hfapy
+	 IQwsqx8QSPSRSUTm9qFBZ8jB5gARBUpPuoASMucq8WIBB+OnVqoaMl9gAzAVvgGGNag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795407607;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Content-Type:Content-Transfer-Encoding:MIME-Version:From:To:
-	 Cc:Subject:In-reply-to:References:Date:Message-id:Reply-To;
-	bh=QmjJJluG72923u6dkKF4E6LX7QpWiZzvPettKxtw9Io=;
-	b=tLmMmgJfZfBtYsk7t93+d3aRektoI6SlhD/R3cnaThPeEOWVCN/0NxeSJmP9ybSajlCS
-	 147W/BsxiqB/vg+JoazrO7zMFEeyKEN3U1/kf1HyaJvircDL+kVgptZqX2jPIMSdNmIkn
-	 JDlSvtH4ipsxENSHEXRGzchSD9Ri38obCfrF467+UwSw+dC+TDkgw//nI8rYQwXy8CofF
-	 TCPc5Ys2LnBSFQrgvfkiPxZ5mqnVqcIUkFiru6WjA2d0SZcyMa1fSAlhGzg4TAZPKj8fV
-	 KktiWH2YCU+RFIZmZcg8LSkPJvfwqU53L8HKEu2SGNupx4hsfmzVNGnbLoXPHgnDv8Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795407661;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=q4dRowGrQG38OV8LwpdsO4kyaPjuNUQ38aLzSjMk6aU=;
+	b=rs4Q+3+QGCE5PWurzqFpf8OEFclWVR9Krd2j7zH8PkkOoVHxzusBTrBgLIO2VoJ1uUEE
+	 9fSRl48M1MSfViDD0Iw/Qb/sGEjBKUj9clieX/j/T99HdFJ/8Fs3bpEGsuU8EhnUMyYq5
+	 t3qQjUPqfonItMwKq5Ou001By2cG7IzC9Nbduj/Oxz+28E5ct/gTD2ODquA97ROkGGmut
+	 ZGmRAo482eaKBoyOeafLGTgNwwcswXyYu6i4BvsaIkFAGfKH23b1aOMgLu2r2MbRlejyb
+	 gwv776n1J7vWRE5Nq2BcGZ9MjcXtg+Tzmc+433JTFKV+WCmLxUl3vZWkaNFDy/4XlhQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ownmail.net;
-	spf=pass smtp.mailfrom=ownmail.net;
-	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=m3QkiGXf;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=T8qyTQu8;
-	arc=none smtp.remote-ip=202.12.124.149
-Received: from fout-b6-smtp.messagingengine.com (fout-b6-smtp.messagingengine.com [202.12.124.149])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eK4Uwpo3;
+	arc=none smtp.remote-ip=74.125.82.176
+Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36AEB606A32C
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:20:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36AEB606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E88F606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:21:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0E88F606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=m3QkiGXf;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=T8qyTQu8
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfout.stl.internal (Postfix) with ESMTP id 5F43A1D005E3
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:20:05 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-02.internal (MEProxy); Sun, 22 Nov 2026 23:20:05 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:reply-to:subject:subject:to:to; s=fm3; t=
-	1795407604; x=1795494004; bh=QmjJJluG72923u6dkKF4E6LX7QpWiZzvPet
-	tKxtw9Io=; b=m3QkiGXf2sFup9A3ieASCnPMM7mmCZOy7O2V3R5BjVG++548QJ2
-	d8c5OisIzbhCpkz6u68VbhZVXqo9Al71+FFkUr0iiWtR/x5tBvUfd/zkgjZCakJv
-	AArZ2RETqgm+TiIl8guRPQpOsjE3zp5SkeXaUmnLItyfIwSdFdtp2eWF+AinccIZ
-	gvxM0Ujb5Pn9Tcvy+S/WAGZZcE0kQwHX5/yYvynre9O6lRFmdHSkk79vJ1vDIgHB
-	wZO9tnG8YQYOfxTUAqNvf5uwPIPsHNKr5RPovDb03uTTnaU9eJa0f9U03w9TYaAv
-	9m6QkcsZtAphxQY2rBca26QtAMXWydg9ZAQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795407604; x=
-	1795494004; bh=QmjJJluG72923u6dkKF4E6LX7QpWiZzvPettKxtw9Io=; b=T
-	8qyTQu82PPSMZDLrmkq6mglH95GwpcGVsKCcpd+v8o5/QOxNuccpTsneTgE07FbV
-	5scBTlQL0ZEimWLcPC7pjXEzxgWh2/cLRqMD6JQwPjmnFl1VLMAinYW6OUAJ+WOM
-	Weda4AlgHM1KghJ/q8IizM7DVowfqIX1PtO5DzUJiHuDaddTHSly86unvCW4+SVF
-	8Lqe91fmdyR46Z9XcXdtinhcE6Jj2qPyFaLvq688Trczd1Y8jqCxyO1R8yX9kwia
-	q5/POtvVq0+CXlhFI2D4s7Dm3yPANs9UhGm1QKAsZjN0ZcD5dGf4LPe0j/+0zTcP
-	+Brf6dz9G9RBrF+I1/qRQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ownmail.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795407604; d=ownmail.net;
-	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:RTwoHxlW2vGkk5nbfh27vuVNlVSUkaez1DmT/cz3ovKTB5T
-	jka2LgiFiHGmYVxhgaVt0nBCrWAU6v6xA3asRb305udClsZOMJPUX91jMaJcbjvH
-	AV5sRumq7jM9i8/gGf9XrgQjHI/chGdKokAX0wO5ZrAn4AlYFHzX7avHR9P3RDdb
-	al/VqCSMMwgr/v7IayUZ/3NAscKQDXNLvo/D15LreZFXFnK2/U+8wr6+qMS9xPS7
-	kiozUHgBS3iIsmS9PzdxyoLV55ooeeC0r4ygLfSimHZ7md0qCXiz8JPVtGXMzFqa
-	41Mqci2+RocIkI+/BSMtCci61RIi0Vf2qmbJFpg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=13;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,reply-to,
-	subject,to;
-Message-Instance: m=1; h=sha256:5DqTmm5+Aw5sDP+8zfo/9Yuk7Wsf8Q83qoFB+ud5qq8=:AbnOsTm4/ckYElt94OXxA6epjoXkd2Xej8CH/vMd7vk=;
-X-ME-Sender: <xms:874Da_ITcrVk-rKo5AsqLnHB6Oa0XR1bRFMrLL8GFEdbtP2XUVYJBg>
-    <xme:874DawVBzhTyASy-xrcN6Zt9H_gIGcEvJS1cuEykVVPC38viJSINzC2dbcbZwwCHZ
-    crqlyjeyUqrUufdwfjOds4HM-iySDYN2RohmAZ79fxmmlK_Vo8>
-X-ME-Received: <xmr:874Da8Olj2io5CvbpS9lpoKQ5F_K-657FrBXcvpAkbmasQ353BoHHQnJj2GPbzyIV9H8MlEr_rEvE1vczqTGfx8hrRbTJj4>
-X-ME-Proxy-Cause: dmFkZTGv0kSxTW36hnuZ2AGsWuxeYAhFz6h0/5Jgx2+pY5uE0D7PdE4Q0ccZruKJ7qyqxD
-    2T4Hz4bXAp1qumoqkTdvNfhT4icJvf7xmyYLbk4ZyQcRVrx9ngyL5QuHRT33O2vRuDxnqw
-    QFYD6LxjSbc1grMJzygpKS7iBQgFblwMxKjKs6fsCyzSFmqk2EyUFyVHagO+R7mstf138H
-    ZGFjPe8QO0Ot1g6TxuMlQxvyEfGjt+S7Kpz3mx50nyZ01Kw9eu/Ekv4c47lxL6g5yz5HQu
-    2osoAB8JphtEtJr22E2M4mOyPQqK40EpR/yEGEMcnSjse5jDudxC5yil3Fy4vsRZv3+Ntc
-    WTQtF9IYMpiHf/N5GvPWSN5uEUjfVT2lbtygQmuEM9lWUhr/OghNcEykG+n8F/HWqDUYMS
-    oh4NKR7JMttnnoi7dSCFATtRHl8yXKKFIa8es3Hr94elzTjXbx/scZ8uA8c7EhfAkk1oHZ
-    HPMNlFbNb7DzdF+diwT82ByBXs0nzLdajYoQa9MJGgw6QP0avBmCB24psqotbvb0ZdmqVk
-    nZjUY0MJaIQHAzgMIdAU2T1Q6RVtuf0eXw6NhrvCaTKDjsEJYKUsaIBUb4vw/nIMMxMrMV
-    MGIdq+h+9IXI9DB7+9i/MyVVds9ZoQUixWyKulcSOiug7Zquo+wPgDRc8aGg
-X-ME-Proxy: <xmx:874Da0nNo5PMJ12iVr4b5RiCwQhI8ARzSgfw6ylg9_8wrm8C4R6iwA>
-    <xmx:874Da3XjO_tLYiXyXJeSRyM9b6naC5Wlf7HIKOTKSeXa2gADvcXNdQ>
-    <xmx:874Da7KdyLK4yOA1cVVtd4Fjg1LlOSb9pjb3ZYrydZJQ9FZ0roWWKw>
-    <xmx:874DazatK-fEHcPrUH5a1Zuh6DGLnCPw8dttcZBjfBf1GRooTtsAQQ>
-    <xmx:9L4Da_JXeh_YFXHJoErlSwqofBbs1Hd05ytwZIJPk0gekSWXgy5GTDO9>
-Feedback-ID: i9d664b8f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 22 Nov 2026 23:19:57 -0500 (EST)
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eK4Uwpo3
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-38190551625so6033625eec.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:21:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795407660; x=1796012460; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=q4dRowGrQG38OV8LwpdsO4kyaPjuNUQ38aLzSjMk6aU=;
+        b=eK4Uwpo3OKwscpby5O/wJ5Bh319RVVMB0zpKY4nFAgZAx03B21O7A3MiS2Rlzeh50n
+         KOuE3NNZA3kT65dCRNR/B6YZIuTmX+PbA3vBkYSOdz4EsnZ9mN/GG5HFG1avcJSb7fDA
+         rqE7qyzjkRFtbdiHg8okLo3qcAaP9zOcIqHlSO8jPJD4N7d5GqzjCDIM8Vjdeap2WLe7
+         B4XbZ+jVWN018SGjCOpLeM6uO/7otJLCU6IyI6lmCSrsiBBnfPX2/oSpHkcx8y7wd7Yp
+         tfciEHHKWsN6Kwz6z1AB0B+GVCsdiihgmHmQe+q842rOkZPAuSFYdFrjdKahyjJ6rdRV
+         vYSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795407660; x=1796012460;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=q4dRowGrQG38OV8LwpdsO4kyaPjuNUQ38aLzSjMk6aU=;
+        b=tN/WWTbPAoY2R9sjmf/RoUaL/ePDHjoTZwGVogQXidwDEK1aXfLkSgYtEXJzAzxb2z
+         ayPyKMteYGC7lec+wFO2UPeGBe/vY7h86uYOr92q3XSN9jhFAwezjVP1tocsI++G+Rsd
+         6YvOELL+n32F7BnUMSXfmjBI5boDsGjujH6HCid3v8LBI0iSzva1vtqEbehmnWeqSJi4
+         b7YXRUqPy0b96jSkFYPtpBzN2L/AwD8HavE05dwtkqGi/Ss2v8R0KOo/t8Xtk7DTx5hH
+         L2KN2nm4AFgQeX10aHS6W/M9V6PDxLXs+1zvAm/LNOyZOiRGL15Uv00A+8SvvflMhqQQ
+         ATuw==
+X-Forwarded-Encrypted: i=1; AL+hErF03xlQAPCDLAmzOfoHp6ioj++Q+3gGVRWlLU7pjNPuH8tlaPApEAnniiMXH4IWJzJ1/aQAvTzpgwCw6bU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+nWHV4ZFwpdFmeBlLrKUE6z7A5FOWsZxbYh6IWP/RIKDkl0od5
+	eH+5ZXBxymgwtwJePYh1q3kO+omRiRx00rtBgcoeZkFd0CLEFUENQQWc
+X-Gm-Gg: AZFdTZcw34Q1M1Dqyxs3gLPH7nogxmw4bGJtibne+905892mc8iFVcYRaa766vR/dvW
+	gm+6lFbUB0jhKPJVYGdYw2n4ILoz3DaAGFoesnDBN8HYYeaaRtzVjkvD4JbD945tHhCuORUchZe
+	UIPD8UGbTDElxlQNQSwqcZ62INO8ZgUPhmIp3KrBCUeGJo4amD7p2hGbShVs5Ow9b/iANlrlW6t
+	R9LQdGl7Ndmq5frl2wNrz/M3Xydra//A368/sIbp/mrxso/BMPnwgJIdhZrs0g1Bo3dVAssv2uD
+	f6024j34H+C5ba8TrfT0uvZxV5xiip9gpSbARbhuCVeURYMyLVj5yFEvkjh9nSPeWp9sgRCFwaN
+	LzoxVngPHWkKPW8q3Gyh53pqigzGFF5ZAgATrbIYAQh8/65qPKPAb0hUHjWyVq3/PbTL8G9Vc/3
+	p6uYVmlAeO9pDt9T3wvruXt4PmcZy4Qs4qYbOtkG+n8rgTQ6TBYkwb+QcR6WrDstP8dYKm60ROh
+	Aq9VXqZaG242i5QbIe2BM1UtIuVt1v69opfiOJ/yDRfGOsb8UpxOVMd0nQuUXlOxUskt7YugFgs
+	cqHJlQ8P2GRY74Nlyi3iqjnddooWhpZCnj5JqrreBEtyI6GoO1Cq8+7k0rZqtqpLBROTc9M4YEk
+	SbKgeUhIIy8rb9v7FE3Gw6ts2/I5o89JkTsOvJb/r+4u9xow=
+X-Received: by 2002:a05:7301:6188:10b0:386:9ba8:2864 with SMTP id 5a478bee46e88-3869ba82acfmr6273464eec.0.1795407660013;
+        Sun, 22 Nov 2026 20:21:00 -0800 (PST)
+Received: from spark-da2e.tail8e743c.ts.net ([211.105.22.106])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672c6f31sm30804737eec.15.2026.11.22.20.20.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 20:20:59 -0800 (PST)
+From: Jinmo Yang <jinmo44.yang@gmail.com>
+To: ping.cheng@wacom.com,
+	jason.gerecke@wacom.com,
+	jikos@kernel.org,
+	bentiss@kernel.org
+Cc: dmitry.torokhov@gmail.com,
+	linux-input@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Jinmo Yang <jinmo44.yang@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v5 1/6] HID: wacom: check the input device in the shared report helpers
+Date: Mon, 23 Nov 2026 04:20:10 +0000
+Message-ID: <dcd2a9920a0f7a7da8b85e1b133d61e2585472c4.1795405057.git.jinmo44.yang@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1795405057.git.jinmo44.yang@gmail.com>
+References: <cover.1795405057.git.jinmo44.yang@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,42 +104,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: NeilBrown <neilb@ownmail.net>
-To: "Christoph Hellwig" <hch@infradead.org>
-Cc: "Alexander Viro" <viro@zeniv.linux.org.uk>,
- "Christian Brauner" <brauner@kernel.org>, "Jan Harkes" <jaharkes@cs.cmu.edu>,
- coda@cs.cmu.edu, "Jan Kara" <jack@suse.cz>,
- "Richard Weinberger" <richard@nod.at>,
- "Anton Ivanov" <anton.ivanov@cambridgegreys.com>,
- "Johannes Berg" <johannes@sipsolutions.net>,
- "Namjae Jeon" <linkinjeon@kernel.org>, "Hyunchul Lee" <hyc.lee@gmail.com>,
- "Carlos Maiolino" <cem@kernel.org>, "Jeff Layton" <jlayton@kernel.org>,
- "Amir Goldstein" <amir73il@gmail.com>, linux-kernel@vger.kernel.org,
- codalist@coda.cs.cmu.edu, linux-fsdevel@vger.kernel.org,
- linux-um@lists.infradead.org, ntfs@lists.linux.dev, linux-xfs@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] VFS/xfs/ntfs: drop parent lock across
- d_alloc_parallel() in d_add_ci()
-In-reply-to: <awB5mAWm9h1ksRFI@infradead.org>
-References: <20261117000115.1433875-1-neilb@ownmail.net>
-  <20261117000115.1433875-2-neilb@ownmail.net>
-  <awB5mAWm9h1ksRFI@infradead.org>
-Date: Mon, 23 Nov 2026 15:19:52 +1100
-Message-id: <179540759290.1728055.6042791276963817025@noble.neil.brown.name>
-Reply-To: NeilBrown <neil@brown.name>
+Content-Transfer-Encoding: 8bit
 
-On Sat, 21 Nov 2026, Christoph Hellwig wrote:
-> On Tue, Nov 17, 2026 at 10:54:58AM +1100, NeilBrown wrote:
-> >  					  const struct dentry_operations *);
-> > -extern struct dentry * d_add_ci(struct dentry *, struct inode *, struct =
-qstr *);
-> > +extern struct dentry * d_add_ci(struct dentry *, struct inode *, struct =
-qstr *,
->=20
-> Please drop the extern and fix up the formatting if you touch the code.
-> Bonus points for spelling out the arguments to actually make it
-> readable.
+wacom_report_numbered_buttons() and wacom_wac_finger_count_touches() are
+reached from several report handlers and use the input device they are
+given without checking it.
 
-I think inconsistent formatting is not much better than bad formatting.
-Maybe I'll insert a patch which tidies up the whole stanza.
+Both can see a NULL input device on a fully successful probe. The report
+handler is selected by features.type from the id table, while the three
+input devices are allocated from what the report descriptor declares.
+When wacom_setup_{pen,touch,pad}_input_capabilities() returns -ENODEV,
+wacom_setup_inputs() frees that input device, sets the pointer to NULL
+and still returns 0 - the "no pen in use on this interface" case.
+wacom_wac_irq() then still routes reports to a handler that passes the
+NULL pointer down.
 
-NeilBrown
+Reproduced on linux-next 20260925 (x86_64, KASAN) from one /dev/uhid
+device plus a single UHID_INPUT2 write:
+
+  BUG: KASAN: null-ptr-deref in range [0x290-0x297]
+  RIP: 0010:wacom_report_numbered_buttons+0x37/0x210
+   wacom_intuos_irq+0x29e/0x3300
+   wacom_wac_irq+0x1b59/0xb3f0
+   wacom_raw_event+0x68f/0xb60
+   __hid_input_report+0x398/0x4d0
+   uhid_char_write+0xa99/0xfc0
+
+Check the pointer in both helpers, following the convention the driver
+already uses in wacom_tpc_irq() and wacom_wac_pad_event(). Log a
+warning on the first occurrence so the condition is not silently
+swallowed.
+
+Fixes: 10059cdc0ad0 ("Input: wacom - split out the pad device for Intuos/Cintiq")
+Fixes: 2a6cdbdd4cc0 ("HID: wacom: Introduce new 'touch_input' device")
+Cc: stable@vger.kernel.org
+Signed-off-by: Jinmo Yang <jinmo44.yang@gmail.com>
+
+Reviewed-by: Jason Gerecke <jason.gerecke@wacom.com>
+---
+ drivers/hid/wacom_wac.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/hid/wacom_wac.c b/drivers/hid/wacom_wac.c
+index ab89a11d6740..c7bf0e5988e5 100644
+--- a/drivers/hid/wacom_wac.c
++++ b/drivers/hid/wacom_wac.c
+@@ -1263,6 +1263,12 @@ static int wacom_wac_finger_count_touches(struct wacom_wac *wacom)
+ 	int count = 0;
+ 	int i;
+ 
++	if (!input) {
++		dev_warn_once(&container_of(wacom, struct wacom, wacom_wac)->hdev->dev,
++			      "%s: touch_input is NULL\n", __func__);
++		return 0;
++	}
++
+ 	if (!touch_max)
+ 		return 0;
+ 
+@@ -4254,9 +4260,16 @@ static void wacom_update_led(struct wacom *wacom, int button_count, int mask,
+ static void wacom_report_numbered_buttons(struct input_dev *input_dev,
+ 				int button_count, int mask)
+ {
+-	struct wacom *wacom = input_get_drvdata(input_dev);
++	struct wacom *wacom;
+ 	int i;
+ 
++	if (!input_dev) {
++		pr_warn_once("%s: input_dev is NULL\n", __func__);
++		return;
++	}
++
++	wacom = input_get_drvdata(input_dev);
++
+ 	for (i = 0; i < wacom->led.count; i++)
+ 		wacom_update_led(wacom,  button_count, mask, i);
+ 
+-- 
+2.43.0
+
