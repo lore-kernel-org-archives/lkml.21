@@ -1,68 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795406648;
-	b=3QwV5YrlETY6jmqFE1E8cywmpPUtAMwF29MmariPXc5F6yyiPYt58x22irycJa7VHQGf
-	 1ZjHZehibHUNKYGof0fab857fPiharGuZcamjqLehBFD3gc91EoHjxRlK/OkhHq7DydPi
-	 RS6ZyQtff3VHfGuJYwv9Uxh05yyqsu8MHrB7aocXcJwObTs37rvya1KhYPFB1W+k5F9WQ
-	 gASG+kai2WOpzTN7fw5svg6YareAy/+VitbUF+/XR9pBnlwOh+x7IDU3nCA4BCzc2zZjV
-	 3VdAyR6snFgHIysy3UllDqtGKbnQxwMQUR7IXoW2hGjLjIHR1J0l8DcPhzbKG4SDUfA==
+	t=1795406825;
+	b=Z2+wXpnfDt45RxL2my3ygwHUoIOl7kts0QuIMSvmcOMQBqeY2XINt7lpslYe7N+SE2St
+	 ChLkoLxB6cdVbvwaKSMvUBm0B2G3AtFEAuw6/rTtBi4JZLlflbM+w1NcgGcXPjZ0ZXvMg
+	 fVe3le86K6tniBC/IWRDK0oEKnKOlKgfpGbgoFxHK0R046LxsPAX/AjSrXRzBr4WM6Z+N
+	 TtkfKmM5FITOn5qVTc6qKHQ3RZRdxd7MsBLdl1CB7ROcrVAq+/amx83F1QlMiQ6eQMdeS
+	 TbW+0lAPKS+ONUGBeKzwtpwMUW0E1bVg6ReOGPTm4ozIKTtJFE6wrmGkNjJ2WFXvy4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795406648;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Cc:Subject:To:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=L/ndKiHqAwsG8Q63MvIVcW/zI5TqmT0H63EXMbag2hU=;
-	b=uiVXOVFTJJzVHt1sUotETFcC46MwautROnR5lTjHKKlQbAfFHmsoxSVqBvx0DwX29nyS
-	 X2bsnvSQ7lN19opiCbA6dZ2rkgTCpb6aNHqHyEO+/tANjSsyON05U/dA2OILWlkScBRac
-	 ggUfa4nSoujDAr1L3SYNfl3xJiXDgl5M5XyIF/62f167/lA5xL5kx3R7t3S6qmJIOsCpN
-	 7GLpJYgqAPh9bGnI/oVBLlVD5LTqgxOffdgthmPaxO1GGrcZko3T9LRYESjTB9Z0gM8fI
-	 uSBVfJFLDMujQu15tRI/oRqna98bsdOfbfj546oNTmPnLq1RzAZVfnCQjLMmCGAp1Ig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795406825;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:
+	 References:Content-Transfer-Encoding:MIME-Version;
+	bh=LLWUQJfbd+q8VyoErsrKDBDgdA9nzb7m7pgg7/PG2U4=;
+	b=NSL3i0uE3oRSvC9AmZlkY/6a5DBvkWUFxl+CkXxDzyK12k13rhuxDgRMIJOEaM9w+pGo
+	 2D22afVKT/O/51cMazRz8iuju9FI4ouIa+ImHuQjTHJvSxi3YvC5RCzEN5Gk8eyJTo3Nk
+	 nhtHMdJYvwgFIuNY2pp2NsGwAaElBOPPYNodCWAS3qkZFzRIafoATNwFmzQ7Ywlz/WTGX
+	 8Kr3MZpCF7hWZ6iFmpctYIibkaQrAEy/0yNAstkii1nffKUhUit3sapuE+sVb3bQu69Lw
+	 Q2l0WtoX0KJRmhS1LZ7FUKrSpJ1D55tcTXph4Xed2SRedeb60AqRHhU/rxbFDROoq+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=g1YBC98m;
-	arc=none smtp.remote-ip=198.175.65.18
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zrkVMVM8;
+	arc=none smtp.remote-ip=209.85.215.178
+Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com [209.85.215.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B7DF606A32A;
-	Mon, 23 Nov 2026 04:04:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B7DF606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDCBF606A320
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:07:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EDCBF606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=g1YBC98m
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795406644; x=1826942644;
-  h=message-id:date:mime-version:cc:subject:to:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=/2JPg26k4eGPhYoW5PqQdEQbXOwMlhbiHh908evguOc=;
-  b=g1YBC98mv1bhOyI0Y09bkql/vF1jYGtkhEh7ygq6gpwJap92nqBDYul6
-   fb0Ah6655wj9YDq2O2TY0R7kPut/9/9XxHS4xHP4Xnperti3U1K5Y3l1t
-   hmdvwobA2awFBi53lXOTC7S5VdBIkSErocOBzxjffON7q3Q8icjKZVceJ
-   2eh9C3e8dqEP5Wo8ol3cRF7oV5zbJ7fj0dd6C2QG5+TE43FBvuFoJZJMS
-   4iVz6XgL5S1v4aCrpE3RN0X/GMKQw0eiymiPxGsLvHOYGv6UNf5Rf/Qj7
-   40gZkanZNBO5pMjekAPIIRcHL2GQh21w6PQECIItC00JImJq6q/jdlLTV
-   Q==;
-X-CSE-ConnectionGUID: sUZRE5NQS36U0KkJvl1tbg==
-X-CSE-MsgGUID: hNst+y9ZSkSBlELJBEYBKg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4219244"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4219244"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 20:04:02 -0800
-X-CSE-ConnectionGUID: DRGib1DfRMmtM12iuyOqIA==
-X-CSE-MsgGUID: xAJ+eoy9SSG6p9BwuMHvmw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11085664"
-Received: from unknown (HELO [10.238.1.144]) ([10.238.1.144])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 20:03:58 -0800
-Message-ID: <70abb0ba-63f0-4edd-9359-bfd220b8ae3b@linux.intel.com>
-Date: Mon, 23 Nov 2026 12:03:56 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zrkVMVM8
+Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-cdb75699c7cso1040937a12.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:07:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795406824; x=1796011624; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:from
+         :subject:cc:to:message-id:date:content-type:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=LLWUQJfbd+q8VyoErsrKDBDgdA9nzb7m7pgg7/PG2U4=;
+        b=zrkVMVM8fiHIA2UIO1Um5i49tmxW5eAK/JbbSxShAL8W/6EY0z524g/bRIpvKqlMDo
+         6aKIXn27f6nZ/hN1j3RBtpx3nDs//cfaPPVaWZR6AvCdt+HOKLsKNZvWbsjXNtuO+SN9
+         /aI/c9/i1dEUrMglw2IFAf3wpR5tBymGIoQFag5KJ+JqP29kvrOa8hCq6xBemxljADkW
+         tzXv0bBUBqcFmUpbcirQeDeWwn9tD2B/2MUi9/4BtsfklBJX/0KFxHRZZrRkHs/zfdEe
+         Zma8doDyTSAzPcxB2PShBO+k9yTHKjjM7rRECrAgOvOz2+Za8g3vZm0zubw0SFWmzqwk
+         YNfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795406824; x=1796011624;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:from
+         :subject:cc:to:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LLWUQJfbd+q8VyoErsrKDBDgdA9nzb7m7pgg7/PG2U4=;
+        b=umhZ0bqjxY6N4Sybjre3wPSFkzxcNxuEEqiUTW9mKPFT8hAnr0kqfXebnkwDwZ3G2o
+         iCULFkPhFwXBW+o6QWZlpudlpvSKY+c2IBk4yZgmYF+V8Euu9zj0GyyiKTOO12A54PMv
+         0+nuo46uNgdTVc1ObVYiuQQviSwFIFsresq4wUNk5LiKz8zlnFdi/lmf0ESoyjdBV0os
+         Q1aWnUmwD0Da4tu9jTy+rHteExLhEyCge/jpZ+JVb39VPUqHL5+BGmFOWCl2imeoJTNA
+         P/ysehL6XDjhyszRMlgKfvp9CjJj5JwjUVCfV7npIBraS1AO4IVTodWcBFjArX2TRnde
+         FTEQ==
+X-Forwarded-Encrypted: i=1; AL+hErESsQSBSEDAGm95gLNnqhm/oufyUEy/ypLJFud6RRdNJ4QfyW2ZBxNLWKUYaKelM3w2CcIHELJjx8aDM8Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8HEjnDeOK77dW47NGu2/Ka6vipahjbSg1Y5QGQk1j4qnwv7OHD
+	HW5/g+2JOJBWnV6QMKte68DHjnMI2MdmmYMS+TvNWDCqocrp0D2VBBYa
+X-Gm-Gg: AZFdTZdRXGAwTUJSDDsLkbRdvS8kxbesZHcYTvdlF71Dt7168QMMEPtf2nCVE/xUzH1
+	OhcnToVX+4ahz6yzB2v4D9Nka3EcccAtRteK5DlrFfRrnmW6X3WxPhwn1cZF0tWVoSZ2zn2wXmK
+	kj5Ut8oxeVRl48iI4FMI7Fa2deU0HD+Jne/PYbnEvitOzYDJfx4LTR2pVqHBMEJ8ZE4BoqLq6st
+	9oYXZZqbc16bHZd05ImiGILbM3fE1R4L2nQiWUn5/kAmUrodMM4iLQUDNLr2BQI8OkzFKEglSaZ
+	3D9ZDnIrIXRICU1Oy+dTDpfXkPe7vUrHAud56IE4WhJgKg0bXfsMRFa1FyaWXIOP6NmgtheCec4
+	r0vSI79VMi5PFQ6xIwsHV9pJB6BUkkVI7Fs0mYih5/fLbMBfrr0KbIwgkCCdPzWjg/i1HIHWM1M
+	QKAp6QFqxSUbpYPPY4Au+FtcmftXz76Sqg27pcQeEtib4qoRTi2HCIiy16FiQ07i+Rh3GvartsD
+	Dz4bjqDj4RL6XEZEVsnnc2ZAPsL41qoLuEePzU7s2IDmO3U4t3I45MGzdYOHEEA7XRHwefYZezj
+	Q62EeJy2dr3aAFT/q0UYDGp7dTTbo0Rv8HDyZ0Kdphbwg8dIi3w7NUAGd+Ys8PKBlJEP37dmA9/
+	Xam+l1QJ8JC6JujN0sEMyOEPqAkFyj9oeOg==
+X-Received: by 2002:a17:90a:e70c:b0:3b0:d551:ab2 with SMTP id 98e67ed59e1d1-3b41c955b0emr9277361a91.51.1795406823840;
+        Sun, 22 Nov 2026 20:07:03 -0800 (PST)
+Received: from localhost ([153.61.198.252])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0b2c4sm15511490a91.4.2026.11.22.20.07.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Nov 2026 20:07:03 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 23 Nov 2026 04:07:03 +0000
+Message-Id: <DN2ALO12MI1Z.3HI553HDMO2FL@gmail.com>
+To: "Ryan Roberts" <ryan.roberts@arm.com>, "Catalin Marinas"
+ <catalin.marinas@arm.com>
+Cc: "Will Deacon" <will@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
+ "Daniel Borkmann" <daniel@iogearbox.net>, "John Fastabend"
+ <john.fastabend@gmail.com>, "Andrew Morton" <akpm@linux-foundation.org>,
+ "Alexander Viro" <viro@zeniv.linux.org.uk>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <bpf@vger.kernel.org>, <stable@vger.kernel.org>
+Subject: Re: [PATCH v1] arm64: Mitigate Spectre v1 in the BPF interpreter
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+In-Reply-To: <a6cda8a2-992f-41f9-a814-ee78363c3a69@arm.com>
+References: <20261117172341.3152407-1-ryan.roberts@arm.com> <DMYSI3BOQWOC.2P2FZB0H872DR@gmail.com> <awAay4FFj1_wQtaL@arm.com> <DN07ZMOAD4GP.37PG3XUPBG4CM@gmail.com> <a6cda8a2-992f-41f9-a814-ee78363c3a69@arm.com>
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,43 +105,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: baolu.lu@linux.intel.com, iommu@lists.linux.dev, x86@kernel.org,
- linux-coco@lists.linux.dev, kvm@vger.kernel.org,
- Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>,
- Kiryl Shutsemau <kas@kernel.org>, Rick Edgecombe
- <rick.p.edgecombe@intel.com>, yilun.xu@linux.intel.com,
- xiaoyao.li@intel.com, Chao Gao <chao.gao@intel.com>,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/9] x86/virt/tdx: Add SEAMCALL wrappers for IOMMU
- setup/clear
-To: Binbin Wu <binbin.wu@linux.intel.com>
-References: <20261112043054.2664857-1-baolu.lu@linux.intel.com>
- <20261112043054.2664857-2-baolu.lu@linux.intel.com>
- <ed90de7e-6019-4d42-bc6e-5b586b460a31@linux.intel.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <ed90de7e-6019-4d42-bc6e-5b586b460a31@linux.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-On 11/18/2026 7:02 PM, Binbin Wu wrote:
-> On 11/12/2026 12:30 PM, Lu Baolu wrote:
-> [...]
-> 
->> +
->> +/* No cache flush is needed; hardware keeps caches coherent across KeyIDs. */
-> Nit:
-> It's a bit confusing without the all the background.
-> Once Rick's patch [1] removes tdx_clflush_page() and its comment, a reader may wonder
-> why this wrapper explains the cache flush but the others don't.
-> 
-> Is it better to drop the comment and explain it in the change log?
-> 
-> [1]https://lore.kernel.org/all/20261015191710.3632302-2- 
-> rick.p.edgecombe@intel.com/
+On Sun, Nov 22, 2026 at 12:58 AM Ryan Roberts <ryan.roberts@arm.com> wrote:
+> I view this patch as a fix to arm64, not as a fix to BPF. I haven't changed any
+> BPF code - I've only removed an out of date comment in BPF code, which assumed
+> the code path was for Spectre v4 only. But that's not true since Commit
+> dff883d9e93a ("bpf, arm64, powerpc: Change nospec to include v1 barrier").
 
-Agreed and updated.
+Fair enough, but the arm64 part of that comment is stale.
+The verifier relies on nospec for v1 since
+commit d6f1c85f2253 ("bpf: Fall back to nospec for Spectre v1").
 
-Thanks,
-baolu
+> arm64 was previously nop'ing barrier_nospec() despite seemingly needing it in
+> the same situation as x86. I think this is orthogonal to whether or not the BPF
+> interpreter permits speculation attacks in other places?
+
+Not quite. In the interpreter the barrier sits behind an indirect branch:
+
+  goto *jumptable[insn->code];
+
+arm64 has no retpoline, and the prog can train this branch.
+With a wrong target the CPU skips ST_NOSPEC and runs the next insn.
+So the interpreter is still not safe.
+Yet you're arguing that you're making bpf interpreter a viable option
+on arm64. That's just not fair to users.
+Say it in the commit log that you're fixing one tiny issue and leaving
+giant security hole in place.
+With that I'm no longer nacking it.
+
+> Looking at bpf-next, it is still possible to deselect BPF_JIT when building. If
+> this is such a security issue, shouldn't we disallow that on arm64, or at the
+> every least make it an EXPERT option?
+
+Yeah. Good point. Let's disallow it on arm64 and x86-64.
+
+I'm thinking to push something like this
+
+diff --git a/kernel/bpf/Kconfig b/kernel/bpf/Kconfig
+index d705d7b..8b8688d 100644
+--- a/kernel/bpf/Kconfig
++++ b/kernel/bpf/Kconfig
+@@ -26,8 +26,8 @@ config HAVE_EBPF_JIT_KASAN
+ config ARCH_WANT_DEFAULT_BPF_JIT
+ 	bool
+ 
+-# Used by archs to tell that kernels that were compiled with BPF JIT support
+-# have no BPF interpreter.
++# Used by archs to tell that kernels with the bpf() system call have the
++# BPF JIT compiler and no BPF interpreter.
+ config ARCH_WANT_BPF_JIT_ALWAYS_ON
+ 	bool
+ 
+@@ -36,6 +36,7 @@ menu "BPF subsystem"
+ config BPF_SYSCALL
+ 	bool "Enable bpf() system call"
+ 	select BPF
++	select BPF_JIT if ARCH_WANT_BPF_JIT_ALWAYS_ON
+ 	select IRQ_WORK
+ 	select NEED_TASKS_RCU
+ 	select TASKS_TRACE_RCU
