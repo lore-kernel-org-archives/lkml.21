@@ -1,99 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795432751;
-	b=r4ju0TXX11xOCvnOLJO1aXiv8NogVznISF4/BokqyuV7KnAgf4fa2KSkX671VH8MR051
-	 WzanlDVh/ErCWUdaHSgJhtTOuoJzYiY1h6kFnGMG3bjKaCYNWVjGSfLLSu+l9t87xVcda
-	 GYmASdi7rG+x+aaX5UUCqw/9NytNZH2Mmnox7tibbWdjL6VUysyX3bRqKZPxATaR2BSEE
-	 CXpXt/d+qxjTdifjXtHGKYjPsaVXGo4YP/GoE57hevLkcBmEJTP56vdUMIBWQ47F4x+nN
-	 +u4faFgLc6rU9cbtr9oj6jcDEZAiianIfq2dbQXRBAbOSmEaJNv183olcu39dwIUzCw==
+	b=IYwCkq+gKPXIXDchuaFjNVSYVqYqw2DwXg7EQEV0tpLOt49g7tl2rBoKCtuCM8ic0kQ2
+	 YC2KHDWHyuTZ94jsCVkKk1Bx1kXxviGUuE7iRzX3OWvvpt/nr7AaTvgcXyRXcOYsgaYvf
+	 1ZT2T7+FA4hRd9njzvFiREZwGd3RdlLNGzk8HpA51UqmL0EZ0CvHEskwzJa8s1CdDUBNp
+	 uJ5f0pyj8PA8DLQZbvqqy44cg08ntRImoPeRyV3jkmxW1fHXAIz2CtD4R4gf99X3YMBMg
+	 MblQiXAgBNAFeuuMR21/2wl0s7YGp3t0cMDrKRa/3OdBl8MfvI1DVtfrh87ZK5GyunQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795432751;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:X-Developer-Signature:X-Developer-Key:
-	 Content-Transfer-Encoding;
-	bh=lOE6R7Xl/jlA0aq5T5u3Q2xfUb5jKoEz/z16W6dysFM=;
-	b=ddsa3FaFAbvGn+sfv5va1BnrhQDxc3jMdCi1K8naB1IFZ2Qijk2H6ZG5JgHAwHb1zMS1
-	 +lJmjPaEo9fDIIHnOvkvMh7UWo7GgB+zQRHpPg5/k1p3Sqj1tQBWWbd1706VD9aYL6854
-	 U82YalrQkNGf7iycbCKxesuzZLvLZgKZfSvYxJss0ta3Rx78NSKt/tJZqJGELY5NS3lIB
-	 am4mPX+vxi82AKsJqHznxocYxSm1Sd9mo5JfPsCEWgnejRxFlaOMkJuJggFLEhw8L8kGz
-	 /qbUP5h4G9ZpwryE5tsuDUtWx3/6AEt7HNtgDt8UC1Tj2V2IOiJGxyd6jyY0VBltmRA==
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=IOrxHtiCHWTIaFRLN9a3XE1Ecmglqu0IREj6XPQBmDM=;
+	b=RQRiH9CEzVgm926yZeQ6YRWAigHxIJbHnN2p5q9STrifk1ELXbpyqVHJrZoPMB8q/IuT
+	 9cdbpaaMunAGLnuCtFhNXoOzDkqVpZDQA6wPs8AjOxX4ZehJk365FhNizRIwq2GTIvAv7
+	 pwEnm9H4aw8vbQ2jIDhiLYMLkCIuwxQjPR+kst6g2ebwVS+tK1wlxHaxfnqnDAIDtVPv0
+	 /GCE+hSJ3HJnyVzkjmg4Hl64fFzqRomd0lsFwzuCpvljusorgs0xDIRIo5OcJ3Nv3Rrib
+	 YKnN9DURfyj7KsDknsbWEW5yBF6z6S7umOZ2IPdLNv08wfOGrH7b6Zr3OjRnaC9/9Yw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=GCIUeQLv;
-	arc=none smtp.remote-ip=209.85.221.44
-Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JcoKie5q;
+	arc=none smtp.remote-ip=209.85.218.48
+Received: from mail-ej1-f48.google.com (mail-ej1-f48.google.com [209.85.218.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4CDD606A335
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D5D160A2623
 	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:19:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4CDD606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D5D160A2623
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=GCIUeQLv
-Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4a358881793so1564933f8f.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JcoKie5q
+Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c50e26763a4so577887666b.1
         for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:19:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795432749; x=1796037549; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=lOE6R7Xl/jlA0aq5T5u3Q2xfUb5jKoEz/z16W6dysFM=;
-        b=GCIUeQLvG0uXeYIrIYrqQ1HkCVKBPtQbDySA1PpRiRV6N3mG2JRk6Uqt1IOC38WRom
-         VyVwi7ki0nCZqj1NNdNL4BML5Rsqa2Sjl7PHIHDbSYQzPAT6aGTt46iALgifPjGbHWIS
-         lqPcBL3P0lIEvPR996pLWiA1KohvD7shFrhRopV2U3MnzdGm5czgNQlZ2o/765HaGNuZ
-         rRzzkV5Yh3p8HheZRAVft2qsi1AidDlh3cSARwcRKzYndGfbBE0bpPJ3jq7z4ujnfMJa
-         7j9zYGe/K/IneMD8xSEEg9002Ynu+XcPBn8evdGctRpHqUWEKSSQVYvNHey4C67AoqiO
-         P+vg==
+        d=gmail.com; s=20260707; t=1795432749; x=1796037549; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=IOrxHtiCHWTIaFRLN9a3XE1Ecmglqu0IREj6XPQBmDM=;
+        b=JcoKie5qcPIy9VJGNJOeooy8iE89M63mPT4Tj1eTTLSnqtXq2b1lwRilTuF8Wo+w30
+         2mxiL2i3Kgv1GdMK5qHeDH7IacTvYGU6YHektDgrSNsjjnCE7wnipEghpMjLc55Zi4Hj
+         kgzPLiOhYpRTUT4KP2wf0Oo6kIWuFOkV8cF6MluV+qhv6OhNdw5ZYUmNc1PDQCzxjgcM
+         CV+RTr5c85OgIHVnYYn4g2IuTNj8mjnugocu6PNncbEOYSkWeudE4IVx9G5+bwbOTt7i
+         HgpA9vdDoDQCptPRtZwyqsw4GEVjsXpuOQPBTB/cDi2VXoVWy684JhnOA2J1Ipoh5CfY
+         548g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795432749; x=1796037549;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=lOE6R7Xl/jlA0aq5T5u3Q2xfUb5jKoEz/z16W6dysFM=;
-        b=C6TNyZzQA1icNGWE9j/Ns8pnHcK/11h2S08I8NSqCJ2RsfFshYrr/AuZwSO4mezsrO
-         sLg2rOvP3+sHcPAjKaoasbcvUIQUifLVz6YJlmmI2lOiY0484SMyZ9p3iKdhHiAzzZ/8
-         fjHMM/haCUjXBYQuLt8oEo3BwYm7d2aW9X+y2G5/fi60ceQMw23ILIfp4RiWtsGJsWK2
-         h3vYkE9dLgP73+NNmO1PqIOXCAzyD9lfQmknlk7eQZpgh4dfhBnud9j4zvgUnosZf/oM
-         cU6m8D3U6iM6C71il/QA1Q/NDS90tt2xrayY2lri1kB4RAT+Scp4+QI9QD7z4fUnrZFd
-         bT4g==
-X-Forwarded-Encrypted: i=1; AL+hErHcX1M6VWCKOF1+1nzXMp3ti6KfZZf5vxPXcUWeloMMehEXHBbLLKwUNyswiPx2CLECL2pGfgKyXGGId0s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8H4Bhisd3RjaOPqRzLMtyw96nLLfgJ9pH1gREAdYfAmZ8LdvsW
-	yTsQVZtg35GrJcBfgk2xuZO9Uvl7++XP5erMtudpRag2wTAI/JQ1pW6qC3NTv9IgvW8=
-X-Gm-Gg: AZFdTZcXERFkJ71laBW+olRTF6WMiwTXrpuEPWmF6gOafUWRPBr1ioawifWfmE1/yy8
-	FLYXuVffZTQSsj1QeRyH5XXbvGISAvvdtoq8bdEMO2hX+xN6xXYGawqrSaNZqz3Ar637Dbo9TeB
-	y14t1+3sQ3whwl7b28HcnakHQFJMnKoDBDn+KGrKddcVPcyNkvS284KkdKarg0E8pbO7iJXQQUU
-	ML6GV9hjJehUnbogfOKoBirzVCEujoxv2R/6TXWPvBHJVFItfGRs6vpToQknJkjzxcaUVClTgXV
-	gJXrVYnlZPvGT0hr3s2PKUYnSJEO7rVj9rO5/t1CRvrjTzjVVCoUkL59YEhcvpRtAyUYNKvbAcj
-	hEVLerl3a+zRzRgPKlxRD5KJ43MtzFOyWLzVrSz2PoYRsFAIG15msJSEIyAPcCYSyxb9avzFSsS
-	5oXTuPMkZK49qw/fI8TZtEdJCR+46RKPgc796dULC94rGna4flKYZjjiyPSaqg4YVieiKWn+Y9n
-	uGlxGhm3pG7mmS8PCdNEKwNR0726IZ8/Ft1HpIgnHE3A8egPxVHTYnAFg7M1mqAy++1Q8hi56Nh
-	EjWFw9xn586rI/yRtliBPnZpkq628otmGCw3eapNdylhhKQC0b+ErQdif42wBPnaQ62ytJte4bn
-	2gq/TjtYXQzdZop5JAQ==
-X-Received: by 2002:a05:6000:4a0e:b0:48b:db7:86a7 with SMTP id ffacd0b85a97d-4abb7787c05mr21163192f8f.50.1795432749041;
+        bh=IOrxHtiCHWTIaFRLN9a3XE1Ecmglqu0IREj6XPQBmDM=;
+        b=Qe1ceir618X0BdY4hQ6n2xdGaIPUZigv+VsZUzPwqldLs+jwz3JHi0GLW6rncnioSe
+         wcAKcqlfAiNyoKcGV8CI4dL2IazdKBEBk+50PzMYyWMZuBWaFy5j5Mt+zUp1PH79DUsN
+         mgXp+7oPjkmnC66LrS51DNPrsgUOy+92BiPDWuzHjvFbqTMUOc6/S66lQYNO8FJe9YWY
+         EnUbdTMNw1BUpJPDzp/9JcfZAPty+BdsXfwX7d56jSDe4jR1USk+lXQMp117SzQFJNF4
+         jXI0ZoiW/FZcWFge1p7X3ONb2ZmK8cYb8nF4kSKxVB9hYyuwFbQvr7N1i/8n5i29u+zM
+         1YCA==
+X-Forwarded-Encrypted: i=1; AL+hErFENOuCGTqoSYzf9McB6PF+JdKCjYJQWZBkLycH7B9F4/3hezW7GLcf65zqETlqLNIdJ1z6t6AvUxF8Pfs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9bR9B3qtEjtNXI7twAIA22UighZH+p37hAPvhncu7sJ9GkvR6H
+	Cv6+Q9bmZWMseQoG7pGw2zCrINS/I7XTEOS3iWZ82K2/McwtjTyaaIbF
+X-Gm-Gg: AZFdTZfTpfrtUKycMSl7AwmCF97DOuk+N1UucpJMiR6+0oa4FfAvGLq/5YTineWRJ74
+	C0/pi13sKigB/tCqAgyi5X6WOJeiKOlXn4frBHOv07YmvrwnWit/4xuIqJeNDgRssaL7vj3766c
+	84nG68Yd9mYbOkQsrabdB1Q5mNpKym33NsralOxCRyMDjz6uEdTXGND+KopYx1BPw8P3PaHkFo1
+	yU8pkDGJXyuruFhouKdbrJoZ37udcXbVVxihg8LiasB0mPUUGZsgYW0QGw/Ce3MLXOVMNc0qC7b
+	Ev63OhqTpkzJOF84CJlwT4q/t7CDjT7ETb+fY9DuLwQkXq0+9ddN2NIwkyuUmfjbgiM6Ub+iD0V
+	pZ3dnBl3pDyapBDXZKnduE5uLjiAdfewUoaOwDWL9pVzsa4y3WYh6AJEBTZYfMp3W1YreHq9pT8
+	Uh/IlI8vz8K5a2qSQ7LWJL/XCtLFgLepI08eiBXRAOIGTe5QMuvq8XIGDoVq2UHNToAkXs80Azv
+	a4IJYaZXJbWsE7By6dI9VJg0gEbYGhh5LWAKyjOUiyjg3n31TgwqpaKFOAbi/vbrJWKC+ekY7Up
+	mW4G8rWjP7ZWo4SH1rNovZIWlzMvupyr9UedB0oKLNOrqZjk5WAkYvxGTDxN8goARg==
+X-Received: by 2002:a17:907:84c:b0:c2e:63ba:1f90 with SMTP id a640c23a62f3a-c513acb5be4mr952960766b.48.1795432749405;
         Mon, 23 Nov 2026 03:19:09 -0800 (PST)
-Received: from localhost (p200300f65f19a90438645cebc2ee104e.dip0.t-ipconnect.de. [2003:f6:5f19:a904:3864:5ceb:c2ee:104e])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab6b10b2c9sm22480961f8f.31.2026.11.23.03.19.08
+Received: from [10.120.183.232] ([50.7.123.82])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc679bsm392442266b.63.2026.11.23.03.19.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 03:19:08 -0800 (PST)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Lee Jones <lee@kernel.org>
-Cc: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
-	Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>,
-	mfd@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Linus Walleij <linusw@kernel.org>
-Subject: [PATCH v5 07/17] mfd: Drop unused assignment of i2c_device_id driver data
-Date: Mon, 23 Nov 2026 12:18:05 +0100
-Message-ID:  <51e03a317097dd87a1afd7591032659611dae693.1795431460.git.u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1795431460.git.u.kleine-koenig@baylibre.com>
-References: <cover.1795431460.git.u.kleine-koenig@baylibre.com>
+        Mon, 23 Nov 2026 03:19:09 -0800 (PST)
+From: Alexander Letuchiy <asalde.le1@gmail.com>
+Date: Mon, 23 Nov 2026 14:18:37 +0300
+Subject: [PATCH v3 4/7] dt-bindings: input: mediatek,mt6779-keypad: Add
+ compatible for MT6895
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,53 +92,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1269; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=BOZAeiaAw4Eaud+KaCugllOmpmTVVDFpxRVJslTRZps=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrBCD4XyeVWvp8XdlcWO/uEO3cdf31L4fMMm1Wd nFDQVp25+WJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawQg+AAKCRCPgPtYfRL+ TjfRCACV7ttZXwTw5e/+aK/ttVncaxXZPGCgFmRhxQRxOXavYhzNdvaOeqyVj3btMFnfEHBQNVo Nrv6kPRaHwYzXG6Hc9opdJBXN19lnfpRlDjM6TGhSqmHQFupvV3lHVaBhbnO3xX3BoO6J5Re+pW Kp7aERCGgp3ccAeev3T0N5+vWdwWX6tNxkh2NtJxFRkV+ixOr9htYHfWPy3Sd/xjR2NZlTtRjA+ uCseWDWEMv5Pc1YEYyhYPd26kZUBIz7RNUdJ3YDPWPB55sSRQT/ItCyNXS7e3bzsQWyrcoEsn4L xqxJwIAfY/JR/gHrhfUuEr+JjDXO4YOzvEjenLpPmkq4U2pc
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-initial-mt6895-v3-4-95c46597e63d@gmail.com>
+References: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
+In-Reply-To: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sean Wang <sean.wang@mediatek.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Mattijs Korpershoek <mkorpershoek@kernel.org>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Kees Cook <kees@kernel.org>, 
+ Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-serial@vger.kernel.org, linux-input@vger.kernel.org, 
+ phone-devel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Alexander Letuchiy <asalde.le1@gmail.com>
+X-Mailer: b4 0.15.2
 
-From: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+Add a compatible string for the keypad of the MediaTek MT6895 (Dimensity
+8000/8100) SoC. Its registers are the same as on MT6779, so it works
+with the existing driver through the mediatek,mt6779-keypad fallback.
 
-The drivers explicitly set the .driver_data member of struct
-i2c_device_id to zero without relying on that value. Drop these
-unused assignments.
-
-This patch doesn't modify the compiled arrays, only their representation
-in source form benefits.
-
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: Mattijs Korpershoek <mkorpershoek@kernel.org>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Alexander Letuchiy <asalde.le1@gmail.com>
 ---
- drivers/mfd/as3711.c  | 2 +-
- drivers/mfd/rc5t583.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/mfd/as3711.c b/drivers/mfd/as3711.c
-index b123195d911c..9513dc4ee0cd 100644
---- a/drivers/mfd/as3711.c
-+++ b/drivers/mfd/as3711.c
-@@ -191,7 +191,7 @@ static int as3711_i2c_probe(struct i2c_client *client)
- }
- 
- static const struct i2c_device_id as3711_i2c_id[] = {
--	{.name = "as3711", .driver_data = 0},
-+	{ .name = "as3711" },
- 	{}
- };
- 
-diff --git a/drivers/mfd/rc5t583.c b/drivers/mfd/rc5t583.c
-index 431ee5deec00..96553e5a8279 100644
---- a/drivers/mfd/rc5t583.c
-+++ b/drivers/mfd/rc5t583.c
-@@ -280,7 +280,7 @@ static int rc5t583_i2c_probe(struct i2c_client *i2c)
- }
- 
- static const struct i2c_device_id rc5t583_i2c_id[] = {
--	{.name = "rc5t583", .driver_data = 0},
-+	{ .name = "rc5t583" },
- 	{}
- };
- 
+diff --git a/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml b/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
+index 9f0da1240187..9a1369c9ff4c 100644
+--- a/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
++++ b/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
+@@ -29,6 +29,7 @@ properties:
+               - mediatek,mt6572-keypad
+               - mediatek,mt6595-keypad
+               - mediatek,mt6873-keypad
++              - mediatek,mt6895-keypad
+               - mediatek,mt8173-keypad
+               - mediatek,mt8183-keypad
+               - mediatek,mt8365-keypad
+
 -- 
-2.47.3
+2.56.0
 
