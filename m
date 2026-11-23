@@ -1,79 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795459304;
-	b=TU7g6QA6fDBfzBH92/MpLjKtb4uGYdrN5/BAHWVZgtdZq7ptPJ3wE0PBp2paX2O8nhGX
-	 H089dhrMjdU0TcIc6XVMu9v2UwiCGZ2YpEyfd2UoKrxjJUh1vIMsgQPZgVWPzj2VwZxnU
-	 V6HU5xO8AsSQtmFQelg61/gMPrferDdY2CRbJ+vwgU6xrcXqid7z6xI/p2A4FBY4kF5oD
-	 S6gVcwOZni0JSFkhD9fnMbHN2bTvX6o2+lUfHk+N2UGd6JUXwq1Atr6f81OWTlkiN9GYT
-	 R6Caoxu6WVHdfLvuAVtgsQXUZenCAdV/NbfRCIG1PlvMHn83xPZnls7DoJ7JlvwylcQ==
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.216.50
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795459307;
+	b=rgja8Ojdb7OLfiryyyfOF31KmxpW61gXvJv0HSJ24+WkrguPYG+Ro4KPmsjQyW9fq3Z1
+	 VXo1EuMjOM/w2TPy7F5m4Xc5GtjEP/P6BGycYjWhh/BlJdL34QvemKOYj/IacXy65br9d
+	 xz6B/Z80dKNsL8wPwe7vGrW2Del7QKgx4qLDBS9+cNPLjqymT2JMGCLKX2ij7E/nKdEzA
+	 d8vHIDy0ScwL+H5SLlMGJW8OQYY4pAkeuDvHI8IAzDWstqV4cwEGmDXgRHC/J0bDzJhl9
+	 /+FWXxniTh8DjBPda85jQ4mbK+MJqW/UV5zllS74cnuT0RRYTL8300YbQ5sj2Zc6oDQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795459304;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=F2ZG4WV1JiH9H3Ur9+LrPBFzjYCXIRCQKo41Iqlytpg=;
-	b=FeVh0qZxoohYIyd4yxY3ZcdqWmYM04v2FUhHO+Der3nNzQsGJeb+7Y82+zv3AQiGYDLb
-	 36wdMZZYpuHsz+w2uUptITFygNqdYpaWSluCYVCwhk8mu6AQgG26UmUZ9vATycnEpewod
-	 3q+gvwk7i2V1ETB/It7FfctqSInjEG/t/vQJ9D41lcB5MED1VwxwhT6HRw7XWNudl0Rlo
-	 lxwDtfligKajJyuHGv5m7dR3iulVqytt0d1DH1giMQNImKh4DbJdOqwkq3r/smk1q3QGY
-	 AfuUuie3QXf+3DPH+ADWcp3UVyElybK+Qqo8lx8+i9bV06NSiyDNWmik42MUWl2GluA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795459307;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=7KCCFV8c12xHGuVa12sa42pR/GvO+E15oZ8scml+fpM=;
+	b=pqlLNwua0mUT/K8BTs3kSdqLgi2w1/nUhtJuUVyos/YooyqG1ZjPM2NcfQya379gApdY
+	 XjJ6oer5xXOx/ome6mnaAG/7dQcpY2iVEsBRBM+q4gqPtLIYI/aFmTzym0XsE7NoYczOB
+	 +8JE5FLjPTejzLEO0h42s5Fo6nHPHX9C+QpWjbhm6E9J6s5CSHawcW526yWWwz0AZrFlU
+	 oFTC5Z2CFXaBvqimqNYyuVTfbnVBAdTHZpRVqukAdNH/zJRN0QeoMTKMrB3DCTvPDCL1S
+	 yml3Pg5MINqs7MJepvsIBP8+iyDpRgzJOBThPg6i6WmlDKRp1yCB+hjwFGXJClt4iCw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KTMWcZcn;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FCF8606A332;
-	Mon, 23 Nov 2026 18:41:44 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KTMWcZcn
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795459303;
-	b=ZWvoF5K2I02Y+jm+ltSkrh9lNQlNBWy4pMNMx/yLl/y2Zjfs+km+N0rUXMOC8jwvUGtE
-	 0PvtwOvANFG5Ard/APFaWpkrB/aX+gTrEQBloc+pVfdDnE2/v8BnpTBPsRwXwqEdQ6ehg
-	 mK4UECkwhqNaCC17Hn0ek+0uQLbDAvMojbJyVdv0hyxF+VpwI0RNc4JyeK2Rs8cJ2VjOa
-	 oRbdH//3hXwclNykcg+tOz9ucZcKkLhLZKYW3+bejnRuIpC6RXox8Qj+A0mYvmm7wDA6l
-	 BZRelnwOp0aroahm+2mBgQ7pDDZSSLEGt422WGNp4qu4tepfXAzTF9GhUMzL7c+Uehw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795459303;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=F2ZG4WV1JiH9H3Ur9+LrPBFzjYCXIRCQKo41Iqlytpg=;
-	b=JaEt8NBJoANdmrdlvrrlzq6nM/KWMAQNK3CfSzex8suD9YbzAg//6zlvx7lVMyevEgwX
-	 YHVbgoEOI2yRJ3/Jkjlo4KhKHrmamnSwAcl+rb/rrES6Z2F69iAYG4VgqT4xIF/G+6P5Y
-	 bLlI194hbXEdxCP3U7D+XIDjwaehFTfcCqoberTfAYvhglrBxFpS9c6jMnqe9LAZ0j0s1
-	 ui8a/UCUCYNwJLPw5oJLmE77K7Wh9vKQEAhcV4OsnSbHLR1hyU2TFPkCVQ+bjfAGV+cvP
-	 uYijHaGoLytPHaQgZxh9e1CgOBoxC9Os/ybZYENXwI5xiDsCi6rJG1jTjU3UwHJCbyA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rjiVRAas;
+	arc=fail smtp.remote-ip=209.85.216.50
+Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 743081F000D2;
-	Mon, 23 Nov 2026 18:41:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795459303;
-	bh=F2ZG4WV1JiH9H3Ur9+LrPBFzjYCXIRCQKo41Iqlytpg=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=KTMWcZcnwd/YS3HyuecHoZBzXDUxaEIO4ljOa7jw9J38bJc9yWVFz39Eb3dCOOL/D
-	 3M/uNgMoKz2Bqqkayc9jfco4xhGzg2zfdPTxchowrpccpJ/XeEQ1VQPxOPsG1CKPdQ
-	 WATL2WxjrgdzpM4v+Ya5oSw/HyjT2f6NhZQ2CnLw9UEZTMSdWW3Sj824MvUcnRNvbc
-	 OHlDm6FFNxHqGlhfBSqhWbzXM32nXrtDucfgMTXr4wgECpaEejVcR+OoXlZ5H/ZlUK
-	 Pj5DztnIPrJZJgNKq9MKvbSPXJeo8IT4RgnyzueMNpMZr1Jr9DS5gjdhbxw6+q72HU
-	 taI3aB0U2quIA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 049F24C5A7;
-	Mon, 23 Nov 2026 18:41:32 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Subject: [PATCH 0/3] rtc: Add Cortina Systems CS7542 calendar clock support
-Date: Mon, 23 Nov 2026 21:41:30 +0300
-Message-Id: <20261123-b4-cs7542-rtc-v1-0-6c53761ffa03@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E400A606A331
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:41:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E400A606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rjiVRAas
+Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b41e627cadso2187122a91.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:41:46 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795459306; cv=none;
+        d=google.com; s=arc-20260327;
+        b=rzvtJrojcekhRhTi4EG/BkGbz4jKsmaHznGkE116uIHhMTMOxEBtHKuAvI69tHMfDk
+         ylEEnVD7xdd82e7JwVqMLw49i48QNg5LODHn5ntOK1u6t1YIU4fIB2Rv1gVK77DULxf3
+         Ota0S6geOS33ZzAx3Zvdn1kvoaa9UFTUmbTbkoWKXmmNvjROQy79zW4umonYIwdRjFTT
+         DoZg77dnPVNTChV+TT4bGanPxmgi0zG8EQoLjsUvA0aRdPph4MDEWBpwIHnkc1lZ7Ssi
+         L13dBWPgoLmOX//heme6ephBwUoO2AMTDUhE4bLITJHoxKkCUtMVPiOEdLw+kPFHTfKq
+         TaWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=7KCCFV8c12xHGuVa12sa42pR/GvO+E15oZ8scml+fpM=;
+        fh=zU1FHIkr+CuLAoBDS5tk6CCYyHf1pmPH358c4cqcpkg=;
+        b=OpMlNrXSJxMmYx9zHnr6j/blXtLQo7FQiIj1/fihqNgHSYru3y1iO3jigRkgkNmCcz
+         CHV3f4+1aLu2RhBWEB2ammh5UcHdyQPhKgg77qprh3VvwN+WHij8/KM09Q1cuAKGycqL
+         EoTVp4BgmZoq1If8jMV+Y0ZZTGsfshs28G1l1QICJiWMr/c6DXyQNijJPDbXTDwJBMt1
+         6wg3qe80CwsEeoq+sidjOpXn8N7k4J/D63MQhgeTMh5DzgRHL/rgGqJRqNM6aOtur72L
+         O+Coas9r+xUq2dHILDwZqHgD1hg97WW6x0/9XEIrxBDmtXlJNJeQjksvZcWEuDpZEhLt
+         ERfg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795459306; x=1796064106; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=7KCCFV8c12xHGuVa12sa42pR/GvO+E15oZ8scml+fpM=;
+        b=rjiVRAas43i+JWsmqDO2xHPvuZ8jYgiEFFguUXxTZ4mN9wumtCVo7sINa0uEhMrAPg
+         5KDVpas3kj0cqn4ubJTHczSggRGc+2oZnlyhoFO9xYGG9Kvdm5C1cZIKnued+BbWIxjA
+         GhA42IZUkfffIopjA6J765vebjE9N+UOt1tDU+DIYX4b65lP8sPDAH/at8/LQ7V1HYRJ
+         DX5YQDjbhvgQOywaF6NYUtWGKIpuvNhwQWTthT6Ocieu6ZKe9ubXPHWTMoQQQm0fA/eJ
+         I1td2fdcwa+RmFBXT/PqT/cxaNjxrlEcb9elz0SuQPNezhMbhGZAmYSDrncLjMQl4juv
+         AQFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795459306; x=1796064106;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7KCCFV8c12xHGuVa12sa42pR/GvO+E15oZ8scml+fpM=;
+        b=Ig5NomgPzYMDFWTJHoLNWn1cU1galYoaJg+1jOohsd4/Ot1uOLeFkbVoW72Os0z2Zo
+         czl9c6MvI0LMv//hIJhxwdlar0/LBt2/TdL4SFTV2PFBO5jZrggieXJLlgud1mDqKmOf
+         wMNnDYImtswmGo1z13WyCTByrRsNb2jKqHeINCSMoAfwCHs4wmILZ0tmE7Lt7hWWL0fj
+         Su4WYuCdVjYkGzeUXhhCBPQYwXErqtYjPzAHQyD5QX4t+RHxrNh+drdBUu3y2MLvUS60
+         F3ZtJqW1DLoLhVtYsjNHsZO87bsAzpfGr0B2m258r97ah5yBSGJ2QbKl4tXXfw5BDDx3
+         7Bhg==
+X-Forwarded-Encrypted: i=1; AL+hErGHI/FJh91peVTsCjlN0b5zn8ZaPe/7werSmT6M1Rkxv0GE4F22PTIjHvd5/5xVqWEV8S4Msav4hdQVBfk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z82yKuqNQVENXVhyn1XO9LG1IKdhlXu6/m1R2igBS6Ub+WlkLXb
+	qjaonMXNgQnIaro0kZeY5IIcyJO+CHprmoI0dsxg04Ldui6W2SijYDHXRkxUMor/XDOFqgDXuvi
+	/9OuU3+NADvqVpLWLgMgbg7fQs11FLuY=
+X-Gm-Gg: AZFdTZci3CWW8KIox/Sj6uyyHSJR3CVqEQNFMXOM4dNK3DSsg1GNxLi4mRLOqbqSMl7
+	79UocYvoet4HgyUh6hulm0uDwjr0MbEPIt3HrVFhP/4SnBbe4cJramqASvGjeYBlIEgPaFDELJ3
+	MoRMHvOcBZKyRTbFOK0SfWmKthilUbIvy7uucBBczYiklNWZB6pZ6vCZIlPY/lP12dIFpZOOOIj
+	I8oTIwLujKVho9DULUhwC4T0yqb5cdvRgYpjYGiuufDV57v9M8rS3T/5CztB3PTnS77HvKcDZRe
+	W7Ragd83hou3DQGM2KqHZbP1EKO6HsA9P0Bhj/PECEzoVwFFl+6+gyGvQG5rvq5cQURewgav5uQ
+	6sNpEcBxxD4wKixUnEzHzvkJTLEFkbyZdSCBsXw==
+X-Received: by 2002:a17:90b:17cd:b0:3ac:6fcf:91d2 with SMTP id
+ 98e67ed59e1d1-3b41c8fe3d1mr11633543a91.19.1795459306227; Mon, 23 Nov 2026
+ 10:41:46 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,86 +104,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMMQ6DMAxA0asgz1giLiWIqyCGkDhgBopiQJUQd
- 2/ajm/4/wLlJKzQFRckPkXltWaYsgA/u3VilJANVFFjDD1wrNGrfdaEafcYq9a0wdoYHEFutsR
- R3r9fP/ytx7iw378TuO8PDXUHv3EAAAA=
-X-Change-ID: 20261123-b4-cs7542-rtc-f0818d77fda2
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795459290; l=2778;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=iQVd1OJ/+XSD6K4nQFSIGwUCtR8vm0Wjlv84V073Phc=;
- b=pwhES3U/M+fGPYj3+weEwzyknhA4SjCI1trHk9wpgqNbTH71lD9WJifK/MOox7DX1nDSVooCs
- 0H1tD2m1ohzD4esnIKDp3CA1reYz3qLClhRolOc+OFRNpG//s/WLyc1
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
-Reply-To: filipp.dunsky@gmail.com
+References: <20261118-orangepi-gpu-v2-1-f68676f844eb@gmail.com> <20261122184434.545341-1-frederic.mahe@cirad.fr>
+In-Reply-To: <20261122184434.545341-1-frederic.mahe@cirad.fr>
+From: Iker Pedrosa <ikerpedrosam@gmail.com>
+Date: Mon, 23 Nov 2026 19:41:00 +0100
+X-Gm-Features: Aa3M54rYymnQncJINmj7PXylw19m9Q_Z0b_H3MvffZyCzTJDH31b-Bzjr4MRK-U
+Message-ID: <CABdCQ=PnfXRd2=b6_yEN94RCRvPnWx-WFfHZDC+jhHv_UFZ1ZQ@mail.gmail.com>
+Subject: Re: [PATCH v2] riscv: dts: spacemit: k1: add PowerVR GPU device node
+To: =?UTF-8?B?RnLDqWTDqXJpYyBNYWjDqQ==?= <frederic.mahe@cirad.fr>
+Cc: Alessio Belle <alessio.belle@imgtec.com>, 
+	Luigi Santivetti <luigi.santivetti@imgtec.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Yixun Lan <dlan@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+	Baihui Liang <liangbaihui@linux.spacemit.com>, imagination@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Add the memory-mapped calendar clock of the CS7542, based on the GPL
-vendor and OpenWrt implementation. Use an independent OF/HAS_IOMEM
-Kconfig option so the driver can be reviewed without the pending
-platform series.
+Hi Fr=C3=A9d=C3=A9ric,
 
-The initial driver supports calendar reads and setting the clock in
-the 2000-2099 range. It decodes the four-digit BCD year, bounds retries
-across second changes and retains RTCEN after programming. The alarm
-and suspend-wakeup features are deliberately not advertised.
+Thanks for testing this on the BPI-F3!
 
-An alarm prototype was investigated on the board, but the expected
-alarm IRQ did not arrive. Time-of-day and calendar comparisons and
-interrupt-mode experiments have not yet established the missing
-hardware behaviour. Those experiments are retained locally and are not
-included as working functionality in this series. This is a calendar
-support submission, not a claim that alarms have been fixed.
+> Two notes:
+>
+> - On v7.4-rc1 the driver refuses the GPU ("Unknown GPU! Set
+>   'exp_hw_support' to bypass this check"); with
+>   powervr.exp_hw_support=3D1 it works as above. Is a driver patch
+>   adding the K1 GPU pending somewhere?
 
-The three patches are the binding, the driver/Kconfig/Makefile and a
-MAINTAINERS entry. They apply to Linux v7.4-rc4 without the pending
-CS75xx platform or clock/pinctrl series. 
+You're right. I forgot to mention in the cover letter that I was loading
+the module with:
+sudo modprobe powervr exp_hw_support=3D1
 
-Validation:
-- binding schema, example compilation and style checks passed
-- strict source checkpatch with --no-signoff: no errors/warnings/checks
-- complete minimal ARM vmlinux and modules builds with both new
-  drivers built in and modular, COMPILE_TEST=n, without the platform
-- actual driver functions tested with mocked MMIO/regmap and UBSAN
-- exact sources booted in a Linux 7.4-rc4 RAM integration kernel on
-  Almond+, with platform v9, clock/pinctrl and the accepted watchdog
+I plan to send a separate patch to add K1 GPU support directly in
+Imagination's driver.
 
-RTC opened, read a valid date, advanced over two seconds, accepted
-setting the current time and kept counting afterwards. The alarm ioctl
-was rejected, matching the advertised support scope.
-The final combined RAM test recorded 16 checks with no failures and
-returned to installed OpenWrt 6.18.64 through the watchdog. Both CPUs
-were online. The firmware was not flashed. Earlier incomplete or
-experimental alarm runs are not counted as this successful test.
+> - The GPU never runtime-suspends: after 160 s idle,
+>   runtime_suspended_time is still 0 and the power domain stays on
+>   (autosuspend 50 ms). That looks like what Baihui's "drm/imagination:
+>   re-check firmware idle state before runtime suspend" fixes.
 
----
-Fil Dunsky (3):
-      dt-bindings: rtc: Add Cortina Systems CS7542 RTC
-      rtc: Add Cortina Systems CS7542 RTC driver
-      MAINTAINERS: Add Cortina Systems CS7542 RTC support
+I hadn't tested runtime suspend for the driver before, but after you
+mentioned it I gave it a try and can confirm it doesn't work properly.
+Hopefully Baihui's patch [1] will fix this issue.
 
- .../bindings/rtc/cortina,cs7542-rtc.yaml           |  48 ++++++
- MAINTAINERS                                        |   7 +
- drivers/rtc/Kconfig                                |  10 ++
- drivers/rtc/Makefile                               |   1 +
- drivers/rtc/rtc-cs75xx.c                           | 174 +++++++++++++++++++++
- 5 files changed, 240 insertions(+)
----
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
-change-id: 20261123-b4-cs7542-rtc-f0818d77fda2
-
-Best regards,
---  
-Fil Dunsky <filipp.dunsky@gmail.com>
-
-
+[1] https://lore.kernel.org/linux-riscv/20261111-img-pm-autosuspend-v2-1-42=
+7689f6f2f9@linux.spacemit.com/
