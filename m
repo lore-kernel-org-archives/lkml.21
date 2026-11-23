@@ -1,67 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.198.224.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.145
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795420685;
-	b=lJavv7W4VdkVHwMagqno6Kingj0HiIIdnw7h1PH+BIV6cdDuawPV16Q+6S/aMHEzp7Et
-	 PU06olEM2x1pQSJU5xi7bToYiVrVAdx12vWS9X19oemgMa4ix1aFqEjIQ9vNIYTIQpy5S
-	 N082CovEAvoriw8hI0JHWb75rERoK89EQJiXxGRPdqOj30eZP8bfafIuB2c5Ib9T79zwE
-	 uyL9eL5oU9mgmpfDy7sUdB+y887hQKtLwPUsicae0J5iwzJ2ZDJPSFbqcOUvYZBY6cZEd
-	 eZ+0l5RSTyl5NeixZUtRSnrBpArIP9kYmh+1DTId6WVjKg/MnTkBAweDQ1tK/ikTI6w==
+	t=1795420744;
+	b=RzP/eBLCTkI9sZJ+Ar8sg8SkOcUqihLqGSIs+Q+r4zOiWOQQxItNtF32waZ9y/2Lg1Gx
+	 wUNnfWLTpSFoDg4yuBq8zlYo5Nz6VmlczOl+mIvzHKeF4Nzno6K+Insrl7JCC41Iw7aFm
+	 kJX3oIt+eUvs5owjUU8guhW+6Avk9gct/fuYYane/VGFoDa66YdTSK0jG1/UchTwxAaH8
+	 zd0xKq74SX0Jq1JFNW6G+QGZ2VqkLBc/Cf9QChgtAWXIh1CUNR51DO0bkt/OEVuShpaIR
+	 QD6HYAcgfFRvtWpKj3W1ggLmIu9vbdFaSbdHFA+VwOU2EYO/I7kgpNesAJ9ELAtlGwg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795420685;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
-	 Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Date:
-	 From:To:Cc:Subject:Organization:In-Reply-To:References:Message-ID:
-	 X-Sender:User-Agent:X-Spam-Status:X-Spam-Checker-Version:X-purgate:
-	 X-purgate-type:X-purgate-ID;
-	bh=SNHm202/e+FOtZ2uxCzYO9hiduPnu8am59Fo+bkDzhE=;
-	b=VZehtjyE86rr5s3Y5jl8luAUyNgibUjifMzUWLk0mA2CRZe3z7NL5MB9p7XCBkmAPh7D
-	 /Hyqi9aY7bOCTXR7eUK502oAykgQwI3PMTzslMNwdhruX8b+WyaKDxAQ0zSa60nAh+qqS
-	 +0Sixsn4JtETsgOWDRQWEg3NOMqutBDwtzetJCM9rFp2pPbBAR8+ZTmk9+DKvSOnFzJIJ
-	 x6QLZcvbLzDhtF4pUlOTgHx9oJuT1erQb9GzDxalwcjKaq6vlQ6Tpxme2T83NiBEj6+N9
-	 7D5MRxYjixyG8KFJmdG+dNP1+Goqg1qXYnWwzfVR4uKvaFu/nPC6adZ0J8KsLKsH6bA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795420744;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=WMnYn7CucJXMDmQQ72D/rwn1+Zu+vHLwv+7N9kcUGos=;
+	b=ll5uLy6qSxWmYufRaDFoLA1TqeJZTzWNgRBQcrcdkk0MESosDeMjWyTSU9CVJttAZIEI
+	 DVityTo2kjS6CU/Bee1dgxcjxUVmXSwF3S+mNrtwa6aGB3Sm9tu5Lpbb5IfXGQoxmjDrR
+	 DK3gy6pLioG2CXgtc3AHkoJIG79U6/PkQup7pjnMMF+jyFXnkI+7maH7jhya8G3wmEILJ
+	 5c1KCa2CIJV0i1QhtthwKwwSB7evl/UipUtoyEktEO2VStkdiRjYiQdYmCQePxQbhDqLz
+	 ArZGygnWSTd+AUjP3FF/d8Dncj7Jt8lEXvxfYx3WD8iGabK0d+VuQR++AKrPKFG009A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=dev.tdt.de;
-	spf=pass smtp.mailfrom=dev.tdt.de;
-	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=M12l+2D9;
-	arc=none smtp.remote-ip=91.198.224.70
-Received: from mxout70.expurgate.net (mxout70.expurgate.net [91.198.224.70])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=ragnatech.se;
+	spf=pass smtp.mailfrom=ragnatech.se;
+	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=t4YODsgy;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=UfnJXUqf;
+	arc=none smtp.remote-ip=103.168.172.145
+Received: from fout-a2-smtp.messagingengine.com (fout-a2-smtp.messagingengine.com [103.168.172.145])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 139C7606A31A;
-	Mon, 23 Nov 2026 07:58:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 139C7606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1364C606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:59:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1364C606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=M12l+2D9
-Received: from [194.37.255.9] (helo=mxout.expurgate.net)
-	by relay.expurgate.net with smtp (Exim 4.92)
-	(envelope-from <prvs=68018334f9=ms@dev.tdt.de>)
-	id 1xVOvp-00CyZa-FF; Mon, 23 Nov 2026 08:57:45 +0100
-Received: from [195.243.126.94] (helo=securemail.tdt.de)
-	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ms@dev.tdt.de>)
-	id 1xVOvo-00E5s7-A1; Mon, 23 Nov 2026 08:57:44 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
-	s=z1-selector1; t=1795420663;
-	bh=SNHm202/e+FOtZ2uxCzYO9hiduPnu8am59Fo+bkDzhE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=M12l+2D9bY8UmGckh0umt8MlP7tLtIr0LGiLPDPqiXFivccj2PhVhCIXGwlA5lxNg
-	 jvcd/Yf1KdkTQVcBMKlfDFtaL3knxenoda9VN1rqhraPe2AGnb9W8c/11Pb0HTTUxw
-	 q0rxS4WQTyug5rchfpgD1BbCRuxclnK7mXGAaIwPcg0XlfdVgP4ilfxlxp2ssQ9fkY
-	 EQDk2FL112jq5Vwmfxh4Zx4vk9ZD1KJf8emfBsn+Pb6LzrTrvPHcVsUuTqEe3+QDnj
-	 4LQ9tr/hb98atujz74Aumo5+49yShs65EUwSULCnO/7aOJntX4n++1bh3sy0veMp4/
-	 gbqKojzB6DxcQ==
-Received: from securemail.tdt.de (localhost [127.0.0.1])
-	by securemail.tdt.de (Postfix) with ESMTP id 914B8240040;
-	Mon, 23 Nov 2026 08:57:43 +0100 (CET)
-Received: from mail.dev.tdt.de (unknown [10.2.4.42])
-	by securemail.tdt.de (Postfix) with ESMTP id 7C29A240036;
-	Mon, 23 Nov 2026 08:57:43 +0100 (CET)
-Received: from mail.dev.tdt.de (localhost [IPv6:::1])
-	by mail.dev.tdt.de (Postfix) with ESMTP id 524CF2AED5;
-	Mon, 23 Nov 2026 08:57:40 +0100 (CET)
+	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=t4YODsgy;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=UfnJXUqf
+Received: from phl-compute-09.internal (phl-compute-09.internal [10.202.2.49])
+	by mailfout.phl.internal (Postfix) with ESMTP id 1F129EC0B76
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:59:02 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-09.internal (MEProxy); Mon, 23 Nov 2026 02:59:02 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795420742;
+	 x=1795507142; bh=WMnYn7CucJXMDmQQ72D/rwn1+Zu+vHLwv+7N9kcUGos=; b=
+	t4YODsgyHRXK+aFaI1LP+tykKz+49m7uk+zmk3oIQ0d/UfzEjoy/BsVf4HgJdgA8
+	r6TuPU/jjo0caX4q0mu5JzBu7HRC2/afRrB1fu2FdcTU0qj8vkNi1hzeZ5wU7bsS
+	VrfVqVYsDsMtxSyQzHJtjWApcrrrOLa/tkOLOtve1E5kz4jME1cI4NBN7jWPal9i
+	SV1Kd2UuSXEq43QBUmnxQbRal6qv6T69WVRIVOb/CT7ityhJhf3VY562Nq0H+hap
+	XKly1z3d/1Qp17Xub5Z9nLb5m/97mL1cdza02wmB8yfXA85wdvVluqr3obl07ZDt
+	TDc8teHHn8CuFOku/txViA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795420742; x=
+	1795507142; bh=WMnYn7CucJXMDmQQ72D/rwn1+Zu+vHLwv+7N9kcUGos=; b=U
+	fnJXUqf5Y+reeAJ8Pp372lyv1CYXbNoyUuyJPUXeNS32Kjvi7lcfhjK0cCOS4jC3
+	cBnCSOV6wWaQCX4W7KG12fHqCWrKlhftJl8E6ebKk0q9KBTzsDN5gUS/t66Re5hO
+	lGUNC9keyqWM/1tOsDn2DEoYPz0u5wDYi12TFiXdXrwh185ZRcWPtXuL4WXBiyhJ
+	IgFFb/qtqpwXTVzz6f3lIeZYZyTYgcB7sMCSg29T4s8ZbX0sncSDU/u8wB4BMmPD
+	yks20d1XXnZNdVOEToHUk0bpRqoQknf2JPE8NJlGq5cZmHIG8ZwVJa6ZvX+ncc1F
+	h2LVjsv2gt+OTb4fu8RPg==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ragnatech.se a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795420742; d=ragnatech.se;
+	mf=PG5pa2xhcy5zb2Rlcmx1bmQrcmVuZXNhc0ByYWduYXRlY2guc2U+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:ffZ69vzj+Qcts2Z/Ue1SH4MMsYHUnkYliDnnwgnyGjblDcb
+	JvR/lOMNPDzz4OxO07K7UhfgijuTCn+KeLJwv3C3cOt20xaU/dF9OCZR0FUILPaT
+	Wg3108rvGkO40wuku3SQzJvIqL5o4gFHdRotZcbLMKgGkbBUF3MwDiyDpiaHldtG
+	GuAYzkKkZfKVJMJIVnGNhYVFQJsaVmTrFDik7w9k4lACJ9CkyTBAYMBkLehYcZY2
+	A+QsAyv8vbIUbkItHh0ebr4nrntIYlaTAjA1rmr/h1YlgFU/Ty7X65Jv1OysVm2u
+	rXRTYfNszpxxH1QBiShBYJnPyOn9ttkAEFAZ4Kg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-disposition,content-transfer-encoding,
+	content-type,date,feedback-id,from,in-reply-to,message-id,
+	mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:L4esAuQCnTSY25CZFfklU+iOJAPKG6P5sVClUzxl7gY=:ihL0nNUMmVStnSP+bHrBDKTlqefKokarBHNZUYFOe4w=;
+X-ME-Sender: <xms:RfIDa8dKEhGOw1EiMe_KYyxo-uAqlkuqYfhCly2Nm4wUsVAhH6nraQ>
+    <xme:RfIDa4QAuof50N9GZoYtUm_tTcwC-RMcXv06My05H6J2g7k_zfFGh2D_Wnudn5JO2
+    J9dUtqCa6_5GkQMGyCmr28IPY1n23qMp0dxPkSfIsupioNdrMk3I2U>
+X-ME-Received: <xmr:RfIDa9YrM0yzmuVZNhyHme5dsk0Epm9kZmrchuPZUboBAVfGdov9ch1cECKuSTRRO9Ocx5Rc6u-Ime5Feu9-P2e09Bj3QPc>
+X-ME-Proxy-Cause: dmFkZTEz23yIZFbrLpej6KDJnuyetGUSWYqss4FSPTmGioW63uhDAvs0G/o8ZM/eJXJMkm
+    WGahkttIm9ACTcOpwqGgPwyFaoR/BXTJzvGvmfM4xEjLk9jgpKilZnXHGKnPnQhDRx+CEy
+    5WzjBNsIyWHVffflg1tZ8xUQRU+g1sBESdc3qfx89ZRdiwAhMPikFWzp/kHHbOE9XpTE8o
+    CkYBWWJvEQb23e/TWAusFt70ooDpXsdYL+I/amZULkL5ZsuKFLU4L2awkRvL0UyZVKI0u/
+    yHYkAzIQaL7cxbYFdB1sHSFL6hlvu5iW5C53Zk2iVzHdU6WmXTl3PlSi6MPl02FSwXU7io
+    Ekuob3r0Q4HRGJblmuGYFlTG82TT7dCCVQV+jktz+zwWPA0dABFeBcVndDJeiAWcq8Lk+i
+    ciRPffL1V9bRBKqYwo42gZgkwLlR6XxgX12ojdiFgGa60oL5EWP7zvLwt711/1fmwjmD8k
+    M22GFpJ6T7LrqUZVdAsnZipkt+M3DK6FO+75727oHPKTkICsFTS/11JVwyt7XSmuh1A/E9
+    TbmoPc8uIbJ08cELSWNUNXpp3jw2Hd/MigbYy1ZTFzgb4Me28AfzJ8Cv1ehAkSXxdTcJAp
+    s0OYohUIgA1GPpt6lsoCy/cuxxTCW3/MDYpo8Cb9HVggOL0oUFZoV7e1+zfg
+X-ME-Proxy: <xmx:RfIDazfp3PaTKyhLAQ8FS5EzTkjmuw8unZVdx99rXrrNwAEQqE2TYA>
+    <xmx:RfIDa2J019lPWFSmsEqYAxX7_tzmFSKRIJkflc7RgiuDgmI8ATsmEQ>
+    <xmx:RfIDa4K3jQ5KXr_IgqYf4DBYxAyJS41KS7nd8N43wF-XWcJoz66Zdg>
+    <xmx:RfIDa9V8TJW7B0-DNiWO3bJ_kfwnqfBPSud8CQh4lfD-r8d6NTrmdA>
+    <xmx:RvIDa2Im8It-ecrvLWXNCxmy_17QdeEIee0CbA_jMy8BP9TD518mQu5Z>
+Feedback-ID: i80c9496c:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 23 Nov 2026 02:59:01 -0500 (EST)
+Date: Mon, 23 Nov 2026 08:58:58 +0100
+From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>, linux-media@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] media: rcar-vin: Return unused buffers correctly
+Message-ID: <20261123075858.GE3898744@ragnatech.se>
+References: <20261121-vin-fix-vb2-v2-1-602a3d876853@ragnatech.se>
+ <awMzb15zjEf3n3XU@zed>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,68 +128,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Date: Mon, 23 Nov 2026 08:57:40 +0100 (CET)
-From: Martin Schiller <ms@dev.tdt.de>
-To: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-	linux-x25@vger.kernel.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Duoming Zhou <duoming@zju.edu.cn>,
-	Lin Ma <linma@zju.edu.cn>,
-	syzbot+9faa82ae2e94c5c7d2ef@syzkaller.appspotmail.com
-Subject: Re: [PATCH net] net/x25: don't call lock_sock() from softirq in
- x25_kill_by_neigh()
-Organization: TDT AG
-In-Reply-To: <20261001150118.128470-1-ngocthang2710.1999@gmail.com>
-References: <20261001150118.128470-1-ngocthang2710.1999@gmail.com>
-Message-ID: mid:11
-X-Sender: ms@dev.tdt.de
-User-Agent: Roundcube Webmail/1.3.17
-X-purgate: clean
-X-purgate-type: clean
-X-purgate-ID: 151534::1795420665-60C18D96-C18A1F4A/0/0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <awMzb15zjEf3n3XU@zed>
 
-Hi Thang,
+Hi Jacopo,
 
-On Thu, 01 Oct 2026 17:01:18 +0200, Nguyen Ngoc Thang wrote:
-> Take the socket spinlock instead, the same way the x25 timers and 
-> receive
-> path already do. If the socket is not owned by user, disconnect it 
-> right
-> away. If it is, mark it with X25_KILL_FLAG and let a new release_cb do
-> the disconnect when the owner releases the socket.
+On 2026-11-22 19:25:56 +0100, Jacopo Mondi wrote:
+> Hi Niklas
+> 
+> On Sat, Nov 21, 2026 at 12:54:59PM +0100, Niklas Söderlund wrote:
+> > Unused VB2 buffers should be returned with state DONE not ERROR when
+> > stopping.
+> >
+> > Signed-off-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+> 
+> Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> 
+> I'll take it as you don't consider a Fixes required.
 
-This is the approach I'd like to take, rather than deferring the whole
-cleanup to a workqueue as proposed since. syzbot still hits the bug,
-now also as https://syzkaller.appspot.com/bug?extid=300375dfd44665f063a6
+Thanks.
 
-The two new findings of the AI review hold up in practice. I tested
-with two lapbether devices on a veth pair and a sender stalled in
-x25_sendmsg() via userfaultfd, so that the socket is owned when the
-link event arrives:
+> This however
+> count as a bug to me as it doesn't respect the expected API behaviour.
+> Am I too concerned ?
 
-- after a RESTART, a CALL REQUEST on the old LCI is queued to the
-   flagged socket's backlog and never reaches the listener;
-- the flagged socket still transmits: a DATA packet on its old LCI
-   after the restart, and after a LAPB disconnect it brings the link
-   back up (SABM) before release_cb runs.
+I think so, but I'm not against adding a fixes tag if you feel strongly 
+about it. If we do want it I think it needs to be to the commit which 
+first added the driver.
 
-Skipping flagged sockets in __x25_find_socket() and returning early
-from x25_kick() and x25_write_internal() for them fixes both. Those two
-functions cover everything a socket transmits, and the deferred
-x25_disconnect() only changes local state. Clearing the flag in
-x25_make_new() takes care of the inheritance issue.
+Fixes: f00add9655e1 ("[media] rcar-vin: add Renesas R-Car VIN driver")
 
-The x25_sendmsg()/x25_output() issue is pre-existing and independent;
-I have a separate patch for it.
+Please let me know if you want me to spin a v3 with this tag added.
 
-I have these changes on top of your patch, together with the separate
-fix, and the series passes the tests above with lockdep and
-DEBUG_ATOMIC_SLEEP. Unless you'd like to send the v2 yourself, I'll
-post it in a few days, with you as the author of the main patch.
+> 
+> > ---
+> > Changes in v2:
+> > - Link to v1: https://patch.msgid.link/20260828-vin-fix-vb2-v1-1-97eb1f4f75c9@ragnatech.se
+> > ---
+> > * Changes since v1
+> > - Fix unused buffers returned in rvin_stop_streaming() too.
+> > ---
+> >  drivers/media/platform/renesas/rcar-vin/rcar-dma.c | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/media/platform/renesas/rcar-vin/rcar-dma.c b/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
+> > index 5e515d16c164..d3d1af47f8b1 100644
+> > --- a/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
+> > +++ b/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
+> > @@ -1434,7 +1434,7 @@ void rvin_stop_streaming(struct rvin_dev *vin)
+> >  	for (unsigned int i = 0; i < HW_BUFFER_NUM; i++) {
+> >  		if (vin->buf_hw[i].buffer)
+> >  			vb2_buffer_done(&vin->buf_hw[i].buffer->vb2_buf,
+> > -					VB2_BUF_STATE_ERROR);
+> > +					VB2_BUF_STATE_DONE);
+> >  	}
+> >
+> >  }
+> > @@ -1449,7 +1449,7 @@ static void rvin_stop_streaming_vq(struct vb2_queue *vq)
+> >  	dma_free_coherent(vin->dev, vin->format.sizeimage, vin->scratch,
+> >  			  vin->scratch_phys);
+> >
+> > -	return_unused_buffers(vin, VB2_BUF_STATE_ERROR);
+> > +	return_unused_buffers(vin, VB2_BUF_STATE_DONE);
+> >  }
+> >
+> >  static const struct vb2_ops rvin_qops = {
+> >
+> > ---
+> > base-commit: aa0f4c41d4870a18e65772a1817af16427200371
+> > change-id: 20260828-vin-fix-vb2-28e1bb24a618
+> >
+> > Best regards,
+> > --
+> > Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+> >
 
-pw-bot: changes-requested
+-- 
+Kind Regards,
+Niklas Söderlund
