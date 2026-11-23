@@ -1,65 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795424264;
-	b=Ev0lPTeu8Pl+AlX71N1p206njTKfpAPzt1ZxG4jt6no9qRq9+bgbk7mBDtddnMRWov/g
-	 MNMxTJLvMSrA4kXGvZnRKkqvb86Vblnr7scxKmLhL2+N6vGYulEfUyw6mcz1qwE5BU2Ig
-	 vGzVxBySmjn7iQbw+wfZeprYkVoBC3QPlSs3A5J1f2EWywenLz/cicSg0yUr7N60rlI4Y
-	 8B5qgSeRKI80PLe2DU8dmIMesdAaL70SM5YQeSfL9/6Rev9oFhik+NlysX3wBJ03D1NJL
-	 xEky8tL484r+l7O5UkTX/E0u/kOhGs6qdP2M1s83YouSc0dAKDptCVcEnI/qi2E+PBg==
+	t=1795424292;
+	b=Eu2LQrkxLAvNkV8E85lZNuq2ttOfZrJysneSqG3h/nF6wKvg+STggPLRSRkkxWbynAPD
+	 RoYbLUwA1gwuhykKeyFRYendLNC/oqrUIJSXZ6rRdKfHI/3xC7Qoce9qD2sL6a57DrXx3
+	 OKZR36aDc//kv/V9NeWRkrznS0u32+eTwX2ziy+j+8CHkfYwENWSr3U0OqP8x2I0I9qvz
+	 urGDpEV0hpw4gYgPwA9LfVm6etDxgp2x1HtKS4FHz2GngmAz5uIRfaNRhEJWY0Bg3TeuX
+	 zAWfxoUUbw0r3oowhtaLSFhfu4Y9A9tDkg9HaWathQhmLdwi5yaRm+aHLaNq3E9c4jg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795424264;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=ApqXI+L+rJvaTMWirTj9cIQB1urHs8z+JAG5Yj708Rk=;
-	b=rDkXKutXPfZgPe7+1GIgavKvoltzoAngTX4dulNq6VqiliNgS+t9iMHHB2Z7YadRNKoW
-	 pCUYYpGAKAaGflUpUcTAYy09lAVJlG6miEFVA5Jbb9AZmVNyyaRqg8SbFrMgl6LK0Rft/
-	 /crDXKggbcSpFs4bDKBkvCXSjRE7z6DSz7FLfdvNddnuYGKF0dSAuciqEfD1VwJNhVO6Z
-	 kXgt5Bs9OjcvZviMwQqU1kQkI9ADnbwESk0vsgw0To3kW38WLuT1iCqT0ZWQLOPTCZIbO
-	 EFKHfJ7bVlTUWYGoyqdPV3k2H9huyFoHR6SukrC1zVzoOJvTET58VrvTx+wJAV23hEg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795424292;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=l+9MbVvTDshgnA3ihP8j4dNe/hCNqTIen79WI8/6oxE=;
+	b=SyEcQA7r9y+ECUiMSmtRlnbGAH6TjxkCHMpvNbOBqY3Iqe8nxayhaaNatpv3dHwckvey
+	 nSHZLutIQsdovzFLn5MJPrDWuwBKw8fkk2t99Q/qa8ujhDNuokTojuODdKN0p5ZHnvRk3
+	 zAVF9bn/GTnW71s/oY77BKS+HnC1sp6SEuWbPMqytWjV4qfFg3MtLmBk4V9uZvoIt4G+T
+	 XdB5NY0KXN0bXS4FNrBg3IOI96u8odbOS1RDckOs6kymuCMLtbY5B7G0yQHskVEsuusV1
+	 /iEQbayMsxcRyGgDQLp5PjcJyqylVd6ksWXqWzDuLemehuwhkI+DRTcOZRshKikFVKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X9nTSCJU;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=KUI7vxQE;
+	arc=none smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 106EE606A331;
-	Mon, 23 Nov 2026 08:57:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1F45606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:58:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1F45606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X9nTSCJU
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5969E1F000D0;
-	Mon, 23 Nov 2026 08:57:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795424263;
-	bh=ApqXI+L+rJvaTMWirTj9cIQB1urHs8z+JAG5Yj708Rk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=X9nTSCJU4tFQ/WzCTKIEu1+uyCly9AXS/Au/44r/jtp2Ll4RUJponQ6c77gm2d0QQ
-	 s5XNmDIrvsIeoeErfLVwEK3xGjTQYCk7CdRKDiDK+4kl3YKMqz2eL5/hQGZ8lZ8Wql
-	 v1d3ykuFXH2AGSfzcof2m8SRqFyccj17WAfP13MxEQN1ckYrQyMmTr0Zlg3JukjhEO
-	 C3GsEsoD3yyFmL3ryKQf+vyUNDDzoZRUAwkDX4zXpcMh2jX7AZJoZEq3xzcWze9M3/
-	 ST3Mmlsgz/uaO+kP+krck/kEilBgf2X1BBpmkHbFHQaWmhyFLvzt4iyVNbBSDPIER9
-	 0ew/Xm0zxrY8w==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Gibson <warthog618@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-wireless@vger.kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: [PATCH 2/2] [v8] gpiolib: remove linux/gpio.h
-Date: Mon, 23 Nov 2026 09:57:23 +0100
-Message-ID: <20261123085723.156933-3-arnd@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261123085723.156933-1-arnd@kernel.org>
-References: <20261123085723.156933-1-arnd@kernel.org>
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=KUI7vxQE
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso36238725e9.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:58:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795424290; x=1796029090; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=l+9MbVvTDshgnA3ihP8j4dNe/hCNqTIen79WI8/6oxE=;
+        b=KUI7vxQEHVSgYI0WTlM0iLgMy2gGH6gN5WINMssJRuZLubhxgA6SJdej7XEoGlOyjm
+         i4dhZaiyMAhbmJuWcQRxoFcIRzAit0hWnSnf13BZg4bbyexTeSssEEugVydrZyoJvQu5
+         4myY/NZd0HH/cqTLpISAnh4h1Tf5kp+h+ffzmbfxQoMbZBdXZ4ItwbDfW+Qrq4Pr7wxr
+         VsBzC7uyUkxRk3gSL9lU6tztd9GAJWNvvE3HZI16zAVjS6Tznh/34n2GNhqe9ac6cdVw
+         TcPURStYdLmYywEv6UDc8e7CtNA4rCcQMfwoIvR8D+M4WiBnbd6HwESUt+lvdAw+UZ1L
+         LvbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795424290; x=1796029090;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=l+9MbVvTDshgnA3ihP8j4dNe/hCNqTIen79WI8/6oxE=;
+        b=liqMXxRFuwnueX3UgrVbQwuRx1VExcQvuzZKSc5dHL6/YL5BlyimpnpPZAWP6qhEJv
+         e4Sj2F0IuMaRt2OKmwC/04Ms3HZYNyJR+E4fbKBjvLNQNWIqMSEqDCV5BzQAdxyK7sOB
+         X7ibYP58iZbo4UAjAYDdPknwi6dHN70YpZqoo31LEZ7zMKcNysq8c89rgDANI4vl0/ol
+         UecNHKFPntHuSMjY6VlLuAn9v1rMen/1Bgf2HdIGwSipEJHb8FVfOeY/KQP8mmXyV1I3
+         5fLSlXC5Kl5V8rR8CxhGQ85tDX9gjN2eEkVA3+v2ofDrcK4xAABAlSC2XkkROp+79y5O
+         1BEA==
+X-Forwarded-Encrypted: i=1; AL+hErF+6j2dfZrsFUqycgrvPf9Uk0LhvEFhKSKHy1JQ6+KlpaAAMlnGYPHHTUfzCvJuZfXegPTMFinTxHIfCeg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z85lIZjAwt7KYkFCydCsGUtggtZy/oNpnLLJTAueRt5I+FsrUNb
+	6icZll8tgC9dzTP/f0m3K2QIq3hpXFosPKyzKKW3wLi1mdiAd/jSjdzkrJTRc5s+teoix/QRcwC
+	IOnWl
+X-Gm-Gg: AZFdTZdEiYBlpmE4+EXM9QLGowd65OxzTH4/I6aTc6Bf+tsiaRhvq8U2kTkw7eIiMh2
+	uQADnVY2gXJnpIK7Ik24zbKKuqFEU+vQLUiC+xrgmkEJMvChrJ4FfS9YWrRA4Rk+ofZGmwTeNQj
+	QbdEnPpZwfu+aQ+C4JVm/1eCSB78wh0SJvzOJhuSbn3zH7z2GALMpYTGGwmSJ6Qwsmu8sjtthBh
+	vr4ignGLKWqFUSBfAJOzmv0k4e5us9DYKfh/8Xl9uHiY2UW/jC6V2giafA7wagP53Z5FOcRUB/E
+	YuzPTwUbE7hDWVA4guZ+72K+jl5sXmvGCBYKCDPLSFFjhz9p8eJjuJAgbJEyo4SFnaoCoG6rYAh
+	ERnfOh1cIOZ4hHl1KByBRGlTBPNBJJKuEwVYccR4StRXwQ26Mk7U4u7DzlREbKIncLT28HzwTy0
+	Ajxp7L7VgPx3BSoFRuaMVD5iKVkYAYKQH62pUTU+jpJdMAS+R2xHIFC9ktpPGK0S7R/sqKPogjU
+	hY1cvwoqMKU3BDgyZKmszKtH1LQR+/nfD8ycD2O5LwDUUQyYFO2j6e2YRzZxh6u8+LGWGvN4g3W
+	VQSAIwOPBMiDobCWSYWx5N6YEzPoVlIuTAk11qhRqEu086bf96hIGDAq+g1BuxbgXGBzeo2uFoU
+	2hADxcX6iJ0ATck1jVx2X7bdckL0MmAnQHrIf+A==
+X-Received: by 2002:a05:600c:3f0a:b0:4a5:75d2:c104 with SMTP id 5b1f17b1804b1-4bb8880cde7mr211375095e9.22.1795424290183;
+        Mon, 23 Nov 2026 00:58:10 -0800 (PST)
+Received: from localhost (p200300f65f19a90438645cebc2ee104e.dip0.t-ipconnect.de. [2003:f6:5f19:a904:3864:5ceb:c2ee:104e])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb8849247asm331942575e9.7.2026.11.23.00.58.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 00:58:09 -0800 (PST)
+Date: Mon, 23 Nov 2026 09:58:08 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Abdelnasser Hussein <abdelnasserhussein11@gmail.com>
+Cc: jic23@kernel.org, linux-iio@vger.kernel.org, dlechner@baylibre.com, 
+	nuno.sa@analog.com, andy@kernel.org, nicolas.ferre@microchip.com, 
+	alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev, giorgitchankvetadze1997@gmail.com, 
+	amin.gattout@gmail.com, antoniu.miclaus@analog.com, gregkh@linuxfoundation.org, 
+	mripard@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 4/8] iio: adc: at91_adc: convert to
+ device_property_*() APIs
+Message-ID: <awP_vX8zyTNCZGUg@monoceros>
+References: <20261123070101.53868-1-abdelnasserhussein11@gmail.com>
+ <20261123070101.53868-5-abdelnasserhussein11@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,162 +104,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="yb7ur3sdfis2fllo"
+Content-Disposition: inline
+In-Reply-To: <20261123070101.53868-5-abdelnasserhussein11@gmail.com>
 
-From: Arnd Bergmann <arnd@arndb.de>
 
-After all other drivers have converted to linux/gpio/consumer.h
-or linux/gpio/legacy.h, remove the final leftover bits here.
+--yb7ur3sdfis2fllo
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH v5 4/8] iio: adc: at91_adc: convert to
+ device_property_*() APIs
+MIME-Version: 1.0
 
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Acked-by: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- MAINTAINERS                                  |  1 -
- arch/mips/txx9/rbtx4927/setup.c              |  2 +-
- drivers/gpio/TODO                            |  4 +---
- drivers/gpio/gpiolib-cdev.c                  |  2 +-
- drivers/gpio/gpiolib-legacy.c                |  3 +--
- drivers/gpio/gpiolib.c                       |  2 +-
- drivers/net/wireless/morsemicro/mm81x/hw.c   |  1 -
- drivers/net/wireless/morsemicro/mm81x/yaps.c |  1 -
- include/linux/gpio.h                         | 22 --------------------
- 9 files changed, 5 insertions(+), 33 deletions(-)
- delete mode 100644 include/linux/gpio.h
+Hello,
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 829c795c13b3..7efa1e6446a7 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -11589,7 +11589,6 @@ F:	Documentation/devicetree/bindings/gpio/
- F:	Documentation/driver-api/gpio/
- F:	drivers/gpio/
- F:	include/dt-bindings/gpio/
--F:	include/linux/gpio.h
- F:	include/linux/gpio/
- K:	(devm_)?gpio_(request|free|direction|get|set)
- K:	GPIOD_FLAGS_BIT_NONEXCLUSIVE
-diff --git a/arch/mips/txx9/rbtx4927/setup.c b/arch/mips/txx9/rbtx4927/setup.c
-index 223889c03186..fdbe2bd87979 100644
---- a/arch/mips/txx9/rbtx4927/setup.c
-+++ b/arch/mips/txx9/rbtx4927/setup.c
-@@ -48,7 +48,7 @@
- #include <linux/ioport.h>
- #include <linux/platform_device.h>
- #include <linux/delay.h>
--#include <linux/gpio.h>
-+#include <linux/gpio/consumer.h>
- #include <linux/gpio/machine.h>
- #include <linux/leds.h>
- #include <asm/io.h>
-diff --git a/drivers/gpio/TODO b/drivers/gpio/TODO
-index 7ce80fde1f17..4fce4a7e4704 100644
---- a/drivers/gpio/TODO
-+++ b/drivers/gpio/TODO
-@@ -52,9 +52,7 @@ Work items:
-   base can be made dynamic (set to -1) if CONFIG_GPIO_SYSFS is disabled.
- 
- - When this work is complete (will require some of the items in the
--  following ongoing work as well) we can delete the old global
--  numberspace accessors from <linux/gpio.h> and eventually delete
--  <linux/gpio.h> altogether.
-+  following ongoing work as well) we can delete <linux/gpio/legacy.h>.
- 
- -------------------------------------------------------------------------------
- 
-diff --git a/drivers/gpio/gpiolib-cdev.c b/drivers/gpio/gpiolib-cdev.c
-index d877f2de506c..795f7df5b540 100644
---- a/drivers/gpio/gpiolib-cdev.c
-+++ b/drivers/gpio/gpiolib-cdev.c
-@@ -11,7 +11,7 @@
- #include <linux/device.h>
- #include <linux/err.h>
- #include <linux/file.h>
--#include <linux/gpio.h>
-+#include <linux/gpio/consumer.h>
- #include <linux/gpio/driver.h>
- #include <linux/hte.h>
- #include <linux/interrupt.h>
-diff --git a/drivers/gpio/gpiolib-legacy.c b/drivers/gpio/gpiolib-legacy.c
-index c2b04605b203..a841208dc19a 100644
---- a/drivers/gpio/gpiolib-legacy.c
-+++ b/drivers/gpio/gpiolib-legacy.c
-@@ -7,8 +7,7 @@
- 
- #include <linux/gpio/consumer.h>
- #include <linux/gpio/driver.h>
--
--#include <linux/gpio.h>
-+#include <linux/gpio/legacy.h>
- 
- #include "gpiolib.h"
- 
-diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
-index c09342fc52cb..c16d69761e04 100644
---- a/drivers/gpio/gpiolib.c
-+++ b/drivers/gpio/gpiolib.c
-@@ -30,7 +30,7 @@
- #include <linux/string_choices.h>
- #include <linux/workqueue.h>
- 
--#include <linux/gpio.h>
-+#include <linux/gpio/consumer.h>
- #include <linux/gpio/driver.h>
- #include <linux/gpio/machine.h>
- 
-diff --git a/drivers/net/wireless/morsemicro/mm81x/hw.c b/drivers/net/wireless/morsemicro/mm81x/hw.c
-index 9293f4094db1..e48eaf151faa 100644
---- a/drivers/net/wireless/morsemicro/mm81x/hw.c
-+++ b/drivers/net/wireless/morsemicro/mm81x/hw.c
-@@ -7,7 +7,6 @@
- #include <linux/stringify.h>
- #include <linux/types.h>
- #include <linux/unaligned.h>
--#include <linux/gpio.h>
- #include "hif.h"
- #include "mac.h"
- #include "bus.h"
-diff --git a/drivers/net/wireless/morsemicro/mm81x/yaps.c b/drivers/net/wireless/morsemicro/mm81x/yaps.c
-index 2d1728c1a6de..a843c1c16216 100644
---- a/drivers/net/wireless/morsemicro/mm81x/yaps.c
-+++ b/drivers/net/wireless/morsemicro/mm81x/yaps.c
-@@ -2,7 +2,6 @@
- /*
-  * Copyright (c) 2017-2026 Morse Micro
-  */
--#include <linux/gpio.h>
- #include <linux/random.h>
- #include <linux/timer.h>
- #include <linux/bitops.h>
-diff --git a/include/linux/gpio.h b/include/linux/gpio.h
-deleted file mode 100644
-index b0d4942a65de..000000000000
---- a/include/linux/gpio.h
-+++ /dev/null
-@@ -1,22 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--/*
-- * NOTE: This header *must not* be included.
-- *
-- * If you're implementing a GPIO driver, only include <linux/gpio/driver.h>
-- * If you're implementing a GPIO consumer, only include <linux/gpio/consumer.h>
-- * If you're using the legacy interfaces, include <linux/gpio/legacy.h>
-- */
--
--#ifndef __LINUX_GPIO_H
--#define __LINUX_GPIO_H
--
--#include <linux/types.h>
--#ifdef CONFIG_GPIOLIB
--#include <linux/gpio/consumer.h>
--#endif
--
--#ifdef CONFIG_GPIOLIB_LEGACY
--#include <linux/gpio/legacy.h>
--#endif /* CONFIG_GPIOLIB_LEGACY */
--
--#endif /* __LINUX_GPIO_H */
--- 
-2.53.0
+On Mon, Nov 23, 2026 at 09:00:57AM +0200, Abdelnasser Hussein wrote:
+> With no OF APIs or struct device_node left in the file, drop the
+> <linux/of.h> include and add <linux/mod_devicetable.h> for struct
+> of_device_id.
 
+That's wrong. <linux/mod_devicetable.h> is a dependency hog and should
+not be used any more. You can rely on <linux/platform_device.h> to
+provide of_device_id and just drop <linux/mod_devicetable.h>.
+
+Best regards
+Uwe
+
+--yb7ur3sdfis2fllo
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsEAB0ACgkQj4D7WH0S
+/k4jWwf9FOlwkqlYHms84ZIP22YljXL5kC4jGI63Ce/xclPb7V+GpzsB75YAqYlm
+GWJKN5/ikOKhG/Nz/hTDiqbmVIgcqG3XOULPz4itm7V2+ZTQyRvfQsirNJzDaxTQ
+PFo7krPE3pBFSIBcvunsQr6/d+VMNUhHY0rSDcr2XsHs7BjG29muEdAbr/TLYdOe
+iqt0GzTnTD96mAJSESDLQWCtgNb9pbl/El6PLhlXyWPmkhj3kIRMf92w75zB2zLs
+JEpcrCMaIBg/wL3OE7CyZuiqEENsbh6jmorJXFqTOEps80hcJbNlOaN3RDTKNnG1
+G1xKxDMU6BQx3J60p4ovhMokWQcSkQ==
+=t6hY
+-----END PGP SIGNATURE-----
+
+--yb7ur3sdfis2fllo--
