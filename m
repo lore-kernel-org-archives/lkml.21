@@ -1,71 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.217
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795404757;
-	b=LA0wMTPjiIE8WA6oWW7kk5ZAerhbeqmGpdE1kY4K9R4GB2LizzYKWq+UKdwjZLmTx+vB
-	 C4EQi1EsCzzqh8riK3W9XxBsF7iiUyTveDXS4tAvC8MHD4hgiL8E63/4E+qrj1SJExCbd
-	 AFuEwanuysSKkjk/QSDt3syEvMSzmJLnete5w0Hi3A+lnOEXOil/sv1igw03u513lmNby
-	 s/5NWbfIR+TnjMg3yEjFUH0tc5kalc+bj0JrMRJIzF8/qbDsb6KHV6+jx1OGRlieuVB/Y
-	 3IA3U19Pc8M3LPxqXj3PhXw+crW/vVm46k3gwtXuwP9avj9g//ZvA0wDnXepi4gdDsQ==
+	t=1795404771;
+	b=G8Km+OrTgPYHRLqRTIHgfZERTkDsnALVlmH19dlREO2CMmhMpctdeOBHPYtryf/dR9Gr
+	 HNJLHfcZ+1Q+0beOOLCfqSkD8qZJWx6ogRVuAXQxKmCgdLpuCbFOXhY+DRTrJkm2dBooB
+	 FSNMb+byWkaSQicUBOHLipjlrY6IW0v+cwcc8pZ7WV0MoaAFcKcPgCYWcE2aaLad8EWgF
+	 Iu7Cz6KwbsaooVJw+pkvCjmMPb19D/qyKe9SPv1gW9Ct74+broFvg3crKClsEnxIjuMzY
+	 TrPllup7zpy86FVAYT6RCpT37mjH4cuZUe4HLsJUXn6Pf0rh0/Hkf3JYIww3S2iKkBQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795404757;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=HTuc4PPVjvPSPrnzlo65kpf6x+DRB3BoRJK0cybPyUc=;
-	b=rmiTNNWaWHVC+Rsz4YAnMctQQ8ZtAITN+ToWTOqaQaihhSPAePrFNOXzfePzNu8hbtkm
-	 hjEOUn4aaGKaqhxr3HJhyTfjnFMIoCAp+FybF/WDp/6th+LVSWIiroEyTh53dik6yklup
-	 JrQsbgJ38OcBbKyWBiasWxH5qMM6D6r+FHQLucN/UqbJ4dYviT1RzvZ0lhdp+9kG6wUf2
-	 N0G8i/dbaVMN7hDDr0/xSWor60rRo/e8HwQaD2sPSvVc8sRdx3sBp70vnUs6O7EAfbaVO
-	 MCwG8XTcVq08eh6gxsUtSwL/m8pcjYjxbN1Rj19REX8tkhugXnlmJVC/LjpFzl73IRA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795404771;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=kBqe9Dl7xjSgmQlMJ6gpivRKSw2tHUzsUfeHJzmYSX0=;
+	b=wvbyT2bi8R+9Az2iPaTZwMxTcARUbyGRu2QVuX4kzSuVQbF7RW2hVHn7AzGnNdQHj2pC
+	 c/1OMMd2hT+mXB58D/gybsCFkUE0xG+prn9mKWN0zYighIT1v1D8MtNtfe3OvX+w3aU5e
+	 nevC94yIpBKtGrq04DhKQ7IXYsIVQAMKylgkSaGLA2q3QeGhSaflGSOj9LrS9vS/zGMtg
+	 kIAUfSEvSBZPZDSEUZ5CsWGx7Vr7Kv7FoWy4QD0qeZQ9E1mvmGXFb8TFaSCdvFNtsLVxw
+	 JrTH+iUmTP60qeUWGQohRF61itKbBnkVtLFM7D6qDAsz89BsNleFXKO5XfWUwAg8ilg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Ypsah1jH;
-	arc=none smtp.remote-ip=113.46.200.217
-Received: from canpmsgout02.his.huawei.com (canpmsgout02.his.huawei.com [113.46.200.217])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y7iJWcjh;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DA65606A31A;
-	Mon, 23 Nov 2026 03:32:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DA65606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B25A606A31E;
+	Mon, 23 Nov 2026 03:32:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Ypsah1jH
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=HTuc4PPVjvPSPrnzlo65kpf6x+DRB3BoRJK0cybPyUc=;
-	b=Ypsah1jHxA0fC+6TtqOU7fe6cKNpFUlt2u9yxuH8l/CyfzcHuYy+3kksNxTlrniD4ZRy69ugW
-	CLd3rgkeYxYRqJxMaxf/n1boqVwv8sqQ27E9BvaCyx2NfG4PUynq0wjsHpP0nhbEBDKWIDqIAO+
-	GBdTWGgyWG5LIomVqswrGcI=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jXs193VM5zcbS2;
-	Mon, 23 Nov 2026 11:31:25 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id C45C340537;
-	Mon, 23 Nov 2026 11:32:26 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 23 Nov
- 2026 11:32:25 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <rdunlap@infradead.org>,
-	<james.morse@arm.com>, <rppt@kernel.org>, <arnd@arndb.de>,
-	<kmehltretter@gmail.com>, <dapeng1.mi@linux.intel.com>, <elver@google.com>,
-	<enelsonmoore@gmail.com>, <bp@alien8.de>, <jlayton@kernel.org>,
-	<catalin.marinas@arm.com>, <sean@starlabs.systems>, <will@kernel.org>,
-	<jonathan.cameron@oss.qualcomm.com>, <tzungbi@kernel.org>, <kas@kernel.org>,
-	<steven.price@arm.com>, <chenhuacai@kernel.org>, <tzimmermann@suse.de>,
-	<wenst@chromium.org>, <ruanjinjie@huawei.com>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<vladimir.murzin@arm.com>
-Subject: [PATCH] arm64: sdei: add sdei_nmi.disabled= to keep the GIC NMI path reachable
-Date: Mon, 23 Nov 2026 11:32:22 +0800
-Message-ID: <20261123033222.1067923-1-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y7iJWcjh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E7DF1F000CA;
+	Mon, 23 Nov 2026 03:32:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795404770;
+	bh=kBqe9Dl7xjSgmQlMJ6gpivRKSw2tHUzsUfeHJzmYSX0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Y7iJWcjh04wCGKVPx7raF2JWc/HbkfzOOSasgMbRVafFItfolMiKnVi5YFheqqJsX
+	 Tn+Q4HzRT/QIrqJUw6nD6sn9hkad9OvZ7OEDiN+nlCwgL2BKiaYXwRGEwkbFkk491v
+	 ecjlgxYiX/4j/h0NW0JJtpA7geXXJ7v8s508A7S7GrK0NRhKuXDEsr3jHbTkBzjHox
+	 +KYZIGFssV1O80ui6KBsEkJrykv7aOrXUKkf0yHht0z3aIMwpaXeHBAX9TvWvXlL5G
+	 f737O6cxev0t4Ht9gccqt00uApy8TjDQsQthXOT1yhMVqjdC5nUMj6/RczFWzK/UUV
+	 MXWXp31kS9gdA==
+Subject: Re: [PATCH net v2] bonding: reject a non-Ethernet 802.3ad slave even
+ when the type matches
+From: netdev-bot+sashiko@kernel.org
+To: kyuwoncho18@gmail.com
+Cc: netdev@vger.kernel.org, jv@jvosburgh.net, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 03:32:49 +0000
+Message-ID: <179540476963.3135.15854448705865137311@kernel.org>
+In-Reply-To: <179505868590.3571070.12381528230330714812@gmail.com>
+References: <179505868590.3571070.12381528230330714812@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,125 +63,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemk200008.china.huawei.com (7.202.194.74)
 
-While the SDEI cross-CPU NMI is active it claims every cross-CPU
-backtrace, so on a platform whose firmware exposes SDEI event 0
-the irqchip NMI path can never be used.  There is no way to opt out.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Add a boot parameter "sdei_nmi.disabled".
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-With sdei_nmi.disabled=1, the SDEI NMI stays registered and simply
-declines every request, so arch_trigger_cpumask_backtrace() falls
-through to its IPI path and smp_send_stop() skips its SDEI rung.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Suggested-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- .../admin-guide/kernel-parameters.txt         |  8 +++++++
- drivers/firmware/Kconfig                      |  4 ++++
- drivers/firmware/arm_sdei_nmi.c               | 23 +++++++++++++++++--
- 3 files changed, 33 insertions(+), 2 deletions(-)
+- [High] The fix is incomplete.
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 176648941aec..9a3ce8ed18f4 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -6958,6 +6958,14 @@ Kernel parameters
- 			1 -- enable.
- 			Default value is 1.
- 
-+	sdei_nmi.disabled= [ARM64,EARLY]
-+			Disable SDEI-based cross-CPU NMI and leave the GIC NMI
-+			path in place. Requires the kernel to be built with
-+			CONFIG_ARM_SDEI_NMI.
-+			Format: { "0" | "1" }
-+			0 -- enable (default).
-+			1 -- disable.
-+
- 	serialnumber	[BUGS=X86-32]
- 
- 	sev=option[,option...] [X86-64]
-diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-index 43e2e2a64594..4c8b917867dd 100644
---- a/drivers/firmware/Kconfig
-+++ b/drivers/firmware/Kconfig
-@@ -58,6 +58,10 @@ config ARM_SDEI_NMI
- 	  regardless of the target's PSTATE.DAIF -- forced delivery into a
- 	  CPU wedged with interrupts locally masked.
- 
-+	  This provider takes over every cross-CPU backtrace; set the
-+	  kernel parameter "sdei_nmi.disabled" to 1 to use the irqchip
-+	  NMI path instead.
-+
- 	  If unsure, say N.
- 
- config EDD
-diff --git a/drivers/firmware/arm_sdei_nmi.c b/drivers/firmware/arm_sdei_nmi.c
-index 038eb79e28ac..baf89f88c4f1 100644
---- a/drivers/firmware/arm_sdei_nmi.c
-+++ b/drivers/firmware/arm_sdei_nmi.c
-@@ -62,6 +62,18 @@
- 
- static bool sdei_nmi_available;
- 
-+/*
-+ * Mirrors irqchip.gicv3_pseudo_nmi=: the architected NMI path
-+ * is preferred when asked for, and SDEI stays out of the way.
-+ */
-+static bool sdei_nmi_disabled __ro_after_init;
-+
-+static int __init sdei_nmi_disable_setup(char *str)
-+{
-+	return kstrtobool(str, &sdei_nmi_disabled);
-+}
-+early_param("sdei_nmi.disabled", sdei_nmi_disable_setup);
-+
- #define SDEI_NMI_EVENT			0
- 
- /*
-@@ -168,7 +180,7 @@ static void sdei_nmi_raise_backtrace(cpumask_t *mask)
-  */
- bool sdei_nmi_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu)
- {
--	if (!sdei_nmi_available)
-+	if (!sdei_nmi_available || sdei_nmi_disabled)
- 		return false;
- 
- 	nmi_trigger_cpumask_backtrace(mask, exclude_cpu,
-@@ -178,7 +190,7 @@ bool sdei_nmi_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu)
- 
- bool sdei_nmi_active(void)
- {
--	return sdei_nmi_available;
-+	return sdei_nmi_available && !sdei_nmi_disabled;
- }
- 
- /*
-@@ -194,6 +206,9 @@ void sdei_nmi_stop_cpus(const cpumask_t *mask)
- {
- 	unsigned int cpu;
- 
-+	if (sdei_nmi_disabled)
-+		return;
-+
- 	WRITE_ONCE(sdei_nmi_stopping, true);
- 
- 	/*
-@@ -238,6 +253,10 @@ static int __init sdei_nmi_init(void)
- 	}
- 
- 	sdei_nmi_available = true;
-+	if (sdei_nmi_disabled) {
-+		pr_info("SDEI cross-CPU NMI disabled by sdei_nmi.disabled.\n");
-+		return 0;
-+	}
- 	pr_info("using SDEI cross-CPU NMI (SDEI_EVENT_SIGNAL, event %u)\n",
- 		SDEI_NMI_EVENT);
- 
+--
+
+bonding: reject a non-Ethernet 802.3ad slave even when the type matches
+
+This patch moves the "8023AD mode requires Ethernet devices" check in
+bond_enslave() above the bond type handling. The check now applies to
+every slave, not only to a first slave that changes the bond's type. It
+targets a KASAN global-out-of-bounds read in bond_open(), where
+dev_mc_add() copies a 16-byte addr_len from the 8-byte lacpdu_mcast_addr.
+
+> diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+> index 042d7c75548fa..bcc12ef34d9ab 100644
+> --- a/drivers/net/bonding/bond_main.c
+> +++ b/drivers/net/bonding/bond_main.c
+> @@ -1951,6 +1951,13 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+>  		return -EPERM;
+>  	}
+>  
+> +	if (slave_dev->type != ARPHRD_ETHER &&
+> +	    BOND_MODE(bond) == BOND_MODE_8023AD) {
+> +		SLAVE_NL_ERR(bond_dev, slave_dev, extack,
+> +			     "8023AD mode requires Ethernet devices");
+> +		return -EINVAL;
+> +	}
+> +
+
+[Severity: High]
+Does this fully close the out-of-bounds read on lacpdu_mcast_addr? The
+check only looks at slave_dev->type when the device is enslaved. A slave
+that is itself a bond can still change type afterwards, while it stays a
+slave of the 802.3ad bond.
+
+Here is a possible sequence:
+
+  1) Create B1 in 802.3ad mode and B2 in active-backup mode. B2 is
+     ARPHRD_ETHER because bonds are created with ether_setup.
+  2) Enslave B2 into B1. Bond masters are allowed as slaves, and B2 is
+     ARPHRD_ETHER, so the new check passes.
+  3) Enslave an ip6tnl device (ARPHRD_TUNNEL6, addr_len 16) into B2.
+
+Step 3 goes through:
+
+bond_enslave(B2, ip6tnl)
+  call_netdevice_notifiers(NETDEV_PRE_TYPE_CHANGE, B2)
+    bond_netdev_event()
+      bond_master_netdev_event()   returns NOTIFY_DONE
+      bond_slave_netdev_event()    returns NOTIFY_DONE, no PRE_TYPE_CHANGE case
+  bond_setup_by_slave(B2, ip6tnl)
+    bond_dev->type     = slave_dev->type;      /* ARPHRD_TUNNEL6 */
+    bond_dev->addr_len = slave_dev->addr_len;  /* 16 */
+
+Nothing in bonding vetoes the type change, so B2 is now a TUNNEL6 slave
+of the 802.3ad bond B1. Setting B1 down and then up again reaches the
+same sink as in the commit message:
+
+bond_open(B1)
+  dev_mc_add(slave->dev, lacpdu_mcast_addr)
+    __dev_mc_add()
+      __hw_addr_add_ex(&dev->mc, addr, dev->addr_len, ...)
+        memcpy(ha->addr, addr, addr_len)   /* 16 bytes from an 8-byte global */
+
+with:
+
+drivers/net/bonding/bond_3ad.c:
+const u8 lacpdu_mcast_addr[ETH_ALEN + 2] __long_aligned = {
+
+bond_hw_addr_flush() has the same problem through
+dev_mc_del(slave_dev, lacpdu_mcast_addr). The bytes read past the end of
+the global end up in B2's mc list, and /proc/net/dev_mcast prints them.
+
+A team device used as the inner device should follow the same path,
+because team_dev_type_check_change() also relies on the notifier chain.
+
+Other upper drivers block type changes of their lower devices. For
+example, team_device_event():
+
+	case NETDEV_PRE_TYPE_CHANGE:
+		/* Forbid to change type of underlaying device */
+		return NOTIFY_BAD;
+
+Bridge, macvlan, ipvlan, hsr and vlan do the same.
+
+Could bond_slave_netdev_event() refuse NETDEV_PRE_TYPE_CHANGE, at least
+in 802.3ad mode? Another option would be to check the slave's addr_len
+before dev_mc_add()/dev_mc_del() of lacpdu_mcast_addr.
+
+>  	/* set bonding device ether type by slave - bonding netdevices are
+>  	 * created with ether_setup, so when the slave type is not ARPHRD_ETHER
+>  	 * there is a need to override some of the type dependent attribs/funcs.
+
+[ ... ]
+
 -- 
-2.34.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/179505868590.3571070.12381528230330714812%40gmail.com
