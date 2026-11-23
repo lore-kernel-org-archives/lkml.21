@@ -1,57 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795446042;
-	b=jb35Kk51Rm6oopMOFt/4KL39ot/eh/ei94UNSh+quBIEjddUhUseMllQTYt3z4JW08Qf
-	 A4pXSkyvlu2mV3RXmXxEZRTZoFjG24idMyHIEHEizZI7DZeVRITKeYVMdqwZONNnZ5xBC
-	 SbkQWPJNZs1GarVk/gN7cHh/R1j+ZcUaKM3VhDEEvN7UePunjharKyiZl9bWUM6E5m3Ra
-	 pmU9R6lk4UeXMmyfElA/weQqXgCvcDv/v2EUeIjaKtnW/ANfNuIP43dWTmWtnYD3sA39h
-	 UUAIQBs8iU31ewGazwz9ZMs6nQ4AFEKZSfKprvIyTqNhiqE/TL15mOyu2GUJdyLAgXA==
+	t=1795446122;
+	b=YKtHRKuf4G3YeCsVBVWNXM3JW+7PBE8U9/keP25pn554hTlT6cLbrmmgG6zWu+G1FSjL
+	 3aXX2jKpf8pmmMPDnQXOuprP5WE4ye1Cd1y5OsVZy/0ZdA1pVARCqA7abV58jFIlewkcT
+	 KmvNBIiv7yK6zTGEISPHQMy8WAkydunepguMp00w5r3JI6zSwnR1ECOWaYnGynGN0Qf+Y
+	 f9rcxd9fRXVCs2mchwVg5TmKEyNXvVO2A5oUjhz83Kd3KQvMe1dDD9n7dN4tC9uwquZB7
+	 VSYq0vCPGXNsEFRguouDMx0rSgVRQPl3Pz4N4mTRhiN16qomH0Goz18ZYTlqEpdX8Ow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795446042;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=wozrLB8v+QNNPQYvspRVXg8TraIKj4aiVMZRAUF+EYM=;
-	b=kZz1jqX8fpeY1j0KOVsO4oECkn0kkctkyS8HZCFpyjt2721HdXYEWPEIGKoO9fScKkBB
-	 fdDWsbpKKcHD+G1l1WqGOSNoYpoDxL13D4evb+5NW8vwSAsfJap5hPqPXuc4Wa6jT9nuF
-	 rvye27XLV6cLJ1lCPJHYe9XypQudpA/hnV7D1C7Q/e5NojAOWda0Z/cFdE8Eyhxttp0G4
-	 K1bYMznyrOVg0KIts5E4xMYFAGvGueYv2LeuCUG53qPGLBe0WrMreF3bQtlkYwsEraIDt
-	 t3v7UzMjM15/c6RQ1mNT0Iyp4TO9N6sz8qCATszJ3Y5pdrqbZ8adBiQhzAW/9ms0hvw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795446122;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=pOYA2Qi1LlJis/jVtzIzVcnlnxrkX7HcTKZW7RMWJJU=;
+	b=r4eW+OYmATZxUhUbPtF3XytCVNUuuyWq/f7PIlrHjJ+8eM/HOD+fH/+gVArjrf++OLC0
+	 91yvxecLZQVFLKmHLH7YAtKzuTLowo35eXzX4YGAX/gq29pmqdDgsnU64qoDnYBUUm8Gq
+	 sCSxBSkEgOOdzfewNIEVwQfEdC9rtSBOg1HSGi16gmEYXAGrjI9NqVZoN6lXC08nuiodE
+	 IxN18qgwv+Q92U5w4wICJ648ISXBtuVTLHlcJgpktyK+hK4medmBK2L83T5UEI3nGpFLB
+	 CkiEJC4YMENdz6GC2hqwhiBZncZjCYZ9xJ+jMN5xwod4mbNbpv86PNDGyH6gQnlpS2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="oaBih/EA";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="PFGY/RjX";
+	arc=none smtp.remote-ip=209.85.218.46
+Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com [209.85.218.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 19003606A32E;
-	Mon, 23 Nov 2026 15:00:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12AD5606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:02:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 12AD5606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oaBih/EA
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 41C3D1F000EB;
-	Mon, 23 Nov 2026 15:00:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795446041;
-	bh=wozrLB8v+QNNPQYvspRVXg8TraIKj4aiVMZRAUF+EYM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oaBih/EAHNjA5vGr1S/JB9Li0DUscBiWVZh6dmsbyIfp7pIwmefQ8coBqL4YabvlV
-	 Q/O1M3TLh6sbZZ0KxOLUWU7fChxrCgF32+/ZDjVPoDZg16VPXXJbT5sIB3DmhRov+G
-	 xgtxcOMxif/7vZE3Ppd9Dm/O8F7NRUJy7xTI39cTwUuoeiS5jCBcuLM8JzGWb+nYXn
-	 zVOUNvGy+8dF3LyJzrdTrJ1hKZQWlwX+PjaMfaIY/CbOUp4RDp1A/SVfZftWuvBE2w
-	 qAY/P0GkeVzcBALmQS220smmIngaZmvvbmeYxQw3k6PXr4zlSBdj5S6i2zwZS1fyN5
-	 uia/Ziy3U1pbA==
-Date: Mon, 23 Nov 2026 16:00:37 +0100
-From: Bartosz Golaszewski <brgl@kernel.org>
-To: Shawn Guo <shengchao.guo@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: qcom: nord: Fix GPI DMA wiring of QUP SPI
- engines
-Message-ID: <lwcooapssolrhg26ktztgu77l5ed4c4bwnlfhv6yrmkbde6okz@4ijci4uvqnqa>
-References: <20261118112407.103412-1-shengchao.guo@oss.qualcomm.com>
- <5poepxkppbiyfxz2dxkjm7p7xiq4ndoltsnnbqlp5rdasbvrxr@p2ocx5b3kubj>
- <av8WIZjPgnS8qWNt@QCOM-aGQu4IUr3Y.na.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PFGY/RjX
+Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-c4d21051042so555618766b.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:02:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795446120; x=1796050920; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pOYA2Qi1LlJis/jVtzIzVcnlnxrkX7HcTKZW7RMWJJU=;
+        b=PFGY/RjXbySdDDj/pp6OdOvHoO/0OOP8E7WNKI70NcGhBkY4msp0/7Vx5qsuwJfvdL
+         I/hrefBfj31N7LpxF1azSYXgIqtw5bsCsHQsASenFuwavkFlY4tWEw/tl1AxFykZji3N
+         xMRbo0+XVluQPZ8sXqtWkaUM+VvArmxnAKZXiEAquJBE/+62gRn5exC5U2aqkd1qbRqZ
+         rwMP836ZeG8yzYTByyr2vhshRX05z5PnfT0qh1x32mwKThJvqFE8FFULPthw7TlrYXDt
+         S+Z8uA0PkopmzFGyMZmXIoQnQEdzKq8DxfG8Rmtp+t8Y8nhYCrmt3tB/vbimaxocWHsd
+         OGhg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795446120; x=1796050920;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pOYA2Qi1LlJis/jVtzIzVcnlnxrkX7HcTKZW7RMWJJU=;
+        b=JQuIdy2Hnge1DqWS2GSsGCLcU7KMSp6dJ3Uvs9PJlKzhespF/pRAHNJ2D2l/tgg9V7
+         WOqc0gi3trEeFuFWTvA1IjnaiiKuyOYfYEWzd3iSVA81jP9qfzg83CwUj1pBSd/dcv9B
+         wPxNR7Xgce+Fp6cDwMCszgtQpp3NxI07gr0K0hSrYlQJxZCN7qQlTxF5obezEdKHqwVZ
+         PApeC2f1YXOGZS4Fix7rv7+9gILF8NhO3qKOgqs3WYu4683ELDSL7aYudoBNhThrQt7y
+         Mwl3CgHk6jDnJQwVhjpcxiFcWo3pHowciMyDf3cwoWkR5qEoAyqGuTzVX/jqFz8jDGa5
+         sJmA==
+X-Forwarded-Encrypted: i=1; AL+hErFhjcoImOvITxxIoIdDlex3QtBDHOF6HkFG8MUZdNQNysJSftnLXSWm+Y5vUM+xWYNUo4k+yuehn81b0wE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8i4y7zbMCxiy8IEi5TTbGIX0GGJhyaGAPtXVrjQS7Dwi3uFxqZ
+	7GR2FrPAcnfb/E2yaeztCiYcgFvLpjq6l82srrM8G+ujYl3wjQe3mC9o
+X-Gm-Gg: AZFdTZeE6JyCa54eR2TYBPhzfBCGlcJoiCUs+x97TFZe7Jrlt0TATCjpkv70X7Ny7uL
+	o820Jq7tJILo7qlYYOiCLro3rXQ2oA7+UkVSWIGMs7mKpN5SHtxcLUJaMwr9YnIJQGqUHos8l19
+	6N6JfEovOrDju/nYXufTR5/d8F3QN+fQp6jtO26Cln9FbMXnwCWz8F6qEXVInuWpAAHHSetDywJ
+	ca56hQjN5H1Qbxq2T5wKP+FEUBzXae7EpZKVIh6vhE9N3i18EuH7OKi3XwcizZuK/B8ca98ljKP
+	QVVChjsyJzK8K5hbPeXBpkYD1BXCL5rwMC4NQXZlvM8oOT/Xv0Zs8GGTXD9qh5WY4x9zJC2qg7l
+	BOf6bEISZk4RaN4FuVCdlo/54G8uTPjD+Se3f0wM2wyq3KPSzdYz85V0v6oVZUlV9IPPT/pi95U
+	EdpnaLvEQfmSolFXibydgO+G3GBTZq7sS7RpWroLyrFh8XDw+d4Hz+rBgQ+3lN55O1gUBbu2JFO
+	4xaf4Bed9zE89daHmFniB2RuKCWyvQ2wlqth8xNbMHPVN4htpUHb/9cwIq/DPP4Iwk8oG5VZFGT
+	38Q/0pNTgw73pkxw0XwrN2EYy2ZU8Bp5U9HX1dQuvGQKqPxO2sXST6uBpEGYK9r2S/HcN+bcMdH
+	xhaM0Lunv45S/S2aX5Spo
+X-Received: by 2002:a17:906:9c84:b0:c44:16ad:c31d with SMTP id a640c23a62f3a-c513a3a720fmr1021359566b.4.1795446120175;
+        Mon, 23 Nov 2026 07:02:00 -0800 (PST)
+Received: from localhost.localdomain (86-95-26-230.fixed.kpn.net. [86.95.26.230])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc42bbsm418398366b.61.2026.11.23.07.01.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 07:01:58 -0800 (PST)
+From: Ezra George <georgeezra017@gmail.com>
+To: Christian Brauner <brauner@kernel.org>,
+	Shuah Khan <shuah@kernel.org>
+Cc: linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Ezra George <georgeezra017@gmail.com>
+Subject: [PATCH] selftests: pidfd: declare pidfd_poll_test TAP plan
+Date: Mon, 23 Nov 2026 16:01:27 +0100
+Message-ID: <20261123150127.635412-1-georgeezra017@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,37 +97,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <av8WIZjPgnS8qWNt@QCOM-aGQu4IUr3Y.na.qualcomm.com>
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 19, 2026 at 04:30:41PM +0100, Shawn Guo wrote:
-> On Thu, Nov 19, 2026 at 03:04:11PM +0100, Bartosz Golaszewski wrote:
-> > On Wed, Nov 18, 2026 at 12:24:07PM +0100, Shawn Guo wrote:
-> > > Commit d8005dd04efc ("arm64: dts: qcom: nord: wire up GPI DMA for QUP
-> > > I2C/SPI engines") put the QCOM_GPI_SPI channels of SE 0-3, 7, 8, 11
-> > > and 12 into the uartN nodes instead of their spiN siblings, and left
-> > > spi4 and spi14..spi19 without any. The UART nodes now carry dmas
-> > > properties the GENI UART binding doesn't allow, and 15 of 18 SPI
-> > > engines can't use GPI DMA.
-> > > 
-> > > Move the channels from the UART nodes to the SPI nodes, and add the
-> > > missing ones for spi4 and spi14..spi19.
-> > > 
-> > > Fixes: d8005dd04efc ("arm64: dts: qcom: nord: wire up GPI DMA for QUP I2C/SPI engines")
-> > > Signed-off-by: Shawn Guo <shengchao.guo@oss.qualcomm.com>
-> > > ---
-> > 
-> > Eek! Thanks. I think the comment from sashiko needs to be addresed
-> > though.
-> 
-> I think sashiko got confused, no?
->
+pidfd_poll_test.c uses the low-level kselftest.h helpers, but does not
+call ksft_print_header() or ksft_set_plan(1) before reporting its result.
 
-Yep, I looked with my human eyes and it's fine, all hunks are labeled
-uartX.
+This produces incomplete TAP output and a plan mismatch:
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+  # Planned tests != run tests (0 != 1)
 
-Thanks,
-Bartosz
+Add the TAP header and declare the single expected result.
+
+Tested: tools/testing/selftests/pidfd/pidfd_poll_test 1
+Signed-off-by: Ezra George <georgeezra017@gmail.com>
+---
+ tools/testing/selftests/pidfd/pidfd_poll_test.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/tools/testing/selftests/pidfd/pidfd_poll_test.c b/tools/testing/selftests/pidfd/pidfd_poll_test.c
+index 232304f818c7..416a136bb6eb 100644
+--- a/tools/testing/selftests/pidfd/pidfd_poll_test.c
++++ b/tools/testing/selftests/pidfd/pidfd_poll_test.c
+@@ -31,6 +31,9 @@ int main(int argc, char **argv)
+ 
+ 	fds.events = POLLIN;
+ 
++	ksft_print_header();
++	ksft_set_plan(1);
++
+ 	if (argc > 2)
+ 		ksft_exit_fail_msg("Unexpected command line argument\n");
+ 
+-- 
+2.43.0
+
