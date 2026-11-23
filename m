@@ -1,88 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795425652;
-	b=uxpKWqgcNWnymnk73BPnDQhJiFDg7YonnQwaXJrYlPToVqEb2FGaaOCfzzgVIXdHN0UC
-	 egqAuCFImkoE5WpsbWilOxMWa0WcZqz6B2FzqIN54f23CTyp7pMNQQLAuvAXY6wWX6DAx
-	 fgc+f/NJBQKJe70gLkQysWkvV8TaTDfeEZQ9KDAh291KofQVYimawgGxnODw4CJjmETgw
-	 r4D4SXpdR2shOAnm3h8KbCtOzl3oZLdelf5IszL6f6a6Q5KOkzrpaO2hTUvi9wL3RCeyU
-	 UNZZb3gpa84qkgqKD3VL3aB5fwRDaq4FDpGw3HRespcIDVK0LdJhfJi4DckWjNYmbfw==
+	b=RmSfCk1J3tDHu86n9q7QMZPgAzUyL07BiXM2AqLIyHFkVWzBgNIYIW29LxlQ/nQ9xNGk
+	 dAWLAqP0iCLjtX/JrANAIsg52J1maDnXk1LkpKZ78lzS83SEE7ds+xgNRPfEbhqPynUxP
+	 rD2xGFaYIIGiRYZps3ncm3I5oKsG0YkOB8QaSYlftuIQTjqwlheGmDPmdQYw4PtQOOckK
+	 lrWXE5Kadkc1xjEprxLPhJzFoa6Vo8o3ieo/SZRzXP65IiO9wCfYtvLJARbSS2l08gP5E
+	 GNKHFHWcG6DI8COiT9NDJVQ42hivTiMH/mQyS9S3933/DaiVpxxhF08yfJiL9gx31zw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795425652;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=fqPuJJQjedPHkwWmiLlO5o36uyAtzYkH2qkSAqw5MIk=;
-	b=BaqPTXwjERcmScgG9pzY8NhJXZLrvPu4tfDnpbA2cjKAymblkD8dPvaUSEDxhI3iDxTz
-	 Am3+7pzwOEOTtO1AZEXyVRPXQERZHZnrzBDGtrCKhKXBDyhqlEczMG9ISonVXbxIve4Ke
-	 yhAds4qR1Jy6atsuYbEB6B2l1CzQIdolgdogvkKP2tj6nPQ4mXSLuxS694KzIZfOoS8OL
-	 8hYo0HyFEjZLNSXtOiS/OvEwNpru96xywIRGuUtCFzceFJ/PV+Tj9flLOiacEPCJ/INSW
-	 VUubRzMKpbf9mP4IuuMuSYbGyRS+O9CTC2AF+BqJF+pfNuDp7WLKWIKWmJeTbVbhYFw==
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=lHyRaJe2Oxu6YF/YZuFS79LHuEjt4FTk13YOidFcKI0=;
+	b=KuqQDhiMSISvWfWrSBsPvTbqHt1qH3WXAs2ruIKS1vg1jYNMMsDOFqhIZdshG4YgjkJP
+	 yEuWrlEubpptbQ/2sfm1gVCYt2R9gR5DeVi9cyctU/8mYSFRsTaSh/ad1VZ1J68dPEYzJ
+	 qCTvfhNofJcMYXzdfgAEz9ifuK90ZJDyqqon00+w1rq9TeKPq4Awh3FX0+jQJIXgefd1P
+	 mBTm92u7pJpbApRWiOT8w/x4+5lt7fx1kTC9M2hZ1HIc5Fz1RPK3UShhVdjDFeJEdteaU
+	 BQHmmB2JQmvMscAG4v2NLJc+2bwFby3JSv0m62tSaHZuPywHLgPfTIUEFNonLp1/oYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=ZnnMHLyy;
-	arc=none smtp.remote-ip=209.85.128.45
-Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9DBB606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:20:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9DBB606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=FQFfSCeT;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id C7512606A31F;
+	Mon, 23 Nov 2026 09:20:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7512606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=ZnnMHLyy
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4a210470b49so28530565e9.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:20:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795425650; x=1796030450; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=fqPuJJQjedPHkwWmiLlO5o36uyAtzYkH2qkSAqw5MIk=;
-        b=ZnnMHLyyGEi85eItm4tPYEAe8+FkKV19phLWW9u/kEXQMLTfvMYy7r3G2HRniYSz3w
-         7MW6uyj4mxuTe3P+B5/kK6P2ruVi/OoNcpE14GXUoA8hybNbSkAVmScSpX0J3ZXKnu9T
-         yoChKBwHjhHiT5MLku9vce5ZUS8pWpYebcUpFG7qku8GUWTg/LvkjCSOqtxP4nraIB4X
-         eapoyMmbQUQYcbHrTYv5hHIrHlflqQZCIxeoSqBQC1Mpx2fkmQA6k9p7J8zG1TXt47e/
-         KYVBu968nHtGjDHJN2pqTjxKl00GZKuqIZa4CrgW00s4fKdMo3XtLfI+oVZJTk99r3Yv
-         gOkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795425650; x=1796030450;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=fqPuJJQjedPHkwWmiLlO5o36uyAtzYkH2qkSAqw5MIk=;
-        b=TiMT8NKgiGe8ZL4ZxT/GyPX/LW64NZ4oC2BJiW5kVBoiNPRhzbgvPEp6FtPyMTrGix
-         rp368AuDriFnjHEHS2n1XWg1qZPP516UtH+s+rsPx5gXH7ovG36m9Pi1BjFrw6cfjwG/
-         J4/I6EYo0c6ma6Z5Y2UEeD1ZzCtc0He49zOje8i/0DmXGaRRLwoBIj82gDs0VIPdBWdo
-         qy6/UlYRPrxFV103I8UjVTmOGTs/Y5np900j4jPPlbYA4FZoLN99zetTaALsZC5+C+Xm
-         Pcx+csGmS8xiVYoscYJLuEF95nSOXv2BLXXjUZel2wudzKtZQNF6CIaJdlMBtbLd2iQs
-         R25Q==
-X-Forwarded-Encrypted: i=1; AL+hErGA/SP2eRd7GIWWeYjlyZYKlxDFDQVm/XQGy/EoYy/AC5+u/GdmCRsljm1Uf3LjSOsQLnM0ZsCyVEJPngo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+I47y2EdVj0sd3gxcp/o0N0iarhUBwwflJ+z2BzsobP31wHOkA
-	pcLpAz7K2bUg6l9vy7HlXOjPzCJE6If9d4EeqcrCNC4XgZNZDvd7smmtn+GO8PlcoJ0=
-X-Gm-Gg: AZFdTZfqK6aX7q82bLeUtVvgP4g0ITCzYznSYAAvjtKcaL/gwuT2+KUctjIgNI36s6n
-	PWRmfoBaf9Cp1d+r9qKatu4dG5i8YKG2ick9pHy6OWkDgyG7v5SrC4fGTpqXpI8N4paE9Wzt9nF
-	c+X8ix7jAUTrhNDBTFVAt9kChpg7HfHCL92iPUuQb1rhhtKr/lkUOc5+uBaEbR876pRCvuR4PCd
-	aLDUvwVhHEvDDLFQASyYAbvpivxe6qYFdHbKEhdGIzwLr83HOQ8k8wMAWjFsOrf1AX4veb+o/sp
-	zhRZaeaVkyEjgWq0R2w2nnhu+31LxfRjkfdZwhf6KnWTDKuZCobqG1muDBPcfW8C5lTll54LpdZ
-	mlRZgOHBKNKT9jbtLYhtYIYDJNtkzeZ4rkJOAWgoZaCXdMuX+mq1MdXc1JYTSXMOma5VejL3RoC
-	Oc8vxdNmPTALnx5en7+oRWGnDzKhuaqYfZfnHBGGO9nbLmHzIqK0eeIzrMunci9r+iDDw3TaBET
-	XzkQHDA5YxedUfohPCv3wZ9TWdaWy2ElwrcS8J6ZvhxHVkbLV11g2CezlGgmpOzSMAP4s0qqc3j
-	Vtw0rsYNFfXdM2AkFDiA0EG20dBwmftMGcmbQXCVoASWEV53proRuem2QgMJ9JUgkBsL7I2vGJg
-	3T1hvCXoNz6h/XeRe7F9P1EPdhJERIHzGgesNFuF45ilgTg==
-X-Received: by 2002:a05:600c:530f:b0:4bb:680f:9a3 with SMTP id 5b1f17b1804b1-4bb887e220emr216644145e9.2.1795425650233;
-        Mon, 23 Nov 2026 01:20:50 -0800 (PST)
-Received: from macbook.homenet.telecomitalia.it (host-95-246-144-141.retail.telecomitalia.it. [95.246.144.141])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b39b6sm296458505e9.12.2026.11.23.01.20.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 01:20:49 -0800 (PST)
-From: Carlo Caione <ccaione@baylibre.com>
-Subject: [PATCH 0/3] Describe the Amlogic S7 clock controllers
-Date: Mon, 23 Nov 2026 10:20:44 +0100
-Message-Id: <20261123-upstream-s7-clk-dt-v1-0-95f46d67d8b4@baylibre.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=FQFfSCeT
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 489121476;
+	Mon, 23 Nov 2026 01:20:48 -0800 (PST)
+Received: from localhost (a079125.arm.com [10.164.21.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F56C3F632;
+	Mon, 23 Nov 2026 01:20:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795425651; bh=sjyw09+6rOZQXtyPBevqw2Txy/HdpRHEm1XHUYTVWQo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FQFfSCeT03MCVMYM6WdTXW5pv96OMoHNbrbaoBV0kV3ZyS9Skat5hbubcRn4GCPYY
+	 Qc8vcmuM3sdMjmGSFU0kfk09qVx2V5xUI3whlekXrJKUb726o0zmc//w3HaOC70SUd
+	 9PhFFOWVyCwXdsG76Wk7bf+RpHbrx365abQt7g3M=
+Date: Mon, 23 Nov 2026 14:50:47 +0530
+From: Linu Cherian <linu.cherian@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v1 1/6] arm64: cpufeature: Remove Neoverse-V3/AE from the
+ BBML3 allow list
+Message-ID: <cw2i2nfhwffg7wwybrttwynnmuujckh25dhe5jrlmmr3byowrz@ggccunczsoka>
+References: <20261113145022.2592454-1-ryan.roberts@arm.com>
+ <20261113145022.2592454-2-ryan.roberts@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,53 +62,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/2WNQQ7CIBQFr9KwlqSA0NKrGBfw+ShqbQVqTEzvL
- rVNXLic5L2ZN0kYAybSVW8S8RlSGO4F2K4icDb3E9LgChNec8Vq3tJpTDmi6WlqKNyu1GXqpeV
- yryRqBFKOY0QfXl/p4bhymuwFIS+mbRHxMZVaXme/WFdtKfWXEt6i8kIoyV335IvImoQUhr4Pu
- avaujFiD14zYE4zzy1aAQbQazRGt9ZJ5VjDyXGeP4a31iD5AAAA
-X-Change-ID: 20261028-upstream-s7-clk-dt-f5b25465e9ec
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Carlo Caione <ccaione@baylibre.com>
-X-Mailer: b4 0.16.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261113145022.2592454-2-ryan.roberts@arm.com>
 
-The S7 clocks come from the firmware, over SCMI, and from the PLL and
-peripherals clock controllers. Add the SCMI node and the two clock
-controllers to the S7 device tree.
+On Fri, Nov 13, 2026 at 02:50:15PM +0000, Ryan Roberts wrote:
+> Neoverse-V3 and Neoverse-V3AE erratum 3053180 can cause a load or store
+> to livelock when mapping size changes without break-before-make or when
+> contiguous hints are programmed inconsistently.
+> 
+> The erratum was previously reported as fixed in r0p2. On that basis,
+> commit 5aa4b625762e ("arm64: Add BBM Level 2 cpu feature") allowed
+> Neoverse-V3 from r0p2, and commit 8fca3852e33d ("arm64: cpufeature: add
+> Neoverse-V3AE to BBML2 allow list") did the same for Neoverse-V3AE.
+> 
+> The updated SDENs, MP168 v11 for Neoverse-V3 and MP172 v12 for
+> Neoverse-V3AE, dated 9 June 2026, list r0p0, r0p1 and r0p2 as affected
+> and the erratum as open. There is no fixed revision on which to base
+> either allow-list entry.
+> 
+> Remove both entries so these CPUs observe break-before-make, and record
+> the workaround in the silicon errata registry.
+> 
+> Cc: stable@vger.kernel.org
+> Link: https://support.arm.com/documentation/109231/11-0/?lang=en
+> Link: https://support.arm.com/documentation/109704/12-0/?lang=en
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> ---
+>  Documentation/arch/arm64/silicon-errata.rst | 4 ++++
+>  arch/arm64/kernel/cpufeature.c              | 2 --
+>  2 files changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index afe109afe692..9ad965d3e1ea 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -243,10 +243,14 @@ stable kernels.
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | ARM            | Neoverse-V2     | #4193787        | ARM64_ERRATUM_4118414       |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| ARM            | Neoverse-V3     | #3053180        | N/A                         |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  | ARM            | Neoverse-V3     | #3312417        | ARM64_ERRATUM_3194386       |
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | ARM            | Neoverse-V3     | #4193784        | ARM64_ERRATUM_4118414       |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| ARM            | Neoverse-V3AE   | #3053180        | N/A                         |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  | ARM            | Neoverse-V3AE   | #3312417        | ARM64_ERRATUM_3194386       |
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | ARM            | Neoverse-V3AE   | #4193784        | ARM64_ERRATUM_4118414       |
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 34c5c03c0c9b..b15619690f42 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -2012,8 +2012,6 @@ bool cpu_supports_bbml3(void)
+>  	/* CPUs that support BBML3 but dont advertise through ID_AA64MMFR2_EL1 */
+>  	static const struct midr_range supports_bbml3_list[] = {
+>  		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
+> -		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
+> -		MIDR_REV_RANGE(MIDR_NEOVERSE_V3AE, 0, 2, 0xf),
+>  		MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
+>  		MIDR_ALL_VERSIONS(MIDR_NVIDIA_RIGEL),
+>  		MIDR_ALL_VERSIONS(MIDR_AMPERE1),
+> -- 
+> 2.43.0
 
-This series depends on the S7 clock controllers series [1], which adds
-the bindings and clock IDs used here. Jerome applied it to clk-amlogic.
 
-[1] https://lore.kernel.org/all/20261120-upstream-s7-clk-v2-0-856cece3b9f2@baylibre.com/
-
----
-Carlo Caione (3):
-      arm64: dts: amlogic: s7: add the SCMI firmware node
-      arm64: dts: amlogic: s7: add the PLL clock controller
-      arm64: dts: amlogic: s7: add the peripherals clock controller
-
- arch/arm64/boot/dts/amlogic/amlogic-s7-scmi-clk.h | 27 ++++++++
- arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi       | 80 +++++++++++++++++++++++
- 2 files changed, 107 insertions(+)
----
-base-commit: 807a34cf91c1d91f2beb3cacef9eaa98bd56d172
-change-id: 20261028-upstream-s7-clk-dt-f5b25465e9ec
-prerequisite-change-id: 20261026-upstream-s7-clk-3fbe6f33652d:v2
-prerequisite-patch-id: 9ce04eba818962dbb245b10f1709937eb8054600
-prerequisite-patch-id: a02fe1ec065748194293c458aae0bd6f6e7f152d
-prerequisite-patch-id: c04475f82637c268ace81e969b67c159a1b0ff4a
-prerequisite-patch-id: 8b60ed5e40d0bda09cc368292cdd7cffc621fd8d
-prerequisite-patch-id: 7e4acbe8258ab4bf7b5bfcaa0c7b764b011d8105
-prerequisite-patch-id: b9efe5d77d21ce83acca108e1050c5ae1dfe9701
-
-Best regards,
---  
-Carlo Caione <ccaione@baylibre.com>
-
+Reviewed-by: Linu Cherian <linu.cherian@arm.com>
