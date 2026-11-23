@@ -1,82 +1,92 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795429582;
-	b=Jpln2TCTIWA+XJS2O+Ev47t5gV0L7rrVN8rcU54ruehtErLQG5krnd+a2xjDI81WDiJn
-	 1M7cEbiYD5+NVueHoOJQHTU+0mnJ5XXbaxCFiwGVumXRc2yUtlgcaduw1LuMP5qya1Mpv
-	 X/pOT36xyqoKRpNl8b35a8D+UbIolF/f+xGRFOWK+1cnQpuUFWCYHr5eZe4gXfwmrMYrB
-	 LfIPsZH+RyNrcGv4obDbeqC1fClScH+iBJ7zmxU+VSXE3DFgFS7yPUfvpiTTa4YiRHWah
-	 6aKRbs6FrWcD8OAnXTSejclApmcTmMir85SSocjdmwTmU0G8iEXCi/bq4NAhxOgcd/A==
+	t=1795429594;
+	b=mp+2cKYqUQmMeJKUFswGaaR87f5DU8ugS7U6S3j0wckeXWhMet33rkCVP3aNYVQ8C47c
+	 Con5Y1Xf99TYXmVrmEjZ99Xk2dMnBXXl607uXV2g8GEcvCVd0I93RwOSgA39Sq71woURz
+	 UmUAre1lMHyzk8nqiRkgJWIZWYHaYFhVaBJsfcBk/72XupOEAEWEOuTC2YNXn9yrMVqEt
+	 GmTTiuvEhNNsIDCIzXW9YuexLSIbDFaGrlSVTyI0FxRaPBgX2439uTh9Js3F07Udrschy
+	 wHc3suxcfF993N00mGc/TCQVSXYLGoeC7O+Sx12b3ugde9fICumzUVKFopuNmpGdMEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795429582;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795429594;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:From:To:Cc:References:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
 	 X-Proofpoint-Spam-Details;
-	bh=Ol6ZqQoWlmXtvtDZk9OZ1/FMafpXtEHt9A6+uNED36E=;
-	b=v337zMUstewCJonUIpgut0BQVOMXOVTObTKWbqWg77Vw9/ewO3jcxJbPXjAf4S6ggE/Z
-	 1oOYSZjStXqWGrhWZdL55amEq8v9QTg3mxmF0ZWJk9QGJkbG6D5gvXlvDZscYq8FOV/Vc
-	 GPrXar/J0oZ5q2G1SJhHshSX1noqRyFfVw/xQV5+C3DtbP9XqJ/CF0i0t24HW3P5MMYNy
-	 q/pcR41RmlBDY7d6YUbgOm/doejP8fwv/1X/wpwW4KWGPnJJ7ysORCk0uw5EOdBp0XUV3
-	 wwM/24XhjN8XAZBA/4X4BhRU1bV9y7y62AxJY2rgZ896uGi2f+NTKl2dtckAptI9PAw==
+	bh=4eN50aRSkmuIllrAwA3eGaHbWzAQeStB7tViCqukEag=;
+	b=FO6O3Xw8dwJjygHBVTNsntfLmmSQWVrhel+kISu0BgI+Qe2QH+3efUsU4y9oZmnyA+NG
+	 ydzVu9qViH3SgbyPcoqa+GXOIIR2KviWRzV7oEwjWKcs4sw4R8kuwVK/G8sgo0R4gZYtK
+	 8+BcQEHtVDe6NpYwBrNOScEDpH06XvrtgWMnJqim6S8WXj6B8P3t2v/i3SOAqYwzXUBOA
+	 mdZ8/jmWHeS4b8366/qRIclFvPCp4vG9kLtoWLVJy/R3jwyakn0M4FA4uPD4V2O3JFXuK
+	 J3IknnDvzONvjVAtOeWzbQIyHN08ws04p8oGCXtvHCUegoGChEHE8TszNMVbGFr29MQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.ibm.com;
 	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b="aFK4U/57";
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=s4L9LCAE;
 	arc=none smtp.remote-ip=148.163.158.5
 Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37487606A31E;
-	Mon, 23 Nov 2026 10:26:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37487606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80693606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:26:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80693606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=aFK4U/57
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9YlYd1984060;
-	Mon, 23 Nov 2026 10:25:40 GMT
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=s4L9LCAE
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9Yn3E3194730;
+	Mon, 23 Nov 2026 10:25:56 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=Ol6ZqQ
-	oWlmXtvtDZk9OZ1/FMafpXtEHt9A6+uNED36E=; b=aFK4U/57VlpMc81BlCJvaZ
-	QU9mOL0VKhpTwMqvz4ALbfHZ4Io6XzkEoMY2VU4A4kmrca4j1FF6DmvrNYGd3SVr
-	bzmY0poD254upLiAvc0BFkYMK/IzrFbkbtmubkTJmKgR42oWoTFwDBMtnmZxMXrq
-	DBFXGWCfG6Hfl0o/AFbghNW4UzAbjNLWHvFA8LlXfl3Whl57KyT6ePRv+tLMVH1G
-	BCW4E+cs5d8WvZ/PyfFLwBt/vgtHPF5el3TJxVALoo1BeXUcG3NGIsFHS770IKjc
-	H0QQKoALY//pMu4t+Jw469WoF+V182tLOFBMxVGP8oVp1TFubYD4hI3ePpMUdxNw
-	==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34p4a75m-1
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=4eN50aRSkmuIllrAwA3eGaHbWzAQeS
+	tB7tViCqukEag=; b=s4L9LCAEzjKgMrwDPzRHyjSZoIPNB0oRW8iASDgA/u6kaL
+	Z0QexILtrfzpAWswFrUBj/KXtDttE01I1sbbfB7j5s+kP8puOqSOrr9iokkgtrdF
+	bMaqAF6oyiCGearONdNrNETC2JuwS/OATIEEMauR2UR1FeVpD6V/GhxQSTYM2Nz8
+	yul94VihBV/QFmeHn/C1weM3mTU4xGU9AknqjZVWMV0+S1mV/LAckuCvPGrKFpT3
+	lxg9cKdm8RkpPuc2t10kXZPLevGCyKk3PQbMck39yzrvth2mR37DsxI8DfM0mcrJ
+	H5Tn8bWyCD9cCFdA8gyrbNST4vUIQpV9FJlD4qFg==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34gv2ber-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 10:25:39 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9JXHn3089194;
-	Mon, 23 Nov 2026 10:25:38 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3pmjxb57-1
+	Mon, 23 Nov 2026 10:25:55 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9JLQU2758544;
+	Mon, 23 Nov 2026 10:25:55 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3q4h68v2-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 10:25:38 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ANAPYAg49152504
+	Mon, 23 Nov 2026 10:25:55 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ANAPrR330933680
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 23 Nov 2026 10:25:34 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 848D52005A;
-	Mon, 23 Nov 2026 10:25:34 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9A9762004E;
-	Mon, 23 Nov 2026 10:25:31 +0000 (GMT)
-Received: from [9.123.4.64] (unknown [9.123.4.64])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 23 Nov 2026 10:25:31 +0000 (GMT)
-Message-ID: <871f6da6-6fbe-4971-93e6-d66776e3ad6c@linux.ibm.com>
-Date: Mon, 23 Nov 2026 15:55:30 +0530
+	Mon, 23 Nov 2026 10:25:53 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1E35D2004D;
+	Mon, 23 Nov 2026 10:25:53 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A39392004B;
+	Mon, 23 Nov 2026 10:25:52 +0000 (GMT)
+Received: from osiris (unknown [9.87.148.25])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon, 23 Nov 2026 10:25:52 +0000 (GMT)
+Date: Mon, 23 Nov 2026 11:25:51 +0100
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+        Oliver Upton <oupton@kernel.org>, Mark Brown <broonie@kernel.org>,
+        Sascha Bischoff <Sascha.Bischoff@arm.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 3/9] arm64: sysreg: Reject a Sysreg and a SysregFields
+ with the same name
+Message-ID: <20261123102551.20959-C-seiden@linux.ibm.com>
+References: <20261123075219.369042-1-fuad.tabba@linux.dev>
+ <20261123075219.369042-4-fuad.tabba@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,328 +96,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/5] powerpc: Add RTAS based error injection support
- for pSeries
-From: Narayana Murty N <nnmlinux@linux.ibm.com>
-To: Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        "Oliver O'Halloran" <oohall@gmail.com>,
-        Timothy Pearson <tpearson@raptorengineering.com>,
-        Alex Williamson <alex@shazbot.org>
-Cc: sourabhjain@linux.ibm.com, Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Christophe Leroy <chleroy@kernel.org>,
-        Ritesh Harjani <ritesh.list@gmail.com>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
-        linux-kernel@vger.kernel.org, kvm@vger.kernel.org, sbhat@linux.ibm.com,
-        harshpb@linux.ibm.com
-References: <20261023073642.59657-1-nnmlinux@linux.ibm.com>
-Content-Language: en-US
-In-Reply-To: <20261023073642.59657-1-nnmlinux@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123075219.369042-4-fuad.tabba@linux.dev>
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA0MCBTYWx0ZWRfX+Jj8xqdOtFWd
- iEWQJiJ3SLfwiQiDhORiwwr8JEt2caVQyOTiBQqrVw9l9rcKtpBsvzPqquayjyhzwe0NYBo/X9a
- 5aAFAZz84eJ3QH7of3skBSUqZktruho=
-X-Proofpoint-GUID: 8-28eVAx0p_kdJ9Nz-mpTWfJpUSnvtIi
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA0MCBTYWx0ZWRfX4BX9X2PlNixa
- vwWVib4OyAJusRE4Y/kV7xrYKgdVvLX9ArNkfZ7CVkn8ZtvWRKIw3HlYPSwno5Mj40kEEyMPWeo
- 0fZt2++3oq3IexmbUHyUYmSTPD9dijnR0JA9GIMLQzVk1NRuyO8eFnionWFX9PR9VlvAu9wyc6J
- hVUs8yTYcg5ZJJb8uSjU++Qj+BGUf80AflbozdgARfz0PW6Z8YHCOaCl4v4zwTjuHDKDK355aMT
- /YIzHZHV2Ap/PTtypxx/oQbfwM0BuEMwC00TuQqDrpAR4dDSk5gM6bjZJqZHqkRYCXt98Al0/T8
- LXW4zzSv9MabBA5UZuXC5LE4TJhwZgfilZomCGpPwmHSpjRMGNisT0hhvzo9+XXFK7M4KHZa4Iy
- 88mADzT912Zt5oOg+sI6WXLMxpUrYTHKCMygdZh/FF7QJpoKgfO4YZ5/0NEJzbjQx/6oy42/MtS
- J/8vX4nG7m82RcmU2/A==
-X-Proofpoint-ORIG-GUID: YFGL0QbuKQJ4Uq37_o-vRZxLHbmSNu_6
-X-Authority-Analysis: v=2.4 cv=QabzLcbv c=1 sm=1 tr=0 ts=6b0414a3 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VwQbUJbxAAAA:8
- a=VnNF1IyMAAAA:8 a=Z3uMWUZynzQKCD0EPKIA:9 a=QEXdDO2ut3YA:10
+X-Authority-Analysis: v=2.4 cv=CYCdd7rl c=1 sm=1 tr=0 ts=6b0414b4 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=7CQSdrXTAAAA:8
+ a=VnNF1IyMAAAA:8 a=vdi0Nw9sCHi2PksTQLIA:9 a=CjuIK1q_8ugA:10
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA0MCBTYWx0ZWRfXxawTwefiZEFd
+ 8ki1jNsC0l/e000dPN4H8gPLAmAvCBVANmdQjH+VkVi0tCPWYLN+SMW/xA3jgpb362UtZpdWIG5
+ d6lrM+jrPtJkjJCPmI5CX0de0sPgKkI=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA0MCBTYWx0ZWRfX4C3zhOnZ76ch
+ lHVHDp8PDppBymVX3vRw8rTXr8NJ1yIAUAP/LZSnM2g1mw4V5wyMoX8hGeoHwhjFicEB0/xLhY8
+ qWEk2meOQVsXRss0LlABSRKHy09z9s8CQdhDsCaGoNIXv/zR5pvDn5H6tD3uEmtZQ04kA/JGg+w
+ z7Y2ksTt/Ro17Sy9LNWYE9Ipt5cq/yT1I3KKLWp7CKS/B5Bkrh63WvThTGUyfqcFXfOYrTN6fib
+ cs7IXN/Skx/9nu1f4YG9Lqzex1MfK/4KTqpKu+NIIydcQPGuw8EMYHfr5KWwPO41M3R3OXxd4Lq
+ xncBbUtzrF2txfDGZphUP8mUTEKuk+byPP/N2MxtCmi0TarJOAIN+FaS7jatZjVMEgQ/icXvnrK
+ 3vxkhhvUEjF2u8MOd0WJbYn+LXYhk4FsjRDk+fx36fQgeM3H8SvSeT+dCRyic3JcJ+8TSvh8yHk
+ gnPBdmgqnPZDgoT7zKA==
+X-Proofpoint-ORIG-GUID: ufQakVupHdAEZCAbNSvHXbnQpvA6LqrO
+X-Proofpoint-GUID: h1tNTLxIi81xYYOSn31DZ0z_mQhtzQzv
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-23_02,2026-11-22_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0 adultscore=0
- bulkscore=0 priorityscore=1501 clxscore=1015 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230040
+ phishscore=0 malwarescore=0 priorityscore=1501 lowpriorityscore=0
+ clxscore=1015 spamscore=0 bulkscore=0 impostorscore=0 adultscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611230040
 
-HI All,
-     Thank you for the valuable feedback, I addressed the all review
-comments in v7 (ressend) posted.
+On Mon, Nov 23, 2026 at 07:52:13AM +0000, Fuad Tabba wrote:
+> The generator rejects two Sysreg blocks, or two SysregFields blocks,
+> with the same name, but tracks the two kinds separately. Both kinds name
+> their macros for the block, so a Sysreg FOO and a SysregFields FOO that
+> each have a field A both define FOO_A, as well as FOO_RES0 and the other
+> masks, and the compiler warns only where the definitions differ.
+> 
+> Track both kinds of name in defined_regs, so that a block is rejected
+> when either kind already has its name, and leave the kind out of the
+> error.
+> 
+> Suggested-by: Mark Rutland <mark.rutland@arm.com>
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-https://lore.kernel.org/all/20261123102237.95860-6-nnmlinux@linux.ibm.com/
-
-Thanks,
-Narayana Murty
-
-On 23/10/26 1:06 PM, Narayana Murty N wrote:
-> The pSeries EEH error-injection backend currently implements a limited
-> software-generated MMIO failure and does not use the error-injection
-> services provided by RTAS.
-> 
-> This series replaces that implementation with the PAPR-defined RTAS
-> workflow based on:
-> 
-> - ibm,open-errinjct
-> - ibm,errinjct
-> - ibm,close-errinjct
-> 
-> The implementation opens an RTAS error-injection session, allocates and
-> prepares an RTAS-accessible work area, performs the requested injection,
-> releases the work area, and closes the session on both success and failure
-> paths.
-> 
-> The existing EEH userspace ABI is preserved. EEH_ERR_TYPE_32 and
-> EEH_ERR_TYPE_64 continue to represent generic 32-bit and 64-bit IOA
-> bus-error injection requests. The pSeries backend maps these values to
-> the corresponding RTAS error types, while the PowerNV backend explicitly
-> maps them to the corresponding OPAL types.
-> 
-> Additional generic EEH error types (EEH_ERR_TYPE_RECOVERED_SPECIAL_EVENT,
-> EEH_ERR_TYPE_CORRUPTED_PAGE, and the cache/TLB corruption types) are
-> defined in the UAPI header and mapped explicitly to RTAS firmware
-> encodings by the pSeries backend. Platform backends that do not support
-> a valid generic type return -EOPNOTSUPP.
-> 
-> No existing userspace ABI values are changed.
-> 
-> The injection path can be exercised for VFIO-assigned devices through
-> VFIO_EEH_PE_INJECT_ERR. The guest or userspace VFIO application continues
-> to use the same generic EEH type and function values, independent of
-> whether the host platform uses RTAS or OPAL.
-> 
-> For IOA bus-error injection, the VFIO sPAPR path normalizes a Linux BAR
-> resource address to the corresponding PCI bus address before dispatching
-> the request to the platform EEH backend. Address normalization is
-> restricted to memory and IO load/store functions whose addr argument is a
-> BAR-backed PCI address. Config-space and DMA functions are passed through
-> without translation because their addr arguments represent PCI config
-> register offsets and IOVA/TCE addresses respectively. The no-address form
-> is represented by both address and mask being zero.
-> 
-> The series also handles the unusual return format of ibm,open-errinjct:
-> 
-> rets[0] = error-injection session token
-> rets[1] = RTAS status
-> 
-> rtas_call() returns rets[1] as the status and places the session token in
-> outputs[0], preserving the normal kernel rtas_call() convention.
-> 
-> sys_rtas() continues to expose the raw RTAS return cells to userspace.
-> For ibm,open-errinjct, it validates that at least two return cells were
-> requested before entering RTAS and uses the RTAS status cell for
-> last-error handling. Userspace therefore continues to receive the session
-> token and status in their PAPR-defined positions.
-> 
-> The pSeries backend uses the existing RTAS work-area allocator for the
-> error-injection parameter buffer. The work area is allocated only after
-> ibm,open-errinjct succeeds and is released before ibm,close-errinjct.
-> RTAS work areas reside below RTAS_INSTANTIATE_MAX, so the physical address
-> fits in the 32-bit RTAS argument passed to firmware.
-> 
-> The complete open, inject, and close sequence is serialized with a mutex.
-> RTAS busy and extended-delay return values are handled for all three
-> calls. Once a session has been opened, ibm,close-errinjct is attempted
-> even when parameter preparation or error injection fails.
-> 
-> The patches are organized as follows:
-> 
-> 1. Handle the special ibm,open-errinjct return format in rtas_call().
-> 2. Add pSeries RTAS error-injection validation and buffer helpers.
-> 3. Implement RTAS-based pSeries EEH error injection.
-> 4. Normalize VFIO sPAPR IOA error-injection addresses.
-> 5. Explicitly map generic EEH error types to OPAL types on PowerNV.
-> 
-> Testing was performed on PowerVM with firmware providing the RTAS
-> error-injection services and with corresponding QEMU support.
-> 
-> The corresponding QEMU v6 series is posted here:
-> https://lore.kernel.org/qemu-devel/20261019162541.68440-1-nnmlinux@linux.ibm.com/
-> 
-> Signed-off-by: Narayana Murty N <nnmlinux@linux.ibm.com>
-> ---
-> 
-> Change Log:
-> 
-> V5 -> V6:
-> https://lore.kernel.org/all/20261019101813.45085-1-nnmlinux@linux.ibm.com/
-> * Addressed v5 review comments from Sashiko.
-> 
-> * Patch 1:
->    - No changes.
-> 
-> * Patch 2:
->    - Fix false BAR matches against unassigned or disabled BARs in
->      validate_addr_mask_in_pe(): use pci_resource_len() instead of
->      resource_size() (which returns 1 for zero-initialized BARs), and
->      explicitly reject BARs with IORESOURCE_UNSET or IORESOURCE_DISABLED.
->    - Move validate_errinjct_args() and prepare_errinjct_buffer() to
->      Patch 3 alongside their callers so each intermediate commit builds
->      cleanly with CONFIG_WERROR=y without unused-function warnings.
-> 
-> * Patch 3:
->    - Include <asm/rtas-work-area.h> for the RTAS work-area API used by
->      the pSeries error-injection implementation.
->    - Introduce validate_errinjct_args() and prepare_errinjct_buffer() here
->      alongside their callers (moved from Patch 2).
->    - Fix eeh_break_device() visibility: keep it under #ifdef CONFIG_DEBUG_FS
->      to prevent unused-function compiler warnings when CONFIG_DEBUG_FS=n.
->    - Add pseries_eeh_func_needs_bar_addr() to identify error functions
->      whose addr argument is a BAR-backed MMIO/IO address. Guard
->      validate_addr_mask_in_pe() in prepare_errinjct_buffer() with this
->      predicate so config offsets and DMA/IOVA addresses bypass BAR
->      membership validation.
->    - Demote the validate_addr_mask_in_pe() diagnostic message from
->      pr_err() to pr_debug() since invalid user-supplied inputs do not
->      represent internal kernel errors.
->    - Update prepare_errinjct_buffer() kernel-doc comments to document
->      function-specific addr semantics (MEM/IO = BAR, CFG = offset, DMA = IOVA).
-> 
-> * Patch 4:
->    - Restrict address normalization to error functions carrying BAR-backed
->      PCI MMIO/IO addresses (memory and IO load/store). Config-space and
->      DMA functions bypass normalization rather than incorrectly returning
->      -EINVAL.
->    - Fix false matches against unassigned/disabled BARs in
->      vfio_spapr_eeh_normalize_addr() using pci_resource_len() and checking
->      IORESOURCE_UNSET / IORESOURCE_DISABLED.
->    - Remove the misleading ", injection may fail" suffix from the
->      pr_debug() message since the caller returns -EINVAL immediately.
->    - Update commit description to accurately reflect function-specific
->      address domains.
-> 
-> * Patch 5:
->    - No changes.
-> 
-> V4 -> V5:
-> https://lore.kernel.org/all/20260831065441.48654-1-nnmlinux@linux.ibm.com/
-> 
-> * Addressed v4 review comments from Sourabh Jain.
-> * Return -EINVAL when ibm,open-errinjct is used with an invalid
->    return-cell count.
-> * Validate the ibm,open-errinjct return-cell count in sys_rtas() before
->    entering RTAS and use the common status helper for last-error handling.
-> * Rework the pSeries helper description to describe validation and
->    RTAS parameter-buffer construction first.
-> * Rename rtas_type to rtas_err_type to distinguish the mapped RTAS type
->    from the generic EEH type.
-> * Keep common error-function validation in validate_errinjct_args() and
->    remove duplicate check from prepare_errinjct_buffer().
-> * Protect PE device and BAR traversal with pci_rescan_remove_lock.
-> * Rename pseries_errinjct_mutex to errinjct_mutex.
-> * Allocate RTAS work area only after ibm,open-errinjct succeeds and
->    release it before ibm,close-errinjct.
-> * Ensure ibm,close-errinjct is attempted after a successful open when
->    parameter preparation or error injection subsequently fails.
-> * Remove caller-side RTAS work-area address check and truncation, relying
->    on RTAS work-area allocation guarantees for the 32-bit RTAS argument.
-> * Remove unnecessary error message for unencodable 32-bit IOA address or
->    mask and retain the buffer-ready debug message.
-> * Remove eeh_pe_inject_mmio_error() and its declaration after removing
->    its last caller.
-> * Reorder the VFIO address-normalization patch after the pSeries RTAS
->    implementation.
-> * Remove the one-use VFIO error-type helper and check IOA error types
->    directly at call site.
-> * Treat only addr == 0 && mask == 0 as a no-address IOA injection.
-> * Limit address matching to standard PCI BARs and add debug message
->    when supplied address does not match a BAR.
-> * Expand PowerNV commit message to explain generic EEH-to-OPAL type
->    mapping and rename opal_type to opal_err_type.
-> * Preserve -ERANGE for unsupported PowerNV error types.
-> 
-> V3 -> V4:
-> https://lore.kernel.org/all/20260831065441.48654-1-nnmlinux@linux.ibm.com/
-> 
-> * Use the RTAS work area allocator instead of adding a dedicated
->    global error-injection buffer.
-> * Keep sys_rtas() raw return-cell semantics unchanged while handling
->    the special ibm,open-errinjct return format in rtas_call().
-> * Treat ibm,open-errinjct with fewer than two return cells as invalid
->    rtas_call() usage instead of interpreting rets[0] as status.
-> * Use normal Linux errno values in internal validation helpers instead
->    of RTAS status values.
-> * Simplify the pSeries RTAS open/inject/close flow.
-> * Keep close-session failure as cleanup reporting without overwriting
->    the primary operation status.
-> * Add VFIO sPAPR-side address normalization before dispatching IOA
->    error injection to the platform EEH backend.
-> * Normalize IOA addresses based on the IOA error type, not only
->    selected function codes.
-> * Keep the generic EEH ABI values unchanged and keep pSeries RTAS and
->    PowerNV OPAL mappings explicit.
-> 
-> V2 -> V3:
-> 
-> * Fixed ibm,open-errinjct return handling to correctly process firmware
->    responses.
-> * Allocate the error-injection buffer in RTAS-accessible memory instead
->    of general kernel memory.
-> * Pass the physical address of the error-injection buffer to firmware
->    (previously incorrect address type).
-> * Accept session token zero as a valid token (previously rejected
->    erroneously).
-> * Handle RTAS busy and extended-delay return codes for open, inject,
->    and close calls.
-> * Simplified the validation helper -- reduced complexity and removed
->    redundant checks.
-> * Simplified the buffer-preparation helper for cleaner, more
->    maintainable code.
-> * Validate that all required RTAS tokens are present before attempting
->    to open a session.
-> * Added explicit generic EEH-to-OPAL error-type mapping for the
->    PowerNV platform.
-> 
-> v1 -> v2:
-> https://lore.kernel.org/all/20260527072433.94510-1-nnmlinux@linux.ibm.com/
-> 
-> * Addressed all review comments from Sourabh Jain
->    * Removed unnecessary empty line in rtas_call()
->    * Enhanced comment to explain PAPR specification requirements
->    * Corrected misleading comment about output handling
->    * Improved else block comment for better code clarity
-> * Fixed kernel test robot warnings
->    * Fixed kernel-doc warning for __maybe_unused parameter
->    * Confirmed sparse warnings are false positives (correct endianness
->      handling)
-> * Added PowerNV platform abstraction layer (new Patch 5)
->    * Maps EEH error types to OPAL-specific types
->    * Simplifies type handling by direct variable update
-> * Improved code comments and documentation throughout
-> * Added Reported-by tags for kernel test robot findings
-> * Split into logical 5-patch series for better review
-> 
-> RFC -> v1:
-> https://lore.kernel.org/all/20251205094510.4671-1-nnmlinux@linux.ibm.com/
-> 
-> * Initial 4-patch series
-> * Fixed PAPR ibm,open-errinjct output format (token,status order)
-> * Added pr_fmt handling for EEH subsystem compatibility
-> * Implemented comprehensive validation helpers
-> 
-> RFC:
-> https://lore.kernel.org/all/20251107091009.43034-1-nnmlinux@linux.ibm.com/
-> 
-> * Initial RFC implementation
-> 
-> Narayana Murty N (5):
->    powerpc/rtas: Handle ibm,open-errinjct return format
->    powerpc/pseries/eeh: Add RTAS error injection helpers
->    powerpc/pseries/eeh: Implement RTAS-based EEH error injection
->    vfio/spapr_tce: Normalize EEH IOA error injection addresses
->    powerpc/powernv/eeh: Map generic EEH error types to OPAL
-> 
->   arch/powerpc/include/asm/eeh.h               |   2 -
->   arch/powerpc/kernel/eeh.c                    |  10 +-
->   arch/powerpc/kernel/rtas.c                   |  78 +++-
->   arch/powerpc/platforms/powernv/eeh-powernv.c |  22 +-
->   arch/powerpc/platforms/pseries/eeh_pseries.c | 375 ++++++++++++++++++-
->   drivers/vfio/vfio_iommu_spapr_tce.c          | 140 +++++++
->   6 files changed, 585 insertions(+), 42 deletions(-)
-> 
+Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
 
