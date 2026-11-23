@@ -1,54 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.188
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795442406;
-	b=p5Mxfn/BjbKYbogsM4AEMKfzTGCZH/DmPBivUCp0z33xUIZbfmlgrbTLiSWoBiEALcq+
-	 IziFTxO+fVA6DSRnSfFisdl1fnUUtV1A8cHhPfIkdYXRjwSetRDX/R7nDSJvEemx0xZoJ
-	 gaYyL09GEhgDrU0Np8sG0dvGd+nqT3IMBfLXtUp0+ZUfJawiCvqDPqY03A8+t2oPSldVK
-	 HRJvsYnN4nMO83xkbuomVWqrtB+UENIuSsIUVCleqfh8KEKo5v2EJPFxzA9xmGfdyQwTS
-	 Iyf+ZQ+nYh5JlUSt2QJ5qVFOv1eL1DMvbBc8q+zoUwVZanYHMADwH5MubM4z2rup7Lg==
+	b=yLPNjY/vwtQYM4elKptHSLt2eGVjMoTDOO/IktyKnTQ6ftK+1cey5sI2el1loAtdOQz+
+	 ND6SsP8pH7zeyvDLwnvZc48V9DcRrJ2ACp7qGCm/SGAcBKoINuqHPHlgLVZSAX1oHlQM0
+	 izWKxl/wPbfj4xX+t4wchPKVsnBU+2BECb1BsSGuA2hxhatLdKST0dJ9pOiukb07ReGym
+	 QtTRYeIld+1zIyeZQLdLMzx74EgO9ZOhYvngpGfuY3hmSBKRmhDNzY3Fu68aCLYE+HzY5
+	 6za6mwgV+U8RtlVi1z67Asj17w3JprKV1vbqkulWuUWRIFBWBJgYUB3OiWjEnusBZlg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795442406;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=KTNFFpQ3kER92nljtjnxslEg2HatMNO3Pm/4eF+/uVo=;
-	b=rAfmuG7OzL8/S5hIb64aOb2+va67LhxzKlvkg4hKNpU8ln54blrn1qMWLk/dBTURe3bL
-	 s3aQLao9mPr7WgLdPAFM2wcRInnNTN+qUL1VmJB9B4gi5PXAbYTQ6wI5Xh+lwwyQuhDpQ
-	 jDKBnSrS0nAd0DG6UG7gdt4+WF1O3ZjnFBu20j1tLJVer1+oN1dhnJTgRPLI5V55zNc31
-	 b55zYwHAKoTM3H7l/mqmqoRfzaNZ2gzEt3CRgtrGtrTvCXTro31ICacRbMRFUOn0zXqXU
-	 K/LIgSiGrMizRkNEGzXJVbR6mt738ntVAzLcXzKPN7vCrkFB+ZVjg3m5YDyz2aSGB8w==
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=VjoJzAq8xiOMF7dZn6eDDufnCmi9o4SjveZSWHouqDg=;
+	b=UdFBBJCTbjWFFZOA5E/Zauk6d1S1jZe2EuHQ1NvNbaHIlA6m4foS5+R3U6J6qoQapNCd
+	 1JZ5smW0PVGGQJd+ImxHbVx1g9lfyayyBJMbjZwD9TGYyKBe1VoMmYEUJhRIaw/+rJk3P
+	 x1UfonFZDtLyU8GuLFjwz5LwniDusXKfx9IYAVrxrzF3n/MvD/C3O+BTxnNEXEf9e6zwE
+	 v1s/Akm9hLwwRxKviiiyJjW9EE4qKiaZN2broHjUayM9wQ4iPJYIIvS+vfMnPL5d7jTTv
+	 +b9wjdzYwTgGAhburGPCLnCJFarmDiAE5mzTvqlGpGsG4ZYPHqzhO5Z/OI6Oy0nscmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HSaCR1P4;
-	arc=none smtp.remote-ip=95.215.58.188
-Received: from mta1.migadu.com (out-188.mta1.migadu.com [95.215.58.188])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZDqyxe92;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 639E4606A33A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:00:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 639E4606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0F43606A337;
+	Mon, 23 Nov 2026 14:00:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HSaCR1P4
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Q+a6mEtr7v7r3AOnn5SeGdS5lSXCWUahw75AjJpOxjY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795442403; v=1; x=1796047203;
- b=HSaCR1P4legPkF6kIb5xXNUX70+TzNIKQiy91SGabZEsMrUkIJDPKchokqE2YZdH2OIu8tMe
- nf40zv1YulwKl+13ksCphNkK2UZI3JfcIMS203PCxciZzTg6WV+IOyro/yK90jcTKw5WJvJlmdi
- DgLethbld3AEN4cUFrJ9KvO8=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id e58aebc7aa3e4872;
-	Mon, 23 Nov 2026 14:00:01 +0000
-X-Mizu-Trace-ID: e58aebc7aa3e4872
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <062359fb-c169-4253-aade-07cba63a279e@linux.dev>
-Date: Mon, 23 Nov 2026 14:58:23 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZDqyxe92
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B6681F00A00;
+	Mon, 23 Nov 2026 14:00:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795442406;
+	bh=VjoJzAq8xiOMF7dZn6eDDufnCmi9o4SjveZSWHouqDg=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=ZDqyxe92ybY4QAk2aV2iBoUN4mM6tstj1zu+6J3/S6pJ2wFQV+dnW8znkuegFs2Z+
+	 bennJ1wU6xppI2MeJLy+vHwCA42Ghs1W/RzHLjnC9BVFN3wYqL6osY434AkEX/rwu/
+	 GNoDqS7RSreYhMFoIsJKiSWKez9qTaIth8PjlLJIPKYo80PIAiFqzpKDIKbhoHaDlL
+	 ROg/06OLrYcPuku/H0CvYjiIsbwp2szsaZDQ/NLks+Ke2Spn0jxmGmUEgfiaWfwJuC
+	 80yfAp53xiYVd8rYPuHEgedDkuIK9l6RgdE8o/U+L9qIRsyxECHKxxRZZKLK+yukT1
+	 vqiHvH+nBDJNQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F1592392EDAE;
+	Mon, 23 Nov 2026 14:00:05 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,94 +53,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/24] ASoC: soc-pcm: add multi_direction_codecs link
- flag
-To: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
- Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: Srinivas Kandagatla <srini@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Randy Dunlap <rdunlap@infradead.org>, linux-sound@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261023171433.820092-1-srinivas.kandagatla@oss.qualcomm.com>
- <20261122161437.5994-3-srinivas.kandagatla@oss.qualcomm.com>
- <b3df76ad-e002-4ec0-a1a6-812d22b51432@linux.dev>
- <e10e701e-b478-4fe5-a62a-2365507e5d8c@oss.qualcomm.com>
-Content-Language: en-US
-From: Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>
-In-Reply-To: <e10e701e-b478-4fe5-a62a-2365507e5d8c@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] net/mlx5e: TC,
+ fix a NULL pointer write in the peer flow error path
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179544240455.2408834.998439660061134441.git-patchwork-notify@kernel.org>
+Date: Mon, 23 Nov 2026 14:00:04 +0000
+References: <20261118025708.86215-1-enderaoelyther@gmail.com>
+In-Reply-To: <20261118025708.86215-1-enderaoelyther@gmail.com>
+To: Zhao Li <enderaoelyther@gmail.com>
+Cc: saeedm@nvidia.com, tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, moshe@nvidia.com, shayd@nvidia.com,
+ agoldberger@nvidia.com, netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 
+Hello:
 
->>> +Typical use case: a smart-amp speaker protection link where the CPU
->>> +side is a playback-only DMA (e.g. ``WSA_CODEC_DMA_RX_0`` on Qualcomm
->>> +AudioReach), but the codec side exposes both a playback SPKR DAI and a
->>> +companion capture V/I-sense DAI on the same SoundWire bus.  Opening the
->>> +playback FE should bring up both the amplifier output chain *and* its
->>> +V/I feedback capture chain atomically, without userspace having to open
->>> +a secondary PCM.
->>
->> This is a valid use case that has been problematic for some time on
->> other platform as well.
->>
->> What puzzles me in your approach is that the codec-side will be
->> configured/started, but *something* will need to grab/process the
->> feedback IV data generated by the codec DAI. That part seems to be
->> completely hidden in your approach, is this intentional? How would a
->> capture DAI be configured on the CPU side so that the data is provided
+This patch was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
+
+On Wed, 18 Nov 2026 10:57:08 +0800 you wrote:
+> The peer flow add path hands the duplicated flow over to the origin
+> flow before it looks up the peer entry for the peer vhca_id. When
+> that entry is missing, the function returns -ENODEV, and the caller
+> then deletes the duplicated flow with list_del() on its peer node, a
+> list head that was never initialised and never linked. list_del() on
+> such a node writes through the NULL page.
 > 
-> In this setup there is no capture codec cpu dai. The capture data is
-> never seen by the userspace. VI Feeback data is directly feed into
-> Speaker Protection module within the DSP using the codec-to-codec setup.
+> [...]
 
-Humm, even if there's no user-space visibility, don't you have a
-SoundWire capture port? How would that be configured? At the very least
-it should be prepared and enabled.
+Here is the summary with links:
+  - [net] net/mlx5e: TC, fix a NULL pointer write in the peer flow error path
+    https://git.kernel.org/netdev/net/c/7b0c5f0c757c
 
-> Host only drives the playback data and the VI feedback path is entirely
-> with-in the DSP.
-> 
->> to a DSP? Some of the patches, e.g. 11/24, mention a capture dai but I
->> can't connect the dots with the suggested codec-dai changes.
->>
->> In addition the feedback loop can be made of not only I/V sense but may
->> also carry an echo reference, and that may have to go all the way to
->> userspace depending on where the processing is handled, possibly with a
->> split between IV sense and echo reference making the topology even more
->> complex.
-> 
-> multi_direction_flag is really agnostic to driving data(VI or echo
-> reference)
-> All this flag is doing is setting up the codec which are configured in
-> opposite direction.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-but the configuration of the capture part is missing entirely, no?
 
->> And last the SoundWire core exposes a concept of 'stream' that is single
->> direction, and so far we've used a 1:1 mapping between dailinks and
->> streams. If part of the dailink is dual-direction, don't we have a
->> problem on the SoundWire side?
-> 
-> 04 patch addresses this, we create two separate runtime streams per
-> direction instead of one.
-ok, that should be made clearer in the introduction, which mentions
-codec dais but omits the gory details of SoundWire management.
-
-I have mixed feelings about having 2 streams. It 'works' but it's not
-optimal. Maybe it's time to revisit and extend this concept to deal with
-data that's closely related to the regular PCM data but flowing to
-another direction and used for a specific purpose.
-
-There's the case of the IV sense, but also the companion amp which may
-require a device-to-device communication scheme. It would be much better
-if all the prepare was done in one shot for all the direction/ports used
-for a given use case, and likewise the enable should be done with a
-single bank switch. Not to mention that this sort of solution should be
-handled at the SoundWire core level, so that we don't have to implement
-this dual-stream implementation for every platform.
