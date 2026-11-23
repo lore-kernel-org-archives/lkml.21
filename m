@@ -1,80 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447316;
-	b=VsLS9ab2kImdrRfFcIAqBPeuibbbiQ1MbrWDCKw/vicqGXT8yj9hNauOdDa8vaieGPQR
-	 mGGLDOqv1kJpAMKAQOXr40ioyY0r2vMed9ckzSBeri6hk0IKBHDtZMG7N+e0EnFGEfJ12
-	 2+gRPvDNCNS7H7mqenBBnaFvtRZHv1ZLQWP6PK64PTGAKhzemzRKgoxvWZYIoPWmmxTkU
-	 aVebmFrqUwmBT3cAL2cA5utxkJPniG4sapMuAHqRYxqa5x/eMMlAJRVM66HJDmMXvuxzJ
-	 jOP00Ru0SZ5k3Nvb9Bt6b9SfGv63UYsxR1TsLyfUpxK2slCIfDgL7jgkzSXpfg6s9xw==
+	t=1795447353;
+	b=c2EdTS/fg32LMVm8l5+xSla73GLX3JYhTEvZH47XiPb5X9fGFLDHmCyY2j52ZFhKMeRi
+	 970fctWMKFh3FF6fahncWm6nFnJGmmSEezLr6oa5BUw8R2CqjlQYR8htq5FMBpLPskpKz
+	 8wE5qEm8t3zdXZ7bDxpLT4nMPPolY3/Cff6DQ+9UJLgTG8XA903BOBoiyL8wLuR//9MH1
+	 Bzenw+yeCxG8fxixWTALrymoDNsc0n86VNlQVMVmjB2vRSarMl9b5olhmxF6a4fETXkj+
+	 +qfP+qAJIsRAuyjGBy8p+j/3LHtePqhB7UxW89hLG1EXhFL0atlfyNSaMuv2ar4QuBg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447316;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Spam-Status:X-Spam-Checker-Version;
-	bh=STKKGhMDLzI7yW9S72yonEXwLFCwhDpVjPRmQQOrHEs=;
-	b=Hsq546nTrEoYoKdSqm0dNw1b9i4fJ24d1u3pIsKS5osGwlxvtttbCBjoT/nf114/2l9k
-	 W0EhAgl7pD4bq/xNgDkwoDFFjtUxbEU+YK9O7Lq6v2Uk0akLOX9AveEWZgJ9+iZNANXBp
-	 OLKQqYVm0SF7cNlrrCXe597AmVhodIPfHPnG6VTG29+MrnEgqW1lFV3vxlvmc9eHYJppe
-	 AOBh+1zYoXeEdRCZGCuDdWeZJYrGfNT7ldgh1xrvv07Xvwt2Rb0JUTstkhoaJMITKKPnP
-	 RUz08tCCSvW+d0/GWYeXve9K2p76zVhLba/yX3N+tzRz7XNekNJgOVCwuax0MVg6K6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447353;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=bLuFhzPDMD82jx0FB6acUSp89OVedJqWalTPyxGSkpg=;
+	b=DMDa2AyhHnfwdk/6tcPfRnTQtaufDBLGgxxdhwZtrMGd0nCtm87QngpaEILzp1aCA7ak
+	 keesbA+dG8fna0QiclC6OQsYqVmt3ydNzqX0Z36n8xQKi/eB4xT6eYGarTOv4H8em29VQ
+	 nj5xaqVpVYy0f9RoxMHaCdo5WyWna9hUWi+WBz/xV7ItM4GYxBF7NEZ5DiKkSC5RT9+ZR
+	 mdN3eIM46+KwUnT+D+H21zavZdk5gnkBgTHKnp7jPDJi8X6MXHpaAOE8vL/f3cF85pD8D
+	 IAXCivrkSfIACkJ2YJquyZ8aqLakxlzG4YpqcKI1DF7wVbB9qZ2K8tXjcCxmn4Uyv5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=EVnfaTKD;
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id D46E1606A6BD;
-	Mon, 23 Nov 2026 15:21:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D46E1606A6BD
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KwHiO91e;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 416E0606A321;
+	Mon, 23 Nov 2026 15:22:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=EVnfaTKD
-Received: from weh-cvm-dev-vm.y50bckvjo0hefgfnzfztsfttff.phxx.internal.cloudapp.net (unknown [20.169.55.37])
-	by linux.microsoft.com (Postfix) with ESMTPSA id AAA3A20B7168;
-	Mon, 23 Nov 2026 07:21:50 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com AAA3A20B7168
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1795447311;
-	bh=STKKGhMDLzI7yW9S72yonEXwLFCwhDpVjPRmQQOrHEs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EVnfaTKDGMuYZQyhfGpkSIL81h4ys9JfX86fu36lJR4jCvAku98oTcIj8Q4LQKEIk
-	 TxFH9eNN6ViklP+IAd82FgA+KiyklUnEy+UaRoiyGHCh/whGFYt51adLABKxxn6XXi
-	 FO4KtEwu6jgz33lT0E+kAEa7BpKmOdl/9nRUYQQY=
-From: Wei Hu <weh@linux.microsoft.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: longli@kernel.org,
-	kotaranov@microsoft.com,
-	kuba@kernel.org,
-	davem@davemloft.net,
-	pabeni@redhat.com,
-	edumazet@google.com,
-	andrew+netdev@lunn.ch,
-	jgg@ziepe.ca,
-	leon@kernel.org,
-	haiyangz@microsoft.com,
-	wei.liu@kernel.org,
-	decui@microsoft.com,
-	shradhagupta@linux.microsoft.com,
-	horms@kernel.org,
-	ernis@linux.microsoft.com,
-	stephen@networkplumber.org,
-	netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	linux-hyperv@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	gargaditya@linux.microsoft.com,
-	kees+treewide@kernel.org,
-	kees@kernel.org,
-	mawasthi@linux.microsoft.com,
-	weh@microsoft.com,
-	edumazet@kernel.org
-Subject: Re: [PATCH net-next v11 4/4] net: mana: add dynamic HWC queue depth with reinit path
-Date: Mon, 23 Nov 2026 15:21:46 +0000
-Message-ID: <20261122064231.hwc-v11-netdev-p4.weh@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179527857414.3135.3409829551491930106@kernel.org>
-References: <100c6b7a71e86c8d7afd0c55f6b231f01db184d5.1794751992.git.weh@linux.microsoft.com> <179527857414.3135.3409829551491930106@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KwHiO91e
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 524611F000C6;
+	Mon, 23 Nov 2026 15:22:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795447352;
+	bh=bLuFhzPDMD82jx0FB6acUSp89OVedJqWalTPyxGSkpg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=KwHiO91e1Lo0aUZIvfTFNmO9FIESjNS834JSYFiVRF1yitRkLC7W46o7xZVYag3vS
+	 cliZ72+FDlm7G+EyqMUv9sk3xg25+d+To5MJ6N06iDOqXroFwP06b6smiytYEbUgcy
+	 wYfTabShJMAnGN7ZxG3JVE98xAzNfkED48ShJNbju/Rf5nA74DOskZ6g8hgNtcUAZk
+	 QAjUCM1n3Alv6dt6GU5k8MGAgvE1jbAWMuqquPyo1YzwFnb4PnFvsHdJDTfJsc1RO9
+	 BkcmxBrlvizI1OIAhYRAuS8MKWOEzYE7eCZWNYNCS7uJ4SJD7sznCfsgj4hpQclHGg
+	 BP6tlt9dHo1fg==
+Message-ID: <9e1b6e08-4cd9-4c0e-a009-16330843ce3c@kernel.org>
+Date: Mon, 23 Nov 2026 16:22:28 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,37 +51,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] iio: adc: mcp3564: Use guard() and scoped_guard() to
+ manage mutex
+To: Vaibhav Chahar <vaibhav.chahar26@gmail.com>,
+ marius.cristea@microchip.com, jic23@kernel.org
+Cc: dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261123070802.14487-1-vaibhav.chahar26@gmail.com>
+Content-Language: en-US
+From: Joshua Crofts <crofts@kernel.org>
+In-Reply-To: <20261123070802.14487-1-vaibhav.chahar26@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 21, 2026, netdev-bot+sashiko wrote:
-> Could the doorbell validation go into its own patch with the Fixes: tag,
-> and the dynamic depth work be sent without one?
+On 23-Nov-26 8:08, Vaibhav Chahar wrote:
+> Adopting cleanup.h helper: Replaced mutex_lock() and mutex_unlock() calls with guard() and scoped_guard(). Ensures locks are automatically released, simplifying the code.
+> 
+> scoped_guard(){} was handled in mcp3564_read_raw switch statement (case: IIO_CHAN_INFO_SCALE)- giving it proper
+> scope.
 
-Yes. Doorbell validation is patch 1 in v12 and carries the Fixes: tag.
-The depth change is patch 5 and has no Fixes: tag.
+I'd reword the commit message; something along the lines of "Use guard(mutex)
+instead of manual mutex_lock()/mutex_unlock() calls to modernize driver and improve
+mutex handling."
 
-> Can the PF meaning of MAX_REQUEST and MAX_RESPONSE be confirmed here?
+> No goto statements were present inside older mutex blocks - so it was a
+> 1 to 1 substitution.
+> 
+> Tested:
+> - compiled with `make W=1` with zero warnings.
+> - Verified using Sparse (`make C=1`)
+> - Verified styling via 'scripts/checkpatch.pl --strict' (0 errors, 0 warnings)
 
-Yes. MAX_RESPONSE limits what the VF sends; MAX_REQUEST limits what
-the VF receives. With MAX_REQUEST=2048 and MAX_RESPONSE=4096, the VF
-may send a 4096-byte request. I've kept that direction in v12.
+Move the above paragraphs under the ---, you should mention testing only if
+done on the affected hardware (one would expect a patch to be at least compile
+tested before being sent to the mailing list).
 
-> Does the PF know that the rebuilt rings are larger than the bootstrap
-> rings?
+> Signed-off-by: Vaibhav Chahar <vaibhav.chahar26@gmail.com>
+> ---
+> Q: If i have similar cleanups for other drivers/files in this directory. 
+>  Should I combine them into a single patch or submit a patch series?
 
-They aren't larger in v12. The PF uses the same 4 KiB descriptor rings
-after rebuild. The reported depth changes how many requests can be
-outstanding, not where the rings wrap. If the reported depth would
-require a larger ring, v12 keeps the bootstrap channel.
+I'd do a series. One patch can be harder to review.
 
-> Can this overwrite a timeout that the PF set during the rebuild?
+>  drivers/iio/adc/mcp3564.c | 38 ++++++++++++++++----------------------
+>  1 file changed, 16 insertions(+), 22 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/mcp3564.c b/drivers/iio/adc/mcp3564.c
+> index 259ac4ebd..252c3886e 100644
+> --- a/drivers/iio/adc/mcp3564.c
+> +++ b/drivers/iio/adc/mcp3564.c
+> @@ -17,6 +17,7 @@
+>   */
+>  
+>  #include <linux/bitfield.h>
+> +#include <linux/cleanup.h>
+>  #include <linux/iopoll.h>
+>  #include <linux/regulator/consumer.h>
+>  #include <linux/spi/spi.h>
+> @@ -498,7 +499,7 @@ static int mcp3564_set_current_boost_mode(struct iio_dev *indio_dev,
+>  
+>  	dev_dbg(&indio_dev->dev, "%s: %d\n", __func__, mode);
+>  
+> -	mutex_lock(&adc->lock);
+> +	guard(mutex)(&adc->lock);
 
-Yes, restoring the saved timeout in v11 could overwrite a newer value.
-V12 doesn't shorten the timeout for the private EQ test, so there's no
-saved value to restore. If the candidate fails, v12 tears it down
-before rebuilding and testing a depth-one channel. If teardown isn't
-acknowledged, it keeps the HWC resources and returns the error without
-trying the same destroy again on the way out.
+Blank lines around guard() please.
 
-Thanks,
-Wei
+...
+
+> @@ -840,10 +837,10 @@ static int mcp3564_read_raw(struct iio_dev *indio_dev,
+>  			return -EINVAL;
+>  		return IIO_VAL_INT;
+>  	case IIO_CHAN_INFO_SCALE:
+> -		mutex_lock(&adc->lock);
+> -		*val = adc->scale_tbls[adc->hwgain][0];
+> -		*val2 = adc->scale_tbls[adc->hwgain][1];
+> -		mutex_unlock(&adc->lock);
+> +			scoped_guard(mutex, &adc->lock) {
+> +				*val = adc->scale_tbls[adc->hwgain][0];
+> +				*val2 = adc->scale_tbls[adc->hwgain][1];
+> +			}
+>  		return IIO_VAL_INT_PLUS_NANO;
+>  	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
+>  		*val = mcp3564_oversampling_avail[adc->oversampling];
+> @@ -903,7 +900,7 @@ static int mcp3564_write_raw(struct iio_dev *indio_dev,
+>  		if (burnout == adc->burnout_mode)
+>  			return ret;
+>  
+> -		mutex_lock(&adc->lock);
+> +		guard(mutex)(&adc->lock);
+
+If you're adding guard() in a switch case, make sure to wrap the case
+with brackets, i.e.
+
+	case IIO_CHAN_INFO_RAW: {
+		foo();
+	}
+	...
+
+The cleanup.h magic works thanks to local variables, which need some
+sort of scope.
+
+-- 
+Kind regards,
+Joshua Crofts
+
