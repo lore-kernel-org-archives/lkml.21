@@ -1,91 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.206.34.216
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795440054;
-	b=kBokrD05AnAkkR9nBc/xT/FSH6o9DwM5frfXorca9ta1qxZ8jmQEmiZrrx8nNJLhVBor
-	 ckzY/0/2o9s+DJZdqB0B1pR33jJngObgdBarrgQyTDVwu0ADd7E/oMGUIkhDsvJWesWBp
-	 n2Lg9K4iqtLNKnJqOzutZLzM05XtDwY0LIPahnwTAX6Q19XOCeAYTDLB7DDSu0JwQhYio
-	 k3IKyLhQ6uDiGMYk5wvx7jkdQkq/zaDdlkQyVIMbHvdediXKdqEDcmYLL4a8xh5vOR6qA
-	 MsKvMHF9lW3xo+GkgN1vH3kCw6psPXVI+vX6w2ZDdYpCayS3VNjdm9N3cPQ1XFv11vQ==
+	t=1795440065;
+	b=QxucE0aQE+BJD+HbukhnqHHO22cQvQQVHhpmG1NNt2t/jXLzK/6jl0+r3oYiQLBQeX5q
+	 V228n6qXkSFMeqAArAmMLSHevriXLojDkmt/8B31H/QflPdbYcps3bLrTJpSUbXDkRQx0
+	 U4BlxHMx3RwHIX5GRgtt4UgvsALijbXE7NzYLErK0tZ08IcIa+cuxyitNlzt8u6rqpeg2
+	 Y0nz6RnIvDveYH6YjVtutOnkn+P+H4aH10x0YFTGp6oVD3GdXbXl4MC3W8bROA/bHWJve
+	 4lKu1nMP0mwgU+rS6MoFMzVkhDBlwB7j84C2c9z7ipZ/T73NSmQ426y6hzw7YC3jq/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795440054;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=uXc58AQIKnSVosQ4y4//VCEnNXKp3+RfnItc2ijL3c4=;
-	b=uBhz6Sbioc4W/5BKonHz0+1TWJYrRdVOhwmG/wkQNIxeP/XrhELI4/dvCPDJQrtS0DJL
-	 KuR4Phd+SZTdf3hZ3HEZf5IX4Obn37t6PL07aini0NDbBueY1mrgjTfXEGJaHVynBSYhm
-	 A1sbZrByiBTGKv87VvWhdaSL0Thf2MIm5jdVQZs37xJvjSL6D7XBGhOIYIfCyCS0gmpUB
-	 PjjZQTthcZ5bgA48V9Qi4ZHRPeoIMgPXlqLcJtUnoaD3hvmJNvLVW7T10l1hOdq4/o49z
-	 4N9kyGhtXU8oCfw4sUzb0NwvxHmizfZC6RYa76jmA7U2CvAzvU+xJ4OGWdYIS9oW6Cg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795440065;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=oDb7/5u+YnPeqHf4ZzAH5ZXhy4WXYRV6NDUqhDTLi2U=;
+	b=f/hoi4JSCCjedsORrUanS23LT1BwWjfnqRaYGDC8brqJGDm27XZgWDoXBZtp40bArmnJ
+	 k+pcky4ZA8bhDnWwcpxStTSRjFIZ6042GnH0zoTHdfWbyxGty8pKo/QmoFW9hgxl0cIId
+	 n/kYsfGcQAIuYP320zTLf3iR5XGe6Qvjx34PmVRK+dWC9svzmvp2BGRAmfCUow6LGEIqe
+	 GDvAYULq4txsX4vK56oGavjWFyHp8hsmbd6lCdQUqTalgtc6YiMDP01PtRagQk/Fi9UPH
+	 omWDnfRnqt7JL3oVXBGYsjLEytihZg9YZ3qb6Z1GlftT7g8W/Pz1RipPmCmMxsjkohw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cvyf4Xpv;
-	arc=none smtp.remote-ip=74.125.224.45
-Received: from mail-yx1-f45.google.com (mail-yx1-f45.google.com [74.125.224.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=kylinsec.com.cn;
+	spf=pass smtp.mailfrom=kylinsec.com.cn;
+	arc=none smtp.remote-ip=54.206.34.216
+Received: from smtpbgau2.qq.com (smtpbgau2.qq.com [54.206.34.216])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DA80606A33D
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:20:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DA80606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cvyf4Xpv
-Received: by mail-yx1-f45.google.com with SMTP id 956f58d0204a3-67dabd38cdfso3545654d50.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:20:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795440053; x=1796044853; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=uXc58AQIKnSVosQ4y4//VCEnNXKp3+RfnItc2ijL3c4=;
-        b=cvyf4XpvZlo27c2/FJ+VZi/agROBnMKBPBmWQb+kKyjehWx5R0de6wzFDANUeyoY+U
-         xU/FD37tR6++FQV6pE6ouY0j0gW5Otr1AGPtuWt/L5pVD/84Bhbq1lP601BY4N+aNxBg
-         racExJRaPCa/+wnVjf/iRxHROMHKT1/2BToEPEtZLI9Szh9GoCBsEKQnBtWFk92wFlJO
-         6ubhRH4Gz9JigWOvgZIZXEE6VTI1fstfptJOYez38ejxPSUNmaffKjcwHqa/PToH9Pj0
-         yFYHm5e2XCAUUA3Glp2TdKg9QiZAgTigZ4IJYgSASZF1W8HDg8N8SpPr1Xp9tU1hzAyo
-         9n4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795440053; x=1796044853;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=uXc58AQIKnSVosQ4y4//VCEnNXKp3+RfnItc2ijL3c4=;
-        b=gxNG7feOuAfIndP11Zr7wsxkaaq+nm+rvzdjezAyitrDURQr9VUIM1/rwYxfeGUias
-         r383LE5KS3OBHiX6cGZRFmhJtWPBkJP4T6XlebIsy235XickxRm4VL6ogywmbZs5H73b
-         dhr0BEmP3WE3pGKrIoNhGKgfkKlPoIkZNSIXTMQr1XbfaW7ERoXch5OLqXAf33uDIWy/
-         hUcU3kjQ3/UglN+dv6JZxQAJ8FxyHOyUE8yRlYFVbQZEI2YZKC4GCt8YSodbqrD601Y+
-         DPrmjLbhsfAhgRpbBiG5BnwHt5itp987Vdoj1XG0QsspTGLUFQEpAhiRklC5Xi9jPcbn
-         /UGw==
-X-Gm-Message-State: APuU4Z//MDvYSvKxnldIj7PPhNcXsg6COkVP7Y2A0Ab6E3x4EhWjZUrF
-	EVkf/5mIjsGfP9PNtQc8ThT527Sx/gkRakWsFMNbCCEjCsNLta6PGk1XiE8/ckW7
-X-Gm-Gg: AZFdTZf6vJlKnQGLozpJp7uhFKJTpHRwo2FF89C7l47UzLd9+r27HYZvAZcAMMsdX0P
-	RQJLVUi7F+tjem9gSB1Mbcs4jMfqOfBM2MOY2kjlzaTlN+LdptUUMdHVbiW8S5A0xFw0HNML2rh
-	B9EbX17FVuHChHpXWeCHyfeAKNhr/1CFXG89jHGmRC0pY9drgRk6dvSYFBIPTpfa6RWlEVYRr4r
-	PZfJtUSGBqUEMSduZz/aWe7YnCVT6fWydbhieEO96n9617IIK31pceB0/zgHX1a59WsYxj9Zrmx
-	b+GxRDmKPpoUvnG5GsoXucMaL/TjeXM+s3XZxl+iv5e+M5ppbey2sDYEHyGjEzlGyu5VHJXaaLR
-	m2nIaOyrYsgAeyKSjk6WYaP/zFAcUwSf2NrCSo72RAeutTN3RpsZlIsSuYmfZOke5p9uhtm9MC/
-	MjbJWVr/WLmRs/aP0ovJEIZpdC2Jtie76Rrg6cHxH0Q1hUf6wf78N6vKOUdNnHZiNNcqYA0cRP8
-	YzFT0C7cI0NdprbSFj1AFX4UPlp9DyVmHfM115FIOJmYkkM0WdQoHAVtx06q1dDYT48N7V6UqoE
-	3TkytTmf31xVN+KB
-X-Received: by 2002:a05:690e:1387:b0:67b:f249:5b16 with SMTP id 956f58d0204a3-67df4410b69mr4603962d50.55.1795440053123;
-        Mon, 23 Nov 2026 05:20:53 -0800 (PST)
-Received: from pc-i7 ([192.3.12.183])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df330fe0esm5503938d50.8.2026.11.23.05.20.51
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:20:52 -0800 (PST)
-From: Aaron Ma <mapengyu@gmail.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH 3/3] HID: pulsar: add support for Akko Gaming Mouse
-Date: Mon, 23 Nov 2026 21:19:37 +0800
-Message-ID: <20261123131937.5473-3-mapengyu@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5066606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:21:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5066606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinsec.com.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinsec.com.cn
+X-QQ-mid: esmtpsz19t1795439983t8360dc36
+X-QQ-Originating-IP: 8K8vIEcxTTj1hnr8PTB0ssAJXbxSDHLAKXRFev7MtWU=
+Received: from yoga14s ( [113.246.116.110])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 23 Nov 2026 21:19:41 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 8098164807800772953
+From: Luo Qiu <luoqiu@kylinsec.com.cn>
+To: Jianmin Lv <lvjianmin@loongson.cn>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Yao Zi <ziyao@disroot.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>,
+	Zixing Liu <liushuyu@aosc.io>
+Cc: loongarch@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] platform/loongarch: laptop: Fix backlight device lifetime on unload
+Date: Mon, 23 Nov 2026 21:19:44 +0800
+Message-ID: <C95EAA0918240E5D+20261123131944.77149-1-luoqiu@kylinsec.com.cn>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261123131937.5473-1-mapengyu@gmail.com>
-References: <20261123131937.5473-1-mapengyu@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,64 +61,114 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: M5znx2hx04lbgtJ759KREz7HgKXjmpAIlpL3TPjBNk9OE0DUtH9rtcbO
+	BGgK1IxppcjR8Bi3TU8zM7JXMMjAH63dwA6LEfaviV4R4Y9yjlbsLuOBLsDsNSoPcVLmC/Z
+	A/o5SQe6FjrI1UEpMCZGgm+pnSzDkgFWObd0zp/IWmNFkeGtbo1yrjrXDskqqwLFwagejTA
+	TiOmyHBg63138hg5nYd9vtM73YLih11y7eZLORsbp6/dt3Z/WEsc3jf1kWEvko9ia22ySlq
+	V2StcJeGUgX7Rf+GQqE8RCb15taEvQPEXhFHCiUwbVLSdWfoYMsBKtNF2Ym0hiVcLjC8fYu
+	ttL+GJNQ9eG2/vJmYiYCsxyU34plZ28wMg4s8wMXc5slKy5rZO3E8oWjcemxgwtBnbzHdDz
+	dCoFFk8tuFObaIjsAmjI6dRR+Ser7Azpuguhb/FkKzqCBr0KGkT6ZDthO9WgKQFziZO7GlD
+	jgTKMcioZ55qu3KX3KS/BT6mz/dct8TkEOdtUEQjmx2Lv8Fk+VcuplQaUEzcUNzVN9DzJvB
+	Jn1KjWu3nyC4Cm/q3qGfIkvRQ1aDYY1L6HslQuZ3pTBhD+VoSa1Nyns7uvN9WsVZ/JXlBRC
+	KB5lHGvnDVlrZncZxNIEdQO+km2gAbidlXiFSPXqYzWoiZQYi++6yrIbY/yYpXM4fC/whT8
+	nPKj2+Z6xXd80jpQiP3vath6y0kMcnuMPDTVQuqo0FeXlgzWweJ6N/tU24u1MfPx6bfH3N3
+	Bez5tUn18Gy7rxbR8+gR4lKoSXCh8PGW1ZF+WgPdy/4axXLgwnUvI13pzF1CTASSem/Bbpn
+	AdXuJdf1f0QIPY/XGJ9JYeNn8GyI1nUBpA+sW1XiZoZywnZuAtjwwX0gwXMry1h/pc8XfHM
+	mBObCLnSVp8EDTgqJVZkQU3k8SHuDNYrYn/tYuObXgPJ3em4ztjTKlxpbqYmZRCPq7rkVSE
+	FpE9fGwnkiWegcR+h/zDbO8LbVRBARfbon5EtEGZnWfU4he2dkZpLrNdb+g+qFvSfnbNT9F
+	i7oBREK1dF7Md/hKs/69iymRrEbaM=
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-RECHKSPAM: 0
 
-Add USB device IDs for the Compx Akko Gaming Mouse in wired mode
-(3554:fb29) and via its 8K wireless receiver (3554:fb2a).
+The driver registers a platform backlight device during module init but
+discards the returned pointer. Consequently, the device is never
+unregistered when the module is removed, leaving its ops callbacks
+pointing into freed module text. After module removal, reading the
+backlight's actual_brightness attribute can call the stale callback and
+crash the kernel. Registration failures are also silently ignored.
 
-Signed-off-by: Aaron Ma <mapengyu@gmail.com>
+Store the returned pointer, use it for resume, and unregister it on
+module exit. Check and report backlight registration failures.
+
+Fixes: 6246ed09111f ("LoongArch: Add ACPI-based generic laptop driver")
+Signed-off-by: Luo Qiu <luoqiu@kylinsec.com.cn>
 ---
- drivers/hid/hid-ids.h    | 4 ++++
- drivers/hid/hid-pulsar.c | 8 ++++++++
- 2 files changed, 12 insertions(+)
+Changes in v3:
+- Fix continuation line indentation and argument alignment.
 
-diff --git a/drivers/hid/hid-ids.h b/drivers/hid/hid-ids.h
-index 91319aa6516d..47e4a9cecad4 100644
---- a/drivers/hid/hid-ids.h
-+++ b/drivers/hid/hid-ids.h
-@@ -75,6 +75,10 @@
- #define USB_VENDOR_ID_AKAI_09E8		0x09E8
- #define USB_DEVICE_ID_AKAI_09E8_MIDIMIX	0x0031
+No functional changes.
+
+ drivers/platform/loongarch/loongson-laptop.c | 25 +++++++++++++-------
+ 1 file changed, 17 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/platform/loongarch/loongson-laptop.c b/drivers/platform/loongarch/loongson-laptop.c
+index 4ec56621db24..c9170330e630 100644
+--- a/drivers/platform/loongarch/loongson-laptop.c
++++ b/drivers/platform/loongarch/loongson-laptop.c
+@@ -56,6 +56,7 @@ static acpi_handle hotkey_handle;
+ static struct key_entry hotkey_keycode_map[GENERIC_HOTKEY_MAP_MAX];
  
-+#define USB_VENDOR_ID_AKKO		0x3554
-+#define USB_DEVICE_ID_AKKO_WIRED	0xfb29
-+#define USB_DEVICE_ID_AKKO_8K_DONGLE	0xfb2a
+ static bool bl_powered;
++static struct backlight_device *backlight_dev;
+ static int loongson_laptop_backlight_update(struct backlight_device *bd);
+ 
+ /* 2. ACPI Helpers and device model */
+@@ -194,13 +195,12 @@ static int loongson_hotkey_resume(struct device *dev)
+ {
+ 	int status = 0;
+ 	struct key_entry ke;
+-	struct backlight_device *bd;
+ 
+-	bd = backlight_device_get_by_type(BACKLIGHT_PLATFORM);
+-	if (bd) {
+-		loongson_laptop_backlight_update(bd) ?
+-		pr_warn("Loongson_backlight: resume brightness failed") :
+-		pr_info("Loongson_backlight: resume brightness %d\n", bd->props.brightness);
++	if (backlight_dev) {
++		loongson_laptop_backlight_update(backlight_dev) ?
++			pr_warn("Loongson_backlight: resume brightness failed") :
++			pr_info("Loongson_backlight: resume brightness %d\n",
++				backlight_dev->props.brightness);
+ 	}
+ 
+ 	/*
+@@ -409,6 +409,7 @@ static int laptop_backlight_register(void)
+ {
+ 	int status = 0, ret;
+ 	struct backlight_properties props;
++	struct backlight_device *bd;
+ 
+ 	memset(&props, 0, sizeof(props));
+ 
+@@ -426,9 +427,12 @@ static int laptop_backlight_register(void)
+ 	props.power = BACKLIGHT_POWER_ON;
+ 	props.type = BACKLIGHT_PLATFORM;
+ 
+-	backlight_device_register("loongson_laptop",
+-				NULL, NULL, &backlight_laptop_ops, &props);
++	bd = backlight_device_register("loongson_laptop", NULL, NULL,
++				       &backlight_laptop_ops, &props);
++	if (IS_ERR(bd))
++		return PTR_ERR(bd);
+ 
++	backlight_dev = bd;
+ 
+ 	return 0;
+ }
+@@ -622,6 +626,11 @@ static void __exit generic_acpi_laptop_exit(void)
+ 				generic_subdriver_exit(&generic_sub_drivers[i]);
+ 		}
+ 	}
 +
- #define USB_VENDOR_ID_ALCOR		0x058f
- #define USB_DEVICE_ID_ALCOR_USBRS232	0x9720
- #define USB_DEVICE_ID_ALCOR_MALTRON_KB 0x9410
-diff --git a/drivers/hid/hid-pulsar.c b/drivers/hid/hid-pulsar.c
-index 299baf38a2ff..5133c87b1854 100644
---- a/drivers/hid/hid-pulsar.c
-+++ b/drivers/hid/hid-pulsar.c
-@@ -14,6 +14,9 @@
-  *		- VXE R1 SE+
-  *	- VXE
-  *		- Dragonfly R1 Pro
-+ *	- Akko
-+ *		- Gaming Mouse
-+ *		- 8K Receiver
-  *
-  * Copyright (c) 2026 Nikolas Koesling
-  */
-@@ -59,6 +62,7 @@ enum dev_type {
- 	TYPE_KYSONA,
- 	TYPE_ATK,
- 	TYPE_VXE,
-+	TYPE_AKKO,
- };
++	if (backlight_dev) {
++		backlight_device_unregister(backlight_dev);
++		backlight_dev = NULL;
++	}
+ }
  
- /* ----- structs ----- */
-@@ -756,6 +760,10 @@ static const struct hid_device_id pulsar_table[] = {
- 	  .driver_data = TYPE_VXE },
- 	{ HID_USB_DEVICE(USB_VENDOR_ID_VXE, USB_DEVICE_ID_VXE_DRAGONFLY_R1_PRO_WIRED),
- 	  .driver_data = TYPE_VXE },
-+	{ HID_USB_DEVICE(USB_VENDOR_ID_AKKO, USB_DEVICE_ID_AKKO_WIRED),
-+	  .driver_data = TYPE_AKKO },
-+	{ HID_USB_DEVICE(USB_VENDOR_ID_AKKO, USB_DEVICE_ID_AKKO_8K_DONGLE),
-+	  .driver_data = TYPE_AKKO },
- 	{ }
- };
- 
+ module_init(generic_acpi_laptop_init);
 -- 
-2.55.0
+2.56.1
 
