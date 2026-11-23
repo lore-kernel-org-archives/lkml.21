@@ -1,63 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795448676;
-	b=0+4BFp7Z519HPXUQLMxHNOQqL1yhJFG+cybgXUqyy+20Z9ZTojU1uXbGiGh030ziJZEb
-	 GsOMHw3cR5Z3wQFmsLRrF18kP0VFlyooDH2pifRtFeTM0QE8KWIVkfQnNrpDkdv8AClDT
-	 SIBOqXWjcBs8kuIb3v5KZzYIxlEhtfCpFzHXxeM4wIoY4+Im6qUnYTVWnTZUERRh5pu+d
-	 4/Vd7ech5A3JqKdZOvGRaZcgqqHnsIGZ2gCYhXPQIL3yr8zZcSpLdPCHATghG87stQyq5
-	 KLh+LJRrs93hCUMmRK+/N+BQJ6K3XVOLkC0dpg6A0uIcwpu2PzIg+P6xmrt9tQZE1QQ==
+	t=1795448692;
+	b=1EwYkPoIugwBuaUVpmaOXWrcl+mxl7heEQvRH2m2JBkvt8tvEjj5LEGeq2XgW2PiMNcm
+	 cFxgD+sfOGIaf8dPDlA9PUfs32cdRqxCvr7zZmsULOKXOvMHwQWDGN5kEbjDjs6d+j5To
+	 cPlEq0R8WD/kT74ydOpFM5NGSNaJPSELHoDHD6PMFUPoRWJCzIHYb9bl4llFf+X9ra4fR
+	 9Hu76AH28rT4luyfuD0Tc9IWAvEJr3LebzdoSsKU+1o+btXW+js4eaCQtFW3W8o/MFuto
+	 e9dsyTy4tG8aUeJ42m77wf4KU8MTutAjR4Y477y0vEANAVo876eOXpgl8Opuwb6V5jQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448676;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=gbIOWZ+5eubv2tOG0WAeL5khWfJEkRgTbTT2mcq6PeQ=;
-	b=gSXe67gmqShcG5avkOGRmP9koP8CBMktzkuPZx/YQN3gXzYS3ZJX1ao2TjpXwHvFZT5D
-	 JdWnosfABcCJ1qWZpb5wypqxuS9o79Qjx6PY8ThTA/MEN0qbXxA+cOxb/QQqfwch8KPnG
-	 Z/qlty5CmZoK9s7yLZ7boSlt7Az6p889WZqt2m2/w4PMbdaJt4BRihS3AznX8dRICP7UR
-	 BGpXTqHUxVMT8dtTulDE3sfYL7ZfTW83YAiTEa0ulRoKlAyipLqswzXPG8ZZUUw+d6cKp
-	 IryS8ufqd0ep5vM83A+sQ3M1Pa5KwKQwpM0H49PQem5XGhBE9NiKd5gCiR10I7jB0oA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448692;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=+aUeA+MT4pQzgTYYY3MzWDtwE8dPdBjMFRXJtpyXdqA=;
+	b=K/aHsjc3/RgLzA33c+khpxv4lp+2NW/uNp6JhsSyBtrKhKZmw0oggmfaubhaNDXeNjFx
+	 /RJOH1mL7mLSbyepXMvusSg4O8V+OUgAMPa/eN1soiZoCFKLNgb4PjuKyksy7JZU6IhtY
+	 XSjBkhdP3PjG/XebdDJWBCaBqwwmHx89CjuMpbEyO3MmHr1L6jjJIPRNsodm6qm70/7UF
+	 mpS2R8gzWSrqWIUvZtjqhEEjJbnsTkQVAgNrei+30pVliiMqyQI0h0s4OWnIPqtIUEu0K
+	 0mPF3UcUbKbiFxIjX2ghhdMZwflwRojFopC/CqFC2oHMXXGPWl8njXxLzQr4D1YMqQA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hBhlYYdW;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BhnTzYnn;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D4D4606A31A;
-	Mon, 23 Nov 2026 15:44:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 288BC606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:44:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hBhlYYdW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6151C1F000C4;
-	Mon, 23 Nov 2026 15:44:34 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BhnTzYnn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CC391F000C6
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795448675;
-	bh=gbIOWZ+5eubv2tOG0WAeL5khWfJEkRgTbTT2mcq6PeQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=hBhlYYdW34Tx3qqpW2mz4TD2iDTpKL8ep3cja8W+bheqVOEHlBOmODgeTeKuAhLdm
-	 Y/psMtOM8hzdjnwmps3rE1YvN/eXvWFTUCFdBO+1xanBLB2nn8AMK8/wvMH6DhXehs
-	 Ni/Fw3gStc6OsbuMvnQmXS3G8w8C2p6/48D5FNQZZSQnDoft+ixT77Zjg1k4RYg+vA
-	 lfpfgR1Q8ON++wcE1pHWiUvdRM+XvP/3+MdUiB7CtrtXgTqxb/k3vokl7hWxEBbCKl
-	 6Rjj4ce6DBka0A+Jafv03p/Mk4mo3vFjHz77uoFGzi5y1SKRqfG72E3YbxDECP61wQ
-	 rp8MCmPWyTC9w==
-From: Sasha Levin <sashal@kernel.org>
-To: Petr Mladek <pmladek@suse.com>
-Cc: Josh Poimboeuf <jpoimboe@kernel.org>,
-	Miroslav Benes <mbenes@suse.cz>,
-	Joe Lawrence <joe.lawrence@redhat.com>,
-	Song Liu <song@kernel.org>,
-	Marcos Paulo de Souza <mpdesouza@suse.com>,
-	Eva Kurchatova <eva.kurchatova@virtuozzo.com>,
-	Yafang Shao <laoar.shao@gmail.com>,
-	Shuah Khan <shuah@kernel.org>,
-	live-patching@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/4] selftests/livepatch: clean the test modules without a kernel build directory
-Date: Mon, 23 Nov 2026 10:44:33 -0500
-Message-ID: <20261123154433.1188237-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <awQUD16CDFpCTxaQ@pathway.suse.cz>
-References: <20261110161050.2451750-1-sashal@kernel.org> <20261110161050.2451750-3-sashal@kernel.org> <awQUD16CDFpCTxaQ@pathway.suse.cz>
+	s=k20260515; t=1795448692;
+	bh=+aUeA+MT4pQzgTYYY3MzWDtwE8dPdBjMFRXJtpyXdqA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=BhnTzYnnqJZs1vlF2CbvKQ/jCtr+tzHhysT2ctBbdZUiMpjyTYRZHYHy0h8WY5jUY
+	 po9bO4YN9TLw/x+knH+4j/7M2Qx68Gm3U2LNvzs0nECU49h3zxUCf/iIb2tINB6ZTB
+	 KvpJe1vWWs37yzxOy69glevzwCB8cIew1fpzXvgU11jubtINVOj9Kyacl4dD4G7rfr
+	 ee2WoAzM1E2Y/zm8TqrVmvDSWOs4uOOHe5vn5UGvEgT7r8VASO7h3v1iwp2v4llynk
+	 W2+wNLpVKtELoKoMI+N1HjDdE8sum0OuHdKFa+ZXyriwZtjiAU2ImwvTF96bkhDz6K
+	 HqAX2YIeSnxYg==
+Received: by mail-dl1-f45.google.com with SMTP id a92af1059eb24-1b563e32936so251752c88.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:44:52 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEqoQl8itqzMltI3b4OhXmS92WkKnuuSLlrlhAYIxbmFTUXIcHXhwfmGZAJ7MkihT7Ll2N/mpE37Kp1UuE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/qj8F9Dsky8jmIS4JhqDKYJxbyJ2+wKoniU568mPEXbeVOsenX
+	HXwGH7r7/AhbxQBRo02z9WIXTnLDxDUr1zZUW5Ic6jM//BSutTSqQVjuamriZO0/ExNlXpnV8oh
+	SL7znyX3dIu31CGZW0+goZQrCCZALNQ==
+X-Received: by 2002:a05:701b:2514:b0:16a:c6f2:60c2 with SMTP id
+ a92af1059eb24-1b55689fcb2mr10691688c88.12.1795448691498; Mon, 23 Nov 2026
+ 07:44:51 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,43 +59,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261011004248.1117649-1-agentzoan@gmail.com> <20261011004248.1117649-3-agentzoan@gmail.com>
+In-Reply-To: <20261011004248.1117649-3-agentzoan@gmail.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Mon, 23 Nov 2026 15:44:38 +0000
+X-Gmail-Original-Message-ID: <CAAOTY_8CtsEarnY804MbUcL+NewYha8kpKZL8cELYKkgr9YGng@mail.gmail.com>
+X-Gm-Features: Aa3M54p47vp69xabIIzK4WtjBR9vqd7GfhDX7meoGYcQvi87327NFNEbYgSVxFA
+Message-ID: <CAAOTY_8CtsEarnY804MbUcL+NewYha8kpKZL8cELYKkgr9YGng@mail.gmail.com>
+Subject: Re: [PATCH 2/3] drm/mediatek: mtk_crtc: Skip the empty connector
+ route slot in destroy
+To: zoan37 <agentzoan@gmail.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Jason-JH Lin <jason-jh.lin@mediatek.com>, CK Hu <ck.hu@mediatek.com>, 
+	Nancy Lin <nancy.lin@mediatek.com>, Nathan Lu <nathan.lu@mediatek.com>, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 23, 2026 at 11:23:11AM +0100, Petr Mladek wrote:
-> The two parameters "O=<kernel> KDIR=<kernel>" do not make much sense
-> to me. The command starts compiling other selftests. I get:
+zoan37 <agentzoan@gmail.com> =E6=96=BC 2026=E5=B9=B410=E6=9C=8811=E6=97=A5=
+=E9=80=B1=E6=97=A5 =E4=B8=8A=E5=8D=8812:43=E5=AF=AB=E9=81=93=EF=BC=9A
 >
-> $> make -C tools/testing/selftests  O=<kernel> KDIR=<kernel> TARGETS=livepatch
-> Makefile:4: *** Package alsa not found, please install alsa development package or add directory containing `alsa.pc` in PKG_CONFIG_PATH.  Stop.
+> A CRTC created with connector routes gets one extra ddp_comp[] slot for
+> its output component, and ddp_comp_nr counts it, but the slot stays
+> NULL until mtk_crtc_update_output() fills it in the first atomic
+> enable.
+>
+> mtk_crtc_destroy() walks all ddp_comp_nr slots and passes each one to
+> mtk_ddp_comp_unregister_vblank_cb(), which dereferences it. Tearing
+> down a CRTC that was never enabled therefore dereferences NULL: unbinding
+> or removing mediatek-drm while that display path was never used, or
+> an error in mtk_drm_kms_init() after the CRTC was created.
+>
+> Skip the empty slot. Nothing was registered for it anyway: the routed
+> components (DSI, DPI, DP_INTF, ...) have no vblank callback.
 
-Sorry, <kernel> was a placeholder for the kernel build directory. Pasted
-as is, the shell takes "<kernel>" as redirections, so make gets an empty
-O= and no TARGETS at all, and its output goes to a file named
-"TARGETS=livepatch". If that's what happened, that file and an empty
-"KDIR=" are now at the top of your tree.
+Applied to mediatek-drm-fixes [1], thanks.
 
-> Are these parameters really used by the KernelCI?
-> Could you please provide link to a build log?
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
+log/?h=3Dmediatek-drm-fixes
 
-Yes. This is from Saturday's x86_64 build of mainline:
+Regards,
+Chun-Kuang.
 
-  make --silent --keep-going --jobs=8 O=/tmp/kci/kernel_build \
-       INSTALL_PATH=/tmp/kci/kernel_build/kselftest_install \
-       KDIR=/tmp/kci/kernel_build ARCH=x86_64 SRCARCH=x86 \
-       CROSS_COMPILE=x86_64-linux-gnu- -C tools/testing/selftests all
-
-  https://files.kernelci.org/kbuild-gcc-14-x86-kselftest-6b01150f99c74e1a99a2a261/build.log.gz
-
-> So, maybe just the sample command in the commit message is wrong.
-
-Yes, it should have used a real path:
-
-  make -C tools/testing/selftests O=/tmp/build KDIR=/tmp/build TARGETS=livepatch
-
-Please keep O= and KDIR= in it, though. The paragraph is about modules
-built for a kernel other than the running one, and that's how they get
-built without this series.
-
---
-Thanks,
-Sasha
+>
+> Fixes: 01389b324c97 ("drm/mediatek: Add connector dynamic selection capab=
+ility")
+> Assisted-by: LLM
+> Signed-off-by: zoan37 <agentzoan@gmail.com>
+> ---
