@@ -1,61 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.64
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795441384;
-	b=NFf9BtfSMW2N/Q/o7dEDhW7nzge9r4fTePLYOz1bwrshxjp0My5qwoOnZrAS/40ZtS9H
-	 4y56PHEmVdEM45IFC/YeSwwKpgGGDCfymUibGaALg9VaHD4IDSxk3Q5F7VdeLleGnn6ps
-	 urVUkIRtWd7Sxuba7lTjDIajEkjAIEitN8EjnNenWbR8+/+SarhHfk6/adglqJbIUVbXx
-	 9A4fsMG64O+deeS15T0jnnXLsBPsuuJupxjbmFUHETucCi2I1e5/69OVCK9eT6geRhAvj
-	 6za2JQQuF91GuSH+LPDMJuxceHozn2Jt0EqN3+ElFNxZHVgbOOyo3idAC776YL4PoYA==
+	t=1795441395;
+	b=TNeRD8Me9aJ2sQhZdJsipe+ygToa7ZutegxWTuQfHlstO4ctrxc17RMAyvEHrATifGBf
+	 A7IIrSFi7165E4OZtNqQLAXuqfT0kSyBjLKb8M0M1I5G2R7D7EszyudAOz6fegozpl9W4
+	 Iz9bDJVeicPEeQhUSqWH+HAWhoUiBzG6NYkPFrDkH3gxX+/D/1FDBYuw7H2Dfc/WYImr/
+	 GMJxp2ATTXTyeN64k0LJHPBW4XcR1laffoHwQyb1HzTwU5b9MmCMc/XWpUUqhuL+ukkID
+	 ZBrxjN6HK9omYpNSFYn2SxrxRCqCpF9Q09B34NPXIn1b04MiFTpzAlSZ6TvOwu8nizg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795441384;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=DCQx/SItVG2utyNVIJWfKgNvluAQSFlMsMHNGPCyXeQ=;
-	b=f6sM5GUYjz23g3FhViIAnvxQzOkWwgPRcxQ1k4dkUVrDPixqzBQfHRLUMApECNdwFP/U
-	 fz9WtLnEtNKv4+QnVbTztdRHGFf0V7v21jIf3BsNlz0dpjPS/xst8OkvdnWouMr/tyjWF
-	 /rua+a21bG9nivVzWT3ZeIFSNzvDW5TF+TacwVeql772zuYFvyfZ/5NuRLsJu5B0O73jS
-	 XBUI+zUULjtj7U6qLEF9S2kX8q0cM29gT+gdPg3YkYN2OnemKp/DIeIDn/yOK8FHXeNC4
-	 WIj1bqEdb06zTV60vFWCMRWmHtDR6qrLsTSJ7FTRUpbRXgwIJcnqGd9V/1sl80/B43w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795441395;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=kqCL8yR438jqEfqX8sdAOmG8GdM6o1iX2qDOd73H3eE=;
+	b=UFOIxxY3WgC9j8NJVxqRRMsF2S23eXYzSqzefF+tpvn8tbU2GRJbBp6mxKdxTEC8HSyy
+	 LfHwl54JPqWx3bMlPrcm3279+m8YitmH4p2AmBu47GIk7AAcCI3RNzqC4rRxF4rJFUSgF
+	 fd1VK2Zhvf5VFjCgTta96mKPNCBBeiuOA4n2q6yIOGHDlyXZOQerWOsXwvdrumnQltVdM
+	 Ky/k77gb4HdCngtdLmgiBwTe/hq+7yQqB3JxV5DaSa5dFHz/YJib9RHP0EOi18eP448tq
+	 GwtNmvsfWUnbxPoef0QvgDRg/Hp3uiD2GuWgOMKIBZA46RUiOVL9R30b4c2Pwmp8d7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eKU9GntY;
-	arc=none smtp.remote-ip=91.218.175.64
-Received: from mta0.migadu.com (out-64.mta0.migadu.com [91.218.175.64])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="tSQq84S/";
+	arc=none smtp.remote-ip=209.85.218.51
+Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B72E2606A32D
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:43:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B72E2606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0993606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:43:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0993606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eKU9GntY
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=/UJnZf6f4DUrDz4PUaI4ZIVfRtW4AczQ3P06vh6Vzso=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795441381; v=1; x=1796046181;
- b=eKU9GntY9TAczlQTnYebbPToDPKacadV7nTWHCa4f5997dUzRLNzOhrtny8hjmis/tUKXG37
- XgLw9tKwxCOKSd2FPgiwzcwl/Or5nKZpU99PYXq8/aDTnQI3lTwNLrI2em2DaceONv4UgIPL4km
- hlorNir3mvzo8LLICMsCZ0Tg=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 11ba230085014a12;
-	Mon, 23 Nov 2026 13:43:01 +0000
-X-Mizu-Trace-ID: 11ba230085014a12
-X-Migadu-Flow: FLOW_OUT
-Date: Mon, 23 Nov 2026 14:42:57 +0100
-From: "Pankaj Raghav (Samsung)" <pankaj.raghav@linux.dev>
-To: John Garry <john.garry@linux.dev>
-Cc: Wayne Gao <Wayne.Gao1@solidigm.com>, "cem@kernel.org" <cem@kernel.org>, 
-	"linux-xfs@vger.kernel.org" <linux-xfs@vger.kernel.org>, "linux-api@vger.kernel.org" <linux-api@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, gost.dev@samsung.com, pankaj.raghav@linux.dev
-Subject: Re: [RFC PATCH] xfs: add a per-filesystem switch to force atomic CoW
-Message-ID: <awRASEIJGTYGOx46@quentin>
-References: <LV0PR10MB997684D5CA8A6AC037F6D1CD8AB9472@LV0PR10MB997684.namprd10.prod.outlook.com>
- <1801b5bf-6cb2-40ee-b553-5bcba04875b4@linux.dev>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tSQq84S/
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c4d21051042so539167366b.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:43:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795441393; x=1796046193; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kqCL8yR438jqEfqX8sdAOmG8GdM6o1iX2qDOd73H3eE=;
+        b=tSQq84S/1UMt0IuanHyasApDHPmNpDwhzVwotDPkeVq/SQyYZhFtggn3Cq/Gk/1tCk
+         h2cA1OEReS/CYPQpS40RC7oB08MVqUd7hmoO2j5ugvGQeh1InNKeFitZ+YOOi7s7VDVk
+         kyDC14iqfVs+yv1uzySejV0P+NH+PFQwPOU+3jS3mTPfmL6qomnI8+BCpKJhq3+wnmK0
+         /3c4tviGXnzIz6iHoW1QhfVYLYZTEEUWmKBd+iYSEEDhv2iVJJ3HF5eOOzXLPrYX1BfL
+         bAi0dp13I8lbGwD8qBUh4z2IGeZE250GZYAMy2MdxG0g/K6rOzOXfmCJZ62/M2fgsumP
+         2CPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795441393; x=1796046193;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=kqCL8yR438jqEfqX8sdAOmG8GdM6o1iX2qDOd73H3eE=;
+        b=GQBLBTm1+y/Pcnuqm61xYPuv9P//TyVAnAXePsrejHygt3xX9mIaowI5PMv2NwkNgd
+         qlppou6IjKYH1IV7e5XaQitMLoIr7bzC69cwTsNdy1KmnrC5o+1tPmncyCCOjm8cTSPt
+         X87pUips97VANpNlB2LgqSIAVVFsj2PiDhpTMXLvFCVMEHxHJgAnIKbaqpkw/c6n8Gun
+         Ob/wf11d8Un0ioEY2LVVE4Pf/TmXwMkJXR1oguOPzo2pBjKYVmC2A9HirMhwk8thfTux
+         X8jiv1skpMjo1dZwkY6qyrJ/sOPuV3VPcGYCYWnv/gORuMdzYlv+9vf+cZ5bNuH1u+c4
+         R9Dw==
+X-Forwarded-Encrypted: i=1; AL+hErFY36ZKtZQavN71LAN3DDdJZpzy7r/IJKhaFB6CgTnjUyA6pEs7iz9Bpb2oOkTo2kauWJRvWf6YH8bAoU8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9V/l+bNbxbag5AmkbANK0mCY26oduBWIpVPDS6Eohnq+1CNoWd
+	Dwa74oCnoJ/eB5nM39go76Qic5Mf+knUPEsxW0cGOL56m8AtFwZuHwoW
+X-Gm-Gg: AZFdTZcGq1Y8fXAGWUFzuj4bir84NOtNdkCE9UTNW62+KyBsoYXGHrZ5UHrT0dztm23
+	yUEy6fNiDI4J5qUStytKw2qwLgFKXClX6dj27QZaLGI9bpZa8FS0Frxyo6n/CPUyorIhE+MiRd5
+	vNDk9bYbt+oOR4bYp2xUzdxkgsVMGf8TC8DpGNZ+yzMKIFHwTjWqCxN8B/zq8hNsMH6rFi5JdST
+	BPDqKQUH3nWpircWvWar+lORoF7T8jEK2LOSaNb30P8mvuJMwtGGpyum2f0/8U9Vs1CQgK/eoYs
+	W+ZtTey6Ydd9KQWjAY4zn6Qw8/vMrD64Dmv1/KBHylrO8Ys/uA1UB32vo1XoW1tK9rAhRDgrII3
+	98W92UldFMHse7WkxX9NCBjI04EwoGGWB5cuEdFekaTVoeAfNLOw+YR1LJ9O2h0lRhgj+VqYHvg
+	lcQcwmaIRn+AZGexfwqZP46yIAcrrAvb2UZCVwYvR/0VoKxmIqEl7AgEZ6aPfM/CeqK9lrzjzcH
+	caQWpfrr7DpnTWblNFTY4k0v4VFEXDEcFNMtgCuJOKC4XOMiJVc++i+BKBmHg115yeitXeA2RgY
+	xxo/PA1+Bz66WQWpSJ6Fj2uSTVU+GwAnKR7f1LHZFLGD8S+Mq7nYvKfxsOpILWHbmRsjMMPEBnh
+	vMZTKSNmEph8g54Pd9dMmT0PbwdnEhridU/p86w9Db7aV9oVcsp8itXUONGMMdEfRS45ODGVxHz
+	f9rZI=
+X-Received: by 2002:a17:907:2d13:b0:c50:ca93:19a0 with SMTP id a640c23a62f3a-c513aab9bcemr968102666b.40.1795441393323;
+        Mon, 23 Nov 2026 05:43:13 -0800 (PST)
+Received: from ?IPV6:2a01:4b00:bd21:4f00:7cc6:d3ca:494:116c? ([2a01:4b00:bd21:4f00:7cc6:d3ca:494:116c])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513aeca720sm409336466b.53.2026.11.23.05.43.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 05:43:12 -0800 (PST)
+Message-ID: <664a18cc-24d8-4140-9c3a-d522945cd2cb@gmail.com>
+Date: Mon, 23 Nov 2026 13:42:49 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,68 +94,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1801b5bf-6cb2-40ee-b553-5bcba04875b4@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dma-buf: fix leak of ctx and dmabuf reference in
+ dma_buf_io_ctx_create() WARN path
+To: Falconet3 <Falconet3@proton.me>,
+ "sumit.semwal@linaro.org" <sumit.semwal@linaro.org>,
+ "christian.koenig@amd.com" <christian.koenig@amd.com>
+Cc: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+ "linaro-mm-sig@lists.linaro.org" <linaro-mm-sig@lists.linaro.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "axboe@kernel.dk" <axboe@kernel.dk>,
+ "io-uring@vger.kernel.org" <io-uring@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <htm5h9oaY-vk0g9JVYJmz5XCaKe_nPoWkUJYJqDulyNvv_sAWfzSMp0T6GWt5okc8R4SyvXXpJQ3VGhetKnjEa2KGem5uCYdxpmdzUFf6XA=@proton.me>
+ <tRqxbL7txMRAzNLKylzBLQURNLpU-D0Xx5CrngGwLoYrK7V7kREharagUfgQLGIfiYFyTALR0BwL93AL_PWmFXq_MoZPhvPfUojBsyCnilI=@proton.me>
+Content-Language: en-US
+From: Pavel Begunkov <asml.silence@gmail.com>
+In-Reply-To: <tRqxbL7txMRAzNLKylzBLQURNLpU-D0Xx5CrngGwLoYrK7V7kREharagUfgQLGIfiYFyTALR0BwL93AL_PWmFXq_MoZPhvPfUojBsyCnilI=@proton.me>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 11:44:19AM +0000, John Garry wrote:
-> On 11/21/26 15:47, Wayne Gao wrote:
-> > 
+On 11/22/26 10:49, Falconet3 wrote:
+> Withdrawing this patch. Apologies for the noise.
 > 
-> Christoph was proposing something similar here:
-> 
-> https://lore.kernel.org/linux-xfs/20250714131713.GA8742@lst.de/
-> 
-> Plesse check it. But it is for a difference purpose to what you propose,
-> below. Actually, I am not sure on the motivation.
-> 
-> > 
-> > Hardware-capable devices normally prefer hardware atomic writes, making
-> > it difficult to exercise the software CoW path deterministically without
-> > changing file layouts or affecting ordinary writes.
-> > 
-> > Add a non-debug force_atomic_cow sysfs control for each filesystem.
+> The WARN_ON_ONCE() path in dma_buf_io_ctx_create() is not reachable with
+> in-tree code: the only in-tree implementation, nvme_init_io_ctx_locked(),
+> installs all of dev_ops (map/unmap/release) before it returns 0.
 
-Why do you think this should be a non-debug interface? Why would anyone
-want to disable HW atomics if the device supports it in production?
+Right, it's a warning for the same exact reason, and cleanup considerations
+for it are different as well.
 
-> > When enabled, route RWF_ATOMIC writes directly to the existing software
-> > CoW path regardless of hardware eligibility. Keep automatic selection
-> > as the default and reject enabling the control without software atomic
-> > write support.
-> > 
-> > Sample the setting once per I/O so in-flight requests retain their
-> > selected path. Preserve existing validation, completion and error
-> > handling, and leave non-atomic writes unchanged.
-> > 
-> > Report no separate optimized atomic write limit while CoW is forced
-> > and document the control's runtime scope and lifetime.
-> > 
-> > Validation: strict checkpatch passed. Linux kernel build and mounted-XFS
-> > runtime tests have not been run.
-> > 
-> 
-> Hmmm.. you are just describing what it does. Not why.
-> 
-> > Signed-off-by: Wayne Gao <wayne.gao1@solidigm.com>
-> > ---
-> > Hi Carlos and XFS developers,
-> > 
-> > I would appreciate feedback on this proposed interface.
-> > 
-> > The intended use is a controlled comparison of hardware-backed and
-> > software-backed RWF_ATOMIC writes on the same hardware, without having
-> > to construct misaligned mappings to trigger fallback.
-> 
-> Why do you want to compare?
-> 
-
-Probably to measure the performance of HW atomics vs SW atomics?
-
-If the goal is to compare HW atomics vs SW atomics, then a simple module
-parameter in the nvme driver (or scsi) to disable atomics even on HW atomic
-capable device should force SW atomics from XFS. I am not sure if it
-needs to be in the upstream kernel.
-
+> And on the only path where it could ever fire — an importer violating the
+> contract — freeing ctx directly is not safe: init_dma_buf_io_ctx() has
+> already attached ctx to the dmabuf and linked it into the importer's
+> tracking, so kfree() + dma_buf_put() leaves dangling pointers and turns an
+> unreachable leak into a potential use-after-free. Since dev_ops->release
+> may itself be one of the missing callbacks, the core has no safe generic
+> cleanup on that path.
 -- 
-Pankaj
+Pavel Begunkov
+
