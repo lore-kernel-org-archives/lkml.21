@@ -1,87 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795437196;
-	b=CI4+9MVNc0CzKY2+D1gCNhWFarViSLO6mih+n3+cpi/q3UUNGIoQHfCEDn1Vhj/1J70v
-	 BOL37ryNfzsqvTynLnW9rZVfIRzK8ppJjvewtOkaNs5Cbp3ggmCGZn7SFtNdnPsq1U73a
-	 X9iYJam2mTec8XXMZ2h4bMH0WhR8qbV1z0SajIy5NPj9mb4IEUbDp93q+T7HYRot5Ugq1
-	 L9G4m9+ktg/9/fr5iWBqI+2ZEYWfUKHNR9qnYloQqqfHaWc8k1/xxC2sjX1Oavvdb+2HT
-	 +6Ry4w7LGRmDgmb8LDEGBKoezp53Nu0fJhhJIRorB8SnV4ENzSyKs8GKklp58Dl7esg==
+	t=1795437217;
+	b=oKlFiVs+sq8WzQgLvVZWzGVOUrbuvVENBziXCW/D0MIttF34Sm5NG6b8hLmYA9iC7ouf
+	 WPNSQdmLXKNmw+vcudtQsd5M5H79YOwc4lGRokzYe+vK6K5SjDI+nhBta86O9wcu1w7J4
+	 dw6cdOgC9bBycQ7jXC3/BnJ00Y1/IbNm97M8vLskPeXUby1M/GIr4HZePssNNWDV7UtzZ
+	 SeOZLXAWbLlbNLvR1yLTEKfaquS0yswvgn6j/KMo2j9UvrK1u4ecwPkdjrGDa+FWTXt5a
+	 QOMV4VTcOnL4vKXqQ2qWoOp0bJwOVxoOfpNyUFXB0nY3VKXXnzN/nrI293X8jWaW+yw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795437196;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795437217;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=Hn7QLnatls3YJLh9hvARkpylGvnCInTwrPxLQjvpHck=;
-	b=2+DJcH/fOk5Qi9EmMuVnuIstNCPubnk7R29gL3/i7OcHvIlZeYgFoQ+8K7WTTIOITIOQ
-	 cpvJaXwbdmhflBeHAYdy9thyOXROKL9vbrAEMz+1T7oht0lapyuRmThN9bEgP+vH9Ynx5
-	 9MQVb4yfhke5ODFnbssASB0sTREDVI1sFzyk1eV3DzuuzeHMad6FfZ6p0kQy2dGVnoZIv
-	 BPboNfHUJMpuF0sV8ws4Yq9d3/IKq7U+4wqmqJnPXpfvyJq2W2vJGKXwxCULb0llZiD6w
-	 UzI98i4tBNyiIkSOMdKYpKYBFApd4d/p5AOgSbCcopROtP0M5hzQ3QyNijL8W3HXHZg==
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Subject:From:To:Cc:X-Mailer:References:In-Reply-To;
+	bh=J0mlNUxeHiFvmURQfRnhNjQjYghLvFoxyIdXO0EVi9E=;
+	b=o/1mhBCRLhGnwR7cMvW3ByBwHuPQj80xBh9sCG1Vl4lFziK3HgcDJkXRO8VwhNPwh3YZ
+	 5GEFuTRolOF0mIaFyOUexbEMrevFFmY4FCK1Zev/C/jRs44GFX5jxplVhK6vscl+FSULE
+	 1TTlSLioetnXGvr9Yd6xojb38SqL81uWUoRnrQYNYiA6l8AHSW93HRdq3SDdl1M1njvOq
+	 pX0DKMQLy6gkJiQH9taPAlF/hlpqXzeTgaifcnKEK1SUL9pGxoc3rlmR5HgWsug4Bsa40
+	 CqTZ/zGRxLqPzTlRd0LFLpJ03YshTygjsZ04kYnyK4MVkPxOIkGGaLt5DzgunRQ3B+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w0sKEFMU;
-	arc=none smtp.remote-ip=74.125.227.133
-Received: from mail-pj2-f5.google.com (mail-pj2-f5.google.com [74.125.227.133])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b7usWCHz;
+	arc=none smtp.remote-ip=209.85.128.170
+Received: from mail-yw1-f170.google.com (mail-yw1-f170.google.com [209.85.128.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15210606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:33:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15210606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53BB3606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:33:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53BB3606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w0sKEFMU
-Received: by mail-pj2-f5.google.com with SMTP id 98e67ed59e1d1-3b411059cd2so728577a91.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:33:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b7usWCHz
+Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-8b503e2a87bso31211807b3.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:33:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795437195; x=1796041995; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+        d=gmail.com; s=20260707; t=1795437215; x=1796042015; darn=vger.kernel.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=Hn7QLnatls3YJLh9hvARkpylGvnCInTwrPxLQjvpHck=;
-        b=w0sKEFMU+eaG9tWtdrJg66TGM2vOfSgYBXGN/RT18135qMoZytktIisMy13P9sdgdZ
-         MmnDhx6FBcBKvrXLWbIRrhrRP05nQj6TXfQ3A928lxHhbqYIY6w1XayAgPI0pwYJkvOF
-         j99uhIwSqxS2yvq/a8e1N0R1X7IySSi9XfN03R33ucwJGD5kUQyVu57yAv9bZ15ZuBbT
-         Pf1YZz296rAeJqDnJdPnQySNvePN3LpefZdTWU+dWREBerrB3Z930oUuJ2hmHRwhrUlW
-         EnScyeYoQ/i7vUwix4ZiZeYpFGyD5sWoIrEFnZLJ63hwMcbKnjJaVdMgDuSv0uwDNhh2
-         dchg==
+        bh=J0mlNUxeHiFvmURQfRnhNjQjYghLvFoxyIdXO0EVi9E=;
+        b=b7usWCHzIxH06fYfGotrQgPVLAmQ3sWKSBQiYFomKOR1WG9RrYxCgghN5xryJd8aa6
+         I7QJq55FrNH2VuK5wByTae3ZvEPs8yxhLG5gaiAM+xYeoGoJNVqDsFy32aUK0AJtpTdq
+         D78ot97LeUzcEUkhfyorOUMIj/esXbrJ/wjakWlzrJo0XjhHt4WkexbHjpNCTPX67slJ
+         36CKmmhtVcOSioQ6cdNsixq8eqPWaI7iyBZsQOgqX+p4gsgXdWGgbWM/eQNhxwlEWeqn
+         V1l6m/NP8B2sMsm759gCJ5b5kr5ikU8Zo0KzFfRJh2dp2rTjXrvw2lUmrdawOpHzwQ/F
+         9XXg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795437195; x=1796041995;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+        d=1e100.net; s=20260707; t=1795437215; x=1796042015;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Hn7QLnatls3YJLh9hvARkpylGvnCInTwrPxLQjvpHck=;
-        b=B6OyWNYBiuc548/SXbpjZOZimvDAt38v2v93vgFJk+jqG7rmyp1nuVfjPNqGObxe0F
-         guzldsZ09DNTeA5lwXLfnGEX1b7eHCvhdjOSlgMeTnLB5xMHmdrQQnrzo+E92T7Cb7LG
-         IILFoRfqDSQwjI6IVBosHVIBkCuh5P8oGsNSqRABMVPwpOO7BkgO8tQpRmO9LfGKit1l
-         l81nw7p+KZ3Zm0mFxvq3JQHC3X6FUwSX8sJGBiia9RtHQiF06XHqe8q2D4bfnItcN/r2
-         nUEKQ6WP6QJG715INR0lq6IjJqI5LXg2PhG+hA1zfDRiijR+S0ovDOZtJQL5kcDqaijl
-         PQNA==
-X-Forwarded-Encrypted: i=1; AL+hErERbsekt77m5AVWWVb51VPUbniL2EKzl7GC+8TqNexR+074Tavkb+5/+x5hhCgCGlUL1TrWq8O69F11y5c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9OCsp5wjUyzKLjexQauiOHbl1vUQUq0z+FaBNFnNXYJ548GImQ
-	kSQcV0SHqqCOMWnfiSKzhJnGlrhgjNHbWbda8vPBpjoRbE846vmS3RpTaScEDKoPMiL4ulQOsdE
-	=
-X-Gm-Gg: AZFdTZdE58DPrCp4u0DNe1OMYakTSld0rn6zK4257ffRkj+E32avTd22k8Qf6ceapjx
-	OLHblP53VkCU4I+dHjA/SeLqyOGvf6turp3J0P/nKT+uBdcz9tVKYrwVsn0rVl46djjSUy7sF2X
-	GhA69OW9hEovzhxM63Oi9+Vb7dYuzwzF8+wndVzOnmVjeqK/HNMKN7oaiNL50hqb+blR06o/Rb1
-	NeJi/+1x0E5KGIleJ6ACtSWrwjbUGvLs/JKgjVMxTsQ3I32AKt1YSKwSOSLHrlhyGoZ54/6bOeb
-	uPwfKmlafmhcZrSDYDLNYz7oOapZcRWKUqyU1K3a89by2806bGorYEPjEiO9RrIKtqytxl5k4DO
-	s9Zk0WADjZt6ZIgS+16bvWgBb+FOEc+yeP/1xo9qiTcPs/FyYpQPVyqMGpXy0XKoQzraxg3/1b8
-	xoFQ7zis5wGReZmixDkQ9rtpbxVV5gLtNl91G+Xc6EDhnG+EdVjhFPT0evOI2yDuNmELuSeqD7S
-	7dtWiPQyXiNU5CDn/DkYd4laJiRaiznO5dmb3dYKu/Av0pGbrRCAAH585e72TDbCvprEIT87+N9
-	YDCGoCOsu3Z/0XJis9mFoVLUH73L0LRTqJ7hTssOD34lTih9
-X-Received: by 2002:a17:90b:268f:b0:3b3:afdc:2e5 with SMTP id 98e67ed59e1d1-3b41c9cf56bmr7964160a91.30.1795437195128;
-        Mon, 23 Nov 2026 04:33:15 -0800 (PST)
-Received: from [192.168.50.100] ([114.252.97.9])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b217a5bsm7472471a91.0.2026.11.23.04.33.06
+        bh=J0mlNUxeHiFvmURQfRnhNjQjYghLvFoxyIdXO0EVi9E=;
+        b=EyZIu+6HYVrtqIfwtVbRtrTW2xoe8ojOWollwm96mbpGiMakkAxjKcQQJgxAvFQmp2
+         63XKa5FiLwABwoMVEkNtkFNGATX0JTKK+E15mOyqMKU2mfZDSndV8cgRK+ASEOP5eqEy
+         TZqlZ86k9NyBeyt5WUNWDlxk6uqlLesgfVw4/HxSXsHtNgYefBCZYIQhr3dkAz6jT0FI
+         UqeU0Z/5tfV9UOij7cta55zHjiiDlaJcjL7f3f3tCVXUroZHd7gEoa2vMYYkuoqQ5DPs
+         s1pAiULPAchh7Anh0BTzd//7PDzYXnEGrtYmHoIpW0r4p3qHlOQODmyOh3kCmMQnbGxO
+         f2mA==
+X-Forwarded-Encrypted: i=1; AL+hErHAqUyhF6vyRpL7mJ/UDaPyIFlbDfnKCuMemInL1JwrUzEvUHTbqN3/QFiXiaNjD1p+DS8KSGV512nuRhU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+stGWggnU5e7eLoOuzq+0mR7MNwLCFgU0HuTy8YKufFlZvo0S+
+	xt23WYwciNxnKhK+IQzJXO+07JDrm7+KI25mwDvHMUaAuWsRLglOX6l9
+X-Gm-Gg: AZFdTZeiGUdPs5ks3ZMDl6xDHy4Kxg3wryErCbBsDPsrN0IEYHnubfh+4YByeEO36c8
+	CIjmFqNzN/tjs3CwVdoZYkIyXZeVuy8boXoHnDNFI0mo4VvC50VZJKFCMlf7rBW8xOCAC+1HStR
+	M8D0pjxDbF1Ly7AgjGFWJV1NsNrR1YcNz9FJnme7eCmqhoqVUNnNVo2LqUrbQbyBFYHrK6NhwHP
+	qOItjGGJfToxMlxBJvwjmTxHTReqct944EUzQwo6LXpHDQk4w2ylUKn6vBex3DYgslgouw7aMm6
+	dqrNs1zNdCbozACsLjl+AKLQY0pCGz3+FE4nJffzdb8PSl/gF4YimkhYm34dVVISqM6Ul7XJsd1
+	m1pam6RitgbAXmHGOffbiGQINORNME7FNURDZI/RBETddfCNp+jJiFUNQgV2BAPZdK3lZQKZ1GI
+	dspOYnVIj4I+OVFCFeuwWMDkcQQoCfVu8i8dmuITk9RcVMc4ToOjHuwefddlNQ/TMswlRYczAU/
+	lYKUqU672aAhwgDlyoVqHoPL7cHExqbI67V4u6fI7abDM6xmdJkqtJBP/KnBFeifn3F4fa4mY1B
+	JWqyETgvvAZ2edVlTXZsTvl0aelQBqlMnS4=
+X-Received: by 2002:a05:690c:610d:b0:8b4:deb1:4b18 with SMTP id 00721157ae682-8b520442309mr48137067b3.18.1795437215079;
+        Mon, 23 Nov 2026 04:33:35 -0800 (PST)
+Received: from localhost ([2600:1700:4a51:2210::11])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b520ca0cf8sm41807657b3.29.2026.11.23.04.33.33
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 04:33:14 -0800 (PST)
-Message-ID: <4ac66d3b-7343-4ff8-8ebe-d3bf9ab25da4@gmail.com>
-Date: Mon, 23 Nov 2026 20:33:04 +0800
+        Mon, 23 Nov 2026 04:33:34 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,88 +87,99 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v3 05/10] iommu/riscv: Add nested domain allocation
-To: Andrew Jones <andrew.jones@linux.dev>,
- Gong Shuai <gong.shuai@sanechips.com.cn>
-Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- iommu@lists.linux.dev, Anup Patel <anup@brainfault.org>,
- Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Tomasz Jeznach <tomasz.jeznach@linux.dev>,
- "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Paolo Bonzini <pbonzini@redhat.com>,
- Sean Christopherson <seanjc@google.com>, Jason Gunthorpe <jgg@ziepe.ca>,
- Kevin Tian <kevin.tian@intel.com>,
- Andrew Jones <andrew.jones@oss.qualcomm.com>,
- Fangyu Yu <fangyu.yu@linux.alibaba.com>, Tan Chi
- <tanchi25@mails.ucas.ac.cn>, Wu Fei <wu.fei9@sanechips.com.cn>,
- Zhao Qingye <zhao.qingye@sanechips.com.cn>
-References: <20261119132744.396426-1-gong.shuai@sanechips.com.cn>
- <20261119132744.396426-6-gong.shuai@sanechips.com.cn> <awGP5H2JdjxW8WXG@orel>
-From: Gong Shuai <gsh517025@gmail.com>
-In-Reply-To: <awGP5H2JdjxW8WXG@orel>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 23 Nov 2026 07:33:33 -0500
+Message-Id: <DN2LDH2V24NL.13URJFKPGO0N@gmail.com>
+Subject: Re: [PATCH net-next v5 6/6] selftests: drv-net: psp: add rekey
+ tests
+From: "Daniel Zahka" <daniel.zahka@gmail.com>
+To: <netdev-bot+sashiko@kernel.org>, <daniel.zahka@gmail.com>
+Cc: <kuba@kernel.org>, <willemdebruijn.kernel@gmail.com>,
+ <davem@davemloft.net>, <edumazet@kernel.org>, <pabeni@redhat.com>,
+ <horms@kernel.org>, <corbet@lwn.net>, <skhan@linuxfoundation.org>,
+ <rdunlap@infradead.org>, <donald.hunter@gmail.com>,
+ <andrew+netdev@lunn.ch>, <shuah@kernel.org>, <netdev@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+ <linux-kselftest@vger.kernel.org>, <willemb@google.com>
+X-Mailer: aerc 0.21.0-threadmapfix
+References: <20261118-psp-v5-6-b9ec840e0296@gmail.com>
+ <179530218434.3135.4343666486290603431@kernel.org>
+In-Reply-To: <179530218434.3135.4343666486290603431@kernel.org>
 
-Hi Andrew,
+On Sat Nov 21, 2026 at 6:03 PM EST, netdev-bot+sashiko wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] selftests: drv-net: psp: stale length n in run_session() after
+>   tx assoc
+>
+> --
+>
+>> diff --git a/tools/testing/selftests/drivers/net/psp_responder.c b/tools=
+/testing/selftests/drivers/net/psp_responder.c
+>> --- a/tools/testing/selftests/drivers/net/psp_responder.c
+>> +++ b/tools/testing/selftests/drivers/net/psp_responder.c
+>> @@ -247,6 +354,16 @@ run_session(struct ynl_sock *ys, struct opts *opts,
+>>  						fprintf(stderr, "WARN: echo but no data sock\n");
+>>  					send_ack(comm_sock);
+>>  				}
+>> +				if (cmd("rx assoc"))
+>> +					handle_rx_assoc(ys, data_sock,
+>> +							comm_sock);
+>> +				if (cmd_w_msg("tx assoc", struct assoc_msg)) {
+>> +					handle_tx_assoc(ys, buf, data_sock,
+>> +							comm_sock);
+>> +					__consume(sizeof(struct assoc_msg));
+>> +				}
+>> +				if (cmd("key rotate"))
+>> +					handle_key_rotate(ys, opts, comm_sock);
+>>  				if (cmd("data close")) {
+>>  					if (data_sock >=3D 0) {
+>>  						close(data_sock);
+>
+> [Severity: Medium]
+> In run_session(), n is set from off once, before the do/while loop,
+> and is never updated. cmd() still tests n >=3D sz and __consume() tests
+> n =3D=3D sz. For a single tx assoc message n is 49.
+>
+> cmd("tx assoc") consumes the 9 byte string and moves the struct
+> assoc_msg to buf[0]. __consume(sizeof(struct assoc_msg)) then takes
+> the else branch. That leaves off =3D=3D 0, but the 40 byte assoc_msg is
+> still in buf[0..39].
+>
+> The checks that follow in the same iteration (key rotate, data close,
+> conn psp, conn clr, exit) still see n =3D=3D 49. They memcmp() buf agains=
+t
+> the SPI, version and key bytes of a message that was already handled.
+> Suppose those bytes match a command string. For example, an SPI of
+> 0x65786974 with version 0 reads as "exit\0". The matching __consume()
+> then does off -=3D sz starting from zero, and memmove() gets a negative
+> length converted to a huge size_t, which crashes the responder.
+>
+> The conn psp handler already has the same stale-n pattern, but it
+> only leaves the two version bytes behind. tx assoc is the first
+> command that leaves an arbitrary binary payload at the front of buf.
+>
+> Would it make sense to have cmd() and __consume() check off rather
+> than n, perhaps as a small fix ahead of this patch? Then a command
+> could only match bytes that have not been consumed yet.
 
-On 11/21/2026 8:37 PM, Andrew Jones wrote:
-> On Thu, Nov 19, 2026 at 09:27:39PM +0800, Gong Shuai wrote:
->> From: Wu Fei <wu.fei9@sanechips.com.cn>
->> 
->> A nested domain describes two-stage translation through guest and
->> host page tables. Iommufd exposes this domain as a nested hwpt.
->> 
->> User space needs to provide the guest stage 1 configuration when
->> allocating a nested hwpt. Validate the configuration before storing
->> it for use in a physical device context.
->> 
->> Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
->> Co-developed-by: Gong Shuai <gong.shuai@sanechips.com.cn>
->> Signed-off-by: Gong Shuai <gong.shuai@sanechips.com.cn>
->> ---
->>  drivers/iommu/riscv/iommu.c | 153 ++++++++++++++++++++++++++++++++++++
->>  1 file changed, 153 insertions(+)
->> 
->> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
->> index f2305b953f71..4f8ce579ef08 100644
->> --- a/drivers/iommu/riscv/iommu.c
->> +++ b/drivers/iommu/riscv/iommu.c
->> @@ -1698,8 +1698,161 @@ static void riscv_viommu_destroy(struct iommufd_viommu *viommu)
->>  	ida_free(&riscv_iommu_gscids, rv_viommu->gscid);
->>  }
->>  
->> +struct riscv_iommu_nested_domain {
->> +	struct iommu_domain domain;
->> +	struct riscv_viommu *viommu;
->> +
->> +	u64 tc;
->> +	u64 ta;
->> +	u64 iosatp;
->> +};
->> +
->> +#define to_riscv_iommu_nested_domain(domain) \
->> +	container_of(domain, struct riscv_iommu_nested_domain, domain)
->> +
-> 
-> Please rename the macro parameter so it doesn't collide with the domain
-> member name, otherwise macro expansion replaces the member name too.
+that probably would make sense, but this is mostly a preexisting
+hazard with the demux loop, so it would cost another setup patch, and
+the issue is still not actually reachable during test execution. The 4B
+SPI would need to alias the string "exit". That won't ever happen.
 
-Thanks for catching this, silly mistake on my part:)
-I'll rename it in the next version.
-
-Best regards,
-Shuai
-
-> 
-> Thanks,
-> drew
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
+This would be the only reason to go to a v6 for the series here, so let
+me know if you think this is worth it.
