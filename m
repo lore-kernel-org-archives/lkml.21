@@ -1,126 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=50.112.246.219
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445007;
-	b=by+J93PYyGujXwrReClLkh2/M7uRNM2+NQJu28h4OYGJJh3xR78JcHTT0CCj4stN5rxl
-	 181vDFHgaxhu8qcWupVhTa7LB3/zwzGONsA5is/jMrIgu2BqbyzYGmvW9324IuFvrdb6t
-	 IdyizFKgm0CGuZreZ4GUfqH5NNrsJGRe47pt2lC6sZGLOsi1FDwl6I/eKG4PBETIlTHIC
-	 PtYQZLde0q25y6w6uhpjzMN/QiVmFjlaeKTBO1Tdmoj8iXuDyCxBvz6EuXLyi/z3U9OKG
-	 ffjx1G/xPIytJVgPFUlrelDL9t6Mum9z5FPvVUx/41dXGh2PKd8ofWrUSwT8CHxzmNw==
+	t=1795445083;
+	b=FnyYbh/nzKD2m2n12FxUdZoPfUxKTWbICuVrpHmRILP1MtD+6uxWF2bhDM9kRwAv050S
+	 2x9xEoiQgvwIsYWvzreq6TWPqGLTU0KpO7PSE9cVjyel3R7KDDFjQ043aLDyKlrmkl7o+
+	 sWdZqz2/3qj/DVVq+EsAmNushQwUuPAnphI5qSFr8MEWxzCWIlBeRvqP6i+oqiC2zM5Wo
+	 dUzryJpKEIaXpxHygaTMQF7Cd7VPH9wPYxqsfPH+gklp7uthIJI0DGivIPQfr7hOtJJkg
+	 BAU+IbS4PUxuEgfrCrkIODIgWZpSv3zdlIeV3utlyq5VAZ/U2x4WH3d3wg2ETngssOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445007;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
-	 References:Autocrypt:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=pdcWROCO3O0LeKiFXMJqWflTzNA/CicS+wgfgye+MdY=;
-	b=RyjrsCGOJY6txi2rs4gQrbh1ntoF5u/UoN0LxJDtAoC/6S4kl5nHX7zYE8TNNkj9+9Ty
-	 OzYeUJ4op9+/zh9bU02cxCjVI2cre1zQwwMEY2GolcXbIIWnL9Jt3dWKn8vb3fQC45gl2
-	 M4bh4lt+CgW/V8L8MGrNzW1yZUwBmeAypmypRglsfCK4RpX/XnFVnB5ILW4W4L4dcFCqK
-	 pMnYc7x5ViFOq8LQGR7JaMtYutDYdRjuD1+kqDyPOTzyRUbRNstSOB87tv7bS0XJwhRIV
-	 cs57Fz1HPjkegfhXncZCuRpic3JELC9RdNkkJdDKkB9qvhLyXZT/Vej2eLX5G0spafw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445083;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=9kpiQrp5Xf4cNJSbIcuRML7We1PAF0l0XmCp3ST/zdk=;
+	b=W20iWGuRV+mhZsBrqnKj1rTcYaLL+ngAArxLVLoXIW32m8qy3+E1wS1K+D1jOZ0IaWF1
+	 UjLXhdhY/V4Tz+LLr+rP4J216SnHsIjoWUY3NGd05s/eSTpTiC2Xt0aepjNLCuhstnkDL
+	 kBJGZ+SbMwDlED1X4OgLAZTX0gF42+McqM6jEbK0fUcpX+a8bMIttFJ2fJvKSSy7wik8T
+	 SWGHAjJDxAl5E/NN8jvlg9U3dPuLEBoRCI5K1zLlhGqoW0r+T6O5QSpGAwVtrw8uqa6NT
+	 9rm4hL5f5EeOTALOyLsR+/p9BaG9AUhO7Ldf95uSqbcZRj8eh/pTfFWCGdw2w4hoD0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=CVFYpkIF;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Evq1Igvf;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=amazon.de;
+	spf=pass smtp.mailfrom=amazon.de;
+	dkim=pass header.d=amazon.de header.i=@amazon.de header.a=rsa-sha256 header.s=amazoncorp2 header.b=QuPPozBV;
+	arc=none smtp.remote-ip=50.112.246.219
+Received: from pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com [50.112.246.219])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CB3C606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:43:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CB3C606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F193606A31A;
+	Mon, 23 Nov 2026 14:44:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F193606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=CVFYpkIF;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Evq1Igvf
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795445005;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=pdcWROCO3O0LeKiFXMJqWflTzNA/CicS+wgfgye+MdY=;
-	b=CVFYpkIFrBWibMZPbRc7ZrQNEbD0PisStdr9k8xC0r4tUq5g0FRY0xoC3JjTikXFnqD02F
-	BAYuOWQfODkxW+DzHci99j5uGSIvTG9q1UbOOWALxJQX11R0+OhmbEAkUeZElcHQezVI0B
-	lR/jGr8lUouDGI/jhXXGlUrx1hL7sXc=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-96-sfAmGhdDM8OTK0nSS4ArqQ-1; Mon, 23 Nov 2026 14:43:23 +0000
-X-MC-Unique: sfAmGhdDM8OTK0nSS4ArqQ-1
-X-Mimecast-MFC-AGG-ID: sfAmGhdDM8OTK0nSS4ArqQ_1795445002
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4a20e41008cso4679615e9.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:43:22 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=amazon.de header.i=@amazon.de header.a=rsa-sha256 header.s=amazoncorp2 header.b=QuPPozBV
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795445002; x=1796049802; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pdcWROCO3O0LeKiFXMJqWflTzNA/CicS+wgfgye+MdY=;
-        b=Evq1Igvfcu0i+BPf7lFKtQlnuY0S7dGWKQkrz545jkjKgvOxKpTHpPZmlKmtaCPkdz
-         V1xRdwrsQUtKnFcsGOLiRqLz7Q2rlN7bUF4UrG7WL4RfC2PV+zrHKI4HhV19XQOSOSDX
-         DOyMdI9HXv5ryVCwMLHWXnGcEwa8dh6q+P8d5YoHCeFTq2/+JZ4Vc/3c3s/dYbTBW2wx
-         QPJ047chcBGbFSGBOaH4CnBwUww3Atzkiv3ngL4klPhfz5DyKlyE3iqdur+nkKhRlNxV
-         ltvN9WEt7M23CNHoATQaUETOabSoyFlX4lDZeUxTU8gJ+Uq0jgff98u9/6ul6BJty9cY
-         UGnw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795445002; x=1796049802;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=pdcWROCO3O0LeKiFXMJqWflTzNA/CicS+wgfgye+MdY=;
-        b=JCXKxpSVbso+K1s6vr/vcdS+RgTWpUKVHukaQ0dCyOUeqWS3bmYDWGtqJ3sDqH8iyj
-         lFDvsU8eqJQm/o5QDNDQOtZ56IGtUxpGxZ2aTWo6Vo1ZG6Fn8+/zKCEfFSMdaHzHZ9Jl
-         hNZvh5SubdV4+wnMYpfEOGJsnc8Ry6usRy2VdMmF+CO2ZTtC5nk5JTtJBQQtmenAAXr8
-         sHe2YyRuxNA5aUJ/arNihDHwi3c7fTvhfBgJwkoGceN+R1L7sFPztz1iVzui4nHMLfr0
-         ncKNF2txuUSE+7oLDEKMOq2glRQtWyiTsyA2a73ZpAChjMPB4m2SFKNWrFwCHa6zZS3L
-         jJEg==
-X-Forwarded-Encrypted: i=1; AL+hErFKY0w2r8S8PiFYYJIJxQ52mRbnmxDwv66q6xkKzKiq0jjKh1MWOwPujI2S9zXJ5GtwBaIQCRWWQLhlhdI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/vT6NPIwmXpU1qwGZjCY3F197XoSXb+LIEgV37+bt+BHjxz7Mr
-	CZoyBPNBhRx/Qq3BTWoz0d3Q9Hdg1yMzVQWMQrMbJGS2b4F0LJmqV9wxorlodz+isQRvf+jsVmD
-	YPnd1p1zXvyrAZXrtLPDLtXx2b3mZMuo50/P2v3rW5u5uitf2fwLquPQ7x+qufXuJ+g==
-X-Gm-Gg: AZFdTZfx9H/NuRrceAcME/ms5yjvzt57iAY0yX2W8G3x/asohXzm24cao4wH/1CJ4qv
-	C2naphgnzm9YBE4mWP/268xNFjmBVWOJpGrDKZLcMqBGE/k1aZhOzRRpqXXjUZ5rCOFEehPC67s
-	OXwwkPT0sXmZSzfkDnm3xZChlYoOmlem99nIzu1HNwBB9PlwKVRquhC8glPyyLLL2uur8/F94tp
-	M27WxNWUvDiHDd0kLWW7QrGG5Psf1uZT7ki6jbCiNciLoUcriMh4bN2SUYfn1cBhzKDAiHCQ0OE
-	8uEwFs86Nsi3GEbirrp0jjLXPDAsISXfdRPpPe79LN1tfZ48L1SkKsC4GYBHYYOyBeWkx3/gKTw
-	Ma7TR5wqaByDCXFJ/UtT43MccWmuzDl8A+TTWkXgyG9WvLgMRz8FJYQft99lOwwz5p/AlHeyGfL
-	b1
-X-Received: by 2002:a05:600c:4f4a:b0:4bb:6752:8413 with SMTP id 5b1f17b1804b1-4bb8880015bmr273057915e9.8.1795445001888;
-        Mon, 23 Nov 2026 06:43:21 -0800 (PST)
-X-Received: by 2002:a05:600c:4f4a:b0:4bb:6752:8413 with SMTP id 5b1f17b1804b1-4bb8880015bmr273057625e9.8.1795445001514;
-        Mon, 23 Nov 2026 06:43:21 -0800 (PST)
-Received: from gmonaco-thinkpadt14gen3.rmtit.csb ([185.168.96.228])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110ba3sm18481531f8f.35.2026.11.23.06.43.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 06:43:21 -0800 (PST)
-Message-ID: <a0ea5b88df11b325895a446a2e6ed18a60807ea8.camel@redhat.com>
-Subject: Re: [PATCH] rv: Fix empty tail container detection
-From: Gabriele Monaco <gmonaco@redhat.com>
-To: Avi Weiss <thnkslprpt@gmail.com>, rostedt@goodmis.org
-Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
-	linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 15:43:20 +0100
-In-Reply-To: <20261116084530.87088-1-thnkslprpt@gmail.com>
-References: <20261116084530.87088-1-thnkslprpt@gmail.com>
-Autocrypt: addr=gmonaco@redhat.com; prefer-encrypt=mutual;
- keydata=mDMEZuK5YxYJKwYBBAHaRw8BAQdAmJ3dM9Sz6/Hodu33Qrf8QH2bNeNbOikqYtxWFLVm0
- 1a0JEdhYnJpZWxlIE1vbmFjbyA8Z21vbmFjb0BrZXJuZWwub3JnPoiZBBMWCgBBFiEEysoR+AuB3R
- Zwp6j270psSVh4TfIFAmjKX2MCGwMFCQWjmoAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
- Q70psSVh4TfIQuAD+JulczTN6l7oJjyroySU55Fbjdvo52xiYYlMjPG7dCTsBAMFI7dSL5zg98I+8
- cXY1J7kyNsY6/dcipqBM4RMaxXsOtCRHYWJyaWVsZSBNb25hY28gPGdtb25hY29AcmVkaGF0LmNvb
- T6InAQTFgoARAIbAwUJBaOagAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgBYhBMrKEfgLgd0WcK
- eo9u9KbElYeE3yBQJoymCyAhkBAAoJEO9KbElYeE3yjX4BAJ/ETNnlHn8OjZPT77xGmal9kbT1bC1
- 7DfrYVISWV2Y1AP9HdAMhWNAvtCtN2S1beYjNybuK6IzWYcFfeOV+OBWRDQ==
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
+  t=1795445083; x=1826981083;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=9kpiQrp5Xf4cNJSbIcuRML7We1PAF0l0XmCp3ST/zdk=;
+  b=QuPPozBVuo6m/GuAR2nnBunE0e1mt/NNHJu8azcRjk5hj01fFYP3NQeR
+   O+guPm9wp29TZX0D/SCoGDwPextBQZ8Su3MSF0OmB1Lx7T9hlJfWc7Y0h
+   ENG7+O/d+FgVnd2Srru2P1Ihx30AjTXnsWCpT+NBX+HVIoCiv9+bNHT5+
+   PxSi1xNLnUpO+uZf9V9+dtplhVirsmqE5oo9rak2hWUdIRj6DirpA4n6O
+   4SRrabl6mmmYaEUjPQgfmyHwzrrkzqUCJE1lr5e4/geRXz6NzNMy581sq
+   ikuG7Eqw9mj7jZhZ104qta4BIoZ11D9qF2ll7Cvl2/YhQMwXRK2dhL1B1
+   A==;
+X-CSE-ConnectionGUID: w0chaxydSze1TEgfpTZfkw==
+X-CSE-MsgGUID: U+8redVxR3qBocccH19lIg==
+X-IronPort-AV: E=Sophos;i="6.27,229,1787011200"; 
+   d="scan'208";a="34716044"
+Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
+  by internal-pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 14:44:40 +0000
+Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.178:31150]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.36.222:2525] with esmtp (Farcaster)
+ id 3af46666-5a8b-477f-8b37-df9961a87778; Mon, 23 Nov 2026 14:44:40 +0000 (UTC)
+X-Farcaster-Flow-ID: 3af46666-5a8b-477f-8b37-df9961a87778
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
+ Mon, 23 Nov 2026 14:44:40 +0000
+Received: from dev-dsk-doebel-1a-7b355d76.us-east-1.amazon.com (10.169.119.5)
+ by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
+ Mon, 23 Nov 2026 14:44:39 +0000
+From: Bjoern Doebel <doebel@amazon.de>
+To: Bjorn Helgaas <helgaas@kernel.org>, Manivannan Sadhasivam
+	<manivannan.sadhasivam@oss.qualcomm.com>
+CC: Lukas Wunner <lukas@wunner.de>, Konrad Dybcio <konradybcio@gmail.com>,
+	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	<linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: [REGRESSION] PCI: d4c79b63d82d4 "Allow D3 for native Hotplug capable Root Ports on non-x86" silently breaks surprise hotplug on empty slots
+Date: Mon, 23 Nov 2026 14:44:21 +0000
+Message-ID: <20261123144424.4164268-1-doebel@amazon.de>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -130,48 +86,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: EX19D031UWA002.ant.amazon.com (10.13.139.96) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 
-On Mon, 2026-11-16 at 10:45 +0200, Avi Weiss wrote:
-> rv_is_container_monitor() returns false for the last list entry
-> before checking its enable callback. With CONFIG_RV_MON_DEADLINE=3Dy
-> and CONFIG_RV_MON_NOMISS=3Dn, the empty deadline container can be
-> last. Enabling it then calls a NULL callback through
-> rv_enable_single(), causing a kernel oops.
->=20
-> An empty non-tail container already enables successfully: it is
-> marked enabled without activating any child monitors. Preserve this
-> behavior regardless of list position by checking the tail entry's
-> enable callback. Keep the tail check before list_next_entry() to
-> avoid accessing the list head as a monitor.
->=20
-> Fixes: 8d7861ac507d ("rv: Fix out-of-bound memory access in
-> rv_is_container_monitor()")
-> Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
-> ---
+Hi Bjorn, Manivannan,
 
-Well, this is not really a supported configuration, but since we can't easi=
-ly
-block it in KConfig and your change is neat and simple, it's still a good
-addition, thanks.
+Commit d4c79b63d82d4 ("PCI: Allow D3 for native Hotplug capable Root
+Ports on non-x86 platforms") breaks surprise hotplug on empty slots on
+AWS Graviton bare metal. I didn't find this failure mode covered in
+the existing discussion, but am leaving links to related reports
+at the end.
 
-Acked-by: Gabriele Monaco <gmonaco@redhat.com>
+Observation (m7g.metal, aarch64, native PCIe hotplug via _OSC): ENI
+(Elastic Network Interface) attachment hot-adds an ENA NIC behind one
+of the hotplug-capable Switch Downstream Ports, which are all empty at
+boot. Since d4c79b63d82d4, those ports runtime-suspend to D3hot shortly
+after boot (all 45 empty ports report "suspended" in
+power/runtime_status), and a subsequent ENI attach produces no event
+at all: no "Card present" from pciehp, no ACPI/GPE activity, no new
+device, no error anywhere. Ports with live children stay awake, so
+only devices attached after boot are affected.
 
-> =C2=A0kernel/trace/rv/rv.c | 2 +-
-> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/kernel/trace/rv/rv.c b/kernel/trace/rv/rv.c
-> index 29f155c6968b..a142e877e940 100644
-> --- a/kernel/trace/rv/rv.c
-> +++ b/kernel/trace/rv/rv.c
-> @@ -222,7 +222,7 @@ bool rv_is_container_monitor(struct rv_monitor *mon)
-> =C2=A0=09struct rv_monitor *next;
-> =C2=A0
-> =C2=A0=09if (list_is_last(&mon->list, &rv_monitors_list))
-> -=09=09return false;
-> +=09=09return !mon->enable;
-> =C2=A0
-> =C2=A0=09next =3D list_next_entry(mon, list);
-> =C2=A0
->=20
-> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+The device itself is fully present behind the suspended port: with the
+ENI attached and the event lost, a manual
 
+  echo 1 > /sys/bus/pci/rescan
+
+enumerates and probes it normally. So the hot-add completes in hardware,
+but we lose the event delivery. From code reading, the port suspends
+with the hotplug interrupt disabled (pciehp_runtime_suspend() ->
+pciehp_disable_interrupt()) and nothing wakes a port with an empty slot.
+
+Functionality works on 7.2. It also works if I manually disable D3
+via pcie_port_pm=off and if I revert d4c79b63d82d4.
+
+  kernel                                     empty ports    result
+  ------------------------------------------ ------------- ----------
+  7.2-based (before this commit)             active        PASS
+  7.3-based (contains this commit)           suspended     FAIL
+  7.3-based + pcie_port_pm=off               active        PASS
+  7.3-based, only this commit reverted       active        PASS
+
+This failure reproduces deterministically in our CI.
+
+Related reports referencing this commit:
+
+  - system suspend crash on Qualcomm SC8280XP CRD:
+      https://lore.kernel.org/all/3eeb3465-a1e6-4fdc-8019-3907d9c55691@gmail.com/
+
+  - commit recommended as a D3cold fix in the qcom hotplug thread:
+      https://lore.kernel.org/linux-pci/1ae8d4f0-1c32-4dbd-a18e-7a2ce2627efc@oss.qualcomm.com/
+
+Happy to try out any suggestions on how to proceed fixing this.
+
+Best,
+Bjoern
