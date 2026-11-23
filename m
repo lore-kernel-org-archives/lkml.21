@@ -1,91 +1,126 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795423694;
-	b=shYenTyPK7rtdONZVCVH10E/QP0ef/vcInw9rPLuhzOtKFlNnVSqMKWr3e0g9mDaUTpc
-	 krGNtLo+xuO/nFH/xCthUZaXWBTB0StrG6iwHJ2SgFMt2vU1OfCq8ZYk/zACyzG/s4V/C
-	 9+Su5JjSVHqqMIeNRUUlO4dc6N/Lz8SACg5sTJ9QYcVHbJB7VKzWuOwvxF+Jy3qlx0fIe
-	 qfgVK6GjTdBi2ysE2gl+CtN5vGnepUt5JlMUa8L1qO+ewhXXBIBgu+NnYL8hHWfFKcYk6
-	 qfXaoEbZvrYHUby+SUgN4yu0l68DrNommMi88W6Cxl8YyIl5QKBWV/MGMjruNRqqNBw==
+	t=1795423699;
+	b=QjnI2K9egm6L+CuBZmSqlyKm9kqSFaeRBqDdDm30zf33l1IlYTPNYZrLkE3LKfwi95oa
+	 zpcyLXEPwSmpMViln/wHQe4H7r/xWJ6cJAh94Bx+l2MBNqpSzoB7DdMdc2f6KO5svtUuT
+	 Dm2dNNNzwh+jU3C2kx5j7vqKurBajS8etImHyeblXE1cVh+pD+tL1+lmww0xrtgNNLRDr
+	 kmav1Mc3ZlMC1CjEQ3QpIJErhM58bArQOTnp7bUMb7yBDxNG+WbloQiXnp1HJGr8AqGz1
+	 E7meslWhnC1StMpPUEx1UaFVD0d8eGIkHa6kPsbYmSh7msH17tk15qoGhZ4IDfwsPZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795423694;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=LTJZ6Z0BiW6sHaALZZ7IN+IFHkESfyt83jD2NHGY+AI=;
-	b=1Y/ATxaQKUoSIEqYQ3DsbJYhesYS1EKvZ+VuT9xgJEaDYVjZ/NzJ15GQZh7gMi33zEKj
-	 op9eQFMWyUg08rmzYy4hvSG1yrvQemiuRGlgvHuO7AulFPNTJcv1+Vwqp65mriln+JdFo
-	 w1Odlm1Ei42D/Rl9KmhX/Z4DlptXAccXHjlHqmNzmxIh+ZX3GNQ2+l5uJ/HW8XqLQPNGU
-	 pwqh852a9lityKgNS7HN+atdByZOJC95Hlpa7WMNdR/JkXcy2FqlMWurdFvtuVXXk4JJx
-	 mhuy4r5UNxneHI4Xh2yIVVvnLUj6Ecp3E66LOb4h0VLQ6EwX0uckTNbSqMT4BbkbFxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795423699;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:From:To:Cc:Subject:In-Reply-To:References:Date:
+	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=ZIoXELwpYh1o5DnGcjLjeH54OjVLR8OUMZ7+fanJt4Q=;
+	b=xFv0jRHHc2HzE7o6HOTjfXO0g1PIu0zmBqx1vgO9yFcsq95BN5kZ4qHBCgoJbTsQFij6
+	 Rd8qdN875ANnLH6TMmJ7y1H99wML+IlWWTrp7Pwe2MWis9+NNpm31IbqjggtoaDoK7/qK
+	 3lPqS9HVwqXBfOFl3KUrQiMZ6308g6EIYKwc39uXCVK67UmrsoXefJkdVJYnYT5L91WCE
+	 2mBlpsGEQtkFi6OeUt4X1hGaFNBiRHBn6+SaMRfyHQwIXANW11HtExfPZBvDMwGRTmGA8
+	 btiJiH5Y9we9+KnCN2nZbadYyJhIza3EBBXzR/JAohuJWTLpz46OGmmbxMKFM/S+XeQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=YcJj10zG;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QJ8RNZBv;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Go5Od3++;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4072F606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:48:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4072F606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CDBD606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:48:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CDBD606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=YcJj10zG
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN54fD82633054;
-	Mon, 23 Nov 2026 08:47:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=LTJZ6Z0BiW6sHaALZZ7IN+IFHkESfy
-	t83jD2NHGY+AI=; b=YcJj10zGY6wChhmq9fch180g1AOpYPOFVLuZgSHhyI8985
-	kcNL+rB6lqsjzTWFKsFDWJNaktcjRDypjFMDLfVbttPtU6i7A5yS9OEzBtEyick5
-	Qgm6RZW7dykuwOk/6zpYbPI3zRamoRg+ceRVH7jJ064Gfpdd+fl+idi/E/uYPADs
-	Djvpu/HwDRI13+Na2mxcO6KVoYqOsg66ZwNb7G4JAKUCwzvG8UNVcixM8moZJVXq
-	6UkzuHq06oKDmV79aQTAV0ZDycD+9KqJVSDGGNCgfv5fLLjktQXiINWU2qDsC3q7
-	Trp6AlNjNFnb7xWykdZArxeMzHFtLw3oXXheU0uw==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g11yq9-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 08:47:40 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN54Qr12487418;
-	Mon, 23 Nov 2026 08:47:40 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3q4h5xa2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 08:47:40 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AN8lbjk44827102
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 23 Nov 2026 08:47:38 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E1C6C2004B;
-	Mon, 23 Nov 2026 08:47:37 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7D60820049;
-	Mon, 23 Nov 2026 08:47:37 +0000 (GMT)
-Received: from osiris (unknown [9.87.148.25])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon, 23 Nov 2026 08:47:37 +0000 (GMT)
-Date: Mon, 23 Nov 2026 09:47:36 +0100
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-        Oliver Upton <oupton@kernel.org>, Mark Brown <broonie@kernel.org>,
-        Sascha Bischoff <Sascha.Bischoff@arm.com>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH 1/9] arm64: sysreg: Map MPAM1_EL12 to MPAM1_EL1
-Message-ID: <20261123084736.20959-A-seiden@linux.ibm.com>
-References: <20261123075219.369042-1-fuad.tabba@linux.dev>
- <20261123075219.369042-2-fuad.tabba@linux.dev>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QJ8RNZBv;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Go5Od3++
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795423697;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZIoXELwpYh1o5DnGcjLjeH54OjVLR8OUMZ7+fanJt4Q=;
+	b=QJ8RNZBv53FuzqsrbggTvFbUHeAYROB6Cop7wZk3NO8pGL1jqiMio6DDhkho1g2e75mctk
+	64aaQZbAs1zi/dVDAHYipeFdG3+ACWBqmpiVkE1FYMJDA/yxXYMIkfev0G0+twG/3WjOF8
+	DTnMF8vCQWH4DETrH9lOrWj+8bA79RI=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-597-GPKNjP5dMFWxhLPkRMidFw-1; Mon, 23 Nov 2026 08:48:15 +0000
+X-MC-Unique: GPKNjP5dMFWxhLPkRMidFw-1
+X-Mimecast-MFC-AGG-ID: GPKNjP5dMFWxhLPkRMidFw_1795423694
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4994d67d0e3so17426485e9.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:48:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795423694; x=1796028494; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZIoXELwpYh1o5DnGcjLjeH54OjVLR8OUMZ7+fanJt4Q=;
+        b=Go5Od3++Y9wqdnHvtXU1a6dWMk2IRR2t3poBk31YzEKdVcItlfdbnDECdZEVDPu6lT
+         D3kAWNnLwetJKeBxqAZYeNJI36uR3eDe/+0EiBv3/rAaQ7rpoPAWshTQAwWxhk/RoEIE
+         evBtTFQwPVEU2xA8l8O+AKgkE+Df+p4rinXzly5619U8IkMySa3B8+XOQr9uumcTZVPO
+         FXJCja9nSqWDzDw8NPclPpk6CiJ0S3LpTyBuMKQquXYAb1daszWgBeUzoemBYYm8K9Vu
+         Ron9HnTBuYJQ4BsariTIMNydsLlDn1CFwFpZfW5KVff84L5I2++YdtcIcnQ7zLyd47cb
+         QHcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795423694; x=1796028494;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZIoXELwpYh1o5DnGcjLjeH54OjVLR8OUMZ7+fanJt4Q=;
+        b=bhofqpJnwlsEh2bpPOG5SUDJF2oweKRxYVpSPeKfmpuLqc2kqeI1vM47ISG/qu3mnQ
+         ZbpOoxKY40ooOwZd+Aa0cywjx9QeehogiJ6Tjk5SOxS/gmmIij5as4cPmdekG3xf7E71
+         F2/99MuIPu3OlvqE6PfSWSG/g/x0SSL/7E0AJnPxOe8paDgYnk8dkFoTrJnO+lDKvW9R
+         pKO0OhP5KDh1SxyCJqaFxqGD8ZCTuu9px/L2vnfwJ9gTRdsuXCZtyzl3t1HeP4bHr7VH
+         PO8BGYuOfC8IUln82ZtUxGjkjAp/CU3ktc9bpaD+jPh89ai/Q2FgazIj51hzEqBVC0Pt
+         Ojzg==
+X-Forwarded-Encrypted: i=1; AL+hErEoZByYXC+mEd8F3rpGt4Y04wXYHig0zyDUp20RkrCQS09Ls4Jl1BdwGcRL/502xB04MQXp9NnDEu/Bgfc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8WRy3Ol4/Y9QnYrGoVutVcQ+eYr96NiBa4bfG+1ZjrWqRh075p
+	QTAVz9TTLg6naM4gSO/NtHdSBZyRk3CJqnclYWxkt91m+rVuEM+w524Hy2oJ4Ej3/GRH78k0wXC
+	CMge9EDWBkRYqRDlGtCSD/slx9d2xR//GfpqHtXmauDTY9Ku5TWnXgJXcFqgcJqfMBA==
+X-Gm-Gg: AZFdTZdtG+8L1UGKZ+ftp1Jotz9eq7/hzMSTwYfkJv1Z0hEybVE26rJ/72fCtkuH5wR
+	Bi1cwV0p2PPD2hfKO3x6HqYCcPH28CGeRPQ0EW0sXqlKthAdgtypcuWTNBOmIrMXF8D0BZPTkLW
+	u64EqKHIqkxQx6Kuudy8XWqqNo6gDga/cjWlnswXZdaKTlnBVPw/rL8N9+uP731j88lH2l4DzEU
+	bADsM4MCzahQAJ3g/ky1+3B3EcLuihFLJX1fLLT3yo5LacgbvPmvP0UQuSuF3drG3nUK3UkpcE8
+	S8NqrGy4G2gFGnI+Wpglq8PcvPtkcKBZ6Wp+6llKmdVycu+GP8jidwqIS5RTjM/OYXagctetRn0
+	341fVxDydLU+s4vMRKIhj5qn2dBPjSBVrFtd8vHHVIf4H2jwTYcozacXPHXoAxt+fKiBztTH9Um
+	Evn438fyZ07Qz+oUWtFsRPO6zYiPFaIgsWyNryQhA=
+X-Received: by 2002:a05:600c:64c6:b0:4a3:598e:e7a8 with SMTP id 5b1f17b1804b1-4bb887c2c98mr206908945e9.4.1795423693852;
+        Mon, 23 Nov 2026 00:48:13 -0800 (PST)
+X-Received: by 2002:a05:600c:64c6:b0:4a3:598e:e7a8 with SMTP id 5b1f17b1804b1-4bb887c2c98mr206908455e9.4.1795423693410;
+        Mon, 23 Nov 2026 00:48:13 -0800 (PST)
+Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906d6a13sm155883195e9.3.2026.11.23.00.48.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 00:48:12 -0800 (PST)
+From: Javier Martinez Canillas <javierm@redhat.com>
+To: Maxime Ripard <mripard@kernel.org>, Ville =?utf-8?B?U3lyasOkbMOk?=
+ <ville.syrjala@linux.intel.com>
+Cc: Mario Limonciello <mario.limonciello@amd.com>, Alex Deucher
+ <alexander.deucher@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Harry Wentland <harry.wentland@amd.com>, Leo Li
+ <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>, Mario
+ Limonciello <superm1@kernel.org>, Xaver Hugl <xaver.hugl@gmail.com>,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ amd-gfx@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ intel-xe@lists.freedesktop.org, nouveau@lists.freedesktop.org
+Subject: Re: [PATCH v12 01/12] drm: add connector LUMINANCE property
+In-Reply-To: <awP0nasqAc4pAeMR@houat>
+References: <20261119-superm1-backlight-property-v12-0-89d5217d3618@amd.com>
+ <20261119-superm1-backlight-property-v12-1-89d5217d3618@amd.com>
+ <awB4Qe83u0l0XPKA@intel.com>
+ <8713bae1-9782-41d4-b09c-f14031203e88@amd.com> <awPvoLCDeq1YFLE_@houat>
+ <awPzsMWZ7e0i6i54@intel.com> <awP0nasqAc4pAeMR@houat>
+Date: Mon, 23 Nov 2026 09:48:11 +0100
+Message-ID: <xlv14id8rl10.fsf@fmartine-thinkpadx1carbongen12.rmtes.csb>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,49 +130,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123075219.369042-2-fuad.tabba@linux.dev>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: HrrfkGD43JXnqT8diAfJKbosF-Tnrzfj
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAzNCBTYWx0ZWRfX9KMEe7uYL4Xi
- zD9Wan/8eG4I0Ka/Sqc/bIAUDbbOmCDXIOht5F7qm9BAp0yVBvgrRAAM5+mxY4saJZkROdj9eRX
- Y6JOx8A/oQsbBQjZSPkBUhyn4VsUTh0=
-X-Proofpoint-GUID: xo2bGLz2kMWEJJn6hlKAJ2ud1k0Gr6xK
-X-Authority-Analysis: v=2.4 cv=c8M+0h9l c=1 sm=1 tr=0 ts=6b03fdad cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8
- a=pjIY73NwuUxA7bRLkYsA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAzNCBTYWx0ZWRfX1CzLx2JdkU3b
- NbzFxju0KVlmEIXZAT9TpsLI2m1eRfMM7VUqIjUnzZ6m/Zeo5ar7MMc7n/eIlQLy1x3V+lcW9iW
- C4OP+Gp1rO4KQdQ2+6Na9LuJFp7Jca6CfrmrGj67KsEyFMSBLNGFPpCqfYQyxHOBJ2OqgNErNc/
- yb76pZ55OdKVFmXZOVw1CdPbudqCCLWSDvq6CdppwTcmkQhuvHdxL14EtwZQjesc6fWJemrRKMR
- KQ0lGDYQVjTpDnBsB7APgv6YMZLKiHHrUsGdnb3dL9Z2mqk7uLcp4fkD0ElBLpCvXjHUYldjJjV
- DNi1H53IYhLlzDOWNece0O++Gd3wEM8+vagqjYCnFj3OC2IgARc48sNnwcajfhG4fXZrLFrxUVX
- iaZRcLyAlAxu9dGhTm5uT3rvoio3kUwrzeC41E2F10q6m6ZJK4z4A/KYga4PkKSknPAnOPgbXQZ
- qu5NwTJgfvQX85JdyWA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_01,2026-11-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1011 malwarescore=0 suspectscore=0 bulkscore=0
- priorityscore=1501 phishscore=0 adultscore=0 spamscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230034
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 23, 2026 at 07:52:11AM +0000, Fuad Tabba wrote:
-> MPAM1_EL12 is the EL12 alias of MPAM1_EL1, but its entry in the sysreg
-> file is "Fields MPAM1_ELx", and the file doesn't have an MPAM1_ELx
-> block. Since commit 6ae7fab7d9d33 ("arm64: sysreg: Emit RESx/UNKN values
-> for Mapping/Fields definitions"), the generator's MPAM1_EL12_RES0, _RES1
-> and _UNKN expand to MPAM1_ELx_RES0 and the like, which aren't defined.
-> They aren't used yet, but the first user would fail to build.
-> 
-> Describe the register as a mapping of MPAM1_EL1.
-> 
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+Maxime Ripard <mripard@kernel.org> writes:
 
-Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
- 
+> On Mon, Nov 23, 2026 at 10:05:04AM +0200, Ville Syrj=C3=A4l=C3=A4 wrote:
+>> On Mon, Nov 23, 2026 at 08:50:29AM +0100, Maxime Ripard wrote:
+>> > On Fri, Nov 20, 2026 at 11:19:13AM -0600, Mario Limonciello wrote:
+>> > >=20
+>> > >=20
+>> > > On 11/20/26 10:41, Ville Syrj=C3=A4l=C3=A4 wrote:
+>> > > > On Thu, Nov 19, 2026 at 05:27:28PM -0600, Mario Limonciello wrote:
+
+[...]
+
+>> > > > > +config DRM_LUMINANCE
+>> > > > > +	bool "DRM connector luminance support"
+>> > > > > +	help
+>> > > > > +	  Expose relative luminance as an atomic DRM connector propert=
+y. Values
+>> > > > > +	  are driver-defined levels rather than absolute luminance in =
+cd/m^2.
+>> > > > > +	  Drivers provide connector helper callbacks to program their =
+hardware;
+>> > > > > +	  the DRM core does not depend on a particular backend.
+>> > > > > +
+>> > > > > +	  Drivers migrated to this interface will use it instead of re=
+gistering
+>> > > > > +	  a legacy backlight class device. Leave this disabled to pres=
+erve the
+>> > > > > +	  de-facto userspace ABI in /sys/class/backlight.
+>> > > >=20
+>> > > > I don't think this will fly if it breaks the backlight class inter=
+face.
+>> > > > No one can actually enable this outside of some niche embedded use
+>> > > > cases where backwards compatibility is not an issue. I think what
+>> > > > you need is a generic backlight class implementation on top of thi=
+s.
+>> > > >=20
+>> > >=20
+>> > > The idea with this was:
+>> > > 1) to get the series landed
+>> > > 2) let compositors merge solutions around it.
+>> > > 3) Then add backwards compatibility to kernel so we can flip the Kco=
+nfig
+>> > > default.
+>> >=20
+>> > I said this a few times already, but we keep having those discussions
+>> > while the backlight sysfs handling is far from being the main point. Y=
+ou
+>> > should *really* consider adding support for the luminance property for
+>> > something that isn't tied to that interface (like DDC/CI for HDMI), and
+>> > treat the sysfs API as a sysfs series.
+>> >=20
+>> > It looks like people just have conflicting opinions on this particular
+>> > part that isn't going to solve itself easily. You should not treat this
+>> > sysfs discussion as a blocker for the infrastructure work.
+>>=20
+>> You want to be sure backwards compatibility with the backlight
+>> class is a solvable problem before you land *anything*. Otherwise
+>> you might just paint yourself into a corner with no way out.
+>
+> I disagree. The luminance property is more useful than *just* for
+> backlights but is also useful for HDMI, DP, and MIPI-DSI that would all
+> use it.
+>
+> If that's the corner we paint ourselves into, it's still a pretty nice
+> corner.
+>
+
+I agree with Maxime. Drivers can choose to not expose the luminance property
+until the sysfs backward compatiblity is sorted. But this shouldn't block t=
+he
+core infrastructure to land, given that's useful for other drivers/use case=
+s.
+
+> Maxime
+
+--=20
+Best regards,
+
+Javier Martinez Canillas
+Core Platforms
+Red Hat
+
