@@ -1,100 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.132
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.24
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795410436;
-	b=VkM5LkO/9cu8irRGADfqTJmXmzaZRzCOWqfj1hW89fT6/RktYtus+lOjHJojXYL0Oczf
-	 09OusuOCf/IfzTyNeDjnzusHWJnBGgl3bShVVRK8MqRV8/RCAVKNGFgp05nWZaTp3McJY
-	 T0K2uCASTjKcn+BE7G6X3NyIDlm6+BmIXahn9Pde3bYGD84lQh7XvlLBTi6oR0MNWzehN
-	 qSukgzBdQwaFcj4shI14qk6PHtIw1/l9poQLqsBSl9LcDOlTuuDvC4hQ7zPHrYa1Bmyw0
-	 bo2Qsxs/YGOBj5P+fac0x7UacwDVRKVFCVOn2zBlPZPVm+LsFdCppfpgZlaPfkZJRpQ==
+	t=1795410438;
+	b=VsugfpzmSgOSpJAqQ4JV7OA7CXxAmtR/crPZymdbKnbxZ/rkwdv3ExXRDXWnIl775nzu
+	 9ffFwMdtb47v0ceAbTxn5SoSA4jLr+j6uI2lYU7J8wC4e8TuSXmBqPA0+Otf6Q1zID8qi
+	 3WVULwfVZ9G6JTomn1jfPLSVCp8W+N/QWVhq4JQcp7VmgrDeLqB9dfeYtdYnrPmvvPnvp
+	 lchkEPQhsFYWn37qauuSm4BSanxkVvejnL83PGg4dKHAxOqCMlyYCLMNg7ers3OsOBqLc
+	 1e/d3zCemxC3FuBVwamoT8AqCbtdxFNAxCvCdgUxndkqEmtkCnJbdZdkWd2ncsO+iOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795410436;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=DvvWMG387UA/sN7rd1/UF8ygYenjSP4bEmKVrnnLJjE=;
-	b=RnM0ryAe2K1LtFDmO1QROupq63o4vAwpMt+0iFH6vUYVSpKqOhS/AvA3H5drJ0Fa3XL2
-	 dB3iSB8WS28VGftg51QDNjd6e0sgkf3rul3romf/7Wl1DROiNVXGDzO36hQ9EfogF5aTE
-	 4zZwV/rZTN3BLHPtTv1nMXWZ7FREGM22WyjS9sms5cmyZ5z8hw6sltjElXrlRRJuVdeDt
-	 geyrb//QbaqL+Rg2jRsAg4GkdZWJrJqoV/tfcJvuvwzP8PK02rD90cQ2slvcHMYf1TU0x
-	 G8oASpSghLT7z6z0yJx0SmORQugeng74D9v/T5th5Rqnpiy98Xg/pL+YqqanFDgmyhA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795410438;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 Mime-Version:Subject:Reply-To:Sender:From:To:CC:X-Priority:
+	 X-Content-Kind-Code:X-CPGS-Detection:X-Drm-Type:X-Msg-Generator:
+	 X-Msg-Type:X-Reply-Demand:Message-ID:Date:X-CMS-MailID:
+	 Content-Transfer-Encoding:Content-Type:X-Sendblock-Type:CMS-TYPE:
+	 X-CPGSPASS:X-CPGSPASS:cpgsPolicy:X-CFilter-Loop:X-CMS-RootMailID:
+	 References;
+	bh=Cd6iHPL7zgNWtBUtUa4Lg14WBOVuuUn85F3LluQ9xdQ=;
+	b=gc3K01xZvZJAEXRqjsRRRHrCZbzu45HZVH4Kyhnv8vWJ00rde9jd/kEm+Uwz4CwJmLwl
+	 ++bA7+8e46N75BOFFTVMLUUoPl4zTViH1I9STrITEPWjxbXuQekBInzLkF53mt8CluRqj
+	 NhLBpWlEOYL6lzvRJ2nAMsLqJE2og2wca66rEHRp0B7GOs0vmc1xMJOgd2+yG54j81DNg
+	 4JR9Wyh91pi8AzqFvcMLaYybBBqDlpxP7Pc7WcUnRy3Qh29Hf9inNZj0hSd+JzlhgH6AK
+	 skh/zwA7M5jIUqadOapx4+xG0f/2u1kD6sQRhv1fLQadC3CXu2NZj0OxtYFl99zxhog==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mTkxqM1m;
-	arc=none smtp.remote-ip=74.125.227.132
-Received: from mail-pj2-f4.google.com (mail-pj2-f4.google.com [74.125.227.132])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b="JK/CA5RF";
+	arc=none smtp.remote-ip=203.254.224.24
+Received: from mailout1.samsung.com (mailout1.samsung.com [203.254.224.24])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D4A3606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:07:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D4A3606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9EE25606A336
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:07:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9EE25606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mTkxqM1m
-Received: by mail-pj2-f4.google.com with SMTP id 98e67ed59e1d1-3b426133d98so747172a91.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:07:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795410435; x=1796015235; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DvvWMG387UA/sN7rd1/UF8ygYenjSP4bEmKVrnnLJjE=;
-        b=mTkxqM1maSg9x6wasCbhWlTbN360fasItLYFFN6lCaNr+eoh1yKUPTz9T8R2T0Vaov
-         WXYXInL1rN++dZxE8AGCQhv4yEI+//Ua8k7VyXZl1ILd7pq4Uy2IlU0aTZWkL/Gqf7YC
-         a8jUeQew7nNjyYzDT/2Y+hX0HK0Fke0kYCYGW/eS8x20yT91r4SdPjQHv6wffyX5kwhf
-         vD904eiENpF7Xoe8oZdIFlup30iWpu/6b0KZull+x26ZoMj+uSikDcDbumcZcIL0/8e4
-         HXCpQag+FDj2WLQirPUIH7xJNtiPO6JzzsdqZktIjeUEyYzf4nruNMwL0fz3EErteZbH
-         dufw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795410435; x=1796015235;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=DvvWMG387UA/sN7rd1/UF8ygYenjSP4bEmKVrnnLJjE=;
-        b=Vh7gvQnvqHR/5OW4PYYUXo3HCDQkkXpfWM/PueVx3QXyy3bmVqx/f+Vr2dCdcLiV4m
-         O1qRnr6Ldmv6MYbLXkFhqz7/rQeNsbvITTxx+5mtpdI5VYdsL9Qxva9gQ12Xf5X5z9Pj
-         r9c35OFpDlkJgZ93j60747q3kiGJ+Qigz8IA7OiNSHGBLzvrNRfdknmIAEhOTdzuizw8
-         dOtLzCTJobn7+ga9xGg0IOV14GL77f3XsuXfnloV3BlvKgW41Nh1hhaYc7ciMrFqbVVP
-         1qoE2BOOSPHs9RAUMxPsHaFcUDuf7BJVDZZwnaxK4+VESW2Y6TlpO7+UIVmyUxTzcWmn
-         Wqzw==
-X-Forwarded-Encrypted: i=1; AL+hErG70pcZlR5iaO8jGhncK7Uu8hp3frSzMg4ZIegegnApGSN2/317PUKo6qXfTo86WT494yyvspXgjTaTE5o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+XIEHWP8/6Wi6ePicbgB3gGouPuCHaD8QMZtqD6XwlFxRCXJEx
-	io2Wyyi09HENBvRtZIKPlH3kYeamvJCENIbGwGtCV2YyBcxyq+R8xvEX
-X-Gm-Gg: AZFdTZc287M+DT+rI4BB/FM89wlyANCBOfJzFxqJUknPM2M+ynipV/xssk1Xtt3/c9z
-	V2Eqngwx+w1elk3E2qQmMyj5sFXIY75IK2WIV9AjzS3blpemHFQCEWyLVl3tjlKUPLl/JVnTtw/
-	OjZORX4kPZCZJue63D74rAUzSwpCNsHrdB3bKKZvK/1GCaf1QplsXZl4ojV9PbbjsOjPVcXd90p
-	vDhdRsVwH76AbcH5vyAiCFyalbEoYHyZJkIz3jOhfA+3OPN02LRFcsqLrKyCYCMMJLIG6rMxRNJ
-	W56vijtrd7rHHR4ps311R9vVVwQjIFWnBPpQ1chUb7y3lg0DzZBT03E4/MaCTB87zkLuJRZKvSQ
-	RHmshxWffe5FZ79lwFds6g14sB2/+y2qj1S67t0CeY4tFg9+2FO78ilzguwjJpo9ktCszHE71Zz
-	AHyCOcuesg4Hmn4pK5YQphS7jSS7kaKSBQVJmx1YIUG1zJK/z4DJDeP/K1SinDvJGEEywr6lFHx
-	aIgZe8BRyyYXib3hrBNQhWlpUxmps94grMbZXOgGI90CDliz/SsvFgBrP88qH8ZaX0eraQ1ZEbQ
-	VOYn/kxYCLASNp+PZG1ugSqcbgQlKo73dnsnDyB75BV7LQ==
-X-Received: by 2002:a17:90b:2cce:b0:3b0:a7b5:c046 with SMTP id 98e67ed59e1d1-3b41c9759cbmr9934421a91.54.1795410435349;
-        Sun, 22 Nov 2026 21:07:15 -0800 (PST)
-Received: from nixos ([220.191.54.118])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b792474sm6438713a91.3.2026.11.22.21.07.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 21:07:15 -0800 (PST)
-From: Thaumy Cheng <thaumy.love@gmail.com>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>
-Cc: linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Thaumy Cheng <thaumy.love@gmail.com>
-Subject: [PATCH] perf/core: Preserve the hardware index field for missing branch stacks
-Date: Mon, 23 Nov 2026 13:07:06 +0800
-Message-ID: <20261123050706.18428-1-thaumy.love@gmail.com>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=JK/CA5RF
+Received: from epcas2p4.samsung.com (unknown [182.195.41.56])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20261123050709epoutp0141dc6fe0f707abb170af25e3b940ffe2~qlEX5l-dr2284622846epoutp01Z
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:07:09 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20261123050709epoutp0141dc6fe0f707abb170af25e3b940ffe2~qlEX5l-dr2284622846epoutp01Z
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795410429;
+	bh=Cd6iHPL7zgNWtBUtUa4Lg14WBOVuuUn85F3LluQ9xdQ=;
+	h=Subject:Reply-To:From:To:CC:Date:References:From;
+	b=JK/CA5RFIUxMigklVPEChG6FnqttLpYm5TtU9IPXMWnFnQN4QQpznr4djUWqX+Bmo
+	 1V/Lkokh4g9i245kgAXJW7Avz8m+2EAcl1K8HqBbP+9Bnv0h4XXch/oX2IAw96wGhN
+	 lfhujWJdEyvpO35jEaXNQY0/HK9OtoG9Amx0P+EY=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
+	20261123050709epcas2p2757ff5f18749871f30c2f80973c0c6ca~qlEXPgCa92179421794epcas2p2C;
+	Mon, 23 Nov 2026 05:07:09 +0000 (GMT)
+Received: from epcas2p3.samsung.com (unknown [182.195.38.206]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4jXv7c4wcRz6B9mF; Mon, 23 Nov
+	2026 05:07:08 +0000 (GMT)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,57 +62,192 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Subject: [RFC PATCH 0/3] block: cgroup-based and explicit write stream
+ placement for NVMe FDP
+Reply-To: suho.son@samsung.com
+Sender: Suho Son <suho.son@samsung.com>
+From: Suho Son <suho.son@samsung.com>
+To: "axboe@kernel.dk" <axboe@kernel.dk>, "linux-block@vger.kernel.org"
+	<linux-block@vger.kernel.org>
+CC: "tj@kernel.org" <tj@kernel.org>, "hannes@cmpxchg.org"
+	<hannes@cmpxchg.org>, "mkoutny@suse.com" <mkoutny@suse.com>,
+	"corbet@lwn.net" <corbet@lwn.net>, "skhan@linuxfoundation.org"
+	<skhan@linuxfoundation.org>, "rdunlap@infradead.org"
+	<rdunlap@infradead.org>, "viro@zeniv.linux.org.uk"
+	<viro@zeniv.linux.org.uk>, "brauner@kernel.org" <brauner@kernel.org>,
+	"jack@suse.cz" <jack@suse.cz>, "io-uring@vger.kernel.org"
+	<io-uring@vger.kernel.org>, "cgroups@vger.kernel.org"
+	<cgroups@vger.kernel.org>, "linux-fsdevel@vger.kernel.org"
+	<linux-fsdevel@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+X-Priority: 3
+X-Content-Kind-Code: NORMAL
+X-CPGS-Detection: blocking_info_exchange
+X-Drm-Type: N,general
+X-Msg-Generator: Mail
+X-Msg-Type: PERSONAL
+X-Reply-Demand: N
+Message-ID: <20261123050708epcms2p2f9404899881a0554cc6417ef7b1d670d@epcms2p2>
+Date: Mon, 23 Nov 2026 14:07:08 +0900
+X-CMS-MailID: 20261123050708epcms2p2f9404899881a0554cc6417ef7b1d670d
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+X-CPGSPASS: Y
+X-CPGSPASS: Y
+cpgsPolicy: CPGSC10-223,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20261123050708epcms2p2f9404899881a0554cc6417ef7b1d670d
+References: <CGME20261123050708epcms2p2f9404899881a0554cc6417ef7b1d670d@epcms2p2>
 
-PERF_SAMPLE_BRANCH_HW_INDEX selects a branch-stack layout containing a
-hardware index after nr, including when nr is zero. The generic fallback
-for a missing branch stack currently emits only nr, unlike the non-NULL
-stack path and the layout expected by perf's sample parser.
+Hello,
 
-Emit an unknown hardware index (-1ULL) when the field is requested and
-account for it when preparing the sample. Events without HW_INDEX and
-samples with a supplied branch stack retain their existing layout.
+This RFC proposes an operator- and application-controlled write stream
+interface on top of the existing write stream plumbing
+(sqe->write_stream, bio->bi_write_stream, and the NVMe FDP placement
+translation, which are unchanged by this series):
 
-This makes the fallback consistent with the ABI; no reproducer for reaching
-this fallback with HW_INDEX enabled is claimed here.
+  1/3 block: distinguish unspecified and explicit device-default write streams
+  2/3 io_uring: add IORING_WRITE_STREAM_DEFAULT for explicit device-default placement
+  3/3 blk-cgroup: add cgroup-based write stream placement
 
-Signed-off-by: Thaumy Cheng <thaumy.love@gmail.com>
----
- kernel/events/core.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+The series is based on the block tree's for-next branch (see the
+base-commit below).
 
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index e870f12c3ad8..9c51c7a1ae80 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -8499,11 +8499,16 @@ void perf_output_sample(struct perf_output_handle *handle,
- 				perf_output_copy(handle, data->br_stack_cntr, size);
- 			}
- 		} else {
-+			u64 nr = 0;
-+			u64 hw_idx = -1ULL;
-+
- 			/*
- 			 * we always store at least the value of nr
- 			 */
--			u64 nr = 0;
- 			perf_output_put(handle, nr);
-+
-+			if (branch_sample_hw_index(event))
-+				perf_output_put(handle, hw_idx);
- 		}
- 	}
+Motivation and background are described in our HotStorage '26 paper:
 
-@@ -8837,6 +8842,8 @@ void perf_prepare_sample(struct perf_sample_data *data,
- 	if (filtered_sample_type & PERF_SAMPLE_BRANCH_STACK) {
- 		data->br_stack = NULL;
- 		data->dyn_size += sizeof(u64);
-+		if (branch_sample_hw_index(event))
-+			data->dyn_size += sizeof(u64);
- 		data->sample_flags |= PERF_SAMPLE_BRANCH_STACK;
- 	}
+  Link: https://doi.org/10.1145/3837053.3837343
 
---
-2.56.0
+Motivation
+
+NVMe Flexible Data Placement reduces write amplification by grouping
+similarly-aged data into per-reclaim-unit placement handles, and the
+kernel already lets a single application tag writes through io_uring.
+Two gaps remain:
+
+  (a) an operator cannot place whole workloads per cgroup without
+      modifying applications, and
+  (b) an application cannot force the device-default placement and be
+      sure that no policy overrides that choice.
+
+The series addresses the root cause shared by both: write stream zero
+currently means both "unspecified" and "device default", so lower-
+precedence producers cannot tell whether a stream was requested.  The
+resulting precedence, most specific first, is:
+
+  explicit io_uring stream (including DEFAULT)
+    > inode write hint
+    > cgroup io.stream
+    > device default (0)
+
+Patch 1 introduces the WRITE_STREAM_NONE sentinel for unspecified
+streams, resolves it centrally before the bio reaches the driver, and
+carries ki_write_stream through kiocb_clone() used by forwarded direct
+I/O.  Patch 2 adds the explicit-default UAPI value, decided at prep
+time so it survives async re-issues.  Patch 3 adds the io.stream cgroup
+v2 interface: per-device upsert entries, "inherit" reset, explicit 0,
+validation against device queue limits, lazy policy activation, and a
+single-word policy state read locklessly under RCU, with writers
+serialized by the queue lock held across blkg_conf_prep().
+
+Runtime verification
+
+We exercised the series, as posted, on an NVMe 2.0 FDP device (8 RUHs)
+with bpftrace observers at blkcg_set_iostream() entry/return,
+__submit_bio() and the nvme_setup_cmd() dsmgmt export:
+
+  - explicit streams 2/5/8 -> placement IDs 1/4/7 (tracepoint-verified)
+  - IORING_WRITE_STREAM_DEFAULT -> concrete 0, no placement exported,
+    not overridable by an io.stream policy
+  - stream > max_write_streams -> -EINVAL, no bio issued
+  - io.stream explicit value observed end-to-end; nested cgroup
+    inherits the parent's entry; explicit io.stream 0 resolves the
+    sentinel to 0
+  - io.stream rejects streams above the device limit and the reserved
+    255 with -EINVAL, and devices without write streams with
+    -EOPNOTSUPP; the root cgroup has no io.stream file
+  - the inode write hint beats the io.stream value, as documented
+  - IOSQE_ASYNC: an explicit stream, IORING_WRITE_STREAM_DEFAULT and
+    the submitting task's cgroup association all survive io-wq
+    deferral
+  - a 512K direct write splits into multiple bios; all keep the stream
+  - 64 concurrent writers with a common stream: 64/64 tagged, stable,
+    no warnings
+  - buffered writeback on a mounted ext4: writeback bios adopt the
+    first-dirtying cgroup via wbc_init_bio() and carry the resulting
+    placement ID to the device; the nested cgroup inherits the
+    parent's entry, explicit 0 and the child's own entry override it,
+    and "inherit" restores the parent's value
+
+Each patch builds without warnings at W=1, with
+CONFIG_BLK_CGROUP_IOSTREAM both enabled and disabled.
+
+Not yet verified (please treat accordingly)
+
+  - WAF improvements on a production multi-tenant workload are not yet
+    measured; device-level fdp status counters moved consistently with
+    the placement IDs, but per-case deltas were below the background
+    noise of the test setup
+
+RFC aspects we would like feedback on
+
+  - the API shape of io.stream (per-device "MAJ:MIN <stream>" string,
+    upsert and inherit semantics, explicit 0 as a real entry)
+  - the WRITE_STREAM_NONE sentinel as a u8 reservation, which caps
+    addressable streams at 254 through the io_uring interface and
+    excludes 255 from io.stream
+  - whether io.stream belongs in io.* under cgroup v2, and its
+    interaction with the existing io controller file hierarchy
+  - buffered writeback semantics: attribution to the writeback owner is
+    arguably what an operator wants, but degenerate share cases deserve
+    a second opinion
+
+No MAINTAINERS update is needed: block/ is covered by the BLOCK LAYER
+entry, and the io_uring paths by the IO_URING entry.
+
+Tool use
+
+This series was developed with substantial help from LLM coding
+assistants, in an interactive session rather than from a single prompt.
+The assistant drafted a large part of the implementation (the
+WRITE_STREAM_NONE sentinel and its central resolution, the fops.c
+precedence rework, the kiocb_clone() propagation, and the io.stream
+single-word policy state and its RCU lifetime), the changelogs, the
+cgroup-v2.rst section and this cover letter.  It also wrote the
+io_uring and bpftrace test harnesses used for the runtime verification
+above, and rebased the series onto the current tree.  I made the design
+decisions, directed and reviewed the testing, and reviewed, revised and
+take responsibility for all of the code and text.
+
+Suho Son (3):
+  block: distinguish unspecified and explicit device-default write
+    streams
+  io_uring: add IORING_WRITE_STREAM_DEFAULT for explicit device-default
+    placement
+  blk-cgroup: add cgroup-based write stream placement
+
+ Documentation/admin-guide/cgroup-v2.rst |  58 ++++-
+ block/Kconfig                           |  16 ++
+ block/Makefile                          |   1 +
+ block/bio.c                             |   3 +-
+ block/blk-core.c                        |  14 ++
+ block/blk-iostream.c                    | 315 ++++++++++++++++++++++++
+ block/blk-iostream.h                    |  18 ++
+ block/fops.c                            |  25 +-
+ include/linux/blk_types.h               |  13 +
+ include/linux/fs.h                      |  11 +-
+ include/linux/io_uring_types.h          |   4 +
+ include/uapi/linux/io_uring.h           |  26 ++
+ io_uring/rw.c                           |  16 ++
+ 13 files changed, 510 insertions(+), 10 deletions(-)
+ create mode 100644 block/blk-iostream.c
+ create mode 100644 block/blk-iostream.h
+
+
+base-commit: d09b6d9d1fcce0770c1824c8b2b8ab153f2672d2
+-- 
+2.43.0
 
