@@ -1,105 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795478119;
-	b=1vqO7czH29ernLt3D6uKgrTjvX/3EVLmFDFoRzsMWz7t2QOsow1uOEgnzh7RCM5NTdez
-	 CTykblT2b+87Spnq2BrVnLK+pHbjdMf/Pe20jwHCABsTBZqodpMZOO5r/dvK7Epopz0Xs
-	 /cpy0G6zDvW3jfWCMJFKAQyIVfE7D8f3cQryFnkEWYoCyWbtCialzq5s+zj38EuRwkQ+R
-	 QdQ8w1XrXCSJOjyf4h/XlzljVBAK/oEXfByq2EV9qT1nDFQ5ry79UOBEfemw1VR6YRM/8
-	 9BZHmW8T+s8xEazuGUo6fUwc5to8YRShMHVxAiGlhOODxN1X6cmsDj2OCmA9VzDncZg==
+	t=1795478264;
+	b=lHj5kEkvvTT/e7BJ3iRo/kT/nRdlj+0bcWAFSRApGzwv6XmbYgfMupnjLWJ6Slpyh8Ym
+	 jqBHrk2uFKGcQkFrBiK3cOiElOZWvyZJY3BcPJgg57ApCO2M8/dbcuIJCMPe7Rc6ATXCY
+	 VGwzOL4W/g4Hyv6ip/zrNF+SVCePR+zb57jB+lXBQrXs5jZmKyHXuE0r8HttQQDCWwoP/
+	 RQDOkagMO9yHSrqsG43OMNXjztcYdZ4IiorMZCXC25ok/XEkNAi8mbWjpa5xOvqp/Uw7D
+	 R8TUFp6v4EaPxPyyo2J1KKv4f/3Rh6nmq0OowwJfMU990AgMmGruVw4XEjSxoNqI3tA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795478119;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Content-Disposition;
-	bh=qHMYy/oSMlkongpCToMb8VA6CvYEq6WBh/L4ubY/+kU=;
-	b=qLBp6gKTIUIna8zd3Lp03AL9MZpyk5GzdCRduoKdqZNbSlS99SQvttb7iWHKuM4FaSnK
-	 WGDqY+JN8uZBePXWNe016TxKGQZaIBpqw8aRaknuUIvd28AWwXqTZA3+PoAmyPCorNfSv
-	 8uBd0kDh/ulizzZkogAYIBcNUwvECRx5pLyXooKdmPEmQc1Vmb0KnTUo/jJ33SOqlLNG5
-	 wDJeZjh5dmN0xdZBkTMiFfi3SARd551HjQqWi16ATV6bry5ssM/Zxr2Z494Jm3gHW1RUx
-	 3DNDmGrR+wFS/RdSvdroWxCuSJ/nmK9qTH5nhZbH4IBYfYpPHuWghfEd5Sr4DLwyjBA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795478264;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=TBsXJBeRRVOImyQ/Szk+YPi0ypRjRqCWylyixyKG2iE=;
+	b=Wchs1i5ZvdJryE50ngcOQMdp5nGcJ0ou0axsS3FIyiqjBy5BBb4htiOfXbBF84j188Ji
+	 1wkYNJbSalreF0waemtTQ9hJhyARgUGlh4raScvQp9OS99LLjFV9M1ykwKxbrMW4j+r5X
+	 niO+uIoctRgFZBoJH0tdukvhEwyaHqCWC6GKHULSPfCiV664zV+rheKSjdD1jvrYOdTV6
+	 Gru0Z/fEnin70cz/2h3mD3hTFJtsYaCMZGhfYds8y7N86S+mHKSm6+TpdDws4NN0GnwZc
+	 mBKBCLqRfb+m8XVV21QCoxFfm5AkgIyLW39dS4oYYy+cqe3eXH/J3QmzCSpVHxEAwcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aur9tjvm;
-	arc=none smtp.remote-ip=74.125.82.177
-Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nMU13wN6;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9ECF9606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:55:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9ECF9606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 528CD606A31E;
+	Mon, 23 Nov 2026 23:57:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aur9tjvm
-Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-36a315ed211so4912553eec.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:55:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795478113; x=1796082913; darn=vger.kernel.org;
-        h=content-disposition:content-transfer-encoding:content-type
-         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qHMYy/oSMlkongpCToMb8VA6CvYEq6WBh/L4ubY/+kU=;
-        b=aur9tjvmrmBWdMGBaCXGgk6MJeEt5iNGa2qSXqZLmaZBc2Kv8JbEJJBt3VS1koB28I
-         wPtCKsMymrS7bcRsinSR6Pps6kUG8TlhWYhgGqFtf++305HmkHiwfHMIJuHdF5Ap6cip
-         Rljt5/NlIZ9U9mhtnAmYzUhjNT3aCSRb42YABt/qwncHwyKfNii5c0Tmyed+CL6BD4c4
-         SNrJeBXEoWkhMvBsdtQrDHPSWrJVVbf385hkj7Mgqs3sqWHZW4zrQQdrvg6+xWHKhuJz
-         hAqpP6+B3jdDREVa4WW3LeGkAnl/k+FgkY0rMRFgWfYPg4TMz1LjwlQP9TfhRpV0t22K
-         dgYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795478113; x=1796082913;
-        h=content-disposition:content-transfer-encoding:content-type
-         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=qHMYy/oSMlkongpCToMb8VA6CvYEq6WBh/L4ubY/+kU=;
-        b=GdYkfmf4KXtPzFwfdEV5Swd95SVPuAP2TYnLQUu+x0pjGrDF8ZP0L34/86jpi4olKA
-         tU8cnz945NSJ+GVbx0LUqCyXOlyijH5CzvWGsiYCbHYZlL01fxX1X3qoffOuKJsIToo+
-         /0jNWNivzfP4VvD3bMWnEClrXMkahWu/NsVsTeB5/U7lfQYhKq9sW0jLNSd8ZFT4UaRN
-         qwkRrFdtHOPFZ3iD5VYzddCP4PrqMMlPCVZDd0M58ukCtLZ17E3MmMBZuAOCNcvBG3IE
-         N0ibwMdq0y/rVo4Daxtf1ZWGPra4KohgYFbNxuOXITk9GCt8vZBzB4Q7yeRZZEJQHvNN
-         2c7w==
-X-Forwarded-Encrypted: i=1; AL+hErEtHXFC1seCbQbi9RMwYYDjdQ1xYswKM+JwJzd3TqpnwqZoBdxGlzhoc1B4PSwWGfDnxUogFki+6h31ABA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8YOYtLC4mN6F3O3wnExlzhbaJB/QyBL/kq7P9wtgmmrbHy9bOD
-	xUMRXtQOfJ+N3OIb1tmqZA6RMAGZPz8Bo5IuU+vJC7eJRxy+d5hncOr3
-X-Gm-Gg: AZFdTZc0TbW60/bJjtNcdVdKIxrZkRxyr3+EyUmu50JAv0ig0JENbec/Um7Jyh0EUYk
-	dZnjWFDHzNMOCDiHlwXRS62KdcCTTKzj9KO8eeCsNaEj37EqwJPgJD8eyJZQ6itZFbi5fWqwXm3
-	cQsU0HkDES8f6AyUHwo+M6/WW7nhOMRE82fodH8+Lt9FN2ITwbU0zQCcbCTLSxhBAwvAb19NsY/
-	IcB3vOEXj/+h1sFhdCM2EKUtJnYK/k5jHXhw9ebeRiUa51gKDTeJeexlpLVIIrq4OvcjVzSSsmD
-	sddow+2O3+QHItBK3vJ87iW4J7N49UZmlfc67vTCrT+48IWLG2OHhlSpBFbDw7090arJqOTar0c
-	jFLyQvlx73hq1wtS60CX+8WMHacMgax6C4HP0hKAbZ5DB4S5jnvWVIUhF7E66qrClS4MGGowfG5
-	LHB6l0UHYx7p8SDIwr4ohwjnMwPVBjknzfM4L2N4FErk3qSU0JGy8qfTNCTEhGP3LURsxGCmgQt
-	PPJBA3oGdgy4WoBehtEmH0Bpp9yonv5K5Vw8QMAoMmhr5GaNfYNRAHqGxnsa08gGOGPcHTf3Sci
-	4YkG91SJ0hVBvEuGyXbpNWKOkFHRw4tO1zz2cagRzqya16c24TEgti9VmtFQ8OHvDhRS7h6rpu5
-	ZXF7hKdgNyjX63tU=
-X-Received: by 2002:a05:7301:6a05:b0:386:a0dc:2e2d with SMTP id 5a478bee46e88-386a0dc3082mr11090356eec.16.1795478112647;
-        Mon, 23 Nov 2026 15:55:12 -0800 (PST)
-Received: from localhost ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm68245062eec.3.2026.11.23.15.55.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 15:55:10 -0800 (PST)
-Date: Mon, 23 Nov 2026 15:55:09 -0800
-Message-ID: <2e4f0d32c05d841feb367741bf8802fc@gmail.com>
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Arnd Bergmann <arnd@kernel.org>,
-	Rich Felker <dalias@libc.org>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	linux-sh@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/5] sh: mach-rsk: rsk7203: switch to using static device property, drop legacy gpio API
-In-Reply-To: <ce838102be497ee6eab490b4454095b96e16d015.camel@physik.fu-berlin.de>
-References: <20260929-rsk7203-properties-v3-0-02f84aeb8e47@gmail.com> <3a51385d-9649-4bd7-87b3-0caf9e462b2e@app.fastmail.com> <arzKNhmoL6yiGrzH@ashevche-desk.local> <dea00f90c205f8359baca729d8b0f31a@gmail.com> <ce838102be497ee6eab490b4454095b96e16d015.camel@physik.fu-berlin.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nMU13wN6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59EA11F000C0;
+	Mon, 23 Nov 2026 23:57:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795478263;
+	bh=TBsXJBeRRVOImyQ/Szk+YPi0ypRjRqCWylyixyKG2iE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=nMU13wN65elXNUFCSEtyveLzrF+uCQCgV1WWHfKEOfiEIbbdrVQM+Li0TEtWGEDSX
+	 ZKfiWHmgWgpxC+px6Ir2HEkbrGpxYLcg7gjWhJC2jnrzFvqml0+w2uIDhJ/O/5UWQv
+	 M1yHJOBMj6HPMLYgKJnMc0g33CdvqMYiDNdEdPvEPGIGiobZagzzcFeT/+neydkavE
+	 fC+YxFaABv/HSO70L6F80CTITvjpot9QLUwyZHtHp0br/EU3yAZUurkkR9VseavD+2
+	 7m+Yt20DGSf01U7k/D8P9Qin+gj7BsVw1tOyRVV19xj2sx1IrzUvKISp3ssgoa3et7
+	 r19Q5Okm0Cdpg==
+Subject: Re: [PATCH net-next v3 2/3] amt: bound the source-state work of one
+ Membership Update
+From: netdev-bot+sashiko@kernel.org
+To: omar@blockcast.net
+Cc: ap420073@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, horms@kernel.org
+Date: Mon, 23 Nov 2026 23:57:42 +0000
+Message-ID: <179547826290.3135.17087083328500674943@kernel.org>
+In-Reply-To: <20261122235724.2898320-3-omar@blockcast.net>
+References: <20261122235724.2898320-3-omar@blockcast.net>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,52 +63,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
-Hi Adrian,
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-On Mon, Nov 23, 2026 at 09:12:37AM +0100, John Paul Adrian Glaubitz wrote:
-> I have been super-busy with CVE fixes but I will try to get into kernel
-> stuff back again later this week. As I mentioned before, kernel maintenance
-> is not my primary job, so I cannot act as quickly as people who are getting
-> paid for it.
+Low priority / nit picks for your consideration:
 
-I completely understand; upstream kernel work is not my main focus
-either, and I appreciate you keeping sh maintained in your spare time.
-I did not mean to rush you; I mostly wanted to check how you would like
-to proceed before the next merge window.
+- [Low] The constants that size the new work budget are documented as
+  exact maxima, but the code never reaches them.
+- [Low] The patch fixes a long-standing CPU amplification but carries no
+  Fixes: tag.
 
-FWIW, I took a closer look at the current state of rsk7203 on mainline
-prior to this series, and quite a bit of it is already broken:
+--
 
-- Ethernet (smsc911x) has been silently ignoring its platform_data since
-  v4.13 (commit 3708184afc77) because device_property_read_u32() returns
-  -EINVAL instead of -ENXIO when there is no fwnode. That drops
-  SMSC911X_SWAP_FIFO, corrupting TX/RX packet byte order on this
-  big-endian board.
-- The RTC (sh-rtc) fails probe unconditionally since commit 689602e0609e
-  because sh7203 only defines one IRQ resource while sh_rtc_probe() now
-  requests IRQ index 2.
-- sh-cpufreq fails init because sh_cpufreq_cpu_init() never populates
-  the per-CPU clock.
-- Enabling gpio-keys-polled (disabled in rsk7203_defconfig) clobbers
-  LAN9118's IRQ0 on PB0.
-- As Arnd noted, the rsk7203_defconfig kernel no longer fits in the
-  4 MiB flash, and USB was never wired up for this board.
+amt: bound the source-state work of one Membership Update
 
-Given how long some of these regressions have gone unnoticed, it seems
-extremely unlikely that anyone is actually using mainline kernels on
-rsk7203.
+This commit charges each group record in an IGMPv3 or MLDv2 Membership
+Update for the bucket walks and per-source lookups it causes. It stops
+applying records once the total exceeds twice the cost of refreshing every
+group and source the tunnel may hold. Records for groups the tunnel has no
+room for are skipped and not charged.
 
-Rather than worrying about hardware testing here, I think the simplest
-way forward is to just apply these patches (with Arnd's Kconfig tweak
-folded in, or I can send a v4 if you prefer) to unblock the legacy GPIO
-API removal, and we can resolve any bug reports if they ever arise
-later.
+> Found by review (Sashiko, on the limits patch); not triggered at runtime.
+>
+> Assisted-by: LLM
+> Signed-off-by: Omar Ramadan <omar@blockcast.net>
 
-Thanks.
+[Severity: Low]
+Should this patch carry a Fixes: tag?
+
+Before this patch, ip_mc_may_pull() was the only limit on how many records
+amt_igmpv3_report_handler() and amt_mldv2_report_handler() applied under
+tunnel->lock in softirq. A reassembled UDP Update of up to about 64 KB can
+carry thousands of 8-byte records against one full group.
+
+That behaviour seems to go back to bc54e49c140b ("amt: add multicast(IGMP)
+report message handler") and the matching MLDv2 report handler commit.
+
+An earlier fix in this area, 5931fd2440de ("amt: fix use-after-free when a
+Membership Update re-arms a freed tunnel"), also addressed a theoretical
+issue. It carries Fixes: tags against bc54e49c140b and cbc21dc1cfe9. With no
+tag here, backport tooling can't tell which trees need this limit.
+
+The "on the limits patch" note seems to refer to a later patch in this
+series, "amt: make the per-tunnel group and source limits configurable".
+That note does not take the place of a Fixes: tag. The series adds UAPI, so
+it may be net-next material either way, and this could be treated as
+hardening.
+
+[ ... ]
+
+> diff --git a/include/net/amt.h b/include/net/amt.h
+> index f36efcdd92d0b..96357b3e32fc9 100644
+> --- a/include/net/amt.h
+> +++ b/include/net/amt.h
+> @@ -392,6 +392,12 @@ struct amt_dev {
+>  #define AMT_GC_KICK		2048
+>  #define AMT_MAX_GROUP		32
+>  #define AMT_MAX_SOURCE		128
+> +/* Per group record, the most passes the mode handlers plus
+> + * amt_cleanup_srcs() make over a group's sources, and the most hash
+> + * lookups they make per record source.  See amt_rec_cost().
+> + */
+> +#define AMT_REC_WALKS		7
+> +#define AMT_REC_LOOKUPS		8
+
+[Severity: Low]
+Are 7 and 8 really the maximum counts this comment describes?
+
+In amt_lookup_act_srcs(), only AMT_OPS_UNI and AMT_OPS_SUB walk every bucket
+of gnode->sources[]. AMT_OPS_INT does one amt_lookup_src() per record
+source, and AMT_OPS_SUB_REV does up to two.
+
+The most full passes seem to come from amt_mcast_to_in_handler() in EXCLUDE
+mode, which makes three AMT_OPS_UNI calls:
+
+drivers/net/amt.c:amt_mcast_to_in_handler() {
+    ...
+    } else {
+        amt_lookup_act_srcs(tunnel, gnode, grec, AMT_OPS_UNI,
+                            AMT_FILTER_NONE_NEW, ...
+        amt_lookup_act_srcs(tunnel, gnode, grec, AMT_OPS_UNI,
+                            AMT_FILTER_FWD, ...
+        amt_lookup_act_srcs(tunnel, gnode, zero_grec, AMT_OPS_UNI,
+                            AMT_FILTER_D_FWD, ...
+        amt_lookup_act_srcs(tunnel, gnode, grec, AMT_OPS_INT,
+                            AMT_FILTER_FWD_NEW, ...
+    }
+}
+
+The two bucket loops in amt_cleanup_srcs() bring that to 5 passes.
+
+The most lookups per source seem to come from amt_mcast_block_handler() in
+EXCLUDE mode. That is SUB_REV (2) + UNI (1) + SUB_REV (2) + UNI (1) = 6,
+plus one in amt_add_srcs(), for 7. amt_act_src() starts no further walks.
+
+The commit message figure also seems to rely on the higher pass count:
+
+  "At the current defaults a 1.5 KB Update of about 180 empty records
+  against one group already walks the group's 256 buckets over a thousand
+  times."
+
+At 5 passes per record, that would be about 178 x 5, or roughly 890.
+
+amt_rec_cost() and amt_report_budget() use the same constants, so behaviour
+does not change and the budget is still conservative.
+
+Should the constants be 5 and 7? Or should the comment say they are
+deliberately rounded-up bounds? The later patch "amt: make the per-tunnel
+group and source limits configurable" leaves both constants and their
+comment unchanged.
 
 -- 
-Dmitry
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122235724.2898320-1-omar%40blockcast.net
