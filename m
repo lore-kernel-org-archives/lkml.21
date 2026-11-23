@@ -1,81 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795467951;
-	b=VoJ8hbCkVbJpPBNSCHBw7moeNod3o0xcJYjIsBaqAgpQq0Od9OEfOkMmWkDmJXypdm8M
-	 DAKCrBielWY2sj60ihRf7u2YKmFLPQ2kfGVB/jEYJy+aQoHokCrsmYD4/+9hpJkKPzex1
-	 Jz4VyZGM7023shLd+J+mN4B+v/DqBxWC0IuDw9b4A/l7FtPfY5XEaQa62XRi8Y6AsdRzw
-	 VUuauJsUSBRo6YNYrNZy9qSWzqTETNe4O7RWTVSKu73hnckYAlCPcYkHLCiIzIP+d1XaK
-	 e2oBUynBWfI4ugQvwY1CBizB3uE7squjg22mhkt8h5ECy6pUNzS2NsIQ22cxmFa1LoA==
+	t=1795467962;
+	b=CMDpsNd+8pTDpifh2CQDEM352ScPkBEDeZzvKJ4RoHG/v4SvrPPQccO3E9pwqbEOb1vM
+	 9LYYTL4tUylP7/qjEmAlXc3/Mw79FmvgjbIq80GxIbi93nfBNcQQ4JS6k81LhD7QVXHOu
+	 ZbkiqChK+PLZemCSxV7Pr0wFdQjboMMBUJmP9MRypvbNBED79aToOqaJHaElDdx7Klwks
+	 OpYvOfetU+1a+C6gLyOW3zbbzSAmvh7d07kNq1ofQa5eKE0LM2huifhjRmgniHekaRWZA
+	 oDXqp8g5iEC/587Fz+rZtaKuIa7KJpCDM9qioOplLuRy1phx8myy4mz0HILzaNzWveg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795467951;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=UEawjYf4KP5VSikDXKhRYVtZcdIPXAkEsckpZehMyOQ=;
-	b=31NmXL0irGphqALd1d5Yd6GlxPmTTikAEQuneNIUCkzzRWe/JZ8UGI69wYK7XZxTjeQE
-	 eV85nSaw7UO1BaGIu0nH7ZzhhTwGsxP6QqtTNg9yGixRNmOKj0IqqNDqvFESUYl6gjvGi
-	 wTmfCDcKaZC7TaBZOnXTCtLi97Qw+rNhPh3gPUnpjGvspZZpEQ6sGabxy+haIT4iNAGrQ
-	 kna6a6AhZbaSd6WisTCtqwgooovQOUCJAC+y29UQmwtM+fZJgdrDrPOwaMCOucJJ4Fk0s
-	 gY3TrtoLUW679eZ1pNgEeCTVEZrIfv//xXibAS7yhNOa+CezUnM9e/KfDmUlkXtkQCA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795467962;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=XMBLf+oFpGY8ZXLOORoqNUv/sgwI+cM0AGAeYIAJOjc=;
+	b=YgCyGO479eVqah23FDwEeruy8bNVoxAu6GvV2Y+jd4iWt3UBQZJUzvIyU3TlzrZ3YR4J
+	 MFrgXzh9t9YtVI5OiB+8BBbdlWTcYLz8AsRNzhSJzzNgvrgJ2GKQzNhwpbA3uanMl2fNq
+	 BWLJiTs0HsfLJFbru1eOGTZCDgzcA/oCDEmyJAGJ3p4BD9SgcWIp0W+4J9MDJmviQw9Lc
+	 Oq9UTSs4LAMcshis5vqSCcafaaa0GzC15XJpVVce22wBbQJUUhPziWYVUHtXgX/d2Prep
+	 qbM7EaDhMsXzYk8z5BWEK2uZ2zk4iUdNshHfUpvUhArLty5VA7ifhnWCuwlKzpxHF9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=jakejoyner.com;
+	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=74.125.82.172
-Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hsfX6eHx;
+	arc=none smtp.remote-ip=209.85.222.51
+Received: from mail-ua1-f51.google.com (mail-ua1-f51.google.com [209.85.222.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2004D606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:05:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2004D606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=jakejoyner.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17938606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:06:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17938606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-35159e0092aso243040eec.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:05:50 -0800 (PST)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hsfX6eHx
+Received: by mail-ua1-f51.google.com with SMTP id a1e0cc1a2514c-99e156fe905so3198561241.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:06:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795467961; x=1796072761; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XMBLf+oFpGY8ZXLOORoqNUv/sgwI+cM0AGAeYIAJOjc=;
+        b=hsfX6eHxLkyGhzgsKpICfbUlsnibIJsum+dOlXFqR75aeGrldW8GcJu9Na4Jgh5P7Q
+         pIOJHHcsOUQLl++F6NlxyD8UbBXuOgvaQA1y/+vpdgI4UfK33PHgusb8sxPaQPjxL+Xg
+         kvLA5rIru92NfVYma+SI5rqAmqFCLfiddBQkR5euwO9ML0t5TUPSOlr520IaDDbwQ0Es
+         ZjVC6X6NwsqkccF8Xpj4iIFlfFIHCfI5mINDY7PdZG+rSCU3QF2Cr9ZVak6hPACeWi2K
+         8w22LpgurG8tu1Ie2v5OdWI1jwYx5iLY2YnlPIpditicXdq8Kqax2prXFVI3WWl1upJt
+         L33g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795467950; x=1796072750;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=UEawjYf4KP5VSikDXKhRYVtZcdIPXAkEsckpZehMyOQ=;
-        b=qUZ1jtEmP72f4sq1lIgJIeh77XjPCXXzN+ydaXJs8UW9pCklPjIWAb6E8QS0d674Az
-         9Y65oNdDatsrwFV0cCudAJpeRQ2r+5I6b6KYeYj0VHyb5Xj9IXE/F6fHYoKLgRLxdv2R
-         6X/mB6clwRTdVTNqRvSz9oRxsQJZDNVjbVAbXyLOZC6ASLmg2G7Cr0BJ901CaM3Gz39P
-         gIQZatYkES1S9UwlwdFWPwK5vvGsYSL67ZV3nO72In8x05BZL9gzzkJxfQEB79aG2S+w
-         b9WKkDbDp3ZHYpcJtkPsL0Hp6yI/LOmTZL5aEspftvTcqEtQVzm9CHol9up4q/No+W4c
-         uv6A==
-X-Forwarded-Encrypted: i=1; AL+hErHCCAfquV5wRdOSt1y+qQHLsn+nRjUtmYH7sSCtIJjFqNZmA7EhjbtPPULTpUjDZ9iGe5Wp+eFHfhV6+Qc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/cl64eIG7cHCaNnkx5V/HdKUHyLR/zgiRPh5d7rF+heHnRB08J
-	+pmXm0V1iT+D9+JhF05WmnK3oZzU4anRGqpR7HlgoAfgmkyr4kjTwzu2
-X-Gm-Gg: AZFdTZeYl9wiX+etPzQ9vEvpdQ3yObnqY+tn8MyCPATxfNbChsXLotiDYVUp4RG81qb
-	iaNzZJ1psHKnc17FSguLeIyzjuqodqI6pHi9+ciBnhdgHV9rboP/Qz8es5+mb2too5y9OoB0W8+
-	sO2MGocg77BGDLnzPjBy/kbCfKQGjWjpZvZeYwPpwkOAhaZPJ9GW189qgweyDPOeXEW0P3pFVuN
-	KXyAQrI2+FAa2GjouaFWyVKQnGJR+wq08M35nfrB3+iTIwUSIQrMYRw6lZWSJ8mJab4G2YMBURz
-	W3sYEWFP+NzWlFIoL+gjSoszCe1fSdYpOHZyFodBCdllXjZLJSznKZt1TApAr8pvtc+0UEnqZfL
-	nfq1P4+9BdW1M9ZXl77sRTZIEMnr+hrins6zdLiLABhxiKAHbLCBr0bb6YqDOsYOUXHkVRqQzW2
-	14SsH36hd1rKJm1q5/D9x33+40ySsqjzYxtRiMWRjXiNrQia7hfsb7MXBrUARnxTUUznUiBWwMl
-	2v9DImfE0j/aMYBTEsGlN9IUENd0SjvSqohWYGSO1+lv5Tsp5i72WCxzi6WjAFVJRBE+kA8cFZ/
-	rdfM5DbdWwNbJ1o60FCWLuc0eu1sO8wQEYYAj9taBG6rNX9SSZC87/34/g==
-X-Received: by 2002:a05:7301:6187:10b0:386:a8e0:ac22 with SMTP id 5a478bee46e88-386a8e0b29dmr9138288eec.0.1795467950091;
-        Mon, 23 Nov 2026 13:05:50 -0800 (PST)
-Received: from localhost ([47.156.153.166])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd46c5sm46614607eec.11.2026.11.23.13.05.49
+        d=1e100.net; s=20260707; t=1795467961; x=1796072761;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=XMBLf+oFpGY8ZXLOORoqNUv/sgwI+cM0AGAeYIAJOjc=;
+        b=Flwz0aX+z7Ky0OiHNT6COiJMu1gfxL6uwgT9FpIap28sq+I8HSuJDJ8PR35+24FPXe
+         w/3bDx1Ejx8vMQ8wFqaqBP220tkYBlRcbLX3FeRP4ThdWkdzxI6943xGmN6vV2hWcKWb
+         xgKfvthaivm2q6LNqpepGai46lfLvGS+iq2xirsKqi2QiLbf8b/yW6g2caCf6assFo+H
+         Er7HpN4sG1uyOvln54J7xQ/tVuePkzDa3xWEvKzouYvZANY8X1cLG9JcQt/7E8tyzRX3
+         ZTM1ENP97iNC4YgNCZSFPeu+hqlHudNf0fm6rpBI232qdTiCUukPs2HjRcEdux/a/VGG
+         p5yg==
+X-Forwarded-Encrypted: i=1; AL+hErEAFFsRnx2T+bJdSitK7rmyqq5FCoPVjBRGuZXPiINh0Ek+b/DkZh8+3VR9tt9q5ushgL8zkiWLpS0vQnk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+J6YxIDKDVJIAZFg4d2F2ouHIY3D4sylLbhpE9xfrKdFuD6Zik
+	CRukbDh6BS/QaIPZPXKKXEbFtJ398olnCQalP7oodK+PVYmHrEHqJYxC
+X-Gm-Gg: AZFdTZeGRbzdZKTpU7EUjxBcZK8eiqhjF5y0jv+rAc7151qsuf5azmMrmEXrJ/uWb/0
+	GylkEVhFFYx5wC1IwhQ5qDol/LdF1TzKb4JV7Jptsr8bXiD6xOTzSDjGxSdU6KfWeWmojp9r3KF
+	dGRWLvXZVEj60S4Z3DCihKp2H/dpxHeOzFZDXc4on3LslWBPkp6a8CuV3i7ZghAKfZMN1W59zjs
+	014O78ZgGpPIJwJ/Nf/qN6WDg0A2mnPNjhGi4kRUvgAVxWaMBVx1MCfxbHmdRwHgr9JINL+OREd
+	WH1xckBueklOIyP+bUMYTKI2Y0+dW/0FunGn1ebZ4yVqQ+QAmWWjK12V656JkPoCuVo4SX0cjdI
+	3cRKTv58aSWebm5ZqQstr2eEuwthjxAfKT+EaPtcVFh1mECyYwbkkTMhNB9Sxg52Judo9Zd4UgQ
+	Gec5LH/8G1y+okDyc1JU730miaM1Q9IHU+cGd9nuotO3BRkdlE6P1DtONwHzwsYDgIBIJM1XGRv
+	OKFK5dvOJsGgNgEeZv98jI8t7mjeyTekARGc2bq8RQTSNWmrw00R0mA47tKgKjbhtzlUbUPobn7
+	yicpfGZb2YmPe6YX06TabaUN
+X-Received: by 2002:a05:6102:f12:b0:7a5:673f:9a37 with SMTP id ada2fe7eead31-7d73967451cmr4349495137.15.1795467960926;
+        Mon, 23 Nov 2026 13:06:00 -0800 (PST)
+Received: from garuda ([187.114.10.31])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e8219b2esm13041769137.9.2026.11.23.13.05.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 13:05:49 -0800 (PST)
-From: Jake Joyner <jake@jakejoyner.com>
-To: Alasdair Kergon <agk@redhat.com>,
-	Mike Snitzer <snitzer@kernel.org>,
-	Mikulas Patocka <mpatocka@redhat.com>,
-	Benjamin Marzinski <bmarzins@redhat.com>
-Cc: dm-devel@lists.linux.dev,
+        Mon, 23 Nov 2026 13:06:00 -0800 (PST)
+From: Renan Biegelmeyer <renan.biegel@gmail.com>
+To: Armin Wolf <W_Armin@gmx.de>,
+	platform-driver-x86@vger.kernel.org
+Cc: Hans de Goede <hansg@kernel.org>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
 	linux-kernel@vger.kernel.org,
-	Jake Joyner <jake@jakejoyner.com>,
-	syzbot+3f8f5b65af8de862dcec@syzkaller.appspotmail.com,
-	stable@vger.kernel.org
-Subject: [PATCH v2] dm-verity: fix shift-out-of-bounds and overflow in hash level sizes
-Date: Mon, 23 Nov 2026 13:05:44 -0800
-Message-ID: <20261123210544.196717-1-jake@jakejoyner.com>
-X-Mailer: git-send-email 2.56.0
+	Renan Biegelmeyer <renan.biegel@gmail.com>
+Subject: [PATCH 0/2] platform/x86: uniwill: add read-only WMI EC backend
+Date: Mon, 23 Nov 2026 18:05:52 -0300
+Message-ID: <20261123210554.3357528-1-renan.biegel@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,89 +98,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-verity_ctr() computes the number of hash blocks at each level of the
-hash tree as
+Some Uniwill-based devices do not expose the INOU0000 ACPI device, so the
+in-tree driver cannot bind even though the EC is still reachable through the
+AcpiTest_MULong WMI interface. This is the case on the Avell A62 LIV used for
+testing.
 
-	s = (data_blocks + (1 << n) - 1) >> n
+Patch 1 adds a read-only regmap backend over that WMI interface, makes the WMI
+driver instantiate the platform device when INOU0000 is absent and the EC
+answers a test read, and restricts the WMI path to the hwmon sensors (CPU/GPU
+temperature, fan speed and PWM). All write-oriented features are skipped; the
+WMI backend intentionally has no write callback.
 
-where n = (i + 1) * hash_per_block_bits, i.e. data_blocks / 2^n rounded
-up. This goes wrong in two ways.
+Patch 2 documents the fallback.
 
-First, the loop that counts the levels only stops once
-hash_per_block_bits * levels is 64 or more, so n can be 64 or larger for
-the top level. For example, with 1024-byte hash blocks and sha512,
-hash_per_block_bits is 4, and a large enough number of data blocks gives
-16 levels and n = 64. Shifting a 64-bit value by 64 or more is undefined
-behaviour, and UBSAN reports:
+The series is based on platform-drivers-x86/for-next at 2268d837d and is
+compile-tested with W=1 and checkpatch --strict. Runtime-tested on an Avell
+A62 LIV (i7-10750H, BIOS N.1.02) with the same change backported to 7.3.5:
+the driver exposes fan1/fan2, temp1/temp2 and pwm1/pwm2, with values matching
+coretemp/nvidia-smi (3157/3084 RPM, 60/56 °C, PWM 102).
 
-  UBSAN: shift-out-of-bounds in drivers/md/dm-verity-target.c:1598:38
-  shift exponent 64 is too large for 64-bit type 'long long unsigned int'
+Tested-by: Renan Biegelmeyer <renan.biegel@gmail.com>
 
-Second, the addition can overflow. With 512-byte data blocks any 64-bit
-number of data blocks is accepted, and for data_blocks close to 2^64 the
-sum wraps around, so s is far too small (0 for data_blocks = 2^64 - 1
-and 1 <= n < 64). The hash area then appears to need almost no space,
-and such a table is accepted on a small hash device.
 
-data_blocks is non-zero here (levels is 0 otherwise), so compute the
-rounded-up quotient as ((data_blocks - 1) >> n) + 1, which cannot
-overflow, and use 1 directly when n >= 64, where the quotient is
-always 1.
+Renan Biegelmeyer (2):
+  platform/x86: uniwill: add read-only WMI EC backend
+  platform/x86: uniwill: document the WMI EC fallback
 
-Tested on v7.4-rc4 in QEMU: the syzbot reproducer no longer triggers the
-UBSAN report, a table with 2^64 - 1 data blocks of 512 bytes is now
-rejected with "Hash device is too small", and a small valid table still
-loads.
+ Documentation/wmi/devices/uniwill-laptop.rst |   8 ++
+ drivers/platform/x86/uniwill/uniwill-acpi.c  | 138 +++++++++++++++++--
+ drivers/platform/x86/uniwill/uniwill-wmi.c   |  76 ++++++++++
+ drivers/platform/x86/uniwill/uniwill-wmi.h   |  12 ++
+ 4 files changed, 225 insertions(+), 9 deletions(-)
 
-Fixes: b1bf2de07271 ("dm verity: fix inability to use a few specific devices sizes")
-Reported-by: syzbot+3f8f5b65af8de862dcec@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=3f8f5b65af8de862dcec
-Cc: stable@vger.kernel.org
-Signed-off-by: Jake Joyner <jake@jakejoyner.com>
----
-Changes in v2:
-- Compute s as ((data_blocks - 1) >> n) + 1 so the addition cannot
-  overflow, as pointed out by the Sashiko review of v1.
-- Describe and test the overflow case; add Cc: stable.
-v1: https://lore.kernel.org/r/20261123203413.145298-1-jake@jakejoyner.com
 
-The v1 review also noted that verity_prefetch_io() can underflow
-hash_block_end - hash_block_start when v->hash_end is wrongly small.
-That path is only reachable once verity_ctr() has accepted a table whose
-level sizes do not match the hash device, which is exactly what the
-shift and overflow above allowed; with the sizes computed correctly such
-a table is rejected at construction, so the prefetch path is no longer
-reached. I did not add a separate change for it.
-
-The code change is mine. An AI assistant (Claude) helped me reproduce
-the syzbot report, write a table-loading test, review the change and
-word this description.
-
- drivers/md/dm-verity-target.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/md/dm-verity-target.c b/drivers/md/dm-verity-target.c
-index 306ed1f6c118..6b6b9116fc28 100644
---- a/drivers/md/dm-verity-target.c
-+++ b/drivers/md/dm-verity-target.c
-@@ -1593,10 +1593,13 @@ static int verity_ctr(struct dm_target *ti, unsigned int argc, char **argv)
- 	hash_position = v->hash_start;
- 	for (i = v->levels - 1; i >= 0; i--) {
- 		sector_t s;
-+		unsigned int shift = (i + 1) * v->hash_per_block_bits;
- 
- 		v->hash_level_block[i] = hash_position;
--		s = (v->data_blocks + ((sector_t)1 << ((i + 1) * v->hash_per_block_bits)) - 1)
--					>> ((i + 1) * v->hash_per_block_bits);
-+		if (shift >= 64)
-+			s = 1;
-+		else
-+			s = ((v->data_blocks - 1) >> shift) + 1;
- 		if (hash_position + s < hash_position) {
- 			ti->error = "Hash device offset overflow";
- 			r = -E2BIG;
+base-commit: 2268d837dea13a78639fa3dad60472bb67478709
 -- 
-2.56.0
+2.56.1
 
