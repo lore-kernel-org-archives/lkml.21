@@ -1,81 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.37.255.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795457885;
-	b=IL/Y6zMdx5y66dEh3f6//o7s7xgV06neyzzu84+wXrsXho8XEF8JMkFB1MKv8vX6xuYc
-	 GWajnLatVF6m/UOr9RYGdl5ULxDmgjbkCqL95pWGI3LBJjaSB7yFGf3FsgAhz10tdgX/+
-	 eHPMXj51p0xEgC7WyTbujRyxu+UvLm3odzqruzqEWq+XDozyNdW7DxORPs+mGfQOkOEA4
-	 f8regz4T2PAFRe7xZ84EFsCnTFbAFe9RItGMck5lmI0T5Y1dCVwF12xAFOmVk4H9ETEUi
-	 ODhVHBBWmWnUMUjVCdOhTKAPuLg2DFeAq52cjSZj+wr5XLMt781ksezrT+MYT4s7Saw==
+	t=1795457887;
+	b=dUPhqbFGXBYPaJVUuTI4CvxhT5fkwkOILKDErd84V4sLdLOJxT/Sm+3XpTQVZ9fG16Nu
+	 FoDlVEW5K3MznvdiVDq5c3/+Wy5G/bXQDvwbLOYkPDPAeuMLUc2oj6r4tuDiZqYV47O6C
+	 HyA+nLQg0o0BcXd5JAVtSSIcKqLxg6Bg2Yb2MtPcBRhPaLkctlKW4CtSMbikafyXWVV/p
+	 kTTTd8hJPysYdNDjIyGz7e8UwvopnCMeG/VDlTt3Dv1RIKhpki75Z3VGOSSZZRn/iW7cr
+	 lsNVAWX00eECym/id0/NBLnsZIdhCUajSAI32cxtGJMaFiUVYaiTvTQEt4w/QIyQZTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795457885;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Gg+ehJ2HGC9dWPUKwLePbwD9mlm6IlQD+RPBdGpC4C4=;
-	b=HcXtj/7WwfXIF8F5oLrY4s38DMhtjrM+Kg+eVvimm+gch3xYp6D/WARbO89/3VbQumBk
-	 wYBzybe/k1GssYyWpmixDo+123ngZ5gjC0uK5JYka46lTm04PE83Ib9u2VD1Gj/+iC10A
-	 H0Dc/v/DOx3a19jHpi/sGSX0SCbXjv66wXiEojTDRY5Ouz/bFhMXWHsbqI1whEeBHWx32
-	 nh4rf9LJj7mRny362u1MIw0WxVSwvbpgTvBfAoRZ2ksiq+2Q2+nKG2IxaIsvQ3sgsDand
-	 7afICXPMJ2WbQ7nGsGa9rW3ky0Q9se82kXJ8VJ4W/jQrB00+NLBlMrt9sxqHph4CSTw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795457887;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
+	 Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Date:
+	 From:To:Cc:Subject:Organization:In-Reply-To:References:Message-ID:
+	 X-Sender:User-Agent:X-Spam-Status:X-Spam-Checker-Version:X-purgate-ID:
+	 X-purgate-type:X-purgate;
+	bh=sb2eexXkaePTkOjZScatsgbEjOUnIQ9erSIOfnFWnj4=;
+	b=2rE7Y7pueRGglVCIljlNctK5YLW0H1fCodajck7X9Xay9jt+PqWov3HgybSodo7zhG01
+	 kkt1ZNdk+vL4QYZXbtn48vykl9OmLqEFMz9FNjxu2ZA2Af0cds10LvsWr3wwHHnMoZYjz
+	 UhMtRpKlEX8N1Idb6Sy2EUSgr2VUxge2JbIuxQfSpr1u08UDUFDJWOawmeb/elQbIh+uT
+	 jtT24o/tMNrpWQYRcF0IYGz2L/Y+6iIoWCeojlNOdUR1VXeIj8rT2zo8wkGLuC6QyMRNY
+	 HLXtWmsR4n3ejVdLr0xftm1miIKEUjvRdedOEZXVisdpEud8FJZIruBDxgJ7RBMHBDg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Yg1dfb+N;
-	arc=none smtp.remote-ip=198.175.65.15
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
+	dmarc=pass header.from=dev.tdt.de;
+	spf=pass smtp.mailfrom=dev.tdt.de;
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=nX44UOb2;
+	arc=none smtp.remote-ip=194.37.255.70
+Received: from mxout70.expurgate.net (mxout70.expurgate.net [194.37.255.70])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24FB960A2638;
-	Mon, 23 Nov 2026 18:18:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24FB960A2638
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA454606A6BC;
+	Mon, 23 Nov 2026 18:18:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA454606A6BC
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Yg1dfb+N
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795457885; x=1826993885;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=tVs1toSb8l0V5BYa07sP0WKwxQSV0Fe6SzcqIQLr7oI=;
-  b=Yg1dfb+NhzA6aLRr6i0BSiA3RXqbGiAeeiDyhEmOdgpTtOklzLKjf6yU
-   jDCHvXtNxv1wvmNVaE9RWiEMOzjDbj1x6WTNpN/stY0ap/Ip9BXoZSXwR
-   IY7m/ZDNlJiCv1REVNk3ZBq9q4AwJ+yr3uzhddHdZr5dWfQVwJWtAb9RA
-   JD6k6wU4vEfmlxzgMirrkg5T1MmOI8MmRtA9lWIM1aXpT3SS4ylcMb485
-   LBZT2rkPWYPo3jwfxFz5+DRfzwdJuQYohlSdd860f2tuEuN9g3GKcPdaj
-   0NOAl3+EjFzGon0riKvopV0xy+p23jRLmQWhQF95m0qm1CrNLyHBUeOKw
-   A==;
-X-CSE-ConnectionGUID: Vg0cS1uZSGig3pND5PJDvQ==
-X-CSE-MsgGUID: LnFWXH27TWi9AiKVOEbpEg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4288804"
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="4288804"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 10:05:15 -0800
-X-CSE-ConnectionGUID: CNHjlh6cS6SwWTy8pG4jcA==
-X-CSE-MsgGUID: e5e4A6LGQ1iIs3VVB3e/Iw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="11241096"
-Received: from chang-linux-3.sc.intel.com (HELO chang-linux-3) ([172.25.66.174])
-  by orviesa004.jf.intel.com with ESMTP; 23 Nov 2026 10:05:15 -0800
-From: "Chang S. Bae" <chang.seok.bae@intel.com>
-To: seanjc@google.com,
-	jmattson@google.com
-Cc: pbonzini@redhat.com,
-	kvm@vger.kernel.org,
-	x86@kernel.org,
-	linux-kernel@vger.kernel.org,
-	zhao1.liu@intel.com,
-	chang.seok.bae@intel.com
-Subject: [PATCH v10 07/20] KVM: VMX: Remove unused control-register access defines
-Date: Mon, 23 Nov 2026 17:37:19 +0000
-Message-ID: <20261123173732.1072124-8-chang.seok.bae@intel.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261123173732.1072124-1-chang.seok.bae@intel.com>
-References: <20261123173732.1072124-1-chang.seok.bae@intel.com>
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=nX44UOb2
+Received: from [194.37.255.9] (helo=mxout.expurgate.net)
+	by relay.expurgate.net with smtp (Exim 4.92)
+	(envelope-from <prvs=68018334f9=ms@dev.tdt.de>)
+	id 1xVYbt-00AONN-9e; Mon, 23 Nov 2026 19:17:49 +0100
+Received: from [195.243.126.94] (helo=securemail.tdt.de)
+	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ms@dev.tdt.de>)
+	id 1xVYbs-00HHgh-3G; Mon, 23 Nov 2026 19:17:48 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
+	s=z1-selector1; t=1795457867;
+	bh=sb2eexXkaePTkOjZScatsgbEjOUnIQ9erSIOfnFWnj4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=nX44UOb2cGgRFZnvs2cN2i7OqLCp9oqBHsDqkv4xfJwCHFb/qD1aMOxG+LiJ/NFLf
+	 V1WRfTTvFXGtyJ1wqvay4GtvlFYus8KGWcT/IhS6paQuxogwtss4cLqw6ufYgbwHK0
+	 X8JjOshBdjKB3BThokAEh/9u+ovFoTUgCmiRaFa3P4mkIZP/GDd2nwzyHif7S0pcVf
+	 IZs+ycQnGHiI7mTYKxZSw4rSpdQ+OswVhARbx/xV6la46rBleP+rI6LjEjdEpzR1VL
+	 gx2jhGkw7/+iPMbreZKZb8mf9QN9jG0RQw7fS2VuDV20o+ohxU1g531mTELAwusKVi
+	 vFrR6QO394wcA==
+Received: from securemail.tdt.de (localhost [127.0.0.1])
+	by securemail.tdt.de (Postfix) with ESMTP id 54543240040;
+	Mon, 23 Nov 2026 19:17:47 +0100 (CET)
+Received: from mail.dev.tdt.de (unknown [10.2.4.42])
+	by securemail.tdt.de (Postfix) with ESMTP id 4BF1C240036;
+	Mon, 23 Nov 2026 19:17:47 +0100 (CET)
+Received: from mail.dev.tdt.de (localhost [IPv6:::1])
+	by mail.dev.tdt.de (Postfix) with ESMTP id DD6C32AE6F;
+	Mon, 23 Nov 2026 19:17:46 +0100 (CET)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,49 +71,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Date: Mon, 23 Nov 2026 19:17:46 +0100 (CET)
+From: Martin Schiller <ms@dev.tdt.de>
+To: benquike@gmail.com
+Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	pabeni@redhat.com, linux-x25@vger.kernel.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] net: lapb: fix uninitialized stack frame fields in
+ lapb_decode()
+Organization: TDT AG
+In-Reply-To: <179018861262.2160803.7893822871484169869@kernel.org>
+References: <20260919213639.3314894-1-benquike@gmail.com>
+ <179018861262.2160803.7893822871484169869@kernel.org>
+Message-ID: <4b13f8daeb814d4efbd04427debc1013@dev.tdt.de>
+X-Sender: ms@dev.tdt.de
+User-Agent: Roundcube Webmail/1.3.17
+X-purgate-ID: 151534::1795457868-7855AB36-53AC6A50/0/0
+X-purgate-type: clean
+X-purgate: clean
 
-CONTROL_REG_ACCESS_REG becomes misleading with EGPRs. Rather than leave
-stale, unused definitions behind, remove them all.
+On Wed, 23 Sep 2026 20:36:52 +0200, netdev-bot wrote:
+> - [Medium] The second justification in the commit message is factually
+>   wrong.
+> - [Medium] The patch bundles an orthogonal receive-path acceptance-policy
+>   change into what is presented as an uninitialized-memory fix.
 
-Signed-off-by: Chang S. Bae <chang.seok.bae@intel.com>
-Reviewed-by: Jim Mattson <jmattson@google.com>
----
- arch/x86/include/asm/vmx.h | 19 -------------------
- 1 file changed, 19 deletions(-)
+I agree with both points. frame->cr is really left uninitialized for
+an unexpected address byte, and it is used by lapb_check_need_response()
+and lapb_transmit_frmr(), so zeroing the frame is the right fix for
+net. control[1], however, is always set in extended mode and never sent
+in standard mode.
 
-diff --git a/arch/x86/include/asm/vmx.h b/arch/x86/include/asm/vmx.h
-index e49b836c7313..def6d3a6d154 100644
---- a/arch/x86/include/asm/vmx.h
-+++ b/arch/x86/include/asm/vmx.h
-@@ -453,27 +453,8 @@ enum vmcs_field {
- /*
-  * Exit Qualifications for MOV for Control Register Access
-  */
--#define CONTROL_REG_ACCESS_NUM          0x7     /* 2:0, number of control reg.*/
--#define CONTROL_REG_ACCESS_TYPE         0x30    /* 5:4, access type */
--#define CONTROL_REG_ACCESS_REG          0xf00   /* 10:8, general purpose reg. */
- #define LMSW_SOURCE_DATA_SHIFT 16
- #define LMSW_SOURCE_DATA  (0xFFFF << LMSW_SOURCE_DATA_SHIFT) /* 16:31 lmsw source */
--#define REG_EAX                         (0 << 8)
--#define REG_ECX                         (1 << 8)
--#define REG_EDX                         (2 << 8)
--#define REG_EBX                         (3 << 8)
--#define REG_ESP                         (4 << 8)
--#define REG_EBP                         (5 << 8)
--#define REG_ESI                         (6 << 8)
--#define REG_EDI                         (7 << 8)
--#define REG_R8                         (8 << 8)
--#define REG_R9                         (9 << 8)
--#define REG_R10                        (10 << 8)
--#define REG_R11                        (11 << 8)
--#define REG_R12                        (12 << 8)
--#define REG_R13                        (13 << 8)
--#define REG_R14                        (14 << 8)
--#define REG_R15                        (15 << 8)
- 
- /*
-  * Exit Qualifications for MOV for Debug Register Access
--- 
-2.53.0
+Hui, please send a v2 for net, as a new thread with [PATCH net v2] in
+the subject, that only adds the memset() and describes this effect,
+including how you found the issue. Please drop the Assisted-by: line;
+checkpatch rejects it, and tool details can go below the "---" line.
 
+Rejecting frames with an unexpected address byte is a separate
+behavioural change: such frames are then dropped silently, and a peer
+with a mismatching configuration can no longer bring the link up.
+Discarding them matches ISO 7776, as the review notes, so I'm open to
+that as a separate patch for net-next, with the consequence spelled out
+in the commit message and ideally a lapb_dbg() message for the dropped
+frame.
