@@ -1,116 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.97
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795428478;
-	b=E9hi2Td9GRhRNBVu7jCEssBNhKAOaveqTZRl3TnYexQSf8LrVgA4f3WZNFgOSEizuQo6
-	 kj5qMfT7vXBp8DJsGRFKAO+yUCxf8Jd47/NmqWA7cbDJgRL00SJcYTvPgbZwgUCi0RwBR
-	 608BCaKgSJc5talOrzTp5jZiAPaV2ERaclJS6ZHqcIgG/3e8FmtSIUuYQbuWHqqblI5cG
-	 V+sNaSyFVeMmtm/mnQpWB3jyJdyRCjqY/1Zhwt3q4PoRI74BNuoH2C3comAX27lTq44iN
-	 c0rDAgFirOrPpNSTdDOBc8LYMWlDzFHITn+G2jTF+hN3Hs48LJxTI1pMH35/K0GRvGw==
+	t=1795428481;
+	b=W/kTUlGLMtV8vTbzRHq/XANZJI3JacyfpdKjCHTnBtwzxxokmyUYtQezRPGIVsH709Sl
+	 GIo+qNpDIv60bQDwTAo6lH9FPD5fmtNNlcuKTLdrZzAK7tkplw9B5UmKlwO2ALabtwu+Q
+	 OBso2bXtCOTuh3Lt7zijHpvT1J0Mrw31Wgppr6fEdpGYXrNSS7BBIyIq9RG6TrjXRQcMd
+	 tP3zz+zV5aY6VI065KEAYkdwWVR++zSl2PwQMPVOz5tfQDOXsaPkhVmIkyHXRhCFYAKzZ
+	 Vj0GDkidr0IzqI1uJTVJGp6iRu3Fm7TNN26/5J0l1jEA1G1fpWsZC0+FbmiUxui1K1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795428478;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=qp8AGd60G0fwr6K2rygdNI5NkaIRDQZvwIb0BjBfWEQ=;
-	b=4TPN9OTlznE8pMZgvvY3RadR40QwUh8IwjGUMJ9w6qsBsYuzE3RkLq04XkOFEbiRIlv4
-	 u8IB3T5+7Z/aSmaXOKopzL+aw0zSWFs4QaaqCwvCNf65hLhpF1ln32h8pkvoYZ7pGqUID
-	 Yi5lcSmPs5174Hedgoi3ceb8ILVfdHmd8pUEEy0O12srVxJuICN7PZ8qp9ehNLuKvnZmI
-	 5Jniw8CxtafwhJkPJx3gSunACwsex0uRJrC14+mRN/JQ70MGQF4HnYssRJAW7N1kiYue/
-	 mdM8clwmQ0UTKN+WmaeR9vAOwJP3cwJn45wFRyfHm8tYs/7ccYpRgoa6PtWBtvPtNhg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795428481;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:References:Content-Language:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=67tZReiAmccfro7V78InGAMSxE7OljbX/UBov1pMLUQ=;
+	b=GvlmlVKFYe6gMba3arWS65O98Ls7U2BB3OsJD5c8uw426Vq2VeSAgnc2iq6Dh/RAOjOA
+	 tJDNEPRgoI45HWZi4+gn9Tkg1FOFNdvIVZkclbwSFwW9O46rwd7grxt3JRT//ISZFQZlo
+	 1YgjGxa+pXHykaqlQU5juipWjl8NMqLtj4JVtGvLzZrrGzeSAXIc5A55NdwTK9GXQfy7N
+	 cfhMEibkipFkOww2qXfq9YXxj5IVcSjbDMGI+LT7WyNUw11KIXb703ffapf/H9CEuIIfu
+	 XKU68cp404lyJ50u70RYowRHYojj9k2gal6HIoG5qsKu/esM9WAjMpN0bopycfNFp5g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=I7VoXzwt;
-	arc=none smtp.remote-ip=209.85.217.97
-Received: from mail-vs1-f97.google.com (mail-vs1-f97.google.com [209.85.217.97])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDAD3606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:07:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDAD3606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=JRaIzEyL;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id BB5BB606A32E;
+	Mon, 23 Nov 2026 10:08:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB5BB606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=I7VoXzwt
-Received: by mail-vs1-f97.google.com with SMTP id ada2fe7eead31-7a6e560f580so1994829137.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:07:57 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795428477; x=1796033277;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=qp8AGd60G0fwr6K2rygdNI5NkaIRDQZvwIb0BjBfWEQ=;
-        b=cwOaPCugN7BsrTrtk3f5Zr/NaPbbooK63K+f5K2aSpKwXqFqR38W42VSdJFP7Xa6mz
-         fr7CwjXRCwELy4MWM6pEGyZs+ClDchbsJWVvPYrBfltqhzna58w8XYUrKWZ7IMslhogP
-         EV1TP2wN13yxpZBh8JEt3pzNmiQkJL9F1v0xVtCqvkYBKM5hPErVAlkDW/rwgCwGxPzk
-         7Q+wDtcD9+rU15r48W3SD811dRLRxtx2ERyAYAgwQZr6vUbPdp3id1auMe5iBRgM0/Nh
-         B7lYg00yg0n4pqzUoNJd3Vyn08kVMGtUxtAJ+D6z6k5StvnFErkdM8KqGcQzyBifDrXK
-         gygw==
-X-Forwarded-Encrypted: i=1; AL+hErFk+htQCAF7Websd2qmWzsrxugh0sk1AhVFLt3G4Ro7bl73mbCOVnxARCLKepGkKPmEEmUWbCN4MKGy+ls=@vger.kernel.org
-X-Gm-Message-State: APuU4Z93WS6QvDVpYEt5U9iiBvTyNo8HKU4jXzCZ+lYBCMaUnrhFus6M
-	A1u0QglZigalrr0xuHOBAUHMEsmSZghzxxk7CnQlwk8Q7/vnd5bMqkj50jO8O/xmKNdLZA4SNO4
-	4nQycrlT3mkP6OCmtbLLkgGCbXUJiTWflyEzPRMib4HZ3QMT/p49x5wExSvhiWPUMva8hq1Cztd
-	lF/CRCzL1K6UAaXwa+/KFGVmZseHsWn4Scbn9F1o9IFBLGC7PIp+RoEOq25EgzYRYiZeyez24XT
-	/GcQBYXUJZFeIxOtw==
-X-Gm-Gg: AZFdTZfiJplLbxM7Kq4wWGR8g2D1aD47r6s9R65iSs93/oJ5J3nCV2vpPJ8cOofqEy9
-	jSw8sPlpvw3NNeu39tk3UfmggLyUagJAlrM4GxCoXCP+EnIY1qwR8K/SJh3nHdO+e8Mexd1Yly3
-	oJFcWKe46NtoAhr/GQIsbMRfUGg5CH04qnQiGSe/XP5ARMWaHC5KZ//SoXqOLK2dzj+4YHT4sJ1
-	qmkLgb+RRkW2oMyDTQZ9oRYDATtZokbFpp15lWDdQtLRH1/kk1zt+V+0WZBE6nwq0xQxEEiQ6X8
-	3HfKA/9x3HiCciAbV7kthJOc+kfBEnD1MNYBLJRfklWrT9QoppTvP1C1tGxmmoZ6o7M+1/n9h82
-	vJKabOHYp3zlFERhKPNuBTEybrqs2lykIHGGmH4lC16VVK36P5zkQK4llrcKuc+9tUJKOpmAJ/6
-	N97WKgU64nbAF/bqNV+vyVLREuB8vRHSlZNSWo
-X-Received: by 2002:a05:6102:26c7:b0:7d2:7be1:271f with SMTP id ada2fe7eead31-7d7395b6953mr5233399137.31.1795428476691;
-        Mon, 23 Nov 2026 02:07:56 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-100.dlp.protect.broadcom.com. [144.49.247.100])
-        by smtp-relay.gmail.com with ESMTPS id a1e0cc1a2514c-99e6e18453bsm1101783241.17.2026.11.23.02.07.56
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 23 Nov 2026 02:07:56 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-386a65fca25so1586009eec.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:07:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795428475; x=1796033275; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qp8AGd60G0fwr6K2rygdNI5NkaIRDQZvwIb0BjBfWEQ=;
-        b=I7VoXzwtQlg5pmB5087pm38P1xTQpX5rXeL2rUffdJo9sTiMDtu0Y1lPsJ0+VY8hsS
-         XX0Be/MKn2HVzjXXFO7algLoR6FvPsoIfzjly9031q93RuDL6T/B9Vxr7YOFwF4s8VES
-         YylM+zNq0OaGHJbKc/eNUGfyyYXUUH4aTSN/M=
-X-Forwarded-Encrypted: i=1; AL+hErFCC+KeG6VhtS4+0ytVaRUDNCbPoji+ZzOneZ7oWtksYOjtl26xpAvVpIU4Kqh0rM/BnD731tMrsT3XymA=@vger.kernel.org
-X-Received: by 2002:a05:693c:65c1:b0:386:9cae:abef with SMTP id 5a478bee46e88-3869caeeec6mr7677507eec.36.1795428475357;
-        Mon, 23 Nov 2026 02:07:55 -0800 (PST)
-X-Received: by 2002:a05:693c:65c1:b0:386:9cae:abef with SMTP id 5a478bee46e88-3869caeeec6mr7677483eec.36.1795428474712;
-        Mon, 23 Nov 2026 02:07:54 -0800 (PST)
-Received: from H5-S1 ([192.19.203.250])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b9bdafb5sm1084358eec.9.2026.11.23.02.07.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 02:07:54 -0800 (PST)
-From: Vikas Gupta <vikas.gupta@broadcom.com>
-To: davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	andrew+netdev@lunn.ch,
-	horms@kernel.org
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bhargava.marreddy@broadcom.com,
-	rahul-rg.gupta@broadcom.com,
-	vsrama-krishna.nemani@broadcom.com,
-	rajashekar.hudumula@broadcom.com,
-	dharmender.garg@broadcom.com,
-	ajit.khaparde@broadcom.com,
-	Vikas Gupta <vikas.gupta@broadcom.com>
-Subject: [PATCH net-next v9 00/10] add features to bnge
-Date: Mon, 23 Nov 2026 15:37:36 +0530
-Message-ID: <20261123100746.1975030-1-vikas.gupta@broadcom.com>
-X-Mailer: git-send-email 2.52.0
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=JRaIzEyL
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 487AE143D;
+	Mon, 23 Nov 2026 02:07:57 -0800 (PST)
+Received: from [10.211.55.3] (unknown [10.57.19.170])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 651503F632;
+	Mon, 23 Nov 2026 02:07:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795428480; bh=QVXBlIefBZPointXxaRzc2jD52YkQS1Z6DNTJkOu+io=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=JRaIzEyLQfF2kOuqCNZ3ljg3eAMMFUtXDMSaNFDatW+zqJ45uXCkodYqO02yDmJR/
+	 DhMOxeqFehW5Nn7Jxc/A+2Lt+WqM+jfrB+1JX5E9ziZD6oPmNlx6xaENHCLufTb/HY
+	 uTwxa3mz1c0HsFCWrbIwhn+uwWdu+6t6irDhLYNI=
+Message-ID: <03bd150c-f44a-4ae6-b544-3f819e4bb7f2@arm.com>
+Date: Mon, 23 Nov 2026 10:07:47 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,114 +53,222 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v6 5/6] fs/resctrl: Release the limbo RMIDs when the CDP
+ state changes
+To: Jinjie Ruan <ruanjinjie@huawei.com>, tony.luck@intel.com,
+ reinette.chatre@intel.com, Dave.Martin@arm.com, james.morse@arm.com,
+ babu.moger@amd.com, corbet@lwn.net, skhan@linuxfoundation.org,
+ rdunlap@infradead.org, bp@alien8.de, tan.shaopeng@fujitsu.com,
+ gshan@redhat.com, jic23@kernel.org, fenghuay@nvidia.com,
+ zengheng4@huawei.com, x86@kernel.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org
+References: <20261119094858.813874-1-ruanjinjie@huawei.com>
+ <20261119094858.813874-6-ruanjinjie@huawei.com>
+ <6dd79d09-576b-4086-ba5c-7f8663292a6e@arm.com>
+ <390433eb-30d8-442a-8d7e-30f15bbe8f9d@huawei.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <390433eb-30d8-442a-8d7e-30f15bbe8f9d@huawei.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-Hi,
+Hi Jinjie,
 
-This series adds ntuple filter, RSS context, and flow steering
-support to bnge driver.
-Patch 1 is a pure refactor (no functional change) that relocates the
-filter and VNIC related code into the appropriate files. Patch 7 drops
-the refcount usage from L2 filters, also with no functional change.
-The subsequent patches then add the ethtool commands for configuring 
-ntuple flows and RSS contexts.
+On 23/11/2026 01:53, Jinjie Ruan wrote:
+> 
+> 
+> 在 2026/11/20 0:49, Ben Horgan 写道:
+>> Hi Jinjie,
+> 
+> Hi Ben,
+> 
+>>
+>> On 19/11/2026 09:48, Jinjie Ruan wrote:
+>>> On MPAM the counter of an RMID is selected by the PARTIDs of the CLOSID
+>>> that owned it. Without CDP, CLOSID c is PARTID c; with CDP it is
+>>> PARTIDs 2c and 2c+1. An RMID that stays in limbo across an unmount and
+>>> a mount that changes the CDP state is read through the PARTIDs of the
+>>> new state, which are not the PARTIDs its cache lines are tagged with.
+>>>
+>>> With 5 PARTIDs:
+>>>
+>>>   mount                  CDP off, CLOSID c -> PARTID c
+>>>   mkdir g1..g4           CLOSIDs 1..4
+>>>   umount                 RMIDs enter limbo with CLOSIDs 1..4
+>>>   mount -o cdp           CDP on, CLOSID c -> PARTIDs 2c, 2c+1
+>>>   limbo handler          reads CLOSID 2 as PARTID 5 > PARTID_MAX 4
+>>>                          MSC error interrupt, mpam_disable()
+>>>
+>>> The other direction is worse because nothing reports it. If resctrl is
+>>> mounted with CDP and mounted again without it, CLOSID c is read as
+>>> PARTID c, which is in range, so the limbo handler silently tests the
+>>> occupancy of the PARTID of a different CLOSID and frees or keeps the
+>>> RMIDs based on it.
+>>>
+>>> Where the RMID depends on the CLOSID, as on MPAM, release the RMIDs in
+>>> limbo without reading them when a mount changes the CDP state, instead
+>>> of restarting the limbo handler. Cache lines that still carry those
+>>> RMIDs are accounted to the next user of each RMID. Where the RMID does
+>>> not depend on the CLOSID, as on x86, the CDP state does not change how
+>>> an RMID is read and the limbo handler is restarted as before.
+>>>
+>>> Compare the CDP state of every resource, not just the L3: on MPAM, CDP
+>>> enabled on any resource gives every CLOSID two PARTIDs in all MSCs, so
+>>> mounting with -o cdpl2 alone also changes how the L3 monitors read a
+>>> CLOSID, and cache levels beyond the L3 would too.
+>>>
+>>> Reproduced on QEMU with the sequence above:
+>>>
+>>>   mpam:__mpam_irq_handler: error irq from msc:1 'MSMONCFG_ID_RANGE', partid:5, pmg: 0, ris: 0
+>>>   mpam:mpam_disable: MPAM disabled due to hardware error interrupt
+>>>
+>>> With the change the sequence completes without an error.
+>>>
+>>> Fixes: 6789fb99282c ("arm_mpam: resctrl: Add CDP emulation")
+>>> Suggested-by: Ben Horgan <ben.horgan@arm.com>
+>>> Suggested-by: Reinette Chatre <reinette.chatre@intel.com>
+>>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>>> Cc: <stable@vger.kernel.org>
+>>> ---
+>>> v6:
+>>> - Drop resctrl_arch_mon_cdp_enabled() and compare the CDP state of
+>>>   every resouce's cdp state, with a comment on why they are
+>>>   checked (Reinette, Ben).
+>>> - Restrict the release to the systems where the RMID depends on the
+>>>   CLOSID, in the changelog and the comments, and keep the hardware IDs
+>>>   out of the file system comments (Reinette).
+>>> - Reword the limbo_cdp_enabled comment (Reinette).
+>>> - Drop the stable version range, the Fixes tag already gives it.
+>>> v5:
+>>> - Split the change of the limbo handler lifetime into the previous
+>>>   patch. The limbo handler now stops while resctrl is unmounted on every
+>>>   architecture, and only the release of the RMIDs depends on
+>>>   CONFIG_RESCTRL_RMID_DEPENDS_ON_CLOSID.
+>>> - Drop the cqm_work_cpu changes. resctrl_limbo_resume() cancels the
+>>>   worker before it queues it again or releases the RMIDs.
+>>> - Move the rdt_disable_ctx() reordering to a separate patch.
+>>> - Add resctrl_arch_mon_cdp_enabled() instead of comparing the CDP state
+>>>   of L2 in the file system.
+>>> - Rename limbo_cdp to limbo_cdp_enabled and document that it is only set
+>>>   with CONFIG_RESCTRL_RMID_DEPENDS_ON_CLOSID.
+>>> - Check QOS_L3_OCCUP_EVENT_ID first and drop the rmid_busy_llc check.
+>>> - Use lockdep_assert_cpus_held() at the start of resctrl_limbo_resume().
+>>> - Describe the reverse sequence, from CDP on to CDP off.
+>>> - Link to v4: https://lore.kernel.org/all/20261105070934.2258613-4-ruanjinjie@huawei.com/
+>>> v4:
+>>> - Use resctrl_mounted instead of a separate limbo_paused flag.
+>>> - Record the CDP state once when resctrl is mounted.
+>>> - Add resctrl_limbo_resume(), called once resctrl_mounted is set.
+>>> - Previous Link: https://lore.kernel.org/all/20261031094616.1691026-1-ruanjinjie@huawei.com/
+>>> ---
+>>>  fs/resctrl/monitor.c | 35 +++++++++++++++++++++++++++++++++--
+>>>  1 file changed, 33 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/fs/resctrl/monitor.c b/fs/resctrl/monitor.c
+>>> index ede1708b920e..2c8c60138768 100644
+>>> --- a/fs/resctrl/monitor.c
+>>> +++ b/fs/resctrl/monitor.c
+>>> @@ -70,6 +70,13 @@ static u32 *closid_num_dirty_rmid;
+>>>   */
+>>>  static unsigned int rmid_limbo_count;
+>>>  
+>>> +/*
+>>> + * @limbo_cdp_enabled - True if the RMIDs in limbo were placed there while CDP
+>>> + *     was enabled. Only used when CONFIG_RESCTRL_RMID_DEPENDS_ON_CLOSID is
+>>> + *     defined.
+>>> + */
+>>> +static bool limbo_cdp_enabled;
+>>> +
+>>>  /*
+>>>   * @rmid_entry - The entry in the limbo and free lists.
+>>>   */
+>>> @@ -1044,12 +1051,15 @@ int setup_rmid_lru_list(void)
+>>>   * cqm_resume_limbo_handler() - Restart the limbo handler after a mount.
+>>>   *
+>>>   * The limbo handler stops while resctrl is unmounted. Restart it on every
+>>> - * domain that still has RMIDs in limbo.
+>>> + * domain that still has RMIDs in limbo. Where the RMID depends on the CLOSID
+>>> + * and the mount changed the RMID index a CLOSID is monitored with, the RMIDs
+>>> + * in limbo can no longer be read: release them instead.
+>>>   */
+>>>  void cqm_resume_limbo_handler(void)
+>>>  {
+>>>  	struct rdt_resource *r = resctrl_arch_get_resource(RDT_RESOURCE_L3);
+>>>  	struct rdt_l3_mon_domain *d;
+>>> +	bool release = false;
+>>>  
+>>>  	lockdep_assert_cpus_held();
+>>>  	lockdep_assert_held(&rdtgroup_mutex);
+>>> @@ -1057,6 +1067,24 @@ void cqm_resume_limbo_handler(void)
+>>>  	if (!r->mon_capable || !resctrl_is_mon_event_enabled(QOS_L3_OCCUP_EVENT_ID))
+>>>  		return;
+>>>  
+>>> +	/*
+>>> +	 * Where the RMID depends on the CLOSID, the RMIDs in limbo can only
+>>> +	 * be read with the CDP state they were freed under. Check every
+>>> +	 * resource because CDP enabled on any resource changes how every
+>>> +	 * CLOSID is monitored, so CDP on another resource alone also changes
+>>> +	 * how the L3 monitors are read.
+>>> +	 */
+>>> +	if (IS_ENABLED(CONFIG_RESCTRL_RMID_DEPENDS_ON_CLOSID)) {
+>>> +		struct rdt_resource *res;
+>>> +		bool cdp_enabled = false;
+>>> +
+>>> +		for_each_rdt_resource(res)
+>>> +			cdp_enabled |= resctrl_arch_get_cdp_enabled(res->rid);
+>>> +
+>>> +		release = cdp_enabled != limbo_cdp_enabled;
+>>> +		limbo_cdp_enabled = cdp_enabled;
+>>> +	}
+>>> +
+>>>  	list_for_each_entry_rcu(d, &r->mon_domains, hdr.list,
+>>>  				lockdep_is_cpus_held()) {
+>>>  		if (!has_busy_rmid(d))
+>>> @@ -1067,7 +1095,10 @@ void cqm_resume_limbo_handler(void)
+>>>  		 * it is queued again on a CPU picked now.
+>>>  		 */
+>>>  		cancel_delayed_work(&d->cqm_limbo);
+>>> -		cqm_setup_limbo_handler(d, 0, RESCTRL_PICK_ANY_CPU);
+>>> +		if (release)
+>>> +			release_limbo_rmids(d);
+>>
+>> Rather than release all the rmids don't we want to check them all to see which are busy?
+> 
+> We can not read them here using resctrl_arch_rmid_read(). On MPAM, the
+> RMID occupancy is read through the PARTID of its CLOSID, and the CDP
+> state maps one to the other.
+> 
+> After the mount operation flips the CDP, this mapping disappears, so the
+
+Yes, the old indexing becomes invalid. The user visible effects of limbo
+handler running between mounts should be maintained. As such, if the
+limbo handler can't just be simply resumed I would expect that the array
+of dirty rmid was recreated. If we put all the rmid (except for the
+default rmid) in the dirty rmid array then the limbo handler will take
+care of releasing those that are free. How does this sound to you?
 
 Thanks,
-Vikas
 
-v8-v9:
-    - Addressed valid comments from Sashiko
-      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116140653.1685797-1-vikas.gupta%40broadcom.com
-      https://sashiko.dev/#/patchset/20261116140653.1685797-1-vikas.gupta%40broadcom.com
+Ben
 
-v7-v8:
-    - Addressed valid comments from Sashiko
-      https://sashiko.dev/#/patchset/20261114074742.1484603-1-vikas.gupta%40broadcom.com	
-
-v6-v7:
-    - Addressed valid comments from Sashiko
-      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261106093524.838341-1-vikas.gupta%40broadcom.com
-      https://sashiko.dev/#/patchset/20261106093524.838341-1-vikas.gupta%40broadcom.com
-
-v5->v6:
-    - Addressed comments from Sashiko
-      https://sashiko.dev/#/patchset/20261103123651.442893-1-vikas.gupta%40broadcom.com
-    - Fix inline keyword use in C file.
-
-v4->v5:
-    - Addressed comments from Sashiko
-      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260928061307.1172344-1-vikas.gupta%40broadcom.com
-
-v3->v4:
-    - Addressed comments from Sashiko
-      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917064548.773334-1-vikas.gupta%40broadcom.com
-      https://sashiko.dev/#/patchset/20260917064548.773334-1-vikas.gupta%40broadcom.com
-    - The patch count drops to 10 now that the HSI patches have been merged.
-
-v2->v3:
-   - Build fix.
-   - Addressed comments from Sashiko
-    https://sashiko.dev/#/patchset/20260908093053.2596020-1-vikas.gupta%40broadcom.com
-    Below Sashiko comments are not valid:
-     Patch-8: 
-                Comment under bnge_toeplitz().
-                 Explanation: bnge_toeplitz() is not used for aRFS.
-     Patch-9:
-                Comment regarding bnge_clear_usr_fltrs().
-                 Explanation:
-                  Both bnge_clear_usr_fltrs() (only invoked while the
-                  interface is down) and bnge_grxclsrule() execute
-                  under the netdev instance lock, so they are
-                  serialized and never touch the filter list at the 
-                  same time.
-      Patch-10: 
-                Comment "Does this direct dereference of the MAC
-                header need a linearization ...".
-                 Explanation: ndo_rx_flow_steer runs on the RX path
-                after eth_type_trans(), which already accesses and
-                pulls the Ethernet header.
-
-                Comment Related to bnge_cfg_ntp_filters().
-                 Explanation:
-                   bnge_cfg_ntp_filters() runs from bnge_sp_task(),
-                   which holds the netdev instance lock while executing.
-v1->v2:
-   - Build fixes.
-   - Addressed comments from Sashiko
-   https://sashiko.dev/#/patchset/20260814011435.194631-1-vikas.gupta%40broadcom.com
-
-Vikas Gupta (10):
-  bnge: restructure VNIC and filter code
-  bnge: add NTUPLE/ARFS VNIC
-  bnge: add helper functions for multi RSS contexts
-  bnge: add RXFH ethtool support
-  bnge: add ethtool support to manage RSS contexts
-  bnge: remove refcount from L2 filter
-  bnge: add NTUPLE filter infrastructure
-  bnge: add NTUPLE filter support in ethtool
-  bnge: add aRFS flow steering ndo support
-  bnge: add cpu_rmap support for IRQ affinity
-
- drivers/net/ethernet/broadcom/bnge/Makefile   |    4 +-
- drivers/net/ethernet/broadcom/bnge/bnge.h     |   28 +-
- .../net/ethernet/broadcom/bnge/bnge_ethtool.c | 1140 +++++++++++++++++
- .../net/ethernet/broadcom/bnge/bnge_filter.c  |  839 ++++++++++++
- .../net/ethernet/broadcom/bnge/bnge_filter.h  |  137 ++
- .../ethernet/broadcom/bnge/bnge_hwrm_lib.c    |  192 ++-
- .../ethernet/broadcom/bnge/bnge_hwrm_lib.h    |    9 +-
- .../net/ethernet/broadcom/bnge/bnge_netdev.c  |  560 +++++---
- .../net/ethernet/broadcom/bnge/bnge_netdev.h  |   94 +-
- .../net/ethernet/broadcom/bnge/bnge_resc.c    |  163 ++-
- .../net/ethernet/broadcom/bnge/bnge_resc.h    |    1 +
- .../net/ethernet/broadcom/bnge/bnge_vnic.c    |  379 ++++++
- .../net/ethernet/broadcom/bnge/bnge_vnic.h    |   96 ++
- 13 files changed, 3279 insertions(+), 363 deletions(-)
- create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_filter.c
- create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_filter.h
- create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
- create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_vnic.h
-
--- 
-2.52.0
+> read operation either accesses a PARTID greater than PARTID_MAX (i.e.,
+> the case of MMSMONCFG_ID_RANGE/mpam_disable()), or silently samples the
+> counter of another CLOSID.
+> 
+> Best regards,
+> Jinjie
+> 
+>>
+>> Thanks,
+>>
+>> Ben
+>>
+>>> +		else
+>>> +			cqm_setup_limbo_handler(d, 0, RESCTRL_PICK_ANY_CPU);
+>>>  	}
+>>>  }
+>>>  
+>>
+> 
 
