@@ -1,49 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795465319;
-	b=IuQAQXPt4e5BWTPPLo1JD1RmYRfRf6mhA+R9PHvJqGexrFcBYGOlMMJjf710ZGod4ycA
-	 8S+5c6sgiJ3jpeEoaYYgovJ6y8pM1rlYXvxuxpnQjWj0AGeM6RTX/s20AoPBrREgyjOoa
-	 ctpRmnMaRTWkBZ1d6VmJKekRnr6W9GXgUFP40qCDQ/z7y5/3is9G41YXNO796DbJBKngC
-	 Pi+aOuSCRRLD/FxpNV9qDFiJR1nwWCs1Ls2U8ISLVTFJ5QPCHd2YX0CHhMbO9i9JSRVuv
-	 MisYkXDqNxWURyeGomw5W3ojirchBxeToPr6DNFflNLw3gx68TaNA0PPjWPjaOLXElQ==
+	t=1795465346;
+	b=tKX+JVysR6Pr7cUVyak+ZO38uo5oirngFU1l+XTY7iHO03uLg4vmaELxowXIRm7X3xNt
+	 7dbQ9hOOk62jy2yfOcJfYkt9FVLXeWgw23YkNBKPpTjlj+4qb8OiCOtjph6HBWog1wGjR
+	 Of9ihCLsYs8yurhUHhO1xU3+ZdsLSmM+iT3MJ0dUZ+tmmtbsMWV4sMBtVBHlwj1Iot8Nt
+	 rM1jzhQ385PLWCJikBH5QuJp/LYbWCtX/2erq5b7lBJgWZx8tKSS7gQpCXKC70hLF833A
+	 swsUy8mRw5tatQUn90O0KpM+Mj2P75+SRyO4gRbsVkTOsAqhb8JYjrsNf/7g5YS9lqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795465319;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:References:Content-Language:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=h4UxKbAQLojN/KVPOr1a1a945ZltOlk934StUGkos6E=;
-	b=o50+fEdy53NV83vzOA+BlGkauQShxHrf/gJl051i9yRAPN5xvFh5dGYlK03pfOYw6RZg
-	 s87Yv5W4hk6XLF2KKh5KD0WWL5HhWEw/RwXDU6AaMtBH+fVu/Uo4m27/U6slTHeGoRS/e
-	 Zh16eL/9tiZUUwgHv7BKMda/5NIZRLs6lvjd6cp0ZBpuFhCVbmUiUprg/hPLQ4JO3Qic0
-	 QlO44qb3fMY5q7cb6KdxxZBmfm19gpyvwarQakewnsIuvl42gtBMurtiMCvYGran+HwHn
-	 PDtlVd6vdrZPtX9/3JsYVSA7jG6fIrxP2GVFuQtoiiPFKffwZBSsp1AMQEvyIz70YLw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795465346;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-Id:
+	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=25UVLybwoRnEcpbdXV2pFcFQ0Vqv+61x2so2s19OgUM=;
+	b=jaD2Boq/m0vTissas0mSgLSUOuJY8lUmnI3t14SMnwZJHbQeH0/bWRTS8yxvTgUu2PwQ
+	 24jGpSk2qwxnXFbUT72BdvpT/CtKIu6f6vjA3nopx5zYebiRVAb/Xg8W8LrfxLJxeN5jH
+	 vZu/S6U6uUN1Pdln9Oi+YzI5xCzRM3T6mB64xN/o2U9XTE17zPJJmvxa1SBWAb0TsOv13
+	 BRL84MTnkiorTpefRLJ1n63aJ/mSpU5eUdjsIBD4TcdUZLzm03FqXXRh60wc/XfKg5Hpb
+	 Th1hcah9aA/yT7m3hOCo98DUIFU41m/n2Z6Yp0RmeA5WjB7JgnNQaqFoQgKaabfk9PQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=HbwdiBoR;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9FABC606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:21:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FABC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=DwAC8cHH;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90CCB606A31E;
+	Mon, 23 Nov 2026 20:22:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=HbwdiBoR
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5E32143D;
-	Mon, 23 Nov 2026 12:21:54 -0800 (PST)
-Received: from [10.211.55.3] (unknown [10.57.19.170])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CAA053F632;
-	Mon, 23 Nov 2026 12:21:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795465317; bh=WYq9hPNOLFnUwi6TOejCG/q+T0euvSMO9vvBMMulIio=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=HbwdiBoRnPXC3RuAmk+wthDjaEsAQ0B71zl1qvjT/5Iacm3lBZdMX+VuseH4nJypF
-	 bZNFHPB3dZhud0mkcAs3Y6ALmOdKOuQMXhsU4+LvYHfXB5P+ZfQ3sABXDGKiF0YhD7
-	 yBPhBIbwwRMbVVwFibgxqsWy2RgaxA3CEehsxoLE=
-Message-ID: <b0cd49ed-65ad-4a6d-9845-0ee9060a478d@arm.com>
-Date: Mon, 23 Nov 2026 20:21:34 +0000
+	dkim=pass (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=DwAC8cHH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04ACC1F000EB;
+	Mon, 23 Nov 2026 20:22:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux-foundation.org; s=korg; t=1795465346;
+	bh=25UVLybwoRnEcpbdXV2pFcFQ0Vqv+61x2so2s19OgUM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=DwAC8cHHY+5qU8NdK2ZbrsvhxFqopogKwAxsWk8kEnCCVT6Hmbtw0V6XziVvGOJFl
+	 UqXnmynokZ9RofSYPre5yp5SaL+eP7gD+iVzbExurknf8l0NwCrdN3RTO1xJ6LK71f
+	 8PNPmpHS6+1C0lJh+4nQoWqAlcS3s5LQourJH+QE=
+Date: Mon, 23 Nov 2026 12:22:23 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: kasong@tencent.com
+Cc: Kairui Song via B4 Relay <devnull+kasong.tencent.com@kernel.org>,
+ linux-mm@kvack.org, Johannes Weiner <hannes@cmpxchg.org>, Muchun Song
+ <muchun.song@linux.dev>, Qi Zheng <qi.zheng@linux.dev>, Ying Huang
+ <ying.huang@linux.alibaba.com>, Chris Li <chrisl@kernel.org>, Baoquan He
+ <baoquan.he@linux.dev>, Nico Pache <nico.pache@linux.dev>, Usama Arif
+ <usama.arif@linux.dev>, Michal Hocko <mhocko@kernel.org>, Roman Gushchin
+ <roman.gushchin@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, David
+ Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Barry Song <baohua@kernel.org>,
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie
+ <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Vlastimil Babka
+ <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Nhat Pham
+ <nphamcs@gmail.com>, Youngjun Park <youngjun.park@lge.com>, Zi Yan
+ <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, Baolin Wang
+ <baolin.wang@linux.alibaba.com>, Ryan Roberts <ryan.roberts@arm.com>, Dev
+ Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, Hugh Dickins
+ <hughd@google.com>, SJ Park <sj@kernel.org>, David Rientjes
+ <rientjes@google.com>, Yu Zhao <yuzhao@google.com>, Vernon Yang
+ <vernon2gm@gmail.com>, Zicheng Wang <wangzicheng@honor.com>, Tal Zussman
+ <tz2294@columbia.edu>, Kairui Song <ryncsn@gmail.com>, Xiang Liu
+ <liuxiang.277@bytedance.com>, Ehab Ababneh <ehab.ababneh@intel.com>, Zhao
+ Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang <lianux.mm@gmail.com>,
+ Joanne Koong <joannelkoong@gmail.com>, Kunwu Chan <kunwu.chan@gmail.com>,
+ Hui Zhu <hui.zhu@linux.dev>, Maxim Muzafarov <maxmuzaf@gmail.com>,
+ linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
+ damon@lists.linux.dev, linux-doc@vger.kernel.org, Tianyi Chen
+ <hi@tychen.cc>, Ridong Chen <ridong.chen@linux.dev>
+Subject: Re: [PATCH v6 00/18] mm/mglru: frequency guided promotion
+ (MGLRU-FG) and flag cleanup
+Message-Id: <20261123122223.ea225d3b6424c274679b41de@linux-foundation.org>
+In-Reply-To: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
+References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,228 +82,38 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v3] arm_mpam: resctrl: Use the domain's counter ID
-To: Jinjie Ruan <ruanjinjie@huawei.com>, james.morse@arm.com,
- reinette.chatre@intel.com, fenghuay@nvidia.com, will@kernel.org,
- jic23@kernel.org, gshan@redhat.com, tan.shaopeng@jp.fujitsu.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261118125417.671859-1-ruanjinjie@huawei.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20261118125417.671859-1-ruanjinjie@huawei.com>
-Content-Type: text/plain; charset=UTF-8
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 
-Hi Jinjie,
+On Tue, 24 Nov 2026 02:52:52 +0800 Kairui Song via B4 Relay <devnull+kasong.tencent.com@kernel.org> wrote:
 
-On 18/11/2026 12:54, Jinjie Ruan wrote:
-> resctrl assigns MBM counters per domain: mbm_L3_assignments takes a
-> domain ID, a group can have a counter in one domain and none in
-> another, and resctrl_arch_cntr_read() and resctrl_arch_reset_cntr()
-> are given the counter to use.
+> This series implements MGLRU-FG following the idea proposed at LSF/MM/BPF
+> this year [1], based on current mm-new. Depending on the workload, it
+> improves the performance or reduces IO by roughly 10% to over 50%,
+> fixes multiple long-standing issues with MGLRU metrics, and drops one
+> page flag.
+
+Great, I'll add this to mm-new and shall move it into mm-unstable
+(hence linux-next) promptly.
+
+I tested v4 quite hard last week and I view the risk of breaking
+linux-next to be low.
+
+> The series has been tested on multiple platforms (desktop, large server,
+> Android phone, x86_64 and arm64 VM boxes) covering many typical benchmarks,
+> databases and real applications, so far everything looks nice, with good
+> test reports from other individual testers too.
 > 
-> The driver ignores that counter and looks the monitor up in
-> mbwu_idx_to_mon[], indexed by CLOSID and RMID.
-> resctrl_arch_config_cntr() fills that array without looking at the
-> domain, so each group has one monitor for the whole resource.
-> Whichever assignment is written last selects the monitor the group
-> reads in every domain.
-> 
-> For example, with the counter ID each group uses for mbm_total_bytes
-> on each domain and "_" for none:
-> 
->                                 domain 0         domain 1
->   mount, mkdir g1               default=0 g1=1   default=0 g1=1
->   unassign both on domain 1     default=0 g1=1   default=_ g1=_
->   assign g1 on domain 1         default=0 g1=1   default=_ g1=0
-> 
-> g1 is assigned the lowest free counter on domain 1, counter 0. That
-> assignment is the last one written for g1, so it selects the monitor
-> g1 reads in every domain. On domain 0, g1 uses counter 1, but reads
-> the monitor of counter 0:
-> 
->                       counter whose monitor is read on domain 0
->                       default      g1
->   expected            0            1
->   actual              0            0
-> 
-> That is the default group's monitor.
-> 
-> Translate the counter ID with assigned_counters[], which maps a counter
-> ID to a monitor of the class and is valid in every domain.
-> 
-> mbwu_idx_to_mon[] is left alone: resctrl_arch_config_cntr() still fills
-> it, but the read and reset paths no longer consult it, and a future
-> default mbm_assign_mode may use the array, so removing it can be
-> considered separately. Unassigning a counter now resets its monitor,
-> where before the lookup made the reset a no-op; the monitor is reset
-> again when the counter is next assigned.
-> 
-> Fixes: a5ff6ef2d73e ("arm_mpam: resctrl: Add resctrl_arch_cntr_read() & resctrl_arch_reset_cntr()")
-> Suggested-by: Ben Horgan <ben.horgan@arm.com>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> Cc: <stable@vger.kernel.org>
-> ---
-> v3:
-> - Keep mbwu_idx_to_mon[] and remove the cleanup. (Ben)
-> - Split out as a mpam seperate patch.
-> - Remove unnessary stable version.
-> - v2: https://lore.kernel.org/all/20261113083506.4129060-2-ruanjinjie@huawei.com/
-> ---
->  drivers/resctrl/mpam_resctrl.c | 50 ++++++++++++++++++++++++++++------
->  1 file changed, 42 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index 8e9d5c68c2c1..0d290962ef62 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
-> @@ -463,6 +463,15 @@ void resctrl_arch_mon_ctx_free(struct rdt_resource *r,
->  	resctrl_arch_mon_ctx_free_no_wait(evtid, mon_idx);
->  }
->  
-> +/* The monitor resctrl's counter @cntr_id uses for @cdp_type. */
-> +static int mon_for_cntr(struct mpam_resctrl_mon *mon, int cntr_id,
-> +			enum resctrl_conf_type cdp_type)
+> Different workloads may get a flat, minor or dramatic improvement, the
+> gain here is mostly from real improvement of LRU's ability to distinguish
+> the hotter workingset.
 
-I think we can drop the comment but improve a bit on the naming. How about calling this helper mon_idx_from_cntr_id()?
+Well, the hunt is on to find something which got slower.  No luck so far!
 
-> +{
-> +	u32 idx = resctrl_get_config_index(cntr_id, cdp_type);
-> +
-> +	return mon->assigned_counters[idx];
-> +}
-> +
->  static int __read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
->  		      enum mpam_device_features mon_type,
->  		      int mon_idx,
-> @@ -558,7 +567,7 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
->  
->  /* MBWU counters when in ABMC mode */
->  int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
-> -			   u32 closid, u32 rmid, int mon_idx,
-> +			   u32 closid, u32 rmid, int cntr_id,
->  			   enum resctrl_event_id eventid, u64 *val)
->  {
->  	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
-> @@ -574,8 +583,30 @@ int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
->  	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
->  	mon_comp = l3_dom->mon_comp[eventid];
->  
-> -	return read_mon_cdp_safe(mon, mon_comp, mpam_feat_msmon_mbwu,
-> -				 USE_PRE_ALLOCATED, closid, rmid, val);
-> +	/* A counter ID maps to one monitor per CDP configuration. */
-> +	if (cdp_enabled) {
-> +		u64 code_val = 0, data_val = 0;
-> +		int err;
-> +
-> +		err = __read_mon(mon, mon_comp, mpam_feat_msmon_mbwu,
-> +				 mon_for_cntr(mon, cntr_id, CDP_CODE),
-> +				 CDP_CODE, closid, rmid, &code_val);
-> +		if (err)
-> +			return err;
-> +
-> +		err = __read_mon(mon, mon_comp, mpam_feat_msmon_mbwu,
-> +				 mon_for_cntr(mon, cntr_id, CDP_DATA),
-> +				 CDP_DATA, closid, rmid, &data_val);
-> +		if (err)
-> +			return err;
-> +
-> +		*val = code_val + data_val;
-> +		return 0;
-> +	}
-> +
-> +	return __read_mon(mon, mon_comp, mpam_feat_msmon_mbwu,
-> +			  mon_for_cntr(mon, cntr_id, CDP_NONE),
-> +			  CDP_NONE, closid, rmid, val);
->  }
->  
->  static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
-> @@ -603,13 +634,16 @@ static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon
->  }
->  
->  static void reset_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
-> -			       int mon_idx, u32 closid, u32 rmid)
-> +			       int cntr_id, u32 closid, u32 rmid)
+> - Minor optimization for clearing refs:
+>  https://lore.kernel.org/all/CAMgjq7Dd=Y+GekSD9WO5oGdoa+S1eG3T-U=VsCexopvb723zFA@mail.gmail.com/
 
-This leaves us with reset_mon_cdp_safe() which uses counter id and
-read_mon_cdp_safe() which uses monitor index. Having these two similarly
-named handlers not follow the same pattern is confusing. It seems best
-if they support both. How about something like the below for
-read_mon_cdp_safe() and the same pattern for reset_mon_cdp_safe()?
-
- static int read_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
--                            enum mpam_device_features mon_type,
-+                            enum mpam_device_features mon_type, bool is_cntr,
-                             int mon_idx, u32 closid, u32 rmid, u64 *val)
- {
-        if (cdp_enabled) {
-+               int code_idx = mon_idx, data_idx = mon_idx;
-                u64 code_val = 0, data_val = 0;
-                int err;
-
--               err = __read_mon(mon, mon_comp, mon_type, mon_idx,
-+               if (is_cntr) {
-+                       code_idx = mon_idx_from_cntr_id(mon_idx, CDP_CODE);
-+                       data_idx = mon_idx_from_cntr_id(mon_idx, CDP_DATA);
-+               }
-+
-+               err = __read_mon(mon, mon_comp, mon_type, code_idx,
-                                 CDP_CODE, closid, rmid, &code_val);
-                if (err)
-                        return err;
-
--               err = __read_mon(mon, mon_comp, mon_type, mon_idx,
-+               err = __read_mon(mon, mon_comp, mon_type, data_idx,
-                                 CDP_DATA, closid, rmid, &data_val);
-                if (err)
-                        return err;
-@@ -506,6 +520,9 @@ static int read_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component
-                return 0;
-        }
-
-+       if (is_cntr)
-+               mon_idx = mon_idx_from_cntr_id(mon_idx, CDP_NONE);
-+
-        return __read_mon(mon, mon_comp, mon_type, mon_idx,
-                          CDP_NONE, closid, rmid, val);
- }
-@@ -537,13 +554,13 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
-
-        mon_type = mpam_feat_msmon_csu;
-
--       return read_mon_cdp_safe(mon, mon_comp, mon_type, mon_idx,
-+       return read_mon_cdp_safe(mon, mon_comp, mon_type, mon_idx, false,
-                                 closid, rmid, val);
- }
-
-Thanks,
-
-Ben
-
->  {
->  	if (cdp_enabled) {
-> -		__reset_mon(mon, mon_comp, mon_idx, CDP_CODE, closid, rmid);
-> -		__reset_mon(mon, mon_comp, mon_idx, CDP_DATA, closid, rmid);
-> +		__reset_mon(mon, mon_comp, mon_for_cntr(mon, cntr_id, CDP_CODE),
-> +			    CDP_CODE, closid, rmid);
-> +		__reset_mon(mon, mon_comp, mon_for_cntr(mon, cntr_id, CDP_DATA),
-> +			    CDP_DATA, closid, rmid);
->  	} else {
-> -		__reset_mon(mon, mon_comp, mon_idx, CDP_NONE, closid, rmid);
-> +		__reset_mon(mon, mon_comp, mon_for_cntr(mon, cntr_id, CDP_NONE),
-> +			    CDP_NONE, closid, rmid);
->  	}
->  }
->  
-> @@ -631,7 +665,7 @@ void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d
->  	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
->  	mon_comp = l3_dom->mon_comp[eventid];
->  
-> -	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
-> +	reset_mon_cdp_safe(mon, mon_comp, cntr_id, closid, rmid);
->  }
->  
->  /*
+Right.  That was the only question mark I could find and it sounds like
+you erased that one.
 
