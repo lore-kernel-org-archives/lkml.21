@@ -1,91 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795415688;
-	b=vqa0WOXefsHR32cWogEtHY/T0UaE5HBFWA5EbKtnMLk+38hsHAJWvQSxa6DhSwaJhAnh
-	 /v4WyyV27kNrPoVqMFw5R4F+lwzGySHoBLowW3N8GOvHuCCDgcoUupgDyYK0LOVOIDKUz
-	 kxoiL2WYpOY/AaPtV/59KcTCj1J+rbooM0hyhIoEHflwGDuKy0kzYTsap2gxFKA+cgZU+
-	 VEl/UWxxhRhWUqDjo1FTxSI62ucn/dapb8XdcePY2Ko+6gF4QiYN4zDcG/7nHymzfHbAn
-	 Dvqt1lSzYnJbQd0zR0h3m9LEDwzTSF5fobgpcrApX9uYdjiKMbp0qJKYbsjbTt4AITg==
+	t=1795415773;
+	b=2KLHrlh6syB+QM/mbuMULmhBwq6gTgnCBofcOtiqC/ly3DOt2wH9EVZJVxuUUniqReEj
+	 NgK3wQcxAHDiWjg0qafpn8yLZFSl1fv9pmSi/K1oCUmNzVx++NyQYRzLbeiR2kagq78qZ
+	 YXG9wS31hWa7h4rxe57Sl7BCiD+cXCkHYTyiwyP/RVaFzsju+3DtbWMEhQOxeR+B4wb8l
+	 p5rmNVXBGU6qPVSggu5CEjZJLhtcR7kd3wTINtXFc/VbuPilxFzUVJw/mljmJdsyQi70l
+	 YR0XrtTkbEXPzzIJTd+dW2kbuuZUnoh74sBZwqphYfTypJ8DHVzRGEgbWAEAyy5vQDw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795415688;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795415773;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=3HpDDKl52SUVYCO2/8G27hNCaySa90diGhXb5D2z9z4=;
-	b=wpuTtmpcZbTyh/cWhyUyE0DAq9+A6Owp0ZwLbFxBPBxVjYorCoPVdracdbOg1I7ecI92
-	 vees4llxmv/xSr0v/JJ0PU7Z5J72FrAQ0bRp/1UmxCDs/cBRD6mEO8KTxT/n6eNwAJ3H8
-	 ZNH9GGgxV+P6LASiZQMPBGVHJ/9ehbLb+kSl36hOOT/RYQgqpDNZPVPKN3AFpA53D7qbM
-	 UFkuBOiwF4UHDF3VvYQF10YJR2DdLW52fCrazsnjeV+jtwH1FR2uhW5KN0ZO+bLD62cPA
-	 5FB9H2koIIHSxBhEEi3ifxfjxwU8BFcZwzEbb8UfjCEGkQc7AZrX8NVbLkaajQ7rwtw==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=BrBSPPpRxeUHkZ8Aspm71PBog/B6QtNxw8MB+kxwe5s=;
+	b=Ta0+VCFHKTyiQNqNgd1IYdqXIo62nHTahIirw5JR99A1clFM19EYxHcs3PzOBbqm+t6x
+	 vb2hhNAyxYmJYPpqVW8CuViQK0jkScsPKJNhnnShiOA/+GWujm8mdZeEPNNIpq38s8BfU
+	 VT9AJFnuKQCRHOseF0DHarF51Kj5FmsbX14IFlbk7PbcQ2/EAxICtxXfrMYilpTueknSv
+	 b1YqOjfFUpciIJfb9F7ZIjARIHXL1G677zeOLq146k9O8AeHDJq0M6yR6K2NaiKA/dzgN
+	 9iZtmAienSDtrTsrZlu5to9vyDZo3RhSS1mmOePtvBYTYC4N2fMB+Ehu1l5L4gJp7LQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aza7N45n;
-	arc=none smtp.remote-ip=209.85.216.46
-Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--starchang.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ndf82j9A;
+	arc=none smtp.remote-ip=209.85.167.199
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E8B6606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:34:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E8B6606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 489C1606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:36:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 489C1606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--starchang.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aza7N45n
-Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3b3e85baf7cso1625358a91.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:34:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ndf82j9A
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-55bf11583d9so3136532b6e.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:36:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795415688; x=1796020488; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=3HpDDKl52SUVYCO2/8G27hNCaySa90diGhXb5D2z9z4=;
-        b=aza7N45n9CiQzz9m8tpVIjYSs07UAJCpRB2fvl7Ngct0kR62UBlSz/NQnlmttnKbqI
-         dPYq0Yc9BRhVQtwGuYi3ZY5WVlvAjMT+HnpeJ1bzwi880yJhnI9oeGTXZEfp3GxmgCWQ
-         NDvZ+lMggBb/LZ/PlUBDeGJLt7DXirmr5dD1hWsbitsZGikT/vEzW6SxtNA/i8cTSFwh
-         r3esnBe4GH1WXvvQfr8aJH7rmuAop0O3gn5454cxD+r5wqS72A2TZlKi4RMGBsxnZCNT
-         RHOGIp5O0+oG4P01NTczYvi4wAjkULHK8p9BnWQv2bDgc1M5PxSlDXu1mjnyc59k664G
-         KiAg==
+        d=google.com; s=20260707; t=1795415772; x=1796020572; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BrBSPPpRxeUHkZ8Aspm71PBog/B6QtNxw8MB+kxwe5s=;
+        b=ndf82j9AD419mQdAmC6YLQ7YDAJmogSheYNYRMMJyb1tGQ6Z3uKEVwr02fSesodckD
+         u8a7mmizquPt/l6tI0UGe53paB0APeUL58w12k1NlcV1vT2F3Xr8a+RbUZe5mLoLt9qX
+         wHA1jPpedn12bHqJvNAxCRVbrr9LhcBtczwB+BwN108APCiOWZxPLjYNeCOyoCAwQzpu
+         QigWr6Ba/sT0Ys6laFaKXpsEAjd7RH0815FN8vJtgc9JSK9+h4IKsAJmsrI7rkrsAPYl
+         XJJs+cW++2gS9pBKcc7CGypjxUmSn2c5lF9ucSf7KuYz8NTrfv/Y1HkbiqfzObQpFQ12
+         47Sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795415688; x=1796020488;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795415772; x=1796020572;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=3HpDDKl52SUVYCO2/8G27hNCaySa90diGhXb5D2z9z4=;
-        b=ZM/Gt5ldmHUPw+C/WtZ0tSujJaGpLGhRjkDwiGvzq/ueDBvUgFLKB+euwCCE6KdE3z
-         RiBPwvbMBsTOZMhm4fb5OtJOXLzusOzFM18TW3bBTJym5cgHBsLT4jy8QWhUCK9S8tYa
-         cgOhqNtPvpS7hz6Dr0otuAkZrjjUeLU3e8+LjuRUootppWkZOcvNWZhmbJFik821uX6L
-         zblYbCGM/mQSxmJJdgZ2/pq4JDdShgY1OVD3i7imP8q2whZ2tMRBl27+SU/aI5aHRxh5
-         msJQBl+MG3I75kQK5Bf+D16EkDTymipjFN2ynmj28E1wMdpJuo+ylKCRnSlRrnhsOQng
-         FuYQ==
-X-Forwarded-Encrypted: i=1; AL+hErG9iEz3dkqntAkz22GLOaInOKHMar6PlQwyEqJTacWHuOpyNfDMy7CERSy4bJASWBkQsNUp7Qg/tn/HxYw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9wigJYEfZAPohDpzmu0/bU8sGlhHO9KnmR4i5i4K2y7DsDjZny
-	GgZ47sbRNbVjfxX2RDnCjAXSUFfVYl+QYYfnei1Qb0HB3fY4e4NgmD+SfDJiiw==
-X-Gm-Gg: AZFdTZe3LaMlEVpO7Cc+6qwJcjkUHaR2cML+73LfCVCG70PKXDcLMz5cp/ZWoN554Go
-	d064YYYoAOv0Zmkek8Mv374WIRZ8LSsqZ5KubmKKpfE10LyVd6iCBaVIkT9DTmSIjg+OL2ESeqI
-	b6Gp/mxZ2tj83/OvOujvJ44Btyr8zFsd7wOySsq+WnjUHQoLvn2WM3AWYdeP0RGJtjgeK/AvlSk
-	cyYX6Jo6FZ4lI80/Ar2Xw5Z/iBjYmbsDe80yIt/YKPrlGkO8+514NCnCQfPFGCnkLT2F+ptfyP+
-	oVazAf/PuL9b7OdKPq5yo/qp9Ytgsdfo2NtJhxO3L1yiOFqthusNgoQgZXMOn4OHCteIi7EPpYP
-	hm7e5WbvtftAlfnAD/Zs/Nwhy0yUhCuzFymSIum+Z/IH05urwuL+b3zfJaSGw0Fmgrk7Zk2h6Vh
-	LVkLnQg9qmieYBD+w8MPBVzjvBGDRZlhVPrbQneXsb2RdOaEF69tATdSNQExD5A7/ZRjfB689or
-	EYy1bnrDndQGy/ZxkBTAJ/s+aS7ectTreFKletgUJLlVCFBHi2N/TkUmKQ2m/XXioctsTS/hXLj
-	uV4NwRqzkhHEJageDWrfNzx445A96TnH8v9Mvv5JRHKxbHnMWpLqX+vxhyAXCeggxs+1Cd4=
-X-Received: by 2002:a17:90b:48d1:b0:3b1:832b:bb3d with SMTP id 98e67ed59e1d1-3b41c9817dfmr9391990a91.57.1795415687786;
-        Sun, 22 Nov 2026 22:34:47 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d135e9sm18943151a91.4.2026.11.22.22.34.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 22:34:47 -0800 (PST)
-Date: Sun, 22 Nov 2026 22:34:44 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Zhu Jun <zhujun2@cmss.chinamobile.com>
-Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Input: mpr121 - propagate suspend and resume write errors
-Message-ID: <awPeWz0BrERX1YOA@google.com>
-References: <20261112071728.154571-1-zhujun2@cmss.chinamobile.com>
+        bh=BrBSPPpRxeUHkZ8Aspm71PBog/B6QtNxw8MB+kxwe5s=;
+        b=XLpxEGrN/1DOy6tjqki4vDTM0VSHTFujcp3VdFAVTgWU64aeY9qxU02FECj/ArfiMR
+         cP7O59o1rS/xtC+l+x9FX/LGX04ruf6+PNdLcpQgTOI5myp+6FzitoR5fcuB8oBq3O/Z
+         +SHOwihquqhSc7hY19WvQVIse055NWNqIXE2amDZU0jvC/tb0mVF0fDhNxsPNFr5p653
+         /XR3GsZk9TPhCPnALGH9+emmDYk7Z97WmjCx9O6mwJnANfc9sKTRD2wWMr+Al+6B4ve+
+         DGcLtMdjTAdbW3lQvFlOGepzu8WXFBOmPpr8ZzqnQZrNddFuqtg8TvYzTnpkvXESv20D
+         3mAg==
+X-Forwarded-Encrypted: i=1; AL+hErGacgoFhneBqTLpIFbP+epwmZgwEu6PGzIEfdmAXMTukorG+Eup8+nQuYxlfWZ2U4yMhKDhWGgt8CF3zOo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8akpK6Rw2y4VFUw7DI68JogDPlocPo/Y+yGVvQt2P9eIoHTNTQ
+	+Ja0rb9luXvWZkU2srgl/dZ/tQGZmCUSQgrF4e2xM4JalvO3iFU14JbLRE1qiteakxbeuNy/K/E
+	3YMeVFtfyCMiCW2nEGQ==
+X-Received: from oibdu15.prod.google.com ([2002:a05:6808:628f:b0:56d:b7b4:fabf])
+ (user=starchang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6808:199f:b0:568:2782:d1b4 with SMTP id 5614622812f47-57a0bd95bcemr8831086b6e.32.1795415771832;
+ Sun, 22 Nov 2026 22:36:11 -0800 (PST)
+Date: Mon, 23 Nov 2026 06:36:08 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,58 +75,155 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261112071728.154571-1-zhujun2@cmss.chinamobile.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261123063608.3665186-1-starchang@google.com>
+Subject: [PATCH net v6] arp: Do not update neighbours from ARP in L2
+ multicast/broadcast frames
+From: Star Chang <starchang@google.com>
+To: "David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>, 
+	Ido Schimmel <idosch@nvidia.com>, Julian Anastasov <ja@ssi.bg>, Johannes Berg <johannes@sipsolutions.net>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, netdev@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, wangroger@google.com, 
+	starchang@google.com
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Zhu,
+The drop_unicast_in_l2_multicast sysctl drops unicast IP packets that
+are received in link-layer multicast or broadcast frames. On Wi-Fi this
+protects against the "Hole-196" attack, where any station that knows
+the group key injects frames as group-addressed traffic.
 
-On Thu, Nov 12, 2026 at 03:17:27PM +0800, Zhu Jun wrote:
-> The power management callbacks ignore failures when disabling and
-> re-enabling the touch electrodes. A failed resume write can leave
-> the keyboard disabled while the PM core is told that resume succeeded.
-> 
-> Return the SMBus write result from both callbacks.
+ARP is not covered. A broadcast ARP request or reply with sip set to
+the gateway address and sha set to the attacker MAC still creates or
+updates the gateway neighbour entry, so the attacker can poison the
+ARP cache of other stations. ARP requests are legitimately broadcast
+and cannot be dropped, and drop_gratuitous_arp only catches sip == tip.
 
-How does it improve system behavior in practical terms?
+When drop_unicast_in_l2_multicast is set, do not pass ARP packets
+received in L2 multicast/broadcast frames to neigh_event_ns() or
+neigh_update(), so they can neither create nor change neighbour
+entries. Requests for local and proxied addresses are still answered;
+neighbours are learned from unicast replies to our own requests.
 
-> 
-> Fixes: 36682b81de32 ("Input: add driver FSL MPR121 capacitive touch sensor")
-> Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
-> ---
->  drivers/input/keyboard/mpr121_touchkey.c | 8 ++------
->  1 file changed, 2 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/input/keyboard/mpr121_touchkey.c b/drivers/input/keyboard/mpr121_touchkey.c
-> index 06329cf5c749..973fbc5521a8 100644
-> --- a/drivers/input/keyboard/mpr121_touchkey.c
-> +++ b/drivers/input/keyboard/mpr121_touchkey.c
-> @@ -302,9 +302,7 @@ static int mpr_suspend(struct device *dev)
->  {
->  	struct i2c_client *client = to_i2c_client(dev);
->  
-> -	i2c_smbus_write_byte_data(client, ELECTRODE_CONF_ADDR, 0x00);
-> -
-> -	return 0;
-> +	return i2c_smbus_write_byte_data(client, ELECTRODE_CONF_ADDR, 0x00);
->  }
->  
->  static int mpr_resume(struct device *dev)
-> @@ -312,10 +310,8 @@ static int mpr_resume(struct device *dev)
->  	struct i2c_client *client = to_i2c_client(dev);
->  	struct mpr121_touchkey *mpr121 = i2c_get_clientdata(client);
->  
-> -	i2c_smbus_write_byte_data(client, ELECTRODE_CONF_ADDR,
-> +	return i2c_smbus_write_byte_data(client, ELECTRODE_CONF_ADDR,
->  				  mpr121->keycount);
-> -
-> -	return 0;
->  }
->  
->  static DEFINE_SIMPLE_DEV_PM_OPS(mpr121_touchkey_pm_ops, mpr_suspend, mpr_resume);
+Fixes: 12b74dfadb5a ("ipv4: add option to drop unicast encapsulated in L2 multicast")
+Suggested-by: Julian Anastasov <ja@ssi.bg>
+Signed-off-by: Star Chang <starchang@google.com>
+---
+v6:
+ - Instead of dropping L2 BMC ARP replies, skip neigh_event_ns() and
+   neigh_update() for any ARP received in L2 BMC frames, which also
+   covers broadcast requests with sip = gateway (Julian)
+ - Drop the frame and release reply_dst on that path (Julian)
+v5: https://lore.kernel.org/netdev/20261030031136.607720-1-starchang@google.com/
+v4: https://lore.kernel.org/netdev/20261027015619.1745984-1-starchang@google.com/
+v3: https://lore.kernel.org/netdev/20261026150539.1357037-1-starchang@google.com/
 
-Thanks.
+ Documentation/networking/ip-sysctl.rst |  4 ++-
+ net/ipv4/arp.c                         | 38 +++++++++++++++++++-------
+ 2 files changed, 31 insertions(+), 11 deletions(-)
 
+diff --git a/Documentation/networking/ip-sysctl.rst b/Documentation/networking/ip-sysctl.rst
+index 208f46967ee5..d603588266b4 100644
+--- a/Documentation/networking/ip-sysctl.rst
++++ b/Documentation/networking/ip-sysctl.rst
+@@ -2298,7 +2298,9 @@ promote_secondaries - BOOLEAN
+ 
+ drop_unicast_in_l2_multicast - BOOLEAN
+ 	Drop any unicast IP packets that are received in link-layer
+-	multicast (or broadcast) frames.
++	multicast (or broadcast) frames. ARP packets received in such
++	frames are not used to create or update neighbour entries,
++	but ARP requests for local addresses are still answered.
+ 
+ 	This behavior (for multicast) is actually a SHOULD in RFC
+ 	1122, but is disabled by default for compatibility reasons.
+diff --git a/net/ipv4/arp.c b/net/ipv4/arp.c
+index d409f606aec0..17b5f32736aa 100644
+--- a/net/ipv4/arp.c
++++ b/net/ipv4/arp.c
+@@ -714,6 +714,7 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+ 	struct neighbour *n;
+ 	struct dst_entry *reply_dst = NULL;
+ 	bool is_garp = false;
++	bool bmc_no_learn;
+ 
+ 	/* arp_rcv below verifies the ARP header and verifies the device
+ 	 * is ARP'able.
+@@ -791,6 +792,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+ 	    (!IN_DEV_ROUTE_LOCALNET(in_dev) && ipv4_is_loopback(tip)))
+ 		goto out_free_skb;
+ 
++	bmc_no_learn = (skb->pkt_type == PACKET_BROADCAST ||
++			   skb->pkt_type == PACKET_MULTICAST) &&
++			  IN_DEV_ORCONF(in_dev, DROP_UNICAST_IN_L2_MULTICAST);
++
+  /*
+   *	For some 802.11 wireless deployments (and possibly other networks),
+   *	there will be an ARP proxy and gratuitous ARP frames are attacks
+@@ -850,14 +855,19 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+ 			if (!dont_send && IN_DEV_ARPFILTER(in_dev))
+ 				dont_send = arp_filter(sip, tip, dev);
+ 			if (!dont_send) {
+-				n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
+-				if (n) {
+-					arp_send_dst(ARPOP_REPLY, ETH_P_ARP,
+-						     sip, dev, tip, sha,
+-						     dev->dev_addr, sha,
+-						     reply_dst);
+-					neigh_release(n);
++				n = NULL;
++				/* Do not learn the sender from a BMC frame */
++				if (!bmc_no_learn) {
++					n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
++					if (!n)
++						goto out_consume_skb;
+ 				}
++				arp_send_dst(ARPOP_REPLY, ETH_P_ARP,
++					     sip, dev, tip, sha,
++					     dev->dev_addr, sha,
++					     reply_dst);
++				if (n)
++					neigh_release(n);
+ 			}
+ 			goto out_consume_skb;
+ 		} else if (IN_DEV_FORWARD(in_dev)) {
+@@ -866,9 +876,11 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+ 			     arp_fwd_pvlan(in_dev, dev, rt, sip, tip) ||
+ 			     (rt->dst.dev != dev &&
+ 			      pneigh_lookup(&arp_tbl, net, &tip, dev)))) {
+-				n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
+-				if (n)
+-					neigh_release(n);
++				if (!bmc_no_learn) {
++					n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
++					if (n)
++						neigh_release(n);
++				}
+ 
+ 				if (NEIGH_CB(skb)->flags & LOCALLY_ENQUEUED ||
+ 				    skb->pkt_type == PACKET_HOST ||
+@@ -887,6 +899,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+ 		}
+ 	}
+ 
++	/* ARP received in L2 BMC frames must not change the neighbour table */
++	if (bmc_no_learn)
++		goto out_drop_dst;
++
+ 	/* Update our ARP tables */
+ 
+ 	n = __neigh_lookup(&arp_tbl, &sip, dev, 0);
+@@ -945,6 +961,8 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+ 	dst_release(reply_dst);
+ 	return NET_RX_SUCCESS;
+ 
++out_drop_dst:
++	dst_release(reply_dst);
+ out_free_skb:
+ 	kfree_skb(skb);
+ 	return NET_RX_DROP;
 -- 
-Dmitry
+2.56.1.750.gf70dc682cf-goog
+
