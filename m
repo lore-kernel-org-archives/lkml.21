@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795441926;
-	b=IWX+SkZLkd68fxLzAc21RD+d8YeYNA0gp067bX6nI+RAhTF64LgAO3/FounkfFYxmojT
-	 tTl8y2tWnJkaWEhOwwQOGxiLR+QdYYiBo+GovSPKctd2vzYdYdoXTdv4iUBbxkZXH/Cam
-	 Y8uWDpzMThwQYkfOKV9NmnxdYuXRuUQb52vog5hA7bdtayy1G4HIuCL4WzvUp0mabwOGu
-	 sx5jTWJC8qxgjlk4LREyA1WwZkl+LzOGo5krGC07C4onBOywwcjM8W709RkAxks0Eqm5W
-	 mdr29ltGvN4TlkI2c5Gfrnthizh0hAIfOJVWvBSPawYP47uhUDRaWnPcxt2Vr9hHVyA==
+	t=1795441932;
+	b=llpKLugNOve73gUsgGQdWEILPmXme3fMTG/CsvhBGMugciuMs/mdBaHWvw0pF1vBxVxb
+	 igrDeP+ARbLrib6KabBz+d0MbWfNojuiE86wKag7onHMtmzKNgW9hS1uYZp4niX5sa6EW
+	 EEI8MpjTqWZhBzV4gd3aK5wtqMiLCeT1NRLfMtx7C0aDtqUDK53iEF1gANWe+jouMxM7A
+	 8M5bZd0hI086gAbBsM//gU9nKZzjIJU6AMSKgnCb9dvORs3dELhTG+Z6iGpIolmeqji26
+	 ZtgLJfAfNukT+a8f32I7Qe2q2uecMzMdsLINLZ45IPFqkez3Og0Zhz3lciQYsJ6TyuA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795441926;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795441932;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=fPiZCMrGxeemf1W8hSc1ZOEaUK9xMjW2agUNdF2P2N4=;
-	b=M5RFIRPKQ4qzWIqjn55OIuyWWAbCaHASZQhKa/uC+psgPNxbBKiJicGWs0D3uzSK7aeV
-	 WQuyPZmHxi+E2SaYhGOcHSu4pSapk7TN093oDF4d9tCBYn82CL6C9dcs7FoyeGYklUbyi
-	 nxwydu+F1KKih6wlBHRNh6pGg9uSzKj2x7l79L/MAG0+213ZufhDW7P9EW3/blpfri2e4
-	 +LNu2lo9/G55zQqiR66ljIACCUCT0RbD2ZYhAWyEG68K6I0PL5MVhGjGv4tErEPz9yLaV
-	 jWpAFppYx8NY7EARDVEN/TYdbcyVXJP4KTmoNOL8lFj7yko+EVbNhoDsqVc7eotCgJg==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=t3XbpV7aE8lPEF3WjasnioB+LmUiUo8YbJQhUQP3FUk=;
+	b=QlGpp9M0mwdtSvjBpLRupVdzgXwUNpsmoCejI6sSba1RZlg/oPDufEFk0eoDTznFO7+n
+	 qGvlfpyVi2XrAk1tYR2+LWSHKLcdqkV8DSQgiAKGSOpNmMurFE4b6ZCHjsJjt6sEakpqA
+	 8uyFP+1DYKvDzkzGtKgqTyI6htvxX/nVl7u8ELtwQMqWGcjVGEOWnTY9v5LJQMFxWLLUI
+	 XYr3AmmynBOKTq5CUbvXSiTMVbtwBnZrltbRE8cr7ObDKa30MDaALemSWBD+WvXKfCxtI
+	 JI+n7F2sYN1y9zhZnhgxEmrp2Qu3qj3lZFIh4dfMyba5HWqTPYwtg6x6vg1fcb7kh9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=ionos.com;
 	spf=pass smtp.mailfrom=ionos.com;
-	dkim=pass header.d=ionos.com header.i=@ionos.com header.a=rsa-sha256 header.s=google header.b=YlA3RwS4;
-	arc=none smtp.remote-ip=209.85.128.45
-Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	dkim=pass header.d=ionos.com header.i=@ionos.com header.a=rsa-sha256 header.s=google header.b="RbfSu/x0";
+	arc=none smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54FCA606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:52:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54FCA606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A36C606A687
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:52:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A36C606A687
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ionos.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ionos.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ionos.com header.i=@ionos.com header.a=rsa-sha256 header.s=google header.b=YlA3RwS4
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4a2d6d01ecbso18041855e9.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:52:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=ionos.com header.i=@ionos.com header.a=rsa-sha256 header.s=google header.b=RbfSu/x0
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso40560125e9.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:52:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ionos.com; s=google; t=1795441924; x=1796046724; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fPiZCMrGxeemf1W8hSc1ZOEaUK9xMjW2agUNdF2P2N4=;
-        b=YlA3RwS485TQgeCI7mlHFLTVnZ9jSnnBB49zGGY0zBRocCfRvNHSSQ4w1LqiJGTQds
-         /RDaM/mdGLzRNNtqc28bwP7p0/gLKKC3KhiAv7TG3ReTPTU/oqheXREH4DgoZrP46tq5
-         8YRgw18ETO8+1mg1P8kmLYNsQayFLh0U5QZlEY1z5W0BKj4rhCbL+6TL7PTveXafMifx
-         Rwg3hJS08BKDN8p3De+EE4f4wR60VuHSlGdivOzP41pUObkah7P3OGFOK6xO9lym55rR
-         gMvE3UefUWgHRB7lNHng+PCgUCq4ADqyGm3Z/O22mCKeIz7uDMIFWvNvkWrJI1baOuLR
-         hW8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795441924; x=1796046724;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=ionos.com; s=google; t=1795441930; x=1796046730; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=fPiZCMrGxeemf1W8hSc1ZOEaUK9xMjW2agUNdF2P2N4=;
-        b=yv5mOeNjte33NbCWLdRvglCepabEEv3cRyEVvbEGwJ1E82i0awafYb5Pho6UC+LKrZ
-         dZMDExXoHVb0IzPmp1oS0BTo/VpdSewc6pACZlg6GwEfqR2uRfKn3b5ZdsjKLNfZEC1O
-         eRb3/xyODKQcKjuVTY49L4FvKwL3fqgiEk7fwDcHN9AnXw/MrW+TmOD4uJ2wetuV6XsQ
-         H8YrcwagnVcu4+l2riODvvUSOAo4OLz0WJo62mPTTG++0g6Q52OSBYFm8RJJ3nFsGr3T
-         qskXoTJkSe1j6J66a3TbTmFrYuKQ+c0s+IOje1n+9Z8cPtLRgoiIMEp5vKlYX9ILaOZo
-         4Kxw==
-X-Forwarded-Encrypted: i=1; AL+hErExK74TT49+JoZ7GOf6O1qdYxUcT5+ld3pBktovK66XNXP6+hIhPahFQ2zmcPFiLAu737OuQl2rkN679z8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z87bpoCFvBoJC8XxZ+KxV67sc9GI27L6iUkQok2/Ywx6rKL9d4w
-	5I2Ob8QGRe5c3MotEDt1Zketv8k4u01Qy2ZIx7vQ3xeQ0dyGZsBexDznboeD8chAZAA=
-X-Gm-Gg: AZFdTZfVCDmCG1xZFQAsyVVBztfW9rFj85jsFbbe7PGk10fYh/4M8iRMhNw3w2NMA/4
-	PpPZdc5NVEShbhA6YdP8S4piMByvmL1npSdtqM8/TXmoYLJjs+n572aJlCyFA0Qk22iyB3LV6pK
-	M40KDVDq6JDkp9vSsM/7wdless87mOWJph+oivHw7y93CTcWDi5tds1s6Spgw6363ov1wIUc9al
-	dgIrbHjYFESkTgykoaum2D5u4/GMhmmjAbBLgos7R6q2ZqqZNXA3ilW5pHjd2iynWtQcBDTv2mZ
-	Eq1WqTe96lUZbRYFiYvpTms8mFvKS6CZP76D2nbd9e97WyMdAKSUhwAkcLXhp7BbnRHQAmY4dhp
-	rY/5OYLX5tvwGEHEnRLq695XlitbvhCX8eLB0pWx/jkO0zxtSIl+r/KNmud+kYYyVTaV6Koozw5
-	Hy5P5BC37m4OcOKztk7Z8hYTbT62XUoz0psqnsYTrzu26/S898hHjGO8xyJSW3iaDHyR1rh/L+m
-	yAZNkipLIQZf9gsN5Lug723mplTerJ49WcH2Mr94rF25QvvVl1qOLLjQZcZPMrdb27A+fizs0Uf
-	Aju/eh35U4SLrvYtr319sSc3UdscYj6j8EAVm6wvw5JpsMbGxu0Q56LzGjqHLS3sdYsI4cysERm
-	w7jsE9sreCW/yS9VLtkN8hGEkKgYpfQ==
-X-Received: by 2002:a05:600c:64c6:b0:4a3:598e:e7a8 with SMTP id 5b1f17b1804b1-4bb887c2c98mr222234725e9.4.1795441923736;
-        Mon, 23 Nov 2026 05:52:03 -0800 (PST)
+        bh=t3XbpV7aE8lPEF3WjasnioB+LmUiUo8YbJQhUQP3FUk=;
+        b=RbfSu/x0bDwJHK4flElPnk1iqilrNXrIFmDpp8JSLeS0nOuRHwXBkrEGvEsHiyIjRT
+         N5hTJC5fNWPiCGSQpzNXqDsJa2II6qUe8scq0sApwJm71mSZaaTmYe5IDh9JexBg5ITm
+         /Ub5Ixyc1yGS9Q2VA0OZX4nVRTpExuGwOoAaQt6G+WGKh37/8XCxfKpzuevzTiNZKXCw
+         clWXXxtiTYnGfgPafZ4vX1bkHqewPW/LhO05hMUGQkiyWv6X0e7G4WHIzMORyNfLZ3x7
+         RuOz3Y4Vv0/02LPT9GRCshSaCMAQFQ3RFEHEGGkdx5zQ0yuhB/UpdekyELB5Z3TNsdb3
+         qldA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795441930; x=1796046730;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=t3XbpV7aE8lPEF3WjasnioB+LmUiUo8YbJQhUQP3FUk=;
+        b=09M1ZvhDEDTPI4gWYdMRKr2TXkFMcD+GKLlaSnNHo3i9SQBEpDi25B3PEWBDWlsn7l
+         yC/OJ+EOYSFXU4sjN6aSfa5HtvDOSeOAZvxXbzBU0R7FAUi263EUPV5gKaUxL1KEzoFR
+         4o94HPFs81h0A8Md6qx8ebwbUwV0FiMw8s/lkplF4NOhpnvc+7BrCowDFGtMs1gNUR1S
+         WmmJDTPzFeHQEbno4L1U4J0y0ZIx+N8Y9WuL8WqUNxQO3hPN74VVSKbiy2Icay4TZjBv
+         icQ8a8o6KBVJ4MmYP6GIDekuSpDHPVNxkDJDmgiop0XYlLgSPCaQxw1H1Z21trx60ZMy
+         9Abw==
+X-Forwarded-Encrypted: i=1; AL+hErG2+yaaPSisYvkkllvTKpZSy29wVfZTPb/xVDy5/S3AxqMXFJM0y0XS+7wz3MHfOE1ye683FzMsj+gal34=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/6u1uk4hPqA4a8jdfer6GHVjknAOggAMm9BMQmzyX1Ti9StnUn
+	Yh/rWMnzXcDx0il+8JAxKsuq6xRHUoQZWa3t6k/YwhU2q002g5WaS7aCYv8LjZcggwU=
+X-Gm-Gg: AZFdTZcg7GDXHRaGu6tpno9Cd7/rXYrZMnqYDpvpfZy2E1sHR1h4KqwP7F+AsUZAcm/
+	OdN6k0WYvtRaPiwHPNTIDIYBHM5BepE5WAJeYFespRVjiKEMeZq9FXvBvbYaI7IG8mYNhG20ElX
+	bj3ZkgsygkSXrykzF18JLzqOX5KqiEm+HrCMMpH9Z+4pz3lhYHeqn30ILQ9oEmjN9/P5gbDAz3k
+	GdCv8AlnZLDfTqstNrU1u1N+fyAbtlMZWM00xlnDP+6ww6+2EP3cjXhvNrZQtbir4wPOexnV78f
+	I+gZwzqucp/g9vOnvb8o6AlYhT3/qBjgoEmLCGOkHnOW0aKJGdQUkg8nKK49UkfqLyEP86I08ag
+	6BPrWK13d/D5s50Ea4/Jvem/5oPYUJ106uR5ULXFMUE3ZzIJe5uXzfr7TctRw6dScen4eLGnSFo
+	tXut+zD1gq2ZKHPHRH+dQcrp/LSYTW4ImzSoeAMzXU4zPA0e6Lvgx3oM0SWpqEojqg2p+NZRzbo
+	uJQqRg1QnG2CRXVIQ6itrQIyGWa78CH4F6JyZroA09d2xJSf+iw+yT3kuebUIvksShogG2J1yYt
+	HSk0g77ylgOJAhyqm3/VsLMzaa5r1gjAvDMp/qDlQyK5Qn6VGjnIr83b/5PTp0daV6387XXRt8a
+	Y+cNfjEqM6dZjDg009rVTPBXUnNKmMcW+d53vSxW3/TEowsS/lmQ=
+X-Received: by 2002:a05:600c:64c7:b0:4bb:68c4:2044 with SMTP id 5b1f17b1804b1-4bb887fe725mr225665445e9.11.1795441929971;
+        Mon, 23 Nov 2026 05:52:09 -0800 (PST)
 Received: from raven.intern.cm-ag (p200300dc6f1b7800023064fffe740809.dip0.t-ipconnect.de. [2003:dc:6f1b:7800:230:64ff:fe74:809])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906817ccsm169279215e9.5.2026.11.23.05.52.02
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906817ccsm169279215e9.5.2026.11.23.05.52.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:52:03 -0800 (PST)
+        Mon, 23 Nov 2026 05:52:09 -0800 (PST)
 From: Max Kellermann <max.kellermann@ionos.com>
 To: akpm@linux-foundation.org,
 	kasong@tencent.com,
@@ -101,10 +102,12 @@ To: akpm@linux-foundation.org,
 	linux-kernel@vger.kernel.org,
 	rcu@vger.kernel.org
 Cc: Max Kellermann <max.kellermann@ionos.com>
-Subject: [PATCH v4 0/5] mm: multi-gen LRU: reduce memcg rotation overhead
-Date: Mon, 23 Nov 2026 14:51:55 +0100
-Message-ID: <20261123135200.4086519-1-max.kellermann@ionos.com>
+Subject: [PATCH v4 5/5] mm/mglru: reschedule between memcg reclaim attempts
+Date: Mon, 23 Nov 2026 14:52:00 +0100
+Message-ID: <20261123135200.4086519-6-max.kellermann@ionos.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261123135200.4086519-1-max.kellermann@ionos.com>
+References: <20261123135200.4086519-1-max.kellermann@ionos.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,143 +119,52 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This series addresses excessive time spent rotating memcgs during
-MGLRU reclaim on systems with a large number of memcgs.
+shrink_one() can return immediately for empty or protected memcgs, and
+try_to_shrink_lruvec() can break out before reaching its
+cond_resched().  A scan through many memcgs can repeatedly rotate
+entries without giving other runnable tasks a scheduling opportunity.
 
-On some servers with tens of thousands of cgroups, we had repeated
-soft lockups and RCU stalls:
+Call cond_resched_tasks_rcu_qs() (as the existing shrink_lruvec() loop
+does) after shrink_one(), while the memcg reference still pins the
+cursor and before reacquiring the RCU read lock.  Also call it between
+bins and nulls-marker retries, covering scans that skip every entry.
 
- rcu: INFO: rcu_sched self-detected stall on CPU
- rcu:         60-...!: (1118 ticks this GP) idle=ca74/1/0x4000000000000000 softirq=140067260/140067260 fqs=10
- rcu:         (t=2101 jiffies g=180256409 q=94266 ncpus=96)
- rcu: rcu_sched kthread starved for 2073 jiffies! g180256409 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=53
- rcu:         Unless rcu_sched kthread gets sufficient CPU time, OOM is now expected behavior.
- rcu: RCU grace-period kthread stack dump:
- task:rcu_sched       state:R  running task     stack:0     pid:15    tgid:15    ppid:2      task_flags:0x208040 flags:0x00000010
- Call trace:
-  __switch_to+0xc4/0x108 (T)
-  __schedule+0x2b4/0x978
-  schedule+0x2c/0xc0
-  schedule_timeout+0x7c/0x110
-  rcu_gp_fqs_loop+0xec/0x4e8
-  rcu_gp_kthread+0x12c/0x160
-  kthread+0x118/0x1e0
-  ret_from_fork+0x10/0x20
- rcu: Stack dump where RCU GP kthread last ran:
- Sending NMI from CPU 60 to CPUs 53:
- NMI backtrace for cpu 53
- CPU: 53 UID: 3758108211 PID: 4052395 Comm: php-cgi8.3 Tainted: G        W    L      6.18.52-i1-ampere #1203 NONE
- Tainted: [W]=WARN, [L]=SOFTLOCKUP
- Hardware name: Supermicro ARS-110M-NR/R12SPD-A, BIOS 1.1b 10/17/2023
- pstate: 40400009 (nZcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
- pc : handle_softirqs+0xa4/0x2e8
- lr : __do_softirq+0x18/0x20
- [...]
- Call trace:
-  handle_softirqs+0xa4/0x2e8 (P)
-  __do_softirq+0x18/0x20
-  ____do_softirq+0x14/0x28
-  call_on_irq_stack+0x30/0x48
-  do_softirq_own_stack+0x20/0x38
-  __irq_exit_rcu+0xc0/0x100
-  irq_exit_rcu+0x14/0x28
-  el1_interrupt+0x3c/0x58
-  el1h_64_irq_handler+0x14/0x20
-  el1h_64_irq+0x6c/0x70
-  lru_gen_rotate_memcg+0x210/0x280 (P)
-  shrink_node+0xb14/0xcc8
-  do_try_to_free_pages+0xd0/0x508
-  try_to_free_pages+0x11c/0x230
-  __alloc_frozen_pages_noprof+0x4f8/0xe00
-  get_free_pages_noprof+0x20/0x60
-  ceph_alloc_readdir_reply_buffer+0xa4/0x160
-  ceph_readdir+0x248/0xeb0
-  wrap_directory_iterator+0x54/0x88
-  shared_ceph_readdir+0x1c/0x28
-
-The problem was lru_gen_rotate_memcg().  Its memcg tail insertion
-walked the destination bin while holding the per-node `memcg_lru.lock`
-with interrupts disabled.  With so many cgroups, the lock duration
-grew too long and thousands of concurrent reclaimers were contending
-for the spinlock all the time.
-
-Reclaim can also repeatedly promote memcgs that are already in the
-young generation, and scans of empty or protected memcgs can bypass
-the rescheduling points in page reclaim.
-
-This patch set contains three parts:
-
-The first 3 patches add a cache for each bin's tail to make tail
-insertion constant time.
-
-The fourth patch skips redundant YOUNG rotations when the memcg is
-already in the default segment of the current young generation.
-
-The last patch adds rescheduling points between memcg reclaim attempts
-and at bin/retry boundaries to avoid potential remaining soft lockups
-under extreme pressure.
-
-I ran a micro benchmark on branch 6.18 on a 12-core Xeon 5118: 8
-concurrent workers repeatedly write `1024M swappiness=0` to the root
-cgroup's `memory.reclaim` for 60 seconds, against a previously
-prepared set of 1500 memory cgroups.  Each worker issues its next
-request when the previous one returns. The test measures request
-throughput and latency under concurrent MGLRU reclaim.  All requests
-returned EAGAIN, indicating that the requested reclaim target was not
-met; the reported throughput counts completed reclaim attempts, not
-reclaimed bytes.
-
-Results:
-
-                  Requests/sec  Mean latency  Maximum latency
- Unpatched               4.56     1739.85 ms       4083.55 ms
- Patches 1-3            43.42      183.53 ms        393.15 ms
- Patches 1-4            59.22      134.03 ms        393.44 ms
- Patches 1-5            57.80      137.63 ms        412.72 ms
-
-Constant-time insertion increases request throughput by 9.5x.
-Avoiding redundant YOUNG rotations adds another 36.4%.  The full patch
-series improves the unpatched throughput by a factor of 12.7.
-
-All requests returned EAGAIN.  These results measure reclaim attempts
-that did not meet their requested target.
-
-I did not measure scheduling-latency improvements of the last patch.
-
-This series is very similar to an earlier patch by Chen Ridong which I
-was not aware of at the time of writing:
-
- https://lore.kernel.org/all/20251119083722.1365680-1-chenridong@huaweicloud.com/
+Signed-off-by: Max Kellermann <max.kellermann@ionos.com>
+Reviewed-by: Barry Song <baohua@kernel.org>
+Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
 ---
-v1->v2: rebase after MEMCG_LRU_HEAD was removed by d5d1712c5928
-  ("memcg: remove lru_gen_soft_reclaim()")
-v2->v3:
-  - rebase on mm-new (MEMCG_LRU_OLD removed, too)
-  - mention Chen Ridong's earlier patch
-  - defer the get_random_u32_below() call until it's really needed
-    (suggested by Barry Song)
-  - rename hlist_nulls_add_behind_rcu() to
-    hlist_nulls_add_behind_last_rcu() to avoid confusion about the
-    function semantics
-v3->v4:
-  - fix hlist_nulls_add_behind_last_rcu() function name in [1/5] patch
-    description
-  - move get_random_u32_below() back to before the spinlock is
-    acquired (performance regression)
-  - added VM_WARN_ON_ONCE() to [3/5] (suggested by Barry Song)
+ mm/vmscan.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-Max Kellermann (5):
-  include/linux/rculist_nulls: add hlist_nulls_add_behind_last_rcu()
-  mm/vmscan: move code to lru_gen_{add,del}_memcg()
-  mm/mglru: cache the last memcg node, make tail insertion constant time
-  mm/mglru: avoid redundant rotations of young memcgs
-  mm/mglru: reschedule between memcg reclaim attempts
-
- include/linux/mmzone.h        |  4 ++
- include/linux/rculist_nulls.h | 36 +++++++++++++++---
- mm/vmscan.c                   | 72 ++++++++++++++++++++++++++++++++---
- 3 files changed, 101 insertions(+), 11 deletions(-)
-
+diff --git a/mm/vmscan.c b/mm/vmscan.c
+index b9715acf2f22..f8259de7f592 100644
+--- a/mm/vmscan.c
++++ b/mm/vmscan.c
+@@ -5403,6 +5403,9 @@ static void shrink_many(struct pglist_data *pgdat, struct scan_control *sc)
+ 	gen = get_memcg_gen(READ_ONCE(pgdat->memcg_lru.seq));
+ 	bin = first_bin = get_random_u32_below(MEMCG_NR_BINS);
+ restart:
++	/* Yield between bins/retries that contain only skipped entries. */
++	cond_resched_tasks_rcu_qs();
++
+ 	op = 0;
+ 	memcg = NULL;
+ 
+@@ -5433,6 +5436,14 @@ static void shrink_many(struct pglist_data *pgdat, struct scan_control *sc)
+ 
+ 		op = shrink_one(lruvec, sc);
+ 
++		/*
++		 * Empty or protected memcgs can bypass the
++		 * rescheduling points in page reclaim.  The memcg
++		 * reference pins our cursor while we yield outside
++		 * the RCU read-side critical section.
++		 */
++		cond_resched_tasks_rcu_qs();
++
+ 		rcu_read_lock();
+ 
+ 		if (should_abort_scan(lruvec, sc))
 -- 
 2.53.0
 
