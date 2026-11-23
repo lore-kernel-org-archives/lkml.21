@@ -1,96 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.59
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795464743;
-	b=rh4WorfvotFfJQmpQaw6saum3FOotmYLAvVZDUQlaAn06yUSXPOFJnf5AU0XUfmhJeai
-	 16VwjtbWnCTNtnqBJz1vTAiesdz2efLuiO9TTC53G588ZAilviKH+Xqsm2h9/kxxzDsb1
-	 OOamwF1D3NKxWoBV6C2Neg9LxbXH8JRhM5W4uKDhT96CoIwK5pLDOSCBmvn2sbFm6eA6K
-	 6+jQtGjVN0Mm796JDzDRpQ8ISTcTlESCDiO3C7pPhq1BjIdk11Wo1t+7SmkoELVfsgYaG
-	 QzJrTIK21JcCcsbMXprUwSz9N61tcTUoY/rxIKBVNCqvp5HwFm//vu4at8Zapqqpisw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795464743;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=UQdycFzFVBZk9+FyH5+It9nqH+iTqNXy1ZlW393wjwg=;
-	b=I1ownn0sxyJIjh4GZl3lAjLPpQ/Tscu2zfSXYigq0u/9RLVUknARc6IWNa2VJUR4cwCM
-	 VwzKuFEqHZFeU+KYc2G/W2QtNJgEgRl1W3GyDV8Qz7LXyhpumPqI2uMWdZc3wlnKVm+rn
-	 3cjLAp2PenRHOjPvrCgzSPRXTovl0K0L+fuuDjwc9kZxCcL3IsD4pFStbpTscCmIIeEzv
-	 MqNgPWJS19JRGl05jrcd5GwkBaf9EgDepX1Y6tR5yblVTayeqTeZaQeNsVUYXfa0xR7lj
-	 Ckin07zC4z4Jp9Nldp3PaUTPffzoG2jH9XmGgmZ1Q+QiRCUzrXmBrPtVTtFL2eKgTxQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=QKfVpHEu;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.59
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010059.outbound.protection.outlook.com [52.101.201.59])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.47
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795464783;
+	b=yrBIEGfehwzjwupBTlOKuhGkLup0O03aiL+3S4jIsSvAYqln1L9pOHFm7R8edR2Hz8lV
+	 SYke+EGvySXSGam5/JauiWfPOVGVnP7k4xtXkhp6c5ztT9sysj6zn98wCUI2wlMr2upKz
+	 +oLho+E3NY6fpz1HvPBSEIKtedGki2BhvaJRtdYH1GXmTDxcgVg1p0zbO14q4haMwxAcs
+	 wenuwKtciVGfNk5TiJuzHgKpjKfEFjRFIgOA+efv5km9oSU3xEB6jpPeNJXBygXA90Olk
+	 t9p1YleYRFfaeRCwNv6a+8P579lgGIRr+JhOQpDAftfmMMWQXwtyGfwiY1U51YTHBEw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795464783;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=Vl+Jr3N/YEqz9NFVbM7G/TwPrthGUN0HgQHZE/6GVYs=;
+	b=2AkQE60f+4BbhgAVI5y4TuV0tnDmOUokZ8IyFWuk07+pjAwC+OehhcrFZjZXRFbTkkv6
+	 EW8LR+gZ5Kl39yMQRA0KWgV+KNZk4Dt/fmKZzq5emG6J/bqDxk8xRuurIGbH68KdgvtjH
+	 dpFwXIWEUp02r2xLYS3NK2Z6TiMqdlRjNZVoS34lSMv3nd3DgxWFmxLM7BlBxM2rJ+3xF
+	 xETAln+JDn9TMHfaJfF3wH8PHzcMfuG/R0wnDiUEoFrDdYcUVr9fnQ43PjZqItbKkJrby
+	 7HDbaGAHdzaiZ1HYtCMbHU4G7BQiNOLYTfcvZDhtechNCn6iTHyplrDfR8UHexmCFyA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XBwGTjYq;
+	arc=none smtp.remote-ip=74.125.82.47
+Received: from mail-dl1-f47.google.com (mail-dl1-f47.google.com [74.125.82.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9357606A321;
-	Mon, 23 Nov 2026 20:12:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9357606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34418606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:13:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34418606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=QKfVpHEu
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W7BbOQFl6dtYLFppspIMqn6dHRCoF4/Z4DSUx+WvnT8xzgUKDeKqMRrWGIqRz8EU7l2ml1bBUzy+7UMbFWqkM4VXF5IHbDyQkJZVs4p0hHoG4sxxk9le365pXgZPW6FAnFGFRPk9AWtdvj8ciEhw1zZNknGcECeRUvwp1N6zJ/j/1KarYeQ4oybRz6dgrng52sRNC2Ei9+DWTozGnyluvvoPj90FaFOUpkP9j362Xai/e49Kd/L0mghxtFh8+I0yQaRF0pi9uAwxIyCkKI6cafKHiYUPP3ZnzKh7zIneKM20GMwizW+mho7XvbWZjWR142K60idCrE1euxNNUnmwog==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UQdycFzFVBZk9+FyH5+It9nqH+iTqNXy1ZlW393wjwg=;
- b=DG5rC7Jdsn6/9k9RsLARIKFG1AwkFAgogYf8FfNX69koVlQD4N6Rq5WYdwDj3lSvMukF/VxKOzSRtky+gsgqK5J2bMSdsOxlZREuqLGfYcWH5yrcYLjw5NgdUgSluwS/yGqPhYQE9L9qfxb5fO6TT6xqOM4CxuQi0sD9LAFkGiuJL5BSVKOn7UbyZyn+PkGqWjyTL0Nryuc82LczUMtoyTRUuk3Pmc0Xfncq9yHTr3NVrmRwdmtm3/joeKPIy/NaTJLUqJVbV6ZIqYDtr7CWlLSrXQZAjrcFBDHjF4zHKDTa+fBNyAyFUprtpJ79SQ1vGK6SNYJTdiLFrAw3123pWw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UQdycFzFVBZk9+FyH5+It9nqH+iTqNXy1ZlW393wjwg=;
- b=QKfVpHEu2uDlIr0fDRlYB6XQt9tIMZbJetQfDlRxbtnxMyE3FGZVVh6v91jIPkE7Xi0qQUMaBMb09CoHoqYU6dDF7szeGyNx2vWiAGZhRfOZZb+53PIyOKks6XLurhFvz+bhLlS2r8UpCv3HJpGlvZguocJSW16pABuOFvlOwAE=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from MN2PR12MB3485.namprd12.prod.outlook.com (2603:10b6:208:c9::22)
- by MW6PR12MB8952.namprd12.prod.outlook.com (2603:10b6:303:246::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Mon, 23 Nov
- 2026 20:12:09 +0000
-Received: from MN2PR12MB3485.namprd12.prod.outlook.com
- ([fe80::7ac:5acc:f8b7:65c9]) by MN2PR12MB3485.namprd12.prod.outlook.com
- ([fe80::7ac:5acc:f8b7:65c9%7]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 20:12:09 +0000
-Message-ID: <6e984d96-4341-45a5-b1de-05d06462d968@amd.com>
-Date: Mon, 23 Nov 2026 12:12:06 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH rdma-rc] RDMA/ionic: Wait the device command timeout for
- admin queue commands
-To: Leon Romanovsky <leon@kernel.org>, "Nikhil P. Rao" <nikhil.rao@amd.com>
-Cc: Abhijit Gangurde <abhijit.gangurde@amd.com>,
- Allen Hubbe <allen.hubbe@amd.com>, Jason Gunthorpe <jgg@ziepe.ca>,
- Andrew Boyer <andrew.boyer@amd.com>, linux-rdma@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261118-b4-ionic-rdma-admin-timeout-v1-1-39536999a3e4@amd.com>
- <20261122131456.GE14811@unreal>
-Content-Language: en-US
-From: "Rao, Nikhil" <nikhirao@amd.com>
-In-Reply-To: <20261122131456.GE14811@unreal>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR03CA0236.namprd03.prod.outlook.com
- (2603:10b6:a03:39f::31) To MN2PR12MB3485.namprd12.prod.outlook.com
- (2603:10b6:208:c9::22)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XBwGTjYq
+Received: by mail-dl1-f47.google.com with SMTP id a92af1059eb24-15dd124bbe7so2889227c88.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:13:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795464782; x=1796069582; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Vl+Jr3N/YEqz9NFVbM7G/TwPrthGUN0HgQHZE/6GVYs=;
+        b=XBwGTjYqQTUhH8gOOPo7XYWKULuUQj/EpvbNDliWDwCiUoZljy6hipnGBLvu6Cnf5I
+         QB4eBs8VRrzDPEFIyfvnEECbj62cghj/ipTuo/74QHstzb5WBVfWu4m02MzsNJkRGKvI
+         SL8fcrbPP0dhsR+7166QGff/5/sQV76QwiPZ7j97puU4qusj2tHix5UXAB3PKH0FfvdF
+         VB7kwwzfXflu7ZjkINak8Hp7mvsdVxjbRWKOPxeP6S6R2nC5D+bm4l+C8kc5KUkVw6fN
+         cK8+myDOVOK7fbti9aE2nqTQHnvbOopkfcQ73z56fwYLjpAI07pa3Vv+0MfVvQC4YUsN
+         YlFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795464782; x=1796069582;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Vl+Jr3N/YEqz9NFVbM7G/TwPrthGUN0HgQHZE/6GVYs=;
+        b=vGwmbsaBXLGFJ9VvMmOwIUFZSqKmkWg8uqyZYEa8+c3lxUUhwTSZmDQM9AfbrWP+TN
+         s6qjwC1mo4yzC8JNP/tJyLcYG0kOS2UE8iUpm+Z7MlBWjSlDEIPuvKLluCZKJPCKKT+i
+         3wqysHwLtksAXQSNIcVM1WM2nALOSM5DzDLjdlB7FYGe0Jhpw1EUkXG03jrMaXB8VSNV
+         nAC1sUhJNhHgHHXIGN92tpJJWI+goGZcxtNJuj7jsyU2h9YN1IMdvMxR2TwclbnlXhhf
+         pXDgDKLziNIpb4djJV4yDxz6pTDNvRJzFc9SPlroFL1hItpfePtyM8DwOAVMpP7os2h8
+         XPeg==
+X-Forwarded-Encrypted: i=1; AL+hErGpuBm5JtrgsVYgJDXMRzQ62PjMJ00qpapxDiiw01uLDj2LR5xkckYBhqoSdCMaoeYSmQ4XeDz5LNsuGmo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9WAwmQmOm8AEOEYlkpJrTi1zpODV/1fH9nD0p+UEyf1RbW57c7
+	j17qt5A3ICy8mR8nJzHQXp/WpxDARNbQ8lTYssMVorJayMa6XxXaSIVS
+X-Gm-Gg: AZFdTZedP0NsApvTqrg9GyMxGO9IBdvpMTL5gh2VkhDcJKJtaOuATT9frjcHy4Hyyet
+	hNnG6uSdZSwAU94q5dhJBS78wjVhHqgqp73Nh1IRXO4Gu8oDdatgpg7kpKwHbUbn14G12zUHioc
+	dgmYrKn+6FK4DZ84vKON/cLYb/jOR0DE5fmG/amkmfFd2FIBYLh9na7btumZHgWwxKX7TpfLYnu
+	AAajDQIl1hYze4YEoMYl8v3cn37HTTBt6ca2jENOzCzBOeehHKmFsTgRtKFF+mrGu0wJSD3kkE7
+	Wi4tokilFTl08qV9GlzSDu9NqcLNWgd6m6AEaz35cPsQwinD1WRVDvd/mawqnJLzb/Q4hquiR2r
+	5gY36HY8pDjtvtdNtWbB3A5y8PjnbsdIUt3HWANXpQQboJ1hX2sQtkk7CbkXCI5jsZT7O9lxN0B
+	9uSHmXPjSH/Dij92dvvME3svdqbuJNGxNA/sCNU4eoRbZ8yhPJ17M4ke/lAsq0zBrXZHdeU0RSM
+	STovHlx3ESKN+Hc/L/S12+XtdUadql8Fs925RMk1GshrVC6vvJtVUPTrzZPOYX4GfVwUEdp8+CQ
+	ZAPtRaT20+ztOlMA++lsA6vo2cVqsMeIQNXoQZv3mV8n4IFqNF/+6aI9zVzLPlMlFc/RdVU=
+X-Received: by 2002:a05:7022:e80e:b0:1ab:de8b:5f0f with SMTP id a92af1059eb24-1b556924b07mr13875087c88.40.1795464782093;
+        Mon, 23 Nov 2026 12:13:02 -0800 (PST)
+Received: from google.com ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm34059654c88.13.2026.11.23.12.13.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 12:13:01 -0800 (PST)
+Date: Mon, 23 Nov 2026 12:12:58 -0800
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Marek Vasut <marek.vasut@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Linus Walleij <linusw@kernel.org>, linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH 01/10] Input: matrix_keypad - validate GPIO counts
+ against matrix limits
+Message-ID: <awSdwBnT5bk_BS-G@google.com>
+References: <20261123183200.3900004-1-lee@kernel.org>
+ <20261123183200.3900004-2-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,81 +99,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR12MB3485:EE_|MW6PR12MB8952:EE_
-X-MS-Office365-Filtering-Correlation-Id: 88ddc496-5510-4df0-ad81-08df499e0d95
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|10067099003|11063799006|4143699003|56012099006|261021121427099003|261026121527099003|261021135927099003|261102123227099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	4oXPWRStbeceIWwMPvG24YDusx3rxuSjUG2Dtc96xRYx5xDaW590G29fgmy83jwhoRWso2sacnRPJdsFATvV0p6BH6S4mS+PXa+QURhnPrlIC028HEf0gr+nWU2cWaqwd7BosUSYDHUbiiibUE5VPvLMo/99xlj+0/92/nyL17rwVr+tOlV5Lcco598UsmRVgCqAa4Cqh0eby/Ym/GGpfvgf8XM+XJkdbfi5qtvKTYYgHPyctKX5/djwpso/DImvMHjl7kSnOeXBTN/ZxXK/MKr9jUqsLIjB8jHM6Ex/2TTX2siHnOjDuxoB51nIX0K7LvdMyUTmKF4jz/PYWsfIVdQV5n8hJc2Azgk9SFUSYtKW2Ae0BIJn5ksolMMX2W412TtHHS0S03cG2Pg4OHcZQjdbCDBUHwSHrh+92Nz4srbzeowwVQkEKqZJM2u55/xn0ok0pxHOATcpqiCj1EDwaloqNBQyVa9Si4w0b3wvFUhpyzY1HAnNfnuBJoUkmKjysMGdirqF/dP7ncirqWWLwpe+mqeZ9TUIEVEajIuXv+Zo5rizvJ+pvHR5RJ3QMp3Ri28Un4A31gj/L7OixkVZSetLaD0FL5BtwkcJPqa9v2EiWTqat+lWGtmBaJSmXENTkX9N21TXBK897BoJDxNKu1Bkct0CRFSz2aBITro/wX8=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3485.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(10067099003)(11063799006)(4143699003)(56012099006)(261021121427099003)(261026121527099003)(261021135927099003)(261102123227099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?RVRvN3NWM1RSZHJQbDl6NW96MVk2UmxHbzBqTGIvQ0gvSHpDUmRmblp3N093?=
- =?utf-8?B?OWZHblpXR0NDbmJWaWdLYnlyWTYxanowcnVlL2pPQkExNkxJL1RETzF6ZjNq?=
- =?utf-8?B?YU1CcUZOcUZEM2pBRXBuaVQyUHJTUUxJOFFzMmE5ejA5MHl4aFVrbU0rM1I1?=
- =?utf-8?B?Ly9RdTJkbUw3azhKbDNQdEpkYVhlNHR0QzA3eE42WE5xVW9pcnd5NHlseEQ4?=
- =?utf-8?B?REdkL0laMmpQeWVUdkVTd285Wi9TL0tRcjNqS3pkajhwZUFoU2t1T0QwdFFo?=
- =?utf-8?B?RU1qbWpkQmM1VlcyaFNtd0pXb0lGbXF5MzFGclg3K1NuQ0QvNGFDTVorZXJN?=
- =?utf-8?B?MHNESjdXa0MzUEJ5UnZLdEZyNWtWUjdlUTdJTTRkWnc1WERUNGx1dVQ1ZG10?=
- =?utf-8?B?MVd0NzI2Vm9FWEdtbU1BandBWUNkMTg0K2NhVVdDUWgzMmFPaFpyU2N2OHcy?=
- =?utf-8?B?Q2xtNVFsYytoOWErM2JJTlIxc2xjS01MWWtnNVNZT0h5NmpGVTcvZGc0OFll?=
- =?utf-8?B?T2J0em92Wm9BNlNIZnJrQkVpM2J6UGdtbUZ3WVUwcGg5MXhTdFZvVWZycXpj?=
- =?utf-8?B?WlVtSzRtbC9nQVVXYUJaSTNLUFdoMXBCRFBKQXlPWTBMV2xiZXk0THIzL1Fm?=
- =?utf-8?B?aHJ3YUdJbWJXMEN3eDgveW1tSlZDRmdCWU9CbkxFaFdwandNdFZ2czJuUCtW?=
- =?utf-8?B?dVJad2laNllLZ0tQQmN2bVBZTFRVaXY4elR1dEp6MkRtMXBkMENua0E5S3E3?=
- =?utf-8?B?aTFxblJoeWNYWXUzZ2tkRUh6bVFHc3JENFBObDV1dzE2dEVqMVlpM05sZXlZ?=
- =?utf-8?B?K1dVamVPbEZnbURvNmRrR25DdE1na21HalhNZEQybnFYYU1DWlJpMlhXeDNi?=
- =?utf-8?B?L2FLY3BUUzJnTGZKTXhYSDdYVE93Q0Z3VEVjRHBraXdsck43SElLd0NUTkk1?=
- =?utf-8?B?ekM1TlF5OEpLWldVRXVzc2I4eHM0UmRhR1BJd0t2RHo1SkFRenRRUGY2dVdJ?=
- =?utf-8?B?eHhqMEpnMklkSXZkZ2xGWjdMa1pvVW5mRGdXcm9COTBnSFloNEpudlNoTm52?=
- =?utf-8?B?MkFVZXdsNVZoQlFmZGpvR3dvNHVvb2pIdjYvOS9PbWdQRHg2UFJ6ZkdUSG4x?=
- =?utf-8?B?MFZaQUdxbTdoQmR5Uk85R2VJWGpuOGRhUG0rS3RuR3ZNdmVnbmNNaGM0d1BJ?=
- =?utf-8?B?MDR0RUxwc1RSOVlIZUYrYklwbGFOeksrUnVpbXBKVjZBRk5YdzNvVzhGZEl6?=
- =?utf-8?B?ZElyd0M4OE1uQ25mQUc4RjE0Z1NYMjNYd25admt5b2U3cTBUdFlVMFRpVkl5?=
- =?utf-8?B?UmI2NUZYbmlvUlJDTzI1VDRtMHBvOE1HZDYrWTliUnlVNWIrc3NSTERtQm5a?=
- =?utf-8?B?elNneVYxWjNaTmtOUWlGVjJVTzVzNnVPcURnZFlqa3FTRnZvSEU5YTZYUjBE?=
- =?utf-8?B?a3pSMGRZcDdWejkwQmYvcWx2UHdCWUF4dWZaSFBCVUhzU2NpOTZTY0lFN09Q?=
- =?utf-8?B?ckV6K1k5MVZLeGZ3emdNMXVJendhb2ZuYlFPaDNxcUNPUVJhVmhkaTVkVlFn?=
- =?utf-8?B?bTZYUDV3Nkp3eXZ3S1hNQkdPRVdoQ0RBVlRNaXY5T1YyRFJzRnZqdWtTZ1NH?=
- =?utf-8?B?ZUZ6b3ljTjJ5UVVUWFVEZ2YvZnpXN1RBWUNtb09SYVRYcFdMcWZtYlJWNDdF?=
- =?utf-8?B?SzM3YUdRYklBbWdzTGhDbkVHVW5IeXJrTUsyY1grOC80SUR0R29Pdmt1VllG?=
- =?utf-8?B?Z0FZdUVXQXhxcFZ6T3J6RVY5Y0hYZmZPbW00c3JzNmdLZUZCVlkvMEMwYXpl?=
- =?utf-8?B?S1BUa3ovLzhYQlRIMG53RmJOaEpieDJNaGN5RElIVmpiTFNpWjhtUlE5YVU3?=
- =?utf-8?B?UEJWYmVXbFlNeGVsd0REUGFPVVlHc3pzOEFkYUo5eXplaVYzb2VBWFJxUER6?=
- =?utf-8?B?eDBPR3VxaFQ1UmhmeVFkZFZlZXNGNEZIUmFRamswQzh5aVJmSko4aTBNdDZo?=
- =?utf-8?B?L0tkWE9OLy9pS3V2M3lrZmc1RFBJZ2UrZ2tYd3ZyNzRJWVRCbVlISWw2TCtS?=
- =?utf-8?B?dUtoaHc1N0RGN21RWUJrdmdxeCtITWpEN1UxRWZqTmoyTFZ6RkJGNG94K2ZE?=
- =?utf-8?B?VWRMeklqWFVXL3BMTHkyVHVNb1AzZjA4M3V0WUJzY1FFY2dvZFZ2TWJKWHJZ?=
- =?utf-8?B?S2NhU3hSbXJYenR3UU5BUEpkQ0ErcWtsQisvZkU0VFFSMlkvREZGYVg2d3Zn?=
- =?utf-8?B?TFppSUh0eENscVpReXRGL21KR1ozMUJkb2lSdVJPSjNSS3dhYUxQbm1ZOHpo?=
- =?utf-8?B?VU56aGFsQkxaaWh4TDRsYmdhbzZPMG96bHMvRjZGY3I4OVpoTlN1UT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 88ddc496-5510-4df0-ad81-08df499e0d95
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3485.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 20:12:09.4298
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: A25XQy20OZQk1AQT9Pe8LvEYaetlVxBClIKM2Tu0r+P/cROQqszdB3sXf35S1U+jH//PVsmSVyVfpmMCOmyzxQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8952
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123183200.3900004-2-lee@kernel.org>
 
-On 11/22/2026 5:14 AM, Leon Romanovsky wrote:
+On Mon, Nov 23, 2026 at 06:31:07PM +0000, Lee Jones wrote:
+> matrix_keypad_init_gpio() obtains the row and column GPIO counts via
+> gpiod_count() and only checks for negative error codes before storing
+> them in keypad->num_row_gpios and keypad->num_col_gpios.
 > 
+> If firmware supplies more than MATRIX_MAX_ROWS (32) row GPIOs or
+> MATRIX_MAX_COLS (32) column GPIOs, the setup loops write past the fixed
+> row_gpios, col_gpios, and row_irqs arrays inside struct matrix_keypad,
+> and matrix_keypad_scan() overflows the stack-allocated new_state array.
+> Conversely, a zero count causes get_count_order() to return -1, leading
+> to an undefined shift when computing row_shift.
 > 
-> Is this a real, user-visible bug, or merely a nice-to-have improvement?
+> Reject non-positive GPIO counts as well as counts exceeding
+> MATRIX_MAX_ROWS or MATRIX_MAX_COLS, and size col_gpios with
+> MATRIX_MAX_COLS for consistency.
 > 
-It is real: we have seen RDMA admin commands take longer than 2
-seconds, with the firmware not yet having written the completion when
-the timeout fired. The patch does not cover commands that take longer
-than 5 seconds; that needs the configurable timeout from the net-next
-series, which cannot go to stable, so this is the part stable kernels
-can get.
+> Fixes: 584bf366f8fa ("Input: matrix_keypad - switch to gpiod API and generic device properties")
+> Closes: https://sashiko.dev/#/bug/linux-ed4b89af-6c76-4e5f-b140-fb2b107b12d0
+> Cc: stable@vger.kernel.org
 
-Thanks,
-Nikhil
+We trust DT somewhat so I do not think this needs to be in stable.
+
+> Signed-off-by: Lee Jones <lee@kernel.org>
+> ---
+>  drivers/input/keyboard/matrix_keypad.c | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/input/keyboard/matrix_keypad.c b/drivers/input/keyboard/matrix_keypad.c
+> index 11018382e84e..c2f839a3de90 100644
+> --- a/drivers/input/keyboard/matrix_keypad.c
+> +++ b/drivers/input/keyboard/matrix_keypad.c
+> @@ -33,7 +33,7 @@ struct matrix_keypad {
+>  	struct gpio_desc *row_gpios[MATRIX_MAX_ROWS];
+>  	unsigned int num_row_gpios;
+>  
+> -	struct gpio_desc *col_gpios[MATRIX_MAX_ROWS];
+> +	struct gpio_desc *col_gpios[MATRIX_MAX_COLS];
+
+Luckily they are the same...
+
+>  	unsigned int num_col_gpios;
+>  
+>  	unsigned int row_irqs[MATRIX_MAX_ROWS];
+> @@ -302,11 +302,16 @@ static int matrix_keypad_init_gpio(struct platform_device *pdev,
+>  
+>  	nrow = gpiod_count(&pdev->dev, "row");
+>  	ncol = gpiod_count(&pdev->dev, "col");
+> -	if (nrow < 0 || ncol < 0) {
+> +	if (nrow <= 0 || ncol <= 0) {
+
+gpiod_count() never returns 0. It's either positive, or -ENOENT.
+
+>  		dev_err(&pdev->dev, "missing row or column GPIOs\n");
+>  		return -EINVAL;
+>  	}
+>  
+> +	if (nrow > MATRIX_MAX_ROWS || ncol > MATRIX_MAX_COLS) {
+> +		dev_err(&pdev->dev, "too many row or column GPIOs\n");
+> +		return -EINVAL;
+> +	}
+> +
+>  	keypad->num_row_gpios = nrow;
+>  	keypad->num_col_gpios = ncol;
+>  
+
+Thanks.
+
+-- 
+Dmitry
