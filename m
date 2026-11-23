@@ -1,70 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.226
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795419813;
-	b=WEXyqOQSaidgi5+RyFL9vvELglUCmWkNS0RITuUDA6B8jOAqx95FolZoeEIWybYJEMMo
-	 jeyFRTFJOuTHn//mLVgU5YW2WLbfE3Xr2ZbJDgYsKHc02TwMVE+EeqhPzCRnTPfEHL9wW
-	 c4+ghaviOj7MAxGD0SlOYIiiJqmgARRQ0VOZJpf7DqvJuquP8ESm/tBSpRuvXVOSZEbNz
-	 BDVOaCEI5pN4aVkY5g6v4WwOscdstO4EkqwkrC0HlxUHtay+3wxuxSskEsYW8A6iSoH/A
-	 q/IOzhuW37hTIsMel1xG8FI1sS7NSMdEU4ynSh8LM78jGyUof6Upvfo5+Mx9NH3mn+g==
+	t=1795419825;
+	b=VkfprUNVPiDoiHkgKBpTa2SDyn7d4L/Wpy84Ltgo+hOj0wgK+BQGnz6SxtxBpgIJdFVf
+	 0XGYY44rGZyxp3rIRvZW8pLkPrE20xU63h2pRWI7eXwN5/MJW0rbtyPYxCz6tYluNBsxO
+	 +IOTsonMSkywkb+3CFiEXCtLssrjCI3o0VIriLmOlLbQkHuu+Ja/uw0/oJGAjeFKUIZUa
+	 P6j3lvLp+zycbYH8dsN3YmFGmxIMxWHZXN0S13MLSkcw6S13LTP7/Q43ZPmVKfXHuuOP8
+	 oclt7Ogvvmhfz1ykpXddEpvyStM2RVsc0hCRvMAeCvHvVQTQGg8Qo0h0CfrHKqtZUxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795419813;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=3s3oA+u0H6a4lKx+c9GboAwYFSdRKDU2CgYddA0tZCg=;
-	b=uoe3GuABDxR939ruR43rQiwcm/duZ4/TXM3PFLMxq9vpgIfDNVdfBrBgkaOI5E9Lj80D
-	 m9KNKFC6GWIE4jtIrGfx2Z/C5KFxYBvaHzpYPzFZFcLa/mlwiKR/XDSBhgQUYHYyOKlit
-	 jFaTZlS8q4DCM85uobmK9Kvhh8wWSwa12v73a6rPCRyBPAfVTHeAwi5YKxtZwHUsbNBCI
-	 1+JNz9YJCCmmFZ5RC6G6RAtmHUKTiS8nwEI7KHTAeYapsZtQCWiVz9MhMCllCeqzhXGve
-	 qhchcUNAhfNXplE/yNR14pJoMQdxofrRuEj6Wiux9FqsPwd5VYE3zVIGzbmINO1TycQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795419825;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:CC:Subject:To:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=6j9uy6DpUm+FCCeQ0QSmVenyXc1ejPJ0OyDcAi7hXiA=;
+	b=vUj8hCuRoe/jFz1TW/vG1hY69blsdJhr60JfjNyfNACUk5Wv0Ru16NuehNCaqK5CV8w0
+	 6EmWaERYbYJ11izyNM7clDCLTbtwZEDI55WHFSVnSCLO/gCN/WT//m8T1uE1WU+vq/wZn
+	 7iZh4ouShPTTm76Fvl6fnaORnAt/qMV7kMRhbSrkQGFYAa9KNtdd5Y60lQDeLhVh/+2HS
+	 KTNk+ueSv7BwqYe5l47bN0xAHe+1bCnWOIT3Fe0UrOYYm01ZOejsvUhJBM5ZBgNw45JxW
+	 eA1gNfNKdkfYP1/d2TDxRYsGDKkTJEZLl+oyFPws06ccyLocuErgVs63jstwF+0v+Rw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=vuq3J68w;
-	arc=none smtp.remote-ip=111.22.67.139
-Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id D2F19606A31A;
-	Mon, 23 Nov 2026 07:43:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2F19606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=BSMKH+a5;
+	arc=none smtp.remote-ip=113.46.200.226
+Received: from canpmsgout11.his.huawei.com (canpmsgout11.his.huawei.com [113.46.200.226])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07726606A31E;
+	Mon, 23 Nov 2026 07:43:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07726606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=vuq3J68w
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=vuq3J68woXJgi7jG8hvgDNB5il+19wwqo0VgZtvjuSYTJZ5EDenuKLbRDYiOhzY7hH260UQT9l83s
-	 Ry07KWuJELHvSywmc7Vza7naoBg7x/HhS5b6tped1bJi8pcBazzjk3YGfHwyWjFMju6n/iNRxw1DHW
-	 5K2BsvFmbXY9By3k=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app01-12001 (RichMail) with SMTP id 2ee16b03ee9a65d-173a1;
-	Mon, 23 Nov 2026 15:43:27 +0800 (CST)
-X-RM-TRANSID:2ee16b03ee9a65d-173a1
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from devin-VMware-Virtual-Platform (unknown[10.55.1.71])
-	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86b03ee9d78c-f4bec;
-	Mon, 23 Nov 2026 15:43:27 +0800 (CST)
-X-RM-TRANSID:2ee86b03ee9d78c-f4bec
-From: Zhu Jun <zhujun2@cmss.chinamobile.com>
-To: broonie@kernel.org
-Cc: lgirdwood@gmail.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	kaichieh.chuang@mediatek.com,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Zhu Jun <zhujun2@cmss.chinamobile.com>
-Subject: [PATCH v2] ASoC: mediatek: mt6797: Fix runtime PM handling in probe
-Date: Mon, 23 Nov 2026 15:43:25 +0800
-Message-ID: <20261123074326.11494-1-zhujun2@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.51.0
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=BSMKH+a5
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=6j9uy6DpUm+FCCeQ0QSmVenyXc1ejPJ0OyDcAi7hXiA=;
+	b=BSMKH+a5Oe1r9ZTzRbMJt/CRzzmm36loU/chsZd9oX5OSLT5yGFoPznBXlJSTe5CbDz2t5JwN
+	4YTEx+HTMOoSV2Jb2ENWbahGUTxSi//No8lmvTMFlqyxr2h57JVW/G9qnLOzj9c3Bc+UwsJzYLa
+	cpQM+HH0T8O7+sTOaGt7ddk=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4jXybk31LjzKmTk;
+	Mon, 23 Nov 2026 15:43:14 +0800 (CST)
+Received: from kwepemo500018.china.huawei.com (unknown [7.202.195.199])
+	by mail.maildlp.com (Postfix) with ESMTPS id CFC604057C;
+	Mon, 23 Nov 2026 15:43:31 +0800 (CST)
+Received: from [10.67.121.233] (10.67.121.233) by
+ kwepemo500018.china.huawei.com (7.202.195.199) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Mon, 23 Nov 2026 15:43:31 +0800
+Message-ID: <d62f3532-5bc5-45aa-98c6-90a253c7bcb7@huawei.com>
+Date: Mon, 23 Nov 2026 15:43:30 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,82 +62,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+CC: <shaojijie@huawei.com>, <davem@davemloft.net>, <edumazet@kernel.org>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <andrew+netdev@lunn.ch>,
+	<shenjian15@huawei.com>, <liuyonglong@huawei.com>, <chenhao418@huawei.com>,
+	<yangshuaisong@h-partners.com>, <ningwei15@huawei.com>,
+	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 net 4/4] net: hns3: fix use-after-free in debugfs read
+ during reset/unload
+To: <netdev-bot+sashiko@kernel.org>
+References: <20261118130330.3026625-5-shaojijie@huawei.com>
+ <179535384216.3135.13172932788054177257@kernel.org>
+From: Jijie Shao <shaojijie@huawei.com>
+In-Reply-To: <179535384216.3135.13172932788054177257@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemo500018.china.huawei.com (7.202.195.199)
 
-The MT6797 AFE probe registers its components even when the runtime
-resume fails to enable the clocks. If component registration fails
-after a successful resume, the probe disables runtime PM while still
-holding its usage reference. The runtime PM disabled path also
-returns the previous successful result without registering components.
 
-Use pm_runtime_resume_and_get() and stop on a resume error. On a
-component registration failure, drop the probe's reference without
-idling, disable runtime PM and directly suspend the AFE if it is still
-active. This ensures the clocks are disabled even if userspace forces
-power/control to on or a resume races with probe cleanup.
+on 2026/11/22 21:24, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in case
+> you want to address the nit picks below when you respin.
+>
+> Low priority / nit picks for your consideration:
+>
+> - [Low] The comment on the new `struct hnae3_handle::dbg_mutex` field in
+>    drivers/net/ethernet/hisilicon/hns3/hnae3.h reads "protect debugfs…
+>
+> --
+>
+> net: hns3: fix use-after-free in debugfs read during reset/unload
+>
+> This patch adds a dbg_mutex to struct hnae3_handle. The enet-layer debugfs
+> show callbacks take it, and so do the reset, driver unload and ethtool ring
+> resize paths, which keeps the readers away from priv->ring, priv->tqp_vector
+> and ring->desc while those are being freed. The readers also check the
+> device state on every iteration and return -EBUSY when the device is busy.
+>
+> Closes: https://lore.kernel.org/all/a0853cd9-cab5-441d-b181-8ba97f2f58b0@huawei.com/
+>
+>> diff --git a/drivers/net/ethernet/hisilicon/hns3/hnae3.h b/drivers/net/ethernet/hisilicon/hns3/hnae3.h
+>> index 4286af9239b01..e94cc33da8643 100644
+>> --- a/drivers/net/ethernet/hisilicon/hns3/hnae3.h
+>> +++ b/drivers/net/ethernet/hisilicon/hns3/hnae3.h
+>> @@ -944,6 +944,7 @@ struct hnae3_handle {
+>>   
+>>   	u8 netdev_flags;
+>>   	struct dentry *hnae3_dbgfs;
+>> +	struct mutex dbg_mutex;	/* protect debugfs against reset/unload */
+> [Severity: Low]
+> This isn't a bug, but is this comment a little narrower and a little
+> broader than what the lock actually does?
+>
+> On the writer side, hns3_set_ringparam() also takes h->dbg_mutex around
+> hns3_init_all_ring(), the memcpy() restore and hns3_fini_ring() on the
+> backup rings:
+>
+>> diff --git a/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c b/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
+>> --- a/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
+>> +++ b/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
+>> @@ -1252,6 +1252,7 @@ static int hns3_set_ringparam(struct net_device *ndev,
+>>   	if (if_running)
+>>   		ndev->netdev_ops->ndo_stop(ndev);
+>>   
+>> +	mutex_lock(&h->dbg_mutex);
+>>   	hns3_change_all_ring_bd_num(priv, new_ringparam.tx_desc_num,
+>>   				    new_ringparam.rx_desc_num);
+> Ring resize is neither a reset nor an unload, so the field comment does
+> not mention it.
+>
+> On the reader side, only the enet-layer seq_file callbacks take the
+> mutex (coal_info, rx/tx_queue_info, queue_map, page_pool_info, bd_info).
+> The hclge-layer readers that hns3_dbg_common_init_t2() registers through
+> ops->dbg_get_read_func() live under the same handle->hnae3_dbgfs tree,
+> and they never take it.
+>
+> The commit message says the mutex is "used by enet-layer debugfs
+> callbacks", but this comment is the only place in the tree that
+> describes the lock's scope.
+>
+> Could the comment say that the lock serializes the enet-layer debugfs
+> readers against the paths that free or rebuild priv->ring,
+> priv->tqp_vector and ring->desc (reset, unload and ring resize)? Then a
+> future writer would know it has to take the lock, and an hclge-layer
+> reader would not assume it is protected.
 
-Keep failures before a successful resume on a disable-only path so
-cleanup does not disable clocks that were never enabled. Return an
-error when runtime PM is unavailable.
+It states what the lock is for.  I think a struct member comment isn't
+meant to enumerate every path that takes it, and covering the main cases
+should be enough.
 
-Fixes: 3901b9fc0f0d ("ASoC: mt6797: add mt6797 platform driver")
-Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
----
- sound/soc/mediatek/mt6797/mt6797-afe-pcm.c | 21 +++++++++++++++++----
- 1 file changed, 17 insertions(+), 4 deletions(-)
-
-diff --git a/sound/soc/mediatek/mt6797/mt6797-afe-pcm.c b/sound/soc/mediatek/mt6797/mt6797-afe-pcm.c
-index 2069c340ca39..cbe7c3a2eedb 100644
---- a/sound/soc/mediatek/mt6797/mt6797-afe-pcm.c
-+++ b/sound/soc/mediatek/mt6797/mt6797-afe-pcm.c
-@@ -828,16 +828,21 @@ static int mt6797_afe_pcm_dev_probe(struct platform_device *pdev)
- 	platform_set_drvdata(pdev, afe);
- 
- 	pm_runtime_enable(dev);
--	if (!pm_runtime_enabled(dev))
-+	if (!pm_runtime_enabled(dev)) {
-+		ret = -EOPNOTSUPP;
-+		goto err_pm_disable;
-+	}
-+
-+	ret = pm_runtime_resume_and_get(dev);
-+	if (ret)
- 		goto err_pm_disable;
--	pm_runtime_get_sync(&pdev->dev);
- 
- 	/* register component */
- 	ret = devm_snd_soc_register_component(dev, &mtk_afe_pcm_platform,
- 					      NULL, 0);
- 	if (ret) {
- 		dev_warn(dev, "err_platform\n");
--		goto err_pm_disable;
-+		goto err_pm_put;
- 	}
- 
- 	ret = devm_snd_soc_register_component(afe->dev,
-@@ -846,11 +851,19 @@ static int mt6797_afe_pcm_dev_probe(struct platform_device *pdev)
- 				     afe->num_dai_drivers);
- 	if (ret) {
- 		dev_warn(dev, "err_dai_component\n");
--		goto err_pm_disable;
-+		goto err_pm_put;
- 	}
- 
- 	return 0;
- 
-+err_pm_put:
-+	pm_runtime_put_noidle(dev);
-+	pm_runtime_disable(dev);
-+	if (!pm_runtime_status_suspended(dev))
-+		mt6797_afe_runtime_suspend(dev);
-+
-+	return ret;
-+
- err_pm_disable:
- 	pm_runtime_disable(dev);
- 
--- 
-2.51.0
 
 
 
