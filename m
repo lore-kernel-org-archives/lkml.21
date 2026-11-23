@@ -1,45 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795394423;
-	b=ESMgCN9ZZgoS4z/OCBgyB3HS9Dkn7roBbXCGgoe35Ibe/HG6SZuPVQGQcYN+HLWXOWnE
-	 BlN2W1ci7YBloCUWrCri8VV/P4lOrVx6MzF5C3/5EfV1VD6rrRRgqgwLvxzQAAwweQO0t
-	 q6XK9/AJrTD0FmL22vCSnv9ppblFPPYLQkP0IUuOkg1DlJuQ7wy0rKARDKluK8uygEFAj
-	 O/jqyJQo2jtXL+Gt7ZFswjgaFYFQ4psrUMrvUYDuICjV2cgRBegfDL25fMFzVAZykVUv/
-	 oj+ugR6cUM/To8iCfZzTqaSaVsRjlnOZhsmA3HCh4U0J+1tRgJpk+NLP7gHZvEnABag==
+	t=1795394562;
+	b=VOL/NHRnDST864BKMZEFkHXHSBBwYJRtq303fVP9D3vrUDxJ8yAOWTBdh78H3BdyEM1b
+	 kV69eGdzTn0ws7P+mPPchnXiEVNij9SscsXSvrNHZnb3Ysd9KNmL+LO6JtjOIMMg7U30x
+	 3GAVLEyuAdtetPsZ/3coRNO5uSgrrOZdjvWS0GwyWalLk7UKqJKQY0Za1ImB5ahvx9iYO
+	 TeIZif/Ok+3HXv9jcKUgw11FOrMGtpvWEtW4IJHPTKyYjNKizZzEpJ4iaBfeXptHsUyqJ
+	 nsBwFhUPZC4nFWHTFq8v11w87ipfGUh0MELllFxCh4m283HAmt75yImzCVT9R3DdO+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795394423;
-	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
-	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=vvX7FxyAeqZ8LNbdDutoA2XUQbgC5esuzUM1lgllSu8=;
-	b=YE3q5Ur8dEZQAySLUOJAL7cF4qRjQCHPo7aZ4GN5OzZKWfqFJEAuXmuK/8+es0R33drn
-	 d1+OvY8aAVA89uZHBkRGt56937QL5QSUgyH1FtZjAGkCTkHizfLtvugVBdz1R2AtsEztE
-	 Qe+slYZuR4bCpxJeJ51mrYqFU+Pe5Z0lP4jfAfTEBs1XNZMdZmSXS/61PktMo+cZbKWuG
-	 3AdTu4Dy5nuJa+YGc6ySxKTOH3i8NO4Ilz82hay4rUGHNnn29p8sUnbPP496L37tWzetA
-	 qkLsbWxPPRlYlsNx9ZMGtj2klur/qGU/xrXdapNYzMjtiYoPmfmTU8sKuu9w+kO8GTw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795394562;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
+	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=aWdEVdEH6v6WLgvuBfgYcXN/PScT3Fm4toYb1ovQsk8=;
+	b=xMUBY/pDbNxFZ6OdSteceEs5Kmemrm0ukmvcIjPkuEP6WRw5I4dVlQY/rdsdEENC24gn
+	 Vm78XF9GCX/tpk2td27BTPWJ8UQCdJCmYTVQbtq+Fk3HTKczpQPWoWfSiS8LzVMuv7an8
+	 VDqLg23+dWIv8PUZh8Z6xd0kIK6742P0ElukmoAQAA6m8d5/856aSElX8i/1mcdE3t5WV
+	 n92jqvaksFFj2R6M7EYZn4+3Xitv1yO2rbMwz5ryVWlQG3QlOL1uhRgI6RD5wRPoZDXs5
+	 cflsK/eTfj3EBpI0ZxMf6jabnNjSKFkdWBQdUCSQQbcWS4NJV7BI278luMf9z3MQBRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=fail reason="signature verification failed" header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JXEHzbfF;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=WP2KKQEN;
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 405D5606A69A;
-	Mon, 23 Nov 2026 00:40:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A708606A334;
+	Mon, 23 Nov 2026 00:42:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A708606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JXEHzbfF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67FBE1F000CF;
-	Mon, 23 Nov 2026 00:40:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795394422;
-	bh=vvX7FxyAeqZ8LNbdDutoA2XUQbgC5esuzUM1lgllSu8=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=JXEHzbfF8FivyAPYlaHLt/sjbu+sMiIjeW4J+JAcZF6DHPGHnSyZEpAWSwINg/QtG
-	 qMvwlT/dWevDFNZE3EmB0+EkujzNQv14fIUwxBlg1u97hvPQJwRQnnmknUtnGSLqKp
-	 +w5Um1rJbFy/7SBBmUFzG6PI0EN+0XZSOaBoPzsvzRgHkXsEq4GgASFguFoLMWjWp8
-	 pki1qgTUTfJ2n1dkykh8Sx93oxX6Z8qzQ4/xFm3kvMlIB6UOQ+FNx+6SDa9dAoC1g2
-	 a4qmqFwXmDraqu/60o0Pgvn+4KIPfMe0B0GUm210pl1FgrO0ZXdh5vy5fgaMO4wlqy
-	 O+/vKLTVv+O+A==
-Content-Type: multipart/mixed; boundary="===============5817084910596839964=="
+	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=WP2KKQEN
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AN0gIUR11170186, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795394538; bh=aWdEVdEH6v6WLgvuBfgYcXN/PScT3Fm4toYb1ovQsk8=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=WP2KKQEN0XiKYbWhy5+gMlt+yM3cozU+H7tr+57ShOvscRaP0isFEn7Hpfhmsvcpg
+	 TijxrexF0kEmWDYxxN0mPLOnZseT8pgjlxFAuyDhRrWsQm5Rt+f65XXXzrwM8VMV/b
+	 kNMyia0i3kotTbhKqEESqZq0qY5P2BIP46O4IyGVofMf6GckvOZDS4C/NmGLvQ+1TH
+	 oBL/O6+BMVZCm9yaTWk5tPj5hq+CoIlBxCkU8/9hVs1RmvBbwo1flt9iMOAlDaf9k/
+	 gSjp6ZQkNmlKuRfCLWjTJWDCioN4MD8UkylFfgmDdUpRK0IG1055ngLL2a5JQaEiTo
+	 dpC1WTduW7mlA==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AN0gIUR11170186
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 23 Nov 2026 08:42:18 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Mon, 23 Nov 2026 08:42:18 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Mon, 23 Nov 2026 08:42:18 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Mon, 23 Nov 2026 08:42:18 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: "niko3x@proton.me" <niko3x@proton.me>, Jes Sorensen
+	<Jes.Sorensen@gmail.com>
+CC: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH rtw-next v2 2/2] wifi: rtl8xxxu: report real TX status on
+ RTL8188CU/RTL8192CU
+Thread-Topic: [PATCH rtw-next v2 2/2] wifi: rtl8xxxu: report real TX status on
+ RTL8188CU/RTL8192CU
+Thread-Index: AQHdekbTZxP8pNINO0ifX/YlfNJGmLc60lTA
+Date: Mon, 23 Nov 2026 00:42:18 +0000
+Message-ID: <6911e0a143a64b3da2b4ff63653056f2@realtek.com>
+References: <20261122-b4-tx-status-v2-0-bbfdbd880acf@proton.me>
+ <20261122-b4-tx-status-v2-2-bbfdbd880acf@proton.me>
+In-Reply-To: <20261122-b4-tx-status-v2-2-bbfdbd880acf@proton.me>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,139 +88,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <7e1d3d4067c817a0ae6137044406af1138613ce289199ca065c65fc6d611f990@mail.kernel.org>
-In-Reply-To: <20261122235757.3456048-4-irogers@google.com>
-References: <20261122235757.3456048-4-irogers@google.com>
-Subject: Re: [RFC PATCH v1 03/11] scripts, unwind: Add build-time .eh_frame minifier
-From: bot+bpf-ci@kernel.org
-To: irogers@google.com,linux-kernel@vger.kernel.org,linux-trace-kernel@vger.kernel.org,linux-arch@vger.kernel.org
-Cc: jpoimboe@kernel.org,rostedt@goodmis.org,peterz@infradead.org,mingo@redhat.com,tglx@kernel.org,bp@alien8.de,dave.hansen@linux.intel.com,x86@kernel.org,catalin.marinas@arm.com,will@kernel.org,mark.rutland@arm.com,linux-arm-kernel@lists.infradead.org,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,linux-riscv@lists.infradead.org,acme@kernel.org,namhyung@kernel.org,linux-perf-users@vger.kernel.org,mhiramat@kernel.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,bpf@vger.kernel.org,nathan@kernel.org,nsc@kernel.org,linux-kbuild@vger.kernel.org,ojeda@kernel.org,rust-for-linux@vger.kernel.org,ardb@kernel.org,linux-efi@vger.kernel.org,maz@kernel.org,oupton@kernel.org,kvmarm@lists.linux.dev,shuah@kernel.org,linux-kselftest@vger.kernel.org,indu.bhagat@oracle.com,jremus@linux.ibm.com,wnliu@google.com,dylanbhatch@google.com,irogers@google.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mas
- on@kernel.org,ihor.solodrai@linux.dev
-Date: Mon, 23 Nov 2026 00:40:18 +0000 (UTC)
 
---===============5817084910596839964==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-
-> scripts, unwind: Add build-time .eh_frame minifier
-
-TL;DR:
-- On big-endian build hosts, min_eh_frame may silently skip minifying every
-  object, so the size reduction is lost
-- Kconfig depends on UNWINDER_DWARF_CFI, which is defined only later in the
-  series
-- min_eh_frame is missing from scripts/.gitignore
-
-> diff --git a/arch/Kconfig b/arch/Kconfig
-> --- a/arch/Kconfig
-> +++ b/arch/Kconfig
-> @@ -528,6 +528,16 @@ config HAVE_UNWIND_USER_CFI
->  	select UNWIND_USER
->  	select UNWIND_DWARF_CFI
->
-> +config UNWINDER_DWARF_CFI_MINIFY
-> +	bool "Minify .eh_frame tables at build time"
-> +	depends on UNWINDER_DWARF_CFI
-
-A subsystem pattern flags this as potentially concerning: a depends on
-naming a symbol that no Kconfig file defines.
-
-UNWINDER_DWARF_CFI is not defined anywhere at this commit, so this option
-evaluates to n on every architecture.  That leaves the hostprogs-always
-entry in scripts/Makefile, the cmd_min_eh_frame hooks in Makefile.lib,
-Makefile.build, Makefile.vmlinux_o and rust/Makefile, and
-scripts/min_eh_frame.c itself unreachable here, so the results quoted in
-the commit message cannot be reproduced from this commit.
-
-The symbol is defined later in the series, in 6cf5792e969e ("x86/unwind:
-Add Minimal DWARF CFI kernel unwinder"), efdfa5f38673 ("arm64/unwind: Add
-Minimal DWARF CFI kernel unwinder") and 90a680847a32 ("riscv/unwind: Add
-Minimal DWARF CFI kernel unwinder"), so this looks like a forward
-reference rather than a misspelling, and bisection is not broken.
-
-Would it make sense to reorder the series so the unwinder Kconfig symbol
-comes before its consumers?
-
-> +	default y
-> +	help
-> +	  Strip unneeded callee-saved register opcodes and coalesce PC-advance
-> +	  bytecodes in .eh_frame sections at build time, reducing kernel unwind
-> +	  table memory usage while ensuring only Minimal DWARF CFA bytecodes
-> +	  remain in vmlinux and modules.
-
-[ ... ]
-
-> diff --git a/scripts/Makefile b/scripts/Makefile
-> --- a/scripts/Makefile
-> +++ b/scripts/Makefile
-> @@ -12,6 +12,7 @@ hostprogs-always-$(CONFIG_SYSTEM_EXTRA_CERTIFICATE)	+= insert-sys-cert
->  hostprogs-always-$(CONFIG_RUST_KERNEL_DOCTESTS)		+= rustdoc_test_builder
->  hostprogs-always-$(CONFIG_RUST_KERNEL_DOCTESTS)		+= rustdoc_test_gen
->  hostprogs-always-$(CONFIG_TRACEPOINTS)			+= tracepoint-update
-> +hostprogs-always-$(CONFIG_UNWINDER_DWARF_CFI_MINIFY)	+= min_eh_frame
-
-Should /min_eh_frame be added to scripts/.gitignore?
-
-Every other host program built here has an entry there (/kallsyms,
-/sorttable, /tracepoint-update, /insert-sys-cert, and so on), and
-git check-ignore -v scripts/min_eh_frame matches no rule.  After an in-tree
-build with the option enabled, the binary shows up as untracked and could be
-picked up by git add -A.  No later commit in the series adds the entry.
-
-[ ... ]
-
-> diff --git a/scripts/min_eh_frame.c b/scripts/min_eh_frame.c
-> new file mode 100644
-> --- /dev/null
-> +++ b/scripts/min_eh_frame.c
-
-[ ... ]
-
-> +int main(int argc, char **argv)
-> +{
-
-[ ... ]
-
-> +		if (memcmp(map, ELFMAG, SELFMAG) == 0 &&
-> +		    map[EI_DATA] == ELFDATA2LSB &&
-> +		    map[EI_CLASS] == ELFCLASS64)
-> +			rc = process_elf64(map, (size_t)st.st_size);
-
-main() checks that the target object is little-endian, but not the byte
-order of the host the tool runs on.  process_elf64() then reads and writes
-the ELF header, section header, symbol and Elf64_Rela fields as native
-structs, and only the .eh_frame payload goes through get_le32()/put_le32().
-
-On a big-endian build host cross-compiling an x86_64, arm64 or riscv64
-kernel, the first check in process_elf64() sees the bytes 01 00 of e_type
-as 0x0100:
-
-    if (ehdr->e_type != ET_REL)
-        return 0;
-
-Won't every object then be silently left unminified while the build still
-succeeds?  CONFIG_UNWINDER_DWARF_CFI_MINIFY is default y and its help text
-says only Minimal DWARF CFA bytecodes remain in vmlinux and modules, but on
-such a host nothing is stripped, coalesced or dropped, and nothing reports
-it.
-
-Other ELF host tools in scripts/ handle this: scripts/elf-parse.c picks
-rle/rbe accessors from EI_DATA, and scripts/mod/modpost.c applies
-TO_NATIVE() to the ELF header fields.
-
-The resulting kernel should still work, since kernel/unwind/dwarf_cfi.c
-parses unminified CIEs and FDEs, but the documented size reduction would
-not apply.
-
-Could this either fail the build with a message when the host is not
-little-endian, or read the ELF header, section, symbol and rela fields
-through le16/le32/le64 accessors as elf-parse.c does?
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45087188604
---===============5817084910596839964==--
+QWhtZXQgWmVyZW4gdmlhIEI0IFJlbGF5IDxkZXZudWxsK25pa28zeC5wcm90b24ubWVAa2VybmVs
+Lm9yZz4gd3JvdGU6DQo+IEZyb206IEFobWV0IFplcmVuIDxuaWtvM3hAcHJvdG9uLm1lPg0KPiAN
+Cj4gVGhlIGRyaXZlciByZXBvcnRzIGV2ZXJ5IGZyYW1lIGFzIGFja2VkIG9uY2UgaXRzIFVTQiB0
+cmFuc2ZlciBpcyBkb25lLg0KPiANCj4gVGhlIGZpcm13YXJlIG9mIHRoZXNlIGNoaXBzIGNhbiBz
+ZW5kIGEgQ0NYIFRYIHJlcG9ydCB3aXRoIHRoZSBBQ0sgc3RhdHVzDQo+IGFuZCByZXRyeSBjb3Vu
+dCBvZiBhIGZyYW1lIHRocm91Z2ggdGhlIEMySCBldmVudCBtYWlsYm94LiBUaGUgcmVwb3J0DQo+
+IGRvZXMgbm90IHNheSB3aGljaCBmcmFtZSBpdCBpcyBmb3IsIHNvIHJlcXVlc3QgaXQgZm9yIG9u
+bHkgb25lIGZyYW1lIGF0DQo+IGEgdGltZSwgcG9sbCB0aGUgbWFpbGJveCBhZnRlciB0aGUgZnJh
+bWUgd2FzIHNlbnQgYW5kIHJlcG9ydCBpdHMgc3RhdHVzDQo+IGZyb20gdGhlcmUuIEZyYW1lcyB0
+aGF0IHJlcXVlc3Qgc3RhdHVzIHdoaWxlIGFub3RoZXIgb25lIGlzIHBlbmRpbmcgYXJlDQo+IHJl
+cG9ydGVkIGFzIGJlZm9yZS4NCj4gDQo+IFRlc3RlZCBvbiBSVEw4MTkyQ1UgKDBiZGE6ODE3OCkg
+d2l0aCB1bmljYXN0IGZyYW1lczogZnJhbWVzIHRvIGEgcHJlc2VudA0KPiBzdGF0aW9uIGFyZSBy
+ZXBvcnRlZCBhY2tlZCwgZnJhbWVzIHRvIGFuIGFic2VudCBzdGF0aW9uIGFyZSByZXBvcnRlZA0K
+PiBmYWlsZWQgd2l0aCB0aGUgcmV0cnkgY291bnQgdGhlIGhhcmR3YXJlIHVzZWQsIGFsc28gd2hl
+biB0aGF0IHRha2VzDQo+IHNlY29uZHMuDQo+IA0KPiBTaWduZWQtb2ZmLWJ5OiBBaG1ldCBaZXJl
+biA8bmlrbzN4QHByb3Rvbi5tZT4NCg0KUmV2aWV3ZWQtYnk6IFBpbmctS2UgU2hpaCA8cGtzaGlo
+QHJlYWx0ZWsuY29tPg0KDQoNCg==
