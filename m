@@ -1,107 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795424411;
-	b=jlfVtGLkfz4ZLXfKxSwlGyr3TH4XkUjXggA9/UBD7ljm8GdfVOzdymCv+flXMAjOUyvH
-	 wj5JwcqfX1iR2CxuhkXsrtHZvxGYQ9BjXe69DVgttMK66Pv7vf6zwufybSmJ75eCEmt1c
-	 qnrUvvtEXu7bcAvGhAsU5k5UYp2Kv0jsWYnWb9d7Rlq2ZfHm4IN4PuPq0J5z8yNoOiWBU
-	 a9lLhHAxacgpD1yIAmFoTAI7Row3oOBVPTKnzRuXnFl13sqElVmDkE/Uu/GMoHPEA9yX9
-	 hIrUSqhp7uWiw2v+wJE4bVdHNTJy/w8oodLJ/MfBfo1YLDUIgsDTj1yyhKM5mCm/7mg==
+	t=1795424455;
+	b=a7sbsJ+XrAvbsUYwlxyEsVU/BaYQXeUFu96kZNAZsSq3DlStp5RHsZisRi8YRH5NYekN
+	 cPa1cZQ6X/rIF5UkK4X7NYPyaq7fxfYzJ/JFTnaIQalPLuJ5IyMA3u1et/564C9FVkyqf
+	 DMNSAv+8uJ6X7Ghu4v1ywlBvlh7NhIZKTLkC9nHBBxGM7eTcm1gx5sLNOLt/86UVuEIkN
+	 mPe229ufaSQ2zxLcwcckutwXJWR0+K+RFWMEn+Q/8/dpje7lJ9+JtK3EXenhAsBWEMJg+
+	 pcmJ7k6w0jfAH84CR0e+PdkFOn4DTeF11ohDkBbDqZRNctljlq5dBzpTjgoYAG7b24g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795424411;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
-	bh=hSDU2ETZOpMWI8JG14QMd7t9fQXc8qdSNxDUHUS44YI=;
-	b=n1XUEgIMyFtGar79Kkh4vdENjPZ9p3N+ku8YRfJO4WtYZFdhYcogZZflbtybQ6mBbH12
-	 UpkBnzVL3bmJSj8XfLGODKn2HjaTIxyX9Dv/C5ZjtriJukA/mV1XPuMDv6xvoIUUqaQSj
-	 fT6VqzO14C2QrZ8IjEz6fFqnftMJIz3PEZWmBXs0xJQagB454m0GGQbVla1uVNYirwUBK
-	 30Fn4cXtVpYNFcc2gA5qo2lBzqEypQr2b7ZsEBorVUItXTp3aodJ3Oq3sYeyxLcWS+c4T
-	 lQjPOyMf9uGeMY8ILG30nyDD6TS2d8m3lnyBPm6NqWILmfrmfd3CckReXSr62chZ2YQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795424455;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=wK56nV5dj6BN9DnAzwC2it7nIfhccBMyPksEVfxk8L4=;
+	b=ayXf4zjqCXW/DCMPw6IxOFwlyB7yQwTSxtStZ5lK+oFTYPUDg4gEXdrWxbZylxat0/5Q
+	 FBbqdWyJ2LptLgR4Y6XNt6DBrm1tOSZzPtrEaGYKcfcYD1FkrPQVxyo/GrGVn7BcAmjUs
+	 9GKTjiGdwf80Xtzgo9rx7a/FhdG3aYSzIjTxwVgwVTL5U37Mc6BlHez587PCPHkK+udWn
+	 BuLr93+B5yy+Xnh5fq2K4ecGOa/BVDBoR9GEhBr4T+OPmr/bSwY2Xt+BRa4awC4JNxgqY
+	 Lsuv2Dcmzc521JJys/te9ebc7zA8M5r24c6u+s0grEfSdiQHjiLV2o2LrTiGfs3ADPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=g5ttDieu;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="/N9vsCNj";
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Qo3N0+px;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=H7OEEz4W;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=ThYvsDtQ;
+	arc=none smtp.remote-ip=68.232.153.233
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44FBB606A31F;
-	Mon, 23 Nov 2026 09:00:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44FBB606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9567B606A31A;
+	Mon, 23 Nov 2026 09:00:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9567B606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=g5ttDieu;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=/N9vsCNj;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Qo3N0+px;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=H7OEEz4W
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 5282521BD0;
-	Mon, 23 Nov 2026 09:00:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795424409; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hSDU2ETZOpMWI8JG14QMd7t9fQXc8qdSNxDUHUS44YI=;
-	b=g5ttDieu8ge/s+5eZhKDvuJM74ZuWcHoD0AwLxtRGlg3eqYz07QvEotH0O6ABIB2wXibR7
-	RY4in0OzfuyaI0FWKmMzV5nktILZz3F6FgXIxhiRzDTX0E0KFS344kHjHAtECtavF2v5jb
-	JhH7G7TuWUPRgzpS2Njt4OzxcTpZQ50=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795424409;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hSDU2ETZOpMWI8JG14QMd7t9fQXc8qdSNxDUHUS44YI=;
-	b=/N9vsCNjmvHLOHKid0jVaJp39fI7oCL3MtYQBXs9dRGysZZpO/ItIteNm+YeCo9eVy1vtq
-	2rzGAi1sq3aFReBg==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795424408; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hSDU2ETZOpMWI8JG14QMd7t9fQXc8qdSNxDUHUS44YI=;
-	b=Qo3N0+pxy9OBzFrF9TsF4nE+CZKtUH8vRGM6DcuIEPzNFxtI+Mpww3lI9lhSJCUMXKgyVN
-	wZQsriFN4LeXeGoXHXagBRb9CfJG9bU9o4SIDgCRs4pi/7m4uYykH/YhLB+dyPyRsP2cP1
-	vye5AtoCXyzik7wn2FU09hp5YGqpgQw=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795424408;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hSDU2ETZOpMWI8JG14QMd7t9fQXc8qdSNxDUHUS44YI=;
-	b=H7OEEz4W/5WQmZw3D8ZS9whjRuwfaAA99zAF3HJVIwOW9EupDbqt3DUqnN9hKgv8X4oXVo
-	CGPhU3DdfJVLCvBw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 07A751352B;
-	Mon, 23 Nov 2026 09:00:08 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id mN1HNJcABGt8BQAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Mon, 23 Nov 2026 09:00:08 +0000
-Date: Mon, 23 Nov 2026 10:00:07 +0100
-Message-ID: <871p8bexd4.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: shyckless@gmail.com
-Cc: perex@perex.cz,
-	tiwai@suse.com,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ALSA: sis7019: Don't shift the voice IRQ status by 32
-In-Reply-To: <20261122-sis7019-voice-irq-v1-1-fa5d0cbecf62@gmail.com>
-References: <20261122-sis7019-voice-irq-v1-1-fa5d0cbecf62@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=ThYvsDtQ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795424463; x=1826960463;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=vVIT0KjQxjO+p+ys4Bw721gnr410olPHzZc14uULyqU=;
+  b=ThYvsDtQwp+r566AhDWYFcHwQE+ofdFWmZRRYroQ4ATDfVHrSFHikScv
+   QZgf7sbvuZFs6xcY3VRyIzdG4wWbfXSdWwYDSfck+YK6DkjtE+rzDIyur
+   1EfllIzgEyzN3BHClSKd2uWM9makInbzQNqHi1kntMI4CEgkWjjNg8bdZ
+   +7Ymdhv7Igz7/72/GbeTKl7etgpEeIdqNaBpQ5XDO3O7HlWFgA18gkVZy
+   xQHxwX4bCAVJOdvvc8b80sjFLo4klIlh1yqM53tv1cX4jkdCScC6Gk7Hw
+   6MaffLMfbkVgiCseeheVOMWvSfACeiwFy5p57Y6LvYrv2vAsp5wNQHncy
+   w==;
+X-CSE-ConnectionGUID: fjHc7KbqRG+GFgtrW5tWDg==
+X-CSE-MsgGUID: idz3Yb9QRXKumrLi0BSZhQ==
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="298321523"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 02:01:01 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
+ chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.57; Mon, 23 Nov 2026 02:00:52 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Mon, 23 Nov 2026 02:00:49 -0700
+Date: Mon, 23 Nov 2026 10:00:49 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Zhao Li <enderaoelyther@gmail.com>
+CC: Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>, Mark
+ Bloch <mbloch@nvidia.com>, Leon Romanovsky <leon@kernel.org>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Moshe Shemesh <moshe@nvidia.com>, Shay Drory
+	<shayd@nvidia.com>, Akiva Goldberger <agoldberger@nvidia.com>,
+	<netdev@vger.kernel.org>, <linux-rdma@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH net] net/mlx5e: TC, fix a NULL pointer write in the peer
+ flow error path
+Message-ID: <20261123090049.hkhclpdiljjfptff@DEN-DL-M70577>
+References: <20261118025708.86215-1-enderaoelyther@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,64 +84,30 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Spam-Flag: NO
-X-Spam-Level: 
-X-Spamd-Result: default: False [-12.30 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	FREEMAIL_TO(0.00)[gmail.com];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_FIVE(0.00)[5];
-	RCVD_TLS_ALL(0.00)[];
-	TO_DN_NONE(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[hust.edu.cn:email,imap1.dmz-prg2.suse.org:helo,ntu.edu.sg:email]
-X-Spam-Score: -12.30
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261118025708.86215-1-enderaoelyther@gmail.com>
 
-On Sun, 22 Nov 2026 11:08:16 +0100,
-Suyuan Wang via B4 Relay wrote:
+> The peer flow add path hands the duplicated flow over to the origin
+> flow before it looks up the peer entry for the peer vhca_id. When
+> that entry is missing, the function returns -ENODEV, and the caller
+> then deletes the duplicated flow with list_del() on its peer node, a
+> list head that was never initialised and never linked. list_del() on
+> such a node writes through the NULL page.
 > 
-> From: Suyuan Wang <stevewong@hust.edu.cn>
+> Look the peer entry up before the duplicated flow is created and
+> handed over, so that a missing entry is reported without leaving a
+> duplicated flow behind. The entry cannot change in between: the peer
+> loop in mlx5e_add_fdb_flow() holds the devcom component's read lock,
+> and peer_flows entries are only stored and erased by the pair and
+> unpair events, under its write lock.
 > 
-> sis_voice_irq() walks the set bits of a PISR_A or PISR_B status word:
+> Found by code review and not reproduced; compile-tested only.
 > 
-> 	bit = __ffs(status);
-> 	status >>= bit + 1;
+> AI assistance was used.
 > 
-> When voice 31 or 63 interrupts, bit is 31 and status is shifted by 32,
-> which is undefined for a u32. On x86 the shift count is masked to 0, so
-> status does not change, the loop never ends, and voice keeps moving 32
-> entries forward on every pass, past the end of sis->voices[], with
-> sis_update_voice() called on whatever is there. All of this runs in the
-> hard IRQ handler. Voices are handed out from 0 up, so voice 31 is in use
-> once enough playback streams are open.
-> 
-> Walk the bits with for_each_set_bit() and index the voice by bit number
-> instead. The voices are still updated in the same order.
-> 
-> Found with a static analysis tool and checked by hand.
-> 
-> Fixes: 175859bf1602 ("[ALSA] sis7019: support the SiS 7019 Audio Accelerator")
-> Cc: stable@vger.kernel.org
-> Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-> Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-> Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+> Fixes: 9d608a40c2d4 ("net/mlx5e: TC, track peer flows in a vhca_id xarray")
+> Signed-off-by: Zhao Li <enderaoelyther@gmail.com>
 
-As this doesn't look like an urgent issue (for a legacy old code), I
-applied to for-next branch.  Thanks.
-
-
-Takashi
+Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
