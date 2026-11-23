@@ -1,74 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.193
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795430114;
-	b=qTbPaSjYF6fejCRs+GQFjETFTcOUaMPOn6k997qt66gvSQ3JJmjv4s+InDvi0j2mPm/z
-	 JX0vQ3+WMyUbwVO2v4A2OysMNqZXOWfdMpdU/PASMoNqDC/AIFTlyxyzszCpoYMoTFlQT
-	 BhLsSOMXkzjPhGy3aFcCdkYZJdoWL/AKOS43BknZQ+3RNYH2MVIxLizfAgKsP9ldM5Oy8
-	 lumhfeSRbzw49VUdwt0w7Hna96pzcToJ9TUZx+SPA0jiKNvUF1wsjnox+S1ya3fGgbrmT
-	 j8VsJSKo8JbGJrqA61m/CmGSnrVYhvZtdWD1RSOh414Pj3mFhsececf9BJldQ7b6vBw==
+	t=1795430137;
+	b=snEklHAu/s7tYxM2OD0SoWNC3wkd5zcKmCZliy2pGgo/R5RBU9J3WSAHbV/lj1nsFisr
+	 eASQxxdsK66Ivg6zIX9zA8dSte1nGtj/L/W7y2OUwSi8GJcaf2CrAkOo30OMluFU4fOj9
+	 GZGMsJQfHtnamzW6rcmGKcDhuq+wfmiGI890QNGFEbfYXcZTPVeP2Wz1Ceqgf4chY+Jp4
+	 VIxi1g0qfJl6edEqwLnFYEaDyxbcAKgRI39zWjZ0g/QwbFg0QMWkt6u+PYAyqavoMU6C3
+	 SPZGeDEwTzpUiOEUeTvB+U3xK3/pIG1a0GqgKVicq1BUkXFJxri3kjtRQ3Wr8LZR/oA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430114;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=lWio/ZaYW+Ez8es1JnqyfDCIZ2Tx6iwXiB9k3U+N5Zs=;
-	b=gyfjEgHoLOVdFhbUtrBRAKdVHIRm22zQ3XfD9+hBGUjdoR/AOj0pQsvB90NObbjMVnWL
-	 6bJIqCyUq7uOzSlGuBkfILylLKN89p+bpO1Fdry0RY9f0QNK8EIMeN4Ub0YOODu22e5Sz
-	 JYooag0fVBMIvxruusFF7IQQSNF8t/l3xIvOBbIl6GUZvHA2iDpv39hH9jEOicxbgbsOs
-	 B0c31+C+5WU8URxPKR4yISj3ZbwwYBJUbJisETtBJdDfNYKfhvpFmmdX1ofELw/NPv0i9
-	 cEgfsUk0zGCeNYund/lDXy35zV0jKpaSWaolsAKKZ3BwfGBrzaYbCT9hlQKPIhN/i9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430137;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=ZO4wNAj29ID7m/8F00or4c6Hhyo17pCJTJybg9NHhHU=;
+	b=pg2rIHIxzIGcoSEivbcuosl9+13SmdieqRMxecQGtdIuZ7W+fft/KbElA0DxVfRyR7fD
+	 u7s6wSn7hH/xWi52tefehWuGhtzwL3ZvX0WinHtaG2l+eenKjcMXD2Q2hahrDKDaEnget
+	 Wlr+XBZ1Z3xCWdcnOw77dLdmTiq+1cRkqNrj2O9sH89zU0Q0IwJn/d/1ZF54s0PSJxc4M
+	 BB6bsbi08l8o58SwtGuf+JW+zvTIkcn/oY65At653e37h5AFKsMKlYuXFiWxYDuKaPZzP
+	 Xphwz4KYfQstSEQ/gkDERRwVHk9VWklZ/iWsEifYD7noY9V/ans1l0VdI9dszlgI1Zg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=fuQVgPFD;
-	arc=none smtp.remote-ip=91.218.175.193
-Received: from mta0.migadu.com (out-193.mta0.migadu.com [91.218.175.193])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=iD4XBVCy;
+	arc=none smtp.remote-ip=198.175.65.9
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0DDD606A33C
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:35:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0DDD606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90D11606A31A;
+	Mon, 23 Nov 2026 10:35:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90D11606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=fuQVgPFD
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=IDG8FN6cGRh+zZL5h3B/Xnl0MXwN5GMGINSU+pdwgF8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795430112; v=1; x=1796034912;
- b=fuQVgPFDCIdL2Zne2TVj3GoYIYtkL33UcpxVa0zTpwA7uFOXdeVnZfCEJZbBfkYG1QGTyU/a
- KMtiH5BOJSLLaqTnmShzo6ivxYpeYCAxE4WDKkYu73UbzXeu/wjjNjbOV2tmwQabVJTEu5M7pAJ
- sehEXEVntOWW4KyeWfjNVnfo=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 82def4b9cf94a7df;
-	Mon, 23 Nov 2026 10:35:10 +0000
-X-Mizu-Trace-ID: 82def4b9cf94a7df
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Gavin Shan <gshan@redhat.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH 2/2] KVM: arm64: selftests: Test a THP whose first fault is on a tail page
-Date: Mon, 23 Nov 2026 10:35:05 +0000
-Message-ID: <20261123103505.1006067-3-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261123103505.1006067-1-fuad.tabba@linux.dev>
-References: <20261123103505.1006067-1-fuad.tabba@linux.dev>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=iD4XBVCy
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795430137; x=1826966137;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=WtkR+urVVb+auFp9r6p/Vhvy/v3Cd5NomGcGQA0332k=;
+  b=iD4XBVCy1qXqz5cmK4Dkr/Nj0m5xDBRSHjmP6m+Q7/PDErE+nAMaklEA
+   R71s9oDvnRUv9j826qwrqhspWHQlBfV9F5owusLK+we2cqd8clDW/4rSB
+   +ZbqB3dksrMACFWYfxFWAlH7/7nCwnQjVS0SHyh+fjYDVTyWmaYN5zBvv
+   qpPmW7uJapDh/rQeyfr8bVI064Dp/ba4FpYimF0q9v7FALFTHZ4PHtuZv
+   HVBfwPtpKChwxfDFL3P5fKmWUoMOw+yvJAJ038aR8HZLDHK7sLuJ9FnJa
+   nLZkps+N1SRlf43QBXHIJAgWWOJ50VvYUxVZ+77dCkZxJtdRcGIMErSYF
+   Q==;
+X-CSE-ConnectionGUID: kTEuJvyWS1ue6rH8LDq06g==
+X-CSE-MsgGUID: dYmpzDkaRIOEwfMr1ZtZ/Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4080044"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4080044"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 02:35:37 -0800
+X-CSE-ConnectionGUID: RF2iP6doQIOftGwuxqeJqg==
+X-CSE-MsgGUID: i0Y78dacQxumlSb9BW/6TQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11583821"
+Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
+  by fmviesa006.fm.intel.com with ESMTP; 23 Nov 2026 02:35:33 -0800
+Date: Mon, 23 Nov 2026 18:25:54 +0800
+From: Xu Yilun <yilun.xu@linux.intel.com>
+To: Lu Baolu <baolu.lu@linux.intel.com>
+Cc: iommu@lists.linux.dev, x86@kernel.org, linux-coco@lists.linux.dev,
+	kvm@vger.kernel.org, Jason Gunthorpe <jgg@ziepe.ca>,
+	Kevin Tian <kevin.tian@intel.com>, Kiryl Shutsemau <kas@kernel.org>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>, xiaoyao.li@intel.com,
+	Chao Gao <chao.gao@intel.com>,
+	Binbin Wu <binbin.wu@linux.intel.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/9] x86/virt/tdx: Export Dynamic PAMT helpers to
+ tdx-host
+Message-ID: <awQUsufmV3NipqGX@yilunxu-OptiPlex-7050>
+References: <20261112043054.2664857-1-baolu.lu@linux.intel.com>
+ <20261112043054.2664857-4-baolu.lu@linux.intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,113 +84,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261112043054.2664857-4-baolu.lu@linux.intel.com>
 
-On a host whose PMD level is folded, KVM mapped host memory past a THP
-when the guest first touched the THP at a page other than its first.
+On Thu, Nov 12, 2026 at 12:30:48PM +0800, Lu Baolu wrote:
+> With Dynamic PAMT, any page handed to the TDX module needs PAMT backing
+> first, via tdx_pamt_get(), and must drop it with tdx_pamt_put() once the
+> TDX module gives the page back. Besides KVM, the tdx-host driver now
+> hands pages to the TDX module: the IOMMU_MT pages for TDH.IOMMU.SETUP.
+> 
+> Export the two helpers to tdx-host as well. A symbol can only be
+> exported once, so replace EXPORT_SYMBOL_FOR_KVM() with an explicit list.
+> Only kvm-intel calls these helpers in KVM.
 
-Add a scenario for that case. The guest writes to the second host page
-of a memslot backed by one THP, then reads the first address past the
-memslot. The test checks that the write landed in that page, and that
-the read exits to userspace as MMIO. On a host whose PMD level isn't
-folded, the scenario passes with or without the fix. It doesn't use
-hugetlb pages, so it runs before the probe that skips the rest of the
-test when they aren't reserved.
+We are seeking for some simplified intial implementation without DPAMT
+for TDX huge page feature. So we could also drop DPAMT support for TDX
+Trusted I/O currently.
 
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- .../kvm/arm64/stage2_block_transitions.c      | 56 ++++++++++++++++++-
- 1 file changed, 53 insertions(+), 3 deletions(-)
+As an temporary solution, we can disable TDX Trusted I/O if DPAMT is on.
 
-diff --git a/tools/testing/selftests/kvm/arm64/stage2_block_transitions.c b/tools/testing/selftests/kvm/arm64/stage2_block_transitions.c
-index 5fd47f4ada1f3..000e8ec7ce8cc 100644
---- a/tools/testing/selftests/kvm/arm64/stage2_block_transitions.c
-+++ b/tools/testing/selftests/kvm/arm64/stage2_block_transitions.c
-@@ -3,10 +3,10 @@
-  * Copyright (c) 2026 Google LLC
-  * Author: Fuad Tabba <fuad.tabba@linux.dev>
-  *
-- * stage2_block_transitions - Exercise stage-2 block/page granularity changes
-- * that dirty logging forces at fault time, and assert the guest completes.
-+ * stage2_block_transitions - Exercise stage-2 block/page granularity at fault
-+ * time: the changes dirty logging forces, and how far a THP block reaches.
-  *
-- * Both scenarios need the fault handler to allocate at fault time (a fresh
-+ * Scenarios 1 and 2 need the fault handler to allocate at fault time (a fresh
-  * mapping and/or page-table pages while holding mmu_lock), so a fault path
-  * that fails to stage that memory manifests as a KVM_RUN error or, worse, a
-  * host crash. The asserted property is host-agnostic: the guest runs the
-@@ -27,6 +27,11 @@
-  *   fault that must split the block into pages during logging, draining
-  *   page-table pages. Skipped on CTR_EL0.DIC hardware, where mappings are
-  *   made executable eagerly and the execute fault never occurs.
-+ *
-+ * Scenario 3 - THP whose first fault is on a tail page:
-+ *   The guest writes to the second host page of a memslot backed by one
-+ *   THP, then reads the first address past it. If KVM mapped the THP and
-+ *   nothing past it, the write lands in the memslot and the read exits as MMIO.
-  */
- #include <linux/bitfield.h>
- #include <linux/bitmap.h>
-@@ -198,6 +203,49 @@ static void test_exec_split_drain(void)
- 	kvm_vm_free(vm);
- }
- 
-+static void thp_guest_code(u64 touch_gva, u64 past_gva)
-+{
-+	WRITE_ONCE(*(u64 *)touch_gva, 0x1);
-+	READ_ONCE(*(u64 *)past_gva);
-+	GUEST_DONE();
-+}
-+
-+static void test_thp_tail_first_touch(void)
-+{
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+	struct ucall uc;
-+	size_t npages;
-+	u64 thp_size;
-+	u64 gpa;
-+
-+	if (!thp_configured()) {
-+		ksft_print_msg("SKIP THP tail first touch: THP not configured\n");
-+		return;
-+	}
-+	thp_size = get_trans_hugepagesz();
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, thp_guest_code);
-+	npages = thp_size / vm->page_size;
-+
-+	gpa = (vm_compute_max_gfn(vm) * vm->page_size) - 2 * thp_size;
-+	gpa = align_down(gpa, thp_size);
-+
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS_THP, gpa, DATA_SLOT, npages, 0);
-+	virt_pg_map(vm, TEST_GVA + getpagesize(), gpa + getpagesize());
-+	virt_pg_map(vm, TEST_GVA + thp_size, gpa + thp_size);
-+	vcpu_args_set(vcpu, 2, TEST_GVA + getpagesize(), TEST_GVA + thp_size);
-+
-+	vcpu_run(vcpu);
-+	TEST_ASSERT(get_ucall(vcpu, &uc) != UCALL_DONE,
-+		    "Read past the memslot completed without an exit");
-+	TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_MMIO);
-+	TEST_ASSERT_EQ(vcpu->run->mmio.phys_addr, gpa + thp_size);
-+	TEST_ASSERT_EQ(*(u64 *)addr_gpa2hva(vm, gpa + getpagesize()), 0x1);
-+
-+	kvm_vm_free(vm);
-+}
-+
- /*
-  * The explicit-size hugetlb backing hard-fails region creation if the pages
-  * are not already reserved, so probe here and skip rather than abort. The
-@@ -216,6 +264,8 @@ static void require_hugepages(size_t bytes)
- 
- int main(void)
- {
-+	test_thp_tail_first_touch();
-+
- 	require_hugepages(NR_BLOCKS * BLOCK_SIZE);
- 
- 	test_block_collapse();
--- 
-2.47.3
+for example:
 
+static inline bool tdx_supports_trusted_io(const struct tdx_sys_info *sysinfo)
+{
+	if (tdx_supports_dynamic_pamt(sysinfo))
+		return false;
+
+	...
+}
