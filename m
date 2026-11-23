@@ -1,55 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795458358;
-	b=zrYqsMZWVwZWet8KuvTmaDqTr8EV5rXfV+WppzWofoc1Wdjtonpohf9eOqlcGZksc1OA
-	 tSfwnUsBR95yIJMCO8ZjLt3DTMPbHcfqgRef/QG0a6R4qtG5NXRyVMYEdnhBQVoHCp2s/
-	 gd6PFt0AA5vmtUbCJ2hGinEV2RkFou3gjf1oI/5H7Dnr+Ma1C34Tsd4a6z0DMDgT0boMr
-	 hvmyZP4OisB+dy4Rin/e2HDSzneN+E0qrNedGRAkFcuaYkbPza8UF+Z3NQcwZiwnsbSVI
-	 3TZ5Tdc6Hqe+hrFl/IIFuZJsm0WM/jP15rR51DLXaX12nHwSrKcVIIgFLWHgWvugd6w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795458358;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=SaDWoOqIit5U64rjLHqniDWftXA6W7O7+XmPs7S3MZE=;
-	b=EaDukPCsJqacSq7z39587JC9dJTAbWRh5L/tnBdQKiOuozXp19XM9mpiXLxngtIxxiF4
-	 NIPeQLb9yXDcIHMWszphNBsWPP3MqJN4pyG5tnRWEld/gcNzT+ECgA7aLUSJpBvB3Y63O
-	 Bm0Qve/gD8JPa5AvXaGd+BFAwFUgPi7YdnhD/Uh95XkmAbGSFIv16oy/7gxyFPeInc+H3
-	 fXjs2c9+4YbNbUEg9TNsZUvlCg22AI511Og8+jdMdfmS6dCBj0+zRuL2lX9EVI5QK2CAw
-	 c89ROq0Q77EF8hyXYenJFtG0t9UaeUkr8loY+QZ8gx6Nt8aj9ZcqkVukSyd33/D1wHg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="lT/ng6uR";
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795458398;
+	b=xqbLu4JQ+Floccubq57TjM/JlRFo74/EQs+5rr5bR66LkynVl3s7YLZgKTChWKunj6uS
+	 0Wy0HHktwXlYkgAHOG9UhFyoC1b05cEsv3J3X2iMIQY3Z9fgKleqU3ADuWIGTnbRQYtxn
+	 ny4e/y7y3YqtZ3eYMwAhTlLJh97W1Y9Ch0vMN7PLTuJ9qylHBnLn1p32QsMC5FMWQy/uY
+	 AhB5FjapVuSpKBuB06K4jj47NUqfyNvjtVOjH5Q4TrNnFXUeqlEa3FuSDUPQRb8nDcvIp
+	 kZg3Zl1t1Drsz1/PO2r/q6MZCYKZUMdbH9DyCUY16liUpnn8UCBB282cHf/PSgjezNA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795458398;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=vApd+m8RjiogfgCrcacegjW4GNTe7fU7dT0IqvHT2vc=;
+	b=io5oZroi533DquqhdS2lJMSFjw684hWgCcPYn7HbyYftMMJw+N16i45rpRvLbaMCRs9b
+	 0XMclcQA0xaiC935l3Ga1N0b+uda7lxQHyNDOsw0dggFsMUM8kKlDI7NWv9NftCeztq/6
+	 4WC//OTjE4ei7EJW0Ko1qArXmXOwy5/41HtDRGNDKsuusUVN/4gZqsjTbjJwqp3Bf7C93
+	 SvlXaKCEyjZVlcD09I5ArPpyyMkEzZ+YXY9xbdUc1rL5oOHXCMJUOR+lYJQpEQg3c5IY5
+	 Y0s/ozzS9jFkOzkRprxV4mesPTfokYZqQHP/ZfXePsNUKqDVYm2IDa9Glo0RyX/xQgw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="eYrQd/4O";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 737E9606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:25:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4107606A31A;
+	Mon, 23 Nov 2026 18:26:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lT/ng6uR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD5261F000E6
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:25:57 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eYrQd/4O
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795458398;
+	b=N9zqtyRrcxzi/v6zYAB5pJLuCgQq3X7t1BI1UTEeJt945huxDtaPJ4zq5nSgfc376rmd
+	 GEc36LKXu95SyZJNbx4GOCh/ZkTmah3RyRIl/ADGKmagcSVqubQKjCekNnred1XxfZhDx
+	 XjuoFvyqy+E0v6UxgTiROOzVF0kkSli7uEw89RcmiRzqncvOZ7C8heV4qHAlvbFKtZ91B
+	 PhX40HxQtM8Tgwy9INvGxPCulrmBnl2o3BG7RZ9Dg0a6GhNmkY+5QqUbN3vi0pBBTtKTD
+	 YX1xJCmO5ZAv/fO/Zw0GruWQWo+zt62Bx4HmLXZv0vUokdeQvMMDQMW2OWQSBTfshhQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795458398;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=vApd+m8RjiogfgCrcacegjW4GNTe7fU7dT0IqvHT2vc=;
+	b=0KeIYslpaVMpYKXJqf7AQB1lq88rK1OzjlHbwUsb/xeknh6RFsWfGY06Vz2t5vwhpBrU
+	 P7B4uf/PWP5CoBcHqT5IhqKSXWLhUumQA5vPcyIKc5eXghWvBOWHHhytsiuUbz5qJija0
+	 wXOyRc3KzKtUO3+OIfoKa0Vk4ZixLVosTCM2RbokSHHLvnjQuU4x1Xf+CpN/HAuNACq45
+	 Vl0shMWHUYfIU/mFXrlq9l5Aiv4e4S2pITS+g6TNBqYdxG67X7ei6IoGoEWQ90nLISf9N
+	 8abGpC3VSBQatF0pubnJLiPDE0WOmd0GJNLQHMlKJE+W3dDHK4jf5pLoe9D3VLeZ/0Q==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id B5ACD1F000C6;
+	Mon, 23 Nov 2026 18:26:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795458357;
-	bh=SaDWoOqIit5U64rjLHqniDWftXA6W7O7+XmPs7S3MZE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=lT/ng6uRnKsrw/yRVhG+89TcZIyE/GaACWEZ7JByvbOJuqxX4QbCfrFc/+GFxFbJr
-	 bgnmu+Fi/qkj7iAPjOvIQ+whzIMs+vXmDhlfs9+o0p4lq+tKcCu3Jakft9YcSfiuHo
-	 VHYSsDZTVVki7+ElTJJD0h863pn8xK9lrD037jSsHLzGgOfx3EkbXn2Eq2dhf27hg7
-	 IqfgmMNaVNuuiSP16dXI1p/VzwRR/edaCHMAISlogZwLQqABSibBaKg6bNo4uLkQgY
-	 P7agpyc0uyBZocO2taJcY4HDrlmrtx8ZCKUVJM6I2N2IKkk8F4lFGb7e6N1qkOWQTQ
-	 9vwx29BEqTmLw==
-Received: by mail-oo1-f41.google.com with SMTP id 006d021491bc7-716c0217635so4369415eaf.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:25:57 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErF6W7zekSt/Fs0UxATQjZhHssVtTKeCXIle/Q82afJ/Sf5ZzdDGwECiQlkDDQpz9DZ6dQmUCidFj4kqS1s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z97X7LOO2L+goiqkRxAbzhfZcq1o4nlhyzEfHBTiVwb/5+bgQK7
-	Tj6xqeIkNxJyv58JrPylUvvCe/o5XxaFIILY8HXAwoxm6CtZ7LkCIUZpai9XuWas9+oQmdfafop
-	TA5uwlrlQUhMk5dWoVN2PmB9JWJS/e2c=
-X-Received: by 2002:a05:6820:1628:b0:713:d536:1d33 with SMTP id
- 006d021491bc7-71b3277f48fmr9431007eaf.46.1795458357018; Mon, 23 Nov 2026
- 10:25:57 -0800 (PST)
+	s=k20260515; t=1795458398;
+	bh=vApd+m8RjiogfgCrcacegjW4GNTe7fU7dT0IqvHT2vc=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=eYrQd/4ObldxlEvoUORYGzQqG/dQ2sxNxaCH+cXW3NCzfwMh4lYQP1Leoszw+o32o
+	 lJUFN2vxwukdmdi7w98Ezieh+U+/Xr/YyCF9o3h4uibPs1KClgjCLJhPSeS9VB0GDA
+	 Sg6sbu51zvUQXCMu8v+gkGMZul8vArd9d4ygOFE2s9ZUDRvkRUC5CxMxkDDWYCotLl
+	 s/SR8s91yg/eWWYFn3phfaY4a89OYPSWpJ6FJEHOMFzGO4XXZNuzYYbHxWmhJxgFh4
+	 gujgjQDBI/tnUndvsLXYSvn2dFygGNYQvkdc/4dvP0y1dLle3cWEkS2JGorCObQ0Z/
+	 uIv9Oq7GmYcbw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 41C1C4C5A0;
+	Mon, 23 Nov 2026 18:26:34 +0000 (UTC)
+From: Alex Kononov via B4 Relay <devnull+alex.albefly.com@kernel.org>
+Date: Mon, 23 Nov 2026 13:26:32 -0500
+Subject: [PATCH] usb: xhci: Demote isoch buffer overrun message to debug
+ level
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,213 +83,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <6b04828d.71deaa98.2984e6.000b.GAE@google.com>
-In-Reply-To: <6b04828d.71deaa98.2984e6.000b.GAE@google.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Mon, 23 Nov 2026 19:25:46 +0100
-X-Gmail-Original-Message-ID: <CAL4WiipqqqU8KsqRDNOdzEenn+qWABu19xVqo4Fgmhfc9cf+7w@mail.gmail.com>
-X-Gm-Features: Aa3M54qLtcxbFytXkPCthlQOB8VMAE863mdyrjJmdDkmUghBpqICfuldWFtu2H0
-Message-ID: <CAL4WiipqqqU8KsqRDNOdzEenn+qWABu19xVqo4Fgmhfc9cf+7w@mail.gmail.com>
-Subject: Re: [syzbot] [net?] KCSAN: data-race in fq_pie_reset / pie_calculate_probability
-To: syzbot <syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com>, 
-	Kyle Zeng <kylebot@openai.com>
-Cc: davem@davemloft.net, horms@kernel.org, jhs@mojatatu.com, jiri@resnulli.us, 
-	kuba@kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
-	pabeni@redhat.com, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-xhci-overrun-dbg-v1-1-4e5a2f11740d@albefly.com>
+X-B4-Tracking: v=1; b=H4sIAFeFBGsC/x3MMQqAMAxA0auUzAZsK4JeRRy0iZqlSopFkN7d4
+ viG/19IrMIJRvOCcpYkZ6ywjYFwLHFnFKoG17reWufxOYLgmVn1jkjrjjyQ954sU+egZpfyJs+
+ /nOZSPse2GBxiAAAA
+X-Change-ID: 20261123-xhci-overrun-dbg-e9d333d1ed42
+To: Mathias Nyman <mathias.nyman@intel.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Michal Pecio <michal.pecio@gmail.com>, Alex Kononov <alex@albefly.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795458394; l=1879;
+ i=alex@albefly.com; s=20261123; h=from:subject:message-id;
+ bh=u+iI1iAggLCRGR0rnKKFeDkRp02wixUihtaOmHnQhog=;
+ b=BFA99X9w25yNj5WzNcCScet0Hzq+cz0KIYve1wY7kDXm51PxKZGZFfQT8ElFnnZf2BjR/bWTY
+ gvvaCQNu3GvBo1YMbsL9dzh5HkpAhjp/rFBB8qn48edCVxKm3RpVz2p
+X-Developer-Key: i=alex@albefly.com; a=ed25519;
+ pk=ixYEiZnk4RC7w0j2uj7JxJC3KhroqtYXGx4EgLM0u/0=
+X-Endpoint-Received: by B4 Relay for alex@albefly.com/20261123 with
+ auth_id=1618
+X-Original-From: Alex Kononov <alex@albefly.com>
+Reply-To: alex@albefly.com
+Content-Transfer-Encoding: 7bit
 
-Le lun. 23 nov. 2026 =C3=A0 19:14, syzbot
-<syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com> a =C3=A9crit :
->
-> Hello,
->
-> syzbot found the following issue on:
->
-> HEAD commit:    b6a9fa34ce41 Linux 7.4-rc4
-> git tree:       upstream
-> console output: https://syzkaller.appspot.com/x/log.txt?x=3D118e58e958000=
-0
-> kernel config:  https://syzkaller.appspot.com/x/.config?x=3D886d2ddd2d6b6=
-64e
-> dashboard link: https://syzkaller.appspot.com/bug?extid=3D00f5a4ef4bcb8f4=
-d19f1
-> compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.=
-8
->
-> Unfortunately, I don't have any reproducer for this issue yet.
->
-> Downloadable assets:
-> disk image: https://storage.googleapis.com/syzbot-assets/1cd533522ae8/dis=
-k-b6a9fa34.raw.xz
-> vmlinux: https://storage.googleapis.com/syzbot-assets/19d6c1c369e3/vmlinu=
-x-b6a9fa34.xz
-> kernel image: https://storage.googleapis.com/syzbot-assets/dfb541770724/b=
-zImage-b6a9fa34.xz
->
-> AI-generated root cause summary:
-> During qdisc teardown in `dev_shutdown()` -> `qdisc_put()` ->
-> `__qdisc_destroy()`, `qdisc_reset()` calls `fq_pie_reset()` without holdi=
-ng any
-> qdisc lock and before `fq_pie_destroy()` stops `q->adapt_timer`. Moreover=
-,
-> `shutdown_scheduler_queue()` has already replaced `dev_queue->qdisc_sleep=
-ing`
-> with `&noop_qdisc`, so `fq_pie_timer()`'s call to
-> `qdisc_lock(qdisc_root_sleeping(sch))` acquires `noop_qdisc`'s lock rathe=
-r than
-> `sch`'s lock. As a result, `fq_pie_timer()` -> `pie_calculate_probability=
-()`
-> runs concurrently with `fq_pie_reset()`, racing on `pie_vars_init()` writ=
-es to
-> `flow->vars` (specifically `vars->accu_prob` and `vars->avg_dq_rate`).
->
+From: Alex Kononov <alex@albefly.com>
 
-This analysis is correct.
+An isochronous Buffer Overrun event means the device sent more
+data than the TD could hold.
+This is triggered by the device, not by a driver bug, and the
+error is already reported to the class driver as
+-EOVERFLOW in iso_frame_desc[].status.
 
-For fq_pie this particular race is harmless: the qdisc is being
-destroyed, flow->vars is not read again, and q->flows is freed only
-after timer_delete_sync() in fq_pie_destroy().
+Logging it with xhci_warn() can flood the kernel log.
+A USB S/PDIF adapter (262a:9123) whose S/PDIF input loses its
+signal produces this event on nearly every microframe,
+about 7,200 messages per second, keeping systemd-journald
+busy at 100% of a CPU.
 
-It is however one instance of a more general problem: __qdisc_destroy()
-calls qdisc_reset() without the lock that the sfq, red, pie, fq_pie and
-dualpi2 timers take, and these timers are only stopped later in
-->destroy(). With sfq this is a real use-after-free since commit
-47e8dbb6e763 ("net/sched: do not reset queues in graft operations").
+Use xhci_dbg() like the other device-triggerable completion codes.
 
-This was discussed in:
+Suggested-by: Michal Pecio <michal.pecio@gmail.com>
+Signed-off-by: Alex Kononov <alex@albefly.com>
+---
+As suggested by Michal and agreed by Mathias in the discussion:
+https://lore.kernel.org/linux-usb/2ffafaa3-bdea-4d67-b224-2f18d76134be@linux.intel.com/T/
 
-https://lore.kernel.org/netdev/20261106161455.2412769-1-edumazet@kernel.org=
-/
-https://lore.kernel.org/netdev/20261110044450.51921-1-kylebot@openai.com/
+COMP_BANDWIDTH_OVERRUN_ERROR is arguably device-triggerable as well and
+has been reported to flood logs (https://bugs.debian.org/1035939);
+I left it alone here. Happy to send a separate patch if you think
+it should get the same treatment.
+---
+ drivers/usb/host/xhci-ring.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Kyle's v2 takes the tree lock around the final qdisc_reset() and routes
-shutdown_scheduler_queue() through dev_graft_qdisc(), which should cover
-this report. It needs a respin, as Jakub requested.
+diff --git a/drivers/usb/host/xhci-ring.c b/drivers/usb/host/xhci-ring.c
+index a1fa188680f5867e151c32ab94e2218cd6e26864..39d214e8a0289ec0b86e75833a566c2b7a91adb8 100644
+--- a/drivers/usb/host/xhci-ring.c
++++ b/drivers/usb/host/xhci-ring.c
+@@ -2815,7 +2815,7 @@ static int handle_tx_event(struct xhci_hcd *xhci,
+ 			  slot_id, ep_index);
+ 		break;
+ 	case COMP_ISOCH_BUFFER_OVERRUN:
+-		xhci_warn(xhci,
++		xhci_dbg(xhci,
+ 			  "WARN: buffer overrun event for slot %u ep %u on endpoint",
+ 			  slot_id, ep_index);
+ 		break;
 
-Kyle, when you repost, please add:
+---
+base-commit: 8e31dedb9ad496ea7dd7064d77d6f7d459c1c90f
+change-id: 20261123-xhci-overrun-dbg-e9d333d1ed42
 
-Reported-by: syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com
-
-Thanks.
+Best regards,
+-- 
+Alex Kononov <alex@albefly.com>
 
 
-> full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=3D00f5a4e=
-f4bcb8f4d19f1
->
-> IMPORTANT: if you fix the issue, please add the following tag to the comm=
-it:
-> Reported-by: syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com
->
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> BUG: KCSAN: data-race in fq_pie_reset / pie_calculate_probability
->
-> write to 0xffff88811d293640 of 8 bytes by task 13 on cpu 1:
->  pie_vars_init include/net/pie.h:103 [inline]
->  fq_pie_reset+0x11e/0x1d0 net/sched/sch_fq_pie.c:552
->  qdisc_reset+0x51/0x2e0 net/sched/sch_generic.c:1118
->  __qdisc_destroy+0x60/0x220 net/sched/sch_generic.c:1157
->  qdisc_put net/sched/sch_generic.c:1189 [inline]
->  dev_shutdown+0x2e0/0x390 net/sched/sch_generic.c:1558
->  unregister_netdevice_many_notify+0x999/0x15e0 net/core/dev.c:12761
->  unregister_netdevice_many+0x19/0x20 net/core/dev.c:12845
->  ops_exit_rtnl_list net/core/net_namespace.c:188 [inline]
->  ops_undo_list+0x21d/0x410 net/core/net_namespace.c:249
->  cleanup_net+0x38d/0x5e0 net/core/net_namespace.c:713
->  process_one_work kernel/workqueue.c:3495 [inline]
->  process_scheduled_works+0x582/0xab0 kernel/workqueue.c:3578
->  worker_thread+0x56c/0x770 kernel/workqueue.c:3659
->  kthread+0x248/0x2a0 kernel/kthread.c:436
->  ret_from_fork+0x146/0x330 arch/x86/kernel/process.c:158
->  ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
->
-> write to 0xffff88811d293640 of 8 bytes by interrupt on cpu 0:
->  pie_vars_init include/net/pie.h:103 [inline]
->  pie_calculate_probability+0x425/0x4c0 net/sched/sch_pie.c:417
->  fq_pie_timer+0xf6/0x1d0 net/sched/sch_fq_pie.c:403
->  call_timer_fn+0x36/0x280 kernel/time/timer.c:1749
->  expire_timers kernel/time/timer.c:1800 [inline]
->  __run_timers kernel/time/timer.c:2375 [inline]
->  __run_timer_base+0x40c/0x610 kernel/time/timer.c:2387
->  run_timer_base kernel/time/timer.c:2396 [inline]
->  run_timer_softirq+0x31/0x70 kernel/time/timer.c:2406
->  handle_softirqs+0x109/0x310 kernel/softirq.c:669
->  __do_softirq kernel/softirq.c:703 [inline]
->  invoke_softirq kernel/softirq.c:542 [inline]
->  __irq_exit_rcu+0x40/0xf0 kernel/softirq.c:786
->  instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1062 [inli=
-ne]
->  sysvec_apic_timer_interrupt+0x74/0x80 arch/x86/kernel/apic/apic.c:1062
->  asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.=
-h:674
->  __preempt_count_dec_and_test arch/x86/include/asm/preempt.h:123 [inline]
->  __raw_spin_unlock_irqrestore include/linux/spinlock_api_smp.h:211 [inlin=
-e]
->  _raw_spin_unlock_irqrestore+0x1a/0x30 kernel/locking/spinlock.c:221
->  free_frozen_page_commit+0x223/0x3a0 mm/page_alloc.c:2909
->  free_unref_folios+0x8c0/0x980 mm/page_alloc.c:3099
->  folios_put_refs+0x2cd/0x320 mm/folio.c:1065
->  folios_put include/linux/mm.h:2429 [inline]
->  __folio_batch_release+0x8e/0xb0 mm/folio.c:1125
->  folio_batch_release include/linux/folio_batch.h:101 [inline]
->  truncate_inode_pages_range+0x287/0x780 mm/truncate.c:452
->  truncate_inode_pages mm/truncate.c:530 [inline]
->  truncate_inode_pages_final+0x68/0x80 mm/truncate.c:565
->  ext4_evict_inode+0x459/0xea0 fs/ext4/inode.c:273
->  evict+0x301/0x570 fs/inode.c:829
->  iput_final fs/inode.c:2036 [inline]
->  iput+0x44f/0x5d0 fs/inode.c:2085
->  dentry_unlink_inode+0x29a/0x2b0 fs/dcache.c:510
->  dentry_kill+0x135/0x4f0 fs/dcache.c:857
->  finish_dput+0x16/0x1d0 fs/dcache.c:1032
->  dput+0x43/0x50 fs/dcache.c:1073
->  __fput+0x45c/0x660 fs/file_table.c:520
->  ____fput+0x1c/0x30 fs/file_table.c:541
->  task_work_run+0x145/0x1a0 kernel/task_work.c:233
->  exit_task_work include/linux/task_work.h:40 [inline]
->  do_exit+0x4a7/0x1530 kernel/exit.c:980
->  do_group_exit+0xfe/0x140 kernel/exit.c:1123
->  get_signal+0xc49/0xd30 kernel/signal.c:3113
->  arch_do_signal_or_restart+0x96/0x480 arch/x86/kernel/signal.c:337
->  __exit_to_user_mode_loop kernel/entry/common.c:66 [inline]
->  exit_to_user_mode_loop+0x161/0x940 kernel/entry/common.c:101
->  __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline=
-]
->  syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [=
-inline]
->  syscall_exit_to_user_mode include/linux/entry-common.h:343 [inline]
->  do_syscall_64+0x23b/0x3a0 arch/x86/entry/syscall_64.c:107
->  entry_SYSCALL_64_after_hwframe+0x77/0x7f
->
-> Reported by Kernel Concurrency Sanitizer on:
-> CPU: 0 UID: 0 PID: 6734 Comm: syz.1.1114 Not tainted syzkaller #0 PREEMPT=
-(lazy)
-> Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS G=
-oogle 11/06/2026
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->
->
-> ---
-> This report is generated by a bot. It may contain errors.
-> See https://goo.gl/tpsmEJ for more information about syzbot.
-> syzbot engineers can be reached at syzkaller@googlegroups.com.
->
-> syzbot will keep track of this issue. See:
-> https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
->
-> If the report is already addressed, let syzbot know by replying with:
-> #syz fix: exact-commit-title
->
-> If you want to overwrite report's subsystems, reply with:
-> #syz set subsystems: new-subsystem
-> (See the list of subsystem names on the web dashboard)
->
-> If the report is a duplicate of another one, reply with:
-> #syz dup: exact-subject-of-another-report
->
-> If you want to undo deduplication, reply with:
-> #syz undup
