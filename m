@@ -1,49 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.98
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.67
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795422004;
-	b=3TdSF1cxH/yZDoafMDCp7D6l4Ow9/B93cZWJxx6o8yuGneNJo8vOuomFXNVNEUEJFUuX
-	 1GPODjYsJ5u6o+Xr3Q3WDNO22UdyN8gnUwTFS74FyJ5rZTaEmu7GH2a4dC/xXB7uOlXDz
-	 7TQ5P+c/lNHlDQOw2oZG64ac/aE7kOkpXAlFcWltOJ2VgGjVhYaNTM151Ek1uwNQq/SmI
-	 NqvfDTHGk8r5v/aMs60Ee7MNoDb7kCShUy4Ms6SqOdjepnLUvvAq4ZKyI0kS8JLCKB1la
-	 P0wkC/TRZlphqcACzCcSAJnRgYBqJXn53iMyeDknocCroHICegSAxGDOpQK+wmp3bEA==
+	t=1795422013;
+	b=ykeldaASacsH06eQywnk8umRoNE5/ieuaRSlXmQ7vv5hSFNhRBks8vzMHB7BYkFRzMrR
+	 t53REF/G/BH06a5KEauiAr3AjSz9mwQDnb8urK7xrUpvDGKg9+td+CmdikQD9s0Rcxjlp
+	 01n7IR5q5SHDbBAxyiCHvNLLmb+jNXeKWJBqKs1wzSHN+vwOeXhTGNwqBkC1X3qVqDpOp
+	 +T6HfogiwtIO4Yzrswt8orjQj7he+lW57wkWmSBx7DRWeBTGsIUJNoXgplWGEHefXmGEm
+	 TsKWWAEZNGskogB5wxFPUX3bYV1quS6T7xCjwRGOxfW2/oESaumJgJrISX5Fk3DAH3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795422004;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=YyCfuyIRnFb0vjbdiNcIJQQQT5nFp9YD6UGELLn0Xrk=;
-	b=5PWU+j7J3jnGyZ5lIIcXCJtDqTLFyDdZhPgAet34+3sYOf1LObbzTtlW2JqqVKcPqS2X
-	 UlmUON3nfmykPnKKipEkHkeE8LI2QAZ83z9NzQAWwnMEWTEmRALdx+RVk/PctDh6SaL/o
-	 EPUrN1MUovyE053ThEeUOcc2lw+7Iab9p4QxwAS4rFvWNTrCnO8rZiqXxqNd9eEjgSC62
-	 Ci+uq21ppaBCGWh4R7pVNWxQdT+QGYYXQf9czaFG33607dQ6cXrAs0k+lDoHvsuNHCfjE
-	 cgj93j18mxaAvqcxxgrhJtIcPTvD1Yzxcsqtl8Abhoq85iZ5GK4WSAChXBdl5xTQHeA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795422013;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=do3hhy8BivBIPaCIu3eHt8n77a4uOX0QFMSHWM1VMf4=;
+	b=sPBnCdLNnvIao6xu/3HZvUa4DJr/155Wiz4PyWJsyu+Xwqbcwd+/98n5s2rysvA1xEJg
+	 Ss2vEuaTrr5/O4fG3n5pOHv486cYaNGELwtPGIcubVxv1a8W27UBW111ECrhWlATQYZE+
+	 PO5xhfBf2xtCG/WCOI5lKKIKqWzCvah3LOfSII+7igqk4b3Lzz3m9E4UBrYU3lEqUCQtk
+	 kjwTXltJLni1Ubt4HO5p68XzCOq3gAby9bze5WJC9XZEGYE+uRRHYWSFGCWk4gMZfw0FL
+	 rD9WltUp1ehX8+0yPvVXyrNLfkZohEbnlbXzSdcDWuGaAv1Q7x8D3F3h20uGhT/d3sg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b="LG/i+4eL";
-	arc=none smtp.remote-ip=115.124.30.98
-Received: from out30-98.freemail.mail.aliyun.com (out30-98.freemail.mail.aliyun.com [115.124.30.98])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=TRd9bm4X;
+	arc=none smtp.remote-ip=95.215.58.67
+Received: from mta1.migadu.com (out-67.mta1.migadu.com [95.215.58.67])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98FD8606A31A;
-	Mon, 23 Nov 2026 08:20:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98FD8606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C4C2606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:20:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C4C2606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=LG/i+4eL
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795421998; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=YyCfuyIRnFb0vjbdiNcIJQQQT5nFp9YD6UGELLn0Xrk=;
-	b=LG/i+4eLIv9mR1miWY9+/Xze809kksW31GpkDjfGJCbWIMpqhUnbQgt4lPBjWry/rJDgEiNClv9kdeNVrpCuvqo9KIMdMUaDqwpsLxNulOhh8YF93sD1jthrV0VLyzAehEdZEC2rMoXXBID/QqZW8D/UtZ/cjE7Hh/ybRBbiWxI=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=33;SR=0;TI=SMTPD_---0XFFKHO-_1795421993;
-Received: from 30.74.144.153(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0XFFKHO-_1795421993 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Mon, 23 Nov 2026 16:19:56 +0800
-Message-ID: <1ced7dbc-6ea3-4d2e-9388-755965765130@linux.alibaba.com>
-Date: Mon, 23 Nov 2026 16:19:52 +0800
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=TRd9bm4X
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=BjCUR/7yKwN3msaVE1SYKk/w8arWubDM2QA4cpLgvmQ=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795422010; v=1; x=1796026810;
+ b=TRd9bm4Xt5h574M7MX6d5flPWv8/j+JEfyJEmTBzx/aCzG6Rtf6iAHFqe8tciQmYfeKgwLQr
+ bB8uZiqjxo3cJ+cg8oGISLH5hJBw/HNikETnl1qx1SBDjAKswSrzcAMk7zc18Z7rLJKQFdyLJe9
+ Z1ld3AZC1I3CWvGVqsg9COhE=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 9bb350d23e260834;
+	Mon, 23 Nov 2026 08:20:06 +0000
+X-Mizu-Trace-ID: 9bb350d23e260834
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <a6029d44-7c7e-44b5-9433-452833152de3@linux.dev>
+Date: Mon, 23 Nov 2026 16:19:55 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,86 +59,54 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] mm/huge_memory: use NOFS when allocating while
- splitting folios
-To: "David Hildenbrand (Arm)" <david@kernel.org>, Zi Yan <ziy@nvidia.com>,
- "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
- Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
+Subject: Re: [PATCH v3 11/11] mm/mm_init: move pageblock migratetype init to
+ memmap helpers
+To: Muchun Song <songmuchun@bytedance.com>,
  Andrew Morton <akpm@linux-foundation.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- William Kucharski <william.kucharski@oracle.com>,
- Heiko Carstens <hca@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Johannes Weiner <hannes@cmpxchg.org>, "Lorenzo Stoakes (ARM)"
- <ljs@kernel.org>, Matthew Brost <matthew.brost@intel.com>,
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
- Gregory Price <gourry@gourry.net>, Ying Huang
- <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- Miklos Szeredi <miklos@szeredi.hu>, Joanne Koong <joannelkoong@gmail.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, stable@vger.kernel.org,
- Chris Mason <mason@kernel.org>
-References: <20261122-migrate_reclaim_deadlock-v1-0-83c56185b0fb@kernel.org>
- <20261122-migrate_reclaim_deadlock-v1-1-83c56185b0fb@kernel.org>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <20261122-migrate_reclaim_deadlock-v1-1-83c56185b0fb@kernel.org>
+ David Hildenbrand <david@kernel.org>, Oscar Salvador <osalvador@suse.de>,
+ Mike Rapoport <rppt@kernel.org>
+Cc: "Liam R . Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Michal Hocko <mhocko@suse.com>,
+ Muchun Song <muchun.song@linux.dev>, Li Zhe <lizhe.67@bytedance.com>,
+ Andrew Popple <apopple@nvidia.com>, Balbir Singh <balbirs@nvidia.com>,
+ Lorenzo Stoakes <ljs@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ James Houghton <jthoughton@google.com>, Lance Yang <lance.yang@linux.dev>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org
+References: <20261120100856.16929-1-songmuchun@bytedance.com>
+ <20261120100856.16929-12-songmuchun@bytedance.com>
+From: Qi Zheng <qi.zheng@linux.dev>
+In-Reply-To: <20261120100856.16929-12-songmuchun@bytedance.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
 
 
-On 11/22/26 8:42 PM, David Hildenbrand (Arm) wrote:
-> Various callers (migration, memory-failure, s390_wiggle_split_folio) split
-> locked folios without holding a reference on the folio's inode.
+On 11/20/26 6:08 PM, Muchun Song wrote:
+> ZONE_DEVICE memmap initialization already initializes pageblock
+> migratetype after all struct pages have been initialized, while hugetlb
+> bootmem folios have their own duplicate bootmem-specific initialization.
 > 
-> Splitting a file folio might allocate memory for the xarray and call
-> filemap_release_folio(). If either ends up in direct reclaim with
-> __GFP_FS, reclaim can evict the inode through the dcache shrinker, and
-> wait in truncate_inode_pages_final() for the folio that we hold locked:
+> Move the MIGRATE_MOVABLE pageblock initialization into the frozen memmap
+> initialization helpers instead, so the ZONE_DEVICE and hugetlb bootmem
+> paths can share the same initialization.
 > 
->      try_split_folio()
->        folio_lock(A)
->        split_folio_to_list(A)
->          xas_split_alloc()
->            try_to_free_pages()
->              super_cache_scan()
->                prune_dcache_sb()
->                  iput_final()
->                    evict()
->                      truncate_inode_pages_final()
->                        folio_lock(A)
+> The old hugetlb_bootmem_init_migratetype() skipped CMA folios via
+> folio_test_hugetlb_cma(), but the shared helper always initializes
+> pageblocks as MIGRATE_MOVABLE. This is safe because cma_activate_area()
+> later overrides the migratetype for CMA pageblocks.
 > 
-> This requires that nothing else holds a reference on the inode, and can
-> be triggered most easily with FUSE, which evicts inodes on the last
-> reference.
-> 
-> Further, xas_split_alloc() charges the XArray nodes to the memcg, and on
-> cgroup v1, memcg reclaim waits for file folios under writeback if
-> __GFP_FS is set. That can deadlock if writeback waits for a folio lock
-> that we hold, for example with ext4.
-> 
-> Let's fix it by splitting folios in a NOFS scope, so callers don't have
-> to care. A NOFS scope also covers allocations that filesystems make with
-> their own gfp flags, for example in filemap_release_folio().
-> 
-> On NFS, splitting folios with pending writes or ongoing writes to
-> fscache might now fail slightly more often, until these writes have
-> completed. On netfs, only folios that are being written to fscache are
-> affected. All fairly irrelevant.
-> 
-> This has medium urgency.
-> 
-> Fixes: 6b24ca4a1a8d ("mm: Use multi-index entries in the page cache")
-> Fixes: eef88fe45ac9 ("s390/uv: Split large folios in gmap_make_secure()")
-> Fixes: 789763523fb4 ("xarray: honor XA_FLAGS_ACCOUNT in xas_split_alloc()")
-> Cc: stable@vger.kernel.org
-> Reported-by: Chris Mason <mason@kernel.org>
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
 > ---
+> v2:
+> - Fix the helper name in the commit message (reported by Sashiko).
+> ---
+>   mm/hugetlb.c | 25 -------------------------
+>   mm/mm_init.c | 11 ++++++-----
+>   2 files changed, 6 insertions(+), 30 deletions(-)
+> 
 
-Make sense.
-Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+Acked-by: Qi Zheng <qi.zheng@linux.dev>
+
+Thanks,
+Qi
+
