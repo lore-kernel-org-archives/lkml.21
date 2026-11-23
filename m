@@ -1,57 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.121
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795476925;
-	b=xbp0INHNVQR1E8btZJIMYNvs1+QaL0lfMlEEQX6s604Tr6LwebjlGaCTtzNaSv5aImuD
-	 GxJH4Dd7+/fi5sF5RWOZQE2gXF01zUT1jISEy+tEs77OPB+W+s6TfT/zrH8qcEE+f/Cxb
-	 Tw8wH3ObkjLle76FccCTIcHHIpTzpO2Vb27NmlQ7L+5ayNUrMrA4hgyTdFlJk9vuCUGUx
-	 LR/D5T8zT57PJC5BQDXtr+X1lS5tG40nJBsjM52IE4q2kQIKoZoDZjPHCQY70+MnsDto0
-	 XmIiU/Nqz5xyUAJNHijLDeQ7UqOhGifFAyrgB5j++tfqICuBu4RMPKmor7C6bTL0ZyA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795476925;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=NLGt+82W3KE3HDzPcL9X/IIWUp24W85Da+NyWDIrhZk=;
-	b=cbwBugaYNyU3Nac5qBn9Fn10UAVK6r/fUaw/Xexjy+9vCOb2hHv7HWXyTP/onkbiExHh
-	 p4YkqGUozpdgNxc1S6upg1bsNf1iKOgmeBjW1KvTSZBS6LIprKrwvlxNhyK626vCFK3L3
-	 QJKXy7obLFRJRopO17v7UfkdJyB5cJU5+vyq24tKsoRjTxXbBWjvMNQUZ2Km4k7IymKpS
-	 D1pu8/l17zi5o83tT4TyHcbLJzCOVIb9LXHTN7ylUiZgGI/0gdv69c6fXyW3NRWBlGSjv
-	 4JOyJWvJ/qMsQchtdKRsY+ahQyrHrJEqAvsNFig24fvVRrk0J6RssVqlMVLlVXKfYfw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=proton.me;
-	spf=pass smtp.mailfrom=proton.me;
-	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=xaALiAL2;
-	arc=none smtp.remote-ip=79.135.106.121
-Received: from mail-106121.protonmail.ch (mail-106121.protonmail.ch [79.135.106.121])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.56.87.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795476978;
+	b=rxmMqstK6kv60k77i54/dwL8urtMGbL1V3MHwx5SEzWTyM0oXY8n21iwCaVl7WIwQYPx
+	 FreDJJAvuxwvormEOz4+E1tkt8IxwZM4+tDtHHLYQcaCrDjljV8QiwxQZoS9B/7lerjPO
+	 M4/kqshMuHM/56D2oUVaUdJZg4rTWjySFjparSoPIAejFm/bLvwri0mNE7edkNjTo1tNT
+	 KOqTDMB1AXZA5kL2gGp9ioS6C+8xYmUADNyZchJstVIX5O94pgsarU2jp43dSB1b2WGuQ
+	 4kokmz1UWtmgvWyx3ZYyHzE1AlYmG5BmPJK9NLXWfrWU6wlh1eov6pRQsPg/euuktiw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795476978;
+	h=DMARC-Filter:DKIM-Signature:Received:DKIM-Signature:Received:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-Source:X-Source-Args:X-Source-Dir:
+	 X-SGantispam-id:X-AntiAbuse:AntiSpam-DLS:AntiSpam-DLSP:AntiSpam-DLSRS:
+	 AntiSpam-TS:CFBL-Address:CFBL-Feedback-ID;
+	bh=FiokM/79h1GYgap34qtlLMjptwz7coupGukI0mSa3DI=;
+	b=iHKw9BaqEm9AjikXTgwyk2dDAZUMJw/OATCZeUwNiqQND8pT3frjl/8TW0g1WDRVNPNT
+	 89jDj2+NnUT/Xr+LDeybDyH+5Z5C9Dgwgv/t52ErZ4IhFpYQaT3pvkFKWnsirv/8emqmw
+	 v2ozYXVgo2IA2ZsNRVlqAFBpO0WVF8NQvLjl2Ba8e919NF0bpqx0u/6e9D956/J+VwwpB
+	 EB/fWtSQpQtOLEgBLINrRs7kk4drUGtbnX16uVVRPfObhNi5KsOXymfTGjkrD4NSOHTPB
+	 3XuHijDZmALIDZbr3YdLHeCvz8tXpgBmuM3DJoFWIkGKtRulgqG8Fyuz1glTZ5DAYUQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=valla.it;
+	spf=pass smtp.mailfrom=valla.it;
+	dkim=pass header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=W3lFkIpU;
+	dkim=pass header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=kPX5RPme;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.56.87.11
+Received: from delivery.antispam.mailspamprotection.com (delivery.antispam.mailspamprotection.com [185.56.87.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35F38606A31E;
-	Mon, 23 Nov 2026 23:35:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35F38606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 119D7606A326;
+	Mon, 23 Nov 2026 23:36:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 119D7606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=valla.it
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=valla.it
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=xaALiAL2
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail2; t=1795476920; x=1795736120;
-	bh=NLGt+82W3KE3HDzPcL9X/IIWUp24W85Da+NyWDIrhZk=;
-	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
-	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=xaALiAL2CIWkOcX1hWLCn+0TmRq376S6HkcTQrnts+1DuQjIIQz+x0Kq4ERfnle03
-	 t59OI59ZhTIyXPknohE5JrezetoX2QtmUiYIuRLQI5dBRD2jNbXACIwZOECeavsSzN
-	 4QuPWeMabUtCYNtJft0RmyCA5AL9pICfmCY88iIIfQVBD6/sBJFa94TmLw+6D1klKG
-	 HHOChx4M1Rymdn3Hk/A+6QDO2Nps2I7EjeKSjb9Ef7UxZMsIi/S/cTiGMPjovLu8W0
-	 8u+wCuNfd/QkWbKxFX4xT4kTqIA5j5bFGmz08WfgVBoiMLFRqBf9590Nm41VLJ/rWq
-	 1y5tncS/mhoRA==
-Date: Mon, 23 Nov 2026 23:35:13 +0000
-To: linux-bluetooth@vger.kernel.org
-From: Kyle Pepper <cochcoder@proton.me>
-Cc: luiz.dentz@gmail.com, marcel@holtmann.org, sean.wang@mediatek.com, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v3] Bluetooth: request LE data length for MT7922
-Message-ID: <20261123233502.222664-1-cochcoder@proton.me>
-Feedback-ID: 97716137:user:proton
-X-Pm-Message-ID: 6d0fe0c689de7908f39ef01930f83cbefd9de001
+	dkim=pass (1024-bit key, unprotected) header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=W3lFkIpU;
+	dkim=pass (1024-bit key, unprotected) header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=kPX5RPme
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-h034.prod.antispam.mailspamprotection.com; s=arckey; t=1795476976;
+	 b=YaJq2CmAaLfIrCijVpb48W/PnMqpUNOpSe7DJNm8j1/2JDvERkxCO05e2Fg8MEChcNmZ/gZ7dm
+	  ABVn4uaKuoDoZJ9ZIXlsLlndiJOO5F1KsA0zxvOInHkcgntCjembr9vuCRsFGlMr47qiXpKLGO
+	  o7YqQQAFQGJoQgODDEdZ2PmrVWKbt0MrcZ+yyb3ZBjk6yTzetIotV5Aixhf+TmtRc9iuXUtQ2N
+	  TROh33JGbCT8+qH5cxhKX5C+fb+JN46Ulx4ItkmWEyspCgjxzgysbhkgOMqcrnAivDXBKR+L85
+	  FU0e/YrEoIMdBjvv75ek0dLTcAEGvNVwMwd2zgTWktmCHQ==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-h034.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-h034.prod.antispam.mailspamprotection.com; s=arckey; t=1795476976;
+	bh=LtMDB5rX/qANEMMsA6sWFEp9CxUv+z596gASJTuT+E0=;
+	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
+	  From:Date:DKIM-Signature:DKIM-Signature;
+	b=qluWSMDs4KjDh94sReP64lToTEoJodr6BQ6NS/BEgH2bfviobVT3VhdsOiprCeCv1ZOiT6Htjn
+	  YPHR54AbnqH+WacPpeXzmdOORMQFBXrYvaf+FDdt0T/sZHqYmhSsEmC1/eNd1q4esR0UU2OGUR
+	  b0EVpPRZQTevbXQEx+LG6kLU0JVDXzLaU/U6t9nY8eyWaiqQVFrBTGx7MBC5SAl3riXEb8W4XX
+	  qsfCL+ALRFR0Q2k7rAdXr/p9RDkQUArGa185zNnD44Bx5HAWesnfHg//jbwBSpWwzx2RoC1h/R
+	  7FWNyGeE+7p4lzTkKkFAjIuyq2YR7SErtGhZadiCd/7LpA==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
+	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	List-Unsubscribe:Content-Transfer-Encoding;
+	bh=FiokM/79h1GYgap34qtlLMjptwz7coupGukI0mSa3DI=; b=W3lFkIpUpMfOdE3JZIUUWQ89WK
+	khCAgWD5Ht1tTfBB+cBhQM7rmZl9IovxkV7+nRNSJpzRJDuv4xJcfz1DOcRJjqi24oQ9DjzJ2Dxwo
+	7WJnRs30JkUXqduomeQAerNF9DEjs0K0t9UeiQzlyPwBesqRVLdC8WKPxTN+7Z+43rNM=;
+Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
+	by instance-europe-west4-h034.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <francesco@valla.it>)
+	id 1xVdZw-0000000CNYl-38x6;
+	Mon, 23 Nov 2026 23:36:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
+	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
+	list-subscribe:list-post:list-owner:list-archive;
+	bh=FiokM/79h1GYgap34qtlLMjptwz7coupGukI0mSa3DI=; b=kPX5RPmeVBZzuw5txO1cBQKxFP
+	WjMdh6pKPiFSkFqjW4DZYvlgdSWw6mxr6RgPieU39uF+54JIvcmVxziS6dSf+0j2HN7BKLMytg8zZ
+	eabtmXDLfG/udH/XUXvsRW32o2uLzJ7o4JYsLJ9aI+6z26yclclS0Q/8N4fHBRRzqKsc=;
+Received: from [79.28.115.6] (port=61238 helo=bywater)
+	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <francesco@valla.it>)
+	id 1xVdZr-00000000HoY-3Mhq;
+	Mon, 23 Nov 2026 23:36:03 +0000
+Date: Tue, 24 Nov 2026 00:36:02 +0100
+From: Francesco Valla <francesco@valla.it>
+To: Chrispine Tinega <dev@chrispinetinega.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] remoteproc: k3: Report a remote crash to the
+ remoteproc core
+Message-ID: <awTNPgXzzoIsUJtc@bywater>
+References: <20261122221755.88160-1-dev@chrispinetinega.com>
+ <20261122221755.88160-2-dev@chrispinetinega.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,231 +102,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261122221755.88160-2-dev@chrispinetinega.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - esm19.siteground.biz
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - valla.it
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-SGantispam-id: b07f524d4c50074e27d4ce78416c59d4
+X-AntiAbuse: ID - b07f524d4c50074e27d4ce78416c59d4
+AntiSpam-DLS: false
+AntiSpam-DLSP: 
+AntiSpam-DLSRS: 
+AntiSpam-TS: 1.0
+CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
+CFBL-Feedback-ID: 1xVdZw-0000000CNYl-38x6-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-h034.prod.antispam.mailspamprotection.com;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
 
-MT7922 USB firmware can accept maximum LE suggested default data lengths
-without negotiating a larger transmit data length on a new connection.
-On an ASUS G614PR with USB ID 0489:e0f6 and firmware 20260724143815,
-ASHA playback remains choppy until an explicit LE Set Data Length request.
-A request on the same Cochlear Nucleus 8 connection raises delivery from
-21.5 to 50 audio SDUs/s and reduces peak outstanding packets from 32 to 3.
+On Mon, Nov 23, 2026 at 01:17:53AM +0300, Chrispine Tinega wrote:
+> A K3 remote core that faults can send RP_MBOX_CRASH over the mailbox,
+> but k3_rproc_mbox_callback() only logs it. The remoteproc core never
+> learns of the crash, so its recovery never runs, the crash is not
+> counted, and the core stays halted with every rpmsg channel to it dead.
+> 
+> Call rproc_report_crash(), which may be called from atomic context, when
+> the core is RPROC_RUNNING, that is when Linux booted it. The core then
+> moves to RPROC_CRASHED and the crash is counted. Where the driver leaves
+> recovery enabled, recovery stops the core and boots it again. Where
+> recovery is disabled, the core can still be stopped and started again
+> through sysfs.
+> 
+> In any other state, keep only logging the crash:
+> 
+> - An IPC-only core, RPROC_DETACHED or RPROC_ATTACHED, was not booted
+>   by Linux. Once marked crashed, rproc_detach() refuses it, and the
+>   drivers' remove paths skip the detach and leak its resources. The R5F
+>   has no start or stop ops in this mode at all.
+> - Each K3 driver requests its mailbox before devm_rproc_add(). A crash
+>   queued then would not be cancelled if probe failed, and the work
+>   would run on a freed rproc. The state is never RPROC_RUNNING there.
+> 
+> Recovery on its own cannot yet restart an R5F: the reset the R5F needs
+> before it starts again is applied in its unprepare() op, which sysfs
+> stop calls and recovery does not. The R5F driver keeps recovery
+> disabled, so this does not change what happens there.
+> 
+> Signed-off-by: Chrispine Tinega <dev@chrispinetinega.com>
+> ---
+> Changes in v3:
+> - Guard rproc_report_crash() with rproc->state == RPROC_RUNNING and keep
+>   the dev_err() print in other states, so IPC-only cores do not lose
+>   detach and a crash queued before devm_rproc_add() cannot run after a
+>   failed probe. (Sashiko review, pointed out by Francesco)
+> 
+> Changes in v2:
+> - Drop the dev_err(). rproc_report_crash() already logs the crash
+>   and names the core. (Francesco)
+> - Say in the commit message that recovery cannot yet restart an R5F.
+>   (Francesco)
+> 
+>  drivers/remoteproc/ti_k3_common.c | 12 +++++++++---
+>  1 file changed, 9 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/remoteproc/ti_k3_common.c b/drivers/remoteproc/ti_k3_common.c
+> index 4b6da3363..29ca51861 100644
+> --- a/drivers/remoteproc/ti_k3_common.c
+> +++ b/drivers/remoteproc/ti_k3_common.c
+> @@ -61,10 +61,16 @@ void k3_rproc_mbox_callback(struct mbox_client *client, void *data)
+>  	switch (msg) {
+>  	case RP_MBOX_CRASH:
+>  		/*
+> -		 * remoteproc detected an exception, but error recovery is not
+> -		 * supported. So, just log this for now
+> +		 * Report only a crash of a core that Linux booted. Once the
+> +		 * remoteproc core marks an IPC-only core crashed, it can no
+> +		 * longer detach from it. The state is never RPROC_RUNNING
+> +		 * before devm_rproc_add(), so a failed probe cannot leave
+> +		 * crash work queued.
+>  		 */
+> -		dev_err(dev, "K3 rproc %s crashed\n", rproc->name);
+> +		if (rproc->state == RPROC_RUNNING)
+> +			rproc_report_crash(rproc, RPROC_FATAL_ERROR);
+> +		else
+> +			dev_err(dev, "K3 rproc %s crashed\n", rproc->name);
+>  		break;
+>  	case RP_MBOX_ECHO_REPLY:
+>  		dev_info(dev, "received echo reply from %s\n", rproc->name);
+> -- 
+> 2.53.0
+>
 
-Set a quirk for MT7922 in USB setup and request the current suggested
-defaults after successful remote feature exchange on central-role links.
-Require local and remote DLE support and the LE Set Data Length command.
-Keep suggested-default initialization and PHY negotiation unchanged.
-
-Do not restrict the workaround to the tested firmware build or OEM USB
-ID: the affected firmware range has not been confirmed. Other MediaTek
-chips do not enable the quirk. The request also applies to 1M peers that
-support DLE, and ordinary link-layer negotiation determines the result.
-
-Hold a connection reference while queued and revalidate its membership,
-state, role and capabilities before sending. Release the reference on
-completion, cancellation or queue failure. A failed optional request
-does not reject connection setup.
-
-Assisted-by: OpenCode:gpt-6.1-sol
-Assisted-by: Codex
-
-Signed-off-by: Kyle Pepper <cochcoder@proton.me>
----
-Changes in v3: move personal correspondence out of the commit message; no s=
-ource changes.
-Previous version: https://lore.kernel.org/linux-bluetooth/20261123221206.21=
-5119-1-cochcoder@proton.me/
-
-Hi Luiz,=20
-Since there hasn't been a response from
-the MediaTek folks in over 5 weeks I've gone
-ahead and prepared this v2 quirk patch that=20
-will work for USB MT7922 controllers.
-Thanks,=20
-Kyle Pepper
-
-Contingency revision: MediaTek has been asked about a firmware fix and its
-affected scope. No reply has been received as of November 23. This does
-not establish that a firmware fix is unavailable or that every MT7922
-firmware release is affected. A firmware fix remains preferable.
-
-Changes in v2:
-- Match MT7922 in USB setup, without a firmware-build or OEM USB-ID gate.
-- Remove firmware-header matching and its setup-time clear/recheck logic.
-- Rebase on current bluetooth-next; retain guarded referenced queue work.
-
-Previous patch:
-https://lore.kernel.org/linux-bluetooth/20261016170122.27119-1-cochcoder@pr=
-oton.me/
-Luiz requested checking firmware-fix plans and avoiding a single-build
-gate unless MediaTek confirms an image-specific regression. This v2 is
-prepared in case a validated firmware fix is not forthcoming; his reply
-is conditional guidance, not an Acked-by or approval of this revision.
-
-Historical evidence: manual same-link request on 0489:e0f6 with firmware
-20260724143815 gave 21.5 -> 50 SDUs/s. Automatic requests worked in the
-local patched 7.2.9 stack. No new hardware result is claimed for v2, for
-other firmware/OEM boards, or for vanilla upstream. Suspend/resume,
-other profiles, native concurrency and power regressions remain untested.
-
-Local validation on base ffb95458a0f7: GCC and Clang baseline/candidate
-builds each compile four Bluetooth objects with W=3D1 and zero warnings.
-82 source-extracted ASan/UBSan controls pass; the baseline and five
-mutation controls detect missing behavior and guards. LeakSanitizer is
-disabled because the command runner uses ptrace; these are model tests.
-Source-only strict checkpatch is clean. Stock full-mail checkpatch flags
-the retained Assisted-by trailers as BAD_SIGN_OFF. No checker is changed
-or attribution removed; remote CI and human-signed mail remain unchecked.
-
-No introducing kernel commit has been established for this firmware bug,
-so no Fixes or stable tag is inferred. No extra patch/MR dependency.
-Human review and DCO sign-off are required before publication.
-
-AI assistance: the retained request/queue implementation originated with
-OpenCode:gpt-6.1-sol. Codex adapted matching, rebased it, and prepared this
-message, review notes and offline validation in response to Luiz's review.
-
- drivers/bluetooth/btmtk.c        |  4 +++
- include/net/bluetooth/hci.h      |  5 +++
- include/net/bluetooth/hci_sync.h |  1 +
- net/bluetooth/hci_event.c        |  8 +++++
- net/bluetooth/hci_sync.c         | 58 ++++++++++++++++++++++++++++++++
- 5 files changed, 76 insertions(+)
-
-diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
-index 1b3dab0d1..1869815cc 100644
---- a/drivers/bluetooth/btmtk.c
-+++ b/drivers/bluetooth/btmtk.c
-@@ -1858,6 +1858,10 @@ int btmtk_usb_setup(struct hci_dev *hdev)
-=20
- =09btmtk_data->dev_id =3D dev_id;
-=20
-+=09/* MT7922 needs per-link requests despite suggested defaults. */
-+=09if (dev_id =3D=3D 0x7922)
-+=09=09hci_set_quirk(hdev, HCI_QUIRK_NEEDS_LE_SET_DATA_LEN);
-+
- =09err =3D btmtk_register_coredump(hdev, btmtk_data->drv_name, fw_version)=
-;
- =09if (err < 0)
- =09=09bt_dev_err(hdev, "Failed to register coredump (%d)", err);
-diff --git a/include/net/bluetooth/hci.h b/include/net/bluetooth/hci.h
-index efb85c781..85a4931e5 100644
---- a/include/net/bluetooth/hci.h
-+++ b/include/net/bluetooth/hci.h
-@@ -348,6 +348,11 @@ enum {
- =09 */
- =09HCI_QUIRK_BROKEN_READ_ENC_KEY_SIZE,
-=20
-+=09/* The controller needs an explicit LE Set Data Length request for
-+=09 * each central-role connection despite accepting suggested defaults.
-+=09 */
-+=09HCI_QUIRK_NEEDS_LE_SET_DATA_LEN,
-+
- =09/*
- =09 * When this quirk is set, the reserved bits of Primary/Secondary_PHY
- =09 * inside the LE Extended Advertising Report events are discarded.
-diff --git a/include/net/bluetooth/hci_sync.h b/include/net/bluetooth/hci_s=
-ync.h
-index 509ec4161..eab827dfa 100644
---- a/include/net/bluetooth/hci_sync.h
-+++ b/include/net/bluetooth/hci_sync.h
-@@ -195,6 +195,7 @@ int hci_le_read_remote_features(struct hci_conn *conn);
-=20
- int hci_acl_change_pkt_type(struct hci_conn *conn, u16 pkt_type);
- int hci_le_set_phy(struct hci_conn *conn, u8 tx_phys, u8 rx_phys, u16 phy_=
-opts);
-+int hci_le_set_data_len(struct hci_conn *conn);
- int hci_le_set_cig_params_sync(struct hci_dev *hdev, u8 cig_id);
- int hci_le_create_big_sync(struct hci_conn *conn, struct bt_iso_qos_ext *q=
-os,
- =09=09=09   u8 num_bis);
-diff --git a/net/bluetooth/hci_event.c b/net/bluetooth/hci_event.c
-index b6c7f9a9f..7ef2c4d19 100644
---- a/net/bluetooth/hci_event.c
-+++ b/net/bluetooth/hci_event.c
-@@ -7436,6 +7436,14 @@ static void hci_le_remote_feat_complete_evt(struct h=
-ci_dev *hdev, void *data,
- =09=09=09 */
- =09=09=09conn->le_tx_def_phys &=3D ~HCI_LE_SET_PHY_HDT;
- =09=09=09conn->le_rx_def_phys &=3D ~HCI_LE_SET_PHY_HDT;
-+
-+=09=09=09if (hci_test_quirk(hdev, HCI_QUIRK_NEEDS_LE_SET_DATA_LEN) &&
-+=09=09=09    conn->role =3D=3D HCI_ROLE_MASTER &&
-+=09=09=09    (hdev->commands[33] & BIT(6)) &&
-+=09=09=09    (hdev->le_features[0] & HCI_LE_DATA_LEN_EXT) &&
-+=09=09=09    (conn->le_features[0] & HCI_LE_DATA_LEN_EXT) &&
-+=09=09=09    hdev->le_def_tx_len > 27)
-+=09=09=09=09hci_le_set_data_len(conn);
- =09=09}
-=20
- =09=09if (conn->state =3D=3D BT_CONFIG) {
-diff --git a/net/bluetooth/hci_sync.c b/net/bluetooth/hci_sync.c
-index 2e88af51b..ac82aa085 100644
---- a/net/bluetooth/hci_sync.c
-+++ b/net/bluetooth/hci_sync.c
-@@ -9286,3 +9286,61 @@ int hci_le_eks_oppt_encrypt(struct hci_conn *conn)
-=20
- =09return err;
- }
-+
-+static void le_set_data_len_complete(struct hci_dev *hdev, void *data, int=
- err)
-+{
-+=09struct hci_conn *conn =3D data;
-+
-+=09bt_dev_dbg(hdev, "err %d", err);
-+=09if (err && err !=3D -ECANCELED && err !=3D -ENODEV)
-+=09=09bt_dev_warn(hdev, "Failed to set LE data length (%d)", err);
-+=09hci_conn_put(conn);
-+}
-+
-+static int hci_le_set_data_len_sync(struct hci_dev *hdev, void *data)
-+{
-+=09struct hci_conn *conn =3D data;
-+=09struct hci_cp_le_set_data_len cp;
-+
-+=09hci_dev_lock(hdev);
-+
-+=09if (!hci_conn_valid(hdev, conn) || conn->type !=3D LE_LINK ||
-+=09    conn->role !=3D HCI_ROLE_MASTER ||
-+=09    (conn->state !=3D BT_CONNECTED && conn->state !=3D BT_CONFIG)) {
-+=09=09hci_dev_unlock(hdev);
-+=09=09return -ECANCELED;
-+=09}
-+
-+=09/* Use the current suggested defaults, including later host changes. */
-+=09if (!hci_test_quirk(hdev, HCI_QUIRK_NEEDS_LE_SET_DATA_LEN) ||
-+=09    !(hdev->commands[33] & BIT(6)) ||
-+=09    !(hdev->le_features[0] & HCI_LE_DATA_LEN_EXT) ||
-+=09    !(conn->le_features[0] & HCI_LE_DATA_LEN_EXT) ||
-+=09    hdev->le_def_tx_len <=3D 27) {
-+=09=09hci_dev_unlock(hdev);
-+=09=09return 0;
-+=09}
-+
-+=09cp.handle =3D cpu_to_le16(conn->handle);
-+=09cp.tx_len =3D cpu_to_le16(hdev->le_def_tx_len);
-+=09cp.tx_time =3D cpu_to_le16(hdev->le_def_tx_time);
-+
-+=09hci_dev_unlock(hdev);
-+
-+=09return __hci_cmd_sync_status(hdev, HCI_OP_LE_SET_DATA_LEN,
-+=09=09=09=09     sizeof(cp), &cp, HCI_CMD_TIMEOUT);
-+}
-+
-+int hci_le_set_data_len(struct hci_conn *conn)
-+{
-+=09struct hci_dev *hdev =3D conn->hdev;
-+=09int err;
-+
-+=09err =3D hci_cmd_sync_queue_once(hdev, hci_le_set_data_len_sync,
-+=09=09=09=09      hci_conn_get(conn),
-+=09=09=09=09      le_set_data_len_complete);
-+=09if (err)
-+=09=09hci_conn_put(conn);
-+
-+=09return (err =3D=3D -EEXIST) ? 0 : err;
-+}
-
-base-commit: ffb95458a0f70dcab620eee0ecf5ef7750971b2f
+Tested-by: Francesco Valla <francesco@valla.it> # AM67A R5F recovery off
 
