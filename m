@@ -1,71 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.135
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795402884;
-	b=pz8jEtgEPfD0Lrvx8zVs/wbEAUoztLc7zgII/ujVOaLwTTzLApHya41bMjEhG5DAY9f2
-	 ufr4zcmt6p/454GUA+ml8vrIA/b73qzZC3Nev0w/1eA0xra58gQ97xK2sFwBq4L0wQSaD
-	 sLPeaRkf03XFU5pF63/x+Ai1fgbNJuJ4XXSdFJyo7DfDZ/RsWoUE4C3ehTsoaZWfOqzpe
-	 FxzOdTScPyCW+4r7t52NoCqKGZRNaC3EGAtF/SffkNWMEnMRbFSwwv2xPt0hkemdm7+JN
-	 S4i1OTC25S34eJts6HWTe8tqosW1GsnPjqZnD3DjJt97aVTdyR+0rkgy4/U0IDO4+eQ==
+	t=1795402889;
+	b=RA7KwlOF0Jl7IO61PT5lCRkOUXsT6m+ebYUBMfHVtyTxgyDGgn2P+oV09BNPYJ/PxO7z
+	 OyROAHR3kuSdgNArWQiQvIXc4yeV8W0jgfh/ENedxH/MQ2Cn9mj/S+NPXwwicDjp+vdvy
+	 +hg2510JwusjLyRXiteM7491sBmSErmXKAStUBmKajjMhGQkV9CFcGG8gaC8kJCPLM1Ia
+	 nUIxWE8JzPJnwxy/rVjckMvc0Os7dKWdO07agMXumUQpaHY4BLtpQ2IpYZuqbVKcdJVDN
+	 iA9tErBVTcXJR79eMn5o00IqznmEGXMRaIBVu4u1FMrYnxAYVM7Vitn/owPC7114nig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795402884;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=D8O+YZ7geHUioOfRz7r3O1SenNYmei/5V7Pdoaj2fz8=;
-	b=T8gtzC/X1UAbjjz0E6YtfzauurziG8UP9tM/pBitVNfPHYjPtNmt4kP46Qks0ekY0yx8
-	 onkKB+fp9WaemuXAVWnqifosQAni6jOcaEK2YRMsnvSSqHvSfELuEqcqEFoKpNO0lv+hM
-	 Zczvsgo76g6zDcvBIGcKPSS193XnhH7tjqDk0XMnO4t3C3x0SPvDZT54T2f7DE0STq4sJ
-	 tptPMWy5ii/+E87WG2hjNZSQ+UIXX2BTebXud+LzTHi/r1p5qZH4JmQUVMK/X07+cJWyY
-	 4VCgNWYv56PeA1wGF/IVa9hF2gf334zBazBZeF/VioMOirAtm3E6Poohakd6WyhO0zA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795402889;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
+	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
+	 To:X-Mailer;
+	bh=rVGtwWIUrwg3vjkZky9jBduG/TMeysWW9WrLvNCpeaU=;
+	b=Pz9Y6ezpRRCwxbOvONi3r1IJByFWQR+pOaTAa4YPbgNQ80tFTfYyLVbLpnPPBGo43EfN
+	 dM5Bf+bIP3uoYHExGViGUTtif4Lg2WQpSllLgKfQvqigp+VShZPqWc/OeiFkLNTfAxxfF
+	 gPP3CyUX/KitSVQe+hU3RM3n/AAg/CgK0Xpuy2jzNYTeMrU2S5BrWXcVZ3R7iPEyQtDLx
+	 9ZWVliiZsAlxSrD1xLiqpf0HRwxuLFFkdXyPHEsYQsXU4lUWFL4X3SixmcTxtK3PCNuim
+	 gT97tuObA/qLz4lmlrriDRcy59JH+/WbXPLSGeRT94E7mGRS3UJTXB7hXDSr6vH0Hqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=mMDFJLoa;
-	arc=none smtp.remote-ip=111.22.67.135
-Received: from cmccmta2.chinamobile.com (cmccmta2.chinamobile.com [111.22.67.135])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8DD96606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:01:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8DD96606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Je3rYygI;
+	arc=none smtp.remote-ip=95.215.58.47
+Received: from mta1.migadu.com (out-47.mta1.migadu.com [95.215.58.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DC69606A32C
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:01:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DC69606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=mMDFJLoa
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=mMDFJLoaoyT25HS7Qk1IKlsW/D4xB1plgL8OhDwWu8WpyBf5coGOyOLSbFRZxdygn+IA/+tubnrc5
-	 6uaN6T+lFsBbyCeDBM0LtjMqtdsUT9PyDEBqOx2F5T/hIzo7e27CNMAYXU7Ihq+L/xlKPVmNhjZ4mm
-	 R1tylPk3KwlfC6zM=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app07-12007 (RichMail) with SMTP id 2ee76b03ac7ffb5-39116;
-	Mon, 23 Nov 2026 11:01:20 +0800 (CST)
-X-RM-TRANSID:2ee76b03ac7ffb5-39116
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
-	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86b03ac7e1c3-ec53c;
-	Mon, 23 Nov 2026 11:01:20 +0800 (CST)
-X-RM-TRANSID:2ee86b03ac7e1c3-ec53c
-From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-To: tzungbi@kernel.org
-Cc: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>,
-	bleung@chromium.org,
-	lee@kernel.org,
-	groeck@chromium.org,
-	jthies@google.com,
-	chrome-platform@lists.linux.dev,
-	mfd@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] mfd: cros_ec: Drop OF node reference in ec_device_probe()
-Date: Mon, 23 Nov 2026 11:01:20 +0800
-Message-ID: <20261123030120.1799-1-laixiangwu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <awOfCgL-eriqrws7@google.com>
-References: <awOfCgL-eriqrws7@google.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Je3rYygI
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=mIgBcbUV5ixDOvXz3J1MusGef0bPdFIqnXiTXJGakI8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795402887; v=1; x=1796007687;
+ b=Je3rYygIgpzY1nXNspU9V2667bbCxLLQx2mNTGfA5ycudJIdi0ddpU3flrQfQ+x3bu/n4JwP
+ EHkGQ2b2RtFhdpJIDn16/2YsyMpdxpo9jc0VZClg2ybCSOXNcWbKs036kkjhk0PZ+OuQ/szJxZH
+ 3U2NuV9anPz/kTarzHXX0zWQ=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 195945ff91ad8013;
+	Mon, 23 Nov 2026 03:01:26 +0000
+X-Mizu-Trace-ID: 195945ff91ad8013
+X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain;
+	charset=us-ascii
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,36 +57,137 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH v3 05/19] hugetlb_vmemmap: Allow architectures to
+ dynamically disallow HVO
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20261122184453.2668189-6-jthoughton@google.com>
+Date: Mon, 23 Nov 2026 11:01:07 +0800
+Cc: Muchun Song <muchun.song@linux.dev>,
+ Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Oscar Salvador <osalvador@suse.de>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Nikos Nikoleris <nikos.nikoleris@arm.com>,
+ Linu Cherian <linu.cherian@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ David Hildenbrand <david@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>,
+ Nanyong Sun <sunnanyong@huawei.com>,
+ Yu Zhao <yuzhao@google.com>,
+ Frank van der Linden <fvdl@google.com>,
+ David Rientjes <rientjes@google.com>,
+ linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <C1CC6F31-4F75-41D8-89D8-CE43465FBB6C@linux.dev>
+References: <20261122184453.2668189-1-jthoughton@google.com>
+ <20261122184453.2668189-6-jthoughton@google.com>
+To: James Houghton <jthoughton@google.com>
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
 
-Hi Tzung-Bi,
 
-Thanks for the review of "[PATCH v2] mfd: cros_ec: Drop OF node
-reference in ec_device_probe()"
-(https://lore.kernel.org/all/20261118062949.1250-1-laixiangwu@cmss.chinamobile.com/).
 
-Both comments are addressed in v3
-(https://lore.kernel.org/all/20261123025022.1761-1-laixiangwu@cmss.chinamobile.com/):
+> On Nov 23, 2026, at 02:44, James Houghton <jthoughton@google.com> =
+wrote:
+>=20
+> For arm64, only some platforms support HVO. Add an arch hook,
+> arch_support_vmemmap_remap(), to prevent HVO from taking effect if the
+> architecture lacks support. The hook is not HugeTLB-specific, so it =
+can
+> also be used by other users of in-place vmemmap remapping (e.g. =
+FS-DAX).
+>=20
+> Check it in hugetlb_vmemmap_optimizable_size(), so that hstates are =
+not
+> reported or treated as optimizable (e.g. by report_hugepages() and the
+> HugeTLB allocation and freeing paths) when the architecture does not
+> support HVO.
+>=20
+> It may be the case that arch_support_vmemmap_remap() returns false at
+> first but eventually returns true. This is the case on arm64, where
+> support depends on a system-wide CPU capability that is not yet known
+> when bootmem hugepages are allocated. Such architectures cannot =
+pre-HVO
+> bootmem hugepages, so they must disable the section-based vmemmap
+> optimization in their vmemmap population path with
+> section_vmemmap_optimization_disable(). Their bootmem hugepages are =
+then
+> optimized when they are gathered instead.
+>=20
+> Signed-off-by: James Houghton <jthoughton@google.com>
+> ---
+> include/linux/pgtable.h | 15 +++++++++++++++
+> mm/hugetlb_vmemmap.h    |  2 ++
+> 2 files changed, 17 insertions(+)
+>=20
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index ab33df268955..8cf44120e2ed 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -480,6 +480,21 @@ static inline int try_update_vmemmap_pte(unsigned =
+long addr, pte_t *ptep,
+> }
+> #endif
+>=20
+> +#ifndef arch_support_vmemmap_remap
 
-> __free() is defined in <linux/cleanup.h>.  Please include it in the file.
->
-> Alternatively, simply calling `of_node_put()` after using `np` also works.
+We usually add a 's' to 'support'. Like arch_supports_vmemmap_remap.
 
-v3 adds the missing #include <linux/cleanup.h>.  I kept the
-__free(device_node) approach since it avoids explicit cleanup on every
-exit path of the block.
+> +/*
+> + * arch_support_vmemmap_remap - Whether in-use vmemmap mappings may =
+be remapped.
+> + *
+> + * Vmemmap optimizations, such as the HugeTLB vmemmap optimization =
+(HVO),
+> + * remap vmemmap page table entries while they are in use. =
+Architectures that
+> + * can only do this on some systems may override this hook. It may =
+return false
 
-> CHECK: Alignment should match open parenthesis
-> #61: FILE: drivers/mfd/cros_ec_dev.c:280:
-> +                       retval = mfd_add_hotplug_devices(ec->dev,
-> +                                                         cros_ec_ucsi_cells,
-> +                                                         ARRAY_SIZE(cros_ec_ucsi_cells));
+"Some systems" is not clear for me, How about rewrite this sentence =
+with:
 
-Fixed in v3: the continuation lines were indented one column too far;
-they now line up with the first argument of the call.
+  May override this hook based on architecture-specific runtime =
+conditions.
 
-Best regards,
-Xiangwu Lai
+> + * early during boot and true later, once system-wide features are =
+known.
 
+I think the description should be general, so the last sentence I think =
+should
+be removed.
+
+Thanks,
+Muchun
+
+> + */
+> +static inline bool arch_support_vmemmap_remap(void)
+> +{
+> +	return IS_ENABLED(CONFIG_VMEMMAP_OPTIMIZATION);
+> +}
+> +#endif
+> +
+> #ifndef __HAVE_ARCH_PTEP_SET_ACCESS_FLAGS
+> extern int ptep_set_access_flags(struct vm_area_struct *vma,
+> 				 unsigned long address, pte_t *ptep,
+> diff --git a/mm/hugetlb_vmemmap.h b/mm/hugetlb_vmemmap.h
+> index 8b28063d78cc..440477288d19 100644
+> --- a/mm/hugetlb_vmemmap.h
+> +++ b/mm/hugetlb_vmemmap.h
+> @@ -48,6 +48,8 @@ static inline unsigned int =
+hugetlb_vmemmap_optimizable_size(const struct hstate
+>=20
+> 	if (!is_power_of_2(sizeof(struct page)))
+> 		return 0;
+> +	if (!arch_support_vmemmap_remap())
+> +		return 0;
+> 	return size > 0 ? size : 0;
+> }
+> #else
+> --=20
+> 2.56.1.809.ga0b61035b5-goog
+>=20
 
