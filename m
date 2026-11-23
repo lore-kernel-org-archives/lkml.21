@@ -1,101 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.41
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795424480;
-	b=rBQQHtSYGC1dl1U+OWZRYIWPbNidQ6nLn5VkvU63n4vgx2QqyYckLVtmpUH9Ul0ylusa
-	 Cqo1jZ3CT5TJLf8+mOHywfRVodFmRYU+iu7UoHGVZZ9CuWd1L9J9Ix00l+loqSYUaWH6I
-	 pMR2hcdpqSG416o5Fu7LcgAFMntKFyrP17SR2UgCeR36z+q5P0psOQnp7WurVEcKEWNaH
-	 qdEyj5FtgDy1v4k0MvkkWn+uIl2yh/7KtPVwqXLBPZfZ5gEUI6vN+5kYhYoi6tpB2oE9x
-	 z9M1S5DWMV3pDrtIsSBDR1NxoC0Fxk/mUlJIOBiEGdQ9kiEiiWI6nYh0z4oKO96PuIA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795424480;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=iEL2+JCwPEIGLNb/94dwdFv8o2SffeGDTCEHWPlYg78=;
-	b=P75htLMj7hDtf957mX70DLv2DOAJ2r8w5bCbgKmpLvlrI+TgAxY93bSZ1MmpJuy1ytgJ
-	 Y9UhVMn9cGPycV40mVHXYTqDH4I4hrjI343U2ImBl/8ADsr0M2YiCWZ2Ib1ZRaesFs/CH
-	 cMTSHMTV1+fGd3kbEAaaIHIfaMingOGMkVXjhWZb/Jh/x3fZ6uHU2a6T4/iFBFihokSfr
-	 wNXamJQvTH0KA4t2psq9O/PAPdWotFgmPXRUg1jqGooq6vXj1oHxaRu0HkBxN79G2IHU1
-	 YfmfWgIXAOJDlzGF4vDE0siTqWBTjxyFFZgfuiGN8Vy6XA8kcCCABLZrsPL0AFAXoag==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lDIypQYt;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.41
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795424495;
+	b=xlatluFbXTY5oXjoMZy3VjuO2RfX5K7wUv0XlfebWrcj1e8RbP91dHXaOPJYA5ffGuSO
+	 WTRQ0JVtyGAo5mIEss2LceryQAuairyuJ5B5L36YfJ17d1A/WMXgJki4RngQ7gmJg8tg6
+	 dXu/0mVxljOLCCJ0458CAImzXwEqyr2kXXoOUHr+eKhQH0HyBekZF5j0g5zPKVdmZti9n
+	 HC3N8idtovf9HuD4udMcVGHRHsWzNNNknzm8wWMAjxYC4kdoRXHBgafoiFhuJHhRbdw4R
+	 2GmMxRr2ZI7T77YSIVZBqJwB7YumFrdon6S5XuZtIswjBZ8tuOUuHj89vqWltYMQtuw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795424495;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
+	 X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
+	bh=8IaUYIQEtbwaKxpNvH1tQqcdy0I8wU+cHele+MHmUG8=;
+	b=lRliI7/5sLWSMvTfCSNqTBx327aC+4eN6g+xCG7TRYwOrotOMSb7ocPMRG3PGnxP+zeo
+	 WFdEvQp5ZHLMQjIRwLz8sLjh9lBgr1Zsl6WKO35PEhlAwyLxvFBrGZzroviXi0GG6x4k4
+	 SDoK5F2jXos49t9Bc1jKteNzoTDYh8JshB/MfbT6o/cZcNqby0exJZFKiQ/F2xrtui41p
+	 GmDbmMdXw/qOpgE1M8EpKxE7ESUVIBY+fJfxH1JN+N9kakcT/hYlzogPkH1yxjzNFM+gG
+	 pfdUezJlwYeo2IT7WB/WWgx6h+qYbcEEgDYDi+WNimSefVDVSJ3fSi1j5vRt+0v/wzg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rQSslSAF;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="/oeXy7Af";
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rQSslSAF;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="/oeXy7Af";
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D8DB606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:01:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D8DB606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C661A606A31A;
+	Mon, 23 Nov 2026 09:01:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C661A606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lDIypQYt
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb702a7548so22615205e9.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:01:19 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795424478; cv=none;
-        d=google.com; s=arc-20260327;
-        b=kPkSVu1eD2EFxsyn3Rfs0IAZn2qfTqM/fQhTRHe8ggb5CNNIuuziK9cHLcQ2OkN28i
-         /q6Muy3zzl77vl8GgOb3MwRBS6PU3ZOLH6nnWKECSSKbXwYlLIkFYVrEXqMonCChombS
-         KaHrp9O4k7SbXujs89HJxtbR0HQjwuzs/xnguYxjBRuP7Z2YSn8d11Xch2tJF+Eq4b1k
-         MkVFDdn8bmkYuynxfE/N2aKn7C6a6G/qQmOK3ss8Bo63qgFdvIVNNRuzzIiC2ZT89z8i
-         zqdY2M5VXeMxVEEKJISiltW64yBDKI5tC+CzYGsk4XeL7c403ScKoCDMknEc+l7VZJeo
-         J+Ww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=iEL2+JCwPEIGLNb/94dwdFv8o2SffeGDTCEHWPlYg78=;
-        fh=GaiGO6FRo98xcxTB8e2OQPPslHsJfSYhJtNISFitKwQ=;
-        b=lPAAmOqTfkroTqnFDtTn42JE/DFXSy7K7SM2aJkpC1zX0K+lnaKmDLsp/DHvCO2pgz
-         ecVlfMUD8cothULSnB0IvwfjxbLSSQH10g1jsXLAbPHN6Vh9I1MzypSeBNS2FV522esp
-         OoZ+8NiGpSUgC9b90P9rPZ5wL/QZt81SJW4T6/mfDxqg0vIpONjnisoGutSGUmwX7+I8
-         cOLXWsyDXhl1rfJmfq9Lsop+lyaOirprTrYYLq+gwm2rFqvCZD/ATXl97xd51lo3OlRQ
-         uWgrOx1/MKFSjzIjJrsL5+AZD+RVPfb3oVHpixRiwuIy49lZQqQ37YOiF/b1zFY5hQvB
-         fnYQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795424478; x=1796029278; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=iEL2+JCwPEIGLNb/94dwdFv8o2SffeGDTCEHWPlYg78=;
-        b=lDIypQYtGMYSsqoisCS9ORWetWNwzyhWYxVQjJILGn0axWWQ3SroGPgW/kiaaKX9yG
-         IDFdSR7frhwRDZe0FYTtuKwTlxCAHC/tcedkQTP5aOAzjXzH2GcJldQHAWllOsckAvYR
-         zDkYGaVfrnIMRO3xlCAmV1PaDQBHVz8RWtdrhw2Gpcr2aJjaUyLx8Ob8gXCVW8Z2g5+x
-         +Oav7XOBannXpEVHxIt3Yg03EFHtiE/K2Erb55vcNC3+Ck9FIBFIBpjwYjjb1uYq4Hp/
-         JYfdu/A90MLfXAg8s5WFsy5AUpbuaGnENgRq7SXuJYE9ikITVnGenNGD/kGqAHGInVZ8
-         FkNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795424478; x=1796029278;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iEL2+JCwPEIGLNb/94dwdFv8o2SffeGDTCEHWPlYg78=;
-        b=pWjQixT0VtXZTEZ6Cnb3dY0qtp58bDSi800v9+lr9IznZT1F4Ga13Xl/s9vS8/nkQa
-         lOw11bzYSFy6UWhaSNeQI49ibSP5cvIyIv2kfAXn7eGpwMEdMhnOTDQ/9sP1ERdlgTAl
-         RE+3XzU72VvZg0kGulIhV38j6/8TXAMFnlUR84ZWfe3P4T7DOz7OVngIr04um/+sac6L
-         6NZ3lK1qFVLy/iYQAtjkab0tlqDcJS7IsB2HAUrWv+vObtmfkROP9MPH5bVjmnKz81WK
-         4hmsXUKP79G9nHvhvBo/BkNFogiHPVYzXqD7FLmUvr5ux0ivOAi4lBPgvVwTH2It1Gbj
-         kw0A==
-X-Forwarded-Encrypted: i=1; AL+hErFphwtUS7PAV6zVNuFNIej6WPC7bBDUNjw9wk1kQqGqqodMr4NjKGJF+UHtVwPJK24Clvnf46YdZqZE9m8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8pOQweFlTOxaKpt0JLLGWyID8oQnKD7ukKfizAwfyQRHrI3umX
-	lb/zOW5UqxuasshZDn1/WTEDuzz7nRtqTNXqyaZxOmkwzP79geS49SY+tBQ8BbGhW7xnlP7zG+Y
-	jUAcPz3fUgxKVrAuyNqn+Pf8m+oUStN0=
-X-Gm-Gg: AZFdTZf9O92eyIq8jkxSJsaF2OWnxYwQBxRPduD2x+qghtac9eWb10KoYolX2waIn9c
-	IjYErG7fvArFwrhOpR1yZLms/4tTEvA1JLG/7pGMLf4HQEv771Vg7oos8HCASCyQo18wDd4vjRf
-	4vWkZGDqzxsaBsbeLTe/LH0I5YIsAZzH6KR8V6gw5cr8GAaP9PE9UVnYeFp2amwcDZZJNepJuRK
-	QFLfKs+qcxkgUntqz0/JqFD6h2eCYWtxRmXJb9QvVpsPcsyeVlqh1J5/TrwR2zf81RTDziGVhIy
-	YKjQ0u2ilXyJb0UtElG+VO8z+YLYXFlgcB1HUDhRchpRR/vzyPCto1VHNxOKQvsVZPt+3B3XadE
-	/pV2D/gnqAvYvruSwawD/9xPlgSvl7UcfyUXJS0OLk280AtxcTaAK5GgciVxVzNXgcOJHFBdhXN
-	NPf6DLmqYR4Dnb89UFzPgZevWc8CXutHMmaEr7vyjbIvV+y65NnrSJ
-X-Received: by 2002:a05:600c:8b11:b0:4bb:6871:8f21 with SMTP id
- 5b1f17b1804b1-4bb88822346mr226556425e9.23.1795424477763; Mon, 23 Nov 2026
- 01:01:17 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rQSslSAF;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=/oeXy7Af;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rQSslSAF;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=/oeXy7Af
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 0FE9B2202C;
+	Mon, 23 Nov 2026 09:01:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795424493; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8IaUYIQEtbwaKxpNvH1tQqcdy0I8wU+cHele+MHmUG8=;
+	b=rQSslSAFrHraMwSrYavXTOWRU6br7ne0hV3AkkTcX59SS/iVb9ZjNnHVgDVLnH6joiLaxT
+	SMljyxdMb4b+gbTCGep6XMhs+AxYGX1uNH0ALlwkZVhtEFtfP+Qiwd6Xh23p1fvkDyZGFm
+	alHcK/4K83iQ7VoR22T7TJFl0AI58fU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795424493;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8IaUYIQEtbwaKxpNvH1tQqcdy0I8wU+cHele+MHmUG8=;
+	b=/oeXy7AfvsoCis5PSfrwuih2EeRu/aAAcVbSBrCJTKZ0toVqCA+kGbUo7NR/fDhGg3irvO
+	t/ZO38UH836b/RCQ==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795424493; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8IaUYIQEtbwaKxpNvH1tQqcdy0I8wU+cHele+MHmUG8=;
+	b=rQSslSAFrHraMwSrYavXTOWRU6br7ne0hV3AkkTcX59SS/iVb9ZjNnHVgDVLnH6joiLaxT
+	SMljyxdMb4b+gbTCGep6XMhs+AxYGX1uNH0ALlwkZVhtEFtfP+Qiwd6Xh23p1fvkDyZGFm
+	alHcK/4K83iQ7VoR22T7TJFl0AI58fU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795424493;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8IaUYIQEtbwaKxpNvH1tQqcdy0I8wU+cHele+MHmUG8=;
+	b=/oeXy7AfvsoCis5PSfrwuih2EeRu/aAAcVbSBrCJTKZ0toVqCA+kGbUo7NR/fDhGg3irvO
+	t/ZO38UH836b/RCQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id BAC001352B;
+	Mon, 23 Nov 2026 09:01:32 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id H09qJOwABGs8BwAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Mon, 23 Nov 2026 09:01:32 +0000
+Date: Mon, 23 Nov 2026 10:01:32 +0100
+Message-ID: <87wlq3diqb.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: Gianluca Boiano <morf3089@gmail.com>
+Cc: Takashi Iwai <tiwai@suse.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ALSA: usb-audio: Enable native DSD for Fosi Audio DS2
+In-Reply-To: <20261123011401.1545242-1-morf3089@gmail.com>
+References: <20261123011401.1545242-1-morf3089@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,152 +110,53 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261122-reuseport-lock-filter-v1-1-a3e5324c8d55@gmail.com> <179542364209.3135.6346728453187808939@kernel.org>
-In-Reply-To: <179542364209.3135.6346728453187808939@kernel.org>
-From: Wong Steve <shyckless@gmail.com>
-Date: Mon, 23 Nov 2026 17:01:06 +0800
-X-Gm-Features: Aa3M54p7sikU-xuQj6GlI0jXC-7c2SJPbhZVFn909Hn6R_I22BVip8-BRA2UoiM
-Message-ID: <CA+X8Sdi2zLn8ZUOWXQww1DOFkOqkPWFwrF9t5LnHxn==3s+8ZQ@mail.gmail.com>
-Subject: Re: [PATCH net] net: reuseport: honour SO_LOCK_FILTER in SO_DETACH_REUSEPORT_BPF
-To: netdev-bot+sashiko@kernel.org
-Cc: pabeni@redhat.com, edumazet@kernel.org, davem@davemloft.net, 
-	kuba@kernel.org, kuniyu@google.com, willemb@google.com, 
-	netdev@vger.kernel.org, bpf@vger.kernel.org, martin.lau@linux.dev, 
-	linux-kernel@vger.kernel.org, horms@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-Spamd-Result: default: False [-12.30 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FREEMAIL_TO(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCPT_COUNT_FIVE(0.00)[5];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	RCVD_TLS_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
+X-Spam-Score: -12.30
+X-Spam-Level: 
+X-Spam-Flag: NO
 
-> - [Medium] The fix only covers the setsockopt(SO_DETACH_REUSEPORT_BPF)
->   path.
+On Mon, 23 Nov 2026 02:14:01 +0100,
+Gianluca Boiano wrote:
+> 
+> The Fosi Audio DS2 (USB ID 262a:0001, Savitech controller with a
+> Cirrus Logic CS43131 DAC) exposes a UAC2 RAW_DATA playback altsetting
+> (altset 4, bmFormats 0x80000000, 32-bit subslot), but ALSA reports it
+> as SPECIAL without the DSD_RAW quirk, preventing native DSD playback.
+> 
+> Add the device to the quirk flags table with QUIRK_FLAG_DSD_RAW, as
+> already done for the ddHiFi TC44C (262a:9302) using the same vendor's
+> controller. With the quirk enabled, altset 4 is exposed as DSD_U32_BE
+> and stereo DSD64, DSD128 and DSD256 streams (88200, 176400 and 352800
+> frames/s) play through it.
+> 
+> Tested using snd-usb-audio quirk_flags=262a:0001:DSD_RAW on
+> Linux 7.3.5.
+> 
+> Signed-off-by: Gianluca Boiano <morf3089@gmail.com>
 
-Thanks for the review. Right, the patch only covers the setsockopt
-path, and that is on purpose. The disconnect and re-listen case is
-different: the socket leaves its group, and when it was the only member
-the group itself is freed, together with the program that belongs to
-it. The program is not removed from a group that keeps running. Making
-that path honour SO_LOCK_FILTER would mean keeping the group alive
-across a disconnect, which is a larger change than this one.
+Applied now.  Thanks.
 
-If you prefer, I can send a v2 that says in the commit message that
-only SO_DETACH_REUSEPORT_BPF is covered.
 
-Thanks,
-Suyuan
-
-<netdev-bot+sashiko@kernel.org> =E4=BA=8E2026=E5=B9=B411=E6=9C=8823=E6=97=
-=A5=E5=91=A8=E4=B8=80 16:47=E5=86=99=E9=81=93=EF=BC=9A
->
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] The fix only covers the setsockopt(SO_DETACH_REUSEPORT_BPF)
->   path.
->
-> --
->
-> net: reuseport: honour SO_LOCK_FILTER in SO_DETACH_REUSEPORT_BPF
->
-> This commit makes reuseport_detach_prog() return -EPERM when
-> SOCK_FILTER_LOCKED is set. Without it, an unprivileged process that is
-> handed a locked socket can remove the reuseport program with
-> SO_DETACH_REUSEPORT_BPF. This matches what sk_detach_filter() already
-> does.
->
-> > diff --git a/net/core/sock_reuseport.c b/net/core/sock_reuseport.c
-> > index b9e5648fa4c51..cdff61161a70a 100644
-> > --- a/net/core/sock_reuseport.c
-> > +++ b/net/core/sock_reuseport.c
-> > @@ -727,6 +727,9 @@ int reuseport_detach_prog(struct sock *sk)
-> >       struct sock_reuseport *reuse;
-> >       struct bpf_prog *old_prog;
-> >
-> > +     if (sock_flag(sk, SOCK_FILTER_LOCKED))
-> > +             return -EPERM;
-> > +
->
-> [Severity: Medium]
-> This closes the setsockopt(SO_DETACH_REUSEPORT_BPF) path. Can the holder
-> of a locked TCP SO_REUSEPORT listener still drop the program by
-> disconnecting the listener and then calling listen() again?
->
-> connect(fd, AF_UNSPEC) or shutdown(fd, SHUT_RD) on a listener goes
-> through this chain, and none of these functions check SOCK_FILTER_LOCKED:
->
-> tcp_disconnect()
->   tcp_set_state(sk, TCP_CLOSE)
->     sk->sk_prot->unhash(sk)
->       inet_unhash()
->         reuseport_stop_listen_sock()
->           reuseport_detach_sock()
->
-> With net.ipv4.tcp_migrate_req at its default of 0, and a program that is
-> not BPF_SK_REUSEPORT_SELECT_OR_MIGRATE, reuseport_stop_listen_sock()
-> reaches the immediate detach:
->
-> net/core/sock_reuseport.c:reuseport_stop_listen_sock() {
->     ...
->         /* Not capable to do migration, detach immediately */
->         reuseport_detach_sock(sk);
->     ...
-> }
->
-> reuseport_detach_sock() clears sk->sk_reuseport_cb. If this socket was
-> the only member, it also frees the group:
->
->         if (reuse->num_socks + reuse->num_closed_socks =3D=3D 0)
->                 call_rcu(&reuse->rcu, reuseport_free_rcu);
->
-> reuseport_free_rcu() then releases the locked program:
->
->         sk_reuseport_prog_free(rcu_dereference_protected(reuse->prog, 1))=
-;
->
-> tcp_set_state() keeps the port bound when SOCK_BINDPORT_LOCK is set, so
-> listen() can be called again on the same port:
->
->                 sk->sk_prot->unhash(sk);
->                 if (inet_csk(sk)->icsk_bind_hash &&
->                     !(sk->sk_userlocks & SOCK_BINDPORT_LOCK))
->                         inet_put_port(sk);
->
-> On the second listen(), inet_reuseport_add_sock() finds no sibling and
-> calls reuseport_alloc(). Because sk_reuseport_cb is now NULL, this
-> creates a new group with prog =3D=3D NULL. The socket keeps listening on
-> the same port, but the program is gone.
->
-> Documentation/networking/filter.rst says that once SO_LOCK_FILTER is
-> set, "a filter cannot be removed or changed" and that the filter "will
-> be kept until the socket is closed".
->
-> This only happens when the locked socket is the only member of its
-> group. If it has siblings, re-listen puts it back into the existing
-> group through reuseport_add_sock(). With migration enabled, the socket
-> moves to the closed section and keeps the program.
->
-> In a one-socket group, the program matters mostly when an SK_REUSEPORT
-> eBPF program uses SK_DROP to decide which connections are admitted. The
-> group-wide load-balancing change described in the commit message cannot
-> happen through this path.
->
-> Should the disconnect and re-listen path also respect
-> SOCK_FILTER_LOCKED, or should the commit message say that only the
-> setsockopt detach path is covered?
->
-> >       old_prog =3D NULL;
-> >       spin_lock_bh(&reuseport_lock);
-> >       reuse =3D rcu_dereference_protected(sk->sk_reuseport_cb,
->
-> --
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20261122-reuseport-lock-filter-v1-1-a3e5324c8d55%40gmail.com
+Takashi
