@@ -1,88 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795441303;
-	b=BuJNdbBhSkfIqMCIXsHDv0uDsEqNPzTdE78uVRDeJWPmTR9hcIP0gYb/CP52NRgYTWOF
-	 aU3jHzZjDoZnjk1VuMKs6hsvj9qE/4OrInCe8QvBwyC3yxH4ZwQN3QHwgaXVPfBL9vrMq
-	 rEglcCp1xW2qvCIiUk8QXOpUl1MGzIy6hEYCYqqXMQbU5fhCRuuFIY4W1vld+OCT642GP
-	 jSy5toKlTam0BV9z403fnxPqFpOAdEp+5Fv8KEJNUw2DxS+heSDcRHjzmlMUr6+DXgReR
-	 oR4cOr1f2jttI35pR4p2YDqZi1Rr76RtoILEiiKS3Cbm8RMf61Q+vLG3YkSutv5Ru2w==
+	t=1795441305;
+	b=dxERpVC0ZxFXzEldi1STi3LRPoA4muUxdN+9VAoicsdWXaFVG7IGTh76S9Hqv6k03VS8
+	 vIxZyXwap4ow7SY8WB9pU6fXdHY85EvBKdMQEFp4EyVGmqj9+iNcPdKw3PS7ntZUzt8n5
+	 +oU/9bd05Hkgs2SX9jCRXjHNJf0b2NpBrajNgRjXYGJdTwD0Dg0ssH3QnbVfrfJe8ymFm
+	 /PINHaE6gamq7Xl2DfTolyXR+oGffUMRkgb+rlB7ERGwCxgIrviKCJGRwXI1H67lJ3P50
+	 kw/m0BabdKPhnTkFivs+kt2vmUdltStmS7K9uAKL/riihG5eD6H3I0Z8UzEMyWWvGeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795441303;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795441305;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=yi15kur2YRezGqgqZjCpyNcgXCQsHgDB/ZB6iiC1/2A=;
-	b=RvkEYBEUwX7XgPac+Xd7tReY+f8qf0QyaTWjUmayNjbs7K7jm4EhKByKCI258sRZGM07
-	 k/5+0b4yVHkvv+X0NCWjm/wwlrL9xdOCf9ryZK6+q/05YwzSce5sfOvtsKgQx4Gn7JuRU
-	 9/OgFxsAX+tgbzk2nwL9gm+Fy6rwW0nOov4PbX+0n0dA4i+TRreDcwNB7+Rp0mFFwxsN9
-	 VizdpJ/vi05PdzbMoMqLmWltTtUKsRmUk0iM27NSfprq/3Atk03zdVm77Efr4rGXzTQG2
-	 PwIbIK7LxuoEHBXz3wijCCbVcyEXbvll61hvSt4gheADKN7bdscIDqzAb/Tz5VNGBnw==
+	bh=yu7J9cI4J6eMRXfImtI0cKipkxIOsOHsH3WCb0gS3hM=;
+	b=sgp32oWx7x2aL5L2R1wMtueDm39qi8OiI3f9OdCzfvtkGd6KG1e1iB5249Z5ct4917eY
+	 kMWnm8C056ZHnj1opsc63kbvPaKjylv5hg277K6HN5sozd3RG75Aw7xZNFocu1uXxh/z3
+	 JyJRNij2/4XK6SFtinlf/JuHUdg/m/Vv4zcI02cCP5xA0Z2Fg0waMTCeg1Pn7i8lAYwK5
+	 n7sMJ4po8gcLD8+nzlqWIzt0JwAMTOuFpPd5CuQrVNqQw5xV4r/t3xkga1gS6OLZK3KLn
+	 LqJm5tS8mDG+jQ8e1nBFlvhr9qA8SMYvVh46c+zIehbZClhv5IAYK8XzfmpTBbG2Jww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bairaktaris.de;
 	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b="DNjTmQ/a";
-	arc=none smtp.remote-ip=209.85.208.48
-Received: from mail-ed1-f48.google.com (mail-ed1-f48.google.com [209.85.208.48])
+	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b="kH/m7MGX";
+	arc=none smtp.remote-ip=209.85.208.51
+Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0936060A6F4F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:41:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0936060A6F4F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 690F660A6F7C
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:41:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 690F660A6F7C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=DNjTmQ/a
-Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-6b8784a3284so4765898a12.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:41:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=kH/m7MGX
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6b87408c797so4185954a12.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:41:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795441301; x=1796046101; darn=vger.kernel.org;
+        d=bairaktaris.de; s=google; t=1795441303; x=1796046103; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=yi15kur2YRezGqgqZjCpyNcgXCQsHgDB/ZB6iiC1/2A=;
-        b=DNjTmQ/a8MuPKprfsLx2iIvDFl4j2T4ws1JsE/argz2ZlpIJEiR16WZb0NIyzrieYr
-         0HLntxaXo2Saf6pqmybpf/abg12CUAbWtchGT8Tq2YOT/JoE4LG19t0dcFAHROcv/Pbl
-         OE3RxzF8A/eyOEPZSt7P6Qig+DZuDeuCiTYzbvUa/lgc2OlO2799gs76hiViZYbbEkw7
-         SUfAfYDXBppKjArRJKf9SMYObREYkHINa3ica7Iw1NhI6d5O24RqRHrXJiQhdSKt+PA6
-         qvAFnfFUMobKTGs5xadU2fXSh3Gd9wzORhJCWn53PSyce6poWJLMYp05g2DbhOf9KQpY
-         H8Pg==
+        bh=yu7J9cI4J6eMRXfImtI0cKipkxIOsOHsH3WCb0gS3hM=;
+        b=kH/m7MGXhr3gRUnew3v7bGg5U/zXeENcjhopfGx1/JgCCQVEArVqeg44cyQUW7/Nqb
+         3kYLVDzAYvte+d7At+J1Ma0l+iRZdkt88HmBzencoCnM7HzVwgDixBRw1CaVjr4IAb+g
+         Ei4KIHj1noHRBdnkA/XqMUkzIcSKeZLCpQgyF7ieXmTgpnKfLBRV73aOa+14OKtuwlpm
+         dDn1lTWWKSfZfQWNQosqealkQHNT2eGxs+7g37GbeggOvRWRhQ2En6EWPEl8jrBc08Fx
+         EALm+k1Hv39V8Kw4QcFWK0jBjc0nOEV13bgSW+UvDQbKglzPRACGdfoMVbwNUhrxPBog
+         Mlqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795441301; x=1796046101;
+        d=1e100.net; s=20260707; t=1795441303; x=1796046103;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yi15kur2YRezGqgqZjCpyNcgXCQsHgDB/ZB6iiC1/2A=;
-        b=vymlQr4BwKe63WZAmzHoOWW0PETvxTiRlT7RdNKlZvqViG+zLzYhCTrBnDrP4C5tIk
-         5ph7mHzCwTwtiJfcqEmzVwD8rh1xXfgS9GcgFAyJIQLafCtdFCte3cvkRHh25NZOKApo
-         mTrWlwUn6aGhcbyxM4oIlq9ZNfAaqicJtCCj9ZyPFyZDnEgHG6IAQUbCtWuCVfsSYBd1
-         0CJvmoScelTk6ye64FdRCjBjU0NOY9HNl9CEYAfvnyNp6plDW5CMr5vkThh0UGnLoA+O
-         +3tJa05ohTdMBv4cYEOZQUWrqg80S6v6A4gdW42gAxmx46/3nEglcg2mM78kphwULduW
-         utdA==
-X-Forwarded-Encrypted: i=1; AL+hErHkEi/zr0iOpsoWEU59Po2xqmvQVsa9dG530rEg8o5pkD2GTBD5bas0gMnM9QSG9Sae3lupZVVKfVX0Q9c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+yVl0qNzHXkZpj9qz6Sk0Pdr3OzXi+GhKXijKTc+aDU1llAECP
-	rZy5KFbEgAeB3dp1RtV2nKNVeVDCOIt8G97ZzVzF40EJ3hIFNLwGvOqgB1sQYPDxbQ==
-X-Gm-Gg: AZFdTZfzzj1K48blZS5q87w3gv20do9wCsxucdQHgem0YDRWZB68vQqqogTc59/1+A0
-	aq14M5iQIG5CEhuYn5B4d3i10qXe7jB2FtgbTrxkIvUK2njWJSw6n45K62uRfzZ7ZMB2WfFIv3a
-	MRi3fo1b4GAVhzrkXDg3jD1I8Lvoj6wZgwOz30TCW38VFvnS1+2ecLOj6e2AtrAb+REhKLBetJx
-	nn2TTFZOuwoeazD7kQlj4FoQKL93S3uWGPw58eiHj9Kbj+7m7Vsupg6E8cZH5O/ouvZtWSA90ck
-	l8cCfOpp3bnOni/pkxO9OY3VFzkzutuE+HJBSOqW8PYnvFcUZgmpO/CkhTo6QifABYV6X6iGBBc
-	FVNhaXqRTAk2xOkL0VGTcHin3TVQLD7DwWQxwhQFFrSFV4dpQ3Ctbuxwf4dmhZQZhRz435O05cG
-	trOwKnlxBb9UVhnax+rMd7z6gcT4VpfMZENTaeET/LmQiFBaRH/3tzFKBfvC2phdiVXIX95dd+x
-	kpGr9/kLlczQkeq64HUXXdC6NGymZpdSdaILSd8c3O0oX6eYuBwQ3x7X0RYRQkfbOK/rZCW8rvG
-	shZZBKBXxwrXWVtFMWnzhQqIC3Nb3qz4XUyK4f/WqdPsBhmPUo20hbcYovD38X6RIcoYAup24xV
-	pYLof9bcwXfRHhiAZoXm+kIlbl41r6NbI/Emlu+1r0Kf9zNeI/0lCef8E5UASKp37vppwD2S1ob
-	MyMfFvBTSEMJmb9YKJVJSVAEePtRvMMvVkAk49dthO2wV5purGhFCoXnDeNvK1Agp3wUpuPpq5h
-	NDkvebRPH01hoWTswtdXPep/0nRqRXFcElMAYFcriHLrjXpL6XogWha0BFySNvdfdRYmUoXRiNL
-	YUFB+EZmkOpI4aDQ7hKgaejYeFBKfgO8sCp7Qd8qUBDDtObYTCBGoEh9nPJp0brkVam+mgkjUQ=
+        bh=yu7J9cI4J6eMRXfImtI0cKipkxIOsOHsH3WCb0gS3hM=;
+        b=2SjE6oe1jLTrQhQvphdb1/gKg62eYfWL6Dz52QQYsKzqOcFjjNTtHkBO/iM/ybmkQs
+         cGL9/+yU1Yn29Ny9Vb896QowOSlpq5HBMXaW9Qi7Qj/SQ5aBYGMzGzvbljApcpWdsVtR
+         trma1oISDTd+VtySgY2B2SUha7RzdruT/82sD8Y3Ie5yvr3bc7QWp7d6/0UK8vDdiarq
+         kW0VOuFbvmFAap8gx2C2jhJF9Zq8L2C+Y6eWvj7Er29yD9NDfT3k/8wuL79FQ9hqhOtJ
+         AFbRN8ogGU1PKN471+SHB1teCAycmsYqV0sm3rHcpDgDO9qs4zvBES/mSqlsKc6O+uIb
+         xh/Q==
+X-Forwarded-Encrypted: i=1; AL+hErFN+5UuzCam1rQRp+su9jYkTOOV8UfSxHo/DFwoO49kqiDz9UZy6b64JsX9SrDs3CdF1JpRLSW1PzqHgU4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9m0tamgeAZ1YfG1xBvLgiL//6rJYeqHh4EDxTINXqbwqZO3/a+
+	f4I/twWinCWbVtHWuIcJz7J5YkvrWkPl2lNOIVtHQZTzJcxkscDldzgQ/yThpih8vA==
+X-Gm-Gg: AZFdTZe2K/tRuKW2oUgdhJ1LOD7oHv6uwyWOoKXbVvf28p5nbwzbkJdQnh20P/ZW5Ej
+	tNP7e4sQLVxHL+WRfzK62nIfFs8ZtHVgLWesEefUP/Xm9j6v1FxiW5iCvYzXme6kRq1GRF0CI0v
+	Tgbn1rOj0yCqv7epPf1TeL2vVsOjBmMr4elFNpxHy09H++emip9u6ex2FxSHaH0Df+dx+ypIU1P
+	AUlrswcJOT7hAiBhr7ECFoZOyAnjf7T1k/jTEo7YDrZXmDrpQ1U1IMPzCF1I0Ci78WH0RyJWH50
+	Uv1xdZErD26OemY4+Y/z0jZ1bl7qTS3N++AWD06Kdx2ItSagQDCtmhIE5RSXM5GKhFfqSHBtw15
+	tGSlAiCz7DxJPfN14EVF5J+OMBW9QSYVcIShjnb892YokQ290xL1mfxJrHhg7yEoXYekG6mcOEL
+	xj33CPEM0L87RxXxn/Lu14nFyPOW8CBSnLvSb8Q6itP0UPWRCl+dgDyjFR6ivJeMs20TeYWfgVG
+	D0Ng+qjV9ab5VPFfO9bDPxYTKeNm0SWl22ecPGH6q5R5sffhfNYlZWMVaJshmzkNsEjx2nrcQjG
+	4Ph+z3LooLnv2tPOhqZwd9K64kstIy9HjPeOlQlb0CY7sYtjrdyb7mbuQl+KXNb8/qWs5nAQB+2
+	Vuc+FNHSc0J+2dmAK6z4G7NJI8WG6pZgVOi2/QoVx2XGaEc+NQbfj3Xugws2hqRBFNLBx+wEK7D
+	9vzlX5bXhULzj8PcvOYlFG5Vv+R1zJsdwbB3CvikZ0se/HuwDO6Y0iQe1n8ZM/N/vMFslYH1sNO
+	4OssedRX5McHHuBBwEXsnALbGy/EHqPOYUHK1IIwmUiP++uFB0vKsftb4Lmj/+QEyfnTlQGZsAy
+	JFQftbhan6lMMlsq2NyhPU8KaIuTCYsEQAgp0g3pr93skUsYntbGAnW7vaJKIFy2on/ihdykFA=
 	=
-X-Received: by 2002:a05:6402:5cd:b0:6ba:4be1:9698 with SMTP id 4fb4d7f45d1cf-6ba4be1a024mr6759019a12.7.1795441301254;
-        Mon, 23 Nov 2026 05:41:41 -0800 (PST)
+X-Received: by 2002:a05:6402:1f4d:b0:6ba:3f4e:79d8 with SMTP id 4fb4d7f45d1cf-6ba3f4e7a62mr7747627a12.36.1795441302373;
+        Mon, 23 Nov 2026 05:41:42 -0800 (PST)
 Received: from Desktop.tail070c67.ts.net (p200300f247012000e9a6b19fb24a0d13.dip0.t-ipconnect.de. [2003:f2:4701:2000:e9a6:b19f:b24a:d13])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fbf0esm5339576a12.23.2026.11.23.05.41.40
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fbf0esm5339576a12.23.2026.11.23.05.41.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:41:40 -0800 (PST)
+        Mon, 23 Nov 2026 05:41:41 -0800 (PST)
 From: Julius Bairaktaris <julius@bairaktaris.de>
 To: Jeff Johnson <jjohnson@kernel.org>
 Cc: ath11k@lists.infradead.org,
@@ -95,9 +95,9 @@ Cc: ath11k@lists.infradead.org,
 	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
 	Mark Ruvald Pedersen <wabsie@gmail.com>,
 	Rosen Penev <rosenp@gmail.com>
-Subject: [PATCH ath-next v1 03/10] wifi: ath11k: request only the PPDU stats TLVs it reads
-Date: Mon, 23 Nov 2026 14:41:30 +0100
-Message-ID: <20261123134137.718575-4-julius@bairaktaris.de>
+Subject: [PATCH ath-next v1 04/10] wifi: ath11k: set the skb hash of a received frame from the hardware
+Date: Mon, 23 Nov 2026 14:41:31 +0100
+Message-ID: <20261123134137.718575-5-julius@bairaktaris.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261123134137.718575-1-julius@bairaktaris.de>
 References: <20261123134137.718575-1-julius@bairaktaris.de>
@@ -112,214 +112,200 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The driver asks the firmware for eight PPDU stats TLVs on every PPDU, but
-ath11k_htt_tlv_ppdu_stats_parse() keeps four of them: the common TLV (PPDU
-airtime), the user rate TLV (rate, NSS and bandwidth of each user, which
-the station rate and the airtime accounting use), the user completion
-common TLV (MPDUs tried and succeeded) and the ack/BA status TLV (acked
-bytes and MSDUs, TID). The user common, scheduler command status, flush
-and user array TLVs are parsed by nothing, yet the firmware builds them
-and the host walks them for every PPDU of every station.
+mac80211 picks the TXQ flow of a frame by skb_get_hash() in
+fq_flow_idx(), and RPS and the queueing disciplines on the output device
+do the same. ath11k never sets the hash, so every received frame that is
+forwarded or steered is dissected again, though the receive engine has
+already hashed its 5-tuple (flow_id_toeplitz in the MSDU start TLV, with
+the seed ath11k_wmi_pdev_lro_cfg() sets at random).
 
-Request the four the driver reads. The full pktlog, the extended TX
-statistics and the monitor interface keep the default set and the lite
-pktlog its own set, as before, so the mask is recomputed when any of them
-is switched on or off.
+Use that hash as an L4 hash for a frame whose descriptor says it is TCP
+or UDP, not an IP fragment, and with the fixed IP header and the TCP/UDP
+header parsed. A zero hash is not used. A boot random value is mixed into
+it, so that it is not a function of the packet alone and a station
+cannot choose the flow queue that a flow of another station shares.
+
+The field is at the same place in the MSDU start TLV of every chip
+family; read it, and the word with the flags, through two new hw_ops.
 
 Tested-on: IPQ8074 hw2.0 AHB WLAN.HK.2.9.0.1-02146-QCAHKSWPL_SILICONZ-1
 Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
 ---
- drivers/net/wireless/ath/ath11k/debugfs.c | 15 ++++++++--
- drivers/net/wireless/ath/ath11k/debugfs.h | 10 +++++++
- drivers/net/wireless/ath/ath11k/dp.h      |  9 ++++++
- drivers/net/wireless/ath/ath11k/dp_tx.c   | 34 +++++++++++++++++++++++
- drivers/net/wireless/ath/ath11k/dp_tx.h   |  1 +
- drivers/net/wireless/ath/ath11k/mac.c     | 13 +++++++--
- 6 files changed, 77 insertions(+), 5 deletions(-)
+ drivers/net/wireless/ath/ath11k/dp_rx.c | 36 +++++++++++++++++++++++++
+ drivers/net/wireless/ath/ath11k/hw.c    | 22 +++++++++++++++
+ drivers/net/wireless/ath/ath11k/hw.h    |  1 +
+ 3 files changed, 59 insertions(+)
 
-diff --git a/drivers/net/wireless/ath/ath11k/debugfs.c b/drivers/net/wireless/ath/ath11k/debugfs.c
-index 70922612d3fb..b936101d6fa5 100644
---- a/drivers/net/wireless/ath/ath11k/debugfs.c
-+++ b/drivers/net/wireless/ath/ath11k/debugfs.c
-@@ -460,7 +460,9 @@ static ssize_t ath11k_write_enable_extd_tx_stats(struct file *file,
- 	}
+diff --git a/drivers/net/wireless/ath/ath11k/dp_rx.c b/drivers/net/wireless/ath/ath11k/dp_rx.c
+index b3b8afb82a78..b027b76ea3f3 100644
+--- a/drivers/net/wireless/ath/ath11k/dp_rx.c
++++ b/drivers/net/wireless/ath/ath11k/dp_rx.c
+@@ -6,7 +6,9 @@
  
- 	ar->debug.extd_tx_stats = filter;
--	ret = count;
-+	ret = ath11k_dp_tx_htt_ppdu_stats_update(ar);
-+	if (!ret)
-+		ret = count;
- 
- out:
- 	mutex_unlock(&ar->conf_mutex);
-@@ -1010,6 +1012,13 @@ static ssize_t ath11k_write_pktlog_filter(struct file *file,
- 			HTT_RX_FILTER_TLV_FLAGS_MPDU_START)
- 
- 	if (mode == ATH11K_PKTLOG_MODE_FULL) {
-+		ret = ath11k_dp_tx_htt_h2t_ppdu_stats_req(ar,
-+							  HTT_PPDU_STATS_TAG_DEFAULT);
-+		if (ret) {
-+			ath11k_err(ar->ab, "failed to enable pktlog full: %d\n", ret);
-+			goto out;
-+		}
-+
- 		rx_filter = HTT_RX_FILTER_TLV_LITE_MODE |
- 			    HTT_RX_FILTER_TLV_FLAGS_MSDU_START |
- 			    HTT_RX_FILTER_TLV_FLAGS_MSDU_END |
-@@ -1032,8 +1041,8 @@ static ssize_t ath11k_write_pktlog_filter(struct file *file,
- 		tlv_filter = ath11k_mac_mon_status_filter_default;
- 		rx_filter = tlv_filter.rx_filter;
- 
--		ret = ath11k_dp_tx_htt_h2t_ppdu_stats_req(ar,
--							  HTT_PPDU_STATS_TAG_DEFAULT);
-+		ar->debug.pktlog_mode = mode;
-+		ret = ath11k_dp_tx_htt_ppdu_stats_update(ar);
- 		if (ret) {
- 			ath11k_err(ar->ab, "failed to send htt ppdu stats req: %d\n",
- 				   ret);
-diff --git a/drivers/net/wireless/ath/ath11k/debugfs.h b/drivers/net/wireless/ath/ath11k/debugfs.h
-index 859071938a65..4bec01a85eae 100644
---- a/drivers/net/wireless/ath/ath11k/debugfs.h
-+++ b/drivers/net/wireless/ath/ath11k/debugfs.h
-@@ -279,6 +279,11 @@ static inline bool ath11k_debugfs_is_pktlog_lite_mode_enabled(struct ath11k *ar)
- 	return (ar->debug.pktlog_mode == ATH11K_PKTLOG_MODE_LITE);
+ #include <linux/fips.h>
+ #include <linux/ieee80211.h>
++#include <linux/jhash.h>
+ #include <linux/kernel.h>
++#include <linux/net.h>
+ #include <linux/skbuff.h>
+ #include <net/page_pool/helpers.h>
+ #include "core.h"
+@@ -2057,6 +2059,39 @@ static void ath11k_dp_rx_h_csum_offload(struct ath11k *ar, struct sk_buff *msdu)
+ 	msdu->ip_summed = CHECKSUM_UNNECESSARY;
  }
  
-+static inline bool ath11k_debugfs_is_pktlog_enabled(struct ath11k *ar)
-+{
-+	return ar->debug.pktlog_mode;
-+}
++static u32 ath11k_rx_hash_seed __read_mostly;
 +
- static inline bool ath11k_debugfs_is_pktlog_rx_stats_enabled(struct ath11k *ar)
- {
- 	return (!ar->debug.pktlog_peer_valid && ar->debug.pktlog_mode);
-@@ -364,6 +369,11 @@ static inline bool ath11k_debugfs_is_pktlog_lite_mode_enabled(struct ath11k *ar)
- 	return false;
- }
- 
-+static inline bool ath11k_debugfs_is_pktlog_enabled(struct ath11k *ar)
-+{
-+	return false;
-+}
-+
- static inline bool ath11k_debugfs_is_pktlog_rx_stats_enabled(struct ath11k *ar)
- {
- 	return false;
-diff --git a/drivers/net/wireless/ath/ath11k/dp.h b/drivers/net/wireless/ath/ath11k/dp.h
-index e6e05eb25692..5e973c337cb2 100644
---- a/drivers/net/wireless/ath/ath11k/dp.h
-+++ b/drivers/net/wireless/ath/ath11k/dp.h
-@@ -595,6 +595,15 @@ enum htt_ppdu_stats_tag_type {
- 				   | BIT(HTT_PPDU_STATS_TAG_USR_COMPLTN_FLUSH) \
- 				   | BIT(HTT_PPDU_STATS_TAG_USR_COMMON_ARRAY))
- 
 +/*
-+ * The TLVs ath11k_htt_tlv_ppdu_stats_parse() keeps: the PPDU airtime, the
-+ * rate of each user, the retry counts and the acked bytes.
++ * The receive engine hashes the 5-tuple of a TCP or UDP frame whose IP and L4
++ * headers it parsed. mac80211's queue selection and the queueing disciplines
++ * would otherwise dissect the frame again for the same hash.
 + */
-+#define HTT_PPDU_STATS_TAG_USED (BIT(HTT_PPDU_STATS_TAG_COMMON) \
-+				| BIT(HTT_PPDU_STATS_TAG_USR_RATE) \
-+				| BIT(HTT_PPDU_STATS_TAG_USR_COMPLTN_COMMON) \
-+				| BIT(HTT_PPDU_STATS_TAG_USR_COMPLTN_ACK_BA_STATUS))
++static void ath11k_dp_rx_h_hash(struct ath11k *ar, struct sk_buff *msdu)
++{
++	const struct ath11k_hw_ops *ops = ar->ab->hw_params.hw_ops;
++	struct ath11k_skb_rxcb *rxcb = ATH11K_SKB_RXCB(msdu);
++	u32 info2, hash;
 +
- #define HTT_PPDU_STATS_TAG_PKTLOG  (BIT(HTT_PPDU_STATS_TAG_USR_MPDU_ENQ_BITMAP_64) | \
- 				    BIT(HTT_PPDU_STATS_TAG_USR_MPDU_ENQ_BITMAP_256) | \
- 				    BIT(HTT_PPDU_STATS_TAG_USR_COMPLTN_BA_BITMAP_64) | \
-diff --git a/drivers/net/wireless/ath/ath11k/dp_tx.c b/drivers/net/wireless/ath/ath11k/dp_tx.c
-index cac970c92806..9e21c7c3dba2 100644
---- a/drivers/net/wireless/ath/ath11k/dp_tx.c
-+++ b/drivers/net/wireless/ath/ath11k/dp_tx.c
-@@ -1033,6 +1033,40 @@ int ath11k_dp_tx_htt_h2t_ver_req_msg(struct ath11k_base *ab)
- 	return 0;
++	info2 = ops->rx_desc_get_msdu_start_info2(rxcb->rx_desc);
++	if (!(info2 & (RX_MSDU_START_INFO2_TCP | RX_MSDU_START_INFO2_UDP)) ||
++	    (info2 & RX_MSDU_START_INFO2_IP_FRAG) ||
++	    !(info2 & RX_MSDU_START_INFO2_IP_FIXED_HDR_VALID) ||
++	    !(info2 & RX_MSDU_START_INFO2_IP_TCP_UDP_HDR_VALID))
++		return;
++
++	hash = ops->rx_desc_get_flow_id_toeplitz(rxcb->rx_desc);
++	if (!hash)
++		return;
++
++	/*
++	 * Make the hash differ per boot, so that a station cannot aim
++	 * collisions at the queues of the others.
++	 */
++	net_get_random_once(&ath11k_rx_hash_seed, sizeof(ath11k_rx_hash_seed));
++	skb_set_hash(msdu, jhash_1word(hash, ath11k_rx_hash_seed),
++		     PKT_HASH_TYPE_L4);
++}
++
+ int ath11k_dp_rx_crypto_mic_len(struct ath11k *ar, enum hal_encrypt_type enctype)
+ {
+ 	switch (enctype) {
+@@ -2524,6 +2559,7 @@ static int ath11k_dp_rx_h_mpdu(struct ath11k *ar,
+ 	}
+ 
+ 	ath11k_dp_rx_h_csum_offload(ar, msdu);
++	ath11k_dp_rx_h_hash(ar, msdu);
+ 	ath11k_dp_rx_h_undecap(ar, msdu, rx_desc,
+ 			       enctype, rx_status, is_decrypted);
+ 
+diff --git a/drivers/net/wireless/ath/ath11k/hw.c b/drivers/net/wireless/ath/ath11k/hw.c
+index 096366b85849..40a9fae52e84 100644
+--- a/drivers/net/wireless/ath/ath11k/hw.c
++++ b/drivers/net/wireless/ath/ath11k/hw.c
+@@ -283,6 +283,11 @@ static u8 ath11k_hw_ipq8074_rx_desc_get_mesh_ctl(struct hal_rx_desc *desc)
+ 			 __le32_to_cpu(desc->u.ipq8074.msdu_start.info2));
  }
  
-+/*
-+ * The TLVs the driver does not parse (user common, scheduler command status,
-+ * flush, user array) go only to pktlog and the trace point. The pktlog lite
-+ * mode asks for its own set, and the full pktlog, the monitor and the
-+ * extended statistics debugfs file keep the whole default set.
-+ */
-+static u32 ath11k_dp_tx_htt_ppdu_stats_mask(struct ath11k *ar)
++static u32 ath11k_hw_ipq8074_rx_desc_get_flow_id_toeplitz(struct hal_rx_desc *desc)
 +{
-+	if (ath11k_debugfs_is_pktlog_lite_mode_enabled(ar))
-+		return HTT_PPDU_STATS_TAG_PKTLOG;
-+
-+	if (ath11k_debugfs_is_extd_tx_stats_enabled(ar) ||
-+	    ath11k_debugfs_is_pktlog_enabled(ar) ||
-+	    test_bit(ATH11K_FLAG_MONITOR_STARTED, &ar->monitor_flags))
-+		return HTT_PPDU_STATS_TAG_DEFAULT;
-+
-+	return HTT_PPDU_STATS_TAG_USED;
++	return __le32_to_cpu(desc->u.ipq8074.msdu_start.flow_id_toeplitz);
 +}
 +
-+/**
-+ * ath11k_dp_tx_htt_ppdu_stats_update() - request the PPDU stats TLVs in use
-+ * @ar: the radio, whose conf_mutex the caller holds
-+ *
-+ * Asks the firmware for the PPDU stats TLVs that the driver and the enabled
-+ * debug features read, and only those.
-+ *
-+ * Return: 0 on success, or the error of the HTT request.
-+ */
-+int ath11k_dp_tx_htt_ppdu_stats_update(struct ath11k *ar)
-+{
-+	return ath11k_dp_tx_htt_h2t_ppdu_stats_req(ar,
-+						   ath11k_dp_tx_htt_ppdu_stats_mask(ar));
-+}
-+
- int ath11k_dp_tx_htt_h2t_ppdu_stats_req(struct ath11k *ar, u32 mask)
+ static bool ath11k_hw_ipq8074_rx_desc_get_ldpc_support(struct hal_rx_desc *desc)
  {
- 	struct ath11k_base *ab = ar->ab;
-diff --git a/drivers/net/wireless/ath/ath11k/dp_tx.h b/drivers/net/wireless/ath/ath11k/dp_tx.h
-index 9303b5ba6e01..934c9ab6acf5 100644
---- a/drivers/net/wireless/ath/ath11k/dp_tx.h
-+++ b/drivers/net/wireless/ath/ath11k/dp_tx.h
-@@ -29,6 +29,7 @@ int ath11k_dp_tx_send_reo_cmd(struct ath11k_base *ab, struct dp_rx_tid *rx_tid,
- 					   enum hal_reo_cmd_status));
+ 	return FIELD_GET(RX_MSDU_START_INFO2_LDPC,
+@@ -465,6 +470,11 @@ static u8 ath11k_hw_qcn9074_rx_desc_get_mesh_ctl(struct hal_rx_desc *desc)
+ 			 __le32_to_cpu(desc->u.qcn9074.msdu_start.info2));
+ }
  
- int ath11k_dp_tx_htt_h2t_ppdu_stats_req(struct ath11k *ar, u32 mask);
-+int ath11k_dp_tx_htt_ppdu_stats_update(struct ath11k *ar);
- int
- ath11k_dp_tx_htt_h2t_ext_stats_req(struct ath11k *ar, u8 type,
- 				   struct htt_ext_stats_cfg_params *cfg_params,
-diff --git a/drivers/net/wireless/ath/ath11k/mac.c b/drivers/net/wireless/ath/ath11k/mac.c
-index 1a237adaa37d..79d5cf88f3b7 100644
---- a/drivers/net/wireless/ath/ath11k/mac.c
-+++ b/drivers/net/wireless/ath/ath11k/mac.c
-@@ -1195,6 +1195,11 @@ static int ath11k_mac_monitor_start(struct ath11k *ar)
- 		return ret;
- 	}
- 
-+	ret = ath11k_dp_tx_htt_ppdu_stats_update(ar);
-+	if (ret)
-+		ath11k_warn(ar->ab, "failed to req ppdu stats for monitor: %d\n",
-+			    ret);
++static u32 ath11k_hw_qcn9074_rx_desc_get_flow_id_toeplitz(struct hal_rx_desc *desc)
++{
++	return __le32_to_cpu(desc->u.qcn9074.msdu_start.flow_id_toeplitz);
++}
 +
- 	ath11k_dbg(ar->ab, ATH11K_DBG_MAC, "monitor started\n");
+ static bool ath11k_hw_qcn9074_rx_desc_get_ldpc_support(struct hal_rx_desc *desc)
+ {
+ 	return FIELD_GET(RX_MSDU_START_INFO2_LDPC,
+@@ -647,6 +657,11 @@ static u8 ath11k_hw_wcn6855_rx_desc_get_mesh_ctl(struct hal_rx_desc *desc)
+ 			 __le32_to_cpu(desc->u.wcn6855.msdu_start.info2));
+ }
  
- 	return 0;
-@@ -1225,6 +1230,11 @@ static int ath11k_mac_monitor_stop(struct ath11k *ar)
- 		return ret;
- 	}
- 
-+	ret = ath11k_dp_tx_htt_ppdu_stats_update(ar);
-+	if (ret)
-+		ath11k_warn(ar->ab, "failed to req ppdu stats for monitor: %d\n",
-+			    ret);
++static u32 ath11k_hw_wcn6855_rx_desc_get_flow_id_toeplitz(struct hal_rx_desc *desc)
++{
++	return __le32_to_cpu(desc->u.wcn6855.msdu_start.flow_id_toeplitz);
++}
 +
- 	ath11k_dbg(ar->ab, ATH11K_DBG_MAC, "monitor stopped ret %d\n", ret);
- 
- 	return 0;
-@@ -6694,8 +6704,7 @@ static int ath11k_mac_op_start(struct ieee80211_hw *hw)
- 		goto err;
- 	}
- 
--	ret = ath11k_dp_tx_htt_h2t_ppdu_stats_req(ar,
--						  HTT_PPDU_STATS_TAG_DEFAULT);
-+	ret = ath11k_dp_tx_htt_ppdu_stats_update(ar);
- 	if (ret) {
- 		ath11k_err(ab, "failed to req ppdu stats: %d\n", ret);
- 		goto err;
+ static bool ath11k_hw_wcn6855_rx_desc_get_mpdu_seq_ctl_vld(struct hal_rx_desc *desc)
+ {
+ 	return !!FIELD_GET(RX_MPDU_START_INFO1_MPDU_SEQ_CTRL_VALID,
+@@ -930,6 +945,7 @@ const struct ath11k_hw_ops ipq8074_ops = {
+ 	.rx_desc_get_decap_type = ath11k_hw_ipq8074_rx_desc_get_decap_type,
+ 	.rx_desc_get_mesh_ctl = ath11k_hw_ipq8074_rx_desc_get_mesh_ctl,
+ 	.rx_desc_get_msdu_start_info2 = ath11k_hw_ipq8074_rx_desc_get_msdu_start_info2,
++	.rx_desc_get_flow_id_toeplitz = ath11k_hw_ipq8074_rx_desc_get_flow_id_toeplitz,
+ 	.rx_desc_get_ldpc_support = ath11k_hw_ipq8074_rx_desc_get_ldpc_support,
+ 	.rx_desc_get_mpdu_seq_ctl_vld = ath11k_hw_ipq8074_rx_desc_get_mpdu_seq_ctl_vld,
+ 	.rx_desc_get_mpdu_fc_valid = ath11k_hw_ipq8074_rx_desc_get_mpdu_fc_valid,
+@@ -971,6 +987,7 @@ const struct ath11k_hw_ops ipq6018_ops = {
+ 	.rx_desc_get_decap_type = ath11k_hw_ipq8074_rx_desc_get_decap_type,
+ 	.rx_desc_get_mesh_ctl = ath11k_hw_ipq8074_rx_desc_get_mesh_ctl,
+ 	.rx_desc_get_msdu_start_info2 = ath11k_hw_ipq8074_rx_desc_get_msdu_start_info2,
++	.rx_desc_get_flow_id_toeplitz = ath11k_hw_ipq8074_rx_desc_get_flow_id_toeplitz,
+ 	.rx_desc_get_ldpc_support = ath11k_hw_ipq8074_rx_desc_get_ldpc_support,
+ 	.rx_desc_get_mpdu_seq_ctl_vld = ath11k_hw_ipq8074_rx_desc_get_mpdu_seq_ctl_vld,
+ 	.rx_desc_get_mpdu_fc_valid = ath11k_hw_ipq8074_rx_desc_get_mpdu_fc_valid,
+@@ -1012,6 +1029,7 @@ const struct ath11k_hw_ops qca6390_ops = {
+ 	.rx_desc_get_decap_type = ath11k_hw_ipq8074_rx_desc_get_decap_type,
+ 	.rx_desc_get_mesh_ctl = ath11k_hw_ipq8074_rx_desc_get_mesh_ctl,
+ 	.rx_desc_get_msdu_start_info2 = ath11k_hw_ipq8074_rx_desc_get_msdu_start_info2,
++	.rx_desc_get_flow_id_toeplitz = ath11k_hw_ipq8074_rx_desc_get_flow_id_toeplitz,
+ 	.rx_desc_get_ldpc_support = ath11k_hw_ipq8074_rx_desc_get_ldpc_support,
+ 	.rx_desc_get_mpdu_seq_ctl_vld = ath11k_hw_ipq8074_rx_desc_get_mpdu_seq_ctl_vld,
+ 	.rx_desc_get_mpdu_fc_valid = ath11k_hw_ipq8074_rx_desc_get_mpdu_fc_valid,
+@@ -1053,6 +1071,7 @@ const struct ath11k_hw_ops qcn9074_ops = {
+ 	.rx_desc_get_decap_type = ath11k_hw_qcn9074_rx_desc_get_decap_type,
+ 	.rx_desc_get_mesh_ctl = ath11k_hw_qcn9074_rx_desc_get_mesh_ctl,
+ 	.rx_desc_get_msdu_start_info2 = ath11k_hw_qcn9074_rx_desc_get_msdu_start_info2,
++	.rx_desc_get_flow_id_toeplitz = ath11k_hw_qcn9074_rx_desc_get_flow_id_toeplitz,
+ 	.rx_desc_get_ldpc_support = ath11k_hw_qcn9074_rx_desc_get_ldpc_support,
+ 	.rx_desc_get_mpdu_seq_ctl_vld = ath11k_hw_qcn9074_rx_desc_get_mpdu_seq_ctl_vld,
+ 	.rx_desc_get_mpdu_fc_valid = ath11k_hw_qcn9074_rx_desc_get_mpdu_fc_valid,
+@@ -1094,6 +1113,7 @@ const struct ath11k_hw_ops wcn6855_ops = {
+ 	.rx_desc_get_decap_type = ath11k_hw_wcn6855_rx_desc_get_decap_type,
+ 	.rx_desc_get_mesh_ctl = ath11k_hw_wcn6855_rx_desc_get_mesh_ctl,
+ 	.rx_desc_get_msdu_start_info2 = ath11k_hw_wcn6855_rx_desc_get_msdu_start_info2,
++	.rx_desc_get_flow_id_toeplitz = ath11k_hw_wcn6855_rx_desc_get_flow_id_toeplitz,
+ 	.rx_desc_get_ldpc_support = ath11k_hw_wcn6855_rx_desc_get_ldpc_support,
+ 	.rx_desc_get_mpdu_seq_ctl_vld = ath11k_hw_wcn6855_rx_desc_get_mpdu_seq_ctl_vld,
+ 	.rx_desc_get_mpdu_fc_valid = ath11k_hw_wcn6855_rx_desc_get_mpdu_fc_valid,
+@@ -1135,6 +1155,7 @@ const struct ath11k_hw_ops wcn6750_ops = {
+ 	.rx_desc_get_decap_type = ath11k_hw_qcn9074_rx_desc_get_decap_type,
+ 	.rx_desc_get_mesh_ctl = ath11k_hw_qcn9074_rx_desc_get_mesh_ctl,
+ 	.rx_desc_get_msdu_start_info2 = ath11k_hw_qcn9074_rx_desc_get_msdu_start_info2,
++	.rx_desc_get_flow_id_toeplitz = ath11k_hw_qcn9074_rx_desc_get_flow_id_toeplitz,
+ 	.rx_desc_get_ldpc_support = ath11k_hw_qcn9074_rx_desc_get_ldpc_support,
+ 	.rx_desc_get_mpdu_seq_ctl_vld = ath11k_hw_qcn9074_rx_desc_get_mpdu_seq_ctl_vld,
+ 	.rx_desc_get_mpdu_fc_valid = ath11k_hw_qcn9074_rx_desc_get_mpdu_fc_valid,
+@@ -1177,6 +1198,7 @@ const struct ath11k_hw_ops ipq5018_ops = {
+ 	.rx_desc_get_decap_type = ath11k_hw_qcn9074_rx_desc_get_decap_type,
+ 	.rx_desc_get_mesh_ctl = ath11k_hw_qcn9074_rx_desc_get_mesh_ctl,
+ 	.rx_desc_get_msdu_start_info2 = ath11k_hw_qcn9074_rx_desc_get_msdu_start_info2,
++	.rx_desc_get_flow_id_toeplitz = ath11k_hw_qcn9074_rx_desc_get_flow_id_toeplitz,
+ 	.rx_desc_get_ldpc_support = ath11k_hw_qcn9074_rx_desc_get_ldpc_support,
+ 	.rx_desc_get_mpdu_seq_ctl_vld = ath11k_hw_qcn9074_rx_desc_get_mpdu_seq_ctl_vld,
+ 	.rx_desc_get_mpdu_fc_valid = ath11k_hw_qcn9074_rx_desc_get_mpdu_fc_valid,
+diff --git a/drivers/net/wireless/ath/ath11k/hw.h b/drivers/net/wireless/ath/ath11k/hw.h
+index 8725e119707b..925785c9f688 100644
+--- a/drivers/net/wireless/ath/ath11k/hw.h
++++ b/drivers/net/wireless/ath/ath11k/hw.h
+@@ -250,6 +250,7 @@ struct ath11k_hw_ops {
+ 	u8 (*rx_desc_get_decap_type)(struct hal_rx_desc *desc);
+ 	u8 (*rx_desc_get_mesh_ctl)(struct hal_rx_desc *desc);
+ 	u32 (*rx_desc_get_msdu_start_info2)(struct hal_rx_desc *desc);
++	u32 (*rx_desc_get_flow_id_toeplitz)(struct hal_rx_desc *desc);
+ 	bool (*rx_desc_get_ldpc_support)(struct hal_rx_desc *desc);
+ 	bool (*rx_desc_get_mpdu_seq_ctl_vld)(struct hal_rx_desc *desc);
+ 	bool (*rx_desc_get_mpdu_fc_valid)(struct hal_rx_desc *desc);
 -- 
 2.53.0
 
