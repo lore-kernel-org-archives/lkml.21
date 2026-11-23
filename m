@@ -1,45 +1,127 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795477763;
-	b=MtKRS2SE12FpP6yE3YZUoYI5z4xYFkfbnDJax/CbLcZUtrNgqft3MgbOUrC7Ah5gXweT
-	 9ay2lK3joyHIH9cQc8vIcdjaLi6KuAhDA8XWs7ONqQIbO2ufZ53IGgse/ROVBON3HpUEo
-	 OwiDhKP8sClQb2y9vt5bGL4s902P5K6MqZZ4PrGzrDA7SGXIT51KbhdgrJfNx5S0QwaTE
-	 RLHpZzGIv1lmyE8CLuCOPysTNbTotQTsAV0Vg+mHyXSwvOkHxESGz3ZC0bCb6ejW1dmax
-	 IYKm/tLN68DfmNycjP/Oj2QcSBYCG+kJ7yysLmtN3rBSvvb/0Ekk4M53dbwyiLJOmKw==
+	t=1795477925;
+	b=ybozgWlUhoMcUc+A7XJK3sJ3Why+HN3zYfJXuRYOGr6Y7ZJeArAFayHHMWcNf/ZKYXoz
+	 7eo7PWRHb1zN/jTdpcAWoLWRVkkblHYowqpI/ZIsJhm/e0BkBk5jC6ydSwDyz7TrrK5C2
+	 STXC6yP9DL1fHxCb6yMy8hlrr603ToLX2/QU75Hn/pzMyw0opilek9V4PWJ/M64B5E7SC
+	 4lu451Nnw+br/WNTdoE+7eSyX3pkw74ieQT8tjdn9imkMLpIlfncmRvNGL6aCGDKYWqGu
+	 WsfZfXlgdtNuCpof0yCjudiUr2KsHRt9QyWkP6mfg7Z7ZO4cPK6V/uJU8fIJa0fJA2Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795477763;
-	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
-	 Content-Type:Date:Message-Id:Cc:To:From:Subject:References:
-	 In-Reply-To;
-	bh=sAXNrWbDbP7ysg441+6RZE6+jFTIZd3JkPpVhxHYPgs=;
-	b=IZNd0AN0dObamRGyWAYuhkT9CqzNur1vXWID2oCGjqo62Ho3eqVaTWKM8VWn7g1pte+U
-	 Q7LUkdbTPwcAn559jPou6YGIkeXlwvWvIgqzHcZAa3MmcDv1OzQsuH0VATEVqbW6Pp2Tm
-	 g9xbqUq+tMIoigQtKnZmKgpidxHsTz9KWo5reRANN3ooMIB/iAux1F2I59Odv6rs+jUVB
-	 lVfKnYO7VPapDY691+48+8adoTaWK4kePYdLg4cpO2uZmep4f4ITQrWb4HGnNcppSLv4f
-	 yCdbnVbgMhZyhcn8GDTwhyDFt1C59Q+6PZcfXMuDE2Cqltj8MJ9Y+VV2NmVkM82o54A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795477925;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=IybjlPb0LVZ7QOrAFKKCkNNJ886YmIr8unCCc4l7uQU=;
+	b=uFDnbh3bX6Mn2hcyQYWMYtYef9tC/Wn8zpSMraFSmtQvVj6CeOc7uXi1ShmEhfYvWx4i
+	 X2q13lDWlgfUARmP2OdiHzwIhhtIIPf5aOM9CrqED4jOP95W0CUGC6abIm5X+6YlOVAq9
+	 ufWoVkwovoXLIFgccAcew2S6ANMYhudZukqLgmBCKed6zrldI/3gqRDNBVPTfUtw+NmeD
+	 mAvelVGWeixETNdwScnj1FP2lLh2XT/GXoB0BuwUwWRQCRUv67GVg2u9SYZjAugOMmsqg
+	 wr4irYzLWnF+6kYarCMcK2UneZO/QkMUsSMnXgqSKw9Pl78yV75WJ7v6qLqX1jZy7zw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f6gtS408;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=gahingwoo.com;
+	spf=pass smtp.mailfrom=gahingwoo.com;
+	dkim=pass header.d=gahingwoo.com header.i=@gahingwoo.com header.a=rsa-sha256 header.s=fm2 header.b=CPYfRbcB;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=uTacps4U;
+	arc=none smtp.remote-ip=202.12.124.151
+Received: from fout-b8-smtp.messagingengine.com (fout-b8-smtp.messagingengine.com [202.12.124.151])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ADFA606A31E;
-	Mon, 23 Nov 2026 23:49:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E231B606A326
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:52:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E231B606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gahingwoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gahingwoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f6gtS408
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 318A01F000C6;
-	Mon, 23 Nov 2026 23:49:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795477762;
-	bh=sAXNrWbDbP7ysg441+6RZE6+jFTIZd3JkPpVhxHYPgs=;
-	h=Date:Cc:To:From:Subject:References:In-Reply-To;
-	b=f6gtS408v2vNyAEMKpsOCu+0RDvmsVoB3kxhsZNNVWzBL0NfRDnzliSks/xqdXzwv
-	 XJiXA5TcMEdf7BDqF0QnQD235fvkGFLsyebML2Rmhmg5kdUfXAODOSeNRhUEBrlCfh
-	 tyv+1Wz61EYtrfOc7Ix2nfI5o36w8w8EyULCiN0BCqEchf7r0+30CyJLPD9ak0tLRo
-	 C1H+u3fxoeNIyLza93rnczJtxgcO/0ebfxysluULlEkV8W7eZGvOT4kYwj85pE32kZ
-	 DPLwGIcLqjISiPx5Lkvcc9asLsbT/HI4csQgv4UYZSxjXle9Kv5oeGRqwBuCIKSTNR
-	 Mf0gvM14dPPZA==
+	dkim=pass (2048-bit key, unprotected) header.d=gahingwoo.com header.i=@gahingwoo.com header.a=rsa-sha256 header.s=fm2 header.b=CPYfRbcB;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=uTacps4U
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfout.stl.internal (Postfix) with ESMTP id 6ADBF1D005B3
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:52:04 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-01.internal (MEProxy); Mon, 23 Nov 2026 18:52:04 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm2; t=1795477922; x=1795564322; bh=IybjlPb0LV
+	Z7QOrAFKKCkNNJ886YmIr8unCCc4l7uQU=; b=CPYfRbcBBrg7/V9O3wjaPCSf5J
+	k7ahECh+Td41Nh3WV874GvdzmLJrXDD/OlBAXv8e9eLflbum4+/Dx+jYK2Ql+IZo
+	ntHexnWr8jTjyTDPFL79OqXvUCW8zSvPic8moGM1uIK3iXo9eHFOcaZWxK1woHcK
+	GhkCz763bnkmfJEl983rsOBp2ivPYuIw+srDOeXOVzHbDqTkZ9ShpN7uXD1hieRj
+	oUKVIdwMcSmqQPX7G0bTKUFx82u8pLcCduzJjZql9QWlkrm3C+mwEH4OqGPlx2Y3
+	izD/qOjcnDp1wZJsLxt6RfYQWboBVyPJvbBv430vTMk743FJoekPCohP3n4Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795477922; x=1795564322; bh=IybjlPb0LVZ7QOrAFKKCkNNJ886YmIr8unC
+	Cc4l7uQU=; b=uTacps4UBTdqNXSA/ZYq/EdYMuORnzKAjwshymbVPFPMZeiLpsO
+	mjBxTVc8GbLrHQjKqtoWMsAYF+UNR+w02vIHtcAjQyDxyswD/koZJO/dDaz3ScHe
+	8rTpL/g37zcbmrwhdWNy0/1gUE2hVD3K7BgjWX+e0d3lgpF27wIg9CI9jQgbkLBY
+	jd/wHDLDNt3/C6vR0C2xJ18LS57b4Sgapm9vzaVlgwPbcCw06pPnlvSa0L+RVLBx
+	fyIY/+GkA7epr8FoTCRReFZP6j5WgIdhvytF8UA5mSh9Nu/CqUPJmHcjZWpuoCX0
+	uKekc0czs23FP+aZUyezKwberEiPwiomwoA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=gahingwoo.com a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795477922; d=gahingwoo.com;
+	mf=PGdhaGluZ0BnYWhpbmd3b28uY29tPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:EiBAOt05kVYG0sJT4Q6kiH5eUGuEDJmQz69f+KQjDhmbCzq
+	g0ohTe++vtb3hcG5YOBk5//QieZCCZm9snFsKymVcDt2ZbWaFAGtnMD3ZsfDvBkU
+	PyV4+a3PBsHJOvYfcVonQwPO9hREpF45rbZJgsDhOudrDJuvz66a20xSZAUdaQEY
+	aQF0KKEOnDakjbI2wI6tTCfcfsXv6uVsbpXzqCt4bt9sU1J+SRUiuEDOYUMwPzfZ
+	BGBydut0001vEZX62bvpX2vaoJihSCVt4WwscQmf5dh0niACp1OPOSGBNeZh0Gnc
+	8cza0zJxImRLzKupofqXc51ZPXzKDpYthoyyKjQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=9;
+	hn=cc,content-transfer-encoding,date,feedback-id,from,
+	message-id,mime-version,subject,to;
+Message-Instance: m=1; h=sha256:snLsPNsbCz4VYOV2yj47o6aRDOxjWYqyPbozGNNs8VY=:P1o165xLoA2qPuWrWFB5pBAq5tFyty/t5vGj9pxnMhE=;
+X-ME-Sender: <xms:oNEEayNBhIsU1UsD4wcEKvo0F7MVcHuRFBk7UpQ2QN0e_m-K_rFQdw>
+    <xme:oNEEa9Wt-eCR0KFCQfpEhkNvInUAZuyiqoWWNKM09uQfu_Bc5yFMli7BFEpsIbvpJ
+    pijCkXMummPZerpiV_S3AU-fOMt_VJCNnVTDJ7N72szWB7KVigdK7U>
+X-ME-Received: <xmr:oNEEa9vyk1XhCip0WNq7twhcbfXgFs_dXjNlOTmLOOFXifPBa3VIt-6z5WOys9_whlW3fzKY>
+X-ME-Proxy-Cause: dmFkZTGJb1GdD04PLpCAwZXXn7KZFUQpgvhFpeiMNWdTsgQSXg4su9r1wkz1eWzPIWOfBk
+    FJ9NY1WQK6z+GMRPOeRa/xAcpLpGhZ3i3rHu5zB/D89kM2qY3MxfXxhF110D0CRcXEf2fs
+    4MN8MAYO53DHxq/1TxDxLsW5l7z73MpX6FTTFOLL15TnPkCKO8+O8eTU+J7YY12pzpLN9D
+    p/Kfr1ryp9Wgd2f7QZubaklTf0nB4k6SUJquczvZb3B/7xgpFlcJ0khWtpNl6yBmu4hGTG
+    rRsYCFoUn1baSUqCSDWvFHpznLOQrwKiCna74wQ9/Gjj2KmMpF+aQXmxNWCHIUGenuXuJh
+    7S3H+o9zDSJGKzoghBTYfKDpTcrMP8uXEMuxALYb/6VCSTKN566GB/8nyz/Wod6HIjG1RJ
+    ggCKta78hvrnZZZmTSy5AjuBmN0Z+eCbSKfT0pxpOhQol3WDC/xm0duisMs4leMcI2X4bm
+    vElPhLbZwcp8fFyfcud8QwdbASs/s9OHFa2l34KCDcDJoVV73h7OYUsJMoCVtX8tY4kYra
+    YBGMqVPC1naNhEqezi3z9gcD/pzGewTMhtrXBkjPD4czMToAIjEwz8zslcpWt72BD8ThG+
+    s4aY8/tdWsw96+Mj9zvaymtCPXiBR2ss+/GFpYC+3lTl90JY7qAdmQgEvcMw
+X-ME-Proxy: <xmx:oNEEaw0-SK_YQXOqR6vG6JDwO3SMTOonxH7AI6Qkpj3Jt0T5AtOmfw>
+    <xmx:oNEEa265RLCMuUWeLqN_Et1li24zw51GNx9ZNrpsXJJ8mKxMmU3XUA>
+    <xmx:oNEEa_XrqjxsazoJvxACg2og9xgDzysaS0fyq_8BQ0efYoVFd_GZLw>
+    <xmx:oNEEa2iay_QGchCQCamWbZuZRRbbAd7njZtZxz1iT-B5qsHgXdVYTA>
+    <xmx:otEEa9IbXmXQVeWTV5gWRzJeSD0Si6hsRP_FhIDNSdEyRkWZo8GclPrN>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 23 Nov 2026 18:51:56 -0500 (EST)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	heiko@sntech.de
+Cc: tomeu@tomeuvizoso.net,
+	ddrake@baylibre.com,
+	sidong.yang@furiosa.ai,
+	anton.sovetov@gmail.com,
+	chaoyi.chen@rock-chips.com,
+	iommu@lists.linux.dev,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] iommu/rockchip: Disable paging on banks that still page before a force reset
+Date: Tue, 24 Nov 2026 12:51:54 +1300
+Message-ID: <20261123235154.315460-1-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -48,55 +130,115 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 24 Nov 2026 00:49:17 +0100
-Message-Id: <DN2ZQV0NPYW5.2D6Z4TNR45UAF@kernel.org>
-Cc: "Alexandre Courbot" <acourbot@nvidia.com>, "Alice Ryhl"
- <aliceryhl@google.com>, "Abdiel Janulgue" <abdiel.janulgue@gmail.com>,
- "Robin Murphy" <robin.murphy@arm.com>, "Andreas Hindborg"
- <a.hindborg@kernel.org>, "Gary Guo" <gary@garyguo.net>, "Daniel Almeida"
- <daniel.almeida@collabora.com>, "Miguel Ojeda" <ojeda@kernel.org>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Bjorn
- Helgaas" <bhelgaas@google.com>, =?utf-8?q?Krzysztof_Wilczy=C5=84ski?=
- <kwilczynski@kernel.org>, "Greg Kroah-Hartman"
- <gregkh@linuxfoundation.org>, <rust-for-linux@vger.kernel.org>,
- <driver-core@lists.linux.dev>, <dri-devel@lists.freedesktop.org>,
- <nova-gpu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-To: "Matteo Kloiber" <kernel@matt3o12.de>
-From: "Danilo Krummrich" <dakr@kernel.org>
-Subject: Re: [RFC PATCH 0/3] rust: dma: require device configuration before
- DMA
-References: <20261123203926.1787169-1-kernel@matt3o12.de>
-In-Reply-To: <20261123203926.1787169-1-kernel@matt3o12.de>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Hi Matteo,
+After an RK3576 NPU job timeout resets the core, the banks of its IOMMU
+can be left in different states: bank 0 is still paging while bank 1
+has been reset.
 
+In this state the existing stall and paging helpers do nothing, so the
+force reset that follows fails as well. The IOMMU can then no longer be
+enabled, and the NPU stops working.
 
-On Mon Nov 23, 2026 at 9:39 PM CET, Matteo Kloiber wrote:
-> Matteo Kloiber (3):
+When the banks disagree, stop paging on the banks that still page
+first, then run the existing sequence.
 
-Thanks for working on this!
+Tested on a ROCK 4D with repeated forced job timeouts. Without this
+patch, one in every 2 to 10 timeouts was not recovered from; with it,
+20 out of 20 recovered.
 
-A few notes below, ahead of a proper review.
+Fixes: cd6438c5f844 ("iommu/rockchip: Reconstruct to support multi slaves")
+Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
+---
+Not tested on the RK3588.
 
->   rust: pci, platform: pass InitTokens to probe()
->   gpu: nova-core: build Gpu inside pin_init_scope
+LLM-assisted.
 
-I want to avoid wrapping everything in pin_init_scope(). Now that we have
-pin-init self-ref, we can just store dma::Handle in Gpu itself and then bor=
-row
-it from GspResources.
+ drivers/iommu/rockchip-iommu.c | 61 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 61 insertions(+)
 
->   rust: dma: require device configuration before DMA
+diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
+index 1fa3110b142a..5eabefb0ad14 100644
+--- a/drivers/iommu/rockchip-iommu.c
++++ b/drivers/iommu/rockchip-iommu.c
+@@ -507,6 +507,64 @@ static int rk_iommu_disable_paging(struct rk_iommu *iommu)
+ 	return ret;
+ }
+ 
++/*
++ * The helpers above only act when every bank agrees. After a reset of the
++ * master, one bank can still be paging; stop it bank by bank.
++ */
++static void rk_iommu_quiesce_paging_banks(struct rk_iommu *iommu)
++{
++	int i, ret;
++	u32 status;
++
++	for (i = 0; i < iommu->num_mmu; i++) {
++		void __iomem *base = iommu->bases[i];
++
++		if (!(rk_iommu_read(base, RK_MMU_STATUS) & RK_MMU_STATUS_PAGING_ENABLED))
++			continue;
++
++		dev_warn_ratelimited(iommu->dev, "bank %d still paging, status %#08x; disabling it\n",
++				     i, rk_iommu_read(base, RK_MMU_STATUS));
++
++		if (rk_iommu_read(base, RK_MMU_STATUS) & RK_MMU_STATUS_PAGE_FAULT_ACTIVE)
++			writel(RK_MMU_CMD_PAGE_FAULT_DONE, base + RK_MMU_COMMAND);
++
++		rk_iommu_base_command(base, RK_MMU_CMD_ENABLE_STALL);
++		ret = readl_poll_timeout(base + RK_MMU_STATUS, status,
++					 status & RK_MMU_STATUS_STALL_ACTIVE,
++					 RK_MMU_POLL_PERIOD_US, RK_MMU_POLL_TIMEOUT_US);
++		if (ret)
++			dev_err(iommu->dev, "bank %d: stall timed out, status %#08x\n",
++				i, status);
++
++		rk_iommu_base_command(base, RK_MMU_CMD_DISABLE_PAGING);
++		ret = readl_poll_timeout(base + RK_MMU_STATUS, status,
++					 !(status & RK_MMU_STATUS_PAGING_ENABLED),
++					 RK_MMU_POLL_PERIOD_US, RK_MMU_POLL_TIMEOUT_US);
++		if (ret)
++			dev_err(iommu->dev, "bank %d: disable paging timed out, status %#08x\n",
++				i, status);
++
++		rk_iommu_base_command(base, RK_MMU_CMD_DISABLE_STALL);
++		ret = readl_poll_timeout(base + RK_MMU_STATUS, status,
++					 !(status & RK_MMU_STATUS_STALL_ACTIVE),
++					 RK_MMU_POLL_PERIOD_US, RK_MMU_POLL_TIMEOUT_US);
++		if (ret)
++			dev_err(iommu->dev, "bank %d: disable stall timed out, status %#08x\n",
++				i, status);
++	}
++}
++
++static bool rk_iommu_banks_disagree_on_paging(struct rk_iommu *iommu)
++{
++	int i, n = 0;
++
++	for (i = 0; i < iommu->num_mmu; i++)
++		n += !!(rk_iommu_read(iommu->bases[i], RK_MMU_STATUS) &
++			RK_MMU_STATUS_PAGING_ENABLED);
++
++	return n && n != iommu->num_mmu;
++}
++
+ static int rk_iommu_force_reset(struct rk_iommu *iommu)
+ {
+ 	int ret, i;
+@@ -947,6 +1005,9 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
+ 	if (ret)
+ 		return ret;
+ 
++	if (rk_iommu_banks_disagree_on_paging(iommu))
++		rk_iommu_quiesce_paging_banks(iommu);
++
+ 	ret = rk_iommu_enable_stall(iommu);
+ 	if (ret)
+ 		goto out_disable_clocks;
 
-I think this should be broken down in multiple patches, e.g.
+base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
+-- 
+2.43.0
 
-  1. Introduce Setup, Params, and Handle.
-  2. Convert drivers to configure DMA and retain/pass the handle.
-  3. Change each DMA API to require a handle, converting all callers.
-  4. Remove the obsolete setters.
-
-Thanks,
-Danilo
