@@ -1,67 +1,119 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.198.224.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.149
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795452261;
-	b=TOF9A3DaPNa3lkVuTA4sLevJZGaKhWeiGPRR6ZLV9hCXElRpxTsgN23feS3N0OybZ3F9
-	 uRYS0AjqAYL+OZ6arCAuitZsdd4K8wNUhoo/ZNjkXdMKMNtkF9RiqWD4ejByo64dG8Auy
-	 9zdCFb4UfNxWn+zZWZEJaJIFtOYOhdyM1ODWfzV3qncQWaPIpTUYZOg+LlOeJvCE1X7XX
-	 Ih8xBwEnTzboADDrV94G02h8bXNryz7sArfCZdq+w09hPapvvUD5nImUdr7oL+OhY2nUn
-	 M81J3DGW0fhCjYNTop4yL0TYLa9XXqHum7rJMlCSIziHk5nKk5ywezCU91ynFlWs5gQ==
+	t=1795452266;
+	b=QGAqdHZ7wrOjEk/JQ6RrkkPxcqYkJ272ElGMP0cWJOfqBzpP+IbewZjNpmaBtX1tJ6Ba
+	 4fblaEejCYRaiKVxUMG1WYIrOjQvt0jzZdWyTMxHeb+p+IATZN9PDOYYGMZ3LZ0yKPzn3
+	 l/PWbw/P/20chqM02C+BeEHuE8k0mx0PIi1OPUU3kmceozSW3P32JjSs9pXsYatpnyavV
+	 4ktn9VeOQjG/nO0B2zbDgF+lD7LNxkRWVVeChbAZo9EfGuF+9RAvD9XBxNcDdtV8DC9uJ
+	 ixXDGggmoSbuATs3lSLS4weviC7zCc1QOR0UG/os4xwY6slKaw/fEzx8XXoRG62DBAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795452261;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
-	 Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Date:
-	 From:To:Cc:Subject:Organization:In-Reply-To:References:Message-ID:
-	 X-Sender:User-Agent:X-Spam-Status:X-Spam-Checker-Version:X-purgate-ID:
-	 X-purgate:X-purgate-type;
-	bh=+j8NlTDkaSolKJC2T/OgIC4R3UPkUPvo0idclAridzw=;
-	b=x0J49CpU4BRS+Gd97eJ9qTTeTOgr1iYI2h+SAxf4aaFqiCXeMkGBvfwqbbKowsO5nAy6
-	 uqM7e9DG97Ew2FBRhHP2eZ26R9mEjjjthEZtn8UUomCUU90X8tv9faif5dV1F0EyzZxNH
-	 BTxG68dJWpEMOEzEpj7fGCwM164kOR11WhZ3qmN7IeGdGhZNm8nuxVGRDQBVvasU3hksb
-	 1TiPsMMNHs73SOy06wZJ3khKQGHB97IE10Ku+QcxyufzsspHrV05nCawolRs7DLK9KbEk
-	 w/3tbXH9f32WazTASpUV9Zds5JqRUBKheudwgYTrxSEGkvp7CbNd5qlCVP0gFBOg9xw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795452266;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=E9s0asUcF3mX53rYsxFbgE7bi8OLnIG92yhRD104En8=;
+	b=cntLSh5SScLHRfF8SsJLZad8vUB4St57BeX2UVaGyl5kWI0j6t4/JcwQ72oJ6oNZkMSd
+	 Yvn7UZUAz9ceIybEOvZ5jSV3a7YHWR0wUnc5da8A7lD7xYx64iZXGuC36yU6GS4qbV34z
+	 1ZFXr+yiaI98x790g7MeDlRnHtm4X7tSuDl4mXW/hr84OkENqbV+ocB4vE7xW6xEDieM6
+	 oeXeXD1XEk+o99vulFGxmjKFbQi0Q1WVU1J3iuKbVX3Y0jqG8x9RjOxGLlgKWO+X+s9en
+	 0+pJfp8BEmyKlE1hgIxyY0Wm21XPPM66hciQkZHrHeZb8eYOkaTA8gZlWcfA0a6tlQg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=dev.tdt.de;
-	spf=pass smtp.mailfrom=dev.tdt.de;
-	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=Y4klHzNh;
-	arc=none smtp.remote-ip=91.198.224.70
-Received: from mxout70.expurgate.net (mxout70.expurgate.net [91.198.224.70])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=fastmail.com;
+	spf=pass smtp.mailfrom=fastmail.com;
+	dkim=pass header.d=fastmail.com header.i=@fastmail.com header.a=rsa-sha256 header.s=fm3 header.b=KHowNZEl;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=T47wJBu+;
+	arc=none smtp.remote-ip=202.12.124.149
+Received: from fout-b6-smtp.messagingengine.com (fout-b6-smtp.messagingengine.com [202.12.124.149])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A15B606A31A;
-	Mon, 23 Nov 2026 16:44:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A15B606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2038606A332
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:44:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2038606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=Y4klHzNh
-Received: from [194.37.255.9] (helo=mxout.expurgate.net)
-	by relay.expurgate.net with smtp (Exim 4.92)
-	(envelope-from <prvs=68018334f9=ms@dev.tdt.de>)
-	id 1xVX9D-00GtHg-UF; Mon, 23 Nov 2026 17:44:07 +0100
-Received: from [195.243.126.94] (helo=securemail.tdt.de)
-	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ms@dev.tdt.de>)
-	id 1xVX9B-009xa2-Pj; Mon, 23 Nov 2026 17:44:05 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
-	s=z1-selector1; t=1795452245;
-	bh=+j8NlTDkaSolKJC2T/OgIC4R3UPkUPvo0idclAridzw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Y4klHzNhRpNdJtjtlMPEEhin3Zm4SRR/9BU/KQ8b07eaLwlT2b5T7Jb79KXl3RNrT
-	 lqQFNPbbJOoCI3ZW29fke261imKo+P5PYfcSM5Kl4ImAzcFOswVZAhnPaPCwHPjw2v
-	 HrXpKH6dyS9/dSthjbLw0f+NJo0wwFUMGRkOudOtn3qaVvv09dWgtSLIJAZK6th1ut
-	 MIo8JF7vOUHuiw9oytM889tcfBbw98f4PntmWPrIy+oao/lj51plBUz+FgpArjoFDK
-	 +7pOMLhvmllnoCmWWaqfS2i6S7NL9F0qN6M0MxvzWxlPdSOIpibE4afyiNpK8AcQ7F
-	 vjUjNW7YiK2Ew==
-Received: from securemail.tdt.de (localhost [127.0.0.1])
-	by securemail.tdt.de (Postfix) with ESMTP id 0A213240040;
-	Mon, 23 Nov 2026 17:44:05 +0100 (CET)
-Received: from mail.dev.tdt.de (unknown [10.2.4.42])
-	by securemail.tdt.de (Postfix) with ESMTP id E789E240036;
-	Mon, 23 Nov 2026 17:44:04 +0100 (CET)
-Received: from mail.dev.tdt.de (localhost [IPv6:::1])
-	by mail.dev.tdt.de (Postfix) with ESMTP id 905C920059;
-	Mon, 23 Nov 2026 17:44:04 +0100 (CET)
+	dkim=pass (2048-bit key, unprotected) header.d=fastmail.com header.i=@fastmail.com header.a=rsa-sha256 header.s=fm3 header.b=KHowNZEl;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=T47wJBu+
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfout.stl.internal (Postfix) with ESMTP id 21D191D0061A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:44:25 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-01.internal (MEProxy); Mon, 23 Nov 2026 11:44:25 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=fm3; t=1795452264; x=1795538664; bh=E9s0asUcF3mX53rYsxFbg
+	E7bi8OLnIG92yhRD104En8=; b=KHowNZElMKYXTUS6Vn+Jgg4rJdNRkurLDOe47
+	YduFJv0uhlrKMdtF3pL7LFZg7TZci0dOU9ymhNkM0g+b6XpV8RzaRAKYdEFcTzbS
+	ukZ7IReKJjiVEzgQwhcVh6n/XJYpbWQ1bmGUyWmjACDVEEjBfxfzFduDEtszF4ax
+	0w2w708ipFG50TYmEEsa1eVlTdxq+zh8k9AIDEOiHTUQGykfahvv5Nrzwi6fJPkE
+	R454Ccm0Jl13o8eLfxLcC+MvlqUk0xEidcTlR5u05aQ1JlREinppMPKtWJGNSdGT
+	k9HNdmsshJKSYfNma8EhbF3CHBeN568nKUSGJJcUdzy/IFsFw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795452264; x=1795538664; bh=E9s0asUcF3mX53rYsxFbgE7bi8OLnIG92yh
+	RD104En8=; b=T47wJBu+TTJRLZUnvWjk/jVTP1vYkP1oVtrR+ywUK6ACDShYCH1
+	tSCO70DHwgK1AYGBN8AkmAoXaAhAjufYCCDplwsk6B/rNwjiMW2nDKzxWv28MITK
+	WxIqbjQcvK7p1CeP1jCwo5QWaXu54GX+3uCThI69SZQJOnvtQHzfdy4zYO7E4m1K
+	0mFbHonpx8t4e+kQ3EN+2Lyz5Kfr4xSB1j2ZL3nOLO9rIDekfaNrgpg1InN0jxgX
+	rF+Iiwtheq8IWsM0uVWgWTqEGzJ276kMkEiobY0f0qBlV4BToP1Vs97gZTZ0qPvP
+	t0JUxK9ICUTSblzZKE1JnBrWYYvXONriUSA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=fastmail.com a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795452264; d=fastmail.com;
+	mf=PGJhcmFudEBmYXN0bWFpbC5jb20+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:c6aVHGpYWxC771DaSg8OxUqsgObzEs5plPxzRg/ZfNXUsF+
+	6WnyPD9Qd9yqiEAfSvRHMBhsWLybT7Mvjd/7IjepU+aQ0WQmjDQ+3ZCTNjdacd4d
+	280CYRNRlZaVIsDsy0hCyckf+PQI5lUrr6/Cq+Ru9AHuF4HXyLz1uaa+X5Yo9zez
+	1sRVv64L+ywMrkkOklffgZa2qRRgFeXxKvytXUTaYUvqKATqbLdgVBxrGbv+lqvK
+	Hm1IX8siKXznbE2hJiiCmQjJx4hgjsAEnpUzNQfnDrbVDA1CHy+KFkaUMcB/gkm4
+	b4Pgv2NkvYsnQZEt1Kx9cG0rDTK+a8PYDanWgOw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=9;
+	hn=cc,content-transfer-encoding,date,feedback-id,from,
+	message-id,mime-version,subject,to;
+Message-Instance: m=1; h=sha256:lTbYK0gL1N+3GbljB+7bNYMiLGdD7zqRrpy0RZO4Ktw=:kkanJV4u9+DmEnqJSoQ5Wug8OzPsDrSriRYq8gx6MxM=;
+X-ME-Sender: <xms:aG0Ea9LNtKmn_ScZQhgSLpuOlFCQnQkVm18PVrdnL5UwHXd3856D2Q>
+    <xme:aG0Ea6p4HxL55pvPHLP4MhbtVhSdb05HLsWCOsRD0clO6UAELx_Zd9bJoI6mNkk6f
+    wQ646HkyWT8zNr9Rv6DZtsQBltpB4MysF3qdEVuwthYDi2ma8jtkoggqw>
+X-ME-Received: <xmr:aG0Ea1zZnNssZZ6Eec9Xu9wZiP0Wgb0ZYs216B2b7Tpq80oyQqV6G5_z>
+X-ME-Proxy-Cause: dmFkZTFgBE5ApSHOfW5fH134JqdDRU2Lxuyh7eVpFb8qGd36aMKloYaWp2K26oChWmfuL+
+    TTUxmFo25S56u2aGJhCxsbNmx1c2ByEFWY3t68M2s/s9NOHd7nrZKBhJieNQsw+b+n+CJw
+    Gsdfky5DnnRhjOBlCgPD1hkTW1FPY2tuKXLW4+jQcZZCV0OuJSXuD+nanZ8zhH0PrDgW5k
+    gBK8rqhhSC45ex4w7sVDBgfMDZ1QyPFeeMDU7u9U55U66vCvnwKOyqcSjRuKzJp6TEXZUa
+    9aSQGh4xWXwpPNhgaxVKlFZAYhvhxPH4ECOYDmzd3wP/HA3ehMSpcXUqB3NHkFBNVsacbd
+    zD3G5EUwvNJK9pilu/+U2Gh2Bf1WtpmpH2HegraElTBpOMbetOZDhfqu3kPcAbpvUzkA5m
+    vP9F8frgrLcQF/+ReMzWkvY0fUL2WJIvtupJpK7jfn7H6lgqj+Pm5hFPJ8ZpvXj3ZraHMK
+    WIK0PTEeEBTYT5dWZHnoT7EJ5FpaQO78kr236/DXMawSqGsaNpXhztAtrKsV6D+NYI9/MR
+    LwO5LurYcLtWP3mSX/misiwWtKUwveYsziwGUkrxKcxAX6M5zHgi6XUcjOq62zK0Fz1uHC
+    bTfC09KFFeMFpM2xPfjXjaddqB4gwVEmL819xAZ73PttbaSighKyLZat92EQ
+X-ME-Proxy: <xmx:aG0Ea-ON3Zl_aB-4scK3-bhEfpn7uPgpQ8Jihsog7_46qSqpvDCLLg>
+    <xmx:aG0Ea66jTI7-gsvs7rTcb4htCAbUChwcn0XAHZHpBtFRCSb3anr6wg>
+    <xmx:aG0Ea3lGiTEr3PU_Nr31TgLjsOuE3JM_R3vf113v2ck4wfz6u_GCLw>
+    <xmx:aG0EazQSE5sx59_v4jpLL8yLa4c4Pi8hU641tPCo52FaKGAS0slRSA>
+    <xmx:aG0Ea7zV0Y2KtWDwdt-oSKtcSbBzp1Ng03x7lvms3IUzsmUZUREbwRkA>
+Feedback-ID: i9dce4b48:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 23 Nov 2026 11:44:22 -0500 (EST)
+From: Baran Tuna <barant@fastmail.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] docs: digsig: fix siglen parameter name in digsig_verify()
+Date: Mon, 23 Nov 2026 19:44:10 +0300
+Message-ID: <d548d5aed35fb8b664fcc31dc21773a251205399.1795452233.git.barant@fastmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,32 +123,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-Date: Mon, 23 Nov 2026 17:44:04 +0100 (CET)
-From: Martin Schiller <ms@dev.tdt.de>
-To: shyckless@gmail.com
-Cc: davem@davemloft.net, kuba@kernel.org, edumazet@kernel.org,
-	pabeni@redhat.com, netdev@vger.kernel.org, linux-x25@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-security-module@vger.kernel.org,
-	paul@paul-moore.com, stevewong@hust.edu.cn, kaixuan.li@ntu.edu.sg
-Subject: Re: [PATCH net] net/x25: inherit the listening socket's security
- label on accept
-Organization: TDT AG
-In-Reply-To: <20261123-x25-v1-1-4432d3892f8b@gmail.com>
-References: <20261123-x25-v1-1-4432d3892f8b@gmail.com>
-Message-ID: <c70bad57add6ff8cd52125c698f3f54a@dev.tdt.de>
-X-Sender: ms@dev.tdt.de
-User-Agent: Roundcube Webmail/1.3.17
-X-purgate-ID: 151534::1795452246-CEF60E18-DEAD8124/0/0
-X-purgate: clean
-X-purgate-type: clean
+Content-Transfer-Encoding: 8bit
 
-On Mon, 23 Nov 2026 01:31:20 +0100, Suyuan Wang wrote:
-> x25_make_new() creates the socket that accept() returns by copying
-> fields from the listening socket, but it never clones the listening
-> socket's LSM security state -- there is no security_sk_clone(osk, sk).
+The kernel-doc excerpt for digsig_verify() names the signature length
+parameter @sigen, but the parameter is called siglen in both
+include/linux/digsig.h and lib/digsig.c. Use the correct name.
 
-Thanks!
+Signed-off-by: Baran Tuna <barant@fastmail.com>
+---
+ Documentation/security/digsig.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Acked-by: Martin Schiller <ms@dev.tdt.de>
+diff --git a/Documentation/security/digsig.rst b/Documentation/security/digsig.rst
+index de035f282196..25a0d7969668 100644
+--- a/Documentation/security/digsig.rst
++++ b/Documentation/security/digsig.rst
+@@ -62,7 +62,7 @@ API currently includes only 1 function::
+ 	* digsig_verify() - digital signature verification with public key
+ 	* @keyring:	keyring to search key in
+ 	* @sig:	digital signature
+-	* @sigen:	length of the signature
++	* @siglen:	length of the signature
+ 	* @data:	data
+ 	* @datalen:	length of the data
+ 	* @return:	0 on success, -EINVAL otherwise
+
+base-commit: 2138148bf44fd84d3e0a863f0e8cb3627cdcc606
+-- 
+2.53.0
+
