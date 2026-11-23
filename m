@@ -1,64 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.204.27.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795422615;
-	b=zVp7kZgVB19NTXxqaJO9g2RWZndJzR6BbdSDYjapgbaxktG0jp1ZVQHhq4aW2bxWI/ik
-	 RdUB+eRLduI1g8ET/bh9Z181NEeZJ0MjOUdy/pyraC+2NsyDIijbJZVVnoo5U5oi0Mpjf
-	 aD5/vbR+y7btMGfi9lJHPjs3CBkn4ygBAQBzgrTxh476esx+lAAYuBeBb2MJJh548Z6+M
-	 S2ZSdOvdITlVtGBNBr5+IC0k87yX1hBHexqOplh/Lxe6P703gxWNLMolEGxAv24kBPaE4
-	 dKUhs34Qd5hMQyM/4ey8u3wmGXsnAJE58O7WqBoB3ukB//MjUvrjEuxKULCM7n9I7sg==
+	t=1795422655;
+	b=X0gT62ImbdSoO2VCpPAEZjzfAGnRQl5y8dv/NrY3oK4jhnMYg8nemV57nmD0ql+WMP1S
+	 /zW4pezgZs9qc9FMj4MMUy5oPY0oqkjJaUuKyP+xD1xMan72vU5hZMjW1CE5jezeVlXGs
+	 b6STv027YFpU4xYsZ6yz2tW/n56v3eUUu5FYWx6T/SJerAYXg4DuGpqTwEFbdo/hhNuL/
+	 ENkuoO7WyVqPc89X8roZ4u0jd03+eiLJVXFp5bpmNQCclYHGWZxAWgLVYrJvahzsNGDxc
+	 spf0FJHh3MLP87hqDKznpPzrrQyPEtb4h2+2QegCgKKVtZ54ikiLKMf1WVeUcPyvv8A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795422615;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=g90/0bhbxPIHkU4mFDJWsNmnCkTgmCZxPuEg8GPDaE4=;
-	b=regR6M1YLLU0r3ixVnk6f+PXd3EnI89eSUFwWZehr6QXYHwNZbwmq+rHIFb1PhtkrMqS
-	 AvZUrksAAN7J1YwoWx8jI1IrfJp2XoMn+JuwOZclDA8NC160BZMuONdAn0Xasast2KwTw
-	 MTtRlaK++QZ4yX0y5HxSYVTIg2SO975vomidGQxgrHteiHDWJI8AMYNcEWwvQ6nnzlSN6
-	 sBRKkQM8tEQALSnMHMNDKSs4YUDF+phXeBf0vYcFGXLJOjHSsQNRj3S48csinUEYnLgiy
-	 jHkp9gqAtsPBA28ppDVL7aXSm1vAFuEs10L+MJX8i+kVmB89iRegxmBu4x2dgOFCh4A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795422655;
+	h=DMARC-Filter:Received:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 X-Originating-IP:X-ClientProxiedBy;
+	bh=6tDd9eRJndUwaYYrTyVQpmqvbWmO76hktr/KZipnuAY=;
+	b=l7snZys+o60zJo5QS6ugS67U2gTauk4/d6ygfr/ICobsKWBc6QSKC0/M/TTlSft0Dvif
+	 mg14OKuTSznwk4H7esPMrUuIm9TnOZzMtfDegVobBl5gqeS8labnUMaiwSe94VEWtp+WS
+	 XlEp/vUUIVTRqbUuibjEBwpf3gNnNIJy6iq1ldZut3wrtEoMAXfuP0ePy7ojAM29KBSQO
+	 E4+yG6+e/k6N2QGnGYFfyAw4bWRhmWNpVybVthY7DeXdNE3uETxtoTfFP9tlefGuieq8f
+	 e1UmmHJsx/PrVTw3wSKF2Pre4DhAUyB6GFoqcDNict8sax75o4MywbVPeHKe9w3lazQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PXULo1uE;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8F9D606A31A;
-	Mon, 23 Nov 2026 08:30:15 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PXULo1uE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 841501F000CA;
-	Mon, 23 Nov 2026 08:30:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795422615;
-	bh=g90/0bhbxPIHkU4mFDJWsNmnCkTgmCZxPuEg8GPDaE4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PXULo1uEs5gqu1IV55GH6XzrlAMnkg7aML82UaJ7P0OLCy2GmoAv5mYdxL9hUIV7u
-	 jEnaL7Mzr0zmJzdlrh1FTVQpNNcU4E0e9whuo8ZLAWP27aVJY8zIIQxBhRVIW5qtV8
-	 ITHTFckdHDzXFIroyGvBmKet6tLcxgecDClkheY54A8wnhpZm6X3t/G8TpbUd6M28h
-	 FEdGAcxU0Q/gFfgk4219uGFxeYvN//XCAyraN1ZjPfgQ/ifzbksu4GKAmqWV6zm29M
-	 xNB603K1JIdFM5wvMVEheM3ybmTvHLcB1sTMJHQ1a0xvq3I/76jYcSCd8ArO5DHA1I
-	 SqCYOEVQW60QA==
-Date: Mon, 23 Nov 2026 09:30:12 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Arun Iyengar <aiyengar1990@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	David Wu <david.wu@rock-chips.com>, Damien Le Moal <dlemoal@kernel.org>, 
-	Niklas Cassel <cassel@kernel.org>, Serge Semin <fancer.lancer@gmail.com>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, linux-ide@vger.kernel.org, 
-	Pranjal Shrivastava <praan@google.com>, Will Deacon <will@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev, Shawn Lin <shawn.lin@rock-chips.com>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: Re: [PATCH 3/9] dt-bindings: soc: rockchip: grf: Allow a clock for
- the RK3588 PHP GRF
-Message-ID: <20261123-wealthy-luminous-skunk-cb5dbb@quoll>
-References: <20261113-mmu600-php-v1-0-231196049a3b@gmail.com>
- <20261113-mmu600-php-v1-3-231196049a3b@gmail.com>
+	dmarc=pass header.from=hygon.cn;
+	spf=pass smtp.mailfrom=hygon.cn;
+	arc=none smtp.remote-ip=101.204.27.37
+Received: from spam01.hygon.cn (unknown [101.204.27.37])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E9A62606A31A;
+	Mon, 23 Nov 2026 08:30:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9A62606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hygon.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hygon.cn
+Received: from maildlp1.hygon.cn (unknown [127.0.0.1])
+	by spam01.hygon.cn (Postfix) with ESMTP id 4jXzfS70p3zg1cV;
+	Mon, 23 Nov 2026 16:30:40 +0800 (CST)
+Received: from maildlp1.hygon.cn (unknown [172.23.18.60])
+	by spam01.hygon.cn (Postfix) with ESMTP id 4jXzfR3Pf6zVcB5;
+	Mon, 23 Nov 2026 16:30:39 +0800 (CST)
+Received: from cncheex04.Hygon.cn (unknown [172.23.18.114])
+	by maildlp1.hygon.cn (Postfix) with ESMTPS id B48A01555;
+	Mon, 23 Nov 2026 16:30:36 +0800 (CST)
+Received: from hsj-2U-Workstation (172.19.24.226) by cncheex04.Hygon.cn
+ (172.23.18.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 23 Nov
+ 2026 16:30:37 +0800
+Date: Mon, 23 Nov 2026 16:30:35 +0800
+From: Huang Shijie <huangsj@hygon.cn>
+To: Andreas Gruenbacher <agruenba@redhat.com>
+CC: <viro@zeniv.linux.org.uk>, <brauner@kernel.org>, <jack@suse.cz>,
+	<hch@infradead.org>, <mic@digikod.net>, <axboe@kernel.dk>,
+	<gnoack@google.com>, <paul@paul-moore.com>, <jmorris@namei.org>,
+	<serge@hallyn.com>, <legion@kernel.org>, <aleksa@amutable.com>,
+	<libaokun@linux.alibaba.com>, <ebiggers@kernel.org>, <djwong@kernel.org>,
+	<sandeen@redhat.com>, <zhongyuan@hygon.cn>, <fangbaoshun@hygon.cn>,
+	<yingzhiwei@hygon.cn>, <wujianyong@hygon.cn>, <shijie8@gmail.com>,
+	<linux-fsdevel@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-block@vger.kernel.org>, <gfs2@lists.linux.dev>,
+	<linux-security-module@vger.kernel.org>
+Subject: Re: [PATCH v3 01/11] vfs: add super_iter_inodes()
+Message-ID: <awP5q_CmS3uIqfCw@hsj-2U-Workstation>
+References: <20261120031305.3561045-1-huangsj@hygon.cn>
+ <20261120031305.3561045-2-huangsj@hygon.cn>
+ <CAHc6FU7VUBLg=gX-xspFfp4jPffdH7Pc4oVx5nRDo7A3aiVWug@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,42 +68,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset="utf-8"
 Content-Disposition: inline
-In-Reply-To: <20261113-mmu600-php-v1-3-231196049a3b@gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHc6FU7VUBLg=gX-xspFfp4jPffdH7Pc4oVx5nRDo7A3aiVWug@mail.gmail.com>
+X-ClientProxiedBy: cncheex06.Hygon.cn (172.23.18.116) To cncheex04.Hygon.cn
+ (172.23.18.114)
 
-On Fri, Nov 13, 2026 at 04:38:49PM +0000, Arun Iyengar wrote:
-> The RK3588 PHP GRF is clocked from pclk_php_root, which is gated when
-> no PHP peripheral holds it. Allow the clock, so the syscon regmap
-> enables it.
+在 Fri, Nov 20, 2026 at 03:56:23PM +0100，Andreas Gruenbacher 写道：
+> > +
+> > +int super_iter_inodes(struct super_block *sb, ino_iter_fn iter_fn,
+> > +                     ino_iter_eligible_fn eligible, void *priv, int flags);
+> > +
+> >  struct super_operations {
+> >         struct inode *(*alloc_inode)(struct super_block *sb);
+> >         void (*destroy_inode)(struct inode *inode);
+> > --
+> > 2.53.0
 > 
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
-> ---
->  Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 12 ++++++++++--
->  1 file changed, 10 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-> index e94c83d7c138..2525eb51f13b 100644
-> --- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-> +++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-> @@ -321,8 +321,16 @@ allOf:
->          - clocks
->  
->      else:
-> -      properties:
-> -        clocks: false
-> +      if:
-> +        not:
-> +          properties:
-> +            compatible:
-> +              contains:
-> +                const: rockchip,rk3588-php-grf
-> +
+> Sorry to say, but this has gone quite a bit off course. Can you try a
+> construct like iomap_iter() instead?
 
-This is not understandable - two nested ifs, one even with negation.
+Christian had suggested to use the following methed:
+  https://lore.kernel.org/all/20261120-mitverantwortlich-drehbaren-kantholz-241300d20168@brauner/
 
-If binding is too complex, it could be split.
-
-Best regards,
-Krzysztof
+Thanks
+Huang Shijie
 
