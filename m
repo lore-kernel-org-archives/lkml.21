@@ -1,126 +1,46 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.243.244.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795440644;
-	b=c9Yja4DJ8lLJ8QCf4HqmAliuJUsvIbANdPPOjj1ABPvLivMwpw8wX4n3BeuYzPBHJXbp
-	 ti8CixZlm8KfFAmRE8WGBX8OPmPy5D4GCrqVOULmfMSFtx7WG6+RXauEDog0sE21GFiIE
-	 WdBOLwX6NAiaz5Mf4Q95rR0WhZzjZlVt4lzuBQOlEaPElDXGkDyLTlrcG8P7iXWWKX5Rt
-	 IRX1JL48F3agrtDEaEGmBfuBmkIXsLt6bRW/8up7FYUJ0n8E7+BWkNkAHjN8Qnm0qX5x9
-	 C3w8EEqEh3naLpfW/CW3v4LEed6Ml8UHpY2ZoQhGGd8O5Atka3dIZnWeAU02GDsOa3w==
+	t=1795440651;
+	b=PIy8gpE8RrbGWlZhbfQUx68249CG6zHZYuqm4qaR9hJ/3VuY5czs+u0gjfalAUW4YXl+
+	 WEa2dojKKSJfbXF3PHg+p/9gxLiIB5pxA99srTEXkN+wRAl7p1UDkmjf0Tzj2Vqgktjm1
+	 va7sP+CWjGPjLidiiXGqmouuLuGreeA+8iAwLOx8HsFnQN6OvGtX8plSMrBY6STvrG7pf
+	 46sdw64iQTUhmlIn89CkJWP4INA5YLOulapMtlDMAzbLAHyDTEWFS7DYsXCslM0w+EWS/
+	 PWk4uIBQal4HiIQSrLqTcZMRBc1UVPJOdsqAZ0T7ra4kVJFAPYd7qE5jFS+wErPCLww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795440644;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=6GW16cYLEXbLEKRxCLcZ/hm1ouVgqsdPZ8UneMsZf6M=;
-	b=aWiGderdD8z+6My9zi9d/cos42wWxwFNqFLnoCXjygtrQeZFgl005BqVo4L4BY+v0lA1
-	 c8traFMDfyW6XaCQaMCtM0MjK1QR/ppU0W8rN6SZ02Ju1Uz8jwVrq7hu1+QuMIDHtqu3a
-	 x3uOTfhI0YHzGDU3KOSbtGBSvJ3IS1rwmxLROTzmW66/01hvubetn7B/KeqTOadParASm
-	 pfqbrZkM4TtWLrX350BQFpDPO57jIgNcuNkRmGm5p2V4SeD4PqhMm1RPKsbEN1pkpvdxt
-	 vUWibDfOGDGHkKLZfwAPcnf3tVa9qg95VhsxQNE3gjlvHZHv1dHoG8g4CYh6+iodt4A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795440651;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=xBl4LenZgMO7u9uyhu6pCiLNFdtLVtDM8Nkt6YyrMJo=;
+	b=RivDaicMpuWlQX8vhOPx61UkkdiChmLUvoqToKwBgIqROIbncKxwL+4Cc5Mjn0OtFodg
+	 4LqZDMSaMKzcL84rgcdBca4D9kYZaitjvamUqVWaqng6Mk2O8rK7YnOkJ49/nZQZGXBPk
+	 JUh3qOou0cxr7GDEaOZny06zLI/hZH/ubOdPPMH3s4NrCuzcgE8tgyE7U7/9nYTbcAfxx
+	 iT7fRNR5al7S6HlgSV4zSAWdoMPSt9v40lba6nnqW2iHtJlujcIfAWSSmO13NgulfuduB
+	 TrprrGtdWPQYnz9Sx4RcP4TB9gG4teI3Y3wx4s2KTke6GnUMlqtsd+ldySO4W2aT6zw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=c6TAGOg6;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=WNRMkPsG;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=kylinsec.com.cn;
+	spf=pass smtp.mailfrom=kylinsec.com.cn;
+	arc=none smtp.remote-ip=54.243.244.52
+Received: from smtpbguseast3.qq.com (smtpbguseast3.qq.com [54.243.244.52])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A21E1606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:30:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A21E1606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=c6TAGOg6;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=WNRMkPsG
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANDKtnn3329279
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:30:43 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=6GW16cYLEXbLEKRxCLcZ/hm1
-	ouVgqsdPZ8UneMsZf6M=; b=c6TAGOg6zi0O5kcLuEuN/zocBSDmqajGdyt5ZKdp
-	JFQcnRh4jGqIi+JgJm8LtbWG776NhXnFYt8IBDEHEWhlq8tGnCAvG7N4gjx/fs0g
-	RwHLHAQ0AzKISsPBHeN+T7sgGPzfp8mpNfUmyAahFVHjGEuOHoNy3R93Ypgji/1x
-	n4pNZrIEt+skItajBuFA0fLd6AE16jE4U/KuS3s5WAa8MHKNEOwVSL6qotCUiUp3
-	3+dwTPk3RXdaFMfmjEmBqkTy8QrljLtE7P+E4n+wCKsGj1qZTeLYJd9iiTnTunK+
-	jzcavvfDiGJ0pRTcooPH0jqLoiD8wvpfK4VnnCpM48Fu8A==
-Received: from mail-ua1-f70.google.com (mail-ua1-f70.google.com [209.85.222.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4fyd1jqs-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:30:43 +0000 (GMT)
-Received: by mail-ua1-f70.google.com with SMTP id a1e0cc1a2514c-990c957f129so327258241.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:30:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795440642; x=1796045442; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=6GW16cYLEXbLEKRxCLcZ/hm1ouVgqsdPZ8UneMsZf6M=;
-        b=WNRMkPsGPAPsu0MCrSWE4kufM7sAEAJO4cUQe9sWbeUhnOjVvzgJqLV1Txg/bK+HUg
-         bZUfvghePdvGxvlqeJl1NrTAKc88UlqyCerox5mGDcehfOFj0fJXfJhfrjuh1Bc+Hgbc
-         fKqme3bDAzRlxXZvbnOaoLNAjygiNYbyTx4oZaDAQgqZCAt4nAp5Ar6Nj4JUQavoP8mZ
-         A+MY3GbW6A9NOHZJIQyNrn/nD5uGWFTToYlaoB31kM4lRJlf5FsLn3jK2E8gm2x/gMol
-         f8xrQdZWsqi9Pb+imy5+FdhaPrGnswcWlApc/hsQQL+/QkwxhKd3jNPSLjsknGJQzjUD
-         Y4zg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795440642; x=1796045442;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6GW16cYLEXbLEKRxCLcZ/hm1ouVgqsdPZ8UneMsZf6M=;
-        b=JbUcGFNY/O0gyVYcquXAeFoRIzGSELsCMjz2qB6pcWVPfe5Om2LhP5I0NChGC65kZF
-         5GhGm0dma0ox7DxP0m2B/+CYibWUyykU9Pq8iuC2D/g/QSEyjg/18YXTS9JKVclZ5ji8
-         ETObmKd4N4Ci4607/rlTy/YrdEX8m2urBPIdqi0bfUKrVM0XXKbpcq5sU94OuIQ7zgvV
-         H/GuvJiZpch730z5paxGX63CVGK9plvmO0KT4VVjqBo/TrjlkV1MJTAfS1zl3TFe7Vr7
-         U9dHO9XxSSaWCZvTtEKO008ySKtvj9jxuFVCLR/S80BQ1zEDBDbtngrVv5DQNmVv5KHG
-         f5TQ==
-X-Forwarded-Encrypted: i=1; AL+hErFqljG7qvz71zm3xwH5AMRwL8B2V05pWAHNkMMamSH2F5Pc2Wh/K2sSZK+/qb1bfuC2OEFGLGjOtprDRYU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+8o1qN5i8dfXDqSyiQR9IVbr/SQqqib3UQQ4CNQi9jgzorovsQ
-	tnbm2sIR8v5knoGmjQj5RWhADlNhKru7N1+ywB/yTawjM42j9U1yG70jPHaIICDJQyBykVun+/G
-	g7/7ImDqLuq9RJ6aYrDIUrkVmvHBIsOQYTd7ONBqQSOElyPZb1eC3qhNfb+h6G+F2qPI=
-X-Gm-Gg: AZFdTZeK1OgmKPCeWyLrKBM5f0t/15HAtZXCJmmPJntw/5yWvSvAVt7BkoJ3DXcScRh
-	gEIOFPKgl8xqVJEmW4uJGai2qAHe95gRCXiIzPwwV9c0NYTng5uR7NpMvNcipH43lj/e9n0smzM
-	ktcJt+Olx9D5y/nip8xnsThc3N7MkG6V6ByhK7fanrQJRwDFFyaPw0UcD1exawsPJNHmd85JHfA
-	4xWq10SCdP03D9NphLNgzRrDWdTan14vD1S92ha5DEEW09hSRWRWE7S8kT10bQnilD5alUeZcR+
-	vWm+5LJtqGWyxSlICgll7gvJPtXLWv+leYS1fxNlhpCiWH92VCnSmupVE5eEecgb11SfXKFuZZT
-	WaeHcWN493Tv+M5hZZo0JxuUJKkEm7vYr1K0g2WdfhMwGGfKhrkSjazMF2lRH7AdxMp3qJAG3wm
-	CDC+wviU8PZPh6YOI=
-X-Received: by 2002:a05:6102:580a:b0:7ce:a840:e736 with SMTP id ada2fe7eead31-7d739626308mr3388909137.13.1795440641807;
-        Mon, 23 Nov 2026 05:30:41 -0800 (PST)
-X-Received: by 2002:a05:6102:580a:b0:7ce:a840:e736 with SMTP id ada2fe7eead31-7d739626308mr3388860137.13.1795440640566;
-        Mon, 23 Nov 2026 05:30:40 -0800 (PST)
-Received: from QCOM-aGQu4IUr3Y (i-global052.qualcomm.com. [199.106.103.52])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e7fa0467sm11903416137.6.2026.11.23.05.30.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:30:40 -0800 (PST)
-Date: Mon, 23 Nov 2026 21:30:31 +0800
-From: Shawn Guo <shengchao.guo@oss.qualcomm.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-        Brian Masney <bmasney+clk@redhat.com>,
-        Jerome Brunet <jbrunet+clk@baylibre.com>,
-        Ilia Lin <ilia.lin@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Viresh Kumar <viresh.kumar@linaro.org>, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-clk@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH 1/2] soc: qcom: socinfo: Copy new SoC IDs from bindings
-Message-ID: <awQ_90R8_uGWm2Sz@QCOM-aGQu4IUr3Y>
-References: <20261122-qcom-socinfo-id-dt-bindings-v1-0-eeee0ffa25da@oss.qualcomm.com>
- <20261122-qcom-socinfo-id-dt-bindings-v1-1-eeee0ffa25da@oss.qualcomm.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98006606A335
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:30:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98006606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinsec.com.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinsec.com.cn
+X-QQ-mid: zesmtpgz9t1795440566t4f637ce5
+X-QQ-Originating-IP: GTrHbK18YCbs2CfsF9VuBtkgPArveTdhmkzt+7qYrNE=
+Received: from [192.168.50.3] ( [113.246.116.110])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 23 Nov 2026 21:29:24 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 1721452454829110470
+Message-ID: <07E7C8DDC6521658+9b2f67d7-b3d9-45d7-b86f-39bea74869f2@kylinsec.com.cn>
+Date: Mon, 23 Nov 2026 21:29:44 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -130,103 +50,106 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261122-qcom-socinfo-id-dt-bindings-v1-1-eeee0ffa25da@oss.qualcomm.com>
-X-Proofpoint-ORIG-GUID: ES24qV9Ak7hDpDoscvEGs8_7V1fgWXqp
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA1MyBTYWx0ZWRfX4t4tOn5+7N8o
- GMVnM/EqxQYa1aMzn28qa8/hMbAvYm43OqK+iq+/h04fEwgKG7DsHwLdk8UFolLqJuFP5kBJS7Y
- C8AxjtonZTl4+3+sjK/dnN31mprkWE/oi7efW4yyW859cpmowDCRGVeiKkheVK7UGx4dSRqDy/A
- CPhILmKD1ZCDcCEVBJN4N0sVNw2gv7x/XBIVp619fLBxvQt3YH/rmFsmqT5bOsSAwMBavlsfzh1
- mRidOG3BNmC+C/JhqaaVKgBK4tagnjYthxymoxciCJj/mLsZostoPse+04tdnGAHNvHRD6pdU9H
- aq/vrykrsNfbu3lOfsmB7mrZVcExeR/fYdX9szDNxOa7tBRsdojdC6fqiswBVv8J3KDrhF07V5P
- yHuNBoOyxEBH4yiw3l/qgREMqsqIh90HvdJIukWvFrhu290aVugqdC8Ga2UZ2qFhfgeFEsI7cBz
- aaByaf1MWCNt+ewfyPg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA1MyBTYWx0ZWRfX2QQrtJv4mCCl
- wouBCAXtyIf/3sSSijxMkcO1+j8ZchqjB/7ggW3HhpnMm4+CtHJFe2bzkFpyLVZYiG/38ESfB1N
- hG3hgFXSpXOwb21cxMBRVhefP4UokxM=
-X-Proofpoint-GUID: ES24qV9Ak7hDpDoscvEGs8_7V1fgWXqp
-X-Authority-Analysis: v=2.4 cv=Aol7T+9P c=1 sm=1 tr=0 ts=6b044003 cx=c_pps
- a=R6oCqFB+Yf/t2GF8e0/dFg==:117 a=b9+bayejhc3NMeqCNyeLQQ==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=votV42V3uHCFBabA7mkA:9 a=CjuIK1q_8ugA:10
- a=TD8TdBvy0hsOASGTdmB-:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_03,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 phishscore=0 adultscore=0 lowpriorityscore=0
- spamscore=0 bulkscore=0 malwarescore=0 priorityscore=1501 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230053
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] platform/loongarch: laptop: Fix backlight device
+ lifetime on unload
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Jianmin Lv <lvjianmin@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+ Yao Zi <ziyao@disroot.org>, "Rafael J . Wysocki"
+ <rafael.j.wysocki@intel.com>, Zixing Liu <liushuyu@aosc.io>,
+ loongarch@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <9F3855F1130E2878+20261121131820.6759-1-luoqiu@kylinsec.com.cn>
+ <awQSXIASqC_MdC5u@ashevche-desk.local>
+Content-Language: en-US
+From: Luo Qiu <luoqiu@kylinsec.com.cn>
+In-Reply-To: <awQSXIASqC_MdC5u@ashevche-desk.local>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: OGmpL5CFYt/YgBDtf6vAlNUiXf8/TwJXXjRN3ywYqxLio27v2XPzJKur
+	S2M4BSjFiff6dv4hM9cLQf72T5JyfXwrhRL79T/Eg8AydbGEYNzOjZ78ZtY9miWvyojvPCe
+	FY11xCY28rdQ0c5DeVlwJqM+TVLjW5Qc110vS25y6k5G2jm+chNO3uq/cuSOHJarZtxvM6q
+	dQp1faWwB0kvnQ2JNpOuyoYqzyt2h3exVaq3rgxzbgsfHlUOuytOEPxLO3vPBIRnLIX8QBt
+	mXFCWis7KoeIX1VTvthB13WnSiZzuPkyt3ofLB6XpF9MEXojxHpHh+RqjnHIiYn/kMPWQTF
+	r6P+lNI1l9t3k/hLSNODCeZ8ST56hcI8InH9fer52GGOqF28yqXg53SF7TXR6WKHo9XKfup
+	/YjTVY0tULIhElOW416yKvnPUqrpM486rzMwJ9Rb+9nBqWrjuDWKKww6f6mqVx9lJO77ij9
+	KkBZWrruIDgGG45qm+69f14hZF1px0TUjn3XeoFaBKDLk5J11W084c+Se2OLnjax+lVjluh
+	XZgqk0m3aRtWre+W+nVGMfskqqz8WOuu9tEvjBCol7Og1G6R1z2fc1PwTnSy1zFKOyt+/dy
+	pSUnRo2h9VtKXKXyh2jxARsj8Ww9GY52s73feLazk0Gou8Ae2ebHOs/wuLPdezGwGbxNc6X
+	aaSudSHGpdd6ICh8An+g/zcI4EXBztR56djC4/WZ1uL3an/YOAX2q1KnqO1QJih6DoeUd7G
+	nYC+9n/co2cOeZRKzlCxHN+WATJ+7tYW+AsItIfQc6L2Zrc1MbfBaAjB/rdQDdKsoiE1bZF
+	zR0Hi6hBx448cP+ZRV9+7YdFWGwyW9+miodxe9zgmfkosCdj1MfHNpAeZ1zvdIF8HrAE+8l
+	E8q/22lieOKwydQTe9qjqh8GSCEW4qSa97kSE0z3Nl9/+9m9V4k1Igbc3UYfJHVud8H0oYR
+	Gw6Z3BsJUyn0PyxCsqAoXEDyhB1A8cxqSBbAjqR/uwmAEyqO4dIv3M3Bj8T7MB6X3WvCz2H
+	rzSRD+4sH1lMTpf7Ot8Z/PIivyIP6hLqJQnpPpCZz4ZeS2cC8HRFmJTmokr+NaaL+tzJ2D7
+	3WnXDRRXaehKZe5NIj9pS46pE7LAMLkTjtXud8cCxmC
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-RECHKSPAM: 0
 
-On Sun, Nov 22, 2026 at 06:46:20PM +0100, Krzysztof Kozlowski wrote:
-> The IDs of newer Qualcomm SoCs, as reported by hardware or firmware, are
-> currently used only in the socinfo.c driver.  There should no and there
 
-s/should no/should be no/
+On 11/23/26 6:15 PM, Andy Shevchenko wrote:
+> On Sat, Nov 21, 2026 at 09:18:20PM +0800, Luo Qiu wrote:
+>> The driver registers a platform backlight device during module init but
+>> discards the returned pointer. Consequently, the device is never
+>> unregistered when the module is removed, leaving its ops callbacks
+>> pointing into freed module text. After module removal, reading the
+>> backlight's actual_brightness attribute can call the stale callback and
+>> crash the kernel. Registration failures are also silently ignored.
+>>
+>> Store the returned pointer, use it for resume, and unregister it on
+>> module exit. Check and report backlight registration failures.
+> ...
+>
+>> static int loongson_hotkey_resume(struct device *dev)
+>>   {
+>>   	int status = 0;
+>>   	struct key_entry ke;
+>> -	struct backlight_device *bd;
+>>   
+>> -	bd = backlight_device_get_by_type(BACKLIGHT_PLATFORM);
+>> -	if (bd) {
+>> -		loongson_laptop_backlight_update(bd) ?
+>> +	if (backlight_dev) {
+>> +		loongson_laptop_backlight_update(backlight_dev) ?
+>>   		pr_warn("Loongson_backlight: resume brightness failed") :
+>> -		pr_info("Loongson_backlight: resume brightness %d\n", bd->props.brightness);
+>> +		pr_info("Loongson_backlight: resume brightness %d\n",
+>> +				backlight_dev->props.brightness);
+> Indentation is broken here.
+Hi Andy,
 
-> is no in-tree DTS user of these, so none of these constants are really
-> proper Devicetree ABI.  IDs of older SoCs were being used in DTS, thus
-> that part matches the concept behind DT bindings.
+Thanks for the review. I have fixed the formatting issues in v3.
 
-Not quite true for the start of the range. The constants themselves
-are not referenced, but the values are used as raw numbers in
-qcom,msm-id:
+https://lore.kernel.org/all/C95EAA0918240E5D+20261123131944.77149-1-luoqiu@kylinsec.com.cn/
 
-  qrb5165-rb5.dts:                    qcom,msm-id = <455 0x20001>;
-  sm7225-fairphone-fp4.dts:           qcom,msm-id = <459 0x10000>;
-  sm6350-sony-xperia-lena-pdx213.dts: qcom,msm-id = <434 0x10000>, <459 0x10000>;
 
-So QRB5165 and SM7225 are still consumed by bootloaders through DTS,
-which is the same category as the older IDs you keep.
+Qiu Luo
+>
+>>   	}
+> ...
+>
+>> static int laptop_backlight_register(void)
+>>   {
+>>   	int status = 0, ret;
+>>   	struct backlight_properties props;
+>> +	struct backlight_device *bd;
+>>   
+>>   	memset(&props, 0, sizeof(props));
+>
+>>   	props.power = BACKLIGHT_POWER_ON;
+>>   	props.type = BACKLIGHT_PLATFORM;
+>>   
+>> -	backlight_device_register("loongson_laptop",
+>> +	bd = backlight_device_register("loongson_laptop",
+>>   				NULL, NULL, &backlight_laptop_ops, &props);
+> ...and here.
+>
+>> +	if (IS_ERR(bd))
+>> +		return PTR_ERR(bd);
+>>   
+>> +	backlight_dev = bd;
+>>   
+>>   	return 0;
+>>   }
 
-> Copy arbitrarily chosen newer SoC IDs from DT bindings to the regular
-> header of socinfo driver and use it when needed, so later they could be
-> removed from the bindings.
-
-I would suggest converting the boards above to QCOM_ID_QRB5165 and
-QCOM_ID_SM7225, and keeping those two IDs in the bindings. Then
-the in-tree DTS users become visible, and the cut is no longer arbitrary:
-everything left in qcom,ids.h is an ID actually used by DTS.
-
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
->  drivers/clk/qcom/apss-ipq6018.c      |  2 +-
->  drivers/cpufreq/qcom-cpufreq-nvmem.c |  1 +
->  include/linux/soc/qcom/socinfo.h     | 94 ++++++++++++++++++++++++++++++++++++
->  3 files changed, 96 insertions(+), 1 deletion(-)
-
-[...]
-
-> diff --git a/include/linux/soc/qcom/socinfo.h b/include/linux/soc/qcom/socinfo.h
-> index ba823a0013c5..cd2e8eddf3b5 100644
-> --- a/include/linux/soc/qcom/socinfo.h
-> +++ b/include/linux/soc/qcom/socinfo.h
-> @@ -112,4 +112,98 @@ enum qcom_socinfo_feature_code {
->  #define SOCINFO_PCn(n)			((n) + 1)
->  #define SOCINFO_PC_RESERVE		(BIT(31) - 1)
->  
-> +/* SoC IDs */
-> +#define QCOM_ID_QRB5165			455
-> +#define QCOM_ID_SM8450			457
-> +#define QCOM_ID_SM7225			459
-> +#define QCOM_ID_SA8295P			460
-> +#define QCOM_ID_SA8540P			461
-> +#define QCOM_ID_QCM4290			469
-> +#define QCOM_ID_QCS4290			470
-> +#define QCOM_ID_SM7325			475
-
-[...]
-
-> +#define QCOM_ID_IPQ5404			671
-> +#define QCOM_ID_QCS9100			667
-
-Since the list is being moved anyway, this might be a good moment to
-fix the ordering.
-
-Also, drivers/clk/qcom/apss-ipq5424.c includes qcom,ids.h without using
-any QCOM_ID_* constant, so the include could be dropped while at it.
-
-Shawn
