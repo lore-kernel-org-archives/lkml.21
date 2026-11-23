@@ -1,68 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795404619;
-	b=zErw2gZ41rA/3GErkn6Vc8LmNZBTnh0ViKDljb+eA03KsJ9FeZ4P8Rb0pHYa3sHLVOx9
-	 u4T43UMsZZjkx8YlkDmXOYBb0HLpMXKqCbOrhq/0k0MwdEbgTQG0WYMJmbbh0NFoFNCaA
-	 ugKWMXW720KO3eZfcyCsncA4nylt4HjB9WuZBEpPwk7sVYmaj/wmENJm0bTh7A4MpZXJE
-	 f2XXDmwgT6E30tYUeCYWHfNPTDNivaK0A/HkhOCeLui2Ij2HIfO/h7bGKjlySTLFEclcm
-	 lEX6D+MkYgDG5qmYiMsfAiDPU5m32xReRDPjlRI/SdlztKHuaF/spyo0td6ykPqLCcA==
+	t=1795404641;
+	b=ybLLNYdLRKbGk4SWvSu1zQXxRjD7j7L0GZxXPFuJWq7eJuJt2NLT7ZL2JIRWVuY4wdiq
+	 BkPFjJw6zIJjaxulSFwOtUX8oMf/dESQVsw4XCCHyoGdzhSph/PDe1Eiy+ZOHcWYZehmw
+	 VNCG75X0j2eakmmCcYmO8xSjlLdy/Iqp00SiHJFQGh55L8Lb/jLB4FiRsYrKhJKWg0HXr
+	 tG1C/CcQj4qcIcDVZ+j0SIth9KY5pSwiKipCe4tbeMhmoj66vQVTcZpjB+J5Et4YV36r9
+	 Z2AtdqBSTzH3XshY6q4xe9JwhUccYEV0iaVlb7XuujVSICUTJfWkNFGN9Y7FsOG8BPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795404619;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Cc:Subject:To:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=+OVrc8f7SUe5j7bd8dyYAonTbCTM23PZtBQVesUqE24=;
-	b=oV+bLUAliHDnxsArUA/ybOOe9K+1MMdsEByOFE/rRUkaxJAslfeKp1z4UO3FA1CtdUFH
-	 HOGm4bj2nz2VqX/oZN4mq73a1lYdVGgLldtqVbHVL8HKAQEo0HgLAaF2WgUOM6eX+pSgo
-	 cH2HKTho6gaVzr8iadSIlnQ70fr3e8A1xk1BuQJ3oUwqm0eqYLPfLRSuS75pGD33LzJKJ
-	 Ujnyz6t9ap9dRWRDXtK8Z+W3HdXFc9k9E+POuJHFXJSLjJ6Z6al/HlAGH3ilXp1TwBYyD
-	 k7htltshs2I8Vmm++rigvukdYaUC372gTwSPcUCAIu2pEzvuHHux5ep6rr3mXcbdPGw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795404641;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=E8mORyd0QfItWSNlAxZGX4Z+8vVzlb1pdZBu2mZMk3A=;
+	b=gh4lknsU/1ExjmzVAsmp2ptYoerOtkFiDvYHib2Ab4r3Ia7yCzUFLWMRqOn+wvWsyEqH
+	 0d74jjqNWHP8EdRmqVI1kEKK15dOI+TPh/WV7AI2b7x9UPv3koj/yCZpX18BNA4rLkQXX
+	 +OP3bQpXbhSpEpjs85hvVfsni1DRSFLP4+r/Gzqnw4CakhyEd8r5xzP0RvSAqDqK2ZBEr
+	 UtpZPicazpR+zsh4oFJoMcQCWq0+HznT6Y7Qf/6Hv3CcBqBEvXVIr84es2Ar1KP+nmHg2
+	 f81kmjaCxxEdxe6oMLlS8mjCO+ktiI2Sh/WdoYMxX3ArqinM81iKNF1w8loq9sHclmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cv8N9fr7;
-	arc=none smtp.remote-ip=198.175.65.9
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.197
+Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E4AD606A31E;
-	Mon, 23 Nov 2026 03:30:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E4AD606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cv8N9fr7
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795404619; x=1826940619;
-  h=message-id:date:mime-version:cc:subject:to:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=xQIf2XWpxRiu8ABULLh3LCmmUoL/rgjSVpR1sePhql4=;
-  b=cv8N9fr7RUcqfk1PGwMYHJciMYHleIDBheBowwAjty9hCHC19ZlktLAo
-   +4ZOKLQzJrYgjxlRRa2YWckgE1zLvdZ56SmJtOFMBO8bT/pIMOW9g/i3X
-   thG2n6X7UUcOPzjGjc96bET6twKy/8Dzl2bJzotEp/TnvbCFqC2Hp3rfx
-   jTmIehrymAEjkZ24XlyOun52EpwfcSSR7XWRP5SXd/q+2TabDT7mfCnrU
-   RVq5z+3QlglyNCiyLOqNFU/AcOAay9wwjBUG55yYZV7vmP1e3P38cYK9/
-   wWsUTBnTK3YPeaQ1smuFuPLK/wWvQZbCL7XFjEFi3vWRrSwGP0LTzvn/C
-   Q==;
-X-CSE-ConnectionGUID: ETIGGjT7SMC45tq8jFG1YQ==
-X-CSE-MsgGUID: QNrkWdXjQ5GJljbuZdSOqw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4048901"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4048901"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 19:30:18 -0800
-X-CSE-ConnectionGUID: j/CYp5VnSHujdnBwlrkLmg==
-X-CSE-MsgGUID: HB1n6Xb3SQy5H+W5CZc+DQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11081924"
-Received: from unknown (HELO [10.238.1.144]) ([10.238.1.144])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 19:30:15 -0800
-Message-ID: <d9f3eecf-5655-4779-9e8a-b3ff4cbdb667@linux.intel.com>
-Date: Mon, 23 Nov 2026 11:30:12 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4122E606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:30:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4122E606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-4cc89e86e9eso3547694b6e.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:30:40 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795404640; x=1796009440;
+        h=content-type:to:from:subject:message-id:in-reply-to:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=E8mORyd0QfItWSNlAxZGX4Z+8vVzlb1pdZBu2mZMk3A=;
+        b=ct60TfJP+NhaUA08juMhtrWYTnkAj8KoWLpGnEdgVEMAejtfJ3n7zkB1hLqyOj+0BJ
+         XeO2UDhWWasJWLLHwNqAQzKB2CetOBGUg3v9NmnN/RNuKyXPwyB2Bbo/W6Y1X+W81tNf
+         rMHECaCeDyqvwom0C6h0mJRmdIpqMyEDaIGtLAD0O6C5cZ9wpH04sQfOu3Y1sXmAaBej
+         iTK64V1YQLy1jRY+HkWOomsmsWJiYCNskEoe8gQLDmJq9cxdCbCKruJc/Fqm+nAFFXgw
+         mXvUJhhIne/Cs2IJm0qwL7d/Jl0LsiMBFFKjCK6t7JmbvYTSD9m4VTLMySsqnlHhTtlT
+         qPUw==
+X-Forwarded-Encrypted: i=1; AL+hErEhs9PjCTXNxqsUht6iE0kC8CrORBwVEYS/IXRnOGjHDtspIp4LlLq19duOSE+fCQtCoy+qv5tUzOGHGIM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/0qO489lbXMoPYrqBkG3/WcgkNxeGL+UILpVfxsm+2ta8nqLS4
+	k4LaT0OktquqgX7HSNbKp7+qF2XcXArTexHuXipXy8pz242mRiGRVcVLx3Ufs7l3jFGCwaM20Qo
+	pDHeKadpYE8sokP1HRobwi/CwSLP/JdIF1z7deOE0Bl8ZpPZ4vk0Kg2rk8kA=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,268 +58,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: baolu.lu@linux.intel.com, iommu@lists.linux.dev, x86@kernel.org,
- linux-coco@lists.linux.dev, kvm@vger.kernel.org,
- Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>,
- Kiryl Shutsemau <kas@kernel.org>, Rick Edgecombe
- <rick.p.edgecombe@intel.com>, yilun.xu@linux.intel.com,
- xiaoyao.li@intel.com, Binbin Wu <binbin.wu@linux.intel.com>,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 7/9] coco/tdx-host: Add skeleton to support PCI link
- encryption
-To: Chao Gao <chao.gao@intel.com>
-References: <20261112043054.2664857-1-baolu.lu@linux.intel.com>
- <20261112043054.2664857-8-baolu.lu@linux.intel.com>
- <av1QxRYY9sXtC--P@intel.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <av1QxRYY9sXtC--P@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-Received: by 2002:a05:6808:4f0e:b0:54e:7cf0:c0b9 with SMTP id
+ 5614622812f47-57a0d2f1a5emr11534354b6e.64.1795404640210; Sun, 22 Nov 2026
+ 19:30:40 -0800 (PST)
+Date: Sun, 22 Nov 2026 19:30:40 -0800
+In-Reply-To: <6b022f07.44b41460.34b83f.0017.GAE@google.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b03b360.6ccd1e40.868ea.0024.GAE@google.com>
+Subject: Re: [syzbot] [jfs?] WARNING in jfs_rmdir (2)
+From: syzbot <syzbot+9c3df8acb6283d0cf12d@syzkaller.appspotmail.com>
+To: brauner@kernel.org, jack@suse.cz, jfs-discussion@lists.sourceforge.net, 
+	jkoolstra@xs4all.nl, linux-kernel@vger.kernel.org, sforshee@kernel.org, 
+	shaggy@kernel.org, syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 
-On 11/18/2026 3:16 PM, Chao Gao wrote:
-> On Thu, Nov 12, 2026 at 12:30:52PM +0800, Lu Baolu wrote:
->> Register a Link TSM instance to support host side TSM operations for
->> TDISP, when the TDX Connect support bit is set by TDX Module in
->> tdx_feature0.
-> 
-> s/TDX Module/TDX module for the whole patch. Existing code and docs mostly
-> use "TDX module".
-> 
-> Also s/tdx_feature0/tdx_features0.
+syzbot has found a reproducer for the following issue on:
 
-Updated. Thanks!
+HEAD commit:    4843f6873f7c Merge tag 'sysctl-7.04-fixes-rc4' of git://gi..
+git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+console output: https://syzkaller.appspot.com/x/log.txt?x=146547be580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=d16c0eae9c338e3c
+dashboard link: https://syzkaller.appspot.com/bug?extid=9c3df8acb6283d0cf12d
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=167624ff980000
 
->>
->> This is the main purpose of an independent tdx-host module out of TDX
->> core. Recall that a TEE Security Manager (TSM) is a platform agent that
->> speaks the TEE Device Interface Security Protocol (TDISP) to PCIe
->> devices and manages private memory resources for the platform. An
->> independent tdx-host module allows for device-security enumeration and
->> initialization flows to be deferred from other TDX Module initialization
->> requirements. Crucially, when / if TDX Module init moves earlier in x86
->> initialization flow this driver is still guaranteed to run after IOMMU
->> and PCI init (i.e. subsys_initcall() vs device_initcall()).
-> 
-> This changelog is outdated. TDX module initialization has already moved
-> earlier in x86 initialization.
+AI-generated root cause summary:
+When JFS loads an inode from disk in `diRead()`/`copy_from_dinode()`, it only
+checks that `di_nlink != 0` and copies `di_nlink` verbatim without verifying
+that a directory inode (`S_ISDIR`) has a valid link count (`>= 2` and consistent
+with child subdirectories). Consequently, on a corrupted JFS image where a
+parent directory `dip` has an insufficient on-disk `di_nlink` (such as `1` while
+containing subdirectories), removing a subdirectory via `jfs_rmdir()` (or moving
+one via `jfs_rename()`) drops `dip->i_nlink` to `0` while `dip` remains live. A
+subsequent `jfs_rmdir()` on another child directory unconditionally calls
+`inode_dec_link_count(dip)` -> `drop_nlink(dip)` without checking
+`dip->i_nlink`, triggering `WARN_ON(inode->i_nlink == 0)` at `fs/inode.c:408`
+and underflowing `dip->__i_nlink`.
 
-Updated. Thanks!
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=9c3df8acb6283d0cf12d
 
-> 
->>
->> The ability to unload the module, or unbind the driver is also useful
->> for debug and coarse grained transitioning between PCI TSM operation and
->> PCI CMA operation (native kernel PCI device authentication).
->>
->> For now only check for TDX Connect support in the TDX Module and
->> register the Link TSM. The TSM support is basic boilerplate with
->> operation flows to be added later.
->>
->> Based on work by Yilun and Dan.
->>
->> Signed-off-by: Lu Baolu <baolu.lu@linux.intel.com>
->> ---
->> drivers/virt/coco/tdx-host/Kconfig    |   2 +
->> arch/x86/include/asm/tdx.h            |   8 ++
->> drivers/virt/coco/tdx-host/tdx-host.c | 118 +++++++++++++++++++++++++-
->> 3 files changed, 127 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/virt/coco/tdx-host/Kconfig b/drivers/virt/coco/tdx-host/Kconfig
->> index 57d0c01a4357..f8c8cc29d46c 100644
->> --- a/drivers/virt/coco/tdx-host/Kconfig
->> +++ b/drivers/virt/coco/tdx-host/Kconfig
->> @@ -1,6 +1,8 @@
->> config TDX_HOST_SERVICES
->> 	tristate
->> 	depends on INTEL_TDX_HOST
->> +	depends on PCI
->> 	select FW_LOADER
->> 	select FW_UPLOAD
->> +	select PCI_TSM
->> 	default m
->> diff --git a/arch/x86/include/asm/tdx.h b/arch/x86/include/asm/tdx.h
->> index 0ed0062c9b0a..fc284a555984 100644
->> --- a/arch/x86/include/asm/tdx.h
->> +++ b/arch/x86/include/asm/tdx.h
->> @@ -142,6 +142,14 @@ int tdx_topup_pamt_cache(struct tdx_pamt_cache *cache, unsigned long npages);
->> int tdx_pamt_get(kvm_pfn_t pfn, struct tdx_pamt_cache *cache);
->> void tdx_pamt_put(kvm_pfn_t pfn);
->>
->> +static inline bool tdx_supports_tdisp(const struct tdx_sys_info *sysinfo)
->> +{
->> +	if (!(sysinfo->features.tdx_features0 & TDX_FEATURES0_TDXCONNECT))
->> +		return false;
->> +
->> +	return false; /* To be enabled when kernel is ready */
->> +}
-> 
-> Patch 2 open-codes the same TDX_FEATURES0_TDXCONNECT check. Can this
-> helper be moved to patch 2 and used there?
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+9c3df8acb6283d0cf12d@syzkaller.appspotmail.com
 
-These checks serve different purposes: the metadata patch checks whether
-the TDX module supports TDX Connect; tdx_supports_tdisp() decides
-whether the kernel is ready to register the link tsm. The latter may
-include additional checks, such as quirks, so I would like to keep the
-helper for the tsm registration.
-
-> 
->> +
->> int tdx_guest_keyid_alloc(void);
->> u32 tdx_get_nr_guest_keyids(void);
->> void tdx_guest_keyid_free(unsigned int keyid);
->> diff --git a/drivers/virt/coco/tdx-host/tdx-host.c b/drivers/virt/coco/tdx-host/tdx-host.c
->> index e8ed8dfa526e..0908aaaa28ac 100644
->> --- a/drivers/virt/coco/tdx-host/tdx-host.c
->> +++ b/drivers/virt/coco/tdx-host/tdx-host.c
->> @@ -9,10 +9,14 @@
->> #include <linux/firmware.h>
->> #include <linux/module.h>
->> #include <linux/sysfs.h>
->> +#include <linux/pci.h>
->> +#include <linux/pci-tsm.h>
->> +#include <linux/tsm.h>
->>
->> #include <asm/cpu_device_id.h>
->> #include <asm/seamldr.h>
->> #include <asm/tdx.h>
->> +#include <asm/tdx_global_metadata.h>
->>
->> static const struct x86_cpu_id tdx_host_ids[] = {
->> 	X86_MATCH_FEATURE(X86_FEATURE_TDX_HOST_PLATFORM, NULL),
->> @@ -20,6 +24,112 @@ static const struct x86_cpu_id tdx_host_ids[] = {
->> };
->> MODULE_DEVICE_TABLE(x86cpu, tdx_host_ids);
->>
->> +struct tdx_tsm_link {
->> +	struct pci_tsm_pf0 pci;
->> +};
->> +
->> +static struct tdx_tsm_link *to_tdx_tsm_link(struct pci_tsm *tsm)
->> +{
->> +	return container_of(tsm, struct tdx_tsm_link, pci.base_tsm);
->> +}
->> +
->> +static int tdx_tsm_link_connect(struct pci_dev *pdev)
->> +{
->> +	return -ENXIO;
->> +}
->> +
->> +static void tdx_tsm_link_disconnect(struct pci_dev *pdev)
->> +{
->> +}
->> +
->> +static struct pci_tsm *tdx_tsm_link_pf0_probe(struct tsm_dev *tsm_dev,
->> +					      struct pci_dev *pdev)
->> +{
->> +	int rc;
->> +
->> +	struct tdx_tsm_link *tlink __free(kfree) = kzalloc_obj(*tlink);
-> 
-> tdx-host goes through the tip tree. It looks like Dave prefers plain
-> error handling over __free() [*]. I think we should drop __free() for
-> tdx-host code. Same for tdx_tsm_link_fn_probe() below.
-> 
-> *: https://lore.kernel.org/kvm/691e16318f5ea_1eb85100ce@dwillia2-mobl4.notmuch/
-
-Okay, so I will update it like this:
-
-diff --git a/drivers/virt/coco/tdx-host/main.c 
-b/drivers/virt/coco/tdx-host/main.c
-index a815dbe5127a..af887c49a027 100644
---- a/drivers/virt/coco/tdx-host/main.c
-+++ b/drivers/virt/coco/tdx-host/main.c
-@@ -56,17 +56,22 @@ static void tdx_tsm_link_disconnect(struct pci_dev 
-*pdev)
-  static struct pci_tsm *tdx_tsm_link_pf0_probe(struct tsm_dev *tsm_dev,
-  					      struct pci_dev *pdev)
-  {
-+	struct tdx_tsm_link *tlink;
-  	int rc;
-
--	struct tdx_tsm_link *tlink __free(kfree) = kzalloc_obj(*tlink);
-+	tlink = kzalloc_obj(*tlink);
-  	if (!tlink)
-  		return NULL;
-
-  	rc = pci_tsm_pf0_constructor(pdev, &tlink->pci, tsm_dev);
-  	if (rc)
--		return NULL;
-+		goto err_free;
-
--	return &no_free_ptr(tlink)->pci.base_tsm;
-+	return &tlink->pci.base_tsm;
-+
-+err_free:
-+	kfree(tlink);
-+	return NULL;
-  }
-
-  static void tdx_tsm_link_pf0_remove(struct pci_tsm *tsm)
-@@ -80,17 +85,22 @@ static void tdx_tsm_link_pf0_remove(struct pci_tsm *tsm)
-  static struct pci_tsm *tdx_tsm_link_fn_probe(struct tsm_dev *tsm_dev,
-  					     struct pci_dev *pdev)
-  {
-+	struct pci_tsm *pci_tsm;
-  	int rc;
-
--	struct pci_tsm *pci_tsm __free(kfree) = kzalloc_obj(*pci_tsm);
-+	pci_tsm = kzalloc_obj(*pci_tsm);
-  	if (!pci_tsm)
-  		return NULL;
-
-  	rc = pci_tsm_link_constructor(pdev, pci_tsm, tsm_dev);
-  	if (rc)
--		return NULL;
-+		goto err_free;
-
--	return no_free_ptr(pci_tsm);
-+	return pci_tsm;
-+
-+err_free:
-+	kfree(pci_tsm);
-+	return NULL;
-  }
-
-  static struct pci_tsm *tdx_tsm_link_probe(struct tsm_dev *tsm_dev,
--- 
-2.43.0
-
-
->> +	if (!tlink)
->> +		return NULL;
->> +
->> +	rc = pci_tsm_pf0_constructor(pdev, &tlink->pci, tsm_dev);
->> +	if (rc)
->> +		return NULL;
->> +
->> +	return &no_free_ptr(tlink)->pci.base_tsm;
->> +}
->> +
->> +static void tdx_tsm_link_pf0_remove(struct pci_tsm *tsm)
->> +{
->> +	struct tdx_tsm_link *tlink = to_tdx_tsm_link(tsm);
->> +
->> +	pci_tsm_pf0_destructor(&tlink->pci);
->> +	kfree(tlink);
->> +}
->> +
->> +static struct pci_tsm *tdx_tsm_link_fn_probe(struct tsm_dev *tsm_dev,
->> +					     struct pci_dev *pdev)
->> +{
->> +	int rc;
->> +
->> +	struct pci_tsm *pci_tsm __free(kfree) = kzalloc_obj(*pci_tsm);
->> +	if (!pci_tsm)
->> +		return NULL;
->> +
->> +	rc = pci_tsm_link_constructor(pdev, pci_tsm, tsm_dev);
->> +	if (rc)
->> +		return NULL;
->> +
->> +	return no_free_ptr(pci_tsm);
->> +}
-
-Thanks,
-baolu
+------------[ cut here ]------------
+inode->i_nlink == 0
+WARNING: fs/inode.c:408 at drop_nlink+0xc5/0x110 fs/inode.c:408, CPU#0: syz-executor184/6031
+Modules linked in:
+CPU: 0 UID: 0 PID: 6031 Comm: syz-executor184 Not tainted syzkaller #0 PREEMPT_{RT,(full)} 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+RIP: 0010:drop_nlink+0xc5/0x110 fs/inode.c:408
+Code: 68 09 00 00 be 08 00 00 00 e8 97 2a e9 ff f0 48 ff 83 68 09 00 00 5b 41 5c 41 5e 41 5f 5d c3 cc cc cc cc cc e8 5c 69 75 ff 90 <0f> 0b 90 eb 81 44 89 f1 80 e1 07 80 c1 03 38 c1 0f 8c 5b ff ff ff
+RSP: 0018:ffffc900037d7c30 EFLAGS: 00010293
+RAX: ffffffff82529bf4 RBX: ffff88804513d180 RCX: ffff888030ee1f40
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000
+R10: dffffc0000000000 R11: fffffbfff21ab9f8 R12: 1ffff11008a27a39
+R13: dffffc0000000000 R14: ffff88804513d1c8 R15: dffffc0000000000
+FS:  0000555591620400(0000) GS:ffff888124701000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000562584310124 CR3: 0000000034aba000 CR4: 00000000003526f0
+Call Trace:
+ <TASK>
+ inode_dec_link_count include/linux/fs.h:2276 [inline]
+ jfs_rmdir+0x416/0x850 fs/jfs/namei.c:395
+ vfs_rmdir+0x3e9/0x700 fs/namei.c:5533
+ filename_rmdir+0x276/0x510 fs/namei.c:5590
+ __do_sys_unlinkat fs/namei.c:5765 [inline]
+ __se_sys_unlinkat+0x71/0x1a0 fs/namei.c:5758
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f0f3afa4c47
+Code: 77 01 c3 48 c7 c2 d8 ff ff ff f7 d8 64 89 02 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 b8 07 01 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 d8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffd2507eb08 EFLAGS: 00000202 ORIG_RAX: 0000000000000107
+RAX: ffffffffffffffda RBX: 00007ffd2507eb10 RCX: 00007f0f3afa4c47
+RDX: 0000000000000200 RSI: 00007ffd2507ec70 RDI: 00000000ffffff9c
+RBP: 00007ffd2507eb30 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000202 R12: 00007ffd2507eb70
+R13: 00007f0f3b001ece R14: 00007ffd2507ec70 R15: 0000000000000000
+ </TASK>
