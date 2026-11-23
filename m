@@ -1,103 +1,153 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.171
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.196.135
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795473523;
-	b=cxseKWOtWXFG8Tq/7m9qXz8cgdp7npmzBqN5JAAMNV+U+/kNSuin7YcdO97Gts2JZYvT
-	 /o5uxD0VzG4Z4i7siAMx8Y2RQsQ7qChjBo/Mqnf4hddYo8zeZevWXe6nqQZZNTCKpT9pL
-	 NYbyZ/sP4IE+h3397OqPHH/w7cDm+xb5m+WKM3s14quWsIu/WIh4CadK32036ew75cjZg
-	 X2aHdo6o/gxAbsF5A0W7u0Y/TtBN3zUedZIh8pO2AxKrIOx9PbbDMaMOxYFkfSsifrO8s
-	 yemfk90iNCXlNS+J/GY9cIvD1VtL6rOLdPA6zHEt/0iuU7nhNp/6Zx/ewQBtHyBK13Q==
+	t=1795473622;
+	b=DNJ4X8eW4010UxrF9r81+3etr7bS6Yhy9/Ea0W8WfWY3A8E0CdnhyaT28+r6pSdfFyX0
+	 d8cvgF5l5vq4VU2RlvPF47T5AQoeleBMVG2twtkx5L4ombJlPyCKG3GJ0Eg0W5O/9EPBp
+	 rO0i7DwAfecqfPvKDvVj0DzkdD4SRODO4plbpwAPBdeQHxVd9eaanjsd8bAlTjZU/dWbn
+	 H0KwjriKD+M644fN/JR8FqUvaNfR05Ql60pm1rW6ghvJixKp3189+qI18AQeW1EsDg36Z
+	 haAZPRpOCwVYfPcoA+DXMvoHGUTGF3Y04xLspqVLE9MZ8vjH47boRfg219w9877JF5A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795473523;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Cwh//GNxXkDtdeGWxHy4iPFypYSAhLQNf5Ufwrx4yf8=;
-	b=Rzyt6miGa2LlZJtgs1B08sYVfQ1MbGgAJytvAWP7Q3UAVI4gKciOBiRmDBJ22rB3OmSy
-	 BhClb4BXyWQ5IfOjojPUo8pR7fQFayYpRDBrTibJWAKLNm0IJuEEUZsirYWT03uwT0dYV
-	 3bmRGAnrmwEVqMeAzWpc5ZUyWo390u2zmEUb0bS5rQiptA/TT4TaNylDXfp0z2IOckELg
-	 1xW6rOjOprddyzhfNngvJd4GVK31vcurknRxOGkjLzNbqAG/zfBeIeasjTdpsS1L2VQsy
-	 8TjuvSUEsHCPL5WAIfSLG1+0PeSvY1clKxYG7fOcRo6t1WmgDD6FOlJTM1FH6+9K9lQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795473622;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=aQvvsDAoMaydkfdpwVgovOoWQOhdfjdy6EKGp7SOfTo=;
+	b=0QknGLEUMSN0UN/QQi1bV9HTBIMvlryw6+vcdd///vA8KjmMnaiaa2AL7Vm+OCB2HZ8K
+	 u5AhqzOVjYXl/XvY+FYP7kYWhQG5etuaWl7a1wYdY2dmSImpygp0syPFAlIuD68xBEL87
+	 Qwi0LcGzgSTwz2aykfwGRWJPhGTxgR6KfUK+BeSLJg+OR5r5lnwpjtV5dzMcPVDGbgrwj
+	 ORXT0ItpeBHxtWCMzeLnl0rz+ced8SrtmApiPvcWZIJyLJoYJCu/UwRLnWWoHo/N0SgOY
+	 mdTMjfgzIuv66zFhlw7T7BxeOxKK1yAx2civMRlGbAfvSIaM9feQub8ssWiYNNIdKvA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=everpuredata.com;
-	spf=pass smtp.mailfrom=purestorage.com;
-	dkim=pass header.d=everpuredata.com header.i=@everpuredata.com header.a=rsa-sha256 header.s=google header.b=zyiUCvTu;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.171
-Received: from mail-vk1-f171.google.com (mail-vk1-f171.google.com [209.85.221.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=vt.edu;
+	spf=pass smtp.mailfrom=vt.edu;
+	dkim=pass header.d=VirginiaTech.onmicrosoft.com header.i=@VirginiaTech.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-VirginiaTech-onmicrosoft-com header.b=NwRZRpBA;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.196.135
+Received: from SA9PR02CU001.outbound.protection.outlook.com (mail-southcentralusazon11023135.outbound.protection.outlook.com [40.93.196.135])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97BF2606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:38:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97BF2606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=everpuredata.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=purestorage.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FBAC606A31E;
+	Mon, 23 Nov 2026 22:40:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FBAC606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=vt.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=vt.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=everpuredata.com header.i=@everpuredata.com header.a=rsa-sha256 header.s=google header.b=zyiUCvTu
-Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-5ebf39def3aso1400918e0c.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:38:42 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795473521; cv=none;
-        d=google.com; s=arc-20260327;
-        b=lqbZrpHsTMHbFCY1ZIxO3cUDbMucW/TYshiSiRWKJiQpB08rXnh7cXueltMnw8HSPX
-         28b32PI5sBC9l1pYJAHqL+W14L2rg6zUA/SmCZkQPUQfCQV2UVEiQsY54M2GgsraMzFw
-         nVYWC944jlfzcFz3eJSqgAhkR1MjY2MED+3JUSSlVOTPedP4ESGEVZNXd3t4mp/3oBS8
-         aaQgpneJb2rSK6VFm2j9CPmeL6WBRn6fTYMu4oxN/hscC5wdQK1shAQ6Ggcu6/zsyHrX
-         UtorJxJR9cboxiuggJoqZT6e+PXj2BJZsC+BYoAwwoM6jHjM+31hxpx132c3Z8sx4YZe
-         7YZw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Cwh//GNxXkDtdeGWxHy4iPFypYSAhLQNf5Ufwrx4yf8=;
-        fh=+VAA69/DlpXKnqyuNL74/Wo6Ymlui5Ernfug8+ppujY=;
-        b=fbr/gKksDzymi2XUL8uZu58CRYRmsxPkQoQkaIbYwNC40l7H8fx0JzbvIEI6YRoxdH
-         dXbfFb0s4EAItiUpX4kWHFvrRxo+wGDkphlBwGaBkl99IUE5WhoMjalXP/VMwLySbNIW
-         dn7JIgOaUe+r2BaR0TACsivG+kfXId+OjyyfP3heLEPUPDSnTEklauKy2+DId4gRtkko
-         M9GNlthVNRTDX5SllQR0LZ81rJk/hGdgx9zZ5WzdvbOlzwxON7KJ79lLXNKUT3HoCZQ+
-         emPznnCcPydzO09YlLr7BYsg0z42Gn0KNfDJAX/i4z4wnq/8dqlI1sdo/JwlPmR7msAw
-         5YsA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (1024-bit key, unprotected) header.d=VirginiaTech.onmicrosoft.com header.i=@VirginiaTech.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-VirginiaTech-onmicrosoft-com header.b=NwRZRpBA
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s/51TJlq08uN/gEuuMPbNAr6amNQySYRaWMy/2YkveBwO400odYKYo9FrCjNhDRliBVTKxtUpgJAUa/gRhsz0rDF1flLEpVHkWVnhn499RirC5+wMK0ocmNcdFRYpTpUNtmDyGPaJ8/MpwHEequAbVI4liik+bc8T9YIOe5rYZuLb3iMHn0G43pZRKPZvrOrEJYkKqR9wAyqIw8PSMFONq9EEAHk2qbhqsItMAjqIffKCjaJvwiasSUo823CjTQ4q4Z091ZSJtjJ0A45V4xQqBJzj+WOuj0x5oRmrgxqc9xtYy3CWcLGzWpxv82fhcOem7qkODvxtjvdRPgs3oPN6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001; h=From:Date:Subject:Message-ID:MIME-Version;
+ bh=aQvvsDAoMaydkfdpwVgovOoWQOhdfjdy6EKGp7SOfTo=;
+ b=Z+hHDbTjFm0pMUJFE12r0Q8UMiiVuGzaNhMBPBR7C1wmKCHPhZTfHm6Goo9Y407sH+W/eT3Hae4oHI8GwucPgzsGRgax1w1mqWUsKBWXig6yUUUpg6xStcs5HIXe7LLlUZ3YQ6YxNS3wYIwCnCjnaBHiX5yywLQw96KCN7VxZLxloHqY+7wffFuzkWm9Onjs49To2oTVFxNb/9yOEygpmX6HOgfCQQFgDuEBvTvCYeexdTMmkG0bnGeBCidKW2JQXUrSOK1zwImfGPzAheSOIKqVW72p8JfaDzMgw6qgowAKEcMV5OMj5qPQ9ev9HkqVpnfbBuuKHfhKJ+x98xArsQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vt.edu; dmarc=pass action=none header.from=vt.edu; dkim=pass
+ header.d=vt.edu; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=everpuredata.com; s=google; t=1795473521; x=1796078321; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Cwh//GNxXkDtdeGWxHy4iPFypYSAhLQNf5Ufwrx4yf8=;
-        b=zyiUCvTuUruIC9KA7f/TKpjXXvuqRdzyyyrawPTRvar9oKK+YD/nxCoP33rGakGsav
-         sVJ8T1hmCDgtZ2JwIyRdjkY8XfyO/0ttbF/16+Roobqw4ueTWztO+hRTpK39RF0TbRMu
-         GHMKhS4DubOZklj70d+rMG+P2cp+iMlHMljBdjmehin9OoDpP3DNGbNmzG47jJ6KN6ho
-         Dy5oKTNcCyaDipy9l2RsVqWSfXZRs5MIVqMqTjIjt9Xw8b5QCjTEiLhgNUkS7ZUQzT9Z
-         a1UdIhaowt9Qr3ksyQErDAyEvTtAnO1e6+sviza4NqZYQIlIVjK5g652ikTPpAbrHzWv
-         Wh7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795473521; x=1796078321;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Cwh//GNxXkDtdeGWxHy4iPFypYSAhLQNf5Ufwrx4yf8=;
-        b=p10MyTXggJRecOKl7E/xYosthNpoSurk063tAJgrNX83XKn/jm+wq+kGVQ2hPLe/A5
-         hTlCMBrkGrQS1lr9lkHsEipoVxAOjL9TIDkdrwBrQha6PUEtPakqur7Qdgan74UxiMg4
-         g6UrgES0yqghrJi9vwphqBnttWoxmO6DW7gd8fK0/4jw+3mJAXlOv1nhe1M3mAklgMSQ
-         oqEQVsCoYvY6y3xmrO13UU2ghqED1EJjvRzAyButyxD+K5AxHCAhc4ETE7tnS+eglk5e
-         aUHRFshrzkf1iRFiMyfj46Sdlgf5Bzts9eS+rfgBxtTEAFZQ0qumHFSzl8x26VFHbwwv
-         QiUg==
-X-Forwarded-Encrypted: i=1; AL+hErGjwHadIYjnv2Rz+XjOAjouX/kLG8PwTdPu0IMNRJGy6K+p6U1AXrktlyez0WtMSPMTOkbb/QGZGzUqA2I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z90J12jt/KetXLyv/bMNZdxypzv1pgsC7Kz6R3CSGwEPm7WYNgX
-	oHLN48m2C1kFPJDaFZE05BHxgNhU3lTr/mZawUTjLLEn6EeMwHQE/KTIeNN+HcXEEqNEYYwUmUR
-	VjnaNlzfz9vLHgBMAq++XwLoen+ZUMu00ZrbwQg/jMw==
-X-Gm-Gg: AZFdTZew2o9C0yHfkmHenICupZGyRnkPlBo3FScZdnuwyIReweMwUrIh/Ygwobvp073
-	cyqPHtv49TB5WmdUWZsWU19pIPZP/3sfe/VPhW50TbcicTuOzaHpeBPpObOjQ+HbhRW7iEKdSpx
-	CtOeRQGebsGCsnC/Fxrzv2oinizqsKPDrD0+t2C6bUmG4iOnxIyiy9rPmDjyTjr1LybDQzPQlw3
-	JA3P53jHoxRBesfBO1dwYUVVc5Q4zvZp17DvUI9xfuFLJbkaWaYJnNOhZPpkZI6w1jUcBToqbVc
-	JBykRdp3+gU54Ol6m5RIcEn5lsSnq/3DftFcJQIDPhmkuU7jY3iC5BECjILtqI0pAJ0DNc7KMM5
-	OumAoK2k/OMVgaxkyBT1c2m3jxn6x/MEyaNLaFsAcXM0Qkx9uSF8lvoHSGubJR7tKWFrImTGMEX
-	tFYDJ//TujcWUz4Akv1xDuj20OwIKaOHwGLCWNMrQJP7UFhLR5AXAscnWGFzY5SQiv7QoNRy0yq
-	IkwCS9ekyFqHkRsumn271SjG6MWb1TEXF+Mv9I4SMadzfzVVaVUnG+OEJoTwpiSJSnvZRdeC/i9
-	Po8=
-X-Received: by 2002:a05:6122:4b88:b0:5ca:fc48:5634 with SMTP id
- 71dfb90a1353d-5ee8aed35femr6594776e0c.11.1795473521432; Mon, 23 Nov 2026
- 14:38:41 -0800 (PST)
+ d=VirginiaTech.onmicrosoft.com; s=selector1-VirginiaTech-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aQvvsDAoMaydkfdpwVgovOoWQOhdfjdy6EKGp7SOfTo=;
+ b=NwRZRpBAW26a/rddfTXSBilEYxuv3ydtSLNkuCRHg2XfgdYMR6KydzVlE/SyMVXVBqxqdKKA0Sis9LhFXdHQEzgwtQaPg/u4auAEwF8QHGYu1JONPirIO+ipbvQvlX6DCpis+RV2KDSMKPku1xlNmMc15k4DPoKW5mbkk93S8Bs=
+Received: from DM6PR05MB4137.namprd05.prod.outlook.com (2603:10b6:5:81::28) by
+ DS6PR05MB998884.namprd05.prod.outlook.com (2603:10b6:8:461::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
+ 2026 22:40:17 +0000
+Received: from DM6PR05MB4137.namprd05.prod.outlook.com
+ ([fe80::a6db:3b91:d780:cd9b]) by DM6PR05MB4137.namprd05.prod.outlook.com
+ ([fe80::a6db:3b91:d780:cd9b%5]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 22:40:17 +0000
+From: "Ravindran, Binoy" <binoy@vt.edu>
+To: "Paul E. McKenney" <paulmck@kernel.org>, Frederic Weisbecker
+	<frederic@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, Joel
+ Fernandes <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>, Steven
+ Rostedt <rostedt@goodmis.org>, Mathieu Desnoyers
+	<mathieu.desnoyers@efficios.com>, Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>, Josh Poimboeuf <jpoimboe@kernel.org>,
+	Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, Joe Lawrence
+	<joe.lawrence@redhat.com>, Song Liu <song@kernel.org>, Ingo Molnar
+	<mingo@kernel.org>, Jiri Kosina <jikos@kernel.org>, "Ravindran, Binoy"
+	<binoy@vt.edu>
+CC: "rcu@vger.kernel.org" <rcu@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"live-patching@vger.kernel.org" <live-patching@vger.kernel.org>, Yafang Shao
+	<laoar.shao@gmail.com>, "Shastri, Jaidev" <jaidevshastri@vt.edu>
+Subject: Re: [PATCH 0/2] livepatch: Do not lose exiting tasks during a
+ transition
+Thread-Topic: [PATCH 0/2] livepatch: Do not lose exiting tasks during a
+ transition
+Thread-Index: AQHde4yeIwbsGnp4R0y51MdXMm7dBLc8PZ1J
+Date: Mon, 23 Nov 2026 22:40:17 +0000
+Message-ID:
+ <DM6PR05MB41373C039888AD13938D3838D1452@DM6PR05MB4137.namprd05.prod.outlook.com>
+References: <20261123-klp-series-v3-v1-0-427c95811d9b@vt.edu>
+In-Reply-To: <20261123-klp-series-v3-v1-0-427c95811d9b@vt.edu>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vt.edu;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DM6PR05MB4137:EE_|DS6PR05MB998884:EE_
+x-ms-office365-filtering-correlation-id: c816fcf1-85af-492e-40cb-08df49b2bf67
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|1800799024|786006|376014|7416014|366016|23010399003|10070799003|261009223027099003|22082099003|18002099003|261022105027099003|921020|261026140227099003|261026121527099003|261028144727099003|56012099006|10067099003|38070700021|11063799006;
+x-microsoft-antispam-message-info:
+ ogzAkxpA/YDfI2QiooGVDFP/ZEXzTWXtbdir99aXQGyDGD2sNlGDK/OSAiVoGeOdzJ7HeRLTi5WFtEh87flOxP6wMcG4/ta0GfoeTu42kyMyDVHJAK4QqpbQt98TnJZEWJXJyuZHIO3p0gT9cq9CTFOduRmNHXUbs+ev0xnE/y/+Mav4TMOAXYVSGf2y/3Vw5CY8CwoVe/vZig6HTZjd8Uf4q1SIVvw4wV1fp8p0Uid5xCMt4ROVdo4nX/dE0n+1oh2iejwPhzg9jRuCOaDXqYKgg5IWiXOtqSdaA7uWB6jXYT5IH1CPEhmV/51ZVQeBRRMxDb6AF7Sig6AVwS/8Usd0HSUrqBUAX/vSY1J6rRqnBaW56q0kxb3yK0Q5cFEq3AOCEiTDsmnwrbXC2t/0YW8SsN5PYYTHOWAbNsdUsf/nutt0AJaocW6iaqXzQ2eL9V0kT8y4a3x2GToGjEdF3bWixw9yYfrSUIVyhKAESqwz5ZikBzKpUvWL4ThYF4cyKy9LE6xnXEvw4YSQpGbFNAByjltzYx6EUjJfO+vV3dBTrol/TDdUNCwDdjZ4rCIq2OUqn9llIrTk2ep23aao3guQhLPEx4r3jDsatSkDm38mEQz5JgCf0m7sqhz0fMno10Cs9KtVG9HV4VuoxVkJpVWrbIQWvJU3GUVI/B84Ts6EYwM+Z5bMkxa8iY9zxmkXv9QJ8heQPEmoPatKjYRvPdOWxWE+Q2JsVcMHWrQzUIY=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR05MB4137.namprd05.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(786006)(376014)(7416014)(366016)(23010399003)(10070799003)(261009223027099003)(22082099003)(18002099003)(261022105027099003)(921020)(261026140227099003)(261026121527099003)(261028144727099003)(56012099006)(10067099003)(38070700021)(11063799006);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-8859-1?Q?TwxYP0xy4YE3K95bDzVHJP5z/aSOvOf6g5Ezd85qvDJ3OcTTNsp9fgZDWx?=
+ =?iso-8859-1?Q?vKlJ3dK4VlFtWWFBcJrTDS9tobXXOfW8Helg+5w8xPNgJAJ2zb+0HIjd6R?=
+ =?iso-8859-1?Q?zSQ+QsRqKE0z7LreK/Uq12WlHsV6MPPALl2W3hkK3W45lGkTbtEZqofiC3?=
+ =?iso-8859-1?Q?ZMk4xopLcLx5QbAA+LjYUe0ft0blJhs1UXdhLj0IKLc5qgsytIefje3IWT?=
+ =?iso-8859-1?Q?VG9FgrsPIx8Evv5iRmL4UUQ4cCF6okFfDbSdIz8sVuYnABU6LUrfqMlbG5?=
+ =?iso-8859-1?Q?uSrtTkHZMsQ5WuEghG5VznwXkb0pKNQxF0rvdnk4pZCx7YqDZtGTYtJr1C?=
+ =?iso-8859-1?Q?dkRJhm3cTV2ZbAaj8jgogb+qp8yqqpH4fAsP8be6C4IA2rymxJQtczdlqO?=
+ =?iso-8859-1?Q?GYkjE8KXBH7f0slQGAQ7/eeUJ0NEMVt6U6ZHQSKuSSBWq+3iy7TD77yTa3?=
+ =?iso-8859-1?Q?O1M/DMBJJG9ILu9nNtt+OCgtLnUAUFsQaNcjqaMIq0+5cmaTwE4oDRMoVN?=
+ =?iso-8859-1?Q?ukqQBUboX0bLUM7RbvTqOTW+40xVg5WnsPRyn+auHEQY1yEc5vVnvkGgYR?=
+ =?iso-8859-1?Q?mc6VNGmq45UbCXHALNqwxny49cStnAVo/y0uI2VRcUv03WNxfhtIHCszfR?=
+ =?iso-8859-1?Q?9f5hFB+uiGHoJQPxnAp5sjBlHsftMFzXsvoc59gnY+quVnCHWZaySFBZBE?=
+ =?iso-8859-1?Q?jJFS9l3GD9LZGguTZz16nKHOn1hm1bq7WiMwxJc02Z9wMVTfxDDSNQrn/S?=
+ =?iso-8859-1?Q?eqn6/XnFLYEBEPs7We5BKXsP8iSAw/y7HRdlP82m17/HZl3oqwkoxTxTjB?=
+ =?iso-8859-1?Q?VOke7AvN4eP01pU0fcCX0iaNVjRGleAoQruFNn6GljLvuhqK4ko09zg/UQ?=
+ =?iso-8859-1?Q?785dcQh26aYM2X7xvHeu12YY9NCAzSbwSQxYPa08VOlELDg35Yysj1RhIq?=
+ =?iso-8859-1?Q?mIp2QCSDxRJJDmhOVWkoqXGsgG9UiZH+qv29REthYsnD1LHpK0hTpcijvU?=
+ =?iso-8859-1?Q?Y24NWLwy/dvQctSbvH0xxzy92vufHHOrT+apL5IBwn6ppyXd8IezEI+CyE?=
+ =?iso-8859-1?Q?1HNuLkL0bLCh5cog3Cg25vTMjgQFivkf3dwudDKyKnzCRaGNsk/180U4IK?=
+ =?iso-8859-1?Q?+zQIF+CRLKxGkNjm1SJvMzIZvS/dSenQdS5HUGtV96CJ1QDc70uLsDYpQI?=
+ =?iso-8859-1?Q?fUvGLmio1SvQwA1pJqu4I4nCFgvRKf1k/hdOD7ZPxTlUoYjhMx2JNzgj/b?=
+ =?iso-8859-1?Q?MJgYMhyiJRWHVuwq1JaYbnxjX3GfRL+B6Iib393r4cGoMjFjsevJq1KKqU?=
+ =?iso-8859-1?Q?Up4L3dowGjg3XJVZ0ZzTBKfYUE2ybM2y3NQ6IXoLJWywoYSTtVQQ8VrmGC?=
+ =?iso-8859-1?Q?klhAD7K7Whj7/Q3FJzcK2VTojMvG0fFWgETWasFIKRHrTuM9VvywxXGvQW?=
+ =?iso-8859-1?Q?CWuo0yZvEu0Mh3lxdVc1RqliwzuNqYByIGMkbRuRHgyhiPeueM3Iqwq2xv?=
+ =?iso-8859-1?Q?FgbxTMGiAIjNQPfSSWKYcYGDbPuyhnBBEFmsb0OYGqUm5wh+GurN90Q1kc?=
+ =?iso-8859-1?Q?zKP5fDpbRauWu5zX6E0tSJtWK3IBfje8qHw6VGHUrmDvdzoGLTfwlRY6Fi?=
+ =?iso-8859-1?Q?KBrvyj0Pp/q5eRGTPCDjX2KrzLavQH4mgGyVIGpFkv/kV3aREATvtpDUwW?=
+ =?iso-8859-1?Q?Msv8Jz+V8qlX/JfWUSMZp98/z97pcBZnAizHg89oVLnye6LjTHw1ldMN8e?=
+ =?iso-8859-1?Q?W8mtTuYD5srYzHqIV6FdJX5TMURdd8pVdHfB0l5m2neuKu?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,105 +157,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116183519.3314837-1-rjethwani@purestorage.com> <awSQENPQBd7ogyyA@krikkit>
-In-Reply-To: <awSQENPQBd7ogyyA@krikkit>
-From: Rishikesh Jethwani <rjethwani@everpuredata.com>
-Date: Mon, 23 Nov 2026 14:38:29 -0800
-X-Gm-Features: Aa3M54o9TN-CRk9fIngUEHWt_m8XYLfhqb3UWdu_Qp60Que949if8U9zCRR-XfE
-Message-ID: <CAKaoeS15yiScYY3uokc=DR++M-R2fyeUoK-qAtMPpbkyaqY-rQ@mail.gmail.com>
-Subject: Re: [PATCH net v5 1/2] tls: fix socket use-after-free during device-down
-To: Sabrina Dubroca <sd@queasysnail.net>
-Cc: netdev@vger.kernel.org, stable@vger.kernel.org, 
-	John Fastabend <john.fastabend@gmail.com>, Jakub Kicinski <kuba@kernel.org>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Alice Mikityanska <alice.kernel@fastmail.im>, Tariq Toukan <tariqt@nvidia.com>, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: vt.edu
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR05MB4137.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c816fcf1-85af-492e-40cb-08df49b2bf67
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 22:40:17.3556
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 60956884-10ad-40fa-863d-4f32c1e3a37a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: jeuQuODqiSW0yNtH3jTflG6l5z8GHSyuTG1JgkSkoKCobgtAvDdwiQ/wF5zHQnrF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS6PR05MB998884
 
-On Mon, Nov 23, 2026 at 11:12=E2=80=AFAM Sabrina Dubroca <sd@queasysnail.ne=
-t> wrote:
->
-> 2026-11-16, 11:35:17 -0700, Rishikesh Jethwani wrote:
-> > tls_device_down() pins each TLS context, then drops tls_device_lock bef=
-ore
->
-> pin =3D hold a reference?
->
-> > switching ctx->sk's TX validator. The socket destructor can run between
->
-> Please stop calling it a "validator". Those abstract references are
-> just obfuscation.
->
-> > these steps: the context survives, but __sk_destruct() frees the socket=
-.
-> >
-> > Switch the validator while selecting contexts from tls_device_list unde=
-r
-> > tls_device_lock. The destructor uses the same lock for its context put
->
-> Which destructor? We shouldn't have to guess which functions are being
-> called.
->
-> > and list removal, so ctx->sk remains allocated through the switch.
-> >
-> > Checking sk_refcnt would miss sockets whose queued SKBs still hold
-> > sk_wmem_alloc and require fallback after sk_refcnt reaches zero.
-> >
-> > Requires commit f08d8c1bb97c ("net/tls: Fix race in TLS device down flo=
-w"),
-> > which moved the destructor's context put under tls_device_lock. Include
-> > this prerequisite in older backports.
->
-> Can we add the dependency in the Cc: stable line instead of bloating
-> the actual commit message?
->
-> > Found by code inspection. An ASan harness running the extracted teardow=
-n
-> > functions with userspace shims reproduces the UAF before this fix and
-> > passes afterward. Tested on Mellanox ConnectX-6 Dx (Crypto Enabled).
-> >
-> > Fixes: c55dcdd435aa ("net/tls: Fix use-after-free after the TLS device =
-goes down and up")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Rishikesh Jethwani <rjethwani@purestorage.com>
-> > ---
-> >  net/tls/tls_device.c | 13 ++++++++-----
-> >  1 file changed, 8 insertions(+), 5 deletions(-)
->
-> Changelog? Links to previous versions?
->
-> > diff --git a/net/tls/tls_device.c b/net/tls/tls_device.c
-> > index 4cdfbb57ecff..866193a506d2 100644
-> > --- a/net/tls/tls_device.c
-> > +++ b/net/tls/tls_device.c
-> > @@ -1345,16 +1345,19 @@ static int tls_device_down(struct net_device *n=
-etdev)
-> >                   !refcount_inc_not_zero(&ctx->refcount))
-> >                       continue;
-> >
-> > -             list_move(&ctx->list, &list);
-> > -     }
-> > -     spin_unlock_irqrestore(&tls_device_lock, flags);
-> > -
-> > -     list_for_each_entry_safe(ctx, tmp, &list, list) {
-> >               /* Stop offloaded TX and switch to the fallback.
-> >                * tls_is_skb_tx_device_offloaded will return false.
-> > +              *
-> > +              * The context reference pins ctx; tls_device_lock keeps =
-ctx->sk
-> > +              * allocated until the validator has been switched.
->
-> I don't think this comment is helpful (and again with the obfuscation).
->
-> >                */
-> >               WRITE_ONCE(ctx->sk->sk_validate_xmit_skb, tls_validate_xm=
-it_skb_sw);
->
-> --
-> Sabrina
-
-I sent v6 before seeing these comments. Please disregard it. I=E2=80=99ll s=
-end
-v7 once I=E2=80=99ve addressed the review feedback.
+=0A=
+The two issues Sashiko reported on patch 2 are valid:=0A=
+=0A=
+1. An exiting task that has not been unhashed is on both the task list=0A=
+   and an exit list, so klp_start_transition() can visit it twice and=0A=
+   set TIF_PATCH_PENDING again after it has switched.=0A=
+=0A=
+2. Between exit_tasks_rcu_finish() and its final switch, an exiting=0A=
+   task is on neither list and can still enter patched code with a=0A=
+   stale patch_state.=0A=
+=0A=
+v2 will walk the exit lists under tasklist_lock and skip tasks that are=0A=
+still hashed, so each task is visited exactly once. It will also call=0A=
+klp_synchronize_transition() before func->transition is set and before=0A=
+completion, to wait out tasks in that last stretch. It will document=0A=
+rtp_exit_cursor as well.=0A=
+=0A=
+I'll post v2 after testing it on mainline. Please hold off on=0A=
+reviewing v1.=0A=
+=0A=
+Thanks,=0A=
+Binoy=0A=
+=0A=
+=0A=
