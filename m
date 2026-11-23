@@ -1,54 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795420542;
-	b=T/PTwkaMAaB5kKlsSPbAEP0i0GjCOaDaC6dgBIAKxdwnHaVzEg6rrMF04qLj87XAZj9u
-	 w6YnClrDnYv0i4IzMCqh6r+hDZJQFJZwVrnZHITP3tVyHnX9uZhgZAegjEoLs69ZoTo99
-	 AH+Yv0R9wXd0S+gOw9Yd/DuFxdY+/iZZRXhBJscdts/YtLhi8nqfl8sqf40QQ8zS5dPA9
-	 7QSWfalVJeWEVBwL/TAp+jDZO7SJio0iJ4i1MOoQrzKX601Vdc8gH0y+gJrVbcNFR3u6z
-	 wd/CyFBqW5ub/1ZX4xo++TMfNEa+cG+YdOTbfbeUAfqIY/EirTCproSapNFiX8k/K0w==
+	t=1795420543;
+	b=qyvEA7py9GJbXWvsBbMc5hEx3qyvemm/5gRgJ+MYf1ylroQ01KU1+U1MarKJ35KPNVKN
+	 4ZGLrpkwGsh6S9Lu+NLO1o1FIa9+5sCYyVO2SFWqDX+n4I0uZVQebnRZspfz7G9VkxbWd
+	 wOAig3H47n4HXlP8demfyf4OfTtbTLqdojQJCN7j0RohHtt7MmPOYJgAo3oA5sUrRrZ0d
+	 v8Aq0Kbo04QWeBuvLAR2U5/R1wfXuZiO+zRDZyxAjO1j/Hbb9rrM3dIOsNbiBLKwRKwCt
+	 7hphuONDgxa988cAmxhfpJnO18B0nVJ1kdHRZ10TEL3PtHHx/pZzyC2TMTOg0PxeKpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795420542;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Cc:Content-Type;
-	bh=g1OJLAd7B+ngwjUpS8FrwuA0SCFmBnAon/YjAp5e5cs=;
-	b=WqY8EBzhrTpQ0M/0/Dc0FA31GMiZg7Ea5gO4g+IWPE0iKXgH9msdXevpE4aYQYJJ9hVu
-	 GaTuZYBsaMcbAkAxgVrOOohmJg3s3nQm9WyDo1e8OGWjgQwTjwkc5zFXGybXvaFV812K7
-	 LKxMg4SITa4swpqoN1JfLKuDxXeS7McIhh3O/vJ71JzM557XbzWzZqQapd0AsO1pRyXH3
-	 OhNZBeSI5pEAlQBuTWezEUKAek55B1bIzRi36tcA1nVA+ovLL0U8sAyijUsunHPDrVN8R
-	 YkCGA5Pa6qkbF7S8LKLnVXw+5qaAzkTSuOkBIUdxOw3mg4gOPrZC44Q4Y5JFFg8y8sg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795420543;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=nYLwjkPeDoYKPQ9fpj7sj29JLi9BGT+W9npk3A58FDA=;
+	b=o9B/i3izBlyr0Qa1r2BgY64A3uej8F5vmFFnB6yn4gVytjDRuA+5UzQOc5wTez7WU2pk
+	 4NRtEdkmQFk3tEzabw5qhnfKCYVWuCbvUqEpizCnwPmCiv4jt4V+UyitPWos/gsoPjH6F
+	 vVGBVrcWfYDOXtUksTVVjOLIIX1pdPHV0QvDGJ8hRR0d0ZzBRSdfaeOVxDL2EeuUecia9
+	 fGg2xYV5lJZGwiMJaad6l/jPXmCESXhdkjtFwqx0xCV6yRkliOEJJ/AdnmzbIyXnbpA9c
+	 VxqNTxL6oxW9i53Oypy6NE8g6G48701w8RPkIC6ISJ8iHJj26hRlqiGzbJu12NZ3xHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.198
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YXAvsKFi;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 038F0606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:55:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 038F0606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4ea2c058e67so3293852b6e.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:55:41 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795420541; x=1796025341;
-        h=content-type:cc:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=g1OJLAd7B+ngwjUpS8FrwuA0SCFmBnAon/YjAp5e5cs=;
-        b=mBokYRNNDxaBkYISBr1hz33K+te6Y9+jNqhAsK8wOdvZQy2ut85acQuP4kg/rF+giU
-         TVN486JUy3ue3DUmPS4X0H0fNILtvg98AClsNV54pC9lHiu7a+Zijh7trxjRqBmCVnCb
-         VIjhkObY4Wq8o2EyxTgqzQ5eojc9E2jDXhdotuVTblcBOfKWZNjp4rLkGPwfKh37zspM
-         1Mwl4jR8AIf0VkBJFRCiI2a+v2xrBWSUhLda6UDRhdU6JAef24ULZsD1rg0jwWh7Ml1Q
-         Ct7b9Qf6G/iP5PbTxBpAhSt39pch/GJiVEKxFp1Ezac3ddlmT9EFvfnOpGQxmXogl8/G
-         D1QA==
-X-Forwarded-Encrypted: i=1; AL+hErEP1HhRGxqPMTunkFMr2GKg1LXsDJn/4AEvuyCTzLKhIhhJ+SdcokUSo1OX4M38Et5W22ArU4vUUNYRQ+Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z++sWg3/Xiw7jUIYaoXOXcCLgLiubrL1VbGFiKFy2Qf1152PUvS
-	fj7lYLVrdFdf9IoNqR3kecAfWvEWVXFJWshocJOQRWLYXz/mZNBPyujdg7x+me+l8jEWCFXziFc
-	yvW3+9r08zF06LKJfPlbOILVs1/wJ0u4LbNfnk4R/7Ddn/2EgAWx+dHmINpQ=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0D20606A336;
+	Mon, 23 Nov 2026 07:55:43 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YXAvsKFi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AA821F000C6;
+	Mon, 23 Nov 2026 07:55:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795420543;
+	bh=nYLwjkPeDoYKPQ9fpj7sj29JLi9BGT+W9npk3A58FDA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=YXAvsKFiWSvpBAh0r/bLzhP/mDijS6wWiRAI/eNzzlW42pXDN4k8BL54YfASB4YyZ
+	 KDaG4gPrLUiNxP8Y53xiVgpDqyQYPNbffcEa5ycmQNLiBTR+5HEYIMJYvdAThv6YH9
+	 HpUjHRD3AKwKVwH6wIB1q+2q2wI63zezLOdt1UVU2EDTOuJDj6XbRN9XB1c4M1qRwJ
+	 nNsYrkMkn/h6oyq0H7wZPcnDLbwg1Mo1uDNj1WKorr/U67FRXRdTJ2zYV89UO4yI1c
+	 A8yJwwgZo6rSUPiINE2/hvWe4cJZZZanigQdCdzOb55tcn4lLBhSTUMLTCFRqbJA6u
+	 SjNDfuq17V90Q==
+Date: Mon, 23 Nov 2026 08:55:40 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: codykang.hk@gmail.com
+Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Haylen Chu <heylenay@4d2.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Yao Zi <me@ziyao.cc>, 
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, Guodong Xu <docular.xu@gmail.com>, 
+	Icenowy Zheng <uwu@icenowy.me>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
+	Sarah Emery <sarah.emery@canonical.com>, Ze Huang <ze.huang@oss.qualcomm.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Cody Kang <codykang@vsit.ai>, dri-devel@lists.freedesktop.org, 
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, spacemit@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v3 10/17] drm/spacemit: add Saturn DPU KMS pipeline
+Message-ID: <awPxPHpr4NYxqdmf@houat>
+References: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
+ <20261121-k3-display-v3-10-ec419e8e96b8@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,24 +72,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:5147:b0:539:ad19:d0af with SMTP id
- 5614622812f47-57a09c11044mr11176189b6e.11.1795420541066; Sun, 22 Nov 2026
- 23:55:41 -0800 (PST)
-Date: Sun, 22 Nov 2026 23:55:41 -0800
-In-Reply-To: <14e3c0f8a63e4e094a8f3d1a5d145eab@dev.tdt.de>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b03f17d.44b41460.34b83f.0027.GAE@google.com>
-Subject: Re: [syzbot] [x25?] inconsistent lock state in x25_kill_by_neigh (2)
-From: syzbot <syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com>
-To: ms@dev.tdt.de
-Cc: ms@dev.tdt.de, syzkaller-bugs@googlegroups.com, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="psp6wiqhchja3kyl"
+Content-Disposition: inline
+In-Reply-To: <20261121-k3-display-v3-10-ec419e8e96b8@gmail.com>
 
-> #syz test: git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git 
 
-Patch testing via #syz test is temporarily disabled.
-See https://github.com/google/syzkaller/issues/8122 for details.
+--psp6wiqhchja3kyl
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH v3 10/17] drm/spacemit: add Saturn DPU KMS pipeline
+MIME-Version: 1.0
 
-> main
+Hi,
+
+On Sat, Nov 21, 2026 at 03:40:49PM +0800, Cody Kang via B4 Relay wrote:
+> +static int spacemit_drm_master_bind(struct device *dev)
+> +{
+> +	struct spacemit_drm_private *priv = dev_get_drvdata(dev);
+> +	struct spacemit_crtc *a_crtc;
+> +	struct drm_device *drm;
+> +	int ret;
+> +
+> +	ret = aperture_remove_all_conflicting_devices(spacemit_drm_drv.name);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "failed to remove existing framebuffers\n");
+> +
+> +	/*
+> +	 * Bind-scoped, not devm: the aggregate can rebind without this
+> +	 * device being re-probed, and each bind must release its own
+> +	 * drm_device.
+> +	 */
+> +	drm = drm_dev_alloc(&spacemit_drm_drv, dev);
+> +	if (IS_ERR(drm))
+> +		return PTR_ERR(drm);
+> +	priv->ddev = drm;
+> +	drm->dev_private = priv;
+> +
+> +	ret = spacemit_drm_mode_config_init(drm);
+> +	if (ret)
+> +		goto err_dc;
+> +
+> +	a_crtc = spacemit_drm_pipeline_init(drm);
+> +	if (IS_ERR(a_crtc)) {
+> +		ret = PTR_ERR(a_crtc);
+> +		goto err_dc;
+> +	}
+> +	priv->a_crtc = a_crtc;
+> +
+> +	/*
+> +	 * component_bind_all() unbinds what it bound before returning an error.
+> +	 */
+> +	ret = component_bind_all(dev, drm);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "failed to bind all components\n");
+> +		goto err_dc;
+> +	}
+> +
+> +	drm_mode_config_reset(drm);
+
+You need to use drm_mode_config_create_initial_state().
+
+Maxime
+
+--psp6wiqhchja3kyl
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCawPxewAKCRAnX84Zoj2+
+dnHQAX9iDOtufQbymoduwPA/eIzFT4DPhesCne28+rDvff2JXlYtbNrRxUrTcGWq
+XGPo3ywBgIkbYttgELJJr4UywnFDhIGMTRi83oG6Mg+R1tb0t9izOxptosxvIQK+
+fEnXpcLERQ==
+=seld
+-----END PGP SIGNATURE-----
+
+--psp6wiqhchja3kyl--
