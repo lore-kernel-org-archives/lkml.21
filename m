@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445637;
-	b=sizbtSu6YbkaC8O0hS6awqjbZakrMeyrvI9DU7QC/os0w4CNFmncXd9xmlNvd7TpYU8Y
-	 hJ9hTyG9u99VlO9q63fPQu1p+AJupnyQExPrW+vVIRQ9+AZkCPQ1pwnVfj+haZouYjFik
-	 C4N2o4bTqVV87z4oiS8r12zbrbYywlnvjJu8pCQj3etFmHysvL8TqBROnYh0/0jxeZqfv
-	 fn7o/dtxWljbrk4OJwevQC/1S0k1KUxCjYXIVy0xAXByoauZRtzezcfvxZVSw2va1kRjq
-	 KMvM8BIdh2M5IdfmxkLPB5Fe2BwJRR6tqbnC0cDfo20664mFIz31cxiE7vNucCNZSsg==
+	t=1795445639;
+	b=CvzgvRlK4pA1kQ9AzNcrnl6sVSOrfdnr0Ai8SvkWD4eIBvAsrQu5EnzKXJNLotq3NLDG
+	 fQaVXiis9lcjbu5XhXQi11veZolRfyKK9MILPLrhMgga4A6uhV2rW1zooulgq2MwtZnrA
+	 IUPIkO0kdBMdCUB5be919FF8P5/4QKs+p4Oo6eCD/4XFgnpqHcCM6odHbQHvPQgWVMF0l
+	 rCbQ51qkw6NxThsrWeBOij47GkXt/B27liDRjoev4h0CpbHl10SkI2UqEpIg/OmwYoGNf
+	 tFSNNBm5BOlw+L8YVSRzVdl8m6eXY+WQEc0y9tHLYeUt4FdtzY/82Pef2rr3LEF1Xtw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445637;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445639;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=gcDUe7weJJYMrvTg7gVHHmg7tsUoApLJH7Q2bv9KvGA=;
-	b=vsyRazsGO3SmDD7jm5PEgn7lWvwWwPCxP6+nRofO8ttuKjvfet4piJ4PH/bznTOcojQB
-	 E6acPVkVIFFGnXeiaRkxxaeSQZ5wZa/AjniL9bNjNOiqxDrUrDXX8LuyFr0irJuW4dCuM
-	 0A+l++wkpI9tQAYzDbshyaH6LZhIPXBZ+El2I7P/pLbFdTD86HR0vP1D92/UKbq/hB4P0
-	 5tnRw2nYslCkBqUaXiscOdW9oDQ3BoXT2yP75cQCkM+kohprmejStx7XHf6Fb0ZG+UnZM
-	 y+B4gjPmRNmQ6e5ZO/HcBwnHRCUuah71rsn0NEHb3ROuvf84iGH48DZz0HHkHHpqr7g==
+	bh=e9DOyZqREfCbWSQdjYH3Cx6SxSP6lHmhvZmakX1uIME=;
+	b=wHLUQhJUz16Hfp++Ze62S4vot1tlydAHu/VVQ2ake4HvyFK3FCJI5UAfzjLf92oMEemd
+	 TGsWfKbZc4Gz8aDXG/XlXUc+EMR8P4ZR6YFwB5Ydx+Xy94EPsPjVdZP7pXs9xanedz4wR
+	 6VYSk+88PGF+PdzMk9v0+meQ9Zo6fOVALsQNnX3b2vecV5/MlBy7AahZPW2eSpWKhRVXL
+	 8jy1Yqo/H7+k4UQxOPI2m/8LmU86zRKhaMJdzmsqZkG4QJZEpdO0+0Qa4vrRZRqTMy7/r
+	 +W01TV9+xEm6qd7CLtaREY/UImm7C5Ae4jVaslI1vteVwp4gq9k+ML8By3dzYdneE7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=suse.com;
 	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=CDqXCh9g;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=X8w3s+pv;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2750F60A6F50
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:53:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2750F60A6F50
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67F5F60A6F70
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:53:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67F5F60A6F70
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=CDqXCh9g
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a210470b49so32706425e9.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:53:56 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=X8w3s+pv
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4b467581b98so31921675e9.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:53:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795445635; x=1796050435; darn=vger.kernel.org;
+        d=suse.com; s=google; t=1795445638; x=1796050438; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gcDUe7weJJYMrvTg7gVHHmg7tsUoApLJH7Q2bv9KvGA=;
-        b=CDqXCh9g3gBn7Gqu7xnGzzahRm9GSKxuyxZ6SM9HRNndQ1marzSteyv9gBCp+opb88
-         HgZXD+ENDEWRoaevbhwd8sePn8YCn9cIpKL74Vn9lG0vWUde6lQq8dffrKtyuQoIY7h2
-         Lgvj9aMfhJMriO4fyWX5nHqygFAr1qCiygqgwJzbw2NAx3lY6HBBXX0anWHxSrjnFt5J
-         8NDRGwZ2cDjME4rPp+tPaUwZUdNf8qndp5tfZnI5HM77ZOenh3ZoNQ3iKJDNLcVOPSvZ
-         DwuRkG9TIgX67/6L58XuzqkB8So/KHrLKEw/kHbp+CEpNZarHD/NfHKqrf/OK5dJ2D1M
-         /i3g==
+        bh=e9DOyZqREfCbWSQdjYH3Cx6SxSP6lHmhvZmakX1uIME=;
+        b=X8w3s+pvpaCGcbWfHlueVmKlcAFu5eOTMn9IkRJ9Wv2gD5ChOcjomxiXlnm6Z6INqv
+         Pl4iV+jNC/VR7ornt3rYfsMSf9Kw6E45ycHivcpMnbptH2Cy5/utWa3TwIddim9Fy6yn
+         sz2rEDn0AUi2UDfK0IGudk1Qf2TMBJ0bLosL/EItDTb3CupSMVb+CznueIo49VZ6+CHi
+         1I2BSpSBLJ1FdGxC+UWB5q5zlhig+u5c3e2lfUzXXfNzAL4FPp8s63OmhpgzCtzn6ega
+         yZuByST9S84L5Rx7HHi6iNijVICaNtwWEHcqljiq01KfKpw0ZS0r4CYUp21XS8ASwHQ8
+         LHlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795445635; x=1796050435;
+        d=1e100.net; s=20260707; t=1795445638; x=1796050438;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gcDUe7weJJYMrvTg7gVHHmg7tsUoApLJH7Q2bv9KvGA=;
-        b=KS504QNZhZqcVBc5mq4JAOSFAlnLyodCou4e5Xrj2P1Jno689kR5MlDc+kl2gBeVA9
-         8ypEYV0evYaB9jCb/oaU6RARIXbEz50hGWP8n4KMOqqdt7h2eKLfwvP74Dll2YsbyUwv
-         xSbJ4tH5E16tiXz7on2xwEjZLOcse3C9Xoo7PeQsOIKUYS353LWeN01E9GxmGQhLoxGN
-         bAJdM+9TBb2oq9ib3QL4tK7G18HLRL2XE9Jx8kVItsOZWK90S923MRYFFulN0LdyLIER
-         tCNnDmouh2uYr/pCRR5wm7ntSLJQXGAmyfKSd1Z6SsdDxdMr4jPkU1/iQJX51L+Nn0UC
-         HcWw==
-X-Forwarded-Encrypted: i=1; AL+hErHq9Vsh2sIgrOgEGgaRBuTRAIVPstoZWF3/M9NKSw2tG/jX9QlyjdWRcREwJkA9qbeZ7oLsdl5GrP+CPjU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+RoVTXHBVaHu3O9u8Ntug8TKXHD0tbgQBIHiCBI7LXYPaIoyHJ
-	Vk2tTFx1NJGXCY8uS8B+bLVXSNYQU5AE0uHFcxfLq1ImPdbGGul+rmFdlfADZ5WKgek=
-X-Gm-Gg: AZFdTZfst+yKXUlp9g1Dl6/IsR0QvD/rq5BAGehx6NucB9UfpYFynZaAig2wTGFPu/a
-	3qoI30kKjkJCCyMIaEU3MwL5juXPUOC4iDMRJnlpywzl60Lkv/J59b6dYevKv+oQfrhrLnsBAkC
-	W9WwCfYalL29p+nb4lRrmPZjjUe0OhiJqlxdT47wyGkypPWHUctRxVPjB62Gbd0AbhSo4Ohu48I
-	5nJZkbvPH4djrR+iPvx1k7dW/O5FKT4P9yEC+qnTWYrcnuXm909mNi7BJ2s3S5mZLSygkFUxPTW
-	B9cbmdmbmetyqEf5zsL88k8xt9BsJt5TA4fODcbQ6nZSEnrbJejsraNKSnlHGsVaB+o5yO2k1dL
-	AdLjJpO2ALyuKo5QA9riV8ahB9LHb7IDemQAm5apbhLXPLa0TS1X52k2Csv34/Ycs/EVVw7/Maz
-	zSfaWQf6q7RrSK0p0gQC9yu+Wn6Tz2qAtzdkkhbrUJ7tZlc26u1W2Hjf9N4+piA2JbXWDeoMqaM
-	I6uVDg2oADnPvmPgkgEFbSCpf1EqM1vb5EC24BoU/1OBKz48qTtzYHjSgUoWmZflvt8L/4Ia4TO
-	mvYRcRFDCvqkh0OxQU3cpgsiugQ=
-X-Received: by 2002:a05:600c:1c1b:b0:4bb:87be:c138 with SMTP id 5b1f17b1804b1-4bb8893e021mr265842135e9.32.1795445635536;
-        Mon, 23 Nov 2026 06:53:55 -0800 (PST)
+        bh=e9DOyZqREfCbWSQdjYH3Cx6SxSP6lHmhvZmakX1uIME=;
+        b=BzDVVVz9kVkobHsFhMDfqJ4Auh/of+HNZht56XyvLTSDse8EAUnnUaoHAwJtxunih0
+         ShpR1pfmQ0YKgvGba7TP7ZKxUs2ThkP9yGECYW57mNUIcnNMgCvEG2wIT7HPyol7JfpK
+         AjGc3cnqbo1vn7BLA4d237rkvUapJMOHRFL0kNdXebLyShSNBpcDPB09ZaoHjhLnUb5c
+         z4puu2Quzb945e87lsUQ4p87/Tp7oPGhflW1lV61YVeXVV9aWrLiRBkrt5S074Ii5JAU
+         q6fPIgWOq5TqGklkoCidR9vBfa249rV2S+4/rck2AV7f8Eu4Duky45SqdaiRBfDLiWlM
+         zRRQ==
+X-Forwarded-Encrypted: i=1; AL+hErFbavsxHkfZ/fYU5LyDOxUhh6iVv0anXZ9NQ4QT9TFeg0QiXU/xPXh9WTKlziVIqfWeZVc1DEHXQ4ksXtc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/BNkH+TukGu/zutqIuD+nEUfpygSGibdozkvbG/NuA7CroSQnd
+	jmMM9FG84wp5f3tWglk/dSYgL5/e43nFNPMJ/QvAd0SycfbYWOlYznn8hJJB5AwJkqw=
+X-Gm-Gg: AZFdTZeDJRtnfBgjpOr9kP37jQ0oFYYko+wMAYDwHxtp2IsC5a1nK0LJ5bZqBL+yVJ+
+	mirlI/TsipzfQMOuXSkNuXviCutCpI5IkAlU5fWaLi4MEc1cBkYaKBAB89yNJU8O0s25FGgpWi9
+	EngXjXkKthdim6BlRk5KyYOlIueAe9YHuxSFI1JzzxaF/fJHKQJpYmNt1OwWmRUs3KdxWZtIiq4
+	AIMmOGlG/8oPQ2OO0ibE+OPE1gqONXj1ZMbKcML1i74CeC++BV/gnELzXrmFez4inbwXXbMkX2x
+	NO7nO8fl15cbZTxzGmN3ZbfgtiDCZSth4b/fn5kAYgzStnBz4sw17lzdpWkX/h1fHVo7tTX8U0e
+	3JknsJg7YT84wsnJshZsEG1smpQlbCUpvE0OtdN+Ldg9FX6/FkZ29+jpmhR2ieyR+kyAz2V8yVU
+	6522XJ4lmtDE7VnsCJ//y6I7ImTzgRZ7Sy+0F3CCadh7p0821eBMMtA1e3PKFBu7tVjJrRne7az
+	Af+E4gfXDqZdgXHuEPUlQ8t0ev0UAAfWX4R+h34wfyWGpQvD73YRJ4UoOk7BJP+FFfG76S/4Kzv
+	egxTtVKONPsArdpxJGSI1+Kaulo=
+X-Received: by 2002:a05:600c:674b:b0:4bb:6947:3e1d with SMTP id 5b1f17b1804b1-4bb8892c0fcmr226742705e9.20.1795445637861;
+        Mon, 23 Nov 2026 06:53:57 -0800 (PST)
 Received: from localhost ([82.192.120.76])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a3a3dsm340088765e9.10.2026.11.23.06.53.54
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8526cbd0sm469509035e9.0.2026.11.23.06.53.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 06:53:55 -0800 (PST)
+        Mon, 23 Nov 2026 06:53:57 -0800 (PST)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: Vinod Koul <vkoul@kernel.org>
 Cc: Frank Li <Frank.Li@kernel.org>,
@@ -101,11 +101,16 @@ Cc: Frank Li <Frank.Li@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Andrea della Porta <andrea.porta@suse.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	linux-mmc@vger.kernel.org
-Subject: [PATCH v3 16/28] mmc: bcm2835: Pass the CPU physical address of SDDATA to the DMA engine
-Date: Mon, 23 Nov 2026 15:56:54 +0100
-Message-ID: <20261123145728.29082-17-andrea.porta@suse.com>
+	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	dri-devel@lists.freedesktop.org
+Subject: [PATCH v3 18/28] drm/vc4: hdmi: Pass the CPU physical address of MAI_DATA to the DMA engine
+Date: Mon, 23 Nov 2026 15:56:56 +0100
+Message-ID: <20261123145728.29082-19-andrea.porta@suse.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20261123145728.29082-1-andrea.porta@suse.com>
 References: <20261123145728.29082-1-andrea.porta@suse.com>
@@ -120,79 +125,71 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The addresses in struct dma_slave_config are CPU physical addresses, and
-the DMA controller driver is responsible for translating them into its
-own view of the bus. The driver instead reads the untranslated address
-out of its reg property, which only happens to be what the BCM2835 DMA
-controller expects because the DMA engine driver used the address
-verbatim.
+The address of the DMA slave is handed to the DMA engine through the
+dma_slave_config, where it is meant to be a CPU physical address that
+the DMA controller driver translates into its own view of the bus. The
+driver instead reads the untranslated address out of its reg property,
+which only happens to be what the BCM2835 DMA controller expects because
+the DMA engine driver used the address verbatim.
 
 Now that the DMA engine driver translates slave addresses itself, use the
-CPU physical address of the register resource, which also gets rid of
-the open coded parsing of the DT node.
+CPU physical address of the register resource and drop the comment
+describing the old workaround.
 
 Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 ---
- drivers/mmc/host/bcm2835.c | 20 +++++---------------
- 1 file changed, 5 insertions(+), 15 deletions(-)
+ drivers/gpu/drm/vc4/vc4_hdmi.c | 16 ++++++----------
+ 1 file changed, 6 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/mmc/host/bcm2835.c b/drivers/mmc/host/bcm2835.c
-index efd1903c3ccd..cea7b2b6d2f0 100644
---- a/drivers/mmc/host/bcm2835.c
-+++ b/drivers/mmc/host/bcm2835.c
-@@ -38,7 +38,6 @@
- #include <linux/io.h>
- #include <linux/iopoll.h>
- #include <linux/module.h>
+diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
+index 2cc46036f11d..9dc1a67aa7fd 100644
+--- a/drivers/gpu/drm/vc4/vc4_hdmi.c
++++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+@@ -47,7 +47,6 @@
+ #include <linux/gpio/consumer.h>
+ #include <linux/i2c.h>
+ #include <linux/of.h>
 -#include <linux/of_address.h>
- #include <linux/of_irq.h>
- #include <linux/platform_device.h>
- #include <linux/scatterlist.h>
-@@ -147,7 +146,7 @@ struct bcm2835_host {
- 	struct mutex		mutex;
- 
- 	void __iomem		*ioaddr;
--	u32			phys_addr;
-+	phys_addr_t		phys_addr;
- 
- 	struct clk		*clk;
- 	struct platform_device	*pdev;
-@@ -1369,7 +1368,7 @@ static int bcm2835_probe(struct platform_device *pdev)
- 	struct device *dev = &pdev->dev;
- 	struct bcm2835_host *host;
- 	struct mmc_host *mmc;
--	const __be32 *regaddr_p;
+ #include <linux/pm_runtime.h>
+ #include <linux/rational.h>
+ #include <linux/reset.h>
+@@ -2288,7 +2287,7 @@ static int vc4_hdmi_audio_init(struct vc4_hdmi *vc4_hdmi)
+ 	struct snd_soc_dai_link *dai_link = &vc4_hdmi->audio.link;
+ 	struct snd_soc_card *card = &vc4_hdmi->audio.card;
+ 	struct device *dev = &vc4_hdmi->pdev->dev;
+-	const __be32 *addr;
 +	struct resource *res;
+ 	int index, len;
  	int ret;
  
- 	dev_dbg(dev, "%s\n", __func__);
-@@ -1382,23 +1381,14 @@ static int bcm2835_probe(struct platform_device *pdev)
- 	host->pdev = pdev;
- 	spin_lock_init(&host->lock);
- 
--	host->ioaddr = devm_platform_ioremap_resource(pdev, 0);
-+	host->ioaddr = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
- 	if (IS_ERR(host->ioaddr)) {
- 		ret = PTR_ERR(host->ioaddr);
- 		goto err;
+@@ -2324,22 +2323,19 @@ static int vc4_hdmi_audio_init(struct vc4_hdmi *vc4_hdmi)
  	}
  
--	/* Parse OF address directly to get the physical address for
--	 * DMA to our registers.
--	 */
--	regaddr_p = of_get_address(pdev->dev.of_node, 0, NULL, NULL);
--	if (!regaddr_p) {
--		dev_err(dev, "Can't get phys address\n");
--		ret = -EINVAL;
--		goto err;
--	}
--
--	host->phys_addr = be32_to_cpup(regaddr_p);
-+	/* the DMA engine translates the address into its own view of the bus */
-+	host->phys_addr = res->start;
+ 	/*
+-	 * Get the physical address of VC4_HD_MAI_DATA. We need to retrieve
+-	 * the bus address specified in the DT, because the physical address
+-	 * (the one returned by platform_get_resource()) is not appropriate
+-	 * for DMA transfers.
+-	 * This VC/MMU should probably be exposed to avoid this kind of hacks.
++	 * Get the physical address of VC4_HD_MAI_DATA. The DMA engine
++	 * translates it into the address its controller has to use.
+ 	 */
+ 	index = of_property_match_string(dev->of_node, "reg-names", "hd");
+ 	/* Before BCM2711, we don't have a named register range */
+ 	if (index < 0)
+ 		index = 1;
  
- 	host->dma_chan = NULL;
- 	host->dma_desc = NULL;
+-	addr = of_get_address(dev->of_node, index, NULL, NULL);
+-	if (!addr)
++	res = platform_get_resource(vc4_hdmi->pdev, IORESOURCE_MEM, index);
++	if (!res)
+ 		return -EINVAL;
+ 
+-	vc4_hdmi->audio.dma_data.addr = be32_to_cpup(addr) + mai_data->offset;
++	vc4_hdmi->audio.dma_data.addr = res->start + mai_data->offset;
+ 	vc4_hdmi->audio.dma_data.addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
+ 	vc4_hdmi->audio.dma_data.maxburst = 2;
+ 
 -- 
 2.51.0
 
