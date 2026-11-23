@@ -1,72 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795440350;
-	b=fbdZh4VzIe3d6ryMf8ojk8htv9y4aHzS8dnxPwsHL5EtFFG4Ey9fAgZUXHGCiDQfevr1
-	 JymWShnN+2EpLMrrJu5IPktPb9jgXFjMoIDmHWqdPQ/wZQyvq225s/Wm3IBhFhiBpH3PC
-	 ZkMD3E/Ia5gEv2kLHKoWfXI6Hh5tOKfGNhVOXshJ+y9pTw375OmJZ2mE84bJ6W75HuSWH
-	 Vj1atV/faXVFhjel5XLICf7SvoHDu+cR6uCQ7B7urUTnSP515U56KuHJnYLAw4deZka9j
-	 824OK6kUihRWNFxkywLzegPwTIy6h4ps0HosTpwY1btEW1Vtt51Wg5MJUlv3Vpk5L1w==
+	t=1795440441;
+	b=xu2HLNPkCNxD/7/1nzcpBuQr8seIZvU2Yy3zpVQj9+Yj2mHlWRCXIY6NCCxifVc5D4Wu
+	 Ddmw8/TN6XYfJbnAyBm6GD2Yjcg+/Patty5YPduLnxAm7SNoBcn/2af6PIqx0Dewn/TRc
+	 xfWbNWjOAx74fgmQAG3KrM/vWVHeuzrmzKzENy0BtSIEh5axIdG8ZPwCi7XcrxQlYhDD/
+	 aoKJdNfLZW1oDqNYK1UYsgg4VWos/teMBl0Bz7OW31EkCI+ZURV+/8lvGWZHVzrC+Uy9G
+	 QrdLGzvpGFNjDsv9o+CxL7JTZFWEzfJBH2rQtNUqiwZqZ3hb5Qevr1Hc2scj+E6rbTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795440350;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:References:In-Reply-To:To:CC:X-Mailer;
-	bh=DBCFU9vOrJdstCRij3rT/Hl2Y7D7MQX+Hld/OsjMT7U=;
-	b=A6Gaa4mYVQr7hiUfd9EcHl6vb/V3v07Hm77JjTFL0azlFICb6yGBtKUvDotPKpr4B1ZQ
-	 1l4o9/7NZzpmce59nqq0sJPONVl7RgZkVZ45OccYgWCNlXjBkHUws2VWDCPQ5xgr1H/mm
-	 1nTSo4eTTRUMUrO7E5/tgGGaM/ZHkp2jR6+h/6+TDdRtMt0+X+haetZfJydUzmvhVk47/
-	 1JHZPGJR8tC64gVhtk9atYwGuk3CXfnC2elaTsaIHny05ZPf/E6vSff/aP61FxSUwMyTD
-	 tqnYizXwPV7rTtiLfMTfSxMMb0oseqk0NjZF+eZUQw6ZXqDoj6JkGnQ9PLgBwCOW03A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795440441;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=HJWW3lAYD4SS32dHbc78BmhWsFKqKKOPG4WVSgqL+ZE=;
+	b=OKZPc6CvTnQa0aPAwW8DW/D+CePnUcIlF/zKDI+y2VeaTjRr4Ck2GZA5wklwOPw0lRH6
+	 B51r7j+1MKTCASobdi3QA0v+3TRMbpG1ccu7LP72QNGmYAJ4CXJvJIrTZUCaBvCxgiu8Q
+	 ZFZw2veYgYPbtWJPAowshCT7KntYwFLJxQvRJ46VGpgG2+Dr/4LbOHqrO9/TmBAyzsd3G
+	 1KWHjvc9tVyWByeAxpEryBp6i0GOBWgOeOElrf+ho0YrI8Vx86rHH4qX9m1yzs3+whXBJ
+	 +Qto86T9tJ4kvXLuwjkGJ1sWVPrlt8cM3uqK4uPvJjfdgIXsihTIrPcn7IP3jmWfThA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b="rxywaiJ/";
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="VhAuS/1v";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2F3560A382D;
-	Mon, 23 Nov 2026 13:25:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2F3560A382D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C8E0606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:27:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=rxywaiJ/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795440350; x=1826976350;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=bBo0I05VdlQLgenPhmy0GmOEtXQJWt5VHRNZsb0qbBg=;
-  b=rxywaiJ/39syUj/eB3FAWCkthnE5JixUS8toA+l7qkYsj1BuTJKlGCPY
-   CNMpcOI9WJuXyxqhWV6XeLWcw4STdO+/i2iKyQx7Js+9EHsfgR4Qr9dgi
-   FiWt8bQwJg81A3r0z/PAZ+T6LgyDsP/TDyr1i6vba2Bzc0TfjfvEnc6ke
-   aVtDnvock/oAmrWNwRoHzq4he3/P13pGzDspiLI5vNEQ3Nvte66a5Uko+
-   qv1fdmsklnOuw0/kM14+smMaVvrWSBQhW9iF/DjEQ85BByxvnZ6vARTDZ
-   DTIIDNC5iKgjt6p5sEd0H10KTPjaxLIytyg9u1UeuXdbbOcJNiyYxhv0a
-   g==;
-X-CSE-ConnectionGUID: NDR+tIaTRs+D6MAlDHcSbg==
-X-CSE-MsgGUID: C0Yj1zaZTvqvnj4ZU5YucQ==
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="67154024"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Nov 2026 06:25:49 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 23 Nov 2026 06:25:49 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Mon, 23 Nov 2026 06:25:47 -0700
-From: =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
-	<jensemil.schulzostergaard@microchip.com>
-Date: Mon, 23 Nov 2026 14:25:08 +0100
-Subject: [PATCH 4/4] mfd: ocelot: Read LAN9645x registers in a single SPI
- transfer
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VhAuS/1v
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC2011F000EE
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:27:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795440440;
+	bh=HJWW3lAYD4SS32dHbc78BmhWsFKqKKOPG4WVSgqL+ZE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=VhAuS/1vfW959+qJtrgNkgsp9BQcjJ89ZYVRqF9lApBNYmRhuL1jCe/hQIJS5a0A9
+	 GUvRbCFV5jCYPWhITNYsRb0hDaVRh2HI/zspmCyG0VPj7XNguNNlfJTvH0XzOH7UEG
+	 BF82WauajIjmSlowZTIpfzv/tq1fCIdVNMavzRR7Yvsnku/5pj1grRKShsY944tZqX
+	 nzLvcA2wtkrxzNc5BhUyE4BaWOHGybHQdoD9QO0gC4PuWkFoAHBhXxhuKwd9c9BKwh
+	 Xfx0AA9pcn0cvfhU1SEo5z4KHHNUEa6S0eR3NGJPLo8oTih+RDbYCUqVMIl7LRNU1x
+	 i4C6uVAqqWqWA==
+Received: by mail-qk1-f176.google.com with SMTP id af79cd13be357-94962d80d34so207154785a.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:27:20 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHUNpBGjjj3h3itSpJ3h9UrrAh0QST0tUPH3o8TsQjvUUIV4HNeznKfVEEjj+QarEkudVpRxMQ8LMll8yI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+qCNL0XMkTfh0G7Drh4Z+ubTGYMMs2qN1V22Gg/dnPylf0A2Uh
+	fHC+U7rfFgEqMtCbZXc2hANsytkXmN/dAtrRbhihAbThhq6fY53nY8KvXNRTukQ1dVFdmcmNl4E
+	yf3fEOQ4fDqc9Gy1nGiala13gqCfVQ5I=
+X-Received: by 2002:a05:620a:31aa:b0:949:3066:5551 with SMTP id
+ af79cd13be357-949bac80948mr1952036985a.79.1795440439933; Mon, 23 Nov 2026
+ 05:27:19 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,213 +59,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-ID: <20261123-mfd-ocelot-add-lan9645x-support-v1-4-567d811fe1de@microchip.com>
-References: <20261123-mfd-ocelot-add-lan9645x-support-v1-0-567d811fe1de@microchip.com>
-In-Reply-To: <20261123-mfd-ocelot-add-lan9645x-support-v1-0-567d811fe1de@microchip.com>
-To: Colin Foster <colin.foster@in-advantage.com>, Lee Jones <lee@kernel.org>,
-	<UNGLinuxDriver@microchip.com>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Richard
- Cochran" <richardcochran@gmail.com>
-CC: <mfd@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	=?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
-	<jensemil.schulzostergaard@microchip.com>
-X-Mailer: b4 0.15-dev
+References: <20261116081403.216452-1-max.kellermann@ionos.com>
+ <20261116081403.216452-5-max.kellermann@ionos.com> <CAGsJ_4w3cP+tgCGhTFu5p27Wi-9AFCneQgwLUAUg7X-gvX=e4Q@mail.gmail.com>
+ <CAKPOu+-Pzp-ovWNq394yBD0Qa5zCLZjx=sE3ixLs+WLf4EgZBw@mail.gmail.com>
+In-Reply-To: <CAKPOu+-Pzp-ovWNq394yBD0Qa5zCLZjx=sE3ixLs+WLf4EgZBw@mail.gmail.com>
+From: Barry Song <baohua@kernel.org>
+Date: Mon, 23 Nov 2026 21:27:07 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4yV=RvOMqpmaxFJGeBorPm-mz1VGoTb7_dLs-4pvrD56A@mail.gmail.com>
+X-Gm-Features: Aa3M54pg3_5VxI8d6rS-DICxqkbqp2A05_T4kaagAVAVzN0pAmcXIWNuJR8gCys
+Message-ID: <CAGsJ_4yV=RvOMqpmaxFJGeBorPm-mz1VGoTb7_dLs-4pvrD56A@mail.gmail.com>
+Subject: Re: [PATCH v3 4/5] mm/mglru: avoid redundant rotations of young memcgs
+To: Max Kellermann <max.kellermann@ionos.com>
+Cc: akpm@linux-foundation.org, kasong@tencent.com, qi.zheng@linux.dev, 
+	shakeel.butt@linux.dev, axelrasmussen@google.com, yuanchu@google.com, 
+	weixugc@google.com, baoquan.he@linux.dev, baolin.wang@linux.alibaba.com, 
+	david@kernel.org, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, 
+	rppt@kernel.org, surenb@google.com, mhocko@suse.com, hannes@cmpxchg.org, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org, rcu@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-A register read is three SPI transfers: the address, the padding bytes
-and the value. The SPI controller handles each transfer separately, with
-its own setup and interrupt.
+On Mon, Nov 23, 2026 at 9:13=E2=80=AFPM Max Kellermann <max.kellermann@iono=
+s.com> wrote:
+>
+> On Mon, Nov 23, 2026 at 3:01=E2=80=AFAM Barry Song <baohua@kernel.org> wr=
+ote:
+> > I know it was my suggestion to avoid unnecessary calls to
+> > get_random_u32_below() unless we actually need them.
+> >
+> > You then pointed out that this would move get_random_u32_below()
+> > inside the spinlock, which I had overlooked. Sorry about that.
+> >
+> > Have you tested whether calling get_random_u32_below() under the
+> > spinlock increases lock contention?
+>
+> Yes, indeed it makes a big difference.
+>
+> My initial version which always called get_random_u32_below() at the
+> beginning of lru_gen_rotate_memcg(), prior to locking
+> pgdat->memcg_lru.lock (but some of these "bin" values would never be
+> used with this patch):
+>
+>                   &pgdat->memcg_lru.lock:     103487653      103501074
+>           0.06         301.90   195317628.84           1.89
+> 113777275      116290184           0.04         339.54    30052760.20
+>          0.26
+>
+>  Completed: 681 (success: 1, EAGAIN: 680, errors: 0)
+>  Elapsed: 61.23 s; requests/s: 11.12
+>  Latency: mean 713.05 ms; max 7470.24 ms
+>
+> With the get_random_u32_below() call moved inside the lock, however
+> only called when it's really needed:
+>
+>                   &pgdat->memcg_lru.lock:      99442644       99458122
+>           0.05         342.95   243043664.06           2.44
+> 102985677      104642320           0.05         231.58    34095676.89
+>          0.33
+>
+>  Completed: 548 (success: 0, EAGAIN: 548, errors: 0)
+>  Elapsed: 60.66 s; requests/s: 9.03
+>  Latency: mean 880.18 ms; max 3847.24 ms
+>
+> I did a few runs, and while there was a lot of noise, but the
+> difference is real and reproducible.  Surprises me, I wouldn't have
+> thought this would be measurable.
+>
+> I guess I'll move the call back out of the lock section?
+>
 
-Read the address, the padding bytes and the value of a LAN9645x register
-in one full duplex transfer instead, which removes the handling of two
-transfers from every read. The three transfer read works on the
-LAN9645x as well, this only reduces the cost of a read. The transfer
-buffer is allocated per regmap, so the regmap lock serializes its use.
+Thanks for testing, Max!
 
-With the interrupt driven Atmel SPI controller of a LAN966x host at
-25 MHz and a GPIO chip select, a register read takes 35.8 us instead of
-62.2 us, with a standard deviation below 0.1 us over seven runs of
-13800 reads.
+Yes, I agree. Let's move it back outside the lock, even if that
+means doing some redundant work. The cost of increased lock
+contention is much higher.
 
-Half duplex controllers and devices in 3-wire mode cannot transmit and
-receive in one transfer, so fall back to the three transfer read for
-them.
-
-Signed-off-by: Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
----
- drivers/mfd/ocelot-spi.c | 92 ++++++++++++++++++++++++++++++++++++++++++++++--
- drivers/mfd/ocelot.h     |  3 +-
- 2 files changed, 92 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/mfd/ocelot-spi.c b/drivers/mfd/ocelot-spi.c
-index 6d405627136d..4f2ef847c909 100644
---- a/drivers/mfd/ocelot-spi.c
-+++ b/drivers/mfd/ocelot-spi.c
-@@ -13,6 +13,7 @@
-  * Author: Colin Foster <colin.foster@in-advantage.com>
-  */
- 
-+#include <linux/cache.h>
- #include <linux/device.h>
- #include <linux/err.h>
- #include <linux/errno.h>
-@@ -45,7 +46,12 @@
- #define LAN9645X_RESET_PADDING_BYTES	15
- #define LAN9645X_REG_ACCESS_TIME_US	2
- 
-+#define OCELOT_SPI_ADDR_SIZE		3
- #define OCELOT_SPI_MAX_PADDING_BYTES	15
-+#define OCELOT_SPI_VAL_SIZE		4
-+#define OCELOT_SPI_XFER_BUF_SIZE	(OCELOT_SPI_ADDR_SIZE + \
-+					 OCELOT_SPI_MAX_PADDING_BYTES + \
-+					 OCELOT_SPI_VAL_SIZE)
- 
- static const struct resource vsc7512_dev_cpuorg_resource =
- 	DEFINE_RES_REG_NAMED(VSC7512_DEVCPU_ORG_RES_START,
-@@ -70,6 +76,12 @@ struct ocelot_spi_data {
- 	const struct resource *gcb_res;
- 	int reset_padding_bytes;
- 	int (*padding_bytes)(u32 max_speed_hz);
-+	bool single_xfer_read;
-+};
-+
-+struct ocelot_spi_regmap_ctx {
-+	struct device *dev;
-+	u8 buf[OCELOT_SPI_XFER_BUF_SIZE] __aligned(ARCH_DMA_MINALIGN);
- };
- 
- static int vsc7512_spi_padding_bytes(u32 max_speed_hz)
-@@ -105,6 +117,7 @@ static const struct ocelot_spi_data lan9645x_spi_data = {
- 	.gcb_res = &lan9645x_gcb_resource,
- 	.reset_padding_bytes = LAN9645X_RESET_PADDING_BYTES,
- 	.padding_bytes = lan9645x_spi_padding_bytes,
-+	.single_xfer_read = true,
- };
- 
- static const struct ocelot_spi_data vsc7512_spi_data = {
-@@ -249,12 +262,78 @@ static const struct regmap_bus ocelot_spi_regmap_bus = {
- 	.read = ocelot_spi_regmap_bus_read,
- };
- 
-+static int ocelot_spi_regmap_xfer_read(void *context, const void *reg,
-+				       size_t reg_size, void *val,
-+				       size_t val_size)
-+{
-+	struct ocelot_spi_regmap_ctx *ctx = context;
-+	struct spi_transfer xfer = {};
-+	struct ocelot_ddata *ddata;
-+	const u8 *regu8 = reg;
-+	u8 *buf = ctx->buf;
-+	u8 *valu8 = val;
-+	size_t off;
-+	int err;
-+
-+	ddata = dev_get_drvdata(ctx->dev);
-+
-+	if (reg_size != OCELOT_SPI_ADDR_SIZE || val_size != OCELOT_SPI_VAL_SIZE ||
-+	    ddata->spi_padding_bytes > OCELOT_SPI_MAX_PADDING_BYTES)
-+		return -EINVAL;
-+
-+	off = OCELOT_SPI_ADDR_SIZE + ddata->spi_padding_bytes;
-+
-+	buf[0] = regu8[0];
-+	buf[1] = regu8[1];
-+	buf[2] = regu8[2];
-+	memset(&buf[OCELOT_SPI_ADDR_SIZE], 0,
-+	       ddata->spi_padding_bytes + OCELOT_SPI_VAL_SIZE);
-+
-+	xfer.tx_buf = buf;
-+	xfer.rx_buf = buf;
-+	xfer.len = off + OCELOT_SPI_VAL_SIZE;
-+
-+	err = spi_sync_transfer(to_spi_device(ctx->dev), &xfer, 1);
-+	if (err)
-+		return err;
-+
-+	valu8[0] = buf[off + 0];
-+	valu8[1] = buf[off + 1];
-+	valu8[2] = buf[off + 2];
-+	valu8[3] = buf[off + 3];
-+
-+	return 0;
-+}
-+
-+static int ocelot_spi_regmap_xfer_write(void *context, const void *data,
-+					size_t count)
-+{
-+	struct ocelot_spi_regmap_ctx *ctx = context;
-+
-+	return spi_write(to_spi_device(ctx->dev), data, count);
-+}
-+
-+static const struct regmap_bus ocelot_spi_regmap_xfer_bus = {
-+	.write = ocelot_spi_regmap_xfer_write,
-+	.read = ocelot_spi_regmap_xfer_read,
-+};
-+
-+static bool ocelot_spi_single_xfer_read(struct spi_device *spi,
-+					const struct ocelot_spi_data *data)
-+{
-+	return data->single_xfer_read &&
-+	       !(spi->controller->flags & SPI_CONTROLLER_HALF_DUPLEX) &&
-+	       !(spi->mode & SPI_3WIRE);
-+}
-+
- struct regmap *ocelot_spi_init_regmap(struct device *dev,
- 				      const struct resource *res,
- 				      const struct regmap_access_table *rd_table,
- 				      const struct regmap_access_table *wr_table)
- {
-+	struct spi_device *spi = to_spi_device(dev);
- 	struct regmap_config regmap_config;
-+	struct ocelot_spi_regmap_ctx *ctx;
- 
- 	memcpy(&regmap_config, &ocelot_spi_regmap_config, sizeof(regmap_config));
- 
-@@ -264,7 +343,16 @@ struct regmap *ocelot_spi_init_regmap(struct device *dev,
- 	regmap_config.rd_table = rd_table;
- 	regmap_config.wr_table = wr_table;
- 
--	return devm_regmap_init(dev, &ocelot_spi_regmap_bus, dev, &regmap_config);
-+	if (!ocelot_spi_single_xfer_read(spi, spi_get_device_match_data(spi)))
-+		return devm_regmap_init(dev, &ocelot_spi_regmap_bus, dev, &regmap_config);
-+
-+	ctx = devm_kzalloc_obj(dev, *ctx);
-+	if (!ctx)
-+		return ERR_PTR(-ENOMEM);
-+
-+	ctx->dev = dev;
-+
-+	return devm_regmap_init(dev, &ocelot_spi_regmap_xfer_bus, ctx, &regmap_config);
- }
- EXPORT_SYMBOL_NS(ocelot_spi_init_regmap, "MFD_OCELOT_SPI");
- 
-@@ -296,7 +384,7 @@ static int ocelot_spi_probe(struct spi_device *spi)
- 				     spi->max_speed_hz, OCELOT_SPI_MAX_PADDING_BYTES);
- 
- 	dummy_len = max(padding, data->reset_padding_bytes);
--	if (dummy_len) {
-+	if (!ocelot_spi_single_xfer_read(spi, data) && dummy_len) {
- 		ddata->dummy_buf = devm_kzalloc(dev, dummy_len, GFP_KERNEL);
- 		if (!ddata->dummy_buf)
- 			return -ENOMEM;
-diff --git a/drivers/mfd/ocelot.h b/drivers/mfd/ocelot.h
-index fa02590a5026..5d0301f0b194 100644
---- a/drivers/mfd/ocelot.h
-+++ b/drivers/mfd/ocelot.h
-@@ -32,7 +32,8 @@ enum ocelot_chip {
-  *			reset default of the chip around a chip reset.
-  * @dummy_buf:		Zero-filled buffer of at least spi_padding_bytes size.
-  *			The dummy bytes that will be sent out between the
-- *			address and data of a SPI read operation.
-+ *			address and data of a SPI read operation. Not
-+ *			allocated when reads are done in a single transfer.
-  */
- struct ocelot_ddata {
- 	enum ocelot_chip chip;
-
--- 
-2.52.0
-
+Thanks,
+Barry
