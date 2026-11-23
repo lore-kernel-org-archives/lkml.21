@@ -1,79 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795393530;
-	b=kyyJVGZc/EZXaBvHmV5BSuG2q/AhARG9g/fheNqwBRrVNEUjvLJm2uViWoYVnXgI3Zel
-	 PDaTSuHTQQtvex3hx/Zwk50c16+BYHfkFkgGYYwfV+UE9vbnrqiKT4qML+WtWbG26QnGL
-	 H12VRxaBh0qeynmvlmGgduWxGEkGIskVIV46uH9VtF6udY//t8ttsQfY+hUrS72cFz8IV
-	 5P3EccdgZKuvA89yWN7xIQ8s/duc2EHxJOoUFQiRrkpxdi77601PcQbmHANW4YlLZuAvg
-	 4AbJlaOMcQgg/bxs9xD8yb/5qgVVuToXy8AfiOPy2156EbrAbB3sMkjJVqHjUwIlSzw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795393530;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=t5sjmNzdZvwicVQJuOhqDiEIz3EUeVD+Wp5FzaQ8oQ8=;
-	b=U1UQLzklc2aIUT2EMaqkejEsbL9jL4F4+QEmhfnMc2rw1g6qTpzpIowV3pNbQeQv5NRu
-	 uNNvglMu8NLQrA4akSNVLpmHvWaiZrJ4v2BVLy1/2lHudF+mE25lkcLkOHIzLfmwvGdSP
-	 sgapLK38ZQX4csk89yeWEHOsFhLBQfjayfmbrHRGH/as2UCUcWV6u39EPAiUM/xYssTcC
-	 t1HTQA3LGIRU/POnq7+zRM8KR71rWWXgK7Y7J7YCrLnKBOjUJUwiaPXMaEYI0PSbSM+Aj
-	 TKoyxcvxpx5Xa7UqWqSlsgFEjSMOG9U83PyvOjTvdzw7j66J1KSjNIuXptYOAV7sYQw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FT2Rwpth;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795393543;
+	b=EP0myJcI2vM5dAP6lpqELldz/udOKGtn3mCy/TpaQ9Y5uJEd+g9chPm1/4/u7YMGM+5S
+	 5i4VpxU7ZQguscS/C2yl5pw/RkT2QZzViZUaH+hKETmZAw11KmdNxGOIFt9xpQ1R45f4v
+	 /vXpLXCYh0db8T0LRwrJd9McN7qzdH9vP56uHGLvvmOAqk14vmebWZhhZKR/AzxO4v/Q/
+	 WjLecSMtX9rZ6A5axRjhRR5ZLYQ5+INBLNb6UIWtdOzLCc1Su6HIZBb0bDCbg9dqtbfas
+	 aUQDk2LkVGmMS/SW17nYDSIqtbhZ4cLavoSJjP3fTiyzy0MFtgWjtIYyl4iqi+zRf/Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795393543;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=rFGFyJlMM2hycCOeLd2pZeLmJL2ifKJTAEAyuF1Hf08=;
+	b=wXEDMFWmOuMPkC+lp5ScH+CSyoQZ+SncekzlDVSYDaW9kTobQYHSFb47iMm+2qj/Cg7S
+	 r+FX1PL+80wIJqrPcWKf5j3xmTa9YzLOdfLfg2IU9ickIY9kxaFdVIIO5Jw68JUWLPwpk
+	 sIym9NeqbMmY0Lpa1ZhbtaiuavMHFw8Rs5MDcgVu6ZUQ3CUvlTz6SrzHZ1DH3U8s5WNg7
+	 F0aKVwuXAogWBM22WjDtG+vPQV77f9ly3RuCioUw3FqNr4A3Z2Yq8viHLD/E6b0UA/WlZ
+	 XM3nvfa1R4u+5F8lHmtsWNd+cYQWia0H53JDf3P7yFN9DfCy5ZgnyRAGv6ytvj3pbFA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CEhgc8Rj;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1473C606A689;
-	Mon, 23 Nov 2026 00:25:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF32E606A31A;
+	Mon, 23 Nov 2026 00:25:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FT2Rwpth
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795393529;
-	b=rclHRqlUfuP742gRmqWG93PD4WFWpgaUN3HvwAZIZdab8uac2coBmNCGMgdW8y6Wyf3Y
-	 NPmm5lhun35jVmGIezqnSvasI4xgV6hS4+dwSqcRPZj76CyQAF7cm7y2WKLoyDQi/0FbX
-	 YAi9ibvNGqWhyroJBk3vKJm0jgyGQKTSpfpVTkTIbN3zZeGr3mhwFnznADkgrfDSQW2P8
-	 NErVcAC0rKRkSbwkI30xYGyZDXclmN0M25p1Z/AxykqeNm1e24QPUOp5TTCRAVZf+nInL
-	 DekuyS2hgDVZC59WkCQRD/wCSJr0HWknN2CNfzQJhCrmb4md0vZrkmSJQil2yAdV0eg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795393529;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=t5sjmNzdZvwicVQJuOhqDiEIz3EUeVD+Wp5FzaQ8oQ8=;
-	b=GgnGyN0r7RrsEJdmvX8ZUv/yrUXlFia3YrdfUEmS7+Adh8PsYUqm/TXXBOy1pKOVSujU
-	 aUUiuDYDQLKjBDeONGqJ+r/sOTYjE1tOuQ/BDMvNolQhi27QIyiV4Kjo+YyiWX+NbWLFf
-	 l8lOWcedAC/ofOYeZKXV4Yq/zwNZouaFw68VUL2m8/ymGFEnKMf85LpyXG+rE+P8KMktX
-	 bGUE64ZJQkgSUcnoYFcltIVq3il6OOvM7VSXEbl7FL2CHZ2vmbd8AJf2ZvByH6sTOuQf7
-	 2yqUl0Tmvml28J5XbwozUJ1T2W175o28uciJcaYwn5v0qhh8VLT0mslg6MTT/B0cq7A==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 403531F000C0;
-	Mon, 23 Nov 2026 00:25:13 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CEhgc8Rj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E3B01F000CF;
+	Mon, 23 Nov 2026 00:25:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795393529;
-	bh=t5sjmNzdZvwicVQJuOhqDiEIz3EUeVD+Wp5FzaQ8oQ8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=FT2RwpthbyjAmmpVB1YivIrhd5BvAd6vUio7JRVex3VmJGcLtNK4ZbAd37RBU8ER+
-	 HrHDae3Y6+ZG1+nWTE+En/5ExgnkLCAjfwqu13gyF98Yyt/lA9jXn8CmJjwfIGgbzj
-	 LurfVcn2gi+AmAKrjY/d++9CgFXGZvVO10bMhJbdaA+XtWGCxkQwCFcbk/VJwCcE7d
-	 ctgSdJfjS13E4Gn05/5lZdGJ+0z7kosB4+4lg/4Lx+b2r2Du9Rk3lCVhl4Y8HdsDjT
-	 lEOhht3QPd3dbykJtkFL6dX+5U9gq071YOi8pxq7AM/R+aJt0URpQqOXs9k2Y0KGYn
-	 1tLUpPTuViO1g==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id B50EA4C243;
-	Mon, 23 Nov 2026 00:25:12 +0000 (UTC)
-From: Mani Tofigh via B4 Relay <devnull+mt4022.columbia.edu@kernel.org>
-Date: Sun, 22 Nov 2026 19:25:12 -0500
-Subject: [PATCH bpf v2 1/4] rhashtable: Add trylock_irqsoff for callers
- that can't spin
+	s=k20260515; t=1795393543;
+	bh=rFGFyJlMM2hycCOeLd2pZeLmJL2ifKJTAEAyuF1Hf08=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=CEhgc8Rj7bXRxrF3lCeo9H52AZlytk+nH4eFDkekc1rC00J9s295zHLx+onNmvXU8
+	 /vrsGIWUK4zcdci/YuipELQjYkFCjz3UebuqpG9N3R4Y1tLkCcEG0F9bwQKf+rn/1H
+	 pEqv1C8NAOiKhHe0yh9AhiRSMtWlPyxWcUguoJY3AwfFKIF+PsZl5MnQLymfriAQTE
+	 sPv8KfT/2i0AB4RVuw3gxFdn6HrePUfX1WUtC87XksMynaxfAL6eJqpHXrn38o9PAF
+	 JQCh/jT4eacD18hnt/+Ap9TcQSywGIjvGgt97jOn75mYOOWJFeYRWbhdLwmJjKtYGQ
+	 zrs6dVwaQKN7g==
+Subject: Re: [PATCH net-next v5 1/4] ipv4: draw rt_genid from a sequence
+ shared by all netns
+From: netdev-bot+sashiko@kernel.org
+To: qiliang.yuan@linux.dev
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+ razor@blackwall.org, kuniyu@google.com, ralf@mandelbit.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 00:25:42 +0000
+Message-ID: <179539354213.3135.13464015676697562807@kernel.org>
+In-Reply-To: <20261121-bug-net-netns-move-rcu-barrier-v5-1-100a3b5d9090@linux.dev>
+References: <20261121-bug-net-netns-move-rcu-barrier-v5-1-100a3b5d9090@linux.dev>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,166 +64,183 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261122-bpf-rhtab-irqs-disabled-v2-1-207aedcc2215@columbia.edu>
-References: <20261122-bpf-rhtab-irqs-disabled-v2-0-207aedcc2215@columbia.edu>
-In-Reply-To: <20261122-bpf-rhtab-irqs-disabled-v2-0-207aedcc2215@columbia.edu>
-To: Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
- Mykyta Yatsenko <yatsenko@meta.com>, 
- Herbert Xu <herbert@gondor.apana.org.au>, 
- Andrew Morton <akpm@linux-foundation.org>, Shuah Khan <shuah@kernel.org>
-Cc: Thomas Graf <tgraf@suug.ch>, Eduard Zingerman <eddyz87@gmail.com>, 
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
- Emil Tsalapatis <emil@etsalapatis.com>, 
- Ihor Solodrai <ihor.solodrai@linux.dev>, bpf@vger.kernel.org, 
- linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, tz2294@columbia.edu, 
- Mani Tofigh <mt4022@columbia.edu>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795393512; l=4887;
- i=mt4022@columbia.edu; s=20261026; h=from:subject:message-id;
- bh=kMDLAvvhIMzxoCfNVIqmmi7a21lA07GVnSlSeg5xc/s=;
- b=XbJdmDt4RfIquhuztc53mw8Gdr8sLchZyPLeJF4gP/DQRVXdajgcFSkoNWvTRwsP1Nl64trMb
- gnFLRFWbQD8BUVmLsR8A/YOB61DQIt0N0s6jBzf1k6AuwveZwgh2g11
-X-Developer-Key: i=mt4022@columbia.edu; a=ed25519;
- pk=gljCMQDuxyKPmd5y37CRpEJGSPXDV1MyAnHBhCgXl0I=
-X-Endpoint-Received: by B4 Relay for mt4022@columbia.edu/20261026 with
- auth_id=1322
-X-Original-From: Mani Tofigh <mt4022@columbia.edu>
-Reply-To: mt4022@columbia.edu
-Content-Transfer-Encoding: 7bit
 
-From: Mani Tofigh <mt4022@columbia.edu>
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-A caller with IRQs disabled can run inside a bucket lock's critical
-section on its own CPU, e.g., in NMI or in a kprobe on the hash function
-that the resize worker calls with the lock held.  If it then inserts or
-removes a key of that bucket it spins on the bit lock forever.
+Critical: 0 · High: 0 · Medium: 1 · Low: 2
 
-Add rhashtable_params.trylock_irqsoff.  With it, inserts and removes
-called with IRQs disabled only try the bucket lock and return -EBUSY if
-it's held.  A caller with IRQs enabled can't run inside a locked section
-of its own CPU, so it still spins, and so does the resize worker.  The
-flag is a compile time constant in the fast paths like
-insecure_elasticity, so other users don't pay for it.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-On UP without DEBUG_SPINLOCK the lock bit isn't kept, so these callers
-always get -EBUSY there.
+- [Medium] rt_genid_bump_ipv4() in net/ipv4/route.c can return without
+  changing net->ipv4.rt_genid, so a requested route-cache flush is…
+- [Low] The commit message describes a netns-isolation bug in the current
+  tree, but the patch has no Fixes: tag and no Cc: stable.
+- [Low] The fix relies on every rt_genid value being unique across netns,
+  and that only holds until the global 32-bit rt_genid_seq wraps.
 
-Suggested-by: Alexei Starovoitov <ast@kernel.org>
-Signed-off-by: Mani Tofigh <mt4022@columbia.edu>
----
- include/linux/rhashtable-types.h |  3 +++
- include/linux/rhashtable.h       | 34 ++++++++++++++++++++++++++++++++--
- lib/rhashtable.c                 |  3 ++-
- 3 files changed, 37 insertions(+), 3 deletions(-)
+--
 
-diff --git a/include/linux/rhashtable-types.h b/include/linux/rhashtable-types.h
-index 3576b8f08aff..a5c4e696c193 100644
---- a/include/linux/rhashtable-types.h
-+++ b/include/linux/rhashtable-types.h
-@@ -52,6 +52,8 @@ typedef int (*rht_obj_cmpfn_t)(struct rhashtable_compare_arg *arg,
-  * @min_size: Minimum size while shrinking
-  * @insecure_elasticity: Set to true to disable chain length checks
-  * @automatic_shrinking: Enable automatic shrinking of tables
-+ * @trylock_irqsoff: With irqs disabled insert and remove don't spin on
-+ *		     the bucket lock and return -EBUSY
-  * @hashfn: Hash function (default: jhash2 if !(key_len % 4), or jhash)
-  * @obj_hashfn: Function to hash object
-  * @obj_cmpfn: Function to compare key with object
-@@ -65,6 +67,7 @@ struct rhashtable_params {
- 	u16			min_size;
- 	bool			insecure_elasticity;
- 	bool			automatic_shrinking;
-+	bool			trylock_irqsoff;
- 	rht_hashfn_t		hashfn;
- 	rht_obj_hashfn_t	obj_hashfn;
- 	rht_obj_cmpfn_t		obj_cmpfn;
-diff --git a/include/linux/rhashtable.h b/include/linux/rhashtable.h
-index 70dac9214617..e5f5b9385cc3 100644
---- a/include/linux/rhashtable.h
-+++ b/include/linux/rhashtable.h
-@@ -339,6 +339,32 @@ static inline unsigned long rht_lock(struct bucket_table *tbl,
- 	return rht_lock_nested(tbl, bkt, 0);
- }
- 
-+/*
-+ * A caller with irqs disabled may be inside this cpu's locked section (NMI,
-+ * kprobe, tracepoint), so it only tries the lock.
-+ */
-+static __always_inline bool rht_lock_or_busy(struct bucket_table *tbl,
-+					     struct rhash_lock_head __rcu **bkt,
-+					     const struct rhashtable_params params,
-+					     unsigned long *flags)
-+	__cond_acquires(true, __bitlock(0, bkt))
-+{
-+	if (!params.trylock_irqsoff || !irqs_disabled()) {
-+		*flags = rht_lock(tbl, bkt);
-+		return true;
-+	}
-+	/* bit_spin_trylock() always succeeds on UP without DEBUG_SPINLOCK */
-+	if (!IS_ENABLED(CONFIG_SMP) && !IS_ENABLED(CONFIG_DEBUG_SPINLOCK))
-+		return false;
-+	local_irq_save(*flags);
-+	if (!bit_spin_trylock(0, (unsigned long *)bkt)) {
-+		local_irq_restore(*flags);
-+		return false;
-+	}
-+	lock_acquire_exclusive(&tbl->dep_map, 0, 1, NULL, _THIS_IP_);
-+	return true;
-+}
-+
- static inline void rht_unlock(struct bucket_table *tbl,
- 			      struct rhash_lock_head __rcu **bkt,
- 			      unsigned long flags)
-@@ -785,7 +811,9 @@ static __always_inline void *__rhashtable_insert_fast(
- 	if (!bkt)
- 		goto out;
- 	pprev = NULL;
--	flags = rht_lock(tbl, bkt);
-+	data = ERR_PTR(-EBUSY);
-+	if (!rht_lock_or_busy(tbl, bkt, params, &flags))
-+		goto out;
- 
- 	if (unlikely(rcu_access_pointer(tbl->future_tbl))) {
- slow_path:
-@@ -1066,7 +1094,8 @@ static __always_inline int __rhashtable_remove_fast_one(
- 	if (!bkt)
- 		return -ENOENT;
- 	pprev = NULL;
--	flags = rht_lock(tbl, bkt);
-+	if (!rht_lock_or_busy(tbl, bkt, params, &flags))
-+		return -EBUSY;
- 
- 	rht_for_each_from(he, rht_ptr(bkt, tbl, hash), tbl, hash) {
- 		struct rhlist_head *list;
-@@ -1149,6 +1178,7 @@ static __always_inline int __rhashtable_remove_fast(
- 	 */
- 	while ((err = __rhashtable_remove_fast_one(ht, tbl, obj, params,
- 						   rhlist)) &&
-+	       err != -EBUSY &&
- 	       (tbl = rht_dereference_rcu(tbl->future_tbl, ht)))
- 		;
- 
-diff --git a/lib/rhashtable.c b/lib/rhashtable.c
-index 500c45cd1304..2dc13f0e2549 100644
---- a/lib/rhashtable.c
-+++ b/lib/rhashtable.c
-@@ -650,7 +650,8 @@ static void *rhashtable_try_insert(struct rhashtable *ht, const void *key,
- 		} else {
- 			bool inserted;
- 
--			flags = rht_lock(tbl, bkt);
-+			if (!rht_lock_or_busy(tbl, bkt, ht->p, &flags))
-+				return ERR_PTR(-EBUSY);
- 			data = rhashtable_lookup_one(ht, bkt, tbl,
- 						     hash, key, obj);
- 			new_tbl = rhashtable_insert_one(ht, bkt, tbl,
+ipv4: draw rt_genid from a sequence shared by all netns
+
+This patch replaces the per-netns atomic_inc() of the IPv4 rt_genid with
+values drawn from one global sequence shared by all netns. That sequence
+never returns 0. Each drawn value is published with a cmpxchg on the netns
+rt_genid, so a route cached in one netns cannot pass rt_is_expired() after
+its device moves to a netns whose rt_genid happens to match.
+
+> When a device moves to another netns, routes cached through it remain
+> usable until dst_dev_put() points them to blackhole_netdev. For a route
+> using a nexthop object this happens in nexthop_free_rcu(), which
+> free_fib_info_rcu() queues from inside an RCU callback, so the
+> rcu_barrier() in __dev_change_net_namespace() does not wait for it. If
+> the rt_genid of the new netns matches the cached one in that window,
+> ipv4_dst_check() accepts the route and a socket in the old netns keeps
+> sending through a device that now belongs to another netns.
+
+[Severity: Low]
+This describes a netns isolation bug in the current tree, but the patch has
+no Fixes: tag and no Cc: stable. Should it have them?
+
+The window does exist before this patch. free_fib_info_rcu() runs as an
+RCU callback, and from there the nexthop release is queued as a second,
+nested callback:
+
+free_fib_info_rcu()
+  nexthop_put(fi->nh)
+    call_rcu_hurry(&nh->rcu, nexthop_free_rcu)
+
+The rcu_barrier() in __dev_change_net_namespace() does not wait for that
+nested callback.
+
+The likely origin is the change that let fib_info use nexthop objects.
+Could the exact commit be identified and cited, so stable maintainers know
+which kernels need this?
+
+> diff --git a/net/ipv4/route.c b/net/ipv4/route.c
+> index d0930ae4c5ae6..ece931f7d9e4d 100644
+> --- a/net/ipv4/route.c
+> +++ b/net/ipv4/route.c
+> @@ -393,6 +393,42 @@ static inline int ip_rt_proc_init(void)
+>  }
+>  #endif /* CONFIG_PROC_FS */
+>  
+> +/*
+> + * Draw rt_genid bumps from one sequence shared by all netns. A route keeps
+> + * the genid of the netns it was created in, and is checked against the netns
+> + * its device is in now, so distinct values make that check fail once the
+> + * device has moved. Every netns starts at 0, which the sequence never hands
+> + * out, and inserting a route bumps the genid, so cached routes carry values
+> + * drawn from the sequence.
+> + */
+> +static atomic_t rt_genid_seq;
+
+[Severity: Low]
+Values from this sequence are unique only until the 32-bit rt_genid_seq
+wraps. The commit message says so ("until it wraps after 2^32 bumps"), but
+it doesn't mention that an unprivileged user can now force the wrap. Is
+that intended?
+
+sysctl_route_net_init() keeps the flush sysctl for netns owned by non-init
+user namespaces:
+
+net/ipv4/route.c:sysctl_route_net_init() {
+    ...
+		if (net->user_ns != &init_user_ns) {
+			if (tbl[0].procname != ipv4_route_flush_procname)
+				table_size = 0;
+		}
+    ...
+}
+
+After unshare -Urn, each write to /proc/sys/net/ipv4/route/flush takes
+this path:
+
+ipv4_sysctl_rtcache_flush()->rt_cache_flush()->rt_genid_bump_ipv4()
+
+Each write advances the global rt_genid_seq, and this is cheap to repeat.
+
+After a wrap, the genid that netns B draws can equal the genid cached on
+routes in netns A. One example is the draw at NETDEV_UP after a device
+move. A netns can also draw back the value of an older generation that was
+invalidated, for example by an xfrm policy insertion. Either case lets
+rt_is_expired() accept a stale route again.
+
+This is hard to hit on purpose. rt_genid is not visible to userspace, so a
+collision is roughly a 1 in 2^32 exact match. Per-netns 32-bit counters
+could also be driven by unprivileged users before this patch.
+
+It matters more once the later patch in the series, "net: remove
+rcu_barrier() from __dev_change_net_namespace()", removes the barrier.
+After that, genid uniqueness is the only check that rejects IPv4 routes
+cached through a moved device.
+
+Would a 64-bit generation be worth considering here? If not, could the
+comment and commit message say that unprivileged users can drive the wrap?
+
+> +
+> +static int rt_genid_draw(void)
+> +{
+> +	int genid;
+> +
+> +	do {
+> +		genid = atomic_inc_return(&rt_genid_seq);
+> +	} while (!genid);
+> +
+> +	return genid;
+> +}
+> +
+> +/*
+> + * Publish the drawn value with a cmpxchg on the netns genid, drawing again if
+> + * another bump got there first, so that a stalled bump never overwrites a
+> + * newer value and each bump is ordered after the ones it replaces.
+> + */
+> +void rt_genid_bump_ipv4(struct net *net)
+> +{
+> +	int genid, old = atomic_read(&net->ipv4.rt_genid);
+> +
+> +	do {
+> +		genid = rt_genid_draw();
+> +	} while (!atomic_try_cmpxchg(&net->ipv4.rt_genid, &old, genid));
+
+[Severity: Medium]
+Can this bump return without changing net->ipv4.rt_genid?
+
+rt_genid_draw() rejects only 0. Nothing compares the drawn value with the
+current genid of the netns.
+
+Say netns A last drew V. Other netns then advance the shared rt_genid_seq
+until it wraps back to V, and A's next bump draws V again. In that case
+atomic_try_cmpxchg() runs with old == genid == V. It succeeds, the loop
+exits, and A's rt_genid stays at V.
+
+The old atomic_inc() always changed the value. Now the requested flush is
+silently lost, and rt_is_expired() keeps accepting routes cached before it
+until the next bump.
+
+Callers that depend on the flush include:
+
+- fib_trie route insert and delete
+- rt_cache_flush() from the NETDEV_UP/NETDEV_DOWN and address handlers
+- xfrm policy insertion in xfrm_policy.c
+- rt_genid_bump_all() on SELinux policy reload
+
+Would redrawing while genid == old avoid this? For example:
+
+	do {
+		do {
+			genid = rt_genid_draw();
+		} while (genid == old);
+	} while (!atomic_try_cmpxchg(&net->ipv4.rt_genid, &old, genid));
+
+> +}
+> +EXPORT_SYMBOL_GPL(rt_genid_bump_ipv4);
+
+[ ... ]
 
 -- 
-2.53.0
-
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121-bug-net-netns-move-rcu-barrier-v5-0-100a3b5d9090%40linux.dev
