@@ -1,67 +1,44 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.88
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.224.83.146
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795396341;
-	b=gqFUXTFyYG6FE7rWw88aLzYzgLCT1w8UtIaFnF8ER8uNAIABrDSPGRDbwxqrf2Iml9rY
-	 5ilZ0b9O0sVQiWEz5EUwRRvlTf6hl/5gIsC0811NgfKMA4OdsuYxtfChfs1Ok2TkS/EMx
-	 U2FD5gSUw11lbuST+4cGAXZFPok2INoaAASuIGo8FMsMTUhUAT/4MPnZ1YP6RPzV2sslm
-	 y/eFZyUtMVt5+Ok9bDNVDyH9FgXJvbxCCUGeVqkGQ6m2YYjb+bhA2Ivd7L/jviW6yWV7i
-	 Lao5ZluH8Cm1iLel0kbNg8S/Xo5zR+xSfwXhAMngtLOs5Jj7Hf3F8Zx37eUPG1ud9Gw==
+	t=1795396376;
+	b=jz+db/PADeIA9PgpB1lAYdpSjzrPUmaay56wUt4rh4oMNfU5PJ9DvvCZLURK2/5eNWLh
+	 ZXAKmUNfxbiirGOIQi/Vw2Pubz6uC2B2YirVhQpWJKrzJo6cLVAKAxXrDhBSfT9Yv4Ba/
+	 8lkUOZ/XRvCHpgMmVPQMed/H1XzLx9GjrhigtbjqpN4FIJggl/u4Z7cJctO6mfc10wjuI
+	 XqUVGMNawBHGcmnDqLICOvrafgF2FOjjn0BlCIo5i8aOb40d22zX+GaKwryivcdpYJQf8
+	 1EjY6JEGd/DvjinaOy9CQOBjvbw4zJRLSVyvf0DNQjFjQFEAnhBatN/5R8Q5TGFiYsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795396341;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=J+HND5YBV7kChPbgIXL61bamk8iqt4LzJEz27wSwaas=;
-	b=SbUXPN2E3ltl6u2cyziIV7IPBWtuXqUeHPQb/N2sp/RsvWnjHcao4JhijwBbjtq/nsYS
-	 /G/fV2cWLL5hD0jN5fqBZVLlujum0quLqohCDCjf2MdWJHBcDiZvfBsfP7wK8bUwgdTRt
-	 BZ9XBdsg63nyuQec6Cc8yMnsP5CNP/I2HXfK1fcdSAWaOGgaVrX+9UV6Svt772dYr2xW6
-	 qJqStkpNLgrJUlwDE7hozRPrj9rP3zsxkhcLqDNYqtOdluIhWgrvgMIyLgcQ/sCWnY/Ku
-	 Ba6LUt511WD5ozlqymTryxpqD1vdAzZXCfCov9n4AHqqIZ/4Ns1vmUTmpnk4GJiYmyA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795396376;
+	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=0Gp1eyUb1TRq0HLGTC1lCi4kXREArXMUBnkCXCJmk+g=;
+	b=t8gisx50qKKd9GSNeLc5Sm+Y42ehUrX026NUC0+yUIJ3f1lSLIBpiOK62aC6Hi+jSOHC
+	 JJPhqXNMqo5Hryebg8u4Yyi6n1+K7FJvhPIL386Lu9tV2zPNE8mX2OleMmDisPzcGzqHS
+	 KcglUE5XM4aSwAKRdWNgBfZnBFUNE6LGGlWVWjA5e2fL96dL2VM76IuqNPF/f9ZyL2kT8
+	 /uyanvL5/Vkid7F5ULjmWtmu4ZATvk6helb/NNLsnVl8tYHnCsyT/UzBT4ygiAYmzuLuk
+	 ieAM960N5aFMgx426FlVZERDt5y7ENfBTvU9wrIsaZfEugg+NsPmNsZiuAhfHv9CLhg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=wyuan.org;
-	spf=pass smtp.mailfrom=wyuan.org;
-	dkim=pass header.d=wyuan.org header.i=@wyuan.org header.a=rsa-sha256 header.s=key1 header.b=J2WjZIB+;
-	arc=none smtp.remote-ip=95.215.58.88
-Received: from mta1.migadu.com (out-88.mta1.migadu.com [95.215.58.88])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=rock-chips.com;
+	spf=pass smtp.mailfrom=rock-chips.com;
+	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=XfVFItQf;
+	arc=none smtp.remote-ip=156.224.83.146
+Received: from mail-m83146.xmail.ntesmail.com (mail-m83146.xmail.ntesmail.com [156.224.83.146])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88C60606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:12:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88C60606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=wyuan.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wyuan.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 199BF606A31D
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:12:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 199BF606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=wyuan.org header.i=@wyuan.org header.a=rsa-sha256 header.s=key1 header.b=J2WjZIB+
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=O5EPEU02cgGPXQzJa27xqcB4cI8/JMpEsqVMlNnHGcA=;
- c=simple/simple; d=wyuan.org;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795396338; v=1; x=1796001138;
- b=J2WjZIB+68KWnSeS+N4ktIcRo/uieQMzTNG28RqnpCkl2B5QeY39C/k79X1v5tveYfhrWMGJ
- Z0s8Sisi3XTJ7Wi7Z/t+x7fwc0NHPtummzhG2x3LK3eYQ2f23CsZTQzVSGQNwkKRIcVynbwkmPs
- IkGHMOiKzxbDM2YrbUeJXlb3b4uCwrUi5no6u9oJoxmhtSuFO+xSbWVazLmnbslZTAOjriAeudM
- kmByfaIb/Eu7govPa9b1xn2h9yCes8s/LG3b3VFkjjDUvakGfpItr3GGjbYT8DeJk69EnoJ9iFS
- V6w7eMcssMwrUrNabHycw2GS/x5DLt8I1/jSxrlNmrv1Q==
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id d9fdd380da22c5a6;
-	Mon, 23 Nov 2026 01:12:18 +0000
-X-Mizu-Trace-ID: d9fdd380da22c5a6
-X-Migadu-Flow: FLOW_OUT
-Date: Mon, 23 Nov 2026 09:12:11 +0800
-From: Weijie Yuan <wy@wyuan.org>
-To: =?utf-8?B?6JGJ5a645L2R?= <chenyou910331@gmail.com>
-Cc: Alex Shi <alexs@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Dongliang Mu <dzm91@hust.edu.cn>, Yanteng Si <si.yanteng@linux.dev>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 02/25] docs/zh_TW: process: sync 2.Process.rst with the
- English original
-Message-ID: <awOS692gFhyjK5Md@wyuan.org>
-References: <20261106113142.706783-1-chenyou910331@gmail.com>
- <20261106113142.706783-3-chenyou910331@gmail.com>
- <avR8baubOL7Aoeh9@wyuan.org>
- <CAKspUhKRkx_UW9mep2h2HuDy5Rj7OwurdsmEe6+1f04Rv=2YWw@mail.gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=XfVFItQf
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 5594437e6;
+	Mon, 23 Nov 2026 09:12:44 +0800 (GMT+08:00)
+Message-ID: <04e31b87-e766-4fb8-a361-0e92b1ab12ae@rock-chips.com>
+Date: Mon, 23 Nov 2026 09:12:42 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,36 +48,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAKspUhKRkx_UW9mep2h2HuDy5Rj7OwurdsmEe6+1f04Rv=2YWw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] drm/rockchip: dsi: enable RK3506 PHY data lanes in GRF
+To: ZhuXiangyu <1194781887@qq.com>
+Cc: Sandy Huang <hjc@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>,
+ Andy Yan <andyshrk@163.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <tencent_C4C715C962613597F98212938F8940633306@qq.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <tencent_C4C715C962613597F98212938F8940633306@qq.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0aa205f6674d03a7kunme2eb5a24b4b784
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDQkNCVh9OSUMZQkJCGBgfHVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=XfVFItQf3zmtTWT5dWXxy2+IBA8SoihxLBFhsNLWJcR0kd+7H5NxCN2UyNu0YbRlNkuiCF9rw4bezgW1BndNvr62M/1nDpAcngQmjKtky4966raCiSNBJY9/C7Wgv5JxF8h18TGc6sW32EFQM/dv5qqsrGHFw04XfoWBG7cS2Is=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=0Gp1eyUb1TRq0HLGTC1lCi4kXREArXMUBnkCXCJmk+g=;
+	h=date:mime-version:subject:message-id:from;
 
-On Thu, Nov 19, 2026 at 07:49:33PM +0800, 葉宸佑 wrote:
-> On Wed, Nov 11, 2026 at 10:32:13PM +0800, Weijie Yuan wrote:
-> > The Enlish version uses tab here, not space.
-> >
-> > Is this a big deal that requires a reroll?
+On 11/22/2026 1:10 AM, ZhuXiangyu wrote:
+> rk3506_chip_data currently only clears the turnaround, force-rx, and
+> force-tx-stop fields in RK3506_SYS_GRF_SOC_CON6. As a result, the DSI
+> PHY data lanes remain disabled unless the bootloader happens to enable
+> them.
 > 
-> You're right, the English text uses tabs there and I expanded them. The
-> rendered output is the same, but the translation differs from the
-> original for no good reason, which also makes future syncs harder to
-> compare.
+> Set RK3506_DSI_PHY_ENABLE_LANE0 and RK3506_DSI_PHY_ENABLE_LANE1 in
+> lanecfg1 so the data lanes are reliably enabled by the driver.
 > 
-> Since I need a v2 anyway (see my reply to 03/25), I'll restore the tabs
-> on the lines kept verbatim from the English text, i.e. the URLs and
-> Andrew Morton's quote. For the two tables I'd like to keep spaces, as
-> their rows contain CJK text: editors and docutils don't agree on where a
-> tab stop falls after double-width characters, so tab-aligned rows easily
-> end up misaligned. Does that sound OK to you?
+> Tested on an RK3506B board: the panel receives the low-power init
+> sequence and the framebuffer console displays properly.
+> 
+> Fixes: cabeacc7eadc ("drm/rockchip: dsi: Add support for rk3506")
+> Signed-off-by: Xiangyu Zhu <1194781887@qq.com>
+> ---
+> Changes in v2:
+> - Split out from the combined drm/phy patch into a standalone drm
+>   subsystem patch per Heiko's review.
+> - Limit recipients to drm and Rockchip maintainers/lists.
+> - Fix Signed-off-by author name formatting.
+> 
+>  drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+> index 30d6f83c..116cc140 100644
+> --- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+> +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+> @@ -199,6 +199,8 @@
+>  
+>  #define RK3506_SYS_GRF_SOC_CON6		0x0018
+>  #define RK3506_DSI_FORCETXSTOPMODE	(0xf << 4)
+> +#define RK3506_DSI_PHY_ENABLE_LANE1	BIT(9)
+> +#define RK3506_DSI_PHY_ENABLE_LANE0	BIT(8)
+>  #define RK3506_DSI_TURNDISABLE		BIT(2)
+>  #define RK3506_DSI_FORCERXMODE		BIT(0)
+>  
+> @@ -1727,7 +1729,9 @@ static const struct rockchip_dw_dsi_chip_data rk3506_chip_data[] = {
+>  		.lanecfg1_grf_reg = RK3506_SYS_GRF_SOC_CON6,
+>  		.lanecfg1 = (FIELD_PREP_WM16_CONST(RK3506_DSI_TURNDISABLE, 0) |
+>  			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCERXMODE, 0) |
+> -			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCETXSTOPMODE, 0)),
+> +			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCETXSTOPMODE, 0) |
+> +			     FIELD_PREP_WM16_CONST(RK3506_DSI_PHY_ENABLE_LANE0, 1) |
+> +			     FIELD_PREP_WM16_CONST(RK3506_DSI_PHY_ENABLE_LANE1, 1)),
+>  		.max_data_lanes = 2,
+>  		.max_bit_rate_per_lane = 1500000000UL,
+>  		.dphy_get_timing = dw_mipi_dsi_phy_px30_get_timing,
 
-Yes yes, please, using spaces are more friendly to CJK text of course.
+Reviewed-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-It reminds me the discussion a while ago:
+-- 
+Best, 
+Chaoyi
 
-https://lore.kernel.org/linux-doc/akn4oYmihmNHFOY7@wyuan.org/
-(Ah, seems that my ideas at that time was not accurate)
-
-As long as it doesn't annoy sphinx, I think it's fine.
-
-Thanks for bringing this up.
