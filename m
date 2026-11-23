@@ -1,92 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795436560;
-	b=qEFtJxituGZ4lVOIWZ0nuKEyMSZrXcuRtfgxQJRFpD6VSzX4BQy5fSbn0DkHEMtj4tXE
-	 an0WXwmAYrVwpFhzgfz/3jLBtw/KIBjLSBo7L2cXE5oEi+J+IblKltm3sJ17N7PA973+a
-	 jvbQObYvZQr9w8MWWaDk3n9bWdEpPb8d+3HA+GLnBct4Xun+DeSr3ybt1RCCj6zuOj8r3
-	 bRfUD2V0aWbn1naVjutMLaBqFctA2IfuEVVUIK4yMffwlICPc9uzj7zsTZZc3RZ0H6txI
-	 qIgK6qKvLYTjOaly3dWuQwDAaLNy/asU6UfkQLIEEwnDiZ/BLNyUm3A5zEBB/jSBgHA==
+	t=1795436575;
+	b=E0RPP6GcsDs6Yo7QCStbVkew9oMOG3NYtuOB6raX7wCIg9Vjl1CJHsKvcuiDqeidR81C
+	 r5u6mhxuwN+PhSexyjt2YCy/Dy3KlDg4ykL7/8jNvjysmCYCevBT7HoHJprQasXThGVrG
+	 X36XC6VS9IAA0FGgDxtpE2hgI01mSoj42Wyos9PgEsfJkqNZHZhrNuHAI9y8ruQ6dUJG9
+	 bw8wZazi3vIZ7a5t87M8AVG5FfF4wvKrM7XASTrY34NNWDx9YT0QsGWmikn9PPswFtrd5
+	 cyOz3n9ZdfYolmPMANSVgnluwzHaPoCqqTJZAG8z9rf2jK88Qc1NhPasWVSmNEFuGUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436560;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer;
-	bh=Z2brmbtPSn0eJYb2F1hknHyThriPLBF9yzs2QocOyug=;
-	b=uY60zqf+Up5ThDDi3RG853AtYJKUkNo20cty3HCHbtRHW835iNCuNG+XH54VT1HzF4VQ
-	 IsFDCV0kyCyCsqNEjfH6njgL42sf76CFNzv/XVab36A9h8NU0p46UidCt0sK7bWNxE0s5
-	 Pgtsy9fIKntIxll5M4azOraxLvJe6dWLHMEruGlC8JSWn3vVMVE17uPQVPQuwybKuPt6T
-	 WxajJcodoWtQ0uvEKhChD6prhIKi1seeMfI8dPjp1d5+oiE81MLjlL8UjR+aP39dig5zO
-	 7KPTe9EeElaRdJeDrsarGWwhrBGCyIq+cyz9oUhnOrl8HYd9g+PSXSKvnA23k59hSQA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436575;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
+	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
+	 To:X-Mailer;
+	bh=GUmWSh6uTeixFFkyYnWFbJ+QiEm7Y6IWZTbXXFJX8T4=;
+	b=xaxAAFztWn3AAx6KogqX/VbACvczhamMitPLsRzGHDAiW5tSsOY1m+9XgXaZ+pf6v96z
+	 TB6UPJ1eEhljQZQrGKSHMBANs6rvhaXKcRitQRrU5RlbGxwgzvM8dJKUDCclzW8uhXNdc
+	 rF49TdjVEkkUgEIKReG2X2yuob3RWs2rTYC82e8ISYuV+PngHoei5hQNOP8eQpkLmjX4D
+	 zEJXHWzNumIbyVA7S9n7ktFTMWZST9orJ2dEXIdgQV1WJYnw8fAtI/M/uO01zxWfDUfcK
+	 kgn/43boXZuQDLhQ0cwLKkeqyhPaS0KwA1SOPBi5mSBwsR10QZzr0mVuyRcQJ+AB8Iw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Qvt8c6hi;
-	arc=none smtp.remote-ip=74.125.82.44
-Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oal93E9h;
+	arc=none smtp.remote-ip=91.218.175.197
+Received: from mta0.migadu.com (out-197.mta0.migadu.com [91.218.175.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0019C606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:22:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0019C606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A8DB606A32C
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:22:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A8DB606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Qvt8c6hi
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-15dd124bbe7so1832109c88.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:22:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795436559; x=1796041359; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Z2brmbtPSn0eJYb2F1hknHyThriPLBF9yzs2QocOyug=;
-        b=Qvt8c6hihidJCuJ1sVwrhX0RFVJdWVuSpRWDc+poAgEmydoQ+be8S4LETfEJGc+T9S
-         AfxunBYJfyQHMuVWUg24qcDGiOV2mIQbrvq37ticLQ9HiLBFScubJoZMRd1Wg1/+H8NA
-         RH+FeBPm5zSYDTqMY3DcJLp46uMbPJgw9WfaIOpCgTO+r5JC2mrLUG2OyX+brwLCiDZp
-         2eJ063qXBxiDK67RsDE95mHk0IT26GBoi+FxU1vkpDB2lNAHZ8Lb2gsKy40KhOLREdur
-         Yzfb0/SeI0GnqUKAGbMw4Gmq0lz8LacqDO+FUXrJ3pFLJiVl9+8kS5V7MAKYeG/eLVbH
-         2i0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795436559; x=1796041359;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Z2brmbtPSn0eJYb2F1hknHyThriPLBF9yzs2QocOyug=;
-        b=q8l+ManMmDvLiWisg8WU8i+0yqIH5pVihYyf0KhDxzSSvT7/qXwbYnmL+IwZGyS+yV
-         HWSNtg+ul5nL1IG12oJA4KGRXo29Ds1oODQR7ZFv34NhqwA6zzdOigdwWLlVJ/d9DMhY
-         ImOs3F3v7eGlT1JtuDaGLo1Il9nrDT1vSLjvMyog6rX3vWyQlgQDrnmxucPYlej9WQ05
-         4LR+QrGdTupBgrQ8ZvrGhaeKoabUe7TNqWhKvZBlG0/qxGiOMJvpVIx/hWBZTiEKUr/g
-         R5Voesa/dpeXyhdHDulaMZ29p0zG6SjWAzmhYeUP36zPAJWifbiuWvDSUMMev91vy3r3
-         kKhQ==
-X-Forwarded-Encrypted: i=1; AL+hErEEVMeQmscn2tNAEWTwNJsrgI8ZDjFK6Tz55M+GWvwv7FMPinJN7ea4jqbHUTVrs42cVUsDlRPYwTTS1GA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+uSbI51/zldMgBWYqN5syX8AFmQqbCJuk5QmOKDvEnFhyaCZzx
-	ePqemwHCNj9KqlhLMKQUFKtCEXyTG9NOkF+vua64xbWgOdO5Myz+CafL
-X-Gm-Gg: AZFdTZejAyr27dHhfkalWjKXdfJwni6khccug+t01hnC/L0wgeNRRTYeRUSo+RDAhYD
-	voXMHozpV9QTMi/dccmhDmSslFjuDEMYzoEevSu3TYQ/xY9iFjwBtMEnwccLUMYqX5n1kfcrwLM
-	jWj8C8HPV5jBjlf0uqljpmAZTnCJJWo1sPpDMhyMdHUxSXFYmvcHnZVS6XOTaQYJulXcc/h2ney
-	V9otOQWoLVpngGdYmPLljcJpbpxFhtXEUwIW7Vqh/Z9MgnsnbRU3EmkuCOFIEAG6YcGUK4foEZH
-	+aNtvDyG+5vD+kQ7668UaAECW/r1NqITvcw/0H8cXCkR/Y4LuBIXsEGgOf8gXYBasHd1vdQwX4L
-	yg87+m8OEiumKy7mp4l9xfsYoq1u2S64mhiA6d6bZH6pk4LdBCCSA9+D46zO6HO7f5j23JZZtX6
-	XySOFHYf582sVkcuvfjq7Dsg5pNoMjm4tShlQoPxCgxvj9Rl4woo0CV18eXEYERKRDQgRoVMQSB
-	qDK/sKnmYJ7d5svde3ibUW55vAL4323Y8D44MvgFehfDofzSJVPHuv2r/9cuZz7y+uxMsnpKUvq
-	1p5k+1UzewE5kRdvBz14OvEKEg==
-X-Received: by 2002:a05:701b:450f:10b0:1a7:78a3:bda8 with SMTP id a92af1059eb24-1b56f87ae87mr4215314c88.27.1795436558585;
-        Mon, 23 Nov 2026 04:22:38 -0800 (PST)
-Received: from [127.0.1.1] ([161.33.196.121])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c1142sm27463157c88.2.2026.11.23.04.22.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 04:22:38 -0800 (PST)
-From: TAKANO Mitsuhiro <takano32@gmail.com>
-To: Weijie Yuan <wy@wyuan.org>
-Cc: amd-gfx@lists.freedesktop.org, Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, Alex Deucher <alexander.deucher@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>, =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Thomas Huth <thuth@redhat.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, TAKANO Mitsuhiro <takano32@gmail.com>
-Subject: Re: [PATCH 1/2] drm/amd/display: Document the union in dc_probe_status
-Date: Mon, 23 Nov 2026 12:22:35 +0000
-Message-ID: <179543655559.4100066.12937692101747026786@gmail.com>
-In-Reply-To: <awO-665NEGdZtq1z@wyuan.org>
-References: <20261121041427.1743954-1-takano32@gmail.com> <awO-665NEGdZtq1z@wyuan.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oal93E9h
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=HBiS2kYF8PVr+vkQZ7k/tuC2TvlwZKRHilWszpQnZcg=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795436573; v=1; x=1796041373;
+ b=oal93E9hrbrvToGf8btCaPuf8tsAauiJkAeAIN4xbW6hAPzHSIlO7tyEFJJJINeBwKyjUuzR
+ Pj7j4x0zUY5oCYaN74tJN48MqYohM1lea8nWqb4tcWkksmqQMQ7uP3rGWN30XWtk4BrxD23iMvo
+ Re/LM53lMMy229SlyvQKYDcw=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 7dd95ba535c2c3e9;
+	Mon, 23 Nov 2026 12:22:53 +0000
+X-Mizu-Trace-ID: 7dd95ba535c2c3e9
+X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain;
+	charset=us-ascii
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,17 +57,69 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: kpatch-send.py
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH v5 1/4] mm: list_lru: index per-memcg lists by memory CSS
+ ID
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20261123105334.2524066-2-qinyuntan@linux.alibaba.com>
+Date: Mon, 23 Nov 2026 20:22:36 +0800
+Cc: Muchun Song <muchun.song@linux.dev>,
+ akpm@linux-foundation.org,
+ Johannes Weiner <hannes@cmpxchg.org>,
+ mhocko@kernel.org,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>,
+ mkoutny@suse.com,
+ David Hildenbrand <david@kernel.org>,
+ ziy@nvidia.com,
+ baolin.wang@linux.alibaba.com,
+ usama.arif@linux.dev,
+ david@fromorbit.com,
+ Qi Zheng <qi.zheng@linux.dev>,
+ yosry@kernel.org,
+ nphamcs@gmail.com,
+ chengming.zhou@linux.dev,
+ xlpang@linux.alibaba.com,
+ Kairui Song <ryncsn@gmail.com>,
+ gourry@gourry.net,
+ cgroups@vger.kernel.org,
+ linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+Content-Transfer-Encoding: 7bit
+Message-Id: <4520D630-10BD-4D66-9FDF-279A07F5A4C0@linux.dev>
+References: <20261123105334.2524066-1-qinyuntan@linux.alibaba.com>
+ <20261123105334.2524066-2-qinyuntan@linux.alibaba.com>
+To: Qinyun Tan <qinyuntan@linux.alibaba.com>
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
 
-Hi Weijie,
 
-Thanks.  Moved the AI disclosure below the --- in each patch, so it stays out
-of the commit message, and put it in the cover letter too.  Re-sent as v2, in
-a new thread ("[PATCH v2 0/2] drm/amd/display: document two members of dc.h");
-the diff is unchanged.
 
-TAKANO
+> On Nov 23, 2026, at 18:53, Qinyun Tan <qinyuntan@linux.alibaba.com> wrote:
+> 
+> list_lru uses kmemcg_id, a copy of the private memcg ID, to index its
+> per-memcg lists. kmemcg_id is only set when kmem accounting is enabled.
+> Non-slab shrinkers need an index that also works with cgroup.memory=nokmem.
+> 
+> Use memcg->css.id for non-root lists. The ID stays allocated until the
+> CSS is freed, so disabling and re-enabling the memory controller on the
+> same cgroup gives the new CSS a distinct index while the old CSS is
+> still referenced. Reserve index zero for the root, which uses the
+> per-node list directly.
+> 
+> In list_lru_walk_node(), hold the RCU read lock across both lookups so
+> the CSS ID cannot be reused between them. css_from_id() can see a CSS
+> before its online callback succeeds, so check that the CSS is online
+> before taking a reference. Drop the RCU read lock for the walk and
+> keep the reference across restarts to recheck the same owner.
+> 
+> Remove kmemcg_id and reparent the lists before the objcgs on memcg
+> offline, including when kmem accounting is disabled.
+> 
+> Signed-off-by: Qinyun Tan <qinyuntan@linux.alibaba.com>
+
+Nice cleanup.
+
+Acked-by: Muchun Song (ByteDance) <muchun.song@linux.dev>
+
+Thanks.
 
