@@ -1,98 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.12
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795430805;
-	b=B0DdPe2bo9acLtadG42YJCrOwiKyjn+snqhT9IpAw7ZhOXtCGaa/vyCeknFMsii2+dT7
-	 dyLOnLV6BwtaoRHRnrqUAr52YUk2OO1LOwb5/kB/Pvx88abtPDQkZR3+565o2FYKbQj8v
-	 VvixR9hGkEQC6x3mDnb6DdCaxEh3KPqhG6ZUHuqqb1nPhHtqIbexgDRKLJ/tqnDHY0iJo
-	 r301ePdf6Oc3Ne64E4mX/Cz1l4MHFiyCCtpKSBLl4fZ2zxAKXQRD+9HsOhG9oCWMCeelI
-	 I2TARCeFj/PEgUUS47pgT2jOlaKyT7aH/+JCEvDVKfZ6PElbps1wpw5c9B6rp8sUhuw==
+	t=1795430829;
+	b=qBmSB1HlWCKhq39gqX9Mb4sT+fzlIbl35v+hhwA8CQvogLkmx+ogr9ViW0FPVoJqx9EG
+	 sFocpOop844XxFhLYg5+zz2/tpCLl1CQVFTyIWbl/fy+Y7HL8khdNJZM9vDchxj/vgxy+
+	 KCm0fEsANEY+M3azBU3PL4pgHx7Utmz4izBNx11BXmFxNGHkecoAXNxYXCoFyehaadgo1
+	 Ew+MnRAQPfHGynHLszFv0Rlzhn6S29m2/t8T5V5nSBupYUJua1zcPG+qbMY3Qx/7JrN5M
+	 A2TNVuKDIZg2137qBmodxQSxgz5XR9Gw1K9Feck3BdqayK3LVMOsMKrrc4BN9deCBnA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430805;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=AOObROQUJb56vGpxps8TrQAgu6J9Wp/MDFghOPRMBs4=;
-	b=UkxOvcpaDgfEQhAPev1qvj4v0bA5iS6scNnG3D1R33BOaYvL07dgjf7nAbINbYyY7y1i
-	 GnFm068BKic/DXsrD5J9zV5Ng1XFfAj070QYZH42e8XL/oL3ixEUesJjuU0lCHYqWaEQI
-	 sCVmUxEU/FUG6KMA6yxjJxC/at08iWGYSAY7W6dZ5DWnDW73ri3SUKfp4xWuYBFGXAuKt
-	 2cximS6qpfJ0VOQBlAK56wVNa66Wbk0Inv88CP9ODGxO6yzIjK8NbqCkEP/WndAeDHyDH
-	 AVt1pnzTb3qUr9QZ29zMdWrJjrrCt7uifzRt3gueaF1a/NMG8nAjwrBfUobXfi9o/Ww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430829;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=lJTNJvK/vFyDGMC4BFIud7Ij0yzJ3uEUnuTL/MBh418=;
+	b=Lz5ldXnrf1d0Rd7CewVi6J/fZPUBGyldWNflCZOr/DSaIIeDbxBLgYCUwkPDqkv2kj7t
+	 wmeAB6WWEOaNw/SQEwmNqueSb1ID40sPimlc4XxXqfxrJYwpWnLvxpgMpZFXDd4RtHreZ
+	 A3jOXN5ICtPHHd/l1+iTEf53nLV+JmOhnoboMKmMgpwfesxgNNbjYVW9wiZZwanf1z/TW
+	 5KAjG6hPJaDYp5jOqiPmD6suBgx4Vl/fiLogDZMqJZ7wIcWcknJhur/guZXR43TL5Ax/3
+	 8Shb0LsW2hXpUJM0Bmx0OKjuc+uNSKMZInmG6IUSAh6172RmPa8JxzzMeOZ5KJWHiUQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=fu2A4vqV;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.12
-Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010012.outbound.protection.outlook.com [52.101.85.12])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iicDxWmx;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAABD606A31E;
-	Mon, 23 Nov 2026 10:46:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BAABD606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C40B9606A31A;
+	Mon, 23 Nov 2026 10:47:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=fu2A4vqV
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DGHzZbVwyUsADuMDijEBfu0vbI6jHB11IiJzQn8LxdIB4F47iS2bAAovX0f2Gqm3Ode6XLc1WM9x3z++fyQVq880xoL9PxaJmb1JCzxljGYTIFW2ruwS1z7aH+0ppEd8ee85lWYmp1Khu1oVzyI0dbV/iVBR8ustseJ2C8E9OBxAlt054MTiL6RJjRLz+9evDqauOATYtTffxnq9gVdxcwOgOFG9JWguNxoy8Q5y8cFsVkseh9LYmxta0CLU0XBAwNPq0Qtw+ld48cT7wume5BWMS9VJcznNtcIRgIV03oUjTL8s4T3S8Hc06txd7o+Z1BMuSF78CU+WJBBYbHzemQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AOObROQUJb56vGpxps8TrQAgu6J9Wp/MDFghOPRMBs4=;
- b=dXj4cFnCW+g1sziE6tjgAXBxDylQaCQ4bi8cRZtEwr4iE50FiuDtdf2X7VDSGLzy9ncbdnV3BcU1ddB1Kiv7GZ5xvoxDCJrepyvgO3RHuVjx4HxdaGm1gVnKsVKwUSDJldcPw2qOILsycD/KQGI4jBUJYY4IqIsY/CC3bEebyPJlBuPiZ+74NLLX4GIvftGgoALSOT9wsiIPGM/2mJGoCIyIjAIWivgTMR4z/Bapq8Wk5ythOFfWUKbysJtew/U2sueGPIf1mmghlUa+IUTtApEH7HGkkNi/wCei/pvr7Xwarf85+tF/R4nLKSAKcUZDeSTJSv07DtCzj94Gei3t5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AOObROQUJb56vGpxps8TrQAgu6J9Wp/MDFghOPRMBs4=;
- b=fu2A4vqVzkrYsgCE0g+jqGGYJTEwq7hlRLc/JR/HvXcRPMR2EzpzotBHraIi5VWPlNIkm5BlsAu/5P9hhb0gSud4GSeLFmaYqL1BjScVjNE6TjknKt48W4H9SWGZzfkH7r+nyGaabfWryXr+3SYjYGKEqJAaKdU+YNcgk08W1P4=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from IA1PR12MB292992.namprd12.prod.outlook.com
- (2603:10b6:208:5a1::21) by CY8PR12MB7491.namprd12.prod.outlook.com
- (2603:10b6:930:92::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 10:46:39 +0000
-Received: from IA1PR12MB292992.namprd12.prod.outlook.com
- ([fe80::4b88:460d:65c0:def1]) by IA1PR12MB292992.namprd12.prod.outlook.com
- ([fe80::4b88:460d:65c0:def1%6]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 10:46:39 +0000
-Message-ID: <6ad8b75a-85a2-410b-9584-b8989cd6dfc1@amd.com>
-Date: Mon, 23 Nov 2026 16:16:31 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] platform/x86/amd: hfi: Stand down when amd-pstate CAS
- is active
-To: Mario Limonciello <mario.limonciello@amd.com>, ray.huang@amd.com,
- rafael@kernel.org, viresh.kumar@linaro.org, perry.yuan@amd.com,
- kprateek.nayak@amd.com, hansg@kernel.org, ilpo.jarvinen@linux.intel.com,
- platform-driver-x86@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: Krishnamoorthi M <krishnamoorthi.m@amd.com>
-References: <20261114150310.1377654-1-Vishal.Badole@amd.com>
- <20261114150310.1377654-3-Vishal.Badole@amd.com>
- <404553c5-60b3-464a-8d76-7850120f3d58@amd.com>
-Content-Language: en-US
-From: "Badole, Vishal" <vishal.badole@amd.com>
-In-Reply-To: <404553c5-60b3-464a-8d76-7850120f3d58@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA5P287CA0217.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1b4::13) To IA1PR12MB292992.namprd12.prod.outlook.com
- (2603:10b6:208:5a1::21)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iicDxWmx
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795430829;
+	b=vfUW8StOGUneAjYjMNtnjbWTUPyJNQRH9cHqN4GPtnfbyNvnUsr2YZwqzpffdneMvyJV
+	 p43gEjfE9chlxjUvHyUBF8fR0mGc1axnAl1/+jXrMKvz56JKUEaVFwwiTjb9Q9SA1ysww
+	 qNUMkwz/bEjgxZiSpGauZImt7bwwp87j12OWj6vWE32l0FrgS1hTaJdLLl8n8LnKdrxPd
+	 KTcfxapa8FxkUQ2DqNpcETdr9PSTt9FcxZAxpilYi4j8gwgAcDDTPaYHPIR8fVKD4G33q
+	 v9X61MKXcDuWxEb23Q9srTs9AdUFcTkhny2iQbwLVA1GTNp7W6eZWNp5jeg1vL0YIRQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795430829;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=lJTNJvK/vFyDGMC4BFIud7Ij0yzJ3uEUnuTL/MBh418=;
+	b=qzcqVeGk8cj73swTK5RhHPHSTkpFUaCsyyiw9VAgkHvqIJLAxBtroCdFzH9Y36C6mL2i
+	 6D0rG+n/cZIqZrJVkUwv6Y89oAZwqW/w9nMfXQ/JZGOm/YcAwZBfdvLXndDke3HLVKWac
+	 4NV5DPmZoh3G2h3EhUMOu9jNJC0u2XrAN2ljjxfobM2UOZULyEmi40vMHMb+ejjtiQXe2
+	 +l7aro1bWM8FsDOwT9Br2k6chQdkQsOkq+/xEhnMPEfPMocni69Zg324AQSRUIa/y1jns
+	 4Fy3A+EUsz3pvAw9E2XB5Y4ssC/CQLWUFll0OTeYAcNoOX+u832EGAHSCdU9Zd1UZQg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 993371F000C0;
+	Mon, 23 Nov 2026 10:47:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795430829;
+	bh=lJTNJvK/vFyDGMC4BFIud7Ij0yzJ3uEUnuTL/MBh418=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=iicDxWmxS0Wd7KWS36yTRzZAZVxdqoK0Ve6dlzrBNlvx4/TWZxrz80RLDtgBUFuSa
+	 50VP9yQgKuQcU8DAw8dAzaWBExZpFehlO3ePkWNu8CGiFqrSJfcNGGMetkUCnja3AY
+	 6Ju6Ga/BK0CN6YzMKWKwXTXVWhfMSlwrnY90HowDQBXAcr+I+xSV+/68TbrIBzALlF
+	 iprn42nQt0YDQ9vJhTr2JTuf+ilLHj5Pmyx/ncQ2DJ76qf4Ev6MBQCve4Jz0CQFhsn
+	 2vyOif91X+us+dsBKgEW9cLSnAmpx0b51hwgQcZH3QSmvDP5kpVKt06aYmI6RWo3fm
+	 rQ03ZoXLEmw4Q==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 276D94C423;
+	Mon, 23 Nov 2026 10:47:03 +0000 (UTC)
+From: Peder Bergan via B4 Relay <devnull+peder.bergan.gmail.com@kernel.org>
+Date: Mon, 23 Nov 2026 11:46:58 +0100
+Subject: [PATCH v3] rust: put C helper exports in a dedicated namespace
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,122 +82,231 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR12MB292992:EE_|CY8PR12MB7491:EE_
-X-MS-Office365-Filtering-Correlation-Id: fd4f854c-5146-44bf-6ec2-08df494f0d97
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|18002099003|22082099003|261009223027099003|261021121427099003|921020|261026140227099003|261026121527099003|261102123227099003|261022075727099003|261022105027099003|261028144727099003|4143699003|56012099006|10067099003|11063799006;
-X-Microsoft-Antispam-Message-Info:
-	Ii6C+TDywP1SNQbDX0e8MrFAWftISJIY+AbTBtClIaOODytHm92kiI7oev3Tx2fwcHK/n/CzKNXBFks8ynsxL8S7tyoR9pCc7fid+JdF+T+ShSUtM4IxPmyz48UtBlWpRIPFAoXu/zvkUbgALCBzDcd84rdtqEtgKdH93WN4hsk5gkH0nac0gxNc4/cG/UGB8PteNrtbvb2QBRX5Ujq/iBOxRicEl4IepTjdGH+veoW0uDcvl8lyWLpX/H0ZNQOXoxd90wK3ZK+QMRIIN0yXYesYj1dXGKIZZzP+/7bWEj/KHfRJTIaszcA0XePxMmS/L9G/P6zwLuROmWVf9Vo/+PL8GvrkGMyHEkuuISDpNCCbzpCqiduKdmFxc7GXqoQJcolDj7uQLQ6O6i/35FwsY97nPY616RKzxHQP9MnfJCY8tP9Foi4sJGNj1st60MS1ZoUXow5WNhlvYtO2S1e8uc2QS8Z9efw9h0xMwCDRzif6e531ukMi6sjy8kLYHXwJJiG3587YhYAf3Fx1p2nA6nOX8diYCusk1rN3lYAU+5qzEIEjPiY7gfAdky5GkcJ9L2Wcrs8FtZmPX+Y7tIgKvPLxy8iFFilsjBTu2ecVC2oKx0KlHbi63R/2tBhzvFfi9oWQJkd8ZJZvcpRkfjGOBOuA23shNmBOX9VrqW0UMBYOnNsBdeoT/YP0IWZHM3U1MuyAFTspZlGx8AM9puD9yg==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB292992.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(18002099003)(22082099003)(261009223027099003)(261021121427099003)(921020)(261026140227099003)(261026121527099003)(261102123227099003)(261022075727099003)(261022105027099003)(261028144727099003)(4143699003)(56012099006)(10067099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?TkhpOXdFY1lsbzVSSFpLZ1lDWHVpYThGblVQQktLVnVvUmdZL3UwT2M3cHpY?=
- =?utf-8?B?TlVOb1VLVE01Qk84OWw1dmswU3Qvd0NYQ3JHbXdXK2hYdEwrYlU3Z0RzZmJz?=
- =?utf-8?B?eTQwVm1xM2RZTElhWHVtb3hOSGZONm12ZlVlMnc1dUpKNG5Vbkhnb0ZFdG1j?=
- =?utf-8?B?SnlmNGpibmF3VnA5OE9oS29kRU1KWEd1d1N6M3NHWlBteWlKSXdtdWxqZDJi?=
- =?utf-8?B?aHI1cVhIWmxHTVh6bGpTcTlWMTgyVEM5cWttYlVqeUt1aEZ6d0xkdXZLOUNw?=
- =?utf-8?B?K2VyTzk1cUlCV0cwd3JkZ21PbmlNQWhQbVhDL1UxTjVDUmJMNWsyK0tGS2FZ?=
- =?utf-8?B?cmcyajBmMTdJQjZUbjdKSWx5ZkY1OC9vM0dxeHRaOWFNWEhZby9HWHQwbzR4?=
- =?utf-8?B?TlF5WWZPeStLbWE0VDB4ZnI4eFJUTElwOTd5ODdubVR2bml6WGpOVGxwUnM2?=
- =?utf-8?B?SC8zT0FNZW9QODl1ekkvR3FmYTNIbzJzcGJ5WUlObU1uTklVaUUyZmFSVWxu?=
- =?utf-8?B?VTF6NzY1R1ByTGcyam1hdkpQaHBWZXp6V0toWWpBcGdiM0p0bFRmOXlxYlNV?=
- =?utf-8?B?TVF4cjQ1TExMN0RNem9mQ3V2ajJKZzVweUxTZnBEMDliamoxVWFZQU9HN3lS?=
- =?utf-8?B?UFAxNEdLd0NxNk1EYmVlV0NsMmZMQTFVcEFrcmRoeEhDTzJNbkhSUW42YzVJ?=
- =?utf-8?B?dmxqbzAwZGxUY3J3VzJuUnpEMURnU0tVeHd1V1VwcGRZTHVnUTE5K0p4T0NF?=
- =?utf-8?B?YmlZZGYzWC9iVzh1WVAyb3JValRaSjdYVmI0bll1SUN3OFdtdzBYU2VzeTdN?=
- =?utf-8?B?QWtCdTJOTy9qQmtYdm5IMDZmWUpiYk5pc2NKWCtBYjVXM0NLVXRXaGtjbTZV?=
- =?utf-8?B?d093YnA5bnRlZDBoSDNaUi9sWkNmQ2RnWjZKUHcrdzhabk5tVGo3MHc4YXlC?=
- =?utf-8?B?MXNvai83aDZxZm9PbksxNnpQcGxvd2N5VnpxclJhTHFEMmprRDJRWjVBMTJE?=
- =?utf-8?B?YVAzd1pVUjYvTmxIK0pKRFVxTlZmdkVLd0xURU1WYkpQWWEwaTdGYkhncnEv?=
- =?utf-8?B?ZXE5Y3BzeU1nQ1JoaVVwaDdQTUl3aHhyQVNkYXpNWVpMQmg4RE9YUFJJTzA5?=
- =?utf-8?B?SUxsTHkvNlZIc3lRajlydFBROS83R3BWYURYMmUrM2VCU3BCdWlJTWkzRlRE?=
- =?utf-8?B?SHdPQkJjYS9mYmN6dnE1YnB1cGJkdW56U3g4VFR6ZkQ4WkhsZWR3T0labkph?=
- =?utf-8?B?NkRPK3ZqM0xVTFpycmJ3dWpiK2IyWmNiclVQd2xpTTRrK2ZyNitvY09CSUpu?=
- =?utf-8?B?bXV5NHlTa05SeHFuOEdjMVowTlhUUExMYW1PRGVHc3h3YysxbVZqMG1JU3dp?=
- =?utf-8?B?Qm5TK0tqNm1WRjhoT2FneVRLSGRTUDF4eC8yK0IxTTlYV2twemxXNS9BY2RL?=
- =?utf-8?B?aEpjWmljbjZMNVZPdlVZMUJGUVJxbThXZzlMc3g5bGw1bzIwL3AzODNpQnlw?=
- =?utf-8?B?dlhheVc1THYyU2JpZnM1WnlVVlJRZkZ2M1l0cjQ2L2JsVVhEV1Q2VEFCaXlM?=
- =?utf-8?B?VUZKN2trVnp3Vk5rOGxuZnNMYVk5OEtJeDYyblg5NEZkOUZReUp6d0JtSTNH?=
- =?utf-8?B?OWl4WnpueVh2YTZ5Wmc5aGMzdXN5UFBVYnRWVzdFcXZLYmlCUWMwaS9Qb2Rm?=
- =?utf-8?B?Yzd3NUlVb0dwczBXZHY5TW8xTHU2SnAwR1lTdlFsSU5uVFJZS25XdFBsdFV4?=
- =?utf-8?B?ellURDZCUWF4ZkxHZHcyQ0p6SkZzY2NSUXRBQmVLTC9KYW1hUGxYYjBINmFv?=
- =?utf-8?B?cUQ0bnF3Y2lSWG45aExVSDFNQXJ6ZkRXVzYyMmJVNkVhbUd1azh0OHZKNGNK?=
- =?utf-8?B?a0JWSTJ5ZWNQamlKS0NYSk15M1RhcEtHV1VCdnozV1dQand1aTdzdkZTeHFK?=
- =?utf-8?B?QXE0bFdpYkE1K3F1eDlEQmxDSjd1aHh1WERyK0N4bHV6bGpjVlE1N0g0RWEz?=
- =?utf-8?B?T2ZjQmg2TmtJN2tDR3Q1dWdlMDRaa3NJTm10RXpOQ3lBbG5ybTVON0NrYkhl?=
- =?utf-8?B?RzF4Y1dpV3FRVlZYNElwa1JDNWRLcmtDUGRLT2xJNGlaK2wxYitZLzhWZm1t?=
- =?utf-8?B?a2loS2VZZkkyMWhsQWxWOEJXSUNLWENlYkp5RTdxeFN3bFhxb09SVjdHcStY?=
- =?utf-8?B?emJWQjVJM292WGdWbEJscFZhakFmSFpqTGtMeU83U1l1cGNmL0Q4M2ltYTh6?=
- =?utf-8?B?WThFeWpKWTlpSlFJenVyeWh1L1Z2ZjhpZVY3UzFnc2ZZTTlUamhUbXUybzBH?=
- =?utf-8?Q?XO1rWOKnoM/VNFBYx5?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fd4f854c-5146-44bf-6ec2-08df494f0d97
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR12MB292992.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 10:46:38.9868
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WT6ypwIkliupNVzY0QYt7xzBwisruPM8wICwwwzi/TTug+jLP8A3H15w/DUw3MIjWP1j/KG63rnPX6e/DQGUTw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7491
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-rust-helper-namespace-v3-1-b83e2923324b@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAKEZBGsC/42QwW6FIBBFf8WwLq8CAmqa5v1H0wXgoDQqFtS0e
+ Xn/XtCkadJFm1ndydyTO/eGIgQHEbXFDQXYXXR+ToI9FMgMau4Buy5pREsqCKElDltc8QDjAgH
+ PaoK4KAOYS6gNkwCysyh5lwDWfRzcl9dTx02/gVkzLF9oFQHroGYz5FXGPv7CJluA95jvBxdXH
+ z6PoDvJ3L8y7QQTzHSjSs45s1Zc+0m58WL8hHKmnf6LQhOFVIxwwWvLG/hJuZ+vpYxbam49/0X
+ JGtXRXFs8nXhC03BCL0TIklUyMfsleOM6de2970fIwOfvYpKY3NoWWqjGKlYZqEgtjRZNxwyva
+ 1Vpba1hxADvdG1TlPsXEvqpwswBAAA=
+X-Change-ID: 20261120-rust-helper-namespace-57e8c37ee7df
+To: Miguel Ojeda <ojeda@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+ Nicolas Schier <nsc@kernel.org>
+Cc: Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Danilo Krummrich <dakr@kernel.org>, 
+ Daniel Almeida <daniel.almeida@collabora.com>, 
+ Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>, 
+ Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
+ Aaron Tomlin <atomlin@atomlin.com>, rust-for-linux@vger.kernel.org, 
+ linux-kbuild@vger.kernel.org, linux-modules@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Wedson Almeida Filho <wedsonaf@gmail.com>, 
+ Giuliano Procida <gprocida@google.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795430822; l=7943;
+ i=peder.bergan@gmail.com; s=kernel-contributions;
+ h=from:subject:message-id;
+ bh=nZ0NjEBZ990zQIlXVxBFgN/g8WkVDdpgNRTJN2ixXEs=;
+ b=9ix/Ys9EtXKgSNM40MJy7DNpB9HTMGLqhOxzyrbpi3OU/QRslYPIvbIAxDAhi6F3vE+Y/8jAY
+ FYxK3s4dpWGBVibSQd9+uOugPX/dahWNWSXQ+a3yUyQbrqbMPWV0Bc3
+X-Developer-Key: i=peder.bergan@gmail.com; a=ed25519;
+ pk=39790pn1YZCulHBoUG1uiQI1Hm01EvhBEa2zVrS/yN0=
+X-Endpoint-Received: by B4 Relay for
+ peder.bergan@gmail.com/kernel-contributions with auth_id=1395
+X-Original-From: Peder Bergan <peder.bergan@gmail.com>
+Reply-To: peder.bergan@gmail.com
+Content-Transfer-Encoding: 7bit
 
+From: Peder Bergan <peder.bergan@gmail.com>
 
+The rust_helper_ prefix marks these C wrappers as Rust implementation
+details. Export them in RUST_HELPERS so modpost can detect accidental
+dependencies at build time.
 
-On 11/15/2026 7:46 PM, Mario Limonciello wrote:
-> 
-> 
-> On 11/14/26 09:03, Vishal Badole wrote:
->> From: Krishnamoorthi M <krishnamoorthi.m@amd.com>
->>
->> When amd-pstate CAS is active, it takes ownership of per-CPU capacity
->> values that the scheduler uses to distinguish performance and efficiency
->> cores. amd-hfi manages the same scheduler state through its ranking
->> mechanism. Running both simultaneously would cause them to overwrite
->> each other's settings, leading to unpredictable task placement on hybrid
->> platforms.
->>
->> Avoid loading amd-hfi if CAS is enabled.
->>
->> Signed-off-by: Krishnamoorthi M <krishnamoorthi.m@amd.com>
-> 
-> When a patch is authored by another person and you send it on their 
-> behalf you need to add your own S-o-b as well.
-> 
-> Think of it like a chain of custody.
-> 
-Ack! Thanks for Pointing this.
->> ---
->>   drivers/platform/x86/amd/hfi/hfi.c | 8 ++++++++
->>   1 file changed, 8 insertions(+)
->>
->> diff --git a/drivers/platform/x86/amd/hfi/hfi.c b/drivers/platform/ 
->> x86/amd/hfi/hfi.c
->> index 86a7f4332c35..b6878614e2bc 100644
->> --- a/drivers/platform/x86/amd/hfi/hfi.c
->> +++ b/drivers/platform/x86/amd/hfi/hfi.c
->> @@ -29,6 +29,8 @@
->>   #include <asm/cpu_device_id.h>
->> +#include <linux/amd-pstate.h>
->> +
->>   #include <acpi/pcc.h>
->>   #include <acpi/cppc_acpi.h>
->> @@ -536,6 +538,12 @@ static int __init amd_hfi_init(void)
->>           !cpu_feature_enabled(X86_FEATURE_AMD_WORKLOAD_CLASS))
->>           return -ENODEV;
->> +    /* amd-pstate CAS owns heterogeneous core scheduling when 
->> enabled. */
->> +    if (amd_pstate_cas_active()) {
->> +        pr_debug("amd-pstate CAS is active, not loading amd-hfi\n");
->> +        return -ENODEV;
->> +    }
->> +
->>       ret = platform_driver_register(&amd_hfi_driver);
->>       if (ret)
->>           pr_err("failed to register HFI driver\n");
-> 
+Rust generics and inlining can introduce calls through ordinary Rust
+abstractions. Have Kbuild mark modular Rust objects when the helpers
+are out of line. The marker survives composite module linking and is
+discarded at the final link.
+
+When an eligible module uses an export from RUST_HELPERS provided by
+vmlinux, have modpost generate the import unless the module already
+declares it. This covers mixed-language modules such as kasan_test,
+whose module metadata comes from C.
+
+Suggested-by: Wedson Almeida Filho <wedsonaf@gmail.com>
+Suggested-by: Miguel Ojeda <ojeda@kernel.org>
+Link: https://github.com/Rust-for-Linux/linux/issues/216
+Signed-off-by: Peder Bergan <peder.bergan@gmail.com>
+---
+This patch applies on top of Giuliano Procida's v5 series converting
+the Rust exports to assembly.
+https://lore.kernel.org/rust-for-linux/20261112121512.1670347-1-gprocida@google.com/
+
+In a strict x86-64 build with DWARF-based module versioning, I
+verified that modpost generated the import for modular KASAN and the
+Rust samples that reference helpers. I also confirmed that modpost
+rejects an external C-only module that uses a helper without
+importing RUST_HELPERS.
+
+OpenAI Codex assisted with coding, the commit message and build validation.
+---
+Changes in v3:
+- Generate the namespace exports on top of the assembly conversion.
+- Use simply expanded Make assignments for the literal export formats.
+- Generate imports in modpost for modules with Rust objects that use
+  the helpers. Drop the module! and KASAN-specific imports.
+- Link to v2: https://patch.msgid.link/20261120-rust-helper-namespace-v2-1-14315658f59e@gmail.com
+---
+ rust/Makefile          |  5 ++++-
+ scripts/Makefile.build |  4 +++-
+ scripts/mod/modpost.c  | 20 ++++++++++++++++----
+ scripts/mod/modpost.h  |  3 +++
+ 4 files changed, 26 insertions(+), 6 deletions(-)
+
+diff --git a/rust/Makefile b/rust/Makefile
+index db1690c87e9b0..a6fce0d830ba4 100644
+--- a/rust/Makefile
++++ b/rust/Makefile
+@@ -569,9 +569,10 @@ $(obj)/helpers/helpers.bc $(obj)/helpers/helpers_module.bc: $(src)/helpers/helpe
+ 
+ rust_exports = $(NM) -p --defined-only $(1) | awk '$$2~/(T|R|D|B)/ && $$3!~/__(pfx|cfi|odr_asan)/ { printf $(2),$$3 }'
+ 
++rust_export_format := "EXPORT_SYMBOL_GPL(%s)\n"
+ quiet_cmd_exports = EXPORTS $@
+       cmd_exports = \
+-	$(call rust_exports,$<,"EXPORT_SYMBOL_GPL(%s)\n") > $@
++	$(call rust_exports,$<,$(rust_export_format)) > $@
+ 
+ $(obj)/exports_core_generated.h: $(obj)/core.o FORCE
+ 	$(call if_changed,exports)
+@@ -585,6 +586,8 @@ $(obj)/exports_core_generated.h: $(obj)/core.o FORCE
+ # function either. Therefore, we export all symbols from helpers and bindings.
+ # In the future, this may be revisited to reduce the number of exports after
+ # the compiler is informed about the places codegen is required.
++$(obj)/exports_helpers_generated.h: private rust_export_format := \
++	"EXPORT_SYMBOL_NS_GPL(%s, \"RUST_HELPERS\")\n"
+ $(obj)/exports_helpers_generated.h: $(obj)/helpers/helpers.o FORCE
+ 	$(call if_changed,exports)
+ 
+diff --git a/scripts/Makefile.build b/scripts/Makefile.build
+index 873a9ed62a181..d9c49e0ce8a4e 100644
+--- a/scripts/Makefile.build
++++ b/scripts/Makefile.build
+@@ -364,13 +364,15 @@ rust_common_cmd = \
+ # i.e. the outputs we would get for the different single targets (e.g. `.ll`)
+ # would not match each other.
+ 
++# Mark modular Rust objects so modpost can identify them after a composite link.
+ quiet_cmd_rustc_o_rs = $(RUSTC_OR_CLIPPY_QUIET) $(quiet_modtag) $@
+       cmd_rustc_o_rs = $(rust_common_cmd) --emit=$(if $(CONFIG_RUST_INLINE_HELPERS),llvm-bc=$(patsubst %.o,%.bc,$@),obj=$@) $< \
+ 	$(if $(CONFIG_RUST_INLINE_HELPERS),;$(LLVM_LINK) --internalize --suppress-warnings $(patsubst %.o,%.bc,$@) \
+ 		$(objtree)/rust/helpers/helpers$(if $(part-of-module),_module).bc -o $(patsubst %.o,%.m.bc,$@); \
+ 		$(CC) $(CLANG_FLAGS) $(filter-out $(CC_FLAGS_LTO),$(KBUILD_CFLAGS)) \
+ 		$(CC_FLAGS_RUST_INLINE_HELPERS) -Wno-override-module -c $(patsubst %.o,%.m.bc,$@) -o $@ \
+-		$(cmd_ld_single)) \
++		$(cmd_ld_single), \
++		$(if $(part-of-module),; $(OBJCOPY) --add-section .discard.rust_helpers=/dev/null $@)) \
+ 	$(cmd_objtool)
+ 
+ define rule_rustc_o_rs
+diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
+index 75374c64b8cc7..209a33e9ec8f9 100644
+--- a/scripts/mod/modpost.c
++++ b/scripts/mod/modpost.c
+@@ -29,6 +29,7 @@
+ #include "../../include/linux/license.h"
+ 
+ #define MODULE_NS_PREFIX "module:"
++#define RUST_HELPERS_NAMESPACE "RUST_HELPERS"
+ 
+ static bool module_enabled;
+ /* Are we using CONFIG_MODVERSIONS? */
+@@ -534,6 +535,8 @@ static int parse_elf(struct elf_info *info, const char *filename)
+ 		} else if (!strcmp(secname, ".no_trim_symbol")) {
+ 			info->no_trim_symbol = (void *)hdr + sechdrs[i].sh_offset;
+ 			info->no_trim_symbol_len = sechdrs[i].sh_size;
++		} else if (!strcmp(secname, ".discard.rust_helpers")) {
++			info->has_rust_object = true;
+ 		}
+ 
+ 		if (sechdrs[i].sh_type == SHT_SYMTAB) {
+@@ -1617,6 +1620,7 @@ static void read_symbols(const char *modname)
+ 	}
+ 
+ 	if (!mod->is_vmlinux) {
++		mod->has_rust_object = info.has_rust_object;
+ 		license = get_modinfo(&info, "license");
+ 		if (!license)
+ 			mod_error(mod, "missing MODULE_LICENSE()\n");
+@@ -1797,10 +1801,15 @@ static void check_exports(struct module *mod)
+ 
+ 		if (!verify_module_namespace(exp->namespace, basename) &&
+ 		    !contains_namespace(&mod->imported_namespaces, exp->namespace)) {
+-			modpost_log(!allow_missing_ns_imports, mod,
+-				    "module uses symbol '%s' from namespace '%s', but does not import it.\n",
+-				    exp->name, exp->namespace);
+-			add_namespace(&mod->missing_namespaces, exp->namespace);
++			if (mod->has_rust_object && exp->module->is_vmlinux &&
++			    !strcmp(exp->namespace, RUST_HELPERS_NAMESPACE)) {
++				mod->add_rust_helpers_import = true;
++			} else {
++				modpost_log(!allow_missing_ns_imports, mod,
++					    "module uses symbol '%s' from namespace '%s', but does not import it.\n",
++					    exp->name, exp->namespace);
++				add_namespace(&mod->missing_namespaces, exp->namespace);
++			}
+ 		}
+ 
+ 		if (!mod->is_gpl_compatible && exp->is_gpl_only)
+@@ -2143,6 +2152,9 @@ static void write_mod_c_file(struct module *mod)
+ 	add_extended_versions(&buf, mod);
+ 	add_depends(&buf, mod);
+ 
++	if (mod->add_rust_helpers_import)
++		buf_printf(&buf, "\nMODULE_IMPORT_NS(\"%s\");\n", RUST_HELPERS_NAMESPACE);
++
+ 	buf_printf(&buf, "\n");
+ 	list_for_each_entry_safe(alias, next, &mod->aliases, node) {
+ 		buf_printf(&buf, "MODULE_ALIAS(\"%s\");\n", alias->str);
+diff --git a/scripts/mod/modpost.h b/scripts/mod/modpost.h
+index 666beca685e48..58709cdd6ff25 100644
+--- a/scripts/mod/modpost.h
++++ b/scripts/mod/modpost.h
+@@ -126,6 +126,8 @@ struct module {
+ 	bool seen;
+ 	bool has_init;
+ 	bool has_cleanup;
++	bool has_rust_object;
++	bool add_rust_helpers_import;
+ 	char	     srcversion[25];
+ 	// Missing namespace dependencies
+ 	struct list_head missing_namespaces;
+@@ -149,6 +151,7 @@ struct elf_info {
+ 	unsigned int modinfo_len;
+ 	char         *no_trim_symbol;
+ 	unsigned int no_trim_symbol_len;
++	bool has_rust_object;
+ 
+ 	/* support for 32bit section numbers */
+ 
+
+---
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+change-id: 20261120-rust-helper-namespace-57e8c37ee7df
+prerequisite-message-id: <20261112121512.1670347-1-gprocida@google.com>
+prerequisite-patch-id: 7b267dee3ce26971877fd38d926d288ec5ebceea
+prerequisite-patch-id: 803b08369cbc3be752a8173381f29272b02a52d5
+prerequisite-patch-id: e3377b86c82f833182ad5e9aff7c1a32c889ed50
+prerequisite-patch-id: 9ada5f687d87e2cbbe26870986d94afeef7dcc10
+
+Best regards,
+--  
+Peder Bergan <peder.bergan@gmail.com>
+
 
