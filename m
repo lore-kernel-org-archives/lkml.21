@@ -1,47 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.110
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795418270;
-	b=hUkZAV6ylA90cyIOEaq+PNWc3/t35v3aht8FkwrcjRHFWaLJKLS0yA/BVXAxWRXoMQ14
-	 RKEoBD64DgHQY9Jtls/olEQmGrXcsDRklQ9Z000Tq2ZRhMrx2XPuOO67JE8LB10sKXEON
-	 HTNn2vDV2PZVZHtYAas8OthtaTY+lZ8q5BbqfBT/WPHqiQkECPiv8xBgBB5WtBv1eAZ4z
-	 MqhKHCNRjJDjE01YK7iw+6MrM9fFlmkVvmrB8vM8e6RbUcFh59syoPPaHASkgl4SdK58/
-	 vrUmGhvoO5RK3fHx4FWCodpfQ9ywWdElqbjXi7Zf03PufY6WIscGFpYnPw+TsDAzo+g==
+	t=1795418335;
+	b=SyPwz7DeUYdDcsPG4f9QuEAc3U9Z7Q2TQS2ygI8+qyz4kucbL6Hv2DK9k3FkQ9IAVjmz
+	 F1hwTHvrCTSizwDjpFXThwA9hCHNgcqHcmoX06y695s0W2XNvTUl3DO3Fa2iWKk6mdqSM
+	 PhgTjoSxJJecdArTmPgYBs8ZrAzGQZhS1ESVxI2hEbKWNqQqXGTM4bp5J7PdqsdtJWF+S
+	 AxVQ4TDrCmAXQzwTOkgNJ3cqhRZ6m6qTj3b7UbIESVkoeT9oIZNEL38w0DKJKru7QgJDD
+	 6L9Y6UbZZoc9ewa7vw7rlvoY18jr+16FvGt/rq1r02OeNHEJaSBzHKxpcsm6eT8bcfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795418270;
-	h=DMARC-Filter:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=tmeFFUNaR7P+349HGnSwB/OoAdyqRcKcfAcswYeJkZM=;
-	b=Rg19TfYfqW1HAcKmnOsYA+Eay3hvOMKw6WPyvpvTJggux3IDgxB0Sxzth+v4fZ23JTWo
-	 uOfR28ej5n5TZRht3icgkgzZy437XD+8X58be7v27zr35w6cN4B30RNVKtuN3I+/7NtYu
-	 5NwrQ0LfQG9HtGOziiIYAbQG20H3FXEbqYVhI/Mop1GXZ9nQgokBaAFAl7Ie8I9heqPQD
-	 Wh48rbQrdUV5CUbi3unM0bRpyK1w/ORAzJwzd5tpSoe/3ztc0u8/NG4y72uUpMy+h8Una
-	 4dp1cdOQWvFpfUmriak5C0k58rShdaLsSLfpqW7f1ZhdgFQEa/1YFuB1eKJhH2zfHZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795418335;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=Q8GYORsnAO82wSpPrzmShMv7mBPXyM/CZgLgnjki5vY=;
+	b=u1K4+4Fx4nNTIzD70N++t1iWek38ORCtKj93vexao5fQsEFwdT5dlnJUxQzCgJ592Qxh
+	 jWbGu2fvTd/5ZU/qGd6sNNo05FV5LAwaI2MJwo4HlzCluMnrmprnrnMeMHk33LtNiY44S
+	 7509jy2C7zZagxlKgmC5yJTz+R9xvnXKR0tOwco1tvd2wc6y8kpiammYfMzSbsqQE/0a3
+	 kYMX1XNUTp64H79C2WjMOguBACrf5oRRkq4slQGUvHL0flDO0Z+a+zBn7/Oo7JytaUNAl
+	 pRzjFi0pbXmAeHHdzFdGw8dSakq8hWTJF9QKW3nqcQx5Hfz7swekRU4t6idRY53lO2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Sd1xJ8md;
-	arc=none smtp.remote-ip=220.197.31.5
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.5])
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=CfSP0pgN;
+	arc=none smtp.remote-ip=115.124.30.110
+Received: from out30-110.freemail.mail.aliyun.com (out30-110.freemail.mail.aliyun.com [115.124.30.110])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B7DC606A31A;
-	Mon, 23 Nov 2026 07:17:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B7DC606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8098606A31A;
+	Mon, 23 Nov 2026 07:18:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8098606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Sd1xJ8md
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=tmeFFUNaR7P+349HGnSwB/OoAdyqRcKcfAcswYeJkZM=;
-	b=Sd1xJ8mdAYQpUWubE4JOgUPAW88+eVslhgGMSEfOYmDmW9AeyJXLRLQL+hjT5M
-	AmtR3GliiCIk4NjvbBy8AAwk5ISPBOTK+eHDAfm2elzjzyTdIkP7OVV8zJrtqksg
-	drxlQ1GiymJvv/IlXkMaoQ0Dauzv5xKnZ2R1VpEWxwwIc=
-Message-ID: <06c29ea2-c9d4-4e9b-bbe8-651ad868a9c4@163.com>
-Date: Mon, 23 Nov 2026 15:16:31 +0800
+	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=CfSP0pgN
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795418330; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=Q8GYORsnAO82wSpPrzmShMv7mBPXyM/CZgLgnjki5vY=;
+	b=CfSP0pgNFJHmbvfQ6ctTaNSXuadCkkuitAA1+Ts93PuzWTButsQXSapnZw+raCF+9+4KGeSlNhcBRNn1YtfKWOJPI06ltrF+uGJKa/BfRLIvhJ8blQKeh3tVHKG74UYBtrsaEKiiOxmH4yeFipFQrwI8NSuSY/oeO1bySVxAOQ4=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R391e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=15;SR=0;TI=SMTPD_---0XFE82IO_1795418327;
+Received: from 30.74.144.153(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0XFE82IO_1795418327 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 23 Nov 2026 15:18:49 +0800
+Message-ID: <4af8b7ef-8028-4b98-ad21-5620f8b92f42@linux.alibaba.com>
+Date: Mon, 23 Nov 2026 15:18:46 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,739 +54,202 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] platform/x86: lenovo-wmi-other: Add raw GetDataByPackage
- interface
-To: Rong Zhang <i@rong.moe>, platform-driver-x86@vger.kernel.org
-Cc: mpearson-lenovo@squebb.ca, derekjohn.clark@gmail.com, W_Armin@gmx.de,
- hansg@kernel.org, ilpo.jarvinen@linux.intel.com, corbet@lwn.net,
- skhan@linuxfoundation.org, rdunlap@infradead.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-api@vger.kernel.org
-References: <20261116040532.154928-1-alanpluto@163.com>
- <4377ff90ffd0b030de7d4d33c188ba4b7551ad03.camel@rong.moe>
-Content-Language: en-US
-From: alan <alanpluto@163.com>
-In-Reply-To: <4377ff90ffd0b030de7d4d33c188ba4b7551ad03.camel@rong.moe>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wBnRhJP6ANrCA5YJg--.60774S2
-X-Coremail-Antispam: 1Uf129KBjvAXoWfXw4fJFWfJF1kZFWxtF4fKrg_yoW8tFWUto
-	WSqws3W3WIqr1UZr1xCa48JFya9aykuF4DZa1YqwsxJF4jva1j93y7Zw4fJa93tF1FkF4D
-	W34kJr40qFW0qa1rn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU4XTmUUUUU
-X-CM-SenderInfo: hdod01poxw0qqrwthudrp/xtbC0RLp3WsD6FJZowAA3f
+Subject: Re: [PATCH] mm/shmem: fix swapin livelock on a mismatched large swap
+ cache folio
+To: "David Hildenbrand (Arm)" <david@kernel.org>, mt4022@columbia.edu,
+ Hugh Dickins <hughd@google.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Kairui Song <kasong@tencent.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, tz2294@columbia.edu,
+ Chris Li <chrisl@kernel.org>, Kemeng Shi <shikemeng@huaweicloud.com>,
+ Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>,
+ Barry Song <baohua@kernel.org>, Youngjun Park <youngjun.park@lge.com>,
+ stable@vger.kernel.org
+References: <20261027-shmem-swapin-mismatch-v1-1-84e30aa3b9e5@columbia.edu>
+ <3c61a49f-6a0d-49eb-8682-aece4e7e7226@kernel.org>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <3c61a49f-6a0d-49eb-8682-aece4e7e7226@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Hi Rong,
 
-在 2026/11/16 20:44, Rong Zhang 写道:
-> Hi Alan,
-> 
-> Thanks for working on this.
-> 
-> On Mon, 2026-11-16 at 12:05 +0800, Alan Pluto wrote:
->> Expose Lenovo Other Mode WMI GetDataByPackage, method 99, through a
->> root-only character device so userspace can access the raw firmware
->> interface. And document the interface.
-> 
-> What's the practical purpose of the interface? Did you use this to tune
-> anything on your device?
-> 
+
+On 11/19/26 7:06 AM, David Hildenbrand (Arm) wrote:
+> On 10/27/26 21:33, Mani Tofigh via B4 Relay wrote:
+>> From: Mani Tofigh <mt4022@columbia.edu>
 >>
->> The upstream driver was build-tested with W=1 and checked with Sparse.
->> A backport using the five-argument wmidev_invoke_method() interface
->> was tested on Ubuntu 7.0.0-42 with Lenovo hardware. The upstream 7.4
->> driver has not been tested on hardware.
-> 
-> Don't include this in the commit message, but rather send a cover letter
-> or place it under `---'.
-> 
+>> On a SWP_SYNCHRONOUS_IO swap device, a large shmem folio can be left in
+>> the swap cache over swap slots that another file now uses.  Reading
+>> that other file then loops forever in shmem_get_folio_gfp():
+>> shmem_swapin_folio() finds the large folio, rounds the index and the
+>> swap entry down to the folio's size, finds no matching entry in the
+>> file and returns -EEXIST, and the retry finds the same folio again.
+>> Since the task keeps the mapping locked, a munmap() of the same mapping
+>> waits forever.
 >>
->> Signed-off-by: Alan Pluto <alanpluto@163.com>
-> 
-> Is the work assisted by LLM?
-> 
+>> The folio is left behind when the slots are freed and reused while the
+>> swapin is still allocating it:
+>>
+>>    Task A (reads X)                      Task B
+>>    ----------------                      ------
+>>    shmem_swapin_folio()
+>>      allocate a large folio
+>>      for X's slots
+>>                                          punch a hole in X
+>>                                          /* X's slots freed */
+>>                                          swap out file Y
+>>                                          /* Y reuses those slots */
+>>      add the folio to the swap
+>>      cache over those slots
+>>      shmem_confirm_swap() fails
+>>      /* -EEXIST, the folio stays
+>>         in the swap cache */
+>>
+>>    Task C (reads Y)
+>>    ----------------
+>>    shmem_swapin_folio()
+>>      finds the large folio
+>>      rounds down to its start,
+>>      where Y has no entry
+>>      /* -EEXIST, retried forever */
+>>
+>> Before commit c246d236b18b ("mm/shmem: never bypass the swap cache for
+>> SWP_SYNCHRONOUS_IO"), a direct swapin that failed this way freed its
+>> folio instead of leaving it in the swap cache.
+>>
+>> do_swap_page() already drops a large swap cache folio that does not
+>> fit for anonymous memory.  Do the same in shmem_swapin_folio() and on
+>> a -EEXIST, remove a large folio that is not
+>> anonymous/dirty/under-writeback from the swap cache so that the retry
+>> swaps in a folio that fits.
+>>
+>> The reproducer below fills a small brd swap device so that a 64K shmem
+>> folio and the 4K pages of another file land in the same slots, and races
+>> a read of the first file with a hole punch and a swapout of the second.
+>> This bug was identified and confirmed with the help of a deterministic
+>> hypervisor currently under development, but the non-deterministic C
+>> reproducer can typically trigger it in the 2-4s time range.  With the
+>> fix, nothing is triggered after 600 seconds.
+>>
+>> Fixes: c246d236b18b ("mm/shmem: never bypass the swap cache for SWP_SYNCHRONOUS_IO")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Mani Tofigh <mt4022@columbia.edu>
 >> ---
->>  Documentation/ABI/testing/dev-tac             |  49 +++
->>  .../wmi/devices/lenovo-wmi-other.rst          |   8 +
->>  MAINTAINERS                                   |   1 +
->>  drivers/platform/x86/lenovo/wmi-other.c       | 325 ++++++++++++++++++
->>  4 files changed, 383 insertions(+)
->>  create mode 100644 Documentation/ABI/testing/dev-tac
+>> Two patches in David Hildenbrand's v2 shmem fixes series are related
+>> to this one.  "mm/shmem: fix truncate hang in large swap entry" [1]
+>> makes truncation retry -EEXIST directly, so it can also loop on such a
+>> folio.  "mm/shmem: preserve allocation errors when swapping in large
+>> entries" [2] fixes a different -EEXIST loop, where a failed allocation
+>> is reported as -EEXIST.
 >>
->> diff --git a/Documentation/ABI/testing/dev-tac b/Documentation/ABI/testing/dev-tac
->> new file mode 100644
->> index 00000000000..a8be8e95e2d
->> --- /dev/null
->> +++ b/Documentation/ABI/testing/dev-tac
->> @@ -0,0 +1,49 @@
->> +What:           /dev/tac[0-9]*
->> +Date:           November 2026
->> +Contact:        platform-driver-x86@vger.kernel.org
->> +Description:
->> +                Lenovo Other Mode WMI GetDataByPackage (method 99).
->> +                Each firmware WMI instance gets a misc character device with
->> +                mode 0600. 
+>> [1] https://lore.kernel.org/all/20261027-fixes_shmem-v2-10-86a00952acb9@kernel.org/
+>> [2] https://lore.kernel.org/all/20261027-fixes_shmem-v2-11-86a00952acb9@kernel.org/
 >>
-> 
-> Why would you need to add a character device instead of a debugfs file?
-> See also lwmi_debugfs_create_dir().
-> 
-> IMHO the interface is quite internal and undocumented. Exposing it as a
-> character device makes it too reachable for users, unnecessarily
-> increases the complexity of the driver, and requires some sorts of ABI
-> stability.
-> 
->> Numbering follows allocation order, not necessarily
->> +                the firmware instance number. 
+>> Reproducer: https://github.com/manitofigh/files/blob/main/linux-repros/shmemloop.c
+>> ---
+>>   mm/shmem.c | 16 ++++++++++++++--
+>>   1 file changed, 14 insertions(+), 2 deletions(-)
 >>
-> 
-> You must be using a wordy LLM if you are using one. Isn't this just
-> obvious and natural for most character devices?
-> 
->> Registration does not probe
->> +                support for method 99. The parent is the bound WMI device.
-> 
-> If it can't be probed, gate it unless a module parameter is set.
-> 
->> +
->> +                Open with O_RDWR. One write submits one complete request of
->> +                1..100 raw bytes; shorter requests are padded with zeroes to
->> +                100 bytes. Empty and oversized writes fail with EINVAL without
-> 
-> sed -E 's/\bE[A-Z]+\b/-\0/g'
-> 
->> +                calling firmware. Successful writes return the full submitted
->> +                length and execute two identical WMI calls for the BIOS
->> +                duplicate-call workaround. 
->>
-> 
->> Request pairs through this
->> +                interface are serialized; calls made by other driver
->> +                interfaces are not covered by this serialization.
-> 
-> Why would you need to mention cross-interface implementation details in a
-> user-facing documentation?
-> 
->> +                Evaluation failures abort the pair; the driver does not
->> +                automatically retry.
->> +
->> +                Each open file description owns its response. 
->>
-> 
-> Why would you need to support multiple writers? Couldn't you simply
-> return -EBUSY when there is a pending writer/reader?
-> 
->> A write while
->> +                that response remains unread fails with EBUSY, including after
->> +                partial reads. 
->>
-> 
-> If userspace must write all data at once, why would you need to support
-> partial reads?
-> 
->> A new open cannot read another open's response.
->> +                Descriptors shared by dup/fork share the same transaction;
->> +                applications must coordinate the complete write/read sequence.
-> 
-> Aren't these just obvious and natural for most character devices, too?
-> 
->> +
->> +                Read returns little-endian u32 DataSize followed by exactly
->> +                DataSize data bytes. Response storage is erased when fully
->> +                read or closed. Further reads return EOF until a new successful
->> +                write. Before a successful write, or after a failed firmware
->> +                evaluation, reads return ENODATA. A zero-length read returns
->> +                zero without consuming data.
->> +
->> +                Requests are synchronous even with O_NONBLOCK. Seeking and
->> +                positional I/O are not supported. 
->>
-> 
-> Aren't these just the default characteristic for most non-block character
-> devices?
-> 
->> There is no ioctl interface.
-> 
-> Too verbose. If you don't say it has some, it's obvious that it has none.
-> 
->> +                A removed WMI device causes nonempty reads and valid writes
->> +                on existing descriptors to fail with ENODEV.
->> +
->> +                Firmware evaluation failures map to EIO. WMI marshalling
->> +                failures return the error reported by the WMI subsystem.
->> +                A truncated response or invalid DataSize maps to EPROTO.
->> +                Bad userspace memory maps to EFAULT. Failure does not imply
->> +                firmware had no side effects; never blindly resubmit commands.
->> +                Interrupted waits can return EINTR before firmware evaluation.
-> 
-> Obvious, no?
-> 
->> +
->> +                The WMI subsystem converts returned ACPI objects to a buffer.
-> 
-> Yet another implementation detail.
-> 
->> +                This raw firmware interface may change device state. Use only
->> +                commands whose behavior and side effects are understood.
->> diff --git a/Documentation/wmi/devices/lenovo-wmi-other.rst b/Documentation/wmi/devices/lenovo-wmi-other.rst
->> index 011054d64ea..ec85fdeeb7a 100644
->> --- a/Documentation/wmi/devices/lenovo-wmi-other.rst
->> +++ b/Documentation/wmi/devices/lenovo-wmi-other.rst
->> @@ -33,6 +33,10 @@ under the following path:
->>  
->>  Additionally, this driver also exports attributes to HWMON.
->>  
->> +The driver also exposes GetDataByPackage (method 99) through a raw character
->> +device for each WMI instance. See Documentation/ABI/testing/dev-tac for the
->> +request and response format and its access restrictions.
->> +
->>  LENOVO_CAPABILITY_DATA_00
->>  -------------------------
->>  
->> @@ -109,6 +113,10 @@ WMI interface description
->>  The WMI interface description can be decoded from the embedded binary MOF (bmof)
->>  data using the `bmfdec <https://github.com/pali/bmfdec>`_ utility:
->>  
->> +The example below describes an older firmware revision and specifies a
->> +40-byte maximum input for GetDataByPackage. Newer firmware uses a 100-byte
->> +input, which is the size used by the raw interface described above.
->> +
->>  ::
->>  
->>    [WMI, Dynamic, Provider("WmiProv"), Locale("MS\\0x409"), Description("LENOVO_OTHER_METHOD class"), guid("{dc2a8805-3a8c-41ba-a6f7-092e0089cd3b}")]
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index 981eb3fdbef..84b1545f525 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -15168,6 +15168,7 @@ M:	Derek J. Clark <derekjohn.clark@gmail.com>
->>  M:	Rong Zhang <i@rong.moe>
->>  L:	platform-driver-x86@vger.kernel.org
->>  S:	Maintained
->> +F:	Documentation/ABI/testing/dev-tac
->>  F:	Documentation/wmi/devices/lenovo-wmi-gamezone.rst
->>  F:	Documentation/wmi/devices/lenovo-wmi-other.rst
->>  F:	drivers/platform/x86/lenovo/*
->> diff --git a/drivers/platform/x86/lenovo/wmi-other.c b/drivers/platform/x86/lenovo/wmi-other.c
->> index bd64e7b4466..c15b3a2a758 100644
->> --- a/drivers/platform/x86/lenovo/wmi-other.c
->> +++ b/drivers/platform/x86/lenovo/wmi-other.c
->> @@ -34,16 +34,23 @@
->>  #include <linux/device.h>
->>  #include <linux/export.h>
->>  #include <linux/firmware_attributes.h>
->> +#include <linux/fs.h>
->>  #include <linux/gfp_types.h>
->>  #include <linux/hwmon.h>
->>  #include <linux/idr.h>
->>  #include <linux/kdev_t.h>
->>  #include <linux/kobject.h>
->> +#include <linux/kref.h>
->>  #include <linux/limits.h>
->> +#include <linux/miscdevice.h>
->>  #include <linux/module.h>
->> +#include <linux/mutex.h>
->>  #include <linux/platform_profile.h>
->>  #include <linux/power_supply.h>
->> +#include <linux/slab.h>
->>  #include <linux/types.h>
->> +#include <linux/uaccess.h>
->> +#include <linux/unaligned.h>
->>  #include <linux/wmi.h>
->>  
->>  #include <acpi/battery.h>
->> @@ -91,6 +98,9 @@ enum lwmi_feature_id_psu {
->>  #define LWMI_FEATURE_VALUE_GET 17
->>  #define LWMI_FEATURE_VALUE_SET 18
->>  
->> +#define LWMI_DATA_PACKAGE_GET 99
->> +#define LWMI_DATA_PACKAGE_INPUT_MAX 100
->> +
->>  #define LWMI_FAN_ID_BASE 1
->>  #define LWMI_FAN_NR 4
->>  #define LWMI_FAN_ID(x) ((x) + LWMI_FAN_ID_BASE)
->> @@ -115,6 +125,27 @@ enum lwmi_feature_id_psu {
->>  
->>  static DEFINE_IDA(lwmi_om_ida);
->>  
->> +static DEFINE_IDA(lwmi_tac_ida);
->> +static DEFINE_MUTEX(lwmi_tac_lock);
->> +
->> +struct lwmi_tac {
->> +	struct miscdevice misc;
->> +	struct kref ref;
->> +	struct wmi_device *wdev;
->> +	u8 instance;
->> +	int id;
->> +};
->> +
->> +struct lwmi_tac_file {
->> +	struct lwmi_tac *tac;
->> +	/* Protects the per-open response and its position. */
->> +	struct mutex lock;
->> +	void *result;
->> +	size_t result_len;
->> +	loff_t position;
->> +	bool completed;
->> +};
->> +
->>  enum attribute_property {
->>  	DEFAULT_VAL,
->>  	MAX_VAL,
->> @@ -1609,6 +1640,295 @@ static void lwmi_om_fw_attr_remove(struct lwmi_om_priv *priv)
->>  	priv->ida_id = -EIDRM;
->>  }
->>  
->> +/**
->> + * lwmi_tac_free() - Free an unregistered endpoint after its last close
->> + * @ref: Reference belonging to the endpoint.
->> + */
->> +static void lwmi_tac_free(struct kref *ref)
->> +{
->> +	struct lwmi_tac *tac = container_of(ref, struct lwmi_tac, ref);
->> +
->> +	ida_free(&lwmi_tac_ida, tac->id);
->> +	kfree(tac->misc.name);
->> +	kfree(tac);
->> +}
->> +
->> +/**
->> + * lwmi_tac_open() - Allocate independent response state for an open file
->> + * @inode: Character device inode.
->> + * @file: File initially pointing to the registered miscdevice.
->> + *
->> + * The misc core serializes open against deregistration, so the registration
->> + * reference remains valid while the file acquires its own reference.
->> + *
->> + * Return: 0 on success, or -ENOMEM.
->> + */
->> +static int lwmi_tac_open(struct inode *inode, struct file *file)
->> +{
->> +	struct lwmi_tac *tac = container_of(file->private_data, struct lwmi_tac, misc);
->> +	struct lwmi_tac_file *state;
->> +
->> +	state = kzalloc_obj(*state);
->> +	if (!state)
->> +		return -ENOMEM;
->> +	mutex_init(&state->lock);
->> +	state->tac = tac;
->> +	kref_get(&tac->ref);
->> +	file->private_data = state;
->> +	return stream_open(inode, file);
-> 
-> Add line breaks to improve readability. Same for the following methods.
-> 
->> +}
->> +
->> +/**
->> + * lwmi_tac_release() - Erase the response and drop the endpoint reference
->> + * @inode: Character device inode.
->> + * @file: File holding the endpoint state.
->> + *
->> + * Return: 0.
->> + */
->> +static int lwmi_tac_release(struct inode *inode, struct file *file)
->> +{
->> +	struct lwmi_tac_file *state = file->private_data;
->> +
->> +	kfree_sensitive(state->result);
-> 
-> Why on earth is it sensitive?
-> 
->> +	mutex_destroy(&state->lock);
->> +	kref_put(&state->tac->ref, lwmi_tac_free);
->> +	kfree(state);
->> +	return 0;
->> +}
->> +
->> +/**
->> + * lwmi_tac_invoke() - Execute GetDataByPackage and retain the response
->> + * @state: Open file whose response buffer is empty.
->> + * @data: Zero-padded 100-byte input buffer.
->> + *
->> + * The caller holds state->lock and lwmi_tac_lock. 
->>
-> 
-> Add lockdep assertions instead of stating them in comments.
-> 
->> The latter serializes call
->> + * pairs across instances and keeps the WMI device valid during evaluation.
->> + *
->> + * Return: 0 on success, or a negative error code.
->> + */
->> +static int lwmi_tac_invoke(struct lwmi_tac_file *state, u8 *data)
->> +{
->> +	struct lwmi_tac *tac = state->tac;
->> +	struct wmi_buffer input = { .length = LWMI_DATA_PACKAGE_INPUT_MAX, .data = data };
->> +	struct wmi_buffer output;
->> +	u32 data_size;
->> +	int ret;
->> +
->> +	if (!tac->wdev)
->> +		return -ENODEV;
+>> diff --git a/mm/shmem.c b/mm/shmem.c
+>> index 13e0786436cd..f1da8432d55c 100644
+>> --- a/mm/shmem.c
+>> +++ b/mm/shmem.c
+>> @@ -2568,11 +2568,14 @@ static int shmem_swapin_folio(struct inode *inode, pgoff_t index,
+>>   	 * and swap cache folios are never partially freed.
+>>   	 */
+>>   	folio_lock(folio);
+>> -	if (!folio_matches_swap_entry(folio, swap) ||
+>> -	    shmem_confirm_swap(mapping, index, swap) < 0) {
+>> +	if (!folio_matches_swap_entry(folio, swap)) {
+>>   		error = -EEXIST;
+>>   		goto unlock;
+>>   	}
+>> +	if (shmem_confirm_swap(mapping, index, swap) < 0) {
+>> +		error = -EEXIST;
+>> +		goto failed;
+>> +	}
+>>   	if (!folio_test_uptodate(folio)) {
+>>   		error = -EIO;
+>>   		goto failed;
+>> @@ -2613,6 +2616,15 @@ static int shmem_swapin_folio(struct inode *inode, pgoff_t index,
+>>   		error = -EEXIST;
+>>   	if (error == -EIO)
+>>   		shmem_set_folio_swapin_error(inode, index, folio, swap);
 >> +	/*
->> +	 * Duplicated call required to match BIOS workaround for behavior
->> +	 * seen when WMI accessed via scripting on other OS.
-> 
-> Reference? Where is the script?
-> 
+>> +	 * A large folio that does not fit the mapping, e.g. because its swap
+>> +	 * entries were freed and reused, would be found again on every retry.
+>> +	 * Drop it from the swap cache so the retry can swap in a fitting one.
 >> +	 */
->> +	for (unsigned int call = 0; call < 2; call++) {
->> +		ret = wmidev_invoke_method(tac->wdev, tac->instance,
->> +					   LWMI_DATA_PACKAGE_GET, &input, &output, 0);
->> +		if (ret)
->> +			return ret;
->> +		if (!call)
->> +			kfree_sensitive(output.data);
->> +	}
->> +	/* Validate DataSize before preserving the complete firmware response. */
-> 
-> Don't retell what the code does, but rather explain why.
-> 
->> +	if (output.length < sizeof(__le32)) {
-> 
-> Why not use wmidev_invoke_method()'s min_size argument?
-> 
->> +		ret = -EPROTO;
->> +		goto free_output;
->> +	}
->> +	data_size = get_unaligned_le32(output.data);
-> 
-> wmidev_invoke_method() returns aligned data.
-> 
->> +	if (data_size > output.length - sizeof(__le32)) {
->> +		ret = -EPROTO;
->> +		goto free_output;
->> +	}
->> +	/* Transfer ownership without another allocation after firmware ran. */
->> +	state->result = output.data;
-> 
-> Use __free() and no_free_ptr().
-> 
->> +	state->result_len = sizeof(__le32) + data_size;
-> 
-> Couldn't you declare a struct with a flex array member to represent this?
-> 
->> +	state->position = 0;
->> +	state->completed = true;
->> +	return 0;
->> +free_output:
->> +	kfree_sensitive(output.data);
->> +	return ret;
->> +}
->> +
->> +/**
->> + * lwmi_tac_write() - Submit one complete TAC request
-> 
-> "complete"
-> 
-> Obvious.
-> 
->> + * @file: Open TAC endpoint with independent response state.
->> + * @buffer: Userspace input bytes.
->> + * @count: Input size, from 1 to 100 bytes.
->> + * @ppos: Unused; 
+>> +	if (error == -EEXIST && folio && folio_test_large(folio) &&
+>> +	    !folio_test_anon(folio) && !folio_test_dirty(folio) &&
+>> +	    !folio_test_writeback(folio))
+>> +		swap_cache_del_folio(folio);
+>>   unlock:
+>>   	if (folio)
+>>   		folio_unlock(folio);
 >>
+>> ---
 > 
->> TAC is a nonseekable request/response stream.
+> I have an AI fix here:
 > 
-> Obvious.
+> Author: Chris Mason <mason@kernel.org>
+> Date:   Wed Nov 11 18:44:55 2026 +0000
 > 
->> + *
->> + * Short inputs are zero-padded. An unread response must be consumed before
->> + * submitting another request. A failed firmware call is never retried here.
->> + *
->> + * Return: @count on success, or a negative error code.
->> + */
->> +static ssize_t lwmi_tac_write(struct file *file, const char __user *buffer,
->> +			      size_t count, loff_t *ppos)
->> +{
->> +	struct lwmi_tac_file *state = file->private_data;
->> +	u8 input[LWMI_DATA_PACKAGE_INPUT_MAX] = {};
->> +	int ret;
->> +
->> +	if (!count || count > sizeof(input))
->> +		return -EINVAL;
->> +	if (copy_from_user(input, buffer, count)) {
->> +		ret = -EFAULT;
->> +		goto clear_input;
->> +	}
->> +	ret = mutex_lock_interruptible(&state->lock);
->> +	if (ret)
->> +		goto clear_input;
->> +	ret = mutex_lock_interruptible(&lwmi_tac_lock);
->> +	if (ret)
->> +		goto unlock;
+>      mm/shmem: don't drop a folio whose swap write failed
 > 
-> Use scoped_cond_guard() or ACQUIRE().
+>      If the swap write of a large shmem folio fails while a swap-in of
+>      another file finds that folio in the swap cache, its data can be
+>      silently lost. A read of the file then returns whatever the swap device
+>      holds.
 > 
->> +	if (!state->tac->wdev) {
->> +		ret = -ENODEV;
->> +	} else if (state->result) {
->> +		ret = -EBUSY;
->> +	} else {
->> +		state->completed = false;
->> +		ret = lwmi_tac_invoke(state, input);
->> +	}
->> +	mutex_unlock(&lwmi_tac_lock);
->> +unlock:
->> +	mutex_unlock(&state->lock);
->> +clear_input:
->> +	memzero_explicit(input, sizeof(input));
+>      "mm/shmem: fix swapin livelock on a mismatched large swap cache folio",
+>      earlier in this series, lets shmem_swapin_folio() drop a large folio
+>      from the swap cache, if the folio does not fit the file that is swapped
+>      in and is neither dirty nor under writeback. A folio that does not fit
+>      can belong to another file, with its swap write still in flight.
 > 
-> Why on earth is it sensitive, too?
+>      shmem_swapin_folio() holds the folio lock, but the code that completes a
+>      write does not take that lock. And a failed write sets dirty before it
+>      ends writeback. So the folio can look clean and written, although its
+>      write has failed:
 > 
->> +	if (ret)
->> +		return ret;
->> +	return count;
->> +}
->> +
->> +/**
->> + * lwmi_tac_read() - Read only this open file's firmware response
+>          shmem_swapin_folio()              swap_write_end(), failed write
+>          ====================              ==============================
+>          folio_test_dirty() == false
+>                                            folio_mark_dirty()
+>                                            folio_end_writeback()
+>          folio_test_writeback() == false
+>          swap_cache_del_folio()
+>            /* the only copy of the data */
 > 
-> "only"
+>      The fix used here is to test writeback first, and dirty second.
 > 
-> Obvious, no?
+>      Signed-off-by: Chris Mason <mason@kernel.org>
 > 
->> + * @file: Open TAC endpoint.
->> + * @buffer: Userspace destination.
->> + * @count: Maximum number of bytes to return.
->> + * @ppos: Unused; the response position is protected by state->lock.
->> + *
->> + * Responses contain little-endian u32 DataSize followed by Data. Partial
->> + * reads advance the response position. Consuming the result erases its
->> + * storage immediately; subsequent reads return EOF until another write.
->> + *
->> + * Return: Bytes read, 0 at EOF or for zero @count, or a negative error code.
->> + */
->> +static ssize_t lwmi_tac_read(struct file *file, char __user *buffer,
->> +			     size_t count, loff_t *ppos)
->> +{
->> +	struct lwmi_tac_file *state = file->private_data;
->> +	ssize_t ret;
->> +
->> +	if (!count)
->> +		return 0;
->> +	ret = mutex_lock_interruptible(&state->lock);
->> +	if (ret)
->> +		return ret;
->> +	ret = mutex_lock_interruptible(&lwmi_tac_lock);
->> +	if (ret)
->> +		goto unlock;
->> +	if (!state->tac->wdev)
->> +		ret = -ENODEV;
->> +	mutex_unlock(&lwmi_tac_lock);
->> +	if (ret) {
->> +		kfree_sensitive(state->result);
->> +		state->result = NULL;
->> +		goto unlock;
->> +	}
->> +	if (!state->completed) {
->> +		ret = -ENODATA;
->> +		goto unlock;
->> +	}
->> +	if (!state->result)
->> +		goto unlock;
->> +	ret = simple_read_from_buffer(buffer, count, &state->position,
->> +				      state->result, state->result_len);
->> +	if (state->position == (loff_t)state->result_len) {
->> +		kfree_sensitive(state->result);
->> +		state->result = NULL;
->> +	}
->> +unlock:
->> +	mutex_unlock(&state->lock);
->> +	return ret;
+> diff --git a/mm/shmem.c b/mm/shmem.c
+> index 915b312e14175..457a502353a9a 100644
+> --- a/mm/shmem.c
+> +++ b/mm/shmem.c
+> @@ -2809,10 +2809,13 @@ static int shmem_swapin_folio(struct inode *inode, pgoff_t index,
+>           * A large folio that does not fit the mapping, e.g. because its swap
+>           * entries were freed and reused, would be found again on every retry.
+>           * Drop it from the swap cache so the retry can swap in a fitting one.
+> +        * A failed write sets dirty and then ends writeback, with no folio
+> +        * lock, so test writeback first. Both flags share folio->flags, so the
+> +        * order of the two loads holds.
+>           */
+>          if (error == -EEXIST && folio && folio_test_large(folio) &&
+> -           !folio_test_anon(folio) && !folio_test_dirty(folio) &&
+> -           !folio_test_writeback(folio))
+> +           !folio_test_anon(folio) && !folio_test_writeback(folio) &&
+> +           !folio_test_dirty(folio))
+>                  swap_cache_del_folio(folio);
+>   unlock:
+>          if (folio)
 > 
-> The entire method is in a horrible mess. Drop the support for partial
-> reads, and use scoped_cond_guard()/ACQUIRE(), and __free() to tidy it up.
 > 
->> +}
->> +
->> +static const struct file_operations lwmi_tac_fops = {
->> +	.owner = THIS_MODULE,
->> +	.open = lwmi_tac_open,
->> +	.release = lwmi_tac_release,
->> +	.read = lwmi_tac_read,
->> +	.write = lwmi_tac_write,
->> +};
->> +
->> +/**
->> + * lwmi_tac_remove() - Unregister an endpoint and block further firmware calls
->> + * @data: Endpoint registered as a device-managed cleanup action.
->> + *
->> + * Stop new opens before waiting for an in-flight call pair. Existing files
->> + * retain the endpoint state, but their subsequent reads/writes return -ENODEV.
->> + */
->> +static void lwmi_tac_remove(void *data)
->> +{
->> +	struct lwmi_tac *tac = data;
->> +
->> +	misc_deregister(&tac->misc);
->> +	mutex_lock(&lwmi_tac_lock);
->> +	tac->wdev = NULL;
->> +	mutex_unlock(&lwmi_tac_lock);
->> +	kref_put(&tac->ref, lwmi_tac_free);
->> +}
->> +
->> +/**
->> + * lwmi_tac_add() - Register TAC endpoints independently of capability data
->> + * @wdev: Bound Lenovo Other Mode WMI device.
->> + *
->> + * No capability describes method 99, so registration does not probe firmware
->> + * support. Each firmware instance gets an endpoint; unsupported method calls
->> + * are reported to userspace when requested.
->> + *
->> + * Return: 0 on success, or a negative error code. Device-managed cleanup
->> + * unregisters earlier endpoints if a later registration or probe step fails.
->> + */
->> +static int lwmi_tac_add(struct wmi_device *wdev)
+> @Mani, can you double check if that makes sense (can we actually trigger that), and
+> if so, send it out officially, with Fixes tag ?
 > 
-> devm_
-> 
->> +{
->> +	unsigned int instances = wmidev_instance_count(wdev);
->> +	int ret;
->> +
->> +	for (unsigned int instance = 0; instance < instances; instance++) {
->> +		struct lwmi_tac *tac;
->> +
->> +		tac = kzalloc_obj(*tac);
->> +		if (!tac)
->> +			return -ENOMEM;
->> +		ret = ida_alloc(&lwmi_tac_ida, GFP_KERNEL);
->> +		if (ret < 0) {
->> +			kfree(tac);
->> +			return ret;
->> +		}
->> +		tac->id = ret;
->> +		kref_init(&tac->ref);
->> +		tac->wdev = wdev;
->> +		tac->instance = instance;
->> +		tac->misc.minor = MISC_DYNAMIC_MINOR;
->> +		tac->misc.name = kasprintf(GFP_KERNEL, "tac%d", tac->id);
->> +		tac->misc.fops = &lwmi_tac_fops;
->> +		tac->misc.parent = &wdev->dev;
->> +		tac->misc.mode = 0600;
->> +		if (!tac->misc.name) {
->> +			kref_put(&tac->ref, lwmi_tac_free);
->> +			return -ENOMEM;
->> +		}
->> +		ret = misc_register(&tac->misc);
->> +		if (ret) {
->> +			kref_put(&tac->ref, lwmi_tac_free);
->> +			return ret;
->> +		}
->> +		/* Unregister before the WMI device and its managed state disappear. */
->> +		ret = devm_add_action_or_reset(&wdev->dev, lwmi_tac_remove, tac);
->> +		if (ret)
->> +			return ret;
->> +	}
->> +	return 0;
->> +}
->> +
->>  /* ======== Self (master: lenovo-wmi-other) ======== */
->>  
->>  /**
->> @@ -1693,6 +2013,7 @@ static int lwmi_other_probe(struct wmi_device *wdev, const void *context)
->>  {
->>  	struct component_match *master_match = NULL;
->>  	struct lwmi_om_priv *priv;
->> +	int ret;
->>  
->>  	priv = devm_kzalloc_obj(&wdev->dev, *priv);
->>  	if (!priv)
->> @@ -1708,6 +2029,10 @@ static int lwmi_other_probe(struct wmi_device *wdev, const void *context)
->>  	if (IS_ERR(master_match))
->>  		return PTR_ERR(master_match);
->>  
->> +	ret = lwmi_tac_add(wdev);
->> +	if (ret)
->> +		return ret;
-> 
-> Why is this fatal?
-> 
-> Thanks,
-> Rong
-> 
->> +
->>  	return component_master_add_with_match(&wdev->dev, &lwmi_om_master_ops,
->>  					       master_match);
->>  }
->>
->> base-commit: 5680519168f65666d2c03cc6ed8fe2b7052aee12
+> Feel free to rework the patch as you please.
 
-Thanks for the detailed review. I sent v2 patch separately by referring
-your suggestion. Please help review it.
-My replies to your points are below.
-
-1. Practical purpose and tuning
-
-The known use is for Lenovo utility to communicate with firmware.
-In v2 I use a default-off debugfs interface instead of stable userspace
-interface.
-
-2. Test information in the commit message
-
-I removed the build and test details from the v2 commit message.
-
-3. LLM assistance
-
-Yes, I used AI assistance for the port and review. I reviewed the
-changes and am responsible for the submission.
-
-4. Character device versus debugfs, and the module parameter
-
-I replaced the character device with a 0600 debugfs file created under
-lwmi_debugfs_create_dir(). There is no non-invasive probe for method 99,
-so creation is disabled by default and requires
-enable_get_data_by_package=1 when loading the module. I removed the v1
-ABI document and its MAINTAINERS entry.
-
-5. ABI documentation and verbosity
-
-Removed the character-device ABI document change.
-
-6. Multiple writers and partial reads
-
-The debugfs file permits one open only per WMI device.
-
-7. Readability and comments
-
-I simplified the handlers and removed the redundant kernel-doc and
-comments that merely described normal file operations. I also removed
-the unsupported reference to a script on another OS.
-
-8. Locking
-
-With one open per WMI device, a per-open lock protects the response and
-serializes operations through shared descriptors. lwmi_package_invoke()
-uses lockdep_assert_held() for that lock.
-
-9. Sensitive data
-
-The firmware response can contain sensitive data, so I retained
-kfree_sensitive() for buffers returned successfully by WMI.
-
-10. Duplicate calls
-
-You can refer as think-lmi.c, same duplicated call. The reason is
-invoking WMI under Windows OS will result the BIOS ACPI code execute
-twice, so BIOS implemented the workaround, thus Linux driver will need
-the duplicated call to match the BIOS workaround.
-
-11. Response size, alignment and cleanup
-
-The second wmidev_invoke_method() call passes the response header size
-as min_size. The driver separately validates DataSize against the
-returned buffer length. The response is represented by an aligned
-structure with a flexible array; after the successful call I declare it
-with __free(kfree_sensitive) and transfer ownership with no_free_ptr().
-
-12. Scoped locking and probe failure
-
-Read and write use ACQUIRE()/ACQUIRE_ERR(). The device-managed debugfs
-cleanup action handles removal and setup rollback. A debugfs setup error
-is reported with dev_warn(), but does not by itself fail driver probe.
-
-Thanks,
-Alan
-
+That makes sense to me. If Mani has no time, I'll take care of this fix.
