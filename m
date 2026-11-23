@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795471261;
-	b=zThDMAtLtVuiIj8wquRn/MEe++09I+kYQ3h2xOaMLikJ4xKbundKewQvHLyNf8UPsZCJ
-	 moT8bjbPB8qQonqHjb5p7bXTS1kQjj8mv3RNmYVjlog1rcNNZKvnO1JfvRhB2O9D5Kuhq
-	 wDD6OpObGfTRiMckwnlaR/Hj/NfcppUbp2X7JVjs9n7L3LRvWLSl8qf7VQAYargViNDiC
-	 BlwbhBZxzdWd+8k8w5U0ozso+35L4gnbhW9aG6ZXdRdqsyE835Km7Jw5Dw2JEQcc2/xBl
-	 U9A8Cl2ZUJqx33d3Dk7wbuBw9HjnZzwuxSDjVFsA8Rkw63hh1LRhwYkvblbu8de0NyA==
+	t=1795471258;
+	b=45HvCfEj+xn0jMJJi10irE0GOhn5opzMqR2eWZWwzIZg9+sEv/+QPqKWPQX/A1QI1TNK
+	 B26ikC8Xl+vRbYO4uhBcwbg3F+mW0gFsypk4/1jpmw7iv3xcpnDSLBwlI3XU6VFUwCIqi
+	 SjyVlJVJa0Yz6YgK/iWGJXCdVK6c6duhz8bBlw+mgMneVUUuj8BtQ0YQPskmaoGgB1fQ2
+	 Y7jNqzdq5t6c5cllqkiUn95HRtHs+9dzIL/HFnwOYZek4nEcTYfKKSNZkjz1K57JkiNKR
+	 BIhzVVyYjlTiP2Fa0vaiswPv/E4rmYn13UW6P0tfZnQdz7YOi1WVsD5DsY5ovttP8qQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795471261;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795471258;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=SAptmRo7VFZs3YBboXIuiBByYjCRlZPrUdwklrfyjD0=;
-	b=zsW7R0CeMs8RRBD75zDhFjvnYh0aM7izLUkeligpBjLmqjcvckMQQlFFi08vObakdI6t
-	 macJYAGr/HKH1m/ciH7eAzeu5qIepkh9joYCZKd38niemyVkI0tecAuaUj6EMRZrVNbBW
-	 1BoKvu6sLNpWpAp891ynhZZvKNEi1Rc1itb4cyvTrOFbGRCNWrIc3C+4YqSpNWrkj5pze
-	 QiBd/parW5syLTZsCtM9EPTXK2fA0sU6hRmmFBibfGme02rpFDGOr5NgVANos8rBftF8/
-	 hjoc53vKsgxJI3Ely4tMsER7O89cbfUTcGAXScHhpXTyeHs9+6fimZH1N2Jc71GGX4g==
+	bh=qH7xXsAwU9CECAgj7c7iuRWnGoutWALTqN+OXYtTjXc=;
+	b=gIHdRDj+M91zw8egqPSkbUJgHwvrg97sd7wqDJvs032sN4nCUczDCY3EjZkyg5uoFaci
+	 ZqylY2IT7rWif/3E7jNcKTyFbiFb5ODnBcduJFxJdM4NbepQdH4k4pYuUQtoPA/wXgjAw
+	 DWEDrhuTU0Rvnj6PcTqiNEU/g2L5BRloW+bTS/6NehtKn92HZ59H/WBDoYy+Q8kndVgcM
+	 3BlgLGmux77ySWl6YXtWrZgr3ujlaMDpukNQ71bgkMPPGzLaxMgSO+j3pHYnoOd0I7hRe
+	 dG+GLR+/AQwgJm5L4y+K43Z9AvMGeiprE76uZtGZpQjodLOoI5uWf2/W0xxjaV609jA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hf5QoDnF;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oThvgs2E;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBC1B606A31E;
-	Mon, 23 Nov 2026 22:01:01 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hf5QoDnF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F34021F000C4;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A28B8606A332;
 	Mon, 23 Nov 2026 22:00:58 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oThvgs2E
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C43231F000CA;
+	Mon, 23 Nov 2026 22:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795471261;
-	bh=SAptmRo7VFZs3YBboXIuiBByYjCRlZPrUdwklrfyjD0=;
+	s=k20260515; t=1795471258;
+	bh=qH7xXsAwU9CECAgj7c7iuRWnGoutWALTqN+OXYtTjXc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=hf5QoDnFHatZHi92Wvu33sdDkJhxBHIHZUQMWmhDPImgULFPV6Pj+N9x67rGF6sk/
-	 P0jdQupCMTWIP2jLp/bwM0fKdxQHWTRCNUc2doizP9kIGseWzoynbxT0Qousl3Aqx4
-	 HNAZdMnzYfq3GmEUQ+q85dJOYmtww8ei5b3aHRstDPYoDj6hGrcz/6BulPrJyiLCjG
-	 xM+48Bnq0P6NN6AQ5VACAhyp/nQpuPXHZcKMM8d2OBLVDnJTMp6ViIhkj49aMUxEJm
-	 coh+60Q+mBQNsaYgDzBzAUJ17F7GAtabt976g8Ghn3pfBzoKED4bKz3Sykh4cJP6CO
-	 m+u9/HQ14nc7w==
+	b=oThvgs2EZgV9vQN72S0Y5HNeH0n3rWDWN8sufuLtKQWm0KUWzCBwiyaYNstoWy24U
+	 yOQYSF6cnL006rr6NzWXJYPdAanwvxkurGzAoNVrOpzJ7nWSHaI3QQZrIbT+YawQHo
+	 wo2JHzhsqZDCLcBHV+UIyvg35qNrJgIfYPE+nb3JtnzfzQtgPkhO7UvhpYLUaDNXdq
+	 WAlGXSWM+UCqxSO2jaZYWETB/8+tcX+1EtjG3Ol2P0MuRrEV4EFbBmzLpqcJPvRcsV
+	 e7TNWPZkoqgfsvNF9+ihq8tcDCKmQ+YN6A+wDNn/D38syO/tFZvDuZqgFE2+BW0EG4
+	 JuaD02xMy3A8Q==
 From: Arnaldo Carvalho de Melo <acme@kernel.org>
 To: Namhyung Kim <namhyung@kernel.org>
 Cc: Ingo Molnar <mingo@kernel.org>,
@@ -51,9 +51,9 @@ Cc: Ingo Molnar <mingo@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-perf-users@vger.kernel.org,
 	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: [PATCH v12 09/19] perf test: Exercise DW_OP_addrx global variables
-Date: Mon, 23 Nov 2026 19:00:14 -0300
-Message-ID: <20261123220024.14891-10-acme@kernel.org>
+Subject: [PATCH v12 08/19] perf test: Exercise the x86 operand parser
+Date: Mon, 23 Nov 2026 19:00:13 -0300
+Message-ID: <20261123220024.14891-9-acme@kernel.org>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261123220024.14891-1-acme@kernel.org>
 References: <20261123220024.14891-1-acme@kernel.org>
@@ -70,212 +70,235 @@ Content-Transfer-Encoding: 8bit
 
 From: Arnaldo Carvalho de Melo <acme@redhat.com>
 
-clang emits DW_AT_location with DW_OP_addrx for globals in DWARF 5, gcc
-emits DW_OP_addr.  The global_data workload keeps a zero initialized
-struct in .bss: at run time it sits past the file backed mapping, where
-the by-name fallback through the thread maps cannot find it, so only the
-DWARF address lookup resolves it.  The test checks that its three member
-accesses are annotated, so the DW_OP_addrx path is exercised when perf
-is built with clang and DWARF 5 (e.g. scripts/coverage.sh with
-DWARF_VERSION=5), and the DW_OP_addr one with gcc.
-
-It skips on 32-bit PIE builds, which reach static globals relative to
-the GOT base register, and the resolver does not track that.
+Add a unit test for x86 operand parsing.  The 64-bit absolute disp32
+and movabs cases are from the allmodconfig clang build in the preceding
+changes.  Also check a 32-bit absolute address, an immediate, and
+values that should not become absolute addresses.  Both objdump
+spellings of the movabs instruction must yield the KASAN shadow offset.
 
 Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 ---
- tools/perf/tests/builtin-test.c            |  1 +
- tools/perf/tests/shell/data_type_global.sh | 73 ++++++++++++++++++++++
- tools/perf/tests/tests.h                   |  1 +
- tools/perf/tests/workloads/Build           |  2 +
- tools/perf/tests/workloads/global_data.c   | 57 +++++++++++++++++
- 5 files changed, 134 insertions(+)
- create mode 100755 tools/perf/tests/shell/data_type_global.sh
- create mode 100644 tools/perf/tests/workloads/global_data.c
+ tools/perf/tests/Build          |   1 +
+ tools/perf/tests/annotate-ops.c | 172 ++++++++++++++++++++++++++++++++
+ tools/perf/tests/builtin-test.c |   1 +
+ tools/perf/tests/tests.h        |   1 +
+ 4 files changed, 175 insertions(+)
+ create mode 100644 tools/perf/tests/annotate-ops.c
 
-diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
-index a27baf3a819ccf36..42e85d1b1420f0a7 100644
---- a/tools/perf/tests/builtin-test.c
-+++ b/tools/perf/tests/builtin-test.c
-@@ -214,6 +214,7 @@ static struct test_workload *workloads[] = {
- 	&workload__deterministic,
- 	&workload__callchain,
- 	&workload__false_sharing,
-+	&workload__global_data,
+diff --git a/tools/perf/tests/Build b/tools/perf/tests/Build
+index 5eebb2ec5ddefcfd..c7edd8569bbccb06 100644
+--- a/tools/perf/tests/Build
++++ b/tools/perf/tests/Build
+@@ -2,6 +2,7 @@
  
- #ifdef HAVE_RUST_SUPPORT
- 	&workload__code_with_type,
-diff --git a/tools/perf/tests/shell/data_type_global.sh b/tools/perf/tests/shell/data_type_global.sh
-new file mode 100755
-index 0000000000000000..14f57d5a1b26a5ea
---- /dev/null
-+++ b/tools/perf/tests/shell/data_type_global.sh
-@@ -0,0 +1,73 @@
-+#!/bin/bash
-+# perf data type profiling test for a global variable
-+# SPDX-License-Identifier: GPL-2.0
-+
-+set -e
-+
-+perfdata=$(mktemp /tmp/__perf_test.perf.data.XXXXX)
-+perfout=$(mktemp /tmp/__perf_test.perf.out.XXXXX)
-+perferr=$(mktemp /tmp/__perf_test.perf.err.XXXXX)
-+
-+cleanup()
-+{
-+	rm -f "$perfdata" "$perfout" "$perferr"
-+	trap - EXIT TERM INT
-+}
-+
-+trap_cleanup()
-+{
-+	echo "Unexpected signal in ${FUNCNAME[1]}"
-+	cleanup
-+	exit 1
-+}
-+trap trap_cleanup EXIT TERM INT
-+
-+if ! perf check feature -q dwarf; then
-+	echo "Skip: no DWARF (libdw) support"
-+	cleanup
-+	exit 2
-+fi
-+
-+# 32-bit x86 PIE reaches static globals relative to the GOT base register,
-+# which the resolver does not track; e_type's low byte is at 16 on LE x86.
-+perf_bin=$(command -v perf)
-+if [ "$(od -An -tx1 -j4 -N1 "$perf_bin" | tr -d ' ')" = 01 ] &&
-+   [ "$(od -An -tx1 -j16 -N1 "$perf_bin" | tr -d ' ')" = 03 ]; then
-+	echo "Skip: 32-bit PIE uses GOT-relative global accesses"
-+	cleanup
-+	exit 2
-+fi
-+
-+# No point in recording if the PMU cannot do memory events.
-+if ! perf mem record -o /dev/null -- true 2>/dev/null; then
-+	echo "Skip: cannot record memory events on this PMU"
-+	cleanup
-+	exit 2
-+fi
-+
-+if ! perf mem record -o "$perfdata" -- perf test -w global_data 1 \
-+		> /dev/null 2> "$perferr"; then
-+	echo "FAIL: perf mem record"
-+	cat "$perferr"
-+	cleanup
-+	exit 1
-+fi
-+
-+if ! perf annotate --code-with-type -i "$perfdata" --stdio \
-+		--percent-limit 1 > "$perfout"; then
-+	echo "FAIL: perf annotate"
-+	cleanup
-+	exit 1
-+fi
-+
-+for member in "+0 (saddr)" "+0x4 (daddr)" "+0x8 (bytes)"; do
-+	if ! grep -Fq "# data-type: struct conn ${member}" "$perfout"; then
-+		echo "FAIL: member ${member} not resolved"
-+		grep 'struct conn' "$perfout" || true
-+		cleanup
-+		exit 1
-+	fi
-+done
-+
-+echo "global variable resolved"
-+cleanup
-diff --git a/tools/perf/tests/tests.h b/tools/perf/tests/tests.h
-index 963cb34acd345153..63d49a960eab8f3c 100644
---- a/tools/perf/tests/tests.h
-+++ b/tools/perf/tests/tests.h
-@@ -274,6 +274,7 @@ DECLARE_WORKLOAD(context_switch_loop);
- DECLARE_WORKLOAD(deterministic);
- DECLARE_WORKLOAD(callchain);
- DECLARE_WORKLOAD(false_sharing);
-+DECLARE_WORKLOAD(global_data);
- 
- #ifdef HAVE_RUST_SUPPORT
- DECLARE_WORKLOAD(code_with_type);
-diff --git a/tools/perf/tests/workloads/Build b/tools/perf/tests/workloads/Build
-index 43cc4da6fb0786de..03017aaaaa0bec32 100644
---- a/tools/perf/tests/workloads/Build
-+++ b/tools/perf/tests/workloads/Build
-@@ -17,6 +17,7 @@ perf-test-y += context_switch_loop.o
- perf-test-y += deterministic.o
- perf-test-y += callchain.o
- perf-test-y += false_sharing.o
-+perf-test-y += global_data.o
- 
- ifeq ($(CONFIG_RUST_SUPPORT),y)
-     perf-test-y += code_with_type.o
-@@ -35,3 +36,4 @@ CFLAGS_deterministic.o    = -g -O0 -fno-inline -U_FORTIFY_SOURCE
- CFLAGS_named_threads.o    = -g -O0 -fno-inline -U_FORTIFY_SOURCE
- CFLAGS_callchain.o        = -g -O0 -fno-inline -U_FORTIFY_SOURCE
- CFLAGS_false_sharing.o    = -g -O0 -fno-inline -U_FORTIFY_SOURCE
-+CFLAGS_global_data.o      = -g -O0 -fno-inline -U_FORTIFY_SOURCE
-diff --git a/tools/perf/tests/workloads/global_data.c b/tools/perf/tests/workloads/global_data.c
+ perf-test-y += builtin-test.o
+ perf-test-y += tests-scripts.o
++perf-test-y += annotate-ops.o
+ perf-test-y += parse-events.o
+ perf-test-y += uncore-event-sorting.o
+ perf-test-y += dso-data.o
+diff --git a/tools/perf/tests/annotate-ops.c b/tools/perf/tests/annotate-ops.c
 new file mode 100644
-index 0000000000000000..5973f7bb16fd007c
+index 0000000000000000..766126fc2e2f5e98
 --- /dev/null
-+++ b/tools/perf/tests/workloads/global_data.c
-@@ -0,0 +1,57 @@
++++ b/tools/perf/tests/annotate-ops.c
+@@ -0,0 +1,172 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * A zero initialized global struct, so it lands in .bss, past the file
-+ * backed end of the last segment: at run time it sits in an anonymous
-+ * mapping that the thread maps do not name, so only the DWARF address
-+ * lookup finds it.  clang describes its address with DW_OP_addrx in
-+ * DWARF 5, gcc with DW_OP_addr.
++ * The x86 operand parser: what is a memory reference and where it points.
 + *
-+ * 'perf mem record' of this workload followed by 'perf annotate
-+ * --code-with-type' (see tests/shell/data_type_global.sh) resolves the
-+ * accesses to struct conn.
++ * The data type resolver follows absolute memory operands; an immediate
++ * is not a memory reference.
 + */
-+#include <signal.h>
-+#include <stdlib.h>
-+#include <unistd.h>
++#include <elf.h>
 +#include <linux/compiler.h>
-+#include "../tests.h"
++#include <stdlib.h>
++#include <string.h>
++#include "annotate.h"
++#include "debug.h"
++#include "dso.h"
++#include "disasm.h"
++#include "tests.h"
 +
-+struct conn {
-+	int saddr;
-+	int daddr;
-+	long bytes;
++struct op_case {
++	const char		*insn;
++	const struct ins_ops	*ops;
++	const char		*operand;
++	bool			mem_ref;
++	int			offset;
 +};
 +
-+static volatile struct conn conn;
-+static volatile unsigned long conn_sink;
-+static volatile sig_atomic_t done;
++static struct op_case op_cases[] = {
++	/* 32-bit absolute, and the 64-bit sign extended disp32 both ways */
++	{ "mov",    &mov_ops,  "0x8c73448",		true,  0x8c73448 },
++	{ "mov",    &mov_ops,  "0xffffffffff5fc300",	true,  -0xa03d00 },
++	{ "mov",    &mov_ops,  "-0xa03d00",		true,  -0xa03d00 },
++	/* An immediate is not a memory reference */
++	{ "mov",    &mov_ops,  "$0x10",			false, 0 },
++	/* Zero and values wider than a disp32 are not absolute addresses. */
++	{ "mov",    &mov_ops,  "0x0",			false, 0 },
++	{ "mov",    &mov_ops,  "0x100000000",		false, 0 },
++};
 +
-+static void sighandler(int sig __maybe_unused)
++static int check_operand(const struct arch *arch, const struct op_case *c,
++			 struct dso *dso64, struct dso *dso32, struct dso *dsorel)
 +{
-+	done = 1;
-+}
++	struct disasm_line dl = {
++		.ins = { .name = c->insn, .ops = c->ops },
++	};
++	struct annotated_insn_loc loc;
++	struct annotated_op_loc *op;
++	int ret = 0;
 +
-+static int global_data(int argc, const char **argv)
-+{
-+	unsigned long sum = 0;
-+	unsigned int i = 0;
-+	int sec = 1;
++	dl.ops.source.raw = (char *)c->operand;
 +
-+	if (argc > 0)
-+		sec = atoi(argv[0]);
++	if (annotate_get_insn_location(arch, &dl, &loc) < 0)
++		return TEST_FAIL;
 +
-+	signal(SIGINT, sighandler);
-+	signal(SIGALRM, sighandler);
-+	alarm(sec);
-+
-+	while (!done) {
-+		conn.saddr = i;
-+		conn.daddr = i + 1;
-+		sum += conn.bytes;
-+		i++;
++	op = &loc.ops[INSN_OP_SOURCE];
++	if (op->mem_ref != c->mem_ref) {
++		pr_debug("'%s %s': mem_ref %d, expected %d\n", c->insn,
++			 c->operand, op->mem_ref, c->mem_ref);
++		ret = TEST_FAIL;
 +	}
-+	conn_sink = sum;
-+	return 0;
++	if (op->mem_ref && op->offset != c->offset) {
++		pr_debug("'%s %s': offset %#x, expected %#x\n", c->insn,
++			 c->operand, op->offset, c->offset);
++		ret = TEST_FAIL;
++	}
++	if (c->mem_ref &&
++	    (!annotated_op_loc__is_abs(op, dso64) ||
++	     !annotated_op_loc__is_abs(op, dso32) ||
++	     annotated_op_loc__abs_addr(op, dso64) != (u64)(s64)c->offset ||
++	     annotated_op_loc__abs_addr(op, dso32) != (u32)c->offset)) {
++		pr_debug("'%s %s': wrong absolute address\n", c->insn, c->operand);
++		ret = TEST_FAIL;
++	}
++	/* The same operand in a relocatable object is an addend, not an address */
++	if (c->mem_ref && annotated_op_loc__is_abs(op, dsorel)) {
++		pr_debug("'%s %s': absolute address in a relocatable object\n",
++			 c->insn, c->operand);
++		ret = TEST_FAIL;
++	}
++
++	return ret;
 +}
 +
-+DEFINE_WORKLOAD(global_data);
++struct movabs_case {
++	const char	*name;
++	const char	*operand;
++	s64		imm;
++};
++
++/* The KASAN shadow offset movabs, as both disassemblers print it */
++static const struct movabs_case movabs_cases[] = {
++	{ "movabsq", "$-0x2000040000000000, %r15 # imm = 0xDFFFFC0000000000",
++	  -0x2000040000000000LL },
++	{ "movabs",  "$0xdffffc0000000000,%r15", -0x2000040000000000LL },
++};
++
++static int check_movabs(const struct arch *arch, const struct movabs_case *c)
++{
++	struct disasm_line dl = { .ins = { .name = c->name } };
++	struct annotated_insn_loc loc;
++	int ret = TEST_FAIL;
++
++	dl.ops.raw = strdup(c->operand);
++	if (dl.ops.raw == NULL)
++		return TEST_FAIL;
++
++	dl.ins.ops = ins__find(arch, c->name, &dl);
++	if (dl.ins.ops != &mov_ops || dl.ins.ops->parse(arch, &dl.ops, NULL, &dl) < 0) {
++		pr_debug("'%s %s': not parsed as a mov\n", c->name, c->operand);
++		goto out;
++	}
++
++	/*
++	 * get_dwarf_regnum() is a stub returning -1 when perf is built
++	 * without libdw, the target register cannot be resolved then.
++	 */
++#ifdef HAVE_LIBDW_SUPPORT
++	if (annotate_get_insn_location(arch, &dl, &loc) == 0 &&
++	    !loc.ops[INSN_OP_SOURCE].mem_ref && loc.ops[INSN_OP_SOURCE].imm &&
++	    loc.ops[INSN_OP_SOURCE].imm_value == c->imm &&
++	    loc.ops[INSN_OP_TARGET].reg1 != -1)
++#else
++	if (annotate_get_insn_location(arch, &dl, &loc) == 0 &&
++	    !loc.ops[INSN_OP_SOURCE].mem_ref && loc.ops[INSN_OP_SOURCE].imm &&
++	    loc.ops[INSN_OP_SOURCE].imm_value == c->imm)
++#endif
++		ret = TEST_OK;
++	else
++		pr_debug("'%s %s': not an immediate to a register\n",
++			 c->name, c->operand);
++out:
++	free(dl.ops.source.raw);
++	free(dl.ops.target.raw);
++	free(dl.ops.raw);
++	return ret;
++}
++
++static int test__annotate_ops(struct test_suite *test __maybe_unused,
++			      int subtest __maybe_unused)
++{
++	struct e_machine_and_e_flags id = { .e_machine = EM_X86_64, };
++	const struct arch *arch = arch__new_x86(&id, NULL);
++	struct dso *dso64 = dso__new("annotate-ops-64");
++	struct dso *dso32 = dso__new("annotate-ops-32");
++	struct dso *dsorel = dso__new("annotate-ops-rel");
++	size_t i;
++	int ret = 0;
++
++	if (arch == NULL || dso64 == NULL || dso32 == NULL || dsorel == NULL) {
++		dso__put(dso64);
++		dso__put(dso32);
++		dso__put(dsorel);
++		free((void *)arch);
++		return TEST_FAIL;
++	}
++
++	dso__set_is_64_bit(dso64, true);
++	dso__set_is_64_bit(dso32, false);
++	dso__set_rel(dsorel, ET_REL);
++
++	for (i = 0; i < ARRAY_SIZE(op_cases); i++)
++		ret |= check_operand(arch, &op_cases[i], dso64, dso32, dsorel);
++
++	for (i = 0; i < ARRAY_SIZE(movabs_cases); i++)
++		ret |= check_movabs(arch, &movabs_cases[i]);
++
++	dso__put(dso64);
++	dso__put(dso32);
++	dso__put(dsorel);
++	free((void *)arch);
++	return ret;
++}
++
++DEFINE_SUITE("Annotate operand parsing", annotate_ops);
+diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
+index 01c78ef20b97dec9..a27baf3a819ccf36 100644
+--- a/tools/perf/tests/builtin-test.c
++++ b/tools/perf/tests/builtin-test.c
+@@ -117,6 +117,7 @@ static struct test_suite *generic_tests[] = {
+ 	&suite__openat_syscall_event_on_all_cpus,
+ 	&suite__basic_mmap,
+ 	&suite__mem,
++	&suite__annotate_ops,
+ 	&suite__parse_events,
+ 	&suite__uncore_event_sorting,
+ 	&suite__expr,
+diff --git a/tools/perf/tests/tests.h b/tools/perf/tests/tests.h
+index af822885890dda73..963cb34acd345153 100644
+--- a/tools/perf/tests/tests.h
++++ b/tools/perf/tests/tests.h
+@@ -153,6 +153,7 @@ DECLARE_SUITE(sample_parsing);
+ DECLARE_SUITE(keep_tracking);
+ DECLARE_SUITE(parse_no_sample_id_all);
+ DECLARE_SUITE(dwarf_unwind);
++DECLARE_SUITE(annotate_ops);
+ DECLARE_SUITE(expr);
+ DECLARE_SUITE(hists_filter);
+ DECLARE_SUITE(mmap_thread_lookup);
 -- 
 2.56.0
 
