@@ -1,84 +1,81 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.145.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795475972;
-	b=c7rpdXtI4Z+mLTQnyq7onrTzjS8eeVjp+ZBXfLzknheSyEQDK6YgyAPxRIotiG88feKQ
-	 WPnz6QhD7tA3kFGHYzbDi7HujBTpv3PsSPKMR5OjzEGyd4qvnFEZXRXcPjq620I59sRlZ
-	 tOR2a6MzlZEIfnDLSK3iTQ5j+O+zaBZDBCqCHA529JabgHESLMKtE5T71E4e6W65ubztX
-	 K/uP2XuLS1+KLLJqEUulMOXjCGDtl6iip7+AvuEDYEdouFwLKO1QFsnzy761XlD62flqD
-	 OVw7kAhYZ52uYwU7sNGlhoQvPxLvnuY1QIgT11ZcU2K1Ec4S0Z1FG9wDLrTPAuX0cJQ==
+	t=1795475984;
+	b=IabMP6PVk3CdJkvyX9y+KRQJvgk+DG3Iga0WjvrDupZTvd0Dq1fogwicMaWUHEhEk1+2
+	 o3R0i5KNRh+i0Qkw2fgAiKE5RtZ5pKoI/pN272+jw8p6FagzOXEsqACAVgEohM1zbh00d
+	 JQxET14icmozTkcztdvdQJH0ajNkkAY415nLOHjCBWjby4+NHUj83uz2p799stKwPgDih
+	 o68bGaQYL3/eypyacIDQhWiHGUXoSAVxobzplXEGbRO/Mznx6s0cHWo6qXRm6LAOS2aWf
+	 +NnrT7k6XkNvv+ZPqsetJVGQLps5hMnDeM28rp9B51dHE/kFI6FJ4X7QU0sJcJNoixw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795475972;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795475984;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Date:From:To:
+	 CC:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Originating-IP:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
 	 X-Proofpoint-Virus-Version;
-	bh=YnITptjLDMHlKMuNDcyL11AHr7ri5HqywhVbFsv/2zs=;
-	b=Q4zAYFeWUfLmHFFzd/L1L87gTt4T+AXqQXRncM+6+g2R4enkm+uwArOQdq6qyumDI0G0
-	 5lwzQPcWGnPl3eP/0wu3z4itMZEn4gTp6QMo/XrQgmMYhq7riOguIWXZW6l58k+O8goN1
-	 Hv/YmMq15LT6A8t0/b5BI2scwuFHtjwgbmOH8zubxxRBZ0pSNCPSrYE67TQbaDAQaO5S0
-	 sykfOj2Ze9Qvr0s1wW2VwFyVQq2BL1Jf21quqmOeEV1njjbKBqD3LwWMh7m0iS+W0blmn
-	 DuUMmmU/YkzjKpP/47j4mVGUXZROLeHiDVo+p1TFOQwzHejexTqMbNZ9dRBYyqrWlCQ==
+	bh=8vJ4rc7Ztjrf5+f9gvb+rymWWVA3mVc8hXo5yAPcMrM=;
+	b=mza094oMcSe7rEwl0XHLnp/kSrzyimkvQAzAVbHeafBmyepM6cy7uAl/k6Rfy+mlqgxZ
+	 mztTrMIhgZHwHm9mmWlEmnHnQykH/8/+8r4ivQHCaredP60yxjxSFBzmT/fuR8GkfUAPT
+	 ihPuzWKdurQpDCZ0r26Oto2qHNX5qUfjil1h9iFhhog2qCd/1ivjywyHN47ESDBln0XwN
+	 6kvOSMcaoxiZFk4Ybm/cpKCsxl7ImkQv3oaaX6wi1ivgArfzrkTvaLWIwh3LHguYoqAXQ
+	 Rp5AmUgpC+bHT22rkKusGyh66CQT6k1G2zn1LzRlUQXP7D7dWKZRZdVRMgBML2mIECQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=meta.com;
 	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=TYuBCMHj;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b="mWwaV/ek";
 	arc=none smtp.remote-ip=67.231.145.42
 Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.145.42])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A0EE606A31E;
-	Mon, 23 Nov 2026 23:19:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A0EE606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 525B5606A322;
+	Mon, 23 Nov 2026 23:19:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 525B5606A322
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=TYuBCMHj
-Received: from pps.filterd (m0528009.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJw1RT2657760;
-	Mon, 23 Nov 2026 15:18:45 -0800
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=mWwaV/ek
+Received: from pps.filterd (m0148461.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJwF872641869;
+	Mon, 23 Nov 2026 15:19:17 -0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=pps82601-s2048-2026-q3; bh=YnITptjLD
-	MHlKMuNDcyL11AHr7ri5HqywhVbFsv/2zs=; b=TYuBCMHjvl5dEnOSa8vwRYtxR
-	za4E3wkq1CWwgiGgSCwpDvhmRHYme3l05zeZ3DxJkZm0d4bF6JSLPuNU/3M8lBxU
-	6MC6uPrknt9SD97qPG7XFRZv5gaiQ3AiARnDuvnZvwfGhpyH/iHr8oKL/NoK+d5z
-	AFxdTutVyXRRIVHVELsJdShPf7+QUnGH9UK0Bo0FRw8wSSdqF1Ubkxhlt5pY8cyM
-	7o8przmZy9Rp5Ibgn/seWZMBF/hUguH5smAh1NKscbq4EwlFi29w2KNoT7sbhYjJ
-	LW54qWZu6HFKEs9CSK8eIJh3erByWMjix91dACQc8l70SuVV/RbGfz7UfmAEw==
-Received: from maileast.thefacebook.com ([163.114.135.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j3wx9hxa9-1
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pps82601-s2048-2026-q3; bh=8vJ4rc7Ztjr
+	f5+f9gvb+rymWWVA3mVc8hXo5yAPcMrM=; b=mWwaV/ek2boEeWNrZrvj/xchpig
+	wQr9+OgG/dqJQ2Mb1J32KazB2HNwF8ZksRq1if7ElRCJI5vAyZCnl/AVo5IGD4Cp
+	Fm65PLOk4ulFUm65V0g4a5FLR0t998i87IJaSyvSaE9WfLZjf6x1vzgPGU0ilSaY
+	xyso3d+Pvlbc+lbvTftMuUpS5axc8NU2ghzaZ00GF7Wsul85RD6OPEBQv/13b/et
+	fOZAgDRuMjsaTAMM29XyDp/B6Jstcw7OFNiBp7Fk6C3nriJ3XZabBo+7r7zPDHxz
+	pZqXvfhRUg7DIuOzk7qsNyeDl1FGuGOCWvIZZGMlXpfTd07FIeUwby3G0kg==
+Received: from mail.thefacebook.com ([163.114.134.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j399b5cnu-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Mon, 23 Nov 2026 15:18:45 -0800 (PST)
-Received: from localhost (2620:10d:c0a8:1c::11) by mail.thefacebook.com
- (2620:10d:c0a9:6f::8fd4) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 23 Nov 2026 15:19:17 -0800 (PST)
+Received: from localhost (2620:10d:c085:108::150d) by mail.thefacebook.com
+ (2620:10d:c08b:78::2ac9) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Mon, 23 Nov
- 2026 23:18:43 +0000
-From: Todd Freed <toddfreed@meta.com>
-To: <netfilter-devel@vger.kernel.org>
-CC: Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>,
-        Phil Sutter <phil@nwl.cc>, "David S. Miller" <davem@davemloft.net>,
-        Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-        Boris Pismenny
-	<borisp@nvidia.com>,
-        John Fastabend <john.fastabend@gmail.com>,
-        Sabrina
- Dubroca <sd@queasysnail.net>,
-        Daniel Zahka <daniel.zahka@gmail.com>,
-        Willem
- de Bruijn <willemdebruijn.kernel@gmail.com>,
-        =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-        <coreteam@netfilter.org>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
-Subject: [PATCH nf] netfilter: reject: don't quote decrypted payload in icmp errors
-Date: Mon, 23 Nov 2026 15:18:35 -0800
-Message-ID: <20261123231835.2356740-1-toddfreed@meta.com>
-X-Mailer: git-send-email 2.53.1
+ 2026 23:19:16 +0000
+Date: Mon, 23 Nov 2026 15:19:12 -0800
+From: Bobby Eshleman <bobbyeshleman@meta.com>
+To: Michal Luczaj <mhal@rbox.co>
+CC: Stefano Garzarella <sgarzare@redhat.com>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Simon Horman
+	<horms@kernel.org>,
+        George Zhang <georgezhang@vmware.com>, Andy King
+	<acking@vmware.com>,
+        Dmitry Torokhov <dtor@vmware.com>, <virtualization@lists.linux.dev>,
+        <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        Kyle Zeng <kylebot@openai.com>
+Subject: Re: [PATCH net v2] vsock: only undo SS_CONNECTING when connect()
+ fails
+Message-ID: <awTJ8EOl52W0ph1K@devvm29614.prn0.facebook.com>
+References: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
+ <ed28d36a-682e-4db5-abf4-1339734e7c57@rbox.co>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,130 +85,164 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Authority-Analysis: v=2.4 cv=aY/0Dhot c=1 sm=1 tr=0 ts=6b04c9d5 cx=c_pps
- a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
- a=U_y8lYiYyhHBU5rMqhb2:22 a=VwQbUJbxAAAA:8 a=VabnemYjAAAA:8
- a=DTGP0nILiB9DUAOxyKkA:9 a=gKebqoRLp9LExxC7YDUY:22
-X-Proofpoint-ORIG-GUID: rA4bA3gNgBn3RbXgZyhV9bTnbfaRvJEq
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA5MiBTYWx0ZWRfX7igi5WtQnCLe
- 6lfZXqhH72GRRf+LINkq+BhD9z+BDIzR+m4s1PpzKDFRvHKLsMxcpxvc089T0djoHiYpYIZT25T
- fPCv5Vvb64y5VjkAuRPWMD52QUHWV+k=
-X-Proofpoint-GUID: rA4bA3gNgBn3RbXgZyhV9bTnbfaRvJEq
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA5MiBTYWx0ZWRfX1pC1+PSo5A0q
- QpHrAGErgWWIKxCSHO5TMU/O4/bLRq8le9N0PuO6bsbonew+5pnocIpjAAMOoQWj+2HrEFN/IMx
- H9JvHbAa340IT8tVpEmM+De9AVPLUZS4K04PooGZF/xiwlOnhAHzhRs6NDxY1Kdoujq2V9xrOcf
- NiZJZLEWiF5vBs47TnIWERkHD1O+qrnDXVsMQnHQYB8dvhfgf+mQ1J7g3HuRZ/I3MyK9cxO/TJe
- NJ4Ya/RLAmbx8gMWOwHs32yKJFN04ndi8MaayayGI4LqC7S1S+Cedwmz3YjkQ986NrHAJdmy8C4
- fnd7UEv0OW/4jEoXxJyP/igsUkXTKket37B3QJEROJLBrvcmx0b2AlUHMjkaNzRl8JfHNwIJbxf
- D+QRctd3Tj+wCpRWjIyCfvUqYVbUak71VQSV3XNuAXdp1OyuxV4/OryIIfHqBVUKFTYbAFqvSvt
- KhEdpcgaVgY5WT7WA+Q==
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <ed28d36a-682e-4db5-abf4-1339734e7c57@rbox.co>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA5MiBTYWx0ZWRfX4XTKjePjSP8g
+ h8Sao59kxufLzLTTB1S2kIFpuwAk6QOWkWnOsPAbaouuEL1m0ZEt5Gy8LDhDJUT0FZvSpgcPF+f
+ irs17XsT6qE36MTMNrnHzhOjRfQQ212Xtn/lWRkhrfDJma8N2pgLN+GVsJqdCMFpUxt5p6EtS9Q
+ Wd17kwernWQnzF9YE+iENkyqRYyVCxQRaVXiVQX9IwO1pfcc+RP8jj2D8TaF7IwgK9v2k5GgbxM
+ SUe0BC6rKcMSL8t5Wpxw8v/xb7hK6vkQhkYpuyAhszd2NoEvznP6WcslN3pd8wmhexeEx+zt2Fx
+ 0wBNbyof0CYc8JTnadCPJOJ5uWl3AJ07zpaZMCFDGQfgatJaXpbeIwQXS1yLbFymjyQwXT3nFoE
+ ztbDgbspqfWzLqxw7yF+AbKs62conDoeghDy0Ajorh1X2alO+/8DnmR/8L1O8md2KoSOymfbHfS
+ 76xvYBCVlCk2qQ2W4qQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA5MiBTYWx0ZWRfXwGcnWV3sunVa
+ p5qgBIgxs9Ecwz9ltujQjywpFxW+FBW5poEMCSNpCN6U/m+OA6XPCDxW1jgxEGc//vgQq1+E6Bq
+ gDJnQigTIa/1WA7ZVUE7wg832FmU/lQ=
+X-Proofpoint-GUID: I-znb6DrbVu6-RbYbz0pYYoIi718ZdX8
+X-Authority-Analysis: v=2.4 cv=YJMKWhGx c=1 sm=1 tr=0 ts=6b04c9f5 cx=c_pps
+ a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=7x6HtfJdh03M6CCDgxCd:22 a=03ozwUkBphtHgyqjj1sw:22 a=wjE4qe255kbLy1X9BfwA:9
+ a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: I-znb6DrbVu6-RbYbz0pYYoIi718ZdX8
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-23_05,2026-11-23_01,2025-10-01_01
 
-On receive, skb->decrypted means that the device decrypted the skb
-(kTLS device offload, PSP). For a decrypted skb, any part of the packet
-which had been encrypted should not be sent back onto the network in
-cleartext.
+On Sat, Nov 21, 2026 at 07:32:15PM +0100, Michal Luczaj wrote:
+> On 11/18/26 02:34, Bobby Eshleman wrote:
+> > vsock_connect() sleeps with the socket unlocked. Meanwhile the transport
+> > can complete the handshake, setting sock->state to SS_CONNECTED, and then
+> > reset the connection, e.g. in vhost_vsock_reset_orphans(),
+> > virtio_vsock_reset_sock() or vmci_transport_handle_detach(). When
+> > connect() gets the lock back, it finds sk_err set and moves the socket
+> > back to SS_UNCONNECTED. Userspace can then connect() the socket again,
+> > and a connect() to a CID on another transport makes
+> > vsock_assign_transport() release the transport the socket was connected
+> > on.
+> > 
+> > Only move the socket back to SS_UNCONNECTED if it is still
+> > SS_CONNECTING. A socket that got connected stays SS_CONNECTED, and
+> > another connect() fails with -EISCONN.
+> > 
+> > Likewise, only move sk_state to TCP_CLOSE if it is still TCP_SYN_SENT.
+> > Otherwise a second thread blocked in connect() on the same socket can
+> > time out after the first one failed and called listen(), and overwrite
+> > TCP_LISTEN.
+> 
+> Ohh, this took me a while.
+> 
+> > +/* Avoid breaking the socket when another thread has changed its state while
+> > + * we were asleep.
+> > + */
+> > +static void vsock_connect_close(struct socket *sock)
+> > +{
+> > +	struct sock *sk = sock->sk;
+> > +
+> > +	if (sk->sk_state == TCP_SYN_SENT)
+> > +		sk->sk_state = TCP_CLOSE;
+> > +	if (sock->state == SS_CONNECTING)
+> > +		sock->state = SS_UNCONNECTED;
+> > +}
+> 
+> I was wondering why not
+> 
+> 	if (sk->sk_state == TCP_SYN_SENT) {
+> 		sk->sk_state = TCP_CLOSE;
+> 		sock->state = SS_UNCONNECTED;
+> 	}
+> 
+> and I think the only reasons we can't say "SYN_SENT iff CONNECTING" is
+> because shutdown() can flip SYN_SENT/CONNECTING to SYN_SENT/DISCONNECTING.
+> On connect's failure, the blocking path kinda-ignores such shutdown() and
+> resets the socket to UNCONNECTED anyway, while the non-blocking (i.e.
+> vsock_connect_timeout()) also consults sk_shutdown != SHUTDOWN_MASK.
+> 
+> So how about being consistent:
+> 
+> static void vsock_connect_close(struct socket *sock)
+> {
+> 	struct sock *sk = sock->sk;
+> 
+> 	// we follow vsock_connect_timeout():
+> 	// TCP_SYN_SENT implies SS_{DIS,}CONNECTING;
+> 	// and we do check sk_shutdown
+> 	//
+> 	// or am I missing something?
+> 
+> 	if (sk->sk_state == TCP_SYN_SENT &&
+> 	    sk->sk_shutdown != SHUTDOWN_MASK) {
+> 		sk->sk_state = TCP_CLOSE;
+> 		sock->state = SS_UNCONNECTED;
+> 	}
+> }
+> 
+> What do you think?
 
-These patches in the net series,
+I think we could say TCP_SYN_SENT implies SS_{DIS,}CONNECTING, but
+probably not the reverse... without a peer on the other end our connect
+request gets an RST reply, switching to TCP_CLOSE but leaving untouched
+SS_CONNECTING. Using only TCP_SYN_SENT then skips resetting
+SS_CONNECTING to SS_UNCONNECTED, and future connect() retries hit
+-EALREADY forever.
 
-https://lore.kernel.org/netdev/20261117203137.804424-1-toddfreed@meta.com
+It seems to work for vsock_connect_timeout() because that function only
+needs to test if the attempt to connect is still pending (if yes, then
+close everything up), but vsock_connect_close() needs to know more
+precisely if the socket still holds the state that this current connect
+attempt changed... so it separately checks "Did we set TCP_SYN_SENT? if
+so, set to TCP_CLOSE.  Did we set SS_CONNECTING?  If so, set to
+SS_UNCONNECTED."
 
- ipv4: icmp: don't quote decrypted payload in icmp errors
- ipv6: icmpv6: don't quote decrypted payload in icmpv6 errors
+I think it might even make more sense to consolidate in the other
+direction and make vsock_connect_timeout() a caller of the new
+vsock_connect_close(), since it appears there is a similar edge case
+there...
 
-make the IP stack not send any ICMP error about a received decrypted
-skb.
+connect(), O_NONBLOCK
+  transport->connect()  /* OP_REQUEST */
+  mod_delayed_work(connect_work)
 
-The reject expression in netdev and bridge chains builds its own ICMP
-errors, without icmp_send() and icmpv6_send().
-nf_reject_skb_v4_unreach() and nf_reject_skb_v6_unreach() quote up to
-536 and 1220 bytes of the packet. Apply the rule to these paths too.
-These only get received skbs, as the netdev and bridge reject
-expressions are limited to the ingress, prerouting and input hooks, so
-unlike icmp_send() no locally originated case needs to be kept.
+shutdown(SHUT_RDWR)
+  sock->state = SS_DISCONNECTING
+  sk_shutdown = SHUTDOWN_MASK
 
-The reject rule still drops the packet, but without a reply, as it
-already does in other cases (non-first fragments, ICMP errors, bad
-checksums).
+vsock_connect_timeout()
+  skips the socket because of SHUTDOWN_MASK
+  /* still TCP_SYN_SENT / SS_DISCONNECTING */
 
-nf_send_unreach() and nf_send_unreach6() use icmp_send() and
-icmpv6_send(), which are covered by the net series.
+late OP_RESPONSE, virtio_transport_recv_connecting()
+  sk_state = TCP_ESTABLISHED
+  sock->state = SS_CONNECTED
+  vsock_insert_connected()
 
-Testing:
+So the attempt never times out, and a late OP_RESPONSE connects a
+socket the user already shut down, overwriting SS_DISCONNECTING with
+SS_CONNECTED. I think that's a separate bug for a separate patch,
+though.
 
-Reproduced with mlx5 (ConnectX-7) on net/main, with a reject rule in a
-netdev ingress chain on the receiving host matching an established
-connection. With kTLS RX device offload, the ICMP and ICMPv6
-unreachables quoted the decrypted TLS payload in cleartext. With PSP
-sockets, the ICMPv6 unreachables quoted the decrypted TCP header and
-payload. With this patch, no ICMP error is sent for the decrypted
-packets.
+Or am I off track / missing something?
 
-Fixes: 784abe24c903 ("net: Add decrypted field to skb")
-Cc: stable@vger.kernel.org
-Signed-off-by: Todd Freed <toddfreed@meta.com>
----
+> 
+> I guess this approach also addresses "[Severity: Low] What happens if
+> another thread calls shutdown() while a blocking connect() is asleep?". As
+> for "[Severity: Medium] Can a connect() waiter that times out late still
+> abort a newer connect attempt on the same socket?", isn't this the current
+> situation?
+> 
+> thanks,
+> Michal
 
-Notes:
-    This supersedes the 2-patch nf-next series "netfilter: don't send
-    decrypted skbs in clear text":
-    https://lore.kernel.org/netfilter-devel/20261111003111.3826942-1-toddfreed@meta.com
-    
-     - Patch 2/2, "netfilter: reject: don't reply to decrypted skbs",
-       reproduces on net/main, so it is resent here to nf as a fix, reduced
-       to the ICMP errors.
-     - Patch 1/2, "netfilter: bridge: don't refragment decrypted skbs", is
-       dropped. I could not reproduce it on mlx5, neither on net/main nor
-       with the socket-less PSP series: the device doesn't decrypt PSP in IP
-       fragments.
+Yeah, Sashiko is worried that a racing shutdown() breaks reusing the
+socket, but AFAIK vsock doesn't support reuse after shutdown anyway.
+Before this patch a second connect() could succeed, but the shutdown
+flags are never cleared, so sendmsg() still returns -EPIPE and recvmsg()
+returns 0. With this patch the socket stays SS_DISCONNECTING, so
+connect() fails with -EINVAL instead.
 
- net/ipv4/netfilter/nf_reject_ipv4.c | 7 +++++++
- net/ipv6/netfilter/nf_reject_ipv6.c | 7 +++++++
- 2 files changed, 14 insertions(+)
+And agreed about the medium issue, the late connect() waiter race is no
+different than before this patch.
 
-diff --git a/net/ipv4/netfilter/nf_reject_ipv4.c b/net/ipv4/netfilter/nf_reject_ipv4.c
-index 7cb33af671e2..4d89ec6a4a91 100644
---- a/net/ipv4/netfilter/nf_reject_ipv4.c
-+++ b/net/ipv4/netfilter/nf_reject_ipv4.c
-@@ -118,6 +118,13 @@ struct sk_buff *nf_reject_skb_v4_unreach(struct net *net,
- 	if (!nf_reject_iphdr_validate(oldskb))
- 		return NULL;
- 
-+	/* Don't send the decrypted part of an skb onto the network: the
-+	 * device decrypted a received skb, and this reply quotes it. Only
-+	 * received skbs get here (bridge, netdev ingress).
-+	 */
-+	if (unlikely(skb_is_decrypted(oldskb)))
-+		return NULL;
-+
- 	/* IP header checks: fragment. */
- 	if (ip_hdr(oldskb)->frag_off & htons(IP_OFFSET))
- 		return NULL;
-diff --git a/net/ipv6/netfilter/nf_reject_ipv6.c b/net/ipv6/netfilter/nf_reject_ipv6.c
-index 5e08d8529cc8..fc30569b1f4d 100644
---- a/net/ipv6/netfilter/nf_reject_ipv6.c
-+++ b/net/ipv6/netfilter/nf_reject_ipv6.c
-@@ -144,6 +144,13 @@ struct sk_buff *nf_reject_skb_v6_unreach(struct net *net,
- 	if (!nf_reject_ip6hdr_validate(oldskb))
- 		return NULL;
- 
-+	/* Don't send the decrypted part of an skb onto the network: the
-+	 * device decrypted a received skb, and this reply quotes it. Only
-+	 * received skbs get here (bridge, netdev ingress).
-+	 */
-+	if (unlikely(skb_is_decrypted(oldskb)))
-+		return NULL;
-+
- 	/* Don't reply to ICMPV6_DEST_UNREACH with ICMPV6_DEST_UNREACH */
- 	if (nf_skb_is_icmp6_unreach(oldskb))
- 		return NULL;
-
-base-commit: 734bef548a96e8774d6eef5dfa2026c6edc4e80b
--- 
-2.53.1-Meta
-
+Thanks,
+Bobby
