@@ -1,56 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795444903;
-	b=ja5VZvQtkkk8k35poedb02MO/GpEszPGj944k/eLzUfUSv23yraO7qqOmHgMal+Rak6o
-	 HTuHlpYI+WCcMMVYTsRyt0uXEmavQk4FO0T9wSkhHPvoOrLLIfcvsfTBLXcSIwNa90mgv
-	 Ny+LfkvV4dQsFYeyjVEUfrLDKuvzfga5BcrLKq0jismktJjxvVBMVl0H3bPRvG5j0MrNv
-	 9tXicLocNYRej7DrV6lrZ0+3VGsPE5BcBaQ/0kBwJQE9+BA/9oPcQYIG3MPLb9rBJxsxk
-	 hYZEh8ScAH1Ev5W4DzylqeLzHgGxWlT+2UkNncUArq78cwsEKu7LFIdngBRiqmCzllQ==
+	t=1795444949;
+	b=FChLFlc5ajhh8ljpwxsKFXDIpQIE9TZnjfXTCEOj0/8NXU8E43/ZJZ2cswpXpkQGwU2I
+	 yiL2/3dr4uZIImhSvxGdAYxFkAqjJeWDQOlocLL4vsvcyTGZtC4MjMTTwaaKfGfrGF0SQ
+	 goJmmnB6/948LdF5szty5t4SVESubmheZXEhuIs11QjFjXpLLdRti2cP0ODMZhI37fqPV
+	 GYryxVIeDjutUNLcid1JDA29beJMiWlOcYFVnVRKqSandDB6O6NPs8dd6RiBuZM0tj1px
+	 EgG+LksNeBrCumzWTKlEgpmT751lDT/JEXb3/3e/JWjlnFjQq95Wcw28QgChe6O3PeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795444903;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795444949;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=iSBki08s6Y37g2ektwoZx+CNumkLlun7bvIhU3NlRbU=;
-	b=SmmgOJ+6pB9EKUOCvVxxLjRwpebZPSLbgyw7vmVxIuxQrBNj3s8jXRuG+J9LIdl4NbHX
-	 GgihRQVicYW9haqLpeE4dRUTOuW8wrhTZbvAhimo/Xbu7gaYSY+te9ElBuCq3r/wdeS3z
-	 A7Qq4IF6cKtnNwXO0Lge32e9BkxsB/T3thD8hCXpef1FQHVa3V1KWOgzwT/B0hSxOhlf+
-	 EnMItONfC3UJ+olAKUaEjRcYpvDqLrmHyBPgoxTN0KecTWndJVbrAxgOmSGQmiqvGdSwv
-	 zO1JtCn364RlhJIEJhwm83HbSP3M3PMWjqgAPF495PEAO1nf2MkpKPxsYzRzHTQpiMA==
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Cookie;
+	bh=k5OVr/LE9EGGJL7rLRP9VR5d8J1PKZ3ozrJ6azZxZTc=;
+	b=wSA+NFaCnt4F5Y0aj0F4jDtVjAW1iUg/oopAfVgeXgAWtfz56XAjr2uwqnYs9BP0eGsg
+	 TRXdUGAtPIeDhGzhfDB2piv40ndLoABVH98YRGdzkMp6YDnishT8jWiu6lhtNae74c0Ka
+	 Oy2tHcP6H+GvhZVThBhhbZmfQEbCV+oCajNKi417x3LDbK37WeBFxIs3W33tsROQynFHA
+	 QT4RB9RlelM52jwAA0kAYUbRHebTJbuOaioiVXL8wKQq0Mq33lkheDsknHNjuJdZBMTar
+	 03hZNoc8VM/1uQM5sKxGZSG6FV+0dpwp82zmIob2JEnYSu9BkEV14IeG4jdBlTeLO7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EHuGOoU2;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D9fIoGGS;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA5E3606A31A;
-	Mon, 23 Nov 2026 14:41:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B75DE606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:42:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EHuGOoU2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7809E1F000C4;
-	Mon, 23 Nov 2026 14:41:41 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D9fIoGGS
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 440961F000C0;
+	Mon, 23 Nov 2026 14:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795444903;
-	bh=iSBki08s6Y37g2ektwoZx+CNumkLlun7bvIhU3NlRbU=;
+	s=k20260515; t=1795444949;
+	bh=k5OVr/LE9EGGJL7rLRP9VR5d8J1PKZ3ozrJ6azZxZTc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=EHuGOoU2Kf4sRbb4VJLaKTj0cVtrWzSgcO4CmmdLPtaz0HOTZkmEy2Z5xHxtCbl4p
-	 yN27U5Ajrq/4uyqMmqEuP2wK6QzgGkKpQFWwDctHcpvz3UnVX5IDcaFEjFZ/3XWwp8
-	 xsT5CJGd4sWHcvmdoxRcVyPFEBT3CoGktwCjZYRDsQetjnYGE6eqPbskRMR3EYWolS
-	 8kCLMW3wmtkuf8XPvltYBPF+pCu5wp0klYnKDGCL9+7/OHtxxiJaBIaQ1x/19DKeYp
-	 N0nBqONBCJL0sMAoG/c3u+IcjwK/dvZYIfsimg/n5uMomnTIG/uK96QaGkCI9PBh0J
-	 twoVwLbxQf0ng==
-Date: Mon, 23 Nov 2026 14:41:39 +0000
-From: Simon Horman <horms@kernel.org>
-To: Subash Abhinov Kasiviswanathan <subash.a.kasiviswanathan@oss.qualcomm.com>
-Cc: sean.tranchetti@oss.qualcomm.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
-	pabeni@redhat.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v5 3/5] net: qualcomm: rmnet: Fix MTU underflow and
- clamp to the maximum packet size
-Message-ID: <20261123144139.GE31322@horms.kernel.org>
-References: <20261117060737.2764327-1-subash.a.kasiviswanathan@oss.qualcomm.com>
- <20261117060737.2764327-4-subash.a.kasiviswanathan@oss.qualcomm.com>
+	b=D9fIoGGSDIjpaWuyBUBVwNSF8+STi1eIryarFKELGbsAdKbkqXmQEhmkTlyihkiKC
+	 1flHmOhQGRQZzJd3a7Q59NwOLqpgPKqmAWXUeXZWxdpIt5Jkw0EQpFo1NY5rCjU31Y
+	 bKAn9b0KGJ43OAsrlSErTqFOfaSPrZbtTeXwgZgyI6pHLlefRKZ/Mb6b/8nBJmE9Kp
+	 phHqItmBc06/MOKx3TDETC7X89+qAr220hfOe9Tzreb4KZFCwSxImEaRdpCzgq9YNK
+	 Xnte78UT69CTH46Myp9YYwMBaJ5TXZOE1iuNJ7thUtbY9nE8dIdKYCPyYI6i9P+w9M
+	 BWJwYwXUxn6kA==
+Date: Mon, 23 Nov 2026 14:42:24 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 1/9] arm64: sysreg: Map MPAM1_EL12 to MPAM1_EL1
+Message-ID: <805ccf2d-025f-4ed2-85b8-f738bb931829@sirena.org.uk>
+References: <20261123075219.369042-1-fuad.tabba@linux.dev>
+ <20261123075219.369042-2-fuad.tabba@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,58 +63,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6xGYnJC2xPj9LFYw"
+Content-Disposition: inline
+In-Reply-To: <20261123075219.369042-2-fuad.tabba@linux.dev>
+X-Cookie: Truth is free, but information costs.
+
+
+--6xGYnJC2xPj9LFYw
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261117060737.2764327-4-subash.a.kasiviswanathan@oss.qualcomm.com>
 
-On Mon, Nov 16, 2026 at 10:07:36PM -0800, Subash Abhinov Kasiviswanathan wrote:
-> The MTU helpers subtract the egress headroom from the real device MTU
-> using unsigned arithmetic. A real device MTU smaller than the headroom
-> underflows and results in a huge target MTU instead of an error.
-> 
-> Additionally, a real device with a jumbo MTU makes the creation of the
-> first rmnet device fail since the unclamped value exceeds
-> RMNET_MAX_PACKET_SIZE, while resizing an existing device clamps it.
-> 
-> Add a helper which computes the largest MTU usable on top of the real
-> device for a data format, rejects real device MTUs below the headroom
-> before doing any arithmetic and clamps the result to
-> RMNET_MAX_PACKET_SIZE. Use it for both new and existing devices and add
-> the same underflow check to the other helpers.
-> 
-> Fixes: b7f5eb6ba21b ("net: qualcomm: rmnet: Update rmnet device MTU based on real device")
-> Co-developed-by: Sean Tranchetti <sean.tranchetti@oss.qualcomm.com>
-> Signed-off-by: Sean Tranchetti <sean.tranchetti@oss.qualcomm.com>
-> Signed-off-by: Subash Abhinov Kasiviswanathan <subash.a.kasiviswanathan@oss.qualcomm.com>
-> ---
->  .../net/ethernet/qualcomm/rmnet/rmnet_vnd.c   | 58 +++++++++++++------
->  1 file changed, 41 insertions(+), 17 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
-> index 984c66bee863..2f3fefe58bce 100644
-> --- a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
-> +++ b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
-> @@ -80,6 +80,20 @@ static int rmnet_vnd_headroom(u32 data_format)
->  	return headroom;
->  }
->  
-> +/* Largest MTU an rmnet device can use on top of real_dev for the given data
-> + * format, or -EINVAL if real_dev cannot even fit the headers.
-> + */
-> +static int rmnet_vnd_target_mtu(struct net_device *real_dev, u32 data_format)
-> +{
-> +	u32 headroom;
-> +
-> +	headroom = rmnet_vnd_headroom(data_format);
-> +	if (real_dev->mtu < headroom)
-> +		return -EINVAL;
-> +
-> +	return min_t(int, real_dev->mtu - headroom, RMNET_MAX_PACKET_SIZE);
-> +}
+On Mon, Nov 23, 2026 at 07:52:11AM +0000, Fuad Tabba wrote:
+> MPAM1_EL12 is the EL12 alias of MPAM1_EL1, but its entry in the sysreg
+> file is "Fields MPAM1_ELx", and the file doesn't have an MPAM1_ELx
+> block. Since commit 6ae7fab7d9d33 ("arm64: sysreg: Emit RESx/UNKN values
+> for Mapping/Fields definitions"), the generator's MPAM1_EL12_RES0, _RES1
+> and _UNKN expand to MPAM1_ELx_RES0 and the like, which aren't defined.
+> They aren't used yet, but the first user would fail to build.
 
-real_dev->mtu - headroom is guaranteed to be non-negative.
-And RMNET_MAX_PACKET_SIZE is also non-negative.
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
-I believe min() is sufficient here. And if so, it is preferred.
+--6xGYnJC2xPj9LFYw
+Content-Type: application/pgp-signature; name="signature.asc"
 
-...
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsEUM8ACgkQJNaLcl1U
+h9BRtAf/YDbNlEmdb6Yb5HPsoptakOfDJesH7NhOB17CeEIDEkdFHlhLGtA63raw
+26ZzTiIICz7W3KF6hD8iKjrlyMwLv7HCHQr2jVInZW1AOEZWADDIZaqMJYm9erc0
+QkX8RexdgTUMVSBLvUV9Zcua0CIoR+fHqPj8M+x4wkxdNChK5b7mTfRN5OWoYobW
+hKkz4ZLtGXVq7ISQRqdFzlI3aIUoh07iceQeZX0HBGhJDEH3Eot9pwIuKX4NgpqX
+T4WQwoTqSxH6VyVQ9YUn2WoTbMOh50vuQClFnfI9xwzrqoSHc4fn4NjwER5zk4aS
+3IXq8pcjbrrWK3ci5a9ZYeIwGMvElw==
+=bs+f
+-----END PGP SIGNATURE-----
+
+--6xGYnJC2xPj9LFYw--
