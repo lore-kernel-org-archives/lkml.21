@@ -1,61 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.90.104.147
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.61.82.184
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795433862;
-	b=3sC9vRRYBPJAS8dx+xI5ahzLlWC36yqgowYR9NoYkr355b1TBptVUURr/eMjEhyLkenv
-	 IXDUOPjm6H7u22NF2BuOmzv39bLR7LXCXMmkakPYmLD4vh4tCPk8ZQztf2T1RAKks6vwx
-	 NYIm/IN1VYPR70bzxPwpvcBHfqncByzIL1asF8mAUGVrhUHO5pEVpSD8H8296UZ4RokoA
-	 HBwOXopNWpW9xiQbAVZ/HlJVQXF60fD7NSxrYJZzGHPkZsivWK8vDJJRAcw+H7UBMJ3sl
-	 W7rK+LOSUqCBgg74fimz+Y6wVT1SiVyYjr2+l0NDvSpKUQx7nOZE1q1xvFz8+u/IwYA==
+	t=1795433870;
+	b=NkyzZ5X87dzRcSy9IdsziOzNKVMHGxSpkPr38UFVJAD+y26SfqkmYkodYXpXTYNBj1dX
+	 HXf38dq400JWRo+SnLpbCRbN+K7ftX04bxltg1EgphlOEdKoIY/LDtT03y48Qz50Pq73K
+	 NtG5F8ZrMkUo1rsRyotxcg9+FZDzCBqM1qG5M3IsCzJkmgnuAwdN6uCmwZPY+GxjbIwOg
+	 XOubCpcrhmkU3VgSDmhwmZwH/3y/5/CJNVBl4wNfWgvxgU+wo6tC0rJU2qfBcDheWNpBP
+	 dmzizjW5tQcwgnr6RHZ8g+tQpmPPO00OwEsbFfMISKljVPdVOPr4A1tXH0AxpNFgosw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795433862;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-Amp-Result:X-Amp-File-Uploaded:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:Received:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer;
-	bh=lyATTZSpPwfe+0tTFDl9okuYREBYcyzOpR8HimDcF54=;
-	b=h/EVgci3IsfWdvy94Mc7HdJ5m20Bmpqp6Bc/wjZLg4RsMLXgarL3eK+1V+4pLXR8FO+c
-	 6+L2RiMJDUfKBVnRD09zfXHF9yfcQTg8iDfuym13uLlYmZFlkvRKcPArwWQ9KPHLl/fNp
-	 t0CNIk5fEAVBoC2Y4Y7T6vJp2047ZTMEKrWQtWaBFaYFx8anhtf4/PM+9/zoow4ryEFQ+
-	 +WYnjg4XltXd54m4p2EqsLZENWfqx9D9zLRUIedGpiIlFMSY6/jkiO0J8nHK7lBzMGQEo
-	 pL8nuK24xGlxIfnrIBLKRkMldwzIF9ZI2zK4LZxnDxaDDETiS5LVYPdojDigHX2Y+Mw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795433870;
+	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-MTK;
+	bh=shbvfSBDzRVaT/N6z1PMlGhIE7QCCC86jNh7wNzWVx4=;
+	b=C9o8ZOw4DPalrzbeWUKt2UZY3MxX8zcd9FgrjNq0Cl2KCAM94BmRXNknEjxzK02wA/kG
+	 kbOKOhN6mUqyyl1FchSzLWfyCuoCzCV0uw0i1bafmz68ZhhfBd9wf0lwbc1f9v0jTaiA7
+	 +fjEohAACCuClF/FP+SuDy35ZEbhCMt3KkktmIMT2r6ThHPMdbkYWrOsY2XOxRNu7NhHG
+	 QDcehIOBh29erCmSFQ+3WgjUxdJvAnafvbTPdCw7cf85fK2HzRZIBYPYeTHzDZU8PaCJu
+	 jhSrw3HNofug9dGVD2XegPD5i9j5+lsPgGsHY5WCOA5u62xoCSXX5JckJxq0lzDezfg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mobileye.com;
-	spf=pass smtp.mailfrom=mobileye.com;
-	arc=none smtp.remote-ip=23.90.104.147
-Received: from esa2.hc555-34.eu.iphmx.com (esa2.hc555-34.eu.iphmx.com [23.90.104.147])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id A662D606A69E;
-	Mon, 23 Nov 2026 11:37:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A662D606A69E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mobileye.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mobileye.com
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1795433862; x=1826969862;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=huVfTbErH6adnt9mw42pnrtw5P+Ckl7UHBlLJGXkTlo=;
-  b=dB9ffdfOSF1nvZPOXC9283ZGXs/S9u3uLy6OYTmC1JvjGpoZVk4GYX/1
-   Z36pQsCD7JfBz6NLGPjk+kqN6uKmDP0KRTQhJJLPxhYsS8ECsdtoRPSy/
-   TrI4VdUOZ0o4kdFZ29jUyycMAlvSXZIYhhgNN95dP37oUF0MlgjsjCzVo
-   nPTfXrT0fxfBtIVUP1xZC6gicbc5VWjXcxUyqtJdzX+Ea/UIluXuRKyz8
-   1KoUpxGidVhL009Zkf2AFjESAZhPKnm5Qow2EqPVRIiOFGXNfobBbSBR3
-   Gff1T0gzjVP0pEBo4GSXHlihsw33egTRc1PZuHGtUxJZ9ncO/eD7gI/3D
-   g==;
-X-CSE-ConnectionGUID: zqschISKQgqNy5/VgtTxQw==
-X-CSE-MsgGUID: 7SLCgFc1TzSddOtrfMDIrw==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces01_data.me-corp.lan) ([146.255.191.134])
-  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 13:37:35 +0200
-X-CSE-ConnectionGUID: T/+ivEZMSnequjDciurdfg==
-X-CSE-MsgGUID: HzNCZGvDT7KSUg+TBTkCEQ==
-Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.2])
-  by ces01_data.me-corp.lan with SMTP; 23 Nov 2026 13:46:01 +0200
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Mon, 23 Nov 2026 13:37:34 +0200
-From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Date: Mon, 23 Nov 2026 13:37:16 +0200
-Subject: [PATCH v4 6/6] MAINTAINERS: Add entry for MIPS CM3 PMU
+	dmarc=pass header.from=mediatek.com;
+	spf=pass smtp.mailfrom=mediatek.com;
+	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=G4dXRLVE;
+	arc=none smtp.remote-ip=210.61.82.184
+Received: from mailgw02.mediatek.com (unknown [210.61.82.184])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61DA260A2605;
+	Mon, 23 Nov 2026 11:37:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61DA260A2605
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=G4dXRLVE
+X-UUID: 4adfa9b0e73211f18dc8c9802ae25ab1-20261123
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=shbvfSBDzRVaT/N6z1PMlGhIE7QCCC86jNh7wNzWVx4=;
+	b=G4dXRLVEf/SZfEpUORl1XztMz1pBSC/QRQHr2EQ/BcEFESaYDV6LDmJkRBdiVZZeT4B/M9/KRP8gU2Hahvg6C29ASbuYSNTpmYK78wMihAdLD0ero2Xw4N8B26y7F4InRACUZ6QrHYmOEdAA54Gi12b14QGrVi7FufrehFyb1qo=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:52b804d4-00d9-400c-bf15-60141ae1f681,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:b0318ac,CLOUDID:325b3c31-f289-4656-bb36-27baf4489f11,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
+	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 4adfa9b0e73211f18dc8c9802ae25ab1-20261123
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
+	(envelope-from <chunfeng.yun@mediatek.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1231366353; Mon, 23 Nov 2026 19:37:41 +0800
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Mon, 23 Nov 2026 19:37:40 +0800
+Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.53 via Frontend Transport; Mon, 23 Nov 2026 19:37:39 +0800
+From: Chunfeng Yun <chunfeng.yun@mediatek.com>
+To: Mika Westerberg <westeri@kernel.org>
+CC: Andreas Noever <andreas.noever@gmail.com>, Konrad Dybcio
+	<konrad.dybcio@oss.qualcomm.com>, Sven Peter <sven@kernel.org>, Yehezkel
+ Bernat <YehezkelShB@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, <linux-kernel@vger.kernel.org>,
+	<linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, Chunfeng Yun
+	<chunfeng.yun@mediatek.com>
+Subject: [PATCH v3 8/8] thunderbolt: Drop WARN_ON() in tb_disconnect_pci()
+Date: Mon, 23 Nov 2026 19:36:55 +0800
+Message-ID: <20261123113705.2297329-9-chunfeng.yun@mediatek.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261123113705.2297329-1-chunfeng.yun@mediatek.com>
+References: <20261123113705.2297329-1-chunfeng.yun@mediatek.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,54 +88,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-i6500-cm3-pmu-v4-6-5a9f5351688f@mobileye.com>
-References: <20261123-i6500-cm3-pmu-v4-0-5a9f5351688f@mobileye.com>
-In-Reply-To: <20261123-i6500-cm3-pmu-v4-0-5a9f5351688f@mobileye.com>
-To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Kees Cook <kees@kernel.org>, 
- "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
- =?utf-8?q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
- Gregory CLEMENT <gregory.clement@bootlin.com>, 
- =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
- Fu Chao-Ying <chao-ying.fu@globalfoundries.com>
-Cc: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
- linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-rt-devel@lists.linux.dev, linux-doc@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-hardening@vger.kernel.org
-X-Mailer: b4 0.16.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 
-Add a MAINTAINERS entry covering the driver for the MIPS CM3 PMU
+tb_disconnect_pci() uses WARN_ON() if the upstream PCIe adapter port
+or the associated PCIe tunnel cannot be found. This triggers a full
+kernel stack trace in dmesg.
 
-Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+However, tb_disconnect_pci() is invoked when userspace deauthorizes
+a router via sysfs (writing 0 to 'authorized'). Under dynamic runtime
+conditions, an upstream port or active tunnel may not exist.
+For example:
+- If a USB4 router fails to resume or is unplugged during system/link
+  sleep, the disconnect flow may tear down and free the PCIe tunnel
+  before userspace deauthorization runs.
+- If PCIe tunnel activation previously failed (e.g., due to link
+  training or Type-C handshake hiccups), the tunnel was never
+  established in the first place.
+
+it seems unnecessary due to it does not indicate a kernel bug.
+Furthermore, it causes unnecessary kernel panics on systems
+booted with panic_on_warn.
+
+Since -ENODEV is already returned to notify callers, simply drop the
+WARN_ON() checks while keeping the -ENODEV return.
+
+Signed-off-by: Chunfeng Yun <chunfeng.yun@mediatek.com>
 ---
- MAINTAINERS | 6 ++++++
- 1 file changed, 6 insertions(+)
+v3:
+* modify commit message.
+* Reworked sw->is_unplugged checks to directly drop the WARN_ON(!up)
+  and WARN_ON(!tunnel) checks in tb_disconnect_pci()
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 782389bd5cd3..e9a02076017b 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -18227,6 +18227,12 @@ F:	arch/mips/configs/generic/board-boston.config
- F:	drivers/clk/imgtec/clk-boston.c
- F:	include/dt-bindings/clock/boston-clock.h
+v2: no changes
+---
+ drivers/thunderbolt/tb.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
+index 57c11ba13459..5f674c305d43 100644
+--- a/drivers/thunderbolt/tb.c
++++ b/drivers/thunderbolt/tb.c
+@@ -2267,11 +2267,11 @@ static int tb_disconnect_pci(struct tb *tb, struct tb_switch *sw)
+ 	struct tb_port *up;
  
-+MIPS CM3 PMU
-+M:	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-+S:	Maintained
-+F:	Documentation/admin-guide/perf/mips_cm3_pmu.rst
-+F:	drivers/perf/mips_cm3_pmu.c
-+
- MIPS CORE DRIVERS
- M:	Thomas Bogendoerfer <tsbogend@alpha.franken.de>
- L:	linux-mips@vger.kernel.org
-
+ 	up = tb_switch_find_port(sw, TB_TYPE_PCIE_UP);
+-	if (WARN_ON(!up))
++	if (!up)
+ 		return -ENODEV;
+ 
+ 	tunnel = tb_find_tunnel(tb, TB_TUNNEL_PCI, NULL, up);
+-	if (WARN_ON(!tunnel))
++	if (!tunnel)
+ 		return -ENODEV;
+ 
+ 	tb_switch_xhci_disconnect(sw);
 -- 
-2.43.0
+2.45.2
 
