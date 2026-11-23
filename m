@@ -1,55 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795427838;
-	b=dPeMrEg07O5v2i6y1BBY2f0+t27tQIpG8z4ZiFx6XY/j75D+tVAoPa8RYZXA6+a41WRW
-	 GiBTY0xa58IDQU1+cqBIf3s0jMacXPvugT43Y7XGCvWgPNpLZ6pCk9woIKiuSaUfwv93I
-	 PDO17Ik7IZsumNyH8eSPg/OwpBjpAT2CSMEb5rykVx611g1ssmGgpLdu9M3qdji6DC3cE
-	 9jWr1qXqPUxE1CI63fl/nhxLiCavPp4XKSnBj4VKgZ7KOSxelwnSTKLhXvLUtH6e2orCn
-	 oWgP/LeUkbl2wEvkQ8YzeBilE/E4T8kT829MQp+13syJ4ATwG5m2PYashGjUyC4WjaA==
+	t=1795427863;
+	b=NR49sOrDAjvHDSDIJVOr6vQlPh4v1kCDhQ6xvXn8/4NGyT+jFasnXy0ps2mrpuItZVYi
+	 erS6iOCtB2KxwpG91RSHoPXvHAtqRLYqEUMVOj2+DoIiOZV6bf5x9e+q7jIxbaz8GyD27
+	 ugUVhZbTo/gIKf6KHiDBEHvx8VyPulQkclW0N0aZ/I5JYj4tSYI9pJrDa80UA6T9gIMV1
+	 1Sfj1wa+bHv/Q+pgFUyrKgby6YSO4M5LMhEPdVSpmyhRSOGut4wI+YMTYNHg7WxTrJA9j
+	 9CqfN7MXNona95U+Gnz0N+mNdHxai+yGvjkWyhP1vMWcwUs4HmqGtmViwb1BOomreMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795427838;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=4s8ObVh8aYrx9unOg3Fhb+rodQ27w3kLEqVCY36mwwQ=;
-	b=PO42Lk7a7TrAD+cD2PT3EWWJVPuN9hYJ/2/f41kDFrlO5ot6X4EyhbR3wRQdsFbYCPoW
-	 DdhTKNhv1ELDGktTG3MvwuWyeGRTrjqi8fZPmCXv37mYmG9cdZE+BC5HqDCTnmiTcqYB0
-	 6+u2+gIwDyQRM1xT8d6uiOAzPj1UFBdrfopPXAy77h/jUBYXAzvG+Z8JkPaze23Tb2efb
-	 p6Ux6uelAxJpJCXqkFbAwaRON78wVqXzRjavneYRqk0Q3ZWRBLWRRT+7EARS3CFWQ53K/
-	 /98ouoxkJrJq/I6F5VM4Xakv5ulHSEKoDbZH/TGSCa8I+2Etq2BHFbzDLr/wd7ODQqw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795427863;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
+	 X-Spam-Checker-Version;
+	bh=aj7jXoHhBMxF1whDYLxx2xV390qlwMkMeBDrrsc0htQ=;
+	b=vML2H2acEu1LskhY99OdbEzkmU9rMhZGxf51uj2ynnhC+pkK6pycFUi0rYLGnuX4IvmE
+	 qe6emqYz6OlTnzNVMwqhnW1lXBdabdoRdu8yXJxWso5ak9FlxLv0MaCNtPKfGdO/HL0AM
+	 IAjuUWnnAvi8ZEFe008bdtoTosT8yooBBpczseQzeXWTSdMaDfBzpTDppsamiqwqA9sJE
+	 Q3SyMQXid9Oylk4RZ4g2OYCS0xalD8QW06FgXCp75dfAZ9D7BvAsS3ehLuEZ+1eyh3d/3
+	 LiXQTwrDw4bp+S9rBRcEshv3oVu/YSPmtg1i4v0gxrSUI68lB7ygIjzhxUqQjO175Lw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PMextjOi;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83875606A32A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:57:18 +0000 (UTC)
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=D2jle0rZ;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id ACFB3606A31A;
+	Mon, 23 Nov 2026 09:57:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ACFB3606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PMextjOi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB8661F0093E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:57:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795427838;
-	bh=4s8ObVh8aYrx9unOg3Fhb+rodQ27w3kLEqVCY36mwwQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=PMextjOiyAOWweSOUDWK1+NjVnPuNdL0cjyOndo/GF1JFrEGisjxZMJSp94oqArn/
-	 92E8cYnTMzmKDj3tUNDj94Ufez8GYcJrAF598NiWlG2SXjK4+IcALAczvNKs4313Qy
-	 H7lKBmcG+71uTOfp9oszrMSEJZ05R8s1z7Nje/Rf4wCnkApfFXSsNFnlrkoAsOhtfa
-	 TumJ80sYFXi/yMb5fJu3zv9VMlAZ3/BoBKO7lefIq9GbTe0g32AC4Z48xjBXJj6hqQ
-	 tSfEfAVkuEqGFNIs6Zjg1jJUSHFcsGAjhLDpYEP3LVDQnNBYe9paw+dPeNBcHejoNn
-	 EbwSDs2aDIN2A==
-Received: by mail-oi1-f177.google.com with SMTP id 5614622812f47-57728d87699so1202645b6e.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:57:17 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFxjq3LfKR67DxaSQeaqgkX0hh9n85XM5WpLApIDXrFOYNLmYaIez7tsYWaZhdFMUSZc0hH1EjakgLXJxY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/JYZE+LVbttfyBsQ5Ua49rtQtdLe2Z1tcJxdIB0MtPxuhH6KYr
-	8PLzmSlkrGsYttXSPTx9qZ044RBTITs6UYjfBtmZnPpL1QI78TJLnS09Pk/BQ6GCZzsPf3HbRRa
-	yTxPPMUy9AJFjiK9/DNUpNVO5znaSuCc=
-X-Received: by 2002:a05:6808:4f4f:b0:56a:dc07:f218 with SMTP id
- 5614622812f47-57a0a10c801mr12163511b6e.20.1795427837069; Mon, 23 Nov 2026
- 01:57:17 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=D2jle0rZ
+Received: from [10.18.135.130] (unknown [167.220.238.66])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 9D7ED20B7167;
+	Mon, 23 Nov 2026 01:57:32 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 9D7ED20B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1795427858;
+	bh=aj7jXoHhBMxF1whDYLxx2xV390qlwMkMeBDrrsc0htQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=D2jle0rZhDZaeedAeo7DLmNuTuvSUDheoIucOW7Dc6+CxGS37UySDTDj2XezzeNNG
+	 rWgfWq+76kfFLlev8bqo2EPVqO4BR/Wvs56HanNU+r2jgx0vhFCnIHybjTgqMwYue9
+	 qv/7IqC1u4aWrlb6qsuCkztvhOhRuTHY2Jh62n20=
+Message-ID: <d2857fff-9289-4b60-ac97-6194dea2d040@linux.microsoft.com>
+Date: Mon, 23 Nov 2026 15:27:33 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,40 +53,174 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <cover.1795424546.git.x-professor@outlook.com>
-In-Reply-To: <cover.1795424546.git.x-professor@outlook.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Mon, 23 Nov 2026 10:57:06 +0100
-X-Gmail-Original-Message-ID: <CAL4WiiqKAmkvqD+WMms7ZCwGDm3QE_Aw8VfqA=Xc6k1=8O-8Rg@mail.gmail.com>
-X-Gm-Features: Aa3M54p7KYmo2scuMtB2OXhhali3YsSnFeJgNMDOhVNqlLJAMAK0n7zrYR_BrAM
-Message-ID: <CAL4WiiqKAmkvqD+WMms7ZCwGDm3QE_Aw8VfqA=Xc6k1=8O-8Rg@mail.gmail.com>
-Subject: Re: [PATCH net-next v4 0/2] tcp/mptcp: prevent blackhole timeout
- arithmetic wraparound
-To: Yingjie Wang <x-professor@outlook.com>
-Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>, "mptcp@lists.linux.dev" <mptcp@lists.linux.dev>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "corbet@lwn.net" <corbet@lwn.net>, 
-	"skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "rdunlap@infradead.org" <rdunlap@infradead.org>, 
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, "ncardwell@google.com" <ncardwell@google.com>, 
-	"gang.yan@linux.dev" <gang.yan@linux.dev>, "kuniyu@google.com" <kuniyu@google.com>, 
-	"davem@davemloft.net" <davem@davemloft.net>, "kuba@kernel.org" <kuba@kernel.org>, 
-	"pabeni@redhat.com" <pabeni@redhat.com>, "horms@kernel.org" <horms@kernel.org>, 
-	"matttbe@kernel.org" <matttbe@kernel.org>, "martineau@kernel.org" <martineau@kernel.org>, 
-	"geliang@kernel.org" <geliang@kernel.org>, "ycheng@google.com" <ycheng@google.com>, 
-	"weiwan@google.com" <weiwan@google.com>, "joel.granados@kernel.org" <joel.granados@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/5] x86/hyperv: Filter TLB targets before building
+ hypercalls
+To: Naman Jain <namjain@linux.microsoft.com>, haiyangz@microsoft.com,
+ wei.liu@kernel.org, decui@microsoft.com, tglx@kernel.org, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, luto@kernel.org,
+ peterz@infradead.org
+Cc: hpa@zytor.com, riel@surriel.com, mhklinux@outlook.com,
+ bigeasy@linutronix.de, zhouchuyi@bytedance.com, houwenlong.hwl@antgroup.com,
+ qq570070308@gmail.com, bastien.curutchet@bootlin.com, dianders@chromium.org,
+ jgross@suse.com, hawk@kernel.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261117091507.2088642-1-namjain@linux.microsoft.com>
+ <20261117091507.2088642-5-namjain@linux.microsoft.com>
+Content-Language: en-US
+From: Sahil Chandna <sahilchandna@linux.microsoft.com>
+In-Reply-To: <20261117091507.2088642-5-namjain@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Le lun. 23 nov. 2026 =C3=A0 10:34, Yingjie Wang <x-professor@outlook.com> a=
- =C3=A9crit :
->
-> The TCP Fast Open and MPTCP blackhole timeout calculations can wrap in
-> 32-bit unsigned arithmetic, even on 64-bit kernels. With HZ=3D1000 and a
-> 64-fold backoff, 67109 seconds becomes 8.7 seconds instead of about
-> 50 days.
->
-> Compute both delays in u64, cap them at MAX_JIFFY_OFFSET, and limit both
-> initial timeout sysctls to one day. The new input limits reject values
-> that were previously accepted, so this series remains for net-next and
-> is not intended for stable.
 
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+
+On 17/11/2026 14:45, Naman Jain wrote:
+> SuperBench's eight-GPU PyTorch LSTM training on Azure MI300X VMs regressed
+> between Linux 6.8 and 7.0. Recreating DataLoader workers each epoch caused
+> host-to-GPU copy stalls and timeouts. The reported bisection identified
+> commit 209954cbc7d0 ("x86/mm/tlb: Update mm_cpumask lazily").
+> 
+> That change leaves a CPU's bit set after it switches to another mm.
+> Native flush callbacks remove these stale bits, but successful Hyper-V
+> hypercalls do not run those callbacks. A CPU actively running another
+> mm need not be in lazy TLB mode, so the existing lazy-TLB check does not
+> exclude it. If the mask includes all present CPUs, the backend selects
+> the all-processors shortcut before checking individual CPUs.
+> 
+> Use the native predicate to build a per-CPU target mask before selecting
+> the all-processors shortcut or either hypercall format. Keep the full
+> candidate mask when freeing page tables. Retain the empty basic-mask
+> check because filtering can leave no targets.
+> 
+> This patch does not change when trimming is requested.
+> 
+> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+> ---
+>   arch/x86/hyperv/mmu.c | 40 ++++++++++++++++++++++++++--------------
+>   1 file changed, 26 insertions(+), 14 deletions(-)
+> 
+> diff --git a/arch/x86/hyperv/mmu.c b/arch/x86/hyperv/mmu.c
+> index 375f23b157ab3..833eaea1d3fa8 100644
+> --- a/arch/x86/hyperv/mmu.c
+> +++ b/arch/x86/hyperv/mmu.c
+> @@ -1,6 +1,7 @@
+>   #define pr_fmt(fmt)  "Hyper-V: " fmt
+>   
+>   #include <linux/log2.h>
+> +#include <linux/percpu.h>
+>   #include <linux/slab.h>
+>   #include <linux/types.h>
+>   
+> @@ -16,6 +17,8 @@
+>   /* Each gva in gva_list encodes up to 4096 pages to flush */
+>   #define HV_TLB_FLUSH_UNIT (4096 * PAGE_SIZE)
+>   
+> +static DEFINE_PER_CPU(struct cpumask, hyperv_tlb_flush_mask);
+> +
+>   static u64 hyperv_flush_tlb_others_ex(const struct cpumask *cpus,
+>   				      const struct flush_tlb_info *info);
+>   
+> @@ -51,19 +54,14 @@ static inline int fill_gva_list(u64 gva_list[], int offset,
+>   	return gva_n - offset;
+>   }
+>   
+> -static bool cpu_is_lazy(int cpu)
+> -{
+> -	return per_cpu(cpu_tlbstate_shared.is_lazy, cpu);
+> -}
+> -
+>   static void hyperv_flush_tlb_multi(const struct cpumask *cpus,
+>   				   const struct flush_tlb_info *info)
+>   {
+>   	int cpu, vcpu, gva_n, max_gvas;
+>   	struct hv_tlb_flush *flush;
+> +	struct cpumask *flush_cpus;
+>   	u64 status;
+>   	unsigned long flags;
+> -	bool do_lazy = !info->freed_tables;
+>   
+>   	trace_hyperv_mmu_flush_tlb_multi(cpus, info);
+>   
+> @@ -87,6 +85,23 @@ static void hyperv_flush_tlb_multi(const struct cpumask *cpus,
+>   		goto do_native;
+>   	}
+>   
+> +	flush_cpus = this_cpu_ptr(&hyperv_tlb_flush_mask);
+> +	/*
+> +	 * mm_cpumask() may retain CPUs that have switched to another mm.
+> +	 * Use the native predicate for its context-switch ordering and lazy
+> +	 * TLB exclusion. Page-table freeing must include lazy CPUs, so keep
+> +	 * the full candidate mask in that case.
+> +	 */
+> +	if (info->freed_tables) {
+> +		cpumask_copy(flush_cpus, cpus);
+Hi Naman,
+
+In VM, for a process that has ran lets say on multiple CPUs (worst case
+- on all CPUS), and now running on a single cpu while other cpu run
+different processes. Until the next trim, if this process calls munmap()
+or any flush_tlb_range() which has freed_tables set to true, this would
+copy all stale CPUs in flush_cpus and patch 5 will skip native path, and
+can cause HV_FLUSH_ALL_PROCESSORS (for all cpu scenario) as in original
+issue ?
+
+Regards,
+Sahil
+> +	} else {
+> +		cpumask_clear(flush_cpus);
+> +		for_each_cpu(cpu, cpus) {
+> +			if (should_flush_tlb(cpu, info))
+> +				__cpumask_set_cpu(cpu, flush_cpus);
+> +		}
+> +	}
+> +
+>   	if (info->mm) {
+>   		/*
+>   		 * AddressSpace argument must match the CR3 with PCID bits
+> @@ -101,7 +116,7 @@ static void hyperv_flush_tlb_multi(const struct cpumask *cpus,
+>   	}
+>   
+>   	flush->processor_mask = 0;
+> -	if (cpumask_equal(cpus, cpu_present_mask)) {
+> +	if (cpumask_equal(flush_cpus, cpu_present_mask)) {
+>   		flush->flags |= HV_FLUSH_ALL_PROCESSORS;
+>   	} else {
+>   		/*
+> @@ -115,14 +130,12 @@ static void hyperv_flush_tlb_multi(const struct cpumask *cpus,
+>   		 * must. We will also check all VP numbers when walking the
+>   		 * supplied CPU set to remain correct in all cases.
+>   		 */
+> -		cpu = cpumask_last(cpus);
+> +		cpu = cpumask_last(flush_cpus);
+>   
+>   		if (cpu < nr_cpumask_bits && hv_cpu_number_to_vp_number(cpu) >= 64)
+>   			goto do_ex_hypercall;
+>   
+> -		for_each_cpu(cpu, cpus) {
+> -			if (do_lazy && cpu_is_lazy(cpu))
+> -				continue;
+> +		for_each_cpu(cpu, flush_cpus) {
+>   			vcpu = hv_cpu_number_to_vp_number(cpu);
+>   			if (vcpu == VP_INVAL) {
+>   				local_irq_restore(flags);
+> @@ -166,7 +179,7 @@ static void hyperv_flush_tlb_multi(const struct cpumask *cpus,
+>   	goto check_status;
+>   
+>   do_ex_hypercall:
+> -	status = hyperv_flush_tlb_others_ex(cpus, info);
+> +	status = hyperv_flush_tlb_others_ex(flush_cpus, info);
+>   
+>   check_status:
+>   	local_irq_restore(flags);
+> @@ -205,8 +218,7 @@ static u64 hyperv_flush_tlb_others_ex(const struct cpumask *cpus,
+>   	flush->hv_vp_set.valid_bank_mask = 0;
+>   
+>   	flush->hv_vp_set.format = HV_GENERIC_SET_SPARSE_4K;
+> -	nr_bank = cpumask_to_vpset_skip(&flush->hv_vp_set, cpus,
+> -			info->freed_tables ? NULL : cpu_is_lazy);
+> +	nr_bank = cpumask_to_vpset(&flush->hv_vp_set, cpus);
+>   	if (nr_bank <= 0)
+>   		return HV_STATUS_INVALID_PARAMETER;
+>   
+
