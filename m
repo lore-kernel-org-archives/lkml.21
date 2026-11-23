@@ -1,54 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.8
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795395467;
-	b=n+fa14wEe4BxiQd0VZ1G8I/sct/GCGCTS6J0LMBirrY6TMVHqmJW+TO+gFsiaSWpZUy5
-	 gGnjYjrkoXd9yvo3OOtgrvjCAbWgl3Yf9FsYpioGjEqIYv+ewmVsNNHbBPg3953k6H0y7
-	 YTUC8lLCRfvm9tPsPH2xrQ0h4fgSvWuz/5jqMbzEOGfmQ4LG8tt2omPOt/pH4MGG5ujw3
-	 sDQF1CP5Yl2m6MENDRBHBsBEemJceguRgYK0U4EeOYtX7WbA2BW5u8oUNkyMWw8ZENYno
-	 mTQRsgiw1jjRDi+G2hmcZBAm1I8AqxNUD1WvjqPHAxyeuQMR7moZtRYwkNUHkrwH6fA==
+	t=1795395502;
+	b=AYvxbdBqUz8MTbJRrHjJWB86kJt2ga+66c+xBqXaqepIHtGWIMbt5qst7JjkycJ6PN4L
+	 seA6QWYg9p+BgT00psGxWzyZIvI3v7kNb5a+CEyWqLXK4h4Uikhlj+vWU76zbjrEF14te
+	 ckahvs0DAaOSvdbYGns1R3mnfAJtCkHsMeNboMyxR9qYDmzv5m76wYk1+WuDVRJgGdCww
+	 mKY31V1HYsufWoIe1w+jWSifv0QFG6X1x4gk2SxtF3VVVim7hhmNwBxNc8giDtptBLqpz
+	 jhfs7+XKcYkQyFTQUHrR0nwhK1YTVG5H1yc442Gl2KLO2scEFv0TFLWBftA2/XG/kTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795395467;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=fc8Ar5aH5Y5otKVLEatz4wwbIIdMLZtXZ0Vqbo5bjHo=;
-	b=4GAfEXQ3Nh1huyxU4BBODz7qY+KJdP5pVTXYHLUPlb3rjtTYLEdulLcnixt11LoDKnrB
-	 wCxSpXVjj1DPLe0FHMSMbirtsV4RNnzrblROGeQU75iTZd4Oxr/9UtwZlsB7+r8NXfP8p
-	 QiAfWl4bkIxzARTf2GpyhXN1sUQJD67hMgB8QSn3mM0XFcPZ6GeLLhh/y6APlRGvGisNZ
-	 AtckAn2ZHLfGHpK8J8Di/m8euMQYQJNG5yhJ50trKeMF3njx44VvFp7OcaEJK5hxwnV2v
-	 INuKrbGaVvHin6IPD6zT62QGgx+74hFiqW1CuB4uDQEYvNV45p7LpTtM3wivSJQXfnA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795395502;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=hbouXR7A5A9JB/YPIb4FbPqutrjb1MEa6hNYonOAAzQ=;
+	b=qPUUWlw6/UHPy4LQ5sIgd/0NrX0L0Nj4rNbOZWXHncStC+N56cn5hvX6o9BpFQZCtrso
+	 VLvFlwYfk6ptYhv4KipyfpjkeO7MvRWKOInZaW1IGcebY1fDCudAIHAhGCjEjT3fufV/U
+	 rwwLqoG5qN7a591FMPFcAvC/Ky8EAomE4p57HZNLm703tmray/jrv2qr/xywo4XCotjch
+	 6ZcXL/WY34IUf9PKKEqYNigGexbRUN9Q+GlyEngXrQPwOyVicG8zA9Q3YLqckXC1N76t4
+	 +mzhRGKSQkkRLvJF/1xhzf1S/RCrT7n/W2pGA8vl5I1PForzo5z/gHVaROl9pWCcofA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=cgRXkngm;
-	arc=none smtp.remote-ip=95.215.58.8
-Received: from mta1.migadu.com (out-8.mta1.migadu.com [95.215.58.8])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NYpOkrDw;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D32D2606A33D
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:57:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D32D2606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A9E7606A335;
+	Mon, 23 Nov 2026 00:58:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=cgRXkngm
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=1Z+IV195TFBGbtanyq4aEdiPJ9El2Z9WkuHp4Wlnj24=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795395463; v=1; x=1796000263;
- b=cgRXkngmMNtAHuGqTXs8XGGOeo13Ta/LeISW26FYOi7oQg2o/FIQD+M5e2Iv2N9nxKZU/Gw9
- Tra2kEqSDA88+2cbvS7rvxxFriipPUP3dM4G6NWEM4MR6+TCKFZV+d5ks7t7mW17RbXy5QKFhrC
- y0kW4ehzeuiQPWRO17s7cBec=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 6ddd898802172db6;
-	Mon, 23 Nov 2026 00:57:43 +0000
-X-Mizu-Trace-ID: 6ddd898802172db6
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <f611948c-0462-45c3-ae69-2ae083231f2b@linux.dev>
-Date: Mon, 23 Nov 2026 08:57:37 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NYpOkrDw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C0271F000C6;
+	Mon, 23 Nov 2026 00:58:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795395502;
+	bh=hbouXR7A5A9JB/YPIb4FbPqutrjb1MEa6hNYonOAAzQ=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=NYpOkrDwMmFcrk9uE09Oqzkjyh1DRlxlzO8GXgR+s5aqfn3C9QfCHZwzP/gUsSLPO
+	 P7aomuIMtDjrz13moeRxLVvL44B5ylMCovfrdykdUBG11TaYNrDt/MdKPHpxL4Q7t4
+	 QyhjrQtMLREM0y/ajr48Oi4gTFNl//I2hK/Jg8huIISIkvlASaxebdUstat6QpAHl2
+	 wlUqVvfcQhXW9cyDLnvGyLyD7kIedv6xv55t7cYQ0T0p/9h1P5xLONfSFREeVLfJe/
+	 shIB1vT6zYXT/LGDCPOLRUy7x91Ma5wZauLEOzfx5tEEF7Hdw9NYKnOrmKeFDrdvy3
+	 5EDnjkphtwe/A==
+Content-Type: multipart/mixed; boundary="===============5078455097996705914=="
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,50 +49,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] riscv: dts: sophgo: add Milk-V Duo ethernet DTB
-To: Hiago De Franco <hfranco@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Inochi Amaoto <inochiama@gmail.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Chen-Yu Yeh <chenyou910331@gmail.com>,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- sophgo@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20261104-milkv-duo-eth-overlay-v2-0-e3d2d39cf229@baylibre.com>
- <20261104-milkv-duo-eth-overlay-v2-2-e3d2d39cf229@baylibre.com>
-From: Chen Wang <chen.wang@linux.dev>
-In-Reply-To: <20261104-milkv-duo-eth-overlay-v2-2-e3d2d39cf229@baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Message-Id: <9adaadb2bd9667d049d68e9e4ed3dc4cf6204174b365029bd8422aeb759c2d11@mail.kernel.org>
+In-Reply-To: <20261122-bpf-rhtab-irqs-disabled-v2-1-207aedcc2215@columbia.edu>
+References: <20261122-bpf-rhtab-irqs-disabled-v2-1-207aedcc2215@columbia.edu>
+Subject: Re: [PATCH bpf v2 1/4] rhashtable: Add trylock_irqsoff for callers that can't spin
+From: bot+bpf-ci@kernel.org
+To: mt4022@columbia.edu,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,yatsenko@meta.com,herbert@gondor.apana.org.au,akpm@linux-foundation.org,shuah@kernel.org
+Cc: tgraf@suug.ch,eddyz87@gmail.com,memxor@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,bpf@vger.kernel.org,linux-crypto@vger.kernel.org,linux-kernel@vger.kernel.org,linux-kselftest@vger.kernel.org,tz2294@columbia.edu,mt4022@columbia.edu,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Mon, 23 Nov 2026 00:58:19 +0000 (UTC)
+
+--===============5078455097996705914==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
 
+> rhashtable: Add trylock_irqsoff for callers that can't spin
 
-On 11/4/2026 10:52 PM, Hiago De Franco wrote:
-> Add a DTB that applies the shared cv18xx-eth.dtbo overlay to the Milk-V
-> Duo (CV1800B) base DTB. This enables gmac0 and the internal PHY MDIO mux
-> on boards with the Ethernet IO board, matching the existing Milk-V Duo
-> 256M DTB.
->
-> Signed-off-by: Hiago De Franco <hfranco@baylibre.com>
+TL;DR: Nits only: documentation gaps. The new -EBUSY return isn't in the
+remove kernel-doc, and the member doc omits UP always returning -EBUSY with
+IRQs off.
 
-Reviewed-by: Chen Wang <chen.wang@linux.dev>
+> diff --git a/include/linux/rhashtable-types.h b/include/linux/rhashtable-types.h
+> --- a/include/linux/rhashtable-types.h
+> +++ b/include/linux/rhashtable-types.h
+> @@ -52,6 +52,8 @@ typedef int (*rht_obj_cmpfn_t)(struct rhashtable_compare_arg *arg,
+>   * @min_size: Minimum size while shrinking
+>   * @insecure_elasticity: Set to true to disable chain length checks
+>   * @automatic_shrinking: Enable automatic shrinking of tables
+> + * @trylock_irqsoff: With irqs disabled insert and remove don't spin on
+> + *		     the bucket lock and return -EBUSY
 
-Thanks.
+This isn't a bug, but should this member doc also say that on UP without
+CONFIG_DEBUG_SPINLOCK these calls always return -EBUSY when IRQs are
+disabled?  Only the commit message mentions it.
 
-> ---
->   arch/riscv/boot/dts/sophgo/Makefile | 2 ++
->   1 file changed, 2 insertions(+)
->
-> diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/sophgo/Makefile
-> index 440acd0aa55a..3c9f3530526e 100644
-> --- a/arch/riscv/boot/dts/sophgo/Makefile
-> +++ b/arch/riscv/boot/dts/sophgo/Makefile
-> @@ -1,5 +1,7 @@
->   # SPDX-License-Identifier: GPL-2.0
->   dtb-$(CONFIG_ARCH_SOPHGO) += cv1800b-milkv-duo.dtb
-> +cv1800b-milkv-duo-eth-dtbs := cv1800b-milkv-duo.dtb cv18xx-eth.dtbo
-> +dtb-$(CONFIG_ARCH_SOPHGO) += cv1800b-milkv-duo-eth.dtb
->   dtb-$(CONFIG_ARCH_SOPHGO) += cv1812h-huashan-pi.dtb
->   dtb-$(CONFIG_ARCH_SOPHGO) += cv18xx-eth.dtbo
->   dtb-$(CONFIG_ARCH_SOPHGO) += sg2000-milkv-duo-s.dtb
->
+[ ... ]
+
+> diff --git a/include/linux/rhashtable.h b/include/linux/rhashtable.h
+> --- a/include/linux/rhashtable.h
+> +++ b/include/linux/rhashtable.h
+
+[ ... ]
+
+> @@ -1066,7 +1094,8 @@ static __always_inline int __rhashtable_remove_fast_one(
+>  	if (!bkt)
+>  		return -ENOENT;
+>  	pprev = NULL;
+> -	flags = rht_lock(tbl, bkt);
+> +	if (!rht_lock_or_busy(tbl, bkt, params, &flags))
+> +		return -EBUSY;
+
+This isn't a bug, but rhashtable_remove_fast() and rhltable_remove() can now
+return -EBUSY through this path, and their kernel-doc still says:
+
+ * Returns zero on success, -ENOENT if the entry could not be found.
+
+Should the Returns lines mention -EBUSY when params.trylock_irqsoff is set?
+
+[ ... ]
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45090312341
+--===============5078455097996705914==--
