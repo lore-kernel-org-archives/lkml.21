@@ -1,91 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.34
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795404567;
-	b=l4AeUMkUgFEVtl6MDmaTj3UuU+CxqjEt7EjNy63gcS005Ahl2SPcNYsiFuc/H8vlYe9U
-	 c47nESNlHQpe5GtzwbU5BkbLFRhhXAr5NcEGbi+IaNwmmIjUEz4euMFsLgVj75iiHNecw
-	 ymr2K8xUDNcL9/0TVS7MwMPKsNvHNdgTv27uF09yXVNU+9YBfW+SQSpkrwxXSnNfMKpwf
-	 Kwm8dtQesk63ZdJpeuJZtgRubC44kkQE5vb1GNZGcFFNU+pstEaIDTLy4cOJk0NOFCjd4
-	 NZ1ouPL5YCoLikLvQZFg284pQjaYV0rFznPPFsLo4NUFqF/5B7BFJanR3b1P6CaBv6Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795404567;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=tVszMbjndaPMTNR/SQIXqX+WRdGEDtnm+7EGT5tXqNQ=;
-	b=sYAnFbZDot2wR0B2s7a8OpnTM72iLrJmnyNerqJAB21Mq/DWIC2Mx8AvXO+2eLokO6Rw
-	 VsHPVBcEwiD4fVI8krBrh3R5SvVuFs9h2gRUabZw9PYgbO8unf/aXuhF60gjQS/3ac+ck
-	 /sv4vdDNttKFkaJ99jrDg8LyrrutB7DZbte5LDSaQsVdSpQ/u1FNbXXxOEvC9llGH6uDp
-	 p3gZgJlhSc3euixa1maXVwE+8GLAFGjn9ol5mzNFhPNAoLjj9wcSo/jR0lehaXGT+OSSe
-	 CGXI5PvvKfJne2kcN7n6TEztpTQeoXBLmku6lzb7CVQngxeGtMDJjGGrVHfkJANlnKg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=DIWHE8o4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.34
-Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azon11012034.outbound.protection.outlook.com [40.107.209.34])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795404619;
+	b=zErw2gZ41rA/3GErkn6Vc8LmNZBTnh0ViKDljb+eA03KsJ9FeZ4P8Rb0pHYa3sHLVOx9
+	 u4T43UMsZZjkx8YlkDmXOYBb0HLpMXKqCbOrhq/0k0MwdEbgTQG0WYMJmbbh0NFoFNCaA
+	 ugKWMXW720KO3eZfcyCsncA4nylt4HjB9WuZBEpPwk7sVYmaj/wmENJm0bTh7A4MpZXJE
+	 f2XXDmwgT6E30tYUeCYWHfNPTDNivaK0A/HkhOCeLui2Ij2HIfO/h7bGKjlySTLFEclcm
+	 lEX6D+MkYgDG5qmYiMsfAiDPU5m32xReRDPjlRI/SdlztKHuaF/spyo0td6ykPqLCcA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795404619;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Cc:Subject:To:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=+OVrc8f7SUe5j7bd8dyYAonTbCTM23PZtBQVesUqE24=;
+	b=oV+bLUAliHDnxsArUA/ybOOe9K+1MMdsEByOFE/rRUkaxJAslfeKp1z4UO3FA1CtdUFH
+	 HOGm4bj2nz2VqX/oZN4mq73a1lYdVGgLldtqVbHVL8HKAQEo0HgLAaF2WgUOM6eX+pSgo
+	 cH2HKTho6gaVzr8iadSIlnQ70fr3e8A1xk1BuQJ3oUwqm0eqYLPfLRSuS75pGD33LzJKJ
+	 Ujnyz6t9ap9dRWRDXtK8Z+W3HdXFc9k9E+POuJHFXJSLjJ6Z6al/HlAGH3ilXp1TwBYyD
+	 k7htltshs2I8Vmm++rigvukdYaUC372gTwSPcUCAIu2pEzvuHHux5ep6rr3mXcbdPGw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cv8N9fr7;
+	arc=none smtp.remote-ip=198.175.65.9
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D6D4606A31A;
-	Mon, 23 Nov 2026 03:29:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D6D4606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E4AD606A31E;
+	Mon, 23 Nov 2026 03:30:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E4AD606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=DIWHE8o4
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o4KFDqwKASj8lXs0DW38Awun6I//IWjZQpfrT5CmAsU4IlIlYxE/xWe2WLtnoNGhV7fXpYeEPYuEwVqCVXGFKPeOZz4WtFE14ezKeU0ik81NnPdBmgu/rm6uJu0N6O/+ZF12rLkW9FQZ5zyqSP7IPUKnWp9JYLBuYfctqNQqF8YvYKdmByqeoV7GIR8melF3+Rvi3y5xOQAE4kh/Yjo9pbB3GG9PE7P3oLQsZyko3gyRyUI8UmjWe6+1fwUzZrzd5ThJ4gQ7EChxXRzp0eQFIF4eXYeYVOU8wYVEcBszNwgDa3gM/aRR+VLKcEaL71CiUgs6q6UQ3BfXaEofz+4p7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tVszMbjndaPMTNR/SQIXqX+WRdGEDtnm+7EGT5tXqNQ=;
- b=aQ0ID+LxqrWB5RD8JgOx1+iiQvFr0fnZX/DI+3Rb9/B9zH2Dghfpekc/uJqNqcAKNlh9W82mkQkbyNRBSYwUy5mQ8rkxhXsNtfFeruUBZJOpgfEnMBcPbWWkv/22/zNtLhrbMS1j8F+hLGNLV15WS5AObqpQAfEpULLFr6EmxnjF4ylYgYTWzxxUk5DNXRWI25nrhBVvmwPH057UBo0fz+frcig/g4yZPy34K+V28AG4+3rW0WLpN+scxCqtvTYIoVpJy3IMCEg1VD0nM6YDGlaEZkTg/1VcmXVqPSTxhFcYBc+DddDyQ7+mgajeqnuTqDy1YTjh7OpJJUJofX//Ug==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tVszMbjndaPMTNR/SQIXqX+WRdGEDtnm+7EGT5tXqNQ=;
- b=DIWHE8o4leVQyCOYmUEkg/5h0g086oT71OCfwPZpHo6th1ertXG2ntAyaQ/f75lzaI7dVFlD8jiTeJdqmtj9X8Am8r5tHE370nZVk7V0jyWo5x1el63LD9Tqd0QNntsDptSTBj3XqzbpDsZ6+98qsOGXd0TrJnAP5G6Uk88nCdJzWaaQYeB/xcTVjvh9Zsp+MtdJb8jJBmtdZTiJYiH2rp32qSN7lSHeM0YFF8zVjc5J3gZTJwZbcs7cHplKqwHmGL4us9SJuquOTmD4kw83y/m1/OSLOCjJ1FzY2VH6CiQOMq/m6A+gp1OHmOrS9AwtdH6J5X9UX22knZibXQcXJg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BL0PR12MB2370.namprd12.prod.outlook.com (2603:10b6:207:47::27)
- by DS7PR12MB9476.namprd12.prod.outlook.com (2603:10b6:8:250::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Mon, 23 Nov
- 2026 03:29:24 +0000
-Received: from BL0PR12MB2370.namprd12.prod.outlook.com
- ([fe80::86cf:c3ec:2cf5:74c8]) by BL0PR12MB2370.namprd12.prod.outlook.com
- ([fe80::86cf:c3ec:2cf5:74c8%5]) with mapi id 15.21.0615.009; Mon, 23 Nov 2026
- 03:29:18 +0000
-Date: Mon, 23 Nov 2026 11:29:10 +0800
-From: Richard Cheng <icheng@nvidia.com>
-To: Joshua Machauer <machaujo@amazon.de>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org, 
-	linux-cxl@vger.kernel.org, linux-kernel@vger.kernel.org, nh-open-source@amazon.com
-Subject: Re: [PATCH] PCI: Skip the CXL state update for a VF
-Message-ID: <awOxn3BcKl8Ru-QS@MWDK4CY14F>
-References: <20261119164219.51540-1-machaujo@amazon.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119164219.51540-1-machaujo@amazon.de>
-X-ClientProxiedBy: JH0PR01CA0162.apcprd01.prod.exchangelabs.com
- (2603:1096:990:7::10) To BL0PR12MB2370.namprd12.prod.outlook.com
- (2603:10b6:207:47::27)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cv8N9fr7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795404619; x=1826940619;
+  h=message-id:date:mime-version:cc:subject:to:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=xQIf2XWpxRiu8ABULLh3LCmmUoL/rgjSVpR1sePhql4=;
+  b=cv8N9fr7RUcqfk1PGwMYHJciMYHleIDBheBowwAjty9hCHC19ZlktLAo
+   +4ZOKLQzJrYgjxlRRa2YWckgE1zLvdZ56SmJtOFMBO8bT/pIMOW9g/i3X
+   thG2n6X7UUcOPzjGjc96bET6twKy/8Dzl2bJzotEp/TnvbCFqC2Hp3rfx
+   jTmIehrymAEjkZ24XlyOun52EpwfcSSR7XWRP5SXd/q+2TabDT7mfCnrU
+   RVq5z+3QlglyNCiyLOqNFU/AcOAay9wwjBUG55yYZV7vmP1e3P38cYK9/
+   wWsUTBnTK3YPeaQ1smuFuPLK/wWvQZbCL7XFjEFi3vWRrSwGP0LTzvn/C
+   Q==;
+X-CSE-ConnectionGUID: ETIGGjT7SMC45tq8jFG1YQ==
+X-CSE-MsgGUID: QNrkWdXjQ5GJljbuZdSOqw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4048901"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4048901"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 19:30:18 -0800
+X-CSE-ConnectionGUID: j/CYp5VnSHujdnBwlrkLmg==
+X-CSE-MsgGUID: HB1n6Xb3SQy5H+W5CZc+DQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11081924"
+Received: from unknown (HELO [10.238.1.144]) ([10.238.1.144])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 19:30:15 -0800
+Message-ID: <d9f3eecf-5655-4779-9e8a-b3ff4cbdb667@linux.intel.com>
+Date: Mon, 23 Nov 2026 11:30:12 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,137 +72,268 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL0PR12MB2370:EE_|DS7PR12MB9476:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0b495c62-2748-4939-8c2b-08df4911f49d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|10067099003|5023799004|11063799006|56012099006|261022105027099003|261021121427099003|261026121527099003|261026140227099003|261102123227099003|261028144727099003|18002099003|22082099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	SyyeIb9YxCEE5acXf85JHQ35h2gtXyG2CF03OPDhHYZPdywkqnkXx25GKlJGG8X9gl8ln4U7iMyKAznbwPBEKPy0GwDh9NX7JE/+DGgFvioePSU3bwa/QuKwLvauV3zfjZXVlatg4MA2Jfbw3x18SSplGDKKS+iGtlMmJtgb5D0kmIkXtljLyFsFM2MstVUVWPUKG/iQE+Y/R/XfdEMKvESxfwyXaSqGWEuvDrrHhMlHnAXbM+VmSYfEvXh2jd2sKmT7UyPQL58K9tJWT4ZMHUdtpQZF73VBnmReeqJzR+IjfooFtXs6Ud/wG2h4OfAsAgwgj1H0/7VjQUnOI1z1FURFSnWstbXtbSQRJGVxcSQ4dQ3B2/v3NuVLdDPfNI+QnMwCilmBTgoBqWMA12IqBQeQin5n0Ygb4pqWvNDxYG/PKi0ZjwomxCduUTWYFaJse76kjDaFgFHZvVV7r/znWXkvsrS4Z/84rTbZu7pdGTpTXTxoGExZgw1AYYc9cXfupVXBbL3pE5VtvKa6kQugNAG5StV78G+l9dt17mCuDr7fVUOQG3KzIFM0DrL1I/b6HAErj4UurObgo7O3DjoZqzFB/MOgbaGkeRmLrXmuGrEzJR0tZGRexSUPVmZH9og3NcoIsten8DZiXUgR/Ut0G3xgFGE8FSxTiFZr3pXa+8I=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL0PR12MB2370.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(10067099003)(5023799004)(11063799006)(56012099006)(261022105027099003)(261021121427099003)(261026121527099003)(261026140227099003)(261102123227099003)(261028144727099003)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?Rs17MgZQqj+QHEOtJkusnpX+KVxX1C4vhnUdiQnutBehEiBQ4Zo+mBgnU/3P?=
- =?us-ascii?Q?iTrhYi3gmCrP1EvEjQ7ccxoIRrPriSH3ZgMRH91rD5Dzb+f0CqAbzkclRUNS?=
- =?us-ascii?Q?y2IpnG+iECH+4qqDLlAxMcwS5P0Z/5JZlUWfwZTr4/HpYvHhy2aG64QXF1R/?=
- =?us-ascii?Q?FljL2tUUWxnUTp7XrQ/1yYqqXO4PFu+gQib0wvABF7p30P54s8iJKNhsLNrQ?=
- =?us-ascii?Q?z2Uh08frMYC06RnOdZ6AirH8xOVXYHIGcctkyYc7iRiwNA3iuo3lXGAvvpdr?=
- =?us-ascii?Q?qVSk2x72XYif3mAt1hccOC0f9qD7kygLmn372M3VIg9CJgmfrJBxNGewGIKV?=
- =?us-ascii?Q?s5mWCKk24ZIpde7+6xGZGsNhbY674ye719HOY6zBwrrdMps0t63YL252QdhB?=
- =?us-ascii?Q?8FidPx0oeOAy6lJeW4k5k3w/lnHZjLn/gqlIe6mW32/TVwzGlYQ8hvlnAiUx?=
- =?us-ascii?Q?/v8/8JKSgJPqgjqjEL8AQsu40WT8SS9wN6Y4x1ZqpNbEMiUP3BYmWv4k0+W1?=
- =?us-ascii?Q?uWebW3sPZqcrR8nV7vDiZqWZ+Vq3Dn7mhkDGz9FpRo5f0a+yosro+cp6h7jV?=
- =?us-ascii?Q?KFbQ1Y6dIHfygeMLqYP5vGQTucIswQ72z1bnRlrRASBmnLvbXbyLWntlffWQ?=
- =?us-ascii?Q?ZKFtXhhvZ7NcK61W8SvOTO826wfmWeiYMbRvwM5BxbB29QjN2nXXyxaQIKVk?=
- =?us-ascii?Q?XLa6DbBrwha9ikTePvIQVSwy5vtdyKPsfUljnaGrfqwHkZBZ8gacT7LXQS2B?=
- =?us-ascii?Q?QCaffBgwNRjtqL0nWv2xNGLgCBYSRUnUH3VJUS3NzHBe3r/+fA9Io46+vUAi?=
- =?us-ascii?Q?dw23lxHq+FIFvWuHh/3Z/Wv7HsEtf7dKLTITlpkLZD8eWwHEy27HY04HCwlU?=
- =?us-ascii?Q?NaDRMrhy769jt+X3P8wD1IWUH8ZGwApRsVNLiKFSjD35VWUnOTHJRPxeLyXa?=
- =?us-ascii?Q?DM/LCpsqMLEbj+xE86jReHQpi8nmQWjJHmMNAEJd7lhlMCv3BqRGfk1jU7rk?=
- =?us-ascii?Q?ujnimljy2P5/0N+QUlqWx5gaqxa1+PSBYkBru+Z8JYKNjc9nUXPgMVvr264f?=
- =?us-ascii?Q?FaD+4XLnfeUcKRKiCjC1i5Q1SPdO074pPKERY3AyCXPmzbJ+aVIgA/MI6Rch?=
- =?us-ascii?Q?JMjCHHfN/Rkq7igP2n5EPkF62MivElbnwtfXHUyki9XeeUzWPf04757c3wJD?=
- =?us-ascii?Q?h/zHbfFj+ck3Ko309++lihGBzLL0qKQ1M7vNuNeDO/zpoV+w9Val4chPk/gv?=
- =?us-ascii?Q?jDR+9cfxwAR8qReoZS6l+I46dOhjzeLPQcaJO8d1GJGZtKAcrFzEVYzqZz61?=
- =?us-ascii?Q?KtwGxCpVKzHtZ5hRkbBZ4tx+lSkAOe6JID+bnReMD625sQUJFfn60ThpKsWq?=
- =?us-ascii?Q?VHVEFh3/Q99ZUZW3wbjcQKef1YkdaLcnLmi4HIeIviTmqfjQbX9nGyAJGs3B?=
- =?us-ascii?Q?yCjXtEj/2tXV+H8EXA9FpjvQN0AIWfEPcQAUaaynRK6wCHzJ6yE57Vv8kb33?=
- =?us-ascii?Q?wpIksOZEaY4QGwmwF5J07rhkmVhAomLkf8PX3gervGmm+sNOaoCNkIe3UBev?=
- =?us-ascii?Q?JvyLRl5434I8W4Iq+YSO+GJdv8yb9rnWKYPGVKctkRIFQ9hw56+UuNHynSS5?=
- =?us-ascii?Q?SEk828odZYu6y1TRp9eEdNHm/E/BStCPm1kO6ZPRX0i8rtABj+BszU11qd0O?=
- =?us-ascii?Q?IuoMVdgqL0zavb5hqHg6mYYoYBbDiEqbyB4ZKpu4z5SAwDPJRoBYG9uIQjf6?=
- =?us-ascii?Q?JLqIAeGUOA=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b495c62-2748-4939-8c2b-08df4911f49d
-X-MS-Exchange-CrossTenant-AuthSource: BL0PR12MB2370.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 03:29:18.1124
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TVFCkUzdZG5P3iiegblvGVGslLPU32yq5ACIZFOrL0sEhxODiWtAGA3zVEnLxULDp+w32etFookFk0eaOnnolA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB9476
+User-Agent: Mozilla Thunderbird
+Cc: baolu.lu@linux.intel.com, iommu@lists.linux.dev, x86@kernel.org,
+ linux-coco@lists.linux.dev, kvm@vger.kernel.org,
+ Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>,
+ Kiryl Shutsemau <kas@kernel.org>, Rick Edgecombe
+ <rick.p.edgecombe@intel.com>, yilun.xu@linux.intel.com,
+ xiaoyao.li@intel.com, Binbin Wu <binbin.wu@linux.intel.com>,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 7/9] coco/tdx-host: Add skeleton to support PCI link
+ encryption
+To: Chao Gao <chao.gao@intel.com>
+References: <20261112043054.2664857-1-baolu.lu@linux.intel.com>
+ <20261112043054.2664857-8-baolu.lu@linux.intel.com>
+ <av1QxRYY9sXtC--P@intel.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <av1QxRYY9sXtC--P@intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 19, 2026 at 04:42:19PM +0800, Joshua Machauer wrote:
-> set_pcie_cxl() runs for every device that is added. It first updates
-> the CXL state of the upstream bridge, which walks that bridge's
-> extended capabilities and recurses up to the root port. It then walks
-> the device's own extended capabilities for the Flex Bus Port DVSEC.
+On 11/18/2026 3:16 PM, Chao Gao wrote:
+> On Thu, Nov 12, 2026 at 12:30:52PM +0800, Lu Baolu wrote:
+>> Register a Link TSM instance to support host side TSM operations for
+>> TDISP, when the TDX Connect support bit is set by TDX Module in
+>> tdx_feature0.
 > 
-> For a VF neither walk can change anything. A CXL device exposes its
-> Flex Bus Port DVSEC through Function 0 (CXL 4.0, section 8.1.8), so
-> the search in a VF finds nothing and the VF's is_cxl stays false.
-> pci_upstream_bridge() resolves a VF through its PF, so the bridge is
-> the one that was already updated when the PF was added.
+> s/TDX Module/TDX module for the whole patch. Existing code and docs mostly
+> use "TDX module".
 > 
-> Enabling SR-IOV adds the VFs one after another, and each add repeats
-> both walks against the same bridges.
+> Also s/tdx_feature0/tdx_features0.
+
+Updated. Thanks!
+
+>>
+>> This is the main purpose of an independent tdx-host module out of TDX
+>> core. Recall that a TEE Security Manager (TSM) is a platform agent that
+>> speaks the TEE Device Interface Security Protocol (TDISP) to PCIe
+>> devices and manages private memory resources for the platform. An
+>> independent tdx-host module allows for device-security enumeration and
+>> initialization flows to be deferred from other TDX Module initialization
+>> requirements. Crucially, when / if TDX Module init moves earlier in x86
+>> initialization flow this driver is still guaranteed to run after IOMMU
+>> and PCI init (i.e. subsys_initcall() vs device_initcall()).
 > 
-> On an NVIDIA Vera system, enabling 256 VFs on a PF whose upstream
-> bridge has 18 extended capabilities takes 296 ms instead of 402 ms.
-> Enabling 32 VFs on a Rubin GPU takes 218 ms instead of 235 ms. The
-> times are for the write to sriov_numvfs, with the PF bound to
-> pci-pf-stub and VF driver autoprobe disabled, so no VF driver probes.
+> This changelog is outdated. TDX module initialization has already moved
+> earlier in x86 initialization.
+
+Updated. Thanks!
+
 > 
-> Return early for a VF. Every device keeps the is_cxl value it gets
-> today.
->
-
-Hi Joshua,
-
-The fix looks correct to me.
-
-One nit on the sentence above, before this patch, each VF add also re-read
-the Flex Bus Port Status of every bridge above the PF.
-That refresh is now gone. I don't think anything depends on it, but
-it is a behavior change, might be worth to mention it.
- 
-> Signed-off-by: Joshua Machauer <machaujo@amazon.de>
-> ---
->  drivers/pci/probe.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
+>>
+>> The ability to unload the module, or unbind the driver is also useful
+>> for debug and coarse grained transitioning between PCI TSM operation and
+>> PCI CMA operation (native kernel PCI device authentication).
+>>
+>> For now only check for TDX Connect support in the TDX Module and
+>> register the Link TSM. The TSM support is basic boilerplate with
+>> operation flows to be added later.
+>>
+>> Based on work by Yilun and Dan.
+>>
+>> Signed-off-by: Lu Baolu <baolu.lu@linux.intel.com>
+>> ---
+>> drivers/virt/coco/tdx-host/Kconfig    |   2 +
+>> arch/x86/include/asm/tdx.h            |   8 ++
+>> drivers/virt/coco/tdx-host/tdx-host.c | 118 +++++++++++++++++++++++++-
+>> 3 files changed, 127 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/virt/coco/tdx-host/Kconfig b/drivers/virt/coco/tdx-host/Kconfig
+>> index 57d0c01a4357..f8c8cc29d46c 100644
+>> --- a/drivers/virt/coco/tdx-host/Kconfig
+>> +++ b/drivers/virt/coco/tdx-host/Kconfig
+>> @@ -1,6 +1,8 @@
+>> config TDX_HOST_SERVICES
+>> 	tristate
+>> 	depends on INTEL_TDX_HOST
+>> +	depends on PCI
+>> 	select FW_LOADER
+>> 	select FW_UPLOAD
+>> +	select PCI_TSM
+>> 	default m
+>> diff --git a/arch/x86/include/asm/tdx.h b/arch/x86/include/asm/tdx.h
+>> index 0ed0062c9b0a..fc284a555984 100644
+>> --- a/arch/x86/include/asm/tdx.h
+>> +++ b/arch/x86/include/asm/tdx.h
+>> @@ -142,6 +142,14 @@ int tdx_topup_pamt_cache(struct tdx_pamt_cache *cache, unsigned long npages);
+>> int tdx_pamt_get(kvm_pfn_t pfn, struct tdx_pamt_cache *cache);
+>> void tdx_pamt_put(kvm_pfn_t pfn);
+>>
+>> +static inline bool tdx_supports_tdisp(const struct tdx_sys_info *sysinfo)
+>> +{
+>> +	if (!(sysinfo->features.tdx_features0 & TDX_FEATURES0_TDXCONNECT))
+>> +		return false;
+>> +
+>> +	return false; /* To be enabled when kernel is ready */
+>> +}
 > 
-> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-> index 9a178e0e5f7f..34acebd1c706 100644
-> --- a/drivers/pci/probe.c
-> +++ b/drivers/pci/probe.c
-> @@ -1717,6 +1717,14 @@ static void set_pcie_cxl(struct pci_dev *dev)
->  	if (!pci_is_pcie(dev))
->  		return;
->  
-> +	/*
-> +	 * A CXL device exposes its Flex Bus Port DVSEC through Function 0,
-> +	 * so a VF has none. Its upstream bridge is the PF's, which was
-> +	 * updated when the PF was added.
-> +	 */
-> +	if (dev->is_virtfn)
-> +		return;
-> +
+> Patch 2 open-codes the same TDX_FEATURES0_TDXCONNECT check. Can this
+> helper be moved to patch 2 and used there?
 
-I would like the spec section to be cited here, CXL r4.0, sec 8.1.8
-"PCIe DVSEC for Flex Bus Port"
+These checks serve different purposes: the metadata patch checks whether
+the TDX module supports TDX Connect; tdx_supports_tdisp() decides
+whether the kernel is ready to register the link tsm. The latter may
+include additional checks, such as quirks, so I would like to keep the
+helper for the tsm registration.
 
->  	/*
->  	 * Update parent's CXL state because alternate protocol training
->  	 * may have changed
-> -- 
-> 2.47.3
 > 
+>> +
+>> int tdx_guest_keyid_alloc(void);
+>> u32 tdx_get_nr_guest_keyids(void);
+>> void tdx_guest_keyid_free(unsigned int keyid);
+>> diff --git a/drivers/virt/coco/tdx-host/tdx-host.c b/drivers/virt/coco/tdx-host/tdx-host.c
+>> index e8ed8dfa526e..0908aaaa28ac 100644
+>> --- a/drivers/virt/coco/tdx-host/tdx-host.c
+>> +++ b/drivers/virt/coco/tdx-host/tdx-host.c
+>> @@ -9,10 +9,14 @@
+>> #include <linux/firmware.h>
+>> #include <linux/module.h>
+>> #include <linux/sysfs.h>
+>> +#include <linux/pci.h>
+>> +#include <linux/pci-tsm.h>
+>> +#include <linux/tsm.h>
+>>
+>> #include <asm/cpu_device_id.h>
+>> #include <asm/seamldr.h>
+>> #include <asm/tdx.h>
+>> +#include <asm/tdx_global_metadata.h>
+>>
+>> static const struct x86_cpu_id tdx_host_ids[] = {
+>> 	X86_MATCH_FEATURE(X86_FEATURE_TDX_HOST_PLATFORM, NULL),
+>> @@ -20,6 +24,112 @@ static const struct x86_cpu_id tdx_host_ids[] = {
+>> };
+>> MODULE_DEVICE_TABLE(x86cpu, tdx_host_ids);
+>>
+>> +struct tdx_tsm_link {
+>> +	struct pci_tsm_pf0 pci;
+>> +};
+>> +
+>> +static struct tdx_tsm_link *to_tdx_tsm_link(struct pci_tsm *tsm)
+>> +{
+>> +	return container_of(tsm, struct tdx_tsm_link, pci.base_tsm);
+>> +}
+>> +
+>> +static int tdx_tsm_link_connect(struct pci_dev *pdev)
+>> +{
+>> +	return -ENXIO;
+>> +}
+>> +
+>> +static void tdx_tsm_link_disconnect(struct pci_dev *pdev)
+>> +{
+>> +}
+>> +
+>> +static struct pci_tsm *tdx_tsm_link_pf0_probe(struct tsm_dev *tsm_dev,
+>> +					      struct pci_dev *pdev)
+>> +{
+>> +	int rc;
+>> +
+>> +	struct tdx_tsm_link *tlink __free(kfree) = kzalloc_obj(*tlink);
 > 
+> tdx-host goes through the tip tree. It looks like Dave prefers plain
+> error handling over __free() [*]. I think we should drop __free() for
+> tdx-host code. Same for tdx_tsm_link_fn_probe() below.
+> 
+> *: https://lore.kernel.org/kvm/691e16318f5ea_1eb85100ce@dwillia2-mobl4.notmuch/
 
-A wider question, not specifically a request for this patch.
-The repeated walks are not specific to VFs. The recursion runs for every PCIe
-device and goes up to the Root Port, so every function added below a switch
-walks the extend capabilities of all the bridges above it again.
+Okay, so I will update it like this:
 
-Is the walk to the RP needed, or would refreshing only the immediate parent
-would be enough ?
-If it's the former case, we can cut more cost for non-VF devices too.
+diff --git a/drivers/virt/coco/tdx-host/main.c 
+b/drivers/virt/coco/tdx-host/main.c
+index a815dbe5127a..af887c49a027 100644
+--- a/drivers/virt/coco/tdx-host/main.c
++++ b/drivers/virt/coco/tdx-host/main.c
+@@ -56,17 +56,22 @@ static void tdx_tsm_link_disconnect(struct pci_dev 
+*pdev)
+  static struct pci_tsm *tdx_tsm_link_pf0_probe(struct tsm_dev *tsm_dev,
+  					      struct pci_dev *pdev)
+  {
++	struct tdx_tsm_link *tlink;
+  	int rc;
 
-Best regards,
-Richard Cheng.
+-	struct tdx_tsm_link *tlink __free(kfree) = kzalloc_obj(*tlink);
++	tlink = kzalloc_obj(*tlink);
+  	if (!tlink)
+  		return NULL;
 
+  	rc = pci_tsm_pf0_constructor(pdev, &tlink->pci, tsm_dev);
+  	if (rc)
+-		return NULL;
++		goto err_free;
+
+-	return &no_free_ptr(tlink)->pci.base_tsm;
++	return &tlink->pci.base_tsm;
++
++err_free:
++	kfree(tlink);
++	return NULL;
+  }
+
+  static void tdx_tsm_link_pf0_remove(struct pci_tsm *tsm)
+@@ -80,17 +85,22 @@ static void tdx_tsm_link_pf0_remove(struct pci_tsm *tsm)
+  static struct pci_tsm *tdx_tsm_link_fn_probe(struct tsm_dev *tsm_dev,
+  					     struct pci_dev *pdev)
+  {
++	struct pci_tsm *pci_tsm;
+  	int rc;
+
+-	struct pci_tsm *pci_tsm __free(kfree) = kzalloc_obj(*pci_tsm);
++	pci_tsm = kzalloc_obj(*pci_tsm);
+  	if (!pci_tsm)
+  		return NULL;
+
+  	rc = pci_tsm_link_constructor(pdev, pci_tsm, tsm_dev);
+  	if (rc)
+-		return NULL;
++		goto err_free;
+
+-	return no_free_ptr(pci_tsm);
++	return pci_tsm;
++
++err_free:
++	kfree(pci_tsm);
++	return NULL;
+  }
+
+  static struct pci_tsm *tdx_tsm_link_probe(struct tsm_dev *tsm_dev,
+-- 
+2.43.0
+
+
+>> +	if (!tlink)
+>> +		return NULL;
+>> +
+>> +	rc = pci_tsm_pf0_constructor(pdev, &tlink->pci, tsm_dev);
+>> +	if (rc)
+>> +		return NULL;
+>> +
+>> +	return &no_free_ptr(tlink)->pci.base_tsm;
+>> +}
+>> +
+>> +static void tdx_tsm_link_pf0_remove(struct pci_tsm *tsm)
+>> +{
+>> +	struct tdx_tsm_link *tlink = to_tdx_tsm_link(tsm);
+>> +
+>> +	pci_tsm_pf0_destructor(&tlink->pci);
+>> +	kfree(tlink);
+>> +}
+>> +
+>> +static struct pci_tsm *tdx_tsm_link_fn_probe(struct tsm_dev *tsm_dev,
+>> +					     struct pci_dev *pdev)
+>> +{
+>> +	int rc;
+>> +
+>> +	struct pci_tsm *pci_tsm __free(kfree) = kzalloc_obj(*pci_tsm);
+>> +	if (!pci_tsm)
+>> +		return NULL;
+>> +
+>> +	rc = pci_tsm_link_constructor(pdev, pci_tsm, tsm_dev);
+>> +	if (rc)
+>> +		return NULL;
+>> +
+>> +	return no_free_ptr(pci_tsm);
+>> +}
+
+Thanks,
+baolu
