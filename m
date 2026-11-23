@@ -1,52 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795457989;
-	b=K9303t7KajB49f2XY+BB/fnt1+0KLxLTPKlcE97i+RPP/KfzY46JVG0oS5SINMEIQscV
-	 rxpJmoUCfK6ARQTqmMZLBCb7BnQQcrBSTQBpnInOAsrXIXYz8Nbz2myWA4CHTSJQcZis7
-	 jHMEUP8V+EapogYYxIAYr5XANAnjcC/PYH+9CjGpc089XLgLw8mKSWZbsiiPeXCwQygi6
-	 y7xRadYhcLr/dWD+sYI3WZ+Sn6jG+WT8PsfK4HpKAOr6TJDdraAb16zCrCtMHiOGZaRg+
-	 xWh3S/fyikn/7gPvQIPH+J912XTrj6e015awh/wIulvRNHPuNgyGTw1xzLRu9Ewampg==
+	t=1795458002;
+	b=ZXK7qIu+gWPnomI++jLzuAc1z7qDlFJ1gGxMiWfJeSsvxCWkBMypAGWbq/pbpIrGdlXb
+	 kRlUDYAKDQWcSrhEvrof1W15ZieTyBf7t0LDS7gZnwL/ycTGkl+ewrQgmr/GPWrWB8KtW
+	 0R4M5FH7Afx308gYDHxsTbdGfUl0bY/JUsSALwB82y/KNf+KKiLEB3qmTaIkErE0/Y9B9
+	 F6WPNkQF91d2V0Xtk/AXLQXhmrAgKagQ/AshwJ0/uMRHsS7T+jQP1MiCUuLJ4sgktUn7G
+	 dr4JkPMX7mxiRFGtEAVFG2QUeTnhlR46LueBh12JB1y02naZanhzcqji/pppucgEtPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795457989;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Cookie;
-	bh=dGgiNkRgnUJlNQaFA2WXyYcHHrm2iupMzdvZ+F5I9dY=;
-	b=yKMQBQbC+ot+Kn/F82a6Ju4UJWzoGQzrgWw6PRiiGk4Dt2iBsRKEcJvDSYiQoyNKLP82
-	 hr3jQqGoK+bD1bJXveBLJjO36mwxBZwc8vRgboPiNvyt/N/2dO6IOzwRsG5AREuMMMrLD
-	 kHewnhxy3cgrlEJOhWaWRn2znNrRahASB/8kBvpj/yAfQ7akl7RKVCgh32mDAlCZB0nH/
-	 DV+vZE7YWL24ccp/NcsB9BaiLw/tYnJP8bS9tICMK4ztEvmFYCeX/aNoRJ3fAoZ9Y3goI
-	 rIOWNJBqwJXmInlUxSu08Q7i6ObziPR4J6CJ8CcNpXeyMozkU5hBPF8AMKgbugVRbQw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795458002;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:
+	 In-Reply-To:References:Subject:Message-Id:Date:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Mailer;
+	bh=eJiKC/feSGmWj3Mef86dC6coSoojA+I969NN8FIpo/c=;
+	b=Da6TrAYTdTBbRElOXXDHcN9QhiTqVmRox9WtLbwz8BOlnsS4YNVMawiN1c3wQwBjpt4s
+	 suroAkT38y9setHTDSmhJ2I16VAHtpDyj60aztaoV3O6H5AfjoivoK19eN4Xhi9T0g0yU
+	 vsUzGzcbpDb9DZjos5AJQ9PzWKYeFLKBocOG5aItv2AkCMKDT3/E/F7sahCfNHnRZKsYe
+	 9csBGW6rnBLoBl1aZPWNABw8xUhHCXusIMju4J4FpHR9anNtqbkmhErlI60nPCctVrtJD
+	 xgRQy4Hf5HTDsZgr2e+jXKIJ5EpgUJoG7k3lOCvSVltPYlOmQuQHcivI9EtQyMhZsCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="O/MEL0Ry";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gIomDRxE;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5166606A31A;
-	Mon, 23 Nov 2026 18:19:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56586606A31A;
+	Mon, 23 Nov 2026 18:20:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56586606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O/MEL0Ry
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26AE61F000C6;
-	Mon, 23 Nov 2026 18:19:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795457989;
-	bh=dGgiNkRgnUJlNQaFA2WXyYcHHrm2iupMzdvZ+F5I9dY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=O/MEL0Ryj5G4bErVTu5vcnvSBcle0Vi32SiPc+vjdNySV6D7n2QXwkY6Z/JDFxE5l
-	 JvQ/s0XKP4MWVekW93unfhpbifDIB2n9q+TUKZd6ZpqdVbrKt45f+quCBJFdVvs+vD
-	 Hu0RqxnU+GBUhm9d2xzijo1I67zwyprGqlrOwPGR4Uj0Hz5/dMDqtGP1vN1cVAnQ1o
-	 v+r+yA1/0Dd34vj5ZVAv44BNvk698DQM0SrY57aI18bRsPSkmJNgJuxm8GH7dSmQVO
-	 z+V/S8C888qDPKJnAVCB7DK4wXPqCuEGzZXgYcwyDpTqLSehs/+loHEUq+uV126QBJ
-	 0lQ8g0LeUGVdA==
-Date: Mon, 23 Nov 2026 18:19:45 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Theodore Ts'o <tytso@mit.edu>
-Cc: linux-kernel@vger.kernel.org, linux-next@vger.kernel.org
-Subject: Re: Missing signoff in the ext4 tree
-Message-ID: <a2b4d8de-fee1-4b6a-9a5c-7f4876341b95@sirena.org.uk>
-References: <av8ZYMRMN2w-w0om@sirena.org.uk>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gIomDRxE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795458002; x=1826994002;
+  h=from:to:cc:in-reply-to:references:subject:message-id:
+   date:mime-version:content-transfer-encoding;
+  bh=9nJ9hQtFBUR02GILRNPrwju+ezdcRyNCi6F69PWN55Q=;
+  b=gIomDRxESFDjK6/XytnKFjimlD4rDb8/8B/AWeVMEftOfUBr5Zi07IEk
+   b3hmNPVHD9rEU9ZBEO3NuylMZaMkfCAM9zcXm7Ice+AbQefqi2VgN+hyV
+   MKokY/q9L2VW8eDIbFH7B4kIlgy1SJ0WEQvq563XelBhrqHQT8cY0+4RL
+   U9jq+JLqB+JOzPELPVXnbEIdWEjBoAVTj18AoFz/vEd4J2KUZnQFfNXyB
+   5xfWRs5QtZwHwl7FO+T5ygfABFalluPTkkAgJCrqSRQ4QIAT/Y/S2kKyd
+   md3cO1fNs9TflJy4An3kbTah+6eoxaC1n8E+IVzetvtB/GIZ3yh1vzKPj
+   w==;
+X-CSE-ConnectionGUID: RLwFSmbVRPu01ONt1Qc0Yg==
+X-CSE-MsgGUID: xLShfBXXS/eDERQ26lYsxw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4165843"
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="4165843"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 10:20:01 -0800
+X-CSE-ConnectionGUID: ShY1HBJiRLKiFCE4dnLzaw==
+X-CSE-MsgGUID: 1TfdRKX8SIGU+zWZMUOAiQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="11442589"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.225])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 10:19:57 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+To: Mark Pearson <mpearson-lenovo@squebb.ca>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: "Derek J. Clark" <derekjohn.clark@gmail.com>, 
+ Ike Panhc <ikepanhc@gmail.com>, Hans de Goede <hansg@kernel.org>, 
+ Alice Mikityanska <alice.kernel@fastmail.im>, Rong Zhang <i@rong.moe>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+ platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Alice Mikityanska <alice.kernel@fastmail.im>
+In-Reply-To: <712eb8172d4f38654a08eb88147e6109@gmail.com>
+References: <712eb8172d4f38654a08eb88147e6109@gmail.com>
+Subject: Re: [PATCH v4] platform/x86: ideapad-laptop: do not poke keyboard
+ controller
+Message-Id: <179545799151.12968.5343578239681594526.b4-ty@b4>
+Date: Mon, 23 Nov 2026 20:19:51 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,41 +85,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mtRl07lDAHtqx/ez"
-Content-Disposition: inline
-In-Reply-To: <av8ZYMRMN2w-w0om@sirena.org.uk>
-X-Cookie: Brain off-line, please wait.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
 
+On Mon, 26 Oct 2026 20:05:28 -0700, Dmitry Torokhov wrote:
 
---mtRl07lDAHtqx/ez
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> On Ideapad Z570 the driver tries to disable and re-enable data coming
+> from the touchpad by poking directly into 8042 keyboard controller.
+> This may coincide with the controller resuming and leads to spews in
+> dmesg and potentially other instabilities.
+> 
+> Instead of using i8042_command() to control the touchpad state create
+> an input handler that serves as a filter and drop events coming from
+> the touchpad when it is supposed to be off.
+> 
+> [...]
 
-On Thu, Nov 19, 2026 at 03:44:32PM +0000, Mark Brown wrote:
-> Commit
->=20
->   42be4bd54735e ("ext4: fix the logical block counter overflow in indirec=
-t migration")
->=20
-> is missing a Signed-off-by from its committer
+Thank you for your contribution, it has been applied to my local
+review-ilpo-next branch. Note it will show up in the public
+platform-drivers-x86/review-ilpo-next branch only once I've pushed my
+local branch there, which might take a while.
 
-This is still present today.
+FYI [if applicable to your patch], as per Linus' policy change, also
+fixes are mostly routed through for-next unless the fix is for a
+commit introduced in the most recent cycle or is clearly a regression
+fix.
 
---mtRl07lDAHtqx/ez
-Content-Type: application/pgp-signature; name="signature.asc"
+The list of commits applied:
+[1/1] platform/x86: ideapad-laptop: do not poke keyboard controller
+      commit: 9b53eafc32de16b927f551cfe6c58f9befe4a779
 
------BEGIN PGP SIGNATURE-----
+--
+ i.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsEg8AACgkQJNaLcl1U
-h9DAYQf9HTdAjzGeI6XMWjP6y/sPWpTNYpRHdgi6wZ8ckaaFeRLftqsd2vKWqQaw
-4GDDFxW3kqESjSqPxDEJEMo/phqGA6HEsngqXMyTGvRjoqBZMfYBAxlJwW4594QN
-aly1OAncdFubXCHdwpdtRFd1xqgR0YkAxxPLqCnQPOviopc5flE287ZJn7nsoOuD
-WMKnm2U+dj4qp+VMnYOJxwRhzJ01AJHSSl1v+r7ROf4W3BFvhaWbr4DZm2K3FToy
-FfG5Y4u/dwrlaREtcMvC2cUVyipz+ur98JD9aGsdiDyjCzFGp8p10kl9/2jFRo1w
-yEVyLdlfOK1Pj5QOS/rvtd4A6Xurvw==
-=MOry
------END PGP SIGNATURE-----
-
---mtRl07lDAHtqx/ez--
