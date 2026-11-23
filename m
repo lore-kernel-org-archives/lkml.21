@@ -1,101 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447991;
-	b=CoRJ/5z6ClgI+1kia9EE8Q4L2qBj/WJaW8kRHo3PsLChOy/S8HU85GlgQTjtMsGVK/1M
-	 GVviHzhx526CQE6/P3S3hOqWesabmJ4VYLiEROyy+Nv4wM47X8SBeRh1lj2nEPnt8ayMQ
-	 3tnWdAGtJwS1UkFMHDI20RmVtS6XMVFHJ4xzEMNdn01BZozIHM1kRgbXDL5SC+Qa5TehS
-	 7Rtq14o7p7MiNJM+p8ZTW/eQmZh4bwYiwzuDBij4HsjtEMPjKzZGM/Y1RX/EJFHDklIum
-	 0elbeU+QqAZb9dAi3WVTmmbDSnHbFQIOaG22UIkioYitmr+DBkfdqirB+RqpfKfwb3w==
+	t=1795447992;
+	b=vsK6CnmaVzoHE8oXtwCwj7jsYQgQZM681oIRnIlw9K5lhxk4Lua5oekRn1cQ8MgQ85n2
+	 7xO6Y/OF7Jq0JydG5yaKHOnEdYw5dZVnWETnbQVw3dTq3x898R6ec+jlQDZ/2b/KSV4dW
+	 /9nEFIjZoAMCFDB98hI2qMZZV3edwBi4XsXTWA7Bac3cTBgpMO/nzNl5nIa144WtsiU9O
+	 wScmbS25prIEPXWpisiN8zF1LyqFk2pVOPKKTh014YykXDs1i3JfbS2Lax17a7TK35TVL
+	 5Aza8NHKBReiWM3RwSDilzva4J46KNlQ6Y/dlvPmEXwY3bvVG+7s0HQXi4yebla9Y1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447991;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447992;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=P0HmEkR7XVIgQImbtvtX44VFrjVW2UkwB3zPu47siq4=;
-	b=Q78nteiJv/XC3M4QvCbfAFTBmJkInrvojmZLc90yNeDtvemXKszwEjrB+9HTJ6dx9mIq
-	 y4u+Imr6sSO9pdlKeVTdTebj3VhLrFx/DUhvNZ3rr7bUO+psoSHbKR0PDG2ieTdLh9jw6
-	 0G7r9jDW8WUw0uq+uY1XHoO5SoeM3OmYTExGXRaQN2w7eWYMR7j3VTNrL94BNMEvjNYBe
-	 eIVkTm40Va0pXQK9jy3pPsEQ8TIZN5LxI2puxcfhQAJWJ5UVsC0r5jygTdOuvMCFZesDI
-	 kQ+eETamj2tYzKgB+sUu7MyHZPDPutx2CzWe0Vaecr9Wr3IZC2L44Aa6LpceaqX1twQ==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=ipIK7sVjw5HFO+rITfLdlmyImTHYjd1/xZQ8o7M7p5g=;
+	b=4H/5tMY3xU/cX7psUztaV9tf5HhZmpWHHHAuTW9RKPnpGAOsLz5H8O0t1LUCJV+ywN7t
+	 +0nj6ep8FnuTf2hU16dLHlK8yTR1tFq0exTrjP0Dy6bZlKsGpkoVVBlEk0s1ZrwYrkyRR
+	 hdAcO/ByKOWRxAJHPJ/Ta/cR5ehc208P+Kh/IIA6nGAEmqyJZcuhS9J9ZSqg3/itJzuUr
+	 JDvUxUImvF8XtLb3fmTWhcG5ELGr9EhMU5+kWFN24n5z21AWZUgtSUwApyOtyK8sqllzY
+	 2aQ3miHeWcpi0lWXX6lJHmHmQPGLhG3KiwO+QXY3IWt3fXEiT57+PqObU1/8LsJ+Bzw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=asu.edu;
-	spf=pass smtp.mailfrom=asu.edu;
-	dkim=pass header.d=asu.edu header.i=@asu.edu header.a=rsa-sha256 header.s=google header.b=FrKH2y0b;
-	arc=none smtp.remote-ip=74.125.82.47
-Received: from mail-dl1-f47.google.com (mail-dl1-f47.google.com [74.125.82.47])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RXtVyhUO;
+	arc=none smtp.remote-ip=74.125.82.52
+Received: from mail-dl1-f52.google.com (mail-dl1-f52.google.com [74.125.82.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33C48606A684
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFB2A606A6A6
 	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:33:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33C48606A684
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=asu.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=asu.edu
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFB2A606A6A6
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=asu.edu header.i=@asu.edu header.a=rsa-sha256 header.s=google header.b=FrKH2y0b
-Received: by mail-dl1-f47.google.com with SMTP id a92af1059eb24-1b3beeaf6f9so4207894c88.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RXtVyhUO
+Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-170135e43c7so4724004c88.0
         for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:33:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=asu.edu; s=google; t=1795447990; x=1796052790; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795447991; x=1796052791; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=P0HmEkR7XVIgQImbtvtX44VFrjVW2UkwB3zPu47siq4=;
-        b=FrKH2y0bcC6ghR/xaOyppJpaHBu1yn4n87Ls9TabAolNslQAgG/twQ3Z1+G/743gMV
-         PDK95QGtBr9ewAQbJ5o/JHBTywWh6J2ScA+qMp2LwSkxfRXX82JS//T+vAgeQd6f64AS
-         Biatf0d2WhGETOH0uBjR5elCkvX17EvLbQhdfXHGviub1aem2eqdZAwGl3+sryDYSB6E
-         GJmlyEt70FmxnX0kZW5SpaIWH0W7HrB618ri5TaBcCZbUyt5rbpKunPhyTRuzMkILz2j
-         3aSLEpcURdQQbQDKE4HIgJiD+2s7j/KOy3hCluawHTuc38NM0DhNSz6QGH0FU1/7wY1O
-         bqTA==
+        bh=ipIK7sVjw5HFO+rITfLdlmyImTHYjd1/xZQ8o7M7p5g=;
+        b=RXtVyhUOdOo9t65ynoQFDJgTSUThZ5zeGSC5PI/g5g+aRMOLtSX1WpNLxOMyvkmAD3
+         ZkM2iTmg9jY3Ug5GT6BYez4T5UKvRnIQXm5fQ+gZIRbm6ZtLtzRW3WLBabv39PnmJ3rt
+         CTaXr2QIykD3A7e/VoifJgbVOn0ENaFSMa6SIsBGE/kNUpq6O0Kk0XySAbGhehQCQfRL
+         VsIjfd/1PQ3MCbGcDNV/n/Em9TsPTEnQY1C7nbCMhTj1k24W+PVKNyZaxjIOVPWl++ew
+         jjetNn5/3Is8ByxMJOX1jEuRET8QypyVoBGWgdC1Wv20hPX9WdbmASP9c6Aik7/eJMIG
+         guTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795447990; x=1796052790;
+        d=1e100.net; s=20260707; t=1795447991; x=1796052791;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=P0HmEkR7XVIgQImbtvtX44VFrjVW2UkwB3zPu47siq4=;
-        b=0mr47eEPAYDdgfy6zLHpOnWbj1C94sj6EEHBp5GkVd2BjAZaU/JUkg5LgSuXEZeaGi
-         lgdEx5PRVNUOoKhcSCnS0OF6ie9Zqz9QXpRweKRB9YFKMMM0TGHzYI6vevYZySaBtqKI
-         l6mWtvqT8981WKbZOV0UqEccil3aWVWAD6lwpVROybLMa/WzPlkIMeKNYNP0UPZg8Vy0
-         eMy2fD2zsxXaQjNXc82YL/ZXMmFRlkvS8FRG0a2nkZZIH2Q78Vxkke3S4nuaylSjBRll
-         ZxIOXb9AiHuPXYihzTo0qF5H/GzgYdTbFoqZT2EBDVOQ6w+EheDaduUCp+v9oVLxYTaY
-         0VZA==
-X-Forwarded-Encrypted: i=1; AL+hErHZJ9kLYFubRmG5AW0x2TegY6H5U6GPOg18A/n/p6wgM1dE7oZBpIUUapk4aJpoFeIYWFpU+IQAknSzvEk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8azd4+2FRpuWZ3cXbUw24al81DSjUbrwsftWTeCFP89+wyVrUC
-	FDKREnuCtr6fYv2HhvCXpNoSwIW7aMCcMAuX+6F2bSCqm+5aH46wcOeJn/1FvlU4Y1jJvvJM6ZN
-	xpeLhXg==
-X-Gm-Gg: AZFdTZeDsgNpL3aztY/rS74pbXv0/1i7auq4A+lxToOsmuEcmDlpJJUDt2/f2hqk05w
-	FYCXnX0Ch1yUKetYI6oGPvxQZOkqjHCEgVE5NEaFwJ/9pXNFRXv2k/mscAefM0Tn4MZ35PWYYH0
-	1Ys2Yg32Y0OHz3/7vJuUuw+iND7s+ljaq84E5nRLjp4cLirRYV9e/XI141RbsT8mQBgqvvfkHlB
-	iUqesz+BT649ljm6Jicw8MFL9nUFTGLdPoslCcdGp/Snf649aK0+Z4P6089ni+RWN5G+MzcqAmJ
-	HWuWC7zAEWijUoJl7gZjoaAmXL0dhkM80xwVISaBRhw3S/fZJj2YWPg2uY9BjQWPHJ9Oxw5tADP
-	IN433caSaXMVdT4Cp3IlLjtoLd0CXUWnBb6NcYRk85s3QsryWTIN50ZVNocRo0vSFdX6PAswNuy
-	vzg/N/qu+QhCozxhI8J9/9P/ac5GGXEdXYt5468jpBr+MWKCcYlZ0pI7Efpk0pnCjbkMXWRqAsl
-	xs2QUNIpaLYwIfm7K3hdFTZMN9jmp1s0tXkUypNFdNojXwDcKVCd6+J4EjIQji22u3KCm9iEiD3
-	XReDOxSXfyBwjQ40RzZRiIMi+Rc0tZVI6ARy2lakNGgCrYG5nRUvEwaK5/xa4lA=
-X-Received: by 2002:a05:7300:d0a8:b0:386:9957:752f with SMTP id 5a478bee46e88-386995777f4mr8441803eec.25.1795447990313;
+        bh=ipIK7sVjw5HFO+rITfLdlmyImTHYjd1/xZQ8o7M7p5g=;
+        b=FjMm7B3ZTaC/AXUPatU7pb+Oj90omsE01HftdOEyj9XLwbyd38j57gxajeUeQtMdtp
+         TRaTkV8Y5FRyTfrwMbanwQJrthrS6zmxvsvj+fXw5uEvuVppUBNXFNzRBdqjxqoqW8d4
+         pXxb8e59Mch3KJqIi95UMxy6QQNoTsZMfhXW+hqqvbnJy7HG7TfkruHuLRrCT/OAO/sd
+         K9V6g2OVyMFLuCjvfAYMTYKUMYViBgYFPd2PW/Rf1/ryiwTHvS/R/HWUAHwpL9yOuVtH
+         sAEuwqMSK1rPS8Jon7DCtfmqfPtQC9X6JoCWmo67zH5xAUo2qS8NJ2GUK//y5IWUCSNz
+         kDTw==
+X-Gm-Message-State: APuU4Z8AMorHU0OvnptLtTv2L0PYUa8IoK+3GcIeCzWy0I6SDZhUtNFO
+	ZfALM/F8bbgvjEalVW9Lw8yXA7vswQY7jB8mFfVOVdelA2MvaVRoIovZhPrYVw==
+X-Gm-Gg: AZFdTZd1mO3bITTstupIdHYHbVMuTMV+ILxqs+n6l6WbdMTa3QtGRL5D2pY2w02S9IB
+	xYPFmy/wQ4VmldIwjKmGuCaBYIl7zN+IaYFgwIKttHjptkTR8fK0AyXaaV7islgWteqfRdkVNPW
+	ds5wG/F5OpylxljIKquNU52Npn9nKysjgCxExt8gKP7x01+DUlfHifoGDEQ9jO9LxqlJxYI1XBZ
+	Wex9in58ECnqxcYdJe7ieYfWqmHVC+1H0V6h4ZCfUmFT+czBZQQ102gzmz3RGXAvfxXnHS50krL
+	num5OOJz5/eRqbcd18+Kk9FmtGaapVR4iHEc6Gm8dovpjTvVDFpdZY+gJI8QIgP6qKvZCndkd8O
+	PJ28Trt85Zyor6fYn7DQph6OLgMeDeGDdQvBJCWjMcVn3d4qAb2Jq/gBJaD/Gq2dKkigR3yJ4VU
+	k/KX79Q8Frw2tlLEkzJOtOohnr+FfgjdA4Mx5tnLGFPSx6GJlkOTCibsAnvKsPeC5rLFC8/EbfG
+	krqIF2DOetmeSwxYOlnYagrH2m23MG+unHVI3k6EwlroMafJLo4EDBH7V+cB9n4k/rYKzAfHok1
+	n2VxHq25LO1JT+p70xBXvVHuVKSxJHpDHXMyRF7C0tvrd/MksygnTg==
+X-Received: by 2002:a05:701b:4308:b0:165:aced:1fde with SMTP id a92af1059eb24-1b56f87a910mr4332174c88.0.1795447990101;
         Mon, 23 Nov 2026 07:33:10 -0800 (PST)
-Received: from localhost.localdomain ([2600:8800:1e00:25f0:3391:10c3:1717:1522])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672ce402sm34601237eec.16.2026.11.23.07.33.09
+Received: from localhost.localdomain ([2409:40e2:122d:3887:9ee5:1e78:760d:3a39])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672ce402sm34587395eec.16.2026.11.23.07.33.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 07:33:10 -0800 (PST)
-From: Siddharth Mishra <smish149@asu.edu>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>
-Cc: Shuah Khan <shuah@kernel.org>,
-	Peter Xu <peterx@redhat.com>,
-	James Houghton <jthoughton@google.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Siddharth Mishra <smish149@asu.edu>
-Subject: [PATCH 2/2] KVM: selftests: Test dirty ring pushes from vCPU preemption
-Date: Mon, 23 Nov 2026 08:32:38 -0700
-Message-ID: <20261123153238.1036972-3-smish149@asu.edu>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261123153238.1036972-1-smish149@asu.edu>
-References: <20261123153238.1036972-1-smish149@asu.edu>
+        Mon, 23 Nov 2026 07:33:09 -0800 (PST)
+From: Sourav Nayak <nonameblank007@gmail.com>
+To: ilpo.jarvinen@linux.intel.com
+Cc: linux-kernel@vger.kernel.org,
+	nonameblank007@gmail.com,
+	platform-driver-x86@vger.kernel.org
+Subject: [PATCH v4 1/2] platform/x86: hp-wmi: fix platform profile values for Victus 15-fb0xxx (8A3D)
+Date: Mon, 23 Nov 2026 20:59:16 +0530
+Message-ID: <20261123152917.14260-2-nonameblank007@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261123152917.14260-1-nonameblank007@gmail.com>
+References: <47c9dd58-774b-20ea-b78e-0d3453be0a42@linux.intel.com>
+ <20261123152917.14260-1-nonameblank007@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,188 +100,75 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add a test that dirties pages in a dirty-logged memslot that also holds
-the vCPU's steal-time structure, while a busy thread shares the vCPU
-thread's CPU so that the vCPU task is preempted often.  After every
-KVM_RUN, harvest the dirty ring and assert that no entry is left dirty,
-which fails if kvm_steal_time_set_preempted() pushes to the ring in the
-middle of kvm_dirty_ring_push().
+Currently Victus 15-fb0xxx (8A3D) takes victus_s_thermal_params,
+which causes it to register as incorrect EC layout while cold boot.
 
-Require PML, as flushing the PML buffer on VM-Exit is where KVM pushes
-to the dirty ring with preemption enabled.  Pass -S to run without steal
-time, and -t to change the run time from the default of 60 seconds.
+- On other hand windows Omen Gaming Hub registers EC offset as 0x95,
+- which is set in driver as HP_OMEN_EC_THERMAL_PROFILE_OFFSET.
+- So, address it by adding victus_s_ec_thermal_params.
 
-Signed-off-by: Siddharth Mishra <smish149@asu.edu>
+- Also perfcontrol modes as performance (0x1), default (0x0), quiet
+(0x3) registers. So, add support for quiet mode.
+
+Signed-off-by: Sourav Nayak <nonameblank007@gmail.com>
 ---
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../kvm/x86/dirty_ring_steal_time_test.c      | 146 ++++++++++++++++++
- 2 files changed, 147 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/x86/dirty_ring_steal_time_test.c
+ drivers/platform/x86/hp/hp-wmi.c | 18 +++++++++++++++++-
+ 1 file changed, 17 insertions(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 17a4256e9081..ab4dff45d306 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -78,6 +78,7 @@ TEST_GEN_PROGS_x86 = $(TEST_GEN_PROGS_COMMON)
- TEST_GEN_PROGS_x86 += x86/cpuid_test
- TEST_GEN_PROGS_x86 += x86/cr4_cpuid_sync_test
- TEST_GEN_PROGS_x86 += x86/dirty_log_page_splitting_test
-+TEST_GEN_PROGS_x86 += x86/dirty_ring_steal_time_test
- TEST_GEN_PROGS_x86 += x86/feature_msrs_test
- TEST_GEN_PROGS_x86 += x86/evmcs_smm_controls_test
- TEST_GEN_PROGS_x86 += x86/exit_on_emulation_failure_test
-diff --git a/tools/testing/selftests/kvm/x86/dirty_ring_steal_time_test.c b/tools/testing/selftests/kvm/x86/dirty_ring_steal_time_test.c
-new file mode 100644
-index 000000000000..6e65055e8c2d
---- /dev/null
-+++ b/tools/testing/selftests/kvm/x86/dirty_ring_steal_time_test.c
-@@ -0,0 +1,146 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+#define _GNU_SOURCE
-+#include <pthread.h>
-+#include <sched.h>
-+#include <stdlib.h>
-+#include <time.h>
-+#include <unistd.h>
-+#include <asm/barrier.h>
+diff --git a/drivers/platform/x86/hp/hp-wmi.c b/drivers/platform/x86/hp/hp-wmi.c
+index 0069af86800e..0166b9cc4d9e 100644
+--- a/drivers/platform/x86/hp/hp-wmi.c
++++ b/drivers/platform/x86/hp/hp-wmi.c
+@@ -125,6 +125,13 @@ static const struct thermal_profile_params victus_s_thermal_params = {
+ 	.ec_tp_offset	= HP_EC_OFFSET_UNKNOWN,
+ };
+ 
++static const struct thermal_profile_params victus_s_ec_thermal_params = {
++	.performance	= HP_VICTUS_THERMAL_PROFILE_PERFORMANCE,
++	.balanced	= HP_VICTUS_THERMAL_PROFILE_DEFAULT,
++	.low_power	= HP_VICTUS_THERMAL_PROFILE_QUIET,
++	.ec_tp_offset	= HP_OMEN_EC_THERMAL_PROFILE_OFFSET,
++};
 +
-+#include "kvm_util.h"
-+#include "processor.h"
-+#include "ucall_common.h"
+ static const struct thermal_profile_params omen_v1_thermal_params = {
+ 	.performance	= HP_OMEN_V1_THERMAL_PROFILE_PERFORMANCE,
+ 	.balanced	= HP_OMEN_V1_THERMAL_PROFILE_DEFAULT,
+@@ -168,6 +175,11 @@ static const struct hp_wmi_board_params victus_s_board_params = {
+ 	.fan_profile		= &victus_s_fan_profile_params,
+ };
+ 
++static const struct hp_wmi_board_params victus_s_ec_board_params = {
++	.thermal_profile	= &victus_s_ec_thermal_params,
++	.fan_profile		= &victus_s_fan_profile_params,
++};
 +
-+#define TEST_SLOT		1
-+#define TEST_GPA		0x10000000ul
-+#define TEST_PAGES		16384
-+#define RING_ENTRIES		65536u
-+#define DEFAULT_SECONDS		60
-+
-+static bool stop_hog;
-+static int test_cpu;
-+
-+static void guest_code(u64 gva)
-+{
-+	u64 gen = 0, i;
-+
-+	for (;;) {
-+		gen++;
-+		for (i = 1; i < TEST_PAGES; i++)
-+			WRITE_ONCE(*(u64 *)(gva + i * PAGE_SIZE), gen);
-+		GUEST_SYNC(gen);
-+	}
-+}
-+
-+static void pin_self(int cpu)
-+{
-+	cpu_set_t set;
-+
-+	CPU_ZERO(&set);
-+	CPU_SET(cpu, &set);
-+	TEST_ASSERT(!pthread_setaffinity_np(pthread_self(), sizeof(set), &set),
-+		    "Failed to pin to CPU %d", cpu);
-+}
-+
-+static void *hog(void *arg)
-+{
-+	pin_self(test_cpu);
-+	while (!READ_ONCE(stop_hog))
-+		;
-+	return NULL;
-+}
-+
-+static u32 harvest(struct kvm_dirty_gfn *ring, u32 *fetch)
-+{
-+	struct kvm_dirty_gfn *e;
-+	u32 n = 0, i;
-+
-+	for (;;) {
-+		e = &ring[*fetch % RING_ENTRIES];
-+		if (smp_load_acquire(&e->flags) != KVM_DIRTY_GFN_F_DIRTY)
-+			break;
-+		smp_store_release(&e->flags, KVM_DIRTY_GFN_F_RESET);
-+		(*fetch)++;
-+		n++;
-+	}
-+
-+	for (i = 0; i < RING_ENTRIES; i++) {
-+		TEST_ASSERT(READ_ONCE(ring[i].flags) != KVM_DIRTY_GFN_F_DIRTY,
-+			    "Entry %u is dirty, but entry %u before it was never written",
-+			    i, *fetch % RING_ENTRIES);
-+	}
-+	return n;
-+}
-+
-+int main(int argc, char *argv[])
-+{
-+	int seconds = DEFAULT_SECONDS, opt;
-+	struct kvm_dirty_gfn *ring;
-+	bool steal_time = true;
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+	u32 fetch = 0, n;
-+	pthread_t thread;
-+	struct ucall uc;
-+	time_t end;
-+
-+	test_cpu = sched_getcpu();
-+	while ((opt = getopt(argc, argv, "c:t:S")) != -1) {
-+		switch (opt) {
-+		case 'c':
-+			test_cpu = atoi(optarg);
-+			break;
-+		case 't':
-+			seconds = atoi(optarg);
-+			break;
-+		case 'S':
-+			steal_time = false;
-+			break;
-+		default:
-+			TEST_FAIL("Usage: %s [-c cpu] [-t seconds] [-S]", argv[0]);
-+		}
-+	}
-+
-+	TEST_REQUIRE(kvm_has_cap(KVM_CAP_DIRTY_LOG_RING) ||
-+		     kvm_has_cap(KVM_CAP_DIRTY_LOG_RING_ACQ_REL));
-+	TEST_REQUIRE(host_cpu_is_intel && get_kvm_intel_param_bool("pml"));
-+	if (steal_time)
-+		TEST_REQUIRE(kvm_cpu_has(X86_FEATURE_KVM_STEAL_TIME));
-+
-+	pin_self(test_cpu);
-+
-+	vm = __vm_create(VM_SHAPE_DEFAULT, 1, 0);
-+	vm_enable_dirty_ring(vm, RING_ENTRIES * sizeof(struct kvm_dirty_gfn));
-+	vcpu = vm_vcpu_add(vm, 0, guest_code);
-+	kvm_arch_vm_finalize_vcpus(vm);
-+
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, TEST_GPA,
-+				    TEST_SLOT, TEST_PAGES,
-+				    KVM_MEM_LOG_DIRTY_PAGES);
-+	virt_map(vm, TEST_GPA, TEST_GPA, TEST_PAGES);
-+	vcpu_args_set(vcpu, 1, TEST_GPA);
-+	if (steal_time)
-+		vcpu_set_msr(vcpu, MSR_KVM_STEAL_TIME,
-+			     TEST_GPA | KVM_MSR_ENABLED);
-+
-+	ring = vcpu_map_dirty_ring(vcpu);
-+	TEST_ASSERT(!pthread_create(&thread, NULL, hog, NULL),
-+		    "Failed to create hog thread");
-+
-+	end = time(NULL) + seconds;
-+	while (time(NULL) < end) {
-+		vcpu_run(vcpu);
-+		if (vcpu->run->exit_reason != KVM_EXIT_DIRTY_RING_FULL) {
-+			TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_IO);
-+			if (get_ucall(vcpu, &uc) == UCALL_ABORT)
-+				REPORT_GUEST_ASSERT(uc);
-+		}
-+		n = harvest(ring, &fetch);
-+		TEST_ASSERT_EQ(kvm_vm_reset_dirty_ring(vm), n);
-+	}
-+
-+	WRITE_ONCE(stop_hog, true);
-+	pthread_join(thread, NULL);
-+	kvm_vm_free(vm);
-+	return 0;
-+}
+ static const struct hp_wmi_board_params omen_v1_board_params = {
+ 	.thermal_profile	= &omen_v1_thermal_params,
+ 	.fan_profile		= &victus_s_fan_profile_params,
+@@ -251,7 +263,7 @@ static const struct dmi_system_id hp_wmi_feature_boards[] __initconst = {
+ 	},
+ 	{
+ 		.matches = { DMI_MATCH(DMI_BOARD_NAME, "8A3D") },
+-		.driver_data = (void *)&victus_s_board_params,
++		.driver_data = (void *)&victus_s_ec_board_params,
+ 	},
+ 	{
+ 		.matches = { DMI_MATCH(DMI_BOARD_NAME, "8A44") },
+@@ -2395,10 +2407,14 @@ static int platform_profile_victus_s_get_ec(enum platform_profile_option *profil
+ 	 * but logically it should have tp == 0x30 || tp == 0x31, as
+ 	 * corrected by the Omen Gaming Hub on windows. Hence accept both
+ 	 * of these values.
++	 * Since boards like 8A3D write 0x3 to EC offset 0x95 to
++	 * engage quiet mode. Map this to PLATFORM_PROFILE_LOW_POWER.
+ 	 */
+ 	if (tp == victus_s_thermal_params.performance ||
+ 	    tp == omen_v1_thermal_params.performance) {
+ 		*profile = PLATFORM_PROFILE_PERFORMANCE;
++	} else if (tp == victus_s_ec_thermal_params.low_power) {
++		*profile = PLATFORM_PROFILE_LOW_POWER;
+ 	} else if (tp == victus_s_thermal_params.balanced ||
+ 		   tp == omen_v1_thermal_params.balanced) {
+ 		/*
 -- 
-2.54.0
+2.55.0
 
