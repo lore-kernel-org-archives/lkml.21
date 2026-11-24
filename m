@@ -1,56 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795544438;
-	b=2X+jNq5TFscNaqJmpPXfyup5fpPscS/90fVw6uhx7FMaJ1tDi3RDi/IdD4hYxrypkoVq
-	 JvDB6LM6EAGliT1lf4N0rFR+Ikw7O6uO4hzH0bdaPh019sAQ4GcsdhbG6WOdTRSo086+q
-	 iubrtTl8g06PEpCgBLjG/9t3PpFiloGI6frRrDrwMOEUYqrA2lDooZsn1zcU7Tf4eqKOQ
-	 YFK+at0zzAMBfuRiYWELCdeCFfheMxRY28McURY8HASSHEbdvcMXBllhQhfZTOOld6/Jh
-	 3mhHY/aw38XNHNuc6T8YRACAxVsy/ClVV+XYegdxtnHF9qeq14vL+A2NMLv+SFp1R7Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795544438;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
-	bh=ELtphjr+DUQvE0cavmN1fqbzSfP2pfSWNeP+KWNKicw=;
-	b=h+S/w7tQgRWlq/Y8CJBrTwJR/2U1Fn9Ogdm87/vBLjJHUKY09CsSqoA6LKopyVp61Vnw
-	 PtH8O/Zk/MrTC9qnZ6xYt3qfmMgM1sOFqDRyHHUFMWWZexIkS9wP/iOiZmF1gOyFM8eWH
-	 /II3zCooEg4kVIp66ZJGOlqA7JUNlf5ZXQNAqn/GzBH0NUudZ0l7V4+VEmTfD5Q1wr4U9
-	 rZihzif7M/TnZOikd/s5Ulh2mRXlDqZipwR6TCkNIQkX6ljd2RL3HTg1wKgAYQoVDb093
-	 V08cRULfgAhaiIMzPPDtYoeZ14k16/U13u7al/LT7T3NTXwAE6oY8LzDGZkaoZUvSdg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rong.moe;
-	spf=pass smtp.mailfrom=rong.moe;
-	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=EC5slpNm;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795544526;
+	b=vCoeU8/HDexu5CiePTcjzSBINNl8iOTPYiUshhzt0QJEOpaEQKI1Muim+Lj1wwtgux8X
+	 5B9YakzMxV9LPv9urROssi7oTtFPLA6/PoQDteB3ZQqVeOFhUKydpnHL0zUvWVK6Cc9mD
+	 e4n6cplwIjJSs7LiMstUM/LRpeB+Izigxp3QIWEKNaKg7cQV3AZsms5N0ojAtK8rWcaAk
+	 AyJc0AE+5OZX3UMPfkfy/xY4TnCdIjJxwfywxIrSbva+xHNkiNP9xEH1hE+jRoFMpo9om
+	 JLx3tEcPuY+5Qk9kcp+ZHvhlModc0GdDxs0rDatAyKK3duG9vw8KW1QGAXwsKTuR8vg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795544526;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding;
+	bh=UNWM0kxmEWnOWwACmt2LEHoYvhY3LG1h6QPQ7rX8clQ=;
+	b=vfFl7c8Fp/A2VzwoGx7dWDmc1fzFUIaA1lAn0AeFpzkQpa99aWsQvvxT0p7DI4t1TWmk
+	 Nv0SxVCxGq0qlKK1Ujbv/cBmHR+jeNWX3RKlBEiWKnD2XVpMq/2bvR/AKmQ2Iw03Rvw8Z
+	 mSF03dzuLIaaIAfU6S2/dWfvz9rrB6bdeiTcVDECSPUBJv00WDc9DVXaxxMOWrVowUaKE
+	 d+vxzviCcFHvpkl0mlhJruDaq8yO2eW2xf7mG31CKI0vf5YfjzgKQKpKBZ7ADqdbasENX
+	 o7jBnKipbR14mnWYYBPm4hjOoNmJhgav/35xVKuVkY8VDGJc8iHhxOUhhFc2P1tRA0w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XrVsW5Y1;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94FD9606A333;
-	Tue, 24 Nov 2026 18:20:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94FD9606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8B24606A33B
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:22:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8B24606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=EC5slpNm
-ARC-Seal: i=1; a=rsa-sha256; t=1795544288; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=L39ZnSMBqcmkWYnTRZJmwJlxlw2OC7Kze7LZhxEGFWlLjLvjT0oWxvszMbuRFM6sVoTKBmZ4QP2DArPnP8MXUHpaO3Wu9HRB/hWlhQBtd5S6IY/uyjbBl5qmf5Jk8RnMmA6vdlUzST4Q/9DyfyeTUBLbJO29H9IgmCWkix8Ydsk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795544288; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=ELtphjr+DUQvE0cavmN1fqbzSfP2pfSWNeP+KWNKicw=; 
-	b=Pip0DEYx+OnkS/CTcaRJSlXVgjq5Labguyvxj57gRUH2sFvi1iXfRiq3guGbnwYlCR4fTwbHI7kRnfZjhKHkkTViM5ij92OQ86p/wVL8ML/6V8JBJc/R3W3QDYYIHa6zyrAkUHg9d+Umw++tMaBFo7Jay7WtEa4ioTovmkJtV/M=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: a=rsa-sha256; b=EC5slpNmln3oVwA/qaVYZUBkJ/+1h3UzEi0YA2A3QYNyYX0T0pWFuYxP9yQ2+3bf/C0isK/JbOborUUWw614ssa7KDca8DchhaRBoaZG84kFuD1MaXu1UpoxIjtp+kdJCGawHZ+A6i+OYENaSKIBHGay1Nm2NYlfzFFGEylBrAPwQVjyQa2661UGXE71qVq6orBxG+KBwsSD/+x8B+yAg6Bb5xiRyuURf1gg2u59ytDReWGEwGtepHRhsrriBCe6j3bOkqmBa2i+bAFucRv6n5PFJ7PDkBQ61v3nxID6bjwf6tlVk1wtuHrgKKcGZTsZPG14E8Ols2tKFloWdjNS3g==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=ELtphjr+DUQvE0cavmN1fqbzSfP2pfSWNeP+KWNKicw=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795544287026756.0312791299377;
-	Tue, 24 Nov 2026 10:18:07 -0800 (PST)
-From: Rong Zhang <i@rong.moe>
-Date: Wed, 25 Nov 2026 02:17:03 +0800
-Subject: [PATCH v2 7/7] platform/x86: ideapad-laptop: Enable ymc_ec_trigger
- for Lenovo Yoga 7 14IRL8
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XrVsW5Y1
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a5177d78c7so47579395e9.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:22:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795544524; x=1796149324; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=UNWM0kxmEWnOWwACmt2LEHoYvhY3LG1h6QPQ7rX8clQ=;
+        b=XrVsW5Y1bdWNUbF0AXAKO+y5TpLoe8GfxGqndppcglHWXyVzHnzgl/rPx/zKCBANzj
+         tfcyEVENjVfe/0u3hWD6v0kkS3b7DjrY68QN1Q8v5uMSTqpDEfoQKQKWfAHsv1r9FnPi
+         Kqt/28D68T8DjO1+l15y8cUuIOL0PQ18171i/1Y241ZCCFpifXuyph4TfPRpnGEBjbSr
+         pXUZUvegKzw94OWAT48MdEi6A/k+RyRnPxx8D5KN73Gi4kLMHbYqgX+OlADQH4XXIFzh
+         j1t+kwhBzn+ISz8iD5Hohh9XrQTI15hSNT8GnG9r1dI11kiOqihj9dCE+VvrnTpF7VpD
+         YjQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795544524; x=1796149324;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=UNWM0kxmEWnOWwACmt2LEHoYvhY3LG1h6QPQ7rX8clQ=;
+        b=Bu0Pdl7GPpqUIUAbEeoOuzacVkquTRCJC6NpMXNKBg3io/eZY5YySEtXEQgDRq7iOj
+         CIOajbmNC0G5FQPh8fplC9MvRDXGjOcaP/+nxGeajEZVQkkNL1vqv5HAokobpEqcDIPk
+         icv6VvpnkM2LRYGSyuq57eUge0sBcbijqDamaT9edlLD+RLFPFyAV614TKHaHt1xS3Hj
+         RLkvzYrz2y4HEgDwjSlniGrdJaRQoDCHuv3/R5SV6NpjZHFGNEY5wXmy4wJJq0aoXH65
+         1UFk4bXNqI+CsDv5LtVMgaXYn3MiuasJxqD7HsGEYye1bDntach5b+TuaZVgAV+ltdn5
+         A+MQ==
+X-Forwarded-Encrypted: i=1; AL+hErFxbJyWr4Gdf/67RH2JjW0p6502xHCFimNDTMi+wPt0YRkoEcN+stIN77FJhw1dyz1Q6jNuSa/NOfIPbnw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8n+KyBULOX7+ZA+M+gO9PngcXM4K+k7qWNiIoKwwhV0mPCZvWj
+	wIkAprHqHzywTE4njpgt2OGYOPLC/2t4kEiukW8Oq6yTMDH+Ja+fHqqJ
+X-Gm-Gg: AZFdTZdhnbYIcu2Djmwx0AiWY/21XHEECkuJA3QomzhOpqxMF5UyQMcziR9gymKVIWY
+	APuzHCwUleP8XGQKasR3H6gWQg9DDZx+WFHzM+86Ik3ptxnmmEqJj7Z7q55n+Wdtq0WJ4Tmg6go
+	z0nsMNwtHAwZA0HZJ7mKqGMY7hgV2/NJBFKbEvnV5/mQQ22gF2GyEWG8XhWxzTp6Zxs6E9HvDzV
+	NXsBzH3Qiw1VODxwOJIXPscc89JBxVqQrQoEk60BpigLZ9azNz9OP0Riz4zKmZQnN9aU0cVstNU
+	7JsJ0IMmexDcrcOp4LCEeZd4XZu5xvfuSjeLFQ5UbpzyK4P2W5lnoN3yoh4VBdjEGGb/BpgFOiE
+	fyVkanijIr6PnDS4W+Ggh5D/175Zer5B/dI6bLQgXdoEyoSMuawR/PDtvv98olkOUuGBgjpe461
+	9yyeYOe1xculYZz87HdrkL8g3TTO9g3UEAbVZHs4i0atFBi2K0cIxIUxXrtmwUYqUHIflMybwqY
+	s3ATP52+AqhkCyUnREVMXRuhgOKOIy4QHnc8Yl01ovoDGBndngbsF8LNUX1SN/oSNE65UTFqhw/
+	Qq/csZYHYfOp6Xr+K8w6aOchKkx41H04
+X-Received: by 2002:a05:600c:3b88:b0:4a1:e672:5721 with SMTP id 5b1f17b1804b1-4bb8880789dmr358586325e9.13.1795544523856;
+        Tue, 24 Nov 2026 10:22:03 -0800 (PST)
+Received: from ArchOarora ([95.179.249.152])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f204sm34524117f8f.21.2026.11.24.10.21.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 10:22:03 -0800 (PST)
+From: Oarora Etimis <oaroraetimis@gmail.com>
+To: Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Melissa Wen <melissa.srw@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	jose.exposito89@gmail.com,
+	Jonathan Corbet <corbet@lwn.net>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Lucas De Marchi <demarchi@kernel.org>,
+	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	sebastian.wick@redhat.com,
+	victoria@system76.com,
+	thomas.petazzoni@bootlin.com,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v6 13/43] drm/vkms: Add KUnit test for device lifecycle
+Date: Tue, 24 Nov 2026 19:21:49 +0100
+Message-ID: <awXRsQbfxPzFWHzw@Oarora>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261120-vkms-all-config-v6-13-78ace90f4fc1@bootlin.com>
+References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com> <20261120-vkms-all-config-v6-13-78ace90f4fc1@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,56 +127,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-ymc-82yl-v2-7-624bdcb3c50e@rong.moe>
-References: <20261125-ymc-82yl-v2-0-624bdcb3c50e@rong.moe>
-In-Reply-To: <20261125-ymc-82yl-v2-0-624bdcb3c50e@rong.moe>
-To: Mark Pearson <mpearson-lenovo@squebb.ca>, 
- "Derek J. Clark" <derekjohn.clark@gmail.com>, 
- Hans de Goede <hansg@kernel.org>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Gergo Koteles <soyer@irl.hu>, Ike Panhc <ikepanhc@gmail.com>, 
- Andrew Kallmeyer <kallmeyeras@gmail.com>
-Cc: Eduard Aliman <edialiman20@gmail.com>, 
- platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Mahir Faisal <mahirfaisalantiq33@gmail.com>, Rong Zhang <i@rong.moe>
-X-Mailer: b4 0.17-dev-ce4c1
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 
-The Lenovo Yoga 7 14IRL8's EC must be triggered by software on YMC
-events, or else the enable state of touchpad, keyboard, and keyboard
-backlight become out of sync.
+Hello Louis,
 
-Add a DMI quirk table entry for the said device.
+Two problems.
 
-Reported-by: Mahir Faisal <mahirfaisalantiq33@gmail.com>
-Closes: https://msgid.link/CAGAHqH6o0TUa1HXMrNV6e+HNYwU3xxHkOM665756n8Cp3AzhVQ@mail.gmail.com
-Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
-Signed-off-by: Rong Zhang <i@rong.moe>
----
- drivers/platform/x86/lenovo/ideapad-laptop.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+.kunitconfig fails the config stage, so none of the four suites runs:
 
-diff --git a/drivers/platform/x86/lenovo/ideapad-laptop.c b/drivers/platform/x86/lenovo/ideapad-laptop.c
-index 4f9dc95d8c65..f9453de6df76 100644
---- a/drivers/platform/x86/lenovo/ideapad-laptop.c
-+++ b/drivers/platform/x86/lenovo/ideapad-laptop.c
-@@ -1872,6 +1872,13 @@ static const struct dmi_system_id ymc_ec_trigger_quirk_dmi_table[] = {
- 			DMI_MATCH(DMI_PRODUCT_NAME, "82N7"),
- 		},
- 	},
-+	{
-+		/* Lenovo Yoga 7 14IRL8 */
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
-+			DMI_MATCH(DMI_PRODUCT_NAME, "82YL"),
-+		},
-+	},
- 	{ }
- };
- 
+- DEBUG_SLAB and PAGE_POISONING_ZERO are gone (2a19be61a651, f289041ed4cf);
+  PAGE_POISONING_NO_SANITY too (8f424750baaa), but it is =n and skipped.
+- DEBUG_KMEMLEAK and DEBUG_OBJECTS* need DEBUG_KERNEL, unset in the UML base
+  config.
 
--- 
-2.55.0
+The device name collides, 9 of 12 cases fail:
 
+- vkms_config_default_create() uses DEFAULT_DEVICE_NAME, already taken by
+  vkms_init(); device_add() fails with -EEXIST, vkms_create() returns
+  -ENODEV.
+- 12/12 with create_default_dev=0.
+
+Tested at f046b77fa3e9, CONFIG_DRM_VKMS=m.
+
+Thank you,
+Oarora Etimis
