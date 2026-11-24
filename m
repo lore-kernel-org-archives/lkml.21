@@ -1,81 +1,212 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795489220;
-	b=Ey3yTAhvP1wXzXr2q2yOxtpp7WTulr3p9oxwRu0t44Qk8/NVYqcJ5fRtZPEbXOxLq5QP
-	 WhAm0PkrVaVOBemZX7a8LqXdi/y3uNcY6N8GZ7dFEVS3Vpqpc6/MaKI1hYi4rJ3L179W8
-	 GDMszvSth8UA9xlgNZuQ93I6r8S9vhii+GvQypSNC5bxAKhnhb6LzFf2ChlodIicpOUY5
-	 5j2cVMeohKeS9WFh+v+ZcC/E7+nAkAqsI5lZ9xJCJ0NyQ7HwAKFGeC4pCic2OSkJByLiH
-	 R01lv487i2VpF9zjs7oy5LY/i/45e+1PXYfb6ojQ2xC5MRk8HXWod26luq9Gp3t5eTQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795489220;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=r9shP6GkVB70Dk/mMINE0Dt3WFJY0BvMcvpvoN47fe8=;
-	b=MnGmtEV2ivt+TGBIHzvMBdvryDsW90QkMWKFkKrpQKPTdAOMhP6rw02cczycNQyLJY1v
-	 xjrN6lNjx5+U5eDomSMw4E9uTICiNnuqCCVCmhyl+IdUDq81PibsrdUHlBhnBRtgslTUp
-	 EGv99K+ukTN407bT8UPU4OOuTsrScNwg3QrTQhXVH1bslltdSy3OqXM0kVzAdqjhxd+QS
-	 QqryB6gbNNsRFnync/df1wfoUrfZCOyZTXsyhqPfwnZJEpJnFfXrI7tPUMrDHomSTYx9g
-	 iGTJRIWAfNIj+1XPf58PWEoUKFb/4WJVfrB7mnXgsJEc36oJyge3mzad5Y8esgfqb6A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mmMzRA03;
-	arc=none smtp.remote-ip=198.175.65.12
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=148.163.158.9
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795489225;
+	b=kf7xR+d3jGe24psj0Qps08938d5FbBTnJ1LZAaeTsXgPwH09iNR61Grti0UQrfwlAZgR
+	 PQwG/bO3CFpyB2XnwAqPtvHGr1D/MleqQLRBk4J2eWZ1zOWn07ZXR97C+Hdegx1kOQEI4
+	 OlE6ZR5cdu/bPkNlMkulR4WuiZaM7020MthC0GFGu44Y7oSFB7z+rrmRQBN+p7UYRpn5O
+	 mpKIbspOlY0UYc1IfeifHnhEIY6ytlhAxvnjV5sl+58D3ZTGYs2cE/aZWO7QfEtIUS1mp
+	 E4k1NDLq+2UVDQTST5uYvPHysaNM0SS0AQTqa6FA4oiL6kF6N+UBHPEuaaOVSPmWaNA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795489225;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
+	 Received:Received:Received:DKIM-Signature:Received:Received:
+	 X-SNPS-Relay:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
+	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
+	 X-MS-Has-Attach:X-MS-TNEF-Correlator:x-ms-publictraffictype:
+	 x-ms-traffictypediagnostic:x-ms-office365-filtering-correlation-id:
+	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
+	 x-microsoft-antispam:x-microsoft-antispam-message-info:
+	 x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:
+	 X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=axP8DStLGmaKxU/TFJmH03ZtceEJGbOM1LG3xP10WbI=;
+	b=5Wk0x3MlY1+OZhwxvVB/gtqs0Wjs3Ik//SLf3IGT1GRazMKDSmZW9eLm53LoH1fTvfw8
+	 cZYJvfBlbGtWnGz3gjPPxK+at7EVOsKOHz/W4+cqj9ZycuyMVuur1FtqqFTstWj5q0Sxa
+	 sJsmJKj0gStes7WP/hbTAEl57OIU0rftOWh+k8S+WhFl6YCzHzn9QnK/9uekR56cxtOuc
+	 abSkM3LkkSBtHD3lkNzoL9E20PZgTAGhd1OJlK+VetVTc0eaEfDXxkIS9ftFgOXZEJFwW
+	 f7H6EeIP9hGF5HV+VpJrVdHewC6w2fZ5plospuYKnwDuPxYxG+ZzN0AdTg8ndTNXZFg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=synopsys.com;
+	spf=pass smtp.mailfrom=synopsys.com;
+	dkim=pass header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=pfptdkimsnps header.b=mcX3Fv6N;
+	dkim=pass header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=mail header.b=ceeYKh7w;
+	dkim=fail reason="signature verification failed" header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=selector1 header.b=aeHUla93;
+	arc=fail smtp.remote-ip=148.163.158.9
+Received: from mx0b-00230701.pphosted.com (mx0b-00230701.pphosted.com [148.163.158.9])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B8C8606A322;
-	Tue, 24 Nov 2026 03:00:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B8C8606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC7D5606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:00:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC7D5606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=synopsys.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=synopsys.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mmMzRA03
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795489220; x=1827025220;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Z2QK2BmR8K4w7jSwkmLsFkGSkNiGrhgz+DIBmoHciFY=;
-  b=mmMzRA0345iCIvd9kBVlBgvQ+YlDWOWO9Mb8yYW95NGW6x2azgpf05e7
-   wj8MUZC3Sm8j37C/dZ+/PeuRk1zb+IDi3RuxJNNXKJnzo29reTFuZGfOI
-   erD2VjbPbUBs7cA8D9WJkBDLC5H6Slq+twm75K6BgktJ8W6XYXppUv6Xg
-   janSLomJQxTtLmb/uVHGhHC04shEbJ62hosdPtprX1SClzOlDxpa3NxHm
-   8p1sLfwVXiU6+jMqryYQmeOiP9eow4aVCfzWKlPwtTHT2sxGTh8xSnq7f
-   qFUokG+Hprwi3l9/vPXvv3NkbHIP+ixiHAHvWAQKI5+cjd1rrfOwHmrxE
-   w==;
-X-CSE-ConnectionGUID: PL7Ly39CSv6X9jkX/PMSHQ==
-X-CSE-MsgGUID: vQDjLTJWTtqkjn/kIjB53w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4203363"
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="4203363"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 19:00:18 -0800
-X-CSE-ConnectionGUID: SvxwGF6RSjC2g/r9lNPVHA==
-X-CSE-MsgGUID: 5mUgQJiFTMqu76VCkQniyA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="11484093"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa002.jf.intel.com with ESMTP; 23 Nov 2026 19:00:16 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xVglR-00000001ONS-1JyI;
-	Tue, 24 Nov 2026 03:00:13 +0000
-Date: Tue, 24 Nov 2026 10:59:53 +0800
-From: kernel test robot <lkp@intel.com>
-To: Maxim Levitsky <mlevitsk@redhat.com>, kvm@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Paolo Bonzini <pbonzini@redhat.com>, x86@kernel.org,
-	Sean Christopherson <seanjc@google.com>,
-	Maxim Levitsky <mlevitsk@redhat.com>
-Subject: Re: [PATCH v3 2/5] KVM: x86: split vcpu->arch.hflags into
- nested_guest_mode and smm_mode
-Message-ID: <20261124105040.GgfsW2nq-lkp@intel.com>
-References: <20261123175512.80438-3-mlevitsk@redhat.com>
+	dkim=pass (2048-bit key) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=pfptdkimsnps header.b=mcX3Fv6N;
+	dkim=pass (2048-bit key) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=mail header.b=ceeYKh7w;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=selector1 header.b=aeHUla93
+Received: from pps.filterd (m0098572.ppops.net [127.0.0.1])
+	by mx0b-00230701.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO2lXC62254664;
+	Mon, 23 Nov 2026 18:59:57 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pfptdkimsnps;
+	 bh=axP8DStLGmaKxU/TFJmH03ZtceEJGbOM1LG3xP10WbI=; b=mcX3Fv6NLZTA
+	iYiBCUmyR2NTJKwWzOmA9Mo0TYuF4mD1Zdr7OTmNN82tu6YjDSrRdquyeIDJZaTC
+	Zpe8slLfjt9Bx66Qllry4LW0FRELU1/yN00DZ5VX859CYP7D/qEabWjywNaaLSYo
+	0MkDTVNPtt0X8Ja48mpcBMacqsDgxtpdCdFhS5j/mI4WJiJJyNlxCo1yc2sB2NCO
+	wNzVW0koJDWL73nqMt3NfJAt0oxytb6yFNeT1X1c1WX0BLNyhgVrNbLQPzBCkGzX
+	vfeJwa9Yqa2DAUIiXlbfoaJdigWksvxun/55skjbxlOGdZ+BxuYGiSrUy9Niwz+9
+	lggV8KnUiA==
+Received: from smtprelay-out1.synopsys.com (smtprelay-out1.synopsys.com [149.117.87.133])
+	by mx0b-00230701.pphosted.com (PPS) with ESMTPS id 4j4suvu9f0-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 18:59:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
+	t=1795489196; bh=D+zNTNrpv40kpr1Xo6b95V50AKswsQPq4K9XWQfHS/M=;
+	h=From:To:CC:Subject:Date:References:In-Reply-To:From;
+	b=ceeYKh7w5twZ2rGmYER9/MwGjRRljWDQatNl8qUKmLmZjwOUkBcABvcQ8a08GwI5P
+	 EYPrOhRhwCCqt8O2XwyWaOkVko21tWcjKdprpi+Tt9g9sX6X22t74cY5JNiMN2gNDG
+	 Ao05+lzwO/iUVUda+TF8k6iqTL6RrLHqNj26XVfOBSG7uyWtZ44hK+rJU22MRmKEyz
+	 3I+mZRlAGnhH3TqL/9XdkQ6inNMzOUTZu/hL441hqVp0v0SWL2j5KtDr4qu4XjWwMY
+	 Zxi0E06eoZiK6wdHhmn3zK7ljqfxWChuU2eZ29PiFlEDalHHrehFd544MwwjZr7rFz
+	 Myrzf1P/ecA3Q==
+Received: from mailhost.synopsys.com (badc-mailhost1.synopsys.com [10.192.0.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
+	 client-signature RSA-PSS (2048 bits))
+	(Client CN "mailhost.synopsys.com", Issuer "SNPSica2" (verified OK))
+	by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id A222D40238;
+	Tue, 24 Nov 2026 02:59:55 +0000 (UTC)
+Received: from o365relay-in.synopsys.com (us03-o365relay1.synopsys.com [10.4.161.137])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
+	 client-signature RSA-PSS (2048 bits))
+	(Client CN "o365relay-in.synopsys.com", Issuer "Sectigo Public Server Authentication CA OV R36" (not verified))
+	by mailhost.synopsys.com (Postfix) with ESMTPS id 28FF8A00B0;
+	Tue, 24 Nov 2026 02:59:55 +0000 (UTC)
+Authentication-Results: o365relay-in.synopsys.com; dmarc=pass (p=reject dis=none) header.from=synopsys.com
+Authentication-Results: o365relay-in.synopsys.com; spf=pass smtp.mailfrom=synopsys.com
+Authentication-Results: o365relay-in.synopsys.com;
+	dkim=pass (1024-bit key; unprotected) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=selector1 header.b=aeHUla93;
+	dkim-atps=neutral
+Received: from DM2PR0701CU001.outbound.protection.outlook.com (mail-dm2pr0701cu00103.outbound.protection.outlook.com [40.93.13.67])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-384) server-signature RSA-PSS (2048 bits) server-digest SHA256
+	 client-signature RSA-PSS (2048 bits) client-digest SHA256)
+	(Client CN "mail.protection.outlook.com", Issuer "DigiCert SHA2 Secure Server CA" (not verified))
+	by o365relay-in.synopsys.com (Postfix) with ESMTPS id E09AA40131;
+	Tue, 24 Nov 2026 02:59:53 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=weeQxY6MYbEu9eX7IJ58n0HpwpU0VrIs9stDnMj4INAsoCXs9ow/Ry/KMdMomc4tfmpJrkZW4G94bogl02IJ/Mbxl5q5wHg4nS2QY9m8sTPC75levTilto1dMjPZlgvq+IREGSrVedajb3RyoRM9taRfK4tpvx3AvsiW7D9/HJEBmFPAbHZrqgUVs1v2j59IsWVTL6G5dURo0KWXui2zu3ea3+ifkuFUPZKeQy7+xlwXm5rVCGgC1W/n3JBtWFChXSicGfUi9W0lMLfUhnQMATUlliivJ8jQiQ0uB/azf13gu3p+eABWewejNAovQiJww+El/WwMpSH1DLccTuhyEA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=axP8DStLGmaKxU/TFJmH03ZtceEJGbOM1LG3xP10WbI=;
+ b=j6TABBH3mhs/Ouil3yKDvMMyrwcomMHH21+Pxp86qBt7iAoVO7wjolOuqvNQi5tAypYZEPxy7As6xK7BseJVx2E4e8Je6XpJvd8OuClHSeOqOj2nQ7Br8pWFcK+lYWXiFd2g0nal/md3fPlbjuH3kplyqau6LjvqhGOS5qsBiO0pxZlS9wguEa03OMGdeIV+fcP9qz7ucUMVdLhIOyiVn5ci3CCM4+Y9OHo2758uTMmDsW7hyVlT5RHuIfcL5OeEXvIV1dbc326vPAD7a+SRhtlJrFuASueXeXx5xwhc5CsBWhncpXlXckOPIL0vGJyJPkxQtYB3MDsajAPLGF3KNg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=synopsys.com; dmarc=pass action=none header.from=synopsys.com;
+ dkim=pass header.d=synopsys.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=axP8DStLGmaKxU/TFJmH03ZtceEJGbOM1LG3xP10WbI=;
+ b=aeHUla933t7pOiSp1xPD5Vkokro0I5I9etvS5M3Tc3k029RtZiXk04atwbfdgwJGWSGYtT9bdjoJqJS1vC/uvG0kcQudKg61VyPZS0PZOQf8FI+iKnjH2lOREUSJkaPI0hG0AtNmSwo0xikfbesn/5HelDQ+etSRMey5k5kNhBQ=
+Received: from DM6PR12MB4074.namprd12.prod.outlook.com (2603:10b6:5:218::11)
+ by MN2PR12MB4392.namprd12.prod.outlook.com (2603:10b6:208:264::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 24 Nov
+ 2026 02:59:50 +0000
+Received: from DM6PR12MB4074.namprd12.prod.outlook.com
+ ([fe80::78e1:d71c:6c9e:382c]) by DM6PR12MB4074.namprd12.prod.outlook.com
+ ([fe80::78e1:d71c:6c9e:382c%3]) with mapi id 15.21.0615.013; Tue, 24 Nov 2026
+ 02:59:50 +0000
+X-SNPS-Relay: synopsys.com
+From: Dineshkumar Parameswaran <Dineshkumar.Parameswaran@synopsys.com>
+To: Frank Li <Frank.li@oss.nxp.com>
+CC: "Frank.Li@nxp.com" <Frank.Li@nxp.com>,
+        "alexandre.belloni@bootlin.com"
+	<alexandre.belloni@bootlin.com>,
+        "linux-i3c@lists.infradead.org"
+	<linux-i3c@lists.infradead.org>,
+        "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v4] i3c: master: dw-i3c-master: Add HDR-DDR support to
+ Designware Controller.
+Thread-Topic: [PATCH v4] i3c: master: dw-i3c-master: Add HDR-DDR support to
+ Designware Controller.
+Thread-Index: AQHdeC3mxdpAnuJwGUWQKP5HWXbY8bc8IM+AgABuDLA=
+Date: Tue, 24 Nov 2026 02:59:50 +0000
+Message-ID:
+ <DM6PR12MB4074F28613C2DBF99889D2DDBD442@DM6PR12MB4074.namprd12.prod.outlook.com>
+References: <20261111021151.58380-1-parame@synopsys.com>
+ <20261119135703.22729-1-parame@synopsys.com>
+ <awSg5WQFw6NktkEi@lizhi-Precision-Tower-5810>
+In-Reply-To: <awSg5WQFw6NktkEi@lizhi-Precision-Tower-5810>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=synopsys.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DM6PR12MB4074:EE_|MN2PR12MB4392:EE_
+x-ms-office365-filtering-correlation-id: 5266fa56-8c8a-4d39-9465-08df49d70183
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|366016|23010399003|376014|1800799024|261009223327099003|38070700021|10067099003|4143699003|261021123027099003|261102123227099003|261026121527099003|56012099006|11063799006|261026140227099003|261021121427099003|261028144727099003|261022105027099003|261009223027099003|261009221727099003|18002099003|22082099003|261009221227099003|3023799007|261009220027099003;
+x-microsoft-antispam-message-info:
+ mj75bGbg8m98Hh747dRsDsqDkF237CZ/5iwwY4xeVI5vV3BjTpWc0iJkuWjq0pqg5WnHrP2i0ZOKet6pM8GTNWodJSIDlcvJeE4CmUNaq9oh5LmvySoiCY1FyjWcoBISMVLQZb9OnCL33eY3RplqlJxFjow18NRKoqvV+iZ+L7fPO6hG5mwEoRz2RaSmV78XcRRNKRIgOX7e4Gd0bpp+l7hFQZRyiHhvIdTO8Bmphe063WGb5BxIWh5VdABk+gqf08xphsrb7P5hJH0KwZ8+hZgq/cvKblSyXWY4QbPUsjU4JkiNOosee2RgdKHK2uXh1CrCruQvDEIIL4Kk5L+NBPwv8MWZYYKLz8m5BTzrGUUtJ9OTT09DMkSFeNVshiNQ2x1J9HSw+rU2NPgqtMbYdKWO4XvpK1xLUZV+n48Nnk1wb4Sf+flP9D5qevv1cPEgNqm46TGhcPLCFwUd2jm2nosFa9RtbLunLWOH1NmyHSs6uJjXAW4+7Nk0nnUFZ6yCgjPz+7LImIrjFgpFVb9Xm0ivmvm4G+InjFrYtRAa7mqJQVRWQxG/eD4N6PJPqlcjP0b/KkWT5LdK+jb6FZ6H0rhMVXs7108jV2ADHWy3wfuFblBlC38DJ6O3savEz52xZjgrOpL2VkNG9YaS/EKADPxmu3qJdTH5Js9nCIed1ukYkd4LiZl6QP3Q361uzPCQ+jZc6xDJEpb0oQHvRuOQ7l+eGifT5e1zxaOUvIaAXm4=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4074.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(1800799024)(261009223327099003)(38070700021)(10067099003)(4143699003)(261021123027099003)(261102123227099003)(261026121527099003)(56012099006)(11063799006)(261026140227099003)(261021121427099003)(261028144727099003)(261022105027099003)(261009223027099003)(261009221727099003)(18002099003)(22082099003)(261009221227099003)(3023799007)(261009220027099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?iILokUkpbc7T4AG5E9XLvYg1d5N5mPeldXWU7EKjEgY29ejI6SZ+ZfJvwlrv?=
+ =?us-ascii?Q?nCgjX1/8tro2eQe0usnukCYE7sTMRm/xxnk9V9frzYm5YIJhesHTMeU4kxsR?=
+ =?us-ascii?Q?lnLi8pUDhdNUY9G24TtyXzaLifVkbP0s1jtWJA3vFHSIgM6MST5f3vNG/Boj?=
+ =?us-ascii?Q?y0zCxMDjYgy72z7c/l/XY1bEPD4Q8Y/rr28uxpz/MGH1XLizn6paqt4fJe0L?=
+ =?us-ascii?Q?BVuuVj5Wf92vhBZabdTLIVNTmu3L1/0k7SsQLlaYFaEozxrrOEhA+cQi1feS?=
+ =?us-ascii?Q?ZXu9jfZtn8g95uFJdZyQt7vIJosom3prAIEuvIziWDBfGKuPwYVGe+QADMS9?=
+ =?us-ascii?Q?K6XHRcDA5kuqLLca96VDFjE+RvA5u6Dr6FLfIR5Z5pI0e+Z4DH1bP/AhFIDT?=
+ =?us-ascii?Q?pbHV8hh8mDIdADUwIwwkv5zwQLGmKBp1uXboiXv94f1IIgi1ENrD+pmUvZKw?=
+ =?us-ascii?Q?+YVi5xnuZa0aQ/xvrqc8lCqmPHNun+E+PlgkFkOcdW/PtLSOXe078XN3z2Xh?=
+ =?us-ascii?Q?dBlTHmq+5zKca9Rv7mMCeuNf7HAFy98FPYICI7A0mXsHDhoG4giDU+2/jYJK?=
+ =?us-ascii?Q?KZVu375OEv5VdGbNwXWnQbd+8ids9/Ug0s67uuDMANUpQOI3u7o+uFw49ujp?=
+ =?us-ascii?Q?tn+6R2XfRO/6mx3ArpmkzUkNieLxlbNNz8X6vn9KzgDZK0utq2IDbtukj8Pa?=
+ =?us-ascii?Q?4jpukDBtPQwguWEL9dNXpiLNz5tnTEYEU4cOro7P4GLVwR+sti4QsXOiDK3u?=
+ =?us-ascii?Q?pL+q/g8igaJ1cA7B/0HcXKYEwgIJ7YLojkV8zLFUghSM1P/PPJV4Z7RqW6uy?=
+ =?us-ascii?Q?HzHT+x5jQxZ2dz820e0GQHAJFtmiX8pijFYX+RMbCzwC8EbrVHQqbD6aZ53c?=
+ =?us-ascii?Q?UdOwIs9wWiYNcd4DN0ThygnS0XnitKayFB8CzLiBxGOSd/TtV2mc2Uvb5sCv?=
+ =?us-ascii?Q?pgCYfflvRvMjs1ftDI/bqUmSd1bPX+I9Lx3+pR0aFBJaN8VYnVwychOez9JR?=
+ =?us-ascii?Q?ap8wFKeE+gJJAB2zt4BjfqVay2TThmoLLqtaHpB3fVhxn4ic3Ymobp+IEIRc?=
+ =?us-ascii?Q?Ojc3CrsekritFJN3DgG2aZjSgGBHJJ5ML4+HD41855HVhERzPexvs75C0La+?=
+ =?us-ascii?Q?XWf3SPU0VGf/1ckSqnCT/vdMeMGlha+0YkFkEtbmXePT4d/geXzSDzK8cWSj?=
+ =?us-ascii?Q?lHwLz14icLMgo0rXyNPhKPfJlM/9W73d3UQC2F7RmvSW4t7azpDv8JMSYIkX?=
+ =?us-ascii?Q?BNXhL59w5UWV1ddH29v1Z5nezxzIo48sjAsIE+wjCjBejpE1Jcx/lVZ6SJy5?=
+ =?us-ascii?Q?eUJNGJUIS4dTmjwPE9jCjeKPoF08QF6ThVFE0qDVm0vjA+wC/ojfKDOU/9SU?=
+ =?us-ascii?Q?p8LU120pd9Y01PrIsxqSx/GHltH65QCnUoLg8DdDLgYnZnMckk6BclVbehqY?=
+ =?us-ascii?Q?9f/T6MXa2ghCAsim34H2Lr4b1m/4g9Zg0zh9lXrMmjmdQqIioNViiffFHRUT?=
+ =?us-ascii?Q?1vMXmi3F6MWa9eFBkLt/ZCFGnlbEZnbc9mWxHFLNDFRilKdrq07rFtNhe58k?=
+ =?us-ascii?Q?95T2E5RWi7YeEibi4SKbT3EYhOMqpJqGkh3kiTU6lRiZoXOd0Cz9yi1DwPgO?=
+ =?us-ascii?Q?AxEYHw2Z2lC6orFcQ7EDyfSRkzQGrQg++wX+nQ9Bcz2EhvThl4KVi/oIN3ET?=
+ =?us-ascii?Q?SRGbyazfEDFItAHUyMKrXIkHFsQUJ0/VPU9kcYUiJpOSoR1b?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,186 +216,229 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123175512.80438-3-mlevitsk@redhat.com>
+X-Exchange-RoutingPolicyChecked:
+	jxDxPBtbyRDGIKI3SjwMbGBSSGld7jCiUTyuu8Au20XDCtsJPXZa3Knort4bIjIeSNGZX1P7reJoEAFgJOQKFTcdss4obgbE7sXh0AAv3f/ciGCPg26eT8JtAUXBz58W8oLpIzX2j4tmYS8CxQu9NRMLeRL88lSgKGgdjn/8u7MBnck7pfyR/nji0kEGtzT5iTcbxzRTG++sRydlx+phbFEFJLXwaRDoL/DLQ1FLKqaTBx5SBy0B7bQkwjLRjxF94eflIL3efit8FYSix7IPlcy594qYO7+pkBh6ktiUpK55HHovsLXzx+Y15VrypR15HebxFmFcZR2wBB1qlBezdg==
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0:
+	Qwg2+Mqg70gLK4Wcl/wqEtG3lfZLVabrydyM7H0My8OV9L83hxmoTx1JcvlKhtiQxVL1W7eyFX9jK60l+CGOZ+ypf58xtcxPueMvpaNvPGke5a2/DtznHF0BQ7H5q8hGXo4nJb/4Hj+shELYhkc89Gc1XsEL2uoujolDJonYZaQIh6zupvWMMnLXNBvAvxUj2HkRAZBsLc44GLQjru2k6I1f1cl/RC7uT7MZfvl3rPJAKtxpKfEl7k8PkGcRIusojMiircKM7RUPy8jyKwD/r0Hp1JC31zytAUoIra6womhlXvOHVXpWoG+rWK5whVIwhtLyBCG4WwlrKJzxcMmYjYcjwMoxRqdFJ7dgEEsgVLcwSraTXSIhsjBkVCD7UuknEvEn7H+5zhBpBQSSV267sTJTrEPajJ3VTMViWGKo2CIOvOUX5aVo6xwJ17Ssm7vXxVW14JHY7qYWfib9Re3zIpMrWaRRug4GTOxwrfiSzsuUgo8LV7oQDEBckJi6irM2Cwfn6jtd2fJgtJBfHxvB0jNM0yiYd4vXLBH7HtpMJ6OBKli8OfRLK+mk+37f03VZjI7zFry45zpQiCKMEqtfSWEOBymc0ULWtl5bjehOMmAJO+LdFULw86t0PdVhVynsBwnV4/VuPb3vTnodOqrT/Q==
+X-OriginatorOrg: synopsys.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4074.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5266fa56-8c8a-4d39-9465-08df49d70183
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Nov 2026 02:59:50.1968
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: c33c9f88-1eb7-4099-9700-16013fd9e8aa
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ssncEpRyPtm+3ulY/EPYxCpOr94kjzjRDsZS9usoKcVVn85om7RRcY9kBRbqL5WA51XrUNW4BKST3+cq3zfYWw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4392
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAxMSBTYWx0ZWRfX2xNyu2LHnESZ
+ UyClTFWWu6F3YXpVwNNQSV6LzEKm+AgHDW75KgRx+i3FW99kFUGoTwQ2Qs9M/sLKrGWVa1VH/KL
+ YxYA2dhxbdm/Kgii+pMrvbrmK//xHaM=
+X-Authority-Analysis: v=2.4 cv=VPxIDNPX c=1 sm=1 tr=0 ts=6b04fdad cx=c_pps
+ a=t4gDRyhI9k+KZ5gXRQysFQ==:117 a=t4gDRyhI9k+KZ5gXRQysFQ==:17
+ a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
+ a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=qPHU084jO2kA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=tU_645BZ7FZt8VqRJtHG:22 a=jSPayVjLy6xbsuKauFBc:22
+ a=8AirrxEcAAAA:8 a=jIQo8A4GAAAA:8 a=P-IC7800AAAA:8 a=JfrnYn6hAAAA:8
+ a=VwQbUJbxAAAA:8 a=VTqiYXDrsOJPCz6ShBkA:9 a=CjuIK1q_8ugA:10
+ a=ST-jHhOKWsTCqRlWije3:22 a=d3PnA9EDa4IxuAV0gXij:22 a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-ORIG-GUID: 1I-BuZj7M3sOKVPqHJCc6zZDcBhsH7CJ
+X-Proofpoint-GUID: 1I-BuZj7M3sOKVPqHJCc6zZDcBhsH7CJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAxMSBTYWx0ZWRfX4SgwIiRfR9kx
+ e+pKKhsB5IvDvJOfjwIhadN3SIsksT6nBLCJk+tfjkuudTMHbVhxc6Dmg6Vr09LJvJM/IiT+CzN
+ bvHkflmtujyKxCvbX4hpFtleugT1SpUwdRnLmvExukkKgfHQZrsq3w0P35MdjBCzbrOxUTUtJM0
+ QNn/jOdxEuQ64Rnx4nIwRwR0SMIyNiDWpW9LZPwo1iO5MeBMETD8VDuVj04HzHxTPQN49SQceuU
+ ATuQbDVWcU6hgvue57YJgqTOmGYcBhqZq38PVb6ZXxcpyEQ9ZNff2fzL0gBWnsnhVeJdvIFWJ5o
+ m+C1ziDFaKNJ0yh4rF5HbOXMzsqnrS9/8vyVltqb/fpC04iLO/Y7AgqBx+AwfwdT6PYiCmjFAJR
+ ZVZqOnrCPJdbJN+4fAJEeuesgdHEp5mXimEr6IPOVjmMPmm7htqUJUZ0DiDjbJPBFRXLv0F/0Se
+ gLAV8HN/dJYfjdRjolg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_active_cloned_notspam
+ policy=outbound_active_cloned score=0 impostorscore=0 suspectscore=0
+ lowpriorityscore=0 bulkscore=0 phishscore=0 clxscore=1011 spamscore=0
+ adultscore=0 priorityscore=1501 malwarescore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.22.0-2611040001 definitions=main-2611240011
 
-Hi Maxim,
+Hi Frank Li,
 
-kernel test robot noticed the following build errors:
+This is not the new patch or feature. For the same feature addressing the c=
+omments. That's why created in the same thread. Are you willing to create n=
+ew thread for this patch and ignore the old thread.
 
-[auto build test ERROR on kvm/queue]
-[also build test ERROR on kvm/next mst-vhost/linux-next linus/master v7.4-rc4]
-[cannot apply to tip/master kvm/linux-next tip/auto-latest next-20261123]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Regards,
+Dineshkumar.=20
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Maxim-Levitsky/KVM-nVMX-don-t-check-PIR-ON-when-processing-nested-posted-interrupts/20261123-125508
-base:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git queue
-patch link:    https://lore.kernel.org/r/20261123175512.80438-3-mlevitsk%40redhat.com
-patch subject: [PATCH v3 2/5] KVM: x86: split vcpu->arch.hflags into nested_guest_mode and smm_mode
-config: x86_64-buildonly-randconfig-1001-20261124 (https://download.01.org/0day-ci/archive/20261124/20261124105040.GgfsW2nq-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261124/20261124105040.GgfsW2nq-lkp@intel.com/reproduce)
+-----Original Message-----
+From: Frank Li <Frank.li@oss.nxp.com>=20
+Sent: 24 November 2026 01:54
+To: Dineshkumar Parameswaran <parame@synopsys.com>
+Cc: Frank.Li@nxp.com; alexandre.belloni@bootlin.com; linux-i3c@lists.infrad=
+ead.org; linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4] i3c: master: dw-i3c-master: Add HDR-DDR support to =
+Designware Controller.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261124105040.GgfsW2nq-lkp@intel.com/
+On Thu, Nov 19, 2026 at 07:27:03PM +0530, Dineshkumar Parameswaran wrote:
+> Implement HDR-DDR transfer support for the DesignWare Controller.
+> Only support for private transfers and does not support sending CCC=20
+> commands in HDR mode.
+>
+> Key differences:
+> - Sets the speed to HDR_DDR_SPEED(6) and COMMAND_PORT_CP to do data=20
+> transfer in HDR-DDR mode. Hardware will generate the ENTHDR0 based on=20
+> this.
+> - HDR exit pattern will generated from the hardware when it sees the=20
+> TOC on HDR-DDR mode.
+>
+> Signed-off-by: Dineshkumar Parameswaran <parame@synopsys.com>
+> ---
 
-All errors (new ones prefixed by >>):
+I already said, don't post new patch at old thread.
 
-   arch/x86/kvm/x86.c: In function 'kvm_vcpu_reset':
->> arch/x86/kvm/x86.c:9652:19: error: 'struct kvm_vcpu_arch' has no member named 'smm_mode'
-    9652 |         vcpu->arch.smm_mode = 0;
-         |                   ^
+> changes in v4:
+> - Fixed using HDR-DDR cmd direction instead of using rnw directly.
+>
+>  drivers/i3c/master/dw-i3c-master.c | 41=20
+> ++++++++++++++++++++++++------
+>  1 file changed, 33 insertions(+), 8 deletions(-)
+>
+> diff --git a/drivers/i3c/master/dw-i3c-master.c=20
+> b/drivers/i3c/master/dw-i3c-master.c
+> index 05584ddaf104..d94e7a6d28f9 100644
+> --- a/drivers/i3c/master/dw-i3c-master.c
+> +++ b/drivers/i3c/master/dw-i3c-master.c
+> @@ -65,6 +65,8 @@
+>  #define COMMAND_PORT_DEV_COUNT(x)	(((x) << 21) & GENMASK(25, 21))
+>  #define COMMAND_PORT_ADDR_ASSGN_CMD	0x03
+>
+> +#define HDR_DDR_CMD_READ		0x80
+> +
+>  #define RESPONSE_QUEUE_PORT		0x10
+>  #define RESPONSE_PORT_ERR_STATUS(x)	(((x) & GENMASK(31, 28)) >> 28)
+>  #define RESPONSE_NO_ERROR		0
+> @@ -232,6 +234,8 @@
+>  #define I3C_BUS_I2C_FMP_TLOW_MIN_NS	500
+>  #define I3C_BUS_THIGH_MAX_NS		41
+>
+> +#define DW_I3C_HDR_DDR_SPEED	6
+> +
+>  #define XFER_TIMEOUT (msecs_to_jiffies(1000))  #define=20
+> RPM_AUTOSUSPEND_TIMEOUT 1000 /* ms */
+>
+> @@ -381,6 +385,11 @@ static void dw_i3c_master_read_ibi_fifo(struct dw_i3=
+c_master *master,
+>  	i3c_readl_fifo(master->regs + IBI_QUEUE_STATUS, bytes, nbytes);  }
+>
+> +static bool dw_cmd_is_read(u32 rnw_cmd, enum i3c_xfer_mode mode) {
+> +	return (mode =3D=3D I3C_HDR_DDR) ? (rnw_cmd & HDR_DDR_CMD_READ) :=20
+> +rnw_cmd; }
+> +
+>  static struct dw_i3c_xfer *
+>  dw_i3c_master_alloc_xfer(struct dw_i3c_master *master, unsigned int=20
+> ncmds)  { @@ -726,6 +735,8 @@ static int dw_i3c_master_bus_init(struct=20
+> i3c_master_controller *m)
+>  	memset(&info, 0, sizeof(info));
+>  	info.dyn_addr =3D ret;
+>
+> +	info.hdr_cap =3D I3C_CCC_HDR_MODE(I3C_HDR_DDR);
+> +
+>  	ret =3D i3c_master_set_info(&master->base, &info);
+>  	if (ret)
+>  		goto rpm_out;
+> @@ -962,7 +973,8 @@ static int dw_i3c_master_i3c_xfers(struct i3c_dev_des=
+c *dev,
+>  	struct dw_i3c_i2c_dev_data *data =3D i3c_dev_get_master_data(dev);
+>  	struct i3c_master_controller *m =3D i3c_dev_get_master(dev);
+>  	struct dw_i3c_master *master =3D to_dw_i3c_master(m);
+> -	unsigned int nrxwords =3D 0, ntxwords =3D 0;
+> +	unsigned int nrxwords =3D 0, ntxwords =3D 0, rnw_cmd;
+> +	bool rnw;
+>  	int i, ret =3D 0;
+>
+>  	if (!i3c_nxfers)
+> @@ -972,7 +984,10 @@ static int dw_i3c_master_i3c_xfers(struct i3c_dev_de=
+sc *dev,
+>  		return -EOPNOTSUPP;
+>
+>  	for (i =3D 0; i < i3c_nxfers; i++) {
+> -		if (i3c_xfers[i].rnw)
+> +		rnw_cmd =3D (mode =3D=3D I3C_SDR) ? i3c_xfers[i].rnw : i3c_xfers[i].cm=
+d;
+> +		rnw =3D dw_cmd_is_read(rnw_cmd, mode);
+> +
+> +		if (rnw)
+>  			nrxwords +=3D DIV_ROUND_UP(i3c_xfers[i].len, 4);
+>  		else
+>  			ntxwords +=3D DIV_ROUND_UP(i3c_xfers[i].len, 4); @@ -995,28 +1010,36=
+=20
+> @@ static int dw_i3c_master_i3c_xfers(struct i3c_dev_desc *dev,
+>  	}
+>
+>  	for (i =3D 0; i < i3c_nxfers; i++) {
+> +		rnw_cmd =3D (mode =3D=3D I3C_SDR) ? i3c_xfers[i].rnw : i3c_xfers[i].cm=
+d;
+> +		rnw =3D dw_cmd_is_read(rnw_cmd, mode);
 
+Can you pass down &(i3c_xfers[i]) instand rnw_cmd? so in dw_cmd_is_read() t=
+here already have I3C_SDR check logic.
 
-vim +9652 arch/x86/kvm/x86.c
+And actually rnw and cmd is union, which point to the same value.
 
-  9623	
-  9624	void kvm_vcpu_reset(struct kvm_vcpu *vcpu, bool init_event)
-  9625	{
-  9626		struct kvm_cpuid_entry2 *cpuid_0x1;
-  9627		unsigned long old_cr0 = kvm_read_cr0(vcpu);
-  9628		unsigned long new_cr0;
-  9629	
-  9630		/*
-  9631		 * Several of the "set" flows, e.g. ->set_cr0(), read other registers
-  9632		 * to handle side effects.  RESET emulation hits those flows and relies
-  9633		 * on emulated/virtualized registers, including those that are loaded
-  9634		 * into hardware, to be zeroed at vCPU creation.  Use CRs as a sentinel
-  9635		 * to detect improper or missing initialization.
-  9636		 */
-  9637		WARN_ON_ONCE(!init_event &&
-  9638			     (old_cr0 || kvm_read_cr3(vcpu) || kvm_read_cr4(vcpu)));
-  9639	
-  9640		/*
-  9641		 * SVM doesn't unconditionally VM-Exit on INIT and SHUTDOWN, thus it's
-  9642		 * possible to INIT the vCPU while L2 is active.  Force the vCPU back
-  9643		 * into L1 as EFER.SVME is cleared on INIT (along with all other EFER
-  9644		 * bits), i.e. virtualization is disabled.
-  9645		 */
-  9646		if (is_guest_mode(vcpu))
-  9647			kvm_leave_nested(vcpu);
-  9648	
-  9649		kvm_lapic_reset(vcpu, init_event);
-  9650	
-  9651		WARN_ON_ONCE(is_guest_mode(vcpu) || is_smm(vcpu));
-> 9652		vcpu->arch.smm_mode = 0;
-  9653		vcpu->arch.nested_guest_state = 0;
-  9654	
-  9655		vcpu->arch.smi_pending = 0;
-  9656		vcpu->arch.smi_count = 0;
-  9657		atomic_set(&vcpu->arch.nmi_queued, 0);
-  9658		vcpu->arch.nmi_pending = 0;
-  9659		vcpu->arch.nmi_injected = false;
-  9660		kvm_clear_interrupt_queue(vcpu);
-  9661		kvm_clear_exception_queue(vcpu);
-  9662	
-  9663		memset(vcpu->arch.db, 0, sizeof(vcpu->arch.db));
-  9664		kvm_update_dr0123(vcpu);
-  9665		vcpu->arch.dr6 = DR6_ACTIVE_LOW;
-  9666		vcpu->arch.dr7 = DR7_FIXED_1;
-  9667		kvm_update_dr7(vcpu);
-  9668	
-  9669		vcpu->arch.cr2 = 0;
-  9670	
-  9671		kvm_make_request(KVM_REQ_EVENT, vcpu);
-  9672		vcpu->arch.apf.msr_en_val = 0;
-  9673		vcpu->arch.apf.msr_int_val = 0;
-  9674		vcpu->arch.st.msr_val = 0;
-  9675	
-  9676		kvmclock_reset(vcpu);
-  9677	
-  9678		kvm_clear_async_pf_completion_queue(vcpu);
-  9679		kvm_async_pf_hash_reset(vcpu);
-  9680		vcpu->arch.apf.halted = false;
-  9681	
-  9682		kvm_xstate_reset(vcpu, init_event);
-  9683	
-  9684		if (!init_event) {
-  9685			vcpu->arch.smbase = 0x30000;
-  9686	
-  9687			vcpu->arch.pat = MSR_IA32_CR_PAT_DEFAULT;
-  9688	
-  9689			vcpu->arch.msr_misc_features_enables = 0;
-  9690			vcpu->arch.ia32_misc_enable_msr = MSR_IA32_MISC_ENABLE_PEBS_UNAVAIL |
-  9691							  MSR_IA32_MISC_ENABLE_BTS_UNAVAIL;
-  9692	
-  9693			__kvm_set_xcr(vcpu, 0, XFEATURE_MASK_FP);
-  9694			kvm_msr_write(vcpu, MSR_IA32_XSS, 0);
-  9695		}
-  9696	
-  9697		/* All GPRs except RDX (handled below) are zeroed on RESET/INIT. */
-  9698		memset(vcpu->arch.regs, 0, sizeof(vcpu->arch.regs));
-  9699		kvm_register_mark_dirty(vcpu, VCPU_REGS_RSP);
-  9700	
-  9701		/*
-  9702		 * Fall back to KVM's default Family/Model/Stepping of 0x600 (P6/Athlon)
-  9703		 * if no CPUID match is found.  Note, it's impossible to get a match at
-  9704		 * RESET since KVM emulates RESET before exposing the vCPU to userspace,
-  9705		 * i.e. it's impossible for kvm_find_cpuid_entry() to find a valid entry
-  9706		 * on RESET.  But, go through the motions in case that's ever remedied.
-  9707		 */
-  9708		cpuid_0x1 = kvm_find_cpuid_entry(vcpu, 1);
-  9709		kvm_edx_write(vcpu, cpuid_0x1 ? cpuid_0x1->eax : 0x600);
-  9710	
-  9711		kvm_x86_call(vcpu_reset)(vcpu, init_event);
-  9712	
-  9713		kvm_set_rflags(vcpu, X86_EFLAGS_FIXED);
-  9714		kvm_rip_write(vcpu, 0xfff0);
-  9715	
-  9716		vcpu->arch.cr3 = 0;
-  9717		kvm_register_mark_dirty(vcpu, VCPU_REG_CR3);
-  9718	
-  9719		/*
-  9720		 * CR0.CD/NW are set on RESET, preserved on INIT.  Note, some versions
-  9721		 * of Intel's SDM list CD/NW as being set on INIT, but they contradict
-  9722		 * (or qualify) that with a footnote stating that CD/NW are preserved.
-  9723		 */
-  9724		new_cr0 = X86_CR0_ET;
-  9725		if (init_event)
-  9726			new_cr0 |= (old_cr0 & (X86_CR0_NW | X86_CR0_CD));
-  9727		else
-  9728			new_cr0 |= X86_CR0_NW | X86_CR0_CD;
-  9729	
-  9730		kvm_x86_call(set_cr0)(vcpu, new_cr0);
-  9731		kvm_x86_call(set_cr4)(vcpu, 0);
-  9732		kvm_x86_call(set_efer)(vcpu, 0);
-  9733		kvm_x86_call(update_exception_bitmap)(vcpu);
-  9734	
-  9735		/*
-  9736		 * Unconditionally reset the MMU, even though super strictly speaking,
-  9737		 * a MMU reset is only necessary if and only one of the page role bits
-  9738		 * is changing.  All of the CR0/CR4/EFER bits effectively get covered
-  9739		 * by checking CR0.PG=1, as CR0.WP and the paging-related bits in CR4
-  9740		 * and EFER are irrelevant if CR0.PG was '0'.  Subtly, if the vCPU was
-  9741		 * in guest mode (L2) or SMM (although emulating INIT in SMM _should_
-  9742		 * be impossible), an MMU reset is also necessary as "guest mode" and
-  9743		 * "smm" are both encoded in the shadow page role.  As a result, the
-  9744		 * only scenarios where an MMU reset is *not* needed is if the vCPU is
-  9745		 * in Real Mode or Unpaged Protected Mode, and micro-optimizing those
-  9746		 * paths are not worth the risk of running with a stale MMU context.
-  9747		 */
-  9748		kvm_mmu_reset_context(vcpu);
-  9749	
-  9750		/*
-  9751		 * Intel's SDM states that all TLB entries are flushed on INIT "as with
-  9752		 * a hardware reset", and AMD's APM states the TLBs are flushed on
-  9753		 * "External initialization of the processor".  Flush the guest TLB for
-  9754		 * both RESET and INIT, regardless of vendor, even though both the SDM
-  9755		 * and APM contradict the above statements in other tables.  There is
-  9756		 * no meaningful benefit in relying on the guest to flush the TLB, and
-  9757		 * a spurious TLB flush is benign and likely negligible from a
-  9758		 * performance perspective (especially for RESET).
-  9759		 */
-  9760		kvm_make_request(KVM_REQ_TLB_FLUSH_GUEST, vcpu);
-  9761	}
-  9762	EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_vcpu_reset);
-  9763	
+Frank
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>  		struct dw_i3c_cmd *cmd =3D &xfer->cmds[i];
+>
+>  		cmd->cmd_hi =3D COMMAND_PORT_ARG_DATA_LEN(i3c_xfers[i].len) |
+>  			COMMAND_PORT_TRANSFER_ARG;
+>
+> -		if (i3c_xfers[i].rnw) {
+> +		if (rnw) {
+>  			cmd->rx_buf =3D i3c_xfers[i].data.in;
+>  			cmd->rx_len =3D i3c_xfers[i].len;
+> -			cmd->cmd_lo =3D COMMAND_PORT_READ_TRANSFER |
+> -				      COMMAND_PORT_SPEED(dev->info.max_read_ds);
+> +			cmd->cmd_lo =3D COMMAND_PORT_READ_TRANSFER;
+>
+>  		} else {
+>  			cmd->tx_buf =3D i3c_xfers[i].data.out;
+>  			cmd->tx_len =3D i3c_xfers[i].len;
+> -			cmd->cmd_lo =3D
+> -				COMMAND_PORT_SPEED(dev->info.max_write_ds);
+>  		}
+>
+>  		cmd->cmd_lo |=3D COMMAND_PORT_TID(i) |
+>  			       COMMAND_PORT_DEV_INDEX(data->index) |
+>  			       COMMAND_PORT_ROC;
+>
+> +		if (mode =3D=3D I3C_HDR_DDR) {
+> +			cmd->cmd_lo |=3D COMMAND_PORT_CMD(rnw_cmd) | COMMAND_PORT_CP |
+> +				COMMAND_PORT_SPEED(DW_I3C_HDR_DDR_SPEED);
+> +		} else {
+> +			cmd->cmd_lo |=3D (i3c_xfers[i].rnw) ?
+> +				COMMAND_PORT_SPEED(dev->info.max_read_ds) :
+> +				COMMAND_PORT_SPEED(dev->info.max_write_ds);
+> +		}
+> +
+>  		if (i =3D=3D (i3c_nxfers - 1))
+>  			cmd->cmd_lo |=3D COMMAND_PORT_TOC;
+>  	}
+> @@ -1027,8 +1050,10 @@ static int dw_i3c_master_i3c_xfers(struct=20
+> i3c_dev_desc *dev,
+>
+>  	for (i =3D 0; i < i3c_nxfers; i++) {
+>  		struct dw_i3c_cmd *cmd =3D &xfer->cmds[i];
+> +		rnw_cmd =3D (mode =3D=3D I3C_SDR) ? i3c_xfers[i].rnw : i3c_xfers[i].cm=
+d;
+> +		rnw =3D dw_cmd_is_read(rnw_cmd, mode);
+>
+> -		if (i3c_xfers[i].rnw)
+> +		if (rnw)
+>  			i3c_xfers[i].len =3D cmd->rx_len;
+>  	}
+>
+> --
+> 2.34.1
+>
