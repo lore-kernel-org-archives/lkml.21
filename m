@@ -1,89 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795541552;
-	b=x5Xx2HvWalA/VxEHU2lMaYfWBFSn7PvI+MaV9LLq4rFsZctw3ErIQ24QNVVKZvVFyVxt
-	 35UsOZ5D0NxEOqk6OhqZhXHOUzRpBxjuNKCfiOm2E58KOVcWOBm/sULcPgfcqyxd7JmDO
-	 yIWe2d06DURz46Oua5SDZqsbTcYeg8Npi99se9raMuwKsDNFT8ckiyiC2ligXO3Kj+wKs
-	 +nTuFJAdG2/QT3HkOZyet7+YsVr5wIHHakwZIDfHV/hjWIAjpvUd/0LaEqZ0QQub0y/f5
-	 S2OBxL9POD5m5n0H3SQ3B6KFCGvc/74e8hP4I+b0Pf2iulVq7RDEWgcaLh7GrgvblMw==
+	t=1795541558;
+	b=OrLV/Mhk8CrpyDKeQD0uIUgeMCkWb4U6RDIlM+/vUS4qCEI8UX6KS0g4T5zk/BkCrA3T
+	 fgY1qf+C4cfUP6rEtklfLwXnN75VRFYwfdIJOcjMaQdYDkXB+JO3pXJEEayMe7iZ4zOFl
+	 C1dX2b9YdDlGVETm6ZVysVWp4r84VgrT5e75h2QKf76vE5AVGMUc3bNxfWW0CjLbs9NGt
+	 qUq9GtFksJzQ7q9FgbTD7woabrNJAPEtFfNSEfSWi7CSxpmY/yEr7kWZXSW52XrrsWDbY
+	 mrf+KLFxPUQb4uRAbLWZ8d3dOW410HOi7P5XF1JJ0X6Z8ROdD6LVcID2Bz8HxPIKNIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541552;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541558;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=pU00y6ZXZp2/m5IiYMuEoa3EZ2Cw1dtKHvVqjAksugM=;
-	b=AnGtBm2p2LHXSCkMAIwt/L/3bHmBSaeWk4+FCLY0CYiQSNH/mIOWdOfXczQunylFm5Xw
-	 3GOlfOaHj4yzNrI3vVkf53dU9knmW65Gt+kUNny1UKGahCoNlVGvIrZoLC3e0McNQAnpi
-	 Z7KTAZXv78H7GzXK7MPWSklUsZ002nZ8ghx3ZVM9DNN/qMguA8iwC8unzxzhYqLkCMZ/h
-	 hCSYY+SmsFyexYJ3zbWPq4exfl/q99XtPWg3KCKbFUSkdxQMUdg4HnTiKZo7H97JlmRU9
-	 TVEaNCMNq/Nu1w42dAQrI0gfKlNYJJbgMdGTZ2+uCi5IU1q5bmz5PS5v+9amCAGRoJA==
+	bh=nufcT6I5wtqJzgqQd6mwSeskFmkpcz5yu7UaxhvOpBc=;
+	b=jx0e/rbSlbWZLxt0AMGtpZQvOsShZ2nXo/HGrEQP6itjVArHiEgl0AoBInsmzZSKhnKR
+	 0H2J+yNSkabLQ3tvjOVxJr9PAxj4iHgVCFHhEBfQpwvVNYKa41PSRJ23SI2Mxpxa6DRhp
+	 3o44ZnW2N3avcYQFCuFgCwODA27Rul8PMBHsUM8ywS21gOM6LSWy5dvuH8A0d2lnzZ/t/
+	 j7ug1TCeFXj66OmdMvo/0gTm6D9wCErXT7qekj3hqDMbWIqSc5n7mA0zzKho5FubQ+1qB
+	 jnOL0fD7/kcjaQjir9XUdf1yFfHDa5DHY/GY9A7sFa6xwgiyEXoioay1hvp+cBL7kEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linaro.org;
 	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=heL6dhLB;
-	arc=none smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=pU2zelue;
+	arc=none smtp.remote-ip=209.85.128.54
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33FA660A3831
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:32:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33FA660A3831
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD8A5606E1AE
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:32:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD8A5606E1AE
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=heL6dhLB
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-490d59c3f0aso2246670f8f.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:32:30 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=pU2zelue
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4a35ac4475dso35914175e9.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:32:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795541549; x=1796146349; darn=vger.kernel.org;
+        d=linaro.org; s=google; t=1795541556; x=1796146356; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=pU00y6ZXZp2/m5IiYMuEoa3EZ2Cw1dtKHvVqjAksugM=;
-        b=heL6dhLBV30oQLs6IScxNS6fxElAjmMQ2TelZxoDDddeyDjNOAvnR+SOUd580Y7lky
-         ZHoVEWpgeJXiNECgtAuPimCmgJbhbu9qXwDo4uzt34VcpxySd8RTcdSIQZU2d+d+/WO9
-         SdanlT65jNu1s1BghMJwEE0e3pcNLcpw11MBxI0bq7BlbNs5rvkhy2Q49glsGST77AoL
-         lIxymqjyAew/qIF0q+3baNTfEa5TnlC2VdXd1F5VEZB0Ruh3V1/yYqleiqrO9R3aCCJL
-         NNCWstAL/pR5d88j+7k4iyzx6PykppSv26VPbDQhvItCfS+NICtfG19EbvjrejMbrePO
-         EAOw==
+        bh=nufcT6I5wtqJzgqQd6mwSeskFmkpcz5yu7UaxhvOpBc=;
+        b=pU2zelueugtiJV4x+NfDMs+21apnmPRZnouT5PiCVJszVI+tmNnfn8xhBnPbyQl1Kl
+         VYBrVsF616QQFz6LyoYKecXfMAKvP04/qQ9r7m8k5fwXqZ/FJzj63DwKo4xmxTG5084r
+         O/QyfD2sWI/rYUEHCVaAR9tkYYGb0O8sPtbmFx4ozv5Juld0vf6ylLo/As3in4SSDxZ1
+         a6dfb08ECjmFmMXSG8Uz29PHRPP+XTXJYwVAIL3EdUkLXs+O3vr4DbEx6uDG8aNLNYFD
+         lkbug9eLhuPyhoFtO/YMCRpfFZz+HfVI6SymN1URkgjthZrguRGlG9Kuq5aD7b8iwEDm
+         ziiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795541549; x=1796146349;
+        d=1e100.net; s=20260707; t=1795541556; x=1796146356;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=pU00y6ZXZp2/m5IiYMuEoa3EZ2Cw1dtKHvVqjAksugM=;
-        b=ROjA+1cLfUaBimKY8RUMj08gPTq7LZDhOR2fjbuBPM/jS8N9pk5xzP3zj97LnfI+EF
-         2g6LJ7xtPIDMZQN2GEPw/4YsAX7Ys6OWVCK4sdpR/qcZMu3F8cjZSLSz+KgIN/B7TcjL
-         DdV21KN3LXe+7nnHsUygmjhoWeYLwxeZurbU/trLp5wGbJbxebM2EZnmj6OlV8pp15+Q
-         14jQFBaeXZjeRfqt15XtfjT27XGkiH3eCC0CkeaDkW/lbzj8wyp25Ac/8Y3UQbrOa1D4
-         H6Md5vq8nhHgumX6YD1CUXMvZLYSk+9Ykti6+GoTYMgUSxf5CWlRm0iP5wo2yg+dLH7h
-         PtRA==
-X-Forwarded-Encrypted: i=1; AL+hErHreV9JDpvtCVKoXLyr/uWFzAd4vSJkQscGyPXK33gyITrHAWrfgo4cZ2y5qR+wU7oHjiY7wpx0LHt/Kd8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8lKWmJjpqfweSb0joq0VxXLWGqXD1JfkHwrw0O8cox5714d3CH
-	pfB4iOyBYfjGFz08orymUe+NAQVdN94n0TdtZHFE5cfBHocgzUJe0bYiXuu6MM1MlJ4=
-X-Gm-Gg: AZFdTZewRxCKO7Q9xQ5rVMvevyece34TvdEkAoTWy0yUyBuOlwUzkCWIazV5+SYlhYA
-	/8OxNWj+toHiZFdy+pFg1VZBNnggpWcPTx5bleVr4uzipi/scUeJT+/GsUeAjapXHN6UkL1WKL1
-	F7Di53jZhJBZrCcA+5s5G4JWa3ObeAjTdBBLh8m5KDuDV1I60CMbXpx7lPMN7+j0gDYs2SDfB3Y
-	kxin0i2/Ff5sKXnt5OsrW0f+qHq02Mrk3wra/gqOESeuq3CcJgmkBiMiW3mxaLoz2RSlRF5qsNR
-	//KlK29318Y5iOROL33mgCj44abWBuc7Rg0pBavv0eTHZ7ppoPwqTfjUOuSxxtr+XQdtyV4EV0a
-	OVgR3kQAZ7+DqtBSgoM8H8oUm9piaSorfjhNz0hSwi1jWpZTIyxfh9VhECL5lbGNTDTQk1bfR3M
-	sddih0Ws22+qms7Y69VtAUJAU4gx1RN795oz716P+TcgtNqQxEossqgzp+hGwbvVGYvKrxJIqWI
-	9qrBfCcF3Kbnyo6tsPpWKOAYMURhgFI6NbDOjZs8O7R6l3NMGjjUDHnR+Xsmbj0QGjQUMZMR99a
-	G2Sj61+6njgWTWTjQEb3UW+J37/faAEBgqCN930J3VE60uZ0PLu2MAQJlJXs/vRS1d7/p6I=
-X-Received: by 2002:a05:600c:5309:b0:4bb:62d5:4ab1 with SMTP id 5b1f17b1804b1-4bb88924a5bmr317178735e9.33.1795541549464;
-        Tue, 24 Nov 2026 09:32:29 -0800 (PST)
+        bh=nufcT6I5wtqJzgqQd6mwSeskFmkpcz5yu7UaxhvOpBc=;
+        b=YEplz+H0ZMESiZZ0PUvCttKC4bv2iK8dDOXTZWg8p3yEZqNPsde6Aaf1gvfnaHCKHU
+         YbH4H1/QiwSZV34YuPIo1T4dmhzZJ0VN0mMdMGR22iq5nxYk17m4Og8bfenD0q1pvGyQ
+         fdT8gN8hIit/5qgegrDYXkLictXvXQflSjS/dSOAS2VOe2eiyGOq0C3SOUNgSgvORmSS
+         AyU3In9+tTd2CO8ssGGuN4Kl9o7DAmbcNsx+rRsEvTuQ9W6htZb9pfOL7L8qb7VyDRoE
+         pzJAjOVjTRCGVSo0Pm178sfVD0x8W7Qj9MX15qhPf6D1xFaMQhhEyO+F8ke8girT/2Kv
+         /JlA==
+X-Forwarded-Encrypted: i=1; AL+hErEe4ibG2TJB+ao8phOtlGLmXvU4WS8uY2Rffw2abhbAF8ML/Dl9EW+symIo6KrElkA4WCTZIhfSYuLfFpU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8qyS2m6tvqNAOXMvbWRoCcxn/xevR7goTJINUOSNR1PWU0Bn4r
+	4+4xIYrDqK6kmm4elizKP9vUtLp8don/EAl8/N4rZzg4tPqjOc/sREuNWNO6ceaD2pZh6TgJPyz
+	LHRNyh6o=
+X-Gm-Gg: AZFdTZeG/KU5Ouwq/k+3dbL9p82nKmXuXYaoRALcKWqA21dG54ibHIQGGxaLEoahEp1
+	j2bBDZL8f+7SntyZ5QfVkslwelhcGICQXwNvLSqvGXRRng+UnSuLyBwW8V0rgJSLlU9sMngEx42
+	/4Lp/6kBSwQbqtiZnpjuUawXM0/dzp7s1ObhXNfF6ZzVB6AOJIqHyiVJJKu4xmM3Cf1O2jHL3S9
+	z3cuKUwIGUL8avvszXYtvFtmaOG0uLqIwq6Na2MJQpXWTpMyzjIZCsUaYEuYQTG3T9k+YJyal4a
+	D2FfvLB0k51WC9RNRf/aLxboT+UR3rQ9hvY/4bPDW9qiQTadgiU7yd26kTj+uAUKL5aZalwyzMN
+	QDpQeDpzyHhN+KL6HttpCYx0r8IgHdBgHP1JflO1XD8KOnIQSKIJ7WYj1aIbe4qRAhfMqDeXO3q
+	8fxbTeWlejJPLyOS0OXeiH6aaFo1mUM3w10gaFHMqVurnxaCt/NFTV3Rw2f7B+IMNNa8o2S/ZyV
+	q/XHcm3LxvEIU0DxJaUSaPFzwf5yLZpUIauUiYPVmIpuvmyPg9GxpiXBp2dUGyJOtk9lzOwjkA3
+	arfETu7iSQJdn3BuxlPua0r8EHV+0ltaRjkLYRIVJkeBF2llcA==
+X-Received: by 2002:a05:600c:5251:b0:4a1:f8cb:7d70 with SMTP id 5b1f17b1804b1-4bb8881e837mr294089525e9.24.1795541556121;
+        Tue, 24 Nov 2026 09:32:36 -0800 (PST)
 Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b9add26sm29560057f8f.44.2026.11.24.09.32.28
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b9add26sm29560057f8f.44.2026.11.24.09.32.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 09:32:29 -0800 (PST)
+        Tue, 24 Nov 2026 09:32:35 -0800 (PST)
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Date: Tue, 24 Nov 2026 18:32:17 +0100
-Subject: [PATCH v2 10/19] ASoC: qcom: lpass-cdc-dma: add support for WSA
- codec DMA
+Date: Tue, 24 Nov 2026 18:32:25 +0100
+Subject: [PATCH v2 18/19] ASoC: qcom: sdw: allow LPASS_CDC_DMA_WSA_RX0 as
+ soundwire dai
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,7 +96,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-topic-sm8650-el2-v2-10-174e159f0f69@linaro.org>
+Message-Id: <20261124-topic-sm8650-el2-v2-18-174e159f0f69@linaro.org>
 References: <20261124-topic-sm8650-el2-v2-0-174e159f0f69@linaro.org>
 In-Reply-To: <20261124-topic-sm8650-el2-v2-0-174e159f0f69@linaro.org>
 To: Srinivas Kandagatla <srini@kernel.org>, 
@@ -109,145 +110,158 @@ Cc: linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Neil Armstrong <neil.armstrong@linaro.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4127;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4251;
  i=neil.armstrong@linaro.org; h=from:subject:message-id;
- bh=/ovRO+UOcxnf5QLSf5azXxbgOEDV96r9W1Eg013mBDQ=;
- b=owEBbQKS/ZANAwAKAXfc29rIyEnRAcsmYgBrBcoe5XukASQd1VCjYbbtVK5pheqbpQg8+xwCqjoI
- Z+v+rO6JAjMEAAEKAB0WIQQ9U8YmyFYF/h30LIt33NvayMhJ0QUCawXKHgAKCRB33NvayMhJ0VkwD/
- 4wLCUu25+Z8iJE3ri48np5iGr4kjd12D0sb/mZFuL5hLSEY8B+w8zjpyw7o9TSLNzOvmiRAnPXEegs
- WPiO7Mi7SP0RZhTtwp185T0oGgxgToU7aixbiTjzeenlsmKRR7tIAudhXDlIWLGc4o6OrpYDDoLPlP
- RVYxAU5IiYKJjqJzFXbGSFwmO7DJ8jLtxdSLMxfQDMsDDRYE9rHe2QcUmvdYobB7MWU2LBcmu67F42
- wsxldxEESQ1NDHcDjZTKBCoXOjxH/RQaI8FW1dv8ChKjjgbH5imY7zm5R8X07x12dEwiiVT5wGHQSg
- RicY7M3DqcWcNMCEvQueWoBsNxzmNx5z+cDz7diKGkTm5QPBYOGKMFPdVXOYXB4ltxs44eJXvebvBn
- W91YeusHC4iXqOdiAi3uFBGGoyCyMqolGJyjvORAY2mWuEzl8Bk7VqdmqpL0iOWKTqTLHSUCTH9yY7
- qUYcVEAaeKl14zUuL2KFTDECm70YKXQXh6A+W0TC2aT/c22aqj16Os1KkMG+Vt0QAcSC3pqYyi0ho/
- 4WU/SRdSGom0gX8bRsE1kSSXmz3cD7q1es6iHKEfHhuh/SzKMUb+La8KvlDBHUDuqlMEaVpJvb7DHl
- CXbd+Y5+bRxc5JeWG6q+nUN6z8pJKcE4cltISV1Wo+ibrk0GO8IQSLB8Q3HQ==
+ bh=O/F6X827vmeWFUDFxdC8UAbpZvNVpTpLrLIF5/O087g=;
+ b=owEBbQKS/ZANAwAKAXfc29rIyEnRAcsmYgBrBcojgMzsCA387B8/ryOOczJYFfBSuSxtDFUlRNIs
+ YsLBkLKJAjMEAAEKAB0WIQQ9U8YmyFYF/h30LIt33NvayMhJ0QUCawXKIwAKCRB33NvayMhJ0Z88D/
+ 9vYLjUuqfzBx8dj63qy+v+m947tJ1gy2kkA7u3l9/YwA+F1BWU8jqXz9AfzeQ8uV1ngHodUxCxWIQZ
+ HcBSsELEOnjCiu52F+XY2T9iACI/Z5xfxA2E9kvXLywkCYp52UbZ8vhR8y9l6S6yJGmW19zdeK+BPR
+ klMNviSrCf8RjA1hr6t/yXm8V3ngePpVa1miVBjxIpZBDOJ8rmueld12NvfjnE6RS5sZY8rMaoTlFH
+ F2CIINBEEH4QBT1XJ0pOD4Yav34QiWhsubbhd8UkDFUMjlyUjCV7GSMfLzcli9IZRaP5lS7PyJpB/D
+ H0VrH4bicUiRFt6UbkdYaR3JdsFIdKv1s8+2IuqmZQqPfS5lWYAb6o7l4vvfGw8VbKvlW3Keu55/fl
+ ilkkooR3INhZfVDOm3Z/gJ7H/F8Cff76+xmbmUTod9FcXk6TElBm9LhxZNBCaJwjEMEr3NXBfHAN/O
+ IbK5vdZ+2WZEWgLEHTt3YGApWDJTQfWxqeQlFxfYr2HureJdED8YZRMRpM0Qw5FUiCcS5nQBaqZH0n
+ CzMCF6TWw5S2sZaAFq/trgA3Z2sWvMKiL+2lDlpDjRlZlIPDefK9+p7J3RqNw7P7w6TQNpN8/AS6Ih
+ C4vCIFQ1eKJWKwX2evU0eaT7bTdiRFZMDBJzSN81Rrz5+5pCcqQGRqX6Depg==
 X-Developer-Key: i=neil.armstrong@linaro.org; a=openpgp;
  fpr=89EC3D058446217450F22848169AB7B1A4CFF8AE
 
-Add the plumbing for the WSA interface in the lpass codec
-DMA driver.
+Like for the WCD ports, allow the WSA_RX0 port to be initialized
+as a soundwire DAI.
 
-The WSA interface uses the same LPM buffer as RXTX and
-need to enable more LPM codec mem clocks.
+The LPASS CPU dai ids from qcom,lpass.h overlap with the DSP dai ids
+from qcom,q6dsp-lpass-ports.h, so only match the LPASS CPU dai ids on
+the DSP Bypass links, which are neither DPCM frontends nor backends,
+instead of matching them on all the links, adding an helper to
+identify those links.
 
 Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
 ---
- sound/soc/qcom/lpass-cdc-dma.c | 36 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 36 insertions(+)
+ sound/soc/qcom/common.h |  9 +++++++++
+ sound/soc/qcom/sdw.c    | 42 +++++++++++++++++++++---------------------
+ 2 files changed, 30 insertions(+), 21 deletions(-)
 
-diff --git a/sound/soc/qcom/lpass-cdc-dma.c b/sound/soc/qcom/lpass-cdc-dma.c
-index 2dc8c75c4bf0..d7f85a4f9d99 100644
---- a/sound/soc/qcom/lpass-cdc-dma.c
-+++ b/sound/soc/qcom/lpass-cdc-dma.c
-@@ -54,6 +54,14 @@ static void __lpass_get_dmactl_handle(struct snd_pcm_substream *substream, struc
- 		*dmactl = drvdata->va_wr_dmactl;
- 		*id = pcm_data->dma_ch - v->va_wrdma_channel_start;
- 		break;
-+	case LPASS_CDC_DMA_WSA_RX0 ... LPASS_CDC_DMA_WSA_RX9:
-+		*dmactl = drvdata->wsa_rd_dmactl;
-+		*id = pcm_data->dma_ch;
-+		break;
-+	case LPASS_CDC_DMA_WSA_TX0 ... LPASS_CDC_DMA_WSA_TX8:
-+		*dmactl = drvdata->wsa_wr_dmactl;
-+		*id = pcm_data->dma_ch - v->wsa_wrdma_channel_start;
-+		break;
+diff --git a/sound/soc/qcom/common.h b/sound/soc/qcom/common.h
+index 37b185a4968f..1af9c32505e6 100644
+--- a/sound/soc/qcom/common.h
++++ b/sound/soc/qcom/common.h
+@@ -32,5 +32,14 @@ int qcom_snd_wcd_jack_setup(struct snd_soc_pcm_runtime *rtd,
+ int qcom_snd_dp_jack_setup(struct snd_soc_pcm_runtime *rtd,
+ 			   struct snd_soc_jack *dp_jack, int id);
+ 
++/*
++ * DSP Bypass links (lpass-cpu) are neither DPCM frontends nor backends,
++ * their cpu dai ids overlap with the DSP dai ids.
++ */
++static inline bool qcom_snd_is_dsp_bypass_link(struct snd_soc_pcm_runtime *rtd)
++{
++	return !rtd->dai_link->no_pcm && !rtd->dai_link->dynamic;
++}
++
+ 
+ #endif
+diff --git a/sound/soc/qcom/sdw.c b/sound/soc/qcom/sdw.c
+index 6576b47a4c8c..669fb63207c9 100644
+--- a/sound/soc/qcom/sdw.c
++++ b/sound/soc/qcom/sdw.c
+@@ -6,10 +6,25 @@
+ #include <dt-bindings/sound/qcom,q6afe.h>
+ #include <linux/module.h>
+ #include <sound/soc.h>
++#include "common.h"
+ #include "sdw.h"
+ 
+-static bool qcom_snd_is_sdw_dai(int id)
++static bool qcom_snd_is_sdw_dai(struct snd_soc_pcm_runtime *rtd)
+ {
++	int id = snd_soc_rtd_to_cpu(rtd, 0)->id;
++
++	/* DSP Bypass usecase, cpu dai ids overlap with DSP dai ids */
++	if (qcom_snd_is_dsp_bypass_link(rtd)) {
++		switch (id) {
++		case LPASS_CDC_DMA_TX3:
++		case LPASS_CDC_DMA_RX0:
++		case LPASS_CDC_DMA_WSA_RX0:
++			return true;
++		default:
++			return false;
++		}
++	}
++
+ 	switch (id) {
+ 	case WSA_CODEC_DMA_RX_0:
+ 	case WSA_CODEC_DMA_TX_0:
+@@ -33,20 +48,8 @@ static bool qcom_snd_is_sdw_dai(int id)
+ 	case SLIMBUS_0_RX...SLIMBUS_6_TX:
+ 		return true;
  	default:
- 		dev_err(soc_runtime->dev, "invalid dai id for dma ctl: %d\n", dai_id);
- 		break;
-@@ -68,49 +76,68 @@ static int __lpass_get_codec_dma_intf_type(int dai_id)
- 	case LPASS_CDC_DMA_RX0:
- 	case LPASS_CDC_DMA_TX0:
- 	case LPASS_CDC_DMA_VA_TX0:
-+	case LPASS_CDC_DMA_WSA_TX0:
-+	case LPASS_CDC_DMA_WSA_RX0:
- 		ret = LPASS_CDC_DMA_INTERFACE1;
- 		break;
- 	case LPASS_CDC_DMA_RX1:
- 	case LPASS_CDC_DMA_TX1:
- 	case LPASS_CDC_DMA_VA_TX1:
-+	case LPASS_CDC_DMA_WSA_RX1:
-+	case LPASS_CDC_DMA_WSA_TX1:
- 		ret = LPASS_CDC_DMA_INTERFACE2;
- 		break;
- 	case LPASS_CDC_DMA_RX2:
- 	case LPASS_CDC_DMA_TX2:
- 	case LPASS_CDC_DMA_VA_TX2:
-+	case LPASS_CDC_DMA_WSA_RX2:
-+	case LPASS_CDC_DMA_WSA_TX2:
- 		ret = LPASS_CDC_DMA_INTERFACE3;
- 		break;
- 	case LPASS_CDC_DMA_RX3:
- 	case LPASS_CDC_DMA_TX3:
- 	case LPASS_CDC_DMA_VA_TX3:
-+	case LPASS_CDC_DMA_WSA_RX3:
-+	case LPASS_CDC_DMA_WSA_TX3:
- 		ret = LPASS_CDC_DMA_INTERFACE4;
- 		break;
- 	case LPASS_CDC_DMA_RX4:
- 	case LPASS_CDC_DMA_TX4:
- 	case LPASS_CDC_DMA_VA_TX4:
-+	case LPASS_CDC_DMA_WSA_RX4:
-+	case LPASS_CDC_DMA_WSA_TX4:
- 		ret = LPASS_CDC_DMA_INTERFACE5;
- 		break;
- 	case LPASS_CDC_DMA_RX5:
- 	case LPASS_CDC_DMA_TX5:
- 	case LPASS_CDC_DMA_VA_TX5:
-+	case LPASS_CDC_DMA_WSA_RX5:
-+	case LPASS_CDC_DMA_WSA_TX5:
- 		ret = LPASS_CDC_DMA_INTERFACE6;
- 		break;
- 	case LPASS_CDC_DMA_RX6:
- 	case LPASS_CDC_DMA_TX6:
- 	case LPASS_CDC_DMA_VA_TX6:
-+	case LPASS_CDC_DMA_WSA_RX6:
-+	case LPASS_CDC_DMA_WSA_TX6:
- 		ret = LPASS_CDC_DMA_INTERFACE7;
- 		break;
- 	case LPASS_CDC_DMA_RX7:
- 	case LPASS_CDC_DMA_TX7:
- 	case LPASS_CDC_DMA_VA_TX7:
-+	case LPASS_CDC_DMA_WSA_RX7:
-+	case LPASS_CDC_DMA_WSA_TX7:
- 		ret = LPASS_CDC_DMA_INTERFACE8;
- 		break;
- 	case LPASS_CDC_DMA_RX8:
- 	case LPASS_CDC_DMA_TX8:
- 	case LPASS_CDC_DMA_VA_TX8:
-+	case LPASS_CDC_DMA_WSA_RX8:
-+	case LPASS_CDC_DMA_WSA_TX8:
- 		ret = LPASS_CDC_DMA_INTERFACE9;
- 		break;
- 	case LPASS_CDC_DMA_RX9:
-+	case LPASS_CDC_DMA_WSA_RX9:
- 		ret  = LPASS_CDC_DMA_INTERFACE10;
- 		break;
- 	default:
-@@ -184,6 +211,11 @@ static int lpass_cdc_dma_daiops_startup(struct snd_pcm_substream *substream,
- 		clk_set_rate(drvdata->va_mem0, CODEC_MEM_HZ_NORMAL);
- 		clk_prepare_enable(drvdata->va_mem0);
- 		break;
-+	case LPASS_CDC_DMA_WSA_RX0 ... LPASS_CDC_DMA_WSA_RX9:
-+	case LPASS_CDC_DMA_WSA_TX0 ... LPASS_CDC_DMA_WSA_TX8:
-+		clk_set_rate(drvdata->codec_mem1, CODEC_MEM_HZ_NORMAL);
-+		clk_prepare_enable(drvdata->codec_mem1);
-+		break;
- 	default:
- 		dev_err(soc_runtime->dev, "%s: invalid  interface: %d\n", __func__, dai->id);
- 		break;
-@@ -205,6 +237,10 @@ static void lpass_cdc_dma_daiops_shutdown(struct snd_pcm_substream *substream,
- 	case LPASS_CDC_DMA_VA_TX0 ... LPASS_CDC_DMA_VA_TX0:
- 		clk_disable_unprepare(drvdata->va_mem0);
- 		break;
-+	case LPASS_CDC_DMA_WSA_RX0 ... LPASS_CDC_DMA_WSA_RX9:
-+	case LPASS_CDC_DMA_WSA_TX0 ... LPASS_CDC_DMA_WSA_TX8:
-+		clk_disable_unprepare(drvdata->codec_mem1);
-+		break;
- 	default:
- 		dev_err(soc_runtime->dev, "%s: invalid  interface: %d\n", __func__, dai->id);
- 		break;
+-		break;
+-	}
+-
+-	/* DSP Bypass usecase, cpu dai index overlaps with DSP dai ids,
+-	 * DO NOT MERGE into top switch case */
+-	switch (id) {
+-	case LPASS_CDC_DMA_TX3:
+-	case LPASS_CDC_DMA_RX0:
+-		return true;
+-	default:
+-		break;
++		return false;
+ 	}
+-
+-	return false;
+ }
+ 
+ /**
+@@ -71,7 +74,7 @@ int qcom_snd_sdw_startup(struct snd_pcm_substream *substream)
+ 	u32 rx_ch_cnt = 0, tx_ch_cnt = 0;
+ 	int ret, i, j;
+ 
+-	if (!qcom_snd_is_sdw_dai(cpu_dai->id))
++	if (!qcom_snd_is_sdw_dai(rtd))
+ 		return 0;
+ 
+ 	sruntime = sdw_alloc_stream(cpu_dai->name, SDW_STREAM_PCM);
+@@ -127,12 +130,11 @@ int qcom_snd_sdw_prepare(struct snd_pcm_substream *substream,
+ 			 bool *stream_prepared)
+ {
+ 	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
+-	struct snd_soc_dai *cpu_dai = snd_soc_rtd_to_cpu(rtd, 0);
+ 	struct sdw_stream_runtime *sruntime;
+ 	int ret;
+ 
+ 
+-	if (!qcom_snd_is_sdw_dai(cpu_dai->id))
++	if (!qcom_snd_is_sdw_dai(rtd))
+ 		return 0;
+ 
+ 	sruntime = qcom_snd_sdw_get_stream(substream);
+@@ -169,11 +171,10 @@ struct sdw_stream_runtime *qcom_snd_sdw_get_stream(struct snd_pcm_substream *sub
+ {
+ 	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
+ 	struct snd_soc_dai *codec_dai;
+-	struct snd_soc_dai *cpu_dai = snd_soc_rtd_to_cpu(rtd, 0);
+ 	struct sdw_stream_runtime *sruntime;
+ 	int i;
+ 
+-	if (!qcom_snd_is_sdw_dai(cpu_dai->id))
++	if (!qcom_snd_is_sdw_dai(rtd))
+ 		return NULL;
+ 
+ 	for_each_rtd_codec_dais(rtd, i, codec_dai) {
+@@ -196,10 +197,9 @@ EXPORT_SYMBOL_GPL(qcom_snd_sdw_shutdown);
+ int qcom_snd_sdw_hw_free(struct snd_pcm_substream *substream, bool *stream_prepared)
+ {
+ 	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
+-	struct snd_soc_dai *cpu_dai = snd_soc_rtd_to_cpu(rtd, 0);
+ 	struct sdw_stream_runtime *sruntime;
+ 
+-	if (!qcom_snd_is_sdw_dai(cpu_dai->id))
++	if (!qcom_snd_is_sdw_dai(rtd))
+ 		return 0;
+ 
+ 	sruntime = qcom_snd_sdw_get_stream(substream);
 
 -- 
 2.34.1
