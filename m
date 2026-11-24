@@ -1,49 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795540143;
-	b=d3KZmfmEjs+l1K3vyYEMJwGuFlT8pl/zr3rNbTfm4xsp2pjUQwvtZBmdKg59OOXVUuB1
-	 knm8iTtHD5M1/X3RdOBh3mWITZl7l2FGzaa0s6C5W+8LNrWlW3LMikv76ghG/Lip/Kcz5
-	 tTl7lpNpoqKbF3wNM5ZTHciCDUyeL4WXHydn9npNeAVhqXWS1O2SQyQiOz5Auo0kKEQDE
-	 KQ9fTUEIrJDV+d2wKLeISNYTaLjCa2khnWq4YCVGBjT7FIoQ8RfZ87gjKOQ+h9bcJAzO/
-	 nF6WH25NlpFiCFyt9/DsD7vVZujNxlMNr9ms1oAyWunm8wGXJmBSH9IIC+EbSZMnTsA==
+	t=1795540148;
+	b=4miChZMlY1G7v5tysNIFBpQcMMeRjjmSHYzm+gCvti71XxXUuSXtqaKVuTXD27DgPYt1
+	 fCjV15vHiSM8CL/XPimvX3RxX6MZwHnYkZzsgmNF+OKRbbGxg8qjuALT59RwqkkM21s4q
+	 3zFtMBxLUkSvCs6TvslxDeDmZbOs4AdH1OChePOIP/61Zn5UraWOfvUTili2dAzh/Ic4x
+	 kq7d5XjF7zLx+DjCwssRpfA1v0xvGSDYEY3fFOqGEy4OU3OCeXbWBsoCrU3+WDD0HLk8Y
+	 6qISJyWVCE+lf7hBY1GD/SmvsU1+ZjJ6ZQLbH7PXkY0LJzlOFKYQ8iCLCcT3XbnKdPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540143;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=awaDXuBzmGDSezRjdws9LozrH8vCNa9+sX+9QL+l1sc=;
-	b=VBF7ZmLtvUvlyxmul1LMHGotDaNlIzMtHk9Tyw9fyRihuU893c7bbY0h8TJEKX6QxOM3
-	 K7DZWedvkMIjQIhWZblg/W4LfRoVVKZtGlAW/RdIE7ANo29MpaQbyjET2IkHT7UDG0ntk
-	 W+/cvnW2A4gtLlh+8pGlwNVpLbW1YkiE5GDGwYTf9eASHOUjdaASEuojvQTOeLC7RVsm7
-	 Zpax4GG+jJiCoZgm9cjx81yFJnvqGLXLFk2crBtedtV32T4bd37Ampy3BtCwSc4EGC1T7
-	 /uY2l0gYvP3N1nXEEwFyWquoZLtbTsX9GHlgJC1Sq6IGQT1v8GkD/2OCmsnNVJrjr8g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540148;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key;
+	bh=n2AsLJvxNxcEbz6A8lvpKZadNpRU1qreceYOyZeai44=;
+	b=Yrwk0BmlmxYP/BKVTRZwjE1qdbqVMCID6IF3MDoMzKAQO8eDzkCqq/JECq4uVzApBB+5
+	 tZgwMp1FinHzJJp0uB1F2eZFeMm/vAT/h+P2lbCCGMcBLqPmX8r4f1+xHFzcGChwfqFk1
+	 7FyUv2yciDwFrOxZQvtMtJkKgwpdIMt6XQGBkhT1444ImCA7F3gIsxwYcyhrECkaSui81
+	 sVr7DH/6xfQHV79P5JMviCSTOadxGBg3z2LxtAL0TgZOWK632suHLGaOWMygxmnDz8i76
+	 VBiD4mC8uMz2TXgPalZ43jEJsV/Z0dsE8RlwFoaylzHnnIYaegkdvB4EmtQMSq9l4wA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jc6SEGgv;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB84F60A5BC3;
-	Tue, 24 Nov 2026 17:09:02 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="IWocWBU/";
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id CC1F0606A680;
+	Tue, 24 Nov 2026 17:09:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC1F0606A680
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jc6SEGgv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB4341F01567;
-	Tue, 24 Nov 2026 17:08:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795540142;
-	bh=awaDXuBzmGDSezRjdws9LozrH8vCNa9+sX+9QL+l1sc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Jc6SEGgvsuDipcGuSayddzZb4psR229ZH47/ivMzHAzdX3rICK2YUz4k1v7XDxcAP
-	 xWA9SECNeVeO3jhiQY6I2GSxagYTZbW4VIc8UIcpVyp30LS6wqIyC6XDnf3QJfWScL
-	 2PcdwyYfTLmKhZoBKL9VeXvAo7nR91rgWZEEhGpDY6BpuhS/tbjfOgF7vUxO10S3Yi
-	 mIW0Eep9DlDePF5tLDg3JyieGSaq8uG7Eb4oYfLuP4UWbgeBXq/d/Jy0eW3d3ud+YT
-	 1XF5sLdUHS7+32TD8NoHi2qIsH+B6h2doURdw1mJ55bAg5uS9wUmI6fW2U2VKMkebp
-	 bkrQQ1fh1/8pA==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 24 Nov 2026 17:07:54 +0000
-Subject: [PATCH v2 02/11] mm/madvise: convert madvise_vma_behavior() to use
- vma_flags_t
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=IWocWBU/
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E6961BF7;
+	Tue, 24 Nov 2026 09:09:04 -0800 (PST)
+Received: from e126453.arm.com (e126453.arm.com [10.33.8.63])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 844433F763;
+	Tue, 24 Nov 2026 09:09:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795540147; bh=WLvfCFlEIWFhaDDkz93d5wP8jzbKH6HmgGTfvFPZwng=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=IWocWBU/5CVzYQ4U2xUIBzR63sfKb1iFzcCTDLtlcM09r8c4gBx3aNNhGMZxkd0Ks
+	 ADTvCBgRj21Kz+P+9EEP9ZMyfUedveBYkAjrkwqJk8tPt/d3001VwqaYeBjcFsW+W/
+	 62O8DVo6tq/NIA5Aj+97lZ5yazbS1ILiLCxSXbc4=
+From: Anthony McGivern <anthony.mcgivern@arm.com>
+Date: Tue, 24 Nov 2026 17:07:49 +0000
+Subject: [PATCH 21/24] media: uapi: Add parameter structs to
+ mali-c720-config.h
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,396 +58,616 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-late-2026-vma-flags-v2-2-bf3fade93064@kernel.org>
-References: <20261124-late-2026-vma-flags-v2-0-bf3fade93064@kernel.org>
-In-Reply-To: <20261124-late-2026-vma-flags-v2-0-bf3fade93064@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>, 
- John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
- "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
- Rik van Riel <riel@surriel.com>, "Liam R. Howlett" <liam@infradead.org>, 
- Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>, 
- Jann Horn <jannh@google.com>, Lance Yang <lance.yang@linux.dev>, 
- Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>, 
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
- Gregory Price <gourry@gourry.net>, 
- Ying Huang <ying.huang@linux.alibaba.com>, 
- Alistair Popple <apopple@nvidia.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
- Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
- Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
- Xu Xin <xu.xin@linux.dev>, Chengming Zhou <chengming.zhou@linux.dev>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
- Shrikanth Hegde <sshegde@linux.ibm.com>, Pedro Falcato <pfalcato@suse.de>, 
- Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
- Shakeel Butt <shakeel.butt@linux.dev>, 
- Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
- Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
- Michal Hocko <mhocko@suse.com>, Leon Romanovsky <leon@kernel.org>, 
- SJ Park <sj@kernel.org>, Rakie Kim <rakie.kim@sk.com>, 
- David Rientjes <rientjes@google.com>, 
- Alexander Viro <viro@zeniv.linux.org.uk>, 
- Christian Brauner <brauner@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- James Clark <james.clark@linaro.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
- John Johansen <john.johansen@canonical.com>, 
- Georgia Garcia <georgia.garcia@canonical.com>, 
- Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
- "Serge E. Hallyn" <serge@hallyn.com>, Mimi Zohar <zohar@linux.ibm.com>, 
- Roberto Sassu <roberto.sassu@huawei.com>, 
- Dmitry Kasatkin <dmitry.kasatkin@gmail.com>, 
- Eric Snowberg <eric.snowberg@oracle.com>, Fan Wu <wufan@kernel.org>, 
- Stephen Smalley <stephen.smalley.work@gmail.com>, 
- =?utf-8?q?Ondrej_Mosn=C3=A1=C4=8Dek?= <omosnacek@gmail.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- kvm@vger.kernel.org, damon@lists.linux.dev, 
- linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- apparmor@lists.ubuntu.com, linux-security-module@vger.kernel.org, 
- linux-integrity@vger.kernel.org, selinux@vger.kernel.org, 
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=12014; i=ljs@kernel.org;
- h=from:subject:message-id; bh=pPuDrF7ehTflhEXcIW3SMy+byj5D4VLwwe1LU1fEsvA=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJZj+RuSH4x8+DDom5BB6W1SxOvFda2Cu6br2SyWoqjs
- vAZq7dnRykLgxgXg6yYIsvzL+L7g0TC5nVe8HeDmcPKBDKEgYtTACbybDIjw50Jm6/cCFIrK9rd
- 2rngs3OKX/j3D0rFnvFs2x0OruEMvcjIMM3WoXf+WsnW2d+iLVxrziW3vK2d17GhrzDdkPVV6vH
- dnAA=
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Message-Id: <20261124-b4-initial-upstream-candidate-v1-21-0cb9bde1bd30@arm.com>
+References: <20261124-b4-initial-upstream-candidate-v1-0-0cb9bde1bd30@arm.com>
+In-Reply-To: <20261124-b4-initial-upstream-candidate-v1-0-0cb9bde1bd30@arm.com>
+To: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Anthony McGivern <anthony.mcgivern@arm.com>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Nayden Kanchev <nayden.kanchev@arm.com>, 
+ Konstantin Babin <konstantin.babin@arm.com>, 
+ Linus Walleij <linusw@kernel.org>, jacopo.mondi@ideasonboard.com, 
+ kieran.bingham@ideasonboard.com, laurent.pinchart@ideasonboard.com, 
+ dan.scally@ideasonboard.com, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Rob Herring <robh@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Hans Verkuil <hverkuil@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Anthony McGivern <Anthony.McGivern@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795540079; l=25436;
+ i=Anthony.McGivern@arm.com; s=20261124; h=from:subject:message-id;
+ bh=LdKlOLTssW6rsw3XGOpSv09idn9yFA5owRXSnZEl0po=;
+ b=ewm9wlJKFg97S5peDe3gLEO/93f+UOgYnuD+hcmh1+iGWgv77CbcQxECqRr14HVQIHxIPFcms
+ 16HFGHIpImABFSBdMbTIPBtQHHA9/Q4ZB5XrbysifBU14z35KqKJBn9
+X-Developer-Key: i=Anthony.McGivern@arm.com; a=ed25519;
+ pk=cvw1HHVRuWpdkn55JpnRyCO2oGBkBWaBXcc2S3CmHTU=
 
-Replace use of the legacy vm_flags_t flags with vma_flags_t values
-throughout the madvise logic.
+From: Anthony McGivern <Anthony.McGivern@arm.com>
 
-In order to do so, update ksm_madvise() and hugepage_madvise() to take a
-vma_flags_t pointer, and update their other callers in mremap and the
-powerpc KVM ultravisor code accordingly.
+Add structures defining the ISP parameters to mali-c720-config.h.
+Additionally add a custom control ID for querying supported parameter
+blocks.
 
-In the latter case we replace vm_flags_reset() with vma_overwrite_flags().
-The VMA is write locked at this point, so the atomic flags preserved by
-vma_overwrite_flags() cannot differ from those copied, and the behaviour
-is unchanged.
-
-No functional change intended.
-
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
-Reviewed-by: Lance Yang <lance.yang@linux.dev>
+Signed-off-by: Anthony McGivern <Anthony.McGivern@arm.com>
 ---
- arch/powerpc/kvm/book3s_hv_uvmem.c | 10 ++++----
- include/linux/huge_mm.h            |  4 ++--
- include/linux/ksm.h                |  4 ++--
- mm/khugepaged.c                    | 10 ++++----
- mm/ksm.c                           |  8 +++----
- mm/madvise.c                       | 49 ++++++++++++++++++++------------------
- mm/mremap.c                        |  2 +-
- 7 files changed, 45 insertions(+), 42 deletions(-)
+ include/uapi/linux/media/arm/mali-c720-config.h | 554 ++++++++++++++++++++++++
+ 1 file changed, 554 insertions(+)
 
-diff --git a/arch/powerpc/kvm/book3s_hv_uvmem.c b/arch/powerpc/kvm/book3s_hv_uvmem.c
-index 463aef870c4e..824fe27cf34b 100644
---- a/arch/powerpc/kvm/book3s_hv_uvmem.c
-+++ b/arch/powerpc/kvm/book3s_hv_uvmem.c
-@@ -393,7 +393,7 @@ static int kvmppc_memslot_page_merge(struct kvm *kvm,
- {
- 	unsigned long gfn = memslot->base_gfn;
- 	unsigned long end, start = gfn_to_hva(kvm, gfn);
--	vm_flags_t vm_flags;
-+	vma_flags_t vma_flags;
- 	int ret = 0;
- 	struct vm_area_struct *vma;
- 	int merge_flag = (merge) ? MADV_MERGEABLE : MADV_UNMERGEABLE;
-@@ -411,15 +411,15 @@ static int kvmppc_memslot_page_merge(struct kvm *kvm,
- 			break;
- 		}
- 		vma_start_write(vma);
--		/* Copy vm_flags to avoid partial modifications in ksm_madvise */
--		vm_flags = vma->vm_flags;
-+		/* Copy flags to avoid partial modifications in ksm_madvise */
-+		vma_flags = vma->flags;
- 		ret = ksm_madvise(vma, vma->vm_start, vma->vm_end,
--			  merge_flag, &vm_flags);
-+				merge_flag, &vma_flags);
- 		if (ret) {
- 			ret = H_STATE;
- 			break;
- 		}
--		vm_flags_reset(vma, vm_flags);
-+		vma_overwrite_flags(vma, vma_flags);
- 		start = vma->vm_end;
- 	} while (end > vma->vm_end);
+diff --git a/include/uapi/linux/media/arm/mali-c720-config.h b/include/uapi/linux/media/arm/mali-c720-config.h
+index 445cae09a84cce37de9b15e051b93f96b06cbc50..f200380f3c2c8df05fa81d7348300ddad342ca02 100644
+--- a/include/uapi/linux/media/arm/mali-c720-config.h
++++ b/include/uapi/linux/media/arm/mali-c720-config.h
+@@ -14,6 +14,8 @@
  
-diff --git a/include/linux/huge_mm.h b/include/linux/huge_mm.h
-index fac05120ab77..087920c38163 100644
---- a/include/linux/huge_mm.h
-+++ b/include/linux/huge_mm.h
-@@ -507,7 +507,7 @@ change_huge_pud(struct mmu_gather *tlb, struct vm_area_struct *vma,
- 			__split_huge_pud(__vma, __pud, __address);	\
- 	}  while (0)
+ #define MALI_C720_MAX_ZONES 1024
  
--int hugepage_madvise(struct vm_area_struct *vma, vm_flags_t *vm_flags,
-+int hugepage_madvise(struct vm_area_struct *vma, vma_flags_t *vma_flags,
- 		     int advice);
- int madvise_collapse(struct vm_area_struct *vma, unsigned long start,
- 		     unsigned long end, bool *lock_dropped);
-@@ -709,7 +709,7 @@ static inline bool unmap_huge_pmd_locked(struct vm_area_struct *vma,
- 	do { } while (0)
++#define MALI_C720_NUM_DECOMPANDER_LUT_ELEMENTS 33
++
+ /**
+  * struct mali_c720_awb_stats_nodes_used - Color statistics zone dimensions
+  * @reserved1: Undefined buffer space
+@@ -179,6 +181,558 @@ struct mali_c720_stats_histogram {
+ 	 sizeof(struct mali_c720_stats_histogram) +		\
+ 	 sizeof(struct mali_c720_stats_histogram))
  
- static inline int hugepage_madvise(struct vm_area_struct *vma,
--				   vm_flags_t *vm_flags, int advice)
-+		vma_flags_t *vma_flags, int advice)
- {
- 	return -EINVAL;
- }
-diff --git a/include/linux/ksm.h b/include/linux/ksm.h
-index a0d358a1feb6..805aea997102 100644
---- a/include/linux/ksm.h
-+++ b/include/linux/ksm.h
-@@ -16,7 +16,7 @@
++/**
++ * enum mali_c720_param_block_type - Mali-C720 parameter block targets
++ *
++ * @MALI_C720_PARAM_BLOCK_DIGITAL_GAIN_INP: Digital gain for the input pipeline.
++ * @MALI_C720_PARAM_BLOCK_HISTOGRAM_INP: Histogram configuration for the input pipeline.
++ * @MALI_C720_PARAM_BLOCK_AWB_GAINS_HV: Auto-white balance gains for the HV pipeline.
++ * @MALI_C720_PARAM_BLOCK_HISTOGRAM_HV: HV histogram configuration (pre-Iridix).
++ * @MALI_C720_PARAM_BLOCK_HISTOGRAM_HV_IRIDIX: HV histogram configuration (post-Iridix).
++ * @MALI_C720_PARAM_BLOCK_COLOR_STATS_HV: Color stats configuration for the HV pipeline.
++ * @MALI_C720_PARAM_BLOCK_BLACK_LEVEL_HV: Black level offsets for the HV pipeline.
++ * @MALI_C720_PARAM_BLOCK_SQRT_INP: Square root configuration for the input pipeline.
++ * @MALI_C720_PARAM_BLOCK_SQUARE_A_HV: Square A configuration for the HV pipeline.
++ * @MALI_C720_PARAM_BLOCK_SQUARE_B_HV: Square B configuration for the HV pipeline.
++ * @MALI_C720_PARAM_BLOCK_SQRT_HV: Square root configuration for the HV pipeline.
++ * @MALI_C720_PARAM_BLOCK_DECOMPANDER_INP: Decompander configuration.
++ *
++ * Each identifier selects one logical module and instance. Applications can
++ * query V4L2_CID_MALI_C720_PARAM_CAPABILITIES for the targets present on the
++ * device. The control returns a read-only U16 array of supported identifiers.
++ */
++enum mali_c720_param_block_type {
++	MALI_C720_PARAM_BLOCK_DIGITAL_GAIN_INP,
++	MALI_C720_PARAM_BLOCK_HISTOGRAM_INP,
++	MALI_C720_PARAM_BLOCK_AWB_GAINS_HV,
++	MALI_C720_PARAM_BLOCK_HISTOGRAM_HV,
++	MALI_C720_PARAM_BLOCK_HISTOGRAM_HV_IRIDIX,
++	MALI_C720_PARAM_BLOCK_COLOR_STATS_HV,
++	MALI_C720_PARAM_BLOCK_BLACK_LEVEL_HV,
++	MALI_C720_PARAM_BLOCK_SQRT_INP,
++	MALI_C720_PARAM_BLOCK_SQUARE_A_HV,
++	MALI_C720_PARAM_BLOCK_SQUARE_B_HV,
++	MALI_C720_PARAM_BLOCK_SQRT_HV,
++	MALI_C720_PARAM_BLOCK_DECOMPANDER_INP,
++	MALI_C720_PARAM_BLOCK_MAX,
++};
++
+ #define V4L2_CID_MALI_C720_STATS_CAPABILITIES		(V4L2_CID_USER_MALI_C720_BASE + 0)
++#define V4L2_CID_MALI_C720_PARAM_CAPABILITIES		(V4L2_CID_USER_MALI_C720_BASE + 1)
++
++enum mali_c720_params_digital_gain_mask {
++	MALI_C720_PARAMS_DIGITAL_GAIN_MASK_GAIN,
++	MALI_C720_PARAMS_DIGITAL_GAIN_MASK_OFFSET,
++};
++
++/**
++ * struct mali_c720_params_digital_gain - Digital gain settings
++ *
++ * This struct configures the digital gain and a common black level for all
++ * color channels.
++ *
++ * Set header.type to the target from &enum mali_c720_param_block_type.
++ * See &enum mali_c720_params_digital_gain_mask for the @updated_mask bit positions.
++ * Undefined bits are reserved and must be set to zero.
++ *
++ * @header: The generic V4L2 ISP block header
++ * @updated_mask: Mask of configuration fields to update
++ * @gain: Input digital gain in unsigned Q12.8 format [0..1048575]; 256 = 1x
++ * @offset: Input black level [0..16777215]
++ */
++struct mali_c720_params_digital_gain {
++	struct v4l2_isp_block_header header;
++	__u64 updated_mask;
++	__u32 gain;
++	__u32 offset;
++};
++
++enum mali_c720_params_awb_gains_mask {
++	MALI_C720_PARAMS_AWB_GAINS_MASK_GAIN00,
++	MALI_C720_PARAMS_AWB_GAINS_MASK_GAIN01,
++	MALI_C720_PARAMS_AWB_GAINS_MASK_GAIN10,
++	MALI_C720_PARAMS_AWB_GAINS_MASK_GAIN11,
++};
++
++/**
++ * struct mali_c720_params_awb_gains - Gain settings for auto white balance
++ *
++ * There are four gain settings corresponding to the Bayer color channels.
++ * The ISP accounts for the input Bayer order, so the mapping to R, Gr, Gb
++ * and B is independent of that order. A value of 256 represents a 1x gain.
++ *
++ * Set header.type to the target from &enum mali_c720_param_block_type.
++ * See &enum mali_c720_params_awb_gains_mask for the @updated_mask bit positions.
++ * Undefined bits are reserved and must be set to zero.
++ *
++ * @header: The generic V4L2 ISP block header
++ * @updated_mask: Mask of configuration fields to update
++ * @gain00: Multiplier for color channel 00 (R), unsigned Q4.8 [0..4095]
++ * @gain01: Multiplier for color channel 01 (Gr), unsigned Q4.8 [0..4095]
++ * @gain10: Multiplier for color channel 10 (Gb), unsigned Q4.8 [0..4095]
++ * @gain11: Multiplier for color channel 11 (B), unsigned Q4.8 [0..4095]
++ */
++struct mali_c720_params_awb_gains {
++	struct v4l2_isp_block_header header;
++	__u64 updated_mask;
++	__u16 gain00;
++	__u16 gain01;
++	__u16 gain10;
++	__u16 gain11;
++};
++
++enum mali_c720_params_black_level_mask {
++	MALI_C720_PARAMS_BLACK_LEVEL_MASK_CHAN00,
++	MALI_C720_PARAMS_BLACK_LEVEL_MASK_CHAN01,
++	MALI_C720_PARAMS_BLACK_LEVEL_MASK_CHAN10,
++	MALI_C720_PARAMS_BLACK_LEVEL_MASK_CHAN11,
++};
++
++/**
++ * struct mali_c720_params_black_level - Black level for each color channel
++ *
++ * This struct configures black level subtraction from each Bayer color channel.
++ *
++ * Set header.type to the target from &enum mali_c720_param_block_type.
++ * See &enum mali_c720_params_black_level_mask for the @updated_mask bit positions.
++ * Undefined bits are reserved and must be set to zero.
++ *
++ * @header: The generic V4L2 ISP block header
++ * @updated_mask: Mask of configuration fields to update
++ * @chan00: Offset from color channel 00 (R); HV range [0..65535]
++ * @chan01: Offset from color channel 01 (Gr); HV range [0..65535]
++ * @chan10: Offset from color channel 10 (Gb); HV range [0..65535]
++ * @chan11: Offset from color channel 11 (B); HV range [0..65535]
++ */
++struct mali_c720_params_black_level {
++	struct v4l2_isp_block_header header;
++	__u64 updated_mask;
++	__u32 chan00;
++	__u32 chan01;
++	__u32 chan10;
++	__u32 chan11;
++};
++
++enum mali_c720_params_square_sqrt_mask {
++	MALI_C720_PARAMS_SQUARE_SQRT_MASK_BL_IN,
++	MALI_C720_PARAMS_SQUARE_SQRT_MASK_BL_OUT,
++	MALI_C720_PARAMS_SQUARE_SQRT_MASK_NORMALIZATION,
++};
++
++/**
++ * struct mali_c720_params_sqrt - Configuration for the square root module
++ *
++ * The square root module compands linear data into the square root domain,
++ * with black level correction and normalization.
++ *
++ * Set header.type to the target from &enum mali_c720_param_block_type.
++ * See &enum mali_c720_params_square_sqrt_mask for the @updated_mask bit positions.
++ * Undefined bits are reserved and must be set to zero.
++ *
++ * @header: The generic V4L2 ISP block header
++ * @updated_mask: Mask of configuration fields to update
++ * @normalization: Normalization coefficient applied before the square root,
++ *                 in Q1.16 format [0..131071]; 65536 = 1.0
++ * @black_level_linear: Input black level in the linear domain [0..16777215]
++ * @black_level_sqrt: Output black level in the square root domain [0..4095]
++ */
++struct mali_c720_params_sqrt {
++	struct v4l2_isp_block_header header;
++	__u64 updated_mask;
++	__u32 normalization;
++	__u32 black_level_linear;
++	__u16 black_level_sqrt;
++};
++
++/**
++ * struct mali_c720_params_square - Configuration for the square module
++ *
++ * The square module converts square root data back into the linear domain,
++ * with black level correction and normalization.
++ *
++ * Set header.type to the target from &enum mali_c720_param_block_type.
++ * See &enum mali_c720_params_square_sqrt_mask for the @updated_mask bit positions.
++ * Undefined bits are reserved and must be set to zero.
++ *
++ * @header: The generic V4L2 ISP block header
++ * @updated_mask: Mask of configuration fields to update
++ * @black_level_linear: Output black level, [0..4095] for Square-A or
++ *                      [0..16777215] for Square-B
++ * @black_level_sqrt: Input black level, [0..16777215] for Square-A or
++ *                    [0..4095] for Square-B
++ * @normalization: Normalization coefficient applied after squaring,
++ *                 in Q1.16 format [0..131071]; 65536 = 1.0
++ */
++struct mali_c720_params_square {
++	struct v4l2_isp_block_header header;
++	__u64 updated_mask;
++	__u32 black_level_linear;
++	__u32 black_level_sqrt;
++	__u32 normalization;
++};
++
++enum mali_c720_params_decompander_mask {
++	MALI_C720_PARAMS_DECOMPANDER_MASK_ENABLE,
++	MALI_C720_PARAMS_DECOMPANDER_MASK_LUT_X,
++	MALI_C720_PARAMS_DECOMPANDER_MASK_LUT_Y,
++};
++
++/**
++ * struct mali_c720_params_decompander - Configuration for the decompander
++ *
++ * The input decompander expands compressed sensor data using a piecewise
++ * linear curve defined by 33 points. Each X/Y pair maps an input pixel
++ * intensity to an expanded output intensity, with linear interpolation
++ * between points.
++ *
++ * The X coordinates must be in nondecreasing order and cover the input range.
++ * A nonzero difference between adjacent X coordinates must be at least 8.
++ * Repeated X coordinates must have equal Y coordinates.
++ * Both lut_x and lut_y fields must be provided together, with their respective
++ * updated_mask bits set.
++ *
++ * Y coordinates may exceed the 24-bit output range or be negative.
++ * Interpolation uses these extended values before clamping the final pixel
++ * output to the 24-bit range [0..16777215]. Nonnegative Y coordinates
++ * [0..0x17fffff] are stored directly; encodings [0x1800000..0x1ffffff]
++ * represent negative values, decoded by subtracting 0x2000000.
++ *
++ * Set header.type to the target from &enum mali_c720_param_block_type.
++ * See &enum mali_c720_params_decompander_mask for the @updated_mask bit positions.
++ * Undefined bits are reserved and must be set to zero.
++ *
++ * @header: The generic V4L2 ISP block header
++ * @updated_mask: Mask of configuration fields to update
++ * @enable: Enable decompanding: 0 = bypass, 1 = enabled
++ * @reserved: Reserved; set to zero
++ * @lut_x: 33 input pixel intensities, unsigned 24-bit [0..16777215]
++ * @lut_y: 33 corresponding output pixel intensities, using the encoding above
++ */
++struct mali_c720_params_decompander {
++	struct v4l2_isp_block_header header;
++	__u64 updated_mask;
++	__u8 enable;
++	__u8 reserved[3];
++	__u32 lut_x[MALI_C720_NUM_DECOMPANDER_LUT_ELEMENTS];
++	__u32 lut_y[MALI_C720_NUM_DECOMPANDER_LUT_ELEMENTS];
++};
++
++/**
++ * enum mali_c720_awb_stats_mode - Statistics mode for auto white balance
++ * @MALI_C720_AWB_MODE_GRGB: Green/Red and Green/Blue ratios
++ * @MALI_C720_AWB_MODE_RGBG: Red/Green and Blue/Green ratios
++ */
++enum mali_c720_awb_stats_mode {
++	MALI_C720_AWB_MODE_GRGB = 0,
++	MALI_C720_AWB_MODE_RGBG = 1,
++};
++
++enum mali_c720_params_color_stats_mask {
++	MALI_C720_PARAMS_COLOR_STATS_MASK_NODES_USED_HORIZ,
++	MALI_C720_PARAMS_COLOR_STATS_MASK_NODES_USED_VERT,
++	MALI_C720_PARAMS_COLOR_STATS_MASK_AWB_STATS_MODE,
++	MALI_C720_PARAMS_COLOR_STATS_MASK_WHITE_LEVEL_AWB,
++	MALI_C720_PARAMS_COLOR_STATS_MASK_BLACK_LEVEL_AWB,
++	MALI_C720_PARAMS_COLOR_STATS_MASK_CR_REF_MAX_AWB,
++	MALI_C720_PARAMS_COLOR_STATS_MASK_CR_REF_MIN_AWB,
++	MALI_C720_PARAMS_COLOR_STATS_MASK_CR_REF_HIGH_AWB,
++	MALI_C720_PARAMS_COLOR_STATS_MASK_CR_REF_LOW_AWB,
++	MALI_C720_PARAMS_COLOR_STATS_MASK_CB_REF_MAX_AWB,
++	MALI_C720_PARAMS_COLOR_STATS_MASK_CB_REF_MIN_AWB,
++	MALI_C720_PARAMS_COLOR_STATS_MASK_CB_REF_HIGH_AWB,
++	MALI_C720_PARAMS_COLOR_STATS_MASK_CB_REF_LOW_AWB,
++	MALI_C720_PARAMS_COLOR_STATS_MASK_WEIGHTS,
++};
++
++/**
++ * struct mali_c720_params_color_stats - Color statistics configuration
++ *
++ * This struct configures the statistics generated for auto white balance.
++ * Pixel intensity limits exclude overly bright or dark pixels from the
++ * statistics. Color ratio minima and maxima bound a region in R/G and B/G
++ * space, while the high and low ratios trim its upper-right and lower-left
++ * corners. Only pixels whose ratios fall inside the region marked "A" are
++ * counted, independently of @awb_stats_mode::
++ *
++ *     B/G
++ *      ^
++ *  max |  +-----------------+  (high, max)
++ *      |  |                  \
++ *  high|  |                   + (max, high)
++ *      |  |         A         |
++ *  low |  +                   |
++ *      |   \                  |
++ *  min |    +-----------------+
++ *      +--------------------------> R/G
++ *         min low          high max
++ *
++ * Setting low to min and high to max selects the full rectangle.
++ *
++ * The product of @nodes_used_horiz and @nodes_used_vert must not exceed
++ * MALI_C720_MAX_ZONES (1024). Exceeding this limit produces invalid statistics
++ * that cannot be parsed reliably.
++ * When updating zone dimensions, both horizontal and vertical directions must
++ * be provided with their respective updated_mask bits set.
++ *
++ * Zone weights control each zone's contribution to the global statistics.
++ * A weight of 0 excludes the zone; values 1..14 represent weights of
++ * 1/16..14/16 and 15 applies the full weight. Per-zone results are not weighted.
++ *
++ * Set header.type to the target from &enum mali_c720_param_block_type.
++ * See &enum mali_c720_params_color_stats_mask for the @updated_mask bit positions.
++ * Undefined bits are reserved and must be set to zero.
++ *
++ * @header: The generic V4L2 ISP block header
++ * @updated_mask: Mask of configuration fields to update
++ * @nodes_used_horiz: Number of horizontal zones [3..32]
++ * @nodes_used_vert: Number of vertical zones [3..255], subject to the total
++ *                   zone limit above
++ * @awb_stats_mode: Ratio mode, see &enum mali_c720_awb_stats_mode
++ * @reserved: Reserved; set to zero
++ * @white_level_awb: Upper pixel intensity limit (exclusive), 14-bit [0..16383]
++ * @black_level_awb: Lower pixel intensity limit (exclusive), 14-bit [0..16383]
++ * @cr_ref_max_awb: Maximum R/G ratio, unsigned Q4.8 [0..4095]
++ * @cr_ref_min_awb: Minimum R/G ratio, unsigned Q4.8 [0..4095]
++ * @cr_ref_high_awb: R/G ratio trim high, unsigned Q4.8 [0..4095]
++ * @cr_ref_low_awb: R/G ratio trim low, unsigned Q4.8 [0..4095]
++ * @cb_ref_max_awb: Maximum B/G ratio, unsigned Q4.8 [0..4095]
++ * @cb_ref_min_awb: Minimum B/G ratio, unsigned Q4.8 [0..4095]
++ * @cb_ref_high_awb: B/G ratio trim high, unsigned Q4.8 [0..4095]
++ * @cb_ref_low_awb: B/G ratio trim low, unsigned Q4.8 [0..4095]
++ * @weights: Zone weights in row-major order from the top left, one byte per
++ *           zone [0..15]. Index is y * nodes_used_horiz + x.
++ */
++struct mali_c720_params_color_stats {
++	struct v4l2_isp_block_header header;
++	__u64 updated_mask;
++	__u8 nodes_used_horiz;
++	__u8 nodes_used_vert;
++	__u8 awb_stats_mode;
++	__u8 reserved;
++	__u16 white_level_awb;
++	__u16 black_level_awb;
++	__u16 cr_ref_max_awb;
++	__u16 cr_ref_min_awb;
++	__u16 cr_ref_high_awb;
++	__u16 cr_ref_low_awb;
++	__u16 cb_ref_max_awb;
++	__u16 cb_ref_min_awb;
++	__u16 cb_ref_high_awb;
++	__u16 cb_ref_low_awb;
++	__u8 weights[MALI_C720_MAX_ZONES];
++};
++
++/**
++ * enum mali_c720_histogram_input - Input for pre-Iridix histograms
++ * @MALI_C720_HISTOGRAM_INPUT_RAW: Raw Bayer data
++ * @MALI_C720_HISTOGRAM_INPUT_LUMA: Luminance data
++ */
++enum mali_c720_histogram_input {
++	MALI_C720_HISTOGRAM_INPUT_RAW = 0,
++	MALI_C720_HISTOGRAM_INPUT_LUMA = 1,
++};
++
++/**
++ * enum mali_c720_histogram_skip_x - Horizontal pixel skipping
++ * @MALI_C720_HISTOGRAM_SKIP_X_EVERY_2ND: Collect every 2nd pixel horizontally
++ * @MALI_C720_HISTOGRAM_SKIP_X_EVERY_3RD: Collect every 3rd pixel horizontally
++ * @MALI_C720_HISTOGRAM_SKIP_X_EVERY_4TH: Collect every 4th pixel horizontally
++ * @MALI_C720_HISTOGRAM_SKIP_X_EVERY_5TH: Collect every 5th pixel horizontally
++ * @MALI_C720_HISTOGRAM_SKIP_X_EVERY_8TH: Collect every 8th pixel horizontally
++ * @MALI_C720_HISTOGRAM_SKIP_X_EVERY_9TH: Collect every 9th pixel horizontally
++ */
++enum mali_c720_histogram_skip_x {
++	MALI_C720_HISTOGRAM_SKIP_X_EVERY_2ND = 0,
++	MALI_C720_HISTOGRAM_SKIP_X_EVERY_3RD = 1,
++	MALI_C720_HISTOGRAM_SKIP_X_EVERY_4TH = 2,
++	MALI_C720_HISTOGRAM_SKIP_X_EVERY_5TH = 3,
++	MALI_C720_HISTOGRAM_SKIP_X_EVERY_8TH = 4,
++	MALI_C720_HISTOGRAM_SKIP_X_EVERY_9TH = 5,
++};
++
++/**
++ * enum mali_c720_histogram_skip_y - Vertical pixel skipping
++ * @MALI_C720_HISTOGRAM_SKIP_Y_ALL: Collect every row
++ * @MALI_C720_HISTOGRAM_SKIP_Y_EVERY_2ND: Collect every 2nd row
++ * @MALI_C720_HISTOGRAM_SKIP_Y_EVERY_3RD: Collect every 3rd row
++ * @MALI_C720_HISTOGRAM_SKIP_Y_EVERY_4TH: Collect every 4th row
++ * @MALI_C720_HISTOGRAM_SKIP_Y_EVERY_5TH: Collect every 5th row
++ * @MALI_C720_HISTOGRAM_SKIP_Y_EVERY_8TH: Collect every 8th row
++ * @MALI_C720_HISTOGRAM_SKIP_Y_EVERY_9TH: Collect every 9th row
++ */
++enum mali_c720_histogram_skip_y {
++	MALI_C720_HISTOGRAM_SKIP_Y_ALL = 0,
++	MALI_C720_HISTOGRAM_SKIP_Y_EVERY_2ND = 1,
++	MALI_C720_HISTOGRAM_SKIP_Y_EVERY_3RD = 2,
++	MALI_C720_HISTOGRAM_SKIP_Y_EVERY_4TH = 3,
++	MALI_C720_HISTOGRAM_SKIP_Y_EVERY_5TH = 4,
++	MALI_C720_HISTOGRAM_SKIP_Y_EVERY_8TH = 5,
++	MALI_C720_HISTOGRAM_SKIP_Y_EVERY_9TH = 6,
++};
++
++/**
++ * enum mali_c720_histogram_row_column_offset - Starting row or column
++ * @MALI_C720_HISTOGRAM_FIRST_ROW_OR_COL: Start from the first row or column
++ * @MALI_C720_HISTOGRAM_SECOND_ROW_OR_COL: Start from the second row or column
++ */
++enum mali_c720_histogram_row_column_offset {
++	MALI_C720_HISTOGRAM_FIRST_ROW_OR_COL = 0,
++	MALI_C720_HISTOGRAM_SECOND_ROW_OR_COL = 1,
++};
++
++/**
++ * enum mali_c720_histogram_scale - Intensity range scaling
++ * @MALI_C720_HISTOGRAM_SCALE_1X: No scaling
++ * @MALI_C720_HISTOGRAM_SCALE_2X: Scale by 2
++ * @MALI_C720_HISTOGRAM_SCALE_4X: Scale by 4
++ * @MALI_C720_HISTOGRAM_SCALE_8X: Scale by 8
++ * @MALI_C720_HISTOGRAM_SCALE_16X: Scale by 16
++ */
++enum mali_c720_histogram_scale {
++	MALI_C720_HISTOGRAM_SCALE_1X = 0,
++	MALI_C720_HISTOGRAM_SCALE_2X = 1,
++	MALI_C720_HISTOGRAM_SCALE_4X = 2,
++	MALI_C720_HISTOGRAM_SCALE_8X = 3,
++	MALI_C720_HISTOGRAM_SCALE_16X = 4,
++};
++
++/**
++ * enum mali_c720_histogram_plane_mode - Mode for histogram collection
++ * @MALI_C720_HISTOGRAM_COMBINED: All color planes in one 1024-bin histogram
++ *                              with a bin width of 16384
++ * @MALI_C720_HISTOGRAM_SEPARATE: Each color plane in one 256-bin histogram
++ *                             with a bin width of 65536
++ * @MALI_C720_HISTOGRAM_SEPARATE_ALL: As %MALI_C720_HISTOGRAM_SEPARATE, without
++ *                                 pixel skipping; ignores skip and offset fields
++ * @MALI_C720_HISTOGRAM_FOCUS_00: Top left plane in the first bank, rest in second bank
++ * @MALI_C720_HISTOGRAM_FOCUS_01: Top right plane in the first bank, rest in second bank
++ * @MALI_C720_HISTOGRAM_FOCUS_10: Bottom left plane in the first bank, rest in second bank
++ * @MALI_C720_HISTOGRAM_FOCUS_11: Bottom right plane in the first bank, rest in second bank
++ *
++ * In the "focus" modes statistics are collected into two 512-bin histograms
++ * with a bin width of 32768. One color plane is in the first histogram with
++ * the remainder combined into the second. The four options represent which
++ * of the four positions in a Bayer pattern is the focused plane.
++ *
++ * Bin widths are expressed in 24-bit input levels with intensity scaling set
++ * to %MALI_C720_HISTOGRAM_SCALE_1X. Value 3 is reserved.
++ */
++enum mali_c720_histogram_plane_mode {
++	MALI_C720_HISTOGRAM_COMBINED = 0,
++	MALI_C720_HISTOGRAM_SEPARATE = 1,
++	MALI_C720_HISTOGRAM_SEPARATE_ALL = 2,
++	MALI_C720_HISTOGRAM_FOCUS_00 = 4,
++	MALI_C720_HISTOGRAM_FOCUS_01 = 5,
++	MALI_C720_HISTOGRAM_FOCUS_10 = 6,
++	MALI_C720_HISTOGRAM_FOCUS_11 = 7,
++};
++
++enum mali_c720_params_histogram_mask {
++	MALI_C720_PARAMS_HISTOGRAM_MASK_STREAM_MUX_SEL,
++	MALI_C720_PARAMS_HISTOGRAM_MASK_NODES_USED_HORIZ,
++	MALI_C720_PARAMS_HISTOGRAM_MASK_NODES_USED_VERT,
++	MALI_C720_PARAMS_HISTOGRAM_MASK_SKIP_X,
++	MALI_C720_PARAMS_HISTOGRAM_MASK_SKIP_Y,
++	MALI_C720_PARAMS_HISTOGRAM_MASK_OFFSET_X,
++	MALI_C720_PARAMS_HISTOGRAM_MASK_OFFSET_Y,
++	MALI_C720_PARAMS_HISTOGRAM_MASK_SCALE_BOTTOM,
++	MALI_C720_PARAMS_HISTOGRAM_MASK_SCALE_TOP,
++	MALI_C720_PARAMS_HISTOGRAM_MASK_PLANE_MODE,
++	MALI_C720_PARAMS_HISTOGRAM_MASK_WEIGHTS,
++};
++
++/**
++ * struct mali_c720_params_histogram - Histogram configuration
++ *
++ * This struct configures the 1024-bin histograms. The parameters allow
++ * particular regions of the image to be masked and different kinds of
++ * histogram to be selected.
++ *
++ * The @skip_x, @offset_x, @skip_y and @offset_y fields select pixels by their
++ * position relative to the top left of the image. These fields reduce the
++ * number of pixels counted, but some combinations exclude entire Bayer color
++ * components.
++ *
++ * The zone dimensions define the spatial weighting grid, whose total number
++ * of zones must not exceed MALI_C720_MAX_ZONES (1024). A zero weight
++ * excludes the zone from the histogram.
++ * When updating zone dimensions, both horizontal and vertical directions must
++ * be provided with their respective updated_mask bits set.
++ *
++ * @scale_bottom and @scale_top increase bin resolution at the dark and bright
++ * ends of the input range respectively. Samples outside the selected ranges
++ * do not contribute to the histogram.
++ *
++ * Set header.type to the target from &enum mali_c720_param_block_type.
++ * See &enum mali_c720_params_histogram_mask for the @updated_mask bit positions.
++ * Undefined bits are reserved and must be set to zero.
++ *
++ * @header: The generic V4L2 ISP block header
++ * @updated_mask: Mask of configuration fields to update
++ * @stream_mux_select: Input selection for pre-Iridix histograms. See
++ *                     &enum mali_c720_histogram_input. Ignored for other targets.
++ * @nodes_used_horiz: Number of active zones horizontally [1..255], subject to the total
++ *                    zone limit above
++ * @nodes_used_vert: Number of active zones vertically [1..255], subject to the total
++ *                   zone limit above
++ * @skip_x: Horizontal decimation. See &enum mali_c720_histogram_skip_x
++ * @skip_y: Vertical decimation. See &enum mali_c720_histogram_skip_y
++ * @offset_x: Skip the first column, or not. See &enum mali_c720_histogram_row_column_offset
++ * @offset_y: Skip the first row, or not. See &enum mali_c720_histogram_row_column_offset.
++ *            With @skip_y set to %MALI_C720_HISTOGRAM_SKIP_Y_ALL, this selects
++ *            the starting column on alternate rows instead.
++ * @scale_bottom: Scale pixels in the bottom half of the intensity range.
++ *                See &enum mali_c720_histogram_scale
++ * @scale_top: Scale pixels in the top half of the intensity range.
++ *             See &enum mali_c720_histogram_scale
++ * @plane_mode: Plane separation mode. See &enum mali_c720_histogram_plane_mode
++ * @reserved: Reserved; set to zero
++ * @weights: Zone weighting, one byte per zone, starting at the top left and
++ *           continuing in raster order. Each zone can be weighted in [0..15].
++ *           The grid has @nodes_used_horiz columns and @nodes_used_vert rows.
++ */
++struct mali_c720_params_histogram {
++	struct v4l2_isp_block_header header;
++	__u64 updated_mask;
++	__u8 stream_mux_select;
++	__u8 nodes_used_horiz;
++	__u8 nodes_used_vert;
++	__u8 skip_x;
++	__u8 skip_y;
++	__u8 offset_x;
++	__u8 offset_y;
++	__u8 scale_bottom;
++	__u8 scale_top;
++	__u8 plane_mode;
++	__u8 reserved[2];
++	__u8 weights[MALI_C720_MAX_ZONES];
++};
++
++/**
++ * MALI_C720_PARAMS_MAX_SIZE - Maximum size of all parameters for Mali-C720
++ * in a full hardware configuration.
++ *
++ * Though the parameters for the Mali-C720 are passed as optional blocks, the
++ * driver still needs to know the absolute maximum size so that it can allocate
++ * a buffer sized appropriately to accommodate userspace attempting to set all
++ * possible parameters in a single frame.
++ *
++ * Some structs are in this list multiple times. Where that's the case, it just
++ * reflects the fact that several block identifiers share the same payload
++ * structure.
++ */
++#define MALI_C720_PARAMS_MAX_SIZE				\
++	(sizeof(struct mali_c720_params_digital_gain) +		\
++	 sizeof(struct mali_c720_params_histogram) +		\
++	 sizeof(struct mali_c720_params_awb_gains) +		\
++	 sizeof(struct mali_c720_params_histogram) +		\
++	 sizeof(struct mali_c720_params_histogram) +		\
++	 sizeof(struct mali_c720_params_color_stats) +		\
++	 sizeof(struct mali_c720_params_black_level) +		\
++	 sizeof(struct mali_c720_params_sqrt) +			\
++	 sizeof(struct mali_c720_params_square) +		\
++	 sizeof(struct mali_c720_params_square) +		\
++	 sizeof(struct mali_c720_params_sqrt) +			\
++	 sizeof(struct mali_c720_params_decompander))
  
- #ifdef CONFIG_KSM
- int ksm_madvise(struct vm_area_struct *vma, unsigned long start,
--		unsigned long end, int advice, vm_flags_t *vm_flags);
-+		unsigned long end, int advice, vma_flags_t *vma_flags);
- vma_flags_t ksm_vma_flags(struct mm_struct *mm, const struct file *file,
- 			  vma_flags_t vma_flags);
- int ksm_enable_merge_any(struct mm_struct *mm);
-@@ -139,7 +139,7 @@ static inline void collect_procs_ksm(const struct folio *folio,
- 
- #ifdef CONFIG_MMU
- static inline int ksm_madvise(struct vm_area_struct *vma, unsigned long start,
--		unsigned long end, int advice, vm_flags_t *vm_flags)
-+		unsigned long end, int advice, vma_flags_t *vma_flags)
- {
- 	return 0;
- }
-diff --git a/mm/khugepaged.c b/mm/khugepaged.c
-index 5e768481ac22..4e5b94b59461 100644
---- a/mm/khugepaged.c
-+++ b/mm/khugepaged.c
-@@ -363,16 +363,16 @@ static unsigned int collapse_max_ptes_swap(struct collapse_control *cc,
- }
- 
- int hugepage_madvise(struct vm_area_struct *vma,
--		     vm_flags_t *vm_flags, int advice)
-+		     vma_flags_t *vma_flags, int advice)
- {
- 	switch (advice) {
- 	case MADV_HUGEPAGE:
--		*vm_flags &= ~VM_NOHUGEPAGE;
--		*vm_flags |= VM_HUGEPAGE;
-+		vma_flags_clear(vma_flags, VMA_NOHUGEPAGE_BIT);
-+		vma_flags_set(vma_flags, VMA_HUGEPAGE_BIT);
- 		break;
- 	case MADV_NOHUGEPAGE:
--		*vm_flags &= ~VM_HUGEPAGE;
--		*vm_flags |= VM_NOHUGEPAGE;
-+		vma_flags_clear(vma_flags, VMA_HUGEPAGE_BIT);
-+		vma_flags_set(vma_flags, VMA_NOHUGEPAGE_BIT);
- 		/*
- 		 * Setting VM_NOHUGEPAGE will prevent khugepaged from scanning
- 		 * this vma even if we leave the mm registered in khugepaged if
-diff --git a/mm/ksm.c b/mm/ksm.c
-index 623a2cdb3924..c4556f6a81de 100644
---- a/mm/ksm.c
-+++ b/mm/ksm.c
-@@ -3022,7 +3022,7 @@ int ksm_disable(struct mm_struct *mm)
- }
- 
- int ksm_madvise(struct vm_area_struct *vma, unsigned long start,
--		unsigned long end, int advice, vm_flags_t *vm_flags)
-+		unsigned long end, int advice, vma_flags_t *vma_flags)
- {
- 	struct mm_struct *mm = vma->vm_mm;
- 	int err;
-@@ -3040,11 +3040,11 @@ int ksm_madvise(struct vm_area_struct *vma, unsigned long start,
- 				return err;
- 		}
- 
--		*vm_flags |= VM_MERGEABLE;
-+		vma_flags_set(vma_flags, VMA_MERGEABLE_BIT);
- 		break;
- 
- 	case MADV_UNMERGEABLE:
--		if (!(*vm_flags & VM_MERGEABLE))
-+		if (!vma_flags_test(vma_flags, VMA_MERGEABLE_BIT))
- 			return 0;		/* just ignore the advice */
- 
- 		if (vma_has_anon_rmap(vma)) {
-@@ -3053,7 +3053,7 @@ int ksm_madvise(struct vm_area_struct *vma, unsigned long start,
- 				return err;
- 		}
- 
--		*vm_flags &= ~VM_MERGEABLE;
-+		vma_flags_clear(vma_flags, VMA_MERGEABLE_BIT);
- 		break;
- 	}
- 
-diff --git a/mm/madvise.c b/mm/madvise.c
-index 34b524c5ffc0..726825aee8d6 100644
---- a/mm/madvise.c
-+++ b/mm/madvise.c
-@@ -148,11 +148,10 @@ static int replace_anon_vma_name(struct vm_area_struct *vma,
-  * Update the vm_flags or anon_name on region of a vma, splitting it or merging
-  * it as necessary. Must be called with mmap_lock held for writing.
-  */
--static int madvise_update_vma(vm_flags_t new_flags,
-+static int madvise_update_vma(vma_flags_t new_vma_flags,
- 		struct madvise_behavior *madv_behavior)
- {
- 	struct vm_area_struct *vma = madv_behavior->vma;
--	vma_flags_t new_vma_flags = legacy_to_vma_flags(new_flags);
- 	struct madvise_behavior_range *range = &madv_behavior->range;
- 	struct anon_vma_name *anon_name = madv_behavior->anon_name;
- 	bool set_new_anon_name = madv_behavior->behavior == __MADV_SET_ANON_VMA_NAME;
-@@ -627,7 +626,8 @@ static void madvise_cold_page_range(struct mmu_gather *tlb,
- 
- static inline bool can_madv_lru_vma(struct vm_area_struct *vma)
- {
--	return !(vma->vm_flags & (VM_LOCKED|VM_PFNMAP|VM_HUGETLB));
-+	return !vma_test_any(vma, VMA_LOCKED_BIT, VMA_PFNMAP_BIT,
-+			     VMA_HUGETLB_BIT);
- }
- 
- static long madvise_cold(struct madvise_behavior *madv_behavior)
-@@ -675,8 +675,8 @@ static long madvise_pageout(struct madvise_behavior *madv_behavior)
- 	 * owner nor write capable of the file. We allow private file mappings
- 	 * further to pageout dirty anon pages.
- 	 */
--	if (!vma_is_anonymous(vma) && (!can_do_file_pageout(vma) &&
--				(vma->vm_flags & VM_MAYSHARE)))
-+	if (!vma_is_anonymous(vma) && !can_do_file_pageout(vma) &&
-+	    vma_test(vma, VMA_MAYSHARE_BIT))
- 		return 0;
- 
- 	lru_add_drain();
-@@ -923,12 +923,12 @@ bool madvise_dontneed_free_valid_vma(struct madvise_behavior *madv_behavior)
- 	struct madvise_behavior_range *range = &madv_behavior->range;
- 
- 	if (!vma_is_hugetlb(vma)) {
--		unsigned int forbidden = VM_PFNMAP;
-+		vma_flags_t forbidden = mk_vma_flags(VMA_PFNMAP_BIT);
- 
- 		if (behavior != MADV_DONTNEED_LOCKED)
--			forbidden |= VM_LOCKED;
-+			vma_flags_set(&forbidden, VMA_LOCKED_BIT);
- 
--		return !(vma->vm_flags & forbidden);
-+		return !vma_test_any_mask(vma, forbidden);
- 	}
- 
- 	if (behavior != MADV_DONTNEED && behavior != MADV_DONTNEED_LOCKED)
-@@ -1063,7 +1063,7 @@ static long madvise_remove(struct madvise_behavior *madv_behavior)
- 
- 	mark_mmap_lock_dropped(madv_behavior);
- 
--	if (vma->vm_flags & VM_LOCKED)
-+	if (vma_test(vma, VMA_LOCKED_BIT))
- 		return -EINVAL;
- 
- 	f = vma->vm_file;
-@@ -1377,7 +1377,7 @@ static bool can_madvise_modify(struct madvise_behavior *madv_behavior)
- 		return true;
- 
- 	/* If the user could write to the mapping anyway, then this is fine. */
--	if ((vma->vm_flags & VM_WRITE) &&
-+	if (vma_test(vma, VMA_WRITE_BIT) &&
- 	    arch_vma_access_permitted(vma, /* write= */ true,
- 			/* execute= */ false, /* foreign= */ false))
- 		return true;
-@@ -1401,7 +1401,7 @@ static int madvise_vma_behavior(struct madvise_behavior *madv_behavior)
- {
- 	int behavior = madv_behavior->behavior;
- 	struct vm_area_struct *vma = madv_behavior->vma;
--	vm_flags_t new_flags = vma->vm_flags;
-+	vma_flags_t new_flags = vma->flags;
- 	struct madvise_behavior_range *range = &madv_behavior->range;
- 	int error;
- 
-@@ -1432,44 +1432,47 @@ static int madvise_vma_behavior(struct madvise_behavior *madv_behavior)
- 	/* The below behaviours update VMAs via madvise_update_vma(). */
- 
- 	case MADV_NORMAL:
--		new_flags = new_flags & ~VM_RAND_READ & ~VM_SEQ_READ;
-+		vma_flags_clear(&new_flags, VMA_RAND_READ_BIT,
-+				VMA_SEQ_READ_BIT);
- 		break;
- 	case MADV_SEQUENTIAL:
--		new_flags = (new_flags & ~VM_RAND_READ) | VM_SEQ_READ;
-+		vma_flags_clear(&new_flags, VMA_RAND_READ_BIT);
-+		vma_flags_set(&new_flags, VMA_SEQ_READ_BIT);
- 		break;
- 	case MADV_RANDOM:
--		new_flags = (new_flags & ~VM_SEQ_READ) | VM_RAND_READ;
-+		vma_flags_clear(&new_flags, VMA_SEQ_READ_BIT);
-+		vma_flags_set(&new_flags, VMA_RAND_READ_BIT);
- 		break;
- 	case MADV_DONTFORK:
--		new_flags |= VM_DONTCOPY;
-+		vma_flags_set(&new_flags, VMA_DONTCOPY_BIT);
- 		break;
- 	case MADV_DOFORK:
- 		if (!vma_is_mm_backed(vma) || vma_is_hugetlb(vma))
- 			return -EINVAL;
--		new_flags &= ~VM_DONTCOPY;
-+		vma_flags_clear(&new_flags, VMA_DONTCOPY_BIT);
- 		break;
- 	case MADV_WIPEONFORK:
- 		/* MADV_WIPEONFORK is only supported on anonymous memory. */
--		if (vma->vm_file || new_flags & VM_SHARED)
-+		if (vma->vm_file || vma_flags_test(&new_flags, VMA_SHARED_BIT))
- 			return -EINVAL;
--		new_flags |= VM_WIPEONFORK;
-+		vma_flags_set(&new_flags, VMA_WIPEONFORK_BIT);
- 		break;
- 	case MADV_KEEPONFORK:
--		if (new_flags & VM_DROPPABLE)
-+		if (vma_flags_test_single_mask(&new_flags, VMA_DROPPABLE))
- 			return -EINVAL;
--		new_flags &= ~VM_WIPEONFORK;
-+		vma_flags_clear(&new_flags, VMA_WIPEONFORK_BIT);
- 		break;
- 	case MADV_DONTDUMP:
--		new_flags |= VM_DONTDUMP;
-+		vma_flags_set(&new_flags, VMA_DONTDUMP_BIT);
- 		break;
- 	case MADV_DODUMP:
- 		/* Only mm-backed memory can be meaningfully dumped. */
- 		if (!vma_is_mm_backed(vma))
- 			return -EINVAL;
- 		/* Core mm may discard droppable memory at any time. */
--		if (new_flags & VM_DROPPABLE)
-+		if (vma_flags_test_single_mask(&new_flags, VMA_DROPPABLE))
- 			return -EINVAL;
--		new_flags &= ~VM_DONTDUMP;
-+		vma_flags_clear(&new_flags, VMA_DONTDUMP_BIT);
- 		break;
- 	case MADV_MERGEABLE:
- 	case MADV_UNMERGEABLE:
-diff --git a/mm/mremap.c b/mm/mremap.c
-index 91af75cbbc60..a5fb94443b00 100644
---- a/mm/mremap.c
-+++ b/mm/mremap.c
-@@ -1131,7 +1131,7 @@ static unsigned long prep_move_vma(struct vma_remap_struct *vrm)
- 	struct vm_area_struct *vma = vrm->vma;
- 	unsigned long old_addr = vrm->addr;
- 	unsigned long old_len = vrm->old_len;
--	vm_flags_t dummy = vma->vm_flags;
-+	vma_flags_t dummy = vma->flags;
- 	const bool split_before = vma->vm_start != old_addr;
- 	const bool split_after = vma->vm_end != old_addr + old_len;
- 
+ #endif
 
 -- 
-2.56.1
+2.55.0
 
