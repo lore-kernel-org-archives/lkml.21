@@ -1,79 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795507957;
-	b=hG+7qU2DQjSgZl2qs70YawqmfnY+enOkRAxhmYNQHUhSSJMnO4CVTzF/uir6W/yD8bSK
-	 0S8Ngns1NZ5tgVI/tlOag6jASBFTjsJBCTSA3aOoulJYjktYxXkkr8p2I+nHT2uRld0Fv
-	 oGjTUV/LV/4RQFjWsB9/EkxYJZCJuMI30na4z8ex2yQcSNs0lOv4xmYuh0F904vCw02Gl
-	 uXMJUZu0CkZU7nPw0sWQxkparByfRnH8WQCLQVfnP/RgRRCzLrDH3mgKqHiYQPCtHvNC+
-	 EawvuhrO/KiOXzUaVvb2eeMkJKbXDUVCgb5wmkUBCr8xT7b0ciPD3Pn8i0/NJPBACAg==
+	t=1795507992;
+	b=L5NDOKJ+ksP63Ep3tTRY4+hPOswWBHkt4Q+QyDq2dnxCkV1Bq8pddyekiubXfGLlZl89
+	 BXESInhnkO4MP0BRM1mWy1avibHTXFan0r4jjVS8uLzEIK4qsFmNTT5Q5pLfEfkgKMz+v
+	 iIkoFngFVtXDTSgCAZSUOxUxfDBgCWcKBgLt6SYvC0bLQX2fOgqnOoYHCIftFzF6CM0LN
+	 X5plR3AOH1pdPOGUGK3dMb5mo6cSudprk/DJLAQAVV0j1VcNmcK9ZW+th+38BgjBslgjz
+	 HUKvNb0CaHbTrjunfuPMTEm+Oenh6sVczPqTVfYXskEdKjypjbHuU0hxLSuoLZ587Aw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795507957;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=Vh6o0Uq0GD1FXVlvKlx8RTkFOpyY76iCiDBsd6zPbMY=;
-	b=5QhyNZz+I7JSY3iaMa1XDi5qqnxiTEjypaubj5dUSb7zi+ybMJaMe/WxFyySXY5vwkZ7
-	 VNrOih4cLFexxehPHzSEFet4mU3sQiM20Y5E/edm44HBQF1h4rfCjgYYboOte8KU0F6XC
-	 5sD3u5JTY0tPIfpGiaGhiFo8sCutHWANAs6G3mldVn0Zxg9WziJvB0jOAglDXY/JE8M7R
-	 SevnXIK/jvDYI5Ao9Fr0kbAJlrvZhQt3PmdkKga52zc/fTkenn4/U0N18EICIjtPqH+dr
-	 ObSTH3nmfd2AyIc68VGnjjMjfI+GDmUFnDpGZL8Ez0ZgRSKruXPxmAoNgWnjH+EnKSw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795507992;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=vr099ZksUMvTCwdEOwMPPwsGjYEwcmcdK46JI4rLfIk=;
+	b=zedcb9mZYm9huyEUwhnxli3mxzCuiVwJqeXWh1k80LqWChScBPXA0jpQhilNZuNUkSla
+	 W6QeBhDRQg5RQdt4KLV8sfAn9BxTQY6u3bdy9HBIX6bCjNNeKwIWlzNjqFQ+XmjyKkj/9
+	 pt3IQEyiteDuqAJVSCs8cNnxDZSGzdCS+rSJHN5l5KtNfENq4cOBiRGf/Sx0LKVtdZVli
+	 2PGhXopiq9zCCgNtVMDLTnJ3pepkxkfQptkcQXmpzDFxtTJIurmMjWn/IRTZmRaoE9zo9
+	 ClBh/ZvC9OGjJJ+CGrz88z5zkm501ICwGhFWHwbxs9zgTqgTu81pxfAstmQhevFKBEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=E1askq4J;
-	arc=none smtp.remote-ip=192.198.163.19
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=none header.from=layalina.io;
+	spf=pass smtp.mailfrom=layalina.io;
+	dkim=pass header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=m5Qqp6z6;
+	arc=none smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E17A606A321;
-	Tue, 24 Nov 2026 08:12:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E17A606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8217606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:13:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8217606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=layalina.io
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=layalina.io
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=E1askq4J
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795507956; x=1827043956;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Rf4Wny/8xM0G/G/mMyP4juRv8qe8MSGZhUvTveLTgjg=;
-  b=E1askq4JTQmZOy8MODXzMAThjB8cxs6WzYSTVZ0+CnDTAkjwYpvEvxL2
-   KhUQbCLZIvqC+KEIDcT3HuJfFuVlZivW0W4NzZYX8/D1MqhtpKADFs8s3
-   ezAnyJpEnq1T/rAkJUoClfrs1lUveP7mAArARLyNN/SyraO8/N9RtiYEm
-   90OBzB9aWc+1p2LjlyxrpD7iAVL4u9zwbEthYakQJJMbLGeLWc5S6eiPh
-   y5PYEbQ3gCc5fcJutQjWnMc/Sb/UChwyQBdMALi4oEy7GQfpYTm27Yg4C
-   pn+fmoek43hXcFFYnwCRTZ4bHRKF8Y9afiD3Hp3qJJlHA0VlQQZyycywp
-   Q==;
-X-CSE-ConnectionGUID: 49DpJY3eR42uBfp/4abgFg==
-X-CSE-MsgGUID: 060qbe0BSHGpJvsfKFKzmA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4438885"
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="4438885"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 23:59:08 -0800
-X-CSE-ConnectionGUID: tuGy8414R4S2qYx5/P+aDA==
-X-CSE-MsgGUID: PQT5WKGnTv6NiF+C2djBVQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="11830089"
-Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 23:59:05 -0800
-Date: Tue, 24 Nov 2026 09:59:03 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Abhishek Chaulagain <chaulagainavishek14@gmail.com>
-Cc: Hans de Goede <hansg@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: atomisp: Remove unused timed controller code
-Message-ID: <awVDx5P4yvcuVXWp@ashevche-desk.local>
-References: <20261123200658.449-1-chaulagainavishek14@gmail.com>
+	dkim=pass (2048-bit key) header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=m5Qqp6z6
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-4aa5833c263so4006228f8f.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:13:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=layalina-io.20260707.gappssmtp.com; s=20260707; t=1795507990; x=1796112790; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=vr099ZksUMvTCwdEOwMPPwsGjYEwcmcdK46JI4rLfIk=;
+        b=m5Qqp6z66QlZo+6DNyW5fKKmNHBd6X2J8uyagMFWwd6avdqk7/BX6OaI4BLqVL3/W3
+         No5kwvSnLxkd0kyS00TgpgfxOhWDBbWIV9dRw9kkp2Vbc4fKkTcvcVDxxOYQTlxbugwx
+         BQCb5YYcx0kH4jH4nF/umeKjQUzXYDmYY+ZQTKFPoJf+CUQFoPFN/L+sKTXCPFdMUA7K
+         UEak1vXrMMuexoCxr3F4ZwFA1nKFgok5VMG35vOg1bR4DZ+GE94vtVyjf/Kkd5rFDg39
+         9RVlPLjQlHAiA4NohDfjIs/zsxKm2jheR9HhKDV4JhTW60Zie6JbNlqXUDMI+A0y0uM2
+         kbcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795507990; x=1796112790;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vr099ZksUMvTCwdEOwMPPwsGjYEwcmcdK46JI4rLfIk=;
+        b=c4jcCTD8nQ6ROJqlY0RLCGGuJ0JeuXhf/3pfnQfJGWby1q45ZoO/dImzOXaUu08qMH
+         3Xw9TrTkQOFYGrsB7Moe2WLVIZO9n97e3bkKAifn/w+9X8uaojLWTcpcidZ1z32+isGp
+         I8K1rAWcI8fg1NC+mdpUid2xSNRZmV0tvpqWj52adKa3m0RSiqz73PIdTzpZvonIPRQi
+         Tfs1sLoN0j2K1mvPa4RBHDv54/sCapX7xVnHLUs3rTdCZ9zuMl8LUOs9cNHthcl0mX0O
+         tHVMVi01k7DxfsQAPjckL4ghB2RwE6P4q3AupfFcUSRAdejbkzpeBsKZMfETm1i+CshJ
+         GF1A==
+X-Forwarded-Encrypted: i=1; AL+hErHm0fiW0CkV6Wwu00MW3drmpXe8+x7XRCpA5sso5qAtZEPeXoBrS1VugG+YzDZHHqzDDy70wYX658tASTo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8gmatsE77/54LY+qCmKD88BfiDrL94m8LhP9K7O4HotrzTHiFB
+	w1Lbo1kX+6VUb2ZQokOwi1x0DUywSQ0RaD5a/cfZHKA1+cchAKaasb/UDmsR8PHg+U4=
+X-Gm-Gg: AZFdTZek4BH68lYXQbEhVMirZO3c++Bs/75SoBYAvA+e3QN9Zf8mF2g6S4jO82sHgWS
+	j866uWZbFT+qQjxiPtFl7Ry/107JdMzUowEuoSJtAtFanKT4+VX4AjD8lbCddwf9VBzimyDrSwC
+	dq7F80kOLX0xAqeqegkMrMdGIohw6MME9ptM3TermpCffHCQ1DWj7GpFf6S2ocfMeFg3ZtPSFio
+	wGfFhO1h5dMUICISOZrFh/aNWnkbbAxeClgaYWIqX6dv0wfhXlP+s6hSGLBrRZh/f+7cmzRYZWt
+	B+mcBdfVEp3Uujd9ZJWmZg2hGGn2l3XkH1bl/j9Ikalc33D/9QTenwQqH7Ve/slyTg13k2jHRb+
+	LIXUREatc5vtfxu5YBDV9c6rHqFvKI1HDTU5Y9gsmmj1MAiqMZTppk7T8CRDCiqTtWEv/4m8pg7
+	KYynOruCLWMXdfFDkAXkZ+LA/fczMv1ITb/CXrBV3ZcDy7Llgd6CDhMcW5XSJytCK0EytPFISyk
+	DdRvXFBfdrcHoIM0oeilUP5+dpnbG1N9Xux+E9oG9VTyONTf+4GjFq508DiFWQf1YY/vXvEPlpw
+	NKUTb50YJQvoOXX0Xf46R/kiR4NRJJaMwVOiEcO4AWPRM3FOmKiOhsgBjwuyXhtPPA6TJ+Yh7Y9
+	kXWfPrQ==
+X-Received: by 2002:a05:6000:26cb:b0:4ac:f59:60de with SMTP id ffacd0b85a97d-4ac0f596109mr29530229f8f.18.1795507990010;
+        Tue, 24 Nov 2026 00:13:10 -0800 (PST)
+Received: from aerith (host109-153-232-219.range109-153.btcentralplus.com. [109.153.232.219])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b2c9sm27459198f8f.31.2026.11.24.00.13.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 00:13:09 -0800 (PST)
+Date: Tue, 24 Nov 2026 08:13:02 +0000
+From: Qais Yousef <qyousef@layalina.io>
+To: Christian Loehle <christian.loehle@arm.com>
+Cc: Ingo Molnar <mingo@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, John Stultz <jstultz@google.com>, linux-kernel@vger.kernel.org, 
+	Kayra Cizmeci <kayracizmeci@gmail.com>, Wei Wang <wvw@google.com>
+Subject: Re: [PATCH v6 1/3] sched/uclamp: Fix race condition leading to
+ imbalanced uclamp_rq
+Message-ID: <awVGz7vg874E5C83@aerith>
+References: <20261121041507.39582-1-qyousef@layalina.io>
+ <20261121041507.39582-2-qyousef@layalina.io>
+ <282a3922-91da-4145-94b6-d1a6459b6da6@arm.com>
+ <awU72HxIUrUVncvs@aerith>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,34 +103,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261123200658.449-1-chaulagainavishek14@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <awU72HxIUrUVncvs@aerith>
 
-On Mon, Nov 23, 2026 at 08:06:58PM +0000, Abhishek Chaulagain wrote:
-> The timed controller HAL module - timed_ctrl_snd_commnd(),
-> timed_ctrl_snd_sp_commnd(), timed_ctrl_snd_gpio_commnd() and the inline
-> timed_ctrl_reg_store() helper they used - has no callers anywhere in the
-> tree. The only remaining reference was a stale #include in sh_css.c that
-> pulled in none of its symbols.
+On 11/24/26 07:40, Qais Yousef wrote:
+
+> > 
+> > > +	 */
+> > > +	if (uclamp_is_used() &&
+> > > +	    !rq->nr_running && unlikely(!uclamp_rq_is_idle(rq)))
+> > > +		init_uclamp_rq(rq);
+> > 
+> > I guess this means init_uclamp_rq() will need to use WRITE_ONCE() for .value at least?
 > 
-> Remove the dead source file, its public/private/local/global headers and
-> the timed_controller_defs.h definitions header (included only by this
-> module), drop the object from the Makefile, and delete the unused include
-> from sh_css.c.
+> Hmm maybe. Peter let me know if this is worth respinning another version.
 
-> The timed_ctrl device identifiers (timed_ctrl_ID_t, TIMED_CTRL0_ID,
-> N_TIMED_CTRL_ID, TIMED_CTRL_BASE) live in the shared system_global.h /
-> system_local.* enumerations and are left untouched.
+FWIW, something like this should do
 
-Why?
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index c6780358a7975..982f913ec3271 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -2117,9 +2117,8 @@ void init_uclamp_rq(struct rq *rq)
+        struct uclamp_rq *uc_rq = rq->uclamp;
 
-> No functional change intended.
+        for_each_clamp_id(clamp_id) {
+-               uc_rq[clamp_id] = (struct uclamp_rq) {
+-                       .value = uclamp_none(clamp_id)
+-               };
++               memset(uc_rq[clamp_id].bucket, 0, sizeof(uc_rq[clamp_id].bucket));
++               uclamp_rq_set(rq, clamp_id, uclamp_none(clamp_id));
+        }
 
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+        rq->uclamp_flags = UCLAMP_FLAG_IDLE;
