@@ -1,111 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.150
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795542970;
-	b=Qoof0YWsKcDmghJZIVFPJIxM5B9GIeR3qxOJYbkf91CyBBWnCgp8S5Exq1CpvHKKjN9D
-	 imXspdWTtvjV2l7uI4lBS1Yo4J0/GLd+PoVwfyA76IWKyXFSRY/SwRtxYdYgJlZMbBKl7
-	 i9XrBzXxpBAg0njOj7CMmiPdcQYFxySa0z/xWsNzxD6WJVlLbb1w2rVlcTByJaEArY95v
-	 T1CHSlhcR+/mVAMrwbPKxnQrJ3KkgUJY1c6DuliYiPSMLbBuNAHwtajNXKQ0iiUffrHzP
-	 9+5DBgL/Zx2QQrg1kUu+ks72UuPLXhw4TudRnIl6HX3WlDsAcB1FUAX8+PDL1aumSgw==
+	t=1795542987;
+	b=X4NiWkiCrHMhMtB/6eptU/zLXOz+3orJ2IxH2mAl3N+W1eTDXs0XL4bCmbYYHszmf5SM
+	 74l0hN2ir6fIzL/4bEUD3eAMk08ppz/d7kl/g9oe8JMJkykCdlGgHsVpz9pcK+dgERksn
+	 ogtJt3TXsnIWB6p8jgDrEDxwXX04Nn0Mvk/HbCvjZbMCRPD1LXx0cE0+QFPINurCGvAeR
+	 PDo3GtQXzYrST98Rs9c28K9FZCuDecm6o3fQTxKrEZ1Ob/EozkLR4iqPYr56i0P2VWRj1
+	 Qk3AJbu/bVQ3l9lowMwsAxKi1mGwb5S6i8K0SpvJX6myLZiEA6WnUTvls3HLtLxxmbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795542970;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=kDJJsSL7gkz9rNon2P9KcGagBncDS02r/6Hfbn3ZcgA=;
-	b=ZbmB+40ODm6N1VYBaUWaJvY3ITN3QDnlH0TCOhk5+aaTEbZKwxyejGCmZvNpTX4KdRI5
-	 vyT5VQ3+FOJp37fwvKWCzJpbH6Zzhx7zFqey1HNk/vRkCa8ODX3ESMRXlbMAk1UgjEI1/
-	 dmrE4bN7a7ThsexT4bkmK5UI5QF30agbjl7QAKsjc++/Oc7eeIOQb5ENYBvCh2JAciox9
-	 AqHLk/4sz5+ysxVYfR8+OPrXdR2VUeAX3kbD5qVETIaJw1QbnW9gfGCmSC1eA7zxKzDbh
-	 BZmV6fxtMQ2L9C/YucsShvJeGvKrIiR4rDoPBbW7yz7wwbid1h9A8xHes0OKqsG6HvA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795542987;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=6mQ/VJFURdk1Q4vp5BqueoOJTw6Ujqne9pFP3A2l2Mc=;
+	b=ME+ovajHMdNoJf0pLIp7U0yD0R+WwluLRh3Pr9Gf5TpdBQT+hOH9Jr8o/UZU7PVd4MQf
+	 YHS6ku26yDuAMHvvBmlt6YYsHG+5GWwFaDK8Ym45Mqv0gvDmDrKVQnQfv6Gfo4QNFzH+o
+	 cQDBwZ9ptJXOrgu5QNHZcOTT3OCq46I8scDvg1oLBaTp0IZ18+hmjdVJhyvjzNMXgF2HM
+	 SPuTS/XlPLByDlds4boKzlwI/1fjWFfKHyY5cBaYsG033NT0wiTHkt+uMpCcINvJNgrSc
+	 3zoFBs1xd7WNo9CyGy4TRHc5rFTOwKvQf2ClLTHgN+NpZ3cJcRIzhRCq39zx+0RHGGA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=squebb.ca;
-	spf=pass smtp.mailfrom=squebb.ca;
-	dkim=pass header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=KGK7GL0+;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=RnUz6vlo;
-	arc=none smtp.remote-ip=103.168.172.150
-Received: from fout-a7-smtp.messagingengine.com (fout-a7-smtp.messagingengine.com [103.168.172.150])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="P9q/OfKR";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C02FF606A323
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:56:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C02FF606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=squebb.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squebb.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04759606A321;
+	Tue, 24 Nov 2026 17:56:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=KGK7GL0+;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=RnUz6vlo
-Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
-	by mailfout.phl.internal (Postfix) with ESMTP id B8AF5EC0BCF
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:56:08 -0500 (EST)
-Received: from stl-imap-02 ([10.204.2.93])
-  by stl-compute-04.internal (MEProxy); Tue, 24 Nov 2026 12:56:08 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squebb.ca; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1795542967;
-	 x=1795629367; bh=kDJJsSL7gkz9rNon2P9KcGagBncDS02r/6Hfbn3ZcgA=; b=
-	KGK7GL0+ht5olDG/8gDlevkUoBQo++geY/9Ja7aPno3wqxVAeKMDula6U69Ft/uP
-	8z6T4POQ+cUh8Tj/VO+4FXTaqy7+5Cgt0y6u4zx9Xn7wO8wa9+vLlTn+OtHaKjRa
-	kB7bQ/3ipM2M0MRYit7Xd/Uyic1AI+HEC4iOk9C8pIa3R51qtkPBopRQS+ADuwfG
-	Dc47PoABG+4ADzPixj+Jg3BP/AOiCxXATjF2vTtVzZdBmaiNfztYtDFdZsmj6dzC
-	XOR7TTq+p54p75nhCQqFIZLsiq4kU1Ey9ABpJcSPu7tAcyX6qfNHsHs4Hs9mGVQZ
-	hfFztQQNwWwkJysBUEpaTA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795542967; x=
-	1795629367; bh=kDJJsSL7gkz9rNon2P9KcGagBncDS02r/6Hfbn3ZcgA=; b=R
-	nUz6vloShGOwhL9BVKyazWsjhO8xocHXzArXdBMETofFkEtsfo8uJM8YpBGHYq3S
-	aFkOVHZnJemPcdtyTH7JICPGVzrr+/ukhgT32ymh7H+lsL88RenWVixr2FFfA5W8
-	qMm7Fn76somi2m+ngYk+dodfjcg9TRO/Zo4Pk80YUQs27zIbzs3OmrQNwIgJdSNq
-	HZMrXYwSGt271mgApGtfpsCZcPh0KMmjurQrsMRGrWRfdWFkAHYEufoCd2rTkl8R
-	YMvlXXVa5ZBzQ+pVoVxNeSxXEa8BOJ5YfCsJc2OnmOcP9D+1wUY5AeI2QWk/D/HD
-	MWsZ/MZTWMeYdz1pXWl2A==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=squebb.ca a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795542967; d=squebb.ca;
-	mf=PG1wZWFyc29uLWxlbm92b0BzcXVlYmIuY2E+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:i3ClscK3680XH+eJJKoljOzgVR18zFLYQI/iQBtvWcWgu4K
-	Znfp/FFzK5+CKLxVMuoaK2mRZbTIy/Wxq+9M3QC1MIvC8TNVMjcEqOONu3PoIpsw
-	StfSHlo28k2tRWBL5HnBa9j3IVSEUW8w+ce8DgpbVi+SSLsUGxxLP7rES5BJsFuT
-	geJTL4SuAWrJ15x15XEYs9D2bW+kacqtqN15nQ4UGt8CvmLmgyx1jTC8XIIjrnGp
-	ArlNAy2wc2c+WQEcquu7XQGVMgrMZywJbeP8uohPa4EGYrIfWVHvUciWtwQkh7Xc
-	wxQmp+iZbZCRpz3HNVz5EefFsnBNcGWY1DhR6hw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:8kwq3b9vF4aIYVRc0YExVwh3nc3egALguryDfQKtbYI=:eyc1528g9ioZwSTiB2mrY48PyKmbaO/ufr3W+OG90yM=;
-X-ME-Sender: <xms:tc8Fa1wwYpdUQOfqCtPZoxsTuw5fQGJa1rJU_P5rFy_zIDpzOI9vQQ>
-    <xme:tc8FawEToORkg6RuPMBAJ22jibQjUVeRB6GJv0EP32iqF5SAPJ6T5MV3BnWSVJuHL
-    TNVfUi3ImTZl5zueHf9f_WiDzg5da6pwLVCkEkxQak73Nzc1eeHHNoq>
-X-ME-Proxy-Cause: dmFkZTEH2K3mAqOY4x6MnPrBn64VMuhHnNbiLeVUdApU0aCzux8JQGqmUrjbvn0Gf/QtLX
-    NTEs2vr1z6VXqSMCf1DDTTiZ1uReVe6sSmmr9zr132BUhfW838nVG5EOenDcjR4Ja6a7qJ
-    X1CBG5zCPjEzSVGO39PblWrn/OE/6bzcTCoaIRIkyb718/WgQUvVetbStM3UbLDDyatKIN
-    h4WyGZoCgTzvfZCW5c1jXpyB2ZD5dFalB2pbABUd9UE4ygDExJnpB7L6hOfupRqo3bs9w8
-    K2UJHGmQS5d4UX44ooap8pljA3a80994T02f0q4F9wgDCs7Ozntq2gWEvdL6m9Dd6LKVKK
-    ss8VNtRe8V2v0+vt1gOsAV6i6rLgY72qgJRNgBpOiy2N7K6E8Al2vpzDEqzdwv7WxcCzs6
-    U57tVt2+SGqEQbWT/s7Fk2vRUgcXG6ILjDWotCO/qQvKw+S4KjuNnC4JrHBHLeiDFlJs2N
-    PhnVMVEhq50r1RZJyo0DtKyOSVqaEkEnU1cja+7DiC+iglA9FgIwukt+FnJeIbyTHTNVa3
-    BxNjVhhx3v43sKFDEXUMopjwsEVGSw8VOEzIFsRIPk8323unYTgxHRLd0ONLh53SAHLIXE
-    xTRk1zbFQVCaA1slRcNZCkgg6/d1CtLuJRVLnPq9UnddFCnd/kMRE92bALfw
-X-ME-Proxy: <xmx:ts8FaxQQ5h9zmgJN8i_a_ejna2jcH_JbfpOVZQxHG8TVqU00YyvGIA>
-    <xmx:ts8Fa93RS6LIOLeKbYowpVw7X_jf9qfq0ts-w4CHkVamITEdGFL7Ow>
-    <xmx:ts8FaxfBrrJ193iHuH9um5hb01xYbjjTwidnR_Zllu5ey4UBSplhWw>
-    <xmx:ts8Fa1NYGeKDn0LHDkYl0JMcYhucPrLAUBGC9DxFiiE-VWaMR0e16Q>
-    <xmx:t88Fawd8Mv_pNqAf9-us2LI-b9GZpshL6P6nlbsGa-N-RgQ2D0MTxBj9>
-Feedback-ID: ibe194615:Fastmail
-Received: by mailuser.stl.internal (Postfix, from userid 501)
-	id AAD032C00085; Tue, 24 Nov 2026 12:56:05 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P9q/OfKR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 520F31F000C6;
+	Tue, 24 Nov 2026 17:56:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795542986;
+	bh=6mQ/VJFURdk1Q4vp5BqueoOJTw6Ujqne9pFP3A2l2Mc=;
+	h=Date:From:To:Cc:Subject;
+	b=P9q/OfKRq3R5yrdwUaZS2l+7GDqvGQgQJXKq9DxhePTHBQlmh3ZWeMTEYPhPrJlIT
+	 zNK56GTvk0kiD12vgBa1vNRuaYK4+LToXDTaUxw6/V5qXyq4WXGdDLWCugHg9Rv5Mj
+	 Q58nlAw1Szx3pF8eRwhArZL4PbhRX/RKA38wSeN4dSmYUd6fXV+bJCuxt7Zv2/XJsB
+	 2CnZq8Euu6jwCKHVUShx3AgMGL1456K1FDt2Q1dZL91qJJbWTer1zK43BPA1UD5eXL
+	 1eNVD05vTCKgew4PoySGS24OYbDeOUuuLSmJ7mcP0bl9T1VNHXUHU60cO0LmWH8Lba
+	 5TLO8qmCWxhfw==
+Date: Tue, 24 Nov 2026 17:56:22 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Greg KH <greg@kroah.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	Rob Herring <robh@kernel.org>
+Subject: linux-next: manual merge of the usb tree with the devictree tree
+Message-ID: <awXPxgFucDwZGns_@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,67 +59,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: Aapn8tW6shyZ
-Date: Tue, 24 Nov 2026 12:55:45 -0500
-From: "Mark Pearson" <mpearson-lenovo@squebb.ca>
-To: "Tom Hu" <huxiaoying@kylinos.cn>, linux-kernel@vger.kernel.org
-Cc: "Henrique de Moraes Holschuh" <hmh@hmh.eng.br>,
- "Derek J . Clark" <derekjohn.clark@gmail.com>, "Rong Zhang" <i@rong.moe>,
- "Hans de Goede" <hansg@kernel.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- "platform-driver-x86@vger.kernel.org" <platform-driver-x86@vger.kernel.org>,
- xiaoying_hu@126.com
-Message-Id: <d210975b-df3e-4858-96c8-06f868ee8ee8@app.fastmail.com>
-In-Reply-To: <20261124103935.897624-1-huxiaoying@kylinos.cn>
-References: <20261124103935.897624-1-huxiaoying@kylinos.cn>
-Subject: Re: [PATCH 1/2] platform/x86: thinkpad_acpi: Update charge_stop only after it
- was applied
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="QQlFctUlpS8E6PzQ"
+Content-Disposition: inline
 
-On Tue, Nov 24, 2026, at 5:39 AM, Tom Hu wrote:
-> From: huxiaoying <huxiaoying@kylinos.cn>
->
-> The charge_stop_threshold store writes the new value into the cached
-> battery_info before the EC has accepted it.  If the ACPI call fails,
-> the cache and the hardware disagree, and subsequent charge_start
-> writes are validated against the stale-not-applied value.
->
-> Move the cache update after a successful EC write and report -ENODEV
-> on failure, matching the charge_start path.
->
-> Signed-off-by: huxiaoying <huxiaoying@kylinos.cn>
-> ---
->  drivers/platform/x86/lenovo/thinkpad_acpi.c | 9 ++++-----
->  1 file changed, 4 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c 
-> b/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> index 4f81855ad721..8fc5569131f6 100644
-> --- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> +++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> @@ -9847,16 +9847,15 @@ static ssize_t tpacpi_battery_store(int what,
->  			return -EINVAL;
->  		if (value < battery_info.batteries[battery].charge_start)
->  			return -EINVAL;
-> -		battery_info.batteries[battery].charge_stop = value;
->  		/*
->  		 * When 100 is passed to stop, we need to flip
->  		 * it to 0 as that the EC understands that as
->  		 * "Default", which will charge to 100%
->  		 */
-> -		if (value == 100)
-> -			value = 0;
-> -		if (tpacpi_battery_set(THRESHOLD_STOP, battery, value))
-> -			return -EINVAL;
-> +		if (tpacpi_battery_set(THRESHOLD_STOP, battery,
-> +				       value == 100 ? 0 : value))
-> +			return -ENODEV;
-> +		battery_info.batteries[battery].charge_stop = value;
->  		return count;
->  	default:
->  		pr_crit("Wrong parameter: %d", what);
-> -- 
-Looks good to me.
-Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
-Mark
+
+--QQlFctUlpS8E6PzQ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hi all,
+
+Today's linux-next merge of the usb tree got a conflict in:
+
+  Documentation/devicetree/bindings/usb/ti,usb8041.yaml
+
+between commit:
+
+  dfbc74a8d6565 ("dt-bindings: usb: ti,usb8041: Fold in TI USB8020B")
+
+=66rom the devictree tree and commit:
+
+  8823bbefac755 ("dt-bindings: usb: ti,usb8041: document the TUSB8040A hub")
+
+=66rom the usb tree.
+
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+diff --cc Documentation/devicetree/bindings/usb/ti,usb8041.yaml
+index 74021d13a43ac,a7ce487090a2a..0000000000000
+--- a/Documentation/devicetree/bindings/usb/ti,usb8041.yaml
++++ b/Documentation/devicetree/bindings/usb/ti,usb8041.yaml
+@@@ -17,8 -16,10 +17,12 @@@ allOf
+  properties:
+    compatible:
+      enum:
+ +      - usb451,8025
+ +      - usb451,8027
++       - usb451,8040
++       - usb451,8041
++       - usb451,8042
++       - usb451,8043
+        - usb451,8140
+        - usb451,8142
+        - usb451,8440
+
+--QQlFctUlpS8E6PzQ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsFz8YACgkQJNaLcl1U
+h9CQ9Qf8DFd5QE6pmeCGvovoI9NLEaK+7iOWwjju+Dye6KzyMxBfTaOxb93oLz1i
+VW32O+ZhiT3Fk21skLIbtTUs1vOrJlkItJCy3wzPP/c7l7Ghmr+VpcDJd1xhJbSb
+CA2a4i3LmspObhnDNa23LdYuf0JsaJ5m7Z5g5Q0p584JknSG8CX3OisD+A6bNV76
+JGunIWsn+D75Wm1He4wacP9kcHQJ75aZIAmFjcqUhuPSX9Sd/jWJuMjQ7MHDRNVZ
+sMQ9RmQv/gZwbUwUS5MS9vIe6IdzsA07Syq/vjgGRVhpJtGDYmnJD9Y1pqJylSOZ
+fYMB42SQo5myID8synP+rxhuE2n3JQ==
+=1sDR
+-----END PGP SIGNATURE-----
+
+--QQlFctUlpS8E6PzQ--
