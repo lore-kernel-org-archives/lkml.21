@@ -1,63 +1,118 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.182.83.82
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795558368;
-	b=P7Lt92wn9LG0EK1Jx6h/cqjTHZbNhkGcsHGudjRSoBsmX4fXVy3RTJMqj2L2H20chZ69
-	 PfUVyuMtrjE/sC09/D15gTM17WcA1cXLPyQOuTuF9aDKHNQrGH/P37xTzlD82rEAvzUaG
-	 /cq9upYiXDxYLjQ3qbmThsLX4aJGW1BXN0dzYRGNDsNlxQ8n73SRQ8iDoru+MyBo+55sD
-	 hkJf4S3XDIeBvvXsHWY/RbEXUx3npuvWoYHUmTUoRoMkAMGKiar5IL12A2bzeSmOlEU7p
-	 TYxg/MnT8mV1NpGpFTjTTHoC1Gd+9fxPNQBbMWvYk3wu724KmeuuheGcmg/f4iHo4zA==
+	t=1795558375;
+	b=jKWRrABsEF3GcRn3oqpJncyq0ts6zUZTbvJpSMhgSBoiRyFjnlqegMgz29qi+UKVYNKL
+	 ytET4gAjZ+vH9NTYNbiTiD70jR4yemkz6kVPirAp6I/dXmrMhpDiNEbGIbYUAlgCKKroa
+	 dd7CoZ9+KOe2g78l/CykGie8Wx8r7yvFvVptPvPZ4MWGpbkyKqv0OQq9vMSPFtmfivIoz
+	 YaEk82CdFw1wzWXrxXiEJT/kV00HfTukLqrkd1O3bH7kYNAVC+I9NmpL09UfQzjAE5PS/
+	 aF2NUv7aBjTmQpxqAhkYyccAznf695I//5Yo4W0gGmUGqDF1wiiiRtXd05k/nXo/QPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795558368;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Subject:Date:User-Agent:
-	 Cc:References:In-Reply-To:X-KMail-QuotePrefix:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Content-Disposition:
-	 Message-Id;
-	bh=Iu4Vy/BsdfgvF8G+I0jLGO/egvFmzLAT2M7u80vbKmY=;
-	b=lATnEpmrFPfjVT2zh8PNZYLfA3h7Gmif0IaGdd07Zr5qjglsiqXzDzLg2GoT9gHwE3DH
-	 W+nNropYEI20WaRVRLDZJ3SWFl1IKqRYxnD1H8MRx4Xfe7d37vvp/UABJ8uIEbvAb1E3R
-	 soupLznCqmKKyo/katJblrgOzozPzblDlgCbEwHjmVCRI8ls5JS4XlthbQBDkagSQ00r5
-	 0aB5YbZ6uI6ztOy+cQy/bRek8okLsND7YtyVu1jXXwX7fLNqIG5cgmKdGwSvOhmHyj+iW
-	 msv8EDZScY23ILHLIhaO09icRPrXC4XD6u62s0YnRofsBQigto1HznxDX0+ZproRVlA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795558375;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
+	 Content-Type:User-Agent:MIME-Version;
+	bh=a+lCQh9rFeHZpRcts8xKmbAzUymCGM5+mzuki638UuI=;
+	b=JxUKtaRNuJ/0XvLhzaDVQlrqAy/YqExJSuNK3AyU5MGbET9Nz+CkcQG9GkBGn7yxPqmn
+	 bX+8YTAPrgFlwAVUQrGHDDxx0WMBfanYtOY++I53iNdsPNjupyEVSghPCK5MUDJ6cgPBX
+	 Cec3vfr1MojFKNWtcUiBl3tkZOCw7vHG/KCA7VvfvTg8HJfVpE+Sde6UijhZBfLQHiUIR
+	 xp/qk2Je0ksMiSYCOkKXIJ1d8y3/azMSX6alt2SPEN5YQyoee4hCtvYIEjsfQv1H5peTB
+	 OGcMn2QnvHapFcfraDImC0niusSh+4Dz98l2Sa/eJKcGDS1eTRsg6iurvR3U36IVW7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=zary.sk;
-	spf=pass smtp.mailfrom=zary.sk;
-	dkim=pass header.d=zary.sk header.i=@zary.sk header.a=rsa-sha256 header.s=key1 header.b=MaGJo95J;
-	arc=none smtp.remote-ip=194.182.83.82
-Received: from mail.zary.sk (mail.zary.sk [194.182.83.82])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=ndufresne.ca;
+	spf=pass smtp.mailfrom=ndufresne.ca;
+	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=I2XVqDN9;
+	arc=none smtp.remote-ip=209.85.222.178
+Received: from mail-qk1-f178.google.com (mail-qk1-f178.google.com [209.85.222.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A038606A31E;
-	Tue, 24 Nov 2026 22:12:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A038606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=zary.sk
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zary.sk
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83BB9606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:12:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83BB9606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=zary.sk header.i=@zary.sk header.a=rsa-sha256 header.s=key1 header.b=MaGJo95J
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=zary.sk; s=key1;
-	t=1795558364; bh=80A+qbZMx1fUMDo3Gar3Wo8vl4C2u6p6EJDsDRlxjL4=;
-	h=From:To:Subject:Date:Cc:References:In-Reply-To:From;
-	b=MaGJo95J8LaB+8r8FS70RqSYApxPTLuGGcqST9aG4xwaauuitjd/bL75OsCBpoOB4
-	 le4+op3yUCZIAm+yX0pbhfAG7I6gLhm1IUawe5ld4gHppDNZMaJ8dPzgEObVk3BZRM
-	 6u0XO4COLYLrpEJdkcdKjlAI3QUUu9ECGq+x4UTw5NbGQCh20VG0c3yAlHSRK0WBd/
-	 0cQWykbkn28b5ZoA3pKo+mkHHaSdmDblqScwlGot4FT2czuzZpfX8n89CpbI6LnnMI
-	 ca91yifjehpR/2I1KVgRpIk/IHxxItNeEG3JOz3XJUtLebkLHklVXAda8hQAhqt7si
-	 WJwpSROnjFgeg==
-Received: from [192.168.0.2] (188-167-58-127.dynamic.chello.sk [188.167.58.127])
-	by mail.zary.sk (Postfix) with ESMTPSA id 84AF2BEDE0;
-	Tue, 24 Nov 2026 23:12:44 +0100 (CET)
-From: Ondrej Zary <linux@zary.sk>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Subject: Re: [PATCH v3] Introduce Synology x86 NAS LEDs driver
-Date: Tue, 24 Nov 2026 23:12:38 +0100
-User-Agent: KMail/1.9.10
-Cc: Hans de Goede <hansg@kernel.org>,
- Ilpo =?iso-8859-1?q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- platform-driver-x86@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261124125616.1168560-1-linux@zary.sk> <202611241954.47791.linux@zary.sk> <awXv4b3cjVlOc0NT@ashevche-desk.local>
-In-Reply-To: <awXv4b3cjVlOc0NT@ashevche-desk.local>
-X-KMail-QuotePrefix: > 
+	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=I2XVqDN9
+Received: by mail-qk1-f178.google.com with SMTP id af79cd13be357-930c0f9c1b1so531325985a.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:12:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795558374; x=1796163174; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=a+lCQh9rFeHZpRcts8xKmbAzUymCGM5+mzuki638UuI=;
+        b=I2XVqDN9DEPyLiayQzz/N/Ji/74i6qgmANoQlCH0gBUSconoKdJE0r1vzhxVt9vobq
+         qQ/yFqkVc5KfzvXUESXKXd5eT5E0CjzDdMBNFwvTxzX1NQx9wJ4xFMpcNBjrRF4ayQA5
+         i75qQnXUSEoKBZiebF0TaEdeV8tPtM5RXZWFc+1pTnEgzicwolv9mzdR5v7rrz1OIQeX
+         Lr//EtTWhn3z8jiuFlqZhSEkMKtxGQ93vF86kpeIeylbxQ4kXofSki/NshTNKv0JIS/5
+         yiLBITHIC7NBmoSeZyhdURVAoFC7kd2TvhNih16fP1N0fM8Kucd1XRIslkUKTv/mhXQj
+         TBaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795558374; x=1796163174;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=a+lCQh9rFeHZpRcts8xKmbAzUymCGM5+mzuki638UuI=;
+        b=j4Pqkn2MX6E0t7ZYo9ZwyCR2k4Xa1nMvpAQWKp8iydaa071hrz9CPHE4vq2hE7BmfM
+         8rjygZ4uZK4X3bmj47eAdtYbIXwGruNoIKX8zEleritmcI2aMiNDVL0qPDqh0aHxeWAM
+         fLOfhq2cK0Iljpt7gMovVJVNnAAVQhbxBuoyP4wshkJMI6PQ/zvfdoFB1gcGg72b/T9W
+         hpYPoRdsR70TuC9qtXEUS5NyEVG5WHBNuHrEc6L1ub55SKnWM4LYWD1K6v+7HbIwyXBc
+         1mA0zfyfplO8HchLThEYEjYSY3iSnskuIT3oR8/dv7wSe0dShHLZqWXX9/4CAJVqyMH9
+         0d7w==
+X-Forwarded-Encrypted: i=1; AL+hErEG0Tgs6y16w49I6ig3YHw0hQOs+H57eoUFVviCxJM/hK7FwRGhyDPcPuxjRCgX9OdeguvCsE6PESXHVe4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8IBipwUvX2Zav84qTAunTIa28ZlhxflhFfjTublXxEbQ3nBkQP
+	JsVRJMh8sWobVIlO6D+rVSbyuBYJ+lhd/uO6u5ThdOxPvD5yD7Cz/r0qsFEFwMc+0yI=
+X-Gm-Gg: AZFdTZeBAzhxQSEAhEFn0K0Hd53gCT0lHYoUf8P2hyGq3Z+mu9RJhvsYg9g5WEWZ4yL
+	j9IYzrts6GkGQuos9UY5jDV0piXkk7NSdh40NsLKmW4CjZPLgHQKN58LfUWMMeO8Ct44KptXjjE
+	84rNFPXgrKucK0rLnfgEAcNphiSuap3/y9tZ1Je5rzvc/uiGBGz4Wek5e/yW/Oh2ODPjaBEQPDj
+	ss9CKYhYqFxN+Pu8h4ap7GmzqixX4t94SWgfRKhFRyYFtAArEU/r7odMOYOt054fyx8es7v4zqG
+	uSzDix7knMvdPEGkqvj3gs2kXk35pqCg5gD16BDYjVa4obin9pjU9CHWWeOYqVgi473KR9AX5Fs
+	RLeax4j9Lt6EGDbzWFyULBfvATFrJZfrogIm49mlZROo9ghog5kdRFcFhEi7tAiH5b/PsmriMhR
+	g1l1xzBDvkXBHByyrksFLsWMeib6W61wjuntToLKuacF9OM6Rs1wW3yVc2QFfLrLYfhvJV9YZjs
+	GqFx+fBOeUev9awBtWtODtpYsuQJhIGnTvYd2zOJKpu/2rKbNSbUOkzTHkFdwQTYu5IcHQdnOVv
+	YYZCKt+qyb2Gk5WrNrl3GxmRSzjX8t4VyHYu4NMvwdw1XkouIpO9kZ+SEQ+GnhIh4idxsy5k4os
+	a
+X-Received: by 2002:a05:620a:7087:b0:93f:633b:ee1f with SMTP id af79cd13be357-949ba9c6b95mr3002134585a.28.1795558374358;
+        Tue, 24 Nov 2026 14:12:54 -0800 (PST)
+Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3bec3dsm1148251585a.23.2026.11.24.14.12.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 14:12:53 -0800 (PST)
+Message-ID: <16ae904e41539059dbe1649551c1c903295690b3.camel@ndufresne.ca>
+Subject: Re: [PATCH v3 04/17] media: v4l2-ctrls: validate av1 tile info
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Sofus Forstreuter <sofus.c@icloud.com>, Sven Peter <sven@kernel.org>, 
+ Janne Grunau
+	 <j@jannau.net>, Neal Gompa <neal@gompa.dev>, Mauro Carvalho Chehab
+	 <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Philipp Zabel
+	 <p.zabel@pengutronix.de>, Heiko Stuebner <heiko@sntech.de>, Daniel Almeida
+	 <daniel.almeida@collabora.com>, Xiaoyong Lu <xiaoyong.lu@mediatek.com>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
+Date: Tue, 24 Nov 2026 17:12:51 -0500
+In-Reply-To: <20261020-avd-v3-4-85cbaa2125d8@icloud.com>
+References: <20261020-avd-v3-0-85cbaa2125d8@icloud.com>
+	 <20261020-avd-v3-4-85cbaa2125d8@icloud.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-TfGKB/izRKTkKjOJIU01"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,80 +122,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: Text/Plain;
-  charset="iso-8859-1"
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-Message-Id: <202611242312.38998.linux@zary.sk>
 
-On Tuesday 24 November 2026 21:13:21 Andy Shevchenko wrote:
-> On Tue, Nov 24, 2026 at 07:54:47PM +0100, Ondrej Zary wrote:
-> > On Tuesday 24 November 2026 18:03:00 Andy Shevchenko wrote:
-> > > On Tue, Nov 24, 2026 at 01:45:46PM +0100, Ondrej Zary wrote:
-> 
-> ...
-> 
-> > > > +struct synology_pci_dev {
-> > > > +	unsigned int bus;
-> > > > +	unsigned int devfn;
-> > > > +	struct pci_device_id id;
-> > > > +};
-> > > > +
-> > > > +/* onboard PCI devices found in DS411+ to confirm the machine type (after DMI match) */
-> > > > +static const struct synology_pci_dev ds411plus_pci_devices[] __initconst = {
-> > > > +	/* 00:00.0 Host bridge: Intel Corporation Atom Processor D4xx/D5xx/N4xx/N5xx DMI Bridge */
-> > > > +	{ 0, PCI_DEVFN(0, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0xa000,
-> > > > +					       PCI_VENDOR_ID_INTEL, 0xa000) } },
-> > > > +	/* 00:1f.0 ISA bridge: Intel Corporation 82801IR (ICH9R) LPC Interface Controller */
-> > > > +	{ 0, PCI_DEVFN(0x1f, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x2916,
-> > > > +						  PCI_VENDOR_ID_INTEL, 0x2916) } },
-> > > 
-> > > > +	/* 02:00.0 Mass storage controller: Silicon Image, Inc. SiI 3531 Serial ATA Controller */
-> > > > +	{ 2, PCI_DEVFN(0x00, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_CMD, 0x3531,
-> > > > +						  PCI_VENDOR_ID_CMD, 0x3531) } },
-> > > > +	/* 03:00.0 Ethernet controller: Intel Corporation 82574L Gigabit Network Connection */
-> > > > +	{ 3, PCI_DEVFN(0x00, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x10d3,
-> > > > +						  PCI_VENDOR_ID_INTEL, 0x0000) } },
-> > > > +	{}
-> > > 
-> > > > +};
-> > > 
-> > > > +/* check if all PCI devices in the list are present at specified locations */
-> > > > +static bool __init synology_pci_devices_present(const struct synology_pci_dev *list)
-> > > > +{
-> > > > +	const struct synology_pci_dev *d;
-> > > > +
-> > > > +	for (d = list; d->id.vendor; d++) {
-> > > > +		struct pci_dev *pdev = pci_get_domain_bus_and_slot(0, d->bus, d->devfn);
-> > > > +
-> > > > +		if (!pdev)
-> > > > +			return false;
-> > > 
-> > > > +		bool matched = d->id.vendor == pdev->vendor &&
-> > > > +			       d->id.device == pdev->device &&
-> > > > +			       d->id.subvendor == pdev->subsystem_vendor &&
-> > > > +			       d->id.subdevice == pdev->subsystem_device;
-> > > 
-> > > Don't mix variable definitions with the code (it's exceptionally possible
-> > > for a couple of cases, none of which is this one). Can't it use
-> > > pci_match_id() approach with driver_data? (If we ever need this check.)
-> > 
-> > I don't see how can pci_match_id() be used here. I can merge pci bus and
-> > devfun into driver_data to fit into pci_device_id table but there's no
-> > pci_dev which could be matched against that table (and walking all PCI
-> > devices does not seem to be an improvement).
-> 
-> _After_ DMI match the walk over all PCI devices is not a big deal. The code
-> will be nicer. But maybe there is a better choice? Like checking CPUID? Or
-> maybe something interesting is present in the ACPI tables?
+--=-TfGKB/izRKTkKjOJIU01
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-pci_find_next_bus() and pci_walk_bus() with a callback or
-list_for_each_entry()?
-Then pci_match_id() and finally test if the matched device has proper bus and
-devfn numbers. Doesn't look like a recipe for nice code.
+Le mardi 20 octobre 2026 =C3=A0 11:37 +0200, Sofus Forstreuter a =C3=A9crit=
+=C2=A0:
+> Many drivers use tile_cols and/or tile_rows, so make sure they are
+> valid.
+>=20
+> Increase V4L2_AV1_MAX_TILE_COUNT to MAX_TILE_COLS * MAX_TILE_ROWS
+>=20
+> Reviewed-by: Neal Gompa <neal@gompa.dev>
+> Signed-off-by: Sofus Forstreuter <sofus.c@icloud.com>
+> ---
+>  drivers/media/v4l2-core/v4l2-ctrls-core.c | 15 +++++++++++++++
+>  include/uapi/linux/v4l2-controls.h        |  2 +-
+>  2 files changed, 16 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/media/v4l2-core/v4l2-ctrls-core.c b/drivers/media/v4=
+l2-core/v4l2-ctrls-core.c
+> index 661a3a25da52..922cf74c4eb8 100644
+> --- a/drivers/media/v4l2-core/v4l2-ctrls-core.c
+> +++ b/drivers/media/v4l2-core/v4l2-ctrls-core.c
+> @@ -800,10 +800,25 @@ static int validate_av1_film_grain(struct v4l2_ctrl=
+_av1_film_grain *fg)
+>  =09return 0;
+>  }
+> =20
+> +static int validate_av1_tile_info(struct v4l2_av1_tile_info *ti)
+> +{
+> +=09if (ti->tile_cols > V4L2_AV1_MAX_TILE_COLS ||
+> +=09    ti->tile_rows > V4L2_AV1_MAX_TILE_ROWS)
+> +=09=09return -EINVAL;
+> +
+> +=09if (ti->context_update_tile_id >=3D ti->tile_cols * ti->tile_rows)
+> +=09=09return -EINVAL;
 
-I'll check ACPI tables tomorrow but I doubt there's anything done properly
-in the BIOS (even int13 support is buggy and requires GRUB patch).
+Make sure to update std_init_compound() so that the default passes the chec=
+k
+please.
 
--- 
-Ondrej Zary
+> +
+> +=09return 0;
+> +}
+> +
+>  static int validate_av1_frame(struct v4l2_ctrl_av1_frame *f)
+>  {
+>  =09int ret =3D 0;
+> =20
+> +=09ret =3D validate_av1_tile_info(&f->tile_info);
+> +=09if (ret)
+> +=09=09return ret;
+>  =09ret =3D validate_av1_quantization(&f->quantization);
+>  =09if (ret)
+>  =09=09return ret;
+> diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2=
+-controls.h
+> index d17e41d51d2e..abdfa102a77b 100644
+> --- a/include/uapi/linux/v4l2-controls.h
+> +++ b/include/uapi/linux/v4l2-controls.h
+> @@ -2939,7 +2939,7 @@ struct v4l2_ctrl_vp9_compressed_hdr {
+>  #define V4L2_AV1_MAX_NUM_PLANES=09=093
+>  #define V4L2_AV1_MAX_TILE_COLS=09=0964
+>  #define V4L2_AV1_MAX_TILE_ROWS=09=0964
+> -#define V4L2_AV1_MAX_TILE_COUNT=09=09512
+> +#define V4L2_AV1_MAX_TILE_COUNT=09=094096
+
+Hmm, added Daniel in CC, no idea how we ended up with 512 here. This will
+increase MTK insance size, but the communication with the firmware seems
+dynamic.
+
+Hantro is limited to 128 and properly reject anything above. So in all, sho=
+uld
+be fine, unless there is a problem with MTK firmware, which which case I'd
+suggest to program the original limit in there. Also added Xiaoyong in CC.
+
+> =20
+>  #define V4L2_AV1_SEQUENCE_FLAG_STILL_PICTURE=09=09  0x00000001
+>  #define V4L2_AV1_SEQUENCE_FLAG_USE_128X128_SUPERBLOCK=09  0x00000002
+
+--=-TfGKB/izRKTkKjOJIU01
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawYL4wAKCRDZQZRRKWBy
+9AqIAQD/Po4bqlGbwwvzn3azk4B+6lvUS+G/w/qpKmt706DCrgEA7eZ3FFzsMcQl
+GNrZH0OYicvPvO4L1n4kg3NLn/HwGgg=
+=kmno
+-----END PGP SIGNATURE-----
+
+--=-TfGKB/izRKTkKjOJIU01--
