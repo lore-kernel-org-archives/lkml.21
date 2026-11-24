@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.97
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.75.76
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795513291;
-	b=Wj4oOdVXI4olBp9VxUDD4eCUdbZ5nJiwdf0L/ahXLoIk1qZB2mZF1SXb79yLMWbmwkhV
-	 61VpjM8jkO/VAaOFXflvFsbk0r0y9geervMc6Dw6HB8fFqTSE5e9scPc6miEAfloXIS+i
-	 7UCUMx2rB39YB2S113JDwOZ2D6WZYD+H1hr6yzI4/fNsymh94Vhz7Xnpt6EZckcnP8TDp
-	 TaebA57B3POOcb8LKyr+C3kcLwCHx9/lTTgWy2KoM693Htn5b8yUgMnr1CNz0Fd1LUfOy
-	 awyJq06fJDfbDSE6VVYn5KESE+CIAs+c+doWAOs6f5GuQnQ3vWZ6M6tVjyIExj8Gfjg==
+	t=1795513286;
+	b=GMBglEATQvmUXvZTWBBewYE3CW/ORjx4Beh6rq8KyyVGpghmVX3CyvwhRcPAEiF1y8Be
+	 pPs0YzoPrTrGbkNYjACPWvn2znDi89KAonXJkDnQ0GrYTkY3eJ5lvqrpwHBVIw4N2khE6
+	 Q7eHRtI3EmJmAEmUL0r1mhfjuKVzrJLXlDkJEFW4UySR0rZ2gUgZQr5FyWiDEg9OFvu/8
+	 x0GHG9DlW2FQihPSvxyr24MpjbcLNmH6nZCEa8Anj8B+A7DbJ4W0/tOFLWWme3c7SZVM5
+	 LiW7Q/sn7XLjnHlnX4zgjOSlYcQLXWs4PabtsjuedpEjuRh/42Xs/scAl5xPCfMvYow==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513291;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795513286;
 	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
 	 Received-SPF:Received:Received:From:To:Cc:Subject:Date:Message-Id:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
@@ -25,46 +25,45 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=1PS0YeE8SMRJhJumT1urXmJUui+Lz5HSvuayNaA0WeI=;
-	b=ZnQ1/VB6E9W9TdMHCnE8lS39vtUqxsCiVPRvcgweUCG2m2bbdnTPakox7wqmCm+SiQSZ
-	 Tt1Z1yzb7Dn0gbqocZPfetlw8/sfc2ucI6tBM/y69BnELbHk99w/ukVFpz43HqnM672I8
-	 zmvP9Vl7hP89sNH6S4Y6RfgQwsDIhrrekTQE0K08MC8QGEQJ0fNRbO2yusrFkmJsCKdO5
-	 LSTyjzsdVl0m826lY386Rw/0Kd9y4bwzoN4BTtVxuMlBNNk2QxvWVNmhiF5Y5DQSkWbA1
-	 mwE3Rvcc+0tRwoRxduTU30cY5DHxiFwacpEkCiZiL02wKQ/nFRQn6X5Cadyosn2nhrw==
+	bh=nLTK6VncmzGr5SZASmqw5/lkxvT4Lsj+DAdF8kNAm/4=;
+	b=Pb2NscsIiG0jXd3hdOLlnANGgqPwKWKLBaxif3VtxCxBrdyGflNjOiuLIIZCpHTJKOf1
+	 dQF3dk7vFU+obqAvoNiwuvP8b8HSu/ebjFIBtjCNk3Hwhw4U3EAobYkxHJrTfwpBhe8ng
+	 jWpsJYjexKCdYTYM1tHyYZeZrP8fXOSXVJ5xf5yTeufff5YS4BlPQ7efsizNy81vQaN0d
+	 cE0NcR9kjgMb/f2YY1TJc/Rz/sHlrkHbitj90ghu5aCoRTev7fTk0nKWueHxqEc5iBbw9
+	 swLklPkNnHtenNhSCg9JY7bTRq0tTp+71zVEqu246o/OqudSvYZUennKmSzbj1kvubw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=none header.from=cixtech.com;
 	spf=pass smtp.mailfrom=cixtech.com;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.97
-Received: from SEYPR02CU001.outbound.protection.outlook.com (mail-koreacentralazon11023097.outbound.protection.outlook.com [40.107.44.97])
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.75.76
+Received: from OS8PR02CU002.outbound.protection.outlook.com (mail-japanwestazon11022076.outbound.protection.outlook.com [40.107.75.76])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43904606A6AC
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:41:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43904606A6AC
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 855AC606A68E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:41:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 855AC606A68E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=w07ddV/tR0hC1FfNVSziAiPoY8omles3L/7nSNRo5tWcfgypvGa0KRBskwaLBEr91PNJo3ZpcqT7F+E8nsRRdyNBTeIam9S3RDWW7GS96uKl3wJcfZSpNWACbrizRUkfIa65bdu5dOzkA4Egdn26GWyOcj1T1jQ546KLErGQ4ho31vgV8XR4UEB1OHn6cyG2FGkhoaF1w6rv8iwQ6exi4kaGlSlMz9+iycmD4b2uiIbfj8CILgg4wVCYks2zRV36PW3HtwnaOhj9waPswjNFP/4U0Qssir5UWDzigeXTjVxi+o0OvF0hLKwQdKjqmAzEoI5QawUw5boecoZ7VngYtg==
+ b=hPhGlFLpR10htFAmutToYMNiYAKy12ZvbWTnI3fRSLIghzBn5OuZjHBRu/PGOvlS/dF18fCavRh/akSJ0Jej43PuS/qaYsP2a/qi6DWFHmcO9ntgAKwxf1emPNCjM1LsaDgjDvhn4ZPiJOI89k43J/tOHR14Tu3OFPTDD8Gl4LBN79cByUYUB4Z1Yn+njsRTVJFPF3JRBQD4nZ3LvECqMK7Y8pEbCkNDO7ysuKFvbOyS9oaTi24RxbU1dFz5TzcAzmENaEfJ/P3jpk2SoeyuZ6Ig789ahJCGUEkndooxQ5Wk7g0Q0IQ71xr5EGJiRBrbTumDPnZe+pThas5eeWx6qQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1PS0YeE8SMRJhJumT1urXmJUui+Lz5HSvuayNaA0WeI=;
- b=G9Tqysgaq2SoXsxGuiEA6z35KpI08a5xDSWQu5ZUo4nyN2+WECNKCdocQVnpm476bxWt3brQORrEnu7IjlWPr0F3vrHr9pYQMUYCQQ8tZ1qjTCTG3PGtXxHtQ8VeZgCSf+6iptf1AXwZFvqMLxMVpWHlsMcavskDHxxPCwtJJywvDuZ4rAYsbc23tg3h7q/Ukzm/wG/73RpveArE7SDwBePfu72pPe8VMIdkkywWHWiqw2dtwD0DTVHMuPwLsBX3vuOaPm/KuTiK+ybXfm9Y2lnJ6ATqqipXDJsY+NFZEn3pLvKgOUyTdrFDGs9mSB6WX+QMjp+e7TxE33d0OS919g==
+ bh=nLTK6VncmzGr5SZASmqw5/lkxvT4Lsj+DAdF8kNAm/4=;
+ b=hwSyq3FhlFTc3ABc5tk9i/Rpp+t3MPHEaGlnObKh/ORa8z/AcifH+uSB5o7KxWFK1kwdwczbwsAzXXIB2dH7N9OW4F2KCl5CoqnZvxc739o8NQk1wGtTI+tSpAEvBe2IUb5Io0HLGeYk0ZBo56N3gZ5YtvRmhNaMm3Vww+94JSAR9ROrdzdbSpqUQWx+oCwKcD3yN0el2YUOzlzrH8Uyxo94dZTao5IBXYpsCmIXlym+PACrowBoXp0yK/p2cdOB/eSyC/xIN/pc5TVAK2zEwi66fvMKfixnaL1BFtv2QlUQqD5XYtZctASpAIKHI2jTsB8o0zEZLvYSoEvQEzKTqQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from TYCPR01CA0186.jpnprd01.prod.outlook.com (2603:1096:400:2b0::9)
- by TYSPR06MB7344.apcprd06.prod.outlook.com (2603:1096:405:9b::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.3; Tue, 24 Nov
- 2026 09:41:22 +0000
-Received: from TY2PEPF0000AB87.apcprd03.prod.outlook.com
- (2603:1096:400:2b0:cafe::9d) by TYCPR01CA0186.outlook.office365.com
- (2603:1096:400:2b0::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Tue,
- 24 Nov 2026 09:41:22 +0000
+Received: from PUZP153CA0011.APCP153.PROD.OUTLOOK.COM (2603:1096:301:c2::7) by
+ TYZPR06MB6827.apcprd06.prod.outlook.com (2603:1096:405:1c::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3; Tue, 24 Nov 2026 09:41:21 +0000
+Received: from TY2PEPF0000AB89.apcprd03.prod.outlook.com
+ (2603:1096:301:c2:cafe::35) by PUZP153CA0011.outlook.office365.com
+ (2603:1096:301:c2::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.688.3 via Frontend Transport; Tue, 24
+ Nov 2026 09:41:21 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
  header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
@@ -72,11 +71,11 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- TY2PEPF0000AB87.mail.protection.outlook.com (10.167.253.6) with Microsoft
+ TY2PEPF0000AB89.mail.protection.outlook.com (10.167.253.7) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 09:41:21 +0000
 Received: from localhost.localdomain (unknown [172.16.66.33])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 5010D40920E5;
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 3EAB840920E2;
 	Tue, 24 Nov 2026 17:41:20 +0800 (CST)
 From: Luo Liu <Luo.Liu@cixtech.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
@@ -99,9 +98,9 @@ Cc: Ayan Halder <Ayan.Halder@arm.com>,
 	linux-kernel@vger.kernel.org,
 	cix-kernel-upstream@cixtech.com,
 	Wuyi.Shen@cixtech.com
-Subject: [PATCH v3 4/4] drm/bridge: tda998x: fix DRM_BRIDGE_ATTACH_NO_CONNECTOR support
-Date: Tue, 24 Nov 2026 17:41:19 +0800
-Message-Id: <20261124094119.3220267-5-Luo.Liu@cixtech.com>
+Subject: [PATCH v3 3/4] drm/komeda: Free the IRQ before clearing dev_private
+Date: Tue, 24 Nov 2026 17:41:18 +0800
+Message-Id: <20261124094119.3220267-4-Luo.Liu@cixtech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20261124094119.3220267-1-Luo.Liu@cixtech.com>
 References: <20261124094119.3220267-1-Luo.Liu@cixtech.com>
@@ -117,241 +116,71 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB87:EE_|TYSPR06MB7344:EE_
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB89:EE_|TYZPR06MB6827:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 6323816a-b182-4656-0283-08df4a0f193c
+X-MS-Office365-Filtering-Correlation-Id: 6c36b6b7-9e60-429c-d80d-08df4a0f18ef
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|1800799024|42112799006|36860700016|23010399003|376014|7416014|18002099003|6133799003|261009223027099003|22082099003|261021123027099003|56012099006|261102123227099003|261022113327099003|261022115727099003|261021133027099003|261021121427099003|261022105027099003|261026135527099003|261028144727099003|261026130827099003|261021130227099003|261021135927099003|261022075727099003|261026121527099003|261026140227099003|10067099003;
+	BCL:0;ARA:13230040|23010399003|42112799006|82310400026|7416014|376014|1800799024|36860700016|22082099003|18002099003|56012099006|261009220027099003|261102123227099003|261009223327099003|261021121427099003|261009223027099003|261022105027099003|261026140227099003|261026121527099003|261009221727099003|261009221227099003|261028144727099003|10067099003;
 X-Microsoft-Antispam-Message-Info:
-	vN4uWkbGZRKk4HcET/M5wW2XMmiwgsN8C4KC8L8FU8WlAlI1LDZiQKQo5wdBa3g91u0RXL1sIL8kfqhuMWtWT7G4grmKID8JoRGUguAF2yyy92yYkesq7yzhbfAxrRo7M4TgmEaAy1lriO/wU4vbPBEj/krgQYc16KiyHMXoCNcIZjIpSUl9aP033PoEQWBU32SwmsteQWCnUPxROlAv8YaEfbdiEqMiGJ5yH+LlAYx2CMJufQsa+uGP84gOzfUgZc04sY/QaTu/Hvh/xVclg6oNUyxoz5yFJPd1/rOIbIvGMCBEoWyuuLlRVtlZbRyQTIwhVFcHzVs5X/qeq62qJgqV0Q3Xckf4Ht8Xx1wckPkzs7FT0q7NmYmjVOgA/7mJcxYUkEksegBQ8UBfLmf5RxBr8FAQwJqJWaPa7HoWkBQjwyb3pmMcI3a5LzQGYeeOwiR1F+Y/gC9Wk5lPsm1okELs77ApRm2OdoU9g1QNGdvYGSAX01r8nfkVggs67ZVP13F3GippzLRhCNXvUmbG/OfSE1kH3vipwLTfk5cC8fXWq5PulSIMdabgZpleX3vnMTKEPG1ei0sHVC0XBhHnDfm84EAZKcgdZzEqd35+jCJ4YE4rq10aYEXEgAQ1Z2Ti3ISNbgO5GmSfZnQyqHFqmIIa4dP1b1s6dTwBm82OqE9yD/A+GNpvMkpggpNWHk3QBHnprrE2rSYqb8yRDhNheA==
+	Gyf6u+f/5QJri2WovCFblcvtsVLO5AL/zzDa966TSzLwgzZ8MWwHfNhw3KbqIr7FEzxSY//IynEDXRM782wF1W+F26NxKqARR3LYQ/g4WRPB7g0UrM7KgqEYrF5UZISnEcQd3F40sv8AsX+NcOpTuQDmvgPfw16Rb5/YGa1HXDBkLv4tctWTTLl6UqUm9pRssRhxE03H4ayxnApob7cjxsLiidkqepELtONjxPDcXhD1hbolk6BJC3PZjKvrFA7ntugTyw+guNtdaoi/xrni0DwRE538T6wB9BMjsdYsUsneqlE8DMwQYbmgpltROiwWJPFeazixT7oJyEi0jtVJnUH9fDfBSfU3/4OD8DufafbLp3h+YpWWRCd9DE9AgZepCNmLxgDen32Zy9Yq1rNEc9mFgM+oaROtxhcia+X4U/BLlhhxLF+4QgX2/sjKcMN8HSUXtB9NDD27GjQ/1dj/HVlaIegR2ISigw+82THO0UW90aXmLBDL5QE8/XIcti/ft//xUGU5/8RJyf8z5i7noad1b+rV1rQTulWNbMPusSBcJZBz3yZf4dav9Ijc6QFymU+4On+N5UEdBaooTqZJ7CTPL0cpqRPP0iDU1qFgwCRPR9D434exEQLgpHzl1kQ5Aa0lREFa8H3sWZSfCsHCTcOoYGYHACoXbI1qNPrGMAblglcdbbXkjIF0tPmMoMOPTX7peYnl3iZNIEDL+damvw==
 X-Forefront-Antispam-Report:
-	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(42112799006)(36860700016)(23010399003)(376014)(7416014)(18002099003)(6133799003)(261009223027099003)(22082099003)(261021123027099003)(56012099006)(261102123227099003)(261022113327099003)(261022115727099003)(261021133027099003)(261021121427099003)(261022105027099003)(261026135527099003)(261028144727099003)(261026130827099003)(261021130227099003)(261021135927099003)(261022075727099003)(261026121527099003)(261026140227099003)(10067099003);DIR:OUT;SFP:1102;
+	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(42112799006)(82310400026)(7416014)(376014)(1800799024)(36860700016)(22082099003)(18002099003)(56012099006)(261009220027099003)(261102123227099003)(261009223327099003)(261021121427099003)(261009223027099003)(261022105027099003)(261026140227099003)(261026121527099003)(261009221727099003)(261009221227099003)(261028144727099003)(10067099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	EKf95eLOVNQy/7SqT4zPEwgpcxw+yJi2H0cnTeoM1s07F5Fq3BKzY5LWcxxyLhBPY0NmjtyiHt64WVJxVA941nQyv/+joMei0EhNmSw02iBI6V5GKfTjw5HZUvAgNu7d3gqiC53uM4AVtCGc4f1qfnLdcmusdj1MBs2k3Leg7/R/uSQ9SYy00EVUAp+HdH44JxUpIZTJTRG6PzQdL7cMhJKj+79uncyOykrEqX6lLWT9JNkgoVQteIs5VKln0I4eTwieUFg4LgGni8dHWDK98jG6rXjutZqT8jDjuK3t6l3jtF6WzZd5u9mW1NPbTdIDI1jiKFRPfBjw/emLDRYJnUjiEhGPlzjwQcJ04s11YHMqlZPYmUWdkQb4dbqkuyNFkuECVg8CxNEeT+lvkf4W3x9CFfTXlqKSAOsBc6Ota2vlBcYgIY9v0etxhss2qZPa
+	8vGLTnhbIYyhAjs4XTMIzPtEP9zGk0Vlw43SXLxSWYAMVVDSTsIibQ8ByTFmWJmq3+wGjieSYz77yuQLkVIESe58G+qW4E6KQWGF7knS8Yk3w9VrGAnEzsUSbfKUmuf9okoTaENskjUphLQ46mE92lDSJ4afh9hNmN5J7k249YdjOlovd3q1bcO7opBUmWMMd+N5pjs+/Ihzff3tW/Eg8mH+ZqMgfpRYijgrma0A5TI7qlDJLrUiiCrzKRo1rR9hG4klcJYyPuVptLP8sAiSWvdaFxfFxNR6Mq+RPxMIQ4NbxyTrVxqGcgRMoCLCUUVq3C5eL6injsWlRUv5cpDi3w+77u4suMimuBR8YQlbhAEmZG8pol/Z10P7OeCZmrxM6wN/ciWzuoWYC21U8CvELl69+NQez25oK7mteKQUKkXgECNSqB9wKDP6S2jhrALE
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 09:41:21.5285
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 09:41:21.0954
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6323816a-b182-4656-0283-08df4a0f193c
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6c36b6b7-9e60-429c-d80d-08df4a0f18ef
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
 X-MS-Exchange-CrossTenant-AuthSource:
-	TY2PEPF0000AB87.apcprd03.prod.outlook.com
+	TY2PEPF0000AB89.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB7344
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB6827
 
-When attached with DRM_BRIDGE_ATTACH_NO_CONNECTOR, the connector is
-created by drm_bridge_connector_init() and the driver's own connector
-is never initialised. Several paths still access that connector:
+The interrupt is requested with devm_request_irq(), so it remains
+registered until the device is removed and its devres resources are
+released. komeda_kms_detach(), and the komeda_kms_attach() error path
+taken when drm_dev_register() fails, clear drm->dev_private before that,
+while komeda_kms_irq_handler() still reads mdev from it. The interrupt
+line is shared, so another device can raise it in that window and make
+the handler dereference a NULL pointer.
 
-- tda998x_bridge_mode_set() reads display_info from it to decide the
-  RGB quantization range and whether infoframes and audio are
-  supported. As it stays zeroed, the bridge always operates in DVI
-  mode.
+Free the interrupt explicitly with devm_free_irq() before dropping
+drm->dev_private. free_irq() removes the action and synchronizes with
+any handler in flight, so the handler cannot run afterwards.
 
-- tda998x_audio_get_eld() copies the ELD from it, which is always
-  empty.
-
-- tda998x_detect_work() uses its drm_device to send hotplug events,
-  which never happens because the connector was never registered.
-
-Use the connector passed to the bridge detect and EDID read operations
-instead of the driver's own connector whenever one was provided, and
-report hotplug events through drm_bridge_hpd_notify(). Also advertise
-interlaced mode support through the bridge, otherwise the bridge
-connector rejects them.
-
-Fixes: c76a8be4feec ("drm/bridge: tda998x: Add support for DRM_BRIDGE_ATTACH_NO_CONNECTOR")
+Fixes: 2cfb1981dd0d ("drm/komeda: Make Komeda interrupts shareable")
 Signed-off-by: Luo Liu <Luo.Liu@cixtech.com>
 ---
- drivers/gpu/drm/bridge/tda998x_drv.c | 64 +++++++++++++++++++---------
- 1 file changed, 45 insertions(+), 19 deletions(-)
+ drivers/gpu/drm/arm/display/komeda/komeda_kms.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/tda998x_drv.c b/drivers/gpu/drm/bridge/tda998x_drv.c
-index 0b966c9844e7..40379d74a53a 100644
---- a/drivers/gpu/drm/bridge/tda998x_drv.c
-+++ b/drivers/gpu/drm/bridge/tda998x_drv.c
-@@ -81,6 +81,7 @@ struct tda998x_priv {
- 	struct drm_encoder encoder;
- 	struct drm_bridge bridge;
- 	struct drm_connector connector;
-+	struct drm_connector *bridge_connector;
+diff --git a/drivers/gpu/drm/arm/display/komeda/komeda_kms.c b/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
+index 37388d45b31f..4fabe1aba25f 100644
+--- a/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
++++ b/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
+@@ -334,6 +334,7 @@ struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
  
- 	u8 audio_port_enable[AUDIO_ROUTE_NUM];
- 	struct tda9950_glue cec_glue;
-@@ -95,6 +96,19 @@ struct tda998x_priv {
- #define bridge_to_tda998x_priv(x) \
- 	container_of(x, struct tda998x_priv, bridge)
- 
-+/*
-+ * When attached with DRM_BRIDGE_ATTACH_NO_CONNECTOR, the connector is created
-+ * by drm_bridge_connector_init() and handed to the bridge detect and EDID
-+ * operations; otherwise it is the driver's own connector.
-+ */
-+static struct drm_connector *tda998x_get_connector(struct tda998x_priv *priv)
-+{
-+	if (priv->bridge_connector)
-+		return priv->bridge_connector;
-+
-+	return &priv->connector;
-+}
-+
- /* The TDA9988 series of devices use a paged register scheme.. to simplify
-  * things we encode the page # in upper bits of the register #.  To read/
-  * write a given register, we need to make sure CURPAGE register is set
-@@ -769,6 +783,14 @@ static int tda998x_edid_delay_wait(struct tda998x_priv *priv)
- 	return wait_event_killable(priv->edid_delay_waitq, !priv->edid_delay_active);
+ free_interrupts:
+ 	drm_kms_helper_poll_fini(drm);
++	devm_free_irq(drm->dev, mdev->irq, drm);
+ cleanup_private_objs:
+ 	komeda_kms_cleanup_private_objs(mdev);
+ 	drm->dev_private = NULL;
+@@ -348,6 +349,8 @@ void komeda_kms_detach(struct komeda_kms_dev *kms)
+ 	drm_dev_unregister(drm);
+ 	drm_kms_helper_poll_fini(drm);
+ 	drm_atomic_helper_shutdown(drm);
++	/* The handler dereferences drm->dev_private, which is about to go. */
++	devm_free_irq(drm->dev, mdev->irq, drm);
+ 	komeda_kms_cleanup_private_objs(mdev);
+ 	drm->dev_private = NULL;
  }
- 
-+static enum drm_connector_status tda998x_conn_detect(struct tda998x_priv *priv)
-+{
-+	u8 val = cec_read(priv, REG_CEC_RXSHPDLEV);
-+
-+	return (val & CEC_RXSHPDLEV_HPD) ? connector_status_connected :
-+			connector_status_disconnected;
-+}
-+
- /*
-  * We need to run the KMS hotplug event helper outside of our threaded
-  * interrupt routine as this can call back into our get_modes method,
-@@ -778,10 +800,11 @@ static void tda998x_detect_work(struct work_struct *work)
- {
- 	struct tda998x_priv *priv =
- 		container_of(work, struct tda998x_priv, detect_work);
--	struct drm_device *dev = priv->connector.dev;
- 
--	if (dev)
--		drm_kms_helper_hotplug_event(dev);
-+	if (priv->bridge_connector)
-+		drm_bridge_hpd_notify(&priv->bridge, tda998x_conn_detect(priv));
-+	else if (priv->connector.dev)
-+		drm_kms_helper_hotplug_event(priv->connector.dev);
- }
- 
- /*
-@@ -859,12 +882,12 @@ static void tda998x_write_aif(struct tda998x_priv *priv,
- static void
- tda998x_write_avi(struct tda998x_priv *priv, const struct drm_display_mode *mode)
- {
-+	struct drm_connector *connector = tda998x_get_connector(priv);
- 	union hdmi_infoframe frame;
- 
--	drm_hdmi_avi_infoframe_from_display_mode(&frame.avi,
--						 &priv->connector, mode);
-+	drm_hdmi_avi_infoframe_from_display_mode(&frame.avi, connector, mode);
- 	frame.avi.quantization_range = HDMI_QUANTIZATION_RANGE_FULL;
--	drm_hdmi_avi_infoframe_quant_range(&frame.avi, &priv->connector, mode,
-+	drm_hdmi_avi_infoframe_quant_range(&frame.avi, connector, mode,
- 					   priv->rgb_quant_range);
- 
- 	tda998x_write_if(priv, DIP_IF_FLAGS_IF2, REG_IF2_HB0, &frame);
-@@ -873,10 +896,11 @@ tda998x_write_avi(struct tda998x_priv *priv, const struct drm_display_mode *mode
- static void tda998x_write_vsi(struct tda998x_priv *priv,
- 			      const struct drm_display_mode *mode)
- {
-+	struct drm_connector *connector = tda998x_get_connector(priv);
- 	union hdmi_infoframe frame;
- 
- 	if (drm_hdmi_vendor_infoframe_from_display_mode(&frame.vendor.hdmi,
--							&priv->connector,
-+							connector,
- 							mode))
- 		reg_clear(priv, REG_DIP_IF_FLAGS, DIP_IF_FLAGS_IF1);
- 	else
-@@ -1152,10 +1176,10 @@ static int tda998x_audio_get_eld(struct device *dev, void *data,
- 				 uint8_t *buf, size_t len)
- {
- 	struct tda998x_priv *priv = dev_get_drvdata(dev);
-+	struct drm_connector *connector = tda998x_get_connector(priv);
- 
- 	mutex_lock(&priv->audio_mutex);
--	memcpy(buf, priv->connector.eld,
--	       min(sizeof(priv->connector.eld), len));
-+	memcpy(buf, connector->eld, min(sizeof(connector->eld), len));
- 	mutex_unlock(&priv->audio_mutex);
- 
- 	return 0;
-@@ -1193,14 +1217,6 @@ static int tda998x_audio_codec_init(struct tda998x_priv *priv,
- 
- /* DRM connector functions */
- 
--static enum drm_connector_status tda998x_conn_detect(struct tda998x_priv *priv)
--{
--	u8 val = cec_read(priv, REG_CEC_RXSHPDLEV);
--
--	return (val & CEC_RXSHPDLEV_HPD) ? connector_status_connected :
--			connector_status_disconnected;
--}
--
- static enum drm_connector_status
- tda998x_connector_detect(struct drm_connector *connector, bool force)
- {
-@@ -1390,6 +1406,8 @@ static void tda998x_bridge_detach(struct drm_bridge *bridge)
- {
- 	struct tda998x_priv *priv = bridge_to_tda998x_priv(bridge);
- 
-+	priv->bridge_connector = NULL;
-+
- 	if (priv->connector.dev)
- 		drm_connector_cleanup(&priv->connector);
- }
-@@ -1449,6 +1467,7 @@ static void tda998x_bridge_mode_set(struct drm_bridge *bridge,
- 				    const struct drm_display_mode *adjusted_mode)
- {
- 	struct tda998x_priv *priv = bridge_to_tda998x_priv(bridge);
-+	struct drm_connector *connector = tda998x_get_connector(priv);
- 	unsigned long tmds_clock;
- 	u16 ref_pix, ref_line, n_pix, n_line;
- 	u16 hs_pix_s, hs_pix_e;
-@@ -1465,7 +1484,7 @@ static void tda998x_bridge_mode_set(struct drm_bridge *bridge,
- 	 * it, otherwise reduce to limited-range.
- 	 */
- 	priv->rgb_quant_range =
--		priv->connector.display_info.rgb_quant_range_selectable ?
-+		connector->display_info.rgb_quant_range_selectable ?
- 		HDMI_QUANTIZATION_RANGE_FULL :
- 		drm_default_rgb_quant_range(adjusted_mode);
- 
-@@ -1674,7 +1693,7 @@ static void tda998x_bridge_mode_set(struct drm_bridge *bridge,
- 	 * ignore CEA version 2 and below (iow, behave as if we're a
- 	 * CEA-861 source.)
- 	 */
--	priv->supports_infoframes = priv->connector.display_info.cea_rev >= 3;
-+	priv->supports_infoframes = connector->display_info.cea_rev >= 3;
- 
- 	if (priv->supports_infoframes) {
- 		/* We need to turn HDMI HDCP stuff on to get audio through */
-@@ -1701,6 +1720,9 @@ tda998x_bridge_edid_read(struct drm_bridge *bridge,
- 	const struct drm_edid *drm_edid;
- 	const struct edid *edid;
- 
-+	if (connector)
-+		priv->bridge_connector = connector;
-+
- 	drm_edid = tda998x_edid_read(priv, connector);
- 	if (!drm_edid) {
- 		dev_dbg(&priv->hdmi->dev, "failed to get edid\n");
-@@ -1729,6 +1751,9 @@ tda998x_bridge_detect(struct drm_bridge *bridge,
- {
- 	struct tda998x_priv *priv = bridge_to_tda998x_priv(bridge);
- 
-+	if (connector)
-+		priv->bridge_connector = connector;
-+
- 	return tda998x_conn_detect(priv);
- }
- 
-@@ -2011,6 +2036,7 @@ tda998x_probe(struct i2c_client *client)
- 
- 	priv->bridge.ops |= DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT;
- 	priv->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
-+	priv->bridge.interlace_allowed = true;
- 	drm_bridge_add(&priv->bridge);
- 
- 	return 0;
 -- 
 2.25.1
 
