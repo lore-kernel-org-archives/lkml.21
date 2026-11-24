@@ -1,64 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795536862;
-	b=5F75VlIUASjGWtFojxSDY9cy9/6iwIsMcTq0VU25pJ9SlBvPM5eBpvBuXVZDPq6AdF21
-	 ytAn4Vy8zKjWHdK7iuaSeIVu4JB7zK84VS7l1XMq3kbj+quMR1d92owaSEXtHKcHfBGwq
-	 sofboHpYIgBM+yrDL5MwPfa5aG6i6/ceEjcbnPoYOcUDHNd09qCYX3LiQDonfpM3UjWPt
-	 GRIh7YU9hRPO4AmnpgMr8QWnPU7bI+E2lbk0/bTSgwkWOFxQYxYJ5GOAmwNUIKDKL6C2f
-	 aeJTlLqHz8GiBSPGwgPEqesPdGkaSCuMqMCCaKar3FN364foFMXpylr+EJkFlIutIyQ==
+	t=1795536871;
+	b=qiWOHiCPWXgQw5fvLC+5Mg5LQLiKGvd9S9YdkIxWwzsbI9oHuiRL6/gU3q+gADz4T1wb
+	 dFeM2PtfldraibqcOIY6nze5GSkvynFz2B69i2mmwn/qvdkx0J/T+HOlnJ0M1aOHnDv4s
+	 OBugkZw48DiegAbLaBHxZ/i2uXFNF51I9hQ2JLHm0isUSDHA6EPug4PTF7wLKMaZtFBRE
+	 IA6lhcq/k5bg9JqLKK2Ys2ZzYPS2lmgun22ep0bgEck2mFhxz8j36qlouDoyHh/vPBlmD
+	 WC5ofHGZF1QDuva4hivu87sc94x4Bs1xsT9UAiah39RV0szIFBubWHnceQuvsxJ3N8A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795536862;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=WrZPcXpujul/0lHKoTpqeKk2rEN77o0/xsCu0c+kPzk=;
-	b=Ky5GDjvbokDWlb+kUJ2wfXZVoFb24wjeJep3zOW9GXEdcU0iJY+7dGeXEwXfWNrl+e6q
-	 GGJ2mzor7EpQRIeJeAwSi70K7CddSVFXnFBpq/jTiY3Abq4z0zdLlVFbBqvQuTGHqKZNd
-	 HG+FX36mKB12rX+HzzB+wypFAt0YdzH4iuXI72TXayPdZ4frIqHNOBjDZxh0lbAahJ4Bz
-	 1UvtID7PH3TB1VDzdYE9rP4d4y35aWbKiKB6QrmPdIEadWf6KLRdZsyyxjpOEsJFvCE1C
-	 sn38HftIWBsCkqvaptNSooqgUakEEphYKQEaNehJCT2Bv+GdxykVSR3hJgZhXNKCkLQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795536871;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Rspamd-Server:X-Rspamd-Queue-Id:
+	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:
+	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=xpJrJ/aj4rovQZsntfqxAg1AVJd2kg647AlEgjHHWsY=;
+	b=qH74NioCgCwsPKZIiZ/ouHfZiWvyHmFed4fDGlyycbgjz5iFgUN8qdhAhtRvM3qb0L+6
+	 GDQ9ROgWjmqAG0WhjJlXQh/DWo0VAkkIgIAtP66sD7xGMABm1doeLOP8h0H2VDBPc90pW
+	 OTOMGyJTlxptUH9Al0WUoCOsjbHbIBj/KP72AmdL/uTYXcQto8eX/aJIe2JAGM6Rtauvy
+	 Ju3qwJ4fLuS0BrrsX0pxmTizUno8LzgZYB9bo2KVswC/22IcAO2THXsMC1cE3Q3f/e9kj
+	 yAeH6V1llpuiU255ITYdGGyagl5KyFFBJUiWXw0XksPSrJbdNsX4OXg7Jq3P+Gnw2kw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b9S5gsaK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=AX+SJDPx;
+	arc=none smtp.remote-ip=216.40.44.16
+Received: from relay.hostedemail.com (smtprelay0016.hostedemail.com [216.40.44.16])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30847606A31E;
-	Tue, 24 Nov 2026 16:14:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52FB5606A329;
+	Tue, 24 Nov 2026 16:14:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52FB5606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b9S5gsaK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AAAB1F000C0;
-	Tue, 24 Nov 2026 16:14:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795536861;
-	bh=WrZPcXpujul/0lHKoTpqeKk2rEN77o0/xsCu0c+kPzk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=b9S5gsaKM1pEhc09ZRSKqeE5LzsmM0Rch2EIYoXBLn5hFQCbGTZXqgnLIgSaDPnEl
-	 IBxlX6mGcjSAZFKw3M6SOnF5FfngeYDJXOVqHmZ7aJofIs5BCqipkg2MsGRPiTSVeO
-	 fOVKyc07oysD6nmQwarUXsAa0y1b1GnJ+OSa6MkE8DMz5fMbzHbWBLxuQA8UICjsww
-	 oWnFVSuSd2RDBPhlfT26bwiGLnTXw7hqn2wqaJ0zqP3VsXeiRgM75pGp7tcRdF2+Fb
-	 KcadwoDHLT/mzbfbkZOigg6GrPHPGBAtVVMTG8X0JFTMG+Ce+oRGj/NbqZWFqpjH7z
-	 u5LArjSylbEDA==
-Date: Tue, 24 Nov 2026 18:14:14 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Dave Hansen <dave.hansen@intel.com>
-Cc: Pankaj Gupta <pankaj.gupta@amd.com>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Ard Biesheuvel <ardb@kernel.org>, Kiryl Shutsemau <kas@kernel.org>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	linux-efi@vger.kernel.org, Pankaj.gupta.linux@gmail.com
-Subject: Re: [PATCH RFC 0/3] x86/e820: Ignore memmap= and mem= in
- confidential guests
-Message-ID: <awW31hUpXuujSAXA@kernel.org>
-References: <20261124133241.221719-1-pankaj.gupta@amd.com>
- <e08f2321-749e-40f6-9ed4-3dba8e1625ba@intel.com>
- <awWzrkLxfQ2_ODKe@kernel.org>
- <2dd40d0d-2e1f-4a7f-ba65-2cceccd82028@intel.com>
+	dkim=pass (1024-bit key) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=AX+SJDPx
+Received: from omf03.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay10.hostedemail.com (Postfix) with ESMTP id A1243C07C0;
+	Tue, 24 Nov 2026 16:14:28 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf03.hostedemail.com (Postfix) with ESMTPA id A1A6C6000D;
+	Tue, 24 Nov 2026 16:14:26 +0000 (UTC)
+Date: Tue, 24 Nov 2026 11:14:25 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Peter Zijlstra <peterz@infradead.org>,
+ Thomas Gleixner <tglx@kernel.org>, Song Liu <song@kernel.org>,
+ linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] tracing: Keep preemption disabled until the recursion
+ bit is cleared
+Message-ID: <20261124111425.487a2ec8@gandalf.local.home>
+In-Reply-To: <20261113011333.20813-1-kmehltretter@gmail.com>
+References: <20261113011333.20813-1-kmehltretter@gmail.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,31 +62,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <2dd40d0d-2e1f-4a7f-ba65-2cceccd82028@intel.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Server: rspamout01
+X-Rspamd-Queue-Id: A1A6C6000D
+X-Stat-Signature: wgpirjrdtoguppwk65gb17y81kqxpcu9
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX18h3o0V+j73p7zeCPDRwnEuIWK057HZwTs=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=xpJrJ/aj4rovQZsntfqxAg1AVJd2kg647AlEgjHHWsY=; b=AX+SJDPxDOVjWGcDZzIv66gzSJqmaW5nM17jjI10SGQ9EYdwdc2F4bVtYdl0LZpLchYQhTSaoIuubLvGQfD5of4yB5jTDvEuYoRBRCgwKBT7E+RTYf9Ym2T8az+wESNfxtSbOQDJoLjIhr6G6tYo5YBWg+v+Ty3OdCU17CrRu3E=
+X-HE-Tag: 1795536866-202913
+X-HE-Meta: U2FsdGVkX1/sKKD/8PuaEW7vJEhYuHEvAHXxgsNVKpgh5IlVfPS7VZ/KrMj+smvgwXlbKb0dV8tqcHAQ6IYMOM0CvFKypaJu6MpMM0tRQV1x7WCgUXna8wSpjjQtkaCn2wJD/oMmTjzWGb+WqkdGqs01h+p7hLWTNlDQdO3fysfiKRpSIkGEvTBI8ZgjXFysMfUnnpeZHh/d42+kFKWqxWyGy/PS9puCL7xch3giaxgSf2pp25o6sQunXHClkRRYNl9uosygsG486UHEDI64HnrvKoZlm9f5ZtayH2gOOoFpITW2+IKDhFO3LjeYWFUfISnsXmTnWI9izFn/oi4GtEBHNkgNakMJ
 
-On Tue, Nov 24, 2026 at 07:58:31AM -0800, Dave Hansen wrote:
-> On 11/24/26 07:56, Mike Rapoport wrote:
-> > On Tue, Nov 24, 2026 at 07:09:42AM -0800, Dave Hansen wrote:
-> >> On 11/24/26 05:32, Pankaj Gupta wrote:
-> >>> In a confidential guest (SEV-SNP, TDX) the EFI stub builds the unaccepted
-> >>> memory bitmap before the command line is parsed. memmap= and mem= edit
-> >>> e820_table only afterwards.
-> >> memmap= and mem= are debugging tools, right? 
-> > I wish they were 🙂
-> > But AFAIU they are used to carve out "pmem" or PFN-mapped memory.
-> 
-> I've used them that way for development, but production pmem systems
-> always had persistent memory in their BIOS-provided memory maps.
-> 
-> How are folks depending on these in production in confidential guests?
+On Fri, 13 Nov 2026 02:13:33 +0100
+Karl Mehltretter <kmehltretter@gmail.com> wrote:
 
-They shouldn't but you can't guarantee that.
+> diff --git a/include/linux/trace_recursion.h b/include/linux/trace_recursion.h
+> index e6ca052b2a85a..a7c66313bf360 100644
+> --- a/include/linux/trace_recursion.h
+> +++ b/include/linux/trace_recursion.h
+> @@ -132,6 +132,8 @@ static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsign
+>  	if (trace_warn_on_no_rcu(ip))
+>  		return -1;
+>  
+> +	preempt_disable_notrace();
+> +
+>  	bit = trace_get_context_bit() + start;
+>  	if (unlikely(val & (1 << bit))) {
+>  		/*
+> @@ -145,6 +147,7 @@ static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsign
+>  		bit = TRACE_CTX_TRANSITION + start;
+>  		if (val & (1 << bit)) {
+>  			do_ftrace_record_recursion(ip, pip);
+> +			preempt_enable_notrace();
+>  			return -1;
 
-But I don't mind letting them crash if they do :)
+Honestly, the reason I did it this way was because if for some reason
+something in preempt_disable_notrace() was traced, this would catch it.
 
--- 
-Sincerely yours,
-Mike.
+I guess we could change it to do it this way, but if something were to be
+traced in preempt_disable_notrace() it would triple fault and reboot the
+machine with no warning. :-/
+
+-- Steve
+
+
+>  		}
+>  	}
+> @@ -153,8 +156,6 @@ static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsign
+>  	current->trace_recursion = val;
+>  	barrier();
+>  
+> -	preempt_disable_notrace();
+> -
+>  	return bit;
+>  }
+>  
+> @@ -163,9 +164,9 @@ static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsign
+>   */
+>  static __always_inline void trace_clear_recursion(int bit)
+>  {
+> -	preempt_enable_notrace();
+>  	barrier();
+>  	trace_recursion_clear(bit);
+> +	preempt_enable_notrace();
+>  }
+>  
+>  /**
+> base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
