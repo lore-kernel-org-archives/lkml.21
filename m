@@ -1,90 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795535768;
-	b=SQpJPsaT2gNczDsXl1jz7yfFdo1Akr8YwXrPURBU5o1JHJhurl2t8A9k37ZjibzfiQfM
-	 Z1KIdlYwqwy7HaUbvGrTkJEo9uGryysVZPn9IPs76RtxFIB4HdkEjri5KrRVUVbLE7fr6
-	 H+Kt/+IkD90zBWBb0ULnCvt1PlSldMw5ner7DICBjVA3xQvF7MVJDG6fMkziuwgMeH+/Y
-	 +/UzP2TA/f39TI3DOBi00ABH7DuIJ26ihAeHVwVaTq3Wf+nkAwbr6QcYQxez8IJqQ7D7I
-	 VgihfyxNQmYQH2ltZzKL26isWio7cj7WJWXi4e5fWPyb9Sd4m1YAtqVlrIS01+IQgoQ==
+	t=1795535798;
+	b=yD5y0aeRdga7tzT8/DfFqOqXw14INgt+Ld+jKrkE+3jX0adBSpu2oAYJAD8dU85V52vM
+	 D9i+Ox+S7JELtkG/8yu8uJTaNcH8zHyzCVkBxthdxuo76SV5KqS6Mo7aboun0e7GeHuAx
+	 UbzkSEbeUXSUf6PbyH9IO3u/NyYzzQRUl0hnC/oJ3pNx6jnJt7DERBuB8gZrzUUcj6Ws8
+	 CpCChR48dhRjqlnoQdmlVNEZs1XMKGcP5qD8f8Q9PMijlMVLKqSnzW9qLbT3QcqgBVt5z
+	 kGkz24B9zXK5dONDCn6dKnhLb+GK6yEJ77zwe1pqXLSRjW4PSn+5EiblNg9M4wPQugA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795535768;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=1FfVUciJC7SBDz64qLVYNqjkCG1iMZUPuQ/yeamSqyk=;
-	b=MMUXKekuzpQhXvzzN4YiNqa/6t+IyBZObBNGjJXt2whbS6rN3iXTuqaRZmnHB8xHDMI7
-	 Zo58b+ryJ3w0hPtH0TZ2YC6HBDEH3gih3HqWXWmzz6b1HYng3paMi/Ku15CjzivZ/VZvk
-	 wJqFZhNEAMNIOvCTksL1TfyWPFtzRbb+/NHz2kIdM4M/lLHHp9PcqJdJ8o9sRSZoHbvXK
-	 s/q+uP6FdpCGEMNkwTMxkAsepbWjzdCGBUYWBwpup4V0WALQfMpJlwuUmZpIswVUfUrBT
-	 zl/h5oHkTjyFkfAlRQcKviIXj5rpGNgc11WvTnad6CRaSJ06BKGawk2uJGF7oPvyUUQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535798;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Qxe57lMNKukT31B5po2sqaJC36RczLL5Kjvfjsw19PE=;
+	b=wACyMK/ba0lv9ovk3HFKeZIh9ztJVBMSDW5sPOLsDZCK9ArB08nzXFO/O8KmHt9DlxGQ
+	 LY842TpMPx+YrJQyrP3dfYghTrsd5uF5lq3rCRfx1RFC6CHtwNECzUSbLFbkNozSrf+Tw
+	 gRjnI86GgjkopXQC4oI0JjOLTdivt3FJjrE6ffxGTV2qeuX1Bkp+DIRA4e5vOape5t7N+
+	 KHmoQOuUPRW9XWVHwotg8cu5WVve+AcgLkpAWJ7XtQ8CtkLOsQhTrzfjOfl5/M08D0chn
+	 1QPbIRatc3J0JNeVVP+nPulEmxaKUQo0KxAW4uTqI6mCJRZzEgvUkFpQ2g11MDdUgyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=ETofVZ8x;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=THR5ispW;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B770A606A31E;
-	Tue, 24 Nov 2026 15:56:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B770A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42AA4606A31E;
+	Tue, 24 Nov 2026 15:56:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=ETofVZ8x
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795535765;
-	bh=ruxnBoOV6xGZY/CSfA+iq4Vpv8wHSpb/bh4/86Bx53I=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=ETofVZ8xrguINm0cpUpPyTjkAv/N0HvLyR9jy7i/Cds+ypgawZ8PCHZ+xw1nqYejH
-	 VVecFaUKipjF1VnW9ntnr86B73vMTdWvUnaWW4I8nrZttZNElnX0GMZAYow37r20Lf
-	 fPz4lx0hhUqLnKc8DAbKooL4kMDIvjdqKX7gk8e2ZeIXSK7l+Rn10aCugEWOrlud2B
-	 40VDiiLHhpHMg3E423NXFMY5acf8wQJWQFL0Vso5bLxbvPwTHeaSoD0/HHTcA0vAdl
-	 PRXrseaQwPz8NgO44BgPuYYbIXKRDQe6cmjL+YsfmpRrebxYvZIIFcMnaWKpCOkEQF
-	 n4KUwGbKDFmJQ==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9DB1217E0309;
-	Tue, 24 Nov 2026 16:56:03 +0100 (CET)
-Message-ID: <f963eac22ff18ac8df07a4654e41d27639ead883.camel@collabora.com>
-Subject: Re: [PATCH v3 0/3] media: verisilicon: fix JPEG encoder writes past
- the CAPTURE buffer
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: shomenkow@gmail.com, Benjamin Gaignard
- <benjamin.gaignard@collabora.com>,  Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil	
- <hverkuil@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Ezequiel Garcia	
- <ezequiel@vanguardiasur.com.ar>, Chen-Yu Tsai <wenst@chromium.org>, Hugues
- Fruchet <hugues.fruchet@foss.st.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Date: Tue, 24 Nov 2026 10:56:01 -0500
-In-Reply-To: <20261124-hantro-buflimit-v3-0-780903970ca0@gmail.com>
-References: <20261124-hantro-buflimit-v3-0-780903970ca0@gmail.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-Yn3avyQi8rWR3+bBFHV/"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=THR5ispW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA2321F000ED;
+	Tue, 24 Nov 2026 15:56:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795535797;
+	bh=Qxe57lMNKukT31B5po2sqaJC36RczLL5Kjvfjsw19PE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=THR5ispWIaQhB99nOBAFofxpXpIdVAm0fVy4q/IRS0YyUrMS3CEitYtmLbH6xHugX
+	 Qn10JvblAN3uvpDEThmUsLP3Y2AXQi193V9kzuglJ8mJF17SQhJLshAaGFUVKVrQb2
+	 DUoCd8qf1clkuijJUW+6N8NidmmVcmm+06BclEOn/peTAQtIkjJjK4+wA6KvzLZ9W5
+	 xoPktGHzfyWwv6uM6+PY2ZE645rhYAbtNsWUsMx5zBQ0mpg9AsIIhc1N8L/CDCX3xq
+	 7cy7PCXjjiAopz7zlF57wAlPnrkqefqLW74ltkMHCMVgthE/4yEahj5KhelBsOQrwz
+	 FIEhsgU7ovhbA==
+Subject: Re: [PATCH net v8 2/2] selftests: net: test joining genetlink groups
+ no family owns
+From: netdev-bot+sashiko@kernel.org
+To: anilkaushikwireless@gmail.com
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, idosch@nvidia.com,
+ nicolas.dichtel@6wind.com, jacob.e.keller@intel.com, jiri@resnulli.us,
+ fw@strlen.de, martineau@kernel.org, v3rdant.xiang@gmail.com,
+ aliceryhl@google.com, linux-kernel@vger.kernel.org, nhorman@tuxdriver.com,
+ shuah@kernel.org, linux-kselftest@vger.kernel.org
+Date: Tue, 24 Nov 2026 15:56:36 +0000
+Message-ID: <179553579621.3135.2576494122860587206@kernel.org>
+In-Reply-To: <20261123155503.2497063-3-anilkaushikwireless@gmail.com>
+References: <20261123155503.2497063-3-anilkaushikwireless@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,117 +67,142 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
---=-Yn3avyQi8rWR3+bBFHV/
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Le mardi 24 novembre 2026 =C3=A0 16:40 +0300, Sergei Khomenkov via B4 Relay=
- a =C3=A9crit=C2=A0:
-> The H1 and VEPU2 JPEG encoders are given their stream buffer limit in
-> bytes, but the register counts 64-bit words, so a stream that does not
-> fit the CAPTURE buffer is written past its end, up to eight times the
-> buffer size. A quality 100 frame of noise does not fit the default
-> sizeimage, and userspace can also set a smaller one.
->=20
-> Patch 1 stops the encoder in the VEPU1 interrupt handler after a
-> buffer-full interrupt, which leaves it paused. Patch 2 programs the
-> limit in 64-bit words, rounded down to whole 64-byte bursts, on the H1
-> and on the VEPU2. Patch 3 makes the smallest CAPTURE sizeimage of the
-> JPEG encoders the 624-byte header plus one burst, set in the variant
-> format data.
->=20
-> Testing, on an RK3026 (its H1 is Rockchip's VEPU1) only: without the
-> series the encoder wrote 230 KB past a default-sized 640x480 buffer and
-> 1.6 MB past a 1920x1088 one. With it, 17 overflowing frames, four of
-> them queued back to back, stopped at the programmed limit without
-> writing past the plane and came back with the ERROR flag, one interrupt
-> each and no timeout; the jobs after them completed, and frames that fit
-> are byte for byte the same as before. A sizeimage of 1 or 600 now reads
-> back 688. v4l2-compliance 1.30.1 on the encoder node shows no new
-> failures.
->=20
-> I cannot test the VEPU2 or the STM32MP25 VENC. The VEPU2 gets patches 2
-> and 3, but its interrupt handler is unchanged; Nicolas offered to test
-> the VEPU2 part of patch 2. The STM32MP25 VENC runs the H1 code of patch
-> 2 and gets patch 3, but not the stop of patch 1.
->=20
-> The bugs were found and the patches drafted with an LLM coding
-> assistant while porting mainline Linux to an RK3026 board.
->=20
-> ---
-> Changes in v3:
-> - Move the LLM and test notes below the --- line and add an
->   Assisted-by: tag (Nicolas).
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-I've just learned today that we just don't do tagging anymore for this. So
-**if** you have to make a new version later on, just remove them.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-commit 1e035297ffdadf2184c3c773b8c098e372324aaf
-Author: Sasha Levin <sashal@kernel.org>
-Date:   Tue Oct 13 08:15:01 2026 -0400
+- [Medium] In tools/testing/selftests/net/nl_genl_mcast.py, _free_ids()
+  decides whether it runs in init_net by comparing the inode of…
+- [Low] bind_before_family() in
+  tools/testing/selftests/net/nl_genl_mcast.py first checks that NET_DM…
 
-    docs: remove Assisted-by references
+--
 
+selftests: net: test joining genetlink groups no family owns
 
-> - 1/3: add Nicolas's Reviewed-by.
-> - 2/3: program the VEPU2 JPEG encoder's limit in 64-bit words as well;
->   Nicolas offered to test it. Subject says "JPEG encoder", not "H1".
+This adds a Python selftest that checks Generic Netlink multicast group
+IDs that no family owns cannot be joined. It covers
+setsockopt(NETLINK_ADD_MEMBERSHIP), bind() with a group mask, and
+loading drop_monitor after a bind(). The free IDs come from a family
+dump, and the checks are meant to be skipped outside the initial
+network namespace.
 
-Yep, thanks, I'll do.
+> diff --git a/tools/testing/selftests/net/nl_genl_mcast.py b/tools/testing/selftests/net/nl_genl_mcast.py
+> new file mode 100755
+> index 0000000000000..4e86a5556b627
+> --- /dev/null
+> +++ b/tools/testing/selftests/net/nl_genl_mcast.py
 
-> - 3/3: move the header + 64 floor out of hantro_try_fmt() into a new
->   min_size field of struct hantro_fmt, set in the JPEG encoder formats
->   of the Rockchip and STM32MP25 variants (Nicolas).
-> - Rebase on media next aa0f4c41d487.
-> - Link to v2: https://lore.kernel.org/all/20261110-hantro-buflimit-v2-0-f=
-f7790def9fc@gmail.com/
->=20
-> Changes in v2:
-> - Trim the commit messages and code comments (Nicolas).
-> - 1/3: clear only the enable bit of H1_REG_ENC_CTRL instead of writing
->   0 to the register, and add a rate-limited warning per fault bit, as
->   hantro_g2_irq() does; add the H1_REG_INTERRUPT_* fault bits (Nicolas).
-> - 3/3: keep max(): it is a floor of header + one burst, the 64-byte
->   rounding is on the stream limit in 2/3 (Nicolas).
-> - Move the test numbers from the commit messages to this cover letter.
-> - Link to v1: https://lore.kernel.org/r/20261109-hantro-buflimit-v1-0-f0b=
-86ce61e66@gmail.com
->=20
-> ---
-> Sergei Khomenkov (3):
->       media: verisilicon: stop the VEPU1 JPEG encoder after an unfinished=
- frame
->       media: verisilicon: program the JPEG encoder stream limit in 64-bit=
- words
->       media: verisilicon: leave room for the JPEG header and one stream b=
-urst
->=20
->  drivers/media/platform/verisilicon/hantro.h           |  2 ++
->  .../media/platform/verisilicon/hantro_h1_jpeg_enc.c   |  4 +++-
->  drivers/media/platform/verisilicon/hantro_h1_regs.h   |  4 ++++
->  drivers/media/platform/verisilicon/hantro_v4l2.c      |  3 +++
->  .../platform/verisilicon/rockchip_vpu2_hw_jpeg_enc.c  |  4 +++-
->  drivers/media/platform/verisilicon/rockchip_vpu_hw.c  | 19 +++++++++++++=
-++++++
->  drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c |  1 +
->  7 files changed, 35 insertions(+), 2 deletions(-)
-> ---
-> base-commit: aa0f4c41d4870a18e65772a1817af16427200371
-> change-id: 20261106-hantro-buflimit-055e8029be23
->=20
-> Best regards,
+[ ... ]
 
---=-Yn3avyQi8rWR3+bBFHV/
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+> +def _free_ids(ctrl):
+> +    """Return the IDs in 1..32 that no family owns."""
+> +    # Outside init_net, the dump skips the families that are not netnsok,
+> +    # but their groups are still owned.
+> +    try:
+> +        netns = os.stat('/proc/self/ns/net').st_ino
+> +        init_netns = os.stat('/proc/1/ns/net').st_ino
+> +    except OSError as e:
+> +        raise KsftSkipEx("cannot check the network namespace") from e
+> +    if netns != init_netns:
+> +        raise KsftSkipEx("not in the initial network namespace")
 
------BEGIN PGP SIGNATURE-----
+[Severity: Medium]
+Does comparing against /proc/1/ns/net actually detect init_net?
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawWzkQAKCRDZQZRRKWBy
-9MdHAQDjvqhdhgvEC6yzU/xqI6jnBrGCFgk13OkznNveuqz5XwEA/akOGrITD/C6
-zKXV88e4lNC3w3pTzGblavFC3Rc3Wg0=
-=l58F
------END PGP SIGNATURE-----
+/proc/1 is resolved in the PID namespace of the procfs mount. Some
+containers have their own PID and network namespaces, for example Docker
+or Podman without --net=host, or systemd-nspawn. There, PID 1 is the
+container's init and shares the test's non-init netns. The inodes match,
+so this skip doesn't fire.
 
---=-Yn3avyQi8rWR3+bBFHV/--
+In that netns, ctrl_dumpfamily() hides the families that are not
+netnsok:
+
+net/netlink/genetlink.c:ctrl_dumpfamily() {
+    ...
+	if (!rt->netnsok && !net_eq(net, &init_net))
+		continue;
+    ...
+}
+
+genl_bind() still walks the global genl_fam_idr with no netns or netnsok
+filter, so the groups of those families are still owned.
+
+acpi_event_genl_family in drivers/acpi/event.c is one example. It has an
+mcast group, no .netnsok, and is registered on any ACPI system. The
+NET_DM events group is another one if drop_monitor is loaded on the
+host.
+
+Those IDs then land in the free list. In join_free(),
+setsockopt(NETLINK_ADD_MEMBERSHIP) on the acpi_event group succeeds. On
+the NET_DM group without CAP_SYS_ADMIN it raises PermissionError. Either
+way, ksft_raises(FileNotFoundError) fails.
+
+In bind_mask(), netlink_bind() keeps the bits that genl_bind() accepted,
+so ksft_eq(_members(sk), 0) fails as well.
+
+Because of this, the commit message statement "these checks are skipped
+outside the initial one" doesn't hold in that setup.
+
+Separately, a non-root user can't stat /proc/1/ns/net, because it needs
+ptrace read access to PID 1. That gives EACCES, and the OSError branch
+skips the tests. Should the commit message mention this case?
+
+[ ... ]
+
+> +def bind_before_family(ctrl) -> None:
+> +    """A free ID joined with bind() stays unjoined when a family takes it."""
+> +    names = [fam['family-name'] for fam in ctrl.getfamily({}, dump=True)]
+> +    if 'NET_DM' in names:
+> +        raise KsftSkipEx("NET_DM is already registered")
+> +
+> +    free = _free_ids(ctrl)
+> +    with _sock() as sk:
+> +        sk.bind((0, sum(_bit(gid) for gid in free)))
+> +
+> +        # Looking up the family loads drop_monitor.
+> +        try:
+> +            ids = _groups(ctrl.getfamily({'family-name': 'NET_DM'}))
+> +        except NlError as e:
+> +            raise KsftSkipEx("drop_monitor is not available") from e
+
+[Severity: Low]
+Should drop_monitor be unloaded again once this test is done?
+
+ctrl_getfamily() autoloads it here:
+
+net/netlink/genetlink.c:ctrl_getfamily() {
+    ...
+	request_module("net-pf-%d-proto-%d-family-%s",
+		       PF_NETLINK, NETLINK_GENERIC, name);
+    ...
+}
+
+No exit path in bind_before_family() removes the module again. That
+covers the success path, the "NET_DM got no group ID that was free"
+skip, and an assertion failure.
+
+Every later run on the same boot then hits the "NET_DM is already
+registered" skip at the top of bind_before_family(). So this check runs
+at most once per boot, and reruns only report SKIP.
+
+> +
+> +        if not any(gid in free for gid in ids.values()):
+> +            raise KsftSkipEx("NET_DM got no group ID that was free")
+> +
+> +        for name, gid in ids.items():
+> +            ksft_eq(_members(sk) & _bit(gid), 0,
+> +                    comment=f"member of NET_DM {name}")
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123155503.2497063-1-anilkaushikwireless%40gmail.com
