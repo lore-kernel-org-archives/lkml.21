@@ -1,81 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795543035;
-	b=0yH/zE6vyC7YCVin5bY8BzpnXLOZCT7Xe/wzlr8IS8h62PBquhP/Ns/1arTzeuwk5Y0+
-	 TzfrwoQDelgR2yzhVG5YQkn19rRGL9BCvjZPPiPdhyphICUq/m+wXnFTPA9M8Vwpc12NV
-	 H8kwb4q5jei1Lca+BSYeo6QqYhrtTe/wSx+sxIBAK2BMRiQs7NCrs4XBNI8kcEVWZfb3P
-	 8dIYi1sMHDyN3GaEAPGB+b7ZwNKuTY6rs9H2tl1ETiC4vkqUxD8TPq/jhK455nDnWLrp3
-	 +v3BR9l0Zl7lUI8XeMSvf9oSa+LrgtmD9mAB19DVvZEsJOzMCAcURJiCzbw3t9khOTA==
+	t=1795543218;
+	b=iSkUFDj06czUDiSLMXaSoIE3i5j4mxx2+cgyfRPAZ7cJ0td/aani3QScyK3/E1Fyyfr8
+	 PwKtb5ulEM5PzTC9DTtQ1tUPxRCPavXgG6QhgBvK2pv6h79xCawG0yPJUJ5BsvQ0oXM5R
+	 wq5Ha2YLjNqfezN8iqNTV8slz6evyZrR6jkooCgzU033A07tpDQuN8lZlHa4yDV9qRTyq
+	 XsBhIl7ImAU0WXMH4hos6xALHl//o+uZxo1k35+wK+sqBPJ3MO3Fji8K8cgo9xFhGT1yc
+	 ynMTEkDL98G9MRkVuYlgAm/s3yd1WzlSoN4esxcrLD4ubhV+j4tSORfxO/4EupR8B4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795543035;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=ky87/VzxeJD3u5b7HXmhhGXbXeQgQ90cTEy5fmEumK8=;
-	b=nQh/CrW2V24cdX9R4AvdK45cl+zbS/kMbGEewTnUzFwD0Y2Mrsn7olmI52KFnSSpBPDN
-	 nKBuyYISuxM30CJFFVqOKKHZ5Y+mYsES12oGKVgwdqx1BbmoGfK2bxrZFoYHpsVQpaSvM
-	 g01FmlXRI0DQXuGBjDMpinXy9CzOavpiZm8Avr1kwdQgVi2kLVk06al52Qcoc4WjKqJ13
-	 LOetLDGgyulNnUFPX+KLxNhbfauqnVG4+Rjptr0d0iQjfYfXLX2YMwb4z3KfN+FUY1KT4
-	 mx3DLu+0b/uAQ0zRPAdur1zMVek75Qnt/1biFUKUq+BZD2kCxnzFqLlDNnZqaO6olSw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795543218;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=AoPzp/Ou306p3i5aT8nSpnfYM+aKi6gbHSodX7L0Zak=;
+	b=GT/5da922Msfz72Kv/iFTU9eFvtMJGz3AYmLvPReq1FR6+oOhpMGWyUgKKJM5g0t7Nha
+	 r9lmerlTUXmmlhI/hgJ8SnKIh83iY9FHCLifRdT8BenQyhIwkVXjnQ+vkrdivXUf68WJd
+	 4/6H7wK8v3x8nrTSlAFK8eAohG3awpz85hWRbdJRDGA0SeS3wLZ/Y3IIAHYMGBCMSGfDF
+	 kcgKOBQYoZMoHUN5uRiZGhodjntEXWRiV98II5ufsIb/oNrpZPL+3cOMg52PcmCXSNllf
+	 3L4uotw6Aby1PwCRCKS50zLL7KnzDXWz3QPpBwHmZzzTpOqLQlFnGKr2lxTwrg6A16A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cn5fJwrI;
-	arc=none smtp.remote-ip=192.198.163.14
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BC3F606A321;
-	Tue, 24 Nov 2026 17:57:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4BC3F606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=arTkdEOL;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 60B0E606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:00:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60B0E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cn5fJwrI
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795543034; x=1827079034;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=fI/PW8KDoRbbs33Sd+n/w18PwQb+8meBD/AQ8hT5A9E=;
-  b=cn5fJwrIpSsILDQTnHFmFi2K65jaNmO2t/i3mKwJ5aD50YVv8o0Myxtg
-   ypZq4/Qt+DpfGfIT6QJ2KziqfJkn6mFeStuQk3/XVe1GAseSGxJecO5Lv
-   mnefoIuOmMjMN4+0VPgUoC3d7n0Yv4ZtQNxgXe38SnEgFKFPzGfg9ybgy
-   Ia2YkiFu5Wi4FMrXQlUUzJRIMbA6zKJf83UqasQXUNfjdB65zZ1MTnijD
-   4u52gstIDmgECT7jU8NPWY68gi8n5QscHxRAIJkzlCgd/GirH4WqDIAe6
-   /Ya1ptNNT0it9OVtIJMaJtd50l55c/P81z3FKKpZNoR7SHF6B6v88NtdU
-   w==;
-X-CSE-ConnectionGUID: nqGS0U9cTHO37l502Zsizw==
-X-CSE-MsgGUID: l4d5avgCR3Gpd+ZPNHojLQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4310961"
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4310961"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 09:57:13 -0800
-X-CSE-ConnectionGUID: ifIlFqeLQZGrt2iro3b+5w==
-X-CSE-MsgGUID: kduAZoqcThKNa2ZYkqumNg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="11619158"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 24 Nov 2026 09:57:12 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xVulR-00000001Pu6-0VpX;
-	Tue, 24 Nov 2026 17:57:09 +0000
-Date: Wed, 25 Nov 2026 01:56:39 +0800
-From: kernel test robot <lkp@intel.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Rupesh Majhi <zoone.rupert@gmail.com>
-Subject: Re: [PATCH v1 1/1] iio: core: Split debugfs routines
-Message-ID: <20261125014709.jzc52smr-lkp@intel.com>
-References: <20261124094502.557175-1-andriy.shevchenko@linux.intel.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=arTkdEOL
+Received: by linux.microsoft.com (Postfix, from userid 1127)
+	id D169220B7166; Tue, 24 Nov 2026 10:00:13 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com D169220B7166
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1795543213;
+	bh=AoPzp/Ou306p3i5aT8nSpnfYM+aKi6gbHSodX7L0Zak=;
+	h=From:To:Cc:Subject:Date:From;
+	b=arTkdEOLd0wuM+VvXH9cdpUNVsczXpyeC60GQdVYSqwk29H471sh6YGOpbuF+FNDf
+	 xkunyu3FpaXCHwnNw7Hh/KHlL1rtSwgw7MHrCcO7XrFyYy+Gt8rzHH/RriBDsiUImG
+	 5Zo+yBxFa/Aapi49Zhqu3qpkxn2L/8Xdr0RqTgnM=
+From: Saurabh Sengar <ssengar@linux.microsoft.com>
+To: tj@kernel.org,
+	jiangshanlai@gmail.com,
+	linux-kernel@vger.kernel.org
+Cc: ssengar@microsoft.com,
+	Saurabh Sengar <ssengar@linux.microsoft.com>
+Subject: [PATCH] workqueue: Skip redundant unbound updates during CPU bringup
+Date: Tue, 24 Nov 2026 10:00:10 -0800
+Message-ID: <20261124180010.1505819-1-ssengar@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.7
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,52 +58,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124094502.557175-1-andriy.shevchenko@linux.intel.com>
+Content-Transfer-Encoding: 8bit
 
-Hi Andy,
+Before workqueue_init_topology(), all CPUs share the SYSTEM pod,
+which contains every possible CPU. The effective cpumask and the
+per-pod cpumask of an unbound workqueue are therefore identical,
+regardless of which CPUs are online.
 
-kernel test robot noticed the following build warnings:
+During this stage, workqueue_online_cpu() walks every possible CPU for
+every unbound workqueue each time a secondary CPU comes online. The
+pwq mappings cannot change yet, so this repeats redundant work that
+scales quadratically with CPU count.
 
-[auto build test WARNING on jic23-iio/togreg]
-[also build test WARNING on linus/master v7.4-rc4 next-20261123]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+On a 640-vCPU Hyper-V VM, each of the 639 secondary CPU-online
+callbacks walks all 640 possible CPUs for each of the 8 unbound
+workqueues, giving 3,271,680 unbound_wq_update_pwq() calls that took
+about 975 ms in total.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Andy-Shevchenko/iio-core-Split-debugfs-routines/20261124-104410
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/jic23/iio.git togreg
-patch link:    https://lore.kernel.org/r/20261124094502.557175-1-andriy.shevchenko%40linux.intel.com
-patch subject: [PATCH v1 1/1] iio: core: Split debugfs routines
-config: arm-s5pv210_defconfig (https://download.01.org/0day-ci/archive/20261125/20261125014709.jzc52smr-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 16.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261125/20261125014709.jzc52smr-lkp@intel.com/reproduce)
+Skip these updates until workqueue_init_topology(). The pwq mappings
+already match the effective cpumask, and wq_update_node_max_active()
+does nothing before topology initialization. workqueue_init_topology()
+will apply the topology-specific mappings and node limits once ready.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261125014709.jzc52smr-lkp@intel.com/
+Keep worker rebinding and restoration of unbound worker affinity before
+the guard. CPU hotplug after topology initialization is unchanged.
 
-All warnings (new ones prefixed by >>):
+On the same VM running a v7.3 kernel, smp_init() took 1054 ms with this
+change, compared to 2008 ms without it, a 47.5% reduction.
 
-   In file included from drivers/iio/industrialio-event.c:22:
->> drivers/iio/iio_core.h:30:13: warning: 'iio_device_unregister_debugfs' defined but not used [-Wunused-function]
-      30 | static void iio_device_unregister_debugfs(struct iio_dev *indio_dev) {}
-         |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> drivers/iio/iio_core.h:29:13: warning: 'iio_device_register_debugfs' defined but not used [-Wunused-function]
-      29 | static void iio_device_register_debugfs(struct iio_dev *indio_dev) {}
-         |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                 Before    After    Reduction
+  smp_init()                     2008 ms   1054 ms      47.5%
 
+Signed-off-by: Saurabh Sengar <ssengar@linux.microsoft.com>
+---
+ kernel/workqueue.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-vim +/iio_device_unregister_debugfs +30 drivers/iio/iio_core.h
-
-    28	
-  > 29	static void iio_device_register_debugfs(struct iio_dev *indio_dev) {}
-  > 30	static void iio_device_unregister_debugfs(struct iio_dev *indio_dev) {}
-    31	#endif /* CONFIG_DEBUG_FS */
-    32	
-
+diff --git a/kernel/workqueue.c b/kernel/workqueue.c
+index baadc7815585..a3767dbf77f0 100644
+--- a/kernel/workqueue.c
++++ b/kernel/workqueue.c
+@@ -7252,6 +7252,14 @@ int workqueue_online_cpu(unsigned int cpu)
+ 		mutex_unlock(&wq_pool_attach_mutex);
+ 	}
+ 
++	/*
++	 * Before topology initialization, the SYSTEM pod covers all possible
++	 * CPUs, so CPU onlining does not require updating pwq mappings.
++	 * wq_update_node_max_active() also returns early at this stage.
++	 */
++	if (!wq_topo_initialized)
++		goto out_unlock;
++
+ 	/* update pod affinity of unbound workqueues */
+ 	list_for_each_entry(wq, &workqueues, list) {
+ 		struct workqueue_attrs *attrs = wq->attrs;
+@@ -7269,6 +7277,7 @@ int workqueue_online_cpu(unsigned int cpu)
+ 		}
+ 	}
+ 
++out_unlock:
+ 	mutex_unlock(&wq_pool_mutex);
+ 	return 0;
+ }
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
+
