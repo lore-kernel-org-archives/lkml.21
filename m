@@ -1,65 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795488583;
-	b=4/4sEM9W5ffL7qpUAK41DZ6IIniUSl28bNFacnSxV1Awe3ffo4BfFF5rhHbinDxhOuf3
-	 jqn+lGsbEaueAZ1QcqUOLIY9NYnfp+WfO/T/3PvaX9WAE4SCKjQE7lCzcswMo/xTHlmjc
-	 gLxddzBlt+tsyAtii3ulLP93H5qhhXdMgIPh+CbFIBQ1/Fi1HBEh8sUCVgQkWRZGMUtvK
-	 WFtHrQWiKrkENmDbsPapj9O9zpcip8Cfg6f5j/cEM7NrvnPupH7r32ri2aGBOSAh3bcWF
-	 Kh/PS85nlXoeKBQz2aCAq+f5Twbyzhk2JmhbBYcAv8Kwj+I+YAWmWb1sGMv+eyc91Lg==
+	t=1795488622;
+	b=XaAjBhbkeqqABCEj9/TsXYBix3dtmAjEuL0oHxe80x+sJxtfiGrAc7GjFZneIU3ZTlY1
+	 Tm8viYv5fj9E/d0Ld8xPoeM7LhBb1MokJ/Leed4fuAOg0OJaoQSF7wSdKRhKvuj5FgSIT
+	 LMvNgjERc40Enr6sGoWPWdaafnFct1apJn05BNmk6ABDtUc7fmCaKLajAxA8KiUQOsqUr
+	 mVzvVsL0KsBqNwjZoZzzRJ1xff5FC+WCcL5WZZdLwIXMJ6VpIxYfzSVF448zjyUow4kcf
+	 d46Yqjqk2j6Q6zKm6Xi5dShgoAUFx+CZTuprGPvwQfvVAF/lXPbhXPSpgjOVrpzLH5g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795488583;
-	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
-	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=r8hzljQmtnUVGIClS4ocvCxhHOhfEjCLk7hwkhWHSxQ=;
-	b=IRzgu2pRwyukc9/1Swsm3XK0koxGdMkoP9DO0z2w7BsQubIcyI8Mgr67EJqNFBwWPYxb
-	 lx9bwuc0J03txst/ULtfXWqHiF2Pfu/bJ7YMbwnWbR41fk+nggbZS6EJ1kgWM6W0rpnu7
-	 mDJ+2jnUgz6F9d2SSfzzAdMXbE2xs9H5pHTScWraQlL0HZGw4fnSN9d4J92HYGWd8Lo6r
-	 jHqyYCORhTPnPxX8D19ebfKamD6zYF0jjA/4URrUOc3TRBHqcrhJgxk5eXP50P3FRYmmv
-	 qvBedt/2iN5bLB0DsgeWyNGu2YCfWMrpB5MstDBo8yUWCSVYDMDDsSOYiP6My67QVUw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795488622;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
+	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
+	 To:X-Mailer;
+	bh=FF+rLemNvQli8Y0SC/xA9vPWVsbRgVrCInJrQ5eKDu4=;
+	b=1tS+L6Hm53Vgze8xu/uom9EGcCSQxE4n5vrigSHJXDWlr71Fg+e5WNbK14GXY4s+y6Un
+	 hzXp9eaRtfHt66Wf5j+BYJROfs/mmJMtRwFOt1F34gvv/g24neLUiT4PuCmCmCvYw+bmA
+	 /dAA29ZI8xhp7jxKlowQ/pMRJyfNDw7M1kQM8oitb+RjBQ1zPhYEU8fnjyQDWmqQhJn4J
+	 5Tf7SmhVBsCyLFFH0Dr0ksLBi3SzSUr3p8oCsll2Vk/7/IccA1S5NmdxRSFLs5E2fEUrU
+	 V06zFHuQp7rN4kZr6wOWxGx1A5DuCqS9IPsQFz3d5woQJBafRMrMJsMauIKvz7DtomQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=kylinos.cn;
-	arc=none smtp.remote-ip=124.126.103.232
-Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HeJxvI1c;
+	arc=none smtp.remote-ip=91.218.175.177
+Received: from mta0.migadu.com (out-177.mta0.migadu.com [91.218.175.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DCC4606A31E;
-	Tue, 24 Nov 2026 02:49:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1DCC4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
-X-UUID: af993bf8e7b111f19a56ed5b684f684d-20261124
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:14aa8185-f1b9-414f-aaf8-86276cc4da59,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:7db8b62,CLOUDID:1933bcb9f53dae1a15bdb69f78cd479b,BulkI
-	D:nil,BulkQuantity:0,SF:102|136|850|865|898,TC:nil,Content:0|15|50|99,EDM:
-	-3|-100,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
-	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: af993bf8e7b111f19a56ed5b684f684d-20261124
-Received: from localhost [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <pengyu@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1360815085; Tue, 24 Nov 2026 10:49:36 +0800
-From: Yu Peng <pengyu@kylinos.cn>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Helge Deller <deller@gmx.de>
-Cc: Jiri Slaby <jirislaby@kernel.org>,
-	linux-fbdev@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	Yu Peng <pengyu@kylinos.cn>
-Subject: [PATCH] vgacon: Update CRTC start address when turning scrollback off
-Date: Tue, 24 Nov 2026 10:49:33 +0800
-Message-ID: <20261124024933.306103-1-pengyu@kylinos.cn>
-X-Mailer: git-send-email 2.43.0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D555C606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:50:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D555C606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HeJxvI1c
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=czFmZtebk+h8PB2klgzex5BMJY4BT8CV+nACYRQTDOo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795488619; v=1; x=1796093419;
+ b=HeJxvI1cZ2wtHMS3o/BQsChKQVcXS9w8/EbKIcXEtW2rwMONJuEk9KLtUkhkkxtKBsD4S5qs
+ SmVyaoUeaZKXHe6sUDpas8eqpiA/4dtzEQ5EFrzLVyE+xUAHcc54aa5HSZuUvMIuTJbN0s9odwA
+ s1InIO7EZYASZJvrWPp8VhLk=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 41f9a57973e118ef;
+	Tue, 24 Nov 2026 02:50:18 +0000
+X-Mizu-Trace-ID: 41f9a57973e118ef
+X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain;
+	charset=us-ascii
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,36 +57,124 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH] memcg: free the private ID of a memcg that never comes
+ online
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20261124000439.967403-1-shakeel.butt@linux.dev>
+Date: Tue, 24 Nov 2026 10:50:00 +0800
+Cc: Muchun Song <muchun.song@linux.dev>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Tejun Heo <tj@kernel.org>,
+ Johannes Weiner <hannes@cmpxchg.org>,
+ Michal Koutny <mkoutny@suse.com>,
+ Michal Hocko <mhocko@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Meta kernel team <kernel-team@meta.com>,
+ cgroups@vger.kernel.org,
+ linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <F39B4A81-BB17-4C5D-851E-2740EBBBBA8B@linux.dev>
+References: <20261124000439.967403-1-shakeel.butt@linux.dev>
+To: Shakeel Butt <shakeel.butt@linux.dev>
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
 
-Commit 174657478cd8 ("vgacon: inline vc_scrolldelta_helper() into
-vgacon_scrolldelta()") moved the early return for !lines into
-vgacon_scrolldelta(), skipping vga_set_mem_top(c). This leaves the VGA
-CRTC start address stuck at the old scrollback offset after
-vgacon_restore_screen().
 
-Call vga_set_mem_top(c) before returning when !lines.
 
-Fixes: 174657478cd8 ("vgacon: inline vc_scrolldelta_helper() into vgacon_scrolldelta()")
-Assisted-by: LLM
-Signed-off-by: Yu Peng <pengyu@kylinos.cn>
----
- drivers/video/console/vgacon.c | 1 +
- 1 file changed, 1 insertion(+)
+> On Nov 24, 2026, at 08:04, Shakeel Butt <shakeel.butt@linux.dev> =
+wrote:
+>=20
+> mem_cgroup_alloc() reserves the private ID of a memcg when its css is
+> allocated. The ID is erased when the last reference to it is put, and
+> that reference is first taken in mem_cgroup_css_online(). The failure
+> paths of mem_cgroup_alloc() and mem_cgroup_css_online() erase the ID
+> themselves.
+>=20
+> But css_create() can also fail after css_alloc() and before
+> online_css(): in percpu_ref_init(), cgroup_idr_alloc() or
+> css_rstat_init(). The memcg is then freed through =
+mem_cgroup_css_free()
+> without ever coming online, and nothing erases its ID. The reserved
+> entry stays in mem_cgroup_private_ids for good, and each such failure
+> takes one of the 65,535 IDs away. With failslab failing radix tree =
+node
+> allocations during mkdir, 1,500 mkdirs leaked 6 IDs this way.
+>=20
+> Erase the ID in mem_cgroup_css_free() if the memcg never came online,
+> which is when (memcg->css.flags & CSS_RELEASED) will be false: it is
+> only set when an fully onlined memcg is released.
+>=20
+> Fixes: 73f576c04b94 ("mm: memcontrol: fix cgroup creation failure =
+after many small jobs")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Shakeel Butt <shakeel.butt@linux.dev>
+> ---
+> include/linux/cgroup.h | 5 +++++
+> mm/memcontrol.c        | 7 +++++++
+> 2 files changed, 12 insertions(+)
+>=20
+> diff --git a/include/linux/cgroup.h b/include/linux/cgroup.h
+> index 2afb4cb2bb4f..123c713dcc91 100644
+> --- a/include/linux/cgroup.h
+> +++ b/include/linux/cgroup.h
+> @@ -449,6 +449,11 @@ static inline bool css_is_online(struct =
+cgroup_subsys_state *css)
+> 	return css->flags & CSS_ONLINE;
+> }
+>=20
+> +static inline bool css_is_released(struct cgroup_subsys_state *css)
+> +{
+> +	return css->flags & CSS_RELEASED;
+> +}
+> +
+> static inline bool css_is_self(struct cgroup_subsys_state *css)
+> {
+> 	if (css =3D=3D &css->cgroup->self) {
+> diff --git a/mm/memcontrol.c b/mm/memcontrol.c
+> index 091401cecf39..e7dfc96fd1b9 100644
+> --- a/mm/memcontrol.c
+> +++ b/mm/memcontrol.c
+> @@ -4545,6 +4545,13 @@ static void mem_cgroup_css_free(struct =
+cgroup_subsys_state *css)
+> 	irq_work_sync(&memcg->high_irq_work);
+> 	cancel_work_sync(&memcg->high_work);
+> 	free_shrinker_info(memcg);
+> +
+> +	/*
+> +	 * The css_create() error path bypasses normal CSS release, =
+leaving
+> +	 * CSS_RELEASED clear. Drop any private ID that is still =
+reserved.
+> +	 */
+> +	if (!css_is_released(css))
 
-diff --git a/drivers/video/console/vgacon.c b/drivers/video/console/vgacon.c
-index 09f7c376b4689..a6b0223ca596d 100644
---- a/drivers/video/console/vgacon.c
-+++ b/drivers/video/console/vgacon.c
-@@ -147,6 +147,7 @@ static void vgacon_scrolldelta(struct vc_data *c, int lines)
- 	/* Turn scrollback off */
- 	if (!lines) {
- 		c->vc_visible_origin = c->vc_origin;
-+		vga_set_mem_top(c);
- 		return;
- 	}
- 
--- 
-2.43.0
+The leak analysis and the fix look correct to me. However, using
+CSS_RELEASED here makes the private ID cleanup depend on a generic CSS
+teardown state, and adds an accessor solely for this failure path.
+
+The private ID is not needed until mem_cgroup_css_online(), so could we
+instead reserve it at the beginning of that callback? Failures in
+css_create() before ->css_online() would then never own a private ID,
+while failures after the reservation would continue to use the existing
+mem_cgroup_private_id_remove() cleanup.
+
+This would also make the private ID lifecycle more explicit: reserve and
+publish it during online, then drop the initial reference during =
+offline.
+It would avoid both the new css_is_released() helper and special =
+handling
+in mem_cgroup_css_free().
+
+Thanks,
+Muchun
+
+> +		mem_cgroup_private_id_remove(memcg);
+> 	mem_cgroup_free(memcg);
+> }
+>=20
+> --=20
+> 2.53.1-Meta
+>=20
 
