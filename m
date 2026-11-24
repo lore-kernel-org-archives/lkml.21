@@ -1,49 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795508536;
-	b=ygVEhBpMmQ4LKY7p5u4Q0pCpd18yrzmvrAi7R5fEAkfHUyeTl7FFWVe+ZQQPuwA98Vf1
-	 1agsP/bAUOrsc9jBzMe8Vn63ALlGAQKxZ5c8OML1H2mmpSOl9XFyB+4cfUnZFlDIEdJHq
-	 eZPk5gwJ5nzM8WncT7/s8NrX+VT1QTVyH0USpFn0Gp5zaabiMqkrZVq1lVIzxrsAfHPTH
-	 5Y4OSiuVRmo8cNG3NT45R5YqGlo+XQ5VKT8BGfu+eJ1SYttVdirQUyzGtElX7H6wade38
-	 45cb+ix7ItMlhYMLpYsSrg0L8zyDAuosbQtD521ECxXayUcDjV23Ye5muRelbC9acwA==
+	t=1795508544;
+	b=paed72Gv1lbW4N2GrCIkhpkxXPnLcA7JPtdE1GtGmMqEpqmrHVqIQ02roO6qw1y2u26q
+	 YOKJ75K9jxQRaAvyjVi8eaBi3DbMNi4PoFPpOdUb6VnBzGkqhTWSFOI1Sd1Dhn+FC235i
+	 n+kl6jSnOX9z8X32MjcQC2gM3t5y1Vk1LgBtRibVtlKLlWwjjRYaj79ycPb4u4b0Wi9/s
+	 y3Fo84OuLe9qJeh/5Gxzi2typ4FGlbbmJ58LL0JAaymjTtL4iywXEHOrQ2lE56/CETOjF
+	 iX15kDcjE+BeWGi1oDMBnYbYvWEP6UMpuBiCdx85/BuLafOcp+uI9y9dJOB0xmQjyxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795508536;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=UTreTMQa8LvjdoM8COmSUHdlMhJFJeNrLGcsJogPxCo=;
-	b=P6WHY/p0uFGWNVU3++qORd3KzpP8oK8Zw5SEFyOZ9nrx85N3njNi+SgXPn1owMfT+Vcx
-	 tqqp71MHbs8tRm6QYRGdNCNjeMZXjpZiZi3mkqWTYc8rsTaJfhv8r3SZVuum/LFl21vSI
-	 A4Am15JkojwuQxoTCMEFWmCZfsvRtim6wZH36Az/JIjV0ky+cgBhP7luPtX50sgOle0SY
-	 4EkQLsRFRIenA7S94uDYgI9sqCgly9r3Z7qC1pNjhQUOvuTy6eToYnkTIkQa8u5dep9+j
-	 6PHfuJAwywlmDL6IvN4zW1pQZBl4d2WhI6B428wfN42SZIHMmCu73d+xC8Kxk4IRBEA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795508544;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=GQqtlAPcsLFlGT94sshMT4Kfkpv5lPk+dL3UQNr4EOA=;
+	b=czGRv8CYT9MXGlzc9Va7bJNT6e35EePjaudPkIdFFhanQLxdZdD2V2o6rNal+IZ8RGjP
+	 /84+UDdBKLLEDWWaDplHX1Q7gV0L9DXAnbTWPA9nRjZFTX3vQUHkJBnJnxgI+Fb6bPugW
+	 Dt4aA1lZPU1RSdPlbpXMecqiQL01QG5cvM5CJ5qW0Taui3s/+4c0jODH5NUiAmxqNgs8F
+	 40q2Zp7m8v7tyHrtSA6tITI4Vm+1lyCPwUOnfqCBYfOzt1fqvGOpBB3NA6xosdVQzw/bv
+	 HlWxaBLrE7JGtkBVROcKzx1HYdgzEYpszkcxed27OkCidDq+sWWoVBDOxMwHkHaqcyQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=DvXjesYv;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4DCC7606A31E;
-	Tue, 24 Nov 2026 08:22:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DCC7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YY22qhwj;
+	arc=none smtp.remote-ip=192.198.163.19
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9A17606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:22:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9A17606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=DvXjesYv
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9430D339;
-	Tue, 24 Nov 2026 00:22:12 -0800 (PST)
-Received: from [10.57.32.89] (unknown [10.57.32.89])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 61A3D3F632;
-	Tue, 24 Nov 2026 00:22:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795508535; bh=UN0TYHD1/Q+IpKv1fvkTUAHvCf4+97rRTpT+UJ/8pek=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DvXjesYvFiRzxrR8ub/OAEeqpByEnUvZsjIYvz7GrSaVJDYZQ8fIyW1SB908YskGi
-	 cokaybsZGddAylVKSgVoOADOobCypqvp0tq2WYZBxA7TASZHhGdMxPZDZEIZbW2UYA
-	 hTgi+lVGT5O/++htwhm0NbSaLGe5Y9PrfGn3c32Y=
-Message-ID: <f9a42849-fe8f-4a96-81a1-ab58193b222d@arm.com>
-Date: Tue, 24 Nov 2026 09:22:11 +0100
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YY22qhwj
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795508543; x=1827044543;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=gqKiPUbmXJdm37kl4ea33ZbcylgdNnLfBx/KhDNnKGc=;
+  b=YY22qhwj2EyAHgOZiRXyJViIGHNRqrbehhbjaQi3WEb2FPy4QSOXpq/b
+   s5CWmZNncvVZvi32T0UEZswRz7tIbOEpx6X826TdKCDQiFu64Lkn55Dz5
+   WjS36TEL40AyYFVT7K2tphXClb4Non8xk5T8T/GEyXPpo9ghrGXy5PwUo
+   MBhoONWHe2OBHDJTzYHhSFuEUciinKAN5voP/NcL3mhXkippRdQEuJRrv
+   WGIzVlRtJVMWK2oov8jP/FadrKi0nj/xK8Q9axGRNGpxaIVwFVlMBL5uN
+   Hfri0z9D0e/kyapT+lhyYLIthH3mp9vGHlyHwWfo31gdgopNdUg2FezDs
+   A==;
+X-CSE-ConnectionGUID: CQYW+p8pRii/WJdS9yBtDA==
+X-CSE-MsgGUID: i0V6rqqjQ7m+wGihEb1XFA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4440682"
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="4440682"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:09:58 -0800
+X-CSE-ConnectionGUID: OBMhvz/2RZeIgM8WNptscw==
+X-CSE-MsgGUID: y8jYUQKyQyGf7cOjDenMCg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="11835160"
+Received: from yufei-super-server.sh.intel.com ([10.239.92.104])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:09:55 -0800
+From: Fei Yu <fei.yu@intel.com>
+To: dri-devel@lists.freedesktop.org
+Cc: christian.koenig@amd.com,
+	tursulin@ursulin.net,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	linux-kernel@vger.kernel.org,
+	fei.yu@intel.com
+Subject: [PATCH] drm/syncobj: Document the handle limit in the uAPI headers
+Date: Tue, 24 Nov 2026 16:15:36 +0800
+Message-ID: <20261124081536.4048657-1-fei.yu@intel.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,99 +85,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] arm64: mm: Don't defer the barriers when installing a
- fixmap entry
-To: Ryan Roberts <ryan.roberts@arm.com>, Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Yang Shi <yang@os.amperecomputing.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20261120121638.194154-1-fuad.tabba@linux.dev>
- <20261120121638.194154-4-fuad.tabba@linux.dev>
- <6782b5ee-3dfe-4076-a79c-fbeb2c2ac7da@arm.com>
- <CA+EHjTziXrRdR+guikKbj93Az96T+AMx_=0sVeyWG5C4fwaaTg@mail.gmail.com>
- <5b0a26ee-30b0-4a79-9cca-9848dc9d65c5@arm.com>
- <f543aea2-3a21-44ce-bb44-c84bd66b0a76@arm.com>
- <74b99755-bc3d-4cad-9678-c2de740fe20a@arm.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <74b99755-bc3d-4cad-9678-c2de740fe20a@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On 23/11/2026 19:54, Ryan Roberts wrote:
-> On 23/11/2026 13:08, Kevin Brodsky wrote:
->> On 23/11/2026 11:36, Ryan Roberts wrote:
->>>>>> @@ -127,7 +127,9 @@ void __set_fixmap(enum fixed_addresses idx,
->>>>>>          ptep = fixmap_pte(addr);
->>>>>>
->>>>>>          if (pgprot_val(flags)) {
->>>>>> -                __set_pte(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
->>>>>> +                /* The slot must be usable on return, even in lazy MMU mode. */
->>>>>> +                __set_pte_nosync(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
->>>>>> +                emit_pte_barriers();
->>>>> I wonder if it would be clearer to wrap __set_ptes():
->>>>>
->>>>> lazy_mmu_mode_pause()
->>>>> __set_ptes()
->>>>> lazy_mmu_mode_resume()
->>>> That would work. However, there's the stable backport. 6.18 has the
->>>> bug, but lazy_mmu_mode_pause() was added in 7.0, so 6.18.y would need
->>>> its own patch. This patch applies to 6.18 unchanged.
->>>>
->>>> I'm happy with either, or with a followup patch in the same series.
->>> I'd personally prefer to use pause/resume since it's makes it very clear what's
->>> going on and avoids the layer violation. Perhaps your approach as the back
->>> portable one, then pause/resume as follow up (along with ptep_try_set() tidy
->>> up)? Others might think differently though...
->> Using pause/resume does work, but it is a bigger hammer than necessary.
->> If other features make use of lazy MMU mode, then we may end up paying
->> extra cost by leaving/re-entering the mode.
->>
->> For instance, with page table hardening [1], using the pause/resume
->> approach means 4 extra ISBs:
->> - 1 when pause() leaves lazy MMU mode: restoring default kpkeys context
->> - 2 in __set_pte(): switching to page table update kpkeys context, and
->> then back to default
->> - 1 when resume() enters lazy MMU mode: entering page table update
->> kpkeys context
->>
->> An explicit __set_pte_nosync() + emit_pte_barriers() achieves exactly
->> what we're after (immediately visible PTE update) and doesn't disrupt
->> lazy MMU mode - we don't unnecessarily set TIF_LAZY_MMU_PENDING. 
-> It's so ugly to spill this stuff everywhere though.
->
-> How about a nested lazy mmu section?
->
-> lazy_mmu_mode_enable()
-> __set_ptes()
-> lazy_mmu_mode_disable()
->
-> If it's nested the enable() is essentially nop, and the disable is a flush,
-> which emits the barriers. If it's the first enable, we still set
-> TIF_LAZY_MMU_PENDING though...
+Commit 6ca87397aeeb ("drm/syncobj: Limit the number of handles and use
+kvmalloc for user-sized arrays") rejects more than 1M (1 << 20) handles
+with -EINVAL in all syncobj ioctls that take an array of handles: wait,
+timeline_wait, reset, signal, query and timeline_signal.
 
-Yes that's essentially the same as the explicit call to
-arch_flush_lazy_mmu_mode() I mentioned below. IMHO that looks pretty
-obfuscated though - the casual reader will wonder why we're creating a
-lazy MMU section for setting just one PTE. If we go down this route, I'd
-argue the explicit call to arch_flush_lazy_mmu_mode() is clearer (and
-our implementation is safe to call even outside of a lazy MMU section).
+Document the limit next to count_handles in the four uAPI structs those
+ioctls use, so that userspace knows about it. The define itself stays
+kernel internal.
 
-- Kevin
+Suggested-by: Christian König <christian.koenig@amd.com>
+Signed-off-by: Fei Yu <fei.yu@intel.com>
+---
+This documents the limit added by the fix below, which is in mainline
+since v7.4-rc4 (6ca87397aeeb) but not yet in drm-misc-next. The patch
+only touches comments, so it applies and builds on drm-misc-next as is:
+https://lore.kernel.org/all/20261109014852.2127723-1-fei.yu@intel.com/
 
->> An alternative approach that addresses your point about layer violation
->> is to call arch_flush_lazy_mmu_mode() and leave the __set_pte() call
->> unchanged. This is slightly slower as we still end up setting/clearing
->> the TIF flag in that case. Not sure this is worth it - ultimately we
->> have to be mindful of what lazy MMU mode is doing to ensure this code is
->> correct. I'm happy with the current approach.
->>
->> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
->>
->> - Kevin
->>
->> [1] https://lore.kernel.org/r/20261109-kpkeys-v10-0-aa6c4d9603bc@arm.com
+As discussed in the v2 thread, the define stays kernel internal and the
+limit is only documented here:
+https://lore.kernel.org/all/20261104030930.3852781-1-fei.yu@intel.com/
+
+ include/uapi/drm/drm.h | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/include/uapi/drm/drm.h b/include/uapi/drm/drm.h
+index bc7ef7684099..59b6e2558d82 100644
+--- a/include/uapi/drm/drm.h
++++ b/include/uapi/drm/drm.h
+@@ -963,6 +963,7 @@ struct drm_syncobj_wait {
+ 	__u64 handles;
+ 	/* absolute timeout */
+ 	__s64 timeout_nsec;
++	/* at most 1M (1 << 20) handles, more return -EINVAL */
+ 	__u32 count_handles;
+ 	__u32 flags;
+ 	__u32 first_signaled; /* only valid when not waiting all */
+@@ -983,6 +984,7 @@ struct drm_syncobj_timeline_wait {
+ 	__u64 points;
+ 	/* absolute timeout */
+ 	__s64 timeout_nsec;
++	/* at most 1M (1 << 20) handles, more return -EINVAL */
+ 	__u32 count_handles;
+ 	__u32 flags;
+ 	__u32 first_signaled; /* only valid when not waiting all */
+@@ -1021,6 +1023,7 @@ struct drm_syncobj_eventfd {
+ 
+ struct drm_syncobj_array {
+ 	__u64 handles;
++	/* at most 1M (1 << 20) handles, more return -EINVAL */
+ 	__u32 count_handles;
+ 	__u32 pad;
+ };
+@@ -1029,6 +1032,7 @@ struct drm_syncobj_array {
+ struct drm_syncobj_timeline_array {
+ 	__u64 handles;
+ 	__u64 points;
++	/* at most 1M (1 << 20) handles, more return -EINVAL */
+ 	__u32 count_handles;
+ 	__u32 flags;
+ };
+
+base-commit: 2f50e0a0f9d319678a67715d4160ee890f5ee6f6
+-- 
+2.53.0
+
