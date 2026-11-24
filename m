@@ -1,79 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795552766;
-	b=eV63iG9tpdE5bVLY8s8Fh5tXBHr1rlukNFf1eXUYSxfcVSiK2LDqjC6ZFV7H9LmkF0aw
-	 /0l9dWtvimCqha5mBghSN13/AFE9+Lo/eRTN5gTNj8h+IurOxHBgkDB5hJll6ZB0gv9xH
-	 Md5732dmXvlk3E9ObSeaSTFmLUS1JZv+zYllqriyjPagcqnIbQz8j3qEgyjEiZyBS2Yix
-	 C0d1eE2hmOrundH/1skiCQbOJ4ine5qn3xIRPkfY7JiAZdb/820Iq2cEqSOw4CfuY2aeA
-	 vIo5ILY3itKPzswtGCVZjLxGEx1N0eLJ6xYBUnUYxjstEZrKwGUyAyQzoY5cgY4jjNA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795552766;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=wNon3V3i5suR375LkiIjfDkAHeiCg6kwpomG69wuTIc=;
-	b=Fua2qX+OmXAmktgQoWIqQTD8yCK1trePctSYWOtjJC2SzQHLHqZXLAk6sqIlW0WTIGOZ
-	 rZAh+mslzd9Tt+oX7cOlc2bw/eujp1M4+pt8ebjj37SKDDmlmYypM6bsTW7gl2N62hOz9
-	 QVEHofjFtka0c2e4ob/Z3fpTACjzoQsWy78zCF/3LIWlMwUVJvIZZR/szes6DljTU8eNn
-	 erZVfziig3itu5WkKaT1yGnshcAPTSqKNAu8GfYqYCiDMAH/3rMLRKlKMnAIqnmbqa0OU
-	 OfGBMKY5KqHxh+8Htmy+7WX8moN1NhurQjoRBsmCbFtCLupEkIA41hvlplKQQKswjWw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eSCpf5MH;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795552812;
+	b=IGFftTOf0FaU5LFrtScTQRcXJyZHWovUhp9gS3pM1hrGx6qWr7fUGr2owebGL4m6qUH7
+	 e5gXH46gxdr8rERVX9LaFSkwgzIlrlXHy4i8obhLRqa+xGUN15v32AJF2ejHl4Et81Ak5
+	 jSwghrbrR9NvrB6+FyapFhzW5rWDsv6FhEQrarjnP3y3rjC5CUuGoOTwYhciWCPw7c7d0
+	 I1e1cDVpjBu62+R2hLidx67Sh4LoXxY0+5rJLOeC8l4T4x56D42oyW++Ep8h2fG/3cNQi
+	 aclb0gvKPymCq4xF5d41EQ9bhDOINUFasl9ZmcVK9WWl0+urVeMHvwU/YMp3cX+UBuQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795552812;
+	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
+	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
+	 X-SA-Exim-Scanned;
+	bh=hMuj+ug/fxhLYLNO1oE/KBX7iI12GhDtXeAuAVnleAA=;
+	b=MsxtYgPA1csrjHPKsqTSJJB5V3LxZzICQSFDbFWrlejBKKB2s02DWOix6D3ouMN2gaJ1
+	 pxZuo8uSN8m6xv4FkBTDJ6536vb/iF7wd00aFlz5RRCvBJXBr38Tw7Czzmh7/DXzdaLyp
+	 iR9uSng3vXfAO6gJ0XZ3saMskW1EgPhBZTAw3xASjc54j9w1j+oyAsPTFJQ9J22eH0i8G
+	 D3XZi4r/K/l3VjodZ7irRpyylcyZkpPSF5JVzvRyC0bKFOXUH16/jbpLBbyMnHVfV/nvi
+	 yyxe4HBNRyB29oi3oD+SIOd+YDq+TslJsyHVwdgCU2QT6RNOL9wqMV/+NL4aFWeeeDg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OPqInZwC;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A8EF606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:39:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C6B8606A327;
+	Tue, 24 Nov 2026 20:40:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eSCpf5MH
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795552766;
-	b=KQ6YywSIeHUq53A+gba3nQ76NXKg51vHcfY8NMBsREIvLDa/ZdqeEYSgFVn0MyrxOo7N
-	 tkvc9t9BfLtqFrfpp0G1duGj8UYL0lSPm4Xd8hVKMKFEeeKn5gOqWtvgToMZ2biEvTQbZ
-	 iWkyyp0w06pcV4XVxurOLdWm5NPTdjZZYkED8RSNtDQsLVdSNbmVsgkIIkNpkkL76QhBB
-	 WVr2toRLQ1JSV4ixwjwIUDozWoU7zdp7Bj0tj/iIpLFeufPXQzKOPawJJdpLPIwASfBGj
-	 Hl4sRhgYXXXz6xSa/w/E90Lx8ejzBS0A3SnY/WccuZQS63CjGfoscMEWf8RVmx8yvdQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795552766;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
-	 Content-Transfer-Encoding;
-	bh=wNon3V3i5suR375LkiIjfDkAHeiCg6kwpomG69wuTIc=;
-	b=HXFNmWpjGMHP/cJj0anAX7W5xtKVN6w+KD+gLfXgToTelkXKGcCvqcty0ev3uc+gKBTe
-	 plR2EcJ5vz5zRHDqLx8XqGzTeZC9otD7wudpSyrZnL6u+VYqpEGoVD3hSC+776tj0+JIX
-	 4/2MptYIaysxGunYofBbnO0yMfDpFFGQ5JHAGOrFq8kgBrtKQVk+YM+3qdiLM7g6RtJJQ
-	 1yTucWXKff4zvR5S9CXiOAA9m1bElEi/6Sg/uBvvfxNi+ADEg2mawrbZqdml6t2epPnK3
-	 fppRgwbkMTeI4pbq/MFQQt/HN/7+qDHSLmxBuUfu7ZBGKC4XBvRizgIdHjBR4vAIYyA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id C16431F000CF;
-	Tue, 24 Nov 2026 20:39:15 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OPqInZwC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05C1B1F000F2;
+	Tue, 24 Nov 2026 20:40:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795552766;
-	bh=wNon3V3i5suR375LkiIjfDkAHeiCg6kwpomG69wuTIc=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=eSCpf5MHRhstMdySew8z+jqj+8DkTvVHso9/HOIWlX0nNl5/dil+CqUcuGwfa/qRY
-	 B0RbLqElAKKjy1SRuhgDDM73rdwjj0I0hN4HMllX565c+I2CUnn1OrVzHw/xve/KiC
-	 trEZOcfUvig0Wms6kVeoFE1EK9QrinmurodJdoMlz026ut7lwgIh0bRYAVVWQTH+aP
-	 7LlGeICroqC692mxYtJypGp/acS6V2Y/GIuYCX3sve6MTXwzyQwUwFpl692h8gZdvi
-	 azt4ruamB1YTWSIa8i/CEza71E99fqd92mQJd2NfpHAIfw2NeK7Tb6PM7EnGNjOzb5
-	 vXCcg8mnlWhmg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 2CE4F4CB8C;
-	Tue, 24 Nov 2026 20:39:15 +0000 (UTC)
-From: Devin Armstrong via B4 Relay <devnull+darmstrong.tantalus.com@kernel.org>
-Date: Tue, 24 Nov 2026 13:39:03 -0700
-Subject: [PATCH] ubifs: Bound lpt_gc() retries when LPT GC makes no
- progress
+	s=k20260515; t=1795552812;
+	bh=hMuj+ug/fxhLYLNO1oE/KBX7iI12GhDtXeAuAVnleAA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=OPqInZwC/CqupG7koI9mIkLSCBw89eRaMnjN1qL3mwg/+B3u+oaz/UTO4NxO8ny8G
+	 OYTSd/hkpotETzpHt6A/FopAza4LQpZQRcdYzmeYL5AFwnX/fgM+HUs5hmCLIxxMxg
+	 tLZHc3la9K4OZr0eqnkmyyxz45TeCU6FxdieV0aqbYyXDMGBZsxEDy3jCgLwLBhv8J
+	 OAcpZbqbAkJX10huAvRtnT0geFvThdyJmkjA2MRVr5ljdZ8ZyJVQpJUDiXt/uinv+e
+	 lxECIdfxWLkiiTbwyN0crS5I3Gd3S0S1tz/0IjnfLyLEldWFL+zSScuyaL5jg3/Lrc
+	 ZWgNvvAgQm7dQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xVxJB-00000002mQ4-47zv;
+	Tue, 24 Nov 2026 20:40:10 +0000
+Date: Tue, 24 Nov 2026 20:42:19 +0000
+Message-ID: <87a4my7yhg.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Dan Carpenter <dan@pereq.eu>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] KVM: arm64: nv: Discard undersized TTL hints in compute_tlb_inval_range()
+In-Reply-To: <20261124202215.3731849-1-coltonlewis@google.com>
+References: <20261123232647.3733149-1-coltonlewis@google.com>
+	<20261123232647.3733149-2-coltonlewis@google.com>
+	<867bi2z87n.wl-maz@kernel.org>
+	<20261124202215.3731849-1-coltonlewis@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,182 +83,42 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-lpt-gc-send-v1-1-eb975487c6d5@tantalus.com>
-X-B4-Tracking: v=1; b=H4sIAOb1BWsC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQyMT3ZyCEt30ZN3i1LwUXePURIO0VGMjs1RzAyWgjoKi1LTMCrBp0bG
- 1tQAIzFwvXQAAAA==
-To: Richard Weinberger <richard@nod.at>, 
- Zhihao Cheng <chengzhihao1@huawei.com>
-Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org, 
- jpark@tantalus.com, Devin Armstrong <darmstrong@tantalus.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795552754; l=5288;
- i=darmstrong@tantalus.com; s=20261124; h=from:subject:message-id;
- bh=/APDOkmanJBs/tnInr58Zk1KaxVRxZjJZmeUMLvn5JQ=;
- b=nCJvdjKmd/7IGz0Eyo0KaP6OdxT/90Rp5R95HUB8I6nuQUAlH0cuHQEhjkZbONRbVRinyvg6B
- Et9fxBPSAutDhX7tXpAt1/DmqC827XJX/Fx1UdnTi4bNvJ/T0K2wBZt
-X-Developer-Key: i=darmstrong@tantalus.com; a=ed25519;
- pk=jD9P/SgqHx/uS8fXsiq6ZAlPE3b8spE6dAOF7r+On3Y=
-X-Endpoint-Received: by B4 Relay for darmstrong@tantalus.com/20261124 with
- auth_id=1630
-X-Original-From: Devin Armstrong <darmstrong@tantalus.com>
-Reply-To: darmstrong@tantalus.com
-Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: coltonlewis@google.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, fuad.tabba@linux.dev, seiden@linux.ibm.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, weilin.chang@arm.com, dan@pereq.eu, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 
-From: Devin Armstrong <darmstrong@tantalus.com>
+On Tue, 24 Nov 2026 20:22:15 +0000,
+Colton Lewis <coltonlewis@google.com> wrote:
+> 
+> On Tue, 24 Nov 2026 13:10:04 +0000, Marc Zyngier <maz@kernel.org> wrote:
+> > What's the advantage doing all this dance over the patch proposed at
+> > [1]?
+> >
+> > 	M.
+> >
+> > [1] https://lore.kernel.org/all/20261123182312.4842-1-maz@kernel.org/
+> 
+> [1] only catches TTL hints smaller than host PAGE_SIZE. It does not
+> catch a hint that is >= PAGE_SIZE but smaller than the mapped block,
+> such as a 4kB L3 hint on a 2MB block on a 4kB host.
 
-ubifs_lpt_start_commit() and ubifs_lpt_post_commit() call lpt_gc() in a
-"while (need_write_all(c))" loop. If lpt_gc_lnum() cannot dirty every
-node of the LEB it was given, that LEB's free + dirty space never
-reaches leb_size, need_write_all() keeps returning 1, lpt_gc() keeps
-selecting the same LEB, and the loop never ends.
+Why do you think this makes *any* difference? The hint passed by the
+guest is utter bollocks, and the best thing would be to not invalidate
+anything. It's just too invasive to do elegantly.
 
-One way to get there is the LPT scanning problem reported in the link
-below: the 0xff padding at the end of an LPT commit followed by the
-first bytes of the next commit's lsave node can form a valid-looking
-node (the 16-bit CRC matches by chance). When this happens, a read-write
-mount or remount spins in the kernel at 100% CPU and can't be killed.
-Read-only mounts never commit, so they are not affected.
+> I can rebase on top of [1] so it goes to stable on its own. Following
+> the same pattern, compute_tlb_inval_range() can check
+> mmu->guest_s2_mappings at addr for an entry larger than max_size and
+> clear it to 0 to use the maximum-extent fallback, dropping the extra
+> page-table walk and KVM_NV_GUEST_MAP_SZ check. Would that work for v3?
 
-Track the LEB and its dirty space selected by lpt_gc() in the caller's
-loop. If the same LEB is selected UBIFS_LPT_GC_MAX_RETRIES times in a
-row with unchanged dirty space, return -EUCLEAN. Any pass that makes
-progress changes the dirty space and restarts the count, so the normal
-GC retry cycle is unaffected.
+No, I don't want it at all, unless you can prove that this there is
+something architecturally incorrect in what I'm proposing.
 
-The error makes the commit fail, which puts UBIFS in read-only mode, so
-the mount or remount fails with an error instead of hanging. This does
-not repair the LPT, it only turns an endless loop into a failure.
+	M.
 
-Link: https://lore.kernel.org/linux-mtd/97ca7fe4-4ad4-edd1-e97a-1d540aeabe2d@huawei.com/
-
-Signed-off-by: Devin Armstrong <darmstrong@tantalus.com>
----
-Tested on a v7.0 based kernel (out-of-tree ubifs.ko built with this patch).
-Remounting a volume with the linked issue as read-write now fails
-immediately with -EUCLEAN and UBIFS goes read-only, instead of spinning 
-in the kernel.
-
-Also tested on a 4.19 based kernel on SPI NOR hardware with the same result.
-
-On a healthy volume, 2 million commits of mixed xattr/utime workload
-showed no change in behavior and no "LPT GC" errors.
----
- fs/ubifs/lpt_commit.c | 51 +++++++++++++++++++++++++++++++++++++++++++++++----
- 1 file changed, 47 insertions(+), 4 deletions(-)
-
-diff --git a/fs/ubifs/lpt_commit.c b/fs/ubifs/lpt_commit.c
-index f2cb214581..1e583f070c 100644
---- a/fs/ubifs/lpt_commit.c
-+++ b/fs/ubifs/lpt_commit.c
-@@ -1140,14 +1140,39 @@ static int lpt_gc_lnum(struct ubifs_info *c, int lnum)
- 	return 0;
- }
- 
-+/*
-+ * Maximum number of times in a row 'lpt_gc()' may select the same LPT LEB
-+ * without its dirty space changing, before LPT GC is considered stuck.
-+ */
-+#define UBIFS_LPT_GC_MAX_RETRIES 10
-+
-+/**
-+ * struct lpt_gc_leb_retry - state for detecting LPT GC that makes no progress.
-+ * @lnum: LEB selected by the previous 'lpt_gc()' call (-1 if none)
-+ * @dirty: dirty space of @lnum when it was selected
-+ * @count: number of consecutive times @lnum was selected with @dirty unchanged
-+ *
-+ * The caller keeps this on its stack for the duration of its GC loop.
-+ */
-+struct lpt_gc_leb_retry {
-+	int lnum;
-+	int dirty;
-+	int count;
-+};
-+
- /**
-  * lpt_gc - LPT garbage collection.
-  * @c: UBIFS file-system description object
-+ * @retry: LPT GC progress tracking, see 'struct lpt_gc_leb_retry'
-  *
-  * Select a LPT LEB for LPT garbage collection and call 'lpt_gc_lnum()'.
-+ * If the same LEB keeps being selected and its dirty space does not change,
-+ * the LPT is damaged and collecting it again cannot help, so give up instead
-+ * of looping forever.
-+ *
-  * Returns %0 on success and a negative error code on failure.
-  */
--static int lpt_gc(struct ubifs_info *c)
-+static int lpt_gc(struct ubifs_info *c, struct lpt_gc_leb_retry *retry)
- {
- 	int i, lnum = -1, dirty = 0;
- 
-@@ -1165,6 +1190,19 @@ static int lpt_gc(struct ubifs_info *c)
- 	mutex_unlock(&c->lp_mutex);
- 	if (lnum == -1)
- 		return -ENOSPC;
-+
-+	if (lnum == retry->lnum && dirty == retry->dirty) {
-+		if (++retry->count >= UBIFS_LPT_GC_MAX_RETRIES) {
-+			ubifs_err(c, "LPT GC of LEB %d made no progress after %d attempts",
-+				  lnum, retry->count);
-+			return -EUCLEAN;
-+		}
-+	} else {
-+		retry->count = 0;
-+	}
-+	retry->lnum = lnum;
-+	retry->dirty = dirty;
-+
- 	return lpt_gc_lnum(c, lnum);
- }
- 
-@@ -1193,6 +1231,8 @@ int ubifs_lpt_start_commit(struct ubifs_info *c)
- 		goto out;
- 
- 	if (c->check_lpt_free) {
-+		struct lpt_gc_leb_retry retry = { .lnum = -1 };
-+
- 		/*
- 		 * We ensure there is enough free space in
- 		 * ubifs_lpt_post_commit() by marking nodes dirty. That
-@@ -1202,7 +1242,7 @@ int ubifs_lpt_start_commit(struct ubifs_info *c)
- 		c->check_lpt_free = 0;
- 		while (need_write_all(c)) {
- 			mutex_unlock(&c->lp_mutex);
--			err = lpt_gc(c);
-+			err = lpt_gc(c, &retry);
- 			if (err)
- 				return err;
- 			mutex_lock(&c->lp_mutex);
-@@ -1315,14 +1355,17 @@ int ubifs_lpt_post_commit(struct ubifs_info *c)
- 	err = lpt_tgc_end(c);
- 	if (err)
- 		goto out;
--	if (c->big_lpt)
-+	if (c->big_lpt) {
-+		struct lpt_gc_leb_retry retry = { .lnum = -1 };
-+
- 		while (need_write_all(c)) {
- 			mutex_unlock(&c->lp_mutex);
--			err = lpt_gc(c);
-+			err = lpt_gc(c, &retry);
- 			if (err)
- 				return err;
- 			mutex_lock(&c->lp_mutex);
- 		}
-+	}
- out:
- 	mutex_unlock(&c->lp_mutex);
- 	return err;
-
----
-base-commit: a5e0055eac837a1168c781653943d4a0d9920af3
-change-id: 20261124-lpt-gc-send-3ea0fe326e70
-
-Best regards,
 -- 
-Devin Armstrong <darmstrong@tantalus.com>
-
-
+Jazz isn't dead. It just smells funny.
