@@ -1,90 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=139.138.36.223
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.98
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795513661;
-	b=WJSoGrVxNtZ9vPurj6RXLe25eGg4dPiImlofkyx3czzygxv9LW56LtYjORpkZ04Ei+bP
-	 hE2t9C5bsYb42KhahaeqdZw8THFVyMQ2bLe160mbZWP+vyxurnkMyz69ULaJDD4nGusNR
-	 VM2S8ZbWDELjEsY9+aWISWn+4dY6JKHAPh3osJOxA1ZKsRKsyRu90u6DKmScyI0MREV3A
-	 3BvTtgvCTVxQBhVGKNNJm1JswWg65uYo0BzAOwUCh8p4x9rVcGCGaH3qFUYLH92giJmiG
-	 Pm+CzfLSg/p/fKD0WiJ+W9qQ49VWlKSFYkJVVg0Hyhv/0bFGXMrSt/39yhgJ7L90sUQ==
+	t=1795513673;
+	b=kL0aPTD5rCPRUuSQpXq983B752Q+IgQicteb+Ne0VRXz6nKsTi4prs3WeEPA9EVgENlO
+	 qhZNa58NqUE1ZMLyYx/R0tn6lHKLNBsdzeZKlWLd8kubEGi4iU5KQ011eVnIcBRJ2LMFz
+	 I/8TAmNq/6ZwsM57pDWTttffJiiKwevriGBVIqU2HwYDzceXryoWQbMJYr4fjnVNW7X98
+	 FJWj/arPYkq/NIIxflVcqzxdzIVyRT0Pk0TcmCFxn6kR0M5iICqxZawkkYofUa5gH+/V1
+	 w+Kd4xR0nIfFpkiTQAbZswcSQ1DHVUZY1QII+zanDewLVezWZjKxoCfO1gT5cFKXQoA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513661;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:Received:Received:Received:Date:
-	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=mCdvX3DKxNd4ufd5SveU6bheHpcm5WlWjpwmAB6yI/I=;
-	b=V9iHjxva17A8ukiza1m8KGXPf+j/IPD3JdsfhFFcs4fbRV0QQ9cOndAEGnERUbqPz5HL
-	 TWm5xl0wJwFKHWDYrsPNYqxFNP1JHdRIAZ/pJ7yu3TiJmvW3KNg2sdmlJMwbK3ievofuh
-	 nkDv6ZcXvEtYDuJle5Ziw31AbxYFJov9Mxw7r63yzOaZVDLNWXLARGY5eU/D+jNQfYKOD
-	 LUfH72w++0reOU6gQ2DkCBriRlZGdWHrN/yJKwUs9fMHfup9h5BqJLBk2xsctNcvg6tv6
-	 LbRaX8PePF2zqKahGCVyta/31M04c5UbRchpOwg4hkVWm0U+4IeTSX+NNkD4giYG/JA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795513673;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=9UxDeIk67xuNdpXj+qBcspkYjPnMBMjpN0hb31P3JSM=;
+	b=VlKZ7CbgAtyHBSGBeqc+JLCQG8L9Rvmb2vY28VAv8l1GvHtV6HhCLgz7+tvEdjitfSkE
+	 Lr708uWvwe9qFfJBHTMTbybd416tqmhrzGQ31kXNMaz+27q97WEYv8zQ1LfYSgpPpdHvU
+	 jISmYIfG9+YFjf+O1zpWz03Q8I+ujux2F3tbxX1zBuRYpyFqGCj+JgrzQAaUynqkOoh2R
+	 v+P0UDWca8Nx7ZDvCKI/RHUtjNC6ASZkEsMmGDBkcBl4E1/v/iW9Pb0f5JBoXNy95qtKT
+	 rzQ/mThYW2+CORkhHwRmzO6aMWYo4XeNvGDieKsYrYgYbKd2SArv1o+5eW1hLJt8lDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fujitsu.com;
-	spf=pass smtp.mailfrom=fujitsu.com;
-	dkim=pass header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=QIRBOzhl;
-	arc=none smtp.remote-ip=139.138.36.223
-Received: from esa9.hc1455-7.c3s2.iphmx.com (esa9.hc1455-7.c3s2.iphmx.com [139.138.36.223])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b="Th/igziV";
+	arc=none smtp.remote-ip=115.124.30.98
+Received: from out30-98.freemail.mail.aliyun.com (out30-98.freemail.mail.aliyun.com [115.124.30.98])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 684DA606A69B;
-	Tue, 24 Nov 2026 09:47:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 684DA606A69B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=fujitsu.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fujitsu.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3A05606CF0D
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:47:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3A05606CF0D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=QIRBOzhl
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1795513660; x=1827049660;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=M5NqBozgTmQWYS9D9HJSCp5Du4EFXSk47fr9zjJkO3M=;
-  b=QIRBOzhlGFqjmQkw86iKR6QcbxzUuAO997/h3zS/1jiqQ+dKy5m7DMDq
-   MiX7gmx90c/SC7XqYkInVX9IzMP2gBxkSipmUKqbFzJ8U2+1ynD8VgHpN
-   It37lWqTffN4BIP1HeiHRRTL2FbrAxq2yxNu/XJI2nRYNkJ2CUXDyb9Vb
-   0fvfqCnHQbrzeeR7nnQVnMomxGeIUYjMvdJ/3eCsHhxmdDwRG4VwIqNAM
-   D1buiHbM5Ht8vHlmuoAANi5cVm+Ez51KGn/nZCL0JPB39zfhBiZgdjdtb
-   q7PzkIGhsp3FzitkNDxXRusS997Pnyzt7ll55NLmKqKqkXHtvad99WIa2
-   w==;
-X-CSE-ConnectionGUID: kK/qUvjZTuuRxVOcGv5L/A==
-X-CSE-MsgGUID: 3UCigZl0Q2CX7i3ecD0+yQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="250443381"
-X-IronPort-AV: E=Sophos;i="6.27,230,1786978800"; 
-   d="scan'208";a="250443381"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa9.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 18:47:33 +0900
-Received: from az2uksmgm2.o.css.fujitsu.com (unknown [10.151.22.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 55A32820400;
-	Tue, 24 Nov 2026 09:47:33 +0000 (UTC)
-Received: from az2nlsmom2.o.css.fujitsu.com (unknown [10.150.26.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id 07C8818002C9;
-	Tue, 24 Nov 2026 09:47:33 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.9.1.165])
-	by az2nlsmom2.o.css.fujitsu.com (Postfix) with SMTP id C668B1800528;
-	Tue, 24 Nov 2026 09:47:23 +0000 (UTC)
-Date: Tue, 24 Nov 2026 18:47:22 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v4 00/11] KVM: arm64: CCA: Prepare Realm memory management
-Message-ID: <awVZ0UrEKN9gLHIZ@FCCLS0092175.localdomain>
-References: <20261123104233.95710-1-steven.price@arm.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=Th/igziV
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795513667; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=9UxDeIk67xuNdpXj+qBcspkYjPnMBMjpN0hb31P3JSM=;
+	b=Th/igziVNXG4pbVRbmCRjhzHeAesbLMOhdUAyW8BjP43LiLjWr5Jt30acqy9cuGM1rA8z8GXObnMRlCZr/LVkG+av5qDWZpwDL1O9jQwUlGGdWAnw6qGj60pc4gKFuvMTuZ5ho1kL82O6gBQLYtgBp3xBZXTPeFroarKpJWbX5I=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R161e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=joseph.qi@linux.alibaba.com;NM=1;PH=DS;RN=6;SR=0;TI=SMTPD_---0XFO828g_1795513666;
+Received: from 30.221.129.142(mailfrom:joseph.qi@linux.alibaba.com fp:SMTPD_---0XFO828g_1795513666 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 24 Nov 2026 17:47:46 +0800
+Message-ID: <e76e18a1-6506-4dd0-a920-59d4d42cea2f@linux.alibaba.com>
+Date: Tue, 24 Nov 2026 17:47:45 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,38 +53,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261123104233.95710-1-steven.price@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v10 2/3] ocfs2: switch DIO read path from buffer_head
+ to iomap
+To: Heming Zhao <heming.zhao@suse.com>, mark@fasheh.com, jlbec@evilplan.org,
+ hch@lst.de
+Cc: ocfs2-devel@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20261124045501.10281-1-heming.zhao@suse.com>
+ <20261124045501.10281-3-heming.zhao@suse.com>
+From: Joseph Qi <joseph.qi@linux.alibaba.com>
+In-Reply-To: <20261124045501.10281-3-heming.zhao@suse.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On 11/23 10:42, Steven Price wrote:
-> This series adds the memory management plumbing for CCA, building on the
-> basic RMM support [1]. Thanks to everyone who reviewed and tested the
-> earlier versions.
+
+
+On 11/24/26 12:54 PM, Heming Zhao wrote:
+> Migrates the DIO read path from the legacy buffer_head infrastructure
+> to the modern and more efficient iomap framework.
 > 
-> The patches introduce internal Realm VM state, prepare Realm stage-2
-> setup and teardown, and provide RTT mapping and invalidation helpers.
-> Realm memslots are restricted to the lower half of the IPA space because
-> the protected and shared halves alias each other. The final patch
-> connects the helpers to KVM's stage-2 MMU operations.
+> Under the current code, ocfs2 holds a cluster lock during DIO via
+> ocfs2_iocb_set_rw_locked(), and releases the cluster lock in
+> ocfs2_dio_end_io() via ocfs2_iocb_clear_rw_locked(). The lock level is
+> stashed in iocb->private.
 > 
-> This is the memory management portion of the larger Realm host series.
-> Realm descriptor creation, REC entry and exit, activation, and the new
-> uAPI follow in the integration stack. This series alone does not enable
-> Realm creation.
+> However, iomap DIO owns that field (it stores a bio there for polled I/O
+> and unconditionally clears it before calling ->end_io). Any side-channel
+> state packed into iocb->private is corrupted, which trips the end_io
+> lock-state check.
 > 
-> The integration branch [2] includes Realm creation, REC entry and exit,
-> and the remaining host support on top of this series. The MM branch [3]
-> contains just this series.
+> Instead, encode the unlock level by passing distinct iomap_dio_ops methods
+> e.g.: ocfs2_iomap_dio_ops_r_pr ocfs2_iomap_dio_ops_w_pr for PRMODE or
+> ocfs2_iomap_dio_ops_w_ex for EXMODE. Also note that the ops_w_{pr|ex} are
+> defined in the next patch.
+> 
+> Additionally, the *_iter() functions use the split __iomap_dio_rw() +
+> iomap_dio_complete() API so they can determine unambiguously, from the
+> return value, whether the completion handler already dropped the lock
+> (real I/O, sync or -EIOCBQUEUED) or whether the caller must drop it
+> (no I/O issued, or buffered fallback).
+> 
+> The new function ocfs2_iomap_begin() performs a similar role to
+> ocfs2_get_block(). While ocfs2_get_block() retrieves only one block per
+> call, ocfs2_iomap_begin() can handle multiple blocks at once.
+> 
+> Co-developed-by: Joseph Qi <joseph.qi@linux.alibaba.com>
+> Signed-off-by: Joseph Qi <joseph.qi@linux.alibaba.com>
+> Signed-off-by: Heming Zhao <heming.zhao@suse.com>
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
 
-Hi Steve,
-
-I tested the v4 integration branch in the same way as described in the
-following thread, and I haven't seen any issues so far:
-  https://lore.kernel.org/all/avV-P2_fOkFWQVnM@FCCLS0092175.localdomain/
-
-For the series:
-Tested-by: Kohei Enju <enju.kohei@fujitsu.com>
-
-Thanks,
-Kohei
+Looks fine.
+Reviewed-by: Joseph Qi <joseph.qi@linux.alibaba.com>
