@@ -1,76 +1,39 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.47.186.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795517312;
-	b=CZnQ8SJv8UeeoOfTea1NZRIRi3uzPFrn5GVZTrLGgm9BLiNnw4o75IyRJhbEGoG+fglL
-	 cqftj5BvJWO7CFTN5CZpT0sDsirBKnLKae+EkyFKQ7cqzuO7/WNmOqkL8X8djKWG1Awvc
-	 N00xNANw8M37t9duq7pifRULLUJc3bhHyx+0Y5r4TE0VXDRPVQ1JrQRL4Hfc/dJjQKeVv
-	 JAutGyKtjqE7OctAydHKCxP0hypyNGb39xRs+uFKcDrjLQnKt+85cU9QhqQmKA9PtKyVF
-	 bGydtm7d24stmXb/0NOHD6gKmmklev8HZZelUjrWiSqrmiTHbK9wmyBGUKR1Gw3bjbQ==
+	t=1795517322;
+	b=oXP6dJ0zL8ztabW9yveqtqZuF3JOF5n+dHx7LjFliRhgvl9XDsfsBFjcorqNAttclvqh
+	 ud+6A+153T+B+4HCMR2FWJlDUfomKqLv8KBKkmKhRJxD3+RMPU3WOfKwAnLwTYylClHMi
+	 8NRnuBq7k8Wr8h7+CBK0Fyj9bLEAhXitLMIjfb6IVmnagkwfKKEZo6dGkw/n39cNefAcn
+	 fStETYjmBGkRkcGaRM49Y28pkSOc43LqFLBDbK6u8Rtow+imitBdKx+1eYVBkXNZKlriL
+	 JQYQU7H/d5ypG8/j7mvH5dYRILjBJoHT7oYGzgUfKPzywUuEHRJ9DjI0GAOXMPbmcsQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795517312;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
-	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type;
-	bh=sONtv6uuoQDqrzKy2E1x+FEJb1HP1UNQoeW1slamno4=;
-	b=hRQlGwqBiJRKcKKziSlR43E2zJvOCRfx5NdxSfa+HFc0JlNw1xfnm/fYtPr2f4q+u0rc
-	 KY1j+PvCYQ6Q4vop0IcGXusrYspR79A5EMUwyoYsFZfdfbS0eH0MdqpgaIKvcZS2nbdnl
-	 OiInSSkQNR4C806tHCUtg5zsot6TAQ1t1fV8dh0zWeIa8V9Gv9LWrah1iY4hsl56ZFO7u
-	 X73QoTtUmJmBlFNmlpe5ZnATQslK0Yx4TY/KIgZLSUE02MqWQMJ9z5uaEEDzIpDe7AZsf
-	 yxQzvyd/JQ/ORxG8s7p+NHeNg9nt7ZOFjcCCkC3oofvT8N4ShpsDmZcpqAA/YnCxPoA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795517322;
+	h=DMARC-Filter:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=dBPYl2zKFPExgfERojWEsnAyw4KQJ0MAZ8Jw147Kztc=;
+	b=4AM5r9RCn+iE9ssRmJdeTgVdUDHISNgUZNHsWEuge/94SienmeTR7n2xZmJ7HJoXYiGb
+	 uFyn3yx5fWlF9V21L1pJduL1gUEEP6pnLRmgH90BiznhZ+Ew4bKHs1JqXqvkwQ5NLX2HG
+	 OBVy8ZdXNKgAX3tE3644C0NZ2zs1A+f5bCYFbUN3GPZ+ZLFegKaSt9Xxs7L0s0HjV4AcV
+	 N6GKiurxOvSTTlxilG8YtqaoC4zxFr28PVEroi9+yORzIvM4/tR2xQ9BF+H+61kFHmuqj
+	 5VWusGFxdXLFv8hifBtybE0yOvFcshRf/jwaVT7WCQbb/5OeAgzOrWRc1Cetf6hZ7yg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux-m68k.org;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.217.51
-Received: from mail-vs1-f51.google.com (mail-vs1-f51.google.com [209.85.217.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB9AE606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:48:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB9AE606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-vs1-f51.google.com with SMTP id ada2fe7eead31-745497ac8fcso1546912137.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:48:31 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795517311; x=1796122111;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=sONtv6uuoQDqrzKy2E1x+FEJb1HP1UNQoeW1slamno4=;
-        b=lA4R+Q7wfTElDhdjMsBop6ziKThE+SFaWHknOrAxHCTscOuAKq22yrNLpG53l33zbz
-         Dz0QkBd1UvIE55vZ2JWofwkVSG1evpakNcQhtqqUT+2am5PJIvdNy08dOIWO83/beLq7
-         l7S2gJ6XdbP7R8LZstTm+Z1mUysVGNMa9h1MCx2mTqrx1oxT+4sNMxyli1aQf7jNGJ9r
-         YbWavc68jcbiPupaT6iYycWRvXLMWenmgwbnu7HfupPtquNFYEktjwCUDEm9GCOTqZ8i
-         7+OdTe0/g7PUpn8s+405SPzrgfsDi6FNfiJXjAywQWY9EKPBSDZJdhK1xAaTlfuVL5Ie
-         0z/A==
-X-Forwarded-Encrypted: i=1; AL+hErF4mIoU+ni7+O6iPpc6K6H0rFx0l8OA/AGVWPBoiOz/8eo/e/VWzeWbcoQyEM9tnWBB7BkvyGFr2uW8nJY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9K4fkKkM7v8yOiKDU0wOyI/X7z65yz3VEqx0pa5Vb0dt7lAdWA
-	vkx+Wijbcw2qd+Wdxaqo2OsXM73qcDfRJeGS8LcSzpWfigomK+K6KFE82hdcZvjb
-X-Gm-Gg: AZFdTZekiXvynsI3a7FxtT5KViRU6wX4i229ch/04rvD1lITkyLHrugnmNTx0w9RVas
-	Ry2E4GHkRM3T+8rgHOMs9RgSDrRKvuy9tI+TIzoA3lLAqDiXCMcOwkOo/+f9Stg0PcFZA4tkHlw
-	hhgFR0FXs497AEbBuJThAdOpv7dfDctCMgB9Qkq2nVqj38+z0fSQFt99KMpF84L5npemdCcVN3C
-	SRbPgr/FiouZOR3XVWRgWCudSJ4joszXnvOtAOuW8bqNhqYAxs2TCzE6rey5r/OqrcOw71mVJJq
-	f91wVomm9h8zLoDVEV6TUM+NYlVdUMGE0nhQlxXoiD+NLEs/V5HYF2AuijE0RVloyq9p4KSixD9
-	uESSxywuukJskAMucut9wok1FT94i9OgonRpbPrPIM/fTxXfyEFKSDgdM1RMgQ2uaJiB5aZzbkQ
-	qvrZnPpXqmqQL0md5VTZxLecqXAu3Wvuws2oe3anhvc4iVSVOiFZAd2lk1QCey5I58PwJpxVHZ7
-	UfrZ9mRmQwf5r4/MuUbcKI8k8NubcNwYfoGgZ/xRqV2Lh2C8fHC7Kaqk1N+7IzOCdGTPG/ZZSQ/
-	PRFnTIpWll8ydnKfvncmOIK9IirR0sQ+2/kMOgWqPIijNY1dP9qZlUT93ymFUj2KDig=
-X-Received: by 2002:a05:6102:a18e:20b0:7d8:b509:df1e with SMTP id ada2fe7eead31-7d8b509e0a8mr443194137.21.1795517310669;
-        Tue, 24 Nov 2026 02:48:30 -0800 (PST)
-Received: from mail-ua1-f48.google.com (mail-ua1-f48.google.com. [209.85.222.48])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ee8b635d0fsm13553186e0c.15.2026.11.24.02.48.30
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 02:48:30 -0800 (PST)
-Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-99e1b352df9so1140838241.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:48:30 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGLnQGp58R+KKhTJY9hO3myMdt8HX0gWEV18wQehVbV69fHIl6xq+mSuKqOdRctxzmMb+90kU8jsCK3U+g=@vger.kernel.org
-X-Received: by 2002:a05:6102:6890:b0:7c3:fc96:fbdc with SMTP id
- ada2fe7eead31-7d7396b5a8amr5632287137.37.1795517310321; Tue, 24 Nov 2026
- 02:48:30 -0800 (PST)
+	dmarc=pass header.from=krgm.moe;
+	spf=pass smtp.mailfrom=krgm.moe;
+	arc=none smtp.remote-ip=103.47.186.116
+Received: from krgm.moe (krgm.moe [103.47.186.116])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 174B8606A31E;
+	Tue, 24 Nov 2026 10:48:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 174B8606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=krgm.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=krgm.moe
+Received: from [10.42.0.96] (unknown [114.242.206.180])
+	by krgm.moe (Postfix) with ESMTPSA id 02BF7859;
+	Tue, 24 Nov 2026 16:18:36 +0530 (IST)
+From: SignKirigami <prcups@krgm.moe>
+Subject: [PATCH 0/2] Add Qualcomm Netrani TLMM support
+Date: Tue, 24 Nov 2026 18:47:43 +0800
+Message-Id: <20261124-netrani-tlmm-v1-v1-0-0f84fa251b89@krgm.moe>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,80 +43,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261124100604.2380938-1-daniel@0x0f.com>
-In-Reply-To: <20261124100604.2380938-1-daniel@0x0f.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 24 Nov 2026 11:48:19 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdW1e8_fNpciRaJxxJDUvCsV8bgkOBoPjpzUp=uPNWaM8A@mail.gmail.com>
-X-Gm-Features: Aa3M54qB1yt6lqgJnmZUZ9UYgPzwgC5-7_fQiU7RevBgj6A490deRL9llFJVxM4
-Message-ID: <CAMuHMdW1e8_fNpciRaJxxJDUvCsV8bgkOBoPjpzUp=uPNWaM8A@mail.gmail.com>
-Subject: Re: [PATCH] Input: amimouse - Fix the buttons
-To: Daniel Palmer <daniel@0x0f.com>
-Cc: dmitry.torokhov@gmail.com, linux-input@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMTQ7CIBBA4as0s3YS+Um1XsV0gTDomBYNUGJCu
+ Ltol9/ivQqJIlOCy1AhUuHEr9AhDgPYhwl3QnbdII9yFEJqDJSjCYx5WVcsAqXT6nQm752aoFf
+ vSJ4//+N13p2225Ns/m2gtS+9soLocwAAAA==
+X-Change-ID: 20261124-netrani-tlmm-v1-2d4378effd39
+To: Bartosz Golaszewski <brgl@kernel.org>, 
+ Bjorn Andersson <andersson@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=785; i=prcups@krgm.moe;
+ h=from:subject:message-id; bh=K+4yaM6/9jj2EL1rcybpLLJYrSpUft7ynGKrj9PL3Lw=;
+ b=owEBCQL2/ZANAwAIAV0dOJt2umJjAcsmYgBrBWth1joFZzlxat2R7n2fvTI0jY+YaCW8HB5qD
+ mx3EgRMFN+JAc8EAAEIADkWIQRSClJ2zjncUdNU0FFdHTibdrpiYwUCawVrYRsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwwLDIACgkQXR04m3a6YmMabwv9F6jNhWVy5FgtUchaSf5jBaDgBdl9oLs
+ Kn4Gz4PrUS/uAwgUk507YJpaAsNTcsokWq6imizTppYrJ1bRZZFuskHYx/ZiWph5tBaXyiaCWXJ
+ QHsTZmLGL+cjHPVon0H6h3k34CoVF+yOhDislwIVq70gtWaq5qYbi8/2kuTNAduJ+eRB8rVRIHo
+ 2UZgmZ36GtoHg0u3xi4U4LUF3HvXFYd55XrdP8M6sPVB1sWJQkWZcgBbjcFg9GIl7ulSnpeycaY
+ Unx7/0E8cQq4ZweW9bW7x4iR6vZOJi8/Jn5hy0UeymctwZKVuq7RXBjAoRgJO5lKz/0NjJDHpWx
+ auzOzKiy16WQX/wcd7yZCs4jiHtTj32suYUzZQct4wDqM2EFSYNFaA8uxSsMA9oPpf75qlpoYye
+ YZeaKGbBv7usUVHRs5ncx96dysqI8mI7H9eLVUQzUSyCJBUEkJZac8yDfwhv5ajUkdWytToLPJi
+ VNzaLyrjDhAyJTIsIjSFvwVvChHNL4K
+X-Developer-Key: i=prcups@krgm.moe; a=openpgp;
+ fpr=520A5276CE39DC51D354D0515D1D389B76BA6263
 
-Hi Daniel,
+Add the pinctrl binding and TLMM driver for Qualcomm Netrani
+(SM7435). The driver reuses the existing Qualcomm pinctrl infrastructure.
 
-On Tue, 24 Nov 2026 at 11:06, Daniel Palmer <daniel@0x0f.com> wrote:
-> On the Amiga the left button is connected to CIAAPRA bit 6 (/FIR0)
-> and the middle and right ones are POTINP (called potgor in the code)
-> bits 8 (DATLX) and 10 (DATLY), all of these are active low according
-> to the "Amiga Hardware Reference Manual (3rd edition)":
->
-> In chapter 8, "Interface Hardware": under "Mouse Buttons" a 0 in CIAAPRA
-> bit 6 means "switch closed", and under "Digital I/O on the Controller
-> Port" reading POTINP "will produce a 0 if the button is pressed, a 1 if
-> it is not".
->
-> Invert the bits from the registers so the state of the buttons is
-> correct.
->
-> Tested with Quake on a real Amiga 4000.
->
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-> Signed-off-by: Daniel Palmer <daniel@0x0f.com>
+Signed-off-by: SignKirigami <prcups@krgm.moe>
+---
+SignKirigami (2):
+      dt-bindings: pinctrl: Add Qualcomm Netrani TLMM
+      pinctrl: qcom: Add Netrani TLMM support
 
-Thanks for your patch!
+ .../bindings/pinctrl/qcom,netrani-tlmm.yaml        |  190 ++
+ drivers/pinctrl/qcom/Kconfig.msm                   |   10 +
+ drivers/pinctrl/qcom/Makefile                      |    1 +
+ drivers/pinctrl/qcom/pinctrl-netrani.c             | 2087 ++++++++++++++++++++
+ 4 files changed, 2288 insertions(+)
+---
+base-commit: fd2d5e9417a86d015a4c7b9759d2d3d6182fcd7b
+change-id: 20261124-netrani-tlmm-v1-2d4378effd39
 
-> --- a/drivers/input/mouse/amimouse.c
-> +++ b/drivers/input/mouse/amimouse.c
-> @@ -58,9 +58,10 @@ static irqreturn_t amimouse_interrupt(int irq, void *data)
->         input_report_rel(dev, REL_X, dx);
->         input_report_rel(dev, REL_Y, dy);
->
-> -       input_report_key(dev, BTN_LEFT,   ciaa.pra & 0x40);
-> -       input_report_key(dev, BTN_MIDDLE, potgor & 0x0100);
-> -       input_report_key(dev, BTN_RIGHT,  potgor & 0x0400);
-> +       /* the buttons are active low */
-> +       input_report_key(dev, BTN_LEFT,   !(ciaa.pra & 0x40));
-> +       input_report_key(dev, BTN_MIDDLE, !(potgor & 0x0100));
-> +       input_report_key(dev, BTN_RIGHT,  !(potgor & 0x0400));
->
->         input_sync(dev);
+Best regards,
+--  
+SignKirigami <prcups@krgm.moe>
 
-Nice catch!
-
-Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
-
-That bug was introduced in in full-history-linux commit 7c40d075b02b3ddd
-("Add keyboard, mouse and touchscreen drivers. Add tsdev, power and
-evbug event handlers.") when converting drivers/char/amigamouse.c.
-
-How come we never noticed before? I did use the mouse after that, cfr.
-https://lists.x.org/archives/xorg-devel/2013-March/035831.html
-
-Comparing drivers/input/mouse/inport.c to the old drivers/char/atixlmouse.c,
-I am wondering if the same bug is present there, too?
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
