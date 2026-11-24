@@ -1,60 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795532448;
-	b=ckqovMkVClJDyBoy17HMJ0JlZ92mn7laSVqYH0Tt18j6VjQv32ilZ48IHBj8eh72cqwz
-	 HbOuRuaBIuqlQXBgvQLou0MItrGQ+20yqJAJ3nk/7YQxHuBBTf8jps1h0cIYJNShuydRz
-	 TNPcjDP0/vJlLIo529C+wvrdoBQvj29N/xPTSxYYkmoxWXnrw3Gt5eUsxmVCgKRQofmwo
-	 j0Iowzeffd4ZKpfiUAVCPrEzCX7VA5rFPTTx2irSjDlDsycfGc4PB8a7jfs0j1tn6sET7
-	 APrWwtqHMqxi76yC7IwaMhVwA5A/p3mr1ICAnWtUjPuE2XG81fu+Uu/4QzcFhqqApzQ==
+	t=1795532462;
+	b=VfmkN8QzAuSseTQzVadeG+z6sVy7MRxRZzVsUO3Nw8xSE8fvwo7tuzCboDn/kmUSV7nl
+	 /qUPplllR0jIL85jhOk+Jb2xili1cf5Vzv/IOQcMOSiwjN0mA/I44KzO0SISVu4p24yYN
+	 QGq1ycCDVkDcSPsFa/BWH9RX7v19juRwEU157LB9IRCpw316Fl8wZck2MSPaE/4KU3+p4
+	 vmSAi2Ud9TunTHRASaL1XFTJSvmPiEdhwNtMtjFjAzH4Qp/rArPwFclG+AIDfTRm9FsFp
+	 rdpmiiYl454GQfo3fQQbJ4Su8kptIRbLv3n+MMJRsstgR2W2bqrpux3IuWERbb60Ewg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795532448;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:User-Agent:MIME-Version:Content-Type;
-	bh=b67nSDSKlbaduyToerD8/iZoRWrb26B2Xt6ysm6DMx8=;
-	b=1bfP/mzlAHEkkwK25g/ebL+GOvFaCqLgcZvGTQuJyU0gWnGPWeg22FOXSgK2Qbn7bLgQ
-	 Vl/bdo7L0gx+cRVaAUCK7p8RO72/SEpJuhlfOA25rjW9SkyG+qyiN08UaGyiiX56YK6dB
-	 uNcZu6m/PRiJxO1zUUyxpnuaukkpp3o6ForlB8/lvmlcUAnL94HdBtfqIoaelDzLT4icV
-	 EZhoKlNx7NPDZvqsVXZP11E4HKClm728TRNRA8uFhO3xL09v1Eg7mpxenCptVXS35n46y
-	 hdn1mAW7KORbwC2l+chg9V20KsKfWPN2tj8FocX2oo7Wd2IqnAr2xy1rM2Siw8WTdCg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795532462;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=asbWuIn9ePuDPZMHSTApP9g/ewv2TUXo/89WnF//TCg=;
+	b=Dd+udx9WZ+PjYRAg+jkSW1nij+e6bbT3Fppv1MvJnmJ5nQVw9+ZiGYay1qSuidTgcR1t
+	 40ldMAsIhXUU4BCc3arhOaiEeMeGEu4VNyU7TERq62Pw58k7NK4/XerAs8/FUAnEHW9B7
+	 Y5Yku44G2NQXqn2BuBk4j1qJPA9JAjEQbsPgsTRPClNAb8Ftus+9khC3h+1KLxF/AbpcX
+	 B4cCfRyDwZL1hV8GxqwX+APp7/9IbdoV9MIGziZRIWhBT7+Ga/LaDEe7jKg0WZu1jeaE0
+	 XQ+PrKyeqS6rop5Kgm5SQuuW+ObpffJO2xKV2evgjBHxOs2nyj1N1gEd7OWivXkXmqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kS2U9cG5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=pQ0nXaTV;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D954F606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:00:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33CCA606A31E;
+	Tue, 24 Nov 2026 15:01:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33CCA606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kS2U9cG5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59C011F000C6;
-	Tue, 24 Nov 2026 15:00:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795532448;
-	bh=b67nSDSKlbaduyToerD8/iZoRWrb26B2Xt6ysm6DMx8=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=kS2U9cG5k3BNOeM1o/Yw8hJGE4Ji6v4sydxvExS7m9RLqCcI+DPL31/kMICv4OPKV
-	 vT6X/Ojuj4/KkoVQe8jcYVfNoTAVTh9kzW/ZHIfxij2EjaVjkstoeTjJ1vJ/7Byj6H
-	 yBLe/IthXY52U3iCM7C+3lx8RJSOjU5X6E7XjPTPNIzWzB1wQspciUisUpVJvuYuPp
-	 bl3gy2gLxsc9Sz7KjRuViLZqHHCiZ6Y4dIq3512Ho7+NK8XI6KIVe9EX60TRMjbi/V
-	 4S8e9Qa4TowZySUM/kgljM4hQKMHkrgmNlb+xWbNjcUW5XXqslgi+4ezi23RvsYDVH
-	 ZJOzpag+LIKeg==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: "Srivatsa S. Bhat (Microsoft)" <srivatsa@csail.mit.edu>
-Cc: Andrew Morton <akpm@linux-foundation.org>,  Baoquan He
- <baoquan.he@linux.dev>,  Mike Rapoport <rppt@kernel.org>,  Pasha Tatashin
- <pasha.tatashin@soleen.com>,  Pratyush Yadav <pratyush@kernel.org>,
-  Alexander Graf <graf@amazon.com>,  kexec@lists.infradead.org,
-  linux-mm@kvack.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] MAINTAINERS: Add missing files to KEXEC and KHO
- subsystems
-In-Reply-To: <20261124-fix-kexec-kdump-maintainers-v1-1-79c6a6144de4@csail.mit.edu>
-	(Srivatsa S. Bhat's message of "Tue, 24 Nov 2026 01:37:53 +0530")
-References: <20261124-fix-kexec-kdump-maintainers-v1-0-79c6a6144de4@csail.mit.edu>
-	<20261124-fix-kexec-kdump-maintainers-v1-1-79c6a6144de4@csail.mit.edu>
-Date: Tue, 24 Nov 2026 15:00:44 +0000
-Message-ID: <2vxzfqwqz337.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=pQ0nXaTV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795532460;
+	bh=dJcc5I0Ky/5T2QAptsnn0SzrB5NzoLMHaxiGnakhfhc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pQ0nXaTVwLs9PqqU6CwULXvJgEIqxRyY5bxvW5uexTE19pWE+hs+oH0u+3jukYvE9
+	 y0RiUNk/bwYIkXTnHDceGFq6aIG3JnXjEQq5rEedFvSGZjxUcFFcLA5+xWhKG7epWR
+	 qJLqxwsM9GYg9ZtH7cMqOvV3Z9od6sWkRCszde6pNbSSG/lngu/Fq5abAGKsFyZn/D
+	 WrQFyIUZCLRCFlhW9InQy5vEfRgd/MIhHhirkWQeuRJRHThwYc5GAajSaEHCEFX+OU
+	 cEXN+KgSbk/KVER94bTmr227lVs7lsLPh1T4v74ZsYxB8iBJcQhpxg1TQYcCXPrlQX
+	 AO3PveeJUDSQw==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A22CE17E09ED;
+	Tue, 24 Nov 2026 16:00:59 +0100 (CET)
+Message-ID: <14a4f698-8739-45c6-8904-496ac61e73c9@collabora.com>
+Date: Tue, 24 Nov 2026 16:00:59 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,65 +61,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 33/46] drm/mediatek: Add support for Display Controller
+ exDMA component
+To: Daniel Stone <daniel@fooishbar.org>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com,
+ simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, matthias.bgg@gmail.com,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, justin.yeh@mediatek.com,
+ jason-jh.lin@mediatek.com, kernel@collabora.com
+References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
+ <20260714114414.184512-34-angelogioacchino.delregno@collabora.com>
+ <CAPj87rO9saEC34+5NiYK8xyZiNytrVgOcszoY5uc7BpL=M4WTg@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAPj87rO9saEC34+5NiYK8xyZiNytrVgOcszoY5uc7BpL=M4WTg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 24 2026, Srivatsa S. Bhat (Microsoft) wrote:
+On 11/24/26 15:28, Daniel Stone wrote:
+> Hi,
+> 
+> On Tue, 14 Jul 2026 at 12:45, AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
+>> +void mtk_exdma_layer_config(struct device *dev, unsigned int idx,
+>> +                                struct mtk_plane_state *state,
+>> +                                struct cmdq_pkt *cmdq_pkt)
+>> +{
+>> +       struct mtk_disp_exdma *priv = dev_get_drvdata(dev);
+>> +       struct mtk_plane_pending_state *pending = &state->pending;
+>> +       const struct drm_format_info *fmt_info = drm_format_info(pending->format);
+>> +       const u32 blend_mode = mtk_ovl_get_blend_mode(state, MTK_OVL_SUPPORT_BLEND_MODES);
+>> +       const bool csc_enable = (fmt_info) ? fmt_info->is_yuv : false;
+>> +       u32 val;
+>> +
+>> +       if (!pending->enable || pending->height == 0 || pending->width == 0 ||
+>> +           pending->x > OVL_EXDMA_MAX_SIZE || pending->y > OVL_EXDMA_MAX_SIZE) {
+> 
+> Definitely don't do this please. If exdma is asked to do something it
+> can't (and I'm assuming that these last two checks are intended to be
+> on w/h rather than x/y?), then you need to reject that in
+> atomic_check. Getting here with pending->enable == true and then not
+> enabling it, is not OK.
+> 
 
-> Several files related to kexec and Kexec HandOver are missing from their
-> subsystem entries in MAINTAINERS. Hence, scripts/get_maintainers.pl does
-> not currently recommend the kexec maintainers or the mailing list for
-> changes to OF helpers, IRQ shutdown helper, purgatory header and kexec
-> selftests.
->
-> Fix it by adding these files under the appropriate KEXEC or KHO entries
-> while preserving the existing Device Tree, IRQ, selftest and live-update
-> coverage for these files.
->
-> Signed-off-by: Srivatsa S. Bhat (Microsoft) <srivatsa@csail.mit.edu>
-> ---
->  MAINTAINERS | 7 +++++++
->  1 file changed, 7 insertions(+)
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 012a21e4afcc..bb4d9c20db06 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -14775,10 +14775,14 @@ M:	Pratyush Yadav <pratyush@kernel.org>
->  L:	kexec@lists.infradead.org
->  W:	http://kernel.org/pub/linux/utils/kernel/kexec/
->  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/liveupdate/linux.git
-> +F:	drivers/of/kexec.c
->  F:	include/linux/kexec.h
-> +F:	include/linux/purgatory.h
->  F:	include/uapi/linux/kexec.h
->  F:	kernel/Kconfig.kexec
-> +F:	kernel/irq/kexec.c
->  F:	kernel/kexec*
-> +F:	tools/testing/selftests/kexec/
->  
->  KEXEC HANDOVER (KHO)
->  M:	Mike Rapoport <rppt@kernel.org>
-> @@ -14791,11 +14795,14 @@ S:	Maintained
->  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/liveupdate/linux.git
->  F:	Documentation/admin-guide/mm/kho.rst
->  F:	Documentation/core-api/kho/*
-> +F:	drivers/of/kexec.c
+That was done because mediatek-drm isn't in the best shape, and atomic_check is too
+late for this check... adding support for those components is done on top of a big
+restructuring, which still is not complete, as the entire mediatek-drm driver can,
+and needs to, improve quite a bit.
 
-Only a small part of that is KHO code, but adding it here is still fine I
-think. Thanks for fixing this up!
+(P.S.: yes the check was to be done on w/h)
 
-Acked-by: Pratyush Yadav <pratyush@kernel.org>
+That said, I think at this point the best I can do, without going for continuing
+the entire restructuring here (I have no time for that right now, sorry) is to
+duplicate this check in .atomic_check(), so that when the entire thing will be
+ready, the right thing is already there waiting for the additional check to be
+simply removed.
 
->  F:	include/asm-generic/kexec_handover.h
->  F:	include/linux/kexec_handover.h
->  F:	include/linux/kho/
->  F:	include/linux/kho_block.h
-> +F:	include/linux/kho_radix_tree.h
->  F:	kernel/liveupdate/kexec_handover*
-> +F:	kernel/liveupdate/kho_block.c
->  F:	lib/test_kho.c
->  F:	tools/testing/selftests/kho/
+I have to recheck if there's anything "fast" I can do to make this completely
+right without double checks, but I'm afraid I can't.
 
--- 
-Regards,
-Pratyush Yadav
+> Relatedly, most of mtk_plane_pending_state should be deleted as
+> duplicative of drm_plane_state and it would be great to see a patch
+> series very soon to clean that up.
+
+Again, I agree mediatek-drm needs a rather big cleanup.
+
+Lately, upstream has been a bit slow in reviewing etc for many reasons, which is
+why this series has been there for months now (though things are getting unblocked
+lately at least for this specific series, so that's good).
+
+Anyway - let me see what I can do, but I can't make *big* promises - the only thing
+I can say is that further *big* cleanups/restructuring is something I can do in the
+next iteration (after the partial restructuring that is done in this series gets
+merged, but definitely not in this series) whenever I can find some time to.
+
+I'm all for making things perfect, but I only have two hands, unfortunately :-(
+
+> It's been that way for the last 10
+> years, with seemingly no discussion ever of why it exists (my guess is
+> that it's a holdover from pre-atomic code), but no reason to
+> perpetuate the badness.
+
+It's there because the mediatek-drm codebase still nowadays has lots of technical
+debt, and because there is this GCE//CMDQ programming that adds up to make things
+slightly more complicated.
+
+> 
+> Same comment applies for the blender.
+
+Noted.
+
+Cheers,
+Angelo
