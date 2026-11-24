@@ -1,86 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795558413;
-	b=0u5TZ0nziX0Oc2k3oCEFOYi0mSd1ruxQyosXGZQ3Fu/rIjNU7PYZqRHzMNKWEMCKsJxu
-	 7us+kZ2oyJrGeXfhboM9+lbvwoOPA2hqNyHHPt3kV7SaF/gQFrIYA36wE3J2s9TVNtQCh
-	 NJ9h8JC4/n+YAKUuEUbLHSKambnoAX+hPPxBSvEbBoeKO1yK9ao4jwYyG0Tq8dcqzi240
-	 G+QyW8ZxUESBISe6TekL3f39P0JpG9mE2llNm6BngIO8snMbEXWQrDsSXhLXdzOik/Sh3
-	 QftOzzKh8do/An7g1n9PaK2xgbuT8UY24QpL+HPVJ/2C+4xjyBaDutpmdb3By/3cC+w==
+	t=1795558483;
+	b=DPsmh7z/JIS0sPe3r6yqeEUOKUx86eIPqx1Cv4TIYpI0BzS0zIs4D8cbb0lZM05TKRwh
+	 aKeOuqIvKvM/K0K2ivjc63BVPhGvB6zhLcl+gHCZKeUlVhFeMXtQsjQDCgJvuLEA17Haj
+	 tYUzRzSJjjcUpex+D+n8rMFZWYChkfI/bXuztXd5+CPbItp0o+6i/nqKHkF6WCn8m21Nq
+	 AhAK0H/62ts5gfe3wLbO+86mHkV+iuhPZBBmYZeHRRPiykg45h7hNQQYLkbOfujrFCgIa
+	 RZmv/CdPyYUDNJimRW/Dw7D0OW3G3jDKt/LOQMS0CvLzAmd/V1hI44N+a0TaKkm3fsw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795558413;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type;
-	bh=jFcGsqmfmZRkt05qBK9du4hRMwTvxalV5t9KfsrqdEM=;
-	b=Kj9i3fc+8Knkov/ZBKWThqH59asbhMDdHt8CwuMeJy5wnOeNqARMLU4gLtqFDnZwYx0x
-	 TdNlbqc1w+trQnzow8F4UocRHgIgfiPHhsjWwQAF6vgwYEWkcmzGseZF1xMZoQFEeFHpB
-	 Fgac6yGaeBZQPofB+QoRWnuIrUgc1rgialnu9CfYfqTb+S32Tozy75HISENQ16hAETFSU
-	 v9TZsom0jWeXODoDoLlsNKbcPGyR+fxt9X/j9nlUAN9A4sAU0mCZQLtDsl6l8xWmk0Aas
-	 /yn8u1S4RnBBZhw+M7/wS7/o8iRa6GBNenc6z8uCyl9EwGxUVtmE0ANmIO0oIffJV1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795558483;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=bMF4ZZDGyUJAXrolZjC1+tfiI4CiFAo8Cfg/FTkVIFc=;
+	b=Rsl2t9lY6POkJIC73cy5ti0BvxyvOTd+goBceSW0OMadlaj1b+5WA210HQlRSLJO7nhf
+	 Yof3a77yPUkyZ6Ra4s/EICDk01MnW4ws2y36AxmlTgej7hd1qXkGOcHYhgFJm+9s/lcLY
+	 6m+Ny36Buj89BJhcadaEqVJWo+W1vQa7Y46qCuHK24v395fuOKBLQI6ILrlu+I5exijyM
+	 DZWr1vwYQBbZFe9ggV7Kx+4M9LPMET11cV+o1AydYA/Df1GGw2gzec91uAFlwco9blQCA
+	 +v9QWz5pDk4FoeLIs8JicinwntFsTQ4RE662/ijSD5zD1oXzxWaLHHbKbHlVO2Nx8zA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gB9K22sH;
-	arc=none smtp.remote-ip=74.125.224.49
-Received: from mail-yx1-f49.google.com (mail-yx1-f49.google.com [74.125.224.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HbrnSlUZ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E814C606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:13:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E814C606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7EEF606A31E;
+	Tue, 24 Nov 2026 22:14:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gB9K22sH
-Received: by mail-yx1-f49.google.com with SMTP id 956f58d0204a3-67da69e7c31so5461762d50.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:13:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795558412; x=1796163212; darn=vger.kernel.org;
-        h=content-type:in-reply-to:autocrypt:from:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=jFcGsqmfmZRkt05qBK9du4hRMwTvxalV5t9KfsrqdEM=;
-        b=gB9K22sH3Jxyk8oxd2+t7FhrKi+TwrUhuySrypm+PkQ4ciNYXwN7rVyLAcQDPpqnIk
-         Tc0i5ULrnsXVpaFb0hGc+bEksT30tYdmMaoo2VWLTxqnh80LZR9jnyl3rzBNb4d9eCwe
-         9aTRyakPTBumqQ2yxUz58T/5bhHPv+UKJoYLOiepaw7R045IE6n3slT5vuKm4LzztWZM
-         aTGZ0jVcl5WFw8I3WuM7bx2HZ/QMvSTvpbwXxpKnEaYqJBQs8Zw0GOO3eDs4dJ7XDe6L
-         DwaqVmlJW54K1TAeyEeVXTcikuvMJyI8tICxEDnlwrKzPqWmcUvkXzWa9xs+Fh8lcwlH
-         aauQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795558412; x=1796163212;
-        h=content-type:in-reply-to:autocrypt:from:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jFcGsqmfmZRkt05qBK9du4hRMwTvxalV5t9KfsrqdEM=;
-        b=qnQslxnOr+vUjoQaZRVaoXax4Bklo2glJxT02dlPbfpcap1gxwVa5i205n9L7XJT1M
-         vIzwBPnJWPrv25C9NjGgWd2b0HUdxhzjsG4JL7raKW1jfH/LhOVDf1Uj8NqstVQs3pLM
-         wjlsI5xim6pCWsWPo+19LuDgIXkvrWeYURwMU7q2zAR0hqI+icRGFFdyAYwWZmOYw3k0
-         /5AXkDmhgq8XNIeM8MJ0XYUmRclMULjrWP0vyK2leluZvzS30/nzUOuilRm18W2bf24u
-         LyZw/DkQqrswoyocQoRUSyH6GCGbCe4n7/NSLQSe4Q9dktV1midUbQlljm0Q0u7wkSgH
-         T5MA==
-X-Forwarded-Encrypted: i=1; AL+hErEE3nOoQunQ/uYz5Gg4dZWNen2LsH1HOChCXc5Lxb8HSJ0YYefERXW8pp6mTNTyod/Y5Mly18aXUgpyPQs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Y17qEXBuNCdKIkhYEAfBMjLYifmFRT5tv0P7xG+5BQG2X5Sti
-	1ttX7+yqGEYATvozR/B4eRp19Y2+az0bxn+iLw/cWn9Jzx8ZQyhUovrr
-X-Gm-Gg: AZFdTZeKqK6YPliaOdldI2jk5EJ2lHYu1PsUff+w7k/CJVXf94hajjSt9jw3t81PmQR
-	kooC0LphxBGYHTKvmFQJCDW1A8sviOYHzdJ91eetEHnJyFHkFjUuYwWcGnoFKtetd0W01rm3KSv
-	wGW8swEO4NBiSjuWpXgZK3Rd6j5lTjpQHvithF5RBqmXt+Z8v/zwAPPuHY5Pa7dOofwoeHVICl8
-	CjkXpMWBYVI2sHQZqmUaxhLJfAuBYe9VENLynqQ1M9NmksQa5LmpG/xfRMbI0dP1ZR0x2YHmcYH
-	ONl356cPR7kb9O+Xh+9+Mrd5qmvX6IEUWmAlDGklv6Eieo6yhp9oMo8QUHoNJmZt9K0ds8CJSQY
-	uloTvO4yAIifJFPUImibRNQKmwthQouLYRnFo3kTacSSp2G+gAOAD4IyP8nRjULyagPHYWXS0kn
-	Q2U9vhUqTLHP0cOOKP0RMy9uKs+WA0dor0r7KbIZAxLARNuk/rCZdHPSJuxHSHyQDYIBtHCWgfI
-	YYiIKuTz1oGAjSRcN9YbvM66Da0YxiHZmQ3bErH7IaJa48Wdpo1yV+ZGC6A9VFqT1BKGe/Gv/50
-	l/vA4X5mDTNMgkCsemjBqbqg/MgMTqnU1g==
-X-Received: by 2002:a53:ac90:0:b0:67d:c14c:9f8e with SMTP id 956f58d0204a3-67df4410ca0mr6821449d50.32.1795558411857;
-        Tue, 24 Nov 2026 14:13:31 -0800 (PST)
-Received: from [10.138.10.6] ([149.102.242.31])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df30e4407sm7857086d50.0.2026.11.24.14.13.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 14:13:30 -0800 (PST)
-Message-ID: <834c266a-eb07-4427-b1fa-5c6508a5ce32@gmail.com>
-Date: Tue, 24 Nov 2026 17:13:15 -0500
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HbrnSlUZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 598771F000C6;
+	Tue, 24 Nov 2026 22:14:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795558482;
+	bh=bMF4ZZDGyUJAXrolZjC1+tfiI4CiFAo8Cfg/FTkVIFc=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=HbrnSlUZOuDW52qve1H9AahgnCSYzuqvIBYI9GCYsUrj/Vz+SjyrvlPt7usdoOz55
+	 H6z83S4Lm9OmaQodyRJOrF/SQmeD5w0/RHfueFv5c0LEMBE14zETQg4PGWzKqq9xWe
+	 f3IxVSsCBEqRihYPDT/W3SLcV/5yijJSai9j7Vn7TApxeQXHRf5fLa8JRIYCAJ/oJ7
+	 TbyRILTUtybJe1K17o75Ylfdp/OUm/RdCpxvrCGRdjVpjMDw/uGq6XnF9UZyKZjjXw
+	 0aP/ZkGTuTGfglTTsfTqLtha47g3cxmIoFLk9S2KN0sVwWwRfq4q9LEEjKsf2HH/Vx
+	 SI6KCMfSkxhyA==
+Subject: Re: [PATCH net v4] can: dev: reject unusable bit-timing constants
+From: netdev-bot+sashiko@kernel.org
+To: 25031212351@stu.xidian.edu.cn
+Cc: mkl@pengutronix.de, mailhol@kernel.org, socketcan@hartkopp.net,
+ linux-can@vger.kernel.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, byu@xidian.edu.cn, wencheng@xidian.edu.cn,
+ kuba@kernel.org
+Date: Tue, 24 Nov 2026 22:14:41 +0000
+Message-ID: <179555848191.3131.5345246106199936359@kernel.org>
+In-Reply-To: <20261123093809.5154-1-25031212351@stu.xidian.edu.cn>
+References: <20261123093809.5154-1-25031212351@stu.xidian.edu.cn>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,207 +63,264 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 3/4] arm64: defconfig: update the Qualcomm Crypto
- Engine entry
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Thara Gopinath <thara.gopinath@gmail.com>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>,
- Stanimir Varbanov <svarbanov@mm-sol.com>,
- Eneas U de Queiroz <cotequeiroz@gmail.com>,
- Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
- Eric Biggers <ebiggers@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Russell King
- <linux@armlinux.org.uk>, Abel Vesa <abelvesa@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, brgl@kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20261120-qce-fix-self-tests-v12-0-b5a2a44bc5ae@oss.qualcomm.com>
- <20261120-qce-fix-self-tests-v12-3-b5a2a44bc5ae@oss.qualcomm.com>
- <9faa6fce-594f-4556-b5ab-6aa73330da8d@kernel.org>
-Content-Language: en-US
-From: Demi Marie Obenour <demiobenour@gmail.com>
-Autocrypt: addr=demiobenour@gmail.com; keydata=
- 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
- +MYSfkEjBz0E8CLOcAw7JIwAaeBT
-In-Reply-To: <9faa6fce-594f-4556-b5ab-6aa73330da8d@kernel.org>
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------HRJ667nozFI7pDuLiKLXtKsh"
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------HRJ667nozFI7pDuLiKLXtKsh
-Content-Type: multipart/mixed; boundary="------------lc9NsThzkDEG0rUbHzJI36Wt";
- protected-headers="v1"; hp="clear"
-Message-ID: <834c266a-eb07-4427-b1fa-5c6508a5ce32@gmail.com>
-Date: Tue, 24 Nov 2026 17:13:15 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 3/4] arm64: defconfig: update the Qualcomm Crypto
- Engine entry
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Thara Gopinath <thara.gopinath@gmail.com>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>,
- Stanimir Varbanov <svarbanov@mm-sol.com>,
- Eneas U de Queiroz <cotequeiroz@gmail.com>,
- Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
- Eric Biggers <ebiggers@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Russell King
- <linux@armlinux.org.uk>, Abel Vesa <abelvesa@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, brgl@kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20261120-qce-fix-self-tests-v12-0-b5a2a44bc5ae@oss.qualcomm.com>
- <20261120-qce-fix-self-tests-v12-3-b5a2a44bc5ae@oss.qualcomm.com>
- <9faa6fce-594f-4556-b5ab-6aa73330da8d@kernel.org>
-Content-Language: en-US
-From: Demi Marie Obenour <demiobenour@gmail.com>
-Autocrypt: addr=demiobenour@gmail.com; keydata=
- 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
- +MYSfkEjBz0E8CLOcAw7JIwAaeBT
-In-Reply-To: <9faa6fce-594f-4556-b5ab-6aa73330da8d@kernel.org>
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
---------------lc9NsThzkDEG0rUbHzJI36Wt
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Critical: 0 · High: 1 (2) · Medium: 0 · Low: 2
 
-On 11/21/26 7:22 AM, Krzysztof Kozlowski wrote:
-> On 20/11/2026 20:34, Bartosz Golaszewski wrote:
->> Most Qualcomm SoCs contain the QCE hardware offloader. The crypto driv=
-er
->> for this IP is being split into a smaller core stub that doesn't regis=
-ter
->> the crypto algorithms on its own AND an auxiliary driver than handles
->=20
-> This part is fine...
->=20
->> the crypto part. Update the arm64 defconfig to only build the core par=
-t
->> by default and leave the choice of building the crypto part to the use=
-r.
->=20
-> but here you miss answer why. We do want the proper driver, not only th=
-e
-> stub, no?
->=20
-> Best regards,
-> Krzysztof
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Most users don't want to use the Qualcomm Crypto Engine.  It is
-significantly slower than the CPU, its driver has a history of bugs,
-and operations that don't meet certain fairly arbitrary constraints
-fall back to software anyway.  However, most users _do_ want to allow
-the interconnect to power down, which is what the stub driver does.
---=20
-Sincerely,
-Demi Marie Obenour (she/her/hers)
+- [High] A device can still crash the kernel with a divide error, which
+  is what this patch says it prevents.
+- [Low] register_candev() only rejects a zero clock frequency when
+  priv->bittiming_const is set: `if (priv->bittiming_const &&…
+- [Low] The patch adds a new rejection criterion: CAN_MAX_BIT_TIME_TQ =
+  1024, so registration fails if tseg1_max + tseg2_max + CAN_SYNC_SEG >…
 
---------------lc9NsThzkDEG0rUbHzJI36Wt--
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but can_calc_pwm()
+  can still divide by zero (modulo) when priv->xl.data_bittiming was…
+- [High] This problem wasn't introduced by this patch, but
+  can_calc_bittiming() computes `brp = priv->clock.freq / (tsegall *…
 
---------------HRJ667nozFI7pDuLiKLXtKsh
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+--
 
------BEGIN PGP SIGNATURE-----
+can: dev: reject unusable bit-timing constants
 
-iQIzBAEBCgAdFiEEopQtqVJW1aeuo9/sszaHOrMp8lMFAmsGDAYACgkQszaHOrMp
-8lNsng/+NMmecEwic70Ntrxi+PaLjYhERE/2Y0pncM9FfvCEV88uvNtEmnzf5s03
-qwbguuFGvVa3220G3VvmAWRtz5ai/nL4yZzT28GuBmD5WyMgrbpHJ+/ovO6Mzrc7
-y3uA/joBKmD3/Mornqp6id/EN15XlHnRZTO7cYZBELp+VJhdMGnQ3pu1Iiq4GhBx
-bdcLrTAJvkUG2DPvozkBz+xOmsnTsGmljviZD37JimbQ9NRh/pxHO+5HzJNEqNen
-3ee/o1i7BN9ThwxKyOSUWVrVdxhep0StfCc83+ickZIVtC3cR54zy7FToQlsKIRJ
-VioxblgFtBTI7i0JgGo2VaCWSR2sy6w0twJSeb+6fyQYOPcjRyoOvqEBzOeysvPc
-LD+pqC94Tvbka4UPtBZXMuX574qkrfy4ELlGcqtdGF3rGqvTMlZSuR9Z3Wr4607v
-j1yibCVtrkWhl1QWHh7PhITv73Lxy3ZHOj084OL5CQhREGE+xlqSGqnzs9nKlhoM
-sZ3f4IbI9yu05BdRt7+k+k6XjuiAd6LosIIzgSFqROoi1M8SlGtuhCWCF6j4i7vc
-tQUP1SMlNvblhXonfqD3OH9fuR2epqGn6QgpRmvgB81utzhjwt6U+rzi3+iX/HO+
-siMLhb/S1P7Qrd1Me4R0a79ixD2BUt2uTtlO/jqMw9N9q8wc2bY=
-=O1EQ
------END PGP SIGNATURE-----
+This patch extends can_bittiming_const_valid() with several new checks.
+It requires tseg1, tseg2 and brp min/max values that are consistent,
+rejects brp_inc = 0, caps the bit time at 1024 TQ, and adds
+can_pwm_const_valid() for the CAN XL PWM constants. register_candev() now
+rejects a zero clock frequency when CAN-CC constants are present, and it
+requires CAN-CC constants for CAN-FD.
 
---------------HRJ667nozFI7pDuLiKLXtKsh--
+> diff --git a/drivers/net/can/dev/dev.c b/drivers/net/can/dev/dev.c
+> index 769745e22a3c7..9325406ff1a82 100644
+> --- a/drivers/net/can/dev/dev.c
+> +++ b/drivers/net/can/dev/dev.c
+
+[ ... ]
+
+> @@ -595,15 +596,54 @@ static int can_get_termination(struct net_device *ndev)
+>  	return 0;
+>  }
+>  
+> +/* Upper bound for the bit time in time quanta. The bit times of the
+> + * currently supported CAN controllers are well below it, the limit keeps the
+> + * time segment scan in can_calc_bittiming() bounded.
+> + */
+> +#define CAN_MAX_BIT_TIME_TQ 1024
+> +
+>  static bool
+>  can_bittiming_const_valid(const struct can_bittiming_const *btc)
+>  {
+
+[ ... ]
+
+> +	if (!btc->brp_min || btc->brp_min > btc->brp_max || !btc->brp_inc)
+> +		return false;
+
+[Severity: High]
+Can a USB device still trigger a divide error by reporting a very large
+brp_max? This check only compares brp_max against brp_min, and gs_usb and
+ucan copy the value straight from the device:
+
+drivers/net/can/usb/gs_usb.c:gs_make_candev() {
+    ...
+	dev->bt_const.brp_max = le32_to_cpu(bt_const.brp_max);
+    ...
+}
+
+For example, these values pass all of the new checks (bit_time is 24):
+
+  tseg1 1..15, tseg2 1..8, sjw_max 1
+  brp 1..0xFFFFFFFF, brp_inc 1
+  80 MHz clock
+
+A CAP_NET_ADMIN user can then send IFLA_CAN_BITTIMING with these values:
+
+  tq = 3355443200
+  prop_seg = 1, phase_seg1 = 6, phase_seg2 = 8, sjw = 1
+
+can_fixup_bittiming() computes brp = 2^28, which is inside
+[brp_min, brp_max], and then does:
+
+drivers/net/can/dev/bittiming.c:can_fixup_bittiming() {
+    ...
+	bt->bitrate = priv->clock.freq / (bt->brp * can_bit_time(bt));
+    ...
+}
+
+2^28 * 16 wraps to 0 in unsigned int. This happens before the
+bitrate_max check in can_changelink().
+
+can_calc_bittiming() uses the same kind of 32-bit product as a divisor:
+
+	bitrate = priv->clock.freq / (brp * tsegall);
+
+So does can_bit_time_tqmin(), which can_calc_pwm() calls. gs_usb also takes
+the FD dbrp_max from the device.
+
+The v4 changelog says the brp_max * bit time limit was dropped because
+"the multiplication is fixed separately". I could not find such a fix in
+the tree, and the commit message only sets aside the tsegall * bitrate
+overflow.
+
+Could a bound like (u64)btc->brp_max * bit_time <= U32_MAX be added back?
+In-tree drivers all have small brp_max values.
+
+> +
+> +	bit_time = (u64)btc->tseg1_max + btc->tseg2_max + CAN_SYNC_SEG;
+> +	if (bit_time > CAN_MAX_BIT_TIME_TQ)
+> +		return false;
+
+[Severity: Low]
+This isn't a bug, but the commit message does not mention this new limit.
+Registration now fails for any device with a bit time above 1024 TQ.
+
+The cap also stops the loop bounds in can_calc_bittiming() from wrapping:
+
+	for (tseg = (btc->tseg1_max + btc->tseg2_max) * 2 + 1;
+	     tseg >= (btc->tseg1_min + btc->tseg2_min) * 2; tseg--) {
+
+Without the cap, tseg1_min = tseg2_min = 2^31 makes the lower bound wrap
+to 0, and the loop never ends while RTNL is held.
+
+Since this is tagged for stable, could the commit message describe the
+new limit and the hang it prevents? No in-tree driver appears to be
+affected. The largest bit time I found is kvaser_pciefd at 545 TQ.
+
+> +
+> +	return true;
+> +}
+> +
+> +static bool
+> +can_pwm_const_valid(const struct can_pwm_const *pwm_const)
+> +{
+
+[ ... ]
+
+> +	/* can_calc_pwm() divides by the shortest PWM symbol. */
+> +	if (check_add_overflow(pwm_const->pwms_min, pwm_const->pwml_min,
+> +			       &shortest_symbol) || !shortest_symbol)
+> +		return false;
+
+[Severity: High]
+This is a pre-existing issue and was not introduced by this patch.
+can_calc_pwm() has a second unguarded division, which depends on device
+state rather than on the constants:
+
+drivers/net/can/dev/calc_bittiming.c:can_calc_pwm() {
+    ...
+	for (pwm_per_bit = DIV_ROUND_UP(xl_ns, CAN_PWM_NS_MAX);
+	     pwm_per_bit <= pwm_per_bit_max; pwm_per_bit++)
+		if (xl_tqmin % pwm_per_bit == 0)
+			break;
+    ...
+}
+
+If priv->xl.data_bittiming was never set, xl_tqmin, xl_ns and
+pwm_per_bit_max are all 0. The loop then computes 0 % 0.
+
+Can that state be reached? can_ctrlmode_changelink() commits
+CAN_CTRLMODE_XL | CAN_CTRLMODE_XL_TMS before any bittiming is validated:
+
+	priv->ctrlmode &= ~cm->mask;
+	priv->ctrlmode |= maskedflags;
+
+Suppose the CC bittiming step or can_dbt_changelink() then fails in the
+same request, for example with tq and bitrate both set, or with an XL data
+bitrate above bitrate_max. XL_TMS stays set and xl.data_bittiming stays
+zero.
+
+A later changelink that carries only IFLA_CAN_RESTART_MS reaches
+can_pwm_changelink(). It has no PWM attribute, so it calls:
+
+	if (!pwm_nla)
+		return can_calc_pwm(dev, extack);
+
+dummy_can advertises XL and XL_TMS and sets xl.pwm_const, so a
+CAP_NET_ADMIN user appears to be able to reach this path in-tree.
+
+> +
+>  	return true;
+>  }
+>  
+> @@ -632,8 +672,26 @@ int register_candev(struct net_device *dev)
+>  	    (priv->bittiming_const || priv->fd.data_bittiming_const))
+>  		return -EINVAL;
+>  
+> -	if (!can_bittiming_const_valid(priv->bittiming_const) ||
+> -	    !can_bittiming_const_valid(priv->fd.data_bittiming_const))
+> +	/* Validate CAN clock and CAN-CC bittiming */
+> +	if (priv->bittiming_const &&
+> +	    (!priv->clock.freq ||
+> +	     !can_bittiming_const_valid(priv->bittiming_const)))
+> +		return -EINVAL;
+
+[Severity: High]
+This is a pre-existing issue and was not introduced by this patch. The
+commit message calls it a separate problem, but it is still reachable in
+the calculation this patch hardens:
+
+drivers/net/can/dev/calc_bittiming.c:can_calc_bittiming() {
+    ...
+		brp = priv->clock.freq / (tsegall * bt->bitrate) + tseg % 2;
+    ...
+}
+
+bt->bitrate comes straight from IFLA_CAN_BITTIMING, and nothing bounds it
+first. can_validate_bittiming() only checks sample_point, and
+can_changelink() checks bitrate_max only after can_get_bittiming()
+returns.
+
+With tq = 0 and bitrate = 2^28, any tsegall that is a multiple of 16
+wraps the product to 0. sja1000 (tsegall 3..25) and dummy_can both reach
+tsegall = 16 without breaking out of the loop early. bitrate = 2^31 does
+the same for any even tsegall.
+
+A single changelink from a CAP_NET_ADMIN user can hit this on any device
+with bittiming_const, with no special hardware. Is a fix planned to land
+together with this one?
+
+> +
+> +	/* For CAN-FD:
+> +	 * Ensure CAN-CC bittiming and validate CAN-FD bittiming
+> +	 */
+> +	if (priv->fd.data_bittiming_const &&
+> +	    (!priv->bittiming_const ||
+> +	     !can_bittiming_const_valid(priv->fd.data_bittiming_const)))
+> +		return -EINVAL;
+> +
+> +	/* For CAN XL: validate CAN XL bittiming and PWM constants */
+> +	if (priv->xl.data_bittiming_const &&
+> +	    !can_bittiming_const_valid(priv->xl.data_bittiming_const))
+> +		return -EINVAL;
+> +
+> +	if (priv->xl.pwm_const && !can_pwm_const_valid(priv->xl.pwm_const))
+>  		return -EINVAL;
+
+[Severity: Low]
+Should the XL branches also require priv->bittiming_const, as the FD branch
+does? The zero clock.freq check only runs when bittiming_const is set. The
+"either fixed bit rates or bit timing const" check above also ignores
+xl.data_bittiming_const.
+
+A driver that registers xl.data_bittiming_const or xl.pwm_const without CC
+constants, and with clock.freq == 0, would pass these checks. It would then
+divide by zero in can_calc_bittiming():
+
+	do_div(v64, priv->clock.freq);
+
+It would also divide by zero in can_calc_pwm() through can_tqmin_to_ns().
+
+The only in-tree XL driver today is dummy_can, and it sets both
+bittiming_const and clock.freq, so this is latent for now.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123093809.5154-1-25031212351%40stu.xidian.edu.cn
