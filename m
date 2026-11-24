@@ -1,103 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795513602;
-	b=0Q+nfYU/w2DVp2rt3ipPBCojXBj/PUN+e42B4c5KRxT7RO+vXibDWgi2WMtuAFD6fuvv
-	 8BIhRF8MkvRqg2IheqBKRXh3IrFHDSJ6o38lCvpIkFHdmQmeZRO1Si6LARomtxvX7ZH8E
-	 pmDWtsvQqFpQ8+606aMp86DD2WLEOESFixR7KWvzpRz9oFhSUxNeJCrhDr/3T7HKZOmtZ
-	 QY5WbwQOzUn0U4YdjB6PvJh4H2X3TZbHuGc4XcEsZFjuXyQ2BPLAWlyLApy00zmdEcq3l
-	 hoUmBGqpfdknshH1vNWXsc/NumVkuDh1C/mUx9h7aM7TOqSJB/ABxugcW/D3O7evjHw==
+	t=1795513589;
+	b=nSOqaGURR1MB9jP0UEdZwDIVP/S6PJSFwFTl6mF4AP4FsPCYOfPvTgZxOwUjMqJFTuzy
+	 Wo8bnMWLrz8Xs2aFNaY5rbhEvepBegbE+eB9RlAUxOIbhNCAcfMaKS9iVZupib9KxHco2
+	 X9+OtMuJBEGLkDzYRMmXvbGAyJbbJVy1a+Fk4DNQYHdib8DqnTsFTCVc5Q4SVgKP5nhAe
+	 hsaDwsbdfdYC+nVcMGiZzOshCz9HKnDCUd3OuTHsBL+XfshLin3qSZ4NB8On1ht0Usid1
+	 UeDzxJmte8rXM5sNw692lErHFcvWg70L+p0b+zSkzdAhGjKeZRRe7ZHLngAseQKvumA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513602;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=bC/+9T2U8Kzer0tWSeR+xsoPj4sAgxGYU2Of5ey/6oA=;
-	b=RQ3SlAPbxd5RnKKkt/z2ryBjnxFIRaRjkwdtcAsM57Qqu0pZvhyH6cnUx1rlRehNnCQ8
-	 8wIvTzAn0VJcF65aIGLDUukBxAITWB+qks1DA+NCh12XTrwsAX5QuLn1EQ8gMoOIGWJ7h
-	 Jc4jvI4I3Hs7BJIkjtKJxw0B/W2CjGfI+T4IX0redgaqkafN5Rq3sR/oXnKA0dOG+KPr0
-	 3VGuHtGMSaiwbdXxFchA8Uw8svJuJ4CIbBINMY9z1YWGBRZA9q5KRnpsJXcHBvc6r3sjK
-	 Zgj8bm5YaNHJbY2P9O27/IDeGV5LuxHlJAwv7UKBoEzIyuBpB0W+tbAeKBfXn3mweDA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795513589;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
+	 Content-Transfer-Encoding;
+	bh=oOv+gVtKhIeMKpTI0yWQno/GsqkqC/UC3tuwmycezAs=;
+	b=oBi0ndywb01HWC7xc62Vq8m7HODN+jHzYgx2g4ltZWBR9ehk9ctH3zZ4FtKplCIpTqSQ
+	 Fa28oEHq2C2n5n7KLNtOVYvv9a8NFCKjnF4jmIi/5kmXvlb0cbzAPyQpLeXyaweMuGPq/
+	 klW6JoDIQ26uxBv9fOtST5Wv5OwhM73jBpNl3FNPXUwZcwkyZmgFAuiyofgO6Jf18VBAx
+	 wfURAZgEbvQQb5j2/Mc7A+YITiN+MGao5sDhSjwQ4YvmQ3gV1Ki9SZkMGUmlIpYZ62l48
+	 vbIX2MmHEzB9Enm8PEKxhFlhW4wVPdPiHeOkHXXxPYM2jEvDqfENjtYg82yspQLN78A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=teslabs.com;
-	spf=fail smtp.mailfrom=teslabs.com;
-	dkim=pass header.d=teslabs-com.20260707.gappssmtp.com header.i=@teslabs-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=qHVlQaGJ;
-	arc=none smtp.remote-ip=209.85.128.45
-Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FMjRkV1O;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC7D8606A69B
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:46:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC7D8606A69B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=teslabs.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=teslabs.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D13DC606A6BD;
+	Tue, 24 Nov 2026 09:46:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=teslabs-com.20260707.gappssmtp.com header.i=@teslabs-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=qHVlQaGJ
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4ac95761c85so32905345e9.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:46:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=teslabs-com.20260707.gappssmtp.com; s=20260707; t=1795513598; x=1796118398; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=bC/+9T2U8Kzer0tWSeR+xsoPj4sAgxGYU2Of5ey/6oA=;
-        b=qHVlQaGJfwcvc0wtiqE3FnLP7VpreHf8WPdB5ZLJoIs9T8hcIqcJdrpjXKrixXC8jd
-         cUxw5UenDWPVhF3N4eMGqucQQWaqjZy2Pr6wyFpAmnV9PMIDqgDQ6hQjb/0r4g8qZe+O
-         0Vq1q8DE8dWWB6LSLu6IRrjB6QuZgzQ2ZYIiMqgIDhN+JPsgRd7V1MebF8UeY4caQcx2
-         X5uy8EC18TEfSe4jbJj35sR0uoPK6hzLdx6GBQyFdIlWQ2afLwpcO7hJdVML+IgCl/c1
-         YtfOvcA8CK9XIMmHHdTCoUYjjKkaFedhOGL//+zGuDGFu8fwXad9tQ9XBU5/uX4LdSAZ
-         ndOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795513598; x=1796118398;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bC/+9T2U8Kzer0tWSeR+xsoPj4sAgxGYU2Of5ey/6oA=;
-        b=WNh0jMQ3CdSSpX+fRaBEPgDmgYAzvEZd2Oo17tK936nj8T0h3WnwYuJpYRMz6qCvII
-         KRyL659GfeCj6uSliXhviph/31I4pklsQYU7ZXEAnEUk+v0uCNLJy0QYWS5XDgXqbchp
-         hdwMU91eEAc/k6T3kTUo+7nGHEHMBYIBChl/7f2EwN4BTxgt/mFdOE7gXW/Qn0T0NjOx
-         0S8AsHLqq02OWMN59fFFSCfKkcZ3Ei4330FpbNIfBeuX9TEnMxRdIuQ7F1ScsqzIsKtb
-         70VkXGOnRDXzsbSYbVqkzYSor40KJznZNZlPkhZW/I9LPcyxv9xDCNu9R1t/YS7BYdKY
-         a9Rg==
-X-Forwarded-Encrypted: i=1; AL+hErG65Eamo3wvGGyyQcyFORxSOi1IWDNsx4tIL+SLvfICy6MvIEdU1jXdjnzvoUA6gZOpVBkUfNblqwIzZ1s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z//Mt217WR3rYpSOgT5gpH5FAHfZlTOJk5Dml8ZpspNgjFIfny8
-	3oQTDyhOMoqv7F/m+L/CEI1Dpen52vjYZldSVE6bjVf7V4BdrqUeXl3FXHNUzGCzXh8=
-X-Gm-Gg: AZFdTZdm4u1Nw2tBlNAyNlu8SrnMU+YqYFToYcN/iv4frxOvNQwB+U2Q1f3fAt3BdK9
-	ZQ2iM7sIkTeWH21AcFIbLwOAWPdAhP0yTWxPgUNjwywCIGbJLbnbh1GHZcSRjP3XYzvWVmhzjxh
-	RN7u52XBUDRF1TdLWHqBKl6HsGbeKBBXEyUtD/Q4GFYSsIIIw/l9B3LtPBTMpWBI+4mWPkei9D5
-	xcZMBN3Ve5+0sW/y4GsI3LibkaEi0WWoOAyj9QM7TGL9o4hC/zHQ3Zs/qNbaUCv6509gpLm8gXA
-	dpgA0b5iDvYYDQ5uWB3ItI7p/L0V2V+g5zZuMa5is2Y1dMOw9EqOnjOKHk4i6PFdjDS3gd/TQ2K
-	TwwLcjevmC9M0oU3jG4WvAiMIrvME9s3Pif49+VtH/p6BmorlfZy6i6R81+l8RLXi+DzsDwYRFq
-	rQ/p1SzptbcT7cWwNdxTJaohkJ6KvhHp6QiPq05ORkPW7gNOv1Hbt5CHE9rkXXbrK9MrqxyT/h1
-	RgiEqGmzNXpokF8I32EEoDZeBtemj0U8lNLVpuG+M8Dpo7cydjdhrlv9rmBe6iiNWDaEwp8HiMy
-	FZ1Of4MoCkKA7Scvp6zn/skfLPzNI7Khi4tA2Zo0Oq/aPKopMgrIydRIqjel7HATeWET6NdWcys
-	HKmj3lomdL4I=
-X-Received: by 2002:a05:600c:19d0:b0:4bb:65ed:b55c with SMTP id 5b1f17b1804b1-4bb88824b18mr290530295e9.33.1795513598176;
-        Tue, 24 Nov 2026 01:46:38 -0800 (PST)
-Received: from localhost.localdomain ([139.47.121.129])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884c3063sm431782555e9.15.2026.11.24.01.46.37
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 24 Nov 2026 01:46:37 -0800 (PST)
-From: Gerard Marull-Paretas <gerard@teslabs.com>
-To: Jonathan Cameron <jic23@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Frank Li <Frank.li@nxp.com>,
-	linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Andy Shevchenko <andriy.shevchenko@intel.com>
-Subject: [PATCH v5 4/4] iio: magnetometer: mmc5633: Add mount matrix support
-Date: Tue, 24 Nov 2026 10:46:32 +0100
-Message-ID: <20261124094632.8879-5-gerard@teslabs.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20261124094632.8879-1-gerard@teslabs.com>
-References: <20261124094632.8879-1-gerard@teslabs.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FMjRkV1O
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5F991F000CA;
+	Tue, 24 Nov 2026 09:46:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795513589;
+	bh=oOv+gVtKhIeMKpTI0yWQno/GsqkqC/UC3tuwmycezAs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=FMjRkV1OQ81KV/qMDFbJOvzmHTPA+xevogjyMDoDXRccaDOk/hablPLSBW9R1CFNj
+	 LO7SIaOigTXu6q69CexyJSeLklD58/r/UWwTz7mCaSyA50tzP86IZ6RUqAuL4TPdPI
+	 KKWtxVIyNw4uPUOjDOmiWulF10HzOj2D9alhvsG95/oXwZs0sU15vCFBKa7Gao/54+
+	 7v1+LzO8pXu/PiAk7Qnu3dY5KSY+Pt/V04k0UMqODSOtKm8Uu45CNdC5gSARpbNvMA
+	 OU/gWjj4KWQk34WaFuTf7Po62wM/2MGj8f9Qr3xXfwXjvD9hCfOJMCTsq5KauaJbFa
+	 j31B9r1oan2TA==
+From: Leon Romanovsky <leon@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Vasant Hegde <vasant.hegde@amd.com>,
+	Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Johan Hovold <johan@kernel.org>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Pieter Jansen van Vuuren <pieter.jansen-van-vuuren@amd.com>,
+	Chris Lu <chris.lu@mediatek.com>,
+	Mans Rullgard <mans@mansr.com>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Cornelia Huck <cornelia.huck@de.ibm.com>,
+	Andrew Morton <akpm@osdl.org>,
+	Jeff Garzik <jeff@garzik.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	Alexander Duyck <alexander.h.duyck@linux.intel.com>,
+	Dan Williams <djbw@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	driver-core@lists.linux.dev,
+	linux-input@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-wireless@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	linux-bluetooth@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	iommu@lists.linux.dev,
+	linux-coco@lists.linux.dev,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
+	Greg Kroah-Hartman <gregkh@suse.de>,
+	linux-sound@vger.kernel.org,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Subject: [PATCH v4 32/33] USB: Authorize interfaces through device trust
+Date: Tue, 24 Nov 2026 11:44:03 +0200
+Message-ID: <20261124-device-trust-core-v4-32-037eb0d17b1f@nvidia.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261124-device-trust-core-v4-0-037eb0d17b1f@nvidia.com>
+References: <20261124-device-trust-core-v4-0-037eb0d17b1f@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,69 +115,204 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+X-Mailer: b4 0.15-dev-18f8f
 Content-Transfer-Encoding: 8bit
 
-Read the mount matrix from the firmware and expose it, so that user
-space can account for how the sensor is oriented on the board.
+From: Leon Romanovsky <leonro@nvidia.com>
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-Signed-off-by: Gerard Marull-Paretas <gerard@teslabs.com>
+An interface denied by USB defaults must remain blocked until its trust
+policy permits binding. Keeping an independent denial flag would prevent
+generic trust authorization from making that interface usable.
+
+Represent the initial denial as blocked policy when trust is enabled, and
+let interface authorization request unrestricted operation. Preserve
+explicit USB deauthorization and report rejected policy changes to
+userspace. Interface policies remain independent of the device policy.
+
+Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
 ---
- drivers/iio/magnetometer/mmc5633.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ Documentation/ABI/testing/sysfs-bus-usb |  5 +++++
+ Documentation/usb/authorization.rst     | 11 +++++++++++
+ drivers/usb/core/driver.c               |  2 +-
+ drivers/usb/core/message.c              | 23 ++++++++++++++++++-----
+ drivers/usb/core/sysfs.c                |  7 +++++--
+ drivers/usb/core/usb.h                  |  2 +-
+ include/linux/usb.h                     |  9 +++++++--
+ 7 files changed, 48 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/iio/magnetometer/mmc5633.c b/drivers/iio/magnetometer/mmc5633.c
-index 08bebc8eb5f6..a25d989afb2b 100644
---- a/drivers/iio/magnetometer/mmc5633.c
-+++ b/drivers/iio/magnetometer/mmc5633.c
-@@ -95,6 +95,7 @@ struct mmc5633_data {
- 	struct regmap *regmap;
- 	struct i3c_device *i3cdev;
- 	struct mutex mutex; /* protect to finish one whole measurement */
-+	struct iio_mount_matrix orientation;
- };
+diff --git a/Documentation/ABI/testing/sysfs-bus-usb b/Documentation/ABI/testing/sysfs-bus-usb
+index 5213117fd957e..62e326710ef5f 100644
+--- a/Documentation/ABI/testing/sysfs-bus-usb
++++ b/Documentation/ABI/testing/sysfs-bus-usb
+@@ -12,6 +12,11 @@ Description:
  
- static int mmc5633_samp_freq[][2] = {
-@@ -104,6 +105,20 @@ static int mmc5633_samp_freq[][2] = {
- 	{ 6, 600000 },
- };
+ 		A deauthorized interface cannot be probed or claimed.
  
-+static const struct iio_mount_matrix *
-+mmc5633_get_mount_matrix(const struct iio_dev *indio_dev,
-+			 const struct iio_chan_spec *chan)
-+{
-+	struct mmc5633_data *data = iio_priv(indio_dev);
++		With device trust enabled at boot, an interface that is not
++		authorized by default starts with the "blocked" trust policy
++		(see sysfs-devices-trust). Writing 1 then requests the "unrestricted"
++		policy. Deauthorizing does not change the committed trust level.
 +
-+	return &data->orientation;
-+}
+ What:		/sys/bus/usb/devices/usbX/interface_authorized_default
+ Date:		August 2015
+ Description:
+diff --git a/Documentation/usb/authorization.rst b/Documentation/usb/authorization.rst
+index 150a14970e951..cc419a11ffc43 100644
+--- a/Documentation/usb/authorization.rst
++++ b/Documentation/usb/authorization.rst
+@@ -120,6 +120,13 @@ Deny interfaces per default::
+ Per default the interface_authorized_default bit is 1.
+ So all interfaces would authorized per default.
+ 
++With device trust enabled, an interface that is not authorized by default
++starts with the "blocked" trust policy, and writing 1 to its "authorized"
++attribute requests the "unrestricted" policy. Device and interface trust policies
++are independent: selecting "adversarial" for a USB device does not select it
++for its interfaces. Set interface policies separately before their drivers
++bind, using boot rules when necessary.
 +
-+static const struct iio_chan_spec_ext_info mmc5633_ext_info[] = {
-+	IIO_MOUNT_MATRIX(IIO_SHARED_BY_DIR, mmc5633_get_mount_matrix),
-+	{ }
-+};
+ Note:
+   If a deauthorized interface will be authorized so the driver probing must
+   be triggered manually by writing INTERFACE to /sys/bus/usb/drivers_probe
+@@ -127,3 +134,7 @@ Note:
+ For drivers that need multiple interfaces all needed interfaces should be
+ authorized first. After that the drivers should be probed.
+ This avoids side effects.
 +
- #define MMC5633_CHANNEL(_axis) { \
- 	.type = IIO_MAGN, \
- 	.modified = 1, \
-@@ -112,6 +127,7 @@ static int mmc5633_samp_freq[][2] = {
- 	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW), \
- 	.info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SAMP_FREQ) | \
- 				    BIT(IIO_CHAN_INFO_SCALE), \
-+	.ext_info = mmc5633_ext_info, \
++Driver boot rules apply when an interface is claimed, including before
++registration. An interface deauthorized through sysfs must still be
++authorized before it can be claimed.
+diff --git a/drivers/usb/core/driver.c b/drivers/usb/core/driver.c
+index 1d488111a70fb..80f4d2644023b 100644
+--- a/drivers/usb/core/driver.c
++++ b/drivers/usb/core/driver.c
+@@ -338,7 +338,7 @@ static int usb_probe_interface(struct device *dev)
+ 	if (udev->authorized == 0) {
+ 		dev_info(&intf->dev, "Device is not authorized for usage\n");
+ 		return error;
+-	} else if (intf->authorized == 0) {
++	} else if (!usb_interface_authorized(intf)) {
+ 		dev_info(&intf->dev, "Interface %d is not authorized for usage\n",
+ 				intf->altsetting->desc.bInterfaceNumber);
+ 		return error;
+diff --git a/drivers/usb/core/message.c b/drivers/usb/core/message.c
+index 32014605b6db6..534f8e645a856 100644
+--- a/drivers/usb/core/message.c
++++ b/drivers/usb/core/message.c
+@@ -1881,16 +1881,24 @@ void usb_deauthorize_interface(struct usb_interface *intf)
+  * usb_authorize_interface - authorize an USB interface
+  *
+  * @intf: USB interface structure
++ *
++ * Return: 0 on success, or the error of the trust policy request.
+  */
+-void usb_authorize_interface(struct usb_interface *intf)
++int usb_authorize_interface(struct usb_interface *intf)
+ {
+ 	struct device *dev = &intf->dev;
++	int ret = 0;
+ 
+-	if (!intf->authorized) {
+-		device_lock(dev);
+-		intf->authorized = 1; /* authorize interface */
+-		device_unlock(dev);
++	device_lock(dev);
++	if (device_policy_is_blocked(dev)) {
++		ret = device_trust_set_policy_locked(dev, DEVICE_TRUST_POLICY_UNRESTRICTED);
++		if (ret)
++			goto out_unlock;
+ 	}
++	intf->authorized = 1;
++out_unlock:
++	device_unlock(dev);
++	return ret;
  }
  
- static const struct iio_chan_spec mmc5633_channels[] = {
-@@ -488,6 +504,10 @@ static int mmc5633_common_probe(struct regmap *regmap, char *name,
+ static int usb_if_uevent(const struct device *dev, struct kobj_uevent_env *env)
+@@ -2213,6 +2221,11 @@ static int usb_set_configuration_internal(struct usb_device *dev, int configurat
+ 		intf->altsetting = intfc->altsetting;
+ 		intf->num_altsetting = intfc->num_altsetting;
+ 		intf->authorized = !!HCD_INTF_AUTHORIZED(hcd);
++		if (device_trust_enabled()) {
++			if (!intf->authorized)
++				intf->dev.trust_policy = DEVICE_TRUST_POLICY_BLOCKED;
++			intf->authorized = 1;
++		}
+ 		kref_get(&intfc->ref);
  
- 	fsleep(MMC5633_POWER_ON_US);
+ 		alt = usb_altnum_to_altsetting(intf, 0);
+diff --git a/drivers/usb/core/sysfs.c b/drivers/usb/core/sysfs.c
+index d22dc78457d79..b8974e9db3a22 100644
+--- a/drivers/usb/core/sysfs.c
++++ b/drivers/usb/core/sysfs.c
+@@ -1213,7 +1213,7 @@ static ssize_t interface_authorized_show(struct device *dev,
+ {
+ 	struct usb_interface *intf = to_usb_interface(dev);
  
-+	ret = iio_read_mount_matrix(dev, &data->orientation);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to read mount matrix\n");
+-	return sysfs_emit(buf, "%u\n", intf->authorized);
++	return sysfs_emit(buf, "%u\n", usb_interface_authorized(intf));
+ }
+ 
+ /*
+@@ -1225,12 +1225,15 @@ static ssize_t interface_authorized_store(struct device *dev,
+ 	struct usb_interface *intf = to_usb_interface(dev);
+ 	bool val;
+ 	struct kernfs_node *kn;
++	int ret;
+ 
+ 	if (kstrtobool(buf, &val) != 0)
+ 		return -EINVAL;
+ 
+ 	if (val) {
+-		usb_authorize_interface(intf);
++		ret = usb_authorize_interface(intf);
++		if (ret)
++			return ret;
+ 	} else {
+ 		/*
+ 		 * Prevent deadlock if another process is concurrently
+diff --git a/drivers/usb/core/usb.h b/drivers/usb/core/usb.h
+index cbee731837471..6f65d6cd5d117 100644
+--- a/drivers/usb/core/usb.h
++++ b/drivers/usb/core/usb.h
+@@ -34,7 +34,7 @@ extern void usb_disable_device(struct usb_device *dev, int skip_ep0);
+ extern int usb_deauthorize_device(struct usb_device *);
+ extern int usb_authorize_device(struct usb_device *);
+ extern void usb_deauthorize_interface(struct usb_interface *);
+-extern void usb_authorize_interface(struct usb_interface *);
++extern int usb_authorize_interface(struct usb_interface *);
+ extern void usb_detect_quirks(struct usb_device *udev);
+ extern void usb_detect_interface_quirks(struct usb_device *udev);
+ extern void usb_release_quirk_list(void);
+diff --git a/include/linux/usb.h b/include/linux/usb.h
+index d372712eba34c..9399c816b367d 100644
+--- a/include/linux/usb.h
++++ b/include/linux/usb.h
+@@ -204,8 +204,8 @@ enum usb_wireless_status {
+  *	has been deferred.
+  * @needs_binding: flag set when the driver should be re-probed or unbound
+  *	following a reset or suspend operation it doesn't support.
+- * @authorized: This allows to (de)authorize individual interfaces instead
+- *	a whole device in contrast to the device authorization.
++ * @authorized: USB authorization flag; trust policy may also restrict use,
++ *	see usb_interface_authorized().
+  * @wireless_status: if the USB device uses a receiver/emitter combo, whether
+  *	the emitter is connected.
+  * @wireless_status_work: Used for scheduling wireless status changes
+@@ -278,6 +278,11 @@ struct usb_interface {
+ 
+ #define to_usb_interface(__dev)	container_of_const(__dev, struct usb_interface, dev)
+ 
++static inline bool usb_interface_authorized(const struct usb_interface *intf)
++{
++	return intf->authorized && !device_policy_is_blocked(&intf->dev);
++}
 +
- 	indio_dev->info = &mmc5633_info;
- 	indio_dev->name = name;
- 	indio_dev->channels = mmc5633_channels;
+ static inline void *usb_get_intfdata(struct usb_interface *intf)
+ {
+ 	return dev_get_drvdata(&intf->dev);
+
 -- 
-2.45.2
+2.56.1
 
