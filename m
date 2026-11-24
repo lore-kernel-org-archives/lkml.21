@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.92
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.110
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795525664;
-	b=GIr+vOq0qSQWNFuOja1frneWRsCk/9rJvJZq0153/heKKe2Q8COuGb2S7N8U14XO/3Nm
-	 EVMJ3uWGQoUJRq5yseg6Pjx36iDqNVEVqxfX3NyYNLsleaq+6E4Gt8xqRd6aI3A58sy39
-	 yhZMfLDLbTIhUP/hWb0LWixmtYGvUXYhKVagudqeY67ZFhy4CcTPOskkUgrOM0LZzPsRa
-	 MQb/pq90lxs0asYWrZWe97+LEXQ6dtl7XbbUxfZyfD6/6KZHKAL6WXSVgqFNsKlZFUmOk
-	 wxp/j9zIDc+OnK3E8kdM3iMACHFmWRTOpaa3ezO57rBEjSN8C8DTuZPjLvgyvEEIfkQ==
+	t=1795525681;
+	b=GDh2ymqb1n5pPPuS8NltfM007kBF1647yMbab+KxS5HDgItv6UJZTc67TZ+hssqs+bJG
+	 JZSjpTL0yZlgpDgfj4DGRHLUoYAH3KMC1ORo8T3tpeYJnPKXzdAgunrb0tAk9u35Dqc5F
+	 Ojh5nendmhCd9ep/iU5fQyKN2slNjUvysscgg2VjU74j7EYtvuPvk8AARRpYxj/jqGOyD
+	 uFOPN9Y1z+fIaCEvtyOHzPRuEucdKDb59mjo+uXOo6idZjrGnHbBqwZhvhR/5A51h9Ydo
+	 ztBk+yYd8fzvDrfwGVNPHaC5KJ+612UxMtvtWj34UqSGdKXZxQp0nmV65UCUuqSHStA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795525664;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795525681;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=fEuuayYjW4XK27k8r55+0VUrC6Hs/dGSwkUdlWW+LZE=;
-	b=y4nnc/bLI0mx6nIDfBrKpjbw273eQIFWVqxgKpmY18qfCTTGkBOyIUCZJeGIGAmkj/Ea
-	 2n/AVbbE4ms+iXuS3Nlg79UtRu4rqh30S8vb74c3CkkMYxpDX8RjQmSA9Divx/4qcSf04
-	 /KwlagiUI0as8Fni0dNblW7HNCvyY/GUdrZzEAnAr1e2f+fyUhx1s8TLgqIS2IA9+I8q0
-	 jbo/XzDIlErPEfVXpD14gMNVQJcG1q2uEitSvST+sKdYRMvI+lBNgrO6NJsy0WkFhx2Iu
-	 tAHppZHf480+jKhDgeNyPHGrysClUYDfWFCT1+cz3NEmaqQZ1iRFWo08X8Cx2lyuUTw==
+	bh=f/G0Fc0+8dzWPDQzsPiAzYB6o89KWN828G+K+hRqFNE=;
+	b=KOujd6h3PZ1rQjMkhe+8qg0CHnHeoRPqqE+Mv8W7+b26JIs51W0v8l5Ce+824F2J1csK
+	 4ZZpsKN+4QlsvRPE61E0Aohh86lDO7+qUQOj5A+yifUPHz4i3vDWfa153kQ8KLZsekJmh
+	 tBM+bXDwvOfCo0of+LRoi3fCqMkrGbTp6FBrYdR0JOsdvv93d4qITssIxZvEIAOtXfScb
+	 ZXEGN4lMUOIEu1BAuJY6P5802+syKC9ZC9ViZGQyBCkbGoTigAEnkeU/NBSvRd+6We8zR
+	 Kdq1mtDduvcLWQq8KfQPf5ssqAbxQTjhLxzvnIfAPRAhT1B8aqd5u2lqiWPK0R7rRvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=nTCif5DH;
-	arc=none smtp.remote-ip=91.218.175.92
-Received: from mta0.migadu.com (out-92.mta0.migadu.com [91.218.175.92])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ODaOGWoN;
+	arc=none smtp.remote-ip=91.218.175.110
+Received: from mta0.migadu.com (out-110.mta0.migadu.com [91.218.175.110])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4B81606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:07:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4B81606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 891D1606A327
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:08:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 891D1606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=nTCif5DH
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ODaOGWoN
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=lVCqhItCiIoTTyh8Q0RjFysA+d8zHM9N0SL1I0gqsaw=;
+DKIM-Signature: a=rsa-sha256; bh=e+WlsO9K9EpVleBqqJfkV1jawEX8Hcz/qMi1mhljrKA=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795525662; v=1; x=1796130462;
- b=nTCif5DHsuLLhbABZFrmTXL5VR37CfhjfNsbhVpjzZv5jdB/g3kRwQIIhEtexDBr3tDefviF
- Wuaix+5yQrTZ6lgwuUkaRPtZtF1ih6dD2ynTmfsOfP8VcsqY4DH6izzReWCYCyJU5IUnmnS/3Ct
- z7OjGj7N/L7dca0zY7NGiOPM=
+ t=1795525678; v=1; x=1796130478;
+ b=ODaOGWoNUu0cAybXn/jSPkqAUi8eNNegbM2E0oe1c19JQEI5xygj1/qwB/O+nCqceXM4NhwL
+ 58ll2NtAUJqPxAxbN17eEV6tTmsG2tou4nqGn8sfBh30SpEps9xATGqxdmXHMCEirT1Ksdz/kLY
+ jkfjUOxzp5AUU/CSpqtE/yZc=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id a0f3c9bae6bbb747;
-	Tue, 24 Nov 2026 13:07:41 +0000
-X-Mizu-Trace-ID: a0f3c9bae6bbb747
+Received: by smtp.migadu.com with ESMTPS id 45409a6f410f3181;
+	Tue, 24 Nov 2026 13:07:58 +0000
+X-Mizu-Trace-ID: 45409a6f410f3181
 X-Migadu-Flow: FLOW_OUT
 From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
 To: netdev@vger.kernel.org
@@ -83,9 +83,9 @@ Cc: "David S . Miller" <davem@davemloft.net>,
 	netfilter-devel@vger.kernel.org,
 	coreteam@netfilter.org,
 	Xuanqiang Luo <luoxuanqiang@kylinos.cn>
-Subject: [PATCH net-next v1 2/6] ipv4: avoid a stack canary in ip_finish_output2()
-Date: Tue, 24 Nov 2026 22:06:27 +0900
-Message-ID: <20261124130631.1886963-3-xuanqiang.luo@linux.dev>
+Subject: [PATCH net-next v1 3/6] ipv4: raw: do not use skb_header_pointer() in icmp_filter()
+Date: Tue, 24 Nov 2026 22:06:28 +0900
+Message-ID: <20261124130631.1886963-4-xuanqiang.luo@linux.dev>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
 References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
@@ -102,161 +102,100 @@ Content-Transfer-Encoding: 8bit
 
 From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 
-ip_neigh_gw4() passes the address of its by-value @daddr argument to
-__neigh_create() when the lockless lookup finds no neighbour.
+raw_local_deliver() is called for every IPv4 packet delivered locally.
 
-Once inlined, this forces a stack canary (CONFIG_STACKPROTECTOR_STRONG=y)
-into its callers, ip_finish_output2() being the one in the transmit path
-of every IPv4 packet, although creating a neighbour is rare compared to
-finding one.
+icmp_filter() passes the address of a local struct icmphdr to
+skb_header_pointer(). Once inlined, this forces a stack canary
+(CONFIG_STACKPROTECTOR_STRONG=y) into raw_local_deliver(), although
+only ICMP packets matching a raw socket need the filter.
 
-Change ip_neigh_gw4() to take a pointer to the address, like
-ip_neigh_gw6(). All callers have the address in the route, in the packet
-or in another object that is not on their stack.
+Prefer pskb_may_pull(), as commit a14d93179045 ("ipv6: do not use
+skb_header_pointer() in icmpv6_filter()") did for IPv6.
 
-Call it only once in ip_neigh_for_gw() and ipv4_dst_neigh_lookup(), so
-that the lookup and the creation are no longer inlined twice there.
+skb->data already points to the transport header here.
 
-Change the type of ipv4_nh in struct bpf_nh_params to __be32, since its
-address is now given to ip_neigh_gw4().
-
-Note that skb_do_redirect() and nf_flow_offload_ip_hook() still need a
-canary for other reasons.
+skb->head can change, reload iph pointer in raw_v4_input().
 
 $ scripts/bloat-o-meter -t vmlinux.old vmlinux.new
-add/remove: 0/0 grow/shrink: 1/5 up/down: 3/-846 (-843)
+add/remove: 0/0 grow/shrink: 0/1 up/down: 0/-95 (-95)
 Function                                     old     new   delta
-nf_flow_offload_ip_hook                     2065    2068      +3
-ip_do_fragment                              1441    1425     -16
-ipv4_dst_neigh_lookup                        684     587     -97
-skb_do_redirect                             4382    4222    -160
-vrf_finish_output                           1614    1345    -269
-ip_finish_output2                           1775    1471    -304
-Total: Before=24068916, After=24068073, chg -0.00%
+raw_local_deliver                            648     553     -95
+Total: Before=24068073, After=24067978, chg -0.00%
 
 Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 ---
- include/linux/filter.h           |  2 +-
- include/net/route.h              | 16 ++++++++--------
- net/core/filter.c                |  2 +-
- net/ipv4/route.c                 | 15 +++++++--------
- net/netfilter/nf_flow_table_ip.c |  4 +++-
- 5 files changed, 20 insertions(+), 19 deletions(-)
+ net/ipv4/raw.c | 25 ++++++++++++++-----------
+ 1 file changed, 14 insertions(+), 11 deletions(-)
 
-diff --git a/include/linux/filter.h b/include/linux/filter.h
-index 4f0cd67caccb..e258ba4741af 100644
---- a/include/linux/filter.h
-+++ b/include/linux/filter.h
-@@ -871,7 +871,7 @@ struct bpf_skb_data_end {
- struct bpf_nh_params {
- 	u32 nh_family;
- 	union {
--		u32 ipv4_nh;
-+		__be32 ipv4_nh;
- 		struct in6_addr ipv6_nh;
- 	};
- };
-diff --git a/include/net/route.h b/include/net/route.h
-index 3fccd31eb74d..1571e1c6082c 100644
---- a/include/net/route.h
-+++ b/include/net/route.h
-@@ -406,15 +406,15 @@ static inline int ip4_dst_hoplimit(const struct dst_entry *dst)
- }
- 
- static inline struct neighbour *ip_neigh_gw4(struct net_device *dev,
--					     __be32 daddr)
-+					     const __be32 *daddr)
+diff --git a/net/ipv4/raw.c b/net/ipv4/raw.c
+index f33a9dfc5309..f72163699040 100644
+--- a/net/ipv4/raw.c
++++ b/net/ipv4/raw.c
+@@ -140,16 +140,14 @@ EXPORT_SYMBOL_GPL(raw_v4_match);
+  *	0 - deliver
+  *	1 - block
+  */
+-static int icmp_filter(const struct sock *sk, const struct sk_buff *skb)
++static int icmp_filter(const struct sock *sk, struct sk_buff *skb)
  {
- 	struct neighbour *neigh;
+-	struct icmphdr _hdr;
+ 	const struct icmphdr *hdr;
  
--	neigh = __ipv4_neigh_lookup_noref(dev, (__force u32)daddr);
-+	neigh = __ipv4_neigh_lookup_noref(dev, (__force u32)*daddr);
- 	if (unlikely(!neigh)) {
- 		struct neigh_table *tbl = arp_table(dev_net(dev));
+-	hdr = skb_header_pointer(skb, skb_transport_offset(skb),
+-				 sizeof(_hdr), &_hdr);
+-	if (!hdr)
++	if (!pskb_may_pull(skb, sizeof(*hdr)))
+ 		return 1;
  
--		neigh = __neigh_create(tbl, &daddr, dev, false);
-+		neigh = __neigh_create(tbl, daddr, dev, false);
- 	}
++	hdr = (const struct icmphdr *)skb->data;
+ 	if (hdr->type < 32) {
+ 		__u32 data = raw_sk(sk)->filter.data;
  
- 	return neigh;
-@@ -425,17 +425,17 @@ static inline struct neighbour *ip_neigh_for_gw(struct rtable *rt,
- 						bool *is_v6gw)
+@@ -166,10 +164,10 @@ static int icmp_filter(const struct sock *sk, const struct sk_buff *skb)
+  * RFC 1122: SHOULD pass TOS value up to the transport layer.
+  * -> It does. And not only TOS, but all IP header.
+  */
+-static int raw_v4_input(struct net *net, struct sk_buff *skb,
+-			const struct iphdr *iph, int hash)
++static int raw_v4_input(struct net *net, struct sk_buff *skb, int hash)
  {
- 	struct net_device *dev = rt->dst.dev;
--	struct neighbour *neigh;
-+	const __be32 *daddr;
- 
- 	if (likely(rt->rt_gw_family == AF_INET)) {
--		neigh = ip_neigh_gw4(dev, rt->rt_gw4);
-+		daddr = &rt->rt_gw4;
- 	} else if (rt->rt_gw_family == AF_INET6) {
--		neigh = ip_neigh_gw6(dev, &rt->rt_gw6);
- 		*is_v6gw = true;
-+		return ip_neigh_gw6(dev, &rt->rt_gw6);
- 	} else {
--		neigh = ip_neigh_gw4(dev, ip_hdr(skb)->daddr);
-+		daddr = &ip_hdr(skb)->daddr;
- 	}
--	return neigh;
-+	return ip_neigh_gw4(dev, daddr);
- }
- 
- #endif	/* _ROUTE_H */
-diff --git a/net/core/filter.c b/net/core/filter.c
-index f42ecfb5841f..8ee023c87c24 100644
---- a/net/core/filter.c
-+++ b/net/core/filter.c
-@@ -2376,7 +2376,7 @@ static int bpf_out_neigh_v4(struct net *net, struct sk_buff *skb,
- 		neigh = ip_neigh_gw6(dev, &nh->ipv6_nh);
- 		is_v6gw = true;
- 	} else if (nh->nh_family == AF_INET) {
--		neigh = ip_neigh_gw4(dev, nh->ipv4_nh);
-+		neigh = ip_neigh_gw4(dev, &nh->ipv4_nh);
- 	} else {
- 		rcu_read_unlock();
- 		goto out_drop;
-diff --git a/net/ipv4/route.c b/net/ipv4/route.c
-index d0930ae4c5ae..585c10743e1b 100644
---- a/net/ipv4/route.c
-+++ b/net/ipv4/route.c
-@@ -419,15 +419,14 @@ static struct neighbour *ipv4_dst_neigh_lookup(const struct dst_entry *dst,
- 
+ 	int sdif = inet_sdif(skb);
++	const struct iphdr *iph;
+ 	struct hlist_head *hlist;
+ 	int dif = inet_iif(skb);
+ 	int delivered = 0;
+@@ -178,13 +176,19 @@ static int raw_v4_input(struct net *net, struct sk_buff *skb,
+ 	hlist = &raw_v4_hashinfo.ht[hash];
  	rcu_read_lock();
- 	dev = dst_dev_rcu(dst);
--	if (likely(rt->rt_gw_family == AF_INET)) {
--		n = ip_neigh_gw4(dev, rt->rt_gw4);
--	} else if (rt->rt_gw_family == AF_INET6) {
-+	if (unlikely(rt->rt_gw_family == AF_INET6)) {
- 		n = ip_neigh_gw6(dev, &rt->rt_gw6);
--        } else {
--		__be32 pkey;
--
--		pkey = skb ? ip_hdr(skb)->daddr : *((__be32 *) daddr);
--		n = ip_neigh_gw4(dev, pkey);
-+	} else {
-+		if (likely(rt->rt_gw_family == AF_INET))
-+			daddr = &rt->rt_gw4;
-+		else if (skb)
-+			daddr = &ip_hdr(skb)->daddr;
-+		n = ip_neigh_gw4(dev, daddr);
- 	}
+ 	sk_for_each_rcu(sk, hlist) {
++		iph = ip_hdr(skb);
+ 		if (!raw_v4_match(net, sk, iph->protocol,
+ 				  iph->saddr, iph->daddr, dif, sdif))
+ 			continue;
  
- 	if (!IS_ERR(n) && !refcount_inc_not_zero(&n->refcnt))
-diff --git a/net/netfilter/nf_flow_table_ip.c b/net/netfilter/nf_flow_table_ip.c
-index 78bba416dd5b..19f62005b517 100644
---- a/net/netfilter/nf_flow_table_ip.c
-+++ b/net/netfilter/nf_flow_table_ip.c
-@@ -872,7 +872,9 @@ static int nf_flow_queue_xmit4(struct sk_buff *skb,
- 			flow_offload_teardown(flow);
- 			return NF_DROP;
- 		}
--		neigh = ip_neigh_gw4(rt->dst.dev, rt_nexthop(rt, ip_addr->ip));
-+		neigh = ip_neigh_gw4(rt->dst.dev,
-+				     rt->rt_gw_family == AF_INET ?
-+				     &rt->rt_gw4 : &ip_addr->ip);
- 		if (IS_ERR(neigh)) {
- 			flow_offload_teardown(flow);
- 			return NF_DROP;
+ 		delivered = 1;
+-		if ((iph->protocol != IPPROTO_ICMP || !icmp_filter(sk, skb)) &&
+-		    ip_mc_sf_allow(sk, iph->daddr, iph->saddr,
++		if (iph->protocol == IPPROTO_ICMP) {
++			if (icmp_filter(sk, skb))
++				continue;
++			/* icmp_filter() might have changed skb->head. */
++			iph = ip_hdr(skb);
++		}
++		if (ip_mc_sf_allow(sk, iph->daddr, iph->saddr,
+ 				   skb->dev->ifindex, sdif)) {
+ 			struct sk_buff *clone;
+ 
+@@ -208,8 +212,7 @@ int raw_local_deliver(struct sk_buff *skb, int protocol)
+ {
+ 	struct net *net = dev_net(skb->dev);
+ 
+-	return raw_v4_input(net, skb, ip_hdr(skb),
+-			    raw_hashfunc(net, protocol));
++	return raw_v4_input(net, skb, raw_hashfunc(net, protocol));
+ }
+ 
+ static void raw_err(struct sock *sk, struct sk_buff *skb, u32 info)
 -- 
 2.43.0
 
