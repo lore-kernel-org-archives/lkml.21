@@ -1,53 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795511265;
-	b=TbMO8Ih3HlnyJshUznyh+d137Tkm8t061I7hBbxx1jgBXdLua0AHfQMBy4onJDqtKhfJ
-	 elGPxZp4KytJKHP3TVd4B5dwEFBPZsKF0Pxh4Wc5WkDQsWOSC6hMV5wrzvqmxN6BAT7nA
-	 4sskUqLxYTezHbtCDnf0jkLv7++kkfQXsKWMYOCom5UFnbbW0lV3evZDqlZ5ABvyy2v3W
-	 2aHk7BilFVV40fRGTRd2CBjoxnKFyGiyR4VCD5rz8QcdJNLqIHlE8DC22VcsVIcN+cpjE
-	 +jGzuSOBGxKH287Oj9boHLrrS2FlBBG/t3vGXmLETMnXzKhNNaZBEzWXmDdUbX1aUzA==
+	t=1795511417;
+	b=pNCDeYznLntNAqax5nVODNhEY3YoZS9YAOZ1o2zO1gW8or/hNU750pnBejCr8ag7HxOc
+	 DNyga1J1Esjx8O33IYXgfwZWqnMqPx90K+fPAESyXYTZ+YL0bbbPC+q6fCBZD84iz0B7i
+	 yk3XDVdgt1Y4kBQ8jMoSHKBS+8KCFyWlAtvLgHwTImlEx6/jMTBb+hue75oMIqKWl/KiG
+	 kAVXUPY1kUM91x+5/tQjUGcBp9BXug7szwnZrSE/agMvwDz5TnHS4p/7NulVBwU+vO14m
+	 zSH+7psEc2yRhfsQuuUWwFSQJ4kVcgG78RHic4jo8JiPss7hqulYwpl+WJ165mgWXlg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795511265;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=yeEqsaROwk1F1+IA2zrAlIhQx6+rnGnMld2/SEXU8x0=;
-	b=DINz85LWramLajRjlh/JSmjf9FDkuecFt4Kgk+7rQzFsY0UrAzIfRGM0lP4G4ddZBrdh
-	 Sl8rnpF3xNGfxDh3SH7TsdL3VKkZ7ImJEVAkeyo1DML2Dw3ev4TLXNdHk8aLlEvAYUHU9
-	 Ldcy3RQfP8dtVv7Fuyia86GQZIG8hH6PkCxGz49Zp5wmJI+JHxxJ9oV9+lk9O+osY5296
-	 tgqDSt3fDJCMwDfos8QAjO6SAhF/VeFcwHSwZyhtEdaGFGYzkx04rAzNiCV1QAQNlRSo8
-	 34bek1uYOua0mS15t9zIKUw1kTXUCJO4wGiAapmiuW/UacpiJND05yMjbgqgpzWHmHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795511417;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
+	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=L742LJPztQllDgYQFQJq6vana+Q6W6rt9qE7KuzQfec=;
+	b=NSr02km83BVyAhnUn97s4cxYpRLPDWkz0N9N3qnWh12VGpouXE91veJ7ZAYzSE8GClbz
+	 3489FIbBBAsPhgEgi30h9mhbN6Iy4brLSG6noP8vpBpf4deC4i2V+YBAnxSxabsNodzBr
+	 t7uHyFx1rmLe+O3o+tLneg6vgtzzEvA1X36vFn3sjm3LM343Iy6PjmIUO2z5nDw2PbWYq
+	 dC7MC0PWdom3ekCtopL2gmfA0Z1AihNVchO1GxP+loKfvioS9kpLiYTRKlhACCVybtSd7
+	 UuDvMCn5dNFfzQjdrHrLndQ6sXH0lmjV5NJge4vR533Mi0y5PoLD9cAyXsi1pFDHMgA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wzm7EBAx;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b="f/9M3A8X";
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55F1B606A31E;
-	Tue, 24 Nov 2026 09:07:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B320A606A31E;
+	Tue, 24 Nov 2026 09:10:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B320A606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wzm7EBAx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C2A61F000D2;
-	Tue, 24 Nov 2026 09:07:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795511265;
-	bh=yeEqsaROwk1F1+IA2zrAlIhQx6+rnGnMld2/SEXU8x0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Wzm7EBAx7ESbGdwKlGjx3MTlAHdammph0LHbLCqAZ7VhcvRk3BQHHTihQHJbgKzwR
-	 UezsYiC481n2arg+LD2PZZLFp5mP+IQZofqs+Bfw6zU3dccKInFRHn/IH9seIlMVBe
-	 R/61d1JbY06gVI/muXjjEfk3wCAUW5HyEZ3+roGSpbei+2lUutE/9jkfbPW4vugjVM
-	 REnagmUgdEZ04g8UvqY9iLL8YU5KyuYapAaDdsnHnFoEVAdGxnlx8U3k3eCujnsH8O
-	 w70327++JOUMjcBYJrUTQr3RysgEK57DSKbm01Jd2gn7F0KWy07cb3p0hr1c7JvnIZ
-	 T9Gl0jXh7v6KQ==
-Date: Tue, 24 Nov 2026 14:37:40 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-Cc: yung-chuan.liao@linux.intel.com, pierre-louis.bossart@linux.dev,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] soundwire: mipi_disco: Put fwnode on property array
- read errors
-Message-ID: <awVT3MHdgD3MAxt3@parshuram>
-References: <20261112060943.1916-1-laixiangwu@cmss.chinamobile.com>
+	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=f/9M3A8X
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AO99uPD22401111, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795511397; bh=L742LJPztQllDgYQFQJq6vana+Q6W6rt9qE7KuzQfec=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=f/9M3A8XnUHCecfUtHtPxjP6wSiVrV6tzT6jwEbexWLfPi1Vent6cfiJuxdYbS4WH
+	 qmub2sPdt1Jk8+iEKKd/kTkN0/uSjtjhTkXiEDWXRg/FvRu1Y24hkpBnLbaQMlYKn6
+	 dTxvHhV/pQBAwDkHgCOmKoMUvKIIp79Gtg2eemPCUTT2EqROZF+G8K/h1xDg6vCDUF
+	 odgsyyrODIuZ2pRnKOTP5ztzQE2pomJ3CY5wkdi0JIIx26NKBeYS4S6GBhlJE9cVLX
+	 4HjOflHNHBbv5W/rDrdS2vx7YOwx2LyRiJ8j7qgVvaVS/E4/BH0+lB/2FAeqLbrPIX
+	 CN42eXICGzNPg==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AO99uPD22401111
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 24 Nov 2026 17:09:56 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Tue, 24 Nov 2026 17:09:57 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Tue, 24 Nov 2026 17:09:56 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Tue, 24 Nov 2026 17:09:56 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: Mehmet Fide <mehmet.fide@gmail.com>, Luka Gejak <luka.gejak@linux.dev>
+CC: Bitterblue Smith <rtl8821cerfe2@gmail.com>,
+	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"mehmet.fide@screeningeagle.com" <mehmet.fide@screeningeagle.com>
+Subject: RE: [PATCH rtw-next v14 3/3] wifi: rtw88: time the countdown
+ downloads from the TBTT
+Thread-Topic: [PATCH rtw-next v14 3/3] wifi: rtw88: time the countdown
+ downloads from the TBTT
+Thread-Index: AQHdee+qTezIyBv8dUSLB0F4t45DM7c72mSAgACIJwCAAI2FUA==
+Date: Tue, 24 Nov 2026 09:09:56 +0000
+Message-ID: <b5309523db4f437ebcbdaf1c99fc7a96@realtek.com>
+References: <20261124002437.213112-2-luka.gejak@linux.dev>
+ <20261124083156.206506-1-mehmet.fide@gmail.com>
+In-Reply-To: <20261124083156.206506-1-mehmet.fide@gmail.com>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,23 +89,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261112060943.1916-1-laixiangwu@cmss.chinamobile.com>
 
-On 12-11-26, 14:09, Xiangwu Lai wrote:
-> sdw_master_read_prop() and sdw_slave_read_dpn() take a fwnode
-> reference with device_get_named_child_node() and already release it
-> on the -ENOMEM and success paths.  However, the error paths added
-> for the property array reads jump straight out without dropping the
-> reference, leaking it on every failed read.  The lane-list support
-> in sdw_slave_read_dpn() is even missing the put on its -ENOMEM path,
-> unlike the other array allocations in the same function.
-> 
-> Release the reference on those error paths as well, matching the
-> existing -ENOMEM handling in the same functions.
+Hi Mehmet,
 
-This fails for me on on the current code - sdw/next. Please rebase
+Mehmet Fide <mehmet.fide@gmail.com> wrote:
+> Hi Luka,
+>=20
+> > Could the wait for the safe part of the interval use a finer timer, or
+> > could we limit CSA to intervals the timer can reliably handle?
+>=20
+> Agreed for short intervals with HZ=3D100. A finer timer would not help
+> much on USB, where the download itself takes 6 to 17 ms. At 100 TU no
+> count repeats (model with HZ=3D100, rig with HZ=3D250). If Ping-Ke wants,=
+ a
+> minimum interval check can be a separate patch.
 
--- 
-~Vinod
+In my opinion, we can just fix the real case you encountered, and yes
+we can think about the different HZ cases in detail. However, we don't=20
+need to consider too many corner cases, which spend a lot of time,=20
+but actually never happen. Sometime in the future, if it happens,
+we can spin another patch to fix it. No need a perfect patch.=20
+
+The main point I want to catch up during reviewing is to prevent kernel
+crash. A patch with flaw functionality is acceptable.
+
+Ping-Ke
+
