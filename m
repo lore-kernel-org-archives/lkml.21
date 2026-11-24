@@ -1,80 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795508777;
-	b=bJvbz47/JF7CtNbD7RWwgnbKJKDjsQN9EtRFIZPsrFnINMfc0gmVPb46LmMb+uxVLaf6
-	 Zl1yrF58uLVKIV0Szv4UDb6uC8KnEST+dFCyUfNcvAyQsLqVDhlgCK+VMFCLfFVc9AhnO
-	 l2TmR9+1LaRewVGw0TtGBrz/TngdQfclaq3c0k5Wgf7AEck92rHr5VQDD61tsZ5yGWm56
-	 F99gPbfwDHqpIxhycEqm/UMD+HzSNpMRaUFKcmbxL/CLPV2GvmSOtmKekQi5cxEPKs/wQ
-	 Al9UGxRWziaUzCWNmEkhFQgSy6UafwyNIIiUxD2tMDRtfykQbj3dnu3b5ibAK4beC4w==
+	t=1795508780;
+	b=4yuBd80CJ+poTc2/NtmCXgQB9xk70o3J416zlnpmkRiy1HRozlM03pGoMcToLys2NdT9
+	 TXq868882g+pYigpBg1GXQ05ffKkAUsFNGA2vWWaUpv54t4SM3t81aS+6Ypc9ypBPldU2
+	 4CWc9V1VY28iVsjHIEPNqYF0THJYxlse+38OWY0bbK7a050HLP7j6JnHB2fSyvFpnVm43
+	 ylEMmxTim3txI9I1eejzBB3pwUmBbA6H9nvJ7xhmDhT1YVDJhieWov2KUck/xg0flQyPF
+	 M/1Gh8IhALQgNF9LXzELmOx1gn8F5vIQUuoMcogM/XVz6EBzbb1OOxUa/Q/2TikEVww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795508777;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=KsO2AJlVyuTp9xr1EiYJZ663XVDpxa+BNdu+wlV46l0=;
-	b=y5mWcN413vvBok0PQDqgnXOCzphK4C0lNn9PUCzk3w+/j5NWqIa0cQwyI6dTT//NbCAr
-	 x/v+Qg08Mj8Nz4eZqyX9h0Xn0EPfDX8BuGNMwyMIdxuz8vmUdW03eIxxSa6jdCunGqEBF
-	 JaKuowd9V92rfj59lWxcfZ1UlgD+YmGis7l0XhrYy+6yQAXNZ41t0iNKhRN+P2KniEUbw
-	 aWkSt6noARMM10lT2V/wO2S5pjsRc10MTfqB81vcJioX7y6KaZB/0bPWhZ17+cE48YjtH
-	 IWS4iJALKPm0Z8RC1hSSmtAxsdNL3isWQ7z5pEJxNb2Nhf8qsLCuHHMEaYof70w2xvA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795508780;
+	h=Received:DKIM-Signature:From:To:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=nFbKGYqNsE0OEI64HjMZzYVaBoeNIoEd+mOemUKQtdQ=;
+	b=wq4eKr6ayQfYjORSFWSqwRiVbnTzg+Oua1QiI8wRUS1ObB8puSBQSoqY0FiRr0hVKqt9
+	 bxFRg8GgSjtr9zEIVAG4/KKTIXKk8gcPOJkMFYXzu3MiMaGCDwu6sKOvHBBYInx11X6Ai
+	 SVFmrRaSaauNtEjIrTFFQiogFepAkcaGVzoeadLirIkXXRgOVlfteBRGObeDzdMDjeZX8
+	 8jOwrGlFimzKdbWw52aPQMD1Kwvfs289Gba20WKz2aFDGm6e3ysxYqiV3p/zVCJOA9ywP
+	 vUX5pcvOd4rsXOAr1tB9MUP4Tj/j8uSR63eNirGG7nxY8Rd/7qf5C3bNNrP3ZPlXzdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Sldjx5Z0;
-	arc=none smtp.remote-ip=198.175.65.9
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=funnePDd;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F0D4606A31E;
-	Tue, 24 Nov 2026 08:26:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F0D4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EE93606A33B;
+	Tue, 24 Nov 2026 08:26:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Sldjx5Z0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795508778; x=1827044778;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=iuSZMy+UdIgP5wUvX05xZu6HFUhgPdhYD7kCzj+Ee9w=;
-  b=Sldjx5Z0L+LrI9ALfXyXdPOLHjtjSP1W6Fe533pbcJEhSGqOaxKMv1ZI
-   cz/Ife6uY4KYb6bCC/jxHI4BD2NdUhnAnIi74P4M1Li1Oz38ofTbqm71q
-   vHX/pkbtMZpVmtTG/dbXisev59sz1sT2nUIAmX3Subvhs+MeF7w6RqXgF
-   kJZ7Oq2xPb8Rv08W8fnE1jB7qyEi9MR0RbNpYKAYJOKyaQQZo4tH9PztE
-   wf8m0OrhwOuGZHhS49AYTaIjpPm0yrmH599X2oJRUx1g21lB7UYNpiUfC
-   MQNld6IVhCBdptxAcs9SulKk+PngDahz1zzWuXWXvs4TkG7sPiCf7BHFJ
-   w==;
-X-CSE-ConnectionGUID: F0JP0PPRQHiYIOA9Mah+Lg==
-X-CSE-MsgGUID: L625aupUTS2GjZNInadUMA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4190529"
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="4190529"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:26:17 -0800
-X-CSE-ConnectionGUID: 42+ni5HER4KH2tpo5jCuNg==
-X-CSE-MsgGUID: K2gEYeSjTemEa9TwVxvTmw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="11628913"
-Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:26:15 -0800
-Date: Tue, 24 Nov 2026 10:26:12 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Rupesh Majhi <zoone.rupert@gmail.com>
-Cc: Andy Shevchenko <andy@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Eddie James <eajames@linux.ibm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/7] iio: pressure: dps310: use KILO for the Pa to kPa
- conversion
-Message-ID: <awVKJPKX5ssiBi6H@ashevche-desk.local>
-References: <20261123220649.36887-1-zoone.rupert@gmail.com>
- <20261123220649.36887-5-zoone.rupert@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=funnePDd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA3A01F000C4;
+	Tue, 24 Nov 2026 08:26:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795508779;
+	bh=nFbKGYqNsE0OEI64HjMZzYVaBoeNIoEd+mOemUKQtdQ=;
+	h=From:To:In-Reply-To:References:Subject:Date;
+	b=funnePDdYYpjLlc5jX6O/cKl14Oe+ZTrcPDQa62x63ehgOMPY3P0x3Wyczstqs8Mb
+	 sd7obCJrirXzuo/YA3svkYpWgK8iC4TD5st6SrplVWv0dh0Hw3rErbwbDoscm6womI
+	 6lr12i4TCNpmIzHW+FD3GKnqo21I1sAjLJzZn8BzGOpCxnrmAsGa6zb0Rsk1qeXTxT
+	 UCTTDDgBdK7ZON3t1c9fAf1KYMWxl9n0qyoWvY07KD53NIjhB6+CVk2XN9EAl+Yz8B
+	 yoUPwPUsxz5ATcSSKHYiH+X0/3KLReNn1K+EbC2zI1BAB+qkM+TSRh8QlkC2fOBuN0
+	 RFDUbXtK7DdWQ==
+From: David Hildenbrand <david@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>, apopple@nvidia.com, 
+ byungchul@sk.com, david@kernel.org, gourry@gourry.net, jannh@google.com, 
+ joshua.hahnjy@gmail.com, liam@infradead.org, linux-fsdevel@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, ljs@kernel.org, 
+ matthew.brost@intel.com, mhocko@suse.com, pfalcato@suse.de, rppt@kernel.org, 
+ surenb@google.com, vbabka@kernel.org, ying.huang@linux.alibaba.com, 
+ ziy@nvidia.com, kas@kernel.org, hannes@cmpxchg.org, riel@surriel.com, 
+ shakeel.butt@linux.dev, kernel-team@meta.com, baolin.wang@linux.alibaba.com, 
+ Nico Pache <nico.pache@linux.dev>, ryan.roberts@arm.com, dev.jain@arm.com, 
+ baohua@kernel.org, lance.yang@linux.dev, Usama Arif <usama.arif@linux.dev>
+In-Reply-To: <20261123163301.1568240-1-usama.arif@linux.dev>
+References: <20261123163301.1568240-1-usama.arif@linux.dev>
+Subject: Re: (subset) [PATCH v3 0/5] mm: fixes for THP migration, swap-in
+ and device-private smaps
+Message-Id: <179550876938.7489.17735221885406654534.b4-ty@b4>
+Date: Tue, 24 Nov 2026 09:26:09 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,20 +66,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123220649.36887-5-zoone.rupert@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16.0
 
-On Tue, Nov 24, 2026 at 12:06:46AM +0200, Rupesh Majhi wrote:
-> Spell the Pa to kPa divisor as KILO from units.h, in both places.
+On Mon, 23 Nov 2026 08:32:06 -0800, Usama Arif wrote:
+> This series contains four fixes for existing THP migration, PTE swap-in
+> and smaps paths, plus one cleanup. They were extracted from the work on
+> PMD swap entries for anonymous THPs [1] and can be merged independently.
+> 
+> 1. Avoid a folio reference leak when concurrent MADV_DONTNEED clears
+>    or splits a migration PMD before the device migration split helper
+>    acquires the PMD lock.
+> 
+> [...]
 
-Yes, looks good.
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+Applied, thanks!
+
+tree: mm/core.git
+branch: migrate-7.5.misc
+
+Applied patches will appear soon in mm-next, followed by linux-next.
+
+Please report any outstanding bugs that were missed during review, so we
+can either drop the patch series or decide how to fix it up.
+
+It is encouraged to provide Acked-bys, Reviewed-bys, and Tested-bys even
+though the patches have already been applied. If possible, patch trailers
+will be updated.
+
+Note that commit hashes shown below are subject to change due to rebase,
+trailer updates or similar. Further, this is not a guarantee that the
+patches will go upstream. If in doubt, please check the listed branch.
+
+[1/5] mm/migrate_device: avoid leaking folio references during THP splitting
+      https://git.kernel.org/mm/core/c/62541fb6
 
 -- 
-With Best Regards,
-Andy Shevchenko
+Cheers,
 
+David
 
