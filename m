@@ -1,92 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=47.88.81.140
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795528795;
-	b=1R1Xc8sGmgOoO5CRt8d1WIxZIeqwHmAxqiamUFhdFEjt+FxnSRJ4yaq9Ztf385o0QjwT
-	 H43EwYaY3tgneyFmFwIKTlbpB774qYTEws5/vYowDp3CAuJldklmBFwjuKQ5WzJK8WGM0
-	 L/ijhZvJ+iKl3KOIaH8bqriFIIWIHRJrIZYlOyzgwpuO/KSHuAsRCP3DjWZ8vgweqnJiO
-	 oXVnde9E1PGgQ7SQTPZYPQxMWuIiSoDJZ9dvHriit59RL4OO/hVGDPFS+JsqvHWj32t+M
-	 /PN8xdA/gxKHYdeOsm4kp1DfynppDXj70QmGIvmW/EGkPfV9+VGOJGnESerUKXzsWyw==
+	t=1795528829;
+	b=5osuWID60fMJVT7bNixhh38BveGyK3MdNwPbdkGZpZ23wC0Dq65N2IA+FBCtxgalpGLK
+	 rhcJN4t7RRA7giT/S0PrRSQlB+oSs4PuEISDdUVCiUjO53A8Ni6nz2np6pccs4ekO8rzo
+	 bR+Aof4vKUvOILbTjFe30Xjr1UjCEBuwxqTGgX42YG0OkYtULOxrEIp5Iu473BboZfm3n
+	 QKE68KVRI0CrlPvul9yAPTNhaf1SXhgne1wtXIpMCfHYU7Y3HRv6b4/1zHBHuWP/tgsJr
+	 uhjZuQA9Qhw7GHnlMxcdVkksxC0U639UbhDGf4RDvRvVfC12uuKvDNwP3k6X7Twb1+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795528795;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=0lhunb/hI4kx+9bxqLbunuEz4VXLwPOnpkBJ8qyr13g=;
-	b=fhfGb9uVxJI8yq/7wHDvgtRpyy34m6oIVl34ixEplw1qOgIEL9DTSWynz3olvUA0hSQS
-	 Ljd7ons1XjdClDIaYKbRfbw4ZADUUZUhpAknJ8ZA9PDSjaPxYA1ZO6mD3QiA1oJr4RueC
-	 Lpyd6OknExqiw31KzfmSwI/68357XOzLru4XWQItV0+58dLrcXzdfB0nQw5ZWQ1dipTkN
-	 eyv2EBTG9C/75QcaDFGExZdf28fap6NzBCt9wkdt0+pJmpD7IOyd+o+b8FU1oXlB+yYvp
-	 23yfwAloTVNRLz7w1xJQBWarmGhjmdQTLjRG2cu0bWdEFffvv+sKZ75+m3g/YA1Fk4A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795528829;
+	h=DMARC-Filter:Content-Type:Content-Transfer-Encoding:Message-ID:To:Cc:
+	 Subject:X-Priority:X-Mailer:X-Originating-IP:In-Reply-To:References:
+	 MIME-Version:Received:From:Date:X-HM-Tid:X-HM-MType:X-HM-NTES-SC:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=SrQBO4DXNz5cl5iYyYb4W1p5h9a2cEbxQXiC8gyTbFk=;
+	b=OPADORnVf0CULRo1nnxmEJkVz4Uq/M80ZD1O/hOr3TNvU92mRycnyjRfShEK/7tgyyIB
+	 f+5GUFbCArVa13h4boqDb06OyGyZxyXDBtN6Yd3l4qSxQulO6h4BUNSV8HFCCVI4qzxNb
+	 7lTRnIYpoOnkOPasU26wO2qHi1fi63snxBgHfaTE3GgShzntkqkKFZjMaj9jj5BslZUWx
+	 fIo6Hg3827H95LLs+6PkVWF0ipka8mS93j20tn4sxfQ5iGgusP40XS2USDuug0SU/N0Da
+	 Nkpe226ZN/B8lBzzDwIhQCeW9zmOsDJCNPBAlzOb8dAGUVfWKLGzZzKlvm0mSGB6Jlg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b="jI/KIBCw";
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	dmarc=pass header.from=mail.sdu.edu.cn;
+	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=bQiWl6y+;
+	arc=none smtp.remote-ip=47.88.81.140
+Received: from mail-m81140.netease.com (mail-m81140.netease.com [47.88.81.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEF74606A330;
-	Tue, 24 Nov 2026 13:59:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BEF74606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A02D606A31E;
+	Tue, 24 Nov 2026 14:00:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A02D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=jI/KIBCw
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOB4clW979934;
-	Tue, 24 Nov 2026 13:59:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=0lhunb/hI4kx+9bxq
-	LbunuEz4VXLwPOnpkBJ8qyr13g=; b=jI/KIBCwh0HK8191RCYU4r26Z9fzdKiGx
-	Lr2iDw9aKrmMfQNCl/yJTWaA1eMPPypGgVUKE8/kD1yS02q6MVYYd8Lurhrl9RyZ
-	h6kKHASXRRZ1JyMucIDP0XBNMEn9vaXNEKGnXYZ9/XeSphF7l1/VpBtjVV/kfiS9
-	z+ynS6krbh7DwUI2mlbGruRv2G68tPewzov0a4grM6DotM+QMbi+vmrHLjaEEw8Q
-	71PtMAtkVd+RbzXmZNPp55fbb5Hdlwr8sTKg8lOwbiYYsY5SGSDti4uaFNF/xGYU
-	Hs30pXSY4N46jhDUY35GlQPvCvg3UsGWn1ePYH0IX/UUZyhi39p8w==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34p4fdvb-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 24 Nov 2026 13:59:53 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOCoQsA3374782;
-	Tue, 24 Nov 2026 13:59:52 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j5axkr62r-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 24 Nov 2026 13:59:52 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AODxngE10027404
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 24 Nov 2026 13:59:49 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 26A6C2004E;
-	Tue, 24 Nov 2026 13:59:49 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id F053F2004F;
-	Tue, 24 Nov 2026 13:59:48 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 24 Nov 2026 13:59:48 +0000 (GMT)
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Gerald Schaefer <gerald.schaefer@linux.ibm.com>
-Cc: linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: [PATCH 1/5] s390/mm: Remove gmap_asce from mm_context_t
-Date: Tue, 24 Nov 2026 14:59:44 +0100
-Message-ID: <20261124135948.1295745-2-hca@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261124135948.1295745-1-hca@linux.ibm.com>
-References: <20261124135948.1295745-1-hca@linux.ibm.com>
+	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=bQiWl6y+
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+Message-ID: <AGsAhgCELDjQPd1Ecfeljaop.3.1795528818135.Hmail.202321181@mail.sdu.edu.cn>
+To: Leon Romanovsky <leon@kernel.org>
+Cc: Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, 
+	Jason Gunthorpe <jgg@ziepe.ca>, linux-rdma@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: =?UTF-8?B?UmU6UmU6IFJlOiBbUEFUQ0hdIElCL2hmaTE6IEZpeCBwb3RlbnRpYWwgbGVha3MgaW4gSVBvSUIgVFggcXVldWUgaW5pdGlhbGl6YXRpb24=?=
+X-Priority: 3
+X-Mailer: HMail Webmail Server V2.0 Copyright (c) 2016-163.com web
+In-Reply-To: <20261122150246.GF14811@unreal>
+References: <20261111-e5624093d6-rdma-hfi1@mail.sdu.edu.cn> <20261115135524.GE42525@unreal> <APgA2ADdLAK4Fr01jTNuVqo3.3.1795092279897.Hmail.202321181@mail.sdu.edu.cn> <20261122150246.GF14811@unreal>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,149 +55,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA1MyBTYWx0ZWRfXzN90qjq2CBMW
- Q02xqfkKzOLxnHMp9kXjIAFhdf9UNxwITumMC4VrRMH75YxwuIfzD30+7+GFYSX0stEGaEEX0we
- ASI1GuFolN4bq6clHeNLoq3L5XRYeFQ=
-X-Proofpoint-GUID: 9DHFRaj24QIgDiuy3iNSgwm3WMlLqSNb
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA1MyBTYWx0ZWRfX+1iCWvqwrMol
- 0KvbMU1sN9kJz32j82xU/MQW9/yZrsNFgE9ETHRJRJgBSjcJC7Q7DW6U9HrZeDLOxpRPrTwiQTp
- yKp1M9zA0wnp2yombdohS5KJHEDcEYprC7Iit8ASOKfrVkhm4mUEAXqYurng/K3vJatiEikjxTc
- z0vnB/O8K13872qVfiTPuxs7xRWo3eNaJyCSBJeuGSERXkpTQTgFjsJHrrODwRnqC0agIMHX3eV
- JcpKrrX8RFHhftsZGShnWzmZ3ech//zrpDTWN54IaH1UK13QoqxEWMnq9lvsFWlTeN40MEav7qt
- lk7EehfO2c89Xco+AgLaM2BQnkBWYLoBfKNkTmyrjHymS2UhVj23cFZ3IljzwMDQvPDF3X4sJgA
- Xmwvf70eyYl1bfC4dL6Au7ChR1mP/DJNOxuxoQS80k+YxF/AfiRYsjLGkW3ZVTiJ1rHufKW8VyZ
- GORWYszcSh/tkscmUwg==
-X-Proofpoint-ORIG-GUID: 9DHFRaj24QIgDiuy3iNSgwm3WMlLqSNb
-X-Authority-Analysis: v=2.4 cv=QabzLcbv c=1 sm=1 tr=0 ts=6b059859 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8 a=zdn79pWY1b4fLKOH2O0A:9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_02,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0 adultscore=0
- bulkscore=0 priorityscore=1501 clxscore=1015 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240053
+Received: from 202321181@mail.sdu.edu.cn( [101.76.249.61] ) by ajax-webmail ( [127.0.0.1] ) ; Tue, 24 Nov 2026 22:00:18 +0800 (GMT+08:00)
+From: =?UTF-8?B?5p2O5bm/56GV?= <liguangshuo@mail.sdu.edu.cn>
+Date: Tue, 24 Nov 2026 22:00:18 +0800 (GMT+08:00)
+X-HM-Tid: 0aa20ddafeced0cdkusyed8236ec248b6
+X-HM-MType: 1
+X-HM-NTES-SC: AL0_4z5B86Wr4Tz9jdMF+bhXMVHpP02bZAKsMEiErRSAekjx+ys+KNZNl0PLwl
+	f2MeqR5lbiqKsoq8sm3hZVy9q3VetZ+Wq0Te/EdHEVk+2W3XygE0t2b+veD5v+x2w+urvH1wcBEK
+	LfuXeRGaGP72UMA9Ea1JsRyT3OtZavULeVx80=
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCSEJLVhoZH0pCQ0xKHUNOSFYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVCQk
+	lOS1VKS0tVSkJLQlkG
+DKIM-Signature: a=rsa-sha256;
+	b=bQiWl6y+2oGNR00ETJCbZzVLxN93rE9lPhEJiX882O+/KnGWq3b2Cusk4D0ZAD9VEo2tGxGGP3mDz3JKVBRUwSv5+FYhu6sl0psf+Wo2RpyM1HYpR33kX5Sh+baDqBxS2j8HwcNjOqLeTOp4rNce/w7x3m8ULwaJ8WwkHP8Z9fI=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
+	bh=SrQBO4DXNz5cl5iYyYb4W1p5h9a2cEbxQXiC8gyTbFk=;
+	h=date:mime-version:subject:message-id:from;
 
-After the gmap rework mm->context.gmap_asce is always 0.
-Remove it, and simplify the mm code accordingly.
-
-Signed-off-by: Heiko Carstens <hca@linux.ibm.com>
----
- arch/s390/include/asm/mmu.h         |  1 -
- arch/s390/include/asm/mmu_context.h |  1 -
- arch/s390/include/asm/tlbflush.h    | 12 +---------
- arch/s390/mm/pgtable.c              | 34 +++++------------------------
- 4 files changed, 7 insertions(+), 41 deletions(-)
-
-diff --git a/arch/s390/include/asm/mmu.h b/arch/s390/include/asm/mmu.h
-index d4fd7bf3692e..3bf06dcba050 100644
---- a/arch/s390/include/asm/mmu.h
-+++ b/arch/s390/include/asm/mmu.h
-@@ -12,7 +12,6 @@ typedef struct {
- 	atomic_t flush_count;
- 	unsigned int flush_mm;
- 	struct list_head gmap_list;
--	unsigned long gmap_asce;
- 	unsigned long asce;
- 	unsigned long asce_limit;
- 	unsigned long vdso_base;
-diff --git a/arch/s390/include/asm/mmu_context.h b/arch/s390/include/asm/mmu_context.h
-index bd1ef5e2d2eb..4e5da0017c15 100644
---- a/arch/s390/include/asm/mmu_context.h
-+++ b/arch/s390/include/asm/mmu_context.h
-@@ -27,7 +27,6 @@ static inline int init_new_context(struct task_struct *tsk,
- 	cpumask_clear(&mm->context.cpu_attach_mask);
- 	atomic_set(&mm->context.flush_count, 0);
- 	atomic_set(&mm->context.protected_count, 0);
--	mm->context.gmap_asce = 0;
- 	mm->context.flush_mm = 0;
- #if IS_ENABLED(CONFIG_KVM)
- 	mm->context.allow_cow_sharing = 1;
-diff --git a/arch/s390/include/asm/tlbflush.h b/arch/s390/include/asm/tlbflush.h
-index 163ccbbe8c47..ca517013b5d0 100644
---- a/arch/s390/include/asm/tlbflush.h
-+++ b/arch/s390/include/asm/tlbflush.h
-@@ -46,22 +46,12 @@ static inline void __tlb_flush_global(void)
-  */
- static inline void __tlb_flush_mm(struct mm_struct *mm)
- {
--	unsigned long gmap_asce;
--
- 	preempt_disable();
- 	atomic_inc(&mm->context.flush_count);
- 	/* Reset TLB flush mask */
- 	cpumask_copy(mm_cpumask(mm), &mm->context.cpu_attach_mask);
- 	barrier();
--	gmap_asce = READ_ONCE(mm->context.gmap_asce);
--	if (gmap_asce != -1UL) {
--		if (gmap_asce)
--			__tlb_flush_idte(gmap_asce);
--		__tlb_flush_idte(mm->context.asce);
--	} else {
--		/* Global TLB flush */
--		__tlb_flush_global();
--	}
-+	__tlb_flush_idte(mm->context.asce);
- 	atomic_dec(&mm->context.flush_count);
- 	preempt_enable();
- }
-diff --git a/arch/s390/mm/pgtable.c b/arch/s390/mm/pgtable.c
-index da076928b63b..561d280d485f 100644
---- a/arch/s390/mm/pgtable.c
-+++ b/arch/s390/mm/pgtable.c
-@@ -39,41 +39,19 @@ EXPORT_SYMBOL_GPL(pgprot_writecombine);
- static inline void ptep_ipte_local(struct mm_struct *mm, unsigned long addr,
- 				   pte_t *ptep, int nodat)
- {
--	unsigned long opt, asce;
--
--	if (machine_has_tlb_guest()) {
--		opt = 0;
--		asce = READ_ONCE(mm->context.gmap_asce);
--		if (asce == 0UL || nodat)
--			opt |= IPTE_NODAT;
--		if (asce != -1UL) {
--			asce = asce ? : mm->context.asce;
--			opt |= IPTE_GUEST_ASCE;
--		}
--		__ptep_ipte(addr, ptep, opt, asce, IPTE_LOCAL);
--	} else {
-+	if (machine_has_tlb_guest())
-+		__ptep_ipte(addr, ptep, IPTE_NODAT | IPTE_GUEST_ASCE, mm->context.asce, IPTE_LOCAL);
-+	else
- 		__ptep_ipte(addr, ptep, 0, 0, IPTE_LOCAL);
--	}
- }
- 
- static inline void ptep_ipte_global(struct mm_struct *mm, unsigned long addr,
- 				    pte_t *ptep, int nodat)
- {
--	unsigned long opt, asce;
--
--	if (machine_has_tlb_guest()) {
--		opt = 0;
--		asce = READ_ONCE(mm->context.gmap_asce);
--		if (asce == 0UL || nodat)
--			opt |= IPTE_NODAT;
--		if (asce != -1UL) {
--			asce = asce ? : mm->context.asce;
--			opt |= IPTE_GUEST_ASCE;
--		}
--		__ptep_ipte(addr, ptep, opt, asce, IPTE_GLOBAL);
--	} else {
-+	if (machine_has_tlb_guest())
-+		__ptep_ipte(addr, ptep, IPTE_NODAT | IPTE_GUEST_ASCE, mm->context.asce, IPTE_GLOBAL);
-+	else
- 		__ptep_ipte(addr, ptep, 0, 0, IPTE_GLOBAL);
--	}
- }
- 
- static inline pte_t ptep_flush_direct(struct mm_struct *mm,
--- 
-2.53.0
-
+SGkgTGVvbiwKClRoYW5rcyBmb3IgdGhlIHJldmlldy4KCuWPkeS7tuS6uu+8mkxlb24gUm9tYW5v
+dnNreSA8bGVvbkBrZXJuZWwub3JnPgrlj5HpgIHml6XmnJ/vvJoyMDI2LTExLTIyIDIzOjAyOjQ2
+CuaUtuS7tuS6uu+8miLmnY7lub/noZUiIDxsaWd1YW5nc2h1b0BtYWlsLnNkdS5lZHUuY24+CuaK
+hOmAgeS6uu+8mkRlbm5pcyBEYWxlc3NhbmRybyA8ZGVubmlzLmRhbGVzc2FuZHJvQGNvcm5lbGlz
+bmV0d29ya3MuY29tPixKYXNvbiBHdW50aG9ycGUgPGpnZ0B6aWVwZS5jYT4sbGludXgtcmRtYUB2
+Z2VyLmtlcm5lbC5vcmcsbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZwrkuLvpopjvvJpSZTog
+UmU6IFtQQVRDSF0gSUIvaGZpMTogRml4IHBvdGVudGlhbCBsZWFrcyBpbiBJUG9JQiBUWCBxdWV1
+ZSBpbml0aWFsaXphdGlvbj5PbiBUaHUsIE5vdiAxOSwgMjAyNiBhdCAwODo0NDozOVBNICswODAw
+LCDmnY7lub/noZUgd3JvdGU6Cj4+IAo+PiBIaSBMZW9uLAo+PiAKPj4gVGhhbmtzIGZvciB0aGUg
+cmV2aWV3Lgo+PiAKPj4gRnJvbTogTGVvbiBSb21hbm92c2t5IDxsZW9uQGtlcm5lbC5vcmc+Cj4+
+IERhdGU6IDIwMjYtMTEtMTUgMjE6NTU6MjQKPj4gVG86ICBHdWFuZ3NodW8gTGkgPGxpZ3Vhbmdz
+aHVvQG1haWwuc2R1LmVkdS5jbj4KPj4gQ2M6ICBEZW5uaXMgRGFsZXNzYW5kcm8gPGRlbm5pcy5k
+YWxlc3NhbmRyb0Bjb3JuZWxpc25ldHdvcmtzLmNvbT4sSmFzb24gR3VudGhvcnBlIDxqZ2dAemll
+cGUuY2E+LGxpbnV4LXJkbWFAdmdlci5rZXJuZWwub3JnLGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5l
+bC5vcmcKPj4gU3ViamVjdDogUmU6IFtQQVRDSF0gSUIvaGZpMTogRml4IHBvdGVudGlhbCBsZWFr
+cyBpbiBJUG9JQiBUWCBxdWV1ZSBpbml0aWFsaXphdGlvbj5PbiBXZWQsIE5vdiAxMSwgMjAyNiBh
+dCAwODoyMzoxOVBNICswODAwLCBHdWFuZ3NodW8gTGkgd3JvdGU6Cj4+ID4+IFdoZW4gYW4gU0RN
+QSBoZWFkZXIgYWxsb2NhdGlvbiBmYWlscywgcm9sbGJhY2sgc2tpcHMgdGhlIGN1cnJlbnQgVFgK
+Pj4gPj4gcXVldWUuIEl0cyByaW5nIGFuZCBhbHJlYWR5IGFsbG9jYXRlZCBoZWFkZXJzIGFyZSBs
+ZWFrZWQuIEZyZWUgdGhlCj4+ID4+IHBhcnRpYWxseSBpbml0aWFsaXplZCByaW5nIGJlZm9yZSB1
+bndpbmRpbmcgdGhlIGNvbXBsZXRlZCBxdWV1ZXMuCj4+ID4KPj4gPmZyZWVfdHhfcmluZyBhbHJl
+YWR5IHBlcmZvcm1zIHRoYXQsIHNlZSAiZm9yIChqID0gMDsgaiA8IHR4X3Jpbmdfc2l6ZTsgaisr
+KSIKPj4gPmxvb3AuCj4+ID4KPj4gPlRoYW5rcwo+PiA+Cj4+ID4+IAo+PiA+PiBUaGlzIGlzc3Vl
+IHdhcyBmb3VuZCBieSBvdXIgc3RhdGljIGFuYWx5c2lzIHRvb2wgdW5kZXIgZGV2ZWxvcG1lbnQu
+Cj4+ID4+IAo+PiA+PiBGaXhlczogYzg3NGFkODc5YzJmICgiSUIvaGlmaTE6IGFkZCBhIG51bGwg
+Y2hlY2sgb2Yga3phbGxvY19ub2RlIGluIGhmaTFfaXBvaWJfdHhyZXFfaW5pdCIpCj4+ID4+IFNp
+Z25lZC1vZmYtYnk6IEd1YW5nc2h1byBMaSA8bGlndWFuZ3NodW9AbWFpbC5zZHUuZWR1LmNuPgo+
+PiA+PiAtLS0KPj4gPj4gIGRyaXZlcnMvaW5maW5pYmFuZC9ody9oZmkxL2lwb2liX3R4LmMgfCA2
+ICsrKysrLQo+PiA+PiAgMSBmaWxlIGNoYW5nZWQsIDUgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlv
+bigtKQo+PiA+PiAKPj4gPj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvaW5maW5pYmFuZC9ody9oZmkx
+L2lwb2liX3R4LmMgYi9kcml2ZXJzL2luZmluaWJhbmQvaHcvaGZpMS9pcG9pYl90eC5jCj4+ID4+
+IGluZGV4IDhiOWNjNTVkYjU5ZC4uMmU5MjI1YjU1OGI0IDEwMDY0NAo+PiA+PiAtLS0gYS9kcml2
+ZXJzL2luZmluaWJhbmQvaHcvaGZpMS9pcG9pYl90eC5jCj4+ID4+ICsrKyBiL2RyaXZlcnMvaW5m
+aW5pYmFuZC9ody9oZmkxL2lwb2liX3R4LmMKPj4gPj4gQEAgLTc0Myw3ICs3NDMsNyBAQCBpbnQg
+aGZpMV9pcG9pYl90eHJlcV9pbml0KHN0cnVjdCBoZmkxX2lwb2liX2Rldl9wcml2ICpwcml2KQo+
+PiA+PiAgCQkJCWt6YWxsb2Nfbm9kZShzaXplb2YoKnR4LT5zZG1hX2hkciksCj4+ID4+ICAJCQkJ
+CSAgICAgR0ZQX0tFUk5FTCwgcHJpdi0+ZGQtPm5vZGUpOwo+PiA+PiAgCQkJaWYgKCFoZmkxX3R4
+cmVxX2Zyb21faWR4KHR4X3JpbmcsIGopLT5zZG1hX2hkcikKPj4gPj4gLQkJCQlnb3RvIGZyZWVf
+dHhxczsKPj4gPj4gKwkJCQlnb3RvIGZyZWVfdHhfcmluZzsKPj4gPj4gIAkJfQo+PiA+PiAgCj4+
+ID4+ICAJCW5ldGlmX25hcGlfYWRkX3R4KGRldiwgJnR4cS0+bmFwaSwgaGZpMV9pcG9pYl9wb2xs
+X3R4X3JpbmcpOwo+PiA+PiBAQCAtNzUxLDYgKzc1MSwxMCBAQCBpbnQgaGZpMV9pcG9pYl90eHJl
+cV9pbml0KHN0cnVjdCBoZmkxX2lwb2liX2Rldl9wcml2ICpwcml2KQo+PiA+PiAgCj4+ID4+ICAJ
+cmV0dXJuIDA7Cj4+ID4+ICAKPj4gPj4gK2ZyZWVfdHhfcmluZzoKPj4gPj4gKwl3aGlsZSAoai0t
+KQo+PiA+PiArCQlrZnJlZShoZmkxX3R4cmVxX2Zyb21faWR4KHR4X3JpbmcsIGopLT5zZG1hX2hk
+cik7Cj4+ID4+ICsJa3ZmcmVlKHR4X3JpbmctPml0ZW1zKTsKPj4gPj4gIGZyZWVfdHhxczoKPj4g
+Pj4gIAlmb3IgKGktLTsgaSA+PSAwOyBpLS0pIHsKPj4gPj4gIAkJc3RydWN0IGhmaTFfaXBvaWJf
+dHhxICp0eHEgPSAmcHJpdi0+dHhxc1tpXTsKPj4gPj4gCj4+ID4+IGJhc2UtY29tbWl0OiA2NjI4
+ZTdkNGM2YjI1YzhkMThmMTM0NWUzYTIwZDIxODI5YWFlN2U0Cj4+ID4+IAo+PiA+Cj4+IAo+PiBU
+aGUgaiBsb29wIGZyZWVzIGFsbCB0aGUgaGVhZGVycyBpbiBlYWNoIHJpbmcgaXQgdmlzaXRzLiBB
+cyBJIHJlYWQKPj4gZnJlZV90eHFzLCB0aGUgb3V0ZXIgbG9vcCBzdGFydHMgd2l0aCBpLS0sIHNv
+IGl0IHNraXBzIHRoZSBxdWV1ZSB3aGVyZQo+PiB0aGUgaGVhZGVyIGFsbG9jYXRpb24gZmFpbGVk
+LiBJZiB0aGF0IGhhcHBlbnMgb24gcXVldWUgMCwgdGhlIGxvb3AKPj4gbmV2ZXIgcnVucy4KPj4g
+Cj4+IFdvdWxkIGl0IG1ha2Ugc2Vuc2UgdG8gcmV1c2UgdGhlIHJpbmcgY2xlYW51cCBmb3IgdGhl
+IHBhcnRpYWwgcXVldWUKPj4gYW5kIGtlZXAgbmV0aWZfbmFwaV9kZWwoKSBvbmx5IGZvciBxdWV1
+ZXMgd2hlcmUgTkFQSSB3YXMgYWRkZWQ/IElmIHNvLAo+PiBJJ2xsIHNlbmQgYSB2MiB0aGF0IGRv
+ZXMgdGhhdC4KPgo+SSB0aGluayB0aGF0IHRoaXMgd2lsbCBmaXggaXQuCj4KPmRpZmYgLS1naXQg
+YS9kcml2ZXJzL2luZmluaWJhbmQvaHcvaGZpMS9pcG9pYl90eC5jIGIvZHJpdmVycy9pbmZpbmli
+YW5kL2h3L2hmaTEvaXBvaWJfdHguYwo+aW5kZXggOGI5Y2M1NWRiNTlkOC4uMjNjMDZkODZiMjky
+MSAxMDA2NDQKPi0tLSBhL2RyaXZlcnMvaW5maW5pYmFuZC9ody9oZmkxL2lwb2liX3R4LmMKPisr
+KyBiL2RyaXZlcnMvaW5maW5pYmFuZC9ody9oZmkxL2lwb2liX3R4LmMKPkBAIC03NTIsNyArNzUy
+LDcgQEAgaW50IGhmaTFfaXBvaWJfdHhyZXFfaW5pdChzdHJ1Y3QgaGZpMV9pcG9pYl9kZXZfcHJp
+diAqcHJpdikKPiAgICAgICAgcmV0dXJuIDA7Cj4KPiBmcmVlX3R4cXM6Cj4tICAgICAgIGZvciAo
+aS0tOyBpID49IDA7IGktLSkgewo+KyAgICAgICBmb3IgKGk7IGkgPj0gMDsgaS0tKSB7Cj4gICAg
+ICAgICAgICAgICAgc3RydWN0IGhmaTFfaXBvaWJfdHhxICp0eHEgPSAmcHJpdi0+dHhxc1tpXTsK
+Pgo+ICAgICAgICAgICAgICAgIG5ldGlmX25hcGlfZGVsKCZ0eHEtPm5hcGkpOwo+fgo+Cj4KPj4g
+Cj4+IFRoYW5rcywKPj4gR3VhbmdzaHVvCj4KCkluY2x1ZGluZyB0aGUgY3VycmVudCBxdWV1ZSB3
+b3VsZCBjb3ZlciB0aGUgbWlzc2luZyBoZWFkZXJzLiBUaGUgc2FtZQpsYWJlbCBpcyBhbHNvIHJl
+YWNoZWQgd2hlbiB0aGUgcmluZyBhbGxvY2F0aW9uIGZhaWxzLCB0aG91Z2gsIGFuZCBOQVBJCmhh
+cyBub3QgYmVlbiBhZGRlZCBmb3IgdGhlIGN1cnJlbnQgcXVldWUgb24gZWl0aGVyIGZhaWx1cmUg
+cGF0aC4KCkkgdGhpbmsgd2UgY2FuIHVzZSB0aGF0IGxvb3AgYnkgcmVnaXN0ZXJpbmcgTkFQSSBi
+ZWZvcmUgdGhlIGFsbG9jYXRpb25zCmFuZCBza2lwcGluZyB0aGUgaGVhZGVyIHdhbGsgd2hlbiB0
+aGUgcmluZyBpcyBOVUxMLiBXb3VsZCB0aGF0IGJlIGEKcmVhc29uYWJsZSB3YXkgdG8gaGFuZGxl
+IHRoZSBwYXJ0aWFsIHF1ZXVlPyBJZiBzbywgSSdsbCBzZW5kIGEgdjIuCgpUaGFua3MsCkd1YW5n
+c2h1bwo=
