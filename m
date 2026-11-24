@@ -1,58 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795516540;
-	b=mIFmyL2oy8vSqIAyCPvAUYhHo16gQO1T5+CwoOfC18ANcWSMmjhihSFTb0lpCntsfOSb
-	 0H4WlAwqt1sgPgQdYtrDFur2S44jliAdqsgyW3kdZDfHOyKDZ9Y056CrPyPF3o3kGkpAJ
-	 t7G6rMHpnfPlrPS/5xo/Os6HvUMjtPKZ0bkcFPvXAB8/A/15jy4g+hsMg2t9bVDfzEZZn
-	 GiMhIqLnDTgtwPlW+XSNdObKRKObJ76YD179qr5H+QilsMNrB7bXJBjhO3c+Z/XjkMCy1
-	 VhTegbp3MK8KCra0ftnIdL9ezs99n2PnFkVk32SL5eO//Kgivp+Eeb0irXSzKxj2eLg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=vtFwcRD8T5HImPcnL0bxRcHBryU1c1etn4WaM0l64jfIB9nnNpNHA4tkvunmEArOGnbu
+	 Z2AAHU9OvcCow5T3kSnEo64SJpPCqEdi7bK+xfpU/2Nao67oG8qvXLaVw8B9cDyL8eb+R
+	 JdwInMpiil5ihLaSxlj3mRuAhnEfB9vwBlXfZ7Qaj4zx7XCmA1/mLj7loF0AJvhpzhIn6
+	 5Pktb+GTkz7g+lJaKUWdPmJusIhSGB6DQX5eVBU+djppasxtM0IGGDDQHBIaAlo5a31/T
+	 /ayMLeHLreLHxv6bAKadtwRdd5bTGLDeLMmSEPBsSEz5x5cuUzgUWTUfHdRXNOiPP6A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795516540;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=gcHnGr+EWKizS1GumnjfLSnWqHQiWDkKEJikRlAsFBE=;
-	b=DvDjr4NvWnzdWVW5nFv/5yY/zHw19DRaMG9RVdjeINGJcxTPypmNXbc8+0AaIAnWw48C
-	 SYLozFqFXCy0s5/vF/Zk5MJ1v8P0RXiaTvcs90WxboCYzkc88RPHhgMZE+WX6aQVWBJ/3
-	 +dKiBVfMXD3laI4YDbmtE8O40bJdY/gUILxxbubesEVHqj9Dr5HkyhjZzO0i5RIa/BRiJ
-	 3YDz1Fzrm+IdHh8IG+UZrgNLRF1CB6RsVetQjzWR7blnXI01RkJgVov7Iiwh3lQl8Ls3I
-	 xrIO768JsN+zglYxn+fAx8xLIc5IbZ9IRxbEmhUDaI8qelBmP7v8E/MWxSkdW62/Eng==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m1SCu11l;
-	arc=none smtp.remote-ip=100.103.45.18
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=lkwMDkfjgioryZCX49o7PXJCQBe/jrTnQPOOGXCjrUE=;
+	b=Bp0My8Zg0L8AfYCto+6XGEEWsQ79EPWSnzFFK026Jdnbkc1WfvXW+PDpCxrp2J9zerUV
+	 EwKI0U8hk8iBQTQ7RsJkN3Dp5XO4WIHayc0H7sRyRLMS7bn3UV1ouVjSlmfVoVGBGcWDN
+	 JN+LiGR3bF3KbI4KMA7ThVH8bgZP3YnVivqWO3ie9RHWLv8PabRDZBx13lKPProFh89Pz
+	 7uG7jJ2/xrkTLumVZ9I3QeiYzO13Fj9g1zx2AqRC2Fat/ECa6Gq/ji/GQODrHaxVsJoWZ
+	 ju1ke2iHQRdL16h9d5Y+rE3KQ7rnvcPv+32AGVEbanECr3dxi18dm6SKQ0ms40R6vSQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=epOyB+CW;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 96113606A33D;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB9F3606A685;
 	Tue, 24 Nov 2026 10:35:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m1SCu11l
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 461791F000D2;
-	Tue, 24 Nov 2026 10:35:38 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=epOyB+CW
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795516540;
+	b=P8CEJmBT5M6fk2SVjjpbBC2sWFt2gAPcpIRwXLPmGIFENUaAMWjCkjZ6gtM8CKRUFAJl
+	 hI22EhyoQZ7vckxQDPuoeFXTvVCZ2qD8HWeg6v4U5Xz4IZ4MnEblOUlqxdTunQnYCkSkw
+	 xzyOy67FJCPbASTw9ZpAGCF6csdQX4ZGrNkd1pkwKplYG8Qce4shdzNkfCVbawCt4uyW9
+	 /0G0jBERuk+ES71OAAyhS5sCfRDR4a9/mZgoxgG2QBIv4exE8S5VCBs6A5PV5hC9XAmGQ
+	 704xQ5kNIHMgCCByQjd5k/8VIbWlg5OgZyN3Zy+X9+qoB6auL8OVemMMcTc1WufDO1g==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795516540;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=lkwMDkfjgioryZCX49o7PXJCQBe/jrTnQPOOGXCjrUE=;
+	b=EmHzvCcwSCwRB3zD07WS9xFfcNQ35iKnSV48ftfYqFbMJDcAUsiBExVSbmk8n0xONiXb
+	 anxxJ62xFspl++PGG9wq6EAwoT5OOM0CTSjvgopQGEs0POZ1DLqESc/jTbbdSBMcjPEx2
+	 zOVFBW9IkFYNeObo8p0VnxwU9jt7Fu6GQ/gBg8rRhs7UQT8VlEDdZcwOFh5rWX1Bt5dWT
+	 tBD8OtKdEVctKjpXVVTcIrRgqX0BfKlTjdbybRXkk8mOqSS+S+04WFaIm1zb6HpCz7H1U
+	 yc4S+UytqjSSVCmv0nmbWNV2DEEWe6rAzy0oq+MqKdn0EhiMGABmfQg73xUBfGQF7Qg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id EFE651F000D1;
+	Tue, 24 Nov 2026 10:35:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1795516540;
-	bh=gcHnGr+EWKizS1GumnjfLSnWqHQiWDkKEJikRlAsFBE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=m1SCu11lXCgrtQndFUuPQa4nAIzHdYxzjW3lJmjEapArRv7DjKd6q0cbjurhr6qqw
-	 y16D76hCdK/a1p0UnCLyqJJde8yq6IfsH/Oz+hcOfCl3KfhD3Ng5fJb6pSrIGCUP+w
-	 LJ0DdK4Cp8ovArbl8QLLOH8UE2zvoSalKn2VRdPg5nlwSl49m+AR86fpzsYaGXiujd
-	 fg9kyFPvVx7uhqICg9POg/CoKuNr+GkAQa9HdsRLXzjP1DU/O/ETsz8VXE1U+jj9oD
-	 ZtOMkA1fa0P3VQz1G+Z+047Kjc4lXFgEQSw35oh83KM1vy7mF5OcsDH2yZAFzlcSOZ
-	 r+zdSoUFySF4w==
-Date: Tue, 24 Nov 2026 11:35:32 +0100
-From: Bartosz Golaszewski <brgl@kernel.org>
-To: Stanislav Aleksandrov <lightofmysoul@gmail.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, linux-arm-msm@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] pinctrl: qcom: Add Halliday pinctrl driver
-Message-ID: <wkceygbndcdv2ldsemla27mn5dnzdeijowvxpjozee73wyze6r@mlmymb7cehm4>
-References: <20261116-halliday-tlmm-v2-0-b4dd502ca142@gmail.com>
- <20261116-halliday-tlmm-v2-2-b4dd502ca142@gmail.com>
- <su7onpn56wd2dtsn63qwbv5v65kci54rhqjndh6qjpb6gwlwnj@m2kxvcdrpjws>
- <20261123195935.1046144-1-lightofmysoul@gmail.com>
+	bh=lkwMDkfjgioryZCX49o7PXJCQBe/jrTnQPOOGXCjrUE=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=epOyB+CWrXVIPZ8Z9XcQ0NQ0bAPmPFEkLeL3LFpJBZtQtpkID68eHL8AKBQqgatfR
+	 b75EunZ8aw63oFHVot1wJGXXVIR4fuzQC8qyC5D1BbckhTD4Pww8PW/oilO0K2eNBn
+	 0QoHJJdaCKuEk2EtzJqBlotT1VMbotJ4k5sUGcDt7KQ67/nFpVupAC9Z/4CQKCMXKq
+	 t5xj3H0vruirBlkFRkX8BfOyJCVgw7k/45iuSp6goG6Y3wotQv9XULyXKFnJD3A45v
+	 fe5tbgjBAlZDzhVd9SeTPZtdyaDl4wgvm0XdZLueoOp/YWQJg+X/vg6riefYvmP/00
+	 xVcOVM+Q3AoWA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 545054C9A1;
+	Tue, 24 Nov 2026 10:35:31 +0000 (UTC)
+From: Andreas Claesson via B4 Relay <devnull+andreas.aclaesson.com@kernel.org>
+Date: Tue, 24 Nov 2026 10:35:31 +0000
+Subject: [PATCH] Revert "HID: corsair: cancel LED work again after
+ unregistering the LED"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,72 +83,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123195935.1046144-1-lightofmysoul@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261124-hid-corsair-revert-redundant-cancel-v1-1-ba4c1418cfa8@aclaesson.com>
+X-B4-Tracking: v=1; b=H4sIAHJoBWsC/yWNQQrCMBBFr1Jm7YBJSi1eRVwkk9GOSCqTtAild
+ 3fU1ect/nsbVFbhCuduA+VVqszFwB06oCmWO6NkY/BHPzjne5wkI81aoyjagbXZ5KXkWBpSLMR
+ PHMMpJDcm7sMAZnop3+T9q1yuf65LejC1rxr2/QMSB1rVhwAAAA==
+X-Change-ID: 20261124-hid-corsair-revert-redundant-cancel-8373b18be436
+To: Benjamin Tissoires <bentiss@kernel.org>, Jiri Kosina <jikos@kernel.org>
+Cc: linux-kernel@vger.kernel.org, 
+ Danish Khateeb <danishkhateeb03@gmail.com>, linux-input@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795516530; l=2023;
+ i=andreas@aclaesson.com; s=20261109; h=from:subject:message-id;
+ bh=BJPb3ySj05euN2/xgTFuifJLkqlbmlH2K5dSAKbRMZA=;
+ b=YGPG6bKX40TrHCZ1fi7j4asb2LuIQjbsfjOo8WdQ3Ipc4DIIoKkgYKec26pxdpfMFGf+rzD73
+ Diy+ytSxsU9DSMCLHj4sUJDQ6gBa4FEmHft2W7p8uv0mU/YrGP2WfS+
+X-Developer-Key: i=andreas@aclaesson.com; a=ed25519;
+ pk=oC+38UX0rqcrEjNMgnKAF1zmrTUMbQ2aH/P5Z4TZOIQ=
+X-Endpoint-Received: by B4 Relay for andreas@aclaesson.com/20261109 with
+ auth_id=1465
+X-Original-From: Andreas Claesson <andreas@aclaesson.com>
+Reply-To: andreas@aclaesson.com
+Content-Transfer-Encoding: 7bit
 
-On Mon, Nov 23, 2026 at 07:59:34PM +0000, Stanislav Aleksandrov wrote:
-> On Mon, Nov 23, 2026 at 05:16:55PM +0100, Bartosz Golaszewski wrote:
-> > Can you verify the pdc map against the interrupt map? It looks incomplete to
-> > me, there should be more wake GPIOs. Unless you have a reason to not
-> > include all of them?
-> 
-> I do not have the interrupt map. The PDC map is from the pinctrl-anorak
-> driver in Samsung's kernel source. There are 93 GPIOs with a wakeup
-> enable bit, but its PDC map contains only 76.
-> 
-> I did a test: set an interrupt handler on every unused PDC pin on
-> my headset and then I toggled each GPIO to see which pin fires.
-> 
-> 1. Out of existing 76 entries 42 PDC pins got triggered. 26 are used
->    by devices on the headset and 8 do not change their level,
->    so these 34 are not tested.
-> 
-> 2. 17 missing GPIOs: only 14 give a result:
-> 
->      GPIO 42 -> PDC 105, 48 -> 87, 63 -> 122, 80 -> 42, 97 -> 96,
->      105 -> 55, 143 -> 72, 151 -> 118, 168 -> 94, 205 -> 130,
->      218 -> 124, 219 -> 68, 221 -> 133, 223 -> 134
-> 
->    I am not sure about 151 and 168, their lines are not quiet on the
->    headset. GPIOs 114, 125 and 162 do not change their level.
-> 
-> I think it is not a good idea to add these pins without documentation.
-> If someone can confirm these pins are correct then I will add them in
-> the next version.
-> 
+From: Andreas Claesson <andreas@aclaesson.com>
 
-Here, use this:
+This reverts commit e624a56578e551b77ee66eef74dc2efcd42deb08.
 
-static const struct msm_gpio_wakeirq_map halliday_pdc_map[] = {
-	{ 18, 99 },   { 31, 120 },  { 37, 101 },  { 40, 103 },  { 41, 104 },
-	{ 42, 105 },  { 43, 106 },  { 44, 107 },  { 45, 92 },   { 46, 83 },
-	{ 47, 86 },   { 48, 87 },   { 53, 111 },  { 57, 121 },  { 60, 56 },
-	{ 61, 108 },  { 62, 109 },  { 63, 122 },  { 66, 110 },  { 68, 57 },
-	{ 72, 112 },  { 74, 43 },   { 78, 114 },  { 80, 42 },   { 84, 67 },
-	{ 86, 66 },   { 87, 100 },  { 91, 102 },  { 94, 93 },   { 97, 96 },
-	{ 98, 123 },  { 100, 44 },  { 101, 97 },  { 103, 75 },  { 104, 52 },
-	{ 105, 55 },  { 106, 48 },  { 110, 53 },  { 111, 76 },  { 112, 49 },
-	{ 113, 50 },  { 114, 51 },  { 115, 54 },  { 118, 58 },  { 119, 77 },
-	{ 122, 62 },  { 123, 63 },  { 125, 59 },  { 129, 61 },  { 133, 65 },
-	{ 137, 69 },  { 139, 70 },  { 142, 71 },  { 143, 72 },  { 145, 74 },
-	{ 146, 45 },  { 147, 78 },  { 148, 60 },  { 150, 119 }, { 151, 118 },
-	{ 152, 85 },  { 153, 79 },  { 154, 80 },  { 155, 81 },  { 157, 84 },
-	{ 162, 64 },  { 163, 88 },  { 164, 89 },  { 165, 73 },  { 166, 90 },
-	{ 167, 91 },  { 168, 94 },  { 169, 82 },  { 170, 95 },  { 171, 98 },
-	{ 172, 47 },  { 175, 46 },  { 186, 129 }, { 189, 131 }, { 194, 116 },
-	{ 196, 117 }, { 199, 113 }, { 201, 128 }, { 205, 130 }, { 207, 115 },
-	{ 208, 132 }, { 210, 135 }, { 212, 136 }, { 215, 137 }, { 218, 124 },
-	{ 219, 68 },  { 221, 133 }, { 223, 134 },
-};
+It added a cancel_work_sync() after led_classdev_unregister()
+in k90_cleanup_backlight() and k90_cleanup_macro_functions(), because
+unregistering the LED turns it off and that used to queue the work
+again.
+
+Commit cc8d022e8679 ("HID: corsair: use disable_work_sync() to tear down
+the LED workers") was applied to the same branch and fixes the same
+problem differently: the work is disabled before the LED is
+unregistered, so the LED-off request can no longer queue it. The added
+cancel_work_sync() calls therefore do nothing, and the comment above
+them is no longer true.
+
+No functional change.
+
+Assisted-by: Claude:claude-mythos-5-2
+Signed-off-by: Andreas Claesson <andreas@aclaesson.com>
+---
+ drivers/hid/hid-corsair.c | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/drivers/hid/hid-corsair.c b/drivers/hid/hid-corsair.c
+index a9f2a0447f2d..f966005d69dd 100644
+--- a/drivers/hid/hid-corsair.c
++++ b/drivers/hid/hid-corsair.c
+@@ -526,8 +526,6 @@ static void k90_cleanup_backlight(struct hid_device *dev)
+ 		drvdata->backlight->removed = true;
+ 		disable_work_sync(&drvdata->backlight->work);
+ 		led_classdev_unregister(&drvdata->backlight->cdev);
+-		/* unregister turns the LED off, which re-queues the work */
+-		cancel_work_sync(&drvdata->backlight->work);
+ 		kfree(drvdata->backlight->cdev.name);
+ 		kfree(drvdata->backlight);
+ 	}
+@@ -544,8 +542,6 @@ static void k90_cleanup_macro_functions(struct hid_device *dev)
+ 		k90->record_led.removed = true;
+ 		disable_work_sync(&k90->record_led.work);
+ 		led_classdev_unregister(&k90->record_led.cdev);
+-		/* unregister turns the LED off, which re-queues the work */
+-		cancel_work_sync(&k90->record_led.work);
+ 		kfree(k90->record_led.cdev.name);
+ 
+ 		kfree(k90);
+
+---
+base-commit: 10bc1d627c297097cfdc099377f8a13efdfffd86
+change-id: 20261124-hid-corsair-revert-redundant-cancel-8373b18be436
+
+Best regards,
+--  
+Andreas Claesson <andreas@aclaesson.com>
 
 
-> > There's no egpio function. I assume you copied it from sm8550 but I
-> > think you should do something similar to commit a326b0523fc1 ("pinctrl:
-> > qcom: sa8775p: Enable egpio function") here.
-> 
-> I'll add this in v3. EGPIO_PRESENT is set on GPIOs 185 to 223.
->
-
-Thanks,
-Bartosz
