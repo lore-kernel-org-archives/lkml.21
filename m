@@ -1,86 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795518309;
-	b=AtIcS2SLImA6Hyols8FkpNstjudu/c3REiSRIq3tEgtgGp40Bq9pnm4yAv7i9e7dOQLb
-	 LVHmB1yxb2yO5lTys7sVXJvIo/6nvtQnFNH0fIrO63+l+C1KFtMM1sXYw/A2cv/7RXM3b
-	 qy+0dj6TUzaM24fdPO0QrRzzeTv/m0SEWJvFo1raY5E1hztuDSymxJaG1VA8YIAeYMiZY
-	 zos0FQzsIBFbU2P9X5HSmShKxYGC8mKpQ+0J5CzcntIJTv06kl1y6zGQmQH05Hn7UqVQl
-	 64KkRojCru4pIF3WO0EPcDrHaTRjCxoHwo/24wV0P9BhBonbDXP9yRGkM5Vt6Nog4vw==
+	t=1795518311;
+	b=4L9O7HDfCbWyUY/rPk+4GtbzVc5mGfasS+FlAB68xzkm5PzDLxswPP3hQfwDpRrmjfMX
+	 0/3sQ6VqlI7uFmugDWp7kUAtetnMn9Xa/bTGzYy0cjCLQY7GCj1PIyhc4Br5jeOqOjuA4
+	 rRiEOcuzcK3Kkoxvfkh2YUqA9b1hfIdDFYwWnfm2NI+WMhBkkHFkMvNbVLzuRNYLhMs+y
+	 /Acc2k8W6bMeuM8uoRp+MxtEw/Zy2lkdlfHhBhZgGmWP95/A25SBMYKqwwDaIpOvnCAQo
+	 aOQMupe3SA6XK9Cg4KE/S5ZfIJZl7ANyzXkS8/QohkaQ39PVZshx3TfrQohZmKBnxug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795518309;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=UW5f9/wqMd0LumKW7HI5lbn1XdvYmSsV8Ic0juiG2Ac=;
-	b=lbuojJoNV7TNxIzIaug3khmxgjrwqoDPaYm/hUYXMvMSAXrBSwwvS3Z1CyCOPtt3f7En
-	 mkebuN2xkBGmG8zBpyvS39AtRm+bgGHijn4940VhOV1c5i1lf4X4zqSLp97nfzpVpJIB9
-	 soVOC9qi66ClckHZz3WEj1JnSKLaApVOQhpvk0qEqHJvlwvq8GggohGGAc/R1/BgKfK8H
-	 Yp6qLJ5vgHycBiXBQtIL+1PaZWehEpmfWIyTfbpfLqPFH7isav4SqUvkJN//AGnSHeq4l
-	 r3x1/1jErOxfHz2onT8v86EwtmOrDQExfK8hEu57EZKDWMMzppGLaB8Fu/OVP4VKmZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795518311;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
+	bh=cMYYBh43HY5xutvnzofxwE95gQWfanq+WzepalGdUdE=;
+	b=Cit8Bz916nHQuX2HSsFdYPuX+7nmcFCPZvynCq6NaPBRlPODz9bo221nYS9o2gi2OpF8
+	 avxGmCj40+FYtqVFQXtXuejBir9IbgwHbOjVEwIzPjmhetHtkEyvQixS1zhlhhc5yq8Qi
+	 za4bg/2mL72DlUMgWCODgIhgLUR8Va6moLi7YhP60VJAs+OtP+rYkYeXD1+96/1jg+ffj
+	 +j06o1+VlnISbzV16hcidNDF4pU2uow3Lup4Rfaz8Ckjoaq26QUU/Q6bAg/rJw2Mnr2ee
+	 +5W9Q4CgbEficR30z7cIm+R+eEK8r8hLN/pgQ8QgCMAmHebwJeeRaz2eabvXHAHlf2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=TrX7ljuY;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=kIFlonZS;
+	arc=none smtp.remote-ip=68.232.154.123
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A321E606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:05:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A321E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7E68606A334;
+	Tue, 24 Nov 2026 11:05:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7E68606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=TrX7ljuY
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOB4sqX615697;
-	Tue, 24 Nov 2026 11:04:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=UW5f9/wqMd0LumKW7HI5lbn1XdvYmS
-	sV8Ic0juiG2Ac=; b=TrX7ljuYOlBSLges6I7KDRX1/OpLfR2703AkpFcg2zgpNm
-	EFe51uvX+Vely/JPRpW5QsAozTk5S20pukFWcCGTCo9oxrJI9y76s2ohKLJOPnm2
-	10A3JsBFbKda/Xsok1VRFepO7x3vXfzF7Jhs2sKBXpH0/rTsDty1/gWLx0PWF8uW
-	BtOezyZ54VuORWPdj0QqnpSOmfr00ovqvKjxeKtaf015a1G45e162/lvbZ8f6Qtp
-	u5i9n1o26/WQBakteLphny+qEiVddwJzWkhdbKqJIsPWJHNJkFhQ8wBNpeoadCja
-	Eh7A4Zke5ttc2GF9DUZugW5kYv3ily2MQ2ALrkVA==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g37bpd-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 24 Nov 2026 11:04:53 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOB4IGH2194682;
-	Tue, 24 Nov 2026 11:04:52 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j3quft479-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 24 Nov 2026 11:04:52 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AOB4m9T40894880
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 24 Nov 2026 11:04:48 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 847FD2004B;
-	Tue, 24 Nov 2026 11:04:48 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 718BE20040;
-	Tue, 24 Nov 2026 11:04:46 +0000 (GMT)
-Received: from li-fbf77acc-29ba-11b2-a85c-e8e934f50a46.ibm.com (unknown [9.123.6.5])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue, 24 Nov 2026 11:04:46 +0000 (GMT)
-Date: Tue, 24 Nov 2026 16:34:43 +0530
-From: Gautam Menghani <gautam@linux.ibm.com>
-To: maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
-        chleroy@kernel.org, ritesh.list@gmail.com, sshegde@linux.ibm.com
-Cc: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] powerpc/configs: Add debug configs for debugging
-Message-ID: <awVuscVoXvUvlT8V@li-fbf77acc-29ba-11b2-a85c-e8e934f50a46.ibm.com>
-References: <20261117130508.521098-1-gautam@linux.ibm.com>
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=kIFlonZS
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795518310; x=1827054310;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=Of+dCjox0s9BBeFJuiYkmvAKAj13vw6zap47XQbk6Oo=;
+  b=kIFlonZSgM4/72v39DA+gSAhGW8JDIJvVTafxBRe4y/ut0FR5ukriyRV
+   i0Hu0U3+s3vekG7pVUh7mmSznZ1DuXsDhAtMr/+ZB+VeQLtqM+/Kfmted
+   YEugnSJ6HFQ8USGnWIWLd8jrKAl0NjydEpHcD7qyK+PzOLua8jxmdE0Qv
+   j1y6zg6Asy05qCCr/svs2r4rHWV7tgaFssv8ZUI9ijl8j98Y3ObRDjW1+
+   4kqYrjm1IqKcQQsejV8l94GU1TMMXyGhO8w1YJB2plOnWhaVmn8wppuhf
+   TykY4PekDYl7XTwyx4p0XOD1Yb3Rk7J+hwFOFBsokpmHzcmoTiUfs2Chd
+   w==;
+X-CSE-ConnectionGUID: RdIhBla4TTmUq7KP99ZVFQ==
+X-CSE-MsgGUID: RG/anjkeS4Gk78FY/ubCuQ==
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="234021366"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Nov 2026 04:05:09 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Tue, 24 Nov 2026 04:05:09 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Tue, 24 Nov 2026 04:05:06 -0700
+Date: Tue, 24 Nov 2026 12:05:05 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: <netdev-bot+sashiko@kernel.org>
+CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <Steen.Hegelund@microchip.com>,
+	<UNGLinuxDriver@microchip.com>, <richardcochran@gmail.com>,
+	<linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<robert.marko@sartura.hr>, <horatiu.vultur@microchip.com>,
+	<jensemil.schulzostergaard@microchip.com>, <horms@kernel.org>
+Subject: Re: [PATCH net-next v3 5/9] net: sparx5/lan969x: size the FDMA
+ buffers from the port MTUs
+Message-ID: <20261124110505.66k7x7qluhxcnm62@DEN-DL-M70577>
+References: <20261120-sparx5-mtu-change-v3-5-55c272fe1acc@microchip.com>
+ <179544589573.3135.16010204842375196022@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,42 +85,176 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="iso-8859-1"
 Content-Disposition: inline
-In-Reply-To: <20261117130508.521098-1-gautam@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=SoQFe/O0 c=1 sm=1 tr=0 ts=6b056f55 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=c0aZF5j2F7ri9LcLqCQA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA0MyBTYWx0ZWRfX8sGHro0T3SSg
- VHKnv5nxo8HxEcabYmts5vew1GglWNTxGQ/3rg5qFhq3X21RmVDUrAOKKSje8hbknCjLw6+4USb
- F8Fp9AVx8xY6/q3GWj6CSeHat9c1/z4=
-X-Proofpoint-ORIG-GUID: _P1w1F_AeBaocavjdkc_zj8iK_mKVqEP
-X-Proofpoint-GUID: afN7aq1gMPuGY0hTuRZWTDWcIGDxvE9G
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA0MyBTYWx0ZWRfX816E6wpDC/yy
- RgvPUqCaFcs6uGaSpZM0rvWGBP02UzIADPgrVt11nH6y8mDynCRmsaC93d9jTQslETc0aOTD2Eg
- /LcWoHwvMjZp9+AnOUFlqOK5SJihIByCkvVo/2/LXTmgvc5cv/j1x1TKGurAR6sLSQX8WPTNKxp
- 52cVBFjNNHJMFq3n27ghjr/avCCZFuNEYvM0+vRS9Z/XfzwSCRIAX2q2Qhde2sxB0LfzLkMEJDz
- vCr3IZigB8iUGRQhGkP2xYKxNd2snwsORkwhhjANZdStQeCA1GArngTMSFkboLNq9vA5O/QBLaZ
- kUo81iI9Az71syhMlsqoLlo0Du3YC8QDuy9VGD9CRGus27JH5VUpQuZ7ccUGts127dWQNkNITuE
- WQ7UL6cEMkc+qz258Aa4c0v6VpDa3+PoRA4XurqPU0jul/RQig5g3y5RKS3JCUvXOiAqCFXbLVH
- RihEiGt/74Xr4DhKqSw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_02,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0 adultscore=0
- lowpriorityscore=0 clxscore=1015 malwarescore=0 impostorscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240043
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <179544589573.3135.16010204842375196022@kernel.org>
 
-I just found that there is already a config that contains debug config
-options that we can use - kernel/configs/debug.config
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+> 
+> Critical: 0 (1) � High: 1 � Medium: 0 � Low: 0
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [High] net: sparx5: UAF of two-step PTP skb on TX drop in
+>   sparx5_port_xmit_impl()
+> 
+> Pre-existing issues:
+> - [Critical] Use-after-free and double free of two-step PTP skbs on the
+>   Sparx5 TX drop path.
+> 
+> --
+> 
+> net: sparx5/lan969x: size the FDMA buffers from the port MTUs
+> 
+> This commit sizes the Sparx5 and lan969x FDMA buffers from the largest port
+> MTU plus the Ethernet header, FCS, IFH and two VLAN tags, rather than a
+> fixed single page. On Sparx5 the RX and TX DB size is that length rounded
+> up to 128 bytes, and sparx5_fdma_xmit() now drops frames that do not fit.
+> On lan969x the page_pool page order is derived from the max frame size.
+> 
+> > diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
+> > index 537c945409bba..b92d249777f0b 100644
+> > --- a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
+> > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
+> 
+> [ ... ]
+> 
+> > @@ -224,6 +223,10 @@ int sparx5_fdma_xmit(struct sparx5 *sparx5, u32 *ifh, struct sk_buff *skb,
+> >  	struct fdma *fdma = &tx->fdma;
+> >  	void *virt_addr;
+> >  
+> > +	/* Drop frames that do not fit in the TX buffers */
+> > +	if (unlikely(IFH_LEN * 4 + skb->len + ETH_FCS_LEN > fdma->db_size))
+> > +		return -EMSGSIZE;
+> > +
+> 
+> [Severity: High]
+> This is a pre-existing problem in sparx5_port_xmit_impl(), but the
+> new -EMSGSIZE return makes it much easier to hit. What happens to a
+> two-step PTP skb that fails here?
+> 
+> sparx5_port_xmit_impl() calls sparx5_ptp_txtstamp_request() before
+> ops->fdma_xmit(). For two-step PTP, that puts the skb on
+> port->tx_skbs with skb_queue_tail() without taking an extra
+> reference. It also increments sparx5->ptp_skbs and port->ts_id.
+> 
+> If fdma_xmit() then returns anything other than -EBUSY, the code
+> jumps to the drop label, which only calls dev_kfree_skb_any(skb).
+> Only the busy label calls sparx5_ptp_txtstamp_release(port, skb). The
+> freed skb is therefore still linked on port->tx_skbs.
+> 
+> Later walks of port->tx_skbs happen in
+> sparx5_ptp_txtstamp_old_release(), in the sparx5 and lan969x PTP IRQ
+> handlers, and in sparx5_ptp_deinit(). These read SPARX5_SKB_CB() from
+> freed memory, call __skb_unlink() through stale list pointers, and
+> call dev_kfree_skb_any() on the same skb again. Isn't that a
+> use-after-free and a double free?
+> 
+> sparx5->ptp_skbs is also never decremented for these skbs. After
+> SPARX5_MAX_PTP_ID such drops, sparx5_ptp_txtstamp_request() returns
+> -EBUSY forever, and two-step TX timestamping on the switch stalls.
+> 
+> Before this patch the Sparx5 TX DB was PAGE_SIZE. The drop path could
+> only be reached through the -EINVAL ring-full return here, or through
+> the -ENOMEM DMA mapping failure in lan969x_fdma_xmit(). With the
+> default MTU of 1500, db_size is now
+> ALIGN(1518 + 36 + 8, 128) = 1664. Any two-step frame with skb->len
+> above 1624 now takes the drop path every time.
+> 
+> Such frames can still reach a 1500 MTU port, for example through tc
+> mirred or bpf_redirect from a device with a larger MTU. They can also
+> arrive when the MTU is lowered while larger skbs are already queued,
+> which becomes possible later in this series.
+> 
+> The commit message relies on this drop path. Should the drop label in
+> sparx5_port_xmit_impl() release two-step PTP skbs the same way the
+> busy label does? Or would you rather check the length before
+> sparx5_ptp_txtstamp_request() is called?
 
-This patch can be dropped.
+This is pre-existing. The drop path already misses the PTP release before this
+series, e.g when the TX ring is full, so the handling of the PTP tx_skbs is
+broken regardless of this check. I have two WIP patchsets for lan966x and
+sparx5/lan969x that will rework the PTP tx_skb handling. These will be submitted
+in the near future.
 
-Thanks,
-Gautam
+> 
+> [Severity: Critical]
+> This is a pre-existing issue, but this new return gives a second,
+> deterministic way to hit it. What happens to a two-step PTP skb that gets
+> -EMSGSIZE here?
+> 
+> By this point, sparx5_port_xmit_impl()->sparx5_ptp_txtstamp_request() has
+> already put the skb on port->tx_skbs without taking a reference:
+> 
+> sparx5_ptp.c:sparx5_ptp_txtstamp_request() {
+>     ...
+> 	skb_queue_tail(&port->tx_skbs, skb);
+> 	SPARX5_SKB_CB(skb)->ts_id = port->ts_id;
+> 	SPARX5_SKB_CB(skb)->jiffies = jiffies;
+> 
+> 	sparx5->ptp_skbs++;
+> 	port->ts_id++;
+>     ...
+> }
+> 
+> Back in sparx5_port_xmit_impl(), only -EBUSY goes through
+> sparx5_ptp_txtstamp_release(). Any other negative return frees the skb
+> while it is still on the list:
+> 
+> sparx5_packet.c:sparx5_port_xmit_impl() {
+>     ...
+> 	if (ret == -EBUSY)
+> 		goto busy;
+> 	if (ret < 0)
+> 		goto drop;
+>     ...
+> drop:
+> 	stats->tx_dropped++;
+> 	sparx5->tx.dropped++;
+> 	dev_kfree_skb_any(skb);
+> 	return NETDEV_TX_OK;
+> busy:
+> 	if (skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP &&
+> 	    SPARX5_SKB_CB(skb)->rew_op == IFH_REW_OP_TWO_STEP_PTP)
+> 		sparx5_ptp_txtstamp_release(port, skb);
+> 	return NETDEV_TX_BUSY;
+> }
+> 
+> The next two-step request then walks the list in
+> sparx5_ptp_txtstamp_old_release():
+> 
+> 	skb_queue_walk_safe(&port->tx_skbs, skb, skb_tmp) {
+> 		if time_after(SPARX5_SKB_CB(skb)->jiffies + SPARX5_PTP_TIMEOUT,
+> 			      jiffies)
+> 			break;
+> 
+> 		__skb_unlink(skb, &port->tx_skbs);
+> 		dev_kfree_skb_any(skb);
+> 
+> Does this read the cb of the freed skb and then free it again? The TX
+> timestamp IRQ handler can also find the stale entry. ptp_skbs and ts_id
+> also stay incremented, so can the PTP ID pool run out?
+> 
+> This path could already be reached through the -EINVAL return when the
+> next TX DB is not done, i.e. when the TX ring is full.
+> 
+> With this patch and the default MTU of 1500, db_size goes from 4096 to
+> ALIGN(1518 + 36 + 8, 128) = 1664. A two-step timestamped frame longer
+> than 1624 bytes used to be sent, but now it always takes the drop path.
+> Such frames can still reach a 1500 MTU port, for example through tc
+> mirred or bpf_redirect from a device with a larger MTU.
+> 
+> The commit message says it will "make sparx5_fdma_xmit() drop frames that
+> do not fit", so it depends on this drop path. Should the drop label in
+> sparx5_port_xmit_impl() call sparx5_ptp_txtstamp_release() for two-step
+> PTP skbs, the same way the busy label does? sparx5_port_xmit_impl() is
+> still unchanged at the end of the series.
+> 
+> -- 
+> Sashiko AI review � https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-sparx5-mtu-change-v3-0-55c272fe1acc%40microchip.com
