@@ -1,79 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795486723;
-	b=NXZ/rcL6IpQIdHnllq8JF25zuEWgvSO6u9SucS/Bu2Yx/TUyjF+QGcYTA9iXNclmmqIU
-	 st6+YWdw2/ebRwPbx+i2LIAX7SUrPsB8qNyfnza2dUwc3dPFaMTb2oUYUSLJIz0YAdeKM
-	 4DsapRZTFKH5tCRsbNCVKgu2NGyuwYPC6HuE5U8t3+lHPYqTKSCMstR1HBK1SLwjorHGc
-	 8LRRGsX5CMtV9uo/re+QukkWx1eCx6lQHu1wqtM7cxfBcIkDcvjziSP0hXo9yX2WEtg8E
-	 yQnnZ7SMlUNp51PUpqyLpbn4OLA4NPYQ1NbTgZk1c15u+9SlDu5wsZvd7Yss8I8FuvQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795486723;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=7GQt9xtPL9z9GDoDCIL36a20sRC9UdEBG+d8LmlkjlI=;
-	b=zBct5fVaK9Q2OvU0/GDQb46RwM+wAjhJHKnoecczE6RDFlJoyzFq2u9ytVVFVC3nXjsU
-	 OH+vdSBi6YKpiih8dsmlJwfpYCuHEwdpbSQE9otzfLCu65pOrloUHKQW7rjBz9wCZsw9K
-	 OBd9aIEZxRd07am2rbNgebIpd4275AluRvamqeSZx4Q7OGbBPRZBv7D0/73q/H2C1Tusa
-	 zvOIPW7CvtCnZKLca4ItuYfXT8g5RTa/3qlyp3XZott1PsBTIq2noqH3X4B1S4BUiIQv9
-	 KCJwdqmZDyB0Y7pwGCrsQHuDjiMXDPQC95UlFvwcfbNeOj/wmVC5O1vuHzdXICdObyA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=alien8.de;
-	spf=pass smtp.mailfrom=alien8.de;
-	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=SbxvQgzI;
-	arc=none smtp.remote-ip=65.109.113.108
-Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795486746;
+	b=lmGhre6b6dN39tjhtlruWbTYTWw9zkZnCMjvBNxAJw8u2gfJba8bOpO5cQSz1hlpD4u2
+	 TsNyCupWCTysunOVsz+Nsb3RKct80DVzsyO9NWY0idyKsiSDnE9J8LDpfCUr470ur+env
+	 WTc/6/RKYapUNhhLekRbDkcuQVKEdmoSMtEsnhS7m5cjT7NVwOdOI7nsjZPdbYh8ZpPpM
+	 XqGVr+B8JDLjYnDDzPn8sY+74Ty41eDgiWfiCIOE7e452cXuAvQoazET8dJ/ShlhGBlE5
+	 YvC9qSmoJ0rdTJY9wB9HIiehIWgPWIRbSoqyDNu9zAGmJfFLM4vg9zWW3v/vGxDV2cg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795486746;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=p373wFfzA+j6Ni2LpTmcRnqyjI5yYrAPkxO3l73XycI=;
+	b=gC5QBIkM9Rhlqa4HI0c8SlsCQ23njNSgdTny6QUhT2TeTk8Ri+jgbK0/hf9TGdYKVsqE
+	 NPtKsJYAEHB84ispjnMEhFYB5twsKQygcKNu6Z5kMvC2yutGHoug2j3X1dQ9d1GYFtr6u
+	 uAlaLNyJJiR25gTjZr9sk8rjIZVpck4cguEy22pf9KrEVBtTiUK38ESfz/haezqcbGYJZ
+	 PLWXtoMGOTaPpNfdxknDblGcpFMTyAvyNPBHNi0EoDbTLV6Ty7ZNO+x7exihCw0NJGvEn
+	 rrwVvF5Zh1Muyu/ZT4S8c0ywNMCq21ZBbm1ghmjlEvZ5PwwssooE8UWuajjPtDOLZIQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BVJa3vyX;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CD66606A31E;
+	Tue, 24 Nov 2026 02:19:05 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BVJa3vyX
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795486745;
+	b=bwq642YGBAu7fO7B6vQLveEZ+qCvgZXjnYDe4UHIPg4EgbOngmC1S3zGib3inn8EIgM1
+	 zJxjw5dZoEcT9gKj8hCvUERJGusMa4LsYXKV2B9gj1iKL9CyiE531EkXOLH089B3brJYE
+	 CxARFQig8Doje7geMaw2TNxcIl8hl8Dz+i+U5ROsm8y+WrkRt0D+kwh4Md0uApxkSHOzL
+	 80wkPvtofJmzNOiqsKIbfSsGq1hcp8ASnJWGpevljiN6sIT6/kdsyjKLECXkbm/rnOQmK
+	 nHCKdYdlBSBw6WSSduR7ewtZWESqmZGd/csn1/mHq7y6lFO99NyKzcu1sKQsxV46FJQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795486745;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=p373wFfzA+j6Ni2LpTmcRnqyjI5yYrAPkxO3l73XycI=;
+	b=qY/HomEa19YVaQoCqZHeTsCKwpTzl8S4OS4XmH0DD6A/0dlJ/NyxlX9lMgQ1aHU3WiaJ
+	 1R28kl4wLsqxqskRKsH5uBHvPOcuj6gG/1U44QXH5X+4jHVF5ApkOCUOpVdngJkQ2H6jU
+	 2R67X0/YI7rAciAnffrCvycEKRCZ1kO9P+DixyHyicn6c7Hsjl/PIodHPix34cbAO1H/W
+	 uC0gae08tswvZsvEEPu6tjoNTgqXEpBm+KL9sezn13ELoDhaiWJB8Wwo9+44MwVYlLPig
+	 YikYQTkSAN2LHFKtGptmapyjWzO5RGCatH1N4taERgxI/C/Qw5WfloCOceC+sWZRRHQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5A17606A31E;
-	Tue, 24 Nov 2026 02:18:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5A17606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=SbxvQgzI
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id C54A940E02B4;
-	Tue, 24 Nov 2026 02:18:40 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id 1yOXpp3EnhoH; Tue, 24 Nov 2026 02:18:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1795486717; bh=7GQt9xtPL9z9GDoDCIL36a20sRC9UdEBG+d8LmlkjlI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SbxvQgzIT3j5r+tgIuNkLkHZuHuhIVxHE6DSMNqHItoriyZS598P5KnvanVhS08aH
-	 At1RaJxyap+7l1/qAhbB36ODm4MXlZNdtl69+pOJpXH/IZM1fiDBwmmxqYXe54JRzD
-	 kvN91IFUEjLEUZi5B2N12T85Y/dKoIRJTRe6mRcVhgSCSbCzULIXJ0cMqqguHazfGQ
-	 IW2bMZJ/25HdDj/tU47blcrm0Ou7Pi2OIlG/gBivNiDgyWJ81jXP9qp3LBqrlF3dVK
-	 KcNevaVE+znEJn6FQ80gMJq6k8vJCaNM0cWDLSVm95jHNzGssMcJn8rgZMUVqcGPx8
-	 GQ8z6uK7pV20C5T1itgyMHxTSN9Mkdrd2fTZOf5mHIOfUqzAFgRC0Lq7xrSe6hah1g
-	 g6CD3HIvmdLv8JiJrjG39DYo2biiIoWdrvALKX9VWplGkyQCU8YS6ln+C4BRnpOp1J
-	 WuhUqpZMPK/qoG/9H/PqJ309Na1gppjtJKEOG5QHgCT8NvO0qvwP/Sd2TO1kn0RLh2
-	 O3DftPAbaFmfW6kD0JXGRGK66yt6JiXjwRooIkefojROngTb/PnL8xS/sVUe6CFIKZ
-	 9NUbGTxX0rs+H3mp7A0gsQHxOtqSzkR9pZ0lsji2RHwna+7lk6NS2WaMJm1O+nEjDm
-	 Pc58yGlfxGCxQkH32PZNC6C8=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 52CF540E02A9;
-	Tue, 24 Nov 2026 02:18:24 +0000 (UTC)
-Date: Mon, 23 Nov 2026 18:18:20 -0800
-From: Borislav Petkov <bp@alien8.de>
-To: Dexuan Cui <decui@microsoft.com>
-Cc: tony.luck@intel.com, tglx@kernel.org, mingo@redhat.com,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	linux-edac@vger.kernel.org, linux-kernel@vger.kernel.org,
-	kameroncarr@microsoft.com, Naman Jain <namjain@linux.microsoft.com>,
-	Yazen Ghannam <yazen.ghannam@amd.com>
-Subject: Re: [PATCH v2] x86/mce: Report unavailable MCE support at
- informational level
-Message-ID: <20261124021820.GDawTz7EeTyDB6SB8G@fat_crate.local>
-References: <20261119185811.565606-1-decui@microsoft.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id CABF31F000C4;
+	Tue, 24 Nov 2026 02:18:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795486745;
+	bh=p373wFfzA+j6Ni2LpTmcRnqyjI5yYrAPkxO3l73XycI=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=BVJa3vyXswhFAxMFuBUgP1F832waWYO713yAUY4Vio0Q0J+co3GyKnIOIGwx0T5rw
+	 BCkfX3H08F0DKbSU53g6VrkzSAKOHO/FVSis2dimF3VKfZ9hf9omEXASWbqKV9Fqrv
+	 pz2uEyuOi8fiJTqaIOo7afRnaiWCngFDAB9Sd75jbQzU4OSFGxdxqXNr+URtZANjRQ
+	 +7zqyGUMVg97Y7JTN04NCXoQ3mnKD3OMk6gusgL5AqIZDAHElr2Cgp8FdCX9TU1Tdj
+	 6Cx53S3qPI+/NtzUZqc17MJaETJ8r6fbIGWkD23U8FxJxCLp7Lb3kCyUQe3l65S+Sh
+	 ZzRwHQ1o0J+Jg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 23CA34C83D;
+	Tue, 24 Nov 2026 02:18:55 +0000 (UTC)
+From: Abhiraj Dutta via B4 Relay <devnull+abhirajdutta7.gmail.com@kernel.org>
+Date: Mon, 23 Nov 2026 21:17:57 -0500
+Subject: [PATCH] ALSA: hda/realtek: Fix duplicate LEDs on HP Spectre x360
+ 16-f2xxx
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,72 +83,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261119185811.565606-1-decui@microsoft.com>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-hp-spectre-16-f2-led-fix-v1-1-a2a333dceeb5@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/x3MQQqEMAwF0KuEvzZgqnTRqwyz0DbVgGhph0EQ7
+ y74DvAuNK2mDYEuVP1bs2NHIOkIcZ32RdkSAsH1zou4gdfCrWj8VWXxnB1vmjjbydOoMswp+jQ
+ LOkKpmu1868/3vh9jGemaagAAAA==
+X-Change-ID: 20261123-hp-spectre-16-f2-led-fix-a4e13bdc6db1
+To: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
+Cc: Takashi Iwai <tiwai@suse.de>, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ Abhiraj Dutta <abhirajdutta7@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795486735; l=2648;
+ i=abhirajdutta7@gmail.com; s=20261122; h=from:subject:message-id;
+ bh=2fGkl4MnRAFoBN/vsCmVD26p7qRSOwU1KzcdavldMmo=;
+ b=1kMFy9uWM5jo+LSPu7W7mproAH6ITaAgaCkQSMjHlRjCut1TZfqS/EwqzfP6rCT9h0mnMH33E
+ pC7f44DbUH+CV0kLKjDvBwBp2dihoZSs/kA5niqvab8+rugJT80i1f6
+X-Developer-Key: i=abhirajdutta7@gmail.com; a=ed25519;
+ pk=3ETcWPbWUjdsP3Pv+/VwZOZKPt9O4SvxqiXNMNNY4gc=
+X-Endpoint-Received: by B4 Relay for abhirajdutta7@gmail.com/20261122 with
+ auth_id=1610
+X-Original-From: Abhiraj Dutta <abhirajdutta7@gmail.com>
+Reply-To: abhirajdutta7@gmail.com
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 19, 2026 at 10:58:11AM -0800, Dexuan Cui wrote:
-> mcheck_init_device() reports an error and returns -EIO when
-> mce_available() is false. However, MCE support being unavailable does
-> not necessarily indicate an initialization failure.
-> 
-> For example, a TDX guest with TD_CTLS.REDUCE_VE set and
-> FEATURE_PARAVIRT_CTLS.MCA clear does not enumerate the MCE and MCA
-> CPUID capabilities. This is an expected configuration, but it causes
-> the kernel to print:
-> 
->   mce: Unable to init MCE device (rc: -5)
-> 
-> MCE can also be unavailable because it was explicitly disabled with
-> mce=off or nomce. When it was disabled due to an earlier initialization
-> problem, the relevant path already reports the reason.
-> 
-> Report MCE unavailability at informational level and return -ENODEV
-> directly instead of routing it through the common error path.
-> 
-> Reviewed-by: Naman Jain <namjain@linux.microsoft.com>
-> Reviewed-by: Yazen Ghannam <yazen.ghannam@amd.com>
-> Signed-off-by: Dexuan Cui <decui@microsoft.com>
-> ---
-> 
-> Changes since v1:
->     v1: https://lore.kernel.org/all/20260923173033.4104944-1-decui@microsoft.com/
-> 
->     Added Reviewed-by's of Naman and Yazen.
->     No other change.
-> 
->  arch/x86/kernel/cpu/mce/core.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/x86/kernel/cpu/mce/core.c b/arch/x86/kernel/cpu/mce/core.c
-> index 50b1614968be6..ca7b729b74126 100644
-> --- a/arch/x86/kernel/cpu/mce/core.c
-> +++ b/arch/x86/kernel/cpu/mce/core.c
-> @@ -2815,8 +2815,8 @@ static __init int mcheck_init_device(void)
->  	MAYBE_BUILD_BUG_ON(__VIRTUAL_MASK_SHIFT >= 63);
->  
->  	if (!mce_available(&boot_cpu_data)) {
-> -		err = -EIO;
-> -		goto err_out;
-> +		pr_info("MCE is unavailable\n");
-> +		return -ENODEV;
+From: Abhiraj Dutta <abhirajdutta7@gmail.com>
 
-What's the difference between:
+The EU0XXX fixup already sets up the mute and mic-mute LEDs, so chaining
+ALC245_FIXUP_HP_X360_MUTE_LEDS after it registers both LEDs twice
+(hda::mute_1 and hda::micmute_1 appear). Use the EU0XXX fixup directly.
 
-	"MCE is unavailable\n"
+The original commit message also got the SSID wrong: under SOF the PCI
+SSID is 103c:891e, not 103c:0000.
 
-and
+Fixes: e30ec632e1f0 ("ALSA: hda/realtek: Add quirk for HP Spectre x360 2-in-1 Laptop 16-f2xxx")
+Cc: stable@vger.kernel.org
+Signed-off-by: Abhiraj Dutta <abhirajdutta7@gmail.com>
+---
+ sound/hda/codecs/realtek/alc269.c | 9 +--------
+ 1 file changed, 1 insertion(+), 8 deletions(-)
 
-	"Unable to init MCE device (rc: %d)\n", err
+diff --git a/sound/hda/codecs/realtek/alc269.c b/sound/hda/codecs/realtek/alc269.c
+index dfdcf8b98..406524178 100644
+--- a/sound/hda/codecs/realtek/alc269.c
++++ b/sound/hda/codecs/realtek/alc269.c
+@@ -4524,7 +4524,6 @@ enum {
+ 	ALC256_FIXUP_HEADPHONE_AMP_VOL,
+ 	ALC245_FIXUP_HP_SPECTRE_X360_EU0XXX,
+ 	ALC245_FIXUP_HP_SPECTRE_X360_16_AA0XXX,
+-	ALC245_FIXUP_HP_SPECTRE_X360_16_F2XXX,
+ 	ALC245_FIXUP_HP_ZBOOK_FIREFLY_G12A,
+ 	ALC285_FIXUP_ASUS_GA403U,
+ 	ALC285_FIXUP_ASUS_GA403U_HEADSET_MIC,
+@@ -7227,12 +7226,6 @@ static const struct hda_fixup alc269_fixups[] = {
+ 		.type = HDA_FIXUP_FUNC,
+ 		.v.func = alc245_fixup_hp_spectre_x360_16_aa0xxx,
+ 	},
+-	[ALC245_FIXUP_HP_SPECTRE_X360_16_F2XXX] = {
+-		.type = HDA_FIXUP_FUNC,
+-		.v.func = alc245_fixup_hp_spectre_x360_eu0xxx,
+-		.chained = true,
+-		.chain_id = ALC245_FIXUP_HP_X360_MUTE_LEDS
+-	},
+ 	[ALC245_FIXUP_HP_ZBOOK_FIREFLY_G12A] = {
+ 		.type = HDA_FIXUP_FUNC,
+ 		.v.func = alc245_fixup_hp_zbook_firefly_g12a,
+@@ -7876,7 +7869,7 @@ static const struct hda_quirk alc269_fixup_tbl[] = {
+ 	SND_PCI_QUIRK(0x103c, 0x8902, "HP OMEN 16", ALC285_FIXUP_HP_MUTE_LED),
+ 	SND_PCI_QUIRK(0x103c, 0x890e, "HP 255 G8 Notebook PC", ALC236_FIXUP_HP_MUTE_LED_COEFBIT2),
+ 	SND_PCI_QUIRK(0x103c, 0x8919, "HP Pavilion Aero Laptop 13-be0xxx", ALC287_FIXUP_HP_GPIO_LED),
+-	SND_PCI_QUIRK(0x103c, 0x891e, "HP Spectre x360 2-in-1 Laptop 16-f2xxx", ALC245_FIXUP_HP_SPECTRE_X360_16_F2XXX),
++	SND_PCI_QUIRK(0x103c, 0x891e, "HP Spectre x360 2-in-1 Laptop 16-f2xxx", ALC245_FIXUP_HP_SPECTRE_X360_EU0XXX),
+ 	SND_PCI_QUIRK(0x103c, 0x896d, "HP ZBook Firefly 16 G9", ALC245_FIXUP_CS35L41_SPI_2_HP_GPIO_LED),
+ 	SND_PCI_QUIRK(0x103c, 0x896e, "HP EliteBook x360 830 G9", ALC245_FIXUP_CS35L41_SPI_2_HP_GPIO_LED),
+ 	SND_PCI_QUIRK(0x103c, 0x8971, "HP EliteBook 830 G9", ALC245_FIXUP_CS35L41_SPI_2_HP_GPIO_LED),
 
-?
+---
+base-commit: 896ec6bbe7dd2f29aff1a12eb318a6828be1edd8
+change-id: 20261123-hp-spectre-16-f2-led-fix-a4e13bdc6db1
 
-And changing the routing path breaks the readability in this function.
-
-What's the point of this patch at all?
-
+Best regards,
 -- 
-Regards/Gruss,
-    Boris.
+Abhiraj Dutta <abhirajdutta7@gmail.com>
 
-https://people.kernel.org/tglx/notes-about-netiquette
+
