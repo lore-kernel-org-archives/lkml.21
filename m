@@ -1,54 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=206.189.79.184
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=130.133.4.66
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795508852;
-	b=lTkptZUEDXts/0J1z7OrvoKHnxQTSAA2bU6GpLRoNnVXbDyzuzmF6FzKSdVk1Vm3KNPG
-	 3dWL6I+vAQ6yzr/yt9A4M1gB8wSJl9sJz79SB9QdB7IkmusOGaCEp0bkUcSHlmPCZNf4y
-	 iKDsFxiOL3c9vYvMavati8kjwIRpk/6pcGP6VFScRK2PCrckrQfEdiYiaPVZiVzJF9hbv
-	 hqSDqAc9daTfup4hpgU055KYeZA+A1apPBG0rvNDBPwWj+3fWdIpQ8QExqN1fQTJnKv8d
-	 eQEkMNNAzqR8KRw5iI6UGRnid9y+BhdCa2EvJbGDnxJajGprQujX2Yqhc5BpUbpWT4Q==
+	t=1795508858;
+	b=OGeCqZa0azsfBxHeasTL2M56Oce308iM2W8QJHm6ZhClAns0JkjbmDQkPf6GF2/07QuV
+	 tfZcNh3j7Xh2A8w4ZZPF7vJ8Xtp+rFHRiJn9EgTpZoQVtb48rPwaz45JYy4y3Lm4PPN5w
+	 SUWg2zuL0g8mfqP0yjPtbwtd8pvpoUwgzvPPPx3//cs+1eXrVy1y4NZz4OsQRczhHgeCh
+	 rK/hbcghJfzHm4STJnMPqOgjJUNX5Qhn3tp015zQhOUi2BLVlhAuXOOcocfZWsHfSk8Nf
+	 DjzUqjLm++LtNS2Li5ui23Oi1fpVuhIqyh2xuYA+D5IVt+Q3eBt5U+0S+uFUcsCroqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795508852;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=YKGKqGvlDx6/N1XO2T9kBBWtRBrnD3z7inHGvE3ANXg=;
-	b=0q0abwoJ9vSC7YH4LR4nTp+ABllXVIm7dPOA9074IYrIb7bDZ3KfdGC6dI1mXFLfgdto
-	 Ov/Ini9T3QrDtdQ4hVkCglGafmTc49VepTguJ5KJbEquoGhfULQVVipKqKEsCgHcwchVH
-	 gZKvcM4RvM5tI8685sMFaLfx+gyhYRmGczBoetpjjPa2awkuedgM3L9RMxXU0CzrpnCHz
-	 LgGaVUxaV8sjn/ZzZQiVAKw821T5Ig4WDHKWVs0WbOb3nYSBpLmzH3ujEQl7kodMDbO3a
-	 EmtzDGQ8SfCjPkZrWOedVvSH89GfSlGx32YE5g6Z2+HrkWRRc7UuN4v+HJGML1BEDgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795508858;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Subject:
+	 From:To:Cc:Date:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:User-Agent:MIME-Version:X-Original-Sender:
+	 X-Originating-IP:X-ZEDAT-Hint;
+	bh=fOwYXB5vdalFPHcBdZlvLIB1kc1NWkQ5l89Xnccj3bM=;
+	b=ouJ5cJ3zPIqNO4/a/67xLEZYK3PIwuh58EpnB582sROUxYWcQ/TQb7Ul89NexZ9m4OZR
+	 WqnpUE+HHkVpRVm7PtQj+M0Fpm3wJFCIxEnyVRF10sbfDlhsVXScmoWXYrhGUf1xFGQuz
+	 eDwB01K3G9kXMmlWJx5RD4YuDlo4dpb1p0ZX5QD+Z6PYvJCBFwN4vZNes3ee+i/3DEnV2
+	 0/cn0g9Jr58hPRkO6yc+gptlhpCObr1wB+muqfbcJTxmrorWIYCQxt53Mr0tkmdkhwbj7
+	 7Ynpy9uOjWZuMDJbrbO4jo9NhVOeZ+rt6ix5pplPU7RaI/3+tFOwP6S0ePmMF+S/zCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.zgclab.edu.cn;
-	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
-	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b="WNsNd/70";
-	arc=none smtp.remote-ip=206.189.79.184
-Received: from zg8tmja2lje4os43os4xodqa.icoremail.net (zg8tmja2lje4os43os4xodqa.icoremail.net [206.189.79.184])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8417E606A322;
-	Tue, 24 Nov 2026 08:27:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8417E606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
+	dmarc=pass header.from=physik.fu-berlin.de;
+	spf=pass smtp.mailfrom=zedat.fu-berlin.de;
+	dkim=pass header.d=fu-berlin.de header.i=@fu-berlin.de header.a=rsa-sha256 header.s=fub01 header.b=GZRlBdlc;
+	arc=none smtp.remote-ip=130.133.4.66
+Received: from outpost1.zedat.fu-berlin.de (outpost1.zedat.fu-berlin.de [130.133.4.66])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8824606A322;
+	Tue, 24 Nov 2026 08:27:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8824606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=physik.fu-berlin.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zedat.fu-berlin.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=WNsNd/70
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=mail.zgclab.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
-	Content-Transfer-Encoding; bh=YKGKqGvlDx6/N1XO2T9kBBWtRBrnD3z7in
-	HGvE3ANXg=; b=WNsNd/70Dllnb9y2xLQ984ZdJ2E1BdsBUjhjk47GT8RZE8hyrs
-	4vbCwFs8sEgbkv3/uBq8fkNE3Gvrh/RS6M4FIyWNtRODl15WQyvnAoc0ZnZ7CDbW
-	IyM+edE/aYVcFofIcuDnRnzQ2IvbLCROBzCl0XB9uv06iIegmWQGxJtfw=
-Received: from mt7530_series_04.eml (unknown [58.206.202.11])
-	by web1 (Coremail) with SMTP id yAQGZQB37j5fSgVrq+e8Ag--.34257S2;
-	Tue, 24 Nov 2026 16:27:11 +0800 (CST)
-From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
-To: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch, olteanv@gmail.com
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH net 4/5] net: dsa: mt7530: disable regulators on setup failure
-Date: Tue, 24 Nov 2026 16:25:57 +0800
-Message-ID: <179550875790.4156.6284290287819341762@mail.zgclab.edu.cn>
-In-Reply-To: <179550875789.4156.361477684651496992@mail.zgclab.edu.cn>
-References: <179550875789.4156.361477684651496992@mail.zgclab.edu.cn>
+	dkim=pass (2048-bit key, unprotected) header.d=fu-berlin.de header.i=@fu-berlin.de header.a=rsa-sha256 header.s=fub01 header.b=GZRlBdlc
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=fu-berlin.de; s=fub01; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:From:
+	Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To:
+	References; bh=fOwYXB5vdalFPHcBdZlvLIB1kc1NWkQ5l89Xnccj3bM=; t=1795508856;
+	x=1796113656; b=GZRlBdlcX4n0Jy/5ON6iC6aq0/HHtSx6o31Dne0g7MHIG8tvMxGkUqmYt8dh9
+	/3L2FXPJfjUScXbqtR/fQkRsm79i/8ynBrKwtRiDrAIbolKYr/3V3hKUtillOxRLoQkxiD6CE+CdJ
+	YI+yfHtEvL4Gdd2GmpznMImNqoBfblvMmIc3fqIkbmSnFcrpOlYi6yCN6X6CsWHwoDStmKbVkzMlb
+	1AuJHqWYZ0RX7MidYxaOy2Pyoq26DN2WEDxYwF1x+ooY1ZWSexSY/VeSZzRajyBmTH9FaBBHZH/CU
+	E92qIKwl0f+zGmwcnk2necycUL3Opyvi4ABAbVoP7tD+pbnbRw==;
+Received: from inpost2.zedat.fu-berlin.de ([130.133.4.69])
+          by outpost.zedat.fu-berlin.de (Exim 4.100)
+          with esmtps (TLS1.3)
+          tls TLS_AES_256_GCM_SHA384
+          (envelope-from <glaubitz@zedat.fu-berlin.de>)
+          id 1xVls4-00000003CfB-07QK; Tue, 24 Nov 2026 09:27:24 +0100
+Received: from p57bd95b5.dip0.t-ipconnect.de ([87.189.149.181] helo=suse-laptop.fritz.box)
+          by inpost2.zedat.fu-berlin.de (Exim 4.100)
+          with esmtpsa (TLS1.3)
+          tls TLS_AES_256_GCM_SHA384
+          (envelope-from <glaubitz@physik.fu-berlin.de>)
+          id 1xVls3-00000000YVA-36qH; Tue, 24 Nov 2026 09:27:23 +0100
+Message-ID: <6eb2202457d5703192a513b4e898dfe6653c1b0f.camel@physik.fu-berlin.de>
+Subject: Re: [PATCH v3 0/5] sh: mach-rsk: rsk7203: switch to using static
+ device property, drop legacy gpio API
+From: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Dmitry Torokhov
+	 <dmitry.torokhov@gmail.com>
+Cc: Arnd Bergmann <arnd@kernel.org>, Rich Felker <dalias@libc.org>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Geert Uytterhoeven
+ <geert+renesas@glider.be>, Linus Walleij	 <linusw@kernel.org>, Bartosz
+ Golaszewski <brgl@kernel.org>, Bartosz Golaszewski	
+ <bartosz.golaszewski@oss.qualcomm.com>, linux-sh@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Tue, 24 Nov 2026 09:27:22 +0100
+In-Reply-To: <awU4aqWbKEs4Qhyg@ashevche-desk.local>
+References: <20260929-rsk7203-properties-v3-0-02f84aeb8e47@gmail.com>
+	 <3a51385d-9649-4bd7-87b3-0caf9e462b2e@app.fastmail.com>
+	 <arzKNhmoL6yiGrzH@ashevche-desk.local>
+	 <dea00f90c205f8359baca729d8b0f31a@gmail.com>
+	 <ce838102be497ee6eab490b4454095b96e16d015.camel@physik.fu-berlin.de>
+	 <2e4f0d32c05d841feb367741bf8802fc@gmail.com>
+	 <awU4aqWbKEs4Qhyg@ashevche-desk.local>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.62.1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,121 +91,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:yAQGZQB37j5fSgVrq+e8Ag--.34257S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCFWkuF1rCr4kKFWUXr17GFg_yoW5XrW8pF
-	W7uF95tryvqF1FgasFyr47Xas0yrWxG3y7Ga92kwsYyw4FyF4vvr18tFyFvF1fKF4kJw43
-	A39xAF1ruFWkuaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBCb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4
-	vEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE
-	52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAV
-	WUtwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48J
-	M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW8Zw
-	CF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j
-	6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64
-	vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_
-	Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42
-	IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUgZXrUUUUU
-X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAQYBD2sFSI8DtwAAsU
+X-Original-Sender: glaubitz@physik.fu-berlin.de
+X-ZEDAT-Hint: PO
 
-Once the core and io regulators have been enabled, every later failure
-in mt7530_setup() returned without disabling them, leaving the rails
-enabled and making the regulator core warn when devres later puts an
-enabled regulator.
+On Tue, 2026-11-24 at 09:10 +0200, Andy Shevchenko wrote:
+> ...or even remove the board support completely (would be interesting
+> to see somebody investing time in this HW to fix all what listed and
+> not listed above).
 
-Route those failure paths to a common error label that disables both
-regulators, and disable the already enabled core regulator if enabling
-the io regulator fails.
+Can I as the SH maintainer at least have the last word on this? I'm not
+really happy with the fact that corporate developers are chasing hobbyists
+in the kernel developments all the time.
 
-Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
-Signed-off-by: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
----
- drivers/net/dsa/mt7530.c | 22 +++++++++++++++-------
- 1 file changed, 15 insertions(+), 7 deletions(-)
+You people are being paid to do this, of course you can work on the kernel
+on every weekday. But that doesn't mean hobbyist developers have to pick
+that workload as well.
 
-diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-index e208d942b577..1ac4ac1a0566 100644
---- a/drivers/net/dsa/mt7530.c
-+++ b/drivers/net/dsa/mt7530.c
-@@ -2435,6 +2435,7 @@ mt7530_setup(struct dsa_switch *ds)
- 		if (ret < 0) {
- 			dev_err(priv->dev, "Failed to enable io pwr: %d\n",
- 				ret);
-+			regulator_disable(priv->core_pwr);
- 			return ret;
- 		}
- 	}
-@@ -2457,20 +2458,22 @@ mt7530_setup(struct dsa_switch *ds)
- 				       val != 0, 20, 1000000);
- 	if (ret < 0) {
- 		dev_err(priv->dev, "reset timeout\n");
--		return ret;
-+		goto err_disable_pwrs;
- 	}
- 
- 	regmap_read(priv->regmap, MT7530_CREV, &id);
- 	id = FIELD_GET(CHIP_NAME_MASK, id);
- 	if (id != MT7530_ID) {
- 		dev_err(priv->dev, "chip %x can't be supported\n", id);
--		return -ENODEV;
-+		ret = -ENODEV;
-+		goto err_disable_pwrs;
- 	}
- 
- 	if ((val & MT7530_XTAL_MASK) == MT7530_XTAL_20MHZ) {
- 		dev_err(priv->dev,
- 			"MT7530 with a 20MHz XTAL is not supported!\n");
--		return -EINVAL;
-+		ret = -EINVAL;
-+		goto err_disable_pwrs;
- 	}
- 
- 	/* Reset the switch through internal reset */
-@@ -2537,7 +2540,7 @@ mt7530_setup(struct dsa_switch *ds)
- 	/* Setup VLAN ID 0 for VLAN-unaware bridges */
- 	ret = mt7530_setup_vlan0(priv);
- 	if (ret)
--		return ret;
-+		goto err_disable_pwrs;
- 
- 	/* Check for PHY muxing on port 5 */
- 	if (dsa_is_unused_port(ds, 5)) {
-@@ -2564,7 +2567,7 @@ mt7530_setup(struct dsa_switch *ds)
- 				if (ret && ret != -ENODEV) {
- 					of_node_put(mac_np);
- 					of_node_put(phy_node);
--					return ret;
-+					goto err_disable_pwrs;
- 				}
- 				id = of_mdio_parse_addr(ds->dev, phy_node);
- 				if (id == 0)
-@@ -2588,17 +2591,22 @@ mt7530_setup(struct dsa_switch *ds)
- 	/* Flush the FDB table */
- 	ret = mt7530_fdb_cmd(priv, MT7530_FDB_FLUSH, NULL);
- 	if (ret < 0)
--		return ret;
-+		goto err_disable_pwrs;
- 
- #ifdef CONFIG_GPIOLIB
- 	if (of_property_read_bool(priv->dev->of_node, "gpio-controller")) {
- 		ret = mt7530_setup_gpio(priv);
- 		if (ret)
--			return ret;
-+			goto err_disable_pwrs;
- 	}
- #endif /* CONFIG_GPIOLIB */
- 
- 	return 0;
-+
-+err_disable_pwrs:
-+	mt7530_disable_pwrs(priv);
-+
-+	return ret;
- }
- 
- static int
+Adrian
 
+--=20
+ .''`.  John Paul Adrian Glaubitz
+: :' :  Debian Developer
+`. `'   Physicist
+  `-    GPG: 62FF 8A75 84E0 2956 9546  0006 7426 3B37 F5B5 F913
