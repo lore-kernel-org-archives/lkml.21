@@ -1,151 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=2 smtp.remote-ip=40.107.159.50
-ARC-Seal: i=3; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795537271;
-	b=E5dSDVuFfJa2bbusSqlMb9YyG6i3vOKz/8F5nFS8Ic5vK7UO3g9Msc4ti6y5tvRxKX1l
-	 heayI1/Dpdeji4PETD0cpBKQzVv8fSRnCYRvypC5PfzGlJQs2lRCBfJ3tgZZDCeDP4auI
-	 80+hRf62F0FxVCNMBFmMqD+WKAuBsK6Mj3nnVs1AQC/asfS9inZA6GtnISdn+rNRkCX2l
-	 W5mVzBV/r8C1vuIHOvHrutfYTp5yhikK6Xv9Bp7NQvRsEax7YoBPExtoDIVy0jmX5B4xv
-	 lOOl/Fz1bALRYjBIMydqhoKbyVxMboA8NGDh8wmpectb4myiEhqSwmOJ41OvBtJSkBA==
-ARC-Message-Signature: i=3; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795537271;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:
-	 DKIM-Signature:Authentication-Results-Original:Received:Received:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-LD-Processed:x-checkrecipientrouted:NoDisclaimer:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam-Untrusted:
-	 X-Microsoft-Antispam-Message-Info-Original:
-	 X-Forefront-Antispam-Report-Untrusted:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
-	 X-EOPAttributedMessage:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStripped:
-	 X-MS-PublicTrafficType:X-MS-Office365-Filtering-Correlation-Id-Prvs:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=vIKMq3qwZn6t+ImSAT+349MSopDnZBTi/42iC8UK9VQ=;
-	b=PdT5W5uP7q4C0A0Q2u+Bn5bgioavnoVnf0aHKqIGiF+dHtgHzMcINMKcwOYdxsj//E0S
-	 SbenJXOkO55R/MJzoBQT7sUwny6MYwwppm/MUUGKmoWWGmCa+nOWUlh4B6eb7PBhp6ezw
-	 6+r2xAl73QE1faQHw8Ad58BugRS9cxchjMBujZ/3bIWE/K2sJzLLsHZ8N4X7jeOa2n4yl
-	 cy43DPMNj3wQaPXnqDkJhaDR6+3MDDoX+oN/2E4G63CYy+oU6xmyqThxEVv+2ABJBDRUn
-	 JNaOsOmIhxKrLKZ6EfA+kt1xLv8wAMtXZQlI9Y1Os9peQDyXNUrx6jvGMXT2LzR0TbQ==
-ARC-Authentication-Results: i=3; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=ZPzLYFMz;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=ZPzLYFMz;
-	arc=pass header.oldest-pass=2 smtp.remote-ip=40.107.159.50
-Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11013050.outbound.protection.outlook.com [40.107.159.50])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795537273;
+	b=id4AHWOeZmmFQfasreMSPf8IXECXCoDrCO7p+AkUEXHJVEXFaWJTuX3onFic2i+Jsend
+	 QvG9dZQv0iI42xs+1SoyPiWz+HdkEMhCFmU5OSKqapZFNNy45YgWt3QkSkD4YbIFaarLw
+	 BsnoMSMW5PW+6Tu8v7wfusR2NLI/bx2TKpAIKZbqyxjp8Mx+oXChSeTTvmzATwp41XVTQ
+	 +gBEZCTXJFsKk+9uH8LIGdT27txyGfyPCoi3V3+PyqmkRyTfzcJ7nWh+TvNl3GBVToe9F
+	 3uFHkpxbKWKHKE3aMCkikKrw4DGzeijXwqbhBtOa1uL6sUiZH372mwwdjBl3sjpXtqw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537273;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
+	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
+	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
+	bh=T5Z8MVyIqr6qKo+Hc8WIA993kLlGZRJX/Xo/2B1xRkk=;
+	b=MwtUOZlE9RDxXMq9dGMhuC7uqe7aObkWzt8iahbS75WbnMSvzioqjpnP1I+USNwYj/Uu
+	 qZK51Qa81A8SnXMnR9LUDB7bb23L7wZ6RLJKu1crmT7kDY8S/PEKCx42V/2vEjatBbr5W
+	 IcPLy+G0Oi/fNFwhULTXF2SNkCN2yrzOf72PshFwejcp4zPqjCg72Id9o90FZc39cGyoS
+	 b9pfOy9kwMgKIzjqJjONNCS+bMQ4M6JMPdr60MfImhBe2CgOBBSR28UtJ0yLl/LKhlz71
+	 kOryGXo6vpXAi3vsqLLK4lAp9HjN3wIxm5UpTGpGYL/BqXBsBWGmx4J4BprCj2q+1uA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=rlXMbUED;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="wOB/a/Of";
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2033606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:21:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2033606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0DDE606A688;
+	Tue, 24 Nov 2026 16:21:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0DDE606A688
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=ZPzLYFMz;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=ZPzLYFMz
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=otPm/XtMHYVpivBboeoGBvqaUt68bAmp7KGtMmgrq7ZDyOp4PXlYXmBKhQiiQlxXFfMx9TC+pXlB0nLNZxhetx2az3H7IevFqB71j34UZYpOlSZcsLdI9qqaIEImpmeW4gEIBs/S+D/YiPDTWhsbD7F1vK08mQpMPZ2tl5SBxSQDDH32dM+IH/d3PxkmH47AqQMxx8R5TZQxtx1rG2zaf3GwPMNRTH94ePBD3Hgh6xYHpX22Hv3rKCwdIjDn/KkpHfo8Ic32QLV3dF2FnxTLVxKmW9ypO48iawBtayzSfcPzh6w303OH8ec9yuxA400Hrq3N20RDRc9bGQX7FetRVw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vIKMq3qwZn6t+ImSAT+349MSopDnZBTi/42iC8UK9VQ=;
- b=LqlvLmn/HvQUJmyMrdmrvfMmJVbU9hhcVPYqM+dUPeoNS2EJk89plN95nl418bHDjoIPgw85M3nwlqMsK40HXA/4TAln6VvaV4S1deCj7uajlItbOqdS98wbpAkpvY/J7MrNmEGSM+CbA+qm/f9b8TR3xrIpYNPqfyIOFmMGyOkTeQ7wpgRCie7aZb1S9jKzdtBRZNc/PP6bjTwdFoKwTzQA2Z0XSeCxrq+WJPNwDiv+0vL1VYBexOouGmPKzI0/T71RVqgcMbqLKnj1V3wjao/l/f4Mwb+tswqPzitab3B7n7nLKZ6b2rycfhD7Gyi0vlk67Eg+LrEo3fJ2XLcE2w==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.freedesktop.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vIKMq3qwZn6t+ImSAT+349MSopDnZBTi/42iC8UK9VQ=;
- b=ZPzLYFMzbwqJkn/UAPiobmjiax+RiNdE++SoILji5WD33+S0CnuI6yLyAcWMqd5kPiXCbBPw8on2VASrOJgKfA02eh1X6c6AusrdJgMCtAtKz4OD1JYOGpbMwda7Txmw4jltw+3QcBCejP94tM9l/+HMBJlJpxJyiU39Ewh+AtM=
-Received: from DB9PR05CA0014.eurprd05.prod.outlook.com (2603:10a6:10:1da::19)
- by FRZPR08MB11137.eurprd08.prod.outlook.com (2603:10a6:d10:138::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Tue, 24 Nov
- 2026 16:20:51 +0000
-Received: from MAD0EPF000008A9.eurprd04.prod.outlook.com
- (2603:10a6:10:1da:cafe::74) by DB9PR05CA0014.outlook.office365.com
- (2603:10a6:10:1da::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Tue,
- 24 Nov 2026 16:20:48 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 4.158.2.129) smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- MAD0EPF000008A9.mail.protection.outlook.com (10.167.241.181) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.3
- via Frontend Transport; Tue, 24 Nov 2026 16:20:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V/ekY4mcmbUjnxrg9kRtMl5/gFO06wl5Q2P/tesoCgkbF/p793e4stAXaJytHzcaJa/uaBHrXoQPCflpRTLLFAgEx8Obnz5EV/iZjwXTIJ5ClUUoCY1U+38yeiMIII1sM2wm4MloTSmomlmdGKy3TyrFI34cQQbNATk3Uy0JDuTkPpwAPsEeqWGilKRl508AUyIPpUgqEXZL36m5YggilRwVbZdnHGCIvPaVP/mBfpZY2/MwDmLGC2oe+Lc4TVnEwd4XfMkInaKat5VmZJhjoKvXkK6R/sjEco+JJRB6WgcuqczILqTjepxtIh/Bhy4vuAaDslTAtP3Y1QlaZU5HLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vIKMq3qwZn6t+ImSAT+349MSopDnZBTi/42iC8UK9VQ=;
- b=JxHDSjzFH9mgu061h4D/3jo5SO0k5voRh3Q8nVuK3TgFekXnPG/Na05JZTgf7X6gQ/UYG1hpilgyl1923LoJy4WxCakuCqm9IKiYTqzwLgDPblxZnRnDOwIXj2K8e5LqcqCniZHAg2dQLrSE1jXKOBpmDW+uO+hummoSOzpKRxhLU++nXWnDZBakKwpmPl0d0UcPAIRzVSjjISiIWixekFGDyYFALRKa3EQKZi4lZqfMN7+pdNEd1IGhuTydNt56CotY0kAbJfZANSOViMrR/93O/c+0Iy6p6/8AyRJAq8CVropU8vCdQH6SfbsDuEg99FG/C3ZrC8Q3Sn5qJRnGgw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vIKMq3qwZn6t+ImSAT+349MSopDnZBTi/42iC8UK9VQ=;
- b=ZPzLYFMzbwqJkn/UAPiobmjiax+RiNdE++SoILji5WD33+S0CnuI6yLyAcWMqd5kPiXCbBPw8on2VASrOJgKfA02eh1X6c6AusrdJgMCtAtKz4OD1JYOGpbMwda7Txmw4jltw+3QcBCejP94tM9l/+HMBJlJpxJyiU39Ewh+AtM=
-Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
- signed) header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from MMZPR08MB669593.eurprd08.prod.outlook.com (2603:10a6:190:53::6)
- by VI3PR08MB938182.eurprd08.prod.outlook.com (2603:10a6:800:374::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 16:20:08 +0000
-Received: from MMZPR08MB669593.eurprd08.prod.outlook.com
- ([fe80::f3ef:efa8:e69:8b28]) by MMZPR08MB669593.eurprd08.prod.outlook.com
- ([fe80::f3ef:efa8:e69:8b28%7]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 16:20:07 +0000
-From: Karunika Choo <karunika.choo@arm.com>
-To: dri-devel@lists.freedesktop.org
-Cc: nd@arm.com,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Steven Price <steven.price@arm.com>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	linux-kernel@vger.kernel.org,
-	Akash Goel <akash.goel@arm.com>,
-	Lukas Zapolskas <lukas.zapolskas@arm.com>,
-	Chris Diamand <chris.diamand@arm.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
-Subject: [PATCH v5 2/9] drm/panthor: Rename neural accelerator feature macro to NX
-Date: Tue, 24 Nov 2026 16:19:40 +0000
-Message-ID: <20261124161952.1053586-3-karunika.choo@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124161952.1053586-1-karunika.choo@arm.com>
-References: <20261124161952.1053586-1-karunika.choo@arm.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: LO2P265CA0512.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:13b::19) To MMZPR08MB669593.eurprd08.prod.outlook.com
- (2603:10a6:190:53::6)
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=rlXMbUED;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=wOB/a/Of
+Date: Tue, 24 Nov 2026 16:21:08 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795537270;
+	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=T5Z8MVyIqr6qKo+Hc8WIA993kLlGZRJX/Xo/2B1xRkk=;
+	b=rlXMbUED+YLPN6uSe15u+Vn9oHTfnhQhvpxsUNHmBauDay++ftvqtMzdn9zg7rRB2HRnW6
+	vWhhVTBrn10FD5tz/xMw8UK3QsGBt0+18Q9ZoVfVjsbmmxi6LKbVW59YtLvM7y/g2iiu2M
+	wDkEi9FxB8Shn+06wDzB99JxGYbtUfrBNJ7rPN8YIwvUjs5+T6aKSCNDkpjX8+J8LCxmcr
+	tG35bsDQCXMBg4ZImWrNO5ulQeYslbm6K2KDk2fZpRPBLkWtmnrJxIsUbnICch0WaCnWla
+	gc++0Ge7ueIFBTlZL0d/mlduymSsWQGoKAFCqdz0DzzJsE0Kz57ZerFZB42iIQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795537270;
+	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=T5Z8MVyIqr6qKo+Hc8WIA993kLlGZRJX/Xo/2B1xRkk=;
+	b=wOB/a/OfVWXgIELiqvR8SOPt27BxC0htWI7ZY3rH+ZVDn7Mp1ZnPKSH4tlSmo7KTojJBck
+	sCS8605+x+KBUKAA==
+From: "tip-bot2 for Kiryl Shutsemau (Meta)" <tip-bot2@linutronix.de>
+Sender: tip-bot2@linutronix.de
+Reply-to: linux-kernel@vger.kernel.org
+To: linux-tip-commits@vger.kernel.org
+Subject: [tip: x86/mm] x86/mm: Remove the zapped-entry checks
+Cc: Dave Hansen <dave.hansen@linux.intel.com>,
+ "Kiryl Shutsemau (Meta)" <kas@kernel.org>,
+ "Jose A. Perez de Azpillaga" <azpijr@gmail.com>, Zi Yan <ziy@nvidia.com>,
+ x86@kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261105120322.3319301-1-kirill@shutemov.name>
+References: <20261105120322.3319301-1-kirill@shutemov.name>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -155,90 +79,205 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic:
-	MMZPR08MB669593:EE_|VI3PR08MB938182:EE_|MAD0EPF000008A9:EE_|FRZPR08MB11137:EE_
-X-MS-Office365-Filtering-Correlation-Id: 99e6f5c2-302a-4e11-cd7a-08df4a46e62c
-X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted:
- BCL:0;ARA:13230040|23010399003|366016|376014|1800799024|18002099003|22082099003|11063799006|56012099006|261021121427099003|261102123227099003|261021123027099003|261022075727099003|261009223027099003|10067099003;
-X-Microsoft-Antispam-Message-Info-Original:
- mRPEeni9+ZpOhx7bM1KXQyiI6iXqNNViT+PzxvXfcUDhbEp1OnbhFPm1K6cfoaFxzMLUl5gjZqV59Di8TBU0l/rf8oteA2BmZHgQFDZMyZbzEVkQqtn4xX/fS8hIaD7U8GPnhQ7hCf3uJiC3Dfj1mFUNetKmg4q4LPAPexgaBoyLs523Ppdoo6bX+Ia486y4CAGAQ7VeVyL5rOQJBZU9ElIfzj49ECp0+dFoilCW7EPgMZgcjcQtlQuWdsLIhCDOGX6dESNO0e8foZApsgGTKONyAjO50B8SpabE9QSW5yUBaU3M2PxsZ90KpM7XFtzhe516xZp2dS9rtx1RCbJD+oNa7l924V2CtUIjqKSQQ+TU84/b8AFduDM2Abyg5TCnTDdqI0bf33xtbqu3/F0voIy+2JZiQ9Tb5H4VCS64M/PWRbn0Lr3+W5iNI8bkn8s+wRa0B7Gody3aj0/ilvurmPtRZkFmjMQPPWEN7Ce2nAcwOFdXtXXOQa9M8cDOy/I4lo0DVS/EZMDlGlgQ9tN2nRjMHjvL0puEfhNo4PLLQwSENwTWJ7f/JGbl46iDSZ5Doc35/MxEKnHEFH/vOUgypWiSdNHR+uTbUYZbAHphbRGlnMyLXQ1FnqxCqJoWdbx0lQkiDIh9zZ8Hm1lzMEkIreq6G8jF/SN0s35SlCMlJuU=
-X-Forefront-Antispam-Report-Untrusted:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MMZPR08MB669593.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(1800799024)(18002099003)(22082099003)(11063799006)(56012099006)(261021121427099003)(261102123227099003)(261021123027099003)(261022075727099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked:
- oBO7GzWB/q7dF5UzKiCWuPDNQY5eTYIMoUIBXWffVJBJkdrw3F+G1dcM6NYsPNo6ngxuTXlrJ3oBfxm2pej+NCuEAiPFeFsjSimT0A3h5mKCkDufyeEtg8zfGSlF/TmvFEYn+CY6NeqkDDaMiw4RJQ945FBn3QPfZb/FiVN0mJMV/zr3icJ+kPafPZkwAa1GaXfKohl7kpVsxSCjQEXl5/G4asvcHqzhnSCmacfPCiU6Dni0cgM1de9HiIH1sQhgLvPEyJENvSC27ZBgsn3BPm1nmADR15+ARUk52LjuHS4mK2u+3c+pixs4Xxkjcf+VJGn5Zwv1+37fr1ybYD73EQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI3PR08MB938182
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped:
- MAD0EPF000008A9.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs:
-	98e219c4-2e2b-428a-9cdb-08df4a46ce37
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|14060799003|23010399003|36860700016|82310400026|1800799024|376014|35042699022|18002099003|261009223027099003|22082099003|261102123227099003|11063799006|56012099006|10067099003|261022075727099003|261021121427099003|261021123027099003;
-X-Microsoft-Antispam-Message-Info:
-	pH6defu9XoD6xugtvklBn+eEIsg6coAD5bVCHSGNQqNGu4WkYl4gkc7JJUGlBuHnJ5UnhyBsDW5ix8MT6YWF/ONHaJFExoEbIAzvQKmk/uqJDQZTpXrFPtX36fUA6ZSxFidnya3PPskWY+j5MMqDoFy1tObWGxGKKy7EbLJX08IN8dJrmSnel5XpGeUNSivcinz91xWoCawu6QGZuyFRRQMfh/o4CGCPb4ziEcB/PNL9A9ifcHF6pLRYqMIf5C/1YG+g7tCpCXvtsCZokN6Uqa8HVAjXOc9HM57dPGDdazxOoZsMZInPi0eqdmKdQve6PTPz22lez2kOPpIILEQqfF/nUpKwzmqok/pYftrJK5uMtATCwOUN7jDgHc/COU2GbAh7+wQVrLyYHEsATDEhFVXTColjaZ+PBJ7DicYWAv76XAwgcearOBAxGElvR7pww6Nf8bQfu71lYsziocHVIZzKO59HzpP010+2pOlYmWmxfd708DFy7KnrUdg2/yIhHQq6JWG6bCigY/iXwfT9A0yjQ0vnfcUVU4pajTui0cPNnubWYEu8O5i7UBIxqWJf/c2ObO2gKwl5nbwiVqwDhj2m+nWyWN6eUx7jLB+zthrCzD6tTSq5qkuOc9yTAg/wzL5hA2hPb90HsveuX7UhXD+y51OovtExZ0wcSgttq6QRluRs7iPJAIVrr+mL5wCderohxp9a1J3bNtSGnVgn4Q==
-X-Forefront-Antispam-Report:
-	CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(35042699022)(18002099003)(261009223027099003)(22082099003)(261102123227099003)(11063799006)(56012099006)(10067099003)(261022075727099003)(261021121427099003)(261021123027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	iPbWBb6ZRkKiW1GvnOek2X/G7ClCTK4VVQKniOqPSF49qujmywa0mCQpek99xSf0s+ypbBNhWKGH7ahPKfWlfkZLHh7tC+nm8Td0GC/kVWYvMqcuCSgu1SbdiEovw5/RkjPISAvxYEaD7tfTB0M1zM17r/stmu6LOMA4FxwP5MhIrXPsVrQIMn7ftmx8q96X4fcVLgzx0BXTq5aAOqHo5Vm1qxm5PWSsw2jrsm6oCPuad90s/C6uMm6aUCSk3V7/jgnx6wZYYyljuXj/xNyMPbQoUfmSPN00HWeYNaZo8/Fv+npWVR5tF8pNQHwtdnAYSf3UitgOTn8R2lRz8yaVldhWai07mPrBV4nIzY8ZpmSpW5KOOFVtTTcFwar2TZbO6qjtp7G3auh/kGjQ5Fnt8LgkKtPljAKMqpi9Ho3QCrj9ZCaURRtXltI/drdhrJZG
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 16:20:47.7925
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 99e6f5c2-302a-4e11-cd7a-08df4a46e62c
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	MAD0EPF000008A9.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRZPR08MB11137
+Message-ID: <179553726868.92412.3995327713375553041.tip-bot2@tip-bot2>
+Robot-ID: <tip-bot2@linutronix.de>
+Robot-Unsubscribe:
+ Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
+Precedence: bulk
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 
-Rename GPU_FEATURES_NEURAL_ENGINE to GPU_FEATURES_NX.
-Update the panthor_hw helper to use the new name.
+The following commit has been merged into the x86/mm branch of tip:
 
-Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
-Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
-Signed-off-by: Karunika Choo <karunika.choo@arm.com>
+Commit-ID:     909bdfd52e61aecc9cbceee0b95087524003e368
+Gitweb:        https://git.kernel.org/tip/909bdfd52e61aecc9cbceee0b9508752400=
+3e368
+Author:        Kiryl Shutsemau (Meta) <kas@kernel.org>
+AuthorDate:    Thu, 05 Nov 2026 12:03:21=20
+Committer:     Dave Hansen <dave.hansen@linux.intel.com>
+CommitterDate: Tue, 24 Nov 2026 08:15:06 -08:00
+
+x86/mm: Remove the zapped-entry checks
+
+Zapping a range calls arch_check_zapped_pte() for every batch of PTEs,
+which is every page for small folios, and arch_check_zapped_pmd() or
+arch_check_zapped_pud() for every huge leaf. Only x86 implements them, as
+out-of-line functions that warn about a shadow stack entry (Write=3D0,
+Dirty=3D1) in a VMA without VM_SHADOW_STACK.
+
+The warning is a VM_WARN_ON_ONCE(), so without CONFIG_DEBUG_VM the
+functions are empty, but the calls remain. With the SRSO "Safe RET"
+mitigation the return of every such call mispredicts.
+
+The x86 helpers already keep such entries out of other VMAs.
+pte_wrprotect(), pte_mkdirty(), pte_modify() and their PMD versions go
+through SavedDirty, and only pte_mkwrite() and pmd_mkwrite() on a
+VM_SHADOW_STACK VMA create the combination.
+
+Remove the checks, their callers and pud_shstk(), which has no other
+user.
+
+In a KVM guest on Zen 4 with Safe RET, zapping 4K pages takes one branch
+miss per page fewer. MADV_DONTNEED of 1 GiB gets 6% faster on anonymous
+memory and 8% on shmem, munmap() 5%. THP is unchanged. Without Safe RET
+the difference is within noise.
+
+Suggested-by: Dave Hansen <dave.hansen@linux.intel.com>
+Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+Signed-off-by: Dave Hansen <dave.hansen@linux.intel.com>
+Reviewed-by: Jose A. Perez de Azpillaga <azpijr@gmail.com>
+Acked-by: Zi Yan <ziy@nvidia.com>
+Link: https://patch.msgid.link/20261105120322.3319301-1-kirill@shutemov.name
 ---
-v4:
-- Collect R-bs from Liviu and Boris
+ arch/x86/include/asm/pgtable.h | 16 ----------------
+ arch/x86/mm/pgtable.c          | 26 --------------------------
+ include/linux/pgtable.h        | 20 --------------------
+ mm/huge_memory.c               |  2 --
+ mm/memory.c                    |  3 ---
+ 5 files changed, 67 deletions(-)
 
- drivers/gpu/drm/panthor/panthor_gpu_regs.h | 2 +-
- drivers/gpu/drm/panthor/panthor_hw.h       | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/gpu/drm/panthor/panthor_gpu_regs.h b/drivers/gpu/drm/panthor/panthor_gpu_regs.h
-index 5340966caef37..c7581b6d4c5be 100644
---- a/drivers/gpu/drm/panthor/panthor_gpu_regs.h
-+++ b/drivers/gpu/drm/panthor/panthor_gpu_regs.h
-@@ -67,7 +67,7 @@
- 
- #define GPU_FEATURES					0x60
- #define   GPU_FEATURES_RAY_INTERSECTION			BIT(2)
--#define   GPU_FEATURES_NEURAL_ENGINE			BIT(4)
-+#define   GPU_FEATURES_NX				BIT(4)
- #define   GPU_FEATURES_RAY_TRAVERSAL			BIT(5)
- 
- #define GPU_TIMESTAMP_OFFSET				0x88
-diff --git a/drivers/gpu/drm/panthor/panthor_hw.h b/drivers/gpu/drm/panthor/panthor_hw.h
-index eeca936f44bae..f770dc40e6216 100644
---- a/drivers/gpu/drm/panthor/panthor_hw.h
-+++ b/drivers/gpu/drm/panthor/panthor_hw.h
-@@ -64,7 +64,7 @@ static inline bool panthor_hw_has_pwr_ctrl(struct panthor_device *ptdev)
- static inline bool panthor_hw_has_neural(struct panthor_device *ptdev)
- {
- 	return (GPU_ARCH_MAJOR(ptdev->gpu_info.gpu_id) >= 14 &&
--		ptdev->gpu_info.gpu_features & GPU_FEATURES_NEURAL_ENGINE);
-+		ptdev->gpu_info.gpu_features & GPU_FEATURES_NX);
+diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+index 000fc6c..613c22c 100644
+--- a/arch/x86/include/asm/pgtable.h
++++ b/arch/x86/include/asm/pgtable.h
+@@ -199,13 +199,6 @@ static inline int pud_young(pud_t pud)
+ 	return pud_flags(pud) & _PAGE_ACCESSED;
  }
- 
- #endif /* __PANTHOR_HW_H__ */
--- 
-2.43.0
-
+=20
+-static inline bool pud_shstk(pud_t pud)
+-{
+-	return cpu_feature_enabled(X86_FEATURE_SHSTK) &&
+-	       (pud_flags(pud) & (_PAGE_RW | _PAGE_DIRTY | _PAGE_PSE)) =3D=3D
+-	       (_PAGE_DIRTY | _PAGE_PSE);
+-}
+-
+ static inline int pte_write(pte_t pte)
+ {
+ 	/*
+@@ -1666,15 +1659,6 @@ static inline bool arch_has_pfn_modify_check(void)
+ 	return boot_cpu_has_bug(X86_BUG_L1TF);
+ }
+=20
+-#define arch_check_zapped_pte arch_check_zapped_pte
+-void arch_check_zapped_pte(struct vm_area_struct *vma, pte_t pte);
+-
+-#define arch_check_zapped_pmd arch_check_zapped_pmd
+-void arch_check_zapped_pmd(struct vm_area_struct *vma, pmd_t pmd);
+-
+-#define arch_check_zapped_pud arch_check_zapped_pud
+-void arch_check_zapped_pud(struct vm_area_struct *vma, pud_t pud);
+-
+ #ifdef CONFIG_XEN_PV
+ #define arch_has_hw_nonleaf_pmd_young arch_has_hw_nonleaf_pmd_young
+ static inline bool arch_has_hw_nonleaf_pmd_young(void)
+diff --git a/arch/x86/mm/pgtable.c b/arch/x86/mm/pgtable.c
+index 4a105f2..58e5012 100644
+--- a/arch/x86/mm/pgtable.c
++++ b/arch/x86/mm/pgtable.c
+@@ -797,29 +797,3 @@ pmd_t pmd_mkwrite(pmd_t pmd, struct vm_area_struct *vma)
+=20
+ 	return pmd_clear_saveddirty(pmd);
+ }
+-
+-void arch_check_zapped_pte(struct vm_area_struct *vma, pte_t pte)
+-{
+-	/*
+-	 * Hardware before shadow stack can (rarely) set Dirty=3D1
+-	 * on a Write=3D0 PTE. So the below condition
+-	 * only indicates a software bug when shadow stack is
+-	 * supported by the HW. This checking is covered in
+-	 * pte_shstk().
+-	 */
+-	VM_WARN_ON_ONCE(!(vma->vm_flags & VM_SHADOW_STACK) &&
+-			pte_shstk(pte));
+-}
+-
+-void arch_check_zapped_pmd(struct vm_area_struct *vma, pmd_t pmd)
+-{
+-	/* See note in arch_check_zapped_pte() */
+-	VM_WARN_ON_ONCE(!(vma->vm_flags & VM_SHADOW_STACK) &&
+-			pmd_shstk(pmd));
+-}
+-
+-void arch_check_zapped_pud(struct vm_area_struct *vma, pud_t pud)
+-{
+-	/* See note in arch_check_zapped_pte() */
+-	VM_WARN_ON_ONCE(!(vma->vm_flags & VM_SHADOW_STACK) && pud_shstk(pud));
+-}
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index 780fe84..fc32289 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -621,26 +621,6 @@ static inline unsigned int exec_folio_order(void)
+ }
+ #endif
+=20
+-#ifndef arch_check_zapped_pte
+-static inline void arch_check_zapped_pte(struct vm_area_struct *vma,
+-					 pte_t pte)
+-{
+-}
+-#endif
+-
+-#ifndef arch_check_zapped_pmd
+-static inline void arch_check_zapped_pmd(struct vm_area_struct *vma,
+-					 pmd_t pmd)
+-{
+-}
+-#endif
+-
+-#ifndef arch_check_zapped_pud
+-static inline void arch_check_zapped_pud(struct vm_area_struct *vma, pud_t p=
+ud)
+-{
+-}
+-#endif
+-
+ #ifndef __HAVE_ARCH_PTEP_GET_AND_CLEAR
+ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+ 				       unsigned long address,
+diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+index eb913ac..3146fa2 100644
+--- a/mm/huge_memory.c
++++ b/mm/huge_memory.c
+@@ -2572,7 +2572,6 @@ bool zap_huge_pmd(struct mmu_gather *tlb, struct vm_are=
+a_struct *vma,
+ 	 */
+ 	orig_pmd =3D pmdp_huge_get_and_clear_full(vma, addr, pmd,
+ 						tlb->fullmm);
+-	arch_check_zapped_pmd(vma, orig_pmd);
+ 	tlb_remove_pmd_tlb_entry(tlb, pmd, addr);
+=20
+ 	is_present =3D pmd_present(orig_pmd);
+@@ -3056,7 +3055,6 @@ int zap_huge_pud(struct mmu_gather *tlb, struct vm_area=
+_struct *vma,
+ 		return 0;
+=20
+ 	orig_pud =3D pudp_huge_get_and_clear_full(vma, addr, pud, tlb->fullmm);
+-	arch_check_zapped_pud(vma, orig_pud);
+ 	tlb_remove_pud_tlb_entry(tlb, pud, addr);
+ 	if (!vma_is_mm_managed(vma)) {
+ 		spin_unlock(ptl);
+diff --git a/mm/memory.c b/mm/memory.c
+index ec3d9d9..e6a9d8b 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -1753,8 +1753,6 @@ static __always_inline void zap_present_folio_ptes(stru=
+ct mmu_gather *tlb,
+ 		clear_full_ptes(mm, addr, pte, nr, tlb->fullmm);
+ 		rss[MM_ANONPAGES] -=3D nr;
+ 	}
+-	/* Checking a single PTE in a batch is sufficient. */
+-	arch_check_zapped_pte(vma, ptent);
+ 	tlb_remove_tlb_entries(tlb, pte, nr, addr);
+ 	if (unlikely(userfaultfd_pte_wp(vma, ptent)))
+ 		*any_skipped =3D zap_install_uffd_wp_if_needed(vma, addr, pte,
+@@ -1793,7 +1791,6 @@ static inline int zap_present_ptes(struct mmu_gather *t=
+lb,
+ 	if (!page) {
+ 		/* We don't need up-to-date accessed/dirty bits. */
+ 		ptep_get_and_clear_full(mm, addr, pte, tlb->fullmm);
+-		arch_check_zapped_pte(vma, ptent);
+ 		tlb_remove_tlb_entry(tlb, pte, addr);
+ 		if (userfaultfd_pte_wp(vma, ptent))
+ 			*any_skipped =3D zap_install_uffd_wp_if_needed(vma, addr,
