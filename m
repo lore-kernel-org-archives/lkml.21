@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795545972;
-	b=JtQttwSfP1meIMzgJjL6qeuVfGWn96Jm2AF6Xxcb4R8fP663i4CNpby0l2W7mViiSeqX
-	 iIhQ3ExE/mWWBrGwHReps78bDihJ86j+o83IwrLfwXxNy/KpmGwgAn6WqFu8OGCLJlP7G
-	 HwbhCRDn8dxGXo//GJnNyFc/NxuJ0EA/pgKyuxJQSXeG7zgfWn2fTdwdMmzj7aI3Kf3G/
-	 FXAWT+oVrEgWe32FMhbpkHUcYvGT6Mz6xZEzXs8k+SDVib++rl7j9zsA/bWXJ4GPdJtX3
-	 b1nbQbRiQKjoC4zwaB/axrFEjA7DkWlKODmQfbk5CBAnasmE88wUlfDeMQ7ZX2c9REQ==
+	t=1795545978;
+	b=NgM63PAI4UUzdAm/37Tn2ZfBosJRxjLaSPdKAFnymAuyMqw8qyMdIubfFEfwXxDQF6Cq
+	 6S29ek2h8zyE3ltPU9DLvWv0RaAyxCk1o9ZLB0dVqhd14yJN5313M03TSaSWlCUZ1lYse
+	 XIGxaRirb6vbcf5KhvegGnpeJ7uPPv94nGGX/C4mlwXDSQF8q6DWJEP9C8L5En4XOaWhq
+	 0lgS4bxYIdBZIAwHNV1RXPOPe7Hq1HOCZpb5/qc8MY3OSy0DUcYVUGszf+1/SvPDUFAPL
+	 UK4e1PATH0ToLCcg2GTqahcvZGaRP4l14BiBkIRC4KFIlWSZps0Ol5OrGisxi+MdNXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795545972;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795545978;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=fPYJMnakdHXmxaVsksF+JqMCJDQXjUDeJTxAeWt9ZMg=;
-	b=Ar2H3L9Oya6+g/A79KqCEgysJFW9fZBH+rQF/Apkk4sjo+JCpkUWMc9LBdxVXNrcdjj2
-	 rvIMT5rxj44EYfCKsbVy4c0FnuMhWPjJkQw0c3NK4dh48pw4qyzG8M6V1j3hpqvGKGM86
-	 LGht2s4VjKFSZn62ckeK/GwhQrzhWvG28+U0iCWT5f2SXQIo4IL9ESmI8vNNqsvmuvwR5
-	 ELFCLLPM7nSOOkQ7e9zOyo7+UpwhMQiGIa03ALYtHgFBQpakomzGVWyEqzDdyvaID8lnm
-	 NS6iU+Ln7KqHWHQAiRAzMufoWoJMF0JkstdNY0NJtnBeSzQZeJeSYeVG1RwPaaMfFlw==
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=ZNZC2iVOxra61FTUdamR91yXdhcxatI09J3OZPQjbEQ=;
+	b=fIPMCs+xXDfjdSJGbhDXoUh+ioWu6qHApPuDHOaYzajkxdxHt1EabgcclIkaF1/q8+KB
+	 BKagOL1ko7maEheevG6J0PNODagC7fu7QHC4goZ8IJOi3u9mHewMwIPqlW4BBKFvYQrSb
+	 ATn+/ZzfdOAb9MybG9E++eitIhfvSx89rH4kxajqGSHMejaW3nTKx/jyg/Oa6MkKerZWa
+	 TF5ayOUNrN0M6MYlHlGfy9cMFG5GwtD6bo8z9SKmQ8x6Ps02zu6kYEyiI1pF7npBsv6zG
+	 dNKRFE9aWbGN9kEmbpyvpfEqC3YPK8mLJwOxE3AHHaCl+W0dmKLVO7QSqucqwz87V1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mnfsgSdV;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xwqq3O39;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6ADA606A321;
-	Tue, 24 Nov 2026 18:46:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9412606A33D;
+	Tue, 24 Nov 2026 18:46:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mnfsgSdV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 013AC1F000C6;
-	Tue, 24 Nov 2026 18:46:08 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xwqq3O39
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3DC81F000C4;
+	Tue, 24 Nov 2026 18:46:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795545971;
-	bh=fPYJMnakdHXmxaVsksF+JqMCJDQXjUDeJTxAeWt9ZMg=;
-	h=From:To:Cc:Subject:Date;
-	b=mnfsgSdVk4GOHXfGr3Q1mN6W8egHsMIL3X/w0Ozxz+RLHfKB++YPJPQIKapeWH52f
-	 BZo8ZFO6Tx6AVsNZvJMeITngRkmDUpgXKEzXiZMbwhC86vuiPRqmAmDe49a/uZnj5J
-	 tQkDPcngMujE3j3VOpQuNPApQpBEDloDFp8bFNtCjHTtJeji7RS9dtyz5gDxNqsKOn
-	 nnitcgjMov14u1WyjXt83ZM3+PM+kU42So2wfqBHIvBUfZxF5A+s/Q/+H56mJqseg9
-	 NS2JA/3943QUhxqIZWHn1JLKjW0mWrcX9p8RUtinnrYru8S7p3r30lC/4Z9VZAeIlR
-	 phvIUUtpxJing==
+	s=k20260515; t=1795545978;
+	bh=ZNZC2iVOxra61FTUdamR91yXdhcxatI09J3OZPQjbEQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Xwqq3O39eQzWNks8Yop6TihtJBrgIxwzW2gWHjleoICgykNhUom3UdWuRlM74PyUD
+	 IsGXspuc1Z5UhZ/Cm6AfnNJQDjaFKlKHwnK2Tif8aEHbIuVrZLdmfKs9TqK1a1a9Th
+	 u9FOGjadBE6BXrFNXoCNAYKOcaclbgSvZWslGJTH5J72/VZOAyu/GjFpudlOoq58MO
+	 6+z+0NtMu9oGimMn/3tm9bUD3uwDIF9AELmuZuzH6lk8bxvTlXH2BxoftCYlm8a1xG
+	 93soPAPsJwWMkVDNLkGL3eD/mfTqS1qxxSbofwYsXKp/w9fem7a/WePDZOyDlUUvVf
+	 1CE1HEEZi/fWw==
 From: Arnaldo Carvalho de Melo <acme@kernel.org>
 To: Namhyung Kim <namhyung@kernel.org>
 Cc: Ingo Molnar <mingo@kernel.org>,
@@ -50,11 +50,13 @@ Cc: Ingo Molnar <mingo@kernel.org>,
 	Clark Williams <williams@redhat.com>,
 	linux-kernel@vger.kernel.org,
 	linux-perf-users@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@kernel.org>
-Subject: [PATCH v1 00/17] perf tests: Add coverage for the untested perf subcommands
-Date: Tue, 24 Nov 2026 15:45:47 -0300
-Message-ID: <20261124184604.24983-1-acme@kernel.org>
+	Arnaldo Carvalho de Melo <acme@redhat.com>
+Subject: [PATCH v1 02/17] perf tests sched: Exercise the sched views and options
+Date: Tue, 24 Nov 2026 15:45:49 -0300
+Message-ID: <20261124184604.24983-3-acme@kernel.org>
 X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261124184604.24983-1-acme@kernel.org>
+References: <20261124184604.24983-1-acme@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,100 +68,242 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi,
+From: Arnaldo Carvalho de Melo <acme@redhat.com>
 
-The v12 "perf coverage: A harness for perf, and the fixes it found"
-series is still unmerged.  The coverage analysis done for it showed
-that several perf subcommands had no shell test coverage at all, and it
-also caught two issues in the existing tests.  This series is that
-result, made independent of the harness: everything here applies to
-perf-tools-next with nothing from v12, so it can be considered on its
-own while that series is still being reviewed.
+The test pipes the map, latency and timehist output to grep, which
+stops reading at the first match, so the command is killed by
+SIGPIPE before it produces the rest of its output.  It also passes
+--no-inherit, a no-op since perf sched record always records CPU
+wide and inherit is cleared for CPU wide targets.
 
-Patches 1-2 fix existing tests, patches 3-17 add or extend tests for
-the subcommands the analysis found untested.  All changes are in
-tools/perf/tests/shell/, no production code is touched.
+Capture the output first, drop --no-inherit and add the map,
+latency and timehist options along with schedstat record, report and
+diff coverage.
 
-  - perf top pins its ring buffer to the default data size, so the
-    result does not depend on the host's perf_event_mlock_kb (1).
-  - perf sched captures the workload output before grepping it, so a
-    saturating grep cannot kill the producer with SIGPIPE;
-    --no-inherit was dropped, it is already cleared for CPU-wide
-    recording (2).
-  - help (3) and config (4) get their first tests; help -a works in
-    build trees via a dummy exec path.
-  - script list, fields and dump (5), report and diff sort keys (6).
-  - diff options (7) are checked by what each changes: the compute
-    formulas by their column, --time by a window that shows nothing,
-    -o by the entry order, -b on a file whose entries have no baseline
-    match.
-  - annotate (8) and report (9) options the same way; the ones with
-    nothing to observe in stdio output run as parse checks.
-  - record (10), trace (11) and timechart (12) options.
-  - kmem (13) and bench (14) get their first tests; the bench ones
-    skip cleanly when root or the hardware is missing, including
-    benchmarks that skip themselves with a zero exit status.
-  - lock (15) report and info, probe (16) variable and line listing.
-  - report TUI (17): the six browsers are driven from a pty.
+Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+---
+ tools/perf/tests/shell/sched.sh | 154 +++++++++++++++++++++++---------
+ 1 file changed, 111 insertions(+), 43 deletions(-)
 
-Running as non-root on this host, 13 of the 17 scripts exit 0; perf
-sched, kmem, lock and trace need root and exit 2 with their skip
-message, as designed.  All option names and expectations were checked
-against the built perf -h output and the sources.
-
-The tests, the two fixes and the review fixes were developed with an AI
-coding assistant (OpenCode): it drafted the tests, found the two issues
-above and processed three rounds of review findings.  Every commit was
-reviewed, amended and run here before posting.
-
-Arnaldo Carvalho de Melo (17):
-  perf tests top: Pin the ring buffer size
-  perf tests sched: Exercise the sched views and options
-  perf tests help: Add a basic perf help test
-  perf tests config: Exercise the config file and list options
-  perf tests script: Exercise the list, fields and dump options
-  perf tests sort: Exercise the report and diff sort keys
-  perf tests diff: Exercise the output options
-  perf tests annotate: Exercise the output and filter options
-  perf tests report: Exercise the output and format options
-  perf tests record: Exercise more record options
-  perf tests trace: Exercise the tracing options
-  perf tests timechart: Exercise the report options
-  perf tests kmem: Add a basic perf kmem test
-  perf tests bench: Add smoke tests for perf bench
-  perf tests lock: Exercise perf lock report and info
-  perf tests probe: Exercise the variable and line listing
-  perf tests report: Exercise the TUI browsers
-
- tools/perf/tests/shell/annotate.sh        |  64 +++++++
- tools/perf/tests/shell/bench.sh           | 130 +++++++++++++
- tools/perf/tests/shell/config.sh          | 134 ++++++++++++++
- tools/perf/tests/shell/diff.sh            | 191 ++++++++++++++++++-
- tools/perf/tests/shell/help.sh            |  80 ++++++++
- tools/perf/tests/shell/kmem.sh            | 215 ++++++++++++++++++++++
- tools/perf/tests/shell/lock_contention.sh |  40 ++++
- tools/perf/tests/shell/probe_vars.sh      |  80 ++++++++
- tools/perf/tests/shell/record_options.sh  | 173 +++++++++++++++++
- tools/perf/tests/shell/report_options.sh  | 122 ++++++++++++
- tools/perf/tests/shell/report_tui.sh      | 112 +++++++++++
- tools/perf/tests/shell/sched.sh           | 154 +++++++++++-----
- tools/perf/tests/shell/script.sh          | 131 ++++++++++++-
- tools/perf/tests/shell/sort.sh            |  72 ++++++++
- tools/perf/tests/shell/timechart.sh       |  46 +++++
- tools/perf/tests/shell/top.sh             |   7 +-
- tools/perf/tests/shell/trace_options.sh   |  97 ++++++++++
- 17 files changed, 1794 insertions(+), 54 deletions(-)
- create mode 100755 tools/perf/tests/shell/bench.sh
- create mode 100755 tools/perf/tests/shell/config.sh
- create mode 100755 tools/perf/tests/shell/help.sh
- create mode 100755 tools/perf/tests/shell/kmem.sh
- create mode 100755 tools/perf/tests/shell/probe_vars.sh
- create mode 100755 tools/perf/tests/shell/record_options.sh
- create mode 100755 tools/perf/tests/shell/report_options.sh
- create mode 100755 tools/perf/tests/shell/report_tui.sh
- create mode 100755 tools/perf/tests/shell/sort.sh
- create mode 100755 tools/perf/tests/shell/trace_options.sh
-
+diff --git a/tools/perf/tests/shell/sched.sh b/tools/perf/tests/shell/sched.sh
+index 113df962a51c878f..e1aa8570b21f4ad9 100755
+--- a/tools/perf/tests/shell/sched.sh
++++ b/tools/perf/tests/shell/sched.sh
+@@ -11,12 +11,17 @@ fi
+ 
+ err=0
+ perfdata=$(mktemp /tmp/__perf_test_sched.perf.data.XXXXX)
++statsdata=$(mktemp /tmp/__perf_test_sched.stats.XXXXX)
++schedout=$(mktemp /tmp/__perf_test_sched.out.XXXXX)
+ PID1=0
+ PID2=0
+ 
+ cleanup() {
+   rm -f "${perfdata}"
+   rm -f "${perfdata}".old
++  rm -f "${statsdata}"
++  rm -f "${statsdata}".old
++  rm -f "${schedout}"
+ 
+   trap - EXIT TERM INT
+ }
+@@ -56,90 +61,153 @@ cleanup_noploops() {
+   kill "$PID1" "$PID2" || true
+ }
+ 
++run_sched() {
++  local desc="$1" expect="$2"
++
++  shift 2
++  echo "Sched ${desc}"
++  if ! perf sched "$@" > "${schedout}" 2>&1
++  then
++    echo "Sched ${desc} [Failed: perf sched failed]"
++    cat "${schedout}"
++    err=1
++    return
++  fi
++  if [ -n "${expect}" ] && ! grep -q "${expect}" "${schedout}"
++  then
++    echo "Sched ${desc} [Failed: missing '${expect}']"
++    cat "${schedout}"
++    err=1
++    return
++  fi
++  echo "Sched ${desc} [Success]"
++}
++
+ test_sched_record() {
+   echo "Sched record"
+ 
+   start_noploops
+ 
+-  perf sched record --no-inherit -o "${perfdata}" sleep 1
++  if ! perf sched record -o "${perfdata}" sleep 1
++  then
++    echo "Sched record [Failed: perf sched record failed]"
++    err=1
++  fi
+ 
+   cleanup_noploops
+ }
+ 
+ test_sched_latency() {
+-  echo "Sched latency"
+-
+-  if ! perf sched latency -i "${perfdata}" | grep -q perf-noploop
+-  then
+-    echo "Sched latency [Failed missing output]"
+-    err=1
+-  fi
++  run_sched "latency" "perf-noploop" latency -i "${perfdata}"
+ }
+ 
+ test_sched_latency_histogram() {
+-  echo "Sched latency histogram"
++  run_sched "latency histogram" "Latency Distribution Histogram" \
++    latency -H -i "${perfdata}"
++  run_sched "latency linear histogram" "Latency Distribution Histogram" \
++    latency --histogram --hist-mode linear -i "${perfdata}"
++}
+ 
+-  if ! perf sched latency -H -i "${perfdata}" | grep -q "Latency Distribution Histogram"
+-  then
+-    echo "Sched latency histogram [Failed missing log histogram]"
+-    err=1
+-  fi
++test_sched_latency_options() {
++  run_sched "latency sort" "perf-noploop" latency -s max -i "${perfdata}"
++  run_sched "latency per pid" "perf-noploop" latency -p -i "${perfdata}"
++  run_sched "latency cpu filter" "" latency -C 0 -i "${perfdata}"
++  run_sched "latency time filter" "perf-noploop" latency --time 0, -i "${perfdata}"
++}
+ 
+-  if ! perf sched latency --histogram --hist-mode linear -i "${perfdata}" | grep -q "Latency Distribution Histogram"
+-  then
+-    echo "Sched latency histogram [Failed missing linear histogram]"
+-    err=1
+-  fi
++test_sched_script() {
++  run_sched "script" "perf-noploop" script -i "${perfdata}"
+ }
+ 
+-test_sched_latency_time() {
+-  echo "Sched latency time filter"
++test_sched_map() {
++  run_sched "map" "perf-noploop" map -i "${perfdata}"
++}
+ 
+-  if ! perf sched latency --time 0, -i "${perfdata}" | grep -q perf-noploop
+-  then
+-    echo "Sched latency time filter [Failed missing output]"
+-    err=1
+-  fi
++test_sched_map_options() {
++  run_sched "map compact" "" map --compact -i "${perfdata}"
++  run_sched "map color" "" map --color-pids "${PID1}" --color-cpus 0 \
++    --cpus 0 -i "${perfdata}"
++  run_sched "map task name" "" map --task-name perf-noploop -i "${perfdata}"
++  run_sched "map fuzzy name" "" map --task-name noploop --fuzzy-name \
++    -i "${perfdata}"
+ }
+ 
+-test_sched_script() {
+-  echo "Sched script"
++test_sched_timehist() {
++  run_sched "timehist" "perf-noploop" timehist -i "${perfdata}"
++}
++
++test_sched_timehist_options() {
++  run_sched "timehist summary" "Runtime summary" timehist --summary -i "${perfdata}"
++  run_sched "timehist wakeups" "awakened:" timehist -w -i "${perfdata}"
++  run_sched "timehist migrations" "migrated:" timehist -M -i "${perfdata}"
++  run_sched "timehist idle" "Idle-time summary" timehist -I --summary -i "${perfdata}"
++  run_sched "timehist state" "sch delay" \
++    timehist --state --show-prio -V -P -i "${perfdata}"
++  run_sched "timehist call graph" "" timehist -g --max-stack 3 -i "${perfdata}"
++  run_sched "timehist pid filter" "" timehist -p "${PID1}" -i "${perfdata}"
++  run_sched "timehist prio filter" "" timehist --show-prio --prio 0 -i "${perfdata}"
++  run_sched "timehist with summary" "perf-noploop" timehist -S -i "${perfdata}"
++}
++
++test_sched_stats_live() {
++  echo "Sched stats live"
+ 
+-  if ! perf sched script -i "${perfdata}" | grep -q perf-noploop
++  ret=0
++  timeout -s INT -k 5 3 perf sched stats > "${schedout}" 2>&1 || ret=$?
++  if [ "${ret}" != 0 ] && [ "${ret}" != 124 ]
+   then
+-    echo "Sched script [Failed missing output]"
++    echo "Sched stats live [Failed: perf sched stats failed]"
++    cat "${schedout}"
+     err=1
++    return
+   fi
+-}
+ 
+-test_sched_map() {
+-  echo "Sched map"
+-
+-  if ! perf sched map -i "${perfdata}" | grep -q perf-noploop
++  if ! grep -q "Description" "${schedout}"
+   then
+-    echo "Sched map [Failed missing output]"
++    echo "Sched stats live [Failed missing output]"
+     err=1
++    return
+   fi
++  echo "Sched stats live [Success]"
+ }
+ 
+-test_sched_timehist() {
+-  echo "Sched timehist"
+-
+-  if ! perf sched timehist -i "${perfdata}" | grep -q perf-noploop
++test_sched_stats_record() {
++  if ! perf sched stats record -o "${statsdata}" sleep 1
++  then
++    echo "Sched stats record [Failed: perf sched stats record failed]"
++    err=1
++    return
++  fi
++  if [ ! -s "${statsdata}" ]
+   then
+-    echo "Sched timehist [Failed missing output]"
++    echo "Sched stats record [Failed: no data file]"
+     err=1
++    return
+   fi
++  echo "Sched stats record [Success]"
++}
++
++test_sched_stats_report() {
++  run_sched "stats report" "Description" stats report -i "${statsdata}" -C 0 -v
++}
++
++test_sched_stats_diff() {
++  run_sched "stats diff" "" stats diff "${statsdata}" "${statsdata}"
+ }
+ 
+ test_sched_record
+ test_sched_latency
+ test_sched_latency_histogram
+-test_sched_latency_time
++test_sched_latency_options
+ test_sched_script
+ test_sched_map
++test_sched_map_options
+ test_sched_timehist
++test_sched_timehist_options
++test_sched_stats_live
++test_sched_stats_record
++test_sched_stats_report
++test_sched_stats_diff
+ 
+ cleanup
+ exit $err
+-
 -- 
 2.56.0
 
