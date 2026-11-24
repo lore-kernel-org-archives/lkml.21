@@ -1,56 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=84.42.129.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795519985;
-	b=WeuEmVHEQ5clc1x1Hvdi8yteMiVvOY/rxROfVmJFmll8lliiWrZ8/f8dLOQH4ZyAniml
-	 5rxrIEh9k9i3xKpFBHS6/C5APDXfFvV843MF0v0fC6stL+trqVVgBUvvl+Jrf2stN/tRz
-	 qU57KarBHhlqVxylmLlfJA2zuX2cO+KaaIvZAIkM6JhG0GmeGnO7Lc5D3cMfvw1Nn2hI6
-	 zA7fuXRO5MOBkCYD3NOqf5ySF9To3PXYII9HXPNx9B1CmJjC1/W3z1o+8caZ40P97gMCE
-	 OzHQuYfiOsdT1tyCfT1KPiJkbIwcAtUuf8uFG+/sIf9+rrC1NAsd+iN0yHRBc6SHo1w==
+	t=1795519993;
+	b=p7Mv3kEewB5jOYojXYZZJk/hvc788smCKWGVOZ/uizWXlaIeJx5/2cYzlr3rnN2AjC9N
+	 6/FwDY1NpKf/PQPspo2D04DbpVMY21JvqTgnJm8BXysDC7JXM8OhCaAraqDrfXQOTYUXq
+	 J5dqWnpRsTaIk1WJTrRzP4c0ZJYYqZRmLRrw5wlBklGF4MUV0/9Khyjavc0AAZkvMqheL
+	 jAdjZ/TD//uXzPFW2Aiqomh4FcPfR+B+KsbQ335Z5W9Xb0G5DypZ6jM1Beo1/01oFhjZD
+	 hJTgtCF+UR8i/MKb+/JhsWwkVG9MpebaO4SbX5bjuHrBZdpwa8bnZKcssdMxFo9kT+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795519985;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=2wAI0U0Aw0/Hir5ZBaG+OuSVl8tgrjIkUBH/D+QX9qY=;
-	b=ljWaTVjy0LEk0pjI0V4L8nmE8Ib4qvoRF/DUmJ80Ta62MpuR2pAmlHCwv9jzT6NqToLB
-	 JyX7X0yN9ogxDWqH712moScRMh+tTGy09736LugnfqU1Nta21YehxEXPmMDRjx3q+yBnv
-	 BSQheiPfprqvbWkkyo27R+fZyPCGkjCY96fdSEsv1VmxI83MXHrM7PVPLLboa1T2OIdV3
-	 9RKJ0KWnwXl9c4AyF31D02q2Psp4qjrqAwSlGXfLHG3386PTks1OPid5dhcWwnUsc/Oma
-	 acTXncx9WaSQkg9d2rRNcWervVweSQaPiQ4gRagnNvDZxWBsdMrSrQO6Ob3q7uQLYEA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795519993;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=EiMYBgdIo+7Jld6p7aiOMau8jqoH62LYKTF989Hvq/Y=;
+	b=aNabYr8wXXKMpKxFfaKZ02dudC1VK8GGwkA1M8gIJw+9sUxvgRiRXk+ggupviZ0l8rPx
+	 6Q6zfHfV22ZcBmKDQEvfx4usf/GKa0IZ2z2POQtCg03/bWQH4fLXDJCeicuWryITl6uQa
+	 fPKSZM+6003XLWjFD7IAkpF4tqX5PBxeyssdLRAFMYBCjQ3Ns/4GMRrcJjDlzNcSlO+IR
+	 WKaCd3s7Qo5cOApnDyOx+OUt3S9WuBtE+8DXONkPA7XjKpd6qERtJKUwS1iT2/Ey2IhVs
+	 O76orgEBqbxdSYSwyKq+CIBPUrMwk+LHHTzBR1CLlxqhU5EUed0e3v6X2IfPtBOiecg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ixit.cz;
-	spf=pass smtp.mailfrom=ixit.cz;
-	dkim=pass header.d=ixit.cz header.i=@ixit.cz header.a=rsa-sha256 header.s=dkim header.b=MrtIoEdm;
-	arc=none smtp.remote-ip=84.42.129.46
-Received: from ixit.cz (ixit.cz [84.42.129.46])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CNmLzglP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B017606A327;
-	Tue, 24 Nov 2026 11:33:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B017606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ixit.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ixit.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34894606A31E;
+	Tue, 24 Nov 2026 11:33:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=ixit.cz header.i=@ixit.cz header.a=rsa-sha256 header.s=dkim header.b=MrtIoEdm
-Received: from [IPV6:2001:1aef:2a:b353:5e1d:f68d:d59c:573d] (2001-1aef-2a-b353-5e1d-f68d-d59c-573d.ip6.tmcz.cz [IPv6:2001:1aef:2a:b353:5e1d:f68d:d59c:573d])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id 43FC1534031B;
-	Tue, 24 Nov 2026 12:32:56 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1795519976;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=2wAI0U0Aw0/Hir5ZBaG+OuSVl8tgrjIkUBH/D+QX9qY=;
-	b=MrtIoEdmb3J/NqCXE7NnWUVc+AA7w3GEgFuhFRdqShN9Mx1F7yJ9dlRtoUkzT6RqWU2vLQ
-	15mXrxlv1HqJZk0MUGLl3IFx4tlPDL2GuaU4g3AoeOivDdXWqbibaYIQw5OFlN/hnWlhfY
-	W7148AWAX08bqBAFI2ywcJ2w06FCKng=
-Message-ID: <6f6af2c9-bad8-4073-9589-c6c72bee37c2@ixit.cz>
-Date: Tue, 24 Nov 2026 12:32:55 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CNmLzglP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A95D1F000C0;
+	Tue, 24 Nov 2026 11:33:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795519992;
+	bh=EiMYBgdIo+7Jld6p7aiOMau8jqoH62LYKTF989Hvq/Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=CNmLzglPE9LHYi1mJezvBeOc7Q8Xzm8eeZEZtUF00B9ZlXidaJlB+eldfiCZjTWhy
+	 UlK4P+spLc2W6rLxidAmHc2jkMLbG3nWm6mO83c3ZRjQHVDo0vNBPr40J57PNEIcLQ
+	 UeM5qcsVS3pqtb8JwUnGXHkYy5JGnNwzWOPa5NEm3VTfj4UAIvWhMd9tlmyuGJikG6
+	 EvtzrPQ3SezcjIS0kdPDQvBzd/pHj2VlCNAa/tNK0prYLjrujf49LTsROOXsqEaoFT
+	 EhHjyxwELlrJm2846MUz2CaWFNfI3IyT3KalviSodugBq7RlAliQVKw2L5Yg+UH3YV
+	 KogiwPJe7hbEA==
+Message-ID: <52773445-ffe8-4a42-82ca-e74f18c944b3@kernel.org>
+Date: Tue, 24 Nov 2026 12:33:07 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,72 +52,70 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] media: i2c: imx355: remove redundant
- pm_runtime_dont_use_autosuspend() calls
-To: Joshua Crofts <crofts@kernel.org>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
- Sylvain Petinot <sylvain.petinot@foss.st.com>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261110-media-remove-dont-use-autosuspend-v1-0-cc07e71b30f9@kernel.org>
- <20261110-media-remove-dont-use-autosuspend-v1-1-cc07e71b30f9@kernel.org>
-Content-Language: en-US, cs-CZ
-From: David Heidelberg <david@ixit.cz>
-Autocrypt: addr=david@ixit.cz; keydata=
- xsFNBF5v1x4BEADS3EddwsNsvVAI1XF8uQKbdYPY/GhjaSLziwVnbwv5BGwqB1tfXoHnccoA
- 9kTgKAbiXG/CiZFhD6l4WCIskQDKzyQN3JhCUIxh16Xyw0lECI7iqoW9LmMoN1dNKcUmCO9g
- lZxQaOl+1bY/7ttd7DapLh9rmBXJ2lKiMEaIpUwb/Nw0d7Enp4Jy2TpkhPywIpUn8CoJCv3/
- 61qbvI9y5utB/UhfMAUXsaAgwEJyGPAqHlC0YZjaTwOu+YQUE3AFzhCbksq95CwDz4U4gdls
- dmv9tkATfu2OmzERZQ6vJTehK0Pu4l5KmCAzYg42I9Dy4E6b17x6NncKbcByQFOXMtG0qVUk
- F1yeeOQUHwu+8t3ZDMBUhCkRL/juuoqLmyDWKMc0hKNNeZ9BNXgB8fXkRLWEUfgDXsFyEkKp
- NxUy5bDRlivf6XfExnikk5kj9l2gGlNQwqROti/46bfbmlmc/a2GM4k8ZyalHNEAdwtXYSpP
- 8JJmlbQ7hNTLkc3HQLRsIocN5th/ur7pPMz1Beyp0gbE9GcOceqmdZQB80vJ01XDyCAihf6l
- AMnzwpXZsjqIqH9r7T7tM6tVEVbPSwPt4eZYXSoJijEBC/43TBbmxDX+5+3txRaSCRQrG9dY
- k3mMGM3xJLCps2KnaqMcgUnvb1KdTgEFUZQaItw7HyRd6RppewARAQABzSBEYXZpZCBIZWlk
- ZWxiZXJnIDxkYXZpZEBpeGl0LmN6PsLBlAQTAQgAPgIbAwULCQgHAgYVCgkICwIEFgIDAQIe
- AQIXgBYhBNd6Cc/u3Cu9U6cEdGACP8TTSSByBQJl+KksBQkPDaAOAAoJEGACP8TTSSBy6IAQ
- AMqFqVi9LLxCEcUWBn82ssQGiVSDniKpFE/tp7lMXflwhjD5xoftoWOmMYkiWE86t5x5Fsp7
- afALx7SEDz599F1K1bLnaga+budu55JEAYGudD2WwpLJ0kPzRhqBwGFIx8k6F+goZJzxPDsf
- loAtXQE62UvEKa4KRRcZmF0GGoRsgA7vE7OnV8LMeocdD3eb2CuXLzauHAfdvqF50IfPH/sE
- jbzROiAZU+WgrwU946aOzrN8jVU+Cy8XAccGAZxsmPBfhTY5f2VN1IqvfaRdkKKlmWVJWGw+
- ycFpAEJKFRdfcc5PSjUJcALn5C+hxzL2hBpIZJdfdfStn+DWHXNgBeRDiZj1x6vvyaC43RAb
- VXvRzOQfG4EaMVMIOvBjBA/FtIpb1gtXA42ewhvPnd5RVCqD9YYUxsVpJ9d+XsAy7uib3BsV
- W2idAEsPtoqhVhq8bCUs/G4sC2DdyGZK8MRFDJqciJSUbqA+5z1ZCuE8UOPDpZKiW6H/OuOM
- zDcjh0lOzr4p+/1TSg1PbUh7fQ+nbMuiT044sC1lLtJK0+Zyn0GwhR82oNM4fldNsaHRW42w
- QGD35+eNo5Pvb3We5XRMlBdhFnj7Siggp4J8/PJ6MJvRyC+RIJPGtbdMB2/RxWunFLn87e5w
- UgwR9jPMHAstuTR1yR23c4SIYoQ2fzkrRzuazsFNBF5v1x4BEADnlrbta2WL87BlEOotZUh0
- zXANMrNV15WxexsirLetfqbs0AGCaTRNj+uWlTUDJRXOVIwzmF76Us3I2796+Od2ocNpLheZ
- 7EIkq8budtLVd1c06qJ+GMraz51zfgSIazVInNMPk9T6fz0lembji5yEcNPNNBA4sHiFmXfo
- IhepHFOBApjS0CiOPqowYxSTPe/DLcJ/LDwWpTi37doKPhBwlHev1BwVCbrLEIFjY0MLM0aT
- jiBBlyLJaTqvE48gblonu2SGaNmGtkC3VoQUQFcVYDXtlL9CVbNo7BAt5gwPcNqEqkUL60Jh
- FtvVSKyQh6gn7HHsyMtgltjZ3NKjv8S3yQd7zxvCn79tCKwoeNevsvoMq/bzlKxc9QiKaRPO
- aDj3FtW7R/3XoKJBY8Hckyug6uc2qYWRpnuXc0as6S0wfek6gauExUttBKrtSbPPHiuTeNHt
- NsT4+dyvaJtQKPBTbPHkXpTO8e1+YAg7kPj3aKFToE/dakIh8iqUHLNxywDAamRVn8Ha67WO
- AEAA3iklJ49QQk2ZyS1RJ2Ul28ePFDZ3QSr9LoJiOBZv9XkbhXS164iRB7rBZk6ZRVgCz3V6
- hhhjkipYvpJ/fpjXNsVL8jvel1mYNf0a46T4QQDQx4KQj0zXJbC2fFikAtu1AULktF4iEXEI
- rSjFoqhd4euZ+QARAQABwsF8BBgBCAAmAhsMFiEE13oJz+7cK71TpwR0YAI/xNNJIHIFAmX4
- qVAFCQ8NoDIACgkQYAI/xNNJIHKN4A/+Ine2Ii7JiuGITjJkcV6pgKlfwYdEs4eFD1pTRb/K
- 5dprUz3QSLP41u9OJQ23HnESMvn31UENk9ffebNoW7WxZ/8cTQY0JY/cgTTrlNXtyAlGbR3/
- 3Q/VBJptf04Er7I6TaKAmqWzdVeKTw33LljpkHp02vrbOdylb4JQG/SginLV9purGAFptYRO
- 8JNa2J4FAQtQTrfOUjulOWMxy7XRkqK3QqLcPW79/CFn7q1yxamPkpoXUJq9/fVjlhk7P+da
- NYQpe4WQQnktBY29SkFnvfIAwqIVU8ix5Oz8rghuCcAdR7lEJ7hCX9bR0EE05FOXdZy5FWL9
- GHvFa/Opkq3DPmFl/0nt4HJqq1Nwrr+WR6d0414oo1n2hPEllge/6iD3ZYwptTvOFKEw/v0A
- yqOoYSiKX9F7Ko7QO+VnYeVDsDDevKic2T/4GDpcSVd9ipiKxCQvUAzKUH7RUpqDTa+rYurm
- zRKcgRumz2Tc1ouHj6qINlzEe3a5ldctIn/dvR1l2Ko7GBTG+VGp9U5NOAEkGpxHG9yg6eeY
- fFYnMme51H/HKiyUlFiE3yd5LSmv8Dhbf+vsI4x6BOOOq4Iyop/Exavj1owGxW0hpdUGcCl1
- ovlwVPO/6l/XLAmSGwdnGqok5eGZQzSst0tj9RC9O0dXO1TZocOsf0tJ8dR2egX4kxM=
-In-Reply-To: <20261110-media-remove-dont-use-autosuspend-v1-1-cc07e71b30f9@kernel.org>
+Subject: Re: [PATCH v2 3/5] phy: apple: atc: Add initial M3 series support
+To: Sasha Finkelstein <k@chaosmail.tech>, Janne Grunau <j@jannau.net>,
+ Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261122-t8122-phy-v2-0-8d5c8fdf31ba@chaosmail.tech>
+ <20261122-t8122-phy-v2-3-8d5c8fdf31ba@chaosmail.tech>
+Content-Language: en-US
+From: Sven Peter <sven@kernel.org>
+In-Reply-To: <20261122-t8122-phy-v2-3-8d5c8fdf31ba@chaosmail.tech>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-On 10/11/2026 15:03, Joshua Crofts wrote:
-> Since commit d1706f9da9f4 ("PM: runtime: call pm_runtime_dont_use_autosuspend() on reinit()"),
-> driver core is now responsible for undoing any
-> pm_runtime_use_autosuspend() calls on driver exit.
+
+
+On 22.11.26 13:27, Sasha Finkelstein wrote:
+> Adds initial support for the new t8122 phy. USB/TB only for now, DP
+> will fail to negotiate
 > 
-> Remove the redundant function calls.
-> 
-> Signed-off-by: Joshua Crofts <crofts@kernel.org>
-Reviewed-by: David Heidelberg <david@ixit.cz>
+> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+> ---
+
+[...]
+
+> +
+> +static void atcphy_configure_post_tunable_t8122(struct apple_atcphy *atcphy, enum atcphy_mode mode)
+> +{
+
+This function ...
+
+> +	if (atcphy_modes[mode].pipehandler_state != ATCPHY_PIPEHANDLER_STATE_USB3)
+> +		return;
+> +	core_set32(atcphy, ACIOPHY_CFG0, ACIOPHY_CFG0_COMMON_SMALL);
+> +	udelay(10);
+> +	core_set32(atcphy, ACIOPHY_CFG0, ACIOPHY_CFG0_COMMON_SMALL_OV);
+> +	udelay(10);
+> +	core_set32(atcphy, ACIOPHY_CFG0, ACIOPHY_CFG0_COMMON_BIG);
+> +	udelay(10);
+> +	core_set32(atcphy, ACIOPHY_CFG0, ACIOPHY_CFG0_COMMON_BIG_OV);
+> +	udelay(10);
+> +	core_clear32(atcphy, ACIOPHY_CFG0, ACIOPHY_CFG0_COMMON_CLAMP);
+> +	udelay(10);
+> +	core_set32(atcphy, ACIOPHY_CFG0, ACIOPHY_CFG0_COMMON_CLAMP_OV);
+> +	udelay(10);
+> +	core_set32(atcphy, AUS_COMMON_SHIM_BLK_BIAS_REG, AUS_COMMON_SHIM_BLK_BIAS_REG_BGBIAS_OV);
+> +	udelay(10);
+> +}
+> +
+> +static void atcphy_configure_post_tunable_t8122(struct apple_atcphy *atcphy, enum atcphy_mode mode)
+> +{
+
+... is defined again here and there's also a _t8103 variant so something 
+is off here. I think you want the second one only which doesn't have 
+atcphy_power_on_common_t8122 inline maybe?
+
+> +	if (atcphy_modes[mode].pipehandler_state == ATCPHY_PIPEHANDLER_STATE_USB3 ||
+> +	    (atcphy->hw->dp && atcphy_modes[mode].enable_dp_aux))
+> +		atcphy_power_on_common_t8122(atcphy);
+> +}
+> +
+
+
+Sven
+
