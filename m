@@ -1,118 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.52
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795553122;
-	b=QlzEceOQ28/RWD9SWSo3tGclc/yAZaKzWBY9jOAAjNkjEFieLwG339NxM0v96iS8I7A4
-	 rxS/OQcTQo1akIlGSJVFZ7EIL1mtY63+YzRwquNdIp0zBuBorHogUnK8xa00HTr7UGkyM
-	 StBadXLsqxujCbyfXsHrtHU99xLCw4ZaBibgKIdtsd7V9+3x73rBP/1VeC34sNd+Ee3K1
-	 lg7CAdpkvWFDRq6TzOUyNYrdZwoLS2Nhl1axjqMOYqiS4ZY1yBFGRikByTjZbFSPgPVFo
-	 WpFI70pE1PPduANlv3RVq76WmI5dHs5aatrCmaoeqzZYHvhbjT7QFyz5WveRpiQzXrA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795553122;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.177
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795553133;
+	b=Umj24nfn++NJ1o7U4ZMFazMvoB/uSLlgS9+7fvve03zU8PuOPZy061cqHAqKBrpThH5H
+	 DTqDSaOnSDB5mpOhTR9sCo5r9KSwFXDys2aM3pxH4ae9g+bZzRaJUCVenFMMabodiO+xt
+	 vL7laLIUXL5TEHKuZrdKrSaNzLAlhZtA2ZS6LxNafJ6wlh4lNBrIgSahvOAKDTKSlmdwA
+	 LWSeIDgTBAtyGcbrBEv++XVGdvyISsPY1bQg9NPA9gCkGSXxD+V1jU+VR0hl3V7a6jrmB
+	 JGGU8xMAUDXwBBUdyzplgii6VeGp6EwOWtsJjZtx6lOJJgTzHoiSuHSh1PZa6Omj+cA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795553133;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
-	 Content-Type:User-Agent:MIME-Version;
-	bh=10XH4ej2oXPoMU/XuFtT77K3dT70WQ+UCraqr7WioX0=;
-	b=MShTgKoJcx/I/D+Pfeu8uE5XqJJOyIMo+3vvg9I+5ShC0dEZB4Wl9I/Hzchktd5jF4e8
-	 KYaTL70vO/8h6UKLJHqrDU1k8tLj8SBbDYohIx6ZrOwZZAc0Jc02E7oTamCJXtWIe/PSI
-	 +QoTIoUXcLomCt7JQzkwjyaefCARtu2AK283Y2xGrDhm1iGaCysoPavNczRDKjIlztnWo
-	 ArS0bEu2sfX4uEgBpc7jqT444uC6MWE/5K+nFdpG3keREOqv0mOJkwR6xNY7v/ai0133o
-	 84HUYayQiHQLre0vDkbUC4ElhT0At43D9kJoLMx413K3Rw9QBOcA4w0IhKAtJBDWRyg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ndufresne.ca;
-	spf=pass smtp.mailfrom=ndufresne.ca;
-	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=jUK3IoOR;
-	arc=none smtp.remote-ip=209.85.219.52
-Received: from mail-qv1-f52.google.com (mail-qv1-f52.google.com [209.85.219.52])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=KFzLi3vzdDSPGhuH40A8wZRyinBPu8g/pRL5DsdlYi8=;
+	b=ZI/N4NhVbX6DVh7LQK/guR/atCJnJ+KFDyKCjG6bPQo9W1tp0kRUFOSvP14srP64vKo2
+	 ubUEkuf0rYfhTiIIyPMNoO4Qv8c8BZHtudoSSM34RgBlrHcggJllL7SeZyAnkJGuPkkBw
+	 MyY3vqdj/pNdnGmzr6zNLBjge20OQvMKsVDBd+xdivY9tm1gfP8sbDg/+0YeZxflsIZaP
+	 AB6HrpvNgaCYeNy5jbYPHLezZwdgjzlecMyj7VMWBfBqO0roa+LN7vgjhACim+UPc3Yt3
+	 1HIq2aQJlpE+CPt75MQQ6hpyfSw710vQp4DaT8j8WWG39GE1L9GZsRRYOhvb7UNH9qg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=googlemail.com;
+	spf=pass smtp.mailfrom=googlemail.com;
+	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=fWkfI7g7;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.177
+Received: from mail-yw1-f177.google.com (mail-yw1-f177.google.com [209.85.128.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E2DC606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:45:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E2DC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC03C606A335
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:45:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC03C606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=jUK3IoOR
-Received: by mail-qv1-f52.google.com with SMTP id 6a1803df08f44-9213922de73so86015356d6.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:45:22 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=fWkfI7g7
+Received: by mail-yw1-f177.google.com with SMTP id 00721157ae682-8b4eab91bcaso27687217b3.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:45:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795553132; cv=none;
+        d=google.com; s=arc-20260327;
+        b=O3XqlcdGY0UXhd3ikZchYerxcH+NIk93mpsueL8hv4Q6M+6GnC0x9Z1sbFiqvKbY8D
+         NTLSEq2fXtsOZcfAP33B4lsTZG7ThT8LII7UQEJ0UNAfsm+bCtbVhMKlS5/iWZDk/eO6
+         uva3diAsITryEUwcTLPxkoiY+6SrRmbmPX3v7aU4c+iD/SPzyRqngF6fKkGIZYHEjQoS
+         mcQUQd4sh4YMogSEjYKc62/ExJl/nwadyLJy9pY9Oaom3tHApkvJraaxkxayGapL+OEc
+         u6wG56BufbwfbwG353OI2dZ3m9pw3hRX3XsPQMMOaFBEKqRt3lBmIHVk17AlyRfbI6a8
+         uszg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=KFzLi3vzdDSPGhuH40A8wZRyinBPu8g/pRL5DsdlYi8=;
+        fh=TOk9JGh+wI6Dk/2JiXB7oXw+fjOX4p38hYLCfpeqzsQ=;
+        b=WMAHkmxtzN5eD7QY6q9ywk8bUhhukwM+i6SbngNgkz0KnYsiKeb1p/VSMtylkEBOHQ
+         5Nm4G/8LqUdgRQWnfvgUWeQpXGjwnhjaRBObLxYj8ouwPAydQMGdy4ou85rK+KvkxMgS
+         9M+/omPGJZAnCdDKDzNh3Nvw5kHAJiXSwSi9IS5YaBLqA0jcoq51UF7kB4i8IBbl1LKB
+         B6slcaF9wyIh000bPdU5sL8iSJvlxSBp6t0QlPZdUIzwnqvgU2i5m+2ZlifHrfOW7AQQ
+         vqXwto4IKeK+dh8WSf40Cjmuhrs9Z9O5w983dr12aCediJCp5xVYV2/OPmWcsTl4kAKA
+         +Zpg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795553121; x=1796157921; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+        d=googlemail.com; s=20260707; t=1795553132; x=1796157932; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=10XH4ej2oXPoMU/XuFtT77K3dT70WQ+UCraqr7WioX0=;
-        b=jUK3IoORi3dKNqt8hyREsncDuI44QK8mXkcsJzkCvMePLqDhAHCdu6oWNqXhZ/6Dc5
-         Wz78Hjpf2xNgROGZiZrgECDAqjR1GlhibHgWUIn5MFLe0zXL+wHxjnjG7M3G6ya5neLu
-         Eu2xs18h1kwnPYo0wyZVn9UPjfEtHguZx8WtFjf3yhP4gsb44Zs6g2mPvaEUK86nhZn9
-         MNO2MSLhZmW95Upjc2+HkKcxKmGZxQ//7vEuoIDSaKWF+6Pt04IDez/juJfh1VLl23ZZ
-         SwY5t3XlqCOfSAZjZg3sDyXqfTgXZNcLFfAPhdNXSE+L8mQQ3LBZMkPEG3A16KdWxSfN
-         0APA==
+        bh=KFzLi3vzdDSPGhuH40A8wZRyinBPu8g/pRL5DsdlYi8=;
+        b=fWkfI7g7PrLQ7bt+0UAil+Zy7J/2gPJX50pDHayXK+EpqLlR20gEcua4dazCanX3T5
+         E53HaM4usZB+CE/EUBt9WWedRTs2GcLHHZMNdI9HL+DQWjWIvORceM10ZdjtTOKgBdL6
+         aJMzVftA/pPwii3PvCGJApDKR1SH7WIDniYyN/fnUEkj9dyewvH9yCmNioPAwUhpdzIh
+         hPaq2LbyV86n5UydtCwC0x2FWZIn2eZHLO4E1bGxrFsWWM8scZG0+Hh28SugR8pD9uh4
+         98xRtzbCiLQjlnMY7czZmvRaYZUmtvYPyalncM69vRhfNSfPjPAVyEUYLYPyxyOx3xpZ
+         PRPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795553121; x=1796157921;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+        d=1e100.net; s=20260707; t=1795553132; x=1796157932;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=10XH4ej2oXPoMU/XuFtT77K3dT70WQ+UCraqr7WioX0=;
-        b=rSDtEk3dSb6uFgxkIQsWVIOVwBVLgymO19oS+bUQRO8R8fVisq/0mch/+ftSmXlGAq
-         Tdo2a9T7R1khl2uqOci2Qls5kTuXfR1QTp2sU5GcA1kaY6vfXOsIYAnf+VlIrwGDJ9Lf
-         ihvern8O3Z0AYmopix9YXBL5abci+yhKf5zpEPldMqzdKgpjmMExA1fomO80FHjgG0Aq
-         //FUaloHZ045UojWOZIMLtub1Z3HH7Y0JUZB7erqrEluD1CPKehmgaGaswxR+QQdL/Sl
-         ErJXjgdlsEEuwdkZ/MNQTX63uNHn370AaX76W9hE33B3O6ilWwiTYcSM/QHpeJ8CLWQe
-         89/Q==
-X-Forwarded-Encrypted: i=1; AL+hErGlfHsbz5kidyqz+oQqfUlFHNPsB4ri2gbbqWHHhPgKEGdHbLeb0NrLhLjzmqiVA0YDEl8elqmsM+p2QqE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z90fzLwpFjmfJrecC1lzxYr0polY1FsLglO2lBWj4UmOoPuMZ0b
-	qDzShc/FEB8WwpRW8SWNP9TjH9nKjFkquxNsjlTiE4rsBvKHzMpmghcxDFqX435gmIY=
-X-Gm-Gg: AZFdTZcmDPqMF3kiamt3PvQRrMhmAAzgzgdhDbQoYstaCINsn0cB1RG+VqKnP2tFTJr
-	wh3gYHUxSY3vdvCxAlNTWoOqLaQmG+bfdjqgnxvEojMfdYmAID76INHldO0Uo6JQpPOn9tN3+wQ
-	PhynbhWTwfyEKvXcfZ/5sXEm/d/374/W7kEJP0++/++cv5/SKtBzK2La2GJ/QfwliTkdApPTpNK
-	WBRfD0OdkiZ34TwItDZWL3zzab7Q1kbGYp/qIILiyXeFkLWwIVGugdhFnNmQRqy0nEoEUNmYhQq
-	PKYmPps4SmS6ivf+lxGEjg83MPwuc/bL/x5NnH2dTM7dOHAlCOM1xMcf14b25rv9FOSfA/WF2yY
-	VlFulnfHYNiCZrvdMZBnv9KIl2GrPu/nhnHL8QTEkLLEFf0lRhisU6VGESHmxMe7F/UrMAF6icH
-	lAPqyevd6n9oXapsRY4o1Jh2RQslH79xkOtGV9wkzonkjwyERD5BAChBXXyEHr5fINlmPoDy7yK
-	0E9RFwQYNBYF/yEjEknQtBLBVABmF/v2n6YX+JZn7vaMOOTnaMpgksvWAk7z2ygvBzDMdJwO+kF
-	PXxeTTRwKT0Dy9iloRikY3FBIb4v6muWtyHW2az3mcfXbUpyUVaaIyA=
-X-Received: by 2002:a05:6214:5243:b0:920:fd83:6976 with SMTP id 6a1803df08f44-92134b3f391mr282710326d6.50.1795553121021;
-        Tue, 24 Nov 2026 12:45:21 -0800 (PST)
-Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134a08552sm142793896d6.34.2026.11.24.12.45.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 12:45:20 -0800 (PST)
-Message-ID: <fb95b4f8fa3db34a407177d1efcd100acfd0e918.camel@ndufresne.ca>
-Subject: Re: [PATCH v2 02/17] media: rockchip: rga: add comment about pixel
- alignment for YUV formats
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
-	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Philipp Zabel
-	 <p.zabel@pengutronix.de>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel@pengutronix.de, Detlev Casanova <detlev.casanova@collabora.com>, 
- Michael Tretter <m.tretter@pengutronix.de>, Guangshuo Li
- <lgs201920130244@gmail.com>
-Date: Tue, 24 Nov 2026 15:45:18 -0500
-In-Reply-To: <20260916-spu-rga3multicore-v2-2-23aa2cb74e61@pengutronix.de>
-References: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
-	 <20260916-spu-rga3multicore-v2-2-23aa2cb74e61@pengutronix.de>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-lDiiVpW7LbsI8l96Z/jE"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+        bh=KFzLi3vzdDSPGhuH40A8wZRyinBPu8g/pRL5DsdlYi8=;
+        b=zAclzBPkl55++V9w8aOcpFjnXsRdcG/1qKLN0Ue3ix5m9WVg7o91aAW96qOIiSMjzH
+         5k6J9C0J4qnzdwQoiSTBttgYs3DXOyThys1zuruwNMHbLPEnHbqXwb/LJFNgJAn+jX0I
+         5PnoYHK4zCFDkRzz/cYeVfk+yX14bawN4RhsFx6qGEzp2HoHvTXfacSzAQDxfp51gTzb
+         7JrNND8Vz1AOGnsF0fpiIkstUKmCb4i5iP3GHFDHnlswbH2+7DDuBUEFFHjB5FlE8sUI
+         6saudbpUX0Lo8EE6gt6m1Ip+RIBF+tNqXoBsZq3B6GHKnBGx6jLlm4wkuWEx6cZBT3ig
+         9orw==
+X-Forwarded-Encrypted: i=1; AL+hErFH7E703tt+cwoIsGrTJ5X5wFxayGrfz5RrMsaYd9mibfivBg3xDQnm7nab0QOcaFEUc4Sd080XKlZBROQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8P/pRwEO3SP5IGqPeq6WH8kqr2C7kaXbK6eFWpdUEUxE+vIrLY
+	HA+C5rPugz44DKfNPMUbBYAikbomaZTE1eJnNiQT3bDTyZWwKh7soY2BaFcZo3zL6P9Pulq0HKv
+	HG06E6Obidm5fD8f+RfakMcmNbJn4aIM=
+X-Gm-Gg: AZFdTZfA/z3fuNVByqJU+As5PivX/33tQ9D1kNmQr5Vheb8w+kEyqRzWk/7ALBQ4yFX
+	82BgCEeLEmyfe0CohlUm9sf5kkl6lOj5Og15Ov45tAfSLYxNKZS+5y9JFVWx+6NC/04UMASnXvf
+	09fuyGJ6rc9HTXTCbSh3duzMsnAMBQEu6MXfeTtxZKC/CyM/HeL6imXs3EutsKagoJ/i+ngshfQ
+	UH+0M/exQKHl/Z0cO8lL9rOYvHXK6Dx62nBlcVa3QKD/Amhm9whtaiPZfC4Psy0/IY0kMrvhcdo
+	tbiswj5s/AHgDgVG+68/o2XKakkCPWdHMFPsdLKgbEkY6UCYAOZLO82GCvod5onQq1PMqejz9KP
+	4WgbplF0p4I7M+H83IXk207Byg6dhXTt2a6WSqNYEBmlfVrjKtW3P9MQF9QBHlRae0rK6xLS69H
+	FA1Pyonof1PTvsrWHr
+X-Received: by 2002:a05:690c:799:b0:8b4:d584:6165 with SMTP id
+ 00721157ae682-8b52043ff55mr69264227b3.21.1795553131511; Tue, 24 Nov 2026
+ 12:45:31 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -122,60 +105,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
---=-lDiiVpW7LbsI8l96Z/jE
+References: <20261121213102.143130-1-tanure@linux.com> <20261121213102.143130-2-tanure@linux.com>
+In-Reply-To: <20261121213102.143130-2-tanure@linux.com>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Tue, 24 Nov 2026 21:45:20 +0100
+X-Gm-Features: Aa3M54pybnp1CQPsafQYDf0P2DptibC917JzUwMw-x18aat2wfvVMhiMsv1rR3s
+Message-ID: <CAFBinCDPGYpR6rmtJvN5pT1OdSN-ne=YJVeT0kk4Ff2SB2vraA@mail.gmail.com>
+Subject: Re: [PATCH v8 1/4] dt-bindings: net: amlogic,g12a-mdio-mux: add the
+ T7 compatible
+To: Lucas Tanure <tanure@linux.com>
+Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Le mercredi 16 septembre 2026 =C3=A0 17:09 +0200, Sven P=C3=BCschel a =C3=
-=A9crit=C2=A0:
-> Add a comment to clarify the use of fixed step_height values for all YUV
-> formats. While the commit introducing the change already explains the
-> reasoning, add an explicit comment to improve the visibility of the
-> reasoning.
->=20
-> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
-
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-
-> ---
->  drivers/media/platform/rockchip/rga/rga.c | 10 ++++++++++
->  1 file changed, 10 insertions(+)
->=20
-> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/pl=
-atform/rockchip/rga/rga.c
-> index bd0afd33affe4..efe5541078214 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.c
-> +++ b/drivers/media/platform/rockchip/rga/rga.c
-> @@ -414,6 +414,16 @@ static int vidioc_try_fmt(struct file *file, void *p=
-riv, struct v4l2_format *f)
->  =09=09.step_height =3D 1,
->  =09};
-> =20
-> +=09/*
-> +=09 * Technically 4:2:2 YUV formats don't need a step_height of 2.
-> +=09 * But for the RGA3 this is explicitly documented in  section 5.6.3
-> +=09 * of the RK3588 TRM Part 2.
-> +=09 * And the RGA2 vendor driver also checks that the height (and width)
-> +=09 * is aligned to 2 when a YUV format is used.
-> +=09 *
-> +=09 * Therefore be safe and always align width and height to 2
-> +=09 * when a YUV format is used.
-> +=09 */
->  =09if (v4l2_is_format_yuv(v4l2_format_info(pix_fmt->pixelformat))) {
->  =09=09frmsize.step_width =3D 2;
->  =09=09frmsize.step_height =3D 2;
-
---=-lDiiVpW7LbsI8l96Z/jE
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawX3XgAKCRDZQZRRKWBy
-9NOrAQDQ51rGU5HqaJy8yr4bx5UgQdoV3U9t6CfAeYignkSaIgEA0Z9ghLQ8ceGI
-03oKRHcli00mhOeK2j41ZGSrl5we1AE=
-=ZWqR
------END PGP SIGNATURE-----
-
---=-lDiiVpW7LbsI8l96Z/jE--
+On Sat, Nov 21, 2026 at 10:31=E2=80=AFPM Lucas Tanure <tanure@linux.com> wr=
+ote:
+>
+> The T7 has the same management bus multiplexer as the G12A, in front
+> of the same on-chip 100M PHY, and the G12A driver runs it unchanged.
+> But a device tree that names only the G12A string leaves no way to
+> tell the two apart later: if a difference between the two blocks
+> turns up, every T7 board would have to change its compatible to get
+> the fix.
+>
+> Give the T7 a compatible of its own with the G12A one as fallback, so
+> the existing driver keeps binding and a T7-specific match can be added
+> without touching the boards.
+>
+> Signed-off-by: Lucas Tanure <tanure@linux.com>
+Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
