@@ -1,61 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514326;
-	b=GvXH6T4HhFbyJebkNqtIxVh1vmeiJlCN3Q/8d2sgLEPpvlj689pVNzwp9hgQ8VEXMUMv
-	 34gDPPe2euIaI7WN5Y/04R8fUld/kafpTXPyBhYZO0mJ5AlNPJ46p6534QsEIDidgTn8S
-	 NI6hq0l3hILaQuhSi7l2EqYBz72GnELPReP1+CBF3ke1KsDeXHymVoIhrNOHZ3wrJyYg/
-	 4kWHNX69qZysRAYWSWmVnISCSiQaiIqUPnXDeyJiO9wjyRuQYqFEP1HPaHCsdfLvSrA6s
-	 z+IzBtn21LsZgfrDSvtXLPGV5U/Pgkyw/kw+CyV7cWGA2wrTg5LfWHMOaP3OuqmLd6g==
+	t=1795514344;
+	b=068akNsjelSxAxdF5UnbPizjzti0RjK2V8XYNhTz6d9tR8WSFUcJZ0MvNZsZ7AYJiYxl
+	 U4eogufbnCUkHaq2/RjAxtaXAi4VI+DH2xpqDY2u6aP7omqIT4M+k2D1SPW2i/mvK9De+
+	 ECG6rq8nWORUwOjEHHnqc64sfZH2PzoxdlCw3gEhfmyFqPkHIjNL1hnDm/0RO9Zt3hDtn
+	 DJHzgOAdsWHMGk//4xEI7/W8yWo/4577/BfZxZSB4a7UbhacqWoWnpFdTo/qD/T0e3CQ3
+	 9qtfqqlHPJ0p5yFZkCUooN6PVL4MMQnfrN4tTsBhywVF2cwfiqpYbjos3PWC8S7x9rQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514326;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=0F1BSj/xm7NejO8C6gphmJxoGj2OkwZ3aV8GLt6VHvU=;
-	b=vy3KFM2xu4Oug5yKQTeTqVFCuZR8cRBf9Zk5WDhEOgDHF2TTlFW3NK96afNYWT8qkBPT
-	 UJNri2hqFVlJe2URndZs0H+rG9tVA+MZ4T5RvfdoeLcdZuLKgM+z29IbOl7FDNI7yI+pW
-	 CwwcuZZoM/CEDNBv2Ze0G8Y1Ij2X7T7YfZ9+G6e67l2jrcUf6cLAnAQbp/3xvfELrJZ7o
-	 w3dweZg/FWzKfsU5WD0iWht1WnWeLUQjzvsa2SfjvFnVYxgfLX80HKUpwpEs2NGdpnww5
-	 /PXCnInHhJR5W8SZIPZvsaGtBn3GFyCroEHrD1KVDyUfmmSQmLy9vJnx24fthaiag+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514344;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=LM4WQJMgPgmGAQPx49J43+L3+FifhB+APgkJWZ64wOc=;
+	b=0UrU92GC6aYL8gmMABR8LqhjV+J3DL9EaUl/Ra0BuPkQRZCPZoVjDhMSCy1+USd90Oec
+	 oAQ3fLddZskpe5tOoI2RonQjUYq1OTy2dJG/zEmpthXVguPVCxjOToWM1erSTgMHbrMX4
+	 lvCgHX0HGqib55gnnuyteRVn+49uyN/qqv4sPMiUqqUM9RKmjKjNxMmIbxiLainUeW+tt
+	 L7xc1nghSHwmh9gaZkrRBaBJ1UXIKR3Tjfsuvtu07b7o1eKyU1XGDIjt9EAb0Ijhxg1IM
+	 NdGrWWt50p5q/4GA/A5HP0gOHFyBhjlYxyTxHElEtI6yDRJlEOUIBIQHvYSlAAR/EaQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HJzVJrgL;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="X3kXZyp/";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9400606A322;
-	Tue, 24 Nov 2026 09:58:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF4B3606A32A;
+	Tue, 24 Nov 2026 09:59:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HJzVJrgL
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2211D1F000CA;
-	Tue, 24 Nov 2026 09:58:45 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X3kXZyp/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9372D1F000C4;
+	Tue, 24 Nov 2026 09:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795514325;
-	bh=0F1BSj/xm7NejO8C6gphmJxoGj2OkwZ3aV8GLt6VHvU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=HJzVJrgLOwXbP5O6mg2yt8VGhjygr4IGZEwaETM60khcxgI1lBtm0N60e/5Z39zz0
-	 mteHa7fbR2AGVloRDY349K3pB5VIsPlGhJYFIeqIGPJKsRhJQ4MQu6eFDCxS54k6zb
-	 v8yWj3XB69PxHx6eIbcFh7qjnI2inR3sm4L6MqFD1KSGHvQJ9D2h1awPSDh9V4doTo
-	 LuqUCifLnRp9DKGBLcJF/RPPS5gSAeNhCvOcz5D5DrQ8QWz2b9JlNthdajxxOoXS5N
-	 QuMOpe2siYVb7fxfJq/1ZIWCCEkLv+vjGK34v+ENPCAQrz8WRGFkCk5hyL85oOlX8O
-	 OEQbUv/nWTTag==
-Subject:
- Re: [PATCH] net/x25: fix invalid lock_sock() usage in x25_kill_by_neigh()
-From: netdev-bot+sashiko@kernel.org
-To: syzbot@kernel.org
-Cc: syzkaller-bugs@googlegroups.com, krystianmkaniewski@gmail.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- linux-x25@vger.kernel.org, ms@dev.tdt.de, netdev@vger.kernel.org,
- pabeni@redhat.com, duoming@zju.edu.cn, horms@kernel.org,
- linux-kernel@vger.kernel.org, syzbot@lists.linux.dev
-Date: Tue, 24 Nov 2026 09:58:44 +0000
-Message-ID: <179551432467.3135.11868205229731190547@kernel.org>
-In-Reply-To: <00f667e3-a158-4fb5-84a3-9ecda4718ce8@mail.kernel.org>
-References: <00f667e3-a158-4fb5-84a3-9ecda4718ce8@mail.kernel.org>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795514343;
+	bh=LM4WQJMgPgmGAQPx49J43+L3+FifhB+APgkJWZ64wOc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=X3kXZyp/cmAewdv4SURvUj5FEpk7h3J5q/nGKn39RncyygRymn4LMGBCfC6lTDrS/
+	 ONC1sBd3cTy0jWZlYNPy5dD1MPDRYDPbtJafj4d3YAehOczt/UUHfqspAyh+X8FYjE
+	 MU3RcqajXhrDtNZI1gbRJVjhGVez2aiQJO/kWoE46KnE49/BjjVUx1qjc/VsbPMQO8
+	 Q9Skbbr8yYkUA5/+yMAZazPrtADdc9+/YxngG75yyISY+ExUwAJXiyFgdTh9zzycuo
+	 UXxXGPRTM8I7rfw0hQF+K7o2tDWFZF95IU5b6gxfg+XO+M1jpUsmN3272btTlxsI7W
+	 K1F3XlpgKbyDQ==
+Message-ID: <e2e7f13e-faa1-428b-9691-3e8842054e6f@kernel.org>
+Date: Tue, 24 Nov 2026 10:58:57 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,194 +51,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 06/13] soc: synaptics: add SL2610 system controller
+ support
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Linus Walleij <linusw@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org
+References: <20261115102401.3520-1-jszhang@kernel.org>
+ <20261115102401.3520-7-jszhang@kernel.org>
+ <20261123-knowing-eggplant-buffalo-fddfc3@quoll> <awQyw9fp8qTj3kbU@xhacker>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <awQyw9fp8qTj3kbU@xhacker>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On 23/11/2026 13:34, Jisheng Zhang wrote:
+> On Mon, Nov 23, 2026 at 11:31:42AM +0100, Krzysztof Kozlowski wrote:
+>> On Sun, Nov 15, 2026 at 06:23:45PM +0800, Jisheng Zhang wrote:
+>>
+>>> +static const struct sl2610_syscon_data sl2610_mcu_data = {
+>>> +	.cells = sl2610_mcu_cells,
+>>> +	.num_cells = ARRAY_SIZE(sl2610_mcu_cells),
+>>> +};
+>>> +
+>>> +static const struct sl2610_syscon_data sl2610_avio_data = {
+>>> +	.cells = sl2610_avio_cells,
+>>> +	.num_cells = ARRAY_SIZE(sl2610_avio_cells),
+>>> +};
+>>> +
+>>> +static const struct sl2610_syscon_data sl2610_cpu_data = {
+>>> +	.cells = sl2610_cpu_cells,
+>>> +	.num_cells = ARRAY_SIZE(sl2610_cpu_cells),
+>>
+>> That's just MFD driver, so should be in MFD, no? Why placing standard
+>> MFD code - nothing soc specific - in the soc directory?
+> 
+> I'm not sure which is better. But FWICT, sophgo, samsung, microchip put
+> mfd drivers in soc directory. So I guess the reason behind this is these
+> drivers are soc specific?
 
-Critical: 0 · High: 0 (1) · Medium: 1 · Low: 0
+Samsung has no MFD driver in SoC. Samsung has FULL SoC driver there.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Others, dunno, but just like you they could be making random decisions.
+That's MFD driver. MFD drivers go to mfd.
 
-- [Medium] When the new softirq path finds a socket owned by a task, it
-  only sets a flag and leaves the dead call usable until release_sock().
 
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but it is still
-  reachable after it.
 
---
-
-net/x25: fix invalid lock_sock() usage in x25_kill_by_neigh()
-
-This patch adds a bh parameter to x25_kill_by_neigh() and
-x25_link_terminated(), so the softirq receive paths no longer call
-lock_sock(). In softirq context, an unowned socket is disconnected under
-bh_lock_sock(). If a task owns the socket, X25_KILL_BY_NEIGH_FLAG is set
-and the disconnect is deferred to a new x25_release_cb() hook.
-
-Closes: https://syzkaller.appspot.com/bug?extid=300375dfd44665f063a6
-Link: https://syzkaller.appspot.com/ai_job?id=98a38af7-51e0-4126-afa7-b8246507da37
-
-> diff --git a/net/x25/af_x25.c b/net/x25/af_x25.c
-> index f45c9ec7d2c68..26a8deb82452b 100644
-> --- a/net/x25/af_x25.c
-> +++ b/net/x25/af_x25.c
-
-[ ... ]
-
-> @@ -1769,13 +1790,28 @@ void x25_kill_by_neigh(struct x25_neigh *nb)
->  	write_lock_bh(&x25_list_lock);
->  
->  	sk_for_each(s, &x25_list) {
-> -		if (x25_sk(s)->neighbour == nb) {
-> +		if (x25_sk(s)->neighbour == nb &&
-> +		    (!bh ||
-> +		     !test_bit(X25_KILL_BY_NEIGH_FLAG, &x25_sk(s)->flags))) {
->  			sock_hold(s);
->  			write_unlock_bh(&x25_list_lock);
-> -			lock_sock(s);
-> -			if (x25_sk(s)->neighbour == nb)
-> -				x25_disconnect(s, ENETUNREACH, 0, 0);
-> -			release_sock(s);
-> +			if (bh) {
-> +				bh_lock_sock(s);
-> +				if (x25_sk(s)->neighbour == nb) {
-> +					if (sock_owned_by_user(s))
-> +						set_bit(X25_KILL_BY_NEIGH_FLAG,
-> +							&x25_sk(s)->flags);
-
-[Severity: Medium]
-When a task owns the socket, this branch only sets the flag. It leaves
-x25->lci, x25->neighbour, x25->state and sk_state unchanged. Can the
-cleared call still be used until release_sock()?
-
-__x25_find_socket() matches only on lci and neighbour. Frames that arrive
-on the old LCI after the restart or link loss still find this socket, and
-x25_receive_data() queues them on its backlog:
-
-    queued = !sk_add_backlog(sk, skb, READ_ONCE(sk->sk_rcvbuf));
-
-release_sock() drains the backlog before it calls the new hook:
-
-net/core/sock.c:release_sock() {
-    ...
-	if (unlikely(sk->sk_backlog.tail))
-		__release_sock(sk);
-
-	if (sk->sk_prot->release_cb) {
-		if (!tcp_release_cb_cond(sk))
-			sk->sk_prot->release_cb(sk);
-    ...
-}
-
-So those frames go through x25_backlog_rcv()->x25_process_rx_frame() in
-the call's old state. Only after that does x25_release_cb() run
-x25_disconnect().
-
-For example, a CALL_REQUEST from the peer on a reused LCI right after a
-restart would be dropped by the stale socket in state 3. It would not
-reach x25_rx_call_request(). DATA or INTERRUPT on that LCI would go to
-the dead call, and x25_process_rx_frame() can call x25_kick() and
-transmit on the stale LCI.
-
-x25_link_control() also sends the restart confirmation or request right
-after x25_kill_by_neigh() returns. At that point the deferred sockets
-still hold their LCIs on nb.
-
-The transmit side has a similar gap. x25_link_terminated() purges
-nb->queue and resets nb->state to X25_LINK_STATE_0. An owner that is
-still in sendmsg can then reach
-x25_kick()->x25_send_iframe()->x25_transmit_link():
-
-net/x25/x25_link.c:x25_transmit_link() {
-    ...
-	case X25_LINK_STATE_0:
-		skb_queue_tail(&nb->queue, skb);
-		nb->state = X25_LINK_STATE_1;
-		x25_establish_link(nb);
-    ...
-}
-
-Would that re-establish a link that the peer just took down?
-
-The RESTART_CONFIRMATION path in x25_link_control() sets nb->state to
-X25_LINK_STATE_2. There, the queued frames would be flushed once state 3
-is reached, on an LCI the restart already cleared.
-
-Before 7781607938c8, the socket was disconnected right away (lci = 0,
-neighbour = NULL). The unowned branch here does the same. With either,
-none of these paths can happen.
-
-> +					else
-> +						x25_disconnect(s, ENETUNREACH,
-> +							       0, 0);
-
-[Severity: High]
-This is a pre-existing issue and this patch did not introduce it, but the
-new unowned branch adds another way to reach it. Can x25_sendmsg() and
-x25_output() dereference a NULL x25->neighbour?
-
-x25_sendmsg() checks x25->neighbour under the socket lock, then drops the
-lock to allocate:
-
-net/x25/af_x25.c:x25_sendmsg() {
-    ...
-	rc = -ENETUNREACH;
-	if (!x25->neighbour)
-		goto out;
-    ...
-	release_sock(sk);
-	skb = sock_alloc_send_skb(sk, size, noblock, &rc);
-	lock_sock(sk);
-    ...
-	if (msg->msg_flags & MSG_OOB) {
-		if (x25->neighbour->extended) {
-    ...
-	} else {
-		if (x25->neighbour->extended) {
-    ...
-}
-
-x25_output() follows the same pattern in its fragmentation loop:
-
-net/x25/x25_out.c:x25_output() {
-    ...
-			release_sock(sk);
-			skbn = sock_alloc_send_skb(sk, frontlen + max_len,
-						   noblock, &err);
-			lock_sock(sk);
-    ...
-			if (skb->len > 0) {
-				if (x25->neighbour->extended)
-    ...
-}
-
-sock_alloc_send_pskb() checks sock_error() and SEND_SHUTDOWN only before
-it allocates. Suppose x25_disconnect() runs after those checks and before
-lock_sock() returns. Then x25->neighbour is NULL, and the next
-x25->neighbour->extended faults.
-
-Several softirq paths can do this while the socket is unowned:
-
-- a CLEAR_REQUEST from the peer in state 3/4/5, via
-  x25_receive_data()->x25_process_rx_frame()->x25_disconnect()
-- T23 timer expiry
-- with this patch, this branch, reached from x25_lapb_receive_frame() on
-  X25_IFACE_DISCONNECT, or from x25_link_control() on a
-  RESTART_REQUEST/RESTART_CONFIRMATION in X25_LINK_STATE_3
-
-The window gets wider if another thread holds lock_sock() while sendmsg
-waits in lock_sock(). Peer frames are then backlogged and processed by
-x25_backlog_rcv() in that thread's release_sock().
-
-7781607938c8, the commit in the Fixes: tag, was meant to close this class
-of neighbour NULL dereference in sendmsg/recvmsg. Should x25_sendmsg()
-and x25_output() check x25->neighbour (or sk_state) again after they
-retake lock_sock()?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/00f667e3-a158-4fb5-84a3-9ecda4718ce8%40mail.kernel.org
+Best regards,
+Krzysztof
