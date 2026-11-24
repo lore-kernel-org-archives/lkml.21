@@ -1,78 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795532685;
-	b=5D1KsgppY7pU0RS2F+vfHOXtnGKAGeCL+dd/+LDl9boNE69JzRlLgo6q+xS7msiH4XD1
-	 Aj/aFS2RBl+eeKVVEiX86Wv/ut1/dQy2OLSA1LChNKQwJRouUbc/fU8ENuARCOQBmoaV+
-	 J09A/YUSmEWs+ledF16JFJaKPSFb/IfpR00dLW+JtKLJ5zZYuGGkhqGUMHk4wxITuJlC4
-	 t8GYmFTvmcqCW3CngAbwrBDoZuPlHcjjD/W3WWOP+N+n1go0u2Y/37EHtj65P5f1r+wfS
-	 nBt00WDVBRhdvVP+1ELNXsbzxXEkhi86knh4qFuQWcJch7w30JNKr/WnQBAMxSuyC/Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795532685;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=pQG2u7GpihDLeHJtDCHNqVBOqAGAO0oSaKsE49Jf8SQ=;
-	b=oG5YbybWkXgjtgxRgs1dLPNSi7s98RDHAaxhUAxSgcPfUgQTo4VSd7P5sNd0Q/vq5ZOZ
-	 eUOXLxtbLCuswrNgJZg6WLrFmQ3+YZWf/fyet7CC2f8AsHmu9L+akZovBAk/XMT/Jf5mZ
-	 0peq9WalrlgDy1CS0YnzKVP5OH+rIBFpBMKVXZZN0eNTOA5fGqE5nIZrofVmRowNJLgFA
-	 8W8JXh1mqbw6oLNET/ld4Y1DA3EXUwbv9mJk+jeDeALKikqf0ofkDukQo9/mLtMoYtGsu
-	 /gY49ID+IYMZkbivh4G+uSuNrjbRXUIkQ2z6DJvBFQHzog6GZ5UDntGKc7AqX6RuV0A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F4S1M44s;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795532699;
+	b=azK0s0qzy+gKNDAtMVa/7bQ7E6/grR2wZ55EJztyXnQbnxPu7RwsTbg0wTZqgZRV1CEr
+	 iNqtLY+rHbpj/qdha2zcgp8xk5Mkm0jbg9wDmGvmgyXEbqdogQTuhwR13dI1TjW5JmhvC
+	 QKxnonj6gXOM3pXkWl04Reqie5pZRm1qS/BLaAf3qjCg6sQYTAvAJtM8UK+rP4QLoq+Ne
+	 shyuuRnc5IU5K71e88ueSN+4MS4sJhszJ27pss70MgqKcCyV+m6pE67Cer8H/wkM7PfcC
+	 8ER6cqto1wTO+tDLEuJr/Xvmxp4v980I01dEkHVwCaZZ/UADKtJDSMxCopAoNEaLoqw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795532699;
+	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=bcl2PJvXV04dgKnYFVKpNkpO3QtdQMhmYVAKnAGdZ5U=;
+	b=05z7b/GS/HmPda4qbbKlLUBVafpccbq54UCbocMkXZUAaW34BLrePB0GjbSqPD3/LhFj
+	 Ugk2QDrCItbKegyJJHFBiQ1uuJH3ugYJo6VjK5qwPP1bDj5fJkyyAB1xlVAV6Q1F7xOhR
+	 ++3r04ZQDQjiCw7f76GF/bWZWVwHU209IyY//ZmFTCfMc1/9Y4VF/VicQ51Oc1ZUxAHVN
+	 t9aaD4dKLPlDmmwB9NGUbc3Cg5RTxIKkkjDfs5NFzbJflSfEv+GQWsRnnw3oV0zPASgUU
+	 rOovy3iNjKsK1f4q+z+VgcZpcPrVwpZyiM+j7r9tR8FgoE4kaJ4CUaYFbu0NQpsCicA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A54tfeEH;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72E09606A321;
-	Tue, 24 Nov 2026 15:04:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCE87606A321;
+	Tue, 24 Nov 2026 15:04:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F4S1M44s
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795532685;
-	b=Bt5xqTZRQv8bVn/zmwNG6D5qmjC1KwkSw8+b9r3WPCinvarsPtx/Dg5BXUBpOZWjq6H3
-	 w0FuHA79eTsFBfe2eDYP7nzsDU3a167WzoVv0zObwROAQCh02lfgMWTaaEnr3bUXnrbsv
-	 euPnuJlWRj95nh0EQlAZE9tsFqzH//PZzxFOaxn+DVJSy9NhY23zmaGAsHcMQfF3j1puJ
-	 I38hR5ibVewRo9jmWJ0jS5bs6N9DI1+29yEz4LSpGA630QVzRHYavvRgH+6P1hzkZROZL
-	 KB12XyZ/kE09jK4JASXH2M3hye2EDo5BgfICe0eLFudmx6CE+Bu1Xyx1Y5pIlY4K68A==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795532685;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=pQG2u7GpihDLeHJtDCHNqVBOqAGAO0oSaKsE49Jf8SQ=;
-	b=fkRFOCY8Zrwlb+z2TJ+/Z19C6PvTGiubPbeh7jBnRZRd4gij9aiyMx87UU1iNVz33Cet
-	 7qZ78nYJPeo8TODoP9eqDeapV68I3GCsJFtmFp7Dn30iwsmWxV5ZvJlf3lv+ddM3A4U0a
-	 54zy18ZTXIbAp0cp3oWOt3KTi675ke/brT348RwOWBap+Ct6292okcPuctoEL9e9pyazq
-	 pdObjt04FDvpSqJ5Umetgk5lqDZj50Ysyq6CrGBrcwcW/lLCfR9acWZVGru+UqhPEN627
-	 QdSstX0pYN6a3uKP74rHGraPeRZthm2HFbWG8ySEQwQPocfI33fM22ct3wVtsymhaOA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 0ACDB1F000C0;
-	Tue, 24 Nov 2026 15:04:33 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A54tfeEH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 254171F000C4;
+	Tue, 24 Nov 2026 15:04:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795532685;
-	bh=pQG2u7GpihDLeHJtDCHNqVBOqAGAO0oSaKsE49Jf8SQ=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=F4S1M44sX1poDihMKY+TahX12Ilh/YcFN3GNLlxapEg3lPecXDL8vjhLGm18u/tWi
-	 3O7fzNXnAPu3azCk+eAYD078k0kiz0ge45QJOLzDsU+CDIGpKHcmVIq6Xm7QO3bkte
-	 DSRE5w2pHckJz5kyZB4Mp14ebML3fpYhz27V7ZCrm9BM1SaTzhTFiXEwTuXLpZ8iR1
-	 FycBp+C/nLxK77XUCCvsG0XKvhj5hV9mvYYF+8XgD10m5/o/2leEdbXfA5K3gWPbUT
-	 0OCw87mGhWcMP/aKVoqbPc2n2ceTk7fJf/BR9RUTaCT6vpsKPV1inaDJ6oae7JHPJQ
-	 q4fFQ9qQ9nRRg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 8C3BE4CA8A;
-	Tue, 24 Nov 2026 15:04:32 +0000 (UTC)
-From: Peder Bergan via B4 Relay <devnull+peder.bergan.gmail.com@kernel.org>
-Date: Tue, 24 Nov 2026 16:04:27 +0100
-Subject: [PATCH] rust_binder: Reuse the thread lock in get_work_local()
+	s=k20260515; t=1795532699;
+	bh=bcl2PJvXV04dgKnYFVKpNkpO3QtdQMhmYVAKnAGdZ5U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=A54tfeEHcgsWXjg+SJ53FX8mlg9+10DfPv1euMYyBpDB+2aS2f1+SZdyb0Smj466K
+	 JDkUHT74+DWFsxn/ONKro23IhjtkV007bHB2YTuT07Tia15OnltAlmrTYxc95XP7Ce
+	 BOZAdG8C1iR8AAuwgws/UpLZGWsNdxScd2LMqGHKq7i8AiX4iNJKWUHSL1zuLa6u7n
+	 aK8BwXBh/t9FMyFHt/7SAIGZhI+Ifhj8C+Fx6FngmGMakuCZq2vRAMSE/RnSvXdko/
+	 kXN/m8i2pI0LLl6oRAoIncWLXPPelxtb3U539vogmQiUX6QXoKH+sXHpMBBO9Dh1fQ
+	 VVM9zQMaf3tPw==
+Date: Tue, 24 Nov 2026 05:04:58 -1000
+Message-ID: <322ab097a3e7c2dbae960aee2e8b4573@kernel.org>
+From: Tejun Heo <tj@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Peng Huang <penghuang@google.com>, Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>, Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] sched_ext, sched/fair: Drain blocked load on scx_switched_all
+In-Reply-To: <2b1ef28e12d12a1f894827b951910c1979d54d45.1795462673.git.penghuang@google.com>
+References: <20261122015729.2512645-1-penghuang@google.com> <cover.1795462673.git.penghuang@google.com> <2b1ef28e12d12a1f894827b951910c1979d54d45.1795462673.git.penghuang@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,92 +57,20 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-perf-binder-local-work-lock-v1-1-bd8de1a840c1@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAHqnBWsC/y2NwQ6CMBBEf4Xs2Y22Con+iuHQLousYCFbVBLCv
- 9uqt3mTyZsVIqtwhEuxgvJLoowhgdkVQJ0LN0ZpEoM92MoYe8KJtUUvoWHFYSQ34HvUPscez8R
- lY9pjVXqCZJiUW1m+9mv94/j0d6Y5K/PCu8jo1QXqcpVx/5ene8WHRMLAywzb9gEAY4CIrAAAA
- A==
-X-Change-ID: 20261124-perf-binder-local-work-lock-9ce5d1f365bc
-To: Alice Ryhl <aliceryhl@google.com>, Carlos Llamas <cmllamas@google.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, 
- Todd Kjos <tkjos@android.com>, Christian Brauner <brauner@kernel.org>, 
- rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795532670; l=2392;
- i=peder.bergan@gmail.com; s=kernel-contributions;
- h=from:subject:message-id;
- bh=k87ZI/+ha75fn1g5XBGLfDU1bztuNUMRFI6wDLR16zM=;
- b=Dh/KftYuXr4qIUN9KM7ma0M2n+MUTiROu6hg1VznFEVOG0WMQNP23FDNCR4pJeN0L5nkyaeYX
- bnX2104jrWpDe1rsEBESM0eVqI+ylB56Nq8K6Qyvnnean6aHQh/40IU
-X-Developer-Key: i=peder.bergan@gmail.com; a=ed25519;
- pk=39790pn1YZCulHBoUG1uiQI1Hm01EvhBEa2zVrS/yN0=
-X-Endpoint-Received: by B4 Relay for
- peder.bergan@gmail.com/kernel-contributions with auth_id=1395
-X-Original-From: Peder Bergan <peder.bergan@gmail.com>
-Reply-To: peder.bergan@gmail.com
+Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: 7bit
 
-From: Peder Bergan <peder.bergan@gmail.com>
+Hello, Peter.
 
-get_work_local() takes the thread lock to check looper_need_return.
-When the flag is clear, it drops and retakes the lock before trying to
-pop work for either a blocking or a nonblocking read.
+On Mon, Nov 23, 2026 at 12:13:51PM -0800, Peng Huang wrote:
+> Export __sched_balance_update_blocked_averages() and call it on each
+> CPU in scx_enable()'s per-CPU scx_switched_all() loop so pending
+> cfs_rq->removed entries and task-group propagations are drained cleanly.
 
-Keep the guard across the flag check and the first pop. A blocking
-read that finds no work still registers its wait before the condition
-variable releases the guard, so a producer can wake the reader.
+This looks fine to me and this probably should go through sched_ext too.
+Can you please ack?
 
-Signed-off-by: Peder Bergan <peder.bergan@gmail.com>
----
-Reusing the guard eliminated 4,013 lock acquisitions and 4,013 releases
-on each of two x86-64 KVM hosts. Each trace covered setup and 1,000
-synchronous Binder echo calls. Both kernels passed checks for empty
-nonblocking reads, signal interruption and waking a blocked reader by
-closing a duplicate Binder file descriptor.
+Thanks.
 
-OpenAI Codex assisted with coding and testing.
----
- drivers/android/binder/thread.rs | 11 ++++-------
- 1 file changed, 4 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/android/binder/thread.rs b/drivers/android/binder/thread.rs
-index 54a208caebe12..8efda6e9ded1e 100644
---- a/drivers/android/binder/thread.rs
-+++ b/drivers/android/binder/thread.rs
-@@ -549,20 +549,17 @@ pub(crate) fn has_current_transaction(&self) -> bool {
-     // mangled symbol names.
-     #[export_name = "rust_binder_waitlcl"]
-     fn get_work_local(self: &Arc<Self>, wait: bool) -> Result<Option<DLArc<dyn DeliverToRead>>> {
--        {
--            let mut inner = self.inner.lock();
--            if inner.looper_need_return {
--                return Ok(inner.pop_work());
--            }
-+        let mut inner = self.inner.lock();
-+        if inner.looper_need_return {
-+            return Ok(inner.pop_work());
-         }
- 
-         // Try once if the caller does not want to wait.
-         if !wait {
--            return self.inner.lock().pop_work().ok_or(EAGAIN).map(Some);
-+            return inner.pop_work().ok_or(EAGAIN).map(Some);
-         }
- 
-         // Loop waiting only on the local queue (i.e., not registering with the process queue).
--        let mut inner = self.inner.lock();
-         loop {
-             if let Some(work) = inner.pop_work() {
-                 return Ok(Some(work));
-
----
-base-commit: 917fcbf033154a6c8d83cfa6c88f012b71eb37b2
-change-id: 20261124-perf-binder-local-work-lock-9ce5d1f365bc
-
-Best regards,
---  
-Peder Bergan <peder.bergan@gmail.com>
-
-
+--
+tejun
