@@ -1,82 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795518261;
-	b=RKCLc53kb0pwbZvupPYQlxJQzJMpBeKvyHdPVCbjQs87hL2mqsntltpMrRXsU/+961cO
-	 UmvGAXOdp5K1nx9aT5BIRPDFAAu7lTH2Trk8JyyFpYMJT3wnrF3D2DCXQ/DRApUKityyZ
-	 0fcGkxEXSwB7c0r/vcDnSfVKdZmcWBrq3wpmR4v6dIzMzzjHfC8UpPHPAfbnTUfaRUiAS
-	 BSZGcr2FXBs0orULeKdX4aDf+HNy6GZFr7xJ2Qg7FRW8RQy1luFM8figB9P00yNSpe4/D
-	 VQK52ZwJbue3FdXA6PNOjWKlmVanl3L4D81xyBndKVke4Wj6kDzMWAgYd5DinoKSJjA==
+	t=1795518265;
+	b=TU9M5Ug+7GeKsZ9EAOu3NqdvkNxYFOXgb7NH93wVVbTZEOOd4W7yP23Lctr6HZ391CbZ
+	 jxJ6lptkcjgTFNICuRjacJkUa0t8NytAeeapYPWgghpcYRYU68eguVDLMuCVRSStb4i1Y
+	 5xS71eysebtS5gHyS5qe8j/KDZbMCgVzXhNiiKEqa3yPG/+POxepzCe5tRBwv3WKXqYIi
+	 jN/DaOHbHRky+PV/jaA/Axh5UZry6swuqGOr2f+5cL06XXuMwjOxseAu0wZ4zLKSM5BiJ
+	 cRdO6QwTHpm6CPPlhCFfMXtTamjLAK2yzRlfe14Mpm1fPLR9Uc9lvtlNiGrRuDw8pew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795518261;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=HwbRyNe0cxCMoQ/0iMUVZy8uE0wBvumaj+tzDGFjfc0=;
-	b=nWw8lzgZG+lWQlDNliL6/JJlxu/LRcMNexyVBlokulLIUlbYyJv32ud/tXyXNKghobNp
-	 5UuFtniTBV50NrYTWWH9zJXntJtKbGVmLlq95HPEd90h+mge0FukNv6R/0IOiJkuMI/pT
-	 dcfPOFVSeEpqPcsWnY+Q1cMYnx8NYQmxf/mlSku7Mdjf+e2atuNdLTzkbRZRayCgXnEaz
-	 eR4F5910kAzHqyUbEeAC+iTHApXr08RRwhoib8dcG4Vj7OTsUJi974evfJ/sbPlj8draH
-	 0/SF5lw+RKHiSKuQlB+077TgxMLoVmOMV+lol/myDs19jHUQeedC3eZLEGhfWVu2xgQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795518265;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=EuBOUwwiL3IP1HDk4+dxaacGJaiYkefTCK8JBEZyKe4=;
+	b=eHMkwdxyRYx0w8UobYkBAw5IDRLZpZr/fIS1rgR89apVjggP6Wcj8IZEHZ+z/QpW0Pmx
+	 oE0STpMwC0rH5GaWuY2elEE5lmkPn82qSl5Ld8wKra8qU/cPmiJXifNxn+UL/Mb/zUyna
+	 QvtAfUeMqXEu+aVlc5SHrnZzGsMh9KOqjSp7ETZtx1DXGm8EOjpdU0eVI7aQzbEUCqanq
+	 BnAHfvyfudvq8Xk0g1d/ed1SNRB9KT9ON6f6T+WQ7oqvKaBpwYPoO98cCT95gG5QiCsWe
+	 c+Ne7soHgvVXr8MOZcCs4wUFUrIyCx/dZHITFzs5v+IJV4I4rHqUISPIOz8HqRvnmRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=a3cGPQ5i;
-	arc=none smtp.remote-ip=192.198.163.14
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=DGCTDoFb;
+	arc=none smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39219606A339;
-	Tue, 24 Nov 2026 11:04:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39219606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9A30606A33C
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:04:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9A30606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=a3cGPQ5i
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795518261; x=1827054261;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=866/B+a0CRGgpxrNrCVpsidaot1giUE/gHeiKkuAJSI=;
-  b=a3cGPQ5i3onw06JaTdmZZYnxsuuA5txcT4mp4cKvQpMuKAK4Wl18toYm
-   4HVxTL+UrHa2StqszFh+9kxkn4jQj63jwe/MTRfaU3Ds92HkP4ycCFUUG
-   czU7OKtzV4E7E2FpLcTXnCC80pZC3uHc2D2DJ+3TIeOJSwhDtKuM7ZJOr
-   ebi1KK0qiT+kDcAERVTzn4S/gbGJQ2aclfzdTRn6qdHiB9byAY4hr7CtE
-   oDVZn5QHLoa9qelJKyHijocOImoYze5R8CZfV8YwIKnG41ciSnlGEiL1s
-   q3gCyOgjOnm0nvBFha5hQmzRdH01WBRCFL2tBCH/tKJnpwNytFKpi4FU9
-   Q==;
-X-CSE-ConnectionGUID: fvJ4oTjmTROTsnzrkw9bxw==
-X-CSE-MsgGUID: X5E8IuVEQbm28UGLinW4WQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4258637"
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="4258637"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 03:04:21 -0800
-X-CSE-ConnectionGUID: AZn5hDfvSp6PrK/cf2LEpA==
-X-CSE-MsgGUID: yzLD3Fq+TzSMa2IVs10jYQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="11559712"
-Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 03:04:19 -0800
-Date: Tue, 24 Nov 2026 13:04:16 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Joshua Crofts <crofts@kernel.org>
-Cc: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Rupesh Majhi <zoone.rupert@gmail.com>
-Subject: Re: [PATCH v1 1/1] iio: core: Split debugfs routines
-Message-ID: <awVvMPBx8lTs-Oid@ashevche-desk.local>
-References: <20261124094502.557175-1-andriy.shevchenko@linux.intel.com>
- <09328c36-a32f-488b-a2c9-76fab784d259@kernel.org>
- <awVq-mE1H2g01yS4@ashevche-desk.local>
- <4012fef5-2d69-41e4-81ef-52f06d9313f7@kernel.org>
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=DGCTDoFb
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb6886d30aso41896575e9.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:04:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795518263; x=1796123063; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=EuBOUwwiL3IP1HDk4+dxaacGJaiYkefTCK8JBEZyKe4=;
+        b=DGCTDoFbikauyFIMqdrHOrgjM62cX402e4khRkckTqUWicey3hvdiitxOdhi/LnQPX
+         aTSOrLQRZq2jH9Y9HZ72TUNBL+mjYSlxq3wKIKY+J08+lRpR5XH6w6BPHngOnvO6QvYy
+         K9rCe6e8DtXTP61QTMxyUUJudVvqxpDN/1U8QuRhNNn9bEMn0RR3myK/dJcgxSJrZubd
+         CKXN9aoTK9JF5tX0QeeMKR1TS/4kkIzzvAKHJTVkPuh99aZY/qVa33Q89BL0SheCGNn2
+         52/MjgbVpwEywoE7zhkDzXASJFbSKeX+OlotoymZqP3SalM6HZM5s77bBz1an88vPSsa
+         JHtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795518263; x=1796123063;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EuBOUwwiL3IP1HDk4+dxaacGJaiYkefTCK8JBEZyKe4=;
+        b=LLl+m6dkW4FVPJfYRDlSI7G9fE5ptbX6X1VYdmEWhDxra/tRB8DhweBqRrvbzCe4MD
+         sZG+KuF08pgvTZZzJFYWy+w1yFqyuQWrUaG/YLUnrZRD9gtt2IBy090batkuKWW31Km+
+         B0+lJetVX7ogEgh7MGzfteG4I99ojvF/TNGZzNW/0NoZ63LpvjlaHjU+rI8wmREkb4V+
+         CYyaMKYv//3rHYKWA/4f/+UzvBd6cVYxzmqAZhscPGfydGG7j4y2rCDqfsZIW+Q6OQSA
+         2YYh2l9At4NuZdjnpuBechwMYh1grOR+KjzlLADMGpd7d3V+QrDwovaIEE+Au+p9/t2+
+         iBBQ==
+X-Forwarded-Encrypted: i=1; AL+hErHg22VmHlwWDkOstQUoKFr1kfADuWP+K3H4j2ENamGDY73e7l7VsYGNd5RZ2YvQEOY/nkTTTH1RBLNG7u8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+9r90NZu5Q9ZtQ0SVY7nsn1XCwGpBJ9r6Hl8Uo+FwsmrsNn4D7
+	yK8gBbZrw+Cqovph8xT+x+F+7vEiR/1jglfyWW5Wvl60C3U/L7YmH62ejlAIXW6hT/A=
+X-Gm-Gg: AZFdTZfRGNSIypOhS9w28t69yjnVlxOlOhiZiOuopiDOjibAiz9ICoUXyvexjUIJiic
+	0AMpOgiIUYc52/tWhTejqJ5XXynZLsXLC7P5appGn6eVa4HWr5tmwhT3dylEYuiXU4ZUrBqjDHW
+	Hn/DWrn7cev24n4mJjJwH2Zab8BPqxnkGyeJYbmlafxreIrmyMuM8Rvpznlf5XU8SfL7lCgFny8
+	lJ9DbZtDDwVOUedlMFB0T4P7S2rjnTOCmjUk8QwbpVIkFRv36JzIb6QKqcPpbu+o29qu8PHs0iL
+	5tuZ8VoIOitijpqAjLU4jAQnMcid/qhr3pNoSpIXyITXNBCXC7jaFG2mFpx9w+UVu6tL3BvMRH+
+	xR9HzjYEy4pqHm9vyXxqdfZkNad8Dzk5yEh4eeiADIi5jziU2NA1EjRN3/hwAZgAgCx5bSyQLSv
+	fpy3CCxZHo/anGBCskWb23z5uriYojl1C24KGopDPp8izb7pKeZ02Aze9JqTmikdLZimHgrU4lf
+	bFFr4C/XpCtePxl2NayGaglE0GUNsvmkqZ04cMIUIeJ5S+mbmMqwwMlGyxf04e4RJfSPBxD642k
+	7Lkaj3k7NBHHaCeTNjOjFjAJiebYMK8=
+X-Received: by 2002:a05:600c:e41a:b0:4bb:9959:54b8 with SMTP id 5b1f17b1804b1-4bb9959552emr100442045e9.32.1795518263196;
+        Tue, 24 Nov 2026 03:04:23 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884865b1sm422020975e9.5.2026.11.24.03.04.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 03:04:22 -0800 (PST)
+Date: Tue, 24 Nov 2026 12:04:20 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: Sasha Levin <sashal@kernel.org>
+Cc: Josh Poimboeuf <jpoimboe@kernel.org>, Miroslav Benes <mbenes@suse.cz>,
+	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>,
+	Marcos Paulo de Souza <mpdesouza@suse.com>,
+	Eva Kurchatova <eva.kurchatova@virtuozzo.com>,
+	Yafang Shao <laoar.shao@gmail.com>, Shuah Khan <shuah@kernel.org>,
+	live-patching@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/4] selftests/livepatch: clean the test modules
+ without a kernel build directory
+Message-ID: <awVvNNnQPGyNWb96@pathway.suse.cz>
+References: <20261110161050.2451750-1-sashal@kernel.org>
+ <20261110161050.2451750-3-sashal@kernel.org>
+ <awQUD16CDFpCTxaQ@pathway.suse.cz>
+ <20261123154433.1188237-1-sashal@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,29 +107,50 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <4012fef5-2d69-41e4-81ef-52f06d9313f7@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <20261123154433.1188237-1-sashal@kernel.org>
 
-On Tue, Nov 24, 2026 at 11:51:11AM +0100, Joshua Crofts wrote:
-> On 24-Nov-26 11:46, Andy Shevchenko wrote:
-> >> > +static const struct file_operations iio_debugfs_reg_fops = {
-> >> > +	.open = simple_open,
-> >> > +	.read = iio_debugfs_read_reg,
-> >> > +	.write = iio_debugfs_write_reg,
-> >> > +};
-> >> > +
-> >> > +static void iio_device_unregister_debugfs(struct iio_dev *indio_dev)
-> >> 
-> >> Static here but not in the header file. Same goes for register_debugfs().
-> > 
-> > Oh, how does it compile?
-> Unfortunately it doesn't :(
+On Mon 2026-11-23 10:44:33, Sasha Levin wrote:
+> On Mon, Nov 23, 2026 at 11:23:11AM +0100, Petr Mladek wrote:
+> > The two parameters "O=<kernel> KDIR=<kernel>" do not make much sense
+> > to me. The command starts compiling other selftests. I get:
+> >
+> > $> make -C tools/testing/selftests  O=<kernel> KDIR=<kernel> TARGETS=livepatch
+> > Makefile:4: *** Package alsa not found, please install alsa development package or add directory containing `alsa.pc` in PKG_CONFIG_PATH.  Stop.
+> 
+> Sorry, <kernel> was a placeholder for the kernel build directory. Pasted
+> as is, the shell takes "<kernel>" as redirections, so make gets an empty
+> O= and no TARGETS at all, and its output goes to a file named
+> "TARGETS=livepatch". If that's what happened, that file and an empty
+> "KDIR=" are now at the top of your tree.
 
-It means I have DEBUG_FS disabled (in the configuration I used for compile-test)!
+I see. I have never used these parameters so I could not imagine
+what the value would be :-)
 
--- 
-With Best Regards,
-Andy Shevchenko
+> > Are these parameters really used by the KernelCI?
+> > Could you please provide link to a build log?
+> 
+> Yes. This is from Saturday's x86_64 build of mainline:
+> 
+>   make --silent --keep-going --jobs=8 O=/tmp/kci/kernel_build \
+>        INSTALL_PATH=/tmp/kci/kernel_build/kselftest_install \
+>        KDIR=/tmp/kci/kernel_build ARCH=x86_64 SRCARCH=x86 \
+>        CROSS_COMPILE=x86_64-linux-gnu- -C tools/testing/selftests all
+> 
+>   https://files.kernelci.org/kbuild-gcc-14-x86-kselftest-6b01150f99c74e1a99a2a261/build.log.gz
+> 
+> > So, maybe just the sample command in the commit message is wrong.
+> 
+> Yes, it should have used a real path:
+> 
+>   make -C tools/testing/selftests O=/tmp/build KDIR=/tmp/build TARGETS=livepatch
 
+This works for me.
 
+> Please keep O= and KDIR= in it, though. The paragraph is about modules
+> built for a kernel other than the running one, and that's how they get
+> built without this series.
+
+OK. I'll use the variant with the real paths.
+
+Best Regards,
+Petr
