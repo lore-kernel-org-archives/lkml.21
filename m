@@ -1,119 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.173
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795553709;
-	b=44hoyfXLT/U0bXYMaWZB5iXH0BGQAma/R0kFQ2vHN9ZHZ1pjkT5Eo0fg8dvXmhuYOQg8
-	 YqOw19NhtM1J+fFUa2p2ib5EflowAEIVp63EbXcX8Xvw7lQzprA96QbVbUw/Lzcl94kV4
-	 Z5dJnfLbUeIKibACFfag2Ezsfi5jB/GzrWHWhtnRjrhZSGi/x6rBci5AFav7YtFTocOtW
-	 D2p2Iulskr7QC25SWyXgsggEmDXG2rKl1Ciuxjh4JpzXlrIMJnzDzFgnPCs2yA6e7ztTl
-	 +ESDf3m+BoNqZk527WJk4tkzXQdv6i2rBSDTezeUGv7U0zE2v6LEukLWKveryGeDKbA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795553709;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
-	 Content-Type:User-Agent:MIME-Version;
-	bh=OT57QIIbgw1mNoCmc4Nd4ViyD4coW8RXoU/BWL17AVc=;
-	b=Jr/JM+64/ZRtlYNZGtyaoVeswIm6kT5pyg7kdiw5E5kWYpzdzdNquqnRLgsvAb2Bz+UM
-	 xNjK7z8zXjly3JI+ZgYJ9BW62Ok2SYRWg/Fiwled/DFdPTIIxG+7d59VgYmo3b1i1vMw+
-	 FWsQ+CnYHyNbN8QMZg3m5BfoF5OyVdPACO42s12KRtlbIFCbxA57yvpowa+uj20lOdww1
-	 JeB4UMRwjYUmmRpg3TmPzcolIb7VA4O5quESVMgxoEEQ6k4A5sttOGF47EMuTVL5nqwWI
-	 mqU+KN7gmtu/HiloItUqmBeIIxvjlnZ4rqLsLvGpI/QEAUSNY7ayzL7wSNFfr37HCBg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ndufresne.ca;
-	spf=pass smtp.mailfrom=ndufresne.ca;
-	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=AsXqa2X0;
-	arc=none smtp.remote-ip=209.85.222.173
-Received: from mail-qk1-f173.google.com (mail-qk1-f173.google.com [209.85.222.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.2
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795553713;
+	b=2+7yrytk3bxYgGnihqGXqT+t6815NWZMwRR7eLWqN/ZHM4VkQQidyzBiKUZNDPm/RMBz
+	 Zv06YL0I4t+46rUHX+9UNISEaGIlkgb0SAptlif/FTAAJlnvZxZUQ4GpgyZXrjolE7Tdc
+	 po4t0NY6BZTYwQxnXBJq1CtK2/73VAIU3FTFTf3UqsABZ6Gm1DSr04cs9FlxOdczogZDq
+	 1dLfGGj3PIwdwjvxto8HDMOy+XJl1Bz00SGafGdg8IRcH9BkA+O1QacR7okHKT+1aC8h7
+	 N5VFgnK+IS6d6pAvP3KVW029IqhiDazTMgjOx7XJRB4/3EbtPG0CHsf71LIcT/CcQkw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795553713;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=u5Ixt1T/+zW5jYJQWriPVKz2JFmhcVydoR+I71/bkt0=;
+	b=WH9gk8p9vBpVfWMuWft2MgNyX8ywaJqrfT1GENQXxNc/RpvXa0VF2Dg14ZqK/voecVF3
+	 jYyc6dfiJEZ8pXHPCzZ9fNM1qDSuWBYLYuwNY1n6ulIMBYjuAdQ01Ql/nA4IilHUIbAOT
+	 oMTUvENc4s0IYeUj1Cm+bBpydn2LOMSVzYmnU/EVrZLA3lW4FnHXiP3U3lkAoJls9UDOr
+	 ThKlpGshTmWbyLVmeCIJVkji6X3KMU1J1iujf/ACm6QpXGDLHXKPHZ7TDgsadFAkE8JL7
+	 MG8d+gLXWUlXIMPvc5tRlcyBp3nI+vSv3tjywdiTNi9OLWPJk84rM8B2UYxXNTo0dxA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=F3g4aB6M;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.2
+Received: from DB3PR0202CU003.outbound.protection.outlook.com (mail-northeuropeazon11010002.outbound.protection.outlook.com [52.101.84.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE762606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:55:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE762606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D9C0606A339;
+	Tue, 24 Nov 2026 20:55:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D9C0606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=AsXqa2X0
-Received: by mail-qk1-f173.google.com with SMTP id af79cd13be357-9495e8ae239so565051385a.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:55:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795553707; x=1796158507; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=OT57QIIbgw1mNoCmc4Nd4ViyD4coW8RXoU/BWL17AVc=;
-        b=AsXqa2X0Z8akbnIHJrtz2Q6snRX27AvTTIVWMqTUgURfZupv5nUqNVaFzMUx71RpEs
-         ce78DjKAo2WX9CSUA0sIkT+RvNLvSIqy4hdoem2ri03GmWOCely4FmIpsAHOmIXhFhJ7
-         xZ93F2eiV9QgVj34qW3bB+fTFXBOsXnjQ6cea8uG5F32xAcGN4sUmP+nVocjMvH4pstX
-         bPOnuZSDLr4whb/kvDIUAW4M2CqnNLxm4TdFqyrT+Tej1Td4gLO8AypvwodVbQz90tkL
-         QHSZZIeXPBUCkpC5mUQXnhcp0qjvW0jLtetelEKmDDnZwg1XQlxwyj0lj3WOd/7uG+v2
-         ZOkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795553707; x=1796158507;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OT57QIIbgw1mNoCmc4Nd4ViyD4coW8RXoU/BWL17AVc=;
-        b=p6dLSe1rLZ3YJ9/CnAWyZTgQKIsM2lLf+aLKSYc/eY7D3YZZI4FgjChA50cZYIeZ20
-         0VgJkluDqgBbSJcbqIAklCk6qtQGHuS0bIYFpL5ZJ52VOtE75ZbDFuyAQ22ssQdML/vZ
-         inN8KaSdn0sQyVR63c9U5CSbW6X/RAUVH1hZYkuxIJgPkx/whNE4lEkcVu09DJ8w3fm8
-         lH0XDF6TkSLluYmu8MBjxbGJ0K1WD2kSMGxBCXKl+haRneFOgA7e6KkFo2z1hvGhhfbC
-         BYdXCUUlBf/v7/waKqEx15FFkVVekzGBS/DOyvqk1xQ92/gJi86yTGsrVZj+Ke37O91w
-         09dw==
-X-Forwarded-Encrypted: i=1; AL+hErGSzq3nCqEg8isAvIgYCD0sQSgf1YL+2q8jqlkAdncT2wm/mgWex8fVbWGOQd4FO3KhHXX0NfmeZY7IOOw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z83Ps744RkGCTYO8wEifvrFOJwgwMcLNZhRdN5X1sXd2lqkV9Bt
-	+f9qlVX04vPXYmoRnF1R9lvCHVD7iDBMVidu3AYMdz7YiLh40xTsbqFWPACGRV4BbrQ0n3el7ey
-	quod9
-X-Gm-Gg: AZFdTZe5YFsMQuMi1/fskVQE6qmek7umEi+ZRW/YbyJAFp2z1sCKOzq3uhoBR4zVhd0
-	6FEc/pPC7GVgtgBpMXz/YsQZ4h727DJ3aLGIw2c91KNV4mwSm/1+7VNehpojopYy4SdoJbbRcLl
-	IrzFLX1a+O5dOZBhyQXcQkDWSf/tY5naHoQJzKNcWsXpGYn3n/jLyq5/SIR5ICfVxYXkir9o6cl
-	k/UsjXuEDJ4RSIcACYdEPgtCD2wL7mQIv2OvxrnQ2i2DSc2kHOjpHH3NBA7XgLjAWp7XQEeX8Dl
-	sWba+xtSHGpuiDlvbhBLtV6B4/1/OyRgJyocB/fYkbgQZZUfbmJzs2xZkeVHX/qhmINnKgaOVya
-	le7t41wFy6SBG0CbNZRxQKYs7EkZT0jPA365OLiFZlwvUuw3hHHXMIXFvCZO29R0QfSU03qLIg4
-	H1TJjazI7tfsUgBaZPKKBpOaQp+z1AFU0RBp01802OPn93UY6K9HC//JhYrtp0zuDWWCbm9LjTM
-	Vi/r28kKgyFH7JbkkzJFoFIfad9Y7DJdZwBhFu5FCE5O8voBHx9dqjy7EEw+dJK7tOe7NTvKX++
-	IctvuNYvkL6SLqxH0iROaHbQgB6H3HIdFO5lYBqYP7mhAEIr27/9BYE=
-X-Received: by 2002:a05:620a:6f02:b0:93b:bc51:b40 with SMTP id af79cd13be357-949ba84ac50mr2649854985a.2.1795553707568;
-        Tue, 24 Nov 2026 12:55:07 -0800 (PST)
-Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb40ea12sm1141447585a.35.2026.11.24.12.55.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 12:55:06 -0800 (PST)
-Message-ID: <82a6933335048ca8f9969481cde8340dac19ccb1.camel@ndufresne.ca>
-Subject: Re: [PATCH v2 06/17] media: v4l2-mem2mem: drop curr_ctx member from
- v4l2_m2m_dev struct
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
-	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Philipp Zabel
-	 <p.zabel@pengutronix.de>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel@pengutronix.de, Detlev Casanova <detlev.casanova@collabora.com>, 
- Michael Tretter <m.tretter@pengutronix.de>, Guangshuo Li
- <lgs201920130244@gmail.com>
-Date: Tue, 24 Nov 2026 15:55:05 -0500
-In-Reply-To: <20260916-spu-rga3multicore-v2-6-23aa2cb74e61@pengutronix.de>
-References: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
-	 <20260916-spu-rga3multicore-v2-6-23aa2cb74e61@pengutronix.de>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-qDFQbRP8sfMUezyW9fo/"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=F3g4aB6M
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IYVA1c9NsjzpkOugbk2NlMuCNc6KGtZ0fhhayEcLlEXmfE+nijhOBNMGqRbPtPKRvt70tFOj4Hz2qwhYHseWBPBSGpaj8FoC4st1AKZDdoo13mYyRuFD5eb2w5+Ppy0oovKODDToT0JT3jev4xnMsW6C7PtGbfUaEBOkoSk7ZN1XC5AxuZz05k7ozYVwYxLjr7rfnARCa/QASsBnHyFS251EyQCW6zRLDU+FV8kKAiOrbSUxAnuJoYlJVVUz9tieYzmVNSkpAiVaKoY1nd0QQmDe3V9t3zMO208PrtwtL/tG059EfM2F8iOeJ1xAPsh5y1gyT9l4n7Ss+6HxkUCMKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=u5Ixt1T/+zW5jYJQWriPVKz2JFmhcVydoR+I71/bkt0=;
+ b=E8YdSO/82S4CMQiZytApWCSdynYEV4w0vmwJ108/RPPAE2RsFEVqoAdPT3yXZFCrP6rvP8DKacmosroRuHTNwg6balEvG1+DtNvhD6RCyLk2nZkn2rcgSP8p0yarVpheBWsiTdVUhZjubpu9jLEaojcT1U8TV4WsS+R+4Ned+jrgJnnHke/txNnHdhugXuUjfHcvQrElBwiM8fqw0ZnUcCq8cPZQ7XumrlczamGF+5SKt4bG5baOcBf9/22RSG780tBT8Kn8ZTB0Wv/AeZ6FfLydkfRiFhapDmMp6MKbkFl/MDPos/x5PdfQLZdasD1VTVN7SI7y3V/VnWDUHMEw8w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=u5Ixt1T/+zW5jYJQWriPVKz2JFmhcVydoR+I71/bkt0=;
+ b=F3g4aB6MsR6FCMejSBhyZ4guytn9XRcoUN7VG/j5EeIxsAvCsro5tC/TYKup4cGRItBNK+5SK+qaZ+diJQIGo0vcEvut2fCyIR7v70C9zuoq4JtngRFvmK/nVnqF2dRIsF9dPZaB6+2vMHoht6IFciq/kNR/6iH1ba2wpXTHmuhUcltjAJDYHCZZzkciCMmmRoneO+Vpy9mnFgn3j4VCIOla03sTv7HohzlT2GYXh4Osv2LEULMYDlQskwZlMvlCCFwm6aZZnqxjjyVtGI+Q0Efk3VkX30q8FktXF6zaB8YACWLIN+fS3qy4IjdOdY93JS6p89xkszD/etYTUF6Whg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by DU2PR04MB8870.eurprd04.prod.outlook.com (2603:10a6:10:2e1::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
+ 2026 20:55:10 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0662.004; Tue, 24 Nov 2026
+ 20:55:09 +0000
+Date: Tue, 24 Nov 2026 15:55:02 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Shubham Patil <shubhamsanjay.patil@amd.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Frank Li <Frank.Li@nxp.com>, Jeremy Kerr <jk@codeconstruct.com.au>,
+	Matt Johnston <matt@codeconstruct.com.au>,
+	linux-i3c@lists.infradead.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, meaganlloyd@linux.microsoft.com,
+	git@amd.com
+Subject: Re: [PATCH v3 2/3] i3c: dw: Track the transmit and receive buffer
+ depths separately
+Message-ID: <awX5plL9Ui08Ef91@lizhi-Precision-Tower-5810>
+References: <20261124060651.1987454-1-shubhamsanjay.patil@amd.com>
+ <20261124060651.1987454-3-shubhamsanjay.patil@amd.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124060651.1987454-3-shubhamsanjay.patil@amd.com>
+X-ClientProxiedBy: PH1PEPF00013305.namprd07.prod.outlook.com
+ (2603:10b6:518:1::17) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -123,211 +101,178 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|DU2PR04MB8870:EE_
+X-MS-Office365-Filtering-Correlation-Id: f4f97760-178c-47e9-0275-08df4a6d3a33
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|366016|19092799006|23010399003|261009223327099003|261009220027099003|261009221227099003|261009221727099003|261009223027099003|22082099003|18002099003|3023799007|261021121427099003|261022105027099003|261026140227099003|261102123227099003|261026121527099003|261028144727099003|10067099003|56012099006|261021123027099003|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info:
+	4SU1mnkuxWWDwc5M4Rlr6rlu5ynDIZMo+Y2hXVl/T5kUzzdH/fugNs92kUJ81bR4CByXNQJX0vMfEZ9vHujY4NEIXM1nKQd6xwL0PNi4+6HW7aUph/iqaPg31NeTk0DpaPmD1zyjQbanW681jkIE0agsiWzVN+UcPLMEE2bG0/4GUltnhWWprpyHR8iAQ9xma5vr7MvcElKZgTikM2hWr8Rna0CoOPKzOtHD2mQA0BYKveiwp08IxowLYKDScwOsDIxmZJZAJVxhnKZNAreW17BArBVUFy+i6sBzVFZlfn7Dsaz8ayhyTeXKFkhwKOl3rHwLeQPdTj5YYwpG/Wod+FpKniAS/YWzAMFzLFyxwH/E9Ew42NULAh/2UtboHVBeoRB11rrBeKxZDuJfDmLlFe4McwcEwP6gHz8Cg317xC1VTz/BAkNHf7f1BQ8bVNkDO7yLJDcNrENXrRvXo6lVV29BDjZhLYKnXCY/FlpveknsZUfN66Oi46S0yJXj921+0ehSk++zy64MMlOTdQFJtkUdPPc0H1fNPAwCQQUkxmISIKNZsf/+FY9UvjOMUJDheeGxkm/Ws05s5gqIoUl+FmqHcwRM/PRL7BqdP+qqEK3Lm0nwJ/qhlNuXjf6HAEQ2H0vM5JRVldl0m6HJmF0B0kVxP2jZjnJFeqrxbr2vOnw=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(19092799006)(23010399003)(261009223327099003)(261009220027099003)(261009221227099003)(261009221727099003)(261009223027099003)(22082099003)(18002099003)(3023799007)(261021121427099003)(261022105027099003)(261026140227099003)(261102123227099003)(261026121527099003)(261028144727099003)(10067099003)(56012099006)(261021123027099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?7nFnnoDgKRSJBdTWhin18TuHus6gnJ3O3EsATSkU6s2aqkaPF333X3r9DrGW?=
+ =?us-ascii?Q?aGQrP/8YIuQhlyHL7T6JKaR4IMcq5xpyf+24sY+U2ik+clRVBbsvvHDmCDaN?=
+ =?us-ascii?Q?gmOSt7WZuV2fDOQKg35A0CGTM545+HpoeMfcuIGk8hs2FUSZymQ4k0HTdIrp?=
+ =?us-ascii?Q?oimIDeT+A/z494y4rDYSDlTVGY25i1iTCwfItXox1QK+CxIFXWselGzbTJ+7?=
+ =?us-ascii?Q?f1V/fi+s5UwGoMNrE69leTJ6GBopzAcDMiOsnOxbsRaoMyVsDjANUJ3JD76U?=
+ =?us-ascii?Q?CRCX9BbS8vCcSEtP3+LF+zziNkhPu8FxNBHmY5OC1qpFw+/O62gXnNGiCL47?=
+ =?us-ascii?Q?mhotKLjzmIp+E/BqKAuw/jLMSORFcO+34PGEbMg0x2gPBfLJWiH8JxXcR9Vj?=
+ =?us-ascii?Q?q4stcmsWHze2Nx2eHXttTRvENQoV22iPHoSw+EPLHYzSyH+x5FyTKTWqN6AV?=
+ =?us-ascii?Q?u35fhiJkNC3kehBSbfXyJrW1zY6r00lEIEQJIno6vemgWfrO8N9jekErJMSY?=
+ =?us-ascii?Q?DYz8le2AR1Q6JZj5ndAAiqx3Ezeulaq7QzbRly7B6wwXpZ/fDX9XRU++rA5b?=
+ =?us-ascii?Q?CYfx0rMv5t0/bu+3kJMuM+5v7vrxNCytT6lsAFdPwYSmvG20KFhF0uuQsHkd?=
+ =?us-ascii?Q?4bin0mtzZm4Q4fh6iJN8nqKREM0nTZUiohS2CPor9W8GtId+rNMJskPtx/yl?=
+ =?us-ascii?Q?lX/SrOm7hcWGB74g+XcGTkezo7VZvEn9Wqot6q9tQnkv8/c+O1inmMf3ptPK?=
+ =?us-ascii?Q?ZNxRJVeR1SkWRjbdhZkGnYl8a1k+Ipq5cE9XgxgsTaCajuD2AOv/pO6ywRax?=
+ =?us-ascii?Q?nfy7DpaHSW7yKMll0qpBNBgwK2+h2WNqn+ZJR9Ff+zWMkLKUFHOVABh7OSh1?=
+ =?us-ascii?Q?+CIrWE4Aasz/TlAAu+HKl9J9vr0IDy1HiUl12KJJjBJygsZt3d2RiqUII1Fp?=
+ =?us-ascii?Q?rX9ddUVnz8JwZwUnwOJ8rQ4UV8DT2nGDCciAxl1GzoEh7d5m4zm2fgo2ASFb?=
+ =?us-ascii?Q?cmnhE2eHJCtG1hbGvAa00C5SN3IDsNZIxKG5LrTY+7ZdFmc+LPUu+zxMhLYA?=
+ =?us-ascii?Q?XUuG10YDe4Pbh4uFW5S/ydrhdfcOYWAQu3Ug2U/SoVvLu4hms5ixJ0kJZs27?=
+ =?us-ascii?Q?FNGo+5oVRjsnwxlsZo40Pu3uljvCkOq5fXiu2wlAYJLleomQH5BRKiJNzUZo?=
+ =?us-ascii?Q?RMXMhkqw/a/C3KSyVuCEFxv63QBZA9XwrTik8d6F3Gf6j308rYpx1CnY5YVV?=
+ =?us-ascii?Q?dM+vjRpmAFIDFMjn7D+/XcLY+3pdbu94QntD8F7ud/zaQYV377Egjm3NEaz8?=
+ =?us-ascii?Q?NMO8bMuV3edV9fVcFDya6JHX0gZMI8svLm7NH/W7gvdzpzDPMbGBKaVxN+z8?=
+ =?us-ascii?Q?xxqyfRXae8fkUqE87SjbuOl+L+RJdlXVttNq2qx0KnNd8pMKTeXZWXMspK0Y?=
+ =?us-ascii?Q?GydfNovZDlB5pgYpaqA/ynNkiQQJJ4Ow7J//V9DQge0jZ7YAGcKuKQrsIaLv?=
+ =?us-ascii?Q?K0Jdjnnwy0ITZqjfdjD/1gp8usPssOav6ITKAU2U5eYZUMYe1PwcqaBjTjh3?=
+ =?us-ascii?Q?Nr1MSPVaVdKwoY/ncO+xIRq4B2aSaOomn+h38bdKDPNcetwG27BCwjbLseEn?=
+ =?us-ascii?Q?hMKaxCPaoazqlYkIl5bwEQRqOLbJzC8XTG3zubSs4aRQDpPtwQVmL5F/uJSy?=
+ =?us-ascii?Q?/SU/tCuBN39+GmVHYa6opByXUuAns3L6HtbOEcZFaQtJ1uoRbECPbciJH0ye?=
+ =?us-ascii?Q?FKJzYuM97zpKfsYNhe8koGQj9guZTdT7O85hgse3YeyqV7vEHCyH?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4f97760-178c-47e9-0275-08df4a6d3a33
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 20:55:09.9058
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: J/5QRaSsV69xdmY5enU3D7aYQZLfvXQBYwCDZPXZLZ8biwZaDP/3xkx4y46mf5bvkxY33aqWlBHiiujvz4P5Sqe0IZmhLqld+MfXXpoPV2KxnlG5JSTQxB6XqNduX5Bc
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8870
 
---=-qDFQbRP8sfMUezyW9fo/
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Le mercredi 16 septembre 2026 =C3=A0 17:09 +0200, Sven P=C3=BCschel a =C3=
-=A9crit=C2=A0:
-> Drop the curr_ctx member from the v4l2_m2m_dev struct in preparation of
-> adding support for running multiple jobs in parallel.
->=20
-> The curr_ctx member of a v4l2_m2m_dev was used to track the
-> currently running context. But the currently running context will always
-> be at the top of the job_queue. As the TRANS_RUNNING flag can be used to
-> check if the queue head is already running, the curr_ctx member can be
-> completely dropped.
->=20
-> By eliminating the struct member the code is mostly agnostic whenever
-> only one job is running at a time or multiple run at the same time. The
-> main exception is the v4l2_m2m_get_curr_priv function, which is by it's
-> design incompatible with running multiple jobs in parallel.
->=20
-> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
->=20
+On Tue, Nov 24, 2026 at 11:36:50AM +0530, Shubham Patil wrote:
+> The driver currently uses the transmit buffer depth to validate both
+> transmit and receive transfers. Since the transmit and receive buffers
+> can have different capacities, receive transfers must instead be
+> validated against the receive buffer depth.
+>
+> QUEUE_SIZE_CAPABILITY reports the configured size of each buffer. Take
+> the receive depth from there, leave the transmit and command depths on
+> the status level registers they already use, and split
+> caps.datafifodepth into caps.txfifodepth and caps.rxfifodepth so that
+> each direction is checked against its own buffer.
+>
+> That register was already defined at the right offset, but under a name
+> that does not appear in the databook and with no user at all. Rename
+> EXTENDED_CAPABILITY to QUEUE_SIZE_CAPABILITY and add the field
+> accessor.
+>
+> The DesignWare I2C/I3C databook, section 11.1.58 ("QUEUE_SIZE_CAPABILITY"),
+> defines RX_BUF_SIZE in bits [7:4]. The documented encodings 0 through 5
+> represent 2 through 64 DWORDs, respectively, corresponding to
+> 2U << RX_BUF_SIZE.
+>
+> Publish both depths in bytes through base.max_tx_bytes and
+> base.max_rx_bytes, so that device drivers can size a transfer this
+> controller will accept.
+>
+> Signed-off-by: Shubham Patil <shubhamsanjay.patil@amd.com>
 > ---
-> v2:
-> - split curr_ctx removal into a separate commit
-> - add WARN_ON to _v4l2_m2m_job_finish to prevent mismatching context to
->   device (and an unused m2m_dev argument)
-> - rewrite v4l2_m2m_get_curr_priv to get private data inside the spinlock
->   (https://sashiko.dev/#/patchset/20260606-spu-rga3multicore-v1-0-3ec2b15=
-675f7%40pengutronix.de?part=3D5)
-> ---
->  drivers/media/v4l2-core/v4l2-mem2mem.c | 61 ++++++++++++++++++----------=
-------
->  1 file changed, 33 insertions(+), 28 deletions(-)
->=20
-> diff --git a/drivers/media/v4l2-core/v4l2-mem2mem.c b/drivers/media/v4l2-=
-core/v4l2-mem2mem.c
-> index a65cbb124cfe0..60cca94195166 100644
-> --- a/drivers/media/v4l2-core/v4l2-mem2mem.c
-> +++ b/drivers/media/v4l2-core/v4l2-mem2mem.c
-> @@ -84,7 +84,6 @@ static const char * const m2m_entity_name[] =3D {
->   *=09=09=09v4l2_m2m_unregister_media_controller().
->   * @intf_devnode:=09&struct media_intf devnode pointer with the interfac=
-e
->   *=09=09=09with controls the M2M device.
-> - * @curr_ctx:=09=09currently running instance
->   * @job_queue:=09=09instances queued to run
->   * @job_spinlock:=09protects job_queue
->   * @job_work:=09=09worker to run queued jobs.
-> @@ -93,7 +92,6 @@ static const char * const m2m_entity_name[] =3D {
->   * @kref:=09=09device reference count
->   */
->  struct v4l2_m2m_dev {
-> -=09struct v4l2_m2m_ctx=09*curr_ctx;
->  #ifdef CONFIG_MEDIA_CONTROLLER
->  =09struct media_entity=09*source;
->  =09struct media_pad=09source_pad;
-> @@ -232,8 +230,14 @@ void *v4l2_m2m_get_curr_priv(struct v4l2_m2m_dev *m2=
-m_dev)
->  =09void *ret =3D NULL;
-> =20
->  =09spin_lock_irqsave(&m2m_dev->job_spinlock, flags);
-> -=09if (m2m_dev->curr_ctx)
-> -=09=09ret =3D m2m_dev->curr_ctx->priv;
-> +=09if (!list_empty(&m2m_dev->job_queue)) {
-> +=09=09struct v4l2_m2m_ctx *first_ctx =3D
-> +=09=09=09list_first_entry(&m2m_dev->job_queue,
-> +=09=09=09=09=09 struct v4l2_m2m_ctx, queue);
-> +
-> +=09=09if (first_ctx->job_flags & TRANS_RUNNING)
-> +=09=09=09ret =3D first_ctx->priv;
-> +=09}
->  =09spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
-> =20
->  =09return ret;
-> @@ -252,14 +256,9 @@ EXPORT_SYMBOL(v4l2_m2m_get_curr_priv);
->  static void v4l2_m2m_try_run(struct v4l2_m2m_dev *m2m_dev)
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+> Changes in v3:
+> - Use FIELD_GET() and a u32 variable for RX_BUF_SIZE extraction.
+> - Use sizeof(u32) for byte conversion and the renamed controller fields.
+> - Add the RX_BUF_SIZE encoding and databook reference.
+>
+>  drivers/i3c/master/dw-i3c-master.c | 24 +++++++++++++++++-------
+>  drivers/i3c/master/dw-i3c-master.h |  3 ++-
+>  2 files changed, 19 insertions(+), 8 deletions(-)
+>
+> diff --git a/drivers/i3c/master/dw-i3c-master.c b/drivers/i3c/master/dw-i3c-master.c
+> index d1119f203d1b..21bd94e5a6be 100644
+> --- a/drivers/i3c/master/dw-i3c-master.c
+> +++ b/drivers/i3c/master/dw-i3c-master.c
+> @@ -203,7 +203,10 @@
+>  #define BUS_IDLE_TIMING			0xd8
+>  #define I3C_VER_ID			0xe0
+>  #define I3C_VER_TYPE			0xe4
+> -#define EXTENDED_CAPABILITY		0xe8
+> +#define QUEUE_SIZE_CAPABILITY		0xe8
+> +#define QUEUE_SIZE_CAPABILITY_RX_BUF(x)	FIELD_GET(GENMASK(7, 4), (x))
+> +/* Sizes are encoded, 0 meaning 2 DWORDs and every further step doubling it. */
+> +#define QUEUE_SIZE_TO_DWORDS(x)		(2U << (x))
+>  #define SLAVE_CONFIG			0xec
+>
+>  #define DYN_ADDR_LO_MASK GENMASK(4, 0)
+> @@ -978,8 +981,8 @@ static int dw_i3c_master_i3c_xfers(struct i3c_dev_desc *dev,
+>  			ntxwords += DIV_ROUND_UP(i3c_xfers[i].len, 4);
+>  	}
+>
+> -	if (ntxwords > master->caps.datafifodepth ||
+> -	    nrxwords > master->caps.datafifodepth)
+> +	if (ntxwords > master->caps.txfifodepth ||
+> +	    nrxwords > master->caps.rxfifodepth)
+>  		return -EOPNOTSUPP;
+>
+>  	struct dw_i3c_xfer *xfer __free(kfree) = dw_i3c_master_alloc_xfer(master, i3c_nxfers);
+> @@ -1136,8 +1139,8 @@ static int dw_i3c_master_i2c_xfers(struct i2c_dev_desc *dev,
+>  			ntxwords += DIV_ROUND_UP(i2c_xfers[i].len, 4);
+>  	}
+>
+> -	if (ntxwords > master->caps.datafifodepth ||
+> -	    nrxwords > master->caps.datafifodepth)
+> +	if (ntxwords > master->caps.txfifodepth ||
+> +	    nrxwords > master->caps.rxfifodepth)
+>  		return -EOPNOTSUPP;
+>
+>  	struct dw_i3c_xfer *xfer __free(kfree) = dw_i3c_master_alloc_xfer(master, i2c_nxfers);
+> @@ -1666,7 +1669,7 @@ int dw_i3c_common_probe(struct dw_i3c_master *master,
+>  			struct platform_device *pdev)
 >  {
->  =09unsigned long flags;
-> +=09struct v4l2_m2m_ctx *chosen_ctx;
-> =20
->  =09spin_lock_irqsave(&m2m_dev->job_spinlock, flags);
-> -=09if (NULL !=3D m2m_dev->curr_ctx) {
-> -=09=09spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
-> -=09=09dprintk("Another instance is running, won't run now\n");
-> -=09=09return;
-> -=09}
-> -
->  =09if (list_empty(&m2m_dev->job_queue)) {
->  =09=09spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
->  =09=09dprintk("No job pending\n");
-> @@ -272,13 +271,18 @@ static void v4l2_m2m_try_run(struct v4l2_m2m_dev *m=
-2m_dev)
->  =09=09return;
->  =09}
-> =20
-> -=09m2m_dev->curr_ctx =3D list_first_entry(&m2m_dev->job_queue,
-> -=09=09=09=09   struct v4l2_m2m_ctx, queue);
-> -=09m2m_dev->curr_ctx->job_flags |=3D TRANS_RUNNING;
-> +=09chosen_ctx =3D list_first_entry(&m2m_dev->job_queue, struct v4l2_m2m_=
-ctx, queue);
-> +=09if (chosen_ctx->job_flags & TRANS_RUNNING) {
-> +=09=09spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
-> +=09=09dprintk("Another instance is running, won't run now\n");
-> +=09=09return;
-> +=09}
+>  	int ret, irq;
+> -	u32 thld_ctrl;
+> +	u32 thld_ctrl, val;
+>  	const struct dw_i3c_drvdata *drvdata;
+>  	unsigned long quirks = 0;
+>
+> @@ -1738,7 +1741,14 @@ int dw_i3c_common_probe(struct dw_i3c_master *master,
+>  	master->caps.cmdfifodepth = QUEUE_STATUS_LEVEL_CMD(ret);
+>
+>  	ret = readl(master->regs + DATA_BUFFER_STATUS_LEVEL);
+> -	master->caps.datafifodepth = DATA_BUFFER_STATUS_LEVEL_TX(ret);
+> +	master->caps.txfifodepth = DATA_BUFFER_STATUS_LEVEL_TX(ret);
 > +
-> +=09chosen_ctx->job_flags |=3D TRANS_RUNNING;
->  =09spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
-> =20
-> -=09dprintk("Running job on m2m_ctx: %p\n", m2m_dev->curr_ctx);
-> -=09m2m_dev->m2m_ops->device_run(m2m_dev->curr_ctx->priv);
-> +=09dprintk("Running job on m2m_ctx: %p\n", chosen_ctx);
-> +=09m2m_dev->m2m_ops->device_run(chosen_ctx->priv);
->  }
-> =20
->  /*
-> @@ -469,15 +473,16 @@ static void v4l2_m2m_schedule_next_job(struct v4l2_=
-m2m_dev *m2m_dev,
->  static bool _v4l2_m2m_job_finish(struct v4l2_m2m_dev *m2m_dev,
->  =09=09=09=09 struct v4l2_m2m_ctx *m2m_ctx)
->  {
-> -=09if (!m2m_dev->curr_ctx || m2m_dev->curr_ctx !=3D m2m_ctx) {
-> +=09if (!m2m_ctx || !(m2m_ctx->job_flags & TRANS_RUNNING)) {
->  =09=09dprintk("Called by an instance not currently running\n");
->  =09=09return false;
->  =09}
-> =20
-> -=09list_del(&m2m_dev->curr_ctx->queue);
-> -=09m2m_dev->curr_ctx->job_flags &=3D ~(TRANS_QUEUED | TRANS_RUNNING);
-> -=09wake_up(&m2m_dev->curr_ctx->finished);
-> -=09m2m_dev->curr_ctx =3D NULL;
-> +=09WARN_ON(m2m_dev !=3D m2m_ctx->m2m_dev);
+> +	val = readl(master->regs + QUEUE_SIZE_CAPABILITY);
+> +	master->caps.rxfifodepth =
+> +		QUEUE_SIZE_TO_DWORDS(QUEUE_SIZE_CAPABILITY_RX_BUF(val));
 > +
-> +=09list_del(&m2m_ctx->queue);
-> +=09m2m_ctx->job_flags &=3D ~(TRANS_QUEUED | TRANS_RUNNING);
-> +=09wake_up(&m2m_ctx->finished);
->  =09return true;
->  }
-> =20
-> @@ -548,12 +553,15 @@ void v4l2_m2m_suspend(struct v4l2_m2m_dev *m2m_dev)
-> =20
->  =09spin_lock_irqsave(&m2m_dev->job_spinlock, flags);
->  =09m2m_dev->job_queue_flags |=3D QUEUE_PAUSED;
-> -=09curr_ctx =3D m2m_dev->curr_ctx;
-> +=09if (list_empty(&m2m_dev->job_queue)) {
-> +=09=09spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
-> +=09=09return;
-> +=09}
-> +
-> +=09curr_ctx =3D list_first_entry(&m2m_dev->job_queue, struct v4l2_m2m_ct=
-x, queue);
->  =09spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
-> =20
-> -=09if (curr_ctx)
-> -=09=09wait_event(curr_ctx->finished,
-> -=09=09=09   !(curr_ctx->job_flags & TRANS_RUNNING));
-> +=09wait_event(curr_ctx->finished, !(curr_ctx->job_flags & TRANS_RUNNING)=
-);
->  }
->  EXPORT_SYMBOL(v4l2_m2m_suspend);
-> =20
-> @@ -896,10 +904,8 @@ int v4l2_m2m_streamoff(struct file *file, struct v4l=
-2_m2m_ctx *m2m_ctx,
->  =09q_ctx->num_rdy =3D 0;
->  =09spin_unlock_irqrestore(&q_ctx->rdy_spinlock, flags);
-> =20
-> -=09if (m2m_dev->curr_ctx =3D=3D m2m_ctx) {
-> -=09=09m2m_dev->curr_ctx =3D NULL;
-> +=09if (m2m_ctx->job_flags & TRANS_RUNNING)
->  =09=09wake_up(&m2m_ctx->finished);
-
-Sashiko report that wake_up() is unreachable, that job_flags have been clea=
-r
-previously.
-
-If that is correct, its not a big issue:
-
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-
-> -=09}
->  =09spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags_job);
-> =20
->  =09return 0;
-> @@ -1194,7 +1200,6 @@ struct v4l2_m2m_dev *v4l2_m2m_init(const struct v4l=
-2_m2m_ops *m2m_ops)
->  =09if (!m2m_dev)
->  =09=09return ERR_PTR(-ENOMEM);
-> =20
-> -=09m2m_dev->curr_ctx =3D NULL;
->  =09m2m_dev->m2m_ops =3D m2m_ops;
->  =09INIT_LIST_HEAD(&m2m_dev->job_queue);
->  =09spin_lock_init(&m2m_dev->job_spinlock);
-
---=-qDFQbRP8sfMUezyW9fo/
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawX5qQAKCRDZQZRRKWBy
-9AHWAQCmqcFAQMkugv7AJiaX/VEcrfFOq0yeQoHoehSg1I0udQEAkDiuFPHBWI6B
-ZlpYRZjVAmYDkdC/FdAGAE99MAig2ww=
-=f+mj
------END PGP SIGNATURE-----
-
---=-qDFQbRP8sfMUezyW9fo/--
+> +	master->base.max_tx_bytes = master->caps.txfifodepth * sizeof(u32);
+> +	master->base.max_rx_bytes = master->caps.rxfifodepth * sizeof(u32);
+>
+>  	ret = readl(master->regs + DEVICE_ADDR_TABLE_POINTER);
+>  	master->datstartaddr = ret;
+> diff --git a/drivers/i3c/master/dw-i3c-master.h b/drivers/i3c/master/dw-i3c-master.h
+> index f5b4491b247a..e23554bfc5e4 100644
+> --- a/drivers/i3c/master/dw-i3c-master.h
+> +++ b/drivers/i3c/master/dw-i3c-master.h
+> @@ -14,7 +14,8 @@
+>
+>  struct dw_i3c_master_caps {
+>  	u8 cmdfifodepth;
+> -	u8 datafifodepth;
+> +	u8 txfifodepth;
+> +	u8 rxfifodepth;
+>  };
+>
+>  struct dw_i3c_dat_entry {
+> --
+> 2.34.1
+>
