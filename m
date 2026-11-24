@@ -1,110 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.99
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795513288;
-	b=PS7yDWmfLqcYSAn8M1rcl6Fd7rUssv+AIp72Ho41fwPQVolfCKSTmtEKXJI6VsBu102J
-	 ChJm5errdy+i9t10N5poxe+iuCEwI1cy0K95BWe09F0qUm6Sv6Uxl8Qv8zLQJHx0zUn0b
-	 YyCitv6DuKhhf8OQGJetm2mxnLyxWFHetaeGfl7jhJu8aVqa1WBwJ/vkNlscAcAR2hHTA
-	 yXuC3FCs5TRuZhQ05jIYuSv/DAdS6Fd/wLt33/A68CecZlu40GXT0LR8Souq7cXWT5XcB
-	 ZPHGi47xeXSe2BvrTDUmw07w1UoVWy4hUH7iJ5QVE8M1/WyC0uOLwxyWXNr7kkK2+7g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513288;
-	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
-	 Received-SPF:Received:Received:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:Content-Type:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=L5/ilYjNIdMzPVov6bsQbB0+i0Mj+E7hq2zbDupkePw=;
-	b=sz3eIFIsZlS2Xb2UFPjeXNq9VBChlvxfVYAZzrmC13NEYZyr62AuYgpAf/1UsSinWB1i
-	 8UBGcmPtGMSXH1sNPVHUbJ9HhmqM7fuLeG8ebbVC/lKQjwmtzMf4KEqO2lK78rSXIZ1R5
-	 yy2V9qEJV8cdNoNGCByQsNAqiYB6Wrr0hy9wixJ/M47NgXuumYEkf2z8ee040d7hM098D
-	 sR1sEr/QxA6v3uU0HwfbnQchoIArYGTDFY0PUHrKutNKjKVP5ZadYrafPwbGYBUF94nNd
-	 M/mp3ZThazFeqbb6sLUjHdCnCuLb8+LRujq5toRDNKXd9YwD0DU5OQTUPe+VWuO/nsA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=cixtech.com;
-	spf=pass smtp.mailfrom=cixtech.com;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.99
-Received: from SEYPR02CU001.outbound.protection.outlook.com (mail-koreacentralazon11023099.outbound.protection.outlook.com [40.107.44.99])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.143.211.150
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795513329;
+	b=OD3LRa9iGuiyo66PuJ/z60wAv22MN2+d3Ee1MzWjLt9Ti8ccbQ2lu7HMWAAOSexXXIq3
+	 Gr7wML9jMEgYORQphruCvmWKDQmBkqD+rJZdjzG1OZWGxCD+cXGSeeQPriOac8PeQdl2L
+	 V6iwL9d7rIgRLXyMxtj04a/LHsT/74S9kTj8wpVp5a+dVqhtPidvO/dGl2hdTC+7+CtDg
+	 6AardLMyWSGHmHHgSftEc4N1zyj8MD57lWE16fhEUlRBrTJpcjxxA/K7xek5Crqvcdl/X
+	 dhGGlLztBPeLGsX3wPWhaedMBbrN9uSJd/nYRn7J6Q864lxUcFt7UUmFLmyOrkpgmDA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795513329;
+	h=DMARC-Filter:From:DKIM-Signature:To:Cc:Subject:Date:Message-ID:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=BL1Fu2R9fiyvgELYNd9ojOSDl2hj2PjbPXVKos5gdQg=;
+	b=mFX9ehIx2mE5+wxuJOAHw6jTld/gHjOndmZGq/umyMUCcqlgaetxDHma/O9r23+6SDsx
+	 wk0OSb/Cjpbapsax7wZmdIIgvKwq2Bq2P4Ho9VnAJXoRDah96BUgJbmGDT7goFLD3kq8j
+	 3OTr6z122eeyYZH1+W/AuRrEb1VcqXhNpKbeFM5JgdAS9Bx7OUY/qqm7G0IsxvlzYsgE4
+	 WgLQn1TymLFDBD3SCuMgKWh9/BAojsti0fy8aPKwQssUcSDzp5gVSZOnZKQKiYlN+iV6/
+	 dqHcIJgdWI8fNpuscFDmRV4IXcIeZVUCCCreGcmhdvvaje1mcgYND+pSS+L0KllIq5A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=swemel.ru;
+	spf=pass smtp.mailfrom=swemel.ru;
+	dkim=pass header.d=swemel.ru header.i=@swemel.ru header.a=rsa-sha256 header.s=mail header.b=eXOnVbKf;
+	arc=none smtp.remote-ip=95.143.211.150
+Received: from mx.swemel.ru (mx.swemel.ru [95.143.211.150])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32C9360A2629
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:41:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32C9360A2629
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=k7qWbMn4gLNwW4eOKhF5t/l2xWqfSgjIrSWDPkmKUIiAb9siDxfPq7SXm0rvWEia9oavHgt6qNPSp6laJqhH8TPK5Sbw7oYQmpdbrBSBkH3ALTicXGWRipLnBqsh6tJgWJ9foVJcyeIddgckDW/RZrJEMhon4U82fn3IjNETVy9QlDNLsC5U4iLPlo+OvNdBfi5cObaGh9I3aHx+RQABkoHzw/sa4RmVn2OcqKBkS/7/3BScCObQ0cL+LzUDFgXqCvVEGvQhV+UmbMJ3wa9als1kw7K0sZc1O73lIqY95wZIwzMxRFJBtxPo22aYUglLK0y/lKgFAtCZXjkmfz2pxA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L5/ilYjNIdMzPVov6bsQbB0+i0Mj+E7hq2zbDupkePw=;
- b=qIs9ckImGQETruioamS8QT0K3OxXQ4Mr/HjdzRm7uOWD+Li+RDkRBLAungkIomL0FKp9+vrGpl3qf0fyzoU+bQavsDsdfh24BhjC3d72uSvFdTNnMBKlPo5NigL4dJbDYoJv8H/+CvCF3rHo2N/8DVxFap5ahmYGi6hrTTyxQ6ldo64ilPyvHY7KlqhASXh8Pw/i7PDq3KJk2mNuamrOzf0eC7cY/PFugdnrumSvqGjFhw9xA39JgnXPoSonacdrMTlpSybDuiP9bzVpTRrYV1AOHbV6+WeWqj7miKiPEKg/9xyhBIv+uOyWFlsdIfAQHb90i4O8uvz3P0N39ev1WQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SG2PR01CA0198.apcprd01.prod.exchangelabs.com
- (2603:1096:4:189::7) by TY2PPFB9F781CB5.apcprd06.prod.outlook.com
- (2603:1096:408::7a4) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.3; Tue, 24 Nov
- 2026 09:41:22 +0000
-Received: from SG2PEPF000B66C9.apcprd03.prod.outlook.com
- (2603:1096:4:189:cafe::3) by SG2PR01CA0198.outlook.office365.com
- (2603:1096:4:189::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Tue, 24
- Nov 2026 09:41:21 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66C9.mail.protection.outlook.com (10.167.240.20) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 09:41:20 +0000
-Received: from localhost.localdomain (unknown [172.16.66.33])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 2D40540920E1;
-	Tue, 24 Nov 2026 17:41:20 +0800 (CST)
-From: Luo Liu <Luo.Liu@cixtech.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	dri-devel@lists.freedesktop.org
-Cc: Ayan Halder <Ayan.Halder@arm.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A8D4606A683;
+	Tue, 24 Nov 2026 09:41:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A8D4606A683
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=swemel.ru
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=swemel.ru
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=swemel.ru header.i=@swemel.ru header.a=rsa-sha256 header.s=mail header.b=eXOnVbKf
+From: Denis Arefev <arefev@swemel.ru>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=swemel.ru; s=mail;
+	t=1795513308;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=BL1Fu2R9fiyvgELYNd9ojOSDl2hj2PjbPXVKos5gdQg=;
+	b=eXOnVbKf7nCIPhtfBrWs3le29qisGyC5izuUuGJADf8ds7LQfFUgHi0ixwjoCDSAkysqTI
+	8wX9ohfJKnkt3dlkEO7plZJS91CmYatWgMf1XKNKxWkl4hFz0Sg6o+2w22pstwY5neJHh/
+	dlUYN+4noh05QObNeFVd/SZHxkrblAI=
+To: stable@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>,
+	Matthew Schwartz <matthew.schwartz@linux.dev>,
+	Sasha Levin <sashal@kernel.org>,
+	Florian Maillard <florian.maillard@mailoo.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Wei WANG <wei_wang@realsil.com.cn>,
+	Samuel Ortiz <sameo@linux.intel.com>,
+	linux-mmc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	cix-kernel-upstream@cixtech.com,
-	Wuyi.Shen@cixtech.com
-Subject: [PATCH v3 2/4] drm/komeda: Use drmm_mode_config_init()
-Date: Tue, 24 Nov 2026 17:41:17 +0800
-Message-Id: <20261124094119.3220267-3-Luo.Liu@cixtech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261124094119.3220267-1-Luo.Liu@cixtech.com>
-References: <20261124094119.3220267-1-Luo.Liu@cixtech.com>
+	lvc-project@linuxtesting.org,
+	Yang Yingliang <yangyingliang@huawei.com>
+Subject: [PATCH 5.10] mmc: rtsx_pci: fix return value check of mmc_add_host()
+Date: Tue, 24 Nov 2026 12:41:46 +0300
+Message-ID: <20261124094148.96655-1-arefev@swemel.ru>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,214 +68,56 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66C9:EE_|TY2PPFB9F781CB5:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 9a3e712a-e59a-45f2-d4da-08df4a0f18da
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|42112799006|23010399003|36860700016|1800799024|82310400026|376014|7416014|261026140227099003|261028144727099003|261102123227099003|261026121527099003|261022075727099003|261021123027099003|261022105027099003|261021121427099003|56012099006|10067099003|18002099003|22082099003|261009220027099003|261009221727099003|261009221227099003|261009223027099003|6133799003|261009223327099003;
-X-Microsoft-Antispam-Message-Info:
-	y4TM5ca2MUgna0sPOzFMgFbOfHIiuxYCGeSmoe3NFgYmdSCHKhv4Qgf2hvbtlXqxhmucEhyGw76/caUdJmel2IiDa/ZW92znzSb5s1p9LDYnS1qm1lqk2atTXNHZn1VALkViJI7NsdbmbVK34+lb5NqiiLoRj7cn0QupeAXemBBzb9FDrMe1sYXTE6JD3nKxDTiqCmvgWuODBtm1BppXw4pGj6OimglWMLkBHvjHXynNBBIsgyGmLpBg4wBefLzJDN+oyqsZzVQ1Gtjn6UucKUhTm71/WDJ1X/1QWIdGyd28+Zxvqqtbkn91W1sTksOQ7NkwSWeshyRzRB0CHfYkjAg1JixUW02nkw1Khe3jCNZ1r09I+q34P/x07dtWJjjw2vKsXWx4d7kohQaLlkuQg2Q9NVUidDVf3qJcN1eYwgh3829HG9kaeg3+qVgRJ0amEu7SgZ05yWPolEjvc2k9ZkyxKBiQ/k8OSL0PVfnnwXXn764vk7PZt/PtMY8Zm0ZZ9zMSWcgON85amOKiaha5uqZc6CBVjByDY+TOcmBAlK7Xw7IwWsydMbSX+mrFClM2Vzx164+dlRwZDTxrimhIOTWLrKqcBpYRR8XdWNLXtLDKq5CRb6FR2ZsJOCmWVlNX33vHjH1kRHwjD8AI4RwByOfsI+Dz9DlqYPOVhqunCHFFxGFX11I6k28YwmT6Iqn1iF9ULaXHoM1dLGUzsK354w==
-X-Forefront-Antispam-Report:
-	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(42112799006)(23010399003)(36860700016)(1800799024)(82310400026)(376014)(7416014)(261026140227099003)(261028144727099003)(261102123227099003)(261026121527099003)(261022075727099003)(261021123027099003)(261022105027099003)(261021121427099003)(56012099006)(10067099003)(18002099003)(22082099003)(261009220027099003)(261009221727099003)(261009221227099003)(261009223027099003)(6133799003)(261009223327099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	8ufGREWCOuhYAdzkxl1fdlAhRUiUNoQmYbGdYxLeT7R/76x5YXwzCczIk2lbDahX1lVmk5quUvgQx2mc7ZYuBh5RcuVh7/8kjxBTeRcGRv3RZtTe8QE2jo2DBAQDdPG1G+7CZRMajkMub0vCos2wLQEnS3fYQoFH614c53wIWnmt5quGBjdxVbAEd7f82AP6sREkTiK+AwBecPqmUxkLA5OZ0EOBnNerGNipV+p1UT1BMGI+xX4/n3hDmE869vol/mix2EWkCQTUMu66GIY0svMRwoWteroj4Po0UFVb0lnOxIHPwXTshPn5nbUfj67a1myZnB1yAgqPjpGdumzzFewiFNZPqIMqfiD8ki4OpDRvL5IfTR2/uUIueuyxXXTZVqf6amyhdtZ6MRRXvG2ZBCvaNkJpAlxVPjH0v/cNaw9YNoWegGVgr2ubBuPPCkQH
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 09:41:20.8962
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9a3e712a-e59a-45f2-d4da-08df4a0f18da
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	SG2PEPF000B66C9.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY2PPFB9F781CB5
 
-drm_bridge_connector_init() creates the connector with
-drmm_connector_init(), which does not allow a ->destroy hook and registers
-its own cleanup action instead. Calling drm_mode_config_cleanup()
-explicitly drops the connector's last reference, so drm_connector_free()
-ends up calling a NULL ->destroy pointer. That happens on the
-komeda_kms_attach() error paths, and on unbind as soon as no other
-component holds a connector reference.
+From: Yang Yingliang <yangyingliang@huawei.com>
 
-Let DRM release the mode configuration: switch to drmm_mode_config_init()
-and drop the explicit drm_mode_config_cleanup() calls. The managed cleanup
-is registered before the connectors are created, so it runs after the
-connector cleanup actions and finds an empty connector list.
+commit 0c87db77423a282b3b38b8a6daf057b822680516 upstream.
 
-The mode configuration teardown now happens after komeda_kms_detach() has
-returned, so komeda can no longer rely on drm_mode_config_cleanup()
-detaching the encoders' bridges before komeda_kms_cleanup_private_objs()
-walks mode_config.privobj_list - the bridges are private objects there as
-well, and finalizing them a second time when the encoders are cleaned up
-would corrupt the list and free their state twice. Since the komeda
-private objects belong to the pipeline components, finalize them by
-walking the pipelines instead of the shared list.
+mmc_add_host() may return error, if we ignore its return value, the memory
+that allocated in mmc_alloc_host() will be leaked and it will lead a kernel
+crash because of deleting not added device in the remove path.
 
-Signed-off-by: Luo Liu <Luo.Liu@cixtech.com>
+So fix this by checking the return value and calling mmc_free_host() in the
+error path, beside, runtime PM also needs be disabled.
+
+Fixes: ff984e57d36e ("mmc: Add realtek pcie sdmmc host driver")
+Signed-off-by: Yang Yingliang <yangyingliang@huawei.com>
+Link: https://lore.kernel.org/r/20221101063023.1664968-6-yangyingliang@huawei.com
+Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+[Denis Arefev: adapted for 5.10: the pm_runtime_dont_use_autosuspend() and
+pm_runtime_disable() calls present in the upstream commit are not
+included, since runtime PM support was never added to the rtsx_pci_sdmmc
+driver in this tree (the probe/remove path has no pm_runtime calls).]
+Signed-off-by: Denis Arefev <arefev@swemel.ru>
 ---
- .../gpu/drm/arm/display/komeda/komeda_kms.c   | 36 +++++++++++--------
- .../gpu/drm/arm/display/komeda/komeda_kms.h   |  2 +-
- .../arm/display/komeda/komeda_private_obj.c   | 23 +++++++++---
- 3 files changed, 40 insertions(+), 21 deletions(-)
+ drivers/mmc/host/rtsx_pci_sdmmc.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/arm/display/komeda/komeda_kms.c b/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
-index faa8b041373a..37388d45b31f 100644
---- a/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
-+++ b/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
-@@ -253,12 +253,15 @@ static const struct drm_mode_config_funcs komeda_mode_config_funcs = {
- 	.atomic_commit		= drm_atomic_helper_commit,
- };
+diff --git a/drivers/mmc/host/rtsx_pci_sdmmc.c b/drivers/mmc/host/rtsx_pci_sdmmc.c
+index f0e9a7667994..161bc5b98ed6 100644
+--- a/drivers/mmc/host/rtsx_pci_sdmmc.c
++++ b/drivers/mmc/host/rtsx_pci_sdmmc.c
+@@ -1439,6 +1439,7 @@ static int rtsx_pci_sdmmc_drv_probe(struct platform_device *pdev)
+ 	struct realtek_pci_sdmmc *host;
+ 	struct rtsx_pcr *pcr;
+ 	struct pcr_handle *handle = pdev->dev.platform_data;
++	int ret;
  
--static void komeda_kms_mode_config_init(struct komeda_kms_dev *kms,
--					struct komeda_dev *mdev)
-+static int komeda_kms_mode_config_init(struct komeda_kms_dev *kms,
-+				       struct komeda_dev *mdev)
- {
- 	struct drm_mode_config *config = &kms->base.mode_config;
-+	int err;
+ 	if (!handle)
+ 		return -ENXIO;
+@@ -1469,7 +1470,11 @@ static int rtsx_pci_sdmmc_drv_probe(struct platform_device *pdev)
  
--	drm_mode_config_init(&kms->base);
-+	err = drmm_mode_config_init(&kms->base);
-+	if (err)
-+		return err;
+ 	realtek_init_host(host);
  
- 	komeda_kms_setup_crtcs(kms, mdev);
+-	mmc_add_host(mmc);
++	ret = mmc_add_host(mmc);
++	if (ret) {
++		mmc_free_host(mmc);
++		return ret;
++	}
  
-@@ -270,6 +273,8 @@ static void komeda_kms_mode_config_init(struct komeda_kms_dev *kms,
- 
- 	config->funcs = &komeda_mode_config_funcs;
- 	config->helper_private = &komeda_mode_config_helpers;
-+
-+	return 0;
- }
- 
- struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
-@@ -287,27 +292,29 @@ struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
- 
- 	drm->dev_private = mdev;
- 
--	komeda_kms_mode_config_init(kms, mdev);
-+	err = komeda_kms_mode_config_init(kms, mdev);
-+	if (err)
-+		return ERR_PTR(err);
- 
- 	err = komeda_kms_add_private_objs(kms, mdev);
- 	if (err)
--		goto cleanup_mode_config;
-+		goto cleanup_private_objs;
- 
- 	err = komeda_kms_add_planes(kms, mdev);
- 	if (err)
--		goto cleanup_mode_config;
-+		goto cleanup_private_objs;
- 
- 	err = drm_vblank_init(drm, kms->n_crtcs);
- 	if (err)
--		goto cleanup_mode_config;
-+		goto cleanup_private_objs;
- 
- 	err = komeda_kms_add_crtcs(kms, mdev);
- 	if (err)
--		goto cleanup_mode_config;
-+		goto cleanup_private_objs;
- 
- 	err = komeda_kms_add_wb_connectors(kms, mdev);
- 	if (err)
--		goto cleanup_mode_config;
-+		goto cleanup_private_objs;
- 
- 	drm_mode_config_reset(drm);
- 
-@@ -315,7 +322,7 @@ struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
- 			       komeda_kms_irq_handler, IRQF_SHARED,
- 			       drm->driver->name, drm);
- 	if (err)
--		goto cleanup_mode_config;
-+		goto cleanup_private_objs;
- 
- 	drm_kms_helper_poll_init(drm);
- 
-@@ -327,9 +334,8 @@ struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
- 
- free_interrupts:
- 	drm_kms_helper_poll_fini(drm);
--cleanup_mode_config:
--	drm_mode_config_cleanup(drm);
--	komeda_kms_cleanup_private_objs(kms);
-+cleanup_private_objs:
-+	komeda_kms_cleanup_private_objs(mdev);
- 	drm->dev_private = NULL;
- 	return ERR_PTR(err);
- }
-@@ -337,12 +343,12 @@ struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
- void komeda_kms_detach(struct komeda_kms_dev *kms)
- {
- 	struct drm_device *drm = &kms->base;
-+	struct komeda_dev *mdev = drm->dev_private;
- 
- 	drm_dev_unregister(drm);
- 	drm_kms_helper_poll_fini(drm);
- 	drm_atomic_helper_shutdown(drm);
--	drm_mode_config_cleanup(drm);
--	komeda_kms_cleanup_private_objs(kms);
-+	komeda_kms_cleanup_private_objs(mdev);
- 	drm->dev_private = NULL;
- }
- 
-diff --git a/drivers/gpu/drm/arm/display/komeda/komeda_kms.h b/drivers/gpu/drm/arm/display/komeda/komeda_kms.h
-index 83e61c4080c2..6f1e6c1773f0 100644
---- a/drivers/gpu/drm/arm/display/komeda/komeda_kms.h
-+++ b/drivers/gpu/drm/arm/display/komeda/komeda_kms.h
-@@ -181,7 +181,7 @@ int komeda_kms_add_private_objs(struct komeda_kms_dev *kms,
- 				struct komeda_dev *mdev);
- int komeda_kms_add_wb_connectors(struct komeda_kms_dev *kms,
- 				 struct komeda_dev *mdev);
--void komeda_kms_cleanup_private_objs(struct komeda_kms_dev *kms);
-+void komeda_kms_cleanup_private_objs(struct komeda_dev *mdev);
- 
- void komeda_crtc_handle_event(struct komeda_crtc   *kcrtc,
- 			      struct komeda_events *evts);
-diff --git a/drivers/gpu/drm/arm/display/komeda/komeda_private_obj.c b/drivers/gpu/drm/arm/display/komeda/komeda_private_obj.c
-index 77b3f361091f..51be98ab570e 100644
---- a/drivers/gpu/drm/arm/display/komeda/komeda_private_obj.c
-+++ b/drivers/gpu/drm/arm/display/komeda/komeda_private_obj.c
-@@ -502,11 +502,24 @@ int komeda_kms_add_private_objs(struct komeda_kms_dev *kms,
  	return 0;
  }
- 
--void komeda_kms_cleanup_private_objs(struct komeda_kms_dev *kms)
-+void komeda_kms_cleanup_private_objs(struct komeda_dev *mdev)
- {
--	struct drm_mode_config *config = &kms->base.mode_config;
--	struct drm_private_obj *obj, *next;
-+	struct komeda_component *c;
-+	struct komeda_pipeline *pipe;
-+	unsigned long avail_comps;
-+	int i, id;
-+
-+	for (i = 0; i < mdev->n_pipelines; i++) {
-+		pipe = mdev->pipelines[i];
- 
--	list_for_each_entry_safe(obj, next, &config->privobj_list, head)
--		drm_atomic_private_obj_fini(obj);
-+		if (pipe->obj.funcs)
-+			drm_atomic_private_obj_fini(&pipe->obj);
-+
-+		avail_comps = pipe->avail_comps;
-+		for_each_set_bit(id, &avail_comps, 32) {
-+			c = komeda_pipeline_get_component(pipe, id);
-+			if (c && c->obj.funcs)
-+				drm_atomic_private_obj_fini(&c->obj);
-+		}
-+	}
- }
 -- 
-2.25.1
+2.43.0
 
