@@ -1,94 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.170
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514235;
-	b=GavlEJB9zhTtufhcb/rjhcTIg+0c7XVh8nZ4yujrdKWQskyYuXFoGwdGbrJMH0nI9sP/
-	 fS2CqYlSztlEQ3jQq+IMLy/RXLaA/X4umo1bEg4eT6PXn4xDwezn+n81kdxIbDpXKrcQ2
-	 yMYAb3Jy2Etm6Z3kglftPzQ8Hvh3cTAwz3quaMP+t3xQjp0jT2DA4PIrC76qyA9iltLcM
-	 jusD7uXtygfPtvi8iAJFQn+6YoqiKCmXVUbBrSWvmc+WHvP8sWm6NgjIv5/iytIAiBI2M
-	 rsmksQJREzlefZYBK+F8bZpaq5Gz39njn1JpkxQY0y32eQZJw8v7XXd87ePg5Cb9z4A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514235;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=ZjDaNSB2HLIfLWzDN7uiWUYczNlAzXlQFpNtIilTK4g=;
-	b=rvnYqv4IpJZzA/OvBK/s/bcFPmBFtc77RVuNSy9EzDmVo0cT+hJvRt7XbTqYQzMu/Eos
-	 DnmzC2o9jWDdQxCQULPpIkTG3rsBkTVwCb1ISIFkd76adJCaWjx9grSqo6hH5WyIaOVbH
-	 d9l2SPpfKXU4Iv4R7tKTVwPad1fehyx9k3vayPuSFXBSFjasAm0/V/1L1ErhlTETZXuMc
-	 o9/A+tGd3Izt9r4kc63zc3biLxCJDcRmlPwdAT3t+iH9GRWLWZzqHEcS6qWr0VGldwHsQ
-	 dVjr4009wM9gc6nnpuR64VYMmnJ8iD6RE7QTSQRmcpowL72bTNrcEPn9QLtrbzvpYLA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=v7w6IN9a;
-	arc=none smtp.remote-ip=209.85.214.170
-Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com [209.85.214.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795514265;
+	b=ZtWmFtsd963hWU/zYDPS498E2ct9ztLi816uOuNnDBSGXVB2zD9lwMX8q9v2fp+TZWdk
+	 E9EsIKKK1SWt3mYVeTCRnG3wM86UoyM6GD/uboVcuZpzY3OeGryl10Xg8CpD0M7i38QMW
+	 AmAJ9Boz9Nnn9DNWFYVgZ8JKxZcQaQy29PMHtuG2cGEvGPChIgZGHeb+GzpX5lzrr3GHG
+	 vdgrL3gY1c8eLu7EMnmjpz+PQzO4HpEgGJPGoiDZ3AHM+g9ed6B0r0RA/r4k2KcJn+SI0
+	 Kf86YsaMc6wkOJ73QvI2CkGdL2z8pyOpx5ZXIpbsF1NhZ5xYqJpMVGgYBwTWVT0ut9w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514265;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=2yaoy14/Vvt6FTb4EA6lxT957AxrMasB8RChP9otngI=;
+	b=04HfPCgdPjPCzNMBq1LH8Nzr88bHmzx0nwC4q4n4VLntX87g/+y+lnA1n3Wxy0dsYkOh
+	 3XO8jRjaihf8wge3tcUsixGo19v0zserQlHL9O+InQAB4mkY67zdu38axXmzaOKy3iMUD
+	 374Mw2/JUIxkJBsPXVnpvsqSD/HtM0ZNMZtx2Xw3IQKssQwqaLo8rHJEAmiEDqJUOWeiN
+	 OsNZh/imtwBjFBx3Da/Pf+sWQEPQqgU0zdRx7K/fScTxSJp5nPpfxRx4U1OsxAvAM0WV2
+	 DdevtGI5PZGQlaBIu6roO9jT06jg7kP1OaDW33eKrp9DmfLzmGU+mxsitI99hWKmOMQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CuxgHJnw;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCBD2606A321;
+	Tue, 24 Nov 2026 09:57:45 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CuxgHJnw
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795514265;
+	b=VK13NTVx6kXXcM5DW+xCdZpRNwE3449tDCqeYyGC4CiuilO/nDj1L/JWkvkas5DqAyKC
+	 xRsidGAGZT31G5e5XdlWfyl1MRGHlm3WrgwHdho28CBNSaNfggfWZ5RbjmjuUiXZbQg6k
+	 bP5PuyQixGTWjQzE32ejTFTIdgXOoCUfB/1qhhli3QoeNxwq85ypDtNSS4GEE4P3Zrbgg
+	 TUrPBYhIdAv67yvjTv/5hKdX7zEkc36ANx87BAqSDS2b4tR5aXyljFE8sbm/opsIWMSFf
+	 xGV829m8/8pfNGyfKYB569mz/WamYbSzeIO5ZtA/yNMj4+wuuVj+AzcAx9SrebaUSPQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795514265;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=2yaoy14/Vvt6FTb4EA6lxT957AxrMasB8RChP9otngI=;
+	b=gxps7Vu0NSUItf/cOrsO/xwo2/tIIEVtaXv1KPJlVJcNqJ9cQE8t2rfmgoaX2k2lh2yD
+	 t1JSGq9+sbcrsZnWVrdvmXCVfedoIBUlbvL2rKruw91YrgWjpT7KeZrzr6YODH7QUwNmy
+	 8pMvGQLhByvY0jaNyQSb1GtTTN6qyjUoR7+48Rim1dZvec0xO7yCw2cKPs09V2I7+fM6N
+	 q/2kl9YJ7CYeWw1AOkFjUz8QOZMqAY8ZH8H+W4+iWwxyk/5qC4Al3Q3zfyEFuiYR/A7MW
+	 By+aKjSj65hZGRKNpNN1lWsit85pbQ3TRF8et0L//tzXPXz1ecIs1JicDo9+kvbqwMA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF897606A336
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:57:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF897606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=v7w6IN9a
-Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2f02f04a426so34794365ad.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:57:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795514234; x=1796119034; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZjDaNSB2HLIfLWzDN7uiWUYczNlAzXlQFpNtIilTK4g=;
-        b=v7w6IN9an0o4PTO4bxm+siSV210HGcPWmamp1rYVn/Nat5ZwOGdOtQL6REmEGb3B9n
-         0L+RNL8BiSXnZ+5yoFWze/geC+uqNrYDIb6rEJt2DAdy/Yk5irwqB0pQ9VmkWk+rgFGy
-         DJIhdBBGyPlfJ7dE4abOgpOU+6AFIRo1f8tYXkyp6D3LZ0b6fPGxKFP2hJv6Zs7xWCzA
-         j3LORax0XQ8p4742A4aV6HL2FGfO8KtMcnXZsjUHQaAangAj3qHM/trbpEqaP+4AafFu
-         SNMeC+22K0p2/xoXQGNb8Cl4A8G2PWPvWuQSMSyTYtT+Wms2A+gfMPK3dNY/qnL3AYka
-         STHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795514234; x=1796119034;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ZjDaNSB2HLIfLWzDN7uiWUYczNlAzXlQFpNtIilTK4g=;
-        b=2g+UKG6rOmvF/C/1Ix0WkXdYGRYKIqMy8NpILxvuZt9iaYk+hj6shDYdE1txtKffhh
-         mU1jzh5xohRLjQgskjDKC/5Mydzcv5zhT8XGsdU3dj4PZNl+R2Vb+GW02jC5w5zJ2IYa
-         XxCbHLr2phwavcaPlNDkRWMbEbv5+PPOlKnaUbjkEU+p4syvu7GXXZFKONd76Zb+dLp3
-         vv5nS7etr7WOli0zfXjshXTJrtmMjT9HuYpPg+BWtMLAzXUCqJg3Z4zDKzj+d2tBJk64
-         ePNCpi7e5WZu2L+vwAg5zhm/hGOt2nHnv1szRlgsOl4lRFas0y+BYtTLgYIZ6Co/JbTL
-         njKw==
-X-Forwarded-Encrypted: i=1; AL+hErEN26dHPJLm3jAfYaaut2lk2xG7dqX7ENxBiyVgKatUOTR5i0a/UzXqMC6L5+kKpNxvvAJVmD3ovG4FGx0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/lwv3PsFlebkyVrGRFL0vmhDA7MyGbfF5zc3yzUlQTBcoruzyH
-	+o3NsvLa4EO15M3LyC/UnEFb3V4p53GxwrCxsiOnAE4Xa0RVWuCDmQW8
-X-Gm-Gg: AZFdTZd8qvDXuntmxBTTm2+oBGLyvqd+XqSEGxDZOuJBeJNDBXn3tw4OzfrkuXdj1LM
-	wm3VOhsfHVnKaoUibNbR5pJPcOpMYRh/bCrtwdsuHroFUnWK4lvNqQvHMxXoK5VyVmXo4G43keC
-	NDMJSLsJplG2UrRhn/VpoRsluEyHvzcHVfMERncZaC069EovHpL01autnl6mgZYnB22UjkVtIY8
-	xVdDMCmg19zrTZ4dq1WlM3AHGS7KtO+EAunRT+h+2VZl43hddinAjkz1SiXE0Shy6/9TlRjjh/R
-	SuykZfaOi3/ZEWo4wFhBS/dQrcbEu+GqkmqSU8g+ZAKUP39EljYAIwX55DWvsC3RduWSWGmdvHY
-	L9eh/hnU5ZZ+sALjAQ1L9G9Kw+GkFyVdWXpvwBg4ycXsNBQ67IN0yimR9tjF2hx5tW0+HOUB80w
-	KkS9YlkBYB8f3vsCRyzPARSVxIkpuwBdIv1jvOOP9kJ3+QsAl9q9kqYcgkTLNqtjO7wNtWKzacD
-	oJUlIOK3O77VrCXXa/Z1jrvhCn5cHEfxkuQWQky0KZg7dAmgkwQ3XHvo7XyEExi6Xws78r1XUpq
-	2Vc6fTnQul8EgWGmHpcZUjnEykoUXjA85fnuI9r10KwigMg=
-X-Received: by 2002:a17:90b:3891:b0:3b4:127a:2bc2 with SMTP id 98e67ed59e1d1-3b41c8d9bfamr12544097a91.14.1795514234177;
-        Tue, 24 Nov 2026 01:57:14 -0800 (PST)
-Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0b52dsm24186851a91.5.2026.11.24.01.57.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 01:57:13 -0800 (PST)
-From: Cong Nguyen <congnt264@gmail.com>
-To: Lee Jones <lee@kernel.org>,
-	Pavel Machek <pavel@kernel.org>
-Cc: Alexander Sverdlin <alex@sverdlin.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	=?UTF-8?q?Andr=C3=A9=20Apitzsch?= <git@apitzsch.eu>,
-	linux-leds@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] leds: rgb: ktd202x: allocate the LED array for the chip's LED count
-Date: Tue, 24 Nov 2026 16:57:07 +0700
-Message-Id: <20261124095707.3852724-1-congnt264@gmail.com>
-X-Mailer: git-send-email 2.25.1
+	by smtp.kernel.org (Postfix) with ESMTPS id 671E41F000D4;
+	Tue, 24 Nov 2026 09:57:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795514265;
+	bh=2yaoy14/Vvt6FTb4EA6lxT957AxrMasB8RChP9otngI=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=CuxgHJnwTK07smQPlJSX8Gyxjvo13kuxymzsapvcLeVecC8GAM//IAOb6zq1HnVEy
+	 RDbH18N8s/powdZmLGODQT0QS1WdAMnR+zHt3OUfmWCiCqzfqcfXKJ1YSQ8dRXjyxZ
+	 gkXLJTez13rATWzdlLDoBPprcBYoRO8OFXkVEjftnmtnAiB0fG8C6bwsX5hPe1XZFz
+	 07RpHdSR/g9AhFsaO8PIv0r+VcIUKbl+qcAsQ/xZuSlf6oCKw5yILFEoHnpNrmrqXz
+	 A/YKcb9olr8HdZdY/RCqqHWoGHWZkS4S0dMGIErdPb14doeZDpmwPpOm6CNcqs8QyP
+	 /U3nBupXm6ZOQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id BC3F54C99A;
+	Tue, 24 Nov 2026 09:57:36 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Tue, 24 Nov 2026 09:57:36 +0000
+Subject: [PATCH net v2] l2tp: require CAP_NET_ADMIN to join the l2tp
+ multicast group
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,61 +83,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-l2tp-mcast-perm-v2-1-416741ccb334@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAI9fBWsC/yWMwQrCMBAFf6W8swtmrbX6K+IhxlVXbAzZWAql/
+ 27U4wzMzDDJKoZDMyPLqKavWIFXDcLdx5uQXiqD19w5xy09uSQagrdCSfJAftP3vOu2+5YdapW
+ yXHX6HY+IUnD6S3ufHxLK94Vl+QAGclJueAAAAA==
+X-Change-ID: 20261124-l2tp-mcast-perm-a38827659421
+To: pabeni@redhat.com, kuba@kernel.org, davem@davemloft.net, 
+ edumazet@kernel.org
+Cc: netdev@vger.kernel.org, maoyixie.tju@gmail.com, 
+ anilkaushikwireless@gmail.com, stephen@networkplumber.org, 
+ linux-kernel@vger.kernel.org, horms@kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795514255; l=3479;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=b8Zf/qow/0DrC6IfxZ7GE0dxZpPJKUEKTCMj81fhw0k=;
+ b=tdQFEPeV4B/PyXWBJ+HPGKmRisjKqFCKlazcLG93B0jtoHXtzuOGVGHO1yywQbySbWxKnMTdP
+ /QB3UIF+ZCFCPOg5cQwhHo4b6fGLQdgCe2M09h6fuGE7rYdKNpMiMG4
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
 
-ktd202x_probe() allocates chip->leds[] with one entry per LED child node.
-The allocation helper sets chip->num_leds to that count, but probe then
-overwrites it with the number of LEDs the chip supports (3 for KTD2026,
-4 for KTD2027).
+From: Suyuan Wang <stevewong@hust.edu.cn>
 
-If the firmware describes fewer LEDs than the chip supports,
-ktd202x_chip_in_use() reads entries past the end of the allocation each
-time a brightness is set.
+The l2tp generic netlink family sends a notification on its "l2tp"
+multicast group whenever a tunnel or session is created, modified or
+deleted. The message is built by the same l2tp_nl_tunnel_send() and
+l2tp_nl_session_send() helpers as the replies to TUNNEL_GET and
+SESSION_GET, so it carries the tunnel and session IDs, the addresses
+and ports, the statistics and, for L2TPv3 sessions with cookies
+configured, the local and peer cookies.
 
-Allocate the array with the number of LEDs the chip supports, so that
-num_leds matches the allocation. Entries without a firmware node stay
-zeroed.
+The tunnel and session commands, including the GET commands, need
+CAP_NET_ADMIN in the user namespace owning the network namespace
+(GENL_UNS_ADMIN_PERM), but generic netlink lets any user join a
+multicast group by default. So an unprivileged user in the same network
+namespace can read all of this by joining the group. Configured cookies
+help an L2TPv3 endpoint reject blindly injected packets, and leaking
+them weakens that.
 
-This issue was found by auditing the driver with an LLM coding assistant.
+Commit ed267f783c0c ("l2tp: send netlink notifications in the tunnel's
+net namespace") already noted that a listener needs no privilege, but
+only stopped the notifications from reaching other network namespaces.
+This patch handles listeners in the tunnel's own namespace that join
+the group after the l2tp family is registered.
 
-Fixes: 0ebdb7210943 ("leds: Add ktd202x driver")
-Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+Mark the group with GENL_MCAST_CAP_NET_ADMIN, as was done for gtp in
+commit db627e71b6da ("gtp: Require 'CAP_NET_ADMIN' when joining the gtp
+multicast group"). genl_bind() then requires CAP_NET_ADMIN in the user
+namespace owning the network namespace, the same capability and
+namespace as the tunnel and session commands.
+
+genl_bind() only checks the flag for a group ID that a registered
+family owns. A socket that joins the ID before the l2tp family is
+registered, for example before l2tp_netlink is loaded, keeps getting
+the notifications. This affects every family that uses
+GENL_MCAST_CAP_*, including gtp, and is fixed separately in genetlink
+[1]. Backports need that fix too to cover this case.
+
+Found with a static analysis tool and checked by hand.
+
+Link: https://lore.kernel.org/all/20261123155503.2497063-1-anilkaushikwireless@gmail.com/ [1]
+Fixes: 33f72e6f0c67 ("l2tp : multicast notification to the registered listeners")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
 ---
- drivers/leds/rgb/leds-ktd202x.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+Tested in QEMU (x86_64): three listeners join the "l2tp" group, then
+root creates an L2TPv3 tunnel and a session with a cookie.
 
-diff --git a/drivers/leds/rgb/leds-ktd202x.c b/drivers/leds/rgb/leds-ktd202x.c
-index f1822281c3e6..56f6fa906b70 100644
---- a/drivers/leds/rgb/leds-ktd202x.c
-+++ b/drivers/leds/rgb/leds-ktd202x.c
-@@ -533,6 +533,7 @@ static int ktd202x_probe(struct i2c_client *client)
- {
- 	struct device *dev = &client->dev;
- 	struct ktd202x *chip;
-+	unsigned long num_leds;
- 	int count;
- 	int ret;
+Before:
+  root: joined, gets TUNNEL_CREATE and SESSION_CREATE (with the cookie)
+  root without CAP_NET_ADMIN: same
+  nobody: same
+
+After:
+  root: joined, gets both notifications
+  root without CAP_NET_ADMIN: EPERM
+  nobody: EPERM
+
+Changes in v2:
+- Say in the commit message that joining the group ID before the family
+  is registered is not covered here, and that backports also need the
+  pending genetlink fix (Sashiko).
+
+v1: https://lore.kernel.org/all/20261120-l2tp-mcast-perm-v1-1-22dbffa88655@gmail.com/
+---
+ net/l2tp/l2tp_netlink.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/net/l2tp/l2tp_netlink.c b/net/l2tp/l2tp_netlink.c
+index a07009d4cb00..c442e953df66 100644
+--- a/net/l2tp/l2tp_netlink.c
++++ b/net/l2tp/l2tp_netlink.c
+@@ -31,6 +31,7 @@ static struct genl_family l2tp_nl_family;
+ static const struct genl_multicast_group l2tp_multicast_group[] = {
+ 	{
+ 		.name = L2TP_GENL_MCGROUP,
++		.flags = GENL_MCAST_CAP_NET_ADMIN,
+ 	},
+ };
  
-@@ -540,7 +541,9 @@ static int ktd202x_probe(struct i2c_client *client)
- 	if (!count || count > KTD202X_MAX_LEDS)
- 		return dev_err_probe(dev, -EINVAL, "Incorrect number of leds (%d)", count);
- 
--	chip = devm_kzalloc_flex(dev, *chip, leds, count);
-+	num_leds = (unsigned long)i2c_get_match_data(client);
-+
-+	chip = devm_kzalloc_flex(dev, *chip, leds, num_leds);
- 	if (!chip)
- 		return -ENOMEM;
- 
-@@ -558,8 +561,6 @@ static int ktd202x_probe(struct i2c_client *client)
- 	if (ret)
- 		return ret;
- 
--	chip->num_leds = (unsigned long)i2c_get_match_data(client);
--
- 	chip->regulators[0].supply = "vin";
- 	chip->regulators[1].supply = "vio";
- 	ret = devm_regulator_bulk_get(dev, ARRAY_SIZE(chip->regulators), chip->regulators);
--- 
-2.25.1
+
+
+
 
