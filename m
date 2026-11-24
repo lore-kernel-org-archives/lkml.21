@@ -1,72 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.33
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795494142;
-	b=2qzfaql0rBin5VawmReQBX6XF4ZFuop4Z1LYxstHieHC6z4JEyuPK+cDJTzBfeQq9r9c
-	 LdeV+yPH50uoZjTy9SidPdN3AV6ROMmN5rrOyBrB4vfOCZRCBdwXXZ+X9FuxFSIiCgRSU
-	 h1IDPGtc96LS2Z5rp/VgFKcfEBPLFRFpFQA536o8uqNgyNo/YhG0xZsJ3EMexuXs/2ZNE
-	 QysCelNFw+cbKoLU/L3DJPrVQ0hRemtbWDqibl6CP2PVOBV3pw+b7TFR2gV3zUlBPqKtt
-	 jIHAvHVUur8mowFYdFpewaquRrWCveRw97IK+e/pfm9W/g1a0wZuQ2lDSml9U6CdhfQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795494142;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
-	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
-	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
-	bh=2hYgJTGOVG3PmfpKBaoS4qDAQowoVvAH2GzSLtrNeFo=;
-	b=gGAESrsUEHvnizn7MZJpYaFxucxeCjW/mzUxsYWJn3WvfjoIHky3cgZQraHuzko1HIVR
-	 5qVWwvZQ33UvZZ5bmU3o/SGxDtGuApQUmMy+wfxfSwk0g3KZcwE6Y7Yj5L5wSNgDIMs6a
-	 25YHwgudJvE7FTRWHoR4qz20RAk9ZJezCRkoeb676JRlZ2tD9H1el46N8FzwcIBfBicJ3
-	 sbsjoF3MLi4zFb4kBwOv/kGqzLF0KFSQFLgZQrUU9B0vShiIiZknObbJz74aNzzvdk+5p
-	 Vo82HhAlJ42XXjvevw0HM9QFycjbUSLkwjmGs3bvvTiBgmT81AMooZHK5TtHWAQMGkw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=UQbkwpeb;
-	arc=none smtp.remote-ip=35.89.44.33
-Received: from omta34.uswest2.a.cloudfilter.net (omta34.uswest2.a.cloudfilter.net [35.89.44.33])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.175
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795494230;
+	b=CYsLiKtk0wBwaN9M84xac50CCog9/KulJpjI51kTYg+Rbz2L4ZYfS+OE74/voCXz8p7E
+	 vQW24Zs0tG9U//RK5L6Y9ydQORocC5A2fqjKc+mtycVhDYNGgkKb4hSUNl0OBQHVTLi1K
+	 anOjfCNsIpr/NJlFf7M6Td8VUNgW0SVliqaL4zT9TdDZ9K1+7X//TL7yQMI3ONbQGiF8z
+	 GuP0NE45fxXQgaFt/MhQHj6WlFmGLiRPulK87I8u0aCjBrBnCHAfvneolYqcUw+m8dGP7
+	 c9XGWzvQQZKhkWyCXzl2XpZRH0wpUj1RM7vFTN8ee16VKLhEqLqLgZwv9WUMDyi+wpA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795494230;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=ysvMymq5KIU6XrltkLSVyOSXaHAIgzr2IUM1B91c+/M=;
+	b=nITGWExYV/efO5AyrkWa0n4IOWqlOhJTTVZ5vFzWthmWM486o/mKzRbMjuk6HSnfD2kQ
+	 uTunEc434NfHf5tuX8MmwjLVe6tYTA8VFVZuwu+mUOkBVq6w35GGFzgJYraFkTgCzo8fP
+	 LyPpk6Z2xAmslBrLvzBjyTbmJmQG6+7PMVIIODUnzsmvV8DRNGXX01+2EJd5TTXgmT3AS
+	 49Sh/ZHgESquCHghTrISC+eB8JAIoBHng3oWfBzixH0NLzJ2G7AVlGvpUUjRdGP+1jRNT
+	 XHi3QHhRBOolS89+Owuf3ummWLIVlhL5trYuZztmVz2eVnemrH/DolqZgNSR2GucnyQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Qr990un9;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.175
+Received: from mail-qt1-f175.google.com (mail-qt1-f175.google.com [209.85.160.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4981606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:22:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4981606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F335E606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:23:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F335E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=UQbkwpeb
-Received: from eig-obgw-6007b.ext.cloudfilter.net ([10.0.30.166])
-	by cmsmtp with ESMTPS
-	id Vc45xVl6KAR1iVi2vxeTUX; Tue, 24 Nov 2026 04:22:21 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id Vi2uximxW3nNNVi2uxcep1; Tue, 24 Nov 2026 04:22:21 +0000
-X-Authority-Analysis: v=2.4 cv=TuLmhCXh c=1 sm=1 tr=0 ts=6b0510fd
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=VwQbUJbxAAAA:8
- a=pGLkceISAAAA:8 a=AbtGE6NwjiPdwgDzpaUA:9 a=QEXdDO2ut3YA:10
- a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
-	List-Archive; bh=2hYgJTGOVG3PmfpKBaoS4qDAQowoVvAH2GzSLtrNeFo=; b=UQbkwpebRpfS
-	Cr9b0kn5ydmVBmPyDTOfkX/qVTUwlgi4KeeFpytXRw5D51YTduzNuJIFjVkcK00jrcfmK5z0xA49d
-	uK0mO6trUmCGNL73SZgU57j4BBZHVST4vmhZDbHPUuLMTXsiiquXO2kRXF162qXB3dzpQ+ajErjUe
-	LWoR29tGYZ65OATHiYJ63x9h6w3zdyJ2pPSEDv4Cd1mVtfh4QIb0LgZnwC9DRJtWMAfxy1ry7kzJ1
-	+LkDZYhQRfEGQGo87wClVhmNekB7IUWd6rbfhd5+OtNRfpSYC8uT1Xd/cSgWnc6wJQjKRyJwXmmWa
-	JzRpZlOzZqCEa2NpGkYhPw==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:44576)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xVi2u-00000000cfP-0pyg;
-	Tue, 24 Nov 2026 09:52:20 +0530
-Message-ID: <f1e825ef-f81d-4ed5-bd18-a04ad210f112@roeck-us.net>
-Date: Mon, 23 Nov 2026 20:22:18 -0800
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Qr990un9
+Received: by mail-qt1-f175.google.com with SMTP id d75a77b69052e-54492d8a988so722151cf.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:23:49 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795494229; cv=none;
+        d=google.com; s=arc-20260327;
+        b=om3FHPg+oYtO3ujGjGp+biHQS8xegN/F7EtTSwHl3KpsJmh57jOFwZwKlXG2ijS8ng
+         egue8bVyyGw7htfT8N9CeGw4w9J7y1VEWBzO4A5R0S7X1AUT3Q6D4nIQ/MDeeBX3wRHR
+         TQfROO+anAWRJ8MP8rdH9EfI/pT1o0elDdfPYnoPOw3RIbH83/wutBt3423drl3d4PXq
+         LZhL7GEg02VdyGDMgl/AGV/j1jDO2UxINP/sFqlVYtCCjq/aBui6GGdq81R3dtj/Qwnx
+         FgGeCWtJK0LbiNjm/FZemqqHrKOYqj6os+2TO19phHmvhY2ZuOfUvvMpgocvAPAH59Wt
+         euOQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ysvMymq5KIU6XrltkLSVyOSXaHAIgzr2IUM1B91c+/M=;
+        fh=pbC+tjl6TBfnwD/rLZtGcN2/lhfePBiHd6TAalyclBM=;
+        b=JVIOP35rVBk+q3KC49PDiR4KCRK0IFe8z0WjQZZbHWzq+rU+sTcyS0BhVK62myV89s
+         p54r3cgXoWnggKf97ovR3Mgd7pZMn0RSlzVY5jjQTt/mQLv0L05Cl2uNHYIGh+iekfWI
+         Gxo+HyYMtAauDNuBvTnfNldPAECkKcDuoQ4k7ghnAZ+ja8kVPWM2u+c5J00N4wz65ljF
+         QRTCnrZzYMRunQHtrA00tMTuIWfd7daP1TUx8f8ID/5+8HdEJKclTTiFa1+yOXukd+iU
+         fdpcWvJUlGmnEaYhMqmEmsEF5rzEyUYZAeBYg0ujHd9B/2AqywWkrOMTzKjkBPEiEKdA
+         8+rw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795494229; x=1796099029; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ysvMymq5KIU6XrltkLSVyOSXaHAIgzr2IUM1B91c+/M=;
+        b=Qr990un9wJ3zWkD3r5kHD06RHTsNsW2ZsxkAAm5+mh+EFBpCuUSTZOcgqEV19AzQCM
+         UcW0Bf8qVpnRghM+29rlIxl/71Jk5xKVQBDpVvGpufIimlhXVWR05RlW6PZLL1q6VJWj
+         xFBkGBQ7uDk5bX7ZzCcnSwwVfcehQJmhJrd2YmV/Nk/XezKgOTjnoHqV3LW8K3kWHGU5
+         X07FR4D1eI5qKVAO4OncPmt0wDJmz66SmafJdYHge24F+aXRRwRlS87RH2VS8CYWGksc
+         On2k4ojPhvvssUwZe7OBDNaeJI1m9rEPP2yOb2sjvdB6d8Pb+a3Wo8x5haR18kSp4/+u
+         ViWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795494229; x=1796099029;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ysvMymq5KIU6XrltkLSVyOSXaHAIgzr2IUM1B91c+/M=;
+        b=WsCSwUAVlzN8qGE4NWiX4qITl4UCnE0BrP6/o/rL0dcG4CclAv6gT6aHHFZdqTXpv5
+         TNkEMAyT7mxDfu7mxrYz37JWnfz1Js4Gfr8I4wT4SkDfO5qq7vgybx1QGLfCecBrk8qX
+         qD7OvLAuinefyPvfOO31/OJgyrO3amemHRiyqg27UiTsrTCE28vCSZ6z3m+upHUZRC3D
+         4oeCnK3nVD0e3+ZknwYA4m7gHUG1KoQX50WiwHF1mlqxj22iyH2fAucrYXahxmJebRuP
+         pgJKJY25UuX4lD+ZBM9zGB7uiw4WMaWosCdUaad5lpJefZuaanyL4rxPGQ1SgLq3f1wJ
+         ag5Q==
+X-Forwarded-Encrypted: i=1; AL+hErGvsH20l3GcFPzXEa1Iq9mOcOFR4O39F+p3v6cRpt7YNa576MiHa77wOmT9eNVAw83mIMZnemPGFr7aQok=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/M3c562FoGOTJhn2jRscaAUIWEd9Fqzo164AUcPENWfP7VWIOo
+	/jhClbveNk44gdPsSlxEhBFs/Gn3ZJvohHbwE4JXI/GlZsqmUpv/BB/mI8IATSEaCm4XHFsjI+8
+	X9mqpF2S/VqQpvC3MBFMb2VERQQo+FVLguTyf/ShV
+X-Gm-Gg: AZFdTZfhTP+HnjVem5+20nWv7JwveM4JsrtxhbnhQNiccAZ5Yoi0uZCBhf50mlVrlz5
+	y4wS+NCnsKkcpKwYzqrbrXiX+P+WloVhmLEDTD0jFLZeJlzjCpgLM8JtXz5Ej2LtSUcMhScGsr8
+	ODG6Wqleumzq2QdOAP1hlHm85dXeBCAc8ZZoAnZejsNNM3guF7J25ld3p9YQsRzeP+f2iuCZWwZ
+	4RxkkDP2UUWaUWvniQuZsGHUAcnJXzXfHRr3ulDke7TYTBxy+Ie4gpoYaM06XR5ZvhPu8FYV1kO
+	eu8MG6gURw7KJZ87+Xaw5NnDPGN+ADAbLG4DRAWtP454ZiTL4YE+S04Dlh2Tsh1mX6o4w1Aa9c7
+	dpfnzdObNCnTDUdVf5nV+1W+tUXbhizRRCL/2
+X-Received: by 2002:a05:622a:8c8:b0:55b:ce7e:e65 with SMTP id
+ d75a77b69052e-55d8903b91emr47619581cf.12.1795494228124; Mon, 23 Nov 2026
+ 20:23:48 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,115 +104,437 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] watchdog: histb: Add HiSilicon STB watchdog driver
-To: David Yang <mmyangfl@gmail.com>, linux-watchdog@vger.kernel.org
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Wei Xu <xuwei5@hisilicon.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20261124012755.328774-1-mmyangfl@gmail.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20261124012755.328774-1-mmyangfl@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xVi2u-00000000cfP-0pyg
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net [108.223.40.66]:44576
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 2
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfBCxoWJ77/weJeZ9ZdHwqDlyk7MctGZiF9h+poY1IU5K0F6gF6LGoimkNn4ANC4zkF60kS+sJOIe2Xej7JQVjLslhgYeZg0QZxhLi7LPWgGwM2+c7XEM
- P4L3JFwt1M8Hxt2Wt6IkAAdaJDOGk/EkWybD+AbZsy6z5wpqjMQyE2aFp4KqwH7JAtCeEJ4mLNIsSOokKMHDguyY1czdsmW9Mle8Es9FPxOulfJ3+5YulZCR
+References: <20261123071913.653315-1-irogers@google.com> <20261123071913.653315-6-irogers@google.com>
+ <3F569607-DA0C-47B3-823D-926D12D7FBC1@linux.ibm.com>
+In-Reply-To: <3F569607-DA0C-47B3-823D-926D12D7FBC1@linux.ibm.com>
+From: Ian Rogers <irogers@google.com>
+Date: Mon, 23 Nov 2026 20:23:36 -0800
+X-Gm-Features: Aa3M54qyOPA931bpT1wuJ3cgqsSQ6c4Hj8Jgh9I1Mf8vyoDtW6sgS_nBGZTcf9I
+Message-ID: <CAP-5=fXPCbPFhVeB6229hnHNpE4pFshQQQ7CfNyu-S9XUVi6Vg@mail.gmail.com>
+Subject: Re: [PATCH v1 05/13] perf stat: Preserve per-evsel CPU maps across
+ stat record and report
+To: Athira Rajeev <atrajeev@linux.ibm.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
+	Howard Chu <howardchu95@gmail.com>, Thomas Falcon <thomas.falcon@intel.com>, 
+	Song Liu <songliubraving@fb.com>, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/23/26 17:27, David Yang wrote:
-> The watchdog integrated on HiSilicon STB SoCs reuses the register layout
-> of sp805, but deviates from the standard sp805 in several ways that make
-> the existing sp805 driver unusable on these SoCs. Add a dedicated
-> platform driver to handle these SoC-specific semantics natively without
-> regressing generic SP805 users.
-> 
-> v2:
->   - fix issues reported by sashiko
+On Mon, Nov 23, 2026 at 9:13=E2=80=AFAM Athira Rajeev <atrajeev@linux.ibm.c=
+om> wrote:
+>
+>
+>
+> > On 23 Nov 2026, at 12:49=E2=80=AFPM, Ian Rogers <irogers@google.com> wr=
+ote:
+> >
+> > Commit 6d765f5f7ec6 ("libperf evsel: Rename own_cpus to pmu_cpus") and
+> > commit 811082e4b668 ("perf parse-events: Support user CPUs mixed with
+> > threads/processes") separated an evsel's PMU cpumask (pmu_cpus) from th=
+e
+> > actual CPUs on which the event is opened (cpus) and taught
+> > __perf_evlist__propagate_maps() to collapse evsel->cpus to the "any CPU=
+"
+> > (-1) map when user_requested_cpus is -1 and !evsel->requires_cpu.
+> >
+> > However, perf_event__synthesize_event_update_cpus() continued to
+> > serialize evsel->core.pmu_cpus instead of evsel->core.cpus, and
+> > perf_event__process_event_update() only populated evsel->core.pmu_cpus
+> > without setting evsel->core.cpus or evsel->core.requires_cpu. This brok=
+e
+> > perf stat record/report (and perf script) in two ways:
+> >
+> > 1. When recording an event opened per-CPU alongside a workload target
+> >   (where user_requested_cpus is -1), such as an event with a cpu=3D ter=
+m,
+> >   an uncore counter, --bpf-counters, or a BPF-filtered counter,
+> >   PERF_RECORD_STAT events are written with concrete CPU numbers, but
+> >   perf stat report's perf_evlist__set_maps() collapses evsel->cpus to
+> >   -1 and fails with:
+> >
+> >     $ perf stat record -e 'task-clock/cpu=3D0/,task-clock' -- true
+> >     $ perf stat report
+> >     Invalid CPU 0 for event task-clock/cpu=3D0/.
+>
+> Hi Ian
+>
+> Thanks for the fix, verified the fix for "perf stat report". But I have o=
+ne observation when using aggregation mode.
+>
+> Working case with the fix:
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>
+> With the fix:
+>
+> ./perf stat record -e cycles/cpu=3D8/,cycles/cpu=3D9/ <workload>
+> ./perf stat report
+>
+> Perf stat report works fine
+> Also checked system wide.
+>
+> Using -A:
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D
+> Before broken commits 6d765f5f7ec6 and 811082e4b668,
+> ./perf stat record -e cycles/cpu=3D8/,cycles/cpu=3D9/ <workload>
+> ./perf stat report -A : this was working
+>
+>     ./perf stat report -A
+>
+>     Performance counter stats for '/root/perf-tools-next/tools/perf/perf =
+stat record -e cycles/cpu=3D8/,cycles/cpu=3D9/ ./stream=E2=80=99:
+>
+>
+>     3,447,492,527,125      cycles/cpu=3D8/
+>     3,447,492,527,125      cycles/cpu=3D9/
+>      108.543826387 seconds time elapsed
+>
+> On top of this patch, result looks like:
+> ./perf stat report -A
+>
+>  Performance counter stats for '/root/perf-tools-next/tools/perf/perf':
+>
+>
+>        2.119970008 seconds time elapsed
+>
+> There are no counter line, only time elapsed. I am suspecting the change =
+for perf_event__process_event_update needs update.
+> Ian,  have another query as well in the patch , adding them below.
 
-Please spell those out in future revisions.
+Thanks for testing and catching this!
+
+Before commit 811082e4b668, __perf_evlist__propagate_maps() clobbered
+cycles/cpu=3D8/ and cycles/cpu=3D9/ to the "any CPU" (-1) map when recordin=
+g
+a workload without -a, so both counters recorded CPU -1 (which is why
+both reported identical task-wide totals with no CPU8/CPU9 column).
+
+With per-evsel CPUs preserved on workload targets, evlist->user_requested_c=
+pus
+(written to PERF_RECORD_CPU_MAP) is still the "any CPU" (-1) map while
+evlist->all_cpus holds {8, 9}. perf_stat_init_aggr_mode_file() and
+perf_stat_init_aggr_mode() built stat_config.aggr_map from
+user_requested_cpus (-1) rather than falling back to all_cpus, so CPU 8
+and CPU 9 had no entries in aggr_map and were skipped during -A output.
+Also process_stat_config_event() checked perf_cpu_map__is_empty(st->cpus)
+instead of checking whether all_cpus only contains -1 for pure task data.
+
+I've updated patch 5 in v2 to fall back to evlist->all_cpus when
+user_requested_cpus is the "any CPU" (-1) map (and check all_cpus in
+process_stat_config_event()), so 'perf stat report -A' now displays the
+CPU8 and CPU9 counter lines, and added a '-A' test case in stat.sh.
+
+> >
+> > 2. In system-wide mode (-a), per-evsel CPU restrictions such as cpu=3D0
+> >   were overwritten by the full PMU cpumask during report, causing
+> >   perf stat report -A to report bogus <not counted> entries on every
+> >   other CPU.
+> >
+> > Fix perf_event__synthesize_event_update_cpus() to serialize
+> > evsel->core.cpus, and update perf_event__process_event_update() to
+> > populate evsel->core.cpus and set requires_cpu when the recorded CPU ma=
+p
+> > does not use the "any CPU" (-1) placeholder. For backward compatibility
+> > with data files recorded by older perf binaries that wrote pmu_cpus for
+> > per-task (-1) counters, fall back to the "any CPU" map in
+> > perf_event__process_stat_event() if a -1 CPU stat event arrives for an
+> > evsel without -1 in its CPU map.
+> >
+> > Update the event_update unit test and stat.sh record/report/script test=
+s
+> > to cover per-evsel CPU maps on workload targets.
+> >
+> > Fixes: 6d765f5f7ec6 ("libperf evsel: Rename own_cpus to pmu_cpus")
+> > Fixes: 811082e4b668 ("perf parse-events: Support user CPUs mixed with t=
+hreads/processes")
+> > Signed-off-by: Ian Rogers <irogers@google.com>
+> > ---
+> > tools/perf/tests/event_update.c    | 43 ++++++++++++++++++++++++++----
+> > tools/perf/tests/shell/stat.sh     | 16 +++++++++++
+> > tools/perf/util/evsel.c            |  2 +-
+> > tools/perf/util/header.c           |  5 ++++
+> > tools/perf/util/stat.c             | 18 +++++++++++++
+> > tools/perf/util/synthetic-events.c |  7 +++--
+> > 6 files changed, 83 insertions(+), 8 deletions(-)
+> >
+> > diff --git a/tools/perf/tests/event_update.c b/tools/perf/tests/event_u=
+pdate.c
+> > index 220cc0347747..bacf3c44c8e2 100644
+> > --- a/tools/perf/tests/event_update.c
+> > +++ b/tools/perf/tests/event_update.c
+> > @@ -1,6 +1,7 @@
+> > // SPDX-License-Identifier: GPL-2.0
+> > #include <linux/compiler.h>
+> > #include <perf/cpumap.h>
+> > +#include <perf/evlist.h>
+> > #include <string.h>
+> > #include "cpumap.h"
+> > #include "evlist.h"
+> > @@ -58,13 +59,20 @@ static int process_event_name(const struct perf_too=
+l *tool,
+> > return 0;
+> > }
+> >
+> > -static int process_event_cpus(const struct perf_tool *tool __maybe_unu=
+sed,
+> > +struct event_cpus {
+> > + struct perf_tool tool;
+> > + struct evlist *evlist;
+> > +};
+> > +
+> > +static int process_event_cpus(const struct perf_tool *tool,
+> >      union perf_event *event,
+> >      struct perf_sample *sample __maybe_unused,
+> >      struct machine *machine __maybe_unused)
+> > {
+> > + struct event_cpus *tmp =3D container_of(tool, struct event_cpus, tool=
+);
+> > struct perf_record_event_update *ev =3D (struct perf_record_event_updat=
+e *)event;
+> > - struct perf_cpu_map *map;
+> > + struct perf_cpu_map *map, *any_cpu;
+> > + struct evsel *evsel;
+> >
+> > map =3D cpu_map__new_data(&ev->cpus.cpus);
+> >
+> > @@ -75,6 +83,26 @@ static int process_event_cpus(const struct perf_tool=
+ *tool __maybe_unused,
+> > TEST_ASSERT_VAL("wrong cpus", perf_cpu_map__cpu(map, 1).cpu =3D=3D 2);
+> > TEST_ASSERT_VAL("wrong cpus", perf_cpu_map__cpu(map, 2).cpu =3D=3D 3);
+> > perf_cpu_map__put(map);
+> > +
+> > + evsel =3D evlist__first(tmp->evlist);
+> > + perf_cpu_map__put(evsel->core.cpus);
+> > + evsel->core.cpus =3D NULL;
+> > + perf_cpu_map__put(evsel->core.pmu_cpus);
+> > + evsel->core.pmu_cpus =3D NULL;
+> > + evsel->core.requires_cpu =3D false;
+> > +
+> > + TEST_ASSERT_VAL("failed to process attr update cpus",
+> > + !perf_event__process_event_update(tool, event, &tmp->evlist));
+> > +
+> > + any_cpu =3D perf_cpu_map__new_any_cpu();
+> > + TEST_ASSERT_VAL("failed to allocate any_cpu map", any_cpu);
+> > + perf_evlist__set_maps(evlist__core(tmp->evlist), any_cpu, NULL);
+> > + perf_cpu_map__put(any_cpu);
+> > +
+> > + TEST_ASSERT_VAL("wrong processed cpus", perf_cpu_map__nr(evsel->core.=
+cpus) =3D=3D 3);
+> > + TEST_ASSERT_VAL("wrong processed cpus", perf_cpu_map__cpu(evsel->core=
+.cpus, 0).cpu =3D=3D 1);
+> > + TEST_ASSERT_VAL("wrong processed cpus", perf_cpu_map__cpu(evsel->core=
+.cpus, 1).cpu =3D=3D 2);
+> > + TEST_ASSERT_VAL("wrong processed cpus", perf_cpu_map__cpu(evsel->core=
+.cpus, 2).cpu =3D=3D 3);
+> > return 0;
+> > }
+> >
+> > @@ -82,6 +110,7 @@ static int test__event_update(struct test_suite *tes=
+t __maybe_unused, int subtes
+> > {
+> > struct evsel *evsel;
+> > struct event_name tmp;
+> > + struct event_cpus tmp_cpus;
+> > struct target target =3D {};
+> > struct evlist *evlist =3D evlist__new_default(&target, /*sample_callcha=
+ins=3D*/false);
+> >
+> > @@ -111,11 +140,15 @@ static int test__event_update(struct test_suite *=
+test __maybe_unused, int subtes
+> > TEST_ASSERT_VAL("failed to synthesize attr update name",
+> > !perf_event__synthesize_event_update_name(&tmp.tool, evsel, process_eve=
+nt_name));
+> >
+> > - perf_cpu_map__put(evsel->core.pmu_cpus);
+> > - evsel->core.pmu_cpus =3D perf_cpu_map__new("1,2,3");
+> > + perf_cpu_map__put(evsel->core.cpus);
+> > + evsel->core.cpus =3D perf_cpu_map__new("1,2,3");
+> > +
+> > + perf_tool__init(&tmp_cpus.tool, /*ordered_events=3D*/false);
+> > + tmp_cpus.evlist =3D evlist;
+> >
+> > TEST_ASSERT_VAL("failed to synthesize attr update cpus",
+> > - !perf_event__synthesize_event_update_cpus(&tmp.tool, evsel, process_e=
+vent_cpus));
+> > + !perf_event__synthesize_event_update_cpus(&tmp_cpus.tool, evsel,
+> > +  process_event_cpus));
+> >
+> > evlist__put(evlist);
+> > return 0;
+> > diff --git a/tools/perf/tests/shell/stat.sh b/tools/perf/tests/shell/st=
+at.sh
+> > index ac9e031831da..43a158ee3609 100755
+> > --- a/tools/perf/tests/shell/stat.sh
+> > +++ b/tools/perf/tests/shell/stat.sh
+> > @@ -77,6 +77,14 @@ test_stat_record_report() {
+> >     err=3D1
+> >     return
+> >   fi
+> > +  cpu=3D$(sed 's/[-,].*//' /sys/devices/system/cpu/online)
+> > +  if ! perf stat record -e "task-clock/cpu=3D${cpu}/,task-clock" -o - =
+true | \
+> > +    perf stat report -i - 2>&1 | grep -E -q "task-clock/cpu=3D${cpu}/"
+> > +  then
+> > +    echo "stat record and report test [Failed per-evsel CPU]"
+> > +    err=3D1
+> > +    return
+> > +  fi
+> >   echo "stat record and report test [Success]"
+> > }
+> >
+> > @@ -89,6 +97,14 @@ test_stat_record_script() {
+> >     err=3D1
+> >     return
+> >   fi
+> > +  cpu=3D$(sed 's/[-,].*//' /sys/devices/system/cpu/online)
+> > +  if ! perf stat record -e "task-clock/cpu=3D${cpu}/,task-clock" -o - =
+true | \
+> > +    perf script -i - 2>&1 | grep -E -q "task-clock/cpu=3D${cpu}/"
+> > +  then
+> > +    echo "stat record and script test [Failed per-evsel CPU]"
+> > +    err=3D1
+> > +    return
+> > +  fi
+> >   echo "stat record and script test [Success]"
+> > }
+> >
+> > diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
+> > index 1f96c170d277..64daef4cc345 100644
+> > --- a/tools/perf/util/evsel.c
+> > +++ b/tools/perf/util/evsel.c
+> > @@ -1822,7 +1822,7 @@ void evsel__config(struct evsel *evsel, const str=
+uct record_opts *opts,
+> > attr->exclude_user   =3D 1;
+> > }
+> >
+> > - if (evsel->core.pmu_cpus || evsel->unit)
+> > + if (evsel->core.cpus || evsel->core.pmu_cpus || evsel->unit)
+> > evsel->core.attr.read_format |=3D PERF_FORMAT_ID;
+> >
+> > /*
+> > diff --git a/tools/perf/util/header.c b/tools/perf/util/header.c
+> > index 9eec6deee190..e9af99b8c0f8 100644
+> > --- a/tools/perf/util/header.c
+> > +++ b/tools/perf/util/header.c
+> > @@ -5962,6 +5962,11 @@ int perf_event__process_event_update(const struc=
+t perf_tool *tool __maybe_unused
+> > if (map) {
+> > perf_cpu_map__put(evsel->core.pmu_cpus);
+> > evsel->core.pmu_cpus =3D map;
+> > + if (!evsel->counts) {
+> > + perf_cpu_map__put(evsel->core.cpus);
+> > + evsel->core.cpus =3D perf_cpu_map__get(map);
+>
+> Here pmu_cpus and core.cpus will point to same data ? When evsel->counts =
+is zero, both will carry same =E2=80=9Cperf_cpu_map=E2=80=9D object.
+> So during report, the pmu_cpus will hold same contents as =E2=80=9Ccpus=
+=E2=80=9D , which is record opened cpu map.
+> But ideally pmu_cpus should be having the PMU=E2=80=99s cpumask ?
+
+perf.data only carries a single PERF_EVENT_UPDATE__CPUS record (not a
+separate PMU cpumask), and during 'perf stat report' the evsels are
+reconstructed from PERF_RECORD_HEADER_ATTR rather than parsed against
+the reporting machine's local sysfs PMUs (which may be a different host
+with different online CPUs). When set_maps() calls
+__perf_evlist__propagate_maps(), non-"any CPU" evsel->cpus is
+intersected with evsel->pmu_cpus, so pmu_cpus needs to cover the
+recorded CPUs to avoid intersecting them away.
+
+However, when map is the "any CPU" (-1) placeholder, pmu_cpus shouldn't
+be set to {-1}. In v2 I've guarded the pmu_cpus assignment with
+!perf_cpu_map__has_any_cpu(map) and added a comment explaining why
+pmu_cpus is populated from concrete recorded CPU maps.
 
 Thanks,
-Guenter
+Ian
 
-> v1: https://lore.kernel.org/r/20261122065549.3265519-1-mmyangfl@gmail.com
-> 
-> David Yang (4):
->    dt-bindings: watchdog: hisilicon,histb-wdt: Add HiSilicon STB watchdog
->    watchdog: histb: Add HiSilicon STB watchdog driver
->    arm64: dts: hisilicon: hi3798cv200: Add watchdog node
->    MAINTAINERS: Add HiSilicon STB drivers entry
-> 
->   .../watchdog/hisilicon,histb-wdt.yaml         |  56 ++++
->   MAINTAINERS                                   |   8 +
->   .../arm64/boot/dts/hisilicon/hi3798cv200.dtsi |   8 +
->   drivers/watchdog/Kconfig                      |   8 +
->   drivers/watchdog/Makefile                     |   1 +
->   drivers/watchdog/histb_wdt.c                  | 305 ++++++++++++++++++
->   6 files changed, 386 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/watchdog/hisilicon,histb-wdt.yaml
->   create mode 100644 drivers/watchdog/histb_wdt.c
-> 
-
+> Thanks
+> Athira
+>
+> > + evsel->core.requires_cpu =3D !perf_cpu_map__has_any_cpu(map);
+> > + }
+> > } else
+> > pr_err("failed to get event_update cpus\n");
+> > break;
+> > diff --git a/tools/perf/util/stat.c b/tools/perf/util/stat.c
+> > index 6da3dbbde0e2..429bfc339308 100644
+> > --- a/tools/perf/util/stat.c
+> > +++ b/tools/perf/util/stat.c
+> > @@ -8,6 +8,7 @@
+> >
+> > #include <linux/err.h>
+> > #include <linux/zalloc.h>
+> > +#include <perf/cpumap.h>
+> >
+> > #include "counts.h"
+> > #include "cpumap.h"
+> > @@ -674,6 +675,23 @@ int perf_event__process_stat_event(const struct pe=
+rf_tool *tool __maybe_unused,
+> > return -EINVAL;
+> > }
+> > cpu_map_idx =3D perf_cpu_map__idx(evsel__cpus(counter), (struct perf_cp=
+u){.cpu =3D st->cpu});
+> > + if (cpu_map_idx =3D=3D -1 && (s32)st->cpu =3D=3D -1 && counter->count=
+s &&
+> > +    evsel__nr_cpus(counter) > 0) {
+> > + /*
+> > + * Older perf tools wrote pmu_cpus instead of cpus in
+> > + * PERF_EVENT_UPDATE__CPUS, leaving per-task counters with a
+> > + * CPU list instead of the "any CPU" (-1) map used by their
+> > + * PERF_RECORD_STAT events.
+> > + */
+> > + struct perf_cpu_map *any_cpu =3D perf_cpu_map__new_any_cpu();
+> > +
+> > + if (any_cpu) {
+> > + perf_cpu_map__put(counter->core.cpus);
+> > + counter->core.cpus =3D any_cpu;
+> > + counter->core.requires_cpu =3D false;
+> > + cpu_map_idx =3D 0;
+> > + }
+> > + }
+> > if (cpu_map_idx =3D=3D -1) {
+> > pr_err("Invalid CPU %d for event %s.\n", st->cpu, evsel__name(counter))=
+;
+> > return -EINVAL;
+> > diff --git a/tools/perf/util/synthetic-events.c b/tools/perf/util/synth=
+etic-events.c
+> > index 3c8d29f27fd9..b87d15a5be6a 100644
+> > --- a/tools/perf/util/synthetic-events.c
+> > +++ b/tools/perf/util/synthetic-events.c
+> > @@ -2234,10 +2234,13 @@ int perf_event__synthesize_event_update_name(co=
+nst struct perf_tool *tool, struc
+> > int perf_event__synthesize_event_update_cpus(const struct perf_tool *to=
+ol, struct evsel *evsel,
+> >     perf_event__handler_t process)
+> > {
+> > - struct synthesize_cpu_map_data syn_data =3D { .map =3D evsel->core.pm=
+u_cpus };
+> > + struct synthesize_cpu_map_data syn_data =3D { .map =3D evsel->core.cp=
+us };
+> > struct perf_record_event_update *ev;
+> > int err;
+> >
+> > + if (!evsel->core.cpus)
+> > + return 0;
+> > +
+> > ev =3D cpu_map_data__alloc(&syn_data, sizeof(struct perf_event_header) =
++ 2 * sizeof(u64));
+> > if (!ev)
+> > return -ENOMEM;
+> > @@ -2315,7 +2318,7 @@ int perf_event__synthesize_extra_attr(const struc=
+t perf_tool *tool, struct evlis
+> > }
+> > }
+> >
+> > - if (evsel->core.pmu_cpus) {
+> > + if (evsel->core.cpus) {
+> > err =3D perf_event__synthesize_event_update_cpus(tool, evsel, process);
+> > if (err < 0) {
+> > pr_err("Couldn't synthesize evsel cpus.\n");
+> > --
+> > 2.56.1.750.gf70dc682cf-goog
+> >
+> >
+>
