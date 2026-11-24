@@ -1,63 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795542382;
-	b=gaV6A1eOtiMl3zbosmI70tahFDOZqkbDjaExvvWH0DJmCv7L/1xH4giU9qWyUaxBz3mt
-	 01gg18nUBEirMy5+Rm0ARieppyKOaQ0NMHNIRFUAJMqVffaHqtjNTGE5PR/SijnAiDEGu
-	 GReml72XL3VDLOZrllxq13bX7QUYd/aUn8FagCV6ndUkdvLI+struoiLUbMfgTRHWblbj
-	 3IWnjnjYqnzW0D/iXHnRzGZdCJZzf0vWVbyjfyXZ1rQTBypQBZiMG6DjUFBPCJY2cQ+2i
-	 HXApfGqeycOt3gwSIrpwUU7MyftbIaH/btZ+cRFagl13e6KtwDyQ/PVady2z5xlwC0Q==
+	t=1795542395;
+	b=OWWwuknZzBFe5Vx6LwwOAeDUP/Zih3USG1Tu23r3HeSKqSQXQqmzebP/mQzky4zgQCRW
+	 ITPWdbdvgso/+KKNOWzy8YEWXfTKrhUkutzH47POoRXsH7JzS3EjEjlGGJA6hsiO31zey
+	 X/s7Zimb3d7+p74+tiKJ5AMnsw3XQCv4wZojZpjjW5XejeywnKzwCGL6Ll7dE0WKrzJ2P
+	 q6aRGDJECb1DFy+mvBxFOP/hUpjxubZwfIcOkReApCI/kp6nPHE7Iioppo5AY375ojbW5
+	 TERkbxmzOy9xOBWpGfnz9aL2PyKIZ+2CagH//yeJ3K4AOfN/HI0wdUIxG+ri7xMsl1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795542382;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=FtwyRunQCEsyMnm8dmDweruaeZpOuMpydLkc7kMsNrU=;
-	b=FlkZo65w/ynVnqmiHgMFwRHXa0/VLDe6tUbeK5WsMokS/YCxvdOl64wbZHtMb3Xp5/Tp
-	 hiNznREXaTf3C3JkORHpxkAR+lr6nEhVK0qJvJpOGm0sH5Lwhzj0EAhhATZXkThtl+mwa
-	 CiHaz0kNzx8t5Jg8nQkQKK2INz9p2iBeHkJdEDf3q8j8EY7MSeQ0WVxig32PEBkU7mK63
-	 9krJwM8sEUUG6ow6b78mTXDIlsldkdn/WQvFZ7JUQTgJkDITyKLhTN3525CcaSkWvTDIA
-	 4mbdqkja3RWTjJkZ6dUi4r+y7n0AlQ6dNSPg9fsk8QsUvI3d0kqbaEwk3gLWzCWIJQw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795542395;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:X-Forwarded-Encrypted:X-Received:Received:From:In-Reply-To:
+	 References:MIME-Version:Date:X-Gmail-Original-Message-ID:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
+	bh=SQpKUtDlj4AZ1qDo3gcLs5ROWZFh7sOWq4cTgDCqyUA=;
+	b=ktCfiCenOJGB1oZZdG+MHCqMBZOOF2Qp0Xy+WuQhF/My8YFLIUpUaKuybuxyQx5ltr9+
+	 C1gIdldrJUMw6G0vnFOT4KruKPJFXkeGLfRVQTK4M/wRj0H6wl1lzzuwCL241dxZR07MG
+	 gVWPddeACAQicQ2QmcRIDeMfC4hnaQm9uqIInDlVbUnhj7DBH5nvXvADgy37aADSG3hov
+	 +rM/ZadCnECn52GWyZ+5i53pnC5seJjrXZuNAMUR8WJOASFrmnvjr4bb8ipmlpx+n5j0G
+	 +loGh0YhXfDsG2DDbR9E9BDIOb3xTZ8YgWbVeU/Pn1J46IURZGQgtScBgun1LyY5Y0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SFsDa3b9;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=linux-foundation.org;
+	spf=pass smtp.mailfrom=linuxfoundation.org;
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=VY3j1U8n;
+	arc=none smtp.remote-ip=209.85.208.49
+Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com [209.85.208.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 4D17C606A321;
-	Tue, 24 Nov 2026 17:46:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C48F606A323
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:46:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C48F606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SFsDa3b9
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id E25021F000C4;
-	Tue, 24 Nov 2026 17:46:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795542381;
-	bh=FtwyRunQCEsyMnm8dmDweruaeZpOuMpydLkc7kMsNrU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SFsDa3b9oxSH71lwzZS+Z7yNKMd4gsRq4hLYSTo1YhY6DO6gjbxP4v9GdDibtVyxf
-	 y+jINC5GmPhV5eYUPdqS5QC1Xqik+tXZ8DN8Z/ZqVJtyqsKwXB9b4TCCEs3IaRpuvE
-	 sMLSHxWU0+1UuNLUfHuhqKVFoeCpb2aW0CYOMKq8uAIYpONe5VWM3sFSgO1F1O9SB8
-	 9eEXHZdUs5Xe4F/SXHYdOkCgEnLzv5ENlJlQ4WkhIj5kWjZCJ1KIu5GIkG0jdvYfFj
-	 s02GYkZ+pmk50djdA1HdK4jGxuKIoQqzBO8eswLry/KRh4dj/Uis0dXrFs7MUmIHVv
-	 ZSlWTezePmBIQ==
-Date: Tue, 24 Nov 2026 19:46:17 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Keisuke Tsukuda <tkdkei@outlook.jp>
-Cc: "a.fatoum@pengutronix.de" <a.fatoum@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"James.Bottomley@HansenPartnership.com" <James.Bottomley@hansenpartnership.com>,
-	"zohar@linux.ibm.com" <zohar@linux.ibm.com>,
-	"dhowells@redhat.com" <dhowells@redhat.com>,
-	"paul@paul-moore.com" <paul@paul-moore.com>,
-	"jmorris@namei.org" <jmorris@namei.org>,
-	"serge@hallyn.com" <serge@hallyn.com>,
-	"linux-integrity@vger.kernel.org" <linux-integrity@vger.kernel.org>,
-	"keyrings@vger.kernel.org" <keyrings@vger.kernel.org>,
-	"linux-security-module@vger.kernel.org" <linux-security-module@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] KEYS: trusted: caam: propagate protected key option
- parsing errors
-Message-ID: <awXNaSZVTxqbB1TY@kernel.org>
-References: <20261124155310.32044-1-tkdkei@outlook.jp>
+	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=VY3j1U8n
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6ae305e3bd9so8192773a12.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:46:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1795542394; x=1796147194; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SQpKUtDlj4AZ1qDo3gcLs5ROWZFh7sOWq4cTgDCqyUA=;
+        b=VY3j1U8n+qZEJ87j+i85Rht+OSsMOZCPHE9Pj3thiSEgnqgNUScHIdxC3bq2tJeOQR
+         T8G0YvCm87zEJfjvDRfrHeRudiRbMghYS9gmBGDKG7Bhd+E4L2wPYE5Kcx35WQY6/tlS
+         +KAUs7P0RmT4AvmtMlTSDsjFr1A6Jro2sanXk=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795542394; x=1796147194;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SQpKUtDlj4AZ1qDo3gcLs5ROWZFh7sOWq4cTgDCqyUA=;
+        b=HRrBDXp9VpJxvs55HV9w0M04dTyyHfb6F+hL4xGXiCm/yUFYhzZQbiCmdZVTjisR57
+         KfyRdWaBqW3dyMGrMlw/CL8k/ZVcOAHPbpEDGdf77/7CIWA3k3BueQsuEHQib05hPr9J
+         gGnYMG9agJqTuzZWAom7MzGDxnewm1/EklRK1aImdXwt6vTB936m7c5VTHZ5jVOl4u75
+         AwkaA+ht3qShSidw8OHCeGxoiDcptFNJCvwwxx2zCIgxEucT1+tFac01YxdAonitawq+
+         8zQloNCnCT+WGY2XPFoOm1Ys9yesVrlrgDdRS2fSbj6s5YHnMDXDen7TISjucmAsD7sP
+         fPeQ==
+X-Forwarded-Encrypted: i=1; AL+hErF6VaiT/HvjMxLpihbmZE74hHt58vaExSv3hV+j2m7ND+UIi5qjr+kMWoYwVryklaDxCcXNXuyPLeH2xBg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8QjP30Qi7R/2q0xk+L9EgQgXn0NrincVkMcP5NUxnZK08xUyS2
+	C0jngN9urfoLCqowYJUT2D5tm7MVe8U3QhdRTcrLDD6oHn7OBxWTYfEIdChfKiUXXgFAQrIOFVm
+	w5fUWOGOlSQ==
+X-Gm-Gg: AZFdTZexJOJLOw920Lc/ItIgDQsYc8hX4N765mQOsyGZ1dNC1nwhhwatkE5FtmXkQM4
+	X36aV84wIbf+iMVcG9ecOg8eTrcnRoWsvBK31Yao/dXEI2jhB9aaTrVp5EWmLjRmnWtVZ9gZISF
+	1dc+NkjJ6vboX25tJ3QpznlBKcMM9gEjdUQPnRwag/tvA6orszUbtMByZztrx2ZeBnIGgSrUGvh
+	5RHUgGS0kUZ7SNcL4o5IAyx7mLztg0VNGdAT283VgmcGStOwLuEDUvADjn0CbuZvhMsUmcFNFLB
+	0K6aTvOi5jsgc0B3lUlRY8Awb72d3nLnSyXZnH+YQBszUEesQbfzUMBKar9QfHc1+5s94XN/mr7
+	G9YSUUOx+gGNaHkhxSSuLZl5vVGitPaXv72mf/7nZEM01qQT67AIRaZV8krNEUF1pdrOqmNqjav
+	vVj6ymPwF68ZEWiQpvFyXH0n4UQ6IRKHEgL6//RjUmuIUcTDlVIhYyYRRI+BQXFZaE2zdlH1bHA
+	aZwFwLXaLzncHLdVsX8kwyn+7o5yxga2Z7brpUn63Bwq8/Pt2bV6oKVJOG/GIL9UeETolYf32YX
+	5M35b4boMCkmZwuqKNpZusxP6yA1mehjK4U8YkMiy/54eaOOlDbIoEfTp4Z9D5YcgmVMVhpB2z+
+	Q5Ps=
+X-Received: by 2002:a05:6402:c88e:20b0:6ac:73f8:2e4f with SMTP id 4fb4d7f45d1cf-6baeabf0025mr2249803a12.29.1795542393714;
+        Tue, 24 Nov 2026 09:46:33 -0800 (PST)
+Received: from mail-ej1-f48.google.com (mail-ej1-f48.google.com. [209.85.218.48])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6bb1ca4ff7bsm202616a12.8.2026.11.24.09.46.31
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 09:46:32 -0800 (PST)
+Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c4cb6834eaaso800416566b.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:46:31 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGdyrMpAhFC0VEoO5mVDxPN+9TP2jpk40yUldPllOjGrJBIY0alclBdR2Y0hzxXB3nWp/SwrCwQe9cxcsE=@vger.kernel.org
+X-Received: by 2002:a17:907:3ccb:b0:c3f:84aa:af0d with SMTP id
+ a640c23a62f3a-c513a811d6amr1255078566b.18.1795542391340; Tue, 24 Nov 2026
+ 09:46:31 -0800 (PST)
+Received: from 425495914135 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 24 Nov 2026 12:46:30 -0500
+From: Linus Torvalds <torvalds@linux-foundation.org>
+In-Reply-To: <CAHk-=wgYc9vFEmyV0Ch_e49j6GOhUCMQMnMV4f1FLLvumZOmRw@mail.gmail.com>
+References: <20261122-b4-sched-wait-intr-head-v2-0-4a764b64e8ce@columbia.edu>
+ <20261122-b4-sched-wait-intr-head-v2-1-4a764b64e8ce@columbia.edu>
+ <CAHk-=wj_eqNh+gNhCQh3exrL5Pmo5hbZBcL0W-4Ah_Nw0Kegzw@mail.gmail.com>
+ <awWSwmvaTwBxfU-r@redhat.com> <CAHk-=wj3GCXZohdFWWPAOkC_LHno4X0oQW+0sQFJzRMvjpODUg@mail.gmail.com>
+ <CAHk-=wgYc9vFEmyV0Ch_e49j6GOhUCMQMnMV4f1FLLvumZOmRw@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,62 +103,163 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124155310.32044-1-tkdkei@outlook.jp>
+Date: Tue, 24 Nov 2026 12:46:30 -0500
+X-Gmail-Original-Message-ID: <CAHk-=wgNZfCN5qW-0pOK_TFBscqTu6an7fK5pEkxewg-Aif1Fg@mail.gmail.com>
+X-Gm-Features: Aa3M54p8plLWbVY6iSjVP3DnYsEIL6S32qEa4KRav48BblCo7RxKY_YSzzQDIJA
+Message-ID: <CAHk-=wgNZfCN5qW-0pOK_TFBscqTu6an7fK5pEkxewg-Aif1Fg@mail.gmail.com>
+Subject: [PATCH 5/7] sched/wait: always queue new waiters at the tail
+To: Oleg Nesterov <oleg@redhat.com>
+Cc: mt4022@columbia.edu, Jens Axboe <axboe@kernel.dk>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Christian Brauner <brauner@kernel.org>, Michal Nazarewicz <mina86@mina86.com>, Wen Yang <wen.yang@linux.dev>, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	tz2294@columbia.edu, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Tue, Nov 24, 2026 at 03:53:39PM +0000, Keisuke Tsukuda wrote:
-> From: Keisuke Tsukuda <tkdkei@outlook.jp>
-> 
-> get_pkey_options() returns -EINVAL for invalid protected key options,
-> such as "key_enc_algo=GG". trusted_caam_seal() and trusted_caam_unseal()
-> ignore this error and return 0. The trusted key core then instantiates
-> a key without a blob for "new", or with a zero-length key for "load".
-> 
-> On an i.MX6Q running a 7.4.0-rc2-based kernel, adding a key with
-> "new 32 pk key_enc_algo=GG" succeeds, but KEYCTL_READ returns zero
-> bytes because no blob was created. The key cannot be saved and
-> reloaded.
-> 
-> Return the parsing error from both paths. On the patched kernel,
-> "new" and "load" with "key_enc_algo=GG" both fail with -EINVAL, while
-> valid requests succeed.
-> 
-> Fixes: a703a4c2a328 ("KEYS: trusted: caam based protected key")
-> Signed-off-by: Keisuke Tsukuda <tkdkei@outlook.jp>
-> ---
->  security/keys/trusted-keys/trusted_caam.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/security/keys/trusted-keys/trusted_caam.c b/security/keys/trusted-keys/trusted_caam.c
-> index 6a33dbf2a..33000d7bb 100644
-> --- a/security/keys/trusted-keys/trusted_caam.c
-> +++ b/security/keys/trusted-keys/trusted_caam.c
-> @@ -110,7 +110,7 @@ static int trusted_caam_seal(struct trusted_key_payload *p, char *datablob)
->  		info.pkey_info.is_pkey = 1;
->  		ret = get_pkey_options(datablob, &info.pkey_info);
->  		if (ret < 0)
-> -			return 0;
-> +			return ret;
->  		dump_options(&info.pkey_info);
->  	}
->  
-> @@ -142,7 +142,7 @@ static int trusted_caam_unseal(struct trusted_key_payload *p, char *datablob)
->  		info.pkey_info.is_pkey = 1;
->  		ret = get_pkey_options(datablob, &info.pkey_info);
->  		if (ret < 0)
-> -			return 0;
-> +			return ret;
->  		dump_options(&info.pkey_info);
->  
->  		p->key_len = p->blob_len + sizeof(struct caam_pkey_info);
-> -- 
-> 2.50.1 (Apple Git-155)
-> 
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Mon, 23 Nov 2026 16:48:44 -0800
+Subject: [PATCH 5/7] sched/wait: always queue new waiters at the tail
 
-Thanks.
+Non-exclusive waiters have been added at the head and exclusive ones at
+the tail, so that an exclusive wakeup stopping early still woke every
+non-exclusive waiter.
 
+That only matters for waiters that mix both kinds on one queue like
+read() and poll() on a pipe - and even then it doesn't actually buy
+anything but complexity and fragility of the code.
 
-Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+An exclusive reader consumes the event, the poller had nothing to see,
+so there's no real point in keeping the two ordered.
 
-Br, Jarkko
+The pointless ordering results in a special rule for everybody adding
+themselves to the wait queue, and that rule has not been consistently
+followed anyway (see for example do_wait_intr() and do_wait_intr_irq())
+
+So just queue everyone in FIFO order.  LIFO might be better for
+throughput, but every time we've ever tried that optimization in real
+life, it has caused fairness issues, so let's just do the obvious thing
+and add new waiters at the end of the list.
+
+Priority entries (used by the hypervisor code - questionable special
+case) are still placed at the head by add_wait_queue_priority*().
+
+And because epoll is a pile of stinking manure that I am afraid to touch
+this leaves __add_wait_queue_exclusive() alone and it adds its entry at
+the head for epoll's ep->wq so its own wakeup order doesn't change.
+
+Now that it isn't a "real" exclusive wake event, its ordering thankfully
+doesn't actually matter for anybody else.  It should be fixed, but it's
+now basically just an internal epoll thing (and that will be made more
+obvious in following patches).
+
+Cc: Christian Brauner <brauner@kernel.org>
+Cc: Oleg Nesterov <oleg@redhat.com>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Juri Lelli <juri.lelli@redhat.com>
+Cc: Vincent Guittot <vincent.guittot@linaro.org>
+Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
+---
+ include/linux/wait.h | 14 +++-----------
+ kernel/sched/wait.c  | 29 ++++++++++++++++-------------
+ 2 files changed, 19 insertions(+), 24 deletions(-)
+
+diff --git a/include/linux/wait.h b/include/linux/wait.h
+index 09518f8ff10c..bf0a3713ed0f 100644
+--- a/include/linux/wait.h
++++ b/include/linux/wait.h
+@@ -171,25 +171,17 @@ extern void remove_wait_queue(struct
+wait_queue_head *wq_head, struct wait_queue
+
+ static inline void __add_wait_queue(struct wait_queue_head *wq_head,
+struct wait_queue_entry *wq_entry)
+ {
+-	struct list_head *head = &wq_head->head;
+-	struct wait_queue_entry *wq;
+-
+-	list_for_each_entry(wq, &wq_head->head, entry) {
+-		if (!(wq->flags & WQ_FLAG_PRIORITY))
+-			break;
+-		head = &wq->entry;
+-	}
+-	list_add(&wq_entry->entry, head);
++	list_add_tail(&wq_entry->entry, &wq_head->head);
+ }
+
+ /*
+- * Used for wake-one threads:
++ * Adds at the head, for epoll's LIFO wakeup of its epoll_wait()ers.
+  */
+ static inline void
+ __add_wait_queue_exclusive(struct wait_queue_head *wq_head, struct
+wait_queue_entry *wq_entry)
+ {
+ 	wq_entry->flags |= WQ_FLAG_EXCLUSIVE;
+-	__add_wait_queue(wq_head, wq_entry);
++	list_add(&wq_entry->entry, &wq_head->head);
+ }
+
+ static inline void __add_wait_queue_entry_tail(struct wait_queue_head
+*wq_head, struct wait_queue_entry *wq_entry)
+diff --git a/kernel/sched/wait.c b/kernel/sched/wait.c
+index 9f126cc5c338..a14e14202279 100644
+--- a/kernel/sched/wait.c
++++ b/kernel/sched/wait.c
+@@ -40,11 +40,18 @@ EXPORT_SYMBOL(add_wait_queue_exclusive);
+
+ void add_wait_queue_priority(struct wait_queue_head *wq_head, struct
+wait_queue_entry *wq_entry)
+ {
++	struct list_head *head = &wq_head->head;
++	struct wait_queue_entry *wq;
+ 	unsigned long flags;
+
+ 	wq_entry->flags |= WQ_FLAG_PRIORITY;
+ 	spin_lock_irqsave(&wq_head->lock, flags);
+-	__add_wait_queue(wq_head, wq_entry);
++	list_for_each_entry(wq, &wq_head->head, entry) {
++		if (!(wq->flags & WQ_FLAG_PRIORITY))
++			break;
++		head = &wq->entry;
++	}
++	list_add(&wq_entry->entry, head);
+ 	spin_unlock_irqrestore(&wq_head->lock, flags);
+ }
+ EXPORT_SYMBOL_GPL(add_wait_queue_priority);
+@@ -78,12 +85,12 @@ EXPORT_SYMBOL(remove_wait_queue);
+
+ /*
+  * The core wakeup function. Non-exclusive wakeups (nr_exclusive == 0) just
+- * wake everything up. If it's an exclusive wakeup (nr_exclusive == small +ve
+- * number) then we wake that number of exclusive tasks, and potentially all
+- * the non-exclusive tasks. Normally, exclusive tasks will be at the end of
+- * the list and any non-exclusive tasks will be woken first. A priority task
+- * may be at the head of the list, and can consume the event without any other
+- * tasks being woken if it's also an exclusive task.
++ * wake everything up. Otherwise the walk stops once nr_exclusive exclusive
++ * tasks have been woken. Waiters are queued in FIFO order, so non-exclusive
++ * waiters queued behind that point are not woken: the exclusive waiters will
++ * consume the event. A priority task may be at the head of the list, and can
++ * consume the event without any other tasks being woken if it's also an
++ * exclusive task.
+  *
+  * An exclusive waiter that returns >0 promises to handle the event. Pollers
+  * (EPOLLEXCLUSIVE) can't promise that, since userspace may never consume it.
+@@ -308,12 +315,8 @@ long prepare_to_wait_event(struct wait_queue_head
+*wq_head, struct wait_queue_en
+ 		list_del_init(&wq_entry->entry);
+ 		ret = -ERESTARTSYS;
+ 	} else {
+-		if (list_empty(&wq_entry->entry)) {
+-			if (wq_entry->flags & WQ_FLAG_EXCLUSIVE)
+-				__add_wait_queue_entry_tail(wq_head, wq_entry);
+-			else
+-				__add_wait_queue(wq_head, wq_entry);
+-		}
++		if (list_empty(&wq_entry->entry))
++			__add_wait_queue(wq_head, wq_entry);
+ 		set_current_state(state);
+ 	}
+ 	spin_unlock_irqrestore(&wq_head->lock, flags);
+-- 
+2.56.0.313.g975a75ca90
