@@ -1,66 +1,63 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795541739;
-	b=tczKXuF1SqzbQayoqCmC8Bt8QIzZrS6YV4yqGUSTBJllvV6Drb0R7GA6TcHE6XXxt8hN
-	 hylkI7NSxcKBZHKvKlSlC5x8QxyMDKLNsYlHT7T3A0ljLeTbvz48lTrIK7ppnkVXTfZr5
-	 qcmBs04aLA69kznjuFq0X+7LWpBGFmfGe6XtJxruxM7l3uPd1WAkmtp3HpKMEDDF5rcl1
-	 4vZqb8M+BX8l0DT+C7u6hWraZauKi6AI0EHD8TWL7zLQo3tI655ZlStvg19rIkUA+HTCd
-	 kwLotli/s13KpCmgJR39hPzL3fCOKRmp4vMxOBzi3yMixbVqA9/A4Y/M92/10O8uj/Q==
+	t=1795541778;
+	b=LeUiFmAroTyZOnfJu/Y8KFJ0dvZ1reQdR/ggOdysp456kuog7bQQn3Fj/8pNlScKL73/
+	 g/41yxzGzXJ86i1SPPcbbTcQufHQCt2O9rsNA9uKQTCPxw42zvW0PGmGSTMtH/fdHB1wP
+	 QXeHQwcnRchxBrYiElEfl8NB1ZXE8H9NPTHC//qr9RSDbkars/StJ1aw/+1IhpEmZXtlJ
+	 MC2KNSwIqubp/jmlVl40WTGaaZzrFnEN58LBnXDdKMrE9rHou8yolpzf3EyfmbClgBY8a
+	 hUEjUqdwjVHaf/KieDXbTgm0539o3YkWbOn4379qPT+vHyspv8Qyl4qU8fhdV2t+CoA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541739;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541778;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=EOrjpQJjfBkE4q8XiTb4DK0inCr3iHWjs8GQJ6hksQA=;
-	b=IUtMFhDhOtrM8hVuAV28Mm8dLuM7mcOjB1+T8NzD8B0fT/NgZRAClFxB9z2iAfAYPfzX
-	 9FXnwoZXXUw3MAmati2s+GEbCATLXzJXQz7U6VBUxnKoNtp9UYKbqoUTq+k2Ay+lU4tX6
-	 9BEymenDHFqd8vsS7OEDQaOrNaTXs7QTNAuDRvvU164AmYu6/E9s8rM3TZowXlB4WbgAc
-	 j56TsOE9Jqc0G8JI/unG5O8MGGfZDDy/K6u5bMAZ5L0RfGrSSriitUx76IzN20Q/zVUJ1
-	 1TzMe+aFMIiYZyk9DWrRG1N0CcpWuKeJ4ITtXjJJIQ3yAAMrfBtkxEo4ri3eWkxxuWg==
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 User-Agent;
+	bh=tfymlDcljSjuvF26uzxj/WXRQgXdLURskmE2fWlkPsA=;
+	b=EAuSwzV4frJ1r4uqOk20rl48D1YWimxP9lzsqPwyYoUmP0eFVzgDhijsrOqsJV0uRXJ1
+	 zvY33KTJiW9buW218jEz1dgIcRguParOz+9aR8yqJHFz4FhduwlMdF7voxoMeSXS3qtcA
+	 nP5HNseH86k76cKbHXDGYRXqRZw+xLZQ+LW1aLYytlWYrM26meEgjJ1BcdPlvDECzrJ1q
+	 nQ7CIQBxV53DOWUm+XUU0WSSCl0bbE0WISsagstZchc1OXd22zA0bLQAgsqVSzzwWsb7q
+	 drDHrALU97h87oSXChgYA0Gs1fYcSkuEKGAWPv2d2awijkEqps1sMO2kCfO6zkz0+Qg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=bbp6WT8l;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yf05ie99;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE85E606A323
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:35:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BFCB606A31E;
+	Tue, 24 Nov 2026 17:36:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=bbp6WT8l
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 805FF1F000C6;
-	Tue, 24 Nov 2026 17:35:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795541739;
-	bh=EOrjpQJjfBkE4q8XiTb4DK0inCr3iHWjs8GQJ6hksQA=;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yf05ie99
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 037221F000C0;
+	Tue, 24 Nov 2026 17:36:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795541778;
+	bh=tfymlDcljSjuvF26uzxj/WXRQgXdLURskmE2fWlkPsA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bbp6WT8leTC+EudoAXk+7oAE3ZQiSJAbbkOEDFJ1Cyn+x/eHFMCRiDItv//5oYvRg
-	 sm9eU6d0mbBH49Qv0vE4Zw0AxRReqykdGC9Eh2QJap+PTO2d26SleVdt71fcZRDu8a
-	 8HsP2XZbn5aNufzOHtqI5eiyzmGrnWcgKO+9npc8=
-Date: Tue, 24 Nov 2026 18:35:36 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Pedro Falcato <pfalcato@suse.de>
-Cc: Dave Hansen <dave.hansen@intel.com>,
-	Nikolay Borisov <nik.borisov@suse.com>, x86@kernel.org,
-	mhocko@suse.com, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	Dan Williams <dan.j.williams@intel.com>,
-	Kees Cook <kees@kernel.org>, Ingo Molnar <mingo@kernel.org>,
-	Vishal Annapurve <vannapurve@google.com>,
-	Kirill Shutemov <kas@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"Naveen N Rao (AMD)" <naveen@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	David Hildenbrand <david@kernel.org>
-Subject: Re: [RESEND PATCH] x86/devmem: Drop /dev/mem access for confidential
- guests
-Message-ID: <2026112404-hyperlink-widget-ff36@gregkh>
-References: <20261124160025.738362-2-nik.borisov@suse.com>
- <0dc6759e-ada2-461c-85de-809c170abd6a@intel.com>
- <awXBtrPSHfs51Y2f@pedro-suse.tail5790ac.ts.net>
+	b=Yf05ie99WCEH3z5Bh5ZjkjaYMGpqa5c0dWCUG/aleYLfppE+V+1nkgGoTgNv2woQL
+	 q91oJAz+jzY84f1fDS3zTVyUgXljZFKWNQyxfqjdMwRWFyYHpey7LSg1i/OX5essit
+	 /0gQAJun5dgptmQJGRZ6EOE1cvo5xZdDgLE+n3Qc/PaK6RE7DEEeZyc9Rqxs7zMjG/
+	 yRB4VSJMcFHzaAV+YehR2OunxXCnMrpakiuMCAfJscLSMmlqfcsFUexdR7vkJLuc7J
+	 F0poHPePg+2XGAJa5vW8i3Sp75+1JqQI0J5EPNWvHE/gWyO0E21vuiN0spUR9tYpfI
+	 K9+NSpE9XxcXQ==
+Date: Tue, 24 Nov 2026 12:36:12 -0500
+From: Brian Masney <masneyb@kernel.org>
+To: Lee Jones <lee@kernel.org>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"Zhao, Linaro" <richard.zhao@linaro.org>,
+	Linaro Ltd <mturquette@linaro.org>,
+	Maxime Coquelin <maxime.coquelin@st.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 05/10] clk: divider: Avoid division by zero in
+ _div_round_closest()
+Message-ID: <awXLDDmHUpELwCio@x1g10>
+References: <20261123164834.3330320-1-lee@kernel.org>
+ <20261123164834.3330320-6-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,42 +69,49 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <awXBtrPSHfs51Y2f@pedro-suse.tail5790ac.ts.net>
+In-Reply-To: <20261123164834.3330320-6-lee@kernel.org>
+User-Agent: Mutt/2.4.3 (2026-10-09)
 
-On Tue, Nov 24, 2026 at 05:10:21PM +0000, Pedro Falcato wrote:
-> Holy cow the CC list is stale.
-> Fixing some up.
+Hi Lee,
+
+On Mon, Nov 23, 2026 at 04:47:38PM +0000, Lee Jones wrote:
+> When CLK_SET_RATE_PARENT is not set on a CLK_DIVIDER_ROUND_CLOSEST
+> divider, clk_divider_bestdiv() invokes _div_round_closest() before
+> clamping the resulting divisor to at least 1.  If the requested rate
+> exceeds parent_rate (for instance via clk_round_rate(clk, ULONG_MAX))
+> or parent_rate is zero, parent_rate / rate evaluates to 0.
 > 
-> On Tue, Nov 24, 2026 at 08:36:45AM -0800, Dave Hansen wrote:
-> > On 11/24/26 08:00, Nikolay Borisov wrote:
-> > > Resending this with the hope of either getting it accepted or
-> > > arriving at a consensus what exactly is missing so that I can take
-> > > it from there and eventually get something merged. As previously
-> > > mentioned this results in real problems for confidential guests both
-> > > on TDX as well as SEV-SNP.>
-> > >  arch/x86/Kconfig |  4 ++++
-> > >  mm/char-mem.c    | 10 ++++++++++
-> > >  2 files changed, 14 insertions(+)
-> > 
-> > I'm still OK with doing this.
-> > 
-> > But I didn't want to sneak an mm/ change in via the tip tree. Any mm
-> > acks or naks on this?
+> Passing down == 0 into __rounddown_pow_of_two() triggers an undefined
+> shift and truncates back to 0, after which DIV_ROUND_UP_ULL() divides by
+> zero.
 > 
-> For what it's worth, I don't love this fix. Yes, it fixes issues in /dev/mem,
-> but it:
-> 1) skips any other potential problem spots (I don't know which)
-> 2) open-codes random CC checks in mm, which is kind-of regrettable
+> Since a divider cannot increase its parent rate, return the minimum
+> valid divisor directly whenever rate is greater than or equal to
+> parent_rate.
 > 
-> OTOH, it's unclear to me why that CC check is needed. If configs select
-> STRICT_DEVMEM and IO_STRICT_DEVMEM, shouldn't it Just Do The Right thing?
-> in iomem_is_exclusive, etc. If not, could the CC awareness sit there
-> instead?
+> Fixes: 9315514252a9 ("clk: divider: fix calculation of initial best divider when rounding to closest")
+> Closes: https://sashiko.dev/#/bug/linux-cc7c0851-a317-4348-ab29-9d748aa20cfc
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lee Jones <lee@kernel.org>
+> ---
+>  drivers/clk/clk-divider.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/clk/clk-divider.c b/drivers/clk/clk-divider.c
+> index f68216c65d3d..d05dc595ec4c 100644
+> --- a/drivers/clk/clk-divider.c
+> +++ b/drivers/clk/clk-divider.c
+> @@ -244,6 +244,9 @@ static int _div_round_closest(const struct clk_div_table *table,
+>  	int up, down;
+>  	unsigned long up_rate, down_rate;
+>  
+> +	if (rate >= parent_rate)
+> +		return table ? _round_up_table(table, 1) : 1;
+> +
 
-Yeah, why is anyone letting a CC system access /dev/mem at all?  That's
-ripe for abuse lots of different ways, so I really don't like this
-change either.
+Carlo Caione posted a separate fix for this that I merged yesterday.
+Patch 2 in his series covers what you posted.
 
-thanks,
+https://lore.kernel.org/linux-clk/20261119-upstream-clk-divider-large-rates-v3-0-838eccd2e497@baylibre.com/
 
-greg k-h
+Brian
