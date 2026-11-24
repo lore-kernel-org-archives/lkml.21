@@ -1,66 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795529393;
-	b=PTQ4k8GCZumcQzCa3rm8C+OYdA00Wi5j0aBPM7xm2y9llnttq5LIKw0ZhlMVEJuacqQb
-	 Cf5WC6V0XRiO2BPyDtKpsYe8KEhaxOJK3nhdBeoyaYdmyonjJeR4odcua8IV1sK5GKV9N
-	 m/ScHym7961WVDAP/EAb1q54pw5Tjjajjbj4CJ9Mlh/BzCjXkSO2+3k2xRQMRV+uMdOKp
-	 nXJxUesNqaSA8TKCiQaqWZ3RpIBaI83ZcpkvDzT/GtyiR29IVPdVtp6vpLld0+uqVF7JF
-	 EJXeNea4ea6prtvDuy0PLgU/O77GrCWluea2/ueWJuunphFSJ7SdxiMPEErU8adqblQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795529393;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
-	 MIME-Version:User-Agent:X-ZohoMailClient;
-	bh=a4RfNBQTBp/UFVGqh2i/392nxbtU56+kwab0+TxIlZw=;
-	b=U7+FY1aABlRfiyFCA7epypDs4nSe+Ofy+FHYg2XWf0SA3IpafP5K3vtAwTGvRfF3qZLa
-	 uh+gEMn+fzJKh7RdxVC61oKyW5IxI+o1/xkeDNxMmlwhzrcUyc+awfTG5oWvYaddsV+EW
-	 S1HO7v0v9Zt8GRtIGnFk3RCJnofPrOWcbv/VP5gl9vwuEitEg5pYTHNm4TNrIjgXJiv7B
-	 JzS5xmWJtCkmokJqqZBB25LpLcgEEI3syW54/qwIvFA+djzkvh0itoUhsdf9uz7SJUBdw
-	 Q83sugNfz7MLjwuBXqVgOANKjt5C+nIqRapGDrmgZj/+/TCbGuTRIQqEoYjVvoeOlLw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rong.moe;
-	spf=pass smtp.mailfrom=rong.moe;
-	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=lvQ10+Ef;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795529410;
+	b=YezZ46bhPwZm8tNUs863qk/jrASbyHhjetGJ3j0jYsozCHAQl8qgv0DbB7UoDqSowe3t
+	 ZMXcbsQKRidDovtgu8PCQoHBrpp0EnG9a7xN+/Bur3vbf42GYCtUrr7EbMHfBf7q+dOHh
+	 fnBC1+UqmaRyCZc/U6bw0kTmI1bP3ADkKERrlmMIdq6ssnMBfAHz5rgT3o7PdnFgubl+N
+	 bQ4m89XI/k8sPelAAf6WumZJ011+36Scpqh15lBgYSkPkIHd6cJB2WeWsotOAKSeD9vHr
+	 rTW9cKffNwnNLeteqrjLYF8NGIgyMe4iWFozsbNgiKb7LMP3S9igVXXFqvtYTnRSLkw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795529410;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=2F33fJJ196T7IHOr3O9jDTp+8XN2H9SHjKysdDpLZ9I=;
+	b=fHnQDdaDHpeFyAER5cE66f/z2Wu5ZCkeC4l2NacZDAS4oIXLiJEoFTl1QKkKtcUZ+Kup
+	 gr7RCgphPKRsx4/W2O2iGRAaiWsizi/XwDyXSMeQtxlzSLQVSuTcatvwlU5iljTOQJiGZ
+	 HqzmmZF8blVMAI77GTl1NGCD1+eC9X6GTe1OYY9naCAl2w9Qtjjpm995f5M24/2wrDceq
+	 RH9CtVO8RYGi5ftBKQAIXjNfIX+xtRYMAFE8OlJLt8qhmRYOzZD0wjRDcOYThO/pRp0F2
+	 4TC7rLkypIJc/PmYyZBTt9VGEwV8mkwY8BjBq1DortmCW+oDrYkK52yFv/vBnMaFHRg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Oog8CgNz;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA63E606A697;
-	Tue, 24 Nov 2026 14:09:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA63E606A697
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20B61606A6A5;
+	Tue, 24 Nov 2026 14:10:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=lvQ10+Ef
-ARC-Seal: i=1; a=rsa-sha256; t=1795529350; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=g4m5swNtNX2Wa/Em07Orl+751l9WyGQB/ouMSuznju+lZU79CJMrQcz4aGYKh8vgD9Ctb0+yha+Tzv0PS+ex6kYioxcd8/Xdai5xx8CPrQL2rlaS0y+3Soxc4vFA1uPl5yDMa3ntU1NcHdZJD3O1BiNfQdBMAxsdxaFiPKMMvmI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795529350; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=a4RfNBQTBp/UFVGqh2i/392nxbtU56+kwab0+TxIlZw=; 
-	b=FAUJgi7NZlXDBLsTCviKlvzcoDMPV8Or7I1C95ndFsveAlrrqUtH+Zbqx/XBQ5LhKYPDiTvEeBxtsetfUba9dTbF2Gmg/Tu5Ocp8Si1E8/ghEGflhoYoRW00y8jUNE3d2yvNBI4moynRffMYUM0XcLyhVyhIuiq0hDDb4pgn7yc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: a=rsa-sha256; b=lvQ10+Efyd7eU4BlGQ6BOxkaD+Cb1mWFrO5MMj2GRsfluN252iAAspGhbbfpfnEhnO8F9gciNx3JyDOM2wpC0VMbyVxv0bcGbup/8fsX7spoNqocezpi4p1PpSsZyW1TJ4bOE7Z3ROWgWaHBcOvOy4k70fLs4oa0VwFQzuZ/yc5wpncse8rtatr+rQ3wCgr37byF6pHGljDC2iuNZMUQfoQkyk/LmJr10mDdZBxqR72as+iUlmAeeHwgk2r9D3xAODjxCsWVUcCswdDkt0CpuCOPkZ/DqceaZL/UBkeyxb1H30rycIS/JBBorDfThnlSITLY5FKkVW6CSDZDTUen5Q==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=a4RfNBQTBp/UFVGqh2i/392nxbtU56+kwab0+TxIlZw=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 179552934634154.10946730104092;
-	Tue, 24 Nov 2026 06:09:06 -0800 (PST)
-Message-ID: <d776d4ca05cd2378e344881b82725fda168f6556.camel@rong.moe>
-Subject: Re: [PATCH 2/2] platform/x86: thinkpad_acpi: Only check
- charge_start against a known charge_stop
-From: Rong Zhang <i@rong.moe>
-To: Tom Hu <huxiaoying@kylinos.cn>, linux-kernel@vger.kernel.org
-Cc: hmh@hmh.eng.br, mpearson-lenovo@squebb.ca, derekjohn.clark@gmail.com, 
-	hansg@kernel.org, ilpo.jarvinen@linux.intel.com, 
-	platform-driver-x86@vger.kernel.org, xiaoying_hu@126.com
-In-Reply-To: <20261124103946.897642-2-huxiaoying@kylinos.cn>
-References: <20261124103946.897642-1-huxiaoying@kylinos.cn>
-	 <20261124103946.897642-2-huxiaoying@kylinos.cn>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Tue, 24 Nov 2026 22:02:34 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Oog8CgNz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 813401F000D2;
+	Tue, 24 Nov 2026 14:10:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795529409;
+	bh=2F33fJJ196T7IHOr3O9jDTp+8XN2H9SHjKysdDpLZ9I=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=Oog8CgNzq/1+vsCvFV4st+G+/YHyWCpLCF18I0P9McohANPE4BKH0HSf0ki9PvRSo
+	 +7cvM+rP1MZGiD9G1u9WWhO2gdzERqKqbSWEa1fDl7DbDlbIS7WFpjuJ+fszn/Kbnv
+	 i7RwG5xC/7oM9B9/bhRF12UqwD5Fy0XPHfGS56PtvNoHEOmvjqv1zc45v/eW4h5XRq
+	 cCSYgTu/1meO+BsQ1J5jyrw7qaJ40RJsU+yZ1PqR6jUfFWBCg//mt2ZRum4Ssz4ly4
+	 dlMI7nZTL2BV6Qftqyp198e9OrmPWcC8nB50ax6cRmMPeubFVJhmJLjE83KcekyREL
+	 HqqUzlZKR0U/A==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 774833931120;
+	Tue, 24 Nov 2026 14:10:09 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,51 +53,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Evolution 3.62.1-4 
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] net/sched: sch_cake: fix unintended tin override with
+ cake_mq
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179552940802.3557137.6295650996391216301.git-patchwork-notify@kernel.org>
+Date: Tue, 24 Nov 2026 14:10:08 +0000
+References: 
+ <20261119-cake_mq_fix_incorrect_tin_override-v1-1-3238122d09ca@tu-berlin.de>
+In-Reply-To: 
+ <20261119-cake_mq_fix_incorrect_tin_override-v1-1-3238122d09ca@tu-berlin.de>
+To: =?utf-8?q?Jonas_K=C3=B6ppeler_=3Cj=2Ekoeppeler=40tu-berlin=2Ede=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
+Cc: toke@toke.dk, jhs@mojatatu.com, jiri@resnulli.us, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ willemb@google.com, toke@redhat.com, cake@lists.bufferbloat.net,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
 
-Hi Tom,
+Hello:
 
-Thanks for working on this.
+This patch was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-On Tue, 2026-11-24 at 18:39 +0800, Tom Hu wrote:
-> From: huxiaoying <huxiaoying@kylinos.cn>
->=20
-> When the EC does not provide GET_STOP, stop_support stays clear and the
-> cached charge_stop is never probed, so it remains 0.  charge_start is
-> still validated against that value, which rejects every level above 0
-> even though the start threshold is supported.
->=20
-> Only apply the cross check when the stop threshold is supported.
->=20
-> Signed-off-by: huxiaoying <huxiaoying@kylinos.cn>
+On Thu, 19 Nov 2026 10:43:57 +0100 you wrote:
+> CAKE allows overriding the tin selection through skb->priority: if the
+> major number of skb->priority matches the qdisc handle, the minor number
+> selects the tin. With cake_mq, the per-queue CAKE instances are created
+> through qdisc_create_dflt() and never get a handle assigned, so
+> sch->handle is 0 for all of them.
+> 
+> For forwarded IPv4 traffic, ip_forward() sets skb->priority from the TOS
+> byte via rt_tos2priority() when net.ipv4.ip_forward_update_priority is
+> enabled, which is the default. rt_tos2priority() returns 0, 2, 4 or 6,
+> all with a major number of 0, which matches the handle of the cake_mq
+> children. The minor number is then taken as a tin override and the DSCP
+> mapping is skipped.
+> 
+> [...]
 
-FWIW:
+Here is the summary with links:
+  - [net] net/sched: sch_cake: fix unintended tin override with cake_mq
+    https://git.kernel.org/netdev/net-next/c/7b75467462af
 
-Reviewed-by: Rong Zhang <i@rong.moe>
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-A random thought: perhaps initializing charge_stop with 100 could make
-the code cleaner?
 
-Thanks,
-Rong
-
-> ---
->  drivers/platform/x86/lenovo/thinkpad_acpi.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c b/drivers/platfo=
-rm/x86/lenovo/thinkpad_acpi.c
-> index 8fc5569131f6..842045272ffa 100644
-> --- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> +++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> @@ -9832,7 +9832,8 @@ static ssize_t tpacpi_battery_store(int what,
->  =09=09/* valid values are [0, 99] */
->  =09=09if (value > 99)
->  =09=09=09return -EINVAL;
-> -=09=09if (value > battery_info.batteries[battery].charge_stop)
-> +=09=09if (battery_info.batteries[battery].stop_support &&
-> +=09=09    value > battery_info.batteries[battery].charge_stop)
->  =09=09=09return -EINVAL;
->  =09=09if (tpacpi_battery_set(THRESHOLD_START, battery, value))
->  =09=09=09return -ENODEV;
