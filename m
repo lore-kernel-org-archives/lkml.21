@@ -1,88 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795519481;
-	b=IVxj/p8dm7IGO3IusVBxZcvQmaGAsItL7SToeSDtmdC5CEScV+xhpGL9MUahL8RnQk3i
-	 3CmHf7mmFF/YG3LHBiDZ1ere9klNb0ZUi4bsbMy89UDnCzHoLlNG/U+V9lVgKC4ampM0r
-	 vBZwFsemBhxEWGmZaIp1upH9L1gl8hSrJ/IyrDdgwkCqdNaMWki8wdowrEwPFnooVenua
-	 +u6umylB6sFS27R8kCJpWR6aDNhT+MOMzZyT++aFGIPBDzzeE5bPa1XREbHxQrfLFd9fr
-	 sN5pYEzWDweMIZsTaSnjm5dJ/ZRJRTGUb55rb0ScoVxx+P7CP94/Rh1ZAsS8XdLsUbQ==
+	t=1795519498;
+	b=0oGUWrb0F6YLNVirXE/OsU7j9nvo9JX6IYR83/oBmcgaAbCEzflLMwUHvwKmYeFQ1na4
+	 St13MTLkyxBTmyvGolpxJFmITnm8Nke0RcD/98lsEJ/vXxtUbqRbBgwOXIrjB7MiqACG7
+	 QZPF7QWml8yHWOts61Cw3FX8GCmi4Lcfk99hCwsqDR9B+BxNyFuXMB6+GNKNuQoJqkX3T
+	 zI5DbSGyEpAqTJN6BlcDofOuC/I0TZ/r80KG6IwCqS4z6fiJNgDkoms03eeU5vUyZBBcW
+	 hM4+Eb5o3611AIkut5Awm13GUu13dvunvFIBQCCamaJ7mZAL041oQtHdERvtHutYdmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795519481;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=RzFMb3TtzuucWHVLWCFL8thSDn33UJo8KWwaTHZ5em4=;
-	b=wjsEHTm+kt9UAX9geNWrngjb6oTtaaDUBa9oebmiCkvu//aJZqBs3tpdub3xzWU5kpCy
-	 QmaOOPEfBCUUQsM7DKU0Mb7nUQb5fsyTpPwOz/bpws6AOgA19gdS3wf2U6Lh2bRF5g2B3
-	 rADhnKJcyfFg6R/KuqroKziOJ4/uMIEYa2qPgu0L1Bjj3t6vd+aUnLDaxhoH7P6J+aVpz
-	 a4u3EMZr2K5acOE7ensX/zjO4PKGWsRr8XgFOyYHUTi7w3WmKq+IvvNIkIxf2Tcrjds8I
-	 kCr3JxpsU41nqclj8UCU08l54gpbYqvo4wZGGJErBEuy5atA8/PHv5O9vUzGQgpxmKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795519498;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=fKJgwndBmVk1QjSgTESMXqKkxhnqis7hXIoriLN6iH8=;
+	b=ZxoNJ1MVVXOW9pYhgldSrplibP1fbVROTQJIspo0TXKU9uQRCRdOEHzprBgx11r63yGq
+	 XMNW5SjZvthkIdtqGEJ9boGM6yEFzsnB5Owb8ecI6PiKYopfxY//NG67WUGjjzu9tAZA+
+	 h3nyIsX+WfPIrUOAM6Ddu0tH/7Zj7LpcxwKUtPXl4wmOgeT8AkRvMbWzvw07SfnsnpFF9
+	 fvxwn8VYsj2WY3RGDudvsEQ5+j653pPY2IVWUbyiB6wtPlS5CLxxl5/+A9ctVW2XZwp6b
+	 BHL+tG3NVzOEYX0+ieKgRW/7LNYcQBSbTii8iqpSRYBniM0kKwICf7TuUoSrqWBTLbw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=G859brBp;
-	arc=none smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=HKidqfUD;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3206606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:24:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3206606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BBDB606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:24:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9BBDB606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=G859brBp
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-4b52fcb410dso930976f8f.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:24:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795519479; x=1796124279; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RzFMb3TtzuucWHVLWCFL8thSDn33UJo8KWwaTHZ5em4=;
-        b=G859brBp3PRE9sKtnIOu+PiddHE693uDbFkFcyk61iNPdCgzB5fRX7Z0xSh+Ehz9QH
-         jnr2NJxcJyyEamvREUpvoTjvvYevuMuRAQmCM4ecpupnJb3514160g5Zh+uEUIbd4mqM
-         ktxy2mixDWYnycwuMhm7jiONKjuvObrXipDiOcRA1RrSudSI7WZ12nTVFFz5oRmX2HaF
-         RHBy859GtqyGXZPqhSoejfjnPhk5H6OZtCfm33mHNgNI6MENB3xjCxaLdLedLqc3uxb3
-         FZgSV3jY/+6gQCplX6mtf38JhQy67GjS4Fu3PTpXFAiE4IWQjnZD4JNLMYcdtI7Qs2W0
-         HyNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795519479; x=1796124279;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RzFMb3TtzuucWHVLWCFL8thSDn33UJo8KWwaTHZ5em4=;
-        b=BKfllqEJ81rCUjZGovxfUOwc0tit7/1Sq3KhTv12aeI4Qq1CHmYCG0Z5kvfj6iiWEH
-         9o9oOjRkvokeW4jewGKD4iPShneTielMFn+kIV5thGQyVgWCQPbIff/0xHhyCHVXkqD/
-         pDN1C607lPCE66J1QPf/BaEUnTkFEP77QNA3Md1QibjUXb69ewRKlP1xxeHyThCzpZG2
-         XKZzTFJT3ug7/2HW5Q7KsECyrcOHPc8wN6XC+fk/m0EOGIgQV8wBf+3uVDG09fAMhkN4
-         WHwy2/FHxY1YzwOCxj5iWz1hbirghk0kHE8dkK6GLwLvPVav42rGHav5ohqfBGKmknLv
-         yAHw==
-X-Forwarded-Encrypted: i=1; AL+hErHRbbseUzWe55kECy+e/91Ri76bB0W/SR17ZOJxcoKlqbpnyLxNonx+bGXjnH+MTI9G8vY8XYaGMWz7VRA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+yYGTCgPn0F8/GUwJpacTaP2CcINHyIATo/F5cAghMNREv1tuI
-	lQd94n/ezbbAY1ck+FQWm7ZXSwShjCngCUKHBCxXUZ8aTpPznKnFfXFspkt7WbWPLa4=
-X-Gm-Gg: AZFdTZeGuE5/lipo/FqngZ9DN44QPp+ap4ehfwJ7a39IOArWdOKmSwro4CDVejRYfb9
-	d5MRohSZPhVzxHAs2Lh9jLf5Hd/rlxqXBt7bez3gPTKOtfZPvTdIZdqHyJeqC2t/9U4FAdfL+RE
-	haS3vdZ2QYiitdeIRuJTx5PE6J3+E2MSUGaRKliy7JXZrBscVsODg+t4ZWaXhJbkfbqBzpycawN
-	Qp537fl4SrmqIvKaG0j3tdP0I6Qkj53r02M9+F8olRiPDkXM6apokPNJGeTOcnaU7sEqHrG7kMI
-	b1CRr4onmcY6iXT3NDWXjNUFX9StPGFSwGLJJj7Sj6YYufz3zwKtdgJaLhEjxUNYtY2uNRVNSVX
-	JcxJnMvrNNjyjiW77s7jJPspcXpSgb492I41JnuXf3CrN4gI7jdXjd4+dMhaRTDTFT2DC117HLR
-	G5QQDW2LfueXIbzxtbTIYrbKQ9W4+g5RXGWmQWtr9hx0x+pC/ms/Xli6MOMpDbJMv7juqYecUTQ
-	WW6evLayIgUDP3AD9ANNmh6A8u5vCNvaSFmCNpioR+K+65/HmFIw8M6rSIIjCl2GgqfWmVOKFoR
-	JK/le4ZI5qCovnp3FTEU/weX9jh4skcWug==
-X-Received: by 2002:a05:6000:184b:b0:4a7:9630:7b36 with SMTP id ffacd0b85a97d-4abb3f15ddbmr29862376f8f.21.1795519479042;
-        Tue, 24 Nov 2026 03:24:39 -0800 (PST)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b205443sm28811395f8f.39.2026.11.24.03.24.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 03:24:38 -0800 (PST)
-Message-ID: <46a896ba-cd45-4747-837d-50ea4b4dbed9@linaro.org>
-Date: Tue, 24 Nov 2026 11:24:37 +0000
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=HKidqfUD
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795519496;
+	bh=m+QktASoilhpAu5jCWRlhhnUzEWwf0rcN1O0jXft81Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HKidqfUD0IcjQxD6en+YNVjDJQ0sI43LaDJhDB2jeA6MFVDhqieRSvJGtqAvlrm8j
+	 +52M527PJXxwiGZtMN3RayKqMMnNMndXcnxUJTlZwIkMViAPUATAD3pCIrSFrakjO0
+	 w46uiz9bTgr6VDfkzRk250nOJ9QZ76purJlAcs+O31yD848ID2sqwPtkLjT5r70FGC
+	 2MtYpQV2w/WXbtUMNtX9BM0FUjzAPHaKlwEDuH85pnf/s3umOlQuw6lb1FNfnnxGX5
+	 Oac5GfU7x+yUJj0F3WmEtxU0jlEa0CAHnhveouDy319G1PKxaB515gni9AIJXZg+Da
+	 y/9Na3NcTKD3g==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7FF3C17E0309;
+	Tue, 24 Nov 2026 12:24:55 +0100 (CET)
+Message-ID: <56cca340-b7b8-4e6a-adbb-887864cc14b1@collabora.com>
+Date: Tue, 24 Nov 2026 12:24:55 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,71 +62,82 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] perf build: Only enable context analysis with Clang 23 or
- later
-To: Namhyung Kim <namhyung@kernel.org>, Arnaldo Melo
- <arnaldo.melo@gmail.com>, Ian Rogers <irogers@google.com>
-Cc: linux-perf-users@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
- linux-kernel@vger.kernel.org
-References: <20261123-james-perf-late-parse-attr-v1-1-cfebcd81a962@linaro.org>
- <CAP-5=fXuQWTt1F6BvKSXqgSkEtBQPKvKg6gmAe-ngyr4VGyGig@mail.gmail.com>
- <EC27692D-9692-4976-B7EA-4C3A91173CE3@gmail.com>
- <awSu48pUIh942Zm4@google.com>
+Subject: Re: [PATCH v2] drm/mediatek: dsi: Don't let a signal cut the IRQ wait
+ short
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ =?UTF-8?B?WmktaGFvIEh1YW5nICjpu4PmopPosaop?= <Zi-hao.Huang@mediatek.com>,
+ "ryanbrue.dev@gmail.com" <ryanbrue.dev@gmail.com>
+Cc: "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
+ "simona@ffwll.ch" <simona@ffwll.ch>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ =?UTF-8?B?U2hhb21pbmcgQ2hlbiAo6ZmI57uN5piOKQ==?= <shaoming.chen@mediatek.com>
+References: <20261119033634.1844084-1-zi-hao.huang@mediatek.com>
+ <fe208c0c-cea4-4e56-8283-e242ac1cd2ae@gmail.com>
+ <65140b86aed23f307f8552be8bc5ae13f1de1874.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <awSu48pUIh942Zm4@google.com>
+In-Reply-To: <65140b86aed23f307f8552be8bc5ae13f1de1874.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-
-
-On 23/11/2026 21:23, Namhyung Kim wrote:
-> Hello,
-> 
-> On Mon, Nov 23, 2026 at 04:55:16PM -0300, Arnaldo Melo wrote:
+On 11/24/26 06:54, CK Hu (胡俊光) wrote:
+> On Mon, 2026-11-23 at 18:31 -0600, Ryan Brue wrote:
+>> External email : Please do not click links or open attachments until you have verified the sender or the content.
 >>
 >>
->> On November 23, 2026 3:44:12 PM GMT-03:00, Ian Rogers <irogers@google.com> wrote:
->>> On Mon, Nov 23, 2026 at 8:46 AM James Clark <james.clark@linaro.org> wrote:
->>>>
->>>> Context analysis requires Clang 23 or later (see
->>>> Documentation/dev-tools/context-analysis.rst), otherwise the build fails
->>>> on older versions, e.g. Clang 18:
->>>>
->>>>    util/env.h:142:39: error: use of undeclared identifier 'lock'
->>>>      142 |    struct rb_root          infos __guarded_by(&lock);
->>>>
->>>> Only enable it when the Clang version is supported. Leave the other
->>>> thread safety options enabled if they exist because they don't cause
->>>> build failures at the moment, and might provide benefits even without
->>>> -DWARN_CONTEXT_ANALYSIS.
->>>
->>> So we've had -Wthread-safety for a long time in the perf tree, I'm
->>> guessing __guarded_by is missing on older clang versions. Can we just
->>> stub out the __guarded_by for these old clang versions and keep the
->>> lock checking?
+>> On Thu, Nov 19, 2026 at 11:36:34AM +0800, Zi-Hao Huang wrote:
+>>   > I'm not sure the trigger is specific to our downstream driver.
 >>
->> Looks way more reasonable, and no need for a feature test since we know
->> the compiler version when __guarded_by was introduced, right?
+>> I hit the same lockup on MT8173 (Amazon Fire HD 10 2017) with the
+>> upstream driver. v7.4-rc4, whose only DSI change is "drm/mediatek: dsi:
+>> force command mode in mtk_dsi_poweron()" from the mediatek tree, and the
+>> mainline NT51021 panel driver, which also sets prepare_prev_first and
+>> sends display off and enter sleep from .unprepare.
+>>
+>> The trigger for me was suspend under Plasma. logind's PrepareForSleep
+>> makes KWin turn the display off, and the session is frozen while KWin's
+>> commit is still in the panel's unprepare. The freezer's fake signal ends
+>> the interruptible wait with -ERESTARTSYS, mtk_dsi_host_send_cmd() takes
+>> that for success, and the late CMD_DONE lands in mtk_dsi_irq()'s
+>> DSI_BUSY loop. After the watchdog reset, MT8173's last-PC latch showed
+>> CPU0 at mtk_dsi_irq+0x84, the DSI_INTSTA read in that loop.
+>>
+>> With only mediatek-drm.ko changed, suspending through logind with a GPU
+>> benchmark running: without the patch 5 of 6 suspends reset the board
+>> (about one in three without the load); with this v2, 0 of 10, with no
+>> DSI IRQ or vblank timeouts, and the panel's power-down still takes 270ms.
+>>
+>> The wake_up() hunk matters. With only the wait changed, every command
+>> waited out its 2s timeout and the panel's power-down took 10.4s.
+>>
+>> Tested-by: Ryan Brue <ryanbrue.dev@gmail.com> # MT8173, NT51021
+>>
+>> I actually had a similar fix ready to go, and found your patch, so thank
+>> you :)
 > 
-> Sorry for the trouble.  I checked with clang 21 and it didn't have a
-> problem.
-> 
-> Thanks,
-> Namhyung
+> The upstream driver has this problem, and this patch fix it,
+> so I would apply this patch first.
 > 
 
-Looks like __guarded_by() has also been around since at least clang 18, 
-so that wasn't the issue. The problem is that it's not supported on 
-struct _members_ specifically until clang 19.
+CK, okay, apply it.
 
-I sent another version that stubs it out for < 19 which works. The 
-commit summary changed to "perf build: Stub out __guarded_by() on older 
-Clang versions".
+Beware though, this will block at every frame and lower performance quite a bit.
 
-The header diverges from the kernel one which isn't great, but I suppose 
-that's better than someone on clang 17 or 18 missing out on all of the 
-lock analysis.
+Cheers,
+Angelo
+
+> Regards,
+> CK
+> 
+>>
+>> Best regards,
+>> Ryan Brue
+> 
 
