@@ -1,87 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795554380;
-	b=rTF6Fsn6iojH0ZKzesc/N3APpv8mKv23DMpom6FUCDtn49Jap9lmIXbdEtGUAX6Dtyj+
-	 O6mFDhIaEzi37KOXN1mEH5hIdf9fGG8gQwYi8cCB0k6qhLPW7hOcUwkD77/gtLAMt+MlP
-	 IV5YdtV8axvTPQJjaQtRPoZ56chqj14EjJRQrkxXzCIzLRIErhyl5/Y/aKLGpRNZ1Qaxr
-	 CwZSLuf4psf163E110pqfQyhwS9RjkBboj49gtkMo5JR80lCWdHO29c3Kc6cc+0toRyBY
-	 iCFHz4+wXZ21Zp/rrRXzBrMdqFJdpazqiQ+7C/kgU1RbOP3LezqHPMrXWpNvta/7Ekg==
+	t=1795554376;
+	b=Q9vOfm3eqQMRYQMU3qusAU9H5kqLKsAGglLvOpy4hr9tsWBzQY8fB/BAsh5/3Hfih78C
+	 nL04ww1VVl33FL00eW/z8WhFXLGYK5x++9Y5F3Qv9X0ds+oDro0uAHEuLFAIf2ivQuy/6
+	 UIT+ANn/Dwtm3UmRXudMGUF/Q8rCRxSs7fggodO6FHxmSuWviYU76ajxZ1P0xaAhYXeM7
+	 VxD2Z/8KETMTdcwzg4XbdqZ+G33FieHOVo4iobgkarBr/cXb5A1rHlO7C91Vs+ypM++7m
+	 m19FNHXHkNFNZy5FAUBTpc4D/2d5vmr0rVptiw8nOUxXvexE843TDaeiQXfck04Nmew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795554380;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795554376;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Subject:Date:
+	 Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:
 	 X-Developer-Key;
-	bh=Ji5DBvHMt9pEPGCAjXMKV7F4pZO8U3K9gVXBlfCjXhU=;
-	b=ccLY260CID3ozuPU3WoTXGUbRKhERkEfnEcsmBUOWjY1ZM0uigevnuMitdWkRvwdFnJi
-	 62dmx96dxvvQ8N1ztGMB6s0IToqpaMsMpyR9lc60mf/lDB242UC9qZ/6EnHsdCzGsADUN
-	 VWvTxKnteZSX7ddYgvcB/XQ6QAynND/u8+cWLGj2hCApgNzt38EJ1weXfcKmDetXXUZ76
-	 AGbc/Xsy8hhfbrhbeANYkt0okozsXpEQnyMSncpkACHBeZmjbXimutPgrkciSEovehlxu
-	 vomE2O//osmk6u8+EEPLSYykROctYmsyCDePacu/it+MNAv6cAcEbROkPg3P8mEx5gA==
+	bh=rz9cXwSdrIyJkGKwTLKEziA5VeFet9zhVgH+uApk5dg=;
+	b=a/YlmJe1o4e/B7F1WXLapiBWUs0j8SWlm3Nyu1dDZBqclZUzFIzsYU69IjBpLENhiEEO
+	 yK+WyuOqhisF8uNbLBZMptVdF9fQGFGtRuuLdQWJyHmJ+E4NT4ItlJ0UX6NOjfrrvxukY
+	 DGG6LhqPgcKr4CeLub3Qhz63j5yMSwJmyTVrZVCRnsmsIdDjDCUUN1GaCL3ngCp2Kkv9O
+	 sp0Y9cVeLHdwT1H23Q8NVAjdLEQCaQTUJq97T4/eEERxKxyW0DpYgcofE5IGS7wA9aL2S
+	 FMtQG+75GeMYRkQjb8ODCNicseSIqsL92sQpzx0YcxzQ7gUYF+VS7cGTLGfEINAYwhg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OmRHwFwT;
-	arc=none smtp.remote-ip=209.85.208.174
-Received: from mail-lj1-f174.google.com (mail-lj1-f174.google.com [209.85.208.174])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DBMx8mG4;
+	arc=none smtp.remote-ip=209.85.167.50
+Received: from mail-lf1-f50.google.com (mail-lf1-f50.google.com [209.85.167.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01472606A33B
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:06:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01472606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D471606A327
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:06:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D471606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OmRHwFwT
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-3ae2fb3fe2fso45089661fa.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:06:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DBMx8mG4
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5c1a947b4adso4068772e87.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:06:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795554378; x=1796159178; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ji5DBvHMt9pEPGCAjXMKV7F4pZO8U3K9gVXBlfCjXhU=;
-        b=OmRHwFwTSawmkAFTR+o9w8xLXrxw7BfrpxHcwbaPH2om110faqBJfdN3CDbluszpla
-         MCCatk5dE0MmP31YcqDqerFj7VzrSmeoQ6UgRoURqgJbg3tvTLPK3sSHdU/txDIRzCu4
-         /GDjSoJKo/n24GC5G2O3xTy2o1Jtjv7zVzLyAuBAJv9beFIE1vfwsOt7NyBDlWl2262K
-         3jpc5jYMz3F0/PWkbQMuGx027L6vwwl4AYy7Ust8JJ1H86hY7MfeHndyAAgKBq8YT6Xx
-         RYm0U9a09PQznO/2YrgqaRGylyoTDIPFFo5eISmZgxcqnYgRxiuzqEN8CegtQ1Uz5d3X
-         DXAQ==
+        d=gmail.com; s=20260707; t=1795554374; x=1796159174; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=rz9cXwSdrIyJkGKwTLKEziA5VeFet9zhVgH+uApk5dg=;
+        b=DBMx8mG4eYblBXo/XBW6v/IeuxqOAFfzjTNYQexTVYZaEvGSIOooL9Qey+mRSD4ve1
+         2UPPuq0TOyt4yZrh92966E5Pn+LVARENCz+Cp7LeBuGkbXPbd2PHax9NqlakbHIHcirW
+         S3EJ4AcgFr1rvvYxrAoi0ozfiUkpzHznANVBM7iPNu5XpZ3bMcjGcmWSy8lqteJny2//
+         1eYoL25MVWny0JgncZI1quQUjp4DnK3ZPCtuC/oarxBWmQtgTJDyzasMmlbo/no1BEmI
+         V2Gu4UBlaoP6SsfD/vNK/wmCjAVtRzkVHSZvpELWdFIBG1uDjwk8BN5bkINvxbjtyQio
+         UYbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795554378; x=1796159178;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Ji5DBvHMt9pEPGCAjXMKV7F4pZO8U3K9gVXBlfCjXhU=;
-        b=y6FGss/Bw7ReGS6tRzyHjtm4AeUCnFg3eKP/cm515SewxuN1LBpvR8ouYJYVQEJX5u
-         iuxDqJ5y4NH/OP2CCbHfGElOiUH58QYAbrDouXqzJmRTmZftHQDwrhUUbBSnvwWPmA+Y
-         PNrOcwafLS9I1mmdrNpk4Wxcl9qD5XzmNc+LbE7sSwacr1W0LliWBo2kz6rwu+RJsxXR
-         sBb5i51hqWYQf8nEbzeP1huS4uqTukdu77c5s28ApUcPEWgh/NOxXGEIotte5gF2s1oO
-         hYMyMdSo6xuj4uR4RcGqBSAk/TSiidNtez7+yR2Rhlk3Qcm0JMd+wPoOg1ia+sQT7S0o
-         fw9g==
-X-Gm-Message-State: APuU4Z8DDWgtWq97f5jCRXfmHcSWH/zC2kTeeX5EPUyKVA22HItTuvIr
-	auW83eHBh1/rGb2x63QoK7XeSfuX/LrnXpqcXiKr+5EWcqK78PuthELp
-X-Gm-Gg: AZFdTZeaVSm64tYSmxGAFNS6RlPhBfZysjqXA+eiIIjLDoxba/DZjab/Hp5aXPNlxvz
-	5q6YdWv8ZnodRBAlXK12qPL86JUigl4+SczXJCeb7fyRkP/LNWstaM7VcMHyHiM43v6foIoiBib
-	2nZvjcIVJfxfOEewnHU+jDd7V5F/YETjGbfTkEOvXScY9ogloNgyu7GnJVH1O/UtqsZl1FEJUI5
-	VaVErDE/eMK5UUGTGNwHtbSmghnKTgIUjGgYCOPBxylPtTkBRwNMwuKjl64d//SYI76da/n6czB
-	B9LiJde0MgWcApRxHCHbrzxhsO+Ua4T4wnyFw4m+8PR/4HthE5Ej/msdaxT6Wwu6UkU9wkoOWQF
-	xRqgT/SwIpKwv1geLzdwZcnhiB0qNRAGG2ZjcVsotTv8LGqsf9WPbb5/4x2iNi0gwgBepL8j+qH
-	umsZF4ilI0IkrNheHJLBYZl+ZakhX0p5hOZq9fjeQ3yCH4MkA9QhrQonlKJ/vf3ym+OoYPHMI1F
-	B3uzn0RSwF5QquaVxEPafl0/9aCMT2VvUCAjEyxOphOfRlDRZypoA5YutZwZ9eL3PitnfueSR4v
-	dpCgAgNSUuCjnGwcXc7Ch8Fde2Y5otSmiluObeBotLlMYJOQx2cgrddYUogI0A==
-X-Received: by 2002:a05:6512:6886:20b0:5c1:57f6:2a55 with SMTP id 2adb3069b0e04-5c1bc7c3c66mr3363374e87.22.1795554377996;
-        Tue, 24 Nov 2026 13:06:17 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795554374; x=1796159174;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=rz9cXwSdrIyJkGKwTLKEziA5VeFet9zhVgH+uApk5dg=;
+        b=Mo1e70Hbdlynh4UujUvkNszh1VkLfuZcSp0ZhRtjGcs7F53Varx9c7Ev0doZysxNcX
+         a2YA4OOoyKsPSGTKMxQou8zjugHZytfHawEjmIIwtlNzcNTLtjKsoSwJgZoBBbVZaeZj
+         fCPL0PcN+Krsmk9oLuuNT8zgC/Xlq/Xd1wPHvGXF4IoYA62HoANJYu0T9t00RErljX8S
+         lHgKXMQOyM4cMpyvh1DRNWw7eI6FFQkCGOo9JWn02gHEWt8DRcyZt2s/2Rj8n7nycdek
+         +cYYqQ5xGm8BAAVb0x+BAGtAB0Z5utrW0M74ZUy9i9Wy/jrxV6ZeQl9W/JDCCbMZH6M0
+         MqnA==
+X-Gm-Message-State: APuU4Z+b6YYaaYQqTzdzdsWdyCJVo0Pbg9VGuIxUYAzqixv0f5a49LBc
+	JmDNRK5/xP5eNrw+gY23NEQNnKCDxFGE5OQEOJmkQ3gznEMxOcopk4bq
+X-Gm-Gg: AZFdTZfzlU9F2tohKUvHef2iLO+YfxBjZZBlU8FMZv3m9OwV4pUP4slCSQzxvXcGtAK
+	iv1uPgrsYzbXWAMq23n+IaTtjHPyW42H8MiOrEDcfjYMJr1ZGPNMFVhKVhDkE4BTu3iAeKaTTZ8
+	jQUHvgVRPpgh/WI70qHukYbenn8Zb6ZQ4e6ASWJ20vVXpsoT+UslRP17qvIuhp90CsVrgRL6ncE
+	FNT6+T1N+AQjhyWmGoNTKUmSbqmqTg80mZK7HLk9pInyXn0O084qiDFL+oEDjL5YX6o0uEiXWcS
+	nU+nj7kuRRQOQLr6K6wqWYEM6n0GpqLNULsGjUnKdWEip3zKquP1yx50xJkRbckjYAx7FKETZmq
+	3G6PzIXtk/bOdWivsP3VtDyVMSEP/+g01+kUngczecU2diW2hNgrOlTqw7w2DN/WtegnyrS3BRi
+	hwbZcxzau91AvBLuer5WldDSaVaeM14zF9KtZVSI2qdU1nNN1OmM+AP8MfSUPf69R5IUkZ9Y8UY
+	+OY8WbmxFZaJp8gCONvo54CdkxCS0Rf0frMJl5ea6fYmyAUS0WfhVfc2DRfQd6cbQsKwgf+3wrG
+	N92IZaz1v/DEGCshlDdXN1gBOSKWvOaY3RPMhf4m
+X-Received: by 2002:a05:6512:1585:b0:5c1:4cd0:16d6 with SMTP id 2adb3069b0e04-5c1bc9055eemr4215243e87.65.1795554373444;
+        Tue, 24 Nov 2026 13:06:13 -0800 (PST)
 Received: from [192.168.0.15] ([2a02:a312:c59b:a180:251a:f25f:80fa:af1d])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd041813sm4099045e87.53.2026.11.24.13.06.15
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd041813sm4099045e87.53.2026.11.24.13.06.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 13:06:17 -0800 (PST)
+        Tue, 24 Nov 2026 13:06:12 -0800 (PST)
 From: Artur Kowalski <arturkow2000@gmail.com>
-Date: Tue, 24 Nov 2026 22:06:00 +0100
-Subject: [PATCH v2 2/6] clk: tegra20: Add watchdog reset control helpers
+Subject: [PATCH v2 0/6] watchdog: Add Tegra20 watchdog driver
+Date: Tue, 24 Nov 2026 22:05:58 +0100
+Message-Id: <20261124-t20-for-upstream-v2-0-440116846f97@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,9 +93,11 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-t20-for-upstream-v2-2-440116846f97@gmail.com>
-References: <20261124-t20-for-upstream-v2-0-440116846f97@gmail.com>
-In-Reply-To: <20261124-t20-for-upstream-v2-0-440116846f97@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/2XNyw6CMBCF4VdpZm1Np3IrK9/DsIA6wBihpC1EQ
+ 3h3A7pzeZI/31khkGcKUIoVPC0c2I1QCn0SYPt67EjyHUoBWukMURUyaiVb5+U8heipHmRi8sb
+ mWYpFYeEkYPLU8usgb9V3h7l5kI27sxc9h+j8+/hccO9+PKp/fkGpZGr0JUmMSbGlazfU/DxbN
+ 0C1bdsH9xERBcIAAAA=
+X-Change-ID: 20261108-t20-for-upstream-497bc765188c
 To: Daniel Lezcano <daniel.lezcano@kernel.org>, 
  Thomas Gleixner <tglx@kernel.org>, 
  Thierry Reding <thierry.reding@kernel.org>, 
@@ -113,152 +115,159 @@ Cc: linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
  clamor95@gmail.com, Artur Kowalski <arturkow2000@gmail.com>, 
  linux-clk@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4485;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6648;
  i=arturkow2000@gmail.com; s=default; h=from:subject:message-id;
- bh=+8ECPpoBhBW0hO7OEab5QMQVuU3PE8Uce0sGxdle7g4=;
- b=owGbwMvMwCVmYeTc/TaVxZzxtFoSQzbrHyeRq/9eFy1l7my/tM1WqGl1Z97lTWrt5WLJtTJck
- 53fVWp1lLIwiHExyIopspg9FPrCM8/r/YaXWzth5rAygQxh4OIUgIkw/WX47x8tyL+yytPIy11a
- Kfvdl/hrn3zd8jPyLZO0PT8mGgvPZmS4XB5k9yasIFor3eenj+i31uqLax4F7PLmZFsh/rxibj8
- 7AA==
+ bh=DR/VcPZhN2+mqYyrN5IGtMQShQopJZHsyrrHEo9QXW8=;
+ b=owGbwMvMwCVmYeTc/TaVxZzxtFoSQzbrH6c3kW8X68xaHdSycdqJ0On/Ez9vjne6eOU82++Kj
+ Lf1Jq//d5SyMIhxMciKKbKYPRT6wjPP6/2Gl1s7YeawMoEMYeDiFICJNFkyMsx6fkp+X+vses2c
+ YPZ3T6PybFXF7RP+HIr0vq/c87v13meGP/z8H2slrj5s+Sr98tvPx3z/tQ7L2zc8O2HyNq+Gc97
+ bCg4A
 X-Developer-Key: i=arturkow2000@gmail.com; a=openpgp;
  fpr=F60710C8D69E03A01A2801CD87A47D20C2709637
 
-Tegra20 has no watchdog block. Instead, the clock and reset controller
-can reset the system when the interrupt of timer 1 or 2 fires while the
-previous one is still pending, which is enabled through its RST_SOURCE
-register. The clock driver doesn't use this register otherwise.
+The motivation is to improve recovery from kernel hangs, which have been
+steadily driving me to the doorstep of a psych ward for a few months.
+They are rare: some happen at boot, others while using the tablet for
+something real, like reading PDFs, browsing the web (to the extent
+possible without working GPU accel), or just using it as a thin client for
+another device.
 
-Export helpers to enable and disable this reset with timer 1, and to
-check whether a bootloader left it enabled, so that a watchdog driver
-doesn't have to map the controller's registers behind its back. The
-read-modify-write of RST_SOURCE is serialized by a spinlock of its own.
+All my attempts to find even the slightest hint of what went wrong have
+come to nothing (the device just refuses to hang with UART connected),
+so this series is born in the hope that it will finally enable me and
+others to catch those bugs (using the watchdog and pstore).
 
-Signed-off-by: Artur Kowalski <arturkow2000@gmail.com>
+Tegra20 has no dedicated watchdog block. Instead, the clock and reset
+controller can reset the system when timer 1's interrupt fires while the
+previous one is still pending. This series adds a tegra20_wdt driver for
+it, which takes over a watchdog left running by the bootloader.
+
+Tegra20's boot ROM hangs after a watchdog reset if the VDE partition is
+off (for normal reboots, this is handled by 8f0c714ad9be). The series
+offers two mitigations:
+
+- By default, tegra20_wdt stops the watchdog for good before the
+  partition is powered off for the first time, using a new PMC power
+  off notifier (patches 5 and 6). A watchdog started by the bootloader
+  still covers early boot, until the PMC driver comes up. After that,
+  opening the device, keepalives and timeout changes fail with -EBUSY.
+  Booting with tegra20_wdt.stop_on_vde_off=0 keeps the
+  watchdog running instead, at the risk of the system hanging instead
+  of rebooting.
+
+- Booting with tegra_pmc.vde_always_on=1 keeps the partition powered
+  on, so the watchdog is fully usable, at the expense of higher power
+  consumption.
+
+This has been tested on ASUS TF101:
+
+- with tegra_pmc.vde_always_on=1, the watchdog stays on. The device has
+  been running for several hours with no issues. Suspend/resume works,
+  and the watchdog keeps working after resume, both when only the
+  watchdog core pings it and when user space has it open. The watchdog
+  resets the system both when user space stops pinging it and when the
+  kernel crashes, and U-Boot and Linux boot normally after the warm
+  reset.
+- with the default settings, the watchdog taken over from the
+  bootloader is stopped when the PMC driver powers off the VDE
+  partition. After that, opening the device fails with -EBUSY, and the
+  system keeps running without resets.
+
+Another series for fixing some other issues with warm reboots (not
+related to watchdog itself) will follow shortly.
+
+Patch 5 is flagged by checkpatch (WARNING: ENOSYS means 'invalid
+syscall nr' and nothing else). I kept it as-is for consistency with the
+existing stubs. If this is not desirable, just tell me.
+
 ---
- drivers/clk/tegra/clk-tegra20.c | 60 +++++++++++++++++++++++++++++++++++++++++
- include/linux/clk/tegra.h       | 16 +++++++++++
- 2 files changed, 76 insertions(+)
+Patch 3 depends on patches 1 and 2 and must not be merged before them:
+otherwise the watchdog driver conflicts with the clocksource driver over
+timer 1, and the clock driver helpers it uses are missing. Patch 6
+depends on patch 5.
 
-diff --git a/drivers/clk/tegra/clk-tegra20.c b/drivers/clk/tegra/clk-tegra20.c
-index 9da82dd7965ba..4b2e0e4540a5c 100644
---- a/drivers/clk/tegra/clk-tegra20.c
-+++ b/drivers/clk/tegra/clk-tegra20.c
-@@ -17,6 +17,13 @@
- #include "clk.h"
- #include "clk-id.h"
- 
-+#define RST_SOURCE 0x0
-+#define RST_SOURCE_WDT_EN BIT(5)
-+#define RST_SOURCE_WDT_SEL_TMR2 BIT(4)
-+#define RST_SOURCE_WDT_SYS_RST_EN BIT(2)
-+#define RST_SOURCE_WDT_MASK (RST_SOURCE_WDT_EN | RST_SOURCE_WDT_SEL_TMR2 | \
-+			     RST_SOURCE_WDT_SYS_RST_EN)
-+
- #define MISC_CLK_ENB 0x48
- 
- #define OSC_CTRL 0x50
-@@ -132,6 +139,8 @@ static struct cpu_clk_suspend_context {
- static void __iomem *clk_base;
- static void __iomem *pmc_base;
- 
-+static DEFINE_SPINLOCK(rst_source_lock);
-+
- #define TEGRA_INIT_DATA_MUX(_name, _parents, _offset,	\
- 			    _clk_num, _gate_flags, _clk_id)	\
- 	TEGRA_INIT_DATA(_name, NULL, NULL, _parents, _offset,	\
-@@ -1164,6 +1173,57 @@ static void __init tegra20_clock_init(struct device_node *np)
- }
- CLK_OF_DECLARE_DRIVER(tegra20, "nvidia,tegra20-car", tegra20_clock_init);
- 
-+/**
-+ * tegra20_clk_watchdog_enable() - enable or disable the watchdog reset
-+ * @enable: whether to enable the reset
-+ *
-+ * Tegra20 has no watchdog block. Instead, the clock and reset controller can
-+ * reset the system when the interrupt of timer 1 or 2 fires while the previous
-+ * one is still pending, which is enabled through the RST_SOURCE register. This
-+ * enables it with timer 1.
-+ *
-+ * Return: 0 on success, or -ENODEV if the clock and reset controller isn't
-+ * Tegra20's.
-+ */
-+int tegra20_clk_watchdog_enable(bool enable)
-+{
-+	unsigned long flags;
-+	u32 val;
-+
-+	if (!clk_base)
-+		return -ENODEV;
-+
-+	spin_lock_irqsave(&rst_source_lock, flags);
-+
-+	val = readl(clk_base + RST_SOURCE);
-+	val &= ~RST_SOURCE_WDT_MASK;
-+	if (enable)
-+		val |= RST_SOURCE_WDT_EN | RST_SOURCE_WDT_SYS_RST_EN;
-+	writel(val, clk_base + RST_SOURCE);
-+
-+	spin_unlock_irqrestore(&rst_source_lock, flags);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(tegra20_clk_watchdog_enable);
-+
-+/**
-+ * tegra20_clk_watchdog_is_enabled() - check whether the watchdog reset is enabled
-+ *
-+ * A bootloader may leave the watchdog reset enabled for the kernel to take it
-+ * over.
-+ *
-+ * Return: true if the watchdog reset is enabled, false otherwise.
-+ */
-+bool tegra20_clk_watchdog_is_enabled(void)
-+{
-+	if (!clk_base)
-+		return false;
-+
-+	return readl(clk_base + RST_SOURCE) & RST_SOURCE_WDT_EN;
-+}
-+EXPORT_SYMBOL_GPL(tegra20_clk_watchdog_is_enabled);
-+
- /*
-  * Clocks that use runtime PM can't be created at the tegra20_clock_init
-  * time because drivers' base isn't initialized yet, and thus platform
-diff --git a/include/linux/clk/tegra.h b/include/linux/clk/tegra.h
-index f1034e14c1a44..2c88b9c78d88d 100644
---- a/include/linux/clk/tegra.h
-+++ b/include/linux/clk/tegra.h
-@@ -6,6 +6,7 @@
- #ifndef __LINUX_CLK_TEGRA_H_
- #define __LINUX_CLK_TEGRA_H_
- 
-+#include <linux/errno.h>
- #include <linux/types.h>
- #include <linux/bug.h>
- 
-@@ -195,6 +196,21 @@ tegra20_clk_prepare_emc_mc_same_freq(struct clk *emc_clk, bool same)
- }
- #endif
- 
-+#ifdef CONFIG_ARCH_TEGRA_2x_SOC
-+int tegra20_clk_watchdog_enable(bool enable);
-+bool tegra20_clk_watchdog_is_enabled(void);
-+#else
-+static inline int tegra20_clk_watchdog_enable(bool enable)
-+{
-+	return -ENODEV;
-+}
-+
-+static inline bool tegra20_clk_watchdog_is_enabled(void)
-+{
-+	return false;
-+}
-+#endif
-+
- #ifdef CONFIG_TEGRA124_CLK_EMC
- void tegra124_clk_set_emc_callbacks(tegra124_emc_prepare_timing_change_cb *prep_cb,
- 				    tegra124_emc_complete_timing_change_cb *complete_cb);
+To: Daniel Lezcano <daniel.lezcano@kernel.org>
+To: Thomas Gleixner <tglx@kernel.org>
+To: Thierry Reding <thierry.reding@kernel.org>
+To: Jonathan Hunter <jonathanh@nvidia.com>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>
+To: Guenter Roeck <linux@roeck-us.net>
+To: Jonathan Corbet <corbet@lwn.net>
+To: Shuah Khan <skhan@linuxfoundation.org>
+To: Randy Dunlap <rdunlap@infradead.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-tegra@vger.kernel.org
+Cc: linux-watchdog@vger.kernel.org
+Cc: linux-doc@vger.kernel.org
+Cc: clamor95@gmail.com
+Signed-off-by: Artur Kowalski <arturkow2000@gmail.com>
 
--- 
-2.56.1
+---
+Changes in v2:
+- Add Tegra20 support as a separate tegra20_wdt driver instead of
+  extending tegra_wdt, and drop the tegra_wdt match data refactor
+  (Guenter)
+- Access RST_SOURCE through helpers exported by the clock driver
+  instead of mapping the clock and reset controller's registers
+  (Krzysztof)
+- Validate the heartbeat parameter with watchdog_init_timeout()
+- vde_always_on now has effect only on T20
+- Leave the watchdog core's state alone in the VDE power off notifier,
+  which raced with the core and leaked its references (Sashiko)
+- Refuse timeout changes after VDE power off before changing the
+  timeout (Sashiko)
+- Fail pings after VDE power off, so that user space finds out
+  (Sashiko)
+- Document that stop_on_vde_off takes precedence over nowayout
+- Document the parameters of tegra20_wdt in watchdog-parameters.rst
+- Link to v1: https://patch.msgid.link/20261110-t20-for-upstream-v1-0-5923449951fe@gmail.com
+
+To: Daniel Lezcano <daniel.lezcano@kernel.org>
+To: Thomas Gleixner <tglx@kernel.org>
+To: Thierry Reding <thierry.reding@kernel.org>
+To: Jonathan Hunter <jonathanh@nvidia.com>
+To: Prashant Gaikwad <pgaikwad@nvidia.com>
+To: Stephen Boyd <sboyd@kernel.org>
+To: Brian Masney <bmasney+clk@redhat.com>
+To: Jerome Brunet <jbrunet+clk@baylibre.com>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>
+To: Guenter Roeck <linux@roeck-us.net>
+To: Jonathan Corbet <corbet@lwn.net>
+To: Shuah Khan <skhan@linuxfoundation.org>
+To: Randy Dunlap <rdunlap@infradead.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-tegra@vger.kernel.org
+Cc: linux-clk@vger.kernel.org
+Cc: linux-watchdog@vger.kernel.org
+Cc: linux-doc@vger.kernel.org
+
+---
+Artur Kowalski (6):
+      clocksource/drivers/timer-tegra: Keep Tegra20's watchdog timers free
+      clk: tegra20: Add watchdog reset control helpers
+      watchdog: Add Tegra20 watchdog driver
+      soc/tegra: pmc: Add an option to keep the VDE partition on
+      soc/tegra: pmc: Add a partition power off notifier
+      watchdog: tegra20_wdt: Stop on VDE power off
+
+ Documentation/admin-guide/kernel-parameters.txt |  12 +
+ Documentation/watchdog/watchdog-parameters.rst  |  14 +
+ drivers/clk/tegra/clk-tegra20.c                 |  60 ++++
+ drivers/clocksource/timer-tegra.c               |  40 ++-
+ drivers/soc/tegra/pmc.c                         | 160 ++++++++-
+ drivers/watchdog/Kconfig                        |  11 +
+ drivers/watchdog/Makefile                       |   1 +
+ drivers/watchdog/tegra20_wdt.c                  | 413 ++++++++++++++++++++++++
+ include/linux/clk/tegra.h                       |  16 +
+ include/soc/tegra/pmc.h                         |  19 ++
+ 10 files changed, 733 insertions(+), 13 deletions(-)
+---
+base-commit: 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
+change-id: 20261108-t20-for-upstream-497bc765188c
+
+Best regards,
+--  
+Artur Kowalski <arturkow2000@gmail.com>
 
