@@ -1,74 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795541906;
-	b=j8htqVVJQPpXO6CJGkvMeAcWfVSMheGMjtQRFTeAXahDSB+LmRjqxNhJIwU8AsmX7lV6
-	 6nVelypNnlNtq7+0WbqVc1RLiNpeXdI7FPMRS+GWeaLkVSzzy7LQVHz+/32kPIyfUlifp
-	 ZywtEibLmNAVuU8EV5HywSB3FFsdwnO/jtsbyZFcQBiDTmwn5UTLePi5g+DPbj4YqzF+h
-	 /G9gBb2LQg9lyJWkE48GVtBDQOfTY9kq/8xzVB+Ht5pJEPAS9iOBWkjb2leGExqpqZZH5
-	 SoyrlkvCaIRt1M92r9VGmhMROKRwTUifLU2XZ0Laa4hGUZFBl298PhlzG55ZW6U4ZtQ==
+	t=1795541948;
+	b=ixS2UhA266R06dPO1bnhZohJXMMU2ZQHSJ2gBMN6fgZw6E7QhU7Cn7VDOmRt4KiI2LzC
+	 uN8AV9irzoeIp9qlQ+OdfeI/6voC6lX4oy/i2hPGBKwYtgPVoO/US3e7/aBhbtg2L7odn
+	 O2XYV3YCA9S3lyy9AhaS0/TWnaH00ge+MKRiBrWW3YpUGPzOS8nWqZXJTuZkoPdbxVEzT
+	 vydA521UC0JxrfgmiCZXX163M591R8DZ0mCwGkMHVX+wI8uKurTVkccvCwlcpPYXwulHF
+	 8inRa1cj1Y7PapTWod0KNGRiOn6cgnIShiAH/h6xc+xmTrEfQTzvdTqJiVjjYfLnx2Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541906;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Rspamd-Server:X-Rspamd-Queue-Id:
-	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:
-	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=Z7ZqvSQjxHguoc1FTxJ8uNaW6BCtmmOurJdgC95SiWI=;
-	b=blTkikopEJ/WxnsOG08gsf9iqusfreP7bUtaUxNsABWUC+bE2gZE+VkbNvvkzsfJNKDv
-	 +ZBDYHdqUu7k1wzhtufzHXxVZIf86lzUsWoD2jXcGBTr1GfZstkNK9VQ1VPxookUw7+ZO
-	 KpFJwI86rVvNh3oQhR9jRiIdIoUkMzHFVIHwmbgHYhQIXA0VYOjGBHWKW1rv8BQluTO9N
-	 bbUALS9/UZTtAvQl/RE4aICA6ZbAYDgAVQA569wkyosCcY30UAiQ9JlnkNQgo4S9hH+gQ
-	 rEfK2Fyg8a1DLWEtDTKADcnM0nPlreLs1LgROS3iDrI9Nc74ELQPG3CouWhLCPa0myg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541948;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=jyCwvSiXyapt+odS15hCGmLJu951HzG6HR13+BbHYtg=;
+	b=rp+eTaYqHBmRtSpYqzsehrwuQzWgbl1qITm29iA7cTO3bcig2DwkiShav63oBkt/lwGH
+	 x7rSAq4Q7xcCGHgXPtZYEeRVbDs0nUM2FlmmnLeuBR1CdeLRaufKUWUyA+LOU0UNZRF7s
+	 tPZXby1xEg+EVGuVLwBpxyKf9bLXGsb6zrhXgQ8fPDMWRxZiVc6wIci+WqdWIeepnuSwZ
+	 OVZSEL59kEq1zCfWwOI10NwxB1Ze6HWcu0DRT2FGxiiQ83p1Gto3e7uAoBH0OHIE4cOpW
+	 OLl1zLAHEsw7JQdqbb1IgOJUJFWIeFPB5whL15aEF4LOjrWX5tPqqTXFlVesgbgAPYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=vG79UtM6;
-	arc=none smtp.remote-ip=216.40.44.13
-Received: from relay.hostedemail.com (smtprelay0013.hostedemail.com [216.40.44.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=openai.com;
+	spf=pass smtp.mailfrom=openai.com;
+	dkim=pass header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=f2gEbtGR;
+	arc=none smtp.remote-ip=209.85.210.48
+Received: from mail-ot1-f48.google.com (mail-ot1-f48.google.com [209.85.210.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65147606A321;
-	Tue, 24 Nov 2026 17:38:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65147606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70B0C606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:39:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70B0C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=openai.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=openai.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=vG79UtM6
-Received: from omf18.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay05.hostedemail.com (Postfix) with ESMTP id 29C9740CA4;
-	Tue, 24 Nov 2026 17:38:21 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf18.hostedemail.com (Postfix) with ESMTPA id 97A0D32;
-	Tue, 24 Nov 2026 17:38:13 +0000 (UTC)
-Date: Tue, 24 Nov 2026 12:38:12 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner
- <tglx@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Ingo Molnar <mingo@redhat.com>, Andy
- Lutomirski <luto@kernel.org>, Frederic Weisbecker <frederic@kernel.org>,
- "Paul E. McKenney" <paulmck@kernel.org>, Boqun Feng <boqun@kernel.org>,
- Waiman Long <longman@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
- Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann
- <dietmar.eggemann@arm.com>, Ben Segall <bsegall@google.com>, Mel Gorman
- <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, K Prateek
- Nayak <kprateek.nayak@amd.com>, Hongyan Xia <hongyan.xia@transsion.com>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Randy Dunlap <rdunlap@infradead.org>, Andrew Morton
- <akpm@linux-foundation.org>, Nathan Chancellor <nathan@kernel.org>, Nick
- Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
- Justin Stitt <justinstitt@google.com>,
- linux-arm-kernel@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
- linux-rt-devel@lists.linux.dev, linux-doc@vger.kernel.org,
- llvm@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 04/13] lockdep: Use raw access for pinned hardirq
- state
-Message-ID: <20261124123812.46979f5c@gandalf.local.home>
-In-Reply-To: <20261028033127.82193-5-kmehltretter@gmail.com>
-References: <20261028033127.82193-1-kmehltretter@gmail.com>
-	<20261028033127.82193-5-kmehltretter@gmail.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (1024-bit key, unprotected) header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=f2gEbtGR
+Received: by mail-ot1-f48.google.com with SMTP id 46e09a7af769-862bb0a189aso2384414a34.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:39:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=openai.com; s=google; t=1795541947; x=1796146747; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jyCwvSiXyapt+odS15hCGmLJu951HzG6HR13+BbHYtg=;
+        b=f2gEbtGRDi6lbeomSvcpQ0QdCX8uct4QfSd6rDXyt5iasOa3HaTU0kM2N1y9PouN3U
+         wr4j/znsIErMIKVSR++Um1IzoeWvwqgaeBK3tt8KD0bJhpLZiGfMS7V/8t/wDR/WIVui
+         Xr/WcdODDDLYQ7EFrl2dovxre9oWWQOFKQgWg=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795541947; x=1796146747;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jyCwvSiXyapt+odS15hCGmLJu951HzG6HR13+BbHYtg=;
+        b=Q7lRl7HLsVaA8GdrREhMBC4TPpcPxPqbrppwUoIY7e9YLYIt21sT8vTNzQmjlgItSs
+         W9Tqt3ZgAQfPO3VXaD5qahETgGhtk5H1F4MU7C8jmT6ngGTZpCL+JDElIgqq7Y4EQStz
+         VHl8Xi1v23mRPnH1K7D4V35ChERhp58XY1d/VaPOKBonvZc+GsmJzC3xBH8fv/ykPBHe
+         Yfm7Hf2/DTAsw67120A3+49/4LfgC82bF+VWcQdHtaE1DGZBm8y58O+znQZGp97UNrR2
+         FjPUDrIhF7Cpze4VakOkncWNOUsVOzek+f/x8NaMPYLmpwgv0etIpaNTV9SCGb2sPsJS
+         JDhw==
+X-Forwarded-Encrypted: i=1; AL+hErFNq/+uPpCph15gihGeBMKrl7LcSsTM65XFwTww8V0Nip7L+muB+QtPEeDPs2NUn1C9tMiB1iyZTAubVlQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9DvQ/DMeZWlQlDAuMj4CnmRlr/HtLhCOUPISjR1OnoU6IzJRCH
+	d3Rahqq+c1HmZI6STvT268i+sD5vwNeFw4e+dyNZcBLQvi4+i1OiwJbJs2pIdw//yNS4Ep4Ysdx
+	sww+4qpo=
+X-Gm-Gg: AZFdTZfrOrbb5MJRrOcYmsJmANME7hP2t8B6NwZwCnhqiri7JxsCuCWyVUmHUTPpl/j
+	kaNbkAv1ChpX/8G/Rb39HPR3XpgysADlh23RL/hHVmaaCMnu3sOwn9jnyFF1vQqnW/NXpGkMK3f
+	i/ZO1B11hkfQWXJU0XPS7LClVhCxurBwNGDF/f0tB6udSgwEGxNACr0T1vFyMYiQts5hVhHOgJ3
+	XOFrUZtzOGWFSAum326oaMhS3v4tT+XxYuNXg/GP/ECyxaJ7XSJkmmrhLSPt51idQ0ljbO7eNC8
+	NHnTWAEf7bkYPq3hN8fIlhUKcqajzGTjGQC2V8uLsocOV/+A57gQdaQMrz31vODnUJm7Ak9LkwP
+	8dfesRIwgyQ9WqonIztCU6inz12V0BezfJi9FRA6v37c7KILgiaWB+B876GSS/fPaMI5f0Yj1JU
+	bz3XbdG+1kGoxribB7ub9cCLmROn0TEO5dWchMArHoej7QjRtLKDkwPPoj8zKuQBLbyAL4CUJdX
+	N2SXfRqjhgZ2m0W39RpGg0qh82KQbyWouExdRhkK8IKT0PdZp/AHFBw8YLXjcrVsZ8Oqc3ARsTo
+	nbxnMSx9/Ah2Lpv5f1uND5MhDz/GSye4YQOtxNTSpnJ5fDRAAZ3XwuzQEUgP+tddWMcwvbtAk1V
+	10CL4TUJaV/YNI51NVmvmje7VNf5Nd+YXhJlau8bqrpHs1NB26xxw
+X-Received: by 2002:a05:6830:4487:b0:861:5b84:4fab with SMTP id 46e09a7af769-863159af3b6mr15626513a34.27.1795541947281;
+        Tue, 24 Nov 2026 09:39:07 -0800 (PST)
+Received: from com-75606.corp.openai.org ([199.47.143.1])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168bdaf7sm11667094a34.5.2026.11.24.09.39.06
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 24 Nov 2026 09:39:07 -0800 (PST)
+From: Kyle Zeng <kylebot@openai.com>
+To: netdev@vger.kernel.org
+Cc: jhs@mojatatu.com,
+	jiri@resnulli.us,
+	kuba@kernel.org,
+	edumazet@kernel.org,
+	horms@kernel.org,
+	pabeni@redhat.com,
+	Kyle Zeng <kylebot@openai.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v3 0/2] net/sched: serialize qdisc timers and defer SFQ rehashing
+Date: Tue, 24 Nov 2026 09:38:12 -0800
+Message-ID: <cover.1795540952.git.kylebot@openai.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261110044450.51921-1-kylebot@openai.com>
+References: <20261110044450.51921-1-kylebot@openai.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,33 +102,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Server: rspamout02
-X-Rspamd-Queue-Id: 97A0D32
-X-Stat-Signature: 4xbhd988e3g1csasnigwrdkcdq4qsys5
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX198MftYJKZb6cHxlY3uXfTzLYEjUtUPn2o=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=Z7ZqvSQjxHguoc1FTxJ8uNaW6BCtmmOurJdgC95SiWI=; b=vG79UtM65xVyDMhJcFJ0SJYuTRpNzihz/B5peKySpBcuvkVCkGYKYMsWF0bznW1oLEGCm6hOQr7mbFCA35ZzyhY0PViyO/owV3x//rZRGt7jTrCGtm/33B9kCAAA/LG4BT/iwvgFZwEOMLv4K1onpFbyk6J0w5qrId6JYmYbdrU=
-X-HE-Tag: 1795541893-954039
-X-HE-Meta: U2FsdGVkX19sulWhS/9891zS4KS5jVoQBW7ftJGYbRku5nwzwrevSJlpeohJjPhi0PGybtsZakyMexSWzlsfRQ3gW5tNzLIz0qeHXYAjlrVfZw96CfUGbT12mMbMzeFGsL/vMOuHNsc4JladTqyVibXWkNkjRE813CMxAAtPPI05Rn6zZ0GiRZfvRv3KThXKipyI+3gyetA1F4OZZ5yenvDob+pV0MF581Iv4hOJPhNf2vIL7OZLUSUqgnItiprU3NfU/sjicTkv7Yb+1aXYv2uUnzzCn5k8AKsCMQ7QO9OwXOa/firti7syKykRznECFqI2E5XsLt6OyXYVWWahbjH8CNmrS0Ed
+Content-Transfer-Encoding: 8bit
 
-On Wed, 28 Oct 2026 04:31:18 +0100
-Karl Mehltretter <kmehltretter@gmail.com> wrote:
+This series retains the v2 timer/reset fix and adds one focused SFQ
+change for the detached-timer accounting issue identified in review.
 
-> On arm64, this change relies on __kern_my_cpu_offset() being forced inline
-> by the earlier prerequisite patch so the call chain remains noinstr-safe.
-> 
-> Assisted-by: LLM
+Patch 1 has the same source changes as v2. Patch 2 moves periodic SFQ
+hash perturbation to enqueue, where the key change and rehash run under
+the packet-path lock. This prevents the autonomous timer from walking
+the live device's ancestor handles after its own hierarchy is detached.
 
-Hmm, no Signed-off-by?
+The separate HTB queue-association and offloaded-leaf purge findings
+remain follow-up work. This revision does not claim to fix those paths.
 
--- Steve
+The original PoC caused SFQ memory corruption on an unchanged kernel.
+A separate unchanged-kernel QEMU run reproduced the detached-SFQ warning
+in qdisc_tree_reduce_backlog().
 
-> ---
->  arch/arm64/kernel/entry-common.c | 6 +++---
->  include/linux/irqflags.h         | 3 +++
->  kernel/entry/common.c            | 2 +-
->  kernel/locking/lockdep.c         | 6 ++++--
->  4 files changed, 11 insertions(+), 6 deletions(-)
+Changes in v3:
+- Retain v2 as patch 1, with its code unchanged.
+- Add the SFQ-only detached-timer fix as patch 2.
+- Preserve the first perturbation interval and use deferred skb freeing.
+
+v2: https://lore.kernel.org/netdev/20261110044450.51921-1-kylebot@openai.com/
+Review: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261110044450.51921-1-kylebot%40openai.com
+
+Kyle Zeng (2):
+  net/sched: serialize autonomous timers with qdisc resets
+  net/sched: sfq: perturb the hash from the enqueue path
+
+ include/net/sch_generic.h | 20 ++++++++++++++++
+ net/sched/sch_dualpi2.c   |  3 +--
+ net/sched/sch_fq_pie.c    |  3 +--
+ net/sched/sch_generic.c   | 11 +++++----
+ net/sched/sch_pie.c       |  3 +--
+ net/sched/sch_red.c       |  3 +--
+ net/sched/sch_sfq.c       | 50 ++++++++++++---------------------------
+ net/sched/sch_taprio.c    | 16 +++++++++++++
+ 8 files changed, 62 insertions(+), 47 deletions(-)
+
+
+base-commit: 5f22fb20497f4983094131f00a734362300d22d2
+-- 
+2.55.0.openai.911.g06873a30d2f3
 
