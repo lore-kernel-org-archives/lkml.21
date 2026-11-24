@@ -1,91 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795482614;
-	b=ijp/yXirAKkqY/ljBeq650H3mDipLf4slvBp9PFK8DST3sQv1bsQ5c/Rx1UcE+AliRhw
-	 xayLxGzkXStSdN4cbl1EaKxMQLIo9JvCMOVQCCFQ4SjsK6WiCU8d8X575ouEy9yCd9kRp
-	 AZTIICKAjwNjdvQ2yJb1BdnV0V7AKrPMZJxIt+1O+zcmBT5Fu0//Ewzh9Wp6Vcn3yIUsY
-	 VN3Z12bRMOXLtL/tmyPIX5wh/GDkslTUjAnwPZX7hVjZQgkfZjJ7qwD8VUKnYFGhAjj4c
-	 XPLikhIkunwtjQYJ6k4hKup5KMUECXHvu1G7j3F/m+DhaRCmScWcDUoGGF7PO8pueWA==
+	t=1795482660;
+	b=jJXi+PqG4owu+P9NHBzLq9EQjSftknxTtDZscPDuDOL/zq5gXtbvZK6ruYVf3cAOrcGP
+	 bJtr1dtjtSh+h2E5SmH1Vkb+4j5zMLqo7LygTbtWqaZhaGbsA/V3mE5tAcLnznOvaUg3r
+	 u9A9U7Q6L6A8CJ5MQMM246Lrv7motmGOYDiv34AcFxoq+xkMbiN/G3bu+eiF0+sHrSZLh
+	 bHhi8ccdD/z4vs3UaroFOL7AYD6cbz0mZZlThNTn7I5iFRnQkyEOK1gAOw3DglyECnv0g
+	 APfAiBc8VkBDdC3bo+/2ltAwOio/mwu0KyXUN/GJldkVcRJe8nugxU2f5Aa7/xx9TsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795482614;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795482660;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=HRU0XeLrk6Q2b316iu1H0IwK/Vua4ixlA/1cR9uFdFY=;
-	b=0OjXeih9rcxLbIj8yMRjVkSn7vs8l6hl+xtc26RVB9U+x/AVuIqEOIQgvld7Nlqktma3
-	 cfjBy0RiOIqz4tDd0Ykgf+VJIZVrUdsEhOKidco4zBhwPJi+kSkwl5ePeMkRgLFyOIM5P
-	 i7xL8ces6yyzEBs0GNJy+PEQcbQn2feEjNmBAxF4rKRxMo97x5devyvhQFnYOc1A7mmkH
-	 biFcEn3Zx18VdWzfaxj/ZOeOXKW9H45M8o5P4XSGZD+NENcqmirtRJ5PbbGupicIIHfbD
-	 7kDH8A2Rd3OmAGVBEgsYejagMfDCK9SBEDqpfn2c9m1xpIOTZs7gbJdC3tZY6ejOkQA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Content-Disposition;
+	bh=CwEMPI7Nv8Y4G/uSjVrKaLXUsD6jBVuvooxioPWLmTc=;
+	b=ydg/nQ22qMqwqBZ83paXJPRHX2oCjcslbl05WJmsIudKEOAjH8BaDentMvfwneCycDKR
+	 5mBQMHrJ+g/g6bncJbVrtlXG5i9Rpotx15qq4tKKn8C35xZI1qR5sNQbUu/p/bHKpnCqd
+	 X7JTc1HzfXU1cqIQAUFF7aYoVedHrHfl18g/Y1cpAbjIbJQbIhMcVkLwA33GVPv3XCpvZ
+	 KuZJcxk/Vfc5wtEkyjvBfxkGVTtiXAvhkMzTvUY8tW4WzED4SMvuws+QTnSzmL+HHlKoG
+	 V84wi0zIuc2bpN5u/mVIbnEkZOGmx87M5wZhvjUzMNYmEoEpY62yljT1vv/3n8jGTUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tnxoDUac;
-	arc=none smtp.remote-ip=209.85.160.180
-Received: from mail-qt1-f180.google.com (mail-qt1-f180.google.com [209.85.160.180])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kKG19Co9;
+	arc=none smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6B1F606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:10:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6B1F606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC62F606A327
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:10:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC62F606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tnxoDUac
-Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-5363316fa0cso43332761cf.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:10:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kKG19Co9
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-386bd881d39so998718eec.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:10:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795482612; x=1796087412; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HRU0XeLrk6Q2b316iu1H0IwK/Vua4ixlA/1cR9uFdFY=;
-        b=tnxoDUacHqQwg8KZ6+JTm2lRLHFDcm/9NEDE6reNbwh9HgxUx6g9lGI+TzmpM/1Wbh
-         pVRKr/QDJu/YOPctn6NUZW10zH1L/lOQwVOxMzEBZ6VKwUMTdrCwfvEQAjhZVFNPHh7l
-         Bt0lPGMMV5wzWWumQJYayKIszXL0jthvSOTH4eUAC1R2Q7B5zdl9A4kl/IdrXXO3Znk9
-         hts6FuXYmn7tI1wdy+d4w2sTcMP0eMFt7xfELX7nyoPxsGQVJHpkzZaR3UnYUGA+9fZl
-         JBIqQJHZ8NZwJNidxLLGENoSuHAxJoCkhtx5coPeAvri3r7L39XE0rMAKIteSmM6Zabi
-         ZyrA==
+        d=gmail.com; s=20260707; t=1795482659; x=1796087459; darn=vger.kernel.org;
+        h=content-disposition:content-transfer-encoding:content-type
+         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CwEMPI7Nv8Y4G/uSjVrKaLXUsD6jBVuvooxioPWLmTc=;
+        b=kKG19Co9tDWF2kSXK9dKvmLlvSosMXN5A+fjtmNUuhQN82VGIHKHSt7hl60KkIuTqu
+         OTELZTKud2yzTtGpJ7YssH7XaqMzCZGWMYDkBuT+NcCO6f/J1jqPT0iyZQqXfdWQVo+7
+         NpL+BVzS/nn6KT8iZArKwzuxRvPxz7vHEFH6/T2KHs/4S02PCeK1dyecPiT3ra5J0+fQ
+         /fgxtsqz+bypFUe4822LHXZAKII+1BrHRYFU9BpYbk+8Uqr0d9LvdyqMqVFfzPKr5ne0
+         gjqbIHRdr1UAU+rh9u1Qy9nf2cgwwJCw8nbQvW/s9TlQ/Z33NtjHLWdZggyn3wfRzLHS
+         ZRZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795482612; x=1796087412;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HRU0XeLrk6Q2b316iu1H0IwK/Vua4ixlA/1cR9uFdFY=;
-        b=sRNZoAsrguCRL9Hpca6U+sZupaYKRU4H9OScqrZti5CH0SCFbDLr5OeNiyH844xm+t
-         d+MvAuPh1V/lhYe3N69UMZrR4Mdc4ncSDzSWVvQwv0g4TjCDhGq5hstxgBfk/uSmHDB1
-         navAY7pvU3GM2o/Z8ZjVsbhAPVD/cqHsgXMwcpQWqG+WnRzgsLmBJj8oC25tUt+Vzuov
-         p4YndJBTnqUqc8VuiYJW5Cn098hhGjkCSO6mQh0ZhVtM9RUarLnR+NEK9dhmCTD1Yoki
-         wjtkYsF4dTd0CIsAbvCTUnAntKBWBDVpr0pW/9vXDXPfn9U99AwvuSW1/4KUTtTOzR5T
-         qrmA==
-X-Gm-Message-State: APuU4Z9tGnnbrLcu7BywrjbRUX2hA0iaDVUD/UmYRzpXdzd5QQtB8qRV
-	ZJWmOIuXRjlNzsLZYUjPtLFHDet3tdR1BFHnelLk5EZqKUnEyNTKwIfHwnIH7A==
-X-Gm-Gg: AZFdTZeAZnFarmxBay1ZVRYJOOipKzq++jWQGxOUpSbF3NiCdeYjApllaK+x0qj+RBz
-	VvOxRYo8HRCMoogdzSR/zW//Ag+x9AbhRQBMRQoUn0t3Ywlk7CXqDcm4AedTI5rJHJeLn/ahgl+
-	/kDaxrsflJYH+VUHMgJ46opSjxnawneMsUYKMsjwIpdNSgiooOVIF3QBynOv5k3QTReCpt/1xEw
-	cHqFFczpPbt7ylI4oq9UC+TVSATVmte5dYYQYt1QihqNEPgsqQOTHYzH7ZjNZnOQgTgGJsLkgrn
-	DSvaOQjhw7UBCfIDCXHDX8hCDNwZhrGdwJvenPLcBSDvx8Cdd+Acylr9RE624V5F/dhGH259Sgt
-	4kt7k+s21U2b7RatlS+76BsiCfatI9xKl/w22MCX2yWjusjjzedm/NfR4qAEPnc4lKgaU+edE1O
-	yxqU5Z8ovQasUc86zdZw9iPTCZUrI4jY3ry0/ojptFV0zVO91uacBRVf4eSgYsBIGgdkC7RKV2t
-	u1UTx+hloAg68/PYlyibgQ1Btf/d0rs0snK/8iv1ab4NFP8GqeKKNWwhQxW34fxBeVn45DJQlWn
-	PHspatXT9cB4pftigvU7AdA+fMugxa+wAndEYqEBozirIV8TIqozwGJWW/svKgpSO/wBNEvElTC
-	YszceCuxqAqh/1G/I1RyymR+FJ6DOM2oqllVIVL41Tw==
-X-Received: by 2002:a05:622a:2507:b0:55d:535f:fb26 with SMTP id d75a77b69052e-55d76a2070fmr254467371cf.40.1795482612589;
-        Mon, 23 Nov 2026 17:10:12 -0800 (PST)
-Received: from nickserv.taila7d40.ts.net ([72.225.160.232])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d7889f8b6sm113904101cf.28.2026.11.23.17.10.11
+        d=1e100.net; s=20260707; t=1795482659; x=1796087459;
+        h=content-disposition:content-transfer-encoding:content-type
+         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=CwEMPI7Nv8Y4G/uSjVrKaLXUsD6jBVuvooxioPWLmTc=;
+        b=oLuRgnlotNBsdB/UfqpE8RXR6OUTh/RygiNe8wUOaKag0VlLK/aLJe/KJGJKtfhzSi
+         ui2Ob5jxQH7nznXBAqJdrCQzjvaJMxQ9uSEkuxo1OALNR8gJ6n4KufGX2EF3U50TmfdQ
+         XHd3D96JfoVmN3CN9J+1PesuE+6WU6TrZB25eZUIlPC7Cr3gxVzPFjB6eej7J13v+qAG
+         Btl2hQs1XxdA9B2hW18Ve8yp82j1RqAi55ZgjINPVlHFU3vZb0oksuKRnBROJFnPnlZj
+         Kg37HEjSBzFn4FF/QenE1n6CBMRyrSIYbPn5p1y8rHyY1OZXC3vTXXcWOe3teIt7DWq5
+         HA7g==
+X-Forwarded-Encrypted: i=1; AL+hErF4jCL2kje9/6KsVQjyA9C7nyknOZt0ZD6h42xCqdIrIvkHagZL4Qu51f5GSav3YpY4RnPqv3tPDMb2FxI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ckKRzaPj2bUwUExvBenNaoWzxoLY/X9GWqy58n6OxZioKebrZ
+	mkh+HJpmRPqXEobMFLS0F8crGTgXCh8uKgj5DwJbOKSQk05Kxv4Hib3O
+X-Gm-Gg: AZFdTZe+9fWoab9cnifGuptsjtoafOChH6fO4bv9bni1p1u/EWvAVidCVo7fGJwaVUB
+	ukVnAyzbIW+IvuxjFyYjtDGCrOrAThQ2fjvykFDDBx7BnZMRb6PEOm+vcF7v/2GgY1miyj75Lyw
+	/jG/ZNbhzsQPuBRki+WtmNEI/nfuSyxi+B/JIj5v1ZfQHoXYH+zirdFWthy+LKWMiXwk8VnPGnj
+	5Dwc+tt0xOXK3X6suqhrJtVyzgD104SpXR25ouCZlk9+BTAZhFha5Q5MbDKwvgxML69XIF3eo+B
+	hKO3ZcOvqEDuCVXN2wPWbz58TCii15mxrn0anf6kcx7MRxsAwXOkymSJzNDUbgJ4L7psm6eZQmK
+	E7JhHxR6LILtQG9WgZlagtJdh0BVvzFS8xdkuZXw1zdewXQUjYmp9XjRlpy5FCrFvCET0ECPwf7
+	T9K/OciSq93oBXMwy0dU0A2LEkXJTeLG8s/zJ23sLIxFCrQxUaZSxYOANHGrltnLjMnwYxHF5eK
+	z7Bk5PpIUpJllIfno9ODgOPijVky79/9GbgRTMsfRTMwrxhQ3LTZljU8rm8mDOyFuyHL0iT8GOC
+	dMEVgjR6fZOFE1z2BDaH4L/HZcxGxPc4C7j9FLeMRcEH2EyVa9OFCHQUx41nTDO99PnBXQ==
+X-Received: by 2002:a05:7300:c695:b0:37f:73f9:aee7 with SMTP id 5a478bee46e88-3856c9a6408mr15050898eec.5.1795482658749;
+        Mon, 23 Nov 2026 17:10:58 -0800 (PST)
+Received: from localhost ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aaae4960sm15816977eec.18.2026.11.23.17.10.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 17:10:12 -0800 (PST)
-From: Nick Terrell <nickrterrell@gmail.com>
-To: linux-kernel@vger.kernel.org
-Cc: Nick Terrell <terrelln@fb.com>,
-	Nick Terrell <nickrterrell@gmail.com>,
-	Kernel Team <Kernel-team@fb.com>,
-	David Sterba <dsterba@suse.com>
-Subject: [PATCH] zstd: decompress: prevent stale literal leaks after output buffer wraps
-Date: Mon, 23 Nov 2026 17:27:31 -0800
-Message-ID: <20261124012731.87451-1-nickrterrell@gmail.com>
-X-Mailer: git-send-email 2.48.1
+        Mon, 23 Nov 2026 17:10:57 -0800 (PST)
+Date: Mon, 23 Nov 2026 17:10:56 -0800
+Message-ID: <2f25009cbd67a8ee7b417f12b35374b1@gmail.com>
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Arnd Bergmann <arnd@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Kent Gibson <warthog618@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+	linux-wireless@vger.kernel.org
+Subject: Re: [PATCH 0/2 v8] gpiolib: finish the legacy cleanup
+In-Reply-To: <7dpg3x3gkypkznzhuetjsqmk5fhqwuwkc6kupbs52zqh5mibgx@fjow6eodw4pf>
+References: <20261123085723.156933-1-arnd@kernel.org> <tdc6h325jthjgyik2ne4oistkm563maoc2cpnffqu7hh34tpl7@oscripzv4dwq> <qvmy7iaxc7cjy2gkajqkr5ma6b4lwxz5ff64a5zsqrgewkxodr@odbjlv5x3hix> <8296a5c2-0aa2-4fc7-b65b-9d336bc4dff6@app.fastmail.com> <7dpg3x3gkypkznzhuetjsqmk5fhqwuwkc6kupbs52zqh5mibgx@fjow6eodw4pf>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,105 +108,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
-From: Nick Terrell <terrelln@fb.com>
+Hi Bartosz,
 
-After the streaming output buffer wraps, the external dictionary and
-current prefix must share the frame history window. Retaining expired
-history can allow malformed offsets to expose uninitialized bytes or
-literals from earlier decompressions on the same context.
+On Mon, Nov 23, 2026 at 04:41:32PM +0100, Bartosz Golaszewski wrote:
+> Can I apply v7 and provide it to the SH maintainers on an immutable
+> branch?
 
-Once a full window has been decoded, limit external history to the
-portion not occupied by the current prefix. Apply this bound before
-subsequent blocks even when output remains contiguous. Also zero the
-wildcopy padding after decoder-owned literals, including both parts of a
-split literal buffer, so permitted over-reads only see initialized bytes.
+BTW, I have the soc_button_array rework (converting it to software nodes
+and dropping "select GPIOLIB_LEGACY") on an immutable branch based on
+v7.4-rc2:
 
-This is a port of upstream zstd commit 0c9d297531a9 ("decompress:
-prevent stale literal leaks after output buffer wraps").
+	git://git.kernel.org/pub/scm/linux/kernel/git/dtor/input.git ib/7.4-rc2-soc-button-array
 
-Link: https://github.com/meta/zstd/commit/0c9d297531a9f15a717ff24604afc0843b3b1427
+I recommend pulling it into the gpio tree before applying Arnd's work so
+that x86 builds with INPUT_SOC_BUTTON_ARRAY enabled no longer pull in
+CONFIG_GPIOLIB_LEGACY either.
 
-Signed-off-by: Nick Terrell <terrelln@fb.com>
----
- lib/zstd/decompress/zstd_decompress_block.c | 35 +++++++++++++++++++++
- 1 file changed, 35 insertions(+)
+Thanks.
 
-diff --git a/lib/zstd/decompress/zstd_decompress_block.c b/lib/zstd/decompress/zstd_decompress_block.c
-index 710eb0ffd5a3..dc7975d5b644 100644
---- a/lib/zstd/decompress/zstd_decompress_block.c
-+++ b/lib/zstd/decompress/zstd_decompress_block.c
-@@ -124,6 +124,25 @@ static void ZSTD_allocateLiteralsBuffer(ZSTD_DCtx* dctx, void* const dst, const
-     }
- }
- 
-+/**
-+ * Zeros the bytes directly after the decompressed literals so that over-reads
-+ * only read zeros, rather than potentially uninitialized memory, or bytes from
-+ * prior decompressions.
-+ */
-+static void ZSTD_zeroLiteralsBufferPadding(ZSTD_DCtx* dctx, size_t litSize)
-+{
-+    if (dctx->litBufferLocation == ZSTD_split) {
-+        BYTE* const litBufferEnd = dctx->litBuffer + litSize - ZSTD_LITBUFFEREXTRASIZE;
-+        assert(litBufferEnd == dctx->litBufferEnd);
-+        ZSTD_memset(litBufferEnd, 0, WILDCOPY_OVERLENGTH);
-+        ZSTD_memset(dctx->litExtraBuffer + ZSTD_LITBUFFEREXTRASIZE, 0, WILDCOPY_OVERLENGTH);
-+    } else {
-+        BYTE* const litBufferEnd = dctx->litBuffer + litSize;
-+        assert(litBufferEnd == dctx->litBufferEnd);
-+        ZSTD_memset(litBufferEnd, 0, WILDCOPY_OVERLENGTH);
-+    }
-+}
-+
- /*! ZSTD_decodeLiteralsBlock() :
-  * Where it is possible to do so without being stomped by the output during decompression, the literals block will be stored
-  * in the dstBuffer.  If there is room to do so, it will be stored in full in the excess dst space after where the current
-@@ -241,6 +260,7 @@ static size_t ZSTD_decodeLiteralsBlock(ZSTD_DCtx* dctx,
- 
-                 RETURN_ERROR_IF(HUF_isError(hufSuccess), corruption_detected, "");
- 
-+                ZSTD_zeroLiteralsBufferPadding(dctx, litSize);
-                 dctx->litPtr = dctx->litBuffer;
-                 dctx->litSize = litSize;
-                 dctx->litEntropy = 1;
-@@ -284,6 +304,7 @@ static size_t ZSTD_decodeLiteralsBlock(ZSTD_DCtx* dctx,
-                     {
-                         ZSTD_memcpy(dctx->litBuffer, istart + lhSize, litSize);
-                     }
-+                    ZSTD_zeroLiteralsBufferPadding(dctx, litSize);
-                     dctx->litPtr = dctx->litBuffer;
-                     dctx->litSize = litSize;
-                     return lhSize+litSize;
-@@ -330,6 +351,7 @@ static size_t ZSTD_decodeLiteralsBlock(ZSTD_DCtx* dctx,
-                 {
-                     ZSTD_memset(dctx->litBuffer, istart[lhSize], litSize);
-                 }
-+                ZSTD_zeroLiteralsBufferPadding(dctx, litSize);
-                 dctx->litPtr = dctx->litBuffer;
-                 dctx->litSize = litSize;
-                 return lhSize+1;
-@@ -2184,6 +2206,19 @@ void ZSTD_checkContinuity(ZSTD_DCtx* dctx, const void* dst, size_t dstSize)
-         dctx->prefixStart = dst;
-         dctx->previousDstEnd = dst;
-     }
-+    /* The external dictionary and current prefix share the frame window.
-+     * As the prefix grows after a wrap, retaining a full external window
-+     * could let corrupt offsets alias the destination and expose stale literals.
-+     * decodedSize > 0 ensures the frame header has initialized windowSize.
-+     * Only kicks in after decoding windowSize bytes because the entire dictionary is
-+     * valid as long as a single byte of the dictionary is in the window.
-+     */
-+    if (dstSize > 0 && dctx->isFrameDecompression && dctx->decodedSize > 0 && dctx->decodedSize >= dctx->fParams.windowSize) {
-+        size_t const prefixSize = (size_t)((const char*)dctx->previousDstEnd - (const char*)dctx->prefixStart);
-+        size_t const extDictSize = (size_t)((const char*)dctx->prefixStart - (const char*)dctx->virtualStart);
-+        U64 const maxExtDictSize = prefixSize < dctx->fParams.windowSize ? dctx->fParams.windowSize - prefixSize : 0;
-+        dctx->virtualStart = (const char*)dctx->prefixStart - (size_t)MIN((U64)extDictSize, maxExtDictSize);
-+    }
- }
- 
- 
 -- 
-2.48.1
-
+Dmitry
