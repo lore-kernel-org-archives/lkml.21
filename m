@@ -1,62 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=199.89.1.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795546028;
-	b=OeLC7jnE8+VcEmS7yADJAqmq3pRNzOvmB0PGioD9YVJ0d5F0w3TIn82QlKg+rnfRhvwR
-	 GqkUP2ailYRhMBYbOenl0ur7gzzH6NeMviSkUDALDu/b9d8fHkwydANaJNRyRNYm/z7Qf
-	 uyzMEpYv4w9rgj3dlNJFi6IVpGciDG2CqxmV01uvBpXpX4A8WWk4PVtUoz6sZHlNj6LCs
-	 Z7Oqk76QU6niT5ngGPlSicf2nIMkpiXUYYIHIjOf54SzB22J+rB0Le+8jWmuAu7mcYzlR
-	 lY2HhQKtuqND/HEw+9F22XUhUM4p9v3BXU0byIM2F0m/5EefuzthFKttLeXd9POmoLQ==
+	t=1795546048;
+	b=k1AIlD8K8ZdcZghS8ka8m6uESqe7xXDQexM7mc+9sME++boqWdFnlr+8NooeTqYlIrth
+	 NsH6zIkvJsFeqOWX6BlAeOI+fq4gsjaDXQiaCZsN/y0iTH/7+Dp1HwwdTnCV4Ij/gxjHi
+	 2kXJetnmZOLApv2esOYO7kJilybrVJAZKnP5L4zfTY30dt0vyKWz9S/I6Qfs9Qm8a74Ve
+	 tVguhNmTvjq/pVCGo9mca0CUukE3RiN31Nle4Z/sl9HJE2yCfOQVeoAYvSG6iBF1Amolj
+	 ddfC+TOeHLAPhtUAoHoWy0QUBuivxwLFKta4i3vf4W7wUqkLdYf9eX9HHH+/qaUqabQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795546028;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=WsHZ5eb0Yw7l0zlODkEZR0xt0Wth70zsrzuiAwMKuEE=;
-	b=JnPbvrw/uiuVGwvl4yf8ZDTZVJEZyJti627syAJAKAT+7V8VGIxUruTv0HINdW81b3x5
-	 VRQEKnLhc0XP5Zmvl8Mrc5Mr//L0Kv1J0amTYQl3XnbpLsDr6WStIkf8LZVS+odltO3a1
-	 xjIFO9G/0dTnizh3tXjRUWN8y3s/WyLiiJmGvInXuD2YdYpXdzUvzqsfIg6SeVcA4wRdq
-	 j3Vc1jFMpedRsPs7q5eIUyAtpJl+Sz2zzjQdFxXFZP7fDqI6Y5mGHjSMSTt65r7ClJMeO
-	 62dbzIX3ULpZjrBgzHIPRFFMsTi7IVIVR86Oo6o8/c174I5G0Onxx3dF6aK/y+P7MdQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795546048;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=pxqaOIl3y8m+NcD9JxB0/2XOKtk2qG69zXikgpiO/6s=;
+	b=AQaD+CKhZtOwtve+vOP/JQdIwxwM+D+2+Z6IKHtdk4VH2CMuNkFIzonWQwjJYjTMn1mo
+	 ulA9T7LVh+aNS5QVKRCezt6TvRDnOqB2MWZZcjY+8pmwbCGSe/VUy3S2RxKQZcS9ZKHfe
+	 7HiXYgVW05kAFeIvDS7acsVCuWEekG1FECwViDOxEP3QRgsuSqRWmM0pqVNH0w1KftUmR
+	 FF4j10ayJag6MxHKioWCKOUvKOef0RHTpR81xUAODWgfYSJIPtCY4cV2UO5PFAOp5o1Us
+	 qicwd36oVJ8Hdso8Iyod3zIGBbcX6s3LIVB17Ojfy+6iCpK+r3XJN+7sdDFFpNDzfBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cvYNt1m0;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=acm.org;
+	spf=pass smtp.mailfrom=acm.org;
+	dkim=pass header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=3Wst0cvj;
+	arc=none smtp.remote-ip=199.89.1.16
+Received: from 013.lax.mailroute.net (013.lax.mailroute.net [199.89.1.16])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2849606A321;
-	Tue, 24 Nov 2026 18:47:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E160C606A32A;
+	Tue, 24 Nov 2026 18:47:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E160C606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=acm.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=acm.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cvYNt1m0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 840BC1F000C4;
-	Tue, 24 Nov 2026 18:47:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795546028;
-	bh=WsHZ5eb0Yw7l0zlODkEZR0xt0Wth70zsrzuiAwMKuEE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=cvYNt1m05N6eA0byMzEhuYccKhBkvxboYxesXcWp01CB1EArI1uT5S553kQYQx/ED
-	 /BRGme80duWwKW0QjOm1R48eb6sS7tqeSVeSX3XMfTa/dEfahCSjXEM0qacD4YudwM
-	 eUaoBen+/lQm+HUasYK3HfNVn2t0oevf+uiCncREh6vQb6dyu082G9p3RgHKtvNEry
-	 iQoaNidAp/5NVTSNy3xiY7fPUMsiGCRWpReFbJVXdvKB3CKzTqlvFRQlyRQWGkhC8t
-	 2uRC3C+Ll5ihKmSio0QI6cNMknwb0SlD4EWT8ZT8Tu7cmXTLCclSmiqtE/XcF/A2IX
-	 MGfDON/rGFwAA==
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	James Clark <james.clark@linaro.org>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Clark Williams <williams@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: [PATCH v1 16/17] perf tests probe: Exercise the variable and line listing
-Date: Tue, 24 Nov 2026 15:46:03 -0300
-Message-ID: <20261124184604.24983-17-acme@kernel.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261124184604.24983-1-acme@kernel.org>
-References: <20261124184604.24983-1-acme@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=3Wst0cvj
+Received: from localhost (localhost [127.0.0.1])
+	by 013.lax.mailroute.net (Postfix) with ESMTP id 4jYsHg2vfBzllB6K;
+	Tue, 24 Nov 2026 18:47:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1795546042; x=1798138043; bh=pxqaOIl3y8m+NcD9JxB0/2XO
+	Ktk2qG69zXikgpiO/6s=; b=3Wst0cvjNuA8A+j92CbKfbrkasPXQg+jYq4wfIvZ
+	mfcOIbXqO87ADaog31kZkYeDThwkaIH6qy5mJ+R1cIn4I+OBNujw0xdY4EkanRfd
+	V/bZvC92EdF0uXu14MZ5rJOLMSs7hoJAp7E02QbiEg4lDq6JZKhfzU3C0C7z7Phe
+	hZg6xJ8+6qEPEJb5EvOrqZft+27v7eEsrGpVy99ExRGDngLXXmx9Iyjdmhd2wNyQ
+	d7aVsb7ZdWJiunz3FM+yKda8N70R8FMT5mt5Th1wtwxwbKpYTX7ssaETkbyGQ1Rx
+	Bi5fnGbscW/mCTDn6B/dG2smbq2/foibJ4krnZUWR6MCAQ==
+X-Virus-Scanned: by MailRoute
+Received: from 013.lax.mailroute.net ([127.0.0.1])
+ by localhost (013.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id uE7rlzqzQucy; Tue, 24 Nov 2026 18:47:22 +0000 (UTC)
+Received: from [100.80.227.185] (unknown [104.135.182.41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 013.lax.mailroute.net (Postfix) with ESMTPSA id 4jYsHY3B22zlpHx2;
+	Tue, 24 Nov 2026 18:47:21 +0000 (UTC)
+Message-ID: <8413e7bc-f647-40ab-9633-0515863f3dd4@acm.org>
+Date: Tue, 24 Nov 2026 10:47:19 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,105 +70,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] scsi: ufs: core: Add debugfs for PA TFS/FEC error
+ counters
+To: Po-Wen Kao <powenkao@google.com>, linux-scsi@vger.kernel.org
+Cc: Konstantin Vyshetsky <vkon@google.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Bean Huo <beanhuo@micron.com>,
+ Stanley Jhu <stanleyjhu@google.com>,
+ "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
+ "Martin K . Petersen" <mkp@kernel.org>, Peter Wang
+ <peter.wang@mediatek.com>, Can Guo <can.guo@oss.qualcomm.com>,
+ linux-kernel@vger.kernel.org, John Garry <john.garry@linux.dev>,
+ Li Qiang <liqiang01@kylinos.cn>
+References: <20261124012951.3143833-1-powenkao@google.com>
+ <20261124012951.3143833-3-powenkao@google.com>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <20261124012951.3143833-3-powenkao@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-From: Arnaldo Carvalho de Melo <acme@redhat.com>
+On 11/23/26 5:29 PM, Po-Wen Kao wrote:
+ > +static int ufs_pa_err_read_rec_cnt(struct ufs_hba *hba, u8 peer, u64 
+*val)
+ > +{
+ > +	u32 hi_before, lo, hi_after;
+ > +	int err, retry;
+ > +
+ > +	for (retry = 0; retry < UFS_PA_ERR_REC_READ_RETRIES; retry++) {
 
-Show the variables, source lines and probe-able functions of a kernel
-function, and check the missing argument error.
+Does the UniPro v3.0 specification define whether or not reading
+PA_TFS_RecErrorCountL latches PA_TFS_RecErrorCountH? If it does, this
+retry loop is not necessary. If it doesn't, please mention this in a
+source code comment.
 
-Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
----
- tools/perf/tests/shell/probe_vars.sh | 80 ++++++++++++++++++++++++++++
- 1 file changed, 80 insertions(+)
- create mode 100755 tools/perf/tests/shell/probe_vars.sh
+ > +	/*
+ > +	 * Per MIPI UniPro v3.0 Section 5.6.7, setting PA_TFS_RecErrorCountL
+ > +	 * clears the entire 64-bit PA_TFS_RecErrorCount counter to 0.
+ > +	 */
+ > +	err = ufshcd_dme_set_attr(hba, UIC_ARG_MIB(attr->mib_attr),
+ > +				  ATTR_SET_NOR, 0, attr->peer);
 
-diff --git a/tools/perf/tests/shell/probe_vars.sh b/tools/perf/tests/shell/probe_vars.sh
-new file mode 100755
-index 0000000000000000..1e9476635b1ebc75
---- /dev/null
-+++ b/tools/perf/tests/shell/probe_vars.sh
-@@ -0,0 +1,80 @@
-+#!/bin/bash
-+# perf probe variable and line listing tests
-+# SPDX-License-Identifier: GPL-2.0
-+
-+set -e
-+
-+. "$(dirname $0)"/lib/probe.sh
-+
-+skip_if_no_perf_probe || exit 2
-+
-+err=0
-+out=$(mktemp /tmp/__perf_test_probe_vars.out.XXXXX)
-+
-+cleanup() {
-+	rm -f "${out}"
-+
-+	trap - EXIT TERM INT
-+}
-+
-+trap_cleanup() {
-+	echo "Unexpected signal in ${FUNCNAME[1]}"
-+	cleanup
-+	exit 1
-+}
-+trap trap_cleanup EXIT TERM INT
-+
-+run_probe() {
-+	local desc="$1" expect="$2"
-+
-+	shift 2
-+	echo "Probe ${desc}"
-+	if ! perf probe "$@" > "${out}" 2>&1; then
-+		echo "Probe ${desc} [Failed: perf probe failed]"
-+		cat "${out}"
-+		err=1
-+		return
-+	fi
-+	if [ -n "${expect}" ] && ! grep -q "${expect}" "${out}"; then
-+		echo "Probe ${desc} [Failed: missing '${expect}']"
-+		cat "${out}"
-+		err=1
-+		return
-+	fi
-+	echo "Probe ${desc} [Success]"
-+}
-+
-+# The variable and line listings need debug info, skip when the kernel
-+# was built without it.
-+if ! perf probe -V schedule > "${out}" 2>&1; then
-+	echo "Probe variable listing [Skipped: no debug info for schedule]"
-+	cleanup
-+	exit 2
-+fi
-+
-+run_probe "vars" "Available variables at schedule" -V schedule
-+run_probe "vars long option" "Available variables at schedule" --vars schedule
-+run_probe "vars offset" "Available variables at schedule" -V schedule+0
-+run_probe "line" "schedule" -L schedule
-+run_probe "line long option" "schedule" --line schedule
-+
-+if [ "$(id -u)" = 0 ]; then
-+	run_probe "funcs" "schedule" --funcs
-+	run_probe "funcs filter" "schedule" --funcs "sched*"
-+else
-+	echo "Probe funcs [Skipped: needs root to read the kernel symbols]"
-+fi
-+
-+echo "Probe missing add argument"
-+if perf probe -a > "${out}" 2>&1; then
-+	echo "Probe missing add argument [Failed: accepted no argument]"
-+	err=1
-+else
-+	if ! grep -q "Usage:" "${out}"; then
-+		echo "Probe missing add argument [Failed: missing usage]"
-+		err=1
-+	fi
-+fi
-+
-+cleanup
-+exit $err
--- 
-2.56.0
+This comment only applies to one of the four attributes while the code
+below it applies to all attributes. Please make that clear in the
+comment.
 
+ > +static const struct ufs_pa_err_attr ufs_host_pa_err_attrs[] = {
+ > +	{ "fec_err_cnt", PA_TFS_FECERRORCOUNT, DME_LOCAL },
+ > +	{ "crc_err_cnt", PA_TFS_CRCERRORCOUNT, DME_LOCAL },
+ > +	{ "format_err_cnt", PA_TFS_FORMATERRORCOUNT, DME_LOCAL },
+ > +	{ "recovered_fec_symbols", PA_TFS_RECERRORCOUNTL, DME_LOCAL },
+ > +	{ }
+ > +};
+ > +
+ > +static const struct ufs_pa_err_attr ufs_dev_pa_err_attrs[] = {
+ > +	{ "fec_err_cnt", PA_TFS_FECERRORCOUNT, DME_PEER },
+ > +	{ "crc_err_cnt", PA_TFS_CRCERRORCOUNT, DME_PEER },
+ > +	{ "format_err_cnt", PA_TFS_FORMATERRORCOUNT, DME_PEER },
+ > +	{ "recovered_fec_symbols", PA_TFS_RECERRORCOUNTL, DME_PEER },
+ > +	{ }
+ > +};
+
+These two arrays only differ in the value of the .peer member. Has it
+been considered to use a single array?
+
+ > +static void ufs_debugfs_pa_err_create_dir(struct ufs_hba *hba,
+ > +					  struct dentry *parent,
+ > +					  const char *name,
+ > +					  const struct ufs_pa_err_attr *attrs)
+ > +{
+ > +	const struct ufs_pa_err_attr *pa_attr;
+ > +	struct dentry *sub_dir;
+ > +
+ > +	sub_dir = debugfs_create_dir(name, parent);
+ > +	if (IS_ERR_OR_NULL(sub_dir))
+ > +		return;
+ > +
+ > +	d_inode(sub_dir)->i_private = hba;
+
+The comment above hba_from_file() says that @file corresponds to a
+debugfs attribute in directory hba->debugfs_root. That comment is no
+longer accurate. Please update it.
+
+ > +static void ufs_debugfs_pa_err_init(struct ufs_hba *hba)
+ > +{
+ > +	bool host_sup = hba->ufs_version >= ufshci_version(5, 0);
+ > +	bool dev_sup = hba->dev_info.wspecversion >= 0x500;
+
+The PA_TFS_* attributes are UniPro attributes. Has it been considered
+to check the UniPro version (PA_LOCALVERINFO and PA_REMOTEVERINFO)
+instead of the UFSHCI version and wSpecVersion? That would require
+adding a UFS_UNIPRO_VER_3_0 constant in include/ufs/unipro.h.
+
+Thanks,
+
+Bart.
