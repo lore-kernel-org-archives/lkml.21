@@ -1,130 +1,118 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.159
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795557468;
-	b=XkY2qmerFowWq3toP4UmhCFSNjEMi3rsEUF2AjOE7tQWAxO2B7zS1y0qCt5mQ7luZXyI
-	 BvGY6ZKpz4qrJX7CigmMi3Kw88R447RDJt01xe7cyRSSoXo4IfCG+GZRL/W7G4TljUwBF
-	 N2j85aVCUBX+oJnaXG3LDRyFlQZ7Lsf1rVlud2U5LTBKEWU6mDjFI2EdE+Z5rpdw/QJJ5
-	 Kw7syrb/mFu/LJSxhhIllzV2gLvVeGJ+m4GEJQsrxwYlKEnUFx2bjZuFbroyb1G//L87O
-	 0eMTGb3rBA7nEzIJGSFDkwkZti5ONFRLFHCCNIbizKjRX7tcdhPMV29pvXKQsB+hNng==
+	t=1795557493;
+	b=Mw8dDVwzkYOr+OaxlJTor2vcq6Q8S2WincF0RPzp4CCshCi22HjoNPKu7Fw0F6ulcluv
+	 vAVZgG9JPE/MMjQlHmmVfBo7S+q8ALTR9Lm3pT1kKc4VnT/gbPT6wtxWgGLmH9ytwUBfr
+	 oY4OhhQNG68qTnE7OhUN7SVlCLoRtN9NACa+kDIddKpR5CS8eTDloKsq29U4g59XWstBh
+	 JPjX4suztMEo9poMeVoi/uXoozupJe9bquDgmfus47MToihU7yLao6P5YqK7w9r5oMH7h
+	 7qhQWZdtTXo9jNp8VCEVmJodOsVljgRd2iSIwTanRUOUtSzj/v3jyhpkZGBA/wSe2Eg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795557468;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:
-	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=9Yv7ZAdiUHDpW81//zWyyNLibVyhv0xcmjQ86w+dwHI=;
-	b=23Ld2NkahWV/wknDZp63gf6G254+01BYDFEVX4A/dKX8mxPshqzWTTVg+fGjMdnllmhJ
-	 jkp11GPwbLMzX/wDbkOExvIrsW1pTcINx2PN7B2ocG2JgAQ5deB0FU1o30IRxvMrZE7IW
-	 iiowjpYMSDwb2BaLepxoCE6w4l0cQv9cle22sa/ZRG1o1FKnK2EclK4gRBbEOcSPOQIEL
-	 kC20r5kD+odsqXJh7rR0mPTSfMxZT3xLWQYt/oXi/l6G91XTOdiRiogamzX3g8TrGsOr9
-	 wR3V1bpziw1zLcSAOKDC06MlfUDVcfBVjtkdVXb40qGiTfAbPc5iRJOBANH33Uubc4g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795557493;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
+	 Content-Type:User-Agent:MIME-Version;
+	bh=aa7YPfOROhEx6JieLJ3TSEkUZ7Fh13WAPekCnuIIbKA=;
+	b=Lbkv6uGDf/+8t7l8XerZlQmFo0bchi9d/yFhrOfI7FdSZ8feZoGA9PseAeVtv9agR9rI
+	 iqc6pTSNh0xeQKS3Ipgmu2ejIshFswCbyZ0PuRBT+N5Npbx7hp3BphEpo7f2rENNwJY1J
+	 DGcQuBFB5eAPFb/9+2IlTsdq5LNFtGDX/w2o4YrBEkeqWqDG7X+eAXXv2qUyddL/U5Vm+
+	 f+g8r9yXVNqS93qRREaP/xity0DBhlb++nxFsqPlY9JSqTmBORXJ2Coa6bZHO79PHl+bq
+	 vaS86fyrNsmF2W0KyUAme2+x29srZmUvrK2SImGBVXnEEB8ov7jl6DLbI2UAhRoeoDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=shazbot.org;
-	spf=pass smtp.mailfrom=shazbot.org;
-	dkim=pass header.d=shazbot.org header.i=@shazbot.org header.a=rsa-sha256 header.s=fm2 header.b=q+ncxwGB;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=y+SsJFBU;
-	arc=none smtp.remote-ip=202.12.124.159
-Received: from fhigh-b8-smtp.messagingengine.com (fhigh-b8-smtp.messagingengine.com [202.12.124.159])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=ndufresne.ca;
+	spf=pass smtp.mailfrom=ndufresne.ca;
+	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="l/S5P4hq";
+	arc=none smtp.remote-ip=209.85.160.177
+Received: from mail-qt1-f177.google.com (mail-qt1-f177.google.com [209.85.160.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99F74606A330
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:57:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99F74606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=shazbot.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=shazbot.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AFB4606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:58:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6AFB4606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=shazbot.org header.i=@shazbot.org header.a=rsa-sha256 header.s=fm2 header.b=q+ncxwGB;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=y+SsJFBU
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 0DB967A057A
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:57:47 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Tue, 24 Nov 2026 16:57:47 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shazbot.org; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795557465;
-	 x=1795643865; bh=9Yv7ZAdiUHDpW81//zWyyNLibVyhv0xcmjQ86w+dwHI=; b=
-	q+ncxwGB2eC2X8922FtbouccjPHt98aXJie1SKJXZ9+OSbbcSEZ9wZVzeNGqj3z/
-	ps0UCCtahJuAg1nSWyrNpgFH4nomwUCMnMW2wv2lgo1Y76V+34jHSW/onmqvTHzk
-	ZDDS1ZB6II73GtMaU0aL0dusMwSZ0iNAGUYn+7FwDURNMwpEPaY/KqlOR8L1pfp+
-	yw1ybER66YYvTs7EZ1XhOGDETfmbpLolBfBAs7H8b8p1dnlA4lpRIss4a4TeJ0VN
-	i24MiI0LqqMk87zvlekOJ37/HyN6MA88zdC3j/iz/u7zlmX3pfDhV5My/2iIDbH0
-	lZ85HHEu5hTTLLVpr9GJRg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795557465; x=
-	1795643865; bh=9Yv7ZAdiUHDpW81//zWyyNLibVyhv0xcmjQ86w+dwHI=; b=y
-	+SsJFBUnH3zMjMim8abO+u/YXXBtXLtF64p3fQG6DzYX11LTLZLmr2Qlrgo0yd2r
-	DB9p/GC6bBoFObgI8wQCDYCX2PaobJPoPOMBRwmnytJnOnc7F4eYT/Z6x50Qg5fS
-	vWk43A5INm6bPWmjRNfU7Va1frRGVqNP8fTWZQKDkTmGEX6U5fnxbNJc7OTStbaB
-	YopCDE6bnjkt0qOqc9nSaH59C07BSY7tnMWqjAw6O69cnPLVVYHDsF7NPixbyDxB
-	VdZVwsVc7I5iYWxg/ggm1pGDgBhq33MOdp3fcdsbqo4nmKK8NLbC88ZOmPVuLqXv
-	kJQtCs0iUV3JIWotWUfMA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=shazbot.org a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795557465; d=shazbot.org;
-	mf=PGFsZXhAc2hhemJvdC5vcmc+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:kD1GWaRdtQM3UhG2WF+lX3vHhj2IfYRjHAzlf2vqYe2/t+F
-	7GNls1alFm9s+VBodc/oCt7iKJS51b/fJdzOKdiMWO/wRu7s8dH2pAae1AkHPWzA
-	tlTxo6YA0lDvueMelzTGIm5v5UGXWMUED94KEUdGqp1ctadiUA7Lm+M1J9HUp90k
-	KbJmRLuhl4Qx1+xIer3VYh6845mXuvHQS0E+u+tZA03ePI2PgBpZsUjtS5BG/npH
-	EVkFutSUVfw0sXDd6cMkYvIOWGJAQxDEkregq0CtGrnidKA1mujZy7vvIOWhwWgi
-	3/H/iVJRDLcKDAAjjxWlMBzKpZxYEKvAhk5+N6w==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:r0gyNebnJU3UYgucvnT7f/jFp2fby4QNwszEbkpKrnE=:cKsT+oAcYb7z5Bpv3lzNYNeRW+zt7bHiR0+cduq9CFg=;
-X-ME-Sender: <xms:WQgGa7cKfEYAtAsGtqKIn4KkcASCCT5cqkKihgija1m4U7gX5YgDUA>
-    <xme:WQgGa3l4j1kTumDC7d8gSjmYtDoQqBur8Mk1rC9AG0g7WVf-dYO86QmopneKdA5pj
-    f2V4NdvsczTYP2tE3_RVwJCTbeZ6TJrsYG7cIy5ru-VyymX2ffQFw>
-X-ME-Received: <xmr:WQgGawwjz4L5qvuQWOfJJQrA6duBBo48xMYs1-RKXmEzPLIlWhIAdwfKkriEsw>
-X-ME-Proxy-Cause: dmFkZTElwk6m6nbbF8uFMkjosXYbuLtxokx9cW6je6krn/5+EOP5V5lCgGfnrEKHccNsoE
-    NgvX2qSuNcLlbhGbSz4MjXSC+gJwt/HDrrfkV+weSIT6TvDvvyMcKpdYdcwqKWCHaU7jQr
-    3irHVChJiG/EpzAZG0XU/r8T8YOtVfGoH0yLbYbDEYC5NnG0kQv5nXW+1V5t9QpAZWHwTx
-    RaqrGewtwOb+OKhC/UxSEzuFoKkarWNV4Jxv+QZLL+toPxQp4wDfY6ZTSa+jycdFy7KJ95
-    mjxRLXAXb4bMBD0DOynd3RsHE2l+B3415/SabQ1oJzTx7mMk1JlRt9TKn5Pgs7DghJOPSc
-    /J+/jPBTVHYeWELTdAJE0XnaE5kV3eEOV1W+n9jr1rNQfKrP7SXsItnkmy6a8JOajIOMYT
-    pT3Q0PlrXKquyHIv8JtjvEVsF+y4embac3PE6nSD7uQy+Ceh4ajIloXQq/AhPetpCIqpcb
-    5vp0+fKw+LZQhkuLW9sDz8nttYYnfq8MOjXMdt+k0kn6w7XW/V9ZfWbiA7Mh9Tk2bDV7cH
-    kjczU+v18/6V78Kt2WKqXaSQw5ADVUzf8oZtX0wT8wVYiySz+51mSVJbtpmHCw68Id7zqc
-    rCYj9cxZeKUFmkarzujzic7gJyXpbIo0Dy19o/PFdE4V7FKIhVG+GsVaFnJw
-X-ME-Proxy: <xmx:WQgGa6xTLOhF2cDVq2sfBfAKMzFDhS-cuDHNglrjQVeFuKyMucI5IA>
-    <xmx:WQgGawUzhpEbPfHpqJ7UZbJNy6e9WpIAdWjleI5OZi9Ez6czFncnSA>
-    <xmx:WQgGaxSDQPSjsoIPftGqvmhrHFBt_oAm7p2Mi7_iAkgMEVgvob1jpw>
-    <xmx:WQgGa4SqmZ1cdsLMUonpuITUSKh3fWhtNQggJQfo6h-NFvZOC24AQQ>
-    <xmx:WQgGa5qOJsJv75S2miF4Gtag6lXLgGh1Uk8_L_KkC94n06H-nG2KAGRC>
-Feedback-ID: i03f14258:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 24 Nov 2026 16:57:44 -0500 (EST)
-Date: Tue, 24 Nov 2026 14:57:43 -0700
-From: Alex Williamson <alex@shazbot.org>
-To: Samiullah Khawaja <skhawaja@google.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, Kevin Tian <kevin.tian@intel.com>,
- Jason Gunthorpe <jgg@ziepe.ca>, Anthony Pighin <anthony.pighin@nokia.com>,
- Dave Jiang <dave.jiang@intel.com>, Dan Williams <dan.j.williams@intel.com>,
- kvm@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, alex@shazbot.org
-Subject: Re: [PATCH] vfio/pci: Only lock the upstream bridge if the reset
- may need it
-Message-ID: <20261124145743.6c253bd2@shazbot.org>
-In-Reply-To: <awXedVCoT7M79Rk5@google.com>
-References: <20261112235700.2029562-1-skhawaja@google.com>
-	<20261118163706.7138d246@shazbot.org>
-	<20261119143237.4bf54796@shazbot.org>
-	<awC5Ldqmue6DiO44@google.com>
-	<20261124084852.661dd7c1@shazbot.org>
-	<awXedVCoT7M79Rk5@google.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=l/S5P4hq
+Received: by mail-qt1-f177.google.com with SMTP id d75a77b69052e-5365f9a04c5so31669911cf.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:58:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795557492; x=1796162292; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=aa7YPfOROhEx6JieLJ3TSEkUZ7Fh13WAPekCnuIIbKA=;
+        b=l/S5P4hqCvL94AjUk5b9ne9H1xJd9oho6SRjlcv96sjrcFsyAc3OuboHG3NRfcyEdB
+         OFFkiLRZjiyy/ykt55VenVCHzbpuH431SsYd4RW3mDJJbMCtGzoLNGJzrPzUJ3QNzH+y
+         zNQyQSkclGcE8Z4yTWMNkwllmyc75jcpFC1OTK8er/7hlPqylIvaTUlerQ/6Kuuo7c2t
+         sI3ZjJSDwa424rWn+zMHw3YOZhQ7tYfEVdk9C6UuejjCcnmNQdDwcHZ2qgMniZ9688uv
+         bmQeljcPfVTU2UHO4Q8pCgUDRzWUhSyasb/5/2gGp3atWUG4fTjdFQhad8iUj9pDJPJt
+         7XiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795557492; x=1796162292;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aa7YPfOROhEx6JieLJ3TSEkUZ7Fh13WAPekCnuIIbKA=;
+        b=HuukoRClHpe8fviuq7GQpFfES/2Z0G/BwAPgrTcyxoPjngJoFonnvPxLu9PftlLGAn
+         2umTpQbxUK/JNOMtyeGxTz1wWp0hifBXaRIotwk2O19YqGIPPVfTqoYy3+wSZ+gv/d1h
+         uaHjKTGTBljdTJNburlIE7/C1xFEHxqTLe7iId0hm4t+2jtOhc0XkVOW+yh78T+dF9X5
+         5L7MJPtDqrM56nb/qj85mGXtF8sz+NHP/nJhOTiYtrCl1vIInX4q96L74Ln6R91vtYJd
+         aIS48evrXyiPNLD09mp0Iwk1j+qH3M2KcMNtUWIRtNl/e7OkZjem1WXA7xaKQkwxCjBP
+         qPbw==
+X-Forwarded-Encrypted: i=1; AL+hErF5456tNxN6bMdQd32NZK0IyZGHcQIq6bCIyegk8FRD76/57gbbdm71iuHAv+11tm1TewzckVXTS8geU/g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9krnSn558S+nfBI5cNlkirv27H/O4UF02x0mhcUx4Lc9bLjdAQ
+	V/8mKGZSi16btxS2OurK3a7hv3IiB1t7mJPxPjZFlBTt4nSIeWf3QRYTOuU25DtU/3g=
+X-Gm-Gg: AZFdTZcsmQ0rVNl9MZQ/i0Zm0tVaSIZcwpEUXBzAN9ttRQDaZJAYWKzte1SLpBBnnw0
+	WBdooaPIfZCQ9nLiU90BTta+gMvHXcwoPXX6v39+1CHBiyzUIeHzIHzE4tuDDIHtG8x371XI8RD
+	HGNnHw/P8vBGJRFWpxWkBdq4teGJc+baJDo4bnuQZU28vM6fqWDBgfwv7l3XVqqByWllqOXRy/b
+	H4f4keCKoxFgnVa+jZwTy87tbYnDsgwMuV2kJqmWYTOZLmgHyBaFnXns+UBD/RGWxmfmC40ZHVY
+	BLC3j7a+26SU6N4C0Ny7D602VJ9IDulggR2oV2KPEV4aexzhQg8RRdS2umuNuXZPhR8FzpiIUgE
+	TEpvRB/Lu1h+4kx84MuJjOeCEq0KCGXK7YqQfjsp+3zGwDfruHnc3c/FFxFrQxoC9KD7QMSHMYb
+	4/uttszPh1UGQKyUo/o5vFZ/mMMSXdQD5FDBwiyGPxoONdlE5dOrhcAlcB1L7qV9bHgpaw+49tH
+	QfNCDRReEtDMWEMikWw4mGMg7mYxYxYZoqs+qT9r133eAJKHB3Yhgl/L1JPz0ejIHuVgU26mgQk
+	XpvuEzbr+gWqBCgsORRy34xAIvONRQ/KeyQUEEMaC0onhdWnaTqxaVZMm3PIkztxQ+h0x/fS9dK
+	1
+X-Received: by 2002:ac8:5e53:0:b0:536:699d:9a22 with SMTP id d75a77b69052e-55d76aa8754mr292073611cf.57.1795557492035;
+        Tue, 24 Nov 2026 13:58:12 -0800 (PST)
+Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349f2186sm148298976d6.29.2026.11.24.13.58.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 13:58:11 -0800 (PST)
+Message-ID: <79df445f3906ef7147137d991e0fd14f7815d22c.camel@ndufresne.ca>
+Subject: Re: [PATCH v3 03/17] media: v4l2: Add Apple interchange pixel
+ formats
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Sofus Forstreuter <sofus.c@icloud.com>, Sven Peter <sven@kernel.org>, 
+ Janne Grunau
+	 <j@jannau.net>, Neal Gompa <neal@gompa.dev>, Mauro Carvalho Chehab
+	 <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Philipp Zabel
+	 <p.zabel@pengutronix.de>, Heiko Stuebner <heiko@sntech.de>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
+Date: Tue, 24 Nov 2026 16:58:10 -0500
+In-Reply-To: <20261020-avd-v3-3-85cbaa2125d8@icloud.com>
+References: <20261020-avd-v3-0-85cbaa2125d8@icloud.com>
+	 <20261020-avd-v3-3-85cbaa2125d8@icloud.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-0opacj9JZF7JzicRk9mL"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -134,151 +122,142 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
 
-On Tue, 24 Nov 2026 21:04:57 +0000
-Samiullah Khawaja <skhawaja@google.com> wrote:
+--=-0opacj9JZF7JzicRk9mL
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> On Tue, Nov 24, 2026 at 08:48:52AM -0700, Alex Williamson wrote:
-> >On Fri, 20 Nov 2026 22:21:16 +0000
-> >Samiullah Khawaja <skhawaja@google.com> wrote:
-> >  
-> >> On Thu, Nov 19, 2026 at 02:32:37PM -0800, Alex Williamson wrote:  
-> >> >On Wed, 18 Nov 2026 16:37:06 -0800
-> >> >Alex Williamson <alex@shazbot.org> wrote:
-> >> >  
-> >> >> On Thu, 12 Nov 2026 23:57:00 +0000
-> >> >> Samiullah Khawaja <skhawaja@google.com> wrote:
-> >> >>  
-> >> >> > Commit 962ae6892d8b ("vfio/pci: Lock upstream bridge for
-> >> >> > vfio_pci_core_disable()") makes vfio_pci_core_disable() trylock the
-> >> >> > upstream bridge before resetting the device, and skips the reset if the
-> >> >> > trylock fails.
-> >> >> >
-> >> >> > All VFs of a PF have the same upstream bridge. Take a device with two
-> >> >> > VFs, both used by one process. When the process is killed, both VFs can
-> >> >> > be released at the same time. The first one takes the bridge lock and
-> >> >> > does its FLR, the second one fails the trylock and is never reset.
-> >> >> >
-> >> >> > The bridge lock is only needed for a bus reset, which is done through
-> >> >> > the bridge. A VF is reset with FLR, and pci_parent_bus_reset() never
-> >> >> > resets the bus for it because the PF and the other VFs are on the same
-> >> >> > bus.
-> >> >> >
-> >> >> > Add pci_reset_needs_bridge_lock(), which returns true if any reset
-> >> >> > method enabled for the device is a bus reset, and only lock the bridge
-> >> >> > in vfio_pci_core_disable() when it does.
-> >> >> >
-> >> >> > Fixes: 962ae6892d8b ("vfio/pci: Lock upstream bridge for vfio_pci_core_disable()")
-> >> >> > Cc: stable@vger.kernel.org
-> >> >> > Signed-off-by: Samiullah Khawaja <skhawaja@google.com>
-> >> >> > ---
-> >> >> > Tested in QEMU with an igb PF behind a PCIe root port, bound to vfio-pci
-> >> >> > with two VFs. Both VFs are opened through VFIO and then closed from two
-> >> >> > threads at the same time, counting FLRs with a kprobe on pcie_flr().
-> >> >> > Without this patch one VF missed its FLR in 50 of 50 rounds, with it
-> >> >> > both VFs were reset in every round. I will send a VFIO selftest for this
-> >> >> > separately.
-> >> >> > ---
-> >> >> >  drivers/pci/pci.c                | 28 ++++++++++++++++++++++++++++
-> >> >> >  drivers/vfio/pci/vfio_pci_core.c |  3 ++-
-> >> >> >  include/linux/pci.h              |  1 +
-> >> >> >  3 files changed, 31 insertions(+), 1 deletion(-)
-> >> >> >  
-> >>
-> >> [snip]
-> >>  
-> >> >> > +
-> >> >> > +		if (pci_reset_fn_methods[m].reset_fn == pci_reset_bus_function ||
-> >> >> > +		    pci_reset_fn_methods[m].reset_fn == cxl_reset_bus_function)  
-> >> >>
-> >> >> This looks like a maintenance nightmare.  What if instead we did
-> >> >> something like:
-> >> >>
-> >> >> bool pci_parent_bus_reset_possible(struct pci_dev *dev)
-> >> >> {
-> >> >> 	struct pci_dev *pdev;
-> >> >>
-> >> >> 	if (pci_is_root_bus(dev->bus) || dev->subordinate ||
-> >> >> 	    !dev->bus->self || dev->dev_flags & PCI_DEV_FLAGS_NO_BUS_RESET)
-> >> >> 		return false;
-> >> >>
-> >> >> 	list_for_each_entry(pdev, &dev->bus->devices, bus_list)
-> >> >> 		if (pdev != dev)
-> >> >> 			return false;
-> >> >>
-> >> >> 	return true;
-> >> >> }
-> >> >> EXPORT_SYMBOL_GPL(pci_parent_bus_reset_possible);
-> >> >>
-> >> >> static int pci_parent_bus_reset(struct pci_dev *dev, bool probe)
-> >> >> {
-> >> >> 	if (!pci_parent_bus_reset_possible(dev))
-> >> >> 		return -ENOTTY;
-> >> >>
-> >> >> 	if (probe)
-> >> >> 		return 0;
-> >> >>
-> >> >> 	return pci_bridge_secondary_bus_reset(dev->bus->self);
-> >> >> }
-> >> >>
-> >> >> Where we'd then condition acquiring the bridge lock on whether it's
-> >> >> even possible for a function scoped reset to perform a bus reset.
-> >> >>
-> >> >> It's a bit broader of a test than whether we actually have the necessary
-> >> >> methods in our reset_fn list, but since we're not locking the reset_fn
-> >> >> list between test and function-reset, it's also safer.  Thanks,  
-> >> >
-> >> >After exploring Ionut's patch[1], what I propose above is probably
-> >> >wrong.  We don't have any guarantees that the sibling topology is
-> >> >static and this bus-reset-possible function presents it as immutable.
-> >> >The existing bus-reset function has the same race, but the gap is
-> >> >smaller, let's not make it bigger.
-> >> >
-> >> >There are however immutable properties we can test that cover a fair
-> >> >number of cases.  For example:
-> >> >
-> >> >bool pci_reset_function_needs_bridge_lock(struct pci_dev *dev)
-> >> >{
-> >> >	return pci_upstream_bridge(dev) &&
-> >> >		!(dev->dev_flags & PCI_DEV_FLAGS_NO_BUS_RESET) && !dev->is_virtfn;
-> >> >}
-> >> >EXPORT_SYMBOL_GPL(pci_reset_function_needs_bridge_lock);
-> >> >
-> >> >We should be able to use this as a condition on whether we acquire the
-> >> >bridge device lock, in pci_reset_function() and in vfio-pci code.
-> >> >Thanks,  
-> >>
-> >> This sounds good and it will also fix the bug that I am seeing.
-> >>
-> >> The only caveat is that pci_dev_wait() might fail during VF reset and
-> >> then it might try to do a bus reset if the VF is behind a pciehp or CXL
-> >> port. I would prefer to do it only for vfio-pci code as that is where
-> >> the reset skip issue is. pci_reset_function() takes the lock and
-> >> serializes the VF reset. Are you ok with doing it just for vfio-pci?  
-> >
-> >I think the test I'm proposing precludes a bus reset, ie. there is no
-> >upstream bridge, the device flags prevent it, or we're provided with a
-> >VF.  It's only those cases where we can't do a bus reset anyway, that
-> >we can skip the bridge device lock.  I think that means it's useful in
-> >PCI-core as well as vfio-pci.  Did I miss something?  
-> 
-> Yes, the slot reset probe doesn't account for the VFs and will allow
-> reset of the slot when hotplug is enabled.
-> 
-> I think that is probably a fix that needs to be done orthogonal to this.
-> I will send a v2 of this by doing the needs_bridge_lock() as you
-> mentioned above.
+Le mardi 20 octobre 2026 =C3=A0 11:37 +0200, Sofus Forstreuter a =C3=A9crit=
+=C2=A0:
+> Apple Interchange is a compressed and tiled format modifier.
+>=20
+> Its intended use is for sharing buffers between hardware blocks (GPU,
+> display controller, video codecs) on Apple platforms.
+>=20
+> Add it to the v4l2_format_info table to help with calculating sizes.
+>=20
+> Reviewed-by: Neal Gompa <neal@gompa.dev>
+> Signed-off-by: Sofus Forstreuter <sofus.c@icloud.com>
+> ---
+>  drivers/media/v4l2-core/v4l2-common.c | 7 +++++++
+>  drivers/media/v4l2-core/v4l2-ioctl.c  | 6 ++++++
+>  include/uapi/linux/videodev2.h        | 8 ++++++++
+>  3 files changed, 21 insertions(+)
+>=20
+> diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-c=
+ore/v4l2-common.c
+> index 43ef12d073a3..896c07d93032 100644
+> --- a/drivers/media/v4l2-core/v4l2-common.c
+> +++ b/drivers/media/v4l2-core/v4l2-common.c
+> @@ -336,6 +336,13 @@ const struct v4l2_format_info *v4l2_format_info(u32 =
+format)
+>  =09=09{ .format =3D V4L2_PIX_FMT_GREY,    .pixel_enc =3D V4L2_PIXEL_ENC_=
+YUV, .mem_planes =3D 1, .comp_planes =3D 1, .bpp =3D { 1, 0, 0, 0 }, .bpp_d=
+iv =3D { 1, 1, 1, 1 }, .hdiv =3D 1, .vdiv =3D 1 },
+>  =09=09{ .format =3D V4L2_PIX_FMT_Y12,     .pixel_enc =3D V4L2_PIXEL_ENC_=
+YUV, .mem_planes =3D 1, .comp_planes =3D 1, .bpp =3D { 2, 0, 0, 0 }, .bpp_d=
+iv =3D { 1, 1, 1, 1 }, .hdiv =3D 1, .vdiv =3D 1 },
+> =20
+> +=09=09{ .format =3D V4L2_PIX_FMT_APPLE_AX12, .pixel_enc =3D V4L2_PIXEL_E=
+NC_YUV, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 1, 2, 0, 0 }, .bp=
+p_div =3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2 },
+> +=09=09{ .format =3D V4L2_PIX_FMT_APPLE_AX16, .pixel_enc =3D V4L2_PIXEL_E=
+NC_YUV, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 1, 2, 0, 0 }, .bp=
+p_div =3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 1 },
+> +=09=09{ .format =3D V4L2_PIX_FMT_APPLE_AX24, .pixel_enc =3D V4L2_PIXEL_E=
+NC_YUV, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 1, 2, 0, 0 }, .bp=
+p_div =3D { 1, 1, 1, 1 }, .hdiv =3D 1, .vdiv =3D 1 },
+> +=09=09{ .format =3D V4L2_PIX_FMT_APPLE_AX03, .pixel_enc =3D V4L2_PIXEL_E=
+NC_YUV, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 5, 10, 0, 0 }, .b=
+pp_div =3D { 4, 4, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2 },
+> +=09=09{ .format =3D V4L2_PIX_FMT_APPLE_AX23, .pixel_enc =3D V4L2_PIXEL_E=
+NC_YUV, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 5, 10, 0, 0 }, .b=
+pp_div =3D { 4, 4, 1, 1 }, .hdiv =3D 2, .vdiv =3D 1 },
+> +=09=09{ .format =3D V4L2_PIX_FMT_APPLE_AX43, .pixel_enc =3D V4L2_PIXEL_E=
+NC_YUV, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 5, 10, 0, 0 }, .b=
+pp_div =3D { 4, 4, 1, 1 }, .hdiv =3D 1, .vdiv =3D 1 },
+> +
+>  =09=09/* Tiled YUV formats */
+>  =09=09{ .format =3D V4L2_PIX_FMT_NV12_4L4, .pixel_enc =3D V4L2_PIXEL_ENC=
+_YUV, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 1, 2, 0, 0 }, .bpp_=
+div =3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2 },
+>  =09=09{ .format =3D V4L2_PIX_FMT_NV15_4L4, .pixel_enc =3D V4L2_PIXEL_ENC=
+_YUV, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 5, 10, 0, 0 }, .bpp=
+_div =3D { 4, 4, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2,
+> diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-co=
+re/v4l2-ioctl.c
+> index 1f2519ffeb2b..e40e2ebac241 100644
+> --- a/drivers/media/v4l2-core/v4l2-ioctl.c
+> +++ b/drivers/media/v4l2-core/v4l2-ioctl.c
+> @@ -1561,6 +1561,12 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *=
+fmt)
+>  =09=09case V4L2_PIX_FMT_PISP_COMP2_GBRG: descr =3D "PiSP 8b GBGB/RGRG mo=
+de2 compr"; break;
+>  =09=09case V4L2_PIX_FMT_PISP_COMP2_BGGR: descr =3D "PiSP 8b BGBG/GRGR mo=
+de2 compr"; break;
+>  =09=09case V4L2_PIX_FMT_PISP_COMP2_MONO: descr =3D "PiSP 8b monochrome m=
+ode2 compr"; break;
+> +=09=09case V4L2_PIX_FMT_APPLE_AX12:=09descr =3D "Apple Interchange NV12"=
+; break;
+> +=09=09case V4L2_PIX_FMT_APPLE_AX16:=09descr =3D "Apple Interchange NV16"=
+; break;
+> +=09=09case V4L2_PIX_FMT_APPLE_AX24:=09descr =3D "Apple Interchange NV24"=
+; break;
+> +=09=09case V4L2_PIX_FMT_APPLE_AX03:=09descr =3D "Apple Interchange P030"=
+; break;
+> +=09=09case V4L2_PIX_FMT_APPLE_AX23:=09descr =3D "Apple Interchange P230"=
+; break;
+> +=09=09case V4L2_PIX_FMT_APPLE_AX43:=09descr =3D "Apple Interchange P430"=
+; break;
+>  =09=09default:
+>  =09=09=09if (fmt->description[0])
+>  =09=09=09=09return;
+> diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev=
+2.h
+> index 5472e433ed06..f218f4fb26a4 100644
+> --- a/include/uapi/linux/videodev2.h
+> +++ b/include/uapi/linux/videodev2.h
+> @@ -842,6 +842,14 @@ struct v4l2_pix_format {
+>  #define V4L2_PIX_FMT_PISP_COMP2_BGGR=09v4l2_fourcc('P', 'C', '2', 'B') /=
+* PiSP 8-bit mode 2 compressed BGGR bayer */
+>  #define V4L2_PIX_FMT_PISP_COMP2_MONO=09v4l2_fourcc('P', 'C', '2', 'M') /=
+* PiSP 8-bit mode 2 compressed monochrome */
+> =20
+> +/* Apple Interchange, compressed and tiled formats */
+> +#define V4L2_PIX_FMT_APPLE_AX12=09v4l2_fourcc('A', 'X', '1', '2') /* App=
+le Interchange NV12 */
+> +#define V4L2_PIX_FMT_APPLE_AX16=09v4l2_fourcc('A', 'X', '1', '6') /* App=
+le Interchange NV16 */
+> +#define V4L2_PIX_FMT_APPLE_AX24=09v4l2_fourcc('A', 'X', '2', '4') /* App=
+le Interchange NV24 */
+> +#define V4L2_PIX_FMT_APPLE_AX03=09v4l2_fourcc('A', 'X', '0', '3') /* App=
+le Interchange P030 */
+> +#define V4L2_PIX_FMT_APPLE_AX23=09v4l2_fourcc('A', 'X', '2', '3') /* App=
+le Interchange P230 */
+> +#define V4L2_PIX_FMT_APPLE_AX43=09v4l2_fourcc('A', 'X', '4', '3') /* App=
+le Interchange P430 */
 
-Yes, there might be a latent bug in the slot reset path.  I know s390
-has some weird per-VF slot reset, but they set the per_func_slot flag.
-The test in pci_dev_reset_slot_function() probably needs to account for
-both VFs and multifunction devices as:
+These needs to be in Documentation/userspace-api/media/v4l/pixfmt-reserved.=
+rst
 
-	((dev->multifunction || dev->is_virtfn) &&
-	 !dev->slot->per_func_slot)
+Nicolas
 
-As you suggest though, that's a separate fix.  Thanks,
+> +
+>  /* Renesas RZ/V2H CRU packed formats. 64-bit units with contiguous pixel=
+s */
+>  #define V4L2_PIX_FMT_RAW_CRU10=09v4l2_fourcc('C', 'R', '1', '0')
+>  #define V4L2_PIX_FMT_RAW_CRU12=09v4l2_fourcc('C', 'R', '1', '2')
 
-Alex
+--=-0opacj9JZF7JzicRk9mL
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawYIcgAKCRDZQZRRKWBy
+9LYlAP9eNt64YAYVi+3tdmO2eVOgxAxX3MBInpvFBV83Km5LlQEAva1+LKSeuhBa
+0jv5NXY7twZmCiEmTXSCAQrzfD7RsA8=
+=Z59I
+-----END PGP SIGNATURE-----
+
+--=-0opacj9JZF7JzicRk9mL--
