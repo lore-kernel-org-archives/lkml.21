@@ -1,86 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795540993;
-	b=k0U5DzPJQzImgHFrix5C0XesDx26+eUDWKHWOAB98TwuB2d7bCjdms23dV47dFHRp1DG
-	 vhURgO1Gq3eJSrRfBiKtWWDUc5KIQUhsD79IMlr800vpDD2W4UIgwGJkA2rLusk9ejtKF
-	 6MBw3QRpCVRshXz5cd7590Cgjit8vP04sxBgxUfDcRperE7KO4mEgKnfCM2X4koXLCO3G
-	 JrWsOp2ThUduUYE3xWCY3s+RPAMOSeLg9tRXgEi0JBWUk2tSrvwPV1mw8BeBpG0bmBIbQ
-	 XMcXRVwEWyjVYkrHDgKPcIQAk9pE+Ih4Af6t+RLOqRz7rb/Zftt52LgsDWve50pgUtg==
+	t=1795541025;
+	b=mILOME7BGclUkA9p1ZMqaKU3LjH/1ca7rzaNXau5of4/IFLL3nFWypGiqLMupB873ZDa
+	 pgdZeS5737kg+NVz/rQlsoF1/XyWGhcX9OmDcHykBkKE9cZYBCU2dNK59iAcSZlUy66LF
+	 P22AqbBG+st0BOvQNQ7Cpb+FAvVWbmHAtngWKTCpUxc6ZriybpHpzcwT0mTK1fopLTnir
+	 pp26TmrLOiaUJXRLTuOk0OgMBw95NO+yMbKUxWsrf0tfKyP4SojcOkeZP007aQhX/HB1r
+	 FFxCsKXIffSxbQJj3zakEOHr4koNSnbBcMZH4l8JS+hFVE90lF/7f4g2RsVrOsAJTHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540993;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=QB3iU+E6oyxQS/JyhDVo0yHo/2d1Hsj9txbeC2yWP8g=;
-	b=2BLekNdfGxYVRAsIYXrGPGVP2HrRvp9lNRHcMpl6Wi04Macb5trohpNtBSGtktV+Kdxq
-	 a6bEG8210YfR27lyxdnMTRSAU/A6x4rrrXw5BWF3rwd+Ffz8C+21f49q8nlnCooHh4Qgg
-	 4hK65wiefbPP+Q6xYW4O70KZ+UPZ5QkMmSmi7soc3lpfb/tAQCLvhCEFsLb/M4Zk9eWbh
-	 yydN+DaqtHTKq+rUEkKFU4/f+ixjYTyfMe0q8E+IcvWJbOpA7WP8EBefjGhkRFPXSBvn9
-	 437eW+4orjU0bc+YEgRGef3W5SzFdQboykH03YdFmm5dDv8hgYmCZ2SK+wdGwekbm6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541025;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=fS8UX0zOG7y5HTbRfTEb+A5QmGIQnuTVBZNrsVPO3QA=;
+	b=sq2uGb/2/WjKcxi0zlQ55QRYoNBZeu9A86Xvk26kv/4d6ZTthxvORN8w/SBu8Uqt2gZJ
+	 Gfs20eJhmhLkGUSZpVzol2P5Xhy48mBA25L9UTWx5yEj5WL+yG45BZ1sRa7VsnT9mcqvX
+	 N6lV5XA6q/rrvUIOSn/Qsu11kWjGk4RK0UohI6RxSS3prxURfGT4GrAyf0InLLR5Jw3K+
+	 x4CurLYMBKX3HgUyi7mf99JLQw8tfuO2AL0RKgViNig4PM3usE4cwgyuO4MlfnQTdYhXK
+	 gtgUNZJMnBONqYhFGq03qfm8oobQpgvnasx7pxOHqHawITXdhEoxYIrx7LkOlIASyyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jTUatixS;
-	arc=none smtp.remote-ip=198.175.65.19
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="aIER/tK9";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28A29606A333;
-	Tue, 24 Nov 2026 17:23:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28A29606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AA15606A32A;
+	Tue, 24 Nov 2026 17:23:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jTUatixS
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795540993; x=1827076993;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=wpVMG93aHYjeK4cRmMuTJVoZTPgP747FjeTd/hCPVTE=;
-  b=jTUatixS0b0FKDuIifuAZ7aQdOy8up1OrGgD/qZ9m/eu3SbGWMjLAd43
-   ZESq+jl8yeZXaTEIzTHY/EcP8/RxcNxXE/W7mbeldlCHjWa8ClwDP7L8a
-   unr8WTkP/fPx4t0z1uZbx35M21k7GXF/Ypq547NfB0takR3zeW5BEUTBk
-   0OLUorekV+PvtDcz1e41XGik9w12wmVd/0K8CSMpcEoXUXeTjmdMHmdq8
-   NQCLYv03NRHY97og/P4zLKyLrCBOg6NcRr0sj+QqaP64VkafXl91/lCYe
-   3rd+8SSjjt0BBmYphka1TbS8mVdfDRxtcLFJcfy/CPVjBY2dGI5o7T5xF
-   g==;
-X-CSE-ConnectionGUID: hguHChhDQJi+USMw1wsaAQ==
-X-CSE-MsgGUID: /T7/IBcdTHW+07IT82fmWw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4447380"
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4447380"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 09:05:23 -0800
-X-CSE-ConnectionGUID: gVewJTBkQdmaPuvBAvZOCQ==
-X-CSE-MsgGUID: FfvISExHSDqpLos8PF/+mA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="12029816"
-Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 09:05:19 -0800
-Date: Tue, 24 Nov 2026 19:05:17 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: "Nagavarapu, Dileep Kumar" <dnagavar@amd.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Conall O'Griofa <conall.ogriofa@amd.com>, linux-iio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	git@amd.com, Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-Subject: Re: [PATCH v5 14/16] iio: adc: xilinx-xadc: Split driver into core
- and platform files
-Message-ID: <awXDzR6tSPHh64SZ@ashevche-desk.local>
-References: <20261110050201.1850399-1-dileepkumar.nagavarapu@amd.com>
- <20261110050201.1850399-15-dileepkumar.nagavarapu@amd.com>
- <avNGcpcemoeE3J7O@ashevche-desk.local>
- <42949fe9-b336-40e7-8a8e-43f6d24da9bc@amd.com>
- <awVzDqxuwsOjoFCi@ashevche-desk.local>
- <f7273b47-0835-4afb-9e45-ddf729f05b8e@amd.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aIER/tK9
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01F0E1F000D1;
+	Tue, 24 Nov 2026 17:23:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795541024;
+	bh=fS8UX0zOG7y5HTbRfTEb+A5QmGIQnuTVBZNrsVPO3QA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aIER/tK9Xj9J7xTkM7cNMYCpdtYq0gOZ2/0BrOQlgPEO6oQ5XstyYWIMiG9xBv81o
+	 dW0o2fsXWJ7a0R3kzyAd7SW3xgwAyK/lFagJBx9SUiAJivswcb77/aFDQis9KITn4z
+	 2hQCWdu8XGvvjs6cR7zxu41TDaqS1fRg7RPlbK6qgQsdkTQWIKRav9VBIUJDloU4/S
+	 T2qG0m0Y5nYwqLVJD7Bxbjy8GBYXbO+AkFaxmZ6p4feLXekf2YjojAswcGcH7TtM8d
+	 Zjm526349OF6EKBgApdu6YcK8jHdyS6sID2wuiZijTsgye75nh3feB7scItYNrqYsZ
+	 zfI0e9bBZJN1g==
+Date: Tue, 24 Nov 2026 17:23:35 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Suren Baghdasaryan <surenb@google.com>
+Cc: Puranjay Mohan <puranjay12@gmail.com>, 
+	Pedro Falcato <pfalcato@suse.de>, Ingo Molnar <mingo@redhat.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	Kees Cook <kees@kernel.org>, David Hildenbrand <david@kernel.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	Jann Horn <jannh@google.com>, Alexei Starovoitov <ast@kernel.org>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org, Chris Mason <mason@kernel.org>, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH] mm/vma: drop mm asynchronously in vma_start_read()
+Message-ID: <awXHR007d8MlhJUC@gremlin>
+References: <20261124-vma-read-lock-mmdrop-async-v1-1-257f99f551de@kernel.org>
+ <awWLCZ-jBjSD7V3M@pedro-suse.tail5790ac.ts.net>
+ <CAJuCfpGk6eYK43Unxo+O4ML5=GM_siZ9owp6oa9fO0ipZXVg-g@mail.gmail.com>
+ <CAJuCfpEd1rz3P7fB7W_mHkyzbpq9TscRE+QNwvHdYME=WJj6cw@mail.gmail.com>
+ <awWz3nc_b8x3mIXq@gremlin>
+ <CANk7y0gAxY18Ew+6j5YsqrOsf5Dx+v5M78r7_8JLXh5RHZj4qA@mail.gmail.com>
+ <CAJuCfpFuDCUPTUi3SuAhmbtw5tubRZ0+YEY3PotjyJ8Or8pdQQ@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,88 +74,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <f7273b47-0835-4afb-9e45-ddf729f05b8e@amd.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAJuCfpFuDCUPTUi3SuAhmbtw5tubRZ0+YEY3PotjyJ8Or8pdQQ@mail.gmail.com>
 
-On Tue, Nov 24, 2026 at 10:23:29PM +0530, Nagavarapu, Dileep Kumar wrote:
-> On 11/24/2026 4:50 PM, Andy Shevchenko wrote:
-> > On Tue, Nov 24, 2026 at 04:33:59PM +0530, Nagavarapu, Dileep Kumar wrote:
-> > > On 11/10/2026 9:59 PM, Andy Shevchenko wrote:
-> > > > On Tue, Nov 10, 2026 at 10:31:59AM +0530, Dileep Kumar Nagavarapu wrote:
+On Tue, Nov 24, 2026 at 08:34:40AM -0800, Suren Baghdasaryan wrote:
+> On Tue, Nov 24, 2026 at 8:06 AM Puranjay Mohan <puranjay12@gmail.com> wrote:
+> >
+> > On Tue, Nov 24, 2026 at 9:28 PM Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
+> > >
+> > > On Tue, Nov 24, 2026 at 07:51:42AM -0800, Suren Baghdasaryan wrote:
+> > > > Actually, VMAs are allocated from a SLAB_TYPESAFE_BY_RCU slub. With
+> > > > that RCU unlocking move you don't need other_mm copy and the comment
+> > > > that comes with it. VMA won't be freed until RCU lock is dropped.
+> > >
+> > > Yeah but they can be reassigned? They won't be _freed_ until a grace period but
+> > > they can go back to the slab and then allocated elsewhere  right?
+> > >
+> >
+> > Yes, they can go back to the slab and become a different VMA.
+>
+> Yeah, you are right about that. So, we either have to keep the RCU
+> unlock in place to keep other_mm comment valid (my personal
+> preference) or update the comment next to other_mm to explain the new
+> reason it is needed. Either way is fine with me.
 
-...
+I think let's just change the comment?
 
-> > > > > ---
-> > > > >    drivers/iio/adc/Kconfig                       |   8 +-
-> > > > >    drivers/iio/adc/Makefile                      |   5 +-
-> > > > >    drivers/iio/adc/xilinx-xadc-core.c            | 690 +--------------
-> > > > >    drivers/iio/adc/xilinx-xadc-events.c          |   1 +
-> > > > >    ...inx-xadc-core.c => xilinx-xadc-platform.c} | 818 +-----------------
-> > > > >    drivers/iio/adc/xilinx-xadc.h                 |  27 +
-> > > > >    6 files changed, 72 insertions(+), 1477 deletions(-)
-> > > > 
-> > > > This is weird statistics... I think it's a bug in Git. What it did, it copies
-> > > > -core.c twice and uses statistics on each file after that without duplicating
-> > > > the *original* amount of lines.
-> > > 
-> > > I generated the patches using the following command: "git format-patch \
-> > >     -M \
-> > >     -C10% \
-> > >     --histogram \
-> > >     --base=origin/togreg \
-> > >     --cover-letter \
-> > 
-> > >     --subject-prefix="PATCH v5" \
-> > 
-> > Hint: You can use -v5 instead of the above long parameter.
-> > 
-> > >     origin/togreg..HEAD"
-> > > 
-> 
-> > > If I remove the 10% similarity threshold from the command,
-> > 
-> > 10% is way too low threshold!
-> 
-> Is it OK to use `-M -C --histogram` (default thresholds) instead?
+Andrew could you change:
 
-Yes.
+	 * stable and can be freed in the narrow window after vma->vm_refcnt
 
-> With it, xilinx-xadc-platform.c is shown as a new file with all lines as
-> additions rather than as a copy of xilinx-xadc-core.c. The statistics
-> then look like this:
-> 
->  drivers/iio/adc/Kconfig                |   8 +-
->  drivers/iio/adc/Makefile               |   5 +-
->  drivers/iio/adc/xilinx-xadc-core.c     | 688 +------------------------
->  drivers/iio/adc/xilinx-xadc-events.c   |   1 +
->  drivers/iio/adc/xilinx-xadc-platform.c | 677 ++++++++++++++++++++++++
->  drivers/iio/adc/xilinx-xadc.h          |  28 +
->  6 files changed, 733 insertions(+), 674 deletions(-)
-> 
-> Are these statistics OK?
+->
 
-Yes.
+	 * stable and can be reused in the narrow window after vma->vm_refcnt
+	                     ^
+			     |
+			     just this freed -> reused :)
 
-> > > xilinx-xadc-platform.c is no longer detected as a copy of the original
-> > > xilinx-xadc-core.c, which is not the expected output.
-> > > Is there a better command or approach that would allow Git to recognize
-> > > xilinx-xadc-platform.c as being split from the original file while also
-> > > producing meaningful diff statistics?
-> > 
-> > But it's not a full copy. Have you tried to apply the patch from the mailing
-> > list and see if `git am` correctly recognises the split?
-> 
-> Yes. I applied the v5 series from the mailing list with `git am`
-> and all patches applied without errors
+Thanks!
 
-So, then it seems like a Git bug as I pointed earlier, and hence it's fine
-to use 10% threshold in _this_ case.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+--
+Cheers, Lorenzo
