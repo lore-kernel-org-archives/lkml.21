@@ -1,107 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795521937;
-	b=nRydBPyMl2T5b0lwBhutKassmWkhIT8lCGeI48J4o8leaebdDdC3DlfBUO5pAmfZhfRj
-	 j1ICodakWhLGJ3sPA4w6RjYF82TLVqvHWJvD0AORbBF17LjwXqZe8k9AuQKxBikZCBlSH
-	 hCRTKyy6T5JtR0Yv4YNLm++znet5cd4wSupZhIxRBJyUMNVwuytzUn6oT7GZs0YgPLIHy
-	 mOWZy8xfE18de2PPSeSuUcu4NmnASSYIuAbNTEcwvMNtX/y/X1+VV6OE/zQZ+0CxID9uM
-	 eto2qzPjugzVuwAreuVA8tlITomSjhHMe++Vi2mU14GrWnuYxG9Cyc/TXpPGYsjZwxw==
+	t=1795521958;
+	b=RO8pbREZbogVWi1RUoq/kFoDV6u6Vt+xLf9Cees/RxwSsWyoCc8Wn3b7VWd9JurXx/PV
+	 lDCNO3eQLqJt6b+CWmJG/hKeJTONgEZtZuE38jwj4LOAUC5BNNykC/tlr/3S0Zns0iNkx
+	 6Om7u29j0M9CM//Q9CJZrcuQL/CscwmCUHJTY1/H9v2ErtzFx7HcfujWfNZaMb1pYIAts
+	 W75n6ch0FP10dMGIRNl2va+zxGMm0sYMOrdJAXWY2vBOg12MeBMUa+A4wmQbRfbg0Rkg/
+	 glhcRB5TEx9cB4Bb9qelirLHupIUTz8jskvGJV0YxLmsyv44eGWa/X55jmUl1UlvOLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795521937;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=5IernkkwA+DoP/JgvUM6f7W9BvN1ADy096tR+AYqelk=;
-	b=UbMXWkgIAw8rTEjlw3eFTvIsPwtwdRyhj4EOQgLqPBD5RajQnFvewdgtoDDct89dHLsF
-	 j+yZDfwwBGt9Jn8bOB9gXpAdZQdEGUght3vNnG5lODw6vYjTVRV15GtQuqZyDza8ZYY1b
-	 Ewan903T/4Q8P/SJRn0bg+cPLPEhlXE4WLuhatZ7gLgVpFxoogkEDKegkIOx5nSHbl5MQ
-	 xUHxGQQCf3usuelJp5OMQjU/V/XVYR1UtlmAgXImIoO2dkOiWrsz1fN++Mgf4ygzjggAh
-	 qZi8kkouaW467bc0S478VvVeuPmSJh+FlWqI56JkJxD2mH+jBpR3MeFFhJE0oXLW0Eg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795521958;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=uh6VIcmUihTJZpbQIAs5Uul2q/clKDFIcJydo+fPY/c=;
+	b=SKkys6nNKXzK41uEz1uQuGFVxxlpmKbFRY19Bs40JC6oMQwkM82lUXlIUkJH4sLfdtcF
+	 D8Ovouj0m5KFblb1lHaa5yAj0aegav7KpY88uIndLFq0Tv4Lx9/n7nm3iZ57QGS7sfsDG
+	 hZCVf8rMjxQxDb4XhEp8JKTGWyTvfB0opoGZFYIJTmilq11NQkNBbi/oIaRs/L10RVhkn
+	 Q3DGVx/eFl6CO6ovD1itCQK4t4vrSiPxcO1di+Soz5zSUXC/ImHgzLtN17MKKl8RDTNhN
+	 pz6LlGjWNga6tZelbTAsbjC2slEBn44bpwzRUwuT9CcAMcesanXQrPbreE/B/AsXOgg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Jo8RUMQZ;
-	arc=none smtp.remote-ip=209.85.214.180
-Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="jkO62I/N";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45AF1606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:05:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45AF1606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93977606A330;
+	Tue, 24 Nov 2026 12:05:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Jo8RUMQZ
-Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2f07a960666so24085105ad.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:05:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795521937; x=1796126737; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5IernkkwA+DoP/JgvUM6f7W9BvN1ADy096tR+AYqelk=;
-        b=Jo8RUMQZgn4cqGAq/vlqdQ95A0r8L14yCvkuzGm7is2hPSuCO+yRyUSqmQFvcNL/20
-         D6tehF9nWi2kzHPw8dc+hRSiiBMLaP1fWS/C4sbeXkyOtOM0jAHkdNt7jsIcqyEFIDcO
-         KE5/ZcjyPvUsU0JANb/HXWcn0NV3wdANyTjoFiRuXM/GnBqxdS6i3qbRtPqfCNqQcLkI
-         gRZG92HTbuloPRK20VkbVywmH7jhDXdvDtkmrKkTHJjEP53mhU2xrzlFwlWxzlKo2Exu
-         BWfKPnVeW4vVw2QyZlpWNx8ceDXStxajzesj5LkmVmaziUyJirHykcGNgKW3DBKdAHLt
-         Idtw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795521937; x=1796126737;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5IernkkwA+DoP/JgvUM6f7W9BvN1ADy096tR+AYqelk=;
-        b=vfTbO5Kp55XYmMZ5tht2S/cRuFsiwuk3EPbEnkkVAB/X5m1ckLgB5zlJZavWUlzLjs
-         xYG78u3qqlqJM+qMKqOrnIoEUm7eKcAi9MrmsVLIqcwDxdomKQHgTJSqYT4AyUg2aXa7
-         3UtCQ0DxtZk0Q1fLvgaJ9fEbvxMA3hNYJHcEbgAUr+9Fw4/Xea3OCM+S1EmAlGJMb8Wk
-         Ls2Oe/9Gg5jjA62AAach3H858Vzw9qiCeFvpA63lwzs6xZW3R9SuU2BE1liAT/BEMzT1
-         LIyyClJ7BT/ktP3feZzb0S4lfKlNy7icOddpCz0fRMqK6WdSgCcr/x0Gx2O5q8QY/R7X
-         NxKg==
-X-Forwarded-Encrypted: i=1; AL+hErEdjr8fSYqfwZZYov104KeHJ1gkgBBJW3YFMJs5iH51zE1CJZEqEk1wMiBeCWTs5WGunEdMHTjaROIwgG0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z89xweiusCWwqsmTfHaIGvBkOV3bFYQ37lpn7EVQuGodUQcv8gn
-	/h43Q1nfD1ekTu/kd80FJILJip8ZG6YA3/tfGbz+sMjE+Uy9KjvxZtQu
-X-Gm-Gg: AZFdTZd2eFb75mIR198hoTYpIpEiGFBbqZ+9fnnYkb24fKIoN2vsirzhvIRiZrix+r6
-	F6B3LtgsTVMc58E6QdVUNEG1Ca3UIj2keO+mVvF8duzgMsQTAmrTJRT+xLRDRj4kzaLQa1xLo2D
-	OWMu7WTfB/kIqIuTbIyGxSDswdMrh3xNg01wYkRLCubNvzaNf017IopGoC4DkxkfXWpyP9fR6Yi
-	UCfKDvXPTLMe22vU6F0JIUKldfSVjucwvrkKumhPmJsiqY+KMz3Q+T7jJoLOnCx9V5VRLNRwyLv
-	/rER7G60c6u/8lMORluhs5sCfGoMoR1VeZYv1772jxHtfLjB7KK3yea/53cvFUk98QF1DaUfe89
-	J0Bcu4HtE65nUFzDLZZTyd1LP4HnUvVKdi5dQKRAP6hPDBLYeWHUbDCvoJqhqFzO91Zw8Gfg8ag
-	oEtIVYn0zluqoO4mO1676m+IgRD1M3clnBXo2KB4rAe33zONKofZquLVfSod41Fl0/Y5Mbm2zS4
-	pkeqzmj+H/nSrpAjXgKcQnq3wG8wjaEmRcnAJuKfLif0Vj1eoGAoJCnq0QgxHZhlS7/NoC9DWYE
-	gwrShV+rn55N1z85rEEMlXA47j9ssdMtfLCUyQIViU0PENEAFNP6e+Wmdpt1wlG1iUMatW2tgMm
-	A0H7YjRXUco952G8ObHo07ZGO9afgPbpOFN50EAGEFrMX+waXiHtLGvDORum+sCOUZUQV4DVq04
-	FScA7FDYwRfHiJGKwYu2LhPfif/4cCWPlBoXzZTEJ1kBYhPuSHdm+UV4oUOaiJilV7ZEOulGRvo
-	kONvrpQcAbDVuoAjICEp/3aIuV6J4v3eQfIWlA6FnEUJBXaZazxucFx2+mMOZpB
-X-Received: by 2002:a17:902:eccf:b0:2e9:77c0:c7ab with SMTP id d9443c01a7336-2f03f1277f8mr140248475ad.29.1795521936572;
-        Tue, 24 Nov 2026 04:05:36 -0800 (PST)
-Received: from localhost.localdomain (27-32-254-230.static.tpgi.com.au. [27.32.254.230])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f07d6d4bddsm39621705ad.62.2026.11.24.04.05.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 04:05:36 -0800 (PST)
-From: Daniel Wade <danjwade95@gmail.com>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	Kyle Zeng <kylebot@openai.com>,
-	Aditya Chillara <aditya.chillara@oss.qualcomm.com>,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 2/2] perf: Wake pollers when CPU hot-unplug detaches an event
-Date: Tue, 24 Nov 2026 22:35:03 +1030
-Message-Id: <20261124120503.334-3-danjwade95@gmail.com>
-X-Mailer: git-send-email 2.39.0.windows.2
-In-Reply-To: <20261124120503.334-1-danjwade95@gmail.com>
-References: <20261124120503.334-1-danjwade95@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jkO62I/N
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3816E1F000EF;
+	Tue, 24 Nov 2026 12:05:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795521958;
+	bh=uh6VIcmUihTJZpbQIAs5Uul2q/clKDFIcJydo+fPY/c=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=jkO62I/NkOgxLczWDu+s+u6Vg9w+FOcmx9E0LT9FVUmdYwqbuW/6XfqM+4cTjlWwl
+	 /DMR3U9M0WVJK3k/DpZDuAx2HptQYdiZ0ZZDmguKe/3xuiUTRJh6eVaf5Yl2sFVgWl
+	 LNHeEJBu5kuf6e9G4GVSbWI3s4PYuA1Qb7uel+lYx+J1Lk1c/7JWeOgSl0GO048IMr
+	 NUb0Qn4jJ143ter8OZhYaZflZEnDxnS1JXD4xU5mJhGcV9zApiWZ77+s60/9Pw32b/
+	 +6KYSeua4GbIi5RqKV8iblvGZJAyFacFUsQJLLDUIB+qiB7xZK+Xk6j9UTksJL7VFq
+	 FW4U0YiQ1OUqw==
+Subject:
+ Re: [PATCH v2] net: dsa: mt7530: disable the power rails on setup failure
+From: netdev-bot+sashiko@kernel.org
+To: wanghr2026@mail.zgclab.edu.cn
+Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
+ olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Tue, 24 Nov 2026 12:05:56 +0000
+Message-ID: <179552195677.3135.2679930645626053258@kernel.org>
+In-Reply-To: <179543215348.11880.18316180385674365789@mail.zgclab.edu.cn>
+References: <179543215348.11880.18316180385674365789@mail.zgclab.edu.cn>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,36 +66,171 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-CPU hot-unplug now detaches events with DETACH_EXIT, so is_event_hup()
-is true for them and a fresh poll() returns EPOLLHUP. A task already
-sleeping in poll() is not woken, because __perf_remove_from_context()
-does not call perf_event_wakeup() the way perf_event_exit_event() does
-on the task-exit path. It sleeps on until its own timeout.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Queue the event's irq_work, as merge_sched_in() does when it puts an
-event into ERROR.
+Critical: 0 · High: 1 · Medium: 0 · Low: 2
 
-Suggested-by: Aditya Chillara <aditya.chillara@oss.qualcomm.com>
-Signed-off-by: Daniel Wade <danjwade95@gmail.com>
----
-New in v3.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
- kernel/events/core.c |    3 +++
- 1 file changed, 3 insertions(+)
+- [High] The commit message says moving mt7530_setup_gpio() after the FDB
+  flush means "the gpiochip is not left registered when the rails are…
+- [Low] The patch fixes a runtime bug: regulators stay enabled on
+  mt7530_setup()/mt753x_setup() failure, enable_count grows on each…
+- [Low] The new power-down helper mt7530_disable_pwrs() drops core_pwr
+  and io_pwr without first asserting the chip reset.
 
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 2de4c3cc37ac..bccf16beb325 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -15345,6 +15345,9 @@ static void __perf_event_exit_context(void *__info)
- 	list_for_each_entry(event, &ctx->event_list, event_entry) {
- 		__perf_remove_from_context(event, cpuctx, ctx,
- 					   (void *)(DETACH_EXIT | DETACH_GROUP));
-+		/* Kick perf_poll() for is_event_hup(). */
-+		event->pending_wakeup = 1;
-+		irq_work_queue(&event->pending_irq);
- 	}
- 	raw_spin_unlock(&ctx->lock);
- }
+--
+
+net: dsa: mt7530: disable the power rails on setup failure
+
+This patch moves the MT7530 core/io regulator disable out of
+mt7530_remove(). The rails are now disabled in mt753x_teardown() and on
+the mt7530_setup()/mt753x_setup() error paths. It also moves
+mt7530_setup_gpio() after the FDB flush in mt7530_setup().
+
+> Signed-off-by: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+
+[Severity: Low]
+
+This fixes a regulator core WARN and an unbalanced regulator_disable() in
+mt7530_remove(), but there is no Fixes: tag.
+
+git blame shows that the regulator_enable() calls in mt7530_setup(), with
+their bare return ret error paths, come from:
+
+ddda1ac116c8 ("net: dsa: mt7530: support the 7530 switch on the Mediatek MT7621 SoC")
+
+That commit restructured code first added in:
+
+b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
+
+Should one of these be added as a Fixes: tag? The recent fix to the same
+regulator handling, c2cdef41e0b4 ("net: dsa: mt7530: fix NULL dereference
+on unbind of MT7531 and MT7621"), carries one.
+
+> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+> index d5a199293f78a..5bbeed0491c45 100644
+> --- a/drivers/net/dsa/mt7530.c
+> +++ b/drivers/net/dsa/mt7530.c
+> @@ -2376,6 +2376,16 @@ mt7530_setup_mdio(struct mt7530_priv *priv)
+>  	return ret;
+>  }
+>  
+> +static void
+> +mt7530_disable_pwrs(struct mt7530_priv *priv)
+> +{
+> +	if (priv->id != ID_MT7530)
+> +		return;
+> +
+> +	regulator_disable(priv->core_pwr);
+> +	regulator_disable(priv->io_pwr);
+> +}
+
+[Severity: Low]
+
+Should reset be asserted here before the rails are dropped?
+
+mt7530_probe() requests the reset GPIO with GPIOD_OUT_LOW, so reset is
+asserted while the chip is unpowered. mt7530_setup() then pulses reset and
+leaves it deasserted:
+
+	gpiod_set_value_cansleep(priv->reset, 0);
+	usleep_range(5000, 5100);
+	gpiod_set_value_cansleep(priv->reset, 1);
+
+Every new caller of mt7530_disable_pwrs() cuts io_pwr and core_pwr with
+reset still deasserted. That covers the err_disable_pwrs labels in
+mt7530_setup() after the reset pulse, the mt753x_setup() error paths, and
+mt753x_teardown().
+
+The SoC then keeps driving the inactive level into the RESET pad of a chip
+whose IO rail is off, and this repeats on every -EPROBE_DEFER re-probe.
+The MCM path also never calls reset_control_assert() before power-off.
+
+The v2 notes say this was left out because it matches the old
+mt7530_remove() ordering. However, this patch adds several new power-down
+points. Would asserting reset first, then disabling io_pwr and core_pwr,
+better mirror the power-up sequence?
+
+[ ... ]
+
+> @@ -3205,11 +3228,11 @@ mt753x_setup(struct dsa_switch *ds)
+>  
+>  	ret = mt7530_setup_irq(priv);
+>  	if (ret)
+> -		return ret;
+> +		goto err_disable_pwrs;
+>  
+>  	ret = mt7530_setup_mdio(priv);
+>  	if (ret)
+> -		return ret;
+> +		goto err_disable_pwrs;
+
+[Severity: High]
+
+The commit message says:
+
+  Move mt7530_setup_gpio() after the FDB flush so the gpiochip is not left
+  registered when the rails are dropped.
+
+and the v2 notes say "no failure path leaves the gpiochip registered after
+the rails are disabled". Does that hold on these paths?
+
+mt7530_setup_gpio() is now the last step of mt7530_setup(), so the reorder
+only covers the FDB flush failure. When mt7530_setup_irq() fails here, for
+example with -EPROBE_DEFER from of_irq_get(), the gpiochip is already
+registered through devm:
+
+mt7530_setup_gpio() {
+    ...
+    return devm_gpiochip_add_data(dev, gc, priv);
+}
+
+err_disable_pwrs then calls mt7530_disable_pwrs() while the gpiochip is
+still registered. The commit message calls -EPROBE_DEFER the common case.
+
+On the mt7530_setup_mdio() failure path, mt7530_setup_irq() has also
+already registered the regmap IRQ chip and its threaded handler:
+
+	ret = devm_regmap_add_irq_chip_fwnode(dev, dev_fwnode(dev),
+					      priv->regmap, irq,
+					      IRQF_ONESHOT,
+					      0, &mt7530_regmap_irq_chip,
+					      &irq_data);
+
+The new mt7530_disable_pwrs() call in mt753x_teardown() has the same
+problem. DSA calls teardown from the teardown label in dsa_switch_setup()
+when tag protocol or user MDIO bus setup fails. It also runs on any tree
+teardown, through:
+
+dsa_tree_teardown()->dsa_tree_teardown_switches()->dsa_switch_teardown()
+
+In all of these cases three resources stay registered while the rails are
+cut: the gpiochip, the regmap IRQ chip, and the internal MDIO bus from
+devm_of_mdiobus_register(). Their lifetime is tied to device bind, not to
+DSA setup/teardown.
+
+In a multi-switch tree, unbinding another switch tears this switch down
+while it stays bound. The registered-but-unpowered state then lasts for as
+long as this switch stays bound. Before this patch the rails stayed on in
+these cases.
+
+Can a gpiochip consumer (mt7530_gpio_get(), mt7530_gpio_set() and the
+direction callbacks), the regmap-irq threaded handler, or a PHY on the MDIO
+bus then issue regmap/MDIO accesses to an unpowered chip?
+
+Would this need explicit unregistration in teardown and on these error
+paths, using non-devm registration or the devm_*_release helpers, instead
+of the reorder? If not, could the commit message and the v2 notes be
+corrected?
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/179543215348.11880.18316180385674365789%40mail.zgclab.edu.cn
