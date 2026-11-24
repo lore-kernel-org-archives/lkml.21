@@ -1,99 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.180
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795506564;
-	b=ngcY2nCKUtaxhdW5exJH5bZYf9OECM6bGY8ggMGJ7Q2AwKrqL0FMjGDtI3VnMlR3YxQO
-	 5ZaVYAj5xlhaSMe8OSjCeNrTPMdYKHEBQT0Xvr4xlzsVibogRVXn6Wd5L7npDoWLqJ/QF
-	 149+hkQmtQr8P9SZj/EeTNcPiz7gNHR0JgJTgBFKmPYkKoZvjiSXWXN2HvrOgIWT/NYv5
-	 IOYuMtUGtu1BagMdc3pkwfb5Po0T50hcObuQEqGwqsvkDELOkKL9Azmy88+8icz0W/EBL
-	 dCFMWH275HUvGItRh0KyoywiAXedYbvwiRBtBVp6LSqgnBZhQa7GPDd55U1aQLUBS2w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795506564;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=n0TL+yVGklLLhrdLGL0kexane9if3aUzjRd+iXnFC4k=;
-	b=qbsD8VQRRlUTOIJr0DHvaiEaU0LmxbRgtAtnjmTy4vLDDvVquuVZuk7JI+NcrSI2lH3S
-	 9vSX+ePBO+K4pj0pspovBlKeFlg85nmOUMNjyr+nqD9kyElwjFnkuorgd68BVRFO6x+qn
-	 yKdG4nerdQMGIs/Ha6SSOmOj5lIGn9CxMCmGCT++HmPmPf0o96vEj6Gogdn/q6GlJ3ZmG
-	 qxOJpS2MnXwqlcT7N4ykBcyS+b3muhBeQtcQ1XFa4RDwaqQpTINvtvXjIsCEhyAirksZP
-	 mz2e+nx49ertsuQd/ZU1mulJqtRBQ39qbIEveKD63VoyleTRupPxzRu9TNXLQWsl7Ug==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=shopee.com;
-	spf=pass smtp.mailfrom=shopee.com;
-	dkim=pass header.d=shopee.com header.i=@shopee.com header.a=rsa-sha256 header.s=shopee.com header.b=W3N2DPRu;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.180
-Received: from mail-pg1-f180.google.com (mail-pg1-f180.google.com [209.85.215.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.12
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795506629;
+	b=dYWZNxux/UZU+vARlpE64L75vPV/BWkkGtLeHEtzUAn98q/ku6EBZh6Qbwdd9cuoxgsC
+	 5DjZPbhtBarMxdq10ZONc9vN+MdJeQeIYX8IgWz+KwAp05wivwzs4usDkotpKyxuAK/9y
+	 dz/UgWwbab+fpyvdQnX3zfN/Xycl0xvYB0ZpQf+m//3jX4i+Xqm55IUF62RVmsiBjHJz4
+	 Z/p6OHQD+YHPPrkAT7m7Eqpjs18ScLIVfCGfvUVJMQL0JYyWX3ltbDC7bXjQwymXE5Ywe
+	 fkc5DpqGOqp2sWCIkHnB6/xEBGBuUS+rbyiKTupWSstoZ9irXNaI61vILn5ZK/XODtQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795506629;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=BOAhYd+/2KwHojxdDPU49asrApwh5bJzKO1tNywOM7A=;
+	b=R4tSqE5VwgdPZ7rXWWIOZtn7zKZjWctxN4/ZsiYIEBCNg5Rw4axum89hi8kejP3uMYHk
+	 MNAq3rh/9y3kc+9DJvLY4zR2xJ4KdZxxGFNBIWxBcfL/lT0d/VnxHwfySPuwGC1lU0Z9j
+	 UM97PbmFNjimyXoGV9LBLlCnQyktmPkNBe5cFU4JlL+FJySeCJR7EXAUhz1nqiyrWaG3j
+	 SeVLjC9Ss5xsEmrDYksEquHjhKUxHHDhjaWoxpXniEXdYDiOJxAaCA7N/kcBp8etDfAws
+	 gLMnU2nAdfS9DLEt9JrLPQr9hxRAKubQhWAlxEA+JPqF897QeWrKvwSYlp5+broPedA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=S4HBRm7x;
+	arc=none smtp.remote-ip=192.198.163.12
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAB66606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:49:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DAB66606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=shopee.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=shopee.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 410C5606A321;
+	Tue, 24 Nov 2026 07:50:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 410C5606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=shopee.com header.i=@shopee.com header.a=rsa-sha256 header.s=shopee.com header.b=W3N2DPRu
-Received: by mail-pg1-f180.google.com with SMTP id 41be03b00d2f7-cc758830601so3229851a12.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:49:23 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795506563; cv=none;
-        d=google.com; s=arc-20260327;
-        b=of4uHDzZ+GIK4RQiQKy5KQFCgnydCFm+c/xRok6zL5R6pnf647/CwvLLGM6kkUEpNM
-         9ukZTR5R1MQihtju3vQikNHUb9cTj77FU86jqhCwU5Af6VCtpn9aXbUnQLmIUWnUj+MH
-         ukLT7g5vUXoe+8ofF/eWiuwA/PMt7r7g+Ni7B1SkoXxM19ibzOH4laZkBQdpWr4ZQLRG
-         GLP77zdCUpUDG0Bj04+I5iJXXLysAN7gUbYNduX+mTaanxihUmIl6hK3QIDxkzcwpqC5
-         yw4cbhrOKkt3HK+LAnTLrYtdbheksuL7301xODMflV5Lml1RvPOx++dh3Ge5E1beS2r5
-         dzHw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=n0TL+yVGklLLhrdLGL0kexane9if3aUzjRd+iXnFC4k=;
-        fh=lZCBSn36jihkkJRfDScRRChROtsvWfYD6aipTFswBb0=;
-        b=jXK1iz7sg2KYf0RtUU650OiUnU9TSsuvMzYl8CLENuCVQMuCBnqJzPnimxomYieoy3
-         lZzU8aEP60IXDZLbAGg6khDqqfhy69T7rBvO5A07dl4dflI6f3HZW3JS6jI7DzoUdP4c
-         ZRbgi1Qjz1eUgEJHe5B4ryha2xf9+j+IvQyo3qcFJAYvVjquJj6T+Y6gE2oeTw3pxZza
-         U9sr7bBTRfuM8KE8p6tqUnr9mBqW1OdUDfFDPEsm+JS1lqtRqrftKQb1TQBKN6v+iB4H
-         73Xoe69h+BzPv2gLpLWDnD8LG2hY8jLD3T4qvFnrYJUiUhivrJaeWVYjUZbq+swDixmr
-         go3A==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=shopee.com; s=shopee.com; t=1795506563; x=1796111363; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=n0TL+yVGklLLhrdLGL0kexane9if3aUzjRd+iXnFC4k=;
-        b=W3N2DPRu78zip6w6cR2gB/Gd4UNMZrAzgVamoAKhxOpJOQUxf//vbnDLLla34M0YnU
-         /xLFRNrfDGME3JfNZa2mVS8WH8HsZZF1NkblmUveHIT2bJsM8r3f0Zhibsuc3lXyX423
-         GKnEE5ySn5JCo9Wa85HaYBlQRm7r0mJACt9fycayTaPkdd79tN3DuaZpCxy4a3Ya3k5J
-         2iWxz6Ow3IARcBsU1+vEudxxSuiAu7AkBja794dPTdlTjllgVlLKkeBCzlgGMEOs2IE9
-         QepU2hgVtwsR2aW/uRVFBFzfHnCDLgNL1SmHhFUV3NGAq8mzufBGU7aNJsxyG1NDQW8A
-         bKNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795506563; x=1796111363;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=n0TL+yVGklLLhrdLGL0kexane9if3aUzjRd+iXnFC4k=;
-        b=G/x1qI7aweCllXR96iPapy9DbGS4H14ldjwHrDqTIFO7P37PRucMwQuJuzdt1y2Isa
-         4UQRZEzU1mpRBbRNSbmv8Hj5cP3V7khVfL2mONickvn84s+i4zGwHBvZm28pR6sWM47Q
-         x1g2kWA3+ndqHV7umwGq4BF99L95GScBDjEJ83pRZiKKuZgDrVpfa88wKhUydYZ0aBD3
-         TVip3o9QEvj53BovzVcEzgJcrEXC/9PzpxBvIWMrdDfTov2kiKXIH60RqXPBWHe4yJhL
-         5h8nT0NM4akKGdGHju0NwzgQslxyivgZt3gxMGpoAeUPmCNOnjCfmiwaZiOWMPHfzrQa
-         Z4/g==
-X-Forwarded-Encrypted: i=1; AL+hErGTO/5/nNXQD8gdAJ08OEakIgUo6gk9V+oM2RGChkcvWQdq2xKff7eiXwOy/DbDmxH30KZb4a3Pa+uqXGQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9pqfMjrfmYcgLMIrcIr6QVdKKUmIxEznkK+YTjSCoP19kn6tRr
-	ilLJwEa9Ytbpf9FzGmD6rRt6/9Rf/XuOgLQBCNEShsRdU7VIbpkwhnZEGEGEsXEmfjJ5uX4kHkH
-	gLlQYHIezf8ORV6LYPDFDCR43gsmXUyZ1nKdftMehtQ==
-X-Gm-Gg: AZFdTZcnX+B47p9ovbBdW9eVLZJnFPaBvkaXxhbRjJxEbR0zQq/72bgPVPoaOAQl7wX
-	QxjEY27Z2JN9jr9EoCFtr3ja5NzpMDh+SbGz22oLaFNLzdm8L+V1MbbVT7X2Aay+pKvdVCdMFgD
-	VY67pvGbbge62+gjmBXXY5aXq+gVEtJeQKIluWXh5rf0zahpRyVUguY2lbhLgdBrgPPf3ikhZYN
-	v2fs9MSrAeRITp3b6nNRWQsKeyKGsWTRGBNcxpXUhIbP1/tdPq1n2VU/TCz9zVoS3TVB14a7JK1
-	UlqWrAWkLph7Kd7eT5+Kasm3LiiCq/ra6SHvTR51jrcl+ecPEIiHYlVEA9HmdQf5ZdNpfHTBowH
-	yekyIj4I2AY02qJSb4DOA3OMfaMpxnujNW+Xk
-X-Received: by 2002:a05:6a21:6104:b0:3de:456a:6e07 with SMTP id
- adf61e73a8af0-4014db601a8mr15842288637.46.1795506563336; Mon, 23 Nov 2026
- 23:49:23 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=S4HBRm7x
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795506625; x=1827042625;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=pMnfyxRyMU3BLLeYu4bTbmzgW2ZEDPkWh/JASLDZ0BM=;
+  b=S4HBRm7xAFYApwRx2YwkroUqIYFrMIHsfJcgaK9K4bs2IR4Rcg5SZZav
+   s2o4JUD1yghxJNRzzxeSz1Qsn+PooVJhdoKMWwMPIIRDFMWv4p2ylJtt8
+   8X/9BR9yJbipGJgynNNDvsEo4aW6MFyCuTs0XCRN1q+ZeyCecp6zBIwDI
+   P/7RIfWqLv1e7TXQMUo7cc8RkEu9M8LyIePLew48JWKx4FZPWAgixzJ8i
+   ftQ4tOq18njRk3x5WeMPp1y+pajnw2l4INfhmEjTdOZtw1Vy5J8mOddrN
+   6BOi4iEi0IRUjLoriOP5ERQbFshXNHuRX59D+L1wiUwUVP11RWieUo9B4
+   g==;
+X-CSE-ConnectionGUID: FcN4yug/RPyVowOvV3+afg==
+X-CSE-MsgGUID: 7mrs8sHgQoeM0xoC4KvtKA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4209769"
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="4209769"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 23:50:24 -0800
+X-CSE-ConnectionGUID: r94kpKyCTx2pMWp3SYLtZw==
+X-CSE-MsgGUID: uG7iP/aSRCyO7U+MLqC6Zg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="11282309"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 23:50:20 -0800
+Date: Tue, 24 Nov 2026 09:50:18 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: DelaySystem@tubot.lat
+Cc: andy@kernel.org, nuno.sa@analog.com, gregkh@linuxfoundation.org,
+	dlechner@baylibre.com, jic23@kernel.org,
+	Michael.Hennerich@analog.com, linux-staging@lists.linux.dev,
+	krzk@kernel.org, crofts@kernel.org, linux-kernel@vger.kernel.org,
+	linux-iio@vger.kernel.org, linux@analog.com
+Subject: Re: [PATCH v4] staging: iio: adc: ad7816: use dev_err_probe() for
+ GPIO lookups
+Message-ID: <awVBui6dpNyD-4ps@ashevche-desk.local>
+References: <20261123-batch1-s3-warn-v4-1-47cd8d7d4ce9@tubot.lat>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,18 +82,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261112041348.66915-1-mingyu.he@shopee.com>
-In-Reply-To: <20261112041348.66915-1-mingyu.he@shopee.com>
-From: Mingyu He <mingyu.he@shopee.com>
-Date: Tue, 24 Nov 2026 15:49:11 +0800
-X-Gm-Features: Aa3M54ryVpMrYWVp8M6ME5vLlNPZfM6KixdhXQemQYg3UvT2_MftgFTVs9Eosq4
-Message-ID: <CAAoBcuSen--oRubdaC3OPjmt4zCL2WDDU7-nbqPPReeMfvmyTg@mail.gmail.com>
-Subject: Re: [PATCH v3] mm/bpf: Always flush memcg stats when explicitly requested
-To: Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>, 
-	Roman Gushchin <roman.gushchin@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, linux-mm@kvack.org
-Cc: Muchun Song <muchun.song@linux.dev>, Andrew Morton <akpm@linux-foundation.org>, 
-	Yosry Ahmed <yosry@kernel.org>, cgroups@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	littleswimmingwhale@gmail.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123-batch1-s3-warn-v4-1-47cd8d7d4ce9@tubot.lat>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-hi, gently pin this email, thanks!
+On Mon, Nov 23, 2026 at 01:47:16PM -0800, Maximo Manriquez Lizarraga via B4 Relay wrote:
+> 
+> GPIO lookups can return -EPROBE_DEFER.  Convert the rdwr, convert,
+> and busy GPIO lookup failures in ad7816_probe() to dev_err_probe(),
+> which suppresses the error message on deferral and records the deferral
+> reason.
+> 
+> No functional change other than defer handling.
+
+...
+
+> static int ad7816_probe(struct spi_device *spi_dev)
+>  {
+>  	struct ad7816_chip_info *chip;
+>  	struct iio_dev *indio_dev;
+> +	struct device *dev = &spi_dev->dev;
+>  	int i, ret;
+
+Preserve reversed xmas tree order.
+
+...
+
+> -	chip->rdwr_pin = devm_gpiod_get(&spi_dev->dev, "rdwr", GPIOD_OUT_HIGH);
+> -	if (IS_ERR(chip->rdwr_pin)) {
+> -		ret = PTR_ERR(chip->rdwr_pin);
+> -		dev_err(&spi_dev->dev, "Failed to request rdwr GPIO: %d\n",
+> -			ret);
+> -		return ret;
+> -	}
+> -	chip->convert_pin = devm_gpiod_get(&spi_dev->dev, "convert",
+> +	chip->rdwr_pin = devm_gpiod_get(dev, "rdwr", GPIOD_OUT_HIGH);
+> +	if (IS_ERR(chip->rdwr_pin))
+> +		return dev_err_probe(dev, PTR_ERR(chip->rdwr_pin),
+> +				     "Failed to request rdwr GPIO\n");
+
+> +	chip->convert_pin = devm_gpiod_get(dev, "convert",
+>  					   GPIOD_OUT_HIGH);
+
+It's perfectly a single line now. BUT... Do not touch lines that are not
+modified after the main subject, id est moving to dev_err_probe().
+
+> -	if (IS_ERR(chip->convert_pin)) {
+> -		ret = PTR_ERR(chip->convert_pin);
+> -		dev_err(&spi_dev->dev, "Failed to request convert GPIO: %d\n",
+> -			ret);
+> -		return ret;
+> -	}
+> +	if (IS_ERR(chip->convert_pin))
+> +		return dev_err_probe(dev, PTR_ERR(chip->convert_pin),
+> +				     "Failed to request convert GPIO\n");
+>  	if (chip->id == ID_AD7816 || chip->id == ID_AD7817) {
+> -		chip->busy_pin = devm_gpiod_get(&spi_dev->dev, "busy",
+> +		chip->busy_pin = devm_gpiod_get(dev, "busy",
+>  						GPIOD_IN);
+
+Ditto. It's one line now, but it doesn't belong to this patch.
+
+> -		if (IS_ERR(chip->busy_pin)) {
+> -			ret = PTR_ERR(chip->busy_pin);
+> -			dev_err(&spi_dev->dev, "Failed to request busy GPIO: %d\n",
+> -				ret);
+> -			return ret;
+> -		}
+> +		if (IS_ERR(chip->busy_pin))
+> +			return dev_err_probe(dev, PTR_ERR(chip->busy_pin),
+> +					     "Failed to request busy GPIO\n");
+>  	}
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
