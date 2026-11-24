@@ -1,85 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795511417;
-	b=pNCDeYznLntNAqax5nVODNhEY3YoZS9YAOZ1o2zO1gW8or/hNU750pnBejCr8ag7HxOc
-	 DNyga1J1Esjx8O33IYXgfwZWqnMqPx90K+fPAESyXYTZ+YL0bbbPC+q6fCBZD84iz0B7i
-	 yk3XDVdgt1Y4kBQ8jMoSHKBS+8KCFyWlAtvLgHwTImlEx6/jMTBb+hue75oMIqKWl/KiG
-	 kAVXUPY1kUM91x+5/tQjUGcBp9BXug7szwnZrSE/agMvwDz5TnHS4p/7NulVBwU+vO14m
-	 zSH+7psEc2yRhfsQuuUWwFSQJ4kVcgG78RHic4jo8JiPss7hqulYwpl+WJ165mgWXlg==
+	t=1795511445;
+	b=DYb6TE/3ciiHMlXVZFQrsRDu+oFhZVCCKawWdvqCECIDEmIGkRKNf5533mb3LMn7n4v5
+	 1pkYyiy8asjNAPDlVjJTbXgT3ab1m+pV3rjzVDZkERvcfaniPyJ51zIEGIZXrpLlUf5/M
+	 K7pXOyxmNLi/myBxOok61j9i+VSuzjoN7Tct81ABccfvvqZjajWK4os0a/1+QxJI3w4nK
+	 QhdBG0ypGFlBEedVSE29ZeVyebXEG/qqQNir1Ib++ILjuu7Wq2g+8HzUe09vwc98JgcxD
+	 oqTtszERhquiUCCpF8L0EOC2T7OVuKpo3IgP3N/yOIVhz94MesQvgIlgZPbB5xeIZlQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795511417;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
-	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=L742LJPztQllDgYQFQJq6vana+Q6W6rt9qE7KuzQfec=;
-	b=NSr02km83BVyAhnUn97s4cxYpRLPDWkz0N9N3qnWh12VGpouXE91veJ7ZAYzSE8GClbz
-	 3489FIbBBAsPhgEgi30h9mhbN6Iy4brLSG6noP8vpBpf4deC4i2V+YBAnxSxabsNodzBr
-	 t7uHyFx1rmLe+O3o+tLneg6vgtzzEvA1X36vFn3sjm3LM343Iy6PjmIUO2z5nDw2PbWYq
-	 dC7MC0PWdom3ekCtopL2gmfA0Z1AihNVchO1GxP+loKfvioS9kpLiYTRKlhACCVybtSd7
-	 UuDvMCn5dNFfzQjdrHrLndQ6sXH0lmjV5NJge4vR533Mi0y5PoLD9cAyXsi1pFDHMgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795511445;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=yUsPMfI898FWLLgta0g0lTJQqLkwN13wBnF+5PDzMVY=;
+	b=E80C+zTJyt9Zx8Mw+73kjomdARBW1XQubj6svbGqjMYISpvV6itTLa8gbjL7dCdPvVy7
+	 hOszaCUHqI0VA8B1cFosHo7R9xMsVXMwS7ynfL2ucRC83bi3GR14eJsD+sWJVZb3r4nzN
+	 urZ54DsHwRWZQXrrPwBCjofUEG+lNaxlVlR3tClyJjKOTQ52HTuzqYQWunCEOI6eSqFwn
+	 EqsHhXJdhdCyPkRFaQrv1aNp12wTXwxo+SYFJbx4i8B28zrNwJJE9G76t+gQzZpEGqY7X
+	 MUjEiSyl5Ozqg/iE8DkwfzLsZSktNv0Wa/TmT1pGSesIAzzQKsblJWkR1zC+R5bugNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b="f/9M3A8X";
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CVLFixiL;
+	arc=none smtp.remote-ip=209.85.216.49
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B320A606A31E;
-	Tue, 24 Nov 2026 09:10:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B320A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB256606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:10:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB256606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=f/9M3A8X
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AO99uPD22401111, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795511397; bh=L742LJPztQllDgYQFQJq6vana+Q6W6rt9qE7KuzQfec=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=f/9M3A8XnUHCecfUtHtPxjP6wSiVrV6tzT6jwEbexWLfPi1Vent6cfiJuxdYbS4WH
-	 qmub2sPdt1Jk8+iEKKd/kTkN0/uSjtjhTkXiEDWXRg/FvRu1Y24hkpBnLbaQMlYKn6
-	 dTxvHhV/pQBAwDkHgCOmKoMUvKIIp79Gtg2eemPCUTT2EqROZF+G8K/h1xDg6vCDUF
-	 odgsyyrODIuZ2pRnKOTP5ztzQE2pomJ3CY5wkdi0JIIx26NKBeYS4S6GBhlJE9cVLX
-	 4HjOflHNHBbv5W/rDrdS2vx7YOwx2LyRiJ8j7qgVvaVS/E4/BH0+lB/2FAeqLbrPIX
-	 CN42eXICGzNPg==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AO99uPD22401111
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 24 Nov 2026 17:09:56 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 24 Nov 2026 17:09:57 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 24 Nov 2026 17:09:56 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Tue, 24 Nov 2026 17:09:56 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Mehmet Fide <mehmet.fide@gmail.com>, Luka Gejak <luka.gejak@linux.dev>
-CC: Bitterblue Smith <rtl8821cerfe2@gmail.com>,
-	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"mehmet.fide@screeningeagle.com" <mehmet.fide@screeningeagle.com>
-Subject: RE: [PATCH rtw-next v14 3/3] wifi: rtw88: time the countdown
- downloads from the TBTT
-Thread-Topic: [PATCH rtw-next v14 3/3] wifi: rtw88: time the countdown
- downloads from the TBTT
-Thread-Index: AQHdee+qTezIyBv8dUSLB0F4t45DM7c72mSAgACIJwCAAI2FUA==
-Date: Tue, 24 Nov 2026 09:09:56 +0000
-Message-ID: <b5309523db4f437ebcbdaf1c99fc7a96@realtek.com>
-References: <20261124002437.213112-2-luka.gejak@linux.dev>
- <20261124083156.206506-1-mehmet.fide@gmail.com>
-In-Reply-To: <20261124083156.206506-1-mehmet.fide@gmail.com>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CVLFixiL
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b3a42a4bcdso1777697a91.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:10:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795511444; x=1796116244; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=yUsPMfI898FWLLgta0g0lTJQqLkwN13wBnF+5PDzMVY=;
+        b=CVLFixiLDyElBqWh9sFUDLHVDzjWEiOXbLSrnWLShHiUzEKxDPKzk7Il8UbYRSZBZ6
+         g+WxrRdk0i6SVW9W7/Oeob8WkNmxuyV5IdmcMWY9z/lWVcklBdZk14JRQmnp+vrUgQsm
+         NrWoIA+ZKKTYW6m/74dbxlnoz/d2+AtnCe/aJ6ayDogxcCzo+rg7yVNgvbsml+Ghc2xH
+         IYhkhetwSyU3v9vFMWHCgx0m1skFSbKBhvn54s1MpJ8xBCFtXgn0FlIMPvzNFQzBah2D
+         E8TjtMf7v8juUxRex6HsqgpTqmud7i1z9eiXVohk08v7F/5n1ksWWESE6InXFu0N6glA
+         T1Pw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795511444; x=1796116244;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=yUsPMfI898FWLLgta0g0lTJQqLkwN13wBnF+5PDzMVY=;
+        b=SnKwrc+wDq7FqieY6fQNzbawXd3aWf9SWQBzEyvNlAGn98weBEK8cbKgo1LGxNlYwD
+         xyL2AwVPJGX1k82nwcivCQQWDECkfDdsiYGuNQKT17LHfKN614FzWeTFJ/FVvHmSUOM/
+         HRWbtdzqFQOg2WjFrHW+do/i4eAHRPim37Y6P/25aHFH4JiRJdY9hxNrSvn6Uyrf5XCw
+         AhiFNcNeg7pecNUM8ZYmU4731XPDKlwq18uN4svT+DsL95BGvZu7/VP1rD33qoPAqgKE
+         TiBQHuqH3KBzMBBgmB+AlHaK4HbOpKSh6fJ+xmwFppkY3XLnBOa9wVJMxpE5L2Si9S29
+         Na6g==
+X-Forwarded-Encrypted: i=1; AL+hErF4MqI3ZDua4V+6ZjzyVpA6SO5d7+8O6jqZRHQlmZFSs/AntL6/V95OIgfBe/++qlWvSWHhlMSSG6YoCbo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ym1e5xUPOxl3TDsr9BH3zBkxr1wfr4YXgqnyTJIeLxnfJbheH
+	OZJzCCbzTzr/EBDN/GzzgJIS8CLffE8VVCVFXTpn2yISpcgkTaQ7EP9l
+X-Gm-Gg: AZFdTZdm9IjNl65SNiWuxOJ1AKKaVgv/PfNjNTAVXNstP8QS2kIGjIt3V4NJrA/LelN
+	skH4ZeQWheseekTj9d0WiqSyUrFNLUzHs1/n3vrrmS5DcJgCMyyUK7BHt72ZU1I16goN1kb7pjR
+	2gPrYal1TI+vpd8zA1RzIqqPxloXDg4pfaH7M1BwUgrlrfwUxJALhxl2EPJwS8CY+mEtFyeyIf5
+	cFhf0yvAQfQLEDilfXdG/yDDA0xOqCZH/fwORVJGEyVQ2P/m/gtmnD3eUqXZ7CyuBw/0Tcr+ZqI
+	v6X/ziT0z4ozIobIilMZVhp1k1DYmw94Q/fNLOGHKh2sn/yqeKQ7DG9g00KmcUrctAaouCKbmQb
+	aajnZotrSPKpLOmW2SPcLnMss/q51Z+TxjVc2Ce6SPTJMs+iccFVlLF3DqXriHSZpxkPT9vNP5M
+	TGBNY53Le38HKBpQr0Z8ov8LbYI3qffC3+m0xclg/l+pxZsD3Z1eDWxlVswrFcliji4SV/pQBf7
+	hPTGeAQJA4+Kkd7U5q3lPpRWcamPxiSUc81WCRQCnvQjnkJlDpUQYuHip35Z2C5lvAZ3QX+hAgK
+	ZNseogufaWdvP7DyaaKI/APwDhFCTDtsP6RePQmVTcNNjwWzR0CY/jre5+rZ
+X-Received: by 2002:a17:90b:2516:b0:3b4:c9f8:abce with SMTP id 98e67ed59e1d1-3b4c9f8abe0mr1746956a91.35.1795511444107;
+        Tue, 24 Nov 2026 01:10:44 -0800 (PST)
+Received: from [127.0.1.1] ([112.6.227.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b457a58d04sm8446914a91.0.2026.11.24.01.10.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 01:10:43 -0800 (PST)
+From: Liu Yufei <lyf98405@gmail.com>
+Date: Tue, 24 Nov 2026 17:10:07 +0800
+Subject: [PATCH v3] iio: imu: bmi270: fix zero timestamp in triggered
+ buffer
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,29 +91,134 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-bmi270-fix-timestamp-v3-1-6356a5467d5a@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAG5UBWsC/4WNyw7CIBQFf6VhLQawL1z5H8YF0Nv2GmkbqETT9
+ N+FutCNcTnJnDkL8eAQPDlmC3EQ0OM4RDjsMmJ6NXRAsYlMBBMlZ6Km2qKoGG3xQWe04GdlJ5r
+ Xistcl7LRnMTp5CAKW/Z8ebO/6yuYObWS0aOfR/fcfgNP3p+LwCmnUhoGRQtVw8ypswpvezNak
+ i6C+EQ4K39ERIzUShR5BVxIpr8j67q+ALCBcrAPAQAA
+X-Change-ID: 20261028-bmi270-fix-timestamp-48a194b69db1
+To: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Alex Lanzano <lanzano.alex@gmail.com>, 
+ Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Gustavo Silva <gustavograzs@gmail.com>, 
+ stable@vger.kernel.org, Liu Yufei <lyf98405@gmail.com>
+X-Mailer: b4 0.16.0
 
-Hi Mehmet,
+The BMI270's own trigger uses iio_trigger_poll_nested() from
+the threaded IRQ handler, bypassing the pollfunc top half.
+This leaves the buffer timestamp at zero or a stale value.
 
-Mehmet Fide <mehmet.fide@gmail.com> wrote:
-> Hi Luka,
->=20
-> > Could the wait for the safe part of the interval use a finer timer, or
-> > could we limit CSA to intervals the timer can reliably handle?
->=20
-> Agreed for short intervals with HZ=3D100. A finer timer would not help
-> much on USB, where the download itself takes 6 to 17 ms. At 100 TU no
-> count repeats (model with HZ=3D100, rig with HZ=3D250). If Ping-Ke wants,=
- a
-> minimum interval check can be a separate patch.
+Capture the timestamp in the hard IRQ handler and use it when
+the selected trigger is the BMI270's own trigger. For an
+external trigger, take the timestamp in the threaded buffer
+handler before reading the sensor. Drop the pollfunc top half
+now that the buffer handler always supplies the timestamp.
 
-In my opinion, we can just fix the real case you encountered, and yes
-we can think about the different HZ cases in detail. However, we don't=20
-need to consider too many corner cases, which spend a lot of time,=20
-but actually never happen. Sometime in the future, if it happens,
-we can spin another patch to fix it. No need a perfect patch.=20
+On an Orange Pi Zero 2W, the original driver produced 256 zero
+timestamps in 256 samples with the BMI270's own trigger.
 
-The main point I want to catch up during reviewing is to prevent kernel
-crash. A patch with flaw functionality is acceptable.
+Fixes: a1854d55f54b ("iio: imu: bmi270: add support for data ready interrupt trigger")
+Cc: stable@vger.kernel.org
+Signed-off-by: Liu Yufei <lyf98405@gmail.com>
+---
+Changes in v3:
+- Timestamp all external triggers in the threaded buffer handler.
+- Drop the unused pollfunc top half and the timestamp resets.
+- Match the selected trigger against the BMI270 trigger directly.
+  Codex identified the shared-trigger case during review.
+- Link to v2: https://patch.msgid.link/20261106-bmi270-fix-timestamp-v2-1-8a2547e1290b@gmail.com
 
-Ping-Ke
+Changes in v2:
+- Capture the timestamp in the hard IRQ handler.
+- Use the IRQ timestamp for the device's own trigger.
+- Fall back to the current time when no pollfunc timestamp exists.
+- Clear the pollfunc timestamp after processing.
+- Link to v1: https://patch.msgid.link/20261028-bmi270-fix-timestamp-v1-1-99c0e5fe7d0c@gmail.com
+---
+ drivers/iio/imu/bmi270/bmi270_core.c | 24 ++++++++++++++++++++----
+ 1 file changed, 20 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/iio/imu/bmi270/bmi270_core.c b/drivers/iio/imu/bmi270/bmi270_core.c
+index fbcf6bb87acc..6983d80efee1 100644
+--- a/drivers/iio/imu/bmi270/bmi270_core.c
++++ b/drivers/iio/imu/bmi270/bmi270_core.c
+@@ -157,6 +157,7 @@ struct bmi270_data {
+ 	const struct bmi270_chip_info *chip_info;
+ 	enum bmi270_irq_pin irq_pin;
+ 	struct iio_trigger *trig;
++	s64 irq_timestamp;
+ 	 /* Protect device's private data from concurrent access */
+ 	struct mutex mutex;
+ 	bool steps_enabled;
+@@ -755,6 +756,16 @@ static int bmi270_get_odr(struct bmi270_data *data, int chan_type, int *odr,
+ 	return -EINVAL;
+ }
+ 
++static irqreturn_t bmi270_irq_handler(int irq, void *private)
++{
++	struct iio_dev *indio_dev = private;
++	struct bmi270_data *data = iio_priv(indio_dev);
++
++	data->irq_timestamp = iio_get_time_ns(indio_dev);
++
++	return IRQ_WAKE_THREAD;
++}
++
+ static irqreturn_t bmi270_irq_thread_handler(int irq, void *private)
+ {
+ 	struct iio_dev *indio_dev = private;
+@@ -840,8 +851,14 @@ static irqreturn_t bmi270_trigger_handler(int irq, void *p)
+ 	struct iio_poll_func *pf = p;
+ 	struct iio_dev *indio_dev = pf->indio_dev;
+ 	struct bmi270_data *data = iio_priv(indio_dev);
++	s64 timestamp;
+ 	int ret;
+ 
++	if (indio_dev->trig == data->trig)
++		timestamp = data->irq_timestamp;
++	else
++		timestamp = iio_get_time_ns(indio_dev);
++
+ 	guard(mutex)(&data->mutex);
+ 
+ 	ret = regmap_bulk_read(data->regmap, BMI270_ACCEL_X_REG,
+@@ -852,7 +869,7 @@ static irqreturn_t bmi270_trigger_handler(int irq, void *p)
+ 		goto done;
+ 
+ 	iio_push_to_buffers_with_timestamp(indio_dev, &data->buffer,
+-					   pf->timestamp);
++					   timestamp);
+ done:
+ 	iio_trigger_notify_done(indio_dev->trig);
+ 	return IRQ_HANDLED;
+@@ -1430,7 +1447,7 @@ static int bmi270_trigger_probe(struct bmi270_data *data,
+ 	data->trig->ops = &bmi270_trigger_ops;
+ 	iio_trigger_set_drvdata(data->trig, data);
+ 
+-	ret = devm_request_threaded_irq(data->dev, irq, NULL,
++	ret = devm_request_threaded_irq(data->dev, irq, bmi270_irq_handler,
+ 					bmi270_irq_thread_handler,
+ 					IRQF_ONESHOT, "bmi270-int", indio_dev);
+ 	if (ret)
+@@ -1630,8 +1647,7 @@ int bmi270_core_probe(struct device *dev, struct regmap *regmap,
+ 	if (ret)
+ 		return ret;
+ 
+-	ret = devm_iio_triggered_buffer_setup(dev, indio_dev,
+-					      iio_pollfunc_store_time,
++	ret = devm_iio_triggered_buffer_setup(dev, indio_dev, NULL,
+ 					      bmi270_trigger_handler, NULL);
+ 	if (ret)
+ 		return ret;
+
+---
+base-commit: 09f742b49cb2728086d78be2b0b35e4d1d71fc85
+change-id: 20261028-bmi270-fix-timestamp-48a194b69db1
+
+Best regards,
+--  
+Liu Yufei <lyf98405@gmail.com>
 
