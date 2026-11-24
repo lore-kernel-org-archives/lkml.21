@@ -1,105 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.0
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795548858;
-	b=2UxkJ81mXXhREOfeoVrQbigGFBsqJQz/5cFeNaYxisHR49cSV3ntqEtvAmmpkGcOWrCD
-	 nImo0G28n/hck9hYWUgltrPzWMrunOphzWuAh0bmdRlZqXo0sZqobZoWR3IboW8u4/ueD
-	 y8JNUsMqVGGkIf4YxaD+UPdmvA3quyFAzT0FggPPPwlR2z+iLOOGYlvvY6Q3wGwRzIE1v
-	 WuUD3vxgAi3WJxEKdsXf85jMVJ8QhuR/EEG5wipSVNusERz0F5XM0PjqGfaNe2JVGssQE
-	 houjlJKHqlHivw2DRdXGIgjIFFxKQTbJKkmauuvu1FXmwbanRcEDpsdwfVumep/7W4Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795548858;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=a4+XPlAsWtwLNGycx/wmLMsKAEZJztTlCuzn4AaQPGg=;
-	b=1tBZ/rIUQ6UDoZ7J6IraOrAcydhp8geI+kboRUag+GGAOh6uXOjhiDyBNnfSSZgFuTxU
-	 1yNx25iJ6kzohFcRLFqqNOo3BQkTpx/4FVd3lBCHq5DzfSw63mOIl857vXE9ws5uq27vk
-	 Rr7CTAue8b2Je47FZGgTMQ2P4ev6GXxLVFifqkSyb9ezAfikAaz9XDMihhbvcTbXS1MAP
-	 h4BWc0CR+jOACI2PoqysYPCqvGgFrT5UUCeRA/F689Ab4ScYV4zPP3RD+MICHvgiXkh4J
-	 8wrOgIMCGzfHDJa28k9Lmjzw2v4BCA8PxXSCMUWN4BewgEVdO1N1Sh/3BgB4i+D1yHA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=cJm78fmr;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.0
-Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazon11013000.outbound.protection.outlook.com [40.107.162.0])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795549004;
+	b=lQs/nm1Yc36cD7u/186axoAl6Etz3qrnVKNpZGlNVgmY9Hv8KlteWiknkVcsQsutUg2m
+	 7S9AIXVMsqSjqYD7hig25guYnJBqEICILINpirvQFZpViPqKoum/U3H4jNAJBYvP5PJS8
+	 uS1ERkPCajJAqfURVCfiHbF5M7m6Yas7uQKEO45TJrKrAQ0PWLIzhk3Bqjyy4Yiy4gXxO
+	 QWr+0xR++hGkZxreCWJzLHbmYVS2XJlrRR7lSBJ5o1RtW0AJdZS98Vb/1WD4WRFtmclM+
+	 tGZ1OHCjx3HCfEzVl25c2eqTHIewoT+qolDAxXuFwJVCFbhkVa8KbmbJQKiduenMqMg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795549004;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:From:To:Cc:Subject:In-Reply-To:
+	 Organization:References:Date:Message-ID:MIME-Version:Content-Type:
+	 X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
+	bh=rbfQPnb/bGQ2Gkjp6lt26EZDU8eKMGkAA4M/WWEU8/c=;
+	b=P5agDRGtnIhmISK6QgNlS4lkgC6Vjok+l92dlCg6TWDXDE56N/gLfJ3uJywbwC1F72e7
+	 kJzqSZwzbSKdvQSZFlmmhSSLb81uGIzsw4DwCBjqJow1+yVAJlt7yJAZZzDuGJImgclXq
+	 7u1uxPWph2wldTFHaCiZqQKChnMz6Ut4W6zYcxp1c45Hz73xDRnoC9XrzgOwONCHBhIlH
+	 U6CLqW+VIXH27YSblaf+4IQSiGJUN1r37kyZosO2TQ63l0StiZpN2wGiIcY+sX8rhuVju
+	 lbtv8ryXXM1LU+Pa/A+Nwufkithioz2vJ1XH30JhPQMIoHnDg9YO8KeearF8DMtx4kA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b="wiT8Ya5/";
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=dk5YjynB;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b="h2LQ/IDI";
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Sa6ZruAS;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9050E606A31E;
-	Tue, 24 Nov 2026 19:34:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9050E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 405D6606A31E;
+	Tue, 24 Nov 2026 19:36:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 405D6606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=cJm78fmr
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gBiBlN6oxge8RlhmLqlD0f1OKWd1wtljXzHzYnUv4MASLa67uJ1/vIsufmNdPSGucuSQpldo1aoAxZcdAfDYrxXkuOeUmzldcNBKA0Vj7MvdUtor9KLoTAhnyVlQ8My7UGMhd7FZQNPBRBq+0RmfWeDxYoVY34qf6FFHu2Y6yTMz42p0zAraS7Cy9dpH0qt5DuL/T+xwQEXQ/zD5M6oTeS1yXweHj62mreYlG+BCSxnBwd/edyiT4XXc6wGb0on3CMv4LXTSoNU3jP0Si1HBuG4Wo88Rgtwq3Xnuo3WFftvEHMo40EzO6F555uJ6k7W9BJJqU3mQNZMrpKci5iORZw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=a4+XPlAsWtwLNGycx/wmLMsKAEZJztTlCuzn4AaQPGg=;
- b=eOvRjHSPnrYOJeiG2z+wZAa6zCWjaE7BNrclAPdycWJL4IdZTOogLk51hOb3JW9YoxR8HjXMtM84uCqQzyUnEVXxh/yfzcqMUgYSe/wSiebKfTltAs7cEzbnt7bcRBCwCX5y4kj3bd69na22Eg/lOJjg1Ry9Wl4cq3SCEjXvHBKj8EhmwsSP+s7zMsVgDe5uqn1ntJmuvCddB1A8lA8WGhwSFAgsdol6VqqDBFbGrSwrFMhDbxBBiXaYr/3F+88mHgc3RskIAuS/RsTB+FbSaHVBr9iCkD4FE5c0gRn3IiMN4I233AxyRdT+3Fk1URoey+ptilu65fwlgsMtpjkyQg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=a4+XPlAsWtwLNGycx/wmLMsKAEZJztTlCuzn4AaQPGg=;
- b=cJm78fmr/pUODsjgfDj6mqCtOuYAjfACasVhdYG/sssAVUepKwGW7M5aQJNawy65yIVqBqkjHtbtzHJCqI+RV1Vxf98o+HHBPmM4+Tm4IoRWRXZRsGYpj8jWs7+zlEKN3bmiHt44YSr8Rz9SN0YSdIThy2p2PLyLn/OhIYkmcRQojhQwiE84vqMreK1yTmPeYkSq/3L0Ra5Dei1lNOpNHRi01GTXkmFUm04by1WXbla9zi224LCN49xXYxwK37gYq2dndvaUBd7yLBCT60FJFxCNXNojlkRsoXCCza7dFchT9cnqZNsHlg9ljWsz5fZpvYNWATWfJCxaTNcPErU5FA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by AS4PR04MB9363.eurprd04.prod.outlook.com (2603:10a6:20b:4e8::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 19:34:13 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0662.004; Tue, 24 Nov 2026
- 19:34:13 +0000
-Date: Tue, 24 Nov 2026 14:34:06 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	dmaengine@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Saenz Julienne <nsaenz@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Dom Cobley <popcornmix@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 05/28] dmaengine: bcm2835: Fixes for dma_abort
-Message-ID: <awXmrhJ4HToyCxOD@lizhi-Precision-Tower-5810>
-References: <20261123145728.29082-1-andrea.porta@suse.com>
- <20261123145728.29082-6-andrea.porta@suse.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123145728.29082-6-andrea.porta@suse.com>
-X-ClientProxiedBy: CPBP307CA0005.DNKP307.PROD.OUTLOOK.COM (2603:10a6:380:1::8)
- To MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=wiT8Ya5/;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=dk5YjynB;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=h2LQ/IDI;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Sa6ZruAS
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 478C6223AC;
+	Tue, 24 Nov 2026 19:36:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795549001; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rbfQPnb/bGQ2Gkjp6lt26EZDU8eKMGkAA4M/WWEU8/c=;
+	b=wiT8Ya5/HG/DD7Q5wA50FeGnqRAYEFpM2ufxuc+W83Q6gRGxfoIYZsDrPVVbICmn2yN0jR
+	zFQD1oULjCblWWQrr4MdUF9IJU0wupvY9z9oPW49UQ8qXuHoODMBmcEwPuLzHxTUJJWuic
+	k7io5RDNUB4iTiKm0l2npXMZ9qLa0po=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795549001;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rbfQPnb/bGQ2Gkjp6lt26EZDU8eKMGkAA4M/WWEU8/c=;
+	b=dk5YjynBJCrj49GitF84RZJ2dgPePHqam+YuV+QitmjE0rZOV8sppZVHzD3Btg3owvQ2To
+	8SM1E9W+dG+2yLDA==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795549000; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rbfQPnb/bGQ2Gkjp6lt26EZDU8eKMGkAA4M/WWEU8/c=;
+	b=h2LQ/IDI9VLQ3E7Tws5WfCPIkt0HGGmYoA6Xu62TnhdKBtRQ2fD/djQW0dwzL5JR2J9j1j
+	pdDK/TBHwSkSZJ3/qN7t5zHtiihHkeJx8/b2AbVB0RzV7/090vvuDXmQMqGEA8QXYJQyqD
+	9NdTAtzQceGIwZ8JCBlpSqI3QJlb49Y=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795549000;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rbfQPnb/bGQ2Gkjp6lt26EZDU8eKMGkAA4M/WWEU8/c=;
+	b=Sa6ZruAStbYSh68HiIXKLUc20jCF9BCiQzCoDpqGZbSNX4Y9yzhFNZQxtV9YnS6mNixIuB
+	86j1GlyndVGeVaCQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CE3181339F;
+	Tue, 24 Nov 2026 19:36:39 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id VZNQJUfnBWs1aQAAD6G6ig
+	(envelope-from <krisman@suse.de>); Tue, 24 Nov 2026 19:36:39 +0000
+From: Gabriel Krisman Bertazi <krisman@suse.de>
+To: Sarthak Kukreti via Linux-f2fs-devel
+ <linux-f2fs-devel@lists.sourceforge.net>, Theodore Ts'o <tytso@mit.edu>,
+ Jaegeuk Kim <jaegeuk@kernel.org>, Chao Yu <chao@kernel.org>, Al Viro
+ <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>
+Cc: Sarthak Kukreti <sarthakkukreti@google.com>,
+ linux-kernel@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net, Eric
+ Biggers <ebiggers@kernel.org>, linux-fsdevel@vger.kernel.org,
+ linux-ext4@vger.kernel.org, Dmitry Torokhov <dtor@google.com>
+Subject: Re: [f2fs-dev] [PATCH v2 1/3] libfs: reject casefolded names that
+ fold to ".", "..", or empty
+In-Reply-To: <20261119214944.1480596-2-sarthakkukreti@google.com>
+Organization: SUSE
+References: <20261119214944.1480596-1-sarthakkukreti@google.com>
+ <20261119214944.1480596-2-sarthakkukreti@google.com>
+Date: Tue, 24 Nov 2026 14:36:38 -0500
+Message-ID: <87pkvuc989.fsf@cartola>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,149 +116,190 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AS4PR04MB9363:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7f4bb637-b7df-4e0a-470c-08df4a61ebb1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|19092799006|366016|7416014|376014|23010399003|1800799024|18002099003|22082099003|6133799003|56012099006|11063799006|4143699003|261102123227099003|261026140227099003|261009223027099003|261022105027099003|261026121527099003|261021123027099003|261028144727099003|261021121427099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	JF5ky2EV5AEFAo3ZYN5lBH0xZrQDCcPF5oaRuAKoeig73IqsttxjcbSQVnHWNPBcYGd+XGpZeKGoNcb/RiHoXcdkcQY88dN+Zi2uvkymodCmrLGRMLnBDVoY3qHoy2RByqpoyPNz7gnNasnq4ddtd5C7UQ5zvHxN5dN26+fBkbzVBq60oMp/JWiGtV0EZ+lr8voMmGxks/A0dJ9a78/8GEjzPZ6j4RHZbaCL9ueG8j/99beorKIIcIG/BTPadfXv8NyskkYeCSD4+G1LYvA81+R8Md5nonVSK37M7kaksG1KL3z8SNyuqq2zHfGIpvF9iU3Wm71h8W8O8JXRY+8e8II0oYyt2wYJNTrEpBpdYyBKX7U5cvweuXUPlVFsUEv+LJynuiUp2LlbXb+rICTsGUwPqw5FF2PFFZCAdK/ro1oaWjav44/8whya6cruhWX7mEsp2f52ZKPb/Za2e5MhQ7kOB1xrv0HrOARQ212pAv3RwGMdEePTFl88saZctUggwmk25N/fOGsQEaNP6PUiXSbQXJTCEPgHmu73mgEFu1DWiwZLYKfYf+XZ4GWcmVDdTB5SqZLUJ/uNhw/eUusRM6dOWwciMMp6rvCK05HlpSzsmbtV3n559yXhnAo3BWcn/HcLecZFz8NGhG671DO2sDpLRxmUlypxGShRTzSS0ig=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(7416014)(376014)(23010399003)(1800799024)(18002099003)(22082099003)(6133799003)(56012099006)(11063799006)(4143699003)(261102123227099003)(261026140227099003)(261009223027099003)(261022105027099003)(261026121527099003)(261021123027099003)(261028144727099003)(261021121427099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?ICZlBBbmnvcciCbCF/mIPXJFiKFtP0xaGtwyfyi0AyNXKsqy2oA4C6ahrqpg?=
- =?us-ascii?Q?AMMncsqrGnvPfO9XfkArXd0u/sXoUtPortYTKSYg+ZshIS9QaUhlLkBPO/sP?=
- =?us-ascii?Q?JbXfHt33pLlT2HoyiIwPJwfsLrwUQlnqRRdNlbLbOtYgDZalRLuhIPKDTyum?=
- =?us-ascii?Q?fAtqDVBwyLPz626ELbk570tRfrrpmL6vcaUNd1GHHkMsDks+rWvoYfZVT53X?=
- =?us-ascii?Q?RvYM+AqgAsVoIxiPC4MZi8gfSFJ/AT5/vVwzGDolR6Vd6QkCYUIlbLKqALLe?=
- =?us-ascii?Q?SIm4h+I8rB1pkDu5RYOK/fTaiKgBVqNZS5X/3gpZ975LULAthWN/pUNuXJh7?=
- =?us-ascii?Q?FrJD44VDCCgL2gtv9BoY9ytLFkViPy5jTALK70wYzku7PGpddSEaZTmyOGSJ?=
- =?us-ascii?Q?4V0R0GjiiCT/88lDay0VnxLhRz6XZ5UphU9Ty7HZahYF/9CVFa4dvDQFJTqp?=
- =?us-ascii?Q?KaYuRq5iYCVUGCfhsXw7huhbVRMZ1UZISx+6q/in0pyWg1fYTYtE0B0NMbx5?=
- =?us-ascii?Q?C1+Bn+M4P4lUA1oZtWnPf9rX6Yx8PGCrOgKTbX78O3/prnyZkM1r5v6Jp0Dy?=
- =?us-ascii?Q?jXHZSRw9+xzBsgxPp/L3H7KkPdD58kbulm06lrPO+8Mbo7ZhfstXiGAbkA7F?=
- =?us-ascii?Q?edj4eQDTXyeM8+1QEcM32dTtJNmz3edK6+4v6vNhPrFbT5vEVuSo3KH9jIjg?=
- =?us-ascii?Q?Qfrsuy6+O8anTfrRJxBgbUQn3/y7/dfxX31U/stBmOBTZcu9BcC6BFrV8hLl?=
- =?us-ascii?Q?Yqbig7V2Ygm+bIkPWfrGZ5EtqndQnZ9VUbovwi+IypYboAXJUoewy5/vAJy9?=
- =?us-ascii?Q?dIYIwr0ZIXsNDwcpaRr1hY3SVanh0KX28v24qXH1CFaE4AWAtC0zo0xoTpAO?=
- =?us-ascii?Q?4Q6n0wv5iRzOLV5/BpWx7EvNXoO3UoaNNyinda+pspQw+v/LORlq9LxbkgH/?=
- =?us-ascii?Q?h7sHptvQDNo1HeWVbbSp6TqDByXk/tUGb5sw8AId9l0yBNSwzOM58tmASO5S?=
- =?us-ascii?Q?cRV84JAbjDpj5TVJpC5VeGJkici0eha4O6qKOzTQWS9//kaFJzrrGQKpFTJ9?=
- =?us-ascii?Q?+BaxjrSZ+b7T8htZhPRESUjFrkcH+6AFOTPGk0tOjbfU00LYc127HiGZ8Lpw?=
- =?us-ascii?Q?lOMRkiIgq83L+Mkb9wLoGYq8/L8z1++55AsblJ5u01aqo1XbELjpnsUJPQiw?=
- =?us-ascii?Q?X0nSZFV+6ejqUpXIahCFqefDU07evV4vEu+JWOxpXqj1WPS9cSr1zEJszbIj?=
- =?us-ascii?Q?s6McJ+NjXvmvwjNdD9goBrlq4r0M8722dqVE1dDH0YUtTtgnAUfWAfKZeHD+?=
- =?us-ascii?Q?mdZ+Y+NVsBb/ZxmHzAGsCVzAqp/sdUhu0ztdQaZJT8vhMyTEt5PHVa7joYGb?=
- =?us-ascii?Q?75SUfEW1/JEJEa25U4D34uzyXgEHv/GFc17+lZPU3bERHWPlmvBlx2dHguj7?=
- =?us-ascii?Q?VzOBlXPb3iw22K2itfaMlGngJxlORaXnaI929iVi52UEjdD84A437p8wiwyR?=
- =?us-ascii?Q?06rPQy4Q0UYsKEz8ujGihra1dCvUsFqOpkP/hQ+oEv0vBpgwvgDkRTKNntDH?=
- =?us-ascii?Q?S20R4RYeKVOqtTiwE4diRPI3ZSMXISVPg8JBairXEZGFyCMRdC9Yl3qvB0Ef?=
- =?us-ascii?Q?7sOifI+20ZWVFM9yazRlkjkfH6yB4VhaVi9BSdgj7zCpa6eTjKT8ZJJQHUt8?=
- =?us-ascii?Q?Sf0UczlbSkR0UmA3H/2oIauPUcW6AgSCYMy+g3RYjv1Re3olLNi6OACOkvaK?=
- =?us-ascii?Q?0qjrYKy/AJcfEYe6A9GN2eTNtOh+Mg95cnZdudVyH37gxRCbu8Fp?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7f4bb637-b7df-4e0a-470c-08df4a61ebb1
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 19:34:13.7106
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qRWlKIpUDKn5UJpspmWzdAEfqOvWPTJi0ZDGbok/TnDweAGeI7rIJIJoeJOpV5EmJrMbQBgOGBRU2/V3P2Omq5OkaMH8aF0XzzxVY9k+olrT/t6Xv+YU04EQ5gtRkBY2
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9363
+Content-Type: text/plain
+X-Spam-Flag: NO
+X-Spam-Level: 
+X-Spamd-Result: default: False [-12.80 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MISSING_XM_UA(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	HAS_ORG_HEADER(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[13];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,dirent.name:url,decrypted_name.name:url]
+X-Spam-Score: -12.80
 
-On Mon, Nov 23, 2026 at 03:56:43PM +0100, Andrea della Porta wrote:
-> From: Dom Cobley <popcornmix@gmail.com>
->
-> There is a problem with the current abort scheme
-> when dma is blocked on a DREQ which prevents halting.
->
-> This is triggered by SPI driver which aborts dma
-> in this state and so leads to a halt timeout.
->
-> We attempt to abort the channel, which will work
-> if there is no blocked DREQ.
+Sarthak Kukreti via Linux-f2fs-devel
+<linux-f2fs-devel@lists.sourceforge.net> writes:
 
-use imperative mood descript the problem
-
->
-> It it times out, we can assume there is no AXI
-> transfer in progress and reset anyway.
->
-> The length of the timeout is observed at ~20us.
-
-wrap at 75 char
-
->
-> Signed-off-by: Dom Cobley <popcornmix@gmail.com>
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> ---
->  drivers/dma/bcm2835-dma.c | 32 +++++++++++++++++++++++---------
->  1 file changed, 23 insertions(+), 9 deletions(-)
->
-> diff --git a/drivers/dma/bcm2835-dma.c b/drivers/dma/bcm2835-dma.c
-> index 063e1b2aabe3..51e3a40dbaec 100644
-> --- a/drivers/dma/bcm2835-dma.c
-> +++ b/drivers/dma/bcm2835-dma.c
-> @@ -419,7 +419,7 @@ static void bcm2835_dma_fill_cb_chain_with_sg(
->  static void bcm2835_dma_abort(struct bcm2835_chan *c)
->  {
->  	void __iomem *chan_base = c->chan_base;
-> -	long timeout = 10000;
-> +	long timeout = 100;
->
->  	/*
->  	 * A zero control block address means the channel is idle.
-> @@ -428,19 +428,33 @@ static void bcm2835_dma_abort(struct bcm2835_chan *c)
->  	if (!readl(chan_base + BCM2835_DMA_ADDR))
->  		return;
->
-> -	/* Write 0 to the active bit - Pause the DMA */
-> -	writel(0, chan_base + BCM2835_DMA_CS);
-> +	/* We need to clear the next DMA block pending */
-> +	writel(0, chan_base + BCM2835_DMA_NEXTCB);
+> diff --git a/fs/libfs.c b/fs/libfs.c
+> index 46e0205154e7..77997f88e475 100644
+> --- a/fs/libfs.c
+> +++ b/fs/libfs.c
+> @@ -1828,13 +1828,21 @@ int generic_ci_d_hash(const struct dentry *dentry, struct qstr *str)
+>  	const struct inode *dir = READ_ONCE(dentry->d_inode);
+>  	struct super_block *sb = dentry->d_sb;
+>  	const struct unicode_map *um = sb->s_encoding;
+> +	unsigned char buf[3];
+>  	int ret;
+>  
+>  	if (!dir || !IS_CASEFOLDED(dir))
+>  		return 0;
+>  
+>  	ret = utf8_casefold_hash(um, dentry, str);
+> -	if (ret < 0 && sb_has_strict_encoding(sb))
+> +	if (ret < 0) {
+> +		if (sb_has_strict_encoding(sb))
+> +			return -EINVAL;
+> +		return 0;
+> +	}
 > +
-> +	/* Abort the DMA, which needs to be enabled to complete */
-> +	writel(readl(chan_base + BCM2835_DMA_CS) | BCM2835_DMA_ABORT | BCM2835_DMA_ACTIVE,
-> +	       chan_base + BCM2835_DMA_CS);
->
-> -	/* Wait for any current AXI transfer to complete */
-> -	while ((readl(chan_base + BCM2835_DMA_CS) &
-> -		BCM2835_DMA_WAITING_FOR_WRITES) && --timeout)
-> +	/* wait for DMA to be aborted */
-> +	while ((readl(chan_base + BCM2835_DMA_CS) & BCM2835_DMA_ABORT) && --timeout)
->  		cpu_relax();
+> +	ret = utf8_casefold(um, str, buf, sizeof(buf));
+> +	if (ret == 0 || (ret > 0 && name_is_dot_dotdot(buf, ret)))
+>  		return -EINVAL;
 
-use read_poll_timeout()
+I really dislike the idea of doing utf8_casefold here. even on a
+small substring.  We are walking down the trie a second time just to do it
+again in ->d_compare.
 
-Frank
->
-> -	/* Peripheral might be stuck and fail to signal AXI write responses */
-> -	if (!timeout)
-> +	/* Write 0 to the active bit - Pause the DMA */
-> +	writel(readl(chan_base + BCM2835_DMA_CS) & ~BCM2835_DMA_ACTIVE,
-> +	       chan_base + BCM2835_DMA_CS);
-> +
-> +	/*
-> +	 * Peripheral might be stuck and fail to complete
-> +	 * This is expected when dreqs are enabled but not asserted
-> +	 * so only report error in non dreq case
-> +	 */
-> +	if (!timeout && !(readl(chan_base + BCM2835_DMA_TI) &
-> +	   (BCM2835_DMA_S_DREQ | BCM2835_DMA_D_DREQ)))
->  		dev_err(c->vc.chan.device->dev,
-> -			"failed to complete outstanding writes\n");
-> +			"failed to complete pause on dma %d (CS:%08x)\n", c->ch,
-> +			readl(chan_base + BCM2835_DMA_CS));
->
-> +	/* Set CS back to default state and reset the DMA */
->  	writel(BCM2835_DMA_RESET, chan_base + BCM2835_DMA_CS);
+Consider we don't have negative dentries for casefolded directories.  Is
+there a case where variants of '.' or '..' are ever cached if ->lookup
+rejects them?  I don't think so.  By rejecting the creation of
+'.<empty>' ..<empty> we can guarantee there aren't any variants either.
+
+Assuming these don't exist in the dcache, why not let utf8_casefold_hash
+hash to a non-existing dentry?  d_compare will not find it, go to
+->lookup and only the filesystem needs special handling to reject
+invalid names.  The vast majority of real lookups will hit the dcache
+and never pay the cost of this check.
+
+If we *must* check the dcache for some reason I miss, can we do it
+*only* in d_compare?  There, we are doing some kind of utf8_casefold
+anyway.  We can modify utf8_strncasecmp to return the casefolded string,
+which we can byte compare for dotdot, avoiding multiple walks over the
+trie.
+
+>  	return 0;
 >  }
->
-> --
-> 2.51.0
->
+> @@ -1907,10 +1915,28 @@ int generic_ci_match(const struct inode *parent,
+>  	    !memcmp(name->name, dirent.name, dirent.len))
+>  		goto out;
+>  
+> -	if (folded_name->name)
+> +	if (name_is_dot_dotdot(dirent.name, dirent.len) ||
+> +	    name_is_dot_dotdot(name->name, name->len) ||
+> +	    (folded_name->name &&
+> +	     (!folded_name->len ||
+> +	      name_is_dot_dotdot(folded_name->name, folded_name->len))))
+> {
+
+Most of these checks seems unnecessary.
+
+First, if name_is_dot_dotdot(dirent.name) is true, which I'm not sure
+can really happen, it only matters if name_is_dot_dotdot(name->name) or
+name_is_dot_dotdot(folded_name->name) is also true, because then we have
+a match.  Otherwise, there's no match.  Checking both seems redundant.
+
+But also, if name_is_dot_dotdot(name->name) is true, that means we are
+doing an exact search for '.' or '..', which, IIUC, the VFS will handle
+specially and not call this code?
+
+I think the only thing you need to check here is:
+
+name_is_dot_dotdot(folded_name->name, folded_name->len)
+
+if folded_name exists.  If it doesn't, that's because the cached name
+initialization failed and you might need to do the utf8_casefold +
+name_is_dot_dotdot() dance you do in the hunk below:
+
+
+> +
+> +	if (folded_name->name) {
+>  		res = utf8_strncasecmp_folded(um, folded_name, &dirent);
+> -	else
+> +	} else {
+> +		unsigned char buf[3];
+> +		int cf_len = utf8_casefold(um, name, buf, sizeof(buf));
+> +
+> +		if (cf_len == 0 ||
+> +		    (cf_len > 0 && name_is_dot_dotdot(buf, cf_len))) {
+> +			res = 1;
+> +			goto out;
+> +		}
+>  		res = utf8_strncasecmp(um, name, &dirent);
+> +	}
+>  
+>  out:
+>  	kfree(decrypted_name.name);
+> diff --git a/include/linux/fs.h b/include/linux/fs.h
+> index 5b3a100aba77..22c411e046ce 100644
+> --- a/include/linux/fs.h
+> +++ b/include/linux/fs.h
+> @@ -3368,28 +3368,26 @@ int generic_ci_d_compare(const struct dentry *dentry, unsigned int len,
+>   * generic_ci_validate_strict_name - Check if a given name is suitable
+>   * for a directory
+>   *
+> - * This functions checks if the proposed filename is valid for the
+> - * parent directory. That means that only valid UTF-8 filenames will be
+> - * accepted for casefold directories from filesystems created with the
+> - * strict encoding flag.  That also means that any name will be
+> - * accepted for directories that doesn't have casefold enabled, or
+> - * aren't being strict with the encoding.
+> + * This function checks if the proposed filename is valid for the
+> + * parent directory. Names that casefold to "", ".", or ".." are
+> + * rejected for all casefolded directories. When the filesystem is
+> + * created with the strict encoding flag, only valid UTF-8 filenames
+> + * are accepted for casefolded directories.
+>   *
+>   * @dir: inode of the directory where the new file will be created
+>   * @name: name of the new file
+>   *
+>   * Return:
+> - * * True: if the filename is suitable for this directory. It can be
+> - *   true if a given name is not suitable for a strict encoding
+> - *   directory, but the directory being used isn't strict
+> - * * False if the filename isn't suitable for this directory. This only
+> - *   happens when a directory is casefolded and the filesystem is strict
+> - *   about its encoding.
+> + * * True: if the filename is suitable for this directory.
+> + * * False: if the filename isn't suitable for this directory.
+>   */
+>  static inline bool generic_ci_validate_strict_name(struct inode *dir,
+>  						   const struct qstr *name)
+>  {
+> -	if (!IS_CASEFOLDED(dir) || !sb_has_strict_encoding(dir->i_sb))
+> +	unsigned char buf[3];
+> +	int len;
+> +
+> +	if (!IS_CASEFOLDED(dir))
+>  		return true;
+>  
+>  	/*
+> @@ -3399,6 +3397,13 @@ static inline bool generic_ci_validate_strict_name(struct inode *dir,
+>  	if (WARN_ON_ONCE(!dir->i_sb->s_encoding))
+>  		return true;
+>  
+> +	len = utf8_casefold(dir->i_sb->s_encoding, name, buf, sizeof(buf));
+> +	if (len == 0 || (len > 0 && name_is_dot_dotdot(buf, len)))
+> +		return false;
+> +
+
+With this in place we should not be creating new files that turn into '.'
+and '..'.  If we also reject to create them during a lookup, I think it
+is enough to drop the dcache callback changes.
+
+-- 
+Gabriel Krisman Bertazi
