@@ -1,84 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795549669;
-	b=w4hN5FhLciax7B5a9EBR4IqbxfHNwfZTshVVhn4l8X04rbbkTOD7Y4KBjrWfHu08HHVv
-	 DyKREaKdiylLAT3GVGSWocyMafNNWbR3phW16kwT4PVeeuwbUGihWYV4Ept/3Nslacwqm
-	 M0SWlvWj/U8VMG49osAA0WAuEx+x5nAVuC3q8EMuM5qR9zD8KSVi36K6gwuN5DnTHMCFe
-	 s8hcR41kXIt0kfUhMG/0WSyP76oehVd4g+gAiLMaiW+EBQGh9XQytSuPWwHtl2EyklLsC
-	 nn9bZQVZuECFPP44pW5JuX0E7AtQTOmU0ZQ7h+o8oJVVADpHqrMsATSg8v/zDTFOHQQ==
+	t=1795549754;
+	b=QdquU/NOdCSJ0U3vepYkun7d12nWmFd1akxFbzE9HtyeF1bpTDeydxqTN2r7wBXKSeN+
+	 NpbwNv+Ilgfmc6lYn+jz+nMq1NKNOIPfkRm79CNC5eiLF3VTjBP9ki0ntzSttCfgrSC0l
+	 VEDXbmtho41CNDJil8LRW4bPU+W9QtKeW0rNxsQl62C2LFBqt2CowgS2cluDvU80mzZGw
+	 7eh6fMVaMJ2rV8it6id+Bj50yoKEgywbjy8zIuYlK3V7ApYfCI0/gCHImHR7Qi9Ug+92R
+	 OEoQCFJAwg9h6fySTABRq5b0SzLBKT/3x7MTucLRe6+0bfW9L2dioOYiZWenAfEvssQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795549669;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
-	bh=lUpe/tRxEZ5NPFIdAznJnUvDVmlMVX6s3wfMo2I3P5U=;
-	b=yRtvklFdsISKzdV1xKp84bBYJKgJCgZxZ2E0ZkBg052zYF7PlfI2WbbtAYTdYpLi7qpZ
-	 TJk20OxOu4XKBQnR/uoIkG4EQ3HNYNVPGM1RI9Nt6kGLl04sghd/KASVA8nL6d3Vqwpbn
-	 X5wyGeP9oHxQR4Z9SoyoaxrMI7RrsGqPMClJoKSijDiLp53Ir4d8IwfnQst1yr1XPDr6g
-	 IGgAK5QU8sRIud0BRnp4nAkuVklZg2vOWCfqz1U2zLKXPQ+p/YdyTzpm4VLrsHWHdmucw
-	 5RNB9GY0hTuyocM5NOyxyyWyjWIpMnpno7O9ZDQXm6nK3y6osok6rWseHpL/DDDGlRg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795549754;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=gEWQnguPB7hMdARfJ31ISn8RsG2f0AX2Jn3S+xqhW8w=;
+	b=XBT86PgYtjLPAbl7cSQu7OSOyFvFRKsCbBU3WGUDM/8BU99J6z/SrFAgnn+Mdj0phOL8
+	 Rn6V59E+aNkMZD0nexp8P2oUnctQWr8K2+b66oFc0ZgciA2upchMlcVNEVMT+xAnDa3JX
+	 5wD09Qh6jhNT+QQ0XVenoLu6zBH9fXAiFpGmxhI6gpipeNkjwXE9nkAGhfMpeH6VjecUN
+	 KxjvPk6sOwVTSC7pJpiiAXD7EW9Mxw3VmBxCVmZH06Wnoi++PM+YUWGBS/Y2lIGis56pv
+	 UvgXofGdm09YI7YblbrIKHclv9OcPfE6QropaF9wbcjrtP8Ao6rXDMheVQ+xufuFhCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hkDQJ8SE;
-	arc=none smtp.remote-ip=209.85.215.169
-Received: from mail-pg1-f169.google.com (mail-pg1-f169.google.com [209.85.215.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KwmGp5sa;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84AEF606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:47:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84AEF606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7FE9606A32D;
+	Tue, 24 Nov 2026 19:49:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hkDQJ8SE
-Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-cc4be0e5351so3925025a12.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:47:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795549669; x=1796154469; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=lUpe/tRxEZ5NPFIdAznJnUvDVmlMVX6s3wfMo2I3P5U=;
-        b=hkDQJ8SE9T5NTx+bSFOZ+oAkTZjhjNqbr5FwlOIkYHU2pfuWXC4hay2mNhTxK23qcb
-         E8pT2H1fsqK37LeIiSSxX+PRvqqMIlXOGG1K5wMto2pHYRL7DGTrjN32Kxqb5iHlE1CU
-         u8mGCY7DYmYOnknCKDT8FMwDs5wZDo3rUKOjZCq5TlJv7ns4QVJIwOYleRHqUCDxLmbb
-         7YnPGhg7aqE+4Hv3MnHRPSoR4oNT9YVwd86QcqSi2X5nJU1eg+L+AM7gmkVbGnnDdTIi
-         khfGHwB06pBcZLt4VFZZPlFrOhNv9bh5Db3XcBIMRmkCvI+BTRNN1Py8AOJ39USrGJ+v
-         4xPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795549669; x=1796154469;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lUpe/tRxEZ5NPFIdAznJnUvDVmlMVX6s3wfMo2I3P5U=;
-        b=XgOcTZ/cmvkBuiIoXz8/uULBc9H28SH6GFjNmtZRy3bqJzkLMFCmI4WuGISBl4/4M4
-         tksb4eGBt+W58xz+h0AyVDnZ/8pNXovRiVfc/H0cIz3T43mbKaReb1KAmoqEFAsPud/6
-         uuLYPzPAKiNlHpUanIY+7ekpR9A6qdSAMA7HwPrvdMrQgU/cS4jpNaFSr2fwuDM87myk
-         S8UPcv/zMx9F5z/ooTh1W8aksso6PN95Nownm4wylagPjRVKgVzj8H+9rgUODDlkF6a4
-         bwjhUkurnG0pXSuIm74ZgYue3NgdAimp58voPlkzYi97Pklz2+Xf1ZMECHPL9lXgH9hk
-         ogWg==
-X-Forwarded-Encrypted: i=1; AL+hErGNsNFDafdD/oBNjNKtIhCrvTFJP8YiR4ZK5ThofiFOU5A17EPWfTArsFGqjgAA5Hohjh45jybsbTUAFSU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ABRoFMF/s4W7Hg2AD3OxHC1fh2scs9C5cPPU2/9A6CSiPF5E0
-	3O7aGLBkdQb33+W5vSBLwV9Aq5zAEfnqc+KXIUjIIVT96hsgzx3KbXdYqQ9jGQELVQ==
-X-Gm-Gg: AZFdTZcmkzJzCDXJcESo2abR/ElS8qDclNmU5IXJ/ubCf9TKxjPz4pMY/ntvwCsGi3E
-	ZdJAaHNKTXDzz5qniTAXVtT1luDs2/9FHt3uBjYekreklYfudW7qz7V7HLcg8oYMf46Nxjdwyht
-	+RkpWI5pcBDg7sVLvWGCddzhvZxVndTau8R3wTt5IkfE9j3Z/GVROjUWRLg71EDn2e+WUCXlTs9
-	6MTItKFjgoHIRmA4yjLd3qfrLmnndB/muSuf2ONVqajkCl4pK60jDbcDJi7oCQJ44qtm8w3cDgR
-	nFC+WMHNK0uKzJ13IkXsWlFoXdMV7RVVVruTGr8GXiLR3y6ZF9RoKJ+uIFLTSVd/7gxe6pTD31Y
-	Bt77TYcqTpVFGQuZru75kFjTYVOxTnr/5/0mb9PJJcOKpeHDpg5ix7+o5+jY2Vqt5MMW0fsDT45
-	DJycdcVCsh8Wz2NN7rW8DmsXALeKYkuSrlcUTMQ9bFAMr+Na23qdxWMRSqX2XvA30Q1SowsN47Q
-	cZNkDmcsyNG0RT9KS0x6dqjFHgq3lpo947ybmIowIV+jeBg/kE0VIx2OVA3u9Wu5vOMCjpkHLE3
-	luTAVaeTHKsAH2qhyEwjePVa/fx7NcoeqQeQfz52qpdDeR1rXVg1ERrCzFWLjp32
-X-Received: by 2002:a17:90a:e70c:b0:3b0:d551:ab2 with SMTP id 98e67ed59e1d1-3b41c955b0emr14483470a91.51.1795549668300;
-        Tue, 24 Nov 2026 11:47:48 -0800 (PST)
-Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41adcfe23sm23939545a91.15.2026.11.24.11.47.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 11:47:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KwmGp5sa
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D5C71F000CA;
+	Tue, 24 Nov 2026 19:49:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795549754;
+	bh=gEWQnguPB7hMdARfJ31ISn8RsG2f0AX2Jn3S+xqhW8w=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=KwmGp5saCE10U8N1P0haAJ3jXVq7rBLSqD7+rF+4YF/4pdOy0aDOPSh8ccopYtIrM
+	 TrOT/Q0TP6sBzHtc8f0C9bhTrto7g+acfpef+aas8rI86dnQfsc9lThpcln5Y7NtOz
+	 9D3zxqWM/j+dApzQc0La4Y3IqfeI4HezP7lwRqGvp8oagDsWqO1dkJWq9mDp2uQs8F
+	 27IFxYsoQT8kTgz75Ob8odBs7dnHFZVYrJ/jXp1n+YD+5kRLZSx+8swaKzN4dhQc3N
+	 DPFm8+c1aKXx2ii9mpxxcaD9P7RuLcGH+fLJHSDzlmf0CLseX3Sz9A4yqUtRNOrrNq
+	 4MPRXXRD7FL5g==
+From: Jeff Layton <jlayton@kernel.org>
+Date: Tue, 24 Nov 2026 14:48:40 -0500
+Subject: [PATCH v3 01/12] nfsd: don't hold inode_lock while waiting for a
+ delegation in nfsd_setattr()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,71 +52,153 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 24 Nov 2026 11:47:47 -0800
-Message-Id: <DN3P8HO01T16.1XHR8MD7J5JSJ@google.com>
-Cc: <linux-pci@vger.kernel.org>, "Bjorn Helgaas" <bhelgaas@google.com>,
- "Lorenzo Pieralisi" <lorenzo.pieralisi@arm.com>, "Rob Herring"
- <robh@kernel.org>, =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- "Rafael J. Wysocki (Intel)" <rafael@kernel.org>,
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, "Alex
- Williamson" <alex@shazbot.org>, "LKML" <linux-kernel@vger.kernel.org>,
- <stable@vger.kernel.org>
-Subject: Re: [PATCH v2 07/16] PCI: Serialize bridge window sizing and
- resource assignment
-From: "David Matlack" <dmatlack@google.com>
-To: =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, "David
- Matlack" <dmatlack@google.com>
-X-Mailer: aerc 0.21.0
-References: <20261120134716.3027-1-ilpo.jarvinen@linux.intel.com>
- <20261120134716.3027-8-ilpo.jarvinen@linux.intel.com>
- <DN314UP7ZLCR.39N4XNGLWKR05@google.com>
- <42d7af61-bf69-b440-8685-5d9cec4863dd@linux.intel.com>
-In-Reply-To: <42d7af61-bf69-b440-8685-5d9cec4863dd@linux.intel.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-delegts-fixes-v3-1-6fe4ba705aef@kernel.org>
+References: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
+In-Reply-To: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
+To: Chuck Lever <cel@kernel.org>, NeilBrown <neil@brown.name>, 
+ Olga Kornievskaia <okorniev@redhat.com>, Dai Ngo <Dai.Ngo@oracle.com>, 
+ Tom Talpey <tom@talpey.com>, Christian Brauner <brauner@kernel.org>
+Cc: =?utf-8?q?Aur=C3=A9lien_Couderc?= <aurelien.couderc2002@gmail.com>, 
+ linux-nfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Jeff Layton <jlayton@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4815; i=jlayton@kernel.org;
+ h=from:subject:message-id; bh=gfHLApKVxnVRAVhXAlVUqlmSc1b8cj0Xz02L3tCImHo=;
+ b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBrBeo06EQ2wNt0ItnE38jQaDbrU6MKMdhTtX33A
+ aB/KmtVfOCJAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCawXqNAAKCRAADmhBGVaC
+ FdAND/9Vu+ljTZ9YjaDKauNGdddGGKUJVLMDkKxd3zE9sDmNcWwYCJWpBaqBgbDLxDZHkD2GR17
+ n76cKbJsCAJUKSjlpUUQeU1D3Ktwh9KWN5bYvI2MD1PYTSmIBRvpNPqpzFXkjU70656rUZw7dt/
+ EJ6FEkLsPv/xtyEbLuLYyAv7Pnrqt5uizrRgd83iJQ1eAcDRkGSrQgIhlv9gRHjgNGyQRuasXuO
+ pmLAWmS8NjYMvUSNYIuMcAjzUZLdXIA1HMzYlRLgta9xYn7MrSZVVcD+MGinaPIrQbKRqQ6ZQsK
+ MItXG4JLXLKmIshSX60AxsNtSV0u5RmooidxnosDUm0PTqPEr7GxsyVo0XRxYzjQP6akEBDKKm4
+ eENp1zTkqsQGI89HFk2KSnaDrCxeNYHAJKBA++IfXIdpLXc67+5pq35zmCN/qntnQ4psHdZ679Z
+ MMeuvK2meWU8QKvd5by1qx3DXvXfobpEQoBf1+gSu2kHUsNyG/gnSqni7CtIZ6YnOX6pk5lMSeC
+ hLHXT7qkW71jAmZ0+rrPJVLdUZm3vP1bOPeqU6Ij9A8ThOkzYQeNSj8xbfNon4VSP5n4zutWE8t
+ gzMuqdo2SGo+mZU+iuxs1u2dUoaFypElPQ+2UHbAN7WC0Qff+f1IzkpryHA8grSPbcq9rxxp/QK
+ qbkvkxvviIQovbQ==
+X-Developer-Key: i=jlayton@kernel.org; a=openpgp;
+ fpr=4BC0D7B24471B2A184EAF5D3000E684119568215
 
-On Tue Nov 24, 2026 at 6:10 AM PST, Ilpo J=C3=A4rvinen wrote:
-> I don't immediately see anything preventing from moving it into the host
-> bridge struct, I'll look into this.
+When notify_change() breaks a delegation, nfsd_setattr() waits up to
+NFSD_DELEGRETURN_TIMEOUT for the holder to return the delegation and
+then retries once. nfsd_setattr() waits with inode_lock still held, but
+what the holder sends before DELEGRETURN can need that lock. WRITEs that
+flush the holder's dirty data take i_rwsem exclusively on ext4 and xfs,
+and a SETATTR with delegated timestamps in the DELEGRETURN compound goes
+through nfsd_setattr() itself. The wait then always times out, and the
+SETATTR fails with NFS4ERR_DELAY after stalling the DELEGRETURN that the
+wait was for.
 
-Thanks!
+Drop inode_lock across the wait, as callers of break_deleg_wait() do.
+The file can change while the lock is dropped, so start over after the
+wait. Check again that the truncate is allowed, take fresh pre-op
+attributes, check the guard again, and sanitize a fresh copy of the
+attributes, since the setid bits that a chown must clear depend on the
+current mode. Redoing these steps under the lock keeps them atomic with
+the attempt that changes the inode. fh_fill_pre_attrs() does nothing
+once pre-op attributes are saved, so restore fh_pre_saved to its value
+on entry.
 
-> Not sure if it really helps much currently because pci_bus_sem is also
-> held but that might eventually change (there's the series which
-> attempted to split that into a separate lock in each bus, I don't
-> remember why that work stalled).
+If the wait times out, still try once more rather than finishing with
+the attributes from before the wait. A lease that is already being
+broken isn't broken again, so the retry just gets -EAGAIN.
 
-A lock per bus seems hard to get right, since a sizing pass or a BAR
-resize can span many buses and you'd have to lock up and down the
-hierarchy. Per host bridge avoids that.
+Don't start over once the size change is done, though, as when a
+filesystem returns -EAGAIN for the other attributes after the truncate.
+The retry would truncate again, over whatever was written while the lock
+was dropped, and the retry's fresh pre-op attributes would hide the
+first truncate. Return the error instead, as if the wait had failed.
 
-> ...I already have another (unsubmitted) series that adds
-> pci_rescan_remove_lock around host bridge setups because they too can rac=
-e
-> with a sysfs /rescan leading to adding devices more than once, etc.
+Fixes: 34b91dda7124 ("NFSD: Make nfsd4_setattr() wait before returning NFS4ERR_DELAY")
+Signed-off-by: Jeff Layton <jlayton@kernel.org>
+---
+ fs/nfsd/vfs.c | 48 +++++++++++++++++++++++++++++++-----------------
+ 1 file changed, 31 insertions(+), 17 deletions(-)
 
-That would have saved me a lot of head scratching. Please Cc me when you
-post it. I'm happy to review it and test it with Live Update.
+diff --git a/fs/nfsd/vfs.c b/fs/nfsd/vfs.c
+index e033fbc225cf..4a5674e583cc 100644
+--- a/fs/nfsd/vfs.c
++++ b/fs/nfsd/vfs.c
+@@ -549,7 +549,9 @@ nfsd_setattr(struct svc_rqst *rqstp, struct svc_fh *fhp,
+ 	int		host_err = 0;
+ 	bool		get_write_count;
+ 	bool		size_change = (iap->ia_valid & ATTR_SIZE);
+-	int		retries;
++	bool		pre_saved = fhp->fh_pre_saved;
++	bool		retried = false;
++	struct iattr	attrs;
+ 
+ 	trace_nfsd_vfs_setattr(rqstp, fhp, iap, guardtime);
+ 
+@@ -587,8 +589,6 @@ nfsd_setattr(struct svc_rqst *rqstp, struct svc_fh *fhp,
+ 	dentry = fhp->fh_dentry;
+ 	inode = d_inode(dentry);
+ 
+-	nfsd_sanitize_attrs(inode, iap);
+-
+ 	/*
+ 	 * The size case is special, it changes the file in addition to the
+ 	 * attributes, and file systems don't expect it to be mixed with
+@@ -611,6 +611,7 @@ nfsd_setattr(struct svc_rqst *rqstp, struct svc_fh *fhp,
+ 		}
+ 	}
+ 
++retry:
+ 	inode_lock(inode);
+ 	if (size_change) {
+ 		err = nfsd_may_truncate(rqstp, fhp, iap);
+@@ -630,20 +631,33 @@ nfsd_setattr(struct svc_rqst *rqstp, struct svc_fh *fhp,
+ 		}
+ 	}
+ 
+-	for (retries = 1;;) {
+-		struct iattr attrs;
+-
+-		/*
+-		 * notify_change() can alter its iattr argument, making
+-		 * @iap unsuitable for submission multiple times. Make a
+-		 * copy for every loop iteration.
+-		 */
+-		attrs = *iap;
+-		host_err = __nfsd_setattr(dentry, &attrs);
+-		if (host_err != -EAGAIN || !retries--)
+-			break;
+-		if (!nfsd_wait_for_delegreturn(rqstp, inode))
+-			break;
++	/*
++	 * notify_change() can alter its iattr argument, making @iap
++	 * unsuitable for submission multiple times. Pass a copy,
++	 * sanitized under inode_lock, because the setid bits that a
++	 * chown must clear depend on the current mode.
++	 */
++	attrs = *iap;
++	nfsd_sanitize_attrs(inode, &attrs);
++	host_err = __nfsd_setattr(dentry, &attrs);
++	/*
++	 * A delegation was broken. Drop inode_lock while waiting for the
++	 * holder to return the delegation, since what the holder sends
++	 * first, such as WRITEs that flush the holder's dirty data, can
++	 * need the lock. The file can change meanwhile, so start over,
++	 * taking fresh pre-op attributes and checking the guard again.
++	 * Starting over is safe only if this attempt changed nothing. A
++	 * retry would repeat a size change that is already done
++	 * (__nfsd_setattr() clears ATTR_SIZE) over whatever was written
++	 * after the truncate, so return the error in that case.
++	 */
++	if (host_err == -EAGAIN && !retried &&
++	    !(size_change && !(attrs.ia_valid & ATTR_SIZE))) {
++		inode_unlock(inode);
++		retried = true;
++		nfsd_wait_for_delegreturn(rqstp, inode);
++		fhp->fh_pre_saved = pre_saved;
++		goto retry;
+ 	}
+ 	if (attr->na_seclabel && attr->na_seclabel->len)
+ 		attr->na_labelerr = security_inode_setsecctx(dentry,
 
-> Now I actually started to wonder why couldn't pci_rescan_remove_lock also
-> be per host bridge?? (+ a separate lock to protect root buses list)
+-- 
+2.56.1
 
-I've been thinking the same thing. Both pci_bus_sem and
-pci_rescan_remove_lock could move into struct pci_host_bridge, with a
-small global lock for the root buses list as you said.
-
-A big benefit of a per-host-bridge pci_rescan_remove_lock is that it
-makes it obvious which lock to take during boot-time scans: the lock of
-the host bridge being set up, which nothing else can be holding yet. It
-would also solve the re-entrancy problem, at least for VMD.
-vmd_remove() could always take the VMD domain's own lock, which is a
-different lock from the parent domain's, whether or not the caller
-holds the parent's.
-
-Eventually, the per-host-bridge pci_bus_sem and res_setup_lock could be
-merged into a single rwsem, with sizing and assignment taking it for
-write.
-
-Thanks,
-David
