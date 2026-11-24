@@ -1,60 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.92
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795536684;
-	b=mI2xgEwTCSWtEgWI01KlQjHiwlQW8kqBp/RightU0+Pv3rqF/qWCZs4rKyXrfiB+74PH
-	 9wsJFuMVBJDnx2A10mF7noQPaxTQsvAKyUwa0ylc+oximhG8V0YYlY53puSewK77a52UG
-	 armUYXCwY9NRSwN2xm9+DAEI2HgfU1P9L6NCTnip4AuqFIbwznVBzonxOAJowFn96Y6F9
-	 AprzNwRCujJcL15lmUopeEKUTs0N1WKV/mBT+DOZZE3lcKSTYWUMBL28v+DvJ/y529W3k
-	 qrLpZIq4qyL/mLn9I3jjPYX4eJLkEmlpwJJwzV1LMtnxV0Wf1xiG2HLT59K2tv19wZA==
+	b=5N55ZlctP3UOTxPUx9C1xH/WhnbxSue3Ho54jGWHD1Yf6RMd4YtJCGcjw/4XIl09tPeN
+	 JTJys+VvuGv3WRpcqEF+/ocuKxwv6VIUcmpb3OldPye67OWNQ3F2YVZ+StEEE2CF/uIL2
+	 jCM5OIDc0aMMPjLpBj5l4+FMxPUWxKQH3HLNk9kbSEVRsfge9soPHHQOdZ3n9yNPmTHh+
+	 KGwgoNrtXgXNvo9F5CbKmWGVHsOdwBPdeezOXoHJyZnNp495jgfo76cPgfn2Bunjpihc8
+	 STlTc5mzKVce1Qzdoh4hvpvQG49ViDPPBFlXtoTw/yGjHGSWzqCfD12q7Vdel+RUNyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795536684;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:CC:Subject:In-Reply-To:
-	 References:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=+S6bOIWa1Tp/7l4X7g3j7BgABxWUl4lAbrNlVqweKBc=;
-	b=iUTIGW8eFLEauwzAMFstMYLKHAyZaRAy5Y8C6XJgJIGnkL2T+JuRR1PMjGsTaBc/qkGT
-	 RzxNhRdVOsegTLTrxTpMMbuV3Ec/fYm/kW2geuZ1eG+744ABQqsE+Ikwr0lfNgxGTniE6
-	 cAFcp66wp+QRWRWPbRrUVtp1Vm6tmsKD0iBddV1wNng0HQCZ23HjKScPQMop8e94d2Paj
-	 muC5U7HmT1Yj8bBEx/q+tOC3knhPgKsafa0IFi3h4g5e/xzXkK2RPUNxIamdzCBCkGInM
-	 26RGhSYdMK2CevS0Y/ko6FmPADCWs5ZNwZYhe7A0BhN9zwxgzQ2uXVPqEzIbXFeXfmA==
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
+	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
+	 X-CMS-RootMailID:References;
+	bh=LvG5+rNFbO4xSHxe8GcQBfnFez6a86Hx5Su/xchbI3I=;
+	b=5Q+Z8qSvc+cu6lM9xgWpS5IUAgrxd5yZfBBDur1Wbr99a20EiNq2JETaDe8RKZepGf48
+	 GqEG8ZBohvo3XwCRFtGao5Blqv79FDX344B0FcRRjyEGRyavvpDNv46OZRg6eGJd5fCh1
+	 0rZuXJ+GurshDu3wgYWqlnM68tqTzvC8H6bBV+LbpSUKYE3NN2Bv9Da5vELevvEOiirWX
+	 NPXNlq+kkdtyF/3gQ5oJTJO1wgaJ9iFWHNnWtg2Gr+VEZnLhvB4AkL9e9qcy9qAbnFeIC
+	 u/rFFrYbkvgJijuCEgsqFhpHEJKgkLAlnFG5S9aihH4IaPsunNkgJrgXBM4C8xT4e5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GWzrmpyH;
-	arc=none smtp.remote-ip=95.215.58.92
-Received: from mta1.migadu.com (out-92.mta1.migadu.com [95.215.58.92])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=W5Obng5b;
+	arc=none smtp.remote-ip=210.118.77.11
+Received: from mailout1.w1.samsung.com (mailout1.w1.samsung.com [210.118.77.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 177EB606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:11:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 177EB606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74BB9606A330
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:11:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74BB9606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GWzrmpyH
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=kuyOleWwDzCwOAbhTwZr+eYuB1feOA0aGQsbDGZDeFo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795536680; v=1; x=1796141480;
- b=GWzrmpyHHO86yvYXVhfz27BOT/z2HL9ff73l2/d4Gx3lLP0rfgwcmeq7+nyZ6FX3EXz4TjWC
- t2IiK3CluByzR/miI6rKBA+K2/O14L1ewDx8VlgpTsf0JOF98qze/s49wk5jp+wVNhLz9k3tG9s
- 37jOpYBNwetruy/I2tRjY9IM=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 35403d9553558573;
-	Tue, 24 Nov 2026 16:11:20 +0000
-X-Mizu-Trace-ID: 35403d9553558573
-X-Migadu-Flow: FLOW_OUT
-Date: Tue, 24 Nov 2026 16:11:16 +0000
-From: Bradley Morgan <bradley.morgan@linux.dev>
-To: Avi Weiss <thnkslprpt@gmail.com>, akpm@linux-foundation.org
-CC: mcroce@microsoft.com, pmladek@suse.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] reboot: validate reboot CPU against the possible mask
-In-Reply-To: <20261124082914.564587-1-thnkslprpt@gmail.com>
-References: <20261124082914.564587-1-thnkslprpt@gmail.com>
-Message-ID: <A62C877C-F65E-4BA1-AFCB-66B4E8961431@linux.dev>
+	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=W5Obng5b
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261124161121euoutp01fc38ac7b47327dea50f9f7ae53f55f58~rBxlFWIMA0442604426euoutp01U
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:11:21 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261124161121euoutp01fc38ac7b47327dea50f9f7ae53f55f58~rBxlFWIMA0442604426euoutp01U
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795536681;
+	bh=LvG5+rNFbO4xSHxe8GcQBfnFez6a86Hx5Su/xchbI3I=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=W5Obng5bAzdIWHFxF9I9m9C1d6+8NP9FzG+r96VD9Sb9x/xqf+U2kOQeBluLfNsGO
+	 5nfhNYmeVMjLXRkjZanueL3zrF9mfZiLtZBR/M8gV3zXKAapOmy4vtbNZGgT4nTqW/
+	 qNiM8nmPtLpfO5T8MQVoiZu6FlhVshppOkG2p4cg=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261124161121eucas1p111fb1f1e9e91dad3f8a68131f3951415~rBxkwlpaE2165621656eucas1p1Q;
+	Tue, 24 Nov 2026 16:11:21 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261124161119eusmtip1823cc0c3de84fe9a410d638a7a7849ca~rBxizLBG81311713117eusmtip1e;
+	Tue, 24 Nov 2026 16:11:19 +0000 (GMT)
+Message-ID: <874dc793-7287-4c23-b1b7-0417fc43b7b9@samsung.com>
+Date: Tue, 24 Nov 2026 17:11:18 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,78 +64,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH] swiotlb: clear read bounce buffers on confidential
+ guests
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Shukai Ni <shukai.ni@kuleuven.be>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, Halil Pasic
+	<pasic@linux.ibm.com>, Tom Lendacky <thomas.lendacky@amd.com>, Kiryl
+	Shutsemau <kas@kernel.org>, Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Elena Reshetova <elena.reshetova@intel.com>, Carlos Bilbao
+	<carlos.bilbao@kernel.org>, linux-coco@lists.linux.dev,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	Jo Van Bulck <jo.vanbulck@cs.kuleuven.be>, "Aneesh Kumar K.V"
+	<aneesh.kumar@kernel.org>
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20261124153615.GA114530@ziepe.ca>
+Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20261124161121eucas1p111fb1f1e9e91dad3f8a68131f3951415
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261123205317eucas1p2f96032281e0f5e9f17acc7ec343acced
+X-EPHeader: CA
+X-CMS-RootMailID: 20261123205317eucas1p2f96032281e0f5e9f17acc7ec343acced
+References: <CGME20261123205317eucas1p2f96032281e0f5e9f17acc7ec343acced@eucas1p2.samsung.com>
+	<20261123205302.1034348-1-shukai.ni@kuleuven.be>
+	<42415609-c784-45d4-a79d-ef3cc5e6c3ef@samsung.com>
+	<20261124153615.GA114530@ziepe.ca>
 
-On 24 November 2026 08:29:14 GMT, Avi Weiss <thnkslprpt@gmail.com> wrote:
+On 24.11.2026 16:36, Jason Gunthorpe wrote:
+> On Tue, Nov 24, 2026 at 04:17:20PM +0100, Marek Szyprowski wrote:
+>> CCed Jason and Aneesh.
+>>
+>> On 23.11.2026 21:53, Shukai Ni wrote:
+>>> On confidential guests (AMD SEV, Intel TDX) all device DMA is bounced
+>>> through swiotlb, whose pool is shared with and readable by the untrusted
+>>> host. swiotlb_tbl_map_single() copies the destination buffer's current
+>>> contents into the bounce buffer at map time even for DMA_FROM_DEVICE. For
+>>> a reused read buffer that still holds private data, the host can read
+>>> that data from the bounce buffer before the device overwrites it.
+>>>
+>>> For DMA_FROM_DEVICE into a host-shared pool, zero the bounce buffer
+>>> instead. Zeroing rather than skipping the copy keeps a short read from
+>>> returning a previous transfer's data.
+>>>
+>>> Fixes: ddbd89deb7d3 ("swiotlb: fix info leak with DMA_FROM_DEVICE")
+>>> Cc: stable@vger.kernel.org
+>>> Co-developed-by: Jo Van Bulck <jo.vanbulck@cs.kuleuven.be>
+>>> Signed-off-by: Jo Van Bulck <jo.vanbulck@cs.kuleuven.be>
+>>> Signed-off-by: Shukai Ni <shukai.ni@kuleuven.be>
+>>
+>> I'm not sure if DMA-mapping or SWIOTLB is the right place for such fixups.
+>>
+>> Drivers should be aware that doing DMA from unsecure device to the given
+>> secure page might reveal its content to the host or other parties and
+>> prepare for that (like zeroing that page).
+> I think given the semantics we have to support partial write we don't
+> have a choice but to continue them as it is the DMA API.
 >
->reboot_setup() and cpu_store() compare CPU IDs with
->num_possible_cpus(), which is a count rather than an upper bound.
->With a sparse possible mask, this rejects valid CPUs and accepts
->impossible IDs. reboot_setup() also narrows the parsed CPU number
->to int before checking it, allowing large values to be truncated.
->
->Validate against nr_cpu_ids and cpu_possible() in both interfaces.
->Use simple_strtoull() and unsigned long long for the boot option,
->so the value is not narrowed before validation on 32- or 64-bit
->kernels. Preserve the comma-separated reboot= syntax.
->
->Fixes: df5b0ab3e08a ("reboot: fix overflow parsing reboot cpu number")
->Fixes: 2c622ed0eaa3 ("reboot: allow to specify reboot mode via sysfs")
->Reported-by: Bradley Morgan <include@grrlz.net>
->Link: https://lore.kernel.org/r/20260622154216.10064-1-include@grrlz.net
->Suggested-by: Bradley Morgan <brads@mainlining.org>
->Link: https://lore.kernel.org/r/D92156F5-5924-45CD-BCFE-AF385BDD15CF@mainlining.org
->Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
+> The driver would have to opt out of partial write support somehow to
+> trigger this, and in that case it is more of an optimization and
+> shouldn't be linked to CC.
 
-How did you account for this?
+This has been already tried some time ago:
 
-https://lore.kernel.org/all/20260624174642.da2cc6912a9b19accd378538@linux-foundation.org/
+https://lore.kernel.org/all/20250115194659.618438-1-florian.fainelli@broadcom.com/
 
->---
->
->v2:
->- apply Bradley Morgan's unsigned parsing review, widening to 64 bits
->  for consistent behavior on 32- and 64-bit kernels
->
->v1: https://lore.kernel.org/r/20261031060602.2949895-2-thnkslprpt@gmail.com
->
-> kernel/reboot.c | 11 +++++------
-> 1 file changed, 5 insertions(+), 6 deletions(-)
->
->diff --git a/kernel/reboot.c b/kernel/reboot.c
->index 9a84401adde5..f57b9aaef3f0 100644
->--- a/kernel/reboot.c
->+++ b/kernel/reboot.c
->@@ -1144,12 +1144,11 @@ static int __init reboot_setup(char *str)
-> 			str += str[1] == 'm' && str[2] == 'p' ? 3 : 1;
-> 
-> 			if (isdigit(str[0])) {
->-				int cpu = simple_strtoul(str, NULL, 0);
->+				unsigned long long cpu = simple_strtoull(str, NULL, 0);
-> 
->-				if (cpu >= num_possible_cpus()) {
->-					pr_err("Ignoring the CPU number in reboot= option. "
->-					"CPU %d exceeds possible cpu number %d\n",
->-					cpu, num_possible_cpus());
->+				if (cpu >= nr_cpu_ids || !cpu_possible(cpu)) {
->+					pr_err("Ignoring invalid CPU %llu in reboot= option\n",
->+					       cpu);
-> 					break;
-> 				}
-> 				reboot_cpu = cpu;
->@@ -1351,7 +1350,7 @@ static ssize_t cpu_store(struct kobject *kobj, struct kobj_attribute *attr,
-> 	if (rc)
-> 		return rc;
-> 
->-	if (cpunum >= num_possible_cpus())
->+	if (cpunum >= nr_cpu_ids || !cpu_possible(cpunum))
-> 		return -ERANGE;
-> 
-> 	reboot_default = 0;
->
->base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
->
+It looks that something similar, but with zeroing the swiotlb buffer instead
 
---- Thanks!
+of skipping the copy would make some sense.
+
+
+> I'm curious if there is a real issue here with a definitive issue on a
+> driver or it is just speculation?
+>
+>
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
