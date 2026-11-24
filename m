@@ -1,51 +1,52 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795514924;
-	b=n75BM4wjoKmfAXtT1iCKidypE7MZ1te31NZdJBYnOZ52Ikw2SRWUe12NDyg5S+24c1QR
-	 XxKJEzwS8cJ8chB/uvzoj/fq/UxzKfagXx9qr68CGv54S0xsUGm71pVFAwjHcbK0WGE11
-	 xEADGUvktL2Pp1VWL5eUVaGY1rgUkSvohb1RIs6DA8t1fzHrTdFe3wNMTeGz5RdBlHysQ
-	 B8Fz7uC3Q1qLQUCTyp2evXSN/35rbKEdjr8sV2/0IdocIdtX8aOEHDFGRONnttLJ71XGU
-	 Lj8N4xxEIMHyeP8WqqPTjqP09/SCEybPVJluweVty4qGglmGpNZla4qFqk7ffb3YRgA==
+	b=oV6Nl+6lXNVjsYZavw/cDWpaFxpO/CQoY0pRod0AnYR28gXoZx/Z6uZ44f75eHqM9l3H
+	 Wmpkzr84oOimCCnLjgm19nPz1YYEf6v+5Lw9TCPxdbu7Wy3elaPM8Mld4sVJVrbnH6H3f
+	 NRFuZbEWL3/K1lZJEcIm0wFTp/HP9jXaZOzELOAd0DQNn6rJL1xh9XfpZEiMqkDF1qzlJ
+	 Yv5H03/3/7IqhxN1AqF/6VAOABguA88hOFHujpeR2bTmRVTi0F48K1Ihf5L7rcW5lYWiX
+	 yKby51t65aD99xfSelYFcCsGqRCVdFDQE85di7ncOduKmZYT6A/kpj/AuYChkqizN5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795514924;
 	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=bAEMAht5QhdVHbTTkFZWHfFFLgtUlAo/N6EyAR7wknM=;
-	b=xRBnx7DJzzmQS3Jw4rACW60jCPRPAjJ4Eye8nMZZnMGgCqtRCDK/Hsy9bbzwVX2sb6rh
-	 8ZzEhx14mmYtiTcIlNSq3g8lBka9dmcWkG31CLyBM5VKJA67iWPA3qqNDYLulz3zcnKq6
-	 z+p7FQsgaG6V5QU1vs5+aiOeKiJMVNcirrhyLjJw+IdIbD0USpSa0ecNDkHoLK4Rt8LEd
-	 2tsEWjneCvkQywjVVc034blk9zVY2Hn3xIFNAHNDq2XnzmIRz/EEhjrN9jIbmlfUi9YCJ
-	 83Zoaqbixhkucya1wDHN/pIVteulHhne/p6BIdUGi50LiIAt1tE502T9pS3UNvpb3rA==
+	bh=fxbAA9omveLUdsHjqm0zsiPPYigRMTG9X0Txg4vbd6A=;
+	b=Rwq5WJTQpMUec6Wgah0MV47yJO3m483GaMDKvDhExW7/Rq9RoFbvfGbMEttDderlz9kT
+	 Akzp07r287m3/iI8PUvbNehIx7HO2DBewgahINK9oi2GcGCj/kSml4FDZHC6xqJUyVXfh
+	 vINJvmn48lkhaXHb1Bs84jc5ASZL+g9ZWYY1n2iysVbAfV2CIQl0uVfQbUHueu/n+ykgd
+	 pw+0Ucsrm6FIu5OECNQn/yGvtgrmY+dTus7fsilNzimSyHxLFmRnCJKYeCrTneQ8tdDxS
+	 PB6JnSNLtyU8/MfEgsCiDgDC5WG86uqIT2HsfaLSJyK/F9u9lvzcbw+6pOWfFMRH9kg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=ideasonboard.com;
 	spf=pass smtp.mailfrom=ideasonboard.com;
-	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=P1826twT;
+	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=FGHaRu2I;
 	arc=none smtp.remote-ip=213.167.242.64
 Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BCB760A2607
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D92DD60A260B
 	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:08:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7BCB760A2607
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D92DD60A260B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=P1826twT
+	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=FGHaRu2I
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 73E092138;
-	Tue, 24 Nov 2026 11:06:04 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 817D52169;
+	Tue, 24 Nov 2026 11:06:05 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1795514765;
-	bh=6xUgwbcSdHtlDVcj+YK6T6MQTPPJ2b2Uv/YxT+h6csY=;
+	s=mail; t=1795514766;
+	bh=AeSF9xATr/aXA7bcXDEkH7i4BWR+sahH7VjgB+rcbLg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=P1826twTeiEBX8ANl2BCGZPPs9zVfU8YSSkvuRGUVgRq1PyC5cjFlQfjfJxuiwkq2
-	 ZaoM/X/IMFjsKbT/M18A0gD1CraCbpTgHZGtKqwlPqq96EEdvJP2p0jbDhX5k2IEuY
-	 wVMvn0XmqeJ4qEZPJkVZueqKQ4pssVJehkCqwL9k=
+	b=FGHaRu2IlLnWYGxHCPT/vAQiE11Izi+p+zbeMUT+aovQtLGlqpGiUYTdcgTW4W0Lc
+	 K30rNxEa6RZ0dVq2m82us+14PH4WFcZ191iP3Oq7Asbj1xfxEb9OnJCV6SiQGp60+G
+	 shcDFkffz5nHsj8eQAl9UxoGtBlKxtXROOq18ntI=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Tue, 24 Nov 2026 12:08:00 +0200
-Subject: [PATCH v6 09/13] drm/bridge: tc358762: Fix sync polarities
+Date: Tue, 24 Nov 2026 12:08:01 +0200
+Subject: [PATCH v6 10/13] drm/bridge: tc358762: Move tc358762_init() into
+ tc358762_enable()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,7 +58,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-tc358762-fixes-v6-9-bd38fed6460f@ideasonboard.com>
+Message-Id: <20261124-tc358762-fixes-v6-10-bd38fed6460f@ideasonboard.com>
 References: <20261124-tc358762-fixes-v6-0-bd38fed6460f@ideasonboard.com>
 In-Reply-To: <20261124-tc358762-fixes-v6-0-bd38fed6460f@ideasonboard.com>
 To: Marek Vasut <marex@denx.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -72,50 +73,166 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Dave Stevenson <dave.stevenson@raspberrypi.com>, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=997;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4059;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=6xUgwbcSdHtlDVcj+YK6T6MQTPPJ2b2Uv/YxT+h6csY=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBrBWIZkRhU4L5zsY96Mu26Mvu5c5k7C0y+6aIGB
- VICSdRDWlaJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCawViGQAKCRD6PaqMvJYe
- 9fChD/9SwsBMQDDy4pULI8k3UhH2oHpzz1aMb6lThKnICsXn7rlHlrTiowCg7bIKODEKwlXA6wM
- deGPmlZ8LivOok3gurMpDm3WpqrMvRPWFCWhSIvNXr8WeTxRpbT08dGhb6sYcuG3IRPTvvfoIPZ
- Zm2n5AdM/I1l9gUfosT6WYe0DcC/2AWTb6uxCTQas8iC2C+ulW2n/DL0y+uMZancWBL1q6/SUFa
- DZ/Z3nGFgIIlE8FS3uGSJzeVfpcTFx8i4l7p7fVW4iWJrLXYvMbghQljcZhSq1ez7yozPdHCiFY
- p9ofbixVLum7dIuHA9z+zgQyULO8m2bMlmwHVNJbgY3KSi4Js7CMlLawuchjKgorPHLdmZeP/ep
- IvIdnX5vQJzM745q0EYGG70XA+BgfEWobDdhkQs/dH/Bs8fnrZF37cf/k7udkk2HBSKYXtHnuud
- e7Oeb/EYNjLd/8yFDKoJ5P2g/1G3pxClWejP4LZgOsPLfJCGITahFewX6B/XJ6MYt6JUQiavcBa
- u6yFakuta49FxHKU1W/5T/jsaVNpnEIF1oJaqKAIMIjGVM5ouQPZmeMtQDohQm3q1N+o8o6hy0J
- +iq8N41CFMP8x2oNRh/+8Q3+nYtNGUPqe35eyt3PIhPc0/L0MW2+XzuR98BggdkVD01Z/v7SHT3
- MTcsmuPCQ2w2VTw==
+ bh=AeSF9xATr/aXA7bcXDEkH7i4BWR+sahH7VjgB+rcbLg=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBrBWIZK+YCxMX/+g7GbaSd2TIb95J1BLB+iTHNK
+ aUFVLer6DSJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCawViGQAKCRD6PaqMvJYe
+ 9TXWD/kBkPRtYBJIDLeOshENfyWJgRIoRlwaeNcw8gcL9xeLLluUsJW+ceGDU0Hcc7C658ZenGX
+ 9pgigh7nGY7WYHEpzqU/z2BJQw5RKpkDHL+9pB3V07EJ7Z3Rxonve/ONx4Dipm98l+yFrvW8yGI
+ dcpSu6eVC5uiDpiLWSsjfF/AwrWkYOvFEPgyLC2KRjv7ssH5MK0EaAiAzN1TOUGY984kpYWgawI
+ JDL5MalEFLlcntpJMHRSKU2GGPmgIpp8Shs2USVzjOSo/+gB6Vnio/kDpKZAL1XtuTxN6JFuwzL
+ R9CyBUuWOl8HZQG0d9MZ1I0rluO9gnajuZknkogXFCWibspRDuT0NYO8hzqJnkhNEBa0dKEiNtK
+ Di5eyJA2tvXlf3wcC55nqsgXCm3uonA5JUg2c3ttel4Lb3v0lP53SWcl2d0a9UFsecHmG38hEHZ
+ 1lLQptM3VXf0nDH4Zbfm5k20Mwy2mpBw4AtluYBlvVqLtWkKx5DW42BfmFIDvfwh/+q+vRlN/hd
+ oECF4YdyKgaPWb32UigUSbvJenlDwsc0ax/6V/tRQjJbA9R7sCXhyN5lR8/4QAaNhi/W0/y8S92
+ mbh5ukE7jF4wFNCBeHHKlW4BFVU/omppC27FhZmoJa+BSaqvXGkwaEUKloyX3QWRvehb/HlYtqc
+ ChImxFjWXl3Q0fQ==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 
-Setting LCDCTRL_HSYNC_POL and LCDCTRL_VSYNC_POL will make the respective
-sync signal active high. The driver does this in inverse. Fix it.
+The only thing tc358762_enable() does is call tc358762_init(). Inline
+the tc358762_init() into tc358762_enable(), for simplicity and to make
+it easier to improve the tc358762_enable() in the following commits. No
+functional change.
 
 Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
- drivers/gpu/drm/bridge/tc358762.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/bridge/tc358762.c | 110 ++++++++++++++++++--------------------
+ 1 file changed, 52 insertions(+), 58 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/tc358762.c b/drivers/gpu/drm/bridge/tc358762.c
-index 3ccb5aa40446..7a2658933216 100644
+index 7a2658933216..85a0314f16c2 100644
 --- a/drivers/gpu/drm/bridge/tc358762.c
 +++ b/drivers/gpu/drm/bridge/tc358762.c
-@@ -190,10 +190,10 @@ static int tc358762_init(struct tc358762 *ctx)
+@@ -138,9 +138,60 @@ static inline struct tc358762 *bridge_to_tc358762(struct drm_bridge *bridge)
+ 	return container_of(bridge, struct tc358762, bridge);
+ }
  
- 	lcdctrl |= LCDCTRL_DCLK_POL;
+-static int tc358762_init(struct tc358762 *ctx)
++static void tc358762_post_disable(struct drm_bridge *bridge,
++				  struct drm_atomic_commit *state)
++{
++	struct tc358762 *ctx = bridge_to_tc358762(bridge);
++	int ret;
++
++	/*
++	 * The post_disable hook might be called multiple times.
++	 * We want to avoid regulator imbalance below.
++	 */
++	if (!ctx->pre_enabled)
++		return;
++
++	ctx->pre_enabled = false;
++
++	/* Turn off the DPI output */
++	tc358762_write(ctx, LCDCTRL, 0);
++
++	ret = tc358762_clear_error(ctx);
++	if (ret < 0)
++		dev_err(ctx->dev, "error disabling DPI output (%d)\n", ret);
++
++	if (ctx->reset_gpio)
++		gpiod_set_value_cansleep(ctx->reset_gpio, 0);
++
++	ret = regulator_disable(ctx->regulator);
++	if (ret < 0)
++		dev_err(ctx->dev, "error disabling regulators (%d)\n", ret);
++}
++
++static void tc358762_pre_enable(struct drm_bridge *bridge,
++				struct drm_atomic_commit *state)
+ {
++	struct tc358762 *ctx = bridge_to_tc358762(bridge);
++	int ret;
++
++	ret = regulator_enable(ctx->regulator);
++	if (ret < 0)
++		dev_err(ctx->dev, "error enabling regulators (%d)\n", ret);
++
++	if (ctx->reset_gpio) {
++		gpiod_set_value_cansleep(ctx->reset_gpio, 1);
++		usleep_range(5000, 10000);
++	}
++
++	ctx->pre_enabled = true;
++}
++
++static void tc358762_enable(struct drm_bridge *bridge,
++			    struct drm_atomic_commit *state)
++{
++	struct tc358762 *ctx = bridge_to_tc358762(bridge);
+ 	u32 lcdctrl;
++	int ret;
  
--	if (ctx->mode.flags & DRM_MODE_FLAG_NHSYNC)
-+	if (ctx->mode.flags & DRM_MODE_FLAG_PHSYNC)
- 		lcdctrl |= LCDCTRL_HSYNC_POL;
+ 	/*
+ 	 * DPIENABLE has reset default of 1. Make sure we don't output on
+@@ -203,64 +254,7 @@ static int tc358762_init(struct tc358762 *ctx)
  
--	if (ctx->mode.flags & DRM_MODE_FLAG_NVSYNC)
-+	if (ctx->mode.flags & DRM_MODE_FLAG_PVSYNC)
- 		lcdctrl |= LCDCTRL_VSYNC_POL;
+ 	msleep(100);
  
- 	tc358762_write(ctx, LCDCTRL, lcdctrl);
+-	return tc358762_clear_error(ctx);
+-}
+-
+-static void tc358762_post_disable(struct drm_bridge *bridge,
+-				  struct drm_atomic_commit *state)
+-{
+-	struct tc358762 *ctx = bridge_to_tc358762(bridge);
+-	int ret;
+-
+-	/*
+-	 * The post_disable hook might be called multiple times.
+-	 * We want to avoid regulator imbalance below.
+-	 */
+-	if (!ctx->pre_enabled)
+-		return;
+-
+-	ctx->pre_enabled = false;
+-
+-	/* Turn off the DPI output */
+-	tc358762_write(ctx, LCDCTRL, 0);
+-
+ 	ret = tc358762_clear_error(ctx);
+-	if (ret < 0)
+-		dev_err(ctx->dev, "error disabling DPI output (%d)\n", ret);
+-
+-	if (ctx->reset_gpio)
+-		gpiod_set_value_cansleep(ctx->reset_gpio, 0);
+-
+-	ret = regulator_disable(ctx->regulator);
+-	if (ret < 0)
+-		dev_err(ctx->dev, "error disabling regulators (%d)\n", ret);
+-}
+-
+-static void tc358762_pre_enable(struct drm_bridge *bridge,
+-				struct drm_atomic_commit *state)
+-{
+-	struct tc358762 *ctx = bridge_to_tc358762(bridge);
+-	int ret;
+-
+-	ret = regulator_enable(ctx->regulator);
+-	if (ret < 0)
+-		dev_err(ctx->dev, "error enabling regulators (%d)\n", ret);
+-
+-	if (ctx->reset_gpio) {
+-		gpiod_set_value_cansleep(ctx->reset_gpio, 1);
+-		usleep_range(5000, 10000);
+-	}
+-
+-	ctx->pre_enabled = true;
+-}
+-
+-static void tc358762_enable(struct drm_bridge *bridge,
+-			    struct drm_atomic_commit *state)
+-{
+-	struct tc358762 *ctx = bridge_to_tc358762(bridge);
+-	int ret;
+-
+-	ret = tc358762_init(ctx);
+ 	if (ret < 0)
+ 		dev_err(ctx->dev, "error initializing bridge (%d)\n", ret);
+ }
 
 -- 
 2.43.0
