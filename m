@@ -1,111 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795492584;
-	b=q9up3ts5nC6yJQMDyYEvWmcABnu6RYz9uiGM1D0bjdwXPGwW4SOBAAHg+ahQZ8JuUSal
-	 Xf0DjdSD7AYEryrVvrzEo4XIt2hk+TbsZRr3fBhWpJZUenk4N2scfq44L+eU4Btgoi6kk
-	 J72ZdISvoeqJ6IgelYTMPyE4CNc3v86AI69AsIQD4APUC+nrrvfjKK2dTh4OPmloF5OES
-	 uK7WIJ8RTYmekTpZLLtdC9VibcSqV5zoc4cJ76l3njT3mbagFUwRraRa0RzNm5pZsvSis
-	 rhJ9dD2/VFoIEPK2DBdWQFq4/cNx+SCH5UaVvc837axqG01GRzpSywSVTtfkY7jwyyw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795492584;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=+YdvZbzJrs6MnFfqfxi0CDVj0ByOt2FocnTvLTVd/bU=;
-	b=fCnfm87kp3O0uJrj7rtdCOuK4coQOVqu+La2XsHOXOZSZVw38Y5thhK3PdOnpVuCyFAY
-	 9MtnF+e0vZdI17O0L+99wG0e96NW4vJe/tlIwqSdCkuSnEzLveGl3CbXaqe9vfokhE511
-	 uSum5/bvf6T5mTJrqd7k/EM/oxqkBWAqBDrEyPjqSF0kC4h3OrExw+ZfFjvWcB7KoRUrt
-	 4MvF8N54M4C71izCJoH0HPk0KjvUsSYxyY/2dXYBy+DbLIK+nyVc2KRSBH9ldmCzS3LtV
-	 56vAIoAw0BH/IkIlnJDQU1vd+yYqhD03L4ftPByu9VXItu0CcBm0nRD5Jr2309aYMsw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=y2rftIsW;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.44
-Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010044.outbound.protection.outlook.com [40.93.198.44])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795492592;
+	b=0e0IJzBgjToMKcuwQRXEnijgQlCV5QzK2vr8rdEPu0oc7tcJKzYnRUJmTy+woGKYhnc+
+	 CZRDxAA9E2i8ZAyiNRyyF7q3EGTMcjMJqOyeF5oqwAuwOEHwQitirPsrfK8RP+iY69jjw
+	 30S8vQOJXBf/gXE4bBwFVykJz6dhtUpVgUNdlhwOVWV2arHPX6Yhkl9XZWbwpHUj02gTq
+	 G62CDfqaGb1+1WtB2/lYD9+Kff6ZBTxPtyCpHX6nSnXqc7pU+hO9wqDMOfW5G4xKLoQP7
+	 HWKFqf3GaIKCbLjJTZHws8suqPiZ4dTG+Op2Hx02jzI4NLdrK4K27Tzx/Ba12LyLqqQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795492592;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
+	bh=EIBmlYOi3ApaAiATtJHu4JtR5iiov1p7BtaCf5Hg4Pw=;
+	b=hFBdmAWijqmpQjiNzkwaH/RyLt3ArzWa14YgpbG+vWaZoRs6aggeEibMWHAq+1ZlRe6e
+	 Yv/FZh/uyKasnBZO1YoEA1Xv77rwDOTOnBrc7r0/+WLJC+Jf7mVyOmWKMa/OxyFmkLpwm
+	 dkzg15pcvmSGKMg9+WkaQcyU9bjfjCpkZnyijdKebG3cF8Ndob3P+30mAT6jLs+4jXegK
+	 5RNUkJ3YW+5tVprXMxmnMHwWu+u8ShacuQffdORdDZ711ZIa6yOQ2BgNAbrhpDLgrEznt
+	 VB8WC3XymOHNvKdQCjSLRWL9GxmUii7hGhq5vaHlKynpENu24kP/8lNH2yl5Hu3hCxw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=LydSVxDX;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82771606A31E;
-	Tue, 24 Nov 2026 03:56:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82771606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A589606A693
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:56:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A589606A693
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=y2rftIsW
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IuB+nKPnBG/g+S49hqV9bsQ3JPy8qtPbhA6L97p+RhFNvD8/ngL4cMULqBl/EFpkzI7jMATempuIoTL+gjhTWFS1a+pZRs4Km9jfeqLqUtQ49sUlV0LpSnNOWSQwPj/RVJuExHv4cqPlfWwGR1expr9a7NLree6luF2Y/HsxFAvBxpNZFZoQVJ+Zaezb0naYiHDjbBWflCs6EbhZXyH6UsyaRW5TmzjMly3ZjQ6ZzT5d718GHRbuUzJykJHIZoBBjAieErnC1hcFdfqZbVQnpnoCAlH3SAPLqEhrnudcruiubyIP01SzqOPDe/hpnEkb+PeaRrN9EzohEyuzUBzk1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+YdvZbzJrs6MnFfqfxi0CDVj0ByOt2FocnTvLTVd/bU=;
- b=IZMxN4QORMpChUjEbgAuqjmlcCZECUAM6L7KB5s5zBivjS9cESc4kNFKhY3y90dSlRQxQmov2+IfzDKnG1+hzViswROtg2PGauG92AUFLElfc6P0Nu4PizmdgFh0N2v+y9Fv12t0oYX0avaRA6uNzyuJMJtmJ3pdhohX4pWKA4xhMW8tP99y5a+2oKE6oJV7X6LN8BoUvtwXh1yQZox64owwyMv5sbldY50F58usmACFq8nx/xl9p1/pYMaM2uYJ8M7rfsmhww6dfLpzr5BhSU2x/i+bV6dMo9wjzLClLkThn/JMB/OxLYaRm93NZn3eFq+6rThjsnaEyJk/ck4KBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+YdvZbzJrs6MnFfqfxi0CDVj0ByOt2FocnTvLTVd/bU=;
- b=y2rftIsWXNCKj1hV+tVOTesMKu/VHWDXRyxhUjHL2T22R++1kdh6Q5W1B/yFlgBAPuqffwLchnLvlHLfofMrHJjvuCm92zLs4XrGJbRYyidu1LLYyqzanin6X23Y9NpPyIr9SgIteLwM9pbdodkAwP0HQNzRuNizSaV0mHKCdpM=
-Received: from DS7PR03CA0310.namprd03.prod.outlook.com (2603:10b6:8:2b::9) by
- CH3PR12MB8972.namprd12.prod.outlook.com (2603:10b6:610:169::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Tue, 24 Nov
- 2026 03:56:19 +0000
-Received: from DS8PEPF000000DE.namprd05.prod.outlook.com
- (2603:10b6:8:2b:cafe::3d) by DS7PR03CA0310.outlook.office365.com
- (2603:10b6:8:2b::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Tue,
- 24 Nov 2026 03:56:19 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- DS8PEPF000000DE.mail.protection.outlook.com (10.167.23.199) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 03:56:18 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
- 2026 21:56:18 -0600
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
- 2026 21:56:17 -0600
-Received: from xhdshubhraj40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Mon, 23 Nov 2026 21:56:14 -0600
-From: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-To: <linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: <git@amd.com>, <shubhrajyoti.datta@gmail.com>, Michael Turquette
-	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>, "Shubhrajyoti
- Datta" <shubhrajyoti.datta@amd.com>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v4 0/8] clk: clocking-wizard: Add static-config clock provider support
-Date: Tue, 24 Nov 2026 09:25:45 +0530
-Message-ID: <20261124035613.1968260-1-shubhrajyoti.datta@amd.com>
-X-Mailer: git-send-email 2.44.4
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=LydSVxDX
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795492590;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EIBmlYOi3ApaAiATtJHu4JtR5iiov1p7BtaCf5Hg4Pw=;
+	b=LydSVxDX5oNI2oP+vlu2t0HMtY/UzvEZ+tI381IOcRkjl3Ehlt/vyRJQeU4QZOiJLg0Pfp
+	fGgt1jZnBOabsf3Zf5RIz9QObF54VYV2H35kd3hOCwDsnqkCFUiUNxtVE7Yj9vmLUTL2qT
+	hUksywJefFrCWpC35vE4byXFqgzrQ1U=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-448--VzRuqE8PEOi6MGeA_xtQA-1; Tue,
+ 24 Nov 2026 03:56:25 +0000
+X-MC-Unique: -VzRuqE8PEOi6MGeA_xtQA-1
+X-Mimecast-MFC-AGG-ID: -VzRuqE8PEOi6MGeA_xtQA_1795492582
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5F71819540C5;
+	Tue, 24 Nov 2026 03:56:21 +0000 (UTC)
+Received: from [100.91.18.181] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id E848F18004FE;
+	Tue, 24 Nov 2026 03:56:16 +0000 (UTC)
+Message-ID: <790b34ba-17da-47c8-8416-ad0b7d721415@redhat.com>
+Date: Mon, 23 Nov 2026 22:56:15 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,83 +71,162 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH-next v2 2/3] sched/isolation: Forbid the boot CPU from
+ being domain isolated
+To: Ridong Chen <ridong.chen@linux.dev>, Tejun Heo <tj@kernel.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
+ <mkoutny@suse.com>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>,
+ Anna-Maria Behnsen <anna-maria@linutronix.de>,
+ Frederic Weisbecker <frederic@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+Cc: cgroups@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ Guopeng Zhang <guopeng.zhang@linux.dev>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+References: <20261123041209.382726-1-longman@redhat.com>
+ <20261123041209.382726-3-longman@redhat.com>
+ <7dbec7f4-35d0-4351-a61d-ab0a649c41d6@linux.dev>
+Content-Language: en-US
+From: Waiman Long <longman@redhat.com>
+In-Reply-To: <7dbec7f4-35d0-4351-a61d-ab0a649c41d6@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS8PEPF000000DE:EE_|CH3PR12MB8972:EE_
-X-MS-Office365-Filtering-Correlation-Id: ce80915f-8c3c-47c8-7c3e-08df49dee53c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|23010399003|376014|1800799024|36860700016|7416014|18002099003|261009223027099003|3023799007|5023799004|261021123027099003|56012099006|261102123227099003|261026121527099003|261021121427099003|261026140227099003|261022075727099003|261022105027099003|11063799006|261028144727099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	nVGkH73XiFMIBaOODGPF/+Hzgpq2H5BTySJ87cuCsrF3ZmazwSwdsJLO8g+94dIILGZjZLkUw9m+y9IVUiza/o9RHzeRp/wyAuGsLbOPgVSBVBfPLfWNjiHpIM+QdIWTqRcfX2OeTJeodgCmbLyy7C45VAo3SZISeyqlZfgzg66q8e6NrPpTy8Zxyzp/m78kh4y4fnCyHlYpOkbfcfzHcNAk/tgT8wgEP4er3o8QlkVV7tCN43Ut2MG6JJpgn+DBg2z4+IxVIQ2ZNIyX2+/M4KS771yvcXFR/tZh7KvtoL4oEp2OW07MK/LjnDxuVg/2vqg6A4+DTV6CUF/0fJAdPIWa70PxRDY16hy0PTI0DzblF5RdEOARe+cWXPDaJal+BKeWLPnFaDotzkLHWwVe4JJUI1pixWptjs96GtOSbqe4zpgGNCTUu881nWQT+AAL23RwEC6QUbOf8ZKBJLyWSfO3tR3xlLmqv8TmXNZwMbPPh5WpvdD2bxfwp+61mH3L58InVKJDD4sZVCr4BHfrKrDxaiN7R8aII5RN9ho7fX+HydiTsakNy7CFZjv/7nz4Q7fzeQ2L60Oi8ylPRcS2mWPN5tBOU3tavnFmAKJXOXJ8sdVMp9pL2NmK5c+raRS66gYqXA9qXLPggsRZRyktGe6j25bFYfJS1V2V0t/29fCtzC+cV1p6iOAOY3pQvhPhKcFgzrDrzoCEDpEFie7oYw==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(376014)(1800799024)(36860700016)(7416014)(18002099003)(261009223027099003)(3023799007)(5023799004)(261021123027099003)(56012099006)(261102123227099003)(261026121527099003)(261021121427099003)(261026140227099003)(261022075727099003)(261022105027099003)(11063799006)(261028144727099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	8S0LB1dK5qhw/IiHDmj/gA/RNpVR/jXkXQKVYxopy6JdfvfYRa0mDvcCaOU6Adp0XI20AjUDLZGKBrbAwFYXnfRHlrbaq+xrLCUBzgz56hzqKu6FQyrFPqJy5zNOAlShDJjJ21AiDBt8KcBbS3kFnQDEFU+5zNaMgQqUoKmIbRuJgm2zu4aQZ0+M3rydzklEnTWPev9h6D3xjKAHBBJd3XHZMNTcz3wHWVCN8lnX/bhsdDZDPSeWXI+bLcIWQJRI1v+bbZ76ottP7LW8Nh7UCVBGTvW5y4ajGFgoALHA5WU9tc5p1O7tts5ZLv/eXCuGvkzh3oG/Pu2S8G6UKNufwJzlRNHeeKlyqWEpGaYp/cEQBOlbJPPHLwLmcqA3a1xJyqkOrc9zBBrx8QFnqeH0YkeP5jF+GUqysAOdGX3rr3yLwNqmNq1okVxql53xqktL
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 03:56:18.6812
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ce80915f-8c3c-47c8-7c3e-08df49dee53c
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	DS8PEPF000000DE.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8972
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 
+On 11/23/26 10:27 PM, Ridong Chen wrote:
+>
+>
+> On 11/23/2026 12:12 PM, Waiman Long wrote:
+>> It is reported that with CONFIG_CPUSETS=n, a kernel booted with
+>> isolcpus=domain,0 hits the BUG() in select_fallback_rq() during boot
+>> [1]. At boot time, cpu 0 is the only CPU online and an unbound kworker
+>> cannot be run on a domain isolated CPU causing kernel panic.
+>>
+>> Sashiko also reports that domain isolating the boot CPU can break system
+>> suspend and trigger a BUG_ON() [2]. So it is problematic if the boot CPU
+>> is domain isolated.
+>>
+>> There may be other kernel subsystems that have problem if the boot CPU
+>> is domain isolated as most of them won't take into account the fact that
+>> boot CPU is currently allowed to be domain isolated. Given the fact
+>> that the boot CPU is likely to be disallowed from the nohz_full list,
+>> it makes sense that we should not allow the boot CPU from being set in
+>> the isolcpus boot parameter as well. This will also avoid the kind of
+>> problems listed above.
+>>
+>> Do that by clearing the boot CPU from the isolcpus range when it is
+>> specified in the boot command line. A warning may also be printed when
+>> that happens. If the users want to have boot CPU in the managed_irq
+>> or nohz isolation list, a standalone isolcpus boot parameter will be
+>> needed instead of combining domain and other flags in the same isolcpus
+>> boot parameter.
+>>
+>> This is indeed a change in behavior which is customer visible. So the
+>> kernel-paremeters.txt is updated to mention the fact that boot CPU
+>> cannot be isolated.
+>>
+>> [1] 
+>> https://lore.kernel.org/lkml/20261117144817.265109-1-mathieu.desnoyers@efficios.com
+>> [2] 
+>> https://sashiko.dev/#/patchset/20261108180849.1268263-1-longman%40redhat.com
+>>
+>> Signed-off-by: Waiman Long <longman@redhat.com>
+>
+> This fixes a boot-time BUG(), so it seems worth a Fixes?
 
-The Xilinx clocking-wizard IP can be used in a static-config mode
- where the hardware is pre-programmed at boot and no dynamic register
- access is required. In that case the driver should skip ioremap,
- read the fixed multiplier/divisor pairs from the device tree, and
- register fixed-factor clocks derived from clk_in1.
+The boot time bug reported by Mathieu requires a rather special config 
+that is not common and I doubt it will be used at all in production. So 
+I don't intend for this to go to stable and it is also a slight change 
+in user visible behavior. It is also a long standing issue that is hard 
+to pinpoint a Fixes tag.
 
- This series:
-   - adds the xlnx,clk-mul-div binding to carry mul/div pairs
-   - makes the reg property optional for static-config nodes
-   - skips ioremap when xlnx,static-config is present
-   - moves clk_in1 acquisition before the static-config check so it
-     is available in both code paths
-   - registers fixed-factor output clocks in static-config mode
-
-Changes in v4:
-Rebased
-
-Changes in v3:
-- Added Reviewed-by tag from Rob Herring (carried from v2)
-- Squashed the three separate v1 dt-bindings patches (clk-mul-div
-  property, reg optional, s_axi_aclk optional) into this single patch,
-  per Conor Dooley's review comment on v1 patch 3/8
-- Removed duplicated number-of-outputs handling
-- New patch
-- New patch: split the shared notifier_block into per-clock callbacks
-  to avoid corrupting the notifier chains
-
-Changes in v2:
-- Acquire clk_in1 even on the static-config path, instead of only when
-  the dynamic-reconfig registers are used
-
-Shubhrajyoti Datta (8):
-  dt-bindings: clock: clocking-wizard: Add static-config mode support
-  clk: clocking-wizard: Do not map the memory for static-config
-  clk: clocking-wizard: Move clk_in1 acquisition before static-config
-    check
-  clk: clocking-wizard: Add static-config clock provider support
-  clk: clocking-wizard: Skip s_axi_aclk for static-config
-  clk: clocking-wizard: Use dev_err_probe() when mapping registers
-  clk: clocking-wizard: Fix division by zero and unbounded register
-    write
-  clk: clocking-wizard: Use separate notifier_block for each clock
-
- .../bindings/clock/xlnx,clocking-wizard.yaml  |  51 +++-
- drivers/clk/xilinx/clk-xlnx-clock-wizard.c    | 229 +++++++++++++++---
- 2 files changed, 245 insertions(+), 35 deletions(-)
-
--- 
-2.34.1
+>
+>
+>> ---
+>>   .../admin-guide/kernel-parameters.txt         |  7 +++---
+>>   kernel/sched/isolation.c                      | 22 +++++++++++++++----
+>>   2 files changed, 22 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/Documentation/admin-guide/kernel-parameters.txt 
+>> b/Documentation/admin-guide/kernel-parameters.txt
+>> index 930cee4de79a..1c8bf3583b0b 100644
+>> --- a/Documentation/admin-guide/kernel-parameters.txt
+>> +++ b/Documentation/admin-guide/kernel-parameters.txt
+>> @@ -2954,11 +2954,12 @@ Kernel parameters
+>>                   You can move a process onto or off an "isolated" 
+>> CPU via
+>>                 the CPU affinity syscalls or cpuset.
+>> -              <cpu number> begins at 0 and the maximum value is
+>> -              "number of CPUs in system - 1".
+>> +              <cpu number> begins at 0 and the maximum value
+>> +              is "number of CPUs in system - 1". However boot
+>> +              CPU (cpu 0) cannot be domain isolated as it
+>> +              may cause problem with some kernel subsystems.
+>>                 managed_irq
+>> -
+>>                 Isolate from being targeted by managed interrupts
+>>                 which have an interrupt mask containing isolated
+>>                 CPUs. The affinity of managed interrupts is
+>> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+>> index c0c8b8862cbd..de8152351450 100644
+>> --- a/kernel/sched/isolation.c
+>> +++ b/kernel/sched/isolation.c
+>> @@ -231,6 +231,7 @@ static int __init housekeeping_setup(char *str, 
+>> unsigned long flags)
+>>   {
+>>       cpumask_var_t non_housekeeping_mask, housekeeping_staging;
+>>       unsigned int first_cpu;
+>> +    int boot_cpu = smp_processor_id();
+>>       int err = 0;
+>>         if ((flags & HK_FLAG_KERNEL_NOISE) && !(housekeeping.flags & 
+>> HK_FLAG_KERNEL_NOISE)) {
+>> @@ -253,12 +254,25 @@ static int __init housekeeping_setup(char *str, 
+>> unsigned long flags)
+>>         first_cpu = cpumask_first_and(cpu_present_mask, 
+>> housekeeping_staging);
+>>       if (first_cpu >= nr_cpu_ids || first_cpu >= setup_max_cpus) {
+>> -        __cpumask_set_cpu(smp_processor_id(), housekeeping_staging);
+>> -        __cpumask_clear_cpu(smp_processor_id(), non_housekeeping_mask);
+>> +        __cpumask_set_cpu(boot_cpu, housekeeping_staging);
+>> +        __cpumask_clear_cpu(boot_cpu, non_housekeeping_mask);
+>>           if (!housekeeping.flags) {
+>> -            pr_warn("Housekeeping: must include one present CPU, "
+>> -                "using boot CPU:%d\n", smp_processor_id());
+>> +            pr_warn("Housekeeping: must include one present CPU, 
+>> using boot CPU:%d\n",
+>> +                boot_cpu);
+>>           }
+>> +    } else if ((flags & HK_FLAG_DOMAIN) &&
+>> +           cpumask_test_cpu(boot_cpu, non_housekeeping_mask)) {
+>> +        /*
+>> +         * If the same isolcpus boot parameter covers both domain and
+>> +         * managed_irq/nohz, the boot CPU will also be removed from the
+>> +         * managed_irq/nohz isolation list. Users have to use a 
+>> separate
+>> +         * isolcpus boot parameter for them if they want to include the
+>> +         * boot CPU.
+>> +         */
+>> +        pr_warn("Housekeeping: Boot CPU must not be domain isolated, 
+>> clearing %d from isolcpus range\n",
+>> +             boot_cpu);
+>> +        __cpumask_set_cpu(boot_cpu, housekeeping_staging);
+>> +        __cpumask_clear_cpu(boot_cpu, non_housekeeping_mask);
+>>       }
+>>         if (cpumask_empty(non_housekeeping_mask))
+>
+> The code change itself looks good to me.
+>
+> Reviewed-by: Ridong Chen <ridong.chen@linux.dev>
+> Thanks.
+>
+Thanks,
+Longman
 
