@@ -1,100 +1,131 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.179
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795563967;
-	b=kww9eY0bNw2xODg4FgPsIxPGKmGI3HUS8Kd1cNG0plIqZJVn8QP3uxfRQqGyHF6SQPcU
-	 8caPpccpD+G8RmDpF/qCjGWMBe4PvIefy2PZIyj0HoDhXpjHll2+2PNznSP9H0gcn3D9A
-	 GFcAq39SOQdxsDn56JoA+gnB17R+oBtdOwVsB39xfTvZJNBgRUKWkeL4EmeTdPPgoQqKf
-	 uqtwx6TIJAEFQ2pLGbiU1+G6/LqJ58sX25585HWqlvcfXaAS96Yye2sT9P3Z4O6pGkelI
-	 nLY9AuymrRF6bSg+qfqCNnjWRVnpt2LbS8Tt1Y9ERyJalUZuizTp2cy0HjlKgDW8Qsg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795563967;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=bj72kE5VzukIZwPRd6gELH0mmyFkSQ8C1WZkrm6cOpE=;
-	b=ZX6r54b1JVpm1IemrluKH7HJVHzjIzONL2LRXWeeocK803CCPmXLWmkGZAjVmQoLiW18
-	 8YDk8tMntn6y42/H6NeEtiJCb3msqwkZiuWFcOiqfOpTAPP7hGZqS99DrWfycFWjv60oe
-	 GqSlt5xvpIBiicz87zqOheeva9z6pkoxpXgvykMBkUMMZWULlfg7XuD1K6LjombI71DQj
-	 YNGDTNo1xZKtpmaeBqiawVZHdupuFgr7eFBpjepc66SbgRy47gIKW59SRykvn+cdyTDcJ
-	 0pteQ8asdTw9pDcDNVKehNRHO/Gktx42NgGHzlGo6JfYl9zuipgkA/fto14smFnCJDg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="lHZOL/BI";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.179
-Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com [209.85.208.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795563991;
+	b=kpAW7j+Pr9/JHX5E4IdTjmdcDaOCtFlcImton7FXLm5rl/tE6bNBBvfUh56W//6PZwhl
+	 5Yum6hR/sXhfpVytG4KAUYKiWNnj1EUWBPyGr5kZ4ImDIamT8p+UvfIcZ9z46FYws+o9u
+	 cOBvD1b8T+YiBu5oepk0LP5RVZM+yMJwrhiK4fj/tqz9n/St8QY2Q5uwhbOhSt9t0uy3r
+	 lHvc0IAMQiPM2yAyNC8k4LN+5B04Js3P66sDWCDZ+c/+YGwmPyKKpVdx4NyDOi4Uxa+n1
+	 5xqUoBE3aPeRsMi+raO9KJbCtCPNMDwZBOI15xDCWYltE9Ru7gzqYtbkzOUXyhDmQdA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795563991;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
+	 X-Received:X-Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Organization:X-Mailer:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=h9PLOclrJUCEyLmOGP/JKvrxQpzGt+LITgqfp1kq59I=;
+	b=4SJRgLeaPUoklUqm3anX3nVGQzWkP1A9NH7XosWv7pKA8W1YZe2WQIz1ESlx4MM8TRSf
+	 uFVkMmsisdTSso62LtE3H2cdvnncs4uuyFxhzGD1g555mRWDfTy1j0uvHvlK9mw9KgkqB
+	 iG8Y20TX9KqXmDU/MObuz9VCpzmTduEuMdqE6vgAZNC0b2pjPZLE8UAiSgj2bXCb88yG1
+	 qpNRT2dndyrD8Ue0aK1f+Nv78Y9drOl0ATB6mXxu04x2yQJSa1cSaFjK1z+8tygX4ZQHk
+	 jPQnh7wZ6U+jVtVdqbxKgOx2oMxuDQ1zG0H6Vx5r92iY3u3ameGes6p06WHjhm9HLkw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=CUa2qDGt;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=dMs8C6eq;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1095606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:46:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B1095606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F799606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:46:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F799606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lHZOL/BI
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-3ab30b3212aso40176561fa.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:46:06 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795563965; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Y1EQGoTukl/EqR0zNWWW6tkRslCF7bcDs8DMa6e118XAVLh/SZ8YUSlbgTpHvh7pVi
-         xwYSImPcQSrwqycKjKKRa4kewih97uSAk/BvM5Y6l32qwN7PLhrU4lIUlUYEWHb5ZrcQ
-         xnirPHMVIJsBm3dVBnTgxRM9mKmpUz9impb4cyZ2mt8Qxo58nFeSSZlFK8fYxwI1H8mq
-         Pqec3uTOJUp+rFjzn1N/2csgpwsGoE3TPkrGvGbr9x3Ab70PB5V3UvZ5LXZuCHaUYB8B
-         3PTmLBjVe4QGvgxO9CfeiqRWcQC9s9oUD7E+3BlQ4FSRH6S+qDXRjVccNUphZFt65ONX
-         z77A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=bj72kE5VzukIZwPRd6gELH0mmyFkSQ8C1WZkrm6cOpE=;
-        fh=8lj1yTj7zdi2gK8C/5yyg0Q+N6xAz3Q73vI3iRfJ8zI=;
-        b=C3KHlfrsmPeK4dtgc0DcNLufF4sBf52mSWOzS66j2SG0Q3C8iTvHiUxfvl00SpGkcX
-         WPH4YA0M3GU9XCEUzQAUNk3e36LP6znfUHs3Joudjq+ZB0kQzXYKF7+h7GekIzmoLum9
-         kbu/6dtDGE9fn/B6qZGKoTwU3yyj48TjVjQE1ayBz3FqtXG1kDVZQxNIa90yU4HXaHay
-         HC8ALrU746sCvFKbXCPVt5ZfHv2LHDhXiesJ3sY0ZesPMiegNTf/7fIUcPtB5JCWKxsT
-         e1Y4cBIZliqk8q/UOCptHz+DJSEIqxAjvUU5e5snpgzxt1tMvU37AAYjvt88pGAslHSu
-         oTJg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=CUa2qDGt;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=dMs8C6eq
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOMag0M3274109
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:46:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	h9PLOclrJUCEyLmOGP/JKvrxQpzGt+LITgqfp1kq59I=; b=CUa2qDGttwLbSHCe
+	3/pC86Ngts4KXgnbkhsDq/KclOuhAVRzaTqbMXG/Vg+On3NjvZqF1nm5/iSTOcm+
+	tpP1nId2DuTIHQU4UbYXU4F4YToDCFwCAiTfAxw4r3S8BWbq7x7gxJpMCzan36d/
+	v3Nmwt9JgL01GAFGwrpi53seHnHUhefzuDFplx2m8PSUAhWWcjIswqyk1+Bsasti
+	W/+b53ygej1z4kJetQ9I/1B77I7q2JnCJKo+uFqRtwzjR1HHlABiLkYkPAMS45J+
+	8dRr/QwxDemzJRrsJpMpS6TOhglWR4ggdG2gHR95jFd5toa9OogBGhjQ/LZyG877
+	N8z3HA==
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5gnf8svv-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:46:30 +0000 (GMT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-386a65fca25so3944570eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:46:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795563965; x=1796168765; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bj72kE5VzukIZwPRd6gELH0mmyFkSQ8C1WZkrm6cOpE=;
-        b=lHZOL/BIQeKyj6pxe1uWsl2Doz+Q+U4P8IoSglyG6WmsPI8FzaqwGLsF6xe+OSYvkg
-         ngRBe6Tk+WWnexCQnjP4HuKcwm2iIgd1NuccVNa8db7LSXOONX5PEl8CNV8ApN6/Q4Q4
-         nGqwcvojTayoE3dK5uhiWdcxF6FQUpbgEBG4q9dXU1yTjJrsr+kGXScIh0Mi8AcmbBjO
-         6bBg3t7Po08b8D2UjXC2IFdcEraTWEC5Dm5BslhML5aQ+a0Fg3ITqxduKirBIUIZ3Mph
-         wCsUrXugDXxICbHf3dx4siub7JbVYiKYfo6VFWuO0tk5A2nprzVXK01mH8czJ8FRopzg
-         O0kQ==
+        d=oss.qualcomm.com; s=google; t=1795563989; x=1796168789; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=h9PLOclrJUCEyLmOGP/JKvrxQpzGt+LITgqfp1kq59I=;
+        b=dMs8C6eqRPCtEBWcVED492Bexr9FYlS+abGyMDHGZoVtgWNStmm/juYzjc+0h5DBEj
+         GHr1ozSZinhyv/jn8z23lnp9z5ExnZ8yG1fmE2ZC5c4NQtZchsfqGw5oYyX8OLCLWMhu
+         ghxhguOShbUXMsdtzChNhJ2HGNensBOVYcCv0fw7fZeEiULXcVZwSyrp+OhKx3NIS0rS
+         pZnI841DTJK0ptnA7JCM+yKq/FoyWkVkMCCBPLsU9jwxy99GTUmZz1SGR4wT9zTcUj1Y
+         5wa+V/BJrVH8AOAEp9vJn/I/fowKmiIc+LL+me9krhALTcyWX9ss6eV7GFIhLEIUKREE
+         5Csw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795563965; x=1796168765;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795563989; x=1796168789;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=bj72kE5VzukIZwPRd6gELH0mmyFkSQ8C1WZkrm6cOpE=;
-        b=K67RRLEXNn1qXdA6KIlLG1UQsoIkSwYpuQO54Gb4pfflqpptUC0J9yAoJk7NPnwg2b
-         nojsomGNKkoWdnZwHA4DxIvtC8g+t+VgECbEHb3ofo/6MZACq1NzfnvLNRPsDisi9Ast
-         tbPM/r86wtUolDM3PfdfzQq4UjxA8i/0WsJnA41GHlWOH92B+WQEdZ25UQLC4utCXgKr
-         2c2/lEb8bUJcnlgYVhMlsO8MUf5sGFfhWAQ2BjNe19MFPRl3qpsBgySjFy1c9hmTLdGe
-         tzsJABw8qhDyY//yy5G1VdYtBwm+j6olYr1KiUoh5OZ8PxFL70oUrU7rIUCdgMK+z1Yg
-         s8xQ==
-X-Forwarded-Encrypted: i=1; AL+hErHvNkjJ29ZBVJ8cOWNze02EKmlPSO2/Xo/LbmVOth20IiY6+OUsf869Egpurd5wLndRwIThLKUvueP+sQs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/u2WnIWYk9dynQzu3NtJ8f9Tky/nd33CJUZTEMWmVHBAxNywto
-	wCCjoqp3533MqsX5+d74Xr7YW0Nto5NJObXWakvF5gWB0YSKztQn0TViXmZ74RvWJMZDtIU11aP
-	ZwtUQ41PlYzE8adJNP8yQ65QN+7JvEkQ=
-X-Gm-Gg: AZFdTZcJFOyvdcUYopWUXJnNXSn68NBRvrncPb0ICjJlTxWoLqJmx2UdoXnGAOJXBWf
-	7fSyPzORJx/XpJnPG9TfllTV5OogGDIWLiIGy92DIYc70Z5OT8WL+BDSKaKiQ4Bqg2ogiIRAdWm
-	isTjVJRU4RN+XI653KssTQUcb9zG04U4fWj5EpyZtrYiqIsLc3VrKBWjg5fCFuLjX1xJgmwxfgp
-	xxZ6XazQIuYsArT1+9e8akwMxJC7LXNY/l2rXx8CQniWiL8FXiCyXGKQFf21lXdNkVKKSGR327K
-	4beWBufYaR1EVCSADEFcL5eRY1xGmByieJ8FZPcs5ao2XetPS0KfZ7FsyaLjtSp8JZektX5ndpZ
-	jOvy8XNtRXC6baSIcEynvXCpxp6UlNeasy038
-X-Received: by 2002:a05:6512:a819:10b0:5bc:f29b:1a5c with SMTP id
- 2adb3069b0e04-5c1bc7d0b80mr3077117e87.23.1795563964504; Tue, 24 Nov 2026
- 15:46:04 -0800 (PST)
+        bh=h9PLOclrJUCEyLmOGP/JKvrxQpzGt+LITgqfp1kq59I=;
+        b=tQe5rAdAXl30NVgz8auO+8NeRrqhnawOx45YShP2nC/VNetECi9X9sMeILoumlYL2r
+         3UjwGk5EoPI7nS91V3F9Y9pwfUzNLFF3tgrJAUNzGuuNhyZGF7EvoxuQfDdcoOOX50sX
+         maK968lH/qQlpJrYH3VFa5sZ+Cv1bjAQ2cK1Nw46C78b6Zzuhrp+wUdaaHnzD04/At9k
+         MpapRpZq/jWzVYvSh76HtkcScO3+34Mf3ebQdN2/5DwB/yhgkLVynr4wFJJxjdmYiJR0
+         zSAs9tz913BKO4r4tuybr6gJf/fqoQncDCnJJ+1B5s3rECFS+r+fJa2MGuawEiBgnjOW
+         je1A==
+X-Gm-Message-State: APuU4Z+7sSFEdTqEEQDZtLNemUYcTeVX70S4tIparGyP67QL9qzxvDPg
+	Jwj/8dJxiNU1y6agrrgfPciSnQio4FKILHThEqL/2BwLIJW8SmSYZRaWEJTTUw++LerH5wXSfBl
+	ARdhYStn/8Pj12ePGLXwchkezr7Wqn3vbil2B7v1YMh8/IvqMcrLjA2UbaDlGJXng7Y4=
+X-Gm-Gg: AZFdTZcyTrbyKbcT76FVOIEkDOV5fFrnPrbJ0LlQoTGpeD8p52OVWCasgR8lhG9ger4
+	yaPZUpsHa7a1l+mjJyBohT4IVezbI6Ijt6X8x59CSTksG6tXI55SZBXJGVD6Ves3LqRS463DeO9
+	/fDGpzkq1EKnXAw94yxUkl7Qoi77MYQGvzjZIP+VjAnk/DGnmSbLkgIJWUDdPceAAMKegiuPZ0+
+	gBrmIIJTZO7ao2xR8G1r/TBf7cqLoqWKsyL17ALdZ79yp55yvEjGwPdwVk+raaFNpjH7k3otttz
+	afdC+FSJUtI+Khysg9q+6RTS5FDF/dOCMhG7PsWP1131JDibJfyEvrN09YAweezjNeTJIvQiDRc
+	va6M3RSMe/TGy5122qiV0NLWZXqqg2zwha/jeVDtB9N3Kbi/batWal4/Vc4KkbqbR7tGe/cu2UV
+	AmnYaHZ2Tv/myFUPmuu+EGOIFHkPXK
+X-Received: by 2002:a05:7300:e9d9:10b0:386:ce20:31c6 with SMTP id 5a478bee46e88-386ce20334emr1027370eec.29.1795563988979;
+        Tue, 24 Nov 2026 15:46:28 -0800 (PST)
+X-Received: by 2002:a05:7300:e9d9:10b0:386:ce20:31c6 with SMTP id 5a478bee46e88-386ce20334emr1027324eec.29.1795563988410;
+        Tue, 24 Nov 2026 15:46:28 -0800 (PST)
+Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd40c5sm57314365eec.10.2026.11.24.15.46.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 15:46:28 -0800 (PST)
+Date: Tue, 24 Nov 2026 15:46:23 -0800
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org,
+        sudeep.holla@kernel.org, james.quinlan@broadcom.com,
+        f.fainelli@gmail.com, vincent.guittot@linaro.org,
+        etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+        d-gole@ti.com, elif.topuz@arm.com, lukasz.luba@arm.com,
+        philip.radford@arm.com, david@kernel.org, souvik.chakravarty@arm.com,
+        leitao@kernel.org, kas@kernel.org, puranjay@kernel.org,
+        usama.arif@linux.dev, kernel-team@meta.com,
+        "Rob
+ Herring (Arm)" <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org
+Subject: Re: [PATCH v17 09/34] dt-bindings: firmware: arm,scmi: Add support
+ for telemetry protocol
+Message-ID: <20261124154623.00000587@oss.qualcomm.com>
+In-Reply-To: <20261124194841.1147072-10-cristian.marussi@arm.com>
+References: <20261124194841.1147072-1-cristian.marussi@arm.com>
+	<20261124194841.1147072-10-cristian.marussi@arm.com>
+Organization: Qualcomm
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,118 +135,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120041906.5785-1-kanchanapsridhar2026@gmail.com>
- <CAKEwX=MLrDn55wmVKKba5=PcU+qFpkEbMmN2SjGTfTBiFKX8cw@mail.gmail.com> <awXr6iHBR54wBB05@google.com>
-In-Reply-To: <awXr6iHBR54wBB05@google.com>
-From: "Kanchana P. Sridhar" <kanchanapsridhar2026@gmail.com>
-Date: Tue, 24 Nov 2026 15:45:52 -0800
-X-Gm-Features: Aa3M54qHuVeAHaNbCxo4wz47haXUGhMN7-gFVY621Bx4vmN82u_-P6KIceLACFk
-Message-ID: <CACpmpodH3UUDLEze8=5v8LWgKnZWQVrQBhzSGJFY-PwEYmHEzQ@mail.gmail.com>
-Subject: Re: [PATCH v4 0/8] Batched zswap_store() framework with compression batching
-To: Yosry Ahmed <yosry@kernel.org>
-Cc: Nhat Pham <nphamcs@gmail.com>, hannes@cmpxchg.org, chengming.zhou@linux.dev, 
-	akpm@linux-foundation.org, linux-mm@kvack.org, herbert@gondor.apana.org.au, 
-	davem@davemloft.net, linux-crypto@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, rientjes@google.com, willy@infradead.org, 
-	senozhatsky@chromium.org, 
-	"Kanchana P. Sridhar" <kanchanapsridhar2026@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA5MyBTYWx0ZWRfX3GN21NQDQhKI
+ 8eWtfSN/L5Wd4X9hrtqkAn84m3Fv7+HWYA6Mh9SxJJIU/E/WN6A5ZiP3v1gJ6pDZLHaZqmmZvM+
+ 3xZ/OdWP3INDu6hLwM5lar/XIzqg54E=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA5MyBTYWx0ZWRfX/jdJ1kyDk//i
+ +n3vNQMRBa8kntbhwEtDbYj/kOmjzR57SP0DxMFbNewc6wJ5Pkp+5TSmtm5jRi5QlmCAQqlPXos
+ kcU9nEt91FqpZtQslj0dck5/WyNIq7RASninYUEYIqrOKblz8pMUElGQv1j7fiz61tRYPt1m2rI
+ DcpTSTgg6cXvWES21rDTbgXGFXSls2/LmlJJVwDEBgTzG5WaB6rlQjTsfLh4eMnyWKnqQvdU+t4
+ J5MHB0DoDwfoQi0L+q4nkxovnd/PSmFKGCUtlyjj5Qtr122nVmsf77dfYaAUBQ5PCtDw+3bb7id
+ tU10XLH+yhg5KbyLf//t4J8kpjr48BPQ4QwmAiZ7D988pF7+SRfX7sJmGohseX6PWCet2El4D/h
+ /twjk+Swpf+AW2KFeuZfpzTx9Qref7Z/b/xkf7uqh0/cAv4wC7IhwzlgBJAV9Xf1RAysDGI4mPh
+ rJprDzT5ex30Y36On6g==
+X-Authority-Analysis: v=2.4 cv=f/Xdl+yM c=1 sm=1 tr=0 ts=6b0621d6 cx=c_pps
+ a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=7CQSdrXTAAAA:8 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=Cq6dmUWW68VXehLBlYkA:9
+ a=CjuIK1q_8ugA:10 a=bBxd6f-gb0O0v-kibOvt:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: 6fkgX3JpS4bA7LeiyB66mJ1AckuFdUsu
+X-Proofpoint-ORIG-GUID: 6fkgX3JpS4bA7LeiyB66mJ1AckuFdUsu
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_06,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 adultscore=0 suspectscore=0 priorityscore=1501
+ malwarescore=0 bulkscore=0 clxscore=1015 phishscore=0 impostorscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611240093
 
-On Tue, Nov 24, 2026 at 12:29=E2=80=AFPM Yosry Ahmed <yosry@kernel.org> wro=
-te:
->
-> On Fri, Nov 20, 2026 at 03:16:32PM -0800, Nhat Pham wrote:
-[...]
-> > Have you tried perf-ing the store path to see what was the overhead
-> > source (before and after this optimization)? I'm curious.
->
-> So I was able to reproduce the usemem30 sys/wall time improvements here
-> on a Sapphire Rapids machine (both in a VM and on baremetal), and I
-> threw my LLM at perf-ing to figure out what the overhead was. It's
-> important to note that the sys/wall time improvement I observed was on
-> the free phase, the write phase / throughput (which involves zswap
-> store) didn't show much of a change.
->
-> Batching made more consecutive pages that compress to the same zsmalloc
-> class more likely to land in the same zspage, so the freeing path gets
-> faster as the zspage and metadata are hot in the cache, which alleviates
-> contention on the class lock.
+On Tue, 24 Nov 2026 19:48:15 +0000
+Cristian Marussi <cristian.marussi@arm.com> wrote:
 
-This is a real performance gain with batching, correct?
-
->
-> I think the memory allocated by usemem all compresses to the same class
-> size, which makes holding the class lock in the freeing path a
-> bottleneck. I confirmed this by a hacky patch to shard the class lock
-> into 32 locks, which caused the same usemem improvements and the series
-> doesn't improve performance anymore on top of that change.
-
-I think we all agree that vm-scalability/usemem is a
-microbenchmark/standard. I am not sure I understand the value of these
-"hacks", when my patch-series posts data with the standard mm-unstable
-and my patch series with a standard usemem microbenchmark.
-
->
-> I also tried usemem with Silesia to get realistic compression data
-> (similar to Kanchana's testing on previous versions), and didn't see
-> similar improvements (because the compressed pages get distributed
-> across multiple classes). I also tried a kernel build and the munmap
-> microbenchmark in [1] (which Sergey quoted in [2]), which also didn't
-> show improvements.
->
-> That got me curious tho, and I had my LLM explore other optimizations to
-> the freeing path. I think we can get similar improvements in usemem
-> as well as the munmap microbenchmark [1] by batching zswap entries
-> freeing. We can batch both the zsmalloc object freeing as well as the
-> LRU deletion. I am still looking into it and I might send out patches.
->
-> But I think this series doesn't really move the needle on realistic
-> workloads, as I previously mentioned.
-
-Your statements and hypothesis based on the kernel hacks don't explain
-why I see 6.56% additional Sys time savings with compress batching
-over the gains observed with store batching alone. I am not sure how
-to interpret your statement above without your posting any data.
-
-Did you get a chance to see the usemem/ZSTD data with/without compress
-batching that I posted in [1], and my analysis of the breakdown
-between performance gains from store batching vs. compress batching in
-[2]?
-
-As per the data I posted, compress batching of PMD THP with ZSTD
-yields an additional 6.56% Sys time savings and additional 1.12%
-Throughput improvement over zswap store batching. Combined zswap store
-+ compress batching yields 13.87% Sys time reduction and 3.85%
-Throughput increase over mm-unstable. I think this clearly
-demonstrates performance benefits to a well established
-microbenchmark, run at scale, using upstream kernel git trees and my
-patch series.
-
-I would appreciate comments from Nhat, Johannes and Andrew on these
-posted gains/analysis:
-
-[1]: https://lore.kernel.org/all/20261120041906.5785-2-kanchanapsridhar2026=
-@gmail.com/T/#m33e586ec89ed46790da284e7a2f6d99b50c9f935
-[2]: https://lore.kernel.org/all/20261120041906.5785-2-kanchanapsridhar2026=
-@gmail.com/T/#m51d7d13809d508a9116904c01bf3c94fdf2981dc
-
-An independent replication of the gains posted by me in this
-patch-series, using standard mm-unstable and vm-scalability/usemem
-would also be very useful.
-
-Thanks,
-Kanchana
-
-> Regarding the bpftrace
-> measurements, I couldn't reproduce them. I think one factor is that
-> probing both zswap_store() and zswap_compress() makes the zswap_store()
-> numbers different based on how many zswap_compress() calls we make
-> (which are less with batching) due to the overhead of the probe itself.
-> When I trace zswap_store() without zswap_compress(), I don't see
-> meaningful changes in latency.
->
-> [1] https://lore.kernel.org/linux-mm/20261016120927.3191690-1-hongfengche=
-n@xiaomi.com/
-> [2] https://lore.kernel.org/linux-mm/20261123054746.2579253-1-senozhatsky=
-@chromium.org/
+> Add new SCMI v4.0 Telemetry protocol bindings definitions.
+> 
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
