@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795480846;
-	b=EaABwhZk+1T/0ppLfmOfViKsX7ywEcblPbD7rseM5fTjHhrPFzX6bGI+sWgC0Qg1BQ1E
-	 U28zntZw37y/GaZjD2vxY56RJnbA/m+Mm/oa43UVCcw708fMK49u+h6Aeq8hC10qQTqWI
-	 D33UXgtGcg471fw8OgWewatyNd4CRIQ+U7RpcKc/unpc5KfJ90c7hVLKtgUwLQLeHMkJv
-	 hH2aWrYXpPEiei1gmO+mlI2Yp2i1ChSA7xllodzcslIZ79wQWEudwIFjRL9mMqfcL2Owq
-	 JPz72j0Ixrc0a8SFSHlGi47zOwvx6bnXtDNrCMnEOw8T6mMfnpxDZsPkT7EuHimIObQ==
+	t=1795480855;
+	b=Sv1OFaPV8PysJDFZ9DypmY9f7ckpWeo6kbVkYpZ/CBuNXcJLM3zWrX5N1J6YE2FI7JXS
+	 hFX/l0Z6wAkHZJkKXtwX7OxiW1J4cIV8b5jDEGpOLXtZ9VyoylBz6XXkSIU/Ah1FPj8wQ
+	 qKr7TplHQONIdZPWNutMAjswRfaCn8+8nZ/0bQ3qvgCc2I7MKGugKr5uh2fVRqJQMEYrD
+	 7o2RtOQg8uGItQqnqiQcUTy281Pj4smqLkWjYWE4fHQhCzDjkGGIGVCKULT1xFq3/eRQ4
+	 7e0zxXQk5hVmU19twraH+idhs6oX1nX6Fx8OZMQDExgj55L/Gq0c63lT3a7xR1hL9rQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795480846;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795480855;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=UxAk27qf1Gk099IyvH+3L6Kvw/r6p4DEhslmzFrzte4=;
-	b=4KMdHvpN15yCjssO6ECUPbYMAuHChIyEPsLSkTDVmsrjwqJ1cx3mgx7cb3Mz5JDvDl4Q
-	 5YnoPpU26cibxQoiPdx7PajOI2rcgYJMeWE9oxM9jkUDqTBLjseF5uR4o9ktTuJeJinps
-	 21AlUcFEByLgbrFiwv/at9CB1SDuhipizUpayHxrtNMx8rfcgC/30aRuydr5tVOXr7fEj
-	 vBMIR1Ly6bUyDZL/SfW0tet4NotCt+Qe+MYuI8GOxwdGfJTro8c8Z2nOs2GjbYm9N4QQ3
-	 usCleVyJ6tOgULLGG9Xs3M2TPgzVfpJHth4QGyURg6ZwwKgjXmEtgbAVraH+cWixFPg==
+	bh=Zsurr0ZpZlgGnVVv3AAABEZKR1DCTB8SdUlRsUevkb8=;
+	b=ib4am5D/WS7LxFjLQ4Hpnu/SHK3NiSyT35muDg8eeVPAQrd/d/54TZy+5CfxTRGQJPGk
+	 O7E24nFbTcDSUopBQjpd+VcVzp3sqnJ+HotAB1EzCt3+sS+WNLuH2T6GNy/O6KueEkdbU
+	 G1uDIOb9sDqfFVMZego0V1i+xcib/5MWldjGi/kwm0gpByOAIHWW8LlKESAv/QdzUt+La
+	 /WwJtLiplkByqMm5EaBdp6s7OCEqP8oGq6m92b3Z1ms8TS6CRSmlkDFzA4g+p/N96/Xq+
+	 7yL4+C+lb+yIDcMqR8lob8Ya/q5XgblHWWsLKoKajY1Mdsu86b81+a+QnPxqHWAqUPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="hU1D/SzD";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jqKnDUWz;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 210DA606A32E;
-	Tue, 24 Nov 2026 00:40:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4CC0606A32A;
+	Tue, 24 Nov 2026 00:40:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hU1D/SzD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C1091F00ACF;
-	Tue, 24 Nov 2026 00:40:44 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jqKnDUWz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FCE91F000E6;
+	Tue, 24 Nov 2026 00:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795480845;
-	bh=UxAk27qf1Gk099IyvH+3L6Kvw/r6p4DEhslmzFrzte4=;
+	s=k20260515; t=1795480855;
+	bh=Zsurr0ZpZlgGnVVv3AAABEZKR1DCTB8SdUlRsUevkb8=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=hU1D/SzDAAjBXQ1ejMWyimHzRjJkiS/D2c8/FsftP9IAFDMpFTGWzj9ilAM0KsmxM
-	 jezG7EgQWVG4ZZ7i8L7MxnwYgbsGfCIi6nXeIBUCXNZBV1KUldDu/LXfKapZwCkSBt
-	 +oiA4OJIAqR6ta6SYAB1a+nQKuBZlCPFkdskN3m4f+8nivAHBnO1eOyaul+l+lJ7/V
-	 7Qyy4eWTDz0jL99H4Sm1TCrVwkFfXJPhF9Tj2IkQzQ9h8+wnDF+bygjIOUypy2ziLB
-	 QUXuF3NUoqO3JDHt/+wZB0PXvAcUYNiyf230GGh+H6CWq8ME3rC4DrAL4EPf+ReMT+
-	 yecAxJzw9G1TQ==
-Subject: Re: [PATCH net-next v16 08/13] dpll: sit9531x: add support to get and
- set priority on input pins
+	b=jqKnDUWz5KVsMxN66vWZ+pITXdTtOD50GM31Bv0qAkzO+/MzfaZc2xEptNmNPvb14
+	 6sXqdF2jHQgSqEIAXz1BGWMfc3V/7eZkx8lC4h79MJzGcyUFcWQxojlLpUSzA56udq
+	 9nayzBw3O+y8es15bjdtlgdjpYeaWkfT89R8yPiTV1YQmm0K/tKcD9s+bnMdDcHiRD
+	 mlp70RDH22a83cd/tV1gTU3Nmg7DZtQORmDEiXZr+85c8rVd0hbeCmnqNv6Eg0LtDK
+	 HZqMP/vc26D/hMIdS1oDlH8vClKaBoOsMqujpNuuZcsKW7PzFV3mbEOTLadSPFybmm
+	 m697RGn8zv05g==
+Subject: Re: [PATCH net-next v16 12/13] dpll: sit9531x: add support to get
+ phase offset on the connected input
 From: netdev-bot+sashiko@kernel.org
 To: arouhi@sitime.com
 Cc: jiri@resnulli.us, vadim.fedorenko@linux.dev,
@@ -50,10 +50,10 @@ Cc: jiri@resnulli.us, vadim.fedorenko@linux.dev,
  cjubran@nvidia.com, Oleg.Zadorozhnyi@devoxsoftware.com,
  prabhakar.mahadev-lad.rj@bp.renesas.com, devicetree@vger.kernel.org,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Tue, 24 Nov 2026 00:40:44 +0000
-Message-ID: <179548084402.3135.10043442329542996745@kernel.org>
-In-Reply-To: <20261119225752.41846-9-arouhi@sitime.com>
-References: <20261119225752.41846-9-arouhi@sitime.com>
+Date: Tue, 24 Nov 2026 00:40:54 +0000
+Message-ID: <179548085403.3135.8775847073019311030@kernel.org>
+In-Reply-To: <20261119225752.41846-13-arouhi@sitime.com>
+References: <20261119225752.41846-13-arouhi@sitime.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -70,7 +70,7 @@ MIME-Version: 1.0
 Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 2
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -78,205 +78,157 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The OCXO is ordered in the priority table, but its priority
-  cannot be seen or changed, and it lives on a different scale from user…
-- [Medium] sit9531x_prio_table_commit() now passes `routed =
-  sit9531x_input_hw_src(chan->routed_ref)` to…
-- [Low] prop.c now advertises DPLL_PIN_CAPABILITIES_PRIORITY_CAN_CHANGE
-  on every reference input pin and on the INTSYNC destination pin,…
+- [Medium] sit9531x_phase_offset_read() (drivers/dpll/sit9531x/core.c)
+  turns the TDC code into picoseconds by dividing by the Fvco that…
+- [Low] The commit message says "The offset is sampled when asked for,
+  not by the poll: a sample is several dozen transfers per PLL." That is…
+- [Low] The patch adds `sitdev->chan[pll_idx].key_pending = !!lock_rc;`
+  to the existing helper sit9531x_chan_routed_ref_read()…
 
 --
 
-dpll: sit9531x: add support to get and set priority on input pins
+dpll: sit9531x: add support to get phase offset on the connected input
 
-This patch adds prio_get and prio_set callbacks for sit9531x input pins.
-Each input keeps a priority from 0 to 255 per PLL, and a set rebuilds the
-hardware priority table from those values. When the best live source does
-not change, a table commit now latches the routed source as the active
-selection. The poll also compares each pin's state, operstate and priority
-with a baseline taken at registration and sends a notification when one
-changes.
+This adds a phase_offset_get callback to the sit9531x input pins. It reads
+the PLL's on-chip TDC through the debug window and converts the code to
+picoseconds using the PLL's Fvco. The debug taps are saved and restored
+around each sample, and a failed restore or relock is retried by the
+poll, at removal and on the probe failure path.
+
+> The offset is sampled when asked for, not by the poll: a sample is
+> several dozen transfers per PLL.
+
+[Severity: Low]
+Is this accurate for notifications?
+
+The poll worker calls sit9531x_dpll_changes_check(). That function calls
+dpll_pin_change_ntf() for every selection pin whose state, operstate or
+prio changed. The core then builds the full pin message for that
+notification:
+
+sit9531x_dpll_changes_check()
+  dpll_pin_change_ntf()
+    dpll_pin_event_send()
+      dpll_cmd_pin_get_one()
+        dpll_msg_add_phase_offset()
+          sit9531x_dpll_input_pin_phase_offset_get()
+
+So when the poll notifies the active input of a PLL (for example, the new
+reference after a switch), the poll worker does two input monitor
+fetches, two routed reference reads and a full TDC sample. A failure there
+can also set tap_pending or key_pending from the poll.
+
+This only happens on change notifications, not on every poll tick. The
+callback also maps errors to -ENODATA, so the notification still goes
+out. Could the commit message be reworded to say this?
 
 > diff --git a/drivers/dpll/sit9531x/core.c b/drivers/dpll/sit9531x/core.c
-> index d61c2a8e24f39..bbc17a514c5ce 100644
+> index fd8f0df9116d6..5ec9d2a48fcbf 100644
 > --- a/drivers/dpll/sit9531x/core.c
 > +++ b/drivers/dpll/sit9531x/core.c
 
 [ ... ]
 
-> @@ -745,6 +773,12 @@ static u8 sit9531x_prio_activesel_pick(struct sit9531x_dev *sitdev,
->  	    top != sit9531x_prio_top_live(sitdev, old))
->  		return top;
+> @@ -2594,6 +2620,176 @@ static int sit9531x_clear_notifications(struct sit9531x_dev *sitdev)
+>  	return 0;
+>  }
 >  
-> +	if (sit9531x_prio_src_usable(routed) &&
-> +	    sit9531x_prio_src_live(sitdev, routed))
-> +		for (i = 0; i < SIT9531X_PRIO_MAX_SLOTS; i++)
-> +			if (srcs[i] == routed)
-> +				return routed;
-> +
->  	cur = sit9531x_prio_src_canon(sitdev, cur & SIT9531X_PRIO_NIBBLE_MASK);
->  
->  	if (sit9531x_prio_src_usable(cur) &&
-> @@ -827,12 +861,19 @@ static int sit9531x_prio_table_commit(struct sit9531x_dev *sitdev, u8 pll_idx,
->  
->  	if (!empty) {
->  		u8 sel = sit9531x_prio_slot_get(val, slot + 1);
-> +		u8 routed = SIT9531X_PRIO_SRC_NONE;
->  
-> +		/*
-> +		 * The pick needs the signal state now, not as of the last poll;
-> +		 * the routed source is the last poll's sample.
-> +		 */
->  		rc = sit9531x_input_mon_fetch(sitdev);
->  		if (rc)
->  			goto rollback;
-> +		if (!chan->stale && chan->routed_ref != SIT9531X_REF_INVALID)
-> +			routed = sit9531x_input_hw_src(chan->routed_ref);
-
-[Severity: Medium]
-Is chan->routed_ref recent enough to latch here? It is only set in
-sit9531x_chan_state_fetch(), once per poll or after an earlier commit, and
-the comment above says it is the last poll's sample. Before the pick,
-sit9531x_input_mon_fetch() refreshes only the LOS monitors.
-
-Take this sequence within one poll period:
-
-poll: chan->routed_ref = B
-B has a brief LOS, the device falls back to C (and does not revert)
-B recovers before the next poll
-prio_set or state_set on an unrelated input
-  sit9531x_prio_table_commit()
-    sit9531x_prio_top_live() is unchanged
-    sit9531x_prio_activesel_pick() returns routed (B): live and listed
-
-Would the commit then write B into CLK_ACTIVESEL and move the PLL off C,
-the reference it is actually tracking? That looks like the acquisition
-restart the commit message says this change avoids:
-
-  "A commit that leaves the best live source unchanged keeps the routed
-  source as the active selection, so the PLL does not restart
-  acquisition for it."
-
-Could the routed source be sampled with sit9531x_chan_routed_ref_read()
-before HO_FORCE is written, and that value latched instead?
-sit9531x_chan_state_fetch() only reads it while the PLL is tracking and not
-frozen, so the cached copy can't be refreshed through that path here.
-
->  		sel = sit9531x_prio_activesel_pick(sitdev, chan->prio_srcs,
-> -						   srcs, sel);
-> +						   srcs, sel, routed);
->  		val = sit9531x_prio_slot_set(val, slot + 1, sel);
->  	}
->  
+> +/**
+> + * sit9531x_phase_offset_read - read phase difference via TDC
 
 [ ... ]
 
-> +int sit9531x_input_prio_set(struct sit9531x_dev *sitdev, u8 pll_idx,
-> +			    u8 input_idx, u8 prio)
+> +int sit9531x_phase_offset_read(struct sit9531x_dev *sitdev, u8 pll_idx,
+> +			       s64 *phase_offset)
 > +{
 
 [ ... ]
 
-> +	chan = &sitdev->chan[pll_idx];
-> +	old_prio = chan->cfg_prio[input_idx];
-> +	old_known = chan->cfg_known;
-> +	chan->cfg_prio[input_idx] = prio;
-> +	chan->cfg_known |= BIT(input_idx);
+> +	/*
+> +	 * Read Fvco first; without it there is no reason to open the debug
+> +	 * window.
+> +	 */
+> +	rc = sit9531x_get_fvco(sitdev, pll_idx, &fvco);
+> +	if (rc) {
+> +		if (rc == -ENODATA)
+> +			dev_dbg(sitdev->dev,
+> +				"PLL%c: Fvco unknown, skip TDC\n",
+> +				'A' + pll_idx);
+> +		return rc;
+> +	}
 
 [Severity: Medium]
-How does a user priority compare with the OCXO's place in the table?
+Is an out-of-band Fvco safe to use here?
 
-sit9531x_prio_cfg_seed() sets the OCXO's configured priority from its slot
-index in the profile table:
+sit9531x_get_fvco() returns 0 even when Fref * DIVN falls outside the
+PLL's VCO band. It only warns once:
 
-drivers/dpll/sit9531x/core.c:sit9531x_prio_cfg_seed() {
+drivers/dpll/sit9531x/core.c:sit9531x_get_fvco() {
     ...
-		chan->cfg_prio[src] = slot;
-		chan->cfg_known |= BIT(src);
+	/*
+	 * Outside the PLL's VCO band, Fref * DIVN is usually not the rate the
+	 * PLL runs at, as for a PLL fed from another PLL.
+	 */
+	if (!sit9531x_fvco_in_band(pll_idx, *fvco) &&
+	    !(sitdev->fvco_band_warned & BIT(pll_idx))) {
     ...
+	return 0;
 }
 
-That value is in 0..10, but this function accepts 0..255 for the other
-inputs. sit9531x_prio_table_build() then sorts every member by cfg_prio,
-the OCXO included:
+This value has two other users, sit9531x_output_divo_calc() and
+sit9531x_output_phase_adjust_set(). Both return -EINVAL when
+sit9531x_fvco_in_band() fails ("rate not settable" and "delay not
+settable").
 
-sit9531x_dpll_input_pin_prio_set()
-  sit9531x_input_prio_set()
-    sit9531x_prio_table_apply()
-      sit9531x_prio_table_build()
+This function only checks rc, and then divides the TDC code by that Fvco:
 
-Suppose a profile, or an external table rewrite that the poll accepts as
-configuration, lists the OCXO at slot k. Any input given a priority above k
-(20, 50 or 100, all normal-looking DPLL priorities) is then sorted behind
-the OCXO.
+	mag = mul_u64_u64_div_u64(tdc_signed < 0 ? -tdc_signed : tdc_signed,
+				  1000000000000ULL * DPLL_PHASE_OFFSET_DIVIDER,
+				  fvco);
 
-sit9531x_prio_src_live() always treats the OCXO as live:
+The "one code is 203.45 ps at 4.9152 GHz" comment suggests one TDC code is
+one period of the real VCO. If so, wouldn't the reported phase offset be
+off by the ratio of the computed VCO rate to the real one?
+sit9531x_dpll_input_pin_phase_offset_get() would then return 0, and user
+space would receive the wrong value as a valid attribute.
 
-	if (index >= sitdev->info->num_inputs)
-		return true;
-
-The device also falls back down the table without reverting. Can that
-input ever be selected while the OCXO is listed?
-
-Userspace also has no way to see or change the OCXO's priority, or to drop
-it from the table:
-
-static const struct dpll_pin_ops sit9531x_dpll_xo_pin_ops = {
-	.direction_get		= sit9531x_dpll_input_pin_direction_get,
-	.state_on_dpll_get	= sit9531x_dpll_xo_pin_state_on_dpll_get,
-};
-
-The xo branch in sit9531x_pin_props_get() also leaves capabilities at 0.
-On this point the commit message only says "The range is 0 to 255 over
-eleven slots".
-
-Should the OCXO's priority be exposed, or should user priorities be mapped
-relative to its position?
+Should this return -ENODATA when sit9531x_fvco_in_band() fails, so the
+attribute is left out?
 
 [ ... ]
 
-> diff --git a/drivers/dpll/sit9531x/prop.c b/drivers/dpll/sit9531x/prop.c
-> index b9405eba49a39..69877fc940284 100644
-> --- a/drivers/dpll/sit9531x/prop.c
-> +++ b/drivers/dpll/sit9531x/prop.c
-> @@ -146,6 +146,7 @@ sit9531x_pin_props_get(struct sit9531x_dev *sitdev,
->  		/* INTSYNC destination: a reference the PLL can lock to. */
->  		props->dpll_props.type = DPLL_PIN_TYPE_INT_OSCILLATOR;
->  		props->dpll_props.capabilities =
-> +			DPLL_PIN_CAPABILITIES_PRIORITY_CAN_CHANGE |
->  			DPLL_PIN_CAPABILITIES_STATE_CAN_CHANGE;
->  		curr_freq = 0;
->  	} else if (sync_out) {
-> @@ -161,6 +162,7 @@ sit9531x_pin_props_get(struct sit9531x_dev *sitdev,
->  	} else if (dir == DPLL_PIN_DIRECTION_INPUT) {
->  		props->dpll_props.type = DPLL_PIN_TYPE_EXT;
->  		props->dpll_props.capabilities =
-> +			DPLL_PIN_CAPABILITIES_PRIORITY_CAN_CHANGE |
->  			DPLL_PIN_CAPABILITIES_STATE_CAN_CHANGE;
->  		curr_freq = sitdev->ref[index].freq;
->  	} else {
+> @@ -2768,6 +2972,7 @@ static int sit9531x_chan_routed_ref_read(struct sit9531x_dev *sitdev,
+>  	lock_rc = sit9531x_write_pll_close(sitdev, pll_idx,
+>  					   SIT9531X_PLL_REG_DEBUG,
+>  					   SIT9531X_PLL_DEBUG_LOCK);
+> +	sitdev->chan[pll_idx].key_pending = !!lock_rc;
+>  
+>  	return rc ? rc : lock_rc;
+>  }
 
 [Severity: Low]
-Is PRIORITY_CAN_CHANGE accurate when every PLL uses manual input select?
+This line also changes the existing poll path.
+sit9531x_chan_routed_ref_read() runs from sit9531x_chan_state_fetch() on
+every poll and at probe, so a failed relock there now sets key_pending.
 
-For a manual PLL, sit9531x_dpll_pin_ops_get() returns
-sit9531x_dpll_input_pin_manual_ops, which has neither prio_get nor
-prio_set:
+The next poll's sit9531x_tap_back_retry() then retries it. At removal,
+sit9531x_tap_pending_retry() warns "left with its debug taps moved or
+window open". Before this patch, that relock failure was never retried.
 
-	if (sit9531x_chan_state_get(sitdev, pin->dpll->id)->manual_input)
-		return &sit9531x_dpll_input_pin_manual_ops;
+The retry itself looks reasonable, but the documentation only describes
+the phase-offset path. The kernel-doc in core.h says:
 
-All four PLLs share one dpll_pin per index, and capabilities are per pin.
-So with mixed modes the bit has to be advertised, and the DPLL core's
-per-ref ops checks handle the manual PLLs.
+ * @key_pending: debug key not locked again after a phase-offset read or tap
+ *   retry
 
-The driver reads manual_input at probe, before any pin is registered, so
-it knows when all four PLLs are manual. In that case the reference pins
-and the INTSYNC destination pin still advertise PRIORITY_CAN_CHANGE. They
-report no priority, and every set fails in dpll_pin_prio_set() with a bare
--EOPNOTSUPP and no extack message.
+The comment above sit9531x_tap_back_retry() says "after a failed
+phase-offset read", and the commit message only mentions the taps moved
+for a sample.
 
-Could the bit be left off when no PLL can take a priority?
+Could the kernel-doc, the sit9531x_tap_back_retry() comment and the
+commit message also mention the routed reference read?
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119225752.41846-1-arouhi%40sitime.com
