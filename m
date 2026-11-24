@@ -1,144 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=198.175.65.15
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795534668;
-	b=1twc3qQwMkU0Whu6DrAvYqWw6MBYoFNQfAPU+5B7+fY7stcELREfOxmT/KpefTF4SKc9
-	 YEaCRKPhEsLbREWL7lfGlLMI3L0BZAd18OpzdPE174lvSbugu1IqOifCjX47fvWQtWJRJ
-	 IRMhBUlFr9j1Bw4i6C8Fir1u7xxoVuE7P7Z+oZWnGLLe7tcaW8VflKlJEm+eaa6e0OF19
-	 xUp03q+iJgH4VkYcFsG6AGpmcuAVazAtqo876iOhqk9Ytiik8ii1uAQq2yfmh4PCYHjCi
-	 ngAsNjHZ9qFtqHTvOWLBXW9Cm/zcyaRK+rPj+FUB3k7qTcGI/qPYH9lt92jmMMqn7eg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795534668;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
-	 Message-ID:References:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=MAw9zT3dGBv9/KoKlsvkJIAFqQNVjA5+dOw4SuN1rjY=;
-	b=nBKlkqkSoCUOapmOYckdnebV5MtSX5VxVf58pV0ThR3yhXxmFy8mejowmsPuqO9kuUKu
-	 TK7S+wpCiXhQaxTUsZ3tGV7Z2WChbtvRupdpQcrpER/HL5konoAwsx7s+s/QVWgk4UPsy
-	 UyaPfha9kbqxNT/a2F+laTyJPnB7ZZEH2rmxXQqFyIYULOHwLmwFPzFPI7oju9i4Nlcl5
-	 do/UoVRYz17iay31eoImUHVrCmUAtQky6WqWlAFaUKZoty9dT/iy92qv1pHVqLeR8oU/k
-	 206p8D9bhopn+APRnMAzq71+n2Zvr4adF+E4aPQsyt40vzCIByIWAb+9Ie1uQHLLo3w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GEN8aaQe;
-	dkim=fail reason="signature verification failed" header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=VTLEOXIi;
-	arc=fail smtp.remote-ip=198.175.65.15
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.53
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795534682;
+	b=d5ZvKEybeFd7925AXlCPHsZqM8l9CIuZRCIlF8O3wlB4AypU9+BEGL2vdcKpa+MDgcjw
+	 AheoHp/Pnye1iXttDPSoU/HmV+bUZggV6oUAX0A8gvd05W+9ndg40uTGaypLIcd1xyDDN
+	 DxVRzL0oNbLm+xdFbsKukM6YEavEdXzUh4yImcW91IvJ4YM3+e6dOvAwNgrZOSgeHCTFl
+	 /4QWVhwPr0xEwOGbS6TM+e93sT+50IkUvVHVMhdlqCpBUtmITJ3k4Kwe5XljQkCZoEyi/
+	 tQpBeGqkZP8gVSwO4+x/6Ptg/8ioJi8WZnWGJIAgtI8NjinMqyYbHePolkE9/bxjx8A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795534682;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=UPNik2zvIMnBUa7IZjozMFZ8OPcZJz9a45E3NsIDV28=;
+	b=yQdTlv5nEp1v8rXC1UH8dpjCC8KIMNNw1wt1WXb1E/zGnD8jpwHeh3qw1V6kVD5Ouy/d
+	 28UIvLJ9j4rNUhDzb5ZOjAk7+RoFMKPrUxPsEV/OG9NW9I7O1vQglnRIGlnsk4Xm/yrHX
+	 YmA9YhqZ81JSR5iJclUYPoT5Y1mrpuyi9Is6HSClP11Vr9x6GqBRq3cx+bVcQz1gf9MY8
+	 1p2UE8MN59pkGQ8fkSi4OiDIszRX82iOU46CKkiGfYw9I4IJkCE7ZNc6wO26fJUjPjBMP
+	 wVaNWMlpsz6XgUu5Lyht3InnWX8eXU3y6Z5MFOFdoceV/xyPavEe72tSpP9CGBi6Reg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f+nZxpWk;
+	arc=none smtp.remote-ip=209.85.210.53
+Received: from mail-ot1-f53.google.com (mail-ot1-f53.google.com [209.85.210.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE254606A333
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:37:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE254606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A873C606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:38:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A873C606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GEN8aaQe;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=VTLEOXIi
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795534666; x=1827070666;
-  h=date:from:to:cc:subject:message-id:references:
-   content-transfer-encoding:in-reply-to:mime-version;
-  bh=74mWzKQeAJymaVLTpR2jKlhcsNAfIerQupO+IW9mVf8=;
-  b=GEN8aaQeP0S2euFq9AOC8PO2RId50oMfgbF0/8XSerSTARqifhLc1BGY
-   iypCq+TUmbfCCLGmWf3AHgd042VCBBIGPERTtuFh6p2WpkRZ8Gidqa0IT
-   ZAaKMuFP8fexX08Zo3NCSXfsY1E+OVfmeOWdVBiyiUn4/ecVvkJesmWkz
-   H6Bc1XEccXTlmZwDNxFDcZU2S5ZDkR8y0FShJXgACZZgYbeMNfo0lFyg3
-   akNlFxu5466ixlvtZ0b4+7vviIE2b5Qb7BwC5JyvYiSiK2w2lsLMYTbyY
-   Zx+p5QRI89NyiynWLmdWvnanjJzmyiKCgNWzdP394CSkHAf5IVvOoeZka
-   Q==;
-X-CSE-ConnectionGUID: l/1x+Bp7R36mQS95SBFFBg==
-X-CSE-MsgGUID: oOi4sYmIQ3W3m6qmB5+Y5w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4386088"
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4386088"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 07:37:45 -0800
-X-CSE-ConnectionGUID: 57OmKJGjT4WIkbO3OjhehA==
-X-CSE-MsgGUID: LKyluw3EQXGuS/wEnZnunw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="11891616"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by fmviesa008.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 07:37:46 -0800
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 24 Nov 2026 07:37:44 -0800
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Tue, 24 Nov 2026 07:37:44 -0800
-Received: from CY7PR03CU001.outbound.protection.outlook.com (40.93.198.2) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 24 Nov 2026 07:37:44 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PuVUU1pOZOO8H1Q0wWOaVFwPlZ+eXds14fbHBUIAfzvcc8P8vzHg3oi8hIfWamm0n5ZtJe5iIpt9nSOlWoGhHn9+Q/vU0t/0QlmXv2VdjvBZxWwrGJ1twis3rWeQFBb7Wgzxb+MVXCOgpBOQj1Pm/e7HA2hqJA0mC9/LS5zIkNqsz3tLbGR4DHfrRu4YhVCaOEFlZp0Q7aCQkYpvk7pVfjSIBO60MXZDTpvXoMass3eyuRMb24PXIeh50guDrIhxrEAQ7bGZUkKoVbSEtnFDe+o9W8I17UVEK+TVewDetX6zlUswPQtZlYHl6WDOKR4IzEAU4iXLZP9BX/RdjlnOlQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IA9Df4m3jUK5HMwV/Vr/n/FiLN18QvHgHGqqc45d7sM=;
- b=SjpvqyF1x+8oskIoLh87aV+WEoPyzq14pBKqci4CJfBrd/le9RaXwtjJ4NJv99RlaKZR/8cJYypYxBKRSZV+MoJ07uImVfDmFZAQM+3aPyEaVf2TZNIQ5jCRdRwI3DuvSSzcsLZd6K71YqhDLcZX/M8DL6xk+Txf+C626vu02RUZsi450rq1NIbqRtaDLNXy96wIhNWx+K38QRN6UBuMjsL/ee78mRqEW5/TyIkHVomyH/axMkeF4TAhwSKWJ49yihJXumLNFw2X+prlOzgk83PE2PANDYMY/NHpUnec6lGydgk32eYHuEHUuMfRzsBR75muv1JPGo6BhJSZs6QxJw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IA9Df4m3jUK5HMwV/Vr/n/FiLN18QvHgHGqqc45d7sM=;
- b=VTLEOXIiEIdRSx9BhG1pvUax+nFMOwZT61ymXB4C2yFPS1xoW/X/32EbbfESlw9wuaQCQeGrWfYFGjKvlHllQp+8BU1Uv6FVU4vN/iAvcBkHGZan0nh4Jg7Ku8KX8tzEjl2jW4hL/k55PH+n0+by96qbt1zSSGxaTXwv2mPRSyA=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from CO1PR11MB4787.namprd11.prod.outlook.com (2603:10b6:303:95::23)
- by DS2PR11MB075082.namprd11.prod.outlook.com (2603:10b6:8:3c6::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
- 2026 15:37:42 +0000
-Received: from CO1PR11MB4787.namprd11.prod.outlook.com
- ([fe80::e7eb:a872:53d1:21fd]) by CO1PR11MB4787.namprd11.prod.outlook.com
- ([fe80::e7eb:a872:53d1:21fd%4]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 15:37:41 +0000
-Date: Tue, 24 Nov 2026 07:37:38 -0800
-From: Matthew Brost <matthew.brost@intel.com>
-To: Niranjana Vishwanathapura <niranjana.vishwanathapura@intel.com>
-CC: <intel-xe@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-	Carlos Santa <carlos.santa@intel.com>, Ryan Neph <ryanneph@google.com>,
-	Christian Koenig <christian.koenig@amd.com>, Huang Rui <ray.huang@amd.com>,
-	Matthew Auld <matthew.auld@intel.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, <linux-kernel@vger.kernel.org>, Thomas
- =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>
-Subject: Re: [PATCH v3 18/33] drm/xe: Handle defrag moves in xe_bo_move()
-Message-ID: <awWvQlMgHAV1urDL@gsse-cloud1.jf.intel.com>
-References: <20260711025619.2540575-1-matthew.brost@intel.com>
- <20260711025619.2540575-19-matthew.brost@intel.com>
- <au6zTq7ophThShBO@nvishwa1-desk>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <au6zTq7ophThShBO@nvishwa1-desk>
-X-ClientProxiedBy: SJ0PR03CA0050.namprd03.prod.outlook.com
- (2603:10b6:a03:33e::25) To CO1PR11MB4787.namprd11.prod.outlook.com
- (2603:10b6:303:95::23)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f+nZxpWk
+Received: by mail-ot1-f53.google.com with SMTP id 46e09a7af769-833e671ee9fso4303982a34.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:38:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795534680; x=1796139480; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=UPNik2zvIMnBUa7IZjozMFZ8OPcZJz9a45E3NsIDV28=;
+        b=f+nZxpWkXTIASogb1/i/10DjCbH7/VDfaCqceWoWD1okJs/eHwG9as2UUv7doyg4sj
+         Se5Sd/sgSoM5+vAasPvRAGH2FFWKwyRIWPeImjnpY6cnnGKz90XlikEAfQ/wKWCTCZYE
+         Hnu+3Oe6ZrcBCgbB+nURBkOpU7+IB20ppxLzGu+E3QMWouoaRILlLgtMuZZGAZ+3UImx
+         hdwt9FHVuqRfL63nZUVYK40lx2zR8lZPuyQ4IRff9l0GjKNegUVJWCjCeXlESBRZHjHG
+         gqYDNM7mww0Be+weYvQYTp+UX8xok4uBt6d0KXYAq/QHhGfpSWKRzrkkw9xu6j5p2tYk
+         jNtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795534680; x=1796139480;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=UPNik2zvIMnBUa7IZjozMFZ8OPcZJz9a45E3NsIDV28=;
+        b=jlpHCiG8KmCRyQ4i4rx+Jx7Qbdy3SBQU/pvyNZ8dYEf13p9Hv8F5uhdlTBgVrZOKW2
+         dCJBNExBwVH0ptI+eMtbi5A2jYPiUn/w17SsZNUjPBorXN52oGVjbf0mXr8RUD3dHQkk
+         4pASM6LQ+bkifFB7rYlFTT3648uMdPbOI/PoDFmBfOipwcNPfz576C08r3uB9E6PapnK
+         UNEkLTOofyRZNKVTE5LmUm//+lf+m56RJwPEHulPhfJt8SsXq9x5zi7vlvaoPU72t8Ne
+         K9CWS9GTl9S0f+Ha2IfVGa1DAJOPT0qtAXOOWm7Qmk2yvPPMkwiijh7ADL0ARY7egCqP
+         bN4g==
+X-Forwarded-Encrypted: i=1; AL+hErHcVbX6wMwp4W9gI783WCIZ/0D8tL4ZdarQe0fZk+7uW6B69E7J5/E7XoB76h0I7Px77BWCIdF31AShk2A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ixMMwdAnT8uUgLbZyF3d6tdmC3qWvpcP0yx7Jc8t5BqgiIMHK
+	M8qoFFWu3vk2QA60VR/OI+opc+827AdJS4hTkLjtXVHiz8F/Kabj4rJu
+X-Gm-Gg: AZFdTZcENsRADLor+nsBgrg2VPDOVtviLRJj48upsFJvyVRiA5dzDuciOl7f8CeHoK7
+	T889ALg7NCQmsAhVfSSaNHVCGC4C0OA8+7yyZl32tjQoM7hWdNhaSUEOClFqs657KsNwHRWJfcl
+	YgwE1QQSxRoILQ6VLsvonYIfkWqkQ4VffMkEZ939dmMvXpulI/wyZMLJjIjbO0Iob1CP6SlMedZ
+	6cPYx25p0n8iHseGD9M2dNEu9dSIoUzC2Cb3TKY7D7sns4NCQgg8NE0P5M2NZfqpw/7wtgo8MP2
+	fLPQ4tI7RrvwYW0VUvoARuPHpR0ndY+eYzyo5n0nD4o1cCMvZ2FP04gy0a8tW97DNtjx2Km/rAP
+	MafxTlrVeUIULUKtoXPmYTi8w5VowbIXtMel1py/64qT5qSEu1R1wf3HZUOaYqN6x4L77qWba8q
+	nlhXX+uRB60wlWQzdbNzgz2kdJ1tUXgq1FDyMT4vqEAWZJe+xA6Hr3784AJnbidqCrRCDox23Iu
+	IJ4aPyOa6wOgtADRalsIXI+g5sm0MKcKD1gO7t1QlDUwVg5yMpZWB5DixwPkQBdwv+wB+gf4uFg
+	3C+TIspheFzvbtaqxjZMbAl1SesdX7z5UZ5KXvYhevJ+HaYDZbIwiVDG+7PrWemTmwA+4XJEQiB
+	iE7TeScr5dor5flxlXPcxBKnrz4fRHDklVfiu2mB83wMb3FOhJE5Xm+V+EI2siTCQjlQp/VHbcV
+	9MYhFkKW33cV5A
+X-Received: by 2002:a05:6808:4fe1:b0:4fb:bfc2:1a64 with SMTP id 5614622812f47-57a0b44cd17mr16836640b6e.31.1795534680520;
+        Tue, 24 Nov 2026 07:38:00 -0800 (PST)
+Received: from tempest-testimage-cc-centos9-stream-server-1191361818 (chi-dyn-129-114-108-164.tacc.chameleoncloud.org. [129.114.108.164])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a347636b9sm11718810b6e.7.2026.11.24.07.37.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 07:37:59 -0800 (PST)
+From: Yuho Choi <oss.patchbox@gmail.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Linus Walleij <linusw@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>,
+	Nicolas Pitre <nico@fluxnic.net>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yuho Choi <oss.patchbox@gmail.com>
+Subject: [PATCH] ARM: vexpress: Fix device_node reference leak in tc2_pm_init()
+Date: Tue, 24 Nov 2026 15:37:35 +0000
+Message-ID: <20261124153755.338370-2-oss.patchbox@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -148,180 +102,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PR11MB4787:EE_|DS2PR11MB075082:EE_
-X-MS-Office365-Filtering-Correlation-Id: 64db7ef0-415d-4bce-beee-08df4a40e064
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|23010399003|1800799024|10067099003|11063799006|4143699003|56012099006|261021123027099003|261022105027099003|261021121427099003|261022075727099003|261026121527099003|261026140227099003|261028144727099003|261102123227099003|261009223027099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: tHZ9izl4xfN3W/MiddEJ9K58O5VTz/D2PTjAw5toRzLe1Me0LDz/NFEj3EgSx/3p6VetSA0HHRs4QdhUJlziV7eMGVseNHcu/gEBks9Da9ZmX7R+GtdughzgWieVEv9IyI2fqIh8JNdypF4XrUZqJeWOeGSV+mzTSNcsUyW8/1XMFnQ/sY3+PfZBqez3G/DhOGXmfHKHUSVUVF1OWD97K1RnhAfKBuPCxia+Xco16SzUH/rfr2I6tDG0IQjO0pifgx+6lzVAmarUthyOS6qO8xPFDpnuVIPXpQf3aEZxDzoCmBneuWdtTEh3koxarI3ZXwb3nl+s83faamrDZri4BV3JkipUCvKwpenv2OpcqNXPuPSRRseu5kWYNfQTdlWbEAB69Pm31B/lRoBNv6Tjb09dCGl0jBfxTQL62UhlHl1Zw1ob8eGZI6wsLm6dMhD4aw74q3WwAUmE5cB9SlusDyfXnIgvgXa0J0XuFk6vuxrJm/kOYWQoddbTPdnTkL77CxSeKXcWfeMcDgFx9gwnI3cUZC0UwLsUNWUPskQxwNo+RRhH1UkTlaeNniUwATyn7uH4djvHWx2R4Rlhuiw02ESekh8OSW7g9SewPEiOw6I=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB4787.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(23010399003)(1800799024)(10067099003)(11063799006)(4143699003)(56012099006)(261021123027099003)(261022105027099003)(261021121427099003)(261022075727099003)(261026121527099003)(261026140227099003)(261028144727099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?3MuuBdZP7Ygs2JBXYFHb7Xi5wFrLdk7XJGGfQLAgd6ZizFigL2zQD63xpg?=
- =?iso-8859-1?Q?7+8T+AgSOtPLPt0vONKv5ibn/zGnVY92q1dT2k/uETd3ENbAHkMTvXUEvE?=
- =?iso-8859-1?Q?69G1zGld9SCOMBLX13thtAApyjtydNfTNQ3DMDDD2SWs2mNaF3AyxPIuu+?=
- =?iso-8859-1?Q?4YBWZZrJJL3G//4TH7hmTiGgzh29+DCK4U/3bkWT0Se4SHvd+0CzpcyTzk?=
- =?iso-8859-1?Q?BgPin0fvvxbTElBphlFb29e3jEen5EnKIMe7iClLtymHmXPW7nGZY+oeh4?=
- =?iso-8859-1?Q?lXMfyRFMZNyy/3u2CtkGJMvBrtxzn1sXFzhk3KBdr/Cf5fZfDHLqu7dSY+?=
- =?iso-8859-1?Q?bYJYOszGu6zU9tCYDnnVLQL9GX8enrwTvKNxa3e8JKlMMpFRYoJZ1q+rR4?=
- =?iso-8859-1?Q?nuV3c+i0a43k75O+0UAM3mJh1itUGOa3tphRSAJQT5ashdk8J2oBIeFVBl?=
- =?iso-8859-1?Q?ZKBQtqxaoljNEXNkHK+Xj/xRPBIEWtGNxEjMrRk1YlKq6R0txE/LMgK4Kt?=
- =?iso-8859-1?Q?4PZskuZDeithEPJY3KQXDxpa14ejPUTmv2GZ/6ZxbdE60h99dR3MlXtosQ?=
- =?iso-8859-1?Q?hJNQymf/+1X366UGc+ycSYNo2ntNa/nkXgcr/7n5I851/MPxa+GTJu8alt?=
- =?iso-8859-1?Q?OSv++UAC93OJ6JtrmYS+i8T4CvnZJsxAWfL58PGPkGmscDJLeySxsmVVeb?=
- =?iso-8859-1?Q?FKJ34FwqhFKn28o6jfabiWlNcsv2l6D+UBt5Dm43Kml+Q0wiFGxuiGNMI8?=
- =?iso-8859-1?Q?1Hb2bFe5CqLwHBIdsAsmaS6hFoFdVmahwKk13y4Hfv4OXVdSseAqdHs9WV?=
- =?iso-8859-1?Q?teYp2P7Rl4Ln+ArlFwcAJsjgvy9LC03hY+3cdXRJlqyVf7Y0xw5IDCdHeC?=
- =?iso-8859-1?Q?/ChesRIqpBfnm3b/ZAZueCccqFySq64DJcjIEy5ipDaDBJG9OacN/i5VA2?=
- =?iso-8859-1?Q?4AsxEgjKKfe7guDrQtJeNHgW1FpYCGa+DsnXpZQKt1wcn2HGDJxpBRZmiJ?=
- =?iso-8859-1?Q?7pIceYHqBoRYVAZfbiv1qyVPvCp6gKBL9m3jlVFQmICIVNV+qE4Ru1k/eK?=
- =?iso-8859-1?Q?Txj++BNz3ze59gZvUA6R4xY4rpVgdWZkHkKdHUr8v/ZPIZhKE5O+E9NONA?=
- =?iso-8859-1?Q?i3axFn1DHUGiY9N+/cm+KOOIwEZtI4KQ9WO5z+ySn5VuOvw1+yn3WF6Y1a?=
- =?iso-8859-1?Q?iitYIxxbSj4dMcZEnX9nbiDWAU2DfxpQLwYn3edSI7grncGM6JLqPdeVqH?=
- =?iso-8859-1?Q?dQrOwEyieB1HcoCBxx3Ttx87K4ZlKjb7fOUaa9ZALOutGxPbTncW8gDEoT?=
- =?iso-8859-1?Q?8a5J1OTtdUKnAf/ivw+WGmF7ReEOKTIFb4fl9rznocmRFA4RiwgwlZNbzt?=
- =?iso-8859-1?Q?ckBNMTjKwZLYfELI+rYUJkCePuUbtbZzRYm9Ex0BOPKRWT0dEAv8xX4L/c?=
- =?iso-8859-1?Q?m0qDlLDTm+rkgQ+CUzpEH/SYF2cSn+t9/3vzm5n/TRWX44fUsnbjMyyAfW?=
- =?iso-8859-1?Q?G7A3smbuTxT/Gg0eNdt+HVLZKklRLoXLYJpPQWbG+yWCTBlC1qNNT7yqh2?=
- =?iso-8859-1?Q?iiRfnuj8iBURnuQnpB2hjhqv+U8q1Ikqf/luOG9YrR4yFVVL0O5PGzDYYf?=
- =?iso-8859-1?Q?3X0GWGOUUbWsPb8RemsDF6oKDcM6ZIst5neMIDufG0BTdO0KZSXOcg9L7v?=
- =?iso-8859-1?Q?pOZE8bT3CL+NYm2zlDV7QCBErfAxfBb2K2aC7P7OILyYR2xfqenRyejOzW?=
- =?iso-8859-1?Q?aQMK1BkNOMKwgvliANhS7kaAgv0p9pzYEK2Sj7QlcZ3khUcB0FvRogRbXa?=
- =?iso-8859-1?Q?MzxsTs5z1spP6KBfuJHyA3LfssZ6HeQ=3D?=
-X-Exchange-RoutingPolicyChecked: nDGDPs9GoA+14f5A9N/ewLE06G2G8AplFMN3u2yWqQFnTjBXS6HVJk6YPGFO0HZQA4jPjz2x6oy8EMWTtVQLAv19WgoQvde4rLALJLkB+qjm08UjAPv04Jjn9JYnSR4JziCUJyCux+4FQHrnWyzxsGYBoVtbnmRrobhcGCUWqR2SKH/RuGUVgRtHg9ShHENbuKbtaUh3iUp2mcN6AKu5q7jg97B0vTe8lHttBXqJYwcUE58gNTmHfDtDaAy53Wst6WZLyWtxNnyN+eUaoucTlyYc6jkf/jBjlfNuhYJWcQqTWa05B2jginL4hBrcdBTcAp4/EIQwYz160CcP+3XmyA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 64db7ef0-415d-4bce-beee-08df4a40e064
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB4787.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 15:37:41.5647
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iMHzb5O1DNazerQkDJLlQAWwpxCgr1Cs5oPiwqnIA9KYI932vFXRMvYNWySrixzoU37szhO+EfvAgtzigwhO2w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR11MB075082
-X-OriginatorOrg: intel.com
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 06, 2026 at 09:12:46PM -0800, Niranjana Vishwanathapura wrote:
-> On Fri, Jul 10, 2026 at 07:56:04PM -0700, Matthew Brost wrote:
-> > Teach xe_bo_move() to service a defrag move, where TTM reallocates a
-> > BO's backing at the device's beneficial order and hands the old, still
-> > populated tt to the move via the BO's defrag_old_tt.
-> > 
-> > A defrag move always has existing contents to copy, so force
-> > move_lacks_source false and fall through the XE_PL_TT -> XE_PL_TT no-op
-> > shortcut so the copy path runs. The relocation is performed entirely on
-> > the GPU via xe_migrate_copy_defrag(), reading the old pages from the
-> > stashed tt's sg table and writing the freshly reallocated backing.
-> > 
-> > Both copy passes run in order on the same migrate queue and are captured
-> > by the returned fence, so the teardown is pipelined via
-> > ttm_bo_move_accel_cleanup(): the old tt is handed to a ghost object and
-> > only unpopulated and freed once the fence signals, so the move need not
-> > block. The VF CCS attach/detach handling is extended to treat a defrag
-> > move (ctx->defrag) like the XE_PL_SYSTEM <-> XE_PL_TT transitions it
-> > mirrors.
-> > 
-> > Cc: Carlos Santa <carlos.santa@intel.com>
-> > Cc: Ryan Neph <ryanneph@google.com>
-> > Cc: Christian Koenig <christian.koenig@amd.com>
-> > Cc: Huang Rui <ray.huang@amd.com>
-> > Cc: Matthew Auld <matthew.auld@intel.com>
-> > Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> > Cc: Maxime Ripard <mripard@kernel.org>
-> > Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> > Cc: David Airlie <airlied@gmail.com>
-> > Cc: Simona Vetter <simona@ffwll.ch>
-> > Cc: dri-devel@lists.freedesktop.org
-> > Cc: linux-kernel@vger.kernel.org
-> > Cc: Thomas Hellström <thomas.hellstrom@linux.intel.com>
-> > Assisted-by: GitHub_Copilot:claude-opus-4.8
-> > Signed-off-by: Matthew Brost <matthew.brost@intel.com>
-> > ---
-> > drivers/gpu/drm/xe/xe_bo.c | 24 ++++++++++++++++++++----
-> > 1 file changed, 20 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/drivers/gpu/drm/xe/xe_bo.c b/drivers/gpu/drm/xe/xe_bo.c
-> > index 02395968d613..bdcc9bed5d36 100644
-> > --- a/drivers/gpu/drm/xe/xe_bo.c
-> > +++ b/drivers/gpu/drm/xe/xe_bo.c
-> > @@ -1170,6 +1170,13 @@ static int xe_bo_move(struct ttm_buffer_object *ttm_bo, bool evict,
-> > 	move_lacks_source = !old_mem || (handle_system_ccs ? (!bo->ccs_cleared) :
-> > 					 (!mem_type_is_vram(old_mem_type) && !tt_has_data));
-> > 
-> > +	/*
-> > +	 * A defrag move always copies the existing contents from the stashed
-> > +	 * old tt into the freshly (re)allocated backing.
-> > +	 */
-> > +	if (ttm_bo->defrag_old_tt)
-> > +		move_lacks_source = false;
-> > +
-> > 	needs_clear = (ttm && ttm->page_flags & TTM_TT_FLAG_ZERO_ALLOC) ||
-> > 		(!ttm && ttm_bo->type == ttm_bo_type_device);
-> > 
-> > @@ -1206,9 +1213,12 @@ static int xe_bo_move(struct ttm_buffer_object *ttm_bo, bool evict,
-> > 	/*
-> > 	 * Failed multi-hop where the old_mem is still marked as
-> > 	 * TTM_PL_FLAG_TEMPORARY, should just be a dummy move.
-> > +	 *
-> > +	 * For a defrag move the old and new tt differ, so fallthrough to the
-> > +	 * copy path instead of treating it as a no-op.
-> > 	 */
-> > 	if (old_mem_type == XE_PL_TT &&
-> > -	    new_mem->mem_type == XE_PL_TT) {
-> > +	    new_mem->mem_type == XE_PL_TT && !ttm_bo->defrag_old_tt) {
-> > 		ttm_bo_move_null(ttm_bo, new_mem);
-> > 		goto out;
-> > 	}
-> > @@ -1279,6 +1289,12 @@ static int xe_bo_move(struct ttm_buffer_object *ttm_bo, bool evict,
-> > 			flags |= XE_MIGRATE_CLEAR_FLAG_CCS_DATA;
-> > 
-> > 		fence = xe_migrate_clear(migrate, bo, new_mem, flags);
-> > +	} else if (ttm_bo->defrag_old_tt) {
-> > +		struct xe_ttm_tt *old_xe_tt =
-> > +			container_of(ttm_bo->defrag_old_tt, struct xe_ttm_tt, ttm);
-> > +
-> > +		fence = xe_migrate_copy_defrag(migrate, bo, old_mem, new_mem,
-> > +					       old_xe_tt->sg, handle_system_ccs);
-> > 	} else {
-> > 		fence = xe_migrate_copy(migrate, bo, bo, old_mem, new_mem,
-> > 					handle_system_ccs);
-> > @@ -1315,13 +1331,13 @@ static int xe_bo_move(struct ttm_buffer_object *ttm_bo, bool evict,
-> > 	 * BBs from BO as it is no longer needed.
-> > 	 */
-> > 	if (IS_VF_CCS_READY(xe) && old_mem_type == XE_PL_TT &&
-> > -	    new_mem->mem_type == XE_PL_SYSTEM)
-> > +	    (new_mem->mem_type == XE_PL_SYSTEM || ctx->defrag))
-> > 		xe_sriov_vf_ccs_detach_bo(bo);
-> > 
-> > 	if (IS_VF_CCS_READY(xe) &&
-> > 	    ((move_lacks_source && new_mem->mem_type == XE_PL_TT) ||
-> > -	     (old_mem_type == XE_PL_SYSTEM && new_mem->mem_type == XE_PL_TT)) &&
-> > -	    handle_system_ccs)
-> > +	     ((old_mem_type == XE_PL_SYSTEM || ctx->defrag) &&
-> > +	      new_mem->mem_type == XE_PL_TT)) && handle_system_ccs)
-> > 		ret = xe_sriov_vf_ccs_attach_bo(bo);
-> 
-> Assisted-by: LLM
-> 
-> Looks like code has changed in drm-tip and sriov_vf_ccs_attach/detach changes here
-> needs to be rebased.
-> 
-> There are also some sashiko reported bugs around this sriov_vf_ccs_attach_bo which
-> looks legitimate (like move() function returning earlier in error case while move
-> is in progress).
-> 
+tc2_pm_init() looks up the SCC node with of_find_compatible_node(),
+which returns the node with its reference count raised, and passes it
+to of_iomap() and irq_of_parse_and_map(). Neither of them keeps the
+node, and none of the function's exits drops the reference.
+tc2_pm_init() runs once as an early initcall, so this leaks a single
+reference at boot.
 
-Yea, I believe I fixed VF CCS issues here:
+Declare np with __free(device_node) so that the reference is dropped
+when the function returns, as is already done in vexpress_flags_set()
+and vexpress_smp_dt_prepare_cpus().
 
-https://patchwork.freedesktop.org/series/170380/
+Fixes: 11b277eabe70 ("ARM: vexpress/TC2: basic PM support")
+Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
+---
+Compile-tested only (ARM multi_v7_defconfig, W=1). I have no TC2 board
+to test it on.
 
-Matt
+ arch/arm/mach-versatile/tc2_pm.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-> Niranjana
-> 
-> > 
-> > out:
-> > -- 
-> > 2.34.1
-> > 
+diff --git a/arch/arm/mach-versatile/tc2_pm.c b/arch/arm/mach-versatile/tc2_pm.c
+index 0fe78da0c109..0e471a76bc98 100644
+--- a/arch/arm/mach-versatile/tc2_pm.c
++++ b/arch/arm/mach-versatile/tc2_pm.c
+@@ -202,15 +202,15 @@ static int __init tc2_pm_init(void)
+ 	unsigned int mpidr, cpu, cluster;
+ 	int ret, irq;
+ 	u32 a15_cluster_id, a7_cluster_id, sys_info;
+-	struct device_node *np;
+ 
+ 	/*
+ 	 * The power management-related features are hidden behind
+ 	 * SCC registers. We need to extract runtime information like
+ 	 * cluster ids and number of CPUs really available in clusters.
+ 	 */
+-	np = of_find_compatible_node(NULL, NULL,
+-			"arm,vexpress-scc,v2p-ca15_a7");
++	struct device_node *np __free(device_node) =
++		of_find_compatible_node(NULL, NULL,
++					"arm,vexpress-scc,v2p-ca15_a7");
+ 	scc = of_iomap(np, 0);
+ 	if (!scc)
+ 		return -ENODEV;
+
+base-commit: 8dac6df92a2e66e2098bbc69061964cfe7e8375b
+-- 
+2.56.1
+
