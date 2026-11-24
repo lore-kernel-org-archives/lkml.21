@@ -1,94 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795483706;
-	b=xAbtGjPXdeSWvmfhJ2CRPRUlC+BMGFAfZS0+08GpeyrBjdjjTJoIj4o2i6GveJ25t75d
-	 ekgY5PnG9XeFohVwX5KzfPpn7Gr7P1d4Qzr2xUmasQpV/7V5tuzDg5qREoTiVZBZIgfdq
-	 2lQhQ/z8aaYBEjk8DustguDIyDvm5KgaBuzxWiee2eQDuOyDUrARjJuivMizCt8uprgAX
-	 mgG9uJ16f8X5Dq85IXZAaK/9wyzb5v7itUK2gnud1NiMBuz4xOrxJaj8bJ1mqgEsmDykA
-	 y5EbPFBy3f870onR3PCeNK16qhSmC9ZY8Oh3zRGS1b+k+s9+rNOuXT8QYH7im3ioYkg==
+	t=1795483712;
+	b=kPc5VU7doe0onmYzgOLiAjJWc0trICdqc0r0vSLfvrwLsrhG7CBWp8xxOHsnSrf71l7W
+	 lqYG/ACmPdUg3gV3x/jSqRxDPKV68yUviCz6FVenrHG9UPNIl8IuxTI3S36mgllSwhqu9
+	 O+xDtbBvY5giNLa1rKX3ZmjQE8guIbROMVuSE6JTbNcQ8jVBsVi4kJ8r9xE4bTL5iGu6r
+	 VrNp1TAY+ydJiPzv7DOyIYcyyXdfzsUSx5gm735qwOJiX2j4aIVhPf3SwT6dk6NPee1Jn
+	 Lf9SmnkLa2mIDBCL6A0EwIhrT3c7uAcTGnt1eflTu+12lFA+A1vSG7dlW5QZujeT4EQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795483706;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Content-Disposition;
-	bh=IqUna2kjFHvMrIO1OLa0ykP6eHWf+y9XmdVhagHZuFA=;
-	b=RFtictGEICXIQnB4ifeNzvyd9/I5v0KO06ECIxPry56lO7AZX4KRWAu9b9AAejiPS21Q
-	 vua+UFglLPK1DJRWYV4szYZoHgYMY7BtgDzt5aFcd9Bqx4y8M0aXS6OLEE5h1hzX4j6Fr
-	 ochCLAHLz+syFnhQIFol1JyW9mCyGld/F8nImzQI8uYPA/YR0ReBFsf46DYTMNWLMJ3V+
-	 Qj9Yg8sTYDfD0Y8H8FmmqXN1vs7D91rxaZ5OqlBQekhHfn45a42dq4rLqd+MW/0yi5lIM
-	 +EEjikLDTYDaHmG8Aej4h2QFZMrJSqu/kT04pB/KlSekew5hrf/fyVydhy3Obal6urg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795483712;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
+	 MIME-Version:X-Received:Date:X-Google-Appengine-App-Id:
+	 X-Google-Appengine-App-Id-Alias:Message-ID:Subject:From:To:
+	 Content-Type;
+	bh=8Ny/ZC2pZ67oXfaYEmRl2IqwvxZB+uhMYs3VW0ASUro=;
+	b=rFtEBCUOcWDbxeef4ZaDCWEscY6Oc1L4bdGeCbtmA8xguxwWIxwYLKCs0H+JXn0Vdy3a
+	 09fCTS7DZ58rcGPRSLy/zF9nxFXL4M+NFgfyyK6A5Q/EzEprkJUAoUhwTZRe46Uf5bCyn
+	 k6y2Qt4E6FV8f6ETlNTlSU3BUZjY69ioUNnR6ZiwIpDuUBBdXszu4sbXq8riE4tAnb+Nh
+	 ZtjjE6axSXY02bky6ZHAhOA9pXO/rLE0+R2YzxMcFDWwx8TobKaoA1LgEshNwdO613+QJ
+	 sl57oDm6p+tQY5IzF9xJFGNTsG1ZOpqvpDu88YNZQ2EEWN41xstldKlzJEnTjGjMrRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=muDl+jhc;
-	arc=none smtp.remote-ip=74.125.82.44
-Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.160.70
+Received: from mail-oa1-f70.google.com (mail-oa1-f70.google.com [209.85.160.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86FDC606A322
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:28:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86FDC606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=muDl+jhc
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1b3ada81853so4566811c88.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:28:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795483706; x=1796088506; darn=vger.kernel.org;
-        h=content-disposition:content-transfer-encoding:content-type
-         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IqUna2kjFHvMrIO1OLa0ykP6eHWf+y9XmdVhagHZuFA=;
-        b=muDl+jhcQiYfn6XCWnNAla5FGzr50gZWXWL0cAb2YlZP3RtU+V7fpngMFhyrAdvs3X
-         /si1j1peUcZf/Q4j1Ky1wqmRsNN/6Ge/pGnDuB0Wb9xN7Wl6d+JFaQKMNoLRbdFrdeTi
-         dOIKXzyvkRsPNZDfjBstBqczObYyj0j4syH7MokVEJwpQphJZQByJVR/pwMuBnsTcnL5
-         6TXWhnKg6Ri9sZ8+orR0ozhAE//kcOdJIcxi98EqUfqQqngYg6/YAtO2gL9xr+mzIh4R
-         BqadFhFMoGKnijJF8XoPNP8r8/RmtVMhPztG7I2boitz2LxnIRskqUqcw5CbacNWElaD
-         Z8gQ==
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43230606A330
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:28:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43230606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oa1-f70.google.com with SMTP id 586e51a60fabf-47cfa971c9eso6472595fac.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:28:32 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795483706; x=1796088506;
-        h=content-disposition:content-transfer-encoding:content-type
-         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=IqUna2kjFHvMrIO1OLa0ykP6eHWf+y9XmdVhagHZuFA=;
-        b=eWHanGNk0YgZr+5XLc6Q8AK2ZSNjKA5l7cc7GWl37W3qybq3wGKT8AdIJ+NHQRoEBR
-         uWqqNc3nZTUFvLlBgv8CaZxwRlD696/Rh+XS/oYWQBSWqU0kOoKx1owEQJ8M725iobkD
-         oTpWvmB98+NhFmcTONogZLsDV6EYAa8vZIQfkHsBiNVJZBqRoLU6d55CqU1/rfWQM32p
-         Ns/1DFHLzWkKKr6lqRTZ3c/DkK1VJWByyXLenS+dF9BqhqRzGnQ0fMurxDkpIvLhbv+w
-         fnUpGO/fiHKHcZH6cJIrG1f0h4wS3JjMCGChYG2+twD7rAiU0gwd/F1UrdwtsPTG/3yT
-         wM+Q==
-X-Forwarded-Encrypted: i=1; AL+hErHu3Qcd70jN3GBEQJhus2OgjXMASRr3P7taX7O9EGx/eR6NnVpcEIT6cLiPTvhuVdjtxXsWWJugquCLfao=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8VlDktFCFrVqGjvY5kDOP4pePS1W8gL3RjTYwLoeIAcxIuTO76
-	scKqF61ZCot1PY4vg4+WEIuHDQQ5aHiRSU2b1btTYy1it27oERc8DUPg
-X-Gm-Gg: AZFdTZcOP660mOR6vbnHdgN3g5n6ap/xenkMRVkRb8HUyJYFNecZzhJWkCLEjrbBCWm
-	ghyvxw4W7/dCm3389uBrfrXKV24maywK8pwfr5NXQmP8c8wXmFUHBA7SJQiwg2YecYEzWqr8Nn/
-	odlaCSQspEFBRdwoXTmhUgYmjXs2VN9ccRS65aLiAwPgX9mWkDzXZngf3hVNvAP+a4s6gOpHqlr
-	YgV1l9ZDgcXJWvZ0UxbkwpAHeJZ86mFhsByWYY/lZ17FB+HVLEi7KyAEi4VrHxzODkxrDCbmi9j
-	lw1nyxorr6BHy0CvTfX+Y7G3O+80q7YxCxRFJUhS4KPVYX3aWxckC2cRQTyybj8HC86izWjoch1
-	qOdidtE2j4c6Mtu7YjjgGA+u9wY4Ijt5Yw7qGtlwV0tRGXSd/wSkhw3EwtwnRkjeqp6ETuM6Y3a
-	ZQlLyKMqTOMcfNOEH51uwzq7VpXDbXNtDA54Jh3EqCu+PrpUCFYG6PIRogR+xCQe5GeDkyR475O
-	2PCm7REma770UTZMFfmFfD+ZSsO+ZMPIf6rL1dmk7Da3wklmNVosVUFsTpOU5ng0++7YIsDKSqC
-	WtcoTMIK+AtGZqRQLemBGH2wHFC1OwW/A0TYQuaog/x+COlst3xTtfknfhRwaMwAV62SAQ==
-X-Received: by 2002:a05:7022:5e09:b0:1a0:b8f5:872d with SMTP id a92af1059eb24-1b5567c13a5mr12621491c88.4.1795483705400;
-        Mon, 23 Nov 2026 17:28:25 -0800 (PST)
-Received: from localhost ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c3052sm31126403c88.1.2026.11.23.17.28.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 17:28:24 -0800 (PST)
-Date: Mon, 23 Nov 2026 17:28:23 -0800
-Message-ID: <84b917b9feb4a934e67d0e8f25707cc1@gmail.com>
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: ahmad baghereslami <ahmad.b1995@gmail.com>
-Cc: linux-input@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] Input: synaptics - support the touchpad LED on RMI function $30
-In-Reply-To: <20261116071906.30110-1-ahmad.b1995@gmail.com>
-References: <7f9d0adf1f49c5a2b3919130caf0acb7@gmail.com> <20261116071906.30110-1-ahmad.b1995@gmail.com>
+        d=1e100.net; s=20260707; t=1795483711; x=1796088511;
+        h=content-type:to:from:subject:message-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8Ny/ZC2pZ67oXfaYEmRl2IqwvxZB+uhMYs3VW0ASUro=;
+        b=gPfcHPxlWDC9Vav8hRrLIdNvBaXunE8n0efkoPPbiveiOzQwji0mCI+wZQ0Tl0K9rz
+         N0oYTcOmFU/Ozdi/XBqs+p+iRMBWGZqoQ/sO0DWL8pUy5J8Bp/HHm0gR2a+11crI7qej
+         YpAk48olWZ38FPq7pd8Nv0DwyFhAgxNLNUVRzhVqRsnhWwERAs7XCufVDNHs18VHxfkT
+         8uNB7oOA5qBxECwK8abeb+GQBuZUGDs8s98HqtuOsx2WLTu7YGrDIKWD2ocppYP+9ksq
+         Oxdxu6FVDZ2F/OdP4JJT639PIcLMVmfW2XCj+mX8opmvF0kvAKBtGlD+Ryq+aHgx4MLY
+         h8vQ==
+X-Gm-Message-State: APuU4Z/Bq0KolzyCSDyqTpDnk1bLg9FfgS/wBl8gOivRCRDh7pvnWhy3
+	KOnCrxgd25JjsFurfJnDoOcgIC6ikx3wt9IYPFYEMA6awucrAJKNMUkSIAXTEBMB5CkzOS3Stdu
+	q/9A1qdd5qNPo7d4x8bANuhiTYZRvmTOFlcC7Rak68vy1Cd83eOgEkPy/1zo=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,48 +57,296 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+X-Received: by 2002:a05:6808:6b8e:b0:521:561a:8e8c with SMTP id
+ 5614622812f47-5797d6add74mr10123744b6e.33.1795483711216; Mon, 23 Nov 2026
+ 17:28:31 -0800 (PST)
+Date: Mon, 23 Nov 2026 17:28:31 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b04e83f.9a2182b0.37b108.0036.GAE@google.com>
+Subject: [syzbot] [raid?] KASAN: slab-use-after-free Read in mddev_unlock
+From: syzbot <syzbot+58beac388fb46ea52592@syzkaller.appspotmail.com>
+To: linux-kernel@vger.kernel.org, linux-raid@vger.kernel.org, 
+	magiclinan@didiglobal.com, song@kernel.org, syzkaller-bugs@googlegroups.com, 
+	xiao@kernel.org, xni@redhat.com, yukuai3@huawei.com, yukuai@fygo.io
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Ahmad,
+Hello,
 
-On Mon, Nov 16, 2026 at 10:49:06AM +0330, ahmad baghereslami wrote:
-...
-> The reason I kept it on PS/2 is a side effect on this laptop: the
-> embedded controller turns the keyboard backlight back on when it sees
-> PS/2 input after the backlight has timed out. Over SMBus the touchpad's
-> traffic no longer passes through the EC, so touching the touchpad no
-> longer wakes the keyboard backlight; only typing does. Nothing else
-> differed in daily use.
->
-> If you still prefer the RMI4 route, I can send a series that adds
-> "SYN3040" to smbus_pnp_ids[] and implements LED class support in
-> rmi_f30.c, and drop the PS/2 backdoor. Or, if the backlight behaviour
-> is a reason to keep this touchpad on PS/2, I would keep the current
-> approach. Which would you prefer?
+syzbot found the following issue on:
 
-I would definitely prefer the RMI4 route: adding "SYN3040" to
-smbus_pnp_ids[] and implementing LED class support in rmi_f30.c.
+HEAD commit:    4405c18c95d2 Merge tag 'mm-nonmm-hotfixes-stable-2026-11-1..
+git tree:       upstream
+console output: https://syzkaller.appspot.com/x/log.txt?x=1346e803580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=1cf189394a856f11
+dashboard link: https://syzkaller.appspot.com/bug?extid=58beac388fb46ea52592
+compiler:       gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44
 
-We already enable InterTouch on several other HP laptops in
-smbus_pnp_ids[], and implementing F30 LED support in rmi_f30.c benefits
-all RMI4 touchpads (over SMBus, I2C, SPI, or HID) without duplicating
-RMI4 PDT scanning and register access over the PS/2 command backdoor or
-having to deactivate the PS/2 stream and export psmouse_mutex on every
-LED update.
+Unfortunately, I don't have any reproducer for this issue yet.
 
-Keyboard backlight management should be handled separately from the
-touchpad transport: relying on the EC snooping legacy PS/2 traffic is
-just an incidental side effect (an external USB/Bluetooth mouse or an
-I2C-HID touchpad already bypasses the EC in the same way). Ideally the
-keyboard backlight is exposed as a standard LED class device by the HP
-platform driver (hp-wmi) and managed by userspace policy monitoring
-input activity, or (if an in-kernel mechanism is desired) driven by
-ledtrig-input-events (the "input-events" LED trigger) or an input
-observer in the platform driver.
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/fadfa8ddb6dc/disk-4405c18c.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/b709babe0a48/vmlinux-4405c18c.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/a837f4b1ee01/bzImage-4405c18c.xz
 
-Thanks.
+The issue was bisected by AI to:
 
--- 
-Dmitry
+commit db5e653d7c9fae8ed61da58ab5e9a8db2cd61a2b
+Author: Yu Kuai <yukuai3@huawei.com>
+Date:   Fri Aug 25 03:16:18 2023 +0000
+
+    md: delay choosing sync action to md_start_sync()
+
+AI reasoning:   https://syzkaller.appspot.com/ai_job?id=bc5d8ea1-cd26-4470-b538-405195b1bbbf
+
+AI-generated root cause summary:
+In `drivers/md/md.c`, `md_check_recovery()` queues `mddev->sync_work`
+(`md_start_sync()`) on `md_misc_wq` without taking a reference on `mddev`, and
+`mddev` teardown fails to wait for `md_start_sync()` to finish before freeing
+`mddev`. Specifically, `stop_sync_thread()` skips flushing `sync_work` when
+`MD_RECOVERY_RUNNING` is already cleared or when `md_start_sync()` is already
+running (`work_pending(&mddev->sync_work)` returns false), and `md_start_sync()`
+clears `MD_RECOVERY_RUNNING` before calling `mddev_unlock()`. Once
+`mddev_unlock()` releases `mddev->reconfig_mutex`, `do_md_stop()` can
+immediately proceed to stop and clean the array, allowing `mddev_put()` ->
+`mddev_delayed_delete()` -> `md_kobj_release()` -> `disk_release()` ->
+`mddev_free()` to `kfree(mddev)` concurrently while `md_start_sync()` is still
+inside `mddev_unlock()`, causing a slab-use-after-free when reading
+`mddev->thread`.
+
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=58beac388fb46ea52592
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+58beac388fb46ea52592@syzkaller.appspotmail.com
+
+The cause commit was identified by AI and may be wrong.
+If you agree with it, please also add:
+Fixes: db5e653d7c9f ("md: delay choosing sync action to md_start_sync()")
+
+==================================================================
+BUG: KASAN: slab-use-after-free in mddev_unlock+0x909/0x9e0 drivers/md/md.c:977
+Read of size 8 at addr ffff8880367b21e8 by task kworker/1:2/1568
+
+CPU: 1 UID: 0 PID: 1568 Comm: kworker/1:2 Tainted: G             L      syzkaller #0 PREEMPT(full) 
+Tainted: [L]=SOFTLOCKUP
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+Workqueue: md_misc md_start_sync
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x100/0x190 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:378 [inline]
+ print_report+0x13d/0x4b0 mm/kasan/report.c:482
+ kasan_report+0xdf/0x1c0 mm/kasan/report.c:595
+ mddev_unlock+0x909/0x9e0 drivers/md/md.c:977
+ md_start_sync+0x681/0xea0 drivers/md/md.c:10373
+ process_one_work+0xac7/0x1b10 kernel/workqueue.c:3495
+ process_scheduled_works kernel/workqueue.c:3578 [inline]
+ worker_thread+0x5ef/0xe50 kernel/workqueue.c:3659
+ kthread+0x373/0x450 kernel/kthread.c:436
+ ret_from_fork+0x730/0xd60 arch/x86/kernel/process.c:158
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+ </TASK>
+
+Allocated by task 9718:
+ kasan_save_stack+0x30/0x50 mm/kasan/common.c:57
+ kasan_save_track+0x14/0x40 mm/kasan/common.c:79
+ poison_kmalloc_redzone mm/kasan/common.c:412 [inline]
+ __kasan_kmalloc+0xaa/0xb0 mm/kasan/common.c:429
+ kasan_kmalloc include/linux/kasan.h:267 [inline]
+ __kmalloc_cache_noprof+0x2f8/0x6d0 mm/slub.c:5680
+ _kmalloc_noprof include/linux/slab.h:991 [inline]
+ _kzalloc_noprof include/linux/slab.h:1312 [inline]
+ mddev_alloc drivers/md/md.c:877 [inline]
+ md_alloc+0xae/0x10c0 drivers/md/md.c:6356
+ md_alloc_and_put drivers/md/md.c:6452 [inline]
+ md_probe drivers/md/md.c:6468 [inline]
+ md_probe+0x73/0xf0 drivers/md/md.c:6463
+ blk_probe_dev+0x149/0x1e0 block/genhd.c:888
+ blk_request_module+0x16/0xc0 block/genhd.c:901
+ blkdev_get_no_open+0x9b/0xf0 block/bdev.c:870
+ blkdev_open+0x141/0x4f0 block/fops.c:673
+ do_dentry_open+0x674/0x1470 fs/open.c:1000
+ vfs_open_consume+0xcc/0x460 fs/open.c:1131
+ do_open fs/namei.c:4851 [inline]
+ path_openat+0x1547/0x23f0 fs/namei.c:5016
+ do_file_open+0x20e/0x430 fs/namei.c:5045
+ do_sys_openat2+0x163/0x1d0 fs/open.c:1443
+ do_sys_open fs/open.c:1449 [inline]
+ __do_sys_openat fs/open.c:1465 [inline]
+ __se_sys_openat fs/open.c:1460 [inline]
+ __x64_sys_openat+0x12d/0x210 fs/open.c:1460
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x123/0x7b0 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Freed by task 5627:
+ kasan_save_stack+0x30/0x50 mm/kasan/common.c:57
+ kasan_save_track+0x14/0x40 mm/kasan/common.c:79
+ kasan_save_free_info+0x3b/0x60 mm/kasan/generic.c:599
+ poison_slab_object mm/kasan/common.c:267 [inline]
+ __kasan_slab_free+0x73/0x90 mm/kasan/common.c:299
+ kasan_slab_free include/linux/kasan.h:239 [inline]
+ slab_free_hook mm/slub.c:2780 [inline]
+ slab_free mm/slub.c:6637 [inline]
+ kfree+0x22d/0x6d0 mm/slub.c:6930
+ disk_release+0x2ad/0x490 block/genhd.c:1319
+ device_release+0xd2/0x270 drivers/base/core.c:2640
+ kobject_cleanup lib/kobject.c:689 [inline]
+ kobject_release lib/kobject.c:720 [inline]
+ kref_put include/linux/kref.h:65 [inline]
+ kobject_put+0x1f7/0x640 lib/kobject.c:737
+ process_one_work+0xac7/0x1b10 kernel/workqueue.c:3495
+ process_scheduled_works kernel/workqueue.c:3578 [inline]
+ worker_thread+0x5ef/0xe50 kernel/workqueue.c:3659
+ kthread+0x373/0x450 kernel/kthread.c:436
+ ret_from_fork+0x730/0xd60 arch/x86/kernel/process.c:158
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+
+Last potentially related work creation:
+ kasan_save_stack+0x30/0x50 mm/kasan/common.c:57
+ __kasan_record_aux_stack+0xba/0xd0 mm/kasan/generic.c:561
+ insert_work+0x36/0x230 kernel/workqueue.c:2356
+ __queue_work+0xac1/0x16f0 kernel/workqueue.c:2546
+ queue_work_on+0x180/0x1e0 kernel/workqueue.c:2599
+ queue_work include/linux/workqueue.h:700 [inline]
+ __mddev_put drivers/md/md.c:668 [inline]
+ __mddev_put drivers/md/md.c:652 [inline]
+ mddev_put.part.0+0x132/0x160 drivers/md/md.c:682
+ mddev_put drivers/md/md.c:8659 [inline]
+ md_release+0x90/0xb0 drivers/md/md.c:8658
+ blkdev_put_whole+0xb0/0xf0 block/bdev.c:766
+ bdev_release+0x485/0x6e0 block/bdev.c:1189
+ blkdev_release+0x15/0x20 block/fops.c:690
+ __fput+0x3fb/0xb50 fs/file_table.c:512
+ fput_close_sync+0x118/0x250 fs/file_table.c:618
+ filp_close_sync+0x75/0xa0 fs/open.c:1574
+ __range_close+0x4a6/0x8b0 fs/file.c:919
+ __do_sys_close_range fs/file.c:1003 [inline]
+ __se_sys_close_range fs/file.c:954 [inline]
+ __x64_sys_close_range+0x1f8/0x430 fs/file.c:954
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x123/0x7b0 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Second to last potentially related work creation:
+ kasan_save_stack+0x30/0x50 mm/kasan/common.c:57
+ __kasan_record_aux_stack+0xba/0xd0 mm/kasan/generic.c:561
+ insert_work+0x36/0x230 kernel/workqueue.c:2356
+ __queue_work+0xac1/0x16f0 kernel/workqueue.c:2546
+ queue_work_on+0x180/0x1e0 kernel/workqueue.c:2599
+ queue_work include/linux/workqueue.h:700 [inline]
+ md_check_recovery+0xbb9/0x1100 drivers/md/md.c:10583
+ raid1d+0x114/0x7040 drivers/md/raid1.c:2617
+ md_thread+0x550/0x5d0 drivers/md/md.c:8732
+ kthread+0x373/0x450 kernel/kthread.c:436
+ ret_from_fork+0x730/0xd60 arch/x86/kernel/process.c:158
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+
+The buggy address belongs to the object at ffff8880367b2000
+ which belongs to the cache kmalloc-4k of size 4096
+The buggy address is located 488 bytes inside of
+ freed 4096-byte region [ffff8880367b2000, ffff8880367b3000)
+
+The buggy address belongs to the physical page:
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x367b0
+head: order:3 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+flags: 0xfff00000000040(head|node=0|zone=1|lastcpupid=0x7ff)
+page_type: f5(slab)
+raw: 00fff00000000040 ffff88813ff0e140 dead000000000100 dead000000000122
+raw: 0000000000000000 0000000000040004 00000000f5000000 0000000000000000
+head: 00fff00000000040 ffff88813ff0e140 dead000000000100 dead000000000122
+head: 0000000000000000 0000000000040004 00000000f5000000 0000000000000000
+head: 00fff00000000003 fffffffffffffe01 00000000ffffffff 00000000ffffffff
+head: ffffffffffffffff 0000000000000000 00000000ffffffff 0000000000000008
+page dumped because: kasan: bad access detected
+page_owner tracks the page as allocated
+page last allocated via order 3, migratetype Unmovable, gfp_mask 0xd2820(GFP_ATOMIC|__GFP_NOWARN|__GFP_NORETRY|__GFP_COMP|__GFP_NOMEMALLOC), pid 144, tgid 144 (kworker/u8:5), ts 201563767110
+ set_page_owner include/linux/page_owner.h:33 [inline]
+ post_alloc_hook+0xfd/0x120 mm/page_alloc.c:1873
+ prep_new_page mm/page_alloc.c:1881 [inline]
+ get_page_from_freelist+0xdae/0x2c80 mm/page_alloc.c:3963
+ __alloc_frozen_pages_noprof+0x2ad/0x31e0 mm/page_alloc.c:5505
+ alloc_slab_page mm/slub.c:3384 [inline]
+ allocate_slab mm/slub.c:3499 [inline]
+ new_slab+0xb1/0x6d0 mm/slub.c:3550
+ refill_objects+0xe3/0x410 mm/slub.c:7546
+ refill_sheaf mm/slub.c:2917 [inline]
+ __pcs_replace_empty_main+0x35e/0x650 mm/slub.c:4811
+ alloc_from_pcs mm/slub.c:4887 [inline]
+ slab_alloc_node mm/slub.c:5021 [inline]
+ __do_kmalloc_node mm/slub.c:5530 [inline]
+ __kmalloc_node_track_caller_noprof+0x6a3/0x870 mm/slub.c:5662
+ kmalloc_reserve+0xe8/0x350 net/core/skbuff.c:638
+ __alloc_skb+0x185/0x710 net/core/skbuff.c:716
+ alloc_skb include/linux/skbuff.h:1390 [inline]
+ nsim_dev_trap_skb_build drivers/net/netdevsim/dev.c:744 [inline]
+ nsim_dev_trap_report drivers/net/netdevsim/dev.c:801 [inline]
+ nsim_dev_trap_report_work+0x2af/0xd20 drivers/net/netdevsim/dev.c:847
+ process_one_work+0xac7/0x1b10 kernel/workqueue.c:3495
+ process_scheduled_works kernel/workqueue.c:3578 [inline]
+ worker_thread+0x5ef/0xe50 kernel/workqueue.c:3659
+ kthread+0x373/0x450 kernel/kthread.c:436
+ ret_from_fork+0x730/0xd60 arch/x86/kernel/process.c:158
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+page last free pid 9267 tgid 9267 ts 195396699479 stack trace:
+ reset_page_owner include/linux/page_owner.h:26 [inline]
+ __free_pages_prepare mm/page_alloc.c:1415 [inline]
+ __free_frozen_pages+0x7b1/0x10f0 mm/page_alloc.c:2971
+ qlink_free mm/kasan/quarantine.c:163 [inline]
+ qlist_free_all+0x47/0xf0 mm/kasan/quarantine.c:179
+ kasan_quarantine_reduce+0x1a0/0x1f0 mm/kasan/quarantine.c:286
+ __kasan_slab_alloc+0x69/0x90 mm/kasan/common.c:364
+ kasan_slab_alloc include/linux/kasan.h:257 [inline]
+ slab_post_alloc_hook mm/slub.c:4720 [inline]
+ slab_alloc_node mm/slub.c:5033 [inline]
+ kmem_cache_alloc_noprof+0x269/0x6a0 mm/slub.c:5047
+ new_handle fs/jbd2/transaction.c:457 [inline]
+ jbd2__journal_start+0x194/0x6b0 fs/jbd2/transaction.c:485
+ __ext4_journal_start_sb+0x314/0x610 fs/ext4/ext4_jbd2.c:126
+ __ext4_journal_start fs/ext4/ext4_jbd2.h:238 [inline]
+ ext4_dirty_inode+0xa1/0x130 fs/ext4/inode.c:7650
+ __mark_inode_dirty+0x1f3/0x16e0 fs/fs-writeback.c:2751
+ generic_update_time fs/inode.c:2274 [inline]
+ file_update_time_flags+0x49c/0x520 fs/inode.c:2504
+ ext4_page_mkwrite+0x30e/0x19e0 fs/ext4/inode.c:7838
+ do_page_mkwrite+0x17a/0x430 mm/memory.c:3908
+ do_shared_fault mm/memory.c:6212 [inline]
+ do_fault+0x5f8/0x1780 mm/memory.c:6274
+ do_pte_missing mm/memory.c:4797 [inline]
+ handle_pte_fault mm/memory.c:6689 [inline]
+ __handle_mm_fault+0x1858/0x2f40 mm/memory.c:6841
+ handle_mm_fault+0x363/0xa30 mm/memory.c:7008
+ do_user_addr_fault+0x59c/0x12f0 arch/x86/mm/fault.c:1343
+
+Memory state around the buggy address:
+ ffff8880367b2080: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ ffff8880367b2100: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+>ffff8880367b2180: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+                                                          ^
+ ffff8880367b2200: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ ffff8880367b2280: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+==================================================================
+
+
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
+
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+For information about AI bisection see: https://goo.gl/tpsmEJ#ai-bisection
+
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
