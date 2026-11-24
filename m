@@ -1,47 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795513688;
-	b=sxo2WwH9fAD8q2DfVeB8n+jmuecZVCv2CXXlp5NgS6mEwNZcY/FL2oa+ceJCdgpoYxbm
-	 giPRMSRPtJEZlokjplxF+MYPEAOgaWOH/xYBQ6oqpbEGkylL725lnytl6Q0hibRBjyNd6
-	 9BGr5iejcfNoDH4Be8yGTPbpazf+h3Y2UD6FXkIZBczo+qMuHmOS7800ZSBqunW8kcSlD
-	 DdOkMkwRfE5XWpeA1hVHqVkRRAm+OUa2vmy6deydZLdhmSWe6kDAxP+WgYNLSWEN2QDyE
-	 n/A23hxMctJ0dFOzfzTXhWuq1RsMiZfAwAGVPUxumKRLK6kkRY9sdt+7v0nVgNK4S1g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513688;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=tlWLHhYc09Ruv0clfX9hykOMAyyYNJVQsL2Es94Qgkg=;
-	b=COH+eHGTcXhbLh0+xEBErihMi3bC7K9qBuyyL6zff4dr0nvknHAp8wNm49neGAOhK4N5
-	 ksP6sljy7bPStxFc5CvQlPVXsUDm75ag3JlmBB1oRKrUPzmy9beka2zAQF9UO3KQ8tjYb
-	 GwrcxRYY5nn2qTDPdIq5ud6dxDQYeghBU/umPBuTTyVjlUsT6xRqzuZZeqg46+tlAxnTq
-	 zNhSyxYR8YB4yM44V+1KI3BhFrCP+RQTqwVY768h4K8LuTcGkJ/8chWdLBL3HRNw7mS25
-	 4GQrvJRJQnO5NVOMSC3O42RPK7K4pqKhcd1g0HFHj33adS00oojT9pmD5h3EdpRqVlQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mn7TMUUF;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795513699;
+	b=jnq0hMpHSNZmtGiCa0vvA2JrgvL74pMUqNtdq8DkPrJs40XXzuBCMLYGZeSfsPRQYs6q
+	 lDyUAMvunR1RAoqZRUSiL4eRve09rN1uVfiMg0XDTqJhN+DewP51BMra8Nm48cxitHaqf
+	 IdUG7WjhCsoYICuFRZMtju+l0JMwopKrTnmEhZxUwO1OexzMwAFAN+cjYhMB6yjpv+YaD
+	 TyltP+jZZdNlbGb0rOETbGyf0uD/QQD8Vg40/REzPzvvRAew7JPjk0jlVCLJKJnkWAsqG
+	 qA7tJ3S8Xk+sx1ChGtnbdUgTFuy2ejBgGQWX6jT0h+CEhc1vugHzYv96zIYmBkMdD1Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795513699;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
+	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
+	 Cc:Content-Type:Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=PYXPyQn5i+rKtffQDXwKT7j2n2EdeKt2c28XS2Q64K4=;
+	b=EGDk58pXM3iScVqNBSpToNHO7ZtX2EmoU26Jqp2hHP+NcZMEG1r/LUydDfFOE8JlmKI8
+	 /ur4Lo8KlKOw1+olewz0bUvLVugsA4Ng5ZTZDOcCAP8PmsqpLShrmYzgZHKkI8L9C9Xp3
+	 r0RMy4fZrbg8FAGZmQQwKEIer3/LqLahRaVMb+Rii5a/+P4IrmH++MVENZF449E8odQEf
+	 v7OZo3yx596vAxvfoc+r7P4k9q1hnKsUX9g4RQwfQBSVF2ZQKvfTieKioCULgf8rO+ZxN
+	 ZqfWSzLlBH6PAMbmBBY0Iq4VkcOV6WAvskIWZzcviKoETtpTb5UWRYgxZN4sxoYx4jA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=cIDsYu9H;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="TUxq9Gq/";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80765606A33A;
-	Tue, 24 Nov 2026 09:48:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33781606B72E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:48:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33781606B72E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mn7TMUUF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84E2C1F000C4;
-	Tue, 24 Nov 2026 09:48:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795513687;
-	bh=tlWLHhYc09Ruv0clfX9hykOMAyyYNJVQsL2Es94Qgkg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=mn7TMUUFQ/dlOQ35yBaluLkSPI+972EvacqjTCvTp5VeZIpibCb11siHcdps9J8iR
-	 cB5FXh+ukio5gH/7NOeELkjswsZhfLd+CQCvg3fm3kFqShq7TPz5vLPVgWi5JLyO1D
-	 QzhL1lyDhnkmjyKTyGglyVyjDHe+foysAKTCaH8zCWtHYXR3PVb3Kxc7Wn1HGivgzv
-	 QGw5O65IDDL0FYgF5neAvyhPdNxJdlhxBNOHgKslEiXk8tPil/3r3ZgUbqmndX5Uhh
-	 H7zdPRkzTO16mrcbpu1yj8c4mxPcqiZk76fwgkS1MGQyqxkzjVIu3AHyzZizuLNj/W
-	 F3UAkv0RW0EYg==
-Message-ID: <8dd3d211-d5c9-4a8a-8b48-04de60922b22@kernel.org>
-Date: Tue, 24 Nov 2026 10:48:02 +0100
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=cIDsYu9H;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=TUxq9Gq/
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO8ZCT13225405
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:48:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	PYXPyQn5i+rKtffQDXwKT7j2n2EdeKt2c28XS2Q64K4=; b=cIDsYu9HJ9HN1b8Y
+	hZKFIAXF0MFNqUwmdTocHq+Ey3Q6CZqgudQwT38Ke70o8MIoJjDUGJIFLEF8E2iI
+	5gWITQ0qqy7ZrBkVx5yBtwToDWUotcZoNYxD+NTF5QxVnjtbqrOyYbcYStTSVyEj
+	wXWpzHVxcm2Jy5HlmHMTfcekbHRbG2dZ8jZGVdWOgLFvlGK68l6icq92vcMGDAnW
+	D6/O/PiEDBKnSvcWEf/19M0CCiuate2SqM0rCldvk9/jknznjqOFzGKk7zAaQAqI
+	BcgYLh/MgFujzJr4Z39PZ5NwNjjbEH7lNk6+gvApQFodyfPAZcoTq4yQcc9aOECh
+	9HsAcw==
+Received: from mail-yx1-f72.google.com (mail-yx1-f72.google.com [74.125.224.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4x8f2bsf-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:48:18 +0000 (GMT)
+Received: by mail-yx1-f72.google.com with SMTP id 956f58d0204a3-67dae919cb1so6851148d50.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:48:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795513697; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mou06YttG/xHY0ukt9g4Oa8yTLQSaz3RuFSe39HdmaLR2kLKymVovoNPuLH7Ii7CPW
+         eROE+0m3CuIzpxwNjRwowvw6S1ygpJ+5OD8KZ2AKl9yOgNZRn8N/sGHWiebwB7QVye/V
+         yUDKNk6dEhuxR29lqyP+uw8nXns4RCNpoLX8CXRZd3zEnpu3DLyxqR53gt8KOKIVsT2s
+         RJNHxEE9Hn11BuBLQaS7iHzDCLzk4Ejmg/373+Jxs2UppWcaDMjGVJUw3M783Ey9XPXq
+         3y6U3FwEBhVHztNzAnM2pW933qZOX1OYNzc7NFP2ODh/OumvNSEOruXUnbP6qpXcRsxX
+         KPIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=PYXPyQn5i+rKtffQDXwKT7j2n2EdeKt2c28XS2Q64K4=;
+        fh=CRUtsgNHtt9GbwyC6/NQ+J+ywycbYeaSQslOo8GWf2A=;
+        b=gr+u3vD0uMKBII9V17oE8Syw9AW7Omvv9c3T1CgyHmQrxnbZ4MpaSXby5FdWvSSkwX
+         4l0nY5UNJ2ShIYlugTFHzEBbJJZWBZMhy9aQ6pQZYeIhMekpu6APQ+nkeOjEBZAGU+f3
+         YsJAFapjg+ZFWz3TDmf9eQcpV97OXYSp8VPUF7VlhddggxmgE3fw8RfQvJzyJYcqd5+F
+         +vtsjMeHak40G+/dz+fUgbIFLdWu2Ji5fD+Oy73iyM+5fjyH2W+EMheuwg2DMKWdscea
+         FhNQIk5ctr7Xekry1nL+9jRvcqNZ4Of2plqC8M6cFfjX9P7wLh+qLDp30KksuobLh15m
+         lCyg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795513697; x=1796118497; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=PYXPyQn5i+rKtffQDXwKT7j2n2EdeKt2c28XS2Q64K4=;
+        b=TUxq9Gq/qoPpvwHq4yArYXt0E5C9a+3whK+UFzI/vDi98648+mlPWeCyB9bfkQ6yik
+         OCmWGvn7NZ8e3sjT5X6r52juTWgJmrbHItVrV2gIOz2VtSODGb9G3m1bOFW5DXvKFKcr
+         Py/WvYn3z9paNDqDaOBZQhrgQsQ2y09cTnx7EzjYmcbNp8kTJ2aE9G7uO9QoOss5G+DI
+         Oarg/Ov+bcixUT9IqI5ToRn6gwuyjxrBXNAORjwl6Obn5RTLaFIP3h0nrE3xaN61iQ5z
+         SdeKc/Rlzvb2bimcS1xm3EmNWXiEfGvCr0c6/NrKu0RqMVM3/xh7AWVwsVS9Z1YmRCuX
+         uuWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795513697; x=1796118497;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PYXPyQn5i+rKtffQDXwKT7j2n2EdeKt2c28XS2Q64K4=;
+        b=RfZSHmgFdrUofQflwJntHVliDfnVYhVmIHXHiCngZpQN21UulGoKcFZ03NtLJF0jLq
+         7cx4WIYSkjJLDndbNC1/+Mha/pl1pa6dw54hb1SDndh+WMNI+Q9nzVQVA2o9qAo+YgcJ
+         cwmCD+pegMV/BXL0cGBKmk5NbexIvDojLOSyHjnHYKA0QOBAdelNKPA0I52j90Lfq0RO
+         gD+tPREC7UiZHmOk2TTJUZcUvCpqIL2PdI9WZZVaK4EKTl1pg8dPcieWgVQWeEC3hQYL
+         Mbh3DZc0jZMXDyub0O07CZIbc4Lm5qpkF+i3QlJfa+8uiGAC80p3nTj+yAAdlO7/lw6E
+         lgdw==
+X-Forwarded-Encrypted: i=1; AL+hErHdcFjbLVJydDbnQbfzAK1LymS3H0p3HWHBjuXPuL8VTSLcrPZ2JP2iUglARNTVTcOTby/jGhPKNvJWVzU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8d79fuY+S/qDd13IBf0BxjwVf0bLsN5t49GCrKzf3bPYUEeWRb
+	GjwspahgmPPQjlC2swGQbfo9bSfj7a0q+kEPLFRujglXLF5rwE6eIfZZq8QdwFSYCXmXeP9wEer
+	IjdYcaxzetul50Ty09ogKOeHkLMTAK9L8IKfZSqJDFxAT08ILf0EktUfRykHBNHqs78KZ3G65fz
+	yGu6hhloexOTXY1QaMkI7KhmvXSAxyE/ITyd1bE/siCDeK7KcZU0qN2VYUxg==
+X-Gm-Gg: AZFdTZehJjJbupvOoJ5mmL3DOK9VUJLK+JrhJO5VCBRyob8Ui9Y8S7yGL3CjU3wcVs0
+	F3wR0NIrq+JQDzyhHcWjhLqvqWqvNXatbmAuHOw1GDcAge8ol1S+Z2MOC1Lzx1S0+mMaLe444aq
+	9jYqdfqgMPLNe+Pcvkx1i8Q8J9lDYNnDevBlQJFPwW3D+OIMOACjIfl5ic4ei7EuPtSIK8tlX8k
+	oCjk02a7y7yw6xBqHTIPpKTrDFEedN8miYRU0DK
+X-Received: by 2002:a05:690e:c8e:b0:66c:e21d:9ab7 with SMTP id 956f58d0204a3-67dec41ebe8mr5944851d50.12.1795513697212;
+        Tue, 24 Nov 2026 01:48:17 -0800 (PST)
+X-Received: by 2002:a05:690e:c8e:b0:66c:e21d:9ab7 with SMTP id
+ 956f58d0204a3-67dec41ebe8mr5944846d50.12.1795513696773; Tue, 24 Nov 2026
+ 01:48:16 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,88 +128,130 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] arm64: qcom: Add SMBLite charger support for PM4125
-To: Raj Aryan <raj.aryan@oss.qualcomm.com>, Sebastian Reichel
- <sre@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Casey Connolly <casey.connolly@linaro.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- Rakesh Kota <rakesh.kota@oss.qualcomm.com>
-References: <20261124-smblite-charger-for-pm4125-v1-0-2132c9f0601f@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261124-smblite-charger-for-pm4125-v1-0-2132c9f0601f@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20261025192555.210257-1-christian.koever-draxl@student.uibk.ac.at>
+In-Reply-To: <20261025192555.210257-1-christian.koever-draxl@student.uibk.ac.at>
+From: Jens Wiklander <jens.wiklander@oss.qualcomm.com>
+Date: Tue, 24 Nov 2026 10:48:06 +0100
+X-Gm-Features: Aa3M54rCeSWPLabRKxpMyY7xQTHa_5h3mdus28HWlTKKE_dLD7QlkdvZ8TUkSI0
+Message-ID: <CAGgiveVtFW=t15nosGVtQ79Gr5jiWTAP3U9Wc5LCfV3Rr=fehQ@mail.gmail.com>
+Subject: Re: [RFC PATCH] tee: optee: allow forcing the reserved shared memory pool
+To: christian.koever-draxl@student.uibk.ac.at
+Cc: jenswi@kernel.org, sumit.garg@kernel.org, op-tee@lists.trustedfirmware.org,
+        linux-kernel@vger.kernel.org,
+        =?UTF-8?B?Q2hyaXN0aWFuIFN0ZWZhbiBLw7Z2w6lyLURyYXhs?= <ckoever@outlook.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAzNyBTYWx0ZWRfX96XM5ym9nXpI
+ kMmLDorSHtdNEtoUhkjPElcpdPUgPuB49VoEKAIJ5vN5DuFUKHpi/mUR3eH5EmZEEAWogpIYE/S
+ lTFKaM5tBYB/37ICOG3Y8Ax20VCQWG4=
+X-Authority-Analysis: v=2.4 cv=JbgpPkKV c=1 sm=1 tr=0 ts=6b055d62 cx=c_pps
+ a=VEzVgl358Dq0xwHDEbsOzA==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=YMgV9FUhrdKAYTUUvYB2:22 a=HrFImSkvvj_0lBCYv5gA:9 a=QEXdDO2ut3YA:10
+ a=uujmmnXaIg8lM0-o0HFK:22
+X-Proofpoint-GUID: jT1qGkLkBtOCD9kpT0TisVvqaSn2-Bb2
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAzNyBTYWx0ZWRfX2JnzR0GC5krl
+ fixDkmrqk5ptoN2/+xkacgVQxrOpp4JfV10ttSh1JRxjrDB/9ec+Dy4A9ABbn0Nkp0ivLUWzGvk
+ GIFCGtEcq/RXreaehDYbe54nTPiVFiNoAPjQgup3BARqO0l8WcYu4eKU8RLhrNQRQutEwgoDNAD
+ C9xk9xGo/01Q461OKYrZLbw7YgRjXghPknPPsvaEXmEUEzevmAK8uQDxcSHI43UVi6H0+5zXxBg
+ h75cy/aYKyX/ikfmkcLVox6VCWb7ilUI03l9c6CjKdWWg8rvemDXZuBnnBKR9zAK2q0kALgxURT
+ qLaMyCc0YQphMGIpcOZrAu7dic+hXQwgsz8Cy+O83ugJ7LlhsQCQhreHgDs+0EiMfVAfWTVfHSV
+ TTReQZHeszb2O4gyRY2SaIvW/ydOP4ONHbiogbK9xYN0UG7biHqr6J71ZELjaVv3RK0/HdXIbde
+ 0YkCBk5C4BERpyVTcEg==
+X-Proofpoint-ORIG-GUID: jT1qGkLkBtOCD9kpT0TisVvqaSn2-Bb2
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 bulkscore=0 lowpriorityscore=0 malwarescore=0 spamscore=0
+ impostorscore=0 suspectscore=0 clxscore=1015 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240037
 
-On 24/11/2026 10:15, Raj Aryan wrote:
-> The PM4125 PMIC, used on the Qualcomm CQ2390 platform (cocos),
-> integrates the SMBLite switch-mode battery charger IP. The existing
-> qcom_smbx charger driver only supports the SMB2 charger IP found on
-> PMI8998 and PM660, so PM4125 currently has no charger support at
-> all.
-> 
-> SMBLite is a reduced-feature variant of SMB2: it shares the same
-> SPMI bus and overall driver model, but uses a different register base
-> layout (five separate SPMI peripheral bases instead of a single base
-> with fixed offsets), a different battery-overvoltage status
-> register, SOC-based recharge instead of VBAT-based recharge, and a
-> different JEITA configuration sequence.
-> 
-> This series extends the existing qcom_smbx driver to support both chip
-> types side by side, selecting the correct register bases and handling
-> logic based on chip->type. This keeps a single driver and power-supply
-> class device covering both SMB2 and SMBLite hardware.
-> 
+Hi,
 
-Why do you have unexplained/unlinked dependencies here? Why dependencies
-in the first place. Does it mean this is not reviewable?
+On Sun, Oct 25, 2026 at 8:26=E2=80=AFPM
+<christian.koever-draxl@student.uibk.ac.at> wrote:
+>
+> From: Christian Stefan K=C3=B6v=C3=A9r-Draxl <ckoever@outlook.de>
+>
+> The X98Q's vendor BL32 runs OP-TEE 3.8 and reports sec_caps 0x5, that is
+> HAVE_RESERVED_SHM | DYNAMIC_SHM, with neither UNREGISTERED_SHM nor
+> RPC_ARG.
+>
+> For that combination optee_probe() picks the dynamic pool and sets
+> OPTEE_SHM_ARG_ALLOC_PRIV, so every message argument is an unregistered
+> private page passed to secure world by physical address via
+> OPTEE_SMC_CALL_WITH_ARG. This OP-TEE will not accept that: every call
+> comes back OPTEE_SMC_RETURN_EBADADDR (4), which optee_open_session()
+> converts into TEEC_ERROR_COMMUNICATION / TEEC_ORIGIN_COMMS. The result
+> is that no session can be opened at all - not to the Amlogic firmware
+> loading PTA the video decoder needs, and not to any built-in PTA either.
+>
+> Registering memory works fine, and HAVE_RESERVED_SHM is set, so the
+> existing static pool path is usable. Add optee.no_dyn_shm to select it.
+> With the reserved pool the device enumeration PTA opens cleanly and the
+> system PTA answers with its own ACCESS_DENIED, so the ABI is healthy.
+>
+> The driver arguably should not use unregistered arguments unless secure
+> world advertised UNREGISTERED_SHM; a parameter keeps the change local
+> until that is confirmed upstream.
+>
+> Signed-off-by: Christian Stefan K=C3=B6v=C3=A9r-Draxl <ckoever@outlook.de=
+>
+> ---
+> Tool use (Documentation/process/generated-content.rst):
+> This work was done with the help of an AI coding assistant, Claude
+> (Anthropic), used through Claude Code over many sessions. It did a large
+> part of the hands-on work: it read the vendor kernel and the firmware
+> interfaces, probed registers on the board, drafted the code and the
+> changelogs, and ran the builds, checkpatch, dt_binding_check and the
+> tests on the hardware. I directed the work, reviewed every change and
+> the final patches, and take responsibility for them. There is no single
+> prompt to quote; the sessions were of the form "find out why X fails on
+> this board, fix it, test it on the box".
+>
+> Tested on an Amediatech X98Q TV box (Amlogic S905W2, S4 family, 2 GiB),
+> vendor U-Boot and BL31/OP-TEE, Linux 7.3 plus this work.
+>
+>  drivers/tee/optee/smc_abi.c | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/tee/optee/smc_abi.c b/drivers/tee/optee/smc_abi.c
+> index 51624443359b..1824aead78a6 100644
+> --- a/drivers/tee/optee/smc_abi.c
+> +++ b/drivers/tee/optee/smc_abi.c
+> @@ -34,6 +34,11 @@
+>  #define CREATE_TRACE_POINTS
+>  #include "optee_trace.h"
+>
+> +static bool optee_no_dyn_shm;
+> +module_param_named(no_dyn_shm, optee_no_dyn_shm, bool, 0444);
+> +MODULE_PARM_DESC(no_dyn_shm,
+> +                "Ignore the secure world's dynamic shared memory capabil=
+ity and use the reserved pool instead");
+> +
+>  /*
+>   * This file implement the SMC ABI used when communicating with secure w=
+orld
+>   * OP-TEE OS via raw SMCs.
+> @@ -1770,7 +1775,7 @@ static int optee_probe(struct platform_device *pdev=
+)
+>         /*
+>          * Try to use dynamic shared memory if possible
+>          */
+> -       if (sec_caps & OPTEE_SMC_SEC_CAP_DYNAMIC_SHM) {
+> +       if ((sec_caps & OPTEE_SMC_SEC_CAP_DYNAMIC_SHM) && !optee_no_dyn_s=
+hm) {
+>                 /*
+>                  * If we have OPTEE_SMC_SEC_CAP_RPC_ARG we can ask
+>                  * optee_get_msg_arg() to pre-register (by having
+>
+> base-commit: 7be4bc52fd9e0e55dc9a2e0232b89427d2c4b614
 
-Best regards,
-Krzysztof
+This appears to be a broken downstream implementation of that
+interface. Could the downstream OP-TEE implementation be fixed instead
+of adding an upstream Linux parameter to work around it?
+
+Cheers,
+Jens
