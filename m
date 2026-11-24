@@ -1,127 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795563334;
-	b=Pd85nrn8n8Qr43WRuuL69WqHt562jM3wC5Bj5SC9AXockxi9W6WiH0V95TzEtwWxWxED
-	 Rl6mRIH86gwFX6CGnEDwQ3RB8LZEj1KqP3J0U0e8KJ6Cp29tf9DuxnMe6YK2dhVP6JVv6
-	 EdJ3GZqWqiqGG8qxkk56CNZ1JHSw4uAml3ouRZ2ZlykPI5Gop54+r96Q/IQ1iWYuls8/O
-	 bjpdt1nUk1r+JyY3dN75BsaVoJbccl/yfuPZtXLLRfRgXG6bA7mTGQqlgz97udnhA85uH
-	 93As7v7UQlS7ShqGQuvtptYHJ8AVBHw6n4Fd9Kn/y1UhE+fOaZIV2xrnPnNHhB8uO2w==
+	t=1795563499;
+	b=t1XFWTmLxjhTmYfmDmWgKvzlZOTt1sxe84kVPDycRFCR6inzhz2uKcEI9UEgzBy7FcrN
+	 8oFZY07qzHDUlPpF5EdL2dWpkkBWYvQskelfvmrf555299RH6tzSyrf3nX0EIf2Vk/mAw
+	 V9IFSpbqZAd0ReSm1Tgk2hWmgC1lQO/NGZOpigXw0J0caGNII6M7/uvWznTqWnvh6tMXp
+	 DY+XeFonpJRRobjKveRdIlNqv014pKJSF/K/rt+fg4Ag6nuX5zqI71xKqS80uf82xgY4n
+	 EvrAbkWHBVrDUNq3+q+1fVxMwsSdGArhFZdovQWaA8GZc1SrLuTRojLabdBXijDY4+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795563334;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
-	 X-Received:X-Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Organization:X-Mailer:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=QGUTIOxWinsKzT6Xe2dXkpvFQ+Rymkt3HBKSwo7edj4=;
-	b=aOHFSrkaMpSN6nOWHEgra5o41ABDoLHVsZx3ZgoCv5gI5cey5FgOQx/Oa5LDsFrMni5Y
-	 Z27agEbbxfANgrLUnvUS69FPGwvPoJ57fvSB2+Wk2p/IZZ4XIAIP1UO/w3Ng0WU4c+i+8
-	 uAhZHtiM9D+yfbThDARf+YiE/Hh0uVtT7muQMGyZJxwTrRsA5KIO7JP/4bDthf3j1+JS8
-	 EE+xJS6H1dmEIlOdXalI/3rYvNywruE09BJX/l+R/DpXPk0dXWMZpUKg7aeh3wzXMC4h2
-	 R+/Vn5EbkFjhoM/Rd9rwMUteMpYmLIDGk9UJjmwvsXY5hQdyzUALs6053N6Fv28FNlA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795563499;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:X-B4-Tracking:X-Change-ID:X-Mailer:MIME-Version:
+	 Content-Type:Content-Disposition;
+	bh=4PU89QwU68LrW3sJImUGX91LxCYEkUcPPey1S+s13qM=;
+	b=nZN5bTBbsXZbxYPQJJcZp+W3MoG+/MZPSBijAHT/GNL0YmJbw8OEDiMrr5/wyW2wDGvy
+	 ZY6qLhmI6bsrtgKhh0fTW0xEu9+qnGs2RWF4nb/VBalJ2bDXbs3yxU5QMJn4X0xmzgf+A
+	 58V7qDvoGQGPUhMrvzwlWghXamr103OJ/b7LSQ0RtqLwE/C6l9KGa3SszJ8x1lc7T1YlN
+	 UfW6wKbOCviz6BHJmqiM9m4+E4WXltfSt/faea4t7BvxyiRiEUOHuTfNq1aWhyLYDJ46f
+	 fIkCm4LbwUXrO40mbuAiIh4TRzcmMxG9V0GkJYH2K4CVSdeOgD2HJn7PkhlXS1oXYqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=h7oZLOCc;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=j+emKAFk;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=niA3MBir;
+	arc=none smtp.remote-ip=192.198.163.18
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB479606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:35:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB479606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7709B606A31E;
+	Tue, 24 Nov 2026 23:38:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7709B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=h7oZLOCc;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=j+emKAFk
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOMapmV640361
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:35:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	QGUTIOxWinsKzT6Xe2dXkpvFQ+Rymkt3HBKSwo7edj4=; b=h7oZLOCcrIy30Hao
-	FK38iZQoYlkyepzI1JsVsRVxonG3GDqwrJX4tKCSIwWOTk3CMlfggGOezcsmYSNB
-	DEGVFdJYPHawCDK3yfvF8sBseXvM7o5SOpDT+oBPhUVX60pQ23zUYPoe+xg7U1um
-	PnwJzgUyaoI7Ca7AUBeVme8MJbxteoLp6/U9yFNSCYwlMMUOeUXwH9ehwTF3dcFI
-	Sql0M6UmxnVC3bbEYdqcbqnhcA7tpUOyTTqx5iEBJd0MlbTjFE0o1mdOT4TttNSZ
-	XaLNeYGsFTpXOAIuwKWORHgkG9oYFRoUN0P+2vX066bRjUg2rYVDxV6Y/klkUJPj
-	tYI+0w==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5effsg4k-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:35:32 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-382af5cfc58so4825515eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:35:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795563332; x=1796168132; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=QGUTIOxWinsKzT6Xe2dXkpvFQ+Rymkt3HBKSwo7edj4=;
-        b=j+emKAFkUeacQNOPXUze3o6/SWf6RcV4tU0eHxRL3Pj/ojRdSId75/3qOsZUopWB6s
-         X0Mkyjap0L7O+3jyheEMDSJxa4zL4RE3vs0uQE4Ioid/ZaEXcREeoY2uuILnGpes3UnM
-         5vZTHgTGWdTUGVUOrRh147SVj5Hhz2fPtdaD1mpTDh2V7vZ2OytX6AhBmDF2FLO1/vs8
-         ZJCgFsssHPhxL6OwkqopDeCTLZfSYPDzbB7Pk02b7HV180V9oGIokY1w9XisadmrZ6dJ
-         ehOJ4LNn/tQ6nMd+41WlfLNaWysBwkHej8t3Epsm8nYPZkPRTwDxfaTWCq0cRGJYqnvp
-         M/HA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795563332; x=1796168132;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QGUTIOxWinsKzT6Xe2dXkpvFQ+Rymkt3HBKSwo7edj4=;
-        b=R44CE51O6G/n8udBqz4ZJnWcNojsz8dePSMqQiMqkzDbtV6TekfXqV/P3e9mBhvW0T
-         sP08EdVXDQlhwtYQhZtNdW4eCPIQxBC18Yx9Ok4brczo4rQnvXZIpuejMzTr/3QfwiwA
-         MXysFfjSH5JNnDCNBq1awuf+992hrMxpkrPe5TL0vlNVhLQ0o9mSxo7nBXVULEP4Yell
-         0WbOGkgFp0a6gjTSRBdikcwd2M+65t5OkETnd1jTIfuW/hOMB4D6ACyOR2/mtC/pb8cN
-         M2rAmVFCm3AR0aZNcGfQgLUKXZUebFd26ZGRm0rchcwdHD51eDJZQsQodl5VYDF+pPmF
-         dY7A==
-X-Gm-Message-State: APuU4Z+gjOvhp04iqCFDrgEhXdk8bycIO6XlegiDxycpHZnd2cP+h2pg
-	PdEktjOofZfe40VodsTamLks/AxUvMGLmC3GZtKafcTC/g24ttWsvwDv2DUUwDnMzeTH+6BKGwZ
-	Entj23XftGs8t6eZZhWQ+5rxE6FjLxs7e0bAo6B9vLfzYAyfue6Yi/bF/iKpbAYG5Yhc=
-X-Gm-Gg: AZFdTZdHZ8FVe4TXYQLVJhK/uUAimctw204nx8t4htfHOSuEWy3AipgDxo32NevMu4a
-	Y6Mmp03Vvz6HXNLSmlapw2A+qJLkCVBXW8MNOCLJkXAeUDy1Vi9umcPqjGbh9QaqVB8XoMgaVb/
-	Vv22IUxWPyuj2Mw8V3w5JMuYGp+rtAJHMif5lk3ijeATdLp9BnnhJ9uDyFT+CJGhuUk1rNvIqAm
-	zY96jkLkRzoAh2vb7s35mmZ7KelvQIruWG4bz4EUfS+VZNER6Jw0RZXsJZKi76N0KbSgqC0XlkW
-	VNeQMFjWKQFsiQVbxmtgAk3VVA9kZALoZAYfgoDHuE9IiDtHvrmJSlnpCux6oCYjhMaz3oPDiHO
-	YfR1eaUqyMiJpMKlcsVm6MyGfF8hUuNiHl+TxfrF9HPmbedRMbwiLAOxwi7uhUD1t8J7/FCIVsI
-	KCpep7SY1acPZXFsAL4Vsf66XfFWoB
-X-Received: by 2002:a05:693c:87cc:20b0:358:3426:d601 with SMTP id 5a478bee46e88-3856c0d0961mr17189726eec.2.1795563331632;
-        Tue, 24 Nov 2026 15:35:31 -0800 (PST)
-X-Received: by 2002:a05:693c:87cc:20b0:358:3426:d601 with SMTP id 5a478bee46e88-3856c0d0961mr17189686eec.2.1795563331043;
-        Tue, 24 Nov 2026 15:35:31 -0800 (PST)
-Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm50037336eec.28.2026.11.24.15.35.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 15:35:30 -0800 (PST)
-Date: Tue, 24 Nov 2026 15:35:24 -0800
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org,
-        sudeep.holla@kernel.org, james.quinlan@broadcom.com,
-        f.fainelli@gmail.com, vincent.guittot@linaro.org,
-        etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-        d-gole@ti.com, elif.topuz@arm.com, lukasz.luba@arm.com,
-        philip.radford@arm.com, david@kernel.org, souvik.chakravarty@arm.com,
-        leitao@kernel.org, kas@kernel.org, puranjay@kernel.org,
-        usama.arif@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v17 04/34] firmware: arm_scmi: Add centralized detection
- of truncated replies
-Message-ID: <20261124153524.000049d3@oss.qualcomm.com>
-In-Reply-To: <20261124194841.1147072-5-cristian.marussi@arm.com>
-References: <20261124194841.1147072-1-cristian.marussi@arm.com>
-	<20261124194841.1147072-5-cristian.marussi@arm.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=niA3MBir
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795563498; x=1827099498;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=MRZPPyR6ZqF34fP+tah/EHivSvxSMcRvQ5hawpHzCPM=;
+  b=niA3MBirBepic8NG6lx1PTG322qXaoUCzckwlpF0F6wWwXYNMW3Ak1rB
+   m2O6WjCL0Cevv96abbvZ/bZIkYxl65GRLQvnBkJ3u+fkXc6bAy20IjksL
+   mmJO5WsLtHFaT09bS9t5njba6jEYjB+g75OuHnRF/UaxRSnifi2Akc4dD
+   ZVkl/mnUQwIOK2nIharYR1CC4smEe0Sw6Hx8hdGOqOhNFlYRYlewsQUs4
+   HlbgrzgjqRAwEYq304p9DEUky/tPKStxrxnnl9fTUO3fBrk3L7+/OINNI
+   m4QUQjIyV67NsM2EkMb/mB/Pc3BAHBEuDWQxdtrUaaFseYMw5V6mLLNI+
+   w==;
+X-CSE-ConnectionGUID: TcVUjcQzQreQNJh/URy8zw==
+X-CSE-MsgGUID: /zrrLe6kSqyp9WmRsli+YA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4441221"
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="4441221"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 15:38:18 -0800
+X-CSE-ConnectionGUID: NFHe3L7WTVuVLE3jn7h6yQ==
+X-CSE-MsgGUID: BLz4NK4MRQWi1DWLqrjJVA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="11901365"
+Received: from guptapa-desk.jf.intel.com (HELO desk) ([10.165.239.46])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 15:38:17 -0800
+Date: Tue, 24 Nov 2026 15:38:17 -0800
+From: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
+To: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, peterz@infradead.org
+Cc: Alexandra Sandulescu <aesa@google.com>, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Subject: [PATCH] x86/its: Account for CS prefixes to indirect branches
+Message-ID: <20261124-its-cs-prefix-v1-1-10f2c01687cf@linux.intel.com>
+X-B4-Tracking: v=1; b=H4sIAKEfBmsC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQyMT3cySYt3kYt2CotS0zArdlORUU0NL06Q007RkJaAeiDDYvGilAMc
+ QZw+lWIhwcWlSVmpyCcgspdpaAL36P154AAAA
+X-Change-ID: 20261124-its-cs-prefix-dce5195bf5fc
+X-Mailer: b4 0.17-dev
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -131,147 +83,176 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=eo5KXYpX c=1 sm=1 tr=0 ts=6b061f44 cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=jPhv6GyDbwQFenseDfIA:9 a=CjuIK1q_8ugA:10
- a=scEy_gLbYbu1JhEsrz4S:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA5MyBTYWx0ZWRfXz38Vd7WpNccU
- XA9+C+7g6uBIUXZU9Tk7UlZ2Q9MEjIQ6EwI++GkQtT1M7Rm6rGzEJJ1kdvNL0lNSVUbjAF3M8Dn
- DLWzcr2+tuoslvUs015vyGoZ4tgsmZD3qtFpbRD+I/B/ljLM4OmoCVz4fsrU4IqT6IF5PmIjo84
- NW99WA2kFumbOb59KUW4mVw/GB/qPx/+Vyw67fu6fpR5z3KCAj9nn/USZ3epcDdhJt28xuMPGi7
- /3JxhvYGwaapUAt7eHHj1tgdmppu6Ih9wZCd9iF9bNulz+PJe7IfKySUhHn4viWY9/wu2kkXzIt
- U4HKxbDuf75Q2p//NTx5EYvTcVSys2cWDiPPcilpgs9C2BISrsy0MeJXJADBjwKvpXq6s3+OHus
- ywejGRebflxv7y3IeqL/Cp0QBl5QdYAPkuphFaIuKatug21j1+5OeS7lmjyf71JVnm7PCCWosMS
- QZnxyZI6J+NYu7pdxcg==
-X-Proofpoint-GUID: 0Tb9nFhvULGZ76J7gbntKaxYT5baVye3
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA5MyBTYWx0ZWRfX2asi+5MKeCei
- W/8W64qQNYL3NHGRrdhW/5Wht4s48sbxj50esRTH6CapUGr9iY+pbwLNc7JPlE8Sc+3luN9YBUH
- ykv0LHUIO0ldLS7Vw3wuaG5O7Xja+3c=
-X-Proofpoint-ORIG-GUID: 0Tb9nFhvULGZ76J7gbntKaxYT5baVye3
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_06,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 adultscore=0 lowpriorityscore=0 malwarescore=0
- phishscore=0 impostorscore=0 suspectscore=0 clxscore=1015 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240093
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On Tue, 24 Nov 2026 19:48:10 +0000
-Cristian Marussi <cristian.marussi@arm.com> wrote:
+cpu_wants_indirect_its_thunk_at() finds the last byte of an indirect
+branch as addr + 1 + reg / 8. This assumes the branch has no prefix
+other than REX.B. But since commit 4a1e02b15ac1 ("x86,retpoline:
+Optimize patch_retpoline()"), emit_indirect() pads an indirect CALL
+with up to three CS prefixes. These prefixes move the end of the branch
+by up to three bytes, and the ITS check looks at the wrong byte. A CALL
+that ends in the lower half of a cacheline because of the CS prefixes
+does not get the ITS thunk.
 
-> When an xfer is allocated with a very well known fixed reply size by
-> providing a non-zero rx_size parameter to xfer_get_init(), it becomes
-> possible to verify if the effectively received reply was truncated.
-> 
-> Add the logic to detect and report truncated replies.
-> 
-> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-A suggestion to perhaps move this to a different layer.
+ITS mitigation must use the same CS prefix logic as emit_indirect() to
+find the correct end of the branch. But emit_indirect() also adds INT3
+padding for SLS.
 
-I don't feel that strongly about it though, so whilst that is my preference
-this is fine if not.
+Move the encoding of the branch itself into pre_emit_indirect_unsafe()
+and keep the SLS INT3 padding in emit_indirect(). The CS prefix logic
+does not change. Let ITS mitigation call pre_emit_indirect_unsafe() to
+get the actual end of the branch.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+The new pre-emit version must not be used directly for patching, as it
+leaves out the SLS guard.
 
-> ---
-> v16 --> v17
->  - use %zu
->  - consider expected_size when reset_rx_to_max
-> ---
->  drivers/firmware/arm_scmi/driver.c    | 14 +++++++++++++-
->  drivers/firmware/arm_scmi/protocols.h |  8 ++++++++
->  drivers/firmware/arm_scmi/raw_mode.c  |  1 +
->  3 files changed, 22 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-> index 6dd249c08f5f..35adee6a7a15 100644
-> --- a/drivers/firmware/arm_scmi/driver.c
-> +++ b/drivers/firmware/arm_scmi/driver.c
-> @@ -1356,6 +1356,16 @@ static int scmi_wait_for_reply(struct device *dev, const struct scmi_desc *desc,
->  		}
->  	}
->  
-> +	/* Check for truncated messages..it will be logged by the caller */
-> +	if (!ret && !xfer->hdr.status && xfer->expected_rx_len &&
-> +	    xfer->expected_rx_len != xfer->rx.len) {
-> +		dev_dbg(dev,
-> +			"Truncated reply - HDR:%08X  expected:%zu  received:%zu\n",
-> +			pack_scmi_header(&xfer->hdr), xfer->expected_rx_len,
-> +			xfer->rx.len);
-> +		xfer->hdr.status = SCMI_ERR_COMMS;
-> +	}
+Fixes: 4a1e02b15ac1 ("x86,retpoline: Optimize patch_retpoline()")
+Reported-by: Alexandra Sandulescu <aesa@google.com>
+Cc: stable@vger.kernel.org # 6.18.x
+Signed-off-by: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
+---
+ arch/x86/kernel/alternative.c | 62 ++++++++++++++++++++++++++++++++-----------
+ 1 file changed, 47 insertions(+), 15 deletions(-)
 
-The check is good but it's the only validation done in this function and
-the naming doesn't suggest any validation would be done in here.
+diff --git a/arch/x86/kernel/alternative.c b/arch/x86/kernel/alternative.c
+index efbc11f8c336..16e0bce7fd6e 100644
+--- a/arch/x86/kernel/alternative.c
++++ b/arch/x86/kernel/alternative.c
+@@ -721,11 +721,15 @@ static inline bool is_jcc32(struct insn *insn)
+ #if defined(CONFIG_MITIGATION_RETPOLINE) && defined(CONFIG_OBJTOOL)
+ 
+ /*
+- * [CS]{,3} CALL/JMP *%\reg [INT3]*
++ * This only encodes the indirect branch without the INT3 padding required for
++ * SLS. Therefore, it is unsafe to use this for patching directly. ITS
++ * mitigation uses this to identify the branches that require mitigation.
++ *
++ * [CS]{,3} CALL/JMP *%\reg
+  */
+-static int emit_indirect(int op, int reg, u8 *bytes, int len)
++static int pre_emit_indirect_unsafe(int op, int reg, u8 *bytes, int len)
+ {
+-	int cs = 0, bp = 0;
++	int cs = 0;
+ 	int i = 0;
+ 	u8 modrm;
+ 
+@@ -747,7 +751,6 @@ static int emit_indirect(int op, int reg, u8 *bytes, int len)
+ 
+ 	case JMP32_INSN_OPCODE:
+ 		modrm = 0x20; /* Reg = 4; JMP r/m */
+-		bp = len;
+ 		break;
+ 
+ 	default:
+@@ -769,8 +772,24 @@ static int emit_indirect(int op, int reg, u8 *bytes, int len)
+ 	bytes[i++] = 0xff; /* opcode */
+ 	bytes[i++] = modrm;
+ 
+-	while (bp--)
+-		bytes[i++] = 0xcc; /* INT3 */
++	return i;
++}
++
++/*
++ * pre_emit_indirect_unsafe() + [INT3]*
++ */
++static int emit_indirect(int op, int reg, u8 *bytes, int len)
++{
++	int i = pre_emit_indirect_unsafe(op, reg, bytes, len);
++
++	if (i < 0)
++		return i;
++
++	/* Pad INT3 to tail calls against SLS */
++	if (op == JMP32_INSN_OPCODE) {
++		while (i < len)
++			bytes[i++] = 0xcc; /* INT3 */
++	}
+ 
+ 	return i;
+ }
+@@ -840,13 +859,23 @@ static int emit_its_trampoline(void *addr, struct insn *insn, int reg, u8 *bytes
+ }
+ 
+ /* Check if an indirect branch is at ITS-unsafe address */
+-static bool cpu_wants_indirect_its_thunk_at(unsigned long addr, int reg)
++static bool cpu_wants_indirect_its_thunk_at(int op, int reg, int len,
++					    unsigned long addr)
+ {
++	u8 bytes[16];
++	int ind_len;
++
+ 	if (!cpu_feature_enabled(X86_FEATURE_INDIRECT_THUNK_ITS))
+ 		return false;
+ 
+-	/* Indirect branch opcode is 2 or 3 bytes depending on reg */
+-	addr += 1 + reg / 8;
++	if (WARN_ON_ONCE(len > sizeof(bytes)))
++		return false;
++
++	ind_len = pre_emit_indirect_unsafe(op, reg, bytes, len);
++	if (ind_len <= 0)
++		return false;
++
++	addr += ind_len - 1;
+ 
+ 	/* Lower-half of the cacheline? */
+ 	return !(addr & 0x20);
+@@ -854,7 +883,8 @@ static bool cpu_wants_indirect_its_thunk_at(unsigned long addr, int reg)
+ #else /* CONFIG_MITIGATION_ITS */
+ 
+ #ifdef CONFIG_FINEIBT
+-static bool cpu_wants_indirect_its_thunk_at(unsigned long addr, int reg)
++static bool cpu_wants_indirect_its_thunk_at(int op, int reg, int len,
++					    unsigned long addr)
+ {
+ 	return false;
+ }
+@@ -941,7 +971,7 @@ static int patch_retpoline(void *addr, struct insn *insn, u8 *bytes)
+ 	 * Check if the address of last byte of emitted-indirect is in
+ 	 * lower-half of the cacheline. Such branches need ITS mitigation.
+ 	 */
+-	if (cpu_wants_indirect_its_thunk_at((unsigned long)addr + i, reg))
++	if (cpu_wants_indirect_its_thunk_at(op, reg, insn->length - i, (unsigned long)addr + i))
+ 		return emit_its_trampoline(addr, insn, reg, bytes);
+ #endif
+ 
+@@ -1471,6 +1501,7 @@ extern u8 fineibt_paranoid_end[];
+ 
+ #define fineibt_paranoid_size (fineibt_paranoid_end - fineibt_paranoid_start)
+ #define fineibt_paranoid_ind  (fineibt_paranoid_ind - fineibt_paranoid_start)
++#define fineibt_paranoid_ind_size (fineibt_paranoid_size - fineibt_paranoid_ind)
+ #define fineibt_paranoid_ud   0xd
+ 
+ static u32 decode_preamble_hash(void *addr, int *reg)
+@@ -1772,13 +1803,14 @@ static int cfi_rewrite_callers(s32 *start, s32 *end)
+ 		memcpy(bytes, fineibt_paranoid_start, fineibt_paranoid_size);
+ 		memcpy(bytes + fineibt_caller_hash, &hash, 4);
+ 
+-		if (cpu_wants_indirect_its_thunk_at((unsigned long)addr + fineibt_paranoid_ind, 11)) {
++		if (cpu_wants_indirect_its_thunk_at(op, 11, fineibt_paranoid_ind_size,
++						    (unsigned long)addr + fineibt_paranoid_ind)) {
+ 			emit_paranoid_trampoline(addr + fineibt_caller_size,
+ 						 &insn, 11, bytes + fineibt_caller_size);
+ 		} else {
+-			int len = fineibt_paranoid_size - fineibt_paranoid_ind;
+-			ret = emit_indirect(op, 11, bytes + fineibt_paranoid_ind, len);
+-			if (WARN_ON_ONCE(ret != len))
++			ret = emit_indirect(op, 11, bytes + fineibt_paranoid_ind,
++					    fineibt_paranoid_ind_size);
++			if (WARN_ON_ONCE(ret != fineibt_paranoid_ind_size))
+ 				continue;
+ 		}
+ 
 
-There are only two call chains to this, so maybe it makes more sense
-to move it up to do_xfer() / scmi_xfer_raw_worker()?
-Small amount of duplication but in a place I think feels a little more natural.
+---
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+change-id: 20261124-its-cs-prefix-dce5195bf5fc
 
+Best regards,
+--  
+Pawan
 
-> +
->  	return ret;
->  }
->  
-> @@ -1508,7 +1518,7 @@ static void reset_rx_to_maxsz(const struct scmi_protocol_handle *ph,
->  	const struct scmi_protocol_instance *pi = ph_to_pi(ph);
->  	struct scmi_info *info = handle_to_scmi_info(pi->handle);
->  
-> -	xfer->rx.len = info->desc->max_msg_size;
-> +	xfer->rx.len = xfer->expected_rx_len ?: info->desc->max_msg_size;
->  }
->  
->  /**
-> @@ -1616,6 +1626,8 @@ static int xfer_get_init(const struct scmi_protocol_handle *ph,
->  
->  	xfer->tx.len = tx_size;
->  	xfer->rx.len = rx_size ? : info->desc->max_msg_size;
-> +	/* When a specific rx_size was specified, check for truncation */
-> +	xfer->expected_rx_len = rx_size ? : 0;
->  	xfer->hdr.type = MSG_TYPE_COMMAND;
->  	xfer->hdr.id = msg_id;
->  	xfer->hdr.poll_completion = false;
-> diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
-> index c15ec188291a..50b89c56e309 100644
-> --- a/drivers/firmware/arm_scmi/protocols.h
-> +++ b/drivers/firmware/arm_scmi/protocols.h
-> @@ -106,6 +106,13 @@ struct scmi_msg_hdr {
->   * @rx: Receive message, the buffer should be pre-allocated to store
->   *	message. If request-ACK protocol is used, we can reuse the same
->   *	buffer for the rx path as we use for the tx path.
-> + * @expected_rx_len: The expected length of the payload in the reply, excluding
-> + *		     the status field. When set to a non-zero value this is used
-> + *		     to evaluate if a reply had been possibly truncated due to a
-> + *		     misconfigured transport: it is only set to some meaningful
-> + *		     non-zero value for replies having a very well known fixed
-> + *		     size, definitely not for variable-sized xfers with an RX
-> + *		     len initialized to max_msg_size.
->   * @done: command message transmit completion event
->   * @async_done: pointer to delayed response message received event completion,
->   *		or NULL when no delayed response is expected. Protected by
-> @@ -139,6 +146,7 @@ struct scmi_xfer {
->  	struct scmi_msg_hdr hdr;
->  	struct scmi_msg tx;
->  	struct scmi_msg rx;
-> +	size_t expected_rx_len;
->  	struct completion done;
->  	struct completion *async_done;
->  	bool pending;
-> diff --git a/drivers/firmware/arm_scmi/raw_mode.c b/drivers/firmware/arm_scmi/raw_mode.c
-> index 7e42dd6cc2af..45206edff446 100644
-> --- a/drivers/firmware/arm_scmi/raw_mode.c
-> +++ b/drivers/firmware/arm_scmi/raw_mode.c
-> @@ -574,6 +574,7 @@ static int scmi_xfer_raw_get_init(struct scmi_raw_mode_info *raw, void *buf,
->  	xfer->hdr.status = SCMI_SUCCESS;
->  	xfer->tx.len = tx_size;
->  	xfer->rx.len = raw->desc->max_msg_size;
-> +	xfer->expected_rx_len = 0;
->  	/* Clear the whole TX buffer */
->  	memset(xfer->tx.buf, 0x00, raw->desc->max_msg_size);
->  	if (xfer->tx.len)
 
