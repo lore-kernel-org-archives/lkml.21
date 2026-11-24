@@ -1,120 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.158
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795504775;
-	b=Y5tb33E/5y2RNDXJf9G+dx9afARvOkSJeD/91ah6RHMtkxWFVNdGalyXB9H9MIsvGfte
-	 uJuFy7l1pNUSG1oyOWCz4ziqmkyubqXX1mAmvEglhlQ+EHvH36R+Wz60Wrqbycoksk+FL
-	 mX8MTG+Y086PKRB1onu6aipfs8jGai+KgNzLK2xqPDJAv757Rp2qWiUVoTsnrNdqYWFIR
-	 O7WAvlHklI9BkAyggbDU8lLg9V3OoND9Ce28rJRNXPelpbLSy1vSh2Z//4KcQKQbX0/Pe
-	 Y8bAbGC05EiIjEuBcRuN31PF83JHfw4JDIQd1sfxTCyp7qAJYBLrup5HqfwgpfxgmMQ==
+	t=1795504777;
+	b=Iqeg0GBsqdssauJ3yr9MroZORAtbJN25m4oY0Eea5FKX8HLupWtOK2/QzB2FF68U+I4t
+	 zNsxuYMqAQPsjfznz+2KhLtzcsuWw0+CZYvWVaYi6fVQGL8aIjKA5vKORclkQwSNrLG9t
+	 kkevpAxBo3jSbtTqer5ypB4spP8KuXYzirducLmfUbEehHaIUqX7n6yLVXmbl85r8M1RP
+	 8qs824ZYB3c91vsRV6SY2SGQrv14doyj5DdCeRFcsXlfgQI+OfQyZN9hJ6f3runpgUVNh
+	 mRJZ5E0w21cBpYun5n4BlE7yMN227nu7CKIjlfhDixUoCeHhI0u4CTexJ8gw1jLP3lw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795504775;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=OMmNyxeJFUui1oxMfhrX6P3fAh2O7YAXYST9WFe6/2E=;
-	b=oBQGa3rcJKqJjouAKQtkYgI3v9YVErRAPHvLjjDpRiyGqdfy3frqddD7nRzMXsOU1DJm
-	 XKbj20NVCujCX+oMdb0PT3SY/9i64GEax6cbkdfF3Ia4QudTun31YOpg9RlBu5vSRzxMr
-	 tK9D8DT65BDsMKMxs891ehikL3OJzTda87YGucndJ6Ul08VFG+N06gp4JqejRJ2za0OzY
-	 S1Yd7B8VucxBZHN4R75P5LC0pWHt33CkKC/MvgEL3WVGBCkhaRgEr1wODJVX9URZ5iSzO
-	 zGRMAUQFNcpDGOIxfpVa67l6o7VABFzUYrF3xhzgULMCWFK3Dv6zrUmi2QPkW5V+9Vw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795504777;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=psyQ3R+IPgp+Vrzba+etQGrWT4agfKgZFhLKLz+GJT8=;
+	b=QVAxOoLpOOWESF/MlW3X0FD5mTSVDW4Y1cMRZ5LS+BpfgyiMMFJeQHVolNmsu2m/XD6u
+	 aqJmhNmVaG9NHBQUaycIxPlySYcUj9CkpXeT0DVJzACKoFxMeIk3Ck1R8HptlSK+lCTTw
+	 rVXKkbD3bSsMynPwoxJqIwzumez9TVya+cgtWD58FBHMZAqGiar6Nv4R4UFZP49vWqp7q
+	 knL6qgl/eSu16pg7Ja7CYIPz3sVLUoV4IdRBCnurtEors27JQJwgguHLt0Iz+XoA2cvva
+	 AeRc3uZQjp/V2sSFoovYZzi2dG/22vpztT18aJsNzs8HcxnHe4SSYiattvJEPpNIFZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=kroah.com;
-	spf=pass smtp.mailfrom=kroah.com;
-	dkim=pass header.d=kroah.com header.i=@kroah.com header.a=rsa-sha256 header.s=fm3 header.b=Tw9MNJ7t;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=O1IS5YQF;
-	arc=none smtp.remote-ip=202.12.124.158
-Received: from fhigh-b7-smtp.messagingengine.com (fhigh-b7-smtp.messagingengine.com [202.12.124.158])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jb33G8mO;
+	arc=none smtp.remote-ip=209.85.210.176
+Received: from mail-pf1-f176.google.com (mail-pf1-f176.google.com [209.85.210.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0D1E606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:19:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0D1E606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=kroah.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kroah.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0F12606A33C
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:19:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0F12606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kroah.com header.i=@kroah.com header.a=rsa-sha256 header.s=fm3 header.b=Tw9MNJ7t;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=O1IS5YQF
-Received: from phl-compute-09.internal (phl-compute-09.internal [10.202.2.49])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 7E19C7A0533
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:19:34 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-09.internal (MEProxy); Tue, 24 Nov 2026 02:19:34 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kroah.com; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm3; t=1795504773; x=1795591173; bh=OMmNyxeJFU
-	ui1oxMfhrX6P3fAh2O7YAXYST9WFe6/2E=; b=Tw9MNJ7tlQ2XCDoxs5DEYcVbzD
-	gtINA+ld6io/RD9QyemsDG2UeX2Ubp0okulbAqr8j/mLub9VzuDroZJcSBit6a+1
-	Er8z7STWD2oDjzlGnhAS/UkMEyVOdn5YDuN216NNxehhlzGI3x0c87MBvQDxTy0x
-	zuFVaeFd8EqTB6gUpO7sjQm8EHOWnEQ2WIY7dLTynp1/QjBSp+8HONscl62JZ2aK
-	QhepqJP7CIjhHu15sXuvskwUEsnvfwT7uU7KtO2HkpuMgygpCZxGzl993sdROAm4
-	ugP1ei58D02svioEBNLm5ZimNDhFrDpKPHdhT0APB/CdgLaGFZhQjSq5UHOg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795504773; x=1795591173; bh=OMmNyxeJFUui1oxMfhrX6P3fAh2O7YAXYST
-	9WFe6/2E=; b=O1IS5YQFBwTXLQ7EopsJthearMbw0xtugtXSVcw10TCyzCBHqWm
-	AfppiM6nd8FHRN4tdGeCmex9MezfsSSvOwiJXMwYcfD64nkFpWBUHWzx65TpFtvj
-	D0rmJ4ebpKwMMlc2L2Vy8eNTSC2pCp88IMAR5ikGDZoabDUMMojfpessxPFkdDvM
-	cwa74nUKppSsxUJoo+162LsPhDfljFVnVLTEKR7AnA5ccd/tatWhO8p6NH8FxBO2
-	4ywUNW6tXxI4tD3SxpDM80IEWoYqv6NzaKZVA19s3MGY/RhR/q5JAOHj/Zpq47Fx
-	kpU6kX9FT0slQXvpqrYnA4CJH/9owaMwq2w==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=kroah.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795504773; d=kroah.com;
-	mf=PGdyZWdAa3JvYWguY29tPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:EuEN1e0DGCG5/cI3JmRx9ipjB+3WKjTjsNu6dm99AyEEYG2
-	FvNpTd1az23hmw+m7HC6BqKHiN4EKfhXRMRm8ERspBxd0KpK0WQes1EYpJCi0fK8
-	yQ5GurW2UF9gG96mNKyEfKWApDWkaREnWQpgfavKH56IhJ/HdyXeB/gX68jIHttd
-	+G7YxQZoC7FKT+ZA/oNE+to5qEQTW9kTZuaHNoWttx2vPd2cpDTk2gqKy/KygrCu
-	gFO7M8m9N9WuYPU34OVEquMI0LtscOToT/lO+KQO+qahJWquc04IhxM9Lmgtqueh
-	P9fQ6RAYVE1Dfc2MIpIuq7j9XIXKGJ8QNS2Fp/w==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-disposition,content-type,date,feedback-id,from,
-	in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:XsS1p2JKQLpauJ3wax7PB/9DlxU8w9/1JkG9AooD41I=:hWbt8nnHPaO5Zs8R9pbecgdpQF4A4fGBa+yk2OOuKxI=;
-X-ME-Sender: <xms:hToFa4qwS7jdMVeix2Dvdn_gCXhOovIUqiSxR1dDf4ty6EaacpMe3g>
-    <xme:hToFa203gKYgZIIZZ9R31dmqLTHm4lQzz9a5LAd3voH1DbhIRhhWBR7QJ6ovYebfX
-    r67wSzLaTLyBxGXjoayn46AMVEsCs6vckhWl_mejNy7gBImlIQ>
-X-ME-Received: <xmr:hToFa4xJWj4mFflX6PLr2nZGKJsYxJ4ddP4rIDovBONfsrXqYKEMGg9MHDnyDsx6fMH7yPSF0W8EGYwNuVp4GSleVz2JV2EceFmQthgO7yI>
-X-ME-Proxy-Cause: dmFkZTGzsDXJ9z3EYyMv8re+RLPHGzoi6MiJhvjAaRUSzBeE74Wxd5Hh4tWNxeI6JnxDi6
-    PKfvSg+UeR5tGlSNuRZSUWXw2mxvmL0A7+uxknOHPOOLfZDFmBiVcZpa1dWhNZlV3ye0Qw
-    mGZDGgDzRakZT0AKYDCFOVvmzDikwREEdqOf1x7EMshCVTmScPG8PfV9VlPU9Jh3PGixvM
-    tzdCvY6nQWJQT7098SFSgvVLxpCGU1BKnH4Y1LoGqt0wmieWJMdM78SGtTwjBrAmA6r7wC
-    s6FyB5tb0392Zr/NW4Xpax/EjSN1/8YF0ySSXp7dzTnq2nWJxqzFhb4+s30aSaPMdQqHhd
-    lJBfscicMDeKUVp4CmUvrTQ3zPaPHouyTwodtjOT/eJorpJCiSTZnhiQRzYdGQGGiW01i1
-    SN7mpqYtA4pST6g+cM8JLAWivUQImaLMk5a296q75Kva23033DzH0pfzNa1W3pYGY+/Mn+
-    /xeeQtpCvD6wSQI1Jw6idKcl7MkUB/Z7+1YcGbRIYB4kG3ryg/vIW+yH16faf08WzRio0h
-    ggeo/5F7SF9j8EKJhcDsGhwQlO9pNUMF4ailiZoOSmtTjiAWU0/jt1ulTOZwV9CjetONnM
-    bJ3lA4Gj1ZdTgtAZm9M9gwj+WRBvav59nN9I9D4fnh6JLyWH5HsQAD0gt1cg
-X-ME-Proxy: <xmx:hToFa6ieDUIR_LbpJcS7MFOCRKf8USkJnFUKSeJ22bhUKylNY9a2Ow>
-    <xmx:hToFazrBhUZr-7wqUp0Mq3wOQaFpX-c8Ro2PbCYMu-lsxGJYTfDmMQ>
-    <xmx:hToFa5g06paLg950PWu1qgo4jdvzccufhHDLJhlkbw0p7XMt6fNVIQ>
-    <xmx:hToFa9MP5MiT7MTTbgxNkrb7Dg4iNUhl6EathQDYUaBvHkZxstsk3g>
-    <xmx:hToFaw1eshj9nOwQsLfDoVm4UyS9okJ6PkbEkjxrDeIFLSFhfMfSz7iE>
-Feedback-ID: i787e41f1:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 24 Nov 2026 02:19:32 -0500 (EST)
-Date: Tue, 24 Nov 2026 08:19:30 +0100
-From: Greg KH <greg@kroah.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Priyanka Mani <priyankamani2100@gmail.com>,
-	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>
-Subject: Re: linux-next: manual merge of the usb tree with the usb.current
- tree
-Message-ID: <2026112422-bubbly-threaten-b4a0@gregkh>
-References: <awRdGojPVH1LpICe@sirena.org.uk>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jb33G8mO
+Received: by mail-pf1-f176.google.com with SMTP id d2e1a72fcca58-8b29b83fdf1so2113548b3a.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:19:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795504776; x=1796109576; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=psyQ3R+IPgp+Vrzba+etQGrWT4agfKgZFhLKLz+GJT8=;
+        b=jb33G8mOS/Hi1jWlbaudR+Y8v/b7kjNRymBbnp45JRiKAkM+lr1QSILrSFem736iC2
+         AfvHjuItnI3tl4xVMogeehGLzwOMrB2+yFoU13bZ3qGKTRZR9JaIU8msDmLWruizzj8j
+         OSk6LEihZORe7s9OQMIZGBkXVm+kEF6KUqbfzlc4/pxTv404AitSpyj5YzzJEcHIsezr
+         /1DLOdMmJ6e9rD9GDj/ELR4XWfVfJG6AjbqkDpEa26i/A1g0xYDL07lr38ai6F0IKdp5
+         KKtU89PJzK9LVmwEICshchHb2kl73xBJ3h7Hg5CleDSX8DZLiDYtmfUHIYsFky5Lfs90
+         2YWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795504776; x=1796109576;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=psyQ3R+IPgp+Vrzba+etQGrWT4agfKgZFhLKLz+GJT8=;
+        b=bdr/vUWN1725Q/p05Muava4pK/Sx8Jjif0quwFvPAMxZJzat1P8PiCjxofnoTh2gQF
+         3b+zLMd1GETvn6YJM+o8Niml1dVkQEkrYR8E/5ozbx8PYtoImpfvNFhON9RHMmjMj4vy
+         pP92SJCDjMOdfImYAaE3H8r/GW2S5pM3T2B3lxMCgHSDAIKqq2b5FWVx4bCvEkQNpvAN
+         X0h4x+mq+d0N8u3IGkptEc98DIljfM5K+sLgkt9r45AuPFAcdXiUhTKwoKX7RtgvUVmO
+         5evW1lbI0qX6Z7XjtlsY1pZ/HiSPGAiJSDemzPX/ijlhjIohWHBXXsfwrJ6/WnMOqDvL
+         0W9g==
+X-Forwarded-Encrypted: i=1; AL+hErGRIQg/yekqdFz69/m9M6ryCPXAT09hHLmuPp2R+bJ33lxtiJW96maDiPPTDM9uGxywBGIBv9aaZTm+M3s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+tAz2fjpFQi4lDOlzpqelPBnA5hG3xSYxiA1PHVfVq3QZLphUV
+	ZwNdQFyhE6vCyQTfoHqODslmPz83ksKHm/b0XV3vmyxAeQGnPnA8AH10
+X-Gm-Gg: AZFdTZd0WWqrQv0xo7VjQ4XsxBvyQ9dNaewb++XxiKrSUVPubZB5c6nuOffnx9fQH2Z
+	Lff/A+xFBWkviZqy1XOSaUyJLKmKLpENar4heF08okoJNZ1DE2CtlO2YY8AOmmcEoBNraFA+3tq
+	40Zll3wpn66/d5XZROIqBleLSUKZSV4yL3bIfl7rGhSulTwTxxnHPPaiu/2oZLAKo/5kFSz0lVb
+	MIGW819BV2k9c+cOS3il5wy3xqs0oCpGPeCMA5fMU8zAa2KmmGagX04dnadtbUlXY+k+KPkFjhe
+	XS7W+6OV0xegx6j/EmJujaSXPM8jAQ5/b49X7dcccWsPBQTXKeKd3GMoUSKn6LF+pHNJWPVUnM1
+	qam2MDx72H/V5fOCoRSTcA5Qbv/VlSp7GG+rCPyYHwZ0sOKjK5Lz/g2mBUz1c5FR+qXwLtADRTC
+	59IMpv7vi6Groco5Ed78JVnwGtHEan8rUDx+7eSBKrJRaHoEVP83HPg8Z57gsmdEDzGFGHz3fjO
+	YVSEOq+vlDfZHQLosQM528uMXMkIWyU7oB6kQRDgwwEvuXOe0oPdjwUpYQu/SpMp6uFvDKNhBM0
+	+jqQQkhQcYs5K4mzDujhqv+Cq+2tRnNPf+SXZLP++UIoyMqxkjiW5ECoURslBnpQN2rVrzGqJVk
+	j3JhmLMCS+1lom/8IL8g=
+X-Received: by 2002:a05:6372:a748:b0:3e1:885f:b4ab with SMTP id adf61e73a8af0-4014a27e905mr10620093637.8.1795504776021;
+        Mon, 23 Nov 2026 23:19:36 -0800 (PST)
+Received: from LDYT9Q2G2M.pvgl.sap.corp ([2a09:bac5:cad3:119::1c:2e7])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde7f91c6f5sm4425486a12.27.2026.11.23.23.19.30
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 23 Nov 2026 23:19:35 -0800 (PST)
+From: Zhiqi Zhang <zhiqizhangg@gmail.com>
+To: Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>,
+	Phil Sutter <phil@nwl.cc>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org,
+	netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Zhiqi Zhang <zhiqizhangg@gmail.com>
+Subject: [PATCH] selftests: netfilter: fix missing echo in nft_nat_zones.sh
+Date: Tue, 24 Nov 2026 15:19:26 +0800
+Message-ID: <20261124071926.8818-1-zhiqizhangg@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -124,71 +107,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awRdGojPVH1LpICe@sirena.org.uk>
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 03:34:50PM +0000, Mark Brown wrote:
-> Hi all,
-> 
-> Today's linux-next merge of the usb tree got a conflict in:
-> 
->   drivers/usb/gadget/function/uvc_configfs.c
-> 
-> between commit:
-> 
->   8709574b03899 ("usb: gadget: uvc: fix dwFrameInterval array leak on frame removal")
-> 
-> from the usb.current tree and commit:
-> 
->   01ad61c08da9f ("usb: Constify struct configfs_attribute pointers")
-> 
-> from the usb tree.
-> 
-> I fixed it up (see below) and can carry the fix as necessary. This
-> is now fixed as far as linux-next is concerned, but any non trivial
-> conflicts should be mentioned to your upstream maintainer when your tree
-> is submitted for merging.  You may also want to consider cooperating
-> with the maintainer of the conflicting tree to minimise any particularly
-> complex conflicts.
-> 
-> diff --cc drivers/usb/gadget/function/uvc_configfs.c
-> index a8717c95e5edf,3387060bab55a..0000000000000
-> --- a/drivers/usb/gadget/function/uvc_configfs.c
-> +++ b/drivers/usb/gadget/function/uvc_configfs.c
-> @@@ -2143,27 -2027,15 +2028,27 @@@ static const struct configfs_attribute 
->   	NULL,
->   };
->   
->  +static void uvcg_frame_release(struct config_item *item)
->  +{
->  +	struct uvcg_frame *frm = to_uvcg_frame(item);
->  +
->  +	kfree(frm->dw_frame_interval);
->  +	kfree(frm);
->  +}
->  +
->  +static const struct configfs_item_operations uvcg_frame_item_ops = {
->  +	.release	= uvcg_frame_release,
->  +};
->  +
->   static const struct config_item_type uvcg_frame_type1 = {
->  -	.ct_item_ops	= &uvcg_config_item_ops,
->  +	.ct_item_ops	= &uvcg_frame_item_ops,
-> - 	.ct_attrs	= uvcg_frame_attrs1,
-> + 	.ct_attrs_const	= uvcg_frame_attrs1,
->   	.ct_owner	= THIS_MODULE,
->   };
->   
->   static const struct config_item_type uvcg_frame_type2 = {
->  -	.ct_item_ops    = &uvcg_config_item_ops,
->  +	.ct_item_ops    = &uvcg_frame_item_ops,
-> - 	.ct_attrs       = uvcg_frame_attrs2,
-> + 	.ct_attrs_const       = uvcg_frame_attrs2,
->   	.ct_owner       = THIS_MODULE,
->   };
->   
+The ping failure path tries to execute the failure message as a command
+because the echo command is missing. This reports a confusing "command not
+found" error and returns 127 from that command instead of printing the
+intended diagnostic.
 
-Looks good, thanks!
+Add the missing echo so the ping failure is reported consistently with the
+other failure paths in the script.
 
-greg k-h
+I found this bug manually. OpenAI Codex generated the one-line code
+change. I wrote the reproducer/test case, reviewed the generated change,
+and tested the patch.
+
+Fixes: d6905f088d2b ("selftests: netfilter: nft_nat_zones.sh: shellcheck cleanups")
+Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
+---
+ tools/testing/selftests/net/netfilter/nft_nat_zones.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/testing/selftests/net/netfilter/nft_nat_zones.sh b/tools/testing/selftests/net/netfilter/nft_nat_zones.sh
+index d935c967dd..f15bfd3373 100755
+--- a/tools/testing/selftests/net/netfilter/nft_nat_zones.sh
++++ b/tools/testing/selftests/net/netfilter/nft_nat_zones.sh
+@@ -171,7 +171,7 @@ done
+ 
+ wait || ret=1
+ 
+-[ "$ret" -ne 0 ] && "FAIL: Ping failure from $cl" 1>&2
++[ "$ret" -ne 0 ] && echo "FAIL: Ping failure from $cl" 1>&2
+ 
+ for i in $(seq 1 "$maxclients"); do
+    if ! ip netns exec "$gw" nft get element inet raw inicmp "{ 10.1.0.3 . \"veth$i\" . 10.3.0.99 }" | grep -q "{ 10.1.0.3 . \"veth$i\" . 10.3.0.99 counter packets 3 bytes 252 }"; then
+-- 
+2.54.0 (Apple Git-157)
+
