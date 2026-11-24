@@ -1,82 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795535091;
-	b=EVMMZ2/T1zyLJGGIFxrSzsq4Ni/NONEGHcJmH8OoCwByeoF9A11qOKl3YZ6zfcf2pYiH
-	 lVSp6NfDcmuRAplZm8KBcejTauoAWe4HlL+v0a6/tY09/cLkD5McxRYZcd9n/HsrbfwAA
-	 H/DPgskdOSVHI/VfJjlCJ24tbAWFY/DkZIsUoBbf5Sn6BC8ovF+CCgDF/JC12ohNyciQw
-	 Y1tc8TMCriwRnbk/ig5S+OWKS0rq7RtIB6gRFH/QFcrVaIrq/DlI4pilg5MvP8fkI7D4G
-	 PcUG9PR7Jf5aHsoRxJhnx81o1CH7EoWPGxJMXcUJZ0M0SuogQIYtzHbmFI2ARUi/06w==
+	t=1795535093;
+	b=SMOa40jQA2ZDD3wwt3remRv93bWRgqIRyish9WmOOJBEB3zwYbo3/g8F0wVhs5fK4+NJ
+	 ATPQ4798irdZPTUq2c8jyN+dr9IoKitL1aweVrRqoxd+b39dn2rvO7/1ohvOE1z1cuMeu
+	 9H4xbjBpW958qeEKwMos0vQOdZAY5KwZ2UYgsoXm73YnWpCN6hZxpFp+pqmEXq8xEX4qB
+	 zI/t8ocvLhvmCnle0gz8SJLXskLwgqaVUd8RXYFflfPXAj4GLqKtlA0m+QKLtuF5iHIZe
+	 jCvQdETA5bDk2MUm0CkOOM2SwjDosM3bF0kYmUmuOuyvfhEpjZB+2nUBzX+R3hxpGlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795535091;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535093;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=TSdQ5TOQ0yFmH1YFXVI+vRhBNVbXW0tI8IkIMvJt8n8=;
-	b=sAseNMtRnfMHsIbc5jptvG4NjiFkYwCOwPUzKrt/jQ7FO/7l3s5C5tYSbG3/a8qVmb7Q
-	 SUDeOu/mxwap6a38xCQPDN+4NZbmMLtDOD7go0ngzegbFfY6C8g215+nzVMVZaOyWm3ck
-	 2ojD4owcwadkHzHX1Aeng0PTrONclvaqeN0ChME1LUOYYAGfjRn2iy/odv80iAWdkw/3G
-	 0KgVXSRHssXHrjQoHwqkdxc9NYIAuDC+Rcs3hJoZVZ9kHbLtGQqbvGudXOGAgSwa9eOkw
-	 OcH7rQF8zBxXyjB58/FxacKj36CpaDQmgxgYNetOa+vfRxm/Cm4knj3sz7j0Xi5Cjfg==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=/xKm7gyCn60q+UftQgSFNSdwil5EY1yDb3KfSYz6nH8=;
+	b=45e+KEtIvKv93MnUDumbrjHCUjx/0mEiFDNSf4MhrEkNmwjzNC6JTQLpZGLh2magXKcm
+	 qs89Uv2Jf/G3pbWESak/HxOILQfQimOH0ALnZRz1+cYmZKTp13Oc6uIedcgXCPnirGaWr
+	 MBXVVJYmqPRSSX3rRWzPgO3uzmMBgyt0fRVIjWig0nj6DaZBCWzFV5HRLnyUy99bwOrFe
+	 0DkdHcq26OVR2j/7LCbXXbUHuriUWD0iD3I/IpMni28HI1JMdL1l5FDeQnVgzaXdqZymL
+	 Tv+KVqRY2DSuHYiq5dK48oVAKtE7JX4N1dy2PwEA6BEr+3pZJdsWrDTPi+EdnJGMilQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YgHWXKtt;
-	arc=none smtp.remote-ip=74.125.82.46
-Received: from mail-dl1-f46.google.com (mail-dl1-f46.google.com [74.125.82.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yM06T9FU;
+	arc=none smtp.remote-ip=74.125.82.52
+Received: from mail-dl1-f52.google.com (mail-dl1-f52.google.com [74.125.82.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20F90606A327
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:44:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20F90606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AF01606A332
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:44:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2AF01606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YgHWXKtt
-Received: by mail-dl1-f46.google.com with SMTP id a92af1059eb24-1b3ada81853so5388638c88.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:44:50 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yM06T9FU
+Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-1b3acec6677so6782474c88.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:44:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795535090; x=1796139890; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TSdQ5TOQ0yFmH1YFXVI+vRhBNVbXW0tI8IkIMvJt8n8=;
-        b=YgHWXKttSB/vDprhk+AB///I7J13iKAgNwCrY8P7tXnOHqb1bgExM/0Y5328UZ26bO
-         vNvGrA8x/nCbo0rmeV296KaMSHPcRwUEdIjIhkesIiq0lg6KHQTuNVHNZKloyATDq/+n
-         3zgc9E1UVMYOSPOtlxismo057o9iLNFktuQw8o9zgUwHCxzF2a6SvnJU66POe9rSMSC5
-         uns0vgSF/esNFrkAd5i18z/62CHW714LGvua/NMu3Vk3AFbCiOsgmqYR7MUVObY/3f7j
-         WEfthZITTT4VbTj0WtWecXCVi89OSV1HChVqU/8o0XyzOUjVTMMbIRkzwtCEgex0LI2X
-         Tyag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795535090; x=1796139890;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795535092; x=1796139892; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TSdQ5TOQ0yFmH1YFXVI+vRhBNVbXW0tI8IkIMvJt8n8=;
-        b=Hl6JMlP+urEj+yR0CkZy7mH5N5/ZXKhdpYgLNPE+5FRiGm++GFU4KzA7BtfCmrBVRm
-         3+zf/fBS5YqGZsY38pfdnDWaB3LwpC6YzTtelAwpZYLO4SAWy6SocgIGqoESF76fWu1l
-         jRvpUxenXH/cdr9VwhGTcL6xmzda/ENF9JTJys7pUsl1yjvsYj4twUlEQsZlsKiBtc5H
-         6xMk7h2EOoitpXnNZ1wUXQ11sZDpD5b+jDOlazSlyB1d1m7jPAogbwE1bV7z7BHvQgld
-         ML3ZOXfAyE5TAgHLPku9o3vLMe0AFYvJ9jpTk1cPLKopxPl7obNZkrqqcqV8hBj+D0Tw
-         mHHg==
-X-Forwarded-Encrypted: i=1; AL+hErFPpgtEn/PMiQK8D0Mrq30w7zRyCPPpPCnc1y97wQB17F1A/BOf6boMp+AwwL0BDqHY2q7MK0f8sGJGAmM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8JYxxJGeMxxmwecjepQilkJwcU9fOVpxDp9FxnGssdElViozhE
-	0akKBr1QwVgYGTivi+4m4E15iMWENUIH1if6en7zRWhbBSKlcb3F5xTPhQn7nAl8
-X-Gm-Gg: AZFdTZdepzWgVUEcmtRPLQDIhOvmDWldz5fMvTyD7qxdilFivNKfW7mnign0q26eZ3W
-	1PpDeH1uQWQyhNJsJmUjrf8liTW2loJ+NcbfxxA9FgCW+XUdAsnjYu1CNCgBmWbKLcbOQp8iFDe
-	mbM+q/xjhB8Pb71zIWEiDe2ZL7B5igjcOGCkTXjjzjEiMwUDB1irkzm3iNz2izcs/FlMMCJJFQY
-	yi1WB/DziO+nz6ixUWxdiDUYDU+NMv4/5qHLmIFFzIuGZf/kSRZZjUtpWqVadM/CuniJEhY28Zp
-	U/Y/BAq6AEvrW2HO8Gj5VOjOaqGfsDIcV8S3ybNFBM9Xb5is7RE6GUjqBLgePfqSoE0i5dTT9Kd
-	KiQq/3NP2qkBquzz0cbr7/iQzmkinZUpj5Ud+ey8E+tUOY7X3Jj5feWOAfmq6p5PbEUTqT8kO1z
-	nF8OD+yIPxxf8FEKHuZv43yzVau7zznFG5z4U2uhri6A7WoHU/hvt1X7t+eWq5f6KSz1VkyNb4M
-	e3L6K0mpcawM4N3u7cpGjXAdbB9evuPQBEbPTlt1hH0wvFS/btTTad/tA+DMXBJtzSfFJDigUoz
-	IyUI+CC5FXr7gRZkQ1H2QDhLxiC6mn9ArIzZ92GfBw==
-X-Received: by 2002:a05:7022:f513:b0:1b3:b53e:b4cd with SMTP id a92af1059eb24-1b5568a951cmr14140772c88.21.1795535089896;
-        Tue, 24 Nov 2026 07:44:49 -0800 (PST)
+        bh=/xKm7gyCn60q+UftQgSFNSdwil5EY1yDb3KfSYz6nH8=;
+        b=yM06T9FUoT+HauG+ah7ZlDtJE0jPh5ciWEgMIRQ+vqEic2A9PRgWPR1ZJpzFTLR/cu
+         nO8CIq2Yyzr9afpjdHgu+R5hGufllaMuhwKbbPisWnTxH6l5smZ92CeQny/SPyiAq0Dg
+         ypK1AgE08YrsRNdRvd697RDKE4HHSr30RCoIk1Z6+ud/0iEkbqty/zl+nggb3cfIucjj
+         tKO0/EUGsxbuHGaPVQjlgzi2TQma2j+doQQzHWwdJUIL3PRs0ZLkIXKqLXzjFtkztAkS
+         LC32xHBOTywJCYEaw/G2wSHD+PhB7sG2fWK+8GyZ+j8Rsp8xEIMcEY1tRVI+/4m9q9Nc
+         rasA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795535092; x=1796139892;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/xKm7gyCn60q+UftQgSFNSdwil5EY1yDb3KfSYz6nH8=;
+        b=gP0PWBkYQO9BizgDYsL33d1wIRqmX5uZmkgkIHMDmf6p65/ramuTNaP+Th616ovJ1n
+         GZklRyyOTaulTV4YuEMGYfhwhpetB0Zhj88kWmbvsao7Jn+mH31Fw2WObMKMTFHZ22N2
+         cTM0t17ZKOwMTa8V95Q350KSpumKMoHZSC67CWzRN9iKK8tgIf/MBDdeODlVqC5q9ez1
+         TrGy+Fc/Q4qaUAAbM8HnERdVoWBmJYtywOfvDJOmIbU1+oaRcwl8ZTQPdAGY8Okx6EPb
+         q3XvtSs/Jmfd4o0Dr37R9Np5ipaS9Jzsz1W4rgCoeO6jec4V/7k026JbGy4ORRR9Rlct
+         C02w==
+X-Forwarded-Encrypted: i=1; AL+hErG8tT8+VZvACHfqVmF4LelzpqhkYXVOoXZ9jHI9QOE84Qbz4rX8Ta4EIu7BeTXAciVEFyDm7f+w/xTRTGc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/2cZTvzIE7peAF1ElRUQfjwotdcllT7o1IJm3zqD+XdUA9F6O5
+	xX4XcRPoz9HjcWQnXVr4CGr8pLJl+Army+2Kk/q9sXlgLBjAXX0UXl1p
+X-Gm-Gg: AZFdTZer+bSTcbTAnlUkHotw2es54iWx8F5zr0Q1jQv+imqBTouzCs6L5QfIKnmqiIs
+	RMzITDoslnYOiXciRP16SPOtnobTVMU6fiuwl0DfNymwR5Isx1GYz31Ujkr272eh81xhWPCXpXv
+	j6tTdpqI3vYjtiCoYVGz01TPSVEiCBtlcXscTSZCmRrtlJRdx8HKA+3CiBskCFftMSE7Fp4CDft
+	S/Y9vtxVcal1AAY/9kMWWozNAGaGJ3iFvab6KJ9MTJQrizU0AWVJLS9EL50uiRAaEMNRmlP1dCB
+	45lS44qjitua4hcAjRCavdySp+B5+FCvXRZLSy9glBVeHeIZ8gUN068Fza1aykju3oD7TFYiLvF
+	F3qDo97m6QpXiRv/EGdJW/4PKbP5Lt7KO4FDjRQwXf/EE+UQK5RqBJEge5+efRtRBoRnCjrwLOk
+	KNMTwEALd07jISEt7ukUip2V1kkpSCYbCvfosGCS4TXTlM1gmQc1Bq6h1pEM50MRKOs88CVbcvV
+	0DeLXRGlojUx/1XcZjx2Mp4D3/REndbAwFN1ApZPUio909bprtnzlzBwoDE+xrVrHpHGcCc5K5J
+	Nt3I8WLznfZgQdpy1stP
+X-Received: by 2002:a05:7022:7f12:b0:1b2:4f97:27d7 with SMTP id a92af1059eb24-1b55692891bmr13960347c88.36.1795535092071;
+        Tue, 24 Nov 2026 07:44:52 -0800 (PST)
 Received: from a1-free ([161.33.196.121])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm58746964c88.9.2026.11.24.07.44.47
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm58746964c88.9.2026.11.24.07.44.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 07:44:49 -0800 (PST)
+        Tue, 24 Nov 2026 07:44:51 -0800 (PST)
 From: TAKANO Mitsuhiro <takano32@gmail.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>
@@ -89,10 +90,12 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	TAKANO Mitsuhiro <takano32@gmail.com>
-Subject: [PATCH v3 0/2] arm64: errata: Fix two Kconfig column entries
-Date: Tue, 24 Nov 2026 15:44:44 +0000
-Message-ID: <20261124154446.1094507-1-takano32@gmail.com>
+Subject: [PATCH v3 1/2] arm64: errata: Set GIC-700 #2941627 Kconfig entry to N/A
+Date: Tue, 24 Nov 2026 15:44:45 +0000
+Message-ID: <20261124154446.1094507-2-takano32@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261124154446.1094507-1-takano32@gmail.com>
+References: <20261124154446.1094507-1-takano32@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,37 +107,41 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Two rows in the arm64 silicon-errata table have a wrong Kconfig column:
-one names a symbol that does not exist at all, the other misspells an
-existing one.  Both changes are Documentation-only.
+The GIC-700 #2941627 row in the arm64 silicon-errata table names
+ARM64_ERRATUM_2941627 in its Kconfig column, but no Kconfig symbol of
+that name exists: the workaround is enabled by
+gic_enable_quirk_arm64_2941627() in drivers/irqchip/irq-gic-v3.c,
+reached through gic_quirks[].  Other GIC-driver workarounds without a
+Kconfig symbol are recorded as "N/A", as in the NVIDIA T241-FABRIC-4
+row.
 
-The text was written with the help of an LLM assistant (Hermes Agent);
-I reviewed it and am responsible for it.
+Set the column to "N/A".  Only the column is wrong; the row records the
+erratum and stays.
 
-v3: the commit messages are shorter, as Zenghui Yu asked; the diff is
-the same as in v2.  Zenghui's Reviewed-by is added.
+No functional change.  The change and this changelog were written with
+the help of an LLM assistant (Hermes Agent); I reviewed both and am
+responsible for them.
 
-v2: the change is the same as in v1; only the index and hunk line numbers
-moved with the rebase.  One changelog sentence is replaced in each patch:
-in 1/2 v1 called the table row the tree's only record of the erratum, but
-irq-gic-v3.c records it in gic_quirks[]; in 2/2 the sentence about the
-symbol is reworded to name arch/arm64/Kconfig.
-https://lore.kernel.org/all/20261121083950.1957044-1-takano32@gmail.com/
+Fixes: 6fe5c68ee6a1 ("irqchip/gic-v3: Workaround for GIC-700 erratum 2941627")
+Reviewed-by: Zenghui Yu (Huawei) <zenghui.yu@linux.dev>
+Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
+---
+ Documentation/arch/arm64/silicon-errata.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-v1 was posted on 6 November 2026; please ignore the duplicate submission
-that went out the same night with other subjects on 1/2 and 2/2
-(20261106235616.1533003).
-https://lore.kernel.org/all/20261106234541.1474324-1-takano32@gmail.com/
-
-TAKANO Mitsuhiro (2):
-  arm64: errata: Set GIC-700 #2941627 Kconfig entry to N/A
-  arm64: errata: Fix Falkor E1041 Kconfig name
-
- Documentation/arch/arm64/silicon-errata.rst | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-
-base-commit: 65e4fd942f72a9dba0e4e257290c4fa1aa756854
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index dc4144ac895b..5dce49a57864 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -291,7 +291,7 @@ stable kernels.
+ | ARM            | MMU S3          | #3995052,       | N/A                         |
+ |                |                 | #3673557        |                             |
+ +----------------+-----------------+-----------------+-----------------------------+
+-| ARM            | GIC-700         | #2941627        | ARM64_ERRATUM_2941627       |
++| ARM            | GIC-700         | #2941627        | N/A                         |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | SI L1           | #4311569        | ARM64_ERRATUM_4311569       |
+ +----------------+-----------------+-----------------+-----------------------------+
 -- 
 2.53.0
 
