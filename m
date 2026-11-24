@@ -1,99 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795556955;
-	b=xnDNOYbhHvMlYSgacccWTMd/sIvCWqQQHGJBFFH2IqE4FKN6rRE8ZJDri4Xo9aJYR1FF
-	 Z9Bfu73mvB1Cov7Bp6RIAIF9wzWFP7eCSYxERK5NmItsDUgU8oYRMd3+8hm/1VLiyNszR
-	 0eAY9SHnrQF//QnS686x84CzSAFQrMkebkRyZ6EXJLWbdoS6Sr5CocuTtd97n153+xdVq
-	 5BlgwgLMPelYT2ADS33TzUA39tQTESHZLgJxubaplaSQfl4XEHy/gK7yx87MjeeFaleOE
-	 8slkysOFzUveXxXHsL6qCnwRa7O3gS2gt88+RzLxRB+7tSeCcQUGm0s/6Rd+ZfKUVTw==
+	t=1795557003;
+	b=bXTSa4JWZtGH2f9VztMsaOyHR4v4J8fVoaKGlBWb7h4f479F2nPCo1Jo3NJByMmEIhf2
+	 rDv8pvBYpb7ryZcxVmJn6HLQ1RiyoBvK9vjY2dY5Sv0KetirpAiiGG9CKzalBiBuXV0w4
+	 tD4eg7murO+uEJOOrxOx8MWstRK0zqaJuyfYNnSqRSDRK1ALHOPh+wYzCqVLHNFOOKMrO
+	 5Js1EQGxMXHigoNYDOaUt+e1hC0wVrrhFOYVaX6oQeC+TeDb7lvjreGBUl9PFspqu9f3S
+	 ftmDDEyDOpe8gnYvdbrr+QY0Gl8goOJ+oUtXj5RZ5tyOELkmaVTR6WPYBdkAeNRRs+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795556955;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795557003;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=3qkXVXKzwajpWn2Hb1ngeOKyEma7jZ7NcWh9OzUILzs=;
-	b=bz/mvIuvt/6+MYM3EiCiEQ9ZZ2QX2uOsMcejbwL0Ne5nDEtHTXY8PSbJIUfp1yPetQYn
-	 X/WjGrUkvac9A2A9IP3sD60beukfRCG0+Gwdw+uQEzECVeKkZ6zoWxT4sSzjJN8lraJei
-	 9gnEC3gkuKiExkWzHND6Vy/bI6ldh0TzRdaKu5/PiwgrnuKIMS+oVSVgIOiSO5ysJI8Ti
-	 iAl7Vx6CBxKC2/ENypH+S2XyOFdZz+0OjjN2oaBVwhk2Gm/sEj1jM2sQncvm9E6dgqy+m
-	 I6rF8tbI+jbqvIQIctBP53iJhN7Xkz7e4uH4sFxIm7lRPQQaaK/w8pdhSTw0NoWEXwg==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=70XYBogHCXCBdw3YSd/sa8Nm9h583bMMPGxQWoXbuvc=;
+	b=nKYiAJsGIxVzTOUC7+MlUqkVlhjT0t1orytW5aj/I0W0vpKCtxdxxY7HFfRU2qNMZYED
+	 gFzMjncQkNVnwB25WGkK7c7bEWdODHxRYjMM0EDTcgVl2yd4KIpekblP8rStRW5QeL/gk
+	 n+ptPgKrPD3YOkpaehVgJsHyUb5JzCOKi6KoAXU/3j14mJk3LoiUNnPClLVSSOwveOFvE
+	 jYpsKZCgwuh7QzHFyBI8OPXdmou1WhCtu28oahKMm3w6CRsUjZbrwQ3gmRY6c6gehHV7E
+	 YpB7BLQPDJgMPXPssmKpP0l6HSbUkTfPdcigyMNzjfbZN6cxHrF/xfBhUoaDC5pWGoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OJTIKoyD;
-	arc=none smtp.remote-ip=74.125.82.182
-Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fp1Mhntr;
+	arc=none smtp.remote-ip=209.85.221.52
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECE8F606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:49:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ECE8F606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99F81606A323
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:50:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99F81606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OJTIKoyD
-Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-38699cf08dfso5693780eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:49:14 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fp1Mhntr
+Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-4a35df85cc8so382663f8f.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:50:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795556954; x=1796161754; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:to:from:date:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795557002; x=1796161802; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=3qkXVXKzwajpWn2Hb1ngeOKyEma7jZ7NcWh9OzUILzs=;
-        b=OJTIKoyDTh0xoECF8o/vUC1ui7eVopIU6IV2xs5cys14vM7XyM5bp8puUtQ6lynF+b
-         09rz9OqdNICQwIGXZKJNo3MkOtZxDUTEfIlvjFiBV9q79YwIiGeZCAjUdMGCqOGLJyA+
-         n3a4klZOOE5KGc+rMvW6zyKp/DdV8tiE/PdMjhYO/HZG6/+SA9HN66QjQQ2bI96MaZHc
-         kXmiUBEX0Ll3E+JSDcpiUX2gFt7luPsKi98/Qf3wiUY0zDRG7cn7mT/krWNElnH1AMzV
-         8j49FoZQj6iYcnkae1tvLsKQdk0IeVUKygh6YXG2d49+SKEyb3y1z3LgaRGomOzWPIyH
-         QKoQ==
+        bh=70XYBogHCXCBdw3YSd/sa8Nm9h583bMMPGxQWoXbuvc=;
+        b=fp1MhntrLogHIUip4FbRNJKgWHj0LrTc8fZZovGtzElIDsO9y0NOAIL6mqq35lixzC
+         AwmfPCM/wLJd1kp/v46CitnfBIH12MWpgZr8aJZ9uK+eZz24zYRUlwADwEaNNft/PSYD
+         9Y2ieWJ9h6JfkronDg3awtzO/DkFNEG/2dQYe0sR5it+ERZ6uT+LJMmO5GbLUh93nefu
+         VUlqC7eFCZ98QJQFZoO90yVKuuRukiBGyhi8yzXNZ4YJ931B5azsQqNPH7C2UEj6hM+h
+         lazIEN1nFiHKmHlrjcWublPnYkeXVLNeH9Ts3DJMUTc40lD0CuzsuBG/fbJno8piySZQ
+         pfbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795556954; x=1796161754;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3qkXVXKzwajpWn2Hb1ngeOKyEma7jZ7NcWh9OzUILzs=;
-        b=I3jDJk+nGhw/Cqs1GEWz9V4zHeDOUwoJZpWLA44D4D9Xm81x9FFecOhrefQIGEgdte
-         ohzosNqR47o2aYZH5CmK20QnYK2OxTmoM78SvCKLJJ+dJLpOi1+/IOGpGLoX8G0J+G44
-         IRD6vaK4MZVODlPti69c3mI8YV5zf+5oiDoY4SN5CU0Q7K/13oR6nemBwszUJVT5+QaC
-         VXB71pkNEYJjuaiKauOBZJIn5jbB5PRidzpPaIw605Jrq9ofGugr2/AegOTGh86aHnbn
-         JsRYcVCGG80U7fuag1dqqdqqdkNMbXttIfATHnGaxMHgum8sck5iO52cBSXoDDG8eiJR
-         xLLw==
-X-Forwarded-Encrypted: i=1; AL+hErGKvZWgkyj/LXGNaWi9eJpT9QTp/JTGBnYEZ4i1ApJIUDyQIgRZq1mncTJCPy2UJs7XbcAPJLMY68+3gRk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9c7/Ylp2VYATR5nHZbWKvvk5Py9/2WWvlr9w93Oa3EGEbHSDeC
-	sWqC/HjdikHTtGR+UZoh2vaLc5KOz7J+iIQvgwi1XyoDxPRref7u3VQN4sLPow==
-X-Gm-Gg: AZFdTZeZ7og/l59feS3bY9xWyu/FdNQEi+hHqcGqyVT+Q0fSJsDGzsQCkGywoHmw/HV
-	hFKRKptAXKqJSd0HOMCjiqHI702jcAUcX91TpPidRiDScu8IcVhO75fBkQpkZC8Iwo+3WfuM977
-	YqT0VLXj6hse1fbEl2B2WcdDOT1yXq6TwGmEh4ugFHQe3E30NJ/n0pwZi5ynN8tWwkT4NrPMyg2
-	0r/UmbS8n3rasOOIXe1aN5wfCJm2UP0sDs94eWPqDoNG5ZPyzVL0xDV3voOz2p0OYqemfHsAABC
-	U1AqyMp2T3i/SmJ2A4s+xrr+9GXFG7T8MNYr7BqarZ+WUG0OaGg4Xt4GUWY9ySIkZ60EX38BbR+
-	3sn6JRqa9L7mR6U6EMxy37SxyI4lFS8Iklc65ZMT17dmNgoCo9H0Eupszswi58PBDJs9UN6AN6F
-	XhERLtvuLMLQwAt7bsdQ6FRSmxU/G8je/QnOzkGCX2KoO/9DY4iEG/1uTFga35HKRRhWWEXlrc6
-	xqm2APlOmITr55CQvpfKwe3URo4rw/2qUk5ZjltHZEZ78HcyArPpFNtIX5XIAlWb7SzRQ2IKNHg
-	zJtQgFrxgJK1UCwsAAyOPwJ/s84De9JYQfRYcDNbRMSBVfOAPC8=
-X-Received: by 2002:a05:7301:909:b0:386:a3fe:44f3 with SMTP id 5a478bee46e88-386a3fe48d9mr11150271eec.4.1795556954067;
-        Tue, 24 Nov 2026 13:49:14 -0800 (PST)
-Received: from gmail.com ([2a03:2880:9ff:60::])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm49593038eec.28.2026.11.24.13.49.13
+        d=1e100.net; s=20260707; t=1795557002; x=1796161802;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=70XYBogHCXCBdw3YSd/sa8Nm9h583bMMPGxQWoXbuvc=;
+        b=kosLZEDSMiWIh7JhvM8IesmEQm4zYGdHwDtLmLC3ji0j7gI7/rO9zG4rDuGTO2glBp
+         qFnuYjwND68WyqLGM0HO4kF/PxSEvt5DRZyG3GG83UUcgmuaRS9IupYkuyUwS17fBANh
+         /8K1YSV4xiGh53HDIyx1OHD73yt9ZHKcjeP1DTyB/8oifRoH9mTpoZMQlgFHMHPXizYP
+         FSM5iLSgYi/n47jB9NkBrrffdk56MaS+OycI74Uo34QKW0dBE1l72tmmMalMg533fQRj
+         ftn6ntOEuSDdJKdCgi9ZHTOygiPajkIuigERUTeElKsMdcjWcmYBNubn4dv0U+7FLFbm
+         734g==
+X-Forwarded-Encrypted: i=1; AL+hErFzVvhHa8hQEphI3eeG5ZoPvOIv+q12pwXdTqxTR6Y6e6jnEQaM/1/Fn221ZG1N2tgKZUETqoDpCgAomj0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+7W6EkFVflMomuLJ4iIaxTXFF8jYGl3zO+TlIGAshjtvnD80A5
+	LI3u3WK+NCOKrjWzUVroP9QLm1LlTYTM6HJOYjPFe9nMieCeaZZhYQP0
+X-Gm-Gg: AZFdTZfb0NWohEkyhrRSnC9w9uVOddnvEYUAmMNHR7JtocqBztzWb9Zqq1WgWW+4pOt
+	qfxz8Slt6KbMEWezEonBw4z0/b+D7QnyBTSOGpCS7+EXymDqtsv91oUvVtdg1ImQ3ds6Ldp08IU
+	OImL6oCLw9lGakZNszbJZ9GhRIbKxh42C2L+9yAtt5aEjvQsA9RPW45hD8wmGhM5EEp6SNfn/Gr
+	E2QxL6zq2l6qUkWjyOD2mrQdEwWqWfpUqErCunEpoTVzkkcEN8wkr1Otf3zQJnPtUceEQ+N9ayN
+	9EwP4+m8WVx7SY13DWI/Y9T5BnnkgqcL4NSNapUMIDOAC1qOmeyaHijrDOqFo8kKNPKozZmhkxW
+	pwnbiMW5UYyGQZyTzj5VGQ+1joUPj8+7JQ+AqIotZnbSlSS/rNXOVgf3DMsnc6a5i+4IynD0lA8
+	voOKpF6XIn9EH7DxMJpz9Aprb+BLJXBujUuK6ctYt5vh1QjKWMahXT0z68TvNY0xjCjGX7i6edp
+	nSBXM/GV+QuQx47UtDDTWXDLGlkNhTQWCaKohbZTjQeaJDddEf7viAL1P2seXocPo66218nJc8J
+	Yd2v1YuZc7cN0BFECXeFMtBBZI6+hq6Xsgyp9eAQ9cq88ez9Yd0khAjwqEtO5TTm0rQ+Y2oj+Qg
+	d0YPF8gF427r7DfQ=
+X-Received: by 2002:a05:6000:2310:b0:491:2367:1dca with SMTP id ffacd0b85a97d-4b3fd477a9amr13343648f8f.3.1795557001928;
+        Tue, 24 Nov 2026 13:50:01 -0800 (PST)
+Received: from Nuel20.localdomain ([105.118.4.83])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab5ffcad11sm29188507f8f.0.2026.11.24.13.49.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 13:49:13 -0800 (PST)
-Date: Tue, 24 Nov 2026 13:48:30 -0800
-From: Narcisa Vasile <narcisav.kernel@gmail.com>
-To: Joe Damato <joe@dama.to>, Jakub Kicinski <kuba@kernel.org>,
-	Narcisa Vasile <narcisav.kernel@gmail.com>,
-	netdev-bot+sashiko@kernel.org, michael.chan@broadcom.com,
-	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next] eth: bnxt: report TX HW GSO queue stats
-Message-ID: <awYGLh6WtnvZTGJe@gmail.com>
-References: <20261116204313.23023-1-narcisav.kernel@gmail.com>
- <179499144094.3136.198428718668517773@kernel.org>
- <av/RAwaDfiQnPmbF@gmail.com>
- <20261120154835.0f56c410@kernel.org>
- <awX01xqN2suPZqE1@devvm20253.cco0.facebook.com>
+        Tue, 24 Nov 2026 13:50:01 -0800 (PST)
+From: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+To: hangbin.liu@linux.dev
+Cc: netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	shuah@kernel.org,
+	linux-kernel@vger.kernel.org,
+	skhan@linuxfoundation.org,
+	emmaonana18@gmail.com
+Subject: Re: [PATCH net-next] selftests: net: sk_connect_zero_addr: fix mislabeled connect diagnostic
+Date: Tue, 24 Nov 2026 22:49:47 +0100
+Message-ID: <20261124214947.13846-1-emmaonana18@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261123054754.GI10218@Liu-laptop>
+References: <20261123054754.GI10218@Liu-laptop>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,22 +107,13 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awX01xqN2suPZqE1@devvm20253.cco0.facebook.com>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 12:34:31PM -0800, Joe Damato wrote:
-> I think HW USO can hit it. A small gso_size with UDP_SEGMENT can fit under the
-> push threshold and that skbw ould go out unsegmented. I think this would
-> affect Thor2 devices that have HW USO.
-> 
-> I don't think SW USO is affected, though, since it segments before the push
-> path.
-> 
-> I'm gonna update uso.py to test a small MSS which should trigger this on a
-> thor2 nic.
-> 
-> Narcisa were you planning to send a fix for this bug? If not, I can, but I
-> didn't want to step on your toes if you were about to send something :)
+On Mon, 23 Nov 2026 13:47:54 +0800 Hangbin Liu wrote:
+> An "e" here?
 
-Thank you, Joe! Please feel free to send the fix.
+Thanks for catching it. Fixed in v2.
+https://lore.kernel.org/all/20261124214736.13398-1-emmaonana18@gmail.com/
+
+Omokefe
+
