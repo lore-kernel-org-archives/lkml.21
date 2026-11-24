@@ -1,94 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795529447;
-	b=MtkBBAJAra6RIteOCslTIFxbk9/IoCNJVJ8nRcAudmtUPaspuUxQabqdL7rYb/iQD6KB
-	 KCwaU6TqzsdX5O8ORmtGfE7dZnu6PP/I4rD9JbpzYDMsN4PF/pB5WSfRh6Riog6Os1t+9
-	 0O79wH1cyVdrRP2EhNovZ7/e+xaODPE8j5PLlSYdPehp3BIIydyQZVEgYKDLoaJoeb9QY
-	 fD/ya4WQIwpvMEY8dLL5gR+NpSwMhunbvSjZ4tJyDr5xHWHzhiFZ2cRI3hLdVydgMdiJi
-	 m7ZaJt7HDnQ6lZyLPnwfyb9MtoT/qRmJ6fVsLTmePxgToFixB+UuUwot/3ve0fzqe5A==
+	t=1795529484;
+	b=DWH5UNHffCXNJya1cQfb1YGPdf0JX1EaosjuraarCFD7aNlJsf9aaD5fnjN6/GrvxPLy
+	 JQNWS31aM5MGLNHwquh7RtDJnzonBkeda8PmHpXXeBlmjKiFeezjImbyeMzI6dVy8DOyC
+	 TxqMSy9F6hotyj/RtPK1lXmZPXjFqX5mhpXsxjLMacD5WEaFMvrPrW/ltjXg+8oRdhgeu
+	 UVxRN8xnhIRQ/Vi4Zf1gAXfnjo/T8CFylPAoMaR0rPGmgHofY/CHF+difNzT+f5DSagnA
+	 r0OA5jfIR6+cbVLlU4/Ldm0e3AITJLrf+X6+HXfYzrURZCgTgCMtuViXhzkewwIOhLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795529447;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795529484;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=XShi4tcBiiUeex/UpD4VJCvI1c9XNejU2j6InR/Tko4=;
-	b=RusPaCrl/E4sl2GxuIawY/TGNfLhLLtbojbfgy2qXxcUxVsfxsfsFYagFirkbJ08lIf+
-	 KJk+gRKyu2h2n94j8HrzBPKptyKLjtDMkNd6RGRxq86fTtp18TuUQ4B3/Sr7CWLPiGjJO
-	 4RZt19jxMVN0pnh0Kmo9IqkjE48xntLKzBmi+oROo6Wkfym7zNkUYku9fQIWtOud7emdB
-	 A3n3meR4dMgQ30NB3dNro+DLvj5RZi/vb8oifsuFPp7ZML/u+d0/k9za3J861jw9RZkDz
-	 ICXpYuCnBVjPM0Gr+MsNaBPuMeM3TIRkxXhTg2+nbtML5U/FRLMsX46m1N6Qx0cJYFg==
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=iCvyfFUl0IzhjF6ZOx8Uvl3XeIM4nkq47bTo1+RuUoc=;
+	b=GLQtT3hv0rAm08bFE4HgjVSGqM5zKZxtNYYb6sYaCeEdr/knzUo2/DHKS6jAro2KzgH9
+	 2evAn1pvy/YClP/dHIjSy4VqQRz9NfWWK4EJMGE+zBD24DIzqxAY53YZLJPEbnFL0hm4i
+	 uE8a6yFRljWs0ip8WJi1MzmerxCWU7hSbun0bui9jUEKHsRhOxblTHMJec19M/yRlNGps
+	 ul/S6y0aJU36PR7IJUSrj8fnUgOkDutojiAlm+If/t/pmN/v4oh0AXUJG4snMbOnGUqjH
+	 PZMCFZwygbSu5Ci9m0vVZuAGykyG5U3ghheTZsqi+CbLYDP5SPvPlZDpLiwQ+CAb21w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="rKjh+Un/";
-	arc=none smtp.remote-ip=209.85.222.45
-Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com [209.85.222.45])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Dozp4m4O;
+	arc=none smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6428F606A68F
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:10:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6428F606A68F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2801606A32D
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:11:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2801606A32D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rKjh+Un/
-Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-990703f817fso2369046241.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:10:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Dozp4m4O
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb69f5b161so29524955e9.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:11:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795529445; x=1796134245; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=XShi4tcBiiUeex/UpD4VJCvI1c9XNejU2j6InR/Tko4=;
-        b=rKjh+Un/CNcE7k3fd7JY9nVSCz8T6Bo6KU6Qm6T3vrx+6SJfiPSjKWghWYp2uXDhUo
-         3kr6Q9jdUclD6RZoVflL/78OQ5p1jdt1lxMxwRLzpuyUehFJ38Vfmg4aTo6IjGtqJShb
-         nYfRrqAxGtqsHGzZiLYbBx63qIBfW6dJlGpXuxi5xpGTrKn46KU9r1rf+npSeCebGlr5
-         eyFSLxC4lM/8SmJPPguML7m4LNMH/AIE3I/qoKc9OucuAdFS9hwo4jV0PaGgoh1Rc7Hv
-         nAj8B+N1szk/xEk8tDyWqmAmkttvGHW2/US7cHCVmLUW5miZKppN6yLln3p+rVSNbHbu
-         +8ww==
+        d=gmail.com; s=20260707; t=1795529482; x=1796134282; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=iCvyfFUl0IzhjF6ZOx8Uvl3XeIM4nkq47bTo1+RuUoc=;
+        b=Dozp4m4OBi1yvFU90tSqp+6aDcPZOrX/MQchEUIwamqpL2wbPjprpIEI+DhA05IY3J
+         IDqoI3D+FsBq8Gpl2M3Agnetcc9Si0kel6/T663e7euWOS2uHLBpwz2KrKCiMNk94MD6
+         2/QDujPzBjl/Ot3pgBPRsUru19itTQNbeQ1txuFIORiEKmaq3ZwNlyn1TrCYL7FNx7JB
+         Jeeg+T/Q2YN42OUS6TN1lY3nbbGUddAFrNbXPVIeQK8JWcVXJizXSzQ4ykRlMzKIo+tI
+         sutLKfzUb2cyirMhQVuvaklnoULE71zL3c7TZr0imL0otXyCwOpE1qQoYZV1w+VyJ4FB
+         nELQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795529445; x=1796134245;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XShi4tcBiiUeex/UpD4VJCvI1c9XNejU2j6InR/Tko4=;
-        b=PjL5UMmb4CfaRR7nxiRJdGqzyXFokU3MiCLX7sKpKHSU9qtLPc72t8ClxP8ILaHUwk
-         d1HWIlPZQl4BXFVKTxg8/cCzMYqv4j4fV6FWEzMPcRqbrDFcZ0Z0A3XjbD0ZbGxcT6jn
-         NmQdfoqI4/+/s3T17RZY75VotC5P5UWj0Y05G2Lr8AuxiYuEmxyXeqbOPLxUs0qTL0VC
-         Htbr/qh3EP3tyBBmMi4chMIXvbhgpMOiEW5gaLrFDugdAaEwQWW1XKJe6fobquk6nvNH
-         bbWTgqPXMstAv03tLKv/Vi831Izh7QRtAUAV0HRFovrZgtFLPdcHdt8BfQoFK42ZRQ25
-         0AzQ==
-X-Forwarded-Encrypted: i=1; AL+hErG9jAO7swTGPvb5g+rwtPCw8gEDd6b/MWw0jOf7hxIO0uTYS7cheZ1bpo9rKmAICEHNr2LcPkx+fmBpS+s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8GxFdqxEMDjvDofvVmD/OIkkuHCoheoQ46WJ2+CUfOUnqS+c3D
-	qK9Oi09s0Md4Z3tJ2cSLd6ofpwvTUun1X6DVY4WJWrg5KN3iHptArX4v
-X-Gm-Gg: AZFdTZf4Dj0NM7RjPCY8k+5UoPwmweT5Bxu8zgVbYTdMQepvZl9ZNNsf7IcljTKAvVK
-	3/87QEM7ruQALbGq0UbA1bowcue2qyu4XjuOw2+8fRV0vtJ10KcF/XE3pQCD5xZ+7w4vQke2YfP
-	Cvv8iUe75iwP+TnlOmX/BP+o9HqVkjZR1JKlRplhYL9cFxjiq9kG5Gpwv4uVBfUbbWEGZiPwrxh
-	hKW7DgbkPch+Y+E8F+Wgx+BWz/cX6gEEPehdpP1xvohg7+0FXDtqBHji6zGk8Cju/LeQBx2Z8Vv
-	ze9G6AIUkfbqD6lU7S1XOPgcLg2t1JJEqkGVtx8IUhgFFmFwLc6uGo0AlJpXvWTPwC/y8/D6/rP
-	dbJVVuuc30HktBw7TTtQusizAcaZFYbtYRLe3G+hnxstEs8epRkzPmQUk+o4ACUX8PalvLwLC+E
-	Bdmym2AHVhbUEjOdV31l2RTnlDWshPbtJtvviAWdIC+9VQ++n8CoCVi3e9SecNeczmQo6GBxKn9
-	zIHNbgRTxXWxARXaLXboj8R5qwozIz8i5m4JlF/n30ucuklafgg5DA617OqpLwQkNfKE3DcUvL4
-	dIj4UNHeJn8dx2FkHgnkalUr/ekCJFdF
-X-Received: by 2002:a05:6122:4698:b0:5ea:c98d:768 with SMTP id 71dfb90a1353d-5ee8ae8eb5cmr8365635e0c.6.1795529445171;
-        Tue, 24 Nov 2026 06:10:45 -0800 (PST)
-Received: from shine.local ([168.196.221.52])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ee8b555137sm14056121e0c.3.2026.11.24.06.10.43
+        d=1e100.net; s=20260707; t=1795529482; x=1796134282;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iCvyfFUl0IzhjF6ZOx8Uvl3XeIM4nkq47bTo1+RuUoc=;
+        b=O5hbad/I2V15d8ekgIvVQSDxt//ZxWOP4yPi9lPTUztwydvT/p/dQUYie9IhfFNmva
+         zZ/H5Ucn4OmvcC5AD1VsuBW3GyOD5EU0sMWNtc5VfKvo+dTD7sA6rvYov7vJe8QProGI
+         69UalZRc8/NA/3q9QLCvRWOsAZQaD+0EsB1MnECYx65fWgHUwMtVpePGff02oNk/f9Wb
+         h7DVBKv0vejTzcSNUJuepSLmPjCkBju3qANZtBVNTWd4bjFbOWOi772TaT70P+b8Msq/
+         9AOiYPXwisIXiazcwCvRymp6XIwPfRHUxio63EP6wiQl3S0dn6Hym/4ErRRqEpzkHrsg
+         jXlQ==
+X-Forwarded-Encrypted: i=1; AL+hErEYG3pa4m2lKNnUpSWk0VFvd67H1Cdjr2yUvjmxsyF20DNYL94HDvpCmQpdkEbQ4WIF3LUbiSUyy0q3h60=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+PTjnz8YMPlFosvr6KtsXXSVbP2WdMdqJbWp7YOltDzgU4dPPV
+	jpcD8eXpoRqK2z8QOywgq+nEToJhCVAVgFS/OfPn25AFHe2Jat5QZfiJ
+X-Gm-Gg: AZFdTZcqeL5c2zPwnTbz9si5r1lQJ3qMgLH4c9efB9ZEczUq72eDGz0pcQktqIbQdFR
+	mcF6+oq5s2jWZHDfIDFBjQGuKpluSvsUNxuZw7Aa7hMiCg4rNGAyADVDCxR9aGPGGq0WZrItBTA
+	dJqBcj1zWyiYAUe//n89+g6dQCy25h/Jlgnp+amJ0u39Oj5c+A2+GVhgHL0nHBE4HSV0IfsxxB+
+	mUZnoeN1V8+zQ/0XdenHzUqoV//iOiqOf6ghpiagkO87zpdR+68kzXCrOEItug17aiDk/YbU+FU
+	u0+7g+gvO4LNsOdZ6FGZe0E8G85J10Kbbi85KirONzhLrPhJG47yx4FlYZ0FcpS+mYCTevuLIzu
+	J+6uXHNVCynwA49kQFF60nfM99JIAqjrkf3HEn6PpnUxhWLoOtlaKgCImNWOKd3oMzr+6lVZHjY
+	vXcJzRsHcgPlA6s+myCHAc39JKMcWkiI0sMLaSoVcKNZ5t+RPKOt6+jolqG29WjsOnPJ9HLKNE/
+	jD9k6YidI5k3w/okmN2yhvsd1N6zZ45RdpV3zLtynCftkInRrqv2KWwtt5tlB/eJVbldYMwt6hG
+	5MU2fLbu4HQPIM/bk0fJ8QCp79aQxzQ9dX3Xfr8vygmzGbByTRy5ubw=
+X-Received: by 2002:a05:600c:64c7:b0:4bb:68b9:f610 with SMTP id 5b1f17b1804b1-4bb887ffee2mr287311235e9.9.1795529482013;
+        Tue, 24 Nov 2026 06:11:22 -0800 (PST)
+Received: from ingenieria31.oficinasStQ.local ([79.117.0.220])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b2050f1sm27952654f8f.38.2026.11.24.06.11.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 06:10:44 -0800 (PST)
-From: "Andrei A. Bykov" <andreiab9019@gmail.com>
-To: linux-bluetooth@vger.kernel.org
-Cc: marcel@holtmann.org,
-	luiz.dentz@gmail.com,
+        Tue, 24 Nov 2026 06:11:21 -0800 (PST)
+From: =?UTF-8?q?M=C3=A0xim=20Pedraza=20Padilla?= <maximpedraza@gmail.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	Jyri Sarha <jyri.sarha@iki.fi>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	=?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	dri-devel@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] Bluetooth: hci_core: preserve LE feature holds across encryption events
-Date: Tue, 24 Nov 2026 11:09:56 -0300
-Message-ID: <20261124140956.15296-3-andreiab9019@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261124140956.15296-1-andreiab9019@gmail.com>
-References: <20261124140956.15296-1-andreiab9019@gmail.com>
+Subject: Re: [RFC PATCH 3/4] drm/tilcdc: Implement state readout support
+Date: Tue, 24 Nov 2026 15:11:19 +0100
+Message-Id: <20261124141119.441163-1-maximpedraza@gmail.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20261118212114.150992-1-maximpedraza@gmail.com>
+References: <20261116142707.1299360-1-maximpedraza@gmail.com> <20261116142707.1299360-4-maximpedraza@gmail.com> <avs2dagfmQkv00H0@houat> <20261118212114.150992-1-maximpedraza@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,90 +113,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-LE feature discovery now owns its connection hold until its asynchronous
-completion callback. Encryption Change and Key Refresh Complete can run
-while that discovery is pending in BT_CONFIG. Neither path owns a second
-setup hold, so dropping one there consumes the upper-layer hold after
-feature discovery finishes and disconnects an active ATT connection.
+On Wed, Nov 18, 2026 at 10:21:14PM +0100, Màxim Pedraza Padilla wrote:
+> Makes sense, I'll use the same approach in tilcdc, and see if it can be
+> turned into a common helper along the way.
 
-Keep the BT_CONFIG drop for BR/EDR, whose configuration path still owns
-that hold. Route LE key refresh through the same confirmation helper.
+A follow-up on this one, now that I've rebased on v9. I ended up doing
+it differently, so I'd rather explain why before sending the next
+version.
 
-On LE setup failure, explicitly request disconnection instead of relying
-on a drop of the feature worker-owned hold. The abort request records
-abort_reason before queuing its work. Do not let a later encryption or
-feature-complete event announce such a connection as successful while
-that abort is pending. Apply the check to both LE feature event formats.
-The feature worker still releases its own hold and device reference.
+The tidss approach rounds the clock to the closest standard refresh rate.
+Panels driven by tilcdc often don't use one: with the timings from its
+datasheet, the panel on this board runs at 56.8 Hz (33.3 MHz), which would
+be read back as 60 Hz and 35.19 MHz. The adopted mode would then never
+match the panel mode, even with U-Boot programming exactly the same one.
 
-Fixes: a106e50be74b ("Bluetooth: HCI: Add support for LL Extended Feature Set")
-Signed-off-by: Andrei A. Bykov <andreiab9019@gmail.com>
----
- include/net/bluetooth/hci_core.h |  9 ++++++++-
- net/bluetooth/hci_event.c        | 10 +++-------
- 2 files changed, 11 insertions(+), 8 deletions(-)
+So the readout keeps the actual rate (rounded to the nearest kHz), and
+tilcdc's CRTC compare hook accepts a 1% difference on the pixel clock
+before calling drm_atomic_helper_crtc_compare_state(). That's what the
+leeway is needed for: tilcdc_crtc_set_clk() only gets as close as the
+clock tree allows. I checked it with modesets at 20 pixel clocks between
+16.9 and 45 MHz: the PLL misses some of them by up to 0.015%, which the
+exact comparison reported as mismatches, and they all pass now.
 
-diff --git a/include/net/bluetooth/hci_core.h b/include/net/bluetooth/hci_core.h
-index 7cf63bc0f..469d4f077 100644
---- a/include/net/bluetooth/hci_core.h
-+++ b/include/net/bluetooth/hci_core.h
-@@ -2272,11 +2272,18 @@ static inline void hci_encrypt_cfm(struct hci_conn *conn, __u8 status)
- 	__u8 encrypt;
- 
- 	if (conn->state == BT_CONFIG) {
-+		if (conn->type == LE_LINK && conn->abort_reason)
-+			return;
-+
- 		if (!status)
- 			conn->state = BT_CONNECTED;
- 
- 		hci_connect_cfm(conn, status);
--		hci_conn_drop(conn);
-+		/* LE feature discovery releases its own hold asynchronously. */
-+		if (conn->type != LE_LINK)
-+			hci_conn_drop(conn);
-+		else if (status)
-+			hci_disconnect(conn, HCI_ERROR_AUTH_FAILURE);
- 		return;
- 	}
- 
-diff --git a/net/bluetooth/hci_event.c b/net/bluetooth/hci_event.c
-index 477b876fd..b224d4d69 100644
---- a/net/bluetooth/hci_event.c
-+++ b/net/bluetooth/hci_event.c
-@@ -5435,11 +5435,7 @@ static void hci_key_refresh_complete_evt(struct hci_dev *hdev, void *data,
- 	}
- 
- 	if (conn->state == BT_CONFIG) {
--		if (!ev->status)
--			conn->state = BT_CONNECTED;
--
--		hci_connect_cfm(conn, ev->status);
--		hci_conn_drop(conn);
-+		hci_encrypt_cfm(conn, ev->status);
- 	} else {
- 		hci_auth_cfm(conn, ev->status);
- 
-@@ -6961,7 +6957,7 @@ static void hci_le_remote_feat_complete_evt(struct hci_dev *hdev, void *data,
- 			}
- 		}
- 
--		if (conn->state == BT_CONFIG) {
-+		if (conn->state == BT_CONFIG && !conn->abort_reason) {
- 			__u8 status;
- 
- 			/* If the local controller supports peripheral-initiated
-@@ -7639,7 +7635,7 @@ static void hci_le_read_all_remote_features_evt(struct hci_dev *hdev,
- 		}
- 	}
- 
--	if (conn->state == BT_CONFIG) {
-+	if (conn->state == BT_CONFIG && !conn->abort_reason) {
- 		__u8 status;
- 
- 		/* If the local controller supports peripheral-initiated
--- 
-2.56.1
+Testing on v9 also found a bug in my readout: re-enabling the CRTC
+(ACTIVE=0 then 1) with the adopted framebuffer crashed in set_scanout(),
+since it has no GEM object. It now keeps the DMA address the bootloader
+programmed.
 
+The rest of the comments are addressed as discussed: the format follows
+blue-and-red-wiring, the panel describes its polarity in the DT, and the
+initial state comes from your no-more-config-reset patch. With v9 all the
+comparison warnings I reported are gone.
+
+I'll send the next version on top of v9 and that patch.
+
+Thanks,
+Màxim
