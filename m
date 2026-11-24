@@ -1,117 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795541713;
-	b=E2dTCzvnNZPT/crxtZ9ninEK6pFoz0sH+jBiUQ9Bbfs0i2dZlYLCbF9Axum3GupWNcf/
-	 WS4Pk/gHr2caVg2Ou6Sj7rsUq3igwr2metgFDFf2yGVTxSr2E9/ZvbZ91A5sHQ/L8uHQk
-	 hd55VUKB31k07ZkeTCYZr+B1DowjXzT4Pb1Cx2d/wlFSF1upHPEZIiXFCxrclWAwsYmsA
-	 6EDUC8+ZMJPqYnilSI3FKztjGs6FAvGwnP1ozbEl4FKI7Qih99+1sqDBfBY1oWjzMnlU2
-	 VdHBjMjP20twXF9lr+Mga17GKMHJIKUOSrYUNjXdzKRX2oJmmjDOpnOgJe/ND2NNHtQ==
+	t=1795541720;
+	b=alAiV0k3WbLLoDNMQNep6PnKhoBqIJwoWeq+1IsiMk+xmhNsSWujB69W+2plo90AQDky
+	 2V/zDjwAc+NapqcWWoI9ZZ+XwFE0oR4ecXPasYyfz+NANNq8k734g378O1QCAqAiFnWsd
+	 8/2kHWdaAnZ43HaWIh7mLgjyW1MessFwAsxsp7/PAFJ8nNqAatO0vmn+Sy9BiIQkOwbUE
+	 S213gqJeeJv4hh5Ky2wZfJWpdTLlsMLZGsMqjscF2C7RQm/oSKk4FON+auCDWqFmYB7Gu
+	 jR/DsXK5/tdsDBPuSQc9a0cta9sOfrURiIb6lOhxjLaW/mx0Tam9y7aj7YaEphWjBCQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541713;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541720;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
-	 Content-Type:User-Agent:MIME-Version;
-	bh=rIEikIfePUlYuQtT3faGXOgKua4GiiXoZrCtOyesMsM=;
-	b=imooNi6+qX0o6/uPESJo0rFGn0q1jm1NjeuXBDXWKh3eQEO+tqAWEjjqQwJ6g5KZeC4I
-	 PeZY4GsY/xinsPDHJGI5AcBGk9zrKPiRcKZE8hFSUiDPwEtDzTuoxfF8itr8WJvToarri
-	 yAr7TKQ4+/Twj7jyGF5P331GoSpISgqSRa1vV0dtn5CgdRh9yqaOBEm+2466CKBtmYujn
-	 eYNX8gXqZPdjvImLJu8fK1O3armruOm5hnE7CznW3seBa83ebDyoMpzNlVYV/yz0X0WeI
-	 esALy1mgPIcl4kQ/x49dMwZoYVAQRULWTTp/iEPQa5FLlvcXTue7qNmR/dV3C6x5yaw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=DmBwmrmEWgysYKtSDSRrr9hV9wxgIOlNWVL3lTij1CU=;
+	b=Do8Jx19LdwIj4VdsKgWYgWoBqgXe1Un3tMomhHmfqC9G2ePZJoTc/T39H1mcvOs3HOgW
+	 KPBDtdMxKyLG5oqeonWTMjNwnbLYRLkF8f5KIH5XX8MJqi+CxkWWYWAlyZEwJCrLSsTz9
+	 ngA+8O8/Qq9kw3DI/GtcMl9TqEdiTdiI/oCUnzVxIBvpfU9b8hzkwdmLlIuiUYzmLOWn8
+	 xbLxpb/PGNiMagS7QCzGR3fd9g4lOSTNXbWQwUZGuIGHUkqYXKwM3uFSjevsiW48woZ9I
+	 o07R2EOMDe6FIg5jTsPbtmGUAue8C5WtWTA5jGeB/HcqZYyqJpX1okfqYuQIM8kU6nA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ndufresne.ca;
-	spf=pass smtp.mailfrom=ndufresne.ca;
-	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Kpz9gGuB;
-	arc=none smtp.remote-ip=209.85.160.180
-Received: from mail-qt1-f180.google.com (mail-qt1-f180.google.com [209.85.160.180])
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b="OmDIg5/y";
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BAA1606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:35:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6BAA1606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30E87606A33B
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:35:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30E87606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Kpz9gGuB
-Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-536c8f958d7so36446121cf.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:35:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=OmDIg5/y
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-49d05d51553so35092945e9.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:35:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795541712; x=1796146512; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=rIEikIfePUlYuQtT3faGXOgKua4GiiXoZrCtOyesMsM=;
-        b=Kpz9gGuBAbhGNRcVfnOThbhWg0E492RYUCMUgfLbykGqoayXLYpeEBkOIQ9KBwt90k
-         OjcfIhqoxPmy5OTa2y+ZjKSzTaCTaRQ4HE+qt/Sxqa1wwKneKylQYJRCxMM4dtkB50Wi
-         jwGPVFHP624fcAjAZ0NI3FP5SEcUVi81jAlhCs/VV6h9kB9e76tHyMhz7Ix+iu4kbUEB
-         Vn4XL73dQA9lxx3MVEz77r6eXIGdEOb6DpUkHQ16gTjxbYdis8tGhATTBDBh2jBbmc3X
-         i0X2HZNbw7ZvKRUMzw5Ew4LA34knTyb4PngMtHiXg7vbq26IEFfNev03Fg3Jay9px1S2
-         zOoQ==
+        d=suse.com; s=google; t=1795541718; x=1796146518; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=DmBwmrmEWgysYKtSDSRrr9hV9wxgIOlNWVL3lTij1CU=;
+        b=OmDIg5/ygmndD+Kv5JZu155dClMlLF1P+Gd3Gn+MXXxkkH9P++zAq0uJKz7MJzb9Ep
+         9GAOFzNT1AiHFEb6YOH7An1RM5Kq3wKKivuk4nuQ2F26uGAsn26+eKf47b2vNUBiLy2o
+         yP7/7A+G9S+n+sSz5kEIYc0UjZhSJvbHU/YoXUjrUU1PrBb0qhXyaiW1jNz3XiXKNMPJ
+         ftLnedCmAW9WeUTEO1ihLGasy5eI6rs360qul+IGcrXJSktAlmICnamarnC/z0xWRbud
+         x156i62ARhcbuRiMmhd3W+b9uhcIWJ0YsWm3wC7Ad+cY1/U/8deDAuJYKwx5DiRFMU0f
+         pJ6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795541712; x=1796146512;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=rIEikIfePUlYuQtT3faGXOgKua4GiiXoZrCtOyesMsM=;
-        b=BEjI2buATZWDmPkzlm39ZKHQr+Hec0bffGBhieA6CbczHhikEkFLqSu38uo2tR4Efl
-         F6ViivQzoCDliNQ1FjQXR7Y7+N/sEpHfRfkUWb2zUD/MoInhHhmE/4ZhWv1V6WRPr2BA
-         cZYMnyawcO2ap4syL6LEiThSUzZz9yVQczzO8XufEoPPrwhQR4kLgnd2dNXQU7Dw/fpw
-         /xs4nBrQ9Cb3l6HF8vR9bFxklQMbxh/XOurqSvi3BMI4Qts3H5nEntkUU/G+FBmCoyWe
-         vgj8LUcS3tVE+2vvtvu4lT4nD7bv14ImQSkwsvOVq+hQbH5tjLriLbf76u2SiDA6U3r/
-         K9Mw==
-X-Forwarded-Encrypted: i=1; AL+hErFqFp/WpAGiZKfmC1qq0v+/NYmoXFnewJ42+pm+0h9pTGtGY6CmLlXOqIjCSIEHjGne3D2xwSYjg5nbKLE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Lyqtgexl2x4M5LRSqAY5vBSYdMu1zOeM09uAmMviv6wFEqAfF
-	GrKe7z7AJKSFCCeLk27MbLiDKdmTC8wzowyBQYLHcwB5mONg3qjXJcwVx4mvPfyA8sU=
-X-Gm-Gg: AZFdTZckPBMXTwiU63eXe54bQQ628tLAL8j9Gc5m2UUhxapP97UbNOjfa2MMGRb6glW
-	M2QAZF/XtegArHnazlxDCm7TbilQh1lh1emyYMD1PJMkFUMMSRn1zvHAWQ2CtEHK4iDgcH2mRu4
-	RsKJ7KPTV03JvnpeW/5K0bgFDweRqOPAV8a2Aff3H31tE9pa9OtaIHsQMIWXeHAToukEqmHVBjx
-	TuvMXISXduKl+ZMjqbMwWg/n15bhYRfP8+UAyu/lUnwiu3z8hx+3Oi0HsKUbLpy5Tqb8uVKvZ7u
-	J4QV2K8v8uJifjkCy6jLEVPsCtn78W8h9gWJcx/ge+Y7Em+cE+h1eRxsW+WhjURBeCqvNM7kwcj
-	5/uhlDS25EuW0JkQ9HcyfpvL0oDjWFRY896Z2zFI4nnTZ9Uk27lTUPdqHH5ENcPZ8MFiMUdVOJk
-	advDhTtKxO5gu97MdXmgbXIBU4fIT2nYipv0etjcw8eVyPIEmxUI6B52KwwOcrxJrzvihZ7HPjl
-	fE1ep5ML3aPGAoOF8r8laBfDGS7yrSj2mVpL8kcSn7keai8J9kIklzBdqrqqPVzhYkK2IzbEsXj
-	7SjHGruvhnxxZAb+hNWaHl3so4Nz46iddDHNzFHKXYvZIpubIkwY+rE=
-X-Received: by 2002:a05:622a:307:b0:55c:cfd:3bd4 with SMTP id d75a77b69052e-55d76a6bccdmr295490121cf.72.1795541712297;
-        Tue, 24 Nov 2026 09:35:12 -0800 (PST)
-Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d78811fd5sm134260551cf.8.2026.11.24.09.35.10
+        d=1e100.net; s=20260707; t=1795541718; x=1796146518;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=DmBwmrmEWgysYKtSDSRrr9hV9wxgIOlNWVL3lTij1CU=;
+        b=CXPP2LEkOiq1BjlhR3+lKiQUl9KcBxqzPaxqMKsOin3gQwwPw0/Z3h/j/xCSV7VfI3
+         HeDZqxjjI2dDqjjsVf8b+9125MZE/7d2biWipODrOZrinixansZopHvFjgLpVw2BkcKM
+         kB2o40YSCDTZ7XMvRF84lbcU+0CHSTXOuap/jmvTsd05AMkWXBQxqJS5MZqSZkV4VB3m
+         QMg6MQoS0F1fKoSKG1mwecCg11Hv6gDq7KhahSzpKIPRToynMeAX7yHND/fLZI/M+3AO
+         doJb9R7YIIWTwUNv1v6S/Az4XgRh40Frn0K6lwfL0PS7LW+DKr3JwIRldSAXdYlo8ba0
+         h7GQ==
+X-Forwarded-Encrypted: i=1; AL+hErHnBy0u7D28vWwDY8IgTc2nYPRuzNkn+9HSk1t27SSGSSl9obE95l0eqOX/ixz1+rUvzoEsj1NfbKF1bws=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+4A4zy52syVRwI37zGq0drCvLTsFcHXkFVs1zccujEIgQh34Ji
+	imlt09nrpSVxqBIvLgGEYO7fLURf62KwzhmxnoO3sX1dZ3t66QlQSoJl4+Nie9iRmyU=
+X-Gm-Gg: AZFdTZf3OdnG9yESWRKSxv1IOzVEGTP4F8OOXs+6iPmNjl/Qg6g/gtZhaCN8+IywKa1
+	lPLfq76969iqd7jM7glij0+VI1v6Ou9h+GTbHDeoWclED1yBbch6yHS699NqRr0/l4X0VU6RChQ
+	6igNSh44DBhhnrS/0zd+YEmjgu2qn0bInn8HaEOZbvX/5t/rQM4pHw5SJBVKARwIPYyBLdpVFpK
+	HS29DgFOPM0WVT6jqCPyx3PHpl+u5lp07XX0Tri3ZE+ZeyfmfcWEiazyTyw28/OBqKml/HHKVEJ
+	uqp5exqi3Ee88lqssoYbcOEJZrP7Md83sT2nvsdYuS6ukadeJQv+qNJvMvFGZpuMDoDTOuNPhQC
+	yjw9ecnL2iHJZ0kYYu5E0+xWaINhZ2PjeQe3CZoqD0ZNd2YS3+JDCVRWMMXNC9dudEPQkDQlxjg
+	XZW2VvcSUKoxqRPYlNmxe/cNV1WeX/BsSOFilBhPpw4IZNvXNkFoI5L37W8v9xWzTUG4JgIsYlw
+	fvaRe+iUdTATNV4cIW3BHdzlma18WLRDEFcDxkN3GBkQgsEyjB6RCeXw8wrSaVRcTq/We8o9GWv
+	rgw9TPEzA1Gr3umD5iuL5LcuqUs=
+X-Received: by 2002:a05:600c:a08e:b0:4bb:647d:dabe with SMTP id 5b1f17b1804b1-4bb887c3afamr345794445e9.3.1795541717677;
+        Tue, 24 Nov 2026 09:35:17 -0800 (PST)
+Received: from localhost ([82.192.120.76])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884865a2sm460171975e9.3.2026.11.24.09.35.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 09:35:11 -0800 (PST)
-Message-ID: <5d46d320bf3b956bdd3413f8a88beedf07938fc4.camel@ndufresne.ca>
-Subject: Re: [RFC PATCH 04/28] media: mali-vpu: initialize decoder format
- state
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Charvi Mehta <charvi.mehta@arm.com>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Philipp Zabel	 <p.zabel@pengutronix.de>, Vincenzo
- Frascino <vincenzo.frascino@arm.com>,  Rathinavel Sankaralingam
- <rath.sankaralingam@arm.com>, Shobhit Pandey <shobhit.pandey@arm.com>
-Date: Tue, 24 Nov 2026 12:35:09 -0500
-In-Reply-To: <b152209e-6117-4a24-aa2d-59be913850b5@arm.com>
-References: <20261119153758.1426673-1-charvi.mehta@arm.com>
-	 <20261119153758.1426673-5-charvi.mehta@arm.com>
-	 <d1d53edeb358e1bdcd1c262e48074f7f1be276cf.camel@ndufresne.ca>
-	 <b152209e-6117-4a24-aa2d-59be913850b5@arm.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-BpfK9v6vcqSHzyO28x9C"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+        Tue, 24 Nov 2026 09:35:17 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+To: Guenter Roeck <linux@roeck-us.net>,
+	linux-hwmon@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	linux-doc@vger.kernel.org,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	linux-pwm@vger.kernel.org,
+	Gary Guo <gary@garyguo.net>,
+	Andrea della Porta <andrea.porta@suse.com>
+Subject: [PATCH v2 0/1] hwmon: Add fan tachometer support for Raspberry Pi RP1
+Date: Tue, 24 Nov 2026 18:38:59 +0100
+Message-ID: <20261124173900.31266-1-andrea.porta@suse.com>
+X-Mailer: git-send-email 2.51.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -121,47 +102,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
---=-BpfK9v6vcqSHzyO28x9C
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
 Hi,
 
-Le mardi 24 novembre 2026 =C3=A0 14:56 +0000, Charvi Mehta a =C3=A9crit=C2=
-=A0:
-> > > =C2=A0=C2=A0 struct mali_vpu_session {
-> > > =C2=A0=C2=A0=C2=A0=09struct mali_vpu_dev=09=09*vpu_dev;
-> > > =C2=A0=C2=A0=C2=A0=09enum mali_vpu_session_role=09role;
-> > > +=09struct mali_vpu_port=09=09port_src;
-> > > +=09struct mali_vpu_port=09=09port_dst;
-> > Ok, its time to comment, src_port and dst_port is a lot easier to read =
-imho.
-> I=E2=80=99ve generally placed the direction last, as in dec_src/dec_dst a=
-nd=20
-> pixmp_src/pixmp_dst.
-> I=E2=80=99d prefer to retain port_src/port_dst to follow that pattern.
+This patch adds fan tachometer / RPM monitoring support for the
+Raspberry Pi RP1 southbridge found on the Raspberry Pi 5.
 
-I heard your preference, but readability when up-streaming is important, we=
- dont
-say "the port source", we say "the source port" (at least in english, which=
- we
-program in), and so when a human reads your code, having things in reverse =
-makes
-it harder.
+The fan speed is measured by the RP1 Cortex-M firmware, which writes the
+computed RPM value into a register of the RP1 PWM controller block.
 
-Nicolas
+Following the discussion on the RFC [1], the driver is now implemented
+as an auxiliary driver: the RP1 PWM driver registers a "fan" auxiliary
+device (pwm_rp1.fan.<id>) and this driver binds to it, reading the RPM
+through rp1_pwm_read_tachometer(), exported by the PWM driver in the
+'RP1_PWM' symbol namespace (as suggested in the auxiliary bus
+documentation and agreed in [2]).
 
---=-BpfK9v6vcqSHzyO28x9C
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
+This series depends on the RP1 PWM series [3], which provides both the
+auxiliary device and the exported accessor.
 
------BEGIN PGP SIGNATURE-----
+Changes since RFC:
+- converted from platform driver to auxiliary driver
+- dropped the 'raspberrypi,rp1-fan' DT binding and the DTS node: the
+  device is now instantiated by the PWM driver
+- dropped the DT phandle lookup, device link and reference handling:
+  the auxiliary device is a child of the PWM controller, so the driver
+  model already guarantees the correct lifetime and unbind ordering
+- rp1_pwm_read_tachometer() now takes the auxiliary device and returns
+  the RPM through a pointer, separating it from the error code
+- Kconfig: depend on PWM_RASPBERRYPI_RP1 without the COMPILE_TEST
+  alternative, fixing the link error reported by the kernel test robot
+  when the hwmon driver is built-in and the PWM driver is a module
+- removed <linux/mod_devicetable.h> and the other unneeded includes (Uwe)
+- updated Documentation/hwmon/rp1-fan.rst to reflect the changes
+- added a dedicated MAINTAINERS entry for the driver, instead of adding
+  it to the RP1 PCI driver entry
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawXKzQAKCRDZQZRRKWBy
-9NPmAQCw+FqH8tb2NT0kyezcMofs4qS/3wmckKm7M78C7X79vgD/aZhblqvBZYB0
-cgUBoaxShFAf7iLpc3EF1UkY9cuXzAA=
-=F9EK
------END PGP SIGNATURE-----
+[1] - https://lore.kernel.org/all/cover.1792748690.git.andrea.porta@suse.com/
+[2] - https://lore.kernel.org/all/ae9a4df9-b1f2-4f00-ab86-d9cf8d9bc387@roeck-us.net/
+[3] - https://lore.kernel.org/all/20261124173658.31030-1-andrea.porta@suse.com/
 
---=-BpfK9v6vcqSHzyO28x9C--
+Thanks,
+Andrea
+
+This version has been prepared with the help of an AI coding assistant
+(Claude Opus 5.5).
+
+Andrea della Porta (1):
+  hwmon: Add driver for Raspberry Pi RP1 fan tachometer
+
+ Documentation/hwmon/index.rst   |  1 +
+ Documentation/hwmon/rp1-fan.rst | 43 ++++++++++++++++++
+ MAINTAINERS                     |  7 +++
+ drivers/hwmon/Kconfig           | 11 +++++
+ drivers/hwmon/Makefile          |  1 +
+ drivers/hwmon/rp1-hwmon.c       | 78 +++++++++++++++++++++++++++++++++
+ 6 files changed, 141 insertions(+)
+ create mode 100644 Documentation/hwmon/rp1-fan.rst
+ create mode 100644 drivers/hwmon/rp1-hwmon.c
+
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+prerequisite-patch-id: 8a9c7c53e94bfc4dd1dc40e8277f22c1f410f404
+prerequisite-patch-id: 3053bded44bcd6a78ecae5a255ae876c5a9cb49b
+prerequisite-patch-id: ade915a82dd15722ecb44802d307ff9d60a79228
+-- 
+2.51.0
+
