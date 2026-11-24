@@ -1,108 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795505382;
-	b=pt87LFn4Z5Gz6Wi1KzeUa2SMKMOGIJ6P3whLngPWH/vuYYdEowRz7jv/L9bg2/8yqhsX
-	 5Y+Vj5z+7YLPZuM0dGkM6Zds1V524byO+9+lbO7NwhV8F4tnSaWV7e7nAA/vLozCrMo4l
-	 P15FchHMpI5RZCBkqW5MEnh0/a1ZxSI6UVrcX7HAaqI7GZcOLvpZDVtGk58c0glaMxuGs
-	 JeRrdhJhC152GZL3nkLb0cIgCZWymrYTaPlp2ieZZX8o+ZxJTmP6WTPoOeEdANTQEPmB5
-	 tjUojOKSJLfUVPQQt+Z6RW5ktO2VnD139O2WJLNAIIiOzMj9W5I7KR433gudFQ8+wNQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795505382;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.52
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795505388;
+	b=OlYJ+h9A0HFvedxTZ0bNndCoQZmvt3lCEMnIBi1IzYkCA5NbMIJFacQP9Bgmm7CVwLe/
+	 cCI1lfWa1XEFpmOO359Sh/9UoI49+xX5Jr7buJxV7Pfv/F6sJpUFjQ1MYwzdHx1CQm1wR
+	 jykrl0qR/inQ4D78vyvRccesVnB/R1ruTYlU8dMFcXKLdQu1ygmMA8LwEvIDtBUzJh2bE
+	 guh7F+TJKyBkWF43vF3smkQUwtPArTqBCgncuX1jZGWA9XSxpVQtQRnunJIQ3WW0GFQsn
+	 qw4KLWfiIYT5l4KsIS9+GzCdOecnJ5odAY3P1X5k0paOpdyZu9PD6kzgAqOTDf9JsOg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795505388;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=JGeRZHEsszBCgxvyCdNDeob7nkbYjLxhNWjrFkp+2Dk=;
-	b=yy58chSVfNnv6rAqI3gDwlgexruCX93d2rm0gvmeP/2jAfvnNUW8qfIcqhaaqmoEsF7/
-	 +EuAFWSFHO2qXKqp+8Y3B3JccAgl5FE3YIbBT7awkwYYN0CZ1PFaygppsVXsRuRfXRml1
-	 4DtLPRk4ldoFIAxyKEhJal7+9p83ZYDoWJmdMsVYph1sVWbhY2K8ppuJD3VEBwajSAcKj
-	 8TEklTsPsopjokfftU5VxSv1pgEkkBHiDXeBFwtSd671CHlIIf981tmLFhn2QwqtvdW/X
-	 NXX5fJxxqvw3FP6RDCeZzyD6J3T0cy4jIdl17dbxWL1K8/BY8bN3ZXLvsmxz+eEEuEw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=HHoAin8im1fnI2MFH3oWDJgzqw5jsSnp9Q8nmC/cZc0=;
+	b=bpOcoc9dCI+1ZXGa3hfHTa01Goe9YtYYaslRtEGYBisr6mQzeQb7qe51CZ407rpRBIbq
+	 F2tBgRxiQycYcWWbZKdiPquZSWwh+izdBYo0GjGpoukPMH9gEGNa3UalOjqafvSr0Bn83
+	 OHShm6cw+CXmTuBqTIyGg2v9RHQRTA6JJbwSxYmMd66E7otrG7/c+cdolrbAgKeLJ6EEF
+	 0saAHZqBBI6vlJS8Wwzg02ZihJ+z6NXvvgQnSugwidkv6G38W2ByxyxNycngqGGMrM37M
+	 64RuOCLuaOu7g8qNjsLoYHf+uiSxz1MYtNkg+ZmoQgkIZEeCAGbh+toIxvPdBW5YCfg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rq1oP962;
-	arc=none smtp.remote-ip=209.85.216.52
-Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jAixZFu3;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.52
+Received: from mail-lf1-f52.google.com (mail-lf1-f52.google.com [209.85.167.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3292606A32E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:29:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3292606A32E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7103606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:29:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7103606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rq1oP962
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b09a83d12aso3001568a91.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:29:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jAixZFu3
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5c1479be604so3105781e87.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:29:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795505386; cv=none;
+        d=google.com; s=arc-20260327;
+        b=kdimaxoUDrNbRLrG22ZvmlB2gX/S/v7ae4hE7KRpeXj4IsjFPtYHTGNy6VE33xPajx
+         3n0CeAh55bTnBKdA3xinNxWRHiSQGMNV5vkWglkBPcgNsDdvjDt5i6opyGAEhfvlQV9D
+         s87RMSHnsAnRhCGCGC5CDkC3cjF1pXWVRAP37is4PIZjk3H+TWHVHvwcGrAfkvEoEm3P
+         n6Ty4+jDnqh2h8eIWxIMDVy9XO3W2SitTfJOTQkCIpnt6bACl0M+mBxKLkb6hbf7+yah
+         Cn9ztAcv1z5CjoEi2m27Wwj7+k9tWv+293nU9ejkXRsQKKme363luonT1ZxpcGI2/F23
+         vNIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=HHoAin8im1fnI2MFH3oWDJgzqw5jsSnp9Q8nmC/cZc0=;
+        fh=hSpjInVsiWDvCxUn/b4dWzxaQs1WUKeEQ/WLqrlVlJk=;
+        b=VwLQLWShBby7eGvbrADwHlpd6AYNiAP19Y2XFUjabwc25l6U0cLux7wZv95wmCYmvy
+         Rh9o2AwX17Wr1fB0jkBIun/9CTvA8IkW6t3AxyplWrSO6PxwpLtBysPCW6wPAxz2FI84
+         MqHI467KghcsZD7+33OML4ml6eYNEfYLMeP6gmyvzVAh6G7aBdsGQY1r8gb37JBE1bbT
+         FvsiPsryTqO9PCaaYyjfzjFjsedSOIl6ec2HjI9hsjG2EVjCNABiZ3r4AmFY00vPZ5ZY
+         9mgDndJz+uFMWfv6uBrVBzgj0i8JuxMLWEuXNfoqVHAE3LH2KPg+iBmWRv2DdoF1rece
+         ozgQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795505381; x=1796110181; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JGeRZHEsszBCgxvyCdNDeob7nkbYjLxhNWjrFkp+2Dk=;
-        b=rq1oP962qlaJLZXcCqedaZtAYzK5COV2KcwuKR6KrCes8aShaceZV0w0djk0nUTrMU
-         0sJMf3lH8qAsOEkzyiBfKICVEBuJIpLF1JM0kCHbxy5b9NqNy32AGVtFT//zAZAKc22u
-         8CL3NnIfthfDYqNVskTGMsUAQwL4tt9Sb/O+s3y5CIVJco0UPaKqvrQ8/IKbUJmEjSD0
-         REoUcLYfJFpa/tAcxMEt8M5e4+eEh06QkC09JSobaAnMfZSKo4ChwigQa3SelnyhQna4
-         0gw08L2Re3foS7TsfaeY3zevnazSMu3RHhDgXvMTvbw/fF2nstvPuG0T5LpyZOMSCMpJ
-         tDrg==
+        d=gmail.com; s=20260707; t=1795505386; x=1796110186; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HHoAin8im1fnI2MFH3oWDJgzqw5jsSnp9Q8nmC/cZc0=;
+        b=jAixZFu3VW6Q8y8h8D057mrQVPM+4cfJDCrf2C7P5dF2CiCwvXa/9S73S8BIyfE+w6
+         nMm3UIXGY/ki8oLCM9C7VtiExP2TlTwc2IqxtH8JA12fJ+5xoZq6fOmNYct4M3xDDnWS
+         WmSwRuCzMTiVnVmK3/oaTSV9kFnSDqJIDKKNwulJL7/NjycKbtgB+PIhHexyVbzauNKU
+         iv5+2iaDYE30aqXcMe5h8pgUQ6nb4cHD1wBf37onkVkCFCYsiGSxdyYr0C357D4yU+E1
+         BlSsT0VLLI/aZ9pGw1OzkSpV2P6r1I7pF33O6VmLt549WoNiM/JHhBAD5oii3QinZRUE
+         zC3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795505381; x=1796110181;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JGeRZHEsszBCgxvyCdNDeob7nkbYjLxhNWjrFkp+2Dk=;
-        b=QB5Lz8lbT30u9TPYtsqzTqrv0e6DD37JVU6CpCMUro23psGk0o8b033K2D6hS49YM2
-         pgsqV8YCYUyUSpC/y4R3cifyDAtm2DVVaNpfPMFCiMoGuisoNBlwYC9CV2cdN3cZWyGo
-         XubbHSZepatLwgZ+ypJNHSBC30FBouRnbrMk0LSn2EzwqAYWid9Ziq2D4L5NLglVV2gf
-         lcXxMB2HbXmg5M+e6oJ0Yuvs+SpIfHtLG3mi4/fNgQh6gqABCU207D68l08UoQ78ElaF
-         +1EIoQdRUH9Jok7cx2dKbRyQF6qF3ayp4inToey1DVqFJzYqO8pw1x/5Hmepb7UkQ7fV
-         8rPg==
-X-Forwarded-Encrypted: i=1; AL+hErHEZWPAPSGHaJZEny4zLSKSb5V/hsJPNh75TLKCxOIbkLe9qBKSyQP8FsX7HH8bt5QSN4y+2XsUQAxIeUY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9cRQvpU6Mc+6ck+C3LgpoyfVwIj3qUtbsGLSdajOJAEInfOFuA
-	6OARSNAKuTd5ZE3ZAGTY3jkB0EbBEftJaoxOl/Dwh9UeYhFD8k//DWcT
-X-Gm-Gg: AZFdTZfFr6sg85XivEQwn8Mt84EaHLenTx0QBYQ3UD6hDEYqZvn5U87l4OKWsEKxyUG
-	p75Lt588j4zrpr981F65Tt2lLZvPQ/JoV05tXpLzA7WLYXPBDxe3QVOkue+sLHcEc3Ya/ykwGxl
-	na+DlZiZxJP+j/RkUd41DexiBaBZig7tC1lMz10nxeOpJy5BOeesrqn2T39DJnwIRfqfRjEBKvP
-	aV+zR1uCd9THZsUSrGjgeK/Xq7yKGGBFv0W4VzQd4vCmQpuAMY7nmbbEyyadxXZNVyXXSwglSwE
-	Zz+Ev3++J9RPU4SiIr5KFxQLBz2IEa4+HzgyhL4j9cv6VBHn/hq4/Z90dZhu+O9nPiN8HcngffA
-	wb5nT1cxsuUUUzhKg6k+WTUBZ5SIG95O5Ui2O4Kt7+fxqfRKjM6n2usRZU7xR2KoYzRS4085o33
-	W5W3w+LJlUPBsmIwfm5/BDuHx0SSyPIjbmQlJWnkOpuxbjv0YrwkUkFYMeMcFNT5ebYFLEvUT/C
-	HRq/TLQi8Ryy6mwUnKIKwdVC1tuJ6ZxEfg5xJCh3lvguIMcpjHhdUjZtWyB13gNH2XkMTvpWxi1
-	gLBI+1BKKJmvoY6D5XJ3iq2jQBA=
-X-Received: by 2002:a17:90b:5346:b0:3b3:ab74:74f7 with SMTP id 98e67ed59e1d1-3b41c955bc5mr12961867a91.39.1795505381135;
-        Mon, 23 Nov 2026 23:29:41 -0800 (PST)
-Received: from localhost ([2001:19f0:8000:4ce8:5400:7ff:fe0e:e6b2])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b457a58d04sm8262361a91.0.2026.11.23.23.29.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 23:29:40 -0800 (PST)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Srinivas Kandagatla <srini@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <chen.wang@linux.dev>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Han Gao <gaohan@iscas.ac.cn>,
-	Hangfan Li <lihangfan@iscas.ac.cn>
-Cc: devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v2 3/3] riscv: dts: sophgo: sg2044: Add eFUSE device
-Date: Tue, 24 Nov 2026 15:29:23 +0800
-Message-ID: <20261124072924.556678-4-inochiama@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261124072924.556678-1-inochiama@gmail.com>
-References: <20261124072924.556678-1-inochiama@gmail.com>
+        d=1e100.net; s=20260707; t=1795505386; x=1796110186;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=HHoAin8im1fnI2MFH3oWDJgzqw5jsSnp9Q8nmC/cZc0=;
+        b=1gl5reGyoONV7YLMYSuMS4xo4YEhI8nqEsD2xnhbtIeklnS2RwDw0EzOgbdYFOQJAY
+         lOX6d2bRlHAdlGVAfQ2LyXRNB0geP2c2a64cE29Hr+74R3iLLYUvR8PqsRTUenKIVoCd
+         7Se7sr550LJS/LbdE0Mck551UgifzG06wbsqGcL7zo46XJBxuXXCEizmBY7xTrGtf0Ef
+         HNkl9v82tEM91yqy4lCRXpoWfGWGxYMd/Jyq4TGVEw8VssuwgDaQwBQ1AdiGe4oK5HlQ
+         kHz78zClPAmlCgzkYiUg4dj4ZPRnk+81Fbf78MWNVqcoSpGacq1K0D+jtZB3sNvYYD2f
+         hrLA==
+X-Forwarded-Encrypted: i=1; AL+hErFWqE7kqsnb6/9rbZt7Rt/Az7jnRBJR5VFBiHZZ1rt7lWoFDzhFAVyVHO9+6uDEU5rqO+fkswIprbWimq4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/C4KloJXupDJ9randWs19EJFm5uopW9I4wBOuZpF/3djVRDW/e
+	EE963zgUturh/AmEKo/aCq1e4i0dz/msgeS/AT+l9SZrZovVYzNBCGx0kprneEG6qTMGloebZYw
+	CjVzDcJbvQB5W0+od3lHdSX7GcPM6IJo=
+X-Gm-Gg: AZFdTZe3CJ3qa5PXQpud+OPa1x2oKPgB5zgJrX40wmk4+fag7/wjxUvZo4qE+depVBq
+	QpQkpa3hL4a+D8aDsATAwF54m7TFPbC9RSMlOXLzOqR8tlupI60WMJt5sIVgNwrjbMrY2MDNP1t
+	iPgMJjxLjT+B4JSoyJnPC3F08hC+Md/CPXTXw9n9748w6d9bVp9duAh759esxE/bvFYs/ak66Ku
+	HqM+mx4sStpWje/0QCL9iQbHmUQFEHVqghrAdp40PKENDo6JQ4VFqk0cZ07AbW3thVHnuErNY0b
+	BsfAtxPd44WdCX6oZCiWRuuf7huxpUDMA7Z3Ko5U1rDJxR+7Rtf1rJnbbXTBTjau7DwTOceqErM
+	25hIx8Q8ZGY/CurDXmTQATpxQ77oOvmDPjOY=
+X-Received: by 2002:a05:6512:3087:b0:5bf:e540:8606 with SMTP id
+ 2adb3069b0e04-5c1bc898e67mr4261475e87.59.1795505385842; Mon, 23 Nov 2026
+ 23:29:45 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,54 +103,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261117-regmap-kunit-val-bits-v1-1-a1cd02063217@gmail.com>
+ <av1qOFxolvDhQTKs@ashevche-desk.local> <a93f6d11-22a2-42db-81d8-297240c9bd2d@sirena.org.uk>
+In-Reply-To: <a93f6d11-22a2-42db-81d8-297240c9bd2d@sirena.org.uk>
+From: Raffaele Tranfaglia <raffaele.tranfaglia@gmail.com>
+Date: Tue, 24 Nov 2026 07:29:34 +0000
+X-Gm-Features: Aa3M54ph22eAMFVDyRykrIGrEABI6AhQfgi6d7a7zVpyiMmcsmVRWIA2hsRMJvI
+Message-ID: <CAJsKa+4KEU8ejsDvj0=qCh3=XC5dZZNv_X+Saco4Ln3Y9q9dOg@mail.gmail.com>
+Subject: Re: [PATCH RFC] regmap: kunit: add tests for values wider than val_bits
+To: Mark Brown <broonie@kernel.org>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>, Jonathan Cameron <jic23@kernel.org>, 
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	driver-core@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 
-Add eFUSE controller node for SG2044.
+On Wed, 18 Nov 2026 at 11:30, Mark Brown <broonie@kernel.org> wrote:
+> On Wed, Nov 18, 2026 at 11:04:56AM +0200, Andy Shevchenko wrote:
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
----
- arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts |  4 ++++
- arch/riscv/boot/dts/sophgo/sg2044.dtsi               | 12 ++++++++++++
- 2 files changed, 16 insertions(+)
+> > Do we really need those explicit castings? I think they are already inside
+> > the byteorder macros. Also we have be16_to_cpup() and le16_to_cpup() which
+> > might help.
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts b/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
-index 88ddc8e793f6..2f9fca6bd110 100644
---- a/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
-+++ b/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
-@@ -36,6 +36,10 @@ &emmc {
- 	status = "okay";
- };
- 
-+&efuse0 {
-+	status = "okay";
-+};
-+
- &gmac0 {
- 	phy-handle = <&phy0>;
- 	phy-mode = "rgmii-id";
-diff --git a/arch/riscv/boot/dts/sophgo/sg2044.dtsi b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
-index 320c4d1d08e6..9577aae08f7f 100644
---- a/arch/riscv/boot/dts/sophgo/sg2044.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
-@@ -408,6 +408,18 @@ sd: mmc@703000b000 {
- 			status = "disabled";
- 		};
- 
-+		efuse0: efuse@7040000000 {
-+			compatible = "sophgo,sg2044-efuse";
-+			reg = <0x70 0x40000000 0x0 0x1000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			clocks = <&clk CLK_GATE_EFUSE>,
-+				 <&clk CLK_GATE_APB_EFUSE>;
-+			clock-names = "core", "apb";
-+			resets = <&rst RST_EFUSE0>;
-+			status = "disabled";
-+		};
-+
- 		i2c0: i2c@7040005000 {
- 			compatible = "sophgo,sg2044-i2c", "snps,designware-i2c";
- 			reg = <0x70 0x40005000 0x0 0x1000>;
--- 
-2.56.1
+> If we do need the casts that probably indicates a problem.
 
+Yes, the buffer was declared as u16 * while it holds __be16/__le16
+data. I will use be16_to_cpup()/le16_to_cpup() on a void pointer in v2,
+which needs no casts.
+
+On the main question, Andy wrote:
+
+> It means we can't enable this test cases without addressing the underneath
+> implementation(s) of the regmap. I think the proper solution is to cut upper
+> bits on the regmap level, so the cache and HW will see it as expected.
+
+Mark, would you be ok with masking in the core? I would mask val at the
+start of _regmap_write(), before the cache is updated, so that the cache
+and the bus see the same value, and document it for regmap_write().
+
+Some regmaps leave val_bits at 0 (e.g. ad4130, ad4170-4 and
+phy-cadence-sierra), so masking has to be skipped for those. The
+reg_update_bits() and reg_noinc_write() callbacks do not go through
+_regmap_write(), so I would check them separately.
+
+The alternative is to reject such values with -EINVAL for all buses, but
+that could break drivers that currently rely on the formatters dropping
+the upper bits.
+
+If masking is fine, v2 will be a series with the regmap change first and
+the tests after it, so that they pass.
+
+Best regards,
+Raffaele
