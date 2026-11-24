@@ -1,53 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795554341;
-	b=2K4uglJ0yuGn87RT9Iyq6jZMWi/bkccUDlMxiJ8ghpAV+CayeUBT3d2FFWL/U6HuVhbA
-	 7QlKEAlO8hDQB9pyLbbECfKMvYBA0mRJCkuSIKe5Sf8xpFSv4+Kwwcl3n+dQOQKjRNI8r
-	 bn40YIlxng+jouzdIdA1Xla9X9KDbywPzXgmNjRSmhmMVh4q0d6tmJxEsTk0o9bKP0jfQ
-	 vEErIHXClTPP0r/CU4ZNYH7cT/O8ndhsjUoGg5EtC4fbTuAjd0aRYpcu94ThM4galx4Rs
-	 xhMLByxPu3yYB/mN/kYtOHfSRkTPfvH13bXwpYCmgc2gDK8kMtsAxjab3lxrhZpLLXQ==
+	t=1795554378;
+	b=AOCheqDqziahoGLfR2+i+sh4zIT5ob07pHkr0A/cb9aNrDOyHovzhRlxf3Rv3I0Z2NxR
+	 hLgPhJZn28tSK0VAparKtLbOa1+Zu6gTla5NwbHXApnbILQcsBUqcEFe3OuUZiTDmJ0Ex
+	 VJ0+CcZWH8koEtdBstDLonZwKzY1udNMVDgbf7AJLgBJ7jitnGCAE1wn59rOYczfXYz7U
+	 hPDfR/aIkpdF5nHsG1JCV30rzRY6krtVvX1cwkh6pxdXLW2cApDxPrS07XSoRoRXm0kGY
+	 vpjXoQ9r1QE93x3RF2xJCUPbg/+L6/Sak4MeaaM2jhHNzZ08q4YPoxAcQofMtshYHhA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795554341;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-Id:
-	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=qS7bqmifw1teR25L7ZiqvJVHInoEWL72FwYCtMYVwEM=;
-	b=jcH/Mf/GIbyf6GerhxgkPBy4ub6LZ6xo+eqOLE1R0OdY8jtkwvMQHISdimq7F3nQYe5A
-	 IALNQSd0oHahVlyQSLwfJuD2rMaP06MpIeRkTBPJqInmp3ep2GyeHII/FdVCG5yuahyFI
-	 3lS7em4iPvkSB8yPhMzj6GW+DVHBYyEc2EeAN2lRC6P+/P/aDGLU0WSTuF5oFI57XrXS7
-	 Nc4NfAeE/mSNJfL6qBB90cHOKP/SLUqW91ZequaAO/1dSR/W9XmtIkdOjXfX9k6Kh5HSJ
-	 /OuiRNvvvj6xwCW5rb9UhdJ1HJoBfoinMWtYWx1/UaMvv2s8GmpfJzYTx5c02LM9rnw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795554378;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key;
+	bh=DFqtRoWlpuEyjd15AtWg+ti4h6jhp60R6aesuq4S/JI=;
+	b=xqr5mOdCGZ/F4s1UGR6N9zt9vH0zLxf41XfrUVVW+JBJxRtqR6+hkm2z0Jj2ebIWkfK6
+	 JTCKW42DjVuzY3Wa9TqHktSbKB50EKmqyCaQa934qH6wHV982HPD88lsGVgSOo7tq9VoM
+	 /jCntNsSwnx9LiZF8VB9vf91DLY+EtmSznkQS9JNtvfekhwzioNDkzsx/fH0lS6T0gpLT
+	 b7bGQUZgMqr6aceaaRDi5vXWRyWynkHstM3WuqrnaJMtPsfEB1w4n77lmOrCYOsA3d8QU
+	 5l+N7obLWaBqDlMUttGYEUHSpUBsP4l7olrTT+E1pyWIvvmPN/mU/PzPWOTyzQl/0gw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=zcvNq4fz;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UtaXWhDI;
+	arc=none smtp.remote-ip=209.85.208.175
+Received: from mail-lj1-f175.google.com (mail-lj1-f175.google.com [209.85.208.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3018A606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:05:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA962606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:06:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA962606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=zcvNq4fz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29A8A1F000CF;
-	Tue, 24 Nov 2026 21:05:40 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UtaXWhDI
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-3ae854fd0f5so37102051fa.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:06:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1795554340;
-	bh=qS7bqmifw1teR25L7ZiqvJVHInoEWL72FwYCtMYVwEM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=zcvNq4fzYxrLAug7X7LmbV9+2du134L+A8DlNo5Fex3iFC/ONKYUikc7PRj+7KN/w
-	 /2ZYRXi3VUZ6qmwNjoPPKefLmlcPKIp8KuVpbcI7BdOjSR96emndbkNECejvcNV5wz
-	 p9jcDLgacE/8Hl2sHWtlmnVPSXJLmL0pg62NWbi8=
-Date: Tue, 24 Nov 2026 13:05:39 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: syzbot <syzbot+f1290205423d04eee4cb@syzkaller.appspotmail.com>
-Cc: linux-kernel@vger.kernel.org, phillip@squashfs.org.uk,
- squashfs-devel@lists.sourceforge.net, syzkaller-bugs@googlegroups.com
-Subject: Re: [syzbot] [squashfs?] BUG: unable to handle kernel paging
- request in squashfs_lookup
-Message-Id: <20261124130539.fb8f15d4ad25c01e72c18167@linux-foundation.org>
-In-Reply-To: <6b05f73d.3f72aad1.34e135.0012.GAE@google.com>
-References: <6b05f73d.3f72aad1.34e135.0012.GAE@google.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+        d=gmail.com; s=20260707; t=1795554376; x=1796159176; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=DFqtRoWlpuEyjd15AtWg+ti4h6jhp60R6aesuq4S/JI=;
+        b=UtaXWhDIYZZ/Sk3Wxy8wN58qsij+ZMcfa+6Kd84XXxQKJzlRqjYNgJJ1p4ovwGhFPo
+         ULuxf2SJ45Sn+tJQ4UxA8Y+YtgEWNdgEVgp3oh506jILpGM1dBmB4VW5ZYUKKYrzRu1C
+         SLCzMK8oESCPpLxw2cYVygvxhlT3Y1Nw0bs0q6mDXx7Kkv8ry4dHVuSkcgSW0QVjPhIi
+         iHGbQ0Og9GhxHgoBIlKvvj00eVX50qR+n1uZIfOTdOxsVlhrDDEqG+2iHM9vBEwVArGB
+         h5yQNSsdOcwX3Yc2u+AUGqMn6jfFbrlyyNFSs0Pp0KQGHrYxrqs0dGc78GHkWMRaLOGg
+         fujg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795554376; x=1796159176;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DFqtRoWlpuEyjd15AtWg+ti4h6jhp60R6aesuq4S/JI=;
+        b=xScz+rScXUO1+AcfAEp9KHsqTbekgR4rwBw5WptROJTZPC15pUNWqXTs7MmuU6153J
+         iOGi7RKWebEMSSy3kOUt4Yh7QK5MHhxOpbCbaknB5MBiJVyujLIOH1o7hfPtT38q7Sgn
+         JkYj1BQbamJ7/4gOhCgBdsZU9nEZHp1B1ws82WA/xYxFSbaRVX53Yhl2QoyoJWVUMCSj
+         M2nR556aoXdZhnRmULgroG1mCGOvkP3QI6p3kzm0BtQYlehe1g/3jIZ7ac26sgdFZER+
+         JsmlmFlqdg2k9HBr5rO82ZVzT9Hbj8fmcAamNVxUIg17hpmDuxl6ceNNLprHuWiSgH+R
+         K+1g==
+X-Gm-Message-State: APuU4Z8SscZ0ITcbegppA52g+GaJuF2nMGLZzGLBvxQocHk0IaP6hjzl
+	SGAw7P1mxF+udfBmB2bOjISdvTg/A4cwjcqAwZ+MVRhnXDU8DBnKWukx
+X-Gm-Gg: AZFdTZe/amFvyEgTpitEYPMXLOkteZBhA5c5lcBnHexUpy27HbxLqDfbkOwGzxvpK0M
+	IwV0Z4HtU7hdO1aIUAoC24sqOi7/qIPshzSbokMuCK/BdFnGCRQsrc+8qCbBXd8h7KJoaJCdGJN
+	c08c3BvNQIWQCITvnvBVOTX/fuylJv4Iso5P/R2jdGF4uEFo0BZsbur0yNkRH5lV9CE1F5haDeh
+	XIP/TN2p+YLNAJHLsSQCt7+ny2qL0JMgVDiMhU7Vp/e0d5/BBUAQ1bzhOhM1BvDVnL0tl7W2mc8
+	eai9/PCPQQrHA9sxytszd1sOChUAOIgUL8xTa1WtNLAL77jEuOTyfzAGp/3keXzDOXLJMJPUJUS
+	vf8SsapyJxvYkh3pgEJDJP5USYt2VBw07ne/EHGI5vY23QOiZYVIeosTXmMw0sEKF+PiqX0xGJt
+	0Iao/KUUES5+ozphveiAT411XOCZOGCKuzPw8dPTOvaAosRFcTSO0RoAvx5qSj7vjfNpQR//XjR
+	5VJpv4QZkv8sbNT4JftlqHTjQW60QuJt6AQDFjRHbNpDMKMX7HC6QCwWRNPA3t7oDLRgBtOYSQD
+	jwj/bOGukL4BCqNJ3Dz2Tlz06c+VPfHSr5P6+0+jYfUq3lfme1u9Tp9J+fFKeXY=
+X-Received: by 2002:a05:6512:308a:b0:5c1:ac75:7a16 with SMTP id 2adb3069b0e04-5c1bc6f69f2mr4451118e87.9.1795554375701;
+        Tue, 24 Nov 2026 13:06:15 -0800 (PST)
+Received: from [192.168.0.15] ([2a02:a312:c59b:a180:251a:f25f:80fa:af1d])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd041813sm4099045e87.53.2026.11.24.13.06.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 13:06:15 -0800 (PST)
+From: Artur Kowalski <arturkow2000@gmail.com>
+Date: Tue, 24 Nov 2026 22:05:59 +0100
+Subject: [PATCH v2 1/6] clocksource/drivers/timer-tegra: Keep Tegra20's
+ watchdog timers free
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,66 +91,170 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-t20-for-upstream-v2-1-440116846f97@gmail.com>
+References: <20261124-t20-for-upstream-v2-0-440116846f97@gmail.com>
+In-Reply-To: <20261124-t20-for-upstream-v2-0-440116846f97@gmail.com>
+To: Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Prashant Gaikwad <pgaikwad@nvidia.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>
+Cc: linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org, 
+ linux-watchdog@vger.kernel.org, linux-doc@vger.kernel.org, 
+ clamor95@gmail.com, Artur Kowalski <arturkow2000@gmail.com>, 
+ linux-clk@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5256;
+ i=arturkow2000@gmail.com; s=default; h=from:subject:message-id;
+ bh=kW4sEED/6BqJGzvceEYZoUijI+JkmBOyqjWAj+7fmvM=;
+ b=owGbwMvMwCVmYeTc/TaVxZzxtFoSQzbrH6d0K/9dzX0997+IaIQ4ng8w9t9V959joolJV/CZk
+ 24tf0o7SlkYxLgYZMUUWcweCn3hmef1fsPLrZ0wc1iZQIYwcHEKwETE7zAyXE2pjQoWUfDh6el1
+ OKAR6ee1xu/p98sPv0xM4ChRiXp1i+F/wNK66h0CTfzT7ZmiGxz0O8vqzp39tVVF6Pm81sVm8zY
+ wAwA=
+X-Developer-Key: i=arturkow2000@gmail.com; a=openpgp;
+ fpr=F60710C8D69E03A01A2801CD87A47D20C2709637
 
-On Tue, 24 Nov 2026 12:44:45 -0800 syzbot <syzbot+f1290205423d04eee4cb@syzkaller.appspotmail.com> wrote:
+Tegra20 has no watchdog block. Instead, the clock and reset controller
+resets the system when the interrupt of TIMER1 or TIMER2 fires while
+the previous one is still pending. A bootloader can start this watchdog
+and leave it running for the kernel.
 
-> syzbot found the following issue on:
-> 
-> HEAD commit:    3191063649db Add linux-next specific files for 20261123
-> git tree:       linux-next
-> console output: https://syzkaller.appspot.com/x/log.txt?x=11c11b09580000
-> kernel config:  https://syzkaller.appspot.com/x/.config?x=fb153e9351b2d9fb
-> dashboard link: https://syzkaller.appspot.com/bug?extid=f1290205423d04eee4cb
-> compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-> 
-> Unfortunately, I don't have any reproducer for this issue yet.
-> 
-> Downloadable assets:
-> disk image: https://storage.googleapis.com/syzbot-assets/74a1a5a80d1f/disk-31910636.raw.xz
-> vmlinux: https://storage.googleapis.com/syzbot-assets/ad0d2b167151/vmlinux-31910636.xz
-> kernel image: https://storage.googleapis.com/syzbot-assets/256a3285e2fa/bzImage-31910636.xz
-> 
-> The issue was bisected by AI to:
-> 
-> commit 5b515c0ec855811ab62985033c44dde99c15f326
-> Author: Phillip Lougher <phillip@squashfs.org.uk>
-> Date:   Mon Nov 23 03:42:49 2026 +0000
-> 
->     Squashfs: don't compute start or alloc memory on empty directory or index
+Since commit f6d50ec5f85c ("clocksource/drivers/tegra: Support per-CPU
+timers on all Tegra's"), the driver uses TIMER1-2 as the per-CPU clock
+event devices on Tegra20, where it used TIMER3 before. When CPU0's
+clock event device takes over TIMER1, the clock and reset controller
+still resets the system if a timer interrupt fires while the previous
+one hasn't been handled yet, which resets about half of the boots
+early. If the system survives that, the watchdog stays enabled but
+never fires, as CPU0 keeps clearing the timer's interrupts.
 
-Thanks.  mm.git already contains a fix for this.  
+Use TIMER3-4 for the per-CPU clock event devices on Tegra20, leaving
+TIMER1-2 to the watchdog. Tegra30 needs TIMER1-4 for its four CPUs and
+its watchdog uses TIMER5, so keep its mapping.
 
-From: Andrew Morton <akpm@linux-foundation.org>
-Subject: squashfs-dont-compute-start-or-alloc-memory-on-empty-directory-or-index-fix
-Date: Sun Nov 22 11:49:59 PM PST 2026
+A watchdog left running by the bootloader is then no longer disarmed,
+so it resets the system unless it is pinged. That needs the tegra20_wdt
+driver, added in the following patches, built in or loaded before the
+watchdog's timeout expires. As far as I know, the only bootloader that
+leaves it running is U-Boot with its new Tegra20 watchdog driver, which
+is queued in the U-Boot Tegra tree [1].
 
-s/inode/dir/ in TRACE statement
+Link: https://patchwork.ozlabs.org/project/uboot/patch/20261110-wdt-tegra20-v2-1-b452b03bedb5@gmail.com/ [1]
+Signed-off-by: Artur Kowalski <arturkow2000@gmail.com>
+---
+ drivers/clocksource/timer-tegra.c | 40 ++++++++++++++++++++++++++++++---------
+ 1 file changed, 31 insertions(+), 9 deletions(-)
 
-Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
-Cc: Christian Loehle <christian.loehle@arm.com>
-Cc: Dan Carpenter <error27@gmail.com>
-Cc: Phillip Lougher <phillip.lougher@gmail.com>
-Cc: Phillip Lougher <phillip@squashfs.org.uk>
-Cc: syzbot ci <syzbot+ci04e7314748e3f6be@syzkaller.appspotmail.com>
-
- fs/squashfs/namei.c |    4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
---- a/fs/squashfs/namei.c~squashfs-dont-compute-start-or-alloc-memory-on-empty-directory-or-index-fix
-+++ a/fs/squashfs/namei.c
-@@ -134,8 +134,8 @@ static struct dentry *squashfs_lookup(st
- 	int offset, err, length;
- 	unsigned int dir_count, size;
+diff --git a/drivers/clocksource/timer-tegra.c b/drivers/clocksource/timer-tegra.c
+index 35b6ce9deffa6..0f63bf8bd7064 100644
+--- a/drivers/clocksource/timer-tegra.c
++++ b/drivers/clocksource/timer-tegra.c
+@@ -208,10 +208,15 @@ static struct clocksource suspend_rtc_clocksource = {
+ 	.flags	= CLOCK_SOURCE_IS_CONTINUOUS | CLOCK_SOURCE_SUSPEND_NONSTOP,
+ };
  
--	TRACE("Entered squashfs_lookup [%llx:%x]\n", squashfs_i(inode)->start,
--			squashfs_i(inode)->offset);
-+	TRACE("Entered squashfs_lookup [%llx:%x]\n", squashfs_i(dir)->start,
-+			squashfs_i(dir)->offset);
+-static inline unsigned int tegra_base_for_cpu(int cpu, bool tegra20)
++/*
++ * The timer used by a CPU is TIMER1-4 on Tegra20 and Tegra30, starting from
++ * @first, or TIMER10-13 on later SoCs.
++ */
++static inline unsigned int tegra_base_for_cpu(int cpu, bool tegra20,
++					      unsigned int first)
+ {
+ 	if (tegra20) {
+-		switch (cpu) {
++		switch (cpu + first) {
+ 		case 0:
+ 			return TIMER1_BASE;
+ 		case 1:
+@@ -226,10 +231,11 @@ static inline unsigned int tegra_base_for_cpu(int cpu, bool tegra20)
+ 	return TIMER10_BASE + cpu * 8;
+ }
  
- 	if (len > SQUASHFS_NAME_LEN)
- 		return ERR_PTR(-ENAMETOOLONG);
-_
+-static inline unsigned int tegra_irq_idx_for_cpu(int cpu, bool tegra20)
++static inline unsigned int tegra_irq_idx_for_cpu(int cpu, bool tegra20,
++						 unsigned int first)
+ {
+ 	if (tegra20)
+-		return TIMER1_IRQ_IDX + cpu;
++		return TIMER1_IRQ_IDX + first + cpu;
+ 
+ 	return TIMER10_IRQ_IDX + cpu;
+ }
+@@ -248,7 +254,7 @@ static inline unsigned long tegra_rate_for_timer(struct timer_of *to,
+ }
+ 
+ static int __init tegra_init_timer(struct device_node *np, bool tegra20,
+-				   int rating)
++				   int rating, unsigned int first)
+ {
+ 	struct timer_of *to;
+ 	int cpu, ret;
+@@ -297,12 +303,18 @@ static int __init tegra_init_timer(struct device_node *np, bool tegra20,
+ 
+ 	writel_relaxed(usec_config, timer_reg_base + TIMERUS_USEC_CFG);
+ 
++	if (tegra20 && first + num_possible_cpus() > 4) {
++		pr_err("not enough timers for %u CPUs\n", num_possible_cpus());
++		ret = -EINVAL;
++		goto out;
++	}
++
+ 	for_each_possible_cpu(cpu) {
+ 		struct timer_of *cpu_to = per_cpu_ptr(&tegra_to, cpu);
+ 		unsigned long flags = IRQF_TIMER | IRQF_NOBALANCING;
+ 		unsigned long rate = tegra_rate_for_timer(to, tegra20);
+-		unsigned int base = tegra_base_for_cpu(cpu, tegra20);
+-		unsigned int idx = tegra_irq_idx_for_cpu(cpu, tegra20);
++		unsigned int base = tegra_base_for_cpu(cpu, tegra20, first);
++		unsigned int idx = tegra_irq_idx_for_cpu(cpu, tegra20, first);
+ 		unsigned int irq = irq_of_parse_and_map(np, idx);
+ 
+ 		if (!irq) {
+@@ -376,12 +388,13 @@ static int __init tegra210_init_timer(struct device_node *np)
+ 	 * after CPUPORESET signal due to a system design shortcoming,
+ 	 * hence tegra-timer is more preferable on Tegra210.
+ 	 */
+-	return tegra_init_timer(np, false, 460);
++	return tegra_init_timer(np, false, 460, 0);
+ }
+ TIMER_OF_DECLARE(tegra210_timer, "nvidia,tegra210-timer", tegra210_init_timer);
+ 
+ static int __init tegra20_init_timer(struct device_node *np)
+ {
++	unsigned int first = 0;
+ 	int rating;
+ 
+ 	/*
+@@ -398,7 +411,16 @@ static int __init tegra20_init_timer(struct device_node *np)
+ 	else
+ 		rating = 330;
+ 
+-	return tegra_init_timer(np, true, rating);
++	/*
++	 * Tegra20 has no watchdog block. Its watchdog is driven by TIMER1 or
++	 * TIMER2, which the bootloader may leave running, so leave both to it
++	 * and use TIMER3-4 for the two CPUs. Tegra30's watchdogs use TIMER5
++	 * and later, and its four CPUs need TIMER1-4.
++	 */
++	if (of_machine_is_compatible("nvidia,tegra20"))
++		first = 2;
++
++	return tegra_init_timer(np, true, rating, first);
+ }
+ TIMER_OF_DECLARE(tegra20_timer, "nvidia,tegra20-timer", tegra20_init_timer);
+ 
+
+-- 
+2.56.1
 
