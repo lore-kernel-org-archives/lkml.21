@@ -1,99 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.50
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795501310;
-	b=geXRdV+DFTFPSjCb7v10V66A2/KVouWL4bHZ1CRdMYwnFQctQcq2PcO2ArlR0hQhfFG9
-	 V+9s4o5+s427LxVCPOWrFDDwES1oPQIVle2JR0f8FbkfuCTABlrRnnwbf985IK3F5nbgE
-	 CKgm4L/kLdIMS46/HZev74ELQclA7i01Zhez4Rg9lTBrcPs05OLA9AIJ6oeuvspJgxh5F
-	 /sghqhDDp1KQnRijfYo3PVFUSTvZzV/5m0rUOv1yFGjCGsiZCXRGeQti6wNxZ2l9Lq32d
-	 kVdUD9fdTDv/MlCsG+qxOjeccTtvGR0dMFMQwVvyJIAhiJiKIsB5OK5+W+iJIG2kjcQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795501310;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:From:
-	 To:Cc:References:In-Reply-To:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=yDjib7Hyd6wNnIgneYMeyA51h7Twq0X5yVMVzVny/PA=;
-	b=mtlHrs9VNjOW50ZCazjEbTtvF5gGiBiHSzRs5dd8mfqbPz35t0HmCxnyBDtZHjTzrV+i
-	 p+Vx5qcHtKEMZT8SKA9AJ8soT9ipqHJsOsKwDhU5T2wSpMwk+fdMtuhTh+1H2FckW3N9A
-	 UxdqJb5XiLcW2aSNK6nfyBq+M/lkSbVOw8uPLKl0h+/4FoSRe2eGfaxIbPHttoGEhRSrf
-	 Wbbf3XqaBSr90WYlpTQjsvGSrzKZ4GGJxlEgW8z9+msbRXtn6xB0QD9xzeVSbu09L5fJO
-	 r4NXf4eQZAUgdGEa3/cv78s0WhU7ITKCDS9fj6iah2YHmBxPdgGia5vy7HTSnaaJOqA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="VpFfE/wq";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.50
-Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazon11013050.outbound.protection.outlook.com [40.107.201.50])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.170
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795501548;
+	b=NRvnRbufxopAfl5ag2DgQLMwAy7uELePE6iwnLjRogq4VMmOJHBIWIWsB8ZAPEc8w3JZ
+	 WF3VyGeHH4Vi1nbhI9fzNNzK9jQh0hNXH+6YzPii+FRtCN3dvZ1uYmhcrnBFouJcJ9uVn
+	 pvuhwZlJ2Lg32GEU3GZKk12m7nLwjJ8QwF5D5fBO+1QJRs36ff5gsD9ZtBEwVF1gVhUiP
+	 BolUE1W4Yx+z7mL9jCh+W7oVWenp0htt6KCXsd7C3aPjtNtJ6klXQqlKGObWnr3J4Tgdq
+	 9/eJesTH26fyv0G/HWWZ3GxiUA+ffs4s52uQo39UhlA26q8V/2lOuxbvv7jFb+TAPWA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795501548;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Date:Message-Id:Cc:Subject:From:To:In-Reply-To:
+	 References:Content-Transfer-Encoding:MIME-Version;
+	bh=mpGQvJviYasWyAsTrcg7sxjiOrvcQ5Fx+ssD1xXfttI=;
+	b=omsUX81dDuI1thdiy+gS2FNNxOn8fHGkxlrKsHrQLM7ozM/042nqFuhd9J4el6hMAKXj
+	 H+dKBKJpqC61BTAE0QvtGWyoPPwcyhG8qH+WtF9txr/62FrA2In7Z3QtWdhaccGSLkakZ
+	 s0Iiq/PIgWbV57TGGuiOcyS5Iic9/WkdNi8bLy4QHGRBlUul1YsSNqAwFJW315Lal4DjF
+	 LVtYRQvgV8DWxy0pa+ECHELZmEK+wzgAItHN3dVFYTnMunvWfAZDCQNh8bkcFU0Xl1Yvb
+	 RSgUYlBT8t8Md8Avzp28B6+0gjG8F8M37Nm+3gXoJRTCjv9Jw7zVlYCjoeOImJFP7bQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fVbxuTR7;
+	arc=none smtp.remote-ip=209.85.214.170
+Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com [209.85.214.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7B43606A321;
-	Tue, 24 Nov 2026 06:21:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7B43606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B88CB606A335
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:25:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B88CB606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=VpFfE/wq
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=itr0djN+nCy/vKzCNqJJ8wR5Y4PJtoRQ44Pa29Qcpr45sQ2CkG43V6jQNDfe+tymwsF/FGLnBfTKyg0kTW6DkMHOzKIyOkzYZKkqjzEXbgFXbap50goF0/QIkwVgkNChYpNT4W0ltZSyPT6xIEFy09cc4MtrMKb7bJEgtKLVeQ75BQqyh/Lbd/z7VBbbAu6Wo2EvBMbFlPxyQ/r3sf5z+WfZtyzBxpDdmrhwsooE3Mwj4ilgHwqMkstBnMjGZUCACdHOV2mKttFhr8eJaeYVcGWG4N0XysWYV7m0ig0ikwvAjHtZVEbyls5XVNqGRI12RPcqLEELo/6P7QkLHa21wg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yDjib7Hyd6wNnIgneYMeyA51h7Twq0X5yVMVzVny/PA=;
- b=d8vcgQ3d39JX4nyr175BRcmIU/szy9GMu/mEUJ2c10NLtLupxJ+XeHOj0uRULEwr7boSlxYHhGtfQGB9MlQ74GnBcNXgEXS/RFDBGfnKzwNGY77pMqfTkDfC16V/APq1NBiHHkgN9UH+cv14FeaVHetBJ4MJN4+V8DsR7o30dHUiF7pQ/otyOFmlVeEZHOs38ViXSRQv4mrlY+RE9uDArE2NYbUi2Q1xUBG0j0ayb1LUDGZq1x45tkPvD8tlGtcB/XgHayQtLuZJmezGce0zWWu1G0WHfBY3YPDjmF7fWLUq8GKhs3wsgJ+DtEdx2cHY9q5zWpVL8jcshGidiNoS2w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yDjib7Hyd6wNnIgneYMeyA51h7Twq0X5yVMVzVny/PA=;
- b=VpFfE/wq89WQFsDHyPZAV93nxkjmYp7Ai+oAljOHr86YlBwPVhUBPNR1QvaEGhI18hEH2ZRQKf4nl94EBtvgrwFh5CsluhyCfRCeDQQDl6vQOwKhnpQNeTbcfVPg6DKg+Z7iECk+HdN9tJQiXkhmqdmrkI9sEtApVP3eoUrn0W07bGIE5iikuE17nyHrRJq89tykHjpjx8c9Y9U3tWSoXGK2Tb1hLifG7zOh93ymdVVdrwvkD3htC6GRg3sPbEx40UmXXAgy3qkKW6tbFGY+NGn9hj+xfYBs0RODBep5HYreuEeMfYUcehUMzwXFeozYFOgRg2eDKxqYtF4l/DqKEg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MW4PR12MB6873.namprd12.prod.outlook.com (2603:10b6:303:20c::17)
- by SJ5PPFCD5E2E1DE.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::9a2) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 06:21:46 +0000
-Received: from MW4PR12MB6873.namprd12.prod.outlook.com
- ([fe80::a338:bd2c:3a38:ece1]) by MW4PR12MB6873.namprd12.prod.outlook.com
- ([fe80::a338:bd2c:3a38:ece1%5]) with mapi id 15.21.0615.012; Tue, 24 Nov 2026
- 06:21:46 +0000
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fVbxuTR7
+Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2f04fab527eso30417405ad.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:25:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795501547; x=1796106347; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mpGQvJviYasWyAsTrcg7sxjiOrvcQ5Fx+ssD1xXfttI=;
+        b=fVbxuTR7ZvuW+s7OVdaHHBV+7uPpbE/pl8CKCM5mFwmDpYqUn5GAUER+witBpDuc1E
+         pLrpfLGFEPeOstvVIaYTpDqMLXxVKhD23tM/jotQvTEJ2Uz7KveP5a7/oXAfoA/x6tAf
+         ywKEojGyO7UoKutiDgj6/sTXSaxXGIIN/YmSQ40ymKzAKx7K/GmOn/+lbfty6ikWTuHX
+         8kQMP1GdKMwYdt2Kq+Hb+sYWnSK/B9/wnKbkL2qyPyYd0DT/17Bsvle8xxMncSLot1th
+         QkOqBpAyYBUSW8bMER00RQ6IjQrVb/lz8eJME4+ZqGo6goHIxKKVLk6j+mBhwotfCWVQ
+         4rcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795501547; x=1796106347;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mpGQvJviYasWyAsTrcg7sxjiOrvcQ5Fx+ssD1xXfttI=;
+        b=eSsy8PTTvLHrfgV7nDHpPkrSej23+NBjYMZ1Eo+s0Asdavpkcil+DvQYCQ2tmPFy/p
+         1ev6Ej1tuKPaX7F+TCLVR23WNbCxVApE+lIE7MGJROA0v0/nkVEa1TGEE92gXRETM/vh
+         O86KfCv2ihcsCbTyt+31s9e2kkkkBJx8UZCCSe9c/e9RNjXfBxJ41rN+2W/GvbbvVYAj
+         C++zCUdaPuYoPnEN9DtWftAW2iaELm84Hz3NoxLl4wE3viVNRbfi9LfjpqNiSI+NmIMe
+         +xNl5kzDnx2UeUgJc+0UpvvCt8PQ4yEojRosmEyLaYBiPzomXSUCyA7xC0lZnvz/U5sH
+         9ZLg==
+X-Forwarded-Encrypted: i=1; AL+hErHv019kTQM6ffYEzNOqe3EdTFAME5qIO9WLqfD40AgDo6ksW0kW4XvcIj6ikm53NA7YEcV1BHK3JgMQFQM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+DDYttzVYGgwT2smwv1LR4OZnOITxZohBlg0HH3jd0Ayr+IVjM
+	HwWYKh6JD9zViVrUmrXaT2HulU3GhXJ+Fkoi++NuF7GnKlgtZlt76df8
+X-Gm-Gg: AZFdTZfiTh8iVeNGF2lmRjTn0beoUYQb0pJuk+V2/ZiAxEh1Ok+IKNvykYLAw7xZWYo
+	Iafwg4pg5vD6oAGfGlUW1XooTTfIg0OO/w6Dguqq4JNJJ2X+DNJ8f73MpE2RT8H8MPm2eAX5+qs
+	XD6yvyDNlkb8mf1hV5jm1R/v6TVjK30/2WSLudqm1OlLOgfLnU5Zfof6fOdr8oBDb+UtGN//gtm
+	U4FgZOcJfO7E2HaONI8xKPWPvxOTrs2scx9nvW51AvojGP917rNZo4tIGHLMAZY3wNKSCgzXGGQ
+	ajyfvJILUsdyvSKgLXEjRAs1NdoL0+oSPnFwhJKB3qs4IEUY9JyNqNybQ+rfLQ9e9rufYysqX56
+	Mol2Bo8t2ozhfoHXylkhPVRLnGQ3fGM77ykxUOSA8LGhkt97PQd9qzG4UJn3kqqIZnyODVEeEtP
+	XSL7HhiLBfq3K9wnFJM/SWyO8r2TF04pIaCdqSQXZDX69DiHAhZRGSxwxVyHgxkkB0YGZi5FEwl
+	B7vMjsmnLtLMPxETpyRVBQA/FqN7J2rnWs4PhJSkOwgLh1N0vIm8JvYbmLd0/BtBBtbjPvJ4Y0x
+	UCGm4NXm4Bi+N3nIIN7LOEK1eeto26V3TxpxRVJNlNpITIS3KtzG2GsNSSr8XVh5o9lBRJ18xZq
+	55XbZgD6QYPXT54Xj/Gy2KCvR0vdD+2y+Vg==
+X-Received: by 2002:a17:902:dacc:b0:2ed:472:b9d6 with SMTP id d9443c01a7336-2f03efb1397mr149727415ad.2.1795501546773;
+        Mon, 23 Nov 2026 22:25:46 -0800 (PST)
+Received: from localhost ([153.61.198.248])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f191464sm65713305ad.1.2026.11.23.22.25.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 22:25:46 -0800 (PST)
 Content-Type: text/plain; charset=UTF-8
-Date: Tue, 24 Nov 2026 15:21:42 +0900
-Message-Id: <DN383BHVHGTB.VVVG9TORAA70@nvidia.com>
-Subject: Re: [PATCH v2] samples: rust_dma: add missing newline in dev_info!
- call
-From: "Alexandre Courbot" <acourbot@nvidia.com>
-To: "Ivan Borovyk" <saref012@gmail.com>
-Cc: <dakr@kernel.org>, <ojeda@kernel.org>, <abdiel.janulgue@gmail.com>,
- <daniel.almeida@collabora.com>, <robin.murphy@arm.com>,
- <a.hindborg@kernel.org>, <boqun@kernel.org>, <gary@garyguo.net>,
- <bjorn3_gh@protonmail.com>, <lossin@kernel.org>, <aliceryhl@google.com>,
- <tmgross@umich.edu>, <tamird@kernel.org>, <work@onurozkan.dev>,
- <driver-core@lists.linux.dev>, <rust-for-linux@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-References: <20261123010430.365536-1-saref012@gmail.com>
- <20261123230618.375172-1-saref012@gmail.com>
-In-Reply-To: <20261123230618.375172-1-saref012@gmail.com>
-X-ClientProxiedBy: TYCP301CA0040.JPNP301.PROD.OUTLOOK.COM
- (2603:1096:400:380::12) To MW4PR12MB6873.namprd12.prod.outlook.com
- (2603:10b6:303:20c::17)
+Date: Tue, 24 Nov 2026 06:25:45 +0000
+Message-Id: <DN386F271FUR.35EWQWGMEMX7K@gmail.com>
+Cc: "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, <bpf@vger.kernel.org>,
+ "Puranjay Mohan" <puranjay@kernel.org>, "Andrii Nakryiko"
+ <andrii@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Eduard
+ Zingerman" <eddyz87@gmail.com>, "Emil Tsalapatis" <emil@etsalapatis.com>,
+ "Ihor Solodrai" <ihor.solodrai@linux.dev>, "Dave Hansen"
+ <dave.hansen@linux.intel.com>, "Andy Lutomirski" <luto@kernel.org>, "Peter
+ Zijlstra" <peterz@infradead.org>, "Thomas Gleixner" <tglx@kernel.org>,
+ "Ingo Molnar" <mingo@redhat.com>, <kkd@meta.com>, <kernel-team@meta.com>,
+ <x86@kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups
+ for user address faults under SMAP
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Borislav Petkov" <bp@alien8.de>
+In-Reply-To: <20261123185124.GAawSLLMoWwJ71nq5j@fat_crate.local>
+References: <20261009024925.3169077-2-memxor@gmail.com> <20261009041346.GHashp-hYpLl-o-l3M@fat_crate.local> <DM0ESVBT9553.2S1RWK1W7M8WW@gmail.com> <20261122200848.GBawNL0FcQoK918YDI@fat_crate.local> <CAP01T746W=8FFiJJUM3H-Qv09uRO6-XEi9B-8pjSgtpAPBx4EA@mail.gmail.com> <20261123003036.GCawOJLKK1iX47XTDm@fat_crate.local> <CAP01T77EgbuyhP=zU9L1hwYL6rHaSbrqQZGJR_+9AQgSWLe7Nw@mail.gmail.com> <20261123025529.GDawOrIQcDOPhgWwF6@fat_crate.local> <CAP01T75Qps8bKFZAU2gN-3UJTB1aWw46NG5c-sm6K028rSc9sA@mail.gmail.com> <DN2E8Q9V38IF.3O738M7NGLSAL@gmail.com> <20261123185124.GAawSLLMoWwJ71nq5j@fat_crate.local>
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,83 +108,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW4PR12MB6873:EE_|SJ5PPFCD5E2E1DE:EE_
-X-MS-Office365-Filtering-Correlation-Id: c6751057-1c24-419b-012a-08df49f336e9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|1800799024|366016|7416014|10070799003|23010399003|18002099003|22082099003|11063799006|56012099006|4143699003|261022105027099003|261028144727099003|261026140227099003|261009223027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	W6qZs2mN9tcGUwfmz1fTrKWnOcht+q4cUtYk4CadQVbV+NseqeCxeRTjnYYgyD56lu2q4fmXGZeIGcZsFRmgIjX0EIeTBWWjXaLLclojcVNpbIT777/uiYgZJ+UV9QM+BIkR8Rj/LO0/T3d0usi4Hbr0T5te88U7sBOh+lEZ1qBmGRGDPvrOsyss7GW7Stlvbor50OYtVf14hz0MgytujC89m0spBAmadA5ijRxxmD3LsyruuwNaVXIL1ah2Fn7t8tVEn7iXLS89U2YZe07jUYSJ+qoaFOFVD5OPLSvOATFs2DzLUs6GzHOshMIH8N+k+dKC0f9ISgA7y4mlk8LmXbMANopPbgO/VihjwKhifbn4auKu+iJoXUz3/3xFjXejljPqVHnRxquVEU3LaQtZe25/EcnBei/N5SwAfLN5kruYAdTk5Ik1lsK2zxu+OQcNzJEEt7mrWBva0f0Kw898oVdGg265mmQptELDMgye4UKihfuKB7JMpRdRL6Js1hRVJxG9jhWLjDz3Syvyf71qKxso7JkXxnoG/PHJ5njPF9irR87nIiQp+ED0a+BfiprJ06WxejDOEwPs5Kg9UKxXAPP0W6WPj9GewbgP5ZnfrteJpy40l5peCYDW8aY11jNjRKI05iAEUVpECVZExymIjq0wf7Uaaj8wWkxaniwIgyY=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR12MB6873.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7416014)(10070799003)(23010399003)(18002099003)(22082099003)(11063799006)(56012099006)(4143699003)(261022105027099003)(261028144727099003)(261026140227099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?K0NLT09wTGdCMkQ0ekxnNXhXL1A1UHdIR0hac1haeVJNdHBITWRSMklMaXdC?=
- =?utf-8?B?c3oza01mLzA4Q3JmWUFJemJwb0xzTHJUZVhOZE52SC9vOXNzZWhnemNrZHBT?=
- =?utf-8?B?alhJd1MzeGYrYWhCczZyT1pnMGtuakVPRndKUy9ETjNGM01OUDA1V0NTL3NM?=
- =?utf-8?B?YTZBelVLVjI1UllWQkl3SWxSbGpSUWsxUUE3VG9JNnpGN1ZYdHZEbUNyQ1VS?=
- =?utf-8?B?enpZNkEwTWpWZmU1ZVA0OWRnWU5ocysvM2hpTTd4RnhaYjVaZFhLdURYbHI4?=
- =?utf-8?B?cURvZE8yd0ZQTnJLNHNmUVdyYWN4ZGJkRCtBK0dWcFZLMHFpc1ByekxQTEpN?=
- =?utf-8?B?YmFxOXBmWTQ2VDlESFRRMVlGbUpOaGFyRXAxOUQ1eFRiN2dyMzZHZ21tNEJT?=
- =?utf-8?B?b25Ca0g4eXRhNVBkb05LNUdrN0E2Ukg3NXp5dUM0NmkzTWpBc1pmajJLc2pr?=
- =?utf-8?B?SGFZNUZIY0tNWHI5RVVKMmRTR2lKS3E1dVk5VGhkeXZvZnozb0dzS0x5bzBk?=
- =?utf-8?B?ZGZJTUhKbU43bWplWXYxSmxuOGtJNlVtT3BLc0E3WlFUR2djNlhsWmZIS3Vy?=
- =?utf-8?B?aHR1Vmo4cVArY2psR2t4S0JxcGJLTjB6WjlINGhweUFvdU80T1NWdEliS0x5?=
- =?utf-8?B?cGFFTW1qQythQldTWUQrWWV1WkpsN3BMS2IzU1Y1YzFhd2F4dDBBU1J4M2xh?=
- =?utf-8?B?dUVaWERMeDFnVnpzcFYvVHVRdVlGVElpSjFLRjJ2MUEzRTJocitDVXdTSnM1?=
- =?utf-8?B?ZzIxZWZpdkQ2ekZPN2lOOHVUMWtmRGExWUFlUFdMQWx6M1pROXRESFdueldD?=
- =?utf-8?B?cktsSisvOUlkMkttWVpJcDl3cVVOT0J0V2VwUHVQRzdHVWtyZXFIK3JYNm5U?=
- =?utf-8?B?ZFBRdXdac28yZFBjVkVnRmhuUUxzTGQvRHoydXl6Uy8veWxKZHpudlNhN1FX?=
- =?utf-8?B?QmtMQ2U3R1dPVUYxbEVnWkVuSmtxWlFvbGM3TUNFS3Bzb3BaRExLeG1kd3Vq?=
- =?utf-8?B?eGNqT3JhQ0pKTmJYNVBsTXo1UmIvaE1qYnhIaVU0WTlyMTFKWFJrYjI5empV?=
- =?utf-8?B?RWp5ME14K3dIRldodEd4MEN1VkpCVXprS1VINHduMVdyMjh0U3NoQytIUE9h?=
- =?utf-8?B?YlVhZ2JjWVBOMmp1Wjl4TXlFNXlqejE2am0zQ3IxWjg5TUlsYzZOdUh5M0pP?=
- =?utf-8?B?UTJMN0R4UXlZZGdKQWxSN2d4Mmt0dmtPYUJteGs1clBoM0VBZ2J0SzFhT0Ji?=
- =?utf-8?B?cXVPVmg0akNDd2JpSVJ4UU5EY2p2bGZuUitQeHlGMFl3d3c3cXpPZTAxVEhY?=
- =?utf-8?B?N0NZZU4vb0FMT0lKVWFwczRpbm1NT3lKbGVTc3U3cWF5OEZnemU4SmJSUCta?=
- =?utf-8?B?OWFhb09qVzl3ODNLY2ZWc0dOaGFXSlBzNXlvNllOM0t5NnJPMi9xcTZWVzZW?=
- =?utf-8?B?eng0M0txbnBGK2pDQjVxVHZONW9WZzJ6anN0U2ZFc2EybXFVckdEMGFML3VV?=
- =?utf-8?B?dWhuWVRNSUhhc0JxUUlVQUhGNmFTL1Nsb2t3ZVZsWFI0eSs2cHp0TEpzRlNM?=
- =?utf-8?B?djBzSko4WG1PSkJlejhzL2xGcEo2TW5QSStGNWU0clYyZ2dERkwzU25BamtH?=
- =?utf-8?B?TENTb2RWaEJzQWcyT2VacDNSWjJRcmtWbi9GNmxvUEpiakxrM1NVR1JsVTdq?=
- =?utf-8?B?b1ZsME5ZVnU4enBtN2Q1Ti9XRVVxMGdXK0M5VXFLSXN0NzJTOTIvWmllYklI?=
- =?utf-8?B?bnZsRU4xSkRuVWZWYW1UMTEwRVZSRXAwbjd1UGN0TmFnUjhqM2JGdXU4MUxy?=
- =?utf-8?B?OU1ZZGtQcHIxYTFFVzVNNGo2ZWxKY01TeHA0UmY0bis4ZmZLUTczS2E4ZmVC?=
- =?utf-8?B?MUEzSXRoU0FYYks0ZTF1UC9jM3lWclB2cW1XUVNLb0lnb3R2cnpmbU4xTXJh?=
- =?utf-8?B?V3ppWnI3VG5BMWZZanJURVVjMGgyaVVITnFKM0RIOGZtbENUSW01SEJ0bmJo?=
- =?utf-8?B?QTZlZDdtekp0alJTellETHV2R2U4UXh1VkRZSXNRZ1NxNldrWFUvZFJIdDNi?=
- =?utf-8?B?M0x0N1RqbDhJZ2kvbXByblRlM1ZzKzI1U0VEMnprL2RIL1JBTTRmUGM1RFVB?=
- =?utf-8?B?V1kvSlNtdGZtWnByRks3OWNlWFBKSDZNMVVta0lCZGhLcHVYQzVtUUZ5RDFy?=
- =?utf-8?B?VTQ1K2hQWDBXeG1nWEFzL3Y4aVpZZ0paWkxGZjNrTDY1bkxxbWwrd25GRnR2?=
- =?utf-8?B?N2xTbVFtM242ZWpxRmVjR2hiMUtibUtvRXhnU28rcDRpb296b3FLRHFZbUNR?=
- =?utf-8?B?UzVibk1NdmpFMnBHWGVzU0t0L1ZBMDNsRXROM296QlFRaTE5WWloSGhoYU84?=
- =?utf-8?Q?KifXPPCxzmxenk4ir4XdvLg5uZ3CsenfNM4iqIZHEOfZb?=
-X-MS-Exchange-AntiSpam-MessageData-1: ToGiMiP6MYxumg==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c6751057-1c24-419b-012a-08df49f336e9
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR12MB6873.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 06:21:46.0977
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qCtHH7joIic/i6Uc7zS8eBc9/LWqA/B3hQse6WhPQOBN/wHVjN5einvrK+CaPGA+sKzTUiFC70oRNBydXB0KiQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPFCD5E2E1DE
 
-On Tue Nov 24, 2026 at 8:06 AM JST, Ivan Borovyk wrote:
-> The dev_info! call in PinnedDrop::drop() lacks a trailing newline in its
-> format string, unlike the other dev_info!() calls in the file. End the
-> format string with '\n' for consistency with the dev_*!() and pr_*!()
-> macro conventions.
+On Mon, Nov 23, 2026 at 10:51 AM Borislav Petkov <bp@alien8.de> wrote:
+> Look here, our mails crossed last night:
 >
-> Fixes: 5444799d701c ("samples: rust: dma: add sample code for SGTable")
-> Suggested-by: Miguel Ojeda <ojeda@kernel.org>
-> Link: https://github.com/Rust-for-Linux/linux/issues/1139
-> Signed-off-by: Ivan Borovyk <saref012@gmail.com>
+> https://lore.kernel.org/r/20261123043409.GFawPCQT2M-hz0mvZP@fat_crate.local
 
-FWIW,
+hmm. I thought my diff answered it already, but ok. Here the answers spelled out.
 
-Reviewed-by: Alexandre Courbot <acourbot@nvidia.com>
+> 1. How reliable is is_bpf_text_address() and what happens if someone manages
+>    to pull off a hack which bypasses it? In that case, SMAP is basically
+>    disabled. And yes, "no one can hack this", "can't ROP-chain around it" and
+>    whatever else is not a good answer. This silly function becomes the last
+>    and only line of defense.
+
+SMAP stays enabled in that case too.
+The fixup doesn't touch CR4.SMAP or AC, and it doesn't retry the load.
+ex_handler_bpf() writes 0 into the destination register and moves
+regs->ip past the load. User memory is not read.
+A jump straight to that load with a user address in the register
+gets zero too.
+The range check gives the same result today: zero and no oops.
+My diff has no is_bpf_text_address(). It checks the type of the extable
+entry of the faulting insn.
+
+> 2. Is the rest of the arch code going to get "if is_bpf..." sprinkled around
+>    it because of some other performance argument?
+>
+>    Because long time ago there was a pile of patches which did sprinkle "if
+>    (xen)" and they didn't go anywhere. The point being, special-casing
+>    something completely unrelated is not going to fly.
+
+The diff has one check, and it's on the type of the extable entry.
+error_context() does the same for #MC with ex_get_fixup_type().
+fixup_exception() has EX_TYPE_BPF already.
+
+> 3. What do I tell the next userspace program type set which wanna do "if
+>    is_Y_program" in the #PF handler? I take them too? Because I should not
+>    question their design either and who do I think I am to question that?
+
+A JITed bpf prog is not a user space program.
+It's kernel text in ring 0 with an extable, like a module.
+The bar is the extable: kernel text, an entry for the faulting insn,
+and a type that says "load from any address, skip it on a fault".
+That's an inlined get_kernel_nofault(). It isn't specific to bpf.
+If you prefer a generic type instead of EX_TYPE_BPF, that works for me.
+Then get_kernel_nofault() can use it too, and
+copy_from_kernel_nofault_allowed() can drop its user address checks
+under SMAP.
