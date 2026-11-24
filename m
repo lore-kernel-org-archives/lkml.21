@@ -1,102 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795556441;
-	b=aNntckPgrhTGtxGO2CM5wK0oeNZIuSj5oARoW4ZPSlxkrP+6i0gSWDFPpSFSpp7/PuoG
-	 y+OWAehokhs50Q/Xi8A4SthRnqirCWBheqYPG57f9qQswqfH7my6WG0Y7AFLR4dBWgOMZ
-	 eQO5ziArACKA33D3kVjEeMkBSI3yb5t17Rg0yjfpBxZKmoDfpvyQOZetS0RtKXjEvxzCf
-	 yXV5YoSkxdVQwxTbdeOaJDzZuBvBa8cI3ed4NY1kHBhH7u4Jy8yEheJbYMfFdQD8E45SY
-	 UO9HpX8gU6u/4/SxQqc94P6Vr9WFfIA/cdhNzKvmJgTW4FGseSBUZoYwiTzCVYVl/Pw==
+	t=1795556442;
+	b=xaA3zfNuuR2ZX1IAON3a6dXxHh2WfvCpeE4EVOA52Bb6KkATh8yHEhhJZ8s7xWWM+Jj3
+	 7lzUZ9dsUzluU97wgfbeCSea3TdjSBaPLtHP/6ICx68cD583OYzZ+erk931AoWqc7UsTs
+	 hJ6qd+38/w/gVGX3I7wPQLUKTuJlb3OGAfXkLk4P/pxYZvoCoGbW3eLir/MZolohEhB6o
+	 8b8RgxhIfH6vQ053002jnptHfKXBlY/LWW5r6TcYDlsbZybebmz39NCU2t8owt93KgCIH
+	 mXUOo94Ziwks0hN+Fn6O+QV3JOx+LTyS1nsLaPcjbyi7TB5BIS68kCcigU4Iket+upw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795556441;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=8vTHmqosNip4PzWeUJYtggJ3iETjixMqdrHE7e2DIQU=;
-	b=gmB/dDI9Ze4KgNKwxZlCouaIdHzMsl0kfP3YObkFdP1qMRAg3YFmrhdBG2xgTxEHnJ8Q
-	 OAw4lMPTLKkeY/iqoVagIIVoFLMG4eBD3M9nCBQkYaYsPDh2OwOCDS/nYGF0P4jn8nci9
-	 ZyFCHTc64i5nOEm4v8N4Uq5ejPuB06e3/gZ60AHFa1YZgrKfwzRv9Nz+H7cSXdaM0+DL7
-	 SRIi4/lE7zz7h1/GBVyc9Vn9hSbRvws6HZEAe/WW5nWKbFqZ02wVkDuYzm3I5528TSiGW
-	 tNMEFbzFxF1Mnx8Xg+MOynD/xm+Bar738JZXh3pTKxtF6+FZ5Qa9PN90pVnOkmgTRAg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795556442;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=phiuX5Zb8P8aFyzSkr8Lt0LpTmJabsik6/9jkby6ebg=;
+	b=S/RgM5zSLv71YoAeT9GBljAM/buYU+RNg1Aw279IVIQvDaB3K7G8W9AH53dRiZbFCEsu
+	 MMaWgatrSxWYXAmOavQNkSwHNbO95vq8y824zFi0Y9vw3NpkDWOYhgXJ0LXswqJHHGfFj
+	 k8o6NJ/KQXi0vReKz6OZ7YH7Dghha5XeguFW3S6Zj7yVDo/bPASHosEoqvvtOFFnFtAnX
+	 Lr/1zhSAccGxUg83iSb4avymvtvy11lf1GuDrOqPxz9zEgZn4q70pks1SYXzkJ42XaTar
+	 rEgSbm3bN0LOw1tBs6oC4qHEbdJLdjpuQezPW7yJx2opB58usEa52xTOUvx2kmjK9Kg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0dm8TZPn;
-	arc=none smtp.remote-ip=209.85.222.54
-Received: from mail-ua1-f54.google.com (mail-ua1-f54.google.com [209.85.222.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a5rKk7uE;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB2E6606A336
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:40:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB2E6606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13252606A330
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:40:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0dm8TZPn
-Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-9828fee1b4bso1583525241.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:40:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795556440; x=1796161240; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8vTHmqosNip4PzWeUJYtggJ3iETjixMqdrHE7e2DIQU=;
-        b=0dm8TZPnqEQFkRwrXxHnx5HZPGepIu1i6nigAX8fz59SVnfIllA8zMxlg3Qi9rP5Cg
-         7ClvnriYq4VPEpzMNIS3/f8hggdOpXqQdl3PPfA2Oj8Hjl2Sa5Hbfhfp334XFOefTygp
-         sObv+L1JJcptSBZf0n86Jfe7pgshaMgdFHPa9w3f6WSQSS2lDo1kvreb5PZYZGOfASXS
-         2Uvxd/y/Aar6NS3QS/KoCASWJJLTnEj63HO7XKyBhwG8JvCGCZeyNduZeNG7776oJVTb
-         5sqlxeuIzjpa5Jj0XO9Mrd4a0Wm2x+0wKX43lKE5COetTQqfkPwO//WKpKovDnUblHZo
-         uWWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795556440; x=1796161240;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8vTHmqosNip4PzWeUJYtggJ3iETjixMqdrHE7e2DIQU=;
-        b=Zi3fIba1chaHdfKKwS+bc2DlEG0boFXv79Kwe8kuyR6z0WzJM/M8MVN/VHvXSCEi1L
-         VQR3dIXQkDIzc9A4rSIiXBi9MfYi6kNjEaUjAgXTc5f3JQFwJE53ztWOuBEewQkz3GW8
-         zykQ20k8CR/u/xlfbJZFTW+nQnuIx2dNixH/mKqEgyFl0TXAT+Myl+UnZldIfr1Ub+Jl
-         ql98d2ODgunxmXT0QMQ3cAvG1cp6XgpL9p656M3PwNFcawbrTwtzYBkv/G4L0/PbMJrR
-         LL2BIe2qHzGddZFfb7AfDtxC93HmSX99HArStG3Qo6tkYpS/EXIAmDwt31WOfJS5FnkE
-         p3lw==
-X-Forwarded-Encrypted: i=1; AL+hErHkZsSGEkSF+0NSLfN5EeJTQL5hmeJceQA6V/0gX/i7dUFtQk7USCJivBxpdmrHRO45CTPHuhqwmWFfcIg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+nu78EYI9U8KUE2oU2pnvt0G3tUVrHgQO/oW7WtEfTqr5d/b7M
-	npUGRybMFrquAwTW562EEhaOm6GYMEQ51t3IP35GtKfBGs8Uh9UAOdEf
-X-Gm-Gg: AZFdTZfNXUb5lEuZ1DorC6rhZQyzj0RxDW0brGsyB/fIxQaINElrBPT4+bpD1Z90/Qj
-	hqxvAh58SFMfQ/6Fbv12nThMD5LKPYBOaXs5J/i98taIRr8O6xnPNRerJm2gmD3BEQEiJzkc/rX
-	rXylewlOVBu84qW08OUMT3bbh0EkNTX/SX90BSh5VrSguL7OcjWzUpsRH3UuTttWvNnD2oX3mHa
-	H5OFkVsb9AwSrUYUXmmuyGHXi8hXWXg2aOTkWJ/28f8dL+jPzvj0B6C3rGFb/1TnO+D0ybDKVI6
-	bsKR/bCJPJKDC9bz3wOgZEcABqeFgssO4o1Hc7eNlOcbDhSvuKc3lLmWoPXBIXIH0qhJ9X37OIV
-	OWGGSYWuTm+NNTiUA5Y8uAZSlKIGzGHwskuzfRDGSisdbk7u6I0hyxF247VQmskBv7OVJKbXkVD
-	EEtf6FjTtNFvXpYuFtz1bcirRC2fn+cSQ3dlPbHUxW6mL4a9/VUucirN6azbEdYtNNITPA3zSnF
-	gUu87/v3uxfFCI6qgcmpWG89PbkCZA0s+YQ2d+ZZ2ufTCzxDfyDmUvaRV48pyJrqVFJbZao5PoR
-	N1Phrc4rwhRLq5iaMeB3yfTnQyWuYjA6CouC8qadzvonpg8jCW7h
-X-Received: by 2002:a05:6102:292a:b0:7a6:d11b:16ea with SMTP id ada2fe7eead31-7d73935fb84mr8027697137.6.1795556439674;
-        Tue, 24 Nov 2026 13:40:39 -0800 (PST)
-Received: from emedev.tailf75c28.ts.net ([179.238.117.100])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-99e6dec57ddsm15952879241.1.2026.11.24.13.40.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 13:40:39 -0800 (PST)
-From: Emerson Busson <emersonbusson@gmail.com>
-To: Wei Liu <wei.liu@kernel.org>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Dexuan Cui <decui@microsoft.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Michael Kelley <mhklinux@outlook.com>,
-	Easwar Hariharan <eahariha@linux.microsoft.com>,
-	Kameron Carr <kameroncarr@microsoft.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-hyperv@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/3] hv: vmbus: make rings and host-visible buffers survive buddy fragmentation
-Date: Tue, 24 Nov 2026 18:40:26 -0300
-Message-ID: <20261124214030.174246-1-emersonbusson@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a5rKk7uE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA4FB1F0093C
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:40:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795556441;
+	bh=phiuX5Zb8P8aFyzSkr8Lt0LpTmJabsik6/9jkby6ebg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=a5rKk7uEqcp0Ck5LFWJ71VV9g7rkwiRrIP+FkOus5YRe7tvKQS6k51dkdJAQxi3dm
+	 ZoAzU8fZ3EgQhsJCxuEvhsIxA6KpbPtwYdflE05QC890cpOrL42k3peiAwvU9pYEaw
+	 J2mYpaaAJlfApqVUEyuDRsCEw3GNBXgxl1Srr4aGw8GEuRwWPLyQjfvkW2vSRI1F8S
+	 PnJ3u0THMwL6PcRI1dD3OWUKP8vo2PI3quaTGU1lNqF2Lr2dOktJ4pbRqGXxsX6ZwI
+	 ilp5ll9k9obmFrZByAPxtyRoYcvQZyaifgcGBASurIiBYr/YesHtv4dcUARSwjLdMG
+	 RYCQdsYAZBUTg==
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5c158c4c15fso6261308e87.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:40:41 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGdX+hhC+JJhBGvjbNOdKNs0atxoLKLfeTk/7qpRFUvnHLy9Ay6lZpzT4NkEK2fVsEDR7waW0bURJ0T7Zc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Jt2cjpHGAei+nypubpl+fs9g1T+lrded5c+rKMo3O6JD+/qP0
+	iN/rqoU4CrUIsqfANEhiuGG/O1zpJobB49sBO6XTWdtg6COFWRDgcQUrntWf7yIjjqeM6WYusHG
+	ePelLXa2/7U+6+PBikYMGfCX2XSSM53s=
+X-Received: by 2002:a05:6512:32c8:b0:5c1:46f8:913c with SMTP id
+ 2adb3069b0e04-5c1b7c00f96mr4380577e87.20.1795556440465; Tue, 24 Nov 2026
+ 13:40:40 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,54 +59,131 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261015142552.4128028-1-ryan.roberts@arm.com> <20261015142552.4128028-10-ryan.roberts@arm.com>
+In-Reply-To: <20261015142552.4128028-10-ryan.roberts@arm.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 24 Nov 2026 22:40:28 +0100
+X-Gmail-Original-Message-ID: <CAD++jLmnVpGm9pG_g777yz6XvbyAgTBCM5moYy=gAeenhjQSEg@mail.gmail.com>
+X-Gm-Features: Aa3M54pcwQV3xdAu47_dI0b9w902bsdzijUBVbDcdwg2QkzqqV6jsuD637lp5XA
+Message-ID: <CAD++jLmnVpGm9pG_g777yz6XvbyAgTBCM5moYy=gAeenhjQSEg@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 09/15] misc/arm-cla: Add userspace interface
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Alex Williamson <alex@shazbot.org>, Jason Gunthorpe <jgg@nvidia.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jean-Philippe Brucker <jpb@kernel.org>, Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Opening new VMBus channels or subchannels can fail with -ENOMEM under
-memory fragmentation even when plenty of order-0 pages are free, because
-vmbus_alloc_ring() asks for a single high-order contiguous block (order-7
-for a 512 KiB ring) and vmbus_alloc_requestor() uses contiguous
-allocations for its request array and bitmap.
+Hi Ryan, Jean-Philippe,
 
-Based on Michael Kelley's review of v1 and the v2 feedback from Wei Liu
-and Michael Kelley, v3 goes back to the core VMBus allocation path. It
-groups buffer and GPADL state into struct vmbus_buffer, allocates ring
-buffers through vmbus_alloc_buffer(), drops struct vmbus_gpadl along
-with the duplicate decrypt/re-encrypt paths, and switches requestor
-metadata to kvcalloc().
+On Thu, Oct 15, 2026 at 4:27=E2=80=AFPM Ryan Roberts <ryan.roberts@arm.com>=
+ wrote:
 
-Changes since v2:
-- Dropped the reclaim workqueue, UIO page-pinning layer, and KUnit tests
-  to keep this series focused on VMBus buffer and ring allocation.
-- Split the hv_netvsc fixes and allocations out for separate net /
-  net-next submissions.
-- Preserved hv_netvsc's revoke-failure leak guard before GPADL teardown.
-- Rebased onto hyperv-next.
+> Expose CLA devices through a character device so userspace can enumerate
+> the available hardware and map accelerator register frames.
+>
+> Provide ioctl interface to report device topology, CPU affinity, domain
+> membership, mmap offsets, architecture version and attached accelerator
+> masks, together with the IIDR, DEVARCH and REVIDR of each accelerator.
+>
+> CLA registers can only be read from the CPU local to the device, while
+> enumeration may occur on any CPU. Validate the supported CLA
+> architecture version during device setup and cache the CLA and
+> accelerator identification registers for later ioctl queries.
+>
+> Support shared read-write mmap of one or more CLA register pages. Create
+> a context for every domain covered by the mapping and resolve faults
+> only while that context owns the domain. Queue unassigned contexts with
+> the domain scheduler, drop mmap_lock while waiting for assignment and
+> retry the fault after the context is woken.
+>
+> Co-developed-by: Jean-Philippe Brucker <jpb@kernel.org>
+> Signed-off-by: Jean-Philippe Brucker <jpb@kernel.org>
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 
-v1: https://lore.kernel.org/linux-hyperv/20260918014017.2536753-1-emersonbusson@gmail.com/
-v2: https://lore.kernel.org/linux-hyperv/20261007190752.336426-1-emersonbusson@gmail.com/
+This uapi is very simplistic and IIUC only provides a mmap:ed view of the
+accelerator memory area, without any details on how it is actually used.
 
-Tested with x86_64 (W=1 C=2) and i386 builds, a local QEMU/KVM boot with
-lockdep enabled, and a backport onto 6.18.64.1 running live on Hyper-V
-x86_64 (85 VMBus channels, 12 netvsc queues, uio_hv_generic loaded).
-Confidential VM paths (SEV-SNP, TDX, Arm64 CCA) were compile-tested and
-reviewed by inspection only.
+Since we don't know much about the usage it is hard to say whether this
+is a good approach compared to using e.g. an arm64-specific syscall.
+Whether to choose one or the other depends much on the error
+modus of this thing, how a CPU or a context should recover etc.
 
-Emerson Busson (3):
-  hv: vmbus: encapsulate buffer and GPADL state in struct vmbus_buffer
-  hv: vmbus: allocate ring buffers via vmbus_alloc_buffer()
-  hv: vmbus: allocate requestor metadata with kvcalloc()
+> +       /*
+> +        * Cache some standard accelerator registers that user space may =
+query
+> +        * via ioctl from a remote CPU.
+> +        */
 
- drivers/hv/channel.c            | 363 +++++++++++++++-----------------
- drivers/hv/hyperv_vmbus.h       |   4 +-
- drivers/hv/ring_buffer.c        |  17 +-
- drivers/net/hyperv/hyperv_net.h |  10 +-
- drivers/net/hyperv/netvsc.c     |  64 +++---
- drivers/uio/uio_hv_generic.c    |  97 ++++-----
- include/linux/hyperv.h          |  43 ++--
- 7 files changed, 271 insertions(+), 327 deletions(-)
+If you're caching these registers for efficiency, a vDSO syscall could
+be more efficient as it could return the cached information without
+a roundtrip to kernelspace. OK kludgy, I know, but efficient.
 
+> +#define cla_for_each_mapped_domain(_vma, _domain)                      \
+> +       for (unsigned long __pg =3D (_vma)->vm_pgoff;                    =
+ \
+> +            __pg < (_vma)->vm_pgoff + vma_pages(_vma) &&               \
+> +            ((_domain) =3D cla_lut_pg[dev_nospec(__pg)]->domain);       =
+ \
+> +            __pg =3D (_domain)->pg_offset + (_domain)->nr_devs)
 
-base-commit: eab80895d447ec164a1d91a1ab377bd3a9dc9044
--- 
-2.43.0
+I like this macro. Very helpful.
 
+> +static long cla_ioctl_validate_param(struct file *file,
+> +                                    struct arm_cla_param *param)
+(...)
+> +static long cla_ioctl_get_param(struct file *file, unsigned long arg)
+
+Looks good.
+
+> +static int cla_file_open(struct inode *inode, struct file *file)
+> +{
+> +       unsigned int index =3D iminor(inode) - MINOR(cla_devt);
+> +
+> +       if (index >=3D cla_nr_classes)
+> +               return -ENODEV;
+> +
+> +       file->private_data =3D cla_accel_classes[index];
+> +
+> +       return 0;
+> +}
+
+As you mention that this absolutely will not work unless the process
+(task) is tied to the current CPU, this should be verified and enforced.
+
+Obviously the task is running on the CPU it is running on when it
+gets here. What we need to ascertain is that it absolutely cannot migrate.
+
+Essentially it needs to execute as a userspace version of a
+CPU-local workqueue or other CPU-bound kernel daemon
+that uses kthread_bind().
+
+You *can* of course pin a process/task to a CPU with
+sched_setaffinity() in userspace and at a minimum this
+chardev should not be allowed to be opened unless the
+process has already done this and the affinity is set to the
+current CPU and the current CPU only.
+
+You want this to be enforced, but userspace does not provide
+a way to irrevocably bind a task to a certain CPU. Interestingly
+the kernel does, PF_NO_SETAFFINITY which is used in
+kthread.c. The only thing (I think) that can affect a task with
+PF_NO_SETAFFINITY is CPU hotplug.
+
+So I suggest that you might want to pursue some syscall
+extention to sched_setaffinity() such that PF_NO_SETAFFINITY
+is set on the process inside the kernel after creation, and then
+cla_file_open() should verify that the affinity is set to the
+current CPU only, and that PF_NO_SETAFFINITY is set.
+
+(You could of course hack-set the flag here in open() but I
+don't think that would be appreciated.)
+
+Yours,
+Linus Walleij
