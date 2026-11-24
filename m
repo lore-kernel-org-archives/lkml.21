@@ -1,56 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795538797;
-	b=nTSnYxefmsEAOSh0AQ3WfrsOIlXw9807H7ZzPY96BtkFoeRg7t58DlE5zmkftdkwjXYw
-	 ubIBE7nYsY6ejno9oMnUL+gnrc4JT4p2hxgeDdgbZP0Yo3DuDhNdVV8lQ+1s17AJnPbsF
-	 IDKwZpKn9m2XJnoy1jegKay6ojTpnwOrsPtPGTUY5ac3moQkDYVN/BzQlpyU/Y2Nom1z4
-	 UYWaShsQAhOR1IX8SXYC9OWnNRTQ0YAUOKM9g/j83VSCfpZ2MD0lExoNFmcMd4EHPBpA/
-	 1tKn5F0RBwSZ9nB/6PQZTfqZdY/PqbaJYzRaTT0vfyM6opiuTud8pOslG4s98lT027w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795538797;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
-	bh=whFeiy2C5pn/e+nXVtcQ8J3tkzHLYBnV0Ny268pSTEk=;
-	b=vj/gGX3Y6b+NFjEZl512fyR3/275fmEM+kec/3Njk2MWNBi7nDhLekYM43RmLq9gUpCi
-	 YjqM2cyDZ0Ov6oQqt1Y7SmAzWVx/LpmIs2LzBuXUdx71AbB1zpYI+jC3yTq/ytyXFnZjR
-	 sdQ0o3pZANn5qVbdws010mxIGTRRCPRYQuTUjY4tQM34/aszUMlwJKG+/V3DYl6jFm7gv
-	 HUHuMAi4KIJ+v5Gpgq45Zh7yqO+keUYDnx4bP05ON6I1w3YNwtt2FrQIJN5iQVVkhNP+T
-	 wR9s+9lBWeoERIfKHfM/BrIIDdvnb+Mp4kz832ZhklgomCHp7LnfxhlQbZLz8JIzkVg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rong.moe;
-	spf=pass smtp.mailfrom=rong.moe;
-	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=Zmnaj0Gp;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
-Received: from sender6-pp-f112.zoho.com (sender6-pp-f112.zoho.com [165.173.180.112])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795538807;
+	b=os218IYSSAeEbLCuRAP/ynYfnzaagP1oj8ZERDz/R+vyhYR4Hu2brbTUotkOK2C3+Ram
+	 rD8GaLiMmpd28vFaP6p8sBxsHUWHmc+9OjeXwiiYxqY1hfDz6Ge/L+pWrxZEv6uONoHBU
+	 2AOIu8Ozq0cLYS+Ry1GrL0O0KOhwnWVXBDled5mJYkTPhdGhu6KGKLBC0TW3HwDBUxhGo
+	 4a+G/AHdGFKKp1pcuV3xDazvde0f3Qhh5Hq7DePQ+oa9nTY46ArVhL0qZZuXFptcNjZml
+	 ut3KfUL4uCXzZ0VYJK62XQ3uRwnlfzfOjALkQgfiia+5e8N/+iCHzcGqC4Ysbd3TaJw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795538807;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Yjaryd27oxhS3uqOySH/viuHpeO0W7Au9OnQvtXAiiQ=;
+	b=POEoumQNG6DJ6bi+IPC5nkO4msiwdKHilF6eJfoTUTPRw6Qo6Lm3p2qaMMi/MO9xnktu
+	 i9qPDOVhtjkGskpdomnE20jCi2kYwNUPr+ngA+uu8zf6Eew6VSVUtGwvkoDvfRMWGxWye
+	 dgQWiV5275IZoYA4VVzx5lwbCLmhYE68euTTQafGwQU9dWE1bZ//gnBJUzqx8HY6wwu+A
+	 iE501RWAqlrnZR0PKzgFvWRrQ+nlQ4GMT79PfgUJ+mZgFGYzKbtqjVPDr+J+i8AiHnne1
+	 /0dGiMBKxZ8KjiEuqEvnVbr4o6VbsSKW4w595lJbCSd8YTOqJX6u4l+yOJNwvmXLcbw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R20lcf1K;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A560E606A31E;
-	Tue, 24 Nov 2026 16:46:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A560E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51454606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:46:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=Zmnaj0Gp
-ARC-Seal: i=1; a=rsa-sha256; t=1795538718; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Xodovde6qmxVQihNRsEqNxFOWA/sy/ZPZE2Fp+oZxMLJSSEB6cYkfHrULJPtkt5v6E3pKwiMhRQK15fkR10v7OhLOCGZZEAfKHjjTlGfUpqElM6gDW5V4TVO5GAhq/qbSZBj2snAsBpdrrhZ8zEalu6C1EENpH9YLLpLncNmq/4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795538718; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=whFeiy2C5pn/e+nXVtcQ8J3tkzHLYBnV0Ny268pSTEk=; 
-	b=E4WVwY0qlmVMGJkWK7KiKsLd6WkHVyr7O1bjvnyoUmv/ZM5PaI1gtF7Kz7akKGyZFtn+MPgThw7sAY6cPC+SBW//l6IZv3KmKEVdJnf6Wn1ZITcWFZ3beZ1iWloR0bJaydK4OOLrRIGCJVfuB/bL8oevt4b3TLnKNg+PRNRH8MA=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: a=rsa-sha256; b=Zmnaj0GpS39HAkRYObifw9aCk8xW6xTuGZlyiYCYb5izsYdxZjPjyQn+PW5cK0v6U3k33IGnZcXyrvkC5PGQgBULZO6BwGM/vcodhrUNx16XRYEa/nZ65AGrtAuhy1Xzk68XQRc6Q3dEB9lFA5Ux40O6yrLYEPaykTThGXk3Qnsqcx6JHycldkxYe+nQLG3cmXZXVuH7X2D2jPRKC9ZrU/4ieGbGWQ0XpndiKARXHvWR5BYEF26dQREgH4Kc5f+MLqA5m6oT2r86lkzejqn5SQp81yRUj9G3xdD5MVb2cJbA0g0dXsSVayFj0iPJEetqkgptF873jQoThk6kMIZFhQ==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=whFeiy2C5pn/e+nXVtcQ8J3tkzHLYBnV0Ny268pSTEk=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795538716191700.3072928911643;
-	Tue, 24 Nov 2026 08:45:16 -0800 (PST)
-From: Rong Zhang <i@rong.moe>
-Date: Wed, 25 Nov 2026 00:44:31 +0800
-Subject: [PATCH v4 3/9] HID: haptic, multitouch: Check haptic prerequisite
- properly
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R20lcf1K
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A722E1F000CF
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:46:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795538806;
+	bh=Yjaryd27oxhS3uqOySH/viuHpeO0W7Au9OnQvtXAiiQ=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=R20lcf1KAHZseBnOOhfMkowzGb7DpQKNtesAmo3s/ojEwXRJC28823762+veBSRmX
+	 Hfhy1oOnDosrQVAXL4mCFkuXh+apDNIE3SV7D7/fEkM2THNY0lpbdRWMuKrUVaerNl
+	 zTG16zTd/spHpAsPcnNT9mhJmNk/Es7eTllQNapipI6Qd8b1Tx5bExHapb7aUhZwwn
+	 AiTdHq4nEjTU6Y2llGcEFWvaLdcrXgEwrf464KlsvjortOnq4Aew94U39gnE0wSkTl
+	 Sro4rrpJwmGOd1Z0mEsaJa/dylRwtWYrDuiulHqqPMo73Hu49mMad6R7zB681Sdr9j
+	 6+CJ8zxubkfrw==
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-3adfed9a887so43190841fa.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:46:46 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGf6z4L9PD0dRx3/4hPUvO0Hq3N4RXVNUoFmKg/KG9CMC9204ECGdnYebmsPCl2uUieRz1Z96hH2AaTvuc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8QrPx7tRNX/3RPbwumtnWbh8zlKJlDQhAunoqJIdI+jIEp/v2T
+	GMDDeAS6zL704c1gJUZOMB0XXe7vBAxrLJEQNDlVvj7GeHWDA+bj/ZVyEl4mYxVqqnNtIPLW7OB
+	eFSJoixBSbKQWc4Gs2QTlqCMf0pfdWsY=
+X-Received: by 2002:a05:651c:54f:b0:3ab:4a7c:7a65 with SMTP id
+ 38308e7fff4ca-3ae7f7cd8d2mr40665631fa.0.1795538805127; Tue, 24 Nov 2026
+ 08:46:45 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,337 +59,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-hid-haptic-kmod-v4-3-03713a89f656@rong.moe>
-References: <20261125-hid-haptic-kmod-v4-0-03713a89f656@rong.moe>
-In-Reply-To: <20261125-hid-haptic-kmod-v4-0-03713a89f656@rong.moe>
-To: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
- Angela Czubak <aczubak@google.com>, Henrik Rydberg <rydberg@bitmath.org>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Rong Zhang <i@rong.moe>, stable@vger.kernel.org
-X-Mailer: b4 0.17-dev-ce4c1
-X-ZohoMailClient: External
+References: <20261121-a733-cubie-a7s-dt-v5-0@gmail.com> <20261121-a733-cubie-a7s-dt-v5-2@gmail.com>
+In-Reply-To: <20261121-a733-cubie-a7s-dt-v5-2@gmail.com>
+Reply-To: wens@kernel.org
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Wed, 25 Nov 2026 00:46:32 +0800
+X-Gmail-Original-Message-ID: <CAGb2v640hK3TYkg=h1Uyu4g497+tNTLB10ytanT2cg8KTo1CJQ@mail.gmail.com>
+X-Gm-Features: Aa3M54ofXX9uKf5nGvU7EWiKfn4kNgd22MIxm2y-Mzkn1AEQVUvT2v_OH_Oaj1Q
+Message-ID: <CAGb2v640hK3TYkg=h1Uyu4g497+tNTLB10ytanT2cg8KTo1CJQ@mail.gmail.com>
+Subject: Re: [PATCH v5 2/3] arm64: dts: allwinner: add A733 SoC description
+To: Enzo Adriano <enzo.adriano.code@gmail.com>
+Cc: andre.przywara@arm.com, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, 
+	Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Pablo Mazzini <pmazzini@gmail.com>, 
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>, Alexander Sverdlin <alex@sverdlin.org>, 
+	Jun Yan <jerrysteve1101@gmail.com>, Lukas Schmid <lukas.schmid@netcube.li>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The td->is_haptic_touchpad boolean is multiplexed through during the
-probe- and run-time procedures of hid-multitouch. However, the way it
-flips is fragile on faulty devices.
+On Tue, Nov 24, 2026 at 1:42=E2=80=AFAM Enzo Adriano
+<enzo.adriano.code@gmail.com> wrote:
+>
+> Provide the SoC description needed by the initial Cubie A7S DTS for its
+> console, PMIC, EEPROM and microSD. Describe the CPUs, PSCI, architectural
+> timers, GIC, RTC, main and always-on clock/reset and pin controllers.
+> Include the main and R-domain UART/I2C instances and MMC0-2 with their
+> pin groups. Use mux 6 for I2C0 on PG8/PG9, as in Radxa's BSP pinctrl
+> driver and its Cubie A7S device tree.
+>
+> The GIC maintenance PPI 9 and ARMv8.2 EL2 virtual-timer PPI 12 follow
+> the A733 User Manual v1.00, section 12.2.3. The GICD/GICR/ITS windows
+> and noncoherent attributes follow Andre Przywara's public A733
+> reference and the A523 precedent. The CPUX interconnect diagram in
+> section 5.1.2 supports noncoherency as an integration inference. The
+> ITS stays disabled pending its clock/reset and MSI integration.
+>
+> Describe the single DynamIQ unit and shared L3 shown in section 5.1.2
+> (figure 5-1). The big and little DVFS groups can be described by their
+> clocks, OPP tables and supplies. Partition PPI 7 (section 12.2.3,
+> table 12-1) between the Cortex-A55 and Cortex-A76 PMUs so each probes
+> its own core type. Defer capacity-dmips-mhz until it is measured on A733.
+>
+> Link: https://gist.githubusercontent.com/apritzel/60fd7379b9560a15b8b3529=
+86b69d39f/raw/efd9cdf8f26ba5b0c7e138f093af44a1cf322469/sun60i-a733.dts
+> Link: https://github.com/radxa/allwinner-bsp/blob/2045a3ca2a01f088c0314dc=
+924bda59d154e363e/drivers/pinctrl/pinctrl-sun60iw2.c#L1591-L1610
+> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
+> ---
+>
+> v4 -> v5: Rename osc to hosc and add the I2C0 PG8/PG9 group. Keep the
+> one-cluster CPU map and the two PMU partitions.
+>
+> Untested on v5: physical CPU/cache topology, PMU counting, EL2
+> interrupt delivery and ITS/MSI.
+>
+>  .../arm64/boot/dts/allwinner/sun60i-a733.dtsi | 663 ++++++++++++++++++
+>  1 file changed, 663 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
+>
+> diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi b/arch/arm64/=
+boot/dts/allwinner/sun60i-a733.dtsi
+> new file mode 100644
+> index 000000000000..8a258f16751e
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
+> @@ -0,0 +1,663 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+> +
+> +#include <dt-bindings/clock/sun6i-rtc.h>
 
-MT touchpads have multiple HID_DG_TIPPRESSURE usages, but the value of
-td->is_haptic_touchpad only depends on the last usage, and doesn't check
-if all usages have the same critical annotations. Moreover, if the HID
-device happens to have multiple HID_DG_TOUCHPAD applications, the haptic
-device may be initialized more than once.
+This one goes after the clock/allwinner,sun60i-* ones.
 
-Fix them by storing the relevant HID_DG_TOUCHPAD input device (must have
-a pressure sensor) during hid_haptic_check_pressure_unit(), with proper
-sanity checks that reject annotation mismatches and duplicated
-HID_DG_TOUCHPAD input devices. Later, hid_haptic_input_configured()
-continues the initialization only if the input device matches the
-previously stored one.
+> +#include <dt-bindings/clock/allwinner,sun60i-a733-ccu.h>
+> +#include <dt-bindings/clock/allwinner,sun60i-a733-r-ccu.h>
 
-With that, the td->is_haptic_touchpad is converted into a one-way (false
-=> true) flipping manner. All calls to hid_haptic_*() during the
-probe-time procedures are now guarded by the nullability of td->haptic
-instead of td->is_haptic_touchpad or no guard, preparing to skip
-allocating td->haptic in !CONFIG_HID_HAPTIC builds in the following
-changes.
+Here.
 
-At runtime, relevant haptic methods are called only if the event source
-is the same input device as the stored one.
-
-Fixes: 7939f787f450 ("HID: haptic: move FF initialization into .input_configured()")
-Cc: stable@vger.kernel.org
-Signed-off-by: Rong Zhang <i@rong.moe>
----
-Changes in v2:
-- Reject touchpad applications with non-force units (thanks Sashiko)
-- Only call runtime methods if the event source is the same input device
-  as the stored one (ditto)
----
- drivers/hid/hid-haptic.c     | 65 ++++++++++++++++++++++++++------------------
- drivers/hid/hid-haptic.h     | 35 ++++++++++++++----------
- drivers/hid/hid-multitouch.c | 36 ++++++++++++------------
- 3 files changed, 77 insertions(+), 59 deletions(-)
-
-diff --git a/drivers/hid/hid-haptic.c b/drivers/hid/hid-haptic.c
-index 8312b8edc847..3ef2bce67671 100644
---- a/drivers/hid/hid-haptic.c
-+++ b/drivers/hid/hid-haptic.c
-@@ -48,17 +48,40 @@ void hid_haptic_feature_mapping(struct hid_device *hdev,
- }
- EXPORT_SYMBOL_GPL(hid_haptic_feature_mapping);
- 
--bool hid_haptic_check_pressure_unit(struct hid_haptic_device *haptic,
-+void hid_haptic_check_pressure_unit(struct hid_haptic_device *haptic,
- 				    struct hid_input *hi, struct hid_field *field)
- {
--	if (field->unit == HID_UNIT_GRAM || field->unit == HID_UNIT_NEWTON) {
--		haptic->force_logical_minimum = field->logical_minimum;
--		haptic->force_physical_minimum = field->physical_minimum;
--		haptic->force_resolution = input_abs_get_res(hi->input,
--							     ABS_MT_PRESSURE);
--		return true;
-+	if (hi->application != HID_DG_TOUCHPAD)
-+		return;
-+
-+	if (IS_ERR(haptic->input_dev))
-+		return;
-+
-+	if (field->unit != HID_UNIT_GRAM && field->unit != HID_UNIT_NEWTON)
-+		goto reject;
-+
-+	if (!haptic->input_dev) {
-+		haptic->input_dev = hi->input;
-+		haptic->pressure_field = field;
-+		haptic->force_resolution = input_abs_get_res(hi->input, ABS_MT_PRESSURE);
-+		return;
- 	}
--	return false;
-+
-+	if (hid_haptic_connected_to_input(haptic, hi->input) &&
-+	    haptic->pressure_field->unit == field->unit &&
-+	    haptic->pressure_field->logical_minimum == field->logical_minimum &&
-+	    haptic->pressure_field->physical_minimum == field->physical_minimum &&
-+	    haptic->force_resolution == input_abs_get_res(hi->input, ABS_MT_PRESSURE))
-+		return;
-+
-+reject:
-+	/*
-+	 * Reject if:
-+	 * - there are multiple input devices with pressure sensors
-+	 * - there is any touchpad application with a non-force unit
-+	 * - pressure annotations mismatch among HID_DG_TIPPRESSURE usages
-+	 */
-+	haptic->input_dev = ERR_PTR(-EPROTO);
- }
- EXPORT_SYMBOL_GPL(hid_haptic_check_pressure_unit);
- 
-@@ -78,28 +101,17 @@ int hid_haptic_input_mapping(struct hid_device *hdev,
- }
- EXPORT_SYMBOL_GPL(hid_haptic_input_mapping);
- 
--int hid_haptic_input_configured(struct hid_device *hdev,
--				struct hid_haptic_device *haptic,
--				struct hid_input *hi)
-+bool hid_haptic_input_configured(struct hid_device *hdev,
-+				 struct hid_haptic_device *haptic, struct hid_input *hi)
- {
--	int error;
--
--	if (hi->application != HID_DG_TOUCHPAD)
--		return -1;
--
--	if (!haptic->auto_trigger_report || !haptic->manual_trigger_report)
--		return 0;
-+	if (IS_ERR_OR_NULL(haptic->input_dev) ||
-+	    !hid_haptic_connected_to_input(haptic, hi->input) ||
-+	    !haptic->auto_trigger_report || !haptic->manual_trigger_report)
-+		return false;
- 
- 	__set_bit(INPUT_PROP_PRESSUREPAD, hi->input->propbit);
- 
--	error = hid_haptic_init(hdev, haptic, hi->input);
--	if (error) {
--		dev_warn(&hdev->dev, "Cannot allocate haptic for %s\n",
--			 hdev->name);
--		return 0;
--	}
--
--	return 1;
-+	return hid_haptic_init(hdev, haptic, hi->input) == 0;
- }
- EXPORT_SYMBOL_GPL(hid_haptic_input_configured);
- 
-@@ -519,6 +531,7 @@ int hid_haptic_init(struct hid_device *hdev,
- 	kfree(haptic->hid_usage_map);
- 	haptic->hid_usage_map = NULL;
- exit:
-+	dev_warn(&hdev->dev, "Cannot allocate haptic for %s: %d\n", hdev->name, ret);
- 	return ret;
- }
- EXPORT_SYMBOL_GPL(hid_haptic_init);
-diff --git a/drivers/hid/hid-haptic.h b/drivers/hid/hid-haptic.h
-index 6332991a7844..cd4d9c74d2dc 100644
---- a/drivers/hid/hid-haptic.h
-+++ b/drivers/hid/hid-haptic.h
-@@ -33,12 +33,11 @@ struct hid_haptic_device {
- 	struct mutex auto_trigger_mutex;
- 	struct workqueue_struct *wq;
- 	struct hid_report *manual_trigger_report;
-+	struct hid_field *pressure_field;
- 	struct mutex manual_trigger_mutex;
- 	size_t manual_trigger_report_len;
- 	int pressed_state;
- 	s32 pressure_sum;
--	s32 force_logical_minimum;
--	s32 force_physical_minimum;
- 	s32 force_resolution;
- 	u32 mode;
- 	u32 default_auto_trigger;
-@@ -55,20 +54,25 @@ struct hid_haptic_device {
- };
- 
- #if IS_ENABLED(CONFIG_HID_HAPTIC)
-+static inline bool hid_haptic_connected_to_input(struct hid_haptic_device *haptic,
-+						 struct input_dev *input)
-+{
-+	return haptic->input_dev == input;
-+}
-+
- void hid_haptic_feature_mapping(struct hid_device *hdev,
- 				struct hid_haptic_device *haptic,
- 				struct hid_field *field, struct hid_usage
- 				*usage);
--bool hid_haptic_check_pressure_unit(struct hid_haptic_device *haptic,
-+void hid_haptic_check_pressure_unit(struct hid_haptic_device *haptic,
- 				    struct hid_input *hi, struct hid_field *field);
- int hid_haptic_input_mapping(struct hid_device *hdev,
- 			     struct hid_haptic_device *haptic,
- 			     struct hid_input *hi,
- 			     struct hid_field *field, struct hid_usage *usage,
- 			     unsigned long **bit, int *max);
--int hid_haptic_input_configured(struct hid_device *hdev,
--				struct hid_haptic_device *haptic,
--				struct hid_input *hi);
-+bool hid_haptic_input_configured(struct hid_device *hdev,
-+				 struct hid_haptic_device *haptic, struct hid_input *hi);
- int hid_haptic_init(struct hid_device *hdev, struct hid_haptic_device *haptic,
- 		    struct input_dev *dev);
- void hid_haptic_handle_press_release(struct hid_haptic_device *haptic);
-@@ -76,6 +80,12 @@ void hid_haptic_pressure_reset(struct hid_haptic_device *haptic);
- void hid_haptic_pressure_increase(struct hid_haptic_device *haptic,
- 				  __s32 pressure);
- #else
-+static inline bool hid_haptic_connected_to_input(struct hid_haptic_device *haptic,
-+						 struct input_dev *input)
-+{
-+	return false;
-+}
-+
- static inline
- void hid_haptic_feature_mapping(struct hid_device *hdev,
- 				struct hid_haptic_device *haptic,
-@@ -83,11 +93,9 @@ void hid_haptic_feature_mapping(struct hid_device *hdev,
- 				*usage)
- {}
- static inline
--bool hid_haptic_check_pressure_unit(struct hid_haptic_device *haptic,
-+void hid_haptic_check_pressure_unit(struct hid_haptic_device *haptic,
- 				    struct hid_input *hi, struct hid_field *field)
--{
--	return false;
--}
-+{}
- static inline
- int hid_haptic_input_mapping(struct hid_device *hdev,
- 			     struct hid_haptic_device *haptic,
-@@ -98,11 +106,10 @@ int hid_haptic_input_mapping(struct hid_device *hdev,
- 	return 0;
- }
- static inline
--int hid_haptic_input_configured(struct hid_device *hdev,
--				struct hid_haptic_device *haptic,
--				struct hid_input *hi)
-+bool hid_haptic_input_configured(struct hid_device *hdev,
-+				 struct hid_haptic_device *haptic, struct hid_input *hi)
- {
--	return 0;
-+	return false;
- }
- static inline
- void hid_haptic_reset(struct hid_device *hdev, struct hid_haptic_device *haptic)
-diff --git a/drivers/hid/hid-multitouch.c b/drivers/hid/hid-multitouch.c
-index 3afca07025ea..5eea774dee44 100644
---- a/drivers/hid/hid-multitouch.c
-+++ b/drivers/hid/hid-multitouch.c
-@@ -605,7 +605,8 @@ static void mt_feature_mapping(struct hid_device *hdev,
- 		break;
- 	}
- 
--	hid_haptic_feature_mapping(hdev, td->haptic, field, usage);
-+	if (td->haptic)
-+		hid_haptic_feature_mapping(hdev, td->haptic, field, usage);
- }
- 
- static void set_abs(struct input_dev *input, unsigned int code,
-@@ -961,9 +962,8 @@ static int mt_touch_input_mapping(struct hid_device *hdev, struct hid_input *hi,
- 		case HID_DG_TIPPRESSURE:
- 			set_abs(hi->input, ABS_MT_PRESSURE, field,
- 				cls->sn_pressure);
--			td->is_haptic_touchpad =
--				hid_haptic_check_pressure_unit(td->haptic,
--							       hi, field);
-+			if (td->haptic)
-+				hid_haptic_check_pressure_unit(td->haptic, hi, field);
- 			MT_STORE_FIELD(p);
- 			return 1;
- 		case HID_DG_SCANTIME:
-@@ -1085,7 +1085,7 @@ static void mt_sync_frame(struct mt_device *td, struct mt_application *app,
- 
- 	app->num_received = 0;
- 	app->left_button_state = 0;
--	if (td->is_haptic_touchpad)
-+	if (td->is_haptic_touchpad && hid_haptic_connected_to_input(td->haptic, input))
- 		hid_haptic_pressure_reset(td->haptic);
- }
- 
-@@ -1238,7 +1238,7 @@ static int mt_process_slot(struct mt_device *td, struct input_dev *input,
- 			minor = minor >> 1;
- 		}
- 
--		if (td->is_haptic_touchpad)
-+		if (td->is_haptic_touchpad && hid_haptic_connected_to_input(td->haptic, input))
- 			hid_haptic_pressure_increase(td->haptic, *slot->p);
- 
- 		x = hdev->quirks & HID_QUIRK_X_INVERT ?
-@@ -1441,7 +1441,7 @@ static int mt_touch_input_configured(struct hid_device *hdev,
- 	if (cls->is_indirect)
- 		app->mt_flags |= INPUT_MT_POINTER;
- 
--	if (td->is_haptic_touchpad)
-+	if (td->is_haptic_touchpad && hid_haptic_connected_to_input(td->haptic, input))
- 		app->mt_flags |= INPUT_MT_TOTAL_FORCE;
- 
- 	if (app->quirks & MT_QUIRK_NOT_SEEN_MEANS_UP)
-@@ -1553,10 +1553,11 @@ static int mt_input_mapping(struct hid_device *hdev, struct hid_input *hi,
- 	if (field->physical == HID_DG_STYLUS)
- 		hi->application = HID_DG_STYLUS;
- 
--	ret = hid_haptic_input_mapping(hdev, td->haptic, hi, field, usage, bit,
--				       max);
--	if (ret != 0)
--		return ret;
-+	if (td->haptic) {
-+		ret = hid_haptic_input_mapping(hdev, td->haptic, hi, field, usage, bit, max);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	/* let hid-core decide for the others */
- 	return 0;
-@@ -1954,14 +1955,11 @@ static int mt_input_configured(struct hid_device *hdev, struct hid_input *hi)
- 	struct hid_report *report;
- 	int ret;
- 
--	if (td->is_haptic_touchpad && (td->mtclass.name == MT_CLS_WIN_8 ||
--	    td->mtclass.name == MT_CLS_WIN_8_FORCE_MULTI_INPUT ||
--	    td->mtclass.name == MT_CLS_WIN_8_KEEP_LATENCY_ON_CLOSE)) {
--		if (hid_haptic_input_configured(hdev, td->haptic, hi) == 0)
--			td->is_haptic_touchpad = false;
--	} else {
--		td->is_haptic_touchpad = false;
--	}
-+	if (td->haptic && !td->is_haptic_touchpad &&
-+	    (td->mtclass.name == MT_CLS_WIN_8 ||
-+	     td->mtclass.name == MT_CLS_WIN_8_FORCE_MULTI_INPUT ||
-+	     td->mtclass.name == MT_CLS_WIN_8_KEEP_LATENCY_ON_CLOSE))
-+		td->is_haptic_touchpad = hid_haptic_input_configured(hdev, td->haptic, hi);
- 
- 	list_for_each_entry(report, &hi->reports, hidinput_list) {
- 		rdata = mt_find_report_data(td, report);
-
--- 
-2.55.0
-
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/reset/allwinner,sun60i-a733-ccu.h>
+> +#include <dt-bindings/reset/allwinner,sun60i-a733-r-ccu.h>
