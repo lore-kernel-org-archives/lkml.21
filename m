@@ -1,54 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795561479;
-	b=RP60PCI3Jjb1Xc8OB6YqT9d5deSFXBn7nRJRJ58fSrygekvyK7Oc01efib/MgU9i+/BH
-	 HzrHtw/RyLT/syUtE5ge2QRsTQ/uTD39CrpYs7/AAYG8j+v85NniC3Wk1jzSlpyV7RuzQ
-	 xcUvJ2ZNEryfRpZeyKD8ixEYhaTZ7OeliXchb0isedb3iMQawNVb+L4NRg8XddierRCwq
-	 D7no5NDC+GNbmRkKbzAt+uARg+N0ZeztDs80XBUb8QK7oyZhraBENU0FuMvEQYTQfhSn7
-	 MR8O1ABUafIpRQjNj0CcSk8jYBnbGTpO+iX9SGLmLmEot8c0d9wNtFw3rkrB3Veip8Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795561479;
-	h=DMARC-Filter:DKIM-Signature:Received:Content-Type:Mime-Version:
-	 Subject:From:In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:
-	 References:To:X-Mailer:X-ZohoMailClient;
-	bh=2ZI2PMlWOi8d0sJS2pMmeUrpaerAHWJIYWoUU7w6+Do=;
-	b=h4L4sGEiL6enkVN4AgaI7vDTjO57d9fd6RbFB4OcKAoQR1WmoCNnWK81yzocRMjTQMgM
-	 HJjjq3LhbTaTADlAdo8EmaRpv6tRQROtXEKmdzcSv2+HbSYgEY0WsYsuHnX2DeCJNfEmD
-	 T9+sEO6FljScMDAsJ84YW8wg2qCRcR3RICHbG5q+5g7AnhgScmRtGwaxeVfgBTHaYFao4
-	 Q/+2DsAJjPQeVMuyNsmBP+GU/mN2JFxX+pWBSopXZYKA9STaj+GlzrPCaYUUFgz+5Dpir
-	 mA6q0QEv3F1GteswqTFjtchibBl7D6uMI6mdCgRcsR28qzEtnBAnMPJIBd7nuQ5JK/w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=ckO2gDgk;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795561665;
+	b=ZnOOxnYRMlaGTRh7UFEoPI4b2cocRoIEk8oD1Qr5YV1h67cy29WxB9ix1wyBYFeRVueX
+	 6WflLrZQ0yGglSvUOpLZA2N8TQjg1mpLMyv5XlbjhLH8/1ew9fuGxWqA38x5wyDeymWzj
+	 QH0Vn6dwx2caqCG/4+WUgGCDDqG1b5lIZIhJFaIGRLqE2ZgTuHz3Jet3is9aGCWrcRHxi
+	 4vhXrm3tfN3Hzkl+rVSGybJGfRkqMclQdhfSw/bLFAteQdocOClcStgsQvk6gaZWn+znA
+	 5xB8fGY9h7xvqlwaeF51Gbo56DHzxd4xlVqL++CxyRaZ35VAdNIb0oYblNDkgKCvIDQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795561665;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=+1ShINOhrETVckZgwkDQ2yDcTAY5roVvnqnqdvL+Hbk=;
+	b=sTNKiREt5E7Ijj8nD5jPS62/i59+NwkTiq73IYHiDCq6sdjPmVfb34ZreB6j/eP+YzUB
+	 CqCgdDLj01MQI70AOwCoDTzJ4Qaww1KXFQosz6BBl4Q+p5fcGZA6CkO3HbajkRceOpGoR
+	 Ua++/EIRj9XzIBmB2+fnX1SqKuuF5uEf/X0ITYoKZpkzAOOhSEsQtCmif4pc6d25Ts1HO
+	 hmB95eNe2lduJJCTmJ+rnw+nlkpn4KGPIiXJybO9mYLJck8hAt+tpRc3u5kAaau4HYA/R
+	 4nNExNE27B7WSparM8mOy7N55eZj0+pWCwsFFPVZ/+Dl/bkkJGSNbQAmU88VijnWx1w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dVQjkdi+;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 168B2606A31E;
-	Tue, 24 Nov 2026 23:04:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 168B2606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id B2DA4606A327;
+	Tue, 24 Nov 2026 23:07:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=ckO2gDgk
-ARC-Seal: i=1; a=rsa-sha256; t=1795561450; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=SUe5/Jj/3I9NWOEFXaYcPp9uBrJ8eG9uaepsfhFBqMZ3jZx+2Dxk/mtmYh7Godt6LUxHFcYQOvFOoSvpM8SeDy+F1L4/rCftyKNN28xf95JEcZQ8qHow906Piq7TaoybWjNtXNKHwN3ng37+ynqWivT7jELXT9gtVVqLYUiYmwc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795561450; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=2ZI2PMlWOi8d0sJS2pMmeUrpaerAHWJIYWoUU7w6+Do=; 
-	b=ThkirTkKbnMX4YVIkjNmpJzrs66wNSFxHI/RwDH/U79pv5F6s6Wj9aonu6ZKedSIredB5Dxp7pc5jGp3qvHNvDausMNon5sTQdasca/TWjEs/nD9mVDbJF4418abCy4hjVSaJee5N6pgYRAyn3azf8NjXy/rFl8ygeloP/FeZ58=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
-	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=ckO2gDgk/gybC1D14RZLNHsaK9ZN9LtGnGUenuNevZI/dRsLZAGycWhE59LCOd5fgnMT276G9zHV7xaZcc7bu8pfKdVk/oaiuFqQCOXZoehNpWtH47w8wSwQrG9Qi8RN4dTe/pn6zuQtVX65zwjOkynNvZ12TNjKZ7LHdTLbioU=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=2ZI2PMlWOi8d0sJS2pMmeUrpaerAHWJIYWoUU7w6+Do=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795561448079315.65968283457187;
-	Tue, 24 Nov 2026 15:04:08 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dVQjkdi+
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id BB17D1F000C0;
+	Tue, 24 Nov 2026 23:07:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795561665;
+	bh=+1ShINOhrETVckZgwkDQ2yDcTAY5roVvnqnqdvL+Hbk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dVQjkdi+8IRvs0yX8C9we8uPqfWBw4PBtDidtovyXGmo6jzND4pqoWA5i9nS9C16q
+	 QmLLotzAOsH2d0e60fdXLQtsyWOyGdQCIec0Ay0nbE7jmq22QyPYcs8RZ5HwD3Xi9s
+	 1qykf2nNARtiKwl0Mlk3Oa8IpONRCgo8OPbdnFl6ggM4gbpUbqOiYI0zGyt0NHq86+
+	 2KqZuQppqAg996IAnB+YYMytFDCsHeqTsjq1nEzBb/xDsgy5GH137DtiREGq1+rj+V
+	 J6JKuWDX6n5j3AK4UQWTIKSlrTAhrhnf/UMaJd2hHtqM/9yygrwRJ+tYb39hwxi7IN
+	 HIZeeC4eAP7fw==
+Date: Wed, 25 Nov 2026 01:07:41 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: keyrings@vger.kernel.org, dm-devel@lists.linux.dev,
+	linux-crypto@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-integrity@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	Ahmad Fatoum <a.fatoum@pengutronix.de>,
+	Alasdair Kergon <agk@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Benjamin Marzinski <bmarzins@redhat.com>,
+	David Gstir <david@sigma-star.at>,
+	David Howells <dhowells@redhat.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Ignat Korchagin <ignat@linux.win>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	James Morris <jmorris@namei.org>,
+	James Prestwood <prestwoj@gmail.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Jonathan Corbet <corbet@lwn.net>,
+	Lukas Wunner <lukas@wunner.de>, Mike Snitzer <snitzer@kernel.org>,
+	Mikulas Patocka <mpatocka@redhat.com>,
+	Mimi Zohar <zohar@linux.ibm.com>, Paul Moore <paul@paul-moore.com>,
+	Peter Huewe <peterhuewe@gmx.de>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Sumit Garg <sumit.garg@kernel.org>
+Subject: Re: [PATCH v2 6/9] KEYS: Factor out KEYCTL_PKEY
+Message-ID: <awYYvQwk6AWHhtNU@kernel.org>
+References: <20261124194043.1651679-1-jarkko@kernel.org>
+ <20261124194043.1651679-7-jarkko@kernel.org>
+ <20261124215035.GE2227373@google.com>
+ <awYLCuCIG8--aa2Z@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,165 +82,38 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH 0/4] drm/tyr: use pin-init self-referential support
-From: Daniel Almeida <daniel.almeida@collabora.com>
-In-Reply-To: <DN2ZFO94BZMF.2XTCCKEUDLZSB@kernel.org>
-Date: Tue, 24 Nov 2026 20:03:50 -0300
-Cc: aliceryhl@google.com,
- airlied@gmail.com,
- simona@ffwll.ch,
- lossin@kernel.org,
- gary@garyguo.net,
- ojeda@kernel.org,
- boqun@kernel.org,
- bjorn3_gh@protonmail.com,
- a.hindborg@kernel.org,
- tmgross@umich.edu,
- tamird@kernel.org,
- acourbot@nvidia.com,
- work@onurozkan.dev,
- dri-devel@lists.freedesktop.org,
- rust-for-linux@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <BF029262-22D0-41EB-884B-8C64C6BAEBB8@collabora.com>
-References: <20261118233727.3147222-1-dakr@kernel.org>
- <084F476A-BD3F-4FAA-B47C-E875B542AA1B@collabora.com>
- <DN2ZFO94BZMF.2XTCCKEUDLZSB@kernel.org>
-To: Danilo Krummrich <dakr@kernel.org>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
-X-ZohoMailClient: External
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awYLCuCIG8--aa2Z@kernel.org>
 
+On Wed, Nov 25, 2026 at 12:09:18AM +0200, Jarkko Sakkinen wrote:
+> On Tue, Nov 24, 2026 at 09:50:35PM +0000, Eric Biggers wrote:
+> > On Tue, Nov 24, 2026 at 09:40:40PM +0200, Jarkko Sakkinen wrote:
+> > > diff --git a/crypto/asymmetric_keys/Kconfig b/crypto/asymmetric_keys/Kconfig
+> > > index c73979b2e98e..1c78a9a663c5 100644
+> > > --- a/crypto/asymmetric_keys/Kconfig
+> > > +++ b/crypto/asymmetric_keys/Kconfig
+> > > @@ -2,6 +2,7 @@
+> > >  menuconfig ASYMMETRIC_KEY_TYPE
+> > >  	bool "Asymmetric (public-key cryptographic) key type"
+> > >  	depends on KEYS
+> > > +	select KEYCTL_PKEY
+> > >  	help
+> > >  	  This option provides support for a key type that holds the data for
+> > >  	  the asymmetric keys used for public key cryptographic operations such
+> > 
+> > Could we use this opportunity to give CONFIG_KEYCTL_PKEY an
+> > off-by-default prompt like CONFIG_KEY_DH_OPERATIONS, please?  There are
+> > a lot of systems that need ASYMMETRIC_KEY_TYPE for verifying signatures
+> > but don't the KEYCTL_PKEY keyctls.  The fact that the KEYCTL_PKEY
+> > keyctls get pulled in too has always been a huge problem, given the
+> > additional attack surface they expose as well as other issues like the
+> > kernel's RSA code not being resistant to timing attacks.
+> 
+> We can do that.
 
+I'd be also interested to hear, if there are any wishes from non-TPM
+trusted backend side. Thus, increased Cc-list.
 
-> On 23 Nov 2026, at 20:34, Danilo Krummrich <dakr@kernel.org> wrote:
->=20
-> On Mon Nov 23, 2026 at 11:20 PM CET, Daniel Almeida wrote:
->> Hi Danilo,
->>=20
->> Thanks for doing this.
->>=20
->> I spoke with Gary about this topic at Kangrejos and again a couple of =
-weeks
->> ago. What worries me is that we might introduce some restrictions =
-that might
->> paint us into a corner. IOW: we have significant downstream work, and =
-I wonder
->> whether it will work with this series after whatever refactors are =
-needed.
->=20
-> The reason for the existence of the converted reference counts hasn't =
-been that
-> reference counting was needed as an ownership model, it just was that =
-we haven't
-> had a way to express borrowing from sibling fields that are already =
-guaranteed
-> to be longer lived in any case.
->=20
-> The distinction is between A having an independent owner that keeps it =
-alive for
-> all B consumers, so the Bs can borrow A, and the Bs collectively =
-owning A, so A
-> is destroyed when the last B releases it. Reference counting expresses =
-the
-> latter ownership model. Both can still be subject to lifetime bounds.
->=20
-> In the majority of cases, drivers acquire device resources in stages, =
-keeping
-> earlier resources alive until their dependants have been torn down. =
-Where
-> ownership follows this hierarchy, borrowing can express those =
-relationships
-> without reference counting.
-
-Yeah, I understand the premise of self-ref pin init. My worry is =
-precisely
-whether most/all of the shared resources can indeed be modeled as a =
-borrow on a
-sibling or parent field. Especially resources created by userspace like =
-user VMs
-and CSF groups (equivalent to nouveau channels), or deferred work.
-
-For example, your series does not have to consider user VMs because they =
-are
-not implemented yet. I wonder whether they can work under the proposed =
-plan,
-since user VMs will borrow the MMU, but struct Mmu is stored in the
-registration data. Previously that was trivially solvable with Arc. =
-You're
-saying this is possible under the code you're proposing? Because at =
-first
-glance this looks like a shortening of 'iomem to 'a (from =
-DriverFile<'a>),
-which I assume the compiler would reject due to invariance?
-
->=20
->> To start with, Alvin's VM_BIND ioctl series [0] will need some =
-changes, since
->> it keeps the VM pool in the file data. I think this is doable if we =
-move the
->> pool into the registration data and have each file hold only an index =
-to its
->> own entry?  i.e.: something like an XArray<Pool<Vm>> indexed by a =
-number
->> associated with the drm::File. Same for the group pool later. Is this =
-what you
->> had in mind?
->=20
-> No, the changes do not force XArray<Pool<Vm>> to be moved into the =
-registration
-> data; drm::File private data can borrow from DRM registration data. It =
-can (and
-> should) stay in the drm::File private data.
->=20
-> (I'm also working on a generalization of this, as it is a repeating =
-pattern in
-> drivers. We want driver private data associated with an ioctl, e.g.  =
-VM_CREATE,
-> which is shorter lived than the drm::File data and hence shorter lived =
-than the
-> drm::RegistrationData.
->=20
-> Concurrent ioctls associated with a handle to this data, i.e. the VM =
-in this
-> example, need to be drained on either VM_DESTROY or drm::File private =
-data
-> destruction, e.g.  caused by unregistration through driver unbind.)
->=20
->> Anything storing a KernelBo will also have to be outside of the file =
-data,
->> IIUC, since it now stores a &Vm. Also, downstream we defer KernelBo =
-drops to a
->> workqueue, because they can happen in the fence signalling path. I =
-suppose we
->> can keep doing that using ScopedWork/ScopedQueue?
->=20
-> I assume you refer to the Vm that lives in Firmware. If so, drm::File =
-private
-> data can borrow from it, as Firmware lives in the DRM registration =
-data.
->=20
-> The teardown has to happen in ScopedWork regardless, as they all =
-carried device
-> resource induced lifetimes already and hence can't go into unbounded =
-work
-> anyway.
-
-FWIW I meant both that one and user VMs (WIP), we map KernelBos into =
-both
-downstream.
-
-This seems like another instance of what I asked above. If you confirm =
-this is
-indeed possible even with the invariance I mentioned, then fine, I =
-guess.
-
-To be honest, however, I must admit that the more I look into it and try =
-to
-understand the code, the more it looks like an improvement over the =
-Devres
-approach we have downstream.
-
-=E2=80=94 Daniel
-
+Br, Jarkko
