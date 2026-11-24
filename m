@@ -1,66 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795557209;
-	b=km6HsWE06DIge4i6Vb5s4w8RpyL/eHt3rZ605oxtTyy2XBSZfAYQFuGiDaAUCK/Ega68
-	 fGrdhfZ7XMm3/rTAwi1sHb3AkQkD/MIij582T7sRYKRppHtlg9HCQnm/ERhLgPEBwNUN2
-	 gZNKPB2C06sBsgw8MRIza1hausQFsFVyrDMOWTpI/pshyCuSZqNHMzSzB5icDV69r/Xi6
-	 dX6PnIdIeANiLJyqxSlo9C2Txnw/bjzbcjsx/nbts8uIUIXKwSWA6g/BKLjHJdiFY8QqE
-	 e4C8IUbzfss62W1ma2Mq3bWJ1nT0dnjJNgk/9GLorkR83eeDNTDPwSySLRix5Yl4XgA==
+	t=1795557205;
+	b=F6yj+fH7DQ60HMXICNHiWnwFhwIDp3ufm5OBc2rIIecyh3mm7ywvJhOuW6qAcYFsmcR5
+	 ZrA0aYoLX7VAokQO6c4JmupjSWk3OX2YD9KyTEYEXYDULWEW5A1TDW89pm5cnhyWhLULy
+	 Y0YN7PMgDTbBYkSsF8Am5hsNyuW2drDgG5D84T6TLUqzzc3B2XvHXmex5w0obWlg9YDM7
+	 GEHvndhx2GqV/qp9jZkeoBHQ/vsacvszV3xnUaP5IWyTTevPSf5+TYVcXbsYKfuu0jkOQ
+	 zDHJ0uwqTs5hpCjok+dgV/IPhgpI5s05Vmq4tC/GzcVs2qTC+OI7kOF+g36V9wBgXEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795557209;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795557205;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=HJFKT+3cEp/SIDOrK2IyT13IGiUZpBE5c4DPsZD9kcQ=;
-	b=jA42KZOSojrGCw+AklgzqJWf+pdDPWHyLJ2nLCswOLbAyk32FP02vqoyGemhuJXOneE7
-	 DrmnPh8vXtIaa/gJ8hjr2MGnEboCQkdZ+ceRfsrgZfnORAvZUwBnGyQ67jZOtc58bb4Q2
-	 P34F5SzXElGlfx+mG01LHzoF8Kl4zGMz41z9M3rkNr+oFCwHMu6iRmivMlysMS+e62tql
-	 xNkfsO93gOQN0vMGshf0FkIKu0nViAP4omfAkIpx10L3xb5/zaVV9zBCEW0JHkvjQDXaR
-	 lNkS0XteghtpAArHfV3ttB0FwBriwVQkddNGPN9FDjurGJs2iVXx33LdQEQktSF5+kQ==
+	bh=aXlabSfwlG6od/MfPPhNcq3Y0NUc2XEA70E96ZweIZo=;
+	b=sWjMIOFZG8WkUCD0demepXXiCr6gxWhc4BH5Co71IxY0MDPITKmmsQahbwlP6ytGpwCN
+	 Scf5vPV+DgKTNh0XDwn44s+0Lpwcuot6fk+FRtwYqI1Xr/1IdylAacEJIn5zPhl4bu0b7
+	 2CmQ5fEqNpSO+PMDGq3qTTsTh8glZtZUDIxm7fvhmcTcrWA51YKjw2DyU+5s3ABKQ2wsH
+	 3eqrCB53yqh2wIGOePI8p89zIPciijQpVjryW+AXNv3kZc3rydJ8ux16vERfbp4BlSVSK
+	 +4fE75d4SUVMUBJSvm45n3d3aXvbieHpiToFtnsdzqO/VGd285wXq55kDIII3eC+ouQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WC80m0UO;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Zo4pb0jS;
 	arc=none smtp.remote-ip=192.198.163.9
 Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08A8960A261B;
-	Tue, 24 Nov 2026 21:53:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08A8960A261B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C498606A686;
+	Tue, 24 Nov 2026 21:53:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C498606A686
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WC80m0UO
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Zo4pb0jS
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795557208; x=1827093208;
+  t=1795557206; x=1827093206;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=RlAWSRyBTrW8VrG0qB1GGkaT6pJ7br82MA0DK0V9CuA=;
-  b=WC80m0UOO88Vfl4uPuaHyQkKxB16fsYe4pNj50lcbQPxDoQhfK69u30b
-   s+nkxXFw4XyASZo1KayvlqAzPlRh7cF8QS8gIVA0a6xLccdxkYX3fd8e3
-   lF3CkI4JQM14wF+CKXZKyw/qkM+CH/T0zv3OBjUuCBsgc/zxDi0mviuIU
-   vn4/IqrqZfVKuIiWqyQkZqCdnrphRWmNIt6Xh8Tt393bj6RMzU+KY3Y6N
-   wYNibw98V5xtPCnFfBtNkTorKIhOe35QOPGZahmnMvDVkFDHvN0ytDlRY
-   g5Am/kvVfZ75JwJG341in6/KtIHc0GAU51BbF32SG7BAYb6MUndvpSH7T
-   Q==;
-X-CSE-ConnectionGUID: H7rFQpDKQBSZiv5UeZdcDw==
-X-CSE-MsgGUID: +sURD0H7SHKd9CP21eXK0w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4306034"
+  bh=1eKyLWRi1xIiI1gLfcXqg7LMZkM7UjC6uG1hPiWjwpM=;
+  b=Zo4pb0jSMVd4yMivnMTAHI2X7/jnQen5IIbr87XdNw6lPW+ElAgENJl7
+   0x4RwZxr41xjZGW8BZbYTZGnR+VSfstY8mmy5aBu7XuFU36tSHSx0yLO9
+   yJ1epeRHEHbBMdJDI91eu9mEAz1DQLUyJ69MBRutTUmySTLbxnaFv8LCK
+   ezeOQJV7a5G8TMgEdObMvIE24G0TqP+hCqJWN1l04bErsd/FAgxVf3gXQ
+   120yIqK5k5aPxVn7ZysK7W/z5QHqsuevT+q8MkSbHWtRLLfLK6KuFaal3
+   UVcNYWZXuOPYJMMuarGV9jZ5W02peEKbAXiNGvrtrcmJYl8DVtyC+yToh
+   g==;
+X-CSE-ConnectionGUID: RwvWfOvXT5CLvRaM74epVQ==
+X-CSE-MsgGUID: eeUeWoJESV2wdiy5Dl7CSA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4305993"
 X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4306034"
+   d="scan'208";a="4305993"
 Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:53:28 -0800
-X-CSE-ConnectionGUID: 8eDY1IckQrCVKshOdXdMnQ==
-X-CSE-MsgGUID: 9SynQOs9Tp+/5CVOIhY5jw==
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:53:24 -0800
+X-CSE-ConnectionGUID: aDXtY6A1RgCuxKfk1cm9qQ==
+X-CSE-MsgGUID: iF1R44bhSLew8wrenOrbmA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="12271927"
+   d="scan'208";a="12271902"
 Received: from 9cc2c43eec6b.jf.intel.com ([10.54.77.29])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:53:27 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:53:23 -0800
 From: Zide Chen <zide.chen@intel.com>
 To: Sean Christopherson <seanjc@google.com>,
 	Paolo Bonzini <pbonzini@redhat.com>,
@@ -77,9 +77,9 @@ Cc: kvm@vger.kernel.org,
 	Shukla Manali <Manali.Shukla@amd.com>,
 	Dapeng Mi <dapeng1.mi@linux.intel.com>,
 	Xudong Hao <xudong.hao@intel.com>
-Subject: [PATCH v10 09/18] KVM: x86/pmu: Mask only OS/USR bits when filtering fixed counters
-Date: Tue, 24 Nov 2026 14:38:52 -0700
-Message-ID: <20261124213901.120572-10-zide.chen@intel.com>
+Subject: [PATCH v10 04/18] perf/x86: Expose perf_capabilities to KVM
+Date: Tue, 24 Nov 2026 14:38:47 -0700
+Message-ID: <20261124213901.120572-5-zide.chen@intel.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261124213901.120572-1-zide.chen@intel.com>
 References: <20261124213901.120572-1-zide.chen@intel.com>
@@ -94,52 +94,48 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-In preparation for supporting AnyThread deprecation and RDPMC Metrics Clear
-Mode, mask only INTEL_FIXED_0_KERNEL and INTEL_FIXED_0_USER when updating
-fixed_ctr_ctrl_hw in kvm_mediated_pmu_refresh_event_filter().
+perf already applies model-specific errata (e.g. RPL018 on RPL/MTL)
+and sanitizes contradictory values (e.g. clearing pebs_baseline when
+the PEBS format is < 4). Reading the MSR directly in KVM bypasses all
+of that.
 
-Masking the full 0xf nibble would cause two issues:
+Add perf_capabilities to struct x86_pmu_capability, next to the
+counter counts, bit widths and event masks it already exports, so
+that KVM can use the validated value.
 
-1. AnyThread for fixed counters 0-2: When a counter is allowed, copying
-   the full nibble from guest-visible pmu->fixed_ctr_ctrl back into
-   hardware-visible pmu->fixed_ctr_ctrl_hw would resurrect AnyThread in
-   hardware, defeating SMT cross-VM isolation.
-
-2. Metrics Clear for fixed counter 3: If an event filter denies fixed
-   counter 3, clearing 0xf inadvertently strips METRICS_CLEAR_EN from
-   hardware. If the guest sets METRICS_CLEAR_EN and executes native RDPMC,
-   metrics will remain uncleared, returning stale data.
-
-Masking only the OS/USR bits gates hardware counting without
-clobbering other control bits, matching general-purpose counter
-filtering which only masks the event ENABLE bit.
-
-Suggested-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
 Signed-off-by: Zide Chen <zide.chen@intel.com>
-Reviewed-by: Jim Mattson <jmattson@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
 ---
-v10:
-- New patch split from "KVM: x86/pmu: Support RDPMC Metrics Clear Mode".
+v10: New patch.
 ---
- arch/x86/kvm/pmu.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ arch/x86/events/core.c            | 1 +
+ arch/x86/include/asm/perf_event.h | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
-index eef2f792dc9e..dba651d4e449 100644
---- a/arch/x86/kvm/pmu.c
-+++ b/arch/x86/kvm/pmu.c
-@@ -557,7 +557,10 @@ static void kvm_mediated_pmu_refresh_event_filter(struct kvm_pmc *pmc)
- 			pmc->eventsel_hw |= pmc->eventsel &
- 					    ARCH_PERFMON_EVENTSEL_ENABLE;
- 	} else {
--		u64 mask = intel_fixed_bits_by_idx(pmc->idx - KVM_FIXED_PMC_BASE_IDX, 0xf);
-+		u64 mask;
-+
-+		mask = intel_fixed_bits_by_idx(pmc->idx - KVM_FIXED_PMC_BASE_IDX,
-+					       INTEL_FIXED_0_KERNEL | INTEL_FIXED_0_USER);
+diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
+index 8b3ea0adb965..770ca960fa6e 100644
+--- a/arch/x86/events/core.c
++++ b/arch/x86/events/core.c
+@@ -3164,6 +3164,7 @@ void perf_get_x86_pmu_capability(struct x86_pmu_capability *cap)
+ 	cap->events_mask_len	= x86_pmu.events_mask_len;
+ 	cap->pebs_ept		= x86_pmu.pebs_ept;
+ 	cap->mediated		= !!(pmu.capabilities & PERF_PMU_CAP_MEDIATED_VPMU);
++	cap->perf_capabilities	= x86_pmu.intel_cap.capabilities;
+ }
+ EXPORT_SYMBOL_FOR_KVM(perf_get_x86_pmu_capability);
  
- 		pmu->fixed_ctr_ctrl_hw &= ~mask;
- 		if (allowed)
+diff --git a/arch/x86/include/asm/perf_event.h b/arch/x86/include/asm/perf_event.h
+index ca630bc282fb..a68cb7c79d8b 100644
+--- a/arch/x86/include/asm/perf_event.h
++++ b/arch/x86/include/asm/perf_event.h
+@@ -308,6 +308,7 @@ struct x86_pmu_capability {
+ 	int		events_mask_len;
+ 	unsigned int	pebs_ept	:1;
+ 	unsigned int	mediated	:1;
++	u64		perf_capabilities;
+ };
+ 
+ /*
 -- 
 2.56.1
 
