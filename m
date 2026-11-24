@@ -1,94 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795532830;
-	b=KCcQeJ7IjFxQzhvDqTfvvq3qwVFVPKI5Pr/VW0sHq2NyZOWMsdhPqYdlPD+G87cJQodY
-	 3w+E48ua9P+79SPQURwrYo3ycrji3UJoz/vl27mh3VRULkJSFXNUSwVjNpPPyjnc4/3ji
-	 YyUTS8eSx4wjB9cwMNF36MRbmx9b+VD9hdMM5ck4ZLy+TUF1caSQWCnkJ6HWcEGndxBAc
-	 7L5Bid7eBSCQyugqBOBNI31Yl+XPmlE8LJkOUbNteXcTNDhCdjMyL71BdLlt5Ne3Vl/6F
-	 2J5bQGYriaD208P37bYJSUlj3PYZHAqB0pvTEGfvn2d7WzgBePnHV+1ZCYSc7QsAf5g==
+	t=1795532862;
+	b=ZX5ooD5z+daRRAMgBBVbu0MxcOuNlNxDFp+knE13Eh6EyAkgVk15TfcTpJFyn8rQt+A7
+	 yrP7k/MeohyxGseR5vU/Ba/ox9ZA4Jj/UDDp6M53sqLQ+ElzH1GkrOQjPUpxSyUYvoAkA
+	 uXXRzTlaUVpBN9pSZ3eMtfpP65u6N74GpC6bISKDSr28B2gB3yDiU1ECllDxCver7eSxM
+	 +AhpywARAimyzQIgOoqkKWwACFLsSfAjoMFtuEZD8mSjlnOSW2sHZh4e/s9l4NQNEjNOl
+	 tGG/J4hw5CmNb2wwztFEOGFPoBBtZZR27D9sQd6+lwWR2CCPMuyPoBAnTFqJYzhaXkw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795532830;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795532862;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=yKYud9p8+aP8cT7V12zkUbmCop1ErkdHEczU+hWaU/k=;
-	b=eE5Nq/9J8vy77BYo8xh+1IjfTaKqRU9ZjRZVUmptq1qMvbvWRKE3c8QiQTtw2A0xfHDf
-	 y9R8WN70/YMiTZK8F2kXhOgbc+PgAyZLVav5Yv8HDR80YzfqltxcXGa6Pq5CYhFblT1gP
-	 xRoviHRFosE+Q1AgIA8ZViQpXcJuZd9YgUDObYb4s1/vRq3uZ5lbPEbDNNh6Svb8P3ScY
-	 oR7YHpdcuS8VnSPic0hOs/KEziHt2lsMI2tGo6pijy134tIEiKINoe0bF3/BHU+rbD9Jc
-	 3COC6kftDkREufAj0GvNZfB54WSQaY5erKH+VAJVd+toK84ve4vl0/TIgapbefNHzbg==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=aICwJf3rQzn9t0UhzA5pRAC33uHfknWgbhObwj4iPxQ=;
+	b=dT3EzqQ+oGz6CQeE9tOpCjbbILNahoDKsGOr+RcrIHjByTo3YkoFI0eRws8u5hVoqqy+
+	 A54lc84Zi/cFHtD+1NRxPeC/aZf6/ZjOEjsbQe4r7tSj8MEgGOhrklNdP3e9ZWHMONhos
+	 VGWvMvFcDcxYgfD54nzuZgwNKJE+WcoMQstjguy5eZiii1w0gBwaEi8qvxXwoAY1vKVH6
+	 WDza+bHTHoFGFwQZ2H8YQdUewH8kl1kPRLNMJ8lj5ycd8cTYtAR3HZppdvXHJM4swSN0M
+	 4t8pCRyLkOH33iwD+5p/RhPHgmA9LCJLHolJb14CZuf3sC2J1rzw5C3C/CnpCfsllgg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oawMuID1;
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=cA4kVEyB;
+	arc=none smtp.remote-ip=209.85.208.174
+Received: from mail-lj1-f174.google.com (mail-lj1-f174.google.com [209.85.208.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFB7A606A327
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:07:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFB7A606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D854606A323
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:07:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D854606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oawMuID1
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-385d8a00598so6726623eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:07:09 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=cA4kVEyB
+Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-3adf222704dso5312131fa.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:07:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795532829; x=1796137629; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yKYud9p8+aP8cT7V12zkUbmCop1ErkdHEczU+hWaU/k=;
-        b=oawMuID1kmubn1t/+T9ikxrmuyO8SiZvLdSJSiJJWC8ReJcm8QQEaWbpd+RAneNGJZ
-         ww/4FL/wELbrzZGcT6Z4sAsw2+jOD+0ttcefX5O4oUswHlPzUwE1rd0gAQ/OYw3B4YDV
-         B+em+gKTenae4nT8LPVOGApHKbaLRaWw36qhmR3ESIqK6o9O8SEHHP/Yupi4XedNBHjN
-         ey5a77U0fmpS30cY9ohvSier1nFLxTDc3DofBfh/M0rIUHLqZLPPOpC17s95AsGchZp2
-         43TArlHgH8AUIF8/XHsDI4N3oApa0Qe0vjJlbiFMxFARgrm0T7y5pfnVWqzAdpoUUlPs
-         pfQw==
+        d=linaro.org; s=google; t=1795532860; x=1796137660; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=aICwJf3rQzn9t0UhzA5pRAC33uHfknWgbhObwj4iPxQ=;
+        b=cA4kVEyBti5oMLaeq7wT8khKjM1DVQUy5qVqtxYPOKnvBvWTxo1pJMgv+xaOFgWBV8
+         O+Fb88txNYas/uoXAuVv8jncx+4khzepX5H9SQeIAA0HH4mWphgfrDKfIWzSZzRY2K0q
+         L3JiqdQP3BmXzmE48NqmXEOQ4w9fd5OmD+IVV3pwhvkdPK9iFj6oFwLy7KD89+YwQnwn
+         jEEdi2WnHYjGM1YZlmouHQjy7/zQaXqf8kxrhBTCzLViBNKtd6rju2hQasrmPN3W2EPa
+         zrUL1UjTLksmq0aTlKUCLYp9x209mpDE958BOSijHdkEhZkPtRsYG9SYBpJRVn+VAr2R
+         H/YA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795532829; x=1796137629;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yKYud9p8+aP8cT7V12zkUbmCop1ErkdHEczU+hWaU/k=;
-        b=aAXt6tBrtBrhrxgXts3tTzaexRn4+E9QeHU3vEPz/4z2knqPWf4CtXWehzIuh7yKSZ
-         32ZMXCoNnT5HuhAq/hVBsusKxLGq8xhlEYTs52RcZYryRF5x4HGI+ZNPy2C0VOYvHWQo
-         VM1eqEd+5ezxF1VAFY7tITr5Y/rsxtP87URsvX3LikJ1x7BnrEpKEpw69r5P085nm02D
-         LPJfxx7G2t3ZpdXEhNHges4q1imiFpawGyBNVwxN8bxk3Vwl6dLOQEdrbHo6qhJzbNd/
-         kayTE+6sn3ArQnwQhaSevEq+GPwIi8SFxdRhTY/cNejTVfRQPnK4p4/ZTGffpp1qid2J
-         ZPug==
-X-Gm-Message-State: APuU4Z+T1toQgyby90LdxVGMV646HfOw3bZhIE0ZKNtERE4g/V7QmsgD
-	NVTAcMYTsLDhddmu3Cydbgk0tB3Ks6vgb7p9GRTIs31ConA002W8Nds0
-X-Gm-Gg: AZFdTZcM4Y6hf8JlJcf8DxD8w/YH/JfE5/YZ9+B4YxclF8sWmULsGp9eaRjdlrjaodp
-	cDhpJkt64oHF0HlDsVuuwYZYgPZwWkmlLX+dcNRjTr4HSZlckbU93Klobu/6s/f3skmNKJNVA/E
-	5xBCvrFcayDfW0QFeLVpbH5RyvQiTyt9FVlmUI0ZCkseJbEuXWwmqOfv9eonU/ESuBanrKdi/d7
-	e+CZOqcP9lAedt0T8E3/cV1L4O9BlvcKxTaIzMcNUuJpAdC3I0mLOCY+K+/ZMTBl0fwXI3TM1wl
-	XdvH6VyYfeurmPrpjrHwjQNhPVuuhd/RCtPrKluLCUBrFUsCuM3x38HJjX4gq+LUmS4JlYlaQ+T
-	hxoSA8Nck7lIxUB2vP7ktQqwCT+dC3mBO386bO7GkOUbrO2hmbpOj2JZl4tnNtxNzs4WzhZkZTm
-	1Xh19t2rEzDHWfWUWbJ/6xGKs4tpVfCiuvpSkOqDf0eQVX8K1alnA/bb6+NvjbKoZPZeoKNmrD9
-	MY6zw84nrn0yMWE9v6KP6tBt4QUiEYx7mQiwBOypYxwtZKXtzKSKmTAGH/T7yNU26rvHnyiBD6R
-	vKc073f9/9tT16nXmz6difyM1EkYFDcjzPLTSCj/nondslEd1lV+
-X-Received: by 2002:a05:7301:4704:b0:383:729:cabe with SMTP id 5a478bee46e88-3856f8519ecmr16303982eec.19.1795532828449;
-        Tue, 24 Nov 2026 07:07:08 -0800 (PST)
-Received: from localhost.localdomain ([103.178.205.105])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b9bdafb5sm12728260eec.9.2026.11.24.07.07.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 07:07:08 -0800 (PST)
-From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-To: tiwai@suse.de
-Cc: linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	perex@perex.cz,
-	sreekuttan2156239@gmail.com
-Subject: Re: [PATCH] sound: core: Check return value of device_create()
-Date: Tue, 24 Nov 2026 15:06:41 +0000
-Message-ID: <20261124150641.2650-1-sreekuttan2156239@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <87qzga9ytd.wl-tiwai@suse.de>
-References: <87qzga9ytd.wl-tiwai@suse.de>
+        d=1e100.net; s=20260707; t=1795532860; x=1796137660;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aICwJf3rQzn9t0UhzA5pRAC33uHfknWgbhObwj4iPxQ=;
+        b=h9t4JNXJA7fLtIToY/heuna9nX2nW1PDJsHesglDaCgYFryrdLFPwk37cIwzSaI6SC
+         nox7LDZfo3R0bO/CQgbY4nYztkpD0qH4hXw0MholqWOMU4V0wGFDmK5qytvPwxVmwiUR
+         WDZQ+/4kLBgCqkVmCF30Ugom5xn4vrNZOi0/g0Vrn0JFHbQ1YgwA8eRHURtCxrgW7T34
+         pFFENTWpztL5KH4o2D4cTdOKFIGyLE1BJfdAItmTA7/9HPLMFouXIdOs6ztV8ac6GudA
+         CySOTM7KRXZruOq9doajMWEENkeS6eh5dAk9Rc1Py11IU+WNUYg6N/EGINq6+t7+txfj
+         2XvA==
+X-Forwarded-Encrypted: i=1; AL+hErHeglJT2RdLuv3CQ2knjLBUkl9hrhNF8hzA7tUPG2LvBbVDYqvdbS5W4Un1ORcSLwS+1pq3SQOjkLhS9Js=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8PJaeeeSQ0W7ZFLIepy6R6UqXCdWwYPphlRPtoBYBQpVJeHHiY
+	/qHshMWjwCmvB2oYqx3qmKVLThi8rpavjtfDjtRSva5URRw6rjh9cS8ubl/64RLFkpw=
+X-Gm-Gg: AZFdTZeUe1owOwtDT1WJbORsw6Hn76LV0xiE5ZgWhLnBZj5wJTLixzP/F4O8zbiMjsU
+	3f4HD9AaG1dEQnEC50wtRqAwNZHraCrjzwM6IkIKej3TAmnLqtB0hD3k4qvhfzpsm/HC/z2bXyw
+	Y1VEvgXEraPWYf3/fne3stvSNgpFC8XpAOPst7Z2FjTHM3pRPRJNM7GRahz5UAu1tadefiUCQV/
+	tobMQ30SBtG6JU1Yq25Cva7vdcZ/gmoq+qUtD5AOKK83wjOK9fm7zLOPjbvBBqxSSTbAcDZ490Y
+	ZwZm7zVueOJllUPTKoGHXalSUh0TjWBnYhGmkH4XekRrJPfXcyzrQx/c5yUtWQYSWoscAEEHnWz
+	ET5N8wLBLzb02/OivVdFL7c/j8aOczG9WnK7+XCqd+8b/zEK0xV2y3WEqDVnjmk49MPyBJ7QAXH
+	j1WE/1yesx2wR1g0yaD8kMJjBT37pel8kgHu5c8c0b2k0NG0ankXcxv0ipZlXvkG96KIVZ5QuoI
+	d0L6CqZ7zV1uI9lzHYMQj/poXdDEPSf7TXSjj/u+HY8hqsldZtW3rJ8611t43We0YtH9W2tgoiY
+	/D+lE70MvdmeWCGqbuK4Ci/BC7Ymu0MoCRnuxLy5UDU4dZLNOhrPMFhCnBXgdFhvMDOEiTSdYYA
+	iIeS3vRI=
+X-Received: by 2002:a05:651c:a110:20b0:3ac:dde9:a04b with SMTP id 38308e7fff4ca-3ae7f7cd8a5mr35764001fa.0.1795532859714;
+        Tue, 24 Nov 2026 07:07:39 -0800 (PST)
+Received: from [192.168.1.101] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae805215ccsm39335071fa.21.2026.11.24.07.07.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 07:07:39 -0800 (PST)
+Message-ID: <5005ec8e-bc15-4962-bfed-74633013115e@linaro.org>
+Date: Tue, 24 Nov 2026 17:07:35 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,11 +91,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] media: qcom: camss: Fix CSID to VFE routing for non
+ ISPIF platforms
+To: bryan.odonoghue@linaro.org, Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Bryan O'Donoghue <bod@kernel.org>
+References: <20261122-camss-routing-fixes-v1-0-0deeeaca2622@kernel.org>
+ <20261122-camss-routing-fixes-v1-2-0deeeaca2622@kernel.org>
+From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+In-Reply-To: <20261122-camss-routing-fixes-v1-2-0deeeaca2622@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Hi,
+On 11/22/26 04:10, bryan.odonoghue@linaro.org wrote:
+> From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> 
+> This patch fixes a basic routing error that has been present in CAMSS since
+> the addition of non ISPIF platforms.
+> 
+> The ISPIF platforms can route any CSID to any VFE however this is not the
+> case on the non ISPIF platforms.
+> 
+> The current requirement is a 1:1 mapping CSID0->VFE0 CSID1->VFE1 etc.
+> Demote the spurious poly-mapping down to its 1:1 real form.
+> 
+> Fixes: 9229b53f9758 ("Revert "media: qcom: camss: Restructure camss_link_entities"")
+> Signed-off-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 
-Thanks for applying the patch!
+Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
 
-Best regards,
-Sreeraj
+-- 
+Best wishes,
+Vladimir
