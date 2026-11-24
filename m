@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795479816;
-	b=w92eT6YQ7hwQsoGEFraJ0omjZZmnYSNnMU1ZWtaPTNescsQ8LLNhGoiMA0cnDilMu3rW
-	 05SFHdkqikeC4ld6KoX7o9Fpamxc5fG6SeULOvxrYKdlu1944xByHvCePujECEI2CN6Oj
-	 eCG5a5QYxi//lqNpMzcDZSzDupXl+SN1AXJYtQy6T7Gtr50UTD37jR6NtbqG5ANcbabiK
-	 S7hKRB9T+ipOYJgB3exILqBBHMKJ0YOatUQc9U6aJCagCkujqQ7/G5U5cS/G+LZ6qyao6
-	 Oin8M5JcifKHs/hF+yrYLuhQGTHgXT7hXkgD64zKPXIC0l41Yhsn35qEXLIHAQp1imw==
+	t=1795479823;
+	b=A0M4QUyuA0yqZb1C0foD6gUhgv3JbQoSE6LWtIn3IPr6/vfCZrY4IHQ9YF+UmFMqjFZ0
+	 8Qd0bvy53WdNQxMj3el4TmhFHfTz02eYp94oJ5OQq/ldHFFZSpZfpdOXQMyQThCKgDfFI
+	 Uu0Z8T4ykdClizRMZoZ3aoqBdhoApQwa1yPsMXsNrOxPcFB5i/9HY+IJRLStToE0U8T+j
+	 YlOUOKo0Wdwp02DQ3j3/rwaERuz5NcSUueA3hVXBRkj5TZUtm09h3HcnZ10K/5skT3RHh
+	 FuE+Ig6vTkF4nUZpVgbIgH4b84GB2+EQwnhrVzoW/OCfM4MtZS61ToTo24asQPXjxfA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795479816;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795479823;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=g81gOaTWdgV7XGkTndQbTnqFQqIwR4QxEPYE59gd45w=;
-	b=QNikgZ60x6Fvc4tqM9xRezJBRjJsk1naKyjOD0WXdfTCZbroj0NUT70VwxmG3vt4B9Ok
-	 7u4IUWYdJpbbhc1Yi9rh5tGS8mwm2xhV27E0vh1gLdLvlELiXbitzmVEpi38ijOfk3ovP
-	 PNieeCfJ8HIT+TU5TcVNnv9SmrPqCMlGshvDXkTrpAcldbpqV9n9f8t0w7FYq69Gce8//
-	 XQtZQo18VTNUy5MOqcd1b1ZIzFnEXtYwbDsUY/XuOoTOk6wRVs7X7xnG9zwdeHkSJ8EAc
-	 cv9j4SxXjscc3pdhpApvKwdNOVcbSBr2gt+v7Wng9u7/N4925532l24YdScsK9QifPg==
+	bh=qVEQ6WrowN6yXKJ64vRKJJ9FOws1/7+odNqRKAVNeWE=;
+	b=U6sPYB8FMYFoZth8I9/DSqnxnRKw/Rf689XvNd05dmJIClL+shxxL3kCcxBt4HwtZhjA
+	 rjpC2WFwKtVJYxyLEm09xi1CNTrKIwktgMKFEe+yyEFjW2si0CZuwoLkCAR42ikIStv5d
+	 yQwKNyl/xdXP8aihkpYtOqVppMCGoCbCOMIIuuOTOBqx9ibTYbPaDp9qIxVPvtyDwCuni
+	 v15WkKYM1LfebR05dOHaVQGFCgUvGRjZXy/UfSA4BMTeky2cbfrc5iz1Z6rGU0xPnzM6a
+	 aYVeVjFrapa4vtr2LClEb9IWvhfttfTVmUIk7HAC3dB7KEp6KqFKod60olEUhInSoeA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nSmO8XIp;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dQBqsGyk;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6945760A382C;
-	Tue, 24 Nov 2026 00:23:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D55AC606A680;
+	Tue, 24 Nov 2026 00:23:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nSmO8XIp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6518B1F000EE;
-	Tue, 24 Nov 2026 00:23:35 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dQBqsGyk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D21B11F000CA;
+	Tue, 24 Nov 2026 00:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795479816;
-	bh=g81gOaTWdgV7XGkTndQbTnqFQqIwR4QxEPYE59gd45w=;
+	s=k20260515; t=1795479823;
+	bh=qVEQ6WrowN6yXKJ64vRKJJ9FOws1/7+odNqRKAVNeWE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=nSmO8XIpfUQD6/iTSh+2mPmoruUZ3cTXDcVlzhbfCRBqDpzczA4hVlw+JYgxZgROu
-	 iWPZdyJIzKROOAFiuAR5tpUgy0m85ju1AMkrC9Y6q0cR5i/kv7hEOgMc/hbGfCU0S7
-	 zWYfBwosepNaupcXhUTQGX0ZEnNcKj0JtIU4Q7D9puKI3wbUL00ITt16homvRYZTA7
-	 4ckpNuyjGYwL4x5qh2aNDDM3cp7SWkynGyoKlMXyPb8beQP70FrzwcpNRcJndTnheh
-	 3M97etV3Hbd1Ecic4Ye88Po/V/ICxqF7CawNqWbRwLVmuQJ+NGdAKqtKHxSyWuBPV9
-	 T0TDrlOhwVC4w==
+	b=dQBqsGykT+BWbvMYw05yAcavP2Cyw3pebm75cFK05CmwII024RvBCckOAKNiqednt
+	 EsIefixFviN6MbUq8MAdoOFECLI8XS4ddjoe97v8XXy66hyTYAkqYud47FZEqh7mSO
+	 sjL9wT0HMV9LB6XY4xJu/ixCFE/BC8ojgj3GrZSgJ+7jphPKK9NRulOKOarRTgGcE0
+	 TjnFQO9tF8KGweTCiAeLrsZbU4VmfB3GmLfN0AR5lUm14q8LWdJK0lyL102JQJ9ghf
+	 mzCSdcliNVQnfzyVDiM7r6HChBYIyOW1+6Ra7gdaZqKzj8umjW3sP1Oxf6DWBT7OAN
+	 VfXmm7zS+OLOw==
 From: Yosry Ahmed <yosry@kernel.org>
 To: Sean Christopherson <seanjc@google.com>,
 	Peter Zijlstra <peterz@infradead.org>
@@ -61,9 +61,9 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	kvm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Yosry Ahmed <yosry@kernel.org>
-Subject: [RFC PATCH 19/26] KVM: x86/pmu: Sync the guest's LVTPC to hardware if the guest context is loaded
-Date: Tue, 24 Nov 2026 00:22:56 +0000
-Message-ID: <20261124002303.1785363-20-yosry@kernel.org>
+Subject: [RFC PATCH 24/26] KVM: VMX: WARN if the Intel PT PMI handler runs for a mediated PMU
+Date: Tue, 24 Nov 2026 00:23:01 +0000
+Message-ID: <20261124002303.1785363-25-yosry@kernel.org>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
 In-Reply-To: <20261124002303.1785363-1-yosry@kernel.org>
 References: <20261124002303.1785363-1-yosry@kernel.org>
@@ -78,109 +78,52 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-In preparation for leaving the guest's mediated PMU context loaded
-during slowpath VM-Exit handling, propagate writes to the guest's
-virtual LVTPC to hardware if the guest context is loaded.
+vmx_handle_intel_pt_intr() handles ToPA PMIs for guests using Intel PT
+by setting the ToPA bit in KVM's software copy of the guest's
+GLOBAL_STATUS, and requesting a PMI for the guest.  This doesn't work
+with a mediated PMU, as the guest's GLOBAL_STATUS lives in hardware
+while the guest context is loaded, and the software copy is overwritten
+when the guest context is put.  The GLOBAL_STATUS accessors can't be
+used instead, as the handler runs in NMI context.
 
-The guest's LVTPC is emulated by KVM: guest writes are intercepted and
-only update the virtual LVTPC, and its mask bit is only written to the
-hardware LVTPC when the guest context is loaded.  Currently, the guest
-context is put on every VM-Exit that isn't handled in the fastpath and
-loaded again before the next VM-Enter, and fastpath handlers never write
-the virtual LVTPC, so changes reach hardware before the guest runs
-again.  Once the guest context stays loaded across slowpath VM-Exits,
-changes wouldn't reach hardware until the guest context is put and
-loaded again.
+The handler can't run for a vCPU with a mediated PMU though: while the
+guest context is loaded, the LVTPC routes PMIs to the mediated PMI
+vector, and perf ignores NMIs (see perf_event_nmi_handler()).  NMIs from
+the guest are handled right after the VM-Exit, before the guest context
+can be put.  WARN if it runs anyway.
 
-For example, KVM masks the virtual LVTPC when delivering a PMI.  If the
-guest context is loaded while the virtual LVTPC is masked and then stays
-loaded, the guest unmasking LVTPC at the end of its PMI handler would
-only update the virtual LVTPC, leaving the hardware LVTPC masked, and
-the guest would stop getting PMIs.
-
-Hook kvm_lapic_set_reg(), which handles all writes to the virtual
-LVTPC, except for kvm_apic_set_state() restoring the APIC state from
-userspace, which can't happen with the guest context loaded.
-
-RFC note: Intel CPUs also set the mask bit in the hardware LVTPC when
-delivering a PMI.  KVM emulates this by masking the virtual LVTPC, which
-is now propagated to hardware, but it doesn't do so if the guest's CPUID
-isn't Intel-compatible, or if delivering the PMI fails (e.g. the guest's
-APIC is hardware-disabled, or the virtual LVTPC has an invalid delivery
-mode).  In those cases, the hardware LVTPC stays masked while the guest
-context stays loaded, instead of being unmasked at the next VM-Enter.
-Cross-vendor configurations aren't supported with a mediated PMU, and
-the other cases require a misconfigured guest, so this is ignored for
-now.  If it matters, kvm_pmu_deliver_pmi() could resync the hardware
-LVTPC when the virtual LVTPC remains unmasked.
+Don't bail after the WARN, as handling the PMI is still the best effort:
+the guest still gets a PMI, and setting the ToPA bit in the software
+copy is either correct (if the guest context is not loaded) or
+harmlessly lost.  Bailing would drop the guest's PMI, and let perf
+handle the interrupt as a host Intel PT interrupt.
 
 Signed-off-by: Yosry Ahmed <yosry@kernel.org>
 ---
- arch/x86/kvm/lapic.c |  4 ++++
- arch/x86/kvm/pmu.c   | 15 +++++++++++++++
- arch/x86/kvm/pmu.h   |  1 +
- 3 files changed, 20 insertions(+)
+ arch/x86/kvm/vmx/vmx.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/arch/x86/kvm/lapic.c b/arch/x86/kvm/lapic.c
-index d341801b61cba..b554c0e949886 100644
---- a/arch/x86/kvm/lapic.c
-+++ b/arch/x86/kvm/lapic.c
-@@ -46,6 +46,7 @@
- #include "cpuid.h"
- #include "hyperv.h"
- #include "smm.h"
-+#include "pmu.h"
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index 68fa251dda600..14d33b7ffcd93 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -8484,6 +8484,16 @@ static unsigned int vmx_handle_intel_pt_intr(void)
+ 	if (!vcpu || !kvm_handling_nmi_from_guest(vcpu))
+ 		return 0;
  
- #ifndef CONFIG_X86_64
- #define mod_64(x, y) ((x) - (y) * div64_u64(x, y))
-@@ -94,6 +95,9 @@ static int kvm_lapic_msr_write(struct kvm_lapic *apic, u32 reg, u64 data);
- static inline void kvm_lapic_set_reg(struct kvm_lapic *apic, int reg_off, u32 val)
- {
- 	apic_set_reg(apic->regs, reg_off, val);
++	/*
++	 * With a mediated PMU, LVTPC points at the mediated PMI vector while the
++	 * guest runs, so a guest ToPA PMI should never arrive as an NMI. Also,
++	 * hardware GLOBAL_STATUS is authoritative while the guest context is
++	 * loaded, and pmu->global_status is overwritten when it is put, so the
++	 * bit set below would be lost. The GLOBAL_STATUS accessors can't be used
++	 * here either, as this runs in NMI context.
++	 */
++	WARN_ON_ONCE(kvm_vcpu_has_mediated_pmu(vcpu));
 +
-+	if (reg_off == APIC_LVTPC)
-+		kvm_pmu_sync_lvtpc(apic->vcpu, val);
- }
- 
- static __always_inline u64 kvm_lapic_get_reg64(struct kvm_lapic *apic, int reg)
-diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
-index 11d12093d3a6a..cee3c4719dd14 100644
---- a/arch/x86/kvm/pmu.c
-+++ b/arch/x86/kvm/pmu.c
-@@ -1403,6 +1403,21 @@ static void kvm_pmu_load_guest_pmcs(struct kvm_vcpu *vcpu)
- 	}
- }
- 
-+/*
-+ * Mirror a change of the guest's virtual LVTPC into hardware if the guest's
-+ * mediated PMU context is loaded. Only the mask bit of the guest's LVTPC is
-+ * reflected in hardware (perf owns the vector and delivery mode).
-+ */
-+void kvm_pmu_sync_lvtpc(struct kvm_vcpu *vcpu, u32 lvtpc)
-+{
-+	if (!kvm_vcpu_has_mediated_pmu(vcpu))
-+		return;
-+
-+	guard(irqsave)();
-+	if (is_guest_mediated_pmu_loaded())
-+		perf_load_guest_lvtpc(lvtpc);
-+}
-+
- void kvm_mediated_pmu_load(struct kvm_vcpu *vcpu)
- {
- 	if (!kvm_vcpu_has_mediated_pmu(vcpu) ||
-diff --git a/arch/x86/kvm/pmu.h b/arch/x86/kvm/pmu.h
-index 6a340a66e9246..317848ac3df7b 100644
---- a/arch/x86/kvm/pmu.h
-+++ b/arch/x86/kvm/pmu.h
-@@ -330,6 +330,7 @@ void kvm_pmu_destroy(struct kvm_vcpu *vcpu);
- int kvm_vm_ioctl_set_pmu_event_filter(struct kvm *kvm, void __user *argp);
- void kvm_pmu_instruction_retired(struct kvm_vcpu *vcpu);
- void kvm_pmu_branch_retired(struct kvm_vcpu *vcpu);
-+void kvm_pmu_sync_lvtpc(struct kvm_vcpu *vcpu, u32 lvtpc);
- void kvm_mediated_pmu_load(struct kvm_vcpu *vcpu);
- void kvm_mediated_pmu_put(struct kvm_vcpu *vcpu);
- 
+ 	kvm_make_request(KVM_REQ_PMI, vcpu);
+ 	__set_bit(MSR_CORE_PERF_GLOBAL_OVF_CTRL_TRACE_TOPA_PMI_BIT,
+ 		  (unsigned long *)&vcpu->arch.pmu.global_status);
 -- 
 2.56.1.809.ga0b61035b5-goog
 
