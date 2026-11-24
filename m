@@ -1,83 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795529952;
-	b=N1z73Dk0hmfi00gV3Z7Coz5V17dx8zlL3GCuTXj0jiAJds0yKbBbNXkB6nCtG0EZiXN2
-	 dSDOTj9gvi+ZSd5rFrhLeBk66fQ2hmrcCpHvdDnPUX/xnTM300XQliaXRraGrwZv4jthR
-	 o+f6YLWfkoG1eOSSHciZd20Yz0mHg550we8Msq7wEpHiJMGxzqCVm4gE/MpBHlgSPyvD3
-	 Oh6YFO5pJm7BHuErQkyt6bgxc/0PCcTcu+CnjJSboRmEzZwUyxZE8gzthEETMztj0n3lb
-	 cpCDC/Y3rnOVfnRCOACYXWdReR/8tBSHyDuVO9MSjrQED5XG9MrH5u6v43uYNYfeVXQ==
+	t=1795529954;
+	b=ZorC2Qvdq2UonwNtgtmtLsi4Aqu6YpBMgLmExLTTo9vMx1qVORmEr2OTpwTpj7mYxJNX
+	 A1YZzbK4Ki2tFFC48XHvs9WpCbbo/LnIjrEx0u+po38Oob+8/FiUQOLY7UnZQ3GtrBCqM
+	 EQ49rO61kN2bsP7d56o2Z96ve70lXlfhuXEKvrf87uemU6gOfmEilAtYjomCHC7dzNMS+
+	 2ucxLGkLEw+siuKxUR4Alq9LGG9nsdOY3DBNBy1/ptyp2QMAblz7lhwARjqIFo+f4zCNa
+	 mUSLHHjV3A8jZqRhWA1lcv871ajzojiPKLDxg3CZygdpAuBwwV4Ih8VqB1/aiilQ7/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795529952;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795529954;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=dM6V10H2uN2HsH17aDZgwf86TRQA17jV5PgSS9wL+RY=;
-	b=kQCr/keoc27rFwZ3141j0vsuU8gfKuC3et6rMSfxL6gEK24LPGWCjPQJw4byqqn3pUB1
-	 7NYLeAgMmVMaJQhRj4aeg+5QdPnR+HeED6OXfaD3cKTTqBclZRI/SBuWW8tUXBCq7brJY
-	 oqFBJAXM7ong8ASUHw0NbpOMWGXIwaociD6o3WT43yGXhlbmvePgmEpW/ptVSTbxJIESQ
-	 coq1ylqMStfbfnkL1VFSlHQWGIEmq5bXdiMGiGku5EGodz4IJftwgmuLDKl0ObVOQsDzA
-	 wiXJetUI/A10hHZ6uA7LbKcFXOJzS+F23WVv6Blmsmtso5qMG8Y4W7ARZjMUkb0/ZNg==
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=PvlCYG8VQeH4h0Z68Fvh4bQbmDrnrFfU86U6tQW8SVY=;
+	b=t01N0h8sfokO8ynkxAaOyGEUsbhhfxCOCHbKAb8bm6VldTV/nfLf9l08sB0DUNJzsTzO
+	 k9Dkk6jLJpJ20r9HRrmaS1ABz1+Fcp1pSBmHVuHHB6McZXf4izxnk5+Sv4vAp9B8gJSQn
+	 6C69MwOW1e4/OoMnvbUhnIxMb2f4QYdNqwbF0QVUj05iK5H33+6ZFuBtk34+OK1OaRe5R
+	 2cr+I+aZnZ9JvV+KcdrGTpeKyKXcDTkzo5WmGrc0nHNOEB7q8xc+n7pG5NAFMMQ8fKKv4
+	 NcYsP06MaQ3rssRXyJmLwhxntlkiYRrvGLxizd/teWrQSv4L8radVSEQ19s+dqMUMRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tn8JLrcH;
-	arc=none smtp.remote-ip=209.85.221.50
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NEf27W2i;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52DAB606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:19:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52DAB606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0450D606A332
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:19:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0450D606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tn8JLrcH
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-492690dd5daso3496258f8f.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:19:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NEf27W2i
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so59422775e9.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:19:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795529951; x=1796134751; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dM6V10H2uN2HsH17aDZgwf86TRQA17jV5PgSS9wL+RY=;
-        b=Tn8JLrcHHuk7nvhzcMX6oO7mgH62NohE0pFslEdxQBjKK/1UMrk50TbJnlHAFzZk0g
-         hTtTpD9vO4Mw480LGmKLd0tWFPWv80NKvO+t7QIu+VzDX9j7mt4ke4e40sMdukxZFCLG
-         p6MYVV+WLSh0JJ/wgxwpL6yvoE7lUpg5zJv80vf0TIsklUIYKvtSt0qmhpLpQjJ+W0cG
-         MVGbszskcHr6zs5/OV81AEJLeTy3e5y2kNEYLQSRBnsnYzbpg1DTvLCmJEcAQ9+T4UrR
-         CtNRvAq8yGrqFqde87KbJY1GgsuNXOU8j7j6BO5gaWSYb8+X8/+rvxHDY+5W1UQnpDJ0
-         bmug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795529951; x=1796134751;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795529952; x=1796134752; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=dM6V10H2uN2HsH17aDZgwf86TRQA17jV5PgSS9wL+RY=;
-        b=AmUrT0FgsPmapIBEoYWX22yz1DpKMmTmIQe3ai4ti/zgbiQyNWKRhlnC3JNqnBzVJg
-         TBOs1OuKy57zs6o/S01ELY8ZL7KiX6Gbh2FxZ+IDE+dowhYI3ZP07sPsEt+NPm0U7aAQ
-         HVbCqPZJfMaZAEKsh6Qhwd2+tsvpDNKa31Rk9L/yGkCfkonmGGoWYdSidgLKvL2aDXUO
-         B1tnWQx0BQL/iMqGe6xcZwCTLMNaKyBo4/O+psELx7LZFmdalkAvm9/6/triM1N1hhx9
-         jh+IFlwwKX6jjcVqK35J93pWl6LD3qSFVUnEDKB8J4gPYzxR7MfZ0TylHevetbKf27N6
-         sj0g==
-X-Forwarded-Encrypted: i=1; AL+hErEWQI3qrbVaErh3URDTqt6rll1n1+pQCDCktLZvpmIN999ezVk/rWKcO23tp2PKvTZhnwcvfYkyZZTlLgQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+rm5HBQU6WgiOTqyrCSWTNYp1RYSibi6NeaDBVykUVYHkOzw3+
-	FpVnPm2IW1IuQA1kuaf744clrx0pXDdtfh7CBuSoVIJHVWKdh9RXGDHy
-X-Gm-Gg: AZFdTZeWIEpa5XFwxCCvGg4UJqYuAgQiZqxbvmo3LPRC68q27pZMfOmBZkBWsVahZC/
-	KXOaCRPIGdKlyRhfTFULfJdYI0bBARKIdsycmcR3BK3r1s4Lpk0HAAugkERaPaC9N+lGyabIGjK
-	24/6Kmf5fmk9fz/6wvJNDot+akJyL/AfC1+MX8JejdaZN0dwX7aKGCArPzfLlagH+VFHtkMO9G0
-	zhzJ1ihEmzCfPzB1SNnSAzjpRl2KshXSjyDs5MaaEqsXKk012jCVCTzflQ8/V9URVPs3Q0DF7PZ
-	ebwHxXBkhckNoulrto90PrVNtIjaFGpPd4Bw6DMkQJNXXxEtOva/SIRwNIhnFUuEkTXlk2H9VES
-	thkMjHRr+iM+kR8FIjNqh8QE18DCpF3yOdj92UwFeO8hFD55Sr2J4lBhCiTR+bdcHE35/mI1Q3t
-	UsIdwlo6lPTddLJVvapeorw+jRCznB35eTPq+ulmkDHgFbKFhDwMuvDyAoKrfXdvLiznGMLK981
-	4xdCYU3JCmJ72/+JlIZcvicrcj+jL9cGjv1lteR0Hcgm8clzQig0gjwSJdi5xtxTb+xebYZQLkh
-	4klEdw9lUbQ1cP2N8Wsb0l8kV4p9H6ssDIpXdpsOtYl79xDL+bOuq7U0
-X-Received: by 2002:a05:6000:184b:b0:48e:5cd4:aa60 with SMTP id ffacd0b85a97d-4abb42e9099mr28737909f8f.42.1795529950351;
-        Tue, 24 Nov 2026 06:19:10 -0800 (PST)
+        bh=PvlCYG8VQeH4h0Z68Fvh4bQbmDrnrFfU86U6tQW8SVY=;
+        b=NEf27W2iLY+gPYIYnns5NwL+S5hEMzUpFz9AWjVVjTTxH7Fo4ED/jAL4D+FN4z+zOy
+         PcUGOrXNh8QOSyOaQeZHmCwnhxi1zvckojZFfFSkQZI96RCqreh0nN++eslsMDt4OAFv
+         lp8WpoHQucHsIUzL8IHfbm1le3jFQ2vrRUhhaK8XaX1Pjn7P49iQHriH2e+lFJDK3Hyi
+         uDPfVRLrBsD84Qq0d3MemRaMABr+m2OqbSH63dptCV4QMfb57w+EBOmmXd1qtxtJmVbt
+         RtJEQft4zYWQRUhOMoKou0P3WZUbmdTx6YJV1Yle6pTSr8MQ/aX8/ovXnnaU9CTeWDJS
+         aI+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795529952; x=1796134752;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PvlCYG8VQeH4h0Z68Fvh4bQbmDrnrFfU86U6tQW8SVY=;
+        b=h/YQYSNVVPZDaCkcbaPwQmsAYh19acxQyMHqQoxuAFGcSzMlqn+hU7eR112z39EcLJ
+         k3Vrr4NA2jxIezlTkg2+eCJL29ivfZepCoBJal06wKINCeWY1rh9K6rzqkVvgzlwaCgY
+         0jHhjmHmfJ3sgfMYWcprYVxwreV6KNKqDqXfLipPXdYtdlJit0fM1y8nTNeTTpij0gPk
+         0qbt/xb8/ixo/x4ZOAZIdnZ1WBOfijRKbUa552GuKmvVwWiU6OICpg80WxSclXf8vXBO
+         JZXBadTC0L/d7dfiIxPMFJkQvobq4nylG5R8cDD7M7gn8urK0CmvDknO39jyHM3Umk3D
+         n2jg==
+X-Forwarded-Encrypted: i=1; AL+hErG2tW24RotEdWwwWQpLkvPCqYFu2sFg/7z9qheAWh5UhLNZHZzNegjwmBJFORGq7Ms08R7y/Q35DEMNDCs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9hlSXpE/AfbZqi2cg+BbKwygSZIT1JssPOCql9LLkH7roYYe5b
+	ToXpMeRfQ1TzdeVcozhOebBjG+xiCndp1i8NC2VqgixKJC7/nVDf7usU
+X-Gm-Gg: AZFdTZei6p2wOEQzEsUM7Zb50KwUzJ39wtOKoRCzW2kWv0fFFZ6miej/iBWAqwtn0Jb
+	q6byKxIgofiUgcun++L0j9wPn++2EWHCFMKkap0JmZtiz8Zcwq5jddBiPc6/Y1/9BT3xBlBqak1
+	re4WPxnHUuXUvJrtxFsWyWy7FHrqPtusjh1641Vkxfge2+ydHqiymUH0hX0B8HqHnIMrnhsiQ+j
+	NwQAvheWu2rrcDIXOCYl9ENL/0lixFvRwtfyP0yoeTxSjmIEcq/S1rIhnfj+dkZS/dfboF48HyG
+	E9HcWl4QtNROxEC44utxIGEhA615bwyc+wGq2kKZutzLUDiuMXe/fmvAkxedRi0B83HD/XYo2dD
+	zYzngZXAHJHlxN3M3YwCTOgwZ9YbOlwSrloD9bbUPwtwJy4HI/Hr7UbhL4JQgqI5QqN187k/5OU
+	UCZ+vez78IUR53VRm4FFMrUiyXMHJ2phlyNRfQnjaKwUOf01GUHrC4bt69DS3G1sys5E/JddaMj
+	aGETJhMi8qIS3vik5CxCeRBDBBRSWj3A+wHlNtPV9XvSiWTp7zt4CcQ4H5kFfPOPwl6i2qif/mV
+	XktXVSOarn9nO/jlnU6F61TvIzdP+LLLoP0gFDGvyNukhOsdtJ/1HA03DjmKfS74FraazmjL+gF
+	t/Q==
+X-Received: by 2002:a05:600c:1d09:b0:4bb:66fd:ad68 with SMTP id 5b1f17b1804b1-4bb888160cdmr320994905e9.14.1795529951923;
+        Tue, 24 Nov 2026 06:19:11 -0800 (PST)
 Received: from ingenieria31.oficinasStQ.local ([79.117.0.220])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm28994719f8f.3.2026.11.24.06.19.09
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm28994719f8f.3.2026.11.24.06.19.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 06:19:09 -0800 (PST)
+        Tue, 24 Nov 2026 06:19:11 -0800 (PST)
 From: =?UTF-8?q?M=C3=A0xim=20Pedraza=20Padilla?= <maximpedraza@gmail.com>
 To: Maxime Ripard <mripard@kernel.org>
 Cc: Neil Armstrong <neil.armstrong@linaro.org>,
@@ -91,10 +93,12 @@ Cc: Neil Armstrong <neil.armstrong@linaro.org>,
 	Simona Vetter <simona@ffwll.ch>,
 	dri-devel@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH v2 0/2] drm/tilcdc: Implement state readout
-Date: Tue, 24 Nov 2026 15:19:06 +0100
-Message-Id: <20261124141908.443764-1-maximpedraza@gmail.com>
+Subject: [RFC PATCH v2 1/2] drm/tilcdc: Implement state readout support
+Date: Tue, 24 Nov 2026 15:19:07 +0100
+Message-Id: <20261124141908.443764-2-maximpedraza@gmail.com>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20261124141908.443764-1-maximpedraza@gmail.com>
+References: <20261124141908.443764-1-maximpedraza@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,126 +111,556 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Hi,
+Reconstruct the display mode from the LCDC raster registers and read out
+the primary plane, to build the initial KMS state from what the bootloader
+left scanning out instead of resetting the controller. A splash drawn
+before Linux takes over stays on screen, and the first commit replaces it,
+with no modeset if it keeps the mode.
 
-This implements hardware state readout for tilcdc, so that the kernel
-takes over the display as the bootloader left it and a boot logo stays on
-screen, with no blanking or flicker, until userspace replaces it.
+Some of the state needs interpreting:
+- The pixel clock is the functional clock rate divided by the LCDC
+  divider, rounded to the nearest kHz. It is not rounded to a standard
+  refresh rate: panels driven by tilcdc often don't use one.
+  tilcdc_crtc_set_clk() only gets as close to the mode clock as the clock
+  tree allows, so the CRTC state comparison accepts a 1% difference on
+  the pixel clock.
+- The registers only encode the pixel size, not the channel order. The
+  order that displays correctly depends on the panel wiring, described by
+  blue-and-red-wiring, which already selects the formats the driver
+  exposes: the adopted framebuffer gets the one with that pixel size.
+- tilcdc_crtc_mode_fixup() flips the HSYNC polarity of the adjusted mode,
+  and the readout undoes it. A mode with DRM_MODE_FLAG_PHSYNC and one with
+  no HSYNC flag program the same registers, so the latter is reported.
 
-It applies on top of Maxime's state readout series v9 and his patch
-switching tilcdc to drm_mode_config_create_initial_state(), from the
-no-more-config-reset series:
+The adopted framebuffer has no GEM object. It keeps the DMA address the
+bootloader programmed, so that it can be scanned out again after the CRTC
+is disabled and re-enabled.
 
-https://lore.kernel.org/r/20261120-drm-state-readout-v9-0-a67c2b45b8ec@kernel.org
-https://lore.kernel.org/r/20261116-drm-no-more-config-reset-v2-43-0bb471f4d1e0@kernel.org
+If the raster isn't running there's nothing to adopt, and the CRTC and the
+plane are read out as disabled.
 
-Patch 1 is the tilcdc readout itself. Patch 2 keeps panel-simple from
-turning the panel off at probe by driving its enable GPIO low.
-
-For the backlight, pwm-tiecap needs a .get_state(), sent separately:
-
-https://lore.kernel.org/r/20261116142251.1296742-1-maximpedraza@gmail.com
-
-Tested on an AM335x board (Fides T075, out-of-tree DT) with U-Boot leaving
-an 800x480 RGB565 logo, with no state comparison warning and no WARN or
-oops:
-- The logo stays on screen, untouched, from U-Boot to userspace.
-- First commits from userspace: a framebuffer flip without modeset, a full
-  modeset to the panel mode, and ACTIVE=0 then 1 on the adopted
-  framebuffer.
-- Modesets at 20 pixel clocks between 16.9 and 45 MHz, to check the clock
-  read back against the one programmed.
-- With drm.atomic_readout=0 the raster stops and the first commit does a
-  full modeset.
-- Without video set up by U-Boot nothing is adopted.
-- The SGX530 driver and a Qt EGLFS application take over from the adopted
-  logo without a modeset.
-
-The DT needs a reserved-memory node for the U-Boot framebuffer, and
-ti,no-reset-on-init on the GPIO banks and the PWMSS so that ti-sysc doesn't
-reset the panel enable and backlight lines. The panel timings must describe
-the VSYNC polarity. HSYNC is the odd one: tilcdc_crtc_mode_fixup() flips it,
-so a panel needing an active low HSYNC has to leave hsync-active out, as
-discussed in v1.
-
-The backlight needs the same care as in v1: with the PWM configured by the
-bootloader and the pin muxed to it, the handover is seamless. If the
-bootloader drives the backlight some other way, for instance with the pin
-as a plain GPIO, the light goes off when the kernel muxes the pin to the
-PWM, until the panel is enabled.
-
-Changes in v2:
-- Rebase on v9, and drop the bridge install hook and the panel bridge
-  readout, now covered by the series.
-- Rely on Maxime's patch for drm_mode_config_create_initial_state().
-- Round the pixel clock read back to the nearest kHz, and accept a 1%
-  pixel clock difference in the CRTC state comparison.
-- Pick the adopted framebuffer format from blue-and-red-wiring.
-- Keep the DMA address of the adopted framebuffer, so that the CRTC can be
-  re-enabled with it.
-- Reword the commit message about the sync polarity.
-- Link to v1: https://lore.kernel.org/r/20261116142707.1299360-1-maximpedraza@gmail.com
-
-Thanks,
-Màxim
-
-Màxim Pedraza Padilla (2):
-  drm/tilcdc: Implement state readout support
-  drm/panel: simple: Keep the enable GPIO as left by the bootloader
-
- drivers/gpu/drm/panel/panel-simple.c    |   4 +-
+Assisted-by: Claude:claude-opus-5-5
+Signed-off-by: Màxim Pedraza Padilla <maximpedraza@gmail.com>
+---
  drivers/gpu/drm/tilcdc/tilcdc_crtc.c    | 207 +++++++++++++++++++++++-
  drivers/gpu/drm/tilcdc/tilcdc_drv.c     |  10 ++
  drivers/gpu/drm/tilcdc/tilcdc_drv.h     |  12 ++
  drivers/gpu/drm/tilcdc/tilcdc_encoder.c |  29 +++-
  drivers/gpu/drm/tilcdc/tilcdc_plane.c   | 127 +++++++++++++++
- 6 files changed, 380 insertions(+), 9 deletions(-)
+ 5 files changed, 378 insertions(+), 7 deletions(-)
 
-
-base-commit: c408466a4dfaee4b12587e926c5b85e68c8b3c40
-prerequisite-patch-id: 6b275034bd67b4c999266b09c3ea43bb35fed61d
-prerequisite-patch-id: 0b49abc230751bbc8235b4f23e5b2f5bc154f807
-prerequisite-patch-id: cb32051331d83506b8e6fd512f93595724905a9f
-prerequisite-patch-id: 72acc5f5b50b767484ff995256e7fb155c05f6eb
-prerequisite-patch-id: f2473524d89ba9ce123a49b043c75d1c83d0e64f
-prerequisite-patch-id: 07b90d1294c4bc812bb4d7aa301aacb8e03bab91
-prerequisite-patch-id: ceafb1e8145790a933dcbc47bb7d297370e77bdc
-prerequisite-patch-id: 1a6e113d6f412d798052a924269a7dc876d91ded
-prerequisite-patch-id: 8eacf9b84574fe303134a78ce9c3fcc4ec1c8dbf
-prerequisite-patch-id: 3179aab2efd1b77833b2d54a549a71b222f41cc2
-prerequisite-patch-id: 70bbeaa10689bf333f87504126edf04acb54095d
-prerequisite-patch-id: 0ab25f681f68659f8a0e4f0da80fdf70952dcf8d
-prerequisite-patch-id: acb4fc48e98c2dfdaedb38cba8584b45e8f04933
-prerequisite-patch-id: 96725d7d0c7e6752e37382ea24b82b8c25156204
-prerequisite-patch-id: 7222acb3da2926f0a19d5c062a9fde33daa19b3e
-prerequisite-patch-id: deac6b37eea1730f55d118baa518bb6d47ec34d0
-prerequisite-patch-id: 7f59656a7dc51a359fe1973f6724a14fbaffb0a4
-prerequisite-patch-id: 3459ea8c4e46c2e87bce3a79af06e19bd24c5f0a
-prerequisite-patch-id: 338f0ad6e4d90c226c9e4531afdc3dd80ea71a60
-prerequisite-patch-id: 2dfe6357a636b3662dbd8db80bc29bd36a0329ad
-prerequisite-patch-id: a6261679a50cb9f18f0a47d8f519939e1a414acb
-prerequisite-patch-id: ed747bcebd2d6f1ec3ff73f89d116c5e196c75ff
-prerequisite-patch-id: 15f0cd9da6c6a6377c8c7ffbaf417d325723df43
-prerequisite-patch-id: 1ec019e5f6045c6429377264d1fc456a0054354d
-prerequisite-patch-id: 563c77055b805b0d640cd8517627a8c491bce385
-prerequisite-patch-id: c15cdbb845bbd252a037d410f806a910c0831917
-prerequisite-patch-id: 00948e9d39586344109e9512a7fdee6753f849dd
-prerequisite-patch-id: 4fafee08b92675ea8a6f7fb5e27ff5a769325208
-prerequisite-patch-id: 6c0369731a723fdef00863dfb1d083ecf4de5d10
-prerequisite-patch-id: c2ac26af16bce3d138ec2946ddaa0e57d53b529a
-prerequisite-patch-id: 52f7fe449e4812a1aef27bd1182e537002e1f9b4
-prerequisite-patch-id: ab15a09bb9e176330cd6f9991e841513315f07dc
-prerequisite-patch-id: 402669fd5f97dfc3c3577a104cd8fdb14462cc90
-prerequisite-patch-id: e0eb2c02c507fffa786135636227a5cda60f9d3d
-prerequisite-patch-id: 631552c07c8ff48b44c65372c44719bf1753253e
-prerequisite-patch-id: cbee6a4e6e2b5d0715ef97fad5bcccddb1d097b5
-prerequisite-patch-id: 0c8a54b1f9bf053b817e949eb82538e7a0630d01
-prerequisite-patch-id: ed873cdcbb8a12ab5ea8b33878dd5112d5e284d5
-prerequisite-patch-id: 76b67bf5eab8683095aa758a46efbcb4f0be297b
-prerequisite-patch-id: b878fee755a682f5af5f89b74f0ef2cd4eeb9ff8
-prerequisite-patch-id: 4de5c8ffb89150dc1475f0ad8eb5ba05102d7022
-prerequisite-patch-id: b41f34105087422cbb9386e311033b486a66859d
-prerequisite-patch-id: 9e54b77c687ec32b156c2af70d62c2ac24859478
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_crtc.c b/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
+index f619b7a6e70d..7040172b1a0d 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
++++ b/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
+@@ -4,6 +4,7 @@
+  * Author: Rob Clark <robdclark@gmail.com>
+  */
+ 
++#include <linux/clk.h>
+ #include <linux/delay.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/of_graph.h>
+@@ -11,6 +12,8 @@
+ 
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
++#include <drm/drm_atomic_state_readout_helper.h>
++#include <drm/drm_atomic_uapi.h>
+ #include <drm/drm_crtc.h>
+ #include <drm/drm_fb_dma_helper.h>
+ #include <drm/drm_fourcc.h>
+@@ -61,13 +64,15 @@ static void set_scanout(struct drm_crtc *crtc, struct drm_framebuffer *fb)
+ {
+ 	struct drm_device *dev = crtc->dev;
+ 	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
+-	struct drm_gem_dma_object *gem;
+-	dma_addr_t start, end;
++	dma_addr_t base, start, end;
+ 	u64 dma_base_and_ceiling;
+ 
+-	gem = drm_fb_dma_get_gem_obj(fb, 0);
++	if (fb->obj[0])
++		base = drm_fb_dma_get_gem_obj(fb, 0)->dma_addr;
++	else
++		base = to_tilcdc_readout_fb(fb)->dma_addr;
+ 
+-	start = gem->dma_addr + fb->offsets[0] +
++	start = base + fb->offsets[0] +
+ 		crtc->y * fb->pitches[0] +
+ 		crtc->x * fb->format->cpp[0];
+ 
+@@ -711,10 +716,204 @@ static void tilcdc_crtc_hw_reset(struct drm_crtc *crtc)
+ 	pm_runtime_put_sync(dev->dev);
+ }
+ 
++/*
++ * Reconstruct the adjusted mode from the LCDC raster registers. This is the
++ * inverse of the register programming done in tilcdc_crtc_set_mode(): the
++ * horizontal front/back porch and sync width are stored as (value - 1), the
++ * pixels-per-line and lines-per-panel as (value - 1) as well, while the
++ * vertical front/back porch are stored verbatim. On the V2 controller a few
++ * high order bits live in RASTER_TIMING_2.
++ *
++ * tilcdc_crtc_mode_fixup() always sets a HSYNC polarity and the skew, so they
++ * can be told from the registers. A positive VSYNC can't be told from a mode
++ * that doesn't specify it: the latter is assumed.
++ */
++static int tilcdc_crtc_readout_mode(struct drm_crtc *crtc,
++				    struct drm_display_mode *mode)
++{
++	struct drm_device *dev = crtc->dev;
++	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
++	u32 t0, t1, t2, ctrl;
++	u32 ppl, hsw, hfp, hbp;
++	u32 lpp, vsw, vfp, vbp;
++	unsigned long clk_rate;
++	unsigned int clkdiv;
++
++	t0 = tilcdc_read(dev, LCDC_RASTER_TIMING_0_REG);
++	t1 = tilcdc_read(dev, LCDC_RASTER_TIMING_1_REG);
++	t2 = tilcdc_read(dev, LCDC_RASTER_TIMING_2_REG);
++	ctrl = tilcdc_read(dev, LCDC_CTRL_REG);
++
++	/* Horizontal fields, low bits in TIMING_0, V2 high bits in TIMING_2. */
++	ppl = (t0 >> 4) & 0x3f;
++	hsw = (t0 >> 10) & 0x3f;
++	hfp = (t0 >> 16) & 0xff;
++	hbp = (t0 >> 24) & 0xff;
++	if (priv->rev == 2) {
++		ppl |= ((t0 >> 3) & 0x1) << 6;
++		hsw |= ((t2 >> 27) & 0xf) << 6;
++		hfp |= (t2 & 0x3) << 8;
++		hbp |= ((t2 >> 4) & 0x3) << 8;
++	}
++	mode->hdisplay = (ppl + 1) << 4;
++	hsw += 1;
++	hfp += 1;
++	hbp += 1;
++
++	/* Vertical fields, LPP high bit in TIMING_2 on V2. */
++	lpp = t1 & 0x3ff;
++	if (priv->rev == 2 && (t2 & LCDC_LPP_B10))
++		lpp |= 0x400;
++	vsw = ((t1 >> 10) & 0x3f) + 1;
++	vfp = (t1 >> 16) & 0xff;
++	vbp = (t1 >> 24) & 0xff;
++	mode->vdisplay = lpp + 1;
++
++	mode->hsync_start = mode->hdisplay + hfp;
++	mode->hsync_end	  = mode->hsync_start + hsw;
++	mode->htotal	  = mode->hsync_end + hbp;
++
++	mode->vsync_start = mode->vdisplay + vfp;
++	mode->vsync_end	  = mode->vsync_start + vsw;
++	mode->vtotal	  = mode->vsync_end + vbp;
++
++	/* Pixel clock is the functional clock divided by the CTRL divisor. */
++	clkdiv = (ctrl & LCDC_CLK_DIVISOR_MASK) >> 8;
++	clk_rate = clk_get_rate(priv->clk);
++	if (!clkdiv || !clk_rate)
++		return -EINVAL;
++	mode->clock = DIV_ROUND_CLOSEST(clk_rate / clkdiv, 1000);
++
++	mode->flags |= t2 & LCDC_INVERT_HSYNC ? DRM_MODE_FLAG_NHSYNC :
++						DRM_MODE_FLAG_PHSYNC;
++	if (t2 & LCDC_INVERT_VSYNC)
++		mode->flags |= DRM_MODE_FLAG_NVSYNC;
++
++	mode->hskew = hsw;
++	mode->flags |= DRM_MODE_FLAG_HSKEW;
++
++	mode->type |= DRM_MODE_TYPE_DRIVER;
++	drm_mode_set_name(mode);
++	drm_mode_set_crtcinfo(mode, 0);
++
++	return 0;
++}
++
++static int tilcdc_crtc_readout_state(struct drm_crtc *crtc,
++				     struct drm_atomic_sro_state *state,
++				     struct drm_crtc_state *crtc_state)
++{
++	struct drm_device *dev = crtc->dev;
++	struct drm_display_mode adjusted = {}, mode;
++	int ret;
++
++	pm_runtime_get_sync(dev->dev);
++
++	/* Nothing to adopt unless the bootloader left the raster running. */
++	if (!(tilcdc_read(dev, LCDC_RASTER_CTRL_REG) & LCDC_RASTER_ENABLE))
++		goto out;
++
++	ret = tilcdc_crtc_readout_mode(crtc, &adjusted);
++	if (ret)
++		goto err;
++
++	/* Undo tilcdc_crtc_mode_fixup(). */
++	drm_mode_copy(&mode, &adjusted);
++	mode.hskew = 0;
++	mode.flags &= ~(DRM_MODE_FLAG_HSKEW | DRM_MODE_FLAG_NHSYNC |
++			DRM_MODE_FLAG_PHSYNC);
++	if (adjusted.flags & DRM_MODE_FLAG_PHSYNC)
++		mode.flags |= DRM_MODE_FLAG_NHSYNC;
++
++	ret = drm_atomic_set_mode_for_crtc(crtc_state, &mode);
++	if (WARN_ON(ret))
++		goto err;
++
++	drm_mode_copy(&crtc_state->adjusted_mode, &adjusted);
++
++	crtc_state->active = true;
++	crtc_state->enable = true;
++
++	/* The active plane is filled in by tilcdc_plane_readout_state(). */
++
++out:
++	pm_runtime_put_sync(dev->dev);
++	return 0;
++
++err:
++	pm_runtime_put_sync(dev->dev);
++	return ret;
++}
++
++static void tilcdc_crtc_install_state(struct drm_crtc *crtc,
++				      struct drm_crtc_state *crtc_state)
++{
++	struct tilcdc_crtc *tilcdc_crtc = to_tilcdc_crtc(crtc);
++	struct drm_device *dev = crtc->dev;
++	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
++
++	if (!crtc_state->active)
++		return;
++
++	/*
++	 * The display is already scanning out the bootloader's image. Do what
++	 * tilcdc_crtc_enable() and tilcdc_crtc_set_mode() would have done,
++	 * without touching the raster: keep the controller powered, enable its
++	 * interrupts and fill in the software state derived from the mode. A
++	 * commit that doesn't change the mode relies on it, since no modeset
++	 * will update it: set_scanout() uses crtc->mode for the DMA ceiling.
++	 */
++	pm_runtime_get_sync(dev->dev);
++
++	mutex_lock(&tilcdc_crtc->enable_lock);
++
++	drm_mode_copy(&crtc->mode, &crtc_state->mode);
++	drm_mode_copy(&crtc->hwmode, &crtc_state->adjusted_mode);
++	crtc->enabled = true;
++	tilcdc_crtc->hvtotal_us = tilcdc_mode_hvtotal(&crtc->hwmode);
++	tilcdc_crtc->lcd_fck_rate = clk_get_rate(priv->clk);
++	tilcdc_crtc->last_vblank = ktime_get();
++
++	tilcdc_crtc_enable_irqs(dev);
++
++	drm_calc_timestamping_constants(crtc, &crtc->hwmode);
++	drm_crtc_vblank_on(crtc);
++
++	tilcdc_crtc->enabled = true;
++	mutex_unlock(&tilcdc_crtc->enable_lock);
++}
++
++/*
++ * tilcdc_crtc_set_clk() gets as close to the mode clock as the clock tree
++ * allows, so the pixel clock read back can differ slightly from the one the
++ * mode asked for. Accept up to 1% before comparing the rest of the mode.
++ */
++static void tilcdc_crtc_compare_clock(const struct drm_display_mode *expected,
++				      struct drm_display_mode *actual)
++{
++	if (abs(actual->clock - expected->clock) * 100 <= expected->clock)
++		actual->clock = expected->clock;
++}
++
++static bool tilcdc_crtc_compare_state(struct drm_crtc *crtc,
++				      struct drm_printer *p,
++				      struct drm_crtc_state *expected,
++				      struct drm_crtc_state *actual)
++{
++	tilcdc_crtc_compare_clock(&expected->mode, &actual->mode);
++	tilcdc_crtc_compare_clock(&expected->adjusted_mode,
++				  &actual->adjusted_mode);
++
++	return drm_atomic_helper_crtc_compare_state(crtc, p, expected, actual);
++}
++
+ static const struct drm_crtc_funcs tilcdc_crtc_funcs = {
+ 	.set_config     = drm_atomic_helper_set_config,
+ 	.page_flip      = drm_atomic_helper_page_flip,
+ 	.atomic_create_state = drm_atomic_helper_crtc_create_state,
++	.atomic_sro_readout_state = tilcdc_crtc_readout_state,
++	.atomic_sro_install_state = tilcdc_crtc_install_state,
++	.atomic_sro_compare_state = tilcdc_crtc_compare_state,
+ 	.atomic_duplicate_state = drm_atomic_helper_crtc_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_crtc_destroy_state,
+ 	.enable_vblank	= tilcdc_crtc_enable_vblank,
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.c b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
+index da718d9cb1d6..afdd0760601e 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_drv.c
++++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
+@@ -12,6 +12,8 @@
+ 
+ #include <drm/clients/drm_client_setup.h>
+ #include <drm/drm_atomic_helper.h>
++#include <drm/drm_atomic_state_readout.h>
++#include <drm/drm_atomic_state_readout_helper.h>
+ #include <drm/drm_debugfs.h>
+ #include <drm/drm_drv.h>
+ #include <drm/drm_fbdev_dma.h>
+@@ -75,6 +77,13 @@ static const struct drm_mode_config_funcs mode_config_funcs = {
+ 	.fb_create = drm_gem_fb_create,
+ 	.atomic_check = tilcdc_atomic_check,
+ 	.atomic_commit = drm_atomic_helper_commit,
++	.atomic_sro_readout_state = drm_atomic_helper_sro_readout_state,
++	.hw_reset = drm_mode_config_helper_hw_reset,
++};
++
++static const struct drm_mode_config_helper_funcs mode_config_helper_funcs = {
++	.atomic_sro_build_state = drm_atomic_helper_sro_build_state,
++	.atomic_sro_install_state = drm_atomic_helper_sro_install_state,
+ };
+ 
+ static void modeset_init(struct drm_device *dev)
+@@ -86,6 +95,7 @@ static void modeset_init(struct drm_device *dev)
+ 	dev->mode_config.max_width = priv->max_width;
+ 	dev->mode_config.max_height = 2048;
+ 	dev->mode_config.funcs = &mode_config_funcs;
++	dev->mode_config.helper_private = &mode_config_helper_funcs;
+ }
+ 
+ #ifdef CONFIG_CPU_FREQ
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.h b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
+index 17d152f9f0b6..74f5f27f2f1b 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_drv.h
++++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
+@@ -10,6 +10,7 @@
+ #include <linux/cpufreq.h>
+ #include <linux/irqreturn.h>
+ 
++#include <drm/drm_framebuffer.h>
+ #include <drm/drm_print.h>
+ 
+ struct clk;
+@@ -103,6 +104,17 @@ struct tilcdc_encoder {
+ 	struct drm_encoder base;
+ };
+ 
++/*
++ * Framebuffer read out from the hardware: it has no GEM object, so keep the
++ * address the bootloader left it at to scan it out again.
++ */
++struct tilcdc_readout_fb {
++	struct drm_framebuffer base;
++	dma_addr_t dma_addr;
++};
++
++#define to_tilcdc_readout_fb(x) container_of(x, struct tilcdc_readout_fb, base)
++
+ struct tilcdc_plane *tilcdc_plane_init(struct drm_device *dev);
+ 
+ #endif /* __TILCDC_DRV_H__ */
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_encoder.c b/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
+index ac4b5beb2dd5..b3fe18f69f17 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
++++ b/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
+@@ -9,12 +9,34 @@
+ #include <drm/drm_atomic_helper.h>
+ #include <drm/drm_bridge.h>
+ #include <drm/drm_bridge_connector.h>
++#include <drm/drm_crtc.h>
++#include <drm/drm_encoder.h>
+ #include <drm/drm_of.h>
+-#include <drm/drm_simple_kms_helper.h>
+ 
+ #include "tilcdc_drv.h"
+ #include "tilcdc_encoder.h"
+ 
++/*
++ * State readout needs to know which CRTC drives this encoder so the connector
++ * can be tied back to it. tilcdc has a single CRTC, so return the one the
++ * encoder was made possible for.
++ */
++static struct drm_crtc *
++tilcdc_encoder_get_current_crtc(struct drm_encoder *encoder)
++{
++	struct drm_crtc *crtc;
++
++	drm_for_each_crtc(crtc, encoder->dev)
++		if (encoder->possible_crtcs == drm_crtc_mask(crtc))
++			return crtc;
++
++	return NULL;
++}
++
++static const struct drm_encoder_funcs tilcdc_encoder_funcs = {
++	.atomic_sro_get_current_crtc = tilcdc_encoder_get_current_crtc,
++};
++
+ static
+ int tilcdc_attach_bridge(struct drm_device *ddev, struct drm_bridge *bridge)
+ {
+@@ -51,8 +73,9 @@ int tilcdc_encoder_create(struct drm_device *ddev)
+ 	else if (IS_ERR(bridge))
+ 		return PTR_ERR(bridge);
+ 
+-	encoder = drmm_simple_encoder_alloc(ddev, struct tilcdc_encoder,
+-					    base, DRM_MODE_ENCODER_NONE);
++	encoder = drmm_encoder_alloc(ddev, struct tilcdc_encoder, base,
++				     &tilcdc_encoder_funcs,
++				     DRM_MODE_ENCODER_NONE, NULL);
+ 	if (IS_ERR(encoder)) {
+ 		drm_err(ddev, "drm_encoder_init() failed %pe\n", encoder);
+ 		return PTR_ERR(encoder);
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_plane.c b/drivers/gpu/drm/tilcdc/tilcdc_plane.c
+index eb0a5562421f..f710310cece2 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_plane.c
++++ b/drivers/gpu/drm/tilcdc/tilcdc_plane.c
+@@ -4,17 +4,144 @@
+  * Author: Jyri Sarha <jsarha@ti.com>
+  */
+ 
++#include <linux/pm_runtime.h>
++
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
++#include <drm/drm_atomic_state_readout.h>
++#include <drm/drm_atomic_state_readout_helper.h>
++#include <drm/drm_crtc.h>
+ #include <drm/drm_fourcc.h>
+ #include <drm/drm_framebuffer.h>
+ 
+ #include "tilcdc_drv.h"
++#include "tilcdc_regs.h"
++
++static void tilcdc_plane_readout_fb_destroy(struct drm_framebuffer *fb)
++{
++	drm_framebuffer_cleanup(fb);
++	kfree(to_tilcdc_readout_fb(fb));
++}
++
++static const struct drm_framebuffer_funcs tilcdc_plane_readout_fb_funcs = {
++	.destroy = tilcdc_plane_readout_fb_destroy,
++};
++
++/*
++ * The RASTER_CTRL format bits only encode the pixel size, not the channel
++ * order. The order that displays correctly depends on how the panel is wired
++ * (blue-and-red-wiring), which already selects the formats the driver
++ * exposes, so report the one with the size read back.
++ */
++static const struct drm_format_info *
++tilcdc_plane_readout_format(struct drm_device *dev)
++{
++	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
++	u32 ctrl = tilcdc_read(dev, LCDC_RASTER_CTRL_REG);
++	const struct drm_format_info *info;
++	unsigned int cpp, i;
++
++	if (!(ctrl & LCDC_V2_TFT_24BPP_MODE))
++		cpp = 2;
++	else if (ctrl & LCDC_V2_TFT_24BPP_UNPACK)
++		cpp = 4;
++	else
++		cpp = 3;
++
++	for (i = 0; i < priv->num_pixelformats; i++) {
++		info = drm_format_info(priv->pixelformats[i]);
++		if (info->cpp[0] == cpp)
++			return info;
++	}
++
++	return NULL;
++}
++
++static int tilcdc_plane_atomic_readout_state(struct drm_plane *plane,
++					     struct drm_atomic_sro_state *state,
++					     struct drm_plane_state *plane_state)
++{
++	struct drm_device *dev = plane->dev;
++	const struct drm_format_info *info;
++	struct drm_crtc_state *crtc_state;
++	struct tilcdc_readout_fb *rfb;
++	struct drm_framebuffer *fb;
++	struct drm_crtc *crtc;
++	unsigned int w, h;
++	int ret;
++
++	pm_runtime_get_sync(dev->dev);
++
++	if (!(tilcdc_read(dev, LCDC_RASTER_CTRL_REG) & LCDC_RASTER_ENABLE))
++		goto out;
++
++	if (dev->num_crtcs != 1) {
++		ret = -EINVAL;
++		goto err;
++	}
++	crtc = list_first_entry(&dev->mode_config.crtc_list, struct drm_crtc,
++				head);
++
++	crtc_state = drm_atomic_sro_get_crtc_state(state, crtc);
++	if (!crtc_state) {
++		ret = -ENODEV;
++		goto err;
++	}
++
++	/* The tilcdc primary plane always covers the whole active area. */
++	w = crtc_state->adjusted_mode.hdisplay;
++	h = crtc_state->adjusted_mode.vdisplay;
++
++	info = tilcdc_plane_readout_format(dev);
++	if (!info) {
++		ret = -EINVAL;
++		goto err;
++	}
++
++	rfb = kzalloc_obj(*rfb);
++	if (!rfb) {
++		ret = -ENOMEM;
++		goto err;
++	}
++	rfb->dma_addr = tilcdc_read(dev, LCDC_DMA_FB_BASE_ADDR_0_REG);
++	fb = &rfb->base;
++	fb->dev = dev;
++	fb->format = info;
++	fb->width = w;
++	fb->height = h;
++	fb->pitches[0] = w * (drm_format_info_bpp(info, 0) / 8);
++	fb->offsets[0] = 0;
++
++	ret = drm_framebuffer_init(dev, fb, &tilcdc_plane_readout_fb_funcs);
++	if (ret) {
++		kfree(rfb);
++		goto err;
++	}
++
++	plane_state->fb = fb;
++	plane_state->crtc = crtc;
++	plane_state->src_w = w << 16;
++	plane_state->src_h = h << 16;
++	plane_state->crtc_w = w;
++	plane_state->crtc_h = h;
++
++	crtc_state->plane_mask |= drm_plane_mask(plane);
++
++out:
++	pm_runtime_put_sync(dev->dev);
++	return 0;
++
++err:
++	pm_runtime_put_sync(dev->dev);
++	return ret;
++}
+ 
+ static const struct drm_plane_funcs tilcdc_plane_funcs = {
+ 	.update_plane	= drm_atomic_helper_update_plane,
+ 	.disable_plane	= drm_atomic_helper_disable_plane,
+ 	.atomic_create_state = drm_atomic_helper_plane_create_state,
++	.atomic_sro_readout_state = tilcdc_plane_atomic_readout_state,
++	.atomic_sro_compare_state = drm_atomic_helper_plane_compare_state,
+ 	.atomic_duplicate_state = drm_atomic_helper_plane_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_plane_destroy_state,
+ };
 -- 
 2.39.5
 
