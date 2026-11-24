@@ -1,101 +1,119 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795485158;
-	b=nNcMOubd45Nhc7iDKzlD7FhzKhH8oQLYOsutGKK/0t9iTqhvGZ5ZR8SSbXFtgclTCUL0
-	 qQUeYDsXy5fKO68pvO3cC0jYW7nOpDPWJ08VPnBErI7/TbOlFv6f7C5ibvkfohB2PMXAi
-	 I6ga5/rgG78i3ztB0aZuyB02nUxx48aYfu3NV0SG53yDILmKXU9hgWpRcu2tE5Cecc0XR
-	 MEVXWCTb1ipRcyIcN5x8Ekiww5UvTwrICqBL7XEOqGZI2ThtVrK1D9IFqEfPzeTiG051K
-	 NNL9DHsHqEH7ztyhENGC16MxWwIUFGOxCprVL4xEfcn5Dz1X/ENniZb4HIGJuuijwBQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795485158;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=XYy52i1VlUDrudHoFBdDu5SiNfto95Bn3ifLTlKRy3g=;
-	b=xXuFQsdKCbQjYj2mooXaLjJ8XcW1zLKeL5U5wzelFiTW8k+3HlGk5CjWOYybw4soUX+y
-	 fhyzhRVv2baqFOQXlVU/HHfT+qJMWKekZnYkabBHE1ybD+SgVS+lTD8cWpT6cMoWUM+0Y
-	 9cEUlfVfyoN7Wqx1u+k+i+qndN9L2b94A/MeefyBe7kcwKk70DT9wZma1rVw7GX+pEpla
-	 /nBJJy4nDBXFdtTTSHxQECDskDKCB+vf4wp4FaGa6pPY8zec5YdvWyo20O1PN3Q2HMdRZ
-	 tjp5azh9A0Xm6Dw8YFUwYgiIvXR1IGTsqBdK7HBZTqpGZWv1tdYbrAD8MnhlPnsStow==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Lu4rI3ER;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795485203;
+	b=LXly2EaIUiMsTlldgvr78UAEj+GW/6F+TV7osBTcXjjNZxpTL2ZDyQGRUHvIY+9EdTyp
+	 RvhZeikJsON2t/rHtXhH21C3F8Xfb5iC6xOUMIAZ6JBZAYYLVpKOcdjf84A28OBCjeSmc
+	 mxXbQRoFNvmjQnqEvr0ArlrMvg/7m7r2r+s5AwlrrdZ2uA514oVRmFDg4JCsbht1/nwsz
+	 dSpKC9EU8tfjV2r8UQ5Gv5xIhqVz/xbx7Rq5NWmLO+/u/pKYiIs72fVaER8pUQcBG4k3k
+	 PvdbqCLPkClLOVkk8G+8jNu27DaOX11E4meQhOaWMlYsujk3ZEAZi5EDassn84gMIIA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795485203;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=oRzRowuMjTP88VBZ8dPkOyqRLsqCyjmuEpXxgbGUTPU=;
+	b=lyxClBtoYb+Ew4q9aWw1b/XSI17Y0V9IsexLVgs8ZFY/nW/QU/ZwCGJfEd01DuaQ+gny
+	 cM2jehdstlh5EEgGkNxaS1yANn4ELd+LR/49qtmQjuG0J4CTxc9NJ6gPDw9aBgGKMMxxW
+	 5RFsZXg67j8zTSVFG4jbgxyeb0gZ7B1Kmg/ArOAkgnkk4lIsMmFIbs5zwyNCAKiq6ZiEx
+	 tN3L0Pb9YMV0vcui3CJxJnA21lvPOVTr2b0ON+B0/VVCHU3wlYNwIvsFhXziU2pwMuOvf
+	 2jety1l8QQV85ZRlRD7QoMbf/s/04CF8aDVSahX1awBgqB8LlvTRSUSxeFWafFXKdAw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=oyWFdCo8;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Qv3KtVOp;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECAB4606A327
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:52:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ECAB4606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F25E9606A68D
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:53:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F25E9606A68D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Lu4rI3ER
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4a5b2be99a8so33670155e9.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:52:37 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795485156; cv=none;
-        d=google.com; s=arc-20260327;
-        b=MUTlcvtK0WXCjo8o3rjHM3BYRg6k/BMmD6Y38XmLmzWpW6VGLWxKXI05moDpdo4gmI
-         3aNEEpeHp1VQskXfNIuzJAkmWdXI2M0/avxCZTlKUrJZzd3zvCeFOzfQf+9RRVpxSQqd
-         0/lIBoBKGm9SFMQx//k+Ua6amYxR5hQEby06YMqvoQYV4HhgQFTGCYgjdCdk18qSEoz4
-         7SgCg92hLhSelFuIv/T5c70oRY2igpp8vKnldDJ4Ax8nZHNxYfB8joyLrAdNhSGvdy7s
-         DJWvTrI0hqIZt9/D8/NXtgO38UI8XX7wGzyDsCP1xnn+IE61qDil4rKN+K/Zdpy85XXl
-         FnYA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=XYy52i1VlUDrudHoFBdDu5SiNfto95Bn3ifLTlKRy3g=;
-        fh=6SPFX5faDRsE7D6AOR4G+wyEZZPABb96FHY4VC/Q3vg=;
-        b=dgENzv/Pvm3irLq9PXDgLsFeiqC2DHKILzpeBG6xQlUea5XF+oBGO/EHX5ICp7Ijjw
-         vG/d1H53y+mYSNxS+o7mVokmObqsR9uhDPIYbOLH4OWO9rXHITEXR89Mzu1tTdTfQrCH
-         c13N53TLqtcciZqf+xSVOdIYvh1qd8qGwtSMKmJghFg3UGGWp0dLqyT0tm19XEkaVpwR
-         ioVhKD+Cl20b9CJr8P2LQo0A/WuoRpKz6crRJiGmD1qFiI60XJjgN4pUOzAX1obJEQY6
-         Vf3sWcU4WdSB8OKVlDuJk/rtWSe+4lpqvhqDikVA2Px4qU8Xky29/34CiDja2AwZHsEa
-         6LDQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=oyWFdCo8;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Qv3KtVOp
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJunoL1580334
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:53:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=oRzRowuMjTP88VBZ8dPkOyqR
+	LsqCyjmuEpXxgbGUTPU=; b=oyWFdCo8sTFYiL96gZAcLEAhAZQ2k5+PKIDRjXPI
+	HszNWQvihV3C28SYyrUEAhBLYFtXKV6NOjtwHwgJ/SPtm91akqEOoh7nI2eGcKMl
+	OwWtWmW3Qzq1PtQ+J4TcBAwNRaLWTLy/cc0dNvIphr6nLJlOnpSfJhszasE5BO08
+	careylMaoefkTLsd52o6kdk52IgJ4B48OTQRPeRrDltOb24IjzLtqhA11KNZ5m+U
+	N/8mWKtvAOkn9jgxYeDGr9+hjGSi2r0UbuflgVZgYddjrx1zyXVYuJ5l/mQvqF10
+	fIMZ5C/5jlCLbfU3fBRIybi3Ou1MVJKAlPlzCX/2utNbeA==
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4ma0u7ma-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:53:22 +0000 (GMT)
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-375bac6bd21so4402425eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:53:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795485156; x=1796089956; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=oss.qualcomm.com; s=google; t=1795485201; x=1796090001; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=XYy52i1VlUDrudHoFBdDu5SiNfto95Bn3ifLTlKRy3g=;
-        b=Lu4rI3ERJ+GosAe+FP0EEMf9cfRhFztwxD8Jwhir8hWPQS6f6nONXYfzTJbZP1Vbc0
-         E45EgSCQlltB8TSGHmrMl3m/Vrvi+ylvWrZesSyTszJuCumQgRn2CIPOmilK/I/ur0tO
-         TySSoUum3qsayArv1O6cF+KakzBQgJ/gGeQne/Ge4/QbJyQGQRDrSZ+xiqpQhGQpCoaJ
-         2xLQmuARU3zMDkRPgal51D27yhRqhANdCDz0r6K5OvcEVJN1bCOGAvd/bjblWJdA1XOn
-         8cSHq7hsUMHo4BHZQ9bb82GAXwqRKYGoRPVA2NC2TYzkik8eibi9ViqzcwuJxICXvIRt
-         pBxQ==
+        bh=oRzRowuMjTP88VBZ8dPkOyqRLsqCyjmuEpXxgbGUTPU=;
+        b=Qv3KtVOpRT2PKBXVaSrBR1xiJlneqCskhka8p7rN2jp51wJmpdO4pOUycpy+wIJvxi
+         zunZ0lKBoAZVp3hR9zTJqesIhVVxUVGoErjB6Tygmx3kaB6CWyuQjupW/nEZqs0FqAEy
+         3NpY8D64HItnOCMeNqIXhrj0Hc57HHhHmKs68K1aDjP5KQlRdMgcHU0yOdbShSzP7N+9
+         fDYOq88rm+mYXtHSJ/rJCPeZ8VYCnfafb2a5wnDRDM44bOLmBn57wqiMfB9IV5xL5aiW
+         wanwvkyZvOsCFgo0y+9pGxnMjqvVzmz2heUAGVCeNeuoua2X3BCm9yCfBantAtr+YPAg
+         7tAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795485156; x=1796089956;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795485201; x=1796090001;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=XYy52i1VlUDrudHoFBdDu5SiNfto95Bn3ifLTlKRy3g=;
-        b=hrP7FglqTMX6LZTkbyuknqjDA45v9gGERQJK5sE9pz1WLzBAnqTsQPqLP6lP/PLy/F
-         +vWor39zmbUtA/ZMDrpMJaSuEpntHI4RzeVlRQWWLbaqnJDRsnMbRUm0HAGDEjIpsZk9
-         i5yZoVljZpwN8KCMo5gcvDcGtWkefUdLSjf/wz5k3ciQjHFY7etz6r3UUUQe5bMnfx9j
-         shAVNhzN7b86fZZLDKI3LjtnyVS2Mov0/seg6IOmr662X/QeJh3z048zVx2CC5vgx4n/
-         o/qb9QowZaX1NmQWhI/2+W1gSnRfpE1/P0f4Ua/FHLnDhJBHWtOqEBQSepruI/nFQHA0
-         XTPg==
-X-Forwarded-Encrypted: i=1; AL+hErHlvh3c7zV7c/+02irCMwPUIPxPFxgACjyM8XdBK9pVvodbBFg8diA3mgPE152jEcutl2IF0uigIs/qDNA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+juYbUcYo3F7cW2k067k4JQR6EMIDBkn3d4z1J5Rv0Eux0ZDxF
-	R0kCuCUbglWwDdrftO/66IjmptqPbcdnxevH4NGjXSYkU43qVQiYyYWA/LiVZLV15mH22qhMInA
-	TYulJz7cFvRGhHKUhxzreAV1J0RvkjEs=
-X-Gm-Gg: AZFdTZeoklbwUM5L+LP3HhXvrc58HRQDmuEzJZ6IEF+MM60MIXq+21SXHRO3cl423Z6
-	5pIUldPXbRHNC64/o7rV5dO/+1Bjl3k/1+emAsDT2srb3m00SlU1LWdofUtOUnJdWT/PtqPHrOK
-	daO0y4LH/A5Eq3xgttWIakwAoErR8hjpM3kfKQ/krv6dcRL/YtYYylwgZrNnqpNGIeHOrw/rQ2w
-	MEblesrYMVctgFTavRSJ9/em1S+fwp5shrF2KI+HSWOftVMzXtTrhToDu95D5V16P4NKkWoCXto
-	AqBuJx0P26MWP9heFSd+XJJi5xVQy4UXigBDWWqrb5X77ZrDzk9gLNAxXlFpbZhkNDTH4X6Plbp
-	K0N2CrCnthiiyUlmvqisr6XKR6RN1qPKMe6ih58sOuvCK9QjHUksLRyCeM9o5EnuZXgTfJTVkCP
-	45ndB/pTXx0tdQZjPJ/gSAqzz+4Spx08MrZmXu6brupS6R6CSYvdM+
-X-Received: by 2002:a05:600c:64c8:b0:4bb:68e5:b952 with SMTP id
- 5b1f17b1804b1-4bb88819be1mr252564985e9.16.1795485155450; Mon, 23 Nov 2026
- 17:52:35 -0800 (PST)
+        bh=oRzRowuMjTP88VBZ8dPkOyqRLsqCyjmuEpXxgbGUTPU=;
+        b=KsYxWlMmAEBAjPcaLvxiQxaffJG16sm4lyOlm/CGKr0jtr7QpKqh2uuhuhFYA2VDhn
+         ac89Wab6s3srz07Xjn6Y4eSJPAB0NOBDGXXMHEK4Rw6QTNi0hdKbSimKOpNuxcjf3PPF
+         6n2VDJ6Z1F8Bs8T8o52ehfFaBwiShphLaYfQ8Cg0vOnTeedPrnI3l6ACd67ahZIoAAjv
+         lQL1li/qgywKBtCXgB6+faSLKVVHGCDDIdZsuYPgDoP/03aGPT0Fo2ehjnJnCBzBvRMo
+         OEcp6cXJfnJ3u8FKFfMlimCedW2ky+P+0nTlxKeeTGwSJwjy0B30NzQlRZK2jF88iMcu
+         BxUg==
+X-Forwarded-Encrypted: i=1; AL+hErGHMoReXlQMpLJ1mAx0ppaiM6xGX7X98DNu7RTUu0377Cqrvk2R3cHwIuviFAs+Ye9lo6jg+kazMJojQ1o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+ZH3Y5c+U3FDMxdD2kSKY+02PahyVIYzad5D/MQ1v5N3zCUo/t
+	ot+GXRjQCF49AXQA8PFtNgF6HbTTZBpUN1ajz0vGKgKmTqbmywNZZizDtH32G9UHw9CEd50lBtG
+	E6KX9uHEzaYwBZu9B+Sx198H1IrqC+JboecZNuw2CpzWVH14cVQFEQ3AHg7hcUXe2UTvYPj00/Y
+	A=
+X-Gm-Gg: AZFdTZevTVEyKv0U+T2r4zC+xR40NMtEhZ2tU2s7mQ/x7y7Ec4CH3MDTFmHJF2DAvWS
+	Bgnwq9afh0Qscpc6AVt5ZZ4Bbp97YY/5nQYZKjGWz8VBqAWVrxv5p02lSG9m0+Pm01skOftjZLV
+	GRUp+Aa1ue27SCxdmpyGboRQxBgbacgp+o6L4+DjLEpIml6SqtzgrFl+6JBAp9/0PLb71W08Msj
+	zpO7IrxhqyDFMAvqnF3lz42IIsRA4ICFijQeTIeZPAps9y+Az05gF+CkCZXgYKxCGTD5nEiZF87
+	y6uyqVAULYsLzG06P9ix6zCVtSR54LLCTNfpuNEQwH3sbkUvnuD8LGEpeuPyhWV/zdidhsaCBVQ
+	ZoZ6IoFt3vj1lP5T0VSR5YT5TjKh3gbtoxm6N4WvZtW6FKqpVpYWMxfSuJwazfO35bT/iQdrzzD
+	dBcWmbPGZcvnFar3M=
+X-Received: by 2002:a05:693c:6395:20b0:375:6fed:8e71 with SMTP id 5a478bee46e88-384b3986edamr14798188eec.7.1795485201283;
+        Mon, 23 Nov 2026 17:53:21 -0800 (PST)
+X-Received: by 2002:a05:693c:6395:20b0:375:6fed:8e71 with SMTP id 5a478bee46e88-384b3986edamr14798165eec.7.1795485200733;
+        Mon, 23 Nov 2026 17:53:20 -0800 (PST)
+Received: from QCOM-aGQu4IUr3Y (i-global052.qualcomm.com. [199.106.103.52])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm43160022eec.14.2026.11.23.17.53.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 17:53:20 -0800 (PST)
+Date: Tue, 24 Nov 2026 09:53:14 +0800
+From: Shawn Guo <shengchao.guo@oss.qualcomm.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+        Jerome Brunet <jbrunet+clk@baylibre.com>,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] clk: qcom: apss-ipq5424: Drop unused qcom,ids.h include
+Message-ID: <awTuCjZhZKgGM945@QCOM-aGQu4IUr3Y>
+References: <20261123215842.21088-2-krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,391 +123,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
- <20261119-mglru-fg-v5-16-9eee2fe97a2d@tencent.com> <CAN_Opa-+nb0vxQ+HsENCG2fEEMZoxG9Sy_DBC4CLkWjNLzDWKw@mail.gmail.com>
- <CAMgjq7CEdWvv8m9GtWMG=8OFy+1Sehx3HBJt2D=9hntwvfbf6w@mail.gmail.com>
- <CAN_Opa8L3Ygfu5o7Y8ZD9GTmiEygCXpq2TzAJtwgQChdyb2dSQ@mail.gmail.com> <awQTdkOPG_bKkY1a@KASONG-MC4>
-In-Reply-To: <awQTdkOPG_bKkY1a@KASONG-MC4>
-From: KunWu Chan <kunwu.chan@gmail.com>
-Date: Tue, 24 Nov 2026 09:52:23 +0800
-X-Gm-Features: Aa3M54rNVRedVBKWrSc3NKkfSlK46ArucsaQHzq7jpyNkszROWpY1teS5JMIwgY
-Message-ID: <CAN_Opa-TgMWWMjjzuwnVcC3XEBW4FV2eFx2gpiMYvReLhhc=xw@mail.gmail.com>
-Subject: Re: [PATCH v5 16/17] mm/mglru: make folio_inc_lru_refs lruvec lockless
-To: Kairui Song <ryncsn@gmail.com>
-Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>, 
-	Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>, 
-	Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
-	Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
-	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, Barry Song <baohua@kernel.org>, 
-	Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
-	Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>, 
-	Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>, 
-	Gregory Price <gourry@gourry.net>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>, 
-	SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, Yu Zhao <yuzhao@google.com>, 
-	Vernon Yang <vernon2gm@gmail.com>, Zicheng Wang <wangzicheng@honor.com>, 
-	Chen Ridong <chenridong@xiaomi.com>, Tal Zussman <tz2294@columbia.edu>, 
-	Xiang Liu <liuxiang.277@bytedance.com>, Ehab Ababneh <ehab.ababneh@intel.com>, 
-	Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang <lianux.mm@gmail.com>, 
-	Joanne Koong <joannelkoong@gmail.com>, Hui Zhu <hui.zhu@linux.dev>, linux-kernel@vger.kernel.org, 
-	cgroups@vger.kernel.org, damon@lists.linux.dev, linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123215842.21088-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-Proofpoint-GUID: 2g_jGkD_75_6dBcJyX7npHsOeV4Vp8pQ
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAwNyBTYWx0ZWRfXz+2560IHYGgz
+ jiAhZ2RGW5fru7p0j4p0jcPLvpPkmP5boKTpUC8b7pDSSQZ6afp/WK7uvP36TN1WyJ81k2jP7VI
+ eurnnDzFHXrb8IUwPDGKHb+5KPsNhuE=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAwNyBTYWx0ZWRfX45jSLP3YREn3
+ fghcMYNGw8mXaew8TKfzBg1nCrzjZpej+CLyaaxh0Ks0vmAVi+GCX228wPN4spNRnZxn392e4V8
+ OPlPrIzM+we7/MOaQy4DaO+PNRfJvoUpbf83qKlK99vRURANQ4Ig4NTeTsnwynxzz5eHaYoPtvE
+ kqsw3jiuy66pzaO9HLmzDqNSCXvESpi+4OBrEoe6yGaMTiWR7ak/5iKyn7oa+aFluqLnWk1xRbY
+ BesMlUoFhieBhMjC/wwkjRyOrc0AXgQ60FPjBwzpqi2ev8X00Mp1FhlYnIR69TRxcK0cK8M62WB
+ /npQxE+P0Pa6CaKyHSZD6UpFRPoMRKcE249C3s2f8MAbZJ+jn0DU9RZwXmVX8BvcaDmurF+JlOv
+ Y+ltofRpZlsOmgxjTqB8D6osTMQss5CWmCpzyHyMjGxSYOkQ8stAg2Piq/tirCme8KMv6qpKmLt
+ 9MhpV5htpvOKgC50YhA==
+X-Authority-Analysis: v=2.4 cv=Yr+a1IYX c=1 sm=1 tr=0 ts=6b04ee12 cx=c_pps
+ a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=b9+bayejhc3NMeqCNyeLQQ==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=Cr8ZdchctFYn2ypy-6UA:9 a=CjuIK1q_8ugA:10
+ a=6Ab_bkdmUrQuMsNx7PHu:22
+X-Proofpoint-ORIG-GUID: 2g_jGkD_75_6dBcJyX7npHsOeV4Vp8pQ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_05,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 adultscore=0 impostorscore=0 malwarescore=0 suspectscore=0
+ clxscore=1015 phishscore=0 spamscore=0 priorityscore=1501 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240007
 
-On Mon, Nov 23, 2026 at 6:49=E2=80=AFPM Kairui Song <ryncsn@gmail.com> wrot=
-e:
->
-> On Mon, Nov 23, 2026 at 09:43:12AM +0800, KunWu Chan wrote:
-> > On Sun, Nov 22, 2026 at 11:33=E2=80=AFPM Kairui Song <ryncsn@gmail.com>=
- wrote:
-> > >
-> > > On Fri, Nov 20, 2026 at 5:42=E2=80=AFPM KunWu Chan <kunwu.chan@gmail.=
-com> wrote:
-> > > >
-> > > > On Thu, Nov 19, 2026 at 5:04=E2=80=AFAM Kairui Song via B4 Relay
-> > > > <devnull+kasong.tencent.com@kernel.org> wrote:
-> > > > >
-> > > > > From: Kairui Song <kasong@tencent.com>
-> > > > >
-> > > > > The lruvec spinlock in folio_inc_lru_refs was only taken to keep
-> > > > > concurrent aging from corrupting the size counters.  This is no
-> > > > > longer needed: the per-generation counters are atomic, and the
-> > > > > active/inactive ABI counters are updated per folio and linearized=
- by
-> > > > > the CAS on the folio flags, so concurrent aging can no longer cor=
-rupt
-> > > > > them.  The same argument is what lets folio_reset_lru_refs() upda=
-te
-> > > > > the counters without the lruvec lock.
-> > > > >
-> > > > > Use folio_lruvec_live_get()/folio_lruvec_live_put() to hold the R=
-CU
-> > > > > read lock around the lruvec lookup, and drop the spinlock entirel=
-y.
-> > > > >
-> > > > > Without the lock, aging can advance max_seq while a promotion is =
-in
-> > > > > flight.  Generations are indexed by seq % MAX_NR_GENS, so the fol=
-io
-> > > > > flags can return to the value read earlier and the cmpxchg succee=
-ds
-> > > > > with a target gen computed from a stale max_seq.  Recheck max_seq=
- after
-> > > > > a gen-changing cmpxchg: if it moved, account the committed update=
- and
-> > > > > retry with LRU_REF_FORCE, which promotes the folio to the newest =
-gen.
-> > > > > The retry may count the access twice, which is acceptable and avo=
-ids
-> > > > > folio_activate(), whose LRU lock causes latency jitter.  smp_rmb(=
-)
-> > > > > orders the flags read, including the one returned by a failed
-> > > > > cmpxchg(), before the max_seq read.
-> > > > >
-> > > > > Also simplify the post-CAS accounting guards: gen is only assigne=
-d
-> > > > > non-negative values after the old_gen < 0 early exit, so gen !=3D=
- old_gen
-> > > > > implies gen >=3D 0, and lru_gen_update_size() needs no explicit g=
-uard.
-> > > > > The active/inactive ABI update keeps its gen >=3D 0 check because=
- an
-> > > > > off-LRU folio has no lruvec to update.
-> > > > >
-> > > > > Signed-off-by: Kairui Song <kasong@tencent.com>
-> > > > > ---
-> > > > >  include/linux/mm_inline.h | 10 +++++-----
-> > > > >  include/linux/mmzone.h    |  3 ++-
-> > > > >  mm/vmscan.c               | 51 +++++++++++++++++++++++++++++----=
---------------
-> > > > >  3 files changed, 39 insertions(+), 25 deletions(-)
-> > > > >
-> > > > > diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.=
-h
-> > > > > index 77f514143266..2c6cbd0df686 100644
-> > > > > --- a/include/linux/mm_inline.h
-> > > > > +++ b/include/linux/mm_inline.h
-> > > > > @@ -317,10 +317,9 @@ static inline bool lru_gen_is_old(struct lru=
-vec *lruvec, int type, int gen)
-> > > > >                gen =3D=3D lru_gen_from_seq(min_seq + 1);
-> > > > >  }
-> > > > >
-> > > > > -static inline void lru_gen_update_size(struct lruvec *lruvec, st=
-ruct folio *folio,
-> > > > > -                                      int old_gen, int new_gen)
-> > > > > +static inline void lru_gen_update_size(struct lruvec *lruvec, in=
-t type,
-> > > > > +                                      struct folio *folio, int o=
-ld_gen, int new_gen)
-> > > > >  {
-> > > > > -       int type =3D folio_is_file_lru(folio);
-> > > > >         int zone =3D folio_zonenum(folio);
-> > > > >         int delta =3D folio_nr_pages(folio);
-> > > > >         struct lru_gen_folio *lrugen =3D &lruvec->lrugen;
-> > > > > @@ -399,7 +398,7 @@ static inline bool __lru_gen_add_folio(struct=
- lruvec *lruvec, struct folio *foli
-> > > > >         /* use the refs from the atomic snapshot to avoid raced u=
-pdate */
-> > > > >         refs =3D lru_get_refs_flags(flags);
-> > > > >
-> > > > > -       lru_gen_update_size(lruvec, folio, -1, gen);
-> > > > > +       lru_gen_update_size(lruvec, type, folio, -1, gen);
-> > > > >         if (lru_refs_is_active(refs))
-> > > > >                 lru +=3D LRU_ACTIVE;
-> > > > >         __update_lru_size(lruvec, lru, zone, delta);
-> > > > > @@ -429,6 +428,7 @@ static inline bool lru_gen_del_folio(struct l=
-ruvec *lruvec, struct folio *folio,
-> > > > >         unsigned long flags;
-> > > > >         unsigned int refs;
-> > > > >         int gen;
-> > > > > +       int type =3D folio_is_file_lru(folio);
-> > > > >         int zone =3D folio_zonenum(folio);
-> > > > >         int delta =3D folio_nr_pages(folio);
-> > > > >         enum lru_list lru =3D folio_is_file_lru(folio) * LRU_INAC=
-TIVE_FILE;
-> > > > > @@ -452,7 +452,7 @@ static inline bool lru_gen_del_folio(struct l=
-ruvec *lruvec, struct folio *folio,
-> > > > >         if (!reclaiming && ((max_seq - gen) % MAX_NR_GENS) < MIN_=
-NR_GENS)
-> > > > >                 folio_set_active(folio);
-> > > > >
-> > > > > -       lru_gen_update_size(lruvec, folio, gen, -1);
-> > > > > +       lru_gen_update_size(lruvec, type, folio, gen, -1);
-> > > > >         if (lru_refs_is_active(refs))
-> > > > >                 lru +=3D LRU_ACTIVE;
-> > > > >         __update_lru_size(lruvec, lru, zone, -delta);
-> > > > > diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
-> > > > > index 2680e15b6de9..235fb04f8d78 100644
-> > > > > --- a/include/linux/mmzone.h
-> > > > > +++ b/include/linux/mmzone.h
-> > > > > @@ -540,9 +540,10 @@ enum lruvec_flags {
-> > > > >  #define LRU_TIER_MIN           0U
-> > > > >  #define LRU_TIER_MAX           (MAX_NR_TIERS - 1)
-> > > > >
-> > > > > -/* Access source flags for folio_inc_lru_refs() */
-> > > > > +/* Flags for folio_inc_lru_refs() */
-> > > > >  #define LRU_REF_MAPPED         0x1U
-> > > > >  #define LRU_REF_EXEC           0x2U
-> > > > > +#define LRU_REF_FORCE          0x4U
-> > > > >
-> > > > >  #define LRU_REFS_REFERENCED    0x1
-> > > > >  #define LRU_REFS_WORKINGSET    0x2
-> > > > > diff --git a/mm/vmscan.c b/mm/vmscan.c
-> > > > > index 78a1b4de7076..4576a7a369e3 100644
-> > > > > --- a/mm/vmscan.c
-> > > > > +++ b/mm/vmscan.c
-> > > > > @@ -876,37 +876,35 @@ void folio_inc_lru_refs(struct folio *folio=
-, unsigned int flags)
-> > > > >         long nr_pages =3D folio_nr_pages(folio);
-> > > > >         struct lru_gen_folio *lrugen;
-> > > > >         struct lruvec *lruvec =3D NULL;
-> > > > > +       bool aged =3D false;
-> > > > >
-> > > > > +retry:
-> > > > >         old_flags =3D READ_ONCE(*folio_flags(folio, 0));
-> > > > >         do {
-> > > > >                 new_flags =3D old_flags;
-> > > > >                 old_gen =3D lru_get_gen_flags(old_flags);
-> > > > >                 old_refs =3D lru_get_refs_flags(old_flags);
-> > > > > -               file =3D folio_flags_is_file_lru(&old_flags);
-> > > > >                 refs =3D old_refs + 1;
-> > > > >                 gen =3D old_gen;
-> > > > > +               file =3D folio_flags_is_file_lru(&old_flags);
-> > > > >                 if (old_gen < 0)
-> > > > >                         goto out;
-> > > > > -               /*
-> > > > > -                * Lock the lruvec if the folio is on-list. We ar=
-e already
-> > > > > -                * doing lazy promotion so in theory we don't nee=
-d this,
-> > > > > -                * but for now, concurrent aging would still corr=
-upt the
-> > > > > -                * size counters.  This is a temporary limitation=
- and
-> > > > > -                * will be lifted very soon, so the lock here is =
-not a
-> > > > > -                * performance concern.
-> > > > > -                */
-> > > > >                 if (!lruvec) {
-> > > > > -                       lruvec =3D lruvec_live_lock_irq(folio_lru=
-vec(folio));
-> > > > > +                       lruvec =3D folio_lruvec_live_get(folio);
-> > > > >                         lrugen =3D &lruvec->lrugen;
-> > > > >                 }
-> > > > > +               /*
-> > > > > +                * Read the flags before max_seq, paired with the=
- store of a
-> > > > > +                * gen, which samples max_seq first.
-> > > > > +                */
-> > > > > +               smp_rmb();
-> > > > >                 max_seq =3D READ_ONCE(lrugen->max_seq);
-> > > > >                 max_gen =3D lru_gen_from_seq(max_seq);
-> > > > >                 if (old_gen =3D=3D max_gen)
-> > > > >                         goto out;
-> > > > > -
-> > > > > -               if (flags & (LRU_REF_MAPPED | LRU_REF_EXEC)) {
-> > > > > -                       /* Promote second page table access or ex=
-ecutable */
-> > > > > -                       if (refs > LRU_REFS_REFERENCED || flags &=
- LRU_REF_EXEC)
-> > > > > +               if (flags & (LRU_REF_MAPPED | LRU_REF_EXEC | LRU_=
-REF_FORCE)) {
-> > > > > +                       if (lru_refs_is_workingset(refs) ||
-> > > > > +                           flags & (LRU_REF_EXEC | LRU_REF_FORCE=
-))
-> > > > >                                 gen =3D max_gen;
-> > > > >                         /* First access only defers eviction of a=
-n old generation */
-> > > > >                         else if (lru_gen_is_old(lruvec, file, old=
-_gen))
-> > > > > @@ -931,9 +929,19 @@ void folio_inc_lru_refs(struct folio *folio,=
- unsigned int flags)
-> > > > >                         break;
-> > > > >         } while (!try_cmpxchg(folio_flags(folio, 0), &old_flags, =
-new_flags));
-> > > > >
-> > > > > -       if (gen !=3D old_gen)
-> > > > > -               lru_gen_update_size(lruvec, folio, old_gen, gen);
-> > > > > -       if (lru_refs_is_active(old_refs) !=3D lru_refs_is_active(=
-refs) && old_gen >=3D 0) {
-> > > > > +       if (gen !=3D old_gen) {
-> > > > > +               /*
-> > > > > +                * Gen-index reuse can fool cmpxchg(). Retry lock=
-lessly, accepting
-> > > > > +                * an extra reference to avoid folio_activate() l=
-atency.
-> > > > > +                */
-> > > > > +               if (unlikely(READ_ONCE(lrugen->max_seq) !=3D max_=
-seq)) {
-> > > > > +                       flags =3D LRU_REF_FORCE;
-> > > > > +                       aged =3D true;
-> > > > > +               }
-> > > > > +               lru_gen_update_size(lruvec, file, folio, old_gen,=
- gen);
-> > > > > +       }
-> > > > > +
-> > > > > +       if (lru_refs_is_active(old_refs) !=3D lru_refs_is_active(=
-refs) && gen >=3D 0) {
-> > > > >                 enum lru_list lru =3D file * LRU_INACTIVE_FILE;
-> > > > >
-> > > > >                 __update_lru_size(lruvec, lru + lru_refs_is_activ=
-e(old_refs),
-> > > > > @@ -941,8 +949,12 @@ void folio_inc_lru_refs(struct folio *folio,=
- unsigned int flags)
-> > > > >                 __update_lru_size(lruvec, lru + lru_refs_is_activ=
-e(refs),
-> > > > >                                   folio_zonenum(folio), nr_pages)=
-;
-> > > >
-> > > > Could this leave the parent's local active count too high?
-> > > > Isolation can debit the child's active count after the refs
-> > > > 2 -> 3 CAS. If CSS_DYING is set before the stats update, the credit
-> > > > can go to the parent. On SMP, reparenting can clamp the child's
-> > > > negative local count to zero.
-> > >
-> > > Thanks again for the careful review.
-> > >
-> > > But hmm, I'm not sure what you mean by "too high". Maybe there is a
-> > > temporary skew of counter due to various races, but we are fine with
-> > > that, it will be consistent soon.
-> > >
-> > > The key here is update is gated on gen >=3D 0, and the gen is part of
-> > > the CAS: only a folio that is actually on an MGLRU list has its
-> > > refs-based active/inactive credit already accounted will be recredit
-> > > the counter update here. An isolated folio has no lruvec to attribute
-> > > it to, so nothing will be changed.
-> > >
-> > > And for reparenting, we are also following the ordering in the
-> > > document: the updater holds rcu_read_lock() over the lruvec lookup an=
-d
-> > > the counter update, and reparenting waits for a grace period, so
-> > > either the memcg is already dying and we credit the parent, or the
-> > > update lands on the child and is part of what reparenting moves
-> > > afterwards.
-> > >
-> > > So the credit and the reparent move always cover the same folios and
-> > > land on the same side: there is no path where the parent is credited
-> > > for a folio it does not end up owning, and no debit that lands where
-> > > the credit did not. I don't see anything to fix here.
-> >
-> > Thanks for explaining, Kairui. I had isolation after the CAS in
-> > mind, before the stats path rechecks CSS_DYING. I'm happy to leave
-> > that for a follow-up.
->
-> Hi Kunwu, thanks for review!
->
-> I thought again about this, and, there seems to be a corner case I didn't
-> notice, sorry I missed that. The reparenting used the clamped value, so
-> if the child's counter goes nagative due to temporary race, we will
-> indeed lost that part, and this should fix that, I'll include this as
-> a stand alone patch with your reported by:
->
-> (Usually we won't hit this unless the memcg have only a few folios left
->  and raced with repanrting, and I think using clamped value for
->  reparenting is correct on its own)
->
-> diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-> index 091401cecf39..3f551e2e3206 100644
-> --- a/mm/memcontrol.c
-> +++ b/mm/memcontrol.c
-> @@ -562,11 +562,10 @@ unsigned long lruvec_page_state_monotonic(const str=
-uct lruvec *lruvec,
->         return (unsigned long)READ_ONCE(pn->lruvec_stats->state[i]);
->  }
->
-> -unsigned long lruvec_page_state_local(const struct lruvec *lruvec,
-> +static long __lruvec_page_state_local(const struct lruvec *lruvec,
->                                       enum node_stat_item idx)
->  {
->         const struct mem_cgroup_per_node *pn;
-> -       long x;
->         int i;
->
->         if (mem_cgroup_disabled())
-> @@ -577,7 +576,14 @@ unsigned long lruvec_page_state_local(const struct l=
-ruvec *lruvec,
->                 return 0;
->
->         pn =3D container_of_const(lruvec, struct mem_cgroup_per_node, lru=
-vec);
-> -       x =3D READ_ONCE(pn->lruvec_stats->state_local[i]);
-> +       return READ_ONCE(pn->lruvec_stats->state_local[i]);
-> +}
-> +
-> +unsigned long lruvec_page_state_local(const struct lruvec *lruvec,
-> +                                     enum node_stat_item idx)
-> +{
-> +       long x =3D __lruvec_page_state_local(lruvec, idx);
-> +
->  #ifdef CONFIG_SMP
->         if (x < 0)
->                 x =3D 0;
-> @@ -595,7 +601,8 @@ void reparent_memcg_lruvec_state_local(struct mem_cgr=
-oup *memcg,
->
->         for_each_node(nid) {
->                 struct lruvec *lruvec =3D mem_cgroup_lruvec(memcg, NODE_D=
-ATA(nid));
-> -               unsigned long value =3D lruvec_page_state_local(lruvec, i=
-dx);
-> +               /* Reparent the raw value: the clamp drops the child's de=
-bit. */
-> +               long value =3D __lruvec_page_state_local(lruvec, idx);
->
->                 __mod_memcg_lruvec_state(memcg, nid, idx, -value);
->                 __mod_memcg_lruvec_state(parent, nid, idx, value);
->
-> >
-> > Here's my tag for 16/17, also sent in the 15/17 thread.
-> >
-> > Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
->
-> Thanks, will be glad if you can help look at the updated v6 later too :D
+On Mon, Nov 23, 2026 at 10:58:43PM +0100, Krzysztof Kozlowski wrote:
+> Driver does not use any Devicetree binding from qcom,ids.h header.
+> 
+> Suggested-by: Shawn Guo <shengchao.guo@oss.qualcomm.com>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Thanks for the fix, Kairui! I've had a look at v6 and will
-follow up there.
+Reviewed-by: Shawn Guo <shengchao.guo@oss.qualcomm.com>
