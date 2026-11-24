@@ -1,199 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.11
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795561272;
-	b=RjzHBVm1GQjMUuQ5fBU7j53Eg8XH5/RoVi6f84prU86POsY+IAIR35vFWKYgFqZWhGxF
-	 Yd7Qe5HbyyIFrm3LtbkjhQWNCtXTJ4ewJACOPZPX1RXG4wTAnZUqK326ahfG8TwhRAOFG
-	 n2K0Gtw1t8KiFfCR/rTsmt+QQi1WuA5NNkEMt/AlALZ4JdXvGt42ntU707PFJ0A5YlI+O
-	 ntkRC/IwJAAVz7Ig9+OKEZsr9DSV1ZhQEJ9OdHnEM3/HM7qGOZkDdIs8HYWzLlBrVepqs
-	 dgMF7fVKW/kejNW7gIDzVdKFmFKaq68A2RCRMNK840VfJ2p1BvKGkydqHZLlMmqtrcA==
+	t=1795561308;
+	b=VMZSbmdbXMw0kJfbptpRCtKA9nR1xddUFw2kel0omO3taYNrhn47r8A1ecDESmvRAXR4
+	 OTL00JZ3bQXxiGJz5RsS3w1YpeEt4x1XPvAlCzs0LBKJzJVUUQmZJldF+HBvOV05gbNii
+	 +loQeARMpPvj39YAN7d3xpqpzaMvZCWLWtjW5GEUV4Xll2D509bTb8BiIDOz8UENnvUak
+	 eFkkapVRkqzIn+OJbaDXCkSxoAJ36+ahemxMJkJ3QmF2dFH4LP61q4JCluM1hB0eZ5jCj
+	 zyQJzpPjbqvDtAWKdV1tgNH0Yjl8/EV3XK7D04y8+OPBhn2QK9SiWTt41l+znC0FZUQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795561272;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 user-agent:x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=ZT6eFP/V2G9YhP+ah/ElaP9fj2YHlvsyoGSdg1RlSUw=;
-	b=nNOCtJ0kE6xWGlGbQoPAddrqSec5RTCXzERHZKMiZBVbS9wcZzV5xo4cZtsfXYg+MWok
-	 3LiJ82QdBsXOtOb2ORf1HOp+EZyUAzBxD0r/WvyB4O6ZM4BQSCTNHnHPz3OpHe7bAZ1L3
-	 sRZR8ZI+MOdEfAoOLIeR/CTn/F81ZhrmKTBD5TYCjVUUE7HtEjtimpf1iL0Iw6QLjHs3i
-	 h7+Rrri3WqlLzmiEw9gUgVRZbPOd8Hg3JtqTPdS9htAE6D5DHJnNnFfcrRMK/g30LUzyM
-	 sSrhlo3IaiKukMhzyTdT/54v1F27enSrvrj2fT0QunUSy9MDi1hQ2DvRQVKmNeGnZyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795561308;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=gmooxqZYTcjYNebpuUs56E2ZYWMe9lXEe9UulLkmKv4=;
+	b=y9DzREIacbSYDcyjRexNWH/BIYEFoXKSuEEWMnSUQPXYsXBhlnpIJcgB3H1vj+4WiLHJ
+	 tup836256ddNUDIDzdPZm2z2wpv46VRROY1nYUqH9IiJiMIszft9d1D/UJ8r+0J03VRwu
+	 GTYJPaaGVOj4wzfXG5LHL3yzOknWF+1wx5Ywrxz1Q69uvOol3NLjGOK99PaksXzHQW4hp
+	 q4b8Em/OlplA4OVREJtAEJJi09GkuxQQrbq7mrjBqoyDZIqxpOjmWK7NychMPrzRF6jWh
+	 kUYV5/Rh3i5gTPg2hT3dTr8AXf9xk1zJMjV5IoBg7Dg3AE69Dce4wA1d+rnJGxmcRXw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PmWffPCi;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=d3AbgkuX;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.11
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b3oWegHw;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E9EB606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:01:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E9EB606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1805D606A68B;
+	Tue, 24 Nov 2026 23:01:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PmWffPCi;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=d3AbgkuX
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795561272; x=1827097272;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=ZT6eFP/V2G9YhP+ah/ElaP9fj2YHlvsyoGSdg1RlSUw=;
-  b=PmWffPCiMpY28Ku7AzCj4RJ0n3LXhBZZE6YbUrC9HcZ/lPgHiSflBazp
-   7c2C2qUHHI0s/kaWYHDD5lNYewLFWymaDuJtdm3onLUIhCupJT+GXeinZ
-   8YlJdLBOBn7i6cEUNqxYpGpSHQDPDpHQZCvgtrusBbYiwMu0abuHL6I1V
-   vk0v7QU0NKCQbhGF3TQOgvnB3YKc1Z9CwfL9oapLTFGr9SfMVzMCrL4TI
-   JjKgQnfh3wUq1qrq0HCpNtYEiFNIm3dk/5MP64ONa0cF0oX/BBbIIOidg
-   OarTEF+nYubmiQrZmvRhXcws8IPS01T4Yg8ulxEfwVrNPnSibjN8jUyay
-   g==;
-X-CSE-ConnectionGUID: abLOcVIsRG2zBk895aqNGQ==
-X-CSE-MsgGUID: 2dEd67QqQlCHfMciecRM6Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4336917"
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4336917"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 15:01:11 -0800
-X-CSE-ConnectionGUID: PLlVWi+LQAiz8WVJRwiRvQ==
-X-CSE-MsgGUID: hV9R88wuQ82Jw6yyIOaakg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="11713480"
-Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
-  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 15:01:11 -0800
-Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
- fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 24 Nov 2026 15:01:10 -0800
-Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
- FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Tue, 24 Nov 2026 15:01:10 -0800
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (52.101.43.22) by
- edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 24 Nov 2026 15:01:10 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cCE//sH+F+h6/m7LpNAldqCYaMbasmWQqJn6OLtkZAns+GuQfr5GK9QXh3+KssZC+LnxhE/qFC0qdQ33wkZdnmxN3zkNCUn1542ETmVMcyNjnT7u6tXZVaPfPxbuqRvZb91nKoDXWJ1LvGds9T3SEYgZzNpWqwas0bBUV93F7ClJbxkwQ/lxfG5J6FemJEo0cunG6Ny5gDBG3d7BOOOTMj7snXrkIZu25r5LUgDWx0zTtVf83xDI4oCSyJie8R5DvBIsyuh/z8VjXfKCg0t/b3tuNKcr1Jivkuh/OG1ldX4SVKyR7QGSoj0by1wAOu7QbXLcwGAWICoZj4cIIJ8mNw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZT6eFP/V2G9YhP+ah/ElaP9fj2YHlvsyoGSdg1RlSUw=;
- b=gvMGSuyBJfasYJEjPCtxhAEHtmvIaG9WqBLf4o6t8/slbdCeDk43hN+bXKIiIAhg/ok/eLtTGfgrkEUVMz3IeHsqRwJBmAv6ohs1AaYi3Pl2UEFAtIFzMnUI8/tb4kDek3PlpVtAxZw3XUUP1SnDQ1ItToVQcuni50fHqrz7W58uWzVD4gCTwhH/5yGLuIWWgj5Kj9tTFVVP/18Ai9up5/Z9PH5j0nCAf2LfF719fVdeu56EPZIgnAsFgYKBxPVNrwzWNt0I7/vu/9ojHpbaJm7TuOm0ESTSmDNNUa84UeX6ua0qoDfQYjuSt92myj9QYDYTEIdje0P8WiOyyMFSJA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZT6eFP/V2G9YhP+ah/ElaP9fj2YHlvsyoGSdg1RlSUw=;
- b=d3AbgkuXv6QzdV3Bt0r1/jU351deT+GkubjY1XNxlA5PPrhkJjMfZ9feJzEclJYMwdMMt99H3TZLvKvm27z5Jpf5vrldV0il2fscqVxMKmx4F9pySPMkYRDPDVffIxSUf2+smy3Owyx77mv86opXroQu/VsRmTpgYkTLlyiWW8E=
-Received: from IA3PR11MB634048.namprd11.prod.outlook.com
- (2603:10b6:208:549::23) by DS0PR11MB7263.namprd11.prod.outlook.com
- (2603:10b6:8:13f::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 23:01:06 +0000
-Received: from IA3PR11MB634048.namprd11.prod.outlook.com
- ([fe80::760f:f0a4:7417:6e57]) by IA3PR11MB634048.namprd11.prod.outlook.com
- ([fe80::760f:f0a4:7417:6e57%5]) with mapi id 15.21.0639.011; Tue, 24 Nov 2026
- 23:01:06 +0000
-From: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-To: "luto@kernel.org" <luto@kernel.org>, "x86@kernel.org" <x86@kernel.org>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"peterz@infradead.org" <peterz@infradead.org>, "bp@alien8.de" <bp@alien8.de>,
-	"mingo@redhat.com" <mingo@redhat.com>, "rppt@kernel.org" <rppt@kernel.org>,
-	"tglx@kernel.org" <tglx@kernel.org>
-CC: "hpa@zytor.com" <hpa@zytor.com>, "thomas.lendacky@amd.com"
-	<thomas.lendacky@amd.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/9] x86/mm: don't set kernel_set_to_readonly when write
- protecting fails
-Thread-Topic: [PATCH 2/9] x86/mm: don't set kernel_set_to_readonly when write
- protecting fails
-Thread-Index: AQHdcsNcgDNwHFfCL0SZnfiGgze81rc96deA
-Date: Tue, 24 Nov 2026 23:01:06 +0000
-Message-ID: <afbc0c7a79e880947962fec09885a9a8937ba7df.camel@intel.com>
-References: <20261112-fixes-x86-v1-0-791adb8d6670@kernel.org>
-	 <20261112-fixes-x86-v1-2-791adb8d6670@kernel.org>
-In-Reply-To: <20261112-fixes-x86-v1-2-791adb8d6670@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-user-agent: Evolution 3.44.4-0ubuntu2.1 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: IA3PR11MB634048:EE_|DS0PR11MB7263:EE_
-x-ms-office365-filtering-correlation-id: ce75ea16-d530-47de-2a43-08df4a7ed222
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|18002099003|22082099003|11063799006|261026140227099003|56012099006|261022105027099003|4143699003|261021121427099003|261102123227099003|261026121527099003|261028144727099003|38070700021|10067099003;
-x-microsoft-antispam-message-info: RSBUMKXzjj3H6DD+qGObxf3CaXGtGGSWsYZr26TY5i5CadNTLhL2cVQuKAnXB0XZnamEYYT438NfePKakOUc8ePUn36hX2QUfuu0qcQd9HyjEIJoLcHMEzV3eObG32Y185lD/SerJvnmS8M2nMPFAbyqD6vFBMFYjaSFRgDpDzYwo6+bnZHyyu05CjvVmhAdmaPjcID5570bvKQee+8igBj0eNfpvfuyK4WmARLIKFzq/tl/XmgN0Zps+Q8l9indGqknHY4Dr++5pJdY7IgRgfbnhD1UggVU5ZKvOyi6CQ0+AoR9uWxHk28LrSSzCWsIe/tz+iece1vZsxPRDGxa2NIuOV8oOw7VJnlo/b+FsVg8bX4JaRZvlRN3w5ChBcMJqPYLSHAWMhvWaG7QqK7SqAf1+fzgy8n8jhny5f+nxaLqb50seiJzhToWtytxSY/mN7ag3FmljovhYlDiETyQlOQILY8bdMsWc+fVabhm/4QXk2N52a6iQQf0YcnKsnbWlCgyujHDoj1DGnKtv6SRryKukjKsxC/aQIg0x0q4IpZUfC8TBJhO1FXF4pqDqYu6eeG4sMSMlsCJTIjx+i0QpCAsGCnCyxL9zuqyKlsejTqBVffLnF9J4BaiLVgCHGu10XXlW31xQ6sBnWV+uStMelwTaIwrL6WMW9NlgDPktNTVnARtdng6Aulx5GjJg+MusXFL3pbXnelGY4gyIKcJha9ncDMUOLjn8RrH6z0M/pY=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA3PR11MB634048.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(18002099003)(22082099003)(11063799006)(261026140227099003)(56012099006)(261022105027099003)(4143699003)(261021121427099003)(261102123227099003)(261026121527099003)(261028144727099003)(38070700021)(10067099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VWkrZEswc1EySldjNlNkNFYzREFPSWVPWDc2Wnc0RFJacEM0R0QwOUlSS1pD?=
- =?utf-8?B?cFFkN3BqWjZydGU2cFR2REwxR3J1T0kyYUNLd1JST2FhZlpUOVp5N2ExMmlr?=
- =?utf-8?B?ejY3QWoxSGNubE9VbkZFWmtPQS82T1VZWVhVemxlY2pERnNPQ1pCMDhsVndE?=
- =?utf-8?B?NkZKNGVxY3JvZjg0eDB0NUVHaDVXNFpiV1lpNHRKTC9xdVlkamp0c0t1Ykxs?=
- =?utf-8?B?eCtsYmdDTisyZ1RuNW5WSlFYYkF3WEE3UVNvaFdmSUo5MFYxQVVPNzlEY243?=
- =?utf-8?B?OTVEWVBoZW1UZmM4RkhmREp6Q3hCZU5MTHA2N2xZd2VOTXk3SFdLV1lHRTZT?=
- =?utf-8?B?eEhZNVR5eHpvNHRwaDVvRlNycDlzd1dlcll5cGx3M2xPNkVXbGloMC9zSUtZ?=
- =?utf-8?B?d2NrTWFHcW9uZTI4ZUl1ZStGNGZ3Nkdua0czbmFIWjZrU2ViWUVMTmFoSWQ5?=
- =?utf-8?B?YWVPbzRINkUveDhUbHk3KzJ3L3FSMkh2UW0xRVQxaklwL0tSTFhsbzFROVpY?=
- =?utf-8?B?ZTVMbHBDVFJxbVdibkloRTZFOEd6VHJrWHBFMlB0UzhBVTVSVis0SE1rM3ZJ?=
- =?utf-8?B?ZEVJYUxhSlpzanFMQUZXNTFiR2wvUG9uVVhZVStDcGkrNDdwL1I1K2RTUStU?=
- =?utf-8?B?c2RoWEVTa3pqazIvN0NTcDFjSTNFVVNQbk5wc0k1K2djZ1lUNU1sMDJBaGNE?=
- =?utf-8?B?ck83R1lVaTdKOTJvdyt5QUxUTUpmWWJSZGV5Q2hGRExnY2ZmeVpPem9mM3Ev?=
- =?utf-8?B?UDZUM3ZWZ053YUs4Z1JRVlk4Y05IS29Zc21BS21JclV1ei9aKzFzMW5jVGU0?=
- =?utf-8?B?SW1Jb3dvZGJsYUZkSFdyd0RlVklBb2E4dE1UbjBKTTV4b2UyUi9JZGtzRHU3?=
- =?utf-8?B?T0NnS3VDdHlVTzBSYW5STlJGNkV1V0xHQy9FNEVlNndSK05TRWU4QXgzYnNw?=
- =?utf-8?B?dENjTys0OGdUWDBxQlIwRitHMTd0ZE4vNWlQMnpFa2hJUmY5U3dyczFtQnZv?=
- =?utf-8?B?aDEzNC9pWTNuRjVISHFLckwzK0FoMVBwU0EzbG1VNTRkNzVjSHY0Vk5ienJh?=
- =?utf-8?B?a1JkQzNnWHN5Q29ndnlmRUNpOU1NZnQyUTh4K3lZTHVteFRoZ2UxaDNFN0ZB?=
- =?utf-8?B?TzNXTFZDaEdLM1JkRGROUzAvWjBHbm9STG9iSDVpRXhNdTJUb3drL3BqUnBI?=
- =?utf-8?B?S0syQjRoeHRwMGN0SDlwRkRnQ1NGUG50eFRxVXJUZkFuWnhZcC9aZjNPdVl2?=
- =?utf-8?B?S3JTSDBxVjRIcTZESi9ZRmtRT1lRNVNwMjRQTzk1Q2J0Zmptb0hnaitYdER5?=
- =?utf-8?B?RndraFF2NDE0bUtRODIzNzM2L0dOS2RhUE1TbjFJdTQxNEdGN0l4a3FDS1pl?=
- =?utf-8?B?RFFNRzZzS1J0dTV2anhUQjAyNFAvS1AzclUrb0tSOXBmblRtWEIwdGZDNlpq?=
- =?utf-8?B?VEREN1h2NTJXWkFiMElIQ000TDBub1RhY0dhT2VXNFA3MERBRFFRMW1KMzB2?=
- =?utf-8?B?U0JncjV0Njc4M1NYOGVBajQ0S0pSaGJaL1poc1Y1QlRGVjdmSDExamZ0eUZG?=
- =?utf-8?B?VVViUUpONUdVczA0cEJkM0wxdm1MeXhKRXBjdzBqS3d2blkxMUx6YnFCWVNx?=
- =?utf-8?B?NEpkQUV1MGJzWUJjMnpwc0c2b2M1aFVBdzBsSVlvMVBweVpIbVdXTElCSitr?=
- =?utf-8?B?QjFONEdmbnlaaXpSVjgxOTVNdVFPcTZMb0g3V2p5ZlM1M1dKaGpaMVlqcXI4?=
- =?utf-8?B?UGdLNXU3RHk5Ulo5eFRQdmtTS1Q4YWJ2emV2RzRWTndtQVBDWHBNQzBoSXhw?=
- =?utf-8?B?QWV4WGhxa3k0UmxwUm5BR0IvVWgvdW1hOUpTQzdkeTFrVGI5M3ozVDkyNkdS?=
- =?utf-8?B?ZWcwalBhNnNXeUVDblcxVGhDenhQNjZJclBRVTRZeUsyZHoyTGxsMG41MDNE?=
- =?utf-8?B?N2R2RzhEL1ZlclVkcnFhYytvc29LYU5aL3puN01wRGZ0a1hGL0FUSkFqVlFO?=
- =?utf-8?B?cjZ5RFNkVHpLYzdlSFdCaHFOM0lxL1RTMENaZ1o5aFd0WldmczlXSkZXTE9r?=
- =?utf-8?B?UUdIWWpIVDNoS09vQXZBaFJLUDN1WkFFYWdOUVRrcWNyQWhhanRvcWJPRitz?=
- =?utf-8?B?T0IrNHpUcHU3VFhwWlhMeEtvbjU5bE9FY00yNmVKblRsejVDUlR2RVdLWTRW?=
- =?utf-8?B?eEVQY0JoWjEzeFNiRzYreHhYUUIva3hBdWd4QUlWNktheElWK094c0pnY3k5?=
- =?utf-8?B?bmJBVFdpQkIwaUhNWjMvcGYyV1J0eXY2WjNPQ3d3MEdSNkxVblNJbFZNNFJt?=
- =?utf-8?B?dFdDSVc3TGo5WlBSNm5Cc0VmSllBWGRFaGRreUhvR2FDOU1aSm9EZkRuYk45?=
- =?utf-8?Q?Dtdg6aLU+yj4jZI0=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <974E02710F4EA246BBAAF0F22393BCFB@namprd11.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b3oWegHw
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795561307;
+	b=1VvvCaCQAkaJKzWgAbnXpch+gMcKQgQ9bCaiW/3RcWKQOXe+G4PQZIWWOVYRj6WblImO
+	 1BVYzeagfFaONih+eroxr9Kc61j0k1BcMj3+mDl+8yvPNsj8MELnHR3ulDatgllg9/BD2
+	 4zBQc2HI92nESS4HXkXcoJXrbtxWcTJNZ6PFbmVDgEYrz3N3I1ZKvNxV+PYRfITv5sJjI
+	 7zsDNBu02xR3Wpt6MpossPhNV+elem1796QDAJpmNI56vkvQWzWKQc1jsHFeEsL7F0klv
+	 rd4U870816MtRCV6s/keLZt2O7QpgMKbHlA4FgHKtaEZJnMvX/d5HecPGWjU/esbK0w==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795561307;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=gmooxqZYTcjYNebpuUs56E2ZYWMe9lXEe9UulLkmKv4=;
+	b=aSu//+MjNF6vQMp7NPasU470iZSYUZ44wymmZ1IjHGu+kYNau59pcxbiMOw/fFd7b2z9
+	 2W/x4cBTJZuSca/jDWW6rN6+u+9HZmVVMwB7KCHU68iH8gw9kL77Il0mkzwKP+Bo/G9Aj
+	 3UAIQrCW7YCCiJuZOy3rKpcxPZwUeaByXoSHzopUOA+695mm6WzW9BN9Sdvo2HbyXsZu2
+	 Wx9g2BLom/6XEsMVMo7P09F4xCt5T4KUQmqKdg08isInnppsm1SlqLq5vB/+/WvGneDM3
+	 HU72QNRDMvfvEOE3zX0SHygl6BypfUKOJLipDhZavMhA4UFtW5B7VmFdNCSVFu0Qd4g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 406381F000D3;
+	Tue, 24 Nov 2026 23:01:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795561307;
+	bh=gmooxqZYTcjYNebpuUs56E2ZYWMe9lXEe9UulLkmKv4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=b3oWegHwWYGTFnM/LlXV/IcUHXV7/kVV1t1453VhqiVDDqtQ1N3hnr/nDb2EUmkUH
+	 zwknPD9IBFXd1raSgB7DNgvmYEAr46UJ2xD5w3zKG51UTqRVfBU1wcR4/yp787Chfv
+	 MO7pYGmETPt2glF2nA/9X4V3xaXuDmHzpSyGj+5U84LNzJFBocoMQBYlk8GDgROtFK
+	 68Y3gsA8UP6tlCowjxWfU/zjSAXcDJwrrJ0iKu9Y+ULC5nQJjjGyTE+az/SEKUzkzM
+	 ChIhZwWnXs6dSCbWBNWdtlDN5EWNRRI6mK0xaHmyisekyjjxa+UQRrAGAE/pvAoroH
+	 LPG8j9615eksw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id C55534CC48;
+	Tue, 24 Nov 2026 23:01:35 +0000 (UTC)
+From: Robert Ijtsma via B4 Relay <devnull+robertijtsma.gmail.com@kernel.org>
+Date: Wed, 25 Nov 2026 00:01:35 +0100
+Subject: [PATCH net-next 3/3] net: ipa: add SC8180X (IPA v4.1)
+ configuration data
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -203,33 +83,420 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: dsdiuI6FFpYyxQPELLOjBkQjncwXrsSdh2IvuuiDjl1X/Tun2z3kDrnwRqzlFoMQupa94Kz/lyil7ZCuUpjTtAOEp6jS6xRhutashgMpyf1/g5KCGGHPmeCh9rDNZHvlKQGA+pInYXFKEg9n0NZjQUNOMT2GgN6Nr1Rg10CMvEWlHf3ZOm5VV3445+/X86HUbu78K4XSzI8L4ybi4qyJfwwjmXd6DWe+6GY4SS6WL/ydzMSHCcy1yKd9aBmhuU99JAMOBTXALpBHX+XDQeJ9S7GDcDvC/uAMUCeIzWECIvy5bof/8k2YXc4ZqaQJEmj6C9iTZrHA1WzmagymV8zRAA==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: IA3PR11MB634048.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ce75ea16-d530-47de-2a43-08df4a7ed222
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Nov 2026 23:01:06.1391
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Q+F1Cf2V/gyKp2INjTGRZJVp7mhJrBrvzSWlQ67aIWaXCP39ZjiHJAuORn9kUeS+XoU3pNuYMDR91UIuOwDNoRCkpiCX/wHa6kNWyS3yiCo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB7263
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261125-qcom-ipa-sc8180x-v1-3-48a889acbe6b@gmail.com>
+References: <20261125-qcom-ipa-sc8180x-v1-0-48a889acbe6b@gmail.com>
+In-Reply-To: <20261125-qcom-ipa-sc8180x-v1-0-48a889acbe6b@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alex Elder <elder@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Robert Ijtsma <robertijtsma@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795561294; l=13095;
+ i=robertijtsma@gmail.com; s=20261122; h=from:subject:message-id;
+ bh=FAOKxklbl2JNjTgB34XVej3V0HSEXyF/s+9+SKLtcMU=;
+ b=ZcWx+JlC9FuzS8eLNO+aEqhDfmZSvhvlbdi8DeCBxpTOgyCLgelVOiqXgYS6ZFPIX8IQ1lRik
+ QW5C6w+j35TBCAgmbaXbZzTMejH64bNPbCeH28BGt/dIjj+NdjFgrE/
+X-Developer-Key: i=robertijtsma@gmail.com; a=ed25519;
+ pk=qiDyKVqFicxFIR5sB5m+p9SWPKL2/+mMoiQnUx0C9P0=
+X-Endpoint-Received: by B4 Relay for robertijtsma@gmail.com/20261122 with
+ auth_id=1604
+X-Original-From: Robert Ijtsma <robertijtsma@gmail.com>
+Reply-To: robertijtsma@gmail.com
+Content-Transfer-Encoding: 7bit
 
-T24gVGh1LCAyMDI2LTExLTEyIGF0IDE4OjMxICswMjAwLCBNaWtlIFJhcG9wb3J0IChNaWNyb3Nv
-ZnQpIHdyb3RlOg0KPiBtYXJrX3JvZGF0YV9ybygpIGlnbm9yZXMgdGhlIHJlc3VsdCBvZiB3cml0
-ZSBwcm90ZWN0aW5nIHRoZSBrZXJuZWwgdGV4dA0KPiBhbmQgcm9kYXRhLiBJdCBjYW4gZmFpbCB3
-aGVuIENQQSBjYW5ub3QgYWxsb2NhdGUgYSBwYWdlIHRhYmxlIHRvIHNwbGl0IGENCj4gbGFyZ2Ug
-cGFnZSwgYW5kIHRoZW4gYSBwYXJ0IG9mIHRoZSB0ZXh0IGFuZCByb2RhdGEgc3RheXMgd3JpdGFi
-bGUuDQoNClNlZW1zIGxpa2Ugc29tZXRoaW5nIHZlcnkgdW5saWtlbHkgdG8gaGFwcGVuIGJlZm9y
-ZSB0aGUga2VybmVsIGhhcyBldmVuIGZpbmlzaGVkDQpib290aW5nLiBQcm9iYWJseSBvdGhlciB3
-b3JzZSBwcm9ibGVtcyBhcmUgY29taW5nIGluIHRoYXQgY2FzZS4NCg0KPiANCj4ga2VybmVsX3Nl
-dF90b19yZWFkb25seSBpcyBzZXQgYW55d2F5LCBhbmQgQ1BBIGVuZm9yY2VzIHRoZSBzdGF0aWMN
-Cj4gcHJvdGVjdGlvbnMgb2Ygcm9kYXRhIGZyb20gdGhlbiBvbi4gT24gNjQtYml0IHRoZSBuZXh0
-IGNhbGwsDQo+IHNldF9tZW1vcnlfbngoKSBmb3IgdGhlIGRhdGEsIG1heSBmaW5kIHRoZSB3cml0
-YWJsZSByb2RhdGEgYW5kIHdhcm4NCj4gYWJvdXQgYSBjb25mbGljdCB3aXRoIHRoZSBzdGF0aWMg
-cHJvdGVjdGlvbnMsIHdoaWNoIGRvZXMgbm90IHNheSB3aGF0DQo+IGFjdHVhbGx5IHdlbnQgd3Jv
-bmcuDQo+IA0KPiBSZXBvcnQgdGhlIGZhaWx1cmUgYW5kIHNldCBrZXJuZWxfc2V0X3RvX3JlYWRv
-bmx5IG9ubHkgd2hlbiB3cml0ZQ0KPiBwcm90ZWN0aW5nIHN1Y2NlZWRzLg0KPiANCj4gU2lnbmVk
-LW9mZi1ieTogTWlrZSBSYXBvcG9ydCAoTWljcm9zb2Z0KSA8cnBwdEBrZXJuZWwub3JnPg0KDQoN
-Cg==
+From: Robert Ijtsma <robertijtsma@gmail.com>
+
+Add the SC8180X (IPA v4.1) endpoint, resource group, shared memory,
+IMEM (0x146bd000, 8 KiB), and backward-compatibility configuration table
+(ipa_data_v4_1) and bind it to the qcom,sc8180x-ipa compatible.
+
+Register offsets and endpoint/resource limits are derived from the
+downstream Qualcomm msm-4.14 poipu/sm8150 IPA v4.1 driver and SC8180X
+devicetree tables, adapted to the upstream ipa_mem_data layout.
+
+Tested on Microsoft Surface Pro X SQ2 (SC8180X, Snapdragon X24 LTE
+modem) with rmnet_ipa0 MAPv4 and ModemManager qcom-soc QMAP bearers.
+
+Signed-off-by: Robert Ijtsma <robertijtsma@gmail.com>
+---
+ drivers/net/ipa/Makefile             |   2 +-
+ drivers/net/ipa/data/ipa_data-v4.1.c | 319 +++++++++++++++++++++++++++++++++++
+ drivers/net/ipa/ipa_data.h           |   1 +
+ drivers/net/ipa/ipa_main.c           |   4 +
+ 4 files changed, 325 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ipa/Makefile b/drivers/net/ipa/Makefile
+index 2420af0..025a313 100644
+--- a/drivers/net/ipa/Makefile
++++ b/drivers/net/ipa/Makefile
+@@ -7,7 +7,7 @@ IPA_REG_VERSIONS	:=	3.1 3.5.1 4.1 4.2 4.5 4.7 4.9 4.11 5.0 5.5
+ # Some IPA versions can reuse another set of GSI register definitions.
+ GSI_REG_VERSIONS	:=	3.1 3.5.1 4.0 4.5 4.9 4.11 5.0
+ 
+-IPA_DATA_VERSIONS	:=	3.1 3.5.1 4.2 4.5 4.7 4.9 4.11 5.0 5.2 5.5
++IPA_DATA_VERSIONS	:=	3.1 3.5.1 4.1 4.2 4.5 4.7 4.9 4.11 5.0 5.2 5.5
+ 
+ obj-$(CONFIG_QCOM_IPA)	+=	ipa.o
+ 
+diff --git a/drivers/net/ipa/data/ipa_data-v4.1.c b/drivers/net/ipa/data/ipa_data-v4.1.c
+new file mode 100644
+index 0000000..9b52c60
+--- /dev/null
++++ b/drivers/net/ipa/data/ipa_data-v4.1.c
+@@ -0,0 +1,319 @@
++// SPDX-License-Identifier: GPL-2.0
++
++/* Copyright (c) 2012-2018, The Linux Foundation. All rights reserved.
++ * Copyright (C) 2026 Robin Snyders
++ */
++
++#include <linux/array_size.h>
++#include <linux/log2.h>
++
++#include "../ipa_data.h"
++#include "../ipa_endpoint.h"
++#include "../ipa_mem.h"
++#include "../ipa_version.h"
++
++/** enum ipa_resource_type - IPA resource types for an SoC having IPA v4.1 */
++enum ipa_resource_type {
++	/* Source resource types; first must have value 0 */
++	IPA_RESOURCE_TYPE_SRC_PKT_CONTEXTS		= 0,
++	IPA_RESOURCE_TYPE_SRC_DESCRIPTOR_LISTS,
++	IPA_RESOURCE_TYPE_SRC_DESCRIPTOR_BUFF,
++	IPA_RESOURCE_TYPE_SRC_HPS_DMARS,
++	IPA_RESOURCE_TYPE_SRC_ACK_ENTRIES,
++
++	/* Destination resource types; first must have value 0 */
++	IPA_RESOURCE_TYPE_DST_DATA_SECTORS		= 0,
++	IPA_RESOURCE_TYPE_DST_DPS_DMARS,
++};
++
++/* Resource groups used for an SoC having IPA v4.1 */
++enum ipa_rsrc_group_id {
++	/* Source resource group identifiers */
++	IPA_RSRC_GROUP_SRC_LWA_DL	= 0,
++	IPA_RSRC_GROUP_SRC_UL_DL,
++	IPA_RSRC_GROUP_SRC_UNUSED_2,
++	IPA_RSRC_GROUP_SRC_UC_RX_Q,
++	IPA_RSRC_GROUP_SRC_COUNT,	/* Last in set; not a source group */
++
++	/* Destination resource group identifiers */
++	IPA_RSRC_GROUP_DST_LWA_DL	= 0,
++	IPA_RSRC_GROUP_DST_UL_DL_DPL,
++	IPA_RSRC_GROUP_DST_UNUSED_2,
++	IPA_RSRC_GROUP_DST_UC_RX_Q,
++	IPA_RSRC_GROUP_DST_COUNT,	/* Last; not a destination group */
++};
++
++/* QSB configuration data for an SoC having IPA v4.1 */
++static const struct ipa_qsb_data ipa_qsb_data[] = {
++	[IPA_QSB_MASTER_DDR] = {
++		.max_writes	= 8,
++		.max_reads	= 12,
++	},
++	[IPA_QSB_MASTER_PCIE] = {
++		.max_writes	= 4,
++		.max_reads	= 12,
++	},
++};
++
++/* Endpoint data for an SoC having IPA v4.1 */
++static const struct ipa_gsi_endpoint_data ipa_gsi_endpoint_data[] = {
++	[IPA_ENDPOINT_AP_COMMAND_TX] = {
++		.ee_id		= GSI_EE_AP,
++		.channel_id	= 4,
++		.endpoint_id	= 5,
++		.toward_ipa	= true,
++		.channel = {
++			.tre_count	= 512,
++			.event_count	= 256,
++			.tlv_count	= 20,
++		},
++		.endpoint = {
++			.config = {
++				.resource_group	= IPA_RSRC_GROUP_SRC_UL_DL,
++				.dma_mode	= true,
++				.dma_endpoint	= IPA_ENDPOINT_AP_LAN_RX,
++				.tx = {
++					.seq_type = IPA_SEQ_DMA,
++				},
++			},
++		},
++	},
++	[IPA_ENDPOINT_AP_LAN_RX] = {
++		.ee_id		= GSI_EE_AP,
++		.channel_id	= 5,
++		.endpoint_id	= 10,
++		.toward_ipa	= false,
++		.channel = {
++			.tre_count	= 256,
++			.event_count	= 256,
++			.tlv_count	= 9,
++		},
++		.endpoint = {
++			.config = {
++				.resource_group	= IPA_RSRC_GROUP_DST_UL_DL_DPL,
++				.aggregation	= true,
++				.status_enable	= true,
++				.rx = {
++					.buffer_size	= 8192,
++					.pad_align	= ilog2(sizeof(u32)),
++					.aggr_time_limit = 500,
++				},
++			},
++		},
++	},
++	[IPA_ENDPOINT_AP_MODEM_TX] = {
++		.ee_id		= GSI_EE_AP,
++		.channel_id	= 3,
++		.endpoint_id	= 2,
++		.toward_ipa	= true,
++		.channel = {
++			.tre_count	= 512,
++			.event_count	= 512,
++			.tlv_count	= 16,
++		},
++		.endpoint = {
++			.filter_support	= true,
++			.config = {
++				.resource_group	= IPA_RSRC_GROUP_SRC_UL_DL,
++				.checksum	= true,
++				.qmap		= true,
++				.status_enable	= true,
++				.tx = {
++					.seq_type = IPA_SEQ_2_PASS_SKIP_LAST_UC,
++					.seq_rep_type = IPA_SEQ_REP_DMA_PARSER,
++					.status_endpoint =
++						IPA_ENDPOINT_MODEM_AP_RX,
++				},
++			},
++		},
++	},
++	[IPA_ENDPOINT_AP_MODEM_RX] = {
++		.ee_id		= GSI_EE_AP,
++		.channel_id	= 6,
++		.endpoint_id	= 11,
++		.toward_ipa	= false,
++		.channel = {
++			.tre_count	= 256,
++			.event_count	= 256,
++			.tlv_count	= 9,
++		},
++		.endpoint = {
++			.config = {
++				.resource_group	= IPA_RSRC_GROUP_DST_UL_DL_DPL,
++				.checksum	= true,
++				.qmap		= true,
++				.aggregation	= true,
++				.rx = {
++					.buffer_size	= 8192,
++					.aggr_time_limit = 500,
++					.aggr_close_eof	= true,
++				},
++			},
++		},
++	},
++	[IPA_ENDPOINT_MODEM_COMMAND_TX] = {
++		.ee_id		= GSI_EE_MODEM,
++		.channel_id	= 1,
++		.endpoint_id	= 4,
++		.toward_ipa	= true,
++	},
++	[IPA_ENDPOINT_MODEM_LAN_RX] = {
++		.ee_id		= GSI_EE_MODEM,
++		.channel_id	= 4,
++		.endpoint_id	= 14,
++		.toward_ipa	= false,
++	},
++	[IPA_ENDPOINT_MODEM_AP_TX] = {
++		.ee_id		= GSI_EE_MODEM,
++		.channel_id	= 0,
++		.endpoint_id	= 3,
++		.toward_ipa	= true,
++		.endpoint = {
++			.filter_support	= true,
++		},
++	},
++	[IPA_ENDPOINT_MODEM_AP_RX] = {
++		.ee_id		= GSI_EE_MODEM,
++		.channel_id	= 3,
++		.endpoint_id	= 13,
++		.toward_ipa	= false,
++	},
++};
++
++/* Source resource configuration data for an SoC having IPA v4.1 */
++static const struct ipa_resource ipa_resource_src[] = {
++	{
++		.limits[0] = { .min = 1, .max = 63 },
++		.limits[1] = { .min = 1, .max = 63 },
++		.limits[2] = { .min = 0, .max = 0 },
++		.limits[3] = { .min = 1, .max = 63 },
++	},
++	{
++		.limits[0] = { .min = 10, .max = 10 },
++		.limits[1] = { .min = 10, .max = 10 },
++		.limits[2] = { .min = 0, .max = 0 },
++		.limits[3] = { .min = 8, .max = 8 },
++	},
++	{
++		.limits[0] = { .min = 12, .max = 12 },
++		.limits[1] = { .min = 14, .max = 14 },
++		.limits[2] = { .min = 0, .max = 0 },
++		.limits[3] = { .min = 8, .max = 8 },
++	},
++	{
++		.limits[0] = { .min = 0, .max = 63 },
++		.limits[1] = { .min = 0, .max = 63 },
++		.limits[2] = { .min = 0, .max = 63 },
++		.limits[3] = { .min = 0, .max = 63 },
++	},
++	{
++		.limits[0] = { .min = 14, .max = 14 },
++		.limits[1] = { .min = 20, .max = 20 },
++		.limits[2] = { .min = 0, .max = 0 },
++		.limits[3] = { .min = 14, .max = 14 },
++	},
++};
++
++/* Destination resource configuration data for an SoC having IPA v4.1 */
++static const struct ipa_resource ipa_resource_dst[] = {
++	{
++		.limits[0] = { .min = 4, .max = 4 },
++		.limits[1] = { .min = 4, .max = 4 },
++		.limits[2] = { .min = 3, .max = 3 },
++		.limits[3] = { .min = 2, .max = 2 },
++	},
++	{
++		.limits[0] = { .min = 2, .max = 63 },
++		.limits[1] = { .min = 1, .max = 63 },
++		.limits[2] = { .min = 1, .max = 2 },
++		.limits[3] = { .min = 0, .max = 2 },
++	},
++};
++
++/* Resource configuration data for an SoC having IPA v4.1 */
++static const struct ipa_resource_data ipa_resource_data = {
++	.rsrc_group_src_count	= IPA_RSRC_GROUP_SRC_COUNT,
++	.rsrc_group_dst_count	= IPA_RSRC_GROUP_DST_COUNT,
++	.resource_src_count	= ARRAY_SIZE(ipa_resource_src),
++	.resource_src		= ipa_resource_src,
++	.resource_dst_count	= ARRAY_SIZE(ipa_resource_dst),
++	.resource_dst		= ipa_resource_dst,
++};
++
++/* IPA-resident memory region data for an SoC having IPA v4.1 */
++static const struct ipa_mem ipa_mem_local_data[] = {
++	{ .id = IPA_MEM_UC_SHARED,         .offset = 0x0000, .size = 0x0080, .canary_count = 0, },
++	{ .id = IPA_MEM_UC_INFO,           .offset = 0x0080, .size = 0x0200, .canary_count = 0, },
++	{ .id = IPA_MEM_V4_FILTER_HASHED,  .offset = 0x0288, .size = 0x0078, .canary_count = 2, },
++	{ .id = IPA_MEM_V4_FILTER,         .offset = 0x0308, .size = 0x0078, .canary_count = 2, },
++	{ .id = IPA_MEM_V6_FILTER_HASHED,  .offset = 0x0388, .size = 0x0078, .canary_count = 2, },
++	{ .id = IPA_MEM_V6_FILTER,         .offset = 0x0408, .size = 0x0078, .canary_count = 2, },
++	{ .id = IPA_MEM_V4_ROUTE_HASHED,   .offset = 0x0488, .size = 0x0078, .canary_count = 2, },
++	{ .id = IPA_MEM_V4_ROUTE,          .offset = 0x0508, .size = 0x0078, .canary_count = 2, },
++	{ .id = IPA_MEM_V6_ROUTE_HASHED,   .offset = 0x0588, .size = 0x0078, .canary_count = 2, },
++	{ .id = IPA_MEM_V6_ROUTE,          .offset = 0x0608, .size = 0x0078, .canary_count = 2, },
++	{ .id = IPA_MEM_MODEM_HEADER,      .offset = 0x0688, .size = 0x0140, .canary_count = 2, },
++	/* No AP_HEADER: original size0, omitted for6.3.8 zero-region validation. */
++	{ .id = IPA_MEM_MODEM_PROC_CTX,    .offset = 0x07d0, .size = 0x0200, .canary_count = 2, },
++	{ .id = IPA_MEM_AP_PROC_CTX,       .offset = 0x09d0, .size = 0x0200, .canary_count = 0, },
++	{ .id = IPA_MEM_PDN_CONFIG,        .offset = 0x0bd8, .size = 0x0050, .canary_count = 2, },
++	{ .id = IPA_MEM_STATS_QUOTA_MODEM, .offset = 0x0c30, .size = 0x0060, .canary_count = 2, },
++	{ .id = IPA_MEM_STATS_TETHERING,   .offset = 0x0c90, .size = 0x0140, .canary_count = 0, },
++	{ .id = IPA_MEM_STATS_V4_FILTER,   .offset = 0x0dd0, .size = 0x0180, .canary_count = 0, },
++	{ .id = IPA_MEM_STATS_V6_FILTER,   .offset = 0x0f50, .size = 0x0180, .canary_count = 0, },
++	{ .id = IPA_MEM_STATS_V4_ROUTE,    .offset = 0x10d0, .size = 0x0180, .canary_count = 0, },
++	{ .id = IPA_MEM_STATS_V6_ROUTE,    .offset = 0x1250, .size = 0x0180, .canary_count = 0, },
++	{ .id = IPA_MEM_STATS_DROP,        .offset = 0x13d0, .size = 0x0020, .canary_count = 0, },
++	{ .id = IPA_MEM_MODEM,             .offset = 0x13f0, .size = 0x100c, .canary_count = 0, },
++	{ .id = IPA_MEM_UC_EVENT_RING,     .offset = 0x2400, .size = 0x0400, .canary_count = 1, },
++};
++
++/* Memory configuration data for an SoC having IPA v4.1 */
++static const struct ipa_mem_data ipa_mem_data = {
++	.local_count	= ARRAY_SIZE(ipa_mem_local_data),
++	.local		= ipa_mem_local_data,
++	.imem_addr	= 0x146bd000,
++	.imem_size	= 0x00002000,
++	.smem_size	= 0x00002000,
++};
++
++/* Interconnect bandwidths are in 1000 byte/second units */
++static const struct ipa_interconnect_data ipa_interconnect_data[] = {
++	{
++		.name			= "memory",
++		.peak_bandwidth		= 600000,	/* 600 MBps */
++		.average_bandwidth	= 80000,	/* 80 MBps */
++	},
++	/* Average bandwidth is unused for the next two interconnects */
++	{
++		.name			= "imem",
++		.peak_bandwidth		= 350000,	/* 350 MBps */
++		.average_bandwidth	= 0,		/* unused */
++	},
++	{
++		.name			= "config",
++		.peak_bandwidth		= 40000,	/* 40 MBps */
++		.average_bandwidth	= 0,		/* unused */
++	},
++};
++
++/* Clock and interconnect configuration data for an SoC having IPA v4.1 */
++static const struct ipa_power_data ipa_power_data = {
++	.core_clock_rate	= 100 * 1000 * 1000,	/* Hz */
++	.interconnect_count	= ARRAY_SIZE(ipa_interconnect_data),
++	.interconnect_data	= ipa_interconnect_data,
++};
++
++/* Configuration data for an SoC having IPA v4.1 */
++const struct ipa_data ipa_data_v4_1 = {
++	.version		= IPA_VERSION_4_1,
++	.backward_compat	= 0x39,
++	.qsb_count		= ARRAY_SIZE(ipa_qsb_data),
++	.qsb_data		= ipa_qsb_data,
++	.modem_route_count	= 8,
++	.endpoint_count		= ARRAY_SIZE(ipa_gsi_endpoint_data),
++	.endpoint_data		= ipa_gsi_endpoint_data,
++	.resource_data		= &ipa_resource_data,
++	.mem_data		= &ipa_mem_data,
++	.power_data		= &ipa_power_data,
++};
+diff --git a/drivers/net/ipa/ipa_data.h b/drivers/net/ipa/ipa_data.h
+index 3eb9dc2..20da242 100644
+--- a/drivers/net/ipa/ipa_data.h
++++ b/drivers/net/ipa/ipa_data.h
+@@ -247,6 +247,7 @@ struct ipa_data {
+ 
+ extern const struct ipa_data ipa_data_v3_1;
+ extern const struct ipa_data ipa_data_v3_5_1;
++extern const struct ipa_data ipa_data_v4_1;
+ extern const struct ipa_data ipa_data_v4_2;
+ extern const struct ipa_data ipa_data_v4_5;
+ extern const struct ipa_data ipa_data_v4_7;
+diff --git a/drivers/net/ipa/ipa_main.c b/drivers/net/ipa/ipa_main.c
+index 14ac2d2..fa26f36 100644
+--- a/drivers/net/ipa/ipa_main.c
++++ b/drivers/net/ipa/ipa_main.c
+@@ -648,6 +648,10 @@ static const struct of_device_id ipa_match[] = {
+ 		.compatible	= "qcom,sdm845-ipa",
+ 		.data		= &ipa_data_v3_5_1,
+ 	},
++	{
++		.compatible	= "qcom,sc8180x-ipa",
++		.data		= &ipa_data_v4_1,
++	},
+ 	{
+ 		.compatible	= "qcom,sc7180-ipa",
+ 		.data		= &ipa_data_v4_2,
+
+-- 
+2.56.0
+
+
