@@ -1,47 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795505920;
-	b=BUS6Tb8RZ80O6cu2mErTL9GU0yjd6vu+gTFHs+q51dFHjdEYb8REMdonaFXXZ7vGTrv0
-	 XmXE7ZF0pgkV6F2Q2doMe9aw3igM10mxLI1AZSUUL1r6NcxdNR+CuXeDT0snrwS4Kl8zT
-	 W6ypZ5wWR1PCTQ+wH/2OnkQZKUXgHpJL/lwtmZ/mnHINhJO8vxbVkt6x8PAwMkjXmLwtB
-	 TaHfWpY/aHVLZ+7qDMz33cEypAFSFMyXieKSv9oeizCNXfWkSprvhu/wSoYKacW2FWBF9
-	 rhuh3IsOC5WbuO4TKfLHI0zdUKX/7LcCbYWZxv2C1rC41yVm/yM4qGzjoLEjUfXITXQ==
+	t=1795505921;
+	b=2D0DxbT546r7v2pttrSmTtN9eWTdsh1nC5VmccXtxRoie0H7fs6OCYUGMKCIkQsPq6mC
+	 QQ4c22PC0fKkAjZZm4cnHVJKitgrib049hftgXIOrU66g8nzm/J6jVtlw1RUJo3PIkTuh
+	 1tLYq2VwsvYvoMDRm3b+YOIcAD4R073kgEUhCkjcRG6lQkeryyQkhAelMagiwDp/gpGEW
+	 HiGAAMirtpXtNsslzLUwu/i3VIsdXTpBmJ1byZLWqCWW8J6r1+mEhSkFeqY20OMQqpSNq
+	 kpTdhycLzkV9gcU0PuUzFLbNJOx5WZA8O1rt2c+huBYMcTXed4KGaERtoiYxqJxNmIA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795505920;
-	h=DMARC-Filter:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=ktivcff5YhXmCgYBdixf03CRfgnJAwXEY/ur6PjxkoA=;
-	b=QKm0jijlT6EbvBjQVb0ErkTj563f9fAydxWgDGlaM65GkLv8AwFbOtzsHV1nZ+7AfRW5
-	 yjtPbd3pu1UXg30/rrGAhYRJc404gjp22wBjVNzidFUzs1ISpzytmOe20Hv0T1rGs4+iN
-	 oPCpPOVpDebg09ztz1NhJAuZFBuhEiV8aW3X+ATx+S2KjQ02ssmZBq0TPWPGVXUF8Xib9
-	 4zxUxQFWllA78yLgyPvZdBWwFkn1aB34Hm4cu9dZx4Opz6cqVFOWOO3E7R7LsmZEJrLC9
-	 HEnQCvx0ip0xY72CwTlbEg1INceWVj9K/jwApUJG01KbIV7CEda14HmGTZAhN2qQ+ow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795505921;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding;
+	bh=YsrbWXbneAhmlRMenrVJ4CAefsGYSIi01YHG77kZWSE=;
+	b=i7KywsvP9gllWYx4qoENLoAFoM3AP53vX1oK49MweNnoVlzsoBP6p3ZjAzL1jad8HcEZ
+	 9+FCH7dmp3Ohhj8RSqxEaSYWFrGX7ypH2V1uFeWvE5YQ4s/vtfqw2vGNOpT0b5iftN2aW
+	 6m8jpL3JAY9QYsHp0vfJAd5k5i6mX4GRcSnJOIn42JB9xCza9tCzbA2UUzm8R51q7Fl3X
+	 gH8YXDJnAiGwwKDTz7+gem74b58k0O/bmKrBscpiBz5hyaEwLjDc6+kwI561cGyUfMFZZ
+	 nJW4d9TFtMsMI7S202b9Ob0p0jxVR4X8bJ2MDE/O4qTBDjuLmkOK08tAHMiDxGC06+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=SJu0NOYd;
-	arc=none smtp.remote-ip=117.135.210.3
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0J7YUXAk;
+	arc=none smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C33D7606A31E;
-	Tue, 24 Nov 2026 07:38:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C33D7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C41FE606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:38:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C41FE606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=SJu0NOYd
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=ktivcff5YhXmCgYBdixf03CRfgnJAwXEY/ur6PjxkoA=;
-	b=SJu0NOYdF7Tsnm5hGETbI6nj5WtbBE+jujNFNGrA4sU0MH1NSYOWL/ZxUXYdTN
-	iaTkXqxLaWkk2iOMPxQUXitO7lp+YEkk9w1BnoN3VJp8gfPfCMDJNQd9onZV8KRn
-	pZ7w/WEc4AX1Py7XuBkwmQxbtVvEQaJ38qSSU1xpROUSU=
-Message-ID: <1e923186-be5a-4640-b56f-a6d019747c83@163.com>
-Date: Tue, 24 Nov 2026 15:34:23 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0J7YUXAk
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4b467581b98so39498525e9.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:38:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795505919; x=1796110719; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YsrbWXbneAhmlRMenrVJ4CAefsGYSIi01YHG77kZWSE=;
+        b=0J7YUXAkuVbWvNMR2NittZISUbkQHHMqKx/m8queXL87lfLICQTSQntH5YNCat5WgV
+         TtXD0MVKx91SOdwxL2MssYhNFdyxJ7H6EKSQ/oqRhOZTWnyrWZMi2em0eim/uK1FNpKT
+         Cn0SYV/1VhQ7sxSReeftuTb61c26wbk4Ifo0dgcuCS0a9uMOyLMihnt3NI+8JsyFG1jb
+         nPCAA+rNpAS3fT+KVabN2wZ/egkl94rQpIBmGnI1jV8H6PMMqLaKzWoXnx3gDULN3eEn
+         x+58fXPCRN6Srdqizx2tg/GX3ONN6Xx+e1/5CRtESslxl6D2J6A1jsZLDeo+FBEG49e+
+         VZTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795505919; x=1796110719;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=YsrbWXbneAhmlRMenrVJ4CAefsGYSIi01YHG77kZWSE=;
+        b=1sE/Irj5F7LHlx1322bsLh/6JAmFdcurEnYjTZ6v4ozD5dHDUTuYjL0PdD1vAIy/7V
+         YQMqbDDH1ie+FZperXO/F09ZCfHOkT2Fk7vZRCVACxwBBHwkBw7ROBTzLFAJIeG2hPHC
+         8FkLQ4Fc9mf2Jy9WhpsmYistGPLmh+Qw00Vy3aa/uyOZr8Wg+i4mG/SunkWbQDgSeaOF
+         H3f+kMIohTjpbrCIaju7bB6GrRoZiGExTxo5xpzFapmlEQTEUoRzGyPlzz7OJGd5YZv5
+         L/QJZrieQNVzjh2xod13I9lLkGM5HMGb5pY8MMB0XDHoSMdPideGSV6LSIg7KeVpd0wy
+         r/ng==
+X-Forwarded-Encrypted: i=1; AL+hErFVGwFJFgp5KSPR/E4e575wtLd0RuejMsHvqV3SceKK0Fre0rXyO7jhVFntFwosMrZvnZn50rlp5+XEQz0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+QObM8bIMabyybQwXgPVmul0D6/mQFD4lTDOtxaoNY/o4YwYjS
+	kAfolruIMAP/7SIzYZbVaZvuduHP+qwAfNqvM1bXA0ri8SDoEzaQ42yS
+X-Gm-Gg: AZFdTZdOqKLQm6/0/sLEYK3NE529vFEzbKWOThGkU8L9NpkdiP6hrjajFNQiFIdxOtg
+	5MGTOIQ5v1n9C9MmuJE2Qt7Y3bl38pqAQwpyfy7ijlFFg6W0M42SBVXPQmAEzzRksNtDPrRVdrT
+	CfteNTtnVY347XvjRlYyvz7fY4CKQmNonKlQNtxf0ODMp06HZ9QYBNOph+iGhF879gkoXX+nmLM
+	Mp1fQHZ23cn7Zt+2n3ALOi6KaUQ6N1CgysRCMEFDh3xQEqTnsYjNd/dlGgZuRn9X+UvtctoeRo9
+	ioPUtkEvupcvjI0FBk8TU/wW5sMqCB3xcIcg5ajfjkoO0Tx8NGeOwOu5DxZJwvuEMLDzpkZdWZE
+	rZB2K98WEEHD6AUUjZiC1lgiTRKiHT3xgwo7c9Ih/umPbl3JIlyLq8v0xY+Dw+C/C5pKmQJ8nUy
+	j50bVdyIyrjHYbAAUMDwRCy03cmhfp+7fWNuMfcvLma/eio94UKSsqPJi/qa1r+Ec85Sh8xMfWE
+	kx+xXDCHS3vIQFgUY3rYBKjHMiJgp6r7hROKKf7YWQRbA4dgbwg/ubdrXoKMlit3D+ei8fANAev
+	NdP6mLFL/wL1ddD1SwpSmULNq7AF6S7zpg==
+X-Received: by 2002:a05:600c:190d:b0:4ba:2bfc:c8b5 with SMTP id 5b1f17b1804b1-4bb888267aemr276593835e9.10.1795505919009;
+        Mon, 23 Nov 2026 23:38:39 -0800 (PST)
+Received: from ArchOarora ([2001:19f0:6c01:2c43:5400:5ff:fef6:1b30])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf6804sm25975635f8f.10.2026.11.23.23.38.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 23:38:38 -0800 (PST)
+From: Oarora Etimis <oaroraetimis@gmail.com>
+To: Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Melissa Wen <melissa.srw@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	jose.exposito89@gmail.com,
+	Jonathan Corbet <corbet@lwn.net>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Lucas De Marchi <demarchi@kernel.org>,
+	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	sebastian.wick@redhat.com,
+	victoria@system76.com,
+	thomas.petazzoni@bootlin.com,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v6 18/43] drm/vkms: Introduce config for plane name
+Date: Tue, 24 Nov 2026 08:38:23 +0100
+Message-ID: <awU9pNtc2l0JXLzs@Oarora>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261120-vkms-all-config-v6-18-78ace90f4fc1@bootlin.com>
+References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com> <20261120-vkms-all-config-v6-18-78ace90f4fc1@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,339 +127,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] platform/x86: lenovo-wmi-other: Add raw
- GetDataByPackage interface
-To: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Rong Zhang <i@rong.moe>
-Cc: platform-driver-x86@vger.kernel.org,
- Mark Pearson <mpearson-lenovo@squebb.ca>, derekjohn.clark@gmail.com,
- W_Armin@gmx.de, corbet@lwn.net, skhan@linuxfoundation.org,
- rdunlap@infradead.org, Hans de Goede <hansg@kernel.org>,
- linux-doc@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>
-References: <20261116040532.154928-1-alanpluto@163.com>
- <20261123061120.18740-1-alanpluto@163.com>
- <fcabaf8647e0c1ab487cd612d5a290082613ec0b.camel@rong.moe>
- <983f2e32-cc6e-fa3f-3aee-6aad1e5fa7c8@linux.intel.com>
-Content-Language: en-US
-From: Alan <alanpluto@163.com>
-In-Reply-To: <983f2e32-cc6e-fa3f-3aee-6aad1e5fa7c8@linux.intel.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wCXdRGmPgVrsZZhJw--.34443S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Zw4xCry8XFy3Gry3Jr1xuFg_yoWkGr15pF
-	Z8Cay8tr4DJr17Gr12q3W2vFnYvr1rJw15uryDJ3Wjyr9FyryfWF1F9FWF9ryqvrZrGw1F
-	vayUGrZxurs8XrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jctxfUUUUU=
-X-CM-SenderInfo: hdod01poxw0qqrwthudrp/xtbC8wfUyGsFPqcLqgAA3+
 
-On 11/23/2026 8:35 PM, Ilpo Järvinen wrote:
-> On Mon, 23 Nov 2026, Rong Zhang wrote:
-> 
->> Hi Alan,
->>
->> On Mon, 2026-11-23 at 14:11 +0800, Alan Pluto wrote:
->>> Lenovo's userspace utility uses the Other Mode WMI GetDataByPackage
->>
->> What's the purpose of the utility? Could you provide some context? You
->> can ignore this question if it's confidential, but in general providing
->> necessary context can help maintainers and reviewers learn about the
->> intent.
->>
->>> method (99) to check device readiness. Expose the method through debugfs
->>> so the firmware request and response can be inspected on Linux without
->>> adding a stable userspace ABI.
->>>
->>> The interface is disabled by default and can be enabled by passing
->>> enable_get_data_by_package=1 when loading the module.
->>>
->>> Signed-off-by: Alan Pluto <alanpluto@163.com>
->>> ---
->>> Changes in v2:
->>> - Replace the character device with a debugfs file, disabled by default.
->>> - Allow one open per WMI device and require a single read for the response.
->>> - Use scoped locks, lockdep checks, automatic buffer cleanup, and the
->>>   WMI helper's minimum response size check.
->>>
->>>  Documentation/wmi/devices/lenovo-wmi-other.rst |  12 +-
->>>  drivers/platform/x86/lenovo/wmi-other.c        | 208 +++++++++++++++++++++++++
->>>  2 files changed, 219 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/Documentation/wmi/devices/lenovo-wmi-other.rst b/Documentation/wmi/devices/lenovo-wmi-other.rst
->>> index 011054d64eac5b601333373c4d405f9c5117ffc2..42e1525a8852bd7c8ddc04cc4047b1f09c5b770f 100644
->>> --- a/Documentation/wmi/devices/lenovo-wmi-other.rst
->>> +++ b/Documentation/wmi/devices/lenovo-wmi-other.rst
->>> @@ -33,6 +33,15 @@ under the following path:
->>>  
->>>  Additionally, this driver also exports attributes to HWMON.
->>>  
->>> +GetDataByPackage diagnostics
->>> +~~~~~~~~~~~~~~~~~~~~~~~~~~~
->>
->> Missing a ~
->>
->>> +
->>> +The driver does not create the diagnostic file by default. To enable it,
->>> +pass ``enable_get_data_by_package=1`` when loading ``lenovo-wmi-other``.
->>> +The file is at ``lenovo_wmi/<WMI device>/get_data_by_package``.
->>> +Not all devices support the method. Use only commands whose behavior and
->>> +side effects are understood.
->>> +
->>>  LENOVO_CAPABILITY_DATA_00
->>>  -------------------------
->>>  
->>> @@ -107,7 +116,8 @@ WMI interface description
->>>  =========================
->>>  
->>>  The WMI interface description can be decoded from the embedded binary MOF (bmof)
->>> -data using the `bmfdec <https://github.com/pali/bmfdec>`_ utility:
->>> +data using the `bmfdec <https://github.com/pali/bmfdec>`_ utility. This older
->>> +example lists ``Max(40)`` for GetDataByPackage; newer firmware uses 100 bytes.
->>
->> ??? Could you move the sentence to the right place?
->>
->>>  
->>>  ::
->>>  
->>> diff --git a/drivers/platform/x86/lenovo/wmi-other.c b/drivers/platform/x86/lenovo/wmi-other.c
->>> index bd64e7b44669db684145298ae088dd2c7f539d29..827b4215c612fbfc052bbadff0672e68e65517f0 100644
->>> --- a/drivers/platform/x86/lenovo/wmi-other.c
->>> +++ b/drivers/platform/x86/lenovo/wmi-other.c
->>> @@ -27,13 +27,16 @@
->>>   */
->>>  
->>>  #include <linux/acpi.h>
->>> +#include <linux/atomic.h>
->>>  #include <linux/bitfield.h>
->>>  #include <linux/cleanup.h>
->>>  #include <linux/component.h>
->>>  #include <linux/container_of.h>
->>> +#include <linux/debugfs.h>
->>>  #include <linux/device.h>
->>>  #include <linux/export.h>
->>>  #include <linux/firmware_attributes.h>
->>> +#include <linux/fs.h>
->>>  #include <linux/gfp_types.h>
->>>  #include <linux/hwmon.h>
->>>  #include <linux/idr.h>
->>> @@ -41,9 +44,12 @@
->>>  #include <linux/kobject.h>
->>>  #include <linux/limits.h>
->>>  #include <linux/module.h>
->>> +#include <linux/mutex.h>
->>>  #include <linux/platform_profile.h>
->>>  #include <linux/power_supply.h>
->>> +#include <linux/slab.h>
->>>  #include <linux/types.h>
->>> +#include <linux/uaccess.h>
->>>  #include <linux/wmi.h>
->>>  
->>>  #include <acpi/battery.h>
->>> @@ -90,6 +96,8 @@ enum lwmi_feature_id_psu {
->>>  
->>>  #define LWMI_FEATURE_VALUE_GET 17
->>>  #define LWMI_FEATURE_VALUE_SET 18
->>> +#define LWMI_DATA_PACKAGE_GET 99
->>> +#define LWMI_DATA_PACKAGE_INPUT_MAX 100
->>>  
->>>  #define LWMI_FAN_ID_BASE 1
->>>  #define LWMI_FAN_NR 4
->>> @@ -141,6 +149,8 @@ struct lwmi_om_priv {
->>>  	struct device *fw_attr_dev;
->>>  	struct kset *fw_attr_kset;
->>>  	struct wmi_device *wdev;
->>> +	struct dentry *debugfs_dir;
->>> +	atomic_t package_opened;
->>>  	int ida_id;
->>>  
->>>  	struct lwmi_fan_info fan_info[LWMI_FAN_NR];
->>> @@ -156,6 +166,23 @@ struct lwmi_om_priv {
->>>  	bool bh_registered;
->>>  };
->>>  
->>> +struct lwmi_package_response {
->>> +	__le32 data_size;
->>> +	u8 data[];
->>> +};
->>
->> Even though there is no gap between data_size and data, please add a
->> __packed annotation to clearly indicate your intent.
->>
->>> +
->>> +struct lwmi_package_file {
->>> +	struct lwmi_om_priv *priv;
->>> +	/* Protects the pending response on shared descriptors. */
->>> +	struct mutex lock;
->>> +	struct lwmi_package_response *response;
->>> +	size_t response_len;
->>> +};
->>> +
->>> +static bool enable_get_data_by_package;
->>> +module_param(enable_get_data_by_package, bool, 0400);
->>> +MODULE_PARM_DESC(enable_get_data_by_package, "Enable the GetDataByPackage debugfs interface");
->>> +
->>>  /*
->>>   * Visibility of fan channels:
->>>   *
->>> @@ -1611,6 +1638,174 @@ static void lwmi_om_fw_attr_remove(struct lwmi_om_priv *priv)
->>>  
->>>  /* ======== Self (master: lenovo-wmi-other) ======== */
->>>  
->>> +static int lwmi_package_open(struct inode *inode, struct file *file)
->>> +{
->>> +	struct lwmi_om_priv *priv = inode->i_private;
->>> +	struct lwmi_package_file *state __free(kfree) = NULL;
->>
->> The declarations of __free() pointers should be placed at where it's
->> allocated, i.e., ...
->>
->>> +
->>> +	if ((file->f_mode & (FMODE_READ | FMODE_WRITE)) != (FMODE_READ | FMODE_WRITE))
->>> +		return -EINVAL;
->>> +
->>> +	state = kzalloc_obj(*state);
->>
->> ...here.
->>
->> Meanwhile, opening the file while priv->package_opened == 1 allocates
->> memory in vain. Could you move it below the package_opened check? In this
->> manner you don't need the __free() either.
->>
->>> +	if (!state)
->>> +		return -ENOMEM;
->>> +
->>> +	if (atomic_cmpxchg(&priv->package_opened, 0, 1))
->>
->> atomic_cmpxchg_acquire()
->>
->>> +		return -EBUSY;
->>> +
->>> +	mutex_init(&state->lock);
->>> +	state->priv = priv;
->>> +	file->private_data = no_free_ptr(state);
->>> +
->>> +	return stream_open(inode, file);
->>> +}
->>> +
->>> +static int lwmi_package_release(struct inode *inode, struct file *file)
->>> +{
->>> +	struct lwmi_package_file *state = file->private_data;
->>> +	struct dentry *dentry = file->f_path.dentry;
->>> +
->>> +	kfree_sensitive(state->response);
->>
->> You didn't explain what data it is in your replies. "Can contain
->> sensitive data" is not an acceptable explanation.
->>
->> Please grep the occurrence of kfree_sensitive() in the kernel tree, and
->> you'll find that they are mostly credentials. Does the data passed by the
->> interface fall into the same category? 
->>
->> TBH, anything goes through WMI is *never* secret. If a manufacturer ever
->> decided to use it to deliver "sensitive" data, it either misunderstood
->> the word or chose the wrong interface.
->>
->> An ACPI-WMI method goes through the ACPICA, then the WMI core, and
->> finally here. The former two's temporary buffers are either on stack or
->> freed by the vanilla kfree(). If leaking "sensitive" response were really
->> a concern, it must had been leaked before it reached your code.
->>
->> Please don't use kfree_sensitive() unless you really understand the data
->> flow path and have a strong reason to use it. If you insist on it, please
->> answer both questions.
->>
->>> +	mutex_destroy(&state->lock);
->>> +
->>> +	/* Unlike read and write, release can run after debugfs removal. */
->>
->> The comment is not helpful, as it's just repeating well-known knowledge.
->> Please explain what it protects:
->>
->>    The release() callback may be called after state->priv has been freed.
->>    Only when the debugfs file hasn't been removed is the pointer valid.
->>
->>> +	if (!debugfs_file_get(dentry)) {
->>> +		atomic_set(&state->priv->package_opened, 0);
->>
->> atomic_set_release()
->>
->>> +		debugfs_file_put(dentry);
->>> +	}
->>> +
->>> +	kfree(state);
->>> +	return 0;
->>> +}
->>> +
->>> +static int lwmi_package_invoke(struct lwmi_package_file *state, u8 *data)
->>> +{
->>> +	struct lwmi_om_priv *priv = state->priv;
->>> +	struct wmi_buffer input = { .length = LWMI_DATA_PACKAGE_INPUT_MAX, .data = data };
->>> +	struct wmi_buffer output;
->>> +	u32 data_size;
->>> +	int ret;
->>> +
->>> +	lockdep_assert_held(&state->lock);
->>> +
->>> +	/* The tested firmware needs two calls before its response is usable. */
->>> +	ret = wmidev_invoke_method(priv->wdev, 0, LWMI_DATA_PACKAGE_GET,
->>> +				   &input, &output, 0);
->>> +	if (ret)
->>> +		return ret;
->>> +
->>> +	kfree_sensitive(output.data);
->>> +
->>> +	ret = wmidev_invoke_method(priv->wdev, 0, LWMI_DATA_PACKAGE_GET,
->>> +				   &input, &output, sizeof(struct lwmi_package_response));
->>> +	if (ret)
->>> +		return ret;
->>> +
->>> +	struct lwmi_package_response *response __free(kfree_sensitive) = output.data;
->>> +
->>> +	data_size = le32_to_cpu(response->data_size);
->>> +	if (data_size > output.length - sizeof(*response))
->>
->> Why not use struct_size() here? Considering that...
->>
->>> +		return -EPROTO;
->>> +
->>> +	state->response_len = struct_size(response, data, data_size);
->>
->> ...you've used it here, you may introduce a on-stack variable to
->> temporarily store the calculated size and use it here and there.
->>
->>> +	state->response = no_free_ptr(response);
->>> +	return 0;
->>> +}
->>> +
->>> +static ssize_t lwmi_package_write(struct file *file, const char __user *buffer,
->>> +				  size_t count, loff_t *ppos)
->>> +{
->>> +	struct lwmi_package_file *state = file->private_data;
->>> +	u8 input[LWMI_DATA_PACKAGE_INPUT_MAX] = {};
->>> +	int ret;
->>> +
->>> +	if (!count || count > sizeof(input))
->>> +		return -EINVAL;
->>> +
->>> +	ACQUIRE(mutex_try, state_guard)(&state->lock);
->>> +	if (ACQUIRE_ERR(mutex_try, &state_guard) || state->response)
->>> +		return -EBUSY;
->>
->> I don't think it's a good idea to share the same errno between the two
->> cases.
->>
->> While ACQUIRE_ERR(mutex_try, &state_guard) should return -EBUSY, a
->> pending state->response should return something like -EALREADY or
->> -ENOTEMPTY.
-> 
-> Generally, one should be mostly be returning the error from ACQUIRE_ERR() 
-> for that case.
-> 
-> 	ret = ACQUIRE_ERR(..);
-> 	if (ret)
-> 		return ret;
-> 
-I'll split the two cases: return the error from ACQUIRE_ERR()
-directly, and return a separate -EALREADY for the pending
-state->response case. Thanks!
-
+ index 49510a0957c7..8704b6f71000 100644
+> --- a/drivers/gpu/drm/vkms/vkms_config.h
+> +++ b/drivers/gpu/drm/vkms/vkms_config.h
+> @@ -44,6 +44,7 @@ struct vkms_config {
+>   *
+>   * @link: Link to the others planes in vkms_config
+>   * @config: The vkms_config this plane belongs to
+> + * @name: Name of the plane
+>   * @type: Type of the plane. The creator of configuration needs to ensures that
+>   *        at least one primary plane is present.
+>   * @possible_crtcs: Array of CRTCs that can be used with this plane
+> @@ -56,6 +57,7 @@ struct vkms_config_plane {
+>  	struct list_head link;
+>  	struct vkms_config *config;
+>  
+> +	const char *name;
+>  	enum drm_plane_type type;
+>  	struct xarray possible_crtcs;
+>  	bool default_pipeline;
+> @@ -342,6 +344,39 @@ vkms_config_plane_set_default_pipeline(struct vkms_config_plane *plane_cfg,
+>  	plane_cfg->default_pipeline = default_pipeline;
+>  }
+>  
+> +/**
+> + * vkms_config_plane_set_name() - Set the plane name
+> + * @plane_cfg: Plane to set the name to
+> + * @name: New plane name. The name is copied.
+> + *
+> + * Returns: -ENOMEM if the memory allocation failed, 0 in case of success
+> + */
+> +static inline int __must_check
+> +vkms_config_plane_set_name(struct vkms_config_plane *plane_cfg,
+> +			   const char *name, size_t name_len)
+> +{
+> +	char *new_name;
+> +
+> +	new_name = kmemdup_nul(name, name_len, GFP_KERNEL);
+> +	if (name && !new_name)
+> +		return -ENOMEM;
+> +
+> +	kfree(plane_cfg->name);
+> +	plane_cfg->name = new_name;
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * vkms_config_plane_get_name - Get the plane name
+> + * @plane_cfg: Plane to get the name from
+> + */
+> +static inline const char *
+> +vkms_config_plane_get_name(const struct vkms_config_plane *plane_cfg)
+> +{
+> +	return plane_cfg->name;
+> +}
+> +
+>  /**
+>   * vkms_config_plane_attach_crtc - Attach a plane to a CRTC
+>   * @plane_cfg: Plane to attach
+ 
+Sorry, only noticed this now --one tiny things: this helper is ten lines with an allocation, sitting in a header. coding-style keeps inline under~3 lines, so maybe vkms_config.c is a better home for it? :)
