@@ -1,99 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.42
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795512339;
-	b=ooi2XjIBAOnJswEw8Jo+8Ulb/nB1q830YoCPCngCpBFisOThjAxZbrbeocXzT+DBa4AH
-	 JL3dp7mgVCrm9n6SzaANb44knO4Ynt98xh6HPCb5neIlBErIYUEvj1gSD+pheFYQDAdAj
-	 0C3QpdVMYsU1D0XCj1InMJVzGVAZKK7PgRaRmJ7YYujw3UEVCdzDrXg7ih7M309Ol27v/
-	 pC0ndyyd6vtbzV6nIv30YQ+H+xtbdW0U32sZMAmdo4t+4TjNrA4O1lnuoAiStfi2+bAGB
-	 oDsWZpWWrSRJ+BjI5K2iOPnaa4V74sVvi2bRrHu2r2M52qdBb1HCa6UXPbM3IVUeqLA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795512339;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=JXb4dn1nNHSswo4MgAhXlyqcFgRnxdqawmClYiFfd5o=;
-	b=pUY0NjE4wuXuQJevccCI8MZ4JYvZs62LIhgk284AZXnyAcA5AjiuhVnp9Hpaks4oolPG
-	 vzoQuO/O5ePWL9LLZLd5jDqvD5Uns4kGGCTeiHK8QrXhtjnGfip1Q6EAirUpOXTzKtDXR
-	 DeM260SIYptyufbplKutVS4cIoANCFtiweltfv0OVtjOPtDiCUWWGFBO9+N4UtZbP+8V3
-	 m9aAWLFtHylLyN32bUpHJijRp+yV+6dbbWOm/Uxxu6j9aS6Cn05g1m3UxOMtpyl563Voa
-	 /V+n8g8/LeGFrhoV8rvORhSCC9kb7qs6Os/ajrozdKRsD+4mqyROzjC38JTniJVYNIA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=fZcExJoN;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.42
-Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.17
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795512377;
+	b=BThEB0Hv/zqhFZhLkFLgvWiNBXAkCXuzxWl3WR9NhSaZz8pm+kUjexSh6M9rfGl+SwOu
+	 2ZY4UFuBKUWFAJGuS9V9MJFpasjwhWrx4g0mEyIW14yDTlZv5LUu/v5bpZx7T7R8tJHDw
+	 gte5+1KopyEmpmVeRGS/SQKQXqBrSnPvAYrU3Nw66X5LZ9h6fznlm/21qrg7ty/QJrGeB
+	 dEuNf2OylmLFhSuYLEp0h4OJYiDc6NDtiXa6FKfrGe1Q9cTm+Pec0MOl7sPwPc7ZdzVn2
+	 3/GXlDiEGmuAaLhzFGh2PvG9UAHRYLogfy9WW31VePAgSSR1w6JgdtBFthFG3pH8UpA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795512377;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=G0CLjEUR6sieSy108/yuJLLc9UjQ9a2/uILsI8AYOSI=;
+	b=vVVkoXq7oITbhtwM81OBWFrx3vU6mfLTULIu8DBSexGmlWGrSnT704byq2cRryxz4S/D
+	 BQNKN/XyENnsPeyMe1PBQwt1WzrundLKiA/p1Cwns4yvOJoyOUUXT4UQhRaSDvZ8+vyui
+	 o7pL3WfQ623OQuzVpdTYsI8esCIvz5X38pAcdRVtEJHZ31JCA4vJJB5uLEiOlOk4Yh5HH
+	 SkOMbrHHarx7ZkbgdN9IRi4RCsi2ot97dJjuiH/Qv9rjGxikyd9scnF0wEAE2dQiZvAou
+	 u91jnJ0z3unHUc0LFW0m+m42SBIs8sp0DGrUbFhSlXfIf39Ere/WcrFruqkfZ7sQT4Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=mGJ1ZGm+;
+	arc=none smtp.remote-ip=109.224.244.17
+Received: from mail-24417.protonmail.ch (mail-24417.protonmail.ch [109.224.244.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0EEC606A338
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:25:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0EEC606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70137606A33E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:26:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70137606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=fZcExJoN
-Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6b86bbce3d1so5704330a12.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:25:38 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795512337; cv=none;
-        d=google.com; s=arc-20260327;
-        b=GO+eztNikFFldDhJSH3fAoaAovKcRRgEp/s0a/LFxgaNSwKtlTgFxsWHSsPEPG5b4o
-         Q6I8OwGiQV4/R4XA7+MgPZKy7QKG48G9t5F10ed3mCBbtQl7AAdomalRwspT5bTfUe6q
-         V47c/aCywv67ySdNQEr6fHfAICDsFPO0vhkkWLZknEwzNjW/dy/HjJtIjp5/kpekQL2M
-         3J0mliuDuimEuVMy0uzVFHYLDjMc2DVnny1czeATWc8tLeUijG1+11indc+Zwg2e4wLW
-         55OvXbQn9tQF/aNOAsVnczQX/42X6F6dAg2u6kVKBEsddOxsrFS/jL4/PX4/zLyMzhrV
-         d/lg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=JXb4dn1nNHSswo4MgAhXlyqcFgRnxdqawmClYiFfd5o=;
-        fh=Xp+jEEzLlWXaurwSWfzFlDTEBu6Np8FS0oyW7cSzmSU=;
-        b=JbD4oid4sZG3BZB7sOdvHPxqUbuo2oI8KNn8tqATXiGo2dxQsAf5hTOeYH10GvezmZ
-         yEcdlh1/EekLpdtUkMOQPZBQe01R2BeJ2SeZpo31bm9XBJj1f9pCqPZ3OLKQAkkMVhbq
-         LOJ8bpDOxIXAYpPALGLVPOm21PWpFfnJqdEwm/sxD1cUP1sLcy2sv/6Bv7Z6ZhtYXqyt
-         ASoNvP//kHSB1A73zI28saDau3n8MSTHFM/HUnCLLm/Q3ldsBGBE6MtyYjdOJSNMn7Nn
-         /TxVMiXx2JiSqVomkXvLzoykfIivHu2C1zN/RXE7YWhB9ow0Jz3avyg0WNCfCTiE47r9
-         uz2w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795512337; x=1796117137; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JXb4dn1nNHSswo4MgAhXlyqcFgRnxdqawmClYiFfd5o=;
-        b=fZcExJoNqoCZ2qS09zNQN+zMYUNYjRc/fsv7fnOe6D1afl7iniw4tgy4TB0b/LxGQh
-         eE4lPQvATAW3sdHUCVcaQ3BV/jB61++QymOI3KSjdmd+i3JfzM8zX1GQL5WQqpT/8yQ2
-         6APZTlcrUismevTgl4xD0pRvy6tobNK1VVDmDDOYb6hza5odZyHAhhLNg4PELnvMgYaf
-         XEwitEqs+r6om8zUvUfgAHzZrEkmzFirYZElxNwUkTgNOXAUNLQheDJc+0MQ0xJEcHw9
-         bk33+wx/MT9pH9nynQnw/WHYU6JRYZSZ5RZhUSSeZeodLAa+CV9MNrWfMiQoEMbzkXYG
-         +E+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795512337; x=1796117137;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=JXb4dn1nNHSswo4MgAhXlyqcFgRnxdqawmClYiFfd5o=;
-        b=2UQAvfBL65ifkgLock3oNhiuxeDYAD9JX7S9ngPdjZR2aFhznuWi2roqtRr0qr0yUX
-         g7n9hyKo/AtX9rbW1MAkLAgqjPqQzEKKzzvuv4z55xb3TheB1bZlkLlqBL6XzPd9+Lk/
-         xGo2pAmInQ63qpGjfKWab+vSRLmfuBdtYkJlHfm6eFGvIfNgISNfwdVcPlAPhN8kJazY
-         kmV0+OFYn+WDboxOwvexkQVheQ/66mHYeGNhoeHEI7P0jTD/f2dmK44avPy2oRHGlNmJ
-         UiHczNrkQy2AtWfQWiTIemD58lIm6G1YVHq3A46prFhSBUOXZa3qYYO06nJnF4gGXe7b
-         jRyQ==
-X-Forwarded-Encrypted: i=1; AL+hErFq2CG4MoH3qVe0MZkpeR51mOHLBd1eb5Tc5/F3s8PeX3sk4pk9WpA7HXkp0z26rzpYEL+2xDi4V40z1KE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/+qQsU3+BUBB8KYPL640PrfFOG9cmZW40sk2G1gRcmiHUnosKh
-	krJjVsQH4nP9MjNeMA71RUAPn8sNKNmk/XW94yd5TWBYpB3ZDLT6HNDIsP0G2UXWBCm18M0pQ6T
-	XJ1uHVb5US6Rqtfg+fQv7H/eHTX0/h/HLre5r1F67aQ==
-X-Gm-Gg: AZFdTZeAT5hUp0M5SdMmSNfuajeLCn4b9HeLSKjYFu50SpzTde0i0chkt3i8QMAQoyT
-	qulT7BYZd4zcqvKelJbOUKQy8DK1FWB9bCG+38dWZl4UWk4W/rgyTCYrjCt1a+HBarcu8ys+Ezm
-	DrwJL9YS5S5RIsJ1UmN+VKxL4hZ8atXxF+ofHHAXqWyzn5DECguduccy/42ZvvQeKaAHWbGeV4z
-	5QxfghojwOgVH9SmonQ2T4e6vDgno8mvNBmxrFMVvTT1A5EFZ3Ruv07ft2AvoNTC3GT/KiPDaWP
-	lDKFp6725sJ16FH+s0RCak5iZCg9SOR4Y5Xf2ge23d/81y4TH0Mr4YHS/QInl4bxvD67fQOEo9a
-	6/hmn0IZHsHrkXWN2oRfoHQ3lIMIYufkU6oa+hIke8j/HGvOfbpK7jlAOTSLMGNoREAxkLQ==
-X-Received: by 2002:a05:6402:4004:b0:6ba:6ec7:abed with SMTP id
- 4fb4d7f45d1cf-6ba6ec7ad55mr6346687a12.27.1795512337183; Tue, 24 Nov 2026
- 01:25:37 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=mGJ1ZGm+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795512374; x=1795771574;
+	bh=G0CLjEUR6sieSy108/yuJLLc9UjQ9a2/uILsI8AYOSI=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=mGJ1ZGm+bi/lL6JSJNlZiWJ+YuR18bfYiZaM+GB0jRjTFzFhbhrDnwDgdQf+kdLuZ
+	 g8sINL3+UWqUopVlGTfkaAgVryFdaqD8ElaVYAnwKjRl7s270bXaLk173WF1ew+iXC
+	 E8rUDzcJpwr+UUjb4dXNbVG921z5XyCcXHKAPu0TfBQCly0YKTajGTtzBRVcsL/3O0
+	 bBAvdRcoQgeyHCspm+Eo0sGhCcpHWNMCEFFGzelGGpJDzlCUfotasDEf6P+cJ4E22a
+	 Jbgsn6GdZRwK3nItRrZCFSgCtt7SmHPu/+ZIfUkTMVwe7FwQF9eb0n9MhMYwGVItD3
+	 DCo7UcJb7jGPA==
+Date: Tue, 24 Nov 2026 09:26:08 +0000
+To: Zhiqi Song <songzhiqi1@huawei.com>, Longfang Liu <liulongfang@huawei.com>
+From: Ryan Prinz <rc4d5a@protonmail.com>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, Ryan Prinz <rc4d5a@protonmail.com>
+Subject: [PATCH 1/2] crypto: hisilicon/hpre - fix missing DH/ECDH public key validation
+Message-ID: <20261124092546.1712228-1-rc4d5a@protonmail.com>
+Feedback-ID: 190731814:user:proton
+X-Pm-Message-ID: 042cad42560e0a1f58cf3a4a6b35c71adf09f648
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,147 +61,303 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261121041507.39582-1-qyousef@layalina.io> <20261121041507.39582-2-qyousef@layalina.io>
- <282a3922-91da-4145-94b6-d1a6459b6da6@arm.com> <CAKfTPtAT_gPBMaw_xyjkY4TTEA6+kuPBAAyNvMvT4Uq6T42xkA@mail.gmail.com>
- <8150e8ee-cd2c-41c0-8c5c-3f0c7a087ac2@arm.com>
-In-Reply-To: <8150e8ee-cd2c-41c0-8c5c-3f0c7a087ac2@arm.com>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Tue, 24 Nov 2026 10:25:25 +0100
-X-Gm-Features: Aa3M54pVdept4kdX7HHBllIz8kqrPzLIaPZt02LIaLWRdtx5aoumIey6uCHyqw8
-Message-ID: <CAKfTPtA87Zm-6DLav2wm1TOZJuoQeZV0AE-ytCnvez=4gmu_fA@mail.gmail.com>
-Subject: Re: [PATCH v6 1/3] sched/uclamp: Fix race condition leading to
- imbalanced uclamp_rq
-To: Christian Loehle <christian.loehle@arm.com>
-Cc: Qais Yousef <qyousef@layalina.io>, Ingo Molnar <mingo@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, John Stultz <jstultz@google.com>, linux-kernel@vger.kernel.org, 
-	Kayra Cizmeci <kayracizmeci@gmail.com>, Wei Wang <wvw@google.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, 23 Nov 2026 at 19:15, Christian Loehle <christian.loehle@arm.com> wrote:
->
-> On 11/23/26 17:23, Vincent Guittot wrote:
-> > On Mon, 23 Nov 2026 at 15:38, Christian Loehle <christian.loehle@arm.com> wrote:
-> >>
-> >> On 11/21/26 04:15, Qais Yousef wrote:
-> >>> Static keys are not guaranteed to be enabled atomically across CPUs.  Or
-> >>> across callsites on the same CPUs. Which means when sched_uclamp_used is
-> >>> enabled, some CPUs/callsites will return true for uclamp_is_used() while
-> >>> others won't, leading to asymmetric uclamp_rq_{inc, dec}_id. If we
-> >>> decrement without increment this is safe as documented in the code. But
-> >>> an increment without a decrement is a problem and will leave the
-> >>> uclamp_rq in a corrupt state.
-> >>
-> >> So if we only need decrement to work then we can rely on
-> >> p's uclamp_se.active and decrement regardless of uclamp_is_used() and call it
-> >> a day?
-> >
-> > The static key prevents overhead for those who don't use uclamp. It's
-> > a default rule for features like numa, cache aware, eas, uclamp etc to
-> > not impact those who don't use it.
-> > I'm afraid that the executing  uclamp_rq_dec up to
-> > p->uclamp[clamp_id].active will not be free of overhead
->
-> I get why the static branch is there, but as long as p->uclamp[clamp_id].active
-> never changes from 0, like when uclamp is never used, the check should be virtually
-> free on any half-decent branch predictor.
+hpre_dh_compute_value() and hpre_ecdh_compute_value() pass the peer's
+DH/ECDH public value into the hardware queue without checking it
+first. Neither hpre_hw_data_init() nor hpre_ecdh_src_data_init() do
+any validation; they only format and DMA-map the buffer.
 
-The same applies to other features as well and the path includes a for_each
+The generic software implementations this driver falls back to do
+check it: crypto/dh.c's dh_is_pubkey_valid() rejects a DH public value
+outside [2, p-2], and crypto/ecc.c's ecc_is_pubkey_valid_partial()
+rejects an ECDH public point that is zero, out of range, or not on the
+curve. HPRE's hardware-accelerated path is the default/primary path,
+not the fallback, so the DH/ECDH value check is normally skipped
+rather than normally run.
 
-> Also in any case the enqueue path ought to be the expensive part for uclamp.
->
-> I can come back with some numbers though, including the original netperf that
-> introduced the static key.
->
-> >
-> >> See the attached patch.
-> >>
-> >>>
-> >>> The reported case seems to happen due to callsites on the same CPU not
-> >>> seeing the flipped state.
-> >>>
-> >>> Plugging the race is hard as discussed in [1]. Take it for granted and
-> >>> do correction actions on going to idle to guarantee this state is
-> >>> transient for a short period after uclamp_sched_used is enabled.
-> >>>
-> >>> [1] https://lore.kernel.org/lkml/CANDhNCqyXsZ6G77z+9s=rTO6BZifRG9+hVxMTah+tAv6pB6h3w@mail.gmail.com/
-> >>>
-> >>> Reported-by: Wei Wang <wvw@google.com>
-> >>> Signed-off-by: Qais Yousef <qyousef@layalina.io>
-> >>> ---
-> >>>  kernel/sched/core.c  |  2 +-
-> >>>  kernel/sched/idle.c  | 19 +++++++++++++++++++
-> >>>  kernel/sched/sched.h |  3 +++
-> >>>  3 files changed, 23 insertions(+), 1 deletion(-)
-> >>>
-> >>> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-> >>> index d7c3b43158dea..c6780358a7975 100644
-> >>> --- a/kernel/sched/core.c
-> >>> +++ b/kernel/sched/core.c
-> >>> @@ -2111,7 +2111,7 @@ static void uclamp_post_fork(struct task_struct *p)
-> >>>       uclamp_update_util_min_rt_default(p);
-> >>>  }
-> >>>
-> >>> -static void __init init_uclamp_rq(struct rq *rq)
-> >>> +void init_uclamp_rq(struct rq *rq)
-> >>>  {
-> >>>       enum uclamp_id clamp_id;
-> >>>       struct uclamp_rq *uc_rq = rq->uclamp;
-> >>> diff --git a/kernel/sched/idle.c b/kernel/sched/idle.c
-> >>> index 76f3c84ca6846..84301fc49e699 100644
-> >>> --- a/kernel/sched/idle.c
-> >>> +++ b/kernel/sched/idle.c
-> >>> @@ -502,6 +502,25 @@ static void set_next_task_idle(struct rq *rq, struct task_struct *next, enum snt
-> >>>        * lost_idle_time of clock_pelt
-> >>>        */
-> >>>       update_idle_rq_clock_pelt(rq);
-> >>> +
-> >>> +     /*
-> >>> +      * Due to a race condition when enabling sched_uclamp_used static key,
-> >>> +      * we can end up with imbalance where uclamp_rq_inc_id() has happened
-> >>> +      * on a CPU without uclamp_rq_dec_id() on another CPU that hasn't seen
-> >>> +      * the static key flipped. The race condition is unlikely, but ensure
-> >>> +      * the uclamp_rq() state is set properly on each entry to idle.
-> >>> +      *
-> >>> +      * The reset will cause the uclamp_max from uclamp_idle_value() to be
-> >>> +      * lost. Since we are imbalanced, hard to know what is right. So just
-> >>> +      * cleanup. This should be a transient error state once we recover
-> >>> +      * everything should work as expected.
-> >>> +      *
-> >>> +      * We need to be careful of some paths that can force idle with tasks
-> >>> +      * are still queued.
-> >>
-> >> It wouldn't hurt spelling these paths out IMO.
-> >>
-> >>> +      */
-> >>> +     if (uclamp_is_used() &&
-> >>> +         !rq->nr_running && unlikely(!uclamp_rq_is_idle(rq)))
-> >>> +             init_uclamp_rq(rq);
-> >>
-> >> I guess this means init_uclamp_rq() will need to use WRITE_ONCE() for .value at least?
-> >>
-> >>>  }
-> >>>
-> >>>  struct task_struct *pick_task_idle(struct rq *rq, struct rq_flags *rf)
-> >>> diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-> >>> index 7d2ec527b8a25..d87bdbd2121df 100644
-> >>> --- a/kernel/sched/sched.h
-> >>> +++ b/kernel/sched/sched.h
-> >>> @@ -3704,6 +3704,7 @@ static inline unsigned long cpu_util_rt(struct rq *rq)
-> >>>  #ifdef CONFIG_UCLAMP_TASK
-> >>>
-> >>>  unsigned long uclamp_eff_value(struct task_struct *p, enum uclamp_id clamp_id);
-> >>> +void init_uclamp_rq(struct rq *rq);
-> >>>
-> >>>  /*
-> >>>   * When uclamp is compiled in, the aggregation at rq level is 'turned off'
-> >>> @@ -3802,6 +3803,8 @@ uclamp_eff_value(struct task_struct *p, enum uclamp_id clamp_id)
-> >>>       return SCHED_CAPACITY_SCALE;
-> >>>  }
-> >>>
-> >>> +static inline void init_uclamp_rq(struct rq *rq) {}
-> >>> +
-> >>>  static inline bool uclamp_rq_is_capped(struct rq *rq) { return false; }
-> >>>
-> >>>  static inline bool uclamp_is_used(void)
->
+Both algorithms are registered under their generic crypto_kpp names
+("dh", "ecdh-nist-p192/256/384"), so any caller requesting those names
+gets this unvalidated path whenever the hardware is present.
+Two in-tree callers are affected:
+
+- drivers/nvme/common/auth.c requests "ffdheNNNN(dh)" for NVMe-oF's
+  in-band DH-HMAC-CHAP authentication, used by both
+  drivers/nvme/host/auth.c and drivers/nvme/target/auth.c. Forcing the
+  derived session key Ks to a known value lets an attacker who holds
+  a handshake transcript perform an offline brute-force attack against
+  the pre-shared key, which is what the DH exchange is documented to
+  protect against on top of plain CHAP. With bidirectional
+  authentication enabled, an attacker can obtain a transcript by
+  connecting to the target directly and requesting it without valid
+  credentials, exposing the target's authentication key
+  (dhchap_ctrl_secret). Cryptographic soundness then relies solely on
+  the strength of the target's key.
+
+- net/bluetooth/smp.c allocates "ecdh-nist-p256" for LE Secure
+  Connections pairing and performs no validation of the remote
+  device's public key before calling compute_shared_secret(); it
+  relies on the crypto_kpp backend. A peer can send an invalid public
+  key and force the resulting DHKey to one of a small number of
+  predictable values in a single pairing attempt.
+
+Fixed by validating the peer-supplied value before it reaches the
+hardware queue, in both compute_value() functions: for DH, rejecting
+any value outside [2, p-2]; for ECDH, reusing ecc_is_pubkey_valid_partial()
+after converting the raw big-endian coordinates HPRE already works
+with into the digit form that function expects.
+
+Sashiko's automated review of this patch also flagged a related,
+pre-existing heap overflow in hpre_ecdh_src_data_init() that this
+patch doesn't touch; it's fixed separately in 2/2 of this series.
+
+Fixes: c8b4b477079d ("crypto: hisilicon - add HiSilicon HPRE accelerator")
+Fixes: 05e7b906aa7c ("crypto: hisilicon/hpre - add 'ECDH' algorithm")
+Signed-off-by: Ryan Prinz <rc4d5a@protonmail.com>
+---
+v2:
+ - Fixed a bug Sashiko's automated review found: ctx->key_sz is the
+   hardware slot width, not the curve's own coordinate size (HPRE
+   pads P-192's 24-byte coordinates into the 32-byte P-256 slot), so
+   reading ecc_swap_digits() from the start of that padded region
+   shifted every P-192 coordinate and rejected every valid P-192
+   public key, including testmgr's self-test.
+ - Fixed a second bug Sashiko's review found: ecc_alloc_point()
+   allocates with GFP_KERNEL unconditionally, which could sleep in a
+   context where CRYPTO_TFM_REQ_MAY_SLEEP is clear. Switched to a
+   stack-allocated ecc_point via ECC_POINT_INIT(), which removes the
+   allocation (and the sleep question) entirely.
+ - Fixed a third bug found during further review of the above fix:
+   for P-192, the extra bytes between the caller's half-width and the
+   curve's own 24-byte coordinate size were accepted without checking
+   they were zero. A value with non-zero content there is wider than
+   P-192's prime once it reaches the hardware at its full submitted
+   width, which is the out-of-range case this patch fixes. Now
+   rejected unless those extra bytes are zero.
+ - Resent as a new thread rather than a reply to the v1 thread.
+
+No HiSilicon HPRE hardware was available to reproduce this. Verified
+by building the modified driver
+(along with crypto/dh.c, crypto/ecc.c, crypto/ecdh.c and crypto/kpp.c)
+against an unmodified kernel tree, confirming the module compiles and
+links cleanly with no new warnings; and separately verifying the new
+DH range check's byte-buffer arithmetic in a standalone test exercising
+the boundary values 0, 1, 2, p-2, p-1 and p, which all produced the
+expected accept/reject result. The ECDH fix reuses
+ecc_is_pubkey_valid_partial() unmodified; a separate standalone test
+confirmed its zero-padding of a shorter-than-full-length coordinate
+produces the same byte layout as hpre_ecdh_src_data_init()'s existing
+shift-based padding. A third standalone test confirmed the
+coordinate-extraction offset correctly accounts for curves whose
+coordinate size differs from the hardware slot width (P-192's 24-byte
+coordinates inside the 32-byte P-256 slot), while P-256 and P-384
+(where the two sizes already match) are unaffected. A fourth
+standalone test confirmed the new gap-byte check rejects a crafted
+P-192 value with a non-zero byte outside its real 24-byte coordinate
+while still accepting both a plain 24-byte encoding and a caller
+zero-padded out to the full 32-byte slot.
+
+AI Disclosure: An AI assistant was used to assist with the
+analysis and testing. I have verified the vulnerability, the fix, and
+the test results myself and take responsibility for this contribution,
+per Documentation/process/coding-assistants.rst.
+
+ drivers/crypto/hisilicon/hpre/hpre_crypto.c | 144 ++++++++++++++++++++++++=
++++
+ 1 file changed, 144 insertions(+)
+
+diff --git a/drivers/crypto/hisilicon/hpre/hpre_crypto.c b/drivers/crypto/h=
+isilicon/hpre/hpre_crypto.c
+index 66a276786a7d..80666bb71508 100644
+--- a/drivers/crypto/hisilicon/hpre/hpre_crypto.c
++++ b/drivers/crypto/hisilicon/hpre/hpre_crypto.c
+@@ -4,6 +4,7 @@
+ #include <crypto/dh.h>
+ #include <crypto/ecc_curve.h>
+ #include <crypto/ecdh.h>
++#include <crypto/internal/ecc.h>
+ #include <crypto/rng.h>
+ #include <crypto/internal/akcipher.h>
+ #include <crypto/internal/kpp.h>
+@@ -471,6 +472,69 @@ static int hpre_send(struct hpre_ctx *ctx, struct hpre=
+_sqe *msg)
+ =09return ret;
+ }
+
++/* Returns true iff 2 <=3D y <=3D p - 2, given big-endian buffers of key_s=
+z bytes. */
++static bool hpre_dh_pubkey_in_range(const u8 *y, const u8 *p_minus_1,
++=09=09=09=09    unsigned int key_sz)
++{
++=09bool is_zero_or_one =3D true;
++=09unsigned int i;
++
++=09for (i =3D 0; i < key_sz - 1; i++) {
++=09=09if (y[i]) {
++=09=09=09is_zero_or_one =3D false;
++=09=09=09break;
++=09=09}
++=09}
++
++=09if (is_zero_or_one && y[key_sz - 1] <=3D 1)
++=09=09return false;
++
++=09return memcmp(y, p_minus_1, key_sz) < 0;
++}
++
++static int hpre_dh_peer_pubkey_valid(struct hpre_ctx *ctx,
++=09=09=09=09     struct scatterlist *src,
++=09=09=09=09     unsigned int src_len, gfp_t gfp)
++{
++=09unsigned int key_sz =3D ctx->key_sz;
++=09u8 *p_minus_1, *y;
++=09size_t copied;
++=09int i, ret =3D 0;
++
++=09if (!src_len || src_len > key_sz)
++=09=09return -EINVAL;
++
++=09y =3D kzalloc(key_sz, gfp);
++=09if (!y)
++=09=09return -ENOMEM;
++
++=09copied =3D sg_copy_to_buffer(src, sg_nents_for_len(src, src_len),
++=09=09=09=09   y + (key_sz - src_len), src_len);
++=09if (copied !=3D src_len) {
++=09=09ret =3D -EINVAL;
++=09=09goto free_y;
++=09}
++
++=09p_minus_1 =3D kmemdup(ctx->dh.xa_p + key_sz, key_sz, gfp);
++=09if (!p_minus_1) {
++=09=09ret =3D -ENOMEM;
++=09=09goto free_y;
++=09}
++
++=09for (i =3D key_sz - 1; i >=3D 0; i--) {
++=09=09if (p_minus_1[i]-- !=3D 0)
++=09=09=09break;
++=09}
++
++=09if (!hpre_dh_pubkey_in_range(y, p_minus_1, key_sz))
++=09=09ret =3D -EINVAL;
++
++=09kfree(p_minus_1);
++free_y:
++=09kfree(y);
++=09return ret;
++}
++
+ static int hpre_dh_compute_value(struct kpp_request *req)
+ {
+ =09struct crypto_kpp *tfm =3D crypto_kpp_reqtfm(req);
+@@ -485,6 +549,15 @@ static int hpre_dh_compute_value(struct kpp_request *r=
+eq)
+ =09=09return ret;
+
+ =09if (req->src) {
++=09=09gfp_t gfp =3D hpre_req->flags & CRYPTO_TFM_REQ_MAY_SLEEP ?
++=09=09=09    GFP_KERNEL : GFP_ATOMIC;
++
++=09=09ret =3D hpre_dh_peer_pubkey_valid(ctx, req->src, req->src_len, gfp);
++=09=09if (unlikely(ret)) {
++=09=09=09dev_err(ctx->dev, "invalid peer public key, ret =3D %d!\n", ret);
++=09=09=09return ret;
++=09=09}
++
+ =09=09ret =3D hpre_hw_data_init(hpre_req, req->src, req->src_len, 1, 1);
+ =09=09if (unlikely(ret))
+ =09=09=09goto clear_all;
+@@ -1526,6 +1599,71 @@ static int hpre_ecdh_dst_data_init(struct hpre_asym_=
+request *hpre_req,
+ =09return 0;
+ }
+
++static int hpre_ecdh_peer_pubkey_valid(struct hpre_ctx *ctx,
++=09=09=09=09       struct scatterlist *src,
++=09=09=09=09       unsigned int src_len)
++{
++=09const struct ecc_curve *curve =3D ecc_get_curve(ctx->curve_id);
++=09unsigned int nbytes =3D ctx->key_sz;
++=09unsigned int half =3D src_len >> 1;
++=09u8 coord_buf[2 * ECC_MAX_BYTES] =3D { };
++=09u64 x[ECC_MAX_DIGITS], y[ECC_MAX_DIGITS];
++=09struct ecc_point pk;
++=09unsigned int cbytes;
++=09size_t copied;
++
++=09if (!curve)
++=09=09return -EINVAL;
++
++=09/* ctx->key_sz is the hardware slot width, not the curve's own
++=09 * coordinate size: HPRE pads P-192 (24-byte coordinates) out to
++=09 * the wider 32-byte P-256 slot.
++=09 */
++=09cbytes =3D curve->g.ndigits << ECC_DIGITS_TO_BYTES_SHIFT;
++=09if (cbytes > nbytes)
++=09=09return -EINVAL;
++
++=09/*
++=09 * Src_data is gx and gy concatenated, each zero-padded up to
++=09 * nbytes, matching the convention hpre_ecdh_src_data_init() uses
++=09 * for the hardware submission path.
++=09 */
++=09if (!half || half > nbytes || 2 * nbytes > sizeof(coord_buf))
++=09=09return -EINVAL;
++
++=09copied =3D sg_pcopy_to_buffer(src, sg_nents_for_len(src, src_len),
++=09=09=09=09    coord_buf + (nbytes - half), half, 0);
++=09if (copied !=3D half)
++=09=09return -EINVAL;
++
++=09copied =3D sg_pcopy_to_buffer(src, sg_nents_for_len(src, src_len),
++=09=09=09=09    coord_buf + nbytes + (nbytes - half),
++=09=09=09=09    half, half);
++=09if (copied !=3D half)
++=09=09return -EINVAL;
++
++=09/*
++=09 * If half is wider than the curve's own coordinate size (only
++=09 * possible for P-192 inside the wider P-256 slot), the extra
++=09 * leading bytes of each half must be zero, or this isn't a
++=09 * value this curve can represent.
++=09 */
++=09if (half > cbytes &&
++=09    (memchr_inv(coord_buf + (nbytes - half), 0, half - cbytes) ||
++=09     memchr_inv(coord_buf + nbytes + (nbytes - half), 0, half - cbytes)=
+))
++=09=09return -EINVAL;
++
++=09/*
++=09 * Extract each coordinate's cbytes-wide value from the end of
++=09 * its nbytes-wide zero-padded region.
++=09 */
++=09ecc_swap_digits(coord_buf + (nbytes - cbytes), x, curve->g.ndigits);
++=09ecc_swap_digits(coord_buf + nbytes + (nbytes - cbytes), y, curve->g.ndi=
+gits);
++=09pk =3D ECC_POINT_INIT(x, y, curve->g.ndigits);
++
++=09return ecc_is_pubkey_valid_partial(curve, &pk);
++}
++
+ static int hpre_ecdh_compute_value(struct kpp_request *req)
+ {
+ =09struct crypto_kpp *tfm =3D crypto_kpp_reqtfm(req);
+@@ -1543,6 +1681,12 @@ static int hpre_ecdh_compute_value(struct kpp_reques=
+t *req)
+ =09}
+
+ =09if (req->src) {
++=09=09ret =3D hpre_ecdh_peer_pubkey_valid(ctx, req->src, req->src_len);
++=09=09if (unlikely(ret)) {
++=09=09=09dev_err(dev, "invalid peer public key, ret =3D %d!\n", ret);
++=09=09=09return ret;
++=09=09}
++
+ =09=09ret =3D hpre_ecdh_src_data_init(hpre_req, req->src, req->src_len);
+ =09=09if (unlikely(ret)) {
+ =09=09=09dev_err(dev, "failed to init src data, ret =3D %d!\n", ret);
+--
+2.51.2
+
