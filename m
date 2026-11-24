@@ -1,75 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795504861;
-	b=EPtAqntb2XcUYVMua5wxGr2/1YjARRuqeCiCe8BjgDuNgqeVhguCBxJmH1gBNK9fgQgM
-	 cE+LoTGwc0KrKHBRSPV31Aul6FUgEN1refDEs//V6YsvoCCih0tEbiTTBh9DWrlrbkFpG
-	 A6pnJYO80LG6FX8xM4NJ79sQMhadQfVSahXQuDExOpNvaBiyhZ9Uk31wR5A/0YbCHjHoD
-	 87Endw7t8invg+eHghfdCzkZG+ljbIiR8NLDoPUjB+8oaa7lx3dABUXXLYC+YS/tMfIye
-	 Fs5rtUI4XxdSd8T7fjrSM2c/UBWYvgHL032J+Qj+cIHb03h0y5PZGVUKOVEF52ypiKg==
+	t=1795504892;
+	b=vPUUBLSmWbSY+1uiEauil+8zt/XhIYspX5emV5tCRIoBn5NxYPiCr0VgXrYQiYmfwYhg
+	 acss7VeutVO8tgP2CslZ4iXgXTIIE7U5RtxFR3Grahoh/3UO99CvT6fx8S3dvcFoxC7NN
+	 mLf4EjK6hjvC6pxVt+3jMah3HmX/vdCQqyl13JDd1ddB6xblQqr2dbeyktEmZ3SdigCyR
+	 4xey+zbxvX0CnxUUwGFVUpyeGsTJ8Z1KbH4HmDtPRr21w0nQzG8m1vJl2neVoNlwQJBIg
+	 nWY4+byRZwlu+fFZYJKmy2s3wIC1lXZmCejkVYnyiJN3ge3NcYavb/6nhif4Wo0gzeA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795504861;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:To:
-	 Content-Language:From:Subject:Cc:Content-Type:
-	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=KkucrrMGhNWaZWvXJ19J79HJANRtIXVtP9s7lZdVBZ0=;
-	b=MPoHqVKnn2ChQ0GZnBe7s2iWZKL0Ll/ric1QK24mbRYTCgMQnpi1liYa1YeWakyKsOYl
-	 PrFJ1ukA/DU5zSE7GlxOsYIUW29qHtTaiw3ZoN0fTGtFkGyiDC0Ymwx3LcSQMH+bC38Gn
-	 JF1fXX+FO7m7dIMPNIJfCZtVT2oM/K2apiQn4h0A+X34f3haIkyhOVHNIgOfkQW4wPvY6
-	 wf0y9BZ5inAy6O3D3uE6Ng7UjqtA/vPtqKm9u/HrGuSZIxQDuyHNlCOHjMKUYubUJ66M1
-	 QhWeYGjQuqF64BvRXbJj+Ffy6Em4vFOh+IHBLwyuoJ7VCJqcST/E6earCAbkglc+03A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795504892;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=PCjWFrTzcH/5+g/DYitpRwbKVv1E+Kbizes69WQjlhI=;
+	b=r1SvLc9o4aCo6CmKKhPSYrYrhBstJg+HVp/9RxokADIeHAvjcqP6Aeh1Uipfs5Sbtzln
+	 Hf3gOMRqQAXnWF7wnyEQ6j8dm08/I6Yb395rTn2Fz9+28knCd9xC8Ae0DsSkoM1l1/5Ve
+	 3wpRbLX7AFQIzGitiWGdZHA/C/5VVXmVUxxfKrGAZ9H4RIU+aDnUXmynZAYuT0HCUR1vo
+	 3tmIrYVrQo1GlCmhvi3Y1FVN7B8c8zVz7wy1PQEzeo1CYICjiEP1ErOLTcIQRPt4irwVE
+	 C+0QsYWXGMRzlJOhztYXJCd1C/M3YHvJPJEx8wBpAHBvBvdXoUyFoQbI7dy3dMVrFDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=web.de;
-	spf=pass smtp.mailfrom=web.de;
-	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=X1h8FHwf;
-	arc=none smtp.remote-ip=212.227.17.11
-Received: from mout.web.de (mout.web.de [212.227.17.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=layalina.io;
+	spf=pass smtp.mailfrom=layalina.io;
+	dkim=pass header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=S51S1Jld;
+	arc=none smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07006606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:21:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07006606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1748606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:21:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1748606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=layalina.io
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=layalina.io
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=X1h8FHwf
-DKIM2-Signature:  i=1; m=1; t=1795504859;
- mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=web.de;
- s=s29768273:rsa-sha256:C5lqmqXxVNX+USCqao+So1OsJL7x
-   Y3I+FdcXAFXQmaNLmjjqcWRUARdJDHEXJaFJE992OOnE6bKfctBlF2EgRsPzPrPqxQx8vRBEazl
-   YejZcGCMSCCJz4WRZFd3eYiOKXkVp3gwGV2JFdqoUXy804h0drtGd0PDd4/DqAVFokbIpO5R/6B
-   5ZXKExEJDoADdo8JmDXbnI7tWKs0z+58mgBfLfTtpcQbeKctVXE0knKg6ildnrstdv6OlX0iqU+
-   YOGTGSnYFUNgFkv9q35AqR5q/T90NcpW7gWNNscPqyN77IRA8TjG71h6nqqcihT2C+RrstiG8Pd
-   crY8jAxU3HPv0A==;
-Message-Instance:  m=1;
- h=sha256:
-   DdZlVpehT64f0d8IdwhV/aXNE1YZ99rKOhhFrLNAfUo=:
-   /D2s6nZJY45tqinpPXC3SLDJfDgpNRYsTifkJPYsgKA=,
-  sha512:
-   0l9PEeqI7qTg/j3To6afVCfEY0/6o8ylNJEQ4uktAdwXqPRW7ZWxrXoyox0c4w3t9cNyVzxkMgYzRr5wJ6fDTQ==:
-   QfQGqiKu1UjvkyC626c4AEiqAkqxJtiOiSn4OVjlhbZ7hsJ8zRrwL4xQKV4Cv5afFOtPS6F85qlA+xXRypngIg==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1795504826; x=1796109626; i=markus.elfring@web.de;
-	bh=KkucrrMGhNWaZWvXJ19J79HJANRtIXVtP9s7lZdVBZ0=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:From:Subject:
-	 Cc:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=X1h8FHwfdKP1NIYZo1A3759DCaQ1LkTtOsp+uPNLepm2hjdIaVYVo4XFq4AQY51h
-	 44THzZI3SDvvw5sUkp6UJILRnbLvaMdMfE7chcTdRHzdeVM3WGtK1Wkm4ZudDyTQS
-	 OUZgOl+PqZnxSb7Aukpk9Js+49BH0jyyjCXMtqnaeKXSnVDBGllfM8Ov2tvroqEEW
-	 hVd6itjeuBHSjgnZPci7fKvbUVlt+C+cSYp59ZaQiAy1UUmf1t3MaGjyRNZ5M59mp
-	 QB51tkbXQkfdr5cF4s9TVnUPlflJLaq1rAgOGl/HBOfsC5scs5rUcJts1IO/FDLeP
-	 fBJfx0M7A5AoSOL0BQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1N79RG-1yb03K0oPc-017v8M; Tue, 24
- Nov 2026 08:20:26 +0100
-Message-ID: <d16d0991-d1d7-4828-8e05-8d8826cbb222@web.de>
-Date: Tue, 24 Nov 2026 08:20:10 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=S51S1Jld
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb64c99d2fso40279735e9.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:21:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=layalina-io.20260707.gappssmtp.com; s=20260707; t=1795504890; x=1796109690; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=PCjWFrTzcH/5+g/DYitpRwbKVv1E+Kbizes69WQjlhI=;
+        b=S51S1Jld0TYnr89GRp/iWdDMGu9TpSFHjWKykoRbZ7+WO2jx7FQGz26JMxFdymzvgu
+         l8A53IIdtheV0n/D+fcJfAByUTs8XGBpOfLuaL8kDK9rOvIrQhcQjcVrTMOpSU189ZK5
+         s9Qek/O5dtH/W74CaQqrLlrpDxzav/Qc5WcRovpAQIJMXmRnzB4RiOk0To3zQYIkoQJe
+         EOsbT3od9fg+w7QykqP+mciV9gAFCO971qH35AhvUev6ik4GrFatYvmNyvUUQkudNB1T
+         VubOG004QnZzHavwN80d/4ZKnAnJhP4EbMfFSux7oc3R0Zd0F7zyFZZyDk1k4bPEelP+
+         3EWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795504890; x=1796109690;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PCjWFrTzcH/5+g/DYitpRwbKVv1E+Kbizes69WQjlhI=;
+        b=rXm8Xp8wFeHZFdwmyqe3cyADlpDrhaU/j1pdFwtQ2Ywn+THhoQdJlNLxHyrl681Jvq
+         vRhOi6fzi5n6NxxurreCtYvf1Cs2WFwUsAQLh2rw07B4BEY5xq/R49vz2gzbITYoHJiH
+         5138eyxkFpGEkpEPa03goyiTBAF/GHbajQLu8oMylBjgeUaLnOVVqTPcTyN5TBfUppK7
+         P+7nYZrPBmoLLAoQXZ9+WOpJ6G5f5t3M5yBb6Pr5KvJeGqXw1uWs4R1pPoKA+x58k5Op
+         7oVgcn77ERJ0KeveVojgr27iWRYan1uiJfRlbVgG43pQ243scTAebMdTTPbz5zR0/6qf
+         gJ/Q==
+X-Forwarded-Encrypted: i=1; AL+hErHMwT7aXOpP+7M4IUt4Go9PeT3q7PQCzRuL+jNrnKfjSQddBrv7BjrYaFusbdy71HYdcWNfNkmuqhtyoj4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8W9RS0ebBQdzwr0Ly3mxkwlYSou7zY6daEjmY9RQeuUG7j/C+z
+	/SeinwbdL0Mr80j3PG29PXTlaPUdmutlmLM2yLxcLl05OirilvrDa/DdsttFyvr3d2Q=
+X-Gm-Gg: AZFdTZfd2/FeMkRqryo727uY/gYXZaPf7Un+fWroI+sSnV+G/jvfcVERRS3ixNplLrh
+	BXymG9hKS6Be9c2C7XVIExXB7qbJ/nSbxf6VUm/8Y7PzaLiv9cngg5U1arVcbt0s3BBSIQk988e
+	wAVRihxmd79mdTtiWV9bMox52oFIXv/Qd5Q+oMT7JKDW6y1u5uImgFfLSWLsMh/+MIS/Crt2Nuk
+	SeJkTOl+bwODBPZcuPlQELzmG9qAwkyowyMKrRt1QvMKL5Bf7FDiUafgM9oLAfMk3y28lQjxKX7
+	9aMotX81ZNYes057Fq/p82q3yZY9vq4wjJb5eBVeKUpkyMxLALPWVvPcbtkDzYucLG8DsNSVRzb
+	eZVurv51ntDNLVqPJOJXRtChMHLha+dpxp76McjIgk6RpcLOE4bJWpR9B2eB4rpguwatl8VA4hb
+	G3TR017ItHC1RD7d8xXEYn1J/4c3OyLKWE7ZlGSzf8/v8b7JMMfROvGVsdZd7N2ESmCIqHLU6vH
+	yoot6sokpO/Zk1PQUaDbhN1w5RDjvkQgTjBfP6Vi54YoXKr45wXYTv3KCPHlscJ9EdIsou12lz3
+	yD1UpKZPQEdrUDh4/MCk1gObbqV0ZlB/mDRra6X3ISG4R/A/TqX9c1NVRMCHU2TKb7tYGns027h
+	vjeIyuQ==
+X-Received: by 2002:a05:600c:4f10:b0:4bb:60bd:5398 with SMTP id 5b1f17b1804b1-4bb88804d35mr310228065e9.10.1795504889562;
+        Mon, 23 Nov 2026 23:21:29 -0800 (PST)
+Received: from aerith (host109-153-232-219.range109-153.btcentralplus.com. [109.153.232.219])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9066e34esm241127015e9.3.2026.11.23.23.21.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 23:21:28 -0800 (PST)
+Date: Tue, 24 Nov 2026 07:21:18 +0000
+From: Qais Yousef <qyousef@layalina.io>
+To: Christian Loehle <christian.loehle@arm.com>
+Cc: Ingo Molnar <mingo@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, John Stultz <jstultz@google.com>, linux-kernel@vger.kernel.org, 
+	Kayra Cizmeci <kayracizmeci@gmail.com>
+Subject: Re: [PATCH v6 0/3] Fix uclamp race against non atomic static key
+ enable
+Message-ID: <awU36OTU45MPn-Lg@aerith>
+References: <20261121041507.39582-1-qyousef@layalina.io>
+ <070726aa-0e91-4d65-b3c5-00df3a180732@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,221 +101,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: linux-rtc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Arnd Bergmann <arnd@arndb.de>, Boris Brezillon <bbrezillon@kernel.org>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Johan Hovold <johan@kernel.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-Subject: [PATCH] rtc: at91sam9: Use devm_clk_get_enabled() in at91_rtc_probe()
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
- Florian Fainelli <f.fainelli@gmail.com>, Frank Li <Frank.Li@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:s603HhO5lWZhxUYLN9rLCOdh4gax4InudVezWexFsE5hq50LgPd
- pJ1yQjp8CeVW682Mwc04vsEwoThCOuQeE1Rw+PXddeOapfNRz5mmcxZDw11ZsV4RCjoIyEE
- eOdFiTfuAn7hRoXlciOj3SESrlz7b+pgeEM6iz7/NS37w1ybT5yeSXuIks1Qsmes/MuVhr+
- 7xREQFUMOqc8rqUGQM9Ew==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:i8BbCHjvpzE=;lsELVmmQqbv6ZQGCivQDptJsXqs
- 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
- ECZKLwAHqlrEdAdbfA==
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <070726aa-0e91-4d65-b3c5-00df3a180732@arm.com>
 
-From: Markus Elfring <elfring@users.sourceforge.net>
-Date: Tue, 24 Nov 2026 08:01:48 +0100
+On 11/23/26 09:19, Christian Loehle wrote:
+> On 11/21/26 04:15, Qais Yousef wrote:
+> > Latest version drops the partial revert (patch 3 in v5) as RT group
+> > throttling is going to be marked as broken and anyway a proper fix will
+> > require non trivial rewrite how dequeue happens for throttled tasks or
+> > full revert of subtracting nr_running added 10 years ago. Both of which
+> > is not appealing and with the proposal to mark this feature as broken,
+> > better leave it and hopefully just delete the problem area.
+> > 
+> > So in summary RT throttling is not fixed and being ignored. Fair
+> > throttling is fixed by pairing uclamp_rq_inc/dec with
+> > add/sub_nr_running. For RT, we do that in inc/dec_tasks() which are
+> > called when tasks are actually enqueued/dequeued - as stated will fail
+> > in RT throttling case. Given the minor severity of the problem and
+> > effort required to restructure part of RT group throttling that is being
+> > marked broken as we speak, I think this should do.
+> > 
+> > Changes since v5:
+> > 	- Drop patch 3 to partial revert subtracting rq->nr_running for
+> > 	  RT throttling.
+> > 	- Drop fixes tag from patch 1 as the series now is partially
+> > 	  fixed and not suitable for LTS.
+> 
+> Is this how this is done? I guess we could also NAK the backports?
+> Also presumably this was observed in live systems, so is not-backporting
+> an option?
 
-* Reuse existing functionality from devm_clk_get_enabled() instead of
-  keeping duplicate source code.
+Is this the best way you could phrase your question? I asked clearly for
+feedback on v5 and you kept quite. If you have such strong opinion, speak up
+next team at the right moment instead of trolling like this.
 
-* Delete a clk_disable_unprepare() call on an error handling path
-  and in the implementation of the function =E2=80=9Cat91_rtc_remove=E2=80=
-=9D.
+FWIW except for RT group throttling breakage, patch 1 and
+3 could go to stable. Not sure what would be the right fixes tag for patch 3.
 
-* Omit the label =E2=80=9Cerr_clk=E2=80=9D.
-
-This issue was detected by using the Coccinelle software.
-
-Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
-=2D--
- drivers/rtc/rtc-at91sam9.c | 26 +++++---------------------
- 1 file changed, 5 insertions(+), 21 deletions(-)
-
-diff --git a/drivers/rtc/rtc-at91sam9.c b/drivers/rtc/rtc-at91sam9.c
-index cbd2f1a6c54a..6628335d6f46 100644
-=2D-- a/drivers/rtc/rtc-at91sam9.c
-+++ b/drivers/rtc/rtc-at91sam9.c
-@@ -375,21 +375,14 @@ static int at91_rtc_probe(struct platform_device *pd=
-ev)
- 		return -ENOMEM;
- 	}
-=20
--	rtc->sclk =3D devm_clk_get(&pdev->dev, NULL);
-+	rtc->sclk =3D devm_clk_get_enabled(&pdev->dev, NULL);
- 	if (IS_ERR(rtc->sclk))
- 		return PTR_ERR(rtc->sclk);
-=20
--	ret =3D clk_prepare_enable(rtc->sclk);
--	if (ret) {
--		dev_err(&pdev->dev, "Could not enable slow clock\n");
--		return ret;
--	}
--
- 	sclk_rate =3D clk_get_rate(rtc->sclk);
- 	if (!sclk_rate || sclk_rate > AT91_RTT_RTPRES) {
- 		dev_err(&pdev->dev, "Invalid slow clock rate\n");
--		ret =3D -EINVAL;
--		goto err_clk;
-+		return -EINVAL;
- 	}
-=20
- 	mr =3D rtt_readl(rtc, MR);
-@@ -405,10 +398,8 @@ static int at91_rtc_probe(struct platform_device *pde=
-v)
- 	rtt_writel(rtc, MR, mr);
-=20
- 	rtc->rtcdev =3D devm_rtc_allocate_device(&pdev->dev);
--	if (IS_ERR(rtc->rtcdev)) {
--		ret =3D PTR_ERR(rtc->rtcdev);
--		goto err_clk;
--	}
-+	if (IS_ERR(rtc->rtcdev))
-+		return PTR_ERR(rtc->rtcdev);
-=20
- 	rtc->rtcdev->ops =3D &at91_rtc_ops;
- 	rtc->rtcdev->range_max =3D U32_MAX;
-@@ -419,7 +410,7 @@ static int at91_rtc_probe(struct platform_device *pdev=
-)
- 			       dev_name(&rtc->rtcdev->dev), rtc);
- 	if (ret) {
- 		dev_dbg(&pdev->dev, "can't share IRQ %d?\n", rtc->irq);
--		goto err_clk;
-+		return ret;
- 	}
-=20
- 	/* NOTE:  sam9260 rev A silicon has a ROM bug which resets the
-@@ -433,11 +424,6 @@ static int at91_rtc_probe(struct platform_device *pde=
-v)
- 			 dev_name(&rtc->rtcdev->dev));
-=20
- 	return devm_rtc_register_device(rtc->rtcdev);
--
--err_clk:
--	clk_disable_unprepare(rtc->sclk);
--
--	return ret;
- }
-=20
- /*
-@@ -450,8 +436,6 @@ static void at91_rtc_remove(struct platform_device *pd=
-ev)
-=20
- 	/* disable all interrupts */
- 	rtt_writel(rtc, MR, mr & ~(AT91_RTT_ALMIEN | AT91_RTT_RTTINCIEN));
--
--	clk_disable_unprepare(rtc->sclk);
- }
-=20
- static void at91_rtc_shutdown(struct platform_device *pdev)
-=2D-=20
-2.56.1
-
+FWIW I work with Wei who reported this and this is not a wide spread disaster
+walking on earth. It has taken more effort than it is truly worth actually.
