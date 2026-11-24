@@ -1,108 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795556440;
-	b=yvPAW3vjXKN+BlGyTjecNbBZREvs7YSftYOAX36STJVZPVroUz5CHI1vtiC7K3sSNNw5
-	 YHHMAYIggNS87t0aqXFaocvgqEPg4Z7YAU3EO++m1rI6oQQVlZwpLaO6sLll67M1vdyVj
-	 sawNEYRchM9AT+PRRReFDpbfjxnA1kHj1Uu4coNmtKianOSaoMGEzwKtC74YChca3ljZT
-	 Dw84kwwrQR3uocwvUiPP6xdAQUWhIMCSbl0Dgr0N8mn39sCy/vgiYamzVSWK9P/Zedx8k
-	 hhHyZfERc4J9KCxtjbGe5E/HOWIy0rIWP8t8KJ1+HvzeGAhbTj8xDe32kurNk6gHYXQ==
+	t=1795556441;
+	b=aNntckPgrhTGtxGO2CM5wK0oeNZIuSj5oARoW4ZPSlxkrP+6i0gSWDFPpSFSpp7/PuoG
+	 y+OWAehokhs50Q/Xi8A4SthRnqirCWBheqYPG57f9qQswqfH7my6WG0Y7AFLR4dBWgOMZ
+	 eQO5ziArACKA33D3kVjEeMkBSI3yb5t17Rg0yjfpBxZKmoDfpvyQOZetS0RtKXjEvxzCf
+	 yXV5YoSkxdVQwxTbdeOaJDzZuBvBa8cI3ed4NY1kHBhH7u4Jy8yEheJbYMfFdQD8E45SY
+	 UO9HpX8gU6u/4/SxQqc94P6Vr9WFfIA/cdhNzKvmJgTW4FGseSBUZoYwiTzCVYVl/Pw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795556440;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795556441;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=G/eu3V3hH3gYq5N6oYxvKcGt2JCj5qQ6/XPw1INj0j8=;
-	b=TrINlH1lA08hstUQnbj9F3yaYor+sRYOLILOVTxluH/4PcKxe+z4XtFH3kntCjKWVoB0
-	 FzLxG2OouAw+tqSr77Z+/C+zyKVgNDM7bfVwiAwNu5bqnvu5eGTa1g9HK4UfHDbIyEvlC
-	 IzjrgEU5W3iMCZ9MdZWkHNZzv/fPtl897BuGbA2mm4P0WUCnPkM4glLmYJVK7ZwAWqlha
-	 IdAy9YuAFeUge1wtmRI3Tkf8ZH4qlncD/HkZkg2jli1NlaWg8LkoX7yJsB0fYdrh2yRWR
-	 x1MK6gJtXVLcaoZScLciUswOWyEp+vbctm6tnUbpt6cK2ZAvm1lfOq607Rk+KVzICZg==
+	bh=8vTHmqosNip4PzWeUJYtggJ3iETjixMqdrHE7e2DIQU=;
+	b=gmB/dDI9Ze4KgNKwxZlCouaIdHzMsl0kfP3YObkFdP1qMRAg3YFmrhdBG2xgTxEHnJ8Q
+	 OAw4lMPTLKkeY/iqoVagIIVoFLMG4eBD3M9nCBQkYaYsPDh2OwOCDS/nYGF0P4jn8nci9
+	 ZyFCHTc64i5nOEm4v8N4Uq5ejPuB06e3/gZ60AHFa1YZgrKfwzRv9Nz+H7cSXdaM0+DL7
+	 SRIi4/lE7zz7h1/GBVyc9Vn9hSbRvws6HZEAe/WW5nWKbFqZ02wVkDuYzm3I5528TSiGW
+	 tNMEFbzFxF1Mnx8Xg+MOynD/xm+Bar738JZXh3pTKxtF6+FZ5Qa9PN90pVnOkmgTRAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Mi8EGLvw;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0dm8TZPn;
+	arc=none smtp.remote-ip=209.85.222.54
+Received: from mail-ua1-f54.google.com (mail-ua1-f54.google.com [209.85.222.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5E51606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:40:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5E51606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB2E6606A336
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:40:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB2E6606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Mi8EGLvw
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4a5348aaba5so5460575e9.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:40:39 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0dm8TZPn
+Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-9828fee1b4bso1583525241.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:40:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795556438; x=1796161238; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795556440; x=1796161240; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=G/eu3V3hH3gYq5N6oYxvKcGt2JCj5qQ6/XPw1INj0j8=;
-        b=Mi8EGLvwatR57ciZPnajH53XIycar73TLMvtuIgZrwr8o59gtggQQ12mCJ91lZsq8u
-         hmGmFwVYMPA83aVk24Xo4veC+N8ONh3aWgqYZaZoz4Rhy9FAgEDUPPVsJmp8wl4GM3cL
-         dZYyW2R8epRb2L0WJ3JORZ52Taa2NIbTM1aG9RIXISLhYWq6D6F+2jkiqBUz0rVeL33V
-         gjPJBdJRd4sdJZwTjxdQxtzokdIxRo6OkKAQzVKfINPVLgmCW9YJ5dVdo9qV+ccr+sB9
-         rAbO/DsbVfBFUSsTo1+IRd9DBn5E4y82XPqJYb6REWyfmJ46mh0zyH6v6LgS5tVwjcie
-         fvug==
+        bh=8vTHmqosNip4PzWeUJYtggJ3iETjixMqdrHE7e2DIQU=;
+        b=0dm8TZPnqEQFkRwrXxHnx5HZPGepIu1i6nigAX8fz59SVnfIllA8zMxlg3Qi9rP5Cg
+         7ClvnriYq4VPEpzMNIS3/f8hggdOpXqQdl3PPfA2Oj8Hjl2Sa5Hbfhfp334XFOefTygp
+         sObv+L1JJcptSBZf0n86Jfe7pgshaMgdFHPa9w3f6WSQSS2lDo1kvreb5PZYZGOfASXS
+         2Uvxd/y/Aar6NS3QS/KoCASWJJLTnEj63HO7XKyBhwG8JvCGCZeyNduZeNG7776oJVTb
+         5sqlxeuIzjpa5Jj0XO9Mrd4a0Wm2x+0wKX43lKE5COetTQqfkPwO//WKpKovDnUblHZo
+         uWWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795556438; x=1796161238;
+        d=1e100.net; s=20260707; t=1795556440; x=1796161240;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=G/eu3V3hH3gYq5N6oYxvKcGt2JCj5qQ6/XPw1INj0j8=;
-        b=CkZnGpnOMQpm0FH8qVKQJ3Ls005ojc+U+cfdCuLv+m7H/a6Xp6cf3xT2aU3KMxziwV
-         XxecRXJ05p9AsiiSMxbP6Vs1O7OEm1luDxwj4nrCQQA7FIK3kHmvqvCt96Wg+rL8V57i
-         NvOmV0MCxH802TNlMMCGzmHgLnMwZ/eEI+wVqHYUZs+PPBnQ22PcPh9On63y4PUwT6on
-         Wi1bD5bQbvqHnD/72EwVKPJLgWuViSpeAOoT77v03NrViOApPc4l33tha6gEz/DlfEOM
-         EPrEiPoTFtCP4ayA1a1e/urmCZN0UO6RyO29ingWTWLg07RzKS2izKhfmlD3uBKYd7nb
-         pWVQ==
-X-Forwarded-Encrypted: i=1; AL+hErHqlmnElwAgAmUmWBb3SjEEaWv+0506/entCOo+xtosRg3gq5+1EOlxGQotRnl5O427uPHv5VaqFTMC5rM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+e3x9GJmDeUvd9E1AWvVXuZInqlWvpuUJ1Yz/uCCIZAVj+Do1l
-	C9O/49Si3ZYe/qcoSbIvszOQY5p4Iij6grN1+TDeXr6hrsyPnNw0l6Cr
-X-Gm-Gg: AZFdTZdGFoDNgnAmjapwkLx4P+mAL/G88h69Me/UPjQ4D/7EhG74utVVCWiZLYE8Jvn
-	ZOEE5WzgGBm+dKSWOZXtQgJXX96iA8zOGuykl0flPYLAVPaAc/x3eoHKosuz425nqQ/+uVL2FdN
-	LTHEHinDsHRtex2mca+lU/AWGUGmwqy9JmFE2Nnk5GbpXuM3iWkys+lfCweG3IYj7Da0cQ4hDcM
-	3x4iUry5f7anTwttGbMtFOoJQdDYkJwIT4s2CAX2w2ez9uaWT5EQqOgllw6RJWHO1ITFLOwFwWl
-	S4xfGu8ZlERE3Ao6kXwcCeDgxtvWcRW04jHCWYCj1TS200EgL6tRtTyBDB6KX/4yrSiCrIG35Y6
-	tYn9nmH9ZhXWWK/ovpdU0rsKbluGiuzgB7D+UhoYtjCdReG4xPV0cD7OQhRGKFfAxmnDvcaopM8
-	flPtlQF/gox6168NGixp4n+x9u5KmP7r35idKNtMokle6rQM+ne/8BKYIe2aAaK94G1dYei/ISS
-	7CJ4VVnbM7IN6AboeVvrVkTuzHjoeJLglnwiPWdlOyYioP1R51SiFtAjF1mrJ24TjWZIvEuOow2
-	70GR3a0jXfKB5a0bLjN/WwtjO9VAct6ucdrZPDcL956Q2+r60OlHv8eerMHi6TjkYXHZD12UXe+
-	U/B8RdSS5JerWRQ==
-X-Received: by 2002:a7b:c84a:0:b0:4bb:732a:2837 with SMTP id 5b1f17b1804b1-4bb887ec609mr239453505e9.1.1795556438029;
-        Tue, 24 Nov 2026 13:40:38 -0800 (PST)
-Received: from Nuel20.localdomain ([105.118.4.83])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b5f6sm28290872f8f.34.2026.11.24.13.40.30
+        bh=8vTHmqosNip4PzWeUJYtggJ3iETjixMqdrHE7e2DIQU=;
+        b=Zi3fIba1chaHdfKKwS+bc2DlEG0boFXv79Kwe8kuyR6z0WzJM/M8MVN/VHvXSCEi1L
+         VQR3dIXQkDIzc9A4rSIiXBi9MfYi6kNjEaUjAgXTc5f3JQFwJE53ztWOuBEewQkz3GW8
+         zykQ20k8CR/u/xlfbJZFTW+nQnuIx2dNixH/mKqEgyFl0TXAT+Myl+UnZldIfr1Ub+Jl
+         ql98d2ODgunxmXT0QMQ3cAvG1cp6XgpL9p656M3PwNFcawbrTwtzYBkv/G4L0/PbMJrR
+         LL2BIe2qHzGddZFfb7AfDtxC93HmSX99HArStG3Qo6tkYpS/EXIAmDwt31WOfJS5FnkE
+         p3lw==
+X-Forwarded-Encrypted: i=1; AL+hErHkZsSGEkSF+0NSLfN5EeJTQL5hmeJceQA6V/0gX/i7dUFtQk7USCJivBxpdmrHRO45CTPHuhqwmWFfcIg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+nu78EYI9U8KUE2oU2pnvt0G3tUVrHgQO/oW7WtEfTqr5d/b7M
+	npUGRybMFrquAwTW562EEhaOm6GYMEQ51t3IP35GtKfBGs8Uh9UAOdEf
+X-Gm-Gg: AZFdTZfNXUb5lEuZ1DorC6rhZQyzj0RxDW0brGsyB/fIxQaINElrBPT4+bpD1Z90/Qj
+	hqxvAh58SFMfQ/6Fbv12nThMD5LKPYBOaXs5J/i98taIRr8O6xnPNRerJm2gmD3BEQEiJzkc/rX
+	rXylewlOVBu84qW08OUMT3bbh0EkNTX/SX90BSh5VrSguL7OcjWzUpsRH3UuTttWvNnD2oX3mHa
+	H5OFkVsb9AwSrUYUXmmuyGHXi8hXWXg2aOTkWJ/28f8dL+jPzvj0B6C3rGFb/1TnO+D0ybDKVI6
+	bsKR/bCJPJKDC9bz3wOgZEcABqeFgssO4o1Hc7eNlOcbDhSvuKc3lLmWoPXBIXIH0qhJ9X37OIV
+	OWGGSYWuTm+NNTiUA5Y8uAZSlKIGzGHwskuzfRDGSisdbk7u6I0hyxF247VQmskBv7OVJKbXkVD
+	EEtf6FjTtNFvXpYuFtz1bcirRC2fn+cSQ3dlPbHUxW6mL4a9/VUucirN6azbEdYtNNITPA3zSnF
+	gUu87/v3uxfFCI6qgcmpWG89PbkCZA0s+YQ2d+ZZ2ufTCzxDfyDmUvaRV48pyJrqVFJbZao5PoR
+	N1Phrc4rwhRLq5iaMeB3yfTnQyWuYjA6CouC8qadzvonpg8jCW7h
+X-Received: by 2002:a05:6102:292a:b0:7a6:d11b:16ea with SMTP id ada2fe7eead31-7d73935fb84mr8027697137.6.1795556439674;
+        Tue, 24 Nov 2026 13:40:39 -0800 (PST)
+Received: from emedev.tailf75c28.ts.net ([179.238.117.100])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-99e6dec57ddsm15952879241.1.2026.11.24.13.40.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 13:40:37 -0800 (PST)
-From: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-To: tianyi@cloudflare.com,
-	hangbin.liu@linux.dev
-Cc: kuba@kernel.org,
+        Tue, 24 Nov 2026 13:40:39 -0800 (PST)
+From: Emerson Busson <emersonbusson@gmail.com>
+To: Wei Liu <wei.liu@kernel.org>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Dexuan Cui <decui@microsoft.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Michael Kelley <mhklinux@outlook.com>,
+	Easwar Hariharan <eahariha@linux.microsoft.com>,
+	Kameron Carr <kameroncarr@microsoft.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-hyperv@vger.kernel.org,
 	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	shuah@kernel.org,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	sdf@fomichev.me,
-	skhan@linuxfoundation.org,
-	kernel-team@cloudflare.com,
-	tianyi.gao@linux.dev,
-	Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-Subject: [PATCH net-next v7 0/2] selftests: net: veth: propagate check failures to exit status
-Date: Tue, 24 Nov 2026 22:40:23 +0100
-Message-ID: <20261124214025.11603-1-emmaonana18@gmail.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/3] hv: vmbus: make rings and host-visible buffers survive buddy fragmentation
+Date: Tue, 24 Nov 2026 18:40:26 -0300
+Message-ID: <20261124214030.174246-1-emersonbusson@gmail.com>
 X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -115,52 +108,52 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Four checks in tools/testing/selftests/net/veth.sh report failures
-without setting ret, allowing the script to exit 0 even when a check
-fails. Set ret=1 in chk_channels() and the three "bad setting"
-negative tests identified by Tianyi during review of v2.
+Opening new VMBus channels or subchannels can fail with -ENOMEM under
+memory fragmentation even when plenty of order-0 pages are free, because
+vmbus_alloc_ring() asks for a single high-order contiguous block (order-7
+for a 512 KiB ring) and vmbus_alloc_requestor() uses contiguous
+allocations for its request array and bitmap.
 
-Patch 1 fixes the invalid TX channel test, which used nproc + 1
-to determine an out-of-range value. However, nproc can be lower
-than num_possible_cpus() when CPU affinity or cpusets restrict
-a process, meaning the kernel may accept the requested queue count.
-This could cause false failures on a correctly functioning
-kernel once the propagation patch makes failures honest.
+Based on Michael Kelley's review of v1 and the v2 feedback from Wei Liu
+and Michael Kelley, v3 goes back to the core VMBus allocation path. It
+groups buffer and GPADL state into struct vmbus_buffer, allocates ring
+buffers through vmbus_alloc_buffer(), drops struct vmbus_gpadl along
+with the duplicate decrypt/re-encrypt paths, and switches requestor
+metadata to kvcalloc().
 
-Use the kernel-reported max_tx + 1 instead, ensuring the
-attempted value always exceeds the device's supported maximum.
-Spotted by Sashiko AI review of v2.
+Changes since v2:
+- Dropped the reclaim workqueue, UIO page-pinning layer, and KUnit tests
+  to keep this series focused on VMBus buffer and ring allocation.
+- Split the hv_netvsc fixes and allocations out for separate net /
+  net-next submissions.
+- Preserved hv_netvsc's revoke-failure leak guard before GPADL teardown.
+- Rebased onto hyperv-next.
 
----
-v7:
-  - Fix [1/2] subject numbering, lost in v6's send
-v6: https://lore.kernel.org/all/20261124211645.5751-1-emmaonana18@gmail.com/
-  - Squash the two propagation patches into one  and add
-    Tianyi's tags.
-v5: https://lore.kernel.org/all/20261121182217.4609-1-emmaonana18@gmail.com/
-  - Retarget to net-next and drop the Fixes tags
-  - Move the invalid-tx fix first, so no commit in the series can
-    report a false failure on a correct kernel.
-  - Fix the subject prefix on the invalid-tx patch, lost in v4's
-    send.
-v4: https://lore.kernel.org/all/20261119003003.40482-1-emmaonana18@gmail.com/
-  - Patch 2: use if/else instead of "&& { ...; } ||" chains, keep
-    lines within 80 columns (thanks Tianyi for the review).
-  - Add patch 3 deriving the invalid tx value from the kernel maximum.
-v3: https://lore.kernel.org/all/20261116084107.6675-1-emmaonana18@gmail.com/
-  - Add Tianyi Gao's Tested-by to patch 1 (thanks!).
-  - Add patch 2 fixing the remaining three checks.
-v2: https://lore.kernel.org/all/20261115214702.50817-1-emmaonana18@gmail.com/
-  - Correct Fixes tag to 1ec2230fc721.
-v1: https://lore.kernel.org/all/20261115212117.48496-1-emmaonana18@gmail.com/
-  - Initial posting.
+v1: https://lore.kernel.org/linux-hyperv/20260918014017.2536753-1-emersonbusson@gmail.com/
+v2: https://lore.kernel.org/linux-hyperv/20261007190752.336426-1-emersonbusson@gmail.com/
 
-Omokefe Emmanuel Onanaroghene (2):
-  selftests: net: veth: derive invalid-tx test value from kernel max
-  selftests: net: veth: propagate check failures to exit status
+Tested with x86_64 (W=1 C=2) and i386 builds, a local QEMU/KVM boot with
+lockdep enabled, and a backport onto 6.18.64.1 running live on Hyper-V
+x86_64 (85 VMBus channels, 12 netvsc queues, uio_hv_generic loaded).
+Confidential VM paths (SEV-SNP, TDX, Arm64 CCA) were compile-tested and
+reviewed by inspection only.
 
- tools/testing/selftests/net/veth.sh | 31 +++++++++++++++++++++--------
- 1 file changed, 23 insertions(+), 8 deletions(-)
+Emerson Busson (3):
+  hv: vmbus: encapsulate buffer and GPADL state in struct vmbus_buffer
+  hv: vmbus: allocate ring buffers via vmbus_alloc_buffer()
+  hv: vmbus: allocate requestor metadata with kvcalloc()
 
+ drivers/hv/channel.c            | 363 +++++++++++++++-----------------
+ drivers/hv/hyperv_vmbus.h       |   4 +-
+ drivers/hv/ring_buffer.c        |  17 +-
+ drivers/net/hyperv/hyperv_net.h |  10 +-
+ drivers/net/hyperv/netvsc.c     |  64 +++---
+ drivers/uio/uio_hv_generic.c    |  97 ++++-----
+ include/linux/hyperv.h          |  43 ++--
+ 7 files changed, 271 insertions(+), 327 deletions(-)
+
+
+base-commit: eab80895d447ec164a1d91a1ab377bd3a9dc9044
 -- 
 2.43.0
+
