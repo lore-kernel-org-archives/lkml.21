@@ -1,97 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.155.198.111
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795513210;
-	b=0w8Yo/+jaJlwNwHR02zzB5ecvNk9fhEIumbRssYe55dOIETaWDwZJIrsT6c6/iIlRj1w
-	 9wD7qX7OvCQWc/lE4F8DTML8+//hCubVgGTbXcdk8nw+uhNANMABso8S5FpYHKUJJKDDh
-	 JACnVQQvnLcSBtw1DgCUxsus4Z84+faOLc0isvGCElbUCQTUEUwdpWeiloFZvAwDlhDVI
-	 PUfzKaQxlqhdG/hO9s/H3D/IrHgmtWg0pTD9ft8rYw6ZkofqSr2ICj5VOUZ4mpc/LOBc0
-	 E6wUjVwuMhlMR+6+tsNVDX+MR/RjyPk3tz6rnFXfU01ngE7r9E/wkNXALw9fOjEqzRw==
+	t=1795513254;
+	b=pJq/x863ZQPvQl4mvA5Y+SCi0y642FQvM056kImRXn8agJDiYRKStjkWTuJTscuPKpGC
+	 TFaiOye01NuPEN3Mhd05aG6YqulHivw0EqFKuGoceMP1hGpK+As6aMOrj3xiDWNoTQFZZ
+	 3C0w1Fn6xktoF/WJXwnQbCyCotcHEpal60UcVHoWS2tFsOQCtlT/p2Q9ne6KnllfPD0qM
+	 pZnG6j8TJdvjTgYghN2fJZA0ozM2CWSMm+XlfHIVviXxqgDjCzeV/wU8sCuAoHVdfwPIe
+	 XAWXiHDX2lv8/Vw+qV+12ci/HIny6o8VCmsWQq2gzuUnhOpFx2It9N4CUuDUssSr/aA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513210;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=s6J8UzkbLV15LGL0oLAQJk9/vn7+grYl4GUZDfRGgJE=;
-	b=SLnzY4RFh62RUm94YXY333ABsRLPa4zCwDcSMrF9tIzxE1ndNK1hl/ovK+EbbPwSLTAb
-	 RL3i51UivepU+ZRaWk9d35tz1B5kG/F0LNC0LhfSzurvgeSde9XGu9ivQDjIg0nsjJ06a
-	 blYmo6inFgW/CGDbUjX7BlS8xBb74+ubquRm3+tWlzOMYwuaCwPLLHkRMGVJQ6l8tVabZ
-	 Qi5949wG1YysreVeIUHJslD4N/o2Mh7LfJKXuQ2hHs8GBNZtLUjhBSvHJFe12YxynnJv5
-	 0Hx1CTZWmqbr27NB3mYuxJCnpPj4I8rIa3moY2nOdF5xjQd5pSeRUQjI62CuDbOcpJA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795513254;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:X-Originating-IP:X-ClientProxiedBy:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=pg4wKud4L8UOLXPr18RTSGGcJ3ulNhPiZJ6lfMaTp2I=;
+	b=2k2tG+Jfzn2XRQmoiUZU2zywgenZHWyKrMOLX/985MGqKV77u9F/B81AhncTwAe40CLq
+	 mYBbnnwl1GAUQCjXTNuJpQUyx+yWKQpHUsqhtsSSbW4OnmsC/+CP9z4wwSU+eZAQ5fWMC
+	 2k4zDO+L6pPHcFQ+IvGlyoNiHQiIM9B2SQH4q0Lyeu/kq5b6K5mS+jrT7aXjnU7Nq7ynx
+	 Tcjsv7vUzRJDO2vv/7/bQ3824WTIAmTlLrsl4wVsmAjsiRnyiQV4QeV+jEPlUIm2wdtR3
+	 dN6JMOpn9zU2UBQhuw/3VNcOSP5dt4lC4sKIGwSGsi5u5yXTF8w1qZuPdYrIfLchLyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eWGKozKA;
-	arc=none smtp.remote-ip=74.125.82.42
-Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=amazon.com;
+	spf=pass smtp.mailfrom=amazon.com;
+	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=FsofyJeL;
+	arc=none smtp.remote-ip=35.155.198.111
+Received: from pdx-out-009.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-009.esa.us-west-2.outbound.mail-perimeter.amazon.com [35.155.198.111])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92FC4606A336
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:40:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92FC4606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EF03606A696;
+	Tue, 24 Nov 2026 09:40:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0EF03606A696
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eWGKozKA
-Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1b546061d58so9650879c88.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:40:06 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=FsofyJeL
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795513206; x=1796118006; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=s6J8UzkbLV15LGL0oLAQJk9/vn7+grYl4GUZDfRGgJE=;
-        b=eWGKozKANII+Rz9RAMODyX02fxfRFZDdMm+qH7cLm86ZlqKniPTp6Xgy9L+Liz+VMH
-         yxlJ3EZP14Th7dP8mickQ9yfnLqxmFAKwnARWEav0gs0chRlQyyir77roVD2FxCMMnqY
-         7iZpy7G6Y198ny1E7wPkdDmjC2WLOBuUoSc7zGKaZhluL2RIaQJFa27OVXjnrSb2Ya3D
-         jgmNxMoxisj3XqgJONGXOdpXUKcAaxxNQ+uI6tqXMpsEtLG/xTIPFW6/pTvC/Th7JsBf
-         DdK/uKFCjaskI8/sfGm+5+aDUHnFdBdsppn4HZKgIV1pO2SsvTRWX2S1iVb1OQuenbU5
-         bI8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795513206; x=1796118006;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=s6J8UzkbLV15LGL0oLAQJk9/vn7+grYl4GUZDfRGgJE=;
-        b=zZkfeoWZWkC82n4nmdPmVxf6xpJxQH6dfsSkH4FNWNy2jIVu5vnfgpnYbUbR5PBkzA
-         yecNesQEz93oAjsj5vtpuO90SQSKdhMCTEIfKo5FYpxuwMu8t5gdZxg86qPny2GUbEG6
-         IwEMShMueYPTd3CmlTFZNcdjhcb7sN9SG+w6JGEhOnhSDYti1fNVWb9ytbj9IguUqnlU
-         jdp8YZnrFU5moRqBbx7cYitDds1IoNZWCtuxcVEs6nfVkcnLvZX8aPBA58yQMbrLDjXM
-         V9odIXAQSsIZHgkVCrEAOnO5nevvnq4fvgcVEymwB32g0W+MgXK5ycB6tkzavqH67hg0
-         LXZA==
-X-Forwarded-Encrypted: i=1; AL+hErEPmO84RZtk18vyo/B7O+nThHXybqD/C5LCSbHqwiCou1WDSucAZRNo5QGzW+7RMcFaMXEINlNDxT98RzM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Ix60THjI4K9x99KFFNOXFFx48DQQeaqpARDoHibmUdczOHD9R
-	KK733QRBkm7Xu2H/2e3EHgSU+yrhmuEMMAMMbgKcA1nQagXI9zlulPn8ijmSrsFi
-X-Gm-Gg: AZFdTZcyAmZxT9ZPDwbW7N709DYC+tK7Jxkzx2mPFGiaRlD5zLx+Qn2LO8BCRm3Guv1
-	eZch96VCCayYBbVfXed3XkpuLACz4pmXfDnb0iyBafOgxVy9YL2O87PJFEIOXB7yikiH1P6JlJ6
-	Zk9YDbLqIrBidGZ/40ypWqnVH9ik/4UM2AS9Cx9fl8ofcIhaUqa3UlpP/B865eYb+ghAHXROBnc
-	thDk0d3iAYjeED0/+IVsBYr3/bT2cWpDzInM0AtKJsJWOPy3QFZYqvys+xa/AXW7yztPZSNrY6W
-	0hbBrYcNynH8h1QnlFyocmqTiFznaRsdnr0vE0HT/lTYC85DfKlDDP3q7eoIoiFR04Wl9JGM80u
-	8jwQqQnx8HhtcaZoQRaBl9m9mlrlTMWCU75h4zq/2Cekwap8VGdRdL1LupTCyuPdhyFPvPLYx3A
-	HE9XuNWeX8mgP7G/aQSTZj6MSBVXtPT+eUPe1hmi1PPsZY0ZEJyunBnjMMemYDnYNrrKnSwttSa
-	v/KCA9ojL4W0d4/L254vqG1KmINkVj52S3i62SBz9gxpvBrmI/TppYFwgGSpOYtRV+Xc0lr3sjw
-	v5Gpd7NVMQpzdHGaIl5hKIt6oBYmfFDE2p6e1swLtoq2A4SO5ogZ
-X-Received: by 2002:a05:7022:294:10b0:19a:bbe8:41a8 with SMTP id a92af1059eb24-1b5568c876dmr14069138c88.20.1795513205570;
-        Tue, 24 Nov 2026 01:40:05 -0800 (PST)
-Received: from localhost.localdomain ([103.178.205.105])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c3052sm33847116c88.1.2026.11.24.01.40.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 01:40:05 -0800 (PST)
-From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-To: xuhx@hust.edu.cn
-Cc: broonie@kernel.org,
-	lgirdwood@gmail.com,
-	linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com
-Subject: Re: sound: core: jack kcontrol is published before jack_kctl allocation, and the failure path frees it without removing it from card->controls (null-ptr-deref)
-Date: Tue, 24 Nov 2026 09:39:42 +0000
-Message-ID: <20261124093942.2963-1-sreekuttan2156239@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <28bb004a.2ad18.1a2023a6d95.Coremail.xuhx@hust.edu.cn>
-References: <28bb004a.2ad18.1a2023a6d95.Coremail.xuhx@hust.edu.cn>
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1795513245; x=1827049245;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=pg4wKud4L8UOLXPr18RTSGGcJ3ulNhPiZJ6lfMaTp2I=;
+  b=FsofyJeLokLV7SUwtFHcJZ/P/C5J5e7sgMMB60prpLc2AF5Ri44twuSA
+   q9uMoVkoPYzVgkedGYL9TobON6nlb6o3bJ0qn3ql73D31rlcvZWzDaD7w
+   u2qEQcI9zWzPmBy0l7QZN2ICoZ3VAd1Vm+7cA231oDyCSlJ5MDY8U58WK
+   4TA4BR03fTL+qQ9s8JjMh85k9qpdjbgBw9hmuhf81VpAze+4p/4mYhPt0
+   w+5nr9f8ZRqOJAVs0mF275ow2nA35vKJrB2jGUgJlfFBQrz9uVplX4mBc
+   ifwmaIHg9fzPUdVg5rVfI/AsvqWF4NnCb8cvehVK0l4OFF2alOvvN5Q2u
+   A==;
+X-CSE-ConnectionGUID: 6smcwInPTXWN+yE5oSizlQ==
+X-CSE-MsgGUID: 1bp778p8QPynfTfVwFg/fg==
+X-IronPort-AV: E=Sophos;i="6.27,230,1787011200"; 
+   d="scan'208";a="34904524"
+Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
+  by internal-pdx-out-009.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 09:40:42 +0000
+Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.178:16519]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.36.222:2525] with esmtp (Farcaster)
+ id b501f3e6-7645-48f8-8dc0-d5acdb178088; Tue, 24 Nov 2026 09:40:42 +0000 (UTC)
+X-Farcaster-Flow-ID: b501f3e6-7645-48f8-8dc0-d5acdb178088
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
+ Tue, 24 Nov 2026 09:40:41 +0000
+Received: from dev-dsk-sieberf-metal-1a-7543e84d.eu-west-1.amazon.com
+ (172.19.116.227) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57; Tue, 24 Nov 2026
+ 09:40:38 +0000
+From: Fernand Sieber <sieberf@amazon.com>
+To: Peter Zijlstra <peterz@infradead.org>
+CC: Fernand Sieber <sieberf@amazon.com>, Karl Mehltretter
+	<kmehltretter@gmail.com>, <stable@vger.kernel.org>, Ingo Molnar
+	<mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot
+	<vincent.guittot@linaro.org>, Shuah Khan <shuah@kernel.org>, Dietmar Eggemann
+	<dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, Ben Segall
+	<bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider
+	<vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, "Daniel
+ Bristot de Oliveira" <bristot@kernel.org>, Joel Fernandes
+	<joelagnelf@nvidia.com>, Josh Don <joshdon@google.com>,
+	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<nh-open-source@amazon.com>, Fahad Mubeen <fmubeen@amazon.de>, "David
+ Woodhouse" <dwmw@amazon.co.uk>, Misha Karataiev <karataev@amazon.com>,
+	Hendrik Borghorst <hborghor@amazon.de>, Ibrahim Elshahed <lshahed@amazon.de>
+Subject: [PATCH 0/2] sched/deadline: Fix forced idle charged when a sibling ends it
+Date: Tue, 24 Nov 2026 11:40:29 +0200
+Message-ID: <cover.1795510960.git.sieberf@amazon.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261124080737.1988-1-kmehltretter@gmail.com>
+References: <20261124080737.1988-1-kmehltretter@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,30 +96,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: EX19D031UWA004.ant.amazon.com (10.13.139.19) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-Hi Hanxiang,
+Karl reported that "sched/deadline: Don't charge core-sched forced idle
+to the DL servers" (f4626e1c3c14, in sched/urgent) still charges forced
+idle to the DL servers when the sibling's cookied task blocks: the core
+pick clears core_forceidle_count before the idle CPU charges the time.
+With his 800 us spin / 10 us sleep FIFO pattern the CFS task gets
+0.8-1.8% instead of its 5% reservation.
 
-Thanks for the detailed report and the KASAN reproducer.
+Patch 1 makes the core-wide pick charge each idle sibling's idle time
+under the forced-idle state from before the pick, so that no charged
+span crosses a change of that state. It adds no new state. Patch 2 adds
+Karl's pattern to cs_dl_server_test.
 
-> The same failure-rollback bug has a deterministic companion path:
-> snd_jack_new() can fail after snd_ctl_add() has already published the
-> kcontrol (for example, when its subsequent kstrdup() of the jack id
-> fails), and it also does not undo the publication.
+Tested on sched/core. QEMU, 2 cores x 2 threads, 8 runs each:
+tip/sched/core fails Karl's pattern 8/8; with these patches both tests
+pass 8/8 (5.0% and 5.6-5.8%). Both patches apply to sched/urgent, where
+the existing selftest already needs 87a825f3c680 ("sched/core: Rank DL
+server picks as deadline in the core-wide pick"), as in my earlier mail.
 
-The companion failure path in snd_jack_new() was already fixed by my upstream commit:
+This series was prepared with the help of an AI coding assistant. I have
+reviewed and tested all of it.
 
-commit ebce20196346906cfa33a84a021ce8f9bd91880c
-ALSA: jack: Fix jack control cleanup on error paths
+Fernand Sieber (2):
+  sched/deadline: Keep forced idle uncharged when a sibling ends it
+  selftests/sched: Let the FIFO task block in cs_dl_server_test
 
-https://git.kernel.org/pub/scm/linux/kernel/git/tiwai/sound.git/commit/?id=ebce20196346906cfa33a84a021ce8f9bd91880c
+ kernel/sched/core.c                           |   8 ++
+ kernel/sched/idle.c                           |  25 +++-
+ kernel/sched/sched.h                          |   1 +
+ .../selftests/sched/cs_dl_server_test.c       | 107 +++++++++++-------
+ 4 files changed, 96 insertions(+), 45 deletions(-)
 
-The patch initializes jack_kctl->list and routes the failure paths in snd_jack_new() through common
-cleanup, ensuring that the previously created kcontrol is removed using snd_ctl_remove().
 
-Could you check whether your reproducer still triggers the issue with this commit applied?
 
-Thanks for reporting this.
 
-Regards,
-Sreeraj
+Amazon Development Centre (South Africa) (Proprietary) Limited
+29 Gogosoa Street, Observatory, Cape Town, Western Cape, 7925, South Africa
+Registration Number: 2004 / 034463 / 07
+
