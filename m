@@ -1,79 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795561665;
-	b=ZnOOxnYRMlaGTRh7UFEoPI4b2cocRoIEk8oD1Qr5YV1h67cy29WxB9ix1wyBYFeRVueX
-	 6WflLrZQ0yGglSvUOpLZA2N8TQjg1mpLMyv5XlbjhLH8/1ew9fuGxWqA38x5wyDeymWzj
-	 QH0Vn6dwx2caqCG/4+WUgGCDDqG1b5lIZIhJFaIGRLqE2ZgTuHz3Jet3is9aGCWrcRHxi
-	 4vhXrm3tfN3Hzkl+rVSGybJGfRkqMclQdhfSw/bLFAteQdocOClcStgsQvk6gaZWn+znA
-	 5xB8fGY9h7xvqlwaeF51Gbo56DHzxd4xlVqL++CxyRaZ35VAdNIb0oYblNDkgKCvIDQ==
+	t=1795561688;
+	b=pTTcnbvKBOxHS+W01gbmnKB8S+FRmJ8EW3iU52nx7nXZxhnLmHIr5EcHV39YLpdwyn0y
+	 ooDcDsWl9apfSlXh541UyyT2GmZPKjelcEMwvXdzQzMNBF+4JgXZFDMTpkhBWZ9WD60Dq
+	 w23C0g2SQTIbpsGIzqfpkE4gffG9VeNPKOxpj/Jr+V7r46F5VG6sVAAsk9BXc9ud6mSxp
+	 p0utstp7VXit55Vc+slVFH5B4mdzM2PqgEaje4LnqNiyi3lHvy4KBfbbeFA8Zh6Nz8Mqx
+	 KxUHpdQOmtV6oQ1HKZv2c4nFPmiKwGRjY2qN/448j6/DOAA5OTbQHpwAUAIJT0uRUdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795561665;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795561688;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=+1ShINOhrETVckZgwkDQ2yDcTAY5roVvnqnqdvL+Hbk=;
-	b=sTNKiREt5E7Ijj8nD5jPS62/i59+NwkTiq73IYHiDCq6sdjPmVfb34ZreB6j/eP+YzUB
-	 CqCgdDLj01MQI70AOwCoDTzJ4Qaww1KXFQosz6BBl4Q+p5fcGZA6CkO3HbajkRceOpGoR
-	 Ua++/EIRj9XzIBmB2+fnX1SqKuuF5uEf/X0ITYoKZpkzAOOhSEsQtCmif4pc6d25Ts1HO
-	 hmB95eNe2lduJJCTmJ+rnw+nlkpn4KGPIiXJybO9mYLJck8hAt+tpRc3u5kAaau4HYA/R
-	 4nNExNE27B7WSparM8mOy7N55eZj0+pWCwsFFPVZ/+Dl/bkkJGSNbQAmU88VijnWx1w==
+	bh=ZqBd+LY/nH9rOSDDR+8c8JRkRwL6MGqZxGOrRjKuZz4=;
+	b=kcQoDESEyv1S2AIbbM4h0s7EWANe19uxn/X+GBx28hw63UWIs2Y5UxCLezMScEbIJT3u
+	 L/JLkbPhuJMDw7/P8RF16j+/RkQOezV/Hl0BharuBftvWEDnP/X4Sr6u+BEjpGWEeQ4bM
+	 oqW/Qp7ZFq7AUsuTJCkTnPiL3z5wBjsvcm4Cq0DMakpHBhaqYxUVOUlnfm9kaomjI7XRS
+	 EGGcrgQpHssCdDDqBfhR4UhW1EsdzjXkfoakB99WU12GR17IbJIu3cWKV2XtCX61oblXF
+	 1yxqNx+3wpI+EneZibmC0hAAftieyUbnEJMoXOkKDFqgKSbs1/P5IoFxY4/ztljF4dg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dVQjkdi+;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NZ9hsF3r;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id B2DA4606A327;
-	Tue, 24 Nov 2026 23:07:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AF08606A31E;
+	Tue, 24 Nov 2026 23:08:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dVQjkdi+
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id BB17D1F000C0;
-	Tue, 24 Nov 2026 23:07:44 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NZ9hsF3r
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 815F01F000C4;
+	Tue, 24 Nov 2026 23:08:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795561665;
-	bh=+1ShINOhrETVckZgwkDQ2yDcTAY5roVvnqnqdvL+Hbk=;
+	s=k20260515; t=1795561687;
+	bh=ZqBd+LY/nH9rOSDDR+8c8JRkRwL6MGqZxGOrRjKuZz4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dVQjkdi+8IRvs0yX8C9we8uPqfWBw4PBtDidtovyXGmo6jzND4pqoWA5i9nS9C16q
-	 QmLLotzAOsH2d0e60fdXLQtsyWOyGdQCIec0Ay0nbE7jmq22QyPYcs8RZ5HwD3Xi9s
-	 1qykf2nNARtiKwl0Mlk3Oa8IpONRCgo8OPbdnFl6ggM4gbpUbqOiYI0zGyt0NHq86+
-	 2KqZuQppqAg996IAnB+YYMytFDCsHeqTsjq1nEzBb/xDsgy5GH137DtiREGq1+rj+V
-	 J6JKuWDX6n5j3AK4UQWTIKSlrTAhrhnf/UMaJd2hHtqM/9yygrwRJ+tYb39hwxi7IN
-	 HIZeeC4eAP7fw==
-Date: Wed, 25 Nov 2026 01:07:41 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: keyrings@vger.kernel.org, dm-devel@lists.linux.dev,
-	linux-crypto@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-integrity@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Alasdair Kergon <agk@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Benjamin Marzinski <bmarzins@redhat.com>,
-	David Gstir <david@sigma-star.at>,
-	David Howells <dhowells@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Ignat Korchagin <ignat@linux.win>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	James Morris <jmorris@namei.org>,
-	James Prestwood <prestwoj@gmail.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Jonathan Corbet <corbet@lwn.net>,
-	Lukas Wunner <lukas@wunner.de>, Mike Snitzer <snitzer@kernel.org>,
-	Mikulas Patocka <mpatocka@redhat.com>,
-	Mimi Zohar <zohar@linux.ibm.com>, Paul Moore <paul@paul-moore.com>,
-	Peter Huewe <peterhuewe@gmx.de>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Sumit Garg <sumit.garg@kernel.org>
-Subject: Re: [PATCH v2 6/9] KEYS: Factor out KEYCTL_PKEY
-Message-ID: <awYYvQwk6AWHhtNU@kernel.org>
-References: <20261124194043.1651679-1-jarkko@kernel.org>
- <20261124194043.1651679-7-jarkko@kernel.org>
- <20261124215035.GE2227373@google.com>
- <awYLCuCIG8--aa2Z@kernel.org>
+	b=NZ9hsF3rLHhd71iRl0/RHSANC/kVgyrJYwj/mYVdwjiv8RznwHRlHDU6DqE/jLnnQ
+	 +aybbeFcV28kgeeEm1qg6/4J9Vbrlyxa8AEbwKq1b0QgPcaFgWT7bqirtVeN1xQO4N
+	 GBVBLtjuLXK4+6fa06ovNhyrTRKswxAIkLZUYQ1ckcsK3lPijEtOIz9niAzxvQcqqZ
+	 IqwqKvXpWDgZuxD8vJUpGDdeunoOGcN0itWt8XgiEltiIb72eJnxBRE2O8r5g6Sd9c
+	 1nC41UidJWx1JNCi1g1bzWXYyfGFN1XjpCG11jqzi2cqIpyWP3f8cACv4n2xwgORth
+	 h1pGlFi/Oywfw==
+Date: Tue, 24 Nov 2026 15:08:06 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: shyckless@gmail.com
+Cc: tytso@mit.edu, jaegeuk@kernel.org, linux-kernel@vger.kernel.org,
+	linux-fscrypt@vger.kernel.org
+Subject: Re: [PATCH v2] fscrypt: Don't set a policy on immutable or
+ append-only directories
+Message-ID: <20261124230806.GA2001@quark>
+References: <20261120-fscrypt-v2-1-fb752135ea32@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,35 +59,39 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <awYLCuCIG8--aa2Z@kernel.org>
+In-Reply-To: <20261120-fscrypt-v2-1-fb752135ea32@gmail.com>
 
-On Wed, Nov 25, 2026 at 12:09:18AM +0200, Jarkko Sakkinen wrote:
-> On Tue, Nov 24, 2026 at 09:50:35PM +0000, Eric Biggers wrote:
-> > On Tue, Nov 24, 2026 at 09:40:40PM +0200, Jarkko Sakkinen wrote:
-> > > diff --git a/crypto/asymmetric_keys/Kconfig b/crypto/asymmetric_keys/Kconfig
-> > > index c73979b2e98e..1c78a9a663c5 100644
-> > > --- a/crypto/asymmetric_keys/Kconfig
-> > > +++ b/crypto/asymmetric_keys/Kconfig
-> > > @@ -2,6 +2,7 @@
-> > >  menuconfig ASYMMETRIC_KEY_TYPE
-> > >  	bool "Asymmetric (public-key cryptographic) key type"
-> > >  	depends on KEYS
-> > > +	select KEYCTL_PKEY
-> > >  	help
-> > >  	  This option provides support for a key type that holds the data for
-> > >  	  the asymmetric keys used for public key cryptographic operations such
-> > 
-> > Could we use this opportunity to give CONFIG_KEYCTL_PKEY an
-> > off-by-default prompt like CONFIG_KEY_DH_OPERATIONS, please?  There are
-> > a lot of systems that need ASYMMETRIC_KEY_TYPE for verifying signatures
-> > but don't the KEYCTL_PKEY keyctls.  The fact that the KEYCTL_PKEY
-> > keyctls get pulled in too has always been a huge problem, given the
-> > additional attack surface they expose as well as other issues like the
-> > kernel's RSA code not being resistant to timing attacks.
+On Fri, Nov 20, 2026 at 04:26:54AM +0000, Suyuan Wang via B4 Relay wrote:
+> From: Suyuan Wang <stevewong@hust.edu.cn>
 > 
-> We can do that.
+> FS_IOC_SET_ENCRYPTION_POLICY stores an encryption context in the
+> directory (an xattr on ext4 and f2fs) and marks the inode as encrypted.
+> fscrypt_ioctl_set_policy() checks inode_owner_or_capable(), but not the
+> immutable or append-only inode flags, so the ioctl also succeeds on a
+> directory with one of those flags set. Setting any other xattr on the
+> same directory fails with -EPERM in may_write_xattr(), and
+> FS_IOC_ENABLE_VERITY refuses such files as well.
+> 
+> For example, on ext4 with the encrypt feature:
+> 
+> 	mkdir d && chattr +i d
+> 	setfattr -n user.x -v 1 d           -> Operation not permitted
+> 	FS_IOC_SET_ENCRYPTION_POLICY on d   -> succeeds, d now has a policy
+> 
+> Return -EPERM for an immutable or append-only directory before setting
+> the policy, as may_write_xattr() does. Calls that find the same policy
+> already set still return 0, since they don't change the inode. Update
+> the documented EPERM cases to match.
+> 
+> Found with a static analysis tool and checked by hand.
+> 
+> Fixes: 9bd8212f981e ("ext4 crypto: add encryption policy and password salt support")
+> Fixes: f424f664f0e8 ("f2fs crypto: add encryption policy and password salt support")
+> Cc: stable@vger.kernel.org
+> Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+> Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+> Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
 
-I'd be also interested to hear, if there are any wishes from non-TPM
-trusted backend side. Thus, increased Cc-list.
+Applied to https://git.kernel.org/pub/scm/fs/fscrypt/linux.git/log/?h=for-next
 
-Br, Jarkko
+- Eric
