@@ -1,68 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.155
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795499199;
-	b=PngILdBZJiIKgycFGn64uRUpbdg1zCMRAVmFgbEEET8C26lHD7VcZY9XWgtQU8SAjF27
-	 lJ6OoBwIK6gXdjvFCTm8k5z/GC3mD+eGf0VjmmgTO240ogx2mQb+BWSTZmGYP9KSVLbQv
-	 fKaKEYSakD7HLLLkzK7iiqjj4KKspZpHoDhWoEp9H+N6JQNLMOMZEdSEuPrk7K79lFMdB
-	 Q7VBJJCRe4EWopmR6g2rPRESfzA5DHXDdUNLW13jAFqD+uC/ckykymksjG5TpYjwHotut
-	 OlpZ7DlkLORiHq5CV0oqJ9Qf0B1t6mz+TTPSj+6MA82Zw1Q/GgYDIJxgYvB4PIW+3ZA==
+	t=1795499264;
+	b=kCCxPLO+HTMoajv604m5nZ9jfW66BcwoZZoERbkYamkSRc9JY5gufkTX+ABK4cdVW38U
+	 oBIhHW4sCAaPf+bwidGYbqyfS2GiFeOL4NzvVf6Xeh0bTnejQY7k82dbB0AXJPzF8/tIg
+	 T5/mLUpQMPw2P0s7mx8R+S/1Cf91ciqv4f1pln2rdGpb/YZt4gytxNYgaX8NdMuRLpuMJ
+	 PtXS+QNpI4E2dTp2v+y6DlwakCnzyHOVnbYNM3gryzi+uLNImlJUm3HvsU7LbmzgMtWzr
+	 QLLnlYj7RB+mvidl3xWfpwyUH4QOTLm+H1kLeTU8sW3WcM0rmCROWRXkMZnJq4mus2Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795499199;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Cc:Subject:To:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=jsMI+Ds46cM6xnlO1TFFO5B5dFdMLZbHbUi3x2wrsRU=;
-	b=V0xjyeO0RZTmPUy868NCkuU/XnyR0hX6mYFTpi9HMlq+DUtcXaXKd2Jk9l/ZUG81yD4n
-	 mWDqNx36Kz3vpeVl/fYWW35uXonL1xffWwBJJxYpHU5WfRgY0a4mzN7mk4mFD4XUzVsBY
-	 Hz5K6varfeJhHPIZrWqdBdrHjQ18EgtRnGejzge0Fy/A5ST/aSXkars/jAXLsWts9C+xS
-	 6jd8PI8goIT2KPkQwGpN4oxHtfRTlOtdLEqhsksOC/LK/SFfBZHCC0DaYpgo/JuzmeVPO
-	 EKCH1kQrCGFEVpqYIbyEWckfmoRMVhAH3z3maLYsPubVnWgtCBDFbRWiscnCEA2nJEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795499264;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=2942f0EcNrAJjC2YXD+QtpsaftZMjyCf5nWFdFWQhug=;
+	b=DcT99ZwWJrb2EAz8ne5lPCUKEwxeNMwSjGBIK2ltn6vjigM57HsROnO0kECILorCS5hE
+	 QsWreYcED3ZQtCAf9DqqExfeADdXekBOwlf3bXOZH2b1tJFYyGs1BW7QsUQ3x/WHm72+a
+	 ZwB/I6B9jEUA1LqFAq8dB1uxZ+VFQ4J1TH+1aXCnn4BBuSvzM7lS0MNhHeMBXKW9yRCqc
+	 mEsj0NqWGdBBQOxuqrmOVICY8oV8iyTMg2gjTVWSe+hu/MP99snMCL/L7kLTIPhEttciD
+	 NNp3JRX5yAfymBB2zLguW3JPQd+2QlMM90BFa8HfmcNJkkoUS/AqzCo2OHBm/K4A3Dw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=a174nxv9;
-	arc=none smtp.remote-ip=192.198.163.9
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Yf21dqIJ;
+	arc=none smtp.remote-ip=91.218.175.155
+Received: from mta0.migadu.com (out-155.mta0.migadu.com [91.218.175.155])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1545606A321;
-	Tue, 24 Nov 2026 05:46:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1545606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02E23606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:47:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02E23606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=a174nxv9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795499198; x=1827035198;
-  h=message-id:date:mime-version:cc:subject:to:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=Rsqn8C+lyW0grTpsQkc/ILwRR9+emcI8MVVSWwxpppQ=;
-  b=a174nxv9nJnMlsHp2InXEipcPHAM+iUMgWqdu2ejufO7MhiVwGXgVftY
-   TXIFkIRvpDFQ52Gucv5cBBRl0nhafJ5XHIjN1WSXpb8XqmbIUi7jVk69x
-   vaT8aBK7F4kXaSO2dXmh+25zac3Pz61fcHfeTaLW1mcz98Etn4r3+z1EI
-   m8oDVTLT+159s713J/6C6Jr6jQWMLQoHLJ7sMlNYXMOipnX13yOF920ra
-   Zw3dD2YQTQ8sx7CRTxO7mPYQEGPlsmBwEDsk1pUW+8tErYnTE1dsnunf/
-   7HKlLflyqaVZoAWaNoNKe1YCau/Cj3Cj8ROtmZe5liVsaQVguw0r2rQlQ
-   w==;
-X-CSE-ConnectionGUID: JwYJHFUCQ12lYY1xArCmGQ==
-X-CSE-MsgGUID: 06OU5f55TAex5f0QLQWtqw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4207685"
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="4207685"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 21:46:38 -0800
-X-CSE-ConnectionGUID: 1I3+CKVHSkultcLGWbpzKg==
-X-CSE-MsgGUID: G8Z/XUfUTgy0S1A4expfiA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="13272001"
-Received: from unknown (HELO [10.238.1.144]) ([10.238.1.144])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 21:46:34 -0800
-Message-ID: <ac7208aa-04a0-4fd6-bb32-b9478678fd19@linux.intel.com>
-Date: Tue, 24 Nov 2026 13:46:31 +0800
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Yf21dqIJ
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=55+Ze73XLUGRyfH+eSGT9jj/xqUX21ySQEW4J4NGZB4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795499260; v=1; x=1796104060;
+ b=Yf21dqIJx6+3PImSGXeK2d7mCX01Q41AOW2OnGSmpzM20k/fZH65M/SUKGheGPaER1GUYXMs
+ syTyuAfq3TOrnjBTyc3lwOh1mrb12Y0kRYtVPh2o9TIY/noBgk6rHJolrli+0c2eIKBAfELbRrY
+ W+uv4KxwQ/Fm/S+swLmfqHb8=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id 9ce4ce6d35c60903;
+	Tue, 24 Nov 2026 05:47:38 +0000
+X-Mizu-Trace-ID: 9ce4ce6d35c60903
+X-Migadu-Flow: FLOW_OUT
+Date: Tue, 24 Nov 2026 13:47:29 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Andrea Mayer <andrea.mayer@uniroma2.it>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Hangbin Liu <liuhangbin@kylinos.cn>,
+	Stefano Salsano <stefano.salsano@uniroma2.it>,
+	Justin Iurman <justin.iurman@gmail.com>,
+	Andrea Mayer <andrea@common-net.org>
+Subject: Re: [PATCH net-next v4 5/5] selftests: seg6: add PSP flavor testing
+ for SRv6 End.X
+Message-ID: <20261124054729.GA14932@Liu-laptop>
+References: <20261119-srv6_flavors_endx-v4-0-284cdb484eee@kylinos.cn>
+ <20261119-srv6_flavors_endx-v4-5-284cdb484eee@kylinos.cn>
+ <20261123050952.21dc46abdf5fe4fa235bb68d@uniroma2.it>
+ <4717cab46b8eec796eb97799240cd6ab92d8c1ed@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,126 +75,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: baolu.lu@linux.intel.com, iommu@lists.linux.dev, x86@kernel.org,
- linux-coco@lists.linux.dev, kvm@vger.kernel.org,
- Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>,
- Kiryl Shutsemau <kas@kernel.org>, Rick Edgecombe
- <rick.p.edgecombe@intel.com>, xiaoyao.li@intel.com,
- Chao Gao <chao.gao@intel.com>, Binbin Wu <binbin.wu@linux.intel.com>,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/9] x86/virt/tdx: Add SEAMCALL wrappers for IOMMU
- setup/clear
-To: Xu Yilun <yilun.xu@linux.intel.com>
-References: <20261112043054.2664857-1-baolu.lu@linux.intel.com>
- <20261112043054.2664857-2-baolu.lu@linux.intel.com>
- <awQNpgjgIlwhXrqT@yilunxu-OptiPlex-7050>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <awQNpgjgIlwhXrqT@yilunxu-OptiPlex-7050>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4717cab46b8eec796eb97799240cd6ab92d8c1ed@linux.dev>
 
-On 11/23/2026 5:55 PM, Xu Yilun wrote:
->> diff --git a/arch/x86/virt/vmx/tdx/tdx.c b/arch/x86/virt/vmx/tdx/tdx.c
->> index 4cce77b6a31f..a1f35188a272 100644
->> --- a/arch/x86/virt/vmx/tdx/tdx.c
->> +++ b/arch/x86/virt/vmx/tdx/tdx.c
->> @@ -2567,3 +2567,56 @@ void tdx_sys_disable(void)
->>   	if (ret && (ret & TDX_SW_ERROR) != TDX_SW_ERROR)
->>   		pr_err("TDH.SYS.DISABLE failed: 0x%016llx\n", ret);
->>   }
->> +
->> +/* No cache flush is needed; hardware keeps caches coherent across KeyIDs. */
->> +u64 tdh_iommu_setup(u64 reg_base, struct tdx_iommu_mt_param *param,
+On Mon, Nov 23, 2026 at 01:40:27PM +0000, hangbin.liu@linux.dev wrote:
+> November 23, 2026 at 12:09 PM, "Andrea Mayer" <andrea.mayer@uniroma2.it> wrote:
+> > 
+> > On Thu, 19 Nov 2026 21:55:21 +0800
+> > Hangbin Liu <hangbin.liu@linux.dev> wrote:
+> > 
+> > > 
+> > > [snip]
+> > >  @@ -1031,6 +1187,25 @@ setup_end_flv_psp()
+> > >  SETUP_ERR=0
+> > >  }
+> > >  
+> > >  +setup_endx_flv_psp()
+> > >  +{
+> > >  + SETUP_ERR=1
+> > >  +
+> > >  + setup_hs_lo_addr 1 1 "${ENDX_CSID_PSP_FUNC}"
+> > >  + setup_hs_lo_addr 2 2 "${ENDX_CSID_PSP_FUNC}"
+> > >  +
+> > >  + # The same SRv6 policies with setup_end_flv_psp except using End.X
+> > >  + setup_rt_policy_ipv6 2 1 "3>4:noflv:End.X 4>2:psp:End.X 2>h:psp:End.X"
+> > >  + setup_rt_policy_ipv6 1 2 "1>h:psp:End.X"
+> > >  +
+> > >  + setup_rt_policy_ipv6 "2:${ENDX_CSID_PSP_FUNC}" 1 \
+> > >  + "3>4:next-csid,psp:End.X 4>2,2>h:next-csid,psp:End.X"
+> > >  + setup_rt_policy_ipv6 "1:${ENDX_CSID_PSP_FUNC}" 2 \
+> > >  + "4>3,3>1,1>h:next-csid,psp:End.X"
+> > >  +
+> > >  + SETUP_ERR=0
+> > >  +}
+> > > 
+> > On v3, Sashiko asked whether the End.X tests would pass with End.X
+> > working as End. In this topology, the nh6 of each End.X is also the
+> > next hop that a lookup of the new DA gives, and the tests pass in both
+> > cases. An unreachable route in table 90 for the next SID, on rt-4 for
+> > (i.a) and on rt-3 for (i.c), would make End fail and leave End.X
+> > working. This is close to what Sashiko suggested on v3. What do you
+> > think about adding these two routes to the End.X scenario, each with
+> > its defer?
+> > 
 > 
-> param is too general, name it iommu_mt, is it better?
-
-Agreed. In a function whose arguments are all parameters, @param doesn't
-say anything. I will rename param to iommu_mt.
-
+> Oh, for i.a), do you mean add an unreach rt-2 SID on rt-4?
+> e.g. fcfcff:2::/32 unreachable? If yes, based on
 > 
->> +		    u64 *tdx_iommu_id)
->> +{
->> +	struct tdx_module_args args = {
->> +		.rcx = reg_base,
->> +		.rdx = __pa(param),
->> +	};
->> +	u64 ret;
->> +
->> +	/*
->> +	 * Retry only on TDX_INTERRUPTED_RESUMABLE:
->> +	 *
->> +	 *  - TDX_INTERRUPTED_RESUMABLE guarantees forward progress between
->> +	 *    calls.
->> +	 *  - On TDX_INTERRUPTED_RESUMABLE, all registers except RAX remain
->> +	 *    unchanged.
->> +	 *
->> +	 * The ABI spec also allows retrying on TDX_OPERAND_BUSY, but that
->> +	 * status doesn't guarantee forward progress, so retrying could spin
->> +	 * forever. The host serializes all TDH.IOMMU.SETUP and
->> +	 * TDH.IOMMU.CLEAR calls for an IOMMU, so the TDX module should never
->> +	 * report the operand as busy.
+> #   (i.a) hs-1 -> hs-2: on the packets with DA=fcff:3::400a, rt-1 inserts the   
+> #         extra SRH with SID List=fcff:4::e,fcff:3::400a, and rt-4 consumes
+> #         it. 
+> #         Path: hs-1 -> rt-1 [ -> rt-4 ] -> rt-3 -> rt-4 -> rt-2 -> hs-2        
+> #   (i.c) hs-1 -> hs-2: on the packets with DA=fcbb:0:34a9::, rt-1 inserts the  
+> #         extra SRH with SID List=fcff:4::e,fcbb:0:34a9::, and rt-4 consumes
+> #         it.
+> #         Path: hs-1 -> rt-1 [ -> rt-4 ] -> rt-3 -> rt-4 -> rt-2 -> hs-2
 > 
-> Many SEAMCALLs return TDX_OPERAND_BUSY, and this is the generally expected
-> handling. I don't think we don't need the comment if nothing special.
+> I think we should add the unreach rt-4 SID on rt-3, e.g. fcff:4::/32 and fcbb:4::/32,
+> because we need to use the neighbour route on rt-4 to redirect packet to rt-3 after
+> End action. What do you think?
 
-I'd like to keep a shorter note. It's the usual handling for TDX folks,
-but people outside TDX may read this path too.
+ (i.a) hs-1 -> hs-2: on the packets with DA=fcff:3::400a, rt-1 inserts the
+       extra SRH with SID List=fcff:4::e,fcff:3::400a, and rt-4 consumes it.
+       Path: hs-1 -> rt-1 [ -> rt-4 ] -> rt-3 -> rt-4 -> rt-2 -> hs-2
+ (i.b) hs-2 -> hs-1: on the packets with DA=fcff:1::0af1, rt-2 inserts the
+       extra SRH with SID List=fcff:3::e,fcff:1::0af1, and rt-3 consumes it.
+       Path: hs-2 -> rt-2 [ -> rt-3 ] -> rt-1 -> hs-1
+ (i.c) hs-1 -> hs-2: on the packets with DA=fcbb:0:34a9::, rt-1 inserts the
+       extra SRH with SID List=fcff:4::e,fcbb:0:34a9::, and rt-4 consumes it.
+       Path: hs-1 -> rt-1 [ -> rt-4 ] -> rt-3 -> rt-4 -> rt-2 -> hs-2
+ (i.d) hs-2 -> hs-1: on the packets with DA=fcbb:0:43a9:31a9:10a9::, rt-2
+       inserts the extra SRH with SID List=fcff:3::e,fcbb:0:43a9:31a9:10a9::,
+       and rt-3 consumes it.
+       Path: hs-2 -> rt-2 [ -> rt-3 ] -> rt-4 -> rt-3 -> rt-1 -> hs-1
 
-> 
->> +	 */
->> +	do {
->> +		ret = seamcall_ret(TDH_IOMMU_SETUP, &args);
->> +	} while (ret == TDX_INTERRUPTED_RESUMABLE);
->> +
->> +	*tdx_iommu_id = args.rcx;
-> 
-> I remember there was an internal debate about whether to only assign the
-> output upon success.
-> 
-> There are several examples in tdx.c that assign the output regardless.
-> But all of them holds error information, which makes total sense to
-> assign on error.
+Ah, add unreach rt-4 SID (fcbb:0:4000::/36) on rt-3 will break the path for (1.d)
+testing, as we use End action on rt-3 and redirect via the route. Can we just
+add the unreach route (fcff:4::/32) on rt-3 for (1.a) ?
 
-Oh, I overlooked this.
-
-> 
-> This rcx output however doesn't hold info on error. So I think early
-> exit is the right choice. Also see tdh_phymem_pamt_remove()
-
-Agreed. rcx carries nothing useful on failure. Will return early and
-only set tdx_iommu_id on success.
-
->> +
->> +	return ret;
->> +}
->> +EXPORT_SYMBOL_FOR_MODULES(tdh_iommu_setup, "tdx-host");
->> +
->> +u64 tdh_iommu_clear(u64 tdx_iommu_id)
->> +{
->> +	struct tdx_module_args args = {
->> +		.rcx = tdx_iommu_id,
->> +	};
->> +	u64 ret;
->> +
->> +	/*
->> +	 * Don't retry on TDX_OPERAND_BUSY. See the comment in
->> +	 * tdh_iommu_setup().
->> +	 */
-> 
-> ditto
-> 
->> +	do {
->> +		ret = seamcall(TDH_IOMMU_CLEAR, &args);
->> +	} while (ret == TDX_INTERRUPTED_RESUMABLE);
->> +
->> +	return ret;
->> +}
->> +EXPORT_SYMBOL_FOR_MODULES(tdh_iommu_clear, "tdx-host");
->> -- 
->> 2.43.0
->>
-
-Thanks,
-baolu
+Thanks
+Hangbin
