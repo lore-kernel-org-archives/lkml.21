@@ -1,93 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795527339;
-	b=zpbobodHdEh6+9RqFQSFKiQX5ZRXjq2xd1c+K8cxdQsGXZ7rYQMdw+pAVUv5CZCs8Oa/
-	 iKSKwISvHTY22Xiu57dhYs+a5xqY8CRAfgTv8ny7RpekUAvsGx/SKGOuFvC0WH3IEQ+bt
-	 oFBD2zcWPjWfAfgbiUWopTs1+pPQ8EhG9mMnHN/MSj8T2we2wQip2KubHYqZQM6RehxdA
-	 5C0IMTkDlEbKFGE0NBpBbQzwsMFNxP6mp8jTWDX5zsOxdtDmrXBEL5uLwTOLAOTD897VB
-	 J6wTige220ikWbBP5PYHjDoGt32Zsy2Uv73L7a+DRCLVtBqIZCMlNdV+rIYHGx0SVoQ==
+	t=1795527375;
+	b=B4TjRg5yZzqnYodXhLWRSrAIeLYQCe2aSnb6eYCDduL/8fPeb/BA4tRjkkwARNtb6muS
+	 wKOPbAA1QxBnPCcmOEJUuACX/Q+MKCD/ka8o2K+9gQde5S7HAt16UpTFh+V3U1U1lrvPL
+	 EqJEVEs0sjgseXOnLSDMPjrmQ2KnMkWx/4CCP9s+aO57BWQmCjiOX0PvNPYOKieO/2fcf
+	 ExI2R9XNRgb/Y7Fa2VMmYPPhmz2zzixDqCEqkIeYnnQrLj7g8Zvc5db1X0fVM5EmNu65P
+	 tZiuT5QEXX8JEdAjcycfdmnjinfyA4D2ZwDWaE0jf3hpHOGeR4lqhYgq14uHQsrwA0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795527339;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=SlQLX7u1Me0NFtwAym0d5omjRG8dj5NZbOQLq3ePYHI=;
-	b=T89PwkuMBct9rzZck1Bcxd8eqR5/CGcaMgKdA3a3AupGSxAfjvxZb/5cPYnWZxctvODc
-	 pLYQKwLddxwY9JdI5dUI0UDhCzHxQIntrUkhansWsJdnjdGd9vRKg/84vm5MEZM/aKCx/
-	 Zj/v3ErwsI+KDX5QHSpoh8FcjLj4hkJjUJLgAU7Q0XhO/Pxpn8kWwEtr/D1OwDUa+fKc0
-	 rbTHXbYApTfBvSMgR8JV+7RZksJ1Yn/sC4ATFj2QNIODr7y4mkQIhNB30asUTS0lSw/On
-	 Cf/kipuHcuQWWTnf5l0IlqNBwMWhjb/cNHdvJF97U7pD4if3SrGkxJXmk+Fzlsk8Ubw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795527375;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Scanned-By;
+	bh=+ig6FTaY9UYhfakPyt5XHggpDeHMd5GJavSEOD3Ro6k=;
+	b=WvNt+K/ZVKkUWO6O6aax9dDyodC2eoujcOwkaFYNiwIaucuoGgImrctvLf2cZrmETNif
+	 nBJcTo6fAPhA0NxdWu9PywabEJST/rgztHyu3TOdaCmT3zcNDG/XNyj2SwxbFSLZ7dVRn
+	 dm7UYfqFLqcS8qpew3oTXgLwtQv06LCX5hEpT4opt1u0E7E5ge++PtesA7bKPMGiNiR7G
+	 tX3WgAkEpfqTgtCqDNgrpVOLjXEEeuO+PG47pCi4fVTqgDMGHmnqi7yHcdggSQpc8Dy4h
+	 h664gJvc0Aq86oESjQNQ8kvEfbGnN8L9FFKz+OV4o4Rvk/dNXRlwL8kVVoiHiwrCNDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b="Mh/AXREb";
-	arc=none smtp.remote-ip=209.85.128.47
-Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dP2tuCKG;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51FC8606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:35:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51FC8606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02098606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:36:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02098606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Mh/AXREb
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4a1fbd52ab6so30562985e9.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:35:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795527338; x=1796132138; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=SlQLX7u1Me0NFtwAym0d5omjRG8dj5NZbOQLq3ePYHI=;
-        b=Mh/AXREbG1U7RIF+6X3VGuSkNAWZhoyGRI07gZPy7T+PtaFYPFMzvkCX2d9BBm/NY6
-         +5zEDXBtu+tTmscJ2seQI8rRNJn18AkKAALC/wZH9qNpQgep9Lrot2gCSPLyvwxVMRuL
-         jPSPIB+5p05ZUaiMHPT7VHMcSn0gBNilx0/Xr9igXYtRdwREGiBJ2fas7RLaorH2MF4y
-         au3npKqc8iSpY9RObbHYwqJfo3PgL6Z61dM6VZBOFkwbeMqlnVLC7q/YYpEjhSYM1ko5
-         nfMZumLFfLz2tiAA4H9fgt2oBiXe/vFR0VA835OymKGqCkWAq/0iqDer6XlgfGv2vExX
-         O5FA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795527338; x=1796132138;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SlQLX7u1Me0NFtwAym0d5omjRG8dj5NZbOQLq3ePYHI=;
-        b=SLX4DAzn5ktMzc9FmqvtwwV9nD5sccHNFAJ01u+rh0oC/UXVsZhxEJNWanqXGwAqr2
-         y4qY/lHwb3qAnWYoEx1+XYerB7itkDocbyNgnhhUDd+Y+fqa6FOiAqqdW7hO3EEK64PU
-         wbjJOYDibRG5Z+gL3ummW/b7IWfLCC8AIMGOLWgreqGLFumG352w385l15boV6gMkmfj
-         pHC5HA2h4A2Mzd72F5oWlm3Y0TsHyboPfZj6mii8KMgVyEPe7g71WwXJMNPeX05cRFBc
-         df9OBz88bJBh3ZseCHjRsxb9YmrkNuXc352KDdi46sxi1IS/FuPqJG/nu0vlDrcbGFVf
-         Z/Ww==
-X-Forwarded-Encrypted: i=1; AL+hErEVMb6lcqceSKwYp6KCQF0YLh4nTWrrph3xacbVH/NZOA6XoVWtG1rHsb9MRe8lEDXt0Ul6UYb6Ngzoh78=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9JCA+E+01HkuEdgjGfmK6ZHrEWdYFAuknvA7pPjlAkguxNukTD
-	jbaZNHPt+JVuMvwp64tz4hjbEikFh2V7/PRjwcaeqTR0aLt3FDJeip6seK/b1Bfo6/E=
-X-Gm-Gg: AZFdTZdLQ93gzLn/ZXlCnURCP9C1L8A89K+wuMebwH9vx9DVjIX4HAEtX3WwtLO437g
-	zGUXrMd2T/1ppZKr6n4X1Pq+hjbW6IhQufQ3OpYaZnPfmV4RPyOMlxPlbCMun619Lw5vbELBp51
-	s3sS9IhCLFOPQAXFDkbXrURqppy48F8/YILsUhHSQsTUCgNPzOUsMz5BHtZHYtgKnDPgWDC4xCy
-	G96x9kTceKyi1dIXmPMo7YdpNUGzxvgOFt0THxEdHpmhDNrQKTzVzyHmlVATadVKMjX4OAezVJb
-	pP8+PyejYPbRf6nF0vo/RIrKY6/AmCx8Nr0VpNSxVP8g/3oBSKpl2HxIBMIvdR+YUe0p3of/Vxe
-	xrP9CkaOlFWAYbL5pGcbEh9yw24dN+5Z1trBstzQwitkkYMYRJMAy1nLzV6FOrfiOK/hSnM624R
-	h2LyXHBFrudpVy6sxs5Ucq9SmiY6pUOzjZ/XpsAMhd/IFcNR7vHER5m+LqxG5Qnnffd4I59Ra5f
-	qAL0bf/0YDsIpD/xzxG0jPtBHgcfrenmIV2GLNg0OPpXdZalc0vFJCBnY4Be5k9JANAITt9IOOI
-	ERXEcBRpcNZoJGPIs42fOJ923ES9Avw=
-X-Received: by 2002:a05:600c:a15:b0:4b6:267a:dd6e with SMTP id 5b1f17b1804b1-4bb88938a62mr302562135e9.28.1795527337675;
-        Tue, 24 Nov 2026 05:35:37 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9067846esm271922625e9.4.2026.11.24.05.35.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 05:35:37 -0800 (PST)
-Date: Tue, 24 Nov 2026 14:35:35 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: Yafang Shao <laoar.shao@gmail.com>
-Cc: jpoimboe@kernel.org, mbenes@suse.cz, joe.lawrence@redhat.com,
-	song@kernel.org, live-patching@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] livepatch: clear internal flags at init
-Message-ID: <awWSp422uOGwQ5Eo@pathway.suse.cz>
-References: <20261123024000.15130-1-laoar.shao@gmail.com>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dP2tuCKG
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795527373;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+ig6FTaY9UYhfakPyt5XHggpDeHMd5GJavSEOD3Ro6k=;
+	b=dP2tuCKGENxxVAeI6H/GyJhOsGbcqV0U4mjovXRi6OWkBYeNz917G91A/3bTBBGbK7gtZL
+	Ngx8U2enmSzi753P215r3l7P46zc/qvUf3rF55cbUHA15AmmXrTe49KulmNi9UvaZEbK6O
+	O2mdNj4jF58lJN4ekkyCa5nbBeGD+w4=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-106-ZdDEksctOqGrPB9-9Qiw8A-1; Tue,
+ 24 Nov 2026 13:36:09 +0000
+X-MC-Unique: ZdDEksctOqGrPB9-9Qiw8A-1
+X-Mimecast-MFC-AGG-ID: ZdDEksctOqGrPB9-9Qiw8A_1795527367
+Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0AB561800344;
+	Tue, 24 Nov 2026 13:36:07 +0000 (UTC)
+Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id B4F295B1;
+	Tue, 24 Nov 2026 13:36:03 +0000 (UTC)
+Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
+	oleg@redhat.com; Tue, 24 Nov 2026 14:36:06 +0100 (CET)
+Date: Tue, 24 Nov 2026 14:36:02 +0100
+From: Oleg Nesterov <oleg@redhat.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: mt4022@columbia.edu, Jens Axboe <axboe@kernel.dk>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Michal Nazarewicz <mina86@mina86.com>,
+	Wen Yang <wen.yang@linux.dev>, linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org, tz2294@columbia.edu,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] sched/wait: Queue non-exclusive waiters at the
+ head in do_wait_intr*()
+Message-ID: <awWSwmvaTwBxfU-r@redhat.com>
+References: <20261122-b4-sched-wait-intr-head-v2-0-4a764b64e8ce@columbia.edu>
+ <20261122-b4-sched-wait-intr-head-v2-1-4a764b64e8ce@columbia.edu>
+ <CAHk-=wj_eqNh+gNhCQh3exrL5Pmo5hbZBcL0W-4Ah_Nw0Kegzw@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,31 +89,58 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261123024000.15130-1-laoar.shao@gmail.com>
+In-Reply-To: <CAHk-=wj_eqNh+gNhCQh3exrL5Pmo5hbZBcL0W-4Ah_Nw0Kegzw@mail.gmail.com>
+X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
 
-On Mon 2026-11-23 10:40:00, Yafang Shao wrote:
-> func->nop and obj->dynamic are internal flags. However, a patch module can
-> set them in its static initializer and nothing validates that. The release
-> path uses them to decide whether kfree() has to be called, so with such a
-> patch the kernel ends up calling kfree() on memory it does not own.
-> 
-> Explicitly clear these flags during init to avoid that.
-> 
-> Suggested-by: Miroslav Benes <mbenes@suse.cz>
-> Signed-off-by: Yafang Shao <laoar.shao@gmail.com>
+On 11/23, Linus Torvalds wrote:
+>
+> Finally, I think we should make the return value from the wakeup
+> function be a bitmask, and count "exclusive" as only "we haven't seen
+> this bit returned yet". And then *real* exclusive users that actually
+> guarantee that they react to the wakeup return all bits set, but the
+> sh*t-for-brains garbage that is "epoll" only returns its own bit set -
+> so we only wake up *one* epoll user, but we wake up other users anyway,
+> because epoll clearl yis lying about its "exclusivity".
 
-It looks a bit ad-hoc to initialize these two internal flags and
-not the others, e.g. obj->patched. But maybe the other flags
-just get assigned a value later.
+Ah, I don't think this can work... Suppose that ep_poll_callback()
+returns its own EP_XXX bit set. Should __wake_up_common() wake up
+the next waiter? It can't know until it calls ->wake_up_fn() which
+can wakeup another epoll waiter.
 
-I could live with this:
+Well. It is not that I like this idea (and I bet neither you ;) but
+we can add WQ_FLAG_EPOLLEXCLUSIVE set by ep_ptable_queue_proc() and
+__io_queue_proc(), and change __wake_up_common() to check it
 
-Reviewed-by: Petr Mladek <pmladek@suse.com>
-Signed-off-by: Petr Mladek <pmladek@suse.com>
+	static int __wake_up_common(struct wait_queue_head *wq_head, unsigned int mode,
+				int nr_exclusive, int wake_flags, void *key)
+	{
+		wait_queue_entry_t *curr, *next;
+		bool seen_epoll = false;
 
-I am going to wait few more days for a possible feedback.
-I will commit this patch by the end of this week unless
-anyone complains.
+		lockdep_assert_held(&wq_head->lock);
 
-Best Regards,
-Petr
+		list_for_each_entry_safe(curr, next, &wq_head->head, entry) {
+			unsigned flags = curr->flags;
+			int ret;
+
+			if ((flags & WQ_FLAG_EPOLLEXCLUSIVE) && seen_epoll)
+				continue;
+
+			ret = curr->func(curr, mode, wake_flags, key);
+			if (ret < 0)
+				break;
+			if (ret && (flags & WQ_FLAG_EXCLUSIVE)) {
+				if (flags & WQ_FLAG_EPOLLEXCLUSIVE)
+					seen_epoll = true;
+				else if (!--nr_exclusive)
+					break;
+			}
+		}
+
+		return nr_exclusive;
+	}
+
+for the start.
+
+Oleg.
+
