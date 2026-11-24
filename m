@@ -1,79 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795534510;
-	b=j6lqX7VP7bUzk/PYnv/doeNzQubTugMUiobuWSZLyUCySKyhcEECQigNhFVjYqU526bb
-	 EXfbQUWU+qWWGjSZNUeLHWUZMSPB+KWWJ1dRuj0gwhxgFtlQNNmxv2p9S7OLEuSFmLVWE
-	 gPseoJz3wPpeGn3gNIkbjo/2Jjc+DuVM3zeo5URHUcOcC94RrJwsdcfdvGkPE8giC4IYs
-	 UiQIkU4xBIpN+pkIn76lmJeK47YuwwB4GvNlOM+2xYq1ntPftu2liJjIMumaU5PM5oyzJ
-	 VPQmtj4smUowJpqy1Mss6vcAqPxdUiJE22hpekq8LdLoDoORhxo712C5V89hSVZvhiQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795534510;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=VygsRWMu19YlnfF9gsoqmfWMLGEp1qEBqKlVHOIN/xU=;
-	b=diSiq04Ojgbw1mD4MSlMdpryie45R3eUtiftyY7kg19oAX64cID3qFzvqV3SzVIJO5u+
-	 h8hjYO22n/rSbzwV0zSC5m0QFGNOucXdQUuqTpgD3Dhs4r2iEWM59kPVwiQrm/FknGKWy
-	 iADLw34U3ZX/GYSu4UqIa4V0pR/HOzQYv/RYy0jVkf90PLV+PSw8GVBXmkUriUiUlPERy
-	 FpsplhA/EjE8bu0PDshzxXWX/3aYX15JH3Qem+GyM8BdxMJSr4UBrUGaMxWMb7HaItZ8N
-	 mnTqpgTs7OiWaqxykiZaRGLPJNmVZ0DcTTyYm8zLj1Tto8aZNSOQj7eqKSZFFI7faDA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QUtEQeZ1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 889BE606A31E;
-	Tue, 24 Nov 2026 15:35:10 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QUtEQeZ1
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795534510;
-	b=ch+grGCzaA7+W860joylvOkpu3NzySLFIqyQTIu0tdlK+bzBEBAL2Uu3zEUnYTliVwwB
-	 30zEq/HxEpgllaVmE42n0d79JifeeJOpPmaqqxM1ff+dC2LXtZZ207Xcq58pUGzUKgu3t
-	 oUuqdB/Zkv/qC8EArTEln6O7VMk13Ff3khO4AIPj1gJduZEyODP3Icsw6ARUJYbvx2BQY
-	 X93Xj7fD/wxMk6r/D8zJnb1E03fV1KetVOjX/QAjdznmwT1lLz+FZBWgsK+AUMh9dxgCb
-	 HSCT1Hq0zm/vHdmzdvvXdd/B//KQ2Y6uzK8ZkkzFYYFyKrRAiy6Yy1bTW9eqx/g+2Pw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795534510;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=VygsRWMu19YlnfF9gsoqmfWMLGEp1qEBqKlVHOIN/xU=;
-	b=Iz2OUy5p7pozazxY4aHsPJJTcWZX5j87iK7uMhPNjTavi+a3Y1z0gh4h8qEZjB2KnAn6
-	 BKMdy/VfFCdjnEXTwfzJZa5LG/HLkMCQiGZz6HhYUpT/JLzayN16tIAGYd8bZmNPfXtYj
-	 62qUlu1/LBt/uJffKzAJo438w3mwjFoF3LzHUQnYL7SXbBqNLAL+GsH4ahxrs82cUxBhw
-	 LOtdriLtKxYJ7O0dHDEHD5Ft6B6HXmtw9qJNXLAyT6PnhX94kxAg0kx/U/7AR79GYezQw
-	 SZu9r73uuOfWaAynHMt51vfBid3GjRIq1l/BUr8Uy1g0vhq08P9jyUMYfUA7tENpOVA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.159.188.251
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795534516;
+	b=Qp3H8TNQssPHqCqYqVbVleXjsmVyGEz4UrcBibqxczF+J9pvHAcAdJNor8c6CW+OX4W2
+	 i2lf/AW7exubIwjc8a2ncnVR5O/D1IW70fLxWsfjKaXSPgvSM++n0rjZ2+5XfZirSEJcg
+	 A596ulAP9h8X+O+hq5IkiVl0J46dyFSiuMTesIRvYlne7ORCb9JCRIGsCXZ2dNDw7rzHU
+	 Dzs9JFuiwBIF6GwdwapClh76eYCmiUBSWGdO3QwFuchOCspxl9b6esvYM9oG7vdG6EKJX
+	 SIVQl6r/teTE4MQvYs412b4UCkTx3u0rvrDsPVji+HnnmNdqk3I1CHA2XOzct8IgmPw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795534516;
+	h=DMARC-Filter:DKIM-Signature:Received:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-Get-Message-Sender-Via:X-Authenticated-Sender:X-Source:
+	 X-Source-Args:X-Source-Dir;
+	bh=Hiqgug4PLfmLDouml7XZwwm2cHGCt3nBLWMYNqWgmZU=;
+	b=Lan4c4lrr7wMyYO6rw+TaBWVBz0fptlIMeqfpj1uMY9cSTzTUTmQqP8ghRqwie5Y2SFS
+	 WDUyoECg9/9ZfjRdgzCsvq2s9pbRG/Y3+usAypG5B76UJuunKEtNRDyeOMpI05BUc3Ul5
+	 NTnnfaGMYV6e0zDqPJ5WFkw2XNZW38IXYY3y4J9JZSLkHU60Nl7zqsy8IXO9fpcftzwVB
+	 MbE7gLeYn++/XsypMkmqB73OKX2mL+fbjVyE1u+xLDKKCXYEZda1GTndalHHQiY0szash
+	 V7vJMkdY/hoyDYjsL98ExzW8gjoXTVvcevM43zIa/h39RMz1xmM4a9C4TWuQCYod9Fg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.cyber.gouv.fr;
+	spf=pass smtp.mailfrom=oss.cyber.gouv.fr;
+	dkim=pass header.d=oss.cyber.gouv.fr header.i=@oss.cyber.gouv.fr header.a=rsa-sha256 header.s=default header.b=rpf5wJ6H;
+	arc=none smtp.remote-ip=51.159.188.251
+Received: from oss.cyber.gouv.fr (oss.cyber.gouv.fr [51.159.188.251])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 3A4801F000C4;
-	Tue, 24 Nov 2026 15:35:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795534510;
-	bh=VygsRWMu19YlnfF9gsoqmfWMLGEp1qEBqKlVHOIN/xU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=QUtEQeZ11At2SHkKODXc3ehg8VTB2gD7XK+9cZ0J4PvlLPQH6tAb4ghmclzzbO+7K
-	 ND9RczOrG+N6kKuhO5gFtyPYpBO2EkVMG2lwI12thT/ZnmhhDN4YaFl4ZtdJzKExP4
-	 BfubRtGskGeUdV9JqklBdTpVHBGRaf+RGZRUA0SGcSlBQJi8G0+bLmyAmHzjmXkx65
-	 4Uwjgp5C6zErSCvQcWSUsR/mRuNUom28PBPjkoYm2k2LV03T8r8p+zp1s5WzVpv6iL
-	 /rZSRqhNo30xSEkzuma94ZMThAqXAzvyFzoFBBssOPzsmu6lvK9X98YQCmM7fo2AYP
-	 kzF8Kj1+W7vFg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id B505A4CA91;
-	Tue, 24 Nov 2026 15:35:04 +0000 (UTC)
-From: Binoy Ravindran via B4 Relay <devnull+binoy.vt.edu@kernel.org>
-Date: Tue, 24 Nov 2026 10:34:27 -0500
-Subject: [PATCH v2 1/3] rcu-tasks: Add helpers to visit tasks on the exit
- lists
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CD9E606A33A;
+	Tue, 24 Nov 2026 15:35:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CD9E606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.cyber.gouv.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.cyber.gouv.fr
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=oss.cyber.gouv.fr header.i=@oss.cyber.gouv.fr header.a=rsa-sha256 header.s=default header.b=rpf5wJ6H
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=oss.cyber.gouv.fr; s=default; h=Message-Id:Date:References:In-Reply-To:Cc:
+	To:From:Subject:Content-Transfer-Encoding:Content-Type:MIME-Version:Reply-To:
+	Sender:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=Hiqgug4PLfmLDouml7XZwwm2cHGCt3nBLWMYNqWgmZU=; b=rpf5wJ6HKM2U0Bkg2lR2sWD4r0
+	TPKbTGapxIKn0UbBs3zBciczAwcaifVwHL2PpG0/eRYhoQnQLJLfXxuHObdd1FqYIMRs9M8nGdcG8
+	LZfZpmZVLDAad2lKdXYF5Zc3xtkndvbRh22z0fpItfESLDJY4Uv1s0S33lO8g8pEhBD8rppZst0UT
+	VukA61p6oXV8XV+3V6IxssOzXpsqm0QveevkUTr2jGkRXPLNpHJWeoZ7xaVZYXdwLK24UWkAI1xeC
+	AVpbCqtx7yOCI54s9EtFIoZ/iGT9bdZ78v+8nmVx40yWu5ESkt0JnTeWeoqz3Amg7l+DRdKFbMSwC
+	Q2o6OXBA==;
+Received: from laubervilliers-658-1-215-187.w90-63.abo.wanadoo.fr ([90.63.246.187]:31657 helo=archlinux.local)
+	by pf-012.whm.fr-par.scw.cloud with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <nicolas.bouchinet@oss.cyber.gouv.fr>)
+	id 1xVsY3-00000002UiG-032I;
+	Tue, 24 Nov 2026 16:35:09 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,202 +63,48 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-klp-series-v3-v2-1-50d20829a337@vt.edu>
-References: <20261124-klp-series-v3-v2-0-50d20829a337@vt.edu>
-In-Reply-To: <20261124-klp-series-v3-v2-0-50d20829a337@vt.edu>
-To: "Paul E. McKenney" <paulmck@kernel.org>, 
- Frederic Weisbecker <frederic@kernel.org>, 
- Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
- Joel Fernandes <joelagnelf@nvidia.com>, 
- Josh Triplett <josh@joshtriplett.org>, Boqun Feng <boqun@kernel.org>, 
- Uladzislau Rezki <urezki@gmail.com>, Steven Rostedt <rostedt@goodmis.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang@linux.dev>, 
- Josh Poimboeuf <jpoimboe@kernel.org>, Miroslav Benes <mbenes@suse.cz>, 
- Petr Mladek <pmladek@suse.com>, Joe Lawrence <joe.lawrence@redhat.com>, 
- Song Liu <song@kernel.org>, Ingo Molnar <mingo@kernel.org>, 
- Jiri Kosina <jikos@kernel.org>
-Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, 
- live-patching@vger.kernel.org, Yafang Shao <laoar.shao@gmail.com>, 
- Jaidev Shastri <jaidevshastri@vt.edu>, Binoy Ravindran <binoy@vt.edu>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795534504; l=6595;
- i=binoy@vt.edu; s=20261123; h=from:subject:message-id;
- bh=yjPjOhb/Atfnqas8UHt57mA11woD8FJQKXxBGP8uW1s=;
- b=7WcIg3Wwxbq5Yevy5gZVbhcOeh+DZ9PovUAb89nhWdankZEKYOPYKAwetTscRwZ1fkd6W/2+v
- 1rSTlm8R9SjCFws/5anKENY5Hxjnom0XisyZZMAcOAySXSSgnE0t2cz
-X-Developer-Key: i=binoy@vt.edu; a=ed25519;
- pk=4cNdKPHP0InmhK/9bb7Tm2ZMUXUvLGfw1pmVt5b98fA=
-X-Endpoint-Received: by B4 Relay for binoy@vt.edu/20261123 with
- auth_id=1622
-X-Original-From: Binoy Ravindran <binoy@vt.edu>
-Reply-To: binoy@vt.edu
 Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH -next -v2 4/8] lsm: remove unused lockdown audit data
+From: Nicolas Bouchinet <nicolas.bouchinet@oss.cyber.gouv.fr>
+To: Cai Xinchen <caixinchen1@huawei.com>
+Cc: nicolas.bouchinet@oss.cyber.gouv.fr, xiujianfeng@huawei.com, 
+ paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com, shuah@kernel.org, 
+ kalevi@kolttonen.fi, linux-security-module@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ bpf@vger.kernel.org, lujialin4@huawei.com
+In-Reply-To: <20261110132818.2231593-5-caixinchen1@huawei.com>
+References: <20261110132818.2231593-1-caixinchen1@huawei.com>
+ <20261110132818.2231593-5-caixinchen1@huawei.com>
+Date: Tue, 24 Nov 2026 16:34:52 +0100
+Message-Id: <179553449230.44882.17183853283881298076.b4-review@b4>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=453;
+ i=nicolas.bouchinet@oss.cyber.gouv.fr; h=from:subject:message-id;
+ bh=cIPn2SAg6D/Mntt5Ahor7lDCbXGolIJx7mRdJypxNNc=;
+ b=owGbwMvMwCU2peIRu9mVXWKMp9WSGLJZ1y0Kva4Z9KrGV01qpsnu+3tt99lb6nikN1UIlV5fs
+ N8+1OhVRykLgxgXg6yYIssmt3N9s3OVH7n8bjsIM4eVCWQIAxenAEzkeCojw4/nobzyBzXPVv6K
+ WSDQN2+XSVMZT67Rf0+BXwG3AysYZRgZ/n/459L+lf3wj8drrZvfCwveW8b7NGnJv6Bn7jsN9XN
+ 6eQE=
+X-Developer-Key: i=nicolas.bouchinet@oss.cyber.gouv.fr; a=openpgp;
+ fpr=FB48DC6D172A3DE30BA94B0DA548BF06BE454ED7
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - pf-012.whm.fr-par.scw.cloud
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - oss.cyber.gouv.fr
+X-Get-Message-Sender-Via: pf-012.whm.fr-par.scw.cloud: authenticated_id: nicolas.bouchinet@oss.cyber.gouv.fr
+X-Authenticated-Sender: pf-012.whm.fr-par.scw.cloud: nicolas.bouchinet@oss.cyber.gouv.fr
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 
-From: Binoy Ravindran <binoy@vt.edu>
+On Tue, 10 Nov 2026 21:28:14 +0800, Cai Xinchen <caixinchen1@huawei.com> wrote:
+> Commit f5d0e5e9d72d ("selinux: remove the SELinux lockdown
+> implementation") removed the only producer of LSM_AUDIT_DATA_LOCKDOWN.
+> The type, the u.reason union member and the audit formatting case are now
+> dead, so drop them.
 
-A task joins its CPU's RCU-tasks exit list in exit_tasks_rcu_start(),
-before exit_notify() unhashes it from the task list, and leaves it in
-exit_tasks_rcu_finish(), after do_exit() has disabled preemption for the
-final switch. Once exit_notify() has unhashed it, the task is no longer
-found by for_each_process_thread(), but it still runs do_exit() and may
-sleep there. Code that must reach every task that can still be
-descheduled, such as the livepatch transition, has no way to find it.
-
-Add two helpers. rcu_tasks_visit_exiting() calls a function on each
-task on the exit lists under the list locks, without allocating.
-rcu_tasks_snapshot_exiting() copies the tasks into a caller-supplied
-array with a reference held on each, for callers that must sleep or take
-other locks while examining them. Without CONFIG_TASKS_RCU there are no
-exit lists, and the helpers do nothing.
-
-rcu_tasks_postscan() keeps its place in an exit list with a bare
-list_head while it drops the lock to reschedule, relying on nobody else
-traversing the list. Move that cursor into struct rcu_tasks_percpu,
-next to the list it marks, so that the new helpers can recognize and
-skip it. Only the grace-period kthread runs postscan, one CPU's list at
-a time, so one cursor per CPU suffices.
-
-Assisted-by: Claude:claude-opus-5-5
-Signed-off-by: Binoy Ravindran <binoy@vt.edu>
----
- include/linux/rcupdate.h |  9 +++++++
- kernel/rcu/tasks.h       | 69 +++++++++++++++++++++++++++++++++++++++++++-----
- 2 files changed, 72 insertions(+), 6 deletions(-)
-
-diff --git a/include/linux/rcupdate.h b/include/linux/rcupdate.h
-index 3f74ae6d6e1f..55b8b4a0fa94 100644
---- a/include/linux/rcupdate.h
-+++ b/include/linux/rcupdate.h
-@@ -214,6 +214,15 @@ static inline void exit_tasks_rcu_start(void) { }
- static inline void exit_tasks_rcu_finish(void) { }
- #endif /* #else #ifdef CONFIG_TASKS_RCU_GENERIC */
- 
-+typedef void (*rcu_tasks_exiting_fn_t)(struct task_struct *t, void *arg);
-+#ifdef CONFIG_TASKS_RCU
-+void rcu_tasks_visit_exiting(rcu_tasks_exiting_fn_t fn, void *arg);
-+int rcu_tasks_snapshot_exiting(struct task_struct **buf, int max);
-+#else
-+static inline void rcu_tasks_visit_exiting(rcu_tasks_exiting_fn_t fn, void *arg) { }
-+static inline int rcu_tasks_snapshot_exiting(struct task_struct **buf, int max) { return 0; }
-+#endif
-+
- /**
-  * cond_resched_tasks_rcu_qs - Report potential quiescent states to RCU
-  *
-diff --git a/kernel/rcu/tasks.h b/kernel/rcu/tasks.h
-index fcac7361ec51..b5fa5a3a8503 100644
---- a/kernel/rcu/tasks.h
-+++ b/kernel/rcu/tasks.h
-@@ -33,6 +33,8 @@ typedef void (*postgp_func_t)(struct rcu_tasks *rtp);
-  * @barrier_q_head: RCU callback for barrier operation.
-  * @rtp_blkd_tasks: List of tasks blocked as readers.
-  * @rtp_exit_list: List of tasks in the latter portion of do_exit().
-+ * @rtp_exit_cursor: Placeholder that rcu_tasks_postscan() parks on @rtp_exit_list
-+ *	while it drops the lock, so that exit-list walkers can skip it.
-  * @cpu: CPU number corresponding to this entry.
-  * @index: Index of this CPU in rtpcp_array of the rcu_tasks structure.
-  * @rtpp: Pointer to the rcu_tasks structure.
-@@ -49,6 +51,7 @@ struct rcu_tasks_percpu {
- 	struct rcu_head barrier_q_head;
- 	struct list_head rtp_blkd_tasks;
- 	struct list_head rtp_exit_list;
-+	struct list_head rtp_exit_cursor;
- 	int cpu;
- 	int index;
- 	struct rcu_tasks *rtpp;
-@@ -1068,7 +1071,6 @@ static void rcu_tasks_postscan(struct list_head *hop)
- 		struct rcu_tasks_percpu *rtpcp = per_cpu_ptr(rcu_tasks.rtpcpu, cpu);
- 		struct task_struct *t;
- 		struct task_struct *t1;
--		struct list_head tmp;
- 
- 		raw_spin_lock_irq_rcu_node(rtpcp);
- 		list_for_each_entry_safe(t, t1, &rtpcp->rtp_exit_list, rcu_tasks_exit_list) {
-@@ -1081,14 +1083,15 @@ static void rcu_tasks_postscan(struct list_head *hop)
- 				continue;
- 
- 			// Keep our place in the list while pausing.
--			// Nothing else traverses this list, so adding a
--			// bare list_head is OK.
--			list_add(&tmp, &t->rcu_tasks_exit_list);
-+			// The cursor lives in rtpcp so that the exit-list
-+			// visitors can recognize and skip it.
-+			list_add(&rtpcp->rtp_exit_cursor, &t->rcu_tasks_exit_list);
- 			raw_spin_unlock_irq_rcu_node(rtpcp);
- 			cond_resched(); // For CONFIG_PREEMPT=n kernels
- 			raw_spin_lock_irq_rcu_node(rtpcp);
--			t1 = list_entry(tmp.next, struct task_struct, rcu_tasks_exit_list);
--			list_del(&tmp);
-+			t1 = list_entry(rtpcp->rtp_exit_cursor.next, struct task_struct,
-+					rcu_tasks_exit_list);
-+			list_del(&rtpcp->rtp_exit_cursor);
- 			j = jiffies + 1;
- 		}
- 		raw_spin_unlock_irq_rcu_node(rtpcp);
-@@ -1332,6 +1335,60 @@ void exit_tasks_rcu_finish(void)
- 	raw_spin_unlock_irqrestore_rcu_node(rtpcp, flags);
- }
- 
-+/*
-+ * Call fn on every task on the exit lists, in place, with the per-CPU list
-+ * lock held and interrupts disabled. fn must not sleep. Does not allocate.
-+ * These are the tasks that have passed exit_tasks_rcu_start() but not
-+ * exit_tasks_rcu_finish(). Once exit_notify() has run they are no longer on
-+ * the task list, but they still run do_exit() and may sleep there.
-+ */
-+void rcu_tasks_visit_exiting(rcu_tasks_exiting_fn_t fn, void *arg)
-+{
-+	int cpu;
-+	unsigned long flags;
-+	struct task_struct *t;
-+
-+	for_each_possible_cpu(cpu) {
-+		struct rcu_tasks_percpu *rtpcp = per_cpu_ptr(rcu_tasks.rtpcpu, cpu);
-+
-+		raw_spin_lock_irqsave_rcu_node(rtpcp, flags);
-+		list_for_each_entry(t, &rtpcp->rtp_exit_list, rcu_tasks_exit_list) {
-+			if (&t->rcu_tasks_exit_list == &rtpcp->rtp_exit_cursor)
-+				continue;
-+			fn(t, arg);
-+		}
-+		raw_spin_unlock_irqrestore_rcu_node(rtpcp, flags);
-+	}
-+}
-+
-+/*
-+ * Copy up to max tasks on the exit lists into buf, taking a reference on
-+ * each. Returns the number of tasks on the lists, which may exceed max.
-+ */
-+int rcu_tasks_snapshot_exiting(struct task_struct **buf, int max)
-+{
-+	int cpu, n = 0;
-+	unsigned long flags;
-+	struct task_struct *t;
-+
-+	for_each_possible_cpu(cpu) {
-+		struct rcu_tasks_percpu *rtpcp = per_cpu_ptr(rcu_tasks.rtpcpu, cpu);
-+
-+		raw_spin_lock_irqsave_rcu_node(rtpcp, flags);
-+		list_for_each_entry(t, &rtpcp->rtp_exit_list, rcu_tasks_exit_list) {
-+			if (&t->rcu_tasks_exit_list == &rtpcp->rtp_exit_cursor)
-+				continue;
-+			if (n < max) {
-+				get_task_struct(t);
-+				buf[n] = t;
-+			}
-+			n++;
-+		}
-+		raw_spin_unlock_irqrestore_rcu_node(rtpcp, flags);
-+	}
-+	return n;
-+}
-+
- #else /* #ifdef CONFIG_TASKS_RCU */
- void exit_tasks_rcu_start(void) { }
- void exit_tasks_rcu_finish(void) { }
+Reviewed-by: Nicolas Bouchinet <nicolas.bouchinet@oss.cyber.gouv.fr>
 
 -- 
-2.39.5
-
-
+Nicolas Bouchinet <nicolas.bouchinet@oss.cyber.gouv.fr>
