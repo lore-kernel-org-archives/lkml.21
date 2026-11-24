@@ -1,54 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.57
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795545321;
-	b=2x0Brw5dSJjz7qP/qutyeqYqaBMAhiqaDFckZq07bua1sJmMK7+exCrw5N4yI8/Ejbjt
-	 sEPKcJGt3L+QQ3HsSDvFwBO1M8L0zLu6B9Eij5sE3lnvXT3uPQ6UuYCoF+gfcWpNTJinR
-	 oct1/Pa4rHNMC5f/s3yq1/lcNpcKnFQIpUBXIiXXhZrYZtQyN3tyx8302Ce3L52vwtd9Y
-	 KnlbnBjajeKu7qm8d5VRMLXAJUMWUXyz6W1OafRf2HrrtGe2+ClXSAEvGWdX+KqiQqXJy
-	 w8WmVgg9JbgrIZAaiJ3cSsW/fG1G+s2XIXd0Mda2jhA4w75ji0TRxPzT5Bxw9CkDEyg==
+	t=1795545324;
+	b=Fxzgst8xreRWDmIYgHl+awdnxUbogmT8Dt7HS9oe8uvUDwKWdK60ZMIj24AnLp0W5ULE
+	 3DsAmU+SYJZqRbFwkh69CahsGBjy3KIIx0W52SK5n4XGsN3ZwqNyNAZIDjW0QFNM3HNE7
+	 FjzsCLOqQinYl9+l0buqLSpHF3wrCk0TGgQ7/2UFTOR5d0qQFuLvJh2r1HG+QPlS7D3gE
+	 PSY/ELWjljkfuUHwuqLrK7Lzh7ylPwBKkc8w7roXv6A6c00/ihg6kOhpivpOAvWK6T2dW
+	 23N6tG4XCvEcT+ax0vTeWagQQ8FHs//o/kO7r/eInqmLEt6mtR/Dj/taVMKpKU/VzLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795545321;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=ZD9tL3vMl3UtRiIJdtxpjqUODfVXA7ba8Z8pqs7VXsE=;
-	b=C5OtKXWPSU1VQVGun0zVfih4mbE9Ei3vWknMGKp+weT5nQpz+8AXZcVPFN05Vl8Nxhr1
-	 xJDOOsPtD3Gdx+AhI0SfaA54KsEkk6gLWFk/U7u83Stgd2i14VAZgfAyP5qWc5qKxu3nu
-	 tauMgx+sfdq6jVTc7V0Mdf7fjiv+2eZ5aC+OJOH6eTuoKDx5gmbiCnG1xM6ei692SdMIq
-	 QDmIO5hK8mCra2OOdFmJItZIh8jUlSlPd5ZUpCBCGx3fvIb+Y89CsErG2rUtTx0zcyF7N
-	 6OCqfjFSvoXmLlyTEWru0mUNkyhdRyyM05vvZcK8UkrzzWjVpwdAe9UoosaQmZZmQdA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795545324;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=NrprG34boI04kXZ9Q38+5sflqcdYytZcE3UW4XNCMJo=;
+	b=w5MiRzWg2W3bFhpVgll1sGZQl5WiPF1oiSRh4OvSAKPzVzoDqUKXXCGGCOXuumplaqet
+	 iYenpc2ykbl5VrLMQXIljyuoSqjeODz6XUxBMjM/sLyoAKfWJDtRQHXmpcVURGpHkCCO+
+	 Az/OnaRM4kw1Ebsse43cn/FcgI1kw1Xn25tTx0T4ZB8+Q/JffDg7K1hh4wVxHqo6luP1e
+	 ySL5nlqnRca6L9c7TihemeoDXkEeeXhZXhF2W7evR5kq1Cjh/8vaAQTlx18SozlIgsntE
+	 9ubIzWEdutl+GX1/A02FjFmbhIr8fQ23IHrHNSJHHEOqVq9iIsgcgBobOPzRavBLYOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=iRZErLHu;
-	arc=none smtp.remote-ip=91.218.175.57
-Received: from mta0.migadu.com (out-57.mta0.migadu.com [91.218.175.57])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=tOVWl4QK;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA426606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:35:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA426606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 511A4606A330;
+	Tue, 24 Nov 2026 18:35:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 511A4606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=iRZErLHu
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=GRQQ4ERdsiUnnr2qKIeSLtPr4xietU4WPx/E9/lU1Gg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795545318; v=1; x=1796150118;
- b=iRZErLHuh+Qaf95aB7zVlWe/oB17nxtoFCaUB+VRlj5hXd+bC+U/urdQ29qIDR+nWM/wLp5S
- Odp8XhJuLDLgLQH7PTg8v6tYPZYHOlv+tak2DZjNBkOku6xuEH9r5Rq4x8TDLj6nWAXjjiZf/nG
- e9k9BmZ0+dkLanOKiffBYsYM=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 695234c76aa59047;
-	Tue, 24 Nov 2026 18:35:18 +0000
-X-Mizu-Trace-ID: 695234c76aa59047
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <59a0bc6a-61d2-462c-92c5-445d29298d85@linux.dev>
-Date: Tue, 24 Nov 2026 10:35:08 -0800
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=tOVWl4QK
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=NrprG34boI04kXZ9Q38+5sflqcdYytZcE3UW4XNCMJo=; b=tOVWl4QKpscERkcaHBZZlNGaNx
+	NOymZFBpt80W5ebSC0m9QtHoie/kbWj+asymVOUSOhOWBInDFq5tWtMk7W4u5UGycHD5AfaQfxbX5
+	IDc2cVNRiwD8QlcbimQGn9eRK7umXUN3MRIzSoP3Lef5BgxV0P3hZne6/wJIR/7daN4I=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xVvM9-0017yD-Ig; Tue, 24 Nov 2026 19:35:05 +0100
+Date: Tue, 24 Nov 2026 19:35:05 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, olteanv@gmail.com,
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+	pabeni@redhat.com, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net 2/5] net: dsa: mt7530: factor out
+ mt7530_disable_pwrs()
+Message-ID: <a86b68ca-83e3-4d0c-a655-bc2574bfe8c2@lunn.ch>
+References: <179550875789.4156.361477684651496992@mail.zgclab.edu.cn>
+ <179550875790.4156.10911645527208536694@mail.zgclab.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,155 +67,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] percpu: do not put btf_type_tag on per-cpu variable
- declarations
-To: dennis@kernel.org, tj@kernel.org, cl@gentwo.org
-Cc: chris@chrisdown.name, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org, ast@kernel.org, andrii@kernel.org,
- daniel@iogearbox.net, acme@kernel.org, yonghong.song@linux.dev,
- eddyz87@gmail.com, martin.lau@linux.dev, nathan@kernel.org,
- ndesaulniers@google.com, morbo@google.com, justinstitt@google.com,
- llvm@lists.linux.dev
-References: <20261117220824.609017-1-vineet.gupta@linux.dev>
-From: Vineet Gupta <vineet.gupta@linux.dev>
-Content-Language: en-US
-In-Reply-To: <20261117220824.609017-1-vineet.gupta@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179550875790.4156.10911645527208536694@mail.zgclab.edu.cn>
 
-On 11/17/26 2:08 PM, Vineet Gupta wrote:
-> __percpu carries BTF_TYPE_TAG(percpu), which records that a pointer
-> points to per-cpu memory. __PCPU_ATTRS() applies __percpu to the per-cpu
-> variable itself, so DECLARE_PER_CPU() and DEFINE_PER_CPU() put the tag in
-> declaration specifier position on the variable's own type.
->
-> arch/x86/include/asm/processor.h has
->
-> 	DECLARE_PER_CPU_READ_MOSTLY(struct cpuinfo_x86, cpu_info);
->
-> which an x86 defconfig preprocesses to
->
-> 	extern __seg_gs __attribute__((btf_type_tag("percpu")))
-> 	__attribute__((section(".data..percpu" "..read_mostly")))
-> 	__typeof__(struct cpuinfo_x86) cpu_info;
->
-> and GCC warns:
->
-> 	processor.h:232:36: warning: ignoring attributes applied to
-> 	'struct cpuinfo_x86' after definition [-Wattributes]
->
-> which -Werror turns into a build failure.
->
-> The compiler is right to object to a type tag on the aggregate, and the
-> issue is fundamental: every variant of an aggregate shares one DIE, so
-> there is nowhere to put it. clang drops it silently and GCC warns.
->
-> The tag is meant to record that a pointer points to per-cpu memory, and
-> cpu_info is not a pointer.
->
-> And this gets worse: for a pointer-typed per-cpu variable GCC attaches
-> the tag to the pointee, so
->
-> 	static DEFINE_PER_CPU(struct bpf_hrtimer *, hrtimer_running);
->
-> comes out as PTR -> TYPE_TAG 'percpu' -> struct bpf_hrtimer. The truth
-> is the other way round: hrtimer_running lives in per-cpu memory and
-> points at ordinary memory, while that record says it is an ordinary
-> pointer to per-cpu memory. clang emits no tag there at all.
->
-> Add __percpu_var, which skips the btf tag (__percpu under sparse) and
-> use it in __PCPU_ATTRS(). The cpu_info declaration above becomes
->
-> 	extern __seg_gs
-> 	__attribute__((section(".data..percpu" "..read_mostly")))
-> 	__typeof__(struct cpuinfo_x86) cpu_info;
->
-> The pointer spelling, T __percpu *p, is unchanged and keeps its tag.
->
-> Before this patch the tag also qualified the variable's type, so &var
-> had type "T __percpu *", and a pointer does have a DIE of its own:
-> pahole emitted PTR -> TYPE_TAG 'percpu' -> T for each one.
-> this_cpu_ptr(&var) is that shape, and that is where the records came
-> from.
->
-> Those are the records an x86 defconfig built with clang loses: 280 BTF
-> types, 140 TYPE_TAG and the 140 pointers carrying them, with .BTF
-> shrinking by 3360 bytes. They are the derived pointers -- clang never
-> recorded the declarations themselves. None of them were reachable: a
-> record points at a type only if something is declared with it, and
-> nothing is declared with these. The 803 places that do declare a
-> "T __percpu *" keep theirs -- the 110 tagged pointers that something
-> references are the same before and after. .text is byte-identical.
->
-> Signed-off-by: Vineet Gupta <vineet.gupta@linux.dev>
-> Reviewed-by: Chris Down <chris@chrisdown.name>
-> Tested-by: Chris Down <chris@chrisdown.name>
+On Tue, Nov 24, 2026 at 04:25:57PM +0800, Haoran Wang wrote:
+> Pull the regulator disable out of mt753x_teardown() into a helper so it
+> can also be used on the setup error paths added in later patches.
+> 
+> The helper stops reporting regulator_disable() failures. A failed
+> disable on a teardown or error path is not actionable
 
-If this patch is OK can someone pick this up please. I'm not sure what 
-subsys?
+While i agree there is no need to add code to try to recover from the
+failed disabling, if the disable does fail, something is wrong
+somewhere. So we want to know about it, so it can be investigated.
 
-Thx,
--Vineet
+I would keep the error messages.
 
-
-> ---
-> Changes in v2:
->   - Dropped the "message is confusing" sentence: GCC's "after definition"
->     refers to the definition of struct cpuinfo_x86, not to the declaration
->     of cpu_info, so the message is accurate (Chris Down).
->   - Dropped 2/2, "local_lock: do not put btf_type_tag on the lock guard
->     type". Only the tag on the typedef generates a warning, and that
->     needs a GCC fix [1] anyway. The pointer usage "T __percpu *" is fine
->     (Chris Down).
->   - Rebased onto v7.4-rc2.
->
-> RFC: https://lore.kernel.org/r/20261110012235.1024461-1-vineet.gupta@linux.dev/
->
-> [1] https://inbox.sourceware.org/gcc-patches/20261112191815.884167-1-vineet.gupta@linux.dev/
->
->   include/linux/compiler_types.h | 8 ++++++++
->   include/linux/percpu-defs.h    | 2 +-
->   2 files changed, 9 insertions(+), 1 deletion(-)
->
-> diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
-> index c5921f139007..b250d6870324 100644
-> --- a/include/linux/compiler_types.h
-> +++ b/include/linux/compiler_types.h
-> @@ -50,6 +50,7 @@
->   # define __user		__attribute__((noderef, address_space(__user)))
->   # define __iomem	__attribute__((noderef, address_space(__iomem)))
->   # define __percpu	__attribute__((noderef, address_space(__percpu)))
-> +# define __percpu_var	__percpu
->   # define __rcu		__attribute__((noderef, address_space(__rcu)))
->   static inline void __chk_user_ptr(const volatile void __user *ptr) { }
->   static inline void __chk_io_ptr(const volatile void __iomem *ptr) { }
-> @@ -68,7 +69,14 @@ static inline void __chk_io_ptr(const volatile void __iomem *ptr) { }
->   #  define __user	BTF_TYPE_TAG(user)
->   # endif
->   # define __iomem
-> +/*
-> + * btf_type_tag records "points to per-cpu memory", so it belongs on the
-> + * pointer spelling only. Declaring the per-cpu variable itself puts the tag
-> + * in declaration specifier position, where clang drops it and GCC attaches it
-> + * to the wrong type, so __percpu_var leaves it out.
-> + */
->   # define __percpu	__percpu_qual BTF_TYPE_TAG(percpu)
-> +# define __percpu_var	__percpu_qual
->   # define __rcu		BTF_TYPE_TAG(rcu)
->   
->   # define __chk_user_ptr(x)	(void)0
-> diff --git a/include/linux/percpu-defs.h b/include/linux/percpu-defs.h
-> index dbe3267a0a13..f53fc430aaad 100644
-> --- a/include/linux/percpu-defs.h
-> +++ b/include/linux/percpu-defs.h
-> @@ -45,7 +45,7 @@
->    * that section.
->    */
->   #define __PCPU_ATTRS(sec)						\
-> -	__percpu __attribute__((section(PER_CPU_BASE_SECTION sec)))	\
-> +	__percpu_var __attribute__((section(PER_CPU_BASE_SECTION sec)))	\
->   	PER_CPU_ATTRIBUTES
->   
->   #define __PCPU_DUMMY_ATTRS						\
-
+	Andrew
