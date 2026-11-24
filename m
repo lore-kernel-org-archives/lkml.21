@@ -1,92 +1,139 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795515070;
-	b=sKBjjhtEw7kixBKZgP2NLgasBUgDp2gyuAoJFiqas6SrvkKvWQkvr5NwM2yBeaDoyy7H
-	 8OLpiNwpBlxPvLctSwoceNqqffv8qYN/qdcoxng7zUH9nFUnwALUqiMN6h17cRoWgxOli
-	 CPkOk84gH5jT4mCSMsHwjDNBek/g2bjG43C9SOH6Iuv+KWCHYQQ/Cc+EthZb7qCoOXBig
-	 WM8NnAT7mL6bnMuWVEmd5rM35YEryEbqPJogDLH9D48CWGnyILn5ADk/qnRv9CGxWd5Da
-	 /Xm7x4KKGn+2Xj2HgmNY7f4oUmO1nC5QoINBkDoVizusJpn4J1K5WP26pl3ghjohGnw==
+	t=1795515101;
+	b=KV1sih2efZod9guc2wOY6eYd/Uv82dwYF5C+NcgN+Y74zOrzjT+ZTu5BNEqDP0WAUs/A
+	 5mQF9pGKkjLMTlZ07ne89nkc+AgGnPx1odIVB3FlH9Tbo893n0zOx/VkHwWkgNa1Orfu+
+	 vvTHQC70WMLOblxk4T6HKfx15t+h8MHfKac8nXm3SIOm/58YcbM5O6xdwdohc0OYUKxdX
+	 AUW4guvf3wR2NEyyM+nEce72voGp2b/bN6+Aj8YOtVW8Ys7IX+ViK0ide6B86HF088qua
+	 H6MrQ6q6zjU2pPAiTaHK58MIQ7Y/rkRUg3rvhMLzTbDO+8Eo8NrzjpKKZcHmgh27Mxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795515070;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=8LzBCOLhNJ/F4/5I+BBpSJLxAOQbmQSfZhjMSBmDwl0=;
-	b=Gne52S/GoZ6ulCN6bxzUQY0PW3zJ4mG1TJtVh9i7kmyYXN05ewCo+LUJH1awd9irEhcA
-	 vo6CVKZ7YITJBJYN+iRy+Z0rN5CLCwv6dKOo0uqWMRIHgvwjaokjpnk1V2gSYLMkGkdY0
-	 a4A9E+DMeHJb1FxcVCsahUGY5w+cPocMg63IwHEsLtrOpK/wMl5dcHXkRJ7O16NT822sL
-	 AMiQKpxfJ4sjLYPB5rITQv4bgLqgsUUwqJFpGjCDKN7eZO3PL5ay4xh46GmtyB8Wbv57b
-	 OMcb3rf/8B+DgT0cRhdLnNknvK+Pv3ooj8Sj5IvIh7Pk/5hXeQe5daV20vfeNjLxgrA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795515101;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=XAjHpOoHzD/5/0Qvp1Ofl3iGJdTZMSnNgw4bsE73GGg=;
+	b=xqWeuqDvHcJ2srpRykpRzg5UD4rm11gVGC+ddLc772RsDSvf9v9fwrRCGIhYczgNwOmw
+	 cuKCS0yC9WB0nStSdSV7xBMLMXCZjALsBuQMg/IjLwircIRhZ9bOXg8luttoFtE3VOc4f
+	 lJ5mpYPDw6D5gKFsAw+fKQ/eYBeYVZOnDH4PfjnIhDWligPCAhfAIdlJjZ+QM64htOD59
+	 h6JqnZclnE3xBH33lSD9USLEflT152LopRaNfNb6zcBAES0BdTwjGbhlRLmrfQnsONBZv
+	 1F7bHjEVXsKV1JLWo7i2xYJ1r/VGJ5dLDJwTMTVZKBwC8SMiWQ1n2UTv/xoYJrOLb7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Lny6vb5w;
-	arc=none smtp.remote-ip=209.85.214.172
-Received: from mail-pl1-f172.google.com (mail-pl1-f172.google.com [209.85.214.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=IbXHKoo9;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=h7gEJN8O;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88606606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:11:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88606606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 258C1606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:11:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 258C1606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Lny6vb5w
-Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-2f0918f9e6cso7999005ad.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:11:10 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=IbXHKoo9;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=h7gEJN8O
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795515098;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XAjHpOoHzD/5/0Qvp1Ofl3iGJdTZMSnNgw4bsE73GGg=;
+	b=IbXHKoo9kVj7k2Kc6ZfodAo01YUD0MCHr5NRBhyGiG1RrOnQ7FiyHJTwZS96VlEOsA8HI9
+	mbnoFPjCv5hKKFKfhbiKjToUFsgzMyDMZauTlh3VpCLdEIQfL4UV8P0AxGR3/FeOLjNb9i
+	iWxdb+/Cdan4UgN265dnWeOH3pawMF8=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-483-FAec53xaM82Rs3O9RrfvPw-1; Tue, 24 Nov 2026 10:11:34 +0000
+X-MC-Unique: FAec53xaM82Rs3O9RrfvPw-1
+X-Mimecast-MFC-AGG-ID: FAec53xaM82Rs3O9RrfvPw_1795515093
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4bb6bac1e84so27803095e9.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:11:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795515070; x=1796119870; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8LzBCOLhNJ/F4/5I+BBpSJLxAOQbmQSfZhjMSBmDwl0=;
-        b=Lny6vb5wrWwMhZUdnN8hlCF8ORcEMD85thGQm2nYx/wH94Q96b13rnVRmOaCgtmzma
-         +OhNchu9zljtD1f9WIH7Roi5sZ513hx6PJr6J9p9VaokRB0BPCYEUSRWujNivnQ80qqu
-         vb5ppEbk7seUA/0bQnw1FIjHgBMvr2EoMHqv90TLbSesyd8ihvsRj2w52lWtIZP8qoUX
-         PPACXh8NB/5R19HqP5uCmtnzgAdvZWWGdNsimnBVeq9Dyk+OaMETDHyDX8Ywg0VpsLc7
-         cBKxj5hPv1XST6cFOS+ZQK6ko8Aq1nj/QcalUSKHzf4wgvJ87id6m2q139orUnoebmj5
-         wBGw==
+        d=redhat.com; s=google; t=1795515092; x=1796119892; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=XAjHpOoHzD/5/0Qvp1Ofl3iGJdTZMSnNgw4bsE73GGg=;
+        b=h7gEJN8OBgFNUHMdvcvxCov1aoor2h//nVUcZ4O1IeANH5Uw9lTCw81D8dSFXQYQuI
+         TlFGbh5jsTUr3qC9NYY48D7BnE563i6L1gwsCg9YhdYf7Jzd+TpwNdve2e1UufSUTfva
+         A+0M1ayAJ70R1B6OGnMQLNUYZoBrNcfGhTH/xQIH0rdcBiY7+0fYEGzzya8Jye5F4nvW
+         d7MaqcsOAhuqmC9y24fkr9lszPYSwZMLlqWAPxhCCwAMAnWUvD0guVB9/JsSNKWHwz36
+         L2y4QQIiLlJu1kz76Rvpo2bVQIZrTT3QQhZ2FwhtkjVFMM0Dn+cGWemtLuAYiZjR7SZB
+         FeKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795515070; x=1796119870;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8LzBCOLhNJ/F4/5I+BBpSJLxAOQbmQSfZhjMSBmDwl0=;
-        b=io2z0s3vDSr7D8Eptnq/Af1Gm7YzUzI/9ZQToewv+N5BCo1Un9/Lfo8qcDqdn0sUhW
-         5kWzFs3nY+048hf/lutzRfgRdvIVqink2xdmr5fmpzkdOvRgj4ThhxbeNWAqRXu4m+7M
-         5IrpLHJqwFE8QzWDfLhHj6eQ1jw552A5UHLNwd2lRXJ6IavcW4CHb3PLVAm29N80wHqH
-         63ex4/1yOFSaD+p9JaksderISQ+OC4b/hdi0kvZ/CgPYM9psfAekFCEtKDGeJ1H/iGRO
-         VzkdoA1qKkVxeqjn9dlR+ZhEAv22BIn9eOvyjujWD4Jh+0xv5rlQpYYUJzGHJCyV97f7
-         Aurw==
-X-Forwarded-Encrypted: i=1; AL+hErFisYc5xTLy5Wup3NtGORRzEMUX2PR9RnN38u9k7L1x3Za/BgQrVdasPcpddLJIX0dh8JJjAsaQrLDB8bo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9NBltUiKpHKOXkqcsSiRLN/17iEKdW37p02PNLmRFtrFdfj5Cf
-	H7dkCqmn1zxand3S9FcO5auJmeNFDE6ANEAXymR/8NVeIBxovYFkTkqz
-X-Gm-Gg: AZFdTZf3ds31tAqzltxckbI2rxkAamm9z8i095LBHF6J7meTO284TiQrCguZl950O2D
-	WT3oTbaBpHYmyU2iM2htEhlEZWPun5YyEDC1Jge6lo8h7++sZZRDpSkKRapKqKyD+zUorMrPS2z
-	GFDRS7dF4a0b5TtuGWU8jMiSgDlLc+YtYNxO5/8pioajtbEOUO4lTX7KJHyGH5gP3Mj5M5ALaGh
-	x0em4FtTkaYP7P1UdMMycOXg0ST0AHh2MEKwGwsaryha1WFv3KpEIr7Ai1mgPs8b0aWfaveZYEw
-	FYihJPFYAf4rSFu1kpUmOTc6GemmdnBV4RFGrf3i0bNo7m/XQa5gbCUMzcvIBtu7ApjJzJakoFH
-	wUdph7+6Djb2sWBn8WXLXAjjsOmh6Ea8ukXvMEwvmCtYJorbUFJrK/c26L3KHKn0cXFndHXCkQV
-	EP6zmA21SVZDRbMbTGzPnMIGkU1iPEc1nhWHq9oQbuBdeJ+KfyFcj/z1lQCWYxjJ8mni8zbivoR
-	6vPeci95tW+x20eMjq2pajTSF7ebyAzb7u/yfuzO7kvtZF68gsiQXnnQQQq85LO4FrBl2auWsCT
-	XXd5EatsfFtIG5qkNwPch8ghSUd32/Mmv4BtBnHyronBXs4=
-X-Received: by 2002:a17:903:acb:b0:2f0:25ea:8fb7 with SMTP id d9443c01a7336-2f03f0c19f1mr124505295ad.3.1795515069885;
-        Tue, 24 Nov 2026 02:11:09 -0800 (PST)
-Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f102fc4sm66693175ad.43.2026.11.24.02.11.07
+        d=1e100.net; s=20260707; t=1795515092; x=1796119892;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XAjHpOoHzD/5/0Qvp1Ofl3iGJdTZMSnNgw4bsE73GGg=;
+        b=W73pzWHbpjuydJ7yhM8XzDbo5UUZ+8EZHC/vYytB0w3KzozPyezk0Bvzb38tnP/DDQ
+         AgaABBrAeDTyTsFg3NIY4lcIwJBk79ylP2aHlum86A6PPdpfgDrVG9CYqTvEBIaFwOoR
+         smkYmEFZADoSRCAcOOVgfL2qqiLaMgx7/dxGHI1s+FlsNFBl/CfBxEioqpcQG2cpEPdI
+         URs1Ndu1uBd1k6ketxcWFfniadWYN6VyKZ1We8qAP4aC8YHkTASuVwJ2KIkHkVQVddnm
+         mEZJRENoemEDqyddZFiycwxDCngCKlb11/MqQDseuYZEAJfXmJcfs+urdlMsz0UJBfgb
+         ZngQ==
+X-Gm-Message-State: APuU4Z9SKm0kR7aX6jWIHMfeQU1Op3tGqlZ1VTzEvXM3NDiQl91WBOby
+	A6wlXRLoHUmUwKBxqmTlxBphlt7kMXFe3+gCE8c+fWELwd1ebS2YdQz47bc0LIT4UsHmkZXvyiA
+	TrWS3mIKZNtBCvgGdKcsMcDhcQlp+DhRDiQiZ9sBqIlkSG9twx6ZuQPyrqEn6iEMXNg==
+X-Gm-Gg: AZFdTZf8MVuyEBt3RpBRaGjck1o+89j94WY+niZx3R1x/rSQViQs2jkynOV9e4eEaxr
+	ZA4fFOLOZacvU6gzL6Ln8tF2I5rBUWINmFy0Gm0TMpUHiF+XHbvEvU6RfHgVVNepLgmxfXJ+GBg
+	yaaXF83cXH5jZTkoGsZdf91XS/QtbLfg1Xc8EWHtCUaxEuS8QWNMfgb5YBvimq72X3QJC57y156
+	JqdJqzd6Zmj0skZOJ2zAJDpar0GKVoGViZI9weK1Wu/C0DeMHwK0IW8dj6FvsHezztyncMjnJB6
+	Uhvy62UZAI7mvkUDZvviQKRBgMVSMdrz/G+/neg8KnqPY0KrkbCQqSZSh3lEwgewaf6z0ywNLO4
+	P/bK18tQxQs6tca9i/8KIORCtOjwgh5knw0iQ2GP+aodGyLhU7ODHwRwoJEmCnjyTZPfQPqK2Ku
+	/3R8Q=
+X-Received: by 2002:a05:600c:1d86:b0:4a1:fa27:df7c with SMTP id 5b1f17b1804b1-4bb88922972mr294991755e9.34.1795515092664;
+        Tue, 24 Nov 2026 02:11:32 -0800 (PST)
+X-Received: by 2002:a05:600c:1d86:b0:4a1:fa27:df7c with SMTP id 5b1f17b1804b1-4bb88922972mr294991115e9.34.1795515092291;
+        Tue, 24 Nov 2026 02:11:32 -0800 (PST)
+Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.158.90])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61e53asm28093795f8f.59.2026.11.24.02.11.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 02:11:09 -0800 (PST)
-From: Cong Nguyen <congnt264@gmail.com>
-To: Matthias Fend <matthias.fend@emfend.at>,
-	Lee Jones <lee@kernel.org>,
-	Pavel Machek <pavel@kernel.org>
-Cc: linux-leds@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] leds: flash: tps6131x: put the LED child node reference
-Date: Tue, 24 Nov 2026 17:11:02 +0700
-Message-Id: <20261124101102.3884922-1-congnt264@gmail.com>
-X-Mailer: git-send-email 2.25.1
+        Tue, 24 Nov 2026 02:11:31 -0800 (PST)
+Date: Tue, 24 Nov 2026 11:11:29 +0100
+From: Juri Lelli <juri.lelli@redhat.com>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
+	rcu@vger.kernel.org, linux-doc@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	luca abeni <luca.abeni@santannapisa.it>,
+	Yuri Andriaccio <yurand2000@gmail.com>,
+	Yuri Andriaccio <yuri.andriaccio@santannapisa.it>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>, Davidlohr Bueso <dave@stgolabs.net>,
+	Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Qais Yousef <qyousef@layalina.io>,
+	John Ogness <john.ogness@linutronix.de>
+Subject: Re: [PATCH v4 4/6] sched: Limit sysctl sched_rt_{period|runtime}_us
+ to RT_GROUP_SCHED
+Message-ID: <awVi0VQJCBNYc8u9@jlelli-thinkpadt14gen4.remote.csb>
+References: <20261123-sched_dl-v4-0-d523e4d960d3@linutronix.de>
+ <20261123-sched_dl-v4-4-d523e4d960d3@linutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,51 +143,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123-sched_dl-v4-4-d523e4d960d3@linutronix.de>
 
-tps6131x_parse_node() gets the LED child node with
-device_get_next_child_node(), which takes a reference. The driver never
-drops it, so the reference is leaked on every probe error and after
-remove().
+Hello,
 
-Drop it with a device managed action registered right after the node is
-taken, as leds-tps6105x does.
+On 23/11/26 14:41, Sebastian Andrzej Siewior wrote:
+> The admission control for SCHED_DL has been moved to sysfs and RT
+> throttling has been moved (long ago) to the fair_server and its debugfs
+> interface.
+> 
+> This file remains to have an impact only on RT_GROUP_SCHED. Keeping it
+> for ABI/ compatibility reasons makes no sense because its original
+> purpose (RT throttling) is no longer served. Anyone changing this file
+> and hoping to change the throttling behaviour will be surprised.
+> 
+> Limit sysctl sched_rt_{period|runtime}_us to RT_GROUP_SCHED so everyone
+> using this outdated file is aware.
+> 
+> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> ---
 
-This issue was found by auditing the driver with an LLM coding assistant.
+It looks like subject and changelog still describe the previous version,
+as we are not removing the interface anymore?
 
-Fixes: b338a2ae9b31 ("leds: tps6131x: Add support for Texas Instruments TPS6131X flash LED driver")
-Signed-off-by: Cong Nguyen <congnt264@gmail.com>
----
- drivers/leds/flash/leds-tps6131x.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+>  kernel/sched/rt.c    | 8 ++++++++
+>  kernel/sched/sched.h | 5 +++--
+>  2 files changed, 11 insertions(+), 2 deletions(-)
+> 
+> diff --git a/kernel/sched/rt.c b/kernel/sched/rt.c
+> index bd37dbf2bebbe..258b187459bb9 100644
+> --- a/kernel/sched/rt.c
+> +++ b/kernel/sched/rt.c
+> @@ -2877,6 +2877,14 @@ static int sched_rt_handler(const struct ctl_table *table, int write, void *buff
+>  	ret = proc_dointvec_minmax(table, write, buffer, lenp, ppos);
+>  
+>  	if (!ret && write) {
+> +		if (!IS_ENABLED(CONFIG_RT_GROUP_SCHED)) {
+> +			const char *msg =
+> +			"Please note that DL admission control (via sched_rt_period_us, sched_rt_runtime_us) moved to sysfs.\n"
+> +			"This update will be mirrored. Controls for RT throttling moved to the fair_server.\n"
+> +			"This will not be mirrored. The fair_server settings are under /sys/kernel/sched/cpuX/.\n";
 
-diff --git a/drivers/leds/flash/leds-tps6131x.c b/drivers/leds/flash/leds-tps6131x.c
-index 7f2c3895e6e9..56de7a1cf9a7 100644
---- a/drivers/leds/flash/leds-tps6131x.c
-+++ b/drivers/leds/flash/leds-tps6131x.c
-@@ -529,6 +529,11 @@ static const struct led_flash_ops flash_ops = {
- 	.fault_get = tps6131x_flash_fault_get,
- };
- 
-+static void tps6131x_led_node_put(void *data)
-+{
-+	fwnode_handle_put(data);
-+}
-+
- static int tps6131x_parse_node(struct tps6131x *tps6131x)
- {
- 	const struct tps6131x_timer_config *timer_config;
-@@ -550,6 +555,10 @@ static int tps6131x_parse_node(struct tps6131x *tps6131x)
- 		return -EINVAL;
- 	}
- 
-+	ret = devm_add_action_or_reset(dev, tps6131x_led_node_put, tps6131x->led_node);
-+	if (ret)
-+		return ret;
-+
- 	num_channels = fwnode_property_count_u32(tps6131x->led_node, "led-sources");
- 	if (num_channels <= 0) {
- 		dev_err(dev, "Failed to read led-sources property\n");
--- 
-2.25.1
+I am not sure a user who hasn't followed this thread will understand
+what "mirrored" means in this context. What about something like (names
+depending on the unit discussion):
+
+ sched_rt_{period,runtime}_us only control SCHED_DEADLINE admission control,
+ now also available in /sys/kernel/sched/dl_{period,runtime}_us.
+ RT throttling is done by the fair server, see /sys/kernel/sched/cpuX/fair_server_{period,runtime}.
+
+Thanks,
+Juri
 
