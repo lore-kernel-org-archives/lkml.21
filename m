@@ -1,54 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795539834;
-	b=GB0xvhf28S137g3wnuHFrMfeA2o6ttVR6EHz7M/TTe1YXcORz4pjnPRERLc7qZMMClZr
-	 cCMjCovyR/aWNm8BnYwUnZs5Y1S3CwhpIvXXPFdnZO/wnWxZYBFYDjg253K9d2fP4OsXS
-	 IJTbqqvdB2FpXYySZKmdlGjEFZftALflK8t8EpgLtwlWrJmg3rnMoH29vhr4YoX6jS59h
-	 TQBNT0TAXmKUqDbUB842Zm/zT+QV2xVNt5Qw7EhKQWD2bs5bOG+/ZbrZUjrnHcAxSDkA3
-	 guPk9DUFHgeINhyAmwLosu2rN5OE4jpZNzB8HbUJpU3eAtiOQcHb1sAMbOcBrImQNsA==
+	t=1795539856;
+	b=NZIfZRD7iJ7m1fGE2F8jhBx6m9C1DRvsjrNaVcKq+BO/34M4kQbEpPSD4M4zNY3vcACy
+	 FNd/R2WnanK0zCtwv0+w/cfV3nSPAthtWnJncvwlzxjQPJsTRQBAr8nuSJNf+abiGVh6/
+	 MJYtwo/7FqMCFpzaQOo+zj/urLPGF+Wj5YkiA5uzNFxrhr8EcYbXK+1JpHM00i/vy42ov
+	 q+44MurPVhsExIntAnWGnQUs+urpTmCl7Jhu5l3ku9O2LaUDDQth1fNNBObO9Bro9vjIn
+	 l12mEd/oMZKYfzGyZaN05IUghF5dfTVSaHGYi7GDmUQoi0xzoiRCUZkXHG8XtCoZNoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795539834;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=8c3SVXy/YOkewOINVuavbgfgaH6XagVfj0N1NEcNvNs=;
-	b=wk8rsosFWpEWmDjeilqbMLTns2sfYfnXD4QU/e6kSkDfkqBxPi/mCNe81kjs70qg8Qny
-	 PvkdWtmeYwLUXJr/gjwYuH5yNtCWFVa13l18sbq1rA8XMm5M8rk2PyM8HVeOclzCX/p99
-	 cCNvmrnU88mWW8U02BxF1cOHIGt6HNkRXD/Nm5jiCTPVnAelxto8vtGZjwq+34SLWPdEV
-	 NWvTNrM9/O/bn6aEjETafEuF3cnC/93WNI2zfWQMkJZDMcrynVBB1IdOXKHx39Cvg+yPf
-	 C9/IeXMoTh+5iDLVo+Qa0Ko0q4XhweYgYIQMcHJTiWoYoOZDBlyNyveipbmcZW3Kv8w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795539856;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=c1HOxMuYKuoArDY4hj9EKVaYu4WN3Ht8vy7fCi0dpLY=;
+	b=y6pPiTulJRcBBF4fEBToELnQ9zTFjKijwMdK0ayAx3XA4gNgsiFdaZTO6FcNdpL1TXvg
+	 B7VnsiBNj8yVhFWnx9w5psggDBAJMkgaxOlpoKHGC33gKAx7J8qzmX8E055AED3S5/leW
+	 cGMlpzN8DTKEWwp0cEHsGPEkdqNKVtqeeK6K/KNfmVtbp2XsOQ7Vmi4yNxCXkWY+yBvsC
+	 GcvE5z6q8Y8g+V1jToal2XOSZYR0lVJ8fyGNM0v6pfrmI9Sk5/ScIoxSwoo16qXj6gvtD
+	 wwyIsgnyzEkxvZX/HEb1xd/4JokU2bVARjAwI05NI7L7hDskShpaeKmvKJejaA+SNiw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ad2b2OgV;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=1CAJSnG1;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD5DD606A321;
-	Tue, 24 Nov 2026 17:03:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3A9E606A31E;
+	Tue, 24 Nov 2026 17:04:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3A9E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ad2b2OgV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6D751F000C4;
-	Tue, 24 Nov 2026 17:03:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795539834;
-	bh=8c3SVXy/YOkewOINVuavbgfgaH6XagVfj0N1NEcNvNs=;
-	h=Date:From:To:Cc:Subject;
-	b=Ad2b2OgV8d6slhOmDkQ0NlgU/We9GsFnVY5e5Afm3xSFM6I9bpaECNpW0/H+eiyvO
-	 xrlkDoHU51ZUCoAsfs55UMkC0d0kUYlxrf3Lv1X9LLCGmkOWlrA6c7m98X9VaJjJeT
-	 4YGQ5Y24B6FxtoABsAKIXi8uKe2aYbbhPydIHkc91CHInS+tQ68X0yGlt+5FoKlo4b
-	 G9J/Xuie6C2saCrxw0Z+bVIHdJASAqoRC+CMAdF4bJkVlNHP02sHnhxv3saLexPMGC
-	 d9ducNrNM4VM/AuSx0xQ4mwdYPe0yUQRzDitF/T59Kt9gQO8IBHzrXkoeXGGbQ+1a4
-	 IyQ06XaRFIdFQ==
-Date: Tue, 24 Nov 2026 17:03:50 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Oliver Upton <oupton@kernel.org>, Marc Zyngier <maz@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Vincent Donnefort <vdonnefort@google.com>
-Subject: linux-next: manual merge of the kvm-arm tree with the kvm-arm-fixes
- tree
-Message-ID: <awXDdoe3z5nyb2u-@sirena.org.uk>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=1CAJSnG1
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id DB5EE4E41760;
+	Tue, 24 Nov 2026 17:04:13 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 97204601E1;
+	Tue, 24 Nov 2026 17:04:13 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BF96611E69AA1;
+	Tue, 24 Nov 2026 18:04:03 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795539848; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=c1HOxMuYKuoArDY4hj9EKVaYu4WN3Ht8vy7fCi0dpLY=;
+	b=1CAJSnG1PbsB6IH51R2E8isIa0FWlUatgjcLmzqB3rrZJuInxCWjyuqoIP+vbipsVvjL9y
+	Myh5tOCC3d8LiYptOqAkh/NtGAJ6IzNGWdFf5EByfpA3FrqnCKvXWmBT7J3XO44NLQq4yn
+	4RyRsMyARRYfFC7nVlGmOVM2sMe07oHLBwmAjm5wywTSbVLtwAmwXwMaxXNFdb9n7akzbY
+	6sJHrA+0GVBzd37/XFmEmaXGT4kSO4mFOW90HUO2RDem85ZJNNf6fOgZaQKxHcc431s7p0
+	DSiFDl9T3/rT+S5x6fTNO4PpEWgR0BbIPRYh6lTaqhIBDDYJB0L5UXQvjCyeAA==
+Message-ID: <7ff51c46-7c56-49a7-b51b-468c1df82755@bootlin.com>
+Date: Tue, 24 Nov 2026 18:04:02 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,107 +62,139 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2NMAQIVW8NCprxWt"
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 2/2] net: stmmac: dwmac-motorcomm: support
+ Wake-on-LAN from S5
+To: Magnus Leatti <magnusleatti@kernelriot.com>, Yao Zi <me@ziyao.cc>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Giuseppe Nespolino <g.nespolino@gmail.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261120102754.778283-1-magnusleatti@kernelriot.com>
+ <20261120102754.778283-3-magnusleatti@kernelriot.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20261120102754.778283-3-magnusleatti@kernelriot.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
 
---2NMAQIVW8NCprxWt
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-Hi all,
+On 11/20/26 11:27, Magnus Leatti wrote:
+> "wol g" is accepted, but the chip sleeps right through magic packets
+> in S5: motorcomm_init() turns OOB WoL off and nothing turns it back on
+> at power-off.
+> 
+> Turns out the chip can just arm itself. Hit it with a reset, OOB WoL
+> comes right back on, and about 2-3 s later it has the PHY up, receiver
+> running, the eFuse address loaded into the first MAC filter, and PMT
+> ready for magic packets. Timed that from userspace without a driver
+> bound.
+> 
+> So on a power-off with "wol g": remove, reset, set WOL_CTRL_PKT_EN
+> again because the reset clears it, enable PME, D3hot.
+> 
+> Notes:
+> 
+>  - It wakes on the eFuse address, not the software one. Same as r8169.
+>  - Magic packets only. "wol u", reboot, kexec and interface down stop
+>    at the remove.
+>  - Hibernation that powers off through .shutdown arms too, and resume
+>    copes without a reset. Tried twice: woke on the packet, link back.
+>  - After a power loss (cable out and back in, BIOS set to stay off) it
+>    won't wake until the next clean shutdown. The vendor driver does
+>    the same, so that's the hardware.
+> 
+> With this the box wakes on a magic packet to the eFuse address, 5 of
+> 5. Without it, 0 of 3.
+> 
+> Suggested-by: Yao Zi <me@ziyao.cc>
+> Signed-off-by: Magnus Leatti <magnusleatti@kernelriot.com>
 
-Today's linux-next merge of the kvm-arm tree got a conflict in:
+My PCI-fu isn't that great, but LGTM. I would have liked to test, but
+my motorcomm PCIe card let out the magic smoke yesterday :(
 
-  arch/arm64/kvm/mmu.c
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-between commit:
+Maxime
 
-  fb92b5981ae3c ("KVM: arm64: Fix THP block mapping when the PMD level is f=
-olded")
+> ---
+>  .../ethernet/stmicro/stmmac/dwmac-motorcomm.c | 38 ++++++++++++++++++-
+>  1 file changed, 37 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
+> index 63ce2301a0f6..34abbdb645ec 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
+> @@ -12,6 +12,7 @@
+>  #include <linux/iopoll.h>
+>  #include <linux/module.h>
+>  #include <linux/pci.h>
+> +#include <linux/rtnetlink.h>
+>  #include <linux/slab.h>
+>  #include <linux/stmmac.h>
+>  
+> @@ -27,6 +28,9 @@
+>  #define EPHY_CTRL				0x1004
+>  /* Clearing this bit asserts resets for internal MDIO bus and PHY */
+>  #define  EPHY_MDIO_PHY_RESET			BIT(0)
+> +#define WOL_CTRL				0x100c
+> +/* Magic and remote wake-up packet enable */
+> +#define  WOL_CTRL_PKT_EN			BIT(1)
+>  #define OOB_WOL_CTRL				0x1010
+>  #define  OOB_WOL_CTRL_DIS			BIT(0)
+>  #define MGMT_INT_CTRL0				0x1100
+> @@ -363,6 +367,38 @@ static void motorcomm_remove(struct pci_dev *pdev)
+>  	stmmac_dvr_remove(&pdev->dev);
+>  }
+>  
+> +static void motorcomm_shutdown(struct pci_dev *pdev)
+> +{
+> +	struct net_device *ndev = dev_get_drvdata(&pdev->dev);
+> +	struct stmmac_priv *spriv = netdev_priv(ndev);
+> +	struct dwmac_motorcomm_priv *priv = spriv->plat->bsp_priv;
+> +	bool wake;
+> +	u32 reg;
+> +
+> +	/* Userspace is still running and may close the interface */
+> +	rtnl_lock();
+> +	wake = system_state == SYSTEM_POWER_OFF && netif_running(ndev) &&
+> +	       (spriv->wolopts & WAKE_MAGIC) && device_may_wakeup(&pdev->dev);
+> +	rtnl_unlock();
+> +
+> +	/* The netdev is unregistered after this. priv and its mapping stay. */
+> +	stmmac_dvr_remove(&pdev->dev);
+> +
+> +	if (!wake)
+> +		return;
+> +
+> +	/* Reset re-enables OOB WoL; left alone, chip arms itself (eFuse MAC) */
+> +	motorcomm_reset(priv);
+> +
+> +	/* The reset has cleared it. Without it the chip does not wake. */
+> +	reg = readl(priv->base + WOL_CTRL);
+> +	reg |= WOL_CTRL_PKT_EN;
+> +	writel(reg, priv->base + WOL_CTRL);
+> +
+> +	pci_wake_from_d3(pdev, true);
+> +	pci_set_power_state(pdev, PCI_D3hot);
+> +}
+> +
+>  static const struct pci_device_id dwmac_motorcomm_pci_id_table[] = {
+>  	{ PCI_DEVICE(PCI_VENDOR_ID_MOTORCOMM, 0x6801) },
+>  	{ },
+> @@ -374,7 +410,7 @@ static struct pci_driver dwmac_motorcomm_pci_driver = {
+>  	.id_table = dwmac_motorcomm_pci_id_table,
+>  	.probe = motorcomm_probe,
+>  	.remove = motorcomm_remove,
+> -	.shutdown = motorcomm_remove,
+> +	.shutdown = motorcomm_shutdown,
+>  	.driver = {
+>  		.pm = &stmmac_simple_pm_ops,
+>  	},
 
-=66rom the kvm-arm-fixes tree and commit:
-
-  9da9b26ce1aca ("KVM: arm64: Fast fail transparent_hugepage_adjust() for n=
-on-PMD folios")
-
-=66rom the kvm-arm tree.
-
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-diff --cc arch/arm64/kvm/mmu.c
-index a0d4981ebb998,042dc53267cb3..0000000000000
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@@ -1564,25 -1566,31 +1566,31 @@@ transparent_hugepage_adjust(const struc
-  	 * sure that the HVA and IPA are sufficiently aligned and that the
-  	 * block map is contained within the memslot.
-  	 */
-- 	if (fault_supports_stage2_huge_mapping(s2fd, PMD_SIZE)) {
-- 		int sz =3D get_user_mapping_size(kvm, s2fd->hva);
-+ 	if (!fault_supports_stage2_huge_mapping(s2fd, PMD_SIZE))
-+ 		return PAGE_SIZE;
- =20
-- 		if (sz < 0)
-- 			return sz;
-+ 	/*
-+ 	 * If the allocated folio isn't at least PMD_SIZE, there is no way a
-+ 	 * stage-1 PMD level was installed.
-+ 	 */
-+ 	if (s2vi->page && !folio_test_pmd_mappable(page_folio(s2vi->page)))
-+ 		return PAGE_SIZE;
- =20
-- 		if (sz < PMD_SIZE)
-- 			return PAGE_SIZE;
-+ 	/*
-+ 	 * Even though the folio size is big enough, the stage-1 mapping might
-+ 	 * have been split. Verify it.
-+ 	 */
-+ 	sz =3D get_user_mapping_size(kvm, s2fd->hva);
-+ 	if (sz < 0)
-+ 		return sz;
- =20
-- 		gfn =3D ALIGN_DOWN(gfn, PMD_SIZE >> PAGE_SHIFT);
-- 		*gfnp =3D gfn;
-- 		pfn =3D ALIGN_DOWN(pfn, PMD_SIZE >> PAGE_SHIFT);
-- 		*pfnp =3D pfn;
-+ 	if (sz < PMD_SIZE)
-+ 		return PAGE_SIZE;
- =20
-- 		return PMD_SIZE;
-- 	}
- -	*gfnp &=3D ~(PTRS_PER_PMD - 1);
- -	*pfnp &=3D ~(PTRS_PER_PMD - 1);
-++	*gfnp =3D ALIGN_DOWN(*gfnp, PMD_SIZE >> PAGE_SHIFT);
-++	*pfnp =3D ALIGN_DOWN(*pfnp, PMD_SIZE >> PAGE_SHIFT);
- =20
-- 	/* Use page mapping if we cannot use block mapping. */
-- 	return PAGE_SIZE;
-+ 	return PMD_SIZE;
-  }
- =20
-  static int get_vma_page_shift(struct vm_area_struct *vma)
-
---2NMAQIVW8NCprxWt
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsFw3UACgkQJNaLcl1U
-h9BIeQf+KfnvBxvYx1YROBz4Vs5t/IzsLPsFavYCJLiZ5Qz7de1UVUw8nMWOPTk7
-JcOib34DyxmcGXHa2zY3fH0NoqFI2W4oJgC2qCeisDxyE/Hi32m1+KFl4tFhEt+H
-lxvLY2JjLcxUco6HoU+w/HMdFsIdSCoylUfgSPbZIYEa8mBODAVkkO94b4A1Pafz
-B/Hp6pHKL8zB8MnqieN5ttO4L052cEnA6XRPCM5yMpJS9q8Sd7/ldquGmlkmZg5x
-9UeXTBFy29i+aW38ndzbHaSS4K8r2Wt8P6Ky8dVnYvZWdkDmNrpwoFr9HVUbneD6
-A3gEfkHot+astiLwVs6Y4JhVZsbKmw==
-=fkfa
------END PGP SIGNATURE-----
-
---2NMAQIVW8NCprxWt--
