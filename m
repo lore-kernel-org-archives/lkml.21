@@ -1,46 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795515633;
-	b=2D+qmcXRLCVU93/yDlcEdoWIZTzuScohDWWCdkjJzRV453HJB5gRtkuiIuN3Ibsfobkb
-	 90GiPX4tOpZb0ZVnc1cqSHsS0YboQu1a7z9vRZ37rwfg5PKnWa+UGbcbEqxKGof5J6QOD
-	 xms/TorHPf3j6viDPVjs5AkT8jX7oqdYCgI9Xrp/zRGU/yNbJdWbaaOtgmkdl4g/pcQ67
-	 xLC0EnUX+/B1a6kVL1pme0tYXWzyZSdS1KPNn6LjkytO8giZ87CRHams1uLwAQIyNl2DX
-	 oTo/RDSdWck2ES6gV8uQ06B6JBy+YFqfnrMpunhvyN5zSSdw77sEm9k3ydDkiicaxgw==
+	t=1795515636;
+	b=ylQNkMkzeh0yTlhvI1zPy48Si28ggZrZsj6d4YtfWeUKii8mhVDFhtkpq0asQYzofHPS
+	 dQiugjFTyP3MK/A8uHOCUD1CmEfcOH3mT8zLUT/azsNd1itKtERfFgK6fIBg8IiIH8POI
+	 qAEJOxGyhGUUuxpX8WOMYI8Fpm73+jOY77hxYPPje8moLLSX29XFEBZbyoCSIyEwCr34w
+	 9YBYURA8NNd1Ge5yDmDfaSTb5s3k+7TnIgUutlBApH0goaTBhJvns7UCkTfbBaK7e/wDJ
+	 BjsMYROzEMAvtHzaakJVSutLbmK5A9MtJRCm1peK+z7AXtRK81BkIJDQ7nWBO3Cd4bg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795515633;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795515636;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=gjDyuTkmmyfYSqD39L2E6i2oyf7DxqDr5MYZav/UbyU=;
-	b=4FCqP3sutqF6tvqs7ym7pfknPmHcY84KFQ/LM/lcRen3+TY/rMeIuCWawtJVMboEZMCF
-	 9YnlWoEFLNgdoJbGanBSEWuqejmphr0gYVU5ICwey0BzpmIgQZk1nqQYrbx2CXKzGEOE/
-	 UXys+sXFWdtMU/ZyOSq26vkS7kaSDsDTDupy66ncVPXQPLNtb3VSkH0M4+ESbofGP7QAe
-	 BlvB1pyGCu3yeJ4vQvd15XHcN9S6ERqNRSBkQMCDlF2Pmpk0kN8MVrV6+v1DZkNMRwGRE
-	 9Nd+IPdMxaahdFPCgFBovsCY8f2HOW87qAWnMm13ooVlRR/6HfLEL4CMaY7/iYWjjQQ==
+	bh=ezwj1PmRYTif22M9HdFfo8GLeV0gGpBM+EfbcndNxVQ=;
+	b=3usx3Ipayz6FI3GvOgG1eionPDBw8nXBTrT0/sq2qd7DND9WjhhrskmVl9pi4pHCSnAo
+	 utfrvzBiyvBL5nQg+YbV5s/O/eF9lUVkwRyQYuPOchX3KZ6N67PQiW7Qk16UZSmuU+3Ir
+	 LgIqiQyX4ZVbZV03D+aSnbk2PrHlvztv8SbFw5MZOVgPbCSJQT2Avu0AWlUvcBTeHBumW
+	 IHfx5c2T+zP7fu3y9+ufLcolgcRvJ0KNxkKgiNl+T39zM9bHdWsJ5zJmXW1T7GGE1k57W
+	 7K9g59+SXZKGgScPnbZlx9gCknaNchXKhWHLRXC1LKr1vgXnY6RpDnjYnMMzSYP/whQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IpFqO1P6;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jLQ2iJj3;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2C13606A692;
-	Tue, 24 Nov 2026 10:20:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C73D7606A31E;
+	Tue, 24 Nov 2026 10:20:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IpFqO1P6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5522F1F000C6;
-	Tue, 24 Nov 2026 10:20:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jLQ2iJj3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D128A1F00A3C;
+	Tue, 24 Nov 2026 10:20:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795515633;
-	bh=gjDyuTkmmyfYSqD39L2E6i2oyf7DxqDr5MYZav/UbyU=;
+	s=k20260515; t=1795515636;
+	bh=ezwj1PmRYTif22M9HdFfo8GLeV0gGpBM+EfbcndNxVQ=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=IpFqO1P63or12BDYNLZZoaIXfhk2Xse3vdtKdaLPNOFDbXISS0MiCPKMrZ/AafES3
-	 LuS+giDnHIQcfZZ/Z8kIlMR4s4MlSXHZRegQsR/UbzNXKb0SsBOoJaGrX9lyU7+vez
-	 1tkFpH9KWfZ17bgpE1hjh2qoypGssRTDdkrO0kF2oVeKNaje32rGLkNWPaS2DGG7Hy
-	 2v9YfNboqsR9EWolR8f4Tui5U5RGcV61yXPbwoi6o4uCXqIk/58LrGWOoOQniLjizT
-	 fw0Y6/YoswKkgMOhNdK1namMRKMDGIaJcJmhSm+iDjMXJKG5mOkcrykvkndEnAEdxt
-	 ohvmCm5pe2/YA==
-Subject: Re: [PATCH net-next v9 06/10] bnge: remove refcount from L2 filter
+	b=jLQ2iJj3OsuPL0YQ2O5F6BzFhCiZsfJNS22dnzAA6MY2752TwJQ/TT7nKtKtTRfss
+	 rqeTvPe34QaGQOMilS3v1ywy/s+lvZCFQ0UE9vusPUn/ZXyUIJcrlcSrzKzXRm81NP
+	 Jc25v7ejcIpoorv/Lbdo5q0wDrtZWgduazqWbUyiWO7kI18OREmWC2AqV0Bl3NT0oZ
+	 MvgPORoIOx98rHJJPkmod4iTtkURfTa3HvXIAIH6cLHvTcQ6NiQ8OBsU3aPsacU1tI
+	 TitMjPXlfzV1qGl/t48Dme3s2jJEFWRWoOpJh8yOJCioZ8Q58d7VlhjpLXCVUFFMkQ
+	 0ds68MR15WxFg==
+Subject:
+ Re: [PATCH net-next v9 08/10] bnge: add NTUPLE filter support in ethtool
 From: netdev-bot+sashiko@kernel.org
 To: vikas.gupta@broadcom.com
 Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
@@ -49,11 +50,11 @@ Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
  bhargava.marreddy@broadcom.com, rahul-rg.gupta@broadcom.com,
  vsrama-krishna.nemani@broadcom.com, rajashekar.hudumula@broadcom.com,
  dharmender.garg@broadcom.com, ajit.khaparde@broadcom.com
-Date: Tue, 24 Nov 2026 10:20:31 +0000
-Message-ID: <179551563189.3135.3879694697631182157@kernel.org>
-In-Reply-To: <20261123100746.1975030-7-vikas.gupta@broadcom.com>
-References: <20261123100746.1975030-7-vikas.gupta@broadcom.com>
-X-sashiko-severity: Low
+Date: Tue, 24 Nov 2026 10:20:35 +0000
+Message-ID: <179551563543.3135.8782865682278121894@kernel.org>
+In-Reply-To: <20261123100746.1975030-9-vikas.gupta@broadcom.com>
+References: <20261123100746.1975030-9-vikas.gupta@broadcom.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -66,109 +67,146 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-- [Low] The commit message does not describe two behaviour changes this
-  patch makes.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] bnge_cfg_rx_mode()
+  (drivers/net/ethernet/broadcom/bnge/bnge_netdev.c) raises the number…
+- [Low] The commit message promises a two-case outcome when a user
+  ETHER_FLOW rule and a unicast address share a MAC: "If the unicast…
 
 --
 
-bnge: remove refcount from L2 filter
+bnge: add NTUPLE filter support in ethtool
 
-This patch removes the refcount from struct bnge_l2_filter. A filter is
-now expected to be removed only by the context that created it. It also
-folds the RCU lookup wrapper into bnge_lookup_l2_filter(), and makes
-bnge_alloc_l2_filter() return an error when the key is already present.
+This adds ethtool rxnfc get/set operations to bnge for ntuple and
+ETHER_FLOW rules. User filters are kept in software across down/up and
+programmed again on open. It also replaces the BNGE_MAX_UC_ADDRS limit with
+BNGE_MAX_L2_FLTRS, so up to 127 unicast addresses are programmed before the
+driver falls back to promiscuous mode, and it enables NETIF_F_NTUPLE by
+default.
 
-> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_filter.c b/drivers/net/ethernet/broadcom/bnge/bnge_filter.c
-> index a8bb441ebef9a..6316f75ca36ea 100644
-> --- a/drivers/net/ethernet/broadcom/bnge/bnge_filter.c
-> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_filter.c
-
-[ ... ]
-
-> @@ -13,8 +14,8 @@
->  
->  void bnge_del_l2_filter(struct bnge_net *bn, struct bnge_l2_filter *fltr)
->  {
-> -	if (!refcount_dec_and_test(&fltr->refcnt))
-> -		return;
-> +	netdev_assert_locked_or_invisible(bn->netdev);
-> +
->  	hlist_del_rcu(&fltr->base.hlist);
->  	kfree_rcu(fltr, base.rcu);
->  }
+> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
+> index 58039e6d610ed..44637152b075c 100644
+> --- a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
+> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
 
 [ ... ]
 
-> -static struct bnge_l2_filter *__bnge_lookup_l2_filter(struct bnge_net *bn,
-> -						      struct bnge_l2_key *key,
-> -						      u32 idx)
-> +static struct bnge_l2_filter *bnge_lookup_l2_filter(struct bnge_net *bn,
-> +						    struct bnge_l2_key *key,
-> +						    u32 idx)
->  {
->  	struct bnge_l2_filter *fltr;
->  	struct hlist_head *head;
->  
-> +	netdev_assert_locked_or_invisible(bn->netdev);
-> +
->  	head = &bn->l2_fltr_hash_tbl[idx];
-> -	hlist_for_each_entry_rcu(fltr, head, base.hlist) {
-> +	hlist_for_each_entry(fltr, head, base.hlist) {
+> @@ -2126,14 +2129,24 @@ static int bnge_cfg_rx_mode(struct bnge_net *bn, struct netdev_hw_addr_list *uc,
 
 [ ... ]
 
-> @@ -75,9 +63,10 @@ static struct bnge_l2_filter *bnge_alloc_l2_filter(struct bnge_net *bn,
+>  	netdev_hw_addr_list_for_each(ha, uc)
+>  		if (!ether_addr_equal(ha->addr, dev->dev_addr))
+>  			uc_count++;
+> -	if (uc_count > BNGE_MAX_UC_ADDRS - 1) {
+> +	/* The unicast addresses and the user ETHER_FLOW rules share the L2
+> +	 * filters. Receive the addresses that do not fit in promiscuous mode.
+> +	 * The firmware supports many more L2 filters than BNGE_MAX_L2_FLTRS,
+> +	 * so it is not expected to refuse a filter in the loop below.
+> +	 */
+> +	l2_free = BNGE_MAX_L2_FLTRS -
+> +		  bitmap_weight(bn->l2_fltr_bmap, BNGE_MAX_L2_FLTRS);
+> +	if (uc_count > BNGE_MAX_L2_FLTRS - 1 || uc_count > l2_free) {
+>  		vnic->rx_mask |= CFA_L2_SET_RX_MASK_REQ_MASK_PROMISCUOUS;
+>  	} else {
+
+[Severity: Medium]
+
+The threshold goes from 3 addresses to 127 here. Is l2_free the only limit
+on how many unicast filters get programmed?
+
+l2_free is computed from the driver's own bn->l2_fltr_bmap. The firmware
+reports a per-function limit, which bnge_hwrm_func_qcaps() stores:
+
+    hw_resc->min_l2_ctxs = le16_to_cpu(resp->min_l2_ctxs);
+    hw_resc->max_l2_ctxs = le16_to_cpu(resp->max_l2_ctxs);
+
+Nothing in the driver reads max_l2_ctxs, though. So no check in the code
+backs the commit message's "the firmware supports many more L2 filters, so
+a refusal in this path is not expected".
+
+Suppose firmware refuses bnge_hwrm_l2_filter_alloc() in the fill loop below
+with an error other than -EEXIST. The function then does this before
+bnge_hwrm_cfa_l2_set_rx_mask() runs:
+
+    vnic->uc_filter_count = i;
+    return rc;
+
+Would the remaining addresses then get neither an L2 filter nor promiscuous
+mode?
+
+On the open path, bnge_init_vnic() treats this as fatal:
+
+    rc = bnge_cfg_rx_mode(bn, &bn->netdev->uc, true, false);
+    if (rc == -EAGAIN) {
+        netif_rx_mode_schedule_retry(bn->netdev);
+        rc = 0;
+    } else if (rc) {
+        goto err_out;
+    }
+
+Could a refusal there make the interface fail to open? With the old
+3-address limit, the driver would have gone promiscuous well before this
+point. Whether it can happen depends on what max_l2_ctxs the firmware
+reports for a bnge PF.
+
+Would it make sense to limit uc_count by min(BNGE_MAX_L2_FLTRS, max_l2_ctxs)
+minus the filters already in use? Another option is to fall back to
+promiscuous mode when the firmware refuses a filter.
+
+[ ... ]
+
+> @@ -2149,6 +2162,11 @@ static int bnge_cfg_rx_mode(struct bnge_net *bn, struct netdev_hw_addr_list *uc,
 >  
->  	idx = jhash2(&key->filter_key, BNGE_L2_KEY_SIZE, bn->hash_seed) &
->  	      BNGE_L2_FLTR_HASH_MASK;
-> +
->  	fltr = bnge_lookup_l2_filter(bn, key, idx);
->  	if (fltr)
-> -		return fltr;
-> +		return ERR_PTR(-EEXIST);
+>  	for (i = 1, off = 0; i < vnic->uc_filter_count; i++, off += ETH_ALEN) {
+>  		rc = bnge_hwrm_set_vnic_filter(bn, 0, i, vnic->uc_list + off);
+> +		if (rc == -EEXIST) {
+> +			/* Already delivered by a user L2 rule */
+> +			vnic->l2_filters[i] = NULL;
+> +			continue;
+> +		}
 
 [Severity: Low]
-This isn't a bug, but should the commit message describe two behaviour
-changes this patch makes? The message only talks about removing the
-refcount:
 
-  However, going forward, the filter will only be removed by the same
-  context that created it, making refcount unnecessary.
+The commit message says:
 
-First, the contract of bnge_alloc_l2_filter() changes. When it found a
-duplicate MAC/VLAN key it used to take a reference and return the
-existing filter. It now returns ERR_PTR(-EEXIST).
+    If the unicast address is added first, adding a rule for the same MAC
+    fails with -EEXIST.
 
-That error would go back through bnge_hwrm_set_vnic_filter() to
-bnge_init_chip(), where open fails with "HWRM vnic filter failure", and
-to bnge_cfg_rx_mode(). As far as I can tell this branch can't be reached
-today, so there is no runtime impact.
+Is that always true? By the time bnge_cfg_rx_mode() takes the promiscuous
+branch above, the filters in l2_filters[1..] have already been freed, and
+the branch creates no new ones. So the software L2 hash table has no entry
+for those addresses.
 
-Second, lookups of l2_fltr_hash_tbl switch from an RCU walk under
-rcu_read_lock() to a plain hlist_for_each_entry(). The new
-netdev_assert_locked_or_invisible() calls in bnge_lookup_l2_filter() and
-bnge_del_l2_filter() make the netdev instance lock the required
-protection.
+A later ETHER_FLOW rule for one of those MACs then goes through:
 
-At this commit nothing documents that rule. The bnge_netdev.h comment
-saying l2_fltr_hash_tbl is covered by the netdev instance lock only
-appears later in the series.
+bnge_srxclsrlins()
+  bnge_add_l2_cls_rule()
+    bnge_alloc_user_l2_filter()
+      bnge_lookup_l2_filter()   <- finds nothing
 
-Could the commit message mention the new -EEXIST return and the move
-from RCU to the instance lock for lookup and delete? Other commits in
-this series list changes like these explicitly.
+The rule is accepted and programmed in firmware instead of failing with
+-EEXIST.
 
->  
->  	fltr = kzalloc_obj(*fltr, gfp);
->  	if (!fltr)
+On the next rx_mode update where the addresses fit,
+bnge_hwrm_set_vnic_filter() returns -EEXIST here. The address (a macvlan,
+for example) is then delivered only to the rule's ring. That is the "rule
+added first" outcome, even though the address was added first.
 
-[ ... ]
+The same seems to happen when the fill loop stopped early on a firmware
+error and left later addresses without a filter.
+
+Could the commit message cover these cases?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123100746.1975030-1-vikas.gupta%40broadcom.com
