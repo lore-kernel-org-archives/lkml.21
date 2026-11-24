@@ -1,83 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795521271;
-	b=Fd4akV7XSLo+Da2rGcjxNM9W1AO63Z6sFGQKZMjopxZJ7c9uew1uusmMyAMwFwoDfJzb
-	 J4uXfDgvAPtfM82U6Gr7kQ0XgAY7vjN7Ydq1aPXaX73RC5zPcgp4znY9Wb1Q670DmQBRc
-	 uyJXfwbha0ZNm5AfvYOcBjYM0UyyFDSyXsDVuyLXOLAsFBDNNa1yaopJ/8T2vtQJjJgAQ
-	 gKIu7NvxypaG5o9FWiaDl1mS1TKB8yBriG0cqLOsEbR/Qm2yUVcday3GxAdnQvKqpECQt
-	 xfT8Yo9Ucf3ndeJ4v0hS6IUEnZMvdr1fY/lYFN7L9rmVKydhmar4MruLx+I4F/bgTTg==
+	b=CsMav+fRu1MS7W3EgUAeQncY4QaJb0TaDexmw/tfb4+BCTvgQHzmnjfJ2oCcL6QkNQ+C
+	 vXh7jcZQA96OjbwzF7WDfCmoMpaHaUMsU0z22xGduwBO0uHz6ih1fLJmHkoMfNQPVBDiO
+	 dSVfqcoLvuqgsZj4kueNkOkQPbZ6mI/emWL4OTqp4z7dDLiUcXz2NclYnM+7utoaY8Mjc
+	 9SzwkAF+jExkAEC06G5jvJVJWAyf2mz6cN6bFAlmg3ex3H6PAAYH6JTBR2xKUrMqbpOAJ
+	 9Ai/I1KLCmsBX5ched4R/6C1rYzcH1PxauGKTNspsuBX2CD4Efv8GdkaZDPnfdy60OQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795521271;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Scanned-By;
-	bh=SazTzdn4IEa6QiZ2+dOeuOq88TDrasWUOqoW06iFXvo=;
-	b=ohoryQJeBiCK7UQ0+a2fs06cPtxv2M2Qu2KO7AU+3ryjTyQWcWHZFdTyzFho7MLgS7G/
-	 SUTfj2B2+Lm1B3oTNPZPy9pBWGVOkXy6xSS6X2j3GG2NJMGtrul1CVpgqbpPxueywcQPL
-	 I1LsVh3qDqLuwQ2fiVzHQbxhB2XpeOZhHVByHINF76pFGy1eMGp1kRPdjmxGGj1zaWGet
-	 vZFtkP/fjudP6+Shw6p77Iye9IW55O0hstburEWNR0YwUOnpanld/nAgJSWSvvM4C52IH
-	 vgbAfN5fnIan3psLhjSwy8pf18szOsBlf1Z5Xa5lwc42Gk6NKoFg5Eb+scYOn8tW+Og==
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=6ltJ1pW0PzJoIGvio6joo7Ad0slsGETinD5fSZDgy8s=;
+	b=BFeg7wV2wJttyV1WmowoKLwj3kz4wJzicxm0vG6P6jaQEA//MSimqxmEJbSaaScT/QLD
+	 Jeyh4WxQn0gjYFqs+OmVhEb62IHLkOw4yz2vk+flaUdSJOem2ZaAVX66M4M5pHIL3Hofl
+	 sCaW0oyS9GELKo84doO6d6xwd2LXJoTUnJtgHTamm5PcBjPiiwvwRz/0ZfS35x3lHeobc
+	 U+TnrXUZnQwNeD3m9pfgU/xONv/thXF79bT9PhXPdhJMQw3VsTfos9qKT8z+K6sQldWlt
+	 GPRChTuJwLII3lST9KxKN30/TkHZnHQPr42jkpw/P55fbWntjeIz2yJ2OxNohAMRvIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=hoIquxTx;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b="MyNVq/NR";
+	arc=none smtp.remote-ip=115.124.30.130
+Received: from out30-130.freemail.mail.aliyun.com (out30-130.freemail.mail.aliyun.com [115.124.30.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1730606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12338606A32A
 	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:54:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1730606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 12338606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=hoIquxTx
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795521270;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SazTzdn4IEa6QiZ2+dOeuOq88TDrasWUOqoW06iFXvo=;
-	b=hoIquxTx8Y0WI335yWkZtpJ5EvwaWE3QfKnrlo/bzdCPQhbfu4vWmQPuPJmI6Ubz3zrEyT
-	QZKnQw286v3aRqBnn1zl1TGEUT5q8EEvGzQFgDgnm8XsEv5lhL7XlF3uj0CYOQSHbvjkVG
-	pjK2XAUegV58y+Fa2nZYVTiuMWzCdu4=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-563-wSrG8mvnNHeWAvs1NWoD-g-1; Tue,
- 24 Nov 2026 11:54:23 +0000
-X-MC-Unique: wSrG8mvnNHeWAvs1NWoD-g-1
-X-Mimecast-MFC-AGG-ID: wSrG8mvnNHeWAvs1NWoD-g_1795521262
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A20151802171;
-	Tue, 24 Nov 2026 11:54:21 +0000 (UTC)
-Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id D9FE31956087;
-	Tue, 24 Nov 2026 11:54:17 +0000 (UTC)
-Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
-	oleg@redhat.com; Tue, 24 Nov 2026 12:54:21 +0100 (CET)
-Date: Tue, 24 Nov 2026 12:54:16 +0100
-From: Oleg Nesterov <oleg@redhat.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: mt4022@columbia.edu, Jens Axboe <axboe@kernel.dk>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Michal Nazarewicz <mina86@mina86.com>,
-	Wen Yang <wen.yang@linux.dev>, linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org, tz2294@columbia.edu,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] sched/wait: Queue non-exclusive waiters at the
- head in do_wait_intr*()
-Message-ID: <awV66PQWrBOKcZCE@redhat.com>
-References: <20261122-b4-sched-wait-intr-head-v2-0-4a764b64e8ce@columbia.edu>
- <20261122-b4-sched-wait-intr-head-v2-1-4a764b64e8ce@columbia.edu>
- <CAHk-=wj_eqNh+gNhCQh3exrL5Pmo5hbZBcL0W-4Ah_Nw0Kegzw@mail.gmail.com>
+	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=MyNVq/NR
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795521267; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=6ltJ1pW0PzJoIGvio6joo7Ad0slsGETinD5fSZDgy8s=;
+	b=MyNVq/NR1NdDgfqv1B+X++xr6Y1lcHgbr4Y1rde0U09H1AIHaZ6HVRB63KetfP6B2dyNCVS4YenKUM38oDKXY+zAR9tRudy6kMJ4n+95Jg5PENoiimzOjD8Y4WMQUwqSl9DjiqTB4NyZePsGXHEWUD1uI+/4Vmefv22q03w6bKY=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=joseph.qi@linux.alibaba.com;NM=1;PH=DS;RN=7;SR=0;TI=SMTPD_---0XFOMde4_1795521266;
+Received: from localhost(mailfrom:joseph.qi@linux.alibaba.com fp:SMTPD_---0XFOMde4_1795521266 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 24 Nov 2026 19:54:26 +0800
+From: Joseph Qi <joseph.qi@linux.alibaba.com>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	Heming Zhao <heming.zhao@suse.com>
+Cc: Mark Fasheh <mark@fasheh.com>,
+	Joel Becker <jlbec@evilplan.org>,
+	ocfs2-devel@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Joseph Qi <joseph.qi@linux.alibaba.com>
+Subject: [PATCH 3/3] ocfs2: check chain allocator clusters per group in online filecheck
+Date: Tue, 24 Nov 2026 19:54:04 +0800
+Message-Id: <20261124115404.2937581-3-joseph.qi@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3
+In-Reply-To: <20261124115404.2937581-1-joseph.qi@linux.alibaba.com>
+References: <20261124115404.2937581-1-joseph.qi@linux.alibaba.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,131 +65,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="BuV4xHRsX/o8lmUR"
-Content-Disposition: inline
-In-Reply-To: <CAHk-=wj_eqNh+gNhCQh3exrL5Pmo5hbZBcL0W-4Ah_Nw0Kegzw@mail.gmail.com>
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+Content-Transfer-Encoding: 8bit
 
---BuV4xHRsX/o8lmUR
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+The online filecheck validator reports every dinode condition that
+ocfs2_validate_inode_block() checks, with its own message and an
+-OCFS2_FILECHECK_ERR_INVALIDINO code instead of ocfs2_error().
 
-On 11/23, Linus Torvalds wrote:
->
-> On Sun, 22 Nov 2026 at 16:35, Mani Tofigh via B4 Relay
-> <devnull+mt4022.columbia.edu@kernel.org> wrote:
-> >
-> > A task blocked in read() on an eventfd or timerfd can sleep forever
-> > while the file is readable, if an epoll(EPOLLEXCLUSIVE) watcher of the
-> > same file was added before it.
->
-> Honestly, I don't think this is the right approach.
->
-> We need to fix the disaster area that is epoll, rather than work around
-> more epoll bugs elsewhere and make other places more fragile and
-> complex.
+Add the clusters per group check there too, so a corrupt cl_cpg is
+reported by the filecheck interface as well rather than only being
+discovered when the suballocator extends the allocator.  As for the
+other chain list conditions this is not repairable, so it reports
+INVALIDINO and leaves the block untouched.
 
-I agree. But to me it would be better to apply this patch from Mani,
-then do something else. Not because it "fixes" the scenario described
-in the changelog. As for eventfd_read(), it probably makes sense to
-change it to use wait_event_interruptible_exclusive_locked_irq() at
-least if !EFD_SEMAPHORE, and then we will have the same problem with
-EPOLLEXCLUSIVE again.
-
-But simply because do_wait_intr*() are wrong regardless, and the
-change is trivial. And perhaps the changelog should not mention
-EPOLLEXCLUSIVE at all.
-
-> And I think we should always add new waiters to the end of the queue,
-> and stop any other games. Just walk the whole queue at wakeup time.
->
-> Finally, I think we should make the return value from the wakeup
-> function be a bitmask, and count "exclusive" as only "we haven't seen
-> this bit returned yet". And then *real* exclusive users that actually
-> guarantee that they react to the wakeup return all bits set, but the
-> sh*t-for-brains garbage that is "epoll" only returns its own bit set -
-> so we only wake up *one* epoll user, but we wake up other users anyway,
-> because epoll clearl yis lying about its "exclusivity".
-
-Perhaps... But it is not clear how to do this gradually...
-
-And lets forget about epoll for the moment. Lets suppose we change
-__wake_up_common() to do
-
-	list_for_each_entry_safe(curr, next, &wq_head->head, entry) {
-		bool excl = curr->flags & WQ_FLAG_EXCLUSIVE;
-		int ret;
-
-		if (excl && !nr_exclusive)
-			continue;
-		ret = curr->func(curr, mode, wake_flags, key);
-		if (ret < 0)
-			break;
-		if (ret && excl)
-			--nr_exclusive;
-	}
-
-This will change the current behaviour if ret < 0. Say wake_page_function() does
-
-	if (flags & WQ_FLAG_EXCLUSIVE) {
-		if (test_bit(key->bit_nr, &key->folio->flags.f))
-			return -1;
-		...
-
-so this logic depends on wait-queue ordering too. "ret < 0" can be encoded
-in the bitmask, but it is not clear what exactly __wake_up_common() needs
-to do in this case.
-
-Can't we at least cleanup __wake_up_common() ? See the patch below, I already
-sent it but it was ignored.
-
-Oleg.
-
-
---BuV4xHRsX/o8lmUR
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: attachment;
-	filename=0001-sched-wait-kill-leftover-bookmark-logic-in-__wake_up.patch
-
-From 887e7597e23b1beb5c6ed536cb342a2daa740ce5 Mon Sep 17 00:00:00 2001
-From: Oleg Nesterov <oleg@redhat.com>
-Date: Thu, 12 Nov 2026 15:53:53 +0100
-Subject: [PATCH] sched/wait: kill leftover bookmark logic in
- __wake_up_common()
-
-The manual list head check and list_for_each_entry_safe_from() in
-__wake_up_common() are leftovers from commit 2554db916586 ("sched/wait:
-Break up long wake list walk").
-
-This logic was later removed by commit 37acade0ce89 ("sched: remove
-wait bookmarks") but the now-unnecessary list hacks were left behind.
-
-Signed-off-by: Oleg Nesterov <oleg@redhat.com>
+Signed-off-by: Joseph Qi <joseph.qi@linux.alibaba.com>
 ---
- kernel/sched/wait.c | 7 +------
- 1 file changed, 1 insertion(+), 6 deletions(-)
+ fs/ocfs2/inode.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/kernel/sched/wait.c b/kernel/sched/wait.c
-index f8d6d8b9d03e..d0521b54eeb3 100644
---- a/kernel/sched/wait.c
-+++ b/kernel/sched/wait.c
-@@ -96,12 +96,7 @@ static int __wake_up_common(struct wait_queue_head *wq_head, unsigned int mode,
+diff --git a/fs/ocfs2/inode.c b/fs/ocfs2/inode.c
+index e6f89d1e3091..c653b6aee256 100644
+--- a/fs/ocfs2/inode.c
++++ b/fs/ocfs2/inode.c
+@@ -2220,6 +2220,15 @@ static int ocfs2_filecheck_validate_inode_block(struct super_block *sb,
+ 			rc = -OCFS2_FILECHECK_ERR_INVALIDINO;
+ 			goto bail;
+ 		}
++
++		if (ocfs2_dinode_has_bad_chain_cpg(sb, di)) {
++			mlog(ML_ERROR,
++			     "Filecheck: invalid dinode #%llu: clusters per group %u\n",
++			     (unsigned long long)bh->b_blocknr,
++			     le16_to_cpu(cl->cl_cpg));
++			rc = -OCFS2_FILECHECK_ERR_INVALIDINO;
++			goto bail;
++		}
+ 	}
  
- 	lockdep_assert_held(&wq_head->lock);
- 
--	curr = list_first_entry(&wq_head->head, wait_queue_entry_t, entry);
--
--	if (&curr->entry == &wq_head->head)
--		return nr_exclusive;
--
--	list_for_each_entry_safe_from(curr, next, &wq_head->head, entry) {
-+	list_for_each_entry_safe(curr, next, &wq_head->head, entry) {
- 		unsigned flags = curr->flags;
- 		int ret;
- 
+ 	if (ocfs2_dinode_has_refcount_without_loc(di)) {
 -- 
-2.55.0
-
-
---BuV4xHRsX/o8lmUR--
+2.39.3
 
