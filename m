@@ -1,105 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795551423;
-	b=a6/YnWrnMxFaI6GYuBVojML+aFcEcZtP1rEKssVNhlJyX+gf2/iBaWxMvveffc7CIUI2
-	 7+d3bs+j00sNvyi7+GmqFhyE5jmr0I2oT0oJui9fgEaGzLu012KAxqJ6PgGpZMl1wFlF1
-	 kvgf7VGckISmQCruph+bJUyjDKY/jgwVZYCFXyd4pRzPR91fEZ4ghTxY9Dv10RIh3SVBA
-	 faEa7LoGL/ZUmnyPQpJCcrKQNIM5XaAIr5tcAZzQbFwODOR7ggusUeYwGlgzCKkxT+ZTv
-	 aEmMaskbWYbkT/F88syjDZ/MZP2dz3ZcmvLh3miyBH1MfBo0A0IVzSyXuSDkcszOZyA==
+	t=1795551461;
+	b=SwPhS1iwOIEYBeyMre231ftN+sgErQVP9tCHwavZjRD1h50r3HxrYJrU77GBCJiaXRJ6
+	 Jrg30q77d7FX9aFgqYB3C3ElCkrVtg7bDpiHIjZIk0HGFj4h/1T3J1vAY16ctNZUekDnG
+	 uPWbZKckuqjMPpm8SH6kOMsZ6q4q9TUNTeD0nPAVAr44saJk/0FnVg7pvF3oo+riweNP3
+	 BufNbuE1zuI42b+ezTRhTW3ktXlosoxT4Dnq8tiwaq/+SRPdY0TKBP//+yulfI8TGb69k
+	 URsDhrbarxGKri7tBTL87loGvpdBCDan5ls7IopxKyw1ARmUGmd8LXM26Txv2ubuuTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795551423;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795551461;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:Cc:Subject:From:To:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=19rRlZPT1LVmqMdWRk6gML8eP6Esmj++HIxjdU6f6nE=;
-	b=RsRbpgOgP++8uSuSVTUOYgEoR+4qO9Q551tVmjH5Fzp0AmB4D0vT0U4sBqvIYsWHZHi/
-	 A/IoqNwCSlyEnq8z9hFcvGOp8wv81ksobw4Mn9FG8RiRHE1eliRe/dztOeZZVyF4WXewa
-	 BemnnQz3FJ8Myg1KHXdJ6TugL/x5j9pc9pGYosSPHZKwFl1DtmDUChZulWkmbrTndjGDP
-	 /I3VyPJayql5KaDDolcxa7haxXGgTxI+LvLNOjPDgc5Zk9Qn6r0t76x6Enaz32zcO8UJr
-	 XZKORLOPkCPr+u6tMd3MqCZ5w4J+yTCFfUW7tvrVJzL2/vuza06enM6FXid1s4XVsDA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=7tEIWHNr59KovVpk7gJw0JqnDAdNK2se9vPrBzQVaug=;
+	b=o4v3P+n0Bskb+0uG7o8khIxkliQVRCa+HbCpETEocKR2os5hc3eTRjajViU66XY6i79A
+	 Pq1u5hWtM4Hqtmb7FRw28cRr3MeCkUoVtVmWc7DHfTX2vK8jtxm8ECQF26O+OYty1wgj8
+	 Fol6bru3cCZR2oHfiSpmU+RsA0DgKR0YpolrREama9bKtp2+y+6q1ksJRIXSKepT+bQgt
+	 EwwRyIpDfwVmS3PJGOi+4lwY1vaHX58zVDyaRbsefbqq9857ftpw/wOUTL8te9pZHYX3T
+	 oNoZXKGFjzxqA9TjVEcRhNBZrGp5k72mcl9WeKhDLfwTxVp5TyPmRFeXxvhRDhoIv9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Bg+8NGH8;
-	arc=none smtp.remote-ip=209.85.214.173
-Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--pratmal.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nb2pv8VD;
+	arc=none smtp.remote-ip=74.125.82.198
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 804F8606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:17:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 804F8606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0753606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:17:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0753606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--pratmal.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Bg+8NGH8
-Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2f0414c1062so29229765ad.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:17:03 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nb2pv8VD
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-382af5cfc58so4462883eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:17:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795551423; x=1796156223; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=19rRlZPT1LVmqMdWRk6gML8eP6Esmj++HIxjdU6f6nE=;
-        b=Bg+8NGH8bdD517brgNx6BmmvHoIJvf2qPj8L84H8t1SkQUuzHMTixOn9GZqTfbiWd7
-         JVmtTgivhGJrT+f9aYNpPEF5TBduBrG5120dkrLfKt1263YMM84lTX9A9QKMtAECI2+S
-         T7+FUFm2fql6mTt404hQS0usO+g2vGaui2neZLRC3bdOia9CFtWRDGtmxe/ugRTgYoLD
-         5lCIQeuUAhk9pK6x7AUYPuvq6EQ+V/WbS44NKjN8f7dYT9Kz5XFtd9rm5fEKxTnFozi+
-         zWfeUn/b8ZWj3Miny40ImzrE4wcH5olhqXfMj9bgnUexSpNLVKavzcnXHKsDcIXIkusV
-         vrBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795551423; x=1796156223;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795551460; x=1796156260; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=19rRlZPT1LVmqMdWRk6gML8eP6Esmj++HIxjdU6f6nE=;
-        b=jfTULXw8qMdJ5CajPhs/gy5ouYRzZ9hYAtgBuHCAatJlWxV6ZhMKtS49XHfVh7kU8E
-         +x2ZwlnhOU1z7vSKvD4RFWbTXYOuWPwsgYmm59TJycZwA4gaPru9w2EIvqrMo0O08YlM
-         UVF1jjiHrDYoeBpga4o7ocCy6YSJI2u5MO9zdneu2zWxTgEGRg97e8oI4SVuo1Pph5eM
-         6Tznx1CfcpfPP0ssqXOr6bJLRPvu7QrMsIeTjGtK5tDuzYR1h8ffQdYH4uZhjjAQIRLg
-         ZsN0DLHPEqSnnz7Gcc3k0PhdVPB9roeh3MZ+VK6pmQ9V+Ub1XjLCIMBODQ3H5fM2QFSi
-         nnYA==
-X-Forwarded-Encrypted: i=1; AL+hErFW5fPlW0OTg7IwmzNx7ipJaK/UIWnqQYUPgku7wtgKpcMHtVWFKBjd1i3w7VfzAOL8T3dZl11j/RqXge4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z94Hl9AVGpDURNYxMkx6eeTq3TAykm0OLnPVxEooBj5Ypi7xAw8
-	Fb4SWv5SqgF8m9BDQu5PD1dkVe/lp23+uCMFiN7Srg1kKxWzqs5Jzk+c
-X-Gm-Gg: AZFdTZelc6xCq9ImRXJWqYrA+WJd/s9KGPMKp3QLirPNp3moCbKq/VFzKu/7V8csw/o
-	coqTb0N+0Z9ZKHniWVWCcObZmz64L7mzj9MxSbBhjSisCbSvrtdCJ2DQFyihn3A2pac1X8PRNIP
-	GUTtkIrYPzBCyyErE8pBN5lUHRir8vHKRld8MjH3LRC0wekU05X3u14PLwAvdPGLLd/uQpU592a
-	HQkEmIxLOrjSENYRMuNAgaKxEX9tHeAvtbAFFyY6IXazYedF3I9vl5MYoOEXqb5AA6osXNKDc4+
-	AJj86Sf5ayTVg5Q7qeZJjOyRSNg91RnESQBae3Lhlh0X+0A88cLmUP16ditlNiMq6Gb0drAzByz
-	Em7sc7e9g9Q1Ndd7hyvQ4FiXuYmtXKRpZ6cH7gKOZXDsvIsnbvm6EU9X1feaCAtmrrlrZZXNtl4
-	JK94FQkH1yLapfp4LUXY6FcFRCxrtLkfO5YFnlr8zMdt0sMSkue1D+g19lhNNuV8l+fU0o0UJHc
-	fX9fIZPhzYK2zkqSzNaoZ/TamjF9OjXOitj+wSTA56eGVm6GD0KFOAkdgdTmGjLotfeREnBgQDS
-	u21YL1+GgnshNmeYvr/f5HpvlQGD5VOf3rrbdqgN5+XJUMF0GNUGeXqZ872D2trGrtpzgO5R+MX
-	1JxH1JhAmOmObpal3ZeNnfJyWt4kFIQrMug==
-X-Received: by 2002:a17:903:24b:b0:2e9:9bac:2e90 with SMTP id d9443c01a7336-2f03f1aa1d0mr135413125ad.65.1795551422519;
-        Tue, 24 Nov 2026 12:17:02 -0800 (PST)
-Received: from localhost ([153.61.198.243])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1a8asm73930925ad.24.2026.11.24.12.17.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 12:17:02 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 24 Nov 2026 20:17:01 +0000
-Message-Id: <DN3PUVNYI5U3.EG46DZP94II5@gmail.com>
-Cc: "Borislav Petkov" <bp@alien8.de>, <bpf@vger.kernel.org>, "Puranjay
- Mohan" <puranjay@kernel.org>, "Andrii Nakryiko" <andrii@kernel.org>,
- "Daniel Borkmann" <daniel@iogearbox.net>, "Eduard Zingerman"
- <eddyz87@gmail.com>, "Emil Tsalapatis" <emil@etsalapatis.com>, "Ihor
- Solodrai" <ihor.solodrai@linux.dev>, "Dave Hansen"
- <dave.hansen@linux.intel.com>, "Andy Lutomirski" <luto@kernel.org>, "Peter
- Zijlstra" <peterz@infradead.org>, "Thomas Gleixner" <tglx@kernel.org>,
- "Ingo Molnar" <mingo@redhat.com>, <kkd@meta.com>, <kernel-team@meta.com>,
- <x86@kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups
- for user address faults under SMAP
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Dave Hansen" <dave.hansen@intel.com>, "Kumar Kartikeya Dwivedi"
- <memxor@gmail.com>
-In-Reply-To: <077779c3-aac7-49c5-8887-0d4266caa2d6@intel.com>
-References: <20261009024925.3169077-1-memxor@gmail.com> <20261009024925.3169077-2-memxor@gmail.com> <20261009041346.GHashp-hYpLl-o-l3M@fat_crate.local> <DM0ESVBT9553.2S1RWK1W7M8WW@gmail.com> <a08e55c4-26dd-4502-9cca-b063387a0e06@intel.com> <CAP01T77AiqVjyTJbHYqXe2v_h+PYzFEe3DeVTc1nyZVnzOfd5w@mail.gmail.com> <077779c3-aac7-49c5-8887-0d4266caa2d6@intel.com>
-Content-Transfer-Encoding: 8bit
+        bh=7tEIWHNr59KovVpk7gJw0JqnDAdNK2se9vPrBzQVaug=;
+        b=nb2pv8VDMR/0XDeskST2FUtXZhaXaTz6VBDhVSf8jygStpkJ3cnOAMj7Gs67q163AV
+         HRgJdegg8TDsLIhudxJXdJllEjVFfK8qjPl5iQS7ttQJjzmZRQNLIufeSg+1SVVGoraE
+         zEAw9HDigrqDdqzHWHeEEOrPov3ipXQf4hPCethwDGUGzBmdfxGMNVEJjmOpqocy9M2Q
+         xdpmDoxnLOh0lam003V5Gp2r/03bxUOu9ORIGPTGipo8RaxMTma4KxqI7xP78vEC20HT
+         KAaCtvcyAWFrrQE0YyBViAWKA0aR8gYxmzHgmj3KhLYUhWNrbGBAXo3kY5vsxUqefhdO
+         OLEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795551460; x=1796156260;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7tEIWHNr59KovVpk7gJw0JqnDAdNK2se9vPrBzQVaug=;
+        b=HUBnxsSgdCbnEbp3LgvFTkBdh2hnCgjngrENkyOCJY7Wvuu2o5FFK/gtwyrD837Ynf
+         /ylpVxM4ZSGk4Y3KVqaPKyPLTmCpp0C+kniY2jdeOHp4/Ypzt+6WdSba0+D+UpHZGtra
+         UYNZuVpqdcLy6hex3OzYUQTJc5BwzhiCEm5ch7YuT8PhPb9L1nbSA4/quBqjE67hcQTs
+         +HpY8qz0Gs5cJbbYwJC6CY1RC3SU1YktO1JxJnBkj0wsp7eOusoWyZs+LbJ4LrAt2/h+
+         RlE6f68Z30A4P1jkIFFxrB56Qk0K18VOyoWgrbOiD9TQrZGVFvyFLRDzIM+kqndjohUe
+         uTVQ==
+X-Forwarded-Encrypted: i=1; AL+hErGv5uK7W3e24T0Fc0QqJ34bfSN5FpWgzN13F8BwbX7ry/QQA0DbE2aMEL0+GipE+VxeuD8q4NzJXY2X8rY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/egHnRvIQSz/GZ1768K1LP8Eg8cjdKmSlrzhF2BXbOU4OsuhyV
+	xa1KdAXHPk11j0CAnMmC2w6ghS1cPwhCMLHaQtdlo685u6b3AHLvUvEiGFuMGTe67clpY+JllNu
+	NWalPDIGrRA==
+X-Received: from dyblz33.prod.google.com ([2002:a05:7301:1621:b0:34c:9660:9612])
+ (user=pratmal job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:20ce:20b0:37a:a9db:6bd2
+ with SMTP id 5a478bee46e88-3856e63b064mr17431781eec.11.1795551459435; Tue, 24
+ Nov 2026 12:17:39 -0800 (PST)
+Date: Tue, 24 Nov 2026 20:17:35 +0000
+In-Reply-To: <2d518dd7b8f7be147b9a957ad94f6c6641e4b5ef.1795089715.git.mst@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,43 +78,52 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+References: <2d518dd7b8f7be147b9a957ad94f6c6641e4b5ef.1795089715.git.mst@redhat.com>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261124201735.1311047-1-pratmal@google.com>
+Subject: Re: [PATCH v11 7/7] mm: page_reporting: add flush parameter with page budget
+From: Pratyush Mallick <pratmal@google.com>
+To: mst@redhat.com
+Cc: pratmal@google.com, aarcange@redhat.com, akpm@linux-foundation.org, 
+	brendan.jackman@linux.dev, david@kernel.org, dev.jain@arm.com, 
+	geert@linux-m68k.org, gerg@linux-m68k.org, gourry@gourry.net, 
+	hannes@cmpxchg.org, jasowang@redhat.com, lance.yang@linux.dev, 
+	linmag7@gmail.com, linmiaohe@huawei.com, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org, ljs@kernel.org, mhocko@suse.com, surenb@google.com, 
+	vbabka@kernel.org, virtualization@lists.linux.dev, willy@infradead.org, 
+	ying.huang@linux.alibaba.com, ziy@nvidia.com
+Content-Type: text/plain; charset="UTF-8"
 
-On Tue, Nov 24, 2026 at 07:25 AM Dave Hansen <dave.hansen@intel.com> wrote:
-> On 11/23/26 09:23, Kumar Kartikeya Dwivedi wrote:
->> It would be equivalent of doing copy_from_kernel_nofault() in the
->> normal kernel.
->
-> ... and running afoul a userspace address. So, no, it's not equivalent.
-> These accesses are more wild than anything else we have in the kernel.
+On Thu, Nov 19, 2026 at 07:03:00AM -0500, Michael S. Tsirkin wrote:
+> Add a write-only module parameter "flush" that triggers immediate
+> page reporting.  The value specifies approximately how many pages
+> (at page_reporting_order) to report.  And I mean, very approximately.
 
-copy_from_kernel_nofault() runs into user addresses too.
-sysrq-t does it for every idle kworker in print_worker_info():
+[...]
 
-  copy_from_kernel_nofault(&pwq, &worker->current_pwq, sizeof(pwq));
-  copy_from_kernel_nofault(&wq, &pwq->wq, sizeof(wq));
+> +	if (prdev) {
+> +		while (budget) {
+> +			budget -= min(budget, PAGE_REPORTING_CAPACITY);
+> +			flush_delayed_work(&prdev->work);
+> +			__page_reporting_request(prdev);
+> +			flush_delayed_work(&prdev->work);
+> +			if (atomic_read(&prdev->state) == PAGE_REPORTING_IDLE)
+> +				break;
+> +			if (signal_pending(current))
+> +				break;
+> +		}
+> +	}
 
-An idle worker has current_pwq == NULL, so the second call gets address 8.
-That's the same walk as sk->sk_socket->file: no locks, no NULL check.
+I think the amount subtracted from budget here doesn't reflect how many
+pages actually get reported in that iteration.
 
-The set of addresses is the same. The difference is who refuses a bad one.
-"CPU" is a fault and a fixup via extable:
+Each iteration runs at least one full page_reporting_process() pass,
+which walks every zone, migrate type and every order from
+page_reporting_order through MAX_PAGE_ORDER. How much a pass reports
+depends on how much unreported free memory there is.
+So even "echo 1 > flush" can report far more pages than requested.
 
-                              user, guard,                  unmapped
-                              vsyscall page  non-canonical  kernel
-  --------------------------  -------------  -------------  --------
-  copy_from_kernel_nofault()  compare        compare        CPU
-  PROBE_MEM today             compare        CPU            CPU
-  PROBE_MEM, patch 2, SMAP    CPU            CPU            CPU
-
-Every cell ends the same way: no data and no oops.
-The series changes one cell.
-
-> Do we at least require that these super specialized programs have the
-> bpf_prog_info->gpl_compatible bit set?
-
-Yes. check_ptr_to_btf_access() rejects a load from a kernel struct in a
-non-GPL prog:
-"Cannot access kernel 'struct sock' from non-GPL compatible program"
-The check right above it wants CAP_PERFMON.
-It's the same as bpf_probe_read_kernel(), which is gpl_only.
+Could we use this flush as a trigger to start free page reporting right
+away rather than waiting for the delay, and flush whatever unreported
+free memory is there?
