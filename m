@@ -1,80 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795508427;
-	b=mO1Amdvx6Rzv90iRAXvm9ZI5hVPP1YXRt+jT1A6w+wXyVn+JO8x8zZscNRPEtmrbt5R4
-	 9iMSiWLaC7Cg49mnTvUI7Wl/vfn51BPYnWTpC8urIefP/UGgMcTmKqZM9d7/i+Xk9QryX
-	 qBEkmkn/62lBkgxyNWjaHBdHF6UJ6zpcC/AmbWZjFxYvWXDKtDIJyhVFzTL9jVs4Ky2zp
-	 f9TI3UqtiUMj4OIcJSbY33XRNiT6uomwAQUMTcCJUIJ9+l9YQNnAP9a13VCka0GE0G72q
-	 m2dB9jRZuGLMLRgU0cjhAT7CIUbQ/J0GTIGjyOU0rG5xFkdmJAdXCQNjZwRmn35sPHA==
+	t=1795508433;
+	b=qHsgToQilQyvnkCOigjSXfPtzTNGCYI1TiBgLraQyG7q9qabqWqqKW1kiaLRN1B4rxhG
+	 QbdGz0lfX0mLj44K60+j9aPiCHD+TOvsWjgD4nhiREPmqWtwE5MDKOiYyrJbdekVwhk1R
+	 MchTkxIW/H3ZMvfNZjbG83QrL40Olhe8iL8hzaz9BlM0H2r4KCN3r+c6QmA4EZ2Qq8VMu
+	 BKAoZlhifjFK2Um0Eat0sLg9P01eJR6uHgLZ1VM5bP/L46gIEm72w9Dff6ppk502Q37vw
+	 PlsLictUEkpoqgBgdH9li2rk1oTANQq+H3CrHA+rN+pAg3iyozKdIfSGwofIWBQzdyw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795508427;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=vHAwwH0nrw1kWkp/3uuQPolxLVo5Vn3FF3b+N7bJNoo=;
-	b=chcFvWnxVNkowBYdGN5zmKBcuIVn0441WeA7u2Q0bx1y5Z2qMQTplaIfE/P+hzlj011X
-	 TJXu4rNtiRbxHGEqAbLf7FUlFq2aJltdRSrv6ksJ+8Dw5eXhVedVjtNxp+csqo1bWzTIG
-	 NfYVsUgTC7FYBVmp9tKgpZhh3qz4FfHNobuwV4+IqNu2XxISXG6B1SaWHiXLS93oKnx1v
-	 NqFmSeBI3KiP0PBBWzEQlKbKPVapK1gh5lffA5k/ODigVBofj1ReUUv5cfmPYiJ9D/Tsm
-	 zS5a84I7WvFv5xH2/adbVUjQCr+9PQAYUJ28vcXce4siL9Kj1VEzA2WeN6nQ1xQ6kdw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795508433;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=x/k/1K6IfLcckBF6B7BnUJei+H5Q3WU5NtpHwL0e5HI=;
+	b=UmEQFVYIFL8BOu5j0n1rSi0MFq9SMM8YqUtMDR0GglRiIO4j3W8T42U+obltsjzM7AKF
+	 uODK3KHI8WY0R78G5+IzvBrJOE3qNJph2we9cq8srmxVfM5kk8fFuJm+VTRpJumDNqULl
+	 F9ZyiUnSHp5k0ACB0ku+OV8nU8BlIUTJuukNXxY0aLzx/81i+hr2xbEjl8DYFcgbWySvr
+	 kGCABiVyHsB7dHoE315HzMTlXvcIcBKs/51QZ/FDR3RoogBX3LcSVbXTRqXRnvGKjuRR9
+	 RaoWb+GzQckwXa5Nwhb0cY0m2YgAjLleqnrR6hQIXPWD5tcEQgutUkczdAYr4hz9CFw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oem4yEc1;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fhdd1cqJ;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3642606A31E;
-	Tue, 24 Nov 2026 08:20:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80E95606A32C;
+	Tue, 24 Nov 2026 08:20:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oem4yEc1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fhdd1cqJ
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795508427;
-	b=nYuT1h+wPIovyujRPxP3EWJ/4IDwiRWTCh6dJvnp6hQ+OICyCyqHN1O9jzhjczd5hORN
-	 9Ghda3m5TBeA4gD3yPFB1jSXe4oeJLLZ3yvNuzZHiqKExvNCz4ZkM1rHH/L+ZvMkRdxIO
-	 BvlFus+/1xdXIFST9y+122TMruFbDSqUv3lq/WVnRe8AW747nInTysdnYCxpOq38D6Ma/
-	 olhnUDDEj4EmBJOWMwZIZNxmAb7OWfzSFlIWzuUCY+590wh6aqon1jqtQtaS2G8bzmzdO
-	 Va7k+jtz4rq6jgD+jAPeN2vLTICWRzoKFVR4tgAYqHcNEx2nueOnaTNgq8z6mqOL8FQ==
+	t=1795508433;
+	b=p0WU6qpTs0YQOqjB9QlzMsUZynmSbIIvciLj0yd39oGXjUaWhRsdywxUZAYHyaA9Xs+I
+	 MhmFKGxHmDVDIhFICObkSP8YP8I4tn1zelCFQyY76TDwfB6ANZc3utBvDFmRQoPdVmusC
+	 CgPIbHE3blTj159Hnbkw/2cZUoNMacouYW4WQ9GX9Ub/bxUuLnYUC7eVI9NaYVb/Dpv8b
+	 lzXLqbpcq0VQQvxq3AdCiShjBt2qNohZquiylpFqdCkLK+jw+p4cWEGVqhhXebnSemKMk
+	 11zbyLAPQgjVjH1RdTcUxbSBTqo2qz/LyhZa+5bRUEgrdID5+JJT3Hp+DQ6Dn6FugmA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795508427;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=vHAwwH0nrw1kWkp/3uuQPolxLVo5Vn3FF3b+N7bJNoo=;
-	b=hQIJ9tUXsRDME+jZFnHbhbw+oFLkfRB/2IgWzb9TJH3zCB1O8EA5lBbCgIaNE0Ysw1rT
-	 GId3fTql8C8aNQwRru6bIrOfr3mrCp4B0fapr1l8lukLdOczUYopc2WLFEx43AMokuLwM
-	 qNstODrF8jkscIh1s5U4q7Sy+VkdmyZmcmSr04yNOC+LeUQWMiJmZvEWr8FPda5HJds7d
-	 3iqxq+0gwzDKVXZt92LXemKqTULGHWrFN16TWz6W9UJvJpQkEZHgUgrKNNo8QmKgdESOa
-	 w7bea+zXuES6to+ArWgNNGWMiUSZ8VeNvR+12MGQKvgz3sUH+swb1akrJvbHY8CUWqA==
+	c=relaxed/relaxed; t=1795508433;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=x/k/1K6IfLcckBF6B7BnUJei+H5Q3WU5NtpHwL0e5HI=;
+	b=svoG4JjC1j3dc8gGVYP2PQF72AYunOS4M12xMvctxkQ1tz01CK8WLnzNJ9p6oQLhVzBC
+	 jLPuo1Uh7hSwhuCtBd7xclyVhlsGbdbu2tA8EpxhZQN/CdjZ/Y3AeSucUlXmMUvgfUPvW
+	 6SCt3Sj/str5HzOwNhTXUcGjiNS1ojY80PT9uxkfw+ea/HYYL9SWUDKqVNd0wG7Qo6ej4
+	 /mVqKBoq9+/1ePHcMNUeZdBmqb/cQcmLnzrhQ9K52y37NDmX4gupbhzd4Rz2VRYYiKgHl
+	 sDOSqbRklfVP/xKRHUQ7CPsNCdr2BKc0zVJhzDfxlqThXtjZ6sBH25KMWgO8+/cn+rA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 6A0641F000CA;
+	by smtp.kernel.org (Postfix) with ESMTPS id 69FE81F000C6;
 	Tue, 24 Nov 2026 08:20:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795508426;
-	bh=vHAwwH0nrw1kWkp/3uuQPolxLVo5Vn3FF3b+N7bJNoo=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=oem4yEc17cD03osCxkd03IdOaJl52/AFXRqwpi8QHEFGSrHFHuObc5ExsFnGREACS
-	 c3Hbif08Jhnke8u7NOa6Jo+cBvZlG/zMPzWFT0dUUMlYW9e84AicGee01Eg5ijUpRC
-	 njygloo0XXOD8g367mWyubwA85UjlSfZ3/+QoY/+fW5f8wmjqifx9SpkzpH06LiVTh
-	 mCeFzY77J+hfDj9rA055xTQop/rWwizziBvPB938jCudid9dCINkki8ick5z2WjvQ2
-	 x0FxnyyHB1t5bm9xJFWEE6tWGP/VXEs1qbUIZeHWNYHOFl14IlBwZiE/lnGvuDrA7K
-	 DiJz3li5z99Vg==
+	s=k20260515; t=1795508433;
+	bh=x/k/1K6IfLcckBF6B7BnUJei+H5Q3WU5NtpHwL0e5HI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=fhdd1cqJqepn0Oib1oLenJ6STpyu8A/6HyjpLKN1bw+3C2j74y/d3Gw1ntR92Aopm
+	 jH3cqljXwgHHW7MCIXF3U10XiFRuIfygLxOXZEYC+jdPc/+UIWpNoM3MFVswCEzH9S
+	 XP84aEV5EwRh2uU4FrqLV74n6tO+N+h1MNS/TSiEqbNMs/LhW/+V6VAY9iydF6o878
+	 eYjSSWayEPQy6h8pBBLjSCsARw9XKewLVcRs8atyY6Y8ut+N8OHzBTOdvH/6iwik79
+	 NYfxXGy8iCdhMZJM22jBZ74rDAGpLlprH66nPPXLRt1UvaOr7NyDRqFIzqW5kX0hdu
+	 PxK0TveLmjrvQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id C27F44C936;
+	by lkml.kernel.org (Postfix) with ESMTP id E13C14C935;
 	Tue, 24 Nov 2026 08:20:20 +0000 (UTC)
 From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Subject: [PATCH v2 0/3] hwrng: Add Cortina Systems CS7542 random number
- generator
-Date: Tue, 24 Nov 2026 11:20:18 +0300
-Message-Id: <20261124-b4-cs7542-trng-v2-0-0192937b44be@gmail.com>
+Date: Tue, 24 Nov 2026 11:20:19 +0300
+Subject: [PATCH v2 1/3] dt-bindings: rng: Add Cortina Systems CS7542 TRNG
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,12 +83,9 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNQQ6CQAxFr0K6toYW0Iwr72FYwNCBGmHMDBIN4
- e4Crl2+5P33Z4gSVCJckhmCTBrVDyvwIQHbVUMrqM3KwCmfiDjDOkcbz0XOOIahRaqoNo5skxm
- GdfQM4vS9B2/lj+Orvosdt8pmdBpHHz7740Sb9zc+EaZouDHOWZEio2vbV/o4Wt9DuSzLF42tz
- Ue+AAAA
-X-Change-ID: 20261123-b4-cs7542-trng-1a1b9f1cd392
+Message-Id: <20261124-b4-cs7542-trng-v2-1-0192937b44be@gmail.com>
+References: <20261124-b4-cs7542-trng-v2-0-0192937b44be@gmail.com>
+In-Reply-To: <20261124-b4-cs7542-trng-v2-0-0192937b44be@gmail.com>
 To: Olivia Mackall <olivia@selenic.com>, 
  Herbert Xu <herbert@gondor.apana.org.au>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -99,84 +94,80 @@ Cc: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
  linux-crypto@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795508418; l=3072;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795508418; l=1739;
  i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=cxbkSaTDthKEwcdkWgVbloUCaiiY0AcMv8pFTjp9QIY=;
- b=53TlVVtccxEE5Rny7rrzitIWySScAbfYdvVN7aGSCRuTe/5xfYgQIYtLG3Y1kv4pLedC+Kun+
- xn2+1/utxFuCpHLs4nFGqyItpLVt+eLQie7bqurJ7vgqJXOInDPxtSY
+ bh=l1fROYGvUCU9bKrkug2vK1Rka6sqX2RjZb2LewzoVUM=;
+ b=KLrAWWXkmpFw430BX6JJHZ2JmgYjVP9RW3wKNQj2b9SDOaf+FmseKvatXmzjfdl0MRUiQdzXQ
+ 5dkdxpSSjRdA0IB4U4Vfw7jq2aEYzV7SNV1ywSouWEbmCFbODJV8GzI
 X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
  pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
 X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
  auth_id=1085
 X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
 Reply-To: filipp.dunsky@gmail.com
+Content-Transfer-Encoding: 7bit
 
-Add the Elliptic random number generator integrated in the CS7542,
-based on the GPL vendor and OpenWrt implementations. Use a syscon
-regmap for its shared global scratch bit and provide bounded polling,
-nonblocking pending requests and partial output through the hwrng core.
+From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-Hardware ring reseeding is limited to the documented CS7542 A1 path.
-The vendor driver avoids it on A0 for erratum 28891 and substitutes a
-RTC/timer-derived nonce. Reject unsupported revisions using the global
-syscon identification register instead of adopting that workaround.
-The saved Almond+ capture identifies the tested board as CS7542 A1.
+Describe the Elliptic TRNG register block and its reference to the
+shared global control syscon.
 
-The binding, driver and MAINTAINERS entry apply to Linux v7.4-rc4
-without the pending CS75xx platform or clock/pinctrl series.
-
-The existing OpenWrt entropy quality setting of 512 is retained for
-review. The output smoke tests do not establish an entropy estimate.
-
-The v1 sources passed binding/example checks, ARM built-in and module
-builds and RAM hardware smoke tests on Almond+. The hardware test
-returned EAGAIN for the first nonblocking read, then provided 4096
-bytes without all-zero or repeated-block output.
-
-No additional hardware run is claimed for v2. The generating path on
-A1 is unchanged; revision checks and their error paths were tested
-with the actual C code and mocked resource/regmap/hwrng interfaces.
-Full ARM W=1 built-in and module builds were repeated for v2.
-
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
 ---
-Changes in v2:
-- Drop the redundant linux/mod_devicetable.h include as suggested by
-  Uwe Kleine-König. The existing linux/of.h provides the OF device ID.
-- Restrict hardware reseeding to CS7542 A1 after inspecting the vendor
-  erratum 28891 workaround. Propagate revision-read failures and reject
-  unsupported silicon before registering the hwrng.
-- Describe the hardware revision restriction and identification register
-  in the binding.
-- Link to v1: https://lore.kernel.org/all/20261123-b4-cs7542-trng-v1-0-92d9ffcee531@gmail.com/
+ .../bindings/rng/cortina,cs7542-trng.yaml          | 43 ++++++++++++++++++++++
+ 1 file changed, 43 insertions(+)
 
-To: Fil Dunsky <filipp.dunsky@gmail.com>
-To: Olivia Mackall <olivia@selenic.com>
-To: Herbert Xu <herbert@gondor.apana.org.au>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-Cc: linux-crypto@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
+diff --git a/Documentation/devicetree/bindings/rng/cortina,cs7542-trng.yaml b/Documentation/devicetree/bindings/rng/cortina,cs7542-trng.yaml
+new file mode 100644
+index 000000000..2a3890650
+--- /dev/null
++++ b/Documentation/devicetree/bindings/rng/cortina,cs7542-trng.yaml
+@@ -0,0 +1,43 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/rng/cortina,cs7542-trng.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Cortina Systems CS7542 true random number generator
++
++description: |
++  The CS7542 A0 revision is affected by reseeding erratum 28891.
++  Hardware entropy reseeding requires the CS7542 A1 revision.
++
++maintainers:
++  - Fil Dunsky <filipp.dunsky@gmail.com>
++
++properties:
++  compatible:
++    const: cortina,cs7542-trng
++
++  reg:
++    maxItems: 1
++
++  cortina,syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Global control syscon containing the SoC identification register at
++      offset 0x00 and the scratch register at offset 0xc0.
++      Bit 5 is set before initializing the random number generator.
++
++required:
++  - compatible
++  - reg
++  - cortina,syscon
++
++additionalProperties: false
++
++examples:
++  - |
++    rng@f0600000 {
++        compatible = "cortina,cs7542-trng";
++        reg = <0xf0600000 0x20>;
++        cortina,syscon = <&global_control>;
++    };
 
----
-Fil Dunsky (3):
-      dt-bindings: rng: Add Cortina Systems CS7542 TRNG
-      hwrng: Add Cortina Systems CS7542 TRNG driver
-      MAINTAINERS: Add Cortina Systems CS7542 TRNG support
-
- .../bindings/rng/cortina,cs7542-trng.yaml          |  43 +++++
- MAINTAINERS                                        |   7 +
- drivers/char/hw_random/Kconfig                     |  11 ++
- drivers/char/hw_random/Makefile                    |   1 +
- drivers/char/hw_random/cs75xx-trng.c               | 187 +++++++++++++++++++++
- 5 files changed, 249 insertions(+)
----
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
-change-id: 20261123-b4-cs7542-trng-1a1b9f1cd392
-
-Best regards,
---  
-Fil Dunsky <filipp.dunsky@gmail.com>
+-- 
+2.53.0
 
 
