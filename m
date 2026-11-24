@@ -1,106 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795525878;
-	b=xFYCO/TKr/djcGU/o5t4XiJMx8yHBEbZvFQ0HWeXL3agwHG3Nh3ar8tm+CT+sZPJ3k7K
-	 CKmVmATIrhq0kf0jhiE4SZ6jFklh9jJZax7jzERfkH4iCYC3bjFBzcoa2fnp/7fZzuhKl
-	 I82xCyvNmnMl3ihHwYAXfeIEu3RRArqJ3itr0Lbv2E0Yiv66l4l0EsX3QxmIRuYkobrnf
-	 L1JhcishqnI8LuvAkfcTlo876lgZQNMMF50L2vImPTMK/VlvsZmzC+bkUhEaz9UIDeAAM
-	 VfDBnwW+Fk2J+OLvDDfPgb2zYjgfaTqZTxWiZ4BiJ/1f2RKQiwum1aOzeDHSBcOv1uA==
+	t=1795525942;
+	b=J/M+9H2yJTiQNOleriXhgQgRHDjKn55QF0XlElNrmRxZ9brSvnl0+WzJSgm7yW8rFe6q
+	 PBnnupzb0tLrhzMZPO4VDhtGbGQWBINmHxU3cepiGOdh6F06s4Hpd8d6D1rrOKvP6E7o8
+	 Lnzu39qwzi8gstH/oFIJtLqK7R+Ak3OH4c5WQMfrsYb+ba7/3YQX/Lv6p5GysFqbwA/kJ
+	 CNuWqnzcZ0kN5qz2ffGPdxke2Q7Z2DkEJVYPTxlpaiMq7zn/aJm6g75Q3QaeRKIX8Dxnf
+	 RPVTsAK4HPCi7//aHEFNyrUwPMyYDbLt0MwcVxYceidIKoHaLpxeADQpqfIDVNSshdA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795525878;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
-	bh=Un7OFeotv/cgwVEZk3ji5A5Uvj3bLR4SzF33G0c+QYI=;
-	b=kImpN243il/m6cW85e/gH4bVqjy4IhF4ylFKjsc2Ui/juirsceKl5rrKkUjiNKCRMzvP
-	 xF0QAX5Yr3GlNvJmu6bROjtLIZhSMckrgoVKM1iM60ST9Ua/RCpXxq/8JqRyQNwIkdq84
-	 m5+0SMHATQYGmMu/O6lXQV73j7WopB8iz7OQLEey8DykYa9llWQ7RGBbtRxrlEBUniJ3Y
-	 w/foR/zn92Rdrm8rLM2t30oHv5lG5dR6ilPwdSr31jN2vOLADLjoQadNIUOsMHTi1fqKS
-	 L96pcYGcXZ+SxacsPjPy5rpKAGZ2hSMaOuYFMVag1Tzo0qivxjstUP2hziLYNQZUtIw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795525942;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding;
+	bh=SPsNgyVVAqeT7i1RiIgNXc+OMJpYpOzW291/apl/HkE=;
+	b=w6eXi6YgZ5M/iychqdI4ikv6LSaFtL9ch5KEehlMrDnbkEE9zahwz/a9FBJc2Wih1bLW
+	 JN3cKYlerBSG/pRaiK9CaeuGFklZhLbEyRVWibaO91QI3EJBtd4uk6jSfGuid32fMDOMe
+	 xwFvtF04LZ7Sf8+kHULCAs/wXPqgDsRfZleuXRnvNplUAdk3zXwqkkWafJfis+psHMzlR
+	 Vir0w4/urxHlWB7WbqlwJuO1hZ6isPxYVzuK8G6fhu3qlbaTFNSJTqaT5QGbJAVEVo9T/
+	 NJdxVzB1ssvDL4DLUsIwh4CKIroQZHaXWHJVhR278XbRKKnXh4dMjbsMlT6gRwuqR+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rb5wOvWb;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=EeUYJByg;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rb5wOvWb;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=EeUYJByg;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MY8j8U2H;
+	arc=none smtp.remote-ip=209.85.221.47
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B098606A31E;
-	Tue, 24 Nov 2026 13:11:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B098606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3930606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:12:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3930606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rb5wOvWb;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=EeUYJByg;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rb5wOvWb;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=EeUYJByg
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 9F40C21FDD;
-	Tue, 24 Nov 2026 13:11:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795525876; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Un7OFeotv/cgwVEZk3ji5A5Uvj3bLR4SzF33G0c+QYI=;
-	b=rb5wOvWbiiQFQufaaSQ6BhFGSvCEohd4nZR+CQo4KfMnxUX/jKgoquVwMwELJj2awY61aH
-	siLKadWiKTIL8cEQ1IA5VX1COpvGbtTnMb/YwAc698svrqR3Ex6JetzQyK1eq26CquRo+x
-	kTqpmWj4804vqch1ZhSuPS240hA90po=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795525876;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Un7OFeotv/cgwVEZk3ji5A5Uvj3bLR4SzF33G0c+QYI=;
-	b=EeUYJBygel5fY8HrGoffaBTuMuyzXz8uIOK6uwho7Wcybt9v6VWfU/4ukG+s5rFwn4sayM
-	3KpicyNzRDxErmDA==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795525876; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Un7OFeotv/cgwVEZk3ji5A5Uvj3bLR4SzF33G0c+QYI=;
-	b=rb5wOvWbiiQFQufaaSQ6BhFGSvCEohd4nZR+CQo4KfMnxUX/jKgoquVwMwELJj2awY61aH
-	siLKadWiKTIL8cEQ1IA5VX1COpvGbtTnMb/YwAc698svrqR3Ex6JetzQyK1eq26CquRo+x
-	kTqpmWj4804vqch1ZhSuPS240hA90po=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795525876;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Un7OFeotv/cgwVEZk3ji5A5Uvj3bLR4SzF33G0c+QYI=;
-	b=EeUYJBygel5fY8HrGoffaBTuMuyzXz8uIOK6uwho7Wcybt9v6VWfU/4ukG+s5rFwn4sayM
-	3KpicyNzRDxErmDA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 016BF13505;
-	Tue, 24 Nov 2026 13:11:15 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id Imu+MPOMBWvkMwAAD6G6ig
-	(envelope-from <pfalcato@suse.de>); Tue, 24 Nov 2026 13:11:15 +0000
-Date: Tue, 24 Nov 2026 13:11:14 +0000
-From: Pedro Falcato <pfalcato@suse.de>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Yi Wen <shicenci@gmail.com>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, linux-ext4@vger.kernel.org, Jan Kara <jack@suse.cz>, 
-	John Hubbard <jhubbard@nvidia.com>
-Subject: Re: [BUG] mm/gup: WARNING: mm/page-writeback.c:2678 at
- __folio_mark_dirty on v7.4-rc3
-Message-ID: <awWMsf-5RMa-TdGu@pedro-suse.tail5790ac.ts.net>
-References: <CAPHJ_V+_=Av8pAM+N+oc4JRmtqBjhcimh3B_pSy_N+5qecm6Mg@mail.gmail.com>
- <f8cc1652-7577-4ace-97ed-081ecd65a031@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MY8j8U2H
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-48e3b22e971so2330122f8f.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:12:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795525940; x=1796130740; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=SPsNgyVVAqeT7i1RiIgNXc+OMJpYpOzW291/apl/HkE=;
+        b=MY8j8U2HvJPRU0JWuC7woMd93fJ8ssW+LisG1zpIkm66fX4ex21BV5d47dfgAD1GSL
+         vEVVzgW750eyJCHgD9H9DSqtSMtwP6OUHHWswlmcYhtbq0K00PMTL2HY+/G4YardykdU
+         0qyHB2MfCRAf6v+yVn+PpyRRs2JfkQHM2btghQOmjcpcopsFy+H+tBVrJjrEPkJznFKo
+         kwptAYCpnK4ZRaUQ/Y+0uAMX1WidLh4SFXwGH6YTvmejxurT3M3hrQ6hOfnomy+m+MVK
+         NB3s70RFnU1JQAYVohUeuAoL+Jsmtb4GE9kEGIXD335qTxtjs+nh9EcAZyhiq5gQD81V
+         esGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795525940; x=1796130740;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=SPsNgyVVAqeT7i1RiIgNXc+OMJpYpOzW291/apl/HkE=;
+        b=puV5zoEqRvyNGcoBgfAIperJMwOn7lF+qIuYU+6QiNvq8srEne9H5UfpdzpIBwsZoe
+         7mV7bYYHnnIi8eih9gbwnUyA4Mttu6VmJQ7Xo/kA4nAKxJCweba3ynD/vK2cx7A/jH6K
+         SpAYOzUfefSlOxoFfSpq7KlCboMPC11JYhO8fcgZyWscXT0AvxiAl2uGKb3BxaRi6KSP
+         SPEgma3Fi4hbkVTJScgVu4ivjCip8gZiqFMx4DggcoLnNQqnHrAqHbj/wClb27HgesGk
+         ShiD5o5Lo24TssaI/VPXLlTpYPoms2FgkoiiANcuqjziGT9qvRUYAQmYdBm8+b1F2O28
+         2JMg==
+X-Forwarded-Encrypted: i=1; AL+hErEuwv8HKizW6CwgqQ3JIjhY3kngdoQ4w9DgirIao2hbpqnUD4pG6NmGAaQ+oWy/n5SeGKL8yzH7Bxw2FJo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8EB5rw9xVCxffqiqEY7fAGyjoZbdgXH0mvS5m7yK7Igo55ZJmm
+	xskL8ddwwspqe6RHsv74EkoH/WZqyuF/+FEc46IUNwnqREqhkejoHlyB
+X-Gm-Gg: AZFdTZe3coXzuMJ9n1davhWuvrL25zIQdRqMXdQV1b7AP+zG5rl9lZ0jT0RxS+3pLtn
+	G4NjgpWDUI8WgxEAE4NBbXsiPiY3kR8qfg6tU9NDly9jOivWFZsvow/tDoEp8xsc+04moshbdws
+	ifv4jroBFEJxcngr0Iye7WQlc37hWOrB/o+ALxxnL/bA0jj7CDkwCczBI91gJyIwr+JmUir36l2
+	V2DsjaeqXP0cjU1UdMjR5TODvmv6Yewm7QvgepBeU1kk9eIhZ+YsGLmoOxr3q6hQe6cIlGOxWvl
+	wj0HWkEuDQYu94RrVMbw/neKLVcVIeQLm097cfRZiJ42AmnPiJJqhhTZ2dV2pHCHJjSo4AY2f7G
+	pArp4hMguhPgcVZsD1UAYH5JyyKxfRMQ2EUmX/HTsRWN6VjcH0mpiZQk58fJcSkAV1z4SzLi0MO
+	fvHQYQu8PyGXriDRGdBFLROlOC56iwsd3O2h2d7rgQTATI6XvwhE76Z6KSbdYkKNnS6XKcWoOmB
+	dsKvchFuBnubuU/kLAUYrTF17U3RA5YsIkYHd/uChrMZla8jl14AzxaB/Hu2oemi9/I9nnXI5Dp
+	m/bgFrSrBuUbDLrACwEmRPSbaVpVw1g=
+X-Received: by 2002:a5d:5d05:0:b0:491:6c24:65f5 with SMTP id ffacd0b85a97d-4abaf74024cmr30988416f8f.17.1795525940203;
+        Tue, 24 Nov 2026 05:12:20 -0800 (PST)
+Received: from ArchOarora ([95.179.249.152])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c43563esm29088126f8f.57.2026.11.24.05.12.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 05:12:19 -0800 (PST)
+From: Oarora Etimis <oaroraetimis@gmail.com>
+To: Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Melissa Wen <melissa.srw@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	jose.exposito89@gmail.com,
+	Jonathan Corbet <corbet@lwn.net>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Lucas De Marchi <demarchi@kernel.org>,
+	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	sebastian.wick@redhat.com,
+	victoria@system76.com,
+	thomas.petazzoni@bootlin.com,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v6 06/43] drm/tests: Add test cases for DRM rotation name
+Date: Tue, 24 Nov 2026 14:12:02 +0100
+Message-ID: <awWLyW77VcEKkt1w@Oarora>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261120-vkms-all-config-v6-6-78ace90f4fc1@bootlin.com>
+References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com> <20261120-vkms-all-config-v6-6-78ace90f4fc1@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,87 +127,9 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <f8cc1652-7577-4ace-97ed-081ecd65a031@kernel.org>
-X-Spamd-Result: default: False [-13.30 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_TLS_ALL(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[7];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[gmail.com,kvack.org,vger.kernel.org,suse.cz,nvidia.com];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -13.30
-X-Spam-Level: 
-X-Spam-Flag: NO
+Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 21, 2026 at 05:44:34PM +0100, David Hildenbrand (Arm) wrote:
-> On 11/21/26 15:49, Yi Wen wrote:
-> > Hi,
-> > 
-> > I am reporting a kernel WARNING triggered by a syzkaller reproducer on
-> > Linux v7.4-rc3.
-> > 
-> > The reproducer triggers a WARNING in ext4_dirty_folio() when
-> > process_vm_writev() writes to a file-backed mapping.
-> > 
-> > The call trace shows that the warning occurs during the GUP page
-> > unpinning and dirtying path:
-> > 
-> > process_vm_writev()
-> >   -> process_vm_rw_core()
-> >     -> unpin_user_pages_dirty_lock()
-> >       -> folio_mark_dirty()
-> >         -> ext4_dirty_folio()
-> > 
-> > A second WARNING is subsequently triggered in __folio_mark_dirty() in
-> > mm/page-writeback.c.
-> > 
-> > This appears to be related to the interaction between GUP-based page
-> > dirtying and filesystem-managed folio metadata. In particular, the GUP
-> > dirtying path may mark a file-backed folio dirty without ensuring that
-> > the filesystem-specific metadata required by its dirty_folio()
-> > implementation remains available.
-> > 
-> > This may be related to the known issue where GUP-based page dirtying
-> > does not properly notify the filesystem through page_mkwrite(), as
-> > well as the interaction between GUP dirtying and
-> > filemap_release_folio().
-> > 
-> > Before these warnings, all four ext4 loop devices also report delayed
-> > block allocation errors and abnormal free block accounting. These
-> > errors may indicate an additional filesystem inconsistency and are
-> > included in the console log for further investigation.
-> > 
-> 
-> Hi,
-> 
-> thanks for the report.
-> 
-> Did you only find this through syzcaller or by the help of an LLM?
-> 
-> I'm asking because the timing is interesting; this should be one of the problems
-> discussed by:
-> 
-> https://lore.kernel.org/r/20261119-gup-dirty-what-v1-0-236d69f25c24@suse.de
-> 
-> CCing Pedro, John und Jan.
-
-Yep, looks likely to be the same bug.
-
--- 
-Pedro
+Tested-by: Oarora Etimis <oaroraetimis@gmail.com>
+Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
