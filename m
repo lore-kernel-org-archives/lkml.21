@@ -1,49 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795532210;
-	b=YoG/32CSMGR3PRRZ61fecSPnE9JZ2D7Lvu8I6o7ZxkTMOQuxWcc0/DlYAR4rlUfs+7gv
-	 vr6ztRBehaMxvOekLWGBCqU+DNbR6hrEfNr1sgUcu1MsnRN3VfA6oHx25pX6pSObkb5dw
-	 3WCjJe1YYZDRJfKPzIYT9s9S7JQNN22AzwLZFxCrvoTogJfDpwYLEMeErZp3mCIh2CEzV
-	 JnLzYgb/BdXAn9+57D3f/C5VsKDWE0hvJ4XJ6jOcQyhCvRoEeTaZCeor1q19fCUOZIFnE
-	 1CUm7fpadVWFh7m2I23UxDM6JVKzaWP895AOH55yLKNOY1NtcDQGREaPfc1O8xlaO6w==
+	t=1795532212;
+	b=XyDnA6BCQDceP/JU+uNSmsDpmQ692+xBNk6iNzi4a28te+sWBxtt8x5J2IGqCKvEM4FB
+	 wMee0zAS8mI4TmIZtOD2/MvgNEBrkae1BmaIZlx6MbfssT/wLDEvfzQmQe/Q1DWgnwv1a
+	 33gVpTSTBq9eA0ktmSNR7iS5R2qbCq0R1z4N5b+u6ADVVZhM/v9/iHJVJC0tyNwerA6+p
+	 lycdjvE+tbw05Wb0YCYNl5kid8khv7ZMww5xEd0RhavHxYTO3JsXPMryh8Lqp0N0yS/Ec
+	 fASGsDLZ0CCob18IwkP9c9jmQM1DShQhXfQhhmdGr+4xHgcfSCg3aikM85P6RUxnu6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795532210;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=MNeRqyRLNEInMXVEh5fr7Fiyd3zVkFC9dr39TesQaxg=;
-	b=z1SnEejdeO+Ft/nkTmal8s5ZVxP2DASS+mUMy/Ti9R7innLyQdvNJcYPjxXKVODu8hOi
-	 npA9yeHdS1Oh1AlbpFQA4PrbSRkUAarmqSuqjXidcMUZ9XDZA46vEpTM3beUh/ftWBWGQ
-	 Itdw21877RQIirrIhLX/iCm7hYyozyO1QwmP5LaDG1vALm1yyssM3oIubsMoXqMpF8/G6
-	 1MUjXh5GOIdEhfPm9fCo+BZxj6h1VyDH4NB/wWXCOx/nL4xkMya0SSFVe3i7UIc1kJz6l
-	 XqNxrMQlY/u2Rx0w/iN7U8LXeC27SAZkE8j/eIKRmUMCkUzLdBpXGGh6g1A9whyQkTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795532212;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=BQO4GuYRTzS7IoSSUhSiErH0mQkmSCba+xRrKEQIFL4=;
+	b=caNLXoDpIdMUzBhgd0KzeaR4xMKI6F4It+Z3KjaYunBYknDuPM7UWv2G/8AQW+9uNK0O
+	 wN2wZeh1cn4E7oVACPfRjHGF8ZWRpWMgandONj5mCsCBdWw+96eKzw8KRi/pzFaBfxaR2
+	 aHM/Uiz4C3IhS7sY2pserUWs/bi/hYbl/Z5c2hAMkp7QUs1tGRZKUS4uVEJVvYBRnyPu3
+	 Suml+L+dXGrmTqvX3fhkhR4d57CxI4gnuUR6XG2oFlHsOv+4i1yDy3ekZfncvGTqmnNj2
+	 68Bf8AnaP6w8wLXoGOzSCh62Uzdz0oOno5zQYkHOtB8hJud0IWTq1am39fVpG7P2+sQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=AJZpwZz7;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 31CA0606A338;
-	Tue, 24 Nov 2026 14:56:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31CA0606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fD+K6Gky;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECFE2606A33D;
+	Tue, 24 Nov 2026 14:56:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=AJZpwZz7
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A97AB339;
-	Tue, 24 Nov 2026 06:56:46 -0800 (PST)
-Received: from [10.2.201.43] (e140322.arm.com [10.2.201.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D01913F86C;
-	Tue, 24 Nov 2026 06:56:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795532209; bh=4/9nuLvHnv3HcCAvlF76Jnxm0bbYbkUtZm8PyQOh+Ks=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AJZpwZz7bbtae+8Jy7ybd1Hwbx+tx38HccI4agjaJRXdLLGjIFPZnReJaQwKgvFZb
-	 iEi7LgYPnGZcA2HuxqQshQ0pNEgtVVfVDFzdKfcUJicTNOmirBsn2lB2ZFjyilriCz
-	 1NePzND053BJVFO1gpYhUupLUJYsgpFeS9w63MSg=
-Message-ID: <b152209e-6117-4a24-aa2d-59be913850b5@arm.com>
-Date: Tue, 24 Nov 2026 14:56:46 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fD+K6Gky
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D3CB1F000D3;
+	Tue, 24 Nov 2026 14:56:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795532211;
+	bh=BQO4GuYRTzS7IoSSUhSiErH0mQkmSCba+xRrKEQIFL4=;
+	h=From:To:Cc:Subject:Date;
+	b=fD+K6GkyuhS3ITuF17cS5fVX8PLihmTRwXUS3CVmV66f3VoZwoGZSE0cvJH+xlXKY
+	 JiZu6RWeWKIzsNbw4V4TyrJhq/GH3x1Kih80Wk9oF9wbfaQ4HaGr6oLVp7s50gIrmJ
+	 AWURxa3wb2LEZ8VWZ9AaUn1ZtmjalGKqHOJO/ZD7NA1cTkh7imxqX8haSzhSooTNtz
+	 VW8go9zOIAqlpuo7AvWt9GXKXnxMi7n/Uf5YJCVimPSTMAPqPGAUjwkveeZTSr9nTJ
+	 GqSfmtyYhNhIUke+qW/B4Gmpx358kWAo00S13IppgdQtlMjFUfr3MFfNfH5rDcxSlH
+	 4jUsbSd3QtFQg==
+From: Sasha Levin <sashal@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Willem de Bruijn <willemb@google.com>,
+	Antonio Quartulli <antonio@mandelbit.com>,
+	Jason Wang <jasowangio@gmail.com>,
+	netdev@vger.kernel.org,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Subject: linux-next: semantic conflict between the net and net-next trees
+Date: Tue, 24 Nov 2026 09:56:49 -0500
+Message-ID: <20261124145649.3656145-1-sashal@kernel.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,125 +64,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 04/28] media: mali-vpu: initialize decoder format
- state
-To: Nicolas Dufresne <nicolas@ndufresne.ca>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Rathinavel Sankaralingam <rath.sankaralingam@arm.com>,
- Shobhit Pandey <shobhit.pandey@arm.com>
-References: <20261119153758.1426673-1-charvi.mehta@arm.com>
- <20261119153758.1426673-5-charvi.mehta@arm.com>
- <d1d53edeb358e1bdcd1c262e48074f7f1be276cf.camel@ndufresne.ca>
-Content-Language: en-US
-From: Charvi Mehta <charvi.mehta@arm.com>
-In-Reply-To: <d1d53edeb358e1bdcd1c262e48074f7f1be276cf.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
+Hi Mark,
 
-On 11/19/26 20:30, Nicolas Dufresne wrote:
->> +void mali_vpu_session_init_dec(struct mali_vpu_session *sess)
->> +{
->> +	const struct mali_vpu_format_caps *variant_fmts = &sess->vpu_dev->variant->fmt_caps;
->> +
->> +	sess->port_src.supported_fmts = variant_fmts->dec_src;
->> +	sess->port_dst.supported_fmts = variant_fmts->dec_dst;
-> Why? the variant are constant, you can just read the information from the
-> variant. Make a getter or point to it.
-The format arrays are already static const and shared; only the list 
-descriptor
-(the pointer and count) is copied. However, you’re right that each port 
-could
-simply point to the const list in the variant, avoiding that copy too.
-I’ll make that change.
+The current net tree has a semantic conflict with the net-next tree
+that breaks the build:
 
+  drivers/net/tun.c:1881:11: error: no member named 'ops' in 'struct ubuf_info'
 
-> p.s. is that "port" like in OMX IL?
-Here, “port” just groups the format and streaming state for a V4L2 OUTPUT
-or CAPTURE queue.
+3896ae4adf5f ("tun: complete the zerocopy buffer of packets consumed by
+XDP") in the net tree calls uarg->ops->complete() in tun_get_user(), and
+ecca9bb2c855 ("net: skbuff: replace ubuf_info ops ptr with type id") in
+the net-next tree removes ubuf_info::ops. The fix uses
+net_zcopy_complete(), as ecca9bb2c855 does for the same call later in
+tun_get_user():
 
+diff --git a/drivers/net/tun.c b/drivers/net/tun.c
+--- a/drivers/net/tun.c
++++ b/drivers/net/tun.c
+@@ -1875,11 +1875,8 @@ static ssize_t tun_get_user(struct tun_struct *tun, struct tun_file *tfile,
+ 			goto drop;
+ 		if (!skb) {
+ 			/* consumed by XDP, after copying */
+-			if (msg_control) {
+-				struct ubuf_info *uarg = msg_control;
+-
+-				uarg->ops->complete(NULL, uarg, false);
+-			}
++			if (msg_control)
++				net_zcopy_complete(NULL, msg_control, false);
+ 			return total_len;
+ 		}
+ 	} else {
 
->> +static int mali_vpu_set_port_fmt(struct mali_vpu_port *port,
->> +				 enum v4l2_buf_type type,
->> +				 u32 width, u32 height)
->> +{
->> +	struct v4l2_pix_format_mplane *pix_mp = &port->curr_fmt.fmt.pix_mp;
->> +	const struct mali_vpu_format_desc *fmt_default;
->> +	int ret;
->> +
->> +	if (!port->supported_fmts.fmts || !port->supported_fmts.num_fmts)
->> +		return -EINVAL;
->> +
->> +	fmt_default = &port->supported_fmts.fmts[0];
->> +
->> +	memset(&port->curr_fmt, 0, sizeof(port->curr_fmt));
->> +	port->curr_fmt.type = type;
->> +
->> +	if (fmt_default->flags & V4L2_FMT_FLAG_COMPRESSED) {
->> +		pix_mp->pixelformat = fmt_default->fourcc;
->> +		pix_mp->num_planes = 1;
->> +		pix_mp->width = width;
->> +		pix_mp->height = height;
->> +		pix_mp->plane_fmt[0].bytesperline = 0;
->> +
->> +		/*
->> +		 * Use one byte per pixel as the default compressed sizeimage,
->> +		 * with a minimum of one page, aligned to a page boundary.
->> +		 */
->> +		pix_mp->plane_fmt[0].sizeimage = PAGE_ALIGN(max_t(u32, PAGE_SIZE, width * height));
->> +	} else {
->> +		ret = v4l2_fill_pixfmt_mp(pix_mp, fmt_default->fourcc, width, height);
->> +		if (ret)
->> +			return ret;
-> I might have to come back to this code once we have TRY/SET_FMT in place,
-> meanwhile it seems more like a default setting helper then something that will
-> be part of the ioctl interface.
-
-Thanks, yes, this helper initializes the queue’s default format.
-I’ll rename it to `mali_vpu_init_port_fmt()` to make that clear.
-Patch 7 extracts the format-filling logic into `mali_vpu_fill_pixmp_fmt()`,
-shared by initialization and TRY_FMT/S_FMT.
-
-
->>   struct mali_vpu_session {
->>   	struct mali_vpu_dev		*vpu_dev;
->>   	enum mali_vpu_session_role	role;
->> +	struct mali_vpu_port		port_src;
->> +	struct mali_vpu_port		port_dst;
-> Ok, its time to comment, src_port and dst_port is a lot easier to read imho.
-I’ve generally placed the direction last, as in dec_src/dec_dst and 
-pixmp_src/pixmp_dst.
-I’d prefer to retain port_src/port_dst to follow that pattern.
-
-
->> +	},
->> +	.frmsz_caps = {
->> +		.stepwise = {
->> +			.min_width = MALI_V76_MIN_FRAME_WIDTH,
->> +			.max_width = MALI_V76_MAX_FRAME_WIDTH,
->> +			.step_width = 2,
->> +			.min_height = MALI_V76_MIN_FRAME_HEIGHT,
->> +			.max_height = MALI_V76_MAX_FRAME_HEIGHT,
->> +			.step_height = 2,
->> +		},
-> Are you sure this will be the same for all codecs and all formats?
-These limits apply to H.264 and the three 8-bit YUV420 capture formats
-currently exposed by the driver. The plan is to introduce separate ranges
-when adding a codec or format that needs different limits.
-
-
->> +struct mali_vpu_format_caps {
->> +	const struct mali_vpu_format_list dec_src;
->> +	const struct mali_vpu_format_list dec_dst;
-> Strange naming, perhaps src_formats/dst_formats?
-Here, dec identifies the decoder role and src/dst the queue direction;
-fmt_caps already provides the format context. I’d prefer to retain it.
-
-
-Regards,
-Charvi
+-- 
+Thanks,
+Sasha
