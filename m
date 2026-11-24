@@ -1,53 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.36.144.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795526809;
-	b=SgUB9bqS7Uwisriu0ofXPuvMCAAyqRSAwulzPeh95AY46DA86SO8FlXVrPoet9stsdtl
-	 adxwDWTS6NWajO8c9abL84Y/iPjbSM0B2+AKeRpjF5N21+3Fr26b1TZoJf66kdBnKOQ9Q
-	 BKDoH3fvBrIiavOWdJJe4GV+rSZOJsrL/GYnkMvCrLIjby7kldDqXWVB71qON6B1ZFkzP
-	 oBvgNvii2ijg2UiD3FAN0UbKmZKWn15csmm96YiPR8AGsMVqnV5peea3Dgybd/UjPCPfA
-	 7x5cF020R9BVHmEuBLp4hF0XOmB3x+xsnc0Rq8qOrVImWOHjOAGTR5h73P4vy5pcjTQ==
+	t=1795526867;
+	b=KwOzozc0B4bq/1+B/eWYAdXMapqH9vqHyYALQ1dEvHSsVzoB/QINhDzFTvB9E+C9CLsm
+	 /9Em5vWL0trX5PR5OLLieJLbZNmmXmFnDbY55WPfKQiedQnXAvFbqZpdp3qpYvcGHSYye
+	 JkVqn3FCb0kT6+Mvsz5KEyrb7s88Ddsqipwr0nq2EFRuBr5NZZKocE6JrseF+yfTtOPMp
+	 1CN/kg2nuB1i5TvFeHkSuwf6PgoHclwdQoIhi2kOLGfHtgZe45W3efcKeQePnToDgrIdk
+	 9QoR9HdGnpWiRWgJAn26ZNyIzvD2H1I16x8VLMtrXdensHAkSMgGll16ElNX2uCqa3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795526809;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=TGbRNMlBiqQcwxv0P2/3UU/uHuduzqYaI4dTeURK6EI=;
-	b=gvbRTjjDonn2nolmu+/6gQgIPBGnpkQw20YmxXiRlKSUoK7QKmnowcG71QwunAbOenR9
-	 va7oTYSyeOSY1Arx3mDbC6YowMMbq6sr79F0dP4InqThPuDotALcKe5auPSIxy2YmCyNz
-	 3MKIKedXhYYX4n3wZC+0xVZvmlC8YAYSrKPe5ECj0wfpdJcDiWCplIgIpIltZJ59zJ81T
-	 eeZH/lRarr+PHj/GU6MHnRmMsp+iorJZE2EJD6X8KcQGZtHDouHZtG4QmbpaCRFD6JT5U
-	 hie+LXAGPvFYR5/dSlSXOK+JcszmChXEMv/BcpReKV174eg144Jmq0E+8XJxeqWRrZg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795526867;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=xGe8Byqtdet6m9b6JcFfd7IFIJu9dIrTGmJqkbX0I3I=;
+	b=FNVo6FUROraLF+hIqmn533KLFVft1SEMOuynWBluu5+aM6mAHriYjT9BxZb80Uay5AtR
+	 GjZAK5/0/BoO8xcVcAJgey0R8brqFmjTuDpZ8mAvy4p8rBCCfzDjf9+blPrpVBjv2R1De
+	 LYtEvmWIVky723vWI9k5Ja4cCi8guLbzqCdVi6JCXZVJ7RoGNSggbWDFqFKzcjDZhFi3t
+	 lUclrTBKWu13uqSVPZBb6wUUTe9I9MfThXw6HNVhciqhz9QRwQnChOIov/vXfkClijw6P
+	 IV/kDagnNZ8go04LKmNEjs453PAdB1jWnGgn2Fo7kgklKHedKZrrndUntbz4PbqLqWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=omtiuRGg;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=yoxcu.de;
+	spf=pass smtp.mailfrom=yoxcu.de;
+	dkim=pass header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=enKs106V;
+	arc=none smtp.remote-ip=194.36.144.171
+Received: from morty.yoxcu.de (morty.yoxcu.de [194.36.144.171])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 88F7B606A31E;
-	Tue, 24 Nov 2026 13:26:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A31AD606A31E;
+	Tue, 24 Nov 2026 13:27:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A31AD606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=yoxcu.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yoxcu.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=omtiuRGg
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 969DE1F00A3C;
-	Tue, 24 Nov 2026 13:26:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795526809;
-	bh=TGbRNMlBiqQcwxv0P2/3UU/uHuduzqYaI4dTeURK6EI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=omtiuRGgWioc714Sp525Z1hVz4JVmy5BO+Xq0XWMZNEbT5E8pw/lYSrplLQCThmMx
-	 Q+Hs/1c9oV/a3JulF6gdm0xy+uhmYYQnwH2to/tg/YpHUVf4brynmd/FBSGU3OUatC
-	 g/ZqJg6MyJy5u/ILQEptaI3G+tvDMClleSJPzgfqg7YukZ4ShqRNHrEsz8lCq+g2qw
-	 URf8D7QbdBGVblT+Yv6vcWHt6eD/P8LktNfJOAHmohU0YK3XWtwFmbibLD8950rw2F
-	 GSIpq8fPSkka/7AygDKUtCSnG6LLBMdesl8k+ch8LMsYFzsnvFZgIlHRq4+3oUtSHh
-	 pf3VesqmGugOA==
-Date: Tue, 24 Nov 2026 14:26:46 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Yu Zhang <yuz08559@gmail.com>
-Cc: Stefan Wahren <wahrenst@gmx.net>, 
-	Linus Walleij <linus.walleij@linaro.org>, linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Subject: Re: [PATCH] pwm: gpio: unregister the chip on driver unbind
-Message-ID: <awWQWD1RG-0F2r_o@monoceros>
-References: <20261101032646.11397-1-yuz08559@gmail.com>
+	dkim=pass (2048-bit key) header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=enKs106V
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B12081D8145A;
+	Tue, 24 Nov 2026 14:27:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yoxcu.de; s=dkim;
+	t=1795526863; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=xGe8Byqtdet6m9b6JcFfd7IFIJu9dIrTGmJqkbX0I3I=;
+	b=enKs106VKN6gDLYipo/qpiLQktAD0vnahiwO8I1bgRbdHdVTvzDV54vxoypjXHPMbx7tYD
+	BdwQGGEbztjT7N6gtgbbijg0V26+iOGC04h9iORn3A3FlLfBVPg8cBAWx2xJd+hpi1NwUl
+	wD9fyLH7NSRhpnR8XVY0hQPoTft1N+U2HuQnTRcaxUW9x/+qdZVcZvPRkL6ZfqsMfk9pjD
+	sIT/zjIDj8M/27X5HfdcUQ9RGfKFnXp5Udwirs1oDBN0YxNheIDCQ2zFEO01RiVDLJb4gF
+	6uynGgmIawPOQKfMmGmU4/fDQMpgilUaNJh4dqUNHYCPG6cPHwg6KCOub3zgMQ==
+From: Michael Auer <mick@yoxcu.de>
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>,
+	Sean Paul <sean@poorly.run>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Abhinav Kumar <abhinav.kumar@linux.dev>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Ulf Hansson <ulfh@kernel.org>,
+	linux-arm-msm@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	freedreno@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	Akisaira <akisaira@outlook.com>,
+	Vladyslav Tymoshchuk <tvlad744@gmail.com>,
+	Val Packett <val@packett.cool>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Haitao Xu <haitao.xu@oss.qualcomm.com>
+Subject: Re: [PATCH v2 0/8] drm/msm: Attach a driver to GMU
+Date: Tue, 24 Nov 2026 14:27:29 +0100
+Message-ID: <20261124132729.1763111-1-mick@yoxcu.de>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261030-gmu-sync-state-fix-v2-0-89d3082d97af@oss.qualcomm.com>
+References: <20261030-gmu-sync-state-fix-v2-0-89d3082d97af@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,63 +81,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="icbp37xdehavlxab"
-Content-Disposition: inline
-In-Reply-To: <20261101032646.11397-1-yuz08559@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
+Hi Akhil,
 
---icbp37xdehavlxab
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] pwm: gpio: unregister the chip on driver unbind
-MIME-Version: 1.0
+I tested v2 on a OnePlus 6 (SDM845, A630) on a 7.1-rc1 based kernel.
 
-Hello,
+The series does not apply there, because it builds on the
+separate_gpu_kms auto mode from next. I dropped 4/8 and used
+msm_gpu_no_components() in place of msm_separate_gpu_kms_components()
+in 1/8, 5/8, 6/8 and 8/8. In 6/8 I moved of_node_put(node) in
+a6xx_gpu_init() after the gmu_is_wrapper check, as node is not
+__free() there.
 
-On Sun, Nov 01, 2026 at 01:26:46PM +1000, Yu Zhang wrote:
-> pwm_gpio_probe() registers the chip with pwmchip_add(), but the driver
-> has neither a remove callback nor a devm action calling
-> pwmchip_remove(). On unbind the devres callbacks release the GPIO
-> descriptor, cancel the hrtimer and drop the reference taken by
-> devm_pwmchip_alloc(), while the chip stays registered: it is still in
-> the pwm_chips idr, its sysfs attributes and character device are still
-> there and chip->operational is still true.
->=20
-> The chip can therefore still be reached through sysfs export, the
-> character device, debugfs and pwm_get() from a consumer. Those paths
-> call into chip->ops, which point into unloaded module text once the
-> module is gone, and pwm_gpio_apply() re-arms the cancelled hrtimer and
-> drives a GPIO descriptor the driver no longer owns.
->=20
-> Use devm_pwmchip_add() so that the chip is removed before the hrtimer
-> is cancelled and the GPIO is released.
->=20
-> Fixes: 7f61257cd6e1 ("pwm: Add GPIO PWM driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Yu Zhang <yuz08559@gmail.com>
+Without the series this phone needs fw_devlink.sync_state=timeout:
+nothing binds to the GMU, so gcc and gpucc never get sync_state and
+their GDSCs stay on. With the series and without that option:
 
-Applied with Stefan's Reviewed-by tag to
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
-next
+- the GMU binds to adreno_gmu, the gcc and gpucc links to it are
+  active, and both reach state_synced without "Timed out. Forcing
+  sync_state()"
+- the GDSCs end up in the same state as with the timeout (the
+  hlos1_vote_*_tbu GDSCs and ufs_card_gdsc off, gpu_cx and gpu_gx off
+  when idle)
+- the UI renders under KWin, GPU devfreq changes frequency, and there
+  were no GMU or HFI errors over 332 suspend/resume cycles
+- in a 7 hour suspend test the SoC was in CX collapse for 87 % of the
+  suspended time, the same as with the timeout option
 
-Thanks
-Uwe
+Tested-by: Michael Auer <mick@yoxcu.de> # sdm845-oneplus-enchilada
 
---icbp37xdehavlxab
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsFkJMACgkQj4D7WH0S
-/k5nWAf+KbEtCX2TojwT9s89cuwvkSRQWogDjs+iq1QUnlR5Adse+e6q9UDhTNgW
-60BLcbTXyTCUZbybVqOdfkO6HrsTDbxh3CqlBpTLRx9OvWrhw+CSNBbCJBdd2VRq
-5qo7XLJQKEMlIzM1k0JTdiETY4sCXH0yQnxY+wMJ2PeqDm1H9leYznt98CKDQgZj
-+3Eg6/gmowkCmlYWldMWga22780eFByBWwlxoLtSIe5Dz+b0uZBo6SfHtmVzI+PZ
-G/pLOrrvW4mraL1k5j4ktv0iP9K087/lSk8QF/Iln8hQvv1doi+u0loj8dOQ29eU
-XicX0aAbLMMFvvOEsmADQHgxi+4Fgg==
-=oZSU
------END PGP SIGNATURE-----
-
---icbp37xdehavlxab--
+Michael
