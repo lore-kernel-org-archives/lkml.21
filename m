@@ -1,101 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.221.41
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795560797;
-	b=IkLmMoARC0hHds44QzKi5K++Yl9FdyU7jtW83U6NWefExxcIbhiG44sUDzc9fA25ifef
-	 s57ZtoGDnf6MIaZuGYBu/8pah85jFFdMuI72lpMEMcz4nhalaK2tBnHajpWjAKCjWFcxk
-	 QSbu0s4LL9ydsK9VNTWaZkTXoKd0KhCV4TUoT8Vj09DotGICyyv8AZIyba0PbWMsCRb/E
-	 vTrXD4gbItmCjP4rgv8y6K2LmdXtr+50A+FvyMEglG6/k3otwLGfcRIxdcAJhY7ZeI6X3
-	 FWzchoweOGyLEEPR5pe1ZumF4c3RZJkAvT4axLOd3oY8OOAzcaF+lqaELDYLHAg8j5Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795560797;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.170
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795560818;
+	b=YRNAFltJdwxPM/WvYmEX3rslSFYTDJptxMgfaGBiPZ7KAKZIVBcSU9doGc9sBr9Hr0ns
+	 Maa5gXSyQDwunyYWe7uxOW+NtL8KAL59cRXYEO6POTJr467Vuo19LkjQX4Wi/Ly82PRqV
+	 5FJ9D60An9fC1iDkNgMo2M2wZNlwkAoSxhFhueapqaIb4fKrP0rC9p0JhV5ab7LAbC24/
+	 bs1aoP2viOUXAePyvy9XB+dW0Wgjd+xnGwnyxvSvcFjP7BTaeYq5OLCbfKEqj+qa03Zo8
+	 2leO2GfrsLLDNkDmJieJiImANUVDvy3dR68AAaBVlB2F4N8ImmWwhNYk96C2gmTjH9A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795560818;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=62HWMZceS0oj2mWZkMmwxpsPh7opOIuDf/S593U+xIc=;
-	b=lMK5WDWgFzO07CkxtZVeU0/vcxgdRJnYbKXUmRONDdJ92suFVjYf+wj217B+zaBVnzOR
-	 3GkGtCInQZW84F5reNhyIIDwa32+jN9FOVeoo2DHU/g/64/0skcdm+jR4Up0B86c4Qp87
-	 287FPT7w+zhsMx336YxfYnMZFP1FB6ftwwamo4bvJf4p6uQebMzti/sSY+BxtG6yhcEjx
-	 +6900T+1m5ZnAgoyeRFiUYMh6ehQGAC3yEPT1sV9/4N1nW6p9q2aByyFcSz7akP3LHjE4
-	 KbXoLbfXe6mrNdnJsNNCPUtegy7D87/kp/d3Y1CeUT1usvuVbfKEIlVpC5XDhvxFF/Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="eg/IgmbO";
-	arc=fail smtp.remote-ip=209.85.221.41
-Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=rRSOKMys+ChZsGWn2lfJK1W6irwANpM0c+wZFPbSVKY=;
+	b=tsuitFDPxNfOXNIW3SoYisAh9ovL69ZucwcWJ92UCPO7PJHvNkk03P9bmLcvXVK/yTw4
+	 Dyk0eKrW56GUwhmfkK7kE+mEuEmEZuUv9ljx4b5IvhtP3jx5qH1pCEtLdSwpXYSK1Nxay
+	 zf+x1WPGDLOXNu29JNNSzUOjNOtH+UfZNbFDdUuwt+Nm8T7FZ/ZzLpVDG/yrVLqPaNEDn
+	 1PCBaPxRTMd1PusyMS2ZxANvTAtxDkxUakGVgSAXo5p7rWv1fjxcW0kFj3CZXUTTjvpnb
+	 P5hh7JdfBJDPZ6S4Ubhm3FQtKPqczu9VJRi+NJEu0N4mEO8or8K8OYGV8rN/F0BXfyw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=dubeyko.com;
+	spf=pass smtp.mailfrom=dubeyko.com;
+	dkim=pass header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=pdDD4G9w;
+	arc=none smtp.remote-ip=209.85.128.170
+Received: from mail-yw1-f170.google.com (mail-yw1-f170.google.com [209.85.128.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 329CA606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:53:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 329CA606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DE7F606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:53:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DE7F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dubeyko.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dubeyko.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eg/IgmbO
-Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-491f34b4e0fso2351576f8f.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:53:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795560795; cv=none;
-        d=google.com; s=arc-20260327;
-        b=VRsupP38dkbd46GAv5v9qiNHs5VDVCeQJ3csUuZFjRA1lBP/IvfYl6T/rfxmwgZc7y
-         RHx25eGgNcjgnHYLyB7iNiQyDxsxGWSq29ZYf3ey4UHmmbwGy1hiX0AQBo4sDVPmYqag
-         uqyxpD04vVs/P7g5ache1gINvoOQNIEJn5VO3c7B898aQmC8Ciw8TLHJLhEOBOhDz0E1
-         7jYLuHV2MKXQHYGhfvKbF6kzdwoyzITYSnf5IWGvQMURMMEds57Gi6xZKsORSExN/pO3
-         42kxWjiGYBTAZ6zeustVyAqa0eA/Ma11LCLSilcrjnqnfsAkyT/X2yl3EKmv0lY6MHTB
-         Cz9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=62HWMZceS0oj2mWZkMmwxpsPh7opOIuDf/S593U+xIc=;
-        fh=EwobYKfU/eMV/OAEvjWSXmqb+omcgZaTOeFW2N2n/g0=;
-        b=K+oPY8m4fvJvMfdx7ZKYXBL96384gUw/kbyh1xf8n9rC87bofMrfZaK2rrJnEbOGXC
-         qD540QI7FOgWq7Q8iSCFoS3LwFWL9syjKDXCRmqvFJreqcwXXXFOwlYZebmcD9wxOv8o
-         AjdBz1e3qOwfjR3Bg+ByHIuu5HT0kxC1WxsPiaBY/a8RdLfN3Hp9dsvPzCmzUTLJ9BX2
-         Hy/bl/x4GBA4bhTWYuGGDkZJQVe371IrgY9bJRhGMdJF0jPt2x7xb+GTTfAXLaGMan6v
-         dFW02zJDCifsnzqXJRWPTVvSJpg+SWR5ItyyUd7lo4aDDViyvH/Ab8RRO4ZTJ4S6q83C
-         5RZA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=pdDD4G9w
+Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-8b360828905so47061417b3.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:53:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795560795; x=1796165595; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=62HWMZceS0oj2mWZkMmwxpsPh7opOIuDf/S593U+xIc=;
-        b=eg/IgmbOUIL5XFulzKaucwNquvnAFFcfhp7IZRMcZKafqJp/N4iOqBDcNsT9awfSh5
-         zq8qtXnDuUxTduI+jySzh7O5jdYNXeZIBVqkwsjm2fWuzsVX9vobAUtyGJ+w4b5USJkt
-         TAqoppZAsgGdRbwnk+jNh0S0tBCySM55U6uU7FCDXTW3xw9pM1x+/7VaohrXX8sAYOm7
-         dRIz7XmWM5I+V0rYPZdpGKZlajpimaX9sOZKOQ2xf7bxnIf5/EhOYN/gCg2lOVswLfQM
-         seA6eES0PUy5Jpp72JEsY/2PrmRLI2up+fDvfGqpmsp7rhOxLqOXIdhHm42Vo74TAqgj
-         2jkg==
+        d=dubeyko-com.20260707.gappssmtp.com; s=20260707; t=1795560816; x=1796165616; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=rRSOKMys+ChZsGWn2lfJK1W6irwANpM0c+wZFPbSVKY=;
+        b=pdDD4G9wQQvg0OnT+Sgn3MMa5xhGEXFufERhDMIqryAXKTU9Ovkx7gwjAm15p76ZRG
+         l1abnle3/eSjHgOZd0QE+OVKUi+u4BeV67K2ROy/QxxAhWUiuZKg5ul+G7Ed3IXICzdn
+         5JB+X522+h/u2mVmOhJg8LBBiWR5aM9iTsLWV3TNZ2AVd+zF1NPVKLgiMxTrbWFlDm4Q
+         L0A+PVc782F3LmYvBaQJtMqdwn2APBRsRF4P2yndUMK6uMqWVK9EwBRk2Wk7oP4xrg4V
+         tTUQmiRzB6sw934utXnQLGOye2nf+HS4nplhXnG2WuK61JIUP8kXtaVUX315toS4hPs5
+         vlLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795560795; x=1796165595;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=62HWMZceS0oj2mWZkMmwxpsPh7opOIuDf/S593U+xIc=;
-        b=ncT7RYLF2gPoSmtzNKaZMFl3PSAn2h4y8CGP3y1Icu58hqKlbNKFjRp14aSYjoFG72
-         /v+JiFFg6NDbPy3HewHkdmysOfcV8FNLHnXGd6GSu/xStgK33FCKJUTUEz20QH4zoh9P
-         8+9rcZABBDJwrT2/ZJLQmBLqMh/uCzemHx0Dh5iANa/3Utn12+khSqCmNwIpw+ZD4aJl
-         RRKS2M++60n2pkFwCgJRdluhlFxBI7niqjuvwSNvO9TJUg/SvikSov/LUIYXPOSnmvBs
-         eKlYgu5gYUBhLch/b58/4/k9e8Qr/j1etcvV3oP1usRme+SjcaI+FNfM3OesYXsV/fmV
-         gVbw==
-X-Forwarded-Encrypted: i=1; AL+hErHzPvobcv6a2rAj367zWc8oYjt4bC4N4RFBdpd+ywpfBBjZQ6JM3snmn3LsDMTYV2qaAPeCNolz5O5nHIc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/tfw646bS5OfJu+12MHjWUSDFiI2cLTip9GmPm73xHkvfSW4GR
-	CopCmDmCvlLiogfBRbjn9oPz6QGOmubKFPOiJPhJQ0O8Q22Ngeraf1FlIbUAUvggcXte/xvWYqG
-	natkjX1z58JmjIJ4Q64wLS/wdTDor7fs=
-X-Gm-Gg: AZFdTZc63/NEi5HiLhXEX5Y3U5PMUl7EjpyEmksFPlex+tenPiEY/1JO4O3dkOI0UT+
-	fA5P+1JOQPnE6a9YFHmF+7gWY4L7+0++tqnYICI48VaC398saO0r3XjdvKQpVTnE8Tqt1GU9HzC
-	6RyX/wNNCdDvtiYjdTok5RnFqz3buHned6vN5pWnZw9CAhzRPVquFosges0Zvxd7mdzfl0FbtSK
-	I7+wPIpGxZTUGcsaoTTcZnvw9Q2Gu5dyQmXx01WbeUDvPyzs+j4qFtUUUR3nS8wPfNGbTH/8GL6
-	MSboW3xUFuljxtJ9Kh9aupdIwQLVYfxeDun3iJGo2Qllvg9HohKDbVUSx4aUAiW6zlZiEqZ9HeE
-	aFii7r3UtDQn2g9dwr7trIYl+4DvoWV9UNMWkhaqRiGyZjVIXKGItyAlmGaYGfpxRnNbOqOo+Uk
-	RK/wiojSyboPdk488Xz3HGaA3nAjAyZfaCbSodzkg=
-X-Received: by 2002:a05:6000:491b:b0:490:9fe2:6a2d with SMTP id
- ffacd0b85a97d-4abb0a710c2mr29944554f8f.26.1795560795520; Tue, 24 Nov 2026
- 14:53:15 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795560816; x=1796165616;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rRSOKMys+ChZsGWn2lfJK1W6irwANpM0c+wZFPbSVKY=;
+        b=mbVftdmLiIADzOJAA4okM3TrS5NyaZpazdUFf7QhbxzS0ipeWB712VIPxjCFdqSZeR
+         SUxvkv7keDkECe3lpQmxL2vNYFMO6vlELj/mYuv7Az0KIJjvBLlf15azAR3BdLhFfdcA
+         eI0oibTN6GQUCsz/6Tw0gnwh5XQq2nKU1ycM1+am7re78VXIaJUosAfESBiiGzVoyRNN
+         FSTAsbWnmW62zSi6+5GKjOVTc+vxV/jD+Ux79rRQVe0efroQUo5rJ4ReCObEREWG212O
+         KYeqryELM5w5uRjZDDwx+WUbQyNJPs0mijodLtoS7fecq0v/iQs6DMJiNd+vPDwAm8Pd
+         ewlA==
+X-Forwarded-Encrypted: i=1; AL+hErHXRqcuT6XXc6SVNK6IdyhDmAyo0BkaC+j/VlfzGGX48HTy1KUlAjTCB6lkza/aM3FlvVlXN7BacyA2T9c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9t59qpLyOhHuVMjaJsfB2Rmr4TMN6Z5ZPJOcY3N91Q0MlgIH8j
+	LsQA8eMELWZmoMibbQaz5QrE2HhxmoODpcAV4c9CkRpK0Yb3UV+6NhnpVvR9IKkB+wQ=
+X-Gm-Gg: AZFdTZei3KbY6l8B+a5RBNPUOZbE5a9Zfszl7OCXV6nmf7WZAdDKc369DB615ELTN1z
+	0zwk1WWSL4JiKzJzURMhxj/rBrOEWvTxcYsAkduBBCbEtctpIKzRfkEPr46kCdwTxA2ECJveE08
+	+lhcG1Bcuf3DDAEbRgEruL2xlIRNIT7UIwT37k2UIQgK+kSlCJevYWMIwB4WBMVDK35VHr3nJX3
+	wwPPPTkFNSAmQObQCJbXDMV+Nyzxpg3vzPVFI5M0IPUanmgWDPpUc074nBxPoXe8q4hbriGD6xG
+	W5up7D1sObNJo7twcWClBvpR/hNUxy7HdjdmYlseWNnmwymgPDZyXQjE8k0kSSb6Hq7uvu7KzmB
+	DQ/ICFbFsFwyn1SwtDqoFjQCxRNna0o/NLw/89PN4HY4QLS+hD34PSDKb9DX1D3GzUj8pIINNQa
+	nKv8/DCL6BpsiD9vOV6N8bFYiMLh7rtZUlPKcE+hPC2t6IFMkn1SZwgzNAs9bd3oNNNGSXtyc8I
+	asS2SKzrb2Nfo0FpH2lyYDbqrsbOXtNOAANu2ac0Tr2y2OsMrf7M1h+zW9RFLRFMan1Zg7ddVo+
+	yevRMJu4g5NcLp/TTZWzCe/iWik/56Yh/vb2DKI2lmKyk8EFm+Svmu+4At/jcREn7pegK8PTZhZ
+	yme7wgTxwT1o2a35Ww3nt8T0KT9Jqhgdp/t8+pWIHM1txlOK4ulPTuDA45tjXA7fjo0ZLuqY=
+X-Received: by 2002:a05:690c:e18:b0:8b4:f333:d5d2 with SMTP id 00721157ae682-8b5204d7da7mr55034137b3.74.1795560816390;
+        Tue, 24 Nov 2026 14:53:36 -0800 (PST)
+Received: from system76-laptop.attlocal.net ([2600:1700:6476:1430:c4f2:e852:cd48:35ad])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df33b7502sm7706219d50.20.2026.11.24.14.53.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 14:53:35 -0800 (PST)
+From: Viacheslav Dubeyko <slava@dubeyko.com>
+To: glaubitz@physik.fu-berlin.de,
+	frank.li@vivo.com
+Cc: linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	vdubeyko@coreweave.com,
+	Viacheslav Dubeyko <slava@dubeyko.com>
+Subject: [PATCH 0/3] hfs: fix timestamp wrapping and support timestamps after 2040
+Date: Tue, 24 Nov 2026 14:53:27 -0800
+Message-ID: <20261124225330.3879708-1-slava@dubeyko.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,113 +98,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261124224811.16134-1-ihor.solodrai@linux.dev>
- <20261124224811.16134-2-ihor.solodrai@linux.dev> <10ad779b-708b-4b0b-b6af-54f3d7414f82@linux.dev>
-In-Reply-To: <10ad779b-708b-4b0b-b6af-54f3d7414f82@linux.dev>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Tue, 24 Nov 2026 14:53:03 -0800
-X-Gm-Features: Aa3M54rYfCcMSZKLBapkSyA5aPNL8Tahfm5y46F16UVYrsj2TNZk7O-pDyWMN8o
-Message-ID: <CAEf4Bzbn5Wk6q3MWpryLSZtFaPq3tGh+kfuWQGTSv8joE996vQ@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v3 1/6] libbpf: Separate interfaces shared with
- in-tree tools
-To: Ihor Solodrai <ihor.solodrai@linux.dev>
-Cc: Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Alan Maguire <alan.maguire@oracle.com>, 
-	Emil Tsalapatis <emil@etsalapatis.com>, Jiri Olsa <jolsa@kernel.org>, Song Liu <song@kernel.org>, 
-	Tejun Heo <tj@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, bpf@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 2:50=E2=80=AFPM Ihor Solodrai <ihor.solodrai@linux.=
-dev> wrote:
->
-> On 2026-11-24 3:48 p.m., Ihor Solodrai wrote:
-> > resolve_btfids and bpftool link libbpf statically and use some of its
-> > internal helpers from libbpf_internal.h. That header also defines
-> > logging macros and poisons kernel integer typedefs, so resolve_btfids
-> > wraps the SHA-256 helper in a separate source file.
-> >
-> > Move the declarations these tools use to libbpf_tools.h and include it
-> > instead of libbpf_internal.h. The header is for in-tree tools and stays
-> > uninstalled. No shared-library symbols change.
-> >
-> > No functional change.
->
-> I posted v3 with the refactoring as described in my comment [1].
->
-> However now I'm thinking it might be an overkill. With the re-design
-> vs v1, resolve_btfids now only needs btf_kfunc_proto_match(), if it
-> includes relo_core.h, so the new libbpf_tools.h is not as appealing.
->
-> Speaking of "API levels", libbpf_internal.h has already been
-> functioning as the "in-tree users only", and there is another special
-> user among those: the selftests (see paste below). So if v3 is landed
-> as posted, we now have two "levels" of in-tree users.
->
-> It's... fine, but not exciting. Adding libbpf_tools.h doesn't help
-> that much, and dropping it doesn't hurt. It's all bikeshedding, not
-> directly relevant to the series, ultimately caused by name collisions
-> between resolve_btfids and libbpf (u32 poisoning and pr_* macros).
->
-> Quentin, Andrii, Eduard, please let me know if anyone has a strong
-> preference here, I'm happy to respin. Thanks!
->
+HFS keeps timestamps in 32-bit unsigned on-disk fields as the number
+of seconds since January 1, 1904 (local time). Such field can
+represent the time range from January 1, 1904 till February 6, 2040.
 
-heh, we raced to the minute. I don't like libbpf_tools.h approach, if
-GCC poison is a problem I'd rather guard that.
+The current HFS driver has the same timestamp wrapping issue as
+the HFS+ driver had: it treats any on-disk timestamp under
+HFS_UTC_OFFSET (January 1, 1970) as a time between 2040 and 2106,
+and it calculates the on-disk value by means of adding the time
+offset to the lower 32 bits of the timestamp. As a result, any
+timestamp before January 1, 1970 is converted completely wrong.
 
-don't respin just yet, let Eduard do a pass at least
+This patchset is the HFS port of the HFS+ patchset "hfsplus: fix
+timestamp wrapping and support timestamps after 2040". It fixes
+the timestamp wrapping issue and extends the supported time range
+beyond February 2040.
+
+The first patch corrects the logic of __hfs_m_to_utime() and
+__hfs_u_to_mtime(). The on-disk timestamp is interpreted as unsigned
+number of seconds since January 1, 1904, out of range values are
+clamped instead of wrapped, and hfs_fill_super() sets
+sb->s_time_min, sb->s_time_max and sb->s_time_gran (shifted by
+the local time zone offset). This patch restricts the supported time
+range by February 6, 2040.
+
+The second patch extends the supported time range. HFS has no
+extended attributes on the volume. So, if the modification date
+cannot be represented by the 32-bit on-disk field, then the maximal
+value (0xFFFFFFFF) is stored into MdDat and the real value is kept
+in the spare bytes of the same catalog record as big-endian 64-bit
+number of seconds since January 1, 1904:
+
+file record:      FndrInfo.fdIconID and FndrInfo.fdUnused[0..5]
+directory record: Resrv[0..7]
+
+fsck_hfs does not check these bytes. It is Linux specific extension
+of HFS on-disk layout. However, it is backward compatible: Mac OS
+sees the clamped timestamp (February 6, 2040). If another
+implementation updates MdDat, then the mark is removed and the stale
+value of the spare bytes is ignored. The extended value is updated
+together with MdDat in the same catalog record. So, no additional
+locking or b-tree update is required. Only MdDat is extended because
+HFS driver uses it for mtime, atime and ctime. The second patch
+raises sb->s_time_max to HFS_EXT_MAX_TIMESTAMP_SECS.
+
+The third patch adds the hfs_time KUnit test suite that checks
+the date/time conversion logic and the extended timestamp support.
+
+Tested on a KASAN and lockdep kernel: modification dates of files
+and directories (1904, 1950, February 6, 2040 and one second later,
+2050, 2106, 2200, records created with the clock set to 2055, and
+timestamps moved back from the extended range) are preserved across
+remount, a timestamp before 1904 is clamped, and fsck.hfs reports
+the volume as OK. Without the patchset, the 1904, 1950, 2106 and 2200
+timestamps are wrapped. The hfs_time and hfs_string KUnit suites
+pass.
+
+Viacheslav Dubeyko (3):
+  hfs: fix timestamp wrapped issue
+  hfs: store timestamps after February 2040 in spare catalog fields
+  hfs: add KUnit tests for date/time conversion
+
+ fs/hfs/Makefile        |   2 +-
+ fs/hfs/catalog.c       |  10 +-
+ fs/hfs/hfs_fs.h        |  74 +++++++-
+ fs/hfs/hfs_time_test.c | 400 +++++++++++++++++++++++++++++++++++++++++
+ fs/hfs/inode.c         |  88 ++++++++-
+ fs/hfs/super.c         |   8 +
+ 6 files changed, 567 insertions(+), 15 deletions(-)
+ create mode 100644 fs/hfs/hfs_time_test.c
 
 
-> [1]
-> https://lore.kernel.org/bpf/faecfef3-ac9f-41be-8bc3-83a66572066a@linux.de=
-v/
->
-> $ grep -rl --include=3D"*.[ch]" 'include.*libbpf_internal.h'
-> tools/testing/selftests/bpf
-> tools/testing/selftests/bpf/prog_tests/bpf_obj_pinning.c
-> tools/testing/selftests/bpf/prog_tests/btf_field_iter.c
-> tools/testing/selftests/bpf/prog_tests/btf_sanitize.c
-> tools/testing/selftests/bpf/prog_tests/core_reloc_raw.c
-> tools/testing/selftests/bpf/prog_tests/cpu_mask.c
-> tools/testing/selftests/bpf/prog_tests/fill_link_info.c
-> tools/testing/selftests/bpf/prog_tests/get_smp_processor_id.c
-> tools/testing/selftests/bpf/prog_tests/global_data_init.c
-> tools/testing/selftests/bpf/prog_tests/kprobe_multi_test.c
-> tools/testing/selftests/bpf/prog_tests/kprobe_multi_testmod_test.c
-> tools/testing/selftests/bpf/prog_tests/module_fentry_shadow.c
-> tools/testing/selftests/bpf/prog_tests/perf_branches.c
-> tools/testing/selftests/bpf/prog_tests/perf_buffer.c
-> tools/testing/selftests/bpf/prog_tests/raw_tp_test_run.c
-> tools/testing/selftests/bpf/prog_tests/recursive_attach.c
-> tools/testing/selftests/bpf/prog_tests/sha256.c
-> tools/testing/selftests/bpf/prog_tests/test_global_funcs.c
-> tools/testing/selftests/bpf/prog_tests/uprobe_multi_test.c
-> tools/testing/selftests/bpf/prog_tests/uprobe_syscall.c
-> tools/testing/selftests/bpf/prog_tests/signed_loader.c
-> tools/testing/selftests/bpf/prog_tests/tracing_multi.c
-> tools/testing/selftests/bpf/urandom_read.c
-> tools/testing/selftests/bpf/urandom_read_lib1.c
-> tools/testing/selftests/bpf/trace_helpers.c
->
->
-> >
-> > Signed-off-by: Ihor Solodrai <ihor.solodrai@linux.dev>
-> > ---
-> >   tools/bpf/bpftool/Makefile            |   6 +-
-> >   tools/bpf/bpftool/common.c            |   2 +-
-> >   tools/bpf/bpftool/gen.c               |   3 +-
-> >   tools/bpf/bpftool/prog.c              |   2 +-
-> >   tools/bpf/bpftool/xlated_dumper.c     |   2 +-
-> >   tools/bpf/resolve_btfids/btf_colors.c |  15 +--
-> >   tools/bpf/resolve_btfids/btf_colors.h |   4 -
-> >   tools/bpf/resolve_btfids/main.c       |   5 +-
-> >   tools/lib/bpf/libbpf_internal.h       | 162 +----------------------
-> >   tools/lib/bpf/libbpf_tools.h          | 184 +++++++++++++++++++++++++=
-+
-> >   10 files changed, 199 insertions(+), 186 deletions(-)
-> >   create mode 100644 tools/lib/bpf/libbpf_tools.h
-> >
-> > [...]
+base-commit: becaebec8e0f16edc0fd2426508e173f9d7bb5e9
+-- 
+2.53.0
+
