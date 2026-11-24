@@ -1,88 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.100
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795478689;
-	b=kCBkUil/R1ve7f/qlmGqH65Pq9XkTuhv2pIMqjcg6QSBa9U6/e6LPRFZz4PXO5aGLpOX
-	 EwbLwjY8MLwUCW1+nXjP1Lp+M4rxDHZx6F4MvqrXKh96roBiYDXMMIq9A0UX71KPj3euf
-	 hWaMDLieW325g+N4L0WNVcbFpVkx6VTOCbVOKu01NzrfADXea98MJwnSDx3agPcqFhR4S
-	 rrcPExJ6tjIdkRCyfuJcGK7t1cM9NpWixH7cSXsXvX2oHXpPS0dvA2qqOjm5iq3gCooB0
-	 Q+TcNMId1qOmAjBZBeG6W25oj0ohVedgG1wG/cDQQE0iKKScCNcgsYtqg/W7s0nTUVw==
+	t=1795478692;
+	b=UvM/j7OzbPeW/0l487K9DwxC+R+pCJOiaL6bJhgi8kUQb9alUp+jPQhV6JfTbkOaPcoK
+	 mJ/gQLvVkpqRkKowK7+Vg88cuHuaX0sCHZU4OD36ztO3/RsBz1JVmd2/YfjW7m4Ux64sF
+	 uUGFwAmaLzLLvSzK0n5UW3vyGJfCNefLcV5Sur/a0k6gRJ81E2tHeIG27/bbHniHBhlT7
+	 ZPcGJZq7j3GK/bEUIRFD72tvzv2MaPf6sPpF92NuEkhBAEmtHeqQV8HfKiG+5A1aN2rGq
+	 BhS6TQiiIluvH8sPZyFpnJiNt0AMfL0/kBoXgXmbw/6gtFhcsdh/7+RSpthk+nlRBSw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795478689;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=NrqsfqzthGjJFnZQLwLkp8teKLCeBqgZhrjo/nTNW9k=;
-	b=xu9wZenxadkZzaemrHlTQ7mJasOYhLIqVOTJmrhL0k6HNx5O7kXFkDDxxDVoA/yZTjUe
-	 vVjz3C+Bp51hk8Q01P3IR0busihy/R9bY1nO5LE1P8gqXQvKo5vQVmwcqbkk2wmhiLd96
-	 kxk5/J7/iHDyWMOkf+ytLosWWKTBo/e1H3zWAVQwmCzU4tnMHs+QhBdOda7CHSup7p5lT
-	 7tDzGaSpYG66AHotSdlEMsxqUmv+Hwvy3wM8lb5cAir3b7EW8YfgSl2slcS3LaNXWJsqa
-	 vAKQubKgsK6SWwQ0GgHyTeXE7A/fxNYzHrSJEOWMQdGfxKuYMYW7SnHs8lTlPtZ4yBw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795478692;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=Vj6rX/08YHl+BRfiOlA4IKO7KmtpRoLD3xe6xszFx3w=;
+	b=nqMgm+GdAe4c+86gak1EQYgVJVSc5mfOXNS9wzeyqK/CBUp96cCqhPDFHYAbZIXyL9gM
+	 mYKMBqj+XVblr+zGPJubjFmVj6UvRvY3dLH1LqzXYViZG6VFbByBXdPR6q+q0/DF+Ur7r
+	 jqMz+0KXAIhPlQEs9jfqgL5dOqwudwcTzTLUbVbrVqrDViteCVTQtwB3mpsCTWiyqz6y7
+	 ejC0nI8+A43Ru/Mu3NIDBSBrg+PxFiEvm6aCuWIUzUzY0tq6+3vJ7ky2osIYmE+bTK+Bm
+	 uVKKIBEcI096mzH8WJD8FAQDao7zn3M48jWP8CoyDEsUQVwt+S4rA1IFlMmrSRvHP5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gqnhxcHK;
-	arc=none smtp.remote-ip=209.85.216.45
-Received: from mail-pj1-f45.google.com (mail-pj1-f45.google.com [209.85.216.45])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=L1AGF+Op;
+	arc=none smtp.remote-ip=95.215.58.100
+Received: from mta1.migadu.com (out-100.mta1.migadu.com [95.215.58.100])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1337B606A322
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:04:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1337B606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D403606A334
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:04:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D403606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gqnhxcHK
-Received: by mail-pj1-f45.google.com with SMTP id 98e67ed59e1d1-3adac5c10e3so2036726a91.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:04:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795478688; x=1796083488; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NrqsfqzthGjJFnZQLwLkp8teKLCeBqgZhrjo/nTNW9k=;
-        b=gqnhxcHKXD3IRaY+uy37bTOm0gMDtN0JowrvVe59uofy9L3GzXkmUymPMHMbYp1nFT
-         XrtL99E1WI/NqFV8PXSeq1CZ2iFUwGadsZIEr5ara+ITENybhtiSLgIHEjh3HB5stw03
-         TlA8A02gMafZr4AyP2p9yz96UQhmIKRVppwxAzHgRdbPOoacBhbpF8MOKpGDuFHCGvn4
-         Pr8erwNvSGoMB2UmNRDwG+AvAT80BBfnlfUiIG0VFSm9eNE7WjIpp4GqIWdepmFHSMhJ
-         kXI36RXcf7jjxTzcMra1CzTgWC1//uKaP7BxQUs7dC81fxIs8307b/a3L6MANmqxILob
-         KgpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795478688; x=1796083488;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NrqsfqzthGjJFnZQLwLkp8teKLCeBqgZhrjo/nTNW9k=;
-        b=WJnE+4E4CiS8P+MZbFQiOCpChCFd5OMV9CMdcy/+VTz4sxrClow7xPSj2KKPZb59sH
-         JCE4CNteFGjUw6XNeH6oC1pWlkQhYJImAEkN+2aaTzuYh5EanUsS8ZuDWFEoFkRvytja
-         IafPfZ9cd0s/l4E86lQcFehCAYC2JN6yRnJjK4PU1ADvFMEgIwBiCB/1lymcgnNN81NL
-         wcWZJQ0N/+3cjbHPeHCO+Bhsx0uLq6gSFK5qixUXR+QDUgOOsx/d46yxwKa4iJWt9kL/
-         P6l5zV1Wdmx0/ZSk0dqc35tgDBYJVTj+FjBtFGAnANsLblz5cLLcVkSeuQOWPfS9QEzx
-         Lwbg==
-X-Forwarded-Encrypted: i=1; AL+hErEWeMLfnbptMq7yDhn0+vm3ICf4b8UJfPwdayIa6OJj2oBXvH2S1gVFKGlr2vN7d3HaT6lcllLi7fxixOc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/SKhIM0VdI5LNH1BkHfkyo8whKKxaKjiq+R3zxJSUZo07eDo0U
-	NEWol3zejffLk/uGljbqU0t7lqinweFak2yu5AjDyomna/FHPiby3oQv
-X-Gm-Gg: AZFdTZfG9Xps5MbefxVCP9M2OuuOZD1EzPYtrVLZHpqdlOTGgE4Jr0mWC1dPZPaf6DQ
-	cflYNWwASqzfFsOeUxqaGSD62oMjv5DBQ08yfvvWFUiUq7VoaN2vwWhxab4vP7n72O4jR+6HGFG
-	6yWL4GadCFQpojBX8owqqaFOK0z3Nns6h020DQou8H37tESwbqiWYw+RVCrTUMM8in8EEVXrQkK
-	KRf94SExSzgDiDDErgWu5wD7yG3Ex8FTMQ21PQ9ONCSqc8s+JKQG/8uwQMQCfzqoC6N0RU+OtYO
-	knx3SlGsmlJZ92LeWCun/UJORHWaHjJxn7gblJxk5hSL2p/1uS1s9xsqcVYzTyNghvyChUaocDj
-	8p7bT6jwzqs+PzgWkp0RuBrBlkhtt8m7EmjEV19lvS5QyToq6h40vVQxwiE6IyyXb1+c+hK83x5
-	GA5qSL5+75mXmT7+liJuTknhiV9JtZDaICznPKpaS0Y3kR7CgUqPosB2qHQRTVM5uOwWqfZl/DM
-	EzhM/6p+7aIIPT+OBUikGP49iOyiq0wO9ipCTPeJjkBZ3TfAmOYv5dHEJAE7mvQLMhNaaQJYBpn
-	Mc9lj7RwNfcjxmZ26gXqguAqITG6i6m6KytA9chPVT7n
-X-Received: by 2002:a17:90a:ec88:b0:3b3:b0f4:1bed with SMTP id 98e67ed59e1d1-3b41c8d4855mr11016819a91.19.1795478688087;
-        Mon, 23 Nov 2026 16:04:48 -0800 (PST)
-Received: from ?IPV6:2601:600:a482:7d70::b4f9? ([2601:600:a482:7d70::b4f9])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b704cfesm7096451a91.1.2026.11.23.16.04.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 16:04:47 -0800 (PST)
-Message-ID: <83ed6809-ff39-44af-8e3b-a8affa622177@gmail.com>
-Date: Mon, 23 Nov 2026 16:04:46 -0800
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=L1AGF+Op
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=m3O6JogaMnAWcW2J6tqEKYwa71B3rZOaHK/s4y8qPEg=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795478688; v=1; x=1796083488;
+ b=L1AGF+OpgYxYHFwN2ndyQIJnk7W/HiPb7d3D4ikfrBzyNJmILt7Hqw6AIhCODTSDjUbckT3H
+ 8KQd20FS0K2U6ZmbJ+pbr4Xd3bBC57Nbqm1MLIOgijHJBY8AR0NZQ0JKqAQNQ856ow/Po4MY6xg
+ ac064SLCWN3qDLXhVFL8kuls=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 511bb6528f3e081a;
+	Tue, 24 Nov 2026 00:04:48 +0000
+X-Mizu-Trace-ID: 511bb6528f3e081a
+X-Migadu-Flow: FLOW_OUT
+From: Shakeel Butt <shakeel.butt@linux.dev>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Tejun Heo <tj@kernel.org>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Michal Koutny <mkoutny@suse.com>,
+	Michal Hocko <mhocko@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Muchun Song <muchun.song@linux.dev>,
+	Meta kernel team <kernel-team@meta.com>,
+	cgroups@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] memcg: free the private ID of a memcg that never comes online
+Date: Mon, 23 Nov 2026 16:04:39 -0800
+Message-ID: <20261124000439.967403-1-shakeel.butt@linux.dev>
+X-Mailer: git-send-email 2.53.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,187 +72,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: wwan: iosm: always send the host sleep message
- on suspend
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, loic.poulain@oss.qualcomm.com,
- ryazanov.s.a@gmail.com, johannes@sipsolutions.net, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, m.chetan.kumar@linux.intel.com,
- mail@maciej.szmigiero.name, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20261122050039.861287-1-davidlwesten@gmail.com>
- <179541288475.3135.162337854159176054@kernel.org>
-Content-Language: en-US
-From: David Westen <davidlwesten@gmail.com>
-Autocrypt: addr=davidlwesten@gmail.com; keydata=
- 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
-In-Reply-To: <179541288475.3135.162337854159176054@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/22/26 9:48 PM, netdev-bot+sashiko@kernel.org wrote:
-> [Severity: Low]
-> 
-> This removes the only callers of ipc_pcie_suspend_s2idle() and
-> ipc_pcie_resume_s2idle(). They are __maybe_unused, so a W=1 build won't
-> warn. ipc_imem_pm_s2idle_sleep(), ipc_protocol_s2idle_sleep() and
-> ipc_pm_set_s2idle_sleep() become dead code along with them.
-> 
-> ipc_pcie->d3l2_support is also still filled from the ACPI _DSM in
-> ipc_pcie_probe(), but nothing reads it any more. Should these be removed
-> too?
-> 
-> There is also a behaviour change. ipc_pcie_suspend_s2idle() was the only
-> code that set bit 0 of ipc_pcie->suspend, and that bit gates IRQ
-> processing:
-> 
-> [...]
-> 
-> On D0L12 platforms, MSIs that arrived between the suspend and resume
-> callbacks used to be dropped. Now they go to ipc_imem_irq_process() and
-> the tasklet. Was this intended?
+mem_cgroup_alloc() reserves the private ID of a memcg when its css is
+allocated. The ID is erased when the last reference to it is put, and
+that reference is first taken in mem_cgroup_css_online(). The failure
+paths of mem_cgroup_alloc() and mem_cgroup_css_online() erase the ID
+themselves.
 
-Yes. v2 removes the s2idle helpers, the _DSM read, d3l2_support and the
-suspend bit. The commit message says that MSIs arriving between the
-suspend and resume callbacks are now processed, as they already were
-with D3L2.
-> [Severity: Low]
-> 
-> Is this comment true in general? For platform-manageable devices,
-> pci_target_state() returns whatever the firmware chooses:
-> 
-> [...]
-> 
-> So firmware can choose PCI_D0. The commit message describes this as
-> platform-specific ("here chooses D3hot"). The comment turns it into a
-> general rule and uses it to justify ignoring d3l2_support.
-> 
-> Where firmware keeps the WWAN function in D0 for s2idle, the modem would
-> now get the ENTER_SLEEP/EXIT_SLEEP handshake while it stays in D0/L1.2.
-> The notes say that case was not tested, and neither were the XMM7560 or
-> platforms where the doorbells work.
+But css_create() can also fail after css_alloc() and before
+online_css(): in percpu_ref_init(), cgroup_idr_alloc() or
+css_rstat_init(). The memcg is then freed through mem_cgroup_css_free()
+without ever coming online, and nothing erases its ID. The reserved
+entry stays in mem_cgroup_private_ids for good, and each such failure
+takes one of the 65,535 IDs away. With failslab failing radix tree node
+allocations during mkdir, 1,500 mkdirs leaked 6 IDs this way.
 
-No, v2 says the PCI core "may" put the device into D3.
+Erase the ID in mem_cgroup_css_free() if the memcg never came online,
+which is when (memcg->css.flags & CSS_RELEASED) will be false: it is
+only set when an fully onlined memcg is released.
 
-> [Severity: Low]
-> The Fixes: tag points at be8c936e540f ("net: iosm: power management").
-> That commit only added iosm_ipc_pm.c and iosm_ipc_pm.h.
-> 
-> The code this patch changes lives in iosm_ipc_pcie.c. That covers
-> ipc_pcie_suspend_cb() and ipc_pcie_resume_cb(), including the switch
-> on ipc_pcie->d3l2_support that picked between the s2idle doorbell path
-> and the host sleep message path. As far as I can tell, all of it came
-> in with 7e98d785ae61 ("net: iosm: entry point").
-> 
-> Should the tag be this instead?
-> 
->   Fixes: 7e98d785ae61 ("net: iosm: entry point")
-> 
-> There is no runtime effect. But the stable tooling and anyone bisecting
-> later rely on the tag to find the commit that introduced the behaviour
-> being changed, so it is worth pointing at the right one.
+Fixes: 73f576c04b94 ("mm: memcontrol: fix cgroup creation failure after many small jobs")
+Cc: stable@vger.kernel.org
+Signed-off-by: Shakeel Butt <shakeel.butt@linux.dev>
+---
+ include/linux/cgroup.h | 5 +++++
+ mm/memcontrol.c        | 7 +++++++
+ 2 files changed, 12 insertions(+)
 
-Yes, fixed in v2.
-
-> [Severity: Medium]
-> 
-> Every platform now goes through
-> ipc_pcie_suspend()->ipc_imem_pm_suspend()->ipc_protocol_suspend(). That
-> includes D0L12 platforms and platforms without the _DSM. What happens when
-> the handshake fails?
-> 
-> [...]
-> 
-> Could host_pm_state be rolled back on failure, and then either fall back
-> to the doorbells or fail the suspend?
-
-Agreed, the state is left at SLEEP_WAIT_D3. v2 adds a patch that sets it
-back to ACTIVE when the modem doesn't report itself active in time, as
-the path where sending ENTER_SLEEP fails already does.
-
-Suspend still continues after that. Failing it would let a modem that
-doesn't answer block every system suspend, and falling back to the
-doorbells would use the path this XMM7360 doesn't survive.
-
-An ENTER_SLEEP that times out still counts as success, since
-ipc_protocol_msg_send() returns 0 on a timeout. That's older than this
-series and affects every message the driver sends, so I'd rather leave
-it for a separate change.
-
-> [Severity: Medium]
-> 
-> Every system suspend now depends on ipc_pm_wait_for_device_active(). Can
-> it lose the wake ack?
-
-Yes, and the signal case is real too. v2 adds a patch for both: it sets
-the bit before testing ap_state, adds the pairing barrier in
-ipc_pm_on_link_wake(), reinitializes the completion before each wait,
-and waits uninterruptibly, like the wait for the ENTER_SLEEP reply does.
-
-> [Severity: Low]
-> 
-> SIMPLE_DEV_PM_OPS(iosm_ipc_pm, ipc_pcie_suspend_cb, ipc_pcie_resume_cb)
-> binds these callbacks to .freeze/.thaw/.poweroff/.restore as well as
-> .suspend/.resume. On D0L12 platforms, hibernation therefore also moves from
-> the doorbells to the ENTER_SLEEP/EXIT_SLEEP handshake. Is that intended?
-> 
-> [...]
-> 
-> S3 on D0L12 platforms changes too.
-
-Since commit 0b6f6593aa8c ("net: wwan: iosm: Fix hibernation by
-re-binding the driver around it") the driver is unbound before
-hibernation, so hibernation only reaches these callbacks on older
-kernels. v2 says so in the commit message, together with the hardware
-it was tested on and what wasn't tested.
-
-S3 changes the same way. Where S3 cuts the card's power, as here, the
-modem reboots and resume fails with either protocol; my S3 series
-handles that case separately.
-
-Thanks,
-David
+diff --git a/include/linux/cgroup.h b/include/linux/cgroup.h
+index 2afb4cb2bb4f..123c713dcc91 100644
+--- a/include/linux/cgroup.h
++++ b/include/linux/cgroup.h
+@@ -449,6 +449,11 @@ static inline bool css_is_online(struct cgroup_subsys_state *css)
+ 	return css->flags & CSS_ONLINE;
+ }
+ 
++static inline bool css_is_released(struct cgroup_subsys_state *css)
++{
++	return css->flags & CSS_RELEASED;
++}
++
+ static inline bool css_is_self(struct cgroup_subsys_state *css)
+ {
+ 	if (css == &css->cgroup->self) {
+diff --git a/mm/memcontrol.c b/mm/memcontrol.c
+index 091401cecf39..e7dfc96fd1b9 100644
+--- a/mm/memcontrol.c
++++ b/mm/memcontrol.c
+@@ -4545,6 +4545,13 @@ static void mem_cgroup_css_free(struct cgroup_subsys_state *css)
+ 	irq_work_sync(&memcg->high_irq_work);
+ 	cancel_work_sync(&memcg->high_work);
+ 	free_shrinker_info(memcg);
++
++	/*
++	 * The css_create() error path bypasses normal CSS release, leaving
++	 * CSS_RELEASED clear. Drop any private ID that is still reserved.
++	 */
++	if (!css_is_released(css))
++		mem_cgroup_private_id_remove(memcg);
+ 	mem_cgroup_free(memcg);
+ }
+ 
+-- 
+2.53.1-Meta
 
