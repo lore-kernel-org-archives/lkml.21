@@ -1,82 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795485398;
-	b=MIlwXF4Gx0BE7ydhWA0JalrX7zgyZN7cYofdPipOYSaObTUWFfQ1R3N/06Lpl4GRyQL7
-	 sfYg5/GqfuqIPMUoekFPEMGCrs/hgJN8rOacDoCam/JEnxm21GVDEVIrbOw63RiLLOaK9
-	 A5iCddNupfEEBnB4DcJA7KG2zZJErYXZzBZnlicX7MkHZenG/8u+sN3dXWY4kQlpM92hX
-	 0BawynjVI5EhkEirsoHkojMEtHxU+jSiZ2KJrj7UD6LZ7TZBapXigaxv54g3VRHCdkR4z
-	 T4m+jM+ZmnSvxJpnoL4VLPHew4kgJcwY0yWU1HJCoVL446HI3Dj62jQFdsPcOqEUmYw==
+	t=1795485422;
+	b=fMzhqtyel96xt0tzhGYad8lQkoY6NIhNHYHBN5Q2f2rBjvyVjRc9QUuNIMZKX0HthW30
+	 OKl0oti4A9uP7+zeW23NofTZJcJqQ3sS9suzoCHt3dkrXnrRHNmvF1XBULWdY+sJ6uzFE
+	 vinkz4vAdRzN8yA4XQYa2K637U11rE4AZkFmUm0KCZVLziRa0WH00vNNlsXlQE2UUe+GB
+	 sh5qJgl3Ku/CWoFnDpIpbKYt1oez8CHWWpeF9nhQl/CTnpsBfWRqKhda46rLGVS/s0qTm
+	 IrQ0WFRnAHpw4o11iCslbKhUWk82VNxq25V6fTgU1Jp9a2JGSFpNPusx0vudyN58/6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795485398;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=/BV4gF9anlp/vhEs1eSoZiwvaB/0YNfFV5KJA/y6dt4=;
-	b=VD1lvs0dM4bYLC9RnfRPnSBPcJeGtzALiVmM16utCgkVVC5S3jGTQSwFP+pahv4HfIcY
-	 pAWk6mqGHNA4WNMlo1ZfwIanCljWYZW3b0PucukvNZR18hTCIaZXPW4l5K/w5/fRF6wb5
-	 6UqffDmLF5iIpwoQn/qoz0kJn3Z2C2HUve5bZGbl5mA6X7J1ab8OF8Lw+Hu5G10h4MXz0
-	 7GyJ+C370pqu9sib9627VE292fPqRLR9tQ/ugUp+3jDEpBC86w1XdZFlrb6WNyarfOJ5E
-	 HIyp29vZumo6usHxZCZBDrKRWyfORQO/FK87ToW8njKOl+fyF8WkJyQfwwsGWngsI0Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795485422;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Content-Disposition;
+	bh=/L8uXiaS6bmFC0qrn35Iu5qpKgrTHXQ2XkvCS11ygz0=;
+	b=AO8iAlSct3CbLZEWXavGI2RyBWaq4vPmEGbSvI2G9duTTe1RHGRCXIOGrwRkKd/Y1MjK
+	 cOMsX+O7FU7aEq93yvN4MSE1FhJPXdiGrw3eD6Q0t0WqrHRZVWkjt06xlPBqxJ3KkShxY
+	 QBqGhJkf2LeuBB4lBm8qr8vu0zLNDDOYtj7tgle1a5L1c0KJffYp+sMqIlU5nSSdgePho
+	 z6T+TQcvZu/LtvRBwoxPWBN/HacwnSS0A80mOVNOFBNDtDF0qV6OBAHkA0MKi6wI5rEGq
+	 uzeFcDUwSAaJk7fbnrnVtz6cGu3xVtBqqlilmilI6tCE2gh39X5OMf0fEfJ92YkIE/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=alien8.de;
-	spf=pass smtp.mailfrom=alien8.de;
-	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=AT7UDWR1;
-	arc=none smtp.remote-ip=65.109.113.108
-Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HZhSgvR9;
+	arc=none smtp.remote-ip=74.125.82.49
+Received: from mail-dl1-f49.google.com (mail-dl1-f49.google.com [74.125.82.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B989606A32A;
-	Tue, 24 Nov 2026 01:56:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B989606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23D30606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:57:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23D30606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=AT7UDWR1
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 1E3E640E02CC;
-	Tue, 24 Nov 2026 01:56:35 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id LTomsy0WpWZY; Tue, 24 Nov 2026 01:56:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1795485391; bh=/BV4gF9anlp/vhEs1eSoZiwvaB/0YNfFV5KJA/y6dt4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AT7UDWR1BsBBUbdi5SPK82sY8fd3U7cC58aKVHi5V5Pq7rc8Fh4fY/TbK7CqCH5H8
-	 MIrnM1coeZgEG70Y7Lr3GYPzUqCrKT76t/KqtKHy18OXDU7HhmPbGSd6kJ4kPXbcZs
-	 WQ9mHiB5og6GVLkdZLP9vnUTL0DWRnYlPRUL15skNCy7djC91Xy4nRYQT8C9Hgww2/
-	 dbqAbNVJ+FrmC0IdGKNhhHZ2P2UPbxj2zSj+IuZQL3h8kELmgvxAZHYepD0UaRSkrh
-	 LPKl5BveYI5rfWtm89QT2LFXKbGuU4kpbvayfyyBO8xlrwrW5+vKlgZ+fBNEMXGjER
-	 G2k5kQ2F5Xr/lg6kjx7+hmqiKYaLgFCIPTenWo+jAE68nJYy3p5v1de5FMPOQB380F
-	 4dcAlrOQNYoT9f/QIdJ0Nkc5JrGfgm7WxsGZIk6FovUhRFFveEQ4RD3/D4+7S20IsE
-	 2aWosI1GRRHN/NPit4qNNQ5jjos22AUO2HlIFzum/SAgqZdpJp33Jp3NYFaY2VMMYT
-	 Ij6cQ1jLaYShd8UntELLnrMqgIdB7GSwOqQWeGgdSsmeoLZgQFQWmmO+3Jsj5ZItJE
-	 BwTDnPUNS/atubrUiT6Ahzo7UhlIScqS/aY7ZcTzDKgkvcB5ngt72SIjkvcMotXFgx
-	 jmcIctZQtr843g99IzROsb4M=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id AE4DB40E0240;
-	Tue, 24 Nov 2026 01:56:18 +0000 (UTC)
-Date: Mon, 23 Nov 2026 17:56:15 -0800
-From: Borislav Petkov <bp@alien8.de>
-To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-Cc: linux-edac@vger.kernel.org, git@amd.com, shubhrajyoti.datta@gmail.com,
-	michal.simek@amd.com,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Tony Luck <tony.luck@intel.com>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 01/12] EDAC/versalnet: Fix device_register() error
- handling in init_one_mc()
-Message-ID: <20261124015615.GIawTuv3nR0SJ0ZsjR@fat_crate.local>
-References: <20261118142213.100581-1-shubhrajyoti.datta@amd.com>
- <20261118142213.100581-2-shubhrajyoti.datta@amd.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HZhSgvR9
+Received: by mail-dl1-f49.google.com with SMTP id a92af1059eb24-1b3b4944a0eso2831524c88.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:57:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795485421; x=1796090221; darn=vger.kernel.org;
+        h=content-disposition:content-transfer-encoding:content-type
+         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/L8uXiaS6bmFC0qrn35Iu5qpKgrTHXQ2XkvCS11ygz0=;
+        b=HZhSgvR92UVg9Gq6HWqTK1bfiQW+QTlzc2rF/HYUTdPNoZvqr10ACNdZxih9eThop9
+         Whqq6Q4xUHj8EtouQFUvHGQPLYCk4ErdQXnKeV2Dx85saqW/mnNmsY0pj1GrYpAvbxJs
+         zCiOYS3IPunuybgG+6XEBCsICaWsDckSZ8WqzSgY4EKkqQ3nGsZotVUrlw6RpdJ3IwLB
+         IcVvPpJ6MCrB+DoBOa7HMARzplDr+2xsgkMu6R0dLGGnwk/GOHhVE2+R0khJGOAa+yZz
+         Gi+IopmJbX+heqCxNBTSn3NMb7/Jo2ZaC0OfwKBOCcxffGA0igcZVxm4FA3vYSwLSV7A
+         RYMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795485421; x=1796090221;
+        h=content-disposition:content-transfer-encoding:content-type
+         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=/L8uXiaS6bmFC0qrn35Iu5qpKgrTHXQ2XkvCS11ygz0=;
+        b=nFeiL2RCXgUPru0f/L2/wSLl2KqJwzFc+FuKsvhSyiV7+4cTeZY0f98uGenyaxhTNc
+         R59D0jIOM75cF1IiFbJ0bwGAnCKSOhX94xUisc2Q0BN0+UZNMrHUXmoDvNpeWVjkHWEA
+         UDqNzLekK5enRlCRhXZ7yKR1wqBDwAwmrC1x/fVdGKxqs/AqmOJFkUrB/HbRio+KUftd
+         bJCO+SKQ0KNtfJao3gtLem0JZ5zrRyhWIkGlziYFqPbWcN55W6D+qvD8/fL20BqhtKbX
+         JwnDhc38B8Vlb2Tfuv0Ded6QltAlBuKNzwrAKx9byT7l/9N8XgAqi8KiSYdPzum4Tfie
+         wTnQ==
+X-Forwarded-Encrypted: i=1; AL+hErHwr8hGKiHb6mZKeX3pv9mHCIIHa2wQjm3dhWFJgrVWbR1iMgzLP8FabJZicr9RRs27aliJ6YCLwM3FXWg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9QtiChMrHs5AIOZ7z5Dme7Jh+6Le1tGRNm5oSafA6giXgHXpeE
+	2DtYwx0a4cq4jvrO4OKF5/gtdnd7T5mIMp6rO3vml+SuK+cLpBnRKPdlcHX5wtLg
+X-Gm-Gg: AZFdTZepCyOqcsu3HG2oZZdOGRGC3ywb/HXlN4ZUmPoilHwOW4IDNz+QlgGtIvTYsTb
+	KcIc33e7hqrcl43UYgRgm38uKos8TIQUQJzWXp1OqZycqtUZTk6P6DZgsfla4V9atnH0upeTWoq
+	1AZMwpEed/h2E/XcU7S+ENgBKBFm/6nvYWcQRnrM4Qa3TC6QebNUDGQHDSZ4djBeVgFVll1mTA9
+	2pk3wviGCL8NUOlQPfs7VPJnyi5fYEpZiEBdI1GmR6n7cpYp19ojLv45RTzAUzxV10Sp4kHmiwi
+	NK9SucnK7psWO1MghDWRxjnMIcJS+sZRfvE5C6sMcXvHE1KBXEdbIcmOe0vzgqb5XX1Eazx2nZK
+	08oMI7l1F/etN7VG6AZ0NmE0wc4S3wvJBz/8FB0VWujryYhoB/nZD0JP0bG660ms7yOBZNGz5Kt
+	NtrRju47OxPVUKNm6e5lRCztw6r+x/Am7EExuRWLD3dQCJF+Ta23cTLRlgxwtgdQjgQnGNnzhJf
+	HUMcRmnkI/jUe12OiXEybUCamet9f9BB2Si2dAwNeWA+Vs5CYARkL3m6zBKNZbWbfAtnjmrYYOD
+	15p1/eEMY24eKHwUB75wmTkybQ2OXlKTagAZZ6WfJztkWLcUKEwm+S3mf4CKDR5kEBTRCg==
+X-Received: by 2002:a05:7022:6988:b0:156:6676:d0e2 with SMTP id a92af1059eb24-1b55689f5dbmr18451310c88.10.1795485420878;
+        Mon, 23 Nov 2026 17:57:00 -0800 (PST)
+Received: from localhost ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm35459890c88.13.2026.11.23.17.56.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 17:57:00 -0800 (PST)
+Date: Mon, 23 Nov 2026 17:56:59 -0800
+Message-ID: <a4ffb45b13ddacd888f169eb9a60aa69@gmail.com>
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: CJ <firefly0158@163.com>
+Cc: linux-input@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: WARNING in cm109_urb_irq_callback/usb_submit_urb on v7.2-rc3
+In-Reply-To: <4ffee3ca.5062.1a1c4325d29.Coremail.firefly0158@163.com>
+References: <4ffee3ca.5062.1a1c4325d29.Coremail.firefly0158@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,41 +98,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 Content-Disposition: inline
-In-Reply-To: <20261118142213.100581-2-shubhrajyoti.datta@amd.com>
 
-On Wed, Nov 18, 2026 at 07:50:25PM +0530, Shubhrajyoti Datta wrote:
-> From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-> 
-> When device_register() fails, it must be followed by put_device()
-> rather than kfree(), because device_register() calls
-> device_initialize() which sets up the device refcount. The matching
-> release function versal_edac_release() handles the actual kfree().
-> 
-> To simplify error handling and avoid complex unwinding, split
-> device_register() into device_initialize() and device_add().
-> Initialize the device early so put_device() can be used in all
-> error paths.
-> 
-> Fixes: d5fe2fec6c40 ("EDAC: Add a driver for the AMD Versal NET DDR controller")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-> Co-developed-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-> Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-> ---
-> 
-> Changes in v2:
-> Add the codeveloped tag and remove the non standard signature
-> fix the name stack warning
-> 
->  drivers/edac/versalnet_edac.c | 36 +++++++++++++++++------------------
->  1 file changed, 18 insertions(+), 18 deletions(-)
+Hi CJ,
 
-Applied, thanks.
+On Tue, Nov 10, 2026 at 02:43:17PM +0800, CJ wrote:
+> syzbot reported "WARNING in cm109_urb_irq_callback/usb_submit_urb" on linux-5.15. The same failure is still reproducible on v7.2-rc3 with the reproducer below.
+
+Thank you for the report. The obsolete cm109 driver is being removed
+(queued in the input next branch for v7.5):
+
+https://patch.msgid.link/20261112001642.243554-3-dmitry.torokhov@gmail.com
+
+Thanks.
 
 -- 
-Regards/Gruss,
-    Boris.
-
-https://people.kernel.org/tglx/notes-about-netiquette
+Dmitry
