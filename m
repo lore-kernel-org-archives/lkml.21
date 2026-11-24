@@ -1,76 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.79
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795534130;
-	b=xLKWYAQxH+cZfsGTvthwtsqq+JqiDjJ10mqfkTpLsPf6FWvhzUCV5TBckWqxNk4v4iwV
-	 miwVU3MAwz9qFPDSnODLfw2h/HQEIQuRpu+4AxNbROaQTad+/wWdK5QvBYf95bOaefqYp
-	 UvjvXG3YuOHSXA6mZNa2TJtkU4urIP97N3i1Lziz70AuoaDKUOnVOj20cS4bRlW1u4HJG
-	 1Cmg/lJOfKqVS6xVkA8uX1czv8KIDBPGtE+MEB9T1rd7FfbAkY/Go7yHZyCixauWuWSac
-	 7hdE+KegK9b25U/ZvjsEH6fnmACxkI6VUP4RlJepp6wOp4SnLJDECTfqO2CXuYiIMNg==
+	t=1795534135;
+	b=tqQCnl3peu1j4GDYJ7wGTlh/4FQSu/poBhle7K5o6f4is+Pppzcke7YAC0gEEu+USGW2
+	 iwObk30f++BkHVC+SSZ9KyWYLdoQ4cT+bSqOGGzS7U0my6fePB807/0ZjHdJGhrk6nbuE
+	 NAuOuZRyR16xyIKTta8rnIoUD6ddTvFB7YrqDVrJlvuJ7kgrCTub8LpmFxaieq4wXtW1l
+	 wqIidBHFceq6lhfs6eWeE8fVk1gbzXwMj9YDjfVShHGtVDzTqwG24v8RNUi13snG2+9bR
+	 bE25zHA0XOqUQMIl9N5MLqk0fJ47h1O066O9H7mg9uaHs1wkJOYgEV9mwuB1eV1YwxQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795534130;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=zvW5z7zfahFNFXi+Ssaf7DpYERKkjJt0YrEyUHja2pk=;
-	b=d8MkRjWfpKFbOXtMseTADPDxVknigg8JKADHsx7QThlohYiqpIoa5MWOakihuAja/cqV
-	 Rp+gycSZem64M/lUASaXMawk9cwAp5DsTVQjr12+8WgHP5jG5wlYKscFjZ7WuTrVn3+qC
-	 xYppH3Yigqum0IsOreDQtFzX6AeQReMMCjBwwDE6hmNikTlZlEOfZtWehvI4dN2ncV5e7
-	 FJB1RXUyjZYf2CC6fyDuddTkRIc6mEC2Fc0fb+gMMscJU0LiqPkH0ZFgbUqJIhN4KLief
-	 r5fKdMJ2w8RFu9rPYDAFZDDRCJc+gL5vEIblQZiIQ5ZmfC2yEYfOhnLcZMmET0/mH1w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795534135;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Cookie;
+	bh=woN7dX42/QEfdHkXNoIkI+sOdH5SgWjgz+68nCPxUF0=;
+	b=4ObbJG1t9dKvUHmGolqFrGQL7oQeQpvNS94yL0PgZorSZJS2MRLk+s3Q19rQBnZvsyVR
+	 vfdlGvXIMlOfEVRknlWzxrWAn3rwaxNGNWrb57Rzl2sa0Cv+dM0U95K8VK/8y6EGMC4Nd
+	 wAmJYGXiBkhV2wcW3iqzrBQRI4VW9rrOuOEUNz8XFvA9qom27v2NX1Cgt+OMtl8Kkfcdw
+	 IzF8tQSyMNukY8lwxPhVlLm1LhI19b1yWsxz6eGD6u/7DvaGDnNTp2J9R3fdWyHX+DXU9
+	 VjQ1+LmGpx2jxIBw/ZU8csSC+S2t6eEhbeD2kwr/aTt4fCRs/RpjQ8RJdJPtFFdvoxw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=rl5TBK3Q;
-	arc=none smtp.remote-ip=91.218.175.79
-Received: from mta0.migadu.com (out-79.mta0.migadu.com [91.218.175.79])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N23fKN+U;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06A54606A323
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:28:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06A54606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58657606A323;
+	Tue, 24 Nov 2026 15:28:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=rl5TBK3Q
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=ZlYt6RHKpSvMzdObJH/W7hyfD0aXwfhI08mgyRDFJwI=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795534126; v=1; x=1796138926;
- b=rl5TBK3QwdTeY1TK3uUsnIKSS4ENLNayfuJ6UfDk+O6b5px3VYGscxsXAKxN/aUgwpcCHM6O
- /hT7SJ+513ynvCXDaDybUTIm49KfFnPT4bIq1+zqi7PEOoDoEgVPUvSFAfzobUW4Vfwurxg4Afl
- 0ygx21yKCVuBT7ig1OntiEGk=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 1820b8d53bebf8b1;
-	Tue, 24 Nov 2026 15:28:46 +0000
-X-Mizu-Trace-ID: 1820b8d53bebf8b1
-X-Migadu-Flow: FLOW_OUT
-From: Usama Arif <usama.arif@linux.dev>
-To: maz@kernel.org,
-	oupton@kernel.org,
-	fuad.tabba@linux.dev,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	riel@surriel.com,
-	shakeel.butt@linux.dev,
-	kernel-team@meta.com,
-	rkeilty@meta.com,
-	atish.patra@linux.dev,
-	dgreid@meta.com
-Cc: Usama Arif <usama.arif@linux.dev>
-Subject: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
-Date: Tue, 24 Nov 2026 07:28:42 -0800
-Message-ID: <20261124152842.2634495-1-usama.arif@linux.dev>
-X-Mailer: git-send-email 2.53.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N23fKN+U
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FD241F000D8;
+	Tue, 24 Nov 2026 15:28:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795534134;
+	bh=woN7dX42/QEfdHkXNoIkI+sOdH5SgWjgz+68nCPxUF0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=N23fKN+UzfLec8SkLRYPloYVrCpUpgQDmrteL/rHwsXMg5ePevTG9rFJAyCjzpJdM
+	 ko34az+IIQKOPrrg4I3XddletoDrTQzOto5FdKS1kBVNhoNHWVZS030hkgAAL6skOA
+	 ceN8wsSb+BWU+go6T79jTVaWh48TL6gzi5L3Ht7N0Ah7exHeFj6yIFTf+QVbb0OBhy
+	 8+9zgucJBvBS9vFoqR2pwq12Ue6dLM4mcrEIvCUlvvzt52/nVz0WyXfsuXyElU/szH
+	 D7YUqECRpg2opFv0dMkxhc9o19DYqiSeshFpJ6FxuI+nZC3C06NPzuxpRllTHWfxaI
+	 d70nKxM/yk9+A==
+Date: Tue, 24 Nov 2026 15:28:48 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Michael Walle <mwalle@kernel.org>,
+	Takahiro Kuwano <takahiro.kuwano@infineon.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, praneeth@ti.com,
+	u-kumar1@ti.com, p-mantena@ti.com, a-dutta@ti.com, s-k6@ti.com,
+	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mtd@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v5 3/6] dt-bindings: spi: Document the spi-dqs-not-wired
+ property
+Message-ID: <815ecaec-7bf6-4ba4-9869-f54f1c85a7e1@sirena.org.uk>
+References: <20261124-winbond-nand-next-phy-tuning-v5-0-261e0e712857@bootlin.com>
+ <20261124-winbond-nand-next-phy-tuning-v5-3-261e0e712857@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,59 +69,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="axoJEjM2GoVi6XeC"
+Content-Disposition: inline
+In-Reply-To: <20261124-winbond-nand-next-phy-tuning-v5-3-261e0e712857@bootlin.com>
+X-Cookie: If you can read this, you're too close.
 
-When a stage-2 fault may need new page tables, KVM first tops up the
-vCPU's page cache: if it holds fewer pages than the fault might need, it
-is refilled to KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE, which arm64 sets to
-40. Unused pages stay in the cache until the vCPU is destroyed.
 
-With 64 KiB pages, that is 2.5 MiB per vCPU, and most of it is never
-used. Stage-2 has at most three levels and the root is preallocated, so
-a fault needs at most two new table pages (kvm_mmu_cache_min_pages()).
-As every last-level table covers 512 MiB, an 8 GiB guest needs just 17
-table pages to map all of its memory, while its four vCPU caches get
-filled with 160.
+--axoJEjM2GoVi6XeC
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On a production host with 64 KiB pages running 101 VMs with four vCPUs
-each, the caches were still 86% full. The memory used:
+On Tue, Nov 24, 2026 at 03:43:04PM +0100, Miquel Raynal wrote:
+> The DQS line is a data strobe line that is typically driven by flash
+> memories (NOR and NAND) when the data flows from the peripheral to the
+> host controller when running at high frequencies in order for the data
+> bits to be sampled by the host at the right moment. The SPI bus already
+> features a clock but this clock is driven by the host, which means it is
+> not accounting for any chip internal delay.
 
-                        before      after
-  per-vCPU capacity     2.5 MB     512 KB
-  all 404 vCPUs         869 MB     <= 202 MB
+Please submit patches using subject lines reflecting the style for the
+subsystem, this makes it easier for people to identify relevant patches.
+Look at what existing commits in the area you're changing are doing and
+make sure your subject lines visually resemble what they're doing.
+There's no need to resubmit to fix this alone.
 
-Let's lower the capacity to 8 with 64 KiB pages, In the production
-usecase above, it frees at least 667 MB. That still covers the two-page
-minimum and leaves room for several table allocations per refill. 4 KB
-and 16 KB pages keep 40.
+--axoJEjM2GoVi6XeC
+Content-Type: application/pgp-signature; name="signature.asc"
 
-The temporary cache in kvm_phys_addr_ioremap() uses the same capacity,
-but it is topped up before every page it maps, so 8 is sufficient there
-as well. The pKVM hypervisor memcache and the eager split cache don't
-use this capacity.
+-----BEGIN PGP SIGNATURE-----
 
-Signed-off-by: Usama Arif <usama.arif@linux.dev>
----
- arch/arm64/include/asm/kvm_types.h | 5 +++++
- 1 file changed, 5 insertions(+)
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsFrS8ACgkQJNaLcl1U
+h9AAwgf9HaTs4e2f/UrGLH8UQ9/Led6UPT1G6vWCeWG/AZe7BGOlHv50yqXp63CB
+Js0Xzt0NyXgDTeAcRxJpZxb/p452QHyO+WMdkt6rBpvj96wgdCOjzNSDoGmVl4fL
+CYom+nMAVJOtZhcanmuPCjgVoDAosfm/WIc04Io6XXfp248irSd/bhABH5pSRIrf
+UN3n/BZILy5VaG7rFcb2RRC/IYETPnNZ3fFFeurH5j6XXi21IQwpibLxcF7yAMag
+DWKaEElYsF7cTHqu+zmbvRpaj3kOsMschPqwNPoGxxM3QxZl1p0CkTwBEwrr/HSq
+s3Q8w87hREg8NskKRUEl/d0EIzEg4w==
+=el/G
+-----END PGP SIGNATURE-----
 
-diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
-index 9a126b9e2d7c99..28568da9ea4a7b 100644
---- a/arch/arm64/include/asm/kvm_types.h
-+++ b/arch/arm64/include/asm/kvm_types.h
-@@ -2,7 +2,12 @@
- #ifndef _ASM_ARM64_KVM_TYPES_H
- #define _ASM_ARM64_KVM_TYPES_H
- 
-+/* Must cover kvm_mmu_cache_min_pages(), at most 2 with 64 KiB pages. */
-+#ifdef CONFIG_ARM64_64K_PAGES
-+#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 8
-+#else
- #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
-+#endif
- 
- #endif /* _ASM_ARM64_KVM_TYPES_H */
- 
--- 
-2.53.1-Meta
-
+--axoJEjM2GoVi6XeC--
