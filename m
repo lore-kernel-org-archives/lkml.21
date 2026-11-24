@@ -1,54 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.159
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795511924;
-	b=gtY68K6wHxnb2z4/jM6ECOYg+oPSv7xauJiM1gTtyuyyCpTKJhlB551PdNYcQuFsiOHQ
-	 DIkiprKX36Z/7NIIJsKPMBYvA6E/GkjDmdNUuKWoRS8Jg2Ho+SHAAt8I2XPAUFmYj9bkW
-	 03hceUt3omaBdl1AzGTy54+T9rq0+tY9h0dt5iXNH3VJQz8AAOhit2Mck3kl1d8xV1dtH
-	 lOhDmwvoIW9CDVlL5IS/M+bbW0tzFgHuM0vneKnN+yv2yKcBz4pt8gsu3x7pujIu+T8xC
-	 sgjrnWktg68NHo0pCgd+UQ/EkJwlWCXFv2G4p99otLFWJi/2QSgR4UEBOF9DNZK2S+w==
+	t=1795511941;
+	b=4MmOU//ev8Meq5p8IU9EdxpfsZCpfucJRgOhJ0KiSOyHYUwXAoO9AMWSErdHduUr065h
+	 gN8MHzE1KSXHvYdDOa3NCF/22oQ5nIOeQrwqha5MS3CcraoNBMrNNxDTPuVfrcOg2RDTh
+	 uRuiczdbvOCO2WDBRELQfA00ilOG+aJF2gvse5BSkKpfqRAQL0p+s+JvUUpwjCaej7c8g
+	 kLWjb5WLGwHznTAbLFSE37+cDSeEXFPoC1bOgoVKi84gGbrIZblbSHifL4JSmZk0ALoug
+	 iMIw0G5jBinG+njhZHSY0xNQg/uvAbuiE1JgMZBmfREua2AxCRH4jJjN2lSIivCvMDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795511924;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Cc:Content-Type;
-	bh=TaIwWCMx9I6oV4SxjMTi3a+08EIvzGByLCSnN8rdvdA=;
-	b=tSxkK41Zs9n+xcmHIaZzPxXK8zGBaPqNy3g0cI1roxJADdNS9SGEgoyF5pETxoIx2VF+
-	 USSRnp1n8AGBVQK8f/4GGMSU+2kqcg/qd3J4cjxPO40yyaNVNJZ3uZJWHsXQGtCketmCv
-	 HcR4XE/kp0I528Flv9d395XHoitcUXcm8mEZLpY0kwNU7cl+CZVET/Lkux3iYXhyQguhp
-	 QPdiFDvJYWxgxCVuFXK7Vn4ziJOfDPToUFbeW9G7hxe/0VUaldL2C8K56+Hcyho1qMA/s
-	 vCmWfZDYAfqXum2Guo9FxCkt47JA+p4mG4QQnAsRwbvGU05balE932lSX126yxxwn4w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795511941;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=XocY+M1AcIUeIJvs0qU03q4fW/jTPO4xx3yX5EWKMd4=;
+	b=r2DGF5vBQS9B3ZY+k2ZcInY3TSuWYwR9S1k34Drr9SRmQtsZehDG2MH4BqRTSfH36Fjd
+	 1b197RfWrIzjRsDTWQxmXCeT9C7NaTwPuYDDTpAO2xSb7pCfx18w/XQzCMggzPpbByR7T
+	 uEiNTiacgiF/vlkhdD+ulmRf/tA+h5E02phXNKpJz5v/15TlASCkrlgpDPndYmBYlXFp0
+	 1Efv9ddMJSyRPxj4gczv2aLMZHbaW49C4OdtlPA2hEJEfSeIN7Laf61UnpaHtDt34DVlR
+	 Q4acDt8WTzYVf6W8QFAbQfhgEHhdK5v0euswExNy5ezUXUQ0fKm0PoHX/pFxs4iBYxQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.199
-Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=arndb.de;
+	spf=pass smtp.mailfrom=arndb.de;
+	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=R0Ms4PZe;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=bRUwkXSZ;
+	arc=none smtp.remote-ip=202.12.124.159
+Received: from fhigh-b8-smtp.messagingengine.com (fhigh-b8-smtp.messagingengine.com [202.12.124.159])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEEF4606A327
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:18:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EEEF4606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4b37620eb73so5732096b6e.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:18:38 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795511918; x=1796116718;
-        h=content-type:cc:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=TaIwWCMx9I6oV4SxjMTi3a+08EIvzGByLCSnN8rdvdA=;
-        b=rH83Ov4guSNXVO8A0TfZwd5KXE1zdAIFSDFt5pD0lMakyqgHY8LtYwFstta3nXE3CF
-         T9IBgE/+a1g0/U0fxA62vJULem2+kye/++eTAQfXVtAgyfkXiu4p3ZJNFfzj0Jsm1P/f
-         YwnKiRy5Dv1fwakZ5kZBS58SqyIkdxSdIbsDZf5LM+0IfPsSbbowcNdPmqoo3PYe2/2l
-         go4j0sqkQnwHnCVv6Aquh3jjFpC3t0HXaziwgkOS+KFhrFTyPNoDGR6DEF/U3SyZgjkX
-         rjxk7v6qcQ0kQTr3Ddmp7gMQ2oeKX98Z/kNz0OpLdawh2o+el9BWJCI+8l9/qnEP3lhT
-         lzTw==
-X-Forwarded-Encrypted: i=1; AL+hErFDF/x5CG/YoK7d/EOOEw+E3s0qoY1X9wmYS8XJAgL/MT30PQOqh+XsyQGrIcQa3pgZyqjWuz5SB4HRx8o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ioL2yYx1OibnhxnKmnH7mnQP8ZX0RQJ6faxWVMDySgcneynHh
-	WnQvuKhuJxgcPcWHn4JEPrbQsawFgV3u7mUb16MCUyDQCTAf2rY+Fgz71fuPyZC+0fQXrzbyHRE
-	QYDutKRG9tdkSt7hOfyluw/34udu5V9vqWdJS9Z4ebmHkw6onB3STW3AdYVw=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEC7E606A332
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:18:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EEC7E606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=R0Ms4PZe;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=bRUwkXSZ
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 43F0C7A0518
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:18:50 -0500 (EST)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Tue, 24 Nov 2026 04:18:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795511921;
+	 x=1795598321; bh=XocY+M1AcIUeIJvs0qU03q4fW/jTPO4xx3yX5EWKMd4=; b=
+	R0Ms4PZeqAkU1DDBEVsGat4DITypGqS2HTKHdWUJ+DbKw1ZvqUulkf/bGo2pJymr
+	YH6KbJbZCzc5IP/0a0Dc8rUvID/l09lPDhcU1ZeUyQh5pMCJrguYF7ctJgFeR4EA
+	toCdPGcBM2ODtnvD2HXuzlzENTmbGN8MmCeSuMQx2CJT4XkeGWa0kg0zgnGQ5KiY
+	iN2VunAvsrmUc5+tO/VeI9xYz2vBaNIXPoQ5gMi7Zdd3ceJ5C3wUkl8gdLMJMYQy
+	dH8kAS7o2x0bPVHQFn0RetXunU00AoumlHajbN9yvs0ufrA9tyU99vcQWLT4+3E1
+	oN/T3N8jqjoZwU9NfE/5EQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795511921; x=
+	1795598321; bh=XocY+M1AcIUeIJvs0qU03q4fW/jTPO4xx3yX5EWKMd4=; b=b
+	RUwkXSZ16+iE9s79Rdw+XXDMwHjCA57nnRbNjbz4pxldE8BzX19sa2lzIyCDjed9
+	6coECF+7jNZXE6PddkfIlcpe+Wy48AnsLVX1GgxFRAfpgMoqgAaIFcPb5NLPX/0v
+	gCZXfu7G2pUgIiNN6KToE/r7NcrHW5I+f0He1BUJk9PfiRr1/pvpN8+2BuFpxlbI
+	iO75D81eoaQL+umZLWYxAcV9w/TeoZqhzhMXU78i/F/1rrg2ftfWZDNwUNjcAztf
+	dKnNJOg+LJdB+Nf3d5C7Zi99uCXsEtX98yU+nvOv5JopqG/btzG8OPPfr1qPS77d
+	tpqJ2Nxpdv+WaGevfDA3g==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795511921; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:Btj22OPTtqhtEOoP0o1tidBWVzF3puvCXqW9Kc7IMPLFghY
+	RuBLqN/otNPklYVSV62rXhANkYQlOo6L+pZazcMl2dHTLmRDPXtJr0ZNngt3QNNg
+	PTanQNtSXyuTHyK7owvHaOQOJam53sDkkcaGGf3QF7VDHGm1edS6gkZ+bRanCPND
+	crTVtghLxbPYMARNU/tHIJ6qfXVv6y7WmiuqbRjv3uxLp+lo4C0TmWLtrqmUi4/6
+	yw06hdN2MLEmMDcoGWg2oRktDCEBNUHqqN5f/+fT9DusOsNfiQtebyyj80RdKxUV
+	+7B1cPZpjH7Ht2EAiIkdmXjsFwY5d78spNFo0Vg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:lOJvyBuFvi/IgWkarJ75xdxMUrYdqmOeuxDssazp7h0=:B3Mj+76bVMQxXOi8IqWqtsFyzskk/wTbXDuEh/uIyrY=;
+X-ME-Sender: <xms:bFYFa0giqAGvgzU3JUvEU1ioAgA0YwHWmPTMjt9z7vrXoJBvAnbfvQ>
+    <xme:bFYFa30cUqn5JBAc3jvWzupGlDrK40He8RC5dt-u1YdMAzNqpPOyibuRIpHJhDWPb
+    7yvsYWRY0JibANghS1fYzU8oF5yOsT2HLCSqQkarh3YOYSV6uv-dGk>
+X-ME-Proxy-Cause: dmFkZTGRtg4XF1eY6KI/R8BRBNaqE9DOsPcN/jTjzdrzqiK/3Q7XtTIjabc3oZpqwjiEGu
+    ThX6CzOJcz7Ciga8bHw5lzibadEkqVv/4bBoTU4nod7jlB/lVCx9QFHljKp7ah9QybAWSE
+    ZHQaGB2GgaOLwHkt1vZ4m9Sza3Y1Xy8Vw1GElFEGQhmE6VfTlhDZ7Sgjc9BMcUubBAq3Iv
+    RarWI8hvqXGmey23V0fkBKtpnYBkV/0RIcbC5RdrgUgHqibcTuZp4sE6sBAvXnCojRLYGg
+    tccO3mZ+880fhyqHXlH7uhDZo1oKw4e2FzYieJUmOg1XN/jLXDk+bD3murJWTlQQds4Uow
+    Ep+ziyhhQE9xZqh3wToitVtzuhux7Oz8IZwPhcpc9P8X5bC3bgcGrKaUQLsImb+FUMCd6A
+    BN6ZD3ZkEe9GwS0ToyfqV0Yj8AyglkgOvnruX+7zFOwAO8l2yj8BJzf096m1NeY6h95NKy
+    5OuSmmftL+9tog77eDrJB1SUzIhg7k9ry2LiQ55WVcUj2jzwVINa3cRu/99s5/7tZSw6ia
+    strJHPU88xx00CPkOasY1iyfpGqr3jdjJ9FvuY4HfhXkYO0THkpDE0wUBXfong4+2bg8NZ
+    GiIyNDaZt3b4IBuM56KkHSjHd3fi9WafDEHS8iezbGIB3iQYNLnK78X5ncnw
+X-ME-Proxy: <xmx:blYFawE0y68xoizWhCLQI-K0N2Ad4zgAwa1PavuJf1OI9hlu-9Z-Lw>
+    <xmx:blYFaytWkAoTJBL400cZwTKWfuAd1DNU6fiTmsUcIQvkjd1MCZOW0A>
+    <xmx:blYFayqQgraHauytHWogEGrpXKAEWGgKz7j-2tNebkHUIodTyvEMAw>
+    <xmx:blYFaxmcDZI7tkXTHbjvEkIO4YUecgcx18Uv4_y1kDelc-XAKC7Qeg>
+    <xmx:cVYFawtMI4qIaxxCnzY9pjdd5QiiNLOG2J_SfqD11XqheEqpqWOGwI0->
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 6E2D032A009E; Tue, 24 Nov 2026 04:18:36 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,91 +115,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:1310:b0:573:d802:fb0 with SMTP id
- 5614622812f47-57a09504ab8mr14368983b6e.13.1795511918118; Tue, 24 Nov 2026
- 01:18:38 -0800 (PST)
-Date: Tue, 24 Nov 2026 01:18:38 -0800
-In-Reply-To: <20261124091833.2275524-1-hanzhijian1991@gmail.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b05566e.58b41460.7037.0592.GAE@google.com>
-Subject: Re: [PATCH] usb: gadget: raw_gadget: fix ep0 request leak on unbind
-From: syzbot <syzbot+d83b3c49738aea97c0e5@syzkaller.appspotmail.com>
-To: hanzhijian1991@gmail.com
-Cc: hanzhijian1991@gmail.com, linux-kernel@vger.kernel.org, 
-	syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+X-ThreadId: AIWdN_2nP-rJ
+Date: Tue, 24 Nov 2026 10:18:06 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Krishna Kurapati" <krishna.kurapati@oss.qualcomm.com>,
+ "Vinod Koul" <vkoul@kernel.org>,
+ "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Manivannan Sadhasivam" <mani@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>,
+ "Thinh Nguyen" <Thinh.Nguyen@synopsys.com>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-usb@vger.kernel.org,
+ "Manivannan Sadhasivam" <manivannan.sadhasivam@oss.qualcomm.com>
+Message-Id: <9fa428e0-f685-410c-bcdd-319fd427d2cc@app.fastmail.com>
+In-Reply-To: <20260913-eusb2-interrupt-v8-v8-2-0f505b9c394b@oss.qualcomm.com>
+References: <20260913-eusb2-interrupt-v8-v8-0-0f505b9c394b@oss.qualcomm.com>
+ <20260913-eusb2-interrupt-v8-v8-2-0f505b9c394b@oss.qualcomm.com>
+Subject: Re: [PATCH v8 2/5] include: linux: phy: Add phy attribute "type" and
+ associated helpers
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-> From: Zhijian Han <hanzhijian1991@gmail.com>
->
-> #syz test: git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+On Sun, Sep 13, 2026, at 16:40, Krishna Kurapati wrote:
 
-Patch testing via #syz test is temporarily disabled.
-See https://github.com/google/syzkaller/issues/8122 for details.
+> diff --git a/include/linux/phy/phy.h b/include/linux/phy/phy.h
+> index ea47975e288a..038c2b58bbe1 100644
+> --- a/include/linux/phy/phy.h
+> +++ b/include/linux/phy/phy.h
+> @@ -21,6 +21,8 @@
+>  #include <linux/phy/phy-lvds.h>
+>  #include <linux/phy/phy-mipi-dphy.h>
+> 
+> +#include <dt-bindings/phy/phy.h>
+> +
+>  struct phy;
 
->
-> From 6d5331190d1c541e112aa26ea25f0744eecaaadf Mon Sep 17 00:00:00 2001
-> From: Zhijian Han <hanzhijian1991@gmail.com>
-> Date: Tue, 24 Nov 2026 17:18:01 +0800
-> Subject: [PATCH] usb: gadget: raw_gadget: fix ep0 request leak on unbind
->
-> gadget_bind() allocates an ep0 request and stores it in dev->req, but
-> gadget_unbind() never releases it. The request is only freed by
-> dev_free(), which runs when the last reference to the raw_gadget device
-> is dropped. When the UDC is unbound and then bound again (e.g. via
-> sysfs), gadget_bind() is called a second time and overwrites dev->req
-> with a newly allocated request, leaking the old one.
->
-> syzbot reproduces this by unbinding/rebinding the dummy_udc driver
-> through sysfs while running a raw-gadget instance: each re-bind leaks
-> a 128-byte dummy_hcd request.
->
-> Free the request in gadget_unbind() instead, while the gadget and its
-> ep0 are still valid. Dequeue the request first if an ep0 transfer is
-> still in flight.
->
-> Reported-by: syzbot+d83b3c49738aea97c0e5@syzkaller.appspotmail.com
-> Closes: https://syzkaller.appspot.com/bug?extid=d83b3c49738aea97c0e5
-> Signed-off-by: Zhijian Han <hanzhijian1991@gmail.com>
-> ---
->  drivers/usb/gadget/legacy/raw_gadget.c | 22 ++++++++++++++++++++++
->  1 file changed, 22 insertions(+)
->
-> diff --git a/drivers/usb/gadget/legacy/raw_gadget.c b/drivers/usb/gadget/legacy/raw_gadget.c
-> index 4febf8dac..aedc7a305 100644
-> --- a/drivers/usb/gadget/legacy/raw_gadget.c
-> +++ b/drivers/usb/gadget/legacy/raw_gadget.c
-> @@ -328,8 +328,30 @@ static int gadget_bind(struct usb_gadget *gadget,
->  static void gadget_unbind(struct usb_gadget *gadget)
->  {
->  	struct raw_dev *dev = get_gadget_data(gadget);
-> +	struct usb_request *req;
-> +	unsigned long flags;
-> +	bool queued;
->  
->  	set_gadget_data(gadget, NULL);
-> +
-> +	spin_lock_irqsave(&dev->lock, flags);
-> +	req = dev->req;
-> +	dev->req = NULL;
-> +	queued = dev->ep0_urb_queued;
-> +	spin_unlock_irqrestore(&dev->lock, flags);
-> +
-> +	/*
-> +	 * Free the ep0 request allocated in gadget_bind(). If the UDC is
-> +	 * re-bound to this driver, a new gadget_bind() call would otherwise
-> +	 * overwrite dev->req and leak the previous request. Do it here,
-> +	 * while the gadget and its ep0 are still valid.
-> +	 */
-> +	if (req) {
-> +		if (queued)
-> +			usb_ep_dequeue(gadget->ep0, req);
-> +		usb_ep_free_request(gadget->ep0, req);
-> +	}
-> +
->  	/* Matches kref_get() in gadget_bind(). */
->  	kref_put(&dev->count, dev_free);
->  }
-> -- 
-> 2.43.0
->
+This broke the build in linux-next because there are now two conflicting
+definitions of PHY_TYPE_PCIE visible in drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c:
+
+In file included from include/linux/phy/phy.h:25,
+                 from drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c:15:
+include/dt-bindings/phy/phy.h:15:33: error: expected identifier before numeric constant
+   15 | #define PHY_TYPE_PCIE           2
+      |                                 ^
+drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c:47:9: note: in expansion of macro 'PHY_TYPE_PCIE'
+   47 |         PHY_TYPE_PCIE = 1,
+      |         ^~~~~~~~~~~~~
+
+We probably just need to rename the enum values in phy-qcom-uniphy-pcie-28lp.c.
+
+     Arnd
