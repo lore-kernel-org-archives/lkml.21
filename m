@@ -1,111 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.238.236.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795556595;
-	b=gTXhHJzJlgHgdrgWE5Ned0izgkA6V7A1+r8oO5nbE7M5+cH7OlfHUBIegEZTO0yNwhXv
-	 L1zvo6ZDlJp1jPoGysd21wqyyisl50AqhlQUKS7331IN1zUfirgv9EaTCTypAsy17Rlxn
-	 a41xSTehfe2GB/YG7rGUgIqteGGVcfOuWm/6QpBDiXMNUOG5uOHXdI5Y3JohYNXvhdA6D
-	 bmyS7YgDptM9D6wbXzI4PCg13nOHLRAqva3Ze1in96Ie9xx94D5up0sd1gPcnEi/5epKi
-	 4R+g3zr+bl8nmKKoMdmlRUIfS9PmshFWSEY9NX2sy7I8UyKR9naS8X4aTJWXo2IPNQQ==
+	t=1795556598;
+	b=NKlZB50iURndYegNdBo7BKHV/TlDCRQE9Ml22DAL1mkguzl7msr0w6I3CULCM9QTPnIw
+	 QYmwBfD3UAcNEf/QR+WWE9heXpekZyRkqa0mU9wcY7JDXwol7UaMm1hfzAsOQuOImXs5p
+	 rLJx/ac9Bwb1ooL1n6G1QB5bWPCl56GbuJLbiaVzuJMVLSdQnMGfC6sAv8dPBHe8kkUvF
+	 2o2tpcgd5qV8wG005sx9JPfAf8enumvy7lZdgoQsF8bp4nACaTK6ZHGt7y4FrB5vo1+80
+	 Gy1LViUvMdLQwe6DG2YsaIHmYYFreblKvnu6uUY4/ZgcDQKaRq/l8w5LY6IWxPivuiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795556595;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=1dgevjOWuJAYh7LIS5HDx0mssJ5LCiALLAiYYaKE9M4=;
-	b=iJKMWaTSAs87PsWnJ4Ze4jJa2SWBOVDCLpAfwBlTZ8TXotiYwOGbYTi8kb9FDWZUe/X0
-	 1OeWWlcgdD062rEQDlrvVD6RyFWebwmz+HIZ5FfkTTaHVHxbXuppLxHCY94CZ1aJ827tU
-	 XBJUqFxzjshs1lWill0RD28NA41hm5S/GibQ7j2jmD/50Mkp3rAA5dQoq0Es2gV2rjh14
-	 VoV11xUtNzd3OLcBk8pW06+X5K0vHC9pe/K6cTAa+PUxcf+wlNbOQOxRXU7UH2zn1cE7z
-	 h7Ki85RsjNe8LGl3lYH7vBdVvBfvAFD+6ujNuWn0W9UL1Uca2EswfVLC4dxhOI4Og7Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795556598;
+	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=EfGE9YBTewiWSglRdGN58o65rErT0L06vLupgEMSkpg=;
+	b=1L6SLt9Pw4V2OsqLpBf7asw1RHVSq40acQ8TkVMjmmuA3YXVO79CpvmBv8+GcCuaYk3w
+	 jclQubosncfeNZffCGZoXQbMKkBez4fidQ0l5nX6M6l/0FiBFTpFF4V9rYuPyOFhNB+ZN
+	 +FovFYUPgfE8LVGMyguGd9YpAfV0RPC0Gl6yDxQWnV8s4QhSBzxmxzgvbFV8eL97FHxXL
+	 nnRzRiZu3/7uuCrBPGgClU3kmcN30iCnJ16YEtUX9Tq87NgomFup4A7VoCDVUifUJk1kW
+	 lETyvLa40QubSxw+MTPsl32wIGtC2hxarxxNE+hextRoOZhgIoZRi+/5bXo1QCQxHHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0LgHWBrb;
-	arc=none smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=kemnade.info;
+	spf=pass smtp.mailfrom=kemnade.info;
+	dkim=pass header.d=kemnade.info header.i=@kemnade.info header.a=rsa-sha256 header.s=20220719 header.b=cLTiWz7C;
+	arc=none smtp.remote-ip=178.238.236.174
+Received: from mail.andi.de1.cc (mail.andi.de1.cc [178.238.236.174])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8499F606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:43:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8499F606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08301606A332;
+	Tue, 24 Nov 2026 21:43:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08301606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=kemnade.info
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kemnade.info
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0LgHWBrb
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-4a511d8a394so518641f8f.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:43:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795556594; x=1796161394; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1dgevjOWuJAYh7LIS5HDx0mssJ5LCiALLAiYYaKE9M4=;
-        b=0LgHWBrbm09GnvzktQXlq+YoVhTra+a8APFk5vqOolCQeExJ2faUuCcI9hv+G/9vCv
-         Y67rTSPHFaLPgYL80KJv2kRu48ClOL7d+Pguh3uoSPikRzMiRgMmwMYXC35wXS9K486r
-         VxHTpTW5Q7cqFI6ZBAqWwec1Rt4r5FgfiLu6EI0euirfCHVplEa4awaH+j9cesVX6RRk
-         UJJg18yWHb0hp9bSHAWODvxczxKVMBykGIdWtrgK1bvLKecrE4Yd01mpNRSp3MjWSY3p
-         mDNbqM3QgFP2ND0EuUIcaDnK5m0rdjhwBYfdGOzk3ifogWrpN83n5RZZMDEDu6dRiRLy
-         z3ng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795556594; x=1796161394;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1dgevjOWuJAYh7LIS5HDx0mssJ5LCiALLAiYYaKE9M4=;
-        b=dBpWwqGTIN1sPgBP9ok7uPHDBOu4kT0wH4A22/hr2jeK8XT2t6IGUjI3lzc/JGq8La
-         jMlVzhpCnUi51rbkTaGbrd/5JmF4yqrPJh/jSZrkKeWi0QeNbFjaAlpHhuoQILHO9nAg
-         ctNopnj8GRiD/rWf9fa0mFRQbzD7R0JHNqv9HOpOl7e7HP8acgYm5iDq5q+7A5h3zsee
-         n8BJPpjQ58iU0Xyto0HIZhZ0agoAGK3reitsq+Xl3asHN+6v0UbNEvVDpWXfqhEeUANn
-         CUYa2h6ZZ9FwEtpyGubrRlpW1AWPZBgYmMfU0hEiS37wyNjQWppMu1BFyijlAbMmb6oy
-         UF3A==
-X-Forwarded-Encrypted: i=1; AL+hErFGPdSIvkOk86D9rTLMI+8Wv0EhfuFiKFsRWe+qj94qpQDb3xQnDhFvdPKc87AZsgfjuoeK/AkfB5ibLVk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/kEJFSww1EBhw5ZF0UUfjMWbCpE6b4ro0sGx3S7Z9Ez4KDxCUV
-	OboFdiD2EwnFbz5+tokZG6gds0zHUA32E6o2apG9uiAgYCX1k+qh3iz0
-X-Gm-Gg: AZFdTZeGZynvy/3AbUow7w8KEAm5KrsPaNYFvG4mtLPM3tnCSXTshU2TrH929b2xUFX
-	ZGVDLckr46T17hA1SI76qNCMDVzDouD3kyLKIUn9kZS4z5EZ4OFh0SCPMvKgV0sa/DlQbzHIHBn
-	/N0E3ntqqG2BwqZR7Q6laThw4AIs8/jwVtJm46YnNVfW/CVeN/RnwnIAeb41C5d9/OcUdJ9x0FV
-	jPlzuzVdQyAmXzkvryD0xPIensofm2rbeudsGMwZ0BgkG6f9B1XdrmarcSyreaFVmZDn+XvKp6R
-	f40tzN4GltdluKQvZ/enIE063DlfKdhJonqCwq6sWuQx9b2zw4VbSIsdw17xZoif2nlT9CSU8Pj
-	sJ8lwv+O02LjXj97Nw9lmNa6sVGMR8xelW9R7S8gouyPGHEI2iFfZZvEebIUgZlQx4KOxfKdJr7
-	xfThPmQcI6UsHJObNbFhQOJ4itWf7vePuOoL7NgBe0r5DbyZy54wOQ3xKf2gxUHNV7yJbMGqAvx
-	bg6+tbE0Xx12/ox6VQOsPl4kyBF39/sIftuosLiGNw/n4xBoZGm24l17jFWWvpui23y9uSJjmnF
-	hE/yBF9bWzo9MzQBWNrPL3k0W4SiO08hKDKna2LmyCU5HXWLavrDo9i/tak39mQtKR1R
-X-Received: by 2002:a05:600c:8284:b0:4bb:6c01:de9c with SMTP id 5b1f17b1804b1-4bb887f55c1mr283837645e9.2.1795556593828;
-        Tue, 24 Nov 2026 13:43:13 -0800 (PST)
-Received: from Nuel20.localdomain ([105.118.4.83])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906640a2sm244195265e9.0.2026.11.24.13.43.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 13:43:13 -0800 (PST)
-From: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-To: tianyi@cloudflare.com,
-	hangbin.liu@linux.dev
-Cc: kuba@kernel.org,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	shuah@kernel.org,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	sdf@fomichev.me,
-	skhan@linuxfoundation.org,
-	kernel-team@cloudflare.com,
-	tianyi.gao@linux.dev,
-	emmaonana18@gmail.com
-Subject: Re: [PATCH net-next v5 3/3] selftests: net: veth: propagate bad-settings check failures to exit status
-Date: Tue, 24 Nov 2026 22:42:55 +0100
-Message-ID: <20261124214255.12280-1-emmaonana18@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261123140946.13992-2-tianyi@cloudflare.com>
-References: <20261123140946.13992-2-tianyi@cloudflare.com>
+	dkim=pass (2048-bit key) header.d=kemnade.info header.i=@kemnade.info header.a=rsa-sha256 header.s=20220719 header.b=cLTiWz7C
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description;
+	bh=EfGE9YBTewiWSglRdGN58o65rErT0L06vLupgEMSkpg=; t=1795556597; x=1796766197; 
+	b=cLTiWz7C3yQl1bpgBLRvVCg3BtGmoLSgbOZefEoa9BHjZgVBJnmdvHZeFxe1lHtMqQjsi29YfbM
+	KTrxTYgJFrOtMCYtkUKDvhgVgMl3I9MDpNpudf72LdUynq6I8NoPV3k0wPXzXp3I3ESvEz0QjqH82
+	E9fEIhDntWx5oaL9rGoKnjqjMrJjXljodcwAV1JQ42ld3T2xjBORjB/RYs/SsdPzt0FBpfZDWDbEE
+	1QNawRGmp06mRScNAd6OF68ez9PrmxNou/HWLCJ4XYUwUNQYb7V8rs/BHOrg21yUEXQpqr5GOsnYq
+	t7gry6LPk5j5gjehb72A6/xTG8eOUgXTds8A==;
+Date: Tue, 24 Nov 2026 22:43:00 +0100
+From: Andreas Kemnade <andreas@kemnade.info>
+To: "H. Nikolaus Schaller" <hns@goldelico.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
+ <brgl@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Lee Jones
+ <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>, Jingoo Han
+ <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>, Liam Girdwood
+ <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Aaro Koskinen
+ <aaro.koskinen@iki.fi>, Kevin Hilman <khilman@baylibre.com>, Roger Quadros
+ <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, Russell King
+ <linux@armlinux.org.uk>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Uwe =?UTF-8?B?S2xl?=
+ =?UTF-8?B?aW5lLUvDtm5pZw==?= <ukleinek@kernel.org>, Helge Deller
+ <deller@gmx.de>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
+ <tiwai@suse.com>, Peter Ujfalusi <peter.ujfalusi@gmail.com>, Jarkko Nikula
+ <jarkko.nikula@bitmer.com>, Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-leds@vger.kernel.org, linux-sound@vger.kernel.org,
+ linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-pwm@vger.kernel.org, linux-fbdev@vger.kernel.org,
+ letux-kernel@openphoenux.org, kernel@pyra-handheld.com
+Subject: Re: [PATCH v2 06/20] dt-bindings: sound: Document OpenPandora sound
+ card
+Message-ID: <20261124224300.519d8686@kemnade.info>
+In-Reply-To: <5c6f7deca16f70f1f19cb40c57d70e30068d6000.1795505160.git.hns@goldelico.com>
+References: <cover.1795505160.git.hns@goldelico.com>
+	<5c6f7deca16f70f1f19cb40c57d70e30068d6000.1795505160.git.hns@goldelico.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,13 +83,138 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Mon, 23 Nov 2026 14:09:47 +0000 Tianyi Gao wrote:
-> If you squash this patch with patch 2, feel free to keep my tag on
-> the result.
+On Tue, 24 Nov 2026 08:25:46 +0100
+"H. Nikolaus Schaller" <hns@goldelico.com> wrote:
 
-Done in v7 https://lore.kernel.org/all/20261124214025.11603-1-emmaonana18@gmail.com/
+> The OpenPandora audio subsystem describes the routing links between the
+> OMAP3 McBSP interface, the external PCM1773 DAC, and the TWL4030 audio
+> codec, alongside amplifiers and power supplies.
+> 
+I think at least in some commit message should be commented why such
+an interface is needed and the generic sound cards are not sufficient,
+also as a starting point to recheck that later if these reasons are still
+valid.
 
-Thanks for the review,
-Omokefe
+Regards,
+Andreas
+
+> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
+> ---
+> 
+> Notes:
+>     Changes against V1:
+>     - Address Krzysztof Kozlowski's V1 request to run the documented
+>       DT schema checks and fix the errors reported by Rob Herring's
+>       automated DT validation.
+>     - Update the binding example and schema during DT consistency review.
+>     - Binding and commit-message review assisted by ChatGPT.
+> 
+>  .../sound/openpandora,omap3pandora-sound.yaml | 95 +++++++++++++++++++
+>  1 file changed, 95 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml b/Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml
+> new file mode 100644
+> index 0000000000000..6c4d69ffc1c50
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml
+> @@ -0,0 +1,95 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/sound/openpandora,omap3pandora-sound.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: OpenPandora OMAP3 Audio Complex
+> +
+> +maintainers:
+> +  - H. Nikolaus Schaller <hns@goldelico.com>
+> +
+> +description:
+> +  The OpenPandora audio subsystem describes the routing links between the
+> +  OMAP3 McBSP interface, the external PCM1773 DAC, and the TWL4030 audio codec,
+> +  alongside amplifiers and power supplies.
+> +
+> +properties:
+> +  compatible:
+> +    const: openpandora,omap3pandora-sound
+> +
+> +  label:
+> +    $ref: /schemas/types.yaml#/definitions/string
+> +    description: User-visible name for this sound card.
+> +
+> +  amp-gpios:
+> +    maxItems: 1
+> +    description: GPIO pin controlling the amplifier power state.
+> +
+> +  amp-supply:
+> +    description: Regulator supplying power to the amplifier.
+> +
+> +  sound-dai:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    minItems: 2
+> +    maxItems: 2
+> +    description:
+> +      Phandles to the audio CPU DAI (OMAP3 McBSP) and the codec DAI.
+> +
+> +  routing:
+> +    $ref: /schemas/types.yaml#/definitions/non-unique-string-array
+> +    description:
+> +      A list of the connections between audio components.
+> +      Each entry is a pair of strings, the first being the connection's sink,
+> +      the second being the connection's source.
+> +
+> +  widgets:
+> +    $ref: /schemas/types.yaml#/definitions/non-unique-string-array
+> +    description:
+> +      User-specified audio sound widgets.
+> +      Each entry is a pair of strings, the first being the widget type
+> +      (e.g., "Speaker", "Headphone", "Microphone", "Line") and the second being its name.
+> +
+> +required:
+> +  - compatible
+> +  - sound-dai
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/gpio/gpio.h>
+> +
+> +    sound {
+> +        compatible = "openpandora,omap3pandora-sound";
+> +        status = "okay";
+> +
+> +        label = "OpenPandora";
+> +
+> +        amp-gpios = <&gpio1 14 GPIO_ACTIVE_HIGH>;
+> +        amp-supply = <&aux_5v>;
+> +
+> +        widgets =
+> +            "Line", "Line Out",
+> +            "Line", "Line In",
+> +            "Headphone", "Headphone Jack",
+> +            "Microphone", "Mic (internal)",
+> +            "Microphone", "Mic (external)";
+> +
+> +        routing =
+> +            "DAC1", "APLL Enable",
+> +            "DAC2", "APLL Enable",
+> +            "Headphone Amplifier", "VOUTL",
+> +            "Headphone Amplifier", "VOUTR",
+> +            "Line Out", "VOUTL",
+> +            "Line Out", "VOUTR",
+> +            "Headphone Jack", "Headphone Amplifier",
+> +            "AUXL", "Line In",
+> +            "AUXR", "Line In",
+> +            "MAINMIC", "Mic (internal)",
+> +            "Mic (internal)", "Mic Bias 1",
+> +            "SUBMIC", "Mic (external)",
+> +            "Mic (external)", "Mic Bias 2";
+> +
+> +        sound-dai = <&mcbsp2>, <&dac>;
+> +    };
+
