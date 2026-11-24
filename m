@@ -1,75 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.156
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795546438;
-	b=C6qcc8vCQukr4sKiv0Kdwj63DuyKeuNUqpDJRuoLIOK5rm2XWZFLY4Uqngf4/bSzJBnj
-	 toX1M9yGL9NdTrhYaibrKSFLt+ydepfczm3C0dL2gdMx8GTAtr0VJdHj9escLaWPUYX/Q
-	 nPyliUpPiXtmS0mCCTJa+S5McXH7rR3txQM0UBkfDvfIoVy52jV7rl7C/tHMbFN+Yg4Gu
-	 IiLAnLfhMrqdD5Djppy6Bk52HJt9WkG9lqEpEG6IYO+T3MCElFUPDCh9lLKW0PrLgf6mx
-	 klnFbPQPSzywXZfPSSJWCIBYk6vooCIE5FAyMToZ1+vfPOfWw3KLyrgLlMhbuQg6KRw==
+	t=1795546469;
+	b=4mDJG1na38kI1Xg6yi7A4Cm2PFhiKKKeKyeTg+BVdJaQk15QPLCcNrHAgXM9FHCUAnot
+	 kaYqolzKapfkrkLqSZr0W/I1KGLRQryuHHoB9wf46QI/e3loHsNIKtxcVvHJ1nGvg7uvn
+	 0r71yUAhjnzhpDuA6qldKvWE0yq9d3FgVCMrZjwF2XSlCFNCZgvTwT8Zigw5GvccJOiJm
+	 ng3Dgo8RhkueOYaaPQ2neUKevjz6j8lstrIHv82ZWAidMBkBpuyhOjfz9d7Hu68tbjhdc
+	 lvszW7hzNuFiaIg9gyrpnf4fwRvqMbXonES9x0W9CibHNlyek0wJxPprZGxCRTLhMdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795546438;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=mL/gxZRbqEoO7PWsAzrzJCRp9tsO2oUCEAYKIbDqaTE=;
-	b=qRXXW4n8+cIWMi4XqcG4JORpo6XRDK2RAVaJ6KJUqlVZi8f2jolZQ0yAf3Fouu0TvKTq
-	 MY9AhM2jWq8Cgbhr2d5lfEiEMG63hHyeMXNWGBwROcOMVjAdc4Sow//rTyQLB6DnQ66ms
-	 5FcHmTpNodw+ObKq1b4U9VzKFk2Q6CCZ9l1Mb1obnXOPhXgJxya1KaKqmsxWCqBdvECZi
-	 +2D2XxrbDXuTuB4OXtP4ojbdDmYm2KdNTqGfnrECJJLV29nWJRitnC+PSNKOlkcsQFKN1
-	 xhtKoHFXfi+ES4EX397VqKtEMYH6gS7P/nwuSrKmmNqSEzITa78a6jnceg/0oQCJ2pw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795546469;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=zzADWq2A9f6U6Ncm9LM291Imr7Nwrsax19gq4eW/i1s=;
+	b=giaSn8iXxffGMEZCs/kxDEfSHSZdJPl+wSPHUbOev2nwO46t7/cuzpOj/u6hQy90YNTs
+	 Qq83cfx6bE105wD7Gz9R4VoUo8lNkaA5wHTxDiQXkUJi4RpBViTvpWT0RdvNh40i49mWr
+	 bhpb8c0eD+rDAmTiJCzZ2lzROlTTjHCo4id9etyJ1YouUIuqX42JsCNjGe2pPGn+4l43F
+	 s4Ux+xqF9FgpEdKVGJjVjE0WO50e7O1M/7dWOYJoAqHvdVqdWvriMXwEp49JuI8Uf/JMT
+	 eQ2K4Ptvk1yWOp+AH2qfjv5Ob9GkQCd4yjgAy53m1TQJxG9XJ2mRnN/qqZ4whL7l4Sg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=F+WAV8YJ;
-	arc=none smtp.remote-ip=209.85.221.70
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com [209.85.221.70])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=arndb.de;
+	spf=pass smtp.mailfrom=arndb.de;
+	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=P5z384dP;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=TwUQQDp6;
+	arc=none smtp.remote-ip=103.168.172.156
+Received: from fhigh-a5-smtp.messagingengine.com (fhigh-a5-smtp.messagingengine.com [103.168.172.156])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51FEC606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:53:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51FEC606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FE6F606A330
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:54:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FE6F606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=F+WAV8YJ
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-49090fde23aso2995848f8f.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:53:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795546436; x=1796151236; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mL/gxZRbqEoO7PWsAzrzJCRp9tsO2oUCEAYKIbDqaTE=;
-        b=F+WAV8YJ1MJL9kRGEi2wZ18e4jKibp9jJ7DEDYHEE5w5Ib4RSvUVan9OEGO3u64jy+
-         NSaVSYCs9cGpS68g8HaoD1cl+0t189rUCiNQf9cdQSYLic/gfk1Vidi/t7th4XrKSSCG
-         uMMvpbYNmfdfghxXoJLlC9rZbJXOiKLDrAnTzv/xnwOiq3s/2gcoR5aTtUXEhBYVYVCF
-         0/cDT6FUsz+yDEFYLb8pA82WkEUf3Jf+XvkP0a48SDcsvwRrpxkc9KjgPU4Tlljo2gjM
-         zspNEIQ6G9XNcOAZvSBkG11sWRcEryANIumPFQu0VHRM1CYcPQUi2q1EFpOprh36sruc
-         cDyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795546436; x=1796151236;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=mL/gxZRbqEoO7PWsAzrzJCRp9tsO2oUCEAYKIbDqaTE=;
-        b=hQgyVNbdJteeBQsAFc7WpGvmxG4xszLlSVk+3ef5drJAvfwPuqiBV7i0rOhLUIThyz
-         lSe/SXWjFECH04Nmatw5G8jji2+xKFqPrANfzCxt77iUQQscU5N9ZN3F96qqkRQszHkX
-         kKr9vjO8YN2L6tzKcYWvN+xx9nt8X7iFwi4fkM/R4TXVI3T3yU/cNZP8Nwxk/xv8OnSH
-         jV4fKi8X6joWzkBZaKwSYiaCY7iNwqQwlomyIfq0vfT7lqATbljMyeBB6be7m/QQ+Doq
-         NyaCHV8XYiYwEPjvvCSsaKZx+eOQff7072qt32zVV8glbUOZSFjrf6Q0spPQ8QS4J9f6
-         oxOQ==
-X-Forwarded-Encrypted: i=1; AL+hErFmzoe9aPQgosYXgoR4TdG56Czof2we6nqJOmNgr0514ha07jYWd5i8Y3rA027TboW9e1ivYgpkT39kWpw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z86qu8EsDA6ne30693BbexTGuzOc8t1zJs/B9VDbDznNey9XG+i
-	F48NBNYA6rsn0cQZA+Dz7K9TftRy4LTEIsrLOLI2dKDx01BMoW+Km3L22OCmh5yGLEN4OoXStFi
-	h601DQGxPQa5M7pSWEw==
-X-Received: from wroa3.prod.google.com ([2002:adf:ed03:0:b0:4a2:f12f:819c])
- (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a5d:6f05:0:b0:4ab:f5b0:a7ed with SMTP id ffacd0b85a97d-4abf5b0a91cmr28429904f8f.12.1795546435440;
- Tue, 24 Nov 2026 10:53:55 -0800 (PST)
-Date: Tue, 24 Nov 2026 18:53:54 +0000
-In-Reply-To: <20261124-perf-binder-local-work-lock-v1-1-bd8de1a840c1@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=P5z384dP;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=TwUQQDp6
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 4DE8114002FB
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:54:28 -0500 (EST)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Tue, 24 Nov 2026 13:54:28 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795546464;
+	 x=1795632864; bh=zzADWq2A9f6U6Ncm9LM291Imr7Nwrsax19gq4eW/i1s=; b=
+	P5z384dPQqGFwInJesEbTB65u8U9LssEE55f2UhY+p9oT6kb3Nx7iJaixV+JMWDH
+	eO6YnseMxm9y/4d7b+FZEw4tYJYR5toelfZHwhAffCYgtl/rQH+seASNmtnaXM1C
+	6BAyKz/OlpMgNylFT4Niz5A+I5ynHX2N3a0glbxo3S4a7XEwxuqxK5UCRXAFcs0F
+	xV8IU7k0ZxKT2IoUCoqb2W4CuqSzWdEyd3J52PUNEXYf0tRTBIDaUp0MEAehqyst
+	QSLiOH5VP9JuuRYRVDcqAkYs+PGRBxP7Bi8AiZrLdzd5QdyCvpkbS2Iz10kKJVU/
+	fTiO5c5UxwJT3I0trCQYjA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795546464; x=
+	1795632864; bh=zzADWq2A9f6U6Ncm9LM291Imr7Nwrsax19gq4eW/i1s=; b=T
+	wUQQDp6GuCGoVRbzbe4mjcc0rfiDoEIs4kIRSNf1PiE/EMGexvPkY3ABGFJ61s7o
+	IYE/uqY0DHB74tHCsb7YJYkPKNs+r1GqjbyhW3JAUrezkSy2IbqsKYITGA+Oo4AW
+	q2lA1S0nj4E1X9C7+Kwk7TVsTmSCeUdYnJhf3UoHSuegVbv/KSVWwZreSC7ESrxp
+	mDVpYnBzFs6N7MAtHbBm/QCO7favrihtH9VIjdnbhet/Z2Sjni79/LSlW+ECIqvB
+	C87LAxToVuwDTV/r0KFx0TwWvRzbnmjlHKN2gI7vxcDyO5O79vIctIKDqACyI6PE
+	eVnransWpokq86L0lm6nA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795546464; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:JDB4AWR+XZYlD5Vwkv7gExQfSvMe0BpMzcJ4/beLcPUSlU+
+	v2vaLuj93HggGPZwU3sz2dD0v2EVFC+izJYysRWpi2NEv5Ygv/88lRK1gbr416cA
+	fJA6hUzQv9gjk+cJpAix+NAjBbVJOM2V1ZhLTgf0Qnf2aYnNM7PXeW6YEmPTB90r
+	FVRwjmsCdKQfScDP+1VpkODG9sdm3C6PgFEH7kYeh7dgfWQNFVzkqBjaHBI9lU6u
+	br19Ut3I3Jt0Pr2rUYCfbpQNLx74G22VTyn+2IieqJ7bNR/pL/hlUY9ufQ57e2Tp
+	08Y0RvF3QXtVRFByNyDe955jOduWAj+ymBkymKQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:LzM4tAbzweW+mDyb/1r3509G6pq6a3/4tE8KTO1Vt/k=:zzADWq2A9f6U6Ncm9LM291Imr7Nwrsax19gq4eW/i1s=;
+X-ME-Sender: <xms:Xd0Fa-BlhsDL-CMEXAS3woexowWSp7UW8kuiF7G0LDj0VNXO3AjE3Q>
+    <xme:Xd0FazV0z76SGmdOUEhbwIvoG8NcyrYYbIy53wUavHgI_H7DRJPKil5s-MwJCCMr5
+    cvoSzBYHaNFd3ID4YKzkwnBAEjI8Gpmt9cn_mzAbMr8heuCX2pZd7c>
+X-ME-Proxy-Cause: dmFkZTFB9quJ1NFTduPcxf7Gn9pbvDkjKWpuhMkQ+EAYdW2AbKBk1t0S0hk5VWorL2Agm2
+    qtwRbXPvAVWfQY87E83MZi85KNWfq/pZQeTFC4XHsqylC5T1d9SBYYxS8rX5VpocJ8KoA2
+    JsYSa0JBaSxxKoH8VW2EBRFGYhljDkmX53R3tsjyNlgO2T+lQiasOpg7wlmJxpq/uNj5TE
+    voeb3CS3OW5nBhpFVlF+xRWPVD48Ymva4XRjaibVBPt1FhO1M6VWA+hVJOEdMSkpxstG0/
+    KzW44t0G59GU17b3vslVNsBIj2SUcGEF9hrUsK4g5Yvx4dSrucLSvw8FAQD4oCZe+P3rc8
+    w/Oerwzd1swLwlK0jroqDEmm4tm16oz4sCOOWAkBSMgxW03jchlQ7JvJdzo0Y49fIM3PX1
+    3VdCFZDvojnPfwvWebrRIlKxBGRa7yp4Se5DS3FQOC7TXS+hz0LuFaEl1ePM1sJZ5JqeJJ
+    E98Bzz69DHBeU8MPGs8Mbvn02/p+83Rt9TlGnKroxU0HzJkuU+t0Hv+2oj0HuQh5PDsrD8
+    b3CjxQkEhw9scEsELAoR2/3pc3arbhQlEBkF+XsbJ8v788vzxs67tu+YvwZWy7T/t4XFEH
+    nZkIMZPhd5BdkO9rUn0lIccJaVJFhR4VYCvxq6CkKFELBYG+zlhfrsHxJWOg
+X-ME-Proxy: <xmx:Xt0Fa2QwHhu5LKxUiyUpm8UWp-sik77xk3DomaXJfZr3RFC3-nTExA>
+    <xmx:Xt0Fa2KHuYbMnACoyAMkCZ6Fs8y1gbQ08LDFY1aXsZ2Y1mGH1VmMVg>
+    <xmx:Xt0Fa59Qv4OdpIxNkjEFbcegFlrR0ThVW4mSvoBsBY4QaC60nuO2_A>
+    <xmx:Xt0Fa9JR30qqgJvbVK6aj3_uIDx5vgTp2fUiKqJhK4PbQ5RxjDg2IQ>
+    <xmx:YN0Fa29a6Rd9dbHKKRBlDFuIHXroTLNtUsLtWdgVxS6EkhX9WOSW2I1p>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 1964B32A0099; Tue, 24 Nov 2026 13:54:21 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,35 +114,71 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261124-perf-binder-local-work-lock-v1-1-bd8de1a840c1@gmail.com>
-X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261124185354.3821154-1-aliceryhl@google.com>
-Subject: Re: [PATCH] rust_binder: Reuse the thread lock in get_work_local()
-From: Alice Ryhl <aliceryhl@google.com>
-To: Peder Bergan <peder.bergan@gmail.com>
-Cc: Alice Ryhl <aliceryhl@google.com>, Carlos Llamas <cmllamas@google.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"=?UTF-8?q?Arve=20Hj=C3=B8nnev=C3=A5g?=" <arve@android.com>, Todd Kjos <tkjos@android.com>, 
-	Christian Brauner <brauner@kernel.org>, rust-for-linux@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+X-ThreadId: ADzkAynZlS63
+Date: Tue, 24 Nov 2026 19:54:00 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Lorenzo Stoakes" <ljs@kernel.org>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Juergen Gross" <jgross@suse.com>,
+ "Stefano Stabellini" <sstabellini@kernel.org>,
+ "Oleksandr Tyshchenko" <oleksandr_tyshchenko@epam.com>,
+ "Madhavan Srinivasan" <maddy@linux.ibm.com>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Christophe Leroy" <chleroy@kernel.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ "Shrikanth Hegde" <sshegde@linux.ibm.com>,
+ "Haiyang Zhang" <haiyangz@microsoft.com>, "Wei Liu" <wei.liu@kernel.org>,
+ "Dexuan Cui" <decui@microsoft.com>, "Michael S. Tsirkin" <mst@redhat.com>,
+ "Jason Wang" <jasowangio@gmail.com>,
+ =?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>,
+ "Xuan Zhuo" <xuanzhuo@linux.alibaba.com>,
+ "Jarkko Sakkinen" <jarkko@kernel.org>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
+ "Borislav Petkov" <bp@alien8.de>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, "Jan Kara" <jack@suse.com>,
+ "Paul Moore" <paul@paul-moore.com>,
+ "Stephen Smalley" <stephen.smalley.work@gmail.com>,
+ =?UTF-8?Q?Ondrej_Mosn=C3=A1=C4=8Dek?= <omosnacek@gmail.com>,
+ "Joel Stanley" <joel@jms.id.au>,
+ "Andrew Jeffery" <andrew@codeconstruct.com.au>,
+ "Ryan Chen" <ryan_chen@aspeedtech.com>,
+ "'billy_tsai@aspeedtech.com'" <billy_tsai@aspeedtech.com>,
+ "Bjorn Andersson" <andersson@kernel.org>,
+ "Konrad Dybcio" <konradybcio@kernel.org>, "Abel Vesa" <abelvesa@kernel.org>,
+ "Jens Wiklander" <jenswi@kernel.org>, "Sumit Garg" <sumit.garg@kernel.org>,
+ "Scott Branden" <scott.branden@broadcom.com>,
+ "Broadcom internal kernel review list" <bcm-kernel-feedback-list@broadcom.com>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Richard Cochran" <richardcochran@gmail.com>,
+ "David Woodhouse" <dwmw2@infradead.org>,
+ "Andrew Lunn" <andrew+netdev@lunn.ch>,
+ "David S . Miller" <davem@davemloft.net>,
+ "Eric Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>,
+ "Paolo Abeni" <pabeni@redhat.com>
+Cc: xen-devel@lists.xenproject.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev,
+ linux-sgx@vger.kernel.org, selinux@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-arm-msm@vger.kernel.org, op-tee@lists.trustedfirmware.org,
+ Netdev <netdev@vger.kernel.org>, linux-mm@kvack.org,
+ "Jens Wiklander" <jens.wiklander@oss.qualcomm.com>
+Message-Id: <9a87f9a4-4299-4a9f-97db-578d7687a848@app.fastmail.com>
+In-Reply-To: <20261124-late-2026-mmap_prepare-v2-10-0b0d99d655f9@kernel.org>
+References: <20261124-late-2026-mmap_prepare-v2-0-0b0d99d655f9@kernel.org>
+ <20261124-late-2026-mmap_prepare-v2-10-0b0d99d655f9@kernel.org>
+Subject: Re: [PATCH v2 10/13] tee: convert shm mmap hook to mmap_prepare
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 24, 2026 at 04:04:27PM +0100, Peder Bergan wrote:
-> get_work_local() takes the thread lock to check looper_need_return.
-> When the flag is clear, it drops and retakes the lock before trying to
-> pop work for either a blocking or a nonblocking read.
+On Tue, Nov 24, 2026, at 15:02, Lorenzo Stoakes (ARM) wrote:
+> Move from the deprecated mmap hook to the new mmap_prepare hook, using the
+> PFN remap mmap action to map the shared memory.
 >
-> Keep the guard across the flag check and the first pop. A blocking
-> read that finds no work still registers its wait before the condition
-> variable releases the guard, so a producer can wake the reader.
->
-> Signed-off-by: Peder Bergan <peder.bergan@gmail.com>
+> Reviewed-by: Jens Wiklander <jens.wiklander@oss.qualcomm.com>
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-Looks good to me! Unlike get_work(), get_work_local() never needs to
-acquire the process lock, so dropping self.inner between checking
-looper_need_return and calling pop_work() was unnecessary.
-
-Reviewed-by: Alice Ryhl <aliceryhl@google.com>
-
-Alice
+Acked-by: Arnd Bergmann <arnd@arndb.de>
