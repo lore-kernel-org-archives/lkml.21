@@ -1,38 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.47.186.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795517116;
-	b=BfyXLGFvqtaQiWs3kx+GiWBH7bqspLaZ+WL28hdNhdBpWX+RFAPLKPYHH7K0F/d8i6xx
-	 kKcoMILri2mb/pBJZnU5UWQQx0IPgI9lxSPrcV5HEoxlHC9PdHiKsUFy0ScGD9ADOZ6H0
-	 KJDT4Lm+kxqrPkmcWzeSDOydHUj8fkiHou8WfGiO775aCPxTQX52kaGQEcgUT5r5SJzHK
-	 dp9ZXD4jnpv42+IOsq3Uk7B+Q3U9Xb4qI3G4mHRCcypjQQnQ++6/kGt7zbTESb5DQ1ClJ
-	 4OtDpEy6F1dpeSO7UCMfJNjDJBcdy8Cg0Pr/gFqqfojJ1Uztbzf5k/pLBukN679vACw==
+	t=1795517128;
+	b=df47s35I2qYDgXjUww4PB6w1+ZseAtH2Fc2Jp9ha95hYTe7X3+RkOg+SwNkhklLGb0T6
+	 tZGkFiOaFW1hCUhoG98FYbBQ3y6LA5Z5e+Cqro5cCSbcERDPnVClRrc0UVod1StVjqSm3
+	 9TScTyP9IxrIDrROwjoNuEEgboGS8NJ0eSXMvu957ces6roJqrk2ohEd1qXBgsmgB53X/
+	 UXLi8/UrMUeonInCiVWNe4Owg8D2whmVEE64puP5ZmXssX1+e7r/ejWMNY6Wgyi3OTgE/
+	 meoi7vUAZbttiwecujuxbZW5LxBLTrXBQ9ocT3zRyrEd63c/23nz2Xg3kKiRlfFUGtA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795517116;
-	h=DMARC-Filter:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=q7PBzm6IpwoqeUW4SGvSibZ8Ne3iky2jn/TgYiXQpiE=;
-	b=mQ4sbvZilec5QgOVvNZc5Ar/QQTgU5F/EjsFZtQw3tfVfWKwsYW0001qbU7IApl/7hCT
-	 wCB6tU6yK65HUXQ3QmfJi54cBOKvhzV6bJSOOdPkql2a/4yQ9aReT9D7sgXQAL3hxshqN
-	 oFVn7iXKDlp4ihm+SYd2PMM2licETZJqnLrIfQ0ShDW5/25fAtn1WcDPjehBQQubVnMtb
-	 8Bl0EOjqYYWLyOcKngv+0gWbCrxYl1Ma29r3p68vyVf7Q9Ws8uaonB6V6fnIq4bZ2oASx
-	 dZySyUzn6m5OtVrSR7/Pd1rH/K7JwnpfdY+P+VOaDM7BwLdxZaxRRicqDeQM1I5JXtg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795517128;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=hzR6M++7UtjG6jy2cgDIkbudvx9HYvO95GsCqnL8xxE=;
+	b=gRuBMpqifF0B4TTQXpRgxj2yGuEMg6quTx+FEGOW4my9cZc0sOjjtuztY5NYx/17kw+3
+	 G5+S97it+X6lMz7yHfg3UmUaVGB36iolNB8oDfL/GkTCJqj8ZOeb/52hlOxXaLtFip67y
+	 NIfYLstetehPOFGWgV/lUO5VMfOKFOtJnPBGudppE8SdCGJTsd05/Y50LHVCNq0bRRW84
+	 mAFJOTAkaOLUHzPYyikS0c5PsbyGGWYOEC6GfJne8jFYivdiTXp44Q6TcZdAIz13O5c4P
+	 +Gb/ZdmHjuFW2gUq5XGbRrpHAo06V6kpiN/SmahAZ99Af4NwFY35H1B6F1sKd7Pu0sA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=krgm.moe;
-	spf=pass smtp.mailfrom=krgm.moe;
-	arc=none smtp.remote-ip=103.47.186.116
-Received: from krgm.moe (krgm.moe [103.47.186.116])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 46D52606A691;
-	Tue, 24 Nov 2026 10:45:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46D52606A691
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=krgm.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=krgm.moe
-Received: from [10.42.0.96] (unknown [114.242.206.180])
-	by krgm.moe (Postfix) with ESMTPSA id 78F23859;
-	Tue, 24 Nov 2026 16:15:12 +0530 (IST)
-From: SignKirigami <prcups@krgm.moe>
-Date: Tue, 24 Nov 2026 18:44:01 +0800
-Subject: [PATCH 2/2] regulator: qcom-rpmh: Add PM6450 LDO support
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HGEGSFf2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35E43606A32C;
+	Tue, 24 Nov 2026 10:45:27 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HGEGSFf2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C22A41F00A01;
+	Tue, 24 Nov 2026 10:45:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795517127;
+	bh=hzR6M++7UtjG6jy2cgDIkbudvx9HYvO95GsCqnL8xxE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=HGEGSFf2eRNaDxwZooS2w98FsY8/y8xBntEsgPw7bL1TbDOtxeiuYSg70jKZ8BrGG
+	 hV+OC01miwgYDRrfpz71gYzzzIYhCKx3QLTGjlKpW6PHHhidaPbKNPE2Aixv0Ah0Zp
+	 cKoLWaWPwF2KtIa2sXLVlEPdlbUmjcm4fJGhzF6DNTUmg3PFSxhKsW2mulCqmZoW4G
+	 bFNR+mX9dbpN0D9mJQCkEK/3R+Kp8WSaD3OZZooWVGcGUvdT9+ipNg7Cr/EluzIKYl
+	 l/sAmrJnuWX1EV0Hrv/Tu9+aqB60WJ5md1uxMCAcmPJiY64X+uCZSxK8DO/vC82hSE
+	 VPp0Vn/mLvrRw==
+Subject:
+ Re: [PATCH ipsec v2] xfrm: use the frame's own socket in the too big checks
+From: netdev-bot+sashiko@kernel.org
+To: rmustafin@cloudlinux.com
+Cc: steffen.klassert@secunet.com, herbert@gondor.apana.org.au,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, netdev@vger.kernel.org, ipsec@lists.linux.dev,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Date: Tue, 24 Nov 2026 10:45:26 +0000
+Message-ID: <179551712630.3135.52212996809224784@kernel.org>
+In-Reply-To: <20261123104236.4179425-1-rmustafin@cloudlinux.com>
+References: <20261123104236.4179425-1-rmustafin@cloudlinux.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -42,104 +64,168 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-netrani-pm6450-v1-v1-2-1914da758d3d@krgm.moe>
-References: <20261124-netrani-pm6450-v1-v1-0-1914da758d3d@krgm.moe>
-In-Reply-To: <20261124-netrani-pm6450-v1-v1-0-1914da758d3d@krgm.moe>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-msm@vger.kernel.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-X-Mailer: b4 0.15.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2797; i=prcups@krgm.moe;
- h=from:subject:message-id; bh=EWTkzmCy47RtwNhgEz6Zivz1+pcrn08EvhrhLiehm3I=;
- b=owEBCQL2/ZANAwAIAV0dOJt2umJjAcsmYgBrBWqOWdNjM3hehXD+I/6kn+3VGMZ/Oe5zU8bFm
- 4l3hrqLbOGJAc8EAAEIADkWIQRSClJ2zjncUdNU0FFdHTibdrpiYwUCawVqjhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwwLDIACgkQXR04m3a6YmNcDwv9EUkkkvMPQJ9/dQ9SCti11uvEl/MIBR6
- N7a1mwZiNrWEpKnjRjcUWQy6ZApw82OAGPihLuuh+B/JYPWq3ssQvYmG8eHID5MVWAzGU2o92kD
- JYkCj/nGxfontAJg8oLHZTMPxMnDNY4inIPNmsE/BWzHZa/gK/1Cz3J0746GkyEqLs0IHnFKLbu
- drULNcjB6/fAv8+OzEazXPIf25uNfFWDoehznFhemvXdmhXBLFLZp7Z/EVFziKFr1bVAjszm4MO
- A+I+5/N70lTudzO/z27Gz14yIb5bl8oqCBe3VBkmEQ7wzKWZDZ/37aEA0mvhiYN5ieUm6P36aT/
- cYgiz9uHy8kgtShI1Q/LIsTy3GChKXZo1Prm6hfDdlLexjjen4g/lYOyla7KV1PeXV5Af/ZuzUa
- KrBEDHN5Gj4qoWOepVSf7IZgLNPiVPI6xTCVEolXQOW5fQIBDclgc4fXeHMxgbvcmHMxCqlLDy5
- lnk+jtbmwdjrvCHFjlaHM8esHkjFtYm
-X-Developer-Key: i=prcups@krgm.moe; a=openpgp;
- fpr=520A5276CE39DC51D354D0515D1D389B76BA6263
 
-Add PM6450 LDO resources using the existing PMIC5 NLDO and PLDO
-voltage models. Preserve the power-on voltage for LDO24.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Signed-off-by: SignKirigami <prcups@krgm.moe>
----
- drivers/regulator/qcom-rpmh-regulator.c | 38 +++++++++++++++++++++++++++++++++
- 1 file changed, 38 insertions(+)
+Critical: 0 · High: 1 (1) · Medium: 0 · Low: 0
 
-diff --git a/drivers/regulator/qcom-rpmh-regulator.c b/drivers/regulator/qcom-rpmh-regulator.c
-index da4764ffa6325..c397717dc0d6d 100644
---- a/drivers/regulator/qcom-rpmh-regulator.c
-+++ b/drivers/regulator/qcom-rpmh-regulator.c
-@@ -475,6 +475,15 @@ static const struct regulator_ops rpmh_regulator_vrm_bypass_ops = {
- 	.get_bypass		= rpmh_regulator_vrm_get_bypass,
- };
- 
-+static const struct regulator_ops rpmh_regulator_vrm_no_voltage_ops = {
-+	.enable			= rpmh_regulator_enable,
-+	.disable		= rpmh_regulator_disable,
-+	.is_enabled		= rpmh_regulator_is_enabled,
-+	.set_mode		= rpmh_regulator_vrm_set_mode,
-+	.get_mode		= rpmh_regulator_vrm_get_mode,
-+	.get_optimum_mode	= rpmh_regulator_vrm_get_optimum_mode,
-+};
-+
- static const struct regulator_ops rpmh_regulator_xob_ops = {
- 	.enable			= rpmh_regulator_enable,
- 	.disable		= rpmh_regulator_disable,
-@@ -1588,6 +1597,31 @@ static const struct rpmh_vreg_init_data pm6150l_vreg_data[] = {
- 	{}
- };
- 
-+static const struct rpmh_vreg_hw_data pm6450_ldo_10ma_no_voltage = {
-+	.regulator_type = VRM,
-+	.ops = &rpmh_regulator_vrm_no_voltage_ops,
-+	.hpm_min_load_uA = 10000,
-+	.pmic_mode_map = pmic_mode_map_pmic5_ldo,
-+	.of_map_mode = rpmh_regulator_pmic4_ldo_of_map_mode,
-+};
-+
-+static const struct rpmh_vreg_init_data pm6450_vreg_data[] = {
-+	RPMH_VREG("ldo5", LDO, 5, &pmic5_nldo, NULL),
-+	RPMH_VREG("ldo7", LDO, 7, &pmic5_nldo, NULL),
-+	RPMH_VREG("ldo13", LDO, 13, &pmic5_nldo, NULL),
-+	RPMH_VREG("ldo16", LDO, 16, &pmic5_nldo, NULL),
-+	RPMH_VREG("ldo19", LDO, 19, &pmic5_pldo, NULL),
-+	RPMH_VREG("ldo23", LDO, 23, &pmic5_pldo, NULL),
-+	/*
-+	 * UFS VCC is selected at power-on (2.4 V or 2.96 V) according to
-+	 * the storage configuration. Preserve that selection and only vote
-+	 * enable and mode.
-+	 */
-+	RPMH_VREG("ldo24", LDO, 24, &pm6450_ldo_10ma_no_voltage, NULL),
-+	RPMH_VREG("ldo25", LDO, 25, &pmic5_pldo, NULL),
-+	{},
-+};
-+
- static const struct rpmh_vreg_init_data pm6350_vreg_data[] = {
- 	RPMH_VREG("smps1",  SMPS, 1,  &pmic5_ftsmps510, "vdd-s1"),
- 	RPMH_VREG("smps2",  SMPS, 2,  &pmic5_hfsmps510, "vdd-s2"),
-@@ -2056,6 +2090,10 @@ static const struct of_device_id __maybe_unused rpmh_regulator_match_table[] = {
- 		.compatible = "qcom,pm6350-rpmh-regulators",
- 		.data = pm6350_vreg_data,
- 	},
-+	{
-+		.compatible = "qcom,pm6450-rpmh-regulators",
-+		.data = pm6450_vreg_data,
-+	},
- 	{
- 		.compatible = "qcom,pmc8180-rpmh-regulators",
- 		.data = pm8150_vreg_data,
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The fix misses one of the too-big checks.
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but it is a kernel
+  heap info leak on the same path.
+
+--
+
+xfrm: use the frame's own socket in the too big checks
+
+This patch makes __xfrm6_output() test skb_to_full_sk(skb) instead of its
+sk argument in both the IPV6_DONTFRAG check and the local error check. It
+fixes a NULL pointer dereference in xfrm_local_error(). The dereference
+happens when vxlan, geneve or another udp_tunnel6_xmit_skb() user forwards
+a frame that has no skb->sk over an IPv6 tunnel mode xfrm bundle, and the
+frame exceeds the MTU.
+
+> diff --git a/net/ipv6/xfrm6_output.c b/net/ipv6/xfrm6_output.c
+> index 44b221a09a0c8..d383116459089 100644
+> --- a/net/ipv6/xfrm6_output.c
+> +++ b/net/ipv6/xfrm6_output.c
+> @@ -88,14 +88,14 @@ static int __xfrm6_output(struct net *net, struct sock *sk, struct sk_buff *skb)
+>  
+>  	toobig = skb->len > mtu && !skb_is_gso(skb);
+>  
+> -	if (toobig && xfrm6_local_dontfrag(sk)) {
+> +	if (toobig && xfrm6_local_dontfrag(skb_to_full_sk(skb))) {
+>  		xfrm6_local_rxpmtu(skb, mtu);
+>  		kfree_skb(skb);
+>  		return -EMSGSIZE;
+>  	} else if (toobig && xfrm6_noneed_fragment(skb)) {
+>  		skb->ignore_df = 1;
+>  		goto skip_frag;
+> -	} else if (!skb->ignore_df && toobig && sk) {
+> +	} else if (!skb->ignore_df && toobig && skb_to_full_sk(skb)) {
+
+[Severity: High]
+
+Does iptfs_is_too_big() in net/xfrm/xfrm_iptfs.c still have the same
+mismatch? It tests the sk passed to dst_output(), not the frame's own
+socket:
+
+net/xfrm/xfrm_iptfs.c:iptfs_is_too_big() {
+    ...
+	if (sk)
+		xfrm_local_error(skb, pmtu);
+	else if (ip_hdr(skb)->version == 4)
+		icmp_send(skb, ICMP_DEST_UNREACH, ICMP_FRAG_NEEDED, htonl(pmtu));
+    ...
+}
+
+IP-TFS states replace dst->output in xfrm_bundle_create():
+
+	dst1->output = xfrm[i]->mode_cbs->output;
+
+As a result, __xfrm6_output() never runs for these frames, and the check
+changed here does not cover them.
+
+Take a frame forwarded into vxlan or geneve on an IPv6 underlay, routed
+over an IP-TFS SA with dont_frag set:
+
+udp_tunnel6_xmit_skb()
+  ip6tunnel_xmit(sock6->sk, ...)
+    ip6_local_out(net, sk, skb)
+      dst_output()
+        iptfs_output_collect(net, sk, skb)
+          iptfs_is_too_big(sk, skb, pmtu)
+            xfrm_local_error(skb, pmtu)
+
+Here sk is the tunnel socket and skb->sk is NULL. Wouldn't
+xfrm_local_error() then hit the same skb->sk->sk_family NULL dereference
+shown in the trace in the commit message?
+
+For IPv4, udp_tunnel_xmit_skb()->iptunnel_xmit()->ip_local_out() ends up
+in xfrm4_local_error(). That function returns early because
+skb_to_full_sk() is NULL. Since sk is non-NULL, the icmp_send() fallback
+is skipped, so the frame seems to be dropped without a Frag Needed being
+sent.
+
+The subject says "use the frame's own socket in the too big checks", but
+the commit message never mentions the IP-TFS site. It appears only in the
+notes below the --- line, which won't go into git, even though two earlier
+reviews pointed it out:
+
+https://lore.kernel.org/all/20260908224856.1591189-1-kuba@kernel.org/
+https://lore.kernel.org/all/179369310739.488856.16665150928122536725@kernel.org/
+
+Could iptfs_is_too_big() get the same one line change to test
+skb_to_full_sk(skb), either in this patch or in a companion patch?
+
+[Severity: High]
+
+This isn't a bug introduced by this patch, but this branch leads into
+xfrm6_local_error(), which looks like it can leak kernel heap memory:
+
+net/ipv6/xfrm6_output.c:xfrm6_local_error() {
+    ...
+	hdr = skb->encapsulation ? inner_ipv6_hdr(skb) : ipv6_hdr(skb);
+	fl6.fl6_dport = inet_sk(sk)->inet_dport;
+	fl6.daddr = hdr->daddr;
+    ...
+}
+
+Nothing checks that the inner packet is IPv6. The only family check is the
+socket check in xfrm_local_error():
+
+	else if (skb->protocol == htons(ETH_P_IPV6) &&
+		 skb->sk->sk_family == AF_INET6)
+
+An AF_INET6 UDP socket connected to a v4-mapped address passes this check
+while it sends IPv4 packets.
+
+Suppose such a socket has IPV6_RECVERR set and sends through a vxlan
+device whose IPv6 underlay is routed over an IPv6 tunnel mode ESP bundle.
+
+vxlan advertises NETIF_F_SG | NETIF_F_HW_CSUM. With MSG_SPLICE_PAGES or
+MSG_ZEROCOPY, __ip_append_data() takes the paged path. The linear head
+then holds only the 20 byte IPv4 header and the 8 byte UDP header, with
+CHECKSUM_PARTIAL.
+
+Along the way:
+
+- skb_scrub_packet() in the same netns keeps skb->sk and clears ignore_df.
+- iptunnel_handle_offloads() keeps encapsulation set for CHECKSUM_PARTIAL,
+  and inner_network_header points at the inner IPv4 header.
+- skb_tunnel_check_pmtu() returns 0 for local, non-bridged traffic.
+
+Next, __xfrm6_output()->xfrm_local_error()->xfrm6_local_error() reads
+hdr->daddr from offsets 24..39 of the inner IPv4 header. Bytes 24..27 are
+the UDP length and checksum. Bytes 28..39 are past the skb tail, in
+uninitialized tailroom of the head buffer.
+
+ipv6_local_error() copies these bytes into the error skb. ip6_recv_error()
+then returns them to userspace in sin6_addr when serr->port is non-zero,
+which it is for a connected socket.
+
+Can this expose up to 12 bytes of uninitialized slab memory per error to
+an unprivileged user? It could be repeated, for example with
+IP_PMTUDISC_PROBE so that every send exceeds the xfrm MTU.
+
+Even without the paged path, isn't the reported address wrong, since an
+IPv4 packet is being read as an ipv6hdr?
+
+Before this patch, the local vxlan path already reached this code because
+sk was the non-NULL tunnel socket. This patch keeps that path reachable;
+it neither opens nor closes it.
+
+>  		xfrm_local_error(skb, mtu);
+>  		kfree_skb(skb);
+>  		return -EMSGSIZE;
 
 -- 
-2.56.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123104236.4179425-1-rmustafin%40cloudlinux.com
