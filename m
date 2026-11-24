@@ -1,62 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795526890;
-	b=P68+qkeEFFM6/JQJxtCh9ZDqZ+LmSYbIhXKJTl29q5N6yJff1RLo8k79P5gdN/TVRKD7
-	 byucrpoLEHvMhv6XXS8QQa7QCMx5tXCy3B6MTX5WseJykRh4+J+LhW8OzAFVoSOE+muEL
-	 RquK8nEdscSFiA5NzDxSCG1TU14fVYXBolkKFc7xLRF/7+I9ydGnmdECt9WVkNJBj5Xk4
-	 wm9BON3Se2bxMc9JTSNkOSKUA7OH9cHddaWOFOsE8j/XVKHlIOydKpcYLOyOzfU8x6O21
-	 MeIQvr+HxWUhny5s3S3LBEMXzZ1E9M9RGXFq4DEFhL0R50opKPBm2R7jVODJjUqRaww==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795526890;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=ETQq20MuksAGlwb3NO4DBAjWNREDGehauvLDnlkj6/s=;
-	b=rnoDC7Ydsm76DbhJHIdlKhbDI8QYGF2/gDQ1H0BFFdYs3oLyfJwBEqZJxDlyPPi4F+Kj
-	 WZgQXB6jmP2KKaiDhzCEAzKnwNSyxOUFYZ5j62I71mXw2aYnaGUI3/eO2Ss736Kw/vHSh
-	 UOFE2amdUkgBgReSschyjAzXM0oAU8TTzPYgYSO+oaHYcQqqNa1EPmGp6OMYNGjyikR5L
-	 6k95zInbrXoe+UN2+lEk51O94UP/r9EsEyWyptHRGAsfQv2H0MlgKLY5Xio0+Q+V4BbLr
-	 wcJFIg14wd3hKuqr2WkbeOlM9G37bqDs6zgRInnxPnGMQC2HRA4r8KGUChYDG0pPN0A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=exDRlvWF;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9F9C5606A31E;
-	Tue, 24 Nov 2026 13:28:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F9C5606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.37
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795526928;
+	b=bmM58TWFdZeVQuIqbX+pcuPfobHrsx+1gDREvS5SipVUcyWNnE6V+aF3A/gvIFxLdilg
+	 gOPc4izVNE9yLenj3ZXi39HAp9q7xjvuEU/DSVe5EAXLfobKxYND2FGWAVzmTMVh3P59n
+	 GhSpxF4soyyNpkiMAuaQEnGswWdvGE2QLYn2lxJHZY/ZWzPXJsknlxROA6P1mrnCKdp+N
+	 uPpdXVR3LL8935JfUi2g6tLlJlk95ZPHAMJv4FHNTNKB1b3CgkGwDoI4ZbNCwriU9IVLj
+	 Xsajm+e1Qb+kJyt9Cas9RCbIN/8kHwKRN/bPcwNGe70pimujaDxmjNRWXwve6Ul6k4A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795526928;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=bn9NHdS/CTmoOGgHj55goULyo4+mxF6oHjiua5hxtq0=;
+	b=hjYarGPA0noRvHUUrxJATZz10U741YGXR468ZK5OLR5A45AmkPlCDgo/SCE6Zj2thl+t
+	 r6Inxc2u20falRfRQgH3+J4OwUKGdInyne02GYh7duSil0IJVkR5YpZ4sEeYv60XHVtjQ
+	 lhdhXRIgnZRcXf5p40bsEuAFO/pjEIRZjnC31F5++vMEyeaAKxOYOA6SGOCOiMr/va7Mx
+	 gTlLBVbcqNxb/x5DdN/Y4ud3yu7Ag3YvogsA89AUsiRvJOoEC5awT3EeS2pJ/Sqef7ARa
+	 MDMZOKmFtHBMbkRLi1g/ZhytcHJ3NTqUK4vBB1qdyOoP18B9/jfMETG66pGWSEukRrg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nxp.com;
+	spf=pass smtp.mailfrom=nxp.com;
+	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b="n/D+kN1k";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.37
+Received: from DU2PR03CU002.outbound.protection.outlook.com (mail-northeuropeazon11011037.outbound.protection.outlook.com [52.101.65.37])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F20B606A31E;
+	Tue, 24 Nov 2026 13:28:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F20B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=exDRlvWF
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BEB1D339;
-	Tue, 24 Nov 2026 05:28:05 -0800 (PST)
-Received: from e127648.arm.com (unknown [10.57.71.117])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 37AE33F882;
-	Tue, 24 Nov 2026 05:28:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795526888; bh=GVdatysqi0e4G0sd2VbmtUUpEO7i1Weoa/mvmiArCXg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=exDRlvWFwL12WP1PWCwZb4SIgXR8PW54RjYkiT2ssv8RNvSJ5I/lPj+aOvJ4OtwFF
-	 GsBx43FBNNCF1WAj3E++bM78yR8XjOoND1nSKuehWreq0DRpai3tXTslpv4Bdgn7D3
-	 NvvHSNiGSSSHGLIrsqvQNr5f3DOUhv7jhedaHEfc=
-From: Christian Loehle <christian.loehle@arm.com>
-To: tudor.ambarus@linaro.org,
-	bzolnier@gmail.com
-Cc: krzk@kernel.org,
-	rafael@kernel.org,
-	daniel.lezcano@kernel.org,
-	lukasz.luba@arm.com,
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=n/D+kN1k
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DeT7TgE9NQqRPGSFJChgr+vSzC9mCZW6dNN284uSTx0zc1Eiu53uHYKtoXel14uIBAvOtcHStfqV7yw1yyrzp4zSptHCSm0b6DBLjECXEuHKVJncTGLt2E2jdE6jkOfusR+ST4PnHgDPdjl23/xNyp1zv0ttAFWJVnCUq3yXqO5B0XUaafyxSjtO76ZkrEiT/gfSQSvDjl+6qGUtdwB1ouRAiBuJXHIeACgay4QN2yW8tlJotA4aANEyw9bZp7SQwUixdC9+iWwwH0jsK/tm05iBcGPzzp/xv9b71IABkSlf6dBY0W3sgmdYXwwrvzkQu0Smk0VNibtT1n9rdKuW2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bn9NHdS/CTmoOGgHj55goULyo4+mxF6oHjiua5hxtq0=;
+ b=GTJr1ajSUpooZ50nqEDrs7AQDq1WCnyl+ypXWexXkz0Rkp/ti13egRfsc7XgnOryyoKUhMUZ2CGqd2E73p2gfr9FARP+HCRgA5ESzFUQTzOwEMpUb3uBNYLrdZit+cluBMDtVubmISG/We/h1Yl/q21fbnfltd059uqKJvb80QNJ3O5sVWQb9q9ZS8Sd8pe8cgteBlJwtwAhOUlXCtSVK9b3uh8ThD0pd0R9c3UHTKbbWCxuRSIGHUMzFxH238m1/QMLlquRwvDpcZlstpGhhjp02MKwYvLCG0GJ3YVfOa+OS0PaLgL3Z73l8/HO2Odsd09GFgAHk9Y8/+/9vRVhxg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bn9NHdS/CTmoOGgHj55goULyo4+mxF6oHjiua5hxtq0=;
+ b=n/D+kN1kLLDn2qg8bOmxBFcmrd/muzxNHjUwbfLojQem6veNwG5S226CKz15CyDBdRS/L0+I8KG/CzU1/7XKzlo1pcm0HKRtvGM0ZEkQ5Y/6iixCYL4z06nofSyeIyDHpS4Qpm6EYaDdobe3bHDxs3Q+7Cc9wXSCjXciDifwoXkKYIetaVqrMM2v75lUxA3YK5W1N3po64vNaWCZ6wx1I0eZoHNYkwxBLeTxdEV9vkT9xyv+/rWzcX05fHiAEaOyoJLb5cKdHKbz4RqyGDqBvlG9ndPsJFa+C88VBOUl38NUGIkr/a/2h79arqnEJPG6Ntpg1dzF+UPtpNjBoS8CKw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM6PR04MB4472.eurprd04.prod.outlook.com (2603:10a6:20b:23::20)
+ by GVXPR04MB10588.eurprd04.prod.outlook.com (2603:10a6:150:21a::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
+ 2026 13:28:41 +0000
+Received: from AM6PR04MB4472.eurprd04.prod.outlook.com
+ ([fe80::aed9:e8b9:c352:9ba0]) by AM6PR04MB4472.eurprd04.prod.outlook.com
+ ([fe80::aed9:e8b9:c352:9ba0%6]) with mapi id 15.21.0639.010; Tue, 24 Nov 2026
+ 13:28:39 +0000
+From: Stefan Ghetu <stefan.ghetu@nxp.com>
+To: abelvesa@kernel.org,
+	peng.fan@nxp.com,
+	sboyd@kernel.org,
+	bmasney+clk@redhat.com,
+	jbrunet+clk@baylibre.com,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	daniel.baluta@nxp.com
+Cc: kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-clk@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	Christian Loehle <christian.loehle@arm.com>
-Subject: [PATCHv2] thermal: samsung: acpm-tmu: Fix spurious CPU throttling
-Date: Tue, 24 Nov 2026 13:27:56 +0000
-Message-Id: <20261124132756.1306906-1-christian.loehle@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Florin Pavelescu <florin.pavelescu@nxp.com>,
+	Stefan Ghetu <stefan.ghetu@nxp.com>
+Subject: [RESEND PATCH v3] clk: imx: pll14xx: Fix potential integer overflow
+Date: Tue, 24 Nov 2026 15:28:31 +0200
+Message-ID: <20261124132831.698017-1-stefan.ghetu@nxp.com>
+X-Mailer: git-send-email 2.53.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AS4P189CA0039.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5dd::16) To AM6PR04MB4472.eurprd04.prod.outlook.com
+ (2603:10a6:20b:23::20)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,175 +106,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM6PR04MB4472:EE_|GVXPR04MB10588:EE_
+X-MS-Office365-Filtering-Correlation-Id: 689206d5-4dea-40e3-20dd-08df4a2ed9ef
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|23010399003|7416014|1800799024|376014|19092799006|10067099003|11063799006|56012099006|261026121527099003|261021121427099003|261022075727099003|261021123027099003|261102123227099003|261009223027099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	VnF0XDpZZJ9VUAPHoalgvXbAfSUJw8g8FXBbjMmmrPIAaX4RmfVHDQqQDd/nLqqDDiVDy+MxGTbqIqG+I5Fmt82tajucubS4gexKgFE7/ZdYtjpVITB9+fyDRLstn1QHrbcWkdcg/+PJ8eFqZOrP6yXU0nOhPSLMqeFEt4mqdmURBnkgCskpVY1TtBXbsawKEc5bjIaBhYaDvFKm2snZEOlfU5QzUxzNzESST0FsOGN34MF98vwHX+65kF7BRAHnx2ojDSiB3uFK6B8o0/oIYkK6ub7K3V/AlMsgvzQHGXZnOf4dXqG1peLECWqWCtzO4ce6NcvjP+4zD8wxwGx7vzQ3WULQAu3TW1C2d77ZiSb9IJgbXFUwYonhp/0x+4D8Q1DltUA/xFnGMGOK48KSJqlIh5LpgltJCiNtBN8ZpPc6JZcU7Fi+3deZ9I0nGcywnTLYRU+y1iEV6UMNTTFL4kbcipgW0wU+Svz+fK0mKAztRmK8o1XRhTZ+XiGQ79KhTb+SbI6IrdTy76eYT39D6yVkM9tUnzTKgey8octQ+QxuUlX1zc4+xQjSGGjZ6TyxbD94DgAJdw6s2xk61eQxyXvK2ZUzIb24LB3k16MyW5S1NzdT/AvrzJKq5/duOq1XXXYvmCSaXR2AtmXXc60HwFFDwSV8Kn1iNyZkmxux6nA=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM6PR04MB4472.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(1800799024)(376014)(19092799006)(10067099003)(11063799006)(56012099006)(261026121527099003)(261021121427099003)(261022075727099003)(261021123027099003)(261102123227099003)(261009223027099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?Iujww9Ix/a4w5bpMxYGYAshQLjTuTkZcnknK+b7o+rMXEj4F9EMt7d3wbwVL?=
+ =?us-ascii?Q?yqb3YgDMafzaNS6QiiTTAaDqwElvrSBz0yIhljzw/TtL2vZcZf+AXuoFt3Iq?=
+ =?us-ascii?Q?BygIAeIMnJn4VKFTuCjQAFjjrxXAHR5wfZH+/yTxx6OT7pTMPZiRS3Kicf/w?=
+ =?us-ascii?Q?CBAdrpEPESrZJWJ4poq6u0dLZNH2NKBv1lkgxzW4MLG4hE3tVKwOZgB4zoOJ?=
+ =?us-ascii?Q?9uRAZUfrV/U7nTC4UQY1TR99YlVxvBOqmlojnkhalh8KiW9QnhxnfsIzwgHx?=
+ =?us-ascii?Q?MMu47VlfFCXXWPGaOeJAsPTufXfpcLWDRihcrwC55n0TaWemKD8q2HV2Q9QX?=
+ =?us-ascii?Q?HncbS0voQ+BFdiYfz8feAERycrWlOhYCQOmlF8D5hFcog0pdbOqBuLBXVFla?=
+ =?us-ascii?Q?+9diFS1QYUKbj4P6+RIaysMxvFT0RKpMaE62Rmjf8lRU4mYjsa8v2mwMP4X9?=
+ =?us-ascii?Q?k4FBilrSMNte18PTMy3Bbg+Cx2mIfo0Sw0oYdyeScdtYgX75KmPYGNUoSG/4?=
+ =?us-ascii?Q?/Q1BJK145ez0eyyBu/eBs0Y2BKP2xLhMOMVFIUGtI22YW3KoxNUt063FDkIQ?=
+ =?us-ascii?Q?0wEllOo0Yswb4CwL26JcJrdY6muCYJXRPeV86PJ5aAsijVecNx37gra7lFBq?=
+ =?us-ascii?Q?sqsIHAlwzESO2nI6qMsISnicp7eV36JbH783wO3ZM037Zo9dDQv22Ni6A7Wf?=
+ =?us-ascii?Q?lLRZNv0+Tj24cPpL1UgXPmwBYwCBsHDtCQrP8zqKZxwBY2ZLsEE2bqM5A1+j?=
+ =?us-ascii?Q?/FhfTAkgDH+zXkCVwh03+zFGjiR64Ouk5FyRwGcNaoZbJxEfwgfii6brJeS/?=
+ =?us-ascii?Q?Z/hihsbN0J7xCO401QVOYENJ5hZRvbq3YYSKERN0saCWQe7nWbMuvII3h6/j?=
+ =?us-ascii?Q?FReS54nNHAH7cu1K4rUqcoVcl2uEfB/kwkDwO+gq1xy4ls1SwK8NR2nzXHKj?=
+ =?us-ascii?Q?WAdGjlV3W2EJ8PW0jmmxzSgFrZqXj/o/JvtWRsEXou0RPGmtVUcuU+ngUDCs?=
+ =?us-ascii?Q?cbFXYqF9IhugckAq2GbZpv+OWakLZAwXp5y2vI5GclT/mwm8Be9icMl7EbQC?=
+ =?us-ascii?Q?t7vSy80f6vHpsCX7RCohEB6ZP7Zq9F83kZ4xvadjVwGkE248XkcYQ2zr65/7?=
+ =?us-ascii?Q?tEvebpQR/FSf0goruu9UytBfiA65t5TqcAB0Fl3JeJpq/ZKDBrorhHVgg5Va?=
+ =?us-ascii?Q?1mVIIDzSEAMEWLlEcGzK75Gw61+Dci04TOh1xetPOXCSDVoISpw8s1ARIKyV?=
+ =?us-ascii?Q?fnxtOFPGSnxVtQMc4kcl0l5khz1fim93LLHKE5vFM4rrdd8YTfJQdq3WI3kh?=
+ =?us-ascii?Q?8BstErZdv4CPrw4zP6rNRjf5SekBeHgNMg8oW4JGzie6dZUeHoFoQcIDCrld?=
+ =?us-ascii?Q?1jt+cXbilgF4WOGcsI3bqmo4jnyZH8hC7k2Zleta+maaQS69kMVNZ72ycIyv?=
+ =?us-ascii?Q?2TsMzAoxv2WXN35bDvtpRA51jcwdv+rth5KiSgNvj2ebOhqshvR2S4GXM2zF?=
+ =?us-ascii?Q?4qEu9XmhTeUBswuvdeNpE1X2yKI4u+Cze2VF3ZGcluzQDIJbxdr127hBu7Rg?=
+ =?us-ascii?Q?38l+QQtFY4CIt1Vr7zY/53ojfXh/IBkch69ytIa6hiYFZrBmiH0I+2K0PHxj?=
+ =?us-ascii?Q?I2x3Rszu2cz1ZAVBjuZyIGlthNv4aCEhAD+VugYkkVMuhWkgp1Jd2orbch5Y?=
+ =?us-ascii?Q?zkZ74j74Qtbi6hc3TqoiEeB0fSUb4yhDqjPG+6ygllR30E8t4pxuSGYcDFbY?=
+ =?us-ascii?Q?W0dLihgCGA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 689206d5-4dea-40e3-20dd-08df4a2ed9ef
+X-MS-Exchange-CrossTenant-AuthSource: AM6PR04MB4472.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 13:28:39.6666
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6r2/7D0AIzIP+Tx9rCujMBCjty8IxucZux5Ms78xkjMKtoesWzv+pBZg3RdGPIMIoBnbLB1iwSy3NgMp+rnDWw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10588
 
-acpm_tmu_set_trips() supplies two thresholds, but the ACPM command writes
-all eight slots, zero-filling the rest. On GS101, slot 7 limits CPU clocks
-independently of its interrupt mask. Setting it to 0 C limits all three
-clusters to about 200 MHz while cpufreq reports the requested frequencies.
-This was found through trial and error while tracking EAS regressions.
+From: Florin Pavelescu <florin.pavelescu@nxp.com>
 
-Program slot 7 from the lowest active critical trip. Cache the low/high
-window and update the critical limit from set_trip_temp(), because the
-thermal core skips set_trips() when that window is unchanged.
+Cast to u64, so that multiplications and additions will be done
+in 64-bit arithmetic and the possibility of integer overflow is eliminated.
 
-Suggested-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-Fixes: 50a2c5d4062a ("thermal/drivers/samsung: Add Exynos ACPM TMU driver GS101")
-Signed-off-by: Christian Loehle <christian.loehle@arm.com>
+To silence the Coverity warning.
+
+Signed-off-by: Florin Pavelescu <florin.pavelescu@nxp.com>
+Signed-off-by: Stefan Ghetu <stefan.ghetu@nxp.com>
 ---
-Since v1:
-- Rebase onto linux-next, including Daniel’s queued ACPM TMU fixes.
-- Cache only low/high and look up the lowest active critical trip when programming. (Tudor)
-- Retain the requested window even if programming fails, matching the thermal core.
-- Handle critical-trip deactivation and zones without an active critical trip.
+Changes in v2:
+- Drop the redundant (u64) cast on kdiv, as suggested by Frank Li.
+  Adding a 32-bit value to a u64 already promotes it to u64.
+Changes in v3:
+- Drop the Fixes tag
 
- drivers/thermal/samsung/acpm-tmu.c | 76 +++++++++++++++++++++++++++---
- 1 file changed, 70 insertions(+), 6 deletions(-)
+ drivers/clk/imx/clk-pll14xx.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/thermal/samsung/acpm-tmu.c b/drivers/thermal/samsung/acpm-tmu.c
-index 4799ef518a7a..6923256af1f2 100644
---- a/drivers/thermal/samsung/acpm-tmu.c
-+++ b/drivers/thermal/samsung/acpm-tmu.c
-@@ -39,6 +39,10 @@
+diff --git a/drivers/clk/imx/clk-pll14xx.c b/drivers/clk/imx/clk-pll14xx.c
+index c6438144e507..ee9a9e4c392a 100644
+--- a/drivers/clk/imx/clk-pll14xx.c
++++ b/drivers/clk/imx/clk-pll14xx.c
+@@ -124,7 +124,7 @@ static long pll14xx_calc_rate(struct clk_pll14xx *pll, int mdiv, int pdiv,
+ 	u64 fout = prate;
  
- #define GS101_REG_INTPEND(i)		((i) * 0x50 + 0xf8)
+ 	/* fout = (m * 65536 + k) * Fin / (p * 65536) / (1 << sdiv) */
+-	fout *= (mdiv * 65536 + kdiv);
++	fout *= ((u64)mdiv * 65536 + kdiv);
+ 	pdiv *= 65536;
  
-+#define ACPM_TMU_NUM_THRESHOLDS		8
-+/* Threshold 7 throttles the CPUs in hardware, regardless of the INTEN mask. */
-+#define ACPM_TMU_HW_TRIP_THRESHOLD	7
-+
- enum {
- 	P0_INTPEND,
- 	P1_INTPEND,
-@@ -70,6 +74,9 @@ struct acpm_tmu_sensor {
- 	struct acpm_tmu_priv *priv;
- 	struct mutex lock; /* protects sensor state */
- 	enum thermal_device_mode mode;
-+	/* Last requested window, protected by the thermal zone lock */
-+	int low;
-+	int high;
- 	bool enabled;
- };
- 
-@@ -228,7 +235,8 @@ static int acpm_tmu_get_temp(struct thermal_zone_device *tz, int *temp)
- }
- 
- static int acpm_tmu_update_thresholds(struct acpm_tmu_sensor *sensor,
--				      u8 thresholds[2], u8 inten)
-+				      u8 thresholds[ACPM_TMU_NUM_THRESHOLDS],
-+				      u8 inten)
- {
- 	struct acpm_tmu_priv *priv = sensor->priv;
- 	struct acpm_handle *handle = priv->handle;
-@@ -249,7 +257,7 @@ static int acpm_tmu_update_thresholds(struct acpm_tmu_sensor *sensor,
- 	}
- 
- 	ret = ops->set_threshold(handle, mbox_chan_id, acpm_sensor_id,
--				 thresholds, 2);
-+				 thresholds, ACPM_TMU_NUM_THRESHOLDS);
- 	if (!ret) {
- 		ret = ops->set_interrupt_enable(handle, mbox_chan_id,
- 						acpm_sensor_id, inten);
-@@ -267,15 +275,40 @@ static int acpm_tmu_update_thresholds(struct acpm_tmu_sensor *sensor,
- 	return ret;
- }
- 
--static int acpm_tmu_set_trips(struct thermal_zone_device *tz, int low, int high)
-+struct acpm_tmu_critical_trip {
-+	const struct thermal_trip *updated;
-+	int temperature;
-+};
-+
-+static int acpm_tmu_get_crit_temp(struct thermal_trip *trip, void *arg)
-+{
-+	struct acpm_tmu_critical_trip *critical = arg;
-+
-+	if (trip->type == THERMAL_TRIP_CRITICAL && trip != critical->updated &&
-+	    trip->temperature != THERMAL_TEMP_INVALID)
-+		critical->temperature = min(critical->temperature, trip->temperature);
-+
-+	return 0;
-+}
-+
-+static int acpm_tmu_program_thresholds(struct thermal_zone_device *tz,
-+				       const struct thermal_trip *trip, int temp)
- {
- 	struct acpm_tmu_sensor *sensor = thermal_zone_device_priv(tz);
--	struct acpm_tmu_priv *priv = sensor->priv;
--	struct device *dev = priv->dev;
--	u8 thresholds[2] = {};
-+	struct device *dev = sensor->priv->dev;
-+	struct acpm_tmu_critical_trip critical = { trip, INT_MAX };
-+	u8 thresholds[ACPM_TMU_NUM_THRESHOLDS] = {};
-+	int low = sensor->low, high = sensor->high;
- 	u8 inten = 0;
- 	int ret;
- 
-+	/* Exclude the trip being updated until the proposed value is considered. */
-+	for_each_thermal_trip(tz, acpm_tmu_get_crit_temp, &critical);
-+	if (temp != THERMAL_TEMP_INVALID)
-+		critical.temperature = min(critical.temperature, temp);
-+	thresholds[ACPM_TMU_HW_TRIP_THRESHOLD] =
-+		clamp_val(critical.temperature / MILLIDEGREE_PER_DEGREE, 0, 255);
-+
- 	/* If a valid lower bound exists, set the threshold and enable its interrupt */
- 	if (low > -INT_MAX) {
- 		thresholds[0] = clamp_val(low / MILLIDEGREE_PER_DEGREE, 0, 255);
-@@ -299,6 +332,34 @@ static int acpm_tmu_set_trips(struct thermal_zone_device *tz, int low, int high)
- 	return ret;
- }
- 
-+static int acpm_tmu_set_trips(struct thermal_zone_device *tz, int low, int high)
-+{
-+	struct acpm_tmu_sensor *sensor = thermal_zone_device_priv(tz);
-+
-+	/* The core remembers this window even if programming fails. */
-+	sensor->low = low;
-+	sensor->high = high;
-+
-+	return acpm_tmu_program_thresholds(tz, NULL, INT_MAX);
-+}
-+
-+static int acpm_tmu_set_trip_temp(struct thermal_zone_device *tz,
-+				  const struct thermal_trip *trip, int temp)
-+{
-+	if (trip->type != THERMAL_TRIP_CRITICAL)
-+		return 0;
-+
-+	if (temp != THERMAL_TEMP_INVALID &&
-+	    (temp < 0 || temp > 255 * MILLIDEGREE_PER_DEGREE))
-+		return -EINVAL;
-+
-+	/*
-+	 * The core can skip .set_trips() when the window is unchanged and has
-+	 * not committed trip->temperature yet. Substitute the proposed value.
-+	 */
-+	return acpm_tmu_program_thresholds(tz, trip, temp);
-+}
-+
- static int acpm_tmu_change_mode(struct thermal_zone_device *tz,
- 				enum thermal_device_mode mode)
- {
-@@ -329,6 +390,7 @@ static const struct thermal_zone_device_ops acpm_tmu_sensor_ops = {
- 	.change_mode = acpm_tmu_change_mode,
- 	.get_temp = acpm_tmu_get_temp,
- 	.set_trips = acpm_tmu_set_trips,
-+	.set_trip_temp = acpm_tmu_set_trip_temp,
- };
- 
- static bool acpm_tmu_clear_pending_irq(struct acpm_tmu_sensor *sensor)
-@@ -477,6 +539,8 @@ static int acpm_tmu_probe(struct platform_device *pdev)
- 		mutex_init(&sensor->lock);
- 		sensor->group = &data->sensor_groups[i];
- 		sensor->priv = priv;
-+		sensor->low = -INT_MAX;
-+		sensor->high = INT_MAX;
- 
- 		tzd = devm_thermal_of_zone_register(dev, i, sensor,
- 						    &acpm_tmu_sensor_ops);
-
-base-commit: e8017d29067fd1310a65c3494ce1a1b492adbac6
+ 	do_div(fout, pdiv << sdiv);
 -- 
 2.34.1
 
