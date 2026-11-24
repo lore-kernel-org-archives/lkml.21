@@ -1,105 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795505478;
-	b=TsJyI66Unlfp4luAKRkGrqc7arKH4kmBLs8j+Ljl8+k+VfV4iY/+rYr+V72jVZTz0efA
-	 dNjNgagEx5PofVPL4dU26ISlOt9KUJeSthdmwV9bfwEDe533r62lr/bVqqUrAsCbCkPNk
-	 DX/s31kOQlAlaSMjtP+i4YyFM1uzVl2ctp8oOHm44obVa0OBySZiH2fcqIDXuLA3Q4Jhx
-	 UGTfEbmQW5vGpDVx63cMZxrYvawo3tZ+2y5ebdI1M4CFKEUASTygJzdzstoAPBq0kKffp
-	 GY2neoKmVsV+5z2H6KIMASDKqk3k+t6USfUfB8T8Iw4tbf49grdphhEMjrX22570cIg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795505478;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 In-Reply-To:References:MIME-Version:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=uz6sHl5m45qwME77LMFtXBdETR9+QDAW2tNZEQ1kciw=;
-	b=CIn3bceG4nvBhfoe/4xKnXHhUuubXIEDbwhE64c29+kM4rgNIkEd5nJ9EzS8jbviqnDY
-	 cVlMwTvDJE4UjfTovPR/0I6WlOiWqvAJfp0l7uBEz4rWeQS46q6H9q26zF790LwgQRgn3
-	 4blgwa8/arA4Vzn0UAmLKEibXV6lXZC7Y2obegs5BKuKX1/ha/bfja4JlGMrbFCrmaeE5
-	 6Fc4Xls4i1a4EIh70afgjhqe1DBA73CfgSCrL6WhRNyXM8TJdyVhvqHKAewP1x5/Zx1EX
-	 gOqiUBn2ogz5hgB/LHXowbpAAAjyT1HzIIgbBwo/g/7okeZ5kncZ8ql/f+FojCAYsGg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NhoJPA3E;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.110
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795505479;
+	b=PvMf5/5fO6sOB/uk9XoHT/C2hfXmA2wtJs16UEIkDHJcwat1p7BK7NSQQDZzx3k2AsAh
+	 Re7hgUzFGwNpp8G4gyHQzWfY9ADXrjHgv+zJPyCnV0dLbzPFyo5BG93tym5Y/9YC/+XaZ
+	 xileKCJ6T1L43RzwGgmMz1j+EIB/nRgmpCABZ6MvKgO1+u+kTJpNgr5GpiasZZ+l46Pfk
+	 3JuMvlgcLKgwA1JiZlqzWcZzgwOWYmy1Jo0t7WSvSneOqgBLURCZxy9HiufeN/0iPCGub
+	 uiR8ZHLVr01rtMIzoAuOjFdxVglizDB08D02Gj6CWeSA1XPACP6xhljTRfhHhi3NDng==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795505479;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=sbTOHDIReIXESpsLUzFuruA4nd6V61Nk0jm2vqTH+u4=;
+	b=Fi+4QZ7DKAt4EeVLhOOXCIIsZCmmAycp4d231Hp4mLoQr86ywQqBGT2pJTRRk1xjdzDl
+	 iziOx52JORxkNXVY3IZ4NZRUth3zrhjtbjdKKee/T6daGjF+6m4dPCHcovsvu+wcDMj8c
+	 YCpct6I/flCarxYf9lin2ydUmBsiYLntRqKNKboIvOy9dTHGZSCZeFFNKpzk5QHX5OniV
+	 1WKMYNvXw9WznS+QbhqTkbhL9LLChZAAnZsB6ZF0OsLwSzx7UZpqhZ/JGrwzzQmQsauav
+	 M/nYTbQ2PVIcuighMFOrmo1F6Nzaa2iiLxTgY5i6K1W222MN2oOIgXrchvwEYm35J7Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=LTnP6ro4;
+	arc=none smtp.remote-ip=115.124.30.110
+Received: from out30-110.freemail.mail.aliyun.com (out30-110.freemail.mail.aliyun.com [115.124.30.110])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53B5B606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:31:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53B5B606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5A40606A31E;
+	Tue, 24 Nov 2026 07:31:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5A40606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NhoJPA3E
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-4b52fcb410dso778567f8f.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:31:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795505477; cv=none;
-        d=google.com; s=arc-20260327;
-        b=oxRnrrtsdg2U/gA5NlLVniYKRX+jd/Z0iaist89OI8ahNX/0KKHRrrRX8JlBEvqTdj
-         xyhaoB2b8BSZZ2nEqgPlp11WvlCnLZHIh6wvqBw62kCCPQ8tBVzKWoQ8MtvdupGIB464
-         rY25LdczYE/8yTT3ldtueoc/k1f4VA9hb0b7e1CqpkI4+f+P/5EMCTnFGseAJZ3icL65
-         L+YHbn7DRpzp+biciBhunNs8WSMa/c5XjHxcS4iZjnKdwHodoD4NSFrH0G+Se9NpavC1
-         zxl4bLuqXNE7ITlz41ulUkrvhRJyEIwK2FqZVievLAOKmPVwz+2mKNsXOA0MVhgis1nv
-         FVZw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:mime-version:references
-         :in-reply-to:dkim-signature;
-        bh=uz6sHl5m45qwME77LMFtXBdETR9+QDAW2tNZEQ1kciw=;
-        fh=R6sCwXRYLzAYU8o4sj6vyCOwzMmVUQimHRdHgg6Gcck=;
-        b=A6b7tDaH84WgRN2QzQrbpLVQ6NrdcvH0H+Z1VxPQId5giDoIBIuAxtHocn5gKG/GQO
-         qgXpwlrfnSJFEsqqMjvioLnMNWXb4971vq3L4b5XySA5KU289TTFQ5WdTESmNXxEGEsH
-         cHPuSFfeR67AzZnqkY4x4DjTlRQIzZGSmoNxzyLHePBjl1ZvdIwZ0m5Gdoh0Rv53Pnm9
-         tFtSLKU72isUuWlnFbnnKNqnVQ14T+fLxQokJHm2ptqlsaq5ieuM7iDoI+pSHzsPBPvL
-         vWULItFbJ8FeFmA4UXteRnfy8M5xOx8n8uOqkV5LUj7/Q7l4wXLnGNvxgXm3RLW01ek5
-         FAxA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795505477; x=1796110277; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version
-         :references:in-reply-to:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uz6sHl5m45qwME77LMFtXBdETR9+QDAW2tNZEQ1kciw=;
-        b=NhoJPA3E6yTbH+3xZbXP3wEewJBzBNu/b6BMBzA+qYdoTUY4uOYxRogVA3wpJICsfq
-         3vFTCrb4Pcb7cC6xlpYWm6E94uUOWobTmfINqLCBlprEw4Oz3qwuDcROQDs0TWzZEZn2
-         nyVIjelRhCudni2AXYeBn8ANtUolUPxyTpucslpgGXU16j2egPpM5/iFT8R+5g8Rqdn0
-         zqNCrV1lYmMqIPAXN5BCeQTkfPl8DDloVtZUEY0GIlspoEU+83qvqSIuPvF+ZSk/UVnZ
-         SDS17WVK0g4XLPY5D5DYc81wuQkXumA9fmugm5nVcQAGGwOwcJ1De/NUUF1tuMiiatoZ
-         OwTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795505477; x=1796110277;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version
-         :references:in-reply-to:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=uz6sHl5m45qwME77LMFtXBdETR9+QDAW2tNZEQ1kciw=;
-        b=g3YeNugUVKo1k89GY9+bgJVB+4Fk85EHaylVZCrPxTe8zURKNqBDjB6M9mRoEBsmrn
-         PXstjJbofBYxZg0Si0PeuHX/onZrmjhKV4BYPPVuZ6mPNZKLGTslWSGjWh4VBzjI1mXY
-         Oh1ukgqkFL18iSwrchkF+IjcXnYJ4vFPQcgzEfPtMkPXHoPNfi9wWrcPH8NWUNt24aO2
-         tWfFj7PteQ1JWvt6AZiSeC6at3M15duJd4eAHFN/SHuUrUdIy587VlCm+j9vg2M45uUU
-         GEJaXDCjyaH+5Fqki+J1s/A8npISW0v/U1udShnityslJiTWrGZc2HaPU2mmVIFm/u9X
-         UY2Q==
-X-Forwarded-Encrypted: i=1; AL+hErFthEK8PmqZwd54IrUi0vLcVdl07WH2chmMQtZExIjNWCloe637bmGxQPXHXdUemB7LYlLo10UhUTAlvLM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/hQS9EI0NrRdhGnqWpk0+YlFzInzMtDV39RjvkK56rdEavrsoT
-	bpFThyS861sg3SuxGXK3CRrShp8aWN/VQKvJAQZzUFxWRq8nO7/02C9S0R7H7eU2Hv6sQ678wZ/
-	cn2GauUK9Z9bGU9D51YiQB/InCOzDFiwXqDqE
-X-Gm-Gg: AZFdTZcRuOwuAdDplpbJ1hqZi5w5exmibjw9yirSnA0M4ZaWpaG2qmk9uM8RKO5tDu4
-	FyhUAFmu9WkHq3eGiPGJWkeXFoFGc22Eru2aoiFjzhZvQ85hKSYvP/xMHf+HQkEdofssyUMzqzg
-	VKKeUdym+NfbMglD463ATCk9k8/CdWg65Pq3F5gKXekAkXqWFX/GzFUF8JNE51MdwdXW4lG//iC
-	Bvj5JBDucziX+saifuU18EIhe/jUAkUX1T9tzyX+Mx6LzWqkuFHnPGWUKCl10gRc3n+C103hL0p
-	6Iyw8rT1Sz2QVquNKf8bAL39sWrQtnqqGfIrsHRruDh+U0oIqN/O85tVppLRTgBal33uIlAIlt6
-	8nYywWCK8ZqdIN18UvS3rG05ypIsberpA3ClxelDSq/WnIzOynOCzhzLp8g8gd2d/X6U=
-X-Received: by 2002:a05:6000:2903:b0:491:c392:1f31 with SMTP id
- ffacd0b85a97d-4aa5ab788d1mr35237170f8f.28.1795505476502; Mon, 23 Nov 2026
- 23:31:16 -0800 (PST)
-Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
- Mon, 23 Nov 2026 23:31:15 -0800
-In-Reply-To: <4ab84021a5d175f5d3793e52fd818a21@gmail.com>
-References: <cover.1790612085.git.pooyan.azadparvar@gmail.com>
- <26ac42dd18a98c4928cbe7f6b6adb4b396be4c8e.1790612085.git.pooyan.azadparvar@gmail.com>
- <4ab84021a5d175f5d3793e52fd818a21@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=LTnP6ro4
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795505467; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=sbTOHDIReIXESpsLUzFuruA4nd6V61Nk0jm2vqTH+u4=;
+	b=LTnP6ro4+u1ZAoB27W/XrA9E0eb/aE1mjatICa/JN8ZyAGqBXi8NZtuITSnQwqqIepFEWFe2CztO9tlp/hJoEFWltm0YfBU6JNbmQMmgsMNq2sjnShTWRgVsvyrQEtU6h6uCENUPdQDbipmLWUrvnyuIRcbjA/U47g/RhdaGeFg=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=12;SR=0;TI=SMTPD_---0XFNkWxT_1795505448;
+Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0XFNkWxT_1795505448 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 24 Nov 2026 15:31:07 +0800
+From: Guanghui Feng <guanghuifeng@linux.alibaba.com>
+To: alex@shazbot.org,
+	dakr@kernel.org,
+	xinmengs@nvidia.com,
+	fengchengwen@huawei.com,
+	jgg@ziepe.ca,
+	kevin.tian@intel.com,
+	mattev@meta.com,
+	alifm@linux.ibm.com,
+	ankita@nvidia.com,
+	ritesh.list@gmail.com
+Cc: kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] vfio/pci: Provide kernel-side BAR alignment for huge page mapping
+Date: Tue, 24 Nov 2026 15:30:46 +0800
+Message-ID: <20261124073048.268988-1-guanghuifeng@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.7
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,68 +68,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Pooyan Azadparvar <pooyan.azadparvar@gmail.com>
-Date: Mon, 23 Nov 2026 23:31:15 -0800
-X-Gm-Features: Aa3M54of9Ba4hHMKsZBUUvltNlowKvtouah2uS7DpaePdAivP70yFmQtUeYovYg
-Message-ID: <CANC3H+L+hh5XaesFuUDSrFpWGxpfg23JV7oyh+q-TUYqWF8+hA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] Input: raydium_i2c_ts - validate report parameters
-To: dmitry.torokhov@gmail.com
-Cc: u.kleine-koenig@baylibre.com, meatuni001@gmail.com, w1zardsec@proton.me, 
-	robh@kernel.org, jeffrey.lin@rad-ic.com, linux-input@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-Hi Dmitry,
+VFIO PCI BAR regions support PMD/PUD huge page mapping via
+vfio_pci_mmap_huge_fault() since commit f9e54c3a2f5b ("vfio/pci:
+implement huge_fault support").  The huge_fault path requires both the
+VA and the PFN to be aligned to the huge page boundary, checked by
+is_aligned_for_order().  When alignment fails, huge_fault silently
+returns VM_FAULT_FALLBACK and the mapping degrades to 4KB pages.
 
-Thanks for applying the first patch and simplifying the validation checks.
+QEMU already handles this by pre-allocating an aligned VA region and
+using MAP_FIXED, see QEMU commits 00b519c0bc ("vfio/helpers: Align
+mmaps") and 3863e47828 ("hw/vfio: align mmap to power-of-2 of region
+size for hugepfnmap").  Other userspace consumers (DPDK, custom VMMs,
+test tools, and QEMU releases predating that change) typically call
+mmap(fd, offset) with addr=0, relying on the kernel to select a suitable
+VA.  Without kernel-side alignment guidance, these consumers silently
+get 4KB mappings for large BARs.
 
-I also appreciate your detailed review of patches 2 and 3. I'll rework
-them into a single patch using a fixed-size buffer and look into the
-boot_mode issue.
+This series adds a .get_unmapped_area callback to the VFIO device
+file_operations, modelled after drivers/dax/device.c, that provides
+PMD/PUD-aligned VA selection for BAR mappings.  It also sets
+VM_HUGEPAGE on BAR VMAs, which keeps the huge mapping available to a
+process that called prctl(PR_SET_THP_DISABLE,
+PR_THP_DISABLE_EXCEPT_ADVISED).
 
-Best,
-Pooyan
+Note: CONFIG_TRANSPARENT_HUGEPAGE=y is required at compile time for the
+huge pfnmap infrastructure.  The runtime THP sysfs policy (enabled=never)
+does NOT block VFIO BAR huge pages -- vma_file_bypass_thp_tuneables()
+already bypasses it for PFNMAP VMAs with a .huge_fault handler (commit
+e384abeb559d).
 
-On Mon, 23 Nov 2026 20:42:43 -0800, Dmitry Torokhov
-<dmitry.torokhov@gmail.com> wrote:
-> Hi Pooyan,
->
-> On Mon, Sep 28, 2026 at 06:26:16PM +0200, Pooyan Azad wrote:
-> ...
-> > + if (data_info.pkg_size < RM_PACKET_CRC_SIZE) {
-> > + dev_err(&client->dev,
-> > + "invalid report sizes: packet=%u contact=%u\n",
-> > + data_info.pkg_size, data_info.tp_info_size);
-> > + return -EINVAL;
-> > + }
-> > +
-> > + report_size = data_info.pkg_size - RM_PACKET_CRC_SIZE;
-> > + if (data_info.tp_info_size < RM_MIN_CONTACT_SIZE ||
-> > + data_info.tp_info_size > report_size ||
-> > + report_size / data_info.tp_info_size > RM_MAX_TOUCH_NUM) {
-> > + dev_err(&client->dev,
-> > + "invalid report sizes: packet=%u contact=%u\n",
-> > + data_info.pkg_size, data_info.tp_info_size);
-> > + return -EINVAL;
-> > + }
->
-> I folded these two checks and duplicate error messages using
-> check_sub_overflow():
->
-> if (check_sub_overflow(data_info.pkg_size, RM_PACKET_CRC_SIZE,
-> &report_size) ||
-> data_info.tp_info_size < RM_MIN_CONTACT_SIZE ||
-> data_info.tp_info_size > report_size ||
-> report_size / data_info.tp_info_size > RM_MAX_TOUCH_NUM) {
-> dev_err(&client->dev,
-> "invalid report sizes: packet=%u contact=%u\n",
-> data_info.pkg_size, data_info.tp_info_size);
-> return -EINVAL;
-> }
->
-> Applied the updated patch to for-linus.
->
-> Thanks.
->
-> --
-> Dmitry
+Performance impact for a 256MB BAR, 4KB pages vs PMD huge pages:
+  - Page faults:       65536 -> 128   (512x reduction)
+  - Page table memory: ~516KB -> ~4KB (129x reduction)
+  - TLB pressure:      65536 entries (exceeds STLB) -> 128 entries (fits)
+
+Patch 1 adds the vfio_device_ops callback infrastructure.
+Patch 2 implements the PCI BAR alignment logic and VM_HUGEPAGE.
+
+Compiled with W=1, checkpatch --strict clean (0 errors, 0 warnings).
+Each patch compiles independently (bisect-safe).
+
+Guanghui Feng (2):
+  vfio: Add get_unmapped_area callback to vfio_device_ops
+  vfio/pci: Align BAR mappings for huge page support
+
+ drivers/vfio/pci/vfio_pci.c      |  3 +
+ drivers/vfio/pci/vfio_pci_core.c | 95 ++++++++++++++++++++++++++++++++
+ drivers/vfio/vfio_main.c         | 34 ++++++++++++
+ include/linux/vfio.h             | 12 ++++
+ include/linux/vfio_pci_core.h    |  8 +++
+ 5 files changed, 152 insertions(+)
+
+-- 
+2.43.7
+
