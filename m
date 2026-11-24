@@ -1,48 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795558592;
-	b=OQDoZcoDElQ649JnQnBdZBpcb8IMH4ziEKilkODmHcgy7uU6nRCjuTk4qzpMo7SfPULO
-	 PrcAk/PHcBwxAC8bpAnnC5JpvhvjsjgdJnrM1YPvWsqX6situET9NC/cMGrQjFCYTOnfC
-	 5gHe2aR/EcJX2UXV9HVHiiwdGaRitN3nJU6G0F2DiqatF/wvYhgS691gyhHVKArVM+DFh
-	 LwKdv9n4ZmGoSIzR/Uom4RxuwtTO3ust4mY1H83iYARFZdtgIFDqscJtnGWiwSeYLehGJ
-	 7F1qNj8u/fozcXKhFWg12QvRhOqi0iURHq9EK1gMab/CAtP9w5NWuXZvH+0owLnsyFQ==
+	t=1795558611;
+	b=K5U7pBK31H75LdjYJmVK8Sj1KifPriKO0ULBcU6RbGI1NcdurszNx4NYKtVkAaKI7Sjg
+	 r6qtQ0KCPwQNxO0kwSlU/wDIH86x2dhtOo4wpfD21p7jii4cgs6F3eyaV1TXRbeZJ2UYb
+	 pEL8KAg7EJqlxG7vl/h411GoYm6m9lnThjV5yIrg46F4ietEvyIm7oJXUQVlHFFxJmGvY
+	 QVKUtva+8xtdSbtI5+vRK6Mz2vkJMOrjdXKhmFhxgZF/eYpqU28R52lGWNYPjPGSWOOcR
+	 eS0sGqIEuDuIlktw7jDqE40nRNZoff1cwRvq7dT4R0cFpHXHU5Wd3k2m7pBb3hAmfSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795558592;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=wtl73C5SEX1kxHGsDVwwCxIwiGSmiFjRPEk/ob0WG+M=;
-	b=z7NywTjNN2FUj9RxrcLoo8bCG0Xv8/RQJBzH8HfDcVkboO6LWEkQNWVv3frTsADn+FUy
-	 mSBJnPEghxk1fsQHlXJNhvAURtTrpVRnf39wjs8FL9CAO02EgO/b5A1GdC5VAOlH57hOa
-	 YLwvWHvVDhvtNAaUUf+FgUk8TbM1/aJ0WhS9tQXDMXhNANicydRCuLgloxgJwj+4sI/lP
-	 fuSsXSFnPs3TwaWcJBTtnEG9Ma/1FrfuTfEOYo6GPbcJZyI9y+JnsQhk/u6pjbkPBiXqw
-	 0WeFP7znr9IdDJmGjbWd2XYb+Qy+qTfprF55fh2A4kG9bmwCCDwd5a5stGX6ITN5yLg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795558611;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
+	 Content-Type:User-Agent:MIME-Version;
+	bh=Uhmi7vdLdSTBTBfiyTnnA5vkStcVEY8sN0rPcbiafRM=;
+	b=LZCIUxR2y6GGoRi8RtDHqtu15MeavAjeGedB40LOS3YI4J0sNSldscTAz/9fzNiw5AxZ
+	 M7c7TcUltz/w1wKw67IwR9WuXpzT4dqKuLYE/dr+TOw9kHI40i9sVcNtk8/lpkQE98osn
+	 izSLU//9BVCXEClB9XNYiO8EMtW6EsGbXko8L5SO2zjPv6HChQYIdlR6/wZv6ymBuUTXs
+	 YTnTCXUSw/Ua276IW+vp7eGp0fcqeqB/S3Lizv3kXhagI/dwHEtQTz0af3zK3Pcdzpq5y
+	 AsZDRFhsetbAI7E6ErKJSIvDCHoDi0lsTm5MEGuJBw3fbxJwcZOU65iiyRiM7gLRpoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="kKZ/r392";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=ndufresne.ca;
+	spf=pass smtp.mailfrom=ndufresne.ca;
+	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=a3EZvP5O;
+	arc=none smtp.remote-ip=209.85.219.43
+Received: from mail-qv1-f43.google.com (mail-qv1-f43.google.com [209.85.219.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73B87606A326;
-	Tue, 24 Nov 2026 22:16:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE945606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:16:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE945606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kKZ/r392
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 860241F000CF;
-	Tue, 24 Nov 2026 22:16:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795558592;
-	bh=wtl73C5SEX1kxHGsDVwwCxIwiGSmiFjRPEk/ob0WG+M=;
-	h=From:Date:Subject:To:Cc;
-	b=kKZ/r3924Yqofd1h5L5iWTz8o9Gv5cljpuL84u7Vf1it5dUOVD9xFQCqUCPdzrhZp
-	 P+jrogOKKdKiGClD9zSV0XgFzRODy+ZPK5FDKcTIl0UhCZRtmx0Z854BfW2rsXF9yj
-	 NhFGDuANYVM+40Sxj13TkxfaEXtdt7GHvdn7JDQuCSucsYW9PMBxip/aL7UoJOvH1j
-	 Dla7OZzoMKZ5jDpab29sDRm2PIyDtB9xF4OKpSnIT/lzNQ8LloxcdmRFqLa5ZWl9JQ
-	 Sf1sHYokgoDQ1OGtwbG4wIF7M1ZvTsOdt124AbELr5GC/Hrnj5oIL+Jbtb3AVJVYzS
-	 nAhWpEC+FT0xg==
-From: Gary Guo <gary@kernel.org>
-Date: Tue, 24 Nov 2026 22:16:23 +0000
-Subject: [PATCH] rust: pin-init: document self-referential feature
+	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=a3EZvP5O
+Received: by mail-qv1-f43.google.com with SMTP id 6a1803df08f44-92123f02faeso52395806d6.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:16:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795558610; x=1796163410; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Uhmi7vdLdSTBTBfiyTnnA5vkStcVEY8sN0rPcbiafRM=;
+        b=a3EZvP5OyowAiMtFRNJn08m3NhjGNxRg7uIjCQJAiDLOLA+8FctfDs3jn2KLTG+h1O
+         2hDthh3ZjlvAk0RGTcTC7DFsEWzWATomdIit+FsIi5a8lP3BJ0PiEjpUbRwvm1u9Ea6S
+         QtpdcQviakqrDzRYu8t6CWRkrkR0o2598OBWpj8ZgHBJO7dKmLYA0IruhH4qS1IYIXOp
+         1IVyIO4zOvm4AsUA6rrt2DcZrqrs0xejEK8QQg0+oR8XV8tgXNST0WG8AhBKHnpHNFXa
+         v5AdSj0L3dC6fYZDxTcFgI3VsAwlkLG47ZbE0YQ1fsu7HmnF416hH/35MvXcf9Q0G5FQ
+         pLuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795558610; x=1796163410;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Uhmi7vdLdSTBTBfiyTnnA5vkStcVEY8sN0rPcbiafRM=;
+        b=z9l6NS2IsC3wt4hoBsmVadmXzsuOMUctsSNejvzXnbYcBjU7VSAtB211oRU5rmpcFs
+         z8itG0SP+u1rqnOYTr5gIvgIm59Zz24GN/dS2jGi8ZcKG6Db5GIGvU8jDj7ifnG1B8rB
+         m+Hj8GGZ8iJtMOa6IHcsa3zhFd5E7IJlJ05hyzkHnQWrMx3B/8sYittf5M6IuF/o8m6R
+         0epTYSWzh839ViBMAKn5ruqdxLk0Pf39zdstZ36f7ThAwzoXg+PpOrv/PNEuEgGsr/Kg
+         4N/B1RoPRfww0bJP4BJ45O9O2/STCDI3dRGbUkznIC9GutUDquYxsnRWOQuYhLd7RaWA
+         jzxQ==
+X-Forwarded-Encrypted: i=1; AL+hErFTldgyxACSCeTjTeEUpqnaOtlmQGPXq26Xc/QtFLUEhK9Y5eaqnWFRwHbt6O5Hrux3E4Sk0wVtWRUKlgo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z++1JjnjgP99O2FrLkpeEd9u3/vWk1gMfZUjja0ohilpF1YnzkL
+	xStnqTg40dl+L4vMWQjELkJRqnBu0az22W6INOZO45uIQi7Yu+W6GxetjZj2/IBfESg=
+X-Gm-Gg: AZFdTZe1MfsLNuVtrTaULS/cJ0JDF2SlywM+RojfqpICOXhJVqqOAdc8WpifkpD8dor
+	7acgUkhJ6vDuGJyUIZ2hQCo1iXhVmg+ajeABy/TOyfhfsf7ZTuSQTIeBtcWBn/TvGzy+2D287ih
+	R0KmHB0y4GI30J3i2KRIM/upjIhaMu3otlbCrOA7Z4f++G6xaSrk6INA8ZAFKaiDakPj8oNThei
+	3bw/0sSz0onl0ujqxPQG5jkRthRMgj1ehlHD0xID3AGQWANtdv7oG0Vv2xt47mkupNE+Qw/8MWm
+	afcd915DiO+9D0hNt5RtTBheT5uKSoSD0xV8eRBEI3AAlJZh1g/qGXpr/uuBGZX2H06bI9J1Fr9
+	Jnv8NKBGiF86OxWJw+wk+DIGSMaJu7ZwtQ7S3wCeUhJywySnvN4ebZPnpYIh+Ee72SEfBAmXgzy
+	F9tMkEEDAsls64+AII3sFW7RpdlkH+eanb+yCkLMwRNImUW3tS+JaYxUtjPw1LXVpVV9auOOyTV
+	dE68syrE2/6l1P6n2pKpkU/uFrib9Xyh+TDDv9zbgDpcZtv+eKAvPPUspAGAbYFw5U/CVUJPzgO
+	zLMAE5/SRxnt+4sdyo96IQrYomlb7OCrpKG0TE8z/3B7JZB3FHgBSVqX
+X-Received: by 2002:a05:6214:1d01:b0:91e:f8bb:bfff with SMTP id 6a1803df08f44-92134a695bemr295012926d6.10.1795558609635;
+        Tue, 24 Nov 2026 14:16:49 -0800 (PST)
+Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134bfe82dsm143924506d6.0.2026.11.24.14.16.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 14:16:48 -0800 (PST)
+Message-ID: <4c54e652e8fb714600852a3028b892c6a292c6cd.camel@ndufresne.ca>
+Subject: Re: [PATCH v3 05/17] media: v4l2-ctrls: validate vp9 tile_rows_log2
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Sofus Forstreuter <sofus.c@icloud.com>, Sven Peter <sven@kernel.org>, 
+ Janne Grunau
+	 <j@jannau.net>, Neal Gompa <neal@gompa.dev>, Mauro Carvalho Chehab
+	 <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Philipp Zabel
+	 <p.zabel@pengutronix.de>, Heiko Stuebner <heiko@sntech.de>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
+Date: Tue, 24 Nov 2026 17:16:47 -0500
+In-Reply-To: <20261020-avd-v3-5-85cbaa2125d8@icloud.com>
+References: <20261020-avd-v3-0-85cbaa2125d8@icloud.com>
+	 <20261020-avd-v3-5-85cbaa2125d8@icloud.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-fZhiUwItIuN4elZmSsKu"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,250 +120,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261124-dev-pin-init-doc-v1-1-dd0a3eda9018@garyguo.net>
-X-B4-Tracking: v=1; b=H4sIALYMBmsC/z2MQQ6CMBBFr0Jm7UTbEClexbgo01HGxUDaQkgId
- 7fVxOX7+e/tkDgKJ7g1O0ReJcmkBcypARq9vhglFAZ7sVdjbIuBV5xFUVQyhomQWudc13tDXQ9
- FmyM/Zfsm748fp2V4M+XaqY/BJ8YheqWxTjkyn/9J5S3DcXwAot8gm5kAAAA=
-X-Change-ID: 20261124-dev-pin-init-doc-c488879a1c79
-To: Benno Lossin <lossin@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
- Boqun Feng <boqun@kernel.org>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
- Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>
-Cc: rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Gary Guo <gary@garyguo.net>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795558589; l=8688;
- i=gary@garyguo.net; s=20221204; h=from:subject:message-id;
- bh=pPpFK93jRfiiuVjYa5/Ert5vNlHWDFAHtfWNIH/Golo=;
- b=/6lTmoNs+n727fqNyAY6s57EHHFBG4wtfNsJIZ4/H8kdvOGhfX6aOE8JWu/m75hRCCcKb1tYW
- B3g8tDHj+Y6Dd299D1fquJnKmTaa1XWS13mLOcen+8BYVsdaCoasM2c
-X-Developer-Key: i=gary@garyguo.net; a=ed25519;
- pk=vB3uIX95SM4eVrIqo1DWNWKDKD2xzB+yLLLr0yOPYMo=
 
-From: Gary Guo <gary@garyguo.net>
+--=-fZhiUwItIuN4elZmSsKu
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Add a section to the documentation of `#[pin_data]` macro about
-the safe self-referential creation feature.
+Le mardi 20 octobre 2026 =C3=A0 11:37 +0200, Sofus Forstreuter a =C3=A9crit=
+=C2=A0:
+> Reviewed-by: Neal Gompa <neal@gompa.dev>
+> Signed-off-by: Sofus Forstreuter <sofus.c@icloud.com>
+> ---
+>  drivers/media/v4l2-core/v4l2-ctrls-core.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/media/v4l2-core/v4l2-ctrls-core.c b/drivers/media/v4=
+l2-core/v4l2-ctrls-core.c
+> index 922cf74c4eb8..384ff77771ea 100644
+> --- a/drivers/media/v4l2-core/v4l2-ctrls-core.c
+> +++ b/drivers/media/v4l2-core/v4l2-ctrls-core.c
+> @@ -638,7 +638,7 @@ validate_vp9_frame(struct v4l2_ctrl_vp9_frame *frame)
+>  =09 * According to the spec, tile_cols_log2 shall be less than or equal
+>  =09 * to 6.
+>  =09 */
+> -=09if (frame->tile_cols_log2 > 6)
+> +=09if (frame->tile_cols_log2 > 6 || frame->tile_rows_log2 > 2)
 
-Signed-off-by: Gary Guo <gary@garyguo.net>
----
- rust/pin-init/src/lib.rs | 176 +++++++++++++++++++++++++++++++++++++++++++++--
- 1 file changed, 171 insertions(+), 5 deletions(-)
+Shouldn't this be 6 too? (log2(64)).
 
-diff --git a/rust/pin-init/src/lib.rs b/rust/pin-init/src/lib.rs
-index 9ffa76434310..c0e87586b072 100644
---- a/rust/pin-init/src/lib.rs
-+++ b/rust/pin-init/src/lib.rs
-@@ -307,6 +307,9 @@
- /// Tuple structs are supported as well. Their fields have no names, so the generated projection
- /// is a tuple struct too and its fields are accessed by index.
- ///
-+/// Self-referential structs, where a field borrows another field of the same struct, are also
-+/// supported. See the [section on self-referential structs](#self-referential-structs) below.
-+///
- /// If your `struct` implements `Drop`, then you need to add `PinnedDrop` as arguments to this
- /// macro, and change your `Drop` implementation to `PinnedDrop` annotated with
- /// `#[`[`macro@pinned_drop`]`]`, since dropping pinned values requires extra care.
-@@ -376,6 +379,170 @@
- ///     }
- /// }
- /// ```
-+///
-+/// # Self-Referential Structs
-+///
-+/// This macro also supports structs where a field borrows another field of the same struct. To do
-+/// that, use the name of the borrowed field as a lifetime (a *field lifetime*) in the type of the
-+/// borrowing field:
-+///
-+/// ```
-+/// # use pin_init::*;
-+/// #[pin_data]
-+/// struct SelfRef {
-+///     part: &'msg str,
-+///     msg: String,
-+/// }
-+/// ```
-+///
-+/// Here the field `part` captures the field lifetime `'msg` and thereby borrows the field `msg`.
-+/// A field may only borrow from fields declared after it: fields are dropped in declaration
-+/// order, so the borrowing field is then always dropped before the field it borrows. Structs
-+/// with borrowed fields or captured lifetimes do not implement `Unpin`.
-+///
-+/// When initializing such a struct with [`pin_init!`], every named initialized field have a
-+/// binding generated for it (as `&T`/`Pin<&T>` for fields share-borrowed, or `&mut`/`Pin<&mut T>`
-+/// for fields mutably-borrowed), so a field can borrow from the fields initialized before it:
-+///
-+/// ```
-+/// # use pin_init::*;
-+/// # #[pin_data]
-+/// # struct SelfRef {
-+/// #     part: &'msg str,
-+/// #     msg: String,
-+/// # }
-+/// stack_pin_init!(let foo = pin_init!(SelfRef {
-+///     msg: "hello world".to_owned(),
-+///     part: &msg[..5],
-+/// }));
-+/// assert_eq!(*foo.part(), "hello");
-+/// ```
-+///
-+/// Note that `&mut`/`Pin<&mut T>` bindings are also generated for non-borrowed field, but access to
-+/// them are limited to within the initializer.
-+///
-+/// ## Mutable Borrows
-+///
-+/// A field is only shared-borrowed by default. To also allow `&mut` borrows, mark the borrowed
-+/// field with `#[borrowed(mut)]`:
-+///
-+/// ```
-+/// # use pin_init::*;
-+/// #[pin_data]
-+/// struct MutSelfRef {
-+///     part: &'mut_msg mut str,
-+///     #[borrowed(mut)]
-+///     mut_msg: String,
-+/// }
-+///
-+/// stack_pin_init!(let foo = pin_init!(MutSelfRef {
-+///     mut_msg: "hello world".to_owned(),
-+///     part: &mut mut_msg[..5],
-+/// }));
-+/// foo.as_mut().with_project(|proj| proj.part.make_ascii_uppercase());
-+/// assert_eq!(*foo.part(), "HELLO");
-+/// ```
-+///
-+/// Shared borrows are inferred automatically whenever a field lifetime is used, but they can also
-+/// be requested explicitly with `#[borrowed]`.
-+///
-+/// ## Variance
-+///
-+/// A captured field lifetime is *covariant* by default: just like a normal reference, the field
-+/// type allows the captured lifetime to be shortened. If the field type does not allow that (for
-+/// example because the borrow is stored behind a `Mutex`), the capture has to be marked as
-+/// *invariant* using the `#[uses]` attribute:
-+///
-+/// ```
-+/// # use pin_init::*;
-+/// # use std::sync::Mutex;
-+/// #[pin_data]
-+/// struct InvariantSelfRef {
-+///     #[uses('owner: invariant)]
-+///     part: Mutex<&'owner str>,
-+///     owner: String,
-+/// }
-+/// ```
-+///
-+/// The macro verifies that captures marked covariant really are covariant. `#[uses]` accepts a
-+/// comma-separated list of lifetimes, each with an optional variance (the default being
-+/// `covariant`). The special lifetime `'_` stands for all field lifetimes mentioned in the type
-+/// of the field, e.g. `#[uses('_: invariant)]`.
-+///
-+/// ## Existential Lifetimes
-+///
-+/// A field lifetime ties a borrow to a specific field. Sometimes a field should instead borrow
-+/// from something outside the struct that merely outlives one of the struct's lifetime
-+/// parameters. Such lifetimes are declared in the where clause of the struct using `exists`:
-+///
-+/// ```
-+/// # use pin_init::*;
-+/// # use std::marker::PhantomData;
-+/// # use std::sync::Mutex;
-+/// struct CoherentBox<'a>(PhantomData<&'a ()>);
-+///
-+/// #[pin_data]
-+/// struct DeviceBox<'a>
-+/// where
-+///     exists<'x>: 'a,
-+/// {
-+///     #[uses('x: invariant)]
-+///     m: Mutex<CoherentBox<'x>>,
-+///     p: PhantomData<&'a ()>,
-+/// }
-+///
-+/// // The struct is covariant in `'a`, so it can be shortened:
-+/// fn shorten<'long: 'short, 'short>(f: DeviceBox<'long>) -> DeviceBox<'short> {
-+///     f
-+/// }
-+/// # let _ = shorten;
-+/// ```
-+///
-+/// An existential lifetime is not a parameter of the struct, so just like a field lifetime it is
-+/// hidden from the type of the struct. Unlike a field lifetime, it is not tied to a field; the
-+/// only bounds placed on it are those written in the where clause (here `'x: 'a`).
-+///
-+/// ## Projections and Accessors
-+///
-+/// Since field lifetimes are not parameters of the struct, borrows of the struct cannot carry
-+/// them. This macro therefore generates several methods for accessing the fields:
-+///
-+/// - `project(self: Pin<&mut Self>)` — the pin projection: `#[pin]` fields are projected as
-+///   `Pin<&mut T>`, all other fields as `&mut T`. Fields that capture a field lifetime covariantly
-+///   are only projected as (possibly pinned) shared references; fields with invariant field
-+///   lifetime capture are omitted entirely.
-+/// - `with_project(self: Pin<&mut Self>, f)` — calls `f` with a projection in which every
-+///   visible field has its actual field lifetime, so even invariant captures are visible.
-+/// - `with_project_ref(self: Pin<&Self>, f)` — the shared version of `with_project`.
-+///
-+/// For all projections, shared borrow fields are only accessible with shared references, and
-+/// mutably borrowed fields are omitted (they are only accessible through the fields that borrow
-+/// them).
-+///
-+/// Every field (except those borrowed mutably) that captures field lifetimes also gets an accessor
-+/// method, because they cannot be directly accessed. `fn field(&self)` is generated if all of its
-+/// captures are covariant, otherwise `fn with_field(&self, f)` is generated where `f` is called
-+/// with the field at its captured lifetimes.
-+///
-+/// ```
-+/// # use pin_init::*;
-+/// # #[pin_data]
-+/// # struct SelfRef {
-+/// #     part: &'msg str,
-+/// #     msg: String,
-+/// # }
-+/// # stack_pin_init!(let foo = pin_init!(SelfRef {
-+/// #     msg: "hello world".to_owned(),
-+/// #     part: &msg[..5],
-+/// # }));
-+/// foo.as_mut().with_project(|proj| {
-+///     *proj.part = &proj.msg[6..];
-+/// });
-+/// assert_eq!(*foo.part(), "world");
-+/// foo.as_ref().with_project_ref(|proj| {
-+///     assert_eq!(*proj.part, "world");
-+/// });
-+/// ```
- pub use ::pin_init_internal::pin_data;
- 
- /// Used to implement `PinnedDrop` safely.
-@@ -664,11 +831,10 @@ macro_rules! stack_try_pin_init {
- ///
- /// Arbitrary Rust expressions can be used to set the value of a variable.
- ///
--/// The fields are initialized in the order that they appear in the initializer. So it is possible
--/// to read already initialized fields using raw pointers.
--///
--/// IMPORTANT: You are not allowed to create references to fields of the struct inside of the
--/// initializer.
-+/// The fields are initialized in the order that they appear in the initializer. A let binding
-+/// is generated so already initialized fields can be read. For [self-referential
-+/// structs](pin_data#self-referential-structs), you may also use such generated bindings to
-+/// initialize fields that borrow from them.
- ///
- /// # Init-functions
- ///
+Nicolas
 
----
-base-commit: 5eb5b404e6e7631a986333f00e7b3b18aafcfaa8
-change-id: 20261124-dev-pin-init-doc-c488879a1c79
+>  =09=09return -EINVAL;
 
-Best regards,
---  
-Gary Guo <gary@garyguo.net>
+> =20
+>  =09if (frame->reference_mode > V4L2_VP9_REFERENCE_MODE_SELECT)
 
+--=-fZhiUwItIuN4elZmSsKu
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawYMzwAKCRDZQZRRKWBy
+9BA6AP9PS5poldHn0LERh5sldYW2P73wx+zTyuozNl+3ELVLUQD/aj0MPvIwO2sj
+O8VuT9IjLVqFj9L0GOL8uRcAYapAAAk=
+=/mpK
+-----END PGP SIGNATURE-----
+
+--=-fZhiUwItIuN4elZmSsKu--
