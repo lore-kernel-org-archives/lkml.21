@@ -1,100 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.177
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795541692;
-	b=DeJXTwSp+bykWM0B3rn/FS19Q0rijy9Tr6ep2tuRqSXTrqPWCsmWvp1ptjnXZ2lM760L
-	 1S0ZSSfbYnD3c0T3CxdX8Axx0q9twxG6KaY9nHcYya8E1bUUTaPNJDpU0S5DPuZ2a0++f
-	 yMDiSMWhM8cF8j4khunlIvXv4t647glJ3aLVsoMrkuLFTbcn2EqZ0su5Jr/i++egMz/Gk
-	 9AoXHdSIOd/cinDHcnI02R+FKxQ+eqSMN2txQ7qCmPKabzs139uC9msa/B7ChCBBintJ3
-	 D3H0hcU0oq9T+8EKalBKXGAXydtu46AjYlzetO4zfm0FdKTmxQ1QqsfPGMuQV8J+d8A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541692;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.180
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795541713;
+	b=E2dTCzvnNZPT/crxtZ9ninEK6pFoz0sH+jBiUQ9Bbfs0i2dZlYLCbF9Axum3GupWNcf/
+	 WS4Pk/gHr2caVg2Ou6Sj7rsUq3igwr2metgFDFf2yGVTxSr2E9/ZvbZ91A5sHQ/L8uHQk
+	 hd55VUKB31k07ZkeTCYZr+B1DowjXzT4Pb1Cx2d/wlFSF1upHPEZIiXFCxrclWAwsYmsA
+	 6EDUC8+ZMJPqYnilSI3FKztjGs6FAvGwnP1ozbEl4FKI7Qih99+1sqDBfBY1oWjzMnlU2
+	 VdHBjMjP20twXF9lr+Mga17GKMHJIKUOSrYUNjXdzKRX2oJmmjDOpnOgJe/ND2NNHtQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541713;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=XBmnC24W8AXYN+2O9rvqWHkGjrVBXCobhK+i3wuM79I=;
-	b=tsz2vkIrto5B+wBWLOqPLferElpAfkwkaSVT+J4BMX5dOAIfJeJpMsSeJ/SDaU7pJg/J
-	 AnxODxca/fAou46F21vGGS2ULGXD5eLAFm3L9GlA6lAaiB+W+oe5a6kBIrq0arLnZtXRs
-	 /zgqVGLTdK/tKKbQSrQQf0VnO/kHqrVNXi6h1C4MpWFl1PfIy4NltYYLcOFVUNv2N5OcQ
-	 FrkezV1CkTgqd2HTshMxDYQPpmLfRZ94U9B7EuWmMbPrKY0OnpuSRVXOzWOdZ3+x6ivpo
-	 Pum1oblo6AV0LWuFK6hiaK1ovIq9c9LTtcjbLWimTl+Z84QEfrYC/uTfsGy3thF5mYQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=paul-moore.com;
-	spf=pass smtp.mailfrom=paul-moore.com;
-	dkim=pass header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=HHrCeQgK;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.177
-Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com [209.85.214.177])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
+	 Content-Type:User-Agent:MIME-Version;
+	bh=rIEikIfePUlYuQtT3faGXOgKua4GiiXoZrCtOyesMsM=;
+	b=imooNi6+qX0o6/uPESJo0rFGn0q1jm1NjeuXBDXWKh3eQEO+tqAWEjjqQwJ6g5KZeC4I
+	 PeZY4GsY/xinsPDHJGI5AcBGk9zrKPiRcKZE8hFSUiDPwEtDzTuoxfF8itr8WJvToarri
+	 yAr7TKQ4+/Twj7jyGF5P331GoSpISgqSRa1vV0dtn5CgdRh9yqaOBEm+2466CKBtmYujn
+	 eYNX8gXqZPdjvImLJu8fK1O3armruOm5hnE7CznW3seBa83ebDyoMpzNlVYV/yz0X0WeI
+	 esALy1mgPIcl4kQ/x49dMwZoYVAQRULWTTp/iEPQa5FLlvcXTue7qNmR/dV3C6x5yaw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ndufresne.ca;
+	spf=pass smtp.mailfrom=ndufresne.ca;
+	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Kpz9gGuB;
+	arc=none smtp.remote-ip=209.85.160.180
+Received: from mail-qt1-f180.google.com (mail-qt1-f180.google.com [209.85.160.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EADC8606A327
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:34:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EADC8606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=paul-moore.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paul-moore.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BAA1606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:35:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6BAA1606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=HHrCeQgK
-Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-2f04ad2c46dso28653295ad.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:34:51 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795541691; cv=none;
-        d=google.com; s=arc-20260327;
-        b=dEM+/T2hVoymxbkd83aJlTPjiTr8k1pN4Mrj+HRR3bbQbacsgFzHwFEFKVBA2sNrPP
-         ZVrWK/0AZkJDLtV3JVs0nmGly/AkkYx2F0vP3mbdN/jDXHK+LimuwjlM3B41oQk+Lj4b
-         9YPwiNMXWCTDk7wFq+vnbsv+T3JSgOMims827SSscKgnNLAmIMcNkPH3urPheNS0gCNr
-         KfJen98JUpLHefltdHe1l8FyqiJUSAsgmivzp0VL8Ok3B0L1YmqcI0MbE3/5i5h1wb3P
-         hnlU9CD2nWL2dXlQjIeqBfGqlgA66XpQD8mn9pygV7IszVEhiJ2+a2WsRE8qkjNsjZyl
-         IJQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=XBmnC24W8AXYN+2O9rvqWHkGjrVBXCobhK+i3wuM79I=;
-        fh=sG03nxN7rcA9l/D//eI6y9Y83vAcu8i/D4Ft2/T0GX8=;
-        b=ao6jDY66ySdnyNl8mAieA7rKGMEzUP4Iu3orp8vtAPyDySC/Pa2MEKqXAP5+s+scQJ
-         nfb6/fKKGSqnFdlvGWn8QGEnrvagvlxRqnERPCj/aTQtmmQvT93VfeeHdxb6L8FEXhtZ
-         VprsoJF3CkfPkh0o/F0dpWIOyZQ9Mwjy6ebNIMfB2DM6MmaCjgOhYNoon3Xo79RuV3M3
-         NxK3WB9i5gGPiTvLMPPJtl6oA3NA1oM7SVlH50gfwlL9hUVCKgwlBdPun8RkTzrxLTfr
-         lL99ClvrdLz6lctYvPe0hseGHVfhdJzZGT/5xK5NQ3Pp1reQzKqJq75EYn41mhXbHW5H
-         4oqA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Kpz9gGuB
+Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-536c8f958d7so36446121cf.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:35:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=paul-moore.com; s=google; t=1795541691; x=1796146491; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795541712; x=1796146512; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=XBmnC24W8AXYN+2O9rvqWHkGjrVBXCobhK+i3wuM79I=;
-        b=HHrCeQgK/kBXJZ90aRHYJCoHRDaE82HsZ115cJLDYso+RPO71e0P2oCB3lgCU0MEgS
-         vqh6phVdkz6ulUaoDB6e0l9qXvOSEIoCNR8KSiDiVRPP1eH/PJFHDDwfunnlA2EdZlpl
-         IBc1H1MQCifglg++qUTABRftlRuR/pBz23mq1/edbPJ07HpWcQ/nQ99/W7hJb+mJamiF
-         iS+HRsAVyYIlrP5fvIffCfiB9wn7spnsPetVxVjsy7/oH/YZVmk3MDTVudG9t+lq4Vov
-         ZiT59zFmbR/7glqKQYhrwI/SlcgE56F6BJH34DFmhgVPkJwjU4EUv4gXctECwbp9F3xP
-         kl4A==
+        bh=rIEikIfePUlYuQtT3faGXOgKua4GiiXoZrCtOyesMsM=;
+        b=Kpz9gGuBAbhGNRcVfnOThbhWg0E492RYUCMUgfLbykGqoayXLYpeEBkOIQ9KBwt90k
+         OjcfIhqoxPmy5OTa2y+ZjKSzTaCTaRQ4HE+qt/Sxqa1wwKneKylQYJRCxMM4dtkB50Wi
+         jwGPVFHP624fcAjAZ0NI3FP5SEcUVi81jAlhCs/VV6h9kB9e76tHyMhz7Ix+iu4kbUEB
+         Vn4XL73dQA9lxx3MVEz77r6eXIGdEOb6DpUkHQ16gTjxbYdis8tGhATTBDBh2jBbmc3X
+         i0X2HZNbw7ZvKRUMzw5Ew4LA34knTyb4PngMtHiXg7vbq26IEFfNev03Fg3Jay9px1S2
+         zOoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795541691; x=1796146491;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795541712; x=1796146512;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=XBmnC24W8AXYN+2O9rvqWHkGjrVBXCobhK+i3wuM79I=;
-        b=Kdihg81MA3vqiAW3jrBC3t9/+QEnClVvRW5UY6DNqFqAe6gX91F7EXWp0TVNpireaz
-         A4SUjC9myVjnEA6EdWkimJjJM9LuSFMDD/BHNpnkXr5khjV7f6/VRjaGcJL1rrweX0nf
-         8BGEiCqz3By+MvmwuDItuqR6GqqvdQLVUSy+tQMq7xm4rmRPna8lDJKG+9FE5CntdKWf
-         jJ/qOmLQ6FMz5BZnH2+4dPZlRcCtJpOUAKoX1alHtsJKv7Oiatlxt+9EF5aVaBossKKc
-         5NmOH0GqK+jnOhuRxB4wiCh2VN13KsXnOh43erUdjRUf/S99aBKIkkVXDntNdQtPYTgl
-         Gnng==
-X-Forwarded-Encrypted: i=1; AL+hErE8xO/oJ/KZitX7YF4CxJ0L7wQdv/TGsEiuxwVpPnzlTKdpc+/g0dtxPUt4UypN/hTuJqlEKTTvIOuEV8I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+7VVx9+fXZj5xJwxg61VEYQsNQKtTrQuwKGWF0Y0Zf7aBmckcK
-	LH6kQs5MywRAldeXLiyEyZtaZxMELQnJMgCEaGru36a0uxR39BI2rQjIM/IHagU4Y+ohIcdQywj
-	rOJRE/aoYx/vJJjUZC2+nJzDfHIRVCQdznPkZMm3z
-X-Gm-Gg: AZFdTZd1bRb6XScduTCKArxGN6A2vHSZKrK6OxqsQX3qKUEb1sOyA0TMPSxIEyNN5kq
-	wp04YZPtNoi0+6oQddvPRGHYkA7UX9kNd0P/BK2lyGxLVlSUibjAnNoos6EvbjaYwjXtBOj8rpM
-	oUbnOrkHsx7dqjYW1LJq8vzyxh5/RAoAiExm1LJ9akw/NzpINRo3suLDdWPbsGeN8D2PqXlirJ2
-	pQyg5n+jZVp3PIQTpVI7c26Ki2vKD8YOAI5KdM6lXN4sGs3zqUM32zSWhn1gQ8PcT3evYBRsDfw
-	3oH5BtWElrmXydf4+jwy5d8hLw6nmVmlp4G5EPce+Fq6fuvFmv6w0B/XJ4dn9C8dVeKYHaci+gv
-	to3M6YznqAC03+Pl69dUHbqePKMoGOhOpc6P4Jh96a00o9hmJQisbOL8w4niTvd2KSWWG
-X-Received: by 2002:a17:902:dacc:b0:2db:3b35:1ac6 with SMTP id
- d9443c01a7336-2f03ef5a25amr159510795ad.5.1795541691316; Tue, 24 Nov 2026
- 09:34:51 -0800 (PST)
+        bh=rIEikIfePUlYuQtT3faGXOgKua4GiiXoZrCtOyesMsM=;
+        b=BEjI2buATZWDmPkzlm39ZKHQr+Hec0bffGBhieA6CbczHhikEkFLqSu38uo2tR4Efl
+         F6ViivQzoCDliNQ1FjQXR7Y7+N/sEpHfRfkUWb2zUD/MoInhHhmE/4ZhWv1V6WRPr2BA
+         cZYMnyawcO2ap4syL6LEiThSUzZz9yVQczzO8XufEoPPrwhQR4kLgnd2dNXQU7Dw/fpw
+         /xs4nBrQ9Cb3l6HF8vR9bFxklQMbxh/XOurqSvi3BMI4Qts3H5nEntkUU/G+FBmCoyWe
+         vgj8LUcS3tVE+2vvtvu4lT4nD7bv14ImQSkwsvOVq+hQbH5tjLriLbf76u2SiDA6U3r/
+         K9Mw==
+X-Forwarded-Encrypted: i=1; AL+hErFqFp/WpAGiZKfmC1qq0v+/NYmoXFnewJ42+pm+0h9pTGtGY6CmLlXOqIjCSIEHjGne3D2xwSYjg5nbKLE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Lyqtgexl2x4M5LRSqAY5vBSYdMu1zOeM09uAmMviv6wFEqAfF
+	GrKe7z7AJKSFCCeLk27MbLiDKdmTC8wzowyBQYLHcwB5mONg3qjXJcwVx4mvPfyA8sU=
+X-Gm-Gg: AZFdTZckPBMXTwiU63eXe54bQQ628tLAL8j9Gc5m2UUhxapP97UbNOjfa2MMGRb6glW
+	M2QAZF/XtegArHnazlxDCm7TbilQh1lh1emyYMD1PJMkFUMMSRn1zvHAWQ2CtEHK4iDgcH2mRu4
+	RsKJ7KPTV03JvnpeW/5K0bgFDweRqOPAV8a2Aff3H31tE9pa9OtaIHsQMIWXeHAToukEqmHVBjx
+	TuvMXISXduKl+ZMjqbMwWg/n15bhYRfP8+UAyu/lUnwiu3z8hx+3Oi0HsKUbLpy5Tqb8uVKvZ7u
+	J4QV2K8v8uJifjkCy6jLEVPsCtn78W8h9gWJcx/ge+Y7Em+cE+h1eRxsW+WhjURBeCqvNM7kwcj
+	5/uhlDS25EuW0JkQ9HcyfpvL0oDjWFRY896Z2zFI4nnTZ9Uk27lTUPdqHH5ENcPZ8MFiMUdVOJk
+	advDhTtKxO5gu97MdXmgbXIBU4fIT2nYipv0etjcw8eVyPIEmxUI6B52KwwOcrxJrzvihZ7HPjl
+	fE1ep5ML3aPGAoOF8r8laBfDGS7yrSj2mVpL8kcSn7keai8J9kIklzBdqrqqPVzhYkK2IzbEsXj
+	7SjHGruvhnxxZAb+hNWaHl3so4Nz46iddDHNzFHKXYvZIpubIkwY+rE=
+X-Received: by 2002:a05:622a:307:b0:55c:cfd:3bd4 with SMTP id d75a77b69052e-55d76a6bccdmr295490121cf.72.1795541712297;
+        Tue, 24 Nov 2026 09:35:12 -0800 (PST)
+Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d78811fd5sm134260551cf.8.2026.11.24.09.35.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 09:35:11 -0800 (PST)
+Message-ID: <5d46d320bf3b956bdd3413f8a88beedf07938fc4.camel@ndufresne.ca>
+Subject: Re: [RFC PATCH 04/28] media: mali-vpu: initialize decoder format
+ state
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Charvi Mehta <charvi.mehta@arm.com>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Philipp Zabel	 <p.zabel@pengutronix.de>, Vincenzo
+ Frascino <vincenzo.frascino@arm.com>,  Rathinavel Sankaralingam
+ <rath.sankaralingam@arm.com>, Shobhit Pandey <shobhit.pandey@arm.com>
+Date: Tue, 24 Nov 2026 12:35:09 -0500
+In-Reply-To: <b152209e-6117-4a24-aa2d-59be913850b5@arm.com>
+References: <20261119153758.1426673-1-charvi.mehta@arm.com>
+	 <20261119153758.1426673-5-charvi.mehta@arm.com>
+	 <d1d53edeb358e1bdcd1c262e48074f7f1be276cf.camel@ndufresne.ca>
+	 <b152209e-6117-4a24-aa2d-59be913850b5@arm.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-BpfK9v6vcqSHzyO28x9C"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,45 +121,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123-x25-v1-1-4432d3892f8b@gmail.com> <c70bad57add6ff8cd52125c698f3f54a@dev.tdt.de>
- <CAHC9VhTLg2FLNf3sLe3+A=q5Mo4gKs+gB7zi5sQT1jizsOPuNQ@mail.gmail.com> <CA+X8SdjoyJT1i1Rf08psCsLQyPQ+yU_tAH0rCQPXpkm4DF_=Nw@mail.gmail.com>
-In-Reply-To: <CA+X8SdjoyJT1i1Rf08psCsLQyPQ+yU_tAH0rCQPXpkm4DF_=Nw@mail.gmail.com>
-From: Paul Moore <paul@paul-moore.com>
-Date: Tue, 24 Nov 2026 12:34:38 -0500
-X-Gm-Features: Aa3M54qCAAAH8qnzn7NrvXOlemcU2WyGsLTrIJLHcpwId-DXnie5s0o5cb3103Q
-Message-ID: <CAHC9VhSY5_NLka8n-yDVwv2FmXj9DF9PWWxomGv1_-mFzZ3Pmw@mail.gmail.com>
-Subject: Re: [PATCH net] net/x25: inherit the listening socket's security
- label on accept
-To: Wong Steve <shyckless@gmail.com>
-Cc: Martin Schiller <ms@dev.tdt.de>, davem@davemloft.net, kuba@kernel.org, 
-	edumazet@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org, 
-	linux-x25@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-security-module@vger.kernel.org, stevewong@hust.edu.cn, 
-	kaixuan.li@ntu.edu.sg
+
+--=-BpfK9v6vcqSHzyO28x9C
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 24, 2026 at 12:19=E2=80=AFPM Wong Steve <shyckless@gmail.com> w=
-rote:
-> > the x25_make_new() function is called by
-> > x25_rx_call_request(), which as far as I can tell is on pretty
-> > analogous to an accept() operation, is that correct?
->
-> Yes. x25_rx_call_request() runs in the receive path
-> (x25_lapb_receive_frame() -> x25_receive_data()) when a Call Request
-> arrives for a listening socket. It is the X.25 counterpart of TCP
-> creating the child socket for an incoming connection:
->
-> - x25_find_listener() finds the listening socket,
-> - x25_make_new() creates the new socket and copies the listener's
->   settings,
-> - the new socket is queued on the listener's receive queue, and
-> - x25_accept() later takes it off the queue and grafts it onto the
->   socket that accept() returns.
+Hi,
 
-Great, thanks.
+Le mardi 24 novembre 2026 =C3=A0 14:56 +0000, Charvi Mehta a =C3=A9crit=C2=
+=A0:
+> > > =C2=A0=C2=A0 struct mali_vpu_session {
+> > > =C2=A0=C2=A0=C2=A0=09struct mali_vpu_dev=09=09*vpu_dev;
+> > > =C2=A0=C2=A0=C2=A0=09enum mali_vpu_session_role=09role;
+> > > +=09struct mali_vpu_port=09=09port_src;
+> > > +=09struct mali_vpu_port=09=09port_dst;
+> > Ok, its time to comment, src_port and dst_port is a lot easier to read =
+imho.
+> I=E2=80=99ve generally placed the direction last, as in dec_src/dec_dst a=
+nd=20
+> pixmp_src/pixmp_dst.
+> I=E2=80=99d prefer to retain port_src/port_dst to follow that pattern.
 
-Reviewed-by: Paul Moore <paul@paul-moore.com>
+I heard your preference, but readability when up-streaming is important, we=
+ dont
+say "the port source", we say "the source port" (at least in english, which=
+ we
+program in), and so when a human reads your code, having things in reverse =
+makes
+it harder.
 
---=20
-paul-moore.com
+Nicolas
+
+--=-BpfK9v6vcqSHzyO28x9C
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawXKzQAKCRDZQZRRKWBy
+9NPmAQCw+FqH8tb2NT0kyezcMofs4qS/3wmckKm7M78C7X79vgD/aZhblqvBZYB0
+cgUBoaxShFAf7iLpc3EF1UkY9cuXzAA=
+=F9EK
+-----END PGP SIGNATURE-----
+
+--=-BpfK9v6vcqSHzyO28x9C--
