@@ -1,80 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795541969;
-	b=FX13C48r+Uu8pHVozaxl6gHMUNo4xp0Sr6Q5a0jvx6/bYC8pQL9wWNYNPBgIfbbzcliK
-	 n9O4j0o9eA2SknuKNB6bNSYGNDNiz7wZzEUikbmrMUW592ckum6nepY8Qbwwi3BgxWdhr
-	 pmtLpt7Vzq7s7d5P0ypolC+d2Ypbxsx0JL+3Ra6AsrV1QZdKKVKjYMbUVErPfvBg/Zli6
-	 3nCNzYHlSMKjzWlztjrSb32zHtlzXYppREtYEq6kr+9nwDE3vRuvEd8Ko4GCOt1fUNrNF
-	 scaqL433X87Df2J4Uva1VjIJjzd8ZZXdeJLFwBu+W5CrEBVORMQgL8H1z9lG/mxWbcA==
+	t=1795542011;
+	b=KWTIVsyQoVKHDWDtD2Vd5TkWUiiyLlbg1rwiyxEwXqDjw9X2vg+WLOfeXO21CJ2+B+UK
+	 XZL9x82ZNRuKrMCpwAmm4hHDQDN5Z1pEIv4qdASu92EuZGOmnhwN9fzeCIEkMrHjgbHsl
+	 oRCQx2d0zmi6xlUZdrZKbzyrl7zKqBhF8sQ1JhC/UdQtqzkfx+BlAQYKgM7mJ7KqbZZcr
+	 NlKXU3BW0l7Nx9UJoYKDHWdWXhrL/wgANcnVsvTlaPvlRPVrRVc3qJ66Bwcau7BV9MTWL
+	 /yj0sKcJzZx4Q6KqS8WtSXz5sEH40oxJMMjXyz0zUVW7zy+meqpmqAUYL1zayuvp/Zw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541969;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=wEVUsPXL+/9WghyRMIFhi+HChMwXmmXY3YDSRyt6xMQ=;
-	b=BpqaCJWAJFE5cRT0KecuR0D/lIZ4Rs/ad6Pgch1vB6Mp8REPzMZ4fey5FArvUq8dmT4V
-	 gNnW1UYwCW/8bV9kZZILONFvZbCaQcgpovbKG662lF5NYF2wUeF1ZQnuy7ttwgFC/+0pa
-	 5P/jZ/Jc1jtxTZ3qtyz0gIdJZx3r3/s7M9sH+0GbtRWIdYHKrfj0KROXq6SxZi7x2lqlV
-	 G4BE1E5fhAmeupf6Oi0Ku+1GPI+7AtBx4cu0f1X5d9JF/Ip20ca/gSkYsqOfD4buaa1vp
-	 7MSJILLCtlfaokmTq7mlWVavhW841qlY3VV78RRNaiwwpubsb6zMdy6oqpPiDxLeKBw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795542011;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=miqMkDmR7uPJ+RMX/Y388NkwoGQvWXSbN62ZuELGneA=;
+	b=TmQLozB+rbemt1cfyLrP5cHn3OhLtZ0PsRzqNFWCHe/ipHIwqE57PQdzt8VUG65BHqeI
+	 fEcpqIjpIvkEWAydsXWQOjPkyOHTXzJocEKwuk85ARrtdoUnezPLOm5OZK00LTSTxxkxi
+	 h9vSf1Yr6+l7Ae1m0qDDOOdPj1goJL6aQxPAZD1KClR8kLmdVwEfBk4nutdNwfmALWe8f
+	 GfVqEU3HOI7zjXXk/1MH2lmKCKgy9n3hgxdYdpqiq7ELeKSPJRKG+X+gvcz5UczkXKU2y
+	 28in+RPx6GwCeIEyWj7sSiqYQGNJ2C85b56saCype1dtU8WO/7dQTtkkfPa+Vx90eMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=kernel.org;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.219.52
-Received: from mail-qv1-f52.google.com (mail-qv1-f52.google.com [209.85.219.52])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=i9agZFNs;
+	arc=none smtp.remote-ip=209.85.214.169
+Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B910C606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:39:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B910C606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=kernel.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-qv1-f52.google.com with SMTP id 6a1803df08f44-9211efaca89so56501186d6.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:39:28 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 706E9606A323
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:40:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 706E9606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=i9agZFNs
+Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2f0afdb97abso133475ad.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:40:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795542011; x=1796146811; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=miqMkDmR7uPJ+RMX/Y388NkwoGQvWXSbN62ZuELGneA=;
+        b=i9agZFNsK1q8o3kRmLMu51cr8aBzVAFBOQvV+Eb3VlhLkya/7n0b2TZhXe5L6cadXv
+         fLVOh39CNTh2x5Z9gVxbScMubTagGqaHu6VhnhFc2tcbmfkqMD5ZOVeq8J5xHiFxnydQ
+         AbE6fnBOJ2dUq7uybYleJnTuzAYM51XiVcTMDMiYrbWlQbX/h/J9kvIjxGT6Tss67ynT
+         /H53Ti3mBA8QG0R7p0iefzcKxPLOuPQY/OtxddqjCUTyEDN1NZa9Ci9aHtgAapDgj8iH
+         RMdcVVzBJw5vHVWZXl8pfRnnXCkDUGe8YHHpR7R7ZKHK7u4N+khZwzub+DZD8ZKeh/WY
+         vHzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795541967; x=1796146767;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1795542011; x=1796146811;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=wEVUsPXL+/9WghyRMIFhi+HChMwXmmXY3YDSRyt6xMQ=;
-        b=bKgVaTz+rB/p9xnyevKR83ZmssTK275JPngZAwwZK61glZC72zqPznmlofeBzel7Ts
-         0uRLYIGiEfa3w25Li455iuwjr7vrhefSg4xLEv64TfMekwhFVaPWp330yOR97cBz/fEd
-         P0+kfDuG+rb+z3Qan26TXPadqz6omBr14HIPkY3ZDVDWbN+e7KdcoyvcFSPFk7VTvreN
-         Tqc2GHd4JtkizWlkEo2TmUGtsDXlxMpm4X7Z5QXfUBBlAqPeSIr1ztaKOsPzyIzv1h+Z
-         XMVMIqPXdMBkEaORZqWulFLpT/Z6WBrngocXJCBk06oiLbJRNGQ7NYdQbyHdX3cqNlBM
-         KUig==
-X-Forwarded-Encrypted: i=1; AL+hErH39GAf2CExuJz5ODiM5iBcUktCgDxnZIRrSpUVA189I+8SAUNQtgj/WEZ5IL9dtM0ZRnqdZ5OZSY/bhx8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9182GxbqVp73j0WvCyvO0N+5oTxzZUK5OqsNmoCPAEheJVn8Wu
-	vpdEdnoFgjpzKa2ZcwCq13he2piFaiNSRswdfqbIFXl5sp7+Gkd+7df/
-X-Gm-Gg: AZFdTZcQ4FO4cYaV8MX8+CLcfkTtySu78G6DNU0/LOKBrm2VeY9k2sHhxiYlXL3U8a0
-	XO2tz5eIHUNBgRtuF5widA7+lJrL38JYa04+lS0cBeUM+YTk74DWPBKJ4dr+BJMNSgDQdB5jHeW
-	GGJNnvznvbuzQC/ESPATbdQEYugWcyUPnJOEqdfNnDaWk7W7uAL5QNT5Xd9YuHE/cQ+4JqLTlL1
-	1p+Aalzq3aO1LlXSFsoPNp+FW64w+Ar1H43m4fpBoY7BHcwmzeLPAkLPOCMlMdft8tVAVq3R+OB
-	I6mRLjx9BqxB1ASfCBonaBJq8NKu3It4lArpY3IdfNXedvDxpXKGeuaqK3OMhP48RC+SNB5wpVO
-	jqLxopWAJAD+Bx1/aukwDNQ3LN11skBEZ1Xnq6Cr99Kt/B+hqcGHmFa9clVYgWPLsqz6bKJWESw
-	8Zz0Gg5S+k1K3BpmfTFK+rpkI4TVzl79D507s+AXocFg0g/DvBNb6DrbcTmX+ap+lqMkTX8dj5q
-	yeNYoMKnoGATOITdHk9X5jcolPrJmxhKfGz4O32eH6tEtziKwEVJQzczbtMXKWvRkNv0f0O4ceV
-	4GLuAjdnhywthBt51+9hT+ldvhjcimAhYQ5zShIY2xa+iScyMmdJnNtwZ5FfMjUZ82PiyTCANBf
-	Ngwo5MKGfjhNg4gh1PZqnSH4NvcmTTosJHKBSERu4GdPPn5v+hzuQ
-X-Received: by 2002:a05:6214:1247:b0:91f:355d:d7f4 with SMTP id 6a1803df08f44-92134a7a7c0mr274698866d6.18.1795541967504;
-        Tue, 24 Nov 2026 09:39:27 -0800 (PST)
-Received: from localhost ([199.170.132.196])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349f8c34sm141160046d6.32.2026.11.24.09.39.26
+        bh=miqMkDmR7uPJ+RMX/Y388NkwoGQvWXSbN62ZuELGneA=;
+        b=a0TkwMC7P3pYRbSJ9EGfjainGBwBtY7IBNgoJ7/byCOjhtcUpFhDUzcPvdkhB0HoNe
+         z5rvpBs5i8zovc/IqrPMFsrgknUuX9kkiAgMeIwtN0OKR9EtK8MLd01yP+envspsPK7U
+         y0pYSPXypS8q4Ox3VJvYDT/nGQsxPrlu7+E33NWntG2Le6nZGp/m344ZGanfs18Tl8Hn
+         mQKsCwnnqCxNDL/zwJpItQtMkFlKzAg+JcbezsrWvA6KHmu+1mTR9QYvycHmdSaKjpTO
+         fyQwmG8MouIxq/TB7c7tDOwzukJoEOr0CxlZGMVO5KK3jn/ZW55IYOfS3tMqr+TsxrYU
+         IUlA==
+X-Forwarded-Encrypted: i=1; AL+hErFSdF6zur45FKnR4ASjDU1VwTEFaQROMD6PUAXLtZD54W4GtnTM/THVpBqV/ahRPX9mOlADGwQ+EeSPlM8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9prYzyp/KHpZam60eQxDpfG1ohAkN9LmQ7QbFjtTUE+FVZ+z4E
+	cTCtDo+v0rJNUw/5NIOmmnMVpbhA0DIyStvWVMNKR6WOZHSH6y7R8igkAnasIVdGPg==
+X-Gm-Gg: AZFdTZc6Xi7Z1XNfV6maFE0dW02Ww9yH48cXC9zM6CVTRAXw1z2rczO1RiVItQ5pkOU
+	YzPJrfqAkU+49a257jD9grToVPzi6le0MJozWsalG0ti+/F/AYguCiPM6l1KTJdDzBisnCRzZWB
+	2vOSuiIarB4x8E+w1So4r03dNJHsdKT0PiPl/8vxqLFftUy6sUuHjcM/C2hpOTBRiTEusqnRzBC
+	cVp2YZ0iz/gjhjNd2r+ggfqhIMBWxGqzd5/KzruKtaA9ajb+nMfFJfBmwZyed8ohnpmQtKTCF9b
+	9GE1YBepL/1Hr1rS6WNAsDRJte9yhyWAAZYD0kcWvhgUgHzTohyO82zpskCCQz5VcuaGulxEMbb
+	vqrnCmOcYWbGFGgfKNhltYe0hPFb1od41ghOzTXucQfpE3Gz2edWhufAIMHt+jhpOqV/lffgESQ
+	RYlX5ICGo0w7XaM1UqXEXtYk51tMGNhiqPC24QnijCEGVnICrc59ceGmTGD1ky91XeX4BN9HUQc
+	hDtVwVpI+Zsj8PbNl3oaEF91Sp2z44zJbLvzhUIzIIbCY9HmZ0THcplW+mUeS7xhkbCAsT4Y5mv
+	kZaqfPTXLbVF5YQGdodApnrxjynTpnTn4O3XdVHLp8/h1KWkj+nFXjguA65RIrKMgibMTgrynRo
+	J/xZoWfQgw71zlFGkbRW9bw==
+X-Received: by 2002:a17:903:19e3:b0:2d5:db38:8010 with SMTP id d9443c01a7336-2f066708a17mr12958045ad.15.1795542010063;
+        Tue, 24 Nov 2026 09:40:10 -0800 (PST)
+Received: from google.com (25.75.145.34.bc.googleusercontent.com. [34.145.75.25])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f122548sm72700355ad.66.2026.11.24.09.40.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 09:39:26 -0800 (PST)
-From: Tamir Duberstein <tamird@kernel.org>
-To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org, eddyz87@gmail.com, martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev, jolsa@kernel.org, emil@etsalapatis.com, shuah@kernel.org, arighi@nvidia.com, xukuohai@huawei.com, billy@starlabs.sg, void@manifault.com, ihor.solodrai@linux.dev, bpf@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, awerner32@gmail.com, andriin@fb.com
-Subject: Re: [PATCH bpf-next v3 4/8] libbpf: ringbuf: Add a caller-owned iterator
-Date: Tue, 24 Nov 2026 12:31:21 -0500
-Message-ID: <179554148179.68173.17534252990255417064@kernel.org>
-In-Reply-To: <DN2WJMWD5G0R.27OOI2IBOXA6M@gmail.com>
-References: <20261120-bpf-ringbuf-fixes-v3-0-ff7ca15d6c37@kernel.org> <20261120-bpf-ringbuf-fixes-v3-4-ff7ca15d6c37@kernel.org> <DN2WJMWD5G0R.27OOI2IBOXA6M@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+        Tue, 24 Nov 2026 09:40:09 -0800 (PST)
+Date: Tue, 24 Nov 2026 17:40:05 +0000
+From: Samiullah Khawaja <skhawaja@google.com>
+To: Ankit Soni <Ankit.Soni@amd.com>
+Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Lu Baolu <baolu.lu@linux.intel.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	David Woodhouse <dwmw2@infradead.org>, Pranjal Shrivastava <praan@google.com>, 
+	Robin Murphy <robin.murphy@arm.com>, Kevin Tian <kevin.tian@intel.com>, 
+	Alex Williamson <alex@shazbot.org>, Shuah Khan <shuah@kernel.org>, iommu@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, Pratyush Yadav <pratyush@kernel.org>, 
+	Pasha Tatashin <pasha.tatashin@soleen.com>, David Matlack <dmatlack@google.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Vipin Sharma <vipinsh@google.com>, 
+	Nicolin Chen <nicolinc@nvidia.com>, John Starks <dev@jstarks.net>
+Subject: Re: [PATCH v8 05/18] iommu: Implement IOMMU domain preservation
+Message-ID: <awXL2cLfpbowuO0m@google.com>
+References: <20261123044949.3610702-1-skhawaja@google.com>
+ <20261123044949.3610702-6-skhawaja@google.com>
+ <ngjof224lsvn3aamehaaowcsk6lyrypjw7uidwwbxxpzot53t6@462wqwsp65bw>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,11 +106,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <ngjof224lsvn3aamehaaowcsk6lyrypjw7uidwwbxxpzot53t6@462wqwsp65bw>
 
-> We can compare notes on the API design and decide on the path forward here.
+On Tue, Nov 24, 2026 at 05:23:18AM +0000, Ankit Soni wrote:
+>On Mon, Nov 23, 2026 at 04:49:36AM +0000, Samiullah Khawaja wrote:
+>> Add IOMMU domain preserve and unpreserve APIs that can be used to
+>> preserve an IOMMU domain across liveupdate. These APIs use the iommupt
+>> preserve and unpreserve ops of the domain to perform the respective live
+>> update operations.
+>>
+>> Signed-off-by: Samiullah Khawaja <skhawaja@google.com>
+>> Reviewed-by: Pranjal Shrivastava <praan@google.com>
+>> Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+>
+>Reviewed-by: Ankit Soni <Ankit.Soni@amd.com>
 
-I'll drop the iterator proposal from v4 and keep the fixes and their
-tests. Your series can build on that; it leaves callback consumption
-unchanged, so the callback wakeup fix is still needed.
-
-I've reviewed your series and will send comments separately.
+Thanks,
+Sami
