@@ -1,98 +1,144 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795552906;
-	b=Quh9m51FWIlKkImliMB2l5jiWIO09Ee+VzNbcYn4vXpulUX5P3MEBTODrbIoB4bdempv
-	 mibUJoSUDItmvaK7aztHjTDQTQH7JwneRU4fvo7PNir2KFGqrT34MadASUXAztW+/AQPY
-	 2q6K76CkIWoo2xUIqBIJAGelLaWZgZ/DMYFcVzclX/OrcGiSVw0LAZ7q/mSA28OmATzby
-	 zcb0Q+kC6La6L39NNMzl3aDQUcebkGdFekV+NWnkq/zdnPi0VI4FiGLyqwEjP/zOs30xT
-	 lysfusLpkn4CS2Ev8GqSVmqgOiSigRGdFiU7NydhHK4JcKf+I3vXzhJS1T3JqMTbxPw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795552906;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=osL2M/19coEMUU7Ga197ggH9O1oVOsCvfp/GhIbgW+g=;
-	b=XoNCzNuAB38QUIm55X6JbLvDotX30ZDqqo6Y98E3HRtBZXJFXbF6y9bkcR9EnONCX9Mv
-	 tGptiySDiuHn8P7Tj9JI6uLHSlux/SOO03zFwhQbM1uhksfpv1TNLdmOmhgpF2k/gAwnc
-	 h/HrcMVKe++EqI/QrGmeHl8tO2fM8bGo8nInZQLjT01YRqiBm//rqSKUy24tcagScfKka
-	 Wdf6mx8aUJM9YcqPRYXIdoO2Ft3a1oD7LeMUABglyV1vGjRccz8K5ODKIDipLwhB5pJaY
-	 bmGexZ92jXT1OBQ04CJvP3AsOkr+TujnfZ+rdjwRboHuro6Q/GTi7NKpKZRco1AFIgg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=y4I55EeO;
-	arc=none smtp.remote-ip=74.125.82.43
-Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=198.175.65.16
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795552966;
+	b=4Bof8fs9f6go0grxWk9GwbLkhQvYY/rbepjH8i4dNMReKCpkbwUoyYvQxN/RRMjERUGr
+	 kzM6VexEAZxn5TVT683//Prnz1bvBQmJfsAjTZQAwA+pd+ftOO318OzsRxSF0MnVZd24d
+	 MZ7QBZSmepygtqcO0mzXX2YzCW++KGYU48nRM4JClbiqw2dvWMF0xo5niORPOypKcOSgQ
+	 YCXBCWwuxXeMK/RiPtQ4lFFI4KyKnagkNAPPzwjuaV37j4b13+m9TanIjqiVgCTMYBWSk
+	 zYirNkca6sQ7rQ8i3KxTIa3oiwC9rQ6mwoEcK2rBvrOBkRaOQDcteoG7l0R0DDoirKg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795552966;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
+	 Message-ID:References:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=yD/5Lg+RXU+FGsOrQmUBoGm80ob6zIP+2y+R9k8sqN8=;
+	b=Mc5lmO9atactXfOr1hCQ96FEoJ3FtRhRQt286JKZoMI7S81nckNbFYegJ3ShNz2yZk3m
+	 EVb2WyoASAT+4VXRfwjet8Ptu6gXgm/lssBuLvWtixWOLTN7g8SM/YX7+pPmWmZzh/rTp
+	 /bdFWlWCTQKs4HsQ1ZKiksNdTzc2AHPFBrv28yV5TT0FpPbhqZTct49vZr22pfoamRqb0
+	 t0rrkappCEgCmwyl/4r3pW2SDZA13wGsL6xyZQz6I2Hu764j7RA2t4TPEvcmyFTrrD37c
+	 /jLklTXfgP5V03JsFQmoYC4fkffSzWGbglRrSOI4cPjEQbAfuiL239L3JeyMx3fnDlg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=RpwfNLXt;
+	dkim=fail reason="signature verification failed" header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=kgOe7A0C;
+	arc=fail smtp.remote-ip=198.175.65.16
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.16])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5F96606A32E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:41:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5F96606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB6FD606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:42:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB6FD606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=y4I55EeO
-Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-1a2761c69fbso5428069c88.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:41:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795552904; x=1796157704; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=osL2M/19coEMUU7Ga197ggH9O1oVOsCvfp/GhIbgW+g=;
-        b=y4I55EeOMZw0jTdWULjY9+XX+QbN5l0/VaCsw/JK9z0sSrIDTeW5rkktvkwE8E4Dwr
-         3NGauEwYfsFm2F6zNy3EP1uhV0sCTz6IPTjQynEJztipaclXCTQ4CmsnjYkGm+IZ+wRT
-         wHIVY7ynTSUHZAsMZ0uFR0xTENhnYmQEqWECo9BA4gyldUPxDfJ4S4wDzv6RtkxM9pOs
-         67IidjdpSmi/XZEu5sNlLpCqNBad0qEdGcI6OSWPhwZJWO9Hx22uoyxS41HuWtmQb/Bq
-         YeoQBFMDQGxiKrkHwqPF+N31edRsE0OoGbLIimJYPx61MTOPpQlJY35esa47xASsUhaC
-         zR+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795552904; x=1796157704;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=osL2M/19coEMUU7Ga197ggH9O1oVOsCvfp/GhIbgW+g=;
-        b=JNCQVNwZhsM8SGm/gDYD5fZYuqtmlVuUQeKsOO9ldC0H4VpLGGc8xLVwgm7BdlC+qF
-         HaTUdwHPsBNa6SvthmA67Oaua8EpTY8DhobGMOnxGrbdjA7NFQK/Bti27OrCbhxueIBU
-         XysY/rkBkGUC+iSePN/WpjDItDQjixhiOIsF6Uziu55ufzr2947OeupoJrV+WxRm0SC/
-         hRpl6zedy7s8LWB7Fb95IH1HTesuHGWHTVwepUmNNZmUKGlb+KSUJinXfqLCidKPBMg4
-         qzvIuwvuGHVE4YvWRjtZhOPR6hSX30rxSu9uerbHxi5Gld/M7UfxV/T0BaHd3SqCR9Ze
-         JfFg==
-X-Forwarded-Encrypted: i=1; AL+hErFUhjJ1S87kiF/olvkTHkhFZWA61khIcz9coi8emTWMA+/Xy1PBobqY/f4KDoqC7Rc+na8EG3ElunpGn+o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z99QdstfsdwspR+EIuodwEDql2jE7IfruaVIs3k4d9qeVDQXB7g
-	MSKDLkJUkwObMQVBB4upgvTmUTOqKDlXWKSrvjTfem2Q/sZVP76aLwvU
-X-Gm-Gg: AZFdTZcF8UBOuU124n87BNLe7sOOxrwEfHEd5alH1QTc6DRXSpj0DRt9JTU0gtv5/vK
-	yw2sQZTGOCrQOgkfEgEiDLPyfOqo06g1Hp6WCaao3gYd45ujnGAdiXVm3oNYzqrLtPiKj/qACap
-	WoS1VV7iQBagViunhM8OYMN0PsXIQoWRAe162obZlcuYF1GLkFoOr7E/K2HbIOxXv7F09Eo6lmf
-	LKXR+pGTapQLjsmQ8vCPFMV9hYDcYmt6xU8m3nYtWJaSbum9xKlKekZiDD5Z4auF5+RGgoWvMiN
-	11r0G5UaziBaFJ+VqeCFGg/b8C2V7Z5eqAM2YaGryGIwiA8eS06/Fd9V6Gc/3svOXfcHdu1TcEQ
-	TWai0AduGoL/e2cNhWJagnwQiSArjsfPYGAu6Fu0oO8KbE25taSwD4sjOsEZsyAezt42iodDwmf
-	n2RKnEOVLFAhES1BZDGQ9l4Wtm+uh+9PYnlL1jsCNpBJ5oUp7Ei5B4Y1YvAO3CeS05gAgD92pFM
-	znfHljrY5ivyJ051lvzTuKs+YS3g/S+lTG3shUUNNKRRR5fahubWHf7c40io1Scw8SstYU8LGF7
-	wx7jcjpUEA5tuznBEXui/ZgoihYw+PXF
-X-Received: by 2002:a05:7022:e80e:b0:1b5:3b6e:e1ed with SMTP id a92af1059eb24-1b55690bcf3mr18577671c88.32.1795552903922;
-        Tue, 24 Nov 2026 12:41:43 -0800 (PST)
-Received: from omarchy ([122.186.156.30])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55684c85fsm54214420c88.14.2026.11.24.12.41.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 12:41:43 -0800 (PST)
-From: Vaibhav Chahar <vaibhav.chahar26@gmail.com>
-To: Jonathan Cameron <jic23@kernel.org>,
-	linux-iio@vger.kernel.org
-Cc: Marius Cristea <marius.cristea@microchip.com>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Joshua Crofts <crofts@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 2/2] iio: adc: palmas_gpadc: Use guard(mutex) to manage locks
-Date: Wed, 25 Nov 2026 02:10:54 +0530
-Message-ID: <20261124204054.85634-3-vaibhav.chahar26@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261124204054.85634-1-vaibhav.chahar26@gmail.com>
-References: <20261124204054.85634-1-vaibhav.chahar26@gmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=RpwfNLXt;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=kgOe7A0C
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795552966; x=1827088966;
+  h=date:from:to:cc:subject:message-id:references:
+   content-transfer-encoding:in-reply-to:mime-version;
+  bh=Is0Kuc+3S7shP1SASnTAr67vzHH/P6j99l+wsVaKA54=;
+  b=RpwfNLXt8aadIpVvQgui/UA3oGYDnsurwRl/Sao8O4icXE7xqPo1H5OK
+   pl3tplTf8aUQgyiCZiaW3SlcSMQBzttpvhF4hnlyhMA08vcjz2U2z/eSG
+   CoHNhY8tQP0TyJ5p6tor9KOb+S4vnJJgEQ69RSw/D/5GDp+nIQvcxEsQn
+   GWJfGVEWYoOY7A8lxSyx8nJtOfXTFg257pdsyP3N3cYrSGZ5a4SOsoUik
+   3n+ZoulnR6iQA0mfilpsWZGUvyJJxyYlM66o+YkJsvrU/5YPZikrquzSV
+   J718d5BrBSQd4KdBCW3nCJ6WyPwDzspKaeFnzXidbn5vy5BxbyWBzW39h
+   Q==;
+X-CSE-ConnectionGUID: m6mWyBIFSzajymNOjB1tEg==
+X-CSE-MsgGUID: cVSWYYewS8O4Qcg8mwizEw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4339076"
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="4339076"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 12:42:45 -0800
+X-CSE-ConnectionGUID: Tk4soICtQR2/ehDGxpi6Nw==
+X-CSE-MsgGUID: k/Tv3FJAScyKigg0NeQtRQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="11795793"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 12:42:45 -0800
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Tue, 24 Nov 2026 12:42:44 -0800
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57 via Frontend Transport; Tue, 24 Nov 2026 12:42:44 -0800
+Received: from DM5PR21CU001.outbound.protection.outlook.com (52.101.62.62) by
+ edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Tue, 24 Nov 2026 12:42:43 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dMqlSkWWXtTbOBmB96L4m1nMOF6gpJC1XGy/hlZ4f+LdnmyTBdJ0cRZcEOIHxpndXSSu9H4d2PQmhyWMoGFmAIuViSqdGB+cdLch2QvDvwf8o+68F6hOaTobOaFL8DVJ+AMVoCi56SVSDg1C4scxjbK/ocz7dir8t4tBUe431x0hTxhwSfblE7FhXH+DKbgKdu+gLjTMQb7lnUAOQwghUwo8dkZG9v/0A2Dlnr6uwBIbpHl6Tr2gRMUll+S6e88vb+kQlpeiAk8KnYtpTy/cxS/ZBCgbkMi6caS1060svjG3UI/fHNBE/t+cANSCfWfpT3qyITDYY6LVlcD3MKp90Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ym3XjmhfgPs6Q8Q9adhNZup9WsF3HyZpr4KFej+rvD8=;
+ b=q/3AAUQEts+xLworsjWSBqUbVkJxo5PyhiK9DhBqM2JUkrF5+0uDN4RaPxHhmoJWSbRvHwVyKdyxanKqMb6UkbBCp/3R+Qrifp6jg7qymmrsqpp+m1cX2gp5MmD3fKW0YJ24yVWeqE4eAm2Q4EcjgTM4Xk3S5LjUz4zxBghZVLGqYZLOKaby2j+hmTF4k+q7atNOCIt5NrolhkLoKlGxyhDs/n0LdELzTPsb2/yL2GojPFt+18fBlNPzcZcMertN7xnc0MSmA3dJfLYlKLrHgQ+Btm5jSgDCt1OYg4LrTjMKaUeADKOEL0zDww01iTCwSh7CPPjIpW+9QEB4D5K+sw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ym3XjmhfgPs6Q8Q9adhNZup9WsF3HyZpr4KFej+rvD8=;
+ b=kgOe7A0C8AqBmt+hvd5wE/yIf1f22vL2Efj0sADFxzjFXfX3DIXJM64pOzmWEtA4GaeRWfEGw/35mumxyfEbF1XFfJ+JmtRz9aufgT8GMXM23mx4Mm4Lr3WTf0fnqdAwUwFK5X5aM5eAYl0Z3m9+rtkOAnseDVJ+TjnwZ1Qinsc=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from CO1PR11MB4787.namprd11.prod.outlook.com (2603:10b6:303:95::23)
+ by IA0PR11MB7696.namprd11.prod.outlook.com (2603:10b6:208:403::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Tue, 24 Nov
+ 2026 20:42:33 +0000
+Received: from CO1PR11MB4787.namprd11.prod.outlook.com
+ ([fe80::e7eb:a872:53d1:21fd]) by CO1PR11MB4787.namprd11.prod.outlook.com
+ ([fe80::e7eb:a872:53d1:21fd%4]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
+ 20:42:33 +0000
+Date: Tue, 24 Nov 2026 12:42:30 -0800
+From: Matthew Brost <matthew.brost@intel.com>
+To: Niranjana Vishwanathapura <niranjana.vishwanathapura@intel.com>
+CC: <intel-xe@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
+	Carlos Santa <carlos.santa@intel.com>, Ryan Neph <ryanneph@google.com>,
+	Christian Koenig <christian.koenig@amd.com>, Huang Rui <ray.huang@amd.com>,
+	Matthew Auld <matthew.auld@intel.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, <linux-kernel@vger.kernel.org>, Thomas
+ =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>
+Subject: Re: [PATCH v3 24/33] drm/xe: Add defrag profiling tracepoints
+Message-ID: <awX2tkRFjgK8gUJC@gsse-cloud1.jf.intel.com>
+References: <20260711025619.2540575-1-matthew.brost@intel.com>
+ <20260711025619.2540575-25-matthew.brost@intel.com>
+ <avFNSl7oIffZTPi8@nvishwa1-desk>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <avFNSl7oIffZTPi8@nvishwa1-desk>
+X-ClientProxiedBy: SJ0PR13CA0003.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c0::8) To CO1PR11MB4787.namprd11.prod.outlook.com
+ (2603:10b6:303:95::23)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,233 +148,263 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PR11MB4787:EE_|IA0PR11MB7696:EE_
+X-MS-Office365-Filtering-Correlation-Id: d9ceb7ef-6395-42d6-2e96-08df4a6b777c
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|6133799003|22082099003|18002099003|56012099006|11063799006|261009223027099003|261021123027099003|4143699003|261102123227099003|261026140227099003|261026121527099003|261028144727099003|261022075727099003|261022105027099003|261021121427099003|10067099003;
+X-Microsoft-Antispam-Message-Info: NwpZGSIfVZm8Wgb8P87lOyvNyhWZL1Cyu5Hsa1S8OwVAFvKcIWZ3Hv41IbPTeAiC58VymCtqMkZXXU17C5haY1nyU5FetstcxjWr2fn47T0MemxEoBkEJSoHevpL+kjMfXh87frLzLguBTG1kTQvBuyhQVzA3/vJXocmVecHSZW6WtJZ1Ciy3S0TF+CG1kuBOw8Sa/Z7Kj2KUqXtB5DsbFoEKsdxRaJAx2STAOMP8dTOz/CqbYFtgcVousuZuCOOjoL0DAG9NF3fFvxm9wHSE6bf5eBJqZfZhEKdDTz0wj8R5Mw1dxDh1xzH9fo6N5gZOahAJf1KZqKQmAABsDkxVyePBIo+9YvUNioXKhzyBsyUc5KIaXolgCfffAWD4Sn1Fgmo8TrWbo487imrGgEKr+otKwz0Nmr07pElKVnghuDi46hZSQndA+MIENuNdS3mA49yuuA1a225P1/Uk9YHYQHfZgaWkXP/TWkv/l2auPMGFWHYX38MNSmfKmgVh65TJareOtvsRr5JzoasdNo7VebhRdGRGR9/17twqo4QtAyvjBqkrg5qWDv/0dOHH6axx6SoqMLCDk1lnygloZW5/+msNJX0fwpa6YAowQI10yeex750vhxoToCf6+kJ7Z7rcUF0At17ZluSqyY80BY+EV/QSIZegLfmWa3s8f0Bm3w=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB4787.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(6133799003)(22082099003)(18002099003)(56012099006)(11063799006)(261009223027099003)(261021123027099003)(4143699003)(261102123227099003)(261026140227099003)(261026121527099003)(261028144727099003)(261022075727099003)(261022105027099003)(261021121427099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?M+C+brYZX2oB1LaN0pu9f/nllg3/uzmAw5zeDDtMrzuLw9LcgjGTpC7Gyc?=
+ =?iso-8859-1?Q?EBOXhZmvx9QJoenjHzGwpCaQoczv8Hok/mbOcjFNYVYbUynhzGZrWVJN2k?=
+ =?iso-8859-1?Q?eA9132pw2A3zay/K9kaiDMOho/1Fh5OVJDVjaMoEd0Bw+AcuCMdcdNPmYS?=
+ =?iso-8859-1?Q?zNZpl7NrygG31nYT3ynopebw/TLhHILymz7vhgodC+tGvevWGBnO8uyDdl?=
+ =?iso-8859-1?Q?LsUg3A9LN+nYIVzJAXy5a4UdVTyswvnTThHhJlhm0DpWBd77LrNmzWt9dL?=
+ =?iso-8859-1?Q?1Sj7de8CyLnDJe6c+HGtQJyJpZLLZTpyliSL3nWTn+5G87aqMTI+St0/I1?=
+ =?iso-8859-1?Q?T4JFbwYZLe2yhq4/lkSLKF0nmw4rRUuLHhtYNNmg4sWiWYqWBWUKsB7vs5?=
+ =?iso-8859-1?Q?w7HXcdcOd2FYJ6it8uhFwWnB1qxyO0zLiTuxQVqdb9+9Xqucd+ipIC0cBq?=
+ =?iso-8859-1?Q?Dg7Wdp0OfLHnVxvECgSr7hI3zqEepnPEQ9dLHYuEPoAkxGuzWZND6ThyLP?=
+ =?iso-8859-1?Q?mswsJI6adfJCA7OtoY1koYCQCQxSkf7Ygga6upSsI2yzi/CRf4GDruR6Fu?=
+ =?iso-8859-1?Q?lTJUuAufIIiWAr1mx0bIwYoTntImLdPjeTL3ioDz+BswlcAJT4Fo7FO/tw?=
+ =?iso-8859-1?Q?/XeFGOZx7cUAxqKn4SBTRz5R2guafG8qd8s16zjZbt6yXu502Hk/e4WjHj?=
+ =?iso-8859-1?Q?zw8p6DdjBvZPpQjGKllTVDtK9oh1IQRfOcLnMlf0WWuGvhyEbnG5UG8Lff?=
+ =?iso-8859-1?Q?UPLQxhGvQqY+U7Xm78RF5mxKx3S4oCTatwbhCXixgF4/fx7mHN4IcYcs1r?=
+ =?iso-8859-1?Q?1rgnS+sb/AslZ7IzD+GzLFGyQgUjR7vRzIXVe/L/UNhveUQRGR7MUhUFPa?=
+ =?iso-8859-1?Q?mmCqzPTXuM43h0cMQ7gGBK6Ax14aHgaAtJJOUzeSc3PGwxmO7H5hfTI9Eo?=
+ =?iso-8859-1?Q?sPDyiyCwtZv4c0QR3fG82tPmqCbiqsAjJLxev5yoacAJsQniqlEbZQVy6O?=
+ =?iso-8859-1?Q?S6yr8eikBEzNaax30MHWduRY++lyHNsFu3x5x47sb2zFXBV82PZcqp9Cgc?=
+ =?iso-8859-1?Q?CRTU+3x94E1fVx3dG0RTlunPHp3TcUUWvMFYg+K9fpChKAbS85T1tzDi2k?=
+ =?iso-8859-1?Q?+zx8TsQrKsBsrHK5Jo053xztFFioRuPzL8rIRIOnMUhjXKXyz9ubJvKh2W?=
+ =?iso-8859-1?Q?jx4pU+f321+jqD01gdScanl7kP6nZS6ZP/SvwOkJ2uJNpWC5tBnsxaU4gF?=
+ =?iso-8859-1?Q?r4fU8n0kZT2omOoHrOfxwJ8px5rMLLUtTYJZtHqRLUX+c8T6Xp4+OLV9PA?=
+ =?iso-8859-1?Q?AW7eNEqTvPRFOB3WdZB1DL5bbyobRdBwlOUakaMxLXOHD97d0Ee0rl9hgj?=
+ =?iso-8859-1?Q?1nsLpjtU5eESYoA3tY3wLoiCmHhhE8CesM6F4fHiLLZFPUoW2Nf3qoQFlg?=
+ =?iso-8859-1?Q?UbEqekZsWLh23hRpzLtw8nyJ3Q3Oo5wPeC0FfBPuuxEeW60DhmrOwW/3nn?=
+ =?iso-8859-1?Q?Rgb8azpjdq2OtyH1NZTUbxP+pe5cel02gqFC2NWw0clQWFDRBbi1CVlrFf?=
+ =?iso-8859-1?Q?rHdXY++Fe3vppPQDMmwoopTKkjnyNMjQD3INDD6q95KXpt/m8axuJ9/Gxt?=
+ =?iso-8859-1?Q?LA6UkXqZafDiw10IlkNGZo1Xzcy4pD8MzfDwMNTp3fo/tlQwJkDxaxfaun?=
+ =?iso-8859-1?Q?YGv87HlVS0HZsCxbu1sgZspmgidy7Wqt3R3mD/s+YLmuxJ4gZUeJ3cGBqk?=
+ =?iso-8859-1?Q?aDJB2cQyvd1UrSca/5fSe8H3AqTVmWKHSDH1Vb0dUrxGu2noIM+3lktYzK?=
+ =?iso-8859-1?Q?o5PiJ6AWVrUoIIsdBEmr5JvaNxMxTOo=3D?=
+X-Exchange-RoutingPolicyChecked: NNoqc/k1AESmYvPz4WIqwjuSjd1IMDNTovSAwEZ4aWA56b0otQlbmFCDu1QW8vx1EhiBQofVSIXgOyC+CEUPpW6TaVQIf4ml8zCm9ndAI/CnpirkSCoNnhqUqFEZoNkcr0RFXe4viezYmzSQYyKWY5Zcdv6fFC06Bt+efSTlFxMDh4sckw4atR7jf7U1GHV72L1GttnbdbJVBgaSCuOijAWWoWqKyvDdWX4MbLqt+4Tch10WEY6AGVIUkPBbwm4Y0T3KHRGwS+O02Yo6G1MjSIQyhFq3+4wax4XXV81ty1UAQZCY70k1AfcP0UF4ZI8gEccA43K7A5kk4oWUcgGfKg==
+X-MS-Exchange-CrossTenant-Network-Message-Id: d9ceb7ef-6395-42d6-2e96-08df4a6b777c
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB4787.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 20:42:33.7740
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IEEIk2szNQJ588x38aIBxQj3kjtCWrkMy1BP95xE+Czj0zsnUhDf+MqnCqFvF6S7oE8NRc7Qe+Oo9MrHPygIog==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR11MB7696
+X-OriginatorOrg: intel.com
 
-Use guard(mutex) instead of manual mutex_lock() and mutex_unlock()
-calls to modernize the driver and simplify error handling paths.
+On Sun, Nov 08, 2026 at 08:34:18PM -0800, Niranjana Vishwanathapura wrote:
+> On Fri, Jul 10, 2026 at 07:56:10PM -0700, Matthew Brost wrote:
+> > Add two tracepoints to profile the page defragmentation worker:
+> > 
+> > - xe_bo_defrag_worker: emitted on worker entry and exit with the
+> >   current defrag list count and the bytes processed in the run.
+> > - xe_bo_defrag_one: emitted per BO with the run budget, the prealloc
+> >   fill ratio (got/want) and the lock-held, lock-wait and prealloc
+> >   durations, plus the bytes consumed and the result.
+> > 
+> > These break down the cost of a defrag attempt into its locked vs
+> > unlocked phases, making it possible to confirm that the expensive
+> > beneficial-order allocation and cpu cache mode change happen outside
+> > the BO dma-resv lock and that the residual lock-held time is copy-bound
+> > (with the tail dominated by lock-wait behind active rendering).
+> > 
+> > Cc: Carlos Santa <carlos.santa@intel.com>
+> > Cc: Ryan Neph <ryanneph@google.com>
+> > Cc: Christian Koenig <christian.koenig@amd.com>
+> > Cc: Huang Rui <ray.huang@amd.com>
+> > Cc: Matthew Auld <matthew.auld@intel.com>
+> > Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> > Cc: Maxime Ripard <mripard@kernel.org>
+> > Cc: Thomas Zimmermann <tzimmermann@suse.de>
+> > Cc: David Airlie <airlied@gmail.com>
+> > Cc: Simona Vetter <simona@ffwll.ch>
+> > Cc: dri-devel@lists.freedesktop.org
+> > Cc: linux-kernel@vger.kernel.org
+> > Cc: Thomas Hellström <thomas.hellstrom@linux.intel.com>
+> > Assisted-by: GitHub_Copilot:claude-opus-4.8
+> > Signed-off-by: Matthew Brost <matthew.brost@intel.com>
+> > 
+> > ---
+> > 
+> > v3:
+> > - Move the ns-to-us division into TP_fast_assign() to avoid a 64-bit
+> >   divide in TP_printk() (Sashiko)
+> > ---
+> > drivers/gpu/drm/xe/xe_bo.c       | 18 +++++++++-
+> > drivers/gpu/drm/xe/xe_trace_bo.h | 59 ++++++++++++++++++++++++++++++++
+> > 2 files changed, 76 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/gpu/drm/xe/xe_bo.c b/drivers/gpu/drm/xe/xe_bo.c
+> > index 8b89d34f37d4..25e5b72f870c 100644
+> > --- a/drivers/gpu/drm/xe/xe_bo.c
+> > +++ b/drivers/gpu/drm/xe/xe_bo.c
+> > @@ -1263,7 +1263,9 @@ static int xe_bo_defrag_one(struct xe_device *xe, struct xe_bo *bo,
+> > 	struct ttm_placement placement;
+> > 	struct ttm_place place;
+> > 	enum ttm_caching tt_caching;
+> > -	unsigned int order, want = 0;
+> > +	unsigned int order, want = 0, got = 0;
+> > +	u64 lock_ns = 0, prealloc_ns = 0, lockwait_ns = 0;
+> > +	ktime_t t0;
+> > 	int ret = 0;
+> > 
+> > 	*consumed = 0;
+> > @@ -1294,6 +1296,7 @@ static int xe_bo_defrag_one(struct xe_device *xe, struct xe_bo *bo,
+> > 
+> > 	/* Phase 2: preallocate outside the lock; */
+> > 	if (want) {
+> > +		t0 = ktime_get();
+> > 		ret = ttm_pool_prealloc_fill(pool, tt_caching, &pp, want);
+> > 		if (ret || !pp.count) {
+> > 			ret = ret ?: -ENOMEM;
+> > @@ -1301,12 +1304,16 @@ static int xe_bo_defrag_one(struct xe_device *xe, struct xe_bo *bo,
+> > 					 XE_GT_STATS_ID_DEFRAG_FAILED_COUNT, 1);
+> > 			goto out_err;
+> > 		}
+> > +		prealloc_ns = ktime_to_ns(ktime_sub(ktime_get(), t0));
+> > 	}
+> > 
+> > 	/*
+> > 	 * Phase 3: re-take the lock, re-check, and validate using the prealloc.
+> > 	 */
+> > +	t0 = ktime_get();
+> > 	xe_bo_lock(bo, false);
+> > +	lockwait_ns = ktime_to_ns(ktime_sub(ktime_get(), t0));
+> > +	t0 = ktime_get();
+> 
+> Here only phase 3 locking is profiled. What about phase 1 locking?
+> 
 
-Made a new helper function palmas_gpadc_read_raw_locked() and called
-palmas_gpadc_read_done() after it so it can still run before the mutex
-is unlocked, allowing the goto and labels to be removed safely.
+Phase 1 consists of a series of very small, time bounded checks
+performed under lock for stability, which should be extremely fast. 
 
-Signed-off-by: Vaibhav Chahar <vaibhav.chahar26@gmail.com>
----
- drivers/iio/adc/palmas_gpadc.c | 110 +++++++++++++--------------------
- 1 file changed, 44 insertions(+), 66 deletions(-)
+Phase 3 is interesting part as we perform dma mapping, formulate a copy
+job, and internally update the TTM bookkeeping. If this part takes too
+long (several ms) we could risk missing page flips as compositor could
+be waiting on the same lock. Fortunately iirc for most BOs the lock is
+held for less than 100us. So this is part we really need ftrace points
+for profiling.
 
-diff --git a/drivers/iio/adc/palmas_gpadc.c b/drivers/iio/adc/palmas_gpadc.c
-index f777986a6..00541e58a 100644
---- a/drivers/iio/adc/palmas_gpadc.c
-+++ b/drivers/iio/adc/palmas_gpadc.c
-@@ -16,6 +16,7 @@
- #include <linux/delay.h>
- #include <linux/pm.h>
- #include <linux/mfd/palmas.h>
-+#include <linux/cleanup.h>
- #include <linux/completion.h>
- #include <linux/of.h>
- #include <linux/iio/events.h>
-@@ -538,6 +539,29 @@ static int palmas_gpadc_get_low_threshold_raw(struct palmas_gpadc *adc,
- 						     min_offset_error);
- }
- 
-+static int palmas_gpadc_read_raw_locked(struct palmas_gpadc *adc, int adc_chan,
-+					int *val, long mask)
-+{
-+	int ret;
-+
-+	ret = palmas_gpadc_read_prepare(adc, adc_chan);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = palmas_gpadc_start_conversion(adc, adc_chan);
-+	if (ret < 0) {
-+		dev_err(adc->dev, "ADC start conversion failed\n");
-+		return ret;
-+	}
-+
-+	if (mask == IIO_CHAN_INFO_PROCESSED)
-+		ret = palmas_gpadc_get_calibrated_code(adc, adc_chan, ret);
-+
-+	*val = ret;
-+
-+	return IIO_VAL_INT;
-+}
-+
- static int palmas_gpadc_read_raw(struct iio_dev *indio_dev,
- 	struct iio_chan_spec const *chan, int *val, int *val2, long mask)
- {
-@@ -548,39 +572,16 @@ static int palmas_gpadc_read_raw(struct iio_dev *indio_dev,
- 	if (adc_chan >= PALMAS_ADC_CH_MAX)
- 		return -EINVAL;
- 
--	mutex_lock(&adc->lock);
-+	guard(mutex)(&adc->lock);
- 
- 	switch (mask) {
- 	case IIO_CHAN_INFO_RAW:
- 	case IIO_CHAN_INFO_PROCESSED:
--		ret = palmas_gpadc_read_prepare(adc, adc_chan);
--		if (ret < 0)
--			goto out;
--
--		ret = palmas_gpadc_start_conversion(adc, adc_chan);
--		if (ret < 0) {
--			dev_err(adc->dev,
--			"ADC start conversion failed\n");
--			goto out;
--		}
--
--		if (mask == IIO_CHAN_INFO_PROCESSED)
--			ret = palmas_gpadc_get_calibrated_code(
--							adc, adc_chan, ret);
--
--		*val = ret;
--
--		ret = IIO_VAL_INT;
--		goto out;
-+		ret = palmas_gpadc_read_raw_locked(adc, adc_chan, val, mask);
-+		palmas_gpadc_read_done(adc, adc_chan);
-+		return ret;
- 	}
- 
--	mutex_unlock(&adc->lock);
--	return ret;
--
--out:
--	palmas_gpadc_read_done(adc, adc_chan);
--	mutex_unlock(&adc->lock);
--
- 	return ret;
- }
- 
-@@ -591,19 +592,16 @@ static int palmas_gpadc_read_event_config(struct iio_dev *indio_dev,
- {
- 	struct palmas_gpadc *adc = iio_priv(indio_dev);
- 	int adc_chan = chan->channel;
--	int ret = 0;
- 
- 	if (adc_chan >= PALMAS_ADC_CH_MAX || type != IIO_EV_TYPE_THRESH)
- 		return -EINVAL;
- 
--	mutex_lock(&adc->lock);
-+	guard(mutex)(&adc->lock);
- 
- 	if (palmas_gpadc_get_event(adc, adc_chan, dir))
--		ret = 1;
-+		return 1;
- 
--	mutex_unlock(&adc->lock);
--
--	return ret;
-+	return 0;
- }
- 
- static int palmas_adc_configure_events(struct palmas_gpadc *adc);
-@@ -680,21 +678,16 @@ static int palmas_gpadc_write_event_config(struct iio_dev *indio_dev,
- {
- 	struct palmas_gpadc *adc = iio_priv(indio_dev);
- 	int adc_chan = chan->channel;
--	int ret;
- 
- 	if (adc_chan >= PALMAS_ADC_CH_MAX || type != IIO_EV_TYPE_THRESH)
- 		return -EINVAL;
- 
--	mutex_lock(&adc->lock);
-+	guard(mutex)(&adc->lock);
- 
- 	if (state)
--		ret = palmas_gpadc_enable_event_config(adc, chan, dir);
--	else
--		ret = palmas_gpadc_disable_event_config(adc, chan, dir);
-+		return palmas_gpadc_enable_event_config(adc, chan, dir);
- 
--	mutex_unlock(&adc->lock);
--
--	return ret;
-+	return palmas_gpadc_disable_event_config(adc, chan, dir);
- }
- 
- static int palmas_gpadc_read_event_value(struct iio_dev *indio_dev,
-@@ -706,28 +699,21 @@ static int palmas_gpadc_read_event_value(struct iio_dev *indio_dev,
- {
- 	struct palmas_gpadc *adc = iio_priv(indio_dev);
- 	int adc_chan = chan->channel;
--	int ret;
- 
- 	if (adc_chan >= PALMAS_ADC_CH_MAX || type != IIO_EV_TYPE_THRESH)
- 		return -EINVAL;
- 
--	mutex_lock(&adc->lock);
-+	guard(mutex)(&adc->lock);
- 
- 	switch (info) {
- 	case IIO_EV_INFO_VALUE:
- 		*val = (dir == IIO_EV_DIR_RISING) ?
- 			adc->thresholds[adc_chan].high :
- 			adc->thresholds[adc_chan].low;
--		ret = IIO_VAL_INT;
--		break;
-+		return IIO_VAL_INT;
- 	default:
--		ret = -EINVAL;
--		break;
-+		return -EINVAL;
- 	}
--
--	mutex_unlock(&adc->lock);
--
--	return ret;
- }
- 
- static int palmas_gpadc_write_event_value(struct iio_dev *indio_dev,
-@@ -740,18 +726,16 @@ static int palmas_gpadc_write_event_value(struct iio_dev *indio_dev,
- 	struct palmas_gpadc *adc = iio_priv(indio_dev);
- 	int adc_chan = chan->channel;
- 	int old;
--	int ret;
- 
- 	if (adc_chan >= PALMAS_ADC_CH_MAX || type != IIO_EV_TYPE_THRESH)
- 		return -EINVAL;
- 
--	mutex_lock(&adc->lock);
-+	guard(mutex)(&adc->lock);
-+
- 	switch (info) {
- 	case IIO_EV_INFO_VALUE:
--		if (val < 0 || val > 0xFFF) {
--			ret = -EINVAL;
--			goto out_unlock;
--		}
-+		if (val < 0 || val > 0xFFF)
-+			return -EINVAL;
- 		if (dir == IIO_EV_DIR_RISING) {
- 			old = adc->thresholds[adc_chan].high;
- 			adc->thresholds[adc_chan].high = val;
-@@ -759,20 +743,14 @@ static int palmas_gpadc_write_event_value(struct iio_dev *indio_dev,
- 			old = adc->thresholds[adc_chan].low;
- 			adc->thresholds[adc_chan].low = val;
- 		}
--		ret = 0;
- 		break;
- 	default:
--		ret = -EINVAL;
--		goto out_unlock;
-+		return -EINVAL;
- 	}
- 
- 	if (val != old && palmas_gpadc_get_event(adc, adc_chan, dir))
--		ret = palmas_gpadc_reconfigure_event_channels(adc);
--
--out_unlock:
--	mutex_unlock(&adc->lock);
--
--	return ret;
-+		return palmas_gpadc_reconfigure_event_channels(adc);
-+	return 0;
- }
- 
- static const struct iio_info palmas_gpadc_iio_info = {
--- 
-2.56.0
+Matt
 
+> Niranjana
+> 
+> > 
+> > 	if (!xe_bo_needs_defrag(bo)) {
+> > 		xe_bo_defrag_remove(bo);
+> > @@ -1362,9 +1369,13 @@ static int xe_bo_defrag_one(struct xe_device *xe, struct xe_bo *bo,
+> > 
+> > unlock:
+> > 	xe_bo_unlock(bo);
+> > +	lock_ns = ktime_to_ns(ktime_sub(ktime_get(), t0));
+> > +	got = pp.used;
+> > out_err:
+> > 	ttm_pool_prealloc_fini(pool, &pp);
+> > out:
+> > +	trace_xe_bo_defrag_one(bo, budget, want, got, lock_ns, prealloc_ns,
+> > +			       lockwait_ns, *consumed, ret);
+> > 	return ret;
+> > }
+> > 
+> > @@ -1396,6 +1407,9 @@ static void xe_bo_defrag_worker(struct work_struct *w)
+> > 		return;
+> > 	}
+> > 
+> > +	trace_xe_bo_defrag_worker(xe, 0, atomic_read(&xe->mem.defrag.count),
+> > +				  true);
+> > +
+> > 	/*
+> > 	 * Process at most XE_BO_DEFRAG_SIZE_LIMIT bytes of newly (re)allocated
+> > 	 * backing per run rather than draining the whole list in one go. Only
+> > @@ -1503,6 +1517,8 @@ static void xe_bo_defrag_worker(struct work_struct *w)
+> > 
+> > 	xe_pm_runtime_put(xe);
+> > 	drm_dev_exit(idx);
+> > +	trace_xe_bo_defrag_worker(xe, defrag_bytes,
+> > +				  atomic_read(&xe->mem.defrag.count), false);
+> > }
+> > 
+> > static int xe_bo_move(struct ttm_buffer_object *ttm_bo, bool evict,
+> > diff --git a/drivers/gpu/drm/xe/xe_trace_bo.h b/drivers/gpu/drm/xe/xe_trace_bo.h
+> > index 86323cf3be2c..b159d37d39a1 100644
+> > --- a/drivers/gpu/drm/xe/xe_trace_bo.h
+> > +++ b/drivers/gpu/drm/xe/xe_trace_bo.h
+> > @@ -85,6 +85,65 @@ TRACE_EVENT(xe_bo_move,
+> > 		      __get_str(new_placement_name), __get_str(device_id))
+> > );
+> > 
+> > +TRACE_EVENT(xe_bo_defrag_worker,
+> > +	    TP_PROTO(struct xe_device *xe, u64 defrag_bytes, int count,
+> > +		     bool enter),
+> > +	    TP_ARGS(xe, defrag_bytes, count, enter),
+> > +	    TP_STRUCT__entry(
+> > +		     __string(dev, dev_name(xe->drm.dev))
+> > +		     __field(u64, defrag_bytes)
+> > +		     __field(int, count)
+> > +		     __field(bool, enter)
+> > +		     ),
+> > +	    TP_fast_assign(
+> > +		   __assign_str(dev);
+> > +		   __entry->defrag_bytes = defrag_bytes;
+> > +		   __entry->count = count;
+> > +		   __entry->enter = enter;
+> > +		   ),
+> > +	    TP_printk("dev=%s %s defrag_bytes=%llu count=%d",
+> > +		      __get_str(dev), __entry->enter ? "enter" : "exit",
+> > +		      __entry->defrag_bytes, __entry->count)
+> > +);
+> > +
+> > +TRACE_EVENT(xe_bo_defrag_one,
+> > +	    TP_PROTO(struct xe_bo *bo, u64 budget, unsigned int prealloc_want,
+> > +		     unsigned int prealloc_got, u64 lock_ns, u64 prealloc_ns,
+> > +		     u64 lockwait_ns, u64 consumed, int ret),
+> > +	    TP_ARGS(bo, budget, prealloc_want, prealloc_got, lock_ns,
+> > +		    prealloc_ns, lockwait_ns, consumed, ret),
+> > +	    TP_STRUCT__entry(
+> > +		     __string(dev, __dev_name_bo(bo))
+> > +		     __field(size_t, size)
+> > +		     __field(u64, budget)
+> > +		     __field(unsigned int, prealloc_want)
+> > +		     __field(unsigned int, prealloc_got)
+> > +		     __field(u64, lock_us)
+> > +		     __field(u64, prealloc_us)
+> > +		     __field(u64, lockwait_us)
+> > +		     __field(u64, consumed)
+> > +		     __field(int, ret)
+> > +		     ),
+> > +	    TP_fast_assign(
+> > +		   __assign_str(dev);
+> > +		   __entry->size = xe_bo_size(bo);
+> > +		   __entry->budget = budget;
+> > +		   __entry->prealloc_want = prealloc_want;
+> > +		   __entry->prealloc_got = prealloc_got;
+> > +		   __entry->lock_us = div_u64(lock_ns, 1000);
+> > +		   __entry->prealloc_us = div_u64(prealloc_ns, 1000);
+> > +		   __entry->lockwait_us = div_u64(lockwait_ns, 1000);
+> > +		   __entry->consumed = consumed;
+> > +		   __entry->ret = ret;
+> > +		   ),
+> > +	    TP_printk("dev=%s size=%zu budget=%llu prealloc=%u/%u lock_us=%llu lockwait_us=%llu prealloc_us=%llu consumed=%llu ret=%d",
+> > +		      __get_str(dev), __entry->size, __entry->budget,
+> > +		      __entry->prealloc_got, __entry->prealloc_want,
+> > +		      __entry->lock_us, __entry->lockwait_us,
+> > +		      __entry->prealloc_us, __entry->consumed,
+> > +		      __entry->ret)
+> > +);
+> > +
+> > DECLARE_EVENT_CLASS(xe_vma,
+> > 		    TP_PROTO(struct xe_vma *vma),
+> > 		    TP_ARGS(vma),
+> > -- 
+> > 2.34.1
+> > 
