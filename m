@@ -1,58 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795535841;
-	b=aGlKpvUD3log0rI8zMmH09UxuKAHeKwYsTZcx7zrryYXWrnVdilZ3CL4fyDyYA8GHqO9
-	 zzocVsRfwwfsahz7ivFzVpDV7u1uwVgzvW8jLwvdczu2MpxMmpbF64F7EEq0mAANsUwwY
-	 g+4p3pnj4kCG80cBUldkUaZNm8BTgqmrj3+kEGK2oCVA+3RupJOGDJwdG1Ub0Jb9tuu9I
-	 kMOg97ldiaEkgg2LkJ1ljkcmtVAqsqFImMNHHotSQBku/sYTHnKHNd8Ww6jxdRJ3zltvB
-	 Psw1L3+2YjyTJlHTLlbN0zkAvPNTokX2RgKOV+Y8o0vK8XOec5U62NsLV0mA+vT8+tw==
+	t=1795535890;
+	b=QA2EpJ80AB2IPRvLOFkn8FprVPo/PTxO4pRwbfZY1XWsLlcjnp3H4GJYhUGuhsiKvOlH
+	 LVyDTr/svIY/WAdIYaF9TWL5NtBAwQCc9jl6GgFCTx4LoFfZnoVnq8lc2iJ7OUd3Le0ad
+	 VQGpONBl3o+z638K4DV+48n8EhgIHWEvkqTUodlXsXTSEB61Q9pJ2syr0Pbr+JQbydTAx
+	 qqGNxg1ztHFyI+QeCw1BzpA4YJlT3GyV3BwCLWMacAUZuvQcdeovIrWLL2NlIFSuwynDh
+	 8Q7jJhjMdt4uiOyNhZYgFtIwnjcYSkF4xTQ/2caQoHImI18B41SUbJoGJ4U0DeGINLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795535841;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535890;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=e618oH1wZyA3evgTKCe3X6OhnEmuk1PZR1Bt320gdGA=;
-	b=AkcB7sqzDmhcwXRoAuvnQkSfGBTrwQVr0Hggmf9IkANPeLrCjzPlMb3gavL6RM5pR8tO
-	 rv6q6pFTeHDaWcYeXLR+wVq/QMJc0h6V2yef1/JeyA5/AnUP9PLn5WjUt0X9DjIgdw5qq
-	 CQ+JXj2rH/Pm4zklbOtrD0AdQEGd9qAcOlBN42hDr/00aDyRH+HRakjCGCI+gHYkY+Kax
-	 LARe2XGg4RBAeXsqC9Gfad3Uz0+Lq71i6b3gJsUiYxQ/y24e9ZdvPCSN/d46dbTac3JIY
-	 qLMiy0tpXtD4fgrAUeMaECKaoOsuc1zGoebx8yS7PQ4Kzzg4D+Am8Yp36MivbxdcLAw==
+	bh=pIDEOjbq7+ZKjdjmkL/WuaSrdrNA5P329n5oCOdc1mI=;
+	b=wM5DGx1qzCfjL8pix9YUGl3YqCwwBGuXijyOAFSQaGvlyhjdTztP1a3CIA2XhvV5PgJj
+	 AeNdXippye5hBjZEZANd9dUVFCxZCMdgyrxV96e0L71PJVMJZtRARbVU2e10DU6MTssvC
+	 ek/0zi+RdIhh9J/2qljQRTolWSXVwxCf9kbRED1mHgreWjbzh94RXBwvTECZCDZ0KYP8U
+	 4+vG8HN7VqRQZ5KyBoyZUQFcrsnqU2qXCgiEd6NaKNJKX7g0KRPToTOnlPT+c9WLh17Gy
+	 f7xXWuu6DAMQDaS/eSZ5V2pwyfxqwzJ7TPspyv5EGSDhwWrP7DQnhn2JUXktE3pJuyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BpwfxaTD;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WzV0GS8z;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC680606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:57:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F392606A31E;
+	Tue, 24 Nov 2026 15:58:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BpwfxaTD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F0321F000E6;
-	Tue, 24 Nov 2026 15:57:16 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WzV0GS8z
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D68651F000D0;
+	Tue, 24 Nov 2026 15:58:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795535841;
-	bh=e618oH1wZyA3evgTKCe3X6OhnEmuk1PZR1Bt320gdGA=;
+	s=k20260515; t=1795535889;
+	bh=pIDEOjbq7+ZKjdjmkL/WuaSrdrNA5P329n5oCOdc1mI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BpwfxaTD2MEjS1btEJaR5JWWEC+b2IZqBFJqtADDhoQXgna3MzcvZJ6TyMC3TuAax
-	 RP7uJkdSlZYH/CxGszqx7/9MPjuYOyXMc7FN7+eSv+NVKSbFkdLFveouNfWcgyuG2P
-	 r9W6OTU7DCdU0YG+Ms96qNeYcUotV7Shb0g8hGzyq35XNvhTVJUzcFCSn09RWzkmxX
-	 aUGEGHhcTLK+P8QGldpE6N7ouQcu95wX5D4YQs8+eNFszBMv+WalM7fOwyJSI9akZJ
-	 ZD8bJYpk/KRnjsdQTPlgpxWpbhS2jLdzFbizovnWLtP6svoXo2/d3ZFu+AVVa0uAdv
-	 /BJ5DSwPhBzsg==
-Date: Tue, 24 Nov 2026 17:57:13 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, x86@kernel.org
-Cc: "H. Peter Anvin" <hpa@zytor.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/9] x86/mm: CPA robustness fixes and cleanups
-Message-ID: <awWz2REjNXoGJV0b@kernel.org>
-References: <20261112-fixes-x86-v1-0-791adb8d6670@kernel.org>
+	b=WzV0GS8zHavb1OFv0CO1J+MIVGhMkE8wteCr9YvLcQ9aNqWJv8gqMkrMMPRSKkymt
+	 BEkdel8+bZ8C3ox0N6XRuftLsrJF/RuPn9hdn6iRTeemIUKiSzp293OrBxf1TjiN9g
+	 rWx2ZkO1flwawt/+BdqA0vsQeuUyIs8R/mzMjr2uIEMBofdv2mZXAGaErHrZVrku0G
+	 6QV6jjJ1iYqHdqV6VUUF7OA/cAEmRb0W38AhpynJbExx3tVdVmK+g9BhloPm/ABYYW
+	 0w+9rsA2vIlSz2/CJ9ie0OPwJEk2Z5wpOO+JSPiUbTrTwK1vBoKymKPjPrTn/qHuEn
+	 c9xRac28REvvA==
+Date: Tue, 24 Nov 2026 15:58:00 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Suren Baghdasaryan <surenb@google.com>
+Cc: Pedro Falcato <pfalcato@suse.de>, Ingo Molnar <mingo@redhat.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	Kees Cook <kees@kernel.org>, David Hildenbrand <david@kernel.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	Jann Horn <jannh@google.com>, Puranjay Mohan <puranjay@kernel.org>, 
+	Alexei Starovoitov <ast@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	bpf@vger.kernel.org, Chris Mason <mason@kernel.org>, stable@vger.kernel.org
+Subject: Re: [PATCH] mm/vma: drop mm asynchronously in vma_start_read()
+Message-ID: <awWz3nc_b8x3mIXq@gremlin>
+References: <20261124-vma-read-lock-mmdrop-async-v1-1-257f99f551de@kernel.org>
+ <awWLCZ-jBjSD7V3M@pedro-suse.tail5790ac.ts.net>
+ <CAJuCfpGk6eYK43Unxo+O4ML5=GM_siZ9owp6oa9fO0ipZXVg-g@mail.gmail.com>
+ <CAJuCfpEd1rz3P7fB7W_mHkyzbpq9TscRE+QNwvHdYME=WJj6cw@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,51 +71,15 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261112-fixes-x86-v1-0-791adb8d6670@kernel.org>
+In-Reply-To: <CAJuCfpEd1rz3P7fB7W_mHkyzbpq9TscRE+QNwvHdYME=WJj6cw@mail.gmail.com>
 
-Gentle ping :)
+On Tue, Nov 24, 2026 at 07:51:42AM -0800, Suren Baghdasaryan wrote:
+> Actually, VMAs are allocated from a SLAB_TYPESAFE_BY_RCU slub. With
+> that RCU unlocking move you don't need other_mm copy and the comment
+> that comes with it. VMA won't be freed until RCU lock is dropped.
 
-On Thu, Nov 12, 2026 at 06:31:05PM +0200, Mike Rapoport (Microsoft) wrote:
-> These are x86 CPA robustness fixes and cleanups I found while working on
-> a generic implementation of the set_memory APIs.
-> 
-> The first three patches fix issues that are unlikely to happen in
-> practice, but are still worth fixing even if only to avoid LLM spam:
-> * CPA does not flush the TLB when only an alias of the requested range
->   changes, and the alias keeps stale TLB entries.
-> * mark_rodata_ro() ignores a failure to write protect the kernel and
->   enables the read-only protections anyway.
-> * set_memory_encrypted() and set_memory_decrypted() map random physical
->   memory at an unmapped address instead of failing.
-> 
-> The rest are smaller robustness changes and cleanups.
-> 
-> ---
-> Mike Rapoport (Microsoft) (9):
->       x86/mm/pat: flush the TLB when only an alias mapping changed
->       x86/mm: don't set kernel_set_to_readonly when write protecting fails
->       x86/mm/pat: don't populate page tables in set_memory_{en,de}crypted()
->       x86/mm/pat: don't BUG() on inconsistent page count
->       x86/mm/pat: don't warn about W^X violations before mark_rodata_ro()
->       x86/mm/pat: remove CPA_ARRAY
->       x86/mm/pat: pass the address to CPA by value
->       x86/mm/pat: move the collapse of large pages out of cpa_flush()
->       x86/mm/pat: use cpa_flush() on CPA errors
-> 
->  arch/x86/mm/init_32.c        |   8 +-
->  arch/x86/mm/init_64.c        |   8 +-
->  arch/x86/mm/pat/cpa-test.c   |  15 ++--
->  arch/x86/mm/pat/set_memory.c | 203 +++++++++++++++++++------------------------
->  4 files changed, 108 insertions(+), 126 deletions(-)
-> ---
-> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-> change-id: 20261112-fixes-x86-0c15b6adc212
-> 
-> --
-> Sincerely yours,
-> Mike.
-> 
+Yeah but they can be reassigned? They won't be _freed_ until a grace period but
+they can go back to the slab and then allocated elsewhere  right?
 
--- 
-Sincerely yours,
-Mike.
+--
+Cheers, Lorenzo
