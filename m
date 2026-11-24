@@ -1,123 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795528415;
-	b=KrfQnnrtOhIvFSuhkDsYd43FEWn3JpXNOuLv2xEFLWAZKtk/3RtnC28+j7pRmX2dOYWA
-	 P5TGpgM5XYx1QDYxgceWSE6AeTUU4mBjr8rpIT9P/IO10AkvTmRbdV+CCmzQfP6Nn+UcJ
-	 TvAsnn67HcTAhKy7mIt0K2HNan96PQRENX+9YESQdlk+X9c2wUNOfk4ndR8nscHBwwjb9
-	 +PLNqyfdsUGmirgR/e7PSPfYSyH8st4578ik2lAXqdDQUnZRZgrUPwrqTjBuFlaP7OdM9
-	 kC2uFev15+qad9DgAlBsznwViUcUgpXDZVazKL3RUezFYt3NWJMeCNHWgDgcTcHH0mw==
+	t=1795528459;
+	b=w+Mmf4aoe1SREHR0SMnjAS0ATHg1QuXnQaiDXxDIZHozoZgqPQDfu7vmb4aS1gtLoQXf
+	 Xaynb24AoWQVkfNJ/M6NqhxDuWyHo+pHtxkTpCWLicvm3EtL6sB5OadRTaPaaYNYwThEZ
+	 xYMGDrAQevRmB/zh1kyLOmZMwYf1sWYjFrXzigEy+FEaaVw1qyjgRDV7G329MJKrauOts
+	 jsnmmlwQ1mtKjeuKj1HaTuQe4s/jqldtgQNwwbvTZMEaylgCR7/L4qFvQ7K8zePGcp3GY
+	 KA+CSufQsCvz6NNUUFjTcfkMGyaTewhg79ZxzK5wgIExndGbGpbQLDGN5aszdXXFe+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795528415;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795528459;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=q6JmaR/skCNhplZj+MXI58e71T+5r4bXzYFahMOHLqU=;
-	b=WFfx0QtlqTRxcYYCfuZ6XgCeVYZaUkhuf0tTZZeaKT6EWkHtKKfrdxt9MiCiwkeS0ucQ
-	 wfff3TlR/rEjZvAymuCW/rAgH8igb3HC/inBr1tQwM/PQ1js9Riw0LNWi9iY0k/iecFS3
-	 fE0zvXPZmS0GEivoTsEKi9DV/NyxPbSTMGvLyx8EhBSenercQjZNNBqvI5skJFwYlxgEC
-	 k6/rIUiF1rBS45aXYktatg66LyUbE3UezKSctmynRNJB4VZ59Xb+lIH1R7GaeNqei1+ZC
-	 x7UK7Q+gzi/yU26kv6dJveEq/GTneIptbQ/Q+P52nx57MKwLiG+Jud1PCo9hjqHFZvg==
+	bh=BTSuTvabptufqbTtra2OQo4b6Mm8L6DWa02Gs4EF2GI=;
+	b=Oy4MiIUw0SmqY7yz7R7gDYr4ipDmA92tPpZ2PoGcoYjGNaDUSO8dbklGge3f69wlDdBv
+	 R9w1zOfkEe6KhBiGGN290UUHpDMA5A3CLnp7A7BdXAbibnmuNv26tfgtfOsXjhn0vMuAr
+	 2kaDx+zILVuY1VaRAD2aXMOjkGBgFTzSOR7kHI9tIQFScusHUmh89X33N7jfmbxC3p172
+	 L3uYbXHxMLqxIZUvuHXVkqyLn9FuZwfx/ONzw72Sr9rhxSs1bkPfYmm9kPdYqwbc1XfoH
+	 nyZU2uKiFiwCnaHKt7WdkgewlG7WD9DDAeNNF6R5u27PfJmbz9g+QbsOGo6XirGHEnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aLN+A24F;
-	arc=none smtp.remote-ip=209.85.208.46
-Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com [209.85.208.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=OINwf3Cx;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=klSRcYDL;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D03FE606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:53:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D03FE606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C066D606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:54:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C066D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aLN+A24F
-Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-6b8815693e2so5203382a12.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:53:34 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=OINwf3Cx;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=klSRcYDL
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795528457;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BTSuTvabptufqbTtra2OQo4b6Mm8L6DWa02Gs4EF2GI=;
+	b=OINwf3CxUHhgl8E4WUeABLdIWSloOqV4KQnstIJ894e5+e1J9pL/i2hI5s4EqOVwchFKGI
+	v0uj3ap/QXCzpUagoqlJ79i8I4+bHb8+fcv5+jXAo81f8CQLEP8qWXL8LMZBjX/25y3a84
+	+uz+nj8zDFxF5b56ikh5uMlbZt7LJmM=
+Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com
+ [209.85.208.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-215-wu1-2a-1M5WR5bkIHCjEIg-1; Tue, 24 Nov 2026 13:54:16 +0000
+X-MC-Unique: wu1-2a-1M5WR5bkIHCjEIg-1
+X-Mimecast-MFC-AGG-ID: wu1-2a-1M5WR5bkIHCjEIg_1795528455
+Received: by mail-ed1-f72.google.com with SMTP id 4fb4d7f45d1cf-6b9095eeb5bso5853794a12.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:54:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795528413; x=1796133213; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-disposition:content-type
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=q6JmaR/skCNhplZj+MXI58e71T+5r4bXzYFahMOHLqU=;
-        b=aLN+A24FpcTksAvfHE8G0f+UplORhvw8/bXY3U82W2pf+lsZWIWXWX/nafyLTh047G
-         r1onB5x/eH4tSPvpNCASvyFlUYRQp//42ZEhqX4kLhCP/7b6mTxU52rDhsrNv92QNHsK
-         22lGdW0m7GzfIs964YdQNmo4/i5nLQSPWfdE5QkIYGgFoDwusrMDPTIsgk9l/rL8DR03
-         xcyEatZ4m+TH8CaDZWoj5inFyPcaO44w++BTiN0Jhwazt0/1CpVw0OVF5oatqyNsuAfY
-         c/s7CbWVdGlNsO+fq9FdI6skKk76U8kam3euoI+v+LN3tLy7fm66o8SxfO50RuVrGtDD
-         9I/g==
+        d=redhat.com; s=google; t=1795528455; x=1796133255; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=BTSuTvabptufqbTtra2OQo4b6Mm8L6DWa02Gs4EF2GI=;
+        b=klSRcYDLBO18m1k2HJu95QlxqagYzaq7dvThtg+gCUK16pos4/R3hYLFyOe2I0S0Fk
+         BUSHBLjR4tculnF5tpEjiETOHBLw6pg++jvybQqDdJkL0ZTDZTKW6GF0UvnWnVf6esXn
+         yKsXnjQJZoQbITx/OpgtqF2qUK1MmrLT8UqsiPUfQ4XuzkxC4d5nNo10IjuW2KOw+b9z
+         avAk/KNi1+GjkaoyTBEpUnSLfW2Tur2eldMP/ZJwIErsvAc64pliuwdGXwCkuKl9kjGf
+         cYamUGzj6nqpJQgiVS+L0G3GYMC/Ly2CCX0aV5mpFJqkHmY/qEchNgOD7C6/c3FEPE+c
+         qi4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795528413; x=1796133213;
-        h=content-transfer-encoding:content-disposition:content-type
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=q6JmaR/skCNhplZj+MXI58e71T+5r4bXzYFahMOHLqU=;
-        b=ksqIFS5gz2OEplf4Si0l117rVEYp0fVHr1/kBxGYU0eSOSFKAjd/6yg+i5NYXpegtt
-         A0rbtLqM0QRv5JypZ3CwN9Wp6Vue1owLma1s8b/Y/izXrC5vevmqhooS+LG02y5QhyT4
-         M78s+x3oquFZZezfuEJwvEpbU6JMB4ADFEHWdwzst7Xm2O0c5i8K+KeJKX0cXlowDOMC
-         5dXEm9uyzUOsPFz9ZghDYv1Aykbrb0QKLoasVRqsZMs9rSYs89Gf3fVwMbdrWWw7aBPi
-         CcsdPMg/VU7/fJLyJFpfMdu1d84oiPqruABbxVe3TMxtGIeI3zvJrGY/VNXME2Xz6Vga
-         bzog==
-X-Forwarded-Encrypted: i=1; AL+hErF4W7F20mWYrsqyteT5wa5Q3Orfv0A0UynGxMLQwln2IN/P7/5ihQXPp/EBPA9Ao50ynaSJwn3gvWVMwKo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8oZPCR5H7IEXcMQqdVYACjlv92oYls+yJduJV45GXruVsWcWYa
-	VTZHHA+Ju/4W7jQBQkYw22TZqZyCbzNSW81jkvQG9cTLKmyX+PQqA8lw
-X-Gm-Gg: AZFdTZd/0JA1U3RFZCOiuIVY59Lgeb7kQryVb5hDwntFcxy+jGmGV7NRFJw76xntJl/
-	s2cDSYT4wJVR90+umwdTQDdKeRz7brofbYIHNBefU+Y+1sQJfruQGNHY1vYiRHQrYbMSjrUCbwV
-	uFzhf0JZasWYaby1/XD2yEZww9pwX/fZZjPN9n7qwbSJD1FBDLq76Og4zZ9ina0drv/aLtCjiCQ
-	eH+GMrA38n3l+VGMIgiU6MnMglR1+f+h17E2Gz2K9K8gb+PTUEHR5jauIOQZjw74Pth/TolO/M3
-	xgjVk59f6ZqeMb8p/e0Yo4vm72oU4+gfgvVxx801FKD2ufpSA3QS7S7c6K0nqfZ0pk9LPb2RJ0n
-	/2EGB7TdusR3Lcof6tl+CEs7BjtPEvu3WLNeA8NmWY6skYe9IWAf0PrfM1Fon9572cChcu6B8BW
-	ZoNHJclsUHjEsAjThjI+kC+DEYvT9XHgGEtEwcxy9q4gXB2BPkBo8rcZsagBSpNZUtWe7m9vWaU
-	gVWBXC1t9FJgOQfzpEbSVsUfnLs/kLA2jAvYnTxzhV6+RPBJrOjAO/1B/vV+tAwgWyUrRib2DgY
-	M9/UuLDlws/sIR2Z2kKeQTiKPB41S1k=
-X-Received: by 2002:a05:6402:c70c:20b0:6ba:1347:5cd with SMTP id 4fb4d7f45d1cf-6ba37c7ad6bmr7580207a12.2.1795528412985;
-        Tue, 24 Nov 2026 05:53:32 -0800 (PST)
-Received: from ArchOarora ([95.179.249.152])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba36d730d1sm6833598a12.0.2026.11.24.05.53.18
+        d=1e100.net; s=20260707; t=1795528455; x=1796133255;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BTSuTvabptufqbTtra2OQo4b6Mm8L6DWa02Gs4EF2GI=;
+        b=xjJhDnxjvRvNE8pGbMwb+artutwZ/2za9ez02o+h1JqYixam/qroTHT2/pJ8OXpDn8
+         VUp73nuaPNLN6ovGyMoQcr41KirAXgrscnnNBg+P7toiIVNtRFO+z2LShpzvVleKNKEb
+         D5wVGuyQPpiPlOTBuHRRxroGnqeMUroHjJBy30f16yPxXrTI//a2LTCJdkSbuBICHlXc
+         LnYF0zF388Vz5bFmKx/FdYL6UlqL5a/bweMOpw9/GOjVJ1VtJFbwBHzYr9z0n3RCXxyz
+         dBw6zw+SR8rkegEeGE+nIj4fxSN5E+uTmyVf7DTJ6ZZ/zexOvRm3of6JZ5rMFY0HerSg
+         qJ+Q==
+X-Forwarded-Encrypted: i=1; AL+hErFpba5g1/P9MFUtiSw6QNLBi4DTXBqIYGPwsqKIvOaKT9dydcop1jdRn9moAkW5ncPy122c8D6fIQHAl0M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/n6h6Uo+paLqccVD5gzg9tknRiEAja74lVd7Azc5091e3x+IeS
+	yQEqlEkbGEvG+WpWZCXDuAzHXy6ZCL/uhbGLnJt/6BJ5z2NdXM2lmtscVHEsxAV4esPXciU1Lsq
+	FL+G6pk83PAJ7K1FfhoAhlOVFYPhEo16U3IZ5qTiN5ftofuILiiAAUATLCLD3D87hBA==
+X-Gm-Gg: AZFdTZdSkerhzNpdwLby4Vp6/4lyb7xHKezx+6VvANpqRzqj/kzyVv/2pL+H/jUTdlG
+	08D9JjoF2+c45lOnsTc9jEseeP6/xvzlMYCZpq9Hz9rlpXSX+rajE87gAQazI2ff7mvJ3GpooDM
+	Jx/qKcV/fcm7xWpGnyElYeuUfcRUavUu7ySdVf4ZAn6hAZJ3J7PIHD9piIjQQtKNfFpvE9J/C+E
+	EbkOBEqY2pd1OqiGEo3TXLHsMM9l2DpG38WPTbEYvzraAsaQRoCOUd3va6SJCj1tGuruH9+F2/g
+	OowMptGnXeX5roDTiWTYrHLSTgTB/WvrmZzrL6yzKPHfXydxm8lj0Tt4vW134LzhLcAY3guPj9R
+	6rF4yuxT9KWtTJJetAXiq3KlCPVnje/UDeRHzjiefmCWdnqP5OVx/p7rQdwywISGkMkG4F+N1y1
+	ZHTsY/spdiHjzDkLzskOo0Ugixopjsp1ksensG5DwQwPqz8zH4h35kUsXcF8P8gz5ILbK+JLA5i
+	OxOB1yIPnaPoYZjyrYHmCDsv11JSyMl3a/oqgfMm5hGLuPKNwyh
+X-Received: by 2002:a17:906:1651:b0:c50:6222:7b1c with SMTP id a640c23a62f3a-c513aaada4cmr976109866b.23.1795528455121;
+        Tue, 24 Nov 2026 05:54:15 -0800 (PST)
+X-Received: by 2002:a17:906:1651:b0:c50:6222:7b1c with SMTP id a640c23a62f3a-c513aaada4cmr976108266b.23.1795528454791;
+        Tue, 24 Nov 2026 05:54:14 -0800 (PST)
+Received: from cluster.. (4f.55.790d.ip4.static.sl-reverse.com. [13.121.85.79])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513aea1fd8sm509052966b.38.2026.11.24.05.54.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 05:53:32 -0800 (PST)
-From: Oarora Etimis <oaroraetimis@gmail.com>
-To: Louis Chauvet <louis.chauvet@bootlin.com>
-Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Melissa Wen <melissa.srw@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	jose.exposito89@gmail.com,
-	Jonathan Corbet <corbet@lwn.net>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Lucas De Marchi <demarchi@kernel.org>,
-	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	sebastian.wick@redhat.com,
-	victoria@system76.com,
-	thomas.petazzoni@bootlin.com,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Simona Vetter <simona.vetter@ffwll.ch>,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v6 08/43] drm/drm_color_mgmt: Expose drm_get_color_range_name
-Date: Tue, 24 Nov 2026 14:53:15 +0100
-Message-ID: <awWWuPbKPoIkMxNC@Oarora>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261120-vkms-all-config-v6-8-78ace90f4fc1@bootlin.com>
-References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com> <20261120-vkms-all-config-v6-8-78ace90f4fc1@bootlin.com>
+        Tue, 24 Nov 2026 05:54:14 -0800 (PST)
+From: Alex Markuze <amarkuze@redhat.com>
+To: Ionut Nechita <ionut.nechita@windriver.com>
+Cc: ceph-devel@vger.kernel.org,
+	Ilya Dryomov <idryomov@gmail.com>,
+	Viacheslav Dubeyko <slava@dubeyko.com>,
+	Viacheslav Dubeyko <Slava.Dubeyko@ibm.com>,
+	Xiubo Li <xiubo.li@clyso.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/5] ceph/libceph: killable sync waits and faster recovery after network disruption
+Date: Tue, 24 Nov 2026 13:54:12 +0000
+Message-Id: <20261124135412.2204051-1-amarkuze@redhat.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261123080152.163172-1-ionut.nechita@windriver.com>
+References: <20261123080152.163172-1-ionut.nechita@windriver.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,71 +125,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 20, 2026 at 06:58:50PM +0100, Louis Chauvet wrote:
-> drm_get_color_range_name can be useful to print debugging information.
-> Export it so it could be used from VKMS.
-> 
-> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
-> ---
->  drivers/gpu/drm/drm_color_mgmt.c    | 2 +-
->  drivers/gpu/drm/drm_crtc_internal.h | 4 ----
->  include/drm/drm_color_mgmt.h        | 1 +
->  3 files changed, 2 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/drm_color_mgmt.c b/drivers/gpu/drm/drm_color_mgmt.c
-> index de219c23322f..a65fef5702ab 100644
-> --- a/drivers/gpu/drm/drm_color_mgmt.c
-> +++ b/drivers/gpu/drm/drm_color_mgmt.c
-> @@ -512,7 +512,7 @@ const char *drm_get_color_range_name(enum drm_color_range range)
->  
->  	return color_range_name[range];
->  }
-> -EXPORT_SYMBOL_IF_KUNIT(drm_get_color_range_name);
-> +EXPORT_SYMBOL(drm_get_color_range_name);
->  
->  /**
->   * drm_plane_create_color_properties - color encoding related plane properties
-> diff --git a/drivers/gpu/drm/drm_crtc_internal.h b/drivers/gpu/drm/drm_crtc_internal.h
-> index f3a3ffd358dc..168799fac7c8 100644
-> --- a/drivers/gpu/drm/drm_crtc_internal.h
-> +++ b/drivers/gpu/drm/drm_crtc_internal.h
-> @@ -38,7 +38,6 @@
->  #include <linux/err.h>
->  #include <linux/types.h>
->  
-> -enum drm_color_range;
->  enum drm_connector_force;
->  enum drm_mode_status;
->  
-> @@ -119,9 +118,6 @@ int drm_mode_mmap_dumb_ioctl(struct drm_device *dev,
->  int drm_mode_destroy_dumb_ioctl(struct drm_device *dev,
->  				void *data, struct drm_file *file_priv);
->  
-> -/* drm_color_mgmt.c */
-> -const char *drm_get_color_range_name(enum drm_color_range range);
-> -
->  /* IOCTLs */
->  int drm_mode_gamma_get_ioctl(struct drm_device *dev,
->  			     void *data, struct drm_file *file_priv);
-> diff --git a/include/drm/drm_color_mgmt.h b/include/drm/drm_color_mgmt.h
-> index 133ca77d91c7..e91f494e5a63 100644
-> --- a/include/drm/drm_color_mgmt.h
-> +++ b/include/drm/drm_color_mgmt.h
-> @@ -114,6 +114,7 @@ enum drm_color_range {
->  };
->  
->  const char *drm_get_color_encoding_name(enum drm_color_encoding encoding);
-> +const char *drm_get_color_range_name(enum drm_color_range range);
->  
->  int drm_plane_create_color_properties(struct drm_plane *plane,
->  				      u32 supported_encodings,
-> 
-> -- 
-> 2.56.0
- 
-Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
+Hi Ionut,
+
+A normal final unmount calls sync_filesystem() from ceph_kill_sb(),
+but ignores its return. If SIGKILL interrupts the new killable cap
+flush wait while the MDS is unreachable, teardown can continue without
+the flush being acknowledged. If the update never reaches the MDS and
+the outage lasts through session close, the client can purge the flush,
+losing a previously successful cached xattr update.
+
+Please keep the OSD-then-MDS sync waits uninterruptible during normal
+superblock teardown, including both sync_filesystem() calls. Keep the
+sync()/syncfs() waits killable outside teardown and preserve the
+existing forced-unmount abort behavior.
+
+Thanks,
+Alex
+
