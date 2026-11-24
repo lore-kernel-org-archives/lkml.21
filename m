@@ -1,202 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=60.244.123.138
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795500835;
-	b=AF+f2yKDaeQscbDib240qFGCzSeNEPCD7sJx1XWvvQw0+zTsxfVHynMBs6JwpptheGLa
-	 wuXALqhro21r0xdhAw9cYmrA2sVV8y3Sap9z1ZhnJlVqps9lwmp4jAwiiiuvaW3GErMn3
-	 v0WqnLazSOqxbMNGqVZpJfdCHtZIQswWr3djDBIKi1a6QjQmKGHGGVQjc76uG4Odchi1l
-	 Irmi7QrFuNIipStxR9/pdRYSLG1Mm0g2UXIrxS66IjzTWWmiMqHZTGwuvC4r80a8Gor1g
-	 aRKV64noYLdG6PLLdDo16uQsWZoe8MGVfLFnWUjYKP2/nsUFWiSZgBLaJs9/HwjYgPQ==
+	t=1795500859;
+	b=iPJrz4pFkKnQsa4zKFa9e287neUYGIZlx9Z2bU2OPRaHGcRuy8ZiPZ4nK5MJFPL0x9to
+	 xw6WqkfJUwCVMU3sX7njJhX73FUBbise5VGQVWm0XIplnuZyrl0zMMjYsGKkJt469Y5pq
+	 ny2tZylvKJu6wieN4qZOIilQclS0U33Kg5sU7rF/w6xL3oC0rFZ9HfEii+VP8LlpGZ36C
+	 RUZOwgegz2lwJjiThhaf8pKQ+2hUnD45pddNwTzaFsi9A48E5VKSRTIs3TtHKgHb4gedQ
+	 em+nw+f4uYPBV1A+SfB8X1Or7lIAlJBVHeBZHrkhcBjvXoOofWPuPrWyujTfT1bfWCQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795500835;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-CACHE:X-CID-P-RULE:
-	 X-CID-O-INFO:X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:
-	 X-UUID:Received:Received:Received:DKIM-Signature:Received:Received:
-	 From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
-	 References:In-Reply-To:Accept-Language:Content-Language:
-	 X-MS-Has-Attach:X-MS-TNEF-Correlator:user-agent:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ld-processed:
-	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
-	 x-microsoft-antispam:x-microsoft-antispam-message-info:
-	 x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-MTK;
-	bh=PhJLYy6Ro4tW5aVHuqa3y0dxGE2kvAIE4F+xXAGct0Y=;
-	b=dwp1Bq73UWY1pdKAsaicXLQHjMlRr/nayLgk6qNAqwxRT7ZILq59xttD+CgAQrJ8G2GB
-	 VNx34N04v7Uu1D2z7hUED9e7qrQRcqk/JWcubS9WWX2Pt2EwzG3IBYSFNNmzl9QG45j2w
-	 7jQ7LtUGX+Vo2KX+4+fY8mdfq2eh/PJS9y5XwO50XpVn/EgQ0pnm6Mxev20B7UMA7PUV4
-	 WydqKL0+Fkvwqv8fpdLyGJ0n+tpsmybjfzV7FngK6BwAFvAdaJ/3aoe8MGvOyRGH0ZzKs
-	 aU/+w40fGr6YluXh1P3Afnr9uKCnIImeuvkziFHKWXDJWt3wl3pS2+eVoASknReePtQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795500859;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=ANdTX54t5ypHfYsKcW73/krnayO9DcpljcsGPJ2krDY=;
+	b=DvilaPRg+QC+4VnGEXKFL/kMfQ037cOPkPZU3YbM9g1utTOsnZKPn100sMUoBzKynGak
+	 geD78Pk7Llz5L1AQC/xsyUQ2NaWDhnsWkKwLneHBfoTWuI6vn8/SzXBHey+PqNvOKMDWq
+	 ugmKXD9LcrgLDu/9EKTOP5OKlDNg3WYSzZS6QH/MH33clOh+gIDrKgpzyyP5JCp0UPcbP
+	 1XJIzojfKcxQQot/t3j+9//Wl4EacjTicWO1qDKR2vby6Pd5Zj2v+V+WsnfRV/N0ELdJC
+	 /b0F+VECuN8/jsgEgC6fhbzVybE7elTDzuUFJ0z5eTuQ7ekNqFIaMi8z8egByTCDftQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mediatek.com;
-	spf=pass smtp.mailfrom=mediatek.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b="c8d/5Aqz";
-	dkim=pass header.d=mediateko365.onmicrosoft.com header.i=@mediateko365.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-mediateko365-onmicrosoft-com header.b=p4EKCs28;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=60.244.123.138
-Received: from mailgw01.mediatek.com (unknown [60.244.123.138])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PwXUiOqw;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A19B4606A31E;
+	Tue, 24 Nov 2026 06:14:19 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PwXUiOqw
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795500859;
+	b=U8roRXlaE3NLxkLshGsgIbhXOqOhP9sdF8n7fQLCtwb9tDRf36DjaUkw0mpeQ+qi0ckx
+	 DG0WZb54hUXwCwJnJuWSfIPBSuqqP76RUET02/21YG5EmUsqcbtDLmytAr7//S59EDDrn
+	 VDJzTA4mjoqFEuhayB8iiWl+DMryFn9ds8U+dcxhge5QYLP6YE1wOlTWx88iOOlQ8ID/d
+	 1o1LPeGzKYaYaR9hn4g17G4auD58x0tRI040m2otI/sEaDY+NB31cE2wWRP9hcyVhFn4L
+	 aB8uH5cjHVTQDFtMrORgId8C67t+bd1/Enjhq810A2V32ACFCJOz2P5HHef33kbuCkA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795500859;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=ANdTX54t5ypHfYsKcW73/krnayO9DcpljcsGPJ2krDY=;
+	b=LbKYiwbySGxdEwAdvLoDltoU0c0a5uIAKVnnjPd8gaBxYFzuoEk8eKK9kFbXlGm8Ubz4
+	 PncSH1m5kTo186agArtZijGw91w8mxO2QG8FaQ7qZ41yv82LVTU1K697gkdlWWi1mQA1t
+	 2O0VhUJUhKrJKoftqlnIAdk1g1RpH3SMki+bV0uP2aBUEnD02Nu5rxZj2bl3VNt8VK24P
+	 cw01WBRTwBVUm6htYRNjnVFKelO/uv5iqryewVLuiyxFjDKygK454dPdLAK5LqPjIddAJ
+	 UqZVJAFHXVMmx7CHkKTY0JgfI/usaDOTLvrpwCIZkzPeYry3FVLMQKsdjsx6jd73PCg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 758F1606A31E;
-	Tue, 24 Nov 2026 06:13:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 758F1606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=c8d/5Aqz;
-	dkim=pass (1024-bit key) header.d=mediateko365.onmicrosoft.com header.i=@mediateko365.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-mediateko365-onmicrosoft-com header.b=p4EKCs28
-X-UUID: 36e00012e7ce11f1b1788b6acf885367-20261124
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=PhJLYy6Ro4tW5aVHuqa3y0dxGE2kvAIE4F+xXAGct0Y=;
-	b=c8d/5Aqzvpy7W3peGJab6pdDJfxfizf7NTIPCfPPzEJc7yCnDkiAXppA5SaPO6HBxO+2a/6hAnXJrT1S5336e+SWSEzf+97ZrSynoRHHP4vhuaGdYB6P2PRiNrTF4uQ4Qbn1pXy/khnWHbyYS5e4sRDn8K3jE1apD6DJXbYhu1U=;
-X-CID-CACHE: Type:Local,Time:202611241413+08,HitQuantity:1
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:2e3378fc-f802-4e33-a455-30c7b913702a,IP:0,U
-	RL:12,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:12
-X-CID-META: VersionHash:b0318ac,CLOUDID:473512ed-0ff0-4c47-975b-86f238fbd439,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
-	Content:0|15|50|99,EDM:-3,IP:nil,URL:11|97|93|83|106|99|80|1,File:130,RT:0
-	,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,B
-	RR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_ULN,TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 36e00012e7ce11f1b1788b6acf885367-20261124
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1307114034; Tue, 24 Nov 2026 14:13:49 +0800
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 24 Nov 2026 14:13:48 +0800
-Received: from SG2PR04CU010.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.2562.56 via Frontend Transport; Tue, 24 Nov 2026 14:13:47 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fcGFnLn024z6FFzXexwt/judCm+5ytEFNYCP61cvTu9Bx38Kp/H0UUzLm340fAKZjc07IOneNl7KOj04GFm29UZgn/0xz4VehClj7U1Aa+ZizVajKZJfjG+GbU6/YWwEl5nQlNn2wG8rT++SEh+nq+agTXmkw7QXQiN2CcwTK8nsyMydGMqHN3qg5SEzgVpmFADbULQyVYR0mX2h4tp85ChLwSWPEQ+hmW9crUIov+ETzMZB7B1iNdSqggScVQ4qP3cQ9BT+SaXKnhHX3C08FjmkMD4x9Ny2IMWQlHChIkqrWyd5NAo8l0/RhWt4mkh7gYKqkETg7JCoNWIYOlzMFg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PhJLYy6Ro4tW5aVHuqa3y0dxGE2kvAIE4F+xXAGct0Y=;
- b=k4k+AiSJ67OfamdGz+3opW1VHLZSu8Xl/In93QR4QrMNEVpHc+AXa245v2Omy7u7+6s6V0FADm4YExuS8pMeqOvMmoqiTXVTGvSb1azmBzWW/qKbiardA8W8K9cxjtuioE6rtEAmbVXR0Hm66xECm9/gEafPB8qCACNLyA95YSkzKj7ib1oAzhQWWsdqp2OXJmTfoVa7K2OnQ5EskgGqnEzoGhdrIX0inutCBZsLsjdyPRcf5F9xvO+17k67V+phPtV3z2/mdQHdp4EFOfzUxoX2TUrtBjTRGusR6tl7vQFUzFMd/Scca4Sk5Fi7tln0Y4QrlFFHcIUL1FawqEETVg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PhJLYy6Ro4tW5aVHuqa3y0dxGE2kvAIE4F+xXAGct0Y=;
- b=p4EKCs28Le97h5vZ01tnjLLGy+hB4mwe+ypc2ed6vFvTmCR5tnyfHzfPJLQ2Cj8EPHNO1wGMTShIv8kIIl+g7chiKVHYImpR4pnnPfubC1my580UWfjyVFibhPn3tAADvAIw/uWNjwI0rCzkyu2u/Vz0tHjV69/udn9jd8MUTs8=
-Received: from KUYPR03MB9902.apcprd03.prod.outlook.com (2603:1096:d10:91::20)
- by SE2PPF1E16A26CA.apcprd03.prod.outlook.com (2603:1096:108:1::48b) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 06:13:41 +0000
-Received: from KUYPR03MB9902.apcprd03.prod.outlook.com
- ([fe80::9598:2e59:20dd:960b]) by KUYPR03MB9902.apcprd03.prod.outlook.com
- ([fe80::9598:2e59:20dd:960b%5]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 06:13:41 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-CC: "conor+dt@kernel.org" <conor+dt@kernel.org>, "robh@kernel.org"
-	<robh@kernel.org>, "tzimmermann@suse.de" <tzimmermann@suse.de>,
-	"simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
-	<mripard@kernel.org>, "kernel@collabora.com" <kernel@collabora.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	=?utf-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, "maarten.lankhorst@linux.intel.com"
-	<maarten.lankhorst@linux.intel.com>, "airlied@gmail.com" <airlied@gmail.com>,
-	=?utf-8?B?SnVzdGluIFllaCAo6JGJ6Iux6IyCKQ==?= <Justin.Yeh@mediatek.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 27/46] dt-bindings: display: mediatek: Introduce
- Digital Video Output HW
-Thread-Topic: [PATCH v2 27/46] dt-bindings: display: mediatek: Introduce
- Digital Video Output HW
-Thread-Index: AQHdE4ZnYaB7NIHUHkaBzgPvK3IT1rc3A2eAgAU53YCAAVGVAA==
-Date: Tue, 24 Nov 2026 06:13:41 +0000
-Message-ID: <3ab396c26424834e9fa591a86ba7ff8f5561f847.camel@mediatek.com>
-References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
-	 <20260714114414.184512-28-angelogioacchino.delregno@collabora.com>
-	 <98cde7319f539cab9f72ec370d309b26569889c9.camel@mediatek.com>
-	 <33cf13e4-6df0-45f8-b621-ffe3f43419c9@collabora.com>
-In-Reply-To: <33cf13e4-6df0-45f8-b621-ffe3f43419c9@collabora.com>
-Accept-Language: zh-TW, en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-user-agent: Evolution 3.52.3-0ubuntu1.1 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KUYPR03MB9902:EE_|SE2PPF1E16A26CA:EE_
-x-ms-office365-filtering-correlation-id: f5209ab3-b1f7-407e-35e3-08df49f21611
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|42112799006|376014|7416014|23010399003|366016|1800799024|18002099003|22082099003|6133799003|261009223027099003|4133799003|3023799007|261022113327099003|10067099003|11063799006|56012099006|4143699003|5023799004|261021135927099003|261028144727099003|261102123227099003|261026135527099003|261022075727099003|261021130227099003|261022105027099003|261026140227099003|261021133027099003|261021121427099003|261026121527099003|261021123027099003|261022115727099003|261026130827099003|38070700021;
-x-microsoft-antispam-message-info: mGpQ80xPLY1jc8H5CkeSHvSGZQzI99591fkApH6bTt4Zdsdw9/9+qM26+N+e5nifbeiivguGAj+AQ8Qeatzv13GBa8L74ykwkxj7c6O3RzJosrxTBddeRMPJLhpego8yCGpRAPYnPfU7xqHPBXn5EpuGceDRrGR1rFSm0Dw784FjpsB4KfM/Pfzgpsosahx83RQK4i3k+3wUhF1GCgyvpSLCcjnj0lXmmwJzNr8dxZe3ph+7lbYcVGiedD3uuF8ggHS6u4Xli7LAiXPkyNqatRUeTpjHwx/aIpcrMIZ/rpka5d6Rk4WFdoQHcis995ma/VN0PMyIz1UMrAuW7DzkuQigQdrMxPqZ1CemKW0lSN/7kvTNCLJ4mLfYfZXJ+WOcjUUDLsb8dhyqw3N9kEchRmVRImQ0ZyDP/y3cgEyz15AKUBP0KsU8xr1w+5Pn2XEr1TUCo2gT9/fT7Qv/bFxDYFXI0Hc6+RTHKupSUR43gST8C6yeqOHTrpPJ6L6TYX8XTyh3ADhNmxfKoYiisXGHPV3s8hHhN6IXs8fg8G4cnpXVLvMmFaED7TPi33CnlEMVLvS8HzCZ/xXFOBSh50+3goyXICe2s1kRnalN3xOPitT5vQkHHLrXkoTnFognOV7JfLhAAjQHCFYz1kBsmC5bi9HylgIHWRYDXyw6zml6GJM=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KUYPR03MB9902.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(42112799006)(376014)(7416014)(23010399003)(366016)(1800799024)(18002099003)(22082099003)(6133799003)(261009223027099003)(4133799003)(3023799007)(261022113327099003)(10067099003)(11063799006)(56012099006)(4143699003)(5023799004)(261021135927099003)(261028144727099003)(261102123227099003)(261026135527099003)(261022075727099003)(261021130227099003)(261022105027099003)(261026140227099003)(261021133027099003)(261021121427099003)(261026121527099003)(261021123027099003)(261022115727099003)(261026130827099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QlltQmQvdVRlZjNmT1BYaWJZWHIwV3JjZDdPSnNpdDFqdW90N2ZiWnpxVjNq?=
- =?utf-8?B?SzQ0M1Fvbm8xU1p4QlZXZWxGTWhMTFk4NWRLQTUyb3FIdWxGT0QvODhQa0Jp?=
- =?utf-8?B?SjhKZ21YVzEzWUZwTjB3ZEhWNk1qOVV3b2wvQVhBTjB3b3RVTWJmczVDb2NT?=
- =?utf-8?B?VmFVRmNDMWorZWU4d0lQbWFYUHR3VmhOTU1ON0h2VFJuN0pnZ2lZMXhWc01G?=
- =?utf-8?B?RzJtUzFHVUNZRVJrMWpwTytzTFhNakFNcWRZTUZnNzBjRmtpNG13OHRSb2Js?=
- =?utf-8?B?SWVqVytLWVNCTjFTZytXbTEyN1lXSTc5dkRoV0hkSUZTbUFuTGNJWlY5OTZE?=
- =?utf-8?B?b2FXL3ZpV3NZRkZwbnRXMHQzTXV5eTYyRlJsNU5nT0I2OXY0L1BMRkw0aEtp?=
- =?utf-8?B?Q2ZiOHNjTHB6RytyVkgzS0VQNm9pSWJlZFNMbGtTUlQrWEJrT3ZpUXZuZXNG?=
- =?utf-8?B?MFNEQVFORmxrcHBMVjBmZGdBamFnQjVlc3YrVURHbVBLQXZSV3FWRnhKN0pE?=
- =?utf-8?B?bG12UFpNRGxRVVhCakxiemV1VWJ5aGd3bTZTT3d5b2piblU4OFoxOW94ckR3?=
- =?utf-8?B?YXM0S2lVQXFqQXJJMDhDZ2l1UlNFeU5HSmJSQUk3eURLRVhrWmRKN2hQM0tB?=
- =?utf-8?B?NFRpOGNXWmlyTnd2TVRvd2JKNlVYallWc2ZOT2xFRjNXWFlKU0I1UFM3VGta?=
- =?utf-8?B?ODZwN3NiUjF6NDRNRWRUY0pUWGdlQ2p6alc4N2xhaFVvNkhhR0dVU2V4VVBS?=
- =?utf-8?B?YVUwWDFESHVGMEFNa2wwLyswTXVNb3JONitubjR1anErRWVGVnZtTXZURzlG?=
- =?utf-8?B?dEsvZDR4MFRyMkE1dzFqOSszVXlUYTFVeE9GVUJPMDY4RzBFZ0R2VXg2R2hY?=
- =?utf-8?B?QXIzWUJuUWxvUENNeDJxdXRlemxCQlFtZmR0cVRzSGFtREovRFZjUGgyMTM4?=
- =?utf-8?B?dWI5UHg5VFRVRWYxNFhsMmVrN3NxTWJKRkNsWDlNSFNiSExMRkJYZ1dsdEgx?=
- =?utf-8?B?a2V6SStlNHdOU0dxZk9QTWRqajZ2SFNhRW8xclUyMm94TThCSHRtLzJMT3gz?=
- =?utf-8?B?L0pIc2JwQVJFM2srRkNkNnVFbXlwU2VHcHhuaWQ3T1FMdUJmVmZCNml5V083?=
- =?utf-8?B?UVR6Q2pIcFp1OVV5c3h2TXJrOHFEVFMxbEtyZStVdHlwRGd5enUrVlR5aVdl?=
- =?utf-8?B?YW81aUNwby9naHRsU21BSTdaYmtHenB4YUxTU1VONmVCZEZmVHBiT2VMRjBm?=
- =?utf-8?B?Nkt1Rm9rem4rNTFMUkRjWEdNSUpKUjBUQ2JUUS91UzdLamFxbS9ZamU2aEp2?=
- =?utf-8?B?Vk13V1JBTVVnUDdwNmhYeDBaNkxJK2YvaWR3WGYrUzd3T3lTOEI2Y1FLRVpr?=
- =?utf-8?B?RDhVdldDNFRReWtVdzNpeUtaaFcvQ1pENkw2UjRuTG5jSktFOEZOMm9tbndo?=
- =?utf-8?B?TGFadG40ZmVMdkRwYXU5ZS9vOXVFMlYzSzVaTkRHTDVnUWd6NlJyTTRIS0po?=
- =?utf-8?B?M2ZTRVNaUlhjTDFsdUppV0dJZnpDNTJnbytDZWp5TUtOM3JYYVZKMlNJaXBh?=
- =?utf-8?B?TGNLb2g4ZUZxcFRmV3NJWVBZOC9JTUg3OXJQckh3WHExaTBjakc2Q2RaTmxD?=
- =?utf-8?B?ZGE3V0EvMFRCUHNNVkJxL0ZHcnhZUEZUZHYyczI4YzlaZWRLbVhCSFNiWkp6?=
- =?utf-8?B?UjY1Q2xMM0Z1L3VpaG5ONjc1ZWlsbERzSnBqRG5kM3FmMkMxTklhZWpRWlBH?=
- =?utf-8?B?emdpM1JOSE9DQ01JZ0ZweWY5RXlRZVUzMDFLUk5ua1pNQ1pGaHBjRmt4cHl6?=
- =?utf-8?B?SE51UzdYbGZaZ3ppWWlNMFk1RktYSzJvNHNTbVNtUFFNV05mWERGWml1MnJz?=
- =?utf-8?B?OGpjaUxKVVhRTnZ1K1BaajF1V2JVV3N5N0FGVHNWVXJpcVNpTW1LWFpYV2lp?=
- =?utf-8?B?aGxUbVVjQmcwdjN5NG5YK1NaTFlEdld5MnI4LzNOUnM3bUJyYnFuWW5vN20w?=
- =?utf-8?B?bklPdTZLRzhFMktlWWY4RytIYkxNS2djeml2MEZRMmpLVlBYWk5sdFRqQUZy?=
- =?utf-8?B?MVV1M1JxS1dyM2E1NCtZc0ovbFgyeHlWZFJFZG9EazhJdlRsYVdVMTF4cVBQ?=
- =?utf-8?B?L2VRKzR4cFJzZnA0MEw3dzE5KzgyS0pKNjJRZzRacmxGeGlkRFZVYmJ2ZDJM?=
- =?utf-8?B?TTJYTnlTd05Bczd3S0l0NUhLQTl2R0Z3VDBXMkFLRWRVbmlEY3gvdGw0b1dN?=
- =?utf-8?B?SE1YTzdEZU5McXdHbU5OTzlLeCs4NHVqakZIY1JrZ3B5U0xJUHQ0Yi9TQ3BD?=
- =?utf-8?B?anYrWFpHd2JUTmhuMXY0U1l0OGVXUFR0dVdKVHFGQzBTMGNQVEVQZz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <C9210F52E8D7F14CA059CB3C0E0D6021@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	by smtp.kernel.org (Postfix) with ESMTPS id EC8F91F000C6;
+	Tue, 24 Nov 2026 06:14:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795500859;
+	bh=ANdTX54t5ypHfYsKcW73/krnayO9DcpljcsGPJ2krDY=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=PwXUiOqw8iRmkdEo5LxYu++ihtjRQndaOEH0tU3rkgm2siZudVbbNxnGfr4SzzwO3
+	 t4Ogt1rniIkO+ebylRj0JNvNnjP3yotRdeYK58NaJXjdS9ghtMJE56RtBXjmin78rU
+	 VxfjlwH7kI7KJ90BrmlZfIFYQVXGV29zbqCpsz9xOVX4N541HL6mQ8cddsvq1HXGPi
+	 JmphNm5UCGD6edMSrOaWulNsmgPexCTh3mnP5tC/XcHKMMJ076oi5RrvzALtDl77z6
+	 qbDqfJUsPaU05lsgXpHhie+xmAyq2Q6mmxFF3ZgpP/wFWqpZIO0sBgRtyc9ccDpxKF
+	 mY4A94gr6aI2g==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 4D1544C8F6;
+	Tue, 24 Nov 2026 06:14:11 +0000 (UTC)
+From: Erlend Jacobsen via B4 Relay <devnull+erlendjacobsen.pm.me@kernel.org>
+Date: Tue, 24 Nov 2026 07:14:11 +0100
+Subject: [PATCH v4] HID: rdmctmzt: add RDMCTMZT keyboard battery driver
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -206,95 +82,843 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: Jw0LKi+/jfYmEtu9VI8TmbmSimQnwrt6DWwGJOu9MvtjB8YL+eAPEx3fK2N7zQdPlzimxydZSj4C576slGELWcHi24wRUaudy2xvME4VU1609jyFkNtE/YkwyvRwA9eU6YXjWJymlvq5xqr7v4QK6HAPJEYk0i/pIYPcAMmo8VIJvIt1xrNdZJzuUysSHhS/lRipbX8BqDLF+yrk8Wllpfk9fh9XrBYxKhgsOjhGbZc/nym2kYBsg4zqmERaG9PENUSEO7F2AWvvngvkLRZzgKtrqN3crf6oDfIAw/5YwwIQQ/VxUPd36XOqDYME8TwmIhvqOJHBxCz3nieJ3VvTAg==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KUYPR03MB9902.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f5209ab3-b1f7-407e-35e3-08df49f21611
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Nov 2026 06:13:41.0866
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: hRt0g7nlnZB8BiyNOVgKIWWWcLCdZhajGp4q/gfe4Hk/dxTububTdqwxTQvD52g/jzBxQZu6ku3a5CB1DtH5yg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE2PPF1E16A26CA
-X-MTK: N
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261124-b4-rdmctmzt-v4-1-9cb23d1ad876@pm.me>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/33N3QqCQBCG4VtZ5rgJZ1ZNPeo+ooN1d8wN1Ng16
+ QfvPSyCguhw4HveuUOU4CVCpe4QZPLRDz1UKl0psK3pD4LeQaWAE86JmLFOMbjOjt1txJzKUhv
+ nWBqGlYJTkMZfnrXd/nXHc30UOy6JZdH6OA7h+nw30bL7XZ4ICV2aFYUWakTr7albdwJLdeJPp
+ 78dI2FhqXAbZ2xa20+n/ziNhJkV1lnpmsSYt5vn+QGyCIuBJAEAAA==
+X-Change-ID: 20261122-b4-rdmctmzt-61993add2ef2
+To: linux-input@vger.kernel.org
+Cc: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
+ linux-kernel@vger.kernel.org, Erlend Jacobsen <erlendjacobsen@pm.me>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795500850; l=26252;
+ i=erlendjacobsen@pm.me; s=20261122; h=from:subject:message-id;
+ bh=rKtil3MfG1f7YrNtwy/TqcQ/vVsB3jr27oDW2HwyG8g=;
+ b=qfauCQlSYr0J5n3gKtCTS4jTuZGWpVUAy0uaJOkulcplJfC8J4riZDSO6XYP5NDJFaMnRh4WV
+ HpKSp0qUwZRD5GImAts3iIarYzMNrPA5faRfHGrgtYVWY5U/SHNcfQr
+X-Developer-Key: i=erlendjacobsen@pm.me; a=ed25519;
+ pk=SkKXYooGBruZNtA629wl2v9ZJA3VdxTcmrehQAecfrc=
+X-Endpoint-Received: by B4 Relay for erlendjacobsen@pm.me/20261122 with
+ auth_id=1609
+X-Original-From: Erlend Jacobsen <erlendjacobsen@pm.me>
+Reply-To: erlendjacobsen@pm.me
+Content-Transfer-Encoding: 7bit
 
-T24gTW9uLCAyMDI2LTExLTIzIGF0IDExOjA1ICswMTAwLCBBbmdlbG9HaW9hY2NoaW5vIERlbCBS
-ZWdubyB3cm90ZToNCj4gT24gMTEvMjAvMjYgMDM6MTcsIENLIEh1ICjog6Hkv4rlhYkpIHdyb3Rl
-Og0KPiA+IE9uIFR1ZSwgMjAyNi0wNy0xNCBhdCAxMzo0MyArMDIwMCwgQW5nZWxvR2lvYWNjaGlu
-byBEZWwgUmVnbm8gd3JvdGU6DQo+ID4gPiBBZGQgZG9jdW1lbnRhdGlvbiBmb3IgdGhlIERpZ2l0
-YWwgVmlkZW8gT3V0cHV0IChEVk8pIElQIGZvdW5kIGluDQo+ID4gPiB0aGUgbmV3ZXIgZ2VuZXJh
-dGlvbiBTb0NzIE1UODE5NiwgTVQ4MTg5IGFuZCB0aGVpciB2YXJpYW50cy4NCj4gPiA+IA0KPiA+
-ID4gVGhpcyBpcyBlZmZlY3RpdmVseSBhIG1vcmUgY2FwYWJsZSBibG9jayByZXBsYWNpbmcgdGhl
-IERpc3BsYXlQb3J0DQo+ID4gPiBJbnRlcmZhY2UgKERQSS9EUF9JTlRGKSBvbmUgZm91bmQgaW4g
-b2xkZXIgU29Dcy4NCj4gPiA+IA0KPiA+ID4gU2lnbmVkLW9mZi1ieTogQW5nZWxvR2lvYWNjaGlu
-byBEZWwgUmVnbm8gPGFuZ2Vsb2dpb2FjY2hpbm8uZGVscmVnbm9AY29sbGFib3JhLmNvbT4NCj4g
-PiA+IC0tLQ0KPiA+ID4gICAuLi4vZGlzcGxheS9tZWRpYXRlay9tZWRpYXRlayxtdDgxOTYtZHZv
-LnlhbWwgfCAxNDMgKysrKysrKysrKysrKysrKysrDQo+ID4gPiAgIDEgZmlsZSBjaGFuZ2VkLCAx
-NDMgaW5zZXJ0aW9ucygrKQ0KPiA+ID4gICBjcmVhdGUgbW9kZSAxMDA2NDQgRG9jdW1lbnRhdGlv
-bi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvbWVkaWF0ZWsvbWVkaWF0ZWssbXQ4MTk2LWR2
-by55YW1sDQo+ID4gPiANCj4gPiA+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL2RldmljZXRy
-ZWUvYmluZGluZ3MvZGlzcGxheS9tZWRpYXRlay9tZWRpYXRlayxtdDgxOTYtZHZvLnlhbWwgYi9E
-b2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvZGlzcGxheS9tZWRpYXRlay9tZWRpYXRl
-ayxtdDgxOTYtZHZvLnlhbWwNCj4gPiA+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0DQo+ID4gPiBpbmRl
-eCAwMDAwMDAwMDAwMDAuLmIzODk2MDMyN2NhMQ0KPiA+ID4gLS0tIC9kZXYvbnVsbA0KPiA+ID4g
-KysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvbWVkaWF0ZWsv
-bWVkaWF0ZWssbXQ4MTk2LWR2by55YW1sDQo+ID4gDQo+ID4gVGhpcyBmaWxlIHdvdWxkIGluY2x1
-ZGUgbXVsdGlwbGUgU29DIGR2bywgc28gaXQncyBiZXR0ZXIgdG8gdXNlIG1lZGlhdGVrLGR2by55
-YW1sLg0KPiANCj4gRGV2aWNldHJlZSBiaW5kaW5ncyBtYWludGFpbmVycyB3aWxsIGRpc2FncmVl
-IHdpdGggdGhpcyBzdGF0ZW1lbnQgOy0pDQoNCk9oLCBpdCBzZWVtcyBtYW55IG1lZGlhdGVrIGRp
-c3BsYXkgYmluZGluZyBkb2N1bWVudCBzaG91bGQgY2hhbmdlIGZpbGUgbmFtZS4NCg0KPiANCj4g
-PiANCj4gPiA+IEBAIC0wLDAgKzEsMTQzIEBADQo+ID4gPiArIyBTUERYLUxpY2Vuc2UtSWRlbnRp
-ZmllcjogKEdQTC0yLjAtb25seSBPUiBCU0QtMi1DbGF1c2UpDQo+ID4gPiArJVlBTUwgMS4yDQo+
-ID4gPiArLS0tDQo+ID4gPiArJGlkOiBodHRwczovL3VybGRlZmVuc2UuY29tL3YzL19faHR0cDov
-L2RldmljZXRyZWUub3JnL3NjaGVtYXMvZGlzcGxheS9tZWRpYXRlay9tZWRpYXRlayxtdDgxOTYt
-ZHZvLnlhbWwqX187SXchIUNUUk5LQTl3TWcwQVJidyFuM3BrOTRrS29OLTd6ZmVtNVNIZkpuX2l4
-RG1BbGVGT1cyZEp3bVo4VzVnSnotaUVRR0FONnlPa3B1cGFNWEF2QWxyM0tmQW5kQjVGank1N3RO
-WHN4QV91dk55MyQNCj4gPiA+ICskc2NoZW1hOiBodHRwczovL3VybGRlZmVuc2UuY29tL3YzL19f
-aHR0cDovL2RldmljZXRyZWUub3JnL21ldGEtc2NoZW1hcy9jb3JlLnlhbWwqX187SXchIUNUUk5L
-QTl3TWcwQVJidyFuM3BrOTRrS29OLTd6ZmVtNVNIZkpuX2l4RG1BbGVGT1cyZEp3bVo4VzVnSnot
-aUVRR0FONnlPa3B1cGFNWEF2QWxyM0tmQW5kQjVGank1N3ROWHN4Tnp0V09pSCQNCj4gPiA+ICsN
-Cj4gPiA+ICt0aXRsZTogTWVkaWFUZWsgRGlnaXRhbCBWaWRlbyBPdXRwdXQgKERWTykgQ29udHJv
-bGxlcg0KPiA+ID4gKw0KPiA+ID4gK21haW50YWluZXJzOg0KPiA+ID4gKyAgLSBBbmdlbG9HaW9h
-Y2NoaW5vIERlbCBSZWdubyA8YW5nZWxvZ2lvYWNjaGluby5kZWxyZWdub0Bjb2xsYWJvcmEuY29t
-Pg0KPiA+ID4gKw0KPiA+ID4gK2Rlc2NyaXB0aW9uOg0KPiA+ID4gKyAgVGhlIE1lZGlhVGVrIERp
-Z2l0YWwgVmlkZW8gT3V0cHV0IChEVk8pIGhhcmR3YXJlIHByb3ZpZGVzIDEyMC1iaXRzICg0UCkg
-ZGF0YSwNCj4gPiA+ICsgIHZpZGVvIHRpbWluZyBhbmQgaW5mbyBkYXRhIGZvciB0aGUgRW1iZWRk
-ZWQgRGlzcGxheVBvcnQsIGhhcmR3YXJlLWFic3RyYWN0aW5nDQo+ID4gDQo+ID4gIEZyb20gdGhl
-IGNvbXBhdGlibGUgbGlzdGVkIGJlbG93LCBEVk8gbm90IG9ubHkgZm9yIGVEUCwgYnV0IGFsc28g
-RFAsIHJpZ2h0Pw0KPiA+IA0KPiANCj4gWWVhaCwgb24gTVQ4MTg5IGl0J3MgYWxzbyBmb3IgRFAu
-DQoNClNvIHRoZSBkZXNjcmlwdGlvbiBzaG91bGQgYmU6DQoNClRoZSBNZWRpYVRlayBEaWdpdGFs
-IFZpZGVvIE91dHB1dCAoRFZPKSBoYXJkd2FyZSBwcm92aWRlcyAxMjAtYml0cyAoNFApIGRhdGEs
-DQp2aWRlbyB0aW1pbmcgYW5kIGluZm8gZGF0YSBmb3IgdGhlIChFbWJlZGRlZCkgRGlzcGxheVBv
-cnQNCg0KPiANCj4gPiA+ICsgIHRoZSBwcmV2aW91cyBnZW5lcmF0aW9uIERpc3BsYXkgUG9ydCBJ
-bnRlcmZhY2UgKERQSS9EUF9JTlRGKSBibG9ja3MsIG90aGVyDQo+ID4gPiArICB0aGFuIHByb3Zp
-ZGluZyBuZXcgY2FwYWJpbGl0aWVzLg0KPiA+IA0KPiA+IE5vIG5ldyBjYXBhYmlsaXR5PyBCdXQg
-d2hhdCB5b3UgbGlzdCBiZWxvdyBpcyBuZXcgY2FwYWJpbGl0eSBvciB0aGUgc2FtZSBhcyBEUEkv
-RFBfSU5URj8NCj4gPiANCj4gDQo+IFRoZSBuZXcgY2FwYWJpbGl0aWVzIGluY2x1ZGUgUFNSIGFu
-ZCBNU08sIG90aGVyIHRoYW4gdGhlIDRUMVIgaW4gb3V0cHV0IChhcyBEUF9JTlRGDQo+IGRpZCBz
-dXBwb3J0IHRoYXQgYnV0IG9ubHkgZm9yIHZlcnkgc3BlY2lmaWMgY29uZmlndXJhdGlvbnMpLg0K
-DQpNeSBFbmdsaXNoIGlzIG5vdCBnb29kLiBJIGp1c3QgdGhvdWdodCAnb3RoZXIgdGhhbicgbWVh
-bnMgJ25vdCcuDQoNCj4gDQo+ID4gPiArICBUaGlzIGhhcmR3YXJlIGJsb2NrIHN1cHBvcnRzIDEv
-Mi80IHBpeGVscyBwZXIgaXRlcmF0aW9uIGluIGJvdGggaXRzIGlucHV0IGFuZA0KPiA+ID4gKyAg
-b3V0cHV0IGFuZCBwcm92aWRlcyA4LzEwLWJpdCBSR0IsIFlVVjQyMiBhbmQgWVVWNDQ0IGRhdGEg
-Zm9ybWF0cyBpbiBvdXRwdXQsDQo+ID4gPiArICBvdGhlciB0aGFuIHN1cHBvcnRpbmcgaW5wdXQv
-b3V0cHV0IHZpZGVvIHdpbmRvdyBjcm9wcGluZyBhbmQgcGFkZGluZy4NCj4gPiA+ICsgIERpZ2l0
-YWwgVmlkZW8gT3V0cHV0IGFsc28gcHJvdmlkZXMgUGFuZWwgU2VsZiBSZWZyZXNoIChQU1IpIGFu
-ZCBNdWx0aS1TU1QNCj4gPiA+ICsgIE9wZXJhdGlvbiAoTVNPKSBmZWF0dXJlcyBmb3IgZURQIDEu
-My8xLjQuDQo+ID4gPiArDQo+ID4gPiArcHJvcGVydGllczoNCj4gPiA+ICsgIGNvbXBhdGlibGU6
-DQo+ID4gPiArICAgIGVudW06DQo+ID4gPiArICAgICAgLSBtZWRpYXRlayxtdDgxODktZHAtZHZv
-DQo+ID4gPiArICAgICAgLSBtZWRpYXRlayxtdDgxODktZWRwLWR2bw0KPiA+IA0KPiA+IFRoaXMg
-c2VyaWVzIGlzIHNvIGxhcmdlLCBzbyBpdCdzIGJldHRlciB0byBkcm9wIGFueSB0aGluZyB0aGF0
-IGlzIG5vdCByZWxhdGVkIHRvIG10ODE5NiBhbmQgeW91IGNvdWxkIGFkZCB0aGVtIGJhY2sgbGF0
-ZXIuDQo+IA0KPiBBcmUgeW91IHN1cmUgeW91IHdhbnQgbWUgdG8gZHJvcCB0aGF0Pw0KPiANCj4g
-SXQncyBqdXN0IDEwIGxpbmVzIG9mIGNvZGUgYW5kIHNvbWUgcGxhdGZvcm0gZGF0YSByZWFsbHks
-IEkgZG9uJ3QgdGhpbmsgaXQncyBhbGwNCj4gdGhhdCBtdWNoIHRvIGp1c3RpZnkgZHJvcHBpbmcg
-aXQ/DQoNCklmIHlvdSBrZWVwIG10ODE4OSBjb21wYXRpYmxlIGhlcmUsIHlvdSBzaG91bGQgZGVz
-Y3JpYmUgd2hhdCdzIHRoZSBkaWZmZXJlbmNlIG9mIHRoZXNlIGNvbXBhdGlibGUuDQpNYXliZSBl
-dmVyeSByZXZpZXdlciBzZWUgdGhpcyB3b3VsZCBhc2sgeW91IGFnYWluIGJlY2F1c2UgdGhpcyBz
-ZXJpZXMgaXMgZm9yIG10ODE5Ni4NClJlbW92ZSB0aGVtIGlzIG11Y2ggZWFzaWVyLiBJZiB5b3Ug
-a2VlcCB0aGVtLCBpbnRyb2R1Y2UgdGhlbS4NCg0KUmVnYXJkcywNCkNLDQoNCj4gDQo+IENoZWVy
-cywNCj4gQW5nZWxvDQo+IA0KPiA+IA0KPiA+IFJlZ2FyZHMsDQo+ID4gQ0sNCj4gPiANCj4gPiA+
-ICsgICAgICAtIG1lZGlhdGVrLG10ODE5Ni1lZHAtZHZvDQo+ID4gPiArDQo+ID4gPiArICByZWc6
-DQo+ID4gPiArICAgIG1heEl0ZW1zOiAxDQo+ID4gPiArDQo+ID4gPiArICBpbnRlcnJ1cHRzOg0K
-PiA+ID4gKyAgICBtYXhJdGVtczogMQ0KPiA+ID4gKw0KPiA+ID4gDQo+ID4gDQoNCg==
+From: Erlend Jacobsen <erlendjacobsen@pm.me>
+
+Keyboards with the USB vendor ID 0x36b0 (manufacturer string
+"RDMCTMZT"), such as the Focus Lab CTRL87, report their battery level
+only on a vendor channel: the HID interface with the raw-HID application
+collection (usage page 0xff60, usage 0x61). The 2.4 GHz dongle (0x2002)
+forwards the query to the keyboard over the air; the keyboard (0x2009)
+answers it directly over USB. The query is a request/response session,
+so neither hid-input's battery strength usage nor a report descriptor
+fixup can expose it.
+
+Query the battery once a minute (session start 0xaa 0x10, battery status
+0xaa 0x30, session end 0xaa 0x11) and register a device-scope
+power_supply once the keyboard has answered, so that user space does not
+see a battery whose capacity cannot be read. A lost answer is retried
+after 5 s; the battery is marked not present after three polls in a row
+without the battery status, or at once when the dongle reports no link.
+The battery is named after the USB product ID and serial number, as
+hid-asus does, so that its name survives a replug; the keyboard and its
+dongle share a serial number.
+
+On the dongle, also read its link status (0xaa 0xd0), which it sends by
+itself on each link change, and report the link as the USB interface's
+wireless_status, as hid-logitech-hidpp and hid-corsair-void do. Byte 13
+of that report is 0x02 while the dongle has no link, but no other value
+proves an active link (the dongle with bcdDevice 0x0102 reports 0x00
+both when connected and when no connection has succeeded since
+power-up), so the link is taken as up only once the keyboard answers.
+
+All other interfaces are handled as by hid-generic.
+
+Tested with keyboard firmware 1.13 over USB and through the dongle
+(bcdDevice 0x0102 and 0x0105), including a switch between the two and
+the vendor's WebHID configurator in use on the same interface; and
+through the dongle with an open-source keyboard firmware: module reload,
+replug and system suspend/resume.
+
+Signed-off-by: Erlend Jacobsen <erlendjacobsen@pm.me>
+---
+Known dongle issue, not handled by the driver: a USB reset while the dongle
+(bcdDevice 0x0102 and 0x0105) holds an unread report on its vendor
+interface stops that interface until the dongle is replugged; keys still
+work.
+---
+Changes in v4:
+- Store every link byte from the dongle in the raw event handler, so a
+  reply cannot overwrite a newer unsolicited one and leave a reconnected
+  keyboard unpolled for 60 s (Sashiko review).
+- Link to v3: https://patch.msgid.link/20261123-b4-rdmctmzt-v3-1-5ce2359df0aa@pm.me
+
+Changes in v3:
+- Reset the poll counters also when a keyboard taken as gone answers
+  again, so it is retried after 5 s, not 60 s (Sashiko review).
+- Link to v2: https://patch.msgid.link/20261123-b4-rdmctmzt-v2-1-8c18d7dac4bc@pm.me
+
+Changes in v2:
+- End the polling only on the driver's own stop (-ESHUTDOWN); any
+  transport error, -ENODEV included, is a lost poll (Sashiko review).
+- Reset the poll counters while the dongle reports no link, so a
+  reconnected keyboard is retried after 5 s, not 60 s (Sashiko review).
+- Link to v1: https://patch.msgid.link/20261122-b4-rdmctmzt-v1-1-d45883e1fe33@pm.me
+---
+ MAINTAINERS                |   6 +
+ drivers/hid/Kconfig        |  12 +
+ drivers/hid/Makefile       |   1 +
+ drivers/hid/hid-ids.h      |   4 +
+ drivers/hid/hid-rdmctmzt.c | 664 +++++++++++++++++++++++++++++++++++++++++++++
+ 5 files changed, 687 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 4a69da715c58..d3adacc5053f 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -11703,6 +11703,12 @@ L:	linux-input@vger.kernel.org
+ S:	Maintained
+ F:	drivers/hid/hid-pulsar.c
+ 
++HID RDMCTMZT DRIVER
++M:	Erlend Jacobsen <erlendjacobsen@pm.me>
++L:	linux-input@vger.kernel.org
++S:	Maintained
++F:	drivers/hid/hid-rdmctmzt.c
++
+ HID SENSOR HUB DRIVERS
+ M:	Jiri Kosina <jikos@kernel.org>
+ M:	Jonathan Cameron <jic23@kernel.org>
+diff --git a/drivers/hid/Kconfig b/drivers/hid/Kconfig
+index d17d960ab5e2..c3aeee7e71db 100644
+--- a/drivers/hid/Kconfig
++++ b/drivers/hid/Kconfig
+@@ -1105,6 +1105,18 @@ config HID_RAZER
+ 	Support for Razer devices that are not fully compliant with the
+ 	HID standard.
+ 
++config HID_RDMCTMZT
++	tristate "RDMCTMZT keyboards and 2.4 GHz dongles"
++	depends on USB_HID
++	select POWER_SUPPLY
++	help
++	  Support for the battery level and wireless link status of RDMCTMZT
++	  keyboards (USB vendor ID 0x36b0), such as the Focus Lab CTRL87,
++	  over USB and through their 2.4 GHz dongle.
++
++	  To compile this driver as a module, choose M here: the
++	  module will be called hid-rdmctmzt.
++
+ config HID_PRIMAX
+ 	tristate "Primax non-fully HID-compliant devices"
+ 	help
+diff --git a/drivers/hid/Makefile b/drivers/hid/Makefile
+index dc30faaac969..d0ca9933eb95 100644
+--- a/drivers/hid/Makefile
++++ b/drivers/hid/Makefile
+@@ -123,6 +123,7 @@ obj-$(CONFIG_HID_PXRC)		+= hid-pxrc.o
+ obj-$(CONFIG_HID_RAKK)		+= hid-rakk.o
+ obj-$(CONFIG_HID_RAPOO) += hid-rapoo.o
+ obj-$(CONFIG_HID_RAZER)	+= hid-razer.o
++obj-$(CONFIG_HID_RDMCTMZT)	+= hid-rdmctmzt.o
+ obj-$(CONFIG_HID_REDRAGON)	+= hid-redragon.o
+ obj-$(CONFIG_HID_RETRODE)	+= hid-retrode.o
+ obj-$(CONFIG_HID_ROCCAT)	+= hid-roccat.o hid-roccat-common.o \
+diff --git a/drivers/hid/hid-ids.h b/drivers/hid/hid-ids.h
+index c40d818417a2..59549ff57583 100644
+--- a/drivers/hid/hid-ids.h
++++ b/drivers/hid/hid-ids.h
+@@ -1275,6 +1275,10 @@
+ #define USB_DEVICE_ID_RAZER_BLACKWIDOW_CLASSIC    0x011b
+ #define USB_DEVICE_ID_RAZER_BLADE_14   0x011D
+ 
++#define USB_VENDOR_ID_RDMCTMZT			0x36b0
++#define USB_DEVICE_ID_RDMCTMZT_DONGLE		0x2002
++#define USB_DEVICE_ID_RDMCTMZT_CTRL87		0x2009
++
+ #define USB_VENDOR_ID_REALTEK		0x0bda
+ #define USB_DEVICE_ID_REALTEK_READER	0x0152
+ 
+diff --git a/drivers/hid/hid-rdmctmzt.c b/drivers/hid/hid-rdmctmzt.c
+new file mode 100644
+index 000000000000..391d7c934f5b
+--- /dev/null
++++ b/drivers/hid/hid-rdmctmzt.c
+@@ -0,0 +1,664 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * HID driver for RDMCTMZT keyboards and their 2.4 GHz dongles (USB vendor
++ * ID 0x36b0): the battery level.
++ *
++ * The keyboard firmware answers a battery query on its vendor channel, the
++ * HID interface with the raw-HID application collection (usage page 0xff60,
++ * usage 0x61, no report IDs): 32-byte reports on the dongle, 64-byte reports
++ * on the keyboard over USB. The dongle passes the query to the keyboard over
++ * the air and the answer back.
++ *
++ * Every request and answer starts with 0xaa and the command byte:
++ *   0x10  start a session; other commands are only answered within one
++ *   0x30  battery status
++ *   0x11  end the session
++ * Byte 4 of a request is the report size. An answer repeats the request up to
++ * byte 6; byte 7 is 0x55 when the command was carried out (0x0f when it was
++ * refused, for instance before the keyboard has measured its battery). The
++ * battery status has the charge (0-100 %) in byte 8 and the charger state in
++ * byte 9 (0 on battery, 1 charging, 2 full).
++ *
++ * The dongle answers 0xd0 itself, and sends one by itself when its link state
++ * changes: byte 13 is 0x02 while it has no link to the keyboard (keyboard off,
++ * or on USB). Any other value does not prove a link: dongle firmware 0x0102
++ * reports 0x00 when connected, after a failed reconnect, and when the keyboard
++ * has never connected since power-up. So the driver takes the link as up only
++ * once the keyboard answers, and as down when byte 13 is 0x02 or after
++ * RDM_MAX_FAILS polls without any answer. It reports this as the USB
++ * interface's wireless_status, so user space hides the battery of a keyboard
++ * that is not connected.
++ *
++ * A lost answer does not hide the battery: it is retried after RDM_RETRY_MS,
++ * and the battery is marked not present only after RDM_MAX_FAILS polls in a
++ * row without the battery status, or at once when the dongle reports no link.
++ */
++
++#include <linux/cleanup.h>
++#include <linux/completion.h>
++#include <linux/device.h>
++#include <linux/hid.h>
++#include <linux/jiffies.h>
++#include <linux/limits.h>
++#include <linux/minmax.h>
++#include <linux/module.h>
++#include <linux/power_supply.h>
++#include <linux/slab.h>
++#include <linux/spinlock.h>
++#include <linux/string.h>
++#include <linux/usb.h>
++#include <linux/workqueue.h>
++
++#include "hid-ids.h"
++
++#define RDM_VENDOR_USAGE		0xff600061
++#define RDM_VENDOR_PREFIX		"RDMCTMZT "
++
++#define RDM_PREFIX			0xaa
++#define RDM_CMD_START			0x10
++#define RDM_CMD_STOP			0x11
++#define RDM_CMD_BATTERY			0x30
++/* The dongle's own link status, sent when the link changes */
++#define RDM_DONGLE_STATUS		0xd0
++
++#define RDM_PREFIX_BYTE			0
++#define RDM_CMD_BYTE			1
++#define RDM_SIZE_BYTE			4
++#define RDM_STATUS_BYTE			7
++#define RDM_CAPACITY_BYTE		8
++#define RDM_CHARGE_BYTE			9
++#define RDM_LINK_BYTE			13
++#define RDM_ANSWER_LEN			(RDM_LINK_BYTE + 1)
++
++#define RDM_STATUS_OK			0x55
++#define RDM_MAX_CAPACITY		100
++
++#define RDM_LINK_NONE			0x02
++#define RDM_LINK_UNKNOWN		0xff
++
++enum rdm_charge_state {
++	RDM_CHARGE_DISCHARGING	= 0,
++	RDM_CHARGE_CHARGING	= 1,
++	RDM_CHARGE_FULL		= 2,
++};
++
++/* Over the air an answer takes up to two connection events of 100 ms */
++#define RDM_TIMEOUT_MS			1000
++#define RDM_FIRST_POLL_MS		2000
++/* After a poll without the battery status */
++#define RDM_RETRY_MS			5000
++/* While the dongle's link byte allows a link, but the keyboard is silent */
++#define RDM_SEARCH_MS			10000
++#define RDM_POLL_MS			60000
++#define RDM_MAX_FAILS			3
++
++struct rdm_device {
++	struct hid_device *hdev;
++	const char *model_name;
++	/* Registered once the keyboard first answers */
++	struct power_supply *battery;
++	struct power_supply_desc battery_desc;
++	struct delayed_work work;
++	struct completion done;
++	/* The dongle: report the radio link as wireless_status */
++	bool dongle;
++	/*
++	 * Protects expect, answer, link, present, status, capacity,
++	 * and stopping.
++	 */
++	spinlock_t lock;
++	u8 *buf;
++	size_t len;
++	u8 expect;
++	u8 answer[RDM_ANSWER_LEN];
++	/* Byte 13 of the dongle's last 0xd0 */
++	u8 link;
++	bool present;
++	int status;
++	u8 capacity;
++	bool stopping;
++	/* Only used by the work; both count only polls with a link */
++	unsigned int fails;	/* polls in a row without the battery status */
++	unsigned int silent;	/* polls in a row without any answer */
++	enum usb_wireless_status wireless;
++};
++
++static const enum power_supply_property rdm_battery_props[] = {
++	POWER_SUPPLY_PROP_PRESENT,
++	POWER_SUPPLY_PROP_STATUS,
++	POWER_SUPPLY_PROP_CAPACITY,
++	POWER_SUPPLY_PROP_SCOPE,
++	POWER_SUPPLY_PROP_MODEL_NAME,
++	POWER_SUPPLY_PROP_MANUFACTURER,
++};
++
++static int rdm_battery_get_property(struct power_supply *psy,
++				    enum power_supply_property psp,
++				    union power_supply_propval *val)
++{
++	struct rdm_device *rdm = power_supply_get_drvdata(psy);
++
++	switch (psp) {
++	case POWER_SUPPLY_PROP_PRESENT:
++		scoped_guard(spinlock_irqsave, &rdm->lock)
++			val->intval = rdm->present;
++		return 0;
++	case POWER_SUPPLY_PROP_STATUS:
++		scoped_guard(spinlock_irqsave, &rdm->lock)
++			val->intval = rdm->present ? rdm->status :
++						     POWER_SUPPLY_STATUS_UNKNOWN;
++		return 0;
++	case POWER_SUPPLY_PROP_CAPACITY:
++		scoped_guard(spinlock_irqsave, &rdm->lock) {
++			if (!rdm->present)
++				return -ENODATA;
++			val->intval = rdm->capacity;
++		}
++		return 0;
++	case POWER_SUPPLY_PROP_SCOPE:
++		val->intval = POWER_SUPPLY_SCOPE_DEVICE;
++		return 0;
++	case POWER_SUPPLY_PROP_MODEL_NAME:
++		val->strval = rdm->model_name;
++		return 0;
++	case POWER_SUPPLY_PROP_MANUFACTURER:
++		val->strval = "RDMCTMZT";
++		return 0;
++	default:
++		return -EINVAL;
++	}
++}
++
++/* Only 0x02 rules out a link; the keyboard's answers decide the rest */
++static bool rdm_link_may_be_up(u8 link)
++{
++	return link != RDM_LINK_NONE && link != RDM_LINK_UNKNOWN;
++}
++
++static int rdm_decode_status(struct rdm_device *rdm, u8 charge)
++{
++	switch (charge) {
++	case RDM_CHARGE_DISCHARGING:
++		return POWER_SUPPLY_STATUS_DISCHARGING;
++	case RDM_CHARGE_CHARGING:
++		return POWER_SUPPLY_STATUS_CHARGING;
++	case RDM_CHARGE_FULL:
++		return POWER_SUPPLY_STATUS_FULL;
++	default:
++		hid_dbg(rdm->hdev, "unknown charger state: %u\n", charge);
++		return POWER_SUPPLY_STATUS_UNKNOWN;
++	}
++}
++
++/* Send one command; its answer arrives in rdm_raw_event() */
++static int rdm_send(struct rdm_device *rdm, u8 cmd)
++{
++	size_t raw_len = rdm->len + 1;
++	int ret;
++
++	memset(rdm->buf, 0, raw_len);
++	rdm->buf[0] = 0x00; /* unnumbered report ID */
++	rdm->buf[1 + RDM_PREFIX_BYTE] = RDM_PREFIX;
++	rdm->buf[1 + RDM_CMD_BYTE] = cmd;
++	rdm->buf[1 + RDM_SIZE_BYTE] = rdm->len;
++
++	ret = hid_hw_output_report(rdm->hdev, rdm->buf, raw_len);
++	/*
++	 * -ESHUTDOWN from the transport (an endpoint flushed by a USB reset)
++	 * is a lost poll; only rdm->stopping may end the polling.
++	 */
++	if (ret == -ESHUTDOWN)
++		return -EIO;
++	if (ret < 0)
++		return ret;
++	if (ret != raw_len)
++		return -EIO;
++
++	return 0;
++}
++
++/*
++ * Send one command and wait for its answer: 0 once it is copied into @reply
++ * (carried out or refused, checked via RDM_STATUS_BYTE).
++ */
++static int rdm_command(struct rdm_device *rdm, u8 cmd, u8 *reply)
++{
++	long time_left;
++	int ret;
++
++	scoped_guard(spinlock_irqsave, &rdm->lock) {
++		if (rdm->stopping)
++			return -ESHUTDOWN;
++		rdm->expect = cmd;
++		rdm->answer[RDM_CMD_BYTE] = 0;
++		reinit_completion(&rdm->done);
++	}
++
++	ret = rdm_send(rdm, cmd);
++	if (ret)
++		goto out_clear;
++
++	time_left = wait_for_completion_interruptible_timeout(&rdm->done,
++							      msecs_to_jiffies(RDM_TIMEOUT_MS));
++	if (time_left <= 0) {
++		ret = time_left ? (int)time_left : -ETIMEDOUT;
++		goto out_clear;
++	}
++
++	scoped_guard(spinlock_irqsave, &rdm->lock) {
++		rdm->expect = 0;
++		if (rdm->stopping)
++			return -ESHUTDOWN;
++		if (rdm->answer[RDM_CMD_BYTE] != cmd)
++			return -ENOLINK;
++		memcpy(reply, rdm->answer, RDM_ANSWER_LEN);
++	}
++	return 0;
++
++out_clear:
++	scoped_guard(spinlock_irqsave, &rdm->lock) {
++		rdm->expect = 0;
++		if (rdm->stopping)
++			ret = -ESHUTDOWN;
++	}
++	return ret;
++}
++
++/*
++ * Register the battery once the keyboard has answered: user space (UPower)
++ * ignores a device battery whose capacity cannot be read when it appears.
++ * Without an answer (the dongle with the keyboard on USB) there is none.
++ */
++static void rdm_battery_register(struct rdm_device *rdm)
++{
++	struct power_supply_config cfg = { .drv_data = rdm };
++	struct power_supply *battery;
++	int ret;
++
++	battery = devm_power_supply_register(&rdm->hdev->dev,
++					     &rdm->battery_desc, &cfg);
++	if (IS_ERR(battery)) {
++		hid_err_ratelimited(rdm->hdev,
++				    "cannot register the battery: %pe\n",
++				    battery);
++		return;
++	}
++
++	ret = power_supply_powers(battery, &rdm->hdev->dev);
++	if (ret)
++		hid_warn(rdm->hdev, "cannot link battery to device: %d\n", ret);
++
++	rdm->battery = battery;
++}
++
++/* The dongle's link byte, asked for now: an 0xd0 may have been missed */
++static int rdm_dongle_linked(struct rdm_device *rdm, bool *linked)
++{
++	u8 reply[RDM_ANSWER_LEN];
++	int ret;
++
++	/* rdm_raw_event() stores the link byte of the reply too */
++	ret = rdm_command(rdm, RDM_DONGLE_STATUS, reply);
++	if (ret == -ESHUTDOWN)
++		return ret;
++	if (ret)
++		hid_dbg(rdm->hdev, "no link status: %d\n", ret);
++
++	scoped_guard(spinlock_irqsave, &rdm->lock) {
++		*linked = rdm_link_may_be_up(rdm->link);
++	}
++	return 0;
++}
++
++static int rdm_poll_keyboard(struct rdm_device *rdm, bool *linked,
++			     bool *answered, bool *got, u8 *capacity,
++			     int *status)
++{
++	u8 reply[RDM_ANSWER_LEN];
++	int ret;
++
++	ret = rdm_command(rdm, RDM_CMD_START, reply);
++	if (ret == -ESHUTDOWN)
++		return ret;
++	if (ret == -ENOLINK) {
++		*linked = false;
++		return 0;
++	}
++	if (ret)
++		return 0;
++
++	/* Any answer, even a refusal, shows that the keyboard is linked */
++	*answered = true;
++	if (reply[RDM_STATUS_BYTE] == RDM_STATUS_OK) {
++		ret = rdm_command(rdm, RDM_CMD_BATTERY, reply);
++		if (ret == -ESHUTDOWN)
++			return ret;
++		if (ret == -ENOLINK) {
++			*linked = false;
++			return 0;
++		}
++		if (!ret && reply[RDM_STATUS_BYTE] == RDM_STATUS_OK) {
++			*got = true;
++			*capacity = min_t(u8, reply[RDM_CAPACITY_BYTE],
++					  RDM_MAX_CAPACITY);
++			*status = rdm_decode_status(rdm, reply[RDM_CHARGE_BYTE]);
++		}
++	}
++
++	ret = rdm_command(rdm, RDM_CMD_STOP, reply);
++	if (ret == -ESHUTDOWN)
++		return ret;
++	if (ret == -ENOLINK)
++		*linked = false;
++
++	return 0;
++}
++
++static void rdm_battery_work(struct work_struct *work)
++{
++	struct rdm_device *rdm = container_of(to_delayed_work(work),
++					      struct rdm_device, work);
++	enum usb_wireless_status wireless = rdm->wireless;
++	bool linked = true, answered = false, got = false;
++	bool changed, present;
++	unsigned int delay;
++	u8 capacity = 0;
++	int status = 0;
++
++	if (rdm->dongle && rdm_dongle_linked(rdm, &linked))
++		return;
++
++	if (linked && rdm_poll_keyboard(rdm, &linked, &answered, &got,
++					&capacity, &status))
++		return;
++
++	if (!got)
++		hid_dbg(rdm->hdev, "no battery status (linked %d, answered %d)\n",
++			linked, answered);
++
++	if (!linked) {
++		/* A keyboard that comes back starts with fresh counts */
++		rdm->silent = 0;
++		rdm->fails = 0;
++		wireless = USB_WIRELESS_STATUS_DISCONNECTED;
++	} else {
++		/* So does one that answers after being taken as gone */
++		if (answered && rdm->silent >= RDM_MAX_FAILS)
++			rdm->fails = 0;
++		rdm->silent = answered ? 0 : min(rdm->silent + 1, RDM_MAX_FAILS);
++		rdm->fails = got ? 0 : min(rdm->fails + 1, RDM_MAX_FAILS);
++		if (answered)
++			wireless = USB_WIRELESS_STATUS_CONNECTED;
++		else if (rdm->silent >= RDM_MAX_FAILS ||
++			 rdm->wireless == USB_WIRELESS_STATUS_NA)
++			wireless = USB_WIRELESS_STATUS_DISCONNECTED;
++	}
++
++	/* Without a link the dongle reports when it comes back */
++	if (got || !linked)
++		delay = RDM_POLL_MS;
++	else if (rdm->fails < RDM_MAX_FAILS)
++		delay = RDM_RETRY_MS;
++	else if (rdm->dongle && rdm->silent >= RDM_MAX_FAILS)
++		delay = RDM_SEARCH_MS;
++	else
++		delay = RDM_POLL_MS;
++
++	scoped_guard(spinlock_irqsave, &rdm->lock) {
++		if (rdm->stopping)
++			return;
++		present = linked &&
++			  (got || (rdm->present && rdm->fails < RDM_MAX_FAILS));
++		changed = rdm->present != present ||
++			  (got && (rdm->capacity != capacity ||
++				   rdm->status != status));
++		rdm->present = present;
++		if (got) {
++			rdm->capacity = capacity;
++			rdm->status = status;
++		}
++		queue_delayed_work(system_dfl_wq, &rdm->work,
++				   msecs_to_jiffies(delay));
++	}
++
++	if (rdm->dongle && wireless != rdm->wireless) {
++		rdm->wireless = wireless;
++		usb_set_wireless_status(to_usb_interface(rdm->hdev->dev.parent),
++					wireless);
++	}
++
++	if (present && got && !rdm->battery)
++		rdm_battery_register(rdm);
++	else if (changed && rdm->battery)
++		power_supply_changed(rdm->battery);
++}
++
++static int rdm_raw_event(struct hid_device *hdev, struct hid_report *report,
++			 u8 *data, int size)
++{
++	struct rdm_device *rdm = hid_get_drvdata(hdev);
++	bool changed = false;
++
++	if (!rdm || size < RDM_ANSWER_LEN || data[RDM_PREFIX_BYTE] != RDM_PREFIX)
++		return 0;
++
++	guard(spinlock_irqsave)(&rdm->lock);
++	/* Every link byte, asked for or not, so the newest one is kept */
++	if (data[RDM_CMD_BYTE] == RDM_DONGLE_STATUS && rdm->dongle) {
++		changed = data[RDM_LINK_BYTE] != rdm->link;
++		rdm->link = data[RDM_LINK_BYTE];
++	}
++
++	if (rdm->expect && data[RDM_CMD_BYTE] == rdm->expect) {
++		memcpy(rdm->answer, data, RDM_ANSWER_LEN);
++		rdm->expect = 0;
++		complete(&rdm->done);
++	} else if (changed) {
++		/* The link to the keyboard came or went: ask now */
++		if (rdm->expect && !rdm_link_may_be_up(rdm->link)) {
++			rdm->expect = 0;
++			complete(&rdm->done);
++		}
++		if (!rdm->stopping)
++			mod_delayed_work(system_dfl_wq, &rdm->work, 0);
++	}
++	return 0;
++}
++
++static bool rdm_is_vendor_interface(struct hid_device *hdev)
++{
++	for (unsigned int i = 0; i < hdev->maxcollection; i++) {
++		if (hdev->collection[i].type == HID_COLLECTION_APPLICATION &&
++		    hdev->collection[i].usage == RDM_VENDOR_USAGE)
++			return true;
++	}
++	return false;
++}
++
++/* End the work and any wait; rdm_resume_common() restarts it */
++static void rdm_stop_polling(struct rdm_device *rdm)
++{
++	scoped_guard(spinlock_irqsave, &rdm->lock) {
++		rdm->stopping = true;
++		complete_all(&rdm->done);
++	}
++	cancel_delayed_work_sync(&rdm->work);
++}
++
++static int rdm_probe(struct hid_device *hdev, const struct hid_device_id *id)
++{
++	struct hid_report *report_in, *report_out;
++	struct rdm_device *rdm;
++	size_t prefix_len;
++	u32 report_len;
++	int ret;
++
++	hdev->quirks |= HID_QUIRK_INPUT_PER_APP;
++
++	ret = hid_parse(hdev);
++	if (ret)
++		return ret;
++
++	/* Only the vendor interface has the query; the others work as usual */
++	if (!rdm_is_vendor_interface(hdev))
++		return hid_hw_start(hdev, HID_CONNECT_DEFAULT);
++
++	report_in = hdev->report_enum[HID_INPUT_REPORT].report_id_hash[0];
++	report_out = hdev->report_enum[HID_OUTPUT_REPORT].report_id_hash[0];
++	if (!report_in || !report_out ||
++	    hdev->report_enum[HID_INPUT_REPORT].numbered ||
++	    hdev->report_enum[HID_OUTPUT_REPORT].numbered) {
++		hid_warn(hdev, "missing unnumbered vendor reports\n");
++		return hid_hw_start(hdev, HID_CONNECT_DEFAULT);
++	}
++
++	report_len = hid_report_len(report_out);
++	if (hid_report_len(report_in) < RDM_ANSWER_LEN ||
++	    report_len < RDM_ANSWER_LEN || report_len > U8_MAX) {
++		hid_warn(hdev, "unexpected vendor report length\n");
++		return hid_hw_start(hdev, HID_CONNECT_DEFAULT);
++	}
++
++	rdm = devm_kzalloc(&hdev->dev, sizeof(*rdm), GFP_KERNEL);
++	if (!rdm)
++		return -ENOMEM;
++
++	rdm->len = report_len;
++	/* Leading byte 0 holds the unnumbered report ID (0x00) */
++	rdm->buf = devm_kzalloc(&hdev->dev, rdm->len + 1, GFP_KERNEL);
++	if (!rdm->buf)
++		return -ENOMEM;
++
++	rdm->hdev = hdev;
++	prefix_len = str_has_prefix(hdev->name, RDM_VENDOR_PREFIX);
++	rdm->model_name = hdev->name[prefix_len] ? hdev->name + prefix_len :
++						   hdev->name;
++	rdm->dongle = hid_is_usb(hdev) &&
++		      hdev->product == USB_DEVICE_ID_RDMCTMZT_DONGLE;
++	rdm->link = RDM_LINK_UNKNOWN;
++	rdm->wireless = USB_WIRELESS_STATUS_NA;
++	spin_lock_init(&rdm->lock);
++	init_completion(&rdm->done);
++	INIT_DELAYED_WORK(&rdm->work, rdm_battery_work);
++
++	/*
++	 * Name the battery after the USB product ID and serial number, as
++	 * hid-asus does: the HID device name changes with every replug, and
++	 * user space keeps per-battery settings by name. The keyboard and its
++	 * dongle share a serial number, so the product ID keeps them apart.
++	 */
++	if (hdev->uniq[0])
++		rdm->battery_desc.name = devm_kasprintf(&hdev->dev, GFP_KERNEL,
++							"rdmctmzt-%04x-%s-battery",
++							hdev->product, hdev->uniq);
++	else
++		rdm->battery_desc.name = devm_kasprintf(&hdev->dev, GFP_KERNEL,
++							"rdmctmzt-%s-battery",
++							dev_name(&hdev->dev));
++	if (!rdm->battery_desc.name)
++		return -ENOMEM;
++
++	rdm->battery_desc.type = POWER_SUPPLY_TYPE_BATTERY;
++	rdm->battery_desc.properties = rdm_battery_props;
++	rdm->battery_desc.num_properties = ARRAY_SIZE(rdm_battery_props);
++	rdm->battery_desc.get_property = rdm_battery_get_property;
++
++	hid_set_drvdata(hdev, rdm);
++
++	ret = hid_hw_start(hdev, HID_CONNECT_DEFAULT);
++	if (ret)
++		goto err_clear_drvdata;
++
++	/* Answers arrive as input reports, so keep the interface open */
++	ret = hid_hw_open(hdev);
++	if (ret)
++		goto err_stop;
++
++	queue_delayed_work(system_dfl_wq, &rdm->work,
++			   msecs_to_jiffies(RDM_FIRST_POLL_MS));
++	return 0;
++
++err_stop:
++	/* A dongle status may already have queued the work */
++	rdm_stop_polling(rdm);
++	hid_hw_stop(hdev);
++err_clear_drvdata:
++	hid_set_drvdata(hdev, NULL);
++	return ret;
++}
++
++static void rdm_remove(struct hid_device *hdev)
++{
++	struct rdm_device *rdm = hid_get_drvdata(hdev);
++
++	if (rdm) {
++		rdm_stop_polling(rdm);
++		if (rdm->dongle && rdm->wireless != USB_WIRELESS_STATUS_NA)
++			usb_set_wireless_status(to_usb_interface(hdev->dev.parent),
++						USB_WIRELESS_STATUS_NA);
++		hid_hw_close(hdev);
++	}
++	hid_hw_stop(hdev);
++}
++
++static int rdm_suspend(struct hid_device *hdev, pm_message_t message)
++{
++	struct rdm_device *rdm = hid_get_drvdata(hdev);
++
++	if (rdm)
++		rdm_stop_polling(rdm);
++	return 0;
++}
++
++static int rdm_resume_common(struct hid_device *hdev, bool reset)
++{
++	struct rdm_device *rdm = hid_get_drvdata(hdev);
++
++	if (!rdm)
++		return 0;
++
++	scoped_guard(spinlock_irqsave, &rdm->lock) {
++		rdm->stopping = false;
++		if (reset)
++			rdm->link = RDM_LINK_UNKNOWN;
++		queue_delayed_work(system_dfl_wq, &rdm->work, 0);
++	}
++	return 0;
++}
++
++static int rdm_resume(struct hid_device *hdev)
++{
++	return rdm_resume_common(hdev, false);
++}
++
++static int rdm_reset_resume(struct hid_device *hdev)
++{
++	if (hdev->claimed & HID_CLAIMED_INPUT)
++		hidinput_reset_resume(hdev);
++
++	return rdm_resume_common(hdev, true);
++}
++
++static const struct hid_device_id rdm_devices[] = {
++	{ HID_USB_DEVICE(USB_VENDOR_ID_RDMCTMZT,
++			 USB_DEVICE_ID_RDMCTMZT_DONGLE) },
++	{ HID_USB_DEVICE(USB_VENDOR_ID_RDMCTMZT,
++			 USB_DEVICE_ID_RDMCTMZT_CTRL87) },
++	{ }
++};
++MODULE_DEVICE_TABLE(hid, rdm_devices);
++
++static struct hid_driver rdm_driver = {
++	.name = "rdmctmzt",
++	.id_table = rdm_devices,
++	.probe = rdm_probe,
++	.remove = rdm_remove,
++	.raw_event = rdm_raw_event,
++	.suspend = pm_ptr(rdm_suspend),
++	.resume = pm_ptr(rdm_resume),
++	.reset_resume = pm_ptr(rdm_reset_resume),
++};
++module_hid_driver(rdm_driver);
++
++MODULE_DESCRIPTION("HID driver for RDMCTMZT keyboards: battery level and link status");
++MODULE_LICENSE("GPL");
+
+---
+base-commit: 4a30b295fc34467e0468a0c8aeef73ecbe876d07
+change-id: 20261122-b4-rdmctmzt-61993add2ef2
+
+Best regards,
+--  
+Erlend Jacobsen <erlendjacobsen@pm.me>
+
+
