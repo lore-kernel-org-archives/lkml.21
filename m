@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795620165;
-	b=09HnmNJbenxDmIEJ+hj1wxldF4o8lEsp09Y0Iqudp5VH4FzII4LcyPn6km71o+YNLSwX
-	 hW1gLAOyL+b15D7C3myZf4Hgiz/2jinS1OfYEnCdtOnaKHLQqfCORYnG2V7YLGJjaNQwG
-	 p6mN84eD+Q0KkwLDnngtGET60b1Jbj6nXnG3FBDvozxrNP4EM5K9cpfco3il+3MPzrBtx
-	 G+bOXnIDNQifMcvcepu0GbUKaKZo67enLjrU+tGcXPgWuXp/f/2+dX5G65IcnrhhkHUm8
-	 MxWl/fxRay6b43yqQeOQmtGtMqoSubd+40WuhOmMIAf/JsKDjaEEd0fYULMGURoBgmQ==
+	t=1795620170;
+	b=pgo/KiZ/Fp1tD8EHZ3sLI386hZxylX3VhtqAYc2GafUolW4DZ4dh8W9FqdzLhxcaSSIr
+	 cN0LtMfYmBE5ejMbsvnGu7QMIzOewfhyYfmiYoFGY8+/KtEHh8kUr6tmXtHXkwlw3VN8y
+	 TGgIXJLB4R503dNhl3+U70oGczznrdeWKAZRM1xgJIg7CYxOe0uYCBi+O2BmJIZk2Sv+1
+	 GroT3/9kgnikfkkF5uKMDtULrWyGBCTibmIZ8GOv0Eqfjxh6NH3XkxRO6g1uOJrQBZKrJ
+	 JvlFEsJsJDr1rxOU7VnKVHY5T3s1z4lLWOU4ZH3EHEIxWVK7sltCWnH1sXce9epYNBg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795620165;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620170;
 	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
 	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=6GSg/jLsN29tre5kcZSyHYsaS369WhKvfnM4vNbmqC4=;
-	b=x1pZy6iP6Tlbr0iuH2+fj26H4U9R3MBXQamzXDb7h6zid5oNLsFrSZMKKkD7CRpcAH6C
-	 shQtvudZ2XGbx68pR2AgOQUCTRfVRIx/TrPV3dyG4T8XtuvKwhsyA+V+Kit+ywG0Px4xm
-	 ZvYUcdJ6oNH5TxN/x5FyRqCVZhU8cKq05WwCyr0Px668MzyEJ9QSLldEzaoFwOc/J5E99
-	 uRJDzxZKXDVc3+HZuP+mmhV6VMU1aeS8Q3mUbScsLgpRKN+7QamO+7kWIFdT/6ihl25+B
-	 jW9MENL7Q/by9fCFatJyqZN/uNV7fyvZ7zoFGSPeBxJ6X6xkF6Q6DoBfHko8AKJ/Kaw==
+	bh=SLu1wneeXD4cJMfNUKzRuKmXcrHvbSKhGvp27m7wiOs=;
+	b=tO2daDBtoC67eszb1zBRmajChfRLOMU+nfsgwlGdrsju9x8ElbCNq20Z/U3zkDT63cyb
+	 bUFanUNGNfzf5yi0nP4HxchKqWkL4xTHckbEGW/WeqvRDazcarBjiMkulGl1NjjMaYD7k
+	 JfuIJIqy4dAv+dTcWEUmld1+szPlz6bYzYK6tyNGYjSXMPctd1buX5Qw44OWw1Moic5lx
+	 FF8DAylPKdlSV/0AseRPMJ8o3wi4LV7zH1rE10VK9UrkmHoxSH7f4EVZtlKkTwktikbCo
+	 1QcacV5hHa/tYhf4vIJAdX2Nw5SBvy8lzX/QVkHFXuF1At57Kea8FzyLqWidLUXaXxw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="f/qK01bz";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dpi1hwEM;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE819606A688;
-	Wed, 25 Nov 2026 15:22:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCBC8606A32C;
+	Wed, 25 Nov 2026 15:22:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f/qK01bz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1BA31F00A01;
-	Wed, 25 Nov 2026 15:22:43 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dpi1hwEM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B73FB1F000C4;
+	Wed, 25 Nov 2026 15:22:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795620165;
-	bh=6GSg/jLsN29tre5kcZSyHYsaS369WhKvfnM4vNbmqC4=;
+	s=k20260515; t=1795620170;
+	bh=SLu1wneeXD4cJMfNUKzRuKmXcrHvbSKhGvp27m7wiOs=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=f/qK01bzHUyDDeiTBo/kJ+oJc+8tLLn5lqj3TMdelkNMNfVQnR77kanE7SRbUYD0X
-	 cgDZoWOIUWs0RG2dA9fuRwCyo0ObFwsvclvJIcIGwT4WX2XsiAAAClh+zfJWwLVCgI
-	 TjurB0ntDfya+a5LXXvrCWIu+CllDbGwMa1dddBXgUJpFFMXfjgZCwL/xD8OptuUeW
-	 4X2r/hmpPCGZVpH32quxqByqLthhk6uNruY6gykvkJcJ8S/JCcmbI7o4us5WbTjleS
-	 Uv5QAjawlUWR28mIhTL8F0A7lDaIHuFYvm0h67xvHYsFP5Lpe9hmbJvgCUptnH83pr
-	 pxW6lDjfu7g7A==
+	b=dpi1hwEMja/XyxBa/tUy/m0J4qeFN1GPKUiyz1UXQCWX/+AEbkF5rGndm1F0e7PnP
+	 ny/tcmRfKMhrr2HwRj496uoKtFOVAD3U7/h4T1x7BygCvryqPq7yaXqD3zJZmRafIS
+	 ttZ99sH4FKfYwvuGaxzKqEYcG+rGdpWOW8/10V3QjUZSsxGtWHZV8DTWrXN4fjSGds
+	 uw4gqmd5quTm1tM9lkD91ciTqd6Bw9PaiFfS5ecJ1fkF+WSjI775YY7CA36YOWdSXj
+	 OuLFQfM4lbnHQP9Tl9LkvCDLQy9HB9GwkqMk8N6/v2bAsPoJLkLDHz5uhqY57Qd007
+	 C7rAH8WtrFTdQ==
 From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Ian Rogers <irogers@google.com>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
- llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>
-In-Reply-To: <20261119171059.1537658-1-irogers@google.com>
-References: <20261119171059.1537658-1-irogers@google.com>
-Subject: Re: [PATCH] ASoC: codecs: aw88395: Validate 4-byte alignment and
- init ret in reg update
-Message-Id: <179554902677.947306.15693529746115817043.b4-ty@b4>
-Date: Tue, 24 Nov 2026 19:37:06 +0000
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Johan Hovold <johan@kernel.org>, Peng Fan <peng.fan@linux.dev>
+Cc: linux-kernel@vger.kernel.org, driver-core@lists.linux.dev, 
+ Peng Fan <peng.fan@nxp.com>
+In-Reply-To: <20261121-regmap-improve-2nd-v1-0-6b5fd59451ed@nxp.com>
+References: <20261121-regmap-improve-2nd-v1-0-6b5fd59451ed@nxp.com>
+Subject: Re: [PATCH 0/3] regmap: 2nd clean up and improve __regmap_init()
+Message-Id: <179554600460.947306.3310654390179422300.b4-ty@b4>
+Date: Tue, 24 Nov 2026 18:46:44 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,26 +63,38 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1166; i=broonie@kernel.org;
- h=from:subject:message-id; bh=0hTnNHG4RTo/uFcq2aIwcu+mFLSWwLBMdCg+YvkFGjw=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLZ/jrdfjDR4EaI6iTzj+77qqZ3xbXv8lx8UtJ9khBfU
- 4HaJs/GjlIWBjEuBlkxRZa4LO6X9SWv1/AdXNgGM4eVCWQIAxenAEzEIozhf8K2NzMSqhVX9gT+
- FdlatfEba2bakdsrbln9rNWYdG7RhRsM/8uVl5+UbjTnEpp25+XJ1ERxli9NzzfNnWFivTjwZ++
- 8VHYA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1620; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=yVz1RXlb+qiu+HRQRGCg9y93n2KoY7fb4Ix7Zb4W4Ws=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLZ/rofqF0Z/vGKl1HoEgHjhB0MhUdPrOTX2cvHlVz9a
+ tLrp9IyHaUsDGJcDLJiiixxWdwv60ter+E7uLANZg4rE8gQBi5OAZjI8j0M/ysWyNTlycRd3OXZ
+ tSeuwtAn886f2NcrU7tmru/cxrTpqRDDfxeDwtZbM78v7Dv5i3216YG6BAGHqUoFu5/bHj/gdJR
+ Jjg8A
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-On Thu, 19 Nov 2026 09:10:59 -0800, Ian Rogers wrote:
-> ASoC: codecs: aw88395: Validate 4-byte alignment and init ret in reg update
+On Sat, 21 Nov 2026 20:44:18 +0800, Peng Fan wrote:
+> regmap: 2nd clean up and improve __regmap_init()
+> 
+> This is a re-post of patch 8-10 from [1] with addressing Mark's comments
+> to patch 8 [2]
+> 
+> [1] https://lore.kernel.org/all/20261113-regmap-improve-v2-0-5dfd6a89078f@nxp.com/
+> [2] https://lore.kernel.org/all/179510759875.116416.1025341724543668395.b4-review@b4/
+> 
+> [...]
 
 Applied to
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regmap.git for-7.5
 
 Thanks!
 
-[1/1] ASoC: codecs: aw88395: Validate 4-byte alignment and init ret in reg update
-      https://git.kernel.org/broonie/sound/c/e5c608dbb738
+[1/3] regmap: drop regmap_bus::free_on_exit
+      https://git.kernel.org/broonie/regmap/c/ebdd2afe9fb1
+[2/3] regmap: use cleanup API in __regmap_init()
+      https://git.kernel.org/broonie/regmap/c/bc6647f5e8cf
+[3/3] regmap: kunit: add test for regmap_bus::init_limits
+      https://git.kernel.org/broonie/regmap/c/68bdabf0eed1
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
