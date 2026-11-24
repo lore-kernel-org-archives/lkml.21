@@ -1,69 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795515817;
-	b=KQA0Cb5M4itiMEAllVhj5cyUvplXHB3InCosZvk0Vw3MRGJ2bVclGrIrJ/tuKy+vCQjs
-	 KpSWHlwRUcdrtApso/YHTDGWSWmk7tBdneVfjylW0gYSqZp3Pf4IW0ZaR2Rhxo46k/2q1
-	 f2oKivMq4XAt0KWAVKrERKC+A8I62Y1vmu/Yir757jrY08icqizQUAU9LXb8Vgh8EXuuy
-	 GzhlGXSjYJxuig4lIt1nTeN3mVL9KlZLNCKB9P551qMYhOlet948qmmqbu9q+TG8gFOYy
-	 jR3qnRMUyLPHoCFmLaPD2R7sCgE6RSDuDEME5UxikXZ/MRd0FlwF+ufXDNB7v1sxoQA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795515817;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=WtEjfn1/bkQXnkb8OIBYzCwxyKgK+yemEcgr8ew+7uw=;
-	b=2bhiwORbqVyknXkMV2oIkmPtkwu06ERtg91Z+1WHGNCQajC4AKdCCggdd318ltVZacnq
-	 BbMgRMTXdv7IaBg3c77CqVIz6TraAw4jYZIVWi2XPpz4/e1OWaFI6hpOQOrRqhrlrKg96
-	 u9eqelD30YpsO2Xm138VJc13KIYVcAc0zcYb9meDxM/SCp2ocUamhthPOJuX2eJBliQFB
-	 8GMfPZHWNZUP85G+U64xhiIV9oZtrwnZyhO0VVV1FzPitsVae9t3C9r9En0lKaidf9d2j
-	 eyIZfRy5+A7KcohVBCdWxUOkD6k3qwSUvETlgLyNcFs0+GWE+j9EiHBeO1IjpqYbdYg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=HXneB8Yk;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795515849;
+	b=uDLLjpQvSsoomTDUt8tTDHaWr/xaL0jkTC1dfz2kRyvh6fYxL+wAzlubNXQ0kHEuJAbI
+	 wNTeFEuO38rJ/lj6QQm7PkDX/wUNHIBuQNa3BG6AE+rlY7g+18pYOdPuxeRyVx1RngGkH
+	 +27XOGtRldcAGs4VIjpwkReIzzcFk5+P0/Xob4b5DXhyrVPY7SItuTnrZNRCOzIh3PisW
+	 9ZmTfbWfZR/vu8gr7yvhHzjMD6klMTZYA3vXemX2QRIyGW22xxfF+xRNDfTxz6uaLRO2m
+	 a5NnYDNxjXgk3eIedvtmNLSHYaD2xBEwM7s/i5rnFiAQbUE3X2iAWLFXq0bHwoP8pYA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795515849;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=PJKRSvMnrFSC8ixG6G1IhbXM8Xj88fCQ1tCS7WTK6aI=;
+	b=4Co8ELOYBUj0iZe2C8qjIWLDNxoZu43OEUfF+C0YnmQUAZADkpXyrAEDsB91nATCcHSB
+	 4Wf2VxxPod8vZfL/tIvSDGcr1LERsn+NHsUGsCzgPoLJ/Ab5t+47uag1lvv0FzzV2xIY1
+	 eV0KdJLVta7uY5NfUavSIDlyos/HDdBrlXdaNIy69vlNHgs+clDldZBcIV8LU8aI/vBJO
+	 J7ZiXx1+sVccmOo9lOKAs6DwSgo9yVWGr/1MAklBWwhFne103MmtjA62q6Vxf6gDkV4qW
+	 cYf+esDCJpVpoLPcA3FXLychRxDDTm4vxPM4aNW8//woofaUB4Qj3z6hXmxu6W+D7dA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IUIHzJET;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.44
+Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB8C6606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:23:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB8C6606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EA32606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:24:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8EA32606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=HXneB8Yk
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 4B8CC4E41755;
-	Tue, 24 Nov 2026 10:23:35 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1019F601E1;
-	Tue, 24 Nov 2026 10:23:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3CA6C11E68B88;
-	Tue, 24 Nov 2026 11:23:32 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795515814; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=WtEjfn1/bkQXnkb8OIBYzCwxyKgK+yemEcgr8ew+7uw=;
-	b=HXneB8YkLniRqwDmHsHyn+pmJFy5NMAQT1ue11XAZWc+o91vX9rAoN8zon1Te38XPE32w8
-	QRY7irZ210tb9NSBzRLDNvtH4Hiq+43dYMQ4P+3Iyz7wL3gXW3n79810r7OBP1IlGwFMQD
-	4OvmeRe60/hOCHHO1ZMqYoj9LveaLz0ItRfgN2RqB/lNbMq8wvFSzs7IDELGA5v/4+SnAF
-	I97nNx/8dWaZJDhVVGivdgQy1b6MxgGMEWXIpueEHFKB3SZmvVLkgr6VBD52f4sLI7XKqA
-	5xTIrst4FnrZs5z3htpR9ywm/bQwE2XRF252MnGSFXo/yhXFjc3pozpOj0HVPA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  linux-mtd@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  stable@vger.kernel.org
-Subject: Re: [PATCH v2] mtd: serialize dynamic partition registration with
- removal
-In-Reply-To: <20261120-submit-mtd-partition-publication-v1-v2-1-8098cde01961@gmail.com>
-	(James Hilliard's message of "Fri, 20 Nov 2026 09:02:06 -0700")
-References: <20261120-submit-mtd-partition-publication-v1-v2-1-8098cde01961@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Tue, 24 Nov 2026 11:23:31 +0100
-Message-ID: <87bj7ettng.fsf@bootlin.com>
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IUIHzJET
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-15dd124bbe7so4242022c88.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:24:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795515848; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ElC6J/76+VPz0kyN2exp0La3bqDmICiOFCp+ORbxs780gItwEEbquxwmXyr5G41fuz
+         8LlNnOgVS20aqVo0EyHuedLZUtVA9CbQVZMDM6KCdkI4aiWtNzk+trF1/87mHQv7zVNQ
+         rUrZBnp3rLure1tHRay6nRPQQgwsXcOVAtNCstzx7vRJ8sr9XqCG5XY81CAY9FHWkUZY
+         VtWpjEw/zedKhttmw2fC1rzuAQHJLaSlRTvCGRj++IGiWy6jWieQkq8uPXyWtS4Cjp45
+         4ks6+srk4a1NpJ71c6NuJ7ixSmNmLOELhNaiui8qEIzC+BnThlHq+PxhhNKVTJ3fn6IZ
+         5kbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=PJKRSvMnrFSC8ixG6G1IhbXM8Xj88fCQ1tCS7WTK6aI=;
+        fh=g/8fHyN3/0B71zw8YUtyYGf5QOXowNJshLZNVTjyMgA=;
+        b=DrL+uZAACEX4EtCDpJeJ2kqUb1Qn5St2A7+Aq4SweOaL1buSDqBOpLVHAzUx9h6CF3
+         Ia1X+sc1IT1ANPFN7ZAN04I1Xy4N4Q57TW+UzhkHu1uPaNkInmArjOp171T+oUuWiBcJ
+         Ipptj9rel9KgP2Z8zut+GnE0FilWYkk157GJONRxXLSrvbbeSIGD/uA9uhKvuByd9pTE
+         JbAKLjmCLKGBuU84LR/9Dojjuf58hz+M931buGlCD1MQ3jzZWCTKICc3rsuWbuZFj4BA
+         csqKDXevSvCgkASx6kY76wkTjori+gtMPRYURqZFTSyZg1oTUMLykInF7fcAk0reXPHv
+         H/zw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795515848; x=1796120648; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=PJKRSvMnrFSC8ixG6G1IhbXM8Xj88fCQ1tCS7WTK6aI=;
+        b=IUIHzJETvxapEbZnOJjbvWOlSl/mMqMKTND+qGcwUipwpcGMiSeA9hZqWKANrtoiq2
+         30XSbjEZbSUvgF9fa+CCEg6B5iKfKyvUHcw5ZH1AV7GDbY0i+hxYmMNl3E26WluMXJ1U
+         QnzuCwh7ltM6nxsDU3pSma7lDrMlsCftfuxUc1C2CTWOv7QEc7O0RuRPhUlSICHs+R1x
+         OSEopBAvHrcNTVIBTKUUQUbHBbPorklz1cJHN8udEHLu+IsGgDRwRsnBIhkdB5f2aCTM
+         8HnN+TigTNJ7vXPb7i1g1v2wsTxRXxY3FeLzMH0SD4m581OYPkvDtf428apCFFGX+w9k
+         qXqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795515848; x=1796120648;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PJKRSvMnrFSC8ixG6G1IhbXM8Xj88fCQ1tCS7WTK6aI=;
+        b=hW6CUsdgqF1vGvnq08llJF29WLp1fZ0i6npGF1D/M2xMD+2Y/DetGfUfEXo9rpaBfT
+         stqLgACrqKbOyUyCvorK39ez/6kax8xNPhdDJCfDDt65R/gBbWA10bWMdrie0/Q0TwnG
+         +v0KkNzTkM1/wNuyt2eFpPrCt/BwlsvLzBLri2DOs86wcD61zzSGYRlt8XKRwE7lwJmb
+         3C3A5amRNpq6HhAtuE9YuJ6Tt9FFkW0TuqtLi+SSeXs0toBOAOf1aVoHJv5qTm0Sox6G
+         ys5aX6bIxwvcEBUASybqtzfZ02hxogmh5C4DG/Yqo1Ke+icIUKzwd5XpuoZi83rsFXhK
+         Of+Q==
+X-Forwarded-Encrypted: i=1; AL+hErGxB2kotbLSeVmZFt0b6jYQxn8JMOPhsKv8ZwiWgMmC8LNjCUJ+RkgWfXdnPt6cCecP9KOHrXAxO16E9lA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z82QkHND47OBD0/g4V5iy3jiZxuYf/4BVMAE/kvSEguj4JWM+6C
+	RU43JDj9mwib/zcEP75W4LqpxsEcuKkW5hZCRqlMR7Dje6FBN/JmFb6jujvFzYeAhod9wpkM609
+	HgT9MhPKSw5lvCXP4v3FZqREEfL7oibpD5g8LPZoQ
+X-Gm-Gg: AZFdTZemo+HJeOy+VISuIlHzep3tO11q9ew+/1c/4dss4h2XiRDhUm47Hfwwi+OO8qk
+	NCizaz93+Ju4wpeI5O1XAPuF4Nvrxmk5D5XR5X31nOwNmLsVsaqQWw5gkDLYJ39cLhvm5GP7IbV
+	Z9Qufca5FgvedSbwf+FOJM6kPvlnaFuP5ZtyMVmfrNbHRBywAoWZR9u3u/LtPjNmOss1C/upKS6
+	jIirYf1cG4g3DqtkoZDp+LToXp1UeVAuVzeTeKJEWvciWViXNDEYOThDNKoqzTQBwkAtyNJNFw1
+	eQAaKVx5k0rRU/I55ASa+WR5q83Fg1GPik1VnfTZEg2iIUYP30dWLVCDxHgXNwNPapgTD0JfDZm
+	ye2hyCFWYzR2Nzw9sWj/l3qHGn++Zz21Au5fTQbve5mRyxQ1tgtXQ2CMqEUbsWcMUe440
+X-Received: by 2002:a05:701b:4584:b0:1ac:9da7:e86e with SMTP id
+ a92af1059eb24-1b556908c17mr14577708c88.30.1795515846955; Tue, 24 Nov 2026
+ 02:24:06 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,146 +104,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+References: <20261123135148.1146372-1-elver@google.com> <CAN_Opa_TKjDAWz8EQaw6ro=joymwurpcy-k_x=q4E6TLt6ZpUQ@mail.gmail.com>
+In-Reply-To: <CAN_Opa_TKjDAWz8EQaw6ro=joymwurpcy-k_x=q4E6TLt6ZpUQ@mail.gmail.com>
+From: Marco Elver <elver@google.com>
+Date: Tue, 24 Nov 2026 11:23:30 +0100
+X-Gm-Features: Aa3M54rX7NhMvWiNHR-Tlf4y9Dtfxu9Xuj2WtFxJ7RzPEamu0euXSCR2FjPDTw4
+Message-ID: <CANpmjNNOVD3KVrau5KD4WzqxoMkZZoJCfdPzvjLmZsGy9zXBug@mail.gmail.com>
+Subject: Re: [PATCH] kcsan: Detect cross-CPU races on {READ,WRITE}_ONCE_THIS_CPU()
+To: KunWu Chan <kunwu.chan@gmail.com>
+Cc: "Paul E. McKenney" <paulmck@kernel.org>, Alexander Potapenko <glider@google.com>, 
+	Boqun Feng <boqun.feng@gmail.com>, kasan-dev@googlegroups.com, 
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
+	Dmitry Vyukov <dvyukov@google.com>, linux-arch@vger.kernel.org, 
+	Thomas Gleixner <tglx@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
 
-On 20/11/2026 at 09:02:06 -07, James Hilliard <james.hilliard1@gmail.com> w=
-rote:
-
-> If a flash driver is unbound while userspace adds a partition, removal
-> can find the new partition before it is registered or release it before
-> its sysfs attributes are added. If removal finishes first, the ioctl can
-> even register a new partition on a master that has been unregistered.
+On Tue, 24 Nov 2026 at 10:54, KunWu Chan <kunwu.chan@gmail.com> wrote:
 >
-> Hold partitions_lock from the start of partition allocation until the
-> device and its attributes are registered. Mark the master as being
-> unregistered under the same lock so a later ioctl fails before allocation
-> can read bad-block markers. Clear the flag when registering the master.
+> On Mon, Nov 23, 2026 at 9:51=E2=80=AFPM Marco Elver <elver@google.com> wr=
+ote:
+> >
+> > READ_ONCE_THIS_CPU() and WRITE_ONCE_THIS_CPU() identify accesses to
+> > per-CPU data that are intended to race only with other contexts on the
+> > same CPU. So far they are plain READ_ONCE() and WRITE_ONCE(): no marked
+> > accesses involving them are reported, incl. from other CPUs.
+> >
+> > Make the new accessors assert exclusivity but ignore same-CPU accesses:
+> > READ_ONCE_THIS_CPU() asserts no concurrent writers,
+> > WRITE_ONCE_THIS_CPU() asserts no concurrent accesses.
+> >
+> > For KCSAN to ignore racing accesses from other contexts on the same CPU=
+,
+> > introduce KCSAN_ACCESS_THIS_CPU, which makes KCSAN keep interrupts
+> > disabled while the watchpoint is set up.
+> >
+> > With that, any racing accesses (incl. marked ones) from other CPUs
+> > involving READ_ONCE_THIS_CPU() and WRITE_ONCE_THIS_CPU() will be
+> > reported as "KCSAN: assert: race ...".
+> >
+> > Suggested-by: KunWu Chan <kunwu.chan@gmail.com>
+> > Cc: Thomas Gleixner <tglx@kernel.org>
+> > Cc: Paul E. McKenney <paulmck@kernel.org>
+> > Signed-off-by: Marco Elver <elver@google.com>
+> > ---
+> >  include/asm-generic/rwonce.h | 22 +++++++--
+> >  include/linux/kcsan-checks.h |  1 +
+> >  kernel/kcsan/core.c          |  6 ++-
+> >  kernel/kcsan/kcsan_test.c    | 90 ++++++++++++++++++++++++++++++++++++
+> >  4 files changed, 114 insertions(+), 5 deletions(-)
+[...]
+> I tested the patch on next-20261123. A 60-second rcutorture run
+> with strict KCSAN and interruptible watchers completed successfully.
+> I saw no reports involving got_idle_tick or tick_nohz_handler.
+> There was one report involving move_linked_works / queue_work_on.
 >
-> Fixes: 5daa7b21496a ("mtd: prepare partition add and del functions for io=
-ctl requests")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> ---
-> Changes in v2:
-> - Use mutex guards to keep publication and teardown lock scopes explicit.
-> - Link to v1: https://patch.msgid.link/20261108-submit-mtd-partition-publ=
-ication-v1-v1-1-cbff20b1351e@gmail.com
-> ---
->  drivers/mtd/mtdcore.c   | 4 ++++
->  drivers/mtd/mtdpart.c   | 9 ++++-----
->  include/linux/mtd/mtd.h | 2 ++
->  3 files changed, 10 insertions(+), 5 deletions(-)
+> The latest KUnit run with kunit.filter_glob=3Dkcsan.test_this_cpu_* gave:
 >
-> diff --git a/drivers/mtd/mtdcore.c b/drivers/mtd/mtdcore.c
-> index b170c3144ca8..5ee1eb29fc1a 100644
-> --- a/drivers/mtd/mtdcore.c
-> +++ b/drivers/mtd/mtdcore.c
-> @@ -918,6 +918,7 @@ static void mtd_set_dev_defaults(struct mtd_info *mtd)
->  	INIT_LIST_HEAD(&mtd->partitions);
->  	mutex_init(&mtd->master.partitions_lock);
->  	mutex_init(&mtd->master.chrdev_lock);
-> +	mtd->master.unregistering =3D false;
-
-Maybe this is worth a WRITE_ONCE() to tell robots that there is no
-possible conflict on this access?
-
->  }
->=20=20
->  static ssize_t mtd_otp_size(struct mtd_info *mtd, bool is_user)
-> @@ -1206,6 +1207,9 @@ int mtd_device_unregister(struct mtd_info *master)
->  {
->  	int err;
->=20=20
-> +	scoped_guard(mutex, &master->master.partitions_lock)
-> +		master->master.unregistering =3D true;
-> +
-
-Actually I'm not sure my proposal actually fits. It does not make the
-logic clearer. At least not implemented like that (and below).
-
->  	if (master->_reboot) {
->  		unregister_reboot_notifier(&master->reboot_notifier);
->  		memset(&master->reboot_notifier, 0, sizeof(master->reboot_notifier));
-> diff --git a/drivers/mtd/mtdpart.c b/drivers/mtd/mtdpart.c
-> index ddded0dbe77e..b20fa4309084 100644
-> --- a/drivers/mtd/mtdpart.c
-> +++ b/drivers/mtd/mtdpart.c
-> @@ -278,13 +278,15 @@ int mtd_add_partition(struct mtd_info *parent, cons=
-t char *name,
->  	part.size =3D length;
->  	part.offset =3D offset;
->=20=20
-> +	guard(mutex)(&master->master.partitions_lock);
-> +	if (master->master.unregistering)
-> +		return -ENODEV;
-> +
->  	child =3D allocate_partition(parent, &part, -1, offset);
->  	if (IS_ERR(child))
->  		return PTR_ERR(child);
->=20=20
-> -	mutex_lock(&master->master.partitions_lock);
->  	list_add_tail(&child->part.node, &parent->partitions);
-> -	mutex_unlock(&master->master.partitions_lock);
-
-That mutex becomes super wide. I'm not a super big fan of it. Isn't
-there a possibility of deadlock with the notifiers or any other lock
-inside? Would there an alternative?
-
->=20=20
->  	ret =3D add_mtd_device(child);
->  	if (ret)
-
-In case of failure, should we clear the boolean?
-
-> @@ -295,10 +297,7 @@ int mtd_add_partition(struct mtd_info *parent, const=
- char *name,
->  	return 0;
->=20=20
->  err_remove_part:
-> -	mutex_lock(&master->master.partitions_lock);
->  	list_del(&child->part.node);
-> -	mutex_unlock(&master->master.partitions_lock);
-> -
-
-I think there is a rule where we should not use those guards with goto
-statements.
-
->  	free_partition(child);
->=20=20
->  	return ret;
-> diff --git a/include/linux/mtd/mtd.h b/include/linux/mtd/mtd.h
-> index 8d10d9d2e830..cd7b4671c456 100644
-> --- a/include/linux/mtd/mtd.h
-> +++ b/include/linux/mtd/mtd.h
-> @@ -224,6 +224,7 @@ struct mtd_part {
->   *		     not only the master partition list, but also all
->   *		     sub-partitions.
->   * @suspended: set to 1 when the device is suspended, 0 otherwise
-> + * @unregistering: removal has started; protected by partitions_lock
->   *
->   * This struct is embedded in mtd_info and contains master-specific
->   * properties/fields. The master is the root MTD device from the MTD par=
-tition
-> @@ -233,6 +234,7 @@ struct mtd_master {
->  	struct mutex partitions_lock;
->  	struct mutex chrdev_lock;
->  	unsigned int suspended : 1;
-> +	bool unregistering;
-
-Maybe unsigned int xxx : 1 to be consistent?
-
->  };
->=20=20
->  struct mtd_info {
+>   local_noreport: 7/7 passed
+>   remote_write:   6/7 passed; threads=3D2 failed setup with -EBUSY
+>                   ("rcu running")
+>   remote_read:    5/7 passed; threads=3D16 and 32 failed
 >
-> ---
-> base-commit: 14b6830335eb6d70dec7a235094d66c22d38eb07
-> base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git mt=
-d/fixes
-> change-id: 20261108-submit-mtd-partition-publication-v1-4629be94d7e6
->
-> Best regards,
+> The -EBUSY log shows that rcutorture was already running. The
+> remote_read failure at 32 threads occurred in both runs. I'll
+> rerun the KUnit cases with rcutorture disabled and check the
+> console for the failed cases.
 
-Miqu=C3=A8l
+Thanks!
+
+> One test question: should local_noreport skip when interruptible
+> watchers are disabled? In that setup the ordinary watchpoint
+> path already masks local IRQs, so a pass wouldn't exercise the
+> new THIS_CPU behavior.
+
+The test will pass in both configurations, so a regression in either
+would be caught. Disabling is not necessary. More coverage is always
+better, even if it may not seem useful today.
+
+Thanks,
+-- Marco
