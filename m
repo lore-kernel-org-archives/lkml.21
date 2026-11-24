@@ -1,102 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795509975;
-	b=OOgzqUg3fax1XsBEbgkj1OvofRe7IsylpF/Cr4PooHmjfg3n5EitTtieg0C0WunOcFJl
-	 tatMo3IheK9WF4IREIfegZoZCsGsRx3ugNO/Kc9KmQKdGF2MXwRaOij/9pUEILWS1i+MN
-	 Yi/GpvUhkKyApNuy2TLgW0f2ZEslMGB40JQskUh9ZxRcLSbmM8JERLs6jMJHt6yCLpLYF
-	 NdBo7QafgD2v9ijIclNTIXUzI5tL0FSsLjSo8dxN70lQsIuy7/7F3dWDHlfiMWW4iyi00
-	 Uw2GDMcjT4YMNBeqZJEV8HwADEziKRsKoPub/0eZYO4wdRGqJwehIVcPL7jJKS76SxQ==
+	t=1795509997;
+	b=VTfR7hDls0qpiphfTBCew77zpS4LfNFMQXdMmVch6fAVXjKirb9Em2YRAxzuk/6DwMhc
+	 NjonHxzoqT8IuaSP06EN0JlU2RvVBjcL/A2+8gFSc4EWy0QzfDNwIR5Xi5RfFSkj0gufp
+	 fCGb36Wnm4YvnlEpDTTZfniUF3KFmsMBd6SVIlzwVYC2T3hpSOmkSgXcEGnkWfWfmvi1F
+	 nj3n8vS1siOiOoJFCy4ru/GJdyegVDW9su2H45rrn31WxSn+u0WSQTz+K8Ir8hJEKEAo9
+	 qNv3m04n6n3//xJDF9S0JzQgwRBJP91GLeIrMAiJUVXlOf1uwPZIIvivJLRIqjcpsqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795509975;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spamd-Result:
-	 X-Spam-Score:X-Spam-Level:X-Spam-Flag;
-	bh=t2InmFP8kvTVD6z/BeTy4wQM7UAdsechpDXBMaZIH20=;
-	b=Dagt0AU7BovGtbF0mTt0VaA2wtXlO9Y6KhLAkk9sahrAqyJLr53gn3VZFTBO2F+mEqLn
-	 rZEjVeshIHMKInMO8hvPt3oFtVoMqPBbULlMup1r78bY4O9dFXq9CiPhl/OQ2uKcQZSh0
-	 cs6mE/GUmawayCOqy26vdRYoLPyo2HGSvfkRjBrl3iRITKZ1t0NJ8e+5aVAUVYyPNX39g
-	 F7htrfaxZ1r4qwi+c6UqO7wvISdEeseS6e582t8a5g9LzU9cShPqI5g/t8OYLsbM9MgUe
-	 zhxbThWgYi2gQ2MTxHVsGoOqPEfOAZg269IUUpC2e7gvSQiAICyMtym+lHcoJyecL/w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795509997;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=gB0t6lsEAvPLKP9TexVyZaTQIG5MDeT3iJA9FNr8QoU=;
+	b=YoTUKiYHMBja3i0ZCXgpwlTa/qLky+wQVs+eEuRrQp83gTjtvHu9JUTCkrcAXMb7ssXZ
+	 JdlGAp80r1kaWOKyS0MIW/1XqSHdCEZ9hxmSjdA+VxRXASUSz4zlzl0oz8nWMQXlsu7uR
+	 94OBC/qikCJ0TTEcIFvpCkHNxprMx07FPp1LmqZnZzhRXTL3rGJ/vYJ63V9A61i9qdJ5s
+	 vV5juAjn5LQ1f7JOplmTYyriVSDPjuzfDZJvHkXXcHxdODjkhu/xnJ1nrs43riYin1M0I
+	 fMfiHy9RUujUHebEP/T1PU9zYTHKNyULJ09AOWNxI6JCZvJh4Mknaqpx02CZXt6S8tA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=gbRwd7AB;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=VwKq3I6D;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=gbRwd7AB;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=VwKq3I6D;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=luuUbUMx;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 304C2606A334
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:46:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 304C2606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96235606A31E;
+	Tue, 24 Nov 2026 08:46:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=gbRwd7AB;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=VwKq3I6D;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=gbRwd7AB;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=VwKq3I6D
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 1D8971F7B4;
-	Tue, 24 Nov 2026 08:46:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795509973; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=t2InmFP8kvTVD6z/BeTy4wQM7UAdsechpDXBMaZIH20=;
-	b=gbRwd7ABdAogns/wr3BXb9iFr9SpqrUkK/CskB4SuKe6h9+bYnT4fnt8/lmApdfuBEqqHX
-	nDYBxRZvTbNfi8+q4PMcwl/hcYZKA8sSM78732o6Y0JZCtMgJCwxouckrc5UjvUKq/7f7a
-	hLhQqeHiVuZ4rgpc7pJHaD+FVhW/2Xc=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795509973;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=t2InmFP8kvTVD6z/BeTy4wQM7UAdsechpDXBMaZIH20=;
-	b=VwKq3I6D04GRoWt0uGkbnL9Mje8Eyj4D1Bjce/Q+EdyEZ/JZ+SgygWvmyVgBzYN2zLfUYQ
-	ZxIz8KgpjbM9IcCg==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795509973; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=t2InmFP8kvTVD6z/BeTy4wQM7UAdsechpDXBMaZIH20=;
-	b=gbRwd7ABdAogns/wr3BXb9iFr9SpqrUkK/CskB4SuKe6h9+bYnT4fnt8/lmApdfuBEqqHX
-	nDYBxRZvTbNfi8+q4PMcwl/hcYZKA8sSM78732o6Y0JZCtMgJCwxouckrc5UjvUKq/7f7a
-	hLhQqeHiVuZ4rgpc7pJHaD+FVhW/2Xc=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795509973;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=t2InmFP8kvTVD6z/BeTy4wQM7UAdsechpDXBMaZIH20=;
-	b=VwKq3I6D04GRoWt0uGkbnL9Mje8Eyj4D1Bjce/Q+EdyEZ/JZ+SgygWvmyVgBzYN2zLfUYQ
-	ZxIz8KgpjbM9IcCg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id BAFA61339F;
-	Tue, 24 Nov 2026 08:46:12 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id kvhHGtROBWtwHgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 24 Nov 2026 08:46:12 +0000
-Message-ID: <d9212a46-b5ea-4bee-a1b3-052549cc4ed6@suse.de>
-Date: Tue, 24 Nov 2026 09:46:11 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=luuUbUMx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A98101F000C6;
+	Tue, 24 Nov 2026 08:46:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795509997;
+	bh=gB0t6lsEAvPLKP9TexVyZaTQIG5MDeT3iJA9FNr8QoU=;
+	h=From:Date:Subject:To:Cc;
+	b=luuUbUMxrkhNLvzR/ykSVOJC0ShGEA8Tnjhh9MfUuaBnKFEnkl7Dp/FDDOjre+mjQ
+	 Uu497cKyKMvHJ8hnvog5pv4/bEXilrV4uHJiB69mVnbqOjSGHtmKOO+0rDhQis//ga
+	 N7Aavq45Mrt77U3fPddWXtqsb4sxP9sXnwM2Uc7kulWLHaC29lv2Y5QKZ5rwho3lK7
+	 nZFonkMJ2Szzdyu+D4FuzXZbsTptt+KhZX2l/arvF18REdm6q5oF2V6DZvRBqQOy5/
+	 LaT9OUOG3lhwvZ3X6+/u9Q+bEAjXGiWS31xqQ17KIWcYo1uz4Flt0fR4huFIxDe/PY
+	 yLxrG3zdfn8fg==
+From: Christian Brauner <brauner@kernel.org>
+Date: Tue, 24 Nov 2026 09:46:22 +0100
+Subject: [PATCH] x86/shstk: don't warn when the shadow stack is freed twice
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,346 +52,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v4] drm/gud: move format init from gud_probe()
-To: Ruben Wauters <ruben.wauters@linux.dev>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-References: <20261123154638.2298-1-ruben.wauters@linux.dev>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20261123154638.2298-1-ruben.wauters@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-13.29 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	XM_UA_NO_VERSION(0.01)[];
-	RCPT_COUNT_SEVEN(0.00)[7];
-	FREEMAIL_TO(0.00)[linux.dev,linux.intel.com,kernel.org,gmail.com,ffwll.ch];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,imap1.dmz-prg2.suse.org:helo,linux.dev:email,suse.de:email]
-X-Spam-Score: -13.29
-X-Spam-Level: 
-X-Spam-Flag: NO
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-work-x86-shstk_free-v1-1-fc456c538e70@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/0XMQQ7CIBCF4as0s3ZIoQ0pXsUYAzgVbEINU7VJ0
+ 7sLunD5T958GzDlSAzHZoNMr8hxTiXkoQEfbLoRxmtpUK3SUqoO33OecB00cuBluoyZCDujnB5
+ Mr1vTQ/l8ZBrj+lVP51/z093JL5WqC2eZ0GWbfKinioqCij8q6gT2/QMnZelVogAAAA==
+X-Change-ID: 20261123-work-x86-shstk_free-392b68946094
+To: Thomas Gleixner <tglx@kernel.org>, Borislav Petkov <bp@alien8.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ "Christian Brauner (Amutable)" <brauner@kernel.org>
+X-Mailer: b4 0.17-dev-04696
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2811; i=brauner@kernel.org;
+ h=from:subject:message-id; bh=dvX2CcTQ7JihDgSkIo829jeueQbOyQefB2Hl7suGYzo=;
+ b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWSz+r3g1F4uqdvn/2Tls91PzCa//tzi1yigGehteuaxh
+ 6mX0uGujlIWBjEuBlkxRRaHdpNwueU8FZuNMjVg5rAygQxh4OIUgIkslWBk6Dm/8dyGlBcy0xb/
+ 79ojUKfNvIDBqC5G3Lqp+YPDUcnGfEaGrsIHS4zXzzHKLEw56OEn0V3x4te66oy1WziErju8ftz
+ FDAA=
+X-Developer-Key: i=brauner@kernel.org; a=openpgp;
+ fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
 
-Hi
+exec frees the shadow stack of the old image when it releases the old
+mm in mm_exit_exec_release(). That happens right before it takes
+exec_update_lock and before it switches to the new mm. If the exec fails
+after that the task exits with the old mm and exit_mm() calls
+mm_exit_exec_release() a second time. shstk_free() notices that the
+shadow stack is gone already as shstk->size is zero and warns:
 
-Am 23.11.26 um 16:46 schrieb Ruben Wauters:
-> As part of the cleanup of gud_probe(), this patch splits off format init
-> code from gud_probe into it's own function. This makes the code more
-> compartmentalised and easier to follow, and makes gud_probe() smaller
-> and also easier to read.
->
-> Signed-off-by: Ruben Wauters <ruben.wauters@linux.dev>
+  WARNING: arch/x86/kernel/shstk.c:472 at shstk_free+0x7d/0x90, CPU#7: shstk-exec/120
+  RIP: 0010:shstk_free+0x7d/0x90
+  Call Trace:
+   mm_exit_exec_release+0x21/0x110
+   do_exit+0x1e8/0xc30
+   do_group_exit+0x2e/0xd0
+   get_signal+0xd11/0xd20
+   arch_do_signal_or_restart+0x72/0x2b0
+   exit_to_user_mode_loop+0xd8/0x560
+   do_syscall_64+0x412/0x600
+   entry_SYSCALL_64_after_hwframe+0x77/0x7f
 
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+All it takes is a SIGKILL while the task waits for exec_update_lock or
+for the mmap lock of the old mm. Both are taken killable. And a task
+that sleeps in a page fault while it holds the exec_update_lock of the
+exec'ing task for reading, e.g., in readlink() of /proc/<pid>/ns/mnt,
+makes that wait as long as it likes.
 
-I have two minor comments for you to consider.
+Nothing is unmapped twice as shstk_free() returns in that case. So just
+don't warn about it.
 
-Best regards
-Thomas
+Fixes: 509ff51ee652 ("x86/shstk: Add warning for shadow stack double unmap")
+Cc: stable@vger.kernel.org
+Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
+---
+This removes a warning that a task with a user shadow stack triggers
+when its exec is killed while it waits for a lock. I have a reproducer.
+---
+Hey,
 
-> ---
-> V1 -> V2:
-> - Removed output parameters for gud_get_formats()
-> - Added gud_get_max_buffer_size() helper function
->
-> Apologies this v2 took so long
->
-> V2 -> V3:
-> - Fix potential num_formats underflow
-> - Skip XRGB8888 in size calculations if emulated
-> - Remove redundant r1 and XRGB1111 size calculations
->
-> V3 -> V4
-> - Take XRGB8888 emulated format into account when calculating
->    max_buffer_size
-> ---
->   drivers/gpu/drm/gud/gud_drv.c | 185 ++++++++++++++++++++--------------
->   1 file changed, 111 insertions(+), 74 deletions(-)
->
-> diff --git a/drivers/gpu/drm/gud/gud_drv.c b/drivers/gpu/drm/gud/gud_drv.c
-> index 680447f426f3..1ffb2a4fc901 100644
-> --- a/drivers/gpu/drm/gud/gud_drv.c
-> +++ b/drivers/gpu/drm/gud/gud_drv.c
-> @@ -435,11 +435,115 @@ static void gud_free_buffers_and_mutex(void *data)
->   	mutex_destroy(&gdrm->ctrl_lock);
->   }
->   
-> -static int gud_probe(struct usb_interface *intf, const struct usb_device_id *id)
-> +static size_t gud_get_max_buffer_size(struct gud_device *gdrm, u32 *formats, u32 num_formats)
-> +{
-> +	struct drm_device *drm = &gdrm->drm;
-> +	size_t max_buffer_size = 0;
-> +	size_t fmt_buf_size;
-> +	int i;
+This also fell out of my exec massage. I was unsure whether it should go
+to sec or on the list but it's just a WARN() that we need to drop. I
+have a reproducer if that's needed.
 
-Small detail: num_format, which you're comparing to is unsigned. So 
-using unsigned for i is preferable.
+Thanks!
+Christian
+---
+ arch/x86/kernel/shstk.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-> +
-> +	for (i = 0; i < num_formats; i++) {
-> +		const struct drm_format_info *info = drm_format_info(formats[i]);
-> +
-> +		/* Substitute emulated XRGB8888 for proper format */
-> +		if (formats[i] == DRM_FORMAT_XRGB8888 && gdrm->xrgb8888_emulation_format)
-> +			info = gdrm->xrgb8888_emulation_format;
-> +
-> +		fmt_buf_size = drm_format_info_min_pitch(info, 0, drm->mode_config.max_width) *
-> +							 drm->mode_config.max_height;
-> +		max_buffer_size = max(max_buffer_size, fmt_buf_size);
-> +	}
-> +
-> +	return max_buffer_size;
-> +}
-> +
-> +static int gud_get_formats(struct gud_device *gdrm, u32 *formats)
->   {
->   	const struct drm_format_info *xrgb8888_emulation_format = NULL;
->   	bool rgb565_supported = false, xrgb8888_supported = false;
->   	unsigned int num_formats_dev, num_formats = 0;
-> +	u8 *formats_dev;
-> +	struct drm_device *drm = &gdrm->drm;
-> +	struct device *usb_device = gdrm->drm.dev;
-> +	int ret, i;
+diff --git a/arch/x86/kernel/shstk.c b/arch/x86/kernel/shstk.c
+index eb690ba90180c..df5576d8d7d2b 100644
+--- a/arch/x86/kernel/shstk.c
++++ b/arch/x86/kernel/shstk.c
+@@ -465,11 +465,12 @@ void shstk_free(struct task_struct *tsk)
+ 
+ 	/*
+ 	 * shstk->base is NULL for CLONE_VFORK child tasks, and so is
+-	 * normal. But size = 0 on a shstk->base is not normal and
+-	 * indicated an attempt to free the thread shadow stack twice.
+-	 * Warn about it.
++	 * normal. size = 0 on a shstk->base means that the thread
++	 * shadow stack has been freed already. That happens when an
++	 * exec fails after it released the old mm as the task then
++	 * exits with the old mm and gets here a second time.
+ 	 */
+-	if (WARN_ON(!shstk->size))
++	if (!shstk->size)
+ 		return;
+ 
+ 	unmap_shadow_stack(shstk->base, shstk->size);
 
-Same comment here about i being signed.
-
-> +
-> +	formats_dev = devm_kmalloc(usb_device, GUD_FORMATS_MAX_NUM, GFP_KERNEL);
-> +	if (!formats_dev)
-> +		return -ENOMEM;
-> +
-> +	ret = gud_usb_get(gdrm, GUD_REQ_GET_FORMATS, 0, formats_dev, GUD_FORMATS_MAX_NUM);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	num_formats_dev = ret;
-> +	for (i = 0; i < num_formats_dev; i++) {
-> +		const struct drm_format_info *info;
-> +		u32 format;
-> +
-> +		format = gud_to_fourcc(formats_dev[i]);
-> +		if (!format) {
-> +			drm_dbg(drm, "Unsupported format: 0x%02x\n", formats_dev[i]);
-> +			continue;
-> +		}
-> +
-> +		if (format == GUD_DRM_FORMAT_R1)
-> +			info = &gud_drm_format_r1;
-> +		else if (format == GUD_DRM_FORMAT_XRGB1111)
-> +			info = &gud_drm_format_xrgb1111;
-> +		else
-> +			info = drm_format_info(format);
-> +
-> +		switch (format) {
-> +		case GUD_DRM_FORMAT_R1:
-> +			fallthrough;
-> +		case DRM_FORMAT_R8:
-> +			fallthrough;
-> +		case GUD_DRM_FORMAT_XRGB1111:
-> +			fallthrough;
-> +		case DRM_FORMAT_RGB332:
-> +			fallthrough;
-> +		case DRM_FORMAT_RGB888:
-> +			if (!xrgb8888_emulation_format)
-> +				xrgb8888_emulation_format = info;
-> +			break;
-> +		case DRM_FORMAT_RGB565:
-> +			rgb565_supported = true;
-> +			if (!xrgb8888_emulation_format)
-> +				xrgb8888_emulation_format = info;
-> +			break;
-> +		case DRM_FORMAT_XRGB8888:
-> +			xrgb8888_supported = true;
-> +			break;
-> +		}
-> +
-> +		if (format == GUD_DRM_FORMAT_R1 || format == GUD_DRM_FORMAT_XRGB1111)
-> +			continue; /* Internal not for userspace */
-> +
-> +		formats[num_formats++] = format;
-> +	}
-> +
-> +	if (!num_formats && !xrgb8888_emulation_format) {
-> +		dev_err(usb_device, "No supported pixel formats found\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	/* Prefer speed over color depth */
-> +	if (rgb565_supported)
-> +		drm->mode_config.preferred_depth = 16;
-> +
-> +	if (!xrgb8888_supported && xrgb8888_emulation_format) {
-> +		gdrm->xrgb8888_emulation_format = xrgb8888_emulation_format;
-> +		formats[num_formats++] = DRM_FORMAT_XRGB8888;
-> +	}
-> +
-> +	devm_kfree(usb_device, formats_dev);
-> +
-> +	return num_formats;
-> +}
-> +
-> +static int gud_probe(struct usb_interface *intf, const struct usb_device_id *id)
-> +{
-> +	int num_formats = 0;
->   	struct usb_endpoint_descriptor *bulk_out;
->   	struct gud_display_descriptor_req desc;
->   	struct device *dev = &intf->dev;
-> @@ -447,9 +551,8 @@ static int gud_probe(struct usb_interface *intf, const struct usb_device_id *id)
->   	struct gud_device *gdrm;
->   	struct drm_device *drm;
->   	struct device *dma_dev;
-> -	u8 *formats_dev;
->   	u32 *formats;
-> -	int ret, i;
-> +	int ret;
->   
->   	ret = usb_find_bulk_out_endpoint(intf->cur_altsetting, &bulk_out);
->   	if (ret)
-> @@ -510,81 +613,16 @@ static int gud_probe(struct usb_interface *intf, const struct usb_device_id *id)
->   	drm->mode_config.helper_private = &gud_mode_config_helpers;
->   
->   	/* Format init */
-> -	formats_dev = devm_kmalloc(dev, GUD_FORMATS_MAX_NUM, GFP_KERNEL);
->   	/* Add room for emulated XRGB8888 */
->   	formats = devm_kmalloc_array(dev, GUD_FORMATS_MAX_NUM + 1, sizeof(*formats), GFP_KERNEL);
-> -	if (!formats_dev || !formats)
-> +	if (!formats)
->   		return -ENOMEM;
->   
-> -	ret = gud_usb_get(gdrm, GUD_REQ_GET_FORMATS, 0, formats_dev, GUD_FORMATS_MAX_NUM);
-> -	if (ret < 0)
-> -		return ret;
-> -
-> -	num_formats_dev = ret;
-> -	for (i = 0; i < num_formats_dev; i++) {
-> -		const struct drm_format_info *info;
-> -		size_t fmt_buf_size;
-> -		u32 format;
-> -
-> -		format = gud_to_fourcc(formats_dev[i]);
-> -		if (!format) {
-> -			drm_dbg(drm, "Unsupported format: 0x%02x\n", formats_dev[i]);
-> -			continue;
-> -		}
-> -
-> -		if (format == GUD_DRM_FORMAT_R1)
-> -			info = &gud_drm_format_r1;
-> -		else if (format == GUD_DRM_FORMAT_XRGB1111)
-> -			info = &gud_drm_format_xrgb1111;
-> -		else
-> -			info = drm_format_info(format);
-> -
-> -		switch (format) {
-> -		case GUD_DRM_FORMAT_R1:
-> -			fallthrough;
-> -		case DRM_FORMAT_R8:
-> -			fallthrough;
-> -		case GUD_DRM_FORMAT_XRGB1111:
-> -			fallthrough;
-> -		case DRM_FORMAT_RGB332:
-> -			fallthrough;
-> -		case DRM_FORMAT_RGB888:
-> -			if (!xrgb8888_emulation_format)
-> -				xrgb8888_emulation_format = info;
-> -			break;
-> -		case DRM_FORMAT_RGB565:
-> -			rgb565_supported = true;
-> -			if (!xrgb8888_emulation_format)
-> -				xrgb8888_emulation_format = info;
-> -			break;
-> -		case DRM_FORMAT_XRGB8888:
-> -			xrgb8888_supported = true;
-> -			break;
-> -		}
-> -
-> -		fmt_buf_size = drm_format_info_min_pitch(info, 0, drm->mode_config.max_width) *
-> -			       drm->mode_config.max_height;
-> -		max_buffer_size = max(max_buffer_size, fmt_buf_size);
-> -
-> -		if (format == GUD_DRM_FORMAT_R1 || format == GUD_DRM_FORMAT_XRGB1111)
-> -			continue; /* Internal not for userspace */
-> -
-> -		formats[num_formats++] = format;
-> -	}
-> +	num_formats = gud_get_formats(gdrm, formats);
-> +	if (num_formats <= 0)
-> +		return num_formats;
->   
-> -	if (!num_formats && !xrgb8888_emulation_format) {
-> -		dev_err(dev, "No supported pixel formats found\n");
-> -		return -EINVAL;
-> -	}
-> -
-> -	/* Prefer speed over color depth */
-> -	if (rgb565_supported)
-> -		drm->mode_config.preferred_depth = 16;
-> -
-> -	if (!xrgb8888_supported && xrgb8888_emulation_format) {
-> -		gdrm->xrgb8888_emulation_format = xrgb8888_emulation_format;
-> -		formats[num_formats++] = DRM_FORMAT_XRGB8888;
-> -	}
-> +	max_buffer_size = gud_get_max_buffer_size(gdrm, formats, num_formats);
->   
->   	if (desc.max_buffer_size)
->   		max_buffer_size = le32_to_cpu(desc.max_buffer_size);
-> @@ -650,7 +688,6 @@ static int gud_probe(struct usb_interface *intf, const struct usb_device_id *id)
->   		return ret;
->   
->   	devm_kfree(dev, formats);
-> -	devm_kfree(dev, formats_dev);
->   
->   	drm_client_setup(drm, NULL);
->   
-
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Stefan Gaiser, Jochen Jaser, Abhinav Puri, (HRB 36809, AG Nürnberg)
-
+---
+base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
+change-id: 20261123-work-x86-shstk_free-392b68946094
 
