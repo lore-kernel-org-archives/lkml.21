@@ -1,79 +1,44 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.209.128.202
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795508647;
-	b=2phG0bgr/Qi/K/CCZggSa7b5lMEwE2pbdBcEnPAhSziYUQv9CdpzDaURzFvVV20b+9sD
-	 8qVCpSWbaj65VQmccrQ03za/EJl+tXh0ZoHDfJ9p435zOwv61VbpT33UftW9ttyW/Cd/O
-	 aJhhXZ6Tc/XgqsLBvEJ0JMr6exT8X3Z9NWGTy3d9Sjn8sdRdB5WkYZIqd1j4ij2Lv+1nh
-	 5hKkHfOkYgQBkPKxsP8wMq65C6fi9GDoDtccHJzXRJIg436XTk5g5+eiE+7i429N0gXHd
-	 0+n0s2uEpDj6LDvwAFZTuxKWMKHoAJQc8EDIS5tFt7zLjVEUkYyEIfS7wZnjdgpKSSA==
+	t=1795508669;
+	b=ScJ9YE4x6GtI2Tsg6DA0ntpS37LpmGhbfIPrvSCZ1fHege3XxCFxqDFja5L6TDXcdG5h
+	 XkQCmmDwV1A/Ljt5/TbNp/xiLBhB5c+1U41SdYU8wD2WD1iMzw15yMpm2lnZX2ioXrKse
+	 rpxZ2/DepNyipja/JP4e8q4nf0ODkkwC6lQdT1IQbd0WZeaVQb+i23DTXPVySzB0Wwqac
+	 7L/oiVDE/Jd2YaNcKk3krHTrHtlTrx/ZxmVVgdnid95n3TEFhpcCHUodmwqXCQP7blx7e
+	 Erijct+uZ9h+1g1qMVzQvMSK9+zgZ1Ht/iDzaFE+DXabv0UGFjHh7sLpuDA+WNexJDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795508647;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=Q9IUUokyhhxcwwnd3VmjtZDnKb3B/VZSMg/NmJ1WC78=;
-	b=SL1RiL1FZ7ueCiKdJj5PMloR2/a+BKU66P25PBqvrNoDpBTASJ0YrHD995z0KHgJA2WO
-	 KCmazLwt9C+3G3loxNAkewYcfiL03chRbWPPrKP8W7KFeGclnno1jW3PpUMJkudn/XIiz
-	 yUHicbhrRdWOk2mAy+tzydAEZWgmYySlstz3SKe+D82e+pzWyjEAze+yvNf2Os1P/DVmo
-	 0STxMpygOXklM7f9PX8JcFl3ysW6r34koVEWCCxKoYn33cygnlZFw8nsMj7uX7iLmgCtZ
-	 00eBLdarMHBoADsVVEdyRAIZBEHG0or0ei7iuvXlqDEE2ZYK4qKE20BmRsAXtYKRhyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795508669;
+	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=CIIxCHmaf4fxrIyFS/BRlR2dhrRZVanUxs4tziQTo54=;
+	b=FNmHfojS1BgPxw6cpTNvqTY8pTAKVRz7h5//0e4xkct0gWf1vffFNqJXBfWRbLy7nlZk
+	 vNkLyjAIbwuKReXyZCImr8Rdt88LYJjbBuZ3yImHHitPoTKk9q2nrSNmoDHElYLAKIYRS
+	 5iBFfwtxezOFOoimddyh9j8BFifVYT7JDcQ/0hx5zRAuJlpFYhpBnGFBWtAaYReDdrR3L
+	 M87OJiVuYy9KJuLcI0qU9ZDBgM7zF6++B37d8pJheB/ChRZfQQhjH8oBhvNg33NqsI52C
+	 E77hIDiF34eQk7AjehnhUStgM+OHOF0YI204F68ZG7WrLcNiboJ8NpiyuhUc0jMqcCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=SedL0ETW;
-	arc=none smtp.remote-ip=198.175.65.10
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=rock-chips.com;
+	spf=pass smtp.mailfrom=rock-chips.com;
+	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=UURWRjVw;
+	arc=none smtp.remote-ip=103.209.128.202
+Received: from mail-m128202.netease.com (mail-m128202.netease.com [103.209.128.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0DE4606A31E;
-	Tue, 24 Nov 2026 08:24:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0DE4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4780606A31E;
+	Tue, 24 Nov 2026 08:24:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4780606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=SedL0ETW
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795508647; x=1827044647;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=bz/D0Du0W8QrobDHzxFQOqw7RTEOA+BPUbV5XJQADkA=;
-  b=SedL0ETWOu3f6m4dldUkurSi+/XjeV835ZuQPfdWfFQzchRpktk61xGN
-   4kDT3LKHqEYKuN1h5wcvd+MRDACgA6y6puSmp2hIwngZamgkqKrrO9/7Y
-   MDF+lRz8KodckM84RG5Kfn3b7zazs1JY9kLf7jJwErhbD7O0LWMGgm7FY
-   Ybcoe9Toc0RJi1q12SrMTHrTyFJa6JmK+XffFykaNr5Evf05sxxdzohlJ
-   ap78QfDEZIWNyhrgsQj4/Y+fyqB8xEkaRQoWwFznn3gZLrp18ekhtsV9c
-   SZ4HVGfvQ6D8FCk0hpFpMU8y1HocJ4pMX9v1cTutJIG7B1ljxjO91SlEC
-   Q==;
-X-CSE-ConnectionGUID: FomsdZDtQGSV26hRVzZgxg==
-X-CSE-MsgGUID: /9fOy7/ET/GIQNC2+fpFsg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4249590"
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="4249590"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:24:06 -0800
-X-CSE-ConnectionGUID: D9dgaZXiRMalxMxhb3U6Qg==
-X-CSE-MsgGUID: 1QdCORzCQL2ckV0m65mkvg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="11290601"
-Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:24:05 -0800
-Date: Tue, 24 Nov 2026 10:24:02 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Rupesh Majhi <zoone.rupert@gmail.com>
-Cc: Andy Shevchenko <andy@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Eddie James <eajames@linux.ibm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 7/7] iio: pressure: dps310: include what the driver uses
-Message-ID: <awVJohyKR-zxykbG@ashevche-desk.local>
-References: <20261123220649.36887-1-zoone.rupert@gmail.com>
- <20261123220649.36887-8-zoone.rupert@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=UURWRjVw
+Received: from [127.0.0.1] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 55cb96efc;
+	Tue, 24 Nov 2026 16:24:16 +0800 (GMT+08:00)
+Message-ID: <c89271be-85f9-41ba-9c19-c78743d212c8@rock-chips.com>
+Date: Tue, 24 Nov 2026 16:24:12 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,67 +48,101 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123220649.36887-8-zoone.rupert@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/2] drm/bridge: add glue driver for T-Head TH1520 DW
+ MIPI DSI
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, Andy Yan
+ <andyshrk@163.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, Icneowy Zheng <uwu@icenowy.me>,
+ Han Gao <gaohan@iscas.ac.cn>
+References: <20261124-th1520-dw-mipi-dsi-v3-0-ffcf2d87971b@iscas.ac.cn>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <20261124-th1520-dw-mipi-dsi-v3-0-ffcf2d87971b@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0aa20ca7d7d303a7kunmc11de194cd4c3b
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDSkpOVkgdHx1PSkseQkpJTlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=UURWRjVwdo+3l2AULyocD6fSNflb4NLvemODSt3E0BkJ4SDNYTRbIrvF97HUU4K2rtd/SDBnXtHZ+9biRxmmr2VYZUHyx1vjJo4sQNiVBRKlCiF1JgNn+It/uQ2dEKWkUHaT+/LN1vLB/a+9UefWRH0gS3pOe07esi2EjWKgg4A=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=CIIxCHmaf4fxrIyFS/BRlR2dhrRZVanUxs4tziQTo54=;
+	h=date:mime-version:subject:message-id:from;
 
-On Tue, Nov 24, 2026 at 12:06:49AM +0200, Rupesh Majhi wrote:
-> Include the headers for what the driver uses directly and drop
-> linux/iio/sysfs.h, which it does not use.
+Hi Icenowy,
 
-Thanks, a few amendments may be made, see below.
+On 11/24/2026 3:56 PM, Icenowy Zheng wrote:
+> T-Head TH1520 contains a DesignWare MIPI DSI host controller paired with
+> an internal DesignWare PHY, as a similar design (but with a different
+> PHY) with the Rockchip DW MIPI DSI.
+> 
+> The functionality to write to the PHY is shared between these two
+> implementations of DW MIPI DSI, so it's extracted from the Rockchip
+> driver to the common code. (The same sequence could be seen in the
+> HiSilicon Kirin DRM driver, but that one hasn't been converted to common
+> DW MIPI DSI.)
+> 
+> Tested on a Lichee Console 4A (with a Mingjun MJ070BI30IA2 panel) with
+> further pending DT patches.
+> 
+> One question remains: I have to copy the extra lane bandwidth headroom
+> from the Rockchip driver, otherwise the Mingjun panel cannot keep sync
+> to the display signal; from my testing, changing the hardcoded
+> PHY_STOP_WAIT_TIME from 0x20 to 0x2 (which is written by the vendor
+> driver) can also make this panel to work w/o the extra headroom. I want
+> some advice on whether to keep the extra headroom or changing the common
+> code to make the PHY_STOP_WAIT_TIME parameter adjustable.
+> 
 
-...
-
-> +#include <linux/array_size.h>
->  #include <linux/bitfield.h>
-
-> +#include <linux/bitops.h>
-> +#include <linux/bits.h>
-
-The former guarantees the latter, so drop bits.h.
-
->  #include <linux/cleanup.h>
-> +#include <linux/container_of.h>
->  #include <linux/delay.h>
-> +#include <linux/dev_printk.h>
-> +#include <linux/device/devres.h>
->  #include <linux/devm-helpers.h>
-
-> +#include <linux/err.h>
-> +#include <linux/errno.h>
-
-Same here as long as the driver doesn't use special Linux error codes
-( >= 512). And for now it doesn't.
-
->  #include <linux/i2c.h>
->  #include <linux/interrupt.h>
->  #include <linux/irq.h>
-> +#include <linux/jiffies.h>
->  #include <linux/limits.h>
-> +#include <linux/log2.h>
->  #include <linux/math64.h>
-> +#include <linux/minmax.h>
-
-> +#include <linux/mod_devicetable.h>
-
-Uwe already pointed out on this.
-
->  #include <linux/module.h>
->  #include <linux/mutex.h>
->  #include <linux/overflow.h>
->  #include <linux/regmap.h>
->  #include <linux/slab.h>
->  #include <linux/time.h>
-> +#include <linux/types.h>
->  #include <linux/unaligned.h>
->  #include <linux/units.h>
->  #include <linux/workqueue.h>
+Does the DesignWare PHY databook describe about PHY_STOP_WAIT_TIME?
+  
+> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> ---
+> Changes in v3:
+> - Fixed a remaining `syscon` in the DT binding.
+> - Link to v2: https://patch.msgid.link/20261119-th1520-dw-mipi-dsi-v2-0-9ab5f9808f87@iscas.ac.cn
+> 
+> Changes in v2:
+> - Changed `syscon` to `thead,vo-syscon` in the DT binding.
+> - Dropped the patch moving common PHY write routine to dw-mipi-dsi
+>   common code.
+> - Fixed a few problems pointed out by Sashiko in v1.
+> - Link to v1: https://patch.msgid.link/20261030-th1520-dw-mipi-dsi-v1-0-753f34fd304f@iscas.ac.cn
+> 
+> ---
+> Icenowy Zheng (2):
+>       dt-bindings: display: bridge: document TH1520 MIPI DSI controller
+>       drm/bridge: add TH1520 DesignWare MIPI DSI host controller
+> 
+>  .../display/bridge/thead,th1520-dw-mipi-dsi.yaml   | 103 ++++
+>  drivers/gpu/drm/bridge/Kconfig                     |  12 +
+>  drivers/gpu/drm/bridge/Makefile                    |   1 +
+>  drivers/gpu/drm/bridge/th1520-dw-mipi-dsi.c        | 570 +++++++++++++++++++++
+>  4 files changed, 686 insertions(+)
+> ---
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+> change-id: 20261030-th1520-dw-mipi-dsi-580d5b2792f9
+> 
+> Best regards,
+> --  
+> Icenowy Zheng <zhengxingda@iscas.ac.cn>
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Best, 
+Chaoyi
