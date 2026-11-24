@@ -1,116 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795520296;
-	b=ALG/bPEc9cS0MdEUMRvFyRH8yBxx163jZFGvRgv9c8CEVdJNAQnlt2Qr495XadNJRV+f
-	 pOgm5QlTORiEbr8uogOxL0Vwoykkz3wPkIDNrilY2x24jLkmyPYp+O5GcDodC/3JeRpXJ
-	 DCu4JtYI70oWhzneCw+i1CA1UkxuuaPRLuHJTTFFG6E4Lseax9RcGe4W/RBL2/NGt3CXA
-	 mR5adQ/Pq8+yUXL0jHK+OGGCoibaW3HYqZgu2liQe/eypLwUfOvG5smH345ijdCXHM6dR
-	 5bbyV6uItAUzTXdKT2doFdKUGnAt4XC6W3PXUFxpYm+npaBQegdZVfd2EHuTTt45OGA==
+	t=1795520323;
+	b=FMjaltaMbE9ORYP4+oD9FlMtnlm192zjQLHNqQvwcL+e49pJuQcXcntt1OyrxAz0suiJ
+	 IhRJTQqCjyGs42DTD4ApfAZo9FMPdvVP1A6vM3WkGR9V3qWbDp5ijyqtTUJMaUe/ZBlh0
+	 Twqu6rchDVTrMEgvnXHtw++51FG/4kJ8TFDDpEB3xhID6+fTUkz5wQy4me7qZEPkwycK1
+	 0RteX0LwyaGJ9FFvkU4yX42dxPeNmknKUqJEDtglpZSztZ/4On7pC/SIQr3mrN2foqSfP
+	 /dNDt2h7xpd/16BnrGWhAFin1OT56Fk+8IH7MLYZ6+WdUptIr1PNGqYhRb8/xaiIcOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795520296;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=LBS6RLC7nr5rY+9EC1CBYV3oWXOpIUvumoRNMJiBILE=;
-	b=dJfGFWjOnFEuVzMV3uU8nN9emr62d8eG6TrP9V1EX3EFICyqo2c3rR0qBT6KVkmPJ5Al
-	 F2lt6K8abGV+4JZSwttXpTUUVUifxPWoFUHb82ci+Quaqlqjh+3Ro2rwtax62GeyneXUj
-	 msqK4RGuv8XW5Oi0xUtlIIKNj/G6SCCqjadkqBEcgy6oMQStvxqGMRKHHaVkrO7V94KYK
-	 jDSQkFuoCdvxQwKD0MZCH8SMpIhc74otrP9XXTAD8Ynu7b2T1UFu8BTVeeMsbz09S/Z9c
-	 EkNi6Y/dX+UT8PH3Aj4L8d4ej7B1N4MiEGSHj7+1fbOsGZsPAQccjSCRH/dY7vGp/KA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795520323;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
+	 Subject:Content-Type:Content-Transfer-Encoding;
+	bh=ABQKVhyl294KKPWOJB2LpLQRmzI66sryw48z0Ejt/g4=;
+	b=e610Qwx7l8Fn9ibmKtIb90LCBQMscpc30KfGlZP53UFIBi/gpzb5VPgWHlPugK9AABY6
+	 QXDhgMXr4Pw0b+6FN+kLWCfEvJDtDqu4Xg3FjwjDrqkdU8SJmi9/+AlCR2/gYc3Y97twe
+	 AVyA0BqGo4Asfb0mFXQyMEDNLrt/XgAYH0m+4nwMcxCsymiwqslFyHYh10rugJ20BwBqb
+	 WAsv0At92oiAdFHf7U/0eH7gzAcFKDrWzaXN2ioyH3wi/hI9etRwU52uIpc+UHJIDWEgY
+	 y8K29nqZHOuPiK3AQkmJ1PeA0X5LPAJEO5KUHL8/pJNexgWThMTgOs9x1ThyajOGteA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=jannau.net;
-	spf=pass smtp.mailfrom=jannau.net;
-	dkim=pass header.d=jannau.net header.i=@jannau.net header.a=rsa-sha256 header.s=fm2 header.b=Ml2HHjIV;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=yRlToY6r;
-	arc=none smtp.remote-ip=103.168.172.151
-Received: from fout-a8-smtp.messagingengine.com (fout-a8-smtp.messagingengine.com [103.168.172.151])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ddfCxFmp;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 048E9606A33E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:38:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 048E9606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=jannau.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jannau.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3B3B606A31E;
+	Tue, 24 Nov 2026 11:38:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jannau.net header.i=@jannau.net header.a=rsa-sha256 header.s=fm2 header.b=Ml2HHjIV;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=yRlToY6r
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfout.phl.internal (Postfix) with ESMTP id 5817CEC0D01
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:38:15 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-06.internal (MEProxy); Tue, 24 Nov 2026 06:38:15 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795520295;
-	 x=1795606695; bh=LBS6RLC7nr5rY+9EC1CBYV3oWXOpIUvumoRNMJiBILE=; b=
-	Ml2HHjIVLBmi22/cQDI2PU6Tpq2FEdQKpw3kauuTJM5FBoD8AV3ZXLBJVA16EKAg
-	UpSFCJci6HvS+QYL0Nh9Cn9563Yr67tiZXwYLVzQVdM9Zyl1Qmgco7K2LAhjZ9vG
-	I1zOXLGL9ZDty1f3UnF/rOibRsEsjvBnrBZJR5khZUnVlbiHFP3fBb+5D2OhWbOt
-	z/5iOuexMKNqngPWOxu+E8OTeIWWoqvv4CR3UIizAbUiuFQrIJdE2jZq7EVNJsQb
-	HWXzQsJBKL+SYcGmOJNVq7HN9L9zc1+XbCwv3fAquB3Sbx/EueJ+2yQZahlC1hR1
-	WZnlEXNPSQA5EduZUsA8Ow==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795520295; x=
-	1795606695; bh=LBS6RLC7nr5rY+9EC1CBYV3oWXOpIUvumoRNMJiBILE=; b=y
-	RlToY6r9RVKdw3T0oHPku3hnFba/+xHI26C3lL6YknlOsXrRy9qNyxmzmA9SUcKn
-	hTr30fQh/UnClOVsFIXrwGMjGzIxCeD9peY1KCYVeTLIHg7mP91MBM6HGnMZBIk6
-	6dyZR/CFFTQ0EeCJIfvHU4zYuZL+mA/xUWjT1ogoVgTt6qYcK/uI8+ITiZwftS0m
-	OcWQbWIBft0ZXD7tyjp5jY+InE+7HvqRAIQ/JDGCIp8qMD1UD+1ceVFjIG7wx3Gz
-	3iEOVMrcApMfe2Tl7YyNmitJJfq8xFL8ESrcp7Wm6cwZI3skbzsb7uYOgtC0Axoq
-	qlZT0oTmKlxzIMPiVyTVg==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=jannau.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795520295; d=jannau.net;
-	mf=PGpAamFubmF1Lm5ldD4=;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:n6/mQYPx1B9wbbLl94J6BP9ot3QIHE+PlEn2g1KHWu5oLj/
-	aDLwUICF0FtnKgwz6L69lvJ3ONGbwxoPa4QaGD9c7pISKX101BAE9A+KLJf2ma17
-	+feWY8S0wmkKBNFuCr+0OWlNwYqDAcDO08Ki5yz1i4R+zUeTOhaw8JGQFDSG8M40
-	JNLiZavuKyxMILwTixxdK4ZnafxJWhrYGGu4Ja+KHwLhJdy2tKWz3VGx0ESyfWGc
-	b0Wa2LroOOELw3YSvZ2GRRQY01G+gUO0nCIsg5bg9uwwi2Jj8XlYZ803aHBB4WZj
-	ej+2xUr9JhUcwSmRn0OFKfqHto0KtgiaDJ+NX+A==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:p1f7ejuhjRxJdgmNxQxQXaN7NqyiljR/JdO1ok1Uhn8=:LQel8x6QtVyh/7CIDEVkPyteoYgugqgpOlb8FoB6o2k=;
-X-ME-Sender: <xms:JncFa8apghQkp6cv5WRydIpQSnXdx2pRYRbtCS5XwPatW6G8QEzYWA>
-    <xme:JncFa4fkYj7Z8w7A3Q3LZwo6kLg7Yu4tEgakiRzKk2wWtTFIsXoaZ97Gb3EZLDp9c
-    yaOWPplJT1Ilh1seLQv84e9rdBw7vsZfnWO7Y0CBg_MPHzDyDwsIg0>
-X-ME-Received: <xmr:JncFa55saF6nPYWtTR7cPJqCZ_UapqLvb5FX23Tv3afNWrz8bjwrsqMUn-sulpIikRXCJ4YNaTVS8v75GIzhTSSml7zc55Op23hl9w>
-X-ME-Proxy-Cause: dmFkZTEi1u8ZMwVyqOiTzaB5nCgQcMSKjrx2d8uxxaZVl2DDoMbectsBXLn1EPTO3E1O/O
-    K4nOoNpYML5hUgCFInvffe60Gbw2e3155wRkpnYBsWVK36LeQEWj6rHA4TjwwV3W05Wlnc
-    v3iXUk56hHbGe/bPS/wVWMHL5dS6ObItRFggCiA5xVLRjV31YVX7em8YkRNv/H2DvA69is
-    zRCzcZ9lIiCv/o1/PdqCcFGNyU0DjuMrllWRGVTahiHlwQySUlP9qHvPzBbSZBk2OyDCSn
-    EaXOnzefw4JMsq8ZHTzWueE+oVLNCozuLarSAdSMJhJYFDkycjqzbqRNET9y1X7hwJ00pS
-    Z6d0Y/Ndj/BNGBx8tSvwOt8sf2YpEHAiN/FW1ceaGqVmmoZTCghnWYqskUV8WRL6+ttn2V
-    DrKW7m5dGHZuf9ZM6F3NNYC56fiDx2ocTHh33LGJow5AV6vLCC6Wcd7fpFWQIcEfqLMTLg
-    FCadx28S3oZyORQr6VSstrOKdnis/CNv321UmREt/VhF0jNPh+QHR8ab5ViepNhieBh6XC
-    TGGAjmmQt71QfDVYBzo8TmQuvmHFGOelLGFqgWMIio7Xq0x1jkecJ10Bnz5iPWqfuT7K7w
-    7FbDt37+ERFpDNQ/enh3FW0I08KbxTuI2alifz2nUtj0OJ21hcynDFexzRhg
-X-ME-Proxy: <xmx:JncFa0V5jnwh5zLXJNPGuNmQt_Bjf6pTxKSkgdKqGWUTxCaYk7ER7Q>
-    <xmx:JncFawZciskPwj9K_2wARH3KDKNW20IPs8OMlUW3_4RGTgTaLStBng>
-    <xmx:JncFazwrY5IgW9enruc4Zo9PjB0lRV--hDELAy_wya2loQRUC-hvYg>
-    <xmx:JncFa9KoJXvMausp7xB3nftvFu0BrAw2uql98pfHcc-hgVZxFDDixA>
-    <xmx:J3cFa2arXdMTeICI8KvrzyDY2NWV-Qgx5Qh1J6cd0PcZPPPOvsdkQF30>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 24 Nov 2026 06:38:14 -0500 (EST)
-From: Janne Grunau <j@jannau.net>
-Date: Tue, 24 Nov 2026 12:37:47 +0100
-Subject: [PATCH v2 5/5] rust: drm: gem: shmem: Do not free SG table of
- imported objects
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ddfCxFmp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DABAA1F000EF;
+	Tue, 24 Nov 2026 11:38:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795520322;
+	bh=ABQKVhyl294KKPWOJB2LpLQRmzI66sryw48z0Ejt/g4=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=ddfCxFmp275OO+8l8zunn6/sK/8EY7z2z7Gc0dTRsc+vdcx4VarO7PtCK9mMeRXN5
+	 UF/U8X+OmCCEC/ALGlVsVqeFp0KEQyRndqW6MXjvx8CiMLfL4njf0PDD74nSP7O1Qd
+	 fw37y0TEBmdtwtg0MVyaUEJguFFiuFwcrFvZ5cHLm3yLjg54M6D2Icen/aNb25CyYC
+	 gilVooernoEDyQzTWbEZsh8P0caU1QkuKKFNoYR9E+ggMaLfqFrj7BWp7w+KVefLxw
+	 +N43FxrSoozCvHTGojkZHtCNh9AzsN+CkhDCKYJcRfC0s07j8I9ZH3XGh9dZsbHBz/
+	 ZAyJZQeyfpblg==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 4E17D198003A;
+	Tue, 24 Nov 2026 06:38:40 -0500 (EST)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Tue, 24 Nov 2026 06:38:40 -0500
+X-ME-Sender: <xms:PncFawP3pPb6bnyXZxUv12whf9yVOOGzh9MUlw7Q8vG1MXusX3rP_g>
+    <xme:PncFaxyyfGZ_jbYSKsyLeBOwgfPvc9-mRXmQiKA7rhgMJsjYXhlBZ6iM-RQojfNwa
+    xD3BjpVsjSwQ6PfoAZsYpWwiHf89h6LOy6mG3whQl9F1Elxw4rAEA>
+X-ME-Proxy-Cause: dmFkZTEG+JqeNQanrVPdZRYIGPClXPZdjYqmnC18pn2a0pJiffnGPLt3F2ZHBJaESEW0o9
+    g0H7LZ1xcqzY/LTc4mXt5AcX7SyqFeBKltNpWt71RxoDKcxb+UoPc+yrATx87d3BigrtnD
+    x+Ab3bcVr0mMnb1eytpyJfDfcxAiksW+fvB62xPxrLFK8szALdnHBvLdBGYyRtOC+rI2Lw
+    MiAS0ewoDA3RMjNN9LUd4R5FZ801GDEDin34Atelmpa3jhvNVa8LMGe5L/qmp5CchEZqMe
+    q1Gpjf5vLshyPEPKrmtnCyIdFybZIMZRzpIlAcmTkx9NJZAzXAFgEzStDZ4eWRGIRkrCeV
+    1wEHwL2LcnSGxVM3XUpyZhvz2a3dcvWT4X4kRrOo+tWDX23D7lUOMVUnQxoSG4JAcczMCk
+    FnHR1oBFdS1ONCdWRwwcYMG/v0D7FlDI8nwqPXZB5Dbjj+EZP9JqvkGRzWTl6+KbxchJTL
+    sKye7AEEZjhWh5iOz8uP+6N2DAgoP2uY87JldC5wT9OVx8MQfX8iEi3m1XcUMbtHXERqLb
+    P9uHAloxbyQXOAWjMU0xHhx3omPdItmoEqd78cYocMO5KwplJKGH9VbxRy06/J1nTO62Ku
+    MJnsryoh9sNFNG6hGmMJHVBN8A7wQMMTwUMWnMTFZovpoZwSusCPzt6iEY4w
+X-ME-Proxy: <xmx:QHcFa5yBgLXL-f3xC-CoKbnuCA5mbJTxq2IkG3J_mquV6Q-doTTeAA>
+    <xmx:QHcFa4VSYg75ZJ45AxhxU7sYrFBWzbQRz83Je9Jab_rMqPzgXZhOlA>
+    <xmx:QHcFa5heKXKNkSFEQnkq636Ffx8U0qj8FNA-OdD1Y0YSazfEfmEtLg>
+    <xmx:QHcFa4D0oj-qXX_Ggh-uvxmmHSJ-4D42_UkL8wsvmWcFEc9tIlQOdg>
+    <xmx:QHcFa_uoSw6afJO-ZWTprK_em1A-ReOWigUK2QAymHiBWiM9LJaHgbSN>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 782FDF80093; Tue, 24 Nov 2026 06:38:38 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,71 +77,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Date: Tue, 24 Nov 2026 12:38:18 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Sebastien WENSKE" <sebastien@wenske.fr>, linux-efi@vger.kernel.org
+Cc: swenske@veepee.com, "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
+ "James Le Cuirot" <chewi@gentoo.org>, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Message-Id: <37c38d1e-03cc-44ae-b617-d45fbf80acc5@app.fastmail.com>
+In-Reply-To: <20261012133712.618913-1-sebastien@wenske.fr>
+References: <20261012133712.618913-1-sebastien@wenske.fr>
+Subject: Re: [PATCH] efi/libstub: Allocate the INITRD table in ACPI reclaim memory
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-rust-drm-gem-shmem-imported-sgt-v2-5-000f7a9ccb8d@jannau.net>
-References: <20261124-rust-drm-gem-shmem-imported-sgt-v2-0-000f7a9ccb8d@jannau.net>
-In-Reply-To: <20261124-rust-drm-gem-shmem-imported-sgt-v2-0-000f7a9ccb8d@jannau.net>
-To: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
- Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
- Danilo Krummrich <dakr@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Sami Tolvanen <samitolvanen@google.com>, Lyude Paul <lyude@redhat.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>
-Cc: rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, nova-gpu@lists.linux.dev, 
- Janne Grunau <j@jannau.net>, stable+noautosel@kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1315; i=j@jannau.net;
- s=yk2025; h=from:subject:message-id;
- bh=LQel8x6QtVyh/7CIDEVkPyteoYgugqgpOlb8FoB6o2k=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhmzWcvGaDf592rKZU7iPZvXFLdZ8umHys6ltrtOfPe1+O
- slYM+JLRykLgxgXg6yYIkuS9ssOhtU1ijG1D8Jg5rAygQxh4OIUgIm06DP8s79kwhC2jXuWoL5F
- +ekXoq/vnjr2yrvVu+5O2l9vbWmFB4wMU1svndvcvv05l/Frx7XX+hjly4/u/1XyVu6VLl/r0RY
- rHgA=
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 
-GEM shmem objects imported through gem_prime_import_sg_table wrapping
-drm_gem_shmem_prime_import_sg_table() do not own their SG table.
-SGTableMap::drop() must not free it since it will be freed on exporter
-side once the DMAbuf is not used anymore.
+Hello Sebastien,
 
-Reviewed-by: Alice Ryhl <aliceryhl@google.com>
-Fixes: 616c229ab010 ("rust: drm: gem: Introduce shmem::Object::sg_table()")
-Cc: <stable+noautosel@kernel.org> # no in-tree users
-Signed-off-by: Janne Grunau <j@jannau.net>
----
- rust/kernel/drm/gem/shmem.rs | 4 ++++
- 1 file changed, 4 insertions(+)
+On Mon, 12 Oct 2026, at 15:37, Sebastien WENSKE wrote:
+> Commit 6e62d1c6f2c7 ("efi: Wipe INITRD config table from memory after
+> consumption") makes the kernel clear the base and size of the
+> LINUX_EFI_INITRD_MEDIA_GUID configuration table once it has read them,
+> so that a kexec'd kernel no longer picks up a stale initrd.
+>
+> However, the stub allocates that table from EFI_LOADER_DATA, which the
+> kernel that consumes it treats as ordinary RAM, while the configuration
+> table entry pointing at it survives kexec. A kexec'd kernel therefore
+> finds the same address in the configuration table, and clears 16 bytes
+> there again, in memory that may by then hold anything - including the
+> kexec'd kernel's own image, which kexec_file_load() is free to place
+> there.
+>
+...
+>
+> Allocate the table from EFI_ACPI_RECLAIM_MEMORY instead, as the stub
+> already does for the RNG seed table so that it survives a kexec reboot.
+> The table then stays where it is across kexec, and the wipe always
+> lands on the table itself.
+>
 
-diff --git a/rust/kernel/drm/gem/shmem.rs b/rust/kernel/drm/gem/shmem.rs
-index d6977673e21a..d935384f5c1e 100644
---- a/rust/kernel/drm/gem/shmem.rs
-+++ b/rust/kernel/drm/gem/shmem.rs
-@@ -611,9 +611,13 @@ impl<T: DriverObject> Drop for SGTableMap<T> {
-     fn drop(&mut self) {
-         // SAFETY: `obj` is always valid via our type invariants
-         let obj = unsafe { self.obj.as_ref() };
-+        if obj.is_imported() {
-+            return;
-+        }
-         let _lock = DmaResvGuard::new(obj);
- 
-         // SAFETY: We acquired the lock needed for calling this function above
-+        // and the GEM object is not imported.
-         unsafe { bindings::__drm_gem_shmem_free_sgt_locked(obj.as_raw_shmem()) };
-     }
- }
+There was a report recently about EFI_ACPI_RECLAIM_MEMORY being
+problematic in combination with hibernate, as those regions tends
+to move around.
 
--- 
-2.56.1
+Can you try this fix instead please?
+
+https://git.kernel.org/pub/scm/linux/kernel/git/efi/efi.git/commit/?h=urgent&id=6863183e8b65e833f8140e20d526282a725e040e
 
