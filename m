@@ -1,83 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795536828;
-	b=OqSKiGibTdV4Gqqu8ZBP5cHuSJ0macVRkncjO0kLtK3+y9LIcFzTxy9oOHNlV500Zirq
-	 li9fQW8/m2d4Rj9A6AgK8MMD1H0EpxQqDDGHOMLZF55SNDHafpppNqgKgd8cSZg5lDHFr
-	 lJFkRBF/u/dyCtTIlgVy4hJJ0XkjBTBKa0S/ztP3r356unzolwintNEAqyW4n5pqRqj0w
-	 bgdprkhRYNtvYp+LwJKe+REreYpRzfRYH5vuRd9EUdmpsVBe6wdcFQo2nQCYG1pqtF3vM
-	 ZgLfKGDAmKs0j9K9Lp/CHU2NUr79hnUuscK5PD6IGDbTHOoxNS+hVfmA8htLx5EIq+Q==
+	t=1795536832;
+	b=sXIi6QNb+AjDHC4SB+I2JtUOUAlYULI6f88wW0/yB40EbV1+YSk/0d2C3fhmZc1C7Kwf
+	 OdJcBoruJXnOgooRNdBXsFSkGYBjdxGs0sq9Tjm24N949LUM41pvUQQIrXl21dS2mbD+U
+	 0wbJdwW0y+0ufaLFTRztNcpN+CC/XYurEsa9K0Dc6IQgggM8gb0FbauKiWkG8psHkfxNx
+	 54Ya2/bXXOLTw1sEunLCcVbUYSnfuF5XNHzjYSMHaz2hnlujHVwyPVjEYGJMROOI8E43j
+	 4TbtVYF+k9nd6A0TONbj9oy3PWZOQBtQkbd8n3TAaEd1Bb6JA/eOBq7TYCpkPXmEnfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795536828;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=Op9mG2o1C7sy88P4/c3HBUd3hjEC7DLxBGS54NsLWEA=;
-	b=Rp1JccQ/POiJUQ80SHkOYSY06fXNAqV3S/ax9zIjg/mJq6Q5iz55Qlsv34KJr9MhjIhY
-	 KkwRjFVNRubahUdrN5ZVMY5bMnVD9iVqKik58cCKuiTjI/Ql6s/gYMJInR8vF+Hw/3Jbs
-	 ZrtHrWcfzOeuhVlUNSU9rTNrYyoiGzz3NV6MljEpzk18p9UHbDs4F4221sizi6oVm3ve/
-	 pJq5aHXELTyVN2xvOCNb3S9mV8vAfjfqb/yJ46Km6G+JrByc/ne/12fhc6JcZg/APqZt4
-	 HcSFRJYeFtVTv7ant3tBZ7ShvTMg5dLMaXs6Q/NYGf/aXtMVc+bFnJNxE1MlgI+XDfQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795536832;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=LBJUeeLBd/j2UQXVukjFGjfTw0JwauIgVax6uPLXyWQ=;
+	b=EPNcILRmPpsLFSyTpBQ41O+M4lFG0U+642+uYhRu5GaX8oWJ3gx2Txjh2UY6Pixavjhp
+	 O+PuV6GYT4UWVyLjoQUMeKmGWgEWSwbt6y+oFTqN2SiFjI8ThYk/4XPz1q7dqFrH8MQsP
+	 4wvPHfdP4whLZbByVoPbNVr5sbwExzwaSx4lLgsS73qCdo1EHs/0/X/K+VqFxdMv4KefO
+	 BsRcXW6bPAGRN6VB80YvmpjUNdnOxXYWXWmqwWwmKyvkemhTtnFmSFhIcev2ykoX+xXQk
+	 THQDuE3sf6IhEqYbdLGaugMPYVg9udnuOUGE+ofkd3LnLcmFrgQbd8PpfP9uGJoucHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=in13iLNC;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=QxiPcyGN;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A02D3606A33C
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:13:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A02D3606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B59D7606A695
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:13:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B59D7606A695
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=in13iLNC
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795536826;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Op9mG2o1C7sy88P4/c3HBUd3hjEC7DLxBGS54NsLWEA=;
-	b=in13iLNC/82lh5UdlABS9o6i7afBR8LZHW0uMgs3yrH8WINMtO+wj37ff0d2ww+l6ZjJro
-	KhmXI12nM6ZfwEk2AksqUX8mBHh7da74kGrIHf0GrgSjClEySnceCuRsEUxsLCsA/jgBKT
-	469FbiJeVMdJO9iYDTYnVUgONRUJCJA=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-259-YxTFUkE2M-Cs-vrkTBfviw-1; Tue,
- 24 Nov 2026 16:13:42 +0000
-X-MC-Unique: YxTFUkE2M-Cs-vrkTBfviw-1
-X-Mimecast-MFC-AGG-ID: YxTFUkE2M-Cs-vrkTBfviw_1795536819
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 881511955F1F;
-	Tue, 24 Nov 2026 16:13:39 +0000 (UTC)
-Received: from dhowells-thinkpadp1gen8.rmtgb.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CBA6218011D4;
-	Tue, 24 Nov 2026 16:13:35 +0000 (UTC)
-From: David Howells <dhowells@redhat.com>
-To: netdev@vger.kernel.org
-Cc: David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-afs@lists.infradead.org,
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=QxiPcyGN
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb6886d30aso45359365e9.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:13:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795536830; x=1796141630; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=LBJUeeLBd/j2UQXVukjFGjfTw0JwauIgVax6uPLXyWQ=;
+        b=QxiPcyGNWLi+CToafUDhr670VlJ3uY8lOcXrlc5Tb6MSgv74pdv9YYK9FWn3btQdQp
+         QaTeEpQw+Ov/GjXRrH3ERvcOGZ/WSXh7whcBVwNYs7qSKnQKMXDQj9Fiv4jNA2CrM+V6
+         5iyPVThyWQSnfvwHO/HtJqzv6+J0gQKmn8DqLS0K8bS5LMSwVjjH7rmgUiLQPP2dTVU3
+         Zp+fg10UKRzfVq9JUrB9UbT/4wMFHv3DxDR+5mAEjvqnns57beVkLQfQYg/7IRj4I8ze
+         R3FLZv/Qkq2hhe3l9LNFZIMGEzPRYjD82ELxb6IFOjzYomcxNILhMalU/PB6ZAuLg4X3
+         /Fwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795536830; x=1796141630;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LBJUeeLBd/j2UQXVukjFGjfTw0JwauIgVax6uPLXyWQ=;
+        b=jcxfEAsV8dMh3P+QwYM5+8Y1M2SqAvI6DCiJEtEwSG50QSMld7ue8pYiNhBuaUfGas
+         R+vNp5p9xoYZCvMVpZ+KFl0p2qZqNg4J/UZ/O5L62kMVJvnDzQkqDNh3+JqhxIQGPc4Z
+         4gXjtPKPGB3mYBYfBMqcXyH/Ic7O9nLk0phbN3a9OXpI08H0w41c4dv0WBP8jgZ8s0l/
+         hflVCagEtkJapJLA9omvHq4YKZ+8+JEy6Fy4J/aFgx0NVZ/+EyozccojdbCBqO/0Oq4C
+         zwAyPzexYjBnb7d4TdbNaEjqbzv9RFQfTeVdL6njk5G1O5rahvXfb+lzVK7ImJ+trE+s
+         q1Cg==
+X-Forwarded-Encrypted: i=1; AL+hErG9mkZ615Di/hqzUwY3Jt7DoebqX6DptNoxVAqMMnVm611cmbeW6Ve8e3+1OXngekUrL+yWWXMxa3svPtI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8zTns/zdS/i3X4BdcZTOY6aqFm7b4EzXu46siBqRIDKendZ6Ge
+	/bG3GicvD/zNvn1hOx9gh93puHCu+OJNA3QYScJlA2VLRhNHSsjLQkAYZYP5HbfjLdo=
+X-Gm-Gg: AZFdTZdEpMwMY/XFq7PTGSD17HuNSnzH3T/T5W6Of3B8m5AGlhv7dSy8sZjZW5JlZCr
+	MH+gEaJVr/yQoTeyIzNuttGh9vKE+vsZr6wPsncz6ZtfjYg15mKqNG/cyJCgQTMmHuRkCG1Nf3L
+	4qSrdJ1TzoJb6FJ4va3t7JCz4l7TjMaIKEPGE2uQRuo9RRbNwXGK048uxYHCK05sc76Ef0UAkjC
+	bPR/S79KinV5RiCOOlfeQ+BQpFfefu5dKOmLsRFmAOderHdS5/nG3cOhJuMPVPcJ46a/D/oawmh
+	RX8csP0ZLfkp90lJ9MDYxSEOMMH0GqJzC6d3qJYE9TyItL5NhOZP81gZSeDFKN5hFUPBIJe0YRJ
+	MVeDL/rvwuBht+4bbw+7Idh3h2EaKSYDJ+D7lHYUj8mq4AQ8zcRwfAhn3DTWKZwa7fFnvkWNLUo
+	IfMO8Ml6wbl7J1fqiS6dLrMPQuISSKF9ERTeAb3pfIO4SAa0Lg/w6kNBITFHorxeEQrSdykfyog
+	tys1VRnoZpMdFb7/wydi2KxdQ1m6di6Y12Uv6CSQ+9NN3zJCo0uI/rP7r+zDBy9cNcjoTjT/igy
+	PbdNqyIZxJ0/yhr4tyMCw1k9GXT8RJpr
+X-Received: by 2002:a05:600c:4f4a:b0:4bb:6752:8413 with SMTP id 5b1f17b1804b1-4bb8880015bmr348896465e9.8.1795536830015;
+        Tue, 24 Nov 2026 08:13:50 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb905f1489sm265449965e9.0.2026.11.24.08.13.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 08:13:49 -0800 (PST)
+Date: Tue, 24 Nov 2026 17:13:47 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: John Ogness <john.ogness@linutronix.de>
+Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Breno Leitao <leitao@debian.org>, printk@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Jeffrey Altman <jaltman@auristor.com>,
-	stable@vger.kernel.org
-Subject: [PATCH net v3 06/10] rxrpc: Fix lost driving of congestion management retransmission timeout
-Date: Tue, 24 Nov 2026 16:12:54 +0000
-Message-ID: <20261124161302.4044422-7-dhowells@redhat.com>
-In-Reply-To: <20261124161302.4044422-1-dhowells@redhat.com>
-References: <20261124161302.4044422-1-dhowells@redhat.com>
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: Re: [PATCH printk v4 3/8] printk: Move unsafe takeover check out of
+ console_is_usable()
+Message-ID: <awW3u4xEwwbQARPl@pathway.suse.cz>
+References: <20261121163557.963029-1-john.ogness@linutronix.de>
+ <20261121163557.963029-4-john.ogness@linutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,105 +102,173 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261121163557.963029-4-john.ogness@linutronix.de>
 
-The implementation of RACK-TLP in AF_RXRPC lost the part that sets
-RXRPC_CALL_RETRANS_TIMEOUT when the retransmission timeout expired (and if
-there were unacked packets).
+On Sat 2026-11-21 17:41:51, John Ogness wrote:
+> Change console_is_usable() to never claim a console with
+> CON_NBCON_ATOMIC_UNSAFE is usable since that is the normal use
+> case. This allows moving nbcon_allow_unsafe_takeover() out of
+> console_is_usable().
+> 
+> To support unsafe atomic flushing, provide a variant of
+> console_is_usable() called nbcon_is_unsafe_usable() that accepts
+> CON_NBCON_ATOMIC_UNSAFE consoles as usable. However, this adds
+> responsibility to the caller to determine if unsafe atomic printing
+> should occur.
+> 
+> __nbcon_atomic_flush_pending() is the only function that enables
+> unsafe atomic printing by calling nbcon_allow_unsafe_takeover().
+> Rather that using console_is_usable() to select atomic printing
+> consoles, use nbcon_is_unsafe_usable() and only select
+> CON_NBCON_ATOMIC_UNSAFE consoles if the unsafe takeover is allowed.
+> 
+> These changes effectively move the nbcon_allow_unsafe_takeover()
+> check from console_is_usable() to __nbcon_atomic_flush_pending().
+> This has no external functional change. Internally within
+> __nbcon_atomic_flush_pending() it means that
+> nbcon_allow_unsafe_takeover() is evaluated after the usable check
+> rather than during. The result is the same.
+> 
+> Since __nbcon_atomic_flush_pending() also knows the @reason for
+> the flush, this opens the door for the unsafe atomic flushing
+> policy to be enforced in __nbcon_atomic_flush_pending().
+> 
+> --- a/include/linux/console.h
+> +++ b/include/linux/console.h
+> @@ -625,13 +624,8 @@ static inline bool nbcon_is_braille(struct console *con)
+>  	return con && (con->flags & CON_BRL);
+>  }
+>  
+> -/*
+> - * Check if the given console is currently capable and allowed to print
+> - * records. Note that this function does not consider the current context,
+> - * which can also play a role in deciding if @con can be used to print
+> - * records.
+> - */
+> -static inline bool console_is_usable(struct console *con, short flags, bool use_atomic)
+> +static inline bool __console_is_usable(struct console *con, short flags, bool use_atomic,
+> +				       bool allow_atomic_unsafe)
+>  {
+>  	if (!(flags & CON_ENABLED))
+>  		return false;
+> @@ -645,11 +639,7 @@ static inline bool console_is_usable(struct console *con, short flags, bool use_
+>  			if (!con->write_atomic)
+>  				return false;
+>  
+> -			/*
+> -			 * An unsafe write_atomic() callback is only usable
+> -			 * when unsafe takeovers are allowed.
+> -			 */
+> -			if ((flags & CON_NBCON_ATOMIC_UNSAFE) && !nbcon_allow_unsafe_takeover())
+> +			if (!allow_atomic_unsafe && (flags & CON_NBCON_ATOMIC_UNSAFE))
 
-Fix this by moving the currently-unused congestion timeout code to its own
-function and then calling it from the RTO handling function.
-RXRPC_CALL_RETRANS_TIMEOUT is then repurposed to convey that this happened
-in the rxrpc_congest tracepoint.
+This is a good example that different people have different mental mode and
+prefers another ordering of the checks ;-)
 
-Fixes: 7c482665931b ("rxrpc: Implement RACK/TLP to deal with transmission stalls [RFC8985]")
-Link: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261020201258.290827-1-dhowells%40redhat.com
-Signed-off-by: David Howells <dhowells@redhat.com>
-cc: Marc Dionne <marc.dionne@auristor.com>
-cc: Jeffrey Altman <jaltman@auristor.com>
-cc: Eric Dumazet <edumazet@google.com>
-cc: "David S. Miller" <davem@davemloft.net>
-cc: Jakub Kicinski <kuba@kernel.org>
-cc: Paolo Abeni <pabeni@redhat.com>
-cc: Simon Horman <horms@kernel.org>
-cc: linux-afs@lists.infradead.org
-cc: stable@vger.kernel.org
----
- net/rxrpc/ar-internal.h |  1 +
- net/rxrpc/input.c       | 27 +++++++++++++++++----------
- net/rxrpc/input_rack.c  |  2 +-
- 3 files changed, 19 insertions(+), 11 deletions(-)
+>  				return false;
+>  		}
+>  
+> @@ -675,6 +665,29 @@ static inline bool console_is_usable(struct console *con, short flags, bool use_
+>  	return true;
+>  }
+>  
+> +/*
+> + * Check if the given console is currently capable and allowed to print
+> + * records. Note that this function does not consider the current context,
+> + * which can also play a role in deciding if @con can be used to print
+> + * records.
+> + */
+> +static inline bool console_is_usable(struct console *con, short flags, bool use_atomic)
+> +{
+> +	return __console_is_usable(con, flags, use_atomic, false);
+> +}
+> +
+> +/*
+> + * Similar to console_is_usable(), but allows atomic unsafe consoles. This is
+> + * only interesting for nbcon unsafe atomic printing.
+> + *
+> + * Note: It is the responsibility of the caller to decide if unsafe printing
+> + *       should actually occur.
+> + */
+> +static inline bool nbcon_is_unsafe_usable(struct console *con, short flags)
+> +{
+> +	return __console_is_usable(con, flags, true, true);
+> +}
+> +
+>  #else
+>  static inline void nbcon_cpu_emergency_enter(void) { }
+>  static inline void nbcon_cpu_emergency_exit(void) { }
+> --- a/kernel/printk/nbcon.c
+> +++ b/kernel/printk/nbcon.c
+> @@ -1468,7 +1468,7 @@ static bool panic_nbcon_allow_unsafe_takeover;
+>   * This is also used by console_is_usable() to determine if it is allowed to
+>   * call write_atomic() callbacks flagged as unsafe (CON_NBCON_ATOMIC_UNSAFE).
+>   */
+> -bool nbcon_allow_unsafe_takeover(void)
+> +static bool nbcon_allow_unsafe_takeover(void)
+>  {
+>  	return panic_on_this_cpu() && panic_nbcon_allow_unsafe_takeover;
+>  }
+> @@ -1672,11 +1672,24 @@ static void __nbcon_atomic_flush_pending(enum pr_flush_reason reason, u64 stop_s
+>  		if (!(flags & CON_NBCON))
+>  			continue;
+>  
+> -		if (!console_is_usable(con, flags, true))
+> +		/*
+> +		 * Using variant of console_is_usable() to include consoles
+> +		 * with unsafe write_atomic() implementations. They might be
+> +		 * allowed depending on nbcon_allow_unsafe_takeover().
+> +		 */
+> +		if (!nbcon_is_unsafe_usable(con, flags))
+>  			continue;
 
-diff --git a/net/rxrpc/ar-internal.h b/net/rxrpc/ar-internal.h
-index d88dd02b6ab5..6e9fc996cd92 100644
---- a/net/rxrpc/ar-internal.h
-+++ b/net/rxrpc/ar-internal.h
-@@ -1243,6 +1243,7 @@ void rxrpc_unpublish_service_conn(struct rxrpc_connection *);
-  * input.c
-  */
- void rxrpc_congestion_degrade(struct rxrpc_call *);
-+void rxrpc_congestion_timeout(struct rxrpc_call *call);
- void rxrpc_input_call_packet(struct rxrpc_call *, struct sk_buff *);
- void rxrpc_implicit_end_call(struct rxrpc_call *, struct sk_buff *);
- 
-diff --git a/net/rxrpc/input.c b/net/rxrpc/input.c
-index 9b02e36264aa..63a0feae2081 100644
---- a/net/rxrpc/input.c
-+++ b/net/rxrpc/input.c
-@@ -35,17 +35,8 @@ static void rxrpc_congestion_management(struct rxrpc_call *call,
- 	summary->change = rxrpc_cong_no_change;
- 	summary->in_flight = rxrpc_tx_in_flight(call);
- 
--	if (test_and_clear_bit(RXRPC_CALL_RETRANS_TIMEOUT, &call->flags)) {
-+	if (test_and_clear_bit(RXRPC_CALL_RETRANS_TIMEOUT, &call->flags))
- 		summary->retrans_timeo = true;
--		call->cong_ssthresh = umax(summary->in_flight / 2, 2);
--		call->cong_cwnd = 1;
--		if (call->cong_cwnd >= call->cong_ssthresh &&
--		    call->cong_ca_state == RXRPC_CA_SLOW_START) {
--			call->cong_ca_state = RXRPC_CA_CONGEST_AVOIDANCE;
--			call->cong_tstamp = call->acks_latest_ts;
--			call->cong_cumul_acks = 0;
--		}
--	}
- 
- 	call->cong_cumul_acks += summary->nr_new_sacks;
- 	call->cong_cumul_acks += summary->nr_new_hacks;
-@@ -199,6 +190,22 @@ void rxrpc_congestion_degrade(struct rxrpc_call *call)
- 	call->cong_cwnd = umax(call->cong_cwnd / 2, RXRPC_MIN_CWND);
- }
- 
-+/*
-+ * Handle congestion being detected by the retransmit timeout.
-+ */
-+void rxrpc_congestion_timeout(struct rxrpc_call *call)
-+{
-+	set_bit(RXRPC_CALL_RETRANS_TIMEOUT, &call->flags);
-+	call->cong_ssthresh = umax(rxrpc_tx_in_flight(call) / 2, 2);
-+	call->cong_cwnd = 1;
-+	if (call->cong_cwnd >= call->cong_ssthresh &&
-+	    call->cong_ca_state == RXRPC_CA_SLOW_START) {
-+		call->cong_ca_state = RXRPC_CA_CONGEST_AVOIDANCE;
-+		call->cong_tstamp = call->acks_latest_ts;
-+		call->cong_cumul_acks = 0;
-+	}
-+}
-+
- /*
-  * Add an RTT sample derived from an ACK'd DATA packet.
-  */
-diff --git a/net/rxrpc/input_rack.c b/net/rxrpc/input_rack.c
-index e5288e5beb59..c652451cc9b5 100644
---- a/net/rxrpc/input_rack.c
-+++ b/net/rxrpc/input_rack.c
-@@ -420,7 +420,7 @@ void rxrpc_rack_timer_expired(struct rxrpc_call *call, ktime_t overran_by)
- 		rxrpc_tlp_send_probe(call);
- 		break;
- 	case RXRPC_CALL_RACKTIMER_RTO:
--		// Might need to poke the congestion algo in some way
-+		rxrpc_congestion_timeout(call);
- 		rxrpc_rack_mark_losses_on_rto(call);
- 		break;
- 	//case RXRPC_CALL_RACKTIMER_ZEROWIN:
+The above function pretends that an unsafe takeover is enabled.
 
+
+>  		allow_unsafe_takeover = nbcon_allow_unsafe_takeover();
+
+Here we get the information whether it is actually allowed.
+
+> +		/*
+> +		 * Since nbcon_is_unsafe_usable() was used, ensure @con does
+> +		 * not have an unsafe write_atomic() if this context expects
+> +		 * safe printing.
+> +		 */
+> +		if ((flags & CON_NBCON_ATOMIC_UNSAFE) && !allow_unsafe_takeover)
+> +			continue;
+
+Here we duplicate the check from __console_is_usable() using the updated
+information.
+
+It is a bit hairy. It might be better to use the up-to-date
+information in console_is_usable*().
+
+I suggest to rename __console_is_usable() -> console_is_usable_unsafe().
+It would take 4 parameters, including @allow_unsafe_takeover.
+
+It would be used to implement the most commonly used variant:
+
+/* Variant used where the unsafe_takeover is never allowed. */
+static inline bool console_is_usable(struct console *con, short flags, bool use_atomic)
+{
+	return console_is_usable_unsafe(con, flags, use_atomic, false);
+}
+
+And this would be the only location where the longer variant is needed:
+
+		/* unsafe_takeover might be allowed in this code path. */
+		allow_unsafe_takeover = nbcon_allow_unsafe_takeover();
+		if (!nbcon_is_usable_unsafe(con, flags, true, allow_unsafe_takeover))
+			continue;
+
+> +
+>  		if (nbcon_seq_read(con) >= stop_seq)
+>  			continue;
+
+Note that I have not seen the rest of the patchset yet. It is possible
+that I miss something.
+
+Best Regards,
+Petr
