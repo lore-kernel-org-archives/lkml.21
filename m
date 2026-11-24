@@ -1,128 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.146
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795526725;
-	b=z4ODxwz2ZT78Q4Ek0wTlZUZN4UprTzn3WjI/92AM3i65Z8+IrOY/NK/kIMG5FJISc1/k
-	 aX4A1GtimN15oWmiugIcSb7vlzQ4Biy9K1tmuIFJEueVxuuhVfNBgPc84DPF554x5snhn
-	 bUFKtZUNhO1ZiTuP7bzfmSvnE4IKr8L2UVq30Uc7L6/oJ0R+nk/FwxFI8IhYF8n3m80Ks
-	 sG5OjXiZjAEBIfjVOwiwh5MjCXkCsvseYTe9gmwD9YrPVZ6wCCNL6EwG/YHjGCoB8RS4s
-	 mtDDTdTrzXmmUePJmXiyEerpdMLa683KqXnTqxrfhsMP4hRxqvXI8P3pHrQX/YqUHkQ==
+	t=1795526778;
+	b=sAYiKcnFkabKzxYmdw3WtjO5g0jbaH4OVtUwPSx4rlDiT7h1MJHEZvJSLJR0TZeBGVjw
+	 RSqsUpZv5zywleyzvANovTtqHsQpV2kWcz6+eGN47rz/suef5s+E7TeQ7ONvUuja/9oOw
+	 pYTvZelZNuZg153pQyHP/H4HOrh+mFvMwg5UAJMFoKSX4hBEFq+QF1fdHTvuftvWcrzkV
+	 YL+++6+8DZq6iJsBHPMrQ+CMSeJ2MICj6SNAF9tMdObF8NfGr/cOELLFoja8PXRuyEaNV
+	 qdCYtNkYY19nxN1xL3EEMbBl6PUNRsR+o+vnTbFntJVJ4CgeuHgKKVxMz10VsLiTKtA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795526725;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=jdq4s1rM/+IIWlMrD0ixYWk6dj9CdCeQpp/eseYFAYg=;
-	b=xvhi3EttwFQ3HFaod8KaRR3bkC79LojJW0mx/PZeL3PRndhauOOB5KY5VLHjp2fDhR6I
-	 UM4ox5aIxE1t+UnDUMtFzkyWe2yGRRrz+8UBq954JtMSGJQSVJ3YyL6ava4KFTePtCeiV
-	 D4mm9kHMczPRKfd5XdudRIGr2dXyN7f6izbCPqKFtClr0ZI87GNMzDjIVKPGMYX49x9D/
-	 gkXjL4FpiNzMzHD8CzN8yZByTSs2PPQZVngpd8nd3Gwsxn2i68tpxmWWvVIQ4DHpXP0nJ
-	 Vdg//yZTqdQxVgFP9PtZwRO83I3u+1oDFsDswj/UAaty88sgJwxQMcsN7Kd+NEMMp5A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795526778;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=lPXR/ZYc2I7ez6L6FEiNKVXHMQzIEPgjNzFczDrA9e4=;
+	b=EDYhR1vMUj0VdPH8eQGx82+CQ8V+LqvzZrWgM3XmK7R7xnY2Zm7XKRGu5uwoY5L06wCD
+	 36lW/4zVum0hgy6BMwVl3lnGx3aI3tYgVH4r4+tUnLx6dyJs97VJtUDlzUWLXCHAql27G
+	 UjMh+IWv5klSAen2yKckntts+XQc7YG4SsVGuHOPzYXYRK/nnoXTi2agrR7LdPudgdwQk
+	 FBUdYLm0avyFDk+Hf7I+hyYv4tVFp9gzA5zSB1Ct2fysXDAL7Ca0LMMllH1KoVADoxbLd
+	 68SkODD38sLnvPXp0ydvJVyMzxNf2rizV7jOi2ZNrze3lfgDioBcFDfM5Wj1i7stA0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ragnatech.se;
-	spf=pass smtp.mailfrom=ragnatech.se;
-	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b="S57i3/C2";
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=pyNczjJS;
-	arc=none smtp.remote-ip=103.168.172.146
-Received: from fout-a3-smtp.messagingengine.com (fout-a3-smtp.messagingengine.com [103.168.172.146])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Za0AvD2/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9FB9606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:25:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9FB9606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DD5E606A31E;
+	Tue, 24 Nov 2026 13:26:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=S57i3/C2;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=pyNczjJS
-Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
-	by mailfout.phl.internal (Postfix) with ESMTP id BCB34EC0ADE
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:25:23 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-11.internal (MEProxy); Tue, 24 Nov 2026 08:25:23 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795526723;
-	 x=1795613123; bh=jdq4s1rM/+IIWlMrD0ixYWk6dj9CdCeQpp/eseYFAYg=; b=
-	S57i3/C2hli5Y4g6kC5QTHF2UkmPKOrT+f+AfdQg/oRB+C2cTxSNAaBLUsqlbTMA
-	pS6rP/G9qneWeNGuyhoj/Mg7tFDa68kvewHWLP/GQ1LnoG+KfR1TV4SaaWrIab6z
-	18z7587oTQ6ZYL+W5ncADvZErgp3+XeHo//5Pnr9xr8/725xxpjcNEPJoaffLoXK
-	VpXyI7Ajb84WPM5R/2vEDhMaMgNw7tlDuxBPw3yT0uoMYEB80+CbsrRNBlMKQDlI
-	oznkrqfbL2YA+5R8YHEirq4oEC++TtIQcerovyiTVhpaR+u+uOGQJ2yIA3Ph7bcd
-	YlagbCe1cgXAb8N4CGXRNA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795526723; x=
-	1795613123; bh=jdq4s1rM/+IIWlMrD0ixYWk6dj9CdCeQpp/eseYFAYg=; b=p
-	yNczjJS8BaFOQ3JT8+5LhsFkwcLHW6Xgt0ROJ8bUgJyZD0ruTOgaMKd6X2jdjWhD
-	7sANQuowWaL+0Lt1lIt6gb+LY+UViX574qO3Y6TzuuDzStb3dt0lXh54w/T14pVT
-	VBm4tpiJGy6eAnK2ei9/ttI2uvmIO+IduQHwSXOFLOAcGkrjptpvBnkOYUjZokfo
-	/tJ67p5X/mmPX09Yxgt681Z/e/whpIXycrmZFgOhYf6hCWzlwDcq8r3A/E+itP+6
-	b7JCOILLHqEXpyI3xEXA1prmqlQvew+kHrTqq1BSlWGZyDUAvhvOWwXKP8a6Ie6s
-	mto3PgDW3igmIuvNW4O+g==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ragnatech.se a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795526723; d=ragnatech.se;
-	mf=PG5pa2xhcy5zb2Rlcmx1bmRAcmFnbmF0ZWNoLnNlPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:uCgE4HDgkJf4/WXpEDTh4RL0Kqd2mmyvzvDCSrSOWRSrxvj
-	P8tO0pmbIN0geK4Uqc1GM5MhwsKsaT0IRUye1XFGVlXgYm/gQVc6pzWetup2IsNN
-	oZ1vxGWbzHRwdLoY6yzz2nMtFInig9u+S85zQJvA5BOnQTLA52/w508qiv7T24Oq
-	CuQ8DJb3GcUH8rNHixwS5Nx/7amgxTzm50DRRDADbUs73PYk43gv25jhwUqOstqD
-	FG/HbhVGwp4Uu/cVTawVKPyh31Eshvqxf8s7+TTsrhNYZJ9emhIHpMl0Ljkw6p1u
-	QPbpa226FXC0xhHjSlU4WgumY/EtvvcE/Ed4oxQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=13;
-	hn=cc,content-disposition,content-transfer-encoding,
-	content-type,date,feedback-id,from,in-reply-to,message-id,
-	mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:jNqAHpbPGF0RZ20YBwX2yaE3LGvWARrKs4sVphlURsg=:M+1RSArcSqZQME3jhwvP4dHhKFgkOIHh2mNiLMU/xOE=;
-X-ME-Sender: <xms:Q5AFa5wK6vmw-kZkTASCBAK6BeAVE34A7_x2kQYwZxqlKWXsyzhBbA>
-    <xme:Q5AFa_QjAZeQ_my4MEyNZaP7zopaKoSXKUgNIc0xdibgOceLc6Zd81ezBBpSdJfaV
-    VPsLjwnpgy4hdfSy2fQwj9HcuA7iJJOTS_4H_mXtpzanTmOejw4uQ01>
-X-ME-Received: <xmr:Q5AFa-LveaI2DwHdffgw5zO1Fbj8DF4t8p8Yk663eW39Ektnp2dzoT1Op0nRal8xFZjFRtLskBPL8ouHcTeQjONd45EXZZg>
-X-ME-Proxy-Cause: dmFkZTFySws+Sggi7EtN2kUyu9Nbs/Yyb1QeohUfHeH3cD3BRt4ruZaDl5/caqpX7JRW7U
-    M5pLLxqkHcGx3KPNeFriFAcbfFccXKJdjVW6M/1bl9TaM2FuRguFDjM2zn2Wotxce5VVjk
-    h/6Qzl+zs7DZAOivB+qoWX+Ud9xfEGfHqcOhnE6cS9htncwutIlb7gL5BwLKFqM/vpfiTI
-    g28xMvMtTYKNsoZ1SzGWyOc5zUxG4Rk5S3y+ztaP2XMEnHVE6Q4lq+H1orCPcOabpuss0G
-    VbBSfuIqMTid93ILgAfW/h61ZurU9InnjkHcYlqCAbGqfGCOXh1n7KxQvuF2EynOji8cLc
-    /vcuL+B4yKLkqqW7o44ILL7XP/wccvywMsYqdOD+bIRTLy1A9IyJExuzUlvQYqBJklaPX1
-    wfwPaFLBV8hCEiRtbT0pGy4AFCU91wDmO/XiXvCBtQg2dWIbR3i5dqDhccWIEkOY5U0Npm
-    fJ/D0mxUnJKKhZ6xroE22LhF3wzwK12fF6VviDr/z4HTmAFeXstX+zwUc3YMPPs6j5o9At
-    qYzdXBZfBj72Yn07b1hklOb+6UojMirZiG6PorjHVa6p8u4GIKABcBDtCaJygExVjB6dOK
-    idjf1i/mqIjE4jztnnIWHffB/8wXAb3ucSgM+y7967fuPh340fC40yTWfYQg
-X-ME-Proxy: <xmx:Q5AFa-U_Op78pb6Yv0MnYnzclr2JoMzmueud5FMPKUPkXP2E1vF46A>
-    <xmx:Q5AFa6S0y7oOX5XWLrHxKPqAGGPgYx_ORF9EcOuZeqKNfyqrJS5egg>
-    <xmx:Q5AFa-DHr65AYFeJ0IqosPiTHFes6vB7iL42Gaa_ED--0Cqqj-vh-A>
-    <xmx:Q5AFaxKeOchTCQnFP7u4FhWkmxBJKHjtVFYHqN9RuJt0WQ_EK_bhLQ>
-    <xmx:Q5AFa-h8RFp10GxAy7SBejdCssvN9U6tU6-qQmmNvJiBelG5ylMrNwWE>
-Feedback-ID: i80c9496c:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 24 Nov 2026 08:25:22 -0500 (EST)
-Date: Tue, 24 Nov 2026 14:25:21 +0100
-From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
-To: Yaohan Li <shunsheng1218@gmail.com>
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Eduardo Valentin <edubezval@gmail.com>,
-	linux-renesas-soc@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] thermal/drivers/rcar_thermal: disable the work before
- masking the interrupt
-Message-ID: <20261124132521.GJ3898744@ragnatech.se>
-References: <20261119022903.1493494-1-shunsheng1218@gmail.com>
- <20261124022219.1834499-1-shunsheng1218@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Za0AvD2/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A468F1F000C4;
+	Tue, 24 Nov 2026 13:26:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795526778;
+	bh=lPXR/ZYc2I7ez6L6FEiNKVXHMQzIEPgjNzFczDrA9e4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Za0AvD2/0vOeE2ptr7m2s3lOgjVlEs6UwEfLakICSb9xznNTROxBLXakZT6elpmbz
+	 962kWesctGZbr93kN1BE2kf/Tc76Bi1iiJ14bhE99LvKp/NJkswPSIf2dQsw279shV
+	 /KM+b+Ms+ZVKLJn1xvVYhuap7K+CbBC4jm5qLDpdyFhafJJW76zKbMSIu63Vh/plkr
+	 +YwpxVKg5KQ0NzGu+t6ufN5Qgf6QWdt79Na+DE0NRboXTw0K7JoGpqrz1M+F0TNxaM
+	 4eKhyBDT77watxMSKL5jTL2LWTG45be+bSqV5QDng7Glc7YdGT0EbvjSGzhKo6NcQh
+	 QO/K+UPsNqGsQ==
+Date: Tue, 24 Nov 2026 14:26:12 +0100
+From: Joel Granados <joel.granados@kernel.org>
+To: wen.yang@linux.dev
+Cc: David Laight <david.laight.linux@gmail.com>, 
+	Kees Cook <kees@kernel.org>, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v2 0/6] sysctl: replace overloaded extra pointers
+ with typed bounds and core stride
+Message-ID: <awV04op6IxD2NWQA@hobbes>
+References: <cover.1794844686.git.wen.yang@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -132,174 +57,246 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="g2m7r27qa7zhkbsf"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261124022219.1834499-1-shunsheng1218@gmail.com>
+In-Reply-To: <cover.1794844686.git.wen.yang@linux.dev>
 
-Hi Yaohan,
 
-Thanks for your work.
+--g2m7r27qa7zhkbsf
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [RFC PATCH v2 0/6] sysctl: replace overloaded extra pointers
+ with typed bounds and core stride
+MIME-Version: 1.0
 
-On 2026-11-24 10:22:19 +0800, Yaohan Li wrote:
-> rcar_thermal_remove() masks the interrupt sources and then cancels the
-> delayed work of each sensor.  rcar_thermal_irq() drops common->lock before
-> it walks the sensors and queues priv->work for those whose status changed,
-> so a handler that read the status before the mask was written can still
-> queue the work after cancel_delayed_work_sync() has returned.  The work
-> then runs after ->remove() has finished and devres has freed common, priv
-> and the thermal zone.
-> 
-> Waiting for the handler alone is not enough either: rcar_thermal_work()
-> re-enables its interrupt source once it has updated the temperature, so a
-> work that is still running when the removal starts undoes the mask that
-> ->remove() has just written.
-> 
-> Disable the work before the source is masked.  That makes the
-> queue_delayed_work() calls in rcar_thermal_irq() no-ops and guarantees
-> that the re-enable in rcar_thermal_work() has already happened, so the
-> mask that follows cannot be undone.
-> 
-> For the handler itself, synchronize_irq() is not enough on a shared line:
-> it waits for the invocation that is running, but the line stays registered
-> and another user of it can take the interrupt again afterwards, which calls
-> our handler once more - with the sensors and the zone already unregistered.
-> devm_free_irq() removes the handler from the shared descriptor first and
-> waits for the invocation that is in progress second, so after it returns
-> neither a running nor a new invocation can touch the driver state.
-> 
-> Every sensor that the removal walks has been through INIT_DELAYED_WORK()
-> before it is linked into common->head, so no uninitialised work is touched.
-> 
-> Fixes: 697ee786f15d ("thermal: rcar_thermal: Prevent doing work after unbind")
-> Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
-> 
-> ---
-> Prepared against v7.4-rc1-1969-g666539eecdf4.
-> 
-> Compile tested: arm64, aarch64-linux-gnu-gcc 11.4, CONFIG_RCAR_THERMAL=y.
-> 
-> The ordering was exercised by a controlled test on a KASAN kernel built from
-> this tree (x86_64, QEMU/KVM; 17 checks, all passing).  The test uses the real
-> delayed work, workqueue, wait and signal machinery and a simulated interrupt
-> line shared by two handlers (irq_sim):
-> 
->  - a work queued after cancel_delayed_work_sync() has returned is accepted
->    and runs; the same queue attempt after disable_delayed_work_sync() is
->    rejected and the work never runs;
->  - a work that is running when the mask is written re-enables its source
->    afterwards, so the mask is undone; disabling the work first and masking
->    afterwards leaves the mask in place;
->  - after synchronize_irq() returns, another user of the shared line raises
->    it again, our handler is invoked and queues the work, which then runs;
->    after devm_free_irq() the handler is not invoked again, while the other
->    user still receives the line.
-> 
-> The test re-implements this removal ordering rather than compiling the
-> driver, which would need a real platform device, MMIO and a thermal zone, so
-> rcar_thermal's own removal path was not executed.  No rcar hardware was
-> available and no race injection beyond those constructed interleavings was
-> run.
-> 
-> AI assistance: prepared with Claude (Anthropic) as a coding assistant; the
-> author reviewed the reasoning and takes responsibility for the content.
-> 
-> Changes in v3:
->  - Reword the RCAR_THERMAL_MAX_IRQ comment without referring to .nirqs.
->  - Declare the loop index in the for statement and make it unsigned.
->  - Reduce both comments in rcar_thermal_remove() to one line each.
->  - Explain in the commit message why a shared line needs devm_free_irq()
->    and not synchronize_irq(), and point at the test that exercises it.
-> 
-> Changes in v2:
->  - Drop the shutdown flag and the separate IRQ count.  Niklas asked for less
->    state, so the removal now disables the delayed work before the source is
->    masked and unregisters the shared IRQ instead of waiting for it once.
->  - Keep the interrupt numbers in an array whose unused slots stay negative.
-> ---
->  drivers/thermal/renesas/rcar_thermal.c | 26 ++++++++++++++++++++++++--
->  1 file changed, 24 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/thermal/renesas/rcar_thermal.c b/drivers/thermal/renesas/rcar_thermal.c
-> index af6d09a75bb6..374c953471e0 100644
-> --- a/drivers/thermal/renesas/rcar_thermal.c
-> +++ b/drivers/thermal/renesas/rcar_thermal.c
-> @@ -39,11 +39,15 @@
->  /* THSSR */
->  #define CTEMP	0x3f
->  
-> +/* Maximum number of interrupts supported by any of the chips */
-> +#define RCAR_THERMAL_MAX_IRQ	2
-> +
->  struct rcar_thermal_common {
->  	void __iomem *base;
->  	struct device *dev;
->  	struct list_head head;
->  	spinlock_t lock;
-> +	int irqs[RCAR_THERMAL_MAX_IRQ];
->  };
->  
->  struct rcar_thermal_chip {
-> @@ -377,9 +381,22 @@ static void rcar_thermal_remove(struct platform_device *pdev)
->  	struct device *dev = &pdev->dev;
->  	struct rcar_thermal_priv *priv;
->  
-> -	rcar_thermal_for_each_priv(priv, common) {
-> +	/* Drain the work before masking the source it can re-enable. */
-> +	rcar_thermal_for_each_priv(priv, common)
-> +		disable_delayed_work_sync(&priv->work);
-> +
-> +	rcar_thermal_for_each_priv(priv, common)
->  		rcar_thermal_irq_disable(priv);
-> -		cancel_delayed_work_sync(&priv->work);
-> +
-> +	/* Unregister shared IRQ handlers before releasing the zones. */
-> +	for (unsigned int i = 0; i < RCAR_THERMAL_MAX_IRQ; i++) {
-> +		if (common->irqs[i] < 0)
-> +			continue;
-> +		devm_free_irq(dev, common->irqs[i], common);
-> +		common->irqs[i] = -ENOENT;
-> +	}
+On Tue, Nov 17, 2026 at 12:07:32AM +0800, wen.yang@linux.dev wrote:
+> From: Wen Yang <wen.yang@linux.dev>
+Thx for taking the time to put this out. This gives perspective and adds
+to the discussion of how best to move forward with "struct ctl_table".
 
-I don't understand why this last loop with devm_free_irq() is needed.
+>=20
+> struct ctl_table has long relied on extra1 and extra2 pointers to serve
+> multiple unrelated duties, including range limits and caller-specific
+> context.  This series addresses both:
+>=20
+> 1. Replace bound pointers with plain unsigned long min and max fields
+>    directly in struct ctl_table.
+>=20
+> 2. Replace per-entry context pointers with a core stride mechanism,
+>    allowing callers to register arrays of structures embedding struct
+>    ctl_table and recover enclosing context via standard container_of().
+I think having these two at the same time is not the way to go. We need
+to figure out where to put the non-bound context pointers first. And
+after that is settled, we address the bound pointers.
 
-First we disable drain and prevent any new work being scheduled on the 
-interrupt top-half with disable_delayed_work_sync(). Then we disable the 
-the interrupts with rcar_thermal_irq_disable(). So why do we need to 
-explicitly call devm_free_irq()?
+Yes, we are doing the first to get to the later, but mixing them just
+adds to the confusion. One thing at a time!
 
-If it is to sync that we have no pending interrupts for the bottom half?  
-If so would it not be cleaner to add a call to sync the interrupts in 
-the loop calling rcar_thermal_irq_disable() ?
+>=20
+> This RFC focuses on the core stride infrastructure and two representative
+> complex users (netfilter nf_log and IPv4 devinet), as suggested by Joel
+> Granados.  The remaining treewide callers are converted in a single
+My suggestion was **not** for this implementation specifically. I
+suggested you create an RFC to clearly understand your idea. Apologies
+if that was not clear.
 
-> +
-> +	rcar_thermal_for_each_priv(priv, common) {
->  		if (priv->chip->use_of_thermal)
->  			thermal_remove_hwmon_sysfs(priv->zone);
->  		else
-> @@ -413,6 +430,9 @@ static int rcar_thermal_probe(struct platform_device *pdev)
->  	spin_lock_init(&common->lock);
->  	common->dev = dev;
->  
-> +	for (i = 0; i < RCAR_THERMAL_MAX_IRQ; i++)
-> +		common->irqs[i] = -ENOENT;
-> +
->  	pm_runtime_enable(dev);
->  	pm_runtime_get_sync(dev);
->  
-> @@ -449,6 +469,8 @@ static int rcar_thermal_probe(struct platform_device *pdev)
->  		if (ret)
->  			goto error_unregister;
->  
-> +		common->irqs[i] = irq;
-> +
->  		/* update ENR bits */
->  		if (chip->irq_per_ch)
->  			enr_bits |= 1 << i;
-> -- 
-> 2.34.1
-> 
+> squashed commit to ensure the tree builds and tests pass cleanly.
+>=20
+> Changes from v1:
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> v1: https://lore.kernel.org/all/cover.1793204511.git.wen.yang@linux.dev/
+>=20
+> 1. Abandoned per-entry 'void *priv' (David Laight):
+Though not adding yet another entry in ctl_table is commendable, I
+prefer adding a priv entry over the stride mechanism in this series.
+Here are my thoughts:
 
--- 
-Kind Regards,
-Niklas Söderlund
+1. The type should set the stride in sysctl core. The situation where
+   the stride of a type might be different from its size should be avoided.
+   In these cases I would prefer a whole new type.
+
+2. Having ctl_table as the grounding entry inside another struct and, at
+   the same time, it be a regular (non-grounding) entry is asking for
+   trouble.
+   - A proc_handler assumes there is a containing entry around only to
+     realize that it was passed just a pointer.
+   - The core might start overlaying clt_table entries to deal with
+     namespaces [1], [2], [3]
+
+>    - v1 added 'priv' to struct ctl_table, incurring 8 bytes on 64-bit and
+>      4 bytes on 32-bit for all ~1,000 entries across thousands of dynamic
+>      instances, even though <7% of entries need context.
+Just a quick comment here: If you want to get rid of 8/4 bytes with the
+ctl_table struct, you might want to look at struct ctl_table_poll, which
+(to my knowledge) is only used in one ctl_table array. Finding a way to
+service utsname while at the same time removing that entry is much more
+of a low hanging fruit IMO.
+
+>    - Refactor: context lives outside struct ctl_table via core stride;
+>      callers embed ctl_table at offset 0 of their own record and recover
+>      context with standard container_of().
+>    - Cost: zero growth in struct ctl_table (56/32 bytes) and zero growth
+>      in struct ctl_table_header (88/52 bytes, packing u16 stride and type=
+).
+>=20
+> 2. Eliminated slot wrappers & index coupling (Joel Granados, David Laight=
+):
+>    - An intermediate prototype discussed on the list used slot-indexed
+>      container recovery, requiring 32 wrapper functions in devinet and 11
+>      in nf_log.
+>    - Refactor: with core stride, the core passes the exact registered
+>      entry pointer to the handler, so handlers use container_of() directly
+>      and all 43 wrappers disappear without touching proc_handler
+>      signatures.
+>=20
+> 3. KUnit purity & dependency fix (0-day robot):
+>    - Removed register_sysctl() calls from KUnit; tests invoke
+>      proc_handler directly so no live /proc/sys nodes are modified.
+>    - Added 'depends on SYSCTL' to SYSCTL_KUNIT_TEST in lib/Kconfig.debug,
+>      fixing undefined symbols when built as a module with SYSCTL=3Dn.
+>=20
+> 4. Baseline rebase & conflict resolution:
+>    - Rebased onto next-20261111 (aaa2f954c21b).
+Thx for clarifying the base. It really helps with rebasing and
+reviewing. Personally I prefer it be on top of one of the "rc"
+candidates (like 7.4-rc3); with the only exception of dependencies
+existing in next. Also, rebasing on the "rc" candidates might be easier
+for sashiko to understand [4]=20
+
+>    - Added proc_dointvec_jiffies_minmax and proc_dointvec_ms_jiffies_minm=
+ax
+>      to sysctl_check_table().
+>=20
+> 5. Added Coccinelle verification script (Joel Granados):
+>    - A 17-rule script (patch and context modes) maps all 15 SYSCTL_*
+>      constants through one lookup table instead of repeating two rules
+>      per constant.
+>    - Bounds that point at a variable (&foo_min, &foo_max) are left
+>      untouched and reported: in several callers (power/main.c, i915_perf,
+>      ipc_sysctl, pid, sched/rt, rds, xprtsock) that variable is updated
+>      at boot or at run time, so inlining its initial value would silently
+>      freeze a live bound.  The script also flags .min/.max fields holding
+>      a pointer or a legacy macro.
+>=20
+> 6. Streamlined RFC series layout (Joel Granados):
+>    - Reduced from 39 patches in v1 to 6 focused patches (core
+>      infrastructure, unit test, two complex stride consumers, coccinelle
+>      script.
+Very nice!. This meant that I could just ignore that last commit and
+focus on the core of your idea.
+
+>=20
+> Key Design Points:
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>=20
+> 1. Zero Memory Growth:
+>    - struct ctl_table keeps its exact size (56 bytes on 64-bit, 32 bytes =
+on
+>      32-bit). No 'priv' field is added.
+>    - u16 ctl_table_stride is introduced into struct ctl_table_header.
+>      Together with u16 type, it occupies the existing alignment padding
+>      hole on 64-bit (88 bytes unchanged) and keeps 52 bytes on 32-bit.
+>      Registration rejects stride values that exceed U16_MAX.
+>    - Headers are allocated once per table registration (~240 sites
+>      in-tree), not per entry (thousands in-tree).
+>=20
+> 2. Eliminates some Wrapper Functions:
+>    - net/ipv4 devinet: registers strided struct devinet_sysctl_entry,
+>      eliminating 32 per-attribute wrapper functions.
+>    - Handlers recover their context using standard container_of() without
+>      changing any proc_handler signatures.
+>=20
+> 3. Standalone Stride API vs. Existing _sz:
+>    register_sysctl_stride() and register_net_sysctl_stride() are added
+>    alongside register_*_sz() so existing callers remain untouched.  If
+>    preferred, stride can instead be folded into register_*_sz() as an
+>    element-size parameter (similar to bsearch()).
+>=20
+> 4. Fixes & Cleanups:
+>    - Fixes net.core sysctl write permissions in init_net (mode 0222 is
+>      now cleared only for non-init network namespaces).
+>    - Cleans up redundant '.min =3D 0' initializers treewide.
+>    - Provides a Coccinelle script (scripts/coccinelle/api/sysctl/) for
+>      automated conversion and proof of no leftover extra1/extra2 uses.
+
+Did you consider the relation between the stride approach and namespaces?
+The network subsys duplicates ctl_table arrays to have a unique value
+per namespace. Would this still be possible with the stride approach?
+Would it be orthogonal?
+
+>=20
+> Series Structure:
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> - Patch 1: Core stride infrastructure and numeric bounds.
+> - Patch 2: KUnit unit test coverage (21 tests, pure handler execution).
+> - Patch 3: netfilter nf_log stride migration (11 wrappers removed).
+> - Patch 4: net/ipv4 devinet stride migration (32 wrappers removed).
+> - Patch 5: Coccinelle script for detection and conversion.
+>=20
+> Testing:
+> =3D=3D=3D=3D=3D=3D=3D=3D
+> - KUnit sysctl_test: pass:21 fail:0 (UML).
+> - x86_64 defconfig build of kernel/, fs/proc/, net/ passed.
+> - Coccinelle: full-tree MODE=3Dcontext finds 0 leftovers after conversion
+>   and 822 before it; MODE=3Dpatch converts the legacy net/unix table.
+>=20
+>=20
+> Wen Yang (5):
+>   sysctl: add numeric bounds and core stride infrastructure
+>   sysctl: cover numeric bounds and table containers in KUnit
+>   netfilter: embed logger sysctl context using stride
+>   net/ipv4: embed device sysctl context using stride
+>   scripts/coccinelle: add script to detect and convert sysctl bounds
+>=20
+>  fs/proc/proc_sysctl.c                         |  82 +-
+>  include/linux/sysctl.h                        |  43 +-
+>  include/net/net_namespace.h                   |  10 +
+>  kernel/sysctl-test.c                          | 776 +++++++++++++++++-
+>  kernel/sysctl.c                               |  38 +-
+>  lib/Kconfig.debug                             |   1 +
+>  net/ipv4/devinet.c                            | 190 +++--
+>  net/netfilter/nf_log.c                        |  84 +-
+>  net/sysctl_net.c                              |  31 +-
+>  .../api/sysctl/sysctl_numeric_bounds.cocci    | 276 +++++++
+>  10 files changed, 1339 insertions(+), 192 deletions(-)
+>  create mode 100644 scripts/coccinelle/api/sysctl/sysctl_numeric_bounds.c=
+occi
+>=20
+> base-commit: aaa2f954c21b205a0bcd0961e5b2be4e82e58455
+> --=20
+> 2.25.1
+>=20
+
+Thanks for working this through, and for reducing it to the real users;
+that is what made the trade-offs visible. Having now understood your
+idea, I don't think it is the right direction and would rather not take
+it into the sysctl tree.
+
+Best
+
+[1] https://lore.kernel.org/all/cover.1787770053.git.legion@kernel.org
+[2] https://lore.kernel.org/all/cover.1789987960.git.legion@kernel.org
+[3] https://lore.kernel.org/all/cover.1790439358.git.legion@kernel.org
+[4] https://sashiko.dev/#/patchset/cover.1794844686.git.wen.yang%40linux.dev
+
+--g2m7r27qa7zhkbsf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAABCgAdFiEErkcJVyXmMSXOyyeQupfNUreWQU8FAmsFkGwACgkQupfNUreW
+QU+wrgv/ZpvL/qXmowA+P6iI7nl02GIjseWNl+o0GUb0d7L57nJr9f8v5vhF7CNV
+hizLGRvuTWuGvcLcWtPMd3smExu00Huv8/wYZco2VJH0KzVYOdAxy2hPyDAzW2Xk
+fqQ7hku8oAclVcq/BgZj2gbkNVBov2v8N6CJe1rkgi5vWXTAr1hl5kI9rspDJnA7
+H8Az4fbVkcRIUpGHJkaJwkmU6VHeuqlfsJrH/TCqoSjorqhJqeP7IuE4ZEI6hhqa
+qW4vN0oR78m6iPEMAcXPcfGA4CjUmq/lJ3+pO8XVrwDgD9Kr7z9Kr87FbI+YiUan
+2YQrb8Vs+UR+lg2Dc0Vh5e+dUTiphA6OGTkg1FX2cDqbUQLKlBQCtVBL1c0mDAun
+7xA4D4h5ZLqjPaan3TVeSFiTcBZ9a85xddM06YkQ84b7mjfdTCce6E8jUwpB+xOi
+TI4p2lXN5K1CYku0zujchFSaEO2HHBoMhU8DzvgwA1bEld9epzMyaUiO40ggRIq9
+kmu/yOZo
+=KLhT
+-----END PGP SIGNATURE-----
+
+--g2m7r27qa7zhkbsf--
