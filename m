@@ -1,104 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795500051;
-	b=WN61whpi4MznkwatccUIdKyWgznZ7R7qJqSocEYAQotaBtDFaSKd78BzUzyfW4PiE5ZE
-	 n98BgqBwqeBPE3sfx3JJXLDaOn1iYX9fL7wj3pv6m7g5M7vHrwtBl2LqorOlthMXRAicj
-	 YNlunfsoTOrA5k8e0xIlbTEXh+qIkiXGKABjHhANuZT9+lOSbKAWACH2riU3wXQZMlKJi
-	 i5GkGk6BY5tLfmjS0uy9dTyV3d9A+mU37f4OMAN1O4kGzOYSK59KOb7z829OXTTYG2pBG
-	 Cdai4pOSg9f26cscfDNvi7rvhR9Nx6xkCxvNTa4Svf1v/b6yjlup0PPB5DG9uyet+Ow==
+	t=1795500124;
+	b=Y3w2BFRboOxhp37sj6nUpTaI5CL9yOD26f5Iw083XE9uYvy2AVrNA4Eo1daisycdwVeH
+	 PAailibsuMFge5c6IE41R8KTkRzoP3q1MsLkHUMzjLXHp1z0GjxaLSBwXz/AfOGkJSeBU
+	 482PdcmFVyo+UAnJEeNr1iweMppuC2Jhop18ryNYNBsd2C6s/DRbjLRnFSu0jxWomhWmL
+	 L+GgRhaNyaJMLi2AbkeO3eLaHj61cB3OsjfIljt4G9WrmwoUL/p4rcMzDXt4jok2mz646
+	 NVqQ2RzM3/DkDcovlzbe1GzoumBL7V80oI/hUzdyLqKE31KvUAoC/XMFY2Vpb63PB0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795500051;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:From:To:Subject:In-Reply-To:References:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=/SLHfkNsrCjSRx5Wz9p+DTV861mq73QFj5nkNZKg5lU=;
-	b=sad0QujdTZ2bGYthAaOBVaEBW870Ue/ibO9GSHgxGaTeqVF+OTHWz85m4b/XY8N2eqIt
-	 2joLegjVE7LhJZgsECaOG/YsA0WxPS/pofnT9AW+pckLOsXJZVAx//ci3JmPapv4e6RPL
-	 uM8dPyPykz8u5JH7YD10qZnr83T8OYv0hXz8YIXkFaP0nEMsalsYctzidZQL05oAyHdqa
-	 A+LVPWbYhaXi3MrObwbQN0SqEQDxVfswYJME2hPBsUiyglDpWek2oNtUxe6HyJMcC0kAr
-	 dh7fBTMPDHll86n3dYMF0J30LLwIZkZa4GCoTM94sxS2CX57YmWR5cSdTJUpU4ucLyw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795500124;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=SsfcmeOTukl7/t7yQZVfnisPQQJg5RQQ9zI61Zt5Jo4=;
+	b=1dWKvUNtz3GrbdLUV5mBcE8FuP++cF+y1aWxqXGDLoYVEReGg1j+ILsiSVN1zs8iELX5
+	 LUCqRKt7CIi6Vc93CRQgn03RwxfVgfgwM7RzDJa/GXyxcIY9CsInkbScAAMH/SxXPpJX2
+	 mG9oXie+MtItkGX9/CIsZow0D58Snf38QqD8S/9Pqyb+ZIwpMKuEd9xmwye9GQCT263Zf
+	 r2cKxbdXaqhl0oRbkZzbRAD02wCTeyowrk29vGx+OAKcSDy8BND9OibjFR15zbpmpNDZ8
+	 Y/LZ/RHZPaLKbXuRECbUDpUFP2O6L5EnGueTa/PmiRv7+3MYjJwQs/Zz6nth1TOAygg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q1+Zpv7v;
-	arc=none smtp.remote-ip=209.85.210.180
-Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XD88skF6;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Ov3xgkfC;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEF36606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:00:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EEF36606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49595606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:02:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49595606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q1+Zpv7v
-Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8a9f9473029so3080235b3a.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:00:50 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XD88skF6;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Ov3xgkfC
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO2kD86646428
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:02:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	SsfcmeOTukl7/t7yQZVfnisPQQJg5RQQ9zI61Zt5Jo4=; b=XD88skF6O75xVU8I
+	2WCcnpq4vSCQrWPfnb1NfTs1ovWgRKA8wQD3dXWBgBsMt1AQaFonaoaQDcBuO+IY
+	ZmqopUsPyemEZWk5WH1QUxv+ohHyiupwsIxucUVjQv2SU9glld61pGiVYCqzUc5v
+	TL1QXouq4oDYtZ0e2jd+PEQPZhnzamL1m5N5mSepHAXzoq6GjXRP16PsjQVFuVPb
+	osNzGW1BXMi0bLgKC4td301mflTclbr3CbQarWcAwrbwafZqe0H1nD2J61X+d3mM
+	r/wJbXz3wSO9HuNQ0QGVTzXTg0Vuk2w7XlDAAswu98EUmZPAmewEWN45LcHKsjOf
+	EpQq4Q==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4yvd13sb-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:02:03 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cde02b50dd6so3185771a12.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:02:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795500050; x=1796104850; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
-         :subject:to:from:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=/SLHfkNsrCjSRx5Wz9p+DTV861mq73QFj5nkNZKg5lU=;
-        b=q1+Zpv7vRdLuNryjubIcK9p1C6hYtJyM8s4Ya+V8PgQONvpdTC7Ua853SGJTsIUcXQ
-         M0pFVL8Do2Ry2wiXUj3cxeKtoqtmO0eJBjUj9twM08oj3aaj/1mWJSU3N4CXDAYxBpCK
-         on+bdLfyiTexuyK1b6zmgwGoqKXFL4GeCN4DTr+jWK4djxI0BL1/DadGxeBp6DK7jASk
-         tRKgLLfGrF8S9KN1UlG+krPmugZz0AWnplxbg1kncJbcJLBXntvKA8UjrUbEBTdBxIUf
-         JruoLYhZMGVzT+PZrzx9sT1rk+fc369T12hC6PaBt2ez90GghipDT83vmsUcG8y9Od5P
-         M7qA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795500050; x=1796104850;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
-         :subject:to:from:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=oss.qualcomm.com; s=google; t=1795500122; x=1796104922; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=/SLHfkNsrCjSRx5Wz9p+DTV861mq73QFj5nkNZKg5lU=;
-        b=tY/kXvfzWiP38nOaaH9VUFF41eVpuEqKBbavniRqZcLLRVrTuT0FZkOdFPzBP+g7Jz
-         IDyL7Phi7XQWB/KhwMe36ct4qhGrV9Ygw1mzvUQ2vcUtYvX7hxVuU69+dA8DJKm28/Zn
-         uHh4cCVGFW4EXLTpSSwDy53NauyIYhaR4vJtDBRW8D+1BofWEQEsOmUMWC6HAzaJpL82
-         U4h4Gbeivn6jKtu15PMFyjyHy2WHC55kBxIH7uICaDwopyyzT5ztYP2qKkgH2V+DjRCP
-         JbiHH6clTE//fXCpQVBjE0REiGIlCW/C8jC1YFC9cbt/bKMS9Thv+IxHETopZOpFGQb5
-         HBLw==
-X-Forwarded-Encrypted: i=1; AL+hErG1xlXUTaXH2bK60nYp723dicj+TGtX6B3g0as2Sttkob6mGCVvqca+7TiGubUjMtIbTlvCAA/RAspUSRg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+yJ5fSCg0vMhHLpTx2Nps75nVjRMtvH5vUtDFFNq8dNZaWKB74
-	o9liww7bcmSzpiarCZCSgVXsBo5YY6WuY4FP46dPkcd2VLWAZ8apAUMO
-X-Gm-Gg: AZFdTZd/kVzLFeR71VM4VR+WKkkZ0YMbbg3POghSc5bmTSBZixsH1AYxCEJUeTbj/Hq
-	4/GzSZkDg4+MNeq7yfUrJnADVFH0woMaCY2g64/Q3X7yWEs/nOK4bDWT8wYh896/SZNjBM5aEL9
-	GmYN9vTUEuRg0TehKYhSkEp1qfCk5ZUb/gzht9LM8VPhA9xzMKweNKbdKOElcGUprc/Ac78FItP
-	yeFVPH2Ep6K+PKDdyJ9BFJp6XmuHk1sf6vlK9Cml6cR/wCgsYNZnTJV07AImOxKsRicftF5mHd6
-	WeQJISZzQ/lA5aNNiEV32REfFmg3ol2FstLCu6g5TPZKerpblfCZigmgfCRTWdV5IlRu/nb2cJ3
-	PAgeYdxrirb+sWnCD82DRhbdyBjtMmcHlj5Q0EcDr8n4eEBEPlrqOgQCvEloWv8qg1aBttRbZrG
-	L+UUNzDWmKorLNw4UMIoJFZPREpcJy2v19/cr2Cz7vKEVpWQ/3rB2YaptYpU94YlvvG9nrYyXmi
-	AW+KOlwztyXrXXWOBGKtbOEBY2R1D7Wo2ZglqI8vGBhxooR0PxU8fdP60lHv6g/2Br8h5VIpY/j
-	GS212D0JbtaXnL6TL6xGJpVZrM13mhwL3hPN1etue9a8JxI7X53LrWBmAzcEVLFEAjS4U35jDw6
-	ity+BId0XsLNYUat0Ko9WOCmjPS3SpDAZ7b8=
-X-Received: by 2002:a05:6a21:780a:b0:3e2:8b64:2ca0 with SMTP id adf61e73a8af0-4014d35f1bamr11982201637.49.1795500050075;
-        Mon, 23 Nov 2026 22:00:50 -0800 (PST)
-Received: from localhost ([153.61.198.255])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d03adafsm6596544a12.23.2026.11.23.22.00.49
+        bh=SsfcmeOTukl7/t7yQZVfnisPQQJg5RQQ9zI61Zt5Jo4=;
+        b=Ov3xgkfCKNA/k6BfcbbLvIfH5eqxE5jFqbAUki+9A9f/qNw2c6+XeVexgXZc0TdO/c
+         +CR/PqxGym8iD9mPTzLxJtoMV5dBCuBLVswl7gfC82nCpI4XE7gOc2sju5F//D4pbC6X
+         0bMbEVepkjCoCVtKj8onqXMJuwF8DvSUpMA4PBU8n9tnxaVUI5UhzPnIIBthjsJ+uwT+
+         fgt+QO2Nn6pq7ctD3+jK2ZToEfQw4an2tTtS0OvUMVKL079hk3fqZ+6sLCvnLLfyx9F6
+         YJsxOHwGoQsNijDNs3nQHcUEZET41TfVfzZMj7RFwgnkY+EIe30kWI+XlNZXNvgihdaO
+         kOXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795500122; x=1796104922;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SsfcmeOTukl7/t7yQZVfnisPQQJg5RQQ9zI61Zt5Jo4=;
+        b=DiGEPbW9/pkx9AhC/kA53kIz/1YIGvAkVVDXzrTx4ZJOjsgeDa8dTeMJm+HUTFuMo7
+         n0Kp57eO7QmuOb133iNLBJ9LTw0hVQZQjZQaGNWx2saSuv+ilVJaUXxA2VSbUVJuUq61
+         vQ8t9h6jeoXTBealCjXoE7ZgncHZhVHwo0J1R37XXqkCGTT8/BI/p/O3tuI2mHdlv5No
+         vT+JMfianZw/qTIYG8DHCxxoHbW7oRJey15yX0gtN7S9QJoHVrmIGd9ylV0+lM2Lr+Wz
+         6R9jcoJZmq4kKq3ejAxN6kjT8EGq3c1vjlYAf5+73kEG/zQnkwfQ/4zxo/vfhr/8AXxS
+         BVjQ==
+X-Forwarded-Encrypted: i=1; AL+hErEbvKz6nlk8OMkdoyjHzwEhRXO4nBPDAlsm/b02wUCFt8YOe52aFq8pJCgQhk01QUxljhkhjHHHyc07nMI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/grecdqrHmElzdC+M+nKD4lVxnkjeoBLSWWfgbIbTzaMfR/Ld8
+	bBKjuxOI0SXmdYE89Cvne5JmCUhvxO16H1PlaS90lBj8eMVshoD0R07q0fiLd8iRxd3x7OJJ5J7
+	53q6Dwqb77gGcAN6Eloo7ob4qYf0ZAPIT1xkN4sxMcaIm0PJ0bOtSCon+s3pZK8JpzTQ=
+X-Gm-Gg: AZFdTZf43M8w7tkn72rs2sAZQmwcwKQwia5cM/FgoLIPBguNxGMJ8yzZtyo/uLgsyg7
+	FCP6qSzG3EeBNINfMmfU6yu3+DTwUqB+WZxVPOPW9mmtLlnvY/1bHLmiiarNF3OXWfuFWDcA2i6
+	u/tAJBu7nD5IPXSX5GQLmKNsPKO7UMNg7c0wtvPu8uKrjBU7Q5heGgjpMNNYlJINf7RmbB3HtES
+	430gDduls765pfzy+1OFAoXYY2gifgv3JrF3w8TV6AYXNYhIBem/Omk6Y4WJY+ptqN1e9UqrQ+v
+	BR7LUDUiT5ZJh5U0mqnlAN7wQoLPIY1ZYzZJcRbmmUYU0MqkzhRyzoGcIdZipAWXpOBncEcdklb
+	gUn1NimSmmcAzDhlZ1UuWn1D+NKOZyQEqMsC+RGJDBG5RBLrcfpNkGYdXXRHMb6D0ceoOaek1Qt
+	ICiRpkihlfG3X6KDx/q8S5Fnfl6u/vPDwbR1PrN/n4ihzK
+X-Received: by 2002:a05:6a21:8281:b0:3f8:f792:236a with SMTP id adf61e73a8af0-400ae723d45mr11885367637.39.1795500121939;
+        Mon, 23 Nov 2026 22:02:01 -0800 (PST)
+X-Received: by 2002:a05:6a21:8281:b0:3f8:f792:236a with SMTP id adf61e73a8af0-400ae723d45mr11885356637.39.1795500121364;
+        Mon, 23 Nov 2026 22:02:01 -0800 (PST)
+Received: from [10.133.33.98] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde9bb05981sm1190320a12.26.2026.11.23.22.01.59
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 22:00:49 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 24 Nov 2026 06:00:49 +0000
-Message-Id: <DN37NBGPJJG9.2DSVDCKS3UYTV@gmail.com>
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "syzbot" <syzbot+b6f8640465bdf47ca708@syzkaller.appspotmail.com>,
- <akpm@linux-foundation.org>, <andrii@kernel.org>, <bpf@vger.kernel.org>,
- <brauner@kernel.org>, <daniel@iogearbox.net>, <jack@suse.cz>,
- <jmorris@namei.org>, <linux-fsdevel@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
- <linux-security-module@vger.kernel.org>, <netdev@vger.kernel.org>,
- <paul@paul-moore.com>, <penguin-kernel@I-love.SAKURA.ne.jp>,
- <serge@hallyn.com>, <syzkaller-bugs@googlegroups.com>,
- <takedakn@nttdata.co.jp>, <jhs@mojatatu.com>, <netdev@vger.kernel.org>,
- <tomoyo-users_en@lists.sourceforge.net>, <viro@zeniv.linux.org.uk>
-Subject: net: act_gate bug. was: [syzbot] [tomoyo?] [mm?] INFO: rcu detected
- stall in security_file_ioctl (9)
-In-Reply-To: <6b051681.58b41460.7037.0590.GAE@google.com>
-References: <6b051681.58b41460.7037.0590.GAE@google.com>
-Content-Transfer-Encoding: 8bit
+        Mon, 23 Nov 2026 22:02:00 -0800 (PST)
+Message-ID: <d34b81a7-8dca-4975-b77b-a0344451f25b@oss.qualcomm.com>
+Date: Tue, 24 Nov 2026 14:01:57 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,90 +116,191 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH ath-next 0/7] wifi: ath12k: fix MLO active-links handling
+To: Jeff Johnson <jeff.johnson@oss.qualcomm.com>, jjohnson@kernel.org
+Cc: ath12k@lists.infradead.org, linux-wireless@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+References: <20261118025520.39269-1-miaoqing.pan@oss.qualcomm.com>
+ <43452750-2fff-46f7-bc61-2f5547602c85@oss.qualcomm.com>
+Content-Language: en-US
+From: Miaoqing Pan <miaoqing.pan@oss.qualcomm.com>
+In-Reply-To: <43452750-2fff-46f7-bc61-2f5547602c85@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=ZYeIpcVA c=1 sm=1 tr=0 ts=6b05285b cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=NcXVdgLmtPt-1cCCkIwA:9 a=8HErtrsoAFtHdO34:21 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAyMyBTYWx0ZWRfX8vzKLM9Nmdks
+ HeT5bww4s8/k4Mz2RUp9WUlO5WLtRQef2FDLCUqE5q72uPLTPm4uIZgi1yMoNZm6YHMOx7xMDcL
+ z0ZsOQPmHZ5ADSMaNkrdG+yhfvXtxVFklizBZbqjxU5LgvJdtlw9VkbySx90vc0W3I57aVCBEzJ
+ GQj3/UGqCwAnODyobHcCw396/s73dUjZqOIp6I5yuKlNiCTXS3uwLsBLV+enWLaAde2HqvjJdxp
+ PuD6A8I7ntZoUGqvHfvadzW/9d6sInTjyYcbzQjF2IigI7Rog9w/n4ztobhofILSLXsWI0PxDkq
+ ePZD+mX/9102ttJULpTgy7LKUoB9i9/mg3H7Lc9KXMjgj+FXKwlIArVmq5U27xBmmfTc0PX0bxb
+ KOvoMI+2KPDBVgxM7YEFakz/it9Hj7Muy/e31oQZO/SGfrAV42Q6Do5phRdYPEis7GAHImAiMMi
+ bmFTIRF+Xg499/1NfPg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAyMyBTYWx0ZWRfX3jJb1m3kgUwa
+ +o5WbASe1GsGuudh9gvXg2Bo0qA5RtS/h7lMM7s67XVtDB0mFkYrbcJ4ToKBSGqC3ofW8DcG0CY
+ My0vS7310aRPlqDJipjyTviDqdWWUC8=
+X-Proofpoint-ORIG-GUID: iSuE6u2k9YktL7jvRqfj7PdPH0VMtBPU
+X-Proofpoint-GUID: iSuE6u2k9YktL7jvRqfj7PdPH0VMtBPU
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 suspectscore=0 adultscore=0 priorityscore=1501
+ lowpriorityscore=0 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240023
 
-On Mon, Nov 23, 2026 at 08:45 PM syzbot <syzbot+b6f8640465bdf47ca708@syzkaller.appspotmail.com> wrote:
-> rcu: 	         hardirqs   softirqs   csw/system
-> rcu: 	 number:     5264          0            0
-> rcu: 	cputime:      138      52351           25   ==> 52490(ms)
 
-It's not tomoyo, mm or bpf. Looks like act_gate.
-Zero new softirqs in 52 sec, so one hrtimer_run_softirq() doesn't return.
 
-> RBP: ffff88807ed35538 R08: ffffffff91be1bbf R09: 1ffffffff237c377
-> R10: dffffc0000000000 R11: fffffbfff237c378 R12: ffff8880b8228600
-> R13: ffffffff89fd0480 R14: ffff8880b8228600 R15: 1ffff1101704514a
+On 11/21/2026 8:16 AM, Jeff Johnson wrote:
+> On 11/17/2026 6:55 PM, Miaoqing Pan wrote:
+>> mac80211 calls drv_change_vif_links() and drv_change_sta_links() for
+>> both valid-links and active-links changes. ath12k does not distinguish
+>> between the two, causing WARN_ON/incorrect teardown in change_vif_links(),
+>> inconsistent vdev state in the chanctx callbacks, and silent
+>> firmware miss in change_sta_links().
+>>
+>> This series derives link object lifetime from vif->valid_links and
+>> sta->valid_links, which mac80211 updates before calling the driver,
+>> instead of from the active-links sets. A STA link vdev keeps running when
+>> its link is deactivated. The active/inactive link state is programmed to
+>> firmware with WMI_MLO_LINK_SET_ACTIVE_CMDID, sent to each device that
+>> holds vdevs of the STA, and only when it differs from the state last
+>> programmed.
+>>
+>> Patch 1 adds WMI infrastructure: the response event struct,
+>> WMI_TAG_MLO_LINK_SET_ACTIVE_RESP_EVENT tag, and the event handler
+>> registered in ath12k_wmi_op_rx(). The handler only parses and logs
+>> the event at this point; delivery to the waiter is wired up in patch 7.
+>>
+>> Patch 2 sets CTRL_F_OVERWRITE_FORCE_ACTIVE_BITMAP and
+>> CTRL_F_OVERWRITE_FORCE_INACTIVE_BITMAP for FORCE_ACTIVE_INACTIVE, so that
+>> firmware replaces the force bitmaps instead of accumulating them. It also
+>> copies the AP MLD address into the command, and fixes the
+>> CRTL_F_DYNC_FORCE_LINK_NUM typo.
+>>
+>> Patch 3 fixes ath12k_mac_op_change_vif_links() so that link vif lifetime
+>> follows vif->valid_links. A link that is only deactivated keeps its link
+>> vif, and a disconnect (valid_links == 0) removes all remaining link vifs.
+>>
+>> Patch 4 makes ath12k_mac_get_vif_up() skip links without a channel
+>> context. A deactivated link keeps its vdev up in firmware but has
+>> released its channel context, so it must not be used to derive the
+>> target pdev. The WARN_ON() in ath12k_mac_get_target_pdev_id_from_vif()
+>> is kept.
+>>
+>> Patch 5 stops clearing is_started for a STA vdev in
+>> unassign_vif_chanctx(). The vdev is not stopped there, so the flag now
+>> keeps matching the firmware state. assign_vif_chanctx() then compares the
+>> new channel with started_chandef: if it is unchanged nothing is done.
+>> Otherwise the vdev is restarted on the new channel, or stopped and started
+>> if it is not up. Station removal clears is_started once the STA vdev has
+>> been stopped, so that a reconnect on targets with vdev_start_delay starts
+>> the vdev again.
+>>
+>> Patch 6 fixes the bounds checks in ath12k_mac_mlo_sta_set_link_active().
+>> The vdev_bitmap and inactive_vdev_bitmap arrays are sized by
+>> WMI_MLO_VDEV_BITMAP_SZ, but the checks compared against
+>> WMI_MLO_LINK_NUM_SZ. Both are 2 today, so there is no functional change.
+>> The checks now use the constant of the array they guard.
+>>
+>> Patch 7 makes ath12k_mac_op_change_sta_links() create link STAs for
+>> sta->valid_links that are not yet in links_map. Link STA removal is
+>> still left to STA removal, as firmware does not support it. Once the STA
+>> is authorized, a link holding a channel context is active, and a link
+>> with a link STA and link vif but no channel context is inactive. The
+>> result is compared with ahvif->fw_active_links and
+>> ahvif->fw_inactive_links, and WMI_MLO_LINK_SET_ACTIVE_CMDID is sent only
+>> when it differs. It is sent to each device that holds vdevs of the STA,
+>> with that device's links, and the driver waits for each device's
+>> response, except in the INACTIVE_LINK_NUM case, which is sent without
+>> waiting. If a device holds some of the STA's links but none of them is
+>> active, the update fails with -EOPNOTSUPP. If the device crashes while a request is pending,
+>> ath12k_core_pre_reconfigure_recovery() releases the waiter before it
+>> takes the wiphy lock.
+>>
+>> Patch 7 depends on patches 1, 2, 3 and 5: it needs the response event
+>> from patch 1, the ap_mld_addr argument from patch 2, link vifs that
+>> survive deactivation from patch 3, and a STA link vdev that stays
+>> started across deactivation from patch 5. Patches 1-6 each apply to the
+>> base on their own, and the whole series applies in order.
+>>
+>>
+>> Miaoqing Pan (7):
+>>    wifi: ath12k: add WMI response handling for MLO link set active
+>>      command
+>>    wifi: ath12k: send overwrite flags and AP MLD addr in MLO link set
+>>      active
+>>    wifi: ath12k: fix ath12k_mac_op_change_vif_links() for active-link
+>>      updates
+>>    wifi: ath12k: skip links without channel context in
+>>      ath12k_mac_get_vif_up()
+>>    wifi: ath12k: restart STA link vdev on chanctx assign if channel
+>>      changed
+>>    wifi: ath12k: use WMI_MLO_VDEV_BITMAP_SZ for vdev bitmap bounds check
+>>    wifi: ath12k: handle MLO active link updates
+>>
+>>   drivers/net/wireless/ath/ath12k/core.c |  15 ++
+>>   drivers/net/wireless/ath/ath12k/core.h |  25 ++
+>>   drivers/net/wireless/ath/ath12k/mac.c  | 335 ++++++++++++++++++++++---
+>>   drivers/net/wireless/ath/ath12k/wmi.c  |  54 +++-
+>>   drivers/net/wireless/ath/ath12k/wmi.h  |  11 +-
+>>   5 files changed, 405 insertions(+), 35 deletions(-)
+>>
+>>
+>> base-commit: 4016f6c3149e7e3faccc1654db6a3030c069383a
+> 
+> My review agent notes there is a pre-existing issue that isn't addressed by
+> this series.
+> 
+> The review:
+> "file": "drivers/net/wireless/ath/ath12k/mac.c",
+> "line": 12683,
+> "summary": "arvif->is_started stays true when vdev_stop succeeds but
+> vdev_start fails, breaking the firmware/driver state invariant",
+> "failure_scenario": "In ath12k_mac_op_assign_vif_chanctx(), the !is_up
+> STA restart path calls vdev_stop (which does NOT clear is_started) then
+> vdev_start. If vdev_start fails, is_started=true but firmware has the vdev
+> stopped. started_chandef still holds the old channel (vdev_start_restart only
+> writes it on success). On the next assign_vif_chanctx for the new channel,
+> the same-channel check (line 12673) does NOT fire since
+> started_chandef≠ctx->def; however, calling vdev_stop again on an
+> already-stopped vdev hits the num_started_vdevs=0 WARN and corrupts the
+> counter. For the same-channel case a future assign_vif_chanctx would silently
+> return 0 without restarting, leaving the STA with a dead vdev in firmware
+> indefinitely."
+> 
+> My refute agent concurs:
+> is_started can diverge from firmware on a failed vdev restart ·
+> mac.c:12667-12693
+> 
+> Confirmed the mechanics: ath12k_mac_vdev_stop() (mac.c:1556) does not clear
+> is_started, and ath12k_mac_vdev_start_restart() only sets
+> started_chandef/num_started_vdevs on success. So in the new STA restart
+> branch, if vdev_stop succeeds but vdev_start fails, is_started stays true
+> while firmware has the vdev stopped — which violates the very invariant this
+> patch introduces ("driver state matches firmware state"). A later
+> assign_vif_chanctx for the same (old) channel would then hit the
+> cfg80211_chandef_identical check and return 0, leaving a dead vdev.
+> 
+> Caveat on severity: this is a firmware-error-only path, and it exactly mirrors
+> the long-standing switch_vif_chanctx() error handling (mac.c:12007-12019),
+> which has the same gap and clears nothing on failure. So it's a real but
+> pre-existing-pattern concern.
+> 
+> I also concur with the recommended action:
+>   — worth a note to the author (clear is_started on vdev_stop success / after a
+> failed vdev_start), not a submission blocker.
+> 
+> So resolve with a follow-up patch if necessary once this series lands.
+> 
+> /jeff
 
-The registers with lockdep struct sizes:
-
-  reg       value             points to
-  --------  ----------------  --------------------------------------
-  R14       ffff8880b8228600  cpu_base
-  R15 << 3  ffff8880b8228a50  clock_base[HRTIMER_BASE_TAI_SOFT].seq
-  RBP       ffff88807ed35538  kmalloc-512 + 0x138, tcf_gate->hitimer
-
-act_gate has the only soft hrtimer that can be on CLOCK_TAI.
-bpf_timer_init() rejects that clock.
-
-TCA_GATE_CYCLE_TIME is an unchecked u64. In gate_timer_func():
-
-  n = div64_u64(ktime_sub_ns(now, base), cycle);
-  close_time = ktime_add_ns(base, (n + 1) * cycle);
-
-With base = 0 and cycle = U64_MAX, n is 0 and close_time is -1.
-The timer restarts in the past and __hrtimer_run_queues() runs it again.
-It's there since
-commit a51c328df310 ("net: qos: introduce a gate control flow action").
-
-Jamal,
-taprio's INT_MAX limit doesn't fit. tdc uses cycle-time of 600 sec.
-The diff saturates the sum instead.
-Here is a potential fix:
-
-diff --git a/net/sched/act_gate.c b/net/sched/act_gate.c
-index 711cf24..5422d60 100644
---- a/net/sched/act_gate.c
-+++ b/net/sched/act_gate.c
-@@ -45,8 +45,9 @@ static void gate_get_start_time(struct tcf_gate *gact,
- 				const struct tcf_gate_params *param,
- 				ktime_t *start)
- {
--	ktime_t now, base, cycle;
--	u64 n;
-+	u64 cycle = param->tcfg_cycletime;
-+	ktime_t now, base;
-+	u64 rem;
- 
- 	base = ns_to_ktime(param->tcfg_basetime);
- 	now = gate_get_time(gact);
-@@ -56,10 +57,9 @@ static void gate_get_start_time(struct tcf_gate *gact,
- 		return;
- 	}
- 
--	cycle = param->tcfg_cycletime;
--
--	n = div64_u64(ktime_sub_ns(now, base), cycle);
--	*start = ktime_add_ns(base, (n + 1) * cycle);
-+	/* cycle is an unchecked u64, the sum must not wrap into the past */
-+	div64_u64_rem(ktime_sub(now, base), cycle, &rem);
-+	*start = ktime_add_safe(now, cycle - rem);
- }
- 
- static void gate_start_timer(struct tcf_gate *gact, ktime_t start)
-@@ -107,15 +107,8 @@ static enum hrtimer_restart gate_timer_func(struct hrtimer *timer)
- 
- 	now = gate_get_time(gact);
- 
--	if (ktime_after(now, close_time)) {
--		ktime_t cycle, base;
--		u64 n;
--
--		cycle = p->tcfg_cycletime;
--		base = ns_to_ktime(p->tcfg_basetime);
--		n = div64_u64(ktime_sub_ns(now, base), cycle);
--		close_time = ktime_add_ns(base, (n + 1) * cycle);
--	}
-+	if (ktime_after(now, close_time))
-+		gate_get_start_time(gact, p, &close_time);
- 
- 	gact->next_entry = next;
- 
+Thanks for pointing this out. Agreed, I'll address this separately in a 
+follow-up patch.
