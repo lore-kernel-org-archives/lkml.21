@@ -1,113 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.2
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795510325;
-	b=mIKoTm7WiTh//eXbzm45Jl3eOVwHDNSXoY59GGx8GeCZIG0I7x0frnS57CdBtwqiIJNQ
-	 1RsKS8n99gFE3BQtstV15nC+h2DgzMSdVZzOj1vDBrlMJEwkKtcO6/mcSaXPIwJBgzvty
-	 9bc+EfAINx/SuhgpyBEa7cUdrr1AhfcjI+zH0NUUfgNxc9iaIbbTQDM0DeznhxgUElDZd
-	 cH8n7BvPAAehSoEjSFgVSIW4lt2JdAQQ8o9IYr0jgjhcMz3OrdW7lcec1JpmTcS97Rzds
-	 ZK5vCxlYeB2ImPYRtf//xfG78vz5w7zlRwuLJ6VMrQmlsrt6jXW0lPR3Gqg4zmJ6d8Q==
+	t=1795510334;
+	b=KarmXjVU6Cch0X778+X/Y7bGqqo5lljF0d3tu/X+CP1xm+QERaGey9TpKgG+BHm7D0tc
+	 rIkBbLbw8zZaWlD8CEVOjA4J+fcUbWb8j7kK8VLSp3N37RjCxvruL2nboeHZcy3gbzw2k
+	 h8zVDO3QA5kTyKqCICBcyHJVcB0FItKUby8VBIKh9XitkLszKElY9snOrePNNAckwEGZ2
+	 Fc5rkSEntmO6iZHRZf7Sp4o/ZWfdwUOGa0f44Q44COAjX83+DaZVqpTupN0wyoWxOs+tQ
+	 F/mO/wiSZgSiJE8NhItDg2agO7wpD6MYKtwMtqfcoYAy7bZ68OG88fq7MSi75cWmUfA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795510325;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=2vX7B+CavSUSUwFuXn0aXdB3GkKzX7meG0bqHCYIhLI=;
-	b=LREGwGz37VoH0GYetLaMMJj/L+jNlQX5RWS7fZ9pQ+CNMW6Uc7Zfftx9koyxOOCswAJg
-	 2UamWwVC2r0dWsrCJ8kecqv4nqcFBj1KGyAcQtwajsfZzuhInhyYp8Hj2JaPDo93O8dlB
-	 DtltfKhea+1+i/NaMjTKOUh5M5RL/Q/548nZ3PjFUuWBdlvgiqFuHDfHJ+yr9yNnwkVI6
-	 FZRtpHCzkZ2V3ONsaETm/qH11iUosvsOO7Q/r/ahJ3uPVk240qDOZbbSPBuD8IzuT/3J7
-	 b48e5b4cTmRGza0cTyYAFJ18GdJiuPJU+Imcm/hKDLXINQqC69FwJO15QoMX7uSqGYQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795510334;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
+	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
+	 Cc:Content-Type:Content-Transfer-Encoding:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=IL7ykB//MICeY8UkBsqKUeetbddAABEUJHUTtFHkJSc=;
+	b=duYoa9K0akbzg7uInjwOP8Cg1zfMWUzcDgTtIK8jfBfPORZ8jTme/qdWcxskfZjO3Zb4
+	 uj6bRzjWkJAWJDE7l2k4QY+BI2TF1AK7gKKyXAv5m+7yHjkjQlOwV8RqRYiLrqxtqLHEs
+	 dKAqwA2AjeZcufhYrHZzM8xwXGDlU+BjgfHtbxzmCjIjtSQLr+DqsKkDQiKzWqFicQu8D
+	 DPgZHOC6efz/zVci88JT7Wt6YS1RGoG2cNetzqfDdb9WzY5pVA9KOrwhs62Q4lQd7VStP
+	 7AOMl+qL7ngQPG/2dSFaPcqfWguNlccMSdAvwc/mTCPsSkbZixGm6SQpNoEypjiRCZA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b="EY/U/MI1";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.2
-Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011002.outbound.protection.outlook.com [40.93.194.2])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=gULAaHek;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=DJBkI7Ky;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07298606A326;
-	Tue, 24 Nov 2026 08:52:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07298606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 895AD606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:52:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 895AD606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=EY/U/MI1
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a/PNDmkKggPKQrldHhGzVbhX4t4tCUMSR06fERxMtAjX8wuccAQ1cVaD62afoQq0wcQ0ljVmP6n2QFe0G38VGPUQWvCpoG/7axIe4XNM5NHeFnmjtAjEpvBNpR8rWyd6YlD5KPpCEvbPaANZ9R6ZIPOJyyqJSfwOlnXFlG+/gg1WrQ5mhzQBR+tbrFUluwhlh+P2mvOHMD6HMG6V8nxIyT3blKDGFdyRdHnKYjtklEgM5fvoFhwnFJrRkBNrFGBJTZ5i8Lknuh8fBX+yH6UHUbaAShtWEc3va9ZNgda0Z47nSWFgipx2P2zhUqA38x/HaRG924L6WkKRM8BHiJfCDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2vX7B+CavSUSUwFuXn0aXdB3GkKzX7meG0bqHCYIhLI=;
- b=D0KfuO3W5vV27g9/qgAYAkagaEelByPHGjRgCKzxTIGzOtuxkg9H16SCwVsBGFqw/BUMb/1SlLruTJMYvBL2mXXRPZggJdIfrCKv8i58Di5N1gTxhINn7nHQBU/BVSBP2rlBtSxePBI9nTAq7Q852thPgg9YLUuAYsYldJ0LvvDldcjYRzTP+FlXP+Jq+W5kEzl6U8LP6A1roW7Uz574CC4MbQC2fj+mTiV7dv2ymb6XJYbpdXhHk09FwEevsmni3VxFqpnMJSl4VqWyKJkHKGyP2Z+BVNFJPxFTavnfUNUnaeedr9H/u5KDW9RkTIj6FI68ps74f6735pZVWOsARQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2vX7B+CavSUSUwFuXn0aXdB3GkKzX7meG0bqHCYIhLI=;
- b=EY/U/MI1Ob5aWXlpdgMD3ETH1QaOslR6KKAWnQcY/9/7+vQG9roGgRm3lx9cXx7FIPxI96ckyMeQwxbaSJApIidT+KvDjwZEpWkMPyo8l5B+9mATQgIqrsdHJh8FGBlNLabnMZ4zZTtWTi1bCRANyTT6BHkILnhF/KtrvrVnbn0=
-Received: from SJ0PR13CA0133.namprd13.prod.outlook.com (2603:10b6:a03:2c6::18)
- by PH8PR12MB6867.namprd12.prod.outlook.com (2603:10b6:510:1ca::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Tue, 24 Nov
- 2026 08:52:00 +0000
-Received: from SJ5PEPF00000205.namprd05.prod.outlook.com
- (2603:10b6:a03:2c6:cafe::75) by SJ0PR13CA0133.outlook.office365.com
- (2603:10b6:a03:2c6::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.6 via Frontend Transport; Tue, 24
- Nov 2026 08:52:00 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- SJ5PEPF00000205.mail.protection.outlook.com (10.167.244.38) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 08:52:00 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
- 2026 02:52:00 -0600
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
- 2026 02:51:59 -0600
-Received: from amd-System-Product-Name.amd.com (10.180.168.240) by
- satlexmb07.amd.com (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57
- via Frontend Transport; Tue, 24 Nov 2026 02:51:56 -0600
-From: Vijendar Mukunda <Vijendar.Mukunda@amd.com>
-To: <vkoul@kernel.org>
-CC: <yung-chuan.liao@linux.intel.com>, <pierre-louis.bossart@linux.dev>,
-	<Basavaraj.Hiregoudar@amd.com>, <Sunil-kumar.Dommati@amd.com>,
-	<venkataprasad.potturu@amd.com>, <Syed.SabaKareem@amd.com>,
-	<Mario.Limonciello@amd.com>, <Richard.Gong@amd.com>, <Poojitha.N@amd.com>,
-	<lee@kernel.org>, <linux-sound@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Vijendar Mukunda <Vijendar.Mukunda@amd.com>
-Subject: [PATCH v9 05/24] soundwire: amd: fix missing wake interrupt and group wake-arming calls in runtime suspend
-Date: Tue, 24 Nov 2026 14:18:11 +0530
-Message-ID: <20261124085033.682755-6-Vijendar.Mukunda@amd.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261124085033.682755-1-Vijendar.Mukunda@amd.com>
-References: <20261124085033.682755-1-Vijendar.Mukunda@amd.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=gULAaHek;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=DJBkI7Ky
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO8dsSt646328
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:52:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	IL7ykB//MICeY8UkBsqKUeetbddAABEUJHUTtFHkJSc=; b=gULAaHekKgIQsjv9
+	G4FUbn8KOs70p9fRP3Z6T3j25V1tkmBhH8gLkOgJTNlifcpeNyppzllUTUDMOb3Y
+	c0hCImuX/3jtOcOHliQTtYe966wxKG2VP7QA4bLNwn+5YHeWJskWeZi5GYxCbmLt
+	IO1QQX/QN0E2Kf+okUJkOMZIBcjbBYUJc8N+s3uqSILvm87w3yAh7jWzNiPCx90v
+	8VODdoptdGiLMKqaNK2zpMVWCZtBD6A40L5/ki1tqXYXWDnZoucvF4ILB6VUACUY
+	qh43wOs0rzVfBEli7xv4ywaeJXGhfsrPK1WfMvtATAMk1GdZNY+xHn/+rzydye0v
+	j68nEg==
+Received: from mail-yx1-f71.google.com (mail-yx1-f71.google.com [74.125.224.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4yvd1re9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:52:12 +0000 (GMT)
+Received: by mail-yx1-f71.google.com with SMTP id 956f58d0204a3-67c0efb7b97so2179117d50.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:52:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795510332; cv=none;
+        d=google.com; s=arc-20260327;
+        b=BB5gOerX/0j53OyuAxxmSX9jEEVg5S/oMKl66srtkU5vy7O01GaV62HqgkFlB5w4e7
+         OiaqgdC4w6RdBB5Coq1JDi3pyDBuJxk9ih/aIi2ALWS9uY81JRLe6/1VxLdXfg750gCZ
+         e2PU3ZkJYWe0aGMufqKFE5fZJs+7ThdZIU8p8gafkwZxwoJXCWFDK5Bp7zs8bxAbVH/K
+         ypPCzonZgP56DY0SB9Sb56daMEfxMqRguzM1/9QNHc6udpWtLntwK6Gw6VA28sTlo6KX
+         3WziLh3WQY2Frw1NE0Lrs3WwLUFOXOzhB4f7Rcu4ZszDYE+fxLE0N0nfJ5KaiNzXtiYC
+         ZPaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=IL7ykB//MICeY8UkBsqKUeetbddAABEUJHUTtFHkJSc=;
+        fh=afYWhHDGJSQBwrbjv2B15jzrIjM/nDeI9i3BxJeJd4c=;
+        b=ok2XMEQB2KzW53Recou+2dSiQS6VULoKV+/krnTHXyHVocTVtNe2fBqpWDkwGSFNYT
+         2IpIWm5pYfRNcf93QL2Un5WHk7t12hs0yIEu63XiJSUjwm/2pXjNtVaKcx2F40MJZ39y
+         GBW0KjxbZ+RuHTbcRzcISvL+VlGTK2OoH1h1m+pJFUoQFRMGkIUSg0CoHcAyBllGvWBe
+         KJ9qAVRQ8Gy+cDtCxGsnnuFZr91s0I1myPb2v8abCB2CmEn/JJKLxbUomkZ8Qywk/LFb
+         DeoZIT/K09CzkYBSPfyMLWjv6HP/TQ/V/RcmCNCf5Q64sb7+J5XRACzWNFAh3tWHoDPD
+         poIg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795510332; x=1796115132; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=IL7ykB//MICeY8UkBsqKUeetbddAABEUJHUTtFHkJSc=;
+        b=DJBkI7KyQYqYCIhYq1QI1/aMNkekO1BIJVTkEP/7qv9/TZ8NNpZIjd9yL5LI4RxgJW
+         kPe02xxK4XfzCg+8psdyRKpIZvdV9WZTbiVC6wgR9PQ0PAhevjGUli7Yo3Z1C2voAXE5
+         mt/tA0Ri2DBAdOpl9uBNovHd+dcvEtDqCN4/H03ty9kDfVRknA1IK3jWS3vpF7j234E1
+         mxbLSL/+tkn3XeXV6/t9nNGewf/LwSp7fcAreTVlL81kX+Z+MDpOd9sQhNgOV4mjV29i
+         zIBoRWsD3n00Q/4GUNS5sbUggIm606/sosIAOKtYVkC37psFfc+9YDH3IwM8Lvzas0jY
+         OKAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795510332; x=1796115132;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=IL7ykB//MICeY8UkBsqKUeetbddAABEUJHUTtFHkJSc=;
+        b=rSV5hqek5f7+u3Wt1UbXFThvmOAbk7T2vEToeD7b1tJ2Is0/bVcd8VkoPDzr2qPB5d
+         q/xV6plaOBmukB+n53B9ZvHf+jUS1hKOC7Qj4jVtJq/+3512spwG6yQ6rcrbP7cR3xhG
+         fe+0VNK295Rwndik4XA+FlTjpVbV78kycGZz2BbU3nfj8coJWrljC3WRkRPxWC1d7Jwa
+         HTXeQC8HoCV9s9B9mLnx7ovWZMyeUmjg3ltCFadgXtrlTSj6O8+e7NUedKhTI5DFwICS
+         lpwp6M5dM7jpXFVrT9KtTa/Ec6+iQRvObs/7DUJtl1jAyeNe4lhFax2ThSRdK/bkKLoY
+         8XJQ==
+X-Forwarded-Encrypted: i=1; AL+hErFzF0/VkxTHKtADEwKGGbm2i2sZIppk86I0hdzsmF3QQbKlWzAoRCcAxRAhE/UDn8b3xE2C04VFR7JGXs4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8YMWZjWJe1bZbCNgkYPV+gqvvdkmpALIyPYyhD7dGfOvp4Y+dd
+	8kKZUgUBkXgEDQGV7h6MpHsuWOtwmHGvUJUsDjIlsFMEGjMJXK3fch631loO/8oW4MF/Aig7Zfz
+	/GUzgGUyToWlfZGn5SOFjZcKdPMs3opvCxY5BHNlxUoQ6Q/uKg9JOelJXapB2vcXOAdC9pmHhuP
+	eM7Y9sEhcei4LLGQlxltAGDkyOtVA69Q6haadYgRvwDw==
+X-Gm-Gg: AZFdTZfQsinwE9XkG/sA0BFat05lBoRaDOarknQ47PhYkD9GccIQRF+Fbqe0bw8kN5t
+	3d2h01FeHNCTC/vs9RNflGnyIFe9JuPSdScwLzBJB29ZekGsYl1GviZB8O7BdWqpz7UXGs+ECAA
+	Q/EhbfOH37uXLtiZb+FiuIIe7mcWHtsOlWDcgQBUgW65MfkZChJJVgvUkyhcmBOB4KbpGyCiele
+	S9SZLHGvCwlduxHOrMxkQFAcuG/OCgshJ2X7lD9
+X-Received: by 2002:a05:690e:450c:10b0:67d:eb6d:7458 with SMTP id 956f58d0204a3-67df44555damr2918997d50.55.1795510331838;
+        Tue, 24 Nov 2026 00:52:11 -0800 (PST)
+X-Received: by 2002:a05:690e:450c:10b0:67d:eb6d:7458 with SMTP id
+ 956f58d0204a3-67df44555damr2918995d50.55.1795510331414; Tue, 24 Nov 2026
+ 00:52:11 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,89 +128,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF00000205:EE_|PH8PR12MB6867:EE_
-X-MS-Office365-Filtering-Correlation-Id: ea1ca7ad-4f6e-41a1-0f18-08df4a083463
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|36860700016|1800799024|23010399003|82310400026|10067099003|261022075727099003|261028144727099003|11063799006|56012099006|261026140227099003|261021123027099003|261021121427099003|261022105027099003|261102123227099003|5023799004|18002099003|22082099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info:
-	5BYMBMZPIUdNQWAVOCzAXvHwneZp1ZUPYh/u+fq9ccV8dDqCCoHEMenDmQ+eju6chYrPtgePQRQTZsS4wDAIk481OhBImMrG1tsIEYq4EllyJ+RjH2TfvOsaigLNSKvMJYI9i9UPOioRdTLLH2Wl84HOiEKrXxG8WvkT567Som1KTwIzpHQHdd3me4gjcE8osdyNXJSHTxG71+sFWHkex3ra6FUYCcK4GTKl4AuFcr6tY+zORRS2ywQ7M0D0fdaOxFb1ZRbn0ose1QsQX73D0VA+FJ6Cuvx2mUt+UR2VcZ4WG21qi0jtxgrtj31Nyiynh3ONMFWkIUqob1sursa6nCy0wxFV7UR4I7lefZkVqU3Dgg9yG+X6R0AFXBpHeD21puI+XFnk+VrJbtraFboDOw4zpxdOeSu/mEa+nRS8kFqkcM/aZfMahEWBGdlUQBJj3KOzswIf/GHlKkElU+IPvcNKoqcxz8zJkqv7vXAGStfXNV+Wa0sXdPPGXc9ZYDVO9yTDoaq3Kmv+/g2b5VRR4P2kczOLndHNjfn6+++Eb5gX5vBgPgZjR1mm8+ky6yqL5/tvQpEPCewPEC4CxAM1BoMCBGA+0fEYo9XqcW2a0piapAL1Hy1oOkTm6RazYIgxpaUmCm64D6b8XwlXMoHLpRisRWtGJB8r+m4+kE7w4mnEko9HqqvUbkqzTzz+Em8mFSc5vFXkqQSMbpd8A1zLrw==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(1800799024)(23010399003)(82310400026)(10067099003)(261022075727099003)(261028144727099003)(11063799006)(56012099006)(261026140227099003)(261021123027099003)(261021121427099003)(261022105027099003)(261102123227099003)(5023799004)(18002099003)(22082099003)(261009223027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	8tAK3l17HpOOdyeHS7TJDNuDVGdt/qUgCF5MRmw5rwQxLHzxCRQrjVFF+5sGQXmXVGuOzLhfeMox17TffWFy5/IYEFx1fQtXGp0niW2EpIMpMcbRPbdidQVjHF0mFQZu1OVZJtlGDs7kGklRgCZb04j6r92ZG9DMBRInvc1kKhfvUyaLgyD4wZTy5zeVGGHO182HJuOvUUD0OOVPbyvXoHQy7CzGvkps173cVnYz7aGw6NKOmHvFhyupKl48nMex2iVmMYes/dRpeUHPXccxHWtl8P+xtit/3+oEx1LBIRUiw9qzOpEpwaFReo1PkZCyH89VT+K1g0ZckuQQ/3UbYE0FvuS4+BUQWij+XE4pxmzOhp+jckHYghtHRNmVOLgEZdqnP4riFGkaAkmJZEQbX5pO7PdUKN7X3M24dZ98jwYDUQw/smg+P1Ygb0e6zNBJ
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 08:52:00.7710
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ea1ca7ad-4f6e-41a1-0f18-08df4a083463
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	SJ5PEPF00000205.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6867
+References: <20261113-tee-shm-dma-sync-v1-1-19d4efdfb4cd@oss.qualcomm.com>
+In-Reply-To: <20261113-tee-shm-dma-sync-v1-1-19d4efdfb4cd@oss.qualcomm.com>
+From: Jens Wiklander <jens.wiklander@oss.qualcomm.com>
+Date: Tue, 24 Nov 2026 09:52:00 +0100
+X-Gm-Features: Aa3M54rFHqUJNXQjemvxf-Zt82SGX1HKER8XMMPmIBzLcusnrFpbxg6otAaKEJw
+Message-ID: <CAGgiveWm-xH_SjA5QrBJx6NtQhWyQWMw2FvfSd9SfG-wghpwmw@mail.gmail.com>
+Subject: Re: [PATCH] tee: shm: sync DMA memory for the device before it is lent
+To: Tyler Baker <tyler.baker@oss.qualcomm.com>
+Cc: Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
+        op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org,
+        Vincent Donnefort <vdonnefort@google.com>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Authority-Analysis: v=2.4 cv=ZYeIpcVA c=1 sm=1 tr=0 ts=6b05503c cx=c_pps
+ a=ngMg22mHWrP7m7pwYf9JkA==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=_glEPmIy2e8OvE2BGh3C:22 a=6jbKIeu7AAAA:8 a=VwQbUJbxAAAA:8 a=1XWaLZrsAAAA:8
+ a=EUspDBNiAAAA:8 a=i7LB113YSaF0UBaY600A:9 a=QEXdDO2ut3YA:10
+ a=yHXA93iunegOHmWoMUFd:22 a=-0VUF4iAjVmhXKmeMUOz:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAzNCBTYWx0ZWRfX3QVDJFiEXQeZ
+ fJ6ghM6wjxzK/BbmghghSDusnaFZ9Hwfh4eNzMHAj6VKoqxrKNsiKDAyeMpX4b/Mdcr52P4vtz8
+ TznhjHasgYxFuUXvz1WFWnJrsn6dLz0RRSq5z0sRCgvkSDgNFmsMLIZM2d6rCRTvYgGBGEO+FqB
+ TRMua+ovbsgnkDTO1xwZ6U+1GZnkfaEJYAx4HvjGCmfrJTnDUfzh5Ergz2J7hSF07wT/8HNYBIB
+ 2tev26478MewriBVlNjZZd0YqOrgJzLOROisBuD2XpYjeOu+gpOFR/MTqcR8CEPmxIDEhhauksn
+ WLBwqvuw8gKa9BsapF6DHtN6IZH9aH+eXITBoAzajA1EoVbPe03Riu5B5jDV9Y5+MSv5JeushUc
+ EfZAl11EMwBSPkh2VEupZlQPeTH4gwUaHjI/S/cu/zTggjwURmrJhVW7Rc7s2zBm6zKeCrHwqrJ
+ Z9/n2BOMihKSlGToPNg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAzNCBTYWx0ZWRfX8C9LNaU4lNea
+ V62tt5H40g5qOPn5vi9C/SRrge8fLjDM/ZqSytQZXylb0Ui6XIQYNdqHLrJJcy2zvicjIjgiKac
+ eKIndyi8IZm7fmYaeBEvhdzc1fXpzqU=
+X-Proofpoint-ORIG-GUID: 0pLBO1zdFF3v9_W_gYHJrEpkCjHoTTk0
+X-Proofpoint-GUID: 0pLBO1zdFF3v9_W_gYHJrEpkCjHoTTk0
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 suspectscore=0 adultscore=0 priorityscore=1501
+ lowpriorityscore=0 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240034
 
-In amd_suspend_runtime() POWER_OFF_MODE, amd_sdw_wake_enable() was called
-before amd_deinit_sdw_manager(), causing the wake IRQ mask to be silently
-overwritten.
+Hi,
 
-amd_deinit_sdw_manager() calls amd_disable_sdw_interrupts() which writes
-0x00 to ACP_SW_STATE_CHANGE_STATUS_MASK_8TO11, wiping
-AMD_SDW_WAKE_INTR_MASK (BIT(16)) set by amd_sdw_wake_enable(). Move
-amd_sdw_wake_enable() to after amd_deinit_sdw_manager() so the wake mask
-is armed after the interrupt-disable sequence and cannot be clobbered.
+On Fri, Nov 13, 2026 at 2:22=E2=80=AFPM Tyler Baker
+<tyler.baker@oss.qualcomm.com> wrote:
+>
+> tee_shm_alloc_dma_mem() returns dma_alloc_pages() memory without the
+> dma_sync_single_for_device() that the DMA API requires before a device
+> uses it. dma_alloc_pages() zeroes the pages through the cacheable
+> linear map, so the zeroes can still be dirty in the cache when the
+> optee protected memory pool lends the pages and a Secure Data Path TA
+> writes them through its secure mapping. A later eviction of those
+> lines overwrites the TA's data.
+>
+> On an Eliza EVK with OP-TEE as the FF-A SPMC, a TA decrypts into a
+> protected buffer, a read of all RAM through /proc/kcore evicts the
+> lines, and the TA's digest of the buffer no longer matches:
+>
+>   frame 0: 0e534d8c..., reference d98ddba1...
+>
+> Sync the allocation for the device before returning it.
+>
+> Fixes: ab09dd6d9201 ("tee: add tee_shm_alloc_dma_mem()")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Tyler Baker <tyler.baker@oss.qualcomm.com>
+> ---
+> Vincent's direct-map series [1] cleans the range in
+> dma_zap_direct_map() before the lend, which also covers this when it
+> can unmap. It returns -ENODEV without any cache maintenance when there
+> is no lendable pool and the direct map cannot change (arm64 with
+> rodata=3Dnoalias or rodata=3Doff), and it is not a stable candidate.
+>
+> On a dma-coherent TEE device the sync does nothing. teedev->dev is not
+> configured from firmware, so it is not coherent today.
+>
+> Without the fix the TA's data is lost:
+>   https://lava.infra.foundries.io/scheduler/job/554467#L2262
+> With it, the data is intact after the scan and 50 lend rounds:
+>   https://lava.infra.foundries.io/scheduler/job/563840#L1979
+>   https://lava.infra.foundries.io/scheduler/job/563840#L2008
+>
+> [1] https://lore.kernel.org/all/20261111110738.872947-1-vdonnefort@google=
+.com/
+> ---
+>  drivers/tee/tee_shm.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/drivers/tee/tee_shm.c b/drivers/tee/tee_shm.c
+> index 5c47a36916c45..70a273a425f88 100644
+> --- a/drivers/tee/tee_shm.c
+> +++ b/drivers/tee/tee_shm.c
+> @@ -297,6 +297,9 @@ struct tee_shm *tee_shm_alloc_dma_mem(struct tee_cont=
+ext *ctx,
+>         if (!page)
+>                 goto err_put_teedev;
+>
+> +       dma_sync_single_for_device(&teedev->dev, dma_addr,
+> +                                  page_count * PAGE_SIZE, DMA_BIDIRECTIO=
+NAL);
+> +
+>         dma_mem =3D kzalloc_obj(*dma_mem);
+>         if (!dma_mem)
+>                 goto err_free_pages;
+>
+> ---
 
-Move amd_sdw_host_wake_enable() after amd_deinit_sdw_manager() as well,
-grouping both wake-arming calls together after the interrupt-disable
-sequence.
+Looks good. Sumit, do you agree?
 
-If amd_deinit_sdw_manager() fails (timeout waiting for ACP_SW_EN_STATUS),
-the hardware is in an indeterminate state and wake IRQ delivery cannot be
-expected to function; the early return before the wake-arming calls is
-correct in this case.
-
-Fixes: dcc48a73eae7 ("soundwire: amd: change the soundwire wake enable/disable sequence")
-Signed-off-by: Vijendar Mukunda <Vijendar.Mukunda@amd.com>
----
- drivers/soundwire/amd_manager.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/soundwire/amd_manager.c b/drivers/soundwire/amd_manager.c
-index 28f5dbe131dc..3d60bea82792 100644
---- a/drivers/soundwire/amd_manager.c
-+++ b/drivers/soundwire/amd_manager.c
-@@ -1454,18 +1454,18 @@ static int __maybe_unused amd_suspend_runtime(struct device *dev)
- 		if (ret)
- 			return ret;
- 	} else if (amd_manager->power_mode_mask & AMD_SDW_POWER_OFF_MODE) {
--		amd_sdw_wake_enable(amd_manager, true);
--		if (amd_manager->acp_rev >= ACP70_PCI_REV_ID) {
--			ret = amd_sdw_host_wake_enable(amd_manager, true);
--			if (ret)
--				return ret;
--		}
- 		ret = amd_sdw_clock_stop(amd_manager);
- 		if (ret)
- 			return ret;
- 		ret = amd_deinit_sdw_manager(amd_manager);
- 		if (ret)
- 			return ret;
-+		amd_sdw_wake_enable(amd_manager, true);
-+		if (amd_manager->acp_rev >= ACP70_PCI_REV_ID) {
-+			ret = amd_sdw_host_wake_enable(amd_manager, true);
-+			if (ret)
-+				return ret;
-+		}
- 		/*
- 		 * For ACP 7.0/7.1/7.2: disable OE only; keeper and schmen remain
- 		 * enabled unconditionally so that wake-capable devices can detect
--- 
-2.53.0
-
+Cheers,
+Jens
