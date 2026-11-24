@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795549757;
-	b=x4SWcMZbKmJMtmN41yH4D2lEyz9T0GlA529YakwkVSNHU/G1fYRdjqcjGrvfhZqdhGWo
-	 UG8LqnLnswIdFVdZHdRYU/a+o6vZ7/tyO9Qz57Sa6bve3F8Jk6bg7ZV5PuqseU29oHn43
-	 7ViMbUaVi3HTzhbVLrQCHgmJN8g1cA6ZGizDu09tY6txf4GKPeDq5sWt0LXcJyYHZB/XZ
-	 V7mwLFBdBZIbpdzEwz4APB8tPBUvknbgd6j6z5blCTr9grjVnNnZn3aueABmIUGC/Y1v6
-	 egcQlIKcJGpn3hLzX8d3GCag5WUjeH0p0tyGUB0Qlx2XR6PCR6MQsBUh00v695oqNlw==
+	t=1795549752;
+	b=jFbgjGuomnpDxsexJIPl2/D0U9w7MnKSq9JeaKFGLwqrqW5dQEO1H/GWVNT+Z6je1czS
+	 vc6llCyYhdhao2Y3rI7xcoAKvhJt80iyt+ZWHoFNM1W3il7l5Ply2NfC9U6Z4LPBV0hx7
+	 zkxX9ZWxfrbtzcXMcls0RhHhPwnp2pUFakJhwjaN2M4KGx1S1DIioT7ba/unQ/rJ/MyrZ
+	 TMgbX3ybyVBwRhYmZMuRraEO7za8QTYQ4pw9jS+U7BcAhsvjkP2ytBFWvb39fRZxd+Eve
+	 zAiuE3nQ0Zt8q20Z4GUay2vVPKluU9mjFtyRYbsR6lepYxpcubnZBs0sJkvzSgzrRQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795549757;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=DdV8mCrVdlTy+W2zhIYE2Cj4xwzWt453izMOIQetGoo=;
-	b=Y8TDIo0+Ka4zS2GfjgS6XKkv8P5mf0oVyXyMGoC2wSWqAzGL/Empyq/Vfzjb5Eb3lnEh
-	 8xc7bU60MiOdnH0esBkTqFAqxGakCyyowwwNWEsfCotKrMYTy6+D88QvWDCQrnauxtvA9
-	 c0HX64J47xuvxpa72LwyiyinTB/rF6f1hMKn4Dl7h4bSvMgIhT9zNF46+VYDZUrJVCEdu
-	 TD9JFrnkeXSwQf3JL0TGPYqHXozdKFAubJXkdykRqXTuNZ50YgN/8diRH6WY0z73mZPNA
-	 sAUoMsg+2Vykh1blDZOX28FFYUXGJP5yPZ/ZR3kuP37nRklDASxBuH1GV78LeLJnqTw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795549752;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=gTzK+s6Y3xM+ihVOyEyoikGdVd1xvoW3//Ffc7sCTvk=;
+	b=04xMM2/vnZ/adkWk+PKE6nLj6rwedwxgAhkwjSqDX6zKL/R7FE5gQZbP5rugRHJjSRWT
+	 hS8pOBhazwO5YOKItHblo/e1aJ23pXQEC6gWYez/J/nv1l2H1v+LCUoMr7BaFs/0hlLbJ
+	 /DXVuyZyKRxLwvVuSIQ5Q7RHuSkoevAJE1fk50/SvFmSp4qUbv2HK6cWoE71Y9Bamv0LA
+	 9yKkIq5Y/DIytoaqvouqPijabheHOboteBosYyKUhfWi/07UskyIywkVDwSgdBBnAZsA8
+	 iru8LdPCFHcrX3niVyW17fOZ1c70v2lfha9sUd7I/6B80194VCpwRHxymjYK0iuleSw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PfpF7sHP;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="BYSo9bL/";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EE2B606A337;
-	Tue, 24 Nov 2026 19:49:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C105E606A334;
+	Tue, 24 Nov 2026 19:49:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PfpF7sHP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F6581F000D2;
-	Tue, 24 Nov 2026 19:49:16 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BYSo9bL/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D54141F000CA;
+	Tue, 24 Nov 2026 19:49:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795549756;
-	bh=DdV8mCrVdlTy+W2zhIYE2Cj4xwzWt453izMOIQetGoo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=PfpF7sHP5D+UdHbKu7hc2OG87EjsVqFU155APx6qjquQPt/CqItTGRP65kNR50jOS
-	 TcZJfFNGjZ4XkIiAcJ8X0A06R2hr7pd9Mj7OlMYzyNq1u8KqxBLq07EVvlsEk4Lcfm
-	 UOPp5rDXgluE5TH0+StnhohcbdKn2TU6rGz3vTL6JTUN89qSfUg0rgmFRlLbHGJ4hW
-	 TUJHpA6SOyHyRTHb3S4l/5t9Gv9JS0WGnBJU7IAb2xCANSNMARvtZipOUGZxxgf7pN
-	 9SvRotM/cnlqF8llS+t061q/gqVUC9Nj4c49tcbyzO4nhAW5lC27UARPzy10iiK3m7
-	 R7YZvYO8uKuSw==
+	s=k20260515; t=1795549752;
+	bh=gTzK+s6Y3xM+ihVOyEyoikGdVd1xvoW3//Ffc7sCTvk=;
+	h=From:Subject:Date:To:Cc;
+	b=BYSo9bL/UKfGI54+q3UcQgEsSFHrokcRnqSsdHq0tMi4ej3wGy0bjjzIUUGx5zSk6
+	 ZQOmjmRiOgRQya6EdjWxc5edoCDrE7ivnKblKqTuafiCEZ4avR0WKJg7DQM2yN1lhu
+	 S1axrVyOUnPZNpEoL8E3JiNv7G8L5v7tpRtkjpy276k70/l48bZG09G6YsTx1/L4rC
+	 1YfjOdeBvIx3zX7wgwj/ya4z4onHBI4jfxCkM/M4KSyq/72xDRAgAgzv/MBndKnQSs
+	 xlH2nuHXdqWfvz0jfrBS0UjVzrgPTHNydtHVYpaW+pyiDpFff2nk66S5RA2NB6aGmH
+	 HW7FPeRynlqmw==
 From: Jeff Layton <jlayton@kernel.org>
-Date: Tue, 24 Nov 2026 14:48:42 -0500
-Subject: [PATCH v3 03/12] nfsd: count a delegation in cl_delegs_in_recall
- only once
+Subject: [PATCH v3 00/12] nfsd: various delegated timestamp fixes
+Date: Tue, 24 Nov 2026 14:48:39 -0500
+Message-Id: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,9 +55,11 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-delegts-fixes-v3-3-6fe4ba705aef@kernel.org>
-References: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
-In-Reply-To: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XMQQ6CMBCF4auQWVvTTg1QV97DuJDOFBoJkJY0G
+ sLdLazUxOWbyfcvEDl4jnAuFgicfPTjkIc+FGC7+9Cy8JQ3oMRSKZSCuOd2jsL5J0dRmVprRUZ
+ R7SCbKfD+yOR6y7vzcR7Da88ntV3/lZISUtjaNLoipFOJlweHgfvjGFrYUgk/uf7lmLkppWXpG
+ nRMX3xd1zdfY7L16gAAAA==
+X-Change-ID: 20261120-delegts-fixes-798331d91d8f
 To: Chuck Lever <cel@kernel.org>, NeilBrown <neil@brown.name>, 
  Olga Kornievskaia <okorniev@redhat.com>, Dai Ngo <Dai.Ngo@oracle.com>, 
  Tom Talpey <tom@talpey.com>, Christian Brauner <brauner@kernel.org>
@@ -65,86 +67,83 @@ Cc: =?utf-8?q?Aur=C3=A9lien_Couderc?= <aurelien.couderc2002@gmail.com>,
  linux-nfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Jeff Layton <jlayton@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2392; i=jlayton@kernel.org;
- h=from:subject:message-id; bh=XsSZC4Cb4n47zUuvLr9M3tVFz4Y1vPJNNnSmdy8nAi8=;
- b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBrBeo1QoTCFQhsiym7XiX/nIAeD5mI/PdqhbUzK
- HjzYDhgmd6JAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCawXqNQAKCRAADmhBGVaC
- FWk0D/0Ywle/Jp8UgC49gr9gWuV5TYjAJi2Fn7zR/Gild916zP+w8RCph1/OvbbuBJTHgAFAgPA
- D3S5eybQl+28l+cbyYkZf7n0Q/PRe3r9V89kCM6eEJGAp29hopGcpmdMpUpW5CIref4AhrgqiL0
- 5GGmGJ+digfr5NcqZk1ru6r6ew45ovkGR1EGU1Ie4oNBKTRejUYjxkTT0f73pOKW+hUZVMlGJ09
- VHm0Zyi4xKWewHZNz+ydReUKfMBwYOse2lDvyRCeEdvKtZaBlu+uqucdl3HPFNsGGUSrIQKiJMv
- tNaSx/O5R5rkMtUl0jZHQeJkXiZEd1+Fvvcb0BhtNwDlENbzJp1zmHJrgjAI1AuShF9WOD+J4yw
- pJl4OpEFgR0SxWXWwgIY2zua59UcZ9cEB+nGIPuX2J3947RBo0GEuQ012pK/CEqqffU90DWyuCR
- HmqTXH1QySy4gctMDibXqJylZMXYhmMfQy4wCexFfidaxzqcGEGh7myXZ4FezCaeFqGsaHnphZ3
- mtS+RKHTYQHOkq9GTjMmsZydMllngXPzPVm4EEUEkzwJI7nPgrJHZY1YRyLoIICcwj60X4iTgdw
- /OJN7y0mP1dalVosG5m4abyWRMHMZT7BKdnwft6G0ONoHNfyF2M7LeZ20JjfD+SYFQ6SNIei+el
- 0XC4YcacISO2d+g==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2930; i=jlayton@kernel.org;
+ h=from:subject:message-id; bh=yXYKQP9cyLOuBOT5cFrb98nKOREgRgqnzEb5yiJYNFQ=;
+ b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBrBeovsCzxJN34YJPmJD1u/ybeDN000fFXz09XW
+ 3lFpKWWTgCJAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCawXqLwAKCRAADmhBGVaC
+ FeNKD/0V8GFri/Y26mIvT1JglaYLV6MBfOeaOQ/Ld5KuDoVvkkik4c99mor1lvasuhhrSFx+YO+
+ WcWwUtHnU9FrwZ60ASCUiHEGsHgMwejWKw1FScGMZK0Hpy5sTAhK81N2rh4gXoHhq14Z788EqLK
+ LoNL9Iz/nLphZNxr3V9QrVZ5uJ15tXFPlDiewbksmRkMi7E0rzrdoqE5iPQXKQFSFAMea3fjRRX
+ zVmdKbnWf0HjwJoi+txNyb9pDOwaCC+hxvFYL2ZLj/BZxxzsQuq3S0aJXiU4Qy31uYM3+Ol31lv
+ gQE08luxPSwAmTD99jnemhkUuJghDak0JpcaaIxiMOZ2ugbExGYBHt8SKEQ0ulC/7uF3zXUOZR+
+ giW0pwy9XQOtSGmV6d4F7WJh5jZds5T9taNtAzwN+63ajDD4+yYsMcPUYjTsgre95YGLwjdoiIz
+ j3R9eHT4YDbT3Zy94jBZJo9TYOcFdrCBd2+8dxnS7ThZAeOXtIN0AI805uASAtg8Cvj6u5vKO4Y
+ 4q1mKszqlWLgirn6Ez3XGH6w/4ZW5gHAPbXrAb2Dc3HNeaa3dvrZSw5LQFDcm2u3op/EOPyZozo
+ s0lFzrJsBX6JT59TLcH7joBbQZRIooWBlQ3bX8qBg7MUv/0/dK/9Z1tKwt27AGxp/40ucDL9+xk
+ jjlVI7wLUcAYAuQ==
 X-Developer-Key: i=jlayton@kernel.org; a=openpgp;
  fpr=4BC0D7B24471B2A184EAF5D3000E684119568215
 
-nfsd_break_deleg_cb() can run more than once per lease:
-- __break_lease() calls lm_break for a read breaker
-  (FL_DOWNGRADE_PENDING) and again for a later write breaker
-  (FL_UNLOCK_PENDING).
-- nfsd_handle_dir_event() and nfsd_recall_all_dir_delegs() call
-  nfsd_break_deleg_cb() directly, possibly repeatedly.
+v3 fixes two problems in the v2 freeze protection and SETATTR ctime
+patches, and adds a patch for the same ctime bug in CB_GETATTR.
 
-Each call increments cl_delegs_in_recall, but nfsd_change_deleg_cb()
-decrements it only once, at F_UNLCK. The leaked count keeps
-nfs4_anylock_blockers() true, so the client can never again become a
-courtesy client.
+While I was reworking NFSD's delegated timestamp support, LLM review
+found several bugs in the existing code. This series fixes them.
 
-When dl_recalled is already set, skip the increment, the client expiry,
-and the stores to dl_recalled and fi_had_conflict. All callers and the
-F_UNLCK decrement run under flc_lock. Setting fl_break_time to 0, the
-nfsd_break_one_deleg() call, and the false return stay unconditional.
+The timestamp rework is still a work in progress. These fixes can go in
+ahead of it.
 
-Fixes: 66af25799940 ("NFSD: add courteous server support for thread with only delegation")
-Fixes: cb7444b27c85 ("nfsd: add notification handlers for dir events")
 Signed-off-by: Jeff Layton <jlayton@kernel.org>
 ---
- fs/nfsd/nfs4state.c | 20 ++++++++++++++------
- 1 file changed, 14 insertions(+), 6 deletions(-)
+Changes in v3:
+- nfsd4_finalize_deleg_timestamps(): wait for a thaw on DELEGRETURN
+- vet_deleg_attrs(): set dl_setattr on any applied delegated mtime
+- nfsd4_deleg_set_times(): likewise set dl_setattr on an applied mtime
+- new patch: move ctime when CB_GETATTR applies a delegated mtime
+- Link to v2: https://lore.kernel.org/r/20261123-delegts-fixes-v2-0-960ce0fb2fed@kernel.org
 
-diff --git a/fs/nfsd/nfs4state.c b/fs/nfsd/nfs4state.c
-index f3d1065d3448..c2c082006d81 100644
---- a/fs/nfsd/nfs4state.c
-+++ b/fs/nfsd/nfs4state.c
-@@ -6654,11 +6654,20 @@ nfsd_break_deleg_cb(struct file_lease *fl)
- 
- 	trace_nfsd_cb_recall(&dp->dl_stid);
- 
--	dp->dl_recalled = true;
--	atomic_inc(&clp->cl_delegs_in_recall);
--	if (try_to_expire_client(clp)) {
--		nn = net_generic(clp->net, nfsd_net_id);
--		mod_delayed_work(laundry_wq, &nn->laundromat_work, 0);
-+	/*
-+	 * lm_break runs again for a write breaker after a read breaker, and
-+	 * the dir notification paths call nfsd_break_deleg_cb() directly.
-+	 * Only the first call may count the recall, since
-+	 * nfsd_change_deleg_cb() decrements cl_delegs_in_recall only once.
-+	 */
-+	if (!dp->dl_recalled) {
-+		dp->dl_recalled = true;
-+		atomic_inc(&clp->cl_delegs_in_recall);
-+		if (try_to_expire_client(clp)) {
-+			nn = net_generic(clp->net, nfsd_net_id);
-+			mod_delayed_work(laundry_wq, &nn->laundromat_work, 0);
-+		}
-+		fp->fi_had_conflict = true;
- 	}
- 
- 	/*
-@@ -6668,7 +6677,6 @@ nfsd_break_deleg_cb(struct file_lease *fl)
- 	 */
- 	fl->fl_break_time = 0;
- 
--	fp->fi_had_conflict = true;
- 	nfsd_break_one_deleg(dp);
- 	return false;
- }
+Changes in v2:
+- nfsd_setattr(): sanitize a fresh copy of the attributes under
+  inode_lock on each attempt, since the setid bits a chown must clear
+  depend on the current mode
+- cb_getattr_update_times(): pin fi_deleg_file for the mount's write
+  access, and skip the update once the delegation is unhashed
+- nfsd4_deleg_set_times(): set dl_setattr only after notify_change()
+  succeeds
+- add the missing Signed-off-by to the nfsd_setattr() inode_lock patch
+- reword changelogs and comments
+- don't use ! operator on cl_minorversion
+- Link to v1: https://lore.kernel.org/r/20261120-delegts-fixes-v1-0-c89b37d2d462@kernel.org
 
+---
+Jeff Layton (12):
+      nfsd: don't hold inode_lock while waiting for a delegation in nfsd_setattr()
+      nfsd: take freeze protection before updating delegation timestamps
+      nfsd: count a delegation in cl_delegs_in_recall only once
+      nfsd: don't grant write delegations to NFSv4.0 clients on CLAIM_PREVIOUS
+      nfsd: set ctime when a SETATTR with delegated times changes other attributes
+      nfsd: pin the client while a GETATTR holds a conflicting delegation
+      nfsd: recall when a CB_GETATTR reply omits the size
+      nfsd: apply delegated times in a separate times-only setattr
+      nfsd: grant a plain read delegation when timestamps are wanted on a read open
+      nfsd: check fi_had_conflict under deleg_lock before hashing a delegation
+      nfsd: take the write delegation grant stat before hashing
+      nfsd: move ctime when CB_GETATTR applies a delegated mtime
+
+ fs/nfsd/nfs4callback.c |   1 +
+ fs/nfsd/nfs4proc.c     | 171 ++++++++++++++++++---------
+ fs/nfsd/nfs4state.c    | 313 +++++++++++++++++++++++++++++++++++++------------
+ fs/nfsd/nfs4xdr.c      |  56 +++++----
+ fs/nfsd/state.h        |   2 +
+ fs/nfsd/vfs.c          |  62 +++++-----
+ fs/nfsd/vfs.h          |   1 +
+ fs/nfsd/xdr4.h         |   3 +
+ 8 files changed, 426 insertions(+), 183 deletions(-)
+---
+base-commit: 194069b5ff38d82d302c33a4dd280d948c96cfe6
+change-id: 20261120-delegts-fixes-798331d91d8f
+
+Best regards,
 -- 
-2.56.1
+Jeff Layton <jlayton@kernel.org>
 
