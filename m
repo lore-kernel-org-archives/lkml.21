@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795495357;
-	b=ff5f5psyUanBRBJ2luMphLag2joQJFICxUcRlgpkIpnGjldPklvpP5HRdq7K8YStSlYj
-	 UG7oNCE7UeWNrVCtd2ptk6nICmTD7Ix7jgFEQNm+GKD+mVTJhNqH4Qwae7B0iywj/itUq
-	 mRZxp4ttiP1n99kh0N/dJm2b+TLeIJHcS66yPTY7eXsWkvvoP2Hq25HcLqYgqNO8Z6H6M
-	 303qaL1W+HuicXh5Q+KF5kN3VBvESaa5xCkKC90s8KmdvmOE0SuueapVZS7hQT7YSfOTK
-	 9LMMC8Ca3zZhfeq+ODiSeFlAT4ciJ35m1jGrycBVBWOAx2P9yaO/9mEpZApNAaCwB1w==
+	t=1795495361;
+	b=jFrf48ppc6Lwpn+Gf9gnmOA6n+O4VHbVKS51CfWXB9vEPfp4U2atm9i4r7gYcoHNznwT
+	 CWS7p97GHpjOjz3HkEAKx5FEN1ZgUmGfcpWXew+b8Ta47kwnz+1BNYsG/OUJppzDorUaa
+	 3FFcttoOEUUpHd8EO65pF1Fvwg+4hEwrnCI8xOT+M1arCoAaQlwLOhtuWLKMchwltMLHA
+	 OL6yQLFKvlIk4L4cITOgHeLvPZjvz5d0qarR2ACCffahrvNoxtM/FWvkRxBqwgMSEpD2D
+	 JyCzFONY8tU8Bp+gtwOwIAOF8IH1372scph0jbFerG0NBpM/rgeBGStt7EjYh5RN7Cw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795495357;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795495361;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=IgI0m4pAxHEcjSpExF12okiRR9Quf+zHia2X8idMp2Q=;
-	b=MZwnOvhELNd9uNoV2QaWm3FJL7mw4ndTe45Ani+AMYJCQivZdEwNl132ogWYYwoJ4nH+
-	 Kj/p8nBEquXkjK0wN15PRm7FdaXVI8cZVXVtUym8/ALqA+QVj0SMDKJ9X1FDmLQoLTomw
-	 ji7DjNrp8+JsxrYBEdzXWyUuNm6XyLeuXbSaRzyklw+MGzSKm1pSWvzu8rPLZf+/CIqli
-	 Vx9LDNvQNpvih7WQRb6mm+4kpIfzQGqq60Byjh0QMfq2ue3ynMq+kjoqEXNu3O1+8GUsm
-	 oW0rdouTth/J9Utsy+YK5+FG2GjgJNZ4QS6w1YCQgQ/hwle5HoeyTCGRqgPmMtkAn7g==
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=BvJDTcvuQOXXqhLPEh3cehXwTFehGneZKEkUbgpLgEI=;
+	b=yqwXDcqkLDzGAc9WBy2a8qgR+SYFSqhvG1ttPegz2aTLtMwMgwkQ1YqNjydrsFOBphns
+	 Lh3gRtKa2oP7/w/2daZ309WwSy3Ex/esZmqU8i5DLhzU52d3YWAs+jj+k8zcCeojVJpD5
+	 raLyQnHKyvpwi0IjnDLijf65jTd1wGHrd9wtZxHihZu6P3DQyLZlAPkf6X7yNoPbgxBvM
+	 t8X4dKQCBJMcPPagVxJcO2bhDkGJQvawsMXEZzx2s7V6NEdo4YMT1OB1bosPhwfGY/DSw
+	 IPf7Ub+ATMcXK/a4elIS0iP5RdWHSqv7asPvv6DspnV8s/S+N2q39LW+t2h6dHWvYnA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C5jhZZ7R;
-	arc=none smtp.remote-ip=74.125.82.46
-Received: from mail-dl1-f46.google.com (mail-dl1-f46.google.com [74.125.82.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f7nvPsjp;
+	arc=none smtp.remote-ip=74.125.82.180
+Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09A7B606A33F
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:42:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09A7B606A33F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FDA8606A69C
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:42:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FDA8606A69C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C5jhZZ7R
-Received: by mail-dl1-f46.google.com with SMTP id a92af1059eb24-1a2af4c8d00so861238c88.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:42:36 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f7nvPsjp
+Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-382f4710a17so6969506eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:42:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795495356; x=1796100156; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IgI0m4pAxHEcjSpExF12okiRR9Quf+zHia2X8idMp2Q=;
-        b=C5jhZZ7RORotJuBdPyW8ypLkIqh6ota24QYMFEFFsWhWNjO5w9jCxRqwhWUfJEEo2h
-         GwRLuAAP2P7w4L1bPTWCXQSoJBoNxGtlXJ4nn5TQYMshckH53ZyvSdE5GZmKk0MOClp+
-         fOzThMGkog0ECS3rgjhN2iXxZ0HjiJZC32sE5hWOZpo737hKxrLkEtsi2CMFUyI1MaHT
-         /jwv5RAZ9v0QX4tKfHOectCVWJXgFrNz0dgdpFErPE5sLZctGbrbX2ysFBdnT95+uhJ/
-         ZAkWfrWm4IVfbON6lwepCctBGR2uh1k8yTzgrPGZZwNUaWswlQu49uY0/9TUQAwYsn9r
-         Ih8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795495356; x=1796100156;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795495361; x=1796100161; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=IgI0m4pAxHEcjSpExF12okiRR9Quf+zHia2X8idMp2Q=;
-        b=cE89/tfZy9GDdY6SnuI8LaW5oJ7YF3TnVUWmcI3+N0u7P6W/Mt+rIEQDNrLonf6BTi
-         AUBcdSxlT2RyxcV91bFcVJ6YBab/LIkJjLD2fIbz7HdDuoAi0yfulBHujiWO4i1SuzXv
-         4fj6ibQohnczl8Y3S90H/i5GxSsrzH5TiHFvF/4572ebXbTYXBbEgWPpiXvlvViHwiBT
-         ausckhQQnOd4M+QTiZ6o8wd0Ff+w28Amkh+7bTeCprN2k/Ylc+r3ed5osLABNfNnK1Yb
-         zKRwTB8rFf+NSskoNm6rjfNPYkRc8jHYELNzAzpqwjESpkgjseq/afm94mHU/AyJjuKd
-         Z2wg==
-X-Forwarded-Encrypted: i=1; AL+hErGnn49fK6tI2dPI5z0JnKrH5M1quZ5S+0qPSaoUeB7g1DCnqVcJ7Po9F7TL8muLWKf+hrqoOgEq2t6x8UU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8GGXmgwhLTwAAZfTG6wC7NTpNaYoKnlYNlqyAd82EaSjr2dtIZ
-	z4w6ngOGfBIylMCsh0kt0aX3MyQxde1ogWRX4pmq7JTqLIebqcmCJhPD
-X-Gm-Gg: AZFdTZc68y3vK2k/NVKbLasx8IN7efV0Cw2CxBLkQ5GrPYcIm7lGJwSd6hXsGHMv+QO
-	aA3GSGsZOe+1XG6Jb3gVeI4c7D56CIOsYaA0l+0RqTcw/iC9Xj1C6OrT3NwGoBmhxQPq2ay1tdX
-	z27ZACmvTLiG/itdhIrq5IduEUZBb4mS1jlCmsQMZSMlmlpp4fKzxxEN+QrXfvOne1TaYgKomva
-	2D7XGS0Zr900HzEl+aSUPifJvLnNELsqZ82W/Qe6xIPjnaejz9USwWN8a/VlX7T+n+Pnltbw62M
-	F7SjGDj1DFxOLGTxQY9iQaAwtWIomfX3uvoNaijocHqN3Z+Vc6qRhjGLR35+ByVdClGC/vIg+Lg
-	fYZzss0osrarbjFnF5BzTRZijk1dRfuluV0paWE0zdpMFx81nvT59o6Pw1J3VYWiE3p1ebhnzBy
-	ZJWRvK8BP01Q9xR4TIBtLvQO+IOrBKyn+/PfHMj+2ukbC275CVNibtT++k+UUEWIG6l1OBgU37Y
-	oHiZn/lPOlokunPqfYeHavN24ltNq228rNAtlm/KRqzVNuBx/K+G//BIkfKtWHD6NgRZ02YMXcV
-	oHh0wcjMcWxR4XbHVNynHXNgs+xEoO0BEmseucZ03Xz6V4pzRnifZEe4IRE3t2WE6yTRLdCxGXu
-	TO9fiLEyPjLCLJuWpuqh087gXFT9YqYm3qT3NjoQooFO6Zu+OUcb44ipM+IKye0UAHY0WJMY2
-X-Received: by 2002:a05:701b:260e:b0:1a9:c52f:655c with SMTP id a92af1059eb24-1b556900476mr15545901c88.36.1795495356004;
-        Mon, 23 Nov 2026 20:42:36 -0800 (PST)
+        bh=BvJDTcvuQOXXqhLPEh3cehXwTFehGneZKEkUbgpLgEI=;
+        b=f7nvPsjpauvB16GJA1/E791wYAjet/52LwfknhXpFK8NArBDoinDPLlSsHK6Dbunf0
+         gNAXidNp36qWlRHZPMxs4Nw8Ffi5d+l22nDvd2rZv6Fm0yt47MESY58bM2MhsHPE8C9P
+         NyL+MXly+IzAiGKabPX8r6vXwOg4HXBgMheRJkC5tG77Y3JiKsnH3tR6OJqc3RZbIfXG
+         zHB9t51TPjMmGrLOYolD49iEJMTFskrfsZTPUaBmZGvh2m3yhzPvUbSA2MfFOBboA2pg
+         GbTVedDF11Y2zXE7kC7wU5ndgTcyzQMgzj3T8aMGFIX9hiAsLwxW8ZdwvXzaWZl/bCQn
+         HONA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795495361; x=1796100161;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BvJDTcvuQOXXqhLPEh3cehXwTFehGneZKEkUbgpLgEI=;
+        b=LCZ82cV6jMps3ZrEOEAV7mIYLfW7+JQZd7lmEdK3T01JdIY8mUrD62lOYIbtM6/wFF
+         jPttELmSdXsjVis71MuLqDzNvTuHSTOOhZC3MguLW4wYzUDaOG1C8NT6RDf0+Yr4zX3E
+         NjBkbeMfbIHBbM6IUMQaA3MAVaxe4+heoVuHyOydCYz0UnR/ADK5FGj+7j6iPXJp+05y
+         xFU0t3VcK3uAm2LANNNtOvfhFzT3ifxWNWBHE1tlUJLJ0WCw70CLtMC4okM5D53ILZeC
+         FDzuTCvlT6x7J6C3njPnKhyoznjrf1JxZ0z8EB+vPWa1UYjLJMy7ooEWjx3TEM7bZBQa
+         N+pg==
+X-Forwarded-Encrypted: i=1; AL+hErG8GFBWfzGJraOh5KdG2GHlgialW1/8eq8YqlECsBoauaxkL4DNOMg0td7w4vkqEHtCkdvwfUk1UWAXwvU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9sfBH9yagh1Q0XxrTJa3IOJGY+WRlAbTgDyjZJFh9KdKcYADtS
+	OqfDm5By4NQWhhStd91bqN8XJLiAupVY0UBX2ds0AYpFboj4tu3froUm
+X-Gm-Gg: AZFdTZfYBer4JjmFXTBDGH6ILzsxk3d+SneWE/QI6He1Uu6eQa2YOw+M/XoNxLpWV5D
+	gdVzVp2xfHMs8e0kxIQG2POlKMOiDUGNed+Cthw1L8U38h2I5WjmM9tTqfagc1J4jdUhMGo3m4M
+	1mPPb5vC6620Y/unT339EKKBhy2D6Q2pcj5dyWHyry4wynw6MfTDef9rQMijI4wB6qgJjtf6YrH
+	W0nEmBupFuM62OkhmAAMmqaY51tkSCvUvgFEyB6f+lSglrS/FH9TzcldtBri3RPJDfIu4gROD6s
+	A3YOsFHy7IJsqfn1yxarJQMMkBEFz5LxIIXdR6bjEPnSrBR31JWoCX/L3p239dudkTOVLjnyR/i
+	9qPEaIPTCKzpwx3rbGosuCHAG24toUQyiUnzr837QeVSRvXgYm9jhz/FjYtXCTuHvCjDSlt4Tbi
+	5g8QGLEcfIU29QimfZqTVXd/BhK0NykdF7EqybUCdfiVlD+j1TluBH9+IRKkcmcdrLWDkwsydb5
+	Ut3xk+/pduzPlimIBjTR9kWTz39/acvJT25mDzxm2Wh6ulkvvE5xHsB75/E0cga+GW2hXGSqGLD
+	emiulzEAkDT6HhDQ405P1n0xmbj3xAiOiNVqoeptMcLhWphud3tP9mMa5W4lUVIVYDQ5vZrsOPc
+	zh9IsGxRstztrVnZjLRgpCgo3dO3dNmrvb7twShMbMlZVQmFZz/ZNuXkvQBHsR+BF82ejjB85
+X-Received: by 2002:a05:7301:160c:b0:382:c1cf:163b with SMTP id 5a478bee46e88-38571419d38mr13830003eec.32.1795495360522;
+        Mon, 23 Nov 2026 20:42:40 -0800 (PST)
 Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm52424647c88.9.2026.11.23.20.42.34
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385d2b93dd9sm44950162eec.24.2026.11.23.20.42.39
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 20:42:35 -0800 (PST)
+        Mon, 23 Nov 2026 20:42:40 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
 To: netdev@vger.kernel.org
 Cc: andrew@lunn.ch,
@@ -95,9 +96,11 @@ Cc: andrew@lunn.ch,
 	richardcochran@gmail.com,
 	rmk+kernel@armlinux.org.uk,
 	vadim.fedorenko@linux.dev
-Subject: [PATCH net v5 0/8] ptp: fix request serialization, teardown and SMA reporting
-Date: Mon, 23 Nov 2026 20:42:33 -0800
-Message-ID: <20261123-timecard-common-v5-d669cfa034-0-ahmadexp@gmail.com>
+Subject: [PATCH net v5 2/8] net: dsa: sja1105: leave the pin function unchanged on EXTTS disable
+Date: Mon, 23 Nov 2026 20:42:38 -0800
+Message-ID: <20261123-timecard-common-v5-d669cfa034-2-ahmadexp@gmail.com>
+In-Reply-To: <20261123-timecard-common-v5-d669cfa034-0-ahmadexp@gmail.com>
+References: <20261123-timecard-common-v5-d669cfa034-0-ahmadexp@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,81 +112,56 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This series fixes PTP request serialization and timestamp shutdown, and
-corrects OCP SMA/DPLL reporting. It is based on net at 4392bb809812.
-It contains no WiWi board support or LED driver changes.
+sja1105_extts_enable() selects the EXTTS pin function even when disabling
+timestamp capture. EXTTS and PEROUT share PTP_CLK, so disabling EXTTS
+while the pin is an output changes it to an input and stops the periodic
+output. This also makes the hardware function disagree with a retained
+PTP_PF_PEROUT pin assignment.
 
-The first two patches address prerequisites identified in v4 review:
-serialize all three sysfs enable callbacks with the ioctl paths, and
-prevent SJA1105 EXTTS disable from switching its shared pin to input.
-Patch 3 preserves Vadim's requested teardown design: after removing the
-user interfaces, send direct disable requests for each advertised EXTTS
-channel, followed by PPS. Do not use a pin-function helper for channel
-indices, alter pin assignments, or add a driver stopping flag or spinlock.
+Only select the EXTTS function when enabling timestamp capture. On
+disable, clear extts_enabled and synchronously delete the polling timer
+without reprogramming the pin. This also avoids attempting the
+unsupported AVB_PARAMS dynamic configuration on SJA1105E/T when disabling
+an already inactive EXTTS channel.
 
-The remaining patches handle hardware selector values and combined input
-routes, recover disabled SMA state on bind, report disabled inputs as
-zero Hz, and correct the DCF77 and ART 10 MHz frequencies. Rebind recovery
-is now separate from DPLL reporting, with the earlier b2c4f0ac53f3 Fixes
-tag, so kernels without DPLL support can receive that correction.
+The Sashiko review found this side effect when reviewing a PTP core
+change to disable every advertised timestamp channel during teardown.
+Codex assisted with the correction, tests and changelog. Tests executing
+the actual functions with stubbed configuration writes reproduce the
+output-to-input change and pass with this fix, including repeated
+disable, enable and error paths. No physical switch was tested.
 
-Changes since v4:
-- New patch 1 takes pincfg_mux in extts_enable, pps_enable and period.
-  All callback errors and existing permission checks are preserved.
-- New patch 2 changes the SJA1105 pin function only on EXTTS enable.
-- Patch 3 has unchanged code. Its message no longer presents the runtime
-  sysfs/ioctl race as remaining after patch 1. It explains why an empty
-  software subscription map is not proof of initially idle hardware.
-- Old patch 3 becomes patches 5 and 6, with separate Fixes tags. Correct
-  the incremental ADVA X1 description: patch 4 already makes its zero
-  input selector return zero Hz rather than -EINVAL.
-- Patches 4, 7 and 8 retain their v4 code and messages. Preserve Vadim's
-  Reviewed-by on the unchanged DCF correction only.
+Fixes: 747e5eb31d59 ("net: dsa: sja1105: configure the PTP_CLK pin as EXT_TS or PER_OUT")
+Link: https://lore.kernel.org/r/179548551283.3135.17206659598806657887@kernel.org
+Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
+---
+Changes in v5:
+ - New prerequisite from the SJA1105 side-effect review of v4 patch 1.
 
-Validation of this revision:
-- Reproduced v4's shared-PPS runtime race and SJA1105 pin side effect with
-  actual extracted functions, controlled scheduling and stubbed hardware.
-- 100 removal/shared-PPS model runs; 100 runtime serialization runs, each
-  with four controlled interleavings; 100 SJA1105 runs, each with 14
-  chip/direction cases. All passed under ASan/UBSan.
-- Eight local KUnit cases passed in x86_64 QEMU with KASAN, lockdep and
-  DEBUG_ATOMIC_SLEEP. These exercise real PTP register/unregister and
-  real sysfs stores with a test clock, not physical OCP/SJA1105 hardware.
-- x86_64 and i386 allmodconfig and allyesconfig builds passed for the PTP
-  subtree and SJA1105 PTP object with W=1 and KCFLAGS=-Werror.
-- SMA/DPLL tests cover 4,669 input combinations, 243 retained-mux rebind
-  states, ART accessors, disabled-input re-enable and X1 direction change.
-- Twenty deliberately broken variants were rejected by runtime assertions.
+Testing: 100 actual-function suites with 14 chip/direction cases each,
+repeated disable, enable and error paths; four x86_64/i386 PTP/SJA1105
+build configurations with W=1 KCFLAGS=-Werror. Configuration writes are
+stubbed. Restoring unconditional pin selection fails at runtime.
 
-The review fixtures are local validation material, not new upstream test
-interfaces. No physical card or switch was tested for this revision.
+ drivers/net/dsa/sja1105/sja1105_ptp.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-The reports came from the public review thread. Codex assisted with the
-code, regression tests and submission text; the commit messages identify
-the reports and distinguish modeled tests from hardware observations.
-
-Previous revision:
-https://lore.kernel.org/r/20261122-timecard-common-v4-e0db4ab1aa-0-ahmadexp@gmail.com
-
-Latest review reports:
-https://lore.kernel.org/r/179548551283.3135.17206659598806657887@kernel.org
-https://lore.kernel.org/r/179548551472.3135.11972018356692852897@kernel.org
-
-Ahmad Byagowi (8):
-  ptp: serialize sysfs requests with the ioctl paths
-  net: dsa: sja1105: leave the pin function unchanged on EXTTS disable
-  ptp: disable all timestamp channels after removing the user interfaces
-  ptp: ocp: handle hardware selectors and combined DPLL input routes
-  ptp: ocp: recover disabled SMA inputs when binding the driver
-  ptp: ocp: report zero frequency for disabled SMA inputs
-  ptp: ocp: correct the DCF output frequency
-  ptp: ocp: correct the ART 10 MHz input frequency
-
- drivers/net/dsa/sja1105/sja1105_ptp.c |  8 ++--
- drivers/ptp/ptp_chardev.c             | 14 ++++---
- drivers/ptp/ptp_ocp.c                 | 58 ++++++++++++++++++---------
- drivers/ptp/ptp_sysfs.c               |  9 +++++
- 4 files changed, 62 insertions(+), 27 deletions(-)
-
-
-base-commit: 4392bb809812ac79449cd0cf1f5e00469ee102d1
+diff --git a/drivers/net/dsa/sja1105/sja1105_ptp.c b/drivers/net/dsa/sja1105/sja1105_ptp.c
+index 350f958dcb2a..da35805152e0 100644
+--- a/drivers/net/dsa/sja1105/sja1105_ptp.c
++++ b/drivers/net/dsa/sja1105/sja1105_ptp.c
+@@ -816,9 +816,11 @@ static int sja1105_extts_enable(struct sja1105_private *priv,
+ 	    (extts->flags & PTP_EXTTS_EDGES) != PTP_EXTTS_EDGES)
+ 		return -EOPNOTSUPP;
+ 
+-	rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_EXTTS);
+-	if (rc)
+-		return rc;
++	if (on) {
++		rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_EXTTS);
++		if (rc)
++			return rc;
++	}
+ 
+ 	priv->ptp_data.extts_enabled = on;
+ 
