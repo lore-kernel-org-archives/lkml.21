@@ -1,60 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795503688;
-	b=nJV1M0ZgM+bn8DAwAVnsV2VUJfrS6VlivF7fZP2IeRFM1Ph9SUEFc9J6LZEiXZctZzQx
-	 xGMg1CfDrlA7nMK/CEHACroE+G6uHJ5GHIIs1NqxcGvEWCUcYRGBIBSox9ZFj5HDVgdG5
-	 Mfn/DN3NtTy11p9tHFUs7YJM1sqad3LOgsgEpbYPVvxEr3i6o2JB2OZTU2hyBw/Pue4xj
-	 t9vK5iac7DDOcYVKwIMjEdXo/APwxC6UotBeOw8E6ckyObNyTLNSq/9PHkmuRv9iQKGkf
-	 QpV/+/xGpt9yWWaDXNrB767yi+zQL9Gc7l1kGTjROXncTBhY318KkMuZOUea++5lTeQ==
+	t=1795503717;
+	b=DqZt0rGiiLVGcMXjoqWzfMRia/O88AKWlFFnln/VtBwl8daaRLdJ81zFxmm4dPI15/iB
+	 UOMY6ljV8C47GGHzYDiZA++ozfWFvcQXrtETGc0+DRzxet1pEl1XkLl3rboeMSMU3zcRy
+	 Tfo/8ZRQxwTHHFI3mtCy3+0zB784gskTpqpf1wWRyeGdeDDmd9sDMyJlssK+HL2lPxsYr
+	 UZM7/Xq61cBIhwlrAYUldPVhN12iSssilCEbiTWEDxQd8Z/N6su7Tc7p7YBK2ShGHe48/
+	 wKiVsPXWpVnf2QUR9JlkzEyzJon8MG0oAfPm5h1kYxP2ZUeA9Qs6LEXZA0jtCYteh2Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795503688;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=E/+uN0FVh/Zngjaw7BuQLway1eJuoVshOm3+K4xRT+Q=;
-	b=DMzM/CyuwuaZ30umTdUqDjwZGFYpfqSGv31xgWsCtX8CgFNfq5ktac4GqmZyPSYdk+LE
-	 OYCbRzJYE3ZfIKespTMRsCBZZflJntw+bnm8oVmwuBT7XF1jJtSgyOTg2BZp0AUVkY9Q/
-	 tPVuL8Z3TaStOSU6AwUhnctjpJSasRhiFI+eWj3HRyoj0hCtW4+73KdVUiS/OO0nqlpB4
-	 US+MxpYjztO3y9cjnk8NR+DR/j1cAunNEe/1NYBWxUeeXA8W281J4IlUnnWbQCDOeQ3Y9
-	 nHF+sLiUuOVKsTNgsw8UWZwudus36oEM69/v1ND1VSjOGJLYZ0jBKDUiP4hjVcHpCsg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795503717;
+	h=DMARC-Filter:DKIM-Signature:From:Sender:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=sMHhlHivCsvaI5Tye/V+edIU2Y7AqQDg3C4kFXYUjZs=;
+	b=4kgikTcd16hzQCvXLyrlZZN7jQNzVAdZf+8K8XYrenWv6j325SIy2dnfYPwmKod/0sPJ
+	 mYtmBghM/142mpijiksKYTMzDg/k55g4SiPaG2qd9jvyl0F/4E4YYu14971TTkrN64MZb
+	 y2cOXK8RYfdbdPArp3/HSapij7wl+rbYTsbQ6m67EB8Mlhe/NTQK8Emo3KQthVY+7fvYT
+	 3tohVd1NIhxUp6pMeppStb+X40aaPn6KlrPlKLI8t9KZU7ptpzwBTRVlO63fJsh+JpCtt
+	 ZTmDc2rYYhKOgeY8i/hCpwNsM/1AuosFcYBXVf2Qxwn8ca5VgsWyUnWPX0nzc7AhnwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BYT2e97e;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=ezt+EYJ9;
+	arc=none smtp.remote-ip=220.197.31.2
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDF25606A31E;
-	Tue, 24 Nov 2026 07:01:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 848E0606A31E;
+	Tue, 24 Nov 2026 07:01:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 848E0606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BYT2e97e
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 663EE1F000C0;
-	Tue, 24 Nov 2026 07:01:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795503688;
-	bh=E/+uN0FVh/Zngjaw7BuQLway1eJuoVshOm3+K4xRT+Q=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=BYT2e97e1KNX30veFsfEvAzH+X6iZtaCu//FRhvw+HkZsrY7C2ED4SqQ/AOvM30Lz
-	 1/HaGs5lCYUZhddDPiC6x2QpAt0ZivzaNE7YPI7lDOzgJUAT2/gjJDu2ppxOibjEyu
-	 r2rT3jJ+FdNpVrys6cJLlEzxO6hrWwYBht7p/xnJIaHvwZQAADgoJna/FsD/JtCl0E
-	 szzIWaejrluhjAJbAqpyN/Y+napP30AVfxY7j6Z0yl0IP7uIA/ZxOfcwGEWg9bCM95
-	 lug86nGQgk71Y3VG/uWRnWNf1kg2LfQ1kXKtnGC4tANwCUjncU69+G3kZ41+cwsJwv
-	 u+SOZm0VTQLBA==
-Subject:
- Re: [PATCH net] ipv6: route: fix use-after-free in ip6_confirm_neigh()
-From: netdev-bot+sashiko@kernel.org
-To: n0ps1edzz@gmail.com
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, hangbin.liu@linux.dev, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Date: Tue, 24 Nov 2026 07:01:26 +0000
-Message-ID: <179550368695.3135.12579094604954175182@kernel.org>
-In-Reply-To: <20261123133000.1.n0ps1edzz@gmail.com>
-References: <20261123133000.1.n0ps1edzz@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=ezt+EYJ9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version:
+	Content-Type; bh=sMHhlHivCsvaI5Tye/V+edIU2Y7AqQDg3C4kFXYUjZs=;
+	b=ezt+EYJ92CeScGAqDdI38a4YsXnM3nURGoFPei13p0Pi0eFtjTCF6hPm0qhtYU
+	Vy4GhXS0mPYK/CM0v61kB97jzdl/CWbCbjnuq3ZmxZk+5K8jtq7Ex3t1buUVmbvd
+	5BWMic2St032wUgzoZlwk9Dmb4wYSuyJz0fD/vQZ1bYvo=
+From: Yongxin Yang <yangyongxin@kylinos.cn>
+Sender: yang_yongxin123@163.com
+To: Dave Jiang <dave.jiang@intel.com>,
+ Alison Schofield <alison.schofield@intel.com>,
+ Jonathan Cameron <jic23@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ Vishal Verma <vishal.l.verma@intel.com>, Dan Williams <djbw@kernel.org>
+Cc: Rafael J. Wysocki <rafael@kernel.org>, Tony Luck <tony.luck@intel.com>,
+ Borislav Petkov <bp@alien8.de>, Hanjun Guo <guohanjun@huawei.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Shuai Xue <xueshuai@linux.alibaba.com>, Ira Weiny <iweiny@kernel.org>,
+ Li Ming <ming.li@zohomail.com>, Len Brown <lenb@kernel.org>,
+ linux-cxl@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH v8] cxl/core: Create EINJ debugfs files when EINJ is initialized
+Date: Tue, 24 Nov 2026 15:00:17 +0800
+Message-ID: <179550361711.991197.13876815308672111616@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,203 +64,294 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wD3P40WNgVrd1I8Jg--.36837S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3JrWkJFy3ZrWxCFWftw48tFb_yoWfZr4fpa
+	1UCr95Aw48Aay2kr13AryDXa4rtr4vgasrCr98W34akF4UCrs8GF1kJa4j9a4DWFW5J340
+	v3Z8tF1UCw4UAr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jeMKZUUUUU=
+X-CM-SenderInfo: 51dqwsp1rqw5tlqrjji6rwjhhfrp/xtbDABeuTGsFNhePTwAA36
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+einj_types under /sys/kernel/debug/cxl/ and the per-port einj_inject files
+are how ndctl learns that CXL protocol error injection is available, so
+they must exist where it works and stay absent where it does not.
 
-Critical: 0 · High: 1 (2) · Medium: 0 · Low: 0
+With cxl_core built in, cxl_core_init() runs at subsys_initcall and
+einj_init() at device_initcall, so the is_initialized() check there
+always reads false and einj_types is never created.  Register
+cxl_einj_debugfs_setup() with einj_cxl_register_ready_cb(); EINJ invokes
+it from einj_cxl_notify_ready() once it is up, which creates einj_types
+and the dport directories skipped before that point.  The three helpers
+check einj_cxl_is_initialized() and return -ENODEV until then.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Test on a host with an EINJ table.  With CONFIG_CXL_BUS=y and
+CONFIG_ACPI_APEI_EINJ=y (CONFIG_ACPI_APEI_EINJ_CXL defaults to y),
+einj_types and the dport directories are missing before the change and
+appear after it, and writing a type from einj_types to a port's
+einj_inject reaches the dport path.  With both set to m, cxl_core depends
+on einj, so einj comes up first and the files appear when cxl_core loads.
+On a host without an EINJ table neither file appears.
 
-- [High] The RCU protection this patch adds to ip6_confirm_neigh() does
-  not cover the uncached-route flush, which is one of the two teardown…
+Link: https://lore.kernel.org/all/20261104061256.1449275-1-yangyongxin@kylinos.cn/
+Fixes: 8039804cfa73 ("cxl/core: Add CXL EINJ debugfs files")
+Signed-off-by: Yongxin Yang <yangyongxin@kylinos.cn>
+---
+ drivers/acpi/apei/apei-internal.h |  7 ++++
+ drivers/acpi/apei/einj-core.c     |  4 +-
+ drivers/acpi/apei/einj-cxl.c      | 38 +++++++++++++++++
+ drivers/cxl/core/port.c           | 70 ++++++++++++++++++++++++++++---
+ include/cxl/einj.h                |  3 ++
+ 5 files changed, 115 insertions(+), 7 deletions(-)
 
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but the IPv4
-  sibling callback ipv4_confirm_neigh() (net/ipv4/route.c:441-457) has…
-- [High] This problem wasn't introduced by this patch, but
-  ip6_dst_neigh_lookup(), the IPv6 dst_ops->neigh_lookup callback in the…
+diff --git a/drivers/acpi/apei/apei-internal.h b/drivers/acpi/apei/apei-internal.h
+index 77c10a7a7a9f..5fb28cb4c7aa 100644
+--- a/drivers/acpi/apei/apei-internal.h
++++ b/drivers/acpi/apei/apei-internal.h
+@@ -137,6 +137,13 @@ int einj_error_inject(u32 type, u32 flags, u64 param1, u64 param2, u64 param3,
+ int einj_cxl_rch_error_inject(u32 type, u32 flags, u64 param1, u64 param2,
+ 			      u64 param3, u64 param4);
+ bool einj_is_cxl_error_type(u64 type);
++
++/* Notified from einj_init() once the CXL side may set up its debugfs */
++#if IS_ENABLED(CONFIG_ACPI_APEI_EINJ_CXL)
++void einj_cxl_notify_ready(void);
++#else
++static inline void einj_cxl_notify_ready(void) { }
++#endif
+ int einj_validate_error_type(u64 type);
+ 
+ #ifndef ACPI_EINJ_CXL_CACHE_CORRECTABLE
+diff --git a/drivers/acpi/apei/einj-core.c b/drivers/acpi/apei/einj-core.c
+index 1f3fa2278584..a3e7185f1e5a 100644
+--- a/drivers/acpi/apei/einj-core.c
++++ b/drivers/acpi/apei/einj-core.c
+@@ -1187,8 +1187,10 @@ static int __init einj_init(void)
+ 
+ 	einj_dev = faux_device_create("acpi-einj", NULL, &einj_device_ops);
+ 
+-	if (einj_dev)
++	if (einj_dev) {
+ 		einj_initialized = true;
++		einj_cxl_notify_ready();
++	}
+ 
+ 	return 0;
+ }
+diff --git a/drivers/acpi/apei/einj-cxl.c b/drivers/acpi/apei/einj-cxl.c
+index e70a416ec925..93003fe4527e 100644
+--- a/drivers/acpi/apei/einj-cxl.c
++++ b/drivers/acpi/apei/einj-cxl.c
+@@ -30,6 +30,9 @@ int einj_cxl_available_error_type_show(struct seq_file *m, void *v)
+ 	int cxl_err, rc;
+ 	u32 available_error_type = 0;
+ 
++	if (!einj_cxl_is_initialized())
++		return -ENODEV;
++
+ 	rc = einj_get_available_error_type(&available_error_type, ACPI_EINJ_GET_ERROR_TYPE);
+ 	if (rc)
+ 		return rc;
+@@ -72,6 +75,9 @@ int einj_cxl_inject_rch_error(u64 rcrb, u64 type)
+ {
+ 	int rc;
+ 
++	if (!einj_cxl_is_initialized())
++		return -ENODEV;
++
+ 	/* Only CXL error types can be specified */
+ 	if (!einj_is_cxl_error_type(type))
+ 		return -EINVAL;
+@@ -90,6 +96,9 @@ int einj_cxl_inject_error(struct pci_dev *dport, u64 type)
+ 	u64 param4 = 0;
+ 	int rc;
+ 
++	if (!einj_cxl_is_initialized())
++		return -ENODEV;
++
+ 	/* Only CXL error types can be specified */
+ 	if (!einj_is_cxl_error_type(type))
+ 		return -EINVAL;
+@@ -111,3 +120,32 @@ bool einj_cxl_is_initialized(void)
+ 	return einj_initialized;
+ }
+ EXPORT_SYMBOL_NS_GPL(einj_cxl_is_initialized, "CXL");
++
++static void (*einj_cxl_ready_cb)(void);
++
++/**
++ * einj_cxl_register_ready_cb - run a callback once EINJ is initialized
++ * @cb: callback to invoke, or NULL to cancel a pending registration
++ *
++ * cxl_core cannot tell at init time whether EINJ will come up.  If EINJ is
++ * already initialized, @cb runs immediately.
++ */
++void einj_cxl_register_ready_cb(void (*cb)(void))
++{
++	if (cb && einj_cxl_is_initialized()) {
++		cb();
++		return;
++	}
++
++	einj_cxl_ready_cb = cb;
++}
++EXPORT_SYMBOL_NS_GPL(einj_cxl_register_ready_cb, "CXL");
++
++void einj_cxl_notify_ready(void)
++{
++	void (*cb)(void) = einj_cxl_ready_cb;
++
++	einj_cxl_ready_cb = NULL;
++	if (cb)
++		cb();
++}
+diff --git a/drivers/cxl/core/port.c b/drivers/cxl/core/port.c
+index 625e4aa427db..4f6137651ca4 100644
+--- a/drivers/cxl/core/port.c
++++ b/drivers/cxl/core/port.c
+@@ -802,6 +802,8 @@ static int cxl_dport_setup_regs(struct device *host, struct cxl_dport *dport,
+ 
+ DEFINE_SHOW_ATTRIBUTE(einj_cxl_available_error_type);
+ 
++static struct dentry *cxl_debugfs;
++
+ static int cxl_einj_inject(void *data, u64 type)
+ {
+ 	struct cxl_dport *dport = data;
+@@ -822,6 +824,17 @@ static void cxl_debugfs_create_dport_dir(struct cxl_dport *dport)
+ 	if (!einj_cxl_is_initialized())
+ 		return;
+ 
++	/*
++	 * Skip dports that already got a directory when they came up.  The
++	 * lookup returns an ERR_PTR when CONFIG_DEBUG_FS is off, so it must
++	 * not be handed to dput() unchecked.
++	 */
++	dir = debugfs_lookup(dev_name(dport->dport_dev), cxl_debugfs);
++	if (!IS_ERR_OR_NULL(dir)) {
++		dput(dir);
++		return;
++	}
++
+ 	/*
+ 	 * Protocol error injection is only available for CXL 2.0+ root ports
+ 	 * and CXL 1.1 downstream ports
+@@ -836,6 +849,54 @@ static void cxl_debugfs_create_dport_dir(struct cxl_dport *dport)
+ 			    &cxl_einj_inject_fops);
+ }
+ 
++static struct dentry *einj_types_dentry;
++
++/*
++ * einj_types cannot be created from cxl_core_init(): EINJ is not up yet at
++ * that point, so create it once EINJ reports it is initialized.
++ */
++static void cxl_einj_debugfs_add_types(void)
++{
++	if (einj_types_dentry)
++		return;
++
++	if (!einj_cxl_is_initialized())
++		return;
++
++	einj_types_dentry = debugfs_create_file("einj_types", 0400, cxl_debugfs,
++						NULL,
++						&einj_cxl_available_error_type_fops);
++}
++
++static int cxl_einj_debugfs_create_dport_dirs(struct device *dev, void *data)
++{
++	struct cxl_dport *dport;
++	struct cxl_port *port;
++	unsigned long index;
++
++	if (!is_cxl_port(dev))
++		return 0;
++
++	port = to_cxl_port(dev);
++
++	guard(device)(dev);
++	xa_for_each(&port->dports, index, dport)
++		cxl_debugfs_create_dport_dir(dport);
++
++	return 0;
++}
++
++/*
++ * Called from einj_cxl_notify_ready(), or directly from
++ * einj_cxl_register_ready_cb() when EINJ is already up.
++ */
++static void cxl_einj_debugfs_setup(void)
++{
++	cxl_einj_debugfs_add_types();
++	bus_for_each_dev(&cxl_bus_type, NULL, NULL,
++			 cxl_einj_debugfs_create_dport_dirs);
++}
++
+ static int cxl_port_add(struct cxl_port *port,
+ 			resource_size_t component_reg_phys,
+ 			struct cxl_dport *parent_dport)
+@@ -2501,8 +2562,6 @@ const struct bus_type cxl_bus_type = {
+ };
+ EXPORT_SYMBOL_NS_GPL(cxl_bus_type, "CXL");
+ 
+-static struct dentry *cxl_debugfs;
+-
+ struct dentry *cxl_debugfs_create_dir(const char *dir)
+ {
+ 	return debugfs_create_dir(dir, cxl_debugfs);
+@@ -2515,10 +2574,6 @@ static __init int cxl_core_init(void)
+ 
+ 	cxl_debugfs = debugfs_create_dir("cxl", NULL);
+ 
+-	if (einj_cxl_is_initialized())
+-		debugfs_create_file("einj_types", 0400, cxl_debugfs, NULL,
+-				    &einj_cxl_available_error_type_fops);
+-
+ 	cxl_mbox_init();
+ 
+ 	rc = cxl_memdev_init();
+@@ -2541,6 +2596,8 @@ static __init int cxl_core_init(void)
+ 
+ 	cxl_ras_init();
+ 
++	einj_cxl_register_ready_cb(cxl_einj_debugfs_setup);
++
+ 	return 0;
+ 
+ err_region:
+@@ -2554,6 +2611,7 @@ static __init int cxl_core_init(void)
+ 
+ static void cxl_core_exit(void)
+ {
++	einj_cxl_register_ready_cb(NULL);
+ 	cxl_ras_exit();
+ 	cxl_region_exit();
+ 	bus_unregister(&cxl_bus_type);
+diff --git a/include/cxl/einj.h b/include/cxl/einj.h
+index 624ff6ff41f9..af2af62c8eaa 100644
+--- a/include/cxl/einj.h
++++ b/include/cxl/einj.h
+@@ -21,6 +21,7 @@ int einj_cxl_available_error_type_show(struct seq_file *m, void *v);
+ int einj_cxl_inject_error(struct pci_dev *dport_dev, u64 type);
+ int einj_cxl_inject_rch_error(u64 rcrb, u64 type);
+ bool einj_cxl_is_initialized(void);
++void einj_cxl_register_ready_cb(void (*cb)(void));
+ #else /* !IS_ENABLED(CONFIG_ACPI_APEI_EINJ_CXL) */
+ static inline int einj_cxl_available_error_type_show(struct seq_file *m,
+ 						     void *v)
+@@ -39,6 +40,8 @@ static inline int einj_cxl_inject_rch_error(u64 rcrb, u64 type)
+ }
+ 
+ static inline bool einj_cxl_is_initialized(void) { return false; }
++
++static inline void einj_cxl_register_ready_cb(void (*cb)(void)) { }
+ #endif /* CONFIG_ACPI_APEI_EINJ_CXL */
+ 
+ #endif /* EINJ_CXL_H */
 
---
-
-ipv6: route: fix use-after-free in ip6_confirm_neigh()
-
-This commit takes rcu_read_lock() in ip6_confirm_neigh(), loads the device
-with dst_dev_rcu() and holds the section through the dev->flags test and
-__ipv6_confirm_neigh(). It is meant to stop a use-after-free when route
-teardown swaps dst->dev to blackhole_netdev and the old net_device is freed.
-That race is reached from rawv6_sendmsg() and udpv6_sendmsg() with
-MSG_CONFIRM|MSG_PROBE.
-
-> diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-> index 1b2dcc066e198..6bdd4423ce784 100644
-> --- a/net/ipv6/route.c
-> +++ b/net/ipv6/route.c
-> @@ -257,16 +257,21 @@ static struct neighbour *ip6_dst_neigh_lookup(const struct dst_entry *dst,
->  static void ip6_confirm_neigh(const struct dst_entry *dst, const void *daddr)
->  {
->  	const struct rt6_info *rt = dst_rt6_info(dst);
-> -	struct net_device *dev = dst_dev(dst);
-> +	struct net_device *dev;
-> +
-> +	rcu_read_lock();
-> +	dev = dst_dev_rcu(dst);
-
-[Severity: High]
-Does this RCU section cover the uncached-route flush that the commit
-message names as one of the two teardown paths?
-
-Since commit f12d2907992db7 ("ipv6: Batch rt6_uncached_list_flush_dev() in
-netdev_run_todo()."), rt6_uncached_list_flush_dev(dev) returns early when
-dev->dismantle is set. During unregister, the pointer swap now happens
-from netdev_run_todo(), after that function's only rcu_barrier():
-
-net/core/dev.c:netdev_run_todo() {
-    ...
-	if (!list_empty(&list))
-		rcu_barrier();
-    ...
-	if (!list_empty(&list)) {
-		rt_flush_dev(NULL);
-		rt6_uncached_list_flush_dev(NULL);
-	}
-
-	cnt = 0;
-	while (!list_empty(&list)) {
-		...
-		dev = netdev_wait_allrefs_any(&list);
-		...
-		kobject_put(&dev->dev.kobj);
-    ...
-}
-
-rt6_uncached_list_flush_dev(NULL) does:
-
-	rcu_assign_pointer(rt->dst.dev_rcu, blackhole_netdev);
-	netdev_ref_replace(rt_dev, blackhole_netdev,
-			   &rt->dst.dev_tracker,
-			   GFP_ATOMIC);
-
-netdev_wait_allrefs_any() returns as soon as netdev_refcnt_read(dev) == 1.
-kobject_put() then reaches netdev_release(), which frees the device right
-away:
-
-	/* no need to wait for rcu grace period:
-	 * device is dead and about to be freed.
-	 */
-	kfree(rcu_access_pointer(dev->ifalias));
-	kvfree(dev);
-
-free_netdev() only reaches synchronize_net() through netdev_napi_exit()
-when the device has NAPI instances. Dummy devices have none.
-
-As far as I can tell, nothing between the swap and the free waits for
-current RCU readers. Can a task that loaded the old device here with
-dst_dev_rcu() just before the swap still read dev->flags, or dev_net(dev)
-in __ipv6_neigh_lookup_noref(), after the device has been freed?
-
-User space can get such a dst. rawv6_sendmsg() sets FLOWI_FLAG_KNOWN_NH for
-hdrincl sockets, and ip6_pol_route() then puts the route on
-rt6_uncached_list. MSG_CONFIRM|MSG_PROBE then reaches dst_confirm_neigh().
-This is the same rawv6_sendmsg() path as in the KASAN report.
-
-The dst_dev_put() path looks covered, because the NETDEV_UNREGISTER
-notifiers are followed by synchronize_net() in
-unregister_netdevice_many_notify().
-
-Would netdev_run_todo() need a synchronize_net() or synchronize_rcu() after
-the rt_flush_dev(NULL)/rt6_uncached_list_flush_dev(NULL) batch, before the
-device can be freed, to close the uncached-flush case?
-
->  
->  	daddr = choose_neigh_daddr(rt6_nexthop(rt, &in6addr_any), NULL, daddr);
->  	if (!daddr)
-> -		return;
-> +		goto out;
->  	if (dev->flags & (IFF_NOARP | IFF_LOOPBACK))
-> -		return;
-> +		goto out;
->  	if (ipv6_addr_is_multicast((const struct in6_addr *)daddr))
-> -		return;
-> +		goto out;
->  	__ipv6_confirm_neigh(dev, daddr);
-> +out:
-> +	rcu_read_unlock();
->  }
-
-[Severity: High]
-This isn't a bug introduced by this patch, but does the IPv4 callback
-ipv4_confirm_neigh() in net/ipv4/route.c have the same use-after-free?
-
-net/ipv4/route.c:ipv4_confirm_neigh() {
-	const struct rtable *rt = container_of(dst, struct rtable, dst);
-	struct net_device *dev = dst_dev(dst);
-	...
-	} else if (IS_ENABLED(CONFIG_IPV6) && rt->rt_gw_family == AF_INET6) {
-		return __ipv6_confirm_neigh(dev, &rt->rt_gw6);
-	...
-	__ipv4_confirm_neigh(dev, *(__force u32 *)pkey);
-}
-
-The device is loaded with a plain dst_dev() outside RCU.
-__ipv4_confirm_neigh() and __ipv6_confirm_neigh() only take
-rcu_read_lock() after that load. They then dereference the pointer:
-dev_net(dev) and dev->flags in __ipv4_neigh_lookup_noref(), or
-dev_net(dev) in __ipv6_neigh_lookup_noref().
-
-IPv4 teardown drops the dst's device reference in the same way.
-rt_flush_dev() does rcu_assign_pointer(rt->dst.dev_rcu, blackhole_netdev)
-and then netdev_ref_replace(). During unregister this runs from
-netdev_run_todo() through rt_flush_dev(NULL).
-
-udp_sendmsg(), raw_sendmsg() and ping_v4_sendmsg() all reach
-dst_confirm_neigh() with MSG_CONFIRM|MSG_PROBE. None of them holds RCU or a
-device reference, and the UDP path needs no privilege.
-
-The neighbouring ipv4_dst_neigh_lookup() already uses rcu_read_lock() with
-dst_dev_rcu(). Should ipv4_confirm_neigh() be converted the same way? It
-would also depend on the missing grace period in netdev_run_todo()
-described above.
-
-[Severity: High]
-This is a pre-existing issue, but ip6_dst_neigh_lookup(), just above this
-hunk, still uses the unpinned load that this patch removes from
-ip6_confirm_neigh():
-
-net/ipv6/route.c:ip6_dst_neigh_lookup() {
-	const struct rt6_info *rt = dst_rt6_info(dst);
-
-	return __ip6_dst_neigh_lookup(rt6_nexthop(rt, &in6addr_any),
-				      dst_dev(dst), skb, daddr);
-}
-
-__ip6_dst_neigh_lookup() calls __ipv6_neigh_lookup(dev, daddr), which only
-takes rcu_read_lock() after the pointer was loaded. On a cache miss it
-calls ipv6_neigh_create(dev, daddr), which leads to ___neigh_create():
-
-net/core/neighbour.c:___neigh_create() {
-    ...
-	n->dev = dev;
-	netdev_hold(dev, &n->dev_tracker, GFP_ATOMIC);
-    ...
-}
-
-After that it calls dev->netdev_ops->ndo_neigh_construct.
-
-Suppose dst_dev_put() or the uncached-route flush moves the dst to
-blackhole_netdev, and the old device is freed between the load and these
-uses. Could netdev_hold() then increment a refcount in a freed net_device?
-
-Some callers get here holding only a dst reference. For example,
-irdma_addr_resolve_neigh_ipv6() in drivers/infiniband/hw/irdma/cm.c calls
-dst_neigh_lookup() after ip6_route_output() without rcu_read_lock().
-
-The IPv4 counterpart ipv4_dst_neigh_lookup() already holds rcu_read_lock()
-around dst_dev_rcu() and the lookup/create.
-
+base-commit: bc35965f6940a9bf834d54187b6088b8eb09206d
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123133000.1.n0ps1edzz%40gmail.com
+2.25.1
+
+
