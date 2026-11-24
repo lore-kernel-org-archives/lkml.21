@@ -1,62 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795538969;
-	b=FtXZ+8wwq5dqwm/gCGA8ek5DO1qjd2U5oQKmVmFnXHFSVhKvUUunkHeWlxQYIttw9n+t
-	 tCzIlMiga//ZhmQyWvfuqTNpoG001+16zRFMU0I6Zq0y12ZV3kbZc30CYTcW4YC7FdKO2
-	 +f+VpMscs2nwM6mLnXnWohJog2REgqtbqiTn7KbxqOfYVvLa63hVmWcQlx30KR+FkCLY+
-	 OpAxa88M7c2ntYtLYk+ADe4vsdvSu/uwav2F2M0brHwcM036SWiPbKVlJgYLIKdTPJXtP
-	 iPogbhSBpgUhtetb8Mmxh/yUJNOH6KBPk+MNkrWe4R3R20B0zjxoBa70P8F8b56pkvw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795538969;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=wYLNAZcvAlxW8drbiBSHvvk3XyZKonPGhZLlrgm0+CU=;
-	b=DMXSEK1oixKYCU0ZEP5WMR9OkCc9VeCfrfUs+kgDAlzfFlMRHNZ3dc/OSXoK1z48vRLx
-	 O+BzoRzYqsndaEYUOqKDnPjIwkQCKRf/sEmtYqgP7H7JCxiZ2PueSxBdr7zNguzCcOQ16
-	 MpLwBMyKWs8rT+VfCMhCGSVb8KW/6Z6a+V+ejPUscZjTsHQ44uLUEbDGZDqPPZdhTiapY
-	 eykGQ6jNw+tPvp4+YT5Dgv6h01Z2I1uTIOpXa0+UwyJMVVpxLnbsZn1NsDGK3FhwkHpRa
-	 FCttnFBNEl+GR/mj/xwOk746iu/Jj0WjjC21vUU5KeVIqxFMMS9vMU6EmhUQn3NNsyQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VY4UUBmj;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795539011;
+	b=zCt0MEFj/fkSxvRjZyb6slI9Mf6pfM0Q7sKSUZ0a4Gkd2VWJ7WgbK6desOwQuzQIUOQD
+	 9M0KMwVDbFYtYnmwXS8B7FAs41riR2c9V0tbs18TLFUsVmWwOqH53+f1fgY9bWN4bNtc5
+	 XS7yOC6UqVJHXMisJM2jwyoioQCSwlgoLwRRu3qqG95QURVY4ZOIb5WIFOPq8ARZ3B0Gy
+	 djG7avwk3VaEcJcVceLrDt8rSRfhtWkmjfwYlnSKpEunHzUxardv8YsSs3cJyaLsGAT1H
+	 13kVyWcsOWLunbqNbmMchxhmAhZqixegAjhAD4SLQyMyBwYu/3vyz7M9bAmG9Qtwk1w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795539011;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version;
+	bh=xUNyxepBbFqbxj/zwUONmjhAUEyk5osQzRo/USZMoIE=;
+	b=nKBaycna8yYLeH479twoAItkt1cM4teqRaGukCNRPWWZ9tfTtwXcuRS3+WgVOY9nLznc
+	 GcDvQMOomYLjRa1FzcWa7QjjnkoiuSST2YrAvi2W3JCPhH+oGEF7uX6fgY0W+UCFF7B3r
+	 gj4qGARrTyHtfDyBd+HMCWZ75jch2yGJR7LjjcGMHj4nI11jWEkytcNPTZCoyjYK6TAhx
+	 pK2wsml0e+tasQyH9dVY+iT6fr63NlmsAkPYBvgEEV+OC/J9YlhcnOSc3sgLeSC+ndey3
+	 nI5lN4W13eualTbRv75ILc3bXDW/sPkdMIju0+Az4yFgABVXkU49rEojdrhe2+/HHFg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=XsHPv4wR;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5741860A2606;
-	Tue, 24 Nov 2026 16:49:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 726FF606A69C;
+	Tue, 24 Nov 2026 16:50:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 726FF606A69C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VY4UUBmj
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE2851F000D0;
-	Tue, 24 Nov 2026 16:49:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795538968;
-	bh=wYLNAZcvAlxW8drbiBSHvvk3XyZKonPGhZLlrgm0+CU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=VY4UUBmj6CUyELYpfvbDSWKr9HAPiBDaTEyPMkyBARELbp96ObcSDI+Z4sztgWq+S
-	 EmmQNxyS3w0s556g339p7mvkl3Ai6zq849SMMUQj/ePsaDg78HcnrfZ0+YVp/9ostX
-	 f6K8Vt7gZuU9uPCm6Dv+9iSWQPPNhvjst6dImNy09ixDTf7AStiuPpVAL9nHq38WI/
-	 9Hg4d353tHeGidxyJ8HMGzVx3h4EleKyxf35Uh63Gv5ky14JYOeXtKALQjtlWf2CO5
-	 GnlXAY7T53MqidXdliBi/Pjh+ZilzXabwx9uB9YRFifN6ipoc4iIcJwOLtpcw0++08
-	 SwodWxMOGkI2g==
-Subject:
- Re: [PATCH net-next v6 4/4] net: mdio: mdio-bcm-unimac: Add Clause 45 support
-From: netdev-bot+sashiko@kernel.org
-To: florian.fainelli@broadcom.com
-Cc: netdev@vger.kernel.org, nb@tipi-net.de, carlos.soto@broadcom.com,
- justin.chen@broadcom.com, opendmb@gmail.com,
- bcm-kernel-feedback-list@broadcom.com, andrew@lunn.ch, hkallweit1@gmail.com,
- linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, linux-kernel@vger.kernel.org,
- kudzo51@gmail.com
-Date: Tue, 24 Nov 2026 16:49:27 +0000
-Message-ID: <179553896749.3135.9852837290681703615@kernel.org>
-In-Reply-To: <20261123164835.1733304-5-florian.fainelli@broadcom.com>
-References: <20261123164835.1733304-5-florian.fainelli@broadcom.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=XsHPv4wR
+Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
+	(Authenticated sender: pza@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 4D1282004B4;
+	Tue, 24 Nov 2026 17:50:00 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795539000;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xUNyxepBbFqbxj/zwUONmjhAUEyk5osQzRo/USZMoIE=;
+	b=XsHPv4wROfnoOR/Al1PfP2g38rWs2d8VdHYo97JJQEXtxJQT+N9uvgkIodiO5oNj6sh83H
+	U5QGh7npHqJdM274F9Au9Ot4fma0AqtAjry/jfArpCu5LZpvK4yjAgSPwBAKpJszDhx7ZI
+	tq5nHwrqNUdqOwdNWEVIUuhV3kq2Yrx/8m8yi9bF+kC8dw7PkngMPQVPp5sivJI2Nyl4zM
+	qVMPEaynFWz55N4R5TfNj6mSgRJ9UcPlZtRdhkKOHNQD0mKVEbX3rwZU+lbngYVw+E1pa4
+	2EV2Tyy+r9dmljp1UlOabvuzrcsb6Q9G1yh0bvxK8BG/O2RNSZJzfWwvU0NjHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795539000;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xUNyxepBbFqbxj/zwUONmjhAUEyk5osQzRo/USZMoIE=;
+	b=eW1vTA85NWp23HDiCbP0J1mb8m2Lel19Xv6D6ekUqtuU14YSbb7sY2dCrVbSRh0fdPIv7f
+	+nrr/ExGSsjMy1JF2Aniv8cXiMu459RvZ4QIn1De9svO5dufohaA1URv6JumlbUbCDUSPP
+	9hZ8+yfy+6TmMjbhOSVemV7fQ9oNToBaeUqKrdj5eLellXEq6hi5vT/glZ7FyrI2Vtn+/A
+	eej/RP8YybOZVrzMW65gCW5zL2Ssiq7iHbO04cjLtQCwEIBcVZCOdRLfQccTgA3M6U5u5J
+	5e68zrfEtPiskFTK0W2zVcQXP6dDkdbf1Bwuel+0uHhiYXXUO6twQXeKJMoIpg==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795539000; a=rsa-sha256;
+	cv=none;
+	b=ahaXNxWTVb8qE7MA4+PnYkPbav+7Cg387gT7Qa6bu+zvF+t9SX2c2Dj5+Luv1cf/iKBoD2
+	hWVdVGUb7F14T0oXeuXuDBAWzelX0ZF1NZ8ibFgFXgIcfIyNXFPvu9JPfhbw3IpEcPRsNG
+	G9zEPanTyaBMjVX8h1HuyLFmIVQQFJIYSh1mKuemLyRfvEbjEcgnDUB4wWyzUd6HYJGphe
+	uRamHNbrRkKGZBMIOKKS15Ay8c9n1rq2NPKX0ww1oHM9F/EM4TwO/gIeIp6Bas+BRH+wPX
+	38Mk1oJN8UZ/vHpsFKSxqy22y9fGJ31oky6YZG6f12ajstjuTCywOtPA4tYkQA==
+Message-ID: <831aebd692fc5ddbbd1cf57f1aad3bcc0d3f30d2.camel@pengutronix.de>
+Subject: Re: [PATCH v8 16/18] drm/bridge: starfive: Add JH7110 HDMI
+ controller driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Michal Wilczynski <m.wilczynski@samsung.com>, Neil Armstrong	
+ <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski	 <krzk+dt@kernel.org>, Robert Foss <rfoss@kernel.org>, Laurent
+ Pinchart	 <Laurent.pinchart@ideasonboard.com>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>,  Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Emil Renner
+ Berthing	 <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>, Heiko
+ Stuebner	 <heiko@sntech.de>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+	 <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti	
+ <alex@ghiti.fr>, Dominique Belhachemi <db@domibel.de>, Andy Yan
+ <andyshrk@163.com>,  David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Yakir Yang <kuankuan.y@gmail.com>,  Dmitry Baryshkov
+ <dmitry.baryshkov@oss.qualcomm.com>, Conor Dooley <conor@kernel.org>,
+ William Qiu	 <william.qiu@starfivetech.com>, Xingyu Wu
+ <xingyu.wu@starfivetech.com>,  Sandy Huang <hjc@rock-chips.com>, Manivannan
+ Sadhasivam <mani@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
+ Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
+ <maud_spierings@murena.io>, Graham Markall	 <hello@big-grey.co.uk>, Icenowy
+ Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen	 <chaoyi.chen@rock-chips.com>,
+ Joshua Peisach <jpeisach@ubuntu.com>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=	
+ <u.kleine-koenig@baylibre.com>, Cristian Ciocaltea	
+ <cristian.ciocaltea@collabora.com>, Byron Stanoszek <gandalf@winds.org>, 
+ Owen O'Hehir <oo.hehir@gmail.com>
+Date: Tue, 24 Nov 2026 17:50:00 +0100
+In-Reply-To: <20261124-jh7110-clean-send-v8-16-de92635dd857@samsung.com>
+References: <20261124-jh7110-clean-send-v8-0-de92635dd857@samsung.com>
+		<CGME20261124155429eucas1p1015c7cd9beec294fefdcd6900dd407f6@eucas1p1.samsung.com>
+	 <20261124-jh7110-clean-send-v8-16-de92635dd857@samsung.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,127 +120,72 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Di, 2026-11-24 at 16:52 +0100, Michal Wilczynski wrote:
+> Add the HDMI controller (bridge) driver for the StarFive JH7110.
+>=20
+[...]
+>=20
+> Tested-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> Tested-by: Byron Stanoszek <gandalf@winds.org>
+> Tested-by: Owen O'Hehir <oo.hehir@gmail.com>
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  drivers/gpu/drm/bridge/Kconfig            |  11 ++
+>  drivers/gpu/drm/bridge/Makefile           |   1 +
+>  drivers/gpu/drm/bridge/jh7110-inno-hdmi.c | 297 ++++++++++++++++++++++++=
+++++++
+>  3 files changed, 309 insertions(+)
+>=20
+[...]
+> diff --git a/drivers/gpu/drm/bridge/jh7110-inno-hdmi.c b/drivers/gpu/drm/=
+bridge/jh7110-inno-hdmi.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..a0283f83ddc93e3e6c9e9192b=
+73dca9a63f9d9ab
+> --- /dev/null
+> +++ b/drivers/gpu/drm/bridge/jh7110-inno-hdmi.c
+> @@ -0,0 +1,297 @@
+[...]
+> +
+> +struct stf_inno_hdmi_controller {
+> +	struct clk_bulk_data clks[CLK_CTRL_NUM];
+> +	struct reset_control *tx_rst;
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+tx_rst is never used outside of starfive_inno_hdmi_controller_probe(),
+it could be a local variable.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+> +	struct phy *phy;
+> +	bool enabled;
+> +};
+> +
+[...]
+> +static void stf_inno_hdmi_rst_assert(void *data)
+> +{
+> +	reset_control_assert(data);
+> +}
+> +
+> +static int starfive_inno_hdmi_controller_probe(struct platform_device *p=
+dev)
+> +{
+[...]
+> +	ctrl->tx_rst =3D devm_reset_control_get_exclusive(dev, NULL);
+> +	if (IS_ERR(ctrl->tx_rst))
+> +		return dev_err_probe(dev, PTR_ERR(ctrl->tx_rst), "failed to get tx res=
+et\n");
+> +
+[...]
+> +
+> +	ret =3D reset_control_deassert(ctrl->tx_rst);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret =3D devm_add_action_or_reset(dev, stf_inno_hdmi_rst_assert,
+> +				       ctrl->tx_rst);
+> +	if (ret)
+> +		return ret;
 
-- [Medium] On ACPI (non-DT) GENET systems, the new C45 scan can create a
-  phy_device that GENET then attaches to instead of the intended PHY.
-- [Low] Adding read_c45/write_c45 slows GENET probe on ACPI (non-DT)
-  systems by much more than the commit message says.
+This looks like it could be simplified with
+devm_reset_control_get_exclusive_deasserted().
 
---
-
-net: mdio: mdio-bcm-unimac: Add Clause 45 support
-
-This adds read_c45/write_c45 callbacks to the UniMAC MDIO driver. Each
-access does an ADDR cycle followed by a READ/WRITE cycle, and MDIO_CFG is
-switched between C22 and C45 mode only when needed. Every cycle is now
-followed by an idle check, resume takes the bus lock around the clock
-divider update, and the BMSR workaround is skipped for C45 DT children.
-
-> The platform device that GENET instantiates when it is probed without a
-> Device Tree node (e.g.: ACPI) does not mask any address, so it is scanned
-> too. Its wait_func is bcmgenet_mii_wait(), which sleeps for up to a timeout
-> per frame since GENET's interrupt is not registered yet when the bus is
-> registered. That makes the scan slower at probe time on such systems, the
-> same way the C22 scan already is.
-
-[Severity: Low]
-
-Could the commit message say how large this slowdown is?
-
-For each empty address, get_phy_c45_ids() does a failing MMD 1 DEVS2
-read and then the MMD 0 DEVS2 fallback read. That is two C45 reads, so
-four frames (ADDR + READ each). Each frame goes through
-bcmgenet_mii_wait():
-
-	wait_event_timeout(priv->wq,
-			   !(bcmgenet_umac_readl(priv, UMAC_MDIO_CMD)
-			   & MDIO_START_BUSY),
-			   HZ / 100);
-
-The GENET ISR is not installed at this point, so nothing calls
-wake_up(). Each frame sleeps the full HZ/100, which is 4-10 ms depending
-on HZ.
-
-With one C22 PHY on the bus, the C45 scan adds about 31 x 4 = 124
-sleeping frames. That is roughly 0.5-1.2 s per GENET instance.
-
-The existing C22 cost is about 63 frames: 32 BMSR workaround reads plus
-31 failed PHYSID1 reads. Total probe-time MDIO waiting therefore roughly
-triples.
-
-Would it be worth stating the size of the delay? It would also help to
-explain why the C45 scan cannot be avoided on these buses. Known hardware
-here, such as the Raspberry Pi 4's BCM54213PE, is C22-only and gains
-nothing from the scan.
-
-> diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/mdio-bcm-unimac.c
-> index f8e5c1811d96b..b01e99327b561 100644
-> --- a/drivers/net/mdio/mdio-bcm-unimac.c
-> +++ b/drivers/net/mdio/mdio-bcm-unimac.c
-
-[ ... ]
-
-> @@ -302,6 +408,8 @@ static int unimac_mdio_probe(struct platform_device *pdev)
->  	bus->parent = &pdev->dev;
->  	bus->read = unimac_mdio_read;
->  	bus->write = unimac_mdio_write;
-> +	bus->read_c45 = unimac_mdio_read_c45;
-> +	bus->write_c45 = unimac_mdio_write_c45;
-
-[Severity: Medium]
-
-Can this change which PHY GENET attaches to on ACPI systems?
-
-Without a DT node, bcmgenet_mii_register() does:
-
-	else
-		ppd.phy_mask = ~0;
-
-So bus->phy_mask = ~pdata->phy_mask = 0 here. With read_c45 now set,
-__mdiobus_register() runs:
-
-	if (!prevent_c45_scan && bus->read_c45) {
-		err = mdiobus_scan_bus_c45(bus);
-
-This covers every address that has no C22 device.
-mdiobus_prevent_c45_scan() only skips the scan for Micrel OUIs.
-
-Later, the has_acpi_companion() branch of bcmgenet_mii_probe() does:
-
-	phydev = phy_find_first(unimacbus);
-
-This returns the lowest-address phy_device on the bus, whether it is a
-C22 or a C45 device.
-
-Suppose something answers C45 ID reads at an address below the intended
-C22 PHY. Would GENET then call phy_connect_direct() on that device
-instead?
-
-That device could be a C45-only PHY or switch. It could also be a ghost
-device from a C22 PHY that misdecodes C45 frames sent to other
-addresses. mdiobus_prevent_c45_scan() guards against that case, but only
-for Micrel.
-
-This has not been confirmed on known ACPI GENET boards, e.g. RPi4 with
-the BCM54213PE at address 1, so it depends on what is on the bus.
-
-There is also a side effect: with bus->read_c45 set, get_phy_device()
-falls back to C45 ID probing for any C22 address whose ID reads as 0.
-C45 frames now reach devices that only ever saw C22 frames before.
-
-The commit message covers the probe-time slowdown but not this change in
-PHY selection. Should the unmasked non-DT bus be kept out of the C45
-scan?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123164835.1733304-1-florian.fainelli%40broadcom.com
+regards
+Philipp
