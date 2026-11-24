@@ -1,88 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795481068;
-	b=Z5V7/5w4v3Azwv8blDr3dggESkQ7rsNzlrw4WqYVIKDdWKWiBh5NgI30Jg2xMBrOJ+MQ
-	 8VNAdQwdV18z+of6T2tu41NPQr6nW6PWo0GO0jxCIibpkOzgDdmIxSBoC4EqfDmjrx5mZ
-	 cfnUhjkiC6UqcAkxsJqV81FKJnCO8RonPdOrMIlHhV4HsoddwyfpXzMiB5RZw4W8UJEYx
-	 YBNeeS7UI7BF4+AkndlObsrkAmPLXFUajTulDn01edGRBIRJwRmjwhR9aX3HTlonj85Qx
-	 r8EhI5sN6tfAScbbmJPmoRfTfOsC4j6ijKHIiq3IV6hC1LAxy/tysT/3dKjWZqpxHvQ==
+	t=1795481100;
+	b=LA47rp4zKoLHjUvatK/OYFd8iq2PCXQascGdUS3EYSogGwaHSlFsnOwrd/g3cHfpZ+DI
+	 gQ1oR8fYSDjxxoD+LbwwfWZYCiuy8EaLidl9Ik/5t6YeKmsXh21l9hXG63IDLrthcKztU
+	 mtAigtC7ts6zRWzm9doebChoIns9chQd7niZbZvxJqpV7EsEGKz1xi4+/d+F4mIUnYEB+
+	 b1i+X+U3hG9FKWDpp9SXEGg6d+XA7USHf2oyLDE4qRdRF0VAIK44rDk2hCDhK0fH2qO6c
+	 zrmuJ1AO1myh4XEdTH6wuYMgn+jif/pwEgbSq0sbPe0hP10SmOILdF/924fKJnXEc+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795481068;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
-	 Cc:References:From:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=0MScgZgXeIWmjS6hoGqe6kXsg/e8o8ts/nbOkXEpNcs=;
-	b=VdHuDVHj7uDDP9UV+kQjHeZUX796MGYIbK6hZ5pE0chocU8/d8xUPl24hoJxyfl4ZaQK
-	 oU+SNmsx3xM0BPe0HvFfCD8ztW/8/bxanbu+hBd1bB3Pj8LHAtn6/X6IeqKdTpCnGyhMM
-	 XxF5Yav7IlmIcnMJ9Hdb87KduRVF/ibMGVS0lwAKDS+2ia3/K9wolXYuZqhUqDNRNEC3t
-	 0M/kCq/EROgWk9CpKCUs+/5YY8UMKWFAex+7esrlJZ4dGJbY8CIKQPtomBdOCdcfCbhMA
-	 q+pEmmqW/LwFsKhHpqUUZezOJ3mZeCJA4WjDJUv2pBUfG0KW2WgJhnS/XWJrcUvO8AQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795481100;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=vVDwHk+IAbKPfz3+9kgQWMzybBMRngfzj3/RAbilHnc=;
+	b=ZyvZvxSbm6cozuTJjqlW89v4+n0I5veRm1FctL8A2Sivg0dCNfErl14lCRCgKF86PLhb
+	 S49THqJlAA/War4lYP1QLdxXVOCrIIQZoW2Ygv3c4p1N++0HudN5s3FbeyTC05sKVUYdt
+	 dElYVyDAf4E1WLglVFNdGoT8LinU1BFnNNZ1xWv9Fjc0wcUv+6wKbdRWAAEOvuC2Kbb3H
+	 y6L+j/SDWgHOa69qY54VNTJSVaHI+tgDaauKUEMwxj7RmDI75a5Bg554r9BhoIt8LUWtZ
+	 ENVcAU97x5H3Z7tEtIAzomFn1mhb7hkhtXAX0jZw/Y/X0AV6SAu5t/HrSJ+1cV6M85g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f9RyjsI5;
-	arc=none smtp.remote-ip=209.85.210.172
-Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ucZhXLTP;
+	arc=none smtp.remote-ip=198.137.202.133
+Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ACF1606A322
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:44:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6ACF1606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99D22606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:44:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99D22606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f9RyjsI5
-Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8b6a88e4341so1672676b3a.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:44:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795481068; x=1796085868; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :references:cc:to:content-language:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0MScgZgXeIWmjS6hoGqe6kXsg/e8o8ts/nbOkXEpNcs=;
-        b=f9RyjsI5BlEiP+ogUL82p4Zw2/oIInh0yzWd4zl3Nzz9yX3AjS9uJvGArF4X9sQ1Dv
-         t/Zemesbv+oPAotN3AiNR+cAc7SZK8XyhoPrOalw3XPafnkPzqPtKf5QspbIijk7jBmK
-         KSH1oO/ImNUem/yw+9s/gCVmNdTGMgBZyQ3iiAT/NQ2+mtXquoI8i1MB7dwOxMRWNplg
-         lPERUKetm1oqsjEDslCK7WOVDu8BYirk3nNZ2THvGNwQjlT682gTTARQiMeOqypTVAau
-         iVQaUzAUALq81iVGZMOOFhFCfL+IjFP8WnE+MMTi7nG9ANAR3Y94b9siGYjaiapXTBLv
-         8+jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795481068; x=1796085868;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :references:cc:to:content-language:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0MScgZgXeIWmjS6hoGqe6kXsg/e8o8ts/nbOkXEpNcs=;
-        b=jjJUBz3x9jjn+4dODtRCXPcjvdbaG+wMI0/LKwdyUumXX4VVjhKRhk43+PG24JG64x
-         PjW1lCqfFgFwleiR7YnFZFZ7X3i/pykoKqaWshtgEfmSJExkJFeC81C/QYSaR7CqTynn
-         b/1JgvZblILd2pLqwE3v5c7D47AbBTQRHmnkmEi4S4IPMc+tkw3OYMyAZlhEVPJyFJyX
-         rg9jWH3LMxHjXbiaeEenZriwnO/v1q2JcZhSzjCdkOEaxTmrM8yqnzfYQ7Bi9MoFzKgm
-         1FW2hRNqiZfm3A25Mte9yAkgPesTBsu51WsljlwvOgGoa1PXy8gwv+7DkF+obh35rj3d
-         qkqQ==
-X-Forwarded-Encrypted: i=1; AL+hErH/dr+h8stiYL47BtDg5XBPFrPysS1DCek0U2X7facy+QbjJAY3g8xktetLBSkJjSlq/TKTwyT+u/hgUzQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9uN9vaSigi4Ogn1uE0RkgHUOYFjeEmLcnAQFQlnTVJn+8RPJFx
-	4uTb1+2roKLJfwva3QcVSZqXQ/UVRLRRTI3go4QCSMBer84QH5fYZc6o
-X-Gm-Gg: AZFdTZfhY5Mz462n3aGJG/Bigf7psgsBQepsw0ulcY4pY7kxwN39I6VL4FC2CYiAR6o
-	J+LrgLJU8m5VuK4ddbroL9SCD8PynPZtgr9Y/6Cs+OppEgcAs90HieRgSR8vygwyZLgx0FP/S+V
-	ePW9EQs7pYtgL5cNHxdebVlMsdWBILfGzGRNy37uN+G34w9SS15dZtBT5x6y7zpmZv74k6yPUTI
-	GDxGnPtAvwCozzTEYT1zmIuFeYXQaxCjQa7Nx9rMnWBViZO6Rg7InAmbRDXGmgT2thvL7Z0riwi
-	uDEtuIOjajuSBOOrxqOFlClHPolNTdkbVN8b9VrP8alx1utv1hB6oHBW55/J+JEF9nWG526RFcS
-	zql5+TCFEtQo53VBW1xvNGivp12RkckudB754bayGnb+58RjiNQdjKYf7BnuHkKso2tpr9Ec1SA
-	rc+hHvtdaAPveqtdDFh5lFSmuJiFQ8MB5jihbHrJ5LMrQA7zKL4AdjninDxhbhEp1am5SEbgmMz
-	7JrjCniLdiNlgAkkNZUlenN9Gr91Z4Mkr9IXyt6uemhUatOV+rSHlvmFUqt+lDo8uHHMfiXxZgZ
-	vEDlAZ4LJ3P016HByEizk56mOaoEr9ybNOpYBFOGjW9h2uKTOzrUw9nwMLDOJYk0
-X-Received: by 2002:a05:6300:48:b0:3dd:a195:dd5d with SMTP id adf61e73a8af0-4014ed36da8mr13462544637.63.1795481067613;
-        Mon, 23 Nov 2026 16:44:27 -0800 (PST)
-Received: from ?IPV6:2601:600:a482:7d70::b4f9? ([2601:600:a482:7d70::b4f9])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde9bb05981sm855550a12.26.2026.11.23.16.44.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 16:44:27 -0800 (PST)
-Message-ID: <e4a05b89-f9ca-4082-a203-07f6a00f8913@gmail.com>
-Date: Mon, 23 Nov 2026 16:44:26 -0800
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ucZhXLTP
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=vVDwHk+IAbKPfz3+9kgQWMzybBMRngfzj3/RAbilHnc=; b=ucZhXLTPin0AoGSDFO7FHYy70G
+	gdNTbjYYO6VJT6gESL8jJ+rv5GDow2tEL0KBZTieb2DkeyyIgO8tuNsPTVbHaT4uWYhP6E4ivtI4C
+	V8On6AinGc0uSVg+ds2aHGLB6hbNaW751c6n/N5sSjkr6eofiAasQSQPC3S3EeuEDehATu05QRzDQ
+	jkbAedeqglEt7wAB8Bk9KlmRZW09T6pzJWVsJYNKRzaDDWPWavEhiSHEy9Wy/CK90Wl4efDBkb3pK
+	exiSwAd5SLybjdM8uFc5J9lySuJz87tpzNj14xTZvMWE3D76CBQbIgO9DcQLN5mEHmgk7ngPmpIVd
+	+Hu2WEYg==;
+Received: from [50.53.43.113] (helo=bombadil.infradead.org)
+	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xVeeT-00000005HSp-0Mgw;
+	Tue, 24 Nov 2026 00:44:53 +0000
+From: Randy Dunlap <rdunlap@infradead.org>
+To: linux-kernel@vger.kernel.org
+Cc: Randy Dunlap <rdunlap@infradead.org>,
+	Frank Haverkamp <haver@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: [PATCH] misc: genwqe: fix various kernel-doc warnings
+Date: Mon, 23 Nov 2026 16:44:46 -0800
+Message-ID: <20261124004446.2629376-1-rdunlap@infradead.org>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,126 +65,210 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 2/2] net: wwan: iosm: fix S3 resume by re-binding
- the driver around it
-Content-Language: en-US
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, loic.poulain@oss.qualcomm.com,
- ryazanov.s.a@gmail.com, johannes@sipsolutions.net, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, m.chetan.kumar@linux.intel.com,
- linux-kernel@vger.kernel.org, mail@maciej.szmigiero.name,
- nihaal@cse.iitm.ac.in, stable@vger.kernel.org
-References: <20261119042714.505405-2-davidlwesten@gmail.com>
- <179541107082.3135.11504382259893948340@kernel.org>
-From: David Westen <davidlwesten@gmail.com>
-Autocrypt: addr=davidlwesten@gmail.com; keydata=
- xsFNBF3I5/MBEAC8Z4xi4tjwS5ZybnlXyvFTadKGbzvcodzybkUYKHRa99SrGTsIiSP6CqAz
- wb+HDTlNBpIxQVD4uAbv9Nn7Xd0827Li5qW2u4Fe6nAtYAODFjR6lvD/Z3ayhvxoLYbUfqYl
- jKZ2QMfLobcTWP9kKpQ0gjALqG3kdGDPe7Hpicf9UzGw6DDN3OmDRLKC6/zHxEvj8JkfthXQ
- LimYHbR+XTrln4myg09S90/KL4fPL4wS99w/9OKujkLBQQasZL/iy00xJvfdFIYqY/nOnNZO
- iuFLJPhz5OZRiv/wZ5j4P639ekV/XmTN5scon66C86oulD65DP56vfUwC0B56ZVKqClkMBvZ
- 6Hy/dHR9j9s/UkCn87/Q2q1vWV6ZgOhPmpcK+waFzPJ6X9fldN4sUsaiQdoCJelWebAj9ORO
- sXXhzhSA8bUOkwIQ2Sc3XRmLPKb9GE0tn3XugvetzBD/bRZpTgOa0DYuDUFmfLwlxSrAAvC7
- vpeq1VfQsmoju++sMh+2JqzaJyaNg3b4E3XXa+m7xVDffQym1OU19ZRBhRjVuN0VvaKc6RmX
- OkFnz5/tAXd4D8V1Cjq8jaTMq08G2aev9WSaNjD+rLCwQGVbLA5iAWG1RMVK71X+OsppbQ8g
- gePMYOJ2jqqo/t4oiUjr21SyRMx+G9N6CM+D+ySfQdJWgbU3lwARAQABzSdEYXZpZCBMIFdl
- c3RlbiA8ZGF2aWRsd2VzdGVuQGdtYWlsLmNvbT7CwZEEEwEIADsWIQQ/9iqh7GxpUl+99aKV
- Nmb3YjnzugUCZdLUtQIbLwULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgAAKCRCVNmb3Yjnz
- ulY7D/9Eu3LYFQlw/2fi7/hXDrfaGq4KENWU8C+AUrbZtsnS5TujGgKirqA8VrqOg+QD9MHY
- /ufzPldwnlLPz06dePsJPeIkqN1nIXWoPOMqYeiU2WZR8SbYctUNRt9KxnDjoJQOqlb0Zt/W
- tlnutdkIKk1js4K1PmFgRorFK7AEp1M/PMtdIf1jVZjWoZcqATlIu+7lgUuHT51JHH0a7UFQ
- kxShdxcBTYINKomSnfWEjdNSV0WvgGGL3Ji+0VQIH4QSQVxFq1IfB8/S/lJYy6JAJrraDSzF
- +qko+Zk/yLKn8EVL8lui6FyLQrCuK5KdYMC8He7md8KUSt2qhNHe1VXIM8vtFR7cyjPBn0gd
- I470dVsMc7MVzdkLCAVLw1oc+14ZYIICQr+wWuDp/c6JcYGpMpH0SBm8w32CIv1mQT5Hly8u
- 85x28SJuOK/lSrcPY+cAzHhPm7CxMjVu7ZvTKl1adqUKOUbic7gihc0mxMIqlKvQn3fxZGu2
- 8ynaOH4XzL72FrXi3EuwnXTVjCkAS+a6jnJMg1XZaaM/dccNvakZQimMDa/fud33DjP/4VBk
- R3gNm19ATbhfUU481hES3b5pikH2eqaZfxQTrpWK3WtpTzwj37psVH7NlRPM20ZmhsHGh142
- iUrPjf6JrMIiFmFJH5FIylyMI4jgrGaPtTdVvRhaH87BTQRdyOfzARAAxh7hxOxjHZrw1vpY
- GXrAGAfits7F8u0H4Nq0n6OJWMvTChX48hhBDZIQOG+DwCukKhyDiGM7U6h/KbFvUOrcrELZ
- NY2dxmBKzzyDSlk9qDLbMixOP3OkPRSSG/0r0SF7cInXw96g3FPZddqegHNLxV6/FhO9gPPu
- uXjhrFP1QCM4Zq/JkQ1IS1ev7hjIaf0cXs6I7mrdMAFVYWyzJjEFHLX7qykfKUlD8OE47rS0
- r3YZ793hrFu8ZXqrIApHu4+5gvAvu68o9wjrZ3Shq+4dk3cv3zjZSO7iF6iAYWI9iv144Wrt
- OOPXSnrVwSnZahmlew6T+610o21JVNnd3N2kar75NvooRH0+115MZE2IN6AdtOmftgYZWebr
- IL7ie0Oz8zlxDRzFJ/OTT2ozNZmAixNyU1jXNtAfXAuxDruI3xUwxcdYMM3eWN9ZCGGiAFFR
- t15wSTufV5bFJc/6qOcyrVRJ1N0cJMGJgnFG9YsjTrFcRhieKd8F2/T8Iw4AUM3aHiK3OejI
- Vr9EEHnhwhcyXn+ORJg4AhhKb30MRwP9o71HsHOuzr/J0yB+YvngOy6Q+7mGcIJuzOfOGSlm
- 5VrAREj3H0375cdieiy37Vu7jf4ngm4VHS0NMxjTqxhR1BKlGxH396u2pZzrAv3msH1LUjuI
- mh5Qx/ZYy7caPL0x4OsAEQEAAcLBdgQYAQgAIBYhBD/2KqHsbGlSX731opU2ZvdiOfO6BQJd
- yOfzAhsMAAoJEJU2ZvdiOfO6PFUQAJxsjDBnBOZtgKLgCcaMZMy9nHHtZ3dPC4N1TgGUKTGx
- MDgJxwWe4DM3NvPq78oeRJLlHM3SbAOBlRjWQUSjEhjHpoPFLbeuvEWY4M9DKeXHDQxIhEGc
- DbkTnKjnBmc3xb0FC41QUaDjoN9ZpyPq/Jl5WXCm1YJZeoC9CZmzEJHZ65y6joggKECCqAiK
- 6/sfKecT72QOLcTmN2WxIqpv4gYNTeqbbTakGiO25Va514R9Ac9iNOzMIWBMcdRXemZB5D0X
- P4GPFTl+dUDsI4ioQQUUxMLNVA9bjLokRgWm5M3Zcpsb0D5P/D6mvUysf9HaxQasfWQ3H27v
- ozAkTS67i979V8yNYpeNmlPRo/F50duNw2Wm3/6ONUBXTPXFozDs+OSi0XA9JfsQUI2Pac/x
- 0ZIRv6FYtUfj7DoR2YYO0RIEYt74tk6Y952qQo7P4yQ3POqh/4S0WUpL99ozg446qBVSeVCj
- BaBZxN+8GkyTByS82Zf6DpJOcGp8TnwaMdeUGDhiorrx069Hjsel7elkNrgXxNL4PBmo/S/l
- DzC7k8RSjg/2wI6Ngfcd76sPitzFnw4d6EP++t2SJpslQWC6xBNQHkQ4iO1nt05wvZvs0sKf
- Pm0VEzo9w9EFEanTJxhCmzkb+Lc9o6IiVuGv7D4EE04Dhrj6VQhqR1gC7yTAN3tQ
-In-Reply-To: <179541107082.3135.11504382259893948340@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/22/26 9:17 PM, netdev-bot+sashiko@kernel.org wrote:
-> [Severity: Low]
-> Will this apply to the stable trees that this Fixes: tag selects?
->
-> Commit 0b6f6593aa8c ("net: wwan: iosm: Fix hibernation by re-binding the
-> driver around it") added pm_notify(), pm_notifier and pci_registered. That
-> commit has no Fixes: or Cc: stable tag. A tree that has 1f52d7b62285 but
-> not 0b6f6593aa8c has no pm_notify() at all.
->
-> Could the prerequisite be named, for example with
-> "Cc: stable@vger.kernel.org # depends on 0b6f6593aa8c"?
+Fix a variety of kernel-doc warnings in genwqe source files:
+- don't use "/**" to begin non-kernel-doc comments
+- repair mismatched struct & function prototypes so that the comments
+  match the struct or function name
+- add some function parameter comments that were missing
+- add some struct member comments that were missing or were misnamed
+- don't introduce macros between a struct's kernel-doc and the
+  struct declaration
+- use "enum" for enum kernel-doc instead of "struct"
 
-Yes, v3 will name it in the stable tag.
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+---
+Cc: Frank Haverkamp <haver@linux.ibm.com>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
-> [Severity: High]
-> Can this expose a use-after-free of ipc_imem->ipc_task on every S3
-> suspend?
->
-> [...]
->
-> The unbind and hibernation paths already use this ordering. This patch
-> puts it on the S3 path while the modem is running and has just been told
-> to go to UNINIT. Could the MSIs be quiesced or freed before
-> ipc_imem_cleanup() tears down the tasklet?
+ drivers/misc/genwqe/card_base.h         |   31 ++++++++++++++--------
+ drivers/misc/genwqe/card_ddcb.h         |   14 ++++-----
+ drivers/misc/genwqe/genwqe_driver.h     |    4 +-
+ include/uapi/linux/genwqe/genwqe_card.h |    5 ++-
+ 4 files changed, 33 insertions(+), 21 deletions(-)
 
-Yes. v3 will free the MSIs before ipc_imem_cleanup() tears down the
-tasklet. The teardown doesn't need them: ipc_imem_handle_irq() already
-ignores MSIs once the phase is IPC_P_OFF_REQ.
-
-> [Severity: Medium]
-> Does the modem now enter system sleep in D0 with its firmware still
-> running? This applies when the card keeps power in S3, or when freeze or
-> standby is entered while mem_sleep is deep.
->
-> [...]
->
-> Could this raise sleep power, or keep the platform out of S0ix during an
-> explicit s2idle? The changelog lists lost data sessions for these cases,
-> but it doesn't mention this.
-
-Yes. With the driver unbound, the modem gets no sleep request and the
-PCI core leaves it in D0. That's the cost of re-binding the driver
-around the suspend. v3 will mention it in the changelog.
-
-> [Severity: Low]
-> Can this register the driver again in the middle of a uswsusp
-> hibernation?
->
-> [...]
->
-> The hibernation image would then be created with iosm bound. The later
-> PM_POST_HIBERNATION from snapshot_release() does nothing, so the unbind
-> added by 0b6f6593aa8c is lost. Before this patch PM_POST_SUSPEND was
-> ignored, so this couldn't happen.
-
-Right, both paths share pci_registered. v3 will remember which
-transition unbound the driver and only bind it again after that one.
-
-Thanks,
-David
-
-pw-bot: cr
+--- linux-next-20261123.orig/drivers/misc/genwqe/card_ddcb.h
++++ linux-next-20261123/drivers/misc/genwqe/card_ddcb.h
+@@ -2,7 +2,7 @@
+ #ifndef __CARD_DDCB_H__
+ #define __CARD_DDCB_H__
+ 
+-/**
++/*
+  * IBM Accelerator Family 'GenWQE'
+  *
+  * (C) Copyright IBM Corp. 2013
+@@ -19,6 +19,10 @@
+ #include "genwqe_driver.h"
+ #include "card_base.h"
+ 
++#define ASIV_LENGTH		104 /* Old specification without ATS field */
++#define ASIV_LENGTH_ATS		96  /* New specification with ATS field */
++#define ASV_LENGTH		64
++
+ /**
+  * struct ddcb - Device Driver Control Block DDCB
+  * @hsi:        Hardware software interlock
+@@ -30,16 +34,12 @@
+  * @acfunc:     Accelerator function addresses a unit within the chip
+  * @cmd:        Command to work on
+  * @cmdopts_16: Options for the command
+- * @asiv:       Input data
++ * @n.asiv:     Input data
+  * @asv:        Output data
+  *
+  * The DDCB data format is big endian. Multiple consequtive DDBCs form
+  * a DDCB queue.
+  */
+-#define ASIV_LENGTH		104 /* Old specification without ATS field */
+-#define ASIV_LENGTH_ATS		96  /* New specification with ATS field */
+-#define ASV_LENGTH		64
+-
+ struct ddcb {
+ 	union {
+ 		__be32 icrc_hsi_shi_32;	/* iCRC, Hardware/SW interlock */
+@@ -160,7 +160,7 @@ struct ddcb {
+ #define SG_END_LIST		(0x0)
+ 
+ /**
+- * struct sglist - Scatter gather list
++ * struct sg_entry - Scatter gather list
+  * @target_addr:       Either a dma addr of memory to work on or a
+  *                     dma addr or a subsequent sglist block.
+  * @len:               Length of the data block.
+--- linux-next-20261123.orig/drivers/misc/genwqe/genwqe_driver.h
++++ linux-next-20261123/drivers/misc/genwqe/genwqe_driver.h
+@@ -2,7 +2,7 @@
+ #ifndef __GENWQE_DRIVER_H__
+ #define __GENWQE_DRIVER_H__
+ 
+-/**
++/*
+  * IBM Accelerator Family 'GenWQE'
+  *
+  * (C) Copyright IBM Corp. 2013
+@@ -37,7 +37,7 @@
+ #define GENWQE_MAX_MINOR	128 /* up to 128 possible genwqe devices */
+ 
+ /**
+- * genwqe_requ_alloc() - Allocate a new DDCB execution request
++ * ddcb_requ_alloc() - Allocate a new DDCB execution request
+  *
+  * This data structure contains the user visiable fields of the DDCB
+  * to be executed.
+--- linux-next-20261123.orig/drivers/misc/genwqe/card_base.h
++++ linux-next-20261123/drivers/misc/genwqe/card_base.h
+@@ -2,7 +2,7 @@
+ #ifndef __CARD_BASE_H__
+ #define __CARD_BASE_H__
+ 
+-/**
++/*
+  * IBM Accelerator Family 'GenWQE'
+  *
+  * (C) Copyright IBM Corp. 2013
+@@ -145,16 +145,19 @@ enum genwqe_dbg_type {
+ 
+ 
+ /**
+- * struct dma_mapping_type - Mapping type definition
++ * enum dma_mapping_type - Mapping type definition
+  *
+  * To avoid memcpying data arround we use user memory directly. To do
+  * this we need to pin/swap-in the memory and request a DMA address
+  * for it.
+  */
+ enum dma_mapping_type {
+-	GENWQE_MAPPING_RAW = 0,		/* contignous memory buffer */
+-	GENWQE_MAPPING_SGL_TEMP,	/* sglist dynamically used */
+-	GENWQE_MAPPING_SGL_PINNED,	/* sglist used with pinning */
++	/** @GENWQE_MAPPING_RAW: contiguous memory buffer */
++	GENWQE_MAPPING_RAW = 0,
++	/** @GENWQE_MAPPING_SGL_TEMP: sglist dynamically used */
++	GENWQE_MAPPING_SGL_TEMP,
++	/** @GENWQE_MAPPING_SGL_PINNED: sglist used with pinning */
++	GENWQE_MAPPING_SGL_PINNED,
+ };
+ 
+ /**
+@@ -200,7 +203,7 @@ static inline void genwqe_mapping_init(s
+  * @ddcb_req:          Associated requests (one per DDCB)
+  * @ddcb_waitqs:       Associated wait queues (one per DDCB)
+  * @ddcb_lock:         Lock to protect queuing operations
+- * @ddcb_waitq:        Wait on next DDCB finishing
++ * @busy_waitq:        Wait on next DDCB finishing
+  */
+ 
+ struct ddcb_queue {
+@@ -250,7 +253,7 @@ struct genwqe_ffdc {
+  * @card_state:       Card operation state, see above
+  * @ffdc:             First Failure Data Capture buffers for each unit
+  * @card_thread:      Working thread to operate the DDCB queue
+- * @card_waitq:       Wait queue used in card_thread
++ * @queue_waitq:      Wait queue used in card_thread
+  * @queue:            DDCB queue
+  * @health_thread:    Card monitoring thread (only for PFs)
+  * @health_waitq:     Wait queue used in health_thread
+@@ -334,14 +337,20 @@ enum genwqe_requ_state {
+ 
+ /**
+  * struct genwqe_sgl - Scatter gather list describing user-space memory
+- * @sgl:            scatter gather list needs to be 128 byte aligned
+  * @sgl_dma_addr:   dma address of sgl
++ * @sgl:            scatter gather list needs to be 128 byte aligned
+  * @sgl_size:       size of area used for sgl
+  * @user_addr:      user-space address of memory area
+  * @user_size:      size of user-space memory area
+- * @page:           buffer for partial pages if needed
+- * @page_dma_addr:  dma address partial pages
+  * @write:          should we write it back to userspace?
++ * @nr_pages:       number of pages needed
++ * @fpage_offs:     offset in first page
++ * @fpage_size:     size of first page
++ * @lpage_size:     size of last page
++ * @fpage:          buffer for partial first page if needed
++ * @fpage_dma_addr: dma address partial first page
++ * @lpage:          buffer for partial last page if needed
++ * @lpage_dma_addr: dma address partial last page
+  */
+ struct genwqe_sgl {
+ 	dma_addr_t sgl_dma_addr;
+@@ -416,6 +425,7 @@ int  genwqe_release_service_layer(struct
+ 
+ /**
+  * genwqe_get_slu_id() - Read Service Layer Unit Id
++ * @cd:    genwqe device
+  * Return: 0x00: Development code
+  *         0x01: SLC1 (old)
+  *         0x02: SLC2 (sept2012)
+@@ -547,6 +557,7 @@ bool genwqe_need_err_masking(struct genw
+ 
+ /**
+  * genwqe_is_privileged() - Determine operation mode for PCI function
++ * @cd:    genwqe device
+  *
+  * On Intel with SRIOV support we see:
+  *   PF: is_physfn = 1 is_virtfn = 0
+--- linux-next-20261123.orig/include/uapi/linux/genwqe/genwqe_card.h
++++ linux-next-20261123/include/uapi/linux/genwqe/genwqe_card.h
+@@ -2,7 +2,7 @@
+ #ifndef __GENWQE_CARD_H__
+ #define __GENWQE_CARD_H__
+ 
+-/**
++/*
+  * IBM Accelerator Family 'GenWQE'
+  *
+  * (C) Copyright IBM Corp. 2013
+@@ -455,7 +455,8 @@ struct genwqe_ddcb_cmd {
+  * struct genwqe_mem - Memory pinning/unpinning information
+  * @addr:          virtual user space address
+  * @size:          size of the area pin/dma-map/unmap
+- * direction:      0: read/1: read and write
++ * @direction:     0: read/1: read and write
++ * @flags:         reserved
+  *
+  * Avoid pinning and unpinning of memory pages dynamically. Instead
+  * the idea is to pin the whole buffer space required for DDCB
