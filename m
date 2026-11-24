@@ -1,101 +1,120 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.69
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795526166;
-	b=VKRDBYLCYIPNpPHkVEIIQETTqawNIlb+dp6tjdIcZCh/yho3kfG45ci/4MWkU1htWKMN
-	 miRaXzo8Ot7l5vPLYkvQJ9fq+yqO4pRR1xZy6pgWMh+tTIIXnEdr7JFomQGQ6ASAeUtsm
-	 3nFb3iKusJj8kFQBmtpsElhi2VxPaV9m2edu1Tvs7Wmv2Hwe0uxCz/VoIzTkmzWDx/aNJ
-	 9wAGC3GMrgE+kxZ3X0Cx+m4Nn/9UkV5dZrSSlWTAhEvwppVuwJs3CHNgYEbCI1rsFpRfD
-	 +GxKpi6iam6+6RoSAY8GEgmBjXuShZiTmUoQ+cfZFm58DZm+NB/yuUIVsYfhGRmaf/w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	b=2bvlIiqHo1JWhBLmT9TeIZvBbMBaAe1DIDW82ZHOldtQyUifBhCqWv84wstThZqJAoFU
+	 N2SMFKGgqtxWjV1yJrl1cqZl3eFGGupyPRD/rM21LOKCYN+MS1HmW2j8SjMA4fFejQWpq
+	 wrow2WvJRp7nGey/VF7oJxQ68xiQgHWwcCdLgstdA1AX1PdLv8HwjAH30xOEJyiuTeq6T
+	 2D1PyQqrUw1qJJA7mLtyMqx3sUzgbwovWjm79dp0i7fTdBulRYlL/qnt5aS6hGStrxg/4
+	 s6kl7PKnAXpZ1cdtRJo97U3gnf1o7DsF6ufAUqbztqjmHim2EWEuqb7VLVZUSMnUWjA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795526166;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=vt55SJKI/40vq/cY7XutIQhe47Cfg/+n7FlNGGghpJc=;
-	b=y8NTr02GSGHPqMZrlA/+kopl5/e9ghC3lmEzaNxpU5rcW5seDR+VZadZGJuqp8RRQgE2
-	 TH4tIdwgQ1y1NzrONSMa5wDlcwu7OqJpPh7XynppqhB/WmnAWwFFJFGS9NaO1YN/+wXef
-	 Ca0lchmuTMAxzFAJb1CttorpxPjyUY4k/6zEuC3KAsckavEJ26KQDxcw8nyaRRMYdzNOw
-	 95BeoH7rOTGiB0C9t6Xjt9O19L2nrxp8rq5e5CSYjwtlxpoNqsfe9cnUhNwOhySHXhuKP
-	 xvDNYncco3c7Eb+URDgDDmvR3Xb+mciN4altp+vWFNSR18sYCcA6lmf2d1KEfeuqgKA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Q5BlMuHd;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.69
-Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011069.outbound.protection.outlook.com [52.101.52.69])
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=hBzVLClOSEGyAdU0kuKKVnfXtMFpmo67/NIzqOitKqQ=;
+	b=VCi9ZzaL9WZQKF/twXdaZex6fiksaz2eCKrKoNTPDeLgB0UyNRv/hWvcdCaPsHDs5adM
+	 FFm1A3mw6LZlFE1tWFEHy9idNaXfwtF1YURQTipGMt/CSLY4A01wye4zojZe9borRAcn4
+	 8ctTWSJ1TJ2zpfPCSU84Z6r5RMky69GrXz6KstPiiLUbtNyK6T4O6/Jto5X2hpch0rCR7
+	 6IuO9Vca2bXBvcdyv76j8OMUoCfTwyZc6LHw6dcOx0NnTH5DSn7F8EfUvDEqKBp1a0XeV
+	 MnkGI9vli/jCvnyFIs1q5fMKW4dp8UnwOYtruO33h13fHvp0zy8OaoBaYoZklixDrkw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=DJzNn+wa;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BbaskNPC;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57388606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B8CC606A336
 	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:16:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57388606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B8CC606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Q5BlMuHd
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Q/kaP24N6MwaCCwYj+Tnl+w5PjNs/kY0LdxMWeoXS1wKwinNZjtcJkOnvYMM6WJPMyAaBDeQBjv+tkE5YMWdADSWmr2AJ7aKTT20dI0SGNpeq1T73wB8KSntPfNmRMjCa84h+Bnc7ZNKn8pthn/Rpv8HJGeup6/eqoQdA8DiBa0OcSFV7D7mBkQHD9sxvBzPI99eqvKY2n7Xzp9JyELjySpzpxOU+vf872xMnir0LSssP5naD4vkm92R3r7ckzRoLAefpJlxInlw0ehm269n84fMSAFk7STu5TeRE0Ip6pcJCEo5au27K1A1d6zw8Zete/CyGDNznn6qnjW8wHAnlQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vt55SJKI/40vq/cY7XutIQhe47Cfg/+n7FlNGGghpJc=;
- b=ULOIDwej9Z3831BuFNXGuPuozU6lbo4ebEZtGtU87xPPxmOAh5exyLZrRLaxtwxYpg1945g1tN3ruz58KYLKyQbH9VsJotyMeQspDmcGf2DhaiAErFvOeG7MxklQusk0WHSNdvAd79BIZvx4sXywk01NtK2pAceQg+SQyt6UAav7lzltZT4Y92KhIpn2C5xuxbuCC/UqRC1aZX3mC3Elrw1oIs+l+g+crpmk0dE0XUTcuLReOAH7JEeV9YceUGT3elmSU8D3GI36tgNe2H1L32QvDQYyPYT33hVeXju3csP3F6GmUy8+k3Pn2xN3zvLdO8OShjwz17QD3i8ph+fyBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vt55SJKI/40vq/cY7XutIQhe47Cfg/+n7FlNGGghpJc=;
- b=Q5BlMuHdirBnBdHb3fUsCHQg7On+L3GBNnL0tzE50pyRtWyztkRI2GGB/BD//8DoRU7RdDEs71go5yXH1x4OxJOtDCXCbrZ+iHNJZ+nB6mPQIHf9RhkHXQTjMm62wKXIXyq0uQVY2/yUGx0zSHx5cBwuNXnazYMbrgIPksTynzyaygkqpf2K84PIEBvMPpXv2xEdrAgKFcosuA0JpqDvhy4eKTYxsdijXBwZaQozNLLLzHGskiNA5WjDt5nvi2HuvFxX3sPMFNpm9e25HgHJ3ytFG48NXi9gbYLQuYbf9F3FLydZrEk0xvYjTlzG8TRWDwEiVJ8UiAu7JaXE9oArTQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BL1PR12MB5174.namprd12.prod.outlook.com (2603:10b6:208:31c::19)
- by SA6PPF9E25DF663.namprd12.prod.outlook.com (2603:10b6:80f:fc04::fc6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 13:16:02 +0000
-Received: from BL1PR12MB5174.namprd12.prod.outlook.com
- ([fe80::58de:822b:868:96e9]) by BL1PR12MB5174.namprd12.prod.outlook.com
- ([fe80::58de:822b:868:96e9%6]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 13:16:02 +0000
-Date: Tue, 24 Nov 2026 14:15:53 +0100
-From: Andrea Righi <arighi@nvidia.com>
-To: James Buck <jbuck2005.linux@outlook.com>
-Cc: K Prateek Nayak <kprateek.nayak@amd.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Usama Arif <usama.arif@linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"regressions@lists.linux.dev" <regressions@lists.linux.dev>
-Subject: Re: [REGRESSION] sched/fair: SIS_UTIL limit in
- select_idle_capacity() leaves busy tasks on little CPUs while big CPUs are
- idle
-Message-ID: <awWOCejxtjP12xFX@gpd4>
-References: <CY5P221MB09262B7D6A68954CC1B3199FBD442@CY5P221MB0926.NAMP221.PROD.OUTLOOK.COM>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CY5P221MB09262B7D6A68954CC1B3199FBD442@CY5P221MB0926.NAMP221.PROD.OUTLOOK.COM>
-X-ClientProxiedBy: MI3PEPF00007541.ITAP293.PROD.OUTLOOK.COM
- (2603:10a6:298:1::4d3) To BL1PR12MB5174.namprd12.prod.outlook.com
- (2603:10b6:208:31c::19)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=DJzNn+wa;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BbaskNPC
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOAv8ZR750684
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:16:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=hBzVLClOSEG
+	yAdU0kuKKVnfXtMFpmo67/NIzqOitKqQ=; b=DJzNn+waZmkIj6BE/F7JwVj7Te+
+	GjssrSKgdIOEzhMVjWNmd1Zogre3jquEanDVlbV5bIBvtBKA1GQve7G/WBfKiszm
+	FQDa6WCtnf4tAiyKh4eZ2g8kTZSlzk5U6aJyoivcFyWlvC/kxKpFEnRNy/sOPCLx
+	OFriDS7nn9D4oL6p9mLMqzljgFTrT9x16RxQ/KS5FfSFirH4hCTfAnIo99iMgEEJ
+	7JQlSi38JWG/DPxqu/a93/gtL/zmkKdqHy4mqkbzvKSW4dafwgKRVsIMhr2g8g0D
+	YKiS7ikpzXGf8p2PCyhAnhY3/4BaiOkpmitTjhCbQfhp+85u7v5SIo+rEUg==
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4yvb2vy6-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:16:04 +0000 (GMT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-386b8624cf7so4178387eec.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:16:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795526164; x=1796130964; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hBzVLClOSEGyAdU0kuKKVnfXtMFpmo67/NIzqOitKqQ=;
+        b=BbaskNPCaE48rTGtJZ6DjYnIMNFQYsYXy1Z3bhRAYp9LdKPF/sFJkkbySnEwS6dQo0
+         UCrsflXsDwm8j+JGsq87ceg3udEQgx/0+xQ0wviKv6aoxOZ2SREzSesR9ZjGKie9pQ/q
+         VhVxScCbkUy6mZ6Mp6d6lJ+Zu8gIlpItSeROF6xcJen4r9tmPK4tHLUbl5ff/A5nPb2Q
+         zuJdbHKGtWyLSEMgqK4KfWWxRmtSIRMxrRgFifKYo5yfhtruIMp2T/DkdtdTDd5TvGKU
+         w1x5gA2/1a43OPa6amDmXymygAg/9S9wkFQe/DKoBi5Z2ue2lSbNNfohjjm1jg+EFD8Q
+         Bz9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795526164; x=1796130964;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hBzVLClOSEGyAdU0kuKKVnfXtMFpmo67/NIzqOitKqQ=;
+        b=KC7Dx0R0Dp9TrGWuvGBelqzb45LNrZtWZz0aFayTuEb1uknQlkceNyLAS4Bu6rQX70
+         neQ6DbKqr3rM4OiUjwTZEjXdVBX+gej5+A5CXct23eVzkah88t4kbxNuSa4/vc8R5q9T
+         3Cvdk/+EBC+JuGbX/eNpSImZFOTa2/6w18it6Gf+Co46dhwT4Ui82fip/GC6pIPNnHeS
+         ijt/6kIooVz1q6PEeRuiKB4ny80J9cvSBFXsyrb9KBvZXSpW6YyDE+iuR0ciZ4hj2+co
+         xXo8DuV186SBjLXlZP9b5sk21csKyrIDSBgVhrRUJON58tPbPMRmzkoD+meiu/Z+gP4o
+         bTKQ==
+X-Forwarded-Encrypted: i=1; AL+hErErtG1Z/NINXNb2rf8PUnoW28hb3u786E/dabgny00WRdOH/7ohY7yamFK18MIsN9Bg/DKbpIRZTvmCaww=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+5pT9NacC4kxB6fUsUJmObCeXkwUho7gAjoLwqRAVCJtV1GwYG
+	I532ChLlsz5rKyX813AO5euLTRIXXMjBcuNuIinCMkNJhl5oqW1S+QeLOQC/MOH3BvJVmZkW3v3
+	2ElNvJnLhOT4a/pHB4R+bqgld4WVQwNH77wZLqynAFjdpFkRO9mYDAn+oZ4z2qdoTlCs=
+X-Gm-Gg: AZFdTZeJ1iFHtUz1ZSrfxSAh68JYvCD89V2d3ZqpTDTsHK9aoAxv3/7mWyB8LcWT8op
+	r/UJFESEA16vfDAA8DK7bWWcEu20mGiNLg0FfvJTaQs6I/upfDwZML06NB3FYtsYtsf9jvZtZje
+	L/cbwvoKbyTZIYYAgN3kY3QiaJKThmL0iCafllngCRMN12AarhiwZ8gAPgLR7onCEyMCyyrDSfp
+	Ik0NKs8zCvOwtJmAkBwZyEVIrF4xqTVXhTYddECzajPoNC4Jf/a6CM9pJBB/rBGQBRaLYXHbBnk
+	JQklFH7vC/EEqczaeUwufHfKdBDkcNDhLbbbIBv+eQ/KwQnuTtQZSvKhFa4KGLZWqjzYya4qit1
+	eKBEqDzmr6crglX/nLZRQw1BNf3w2r1OiWUQtASHqHunexjGwtQVp5lG91SrH1Dboff/T23HAGq
+	AH/TGncAMQp0yILXxgw5EPd7UJ959VAClqD1MP8TLh6x6OOpOynOnQCsajW9aqhQ==
+X-Received: by 2002:a05:693c:6205:b0:386:a498:3ab1 with SMTP id 5a478bee46e88-386a4983cc5mr10398623eec.25.1795526163539;
+        Tue, 24 Nov 2026 05:16:03 -0800 (PST)
+X-Received: by 2002:a05:693c:6205:b0:386:a498:3ab1 with SMTP id 5a478bee46e88-386a4983cc5mr10398574eec.25.1795526162685;
+        Tue, 24 Nov 2026 05:16:02 -0800 (PST)
+Received: from hu-prajn-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm56371320eec.4.2026.11.24.05.15.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 05:16:02 -0800 (PST)
+From: Prajwal N <prajwal.n@oss.qualcomm.com>
+To: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+        wim@linux-watchdog.org, linux@roeck-us.net,
+        radim.krcmar@oss.qualcomm.com, anup@brainfault.org,
+        anup.patel@oss.qualcomm.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-watchdog@vger.kernel.org, prajwal.n.oss@gmail.com,
+        Prajwal N <prajwal.n@oss.qualcomm.com>
+Subject: [RFC PATCH v4 2/2] drivers/watchdog: Add RISC-V SBI watchdog driver
+Date: Tue, 24 Nov 2026 18:45:42 +0530
+Message-ID: <20261124131542.613271-3-prajwal.n@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261124131542.613271-1-prajwal.n@oss.qualcomm.com>
+References: <20261124131542.613271-1-prajwal.n@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,191 +124,532 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL1PR12MB5174:EE_|SA6PPF9E25DF663:EE_
-X-MS-Office365-Filtering-Correlation-Id: 117b92a8-383c-48f9-186d-08df4a2d161e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|366016|7416014|376014|23010399003|10067099003|5023799004|11063799006|56012099006|261021123027099003|261022105027099003|261022115727099003|261022075727099003|261022113327099003|261021121427099003|261021130227099003|261009223027099003|261102123227099003|261026140227099003|261026121527099003|261028144727099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	p1yLqAaQsL2wWQ16VZC13QR6+XBXqciQoZYqTW/f/r0ODfZt7McRct+LkYaQV7i+hTFyNHURc173ALm57upIV4hkI5/NHovDUhk1C3w69zJbrCigs27idvezCH0WXh1He9eXl7Bjda5pbYzu3Uz669Asxa4VyZPOZEk4m27DWVDOFQP/N4EOYCAriiEmOWjec6vzfzmci15gQxUoNwrfPxj98wcKY0aO5cm0Tvcq62SZPRv2SaAmxljDjVpyYo9+z1X93dpI5E+fn0gRmS7qz8uvZTrCkP/fDSofQkdJmseXLLdK1Pweeum5lUWGdm+WyJ9TWkoBSvxT1k8NpMgydDC9/SJvu9VsrDGJYgw5/kzjDjC6dtH5y8osupLF9yF9DfYhSjt1typJWpxu14Gg0NxBPNiOIhMRZ277qTdqKZyDD3YBYrTvChPmAYXGqiS2TwbEMaAGAqljyN1RjRldTc6Bjsh60OycVKxIDR8uQ+4Zau0Pw705Jq/s6WBEaD7ve85qV8DNvOBopWUNrA5DtCq7V5z4PI9sSuwJ/5jFe9x4M15LAvndb/LmFabjkThvdVvermu+yb5tS9E8YTMixvgZbcYuqISzjRkUtMJmU6mlK/YlejpB/BaUEEXVxjS7Oy9UBuqiO+PSZB2X7y8Bhi7oUNfQtdq1/uFqSWeMcT4=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5174.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(23010399003)(10067099003)(5023799004)(11063799006)(56012099006)(261021123027099003)(261022105027099003)(261022115727099003)(261022075727099003)(261022113327099003)(261021121427099003)(261021130227099003)(261009223027099003)(261102123227099003)(261026140227099003)(261026121527099003)(261028144727099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?Ay+4/5kAv19ICVrlnPgzyX7RA3BHcjc9HURHFgNPKgjwtsxf38Svsu6Sfu3z?=
- =?us-ascii?Q?fk7DBOKQYylW04KUIUr1jmhwTi9mUwQwGtcdG3/tl95JTLgrEXD+H5O6HApe?=
- =?us-ascii?Q?+AK869oBSeXAjzyQclS8Q56acKqKLcQfeDtqBlxl4eld/7zbuOU0rI6+k/vi?=
- =?us-ascii?Q?zSb2BeGlbO0WRPhxcXav4YplwU0P9gSLWdGR8SM7wrCE7KKb2eUwPweOtgRw?=
- =?us-ascii?Q?Yizy4nFpQh8Ws/WikU45d18i+LXqPWC6FrrG7cd9B4+76EKC3CKAZ0jAfhCg?=
- =?us-ascii?Q?dGKL7yKVRdaZUhYnvZflH724+BK5XVwEWhtXQQ0VFVsOdXup1CeKZpAdU3gv?=
- =?us-ascii?Q?XGJYt9z76pRtAi1cfx/DzmCxYhch0EMYAwtyARONubqbnJbRagJZ4EiJ1k65?=
- =?us-ascii?Q?e9LqToy/J7jOmrW5WogBFj40azwQI7HsDW718T3veRYMXKoskWF+j8iWK0IE?=
- =?us-ascii?Q?+WYCVdCRSo1VaMGre0zsCBj2gAcEgeMsyDo77jLvY/M2KzwnMwrsWQjS6OEW?=
- =?us-ascii?Q?cqeaXuKH/L12KppNz9gz2TkSe4w9bWZGZ2oQy+zPTmxFJrY+T6IAcIdxraOH?=
- =?us-ascii?Q?GCmMFSrNHfInM2lIpoCj37Pglv5+0SqMd229kfGVc9TiTFUL+J8amanrP7SA?=
- =?us-ascii?Q?h1lB1vtpy0YY1IwOFvOHKTIZW4cXQxjySB6v3u6+Hk0hWlyTfCFM8V0oabS+?=
- =?us-ascii?Q?oMqZfT9HUbrr8w27CqfQuF2Zc5YFIYFLRTX82Ncv5AfxJhUVKCzmC9H/l7RU?=
- =?us-ascii?Q?zjX1OWdfk+cw2FzBT398Se6h70r4d3UWMec6LabTDvhEGDLWphIa1T5Sx+Ow?=
- =?us-ascii?Q?19ZbDyn4KMEBr1/xlVVMTKq7/Q5KoihSGtYj+nhieteuH+KkMWi+VdV8Ex/z?=
- =?us-ascii?Q?da4fE8TjunuOoCuE7DdhT2Zc4aU1jpMnhQUvYk6QchjTY+G9M0LKS1MZvZAr?=
- =?us-ascii?Q?VGofSuxzsWPZ4amhpVY+tvyYPhGIGUwVuZKKDE33tQrxTsE9uGuLlZQ4/Syj?=
- =?us-ascii?Q?MfOrzbVIBRuOrwJ4WUCZierzPg1FlwIoWRQ4gpOx9jzWgewMkDwVH2DUv6dw?=
- =?us-ascii?Q?XO00Zw3UsrvQrWAiefDA/cwQgOHq9YMpqe54ulFYROi5FtioUlbNUCRlqLU2?=
- =?us-ascii?Q?JKMc9cP1tCxyZ70RpMftB3ly/5xLg2f4tKMfjmEvwa1lRtlWPkQqRBwrGEgF?=
- =?us-ascii?Q?+Wk6vQ/kV1/EKaBxj3j/twXCS+EoEhoE/LgVkYtcTC9/Zel0fOEaywDpHvdB?=
- =?us-ascii?Q?EXck2MGO5QoDiGfngtfLoLvPvmWwoI338wEZJU6VdIESyeuUzHkwJcBMtuoo?=
- =?us-ascii?Q?CVrXsmEnhYc03fZzOEPzWINP6Oknx1SglL70FpjkSZUHQPH/CN7LaFoQ48pm?=
- =?us-ascii?Q?bC287bzeavlfCm4qmcXNE8J2LmL2luozJPsdYxU0uenaWUjrEQ0kRhrhdT81?=
- =?us-ascii?Q?Kf2FVbf8j1CuguXGZMbAWG8j9QAdicszUlgh1Jmp23tIl4tPW5GyycAkkuDl?=
- =?us-ascii?Q?dHHweEi3oXXIOoiGuJpJjuMNlnCpAcK+RkRtsrzxv0jE0MXu44GnpEYavXHT?=
- =?us-ascii?Q?+rHb6lnAadIwAXcRZTPEprDN69bUZOoGqon+SWkkZ0nyfivxIiaifV/UawZM?=
- =?us-ascii?Q?YwT6YEV4T7ViG7fo2hTxBlQk0ZH3+fJsIeSLANpiBQ7u6Vu5S9jj5Zolukdp?=
- =?us-ascii?Q?Zj2JF3cMA/PbZs+sNmhzufcKiGIJtHKGqtYv7NQTldqExTrI/sXmAJ27eCDR?=
- =?us-ascii?Q?nqsytPyj3A=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 117b92a8-383c-48f9-186d-08df4a2d161e
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5174.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 13:16:02.0805
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vjmTfg3V/00P0wUACVltybvIuZwA8cDsk4BKF7dPXnEYnw8koRdsUQAeAr5exPbyx3XRNPz2azKvhk8HS3GrIA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA6PPF9E25DF663
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=aJ1lOr9m c=1 sm=1 tr=0 ts=6b058e14 cx=c_pps
+ a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=EUspDBNiAAAA:8
+ a=0SxRSwYGAAAA:8 a=TyS6Ky86QTBuXj3fIXcA:9 a=O8hF6Hzn-FEA:10
+ a=bBxd6f-gb0O0v-kibOvt:22 a=evtWB9OUeeBtXImRToD_:22
+X-Proofpoint-ORIG-GUID: IN5AUHAUqLiZGFBli3RvPbMqSiDF1z_D
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA1MSBTYWx0ZWRfX76O3h+LRmcAu
+ 9eeV/3IuCk+bdWdpAFY2r+EAyE9SoYklgn+HhtMy3XkZLGIsHgxC9aJstxr9X44t56ptMHB+1uZ
+ rUQha/3uCFt1xbsRl1GzPS10oa4iD3w=
+X-Proofpoint-GUID: IN5AUHAUqLiZGFBli3RvPbMqSiDF1z_D
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA1MSBTYWx0ZWRfX6QLcZCFD07wQ
+ Xuh59JUFpw6skYSQZgvH/rU63R8v5RmYGw0QUTwoNAt6yUXvlJcEvwLorcq56RkfOhomrF8z5Ft
+ 2KtQR+34WudfSXjP09AUAmY/3jEau4uDwZFSvgBkRdB7btmGmQ9Ora0HmKVlrO+x7bF6Y8m6HKZ
+ GJxhlwvH0LDwg7265dJbHFLSo9Vp9OJMB1MqX5966IF/8KqBd7pFhNRXkKQBRH/onSMoUsV57ND
+ MKTBCa8Dvs6HZCbuB1FJYIGAiU3alA+TNgy/9RO46qw478TrXIN2FaPVF9rQac6u2ZwNYG/bDrk
+ t21s73g4p5kl6o72eh4ZYzowLNPBgi4qiLL6X+83vX8SPhlCca/0kzXEeqJuJf8xkl64VHW0Jys
+ 5FrdoyuMbBHWxBX+Vhw3yB/dGr7syJ4AAdK6mDhtzIfJ7V+dxNyQW0k/9e8sF6qvt4Ig79zf6P1
+ QOS2H3YSy6AE9Y6mPAA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_02,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 clxscore=1015 priorityscore=1501 malwarescore=0
+ adultscore=0 bulkscore=0 suspectscore=0 impostorscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240051
 
-Hi James,
+Add a watchdog driver for the RISC-V SBI watchdog extension.
+The driver integrates with the Linux watchdog framework to
+configure and control the watchdog. The driver invokes the
+SBI watchdog using the standard SBI calls.
 
-On Tue, Nov 24, 2026 at 11:56:52AM +0000, James Buck wrote:
-> Hi,
-> 
-> Since commit 61ea17a63719 ("sched/fair: Add SIS_UTIL support to select_idle_capacity()"), first in v7.2, CPU-bound multi-threaded work on my big.LITTLE arm64 board runs 12-19% slower than on v7.1 and earlier, because waking threads are placed on idle little CPUs while idle big CPUs are never looked at.
-> 
-> Turning SIS_UTIL off at runtime restores the old speed. select_idle_capacity() and update_idle_cpu_scan() are unchanged in v7.4-rc4, so I expect mainline to behave the same.
+Support pretimeout event notifications using Message Signaled
+Interrupts (MSIs).
 
-A related regression from the same commit was reported by Usama here:
-https://lore.kernel.org/r/20261113153157.2495664-1-usama.arif@linux.dev/
+Signed-off-by: Prajwal N <prajwal.n@oss.qualcomm.com>
+---
+ drivers/watchdog/Kconfig         |  10 +
+ drivers/watchdog/Makefile        |   1 +
+ drivers/watchdog/riscv_sbi_wdt.c | 442 +++++++++++++++++++++++++++++++
+ 3 files changed, 453 insertions(+)
+ create mode 100644 drivers/watchdog/riscv_sbi_wdt.c
 
-On Grace, a zero SIS_UTIL budget skips the search despite suitable CPUs
-being idle. Your case shows that a nonzero budget can stop the scan
-before reaching an idle big CPU.
+diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
+index f7d0a0c2c0ef..d6b4e8ccd057 100644
+--- a/drivers/watchdog/Kconfig
++++ b/drivers/watchdog/Kconfig
+@@ -2164,6 +2164,16 @@ config STARFIVE_WATCHDOG
+ 	  Say Y here to support the watchdog of StarFive JH7100 and JH7110
+ 	  SoC. This driver can also be built as a module if choose M.
+ 
++config RISCV_SBI_WATCHDOG
++	tristate "RISC-V SBI based Watchdog support"
++	depends on RISCV_SBI
++	default RISCV
++	select WATCHDOG_CORE
++	help
++	  Say Y here to include support for a watchdog timer
++	  implemented by the Supervisor Binary Interface on RISCV platforms.
++	  Requires firmware support.
++
+ # S390 Architecture
+ 
+ config DIAG288_WATCHDOG
+diff --git a/drivers/watchdog/Makefile b/drivers/watchdog/Makefile
+index 9ac406677aba..c20c43f06ed0 100644
+--- a/drivers/watchdog/Makefile
++++ b/drivers/watchdog/Makefile
+@@ -202,6 +202,7 @@ obj-$(CONFIG_WATCHDOG_RTAS) += wdrtas.o
+ # RISC-V Architecture
+ obj-$(CONFIG_ATCWDT200_WATCHDOG) += atcwdt200_wdt.o
+ obj-$(CONFIG_STARFIVE_WATCHDOG) += starfive-wdt.o
++obj-$(CONFIG_RISCV_SBI_WATCHDOG) += riscv_sbi_wdt.o
+ 
+ # S390 Architecture
+ obj-$(CONFIG_DIAG288_WATCHDOG) += diag288_wdt.o
+diff --git a/drivers/watchdog/riscv_sbi_wdt.c b/drivers/watchdog/riscv_sbi_wdt.c
+new file mode 100644
+index 000000000000..8e3db9854788
+--- /dev/null
++++ b/drivers/watchdog/riscv_sbi_wdt.c
+@@ -0,0 +1,442 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * RISC-V SBI watchdog driver
++ *
++ * Copyright (C) 2026 Qualcomm Inc.
++ */
++
++#include <linux/device.h>
++#include <asm/sbi.h>
++#include <linux/err.h>
++#include <linux/module.h>
++#include <linux/moduleparam.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/types.h>
++#include <linux/watchdog.h>
++#include <linux/msi.h>
++#include <linux/kernel.h>
++#include <linux/of_irq.h>
++#include <linux/irqdomain.h>
++#include <linux/irqchip/riscv-imsic.h>
++
++#define DRV_NAME            "riscv-sbi-wdt"
++#define DRV_VERSION         "1.0"
++
++/* Watchdog default timeout in seconds */
++#define SBI_WATCHDOG_DEFAULT_TIMEOUT		60
++
++/* MSI capability mask */
++#define SBI_WATCHDOG_CAP_MSI_SUPPORT_MASK	BIT(1)
++
++/* Convert second to microsecond */
++static inline u32 sec_to_usec(unsigned int sec)
++{
++	return (u32)(sec * 1000000ULL);
++}
++
++/* Convert microsecond to second and ceil the result */
++static inline unsigned int usec_to_sec_ceil(u32 usec)
++{
++	return (unsigned int) DIV_ROUND_UP_ULL(usec, 1000000ULL);
++}
++
++/* Convert microsecond to second and floor the result */
++static inline unsigned int usec_to_sec(u32 usec)
++{
++	return (unsigned int) (usec / 1000000ULL);
++}
++
++/* SBI watchdog attributes */
++struct sbiwdt_attributes {
++	/* MSI and SSE capability flags */
++	u32 wdt_capability;
++	/* Watchdog state */
++	u32 wdt_state;
++	/* Minimum watchdog timeout supported in us */
++	u32 wdt_min_period;
++	/* Watchdog timeout period in us */
++	u32 wdt_period;
++	/* Time left until watchdog expiry in us */
++	u32 wdt_time_left;
++	/* Watchdog pretimeout in us */
++	u32 wdt_notif_time;
++	/* MSI target address low 32-bit */
++	u32 wdt_notif_msi_addr_low;
++	/* MSI target address high 32-bit */
++	u32 wdt_notif_msi_addr_high;
++	/* MSI data */
++	u32 wdt_notif_msi_data;
++};
++
++/* SBI watchdog global structure */
++struct sbiwdt {
++	/* Kernel watchdog instance */
++	struct watchdog_device          wdd;
++	struct sbiwdt_attributes        attrs;
++	int                             virq;
++};
++
++/* Watchdog pretimeout expiry handler */
++static irqreturn_t sbiwdt_pretimeout_handler(int irq, void *dev_id)
++{
++	struct sbiwdt *wdt = dev_id;
++
++	watchdog_notify_pretimeout(&wdt->wdd);
++
++	return IRQ_HANDLED;
++}
++
++/* Read watchdog attribute */
++static int sbiwdt_read_attribute(enum sbi_ext_wdt_attribute_id attr_id, u32 *attr_val)
++{
++	struct sbiret sret;
++
++	sret = sbi_ecall(SBI_EXT_WDT, SBI_EXT_WATCHDOG_READ_ATTRIBUTE, attr_id, 0, 0, 0, 0, 0);
++	*attr_val = sret.value;
++
++	return sbi_err_map_linux_errno(sret.error);
++}
++
++/* Write watchdog attribute */
++static int sbiwdt_write_attribute(enum sbi_ext_wdt_attribute_id attr_id, u32 val)
++{
++	struct sbiret sret;
++
++	sret = sbi_ecall(SBI_EXT_WDT, SBI_EXT_WATCHDOG_WRITE_ATTRIBUTE, attr_id, val, 0, 0, 0, 0);
++
++	return sbi_err_map_linux_errno(sret.error);
++}
++
++/* Write the MSI address and data attributes in one SBI call*/
++static int sbiwdt_write_notif_msi_message(u32 msi_addr_low, u32 msi_addr_high, u32 msi_data)
++{
++	struct sbiret sret;
++
++	sret = sbi_ecall(SBI_EXT_WDT, SBI_EXT_WATCHDOG_WRITE_NOTIF_MSI_MESSAGE, msi_addr_low,
++								msi_addr_high, msi_data, 0, 0, 0);
++
++	return sbi_err_map_linux_errno(sret.error);
++}
++
++/* Start the watchdog */
++static int sbiwdt_start(struct watchdog_device *wdd)
++{
++	struct sbiret sret;
++
++	sret = sbi_ecall(SBI_EXT_WDT, SBI_EXT_WATCHDOG_START, 0, 0, 0, 0, 0, 0);
++
++	return sbi_err_map_linux_errno(sret.error);
++}
++
++/* Stop the watchdog */
++static int sbiwdt_stop(struct watchdog_device *wdd)
++{
++	struct sbiret sret;
++
++	sret = sbi_ecall(SBI_EXT_WDT, SBI_EXT_WATCHDOG_STOP, 0, 0, 0, 0, 0, 0);
++
++	return sbi_err_map_linux_errno(sret.error);
++}
++
++/* Pat the watchdog */
++static int sbiwdt_pat(struct watchdog_device *wdd)
++{
++	struct sbiret sret;
++
++	sret = sbi_ecall(SBI_EXT_WDT, SBI_EXT_WATCHDOG_PAT, 0, 0, 0, 0, 0, 0);
++
++	return sbi_err_map_linux_errno(sret.error);
++}
++
++/* Set the watchdog timeout value */
++static int sbiwdt_set_timeout(struct watchdog_device *wdd, unsigned int timeout)
++{
++	struct sbiwdt *wdt = watchdog_get_drvdata(wdd);
++	u32 period_usec;
++	int ret;
++
++	if (timeout <= wdt->wdd.pretimeout)
++		return -EINVAL;
++
++	period_usec = sec_to_usec(timeout);
++
++	ret = sbiwdt_write_attribute(SBI_WATCHDOG_PERIOD, period_usec);
++	if (ret)
++		return ret;
++
++	wdt->attrs.wdt_period = period_usec;
++	wdt->wdd.timeout = timeout;
++
++	return 0;
++}
++
++/* Set the watchdog pretimeout value*/
++static int sbiwdt_set_pretimeout(struct watchdog_device *wdd, unsigned int pretimeout)
++{
++	struct sbiwdt *wdt = watchdog_get_drvdata(wdd);
++	u32 notif_time_usec;
++	int ret;
++
++	if (pretimeout >= wdd->timeout)
++		return -EINVAL;
++
++	notif_time_usec = sec_to_usec(pretimeout);
++	ret = sbiwdt_write_attribute(SBI_WATCHDOG_NOTIF_TIME, notif_time_usec);
++	if (ret)
++		return ret;
++
++	wdt->wdd.pretimeout = pretimeout;
++	wdt->attrs.wdt_notif_time = notif_time_usec;
++
++	return ret;
++}
++
++/* Get the watchdog timeleft before expiry */
++static unsigned int sbiwdt_get_timeleft(struct watchdog_device *wdd)
++{
++	struct sbiwdt *wdt = watchdog_get_drvdata(wdd);
++	unsigned int time_left_usec;
++	int ret;
++
++	ret = sbiwdt_read_attribute(SBI_WATCHDOG_TIME_LEFT, &time_left_usec);
++	if (ret) {
++		dev_err(wdt->wdd.parent, "Failed to read watchdog time left: %d\n", ret);
++		return 0;
++	}
++
++	return usec_to_sec(time_left_usec);
++}
++
++static const struct watchdog_info sbiwdt_info = {
++	.options	=	WDIOF_SETTIMEOUT	|
++				WDIOF_KEEPALIVEPING	|
++				WDIOF_MAGICCLOSE,
++	.identity	=	DRV_NAME,
++};
++
++static const struct watchdog_info sbiwdt_pretimeout_info = {
++	.options	=	WDIOF_SETTIMEOUT		|
++				WDIOF_KEEPALIVEPING		|
++				WDIOF_MAGICCLOSE		|
++				WDIOF_PRETIMEOUT,
++	.identity	=	DRV_NAME,
++};
++
++static const struct watchdog_ops sbiwdt_ops = {
++	.owner		= THIS_MODULE,
++	.start		= sbiwdt_start,
++	.stop		= sbiwdt_stop,
++	.ping		= sbiwdt_pat,
++	.set_timeout	= sbiwdt_set_timeout,
++	.set_pretimeout	= sbiwdt_set_pretimeout,
++	.get_timeleft	= sbiwdt_get_timeleft,
++};
++
++/* The callback function from IMSIC containing the MSI address and data */
++static void sbiwdt_msi_write(struct msi_desc *desc, struct msi_msg *msg)
++{
++	int ret;
++	struct device *dev = msi_desc_to_dev(desc);
++	struct sbiwdt *wdt;
++
++	if (!dev || !msg)
++		return;
++
++	wdt = dev_get_drvdata(dev);
++	if (!wdt) {
++		dev_err(dev, "Missing SBI watchdog driver data\n");
++		return;
++	}
++
++	/* Store MSI info in attributes*/
++	wdt->attrs.wdt_notif_msi_addr_low = msg->address_lo;
++	wdt->attrs.wdt_notif_msi_addr_high = msg->address_hi;
++	wdt->attrs.wdt_notif_msi_data = msg->data;
++
++	/* Pass the MSI attribute values to OpenSBI */
++	ret = sbiwdt_write_notif_msi_message(wdt->attrs.wdt_notif_msi_addr_low,
++						wdt->attrs.wdt_notif_msi_addr_high,
++						wdt->attrs.wdt_notif_msi_data);
++	if (ret) {
++		dev_err(dev, "Failed to configure watchdog MSI: %d\n", ret);
++		return;
++	}
++}
++
++/* Initialize the watchdog attributes */
++static int sbiwdt_init_attributes(struct sbiwdt *wdt)
++{
++	int ret;
++	u32 attr_val;
++	u32 timeout_usec;
++
++	/* Read watchdog capability from firmware */
++	ret = sbiwdt_read_attribute(SBI_WATCHDOG_CAPABILITY, &attr_val);
++	if (ret)
++		return ret;
++
++	wdt->attrs.wdt_capability = attr_val;
++
++	/*
++	 * Read watchdog min period supported in firmware
++	 * The firmware ensures the MIN_PERIOD is in valid range
++	 */
++	ret = sbiwdt_read_attribute(SBI_WATCHDOG_MIN_PERIOD, &attr_val);
++	if (ret)
++		return ret;
++
++	if (!attr_val)
++		attr_val = 1;
++
++	wdt->attrs.wdt_min_period = attr_val;
++	wdt->wdd.min_timeout = usec_to_sec_ceil(wdt->attrs.wdt_min_period);
++
++	/* Initialize the watchdog timeout to default value */
++	timeout_usec = sec_to_usec(SBI_WATCHDOG_DEFAULT_TIMEOUT);
++	ret = sbiwdt_write_attribute(SBI_WATCHDOG_PERIOD, timeout_usec);
++	if (ret)
++		return ret;
++
++	wdt->attrs.wdt_period = timeout_usec;
++	wdt->wdd.timeout = SBI_WATCHDOG_DEFAULT_TIMEOUT;
++	wdt->wdd.max_timeout = U32_MAX / USEC_PER_SEC;
++
++	/*
++	 * Initialize the pretimeout to default value
++	 * The firmware ensures the pretimeout init value is 0
++	 */
++	wdt->attrs.wdt_notif_time = 0;
++	wdt->wdd.pretimeout = 0;
++
++	return 0;
++}
++
++/* Callback from devm for MSI cleanup */
++static void sbiwdt_msi_free_irqs(void *dev)
++{
++	platform_device_msi_free_irqs_all((struct device *) dev);
++}
++
++static int sbiwdt_probe(struct platform_device *pdev)
++{
++	struct sbiwdt *wdt;
++	const struct imsic_global_config *imsic_global;
++	struct irq_domain *msi_domain;
++	struct device *dev = &pdev->dev;
++	int rc;
++
++	/* Allocate memory for the global watchdog structure */
++	wdt = devm_kzalloc(dev, sizeof(*wdt), GFP_KERNEL);
++	if (!wdt)
++		return -ENOMEM;
++
++	platform_set_drvdata(pdev, wdt);
++	watchdog_set_drvdata(&wdt->wdd, wdt);
++
++	/* Initialiaze watchdog attributes */
++	rc = sbiwdt_init_attributes(wdt);
++	if (rc)
++		return dev_err_probe(dev, rc, "Failed to read SBI watchdog attributes\n");
++
++	wdt->wdd.parent = dev;
++	wdt->wdd.info = &sbiwdt_info;
++	wdt->wdd.ops = &sbiwdt_ops;
++
++	watchdog_stop_on_unregister(&wdt->wdd);
++	watchdog_stop_on_reboot(&wdt->wdd);
++
++	/* Setup MSI if the capability is available */
++	if (wdt->attrs.wdt_capability & SBI_WATCHDOG_CAP_MSI_SUPPORT_MASK) {
++		imsic_global = imsic_get_global_config();
++		if (!imsic_global)
++			return dev_err_probe(dev, -ENODEV, "IMSIC firmware node is unavailable\n");
++
++		msi_domain = irq_find_matching_fwnode(imsic_global->fwnode,
++							DOMAIN_BUS_PLATFORM_MSI);
++
++		if (!msi_domain)
++			return dev_err_probe(dev, -ENODEV,
++					     "IMSIC platform MSI domain is unavailable\n");
++
++		dev_set_msi_domain(&pdev->dev, msi_domain);
++
++		/* MSI setup */
++		rc = platform_device_msi_init_and_alloc_irqs(dev, 1, sbiwdt_msi_write);
++		if (rc)
++			return dev_err_probe(dev, rc, "Failed to allocate MSIs\n");
++
++		/* Register with devm the MSI cleanup callback */
++		rc = devm_add_action_or_reset(dev, sbiwdt_msi_free_irqs, dev);
++		if (rc)
++			return dev_err_probe(dev, rc, "Failed to add sbiwdt MSI cleanup\n");
++
++		/* Enable pretimeout only when the MSI is allocated */
++		wdt->wdd.info = &sbiwdt_pretimeout_info;
++
++		wdt->virq = msi_get_virq(dev, 0);
++		if (!wdt->virq)
++			return dev_err_probe(dev, -ENODEV, "Failed to get MSI virtual IRQ\n");
++
++		rc = devm_request_irq(dev, wdt->virq,
++					sbiwdt_pretimeout_handler,
++					0, "sbiwdt-pretimeout", wdt);
++		if (rc)
++			return dev_err_probe(dev, rc, "Failed to request pretimeout IRQ\n");
++	}
++
++	rc = devm_watchdog_register_device(dev, &wdt->wdd);
++	if (rc)
++		return dev_err_probe(dev, rc, "Failed to register RISC-V SBI watchdog device\n");
++
++	dev_info(&pdev->dev, "RISC-V SBI Watchdog registered\n");
++
++	return 0;
++}
++
++static struct platform_driver sbiwdt_driver = {
++	.driver = {
++			.name = DRV_NAME,
++	},
++	.probe  = sbiwdt_probe,
++};
++
++static struct platform_device *sbiwdt_pdev;
++
++static void __exit sbiwdt_exit(void)
++{
++	platform_device_unregister(sbiwdt_pdev);
++	platform_driver_unregister(&sbiwdt_driver);
++}
++
++static int __init sbiwdt_init(void)
++{
++	int ret;
++	struct platform_device *pdev;
++
++	/* Probe for SBI WDT extension */
++	if (sbi_spec_version < sbi_mk_version(3, 0) ||
++		sbi_probe_extension(SBI_EXT_WDT) <= 0) {
++		return -ENODEV;
++	}
++
++	ret = platform_driver_register(&sbiwdt_driver);
++	if (ret)
++		return ret;
++
++	pdev = platform_device_register_simple(DRV_NAME, -1, NULL, 0);
++	if (IS_ERR(pdev)) {
++		platform_driver_unregister(&sbiwdt_driver);
++		return PTR_ERR(pdev);
++	}
++
++	sbiwdt_pdev = pdev;
++
++	return 0;
++}
++late_initcall(sbiwdt_init);
++module_exit(sbiwdt_exit);
++
++MODULE_LICENSE("GPL");
++MODULE_AUTHOR("Prajwal N <prajwal.n@oss.qualcomm.com>");
++MODULE_DESCRIPTION("RISC-V SBI Watchdog Driver");
+-- 
+2.43.0
 
-We've discussed a minimum scan budget and accounting for idle CPU
-availability, though a small minimum alone may not fix your case.
-
-Given both reports, reverting the commit seems the safest thing to do
-for now. That would restore the previous asym search behavior and we can
-revisit a better consistent strategy to cover both sym and asym CPU
-selection later.
-
-Prateek, Vincent, what do you think?
-
-Thanks,
--Andrea
-
-> 
-> #regzbot introduced: 61ea17a63719
-> 
-> System
-> ------
-> Orange Pi 6 (CIX CD8180 "Sky1"), 12 CPUs in five clusters, ACPI boot, no SMT:
->   
-> CPUs     capacity
-> 0-1       1024  
-> 2-5         279   (little)
-> 6-7         905
-> 8-9         866
-> 10-11     984
-> 
-> The firmware's PPTT gives one MC domain over all 12 CPUs. It has SD_ASYM_CPUCAPACITY(_FULL) and SD_SHARE_LLC, with a CLS domain per cluster below it. The kernel is v7.3.5 plus the out-of-tree Sky1 SoC
-> driver patches the board needs to boot. None of them touch kernel/sched/; the only one in drivers/base/arch_topology.c adds a helper that updates capacity_freq_ref when boost is toggled.
-> 
-> Workload
-> --------
-> llama.cpp llama-bench, Qwen2.5 1.5B Instruct Q4_K_M, CPU only, 8 threads, pp512 / tg128, tokens/s:
->   
-> 6.18.64                           123.5 / 36.5
-> 7.3.5                               109.0 / 29.5
->   
-> 7.3.5, taskset to the 8 big CPUs   121.4 / 34.7
-> 7.3.5, NO_SIS_UTIL at runtime     122.1 / 35.9
-> 7.3.5, patch below                       121.7 / 35.7
-> 
-> Sampling each worker thread's CPU every 5 s on stock 7.3.5 showed one to four of the 8 threads on cpu2-5 in every sample, with big CPUs idle. With NO_SIS_UTIL, or with the patch below, threads only make brief visits to the little CPUs. That costs nothing measurable, and 6.18 does the same. llama.cpp syncs all threads at a barrier after every operation, so one thread on a 279-capacity CPU holds up the other seven.
-> 
-> Other things I ruled out with runtime toggles or test builds: EAS off, llc_balancing off, the performance governor, NI_RATE/NI_RANDOM, the 6.18 misfit logic, and restoring the old sd_init() rule that cleared SD_PREFER_SIBLING on the child of an asymmetric domain. None of them changed the result. The slowdown only shows when prompt processing is part of the run, where the workers block and wake far more often than during generation, which points at the wakeup path.
-> 
-> What I think happens
-> --------------------
-> The workers' util is about 850-1018, so they fit no CPU, not even a 1024 one (the limit there is about 819). select_idle_capacity() therefore never returns early. It returns the highest-capacity idle CPU among those it scanned. 
-> 
-> With 8 of 12 CPUs busy, nr_idle_scan comes out at about 6:
->   
-> x = 7200 / 12 = 600
-> y = 1024 - 600^2 * 117^2 / (10000 * 1024) = ~543
-> 
-> nr = 12 * 543 / 1024 = ~6
-> 
-> So the scan stops after six CPUs counted from target. From cpu0 that is cpu0-5. With cpu0 and cpu1 busy, the best idle CPU it can see is a little one, and the idle cpu6-11 are never checked. From cpu10 the scan covers 10, 11, 0, 1, 2 and 3, with the same result. Once a thread is on a little CPU, its next scan starts there, so it tends to stay.
-> Above about 85% load nr drops to 1 and the function returns -1 at once.
-> 
-> The CPU numbering here (littles between two groups of bigs) makes it easy to hit. But the effect looks general: for a task that fits no CPU, a scan cut short by nr returns the best of a partial set. On a system with the littles at 0-3 and the bigs at 4-7, a wakeup with target on a little CPU and nr <= 4 sees only little CPUs.
-> 
-> The patch below (drop the limit from select_idle_capacity() only; select_idle_cpu() keeps SIS_UTIL) is what I run now.
-> 
-> I'm not proposing it as the fix, since it gives up what the commit wanted on large asymmetric domains.
-> 
-> One option might be to keep scanning past nr while nothing has been found that fits. I'm happy to test anything on this board, and I can send the topology and sched domain dumps, /proc/schedstat, or traces if they help.
-> 
-> Thanks,
-> James
-> 
-> 
-> 
-> --- a/kernel/sched/fair.c
-> +++ b/kernel/sched/fair.c
-> @@ -9049,7 +9049,6 @@ select_idle_capacity(struct task_struct *p, struct sched_domain *sd, int target)
->  	int fits, best_fits = ASYM_IDLE_THREAD_MISFIT;
->  	int cpu, best_cpu = -1;
->  	struct cpumask *cpus;
-> -	int nr = INT_MAX;
->  
->  	cpus = this_cpu_cpumask_var_ptr(select_rq_mask);
->  	cpumask_and(cpus, sched_domain_span(sd), p->cpus_ptr);
-> @@ -9058,28 +9057,17 @@ select_idle_capacity(struct task_struct *p, struct sched_domain *sd, int target)
->  	util_min = uclamp_eff_value(p, UCLAMP_MIN);
->  	util_max = uclamp_eff_value(p, UCLAMP_MAX);
->  
-> -	if (sched_feat(SIS_UTIL) && sd->shared) {
-> -		/*
-> -		 * Same nr_idle_scan hint as select_idle_cpu(), nr only limits
-> -		 * the scan when not preferring an idle core.
-> -		 */
-> -		nr = READ_ONCE(sd->shared->nr_idle_scan) + 1;
-> -		/* overloaded domain is unlikely to have idle cpu/core */
-> -		if (nr == 1)
-> -			return -1;
-> -	}
-> -
-> +	/*
-> +	 * Scan the whole domain, as 6.18 did. Do not cut the scan short with
-> +	 * the SIS_UTIL nr_idle_scan hint: on a busy system the hint drops to a
-> +	 * few CPUs, the scan then stops at whatever idle CPU it met first, and
-> +	 * a task that fits no CPU (util above every capacity margin) lands on
-> +	 * an idle little core while an idle big core is never looked at.
-> +	 */
->  	for_each_cpu_wrap(cpu, cpus, target) {
->  		bool preferred_core = !has_idle_core || is_core_idle(cpu);
->  		unsigned long cpu_cap = capacity_of(cpu);
->  
-> -		/*
-> -		 * Stop when the nr_idle_scan is exhausted (mirrors
-> -		 * select_idle_cpu() logic).
-> -		 */
-> -		if (!has_idle_core && --nr <= 0)
-> -			return best_cpu;
-> -
->  		if (!choose_idle_cpu(cpu, p))
->  			continue;
