@@ -1,87 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.62
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795537664;
-	b=0zjwc3Kl5ds3ENO6HKlPT5kXJvO+OdcOZwGccMVVT8mAOi03/JOFMwli7jsLYx0mqCb5
-	 07tJtj36NrMUyRsBSz3xPEWfJxdeogaZafSy5YgMs/t9lx68wd3Pazdb86z3sYuW6LDa/
-	 NKoCTQJYzOzlrbspRv4mewaN1af9ZD6x2s5hxcDLeDa4gFjQjUVdsI8/NTBvlf5/n6IKx
-	 yGfr41R2DLnoorEGLp9ZO5CYvX9LlriEPMMqqmuDbDDcQhDOGCCSVPZdSK+QfZZ7rs1jb
-	 SVhtArdZ51GLG2zU1Qv7GGSMEJQw2uG/qwqDgv/fwWIi3qQH3sGM62WxsC/3j3EWADw==
+	t=1795537669;
+	b=1gHAO6r680ZsNRQxBQ6qPzrqTXzTwSPSXhUAbY8OAiGqvPnntbbs8OACrbZr2cyzthUd
+	 o4gfxzQwW7HJmx/3UVNesB3ki+EPTxin6bk1wc3EWtxQDzo0w1ZOxOLEDTICkGn490CE4
+	 c8rqEHv+haUcNgf9JjAngwIIefP8o4VQykt+h5Qq+Xm1X0w9KgmHX2BviUYeqTPZiVwl8
+	 jMbTxfgt6k1iV9Zk8S4WGoOQz18vI8rSswjEbS7HqN2q9k9FFqHRewg11uXx473atrcnX
+	 Nzwh8p1iyRoiiYahCAn/UyVjVeNxuLLk05eyQQgO3HfWd36gZaY7We63KXsSGUc4+kQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795537664;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=Jrpxc1Q6pgjfCQC9LCXv5AaAKRJs/kdvERD9Fgr0nfc=;
-	b=SzUlYG4D90DQpfbrRxmcs444aDhKMu72YJ/9nT5zE+ikbi/4eQypXhemE3aRN0j5T7hQ
-	 THbUu/cK/zQ8YtdaiTv4lGrSZ2TL3ZR5X1UtS1cfa5nMjj1nsht2IpeBJFMd1KvBIZ3D2
-	 +qOIh/5reolGNNGK7sTfKvVHlJerwJS4CzoRlvPqG8J9/XA1YuKZD6jGIDmCbZWph4ZR2
-	 EkYlxQVPc8uZmhHe7AiZgdK6T/vxxkpDh/g8ny6gB++HERX4nUqFLb/ZpcA7WSbrbHzw6
-	 L0t6WI5RVD3z9vE/4nIidO8Oo8Nkak6kNY4TLemsJgcvk3Vzup8y6QQ7y06IKBkkPuQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537669;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=R3zuLxf28X0H/xa7T47tiKvpemvGGgA/Y2mqSnzT7Gc=;
+	b=I/WW/5MgRCn1OwKFCAvg/8PoTmhj5NXof207zqsMZ0hZ8Dz7uyAfgIyG3QcYGfrI01AO
+	 ziVYf+CmNSm+2k6k4rDubrmQ3HpUnzDyUlrr7UnrCv9LnQ+yBYnXJ77xlW1I8x2M62hKa
+	 eedGHsH6ttlsRNaMAPgROWIrtN4D0w4Nm+GI2NParB68VES+E3JO39cfObfyMma9niqc5
+	 PLUD6Es62xZSqW57fy8VAQafCNagvy69Qca8ZzixjOGNhfX8YP1VD1yeC8jHUqROXT+8q
+	 FWzeRigNTxW7BoN5Xz3J5aFVo/5Ez5J/gdPSFTNSF+OggNFlFt83pY+W7d9uTSfdqbg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=cc4d7QZP;
-	arc=none smtp.remote-ip=195.10.208.62
-Received: from mout-b-202.mailbox.org (mout-b-202.mailbox.org [195.10.208.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=SVC6mUcv;
+	arc=none smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86F0E606A329;
-	Tue, 24 Nov 2026 16:27:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86F0E606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79375606A323
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:27:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79375606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=cc4d7QZP
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-202.mailbox.org (Postfix) with ESMTPS id 4jYpBG3f7szKnsH;
-	Tue, 24 Nov 2026 17:27:34 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795537654;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Jrpxc1Q6pgjfCQC9LCXv5AaAKRJs/kdvERD9Fgr0nfc=;
-	b=cc4d7QZPuxOeD8POei5YQZbOALG+AOMebhNI5laNKtPtXKqVDBp0sU1gT1tUvKlffxcXSM
-	OZg/EMz6Iu72bQSFozrs9ecmFfFEG4ad4DdqD/44xQjwzeJ9i9YLbWiLVjpS6vtRE/h2Jj
-	rWTMkwxT4rrNwy0SC3G4TRDwi2WSvH4O+QocH9HqUbvDAmv1RJTilRagRjj4/5Ka5WXcqt
-	bq9RJRtf/+vfRaku41lCj6b88pqHTPHw5rOlbTNnnTjLiyzkVOM29+k5ucWxBfsoE3Mwgc
-	47/hadLTlAbYQtYwEqNxSpWYUB/lQchj+ht0atZkypsxCem/k8r0A7lpA8RfOA==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
-From: Ralf Lici <ralf@mandelbit.com>
-To: netdev@vger.kernel.org
-Cc: Ralf Lici <ralf@mandelbit.com>,
-	David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Florian Westphal <fw@strlen.de>,
-	Xia Yan <yanxia@cmss.chinamobile.com>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	Antonio Quartulli <antonio@mandelbit.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=SVC6mUcv
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-492690dd5daso3618297f8f.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:27:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795537668; x=1796142468; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=R3zuLxf28X0H/xa7T47tiKvpemvGGgA/Y2mqSnzT7Gc=;
+        b=SVC6mUcvCqnrCYIYmC3FlAjz0y1boHH/hpssjCciD2GcUhoVhRJjrMnaFy15mhO+KD
+         t4rMPOYnAMCEUEpGHnNH07csHT4hKc1Rb/uHIxzyBpZxUvdEZMzIip3Yuzzw+arKdeck
+         trsmnR4pMthvGKjQwH3PM2/4C9+19s8MhBLCtgaJtRJwLZf8vrLCsrwhdX5qOG7r+5Oi
+         93AQRvEJlpeF3PS6PmERVzBBW+QEF3jrDeo3FStH22sY9UP+Vd861udU9RJupaDCdY13
+         2CMMWhCWfuEQBccgtOCFiTuWlQbzJASShtdhVWgkAIh+DYtGCWvabD28IBwfBXnEIDfq
+         5QXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795537668; x=1796142468;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=R3zuLxf28X0H/xa7T47tiKvpemvGGgA/Y2mqSnzT7Gc=;
+        b=FcsJv6GS+cH/HTX1mUcfRX5spD8W5iv+Wj6M705YdTw1X3XMN3V0+BupSKc1Z1pQXV
+         QEy3qCzV6ngfDuIqiuWcV8Tbe3edYuCJFOq5e/8IjaxBqLmXnavQTanFK3FTYQYmRhLE
+         nEa/tg1bWcTJqphHfYsal2Sf4Z3isgLey7S6EnGIubwGBPXxoclm+1EtfP2PKpWLMO3x
+         3ffzagCyIaJgLWS77c4Ly5JQhjJhSuJiZKyC4vlvzfpet3kM+dajVUDRBIxr2lh6fW/3
+         dckUQ939NaP7Z3NfYA2e4mkcbBC576NuRhMtGvy6GEvOoXnyKNy9pN7eO9+2T76aThRL
+         FK3A==
+X-Forwarded-Encrypted: i=1; AL+hErEK8ehwM4qbiMlHFeuV4m+eE1pIa1BDhKPAYy1iGy1iUylh9s5Fs5C5iy52441ysKY/e16j67duN/++gTY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9ix9Kngc+Y7M5VpsHeawXfC0OPfW/FjT8ahDXA4yPUeHr6/Xz1
+	hm+Sx3mRP1/8LYjodS4mBZEE5o3NjT3DyRq2B2Tx1EQAwccEVUwnEmgEH9wOOlESiqM=
+X-Gm-Gg: AZFdTZfTZjNh1lI40g9oHJ7uy7C1pBWWlIuTl8zyRvZPalzinAugW471EBlL37RHW4h
+	U+oBxpe/YOtL6RqV0JNkshzvzOlDtmnQL7zwYZO1tYPvqgVon7AtwK92wkyz0vW7cLmOy2HKrXb
+	uVj+YSCYQCXnPEPJvN0W/e5X7TtUSINVhygReRSB/Pc3GbL/5Mm+Ti8ZkYRZZqvnZqmPv1sPs9n
+	Qhzcazjx93sn1LyTO4/+K4LMv/btwDpQtZHjUv0HhDSkE2Ns7gMeJcRo3zPIFZe3xhkuBm1pRwu
+	Z1SIEPJ6yVoXdGv2y/OMMeV9oAm2JmICIaewdu3amY9uw9KJm1dn/jWOlPj2ODU7X4dhZhUcj5d
+	5YiONhiPbl4Ugd2n8mz50o3wKYs9QAgac0BU1Ruv6jso9gwYfV/hxi1ziCCXG859rIACx2whR+d
+	QUx52xJHVxWHZZLMtR68SHsMcybncEaO/+nv46uCbHAQeGoeQff2nXf+7ncSffL3XAUxzh2XH2/
+	hUpAxBipDd4oTvdPVdAKqqCdpKEVPibXTRsp/00MFDsPou8k8LWHjKg3j00qWjixaP9yRVOCupx
+	kdiTVfDvcNaUu3i9P/dn84nCwVBvCOw=
+X-Received: by 2002:a05:600c:8b11:b0:4a1:df52:3e36 with SMTP id 5b1f17b1804b1-4bb8881d194mr319287845e9.27.1795537667763;
+        Tue, 24 Nov 2026 08:27:47 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989eesm29083209f8f.50.2026.11.24.08.27.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 08:27:46 -0800 (PST)
+Date: Tue, 24 Nov 2026 17:27:44 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: John Ogness <john.ogness@linutronix.de>
+Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
 	Steven Rostedt <rostedt@goodmis.org>,
-	linux-rt-devel@lists.linux.dev,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Breno Leitao <leitao@debian.org>, printk@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v5 4/4] ipv6: validate dsts against the state their lookup found
-Date: Tue, 24 Nov 2026 17:27:10 +0100
-Message-ID: <4b2bf5de6c9837fee8db88d639db0e27e6d687b9.1795537128.git.ralf@mandelbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <cover.1795537128.git.ralf@mandelbit.com>
-References: <cover.1795537128.git.ralf@mandelbit.com>
+Subject: Re: [PATCH printk v4 4/8] printk: nbcon: Use @reason instead of
+ global variable to check flush policy
+Message-ID: <awW7AFsiUkhRWdqy@pathway.suse.cz>
+References: <20261121163557.963029-1-john.ogness@linutronix.de>
+ <20261121163557.963029-5-john.ogness@linutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,186 +101,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jYpBG3f7szKnsH
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261121163557.963029-5-john.ogness@linutronix.de>
 
-Validate dsts in ip6_dst_check against the stamp of the lookup that
-built them instead of the cookie passed by their holder, which may have
-been read after a FIB change the lookup did not see. A stamp of 0,
-recorded when the generation changed during the lookup or the route was
-unlinked, never validates. Holders are covered without changes,
-including dst_cache users and the route and path dsts of xfrm bundles,
-and invalidation keeps its per-node scope: a FIB change only invalidates
-dsts of routes under the nodes it stamps.
+On Sat 2026-11-21 17:41:52, John Ogness wrote:
+> Currently nbcon_allow_unsafe_takeover() is a hack, relying on the
+> temporary setting of a global variable @panic_nbcon_allow_unsafe_takeover
+> as a gate to determine if unsafe flushing is allowed. This hack works
+> because unsafe flushing is only performed at the end of panic().
+> However, this hack is _not_ sufficient if unsafe flushing is to be
+> allowed in other contexts.
+> 
+> Since at the end of panic() nbcon_atomic_flush_unsafe() is called with
+> the @reason PR_FLUSH_HANG, it is possible to identify when unsafe
+> atomic flushing is allowed using:
+> 
+> 	PR_FLUSH_HANG && panic_on_this_cpu()
+> 
+> rather than:
+> 
+> 	panic_nbcon_allow_unsafe_takeover && panic_on_this_cpu()
+> 
+> This allows removing the global variable hack and opens the door for
+> unsafe flushing to be allowed in other contexts.
+> 
+> Provide nbcon_allow_unsafe_takeover() the flush @reason to implement
+> the check.
+> 
+> No functional change.
+> 
+> --- a/kernel/printk/nbcon.c
+> +++ b/kernel/printk/nbcon.c
+> @@ -1453,24 +1453,31 @@ enum nbcon_prio nbcon_get_default_prio(void)
+>  	return NBCON_PRIO_NORMAL;
+>  }
+>  
+> -/*
+> - * Track if it is allowed to perform unsafe hostile takeovers of console
+> - * ownership. When true, console drivers might perform unsafe actions while
+> - * printing. It is externally available via nbcon_allow_unsafe_takeover().
+> - */
+> -static bool panic_nbcon_allow_unsafe_takeover;
+> -
+>  /**
+>   * nbcon_allow_unsafe_takeover - Check if unsafe console takeovers are allowed
+> + *					for a specified console and reason
+>   *
+> - * Return:	True, when it is permitted to perform unsafe console printing
+> + * @con:	The console to check
+> + * @reason:	The reason for the unsafe takeover
+>   *
+> - * This is also used by console_is_usable() to determine if it is allowed to
+> - * call write_atomic() callbacks flagged as unsafe (CON_NBCON_ATOMIC_UNSAFE).
+> + * Return:	True, when @con is allowed to perform unsafe console printing
+>   */
+> -static bool nbcon_allow_unsafe_takeover(void)
+> +static bool nbcon_allow_unsafe_takeover(struct console *con, enum pr_flush_reason reason)
 
-pcpu dsts are shared by all their holders, so they are never
-re-stamped, which would revalidate a stale dst for every holder. A pcpu
-dst is reused only if it carries the stamp of the current lookup.
-Otherwise it is replaced, so a lookup that selected a route before a FIB
-change cannot return a pcpu dst that another lookup rebuilt after it.
-On PREEMPT_RT, a pcpu dst that another task installed while this lookup
-built its own follows the same rule.
+Nit: It seems that the @con parameter is not used in this version.
+     So, it might trigger a warning during bisection.
 
-A replaced pcpu dst is released with dst_dev_put as before, and since
-pcpu dsts of nexthop-object routes are validated against the IPv6
-generation, now the one read before the lookup, they are also rejected
-once released. Lookups may have read the slot without taking a
-reference, and an xfrm bundle holding the dst as its child drops its
-reference without waiting for a grace period, so the slot's reference
-is dropped only after one (__fib6_drop_pcpu_from is unchanged).
+>  {
+> -	return panic_on_this_cpu() && panic_nbcon_allow_unsafe_takeover;
+> +	enum nbcon_prio prio = nbcon_get_default_prio();
+> +	bool allow = false;
+> +
+> +	switch (reason) {
+> +	case PR_FLUSH_RUNTIME:
+> +		/* Never unsafe flush during runtime. */
+> +		break;
+> +	case PR_FLUSH_HANG:
+> +		/* Always unsafe flush on panic hang. */
+> +		allow = (prio == NBCON_PRIO_PANIC);
+> +		break;
+> +	}
+> +
+> +	return allow;
+>  }
 
-Not covered yet: a holder that sends through a released dst without
-validating it again, such as a corked UDP socket, loses those packets,
-now also when a FIB change in the route's subtree replaces the pcpu
-dst. Exceptions keep being validated against the holder's cookie, and
-so keep the late sampling, as refreshing them needs their PMTU updates
-serialized with the replacement.
+Otherwise, the logic looks correct.
 
-Suggested-by: David Ahern <dsahern@kernel.org>
-Signed-off-by: Ralf Lici <ralf@mandelbit.com>
----
-New in v5
-- Replaces the lookup cookie API and its users from v4. (David)
-
- net/ipv6/route.c | 78 +++++++++++++++++++++++++++++++++++++++---------
- 1 file changed, 64 insertions(+), 14 deletions(-)
-
-diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-index 8b98ee945c58..be9bf7a4e780 100644
---- a/net/ipv6/route.c
-+++ b/net/ipv6/route.c
-@@ -1501,7 +1501,7 @@ static struct rt6_info *ip6_rt_pcpu_alloc(const struct fib6_result *res)
- 	pcpu_rt->rt6i_flags |= RTF_PCPU;
- 
- 	if (f6i->nh)
--		pcpu_rt->sernum = rt_genid_ipv6(dev_net(dev));
-+		pcpu_rt->sernum = res->gen;
- 
- 	return pcpu_rt;
- }
-@@ -1511,6 +1511,33 @@ static bool rt6_is_valid(const struct rt6_info *rt6)
- 	return rt6->sernum == rt_genid_ipv6(dev_net(rt6->dst.dev));
- }
- 
-+static bool rt6_stamp_matches(const struct rt6_info *rt,
-+			      const struct fib6_result *res)
-+{
-+	if (rt->sernum || res->f6i->nh)
-+		return res->gen && rt->sernum == res->gen;
-+
-+	return res->cookie && rt->cookie == res->cookie;
-+}
-+
-+static void rt6_pcpu_release_rcu(struct rcu_head *head)
-+{
-+	struct dst_entry *dst = container_of(head, struct dst_entry, rcu_head);
-+
-+	dst_release(dst);
-+}
-+
-+/* Release a pcpu dst taken out of its slot. Lookups may have read the slot
-+ * without taking a reference, so drop the slot's own only after a grace
-+ * period: an xfrm bundle holding the dst as its child releases its
-+ * reference without waiting for one.
-+ */
-+static void rt6_pcpu_release(struct rt6_info *rt)
-+{
-+	dst_dev_put(&rt->dst);
-+	call_rcu(&rt->dst.rcu_head, rt6_pcpu_release_rcu);
-+}
-+
- /* It should be called with rcu_read_lock() acquired */
- static struct rt6_info *rt6_get_pcpu_route(const struct fib6_result *res)
- {
-@@ -1518,16 +1545,19 @@ static struct rt6_info *rt6_get_pcpu_route(const struct fib6_result *res)
- 
- 	pcpu_rt = this_cpu_read(*res->nh->rt6i_pcpu);
- 
--	if (pcpu_rt && pcpu_rt->sernum && !rt6_is_valid(pcpu_rt)) {
-+	/* A pcpu dst is shared by all its holders, so it is never re-stamped.
-+	 * Reuse it only if it was built under the state this lookup found,
-+	 * otherwise replace it: a dst rebuilt by another lookup after a FIB
-+	 * change must not be returned to a lookup that selected before it.
-+	 */
-+	if (pcpu_rt && !rt6_stamp_matches(pcpu_rt, res)) {
- 		struct rt6_info *prev, **p;
- 
- 		p = this_cpu_ptr(res->nh->rt6i_pcpu);
- 		/* Paired with READ_ONCE() in __fib6_drop_pcpu_from() */
- 		prev = xchg(p, NULL);
--		if (prev) {
--			dst_dev_put(&prev->dst);
--			dst_release(&prev->dst);
--		}
-+		if (prev)
-+			rt6_pcpu_release(prev);
- 
- 		pcpu_rt = NULL;
- 	}
-@@ -1550,13 +1580,21 @@ static struct rt6_info *rt6_make_pcpu_route(struct net *net,
- 		/*
- 		 * Another task on this CPU already installed a pcpu_rt.
- 		 * This can happen on PREEMPT_RT where preemption is possible.
--		 * Free our allocation and return the existing one.
-+		 * Free our allocation and return the existing one if it was
-+		 * built under the state this lookup found, otherwise replace
-+		 * it as rt6_get_pcpu_route does.
- 		 */
- 		WARN_ON_ONCE(!IS_ENABLED(CONFIG_PREEMPT_RT));
- 
--		dst_dev_put(&pcpu_rt->dst);
--		dst_release(&pcpu_rt->dst);
--		return prev;
-+		if (rt6_stamp_matches(prev, res)) {
-+			dst_dev_put(&pcpu_rt->dst);
-+			dst_release(&pcpu_rt->dst);
-+			return prev;
-+		}
-+
-+		prev = xchg(p, pcpu_rt);
-+		if (prev)
-+			rt6_pcpu_release(prev);
- 	}
- 
- 	if (res->f6i->fib6_destroying) {
-@@ -2864,11 +2902,16 @@ INDIRECT_CALLABLE_SCOPE struct dst_entry *ip6_dst_check(struct dst_entry *dst,
- 	struct dst_entry *dst_ret;
- 	struct fib6_info *from;
- 	struct rt6_info *rt;
-+	bool exception;
- 
- 	rt = dst_rt6_info(dst);
- 
-+	/* a nexthop-object pcpu dst replaced by another lookup has been
-+	 * released with dst_dev_put and must fail even if its stamp is current
-+	 */
- 	if (rt->sernum)
--		return rt6_is_valid(rt) ? dst : NULL;
-+		return (READ_ONCE(rt->dst.obsolete) == DST_OBSOLETE_FORCE_CHK &&
-+			rt6_is_valid(rt)) ? dst : NULL;
- 
- 	rcu_read_lock();
- 
-@@ -2879,9 +2922,16 @@ INDIRECT_CALLABLE_SCOPE struct dst_entry *ip6_dst_check(struct dst_entry *dst,
- 
- 	from = rcu_dereference(rt->from);
- 
--	if (from && (rt->rt6i_flags & RTF_PCPU ||
--	    unlikely(rt->dst.rt_uncached_list)))
--		dst_ret = rt6_dst_from_check(rt, from, cookie);
-+	/* Exceptions are validated against the holder's cookie, every other
-+	 * dst against the stamp of the lookup that built it rather than the
-+	 * cookie its holder read afterwards, which may postdate a FIB change
-+	 * the lookup did not see.
-+	 */
-+	exception = (rt->rt6i_flags & RTF_CACHE) && !rt->dst.rt_uncached_list;
-+	if (from && !exception)
-+		dst_ret = rt->cookie ?
-+				  rt6_dst_from_check(rt, from, rt->cookie) :
-+				  NULL;
- 	else
- 		dst_ret = rt6_check(rt, from, cookie);
- 
--- 
-2.56.0
-
+Best Regards,
+Petr
