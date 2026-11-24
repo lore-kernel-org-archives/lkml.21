@@ -1,54 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.245
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795496602;
-	b=ZNYp4KBagfaToHSMqUZlEKJ1zyZrLs2O/xfvUNY1nxxU6dh6+lDkaPq9Vs0qOXltRs2z
-	 EmhvFrDRMxfChvo5JiY6wN0EDKL6NwgZ9PgdqOI4PovMM+y3EFofTQYiIsGw5AxbX1nNE
-	 Lr8WaNIlMJ8imsA3yCiFZEOrjVbCJ3mY1HhpHtbAXGJ9PBxsc1a14G/EX3iGFvB+F+OUt
-	 oD3vXy5dvEmxOa856nm3N8yAHPzQ5hIQ8+qhfbrKHzjxIVrwg49Z+1E+G52aitKtCViWG
-	 Ftar7u5nWNxfWo9YcJWEhEfSv4Wqizh8KxsgRIz07yhm0+R8U6Q9qPyfg+3DNB+993w==
+	t=1795496688;
+	b=mppL1ieUCh6iok6xE+b9B3hmGMWdhJNzk7JWVHcVyxHPvF3FN6y2vw/fNokCBzFL5rbS
+	 9YDF6DR2HENHqaE3x+Cvz2z1B+44AcuNjwt15+q6B2fXINrO/+k3tZxztaL2zcJmTImqM
+	 pyuqzdzoU1w91BqQ4l5n94YMI9Yxz/WOKFL821vZqt7dIcV6FUSEp7cfS72CnMTRKDit5
+	 hBpoqVdBvYQfOkFy4MZGQ1TdLKHr6RQ8U/ScSXhF6Y/nG3+TlmvmyWea7Q3xdmR7tRfCA
+	 ELTZWomUxcwXgtc4qPXbEql1ojfIvzdECse6bEhDUe8pW1TKNQwkkQ1QFvEXOE7B6Cw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795496602;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=S2gozbY24olxUageBz+NlIzZXi6x5SrXPb32SM57AJM=;
-	b=z7/z7EbSX6Lc/WVfQhslgEzFiFzOSmbdOiAoMDA9lHHkz5tY711IP3E6uAj1NXSJfqvZ
-	 KBy0dgihvnkJrdDQIhRSK4txU6QrEuxoMAJDPVQMhnga4pv92qU4zvK4HWJQ5f7xOUCI6
-	 QIbpeLyy+vi97dMcSq0d6m3wQ8klh55y7x9PIY//4GEZizecr8viYuVQsKcm5px81IT5W
-	 0DbJ+xyo/MUbc3RAdzFLAbdAs/Yo/0hm7CAhh3hhn4etJFQxXmP/eHiPN0ipnZlVQYrKx
-	 Pq7l4aeOKQpYepYibtFVEYXTdmya3M1Tr9ZLhqPFx4ZduI3wRMFXT2d/LsXqypA5lmQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795496688;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=S9siEsISEhUmobrHfk43GWP8sT+YJJExitvIuJS0LwQ=;
+	b=QyOD/i4fByLw3tazZ/Cc9R5pYXwlJW8duRtSNdNaq17zY0uVlstQ9SP7tWQI2y01exCZ
+	 pxlTBoSYZCgxWh/ErHDCCoHmYDrMxOiuM02EwU+ko1U+n+laB54eKV+fp341kUYW6FW/U
+	 QPivGeZceLdZ+Iz7NPElY4xb4xtnmqsEk7SL3i3ysmasolbiUxqRY3tnBoEZGzomhcLot
+	 C+tO5j94yWrWSWrWmrrl3asa9cLIN9PS6POpDHcodTD/mpsOfSHNK2AN592ehvfju1UD1
+	 OBLv0n9jw0F1iva7LnSKCCT0p9g3libKIMcP/tHs4VDIakHAHCFsZPSqUaCKjxdszmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EHi93Q8K;
-	arc=none smtp.remote-ip=91.218.175.245
-Received: from mta0.migadu.com (out-245.mta0.migadu.com [91.218.175.245])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0D06606A327
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:03:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0D06606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EHi93Q8K
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=pZwquf+TOycXJqm5EEWgkMHD8Suyd/T8rx/DR0eESz0=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795496599; v=1; x=1796101399;
- b=EHi93Q8KppmvlCPPbQHFZbV1arZr9h53O/lUisfvlbqeOPCXVBOJKhrG+sTLx1kMjNa18Wn/
- F3gqamW6qJPqCWEWVpIeZZYtBmY7SMYJdyhNJkAX5jY+ogb5QhmAUTBS4T7RAzaMJmAbzbhwFHN
- 1GzW5XZwOULYV1sSkP1YbrO8=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 9439c991d20d68e6;
-	Tue, 24 Nov 2026 05:03:18 +0000
-X-Mizu-Trace-ID: 9439c991d20d68e6
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <c665ace5-dfd5-4fb7-abcc-7454f732fb36@linux.dev>
-Date: Tue, 24 Nov 2026 13:03:04 +0800
+	dmarc=none header.from=loongson.cn;
+	spf=pass smtp.mailfrom=loongson.cn;
+	arc=none smtp.remote-ip=114.242.206.163
+Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id F1EED606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:04:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1EED606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
+Received: from loongson.cn (unknown [123.138.236.242])
+	by gateway (Coremail) with SMTP id _____8AxS_DmGgVrf3UiAA--.32707S3;
+	Tue, 24 Nov 2026 13:04:38 +0800 (CST)
+Received: from linux.localdomain (unknown [123.138.236.242])
+	by front1 (Coremail) with SMTP id qMiowJCxNs3lGgVr3_82AA--.30298S2;
+	Tue, 24 Nov 2026 13:04:38 +0800 (CST)
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+To: Huacai Chen <chenhuacai@kernel.org>,
+	Hengqi Chen <hengqi.chen@gmail.com>
+Cc: loongarch@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH RFC] LoongArch: BPF: Add support for UHMUL and SHMUL
+Date: Tue, 24 Nov 2026 13:04:37 +0800
+Message-ID: <20261124050437.392-1-yangtiezhu@loongson.cn>
+X-Mailer: git-send-email 2.42.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,96 +51,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v2] cgroup/rstat: disable preemption in
- css_rstat_updated()
-To: Karl Mehltretter <kmehltretter@gmail.com>, bpf@vger.kernel.org,
- Tejun Heo <tj@kernel.org>
-Cc: Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
- <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
- Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>, Shuah Khan <shuah@kernel.org>,
- Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
- =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
- Shakeel Butt <shakeel.butt@linux.dev>, Waiman Long <longman@redhat.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Puranjay Mohan <puranjay@kernel.org>, cgroups@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-rt-devel@lists.linux.dev
-References: <20261124031642.40616-1-kmehltretter@gmail.com>
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-In-Reply-To: <20261124031642.40616-1-kmehltretter@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:qMiowJCxNs3lGgVr3_82AA--.30298S2
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Coremail-Antispam: 1Uk129KBj93XoW7uFy3uw1rtw17XF47CF1kCrX_yoW5JFy3pr
+	ZFkrn5Crs5XFySqF9rJwsrur43tan3Cry2qF1ayayfJrW3Xa45XF18KwnrKFZ3JaykXFsY
+	gr429rn8uFy3J3gCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUkYb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r106r15M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44I27w
+	Aqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE
+	14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCF04k20xvY0x
+	0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E
+	7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcV
+	C0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF
+	04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7
+	CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU8czVUUUUUU==
 
+Implement JIT lowering for UHMUL and SHMUL on LoongArch by utilizing
+hardware multiplication instructions MULH.{DU,D} and enabling support
+via bpf_jit_supports_hmul().
 
+Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+---
+Not tested yet, just RFC.
 
-On 11/24/26 11:16 AM, Karl Mehltretter wrote:
-> BPF programs can call css_rstat_updated() with preemption enabled.
-> The kfunc calls __css_rstat_updated(), which requires preemption to
-> be disabled while it queues an rstat update. A cgroup iterator can
-> hit the lockdep assertion on both RT and non-RT kernels. The
-> cgroup_hierarchical_stats selftest can also hit it on PREEMPT_RT:
-> spin_lock_irqsave() on trace_cgroup_path_lock leaves preemption and
-> interrupts enabled there.
-> 
-> Disable preemption in the BPF wrapper after validating the CPU and
-> before calling __css_rstat_updated().
-> 
-> Fixes: 36df6e3dbd7e ("cgroup: make css_rstat_updated nmi safe")
-> Reported-by: Jiayuan Chen <jiayuan.chen@linux.dev>
-> Closes: https://lore.kernel.org/r/20251119111402.153727-1-jiayuan.chen@linux.dev/
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> ---
-> Assisted by an LLM.
-> 
-> v2 places the preemption guard in the kfunc as Alexei requested:
-> https://lore.kernel.org/r/DN26CP5BB6O7.23ALW6CZUBYSD@gmail.com/
-> Since 8817005efbdf split out the BPF-only wrapper, v2 does not add
-> preemption operations to the in-kernel callers discussed when Jiayuan
-> proposed the earlier kernel-side version in November 2025:
-> https://lore.kernel.org/r/20251121040655.89584-1-jiayuan.chen@linux.dev/
-> v1: https://lore.kernel.org/r/20261121082843.44614-1-kmehltretter@gmail.com/
-> 
+ arch/loongarch/include/asm/inst.h |  2 ++
+ arch/loongarch/net/bpf_jit.c      | 24 ++++++++++++++++++++++--
+ 2 files changed, 24 insertions(+), 2 deletions(-)
 
-I suggest you target cgroup-tree instread of bpf-tree if you need revise, because
-you only modified pure cgroup file.
-
-Since your v2 does the same operation as my previous v1 which was denied
-by cgroup maintainer, I also suggest you wait their replies (
-As time goes by, situation can change).
-
-I still insist on kernel-side modification just like this patch because we should
-prevent 'wrong' bpf code from triggering WARNING.
-
-
-> Tested in x86-64 KVM guests with lockdep on bpf-next 9867c61abbd4
-> (base and v2) and 2bf3351c5f89 (v2). Both tests passed on all 24 boots.
-> 
->   Boots with an rstat warning               base     v2   rebased v2
->   PREEMPT_RT, cgroup_hierarchical_stats      2/2    0/2          0/2
->   PREEMPT_RT, iter/cgroup                    2/2    0/2          0/2
->   PREEMPT (!RT), cgroup_hierarchical_stats   0/2    0/2          0/2
->   PREEMPT (!RT), iter/cgroup                 2/2    0/2          0/2
-> 
->  kernel/cgroup/rstat.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/kernel/cgroup/rstat.c b/kernel/cgroup/rstat.c
-> index de816a43db9f..d72fe721cea0 100644
-> --- a/kernel/cgroup/rstat.c
-> +++ b/kernel/cgroup/rstat.c
-> @@ -131,6 +131,7 @@ __bpf_kfunc void css_rstat_updated(struct cgroup_subsys_state *css, int cpu)
->  	if (unlikely(cpu < 0 || cpu >= nr_cpu_ids || !cpu_possible(cpu)))
->  		return;
->  
-> +	guard(preempt)();
->  	__css_rstat_updated(css, cpu);
->  }
->  
-> 
-> base-commit: 2bf3351c5f894697e8443eeef5333d4c4ce90cab
+diff --git a/arch/loongarch/include/asm/inst.h b/arch/loongarch/include/asm/inst.h
+index e061f966f7d1..fd6b39d5f0d0 100644
+--- a/arch/loongarch/include/asm/inst.h
++++ b/arch/loongarch/include/asm/inst.h
+@@ -777,6 +777,8 @@ DEF_EMIT_REG3_FORMAT(subw, subw_op)
+ DEF_EMIT_REG3_FORMAT(subd, subd_op)
+ DEF_EMIT_REG3_FORMAT(mulw, mulw_op)
+ DEF_EMIT_REG3_FORMAT(muld, muld_op)
++DEF_EMIT_REG3_FORMAT(mulhd, mulhd_op)
++DEF_EMIT_REG3_FORMAT(mulhdu, mulhdu_op)
+ DEF_EMIT_REG3_FORMAT(divw, divw_op)
+ DEF_EMIT_REG3_FORMAT(divd, divd_op)
+ DEF_EMIT_REG3_FORMAT(modw, modw_op)
+diff --git a/arch/loongarch/net/bpf_jit.c b/arch/loongarch/net/bpf_jit.c
+index 567729921d6d..b12da3e422c6 100644
+--- a/arch/loongarch/net/bpf_jit.c
++++ b/arch/loongarch/net/bpf_jit.c
+@@ -683,6 +683,21 @@ static int add_exception_handler(const struct bpf_insn *insn,
+ 	return 0;
+ }
+ 
++static void emit_various_muld(struct jit_ctx *ctx, u8 dst, u8 src, s16 off)
++{
++	switch (off) {
++	case BPF_UHMUL:
++		emit_insn(ctx, mulhdu, dst, dst, src);
++		break;
++	case BPF_SHMUL:
++		emit_insn(ctx, mulhd, dst, dst, src);
++		break;
++	default:
++		emit_insn(ctx, muld, dst, dst, src);
++		break;
++	}
++}
++
+ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx, bool extra_pass)
+ {
+ 	u8 tm = -1;
+@@ -804,7 +819,7 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx, bool ext
+ 		emit_insn(ctx, mulw, dst, dst, src);
+ 		break;
+ 	case BPF_ALU64 | BPF_MUL | BPF_X:
+-		emit_insn(ctx, muld, dst, dst, src);
++		emit_various_muld(ctx, dst, src, off);
+ 		break;
+ 
+ 	/* dst = dst * imm */
+@@ -814,7 +829,7 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx, bool ext
+ 		break;
+ 	case BPF_ALU64 | BPF_MUL | BPF_K:
+ 		move_imm(ctx, t1, imm);
+-		emit_insn(ctx, muld, dst, dst, t1);
++		emit_various_muld(ctx, dst, t1, off);
+ 		break;
+ 
+ 	/* dst = dst / src */
+@@ -2571,3 +2586,8 @@ bool bpf_jit_supports_callx(void)
+ {
+ 	return true;
+ }
++
++bool bpf_jit_supports_hmul(void)
++{
++	return true;
++}
+-- 
+2.42.0
 
