@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795479819;
-	b=c4Tkc9fKBAsDu+MDJULhubEWH9BaR2lLTmejc1q+F80AxMbe8YPFt2PMZ2/wS5faAjqs
-	 glH9eIfmPuLGSnlYxKfYRAf/rJfiGdQGKh4L6SiZAtuj3dSJspujaEcjN5m3YpmBzaFCx
-	 FvNRMkY6kXm26jHEmkUecUG2FwDZxm2e/nNqYywoHUIitDGYts+yJbUE68YMy68wkf56F
-	 IoURt713nCujP8H7aZm29P/88CgJFdqEw3/4oSAgh0+jC7wy+TwEbASSVpNyZHvbYJgbQ
-	 wVcxYJQI5Dwgt7PqSVZ0VZXj+HiSwX11Kws26wvPAv8bRUwR9Zkz+UCVdqtN19TJbAg==
+	t=1795479826;
+	b=l9NWBws5Ig9Jax2bjJU+le4ulYi04T908KlBP/d18s/etMFZLTiKa3BTDqX1l4DGdrV8
+	 C2F51CVL15/k3siYJt5piXZ0eU+wuIACbuvEzFZIzei7MC5kEeXDleTIAKQ01UIxoEJ0W
+	 713V571Qvqy+8X2wNkA5VZmm4pcV/Sc+FILKe9Vl7Z26X1qWWc3MRLTOZbHJfluKZeJKd
+	 pxDQNvrIhc4dv8AM9yqotwMBTsWj4ttoBwfUb+eoBF6ITza7ssm4PK8sxS6K7S5Q063h0
+	 tbB+TegVRI6TAdktEKoeCdrgkNuL5rN25phnNinb17xPfHd7ME+X5Op7SQUz99ypL4Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795479819;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795479826;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=mQOzi/AaGUN2LLStWaDBGp6mIFFtRvMsQoOA5hxwfKY=;
-	b=gBaswrjzz6GRXCAM+q0WvA2GLjLR+so3Thlcn/KZUu3N3OM8LSQgUniU1odTGjyG/Vnv
-	 Qb3UkmPWUzKV+IhJ9kPYLoDIOvT4AMfkalNLTPVPuVLusRTMdJUVA8f/QtHXYcauFiHRh
-	 U93uQBuFXBvT0lonMowXxgVbeyzuZjfkNIyM2xjDjlLP+my78fjgtRlU3zJQAzcXdKzFk
-	 Oq7rf9zuSMlLZjjokZAUHGi/VxHmzlBnKwM5ALL9H8AwnwMQDBgsc6hy14ezjTMFU5Vyd
-	 9uxFDJbSWDYyqvjPDr2lqWwK+leeJmyNkwziSfK28rFH5XWgvAniompx6Ixf47+NsTg==
+	bh=rMzI9ARjYbF3YZ8FF7+zs/SIxNGg4vON9w4oyH3HYGg=;
+	b=j0PE21ODca8Rf2Kxp96UApVxDvkr2x7Qdc0PCcxT/bNpPBcIC63QBGp/2KEbie3tfGqF
+	 2S83z3AeEHp239RxZOvl+W925H5FKkAETjNPweh1n93syRoGK0QdYe29jR9tnHZJzdjdQ
+	 8LRZQ2o6cueww7ND+bUi3HOIqFEtXUbpJ2yCqsRrH0MVyUhcAFyyBHSM2AEoK5cx8ASW/
+	 FqTfH2BM4SUwQxWUc66fUVk91+WikZDrtxFLG2q1k7jGwforTzs8lT5CxPwHSUNzBrQR3
+	 +Mxnyn89XJbPKCPFt65ECaPJ6RLR6jX1vGnKKxz+YC94FsX22tiHAI1sd18JDUEfVZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AW8gwmUV;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aWHBjoCI;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AE18606C7A5;
-	Tue, 24 Nov 2026 00:23:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCA45606A68B;
+	Tue, 24 Nov 2026 00:23:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AW8gwmUV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43AC41F000C6;
-	Tue, 24 Nov 2026 00:23:38 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aWHBjoCI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D615B1F0093C;
+	Tue, 24 Nov 2026 00:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795479819;
-	bh=mQOzi/AaGUN2LLStWaDBGp6mIFFtRvMsQoOA5hxwfKY=;
+	s=k20260515; t=1795479826;
+	bh=rMzI9ARjYbF3YZ8FF7+zs/SIxNGg4vON9w4oyH3HYGg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=AW8gwmUVqDqO0fSEn5Yns1ryoSIjXjupJ/Eanptv6ZuusGu4sCxcxW2yckrdUyAp8
-	 NcBpBEqSCGK0LlMYUJMQOcUf4ghcIE8gcJZ4gjJzglh58SfyUCXCrXFigE0Vtgeb/W
-	 Eo4ZTeQE7VAKWyGuInkszi1Q5IqOBEtqw+kv069Wdu3CG0e7Q8/0t18jWirzaP9XMl
-	 CVnxLDHrbE9ugDQuwx+yGqIUTxDKUwU+BYB2AO63Jf56aQI2iKyAmc4HMG82E8DEYX
-	 olwfrNSf2eaHfxN5KdTS39mFfU9GD47uyUVLZgqC+abz4YNZMULcFPVDrxvGs2Noe/
-	 SbVBAgTBoPYGw==
+	b=aWHBjoCI66SGYw8l7YKVycvQluFNnLGwa0p1BM2c7DUz74M7TUsaRJu0wJEiAQFts
+	 Xy9yXTqxeSeu34ish56PihOIujGnnt116ffd4L2sZ7VoLFR2KjVpma/NodoyUKLjfc
+	 VLVyoHGbZ+4DA8r7AkVlXrAiQu0IXSGXzrLX9wgCN0qJsMmwrzIGxcj+CV1uLQGRlO
+	 nftxTtrX6U35269+HokGFGdkPvMdRQ3DbArMJVeQFbo8QikKyFPkhuhLh2FszTCmLE
+	 ZRyDoFvT2PY0aJ0lz0UdRUw20bB3Su1atEU1R8EpQ6PkIacVl3m5KGutrtpmfPkbcq
+	 XSH+puZHO6Xvw==
 From: Yosry Ahmed <yosry@kernel.org>
 To: Sean Christopherson <seanjc@google.com>,
 	Peter Zijlstra <peterz@infradead.org>
@@ -61,9 +61,9 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	kvm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Yosry Ahmed <yosry@kernel.org>
-Subject: [RFC PATCH 21/26] KVM: x86/pmu: Make loading/putting the mediated PMU context idempotent
-Date: Tue, 24 Nov 2026 00:22:58 +0000
-Message-ID: <20261124002303.1785363-22-yosry@kernel.org>
+Subject: [RFC PATCH 26/26] KVM: x86/pmu: Allow emulation in the fastpath with a mediated PMU
+Date: Tue, 24 Nov 2026 00:23:03 +0000
+Message-ID: <20261124002303.1785363-27-yosry@kernel.org>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
 In-Reply-To: <20261124002303.1785363-1-yosry@kernel.org>
 References: <20261124002303.1785363-1-yosry@kernel.org>
@@ -78,63 +78,91 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Make kvm_mediated_pmu_load() and kvm_mediated_pmu_put() bail if the
-guest context is already loaded or put, respectively, in preparation for
-leaving the guest context loaded across slowpath VM-Exits.
-kvm_mediated_pmu_load() will still be called on every vcpu_enter_guest(),
-even if the guest context is still loaded, and kvm_mediated_pmu_put()
-will be called from multiple paths, e.g. on slowpath VM-Exits, on
-vcpu_put(), and when perf reclaims the mediated PMU, any of which may
-find the guest context already put.
+Effectively revert commit f7a65e58d643 ("KVM: x86/pmu: Disallow
+emulation in the fastpath if mediated PMCs are active"), as KVM no
+longer relies on its software copies of PMU state being consistent with
+hardware while the guest context is loaded.
 
-Checking the per-CPU state is sufficient, as only the running vCPU's
-guest context can be loaded on a CPU: it is put on vcpu_put() before
-another vCPU can run.
+KVM now accesses PMU registers in hardware if needed with the guest
+context loaded, and can therefore emulate instructions correctly in the
+fastpath with a mediated PMU. Specifically, KVM writes to hardware when
+incrementing counters or setting bits in GLOBAL_STATUS if the guest
+context is loaded.
 
-Move lockdep_assert_irqs_disabled() before the checks, so that callers
-are verified to have IRQs disabled even if loading/putting is skipped.
+When emulating an instruction in the fastpath, KVM increments PMCs that
+count instructions with the guest context loaded.  KVM now updates
+counters and GLOBAL_STATUS in hardware in that case.
+kvm_pmu_trigger_event() reads GLOBAL_CTRL from software to determine
+which counters to increment, but the software copy is up to date even
+when the guest context is loaded: either guest writes are intercepted,
+or it's synced from hardware after every VM-Exit
 
 Signed-off-by: Yosry Ahmed <yosry@kernel.org>
 ---
- arch/x86/kvm/pmu.c | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
+ arch/x86/kvm/msrs.c |  3 ---
+ arch/x86/kvm/pmu.h  | 10 ----------
+ arch/x86/kvm/x86.c  |  6 ------
+ 3 files changed, 19 deletions(-)
 
-diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
-index e92a7a1f20a89..d56cd0fa817d7 100644
---- a/arch/x86/kvm/pmu.c
-+++ b/arch/x86/kvm/pmu.c
-@@ -1420,11 +1420,12 @@ void kvm_pmu_sync_lvtpc(struct kvm_vcpu *vcpu, u32 lvtpc)
+diff --git a/arch/x86/kvm/msrs.c b/arch/x86/kvm/msrs.c
+index c58889cf36f55..9f2172060d331 100644
+--- a/arch/x86/kvm/msrs.c
++++ b/arch/x86/kvm/msrs.c
+@@ -924,9 +924,6 @@ EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_emulate_msr_write);
  
- void kvm_mediated_pmu_load(struct kvm_vcpu *vcpu)
+ static fastpath_t __handle_fastpath_wrmsr(struct kvm_vcpu *vcpu, u32 msr, u64 data)
  {
--	if (KVM_BUG_ON(!lapic_in_kernel(vcpu), vcpu->kvm))
--		return;
+-	if (!kvm_pmu_is_fastpath_emulation_allowed(vcpu))
+-		return EXIT_FASTPATH_NONE;
 -
- 	lockdep_assert_irqs_disabled();
+ 	switch (msr) {
+ 	case APIC_BASE_MSR + (APIC_ICR >> 4):
+ 		if (!lapic_in_kernel(vcpu) || !apic_x2apic_mode(vcpu->arch.apic) ||
+diff --git a/arch/x86/kvm/pmu.h b/arch/x86/kvm/pmu.h
+index 565e09b23c498..5953f3e8a5d45 100644
+--- a/arch/x86/kvm/pmu.h
++++ b/arch/x86/kvm/pmu.h
+@@ -308,16 +308,6 @@ static inline bool pmc_is_globally_enabled(struct kvm_pmc *pmc)
+ 	return test_bit(pmc->idx, (unsigned long *)&pmu->global_ctrl);
+ }
  
-+	if (is_guest_mediated_pmu_loaded() ||
-+	    KVM_BUG_ON(!lapic_in_kernel(vcpu), vcpu->kvm))
-+		return;
-+
- 	perf_load_guest_context();
+-static inline bool kvm_pmu_is_fastpath_emulation_allowed(struct kvm_vcpu *vcpu)
+-{
+-	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
+-
+-	return !kvm_vcpu_has_mediated_pmu(vcpu) ||
+-	       !bitmap_intersects(pmu->pmc_counting_instructions,
+-				  (unsigned long *)&pmu->global_ctrl,
+-				  X86_PMC_IDX_MAX);
+-}
+-
+ void kvm_pmu_deliver_pmi(struct kvm_vcpu *vcpu);
+ int kvm_pmu_rdpmc(struct kvm_vcpu *vcpu, unsigned pmc, u64 *data);
+ int kvm_pmu_check_rdpmc_early(struct kvm_vcpu *vcpu, unsigned int idx);
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index ca2a58079b019..c1469a64c880d 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -831,9 +831,6 @@ EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_emulate_invd);
  
- 	/*
-@@ -1480,11 +1481,12 @@ static void kvm_pmu_put_guest_pmcs(struct kvm_vcpu *vcpu)
- 
- void kvm_mediated_pmu_put(struct kvm_vcpu *vcpu)
+ fastpath_t handle_fastpath_invd(struct kvm_vcpu *vcpu)
  {
--	if (KVM_BUG_ON(!lapic_in_kernel(vcpu), vcpu->kvm))
--		return;
+-	if (!kvm_pmu_is_fastpath_emulation_allowed(vcpu))
+-		return EXIT_FASTPATH_NONE;
 -
- 	lockdep_assert_irqs_disabled();
+ 	if (!kvm_emulate_invd(vcpu))
+ 		return EXIT_FASTPATH_EXIT_USERSPACE;
  
-+	if (!is_guest_mediated_pmu_loaded() ||
-+	    KVM_BUG_ON(!lapic_in_kernel(vcpu), vcpu->kvm))
-+		return;
-+
- 	/*
- 	 * Defer handling of PERF_GLOBAL_CTRL to vendor code.  On Intel, it's
- 	 * atomically cleared on VM-Exit, i.e. doesn't need to be clear here.
+@@ -8780,9 +8777,6 @@ EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_emulate_halt);
+ 
+ fastpath_t handle_fastpath_hlt(struct kvm_vcpu *vcpu)
+ {
+-	if (!kvm_pmu_is_fastpath_emulation_allowed(vcpu))
+-		return EXIT_FASTPATH_NONE;
+-
+ 	if (!kvm_emulate_halt(vcpu))
+ 		return EXIT_FASTPATH_EXIT_USERSPACE;
+ 
 -- 
 2.56.1.809.ga0b61035b5-goog
 
