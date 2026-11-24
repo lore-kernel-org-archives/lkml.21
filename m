@@ -1,73 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.229
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795518141;
-	b=EsZwFOSt1sXhRwKiahdH5hBOs/s3b9wD/qcR6ocZKmdbVI42ThmKVXLdJeDLfynp/s+X
-	 e9RV2klSYgFsVLxF6/hB6AYMzHgCR4VAI+iaONaLcuA31DFadZ6j+A+GOkHtN7dynCYSq
-	 4xjMlEbWEzQXyhyWPQeJhCJ8QXPRdyvdxUj9VXkYow3DK6d0U3z9saHDGP3RnaJM2db14
-	 2MWsGczemiXCYh9a7KoAhKie0mAbNWXsqHE4H8i8w4GI7OmQdZIvNGHvM4D1akrXEAhrZ
-	 D6XtZ8Hjxn7OhbBwwC6d47b4JMO5c6pj4pQkRRdnxXnc8rm55K+khVGI1QDphbGnTeg==
+	t=1795518179;
+	b=1OFACWIFn0Tq727EZrgh8AKmUd5al9zTGcNpbFxKMu0OJSkdjWKZMfGHgYTmizsIrD8M
+	 IEgn84BYRSPDMw/ZaR6HonUI/UL5fFQOrIr1MAvj29/kWJbiH5ehPUvK9SZLc9DeFdD4T
+	 mLIILcn68dRYWRxPZB1nRMXNr9gVfrAPhgTs4izQWrPe/BSSQPMUhkjDQdes8E41grslg
+	 RsOCONefAmH9frhazytp+d6u4PEot0R7Lw8+RcJB1hWK2vgGAMOTcw+ulW8L5QHq2+1oD
+	 PTQMZbvYliJUgmFWT8EEjCtfWWCrcvXa+9kgncTv3hR7IENMuRyWOUMc111dWU9x+Fw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795518141;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=KAvHK6j0hREgOFUkVu/pGTkn7fy5PDfJjXV7BZ0L4ak=;
-	b=2qGLGEOwMO46Kv5fa2RXLRj9BQ8RjEOMJH6UOI84vfeFUIQm73DLRgwopcCivT8fkGip
-	 lBV8lhGrqHjlOURTTVWkNDcCqdlY7IkLumg1C87kcLVjRQpMn+YK7SZBmnjQYfP1uDFuy
-	 ExEtvlvbiAlYCE16JAC1lV0XrHQpQmXJ2Z37lIC1TPaeiaCnebDrgd9LtkOd9LcXvp/7P
-	 9eRJSNcerau/8L4a5EdQP5Aq95m8LnyYcHzNiInRTNhpCco0XeQiZVu6POvG+hHVlkKC2
-	 hCHUzl0as3RblP7g0QZEKXetTx9/D8R3PCfYtgdgoFV1aEhiG/p3is77cz8L82QvPcQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795518179;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=mkjJrkqN7PSqt35Slo7/CrqzZ7y1RXzaSbB1kKd5fBw=;
+	b=WRqK1a6Jv7fjVQY4JNND5x6F71sJLZFQQ8NIejevDXFWTRD9LWFTOXM2phiMLOaTOWeH
+	 BciSP+CVmBK1cyzZZmFJnJLzA2YdXXMkWMaDZ0/2wjQIOYyOw3VjRb9PpJmUU99zHDvNs
+	 KMUwpv+gxtBGWdj0C2SvSWChFWpy/BJwpcEfEo/GDFmAuXE7CUmSb7GAF4MaYrjsvcZcf
+	 MV1m4RDt+WZRFA1XI6aCw1AVOhNtOcXUkxDOmKijYxQUOMwcFObvdNLNg4tSaAJ157mnV
+	 aiO9Q7QHYatvKLhKyzaHH37Y4VxYUt/Uc/lm3zL0yqPebn3SS7Ke81CXcQ4GeXer6rA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mHAjw4tY;
-	arc=none smtp.remote-ip=95.215.58.229
-Received: from mta1.migadu.com (out-229.mta1.migadu.com [95.215.58.229])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Wb8zRea/";
+	arc=none smtp.remote-ip=209.85.217.43
+Received: from mail-vs1-f43.google.com (mail-vs1-f43.google.com [209.85.217.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE37A606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:02:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE37A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71C74606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:02:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71C74606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mHAjw4tY
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=YQOhx28BDze68y36zy90w+D/2RW09RYxRy95T7kvqVE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795518138; v=1; x=1796122938;
- b=mHAjw4tYzSAbLJMfkcEYcq0YIf63aj6uOu6qCOkBwPC9lFDTox4JZQHX+hqk/29Qy48Ta4AE
- 0zsD0hoswVQYR/4upBbAsovAW+PpPOlVCjGJs5pNJR8Mh18Y0wTATB4fnlphyx7P24tdcpzC7BG
- 8UvW+9cJhuO/KG1gieRzi5LY=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id e2ce8471a6143467;
-	Tue, 24 Nov 2026 11:02:18 +0000
-X-Mizu-Trace-ID: e2ce8471a6143467
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Peter Collingbourne <peter@pcc.me.uk>,
-	Cornelia Huck <cohuck@redhat.com>,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Wb8zRea/
+Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-7d2ccd3c7a2so1384868137.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:02:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795518178; x=1796122978; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mkjJrkqN7PSqt35Slo7/CrqzZ7y1RXzaSbB1kKd5fBw=;
+        b=Wb8zRea/Uk89t4+0eAHLNr3Cr6gX/61QeaQp258Tm7Esv2rsyneDZboZYWCdKpvA/o
+         FrbFbyuQJ//Vmvdo0t9X+XcsS+0ztejEO2er5TkJ46I/8d6w8gRKw6O+YY2ixzEpsTzD
+         WfHOtyzjSLX4LeoBtjXk4sCYQwukz+8SLm5Zs31HoGpKyRyB3EHSG3YI2vw5WyJhlVQS
+         1GB3nm1COkBpJsu5iLGIwL0xl3UNuUz4TgHjJ/CBhd7NYGhNZNH9qMFV1CgdU7rv5tKP
+         whwDkmhQBdtUziwMUDsrK+f3nh07MJ/51ySatl2NTARQaVOBIQ5kmOgod7XcfL0cz+wM
+         S51A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795518178; x=1796122978;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mkjJrkqN7PSqt35Slo7/CrqzZ7y1RXzaSbB1kKd5fBw=;
+        b=cX+5Cz1U9qPWY5BLahfzCM+xYM3VaKI/778wKzXYryMDNGdd0rRwn+M3PBIwYJW0H3
+         Z58LRkC6moI8UfX+eY2pneNFfCjCMBn+/vt1GkslKPw0sETTOerVv5isvPH2imSnKWv3
+         /ArrSK2HtYxipvbzXsUnydWf7RENQcFaYPmUTVKP0Rw8vNkge01vYdqDuLbGiLd7x4cb
+         5hkVqo2n2W4vS7oCoYmjKlSketIk85tY7KZi1CLvSk2p/C+poPgEi/SLql+hme66lUqb
+         k+YLbNVMkgrjj/a8qKiOdKVriPNEgzRISY9MYwui2EGSZFq0M+bLh4d+iOibp1Jt/cdJ
+         CR5A==
+X-Forwarded-Encrypted: i=1; AL+hErFqtNcphVtOijlQULdKyeALACIBLHdCwhmW4J7sYqu8mCTM7iMgQeEteiFPJqyGZaaZlDpy/WmtRhYh7S4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8v3EI2zLpHsiLoxcaC5pAQDHH9B6JfH0k5z8sHnwcAiezLZUiM
+	R9RREoAD2Oo+UgGSutD3oYvgjDEcxehqya13cbo3mB8jw5HH5gFEeujN
+X-Gm-Gg: AZFdTZdJbBAolu39rB6oAYXxKJJZX4OCNdbzW/0OeqplrYJ3eJNM8Hdt5ELN/upSX9Q
+	7GCyO6iAczGANz5n/qX2Vo/rJrkkq2Cz7Y09JgehvOpT3iJVc/hwGjxhPKuSV8VJhvTAYXiv/Fx
+	o4bgSyR70UE8oG83XzlwONUqeIxsnABi/THvEMuj4XmLhplc6Y3sNiYlvInr69OXtjezhppChYI
+	Vn86aTWfzwoVCH8WEnUVXgqwqyacBNm0oDSn5ruMlSgDk3MlUoF6AJ5+jDfa3ze5KnzZdL8sWZZ
+	TUjiGNHOVjQOqsn9sKrG1J1FKGDDnkX2u9Q5ZycM38CLRmELHC07IMlRCLuF43rLtDMME1EnuC8
+	3ifrqpanPrmnm8MqJSeM/raFFp5O0/cMmdQLrBHDkqAu+KpXcxJqh3SVNIhmZuKMZq30jDZBpFz
+	55d3smsM/9GTAUfXQH0G6eqjieyI0qHk65I35P+FGeUeg5kmgiqDrCRhR57vxZuqziZl67bGSNK
+	iWld+IqCAqzw/A4ImKtP3uMdVH7J9dzftu/eWa+uDZneaO3diFpjRDg6ev7LqdIObdJa2V3zS9o
+	uf6a7wdjtY2Ie9C9uCCqDemzHlj59PwrELlGzuXSo6ZIF81RPWkKP4ak45t+BVasVJs+C8WyBPP
+	bmMIJla3MoAnVuDaa4G9I7bRAcwbUmlQNsKVNv3unCsEEbn/8
+X-Received: by 2002:a05:6102:54a8:b0:7d6:56d3:f179 with SMTP id ada2fe7eead31-7d72b361a74mr6083753137.5.1795518177851;
+        Tue, 24 Nov 2026 03:02:57 -0800 (PST)
+Received: from localhost.localdomain ([2804:1b2:aa42:30d0:da53:c2d8:5b4f:38c1])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e8265e55sm14978477137.11.2026.11.24.03.02.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 03:02:57 -0800 (PST)
+From: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+To: Enzo Adriano <enzo.adriano.code@gmail.com>
+Cc: Andre Przywara <andre.przywara@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
+	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Fuad Tabba <tabba@google.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] KVM: arm64: Set PG_mte_tagged before copying MTE tags from userspace
-Date: Tue, 24 Nov 2026 11:02:13 +0000
-Message-ID: <20261124110213.587871-1-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.47.3
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Pablo Mazzini <pmazzini@gmail.com>,
+	Alexander Sverdlin <alex@sverdlin.org>,
+	Jun Yan <jerrysteve1101@gmail.com>,
+	Lukas Schmid <lukas.schmid@netcube.li>
+Subject: Re: [PATCH v5 2/3] arm64: dts: allwinner: add A733 SoC description
+Date: Tue, 24 Nov 2026 08:02:31 -0300
+Message-ID: <20261124110231.15528-1-vinicius.eduardo.pedrosa@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261121-a733-cubie-a7s-dt-v5-2@gmail.com>
+References: <20261121-a733-cubie-a7s-dt-v5-0@gmail.com> <20261121-a733-cubie-a7s-dt-v5-2@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,117 +115,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-KVM_ARM_MTE_COPY_TAGS takes PG_mte_lock on a page's first tagging, and
-sets PG_mte_tagged only after copying the tags in from userspace.
-However, that copy faults on the same page if the VMM passes a PROT_MTE
-mapping of the page as the tags buffer. The fault then spins forever in
-mte_sync_tags(), waiting for PG_mte_tagged to be set.
+Tested-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com> # Radxa Cubie A7Z V1.11
 
-Call sanitise_mte_tags() before the copy, so that PG_mte_tagged is
-already set if the copy faults. The ioctl calls it holding a reference
-on the page rather than kvm->mmu_lock, and either keeps the page from
-being freed. A racing vCPU fault or __set_ptes() then finds the page
-tagged and doesn't touch its tags. The guest and the VMM can read
-cleared tags from the page until the copy finishes.
+I tested this dtsi with my A7Z board DT on a v7.4-rc1 lab kernel with
+some of the posted dependencies and a local pinctrl fix, not the full
+list from the cover letter.
 
-Fixes: d77e59a8fccde ("arm64: mte: Lock a page for MTE tag initialisation")
-Reported-by: Catalin Marinas <catalin.marinas@arm.com>
-Closes: https://lore.kernel.org/all/auPCV6VdMEz4uZkK@arm.com/
-Cc: stable@vger.kernel.org
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
+All eight CPUs came up, both A55 and A76 PMUs registered, the PPI
+partitions were recognized and sysfs shows one cluster. MMC0 ran at
+3.3 V and 50 MHz, and a read of its first partition matched the
+reference SHA-256. Two card-detect hotplug cycles worked with
+GPIO_PULL_UP and the local EINT-mux fix.
 
-Notes:
-    Based on kvmarm/fixes (012e4bc01e339), which has the MTE fixes this
-    patch depends on.
-    
-    I didn't go with Catalin's suggestion of a copy_from_user() into a
-    local buffer, since there's no helper that writes tags held in the
-    ioctl's one-tag-per-byte format from a kernel buffer to a page.
+I haven't tested the new I2C0 PG8/PG9 pins, PMU counting, EL2
+interrupts, ITS/MSI or the A7S board DTS.
 
- arch/arm64/include/asm/kvm_mmu.h |  1 +
- arch/arm64/kvm/guest.c           | 18 ++++--------------
- arch/arm64/kvm/mmu.c             |  7 +++----
- 3 files changed, 8 insertions(+), 18 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-index 32392abf2e21c..d0f66426f139f 100644
---- a/arch/arm64/include/asm/kvm_mmu.h
-+++ b/arch/arm64/include/asm/kvm_mmu.h
-@@ -196,6 +196,7 @@ int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
- 
- int kvm_handle_guest_sea(struct kvm_vcpu *vcpu);
- int kvm_handle_guest_abort(struct kvm_vcpu *vcpu);
-+void sanitise_mte_tags(struct kvm *kvm, kvm_pfn_t pfn, unsigned long size);
- 
- phys_addr_t kvm_mmu_get_httbr(void);
- phys_addr_t kvm_get_idmap_vector(void);
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index b7d36c2abfdf9..82911d1287611 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -24,6 +24,7 @@
- #include <asm/fpsimd.h>
- #include <asm/kvm.h>
- #include <asm/kvm_emulate.h>
-+#include <asm/kvm_mmu.h>
- #include <asm/kvm_nested.h>
- #include <asm/sigcontext.h>
- 
-@@ -1057,27 +1058,16 @@ int kvm_vm_ioctl_mte_copy_tags(struct kvm *kvm,
- 			kvm_release_page_clean(page);
- 		} else {
- 			/*
--			 * Only locking to serialise with a concurrent
--			 * __set_ptes() in the VMM but still overriding the
--			 * tags. A hugetlb folio is marked tagged as a whole,
--			 * so its first tagging clears every page.
-+			 * The user copy can fault on this page, and that fault
-+			 * spins until PG_mte_tagged is set, so set it first.
- 			 */
--			if (folio_test_hugetlb(folio)) {
--				if (folio_try_hugetlb_mte_tagging(folio))
--					mte_clear_folio_tags(folio);
--			} else {
--				try_page_mte_tagging(page);
--			}
-+			sanitise_mte_tags(kvm, page_to_pfn(page), PAGE_SIZE);
- 			num_tags = mte_copy_tags_from_user(maddr, tags,
- 							MTE_GRANULES_PER_PAGE);
- 
- 			/* uaccess failed, don't leave stale tags */
- 			if (num_tags != MTE_GRANULES_PER_PAGE)
- 				mte_clear_page_tags(maddr);
--			if (folio_test_hugetlb(folio))
--				folio_set_hugetlb_mte_tagged(folio);
--			else
--				set_page_mte_tagged(page);
- 
- 			kvm_release_page_dirty(page);
- 		}
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index a0d4981ebb998..9365d83a646d7 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1598,11 +1598,10 @@ static int get_vma_page_shift(struct vm_area_struct *vma)
-  * able to see the page's tags and therefore they must be initialised first. If
-  * PG_mte_tagged is set, tags have already been initialised.
-  *
-- * Must be called with kvm->mmu_lock held to ensure the memory remains mapped
-- * while the tags are zeroed.
-+ * The caller must hold kvm->mmu_lock or a reference on the page, so that the
-+ * page isn't freed while the tags are zeroed.
-  */
--static void sanitise_mte_tags(struct kvm *kvm, kvm_pfn_t pfn,
--			      unsigned long size)
-+void sanitise_mte_tags(struct kvm *kvm, kvm_pfn_t pfn, unsigned long size)
- {
- 	unsigned long i, nr_pages = size >> PAGE_SHIFT;
- 	struct page *page = pfn_to_page(pfn);
-
-base-commit: 012e4bc01e339a65dc7c59181b5efb33b171d12c
--- 
-2.47.3
-
+Thanks,
+Vinicius
