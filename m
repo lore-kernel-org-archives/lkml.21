@@ -1,53 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795549923;
-	b=DcjFZSgnaZi+ESFTwgaJvZd/IC8jeK1MGv+e8oFluQER5atXqavBdtZ4LuZQZfyn2C5q
-	 O23HBeW7xvICDCPIK5w5b91bRt304kd/Ik3hq0riLKtNhwJmgR3UDnHKKmjOWd6m6Ai/C
-	 bjSx7TNHjPUnNcBZ0nuQievVc2vkcDIuDOaxwYETMpM2BCG7bufo+hh+BIDSSSzNdClr9
-	 6w6GNPrHBUpDT+Ie9Lr0NfRu9AOiu/6dIYCCkMQCa2Ux8LKl5Uv2Oxm48whtq3z3C0ExM
-	 282Lbx8cWZT+gLOS1i7xZO8RWJOgSBbmpEBYsv75eY/qvBkDNHiiSYj/wiSPfva/8CA==
+	t=1795549925;
+	b=UqLSQZHsc4s0PLRz8oqRhsol56pVuEa6S5H3/lmcyd9frWviHLW1c7Ia56zcux7yUP/f
+	 RGBx3MdDJPX9nr9WDodBV3ZdpzTD1D6BLre4HkPDdhLK0ClNBGW3Z10hZOeJHM9mHvVWo
+	 vw32YJsii/HpXwLcA4wlYcmNssM10j//y8Vt3XKr9et88mAZ1WwNRpsdWHyS+eBUmVjR2
+	 yU4dX2z7kOvuocTRA9tNE+wf1aFQZ4C6Wom483GaQyNF+sF4X+GUs/WAdRVYqQNVczoML
+	 ZgL40nGJKxKhksM9ltMav6VSgCiHDoJEprnzxmQ/G2dHvD3bFPzNx2uRDq1I3B7rK+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795549923;
-	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:MIME-Version:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795549925;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=YsGDKuywNjy7eTvdHCBrAxn1NBt7ZHJ6uMlr90tWs2s=;
-	b=v9r3LNuvT/2atk8oOQNkO6O08eGNEId9aYvR6AMvFmum/IKjCeRvZilJeW6LiFfGsO50
-	 Tf40m2IZccPvv+2yjf8zRbqihDgbWvrLbgLfaIKO44R3rptPIEICnvk0XXlVdW7/bwDKN
-	 taQYmzXwyD58IisecSDwpqN46iv57ADtYp3T+EfAZafk8Q4xN4UaLdaawtQzPar6+13KN
-	 H+qnmIy0yhBPmPeCpwbOYnnSGqZ3aoHHFPzzsEWaua2uf/iNtMDU68QIWnmAqmI76EvLB
-	 FxbGw/w3LVKBeDy8quIsqYYGBkVVyasnhEPnNwMFz9RCJkL6MtbW3V6T0oInSK0tASw==
+	bh=ybksNdKGZwcUybmuPou+wEJRhGtFCZ9Lfc93sClRt68=;
+	b=HshVEPlbIgUV3xlJVkIxr4v12F1X9+YC3BRTQy1yryj8VddwTnAr8R4KABVLcGxj2kvG
+	 x6MlVJG0+7Uj3l28LidZkiBIbUKzDRRSQ9ZBBsnQ/TxiExyydA+OLQ7riMt9TgW3ulN27
+	 ZvQSokmt9cQ9b+q1EnQHwlJKpQx4loO6XXzpYgY2xZfGrnH0csrNu92KOhORo2o0m7GNH
+	 LnVnV6Vnu9fQHcEEjzQOOOlpd3ezHW1Niq+3+D9SCtI5icfpAAQyZCAtSipo3xF2wq0R1
+	 UpweVS5m1dkzpO+1iI9XUVMi429sbl60TKts1NPpGOwSu8j4b4TUQ4YkLkLn4D+tXnA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XP70ESJc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B206606A331;
-	Tue, 24 Nov 2026 19:52:02 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=VBgSAggH;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 48526606A680;
+	Tue, 24 Nov 2026 19:52:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48526606A680
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XP70ESJc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77C651F000E6;
-	Tue, 24 Nov 2026 19:52:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795549922;
-	bh=YsGDKuywNjy7eTvdHCBrAxn1NBt7ZHJ6uMlr90tWs2s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=XP70ESJc3FKOOdPSYgRaCCVWdADEI9l546Zu4oRTHd14lBZN8OMhzzm4TL6QH5riC
-	 bxgmIU819kdxVk9w8gNA4FmJnames/LAcAriMQsp03VDAWQ80JeVeiYtbZnVqtVBTS
-	 7i10FmU+BNqihsjinIV9lv/VXh4X8McGl1yPXCRZxSPzKWsNvnQ772WLgUE76rQWDW
-	 fHOBSdExFnUJwHGmJdEqRKCT1LKKJXIMWI3HXuNJoeQjwFdA4Q65aaC8nx8lNICWQD
-	 V+5maKvIKqxMvv5wLJbSFEydDe8kDdQCvQ47CZxmW39TZsmbcOj8a7H94wsNsud1Sk
-	 fBnjhryJ0bPYA==
-Date: Tue, 24 Nov 2026 09:52:01 -1000
-Message-ID: <7cbc63295439a7a0aefd345e042c3d11@kernel.org>
-From: Tejun Heo <tj@kernel.org>
-To: Kuba Piecuch <jpiecuch@google.com>
-Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>, sched-ext@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCHSET sched_ext/for-7.4-fixes] sched_ext: Don't allow unlocked kfuncs from ops.dump() and ops.init_cids()
-In-Reply-To: <20261123135343.4131146-1-jpiecuch@google.com>
-References: <20261123135343.4131146-1-jpiecuch@google.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=VBgSAggH
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BEC76339;
+	Tue, 24 Nov 2026 11:52:01 -0800 (PST)
+Received: from pluto.guest.local (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A99E43F763;
+	Tue, 24 Nov 2026 11:52:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795549924; bh=XLIQNLKLqBN+XK89CZJOMck4z1OnlpSdMf9XcQtFphE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=VBgSAggHfPI2Dqmn1tjf2m3OWUFy1/nb2gtx3pvHPhanxFp76cMcjbPiM8zLRAZ/I
+	 YSgUHg2DczYD2ilMmO5Ro+ODXVaf3hUnOtoKxsJLr4j0qi6iqvcB3yfZ215ZyZ05tx
+	 CWI/t50X0XN7XEWjVUtaJ4Dm031NDIBOQ7WRgaQ4=
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	d-gole@ti.com,
+	jonathan.cameron@oss.qualcomm.com,
+	elif.topuz@arm.com,
+	lukasz.luba@arm.com,
+	philip.radford@arm.com,
+	david@kernel.org,
+	souvik.chakravarty@arm.com,
+	leitao@kernel.org,
+	kas@kernel.org,
+	puranjay@kernel.org,
+	usama.arif@linux.dev,
+	kernel-team@meta.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v17 30/34] firmware: arm_scmi: Enable autoloading for System Telemetry driver
+Date: Tue, 24 Nov 2026 19:48:36 +0000
+Message-ID: <20261124194841.1147072-31-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261124194841.1147072-1-cristian.marussi@arm.com>
+References: <20261124194841.1147072-1-cristian.marussi@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,19 +82,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-> Kuba Piecuch (2):
->   sched_ext: Don't allow unlocked kfuncs from ops.dump() and
->     ops.init_cids()
->   selftests/sched_ext: Add unlocked_kfunc test
+Add the SCMI System Telemetry driver and related protocols to the list of
+standard protocols whosw devices are created automatically, so enabling
+module autoloading.
 
-Applied 1-2 to sched_ext/for-7.4-fixes with the following tag added to 1/2:
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+---
+ drivers/firmware/arm_scmi/bus.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-  Cc: stable@vger.kernel.org # v7.3+
+diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+index 25197197db8e..32002fd9d843 100644
+--- a/drivers/firmware/arm_scmi/bus.c
++++ b/drivers/firmware/arm_scmi/bus.c
+@@ -546,6 +546,7 @@ static const struct scmi_device_id scmi_std_id_table[] = {
+ 	{ SCMI_PROTOCOL_POWERCAP, "powercap" },
+ 	{ SCMI_PROTOCOL_PINCTRL, "pinctrl" },
+ 	{ SCMI_PROTOCOL_PINCTRL, "pinctrl-imx" },
++	{ SCMI_PROTOCOL_TELEMETRY, "telemetry" },
+ 	{ },
+ };
+ 
+-- 
+2.54.0
 
-Thanks.
-
---
-tejun
