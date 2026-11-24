@@ -1,129 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=148.163.150.75
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.51
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795515788;
-	b=vwqqd0lrA4H/2lC/IRN9GJC+LLrzxRJ8zYejPXdBiZKFtNxzfAlSYD//VuCN+qst6+xQ
-	 TRrcCTWXZo3sjHscF/YrVD85dadrsEAd7cvxdeKr7/EXQSAi1ACowct/3hNDoIUYnlZSV
-	 r7fDja/7/LByA7dJERJEUho5pfuHsC7osi/czXgMRGxKAv/NfwFGOjrGsI+tpSQzlqWVa
-	 pav5Rsg/Fhevk6Cpo7dyHL3bawB1J54fhA2N1ruZY3C2KJlgbDMKj2a/AXlQnkLNzeWAF
-	 xT+eerMNZ1QclpASBXJUxFqtRWtqLEbMiORO2xxQgvltI0akH3KdC6Is2rOqlqRebVg==
+	t=1795515797;
+	b=ftM0SGkN/xSwy4jj+WSvH8ofF7quDBDt/SvjFCGT9Qt5hPRuSPURx73LP6eab3zPjPwh
+	 Hgc3xz1O7WmkAU4U+52OJUAN+BQ6n2waTLknjJeHyHBeLLquKGlJd/HVQpXfJQVi2FTHI
+	 78rgzQAUUYY63rHzmL8+DS/sWVvVznkd/wTzf0U4BBtRhu9GyQNbgJ2FEJ2hg5cNGJirh
+	 /73Hq4PyKpVlGVxrdHgVUmUrjVQiZothP+XgK4F11x1FAZAjFXgig33Rs9cVvS1XKC8FJ
+	 NIzECaee8NrHKr9GabgNq3wwoCcuYoZQFgtVYLUmqLaJUGPI3Mia33KMGYvDnuwgPlg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795515788;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
-	 Received:Received:X-MS-Exchange-Authentication-Results:Received-SPF:
-	 Received:Received:Received:Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:CC:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-LD-Processed:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-OriginatorOrg:X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=VQjLEjwCc18BrhgJGrV3AqJpYF/qFL3t8Kau/rr81hQ=;
-	b=EwQuYmWegFDwM0p5mFxPcPB6gLwZpqH0VVB1TNHh5tzEYRLhkMMZEez7UNEhRglUv4of
-	 Ae7Gne0epL4bIVVy7Ltv1ajeOM/ysHXoIknGHIdrT4SasbjGIU/8K9bN0MJNW1cFUHIh/
-	 OYju3ucrWqCxCY4NqVE5S+zXP9+/goSwbJkpO1puihEv/VArz0F1qg7D1m9tbhKRk7JkE
-	 IJZyTuR5u7yJ1wM6TkQnZMbEm50r0VHlqbFcIhZJoqYB0OJ6KhhTv65P6PV40ia2MHQUP
-	 89d2k8s6pkXJnPuKYZUNNgTYrulnIS2bpGmFmI5nou2cx3Jtx0qjmUiFnho88tyVzsg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795515797;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=qBoWo02MaLgXB+hZPQ8xqyCHXhNVrv9lLkhhLMJg/BY=;
+	b=APQwOc2jZ7TOZKVv5j6/B6v29T69XzTEjY+eXJLlFhI3lKbbD3QDyXz4gSCce9aWqXzs
+	 4ZQmXWLRTVfWN+gA+7Q91l/2Bt9lCjIEz10BrmJ7l99zZACOseCsUjmfFTniEHEAFVlI5
+	 lF7EazpKl20OJibLKhp+FgmRxQTgmFyJvqeYM7AYxPSE1w44nICHUwNGggSZqnAIuyOND
+	 2YC133kpbM2lfvMryBb9SNvvQv8tQDs9WrE7T/v8WWzpeLrrmSLErJTfA1SqnP4jwmwrV
+	 0GjljY6mDu8qwpq2zviFhb3X0wuPhDaYYej7g5qqS3ba6XaMNzkbhFE+GUCekwB2aYA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ti.com;
-	spf=pass smtp.mailfrom=ti.com;
-	dkim=pass header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=T27Z0gPA;
-	dkim=pass header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=hGGSNwO3;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=148.163.150.75
-Received: from mx0a-0002e601.pphosted.com (mx0a-0002e601.pphosted.com [148.163.150.75])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=rQCZ7TPf;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.51
+Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BD02606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:23:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6BD02606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ti.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ti.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E5FC606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:23:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E5FC606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=T27Z0gPA;
-	dkim=pass (1024-bit key) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=hGGSNwO3
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 6AO84ApN1303064;
-	Tue, 24 Nov 2026 04:22:07 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=VQjLEjwCc18BrhgJGrV3AqJpYF/qFL3t8Kau/rr81
-	hQ=; b=T27Z0gPAQqnP1/zuwkTJ42aKQw1F+EX252z4JaorZ2WyWgA0jmpwZMlcj
-	yHiVTYMDa6mzllhkYT3pKlGg0YSWf539GVSIopUkgaVxTzVglxkDQV01sPcz3qhN
-	yyWn2Z+1vwZzwhw1JFE52aB/YoqPldISk7Bm+jcZLlPrzDLoKU1oxu+mxk4PSCfz
-	wD39NWb7MKB2GSh6Yxj5MJwpfNeFn+/4WyzFwttQQhFGgT8kyqdrLRpLPmWLUy1a
-	RV33R9XlIGrB/BqQijEKSxLPKQz5MlWpoDQF0fK4loJDu/LtbUSLyHpE+A/s+0TB
-	gguZus/wF6rII7keFsNCRKpOd1a/Q==
-Received: from ch4pr04cu002.outbound.protection.outlook.com (mail-northcentralusazon11013017.outbound.protection.outlook.com [40.107.201.17])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4j50h82pk1-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 24 Nov 2026 04:22:07 -0600 (CST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uK/V5KjNYVZpdciS/NPolVHmpUopRBZYZrbvEXYrm+Itf3aykA0A7QFls35gWsOYn77PWBmQ2M+KJ+rWYfvgBL4mT34M40cpsdLjaJXjVlbLA2ppMeQPKkG1J9z7Z0yRQ46pbJrsbXrbgOfd/fumj6a6RKFKSu82hz52K3ETnG3vR3uxbcKevA0g9HLTBNN3wrq7mNnU/v16U3KX7c35exnEhs6IBAAshRrFJZ3ZtbqKva2/Vf+aS9+s7brX3Ei+QPgaqvkYYVwm0fcbs3rjqdbMPljqSe3h5muH9E0F75pOS8GbWQFAf2OwJ6BwGuF7k9aF9kcFTqhAdbcNAL303g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VQjLEjwCc18BrhgJGrV3AqJpYF/qFL3t8Kau/rr81hQ=;
- b=d9gGihaoZsiKILaJVJwqA7KnoN4IJSMBRbMVE5AjWrlMxFwWirL2qNFhUkbVPq0KPDq1K5GxhHKWhmhQEMTKbcn/bK90DPnEDiwWmTqJxZILzzXPDd+pellZY9G6Sgy1Zny7Hh9HSc/ujOC8Xp1FRFYgi5otP6ozqZi6XngeFkuCgz4wseM+pdE84lYN5ak5K4ZzbYnI3gqZKKY1WF+/qSq1gMiTHHJ/zo6yqgd5bri1IcHMp3NOymvvn46H71YOlm1xRCDtLXRIe5YGJQT+YRph2dlBUnW5BGTm1uOalAA9Ut4wcubcSe4NzDQO4Fhc7J+XlVUr87DzGMyDtcuZAA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=cadence.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=rQCZ7TPf
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6b47c1a3c74so5892062a12.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:23:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795515795; cv=none;
+        d=google.com; s=arc-20260327;
+        b=KZlbdKLTGYeS7GqY1Hvv9wYSsWScIp2yq9Bt+RGbDtWqQu4LqdJJUlYo7mj8nELTv5
+         kis7SKgOXVEzi0rYr8TdoAJiBCmPwvvr8v1aRqn8g8cWHy/2HxT/4XYOyQgPff8h+G21
+         qF4vQhsfyxY0TdoSwQ7tpKXIdtNU9EBnyf/gefEJja8D907xLwTsTuPNCR5YSCatGoXQ
+         alN+riuCmxHEU9QAqrmxjCmS/+CIPWl6kkobnU5rBiUypRIOeHzgAoUqx4T2JONQbnuK
+         jNsjziFif88uyVhfeUsvQ2qV2r1ih+pUUOhWskrTY3sq4CBZ9zbqYTklv37corxSZCll
+         f2vA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=qBoWo02MaLgXB+hZPQ8xqyCHXhNVrv9lLkhhLMJg/BY=;
+        fh=RhZ2C6LvTv3BScaXDNRsqVk43NPy1GONNoOPRD8QnCk=;
+        b=PNUBpOJTrT1pMbbQ8PDCpRPh1CDZjdQYHazQWaBwv9kADTm46L6Sj8vkQ4ohQctFSb
+         Y127tMtNEHeS/P4MDwL/N2SeVnGrCg13QWj4xu/ogykoeKVCUJgGawrUSEEiFIeMOlr5
+         dtxL92Y5rnEN0lTdT+GSQUjKrCW3C1E0Ee53HKT3CopZbo2stkzklTiZroXOAA5b3tpZ
+         gs5xombpu9KCq7WTzmx3sqF7m6Zn2iOaQpx7qi1oxISbE3cIVdLj1BwxkNHsdsv60tIi
+         oEsnIKnWqF4xT0/inuCpOK8MkRS2D6LnnzKuaokn1DNoXa6EAwcwRZtLyiOE151FK7N2
+         EIAw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VQjLEjwCc18BrhgJGrV3AqJpYF/qFL3t8Kau/rr81hQ=;
- b=hGGSNwO3AZ2y4iudHJNA9ZZjm0Yc8o2nDhIcWVkeSOmG5Yv5q7bJ6dc0QrTduWesTWCWtkKOZv/MdptdsqxI8Lgomxu5jcelKKEKuh1XwVSfgSjB7HbABJECrttr+1Bz0CFokPe6Uid9WdgEQGw8g8X3S1xaqw5DdPTJkA9Ed0o=
-Received: from CY8PR10CA0021.namprd10.prod.outlook.com (2603:10b6:930:4f::9)
- by CH4PR10MB8193.namprd10.prod.outlook.com (2603:10b6:610:23c::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Tue, 24 Nov
- 2026 10:22:04 +0000
-Received: from MWH0EPF000D8950.namprd05.prod.outlook.com
- (2603:10b6:930:4f:cafe::47) by CY8PR10CA0021.outlook.office365.com
- (2603:10b6:930:4f::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Tue, 24
- Nov 2026 10:22:03 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.21.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- MWH0EPF000D8950.mail.protection.outlook.com (10.167.249.216) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 10:22:01 +0000
-Received: from DFLE207.ent.ti.com (10.64.6.65) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 24 Nov
- 2026 04:21:14 -0600
-Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE207.ent.ti.com
- (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 24 Nov
- 2026 04:21:14 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE213.ent.ti.com
- (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Tue, 24 Nov 2026 04:21:14 -0600
-Received: from [172.24.19.16] (ltpw0ewr2k.dhcp.ti.com [172.24.19.16])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6AOAL8621419832;
-	Tue, 24 Nov 2026 04:21:09 -0600
-Message-ID: <3c658714-4b23-4f87-904a-43778b7c5b37@ti.com>
-Date: Tue, 24 Nov 2026 15:51:08 +0530
+        d=linaro.org; s=google; t=1795515795; x=1796120595; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qBoWo02MaLgXB+hZPQ8xqyCHXhNVrv9lLkhhLMJg/BY=;
+        b=rQCZ7TPfd7L0gOBVbny4Ckd5Bk/Ighm8jp3n+qNJsQKL3DbYwA/MrExW/VnZtC3xnW
+         6kinqEgV6ABFzZ9ipcwiUTrEkFf5+gZ7YKxLzIF6Jz88NinvQZvu8e7S9YK5PtUfldso
+         uVvKxvW9BmDJbkXNx2HZf5HLhcfHQY7iURywGif+OC4KDouqbEjx6wQk4tnDGaCmJCGD
+         QCaco8aJ+/Bvg5jBbrpYm31NOoBiWCIFkmz3kUnKKTKpTjl0DXeHXx+cXOo2OnFiwXdL
+         /GRVhN+cO4siATeuMezofnKJ0tcIW4sTD5AFbIaVEZTMehcPtY6EnnN/dBWNDBzoKAXD
+         uaUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795515795; x=1796120595;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=qBoWo02MaLgXB+hZPQ8xqyCHXhNVrv9lLkhhLMJg/BY=;
+        b=CrGuSeeYaBzxm1dTlMhcQNs2QA2WmJ/DmFhjqdTeEsxerrST4pa7lOaZxMVzC7H/wV
+         iLCDauHLusSkvwiGeZGmngEABkxC3ziYNJfOi/uoTp8KEo1yphzyF16tGheYn3UrQhWX
+         MPeS+bm+yGHI84pfMMG9sy4IyLa/u+jUZQ/EQi4lEnfiMXRUQKgH4M42qVZg6Tdfq8bw
+         QIR94IKJEwVGF6qd/UM9Gt5te4hANmOHR06H58MoyTGZoMPJXIAbI5d0uGoEccLxPz5d
+         AIaEGxtijtPVJ1Aaw3UdzyZ4x18uVF8WzshhXg9/kwsf/Bzis03+1S6Z/gX9CY5jjJ1Y
+         yarg==
+X-Forwarded-Encrypted: i=1; AL+hErGHar3DDHpzQKi1qC1P7zRqSpABLV1MJJ4vRP2Y5aRPA/n6PR4H9boQc8bjc30HMYioWlRVwOCPp8FRJ2c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/a5W0t3N0LhaQlTNvUWvnNws5cxF30POHcWfZTUE6/g6HwAqPp
+	oip7m0+F7eiAyZwHKuso+jAS8Wf8/SOTHWKBLC3v9lkqIFMGClQk5KEAEHbaptJlbUchWWQeAQQ
+	m+tc6vp0MuMOZ6s8StKhU/YIWa6NAkmto6iuofu7/UA==
+X-Gm-Gg: AZFdTZfGipjw4zqnAe0Q0fIt59Ra3IFDD0JWzFV2j4jO4gtLu0MiVKkUab0PhonPRog
+	B2y+Yw4ejpf1qjAZytgLzqZqxtYEq8mSxS8VXe80K8WnjJn75RikY1f1gOyROwT5EslNzL/ydrY
+	DhIO07xZhEUTn4gzeIDAycX4dQi7oXprHWcxtJasGxHgY0VmkWxxbuPrgYiUhF5lrJCcDIc6ixb
+	5Gi1r5NuCUPttgj48UWfsuTobHG6mn8xNZ7VLJTpb6V5vBaLVqmOI6QFGIyrT0zYnS1CzH0H75d
+	CPuUr0Ci4N6chFyiv5S6BetxCcCHBu8WPyGHH7QY5csFzyI3ver9Wv/MqZ6Xr9iGJhDEQo/V0/8
+	mRhIb1FWNkNTU/JNovn1JdRBbSIrgF0MN0EtxZvJeNP4zOmw8fIm1osyVlkDWjzYNys8jSw==
+X-Received: by 2002:a05:6402:90b:b0:6bb:6a9:b1b7 with SMTP id
+ 4fb4d7f45d1cf-6bb06a9ba28mr589950a12.6.1795515795398; Tue, 24 Nov 2026
+ 02:23:15 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -133,270 +103,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] drm/bridge: cdns-mhdp8546: Add suspend resume support
- to the bridge driver
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Benjamin Robin
-	<benjamin.robin@bootlin.com>
-CC: <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
-        <jernej.skrabec@gmail.com>, <s-jain1@ti.com>, <y-d@ti.com>,
-        <andrzej.hajda@intel.com>, <neil.armstrong@linaro.org>,
-        <rfoss@kernel.org>, <mripard@kernel.org>, <tzimmermann@suse.de>,
-        <airlied@gmail.com>, <simona@ffwll.ch>, <devarsht@ti.com>,
-        <u-kumar1@ti.com>, <sjakhade@cadence.com>
-References: <20260601095041.3042950-1-a-kumar2@ti.com>
- <f1089720-2a8e-4f0f-b995-fc7ef0836da0@ti.com>
- <73ebfed6-a3ad-4134-a8b9-d17213442fa9@ideasonboard.com>
- <oN6DWNeSTbeo_5NexR3j3A@bootlin.com>
- <e40cd28f-eb52-4205-a799-8340b59c0a60@ideasonboard.com>
-Content-Language: en-US
-From: "Kumar, Abhash" <a-kumar2@ti.com>
-In-Reply-To: <e40cd28f-eb52-4205-a799-8340b59c0a60@ideasonboard.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000D8950:EE_|CH4PR10MB8193:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8c88b3dc-5cfd-467c-98c4-08df4a14c7b2
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|1800799024|7416014|376014|82310400026|23010399003|10067099003|261102123227099003|261021121427099003|56012099006|261022075727099003|4143699003|261009223027099003|261026121527099003|261022105027099003|261026140227099003|261028144727099003|18002099003|6133799003|22082099003|13003099007;
-X-Microsoft-Antispam-Message-Info:
-	IZ2QC3rcbsd/tLxE8HR3b3u9SCf+Zy8AFHZLPyEvL5fsIn3kw1e0fi9Jv6heNylxF8x5OUb7oKBRtBb3AyymHph46EOK6mioJncvpEtkj1pBHT/pDoR/oanxwKr8DwM1QQYhhZh1fIPtoHOS8SAXUyGWp1VHm0krym+xkZwSASK/uluP1Gs9kIR4W4lLkjJ5nMxkGK6YN+u3zphD+7lsu8S4uhsn6HU6LyMf692Z1YS09EoDtf4LnhUal2TUxMO0L0I9eD61SqS3mzts0uArDrEi9m8QCDWxFGRueUxOe/NQym86PXmP5hUBTAPCOcbLKbM/kUEmRcFGIc2RcTOMMH5Fn27AtZzZ1gYVo0KTlUBkwZLFPiAlKeZPKQ5qHVlIzeUzQQhylKjl8Cz2YsyoQyfh1GLtA89DO40xaKMa8QsyzRfSg+oWp0r+sCMguV4BzZuAli1g0WwMM8wNl8rqLn6mxgpuIlwrJ6RlpSxBN/LV6Wk5vW/7ulFRnplN6CSwcml5njVVk0G0CfQCEeW0q0JZ0T9TBsMMPVzE+IIzBFoVeAXXKVx43cAIUnGB19FDmjocP8REuoOTF6kU6r9RdgDYHdJh9GYytiBGEFWIC/1P2EwSszEvLuGONg7K9JSRoNs7NA2lchjDWS/8AdhSFjao2mPkx4T75z1xRUU41NM=
-X-Forefront-Antispam-Report:
-	CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(7416014)(376014)(82310400026)(23010399003)(10067099003)(261102123227099003)(261021121427099003)(56012099006)(261022075727099003)(4143699003)(261009223027099003)(261026121527099003)(261022105027099003)(261026140227099003)(261028144727099003)(18002099003)(6133799003)(22082099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	LtjdR6Qt35fv3wcVJEydeCgeLyKj2uirR05+hj5WjCaqPXn+45HSGySluAQIPdBw/TTTsvL52uEcmPKXD836Al60jnGTsXxq+1J8m5i3CHWuULjJoroIUIV3woORp0ELK3OmC4/cHWkAg8XZNEqW90BHuAanQuDpCe+JTlekQJJdavQkhx/MfN7e+ldG5BkTyN1w/t87/MkKBXkqY+pWWaO5IKNkmbhojf/ZKnH3moYW4wNHMhju/uDgUXwCDe7tBfmbU6EuxN3KYybXNKSOh2z+kpa+cGRddUg2294EMXOsC+XTIF+LqSjNOo0jeWktUQ4VG4iXhnD6QQ5+iEHCQLn0n3DEBX5DIuPoGmiulT3Fs0WITi6Wr9e7wjLL4y/sWLXkBBdYDyWmqHFxxtJbpbOX4oV2ecJt8M7JA442Jos0huuhpwykqk1FA/Cse6Ka
-X-Exchange-RoutingPolicyChecked:
-	G2PfgdejJhpq3MpzEiNy3ZWkorDB+ANzq2Twa/kXP7e0dsiSMEuOWu8eqPGGc2EGw3c1fRFUDTTbAOmo6z3f5gxfY6da6oGe6haSDdxR5mKeraaTXQYIZupEWZeHb/e0pqJMTi5efhzGWVYf912Cp7dlIn3nzmLSAH5HhuLN83J2eZA4E/sujf35a1vhqiUeSaathS3KT5iDGPgS07SbBUkfSvZiB1GO2dm7lVMOrlUR589L2QDJkA/nGoe2bjP8gWAAHDUtbiQY4yflrCZB31iWDA4me1twrZ8UWNMZ1a0pdlUxbEGH1mnBV4rpOxNqvDSJ10o0YMPKco39bxVyCA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 10:22:01.8832
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8c88b3dc-5cfd-467c-98c4-08df4a14c7b2
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	MWH0EPF000D8950.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH4PR10MB8193
-X-Proofpoint-GUID: sd7UeNXi2n3qD0uyuWr252oRkwKS_8ZC
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA0MCBTYWx0ZWRfX+C9tbQdLHtyH
- 44rHbMAhkS4IrN7aV/dez0XHMN4dj2TaQMxvMvg7SYvOqaRgL1+kKO4GXrIDVlmUra/MrByOJLP
- urcqkDShh/EdnheXVr8xNg8/A2biFwFEDfk/cHstWlXmn/+yXqokvx9jpFQcqMJ1ss4RRAGGdEV
- io+0fpX3wFewTDbJhkq0bHfWYvBXgT9IQD4aW9JJ+0l18ebubm/KWnyAfcQVu59gUCzdtRkLcZc
- ke4DyHL1q/1rlQeu3y+CED8znyxz/sdVxV/2MYV7HOUJcOewwPRYe6Wr8b9jFYJYIb7fR+cyZnO
- r7naPp/tdsB54WMEhM97pw1IMQJXJlV5FyHbhqprt4vXR8BLXbcEh2m5Xyk/5mYUtI0mD1ySkWx
- fuDFt0/3wWT8YRs7Vdwjm8KBy5hm2ntHYxS9i31GM8jvPJrI18upgPJ5Pt1WoRQHt0oMAg1H8N6
- cDa6hlQv9R/ccjGQiBA==
-X-Proofpoint-ORIG-GUID: sd7UeNXi2n3qD0uyuWr252oRkwKS_8ZC
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA0MCBTYWx0ZWRfX9RGc3+2+uXPY
- BJevxjsFgbqsb+VE0Q15iNCQ1bTcGTbYLFDPZkgtiiLWDH4/EhWN7quDc7SMsAEg2PjeMkzt7rb
- 5eSiw7I36p7ZzRBUB/4+SytJykxCG7Y=
-X-Authority-Analysis: v=2.4 cv=WNTqzXsR c=1 sm=1 tr=0 ts=6b05654f cx=c_pps
- a=XX75RHJXRTy/mnnqXKIK7Q==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=taLDd7a_hP9WKsMzeGRc:22 a=VwQbUJbxAAAA:8 a=P-IC7800AAAA:8 a=sozttTNsAAAA:8
- a=lB_PhG3i2QB02WJqKkMA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=d3PnA9EDa4IxuAV0gXij:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 lowpriorityscore=0 bulkscore=0 priorityscore=1501 malwarescore=0
- spamscore=0 clxscore=1015 suspectscore=0 phishscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240040
+References: <20261122015729.2512645-1-penghuang@google.com>
+ <cover.1795462673.git.penghuang@google.com> <9b14aecb0ad560a3ce5f7925aaaee6e4f4a1a760.1795462673.git.penghuang@google.com>
+In-Reply-To: <9b14aecb0ad560a3ce5f7925aaaee6e4f4a1a760.1795462673.git.penghuang@google.com>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Tue, 24 Nov 2026 11:23:03 +0100
+X-Gm-Features: Aa3M54qNqgI5hWzy6Ve_ebg-Vzu946g_60D42C4fuPQJz6zxrRzoY5M38661JuI
+Message-ID: <CAKfTPtDb6CZ8WyN8rdK_-9RNhaFRxaZGOE3+EfbkReqkFCCy2g@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] sched/fair: Clear residual sums on zero task-group
+ avg propagation
+To: Peng Huang <penghuang@google.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, 
+	Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-
-On 11/20/2026 7:26 PM, Tomi Valkeinen wrote:
-> Hi,
+On Mon, 23 Nov 2026 at 21:13, Peng Huang <penghuang@google.com> wrote:
 >
-> On 20/11/2026 15:11, Benjamin Robin wrote:
->> On Wednesday, October 14, 2026 at 3:25 PM, Tomi Valkeinen wrote:
->>> Hi,
->>>
->>> On 06/10/2026 11:49, Kumar, Abhash wrote:
->>>> Hi,
->>>>
->>>> On 10/1/2026 1:10 PM, Tomi Valkeinen wrote:
->>>>> Hi,
->>>>>
->>>>> On 29/06/2026 13:32, abhash wrote:
->>>>>>
->>>>>> Hi Tomi,
->>>>>>
->>>>>> Thanks for the review.
->>>>>>
->>>>>> On 18/06/26 14:19, Tomi Valkeinen wrote:
->>>>>>> Hi,
->>>>>>>
->>>>>>> On 01/06/2026 12:50, Abhash Kumar Jha wrote:
->>>>>>>> Add system suspend and resume hooks to the cdns-mhdp8546 bridge
->>>>>>>> driver.
->>>>>>>>
->>>>>>>> While resuming we either load the firmware or activate it. 
->>>>>>>> Firmware
->>>>>>>> is loaded only when resuming from a successful suspend-resume 
->>>>>>>> cycle.
->>>>>>>
->>>>>>> It's not clear from the patch if this is a fix or improvement. It
->>>>>>> sounds a bit like a fix, but it doesn't mention any kind of 
->>>>>>> issue in
->>>>>>> the driver. So, why is this patch needed?
->>>>>>
->>>>>> The driver lacked support for suspend-resume as stated in the 
->>>>>> todo on
->>>>>> the driver, So the patch adds this improvement.
->>>>>
->>>>> The patch doesn't remove any todo lines. Was that just a miss, or is
->>>>> there more to add wrt. PM?
->>>> Yeah, i will remove the TODO in the next revision.
->>>>>
->>>>> What does it mean it didn't support PM? Does the driver not work 
->>>>> after
->>>>> suspend-resume cycle? Or does the driver prevent a proper suspend?
->>>>
->>>> When we resume, the cdns_mhdp_link_up function fails.
->>>>
->>>> Failure log at resume:
->>>>
->>>> [  55.329452] tidss 4a00000.dss: PM: calling tidss_resume [tidss] @
->>>> 1053, parent: bus@100000
->>>>
->>>> [ 183.381228] cdns-mhdp8546 a000000.bridge: Failed to read receiver
->>>> capabilities
->>>>
->>>> [ 191.391548] cdns-mhdp8546 a000000.bridge: get block[0] edid 
->>>> failed: -110
->>>>
->>>> [ 193.392713] cdns-mhdp8546 a000000.bridge: Failed to read register
->>>>
->>>> [ 261.415544] cdns-mhdp8546 a000000.bridge: Failed to read register
->>>>
->>>> [ 263.946153] tidss 4a00000.dss: Timeout waiting for framedone on 
->>>> crtc 0
->>>>
->>>> [ 391.991358] cdns-mhdp8546 a000000.bridge: Failed to read receiver
->>>> capabilities
->>>>
->>>> [ 392.026847] tidss 4a00000.dss: PM: tidss_resume [tidss] returned 0
->>>> after 336689133 usecs
->>>>
->>>> I guess it is fair to say that the driver does not work after suspend-
->>>> resume cycle.
->>>>
->>>>>>>> If resuming due to an aborted suspend, loading the firmware is not
->>>>>>>> possible because the uCPU's IMEM is only accessible after a reset
->>>>>>>> and the
->>>>>>>> bridge has not gone through a reset in this case. Hence, 
->>>>>>>> Activate the
->>>>>>>> firmware that is already loaded.
->>>>>>>>
->>>>>>>> Use genpd_notifier to get the power domain status of the bridge 
->>>>>>>> and
->>>>>>>> accordingly load the firmware.
->>>>>>>>
->>>>>>>> Additionally, introduce phy_power_off/on to control the power to
->>>>>>>> the phy.
->>>>>>>
->>>>>>> If you write "also" or "additionally" or such in a commit desc, you
->>>>>>> should stop and think if that part should actually be a separate
->>>>>>> patch. Also, why is that change needed?
->>>>>>
->>>>>> The phy device could be powered off while resuming. So we are
->>>>>> explicitly powering it on.
->>>>>>
->>>>>> The phy driver api also recommends to always call phy_init() first
->>>>>> followed by a phy_power_on().
->>>>>>
->>>>>> "Some PHY drivers may not implement `phy_init` or `phy_power_on`, 
->>>>>> but
->>>>>> controllers should always call these functions to be compatible with
->>>>>> other PHYs"
->>>>>
->>>>> It still sounds like a separate patch to me: the current driver is
->>>>> missing phy_power_on/off from the probe/remove functions.
->>>>>
->>>> I will add that as a separate patch
->>>>>>> Overall, this sounds fragile/hacky to me.
->>>>>>>
->>>>>>> The first thing is that usually you shouldn't use system suspend/
->>>>>>> resume in a bridge driver. When a system suspend happend, the
->>>>>>> display pipeline will be disabled, so this driver will get an
->>>>>>> atomic_disable() call, and enable when resuming. You can use 
->>>>>>> runtime
->>>>>>> PM hooks if you need resume/suspend hooks.
->>>>>>>
->>>>>> Thanks for the suggestion, I will use the runtime PM instead.
->>>>>>
->>>>>>> The second thing is the PD notifier. Is there really no way we can
->>>>>>> see the state from the MDHP IP registers?
->>>>>>
->>>>>> The other way that i found was to read the MHDP KEEP_ALIVE_p 
->>>>>> register
->>>>>> twice to know if the firmware is incrementing the counter.
->>>>>>
->>>>>> Based on that we can decide if the bridge is active or not. Do you
->>>>>> think this approach would be okay over the PD notifier?
->>>>> I think it would be best to be able somehow to ask this from the 
->>>>> HW to
->>>>> find the true state, instead of guessing it second hand from the PD
->>>>> notifier (which also doesn't tell us the initial HW state at probe).
->>>>>
->>>>> KEEP_ALIVE_p sounds fine. Or what does the mdhp IP do if you send a
->>>>> message to the firmware when it's not up? Say, if you always do
->>>>> cdns_mhdp_set_firmware_active, what happens if the FW has not been
->>>>> loaded? I would guess that there's a timeout, and that could be used
->>>>> to find out the FW is not up.
->>>>>
->>>> Yes, there is a 2 second timeout if we send a message and the firmware
->>>> is not up. I would prefer the KEEP_ALIVE_p method, as that is a better
->>>> indication of the
->>>
->>> But that's a driver imposed timeout, and it sounds rather arbitrary 
->>> (and
->>> bad). How quickly does the firmware usually reply? What would be the
->>> situation where the firmware takes e.g. 1.5s to reply? I would guess
->>> that if the FW updates the KEEP_ALIVE_p every N us, it would also reply
->>> to us in that time.
->>>
->>> In any case, changing MAILBOX_TIMEOUT_US would be another patch.
->>> KEEP_ALIVE_p sounds fine if you know how often the FW updates it.
->>>
->>>    Tomi
->>
->> Hi,
->>
->> I wanted to check on the status of this series, as I'm quite interested
->> in it since my series [1] depends on it.
->>
->> For my use case, the suspend/resume support isn't essential, but the
->> calls to phy_power_on() and phy_power_off() are.
->>
->> Thanks for any update.
->>
->> [1] 
->> https://lore.kernel.org/all/20261120-phy-cadence-torrent-ng-v1-0-da2db7125cd7@bootlin.com/T/
->>
+> In update_load_avg(), __update_load_avg_se() ages the group entity @se
+> before propagate_entity_load_avg() runs. If @se's _avg has already
+> decayed to 0 while its _sum still holds a sub-divider residual, and the
+> child gcfs_rq's _avg also reaches 0 (e.g. when its last task detaches),
+> update_tg_cfs_{util,runnable,load}() see delta_avg == 0 and return early
+> without subtracting @se's remaining _sum from the parent cfs_rq.
 >
-> Yep, it could as well be sent separately. Abhash, are you working on 
-> this still? Can you send the phy power on/off as a separate patch.
+> Keep scaling non-zero averages by the parent cfs_rq's divider to
+> preserve period_contrib alignment, while letting zero-avg propagations
+> proceed whenever @se still holds a non-zero _sum so the residual is
+> cleared from both @se and its parent cfs_rq.
+
+When fair tasks are involved, the next decays will clear the *_sum
+anyway so I suggest to skip this patch if it's not needed for
+scx_switched_all() case
+
 >
-Hi Tomi, Benjamin,
-
-I have posted the phy_power_on and phy_power_off patch separately here:-
-
-[PATCH] drm/bridge: cdns-mhdp8546: Power on/off the PHY in probe/remove 
-<https://lore.kernel.org/all/20261124101747.2432344-1-a-kumar2@ti.com/T/#u>
-
-Thanks,
-
-Abhash
-
+> Fixes: 7ceb77103001 ("sched/pelt: Continue to relax the sync of util_sum with util_avg")
+> Suggested-by: Vincent Guittot <vincent.guittot@linaro.org>
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Peng Huang <penghuang@google.com>
+> ---
+>  kernel/sched/fair.c | 35 +++++++++++++++++++++++++++--------
+>  1 file changed, 27 insertions(+), 8 deletions(-)
+>
+> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> index 0c8af1cac2d5..f6c3bbb19557 100644
+> --- a/kernel/sched/fair.c
+> +++ b/kernel/sched/fair.c
+> @@ -5516,9 +5516,15 @@ update_tg_cfs_util(struct cfs_rq *cfs_rq, struct sched_entity *se, struct cfs_rq
+>         long delta_sum, delta_avg = gcfs_rq->avg.util_avg - se->avg.util_avg;
+>         u32 new_sum, divider;
+>
+> -       /* Nothing to update */
+> -       if (!delta_avg)
+> -               return;
+> +       if (delta_avg == 0) {
+> +               /* Keep util_sum as-is for unchanged non-zero avg */
+> +               if (gcfs_rq->avg.util_avg != 0)
+> +                       return;
+> +
+> +               /* Nothing to clear once se->avg.util_sum is also 0 */
+> +               if (se->avg.util_sum == 0)
+> +                       return;
+> +       }
+>
+>         /*
+>          * cfs_rq->avg.period_contrib can be used for both cfs_rq and se.
+> @@ -5543,9 +5549,15 @@ update_tg_cfs_runnable(struct cfs_rq *cfs_rq, struct sched_entity *se, struct cf
+>         u64 new_sum;
+>         u32 divider;
+>
+> -       /* Nothing to update */
+> -       if (!delta_avg)
+> -               return;
+> +       if (delta_avg == 0) {
+> +               /* Keep runnable_sum as-is for unchanged non-zero avg */
+> +               if (gcfs_rq->avg.runnable_avg != 0)
+> +                       return;
+> +
+> +               /* Nothing to clear once se->avg.runnable_sum is 0 */
+> +               if (se->avg.runnable_sum == 0)
+> +                       return;
+> +       }
+>
+>         /*
+>          * cfs_rq->avg.period_contrib can be used for both cfs_rq and se.
+> @@ -5617,8 +5629,15 @@ update_tg_cfs_load(struct cfs_rq *cfs_rq, struct sched_entity *se, struct cfs_rq
+>         load_avg = div_u64(load_sum, divider);
+>
+>         delta_avg = load_avg - se->avg.load_avg;
+> -       if (!delta_avg)
+> -               return;
+> +       if (delta_avg == 0) {
+> +               /* Keep load_sum as-is while child load is non-zero */
+> +               if (load_sum != 0)
+> +                       return;
+> +
+> +               /* Nothing to clear once se->avg.load_sum is also 0 */
+> +               if (se->avg.load_sum == 0)
+> +                       return;
+> +       }
+>
+>         delta_sum = load_sum - (s64)se_weight(se) * se->avg.load_sum;
+>
+> --
+> 2.56.1.831.g720f3f5937-goog
+>
