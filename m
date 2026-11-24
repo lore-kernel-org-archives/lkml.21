@@ -1,84 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.61.82.184
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795500880;
-	b=LXj9vghIasJT4WnrPFuFadZBOtGZkZ1uwW8jEADJt6R9Ag9NynCNeWrbkh/rjornG0//
-	 zK14vgZuMmbEMJub3IRM8gdhKKSbZ1J1wkkYRrRuJb9gmV3v7EZuoVVt4T+wHX29KduqV
-	 ELHhen9wfiw6BPgWoCz3o+lH2AYOOgisfpCBt3IR8h+ZV5GHGeExPUW3Mkj1SSJ9Bbmp8
-	 Ddb/sZ8ojF+MepZKIU1mhaHrnOtrn5V74m9grfOb82vvaJrf2kYrlE30NpOW+kZ1YWLkP
-	 IZCvIiyOEdV7+AFTmitvhoyK8pFyQ7AJbvYMlPE+AT417T9X5dNp+OWlE4Q+QnpfF4w==
+	t=1795500893;
+	b=zkAocAW6zDKk72kZ3DUixQOLeLqpyHpIfPj/ENUOc8uLwaVsLaniOqH6WvjeyLB4ApoM
+	 lOjc0/bLR1F9iMLFdXBWyXBxd0uXlkawMHel7czcNOlqL+YAfWSoonAH91uF695f7IJS/
+	 YRXtSSSSzLEFgE8qRXkzJW1KEhL5T+aCbXiqOnby3wfofdkeg/eLj3wiP9NXyrgVSth+U
+	 1sFK5NM3V60+Eb/19Kckgw46EkGF28bdUNzidtOqdynU2oy2uUhTTjb68Bx5jLSSO+EOB
+	 8z1y7nZnXLObiBXJllAeVIt42rDqjkYyDvIhP+GSKTw/g++LXe17CZa6GyIbbY71PTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795500880;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
-	 Received:Received:Message-ID:Subject:From:To:CC:Date:In-Reply-To:
-	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
-	 MIME-Version:X-MTK;
-	bh=JKy9gF86DBJHYr3P4LCSvi1G0WTrhHdbiVY1875cvho=;
-	b=3MnDZ4SGiPe+VyR0oYNpDX9cOlObOaLYQuoIPTuTwe3Yf86kKgubwX0SX5zQ5nMGGmnF
-	 zolvbforHNilEvW3kwXkD8UcrcxFZ8F/Q8niFQc4S7rEAZlS9y3Xwk8W8dRbYzEfjhnVs
-	 M2AMk9mWhcHoYvcu0CPLUXHskSqSfX7ggE+9fWfi6Dp5SLKm6teYp0FUlrGg92mnFbIO4
-	 72CxFKg9y/G+J6YnCvJlP0/RwVTco91a7qHBb487XUdBadyp9dvb9sS57LlpKbH99j3yj
-	 PPwC/fS1qDCzmKCLPRRmA4VRJT7UZGELeEpoQaRjiyCw+jutAbt+RX4dGYAfpfikVVg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795500893;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=jZ43zXMGQsDQJ/kOcZ+O6TRwG6ELUr556TGyE0uK/yE=;
+	b=DmVQ34WeBRMZu2VSLAoR/LFh+iBLe1NQwO3+XGOBhfUa+nGD+Mdn3tej0Oym30QaaVjY
+	 Y2m/hlRgphLAaOAfrQKEngXMKlnn+SH8B5Ss37/dZbD17uHhe4oCxqZLsMBVikboFoZzb
+	 EYI1/6klr6sBKIMQp6OOEYKldsEVEg+y5hJG9ph+hL6UmEKB8ZaAVhcKMUfIBsqcEnbwz
+	 z9yKlFBUEIMNQjhbhye7A0LOMBQr9fub5KJy/cGYxHG2u97at6il81H7fgc3I4Kw/jg+y
+	 RQQX4ln96AP+Aa+U0u+PWkGm52ngC2s4MgsaFArck+xgDuvA1khbAsXdO9S8oPjWJSw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mediatek.com;
-	spf=pass smtp.mailfrom=mediatek.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=IlwKhcco;
-	arc=none smtp.remote-ip=210.61.82.184
-Received: from mailgw02.mediatek.com (unknown [210.61.82.184])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QjGj4Udx;
+	arc=none smtp.remote-ip=74.125.82.176
+Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61C5E606A31E;
-	Tue, 24 Nov 2026 06:14:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61C5E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 013FC606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:14:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 013FC606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=IlwKhcco
-X-UUID: 4e65dde2e7ce11f18dc8c9802ae25ab1-20261124
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=JKy9gF86DBJHYr3P4LCSvi1G0WTrhHdbiVY1875cvho=;
-	b=IlwKhcco/bEK81/nSNNZNYh0CaCuWIwz7QL8sYieleTVnIPDh1dKJsvGsdQ4uCuqmzGtWJ257nVsc1QlhG/jCJYk70u8yVddlceh0+4UqbdqH2xY7XcVO0rNQe9PIBdlVCOWi6CrGZAp0nUyGsYEjGP/YUAEoEBgvVZlRZDStUo=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:e281b0b3-0c5c-4952-b20c-069ccdb56385,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0318ac,CLOUDID:07822ec4-463c-4628-987d-7a9605ae5537,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|136|836|865|888|898,TC:-5,Cont
-	ent:0|15|50|99,EDM:-3|-100,IP:nil,URL:99|1,File:130,RT:0,Bulk:nil,QS:nil,B
-	EC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 4e65dde2e7ce11f18dc8c9802ae25ab1-20261124
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
-	(envelope-from <peter.wang@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 95448549; Tue, 24 Nov 2026 14:14:28 +0800
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 24 Nov 2026 14:14:28 +0800
-Received: from [10.233.130.16] (10.233.130.16) by mtkmbs11n2.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.56 via Frontend
- Transport; Tue, 24 Nov 2026 14:14:28 +0800
-Message-ID: <0849f8a091ab35cfc2220ec5fb275f0fc95461a5.camel@mediatek.com>
-Subject: Re: [PATCH v4] ufs: sysfs: Add WB partial flush mode support
-From: Peter Wang <peter.wang@mediatek.com>
-To: Daniel Lee <chullee@google.com>
-CC: <James.Bottomley@hansenpartnership.com>, <martin.petersen@oracle.com>,
-	<alim.akhtar@samsung.com>, <avri.altman@sandisk.com>, <bvanassche@acm.org>,
-	<tanghuan@vivo.com>, <linux-scsi@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Date: Tue, 24 Nov 2026 14:14:28 +0800
-In-Reply-To: <CALBjLoAtLCcQJ2TQD4uuTJR-eiD1Dqr+Q2oV1+8K4pnOKRuOvw@mail.gmail.com>
-References: <20261117004729.635562-1-chullee@google.com>
-	 <f63d7506b930b710d9a31f082b97a0e43e75dd50.camel@mediatek.com>
-	 <CALBjLoAtLCcQJ2TQD4uuTJR-eiD1Dqr+Q2oV1+8K4pnOKRuOvw@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QjGj4Udx
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-386c4d2e2ccso273307eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:14:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795500892; x=1796105692; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=jZ43zXMGQsDQJ/kOcZ+O6TRwG6ELUr556TGyE0uK/yE=;
+        b=QjGj4UdxVVJ6Ict/WGa6OCqL5YWVIijBF/PMwateYbBV8/JOSZ1quWCTiiRPwWJzHD
+         9AdjJ591T/idte24u040VJ1d9cXhrqOgKDWn13jSUGsWImr/Hqv8B+M0u/Nermw+zrGt
+         Q4t+CecrToohOA2bf+0uPhwqJPrpzGeZKh7h9nMesBlGiVmJ6+tRYfyEZ/yfhHDiXDCQ
+         k+lXRdfGZSh1RhYaZOsAHoRraT+VQkEIvsOJQ7gyuWfnf4TVfdhL8y/+rIQ8AXL/bRb1
+         0MAORgxGoPjtM73Y2lYgpahaaNAOkelXCcyItJrmeuobKbepxJE3LuPfVAt7kQNltsXW
+         rung==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795500892; x=1796105692;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jZ43zXMGQsDQJ/kOcZ+O6TRwG6ELUr556TGyE0uK/yE=;
+        b=NoZ1td70ltnIyeVcWkIKM17Ip1Yfnq7ONeA99eB/TOjV+2/Jk1tTKd1GMH6FChYYqa
+         XgYGrDgOypgZYvzeN6wQrhdZ22zHYufQ/Or1zWB4c0/6AVV/bpD4qpemnGFZUHahmH8f
+         uPTp1zt/59gm1BI1gJObV4XtinUpJaCDfFidarMSnwEkYLbl1p3p4f5+cn3qtxeoeIuM
+         llJeF15bZomo/ow5MGJBV9+TI3N6SUGKhz10/mbmWXyq1aJZy0ilK/yidaxmM7GBEODj
+         Ln1kZ9k9NHvlrmsqF2i4oZHJiEvKPY6Iz5+R+gwpwhLQFMmAPeeY67KbiFgc1oyMnZS1
+         p7+A==
+X-Forwarded-Encrypted: i=1; AL+hErFOqAn9QR8C0Y+UpM+sVg5URAuZcwz8uuNwm4Xbm86DLprXOqT9VNRF5F215IW236yn1Nqck4XKaj6hze4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9+bQRcegAA9r3Zjip38Jaq/kkCF9V1uVmwIgsoXNN1rd0rRwDy
+	0Mbj1qsOacE1F5oONpyxhFReCfw11slXuGIfz1PUkeM4OuvT7ExPL13D
+X-Gm-Gg: AZFdTZf+VlF7ugF97Xo2mv77CnDUQQhAro6PfmHtn0Prd7jz13k1qXmhy196yZuJjkr
+	yME3OO0SD/OO+4AgblDq5Kjsc00787vR6IkaEDuDypRtlaIswcSoI3pZjtiZo3PRmPYW7DXZmVd
+	eNIfglLM7QYyPvdx2qQcymfQD68iIAzfQgloWCvtLwfEilAoYhDraLHCKTMGpGw2jLKwMzLSEet
+	Ov+EZhvQQcCU2HR8SIwb3XhOIK6RPn0Fkt6H13FKUfwTCwF8vTidXVnCOw5UcCgPWgWpAtjqpEm
+	gOwnlBqpWTxgQrxpDCP5nKr4xzdBaYRj+49la1b7osVSu3ZiRaJdXY+yqJJwxMBHyYd7WS1m1Hl
+	MptjoCeqwDkOHs+dTIebnMsKGVaXb/QZyDlJgMpU6xUGKy1mxEFcRqyB46HL1J60gesl+y9Jlg+
+	QMVQfmyh/N4F0jP3dpVyaKZGHhv70pAJOtEzrawtt+QhYQGza5X57JMp/3mWs7BJ8yJ9ciyCdP7
+	SN1hAAj/7bvkSMJJNKA9hsE4UeQyj+Vr/3wUjA5L/he0ZfQmNYedWydJcBVMaxaaY/bsQY4YrRO
+	tB89grXfMYh3IRO0TPNxMCwo9CXM7iIWvs+XJfikqnem77BpwedlvWoZ1BaW8IbfED4XDHmpzBx
+	5/v2yQ7SWf9zVFR45cg==
+X-Received: by 2002:a05:693c:39cc:b0:386:48c1:6c5e with SMTP id 5a478bee46e88-38648c1719dmr12070166eec.37.1795500891853;
+        Mon, 23 Nov 2026 22:14:51 -0800 (PST)
+Received: from google.com ([2a00:79e0:2ebe:8:ee3b:b892:771b:3bc7])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b1965c02sm13328033eec.27.2026.11.23.22.14.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 22:14:51 -0800 (PST)
+Date: Mon, 23 Nov 2026 22:14:48 -0800
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Siqi Chen <chensiqi@uniontech.com>
+Cc: Anshul Dalal <anshulusr@gmail.com>, 
+	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>, linux-input@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] Input: adafruit-seesaw - check i2c_transfer() return
+ value
+Message-ID: <awUrVOJjlHUrDXUD@google.com>
+References: <20261124054344.1067234-1-chensiqi@uniontech.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,36 +98,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MTK: N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124054344.1067234-1-chensiqi@uniontech.com>
 
-On Mon, 2026-11-23 at 15:32 -0800, Daniel Lee wrote:
-> Hi Peter,
->=20
-> ufshcd_is_wb_attrs() determines whether a query request sets INDEX
-> via
-> ufshcd_wb_get_query_index(hba) or leaves it as 0.
->=20
-> Per JESD220G Table 14.28, 0x42, 0x43, and 0x44 (along with 0x3F) are
-> Type "D" (device-level) attributes and must use INDEX =3D 0, even in
-> LU-dedicated WB mode. Only 0x1C-0x1F, 0x40-0x41, and 0x45-0x46 are
-> "A/LU/0 or D" (Note 15) and use ufshcd_wb_get_query_index(hba).
->=20
-> This was updated in v4 per Bart's review [1].
->=20
-> [1]
-> https://lore.kernel.org/linux-scsi/9d58cbf3-e0cc-41b8-8958-df8abd505524@a=
-cm.org/
-> =C2=A0
->=20
-> Thanks,
-> Daniel
->=20
+On Tue, Nov 24, 2026 at 01:43:44PM +0800, Siqi Chen wrote:
+> i2c_transfer() returns the number of messages transferred or a negative
+> error code. The seesaw register read helper only checks for negative
+> errors and therefore treats short transfers as successful.
+> 
+> If only the register-address message is transferred, callers consume
+> data that was not read from the device. This can result in bogus button
+> or axis events.
+> 
+> Require both messages to be transferred, preserve negative error codes,
+> and return -EIO for a short transfer.
+> 
+> Fixes: 52c4e5985a73 ("Input: driver for Adafruit Seesaw Gamepad")
+> Signed-off-by: Siqi Chen <chensiqi@uniontech.com>
 
-Hi Daniel,
+Applied, thank you.
 
-Thank you for your detailed explanation.
-I missed this part of the spec.
-
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
-
-
+-- 
+Dmitry
