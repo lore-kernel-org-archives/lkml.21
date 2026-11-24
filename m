@@ -1,79 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.145.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795480799;
-	b=5MsCfkBrhO7jHcArhCntYX+9VFS5l7ZlWdOD3ZgbXXN/vML0xY3uFVoccWoB/kCfztiy
-	 0L6Tinmr7F2t5Ip5FAi5cIJYQkKaepykRcsBMQdw5MnwHbht20Pg+Mg3DwrcqH/JKp7oz
-	 jFHjhUJnbizHqw1OOLAeOk6lb3pqx8R8r8jl0RopH6WVI59cuBcLYMI98rXARrouhceo2
-	 ZPtbX8q+J1ZeOXinXwArwQjph+ZnwaNpZ1SKJrc+h7A18SVPB64QmuhxDloE7i7ORClzk
-	 AB4TsLjFoFmjpZ2mMxY+sQhC6/hDbltoPgUGyF4+2StXsUuKRM4g9Hjuihe4uaPuvfA==
+	t=1795480839;
+	b=L9N4DV1e0CoPxTM1ML8OA+HfjFuTFRN4BsjdmxCxpF+KeKPRhYOtOFgO3wvG850mOCSQ
+	 ubbEYZ/cEcKHMA4lbPrD/LQVgDu5+fkSOMtHWgXGYJTZo7gKO59XdDjmbibpvyrLIYSNs
+	 U0Gekju3zsv11JcnOAZNhUF7sCvtHIvsCplbcq4FEK6vt8QMVrIzA3FyqsbOWMyPdNvPy
+	 9NA5ycyK004rBmVbo5wCyAhIDK8uwC919klYzWvQaquYXgvIIuCmQ1rBeG+Ia2Uv+eaEF
+	 duRf3F0lWrGOv2Ocsbm+8e5mo6vrq9fA5s5/onGoWbtEAUlT4lqTA11KWUITZsscOFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795480799;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Date:From:To:
-	 CC:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Originating-IP:X-Authority-Analysis:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version;
-	bh=efALRy5JehNWwR5fNw4avw3lMC0wfy+UAUaAyAGBkW8=;
-	b=DkkTpXxE38m88Eo6ZLr9x1/vQgZ5ghYv/bmJRxKKBT5js2PZppIRZorrlropdqy2KAAs
-	 fPpAJaa+jLVjdYUuIseOkWA24hrlK235VBggjZPl6WvERBaqFKfwPhwnidBWUqq6EH8zl
-	 jZgZfrR6O5VbN0jPX1Feh/zy+PwWGmrC6WWf6DZTxJ7mEdXJRvVK/HhKnLLSG2mm+bPJk
-	 k9LeZdkEmhF69uPmIoF5oWDTmmSb6ID4VkyL+ZPWQKnTtghHOnvvdF4WrhkWaLqkMn8St
-	 l17OoGxqcK9Icbr+FSrFictllsVlF6Izq1cVWQFLAXUrCZWmLFb/5ONDa+rA3W+mz/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795480839;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oXOmEymlLhGvxYC2DcRRg7okeq4lsC29GL/NI09EpkY=;
+	b=JYnFr3LznX4O5CiR32fmXPnZTqQfGzFo1ppqq8agV5vGRes9TOb6G+ukwYiOqNXc1bRD
+	 Dcgu6mvb5kw+YP1U0+ykLbIAGwpvAUesgw5bdpoGHy0lLBZIg2r2rI2U09kQBJeg/YYgw
+	 07VCr2BYHfG8lEEnEeXxacC3LwOffXVzjZqXKdLBN8PLtpHVACf7skyTfW7bT5jVpURl6
+	 oo4UutFCRmK1RsH7ICSn8rUbdGcOwK4YtgXD8gDr5GLe3fgIU4OpbmjAoEFwIvY48QkKC
+	 EeR+qmb/7nxuNwMfL0satOagiGwtmh0zmBGNCQfEGDvSAbcA5KaQUKqwnd8EBt5Pzdg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=MQ8d7z+H;
-	arc=none smtp.remote-ip=67.231.145.42
-Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.145.42])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HTYF3AsR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF618606A31E;
-	Tue, 24 Nov 2026 00:39:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF618606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2CFD606A334;
+	Tue, 24 Nov 2026 00:40:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=MQ8d7z+H
-Received: from pps.filterd (m0109334.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJw71x2854679;
-	Mon, 23 Nov 2026 16:39:54 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pps82601-s2048-2026-q3; bh=efALRy5JehN
-	WwR5fNw4avw3lMC0wfy+UAUaAyAGBkW8=; b=MQ8d7z+HPPVzwqqHYCFi8TAuGwm
-	B9aeFtqef2e09TvZfP65mSE4FZYADxTllsLWaz7gzGazpDqtMiS7J9D2QPeGr+3Z
-	1/sCV+dRKUxpaqEv0XjThiTEAtUmFlH+5dTw1nYaUH+LHv0CuITIWrSelt8lpyu0
-	Fr4atcCmSUBbDE3oI9X6dF/715epjh8k3wuKHB64EkdOVdZqqfTtoSxAP9WncO+1
-	dtVsfdxyJKAChQe8b8LMhMoYCTqUShqttQQOd8UzZJVYQbdy6pktGNbmrFTsEA8f
-	JWZAfjwSDDSdNY3jLutjx8se6BA55cBr1eJNMpF8UDhg+4lZYqItkvgKOHw==
-Received: from maileast.thefacebook.com ([163.114.135.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j3bfmwfvk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Mon, 23 Nov 2026 16:39:54 -0800 (PST)
-Received: from localhost (2620:10d:c0a8:1b::2d) by mail.thefacebook.com
- (2620:10d:c0a9:6f::8fd4) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Tue, 24 Nov
- 2026 00:39:37 +0000
-Date: Mon, 23 Nov 2026 16:39:36 -0800
-From: Bobby Eshleman <bobbyeshleman@meta.com>
-To: Nguyen Dinh Phi <phind.uet@gmail.com>
-CC: "Michael S. Tsirkin" <mst@redhat.com>,
-        Stefan Hajnoczi
-	<stefanha@redhat.com>,
-        Stefano Garzarella <sgarzare@redhat.com>,
-        Jason Wang
-	<jasowangio@gmail.com>,
-        Eugenio =?iso-8859-1?Q?P=E9rez?=
-	<eperezma@redhat.com>,
-        Asias He <asias@redhat.com>, <kvm@vger.kernel.org>,
-        <virtualization@lists.linux.dev>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net] vhost/vsock: annotate lockless accesses to guest_cid
-Message-ID: <awTcyKKYa8R7s6h1@devvm29614.prn0.facebook.com>
-References: <20261117164916.2332953-1-phind.uet@gmail.com>
- <20261118012321-mutt-send-email-mst@kernel.org>
- <a7752192-b417-4e70-8f39-a3cdc983f447@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HTYF3AsR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ED871F00A3E;
+	Tue, 24 Nov 2026 00:40:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795480839;
+	bh=oXOmEymlLhGvxYC2DcRRg7okeq4lsC29GL/NI09EpkY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=HTYF3AsRtmc/f6w8/EZq4nxnX0H+E1oCRlbnkZcF+snmfAZKxYGXwCX0ouZPJlqDC
+	 FERvRKr4/apXJn2AtF76PYDi1fzRreCBgzl5psb981lI3kbcPwgxuGIoWuOqNw6QBF
+	 Q6eyD7jj8aqmh2PXWxNrINNzumQZW5UWzLfAAwCTkMdu/nqyJ/8P2mp0Db/b7KbSsS
+	 P0H0Ba+hmdRRDrk0mVAUTfIfz6UEqbRVMjQRUFs6KU/AAXEEatveHKX7AvJkINwOvu
+	 h7Z9Eywf0WUyFxoMdErPPPDJz7uoq8txXXhtc1TXquChqNKI97525Xc8zJTTNIRMb8
+	 wOgWSPjZSGYKg==
+Subject: Re: [PATCH net-next v16 03/13] dt-bindings: dpll: add SiTime SiT95316
+ clock generator
+From: netdev-bot+sashiko@kernel.org
+To: arouhi@sitime.com
+Cc: jiri@resnulli.us, vadim.fedorenko@linux.dev,
+ arkadiusz.kubalewski@intel.com, ivecera@redhat.com, kuba@kernel.org,
+ pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ cjubran@nvidia.com, Oleg.Zadorozhnyi@devoxsoftware.com,
+ prabhakar.mahadev-lad.rj@bp.renesas.com, devicetree@vger.kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Tue, 24 Nov 2026 00:40:38 +0000
+Message-ID: <179548083810.3135.6950210693310283023@kernel.org>
+In-Reply-To: <20261119225752.41846-4-arouhi@sitime.com>
+References: <20261119225752.41846-4-arouhi@sitime.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,123 +66,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <a7752192-b417-4e70-8f39-a3cdc983f447@gmail.com>
-X-Authority-Analysis: v=2.4 cv=DqvDa2/+ c=1 sm=1 tr=0 ts=6b04dcda cx=c_pps
- a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=7x6HtfJdh03M6CCDgxCd:22 a=crHB47gyY4rKiduisYu9:22 a=pGLkceISAAAA:8
- a=BpIEGQ5VxnvoCYnNX3YA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: WMQG2mlDY79KFTZ1_j5ltsmJFe1zfpH_
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAwMSBTYWx0ZWRfX8MBqf1PahJTV
- FDRNyD2aYRuxT+r4naWLGIQoRkN0jFDLil2xAoygo3uc7S/Cof8sxQFNA23fvlZnw+3OGMEt/Wx
- 6rw+rltyDJmixWNnylpfTrLyJOSPOPc=
-X-Proofpoint-ORIG-GUID: WMQG2mlDY79KFTZ1_j5ltsmJFe1zfpH_
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAwMSBTYWx0ZWRfXwWTiFaotObcB
- EM1sufzoe0pFQ9Iuoyiae5qj2SfvlTIJiMtUGa3Cvjp+XSRn3UA4ySp924cMHBISYGzVRN3MMAZ
- trfJI3QknuOBkpRSMLJNdXZs/UbgTBJSyRFgAyExEnzbEx/YhSOqLQM2aOVBhIG1EYvp/kAVAyC
- FgV7rVO+S5LlNDgJZBgeSezY2wUN7+1XAa1T/My0nw4mv5VQGVTzQI2VJD5znETK/6lXzfj/gsn
- f3TdSb6AgP8bHXZKLyam0VTPOyVpK6huf2JRc2xUkd95us/vf5ZolIh8PLafbDV7Mz1q4RgPFkN
- wjJqqnriWaEZnwJnBvXGh2uCA8V2FrfeKrYvs/YI/J9yTkSfxKt80fKID8VA3zNvLs9q3/I+JJB
- Dft5gKkA+AzF6KBeq+RVFW62db3n2iJZG9aV0maXlxNCx1SVPVJp4jw93J6Tqw+tO9PXjvQ5b9R
- PtDJoMA1C1HEISAYJew==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_05,2026-11-23_01,2025-10-01_01
 
-On Tue, Nov 24, 2026 at 12:48:34AM +0800, Nguyen Dinh Phi wrote:
-> On 11/18/2026 2:33 PM, Michael S. Tsirkin wrote:
-> > On Wed, Nov 18, 2026 at 12:48:43AM +0800, Nguyen Dinh Phi wrote:
-> >> vhost_vsock.guest_cid is written by vhost_vsock_set_cid() under
-> >> vhost_vsock_mutex, but It is also read without that mutex in
-> >> vhost_vsock_handle_tx_kick(), and vhost_vsock_get().
-> >>
-> >> KCSAN will report data-race if we issue VHOST_VSOCK_SET_GUEST_CID
-> >> ioctl while the device has TX traffic. For example:
-> >>
-> >>  write to 0xffff88810f1596ac of 4 bytes by task 7914 on cpu 1:
-> >>    vhost_vsock_dev_ioctl+0x25f/0x720
-> >>    __x64_sys_ioctl+0xc2/0x110
-> >>    x64_sys_call+0x299/0x20a0
-> >>    do_syscall_64+0xc9/0x510
-> >>    entry_SYSCALL_64_after_hwframe+0x76/0x7e
-> >>
-> >>   read to 0xffff88810f1596ac of 4 bytes by task 7910 on cpu 3:
-> >>    vhost_vsock_handle_tx_kick+0x41b/0x740
-> >>    vhost_run_work_list+0x97/0xc0
-> >>    vhost_task_fn+0x98/0x1f0
-> >>    ret_from_fork+0x2e2/0x3c0
-> >>    ret_from_fork_asm+0x1a/0x30
-> >>
-> >>   value changed: 0x0000004d -> 0x00000032
-> >>
-> >> Both readers load the CID once and works correctly with either the
-> >> old or the new value.
-> >>
-> >> Mark the store with WRITE_ONCE() and the two lockless loads with
-> >> READ_ONCE(), so KCSAN knows the race is intentional.
-> > 
-> > You make it sounds like it is just KCSAN false positive.
-> > Is it?
-> > if yes, this should be data_race. If no, document why.
-> >
-> 
-> This is an actual data race, not a false positive. The value of guest_cid
-> can change while the TX worker or lookup path reads it with plain accesses.
-> Because each check loads the CID once and either value is valid, the result
-> is equivalent to the read running just before or just after the ioctl.
-> Even so, plain concurrent accesses are a data race under the Linux kernel
-> memory model, and using READ_ONCE()/WRITE_ONCE() also prevents
-> compiler re-fetching or tearing rather than just silencing KCSAN.
-> 
-> >>
-> >> Fixes: 433fc58e6bf2 ("VSOCK: Introduce vhost_vsock.ko")
-> >> Signed-off-by: Nguyen Dinh Phi <phind.uet@gmail.com>
-> >> ---
-> >>  drivers/vhost/vsock.c | 6 +++---
-> >>  1 file changed, 3 insertions(+), 3 deletions(-)
-> >>
-> >> diff --git a/drivers/vhost/vsock.c b/drivers/vhost/vsock.c
-> >> index 88a310390eb0..f26c59013075 100644
-> >> --- a/drivers/vhost/vsock.c
-> >> +++ b/drivers/vhost/vsock.c
-> >> @@ -78,7 +78,7 @@ static struct vhost_vsock *vhost_vsock_get(u32 guest_cid, struct net *net)
-> >>  
-> >>  	hash_for_each_possible_rcu(vhost_vsock_hash, vsock, hash, guest_cid,
-> >>  				   lockdep_is_held(&vhost_vsock_mutex)) {
-> >> -		u32 other_cid = vsock->guest_cid;
-> >> +		u32 other_cid = READ_ONCE(vsock->guest_cid);
-> >>  
-> >>  		/* Skip instances that have no CID yet */
-> >>  		if (other_cid == 0)
-> >> @@ -572,7 +572,7 @@ static void vhost_vsock_handle_tx_kick(struct vhost_work *work)
-> >>  		hdr = virtio_vsock_hdr(skb);
-> >>  
-> >>  		/* Only accept correctly addressed packets */
-> >> -		if (le64_to_cpu(hdr->src_cid) == vsock->guest_cid &&
-> >> +		if (le64_to_cpu(hdr->src_cid) == READ_ONCE(vsock->guest_cid) &&
-> >>  		    le64_to_cpu(hdr->dst_cid) ==
-> >>  		    vhost_transport_get_local_cid())
-> >>  			virtio_transport_recv_pkt(&vhost_transport, skb,
-> > 
-> > Will prevent compiler from hoisting the reads out of the loops.
-> > Does it matter?
-> > 
-> 
-> Not much in practice: because the loop body calls non-inline functions, the
-> field needs to be reloaded across calls anyway (and in `vhost_vsock_get()`,
-> the `vsock` pointer changes on every iteration). I checked with gcc 16.2 and
-> clang 21, and the compiler does not hoist the load out of the loop even
-> without the patch.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-I do appreciate actually looking at compiler output, but I would advise
-taking it with a grain of salt. My now-very-rusty reading of
-memory-barriers.txt is that we do not expect memory ordering
-optimizations to be consistent over time.
+Low priority / nit picks for your consideration:
 
-I think the code looks okay. I do second Michael's ask for clarifying
-its not just a false positive, as that was initial reading as well.
+- [Low] The new binding uses the shared dpll-pin.yaml property
+  `supported-frequencies-hz` with 32-bit cells, and nothing states the…
 
-Best,
-Bobby
+--
+
+dt-bindings: dpll: add SiTime SiT95316 clock generator
+
+This adds a DT binding for the SiTime SiT95316/SiT95317 DPLL clock
+generators. It describes the XO, reset, interrupt, supplies and the
+input/output pins on top of dpll-device.yaml, and it adds a MAINTAINERS
+entry for the binding.
+
+> diff --git a/Documentation/devicetree/bindings/dpll/sitime,sit95316.yaml b/Documentation/devicetree/bindings/dpll/sitime,sit95316.yaml
+> new file mode 100644
+> index 0000000000000..5356a73a80620
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/dpll/sitime,sit95316.yaml
+
+[ ... ]
+
+> +  input-pins:
+> +    type: object
+> +    patternProperties:
+> +      "^pin@[0-9a-f]+$":
+> +        type: object
+> +        properties:
+> +          reg:
+> +            maximum: 7
+> +
+> +          supported-frequencies-hz:
+> +            maxItems: 1
+> +            description:
+> +              The rate wired to the input, in Hz, as a single entry.  An
+> +              input runs at the rate the board feeds it and has no
+> +              frequency to select, so that entry is what the pin reports
+> +              as its frequency.
+
+[Severity: Low]
+Should this binding state the cell width of supported-frequencies-hz?
+
+The shared definition in dpll-pin.yaml has no type:
+
+  supported-frequencies-hz:
+    description: List of supported frequencies for this pin, expressed in Hz.
+
+The only other binding that uses it, microchip,zl30731.yaml, writes it
+as 64-bit:
+
+    supported-frequencies-hz = /bits/ 64 <1>;
+
+zl3073x_pin_props_get() in drivers/dpll/zl3073x/prop.c reads it with
+fwnode_property_count_u64().
+
+The example in this binding uses 32-bit cells. The sit9531x driver added
+later in this series reads the property with fwnode_property_count_u32()
+and fwnode_property_read_u32_array().
+
+A DTB does not record cell width. So a sitime node written the zl30731
+way, for example:
+
+    supported-frequencies-hz = /bits/ 64 <10000000>;
+
+would be read by the sit9531x driver as two u32 entries, [0, 10000000].
+
+For an input pin, the driver takes the pin rate from freqs[0], so the
+pin would report 0 Hz. For an output pin, an extra 0 Hz entry would be
+advertised. Output pins have no maxItems limit, so validation would not
+catch that case.
+
+Could the encoding be stated here, for example with a uint32-array $ref
+or a note in the per-pin description? Or could the type be fixed once in
+dpll-pin.yaml, so the two DPLL bindings don't use different encodings
+without saying so?
+
+[ ... ]
+
+> +                pin@0 {
+> +                    reg = <0>;
+> +                    label = "clkin0";
+> +                    connection-type = "ext";
+> +                    supported-frequencies-hz = <10000000>;
+> +                };
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119225752.41846-1-arouhi%40sitime.com
