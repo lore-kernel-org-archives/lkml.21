@@ -1,60 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795533786;
-	b=gwFV/1wiCJUteik7YwKpJuq3fQgBuvDxnVNXeSHAye5w42tAlJWQmHCg5v7La+EMxOrG
-	 UmP8K9ATcrHsYo9n/dpuT8Luke4Ef13aeJxyW+pj2n9FmmaIP0MqvqNgkpvCD1w5MDPID
-	 gXKE9I8GbF8yTAgB/N2BHsVC8fbMF+2qzk9vqv/qLM0AreZ5Vy6RQQJXNQoUlRSk7zDla
-	 uC32CaGMLXNdN74n7EDZmVJwxkHGZbeoIoqJeqXArgeWfVmR7EC4/R2PU1L/euFkD07X+
-	 AP5DlwpgV4+PUvoNATZTBQTFTbULoc9IteV5fUr1iaGWJOLcYF0CFSr2tAUqGPZ56Ow==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795533786;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=Wvro22YPm0sc7VtJ9BRqEaFRBATy0XmQt/Kjw4rfVwc=;
-	b=wkSebuIVGdMwMu6UhLNjzU1+SE2mSRytuAGL/ZvW8RfF4f4zlzVu9CdrFmXwd9mskdkV
-	 oAo/p42TZ2CTvMnFmY5Iimsb7mZ0cn9rB6iC9KuaFjMQVRt/TaF3KgGwE+opVnYJXZRzz
-	 0fwugBy+9Wr/FrjUPyqwBsYRWeXNpceMhNjTEOi/mQ+ei0sULfUbiiADRqVRM9SJbmlGt
-	 cm4IfPg/dmDrp4blkhKz2Olk3UzZk10TIvl+XEFt6m/x5Ilt/cVChwEdoI4+JRIjAGto1
-	 2/bTtqaBJnFHHA2MCkjB32udFJ4XBn7v3Gos0h/qp7HFSR5jJFFyGFl5ovRGLi13g/Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ScyHEDXh;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.27
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795533827;
+	b=hSRiVXqrYd6qhaAVfwdu/aF3se336l6iu4WK48TybXT5XPeMOpj93+vFNq3wh3K3MgKg
+	 pXn2tnOxABW3LxSfCjmn+DfWGQtszDvbTc57zzC1dkIt6YZmAPLgpq6FITkK2CthF1mHI
+	 lYymcJDICKv/mSJ+s1s0us5GvX5UAxUtucjXRzbWAP/vRPELRSMwAXzUPsCOyENCIlSuC
+	 DpZSr/tGmBR1kHQb7ZFYJIKtamS2+xkQtUT9K0SScGmNL+VhCuIZckM85uz3LKpCqMH2h
+	 Nc2C80nzLaqAdGSCM+x0uVk6l6ckAp42LaEGe46S2B9J1UcN275MJVf5qavlvdWGmPA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795533827;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=NZZPnF6UroY8CDzW29Q5kOqp27It/X2c0Dn4tANBcnk=;
+	b=QxnPvpnqxRfWrkt2uDXkEwX8zu3+YD324HxlWwFNqHbWouYLHOteozM9uurqIeooLHIX
+	 RtRyWudP4EHN6o62ZKxqO/F5CPW0wyPYEs1XSVVW9uBoAVk63Oa3ceY/aepAaT79Vxabf
+	 6nwqIcGOryPtlelv+alohKujFxLJnyP0hz5JMxECXKiVl/+SSDC5ZR0KW/xv1u3vybj/5
+	 4Q/UdGp9kKwXmsC62x9+/JEWMqpF2BrR6ZqD0YOorpTIMuvjpn3KDv+CRQO0i4CJIbHV9
+	 eyoe9gRLAImIE/f6TdTVDmhpkpoI7z87ulvFICVstwuIZXMvJw90VOZAA7ZLeyGRCOA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=foss.st.com;
+	spf=pass smtp.mailfrom=foss.st.com;
+	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=gaHwGMmN;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.27
+Received: from DB3PR0202CU003.outbound.protection.outlook.com (mail-northeuropeazon11010027.outbound.protection.outlook.com [52.101.84.27])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02712606A31E;
-	Tue, 24 Nov 2026 15:23:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3B7C606A31E;
+	Tue, 24 Nov 2026 15:23:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3B7C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ScyHEDXh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E23D61F000CA;
-	Tue, 24 Nov 2026 15:23:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795533785;
-	bh=Wvro22YPm0sc7VtJ9BRqEaFRBATy0XmQt/Kjw4rfVwc=;
-	h=Date:From:To:Cc:Subject;
-	b=ScyHEDXhFYB2tiOsKjR4kZ/yobRaQ0r6werkcc7qMLL4evJ0d7TkR5OD5X4ySMDNp
-	 my5x3ECyUJfeWVTPJGvXw0xkdRcDFBnJd21SVIwSHFxxl8pQ9ruW3D4wOMZ6cWqWFU
-	 8rF27ItqvzXe59UoOfj+hCLWDvQ4orTcfrES1fTE0aPutPjL3F17LYog4sHc+ggRt7
-	 nufMNI8uz+BNBytzMy3G8CcV9fSUhi+Z60luI9pHEDkz9NmV6Kz4MHDY3UA2QBogxN
-	 qMpAo35ytzhe5COw6GyPt6Skktu4dY2fSNcuJLVXfCdn4LCELOYMFvi4aNhx8N3ecY
-	 eB8COQwyDgGgw==
-Date: Tue, 24 Nov 2026 15:23:00 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Simona Vetter <simona.vetter@ffwll.ch>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Intel Graphics <intel-gfx@lists.freedesktop.org>,
-	DRI <dri-devel@lists.freedesktop.org>
-Cc: Ankit Nautiyal <ankit.k.nautiyal@intel.com>,
-	Jouni =?iso-8859-1?Q?H=F6gander?= <jouni.hogander@intel.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Suraj Kandpal <suraj.kandpal@intel.com>,
-	Werner Sembach <wse@tuxedocomputers.com>
-Subject: linux-next: manual merge of the drm-intel tree with the origin tree
-Message-ID: <awWr1C8qQAfrXt2l@sirena.org.uk>
+	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=gaHwGMmN
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ov31paHPYKgod70JMPD2Cec7OljC3/vbtV27UF5fzCBi1iGz8V9ibkzAlw5jxt1izEWrlg9CtMDRmir2/BOKgBEVzGGrs4VlIaprt5mHKWrYvMrdviKb8nVkYU1M23Vet5FEjL5G8Yc+hS+FOsTxjVrz8Jn/n1arER3QNHGM0K9Nvv299bDvnGJiUT2RR9kh81rsKdqCgE8NWAMyXPqO8d9AJ7Odk3vbWLjHCtMhNH7l7zJ+dcTvr3ycCSoRi2Vaa/tqlATQhxTWHrK8h6SS0SKCt6MmYwSaVnMiEiGy8vW39p0SC+DcdezWt1jYMwVnla+BvW8mFhHqTfmS6Ck8Yw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NZZPnF6UroY8CDzW29Q5kOqp27It/X2c0Dn4tANBcnk=;
+ b=PZeJV648tbZB4xqm84+rEdVuec69jCUfQ+Ac5tHtw5VdKHkCzygSbj3Dr2LGBUS21avRNGeoaeV5BJVZdqCyn+MGaOp7aYUEXhqqg/HEwx2xBjNtwq9RbanxWRm1pemgjyEKShH3iWuLIUYTIm+gx0EOkJp7ynsaDBOeGnX3PARsyhO8VFyOM5l+SiGFdf+BpkjbLua3HwKSgY9rted8eZBCN56pRwvLllxN4p+ye2uT0dW8MWh3hCbUsgMm9PZYQNDxcU+J1JDPm7M77nZDfVVnZfZRgFyX7RDMZSGFFuXKFLBxGiQNzrfhPa/iqiaVT7xszcd0XEX8jGugKQF8rw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=nabladev.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NZZPnF6UroY8CDzW29Q5kOqp27It/X2c0Dn4tANBcnk=;
+ b=gaHwGMmN4Wl30NASLmq9qpk/reDreFOYn0GXCEe4gK9IrlPOFdmg2lve3bPMrAXVS1DJNCSJ4ryVvHgIkFx+CDLkmYkoXGPVqH0KB1FijHgdOqY0U9M7GK1cgsGBnaSfsPf2egEqdtpwJa93/vgMJAV2WG5iZcnc4jEa5l34QNelswrTdlmR3T9bPgUWBSk5Z0E2k3HfPpysh8SeIdSyZvVL8EU+90KO8wwwtaTZWRifIybMRCg2k226VrNnMINrO4E//mgUqpJtE+wfmEXVn+1m+DoEKVT2hsHMgNYxP0eOJpkMth0C97Q9crv6Ayw1HRr5Q+1JydIwqDaIXSUzGQ==
+Received: from VIUP296CA0048.AUTP296.PROD.OUTLOOK.COM (2603:10a6:800:34b::13)
+ by DU4PR10MB8576.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:55a::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.3; Tue, 24 Nov
+ 2026 15:23:43 +0000
+Received: from ZR1PEPF0000E6B6.eurprd07.prod.outlook.com
+ (2603:10a6:800:34b:cafe::6e) by VIUP296CA0048.outlook.office365.com
+ (2603:10a6:800:34b::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Tue, 24
+ Nov 2026 15:23:43 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ ZR1PEPF0000E6B6.mail.protection.outlook.com (10.167.241.69) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 15:23:42 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 24 Nov
+ 2026 16:24:47 +0100
+Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 24 Nov
+ 2026 16:23:42 +0100
+Message-ID: <0f024c0d-ebce-48ca-837a-75df4855ccfd@foss.st.com>
+Date: Tue, 24 Nov 2026 16:23:41 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,92 +104,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="s87hUG1Zje37F0sQ"
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: stm32: Fix STM32MP15xx DHCOM SoM PicoITX
+ overlay application
+To: Marek Vasut <marex@nabladev.com>, <linux-arm-kernel@lists.infradead.org>
+CC: Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	<devicetree@vger.kernel.org>, <kernel@dh-electronics.com>,
+	<linux-kernel@vger.kernel.org>
+References: <20261102052306.868349-1-marex@nabladev.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20261102052306.868349-1-marex@nabladev.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZR1PEPF0000E6B6:EE_|DU4PR10MB8576:EE_
+X-MS-Office365-Filtering-Correlation-Id: cfd7ef16-8cfe-492d-0d82-08df4a3eecb2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|23010399003|1800799024|36860700016|376014|22082099003|261009223027099003|18002099003|261102123227099003|56012099006|11063799006|10067099003|261026121527099003|261021123027099003|261021121427099003|261021135927099003;
+X-Microsoft-Antispam-Message-Info:
+	yUXCqsmxxQePi8coaMMra5A+kKg//i7ygNUslg35LwoeydTv+aIlMa4W6+UKmErhWhkLGFc4Yxr/LOedSnX7E7s/hsQFzdk3MjIbi7Q4g60SprWDIhWVSQxHE1otQjGYJgQs+wwVm8wFiIbMtrC97Ezun7Psuv3U/zcRMWPkcuCC1xHaJ95fJwGgFj1AYyQhVMZAOu7CD83v/ALj2pTjdDDtee6O+XRzeQB82DBHAnZmZm7Yxr/MxlWbld95iWDq/0Ij4+weglhEKwRVXbCY4rLV7L2BRyscM7jpQQbPE0M2AGqUuIFzKLkEog1cB6rFnzwFT+vsEVHNtEEoThrc3eMV1GMvSVBIVCbcukJM/ESB1TStK1dhGrRGqO53j37ejFAOvnUl75FNzYnmaW+r1w1+mkdDxpZojDJkar2gX9zk8Do2rXvohfkE7hLVQmy4j1Y4FHkoBU+g67z4L2d6v4+RQar1dfZspmHOQJTYb3xG6Xpt0U85qCZ4e5rUqwgY/pYEHIHpyNSKcORxmA7T6g58OkqV27WT4VIP+LEV3/CkusmT2EcKAX/yDFfFQc2Les3ZZOs0hlc5KWfKhy2FrKfVwGOlwTGzZ7rXboBrL9lvpRlH72i3hbpkr4BPFZ+T2I/u5n5zDNCjVS80wgVpzGV3EU68zui9qhYlatp+Qkrb4JKpdvUAM4oCfzHZP2SlQTD01f9Bd+hlA59ctuxBiQ==
+X-Forefront-Antispam-Report:
+	CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(1800799024)(36860700016)(376014)(22082099003)(261009223027099003)(18002099003)(261102123227099003)(56012099006)(11063799006)(10067099003)(261026121527099003)(261021123027099003)(261021121427099003)(261021135927099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	iLU/3Bfv1KoWfo6JdWrunaIFNWsHB1IyKq6eMwmLJrfiM6hGLj6GBrxnLXmm2B4OQCUxrR2ohgVonZffMDC0OW12w5d17iS3YhcRlZ9sSyZ/IZUTzJmtOXxrUu7uhIeZeOR063/UAEtmM6QoQOSg3sz17Z1O5ifqqQaRJhE1JOp6SIwvSHG5MmYHOWaY8aq62XZDO++aitJUt7wdVgM80V5aw6JcAUDuiaeNW5rHl6f515gNk5a1ScjuJlUAy2qM/yJRWGTrio0PSWf8uOyy5IvJZ75lilFuhKkfdz9NzDqCxPBcGgoq/ukMeQuxfYzjIetPbsBJqkVAoYhQ1g1PKdH1qDFzivhYySXmkzHavQEs55XB26aFmRPWfKgAFTB6Lrx1OqCf/CInF47t9z4p5ZKpRynSz5FqDeNRkTray93SZDElYEPcqPOG/wNP+d2i
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 15:23:42.8751
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cfd7ef16-8cfe-492d-0d82-08df4a3eecb2
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	ZR1PEPF0000E6B6.eurprd07.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR10MB8576
 
+Hi Marek
 
---s87hUG1Zje37F0sQ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 11/2/26 06:22, Marek Vasut wrote:
+> Generate the combined STM32MP15xx DHCOM SoM PicoITX and overlay from
+> PicoITX instead of PDK2. Fix the Makefile to use the correct base DT.
+> 
+> Fixes: 77a5fde00b9a ("ARM: dts: stm32: Add DT overlays for DH STM32MP13xx/STM32MP15xx DHSOM")
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
+> ---
+> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: devicetree@vger.kernel.org
+> Cc: kernel@dh-electronics.com
+> Cc: linux-kernel@vger.kernel.org
+> ---
+>   arch/arm/boot/dts/st/Makefile | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm/boot/dts/st/Makefile b/arch/arm/boot/dts/st/Makefile
+> index 10c5d75f6169c..f699d37254e24 100644
+> --- a/arch/arm/boot/dts/st/Makefile
+> +++ b/arch/arm/boot/dts/st/Makefile
+> @@ -94,11 +94,11 @@ stm32mp15xx-dhcom-picoitx-overlay-548-200-x2-mi0700s4t-6-dtbs := \
+>   	stm32mp15xx-dhcom-picoitx-overlay-548-200-x2-mi0700s4t-6.dtbo \
+>   
+>   stm32mp15xx-dhcom-picoitx-overlay-553-100-x2-tst043015cmhx-dtbs := \
+> -	stm32mp157c-dhcom-pdk2.dtb \
+> +	stm32mp157c-dhcom-picoitx.dtb \
+>   	stm32mp15xx-dhcom-picoitx-overlay-553-100-x2-tst043015cmhx.dtbo \
+>   
+>   stm32mp15xx-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh-dtbs := \
+> -	stm32mp157c-dhcom-pdk2.dtb \
+> +	stm32mp157c-dhcom-picoitx.dtb \
+>   	stm32mp15xx-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh.dtbo \
+>   
+>   dtb-$(CONFIG_ARCH_STM32) += \
 
-Hi all,
+Applied on stm32-fixes.
 
-Today's linux-next merge of the drm-intel tree got a conflict in:
-
-  drivers/gpu/drm/i915/display/intel_quirks.c
-
-between commits:
-
-  88d804cd1be9a ("drm/i915/display: Add quirk to force backlight type on so=
-me TUXEDO devices")
-  b03f2f48069e9 ("drm/i915/psr: Adjust Xiaomi Book Pro 14 2026 psr2 disable=
- quirk")
-
-=66rom the origin tree and commits:
-
-  5bb277d94021f ("drm/i915/psr: Adjust Xiaomi Book Pro 14 2026 psr2 disable=
- quirk")
-  6d00cec4c9bec ("drm/i915/bios: Add quirk to allow eDP joiner on ASUS ROG =
-Strix SCAR 18")
-
-=66rom the drm-intel tree.
-
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-diff --combined drivers/gpu/drm/i915/display/intel_quirks.c
-index e3303d5146e89,ec3a79c87e73d..0000000000000
---- a/drivers/gpu/drm/i915/display/intel_quirks.c
-+++ b/drivers/gpu/drm/i915/display/intel_quirks.c
-@@@ -108,6 -108,16 +108,16 @@@ static void quirk_enable_dpcd_backlight
-  	drm_info(display->drm, "Applying Enable DPCD Backlight quirk\n");
-  }
- =20
-+ /*
-+  * VBT on some machines defaults the eDP pipe joiner to disabled even tho=
-ugh
-+  * the panel requires it to achieve its native mode, so allow it regardle=
-ss.
-+  */
-+ static void quirk_allow_edp_joiner(struct intel_display *display)
-+ {
-+ 	intel_set_quirk(display, QUIRK_ALLOW_EDP_JOINER);
-+ 	drm_info(display->drm, "Applying allow eDP joiner quirk\n");
-+ }
-+=20
-  struct intel_quirk {
-  	int device;
-  	int subsystem_vendor;
-@@@ -271,6 -281,9 +281,9 @@@ static struct intel_quirk intel_quirks[
-  	/* Xiaomi Book Pro 14 2026 */
-  	{ 0xb081, 0x1d72, 0x2424, quirk_disable_psr2 },
-  	{ 0xb080, 0x1d72, 0x2424, quirk_disable_psr2 },
-+=20
-+ 	/* ASUS ROG Strix SCAR 18 G835LXG */
-+ 	{ 0x7d67, 0x1043, 0x3b29, quirk_allow_edp_joiner },
-  };
- =20
-  static const struct intel_dpcd_quirk intel_dpcd_quirks[] =3D {
-
---s87hUG1Zje37F0sQ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsFq9MACgkQJNaLcl1U
-h9A3Dgf/XjP/vcut0dT6mZXkNilCUjlAjH4FUYZzQu8JUxSpT4bp5CYIkvmTVsva
-uv8FKBiFuXRKPaCIwcWYvjPLvInv6OzQraZc9fEwVJEXSGIBB58Jwt8/mrImgKsr
-URrcam8MVzYHgellrFnLCUgknblKiDB4PXEHGkpXNSndnEBCLrUoYxjqbxj5G81Q
-mwHSVSKexmLB5IP7Qt0yJKIBPndjCcl2jFAL/uGmu+Tl8TSmoD6aBdUhUQNL8qGt
-N4H2jCtPgcOR3WIyhCP4q/OiI9F46Y90IIEM2kwoFZ3ZVQHZ5cNkQNCNHQXXNKbP
-rsquhjTbVYW7kNS4u0eYxS5dMEX1UQ==
-=qWAA
------END PGP SIGNATURE-----
-
---s87hUG1Zje37F0sQ--
+regards
+Alex
