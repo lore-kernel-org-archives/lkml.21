@@ -1,47 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795527319;
-	b=ojLS0grrocbayw7N0WSxOEf3D+QZvbA4O3H8zd0Ew/WQomJLHrQWo1oq0klAY1PPdIpo
-	 Q9ZWT+J8cczk8LAKhyHRWLWM5SL1sPLzA9NEeqVMiPR7x1HAgU52p/nWqg50aP5FIHIIa
-	 qTHslbOtM2VvOy5XPM2mKp3Ve3UxAh/sQ7dDlH1zqjbOcNs1qjyvdlxb1OJOKbEllP/bx
-	 FBr50fHQyKSiUNhhADiy6jDzHdm6x+dll7uvkesj8B7Jj3cFk3ArljUFcMj/C0XxwdVug
-	 aa+yO1T1VHjA9LqDplouJ4iWzkvEzzIBbBcr+9537QiRqzvdveZl21Lo0jqExDprJlQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795527319;
-	h=Received:DKIM-Signature:Date:Content-Type:Content-Transfer-Encoding:
-	 MIME-Version:From:Cc:To:In-Reply-To:References:Message-Id:Subject;
-	bh=brA1TZa4Xw4gj6MGSoKR1QMCPQppauTAeMn4qP0Jvxc=;
-	b=EtxY4gYjBTFwXHw/jg1c67gXLm4/3943WpSnDnHez645HIrzwLwEoZjYEqPkk4ysWRc6
-	 MSVJPgWNi8/VGiXlnrZiehl5ullf28NOaty+qdQ/Ii8/QIwTJETl4qhTzMESy0dUKyEu9
-	 3W2u2MmJGy1t3Q4KU/LBTcbOYeCtyXpkTE6aZogqqQu+GKfcBk0Yud/nA7INbdkyPJa9i
-	 hrOo3w62ijCRkl1M3n/9dFS6QnihO9MyuCVqruXCRZrKFnfJeskfUz2HzTGJlGjI/CI2M
-	 vCeDq5t+BLaXu1bkG9e3sZtp5a5cwy83pVd0Yz4u/IY1BkK0/MaGWIAvkYwBvCxv/Pw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="dSbn8Y/N";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.47
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795527327;
+	b=uucP3myPvTyl8EPcz/WpyUsf0nL7ftq+YWPuNyGe/P2RpSDErfYN/zLHzwtIIv20oWTA
+	 UfCqH/DVFQ4epQVZbvmEsSNo/ydkDIEVl6Xbn7S9FQiDTtCbiY4xV0iD7T3YCW16QkkeB
+	 Ss69ADD4/HDnJy4pNDySYfhD7wu4Ty8tfhdPahe/SjtnQL8YHr3sJtYywLM+a4yJGHzxy
+	 Jv9GE2TyvhKM4AirC8FoN6/Bgqf2tDggzrB5SbKp+xYDdL4apASceKwiz6X9zlx4SVa/q
+	 XwpUzJzT/GEhtvQqGb31e7yYcB6rGcV0ILiPN1CZe+IeLwuVb7f7mDCNqPp2W5oS5xw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795527327;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=b1up1oCF6qzRTwv6vvBBSZW6ICBIiKGkgn9Tp8EvIiA=;
+	b=KrHp2/mTG2Ac59WGXpcnGTLkGt5FA0AWCSu5OoGzTsd6b/AYKINen/v3WQE8DfqmlEnR
+	 ZmGsbVg85lHPINf4TboeRvnigQZUZpJbGT8p8cIdWIxKj7WzI+E82ntgioV6XlBpLXEDr
+	 exP6QanOeRXTcbthAJXe+nMBOGm29yZD9OXQ2lOAMkjOlkfRqvxEXGT/+ihzrL5Wj/wKZ
+	 2zPVSFtdqgpPJZjIT73qktbqTGydp59RO3xdtivRhDi07I59M+77FFxuF4aZXJQ3F++OZ
+	 ZQsEJy94GzaIa4F60sKsZyS7EojMyR+OXfstdXwk6o+WrWhoHuhNP6QqZewPPDDUNPg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=lPOXrb7a;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.47
+Received: from mail-ed1-f47.google.com (mail-ed1-f47.google.com [209.85.208.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2596D606A326;
-	Tue, 24 Nov 2026 13:35:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30319606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:35:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30319606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dSbn8Y/N
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 521941F000CA;
-	Tue, 24 Nov 2026 13:35:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795527318;
-	bh=brA1TZa4Xw4gj6MGSoKR1QMCPQppauTAeMn4qP0Jvxc=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=dSbn8Y/NI1ECMCHeJz8N3SxMgDZHe+m/bc5KiR6zO3arfCHJFGOb54XmBsHndC0+V
-	 vcjb8SFTRbLoKuKNbV/azVrHe6azEoNKNz/qSTWz1i2JRmUpvuK7w2lEaqoxzv0+Ff
-	 oJBlc/Z+RlgnHkujXGg4c35l9BHhWa3dRHlg/0eRsRdPW4yVxkJr7Bx2/zCHRjYjGV
-	 /AH9oZZONTz0rWgy021OWu/lg2Jp4aqTqXj47Gh3Yrpq1bqgYkNZ40zocELH/IhVSR
-	 6uE6wBHJW47Rm+SU89zd0WmBwbgxzcfhPsDGqSYMV0NAigEXW1T6ZERf8FoGh4RB/u
-	 g+o4oxsJZe+3g==
-Date: Tue, 24 Nov 2026 07:35:16 -0600
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=lPOXrb7a
+Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-6ba38c41804so5161066a12.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:35:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795527325; cv=none;
+        d=google.com; s=arc-20260327;
+        b=IgHVWsXBbIlItvO1hf80CPsOtmICancq13KxCj7k0C2R1d/5xD1FGSqJ9ufk5RFFSF
+         Vfb//azGwN5IGPXUgT/7iYC+3YFatTfVSE4X5heQSGUZ3aGGpNK7SWrx0PYXWW0gMXyt
+         bjgQktnfB3HIBzLXhXfwCvGMSDLZ6MZBwuKw6YrUFA+2WLpHYJIM0t0iVWDYqxba1C84
+         ImGK5MjozkZpxQ1rgIGHD5QnLZ6c82FVesBZEcK+XkJdfpr4Gd1stPkMzNwRdmX2HYpe
+         qbdHq0V65//4VuMctECSABc+4g1Vds4JuO9O4Y04fW+hVdVCjAqBiUznWjSTzxPVkZDj
+         9t7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=b1up1oCF6qzRTwv6vvBBSZW6ICBIiKGkgn9Tp8EvIiA=;
+        fh=qkPXiZye3IVGmfumAOLFil5yf98Sr3mGqghJsK+zg8E=;
+        b=iP4kydbfle7g20n6ciSgImgONuaCoJMXG8fcKj5siotRhQlqXpMWpav3+dV/q38q+J
+         uoMmyYZbTAt+bhxjlJoWMbF/qRVknV9fcxrELxbiaxTcUb6Vj7MSwesCCJPsj0xGDPFq
+         fkloyLwDanMdZCHORFWK+O02yWvS+W2x9p8Pc7IslYfuG1EbIllLNHV53oXI9kUU6B0S
+         WPInrEvjT8WdiyjTpwF6Z7VCzmdxuBalt00upt/naWI+RXpYE9Z3Vq+3e+GL2S0yitko
+         LULcmar/Hs9AX5guAIcJMGafVjo6pDbe2ePmTDa4+HIz2Loai+yROh+24S/EKGjaESBT
+         v/cw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795527325; x=1796132125; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=b1up1oCF6qzRTwv6vvBBSZW6ICBIiKGkgn9Tp8EvIiA=;
+        b=lPOXrb7a4z59iEMaV3e5nYmkAiVIOM3JSS5THtcfOrpCsUsu7MOgcdhVB0U9VxuYt4
+         ZZuULPhg4ioPHbAw14WcCF8WC17/Nz244NcOk2nNAG6F3JCY4pfCKyXmmjI+2I37WSnb
+         lqnO8lHhCgORHlcYdeynbLoDxU/zBqVkZ6znfhx3eIk0bA2vvtl+RteJeASTUXU4kHhP
+         eZSqCvi//v4ptbBhHdPRTjOy8STF1q9+QpTsD1/3cQbxiq3djt1Dj0PpYFOcB670IRBs
+         0ZpRmPdOKdjCzuknnfeKawRKCsFWIlsfbtt6P9ka96GBeSd3EksZFqXaIwjWDUI1C0Vm
+         nz3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795527325; x=1796132125;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=b1up1oCF6qzRTwv6vvBBSZW6ICBIiKGkgn9Tp8EvIiA=;
+        b=qPVmbr3U1Hb4wYFjZCvrvXkvuDRflgWaJJIIAzS8nBM5K0oqNHLKABR+CvycrqnOsG
+         lxjKVVJLCdWnojrXvlLp8ZFGgbVbobnqS904UBmr8KZ0WcFuJRw5OIGc5dIh7fsyH8+E
+         vsrXu0xYxQoZmNUAopFzdrox/6GMz4eJ1HO9wpDol1BRiG2cKZM+Mo9YiOXZuTqGRwdq
+         ZGECvZF/mzkR6rMgWRuml/JmwlgZ0U0hlIDPIWeaDkWiaJKnhsgkN0b9nRU0lr1Pd/md
+         WISbwXaizzQqs8bybpJVDb3EtgDuBFxp+1tuoJG/u210g5vy4OxrrpFCYd3ZYMQHitLh
+         Kq6w==
+X-Forwarded-Encrypted: i=1; AL+hErE8wqYjqqes5zOGqYxGKlAU18xyuLe+EIQ6CiHVyXxjS7A+MrzJ3kGxA1UVISd8OF8KscxZye/dGF8nrBs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z98rnewzIOA/bwNRq5GJaF8dlZgAd8Dl6Oa7YbCvbP+KyrkV4kJ
+	oXnl+tINZyJ9wQ8/VlHcmfj3qutFeA33c2Op3+gywSW0lHVeUuyMLVysIC7PY/0cNXcHUoJWhqk
+	PWVlygM+d7VHZlL9O/9JMzGQ95tJBLCW8x1sqw+ScIQ==
+X-Gm-Gg: AZFdTZdmHxUzWi1vLXrcPsqQ2PXHs/tca2qMjNJVW+EbA3M5DhUXzhDWiO2NAEhDGh1
+	+g2FkuuXmMNrKSW8P1OoWPVhxYHNIYu1vuARWqTUutHfARnYJzTdIeLFPT5U2DfDVdx1dGcNdRe
+	7cCySEubkysARrgG14APznhdzxqOdGIght20WFZuIyJ77cQ8R6h43bUh+HCKdIY7pZ94al1NWDu
+	+Tg3xsOJ+Y5Yrmlehh+8V4PFk2Oid6Rw6dWbTlaumVPJNAqhA0513f8nty4YWGnw+g3uJdz4kfa
+	au3MpMPzqDECv2ThtEogpzXFUiW0luGdzQy3zlediSciHhXnJVCjBRxbSAvAlMh234d44d96yK4
+	Qm6uKghDQmmJVr68Tr2Dh73ZtKS0aWjqDAv0L5nYBzKvJVDR1Bp96T5DdYznfrOEFqqf5Ig==
+X-Received: by 2002:a05:6402:1c05:b0:6b9:c43d:892 with SMTP id
+ 4fb4d7f45d1cf-6ba37c7bebdmr7896114a12.1.1795527325503; Tue, 24 Nov 2026
+ 05:35:25 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,145 +103,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Andreas Kemnade <andreas@kemnade.info>, Mark Brown <broonie@kernel.org>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Tony Lindgren <tony@atomide.com>, Pavel Machek <pavel@kernel.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Simona Vetter <simona@ffwll.ch>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
- linux-sound@vger.kernel.org, Takashi Iwai <tiwai@suse.com>, 
- Jaroslav Kysela <perex@perex.cz>, linux-omap@vger.kernel.org, 
- linux-gpio@vger.kernel.org, Kevin Hilman <khilman@baylibre.com>, 
- Linus Walleij <linus.walleij@linaro.org>, linux-kernel@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org, 
- Jessica Zhang <jessica.zhang@oss.qualcomm.com>, linux-pwm@vger.kernel.org, 
- Maxime Ripard <mripard@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-fbdev@vger.kernel.org, Peter Ujfalusi <peter.ujfalusi@gmail.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Daniel Thompson <danielt@kernel.org>, 
- Jarkko Nikula <jarkko.nikula@bitmer.com>, Roger Quadros <rogerq@kernel.org>, 
- David Airlie <airlied@gmail.com>, devicetree@vger.kernel.org, 
- Jingoo Han <jingoohan1@gmail.com>, letux-kernel@openphoenux.org, 
- Bartosz Golaszewski <brgl@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Liam Girdwood <lgirdwood@gmail.com>, Russell King <linux@armlinux.org.uk>, 
- kernel@pyra-handheld.com, Helge Deller <deller@gmx.de>
-To: "H. Nikolaus Schaller" <hns@goldelico.com>
-In-Reply-To: <5c6f7deca16f70f1f19cb40c57d70e30068d6000.1795505160.git.hns@goldelico.com>
-References: <cover.1795505160.git.hns@goldelico.com>
- <5c6f7deca16f70f1f19cb40c57d70e30068d6000.1795505160.git.hns@goldelico.com>
-Message-Id: <179552715646.40567.8345105080206889175.robh@kernel.org>
-Subject: Re: [PATCH v2 06/20] dt-bindings: sound: Document OpenPandora
- sound card
+References: <20261122015729.2512645-1-penghuang@google.com>
+ <cover.1795462673.git.penghuang@google.com> <2b1ef28e12d12a1f894827b951910c1979d54d45.1795462673.git.penghuang@google.com>
+In-Reply-To: <2b1ef28e12d12a1f894827b951910c1979d54d45.1795462673.git.penghuang@google.com>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Tue, 24 Nov 2026 14:35:13 +0100
+X-Gm-Features: Aa3M54r_GuyHMOfbhsDgXKslUX5_bNC9UFQqsD7NbKjR0P0AP7-nwsbW-9M7qek
+Message-ID: <CAKfTPtAkNzqFbNsw2YKoNCsqzpC0wEs_LTrV0S_TU-FvDPu21g@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] sched_ext, sched/fair: Drain blocked load on scx_switched_all
+To: Peng Huang <penghuang@google.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, 
+	Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
+On Mon, 23 Nov 2026 at 21:13, Peng Huang <penghuang@google.com> wrote:
+>
+> Tasks that exit or migrate while sleeping queue their PELT load and
+> utilization in cfs_rq->removed rather than deducting and propagating
+> immediately. When scx_enable() switches all fair tasks to sched_ext,
+> switched_from_fair() only visits cfs_rq chains that still hold live
+> fair tasks, leaving unvisited leaf cfs_rqs undrained in rq->cfs.avg.
+>
+> Once __scx_switched_all is enabled, scheduler_tick() skips
+> sched_balance_trigger() and fair_sched_class is bypassed, freezing
+> blocked-load updates. Stale rq->cfs.avg.util_sum can then combine with
+> active RT/DL util_sum in update_idle_rq_clock_pelt() to exceed divider,
+> inflating rq->lost_idle_time and stalling rq_clock_pelt().
+>
+> Export __sched_balance_update_blocked_averages() and call it on each
+> CPU in scx_enable()'s per-CPU scx_switched_all() loop so pending
+> cfs_rq->removed entries and task-group propagations are drained cleanly.
+>
+> Fixes: f0e1a0643a59 ("sched_ext: Implement BPF extensible scheduler class")
+> Suggested-by: Vincent Guittot <vincent.guittot@linaro.org>
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Peng Huang <penghuang@google.com>
 
-On Tue, 24 Nov 2026 08:25:46 +0100, H. Nikolaus Schaller wrote:
-> The OpenPandora audio subsystem describes the routing links between the
-> OMAP3 McBSP interface, the external PCM1773 DAC, and the TWL4030 audio
-> codec, alongside amplifiers and power supplies.
-> 
-> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
+Reviewed-by: Vincent Guittot <vincent.guittot@linaro.org>
+
 > ---
-> 
-> Notes:
->     Changes against V1:
->     - Address Krzysztof Kozlowski's V1 request to run the documented
->       DT schema checks and fix the errors reported by Rob Herring's
->       automated DT validation.
->     - Update the binding example and schema during DT consistency review.
->     - Binding and commit-message review assisted by ChatGPT.
-> 
->  .../sound/openpandora,omap3pandora-sound.yaml | 95 +++++++++++++++++++
->  1 file changed, 95 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml
-> 
-
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/sound/qcom,apq8016-sbc-sndcard.example.dtb: sound@7702000 (qcom,apq8016-sbc-sndcard): primary-dai-link:cpu:sound-dai: [[4294967295],[0]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/qcom,apq8016-sbc-sndcard.yaml
-Documentation/devicetree/bindings/sound/qcom,apq8016-sbc-sndcard.example.dtb: sound@7702000 (qcom,apq8016-sbc-sndcard): quaternary-dai-link:cpu:sound-dai: [[4294967295],[3]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/qcom,apq8016-sbc-sndcard.yaml
-Documentation/devicetree/bindings/sound/qcom,apq8016-sbc-sndcard.example.dtb: sound@7702000 (qcom,apq8016-sbc-sndcard): tertiary-dai-link:cpu:sound-dai: [[4294967295],[2]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/qcom,apq8016-sbc-sndcard.yaml
-Documentation/devicetree/bindings/sound/qcom,apq8016-sbc-sndcard.example.dtb: sound@7702000 (qcom,msm8916-qdsp6-sndcard): mm1-dai-link:cpu:sound-dai: [[4294967295],[0]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/qcom,apq8016-sbc-sndcard.yaml
-Documentation/devicetree/bindings/sound/qcom,apq8016-sbc-sndcard.example.dtb: sound@7702000 (qcom,msm8916-qdsp6-sndcard): primary-dai-link:cpu:sound-dai: [[4294967295],[16]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/qcom,apq8016-sbc-sndcard.yaml
-Documentation/devicetree/bindings/sound/samsung,snow.example.dtb: sound (google,snow-audio-max98095): codec:sound-dai: [[4294967295],[0],[4294967295]] has more than 2 items
-	from schema $id: http://devicetree.org/schemas/sound/samsung,snow.yaml
-Documentation/devicetree/bindings/sound/samsung,snow.example.dtb: sound (google,snow-audio-max98095): cpu:sound-dai: [[4294967295],[0]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/samsung,snow.yaml
-Documentation/devicetree/bindings/sound/fsl,qmc-audio.example.dtb: sound (simple-audio-card): simple-audio-card,dai-link@0:cpu:sound-dai: [[1],[16]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/simple-card.yaml
-Documentation/devicetree/bindings/sound/fsl,qmc-audio.example.dtb: sound (simple-audio-card): simple-audio-card,dai-link@1:cpu:sound-dai: [[1],[17]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/simple-card.yaml
-Documentation/devicetree/bindings/sound/fsl,qmc-audio.example.dtb: sound (simple-audio-card): simple-audio-card,dai-link@2:cpu:sound-dai: [[1],[18]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/simple-card.yaml
-Documentation/devicetree/bindings/sound/mediatek,mt8173-rt5650.example.dtb: sound (mediatek,mt8173-rt5650): codec-capture:sound-dai: [[4294967295],[1]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/mediatek,mt8173-rt5650.yaml
-Documentation/devicetree/bindings/sound/simple-card.example.dtb: sound (simple-audio-card): simple-audio-card,cpu:sound-dai: [[4294967295],[0]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/simple-card.yaml
-Documentation/devicetree/bindings/sound/simple-card.example.dtb: sound (simple-audio-card): simple-audio-card,cpu@0:sound-dai: [[4294967295],[0]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/simple-card.yaml
-Documentation/devicetree/bindings/sound/simple-card.example.dtb: sound (simple-audio-card): simple-audio-card,cpu@1:sound-dai: [[4294967295],[1]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/simple-card.yaml
-Documentation/devicetree/bindings/sound/simple-card.example.dtb: sound (simple-audio-card): simple-audio-card,dai-link@0:cpu:sound-dai: [[4294967295],[0]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/simple-card.yaml
-Documentation/devicetree/bindings/sound/simple-card.example.dtb: sound (simple-audio-card): simple-audio-card,dai-link@1:codec:sound-dai: [[4294967295],[0]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/simple-card.yaml
-Documentation/devicetree/bindings/sound/simple-card.example.dtb: sound (simple-audio-card): simple-audio-card,dai-link@1:cpu-0:sound-dai: [[4294967295],[1]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/simple-card.yaml
-Documentation/devicetree/bindings/sound/simple-card.example.dtb: sound (simple-audio-card): simple-audio-card,dai-link@1:cpu-1:sound-dai: [[4294967295],[2]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/simple-card.yaml
-Documentation/devicetree/bindings/sound/simple-card.example.dtb: sound (simple-audio-card): simple-audio-card,dai-link@1:cpu-2:sound-dai: [[4294967295],[3]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/simple-card.yaml
-Documentation/devicetree/bindings/sound/simple-card.example.dtb: sound (simple-audio-card): simple-audio-card,dai-link@1:cpu-3:sound-dai: [[4294967295],[4]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/simple-card.yaml
-Documentation/devicetree/bindings/sound/simple-card.example.dtb: sound (simple-audio-card): simple-audio-card,dai-link@2:codec:sound-dai: [[4294967295],[1]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/simple-card.yaml
-Documentation/devicetree/bindings/sound/simple-card.example.dtb: sound (simple-audio-card): simple-audio-card,dai-link@2:cpu:sound-dai: [[4294967295],[5]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/simple-card.yaml
-Documentation/devicetree/bindings/sound/qcom,sm8250.example.dtb: sound (qcom,qrb5165-rb5-sndcard): hdmi-dai-link:cpu:sound-dai: [[4294967295],[20]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/qcom,sm8250.yaml
-Documentation/devicetree/bindings/sound/qcom,sm8250.example.dtb: sound (qcom,qrb5165-rb5-sndcard): mm1-dai-link:cpu:sound-dai: [[4294967295],[0]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/qcom,sm8250.yaml
-Documentation/devicetree/bindings/sound/qcom,sm8250.example.dtb: sound (qcom,qrb5165-rb5-sndcard): mm2-dai-link:cpu:sound-dai: [[4294967295],[1]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/qcom,sm8250.yaml
-Documentation/devicetree/bindings/sound/qcom,sm8250.example.dtb: sound (qcom,qrb5165-rb5-sndcard): mm3-dai-link:cpu:sound-dai: [[4294967295],[2]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/qcom,sm8250.yaml
-Documentation/devicetree/bindings/sound/qcom,sm8250.example.dtb: sound (qcom,qrb5165-rb5-sndcard): usb-dai-link:cpu:sound-dai: [[4294967295],[136]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/qcom,sm8250.yaml
-Documentation/devicetree/bindings/sound/qcom,sm8250.example.dtb: sound (qcom,qrb5165-rb5-sndcard): va-dai-link:cpu:sound-dai: [[4294967295],[110]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/qcom,sm8250.yaml
-Documentation/devicetree/bindings/sound/qcom,sm8250.example.dtb: sound (qcom,qrb5165-rb5-sndcard): wsa-dai-link:cpu:sound-dai: [[4294967295],[105]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/qcom,sm8250.yaml
-Documentation/devicetree/bindings/sound/google,sc7180-trogdor.example.dtb: sound (google,sc7180-trogdor): dai-link@0:cpu:sound-dai: [[4294967295],[0]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/google,sc7180-trogdor.yaml
-Documentation/devicetree/bindings/sound/google,sc7180-trogdor.example.dtb: sound (google,sc7180-trogdor): dai-link@1:cpu:sound-dai: [[4294967295],[1]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/google,sc7180-trogdor.yaml
-Documentation/devicetree/bindings/sound/google,sc7180-trogdor.example.dtb: sound (google,sc7180-trogdor): dai-link@2:cpu:sound-dai: [[4294967295],[0]] has more than 1 item
-	from schema $id: http://devicetree.org/schemas/sound/google,sc7180-trogdor.yaml
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.kernel.org/project/devicetree/patch/5c6f7deca16f70f1f19cb40c57d70e30068d6000.1795505160.git.hns@goldelico.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+>  kernel/sched/ext/ext.c | 9 ++++-----
+>  kernel/sched/fair.c    | 7 ++++++-
+>  kernel/sched/sched.h   | 1 +
+>  3 files changed, 11 insertions(+), 6 deletions(-)
+>
+> diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
+> index 10de6bd865e8..f7c573092e17 100644
+> --- a/kernel/sched/ext/ext.c
+> +++ b/kernel/sched/ext/ext.c
+> @@ -9013,11 +9013,9 @@ static void scx_root_enable_workfn(struct kthread_work *work)
+>                 static_branch_enable(&__scx_switched_all);
+>
+>         /*
+> -        * Detach the fair_server bandwidth reservation now that the switch
+> -        * is fully committed. In full mode (!SCX_OPS_SWITCH_PARTIAL) no
+> -        * task will ever run in the fair class, so give that bandwidth
+> -        * back to the RT class. The matching ext_server attach already
+> -        * happened earlier; this only releases bandwidth and cannot fail.
+> +        * Detach the fair_server bandwidth reservation and drain any
+> +        * remaining blocked or removed fair load now that the switch is
+> +        * fully committed and periodic fair blocked-load updates stop.
+>          *
+>          * In partial mode keep fair_server attached.
+>          */
+> @@ -9028,6 +9026,7 @@ static void scx_root_enable_workfn(struct kthread_work *work)
+>                         guard(rq_lock_irqsave)(rq);
+>                         update_rq_clock(rq);
+>                         dl_server_detach_bw(&rq->fair_server);
+> +                       __sched_balance_update_blocked_averages(rq);
+>                 }
+>         }
+>
+> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> index f6c3bbb19557..f19f498e01a4 100644
+> --- a/kernel/sched/fair.c
+> +++ b/kernel/sched/fair.c
+> @@ -11655,10 +11655,15 @@ static unsigned long task_h_load(struct task_struct *p)
+>  }
+>  #endif /* !CONFIG_FAIR_GROUP_SCHED */
+>
+> -static void __sched_balance_update_blocked_averages(struct rq *rq)
+> +/*
+> + * Update blocked PELT averages for RT/DL/IRQ and fair cfs_rqs on @rq.
+> + * Caller must hold @rq's lock and have updated @rq's clock.
+> + */
+> +void __sched_balance_update_blocked_averages(struct rq *rq)
+>  {
+>         bool decayed = false, done = true;
+>
+> +       lockdep_assert_rq_held(rq);
+>         update_blocked_load_tick(rq);
+>
+>         decayed |= __update_blocked_others(rq, &done);
+> diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+> index 220927453a88..71a69f90e5df 100644
+> --- a/kernel/sched/sched.h
+> +++ b/kernel/sched/sched.h
+> @@ -2977,6 +2977,7 @@ extern struct task_struct *pick_task_idle(struct rq *rq, struct rq_flags *rf);
+>  extern void update_group_capacity(struct sched_domain *sd, int cpu);
+>
+>  extern void sched_balance_trigger(struct rq *rq);
+> +void __sched_balance_update_blocked_averages(struct rq *rq);
+>
+>  extern int __set_cpus_allowed_ptr(struct task_struct *p, struct affinity_context *ctx);
+>  extern void set_cpus_allowed_common(struct task_struct *p, struct affinity_context *ctx);
+> --
+> 2.56.1.831.g720f3f5937-goog
+>
