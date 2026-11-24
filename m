@@ -1,49 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795540164;
-	b=DJ/4YneCDRRcYUVq7Z0SyDWEfmWW2Dz+z3o0NZTtp4Ha6lhrN3kwTLcrWACycP/NEcuf
-	 Rch16+n9cNDzXfX024yJvtY+zbQpqVOmtrMmIZYxfe0srDXEGyn+SIvgTXGfcOOAu29Sj
-	 Wy8fr2xvCQpEwfe/l/mjT2q/FTbzwP9Y/dsScEn2yqsJQQprqdH6ra/1joghvm5wL0pCZ
-	 gV+/B7x2EfY4OkxHWJd8iNI2Cq0CciOnxk6ezzSo431YFYGVc6W+uZgLkTnss56oA05bw
-	 6qIPkhkq4DjbFTVg7LNMAUSz/jBqiyo3CCzxirA2w82oGW1HXnjXz13usU8T7FvwfbQ==
+	t=1795540157;
+	b=dDTb15WzES/rGAxNVWxtbN/8a1r8gxNrnlpLidXrjePGX/Ygtp//F+Z16VoVaRhOMBUQ
+	 tqSv+YNKfQpRmQGwNOBGr5MjvSKcPrkR0OoxOkzCvI39gRJo4OusJq8c6EjePFVUMAgNH
+	 s8bzVigCHPrno/ol4lSd+k8Mc7/S69YwFlCrm6ck3J5bKoSdcpUg3JPa5P6OoDqQZ9O7I
+	 Ud1Bo3bDomdZCe40TJEWINWmbnixchAm/j1UF0KxTAGFnQGISkGZlgrsJK0AGkrReR/d0
+	 fwIUqr0YrZrpxhylbIXNGsuk2jBY1m9dgaXQQ/uEdmr/TN1lrSSBHeVU5bUbmKxA82Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540164;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=AaIrFlkXdeWf9hXAsBJcUrPwWw8lPr576kDFCtinrC4=;
-	b=mRRCm/cd976UnbwaMi+4kCDQOCNUB/jfDPcIZ4oKFsa5MVmp+HNcqallEDRSihWy/Q9r
-	 mEn69TTsakgRPjl0GZtUUq47Ib96cVN2JQddpOm3jB1c9kzoEIzYlQ48LjCL6vzjT0okO
-	 xRCg0udLmrpjt7KIZywUpO+yAURGZkPyr1405/ZVe4RxiRo4oglr6TZNGmv6wCtE7+Vog
-	 BtuKb8THn+LvMd5GiV0sIno/OiWibNTLlJa+HISnAmhZKHb9c/0vXDVawgwVS+NEgx5RC
-	 p0G4JZwxdBWrCQjsIQMCIiygMzqpoiTV4QHD1wcCdBhuimaBK1ShQOgJ3QpB8bmY1Wg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540157;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key;
+	bh=Cl1G/Mg3MLListnA7EQNEKCHeIDoZedVmpyUo6+IOEs=;
+	b=jzu2CYRXWMEMmSItJ/75WMjSYfQJbPLJ3qXCfYwRzPd2tSfMStynT/5R/Zzd2uJ6IP92
+	 7+yrgxg+8mk/dmtPsz5oajlKfyhcdpsw82dOMqOKr9pKIuEgi4VstBp1Mm+S8JhY+Mw1H
+	 KY5qWF46RkrbfgdJl5GBUozM5YC9jGzF6bn/1/qjc1QMzzw5mudvSIo4ZWFzb4UwkkWFN
+	 uz45Rez5lWVAIj+rtIweQ+tz2Bg+J9/Fz4rZ7AJUegXSNSReG+qvVvdO2hdATJ6AUHPKY
+	 /pHFADgP5D4Yy/1RZzOwX5vu8LW9SBFuqXWluDo6LIKn+Zl+K5wRKItczkMWHKTx/2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fh5NqFKV;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56004606A337;
-	Tue, 24 Nov 2026 17:09:24 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=bUl4I4qK;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id D77F7606A680;
+	Tue, 24 Nov 2026 17:09:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D77F7606A680
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fh5NqFKV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C6CF1F000D0;
-	Tue, 24 Nov 2026 17:09:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795540163;
-	bh=AaIrFlkXdeWf9hXAsBJcUrPwWw8lPr576kDFCtinrC4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Fh5NqFKVY7dmEHOZo+WfBqkbmDoW4EzOBurfc1eW7z5egP5jZ69di12rtO+fJDhlG
-	 +asNZ8e7evQ6DQ9TAwz5qnSWe61KBzp37w3IUz1sZ197hsmM3XfKfW8sKh0dT8l1yO
-	 pjn7SavwfbD02HUUU9lkEnRgD64gQJSlhK+LUWGcgrIRrFZ2RY8328T8DDhD7zJy/v
-	 4JhIgZ02UnJ3QrbkIgU/rPWi64UpgCJu/lgGYsaS0LC9AJBTd2BfRevIb0LTRnc3ij
-	 g0WVhVCUqF4knuF0OXQ/isOcX7Z44fhhey0B6KvDsIWeOjm/BfaAZM7K3WH1yH7ff/
-	 pOLG1BJlyy5wg==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 24 Nov 2026 17:07:55 +0000
-Subject: [PATCH v2 03/11] mm: convert miscellaneous VMA flag tests to use
- vma_flags_t
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=bUl4I4qK
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 853BE1C0A;
+	Tue, 24 Nov 2026 09:09:13 -0800 (PST)
+Received: from e126453.arm.com (e126453.arm.com [10.33.8.63])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB2293F763;
+	Tue, 24 Nov 2026 09:09:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795540156; bh=lla7fRQ9ubK7UCYFc/yUdmuI1cGz4l0bT3PTGoiJq8Q=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=bUl4I4qKXOYiT9kAy1gWLDQMyRJ7tr9Pea5q/SHd2Z9f+k82Gg8O8nf+mrLr5btDt
+	 8Dn1sJa7A+AoLpCEOhDAuYV0mrRup52O3sXH/vqKOyH78OJ3IKm1LznLmLJihbS1as
+	 x7ZqgF7LoIQ1hvRuyP5P0hMKj2yjOeICHyT53I+k=
+From: Anthony McGivern <anthony.mcgivern@arm.com>
+Date: Tue, 24 Nov 2026 17:07:52 +0000
+Subject: [PATCH 24/24] MAINTAINERS: Add entry for mali-c720 driver
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,304 +57,67 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-late-2026-vma-flags-v2-3-bf3fade93064@kernel.org>
-References: <20261124-late-2026-vma-flags-v2-0-bf3fade93064@kernel.org>
-In-Reply-To: <20261124-late-2026-vma-flags-v2-0-bf3fade93064@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>, 
- John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
- "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
- Rik van Riel <riel@surriel.com>, "Liam R. Howlett" <liam@infradead.org>, 
- Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>, 
- Jann Horn <jannh@google.com>, Lance Yang <lance.yang@linux.dev>, 
- Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>, 
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
- Gregory Price <gourry@gourry.net>, 
- Ying Huang <ying.huang@linux.alibaba.com>, 
- Alistair Popple <apopple@nvidia.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
- Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
- Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
- Xu Xin <xu.xin@linux.dev>, Chengming Zhou <chengming.zhou@linux.dev>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
- Shrikanth Hegde <sshegde@linux.ibm.com>, Pedro Falcato <pfalcato@suse.de>, 
- Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
- Shakeel Butt <shakeel.butt@linux.dev>, 
- Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
- Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
- Michal Hocko <mhocko@suse.com>, Leon Romanovsky <leon@kernel.org>, 
- SJ Park <sj@kernel.org>, Rakie Kim <rakie.kim@sk.com>, 
- David Rientjes <rientjes@google.com>, 
- Alexander Viro <viro@zeniv.linux.org.uk>, 
- Christian Brauner <brauner@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- James Clark <james.clark@linaro.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
- John Johansen <john.johansen@canonical.com>, 
- Georgia Garcia <georgia.garcia@canonical.com>, 
- Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
- "Serge E. Hallyn" <serge@hallyn.com>, Mimi Zohar <zohar@linux.ibm.com>, 
- Roberto Sassu <roberto.sassu@huawei.com>, 
- Dmitry Kasatkin <dmitry.kasatkin@gmail.com>, 
- Eric Snowberg <eric.snowberg@oracle.com>, Fan Wu <wufan@kernel.org>, 
- Stephen Smalley <stephen.smalley.work@gmail.com>, 
- =?utf-8?q?Ondrej_Mosn=C3=A1=C4=8Dek?= <omosnacek@gmail.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- kvm@vger.kernel.org, damon@lists.linux.dev, 
- linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- apparmor@lists.ubuntu.com, linux-security-module@vger.kernel.org, 
- linux-integrity@vger.kernel.org, selinux@vger.kernel.org, 
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8060; i=ljs@kernel.org;
- h=from:subject:message-id; bh=HbJWR73e5rJe6zVww3bXvTrm1rI3bP2M41UnWwSLhf4=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJZj+TWfD2t2uLo3b8la07U3I9LGBgeeLsfuOG4c3Ln9
- Y9hV+5s7ihlYRDjYpAVU2R5/kV8f5BI2LzOC/5uMHNYmUCGMHBxCsBEGlIZGX4Ux1T7qNoHnf57
- Y1lO7e0pLp1TVc6//3mrdJpllqt1VAPDf/e4Qw6aG880HNl9ebfT+71TPAOm74v80bjSxr+ni+8
- gMzsA
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Message-Id: <20261124-b4-initial-upstream-candidate-v1-24-0cb9bde1bd30@arm.com>
+References: <20261124-b4-initial-upstream-candidate-v1-0-0cb9bde1bd30@arm.com>
+In-Reply-To: <20261124-b4-initial-upstream-candidate-v1-0-0cb9bde1bd30@arm.com>
+To: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Anthony McGivern <anthony.mcgivern@arm.com>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Nayden Kanchev <nayden.kanchev@arm.com>, 
+ Konstantin Babin <konstantin.babin@arm.com>, 
+ Linus Walleij <linusw@kernel.org>, jacopo.mondi@ideasonboard.com, 
+ kieran.bingham@ideasonboard.com, laurent.pinchart@ideasonboard.com, 
+ dan.scally@ideasonboard.com, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Rob Herring <robh@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Hans Verkuil <hverkuil@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Anthony McGivern <Anthony.McGivern@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795540079; l=1300;
+ i=Anthony.McGivern@arm.com; s=20261124; h=from:subject:message-id;
+ bh=gwm371NAmKOxnRaNds+4uLTJHOtoy/2+DHC1Mr7k2p0=;
+ b=0lxdEHwrHw6DY4UHEjB2QJgO30puD9OOmiAT670llLbXbop41rljqaJ837TpWYy9toenI2ywU
+ lAiUM4gWQFCDLv5Cw+QYqdD7X8wekGZMCyn7nHpnd0oOWQSCJJVoUYT
+X-Developer-Key: i=Anthony.McGivern@arm.com; a=ed25519;
+ pk=cvw1HHVRuWpdkn55JpnRyCO2oGBkBWaBXcc2S3CmHTU=
 
-Replace use of the legacy vm_flags_t flags with vma_flags_t values in the
-remaining straightforward VMA flag tests scattered throughout core mm, HMM
-(and its test module), DAMON and the OOM reaper.
+From: Anthony McGivern <Anthony.McGivern@arm.com>
 
-No functional change intended.
+Add a MAINTAINERS entry for the mali-c720 driver and its associated
+documentation.
 
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-Acked-by: Gregory Price (Meta) <gourry@gourry.net>
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
-Reviewed-by: Lance Yang <lance.yang@linux.dev>
-Reviewed-by: SJ Park <sj@kernel.org> # DAMON
+Signed-off-by: Anthony McGivern <Anthony.McGivern@arm.com>
 ---
- include/linux/mm_inline.h | 2 +-
- lib/test_hmm.c            | 4 ++--
- mm/damon/vaddr.c          | 2 +-
- mm/hmm.c                  | 6 +++---
- mm/internal.h             | 2 +-
- mm/mempolicy.c            | 4 ++--
- mm/mmap_lock.c            | 4 ++--
- mm/msync.c                | 4 ++--
- mm/oom_kill.c             | 4 ++--
- mm/pagewalk.c             | 2 +-
- mm/vma.h                  | 4 ++--
- 11 files changed, 19 insertions(+), 19 deletions(-)
+ MAINTAINERS | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
-index 36b80a2a0e74..573b68ffbc63 100644
---- a/include/linux/mm_inline.h
-+++ b/include/linux/mm_inline.h
-@@ -813,7 +813,7 @@ static inline pte_marker copy_pte_marker(
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 44540a1eb2b8088f9da95a9b6f83b4bf05188ee1..1bf854fb64fb7fcfef50d956350df05da3b2df75 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2392,6 +2392,19 @@ F:	Documentation/userspace-api/media/v4l/metafmt-arm-mali-c55.rst
+ F:	drivers/media/platform/arm/mali-c55/
+ F:	include/uapi/linux/media/arm/mali-c55-config.h
  
- static inline bool vma_has_recency(const struct vm_area_struct *vma)
- {
--	if (vma->vm_flags & (VM_SEQ_READ | VM_RAND_READ))
-+	if (vma_test_any(vma, VMA_SEQ_READ_BIT, VMA_RAND_READ_BIT))
- 		return false;
- 
- 	if (vma->vm_file && (vma->vm_file->f_mode & FMODE_NOREUSE))
-diff --git a/lib/test_hmm.c b/lib/test_hmm.c
-index b803c53201cc..e08993b10a7a 100644
---- a/lib/test_hmm.c
-+++ b/lib/test_hmm.c
-@@ -1251,7 +1251,7 @@ static int dmirror_migrate_to_system(struct dmirror *dmirror,
- 	mmap_read_lock(mm);
- 	for (addr = start; addr < end; addr = next) {
- 		vma = vma_lookup(mm, addr);
--		if (!vma || !(vma->vm_flags & VM_READ)) {
-+		if (!vma || !vma_test(vma, VMA_READ_BIT)) {
- 			ret = -EINVAL;
- 			goto out;
- 		}
-@@ -1323,7 +1323,7 @@ static int dmirror_migrate_to_device(struct dmirror *dmirror,
- 	mmap_read_lock(mm);
- 	for (addr = start; addr < end; addr = next) {
- 		vma = vma_lookup(mm, addr);
--		if (!vma || !(vma->vm_flags & VM_READ)) {
-+		if (!vma || !vma_test(vma, VMA_READ_BIT)) {
- 			ret = -EINVAL;
- 			goto out;
- 		}
-diff --git a/mm/damon/vaddr.c b/mm/damon/vaddr.c
-index 1e65e7651cd9..750e643e020f 100644
---- a/mm/damon/vaddr.c
-+++ b/mm/damon/vaddr.c
-@@ -240,7 +240,7 @@ static void damon_va_walk_page_range(struct mm_struct *mm, unsigned long start,
- 		goto lock_mmap;
- 	}
- 
--	if (!(vma->vm_flags & VM_PFNMAP)) {
-+	if (!vma_test(vma, VMA_PFNMAP_BIT)) {
- 		ops->walk_lock = PGWALK_VMA_RDLOCK_VERIFY;
- 		walk_page_range_vma(vma, start, end, ops, private);
- 	}
-diff --git a/mm/hmm.c b/mm/hmm.c
-index ad7d6013922d..6b9def3c0687 100644
---- a/mm/hmm.c
-+++ b/mm/hmm.c
-@@ -596,9 +596,9 @@ static int hmm_vma_walk_test(unsigned long start, unsigned long end,
- 	struct hmm_range *range = hmm_vma_walk->range;
- 	struct vm_area_struct *vma = walk->vma;
- 
--	if (!(vma->vm_flags & (VM_IO | VM_PFNMAP)) &&
-+	if (!vma_test_any(vma, VMA_IO_BIT, VMA_PFNMAP_BIT) &&
- 	    !vma_test_single_mask(vma, VMA_SHADOW_STACK) &&
--	    vma->vm_flags & VM_READ)
-+	    vma_test(vma, VMA_READ_BIT))
- 		return 0;
- 
- 	/*
-@@ -663,7 +663,7 @@ static int hmm_do_fault(struct mm_struct *mm,
- 		return -EFAULT;
- 
- 	if (required_fault & HMM_NEED_WRITE_FAULT) {
--		if (!(vma->vm_flags & VM_WRITE))
-+		if (!vma_test(vma, VMA_WRITE_BIT))
- 			return -EPERM;
- 		fault_flags |= FAULT_FLAG_WRITE;
- 	}
-diff --git a/mm/internal.h b/mm/internal.h
-index de4593b3e3b6..cc5e43e7bc49 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -1259,7 +1259,7 @@ ssize_t splice_folio_into_pipe(struct pipe_inode_info *pipe,
- 
- static inline bool vma_is_single_threaded_private(struct vm_area_struct *vma)
- {
--	if (vma->vm_flags & VM_SHARED)
-+	if (vma_test(vma, VMA_SHARED_BIT))
- 		return false;
- 
- 	return atomic_read(&vma->vm_mm->mm_users) == 1;
-diff --git a/mm/mempolicy.c b/mm/mempolicy.c
-index 6f800fb961ae..6528c86042bb 100644
---- a/mm/mempolicy.c
-+++ b/mm/mempolicy.c
-@@ -2015,7 +2015,7 @@ SYSCALL_DEFINE5(get_mempolicy, int __user *, policy,
- 
- bool vma_migratable(struct vm_area_struct *vma)
- {
--	if (vma->vm_flags & (VM_IO | VM_PFNMAP))
-+	if (vma_test_any(vma, VMA_IO_BIT, VMA_PFNMAP_BIT))
- 		return false;
- 
- 	/*
-@@ -2567,7 +2567,7 @@ struct folio *vma_alloc_folio_noprof(gfp_t gfp, int order, struct vm_area_struct
- 	pgoff_t ilx;
- 	struct folio *folio;
- 
--	if (vma->vm_flags & VM_DROPPABLE)
-+	if (vma_test_single_mask(vma, VMA_DROPPABLE))
- 		gfp |= __GFP_NOWARN;
- 
- 	pol = get_vma_policy(vma, addr, order, &ilx);
-diff --git a/mm/mmap_lock.c b/mm/mmap_lock.c
-index 073c5125b424..36dc9c0b5dfa 100644
---- a/mm/mmap_lock.c
-+++ b/mm/mmap_lock.c
-@@ -636,7 +636,7 @@ struct vm_area_struct *lock_mm_and_find_vma(struct mm_struct *mm,
- 	 * Well, dang. We might still be successful, but only
- 	 * if we can extend a vma to do so.
- 	 */
--	if (!vma || !(vma->vm_flags & VM_GROWSDOWN)) {
-+	if (!vma || !vma_test(vma, VMA_GROWSDOWN_BIT)) {
- 		mmap_read_unlock(mm);
- 		return NULL;
- 	}
-@@ -659,7 +659,7 @@ struct vm_area_struct *lock_mm_and_find_vma(struct mm_struct *mm,
- 			goto fail;
- 		if (vma->vm_start <= addr)
- 			goto success;
--		if (!(vma->vm_flags & VM_GROWSDOWN))
-+		if (!vma_test(vma, VMA_GROWSDOWN_BIT))
- 			goto fail;
- 	}
- 
-diff --git a/mm/msync.c b/mm/msync.c
-index ced41d3c2903..06c62cdb337d 100644
---- a/mm/msync.c
-+++ b/mm/msync.c
-@@ -79,7 +79,7 @@ SYSCALL_DEFINE3(msync, unsigned long, start, size_t, len, int, flags)
- 		}
- 		/* Here vma->vm_start <= start < vma->vm_end. */
- 		if ((flags & MS_INVALIDATE) &&
--				(vma->vm_flags & VM_LOCKED)) {
-+				vma_test(vma, VMA_LOCKED_BIT)) {
- 			error = -EBUSY;
- 			goto out_unlock;
- 		}
-@@ -88,7 +88,7 @@ SYSCALL_DEFINE3(msync, unsigned long, start, size_t, len, int, flags)
- 		fend = fstart + (min(end, vma->vm_end) - start) - 1;
- 		start = vma->vm_end;
- 		if ((flags & MS_SYNC) && file &&
--				(vma->vm_flags & VM_SHARED)) {
-+				vma_test(vma, VMA_SHARED_BIT)) {
- 			get_file(file);
- 			mmap_read_unlock(mm);
- 			error = vfs_fsync_range(file, fstart, fend, 1);
-diff --git a/mm/oom_kill.c b/mm/oom_kill.c
-index 5d48bd862c27..91b11299cb5d 100644
---- a/mm/oom_kill.c
-+++ b/mm/oom_kill.c
-@@ -524,7 +524,7 @@ static bool __oom_reap_task_mm(struct mm_struct *mm)
- 	 * of the address space.
- 	 */
- 	mas_for_each_rev(&mas, vma, 0) {
--		if (vma->vm_flags & (VM_HUGETLB|VM_PFNMAP))
-+		if (vma_test_any(vma, VMA_HUGETLB_BIT, VMA_PFNMAP_BIT))
- 			continue;
- 
- 		/*
-@@ -537,7 +537,7 @@ static bool __oom_reap_task_mm(struct mm_struct *mm)
- 		 * we do not want to block exit_mmap by keeping mm ref
- 		 * count elevated without a good reason.
- 		 */
--		if (vma_is_anonymous(vma) || !(vma->vm_flags & VM_SHARED)) {
-+		if (vma_is_anonymous(vma) || !vma_test(vma, VMA_SHARED_BIT)) {
- 			if (zap_vma_for_reaping(vma))
- 				ret = false;
- 		}
-diff --git a/mm/pagewalk.c b/mm/pagewalk.c
-index e6493bbe6919..41e19f544493 100644
---- a/mm/pagewalk.c
-+++ b/mm/pagewalk.c
-@@ -393,7 +393,7 @@ static int walk_page_test(unsigned long start, unsigned long end,
- 	 * define their ->pte_hole() callbacks, so let's delegate them to handle
- 	 * vma(VM_PFNMAP).
- 	 */
--	if (vma->vm_flags & VM_PFNMAP) {
-+	if (vma_test(vma, VMA_PFNMAP_BIT)) {
- 		int err = 1;
- 		if (ops->pte_hole)
- 			err = ops->pte_hole(start, end, -1, walk);
-diff --git a/mm/vma.h b/mm/vma.h
-index 05300badd70b..a74143bd2274 100644
---- a/mm/vma.h
-+++ b/mm/vma.h
-@@ -596,9 +596,9 @@ static inline bool vma_wants_manual_pte_write_upgrade(struct vm_area_struct *vma
- 	 * private mappings, that's always the case when we have write
- 	 * permissions as we properly have to handle COW.
- 	 */
--	if (vma->vm_flags & VM_SHARED)
-+	if (vma_test(vma, VMA_SHARED_BIT))
- 		return vma_wants_writenotify(vma, vma->vm_page_prot);
--	return !!(vma->vm_flags & VM_WRITE);
-+	return vma_test(vma, VMA_WRITE_BIT);
- }
- 
- #ifdef CONFIG_MMU
++ARM MALI-C720 ISP DRIVER
++M:	Anthony McGivern <anthony.mcgivern@arm.com>
++M:	Vincenzo Frascino <vincenzo.frascino@arm.com>
++L:	linux-media@vger.kernel.org
++S:	Maintained
++F:	Documentation/admin-guide/media/mali-c720-graph.dot
++F:	Documentation/admin-guide/media/mali-c720.rst
++F:	Documentation/devicetree/bindings/media/arm,mali-c720.yaml
++F:	Documentation/userspace-api/media/drivers/mali-c720.rst
++F:	Documentation/userspace-api/media/v4l/metafmt-arm-mali-c720.rst
++F:	drivers/media/platform/arm/mali-c720/
++F:	include/uapi/linux/media/arm/mali-c720-config.h
++
+ ARM MALI PANTHOR DRM DRIVER
+ M:	Boris Brezillon <boris.brezillon@collabora.com>
+ M:	Steven Price <steven.price@arm.com>
 
 -- 
-2.56.1
+2.55.0
 
