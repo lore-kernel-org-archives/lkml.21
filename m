@@ -1,104 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795482660;
-	b=jJXi+PqG4owu+P9NHBzLq9EQjSftknxTtDZscPDuDOL/zq5gXtbvZK6ruYVf3cAOrcGP
-	 bJtr1dtjtSh+h2E5SmH1Vkb+4j5zMLqo7LygTbtWqaZhaGbsA/V3mE5tAcLnznOvaUg3r
-	 u9A9U7Q6L6A8CJ5MQMM246Lrv7motmGOYDiv34AcFxoq+xkMbiN/G3bu+eiF0+sHrSZLh
-	 bHhi8ccdD/z4vs3UaroFOL7AYD6cbz0mZZlThNTn7I5iFRnQkyEOK1gAOw3DglyECnv0g
-	 APfAiBc8VkBDdC3bo+/2ltAwOio/mwu0KyXUN/GJldkVcRJe8nugxU2f5Aa7/xx9TsA==
+	t=1795482698;
+	b=4vCsJODJyMaBxumnMgXS6pRIWaWVIwzm6M6W2wyJ9zej7tIbhdpiWrn067wIYCWizReL
+	 lzcFGGDLWJ6HVwHTbbZUAffm0YvRO3QwGvNPr4Qu86Snz+Qf6E4USXwvijmvWde+f43Cx
+	 CnNyXnb7pFhBMgKNdLEoZ4OhgVGOi5ytT55280tH4Z/PYxSRUGr1UG0qeho9RMRbHPfdT
+	 8WrtIFUCxGny/hcOz7XiR22xUVHLQmaSiY+H7ZW6odOeR1L/Mq96xtNf5fuhEOd18YJ5D
+	 KY5ijuh0V6EfqYqJr1NRYHR7oDkDYoD73fn7sKQ1wH6ZmfTkAikhyEjNb+21N7UyucQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795482660;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Content-Disposition;
-	bh=CwEMPI7Nv8Y4G/uSjVrKaLXUsD6jBVuvooxioPWLmTc=;
-	b=ydg/nQ22qMqwqBZ83paXJPRHX2oCjcslbl05WJmsIudKEOAjH8BaDentMvfwneCycDKR
-	 5mBQMHrJ+g/g6bncJbVrtlXG5i9Rpotx15qq4tKKn8C35xZI1qR5sNQbUu/p/bHKpnCqd
-	 X7JTc1HzfXU1cqIQAUFF7aYoVedHrHfl18g/Y1cpAbjIbJQbIhMcVkLwA33GVPv3XCpvZ
-	 KuZJcxk/Vfc5wtEkyjvBfxkGVTtiXAvhkMzTvUY8tW4WzED4SMvuws+QTnSzmL+HHlKoG
-	 V84wi0zIuc2bpN5u/mVIbnEkZOGmx87M5wZhvjUzMNYmEoEpY62yljT1vv/3n8jGTUg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795482698;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=wgEWWEO3qdUk7hR9XMnjX/hWMNEVu9/1SaZ+lWZNOmQ=;
+	b=4J385NyHgBEt9Q7iue9vHrg0ONeENRy3C3xA4AZX23l9M4t7Q7Aev4FtHgPGOlx/ikpT
+	 2Dy+tOd6BB1j2o9rhmWgitLPOm2YPoqHJO02HwaiY6mZkbUsFTp8xHu8vhswlPfTiYklE
+	 RdNxx8PIiP8TEvrlwtYTM5B859G+02boLBSXbKPpjGDhQVX1kkGkew8gA5WuxLIWGVzGm
+	 LhdNvgRJOJGiEIHm77GiYX7eTJgbDRwZqr78Yl2S1jtnCvhVCYHCdaV8MMax5HgO94lSj
+	 P4ONhi3yUJmF7UMqOoyrwmBuz2gprfGmzHnOMgLpKztGMGfmlrsc8YsBopCYpDngJCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kKG19Co9;
-	arc=none smtp.remote-ip=74.125.82.174
-Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="oeM5/T4W";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC62F606A327
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:10:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC62F606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D21B2606A321;
+	Tue, 24 Nov 2026 01:11:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kKG19Co9
-Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-386bd881d39so998718eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:10:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795482659; x=1796087459; darn=vger.kernel.org;
-        h=content-disposition:content-transfer-encoding:content-type
-         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CwEMPI7Nv8Y4G/uSjVrKaLXUsD6jBVuvooxioPWLmTc=;
-        b=kKG19Co9tDWF2kSXK9dKvmLlvSosMXN5A+fjtmNUuhQN82VGIHKHSt7hl60KkIuTqu
-         OTELZTKud2yzTtGpJ7YssH7XaqMzCZGWMYDkBuT+NcCO6f/J1jqPT0iyZQqXfdWQVo+7
-         NpL+BVzS/nn6KT8iZArKwzuxRvPxz7vHEFH6/T2KHs/4S02PCeK1dyecPiT3ra5J0+fQ
-         /fgxtsqz+bypFUe4822LHXZAKII+1BrHRYFU9BpYbk+8Uqr0d9LvdyqMqVFfzPKr5ne0
-         gjqbIHRdr1UAU+rh9u1Qy9nf2cgwwJCw8nbQvW/s9TlQ/Z33NtjHLWdZggyn3wfRzLHS
-         ZRZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795482659; x=1796087459;
-        h=content-disposition:content-transfer-encoding:content-type
-         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=CwEMPI7Nv8Y4G/uSjVrKaLXUsD6jBVuvooxioPWLmTc=;
-        b=oLuRgnlotNBsdB/UfqpE8RXR6OUTh/RygiNe8wUOaKag0VlLK/aLJe/KJGJKtfhzSi
-         ui2Ob5jxQH7nznXBAqJdrCQzjvaJMxQ9uSEkuxo1OALNR8gJ6n4KufGX2EF3U50TmfdQ
-         XHd3D96JfoVmN3CN9J+1PesuE+6WU6TrZB25eZUIlPC7Cr3gxVzPFjB6eej7J13v+qAG
-         Btl2hQs1XxdA9B2hW18Ve8yp82j1RqAi55ZgjINPVlHFU3vZb0oksuKRnBROJFnPnlZj
-         Kg37HEjSBzFn4FF/QenE1n6CBMRyrSIYbPn5p1y8rHyY1OZXC3vTXXcWOe3teIt7DWq5
-         HA7g==
-X-Forwarded-Encrypted: i=1; AL+hErF4jCL2kje9/6KsVQjyA9C7nyknOZt0ZD6h42xCqdIrIvkHagZL4Qu51f5GSav3YpY4RnPqv3tPDMb2FxI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ckKRzaPj2bUwUExvBenNaoWzxoLY/X9GWqy58n6OxZioKebrZ
-	mkh+HJpmRPqXEobMFLS0F8crGTgXCh8uKgj5DwJbOKSQk05Kxv4Hib3O
-X-Gm-Gg: AZFdTZe+9fWoab9cnifGuptsjtoafOChH6fO4bv9bni1p1u/EWvAVidCVo7fGJwaVUB
-	ukVnAyzbIW+IvuxjFyYjtDGCrOrAThQ2fjvykFDDBx7BnZMRb6PEOm+vcF7v/2GgY1miyj75Lyw
-	/jG/ZNbhzsQPuBRki+WtmNEI/nfuSyxi+B/JIj5v1ZfQHoXYH+zirdFWthy+LKWMiXwk8VnPGnj
-	5Dwc+tt0xOXK3X6suqhrJtVyzgD104SpXR25ouCZlk9+BTAZhFha5Q5MbDKwvgxML69XIF3eo+B
-	hKO3ZcOvqEDuCVXN2wPWbz58TCii15mxrn0anf6kcx7MRxsAwXOkymSJzNDUbgJ4L7psm6eZQmK
-	E7JhHxR6LILtQG9WgZlagtJdh0BVvzFS8xdkuZXw1zdewXQUjYmp9XjRlpy5FCrFvCET0ECPwf7
-	T9K/OciSq93oBXMwy0dU0A2LEkXJTeLG8s/zJ23sLIxFCrQxUaZSxYOANHGrltnLjMnwYxHF5eK
-	z7Bk5PpIUpJllIfno9ODgOPijVky79/9GbgRTMsfRTMwrxhQ3LTZljU8rm8mDOyFuyHL0iT8GOC
-	dMEVgjR6fZOFE1z2BDaH4L/HZcxGxPc4C7j9FLeMRcEH2EyVa9OFCHQUx41nTDO99PnBXQ==
-X-Received: by 2002:a05:7300:c695:b0:37f:73f9:aee7 with SMTP id 5a478bee46e88-3856c9a6408mr15050898eec.5.1795482658749;
-        Mon, 23 Nov 2026 17:10:58 -0800 (PST)
-Received: from localhost ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aaae4960sm15816977eec.18.2026.11.23.17.10.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 17:10:57 -0800 (PST)
-Date: Mon, 23 Nov 2026 17:10:56 -0800
-Message-ID: <2f25009cbd67a8ee7b417f12b35374b1@gmail.com>
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Arnd Bergmann <arnd@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Gibson <warthog618@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
-	linux-wireless@vger.kernel.org
-Subject: Re: [PATCH 0/2 v8] gpiolib: finish the legacy cleanup
-In-Reply-To: <7dpg3x3gkypkznzhuetjsqmk5fhqwuwkc6kupbs52zqh5mibgx@fjow6eodw4pf>
-References: <20261123085723.156933-1-arnd@kernel.org> <tdc6h325jthjgyik2ne4oistkm563maoc2cpnffqu7hh34tpl7@oscripzv4dwq> <qvmy7iaxc7cjy2gkajqkr5ma6b4lwxz5ff64a5zsqrgewkxodr@odbjlv5x3hix> <8296a5c2-0aa2-4fc7-b65b-9d336bc4dff6@app.fastmail.com> <7dpg3x3gkypkznzhuetjsqmk5fhqwuwkc6kupbs52zqh5mibgx@fjow6eodw4pf>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oeM5/T4W
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CC211F000C4;
+	Tue, 24 Nov 2026 01:11:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795482698;
+	bh=wgEWWEO3qdUk7hR9XMnjX/hWMNEVu9/1SaZ+lWZNOmQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=oeM5/T4WRAeChpjv3sI9v50CsIdchJV2dJLzdy3D1UyfZyHPryAQwdkCExfiOhS2P
+	 auMQLvY84UFxPjnTALlROLlweVqtajxuW1Mz+TA7nDN3pi9MLMiSTX+ts0TkDrqf95
+	 xYUfC8QFONSxDhiRUmS3ikrjE+JuhUT8KvMRFycWXP6dTj90M4iQ/LNo76OMuedUWS
+	 x2vc/7GP8azbj5Yv3OqBvzN6seFvd/C6NnqAUCLgB8fcWC6y/LcBbr+UbMTpIGQPoO
+	 rlw1imgepY3c+OmUrAtE/g5f9RNcbaAQ1ARTkCIGIQUtgpjZkK6kYuFzsB8M6dBCiu
+	 Fl71pzPQRuL8w==
+Subject: Re: [PATCH net v8 1/5] net: phy: move irq_suspended and irq_rerun out
+ of the bitfield
+From: netdev-bot+sashiko@kernel.org
+To: iav@iav.lv
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ tglx@kernel.org, linux-pm@vger.kernel.org, maxime.chevallier@bootlin.com,
+ lukas@wunner.de, rafael.j.wysocki@intel.com, wei.fang@nxp.com,
+ niklas.soderlund@ragnatech.se, paul@pbarker.dev,
+ florian.fainelli@broadcom.com, opendmb@gmail.com, Thangaraj.S@microchip.com,
+ shenwei.wang@nxp.com, Haoning.CHENG@cn.bosch.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Tue, 24 Nov 2026 01:11:36 +0000
+Message-ID: <179548269686.3135.9876460710453451136@kernel.org>
+In-Reply-To: <20261123-b4-phylib-mac-pm-irq-v3-v8-1-e9f706e79614@iav.lv>
+References: <20261123-b4-phylib-mac-pm-irq-v3-v8-1-e9f706e79614@iav.lv>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,27 +69,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
-Hi Bartosz,
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-On Mon, Nov 23, 2026 at 04:41:32PM +0100, Bartosz Golaszewski wrote:
-> Can I apply v7 and provide it to the SH maintainers on an immutable
-> branch?
+Low priority / nit picks for your consideration:
 
-BTW, I have the soc_button_array rework (converting it to software nodes
-and dropping "select GPIOLIB_LEGACY") on an immutable branch based on
-v7.4-rc2:
+- [Low] The patch adds this comment above the two new bools in struct
+  phy_device (include/linux/phy.h): "Not bitfields: phy_interrupt() and…
 
-	git://git.kernel.org/pub/scm/linux/kernel/git/dtor/input.git ib/7.4-rc2-soc-button-array
+--
 
-I recommend pulling it into the gpio tree before applying Arnd's work so
-that x86 builds with INPUT_SOC_BUTTON_ARRAY enabled no longer pull in
-CONFIG_GPIOLIB_LEGACY either.
+net: phy: move irq_suspended and irq_rerun out of the bitfield
 
-Thanks.
+This commit turns irq_suspended and irq_rerun in struct phy_device from
+1-bit bitfields into separate bools. phy_interrupt() and the PM callbacks
+write them without phydev->lock, so a read-modify-write on the shared
+bitfield word could lose a concurrent irq_rerun update. The call sites in
+phy.c and phy_device.c are updated to use true/false.
+
+[ ... ]
+
+> diff --git a/include/linux/phy.h b/include/linux/phy.h
+> index 21afc2082b174..59c75296d5355 100644
+> --- a/include/linux/phy.h
+> +++ b/include/linux/phy.h
+> @@ -726,8 +726,11 @@ struct phy_device {
+>  
+>  	/* Interrupts are enabled */
+>  	unsigned interrupts:1;
+> -	unsigned irq_suspended:1;
+> -	unsigned irq_rerun:1;
+> +	/* Not bitfields: phy_interrupt() and the PM callbacks write them
+> +	 * without phydev->lock
+> +	 */
+
+[Severity: Low]
+This isn't a bug, but could this comment mislead readers about the
+bitfields that remain?
+
+The reason it gives, written by the PM callbacks without phydev->lock,
+also applies to interrupts:1 on the line just above it. PHY driver suspend
+callbacks run from phy_suspend()->phydrv->suspend(), and phy_suspend()
+does not take phydev->lock. For example, in dp83867_suspend():
+
+drivers/net/phy/dp83867.c:dp83867_suspend() {
+    ...
+	if (phy_interrupt_is_valid(phydev)) {
+		phydev->interrupts = PHY_INTERRUPT_DISABLED;
+		dp83867_config_intr(phydev);
+	}
+    ...
+}
+
+marvell-88q2xxx.c and micrel.c do the same thing in their suspend paths.
+
+phy_suspend() also sets phydev->suspended = true without the lock, and
+suspended:1 is in the same bitfield word.
+
+Both fields still share that word with link:1 and autoneg_complete:1,
+which the state machine writes under phydev->lock. From this comment, a
+reader could conclude that the remaining bitfields in the word are only
+written under phydev->lock.
+
+Would it be clearer to word the comment so it doesn't imply that rule?
+It could, for example, just describe the irq_rerun race that this patch
+fixes.
+
+> +	bool irq_suspended;
+> +	bool irq_rerun;
+>  
+>  	unsigned default_timestamp:1;
+>
 
 -- 
-Dmitry
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123-b4-phylib-mac-pm-irq-v3-v8-0-e9f706e79614%40iav.lv
