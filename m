@@ -1,100 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.41
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795559486;
-	b=KQomsgD1ycorW6Pl16TFLkk8NLVj6XSUDppDshUljbQzjbMjsTedShCaMteMEFeQysL4
-	 Zb1Xgxv/IZpVZ+Q/MQ5xsJT7OYErvmyQ2ax5wMPB4/PsVSAKzpCVYML94RzDKDcmxqn78
-	 /nBISVFEsWSE1GAcD1ft/iWuzLLEmIdTAzZyOtId6dSIzaCbNUS0PKheQ9CJSKS1qzfNp
-	 br7seUVf1fsgIHFvF+a1fx8cVe75zMwGpNr/RfW/IQ4yYSXpsDkYGWIPhsa8HjgIokh4F
-	 Tppxnfv3+tAAfCAN17mE4E3nK6L7sqOgT0bJE0gYS1Igwehy9kYal0DjgnhJifjErEw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795559486;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795559492;
+	b=EPexs9qjdCcGuNE1k5c/4T3+m+pyZunoT9vXiah0jNGbPXrgqhdkQjWZjp9D2BPeD4/Y
+	 BXi+slXd8HbAZDa2ptX4Q1GiCZLSDL82JaVGOOxoiHjNRkctcqoBbyV9a0cqXv43MpVY/
+	 hRiW1vcuvjHaTtTAZp9YV/tUbMRU6dZmX4UsBUf4bT3ud2Oa6BnyViN5l0Px5ykCH+QXM
+	 gG/VkF8IPKbgBtVaW4A79b/eg8jKq1OXm836Y12zOyNroUL9ib9BfgnYpw1mw0Z0e3jsX
+	 fP89//5oHAFUCFybuA3bE/gHLtzxnQwx0TVfjUoDkZoCvhtwg++Z7z63ou9AUsj/XtA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795559492;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=INRxzK7vSn4HoWNw09mGrnkGOVMtgkPRDzZLhk0h1pY=;
-	b=P+29vaX7UqDynUsl0RbFL7ZiNYOf82wgJ3E1cfQjceIqCtceGHSvgWGK492G5yYr4vCv
-	 ddEQNJ+73NlKNuUlbbEBUt79KUtzUsKdPgMUtc3ImzYFAe9m/bPyPY7aQja29gaJ8amkB
-	 CXttVSS3e3j2ly3woD4mb1zSxCCBj8vV30wqFH9tAVuZjPZheLTYy0TQjyQ3ZpC0Iaq0A
-	 +cnr1QcqFDGrDat8VUL15LCk+XMlO/1bD2nOQep5JD7iBRrYdAwBdSrPU+PLGLK02YB5L
-	 v21sdreQE6VZFI0IzimDf+vd1F7Bq597ysEF5p5J/rwG+WVPw5hnpy2rWmOnuLZwuHg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Pq6hYJqL;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.41
-Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=BLzORvgbncPbPp0GI182YtjmWy3Mmc/7qWRroJoKuOM=;
+	b=Wzuco8VFdE/hbniq8fmvgFMFptyZ6ZvEyKLm4IwDY4NM1KN/fMXbGvKflQYWDPgvztb1
+	 CtHW8i8v3rl/yS/o8Z6vwAH/KrnTwDysjXMXBeXHhK09oUcQpfmyEfTEzZelzLh73F3YS
+	 Kc16cZa07voZOGRLCYQyEqLVBBI8HB3zv9uNtLr58umCSypJ76q2r4Vouuut+1Dtcwoem
+	 lMKjDQijCufaYZikcQpdHtFR18kmQ4vgvXc/rp+RPbzi+xDEFGw/kocXe0xvygUg8nX6e
+	 BsXTfqhrjbaJpfIGXjv/A1djzRiUIWGORJKyxI6uiU0I2nWUUWtMVMF4Y6nfXoYaRIw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=eceX2+w0;
+	arc=none smtp.remote-ip=74.125.82.199
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A92CF606A6A2
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:31:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A92CF606A6A2
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1243C60A2603
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:31:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1243C60A2603
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Pq6hYJqL
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c4d427836e9so696107666b.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:31:25 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795559484; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Zbu1KDuxqvOWotDBIwRNGbRcATpXfg1LtkGzIEeZl+mpL8a6VeloG5kqabDaLV7xat
-         WmfdTqoDD+uKHMz2c3qsQA3YmO1Do03Ifjdb1LcP6SfGNFY+QNBqomloxPWcKGVjL7lz
-         CufsQsKxPKcylvie1vuvmrt4WTDhfjkWyvDCoFBljc3ZsZ3L8k7ipwGRjbiQOSzwSSdy
-         y1wtnAX/XKzLhbN1M99ZX5GoV60v6iLTHgU0wDNwKlbeBWBmdaNWOE8pV9eV91tHlB80
-         AvoQl0xu0ZdQuGiXLcIQJ6gqTRthr3XZV2Ebkdp0P4S8k1QOEKHRgdd7rQxUE26T265S
-         cqRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=INRxzK7vSn4HoWNw09mGrnkGOVMtgkPRDzZLhk0h1pY=;
-        fh=sAyGYXnZBSUq2usEw8Ce7bnAYdmBnImI9iDuXlyRdxg=;
-        b=L6Vwr4pXFAU3sWgKCQcSt92bSsjZIlD25rpNiZoeGkCXpuf0WsRHxZMo+chjeC35F1
-         95zSC8myfPrk2ba39+SBoaMP2Xgr0IemEp4J5+qSs69CekyWkc7iaAfqZrne3sZFTlM5
-         EX+VWVyIBxeDYjWKxxA80eBN76eX9Th+uLL7e1RaFX8bjZUfG4ifXn74LucndVs3LwGT
-         NJPg0C+IQMs1U7TK+5i1ImsD8zLOL3lrzDcLuYbVKfweq1ooKUQWZfEXoJW+y6vLLkIW
-         R1aE63M8LVizOnR7W9norxIeEdSCXTT9vbcGdDsVSmELiYu5ft+kQZPTq4lp+PUiIUTE
-         jXuw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=eceX2+w0
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-38355b03cb8so4965511eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:31:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795559484; x=1796164284; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795559491; x=1796164291; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=INRxzK7vSn4HoWNw09mGrnkGOVMtgkPRDzZLhk0h1pY=;
-        b=Pq6hYJqLqfjmwjq6l8NZL/b72FkWDY7/prko4BQ8KEWZLjnZPHCUw44AYwkS+F8DRi
-         EUeoUtNsUmpvMracnT4N+GgMdEmq/lLExWZTQz/1x2gGNuR3gColGwjZifwMrkotSzq1
-         d6CELz6FR9caGvQ5SJQ8Y9tQVYlF1B8Q2XaCePiSHWZdneDCgaC0t5wk53jlieeZPq0K
-         Xr/gKY4gRbr8NIvfHqVM+4o2vEDZGfOtkWKPxClj2k43yKXLUk1wVQj7s9WACrQQEpw0
-         Q98XJp/kNzbRIEqZyr+UWynhvWGPSRNCMolaQERiuhRGVt3CSC7buBUx16Xoa3CNaJR4
-         u73Q==
+        bh=BLzORvgbncPbPp0GI182YtjmWy3Mmc/7qWRroJoKuOM=;
+        b=eceX2+w076mnB5mjYeiDFRi3y1SRxQETURO7nFKa9gDZ2qkXZv3bcE4kRDcrdOVwXW
+         Gd/Fc+ay62v3exnBrqcc9LzDbmgvG51Y5jNNvb03AyrGvJdf6HfXrTbLQVraKL0sUBw7
+         PVwbeiRi/u+GJk0F+pjD5f2uocofvxkLIjUceUF53mBkXDOLfAhSbAURWhXVXtIpEVbp
+         yYZ9NmB5bQtLHUOzYjoxHgdNCMHy7jExv1bh0fKU0o+o5nwkxGQS/dUEIxxejA6UXGMe
+         lf/sQ/h6+T1n6k0cXngGklAWGR18oCOKxD44AqQutHIhmRdx0gMoahtxT+9kZFcv9dA+
+         fEcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795559484; x=1796164284;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=INRxzK7vSn4HoWNw09mGrnkGOVMtgkPRDzZLhk0h1pY=;
-        b=0FWkm5R5uQMgM1U30qbgJJeCQvOxkDgyCkNH1wxbsWmEEEW+qO0j6prSWioAYzTPKg
-         Kj/yxx75P5ZYJGL4XVi9raw1s6ZySJpoUyygMD6wUFoR6kJNdnEz9vR31PElNGrJhJeb
-         R6zfsR336dWxOZP9cAaGnIVuRbO23x+ddZOfpQ6bz6WNFcgib+LOHK3cXTYe3UIatntx
-         0VvF40RI87aeGDVDPKGL7U/TRCGFr27ue7Nyq+ss36esExQTOI6TYE50HzM+/Gaztn9h
-         oOTTnJbH4MbIMAfF2AdJ/WQh7gyZjWTYCqDxsnIHLU1/s+fauI0h1pjq4n3JP3Gk9ABf
-         Pp8w==
-X-Forwarded-Encrypted: i=1; AL+hErE4c/BxXf10zp6C7NiXLsDoXWINQ5E+/qFhXoeuTrMPTNjm+wKyf6fbXB7OyzL2Hb2BxGdGK87Wjyb9/b8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/qzhnrFJV0u7HZ0Igtyf0b+vBpoqFROKFj4rjWImp/jpIBA4Lo
-	cq4gDruZLE+wqHVj/gE9yUFTIRNso5YcdlFuhkTAh+rY/0nMRkda93fK4ejM0zJn3dTPv0jXnMb
-	1qrpBWPR4sFOx0r8+2PiI0Q54eXmHQdHQUOzefLQwMQ==
-X-Gm-Gg: AZFdTZdbbN3YuoQL04Ro7Rzh6XMHvMmpIxOM/Hx717CAAq8oj75+eUhIdaItUMmttlw
-	6zDGY0mowhpbtf2UewjwwC7zfbBW3GFqftAxf4PK+tfFbMAZlLCn66byYLoKNiqNY0xYGeuAWls
-	FWiLQsciFUh+RfKIwvx6JbV8j1102lSGK0pGDg/nDyrmg7+fLXGl1L2NwgBkh8umh3HqEpwJsVL
-	icpB2MPg7387UsHD7RfJleIqxa0l3RQMnzCsWnOCutReJM8g0kyBdtd0N6ZknaLf24XidJGtuYh
-	Ytq4BqI5echgIlnZonq+bhQ9eM2OnlI4wKbX9s4gIwlZUKwzyb9hEfLubYaEXIZlTciPA/3JOG4
-	MLmLCJDKwxR4asAWR747GqZTKp3E3o7YrGgpQ8mao67lHQalBu85jEgXUhGFPrYf3Zf98MpLKhE
-	NzDRegs1P9uf0vOmAB
-X-Received: by 2002:a05:6402:15d4:b0:6b7:709f:85f with SMTP id
- 4fb4d7f45d1cf-6ba37ec031amr9043918a12.36.1795559484024; Tue, 24 Nov 2026
- 14:31:24 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795559491; x=1796164291;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BLzORvgbncPbPp0GI182YtjmWy3Mmc/7qWRroJoKuOM=;
+        b=F2bMWSHg5Z5blxAQTVUc7FI+P12PTnE75MbrUZdd7odChgaqFSfMTXr8vxfZmz+RLK
+         JGUOAYXHSvok55YmZc1CR1cCho4S+hCJztSk8YX831MjoCO703evuvnKimzJZuNz7cbv
+         E91HyTn0n8SjBOxtSnPyTYt/bwhZzzuCzYoA6ijpf4HBSR0y8h9r3ZtXI7mqsDYYLrt2
+         uavmXnWLDp4PLPra9G27vUXn7eTSoq01XnY1JjlJN5eMrQxm26t0HihyfBm0+rZKpje8
+         Qvq63XJOftoEm3Hq2hQ6mslmbfUEwprSDmxJWpyJWd4S1aTKlM5KVqwccf0oSRFNU4lG
+         WlJQ==
+X-Forwarded-Encrypted: i=1; AL+hErFl08SZYVfxhMbMA8U8s4UZDRK+UEKkt0GmgkbUg6AYB8YsGb8PgtD3NoFGUXAsaqUTfYYBIbDTumpU/bA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+UlKxppUqwOMkcZbZttfGkpLK5uIxHZScPtxZjPxdCJrtLjip1
+	tBjNJ4Ng9zMtpdkLPXdId6ThJYHvTkU3GgPl+x3xPpt5MdW7FRYp40FvfER0iamhHCP4lYjdMsN
+	Mwo2ay8zGOA==
+X-Received: from dleb2-n1.prod.google.com ([2002:a05:701b:4242:10b0:1a7:5148:9561])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:4553:10b0:169:9f67:a91b
+ with SMTP id a92af1059eb24-1b5568650aamr15274674c88.12.1795559490610; Tue, 24
+ Nov 2026 14:31:30 -0800 (PST)
+Date: Tue, 24 Nov 2026 14:31:06 -0800
+In-Reply-To: <20261124223109.820609-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,73 +78,189 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261026214359.3122870-1-briannorris@chromium.org>
- <20261026144346.3.I7bc547c83b7bf677a62670099f481a91ac737073@changeid>
- <CADrjBPqnRrFeYT9J6NGxy+Xzy1PTZEz+BMs1_u2md7Ra6xPPDQ@mail.gmail.com> <awXf86suGgKeazZx@google.com>
-In-Reply-To: <awXf86suGgKeazZx@google.com>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Tue, 24 Nov 2026 22:31:11 +0000
-X-Gm-Features: Aa3M54olM1DKVBX3EQP9Zt-gD9WnHLwb_Lxu-JjOzcrrRgxAqJXxzL4OnVB7R18
-Message-ID: <CADrjBPqG_TLwgOTzQ-o5pM7k1DzkeVxNkV2xDHsU4OBAyYOofQ@mail.gmail.com>
-Subject: Re: [PATCH 3/9] soc: google: Add CPM over MailBox Array driver
-To: Brian Norris <briannorris@chromium.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
-	Thomas Gleixner <tglx@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Radu Rendec <radu@rendec.net>, 
-	linux-arm-kernel@lists.infradead.org, 
-	Mariano Marciello <mmarciello@google.com>, Douglas Anderson <dianders@chromium.org>, linux-clk@vger.kernel.org, 
-	=?UTF-8?Q?Jakub_G=C5=82owacki?= <jglow@google.com>
+Mime-Version: 1.0
+References: <20261124223109.820609-1-irogers@google.com>
+X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
+Message-ID: <20261124223109.820609-10-irogers@google.com>
+Subject: [PATCH v10 09/12] perf session: Add dsos, machine, and perf_session shrinking
+From: Ian Rogers <irogers@google.com>
+To: Namhyung Kim <namhyung@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+	Alireza Haghdoost <haghdoost@uber.com>, Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-Hi Brian,
+Add container-level shrinking helpers walking DSOs across a session's host
+and guest machines:
+- dsos__shrink(): Calls dso__shrink() and dso__try_evict() across all DSOs
+  under dsos->lock, compacts the array when unreferenced DSOs are evicted,
+  and calls malloc_trim(0) on glibc when memory was reclaimed.
+- machine__shrink(), machines__shrink(), and perf_session__shrink():
+  Shrink host and guest machine DSO collections.
 
-On Tue, 24 Nov 2026 at 19:05, Brian Norris <briannorris@chromium.org> wrote:
->
-> On Tue, Nov 24, 2026 at 12:28:24PM +0000, Peter Griffin wrote:
-> > Hi Brian,
-> >
-> > Thanks for your series; it's great to see more Laguna support being posted.
-> >
-> > On Mon, 26 Oct 2026 at 21:45, Brian Norris <briannorris@chromium.org> wrote:
-> > >
-> > > The Central Power Manager (CPM) is a co-processor on the Google Tensor
-> > > SoCs, as used on Pixel phones. CPM supports power-management and a
-> > > number of other features.
-> > >
-> > > The Application Processor communicates with CPM over a pair of mailbox
-> > > channels (the "MailBox Array" (MBA)). CPM provides clock, power-domain,
-> > > reset, interrupt services, and more.
-> >
-> > [..]
-> >
-> > +++ b/drivers/soc/google/Kconfig
-> > @@ -0,0 +1,13 @@
-> > +# SPDX-License-Identifier: GPL-2.0-only
-> > +
-> > +config GOOGLE_CPM_MBA
-> > +       tristate "Google Tensor CPM MailBox Array Interface"
-> > +       depends on ARCH_GOOGLE || COMPILE_TEST
-> > +       depends on MAILBOX
-> >
-> > Should we also have "depends on OF"?
->
-> Why, precisely? It's not actually a compilation dependency (I tested),
-> although it's needed at runtime. It doesn't seem like this is
-> consistently done simply for runtime dependencies, and instead work has
-> generally been done to ensure everything builds fine and fails closed
-> without CONFIG_OF.
->
-> Anyway, it's a bit academic, since ARCH_GOOGLE (ARM64) selects OF.
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ tools/perf/util/dsos.c    | 50 +++++++++++++++++++++++++++++++++++++++
+ tools/perf/util/dsos.h    |  2 ++
+ tools/perf/util/machine.c | 29 +++++++++++++++++++++++
+ tools/perf/util/machine.h |  3 +++
+ tools/perf/util/session.c |  8 +++++++
+ tools/perf/util/session.h |  2 ++
+ 6 files changed, 94 insertions(+)
 
-I was thinking more if COMPILE_TEST=y && CONFIG_OF=n &&
-CONFIG_WERROR=y is set. I'm not sure if 0-day performs such a build. I
-guess since no 0-day failure has been reported in this thread, perhaps
-it isn't required.
+diff --git a/tools/perf/util/dsos.c b/tools/perf/util/dsos.c
+index 7a56577f4ec8..77f668d7557c 100644
+--- a/tools/perf/util/dsos.c
++++ b/tools/perf/util/dsos.c
+@@ -6,6 +6,9 @@
+ #include "vdso.h"
+ #include "namespaces.h"
+ #include <errno.h>
++#ifdef __GLIBC__
++#include <malloc.h>
++#endif
+ #include <stdlib.h>
+ #include <string.h>
+ #include <symbol.h> // filename__read_build_id
+@@ -517,3 +520,50 @@ int dsos__for_each_dso(struct dsos *dsos, int (*cb)(struct dso *dso, void *data)
+ 	up_read(&dsos->lock);
+ 	return err;
+ }
++
++size_t dsos__shrink(struct dsos *dsos)
++{
++	unsigned int write_idx = 0;
++	size_t freed = 0;
++	bool any_removed = false;
++
++	down_write(&dsos->lock);
++
++	for (unsigned int read_idx = 0; read_idx < dsos->cnt; read_idx++) {
++		struct dso *dso = dsos->dsos[read_idx];
++
++		freed += dso__shrink(dso);
++
++		if (dso__try_evict(dso)) {
++			any_removed = true;
++			freed++;
++			continue;
++		}
++		dsos->dsos[write_idx++] = dso;
++	}
++
++	dsos->cnt = write_idx;
++	if (any_removed) {
++		if (write_idx == 0) {
++			zfree(&dsos->dsos);
++			dsos->allocated = 0;
++			dsos->sorted = true;
++		} else if (write_idx < dsos->allocated / 2) {
++			struct dso **shrunk = realloc(dsos->dsos,
++						      write_idx * sizeof(struct dso *));
++			if (shrunk) {
++				dsos->dsos = shrunk;
++				dsos->allocated = write_idx;
++			}
++		}
++	}
++
++	up_write(&dsos->lock);
++
++#ifdef __GLIBC__
++	if (freed > 0)
++		malloc_trim(0);
++#endif
++
++	return freed;
++}
+diff --git a/tools/perf/util/dsos.h b/tools/perf/util/dsos.h
+index cc7e3a42f9cb..de10a10de777 100644
+--- a/tools/perf/util/dsos.h
++++ b/tools/perf/util/dsos.h
+@@ -51,4 +51,6 @@ struct dso *dsos__find_kernel_dso(struct dsos *dsos);
+ 
+ int dsos__for_each_dso(struct dsos *dsos, int (*cb)(struct dso *dso, void *data), void *data);
+ 
++size_t dsos__shrink(struct dsos *dsos);
++
+ #endif /* __PERF_DSOS */
+diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
+index 3c206c26bd62..f4108cc725fc 100644
+--- a/tools/perf/util/machine.c
++++ b/tools/perf/util/machine.c
+@@ -3438,3 +3438,32 @@ int machine__hit_all_dsos(struct machine *machine)
+ {
+ 	return dsos__hit_all(&machine->dsos);
+ }
++
++size_t machine__shrink(struct machine *machine)
++{
++	if (!machine)
++		return 0;
++
++	return dsos__shrink(&machine->dsos);
++}
++
++size_t machines__shrink(struct machines *machines)
++{
++	struct rb_node *nd;
++	size_t freed;
++
++	if (!machines)
++		return 0;
++
++	freed = machine__shrink(&machines->host);
++
++	down_read(&machines->lock);
++	for (nd = rb_first_cached(&machines->guests); nd; nd = rb_next(nd)) {
++		struct machine *pos = rb_entry(nd, struct machine, rb_node);
++
++		freed += machine__shrink(pos);
++	}
++	up_read(&machines->lock);
++
++	return freed;
++}
+diff --git a/tools/perf/util/machine.h b/tools/perf/util/machine.h
+index 67d517742fb6..b42c363723c9 100644
+--- a/tools/perf/util/machine.h
++++ b/tools/perf/util/machine.h
+@@ -339,4 +339,7 @@ int machine__resolve(struct machine *machine, struct addr_location *al,
+ 
+ int machine__hit_all_dsos(struct machine *machine);
+ 
++size_t machine__shrink(struct machine *machine);
++size_t machines__shrink(struct machines *machines);
++
+ #endif /* __PERF_MACHINE_H */
+diff --git a/tools/perf/util/session.c b/tools/perf/util/session.c
+index 4e11eabbbe6f..9f16bff1b72f 100644
+--- a/tools/perf/util/session.c
++++ b/tools/perf/util/session.c
+@@ -4270,3 +4270,11 @@ uint16_t perf_session__e_machine(struct perf_session *session, uint32_t *e_flags
+ 	 */
+ 	return perf_env__e_machine_nocache(env, e_flags);
+ }
++
++size_t perf_session__shrink(struct perf_session *session)
++{
++	if (!session)
++		return 0;
++
++	return machines__shrink(&session->machines);
++}
+diff --git a/tools/perf/util/session.h b/tools/perf/util/session.h
+index 05ea2c1ee8c9..cbea6792a008 100644
+--- a/tools/perf/util/session.h
++++ b/tools/perf/util/session.h
+@@ -211,4 +211,6 @@ int perf_event__process_finished_round(const struct perf_tool *tool,
+ struct perf_env *perf_session__env(struct perf_session *session);
+ uint16_t perf_session__e_machine(struct perf_session *session, uint32_t *e_flags);
+ 
++size_t perf_session__shrink(struct perf_session *session);
++
+ #endif /* __PERF_SESSION_H */
+-- 
+2.56.1.831.g720f3f5937-goog
 
-Peter
