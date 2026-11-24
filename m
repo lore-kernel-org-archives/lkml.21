@@ -1,102 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.46
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795540420;
-	b=colTyA+MOa14Bdh4BEav80bFBZmyF/kGMFPfTu32REU4ABMMlkFTQ5RGxcPjlHR4Pph+
-	 6+DrhFBFHBAfxPawVuICGsR9N3GbttUz1kCKVJXgmDkHKlgJ5WHSf0/V4uaRskAfdSc+n
-	 hrkteosb3vxTNLeJjW8k3UfuLg9ctW4/D0ZXYgoCmgsmU0gAafBBHehWvV7SVKGVJViaZ
-	 0WyqXF7BLM0Ev6GpD1msFFX979uTZomLtH+6MW45aQWME9pkS4WY7v2bpgk74IF8jcl2h
-	 Eu+TynpOW9JOdWWR+i4j5RYgJbw9hfQBBCOMYtkH4omLDpLZU4MhuyD7Jr23Xi4WiyA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540420;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=tdBRQuRPxwEZd2+vFYBwLL5uePULho2FVfb2iukzoGg=;
-	b=wpZE0Ao1j2nDRk2AQlVxFdoLgTT4TQ2uJIu4cS4JEudxyI59xxuUh8RRkhtjvANZRlYH
-	 kDGMroiqZJgFL0MzDtsH3YN2c7YGaMj+5e2yBRcMJH59khHHrAf5qaL54GrijJTQeQAFE
-	 l8Kf/MqmpOnTt+AFeQVBfSpfvrn3IdaUWHGwAGjP4qefZHyBqjvM1LkXHC2Zo7d2yrkw7
-	 cn3YLRgNSUTp/ugk6z4K5T/DY/bdODsjF/IuK4h72hQPC94Ym5aOtWatYSkAyrHpYnVuF
-	 PKs+pgk2i0L+Li83UG2YxnkQ1Er+qktPyAvdmgpOEbulTjsZYSLD+BEP04Kul1B1FrQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="e/nCERr/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.46
-Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com [209.85.218.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.88.97.239
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795540454;
+	b=VxkY3Zstq1j57OyUfF7gw9Lt9dxMttPIgdLhMgC/f54ZaiyR+1OnIvTsyg4cHoxRx8ZX
+	 5zkmP69Z+VTKDgMCZn9I9GOxs5AMtIW80xpFb5sCynCWP/OpDZCWXk0XVNyTm/iadMPHa
+	 SIzI03V4zoPM7BhWRMjU3Satotwhz4sAV3j7hBXoBWtHqu/bHFeRFn8eo5BQI59YWV7Uv
+	 Kn4wKS0chjVbEbfKc2ARFz5VRjb9buLheCq1SniiNxKD/rL2JRbXg9eWC9Pb+5cmPN9Xl
+	 KmYBLRXmkpc1vfdhT2rZfxXJqLaaYDJEPwQO3PVI3WUvgkAEehFfqRu2tUOs+DposJA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540454;
+	h=DMARC-Filter:DKIM-Signature:Received:X-Spam-Checker-Version:
+	 X-Spam-Level:X-Spam-Status:DKIM-Signature:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=l+8r1bGabc3oHw1CGGMsn650L5hrNdPH9kcVJO23sWM=;
+	b=uEV3ntEIRkLjKj8gtc6JO/pjymwK09VfCMdieSDgm0qhAT9f7yd9r6DrBr9cN/O6rlAz
+	 RqIws9IJZtZ9TjIJQ0FICoedCJ1O2pYZTGO3kNXGPbRDFmbOeFlvbVGgkM96F0z9lnHyO
+	 /bJldZKs5IQxnWlL6+DaFkvPzqQ3OI/3gtoJX1YLz/0RRjXoP6Sb4pDgtiUn28elFt8nT
+	 j9jVHkfrE8OEh+anKCromljiXBm62pJeNdlSx53D0Bxp5W89tVAG8aBm7jQ5j5612tI4K
+	 pYbHcNNKDWEXHU9Y4CNUErVkrJdfvphKeakbJciolOhQQr6XKTkDI7jzDXENU4hUxsA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=birger-koblitz.de;
+	spf=pass smtp.mailfrom=birger-koblitz.de;
+	dkim=pass header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=2ZOKGDew;
+	dkim=pass header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=hNA6ZoUb;
+	arc=none smtp.remote-ip=23.88.97.239
+Received: from bkemail.birger-koblitz.de (bkemail.birger-koblitz.de [23.88.97.239])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 585F5606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:13:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 585F5606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E749F606A31E;
+	Tue, 24 Nov 2026 17:14:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E749F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=birger-koblitz.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=birger-koblitz.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=e/nCERr/
-Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-c5198302d38so118870466b.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:13:40 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795540419; cv=none;
-        d=google.com; s=arc-20260327;
-        b=S7/pZnTiqlGYIH9N24KwQVUIww/33KHBPJ1nqzrzkCcS/qOr+VnpPvZgd0TIZ9Yhdw
-         lsAMq/BGkwPZf8gtDEQcNNKNGIPI8UI/4uZw/kZwYrqOCX1PvusLnSmiyTJ6aDpenUkG
-         0szTcNBXw9l388P0fq4bu+BmgvIWLIaozdPi/Pu5QwznNjkoU4c5cLNsFJgYyK+FMzmz
-         MlrphrKladmegXrNEvO3f2lJspsUZTGQ8qiOI1G7jOJIvZYDSblWcjxE99NCMnB+eWfl
-         zOngJuVDFQHFRSa9OAi21o5UXr4nYyBs994H+yxqHcTqTjVBOjL2wMI8zzPLkC4CLMAw
-         ccAA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=tdBRQuRPxwEZd2+vFYBwLL5uePULho2FVfb2iukzoGg=;
-        fh=fEfYWrno6wv2gDT5nyTboAHc9b3M56IGeWjws4alxWE=;
-        b=OJwxXr+A3+4tE+RBnDABbvJNEDT2nuieMtdjC9HgP4VB5SJIiiCzvSUCgcPDryYUW6
-         9lbHeiIh0upB91o9Xrtv1uxFR7YUTEZKbHlFlcQRfsldOt3pZ3S4RBi7MR+WPF0hOhoq
-         bLtfYJdUyDxGzTE09RapP6vbWwwzyCwhGFnm2UfZruCkqlB2cX1UYACr9s4wY2DCJ/LO
-         54gw1z7/qkZd0woEXZA+C9ggV8ndVpmreMXruwKJ08qr5kRRQTcOra4v0T8/olhx8K7P
-         RL7jC3OGKuR3iyGhOSSZ6Drtn3G96bKmlAxUxis2y72iXK0Kj/kQSH+mvVHAQ4bgGYEe
-         bSYg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795540419; x=1796145219; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=tdBRQuRPxwEZd2+vFYBwLL5uePULho2FVfb2iukzoGg=;
-        b=e/nCERr/YRUtOJeRKPd+BQQMwPxO5ct6IaL5AHx852Q2+rkR2gWkXC7M0GoFTjNFmp
-         zTc2WniZF8DM9tAVuPYlxdV/OttRn2iMY/AzAp+fZjBpaPPUs8mVs+r9+mSPKzSb7LXn
-         7pEfQPihN1xcOGpTOsBb2NJ9GHB/QYxdoMKcXWEDBrlaUk4CF6DVTj5YbMFAoRpv9jLU
-         nZNbINa258sCeb6kOiHRBHueX0BppGU0cFv+0s92qvV02/DkuI0CrjHzJ7oKpZvO+kAX
-         +fxMcoUsO2ITrpkoMZqKJVmOVL3Df9LHh822XMweC+M3Qr8ptD63oiXa3CPMGaOFk6Qb
-         XPig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795540419; x=1796145219;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tdBRQuRPxwEZd2+vFYBwLL5uePULho2FVfb2iukzoGg=;
-        b=WJhuTSI/gFPTUKXXSnBhQ+OWG3SDPMC7Vh58d3SFpWURJo2e9MO2iMWtfjvKLdg8Js
-         FxU5TBry8nSpuKZZ0k2SGQlyXkgKFuAha0M5bhrXdr+JT7+W3VkiR/yV75422e21+Qea
-         DRQUuliVw4QeaAOtj1aadxkSFW+tiBqSz1dcXp7SyWDgJDy0T6n7X3a1bGoawU5OVsJu
-         v59FWLO+Q20tqa+H0meslJNKKpOk73uD40wGbzEOduWW2++KUysJ2iD4LhS6ACMIjnJ4
-         FyTVx/BsHwIwb9ddT+9CH5uyHMuAvwivTHNth8qLCX3w5pzM/xfzuYBNqdAGxc1tMU1D
-         T1+A==
-X-Forwarded-Encrypted: i=1; AL+hErFIFFtNTVrHIF4YOZRjKWJJChbOGeHlNFbJMOaysBhP4tnMcpXM1Tuoq110NCmAxNxnFn8VsSN4VU6fMxI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9h3aF7lWBoZUpjkWuTasx/gEySMh/z0ruox5uxbS6IO7WgDZ6W
-	jUveUXFSOHWkwqHdaUk+99A7TzPlXunoxvkjekr72wweg6b/uQvrDmFh66KkYh0n6sShM+ByuPs
-	ODoyJdbdlVoWKG1ew0lkToRaamSxzrMAVQ04mXEvt
-X-Gm-Gg: AZFdTZcViCPMRwf/pjHamZs652VP7xWqEClt8XdmOmrzcELuZgrYfJR/XcROBSDQQyz
-	6FrTSWMurAU5ZYVGEnPv6NaZdqZoKRcnskqCXa7lAb+tOxPiODXNDO+7DPAA3imqnpdatNoJTgC
-	yCAddQ55tdRu0BtgUavRpoNCK3YigDB5xyZsateABGY+vviuZZ6fmeiW3NkjlPRKrbwRQsAbm/j
-	jJDFpfUKEWM05VVtMWfj9Lno49EdNc8E16B7GLFei3zQ5fPfVsJAgBmIOpTVGAxNJquhcjxguLM
-	2Wo3YvQ2RAlOuKNdhogix4YncgLJlyutZwuTYDf6XIYhRv7AzUIBKx5qgHPOGVf2ZziGiFZ3QKq
-	3fTAcl14jRGmkkYd3GkvLlbFpSpgT3FGHnN2mEhJZbM1n6JS0+WMranoyga+xouAZRyVqA4lQwB
-	vuduz9OXi9ahb7lfUtSTkoBklNEV5fwBENSRfo7mjId8R6WgNzdw9oBRih7kRRd4tjDx0B06JFo
-	w==
-X-Received: by 2002:a17:907:6eab:b0:c29:f5d8:9c78 with SMTP id
- a640c23a62f3a-c513aab17ebmr1287834866b.39.1795540418086; Tue, 24 Nov 2026
- 09:13:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=2ZOKGDew;
+	dkim=pass (2048-bit key) header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=hNA6ZoUb
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=birger-koblitz.de;
+	s=default; t=1795540452;
+	bh=fqYDUrorm3k05HYMeY3xb/Mvgw2jMfaogj6XTMp9LJ8=;
+	h=From:Date:Subject:To:Cc:From;
+	b=2ZOKGDew1xfvR8XPEsB1DYGmbiW9rWS+uYgwfYJFMpXLzd/K9KjciNgCMAqUPyVUX
+	 41RBORxe9oa+R7wsORDlv0OlGadBp4aArcLjw1txoWuVQck569mBsQP33Elq1hs8rp
+	 gFm1FWTo2BCiO6NgtkxC07ykTR0z/MLxL/Fw+EUQCSo8mTKVdrOFHeMqB2VdBFh6C/
+	 3iP/AD2bUDwaxzgcQkeQ6Z2D1fdE8pJX31J1tjqR9N633TYO4WPL7Z4PX2YGEyg2Lp
+	 LloIR2QLSdLF3rhEiaojspEpzUQuacLrdFKxUGf223YKI0qzE7F47zwKqp9onXkBcY
+	 OfD9ZpHe1Hg+w==
+Received: by bkemail.birger-koblitz.de (Postfix, from userid 109)
+	id 5680E495EC; Tue, 24 Nov 2026 17:14:12 +0000 (UTC)
+X-Spam-Level: 
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=birger-koblitz.de;
+	s=default; t=1795540449;
+	bh=fqYDUrorm3k05HYMeY3xb/Mvgw2jMfaogj6XTMp9LJ8=;
+	h=From:Date:Subject:To:Cc:From;
+	b=hNA6ZoUboYJJBnWnQQmjgx7uiEmp9HDLmOMeE2OQoTbcGbaAI/xjgNnhSwDNGSVpj
+	 ZRnQpD41rSnuIMeUst30CpiSB+jjd29elYgT5W8fKRNRNHv1bYOCAs7Z9qfyoNRbOu
+	 ME/o9urmrggBoV/T/rhwCtOqWOni6XpKS1ZWcljmFi9eMOSUQGd0kRW5bGDZZfBpOd
+	 gotU41LcYTEJSM6jKmjyPl8iWhAr2lO+C7uuJv8CoiAIdFMSCx7MSagc9KRCCcSbE0
+	 hCBIgaaBZhpJz4waZkgO4h/04DrhqRk2jQ47rYDGNNxTIuWcPHfEKOQ0vPV3szygUz
+	 9p52bpduar1xA==
+Received: from AMDDesktop.lan (unknown [IPv6:2a00:6020:47a3:e800:271c:c6c5:9fde:77cb])
+	by bkemail.birger-koblitz.de (Postfix) with ESMTPSA id A2018495E2;
+	Tue, 24 Nov 2026 17:14:09 +0000 (UTC)
+From: Birger Koblitz <mail@birger-koblitz.de>
+Date: Tue, 24 Nov 2026 18:14:07 +0100
+Subject: [PATCH net-next v3] net: usb: aqc111: Fix rx/tx_fixup issues
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,169 +74,154 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122184453.2668189-1-jthoughton@google.com>
- <20261122184453.2668189-9-jthoughton@google.com> <9487E341-5F59-4245-BE0E-EFDD413E45D2@linux.dev>
-In-Reply-To: <9487E341-5F59-4245-BE0E-EFDD413E45D2@linux.dev>
-From: James Houghton <jthoughton@google.com>
-Date: Tue, 24 Nov 2026 12:13:00 -0500
-X-Gm-Features: Aa3M54p8XNdyqhw8NgJKcdhzlhzDFTnyhToFP0C3oUsuY3ie39XtBoe2DJRFnVg
-Message-ID: <CADrL8HXPKfUhRaVhVyV6CPoQ2apZx1FCpyqyPMr=p=Q_kF3HBA@mail.gmail.com>
-Subject: Re: [PATCH v3 08/19] hugetlb_vmemmap: Expose whether HVO is enabled
- to architecture code
-To: Muchun Song <muchun.song@linux.dev>
-Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Oscar Salvador <osalvador@suse.de>, Andrew Morton <akpm@linux-foundation.org>, 
-	Kefeng Wang <wangkefeng.wang@huawei.com>, Nikos Nikoleris <nikos.nikoleris@arm.com>, 
-	Linu Cherian <linu.cherian@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	David Hildenbrand <david@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Nanyong Sun <sunnanyong@huawei.com>, Yu Zhao <yuzhao@google.com>, 
-	Frank van der Linden <fvdl@google.com>, David Rientjes <rientjes@google.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-aqc111-v3-1-10f2c124d808@birger-koblitz.de>
+X-B4-Tracking: v=1; b=H4sIAN7FBWsC/22NywrCMBBFf6VkbaSZPiKu/A9xkce0HZRUkxCqp
+ f9uyEJE3MxwuXPOrCygJwzsWK3MY6JAs8uh2VXMTMqNyMnmzKCGXgghuXqYvLmuzdDWBytlr1k
+ +vnscaCmiM3MYucMlsktuJgpx9s/yIYnS/8qS4IKDVF1rWp2HOmnyI3p+nfWN4mtvsagSfOEAH
+ xwy3oHtrNVCqkb+w7dtewNjNcoG7QAAAA==
+X-Change-ID: 20261117-aqc111-b0cf408d776b
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>
+Cc: linux-usb@vger.kernel.org, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Birger Koblitz <mail@birger-koblitz.de>
+X-Mailer: b4 0.14.2
 
-On Mon, Nov 23, 2026 at 3:50=E2=80=AFAM Muchun Song <muchun.song@linux.dev>=
- wrote:
->
-> > On Nov 23, 2026, at 02:44, James Houghton <jthoughton@google.com> wrote=
-:
-> >
-> > Architectures that select
-> > CONFIG_ARCH_HUGETLB_VMEMMAP_OPTIMIZATION_SYSCTL_RO may configure the
-> > system at boot depending on whether HVO is enabled, e.g. arm64 may
-> > require all CPUs to support hardware access flag updates only if HVO is
-> > enabled.
-> >
-> > Add hugetlb_vmemmap_optimize_enabled() so that they can check. It is
-> > declared before <asm/hugetlb.h> is included, so that it can also be use=
-d
-> > from inline helpers there.
-> >
-> > It only reflects the hugetlb_free_vmemmap=3D kernel command line parame=
-ter
-> > (and the sysctl, when writable), not whether the architecture supports
-> > HVO.
-> >
-> > Signed-off-by: James Houghton <jthoughton@google.com>
-> > ---
-> > include/linux/hugetlb.h |  9 +++++++++
-> > mm/hugetlb_vmemmap.c    | 18 ++++++++++++++++++
-> > 2 files changed, 27 insertions(+)
-> >
-> > diff --git a/include/linux/hugetlb.h b/include/linux/hugetlb.h
-> > index 0d5414392d87..b2a6441bcd84 100644
-> > --- a/include/linux/hugetlb.h
-> > +++ b/include/linux/hugetlb.h
-> > @@ -22,6 +22,15 @@ struct node;
-> >
-> > void free_huge_folio(struct folio *folio);
-> >
-> > +#ifdef CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
-> > +bool hugetlb_vmemmap_optimize_enabled(void);
-> > +#else
-> > +static inline bool hugetlb_vmemmap_optimize_enabled(void)
-> > +{
-> > +     return false;
-> > +}
-> > +#endif
-> > +
-> > #ifdef CONFIG_HUGETLB_PAGE
-> >
-> > #include <linux/pagemap.h>
-> > diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
-> > index 142f2975846b..fb6da64bd80d 100644
-> > --- a/mm/hugetlb_vmemmap.c
-> > +++ b/mm/hugetlb_vmemmap.c
-> > @@ -452,6 +452,24 @@ static int __init hugetlb_vmemmap_optimize_param(c=
-har *buf)
-> > }
-> > early_param("hugetlb_free_vmemmap", hugetlb_vmemmap_optimize_param);
-> >
-> > +/**
-> > + * hugetlb_vmemmap_optimize_enabled - whether HVO is enabled
-> > + *
-> > + * This only reflects the hugetlb_free_vmemmap=3D kernel command line =
-parameter
-> > + * and the vm.hugetlb_optimize_vmemmap sysctl, not whether the archite=
-cture
-> > + * supports HVO (see arch_support_vmemmap_remap()).
-> > + *
-> > + * The value is final once early parameters have been parsed only if t=
-he
-> > + * architecture selects CONFIG_ARCH_HUGETLB_VMEMMAP_OPTIMIZATION_SYSCT=
-L_RO;
-> > + * otherwise it may change at any time through the sysctl.
-> > + *
-> > + * Return: true if HVO is enabled.
-> > + */
->
-> I don't think hugetlb_vmemmap_optimize_enabled() has clear semantics.
->
-> Its name suggests that it reports whether HVO is actually enabled and
-> usable, but it only returns the policy bit set by Kconfig, the command
-> line, or the sysctl. It may return true even when
-> arch_support_vmemmap_remap() is false. This is particularly confusing
-> because arm64 calls it while determining the capability on which
-> arch_support_vmemmap_remap() itself depends. Therefore, the helper
-> really reports whether HVO was requested, rather than whether it is
-> enabled.
+The MAC supported by the aqc111 driver is very similar
+to the AX88179A. During the development of the driver for
+the AX88179A, the following issues in endianness, respectively
+alignment-handling were found, which are also present in the aqc111 driver:
+ CHECK   drivers/net/usb/aqc111.c
+drivers/net/usb/aqc111.c:1094:34: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1094:34:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1094:34:    got unsigned long long [usertype] *
+drivers/net/usb/aqc111.c:1122:45: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1122:45:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1122:45:    got unsigned long long [usertype] *[assigned] pkt_desc_ptr
+drivers/net/usb/aqc111.c:1235:22: warning: incorrect type in assignment (different base types)
+drivers/net/usb/aqc111.c:1235:22:    expected unsigned long long [usertype]
+drivers/net/usb/aqc111.c:1235:22:    got restricted __le64 [usertype]
 
-I agree, the name is misleading.
+While sparse complains about lack of the use of __le64, these spots also
+incorrectly handle alignment. Fix these problems by introducing __le64
+where necessary and additionally make use of get_unaligned_le64/
+put_unalignged_le64().
 
-> Could we keep vmemmap_optimize_enabled private and let arm64 retain
-> the boot-time setting locally instead? For example, arm64 can use a
-> private hvo_enabled_at_boot variable with a
-> core_param(hugetlb_free_vmemmap, ...) registration. The system
-> capability is evaluated after core parameters have been parsed, and
-> arm64 makes the HVO sysctl read-only, so the value remains stable for
-> system capability and late CPU verification.
->
-> What do you think?
->
-> +static bool hvo_enabled_at_boot __ro_after_init =3D
-> +       IS_ENABLED(CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP_DEFAULT_ON);
-> +core_param(hugetlb_free_vmemmap, hvo_enabled_at_boot, bool, 0);
-> +
->  static bool has_bbm_through_af(const struct arm64_cpu_capabilities *caps=
-, int scope)
->  {
->         /* The kernel only enables HW AF updates with CONFIG_ARM64_HW_AFD=
-BM. */
-> @@ -2055,7 +2059,8 @@ static bool has_bbm_through_af(const struct arm64_c=
-pu_capabilities *caps, int sc
->          * BBM-through-AF is only needed for HVO. If HVO is not in use, d=
-on't
->          * penalize systems with mismatched support.
->          */
-> -       if (!hugetlb_vmemmap_optimize_enabled()) {
-> +       if (!IS_ENABLED(CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP) ||
-> +           !hvo_enabled_at_boot) {
->                 /* Only valid if HVO cannot be enabled later via the sysc=
-tl. */
->                 BUILD_BUG_ON(!IS_ENABLED(CONFIG_ARCH_HUGETLB_VMEMMAP_OPTI=
-MIZATION_SYSCTL_RO));
->                 return false;
->
+The current code also incorrectly modifies the skb buffer without checking
+it was cloned, possibly corrupting a shared buffer. This issue is also
+fixed.
 
-This is a good suggestion, but let me explain why I don't think we
-should do this:
+Finally, also introduce a minimum lengthe check for packets as the packet
+length is received via a USB transfer and may be incorrect.
 
-First of all, I'm changing the bbm_through_af capability from a
-SYSTEM_FEATURE to an EARLY_LOCAL_CPU_FEATURE, which means that
-has_bbm_through_af() will be evaluated before core_param()s are
-parsed. I could change it back to a SYSTEM_FEATURE, but I would rather
-not do that. (See [1]).
+Fixes: 361459cd9642 ("net: usb: aqc111: Implement RX data path")
+Fixes: 4a3576d2bcc7 ("net: usb: aqc111: Implement TX data path")
+Signed-off-by: Birger Koblitz <mail@birger-koblitz.de>
+---
+The MAC supported by the aqc111 driver is very similar
+to the AX88179A. During the development of the driver for
+the AX88179A, the following issues in endianness-handling
+were found, which are also present in the aqc111 driver:
+CHECK   drivers/net/usb/aqc111.c
+drivers/net/usb/aqc111.c:1094:34: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1094:34:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1094:34:    got unsigned long long [usertype] *
+drivers/net/usb/aqc111.c:1122:45: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1122:45:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1122:45:    got unsigned long long [usertype] *[assigned] pkt_desc_ptr
+drivers/net/usb/aqc111.c:1235:22: warning: incorrect type in assignment (different base types)
+drivers/net/usb/aqc111.c:1235:22:    expected unsigned long long [usertype]
+ddrivers/net/usb/aqc111.c:1235:22:    got restricted __le64 [usertype]
+    
+Fix these problems and additionally also make sure that cloned
+skbs are always copied for expansion. Finally also a length-cleck
+on the minimum length of received packets is added.
+---
+Changes in v3:
+- Use finer-grained decision to expand skb as found in asix_tx_fixup()
+- Add prefix "net: usb:"
+- Link to v2: https://lore.kernel.org/r/20261122-aqc111-v2-1-52d5ddb17a37@birger-koblitz.de
 
-I also don't like duplicate parsing of the same command line argument.
-I'm not sure if there is precedent for this, but I feel like it will
-lead to confusion. (It is news to me that duplicate parsing like this
-is valid, as long as they are not both core_param()? or
-early_param()s, I think?)
+Changes in v2:
+- Do not use cast in desc_hdr = get_unaligned_le64((__le64 *)skb_tail_pointer(skb));
+- Added packet-length check
+- Improved commit subject and description covering alignment and skb-cloned
+  fixes
+- Link to v1: https://lore.kernel.org/r/20261117-aqc111-v1-1-27a54c4b54ca@birger-koblitz.de
+---
+ drivers/net/usb/aqc111.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
 
-It would be much easier just to rename
-hugetlb_vmemmap_optimize_enabled() to
-hugetlb_vmemmap_optimize_requested() and properly document what it
-returns. Does that sound good to you?
+diff --git a/drivers/net/usb/aqc111.c b/drivers/net/usb/aqc111.c
+index 12a99df77f0d332053852e44991188c690c4c0bc..59ac08775db3ebb9b6fe2296e4f8fb431197aeff 100644
+--- a/drivers/net/usb/aqc111.c
++++ b/drivers/net/usb/aqc111.c
+@@ -1078,7 +1078,7 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 	struct aqc111_data *aqc111_data = dev->driver_priv;
+ 	struct sk_buff *new_skb = NULL;
+ 	u32 pkt_total_offset = 0;
+-	u64 *pkt_desc_ptr = NULL;
++	__le64 *pkt_desc_ptr = NULL;
+ 	u32 start_of_descs = 0;
+ 	u32 desc_offset = 0; /*RX Header Offset*/
+ 	u16 pkt_count = 0;
+@@ -1095,7 +1095,7 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 
+ 	/* RX Descriptor Header */
+ 	skb_trim(skb, skb_len - sizeof(desc_hdr));
+-	desc_hdr = le64_to_cpup((u64 *)skb_tail_pointer(skb));
++	desc_hdr = get_unaligned_le64(skb_tail_pointer(skb));
+ 
+ 	/* Check these packets */
+ 	desc_offset = (desc_hdr & AQ_RX_DH_DESC_OFFSET_MASK) >>
+@@ -1120,10 +1120,10 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 		goto err;
+ 
+ 	/* Get the first RX packet descriptor */
+-	pkt_desc_ptr = (u64 *)(skb->data + desc_offset);
++	pkt_desc_ptr = (__le64 *)(skb->data + desc_offset);
+ 
+ 	while (pkt_count--) {
+-		u64 pkt_desc = le64_to_cpup(pkt_desc_ptr);
++		u64 pkt_desc = get_unaligned_le64(pkt_desc_ptr);
+ 		u32 pkt_len_with_padd = 0;
+ 		u32 pkt_len = 0;
+ 
+@@ -1139,6 +1139,7 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 
+ 		if (pkt_desc & AQ_RX_PD_DROP ||
+ 		    !(pkt_desc & AQ_RX_PD_RX_OK) ||
++		    pkt_len < (ETH_HLEN + AQ_RX_HW_PAD) ||
+ 		    pkt_len > (dev->hard_mtu + AQ_RX_HW_PAD)) {
+ 			skb_pull(skb, pkt_len_with_padd);
+ 			/* Next RX Packet Descriptor */
+@@ -1224,7 +1225,8 @@ static struct sk_buff *aqc111_tx_fixup(struct usbnet *dev, struct sk_buff *skb,
+ 	headroom = skb_headroom(skb);
+ 	tailroom = skb_tailroom(skb);
+ 
+-	if (!(headroom >= sizeof(tx_desc) && tailroom >= padding_size)) {
++	if (skb_header_cloned(skb) || (padding_size && skb_cloned(skb)) ||
++	    !(headroom >= sizeof(tx_desc) && tailroom >= padding_size)) {
+ 		new_skb = skb_copy_expand(skb, sizeof(tx_desc),
+ 					  padding_size, flags);
+ 		dev_kfree_skb_any(skb);
+@@ -1236,7 +1238,7 @@ static struct sk_buff *aqc111_tx_fixup(struct usbnet *dev, struct sk_buff *skb,
+ 		skb_put_zero(skb, padding_size);
+ 	/* Copy TX header */
+ 	tx_desc_ptr = skb_push(skb, sizeof(tx_desc));
+-	*tx_desc_ptr = cpu_to_le64(tx_desc);
++	put_unaligned_le64(tx_desc, tx_desc_ptr);
+ 
+ 	usbnet_set_skb_tx_stats(skb, 1, 0);
+ 
 
-[1] https://lore.kernel.org/linux-mm/CADrL8HUgo0zAHe7_eF1+hfTR6jBbZ=3DUKB1q=
-PpMWpksvqbNHsyw@mail.gmail.com/
+---
+base-commit: eb6d6c80d35449c27471b1874f13066c09a8964d
+change-id: 20261117-aqc111-b0cf408d776b
+
+Best regards,
+-- 
+Birger Koblitz <mail@birger-koblitz.de>
+
