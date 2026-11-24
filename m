@@ -1,82 +1,141 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514371;
-	b=l6dgy6w1laBZeW6WoRUQrEEe2AeFl+Z7QFgM9movoxZvnoOlcTv55aWkd24sHnfN9jAK
-	 RbNSUHhL68niHNxVjfhQ4BIYeZ0QKnQUGKywsHyH2YL0W5q/1jiW4PZFduU5meNIgkMpY
-	 avACqxzyp6mWGxcTPQroUhIONaSlFKKiSceB+JP0c5lcqwfuSEtd/b30Ah/dbfzJchmtC
-	 38KdBA4VeBCJb0V4kkXEIAvIPfX5G8IutuXdieqtrBmGmnmQmInd/v4TnDn1859UMsktq
-	 BifmfwEP57UdokS7jabKSul1XsYNLr0OvQf6hM43zZ+TyK75/ttLuwycwWUXmjNQhmA==
+	t=1795514377;
+	b=BpuiNnZxaTlj5DFjZEUk6F+uSccWtGdFtkqD5XXrezdn5g6AJizfPECRgV5NMS0wroZ1
+	 4uHqD9IDVge74bkqoCqAaxCXMkQdc/W0KQMJDMFMnqD8/Dqic8FZlWhFDnDI2Dzu+0iHB
+	 U2Lu/Q4N9l5s4rc1NSa2f7kFiI+4XTbVxKr5kOmsL8x9UZGoykR+6m16Wox8YDYD2VlZ3
+	 5VhHgrETIFSFIDm1oCY9Lw0xpVh8NRQ6tY/DZwB/oIBgwl4ldD8ZhG2u0g6W2OCSzvzqP
+	 3prkao0zZU4AwrO7QsvQjFZJ6SPdRxtN/7GFmLN3WUFYZPOQtY0xG+BRfbLEQh5DSVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514371;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=c2KcwtXX9je21qNR2k8lhPjTHAW6HMkTXQlq7dKiu+4=;
-	b=ejdH4PpfaL57ACQsQxcvpmgX35o4zL0uEBq4oJXaji9tlmBfb0a9U0lDafot7jGD+cDq
-	 EB+j+1Z0ITn/JVsiB+30WhdGR1ul/0rXg9C2DJREd9bQgYy/ccEor4VG4NEyibt+dZFW5
-	 CmWJjzXETsff8d9LMQT1uguId6wNfSNJAmGxYqD+ziE/mSegL3M7cUQHANy3cSSjq/2By
-	 P3lYNsdbUZk+Sd4CwXj06RwSjdbV2FBLukPbY0TEBevV5XRewMGBtsrYdbH+hlSJW5584
-	 iXiQ5ZwYgLq4O2fg4rXT9/fPNNlWJFhAnUTMhpPkrXI9IztJM+AczYqCmBCPHh/KGMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514377;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=FYuz/K8ZJHw8V19OxffQhxGLJQWBYYcYpwJUkZTtfL8=;
+	b=wQiZ+RoGCQxqveuod6hmXLoo97NsxFE7V9SVaddJ2egD05ELAjB0bzHRftC4WyvwQCI0
+	 Q/XafbToEIcg054R4uOI1p5AkZgwurZlG0/DpLn4rAGmSdpJvx6xZ5ofl44BRPGcNbyEs
+	 JTlvhUi96kTR4TBMBkhV5kgfoRVJZB7DjxpJKoJKGQm5wh5N7gA7AWR8FbCpe6QMjkY8V
+	 3gccamqjBpJC3UE2tfK6BHHrPo+XY/YDaKi4XYT4d2aeNLvwNPusYotk+fbSbwp48+9OZ
+	 czpCCMMERunX82Dl7hwQOsRYCpF23Ld6MCPQtqHJwD8RWIO+K8wowWLUnnz0EYvXnIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="fx+yc/Xp";
-	arc=none smtp.remote-ip=192.198.163.7
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=b23ugdr7;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=e0n1oN0R;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93AA6606A326;
-	Tue, 24 Nov 2026 09:59:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93AA6606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9489B606A338
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:59:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9489B606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fx+yc/Xp
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795514371; x=1827050371;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=XjVgSNl4Up2dlfJFOXwJlAkx1MGplOdwLrVoq6QPgX0=;
-  b=fx+yc/XpGpMcP/WbyPZE+ZLVA/J4MTVl77CBdlurxf5cTuVtLrjm5lwr
-   1SFUDAeAFsKq8GkWaj5OjQe2RWpEuaHJCSs6kWVXwxkhr8ySfNvv6UNp/
-   hWXND0ibMUkYaXWLUfVKiD26NrGJPf5SFWT7LmNyYHvUEge/Y4C+uBZY7
-   8UwFG++0PfsUYlnTOP4V4HTrrc0328iebGbIn4Y/khUV0N7sOO/7IEQ+C
-   OwHgwrKeB1YLzCLNg6aIVA+UZxyxpFbbft530om+NL/gii8/BRubwO4vg
-   v7z0FqgCxaKrMsNC743rdgaeOJUW/dk0MQfgznzhLSEu6AvgMz6/bzMAL
-   A==;
-X-CSE-ConnectionGUID: 1hTQj9ytSxy0QN0/i3SriQ==
-X-CSE-MsgGUID: /v6YnTrTS1q9TX/BoapcpQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4192180"
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="4192180"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 01:45:09 -0800
-X-CSE-ConnectionGUID: RpgZRUkxTXuAqrwGFBHKpw==
-X-CSE-MsgGUID: uUeD4KhdQ9SQQL6PDIClTw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="11567160"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa002.jf.intel.com with ESMTP; 24 Nov 2026 01:45:05 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id A74469D; Tue, 24 Nov 2026 10:45:04 +0100 (CET)
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	linux-kernel@vger.kernel.org,
-	linux-iio@vger.kernel.org
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Rupesh Majhi <zoone.rupert@gmail.com>
-Subject: [PATCH v1 1/1] iio: core: Split debugfs routines
-Date: Tue, 24 Nov 2026 10:44:10 +0100
-Message-ID: <20261124094502.557175-1-andriy.shevchenko@linux.intel.com>
-X-Mailer: git-send-email 2.50.1
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=b23ugdr7;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=e0n1oN0R
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795514375;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FYuz/K8ZJHw8V19OxffQhxGLJQWBYYcYpwJUkZTtfL8=;
+	b=b23ugdr7IJLEgos7XieA49KYy2MUNYpTd6rNUQrWHZ13scOsWsThhISd58PYGo3C7ykmVU
+	oh7t8WhACKYNr1iwv/YLbPGPleTiHy7lewj80j3/F88b8cNy9jFswHvX9aMw1apyCg6c8z
+	RbPK4HweIUxjxx6iyUrbPc1L1sm3Td8=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-497-UXfglcuMPqGUJOUO8kORmw-1; Tue, 24 Nov 2026 09:59:33 +0000
+X-MC-Unique: UXfglcuMPqGUJOUO8kORmw-1
+X-Mimecast-MFC-AGG-ID: UXfglcuMPqGUJOUO8kORmw_1795514372
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-490d2ac331bso3770253f8f.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:59:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795514372; x=1796119172; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=FYuz/K8ZJHw8V19OxffQhxGLJQWBYYcYpwJUkZTtfL8=;
+        b=e0n1oN0RmBVJLCI2UlG/FmdCSTssxV+exz7Odw9yPctRTzDBOLz+b2w7bqcsPMtVhY
+         YZsnJlqpYryo6qXAzhI+HVuYKj2kQ6eORj7Y9ra/+xc7/TMDdxWlDbxBQGWNlPWo+pYh
+         P9Yh8ZIEPzKxRF39734uIOFuoBGSrOiagZDcnGRKcPvqCx8+d6iKyBGSdkKsUn7cDzEH
+         Zfq11/qZ89jFO2QeuD57BKgJ0CvhpX40ao4X/57E3cqcucRCuS5KVkPNQoYFzuwAs7nT
+         OgpeiwiGocdpfMzny02EziP9mr4b4+NpyTTgWQUvN5rhKV3uyv69ttF9MXSiOudVL5A5
+         KyaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795514372; x=1796119172;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FYuz/K8ZJHw8V19OxffQhxGLJQWBYYcYpwJUkZTtfL8=;
+        b=V76WJ13FjuaTh8s603SJVllssWl+PIiF6cXfZzjnuXrX4IogTJkInhC1owx8eaJgkZ
+         7au+DXg+7Gw6PHOQJWJ1YlOt+ZvlulYI4J3KTN9qM2RYRTXw+1wkBt83137R2S9XW33s
+         EVtwqjFnZWcCdEaMUNyLAe86nXAjYJ5aJqBViyRdsB7nyJiFnEbMEt0NpiEqwiWOQLJH
+         7eyHWdeLsAFO2Uiyxw/u7BJQEsN0us73VpG0sV3gxkU6Uh+/rq/XeiQBw7twz4kUPKE/
+         kPxzUyaWrkpxxLL8RtLDcZcNUrs6NrS/aVYjFTtceezSyxNidigKjgH8t64imoov1TpU
+         3r7w==
+X-Gm-Message-State: APuU4Z+df/jX68TfocxsYAEJV9Iz18AeEDMvgu/dpW3GyGXixA1sHfhG
+	kmOXTAk3cnAU1+PweIuiEPbCKBLd0RYEmF4l16YdGbeKWhtNmfpNBkc3GNk7Q035FvYFAz0VGMT
+	2rhpF9xYIgx73tAfnR9n/9/6eokW1R9fKkMHFSPwX9eAGUR/fkUMeyN3hir1Mkx2MXQ==
+X-Gm-Gg: AZFdTZdPMuiqN7cU7hapR5n3JoDcLWyQBSMXPnRcsvOmi8KrIgWyoYkhKv1iEUbd1uV
+	1pwuFMGNZNxJyfWgNBpNR3CJKtJqCXKlr1OFn8OzDgY7sQb2Z0Bidu1ni4tSLYTLTeIalsTcevx
+	0athzlTfjazaOQa1FW+WNZ4qqNyef98dA4pdCde/FLrGVV+yrl6lfBTERMM3aP9pS1nO2fFFABz
+	n2xQyAKKLCLkAeUkUvWdt9DvsR8FGRsQoq0ggttSLREE89Nk9RSw8DugY5eLkhk09IobH15ZxzB
+	6ZfHitHe4yq8ywCSaG/EGghNLsGqLh0R80KJoh/NeQ3tNQ7WHqRDaJsNrj8OyfBPM/4/9gG2LFi
+	7U//LKpKeRVKqXv8Ehzu/kRGIjQ0XBf34dQ/OdRje/uuT8WR78PniHRaiHCR7ZNi3TiUXCMbZtH
+	XpyLk=
+X-Received: by 2002:a05:6000:4013:b0:4a7:d4c9:ea03 with SMTP id ffacd0b85a97d-4abaac57bb5mr26588508f8f.6.1795514372465;
+        Tue, 24 Nov 2026 01:59:32 -0800 (PST)
+X-Received: by 2002:a05:6000:4013:b0:4a7:d4c9:ea03 with SMTP id ffacd0b85a97d-4abaac57bb5mr26588458f8f.6.1795514372081;
+        Tue, 24 Nov 2026 01:59:32 -0800 (PST)
+Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.158.90])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab5ffcad11sm26055111f8f.0.2026.11.24.01.59.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 01:59:31 -0800 (PST)
+Date: Tue, 24 Nov 2026 10:59:28 +0100
+From: Juri Lelli <juri.lelli@redhat.com>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
+	rcu@vger.kernel.org, linux-doc@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	luca abeni <luca.abeni@santannapisa.it>,
+	Yuri Andriaccio <yurand2000@gmail.com>,
+	Yuri Andriaccio <yuri.andriaccio@santannapisa.it>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>, Davidlohr Bueso <dave@stgolabs.net>,
+	Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Qais Yousef <qyousef@layalina.io>,
+	John Ogness <john.ogness@linutronix.de>
+Subject: Re: [PATCH v4 3/6] sched: Add sysfs files for the per-CPU
+ fair_server knobs
+Message-ID: <awVgALGuilf2FMsT@jlelli-thinkpadt14gen4.remote.csb>
+References: <20261123-sched_dl-v4-0-d523e4d960d3@linutronix.de>
+ <20261123-sched_dl-v4-3-d523e4d960d3@linutronix.de>
+ <awVDG-ABOvj7zGRg@jlelli-thinkpadt14gen4.remote.csb>
+ <20261124080833.0I9HFgtf@linutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,426 +145,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124080833.0I9HFgtf@linutronix.de>
 
-Split debugfs routines into a separate file for easier maintenance.
-No functional changes intended.
+On 24/11/26 09:08, Sebastian Andrzej Siewior wrote:
+> On 2026-11-24 08:56:11 [+0100], Juri Lelli wrote:
+> > Hello,
+> > 
+> > On 23/11/26 14:41, Sebastian Andrzej Siewior wrote:
+> > > The fair_server exposes the runtime and period knobs per-CPU in the
+> > > debugfs folder. The debugfs interface is not a stable ABI.
+> > > Make the /sys/kernel/debug/sched/fair_server/cpu*/{period|runtime} knobs
+> > > available as /sys/kernel/sched/cpuX/{fair_server_period|fair_server_runtime}.
+> > > 
+> > > It adds a struct kobject to the rq and exposes only those two. The
+> > > per-runqueue folder is named `cpu' rather than `rq' since it might be
+> > > more intuitive to the user than `rq' or `runqueue'.
+> > > 
+> > > The set logic is pulled from the debugfs folder but it is still shared.
+> > > That debugfs logic could be removed (after providing the same for
+> > > ext-server) or symlinked for a while.
+> > 
+> > ...
+> > 
+> > > +static ssize_t rq_fair_server_runtime_show(struct kobject *kobj, struct kobj_attribute *attr,
+> > > +					   char *buf)
+> > > +{
+> > > +	struct rq *rq = kobj_to_rq(kobj);
+> > > +	struct sched_dl_entity *dl_se;
+> > > +
+> > > +	dl_se = &rq->fair_server;
+> > > +
+> > > +	return sysfs_emit(buf, "%llu\n", dl_se->dl_runtime);
+> > > +}
+> > 
+> > Since these files are new and meant to replace debugfs, how about using
+> > ns everywhere (you partly commented about it in the cover letter), as
+> > sched_attr and the dl_server parameters already do, with the unit in the
+> > name? I.e. fair_server_{runtime,period}_ns here and
+> > dl_{runtime,period}_ns in 2/6, with only the procfs compatibility path
+> > converting from us. Right now /sys/kernel/sched/ has dl_*_us in us next
+> > to cpuX/fair_server_* in ns without a suffix.
+> 
+> I can do both in ns (or us depending what is easier/ more useful). Let
+> me update that then.
 
-Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
----
-
-Rupesh, feel free to include this patch into your series as the first one.
-
-Fun fact: This patch was written with zero AI assistance.
-
- drivers/iio/Makefile               |   1 +
- drivers/iio/iio_core.h             |  14 +++
- drivers/iio/industrialio-core.c    | 152 +-------------------------
- drivers/iio/industrialio-debugfs.c | 165 +++++++++++++++++++++++++++++
- 4 files changed, 182 insertions(+), 150 deletions(-)
- create mode 100644 drivers/iio/industrialio-debugfs.c
-
-diff --git a/drivers/iio/Makefile b/drivers/iio/Makefile
-index 8a897b6729d2..5fd81b20da22 100644
---- a/drivers/iio/Makefile
-+++ b/drivers/iio/Makefile
-@@ -8,6 +8,7 @@ industrialio-y := industrialio-core.o industrialio-event.o inkern.o
- industrialio-$(CONFIG_IIO_BUFFER) += industrialio-buffer.o
- industrialio-$(CONFIG_IIO_TRIGGER) += industrialio-trigger.o
- industrialio-$(CONFIG_ACPI) += industrialio-acpi.o
-+industrialio-$(CONFIG_DEBUG_FS) += industrialio-debugfs.o
- 
- obj-$(CONFIG_IIO_CONFIGFS) += industrialio-configfs.o
- obj-$(CONFIG_IIO_GTS_HELPER) += industrialio-gts-helper.o
-diff --git a/drivers/iio/iio_core.h b/drivers/iio/iio_core.h
-index 59fa1bd9924b..985ac82a37f9 100644
---- a/drivers/iio/iio_core.h
-+++ b/drivers/iio/iio_core.h
-@@ -16,6 +16,20 @@ struct iio_buffer;
- struct iio_chan_spec;
- struct iio_dev;
- 
-+#if defined(CONFIG_DEBUG_FS)
-+void iio_debugfs_create(void);
-+void iio_debugfs_remove(void);
-+
-+void iio_device_unregister_debugfs(struct iio_dev *indio_dev);
-+void iio_device_register_debugfs(struct iio_dev *indio_dev);
-+#else
-+static inline void iio_debugfs_create(void) {}
-+static inline void iio_debugfs_remove(void) {}
-+
-+static void iio_device_register_debugfs(struct iio_dev *indio_dev) {}
-+static void iio_device_unregister_debugfs(struct iio_dev *indio_dev) {}
-+#endif /* CONFIG_DEBUG_FS */
-+
- extern const struct device_type iio_device_type;
- 
- struct iio_dev_buffer_pair {
-diff --git a/drivers/iio/industrialio-core.c b/drivers/iio/industrialio-core.c
-index 792c2d28835b..3b66d7b765d5 100644
---- a/drivers/iio/industrialio-core.c
-+++ b/drivers/iio/industrialio-core.c
-@@ -14,7 +14,6 @@
- #include <linux/anon_inodes.h>
- #include <linux/cdev.h>
- #include <linux/cleanup.h>
--#include <linux/debugfs.h>
- #include <linux/device.h>
- #include <linux/err.h>
- #include <linux/export.h>
-@@ -54,8 +53,6 @@ const struct bus_type iio_bus_type = {
- };
- EXPORT_SYMBOL(iio_bus_type);
- 
--static struct dentry *iio_debugfs_dentry;
--
- static const char * const iio_direction[] = {
- 	[0] = "in",
- 	[1] = "out",
-@@ -293,20 +290,6 @@ bool iio_buffer_enabled(struct iio_dev *indio_dev)
- }
- EXPORT_SYMBOL_GPL(iio_buffer_enabled);
- 
--#if defined(CONFIG_DEBUG_FS)
--/*
-- * There's also a CONFIG_DEBUG_FS guard in include/linux/iio/iio.h for
-- * iio_get_debugfs_dentry() to make it inline if CONFIG_DEBUG_FS is undefined
-- */
--struct dentry *iio_get_debugfs_dentry(struct iio_dev *indio_dev)
--{
--	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
--
--	return iio_dev_opaque->debugfs_dentry;
--}
--EXPORT_SYMBOL_GPL(iio_get_debugfs_dentry);
--#endif
--
- /**
-  * iio_find_channel_from_si() - get channel from its scan index
-  * @indio_dev:		device
-@@ -427,7 +410,7 @@ static int __init iio_init(void)
- 		goto error_unregister_bus_type;
- 	}
- 
--	iio_debugfs_dentry = debugfs_create_dir("iio", NULL);
-+	iio_debugfs_create();
- 
- 	return 0;
- 
-@@ -442,140 +425,9 @@ static void __exit iio_exit(void)
- 	if (iio_devt)
- 		unregister_chrdev_region(iio_devt, IIO_DEV_MAX);
- 	bus_unregister(&iio_bus_type);
--	debugfs_remove(iio_debugfs_dentry);
-+	iio_debugfs_remove();
- }
- 
--#if defined(CONFIG_DEBUG_FS)
--static ssize_t iio_debugfs_read_reg(struct file *file, char __user *userbuf,
--			      size_t count, loff_t *ppos)
--{
--	struct iio_dev *indio_dev = file->private_data;
--	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
--	unsigned int val = 0;
--	u64 val64 = 0;
--	int ret;
--
--	if (*ppos > 0)
--		return simple_read_from_buffer(userbuf, count, ppos,
--					       iio_dev_opaque->read_buf,
--					       iio_dev_opaque->read_buf_len);
--
--	if (indio_dev->info->debugfs_reg64_access) {
--		ret = indio_dev->info->debugfs_reg64_access(indio_dev,
--							    iio_dev_opaque->cached_reg_addr,
--							    0, &val64);
--	} else {
--		ret = indio_dev->info->debugfs_reg_access(indio_dev,
--							  iio_dev_opaque->cached_reg_addr,
--							  0, &val);
--		val64 = val;
--	}
--
--	if (ret) {
--		dev_err(indio_dev->dev.parent, "%s: read failed\n", __func__);
--		return ret;
--	}
--
--	iio_dev_opaque->read_buf_len = snprintf(iio_dev_opaque->read_buf,
--						sizeof(iio_dev_opaque->read_buf),
--						"0x%llX\n", val64);
--
--	return simple_read_from_buffer(userbuf, count, ppos,
--				       iio_dev_opaque->read_buf,
--				       iio_dev_opaque->read_buf_len);
--}
--
--static ssize_t iio_debugfs_write_reg(struct file *file,
--		     const char __user *userbuf, size_t count, loff_t *ppos)
--{
--	struct iio_dev *indio_dev = file->private_data;
--	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
--	unsigned int reg;
--	char buf[80];
--	u64 val64;
--	int ret;
--
--	if (*ppos != 0 || count >= sizeof(buf))
--		return -EINVAL;
--
--	ret = simple_write_to_buffer(buf, sizeof(buf) - 1, ppos, userbuf,
--				     count);
--	if (ret < 0)
--		return ret;
--
--	buf[ret] = '\0';
--
--	ret = sscanf(buf, "%i %lli", &reg, &val64);
--
--	switch (ret) {
--	case 1:
--		iio_dev_opaque->cached_reg_addr = reg;
--		break;
--	case 2:
--		iio_dev_opaque->cached_reg_addr = reg;
--		if (indio_dev->info->debugfs_reg64_access)
--			ret = indio_dev->info->debugfs_reg64_access(indio_dev, reg,
--								    val64, NULL);
--		else
--			ret = indio_dev->info->debugfs_reg_access(indio_dev, reg,
--								  val64, NULL);
--		if (ret) {
--			dev_err(indio_dev->dev.parent, "%s: write failed\n",
--				__func__);
--			return ret;
--		}
--		break;
--	default:
--		return -EINVAL;
--	}
--
--	return count;
--}
--
--static const struct file_operations iio_debugfs_reg_fops = {
--	.open = simple_open,
--	.read = iio_debugfs_read_reg,
--	.write = iio_debugfs_write_reg,
--};
--
--static void iio_device_unregister_debugfs(struct iio_dev *indio_dev)
--{
--	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
--
--	debugfs_remove_recursive(iio_dev_opaque->debugfs_dentry);
--}
--
--static void iio_device_register_debugfs(struct iio_dev *indio_dev)
--{
--	struct iio_dev_opaque *iio_dev_opaque;
--
--	if (!indio_dev->info->debugfs_reg_access &&
--	    !indio_dev->info->debugfs_reg64_access)
--		return;
--
--	if (!iio_debugfs_dentry)
--		return;
--
--	iio_dev_opaque = to_iio_dev_opaque(indio_dev);
--
--	iio_dev_opaque->debugfs_dentry =
--		debugfs_create_dir(dev_name(&indio_dev->dev),
--				   iio_debugfs_dentry);
--
--	debugfs_create_file("direct_reg_access", 0644,
--			    iio_dev_opaque->debugfs_dentry, indio_dev,
--			    &iio_debugfs_reg_fops);
--}
--#else
--static void iio_device_register_debugfs(struct iio_dev *indio_dev)
--{
--}
--
--static void iio_device_unregister_debugfs(struct iio_dev *indio_dev)
--{
--}
--#endif /* CONFIG_DEBUG_FS */
--
- static ssize_t iio_read_channel_ext_info(struct device *dev,
- 				     struct device_attribute *attr,
- 				     char *buf)
-diff --git a/drivers/iio/industrialio-debugfs.c b/drivers/iio/industrialio-debugfs.c
-new file mode 100644
-index 000000000000..7ceeb88f9276
---- /dev/null
-+++ b/drivers/iio/industrialio-debugfs.c
-@@ -0,0 +1,165 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Industrial I/O debugfs bits
-+ */
-+
-+#include <linux/cdev.h>
-+#include <linux/debugfs.h>
-+#include <linux/dev_printk.h>
-+#include <linux/errno.h>
-+#include <linux/export.h>
-+#include <linux/fs.h>
-+#include <linux/init.h>
-+#include <linux/sprintf.h>
-+#include <linux/sysfs.h>
-+#include <linux/types.h>
-+
-+#include <linux/iio/iio.h>
-+#include <linux/iio/iio-opaque.h>
-+
-+#include "iio_core.h"
-+
-+static struct dentry *iio_debugfs_dentry;
-+
-+/*
-+ * There's also a CONFIG_DEBUG_FS guard in include/linux/iio/iio.h for
-+ * iio_get_debugfs_dentry() to make it inline if CONFIG_DEBUG_FS is undefined
-+ */
-+struct dentry *iio_get_debugfs_dentry(struct iio_dev *indio_dev)
-+{
-+	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-+
-+	return iio_dev_opaque->debugfs_dentry;
-+}
-+EXPORT_SYMBOL_GPL(iio_get_debugfs_dentry);
-+
-+void __init iio_debugfs_create(void)
-+{
-+	iio_debugfs_dentry = debugfs_create_dir("iio", NULL);
-+}
-+
-+void __exit iio_debugfs_remove(void)
-+{
-+	debugfs_remove(iio_debugfs_dentry);
-+}
-+
-+static ssize_t iio_debugfs_read_reg(struct file *file, char __user *userbuf,
-+			      size_t count, loff_t *ppos)
-+{
-+	struct iio_dev *indio_dev = file->private_data;
-+	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-+	unsigned int val = 0;
-+	u64 val64 = 0;
-+	int ret;
-+
-+	if (*ppos > 0)
-+		return simple_read_from_buffer(userbuf, count, ppos,
-+					       iio_dev_opaque->read_buf,
-+					       iio_dev_opaque->read_buf_len);
-+
-+	if (indio_dev->info->debugfs_reg64_access) {
-+		ret = indio_dev->info->debugfs_reg64_access(indio_dev,
-+							    iio_dev_opaque->cached_reg_addr,
-+							    0, &val64);
-+	} else {
-+		ret = indio_dev->info->debugfs_reg_access(indio_dev,
-+							  iio_dev_opaque->cached_reg_addr,
-+							  0, &val);
-+		val64 = val;
-+	}
-+
-+	if (ret) {
-+		dev_err(indio_dev->dev.parent, "%s: read failed\n", __func__);
-+		return ret;
-+	}
-+
-+	iio_dev_opaque->read_buf_len = snprintf(iio_dev_opaque->read_buf,
-+						sizeof(iio_dev_opaque->read_buf),
-+						"0x%llX\n", val64);
-+
-+	return simple_read_from_buffer(userbuf, count, ppos,
-+				       iio_dev_opaque->read_buf,
-+				       iio_dev_opaque->read_buf_len);
-+}
-+
-+static ssize_t iio_debugfs_write_reg(struct file *file,
-+		     const char __user *userbuf, size_t count, loff_t *ppos)
-+{
-+	struct iio_dev *indio_dev = file->private_data;
-+	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-+	unsigned int reg;
-+	char buf[80];
-+	u64 val64;
-+	int ret;
-+
-+	if (*ppos != 0 || count >= sizeof(buf))
-+		return -EINVAL;
-+
-+	ret = simple_write_to_buffer(buf, sizeof(buf) - 1, ppos, userbuf,
-+				     count);
-+	if (ret < 0)
-+		return ret;
-+
-+	buf[ret] = '\0';
-+
-+	ret = sscanf(buf, "%i %lli", &reg, &val64);
-+
-+	switch (ret) {
-+	case 1:
-+		iio_dev_opaque->cached_reg_addr = reg;
-+		break;
-+	case 2:
-+		iio_dev_opaque->cached_reg_addr = reg;
-+		if (indio_dev->info->debugfs_reg64_access)
-+			ret = indio_dev->info->debugfs_reg64_access(indio_dev, reg,
-+								    val64, NULL);
-+		else
-+			ret = indio_dev->info->debugfs_reg_access(indio_dev, reg,
-+								  val64, NULL);
-+		if (ret) {
-+			dev_err(indio_dev->dev.parent, "%s: write failed\n",
-+				__func__);
-+			return ret;
-+		}
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return count;
-+}
-+
-+static const struct file_operations iio_debugfs_reg_fops = {
-+	.open = simple_open,
-+	.read = iio_debugfs_read_reg,
-+	.write = iio_debugfs_write_reg,
-+};
-+
-+static void iio_device_unregister_debugfs(struct iio_dev *indio_dev)
-+{
-+	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-+
-+	debugfs_remove_recursive(iio_dev_opaque->debugfs_dentry);
-+}
-+
-+static void iio_device_register_debugfs(struct iio_dev *indio_dev)
-+{
-+	struct iio_dev_opaque *iio_dev_opaque;
-+
-+	if (!indio_dev->info->debugfs_reg_access &&
-+	    !indio_dev->info->debugfs_reg64_access)
-+		return;
-+
-+	if (!iio_debugfs_dentry)
-+		return;
-+
-+	iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-+
-+	iio_dev_opaque->debugfs_dentry =
-+		debugfs_create_dir(dev_name(&indio_dev->dev),
-+				   iio_debugfs_dentry);
-+
-+	debugfs_create_file("direct_reg_access", 0644,
-+			    iio_dev_opaque->debugfs_dentry, indio_dev,
-+			    &iio_debugfs_reg_fops);
-+}
--- 
-2.50.1
+Mind that it would be nice to hear from others in this thread before I
+make you do changes that others might not agree with. :)
 
