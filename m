@@ -1,80 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795510740;
-	b=qJGxKjyWtCW6JH+DJixj+A295gxB/Wm0dRT0u4mtlYtg9/ZLUsLUUJT61KPjRllow5Ds
-	 Jq0tcMdffW+hGTR8hUrm8mEtb2v1P5FvuGdRebTxRf12Sr4jTUQ1gu0A3JFcITGtfxBBb
-	 O7nH5Aiwz9Ewcoi62rDscqhft6fUCfpVwPrZjPPzGt/O8OasbYOzTxq0RrFZmrMPfnyjr
-	 xwKX6+SrO9y+knS6OsqfWM2ZCiupBO3xj4740yQUtEi7aj9+TJm/iNpVi9Hvnlpfy3se/
-	 d98pGzk3BRclXulv+v44Dp5AipGbTl7+7uCabnfKMtSbfMEC+YVGT0Ia9544J0LcALg==
+	t=1795510819;
+	b=1kdJrIaYd2Q41h7Qv5wyd5d2oQFJQP7rsv+neZbwc6J/zmFOi628OZj/1vZ2LAFEENQR
+	 417ccMv0IkoSQTBbhCPfVRYZIzxmIhHzI9Rt3CheNQHXkOF5xRPOGg8BzwgDnvVWJB1Hi
+	 AYY04Z3mMN6DpWLoViWp1pelQRultaTSL3nY6n6JCIE1c9/lDZrI+gI4+LKGtlMBuHy8Z
+	 t33LbsD5nFdF+SRKlFqK54pbpuCRTKoTdMj45AQROj2mnBhua66T7mK6vxeiypPNP0b3Q
+	 Xusjb8E6q+T1iDdWq1Cd2UNUo7Uqox2MdoNDdOJKTtvtTVwskQp41eQytUnZSKoenBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795510740;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=iYjv7RbotbqaHt7QdXT/8Tg8XeFQ6Uk7hTPrb5SAdJ8=;
-	b=Tlxh8rRjVuxs8h1o9ESm1TMqkaTXVzPO0oQUQylH2I/nGETRd3uVcPtSyHRuYaIYb8Mh
-	 3P7i+6ukfimm6OYQjCpLuqnqfMeaslVV7UJypzvIn0FBlOa+L8YXvZ5FTynaDCHEm9pnv
-	 q3WNcAGze9l5qKiCwTkqEueBNmq2rw0cmpSKvPFaaotVV14ZrCvisqgtd0Lxsbn11dgg9
-	 46umjVbsypduIWS8BKdvK8zlU9kp+9hl8ESuX51xvRRHIluJdEGG/qvE+jeVSoqlUFiko
-	 jl85F3oKbWCi4yMYuT0YCTxNKU1/e/6rGYNzSlgUad4/jrZAmOCmVGLg58/Osopzh5A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795510819;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
+	 References:Date:Message-Id:X-Mailer:X-Last-TLS-Session-Version;
+	bh=smFTUIcx8cfAJ0RIWvn0nwR9mA44PKis6Nxa17lG3+k=;
+	b=pjlr4kYB5i7H+bQ+FwbZDj38hjS8qT6Rbz+sDwioLHMulreTrGIBt4dbowI/kz8Yh9SH
+	 VyA8NHr/vHHIi6kR58WsgsUkZTsuuipbVFeRySZF6uGbSieE6qm12lu1a+y3wMAUnH/sw
+	 DNU2/+ZZkG7VkkHMooTvqkS3bnHfYtygJNcmS/BBl+1vuYwQr2IRSlZe1tlK3LWdmYmWR
+	 QQQZ9BqJavSHOy2a1Zm+MDZRVKA/AwTzAF+2qiEkWIhA/tlNS1pSJ6Br6ZeNHiqjy5WyJ
+	 eN+iRYfwoga++vkYFxupHJHYuGNiFiTKyFWsxcNlpq/Ol25VicxXCEBJ2mZGAl8DIGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k1QFahsn;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=kiqmBDZW;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 733BB606A31E;
-	Tue, 24 Nov 2026 08:59:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FD0A606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:00:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FD0A606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k1QFahsn
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id DE6741F000C0;
-	Tue, 24 Nov 2026 08:58:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795510739;
-	bh=iYjv7RbotbqaHt7QdXT/8Tg8XeFQ6Uk7hTPrb5SAdJ8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=k1QFahsnF0x+zCcltI5RHNJkWBpdEzrqZsbILpvtucLNDMLYBfD6HWPxRRuOpcHVm
-	 B66SoPYuvfdPFugWs2E1SoH2Vokq28QQ9oQQ7MtJ8nyM0BJfp6WotjqfE56EijnxfU
-	 NP8mgmGthJgV7XbUfHSEev5bMps1Q0zcY5GY2p1n0R7ZrwysvhdXu5vXlcCgDkx+Uo
-	 MYOmOIgF8uCyWYV0/QGGjTFZkVnF4jMMv7qpzw3G1Etf56xsKLlv1wUVPQD1P6epM9
-	 CHd6CiLmUEwl567ey9CMCYt2Fjs9101x/9q2KbVqhb2F3stKSmENWpqGOf4572Dj4R
-	 LIUH5hhlX0zOw==
-Date: Tue, 24 Nov 2026 10:58:55 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: linux-fsdevel@vger.kernel.org
-Cc: bpf@vger.kernel.org, containers@lists.linux.dev,
-	linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org,
-	Aleksa Sarai <aleksa@amutable.com>,
-	Alexander Mikhalitsyn <alex@amutable.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Andy Lutomirski <luto@amacapital.net>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Christian Brauner <brauner@kernel.org>,
-	David Howells <dhowells@redhat.com>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Giuseppe Scrivano <giuseppe@scrivano.org>,
-	Hugh Dickins <hughd@google.com>, Jan Kara <jack@suse.cz>,
-	Jeff Layton <jlayton@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Josef Bacik <josef@toxicpanda.com>, Kees Cook <kees@kernel.org>,
-	KP Singh <kpsingh@kernel.org>,
-	Lennart Poettering <lennart@poettering.net>,
-	Neal Gompa <neal@gompa.dev>, Oleg Nesterov <oleg@redhat.com>,
-	Paul Moore <paul@paul-moore.com>,
-	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
-	Serge Hallyn <sergeh@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
-Subject: Re: [RFC PATCH v7 00/26] userland: Userland containers
-Message-ID: <awVRz8XC54nfevtW@kernel.org>
-References: <20261122193539.3334213-1-jarkko@kernel.org>
- <awTmJIErjasO4lqq@kernel.org>
- <awToL2PFNKVgIfqs@kernel.org>
- <awUGkYoyDXp4P5LJ@kernel.org>
- <awULfmZR-pESj2EC@kernel.org>
- <awVInf04kGC0uZZo@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=kiqmBDZW
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 1B9571A16F5;
+	Tue, 24 Nov 2026 09:00:15 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C8CFA601E1;
+	Tue, 24 Nov 2026 09:00:14 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 112E811E68CD1;
+	Tue, 24 Nov 2026 10:00:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795510814; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=smFTUIcx8cfAJ0RIWvn0nwR9mA44PKis6Nxa17lG3+k=;
+	b=kiqmBDZWuqGnmZH8dTJhz4Y+tJ5PUFhdt956ttONRCBoKDeslaD3J7qYRa8Pa5/nsCdZiO
+	3i+Ed4vvqdQaggJ1HYYU9eQQOcXh0CeZkgKbGSS3g+RkCv+dLdn2MbRvVOd0UIWrqAG6aK
+	9Kw6ja2Aj6AmKtnH5PX4/mdk97e7pAnh7/yb5vOSMiGuuxSi2naFoEb0AOBCyBHZLWQCr4
+	s3DwSddEtn/re5H5wwwodR2xAICobnEEo4HQAs/W4aTj4r3+Bjg+xB1p4YKQCJSilQPdxj
+	FTXUGkSed0B0upfooAf9gN6XLVD+VFDVkCxMSp0SYvu0HAcpHyxnP+qjzrNCMA==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,100 +59,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awVInf04kGC0uZZo@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] mfd: cgbc-core: Add support for conga-PA7
+From: "Thomas Richard (congatec GmbH)" <thomas.richard@bootlin.com>
+To: Markus Haberlander <markus.haberlander@rosenberger.com>
+Cc: Thomas Richard <thomas.richard@bootlin.com>, Lee Jones <lee@kernel.org>, 
+ mfd@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+In-Reply-To: <20261123-cgbc-conga-pa7-v1-1-f3d17fb02e43@rosenberger.com>
+References: <20261123-cgbc-conga-pa7-v1-1-f3d17fb02e43@rosenberger.com>
+Date: Tue, 24 Nov 2026 10:00:05 +0100
+Message-Id: <179551080501.9961.1835193533099263045.b4-review@b4>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Tue, Nov 24, 2026 at 10:19:46AM +0200, Jarkko Sakkinen wrote:
-> On Tue, Nov 24, 2026 at 05:58:58AM +0200, Jarkko Sakkinen wrote:
-> > On Tue, Nov 24, 2026 at 05:37:58AM +0200, Jarkko Sakkinen wrote:
-> > > On Tue, Nov 24, 2026 at 03:28:19AM +0200, Jarkko Sakkinen wrote:
-> > > > On Tue, Nov 24, 2026 at 03:19:36AM +0200, Jarkko Sakkinen wrote:
-> > > > > On Sun, Nov 22, 2026 at 09:35:13PM +0200, Jarkko Sakkinen wrote:
-> > > > > > SYSCALLS
-> > > > > > ========
-> > > > > > 
-> > > > > > Two new system calls are proposed:
-> > > > > > 
-> > > > > > 1. userland_open(): open an opaque staircase-initialized container
-> > > > > >    object (modeled on Intel SGX enclave initialization with separate
-> > > > > >    build and live states) with no embryonic state, opting selected
-> > > > > >    shared namespaces in via an allow-list instead of unshare semantics.
-> > > > > > 2. userns_set_idmap(): configure all UID, GID, and project ID map
-> > > > > >    extents for a container user namespace in a single atomic system
-> > > > > >    call.
-> > > > > 
-> > > > > I played on patching systemd and userns_set_idmap() alone does already
-> > > > > a lot of good. I'm figuring out userland_open() integration next.
-> > > > > 
-> > > > > For the test implementation I probe the opcode's and dependening on that
-> > >                                             ~~~~~~~~
-> > > 					    syscalls
-> > > 
-> > > > > use either "userland path" or "fallback path".
-> > > > > 
-> > > > > This auto-probing is done so that I can commit the patches to my kernel
-> > > > > test harness, which already has systemd, and try them out when built
-> > > > > against userland-enabled kernel (via LINUX_OVERRIDE_SRCDIR):
-> > > > > 
-> > > > > https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd-test.git/tree/?h=main
-> > > > > 
-> > > > > The project builds a hybrid ISO, which is a bootable bootc/composefs
-> > > > > based operating system, and has toolbx bundled i.e., a reasonable test
-> > > > > environment for all of this. It is also device-installable via "npx
-> > > > > @puu/install"
-> > > > > 
-> > > > > I had to level the harness up a lot so that I could realistically test
-> > > > > lockdown-hibernate but it is is also pretty good emulation environment
-> > > > > for any possible container features.
-> > > > 
-> > > > Kernel is ukified and systemd-boot is used as the boot loader i.e., for
-> > > > kernel testing purposes corresponds to something like Silverblue except
-> > > > not using GRUB.
-> > > 
-> > > Experimental systemd patches:
-> > > 
-> > > https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd-test.git/commit/?h=main&id=e4d6b15da3376ad09c0c575cedf467f69db32a52
-> > > 
-> > > The patches are layered per syscall feature:
-> > > 
-> > > - 1-5: userns_set_idmap
-> > > - 6-10: userland_open()
-> > > 
-> > > Virtual device would add path/mount complexity and generally dependency
-> > > to mounts i.e., I think it was an awful idea. At least initially this
-> > > feels fairly lean way of doing container things now that I've trialed
-> > > systemd-nspawn a bit.
-> > > 
-> > > I'll update the patches over time.
-> > 
-> > "userland_open" is just a name as I don't have anything better for the
-> > time being (perhaps <something>fd() e.g., containerfd(), would work
-> > better).
+> The conga-PA7 is a Pico-ITX board with an Intel Elkhart Lake SoC, like
+> the conga-SA7 SMARC module. Its board controller is of the same
+> generation and is accessed through the same I/O ports, so the existing
+> driver works with it once the board is matched.
 > 
-> What I did at late 2025 was simply going through the old ML discussions
-> for David's patches and addressed the remarks one by one. Then I
-> improved the patch set bit further until other stuff came along, and I
-> forgot the whole thing for some time.  Last week's burst was really
-> unwritten todo list starting to remind about itself in flashbacks.
-> 
-> There's not much more in API sense to do except maybe syscall rename and
-> associated prefixes in constants etc. My Git branch has additional fixes
-> (e.g., more LSM plumbing) on top of this but they don't change the gist
-> of this by any possible way so no new RFCs for the time being.
-> 
-> The most up to date version:
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd.git/log/?h=vault
+> Match the board vendor and name, as for the other boards: the system
+> vendor and product name are empty on this board.
 
-The key function to look up from here is spawn_userland_container():
+These fields are expected to be empty. It is not Congatec's responsibility
+to fill them, it is the system vendor's responsibility. The conga-PA7 is
+not a system nor a final product. So drop "as for the other boards: the
+system vendor and product name are empty on this board."
 
-	https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd-test.git/tree/br2-external/patches/systemd/0010-nspawn-Start-containers-in-an-experimental-userland.patch?h=main
+-- 
+Best Regards,
+Thomas Richard
 
-It demonstrates an initialization flow that ends up cleanly with
-clone(). userland_share_host_ns() demonstrates the ioctl I added
-previous week i.e., USERLAND_SHARE_NSFD, which is used to punch those
-host namespaces that the guest actually needs. This is the allow-list
-part, which is usually the favorable principle over deny-list.
-
-Br, Jarkko
