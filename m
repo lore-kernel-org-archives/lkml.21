@@ -1,47 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795519195;
-	b=HrA1PJkj78oF7OkCijjQrrGKremrqXIHBdqoOvlw3yJKT/d5y6DB4KyTZrb11aWobboK
-	 Be75852//VO0kRu37tEQ/ZyacQZxArwkk8Qihv0vXEZPOBjx7BbTeVsif+NVyD1FOmmkx
-	 keYUivEoL5MEoJp4+ndoxUBIurA50EPSYDOuctY+/kGo2ZJFEBfD5mV3ftBUhdWzIt0Dr
-	 GjTEWCrWiahpH/CiTGKcM+NyYZbDffL/9yIwYJ7Lo9xVwHVuUBl8dGXzHt4zAOLTC9Pez
-	 /9v2Y2i8w/fGp6WH0RrzYymJwb6o82XZB9A09+mGNvS1nTRlB0WFT9sYmzEjqBGrjsg==
+	t=1795519209;
+	b=dWrWCxsAQ2KdTUAWiV7H7vPqMpbmUVctKwP5V1HcdlbQ4kjOTr8LBdToWO3cOtYZ47qC
+	 0byAg9OsKOSPRPM+0lM2rpZVzpf7Fr0JfxjXiz9czDehBqTSLnEmjtx+MUbuFTnpw9OrZ
+	 pXv+N6/OZ4H1YjKQXi0gNavN+XUNG6XMl9R0WdUkhoOxxRmwGTFd0APQ7+2Bmdw7wnVYb
+	 nSIcNuaH325gMevSTFf45zAkKMd0jEIzArEZ36d7OS+mJ1jNUCFPYjvJH789XUUDtBDyp
+	 lFsbLS/ClfRPgx7ktz7ShcOPJV9PV217dycDD/0cks4LICT6HDUIqHlIcM7DgN9Vvag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795519195;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=sflG/fP1L0m8J5CqwcBr6GqfGSpw4hKXmAR3ym1x14U=;
-	b=JDiQlx/Idvsrbs7OeporlnGsBkD6UVGGy5diV1C06fyC1ZTD3pTeldDUzVxnw3Y6iqWL
-	 yv/2L4ID7R2SKuirJfGmDZSH7P55vCUDuolB8r+SB6x7pq+k/eO+kolTIHupxG3o/VfDZ
-	 zK8Xrmw97zI7pyIYX9UKuGZqKqtp+nx31lnP3gC0/yE9RiM/FHJ7eRekRwyUSv4TcnMGg
-	 1PTB/qm/U7uQPOINbmpuinR51E6Bhstseyp6P0TNWExb7Ma2Wvkvj34ljlXDbEIxxpMR3
-	 A9uBVZez5vuDYCv2AmDUD5T/okRPrQDK0jf83NRPhZ/iQTg5txmzKLC9I54cCi9xMDQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795519209;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=Dk2wXFjhpQieaTn4+8P73Xaj27BcCLp8OmiozuxND8Q=;
+	b=deVZ9M1sERxsK8P4tg/jUOXGrI1O6jw6fMBBu+MJc310ec2pzhvAODG8jFXRgLPbBAP+
+	 DQ2JDKa56Hu9MdE5Fk1le0Fd7iuAVvpbeZ6cjx7wdj4vLRoWe2kKOXNcTBh7wRkVTLRwk
+	 pj2raBNni4VUh7XMMVEoVmGdCnf5y7/CpS+jMweCqVGOgN70gM7T+hpnRY7GVWBkQYk6h
+	 qX47zT8CT18CdKVTAqqnXZXVmnRegdxJWkdEjvX+88K8qPSk0/on/GUXr1pVCbLZh/wJK
+	 lrzQUGTAS/d4+EKhs6YtnXtIgU7VOT99mzOTS6JO4PQ5E2MWetnZyZ+03DwZFt3B4hA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RiCdDCpN;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3493D606A31E;
-	Tue, 24 Nov 2026 11:19:54 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ZW9s1R5M;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id BD2AD606A32D
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:20:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD2AD606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RiCdDCpN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D38601F000C4;
-	Tue, 24 Nov 2026 11:19:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795519194;
-	bh=sflG/fP1L0m8J5CqwcBr6GqfGSpw4hKXmAR3ym1x14U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=RiCdDCpNmJMo4DvlLs1URU123IHwgsv7PD/iH4y2qNTauM6J1qA66t4fT+YA8f9wf
-	 5RbT4RTYvGGo6GpDd6EQL4Sv30GmyfQR5TjTdvhXWrIzMO3unnZXDrjQ33Dm0Y74e4
-	 JDJBM1kYMLdCUEfawCYdsT5dIqekng3MI9Trs/HTtytUof1SDeq+GwO3u4QmJFfN9A
-	 Zop0pL5epXBLCTpYI9ynA4gRbEnxlPlI8JHe2LBw15e2gg8wzo4FIlfakCwOw5cGb9
-	 HWfUn/h5gfLOcPn6TOsU4CYitt7L8rSeLI4w/tbv4p+zvfbjBvgoxqgHBkyzw2kSf2
-	 C8e/OnSRBJx+g==
-Message-ID: <452bd60f-2440-4935-8bde-6bcae872d40d@kernel.org>
-Date: Tue, 24 Nov 2026 12:19:50 +0100
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ZW9s1R5M
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BE1F339;
+	Tue, 24 Nov 2026 03:20:05 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2EBD13F86F;
+	Tue, 24 Nov 2026 03:20:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795519208; bh=6Rsk+fNLaeVjh0mdUYBJ7NOQt7+Hpq7agfJ3FnxeUIw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZW9s1R5M8KR+WqVWd47Go2kxQtGXcj6QCZlJoLpkFo9/069nWj42Id7h9TNTHY9N0
+	 0zV+6jhdua2jwP0FVw2K4szsWMk+g+mLl7HHP3QQvbvYyVEG0UBF7n5HTKR8iF2LSB
+	 gz5VUtma8PANIC5msgF1kyd1wWQ58zf3KCH4nrR4=
+Date: Tue, 24 Nov 2026 11:20:04 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Linu Cherian <linu.cherian@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 4/6] arm64: cputype: Add C2-Ultra definitions
+Message-ID: <awVy5Dqw5tl51K45@arm.com>
+References: <20261113145022.2592454-1-ryan.roberts@arm.com>
+ <20261113145022.2592454-5-ryan.roberts@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,54 +61,19 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/4] media: remove redundant
- pm_runtime_dont_use_autosuspend() calls
-To: Sakari Ailus <sakari.ailus@linux.intel.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- David Heidelberg <david@ixit.cz>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
- Sylvain Petinot <sylvain.petinot@foss.st.com>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261110-media-remove-dont-use-autosuspend-v1-0-cc07e71b30f9@kernel.org>
-Content-Language: en-US
-From: Joshua Crofts <crofts@kernel.org>
-In-Reply-To: <20261110-media-remove-dont-use-autosuspend-v1-0-cc07e71b30f9@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261113145022.2592454-5-ryan.roberts@arm.com>
 
-On 10-Nov-26 15:03, Joshua Crofts wrote:
-> Since commit d1706f9da9f4 ("PM: runtime: call pm_runtime_dont_use_autosuspend() on reinit()"),
-> driver core is now responsible for undoing any
-> pm_runtime_use_autosuspend() calls on driver exit.
+On Fri, Nov 13, 2026 at 02:50:18PM +0000, Ryan Roberts wrote:
+> Add the C2-Ultra part number and MIDR definition. The MIDR_EL1
+> description in the C2-Ultra Technical Reference Manual specifies
+> implementer 0x41 and part number 0xd96.
 > 
-> Remove the redundant function calls.
+> These definitions will be used to identify C2-Ultra in the BBML3 allow
+> list.
 > 
-> NOTE: Some drivers in drivers/media/ still keep their calls because they either
-> rely on pm_runtime_dont_use_autosuspend() before pm_runtime_disable() to flush
-> pending autosuspend delays and trigger synchronous runtime suspension,
-> or operate on a parent device rather than the platform device itself.
-> 
-> Signed-off-by: Joshua Crofts <crofts@kernel.org>
-> ---
-> Joshua Crofts (4):
->       media: i2c: imx355: remove redundant pm_runtime_dont_use_autosuspend() calls
->       media: i2c: tc358746: remove redundant pm_runtime_dont_use_autosuspend() calls
->       media: i2c: vd55g1: remove redundant pm_runtime_dont_use_autosuspend() calls
->       media: i2c: vd56g3: remove redundant pm_runtime_dont_use_autosuspend() calls
-> 
->  drivers/media/i2c/imx355.c   | 2 --
->  drivers/media/i2c/tc358746.c | 2 --
->  drivers/media/i2c/vd55g1.c   | 2 --
->  drivers/media/i2c/vd56g3.c   | 2 --
->  4 files changed, 8 deletions(-)
-> ---
-> base-commit: b3dfbde62cf1981c4638939c159dfd087b7a72e9
-> change-id: 20261110-media-remove-dont-use-autosuspend-a8290b020d6f
-> 
-> Best regards,
+> Link: https://support.arm.com/documentation/109736/0001?lang=en&rev=0001-05
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 
-Hi, gentle ping on this patch.
-
--- 
-Kind regards,
-Joshua Crofts
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
