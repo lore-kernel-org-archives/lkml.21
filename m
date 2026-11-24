@@ -1,49 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795549765;
-	b=R8Hy1zZqku5IqsNLqIR2RjR3JPWzuf5Uc9UyCI7LeiHCIGl6kjzmJjHLEKLiWz/YANQe
-	 xCwbr/04q0H+uSeQciqYLEGwxFNAohcJdAC4tKZbJRoYOfPWT1ueoahWN+sVet1v+J8zv
-	 vvVzwZK5bqNAcAineqLRCxJoG3vuSxFDTLCbN4EXBOQL65skA14+1oPeMWEs/Q9YqFD7B
-	 SYrtvXPn94RKctvl/3UqA9Dxi6HubCTlVpysPLERSHyGbm6CLsgsaon6iC4GYvsF7zuwU
-	 8ZyXI1NTmvloayN02vApeC90I5lDOh1FYW3YDr51QJ33qaiRhJkcAs75Wo+y/CTvXzw==
+	t=1795549797;
+	b=5iQB6PIAlq3hRyjcRuduui3FnFC2F2pYwq7LPbCCWD5y7V1OLyoctpOW9V7+TVFpldZZ
+	 upqejziaSvnEqR+91/WOu6wY15EmE4H8G+huPf3gzIX6jsGcAUupRS5AvoMHSxN1ibsBl
+	 YYYVAzcUQX+9Q4ZD0QYlG8uR+wGz4MPa0eamA9FXX88jGVequJthuhJAF9LvONIMqy6Kc
+	 5V78KTyFrBiiGfAHMytGw85EUOGvKC90Dkzgue/nK3G+4qMZ4REpGi+r0PVlkiiYpNOQu
+	 CoE8+FCx+rS08yploPprFn9ismMH3yA6S9heTeBDLK+ja1IljIavO9k82Eoy2rDbFfA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795549765;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=n158BJ1nGVIacHP1WocjVqbitH/X257pdqGk4WCbzoc=;
-	b=5lM+ndyeOI1sRB6hCfFZRfwdH6M6AwX9BtbgSiSgd8hiLV9XPNCNSg6T2l0GeIPIRKJa
-	 CmogXSMGdCzkl/mcRsgSy8hChbGJHF/FxBkdg7Bugd5GWAVlxh0t2l7Vy1d3L8cmf4+tt
-	 sUDk4RTXgXxy1lryfh8kYreoitM14ujkBxVoMahVXe/OpEarrIl0qAY+fOup4/rZsSZD/
-	 i9+vlfr2o6piJq362I4I+k2xvc3s7CHsFh2D6+U+/XU2UeiPsNWi3ZVG77KKCBkgWbTLr
-	 7MiwVJ3NFlXbemByw2lcgx0k15jS0Z9zY90EZshkTTj8m2DjN1RRu8p4/frkn14Eohg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795549797;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=EpfWisM2zqWp3GX3Cisf0GLRCKhjfT8Szly5idDxuzM=;
+	b=G6NPOZTupmbZ4kEcWqHFAGsLlRpk56j/6vEb7CCq1CHVlSVvVkeohIwGvw4PYyabD3xv
+	 Fz1D+EqherxEWS2iC9DFbBfwUlb81OOrnyISAnV6nWA6Url0FNlj3GMfRcpMxQLwDmVxa
+	 tACQsZuVb2tRmMVklmkB4JIJXHAxCXxCNknOmGG36q+1oETB5GduPTherj3ELZB6/olL2
+	 et9/hIN/1GLoWSSVVAi1OVQaeYdteRYwFpWDX/Y+ZdNZVyOKrQImW2ZUc9YHzYFR1JuT1
+	 fnfZjkgBa5p2TSOVBlFcycfmZPLyhRwNg4FrX8vW8mK5/Ao5m/5OeBCeazW+Bnj5x4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DVIzK4j8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEFCC60A2618;
-	Tue, 24 Nov 2026 19:49:25 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=eyxTnvKk;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id A23D4606A31E;
+	Tue, 24 Nov 2026 19:49:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A23D4606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DVIzK4j8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E938E1F000D4;
-	Tue, 24 Nov 2026 19:49:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795549765;
-	bh=n158BJ1nGVIacHP1WocjVqbitH/X257pdqGk4WCbzoc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=DVIzK4j8/odCtwKf7uKJm5/9SQyFeYSQEwbbVK1apYy74a8omMRrLc5VVHL9YUyc6
-	 MS3S09y0zAZaEHMRKQrY1meyrHwXyHQzG7rznGEgHrfWtg7hgZRGc6iasQ9yEKi3l+
-	 3RbWQbn3QZ4xFTiate+QF5+F7wRyx7F9k7qFbZ//OYCuI45cy//ybC1/s74tAWwWDf
-	 M85aUvbICcXbxwsprkwKXXkmYWE/8O4HO2AHJB4u1fwOI3UV8pXdKdekLPb/rAQOAc
-	 ShpCeDsWI7KoBnpqwTnJxE1p/lEfWORvytzoXy53h4R0QjlztmRuVPtj2fI1g1Gocq
-	 OItddQPpWy3lA==
-From: Jeff Layton <jlayton@kernel.org>
-Date: Tue, 24 Nov 2026 14:48:48 -0500
-Subject: [PATCH v3 09/12] nfsd: grant a plain read delegation when
- timestamps are wanted on a read open
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=eyxTnvKk
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A7600339;
+	Tue, 24 Nov 2026 11:49:52 -0800 (PST)
+Received: from pluto.guest.local (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 95DD03F763;
+	Tue, 24 Nov 2026 11:49:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795549795; bh=Zufk9DdD68SIlWv7mI3ESitb3efgrWc/TBQ/qv4nJaU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=eyxTnvKk9TBEUc2Gbm0irzzcD27r3CYSIuTxU7zedQRRpsCRupcWDipg6Ifm5I2kr
+	 64KEW7gQyXdVPwVqGwAveaOKjAjJeuzSNRGMSzZ8lwu0EoNPe8ssXWbvGyPEpzPcLc
+	 ISLcQHAyC1wUEN4hZr8tNajlHeyu4uNiWoXggDKA=
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	d-gole@ti.com,
+	jonathan.cameron@oss.qualcomm.com,
+	elif.topuz@arm.com,
+	lukasz.luba@arm.com,
+	philip.radford@arm.com,
+	david@kernel.org,
+	souvik.chakravarty@arm.com,
+	leitao@kernel.org,
+	kas@kernel.org,
+	puranjay@kernel.org,
+	usama.arif@linux.dev,
+	kernel-team@meta.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v17 00/34] Introduce SCMI Telemetry support
+Date: Tue, 24 Nov 2026 19:48:06 +0000
+Message-ID: <20261124194841.1147072-1-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,84 +79,333 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-delegts-fixes-v3-9-6fe4ba705aef@kernel.org>
-References: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
-In-Reply-To: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
-To: Chuck Lever <cel@kernel.org>, NeilBrown <neil@brown.name>, 
- Olga Kornievskaia <okorniev@redhat.com>, Dai Ngo <Dai.Ngo@oracle.com>, 
- Tom Talpey <tom@talpey.com>, Christian Brauner <brauner@kernel.org>
-Cc: =?utf-8?q?Aur=C3=A9lien_Couderc?= <aurelien.couderc2002@gmail.com>, 
- linux-nfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Jeff Layton <jlayton@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2119; i=jlayton@kernel.org;
- h=from:subject:message-id; bh=xn+iBRkIklsgEwK0tnAkzkU9rSv08fppuDu8V8FMSEQ=;
- b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBrBeo29M/1Yem9bpu2VUY7Vkw5i+GV/l5DmdVSx
- c9efX5u+tGJAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCawXqNgAKCRAADmhBGVaC
- FXsHD/497THdPkpp3ocSd5oqX5ZsF502lI1PD1sIgqaA3w1LCNITHaoH6Tw+pt4Md1C93/ziqzY
- 1TCFUNoI2Lo1VRIcjOmU+htR91Db63FS8H9aRcfdJyrGemMzG2/TdBUXC9v4EZb517uFo1NPTeF
- IVh8B2a7z1tLGt0rmW4tpEsfKK42wSv7QPoKdeTvRqxO7uk6y57LwbGeRhFQ5w6y+RRhW8CrEZx
- NltR0MdvkE6hYTHuNM/VIv42aUtq3urwZdTprZC8PF1O1/I4KRJq9ka/bQd5G2nUNaj3m2Ql/s4
- oWeI+I4kA4nWCSnwkuVOkQwrPgJrzPDsxvGYxTH35TIDmeBBxPIDLFxOOd4tbdc5HxYzUAwBuzg
- B0he9CBizm6go20fQHVYngJhUcal1JtN36XUEyELsAYlvNTJS9nYfhD/qdT5kPAL075WOadrMbj
- zDU8Ubf3U5yQIEajkQGNK+qGIPlsI8NcmkDNL76lox+L9AuX2o4tJqkAlbv4d9c63AgeYb7KeOq
- Qt1khvlWrSSiPHrqmsOgLFsJxJpodu9QqvGqQ4tRwbw5t+d+jdD7LZTMRdqYMLVGEjHkS23CRSJ
- 4Bm/+N7NFAJ0p8R4BykeEZmQsA7jyztlnlca8vZQTMZK3XXFWNGi1QujJyB1Xs4Doe2kKRtrNCP
- 8wLlU33blRVsljw==
-X-Developer-Key: i=jlayton@kernel.org; a=openpgp;
- fpr=4BC0D7B24471B2A184EAF5D3000E684119568215
+Content-Transfer-Encoding: 8bit
 
-A read open that wants delegated timestamps gets
-OPEN_DELEGATE_READ_ATTRS_DELEG. Several clients can hold read
-delegations at once, so delegating atime correctly would need exclusive
-authority over atime or a merge of every read holder's times. NFSD
-supports neither exclusive atime authority nor such a merge.
+Hi all,
 
-Grant OPEN_DELEGATE_READ instead. The want flag is a request, so
-declining the attribute delegation complies with RFC 9754 section 5. The
-XDR cases for OPEN_DELEGATE_READ_ATTRS_DELEG stay, since
-open_delegation_type4 is on the wire.
+[TLDR Summary]
+ [V17 highlights]
+ - addressed more Sashiko reports
+ - added a few more SCMI Core fixes that ease per-protocol logic:
+   + added more consistency in the SCMI Core Iterators machinery
+   + added centralized check (SCMI Core) for truncated reply
+     + Reworked some SCM Clock behaviour to allow for truncated checks
+   + SCMI protocol core initialization refactor and fixes
 
-Fixes: 6ae30d6eb26b ("nfsd: add support for delegated timestamps")
-Signed-off-by: Jeff Layton <jlayton@kernel.org>
+ [V18 TODO]
+  - address any remaining outstanding Sashiko/reviewers issues
+  - address pending human reviews feedback
+
+The upcoming SCMI v4.0 specification [0] introduces a new SCMI protocol
+dedicated to System Telemetry.
+
+In a nutshell, the SCMI Telemetry protocol allows an agent to discover at
+runtime the set of Telemetry Data Events (DEs) available on a specific
+platform and provides the means to configure the set of DEs that a user is
+interested into, while reading them back using the collection method that
+is deeemed more suitable for the usecase at hand. (...amongst the various
+possible collection methods allowed by SCMI specification)
+
+Without delving into the gory details of the whole SCMI Telemetry protocol
+let's just say that the SCMI platform/server firmware advertises a number
+of Telemetry Data Events, each one identified by a 32bit unique ID, and an
+SCMI agent/client, like Linux, can discover them and read back at will the
+associated data value in a number of ways.
+
+Data collection is mainly intended to happen on demand via shared memory
+areas exposed by the platform firmware, discovered dynamically via SCMI
+Telemetry and accessed by Linux on-demand, but some DE can also be reported
+via SCMI Notifications asynchronous messages or via direct dedicated
+FastChannels (another kind of SCMI memory based access): all of this
+underlying mechanism is anyway hidden to the user since it is mediated by
+the kernel driver which will return the proper data value when queried.
+
+Anyway, the set of well-known architected DE IDs defined by the spec is
+limited to a dozen IDs, which means that the vast majority of DE IDs are
+customizable per-platform: as a consequence, though, the same ID, say
+'0x1234', could represent completely different things on different systems.
+
+Precise definitions and semantic of such custom Data Event IDs are out of
+the scope of the SCMI Telemetry specification and of this implementation:
+they are supposed to be provided using some kind of JSON-like description
+file that will have to be consumed by a userspace tool which would be
+finally in charge of making sense of the set of available DEs.
+
+IOW, in turn, this means that even though the DEs enumerated via SCMI come
+with some sort of topological and qualitative description provided by the
+protocol (like unit of measurements, name, topology info etc), kernel-wise
+we CANNOT be completely sure of "what is what" without being fed-back some
+sort of information about the DEs by the afore mentioned userspace tool.
+
+For these reasons, currently this series does NOT attempt to register any
+of these DEs with any of the usual in-kernel subsystems (like HWMON, IIO,
+PERF etc), simply because we cannot be sure which DE is suitable, or even
+desirable, for a given subsystem. This also means there are NO in-kernel
+users of these Telemetry data events as of now.
+
+So, while we do not exclude, for the future, to feed/register some of the
+discovered DEs to/with some of the above mentioned Kernel subsystems, as
+of now we have ONLY modeled a custom userspace API to make SCMI Telemetry
+available to userspace tools.
+
+With V5 we adopted a pure chardev/IOCTL ABI approach, refining the IOCTL
+based interface already present with the previous FS-based ABI.
+
+INTERFACES
+
+For each discovered SCMI Instance a character device named tlm_<N> is
+created under /dev/scmi/ subtree.
+
+The IOCTL interface described at 'include/uapi/linux/scmi.h' is made
+available to enumerate and configure Telemetry resources: Telemetry data
+can be collected using a few different IOCTls, depending on the required
+granularity.
+
+Alternatively it is possible to obtain a list of the file descriptors
+referencing directly the underlying SCMI Telemetry SHMTI memory areas and
+implement in user space an SCMI Telemetry parser accessing directly the
+SHMTI, while staying in compliance with the SCMI TDCF format.
+
+NOTE THAT from v3 onwards the firmware interface level NOW supports ONLY
+the latest SCMI v4.0 specification [0].
+
+Based on V7.4-rc4, tested on an emulated setup and AGI HW.
+
+This series is available also at [1].
+
+If you still reading...any feedback welcome :P
+
+Thanks,
+Cristian
+
 ---
- fs/nfsd/nfs4state.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+v15 --> v17
+ - rebased on v7.4-rc4
+ - [SYS/TLM]
+   + return OPNOTSUPP on un-implemented IOCTLs instead of -ENOTTY
+   + use proper IS_GROUP macros to discard GROUP request across IOCTLs
+ - [TLM]
+   + fix leak and NULL deref on exit path
+   + fix shmti_oveflow WITH LEN
+   + check liveness on de_snapshot
+   + remove spurious des_sample and notif structure and logic
+   + add a comment on bulk read reporting on failures
+   + return ENODATA when TLM off instead of -EINVAL
+   + rename update_interval_ms to ename update_interval
+   + use NULL not zero for pointers
+   + fix liveness blkts_snapshot
+   + fix tde_state_set_resp handling of INVALISD SHMTI_ID
+   + refactor state_set and reject group state change
+   + invalidate TDE cache also on enable
+   + allow SHMTI_INVALID as bts_offs when DE does NOT use BLK_TS
+   + fix err init in blkts_snapshot
+   + add comment on LINE_LENGTH_BYTES upper bound
+   + remove spurious return
+   + removed unused node_lst
+   + check TDE TS type, update from last_rate
+   + check if used_qwords > avail_qwords early in tdcf_line_parse
+   + add __iomem eplg annotation
+   + fix shmti_overflow and make it return the line length
+   + remove WARN_ON(fc_support), better dev_
+   + log error on malformed line data
+   + use %pa for phys_addr
+   + skip LIST_SHMTI with num_shmti = 0
+   + fix %pa and spell USPECIFIED
+   + avoid FIELD_PREP check on size for exp
+   + remove unused de.ts_rate
+   + enaming discovered to enumerated
+   + rework list_add to fcs_des
+   + use list_del_init for free_des/fcs_des list removals
+   + avoid attaching a drevres tdes_cleanup to enumeration
+   + consider expected_size when reset_rx_to_max
+   + add an unrelated fix to make SCMI clock attributes deterministic
+v15 --> v16
+ - rebased on v7.4-rc3
+ - [ALL] removed Telemetry unused features
+   + Groups/Notifications/AsyncSingleSample/Reset/Events
+ - [STLM]
+   + handling new ABI Feature bits
+ - [SYS/TLM]
+   + remove unsupported features from ABI features
+   + clear out->flags in uapi_info
+   + cap ABI INFO usize to PAGE_SIZE
+   + sanitize input update interval
+   + add missing pad/reserved checks in input
+ - [UAPI]
+   + added GROUPS/SINGLE_SAMPLE abi_features flags definitions
+ - [TLM]
+   + initialize/destroy debugFS around SHMTIs init
+   + cleanup protocol dbg root after devres group closure
+   + discard DE/FC at enumeration time that were found in SHMTI at boot
+   + align DE local/global TS state after enumeration
+   + check liveness in de_snapshot
+   + add shmti_overflow check on snap
+   + check liveness on blkts_snapshot too
+   + refatcor blkts_update on DE enable and update de.ts_rate even
+     when BLK_TS line is the same
+   + on disable do NOT assume SHMTI_ID_INVALID means disable
+   + fix remote_update_needed logic
+   + invalidate cache on DE disable
+   + invalidate base/offset on disable if NOT FC
+   + use new shmti_overflow with eplg directly
+   + WARN_ON(BLK_TS_INVALID) but keep active_bts valid
+   + invalidate TDE cache on blkts_unlin
+   + cleanup stale lines on shmti cleanup
+   + add more iterators consistency checks
+   + added more checks in the SCMI Core Iterators machinery
+   + added centralized check for truncated replies
+   + droppepd unused support for non devres protocol acquire/release
+     operations
+v14 --> v15
+ - rebased on v7.4-rc2
+ - [STLM]
+   + add lazy enumeration
+   + add des/info cmdline options
+   + add missing SIGTERM handling
+ - [SYS/TLM]
+   + harden/simplify batch helpers
+   + fix shmti mmap size check to include offset
+   + simplify session_unsubscribe cleanup on exit/unbind
+   + added missing kref.h include
+   + expose TLM EVENTS capabilities ONLY IF CONFIG_EVENTFD
+   + mmap: improved check to avoid WRITE/EXEC mapping
+   + reject non zero vm_pgoff
+   + drop usage of guard(srcu) to avoid races with put_device
+ - [TLM]
+   + avoid genration counter reset on TLM RESET
+   + add an overflow check on NOTIF payload lines parsing
+   + convert to Linux errno before building notification report
+   + use better startm/endm initial markers in tdcf_de_payld_get
+   + trigger resource enumeration also on de_data_read
+   + skip unitialized FCs on reads and return -EPROTO
+   + check FC size on enumeration (big enough to hold TS ?)
+   + introduce localized single DE snapshot on single DE data read
+   + widen tde->mtx locking in msg_payld_process
+   + refactor msg_payld_process
+   + unlink BLK_TS on DE disable
+   + update linked BLK_TS on enable
+   + update TDE location ONLY after successfull linked lines processing
+   + trigger resource enumeration on state_get
+   + trigger resource enumeration on colletion configure only for groups
+   + widen tde->mtx locking section on state_set
+   + refactor UUID/BLK_TS lines processing in enable
+   + introduce BLK_TS localized snapshot during enable
+   + check line type at de_offs
+   + sanitize requested mode on collection conf
+   + use snapshots to collect UUIDs during full scans
+   + stop tracking UUIDs lines singularly (useless overhead)
+   + use UUIDs line hashing for lookup
+   + use snapshots to track and collect BLK_TS during full scan bulk reads
+   + account for tstamped TDE during discovery
+   + correct SHMTI overflow off-by-one
+   + rework TDE cache hit/miss logic
+   + introduce snapshots on full scan reads
+   + validate DE location also on SCAN_UPDATE
+   + fix TDCF prologue/epilogue endianity struct definitions
+   + rework SHMTI initialization and allocation
+   + add snapshot suppport data structures
+   + added alignment checks on SHMTII length size
+   + fixed error string formatting
+   + warn if less than expected SHMTIs are enumerated
+   + improve memory area sanity checks
+   + added missing initialization of intrvs->grp_id
+   + bailout from group initialization when NO DEs were found
+   + better handling of error path on groups init
+   + drop usage of devres for FC iomapping
+   + trigger full enumeration of DE lookups
+   + new IS_TDE_TS_ macro helpers
+   + add a dedicated scmi_telemetry_free_tdes_add helper
+   + dropping needless __must_check
+   + flag as fully enumerated only when ALL declared des were found
+   + reworked error path in scmi_allocate_pending_event_handler
+   + hardened core iterator parsing of multi-part reply
 
-diff --git a/fs/nfsd/nfs4state.c b/fs/nfsd/nfs4state.c
-index 51dca62b2bce..db096859dce2 100644
---- a/fs/nfsd/nfs4state.c
-+++ b/fs/nfsd/nfs4state.c
-@@ -7338,10 +7338,14 @@ nfs4_set_delegation(struct nfsd4_open *open,
- 	 * A read delegation can go to a client that holds a write open
- 	 * of the file: nfsd_breaker_owns_lease() keeps the holder's own
- 	 * opens from breaking it.
-+	 *
-+	 * Never OPEN_DELEGATE_READ_ATTRS_DELEG: delegating atime correctly
-+	 * would need exclusive authority over it, or merging the times of
-+	 * several read holders. The want flag is only a request.
- 	 */
- 	if (!nf && (open->op_share_access & NFS4_SHARE_ACCESS_READ)) {
- 		nf = find_readable_file(fp);
--		dl_type = deleg_ts ? OPEN_DELEGATE_READ_ATTRS_DELEG : OPEN_DELEGATE_READ;
-+		dl_type = OPEN_DELEGATE_READ;
- 	}
- 
- 	if (!nf)
-@@ -7639,9 +7643,7 @@ nfs4_open_delegation(struct svc_rqst *rqstp, struct nfsd4_open *open,
- 		spin_unlock(&f->f_lock);
- 		trace_nfsd_deleg_write(&dp->dl_stid.sc_stateid);
- 	} else {
--		open->op_delegate_type = deleg_ts && nfs4_delegation_stat(dp, currentfh, &stat) ?
--					 OPEN_DELEGATE_READ_ATTRS_DELEG : OPEN_DELEGATE_READ;
--		dp->dl_atime = stat.atime;
-+		open->op_delegate_type = OPEN_DELEGATE_READ;
- 		trace_nfsd_deleg_read(&dp->dl_stid.sc_stateid);
- 	}
- 	nfs4_put_stid(&dp->dl_stid);
+[0]: https://developer.arm.com/documentation/den0056/f/?lang=en
+[1]: https://git.kernel.org/pub/scm/linux/kernel/git/cris/linux.git/log/?h=scmi_telemetry_ng_V17
+
+
+Cristian Marussi (33):
+  firmware: arm_scmi: Harden iterators state parsing
+  [RFC] firmware: arm_scmi: Additional iterators consistency checks
+  firmware: arm_scmi: Make Clock attributes size deterministic
+  firmware: arm_scmi: Add centralized detection of truncated replies
+  firmware: arm_scmi: Introduce a dedicated SCMI Errors header
+  firmware: arm_scmi: Add new SCMIv4.0 error codes definitions
+  firmware: arm_scmi: Allow registration of unknown-size events/reports
+  firmware: arm_scmi: Refactor __scmi_event_handler_get_ops helper
+  dt-bindings: firmware: arm,scmi: Add support for telemetry protocol
+  include: trace: Add Telemetry trace events
+  firmware: arm_scmi: Add Telemetry basic attributes enumeration
+  firmware: arm_scmi: Add Telemetry resources enumeration
+  firmware: arm_scmi: Add Telemetry global update intervals enumeration
+  firmware: arm_scmi: Add Telemetry SHMTI areas enumeration
+  firmware: arm_scmi: Add Telemetry TDCF areas parsing support
+  firmware: arm_scmi: Add Telemetry TDCF parsing for BLK_TS lines
+  firmware: arm_scmi: Add Telemetry TDCF parsing for UUID lines
+  firmware: arm_scmi: Add Telemetry DEs configuration support
+  firmware: arm_scmi: Add Telemetry global configuration support
+  firmware: arm_scmi: Add Telemetry Single/Bulk DEs reads
+  firmware: arm_scmi: Add Telemetry boot-on support
+  firmware: arm_scmi: Invoke proper protocol cleanup on failure
+  firmware: arm_scmi: Refactor protocol allocation
+  firmware: arm_scmi: Add common per-protocol debugfs support
+  firmware: arm_scmi: Add Telemetry debugfs SHMTI dump support
+  firmware: arm_scmi: Add Telemetry debugfs ABI documentation
+  firmware: arm_scmi: Expose per-instance identifier
+  uapi: Add ARM SCMI Telemetry definitions
+  firmware: arm_scmi: Add System Telemetry driver
+  firmware: arm_scmi: Enable autoloading for System Telemetry driver
+  docs: ioctl-number: Add SCMI Ioctls
+  [RFC] Documentation: Add SCMI System Telemetry documentation
+  [RFC] tools/testing/scmi: Add SCMI Telemetry testing tool
+
+Philip Radford (1):
+  kselftest/arm64: Add SCMI Telemetry UAPI compliance testcases
+
+ Documentation/ABI/testing/debugfs-scmi        |   22 +
+ .../bindings/firmware/arm,scmi.yaml           |    8 +
+ Documentation/userspace-api/index.rst         |    1 +
+ .../userspace-api/ioctl/ioctl-number.rst      |    1 +
+ Documentation/userspace-api/stlm.rst          |  590 +++
+ MAINTAINERS                                   |    2 +
+ drivers/firmware/arm_scmi/Kconfig             |   24 +
+ drivers/firmware/arm_scmi/Makefile            |    3 +-
+ drivers/firmware/arm_scmi/bus.c               |    1 +
+ drivers/firmware/arm_scmi/clock.c             |   12 +-
+ drivers/firmware/arm_scmi/common.h            |   41 +-
+ drivers/firmware/arm_scmi/driver.c            |  158 +-
+ drivers/firmware/arm_scmi/errors.h            |   56 +
+ drivers/firmware/arm_scmi/notify.c            |  102 +-
+ drivers/firmware/arm_scmi/notify.h            |    8 +-
+ drivers/firmware/arm_scmi/protocols.h         |   22 +
+ drivers/firmware/arm_scmi/raw_mode.c          |    1 +
+ .../firmware/arm_scmi/scmi_system_telemetry.c | 1376 ++++++
+ drivers/firmware/arm_scmi/telemetry.c         | 4352 +++++++++++++++++
+ include/linux/scmi_protocol.h                 |  200 +-
+ include/trace/events/scmi.h                   |   45 +
+ include/uapi/linux/scmi.h                     |  533 ++
+ tools/testing/scmi/Makefile                   |   25 +
+ tools/testing/scmi/stlm.c                     | 1698 +++++++
+ tools/testing/scmi/stlm_decode.c              |  252 +
+ tools/testing/scmi/stlm_decode.h              |    7 +
+ tools/testing/selftests/arm64/Makefile        |    2 +-
+ tools/testing/selftests/arm64/scmi/Makefile   |   12 +
+ tools/testing/selftests/arm64/scmi/config     |    2 +
+ .../arm64/scmi/test_scmi_telemetry_uapi.c     | 2034 ++++++++
+ 30 files changed, 11477 insertions(+), 113 deletions(-)
+ create mode 100644 Documentation/userspace-api/stlm.rst
+ create mode 100644 drivers/firmware/arm_scmi/errors.h
+ create mode 100644 drivers/firmware/arm_scmi/scmi_system_telemetry.c
+ create mode 100644 drivers/firmware/arm_scmi/telemetry.c
+ create mode 100644 include/uapi/linux/scmi.h
+ create mode 100644 tools/testing/scmi/Makefile
+ create mode 100644 tools/testing/scmi/stlm.c
+ create mode 100644 tools/testing/scmi/stlm_decode.c
+ create mode 100644 tools/testing/scmi/stlm_decode.h
+ create mode 100644 tools/testing/selftests/arm64/scmi/Makefile
+ create mode 100644 tools/testing/selftests/arm64/scmi/config
+ create mode 100644 tools/testing/selftests/arm64/scmi/test_scmi_telemetry_uapi.c
 
 -- 
-2.56.1
+2.54.0
 
