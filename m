@@ -1,58 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795620175;
-	b=OLnagpJlZaLOiFkfnOjq7UMD1YKvcx2dEZ4SZguWxb7JLLG3bhjTI3xLVeVwxgHLghFJ
-	 8b2HY9ZC9tFzQ8JMi1W5zaKMAotDhQUFG//idSeS/Q7ELGG3zDfHBlt2Hji4YHYVIQ/4v
-	 Ht1AwR68Kc3tOsKBWiP/1yrRyKXjCHUay2sMEzrLo3Nm3V3NdO9fr6n5uWZBmzy6+pEWr
-	 3Hufn1ee2LBSL3mn+n8xicU6U8/5aVuGeyLkrKkZue5LgKFtQiieWegjb1dpY81RIjBkF
-	 ltbbA/QLesKXVsEhemgs9SQJqGcUhbcQQb3VPUaBibEnV/omjVL/nHO1F9VHktoH+wA==
+	t=1795620204;
+	b=y8/1f0IXwPS/3ySwKvXYjWKB0M7xlE7m96LvH22sablBRx7WPtp/M79Bpb3NXCU9s/e6
+	 qeRwnl1x48flnxAX2icxdWYcnYpjSUnFRStsu5eOG4gQoxDzW9LoiDsrSsGSw8EY2sl3M
+	 h53j0Qh8aAWE/Bm99uq928/myHcBcvTPpjrbJUznR91Df+MLMKZ5eg7keFaKnMayF5z05
+	 gSk3/uK9Io6/Dsp7G9qeFkQddslRjLmNL0/IQUEaP0UTL78odGtC1u+LBNt+AmuWaEkoq
+	 369VRmeCFH+bAk5hTJpRHOm5BwQufU5R57Ge/16Vs/4XsihW0IY5udxjctcmEOzJYxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795620175;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620204;
 	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
 	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=2PzTqrXPZgDKBf+ilRVzcBZT79IBr1BJuxecq2SrYVk=;
-	b=ZZFh9zNjopTCOhIwH5hcWSPk+fD/+AP0LXXCP81UwZw9bsrkbMCTv/epKV6jDrAuMP4k
-	 UCeKuegA4Q84nfSLmbwHgmjw/3rPs/zrDERB+EV+Uv9wzV54J5sS9y43WTHZGxiHP09/j
-	 TEFSFXFb/Iu2oq8Q7mdJ0PRmrr5AQjIF2yBzwF0PggpvzkavxTPO8H1hZ01IiTJfmFdzy
-	 DEkgS49WP0B2h7sMEB59MPJnHauOf1Fqz77TnPYVx5D4rcHtjCvfAVaOQj42H66LpkJ3M
-	 oR+Rit3t1ZWs2P2B996xW5nnH1OCLnjsvq3karQxkjmMy+YzhvR36AYclI3FC97M+KA==
+	bh=L3C9eeLer85Nd9nEHYWgLt1hiBYkBQpPpB78o7qufMk=;
+	b=NbqH0w69OlYvsVGVI+gTLwePpkNdBbcgWkHvfSue/3bmDux5az1gK1OxHxbe9vJ0opZM
+	 deM8n9w/6AluIVQi39cMMH7jsuhfjTGTIwUVlBy1iwM9G0aGUld5zaIk3ywBNZBuYocDo
+	 xQjR0GxCs+0q6Y6YOzim2k4leH8e1C1B5rrSGLReCNdPG1hXtcL/Hij1HUNjtmhxX9Lss
+	 CkpBgRX3p+Mhy4jYaQJ1GjbSRN7Hnsxh0N+p9P/Ti6FSoe7dbRrTCfT6GH2R2Bcxy2qgl
+	 wo68rIebPBf1RviqaT6vuyX/4tDYNfV+aWrEmpyNZtftxRKbclN8BsDuRk3dMHYMtag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f1BoYxqK;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i1Z4js+6;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BF01606A31E;
-	Wed, 25 Nov 2026 15:22:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B16B606A31E;
+	Wed, 25 Nov 2026 15:23:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f1BoYxqK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 742F81F000D4;
-	Wed, 25 Nov 2026 15:22:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i1Z4js+6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82A181F000D4;
+	Wed, 25 Nov 2026 15:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795620175;
-	bh=2PzTqrXPZgDKBf+ilRVzcBZT79IBr1BJuxecq2SrYVk=;
+	s=k20260515; t=1795620203;
+	bh=L3C9eeLer85Nd9nEHYWgLt1hiBYkBQpPpB78o7qufMk=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=f1BoYxqKKeW4BNch70yc3LBvNU1UFj6RCcqTCqSMpNkmhQeZvy8EmYrwEGGwqai6Q
-	 /8KqC8nS8OeUjlQ7jPNXzlSNQyqU0l1RI7d7nd/c2PqfSW7SN04gyPMVfwRoatTOTx
-	 tHr8j8wo/jpdY2RKkToWOGj71QL6XDBq8XCJ2iggMCWmsCw1M7wqwWRxjLULBCq0mL
-	 2xPkTgqPK1OQDX++HNxLGoPgfcIJjoLMP8ZRqFz+IAGMq0geqEEoZhVpvmwVt5EpeW
-	 W1A32an4fLMZfUCoIXxT1OHUw1rB1rVMhADuTsxvfuXTmQUrFS3PT83VO1ieWMswLA
-	 zUwtVUSLK9/zg==
+	b=i1Z4js+6p8IaZI1ECnrcldkEwz4Cs1MI1G84hNvwn+a9uBwWmwF/n/CNJ+8IYwpXg
+	 e60sfC7nHo0nJeC5siWJ51jRCPdctXXG+kmCgKkVoHrpowGNEaOVxaaks6GExDzqWA
+	 o9LxrDKTYMIxCjjZdAcbAfDms6XJ+UdZX+e/3VL/sYtzw+Pg9Rknr9NZ9Ry+ulXEbI
+	 G8ReTnTahWKOylFvT1Ix/SMPRz7M6LjnJGn/r0jkM/fNTQECHUnhdL2NPs72aBr+qV
+	 36g9EobDZvjZdn8Cg5Ds47b6LAIhcNpYsUslYWhjEBi03vGlp4dFU0YTRTN5n/ocbA
+	 DaybVUAjkXVeA==
 From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- Manuel Ebner <manuelebnerli@mailbox.org>
-Cc: linux-sound@vger.kernel.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261122090640.1475222-2-manuelebnerli@mailbox.org>
-References: <20261122090640.1475222-2-manuelebnerli@mailbox.org>
-Subject: Re: [PATCH v4] ASoC: doc: Fix bracket
-Message-Id: <179554508712.947306.12735382898664151388.b4-ty@b4>
-Date: Tue, 24 Nov 2026 18:31:27 +0000
+To: Srikanth Boyapally <srikanth.boyapally@amd.com>
+Cc: linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ michal.simek@amd.com, git@amd.com, 
+ Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+In-Reply-To: <20261120-ospi_stig-v1-1-54f4d5f9f7b9@amd.com>
+References: <20261120-ospi_stig-v1-1-54f4d5f9f7b9@amd.com>
+Subject: Re: [PATCH] spi: cadence-quadspi: Bypass STIG for Versal and
+ Versal Gen 2 OSPI data
+Message-Id: <179554879342.947306.7979068047920510983.b4-ty@b4>
+Date: Tue, 24 Nov 2026 19:33:13 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,26 +63,26 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1062; i=broonie@kernel.org;
- h=from:subject:message-id; bh=tdpJWr0GNwgSHtdlCqBSZJ3ZESMGjRciWBISd90I2P4=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLZ/nrral87KynolpmbuNLl1olPM2dXfG/522WTyqJ0S
- YAtQJuto5SFQYyLQVZMkSUui/tlfcnrNXwHF7bBzGFlAhnCwMUpABNxPszI0FTpcGm9wst11QKh
- B1SYn1if+OFp7pcg8sXwn0Ts3yVmWxgZZrk33V+Wbrg2bx4zR+DJNWXfdkedm/Ogn3WKdGe1tbo
- sCwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1162; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=SANk+j/6Nu2cjlqhijFVfcwE4gCH26A7WXTmeA6tao0=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLZ/mbM41qrfyPZ5t6nUkeW7hVMM3dJdVW/L/+TLrFzq
+ ZXv/bxTHaUsDGJcDLJiiixxWdwv60ter+E7uLANZg4rE8gQBi5OAZgIUwYjwzORnsobQfwGLB1a
+ j/a1JSxMP8fhoLHgw9Nosx3rMqdxmjIyzPI7n2/5ouvj5XrNO9O63i9+uZBhQ+xslfW+EktPfX2
+ kyQYA
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-On Sun, 22 Nov 2026 10:06:40 +0100, Manuel Ebner wrote:
-> ASoC: doc: Fix bracket
+On Fri, 20 Nov 2026 14:49:26 +0530, Srikanth Boyapally wrote:
+> spi: cadence-quadspi: Bypass STIG for Versal and Versal Gen 2 OSPI data
 
 Applied to
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.5
 
 Thanks!
 
-[1/1] ASoC: doc: Fix bracket
-      https://git.kernel.org/broonie/sound/c/caa42517c9d7
+[1/1] spi: cadence-quadspi: Bypass STIG for Versal and Versal Gen 2 OSPI data
+      https://git.kernel.org/broonie/spi/c/a2883431180c
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
