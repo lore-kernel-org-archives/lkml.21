@@ -1,115 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795486342;
-	b=Knt/pv0IaQHG3i7v4gduHNG5CycbynvkD8s6i0S8MxRtPLMhYjswAgpUSnI4hWVd9kpu
-	 Tc+kckzN0qiW9bt1X9sHXBID6NSYDQKEaOT32A3R3jXQvruJWbF7MSN3j2bGvou1EcGaR
-	 9Xwp+OLR5TObGaVfFEuzYgdb17zzouccCvu8xf8bPvOkzrVs0Mem/TT3nbBr2yyZxSaNw
-	 1axu2IoWL/ti7PTrzPw+TKuUAnbdQ3l4EuJ8VZD/uT3aZ3fe+NSTTzSASJ8a3WPVsWL6T
-	 FjSsAMNcnAsQGNqEg6+sp2BXJzDfv+wvnjjA595bmUZtSmXUJlgQXtAM5KqSuPQKf2Q==
+	t=1795486419;
+	b=MS6V8qVW0Isy9vpA1xf27rk7Yabyl7EwJy1fYa4eawtG1VCEoK+ayT8veMDqg7UUyJ1I
+	 MnRrF7e8qQVgNSzSIHzG63tMxOAwVeKZWUqi5oi2P9+QeUEU14HQmBGLRzGr4esIxrlex
+	 bWQN08R+pif1B1dTkW98C1m44DC7HE0AwLLusRRdwQnDM0HDZc15ARtBph5lIO/RTcrST
+	 CMwdsAbb4aPdg6VuKBsJ7VZp6fEf2fw5dhq5YIHjDcNi60FJdBy6ene2T1NCgdDwK4JIj
+	 J0+Ejnq13VoqPQ0K3YFH9N8ErKE8kxlfsG9DWswM1DRCFHEwfd80X6CR1X7oEADmxTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795486342;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=DYJhcyx23MYrdnoVW3nJljPvokUxcXGxcoFSW0aOJ4Y=;
-	b=IARjwEcpAwA1hrwyOHoWHKeJNeQxoe0kpOTpq+h8mv3Uj12esHgafg1fydih7H1W7dr8
-	 56KZ9dr/KqbOs3PVjIDkPkw3jg/csq3WOpL7KF11UvfvbpbZzvigLibQpyofFCkG8Kshc
-	 an8eEBl3QtrGmxZlsNyidPSduCoBsC0GF92goqYX0V3ca2NofJhNoDXwYtlulNDJbS+x6
-	 xHk+cdxi9vp047FD/yamz0fxOFjm8gNUhVlieitS3+/TQfnYvI1+yI757Ni9/maorBnnS
-	 Be8ZVGXhNYawrTluPnWKFmDHqO6j8cIx9E4kiKy4niR3cAirouoSRh52EfaLNZY2nEQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795486419;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=jl9dB7jJGIlY2PKhHfBeUr5m/KPu4eSitwR+RChvQeM=;
+	b=jCuv9OLkOwwd1JWugg3IgFdzLQcdUrV/vK6lJhmjyx8Zfmbb79AJg4rgkm6EEz5NfAxD
+	 0acpz2JTfdkUgXZGxX/lDwyOXhsZ2Udb37q2It3yic6oC5HEZxoy5fRjEsvjLKPQvjOCS
+	 Jy3/tj3ByW6V2yf6sJf1G5YWTmn1sBb/7QlLCiEh37o2H4OyHRiNs+MjrqRNAXwvBRZmv
+	 XXRjpQCNus76seTKgKhzcflh1/T2/eBFADnXaQUqj5Hgd6B0Py7AJg0vYBOtK8F0ZVrAX
+	 u1wlCrts8YzFlriI2AOWCSC/0/iLP1HVL5nFjPivv41SvU8M6mVsVBbHAw5Dl4meVVg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WkYlWrnT;
-	arc=none smtp.remote-ip=74.125.227.138
-Received: from mail-pj2-f10.google.com (mail-pj2-f10.google.com [74.125.227.138])
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.199
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3033C606A322
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:12:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3033C606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WkYlWrnT
-Received: by mail-pj2-f10.google.com with SMTP id 98e67ed59e1d1-3b3d125637aso777421a91.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:12:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795486341; x=1796091141; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DYJhcyx23MYrdnoVW3nJljPvokUxcXGxcoFSW0aOJ4Y=;
-        b=WkYlWrnTqUdrWZZm1tK0o8QHAcJHKyc3XhplDP+3YX6tsrRhC0AYQcy4LTqT8tdoa9
-         zj1O+B6mDS5A5xDFsf8Pkyh3hwyhSnYcHNqJMXLEhBDTTwOvTETI5S1b3+Rm5vi7Mcgy
-         u42trG+PMkhfMsBT3ZMcC8gi23DZi2bzCk8IvpyzIbJmCQeY/hKyOsh96b/i2kleGL9M
-         2UuvDDrXlDll0k3f2+m4a2uauQCe1pCsI+caGf3kRmjlxbfQk75Kr8XEK79c+XbG0Zwr
-         XEr20HVO6BfOmhCjVPgMY7VNMyu9YagOmsLU3w9tu03Hegxbo8SHaR2gCOWaGLyOIsar
-         5Aag==
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E0D2606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:13:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E0D2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4cc89e86e4dso4916956b6e.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:13:39 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795486341; x=1796091141;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795486418; x=1796091218;
+        h=content-type:to:from:subject:message-id:date:mime-version
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=DYJhcyx23MYrdnoVW3nJljPvokUxcXGxcoFSW0aOJ4Y=;
-        b=XZq6yPA9wkrO5JwxVcxGFDmuQCcc9JVVFq2i0CNLsPtpjgvIvBPw+8s+czwZyYqfAo
-         aT9UB7y1zzWfcvD+UPveuEzRpiQCOVdH9ZPpQnSEgmzyFbKIxTeI4wOkUD2qbVvEu2yw
-         tXylx4yLz1r83v7nxA8x2W5bg9xZ6ij4vTwab2XdO7LgPiksGxx/SRaky6CX0+UoJpyQ
-         /RdjapsteMGW5tTafB6GCCgKsNiZWwtBcDY35NqBTU9X4nALggKAby92AW8x5QEauVcl
-         u/AR7zPgynYxBAdOXthFvJECY/VuPQugyt6jlWJ/9LyVBp8It2fbYfieWU5NUNJDLkHT
-         kBLw==
-X-Forwarded-Encrypted: i=1; AL+hErH84W6qP8BeHKsB67ULhmF/CDvPmo7CMn/X+5wwNfs4rKb+mSZeZ3O6Z/ObKjfwH9r6GtJdFp47cPsERH0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8B9iAhXSALbisagCea1YwJvcrX09oeubdFFENgaaK4BWw0TYg1
-	/NZwKKp4buSe4BGMNF1zTLPUUr941xw6k54a24JNyYup/ZLKARwHxggD
-X-Gm-Gg: AZFdTZcMTq51L3JmekByidzaCKhRDvwwp9+X8Ssk5Y0nEl4WKFiMPpJSk+fO0X+Cd74
-	zjFD40aiGt1NAJR9NC7Qk+xh8AbgYYJkdmn/hnRzURMtqZTEgSgco+oz3E9sK8LEw6G/PRssqUP
-	WWf2traEpv0AQIKnXysU4bh0pJ3J8uOYebGaVU7+bjxIErBZ7vP+0tra1rqsFu+56NDXtulqkBY
-	LZHcONMBJcj1O+2QrURG31zRpMgtBYOjI/tVEHctMSJQnR+tzLMMg/k3nfnr0Bc0B2z5PUcgN5y
-	3vcPNQlmamVupMfZ0ubMnrReP+FGmxhtsCryJie9C+lEqp6m7nJDbUzm7jXq60z+wgkjlTw9YLN
-	eIQyUQfhXOTwl+Rh2OxWPEoCY6d50L7cmdQ8yfWN5X8EYKJZMBtOs+uoGVrMFH4tdW16kM66mGC
-	Nb0YQYR4gze5BUbTtS4/8/9g0NAwDN6nAFw4IM1Sx0PIOs4fLTLgByhUx747aOXLxUALvYBrxhs
-	bq6aImAthazkeZZsBdJZ2uAi0q/0fHShldsN6TanIKof3wrch9tQ/I2ssRU3ZLWoYCW/+lttX6f
-	PTf1OCHJSGATbeoIo+8DTE/dbH/l70WVp5Q65eTEpb5npCoXF6N0Uf/GyA==
-X-Received: by 2002:a17:90b:4ec5:b0:3ac:b2e6:3181 with SMTP id 98e67ed59e1d1-3b41c9476d3mr12780728a91.37.1795486341377;
-        Mon, 23 Nov 2026 18:12:21 -0800 (PST)
-Received: from localhost ([2403:2c80:6::10a9])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b48b41928esm9869004a91.9.2026.11.23.18.12.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 18:12:19 -0800 (PST)
-Date: Tue, 24 Nov 2026 10:12:15 +0800
-Message-ID: <3b4d214b53b64cd7941260875bbc88d7.codykang.hk@gmail.com>
-From: Cody Kang <codykang.hk@gmail.com>
-To: Ze Huang <ze.huang@oss.qualcomm.com>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
- Troy Mitchell <troy.mitchell@linux.spacemit.com>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Haylen Chu <heylenay@4d2.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Yao Zi <me@ziyao.cc>,
- Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Guodong Xu <docular.xu@gmail.com>, Icenowy Zheng <uwu@icenowy.me>,
- Jerome Brunet <jbrunet+clk@baylibre.com>,
- Sarah Emery <sarah.emery@canonical.com>, Dmitry Baryshkov <lumag@kernel.org>,
- dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-clk@vger.kernel.org
-Subject: Re: [PATCH v3 00/17] drm/spacemit: add SpacemiT K3 display support
-In-Reply-To: <DN2OGZ2JLHQ1.3PK0UZ3K1VYKF@oss.qualcomm.com>
-References: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
- <DN2OGZ2JLHQ1.3PK0UZ3K1VYKF@oss.qualcomm.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+        bh=jl9dB7jJGIlY2PKhHfBeUr5m/KPu4eSitwR+RChvQeM=;
+        b=yzIbgJJD0/fUpzTT/KvACWrDVqrx/bwtml+FE2YdOxW0jUVBqPlQUHAA3O+PCr87aq
+         h6sEHw5uozUGsySUHOJmoBT8EW6aVbiCJ4ffONXDs+6uKcbqtyqmrjxdJfxyDcEHteD3
+         rIV4vRvwpAk5rtulaq+HoHYiYVP4fCA0beHmFAVMRqfXRblj/fGFy3WAP/GqMWbrBklZ
+         iJxAy9e054DpD1rdkQwEuBtbbjYUDoXAC281gv60q0FPRb+z1gG0BJp7rZmISbs3bzcv
+         3a/X2SK/PwqrKNxNvaQ6NcHQ8NU8IZnsZhMJd84GrXTnJ0R++aMXdF/Bf9+bX0BGdvOn
+         UA3w==
+X-Forwarded-Encrypted: i=1; AL+hErF4krARFV7vx0aJXqhk5RhCrYHgCpqbk14v3MNKxpI7pDLITHrgZzgz+BQClxqQKUHGzT90zwT5PNdn/oA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+JceZplarKvbYbMJAPOLCZW1+vQd9RtV8Kud1CU6kNAXl2oR/9
+	soQE9eOoc1mA3SqZsPH58AELx6WOMEIVTkZzU7eCFs/5U4LANe8Q6drHtirWbuvCN4Ak1vrb547
+	rXpD58RFkkKsCBNH1WTR/HKlYXdQ7+2ksMnwiwv3e4xn4oLBIPPmPvySMVqE=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,18 +58,119 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-Received: by 2002:a05:6808:1484:b0:53a:65aa:152e with SMTP id
+ 5614622812f47-57a0a50658amr16332018b6e.35.1795486418522; Mon, 23 Nov 2026
+ 18:13:38 -0800 (PST)
+Date: Mon, 23 Nov 2026 18:13:38 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b04f2d2.44b41460.34b83f.0037.GAE@google.com>
+Subject: [syzbot] [fs?] KCSAN: data-race in task_dump_owner / task_dump_owner (2)
+From: syzbot <syzbot+3b8f4ae71137f7af00ca@syzkaller.appspotmail.com>
+To: adobriyan@gmail.com, akpm@linux-foundation.org, brauner@kernel.org, 
+	jack@suse.cz, jannh@google.com, linux-fsdevel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, sforshee@kernel.org, 
+	syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Ze,
+Hello,
 
-On Mon, 23 Nov 2026 22:59:10 +0800, Ze Huang wrote:
-> Thanks for v3. I tested the series based on v7.4-rc1 on the K3 Pico-ITX
-> with an external DisplayPort monitor.
->
-> Modesetting and page flipping with modetest work at 1920x1080@144Hz,
-> and kmscube renders correctly using Mesa softpipe.
->
-> Tested-by: Ze Huang <ze.huang@oss.qualcomm.com>
+syzbot found the following issue on:
 
-Thanks for testing v3.
+HEAD commit:    4843f6873f7c Merge tag 'sysctl-7.04-fixes-rc4' of git://gi..
+git tree:       upstream
+console output: https://syzkaller.appspot.com/x/log.txt?x=149a7363580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=886d2ddd2d6b664e
+dashboard link: https://syzkaller.appspot.com/bug?extid=3b8f4ae71137f7af00ca
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
 
-Cody
+Unfortunately, I don't have any reproducer for this issue yet.
+
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/9b25bc73ef7f/disk-4843f687.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/acc9d8469c04/vmlinux-4843f687.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/83adc8d7ee5c/bzImage-4843f687.xz
+
+AI-generated root cause summary:
+During concurrent VFS lookups of the same `/proc/<pid>` dentry, `lookup_fast()`
+invokes `pid_revalidate()` without holding any inode lock (including in RCU-walk
+mode). `pid_revalidate()` calls `pid_update_inode()`, which calls
+`task_dump_owner(task, inode->i_mode, &inode->i_uid, &inode->i_gid)`.
+`task_dump_owner()` performs plain, unsynchronized 4-byte writes to
+`inode->i_uid` and `inode->i_gid`, causing concurrent writers across CPUs to
+race on the same `struct inode` fields.
+
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=3b8f4ae71137f7af00ca
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+3b8f4ae71137f7af00ca@syzkaller.appspotmail.com
+
+==================================================================
+BUG: KCSAN: data-race in task_dump_owner / task_dump_owner
+
+write to 0xffff88811b422a60 of 4 bytes by task 6557 on cpu 0:
+ task_dump_owner+0x146/0x170 fs/proc/base.c:-1
+ pid_update_inode fs/proc/base.c:2032 [inline]
+ pid_revalidate+0x65/0xb0 fs/proc/base.c:2057
+ d_revalidate fs/namei.c:1041 [inline]
+ lookup_fast+0x232/0x320 fs/namei.c:1874
+ walk_component fs/namei.c:2284 [inline]
+ link_path_walk+0x5d9/0xde0 fs/namei.c:2659
+ path_openat+0x142/0x11e0 fs/namei.c:5012
+ do_file_open+0x16c/0x290 fs/namei.c:5045
+ do_sys_openat2+0xa1/0x140 fs/open.c:1443
+ do_sys_open fs/open.c:1449 [inline]
+ __do_sys_openat fs/open.c:1465 [inline]
+ __se_sys_openat fs/open.c:1460 [inline]
+ __x64_sys_openat+0xf2/0x120 fs/open.c:1460
+ x64_sys_call+0x1f72/0x2550 arch/x86/include/generated/asm/syscalls_64.h:258
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+write to 0xffff88811b422a60 of 4 bytes by task 6556 on cpu 1:
+ task_dump_owner+0x146/0x170 fs/proc/base.c:-1
+ pid_update_inode fs/proc/base.c:2032 [inline]
+ pid_revalidate+0x65/0xb0 fs/proc/base.c:2057
+ d_revalidate fs/namei.c:1041 [inline]
+ lookup_fast+0x232/0x320 fs/namei.c:1874
+ walk_component fs/namei.c:2284 [inline]
+ link_path_walk+0x5d9/0xde0 fs/namei.c:2659
+ path_openat+0x142/0x11e0 fs/namei.c:5012
+ do_file_open+0x16c/0x290 fs/namei.c:5045
+ do_sys_openat2+0xa1/0x140 fs/open.c:1443
+ do_sys_open fs/open.c:1449 [inline]
+ __do_sys_openat fs/open.c:1465 [inline]
+ __se_sys_openat fs/open.c:1460 [inline]
+ __x64_sys_openat+0xf2/0x120 fs/open.c:1460
+ x64_sys_call+0x1f72/0x2550 arch/x86/include/generated/asm/syscalls_64.h:258
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Reported by Kernel Concurrency Sanitizer on:
+CPU: 1 UID: 0 PID: 6556 Comm: syz.5.482 Not tainted syzkaller #0 PREEMPT(lazy) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+==================================================================
+
+
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
+
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
