@@ -1,60 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.129
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795542382;
-	b=yPwfoExNbp6Y1BMMQ7bnkoA6U8vhvdNwf6hRWlGCf9niKilP6rLsZw4jLtbOU8F0KvYA
-	 CBcQBhR3HHyjPY0N/ZCsB4zVnBuLn4lzL6tP3TZ2+7KcBFzm5PzIYnqueXdNu/C57T9z1
-	 ENKvBwfD4lVBja4kaThOnL84H6oUgg+qs4I8IV1RBtHKs+rGo3SHzTpw/tNZBeXQLpvqk
-	 RfiDwVBsodBZ1dN1toCzZy3K+IGqHidTN9sql6oEjPvtlIOozt0g32ee3oKklqp8l9XH6
-	 mkZA9OrFmAqsug5g8QXDYj8ZlRbTvF376HVGK4LWnADN3q10vxFDgX1Wh3uHc7ZOvdA==
+	b=gaV6A1eOtiMl3zbosmI70tahFDOZqkbDjaExvvWH0DJmCv7L/1xH4giU9qWyUaxBz3mt
+	 01gg18nUBEirMy5+Rm0ARieppyKOaQ0NMHNIRFUAJMqVffaHqtjNTGE5PR/SijnAiDEGu
+	 GReml72XL3VDLOZrllxq13bX7QUYd/aUn8FagCV6ndUkdvLI+struoiLUbMfgTRHWblbj
+	 3IWnjnjYqnzW0D/iXHnRzGZdCJZzf0vWVbyjfyXZ1rQTBypQBZiMG6DjUFBPCJY2cQ+2i
+	 HXApfGqeycOt3gwSIrpwUU7MyftbIaH/btZ+cRFagl13e6KtwDyQ/PVady2z5xlwC0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795542382;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:CC:Subject:In-Reply-To:
-	 References:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=4avrTBXIwI4Ug0xIZqAZV7idEBV34MIBg7/Dt/VHqac=;
-	b=GN5U3d5C2k2J4D7QjRwedvgrhYTjgPG6VLrlYhPP1ns+eHD3E+z2SeED+1+yp0TvTOof
-	 07uPlOZAe2qCZi6vf6+VHzmaqn5EmK4qKBGjcG2c/YpeN50nhAturf5o6csnrZ8JDytYm
-	 8/PY5KLJlTKRN5rGtO7KNOaGZpzSrwylN6hDbtNuaaPPHaeaN7iEuDjjQuRE8lZ8oH8Ia
-	 DQLpfwij1lhb+0iCHbeaU6lcxPJuzw06HbNYeNkDiUcyy6w8gGJiFwUImFzpJSxRnpGxw
-	 k+W55G000hVS9r4YRhV/FjJJPinnDezbid+Li/ACcMTzfmcenSD4V8GPSqR+47norWQ==
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=FtwyRunQCEsyMnm8dmDweruaeZpOuMpydLkc7kMsNrU=;
+	b=FlkZo65w/ynVnqmiHgMFwRHXa0/VLDe6tUbeK5WsMokS/YCxvdOl64wbZHtMb3Xp5/Tp
+	 hiNznREXaTf3C3JkORHpxkAR+lr6nEhVK0qJvJpOGm0sH5Lwhzj0EAhhATZXkThtl+mwa
+	 CiHaz0kNzx8t5Jg8nQkQKK2INz9p2iBeHkJdEDf3q8j8EY7MSeQ0WVxig32PEBkU7mK63
+	 9krJwM8sEUUG6ow6b78mTXDIlsldkdn/WQvFZ7JUQTgJkDITyKLhTN3525CcaSkWvTDIA
+	 4mbdqkja3RWTjJkZ6dUi4r+y7n0AlQ6dNSPg9fsk8QsUvI3d0kqbaEwk3gLWzCWIJQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=v+k64sjb;
-	arc=none smtp.remote-ip=95.215.58.129
-Received: from mta1.migadu.com (out-129.mta1.migadu.com [95.215.58.129])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SFsDa3b9;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D34E606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:46:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D34E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 4D17C606A321;
+	Tue, 24 Nov 2026 17:46:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=v+k64sjb
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=/7wknBEq6WBwj5CWotiHj8oj8kDn8ZpOZmB8EMdFznY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795542379; v=1; x=1796147179;
- b=v+k64sjbv7fBtKLfbTpoTPhh2gnEbJos7xs7OWfnl8uQ+l78eY2vs6K3bckbPG8RDkTqHM7G
- EwDZxJAF0cZwlg6xSBxdFj+Ck4ADYM1Jccu8XkNrAzIKFpEzF0dxGNPaW1B3oNByk3J0AfoBgdq
- tcYN50SRMVmzzjlbsI//C1lg=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id bebc83a82c657f29;
-	Tue, 24 Nov 2026 17:46:18 +0000
-X-Mizu-Trace-ID: bebc83a82c657f29
-X-Migadu-Flow: FLOW_OUT
-Date: Tue, 24 Nov 2026 17:46:19 +0000
-From: Bradley Morgan <bradley.morgan@linux.dev>
-To: Avi Weiss <thnkslprpt@gmail.com>, akpm@linux-foundation.org
-CC: mcroce@microsoft.com, pmladek@suse.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] reboot: validate reboot CPU against the possible mask
-In-Reply-To: <A62C877C-F65E-4BA1-AFCB-66B4E8961431@linux.dev>
-References: <20261124082914.564587-1-thnkslprpt@gmail.com> <A62C877C-F65E-4BA1-AFCB-66B4E8961431@linux.dev>
-Message-ID: <D198410C-400D-419F-833A-B11A76A2AD72@linux.dev>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SFsDa3b9
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id E25021F000C4;
+	Tue, 24 Nov 2026 17:46:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795542381;
+	bh=FtwyRunQCEsyMnm8dmDweruaeZpOuMpydLkc7kMsNrU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=SFsDa3b9oxSH71lwzZS+Z7yNKMd4gsRq4hLYSTo1YhY6DO6gjbxP4v9GdDibtVyxf
+	 y+jINC5GmPhV5eYUPdqS5QC1Xqik+tXZ8DN8Z/ZqVJtyqsKwXB9b4TCCEs3IaRpuvE
+	 sMLSHxWU0+1UuNLUfHuhqKVFoeCpb2aW0CYOMKq8uAIYpONe5VWM3sFSgO1F1O9SB8
+	 9eEXHZdUs5Xe4F/SXHYdOkCgEnLzv5ENlJlQ4WkhIj5kWjZCJ1KIu5GIkG0jdvYfFj
+	 s02GYkZ+pmk50djdA1HdK4jGxuKIoQqzBO8eswLry/KRh4dj/Uis0dXrFs7MUmIHVv
+	 ZSlWTezePmBIQ==
+Date: Tue, 24 Nov 2026 19:46:17 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Keisuke Tsukuda <tkdkei@outlook.jp>
+Cc: "a.fatoum@pengutronix.de" <a.fatoum@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"James.Bottomley@HansenPartnership.com" <James.Bottomley@hansenpartnership.com>,
+	"zohar@linux.ibm.com" <zohar@linux.ibm.com>,
+	"dhowells@redhat.com" <dhowells@redhat.com>,
+	"paul@paul-moore.com" <paul@paul-moore.com>,
+	"jmorris@namei.org" <jmorris@namei.org>,
+	"serge@hallyn.com" <serge@hallyn.com>,
+	"linux-integrity@vger.kernel.org" <linux-integrity@vger.kernel.org>,
+	"keyrings@vger.kernel.org" <keyrings@vger.kernel.org>,
+	"linux-security-module@vger.kernel.org" <linux-security-module@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] KEYS: trusted: caam: propagate protected key option
+ parsing errors
+Message-ID: <awXNaSZVTxqbB1TY@kernel.org>
+References: <20261124155310.32044-1-tkdkei@outlook.jp>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,106 +67,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124155310.32044-1-tkdkei@outlook.jp>
 
-On 24 November 2026 16:11:16 GMT, Bradley Morgan <bradley.morgan@linux.dev>
-wrote:
->On 24 November 2026 08:29:14 GMT, Avi Weiss <thnkslprpt@gmail.com> wrote:
->>
->>reboot_setup() and cpu_store() compare CPU IDs with
->>num_possible_cpus(), which is a count rather than an upper bound.
->>With a sparse possible mask, this rejects valid CPUs and accepts
->>impossible IDs. reboot_setup() also narrows the parsed CPU number
->>to int before checking it, allowing large values to be truncated.
->>
->>Validate against nr_cpu_ids and cpu_possible() in both interfaces.
->>Use simple_strtoull() and unsigned long long for the boot option,
->>so the value is not narrowed before validation on 32- or 64-bit
->>kernels. Preserve the comma-separated reboot= syntax.
->>
->>Fixes: df5b0ab3e08a ("reboot: fix overflow parsing reboot cpu number")
->>Fixes: 2c622ed0eaa3 ("reboot: allow to specify reboot mode via sysfs")
->>Reported-by: Bradley Morgan <include@grrlz.net>
->>Link: https://lore.kernel.org/r/20260622154216.10064-1-include@grrlz.net
->>Suggested-by: Bradley Morgan <brads@mainlining.org>
->>Link:
->https://lore.kernel.org/r/D92156F5-5924-45CD-BCFE-AF385BDD15CF@mainlining.org
->>Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
->
->How did you account for this?
->
->https://lore.kernel.org/all/20260624174642.da2cc6912a9b19accd378538@linux-foundation.org/
+On Tue, Nov 24, 2026 at 03:53:39PM +0000, Keisuke Tsukuda wrote:
+> From: Keisuke Tsukuda <tkdkei@outlook.jp>
+> 
+> get_pkey_options() returns -EINVAL for invalid protected key options,
+> such as "key_enc_algo=GG". trusted_caam_seal() and trusted_caam_unseal()
+> ignore this error and return 0. The trusted key core then instantiates
+> a key without a blob for "new", or with a zero-length key for "load".
+> 
+> On an i.MX6Q running a 7.4.0-rc2-based kernel, adding a key with
+> "new 32 pk key_enc_algo=GG" succeeds, but KEYCTL_READ returns zero
+> bytes because no blob was created. The key cannot be saved and
+> reloaded.
+> 
+> Return the parsing error from both paths. On the patched kernel,
+> "new" and "load" with "key_enc_algo=GG" both fail with -EINVAL, while
+> valid requests succeed.
+> 
+> Fixes: a703a4c2a328 ("KEYS: trusted: caam based protected key")
+> Signed-off-by: Keisuke Tsukuda <tkdkei@outlook.jp>
+> ---
+>  security/keys/trusted-keys/trusted_caam.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/security/keys/trusted-keys/trusted_caam.c b/security/keys/trusted-keys/trusted_caam.c
+> index 6a33dbf2a..33000d7bb 100644
+> --- a/security/keys/trusted-keys/trusted_caam.c
+> +++ b/security/keys/trusted-keys/trusted_caam.c
+> @@ -110,7 +110,7 @@ static int trusted_caam_seal(struct trusted_key_payload *p, char *datablob)
+>  		info.pkey_info.is_pkey = 1;
+>  		ret = get_pkey_options(datablob, &info.pkey_info);
+>  		if (ret < 0)
+> -			return 0;
+> +			return ret;
+>  		dump_options(&info.pkey_info);
+>  	}
+>  
+> @@ -142,7 +142,7 @@ static int trusted_caam_unseal(struct trusted_key_payload *p, char *datablob)
+>  		info.pkey_info.is_pkey = 1;
+>  		ret = get_pkey_options(datablob, &info.pkey_info);
+>  		if (ret < 0)
+> -			return 0;
+> +			return ret;
+>  		dump_options(&info.pkey_info);
+>  
+>  		p->key_len = p->blob_len + sizeof(struct caam_pkey_info);
+> -- 
+> 2.50.1 (Apple Git-155)
+> 
 
-ah crap, realised kstrtoul() chokes on the ,... tail. stupid mistake from
-me.
-
-yeah, ok
+Thanks.
 
 
-Reviewed-by: Bradley Morgan <bradley.morgan@linux.dev>
+Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
 
-few questions, won't affect tag.
-
->
->>---
->>
->>v2:
->>- apply Bradley Morgan's unsigned parsing review, widening to 64 bits
->>  for consistent behavior on 32- and 64-bit kernels
->>
->>v1:
->https://lore.kernel.org/r/20261031060602.2949895-2-thnkslprpt@gmail.com
->>
->> kernel/reboot.c | 11 +++++------
->> 1 file changed, 5 insertions(+), 6 deletions(-)
->>
->>diff --git a/kernel/reboot.c b/kernel/reboot.c
->>index 9a84401adde5..f57b9aaef3f0 100644
->>--- a/kernel/reboot.c
->>+++ b/kernel/reboot.c
->>@@ -1144,12 +1144,11 @@ static int __init reboot_setup(char *str)
->> 			str += str[1] == 'm' && str[2] == 'p' ? 3 : 1;
->> 
->> 			if (isdigit(str[0])) {
->>-				int cpu = simple_strtoul(str, NULL, 0);
->>+				unsigned long long cpu = simple_strtoull(str, NULL, 0);
-
-why this? I swear I suggested leaving it the same except from the unsigned
-long.
-
->> 
->>-				if (cpu >= num_possible_cpus()) {
->>-					pr_err("Ignoring the CPU number in reboot= option. "
->>-					"CPU %d exceeds possible cpu number %d\n",
->>-					cpu, num_possible_cpus());
->>+				if (cpu >= nr_cpu_ids || !cpu_possible(cpu)) {
->>+					pr_err("Ignoring invalid CPU %llu in reboot= option\n",
-
-i feel a follow up is clarifying this better. maybe a why?
-
->>+					       cpu);
->> 					break;
->> 				}
->> 				reboot_cpu = cpu;
->>@@ -1351,7 +1350,7 @@ static ssize_t cpu_store(struct kobject *kobj,
->struct kobj_attribute *attr,
->> 	if (rc)
->> 		return rc;
->> 
->>-	if (cpunum >= num_possible_cpus())
->>+	if (cpunum >= nr_cpu_ids || !cpu_possible(cpunum))
-
-Ack.
-
->> 		return -ERANGE;
->> 
->> 	reboot_default = 0;
->>
->>base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
->>
->
->--- Thanks!
-
---- Thanks!
+Br, Jarkko
