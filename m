@@ -1,107 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.132
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795491228;
-	b=twzY5MXhFmWyYaF1n6vRNU2sklMrPLKNMVhggNRG7rLjIKvnPX5N7KWH3Lzr/JKJzoKt
-	 ONDvIZSI0RFHldDtFgpB6eEvHND8u6t2YA4BtW6fQ/aFruGKtypnJg91Gscq1w7y7nvCd
-	 x4DnPROpxIAD/gzO74KG58+wxvVlm3wQPIn2CK/3J4O0sEy7c8Vf8JvE77ZUcyMH+qN9r
-	 BNp3ETDWkX4rFOj2h8S6IVfytr08v9KTfRo8MMmYmFqWzGJQOQmEvfMAm6VKVW2qNtgij
-	 dHEbyeZRwteGcktbcRZp/Go0RfIXbTRVxEIYCLucGLa5t+A5677JC3cBEzl0Stwgetg==
+	t=1795491243;
+	b=eYaVR8ybSOTf0vFpAD6lsYVrH9g9D1Vqho2uAsCCAPP8NvEcPzEy5EjdfmGTcDhPH2i3
+	 EMFfviCRNGnMnvVtSznF7ezteZxaVJtoaDpifGLOigqQl3Nr6ndUcbEoxu88E94GR/FnA
+	 w0NOTX+cbZ2vTTuxfCZ7pG2iqUB9ty07EadRIJdDA64IWuANPhieI8qVgdXCIW8XqqG/4
+	 QRIB0cGm0M67xbIxiF/3wNhK4L6q8/arwyW0I8j/GyzGrLAZoUcKXpJ6cjiMJBh2r3MU6
+	 12zdEiuuczrwIUMShNgF+yTuNw1aJEfhAJaf8HFb3ZUxd9tAHHf7Y0KU0b+Ov3I2fRA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795491228;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795491243;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=+aG4MNfkbYBkCJSsJvADe/q3LoG/+w55119ipXSrHN0=;
-	b=JGSM0o3qPrhG8EUXfMTqhxWK1f2Tkentxks68saurDxmsk+Ffd9VkN2NLJWkuWW7YEFz
-	 mXAVzcG5Rth3QKhRnZv6rxd9up5qc7WNInoPCynJI+wcZTXSNWslBMVdm3s8u2zam6Wqa
-	 8YYwwAX3okelUqr3bunjtxcfqiKmr4aUbkNTlnQiefXOIuwTYZue7kw1FH1hBbIo5iySU
-	 +f9+tUvPpz3w4yTZdnVyAyXUgS3TonGpZf/TEYSXSVEqkvFCHmTk+myb8wqTA4Y21d+D7
-	 RWjJW5cPJK/5KmfB02oHwzbeDkY8rn5gxgvQARrIPDrx0AKZGFiGHj6xgpTJjHYaacQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=fgziihkmWmv71dbB/QFn4V+nTlNArdPHdIiY2QssMfY=;
+	b=eF3D9xuc3F3En3Iyu2OtUzhJlF0wekmq9vvZatb4ClAXgjAQ2UU1EOp6aaObsksVHdEJ
+	 Y7dniiBX2UKSf33HiBv+9tliRB1mZ1ZIviLtrUiVo8Oide//lq4jQXCjxTDkqJ3qkXu/t
+	 5pu1+2a4TDLnNJB4rziYeRLVXjxmE1eNiikaVFolCPLj0O202LW9VLpDyeVqydWP2XEUO
+	 ZGaVLQUUuOrSN5qKUTwhMYPsH5OoaXlxYx/vMVk51KgcAuBHEcP/U3haGBbz/bMqSxRv7
+	 ZhpDRYDcJ5pLAn/5vT+BrW9Cre29UMhqxnkMr+lTjVjpnqOHKz0EGpaT/+CX1TEcAQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PMJ7jBSk;
-	arc=none smtp.remote-ip=74.125.227.132
-Received: from mail-pj2-f4.google.com (mail-pj2-f4.google.com [74.125.227.132])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--nilayvaish.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WxN8COg0;
+	arc=none smtp.remote-ip=74.125.82.199
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00300606A32E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:33:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00300606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B025606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:34:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B025606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--nilayvaish.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PMJ7jBSk
-Received: by mail-pj2-f4.google.com with SMTP id d9443c01a7336-2f066a193bbso19825565ad.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:33:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WxN8COg0
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-386a65fca25so2718587eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:34:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795491227; x=1796096027; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+aG4MNfkbYBkCJSsJvADe/q3LoG/+w55119ipXSrHN0=;
-        b=PMJ7jBSk+76u+aS4R71dbTfXgO8kgDR3AoAU0QOxKZzj0hPYIk0m8+2OtlnQB15CX7
-         7BBniUJartqZMNQcoU1c9pE9MdTH0doYGo9GEEIGLGVjGBtBT+VH2YDknAZlUPOjZ+W9
-         YWzIYxr0FiSRZoPU9ndOwrjTNWr1hWbIr7i5hor4xcGB6gTkVEWzB/ngzSi1tqrQ3DjS
-         JhslKDd0pn5BelpvdnkLKplltbYMqnhBNz5YZUzZ3T7feiuW3If0MEzRHH9hwONyae4w
-         6ztGBr+oXTB4cgokhCBPSVwhgC0QkFUixb4BQ/bkPBqyQ8UhDgYIKnf03KUkCG4B2lFK
-         HqBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795491227; x=1796096027;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=google.com; s=20260707; t=1795491241; x=1796096041; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+aG4MNfkbYBkCJSsJvADe/q3LoG/+w55119ipXSrHN0=;
-        b=u+iWCSVmoPW97mJu993vqtD7u+k7XEV36Rdaak5Lvo2LGxXeFe4jTL/nByVqNMLNTa
-         i+mphloKh5ir1GrRNep5S2vhB/i1Z+wXxjz8Iu9CxLPe/wlDCE16PR+enxYXfb1szvc3
-         1lGNXLSVobt32ueC5e+EDJPbE6oYmavvCt9uxU3LZGTBm19A5ux0j9kpdrtLM0pce7zv
-         MlnVXHw3vj2TCANohETjwv8HbqQ1SEhHcTxDdUMVsWRl5Mx01TfqLN1GAPBgUTe3vAsw
-         vT6jnORSOfMPQs5vWeW2PMjUFqVrKoqB28xDt64JVdjI1k+Io7dUWXnVkFnacsFv8dt7
-         lLtA==
-X-Forwarded-Encrypted: i=1; AL+hErGCgf6oFcyfSqxPNfAc1i1107xiq6DWzuWKEgXvgSbg3cHz6Xpz6wkISvEyJpzZ6dHeXMRREg457Kk8QPs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/vuFGUdo3wk4V1HLSaBBtV0OJayXKKrh8Q+yrIam0cwPoNwukE
-	Mrl3rgwxfkdCbzWIUkpBPsMEexgOQulUI/GNTOMc3PvpTtPVMeXUAsYA
-X-Gm-Gg: AZFdTZenjjj5SKB2o4AX5wIKjhOg5RFRK55gkGuuDw0ex3tneNahgCpkRrLEnoqVmWV
-	V0RUy914NWMqRaSC2EIr+27SHbRyjhDD6WfG/RST55QMRUoG+DUjlJ1Ow3W6xogxiPnWprs3BXc
-	s0oBlZbZ1jmMrb7Glg1Q5rxcTcn6iR+YmXrvPAROqJI7loVs5sFFLRM7ODn45qutAWjb0ry9tLH
-	DsLbDj7hBfVuJI/6cdrKPoStN/UuaLzUobjcLDG2jfpHtQd9XXs50l50f9KjdzMfZEb2GoQ6Ez+
-	SlgqTs/e/iFV+SZO86XDoDTC8n49zEk5jLvejXDQCKmVLf8j6tEz1yo0R+58bBqv5KQrc/kByl8
-	rZddwKI2GPbeygAxnZchcb/SVA43ysoiXzVIZBWWdma5YT38294g4H+JytqBELjRVE0xUPJOxVC
-	xZEn8UDR0FtK4B8WwCXX3TKO8QY1U0Js7pcmKYwpy741QsefczmJBx3TAql2GV6X0GD81gBysuR
-	lH0UfIBmpjDRLHX5L1fMZGtNQAj9Ap+Q8VnzIjHqOjYFJp0C/WUeiChXtdYqYAEqMPRgtg6zhXM
-	2u4fZF/P5dOlI3rI2q5d26vhdQOEEixH074RA6CeXQ==
-X-Received: by 2002:a05:6300:218b:b0:3f8:f0b1:e7c0 with SMTP id adf61e73a8af0-4014da5fc3emr12855841637.59.1795491227174;
-        Mon, 23 Nov 2026 19:33:47 -0800 (PST)
-Received: from q-Legion-Y7000-IRX9.. ([223.86.210.47])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077bff6sm6495773b3a.3.2026.11.23.19.33.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 19:33:46 -0800 (PST)
-From: Bingyu Xian <shanbeeyoo@gmail.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Andrew Jones <andrew.jones@linux.dev>
-Cc: Shuah Khan <shuah@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Quan Zhou <zhouquan@iscas.ac.cn>,
-	Bingyu Xian <shanbeeyoo@gmail.com>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] KVM: selftests: Test steal-time dirty logging and RISC-V STA transitions
-Date: Tue, 24 Nov 2026 11:33:28 +0800
-Message-Id: <20261124033328.612894-3-shanbeeyoo@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261124033328.612894-1-shanbeeyoo@gmail.com>
-References: <20261124033328.612894-1-shanbeeyoo@gmail.com>
+        bh=fgziihkmWmv71dbB/QFn4V+nTlNArdPHdIiY2QssMfY=;
+        b=WxN8COg0PefxhVQqeUlaJ3/KFXORBGCTADpKl+7eGLSYwwBF3nsSfeEDJH/s6FkHZl
+         vgAYMAD87gqDnY20PDcVdPC27Y75VX70ayC0f9rXqnb2jtUwZS+YFXVhQR6WufRNOjpi
+         DXcFso2vdFi87Yc2gjL+tE3x1c7o8b1vIkI1xoM8gmdFMoSMFViOzcKKPzpVd5My8qYW
+         HmLPYr7InIvT/6zJuMRtzxH3VrApc4hphFuBjdWOteOkTY9YpBkt+9nCG1PliCaOQv4t
+         ZY6YfK+MCGh9ku0b5/055oY3mq/pR3UzXaO0OOK/IgzLaMZCwfMoM/jFVS1HLqRCUREu
+         eJpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795491241; x=1796096041;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fgziihkmWmv71dbB/QFn4V+nTlNArdPHdIiY2QssMfY=;
+        b=e0UA4/GazvUvOIrCdTJVLM1BTj/D9W86r0OJfYVCxfPjbv+x2EaXZtPRkWVEMuKQvD
+         lh0Vh17rMybJqeESVjbWkfTseL5vQTyDnlTJUYhfuQgT5f2ygk44B2g7vt0l7c7QSbbk
+         o7lPDdfGI+MYlwZzAzqR+tdjKTro9uj19kHKZc6CtibKKJ1sGFYY5E8sPEMrfXXzcIgB
+         YETY1P68ZhDYy5peQbXtFajZjeaFvjs03lp0vT+B7Esv+5EABtS74pHhhVPJ3AdoVDOz
+         Ojw4brwKTxQ4AX92azVgHt8UWabTOeU5T1z5ioB5lf4Xf/M4ZrZK1eOwrf560OVVl//l
+         +6Hw==
+X-Forwarded-Encrypted: i=1; AL+hErG62BTnSIl0MZ+gN15I1/VxVTdyjAzKKsyFgxsF1sZHRSc+Vj25acnQDoWAIOOJOAFPEbfYA3T09r53oVw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/g4NPqE7gwYvY4S+vcy5D/cMjDSTttaqx4x4bLXbaxqqO+sBNz
+	Zj8ibAuMyKucjkRBhq7cwUqQuK5uZu8ofv0gLsDlnY2mjDjPlJy+gfaZKFpC7/QMR0o43jyGj/d
+	6g4pR+KX3Y5XpXWIuEAnBTg==
+X-Received: from dyw11.prod.google.com ([2002:a05:7300:880b:b0:36a:de0:d28a])
+ (user=nilayvaish job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:693c:87d6:20b0:386:bc19:6a30 with SMTP id 5a478bee46e88-386bc196d10mr2286489eec.20.1795491241112;
+ Mon, 23 Nov 2026 19:34:01 -0800 (PST)
+Date: Mon, 23 Nov 2026 19:33:57 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,402 +75,58 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261124033357.830767-1-nilayvaish@google.com>
+Subject: [PATCH] fs/dax: use page_ref_count() in dax_folio_put()
+From: Nilay Vaish <nilayvaish@google.com>
+To: Alistair Popple <apopple@nvidia.com>
+Cc: Matthew Wilcox <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
+	Christian Brauner <brauner@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	linux-fsdevel@vger.kernel.org, nvdimm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Nilay Vaish <nilayvaish@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-KVM writes to a guest steal-time structure must be recorded in the guest
-RAM dirty log. Enable dirty logging on the shared-area memslot in the
-common per-vCPU test path, clear initialization dirty bits after the
-first run, and force runnable scheduling delay before checking that the
-subsequent accounting write marks the expected page dirty.
+Once dax_folio_reset_order() has turned a DAX folio back into single
+pages, dax_folio_put() checks that none of them still holds a reference.
+It does so by casting each struct page to struct folio and calling
+folio_ref_count().
 
-On RISC-V, additionally exercise three SBI STA transitions: disabling an
-active shared area, re-enabling the same area, and replacing an active
-registration directly with a new area at the end of a second host page.
-Clear the dirty log after each transition, arrange runnable contention on
-the pinned CPU with a bounded monotonic timeout, and compare sequence and
-stolen time against a stopped-vCPU snapshot so valid zero-increment skips
-are permitted. After active replacement, verify that the old page remains
-both unchanged and clean.
+The cast relies on struct folio overlaying struct page. struct folio is
+going to be allocated separately as part of the memdesc work, and casts
+like this one have to go before that can happen.
 
-Use per-architecture hooks for protocol-specific lifecycle cases instead of
-adding #ifdefs in main(). These SBI enable/disable operations match those
-used by the Linux RISC-V guest CPU online and CPU-down callbacks, while the
-selftest exercises the SBI protocol directly rather than booting Linux.
-Drop the v1 MADV_DONTNEED check, which discarded guest page contents and
-did not model migration.
+page_ref_count() reads the same count from the page that the loop
+already has, so use it.
 
-Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Bingyu Xian <shanbeeyoo@gmail.com>
+No functional change.
+
+Signed-off-by: Nilay Vaish <nilayvaish@google.com>
 ---
-Changes in v2:
-- Move accounting dirty-log checks into the common per-vCPU loop and
-  remove the added #ifdefs from main().
-- Test RISC-V disable, re-enable of the same area, and direct active
-  replacement separately; drop the v1 MADV_DONTNEED case.
-- Isolate registration dirty bits with kvm_vm_get_dirty_log() and arrange
-  bounded runnable contention instead of assuming unconditional updates.
-- Align the two-page region and boundary offset to getpagesize().
 
- tools/testing/selftests/kvm/steal_time.c | 233 ++++++++++++++++++++---
- 1 file changed, 206 insertions(+), 27 deletions(-)
+Notes:
+    This patch was written with the help of an AI coding assistant (Gemini).
+    
+    Based on next-20261123.
 
-diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
-index 82b94a82d..276eb03a6 100644
---- a/tools/testing/selftests/kvm/steal_time.c
-+++ b/tools/testing/selftests/kvm/steal_time.c
-@@ -8,6 +8,7 @@
- #include <time.h>
- #include <sched.h>
- #include <pthread.h>
-+#include <linux/bitmap.h>
- #include <linux/kernel.h>
- #include <asm/kvm.h>
- #ifdef __riscv
-@@ -29,11 +30,17 @@ static u64 guest_stolen_time[NR_VCPUS];
+ fs/dax.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/fs/dax.c b/fs/dax.c
+index 9d161d7ef3ef..16cad82c689f 100644
+--- a/fs/dax.c
++++ b/fs/dax.c
+@@ -449,7 +449,7 @@ static inline unsigned long dax_folio_put(struct folio *folio)
+ 	for (i = 0; i < (1UL << order); i++) {
+ 		struct page *page = folio_page(folio, i);
  
- static struct kvm_vm *vm_create_steal_time(u32 nr_vcpus, void *guest_code,
- 					   struct kvm_vcpu *vcpus[]);
-+static long force_steal_time(void);
- 
- #if defined(__x86_64__)
- 
- /* steal_time must have 64-byte alignment */
- #define STEAL_TIME_SIZE		((sizeof(struct kvm_steal_time) + 63) & ~63)
-+#define NR_LIFECYCLE_TESTS	0
-+
-+static void check_steal_time_lifecycle(void)
-+{
-+}
- 
- static void check_status(struct kvm_steal_time *st)
- {
-@@ -115,6 +122,11 @@ static void check_steal_time_uapi(void)
- 
- /* PV_TIME_ST must have 64-byte alignment */
- #define STEAL_TIME_SIZE		((sizeof(struct st_time) + 63) & ~63)
-+#define NR_LIFECYCLE_TESTS	0
-+
-+static void check_steal_time_lifecycle(void)
-+{
-+}
- 
- #define SMCCC_ARCH_FEATURES	0x80000001
- #define PV_TIME_FEATURES	0xc5000020
-@@ -239,6 +251,7 @@ static void check_steal_time_uapi(void)
- 
- /* SBI STA shmem must have 64-byte alignment */
- #define STEAL_TIME_SIZE		((sizeof(struct sta_struct) + 63) & ~63)
-+#define NR_LIFECYCLE_TESTS	3
- 
- static gpa_t st_gpa[NR_VCPUS];
- 
-@@ -329,6 +342,129 @@ static void steal_time_dump(struct kvm_vm *vm, u32 vcpu_idx)
- 	pr_info("\n");
- }
- 
-+static gpa_t lifecycle_second_gpa;
-+
-+static void sta_lifecycle_guest(void)
-+{
-+	sta_set_shmem(ST_GPA_BASE, 0);
-+	GUEST_SYNC(0);
-+	GUEST_SYNC(1);
-+
-+	sta_set_shmem(INVALID_GPA, 0);
-+	GUEST_SYNC(2);
-+	GUEST_SYNC(3);
-+
-+	/* Re-enable the same area, as the guest CPU online callback does. */
-+	sta_set_shmem(ST_GPA_BASE, 0);
-+	GUEST_SYNC(4);
-+	GUEST_SYNC(5);
-+
-+	/* Replace the active registration without disabling it first. */
-+	sta_set_shmem(lifecycle_second_gpa, 0);
-+	GUEST_SYNC(6);
-+	GUEST_SYNC(7);
-+	sta_set_shmem(INVALID_GPA, 0);
-+	GUEST_DONE();
-+}
-+
-+static void sta_lifecycle_run(struct kvm_vcpu *vcpu, unsigned int stage)
-+{
-+	struct ucall uc;
-+
-+	vcpu_run(vcpu);
-+	switch (get_ucall(vcpu, &uc)) {
-+	case UCALL_SYNC:
-+		TEST_ASSERT_EQ(uc.args[1], stage);
-+		break;
-+	case UCALL_DONE:
-+		TEST_ASSERT_EQ(stage, 8);
-+		break;
-+	case UCALL_ABORT:
-+		REPORT_GUEST_ASSERT(uc);
-+	default:
-+		TEST_FAIL("Unexpected STA lifecycle exit at stage %u", stage);
-+	}
-+}
-+
-+static void check_sta_page(struct sta_struct *st, struct sta_struct *before)
-+{
-+	TEST_ASSERT(st->sequence != before->sequence && !(st->sequence & 1),
-+		    "Expected a completed STA update, sequence=%u", st->sequence);
-+	TEST_ASSERT(st->steal > before->steal, "STA stolen time did not advance");
-+	TEST_ASSERT_EQ(st->flags, 0);
-+	TEST_ASSERT_EQ(st->preempted, 0);
-+}
-+
-+static void check_steal_time_lifecycle(void)
-+{
-+	struct sta_struct snapshot, before, *first, *second;
-+	size_t host_page_size = getpagesize();
-+	unsigned long dirty = 0;
-+	unsigned int gpages;
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, sta_lifecycle_guest);
-+	gpages = vm_calc_num_guest_pages(VM_MODE_DEFAULT, 2 * host_page_size);
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE,
-+				    1, gpages, KVM_MEM_LOG_DIRTY_PAGES);
-+	/* Also exercise an STA structure ending at a host page boundary. */
-+	WRITE_AND_SYNC_TO_GUEST(vm, lifecycle_second_gpa,
-+				ST_GPA_BASE + 2 * host_page_size - sizeof(struct sta_struct));
-+	first = addr_gpa2hva(vm, ST_GPA_BASE);
-+	second = addr_gpa2hva(vm, lifecycle_second_gpa);
-+
-+	/* Establish active updates on the first page before testing disable. */
-+	sta_lifecycle_run(vcpu, 0);
-+	before = *first;
-+	/* Registration writes zeroes and dirties the page independently. */
-+	kvm_vm_get_dirty_log(vm, 1, &dirty);
-+	force_steal_time();
-+	sta_lifecycle_run(vcpu, 1);
-+	check_sta_page(first, &before);
-+	kvm_vm_get_dirty_log(vm, 1, &dirty);
-+	TEST_ASSERT_EQ(dirty, BIT(0));
-+
-+	sta_lifecycle_run(vcpu, 2);
-+	snapshot = *first;
-+	/* Entry before the disable call may have updated the old area. */
-+	kvm_vm_get_dirty_log(vm, 1, &dirty);
-+	force_steal_time();
-+	sta_lifecycle_run(vcpu, 3);
-+	TEST_ASSERT(!memcmp(first, &snapshot, sizeof(snapshot)),
-+		    "Disabled STA shared page was modified");
-+	kvm_vm_get_dirty_log(vm, 1, &dirty);
-+	TEST_ASSERT_EQ(dirty, 0);
-+	ksft_test_result_pass("STA disable stops shared page updates\n");
-+
-+	sta_lifecycle_run(vcpu, 4);
-+	before = *first;
-+	kvm_vm_get_dirty_log(vm, 1, &dirty);
-+	force_steal_time();
-+	sta_lifecycle_run(vcpu, 5);
-+	check_sta_page(first, &before);
-+	kvm_vm_get_dirty_log(vm, 1, &dirty);
-+	TEST_ASSERT_EQ(dirty, BIT(0));
-+	ksft_test_result_pass("STA re-enable resumes shared page updates\n");
-+
-+	sta_lifecycle_run(vcpu, 6);
-+	/* Snapshot after the last entry that could still update the old area. */
-+	snapshot = *first;
-+	before = *second;
-+	kvm_vm_get_dirty_log(vm, 1, &dirty);
-+	force_steal_time();
-+	sta_lifecycle_run(vcpu, 7);
-+	check_sta_page(second, &before);
-+	TEST_ASSERT(!memcmp(first, &snapshot, sizeof(snapshot)),
-+		    "Old STA shared page was modified after replacement");
-+	kvm_vm_get_dirty_log(vm, 1, &dirty);
-+	TEST_ASSERT_EQ(dirty, BIT(1));
-+	ksft_test_result_pass("STA active replacement updates only the new page\n");
-+
-+	sta_lifecycle_run(vcpu, 8);
-+	kvm_vm_free(vm);
-+}
-+
- static void check_steal_time_uapi(void)
- {
- 	struct kvm_vm *vm;
-@@ -368,8 +504,13 @@ static void check_steal_time_uapi(void)
- 
- /* steal_time must have 64-byte alignment */
- #define STEAL_TIME_SIZE		((sizeof(struct kvm_steal_time) + 63) & ~63)
-+#define NR_LIFECYCLE_TESTS	0
- #define KVM_STEAL_PHYS_VALID	BIT_ULL(0)
- 
-+static void check_steal_time_lifecycle(void)
-+{
-+}
-+
- struct kvm_steal_time {
- 	__u64 steal;
- 	__u32 version;
-@@ -466,22 +607,58 @@ static void check_steal_time_uapi(void)
- }
- #endif
- 
-+struct steal_time_worker {
-+	bool stop;
-+	struct timespec deadline;
-+};
-+
- static void *do_steal_time(void *arg)
- {
--	struct timespec ts, stop;
-+	struct steal_time_worker *worker = arg;
-+	struct timespec ts;
- 
--	clock_gettime(CLOCK_MONOTONIC, &ts);
--	stop = timespec_add_ns(ts, MIN_RUN_DELAY_NS);
--
--	while (1) {
-+	while (!READ_ONCE(worker->stop)) {
- 		clock_gettime(CLOCK_MONOTONIC, &ts);
--		if (timespec_to_ns(timespec_sub(ts, stop)) >= 0)
-+		if (timespec_to_ns(timespec_sub(ts, worker->deadline)) >= 0)
- 			break;
+-		WARN_ON_ONCE(folio_ref_count((struct folio *)page));
++		WARN_ON_ONCE(page_ref_count(page));
  	}
  
- 	return NULL;
- }
- 
-+/* The caller is pinned; its worker inherits the same CPU affinity. */
-+static long force_steal_time(void)
-+{
-+	struct steal_time_worker worker = {};
-+	struct timespec ts;
-+	pthread_t thread;
-+	cpu_set_t cpuset;
-+	long start, delay;
-+	int cpu = sched_getcpu();
-+
-+	clock_gettime(CLOCK_MONOTONIC, &ts);
-+	worker.deadline = timespec_add_ns(ts, 5 * NSEC_PER_SEC);
-+	start = get_run_delay();
-+	kvm_pthread_create(&thread, NULL, do_steal_time, &worker);
-+	kvm_pthread_getaffinity(thread, &cpuset);
-+	TEST_ASSERT(CPU_COUNT(&cpuset) == 1 && CPU_ISSET(cpu, &cpuset),
-+		    "Worker failed to inherit parent's CPU affinity");
-+
-+	do {
-+		sched_yield();
-+		delay = get_run_delay() - start;
-+		clock_gettime(CLOCK_MONOTONIC, &ts);
-+	} while (delay < MIN_RUN_DELAY_NS &&
-+		 timespec_to_ns(timespec_sub(ts, worker.deadline)) < 0);
-+
-+	WRITE_ONCE(worker.stop, true);
-+	kvm_pthread_join(thread, NULL);
-+	TEST_ASSERT(delay >= MIN_RUN_DELAY_NS,
-+		    "Timed out waiting for runnable delay: expected >= %lu ns, got %ld",
-+		    MIN_RUN_DELAY_NS, delay);
-+	return delay;
-+}
-+
- static void run_vcpu(struct kvm_vcpu *vcpu)
- {
- 	struct ucall uc;
-@@ -509,7 +686,8 @@ static struct kvm_vm *vm_create_steal_time(u32 nr_vcpus, void *guest_code,
- 	/* Create a VM and an identity mapped memslot for the steal time structure */
- 	vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
- 	gpages = vm_calc_num_guest_pages(VM_MODE_DEFAULT, STEAL_TIME_SIZE * nr_vcpus);
--	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE, 1, gpages, 0);
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE,
-+				    1, gpages, KVM_MEM_LOG_DIRTY_PAGES);
- 	virt_map(vm, ST_GPA_BASE, ST_GPA_BASE, gpages);
- 
- 	return vm;
-@@ -518,26 +696,31 @@ static struct kvm_vm *vm_create_steal_time(u32 nr_vcpus, void *guest_code,
- int main(int ac, char **av)
- {
- 	struct kvm_vcpu *vcpus[NR_VCPUS];
-+	unsigned long *dirty_log;
-+	unsigned int dirty_npages, page;
- 	struct kvm_vm *vm;
--	pthread_t thread;
--	cpu_set_t cpuset;
- 	long stolen_time;
- 	long run_delay;
- 	bool verbose;
--	int i, cpu;
-+	int i;
- 
- 	verbose = ac > 1 && (!strncmp(av[1], "-v", 3) || !strncmp(av[1], "--verbose", 10));
- 
- 	/* Set CPU affinity so we can force preemption of the VCPU */
--	cpu = pin_self_to_any_cpu();
-+	pin_self_to_any_cpu();
- 
- 	vm = vm_create_steal_time(NR_VCPUS, guest_code, vcpus);
- 
- 	ksft_print_header();
- 	TEST_REQUIRE(is_steal_time_supported(vcpus[0]));
--	ksft_set_plan(NR_VCPUS);
-+	TEST_REQUIRE(!access("/proc/self/schedstat", R_OK));
-+	ksft_set_plan(2 * NR_VCPUS + NR_LIFECYCLE_TESTS);
-+	dirty_npages = memslot2region(vm, 1)->region.memory_size / getpagesize();
-+	dirty_log = bitmap_zalloc(dirty_npages);
-+	TEST_ASSERT(dirty_log, "Failed to allocate dirty log");
- 
- 	check_steal_time_uapi();
-+	check_steal_time_lifecycle();
- 
- 	/* Run test on each VCPU */
- 	for (i = 0; i < NR_VCPUS; ++i) {
-@@ -547,30 +730,24 @@ int main(int ac, char **av)
- 
- 		/* First VCPU run initializes steal-time */
- 		run_vcpu(vcpus[i]);
-+		/* Exclude initialization writes from the accounting dirty log. */
-+		kvm_vm_get_dirty_log(vm, 1, dirty_log);
-+		force_steal_time();
- 
- 		/* Second VCPU run, expect guest stolen time to be <= run_delay */
- 		run_vcpu(vcpus[i]);
-+		kvm_vm_get_dirty_log(vm, 1, dirty_log);
-+		for (page = 0; page < dirty_npages; page++)
-+			TEST_ASSERT_EQ(!!test_bit(page, dirty_log),
-+				       page == i * STEAL_TIME_SIZE / getpagesize());
-+		ksft_test_result_pass("vcpu%d shared page update is marked dirty\n", i);
- 		stolen_time = SYNC_FROM_GUEST_AND_READ(vm, guest_stolen_time[i]);
- 		run_delay = get_run_delay();
- 		TEST_ASSERT(stolen_time <= run_delay,
- 			    "Expected stolen time <= %ld, got %ld",
- 			    run_delay, stolen_time);
- 
--		/* Steal time from the VCPU. The steal time thread has the same CPU affinity as the VCPUs. */
--		run_delay = get_run_delay();
--		kvm_pthread_create(&thread, NULL, do_steal_time, NULL);
--		kvm_pthread_getaffinity(thread, &cpuset);
--		TEST_ASSERT(CPU_COUNT(&cpuset) == 1 && CPU_ISSET(cpu, &cpuset),
--			    "Worker failed to inherit parent's CPU affinity");
--
--		do
--			sched_yield();
--		while (get_run_delay() - run_delay < MIN_RUN_DELAY_NS);
--		kvm_pthread_join(thread, NULL);
--		run_delay = get_run_delay() - run_delay;
--		TEST_ASSERT(run_delay >= MIN_RUN_DELAY_NS,
--			    "Expected run_delay >= %ld, got %ld",
--			    MIN_RUN_DELAY_NS, run_delay);
-+		run_delay = force_steal_time();
- 
- 		/* Run VCPU again to confirm stolen time is consistent with run_delay */
- 		run_vcpu(vcpus[i]);
-@@ -588,6 +765,8 @@ int main(int ac, char **av)
- 		}
- 		ksft_test_result_pass("vcpu%d\n", i);
- 	}
-+	free(dirty_log);
-+	kvm_vm_free(vm);
- 
- 	/* Print results and exit() accordingly */
- 	ksft_finished();
+ 	return ref;
+
+base-commit: 3191063649dbf7c0d0b768e1f3655e4c5fc6edb5
 -- 
-2.34.1
+2.56.1.839.g22a8290db9-goog
 
