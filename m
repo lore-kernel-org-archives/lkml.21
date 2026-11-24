@@ -1,105 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795491365;
-	b=i+9uVcI03sfx68BPDsc0Zask532uHtXb1qlG4VFyOQ1+8i8ppY2Ch98wuP0/i6kT0OSO
-	 UxCjZkeXtzX0sqyS5UtH0Mo2uZw8/sM4E8P8HLjr31OLByLdk9rthHiBWETuVcvZFkUd3
-	 uxa3Xpi8zMgCIjwJ9WTZVPkks6yAlJLUBexJ2B3nIe4AEcCUyHwyXSRJnUIBlKKofQuO5
-	 0K0OorlweMO8OFPqLCWKfWkNajT6ejiADD7KK/aH4o/au278j+VSxPGYz2syR/VkBlPHc
-	 Lkm/OAYBCOrQqfc86VuC4H0eElvdYjP12bk/WaSkq68AMPaMasHffV8+BD/N8Vf2dCA==
+	t=1795491465;
+	b=D8bVH4LhEf+3OBGsci91Ya9F8FKMnYxG4CoF84KXcwQE9T7HGo9DsVP1QwOx9XhKp1ms
+	 0R+6t7sBEUfYQPG6X98YqRNvMhFE7+iPemFVRqvkGXl9+Sv1qqIOjMJp371mVJ5P60J38
+	 miXFwt2ENZvMBwGuQ1mDKiWxA/2aJ6WfkaY9K3XX2KTqIctP6om1Fxv3fef7s9L268qFS
+	 Fs2Zlj599DokXaD4eiYLPBoxtd47MfWoIuSLcep037sVIz+NsKWSs3ZAAeJBSmg04BGV4
+	 aEACP+WwYEEzioKdnKGB8+0z3P8ozGG+C2LDCmsna+ylu1AnDolediZ2Ya+jnaU4yuQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795491365;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795491465;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=tPwzcSn9YCtkUcYX05pvK2PhOcLN5eFatEAbk1VC3Ao=;
-	b=l7KkyRGbWag7o/VBI+HMiqxsNgMJnze0D8knSdLcdYmVPyQORDBMMtaS6HYc7tVzvEJM
-	 GTK3b4CVDJB/VNfJtOcW0b8OwjNW8yyL4P7a1FBJFChWRA1nfKwq0PN4KGfNfQVoyZF4H
-	 VvXHHbp1JKG26ZMBM+o+cLegTkm3uXXqeh3nsM3JNlZUL8hrc3KcW5FxuYjDmqoa38VSH
-	 T1FYKBO4Ym+uFM4F+OMkRLYCK7Ou/CMnmS85afuQ4CdaUbUUsXcqiNWM24Wxj3mXtreb3
-	 7nnifXfhvo4mKra9T8xAWbz+crBTOeAj33jy21dd4aN7BpMjfppTA6kt4Pr1VDTC8HA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=6a+Mlas+jIYbAGVeJG8lK2DRBUGlHQIH4JtbLlp5jjw=;
+	b=zjZ5zVfXx57F00jnzpr4xr8WIHqaJdGQrOt2pNfYK9q7lusxEQFefpTIccpLu1s7Ltr1
+	 Lp1vgP88PdH4tLq1OiT8Vs2bmPdzyUTeIeHO9XacY0z79EsWLPT62zfeBZSRn4WbZTT/W
+	 /mCIhriRYEu18G4+C+0ISnBwOnssJOYVls8Ml+zNrRsmqM9YFeZ/XeV76xSBjquE77W/B
+	 wUnH/9r+6s3dcqnPmIhW9IWZbPwrflq/tfbnM1lyFbGJLv8zpDE0Qwheabvq4IPYzcQV3
+	 hTtCVxlA2U21Q+TuwB2gxeuoYB96xWkQBYH+epKoVL7zpv/cFlrl5kKZdLsWp/dCEcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tds5q10B;
-	arc=none smtp.remote-ip=209.85.215.179
-Received: from mail-pg1-f179.google.com (mail-pg1-f179.google.com [209.85.215.179])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--nilayvaish.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CoPuUNnL;
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C20A606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:36:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C20A606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B39DB606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:37:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B39DB606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--nilayvaish.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tds5q10B
-Received: by mail-pg1-f179.google.com with SMTP id 41be03b00d2f7-cdd9d0c9bbdso2263703a12.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:36:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CoPuUNnL
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-386ad819860so1006760eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:37:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795491364; x=1796096164; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=tPwzcSn9YCtkUcYX05pvK2PhOcLN5eFatEAbk1VC3Ao=;
-        b=tds5q10Bethl0FfyiXZva4IzMwY9rSAd99cHIo9BJ0aalRiX9U199zumfts2SrIOcP
-         M0ElpB8TXNN+39CQJ/83sq3CBLLGn5Ts47U54hAGmtOqpBauy4iNOuJ0zL6BvMJeOOJG
-         mk0BSbVFmNWFvBJjC74WWVmAb0XCaBVDyWMM4pN1EOv/IM1LWFzAVR6v68kxSkdx7RBG
-         Q+ud+KfixiNbOgFhe6FJxy2Bgg3mDDp5+wyH9SOaGfi3gBy0Ev3p1ITaOeDDaLJ1tfa7
-         uWb6+oNWIWG8qgpagiTR2xyzzgFWy3E1JjyaCGNNqzHjt3erllK/GrYLo9qfXfCJaadi
-         F5VA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795491364; x=1796096164;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=google.com; s=20260707; t=1795491464; x=1796096264; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tPwzcSn9YCtkUcYX05pvK2PhOcLN5eFatEAbk1VC3Ao=;
-        b=DIpLV4Dv36EC0qY6HtItk4MAbO+hza5fzZbUjgmZKzxTRRoZMRMnMEDVD9giKm6LTL
-         jnl6eGZyYLK6uDi7eXl3eIq5rDaqTlOmPl715oXgIQAJvItDrbuwoFSXj7V52CwVwHJO
-         rBfa13QB8XrR4Pin2ETUvJfy14K2/ZWWKgxEOGztkrF/MTEx17VDyk0v+4oA/u77IbWz
-         t2N0keDAUno3edQFGIdnjwhyZZDTwaWYAzUcm9s3VF4JjzkUfRasKdWs0rB9xHxoIeUd
-         IwS+y767NHlDDrtXdkwRrZOntvgpYJ5Y3qyuomXPiRRBOVhZ16oseLZj4vLqP7mjQaJl
-         IbTw==
-X-Forwarded-Encrypted: i=1; AL+hErFagSIEntTs6h2inpuQhNWgv/wx164ANilPtbfwrlpiUvIBgDjgQPPQIIqTPAXXlhGb+jpA0Vy7gcJKff8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9pVR+2ZwKp4sbUN0p45kwFldpFY8lXMlXS1Tj7ZOrOLvQynSir
-	NJW9yJLQNiy49IK89+pKIVT6ZpM9GilFSt/Cd8TU2NiZPOsjWOaf03oB
-X-Gm-Gg: AZFdTZfQgC2wTYQJ0sGReijvh2ldP3ZhaLs2t8MhQZlnnrQ+4hxmNw6TcUMzNS/JTVO
-	8aGHfIXKA3+za/hAybaTBPij2tO/fvyeQx2RrsEPEU5fMZDgt+dKUJmpkiTb8NMXv6fIhx6gvRg
-	8u89bJ536JXK9MhcblItV9V25j7S3WPUAn8DHRhmEQjhr/PIlYOMmhDbNMvt2/goyy4/OFpvYBi
-	atf05nn+dBhJP9TbFUl6Y7GCpeBRAk/FgbgS/kPf+m9GUf1B+l3peDtgkbYzB1/eKi/mfrnxPfD
-	f7LJ76wZ8J53JFl/iyyjqo5BoquleU26HEP4iSClyFfCdrl4dqlV45+Y0ogwO8baszf7fbqT4uZ
-	U2I6WhYE1aBAr0WAuqLatf0fo+kYIwDhBiNBRxmRc+hFipcbTVwecVdw4FZYrDc+qjHe054cieN
-	GkuZp7kHja/KKovMkFBF37yFXt1ixotLsaj8uhcaQAgpDDpMZz4ggaPgjaV7VJ9d/tG0lP2x61U
-	iopcEjhGEOZnskmVQzceRaEw73r8BxQZMhZbizAB4wV8n3E/eWOse3aV/iWX4nXEcyYplNy2Njs
-	9Mc91iM2wNt/FC3w+J8/Ck95EIqis+5W74H2FA+SkHczaOSX7VX0R8cvwYqrIJFGzcA=
-X-Received: by 2002:a17:90b:4a92:b0:3b3:fd13:683a with SMTP id 98e67ed59e1d1-3b41c995b82mr12834105a91.59.1795491363557;
-        Mon, 23 Nov 2026 19:36:03 -0800 (PST)
-Received: from osman.mioffice.cn ([43.224.245.178])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecb486sm23397939a91.16.2026.11.23.19.35.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 19:36:03 -0800 (PST)
-From: Zhan Xusheng <zhanxusheng1024@gmail.com>
-To: tj@kernel.org
-Cc: hannes@cmpxchg.org,
-	mkoutny@suse.com,
-	mhocko@suse.com,
-	roman.gushchin@linux.dev,
-	shakeel.butt@linux.dev,
-	muchun.song@linux.dev,
-	akpm@linux-foundation.org,
-	kolyshkin@gmail.com,
-	chris@chrisdown.name,
-	cgroups@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	zhanxusheng@xiaomi.com,
-	stable@vger.kernel.org
-Subject: [PATCH 2/2] mm: memcontrol: find the OOM group of a process where its threads are
-Date: Tue, 24 Nov 2026 11:35:47 +0800
-Message-ID: <20261124033547.2373352-3-zhanxusheng1024@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124033547.2373352-1-zhanxusheng1024@gmail.com>
-References: <20261124033547.2373352-1-zhanxusheng1024@gmail.com>
+        bh=6a+Mlas+jIYbAGVeJG8lK2DRBUGlHQIH4JtbLlp5jjw=;
+        b=CoPuUNnLzcSM9SnEEida3bbuO3zxMbC6YcyV2PI5Ba6asnbu19Cemd432k+pqUmEyJ
+         eekgIvP29oLzciaBXYOERVfHY2F3dwfka2YP3Q4WiNzwCDsnvFunaRq1AMd1kfdPhViI
+         ut+hPUX3QSfPd6azZtW/kGO4zIjQE1Qcuvmx5HECjSkXozdPaetoc7vr9BL697s/0lho
+         N4WjuiNqJrqhLKs/D4rABZLuZK+gzRKRKvIc+UZgmr9Lk+0sdrrNv2NerJG7qdSa7HIs
+         9mqVeYwxXJxElUQxmGdis2ET8dCviNkcJugVlZmIcEZ2rVckeBUW3hNoD5v7353TffpQ
+         c34w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795491464; x=1796096264;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6a+Mlas+jIYbAGVeJG8lK2DRBUGlHQIH4JtbLlp5jjw=;
+        b=KhLqVLu4/IORlX1VTApGSOZ10UVNBZrQMvJX5Ta3E6wqoWZ1T22Gn+/tR0t7ve/zzA
+         mgQVC6DaycAn1nBN3fSeqCW0gMOtG/AEu7a7wXRIU5LmURuzrrxtVLC/9Uo4l1Ag6fkX
+         C4ULvHVHYDuy1T1HiQgH8EwPx3M1yv66PNzSRzlzpzPxOS01Tf65HhqeECmN5UmjsEKC
+         thauTTwse8heS9Br+VfH9wvxM/tWzOE+d5Z88PtDHYZCzYqZWQ1wtNN3HUPqVTJj834r
+         xxPBU3pYpo1NtSPALl38VDNsrmfz4n9q+eBTUQyWfVix6o4SFoXP3IbHe0KZDbhHo3f9
+         /58A==
+X-Forwarded-Encrypted: i=1; AL+hErEh3omDAtyhk82sd/nVALKOWW/JampVJjME+Uz2S0v/nMW3GYmBIsiQCWPWJBtMaNmd+Z9N4zjFke+H2nE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/vRlMYk+CFK2tXEfvmgDcSW+vPbJTU0BY9VOcYCcwPPVSP7FtP
+	IrnBj4WspC/DW6lQdRW09dM02gqfRWt2z6FxPmSG02ElEYAhMRRcKhMc2kkN/ULNmlRI7X61yX8
+	2u7nprZzrZmsNSZtPesk2MA==
+X-Received: from dyw26.prod.google.com ([2002:a05:7300:881a:b0:381:e4bb:7fb7])
+ (user=nilayvaish job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:7301:fd16:b0:385:8744:658f with SMTP id 5a478bee46e88-3858753a876mr13828599eec.28.1795491463448;
+ Mon, 23 Nov 2026 19:37:43 -0800 (PST)
+Date: Mon, 23 Nov 2026 19:37:40 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,95 +75,67 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261124033740.833270-1-nilayvaish@google.com>
+Subject: [PATCH] watch_queue: use page_private() accessors
+From: Nilay Vaish <nilayvaish@google.com>
+To: David Howells <dhowells@redhat.com>
+Cc: Christian Brauner <brauner@kernel.org>, linux-fsdevel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Nilay Vaish <nilayvaish@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-From: Zhan Xusheng <zhanxusheng@xiaomi.com>
+watch_queue records the number of the first note of each buffer page in
+page->private, reading and writing the field directly.
 
-When a cgroup.procs migration leaves an exited leader behind, a
-CSS_TASK_ITER_PROCS walk visits the leader at the first live thread of
-its process.  A memcg OOM walk of the cgroup the threads were moved to
-can then return that leader as the victim.  mem_cgroup_get_oom_group()
-takes the memcg from the leader, which is still the old one, so
-memory.oom.group of the cgroup the process is in has no effect.  With
-memory.oom.group set in dst and a second process in dst, an OOM in dst
-killed only the moved process.
+struct page is being shrunk as part of the memdesc work, and its private
+field is one of those that will move. Direct users have to go through
+the accessors before that can happen.
 
-Add task_procs_css(), which gives the css of the process a PROCS walk
-returned, and use it to look up the memcg.
+Use page_private() and set_page_private() instead, like the rest of the
+kernel, so that the code no longer depends on where struct page keeps
+the field.
 
-Cc: stable@vger.kernel.org
-Signed-off-by: Zhan Xusheng <zhanxusheng@xiaomi.com>
+No functional change.
+
+Signed-off-by: Nilay Vaish <nilayvaish@google.com>
 ---
- include/linux/cgroup.h | 18 ++++++++++++++++++
- kernel/cgroup/cgroup.c | 11 +++++++++++
- mm/memcontrol.c        |  2 +-
- 3 files changed, 30 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/cgroup.h b/include/linux/cgroup.h
-index 5dfa915a630e..cb05808f2172 100644
---- a/include/linux/cgroup.h
-+++ b/include/linux/cgroup.h
-@@ -548,6 +548,24 @@ static inline struct cgroup_subsys_state *task_css(struct task_struct *task,
- 	return task_css_check(task, subsys_id, false);
- }
+Notes:
+    This patch was written with the help of an AI coding assistant (Gemini).
+    
+    Based on next-20261123.
+
+ kernel/watch_queue.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/kernel/watch_queue.c b/kernel/watch_queue.c
+index e2bdd5fb0db1..eeb7fb9bc0fd 100644
+--- a/kernel/watch_queue.c
++++ b/kernel/watch_queue.c
+@@ -71,7 +71,7 @@ static void watch_queue_pipe_buf_release(struct pipe_inode_info *pipe,
+ 	bit /= WATCH_QUEUE_NOTE_SIZE;
  
-+struct css_set *task_procs_css_set(struct task_struct *task);
-+
-+/**
-+ * task_procs_css - css of the process a CSS_TASK_ITER_PROCS walk returned
-+ * @task: the task returned by the walk
-+ * @subsys_id: the subsystem ID of interest
-+ *
-+ * The walk can return an exiting thread group leader that a cgroup.procs
-+ * migration left behind for where the rest of its process is.  Use this
-+ * instead of task_css() to find the css of the process.  Must be called
-+ * under rcu_read_lock().
-+ */
-+static inline struct cgroup_subsys_state *task_procs_css(struct task_struct *task,
-+							 int subsys_id)
-+{
-+	return task_procs_css_set(task)->subsys[subsys_id];
-+}
-+
- /**
-  * task_get_css - find and get the css for (task, subsys)
-  * @task: the target task
-diff --git a/kernel/cgroup/cgroup.c b/kernel/cgroup/cgroup.c
-index ab442f94e29d..0be7f96ce074 100644
---- a/kernel/cgroup/cgroup.c
-+++ b/kernel/cgroup/cgroup.c
-@@ -5237,6 +5237,17 @@ static bool procs_stand_in(struct task_struct *task)
- 	return leader != task && procs_live_thread(leader) == task;
- }
+ 	page = buf->page;
+-	bit += page->private;
++	bit += page_private(page);
  
-+/**
-+ * task_procs_css_set - css_set of the process a PROCS walk returned
-+ * @task: the task returned by the walk
-+ *
-+ * See task_procs_css().
-+ */
-+struct css_set *task_procs_css_set(struct task_struct *task)
-+{
-+	return task_css_set(procs_live_thread(task));
-+}
-+
- static void css_task_iter_advance(struct css_task_iter *it)
- {
- 	struct task_struct *task;
-diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-index 1271d390b617..5704e4415a16 100644
---- a/mm/memcontrol.c
-+++ b/mm/memcontrol.c
-@@ -2003,7 +2003,7 @@ struct mem_cgroup *mem_cgroup_get_oom_group(struct task_struct *victim,
+ 	set_bit(bit, wqueue->notes_bitmap);
+ 	generic_pipe_buf_release(pipe, buf);
+@@ -284,7 +284,7 @@ long watch_queue_set_size(struct pipe_inode_info *pipe, unsigned int nr_notes)
+ 		pages[i] = alloc_page(GFP_KERNEL);
+ 		if (!pages[i])
+ 			goto error_p;
+-		pages[i]->private = i * WATCH_QUEUE_NOTES_PER_PAGE;
++		set_page_private(pages[i], i * WATCH_QUEUE_NOTES_PER_PAGE);
+ 	}
  
- 	rcu_read_lock();
- 
--	memcg = mem_cgroup_from_task(victim);
-+	memcg = mem_cgroup_from_css(task_procs_css(victim, memory_cgrp_id));
- 	if (mem_cgroup_is_root(memcg))
- 		goto out;
- 
+ 	bitmap = bitmap_alloc(nr_notes, GFP_KERNEL);
+
+base-commit: 3191063649dbf7c0d0b768e1f3655e4c5fc6edb5
+prerequisite-patch-id: d52d42a2ec9ddc2b12b3412ec0d07254b417e60f
+prerequisite-patch-id: d8338f943ba7ae297eefbb26dabc3bcfe7994461
+prerequisite-patch-id: 3d99b53c242296b89d7f7b41f1995188f5a02369
 -- 
-2.43.0
+2.56.1.839.g22a8290db9-goog
 
