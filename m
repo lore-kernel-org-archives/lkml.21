@@ -1,73 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795537604;
-	b=hlIlTB31FH0bOoAJMbDy3MvHGpOd6nvEOi3tX6QGQYEspmNlMh8Vkx07uSruoQoBOoou
-	 SeJd98kduMEnUs3kbLa16sHdXtc7PdYqD+iur53xyyLVUBvQDxMhXGqPzMIA/8giJdr4y
-	 rwzXjqIZ6yqqvUMy1HBQOVDEGUvQGc2nYANt7+CubggOuAv1CaZIk5fZi6NTwMXtirDjk
-	 cjdUdTHVCwAZSAKhyvN297bfctIKQBFVBLANLgpJ+/0ZgLRjQF2kIJEL5Vw4T59lYfEES
-	 13niON4TUq3OE6sj4cnku0cQdqsJZFxCnvR079Ujo3AgFSQ/RpjHcfiHr5ew2CuScQQ==
+	t=1795537640;
+	b=FLsu0S7XVfACApJ1GW693DjSIF9qKajwDnmBvNHWR2YgKT4jO9hOwisIqF0kBO55OPi0
+	 +7gW2qXgh7rEo34IsxbAqFkfWltiZL2swuhr6+NmMr9kiVwDELHt32G0QkwEaziO/tv5B
+	 4rGoiza5oAW4xpVmCDhJAqUCfeeN5l4RzkjFDn61UHbYJuUpYyGyMGNZn0zAvQhRHT/7j
+	 eNkRsZwzwlx5H8Q1lFOpFJV7XYpLdPFm0f/nTUckHu7JyWJwKdTRhMv2LY5pt5DRItmOz
+	 +Xu1zn9sm/PrFMwDsr5FkC/uQPcs77v8AV23HM62xC91LgPYfF4PHdOOPz7vHIACPXQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795537604;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
-	 Subject:Content-Type:Content-Transfer-Encoding;
-	bh=3ieuTKgTmupFxrU1Sy9W+USlkxgIOvC38/mQnd0MGzc=;
-	b=4oMB1Tga8Yi9rpkhNLQg+1How1EjvAeUPgqyDfu0Wc8A7gltejOGxXWhk3J0bLceCbiN
-	 o0E519OE41E4n0ea24c57ojjqV1zxG1ZylmWCLiYTDVt/jF1j7jS7CVin78WIJPp0FA+m
-	 QVtVhkAkeDUsgTvP4e9XThRZNOSFS/evqH3KddQ+alNm9x+5xlsL/mk1TYe9VCNvGgpXO
-	 HvkjABVW4KlooCU2Zu2TgL4Bd9qIeh4BQ1yRxLdzjG/6Krtxkr8wUMuXGCqSKmF1VU84k
-	 K+W8Wir3E/jhgR5q3wDSfGkLVO9NNuI4RpkU7QXBFrN4eqcb95kKXl5/CBCtEdZ24nA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537640;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=/+3j8Kgy9C8irEIqEgZC/GGq9yhGv+BkGWWDPqpisWM=;
+	b=AW6csCyaFrkDLIodyTKHM+JhXHAadDxtWfeL2ougez8CW3Y8y5pN700q+SHWc/3yHZ35
+	 58J9A4HZaeDnx5biBDpA+lbCMPqjKB+yio2PdLda6zq4Sk+8jDdAA4MwvCNjwuFGi0N53
+	 DvDo2BpATNECNNuylIZR0pGmkaFqcKLS0Bw1V9IRc/84zTJxIyaVwXeFMrT03wBRblSMS
+	 Vm+l93x6YPg+X9yURKpQGlXOrMk2WMl+I1iLVYgABDiRs+lYeZ5LDrFIMXDgaHf9iSxaj
+	 Wfa01cV+0PR/lIitM+qn8oGc5aogervuU0i83sBsYBNKEN9CPHXlRrhXT5S91g9GwKg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j6L1RhGw;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HFxswjOq;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAFEF606A31E;
-	Tue, 24 Nov 2026 16:26:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id E2B4A606A31E;
+	Tue, 24 Nov 2026 16:27:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j6L1RhGw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 254691F000D2;
-	Tue, 24 Nov 2026 16:26:42 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HFxswjOq
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 7E3641F000C6;
+	Tue, 24 Nov 2026 16:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795537604;
-	bh=3ieuTKgTmupFxrU1Sy9W+USlkxgIOvC38/mQnd0MGzc=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=j6L1RhGwQsaoRh1nVJn7PuNzvakza5gtaiZLoJq/m+IiguPyeMh3cS3fZfGdgtGlC
-	 15ya3i2ujfvmTT44rx95cBNQn3F/KudsUYbdNtueakfQ0ir8Oz2kko/9ervRrrbQys
-	 Y4OYIPv1aljxchEfsLZmANOX0wgsnTyR/p74kcdvopIp4Rt8o3kvYV1a4jW2lS6Tpg
-	 wCNly5fKgf/CVUZzfp/413J3/6ya4f5XjvqESi090BRzjcgxTqY1YPW/ybVFOfAhRG
-	 BZPhoBtQ6TzLTciE+qUV85eCVQfBfdQuyZ3X5lLqMJtESlFLjig3JcWsKVc1UWD9pl
-	 PWV3HJs3Ujjhg==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 64DFD198003A;
-	Tue, 24 Nov 2026 11:26:41 -0500 (EST)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Tue, 24 Nov 2026 11:26:41 -0500
-X-ME-Sender: <xms:vroFa1iKzJcRFma2WR9T_8ifmTKzYiLTfc_pGVsghlMf9rOWvhSqJA>
-    <xme:vroFa03LEBspPgahUh1xWn3UWQP1ogEsYVLwahDfURdKV-i6Q8XfyX6FtotFDQGpZ
-    _BlhJXdIhHZlDXwjiXDKNxeTSlMGumKl1_eMRRfwtk2NouMbKBYqAo>
-X-ME-Proxy-Cause: dmFkZTFK1SRhx2fcvvqjUveP2099rvc9Qqgqkm6zs8iZkfpV6opMlmIptApe4Y+xP/FpCz
-    ze1RuYawTba3QUB6nX7Y/xW7wxSLien47DLY7uc8GeZFx24VJhLiBZGZPb96x/pDRAU3iE
-    4tktzZrZoaIXvZMzKB62mZf9XuuMFTNKutvX8uOtieZ40/qrT7szA49zcuuuXJHYjtQh7y
-    ZOA6Sl+gjtYF3XxDxQ8chsK2eEk/eAAlU+yQmdUANx4B+IpWxavF4S/8tBoisLFGAbszDX
-    FPUX1luYY6i60WMQq6hQDK9NwAcU1umwoSULVAGjpj1g9U7BKWyorky4VSd4mPYl0pSUtP
-    ClTuwjEaarOCEy0WwSVwsrE9WtA7HibLwLn2lCgLyaHlaT1xqwFZZUZmv2CBk8oSyQg1hi
-    hZY1j+b9FROUGRItxhIHzKNo30zVZF/hqyMwnwNtallKr3uLdE638aepUS5bRyMCdDmNqs
-    8B58vNGUZ4Gtl4W6b/x59i2f4hqND6y7QKGWvdPSC+u5QqaihGPnnOuJS8xtucvntG76Qu
-    qaX5jx/on0/xvQH8Dnn9N4x2HTl8fp7Pt2yRplUf2DUDMtn2VPQp7TVXRsEHERJiL2jb+M
-    8Dq8Fa8xLSeOuc4lfGbo3i2TAIsyFEGdB0hEEiU/CBe1OQFfIhqHXBcTy7LQ
-X-ME-Proxy: <xmx:wboFa8dqwp3xU8riLhiiS2MPpLKE3ocsL-ZO8_WPAlYX4DX7uOQMDg>
-    <xmx:wboFa5FcJk-n5Yx9uoDR2iw8DJk_zpFiAehd4yf5gV-MHpnt-t1AtA>
-    <xmx:wboFa3v7kQ_dyVuuMXBQ7NPGnhA_rwJDM9nxd-PbwXzw714Jsds4dA>
-    <xmx:wboFazrTexgvGU-sWY3wiHdgl5zrUGFxJNStw_GWwNPv3i0rYXDMnA>
-    <xmx:wboFa-mJL-5AF4zgmplLqLwhcoa44kTPUMNvfInOskBrDJ0RXPFdRGoA>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 7C79DF8009D; Tue, 24 Nov 2026 11:26:38 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	s=k20260515; t=1795537639;
+	bh=/+3j8Kgy9C8irEIqEgZC/GGq9yhGv+BkGWWDPqpisWM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=HFxswjOqjlOU5O8sEduHm9m2VZFLGo+Mn5AZc6zBg2oA1Zd7d/lMbMjPQWJhXOBn9
+	 Cfxe+++lyg58q0+DzTMzbO2x8+bXrq+kDL5FVyMF3xieg687ljG1o4TgKSnBXqOpFc
+	 WLGP6nFvAcsE0chG6ha18UaNjckmWqafRBWVion0okOvMM7UdAeckOyXJiXMAeCO5J
+	 a5oJuuaMvXQ5AN1NqyX/N/Xt4DEVqG653oo7UsEjJwijcwG2+XjaReUScKEAG6Ecpg
+	 jwFBF/KH6uQgSU2/j4/0aTmnAy+8b5ZHhc7+h+UySkg+1XzbeW3drR6oo/lPyAybFN
+	 usLHHzy2AA60A==
+Date: Tue, 24 Nov 2026 18:27:15 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Guicai Ma <maguicai@kylinos.cn>
+Cc: David Howells <dhowells@redhat.com>, Paul Moore <paul@paul-moore.com>,
+	James Morris <jmorris@namei.org>,
+	"Serge E . Hallyn" <serge@hallyn.com>, keyrings@vger.kernel.org,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] KEYS: Protect key instantiation and rejection against
+ type removal
+Message-ID: <awW640zaT8Bnqd0-@kernel.org>
+References: <20261124053303.940216-1-maguicai@kylinos.cn>
+ <20261124091243.1019217-1-maguicai@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,55 +60,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Tue, 24 Nov 2026 17:26:17 +0100
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Mike Rapoport" <rppt@kernel.org>, "Dave Hansen" <dave.hansen@intel.com>
-Cc: "Pankaj Gupta" <pankaj.gupta@amd.com>,
- "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H . Peter Anvin" <hpa@zytor.com>, "Tom Lendacky" <thomas.lendacky@amd.com>,
- "Kiryl Shutsemau (Meta)" <kas@kernel.org>,
- "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, linux-efi@vger.kernel.org,
- Pankaj.gupta.linux@gmail.com
-Message-Id: <c0e82936-9436-45e4-a8b6-07bdaa9680df@app.fastmail.com>
-In-Reply-To: <awW31hUpXuujSAXA@kernel.org>
-References: <20261124133241.221719-1-pankaj.gupta@amd.com>
- <e08f2321-749e-40f6-9ed4-3dba8e1625ba@intel.com>
- <awWzrkLxfQ2_ODKe@kernel.org>
- <2dd40d0d-2e1f-4a7f-ba65-2cceccd82028@intel.com>
- <awW31hUpXuujSAXA@kernel.org>
-Subject: Re: [PATCH RFC 0/3] x86/e820: Ignore memmap= and mem= in confidential guests
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124091243.1019217-1-maguicai@kylinos.cn>
 
+On Tue, Nov 24, 2026 at 04:12:43AM -0500, Guicai Ma wrote:
+> key_instantiate_and_link() reads key->type->def_datalen and ->preparse,
+> passes key->type to restrict_link->check(), and invokes ->instantiate()
+> and ->free_preparse() without synchronizing against key type removal.
+> A reference on the key keeps the key object alive, but does not pin the
+> module that provides its type.
+> 
+> unregister_key_type() removes the type from key_types_list and waits for
+> key_garbage_collector() to run three passes: pass 1 sets KEY_FLAG_DEAD
+> and clears key->perm, pass 2 unlinks dead keys from keyrings, and pass 3
+> takes key->sem for writing, retypes key->type to &key_type_dead, and
+> destroys the payload. A key still under construction stays in
+> KEY_IS_UNINSTANTIATED with a valid authorisation key, so an upcall
+> helper calling KEYCTL_INSTANTIATE after pass 3 reaches
+> __key_instantiate_and_link() and jumps to key_type_dead.instantiate,
+> which is NULL:
+> 
+>   Unable to handle kernel NULL pointer dereference at
+>   virtual address 0000000000000000
+>   Internal error: Oops: 0000000086000006 [#1] SMP
+>   pc : 0x0
+>   lr : __key_instantiate_and_link+0xb8/0x2f8
+>   Call trace:
+>    0x0 (P)
+>    key_instantiate_and_link+0x2e8/0x36c
+>    keyctl_instantiate_key_common+0x1cc/0x338
+>    keyctl_instantiate_key+0xbc/0x120
+>    __arm64_sys_keyctl+0x218/0x3f0
+> 
+> If the module unloads while ->preparse() or ->instantiate() is running,
+> execution can also return into freed module text or skip
+> ->free_preparse(). While the request_key() syscall holds key_types_sem
+> across the upcall, in-kernel request_key() callers do not, so
+> unregister_key_type() can run before KEYCTL_INSTANTIATE or
+> KEYCTL_REJECT.
+> 
+> key_reject_and_link() shares the same window: it links the key into
+> @keyring and calls key_set_expiry() (which reads key->type->flags)
+> without checking KEY_FLAG_DEAD. Linking a dead key between GC pass 2 and
+> pass 3 leaves it in the keyring's assoc_array while pass 3 overwrites
+> key->type (which aliases key->index_key.type) in place.
+> 
+> Neither key->sem nor key_types_sem can be taken here: holding key->sem
+> across __key_link_lock() and __key_instantiate_and_link() inverts lock
+> order against encrypted_instantiate() (which locks the master key's
+> semaphore under keyring->sem and key_construction_mutex), and
+> key_instantiate_and_link() is already called with key_types_sem held for
+> reading (e.g. from request_key_auth_new()).
+> 
+> Add key_type_srcu and call synchronize_srcu(&key_type_srcu) at the end
+> of GC pass 1 (KEY_GC_REAPING_DEAD_1) whenever dead keys were marked.
+> SRCU rather than RCU because ->preparse() and ->instantiate() may sleep.
+> Hold key_type_srcu across the full body of key_instantiate_and_link()
+> and key_reject_and_link() and check KEY_FLAG_DEAD:
+> 
+> - Callers that observe !KEY_FLAG_DEAD finish all key->type accesses and
+>   any keyring linking before pass 2 unlinks dead keys and pass 3 retypes
+>   them to key_type_dead.
+> - Callers entering after synchronize_srcu() observe KEY_FLAG_DEAD:
+>   key_instantiate_and_link() returns -EKEYREVOKED (matching
+>   key_validate()), and key_reject_and_link() skips linking (returning
+>   -EKEYREVOKED if @keyring was given) and key_set_expiry() while still
+>   completing negative instantiation so waiters wake up and @authkey is
+>   invalidated.
+> 
+> Also return -EOPNOTSUPP in key_instantiate_and_link() if a live key type
+> does not provide ->instantiate().
 
-On Tue, 24 Nov 2026, at 17:14, Mike Rapoport wrote:
-> On Tue, Nov 24, 2026 at 07:58:31AM -0800, Dave Hansen wrote:
->> On 11/24/26 07:56, Mike Rapoport wrote:
->> > On Tue, Nov 24, 2026 at 07:09:42AM -0800, Dave Hansen wrote:
->> >> On 11/24/26 05:32, Pankaj Gupta wrote:
->> >>> In a confidential guest (SEV-SNP, TDX) the EFI stub builds the un=
-accepted
->> >>> memory bitmap before the command line is parsed. memmap=3D and me=
-m=3D edit
->> >>> e820_table only afterwards.
->> >> memmap=3D and mem=3D are debugging tools, right?=20
->> > I wish they were =F0=9F=99=82
->> > But AFAIU they are used to carve out "pmem" or PFN-mapped memory.
->>=20
->> I've used them that way for development, but production pmem systems
->> always had persistent memory in their BIOS-provided memory maps.
->>=20
->> How are folks depending on these in production in confidential guests?
->
-> They shouldn't but you can't guarantee that.
->
-> But I don't mind letting them crash if they do :)
->
+The commit message is incomprehensible.
 
-I'm fine with either approach (i.e. disallowing it or doing nothing
-at all), as long as we don't pretend that this is something that is
-expected to work.
-
+Br, Jarkko
