@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795562303;
-	b=vBEnEk++ovpBXOtDyhFEz63fkEMWFzFs+clI8TCYXp3t42TP0fLBBf0N7lK8wnylVsCq
-	 TSveS8UG5UnPKEHyGQG6D25FQSPgxdrtCyG6YBueQEb9bDVfuFTOWRX7fnzfFnppChog2
-	 oidS5ijlLXWDX5vJcXY7sK7Q8rb6vCmqv78+IvnI6FSfYEHjzlwacHMsA1d9uQnCHedMU
-	 aqJAPnugVLXHHjcQxqYiYwH2DYWedtGajH4K7lDZQ4n16EB4yVQspBdR0Iigovtb8z+s+
-	 xOy3UaOIc/8fYbY9+gn0SdkW9pLabbTl3i0aYQ5ScZaVZ/z6G+BLMlPzVcVL+qDxGpA==
+	t=1795562304;
+	b=wdtEPv/sahB/EX/FIyK0gjOklaJ2Tkosr+GzZcedglvQ/gyTA7dup9YauURSPL7TPr10
+	 M2VnXkIeMq8kZHFy5yLf5umVsRgHuMB642549XyDUL1UxSXE3eCTqdE9CbfzrODMpDfgR
+	 MP9KE/mDrkcErZnf1Zuj4ysDIqslQpZtJl4b0d4/3VPGme2XWdiSwwTuNWUshWKb/xdXi
+	 c9PIHzHN1sTc4Gk+fiHLXOC4GmaTfoCSn16NBZFtpkLUnOq7szOpxEuwcy7hgozfMr1AZ
+	 zFHNeublOKeXFsb5Uq/zdzDPxYf6JDDI7DJKcd6TfwK0pItYFajYD8AxG5niquwxljw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795562303;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795562304;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=JSPW10Pj7mWYrcYQV491CeBQq8pVVNVHWtKBSkpxQdY=;
-	b=2xH+7EBgCqnXtWHOfu+REaMntRAwZdV2anGpZgwHf8zC5MDRTkm29Ly35txozNJCRGG1
-	 kH/chSVATFZBLAbHyYuQsDDhOVG5Z29bFPc21FjruqbMhRXnyx2H4ncbfQ7A7I5O3AFLw
-	 6xd/uVJF2KKtOb+GhmnjHMW7v5GNN1BYlxJE7q4t842h9MlD/pLbL5W81aYDYC8VRmqDV
-	 q7T5MeJR2COLl8Q/gOzH1IZWb4A3q37Qzc+kIiR4sqTU+YB4881OM5RvZI894r+ynbpLC
-	 i2efOXbex6HNZKxWMtZQOjPEJYGcsWphPMrl4q+9MTCscvK3vwG01TZMBEoAJ4CQu6A==
+	bh=hnvQHR4Bfj8vgJJv02cg9zan6ZOhZyTgkfEMX5BVsDg=;
+	b=h3g7Sy2ecVWgRTnSX7C/G94Gw5FQpE0QSs9I6zuDKsCNFOt25HHmD6e0AANiCyRlR4ox
+	 M9ZKMaN0egA/YsL0esHYC9zm2/EJ8bclDEe4cnMKBAGVD2DRL/psBGaSsJhU+0yMJW2KR
+	 sDcGNTsdXGaPTz0upgE1CbjPISEw4lj/pTcTFsOx5bwepi1I60t38wk/U6COOwTqGiTYq
+	 /ujr2lob/LMNtdLH03/iZn34Ya2WVXLmglrrHKoA+KeuHXwdhxfDOrNRhkAc7v0M5CohZ
+	 kq6VbNytbZ5zJvFE/I/HcUhFnMTHfZmGnzEAm2w8qoMARkdM2BUvPIJTfeJiwKppMZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SI0ND5xy;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=I3Aq4g9d;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBC0D606A331
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:18:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CBC0D606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67CCF606A33F
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:18:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67CCF606A33F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SI0ND5xy
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4b467581b98so49767695e9.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:18:22 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=I3Aq4g9d
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4bba5e17728so679475e9.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:18:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795562301; x=1796167101; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795562303; x=1796167103; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=JSPW10Pj7mWYrcYQV491CeBQq8pVVNVHWtKBSkpxQdY=;
-        b=SI0ND5xybHzRNkTlF7R69RrtN0WhAy6NS3Dqdmm282zxlySUryxFPjZeqOA4ldnWb5
-         FH5OmdYtPtrzSV66UbadG8hPTKejk4ztYaXVtXsnANibRwzyjV5hK4KeIQHNVBbQvaJ8
-         M8ZqJzEZ1LjwxzAt1FAa0FRaRwWF14rRR9WAxrdJJVo4Gowm/qAmWnKjuBGVOjlJqv+r
-         P3OyJS9FfRtChwteYvHKD12yKaZklv9pTtspU31NsUjDGL5LRdbPPsQVglSLOr1fWF+6
-         hIMCrU4rXEasa62orHeuZTrLDr7L1PNS8HdrlgyGxv64YzXyfuvVxBW4ZKB3h+qA0NDk
-         zg2w==
+        bh=hnvQHR4Bfj8vgJJv02cg9zan6ZOhZyTgkfEMX5BVsDg=;
+        b=I3Aq4g9dwsSkjc6S6FBmigKwbd2Z5Ad5XA7dl/x5cgNaGdLYOrJ5nOn/pkCvR1XP3y
+         Kal6QMH+Gz0GJjxT/rxdVlrKIH+HSI9hK+wF+I67b8qG+W/B16oZZk3wqn5TFAduGbyC
+         r303RwC8nEjSOvbib2cTI1k4PC4fBKj6vNraDaj6IglrIm9T2iPvjdvZagDkfnFIwVvu
+         lTW6wXdSEGifyD4kh0pnVTXznN3nCyZxyyojVhMUH2+yKYunOIm5lUjvo5iuIDOGCu3g
+         szLiRTfL0ct4N68VNIFZl56gbw4nrn4E5FxNtHjmQ2Z747ipIT6Fu2bdgxK0JF+1vmxH
+         EC+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795562301; x=1796167101;
+        d=1e100.net; s=20260707; t=1795562303; x=1796167103;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JSPW10Pj7mWYrcYQV491CeBQq8pVVNVHWtKBSkpxQdY=;
-        b=vTnWsDoDXJzu9J7NYZYNqgDrCKcWTMnx1zlSQbEq9fLSQ30Chpj0ZOPJm4nRtdXLNy
-         0G71HA6ODmeza/qh2IVBjDQ8XGv+jaO/M4/cY7ivCgosLnyjn1qhOSp9+UqrJOzMpVPo
-         tk26sjfSPZTOWCqqVmEQGDI3toqF69WuIahT03oYVQJk6EIYeLQoZHZYpctbRDok9X2d
-         jocdGaP59qmpmVPaBaLmsKrLN4ShQ7KEVlhZZIvF1ERc03QiPphp8nvBvjrVz8Y2an9S
-         Y3iezlWOUelsOpTNdqAPJH0eSbt8EsIC0MAv5XD44YY7jpwVvKwNGUzzxBUcaJqfMweM
-         kQ8A==
-X-Forwarded-Encrypted: i=1; AL+hErEhuBia6NfytFerp07HapigfjIJbKzLDS7GpR+1NWP3am8UbyniJNS79f5OZa9OE22Z441RSwJW7nIPS5I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+LHFg8NewYIIHD+n2lFl1N4ZrzrfrL4sonODCtFx8/dhq2Zmth
-	0n5Smjc3kHcAAcxjrg+rxs/XXNbKcbG+hRji7PDYx1+G60MXsN38hS6yaufXhnOh
-X-Gm-Gg: AZFdTZdh30Cth/3H0hldTvVRkWV7vquvk0xiWP0Gdog5og55CrW+MU9nGoFQ+pCu0We
-	DV9zGU5d6618UH9ZSt1wXqw+kfSIt8EOsVyz/0rdtQteWR7cqfX4DHSpmq3Lscx6Hx7Bh7pJluq
-	ajOS4DHQZJm7ubIwJL0s+pnYTWRdsJWJPrKZAM7ZORix+wMI/ltUWevCjioOhOfN8ZyuEPKtt2I
-	pK8U8IFQdVr25odSPNQwrclZPjgeFccgOCnCbt0KpImlM/cDjZi5yQMTH6OW7pobZXCVZUa7VmY
-	BSd1eQKZyW9APzVkg8zgU9pcjwo3YQp7rzITwGcML5ZDXy4eqH2C4VSWKrKl6CVNEi3E2sR83AD
-	+Bw67NLp2rHxJdqxhZZsK2AwtrsGqxZbJEnToP0zjObrsx1i2H1tyVy6p4tyrfggusnatpDYYp6
-	on/zYAojPa9X8z0ja2dEb4da1Z9hoDxq38Sbgx0X9BcXJkc5KjtVjWO5MUKCqZWul0o/eycDq+X
-	RkjEjBt+TFkKeSM10aD1EhIN3uTNDPdh7aiLNsCMHKzvCEX4FyMtgUoPoeo5aBLS3cF5Xy1qW04
-	4Ieq5Fc+jdQTg3B+9T0h0JOrFa2M1/kVaSAAuu/4PHxfdEsMjfmIxloCcaMl7k1J4jZbqPRh
-X-Received: by 2002:a05:600c:64c8:b0:4a0:1c0e:b057 with SMTP id 5b1f17b1804b1-4bb887e2380mr303656325e9.4.1795562301128;
-        Tue, 24 Nov 2026 15:18:21 -0800 (PST)
+        bh=hnvQHR4Bfj8vgJJv02cg9zan6ZOhZyTgkfEMX5BVsDg=;
+        b=ltIRAm+N3Sm5/eKxuiGWo+j07feF9fQn3ClM5+cmLZkZXfWHSW7rUXUN42TzbELk6C
+         0VpuujqUWM/xLOW/a62ofR4RdZv4VdZLWQl/GwxlqO+LBXf4ggJlJRn/zcUw/bNfcrEF
+         ArHp/xRhbVw4F9MlVu+cICLE9G1KirDwUGOoHFaSZUWNfYnxcys7nABcPYIs3eC7qlJf
+         fpMlE0Bb9qFv14CmkssIezR1hc5MwBVO9sqt/e1cCcLCtIddmV7qg0yV4BbCBKgoffwD
+         tqiAjdDGRKIoH2k04Rr0/k6CStpaJFXPVmo56V3cfirU5Br4qL5kLupkzBdv2tl1/ZAw
+         YrGQ==
+X-Forwarded-Encrypted: i=1; AL+hErHdMu4t8AN1o1mbepUwgMu7TWe85d4fYRbKcpIvonExgFgpSab+dQMempWOcFTMo9EfyUe48Kzyw+KjSnw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+56xz0AzHyc41mdqgunrzWygToRtS3H6wciOqplZ1uJz7QsIio
+	pErrTAb1kecxsWIyYuFraGuN+1KJ2X1wnRB/bLKKBeBol32BbZPYgD55
+X-Gm-Gg: AZFdTZdpPqbcC/pt0zMIs3P3eH1dskSBUm7WaUYgrV7IcuU2x2v+dUhicJGdyUf0ryV
+	g/L3Q51+wVlhqSRqub4y22ZyqGxnZ9h/qoUDYdrnHPwBgGQnD8N3midjBmfB2a0wp3mUc4LuAy2
+	OsUadUu9M2D3yr8Sn96q1SaL9p7kUubrVaakdKbMLbtTAQ3uRm7gNPmaQx4ktqfcQQJ7dbMEHdT
+	4vKwk0WxvmVcHz7gla8Q8HB1r273xvEi0FH2aml78V4rVQ5Lv98P175XfQzLxutaLpwlzzWp9pZ
+	kHglRxgTaE8/Kxe0yxyBkwKQ3S3iuKBRPOvL10ra6m6JcI/tbQqnzt8OVsxn3/M74YwCKfnNfkG
+	NSxPhaLvvzisne8cKUtHVjO/1eSEhqfPx8DHL5zHoYIjUdHpuEm1gZlnhfvTCVj7WauqHiNeLth
+	rV0cSjMtqD5UKbeWfTOvbNP8awvbvWirj7YhBbsJfKOVl3o8GWeeLuTiNFku+IElOoB9IlbUeYx
+	f6IPLQXzMgEghsCkLodE61b8yj9t54UOHmt0f8TUSupVSN/T0UK4TO8Y3DiGEJS9DtoRiTRVoB7
+	WsaofJCwYl2XXN3AUwXoRtVKYLGNZABDEvmRz6dCD6opfqribr7wDuU87EqkgNwZMPkTI4+ad96
+	kiI4KAr03wu005tbf0Q==
+X-Received: by 2002:a05:600c:4e8e:b0:4ba:59fa:510e with SMTP id 5b1f17b1804b1-4bb8893014dmr330709015e9.23.1795562302885;
+        Tue, 24 Nov 2026 15:18:22 -0800 (PST)
 Received: from localhost-live.home.vlan10 (053d9243.dynamic.tele-ag.de. [5.61.146.67])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9846sm554400825e9.11.2026.11.24.15.18.20
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9846sm554400825e9.11.2026.11.24.15.18.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 15:18:20 -0800 (PST)
+        Tue, 24 Nov 2026 15:18:22 -0800 (PST)
 From: Joshua Covington <joshuacov@gmail.com>
 To: Stephen Boyd <sboyd@kernel.org>,
 	Brian Masney <masneyb@kernel.org>
@@ -89,11 +90,10 @@ Cc: Brian Masney <bmasney+clk@redhat.com>,
 	linux-clk@vger.kernel.org,
 	linux-rpi-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Joshua Covington <joshuacov@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v3 1/3] clk: allow a clk_hw to be registered again after unregistering it
-Date: Tue, 24 Nov 2026 23:17:49 +0000
-Message-ID: <20261124231751.83938-2-joshuacov@gmail.com>
+	Joshua Covington <joshuacov@gmail.com>
+Subject: [PATCH v3 3/3] clk: rp1: reset cached rates on probe
+Date: Tue, 24 Nov 2026 23:17:51 +0000
+Message-ID: <20261124231751.83938-4-joshuacov@gmail.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261124231751.83938-1-joshuacov@gmail.com>
 References: <20261124231751.83938-1-joshuacov@gmail.com>
@@ -108,131 +108,37 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-__clk_register() sets hw->init to NULL, and clk_unregister() leaves
-hw->core and hw->clk pointing to the clk_core and clk it is about to
-release. A driver with statically allocated clk_hw structures can
-therefore not register them again, e.g. when its device is unbound and
-bound again. The second registration has no init data and oopses. A
-clk_parent_data.hw reference to such a clk_hw also resolves to the
-freed clk_core of the previous registration.
+The clock descriptors are static, so their cached rates survive when
+RP1 is unbound and bound again. The "varsrc" clocks then report the
+rate of the previous probe, and the audio PLL and I2S clocks start with
+stale cached values.
 
-Keep the init pointer in the clk_core, and put it back into the clk_hw
-when the registration fails and when the clock is unregistered. Init
-data on the stack of the registering function is gone by the time the
-clock is unregistered, so leave hw->init NULL in that case. This has to
-be checked at registration, as object_is_on_stack() only looks at the
-stack of the current task. Also clear hw->core and hw->clk on
-unregistration, so that a reference to an unregistered clk_hw is
-treated as an orphan.
+Reset the cached rates before registering the clocks, so that a second
+probe starts from the same state as the first.
 
-Fixes: 0214f33c4e0e ("clk: Overwrite clk_hw::init with NULL during clk_register()")
-Link: https://lore.kernel.org/all/179545567027.246915.947299820828330388.b4-review@b4/
-Cc: stable@vger.kernel.org
-Co-developed-by: Brian Masney <masneyb@kernel.org>
-Signed-off-by: Brian Masney <masneyb@kernel.org>
+Fixes: 6486341721a2 ("clk: rp1: Add support for clocks provided by RP1")
 Signed-off-by: Joshua Covington <joshuacov@gmail.com>
 ---
- drivers/clk/clk.c            | 23 +++++++++++++++++++++++
- include/linux/clk-provider.h |  5 ++++-
- 2 files changed, 27 insertions(+), 1 deletion(-)
+ drivers/clk/clk-rp1.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
-index 4d2cc86bfb..c19ae1812c 100644
---- a/drivers/clk/clk.c
-+++ b/drivers/clk/clk.c
-@@ -20,6 +20,7 @@
- #include <linux/of.h>
- #include <linux/pm_runtime.h>
- #include <linux/sched.h>
-+#include <linux/sched/task_stack.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
- #include <linux/string.h>
-@@ -70,6 +71,9 @@ struct clk_parent_map {
-  * @ops:               Pointer to hardware-specific operations for this clk.
-  * @hw:                Pointer for traversing from a struct clk to its
-  *                     corresponding hardware-specific structure.
-+ * @hw_init:           Init data of @hw, put back into @hw when the
-+ *                     registration fails or the clk is unregistered. NULL
-+ *                     if the init data was on the stack.
-  * @owner:             Kernel module owning this clk (for reference counting).
-  * @dev:               Device associated with this clk (optional)
-  * @rpm_node:          Node for runtime power management list management.
-@@ -119,6 +123,7 @@ struct clk_core {
- 	const char		*name;
- 	const struct clk_ops	*ops;
- 	struct clk_hw		*hw;
-+	const struct clk_init_data *hw_init;
- 	struct module		*owner;
- 	struct device		*dev;
- 	struct hlist_node	rpm_node;
-@@ -4457,6 +4462,8 @@ __clk_register(struct device *dev, struct device_node *np, struct clk_hw *hw)
- 	if (dev && dev->driver)
- 		core->owner = dev->driver->owner;
- 	core->hw = hw;
-+	/* Stack init data is gone once the registering function returns. */
-+	core->hw_init = object_is_on_stack(init) ? NULL : init;
- 	core->flags = init->flags;
- 	core->num_parents = init->num_parents;
- 	core->min_rate = 0;
-@@ -4505,6 +4512,9 @@ __clk_register(struct device *dev, struct device_node *np, struct clk_hw *hw)
- 		pr_err("%pOF: error %pe: failed to register clk '%s' (%pS)\n",
- 		       np, ERR_PTR(ret), init->name, hw);
- 	}
-+
-+	hw->init = init;
-+
- 	return ERR_PTR(ret);
- }
+diff --git a/drivers/clk/clk-rp1.c b/drivers/clk/clk-rp1.c
+index 1dd276dd2b..60037b19db 100644
+--- a/drivers/clk/clk-rp1.c
++++ b/drivers/clk/clk-rp1.c
+@@ -2416,6 +2416,12 @@ static int rp1_clk_probe(struct platform_device *pdev)
+ 	clockman->onecell.num = asize;
+ 	hws = clockman->onecell.hws;
  
-@@ -4656,11 +4666,16 @@ static void clk_core_evict_parent_cache(struct clk_core *core)
- /**
-  * clk_unregister - unregister a currently registered clock
-  * @clk: clock to unregister
-+ *
-+ * The clk_hw of @clk is returned to its state before registration, so
-+ * that it can be registered again. Until then, a clk_parent_data.hw
-+ * reference to it is treated as an orphan.
-  */
- void clk_unregister(struct clk *clk)
- {
- 	unsigned long flags;
- 	const struct clk_ops *ops;
-+	struct clk_hw *hw;
- 
- 	if (!clk || WARN_ON_ONCE(IS_ERR(clk)))
- 		return;
-@@ -4709,6 +4724,14 @@ void clk_unregister(struct clk *clk)
- 	if (clk->core->protect_count)
- 		pr_warn("%s: unregistering protected clock: %s\n",
- 					__func__, clk->core->name);
-+
-+	hw = clk->core->hw;
-+	if (!WARN_ON(hw->core != clk->core || hw->clk != clk)) {
-+		hw->core = NULL;
-+		hw->init = clk->core->hw_init;
-+		hw->clk = NULL;
++	for (i = 0; i < asize; i++) {
++		desc = clk_desc_array[i];
++		if (desc)
++			desc->cached_rate = 0;
 +	}
 +
- 	clk_prepare_unlock();
- 
- 	kref_put(&clk->core->ref, __clk_release);
-diff --git a/include/linux/clk-provider.h b/include/linux/clk-provider.h
-index a355d1ee51..026efed876 100644
---- a/include/linux/clk-provider.h
-+++ b/include/linux/clk-provider.h
-@@ -359,7 +359,10 @@ struct clk_init_data {
-  *
-  * @init: pointer to struct clk_init_data that contains the init data shared
-  * with the common clock framework. This pointer will be set to NULL once
-- * a clk_register() variant is called on this clk_hw pointer.
-+ * a clk_register() variant is called on this clk_hw pointer. It is restored
-+ * if registration fails, and when the clock is unregistered unless the init
-+ * data was on the stack of the registering function. The clk_hw can then be
-+ * registered again as long as the init data it points to is still valid.
-  */
- struct clk_hw {
- 	struct clk_core *core;
+ 	for (i = 0; i < asize; i++) {
+ 		desc = clk_desc_array[i];
+ 		if (desc && desc->clk_register && desc->data)
 -- 
 2.56.0
 
