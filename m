@@ -1,73 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795520447;
-	b=CelI7NCr3VtMSzqC9xlpinw/QzNyeDP/wAWdDJDGMZZJopRn9Q/byRcw55sSMkMAYuJi
-	 iFTd/U6M2CNrlbCL1x9mwcokoJ6emvNjpm+gYhyTHYXQHN9yX3LSyn779j4q1rRucaJQv
-	 NdCGMYYkZMpa5HT1fI2lW7Nxo3jOKHNk41SYkDv92OepFKW9Jr1eQDuA2oq+cZXXLmUPf
-	 wXug/ipY0GpQWPDhBzWXGXDM7Lx3NPazj+i4dtUAG29Q31kIK/9f1L1Xoqlj/J1tuIIF5
-	 DiII/Z0QMuXT9NPY0YFIaoZ7sEvGip4JiOJuXHpsaKZAHbFSGMyvx/KbkmNB9/fUvnQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795520447;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
-	 Subject:Content-Type:Content-Transfer-Encoding;
-	bh=YNKB+l0kbHZ2LFgYHq1tz3KLItdS3YCyjSFJuwPFLv0=;
-	b=UFaw3FHsfsBxHZ8GUmR0mypOGIxFiEVrJNJwqNM1KvLM4ZdJ34qrKRdh4wkRut46tWSw
-	 0PJtsbuYIZZTQn54w7kQzi5mtvSV++QOybZ7TyVGCTDu4Oi68qLD8XKmoJ6rHvZmYnBu+
-	 aHtUeljwXKTDt/y/Qx5v0WtBdVVKfpcPrmLmO83P2BVf2bvjz1ArXwWhVM3sB+5Vtoi9r
-	 8NQaULDwOE98HRfeWCxTQTHOZ9UcZqzh+gh4n/Onrcq157AJlL44ppyL4SbsntslsbNGx
-	 BE9x4JTezDOpWceHorXPxztcsoTnpuyUmq5uUj8ysGG+OrwAWP4nBUcQDNCRzY6ZnhQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Y/KWG8/t";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795520571;
+	b=XoXFxgXeBsKJuc7LTSHCBiQ3r5TJUP3FMEHC7fUKQ/dhD58l3yp4PGtOr65g6HPrySHv
+	 gLaVLdRaq/b3UUsh6Qg7FK+y6NG9BcS9dy+jVDIyN6UomOCqoOmTe8q9PVJg+Rhz3qubM
+	 N9oUEGQaYTxjqx0CC6eellMfPhOr4TUxKIIJ1CN/TIkoIdvdrfJtRm3s6/kyZo8xnnQ7I
+	 dVmymScmtXmYVoahMvIcZNQPxF2ydUj3ouo52Du4uc96AdAfotrLTFgek8PsddpsIBWgL
+	 YToijpKppnmq1cLGqt2cPg2tB2DROp1Q8LG7j/d+Q9ei2ftTJcDzZV8JwJIwKRJLVdA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795520571;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=/z5ch5pLpPdbk1BmHD/hwwHu03qByQafwYZQeBV/lWk=;
+	b=LXBufiGARtDkFKGsp9Ozwlv51fEUail+e243uCE2aU+V5ikvddMTIVf70MlMZO+Pdb4A
+	 MbdY3ikAcsBkoe/1GYgFxNmwTsMyjjLTrRIkFgtWBe7sX/a5UefH66pwxSH8LLVoaYYYD
+	 z83mP4dgm7M4UmoAErE6tqjQ2dMxVhn8m1d5RXGWhMQPI05kMIg1udTPzBec3XWiKR9U1
+	 lc43EDoTADWvAY9QDl8KkKbNAV+yVMcT3Kh2OBySVfkwmD9x9jiOcF2ue8syGwKAS2O1e
+	 WT1Z/WFqmWnJvhjesYu3/JZmN3aDIAPTwEYRZb5C6IUqBDyB4HliOglFoCReupqzr9A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xq2R+zD1;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
+Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 671F1606A321;
-	Tue, 24 Nov 2026 11:40:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78145606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:42:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78145606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y/KWG8/t
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DF9C1F000D0;
-	Tue, 24 Nov 2026 11:40:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795520447;
-	bh=YNKB+l0kbHZ2LFgYHq1tz3KLItdS3YCyjSFJuwPFLv0=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=Y/KWG8/t01CyWXnuuxn5Fq6dG5U0E/DUCU9cLtTKyJCmyZpLPtz4H5tDoHmhjT0Y1
-	 6LVawp8QEZn0HS8F9iB9sABq0TgEer9xApKgILOghCb/TWwQiFTwASnLtqmDnK7p9d
-	 uJgGVhqzlPa7PnWK+5Ey6/Kb5r7XHf/MHKzE/m8edUN80AmhKmcTYbffqmuRec7uc4
-	 d9mhARS3a9G6QwypWQJblwQB1kWsG89+ctM0xLetzNd1o6PD9CegiBD/LfWccVOPV/
-	 mwmFaZY+FKMjMnznslikv6KFIdgbcvnwye4jOW7hxxlNtkIkQMnuklCiCZqRCsPY7V
-	 o8COXWTCVS4RQ==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id CB8041980047;
-	Tue, 24 Nov 2026 06:40:44 -0500 (EST)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Tue, 24 Nov 2026 06:40:44 -0500
-X-ME-Sender: <xms:u3cFa2WZAvaq-MEvL7K33-JMO8R2L3mYuau5n5hO2SMrNJWVXCfjFg>
-    <xme:u3cFa9bhlu9ODSrVznatnlU66U-X0sdpA7b4RyfQSL4FyGhJh5d3MrwfKWl-EX0HA
-    sXHlxQXvPDbgWoMy0fZq-dC9FFEENqFl2QrJ5Iv48L6_VfwgqhbPvA>
-X-ME-Proxy-Cause: dmFkZTEMmXa45SeVrzxdc8lVdrKvq22c5nOCVcabUq5/b3DwR+SZOjCmU5hPlCMvPbD/jG
-    xGX/zl+7UgdvrJtoEo2C2qX4tYzFehBttg3Q8pP42dTF1E6KmxXWfoidEoMJMsjro+itt4
-    Dvv+paoMENJtR1YVe1RrOmxWDJu+Dos+BL3NJB36HHYZEWQoPEfd2f0f49jDOmEwPJ5GWP
-    HzPV+D0S+5nz6CFwdVCwYRZ08IiLIvurA8XdTqHAWDn2e2iTnwalYGGrM/GMJlp2i9czsj
-    82jckTGxIKmWMZZoZjXotXZ30EwOrPwkcptldPdi9BERQbuh3XwGbk+bNvIevBmPzeESm8
-    kL3uHHbFpDKe/Qyr9qP7Bsd7LDWIe7a+gt6ZL+4J6xE+91VqGzmNCe+jrMdd0SKXcfAiWb
-    PqwEqqVTb6q1ZRikefhsevZPrtcPGrWz6A43HiI7rzNIufnWqEW8dIGgqU3jjStfzPjTkj
-    WU7PzjcqaagORtAW2YwEJSIS0dnpDAvF41+ytAJwUBRUeY9kHDr+exsb+ShZdtXPPwsW6v
-    8O2uGG7oshIGaqwGKOpm++TsqBweO19oaOIEGOmOLONzIR9NcfhwgfT6qGw/s2lNNEKdlN
-    G2lBH9CJHUyFnqUPatunvuFiUz83ZcNPj/ACHVAuvCdQddxAX9yskvkuzOTw
-X-ME-Proxy: <xmx:vHcFa14LWtxuoXQSCXztkRGKGGXPr9Fhc0nRNZECL5mHK6cj9eTvcg>
-    <xmx:vHcFa1JPA7ZCqMHIN6AcbZ9wj1llof3hXNUNdIwzaBx1q0zmqFfZeA>
-    <xmx:vHcFa-tNiJ8O6EcYswXmUD32CLau-OR3Dc-qYFb1N917WyGLFFE52Q>
-    <xmx:vHcFa0K9XZBHP6EtZCT73GFUDk43H4P62P4pZq7syHLXwfgabnpgwA>
-    <xmx:vHcFa3-1f6wVJb3kq-WjMyorYBzmD6N_8sGUlMyiB6J2AJI-tp0_LE-4>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 75E98F80093; Tue, 24 Nov 2026 06:40:43 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xq2R+zD1
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c518cb79197so183297966b.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:42:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795520570; cv=none;
+        d=google.com; s=arc-20260327;
+        b=JdUQsFW9vb0ZJ61tBi6yyp87GLBvF6Nz1rliP7xRbY8efHiTaJFXR+gbzYfLhy3YLg
+         ItXG50Hk1oMnxES0NlqsqUfHu7rWLODXZVisYIsCJ9dBffzcx0Pd7IvfTT4Ll/3xNE2K
+         3fykHY5xwQTm+fzJyrFNm/56ac/F06JFgssUIzk1QJ7+SurmMMHhJDEee4y0y1nu2ANv
+         M1ObtVIsDet6D0ph8KzKp1tPQ7S4uOOio9YHejCrRZ7fH3zTAZuhDOU9f+PbVusde8ee
+         ggdTvJWfjEG1EvvJFl0tbtbtNbyrYj79fBChDvpH4CfZ9gb15ZECjsS5rWbjbIGIyRNl
+         c8PQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=/z5ch5pLpPdbk1BmHD/hwwHu03qByQafwYZQeBV/lWk=;
+        fh=e7GgUUBYp44lXdph5jw9sTtjDv2pAEJaz+gPVZo1DlI=;
+        b=p8mrvMrYpu+wXnhSL39WcOWZNQq9tnHmWVG2l2FYP6uudI1z5bTFl5nMKWIUCN58OR
+         C/Pqna0jroE3KZ8YjsfWzFiAforYFSp2Q9yLpXi9AkfsHh92efNhWaJS89KF1Grm3uu2
+         4EVY2b06wIH4gYKtMWu5Oppxjl7MH1omBPgITAge2RCXBIk+cCo27zZqRRZQ8/gfIf/+
+         vHIRz370K9Dyhx8k1ZNVCgc3m/QfrYNKr1ycDoqEg1obcePcDYDqw+lZbAk1fUfCoq5X
+         7w1MyJ8Xj5MUMNY7XWNwuDGuwNL/HmBfDzkB+SY2k8U1TRzxxJuu0/oYCn1Jrwpjsnsl
+         DcuQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795520570; x=1796125370; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/z5ch5pLpPdbk1BmHD/hwwHu03qByQafwYZQeBV/lWk=;
+        b=xq2R+zD1p5RXUgEpNuhoK8xg7y7NVsHGKr0JxP3zhBiQsU4buKR1kPpzJ/h+RQqvIc
+         K55ISJpK52O/lqUCD5pfVaavDjp36RTFXuUvgSOG1ZLmbK/9pg9kLToRaik2nhslMcSw
+         f8N0rFjHECKAxVeGwTTUI4YuQcWm+aY7w0dKOqzF8x1QwWuKu5HsvTINBxEXBxWwc95U
+         UT6yrwDt4LNX1XlVFwwn0ahcfAe+N8X0MLHch7P4VkP+5Omm+nrwg3OwKrRdP9DBDa80
+         fnCWgJRXNa0BguDlQChN0Qc1ponkNx6AtmdYdcRuTKZCxjhv3NFRe8n00Nvq4C4MwGs6
+         e/yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795520570; x=1796125370;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/z5ch5pLpPdbk1BmHD/hwwHu03qByQafwYZQeBV/lWk=;
+        b=jU2Cp38I/Lb5jaIwFw6Y5MEqaY5rLpe/m+r9QxKbyBjhz03zbEFPY9TvULvedNMmq9
+         YxGu4lJQVTdfGH1mtpffb1Of1pLO13O3kXK8bwOKX4SQjall+O9LIfHcAO8I4u8Wkeqr
+         PVq7FfiwNEnsH9mqhLiGVF5S50qTMsxVjRKPUcixjIxjWJ9I40r/JhI/h63QSnlRASxg
+         +eJGJZT6RGIhP7NTK/WLqMI+Czbt+xA/wDnZ+6HcZd/+OquaEKvGrL3KoBmWjv9FwPf6
+         gwekq0Tfakc7KYZVJXKViVILJ+I9NNaEDOac16RhsUvPJeH97xc8Mq07lXk96gHmq5pO
+         cQrw==
+X-Forwarded-Encrypted: i=1; AL+hErHRQV02VWptwl9SStlIw6BNA5TZur50RXJ5+RCiUfwg+Aan+bd9TuVwgD8pYQ/2JbauBZi6W5kx4E78pQY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/tfJHsMYmb3c5XR8g5BQgJWS7CRIPcypAaiIn5vfsLruwLGlVX
+	DZFOKr0wIYi/Oxg3V20iCuHBBv2ORXUvZAAtuIT+X6hQwAA/OBcMEnYFgdCvUmgTK1FbIUiInop
+	nGoClKWSiRwrbPX+/87bs75eCeyJZrCeYgL5eZ1M=
+X-Gm-Gg: AZFdTZePggt28uGHXF5tNCfJIEPkjltyK+RUk2DcbEWh+O7ncoaIZQi2z5XR0uLD9xQ
+	1oWVUfeoKY/pBzuoshKpAwiSJOHlS76GwfLRqNiMpqrBTnZ0E42df+7dTx4CUijtMkrAhrCknnX
+	DGSSKVOj2HOhxFtIdvOiolVsWa+gKNIN148N6wTtBc/UBAmW9r9VU+DthbYzx4BsYbKCXS2jzuN
+	DOm+1X7usLubZhQxAnZC/hdlU9F2j5bGjga+2eg1j1FBEcaX2+mHX8wDJ6w5006cyMHSOhCbSae
+	z3iSMnun0dPaoo0+9ovG3aYvt+J14Dy5ur2G9O3s+bGhkscXmY7a9LTgW5Kf7xf2myey8tVlHj2
+	tUfDBm9A95KZ1QMnbA9n3ORcMOP9JG1xRDoOI
+X-Received: by 2002:a17:906:1255:b0:c2e:378c:8ceb with SMTP id
+ a640c23a62f3a-c513ab2f292mr893283466b.36.1795520569665; Tue, 24 Nov 2026
+ 03:42:49 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,111 +104,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Tue, 24 Nov 2026 12:40:23 +0100
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Nicolas Brainez" <nicolas@brainez.net>
-Cc: "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
- "Lukas Wunner" <lukas@wunner.de>, linux-efi@vger.kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Message-Id: <756a713a-dfc8-420b-8c70-76828e2b0bf6@app.fastmail.com>
-In-Reply-To: <20260928072832.25399-1-nicolas@brainez.net>
-References: <20260928072832.25399-1-nicolas@brainez.net>
-Subject: Re: [PATCH] efistub/x86: Fix the size type of the Apple properties protocol
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <20261120095559.429515-1-xavier.qyxia@gmail.com> <awBN9VvV6yM6Cjut@casper.infradead.org>
+In-Reply-To: <awBN9VvV6yM6Cjut@casper.infradead.org>
+From: Xavier Xia <xavier.qyxia@gmail.com>
+Date: Tue, 24 Nov 2026 19:42:38 +0800
+X-Gm-Features: Aa3M54qQ26PffOi-ROWCmcVbedXfEWG_6O8l67P-4AZYWdcQV7atuYSopUWOUaU
+Message-ID: <CAEmg6AVjtaiq9Q8rC_V5TcgAxQ386CsDtiXO7A6UzC+FzNdGTw@mail.gmail.com>
+Subject: Re: [PATCH] mm: batch per-task lruvec stat updates on the writeback path
+To: Matthew Wilcox <willy@infradead.org>
+Cc: akpm@linux-foundation.org, hannes@cmpxchg.org, shakeel.butt@linux.dev, 
+	mhocko@kernel.org, roman.gushchin@linux.dev, muchun.song@linux.dev, 
+	jack@suse.cz, david@kernel.org, brauner@kernel.org, linux-mm@kvack.org, 
+	cgroups@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Willy,
+
+Thanks for the feedback. That's a fair concern.
+
+The original fio benchmark uses 4K buffered writes with fsync at
+the end of each job, rather than after every write. The improvement
+is reproducible in that setup, but it is a synthetic workload.
+
+I also tested extracting a tar archive and copying a tree of small
+files on ext4 backed by a ramdisk. Initial runs showed 4.3% and 3.5%
+reductions in wall time, respectively. However, these improvements
+were not consistent across independent boots, so I don't have
+convincing evidence of a real-world benefit that justifies the
+added complexity.
+
+Further testing also uncovered correctness issues in the patch.
+Deferred NR_WRITEBACK increments can temporarily be missing from
+the counters while completion decrements are applied immediately,
+potentially affecting dirty throttling. I also reproduced 8-12 KiB
+of stale file_dirty accounting after fsync in a non-root memcg with
+periodic writeback disabled.
+
+I explored a writeback-local alternative without modifying
+task_struct. Although it passed the correctness tests I ran, it
+did not demonstrate a reproducible end-to-end performance
+improvement.
+
+Given these findings, I don't think the current patch is suitable
+for merging. Please consider it withdrawn.
+
+Thanks,
+Xavier
 
 
 
-On Mon, 28 Sep 2026, at 09:28, Nicolas Brainez wrote:
-> The size argument of the get(), set() and get_all() methods of the
-> Apple device properties protocol is a UINTN, not a u32. The reverse
-> engineered declaration added by commit 58c5475aba67 ("x86/efi: Retrieve
-> and assign Apple device properties") uses u32, and
-> retrieve_apple_device_properties() passes the address of a u32 on the
-> stack to get_all(). 64-bit Apple firmware writes 8 bytes through that
-> pointer, so the upper half of the store lands on whatever the compiler
-> placed next to the variable. OpenCore's
-> Include/Apple/Protocol/DevicePathPropertyDatabase.h declares the same
-> methods with UINTN, and a u32 canary placed right after the u32 size
-> is zeroed by both get_all() calls on a Mac mini 2018 (Macmini8,1).
+On Fri, Nov 20, 2026 at 9:41=E2=80=AFPM Matthew Wilcox <willy@infradead.org=
+> wrote:
 >
-> With clang and CONFIG_EFI_MIXED=n, the neighbour is the protocol
-> pointer p: the first get_all() call zeroes its low half, the second
-> call jumps through the corrupted pointer, and the machine powers off
-> before printing anything. A GCC build leaves padding in that slot, and
-> a clang build with CONFIG_EFI_MIXED=y places the setup_data pointer
-> there; neither crashes, so the bug went unnoticed since 2016. Talos
-> Linux, which builds its kernel with clang, reported it on several Mac
-> generations.
+> On Fri, Nov 20, 2026 at 05:55:58PM +0800, Xavier Xia wrote:
+> > The writeback path updates two lruvec stats per folio through the memcg
+> > rstat machinery: NR_FILE_DIRTY when a folio is dirtied and again when
+> > writeback clears it, and NR_WRITEBACK when writeback starts on it.
+> > Consecutive folios almost always share a lruvec, so the same counters
+> > are updated over and over.  On a 4k buffered write + fsync workload
+> > __mod_memcg_lruvec_state() is about 8% of the profile.
 >
-> Declare the size as unsigned long, as the stub does for every other
-> UINTN. No mixed mode argument mapping is needed: 32-bit firmware
-> writes the low 32 bits of the zero-initialised value, and the upper
-> half stays zero across both calls.
+> Is this a realistic benchmark?  Does it represent some real life workload=
+,
+> or did you just choose it because it shows the best benefit of this patch=
+?
+> This is a fairly significant chunk of extra code, and it'd be nice to
+> know that it benefits a real-world use-case before applying it.
 >
-> Tested on a Macmini8,1 with v6.18.51, clang 22.1.8 and LLD,
-> CONFIG_EFI_MIXED=n, booted as EFI/BOOT/BOOTX64.EFI: the machine powers
-> off without the patch and boots with it. Builds with clang and GCC,
-> with and without CONFIG_EFI_MIXED. Mixed mode was not boot tested (no
-> 32-bit EFI Mac at hand).
->
-> Claude Code assisted with reading the disassembly, writing the debug
-> patches and drafting this changelog; the tests ran on the hardware
-> above.
->
-> Fixes: 58c5475aba67 ("x86/efi: Retrieve and assign Apple device properties")
-> Cc: stable@vger.kernel.org
-> Cc: Lukas Wunner <lukas@wunner.de>
-> Link: https://github.com/siderolabs/talos/issues/13231
-> Link: https://github.com/siderolabs/talos/issues/13579
-> Assisted-by: LLM
-> Signed-off-by: Nicolas Brainez <nicolas@brainez.net>
-> ---
->  drivers/firmware/efi/libstub/efistub.h  | 8 +++++---
->  drivers/firmware/efi/libstub/x86-stub.c | 2 +-
->  2 files changed, 6 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/firmware/efi/libstub/efistub.h 
-> b/drivers/firmware/efi/libstub/efistub.h
-> index fd91fc15e..1002c17a8 100644
-> --- a/drivers/firmware/efi/libstub/efistub.h
-> +++ b/drivers/firmware/efi/libstub/efistub.h
-> @@ -838,15 +838,17 @@ union apple_properties_protocol {
->  		unsigned long version;
->  		efi_status_t (__efiapi *get)(apple_properties_protocol_t *,
->  					     struct efi_dev_path *,
-> -					     efi_char16_t *, void *, u32 *);
-> +					     efi_char16_t *, void *,
-> +					     unsigned long *);
->  		efi_status_t (__efiapi *set)(apple_properties_protocol_t *,
->  					     struct efi_dev_path *,
-> -					     efi_char16_t *, void *, u32);
-> +					     efi_char16_t *, void *,
-> +					     unsigned long);
->  		efi_status_t (__efiapi *del)(apple_properties_protocol_t *,
->  					     struct efi_dev_path *,
->  					     efi_char16_t *);
->  		efi_status_t (__efiapi *get_all)(apple_properties_protocol_t *,
-> -						 void *buffer, u32 *);
-> +						 void *buffer, unsigned long *);
->  	};
->  	struct {
->  		u32 version;
-> diff --git a/drivers/firmware/efi/libstub/x86-stub.c 
-> b/drivers/firmware/efi/libstub/x86-stub.c
-> index cef32e2c8..87e142cae 100644
-> --- a/drivers/firmware/efi/libstub/x86-stub.c
-> +++ b/drivers/firmware/efi/libstub/x86-stub.c
-> @@ -158,7 +158,7 @@ static void retrieve_apple_device_properties(struct 
-> boot_params *boot_params)
->  	efi_guid_t guid = APPLE_PROPERTIES_PROTOCOL_GUID;
->  	struct setup_data *data, *new;
->  	efi_status_t status;
-> -	u32 size = 0;
-> +	unsigned long size = 0;
->  	apple_properties_protocol_t *p;
-> 
->  	status = efi_bs_call(locate_protocol, &guid, NULL, (void **)&p);
-
-Queued up as a fix - thanks!
-
+> If the real world usecase is more "there's some pretty high overhead
+> when flushing accumulated megabytes of dirtied page cache", then there
+> are simpler solutions that don't involve messing with task_struct.
