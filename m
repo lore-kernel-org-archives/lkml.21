@@ -1,55 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795510819;
-	b=1kdJrIaYd2Q41h7Qv5wyd5d2oQFJQP7rsv+neZbwc6J/zmFOi628OZj/1vZ2LAFEENQR
-	 417ccMv0IkoSQTBbhCPfVRYZIzxmIhHzI9Rt3CheNQHXkOF5xRPOGg8BzwgDnvVWJB1Hi
-	 AYY04Z3mMN6DpWLoViWp1pelQRultaTSL3nY6n6JCIE1c9/lDZrI+gI4+LKGtlMBuHy8Z
-	 t33LbsD5nFdF+SRKlFqK54pbpuCRTKoTdMj45AQROj2mnBhua66T7mK6vxeiypPNP0b3Q
-	 Xusjb8E6q+T1iDdWq1Cd2UNUo7Uqox2MdoNDdOJKTtvtTVwskQp41eQytUnZSKoenBw==
+	t=1795510892;
+	b=WRaoE8FFoc/aycXQR4p0D3rrDFmLct+CysjttWwv+ZLNdMFf/w1w3eHTHtT3T/gtqv+1
+	 20u1rZOTiJiz+R5DLIq0fpVDKu3auJWIFavkx705gh9fuePtmlH65MFtkiUN9TS0dDP+r
+	 BifjNajclE7IAhyS2jbU5PQQZ6DdaAvJwf/JR20nR64fVRWgN3AROAcu9UsJIzFNN6re7
+	 ndImTEDQWZQB1U2nWTFl7D0Ij6ilOSQjFzACh3wEH+nLzLhiQpMopi87fcCHI1Jyq4tjM
+	 KsPzPTCloWZcmjWOQf8OiulpqbcNQnsp6Jit+ISObRSjxDcJdIGMtrBmZNiPmzMlBCg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795510819;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	 References:Date:Message-Id:X-Mailer:X-Last-TLS-Session-Version;
-	bh=smFTUIcx8cfAJ0RIWvn0nwR9mA44PKis6Nxa17lG3+k=;
-	b=pjlr4kYB5i7H+bQ+FwbZDj38hjS8qT6Rbz+sDwioLHMulreTrGIBt4dbowI/kz8Yh9SH
-	 VyA8NHr/vHHIi6kR58WsgsUkZTsuuipbVFeRySZF6uGbSieE6qm12lu1a+y3wMAUnH/sw
-	 DNU2/+ZZkG7VkkHMooTvqkS3bnHfYtygJNcmS/BBl+1vuYwQr2IRSlZe1tlK3LWdmYmWR
-	 QQQZ9BqJavSHOy2a1Zm+MDZRVKA/AwTzAF+2qiEkWIhA/tlNS1pSJ6Br6ZeNHiqjy5WyJ
-	 eN+iRYfwoga++vkYFxupHJHYuGNiFiTKyFWsxcNlpq/Ol25VicxXCEBJ2mZGAl8DIGg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795510892;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=xshIw2ltDpH8Fa2+b6L6mvxHTuXNivgj14RbIHd51to=;
+	b=ZDQ8nFGGVCI4DDfWLjUOUkNs42s5FJSi5Wj6VKCz+/cmPq3yKbQvekU98foQYXPA/y8C
+	 hZaqxJy7Bw3dFUzP7Te+T1+erBOb1rzc9QDorHDa7W/z4iWCnW1dBO8v/eRREdCW3XuoR
+	 h5mm4cIZiIyCrlQOlKXKGZrw8n3DDioKRO4l3gMx2LRjU4WLn45yC9q8PabBbzrcgGRSe
+	 kE6SvKPxcKgMRR1Xs6JyR1/VZNL66UPP8nQOmBtEtDzFSBb+i/kd77DzRCbj8KeLV9ngp
+	 0CUnTdhgn5NX6pu0GxRe7bIiLRqG82BQXy4kAZQMi6xYfWNOMiS7jjRysQJMEklMFxg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=kiqmBDZW;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sDLdwhuT;
+	arc=none smtp.remote-ip=209.85.216.52
+Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FD0A606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:00:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FD0A606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27720606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:01:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27720606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=kiqmBDZW
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 1B9571A16F5;
-	Tue, 24 Nov 2026 09:00:15 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C8CFA601E1;
-	Tue, 24 Nov 2026 09:00:14 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 112E811E68CD1;
-	Tue, 24 Nov 2026 10:00:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795510814; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=smFTUIcx8cfAJ0RIWvn0nwR9mA44PKis6Nxa17lG3+k=;
-	b=kiqmBDZWuqGnmZH8dTJhz4Y+tJ5PUFhdt956ttONRCBoKDeslaD3J7qYRa8Pa5/nsCdZiO
-	3i+Ed4vvqdQaggJ1HYYU9eQQOcXh0CeZkgKbGSS3g+RkCv+dLdn2MbRvVOd0UIWrqAG6aK
-	9Kw6ja2Aj6AmKtnH5PX4/mdk97e7pAnh7/yb5vOSMiGuuxSi2naFoEb0AOBCyBHZLWQCr4
-	s3DwSddEtn/re5H5wwwodR2xAICobnEEo4HQAs/W4aTj4r3+Bjg+xB1p4YKQCJSilQPdxj
-	FTXUGkSed0B0upfooAf9gN6XLVD+VFDVkCxMSp0SYvu0HAcpHyxnP+qjzrNCMA==
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sDLdwhuT
+Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b0ac1900efso454025a91.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:01:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795510891; x=1796115691; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=xshIw2ltDpH8Fa2+b6L6mvxHTuXNivgj14RbIHd51to=;
+        b=sDLdwhuTdzBhSx7WY+SeNxNzmejDkf7A+0fk1CekbyAdrw/wDE1HDvlEJsfhLb1p5x
+         Y0whgxulwu0JP2uphVmBAqPlNtFl1nguE+B2qnmxLBcTw++EIY4jBxaH71Gr9Suw/yxf
+         nNVADz0/xxhp6IFsU2EGy5m17d3oXJoDr412WdUl+fCVFE9SOVawSWIatF7nFyz90Emz
+         unbI8xf351P9qehnhNuObb09PJHZILdi0RwdzaY/PP6uD8l8yh0zogzUrZ7HlKVb/U2F
+         5WB0+oIGmYUwKRQQWDhTqxVJySYQJvdv1gA4q8rEXKsuEFXNt+8lPLjrkqT+ORMNswVR
+         6uUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795510891; x=1796115691;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=xshIw2ltDpH8Fa2+b6L6mvxHTuXNivgj14RbIHd51to=;
+        b=FmXsqXQQ4mkCC1YMsiKJNCygxF4olbRNCvZtv2XsnqDg/uzjAufkS4yvXB8Bt+Xfwm
+         IUGsTaWOe7xh22uAVzAR0ghRb/nSIIZAgbQ0sv29F+ecfOPqAJ8KwTKWellTlJj/8YEh
+         nkiV2TByXOzcbb2zVDSJSKe0c3TZASO1iFcP2weZ6S5UmmtFWhmkF6XgcNWQNzzSXlsg
+         XBgtKZMScrpuQ4gz4G/6lMZ//VftlGGaiz8RQnAA601TRKLkT7Z1LsGjEarrZUMqXA3R
+         dQyEEXVuhbr7KAhfRbpxORiX804bJoLMV4d7T24SI1rYwmyw/f2L27SlWOyk+VPe8fHH
+         ksVg==
+X-Forwarded-Encrypted: i=1; AL+hErEOeYlJKILz7aEp/UQOhyheE8Q2wzwWFwglWjgaz8/7gqemr+wYwqTDm2wJ+4FiXWS6nTToZYQ5yq23s6U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+0QrzqPy63wirwdY7fIvofIniBXfYGB7Z485lf9jxJS5zyG1bT
+	O9rC0Pc90OOjqSKicAJ843ah41MCyBk9bbORnlImdtp1l5X59HjJ2JlC
+X-Gm-Gg: AZFdTZeO6wV9l9QXyqUNT2HWEqoEGQqLRiTP8gVjNBmmaRus88ZbCMnW47WvJTzM2hA
+	1PlL0FAXz10ZzbozbNIW1Be73y6gYlwnv/uM5hOf60zyDgAOkK3MYau1tg8BO/hh5CU3uIP3EZs
+	aGKzliQriX7oEv1VIm6TiwwTcbCVnvjN2W7cogFdgvY6W/1lYvnlnQlD40FiOTM+QtEhl8WMX5n
+	LG6CzVJb99Kav5iMdjskcRhuI6bqyO0WPVobLDcTCSxRW3J5K4YzScQHSU3bBnBtn0hMfEAFFdx
+	Gw5+2dKXv+2rLtMQqu7y4lUqLvoqcUDzdRqYvrbhjlsgV0Chw3vo1txkoIn3dqFnL2rHGUMfrcb
+	bbIgzbfkxSdrDICZ32GgcoJ47qM9wrc7gLnUlOsOEdscJ3RMAQIiPnOzJ5Fr8fdBlWTRRp0HAb1
+	BltFVIN9ErVZRkt2ZyULuk4OvtkTyblUxomt1wlN1fwUYU7ey0bg+qlLOLMN9UkvikR7DT/6k/i
+	T5Oc65aP9owy1R1cpdjb1OuY/SQB1gmyzJb1ls6SDQHid1ZZ79YyHNVa2hQqMSosKKRCPvguOfV
+	8a9r3lMn2vXJYxnPUAD9Ejc+X4No7W/O32NGkujS
+X-Received: by 2002:a17:90b:39a3:b0:3a4:c895:570 with SMTP id 98e67ed59e1d1-3b41c91f7b1mr22760547a91.4.1795510891163;
+        Tue, 24 Nov 2026 01:01:31 -0800 (PST)
+Received: from gmail.com ([124.127.65.130])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0dc4f2sm68086245ad.30.2026.11.24.01.01.27
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 24 Nov 2026 01:01:30 -0800 (PST)
+From: Ziyu Zhang <ziyuzhang201@gmail.com>
+To: sagi@grimberg.me,
+	mgurtovoy@nvidia.com,
+	jgg@ziepe.ca,
+	leon@kernel.org
+Cc: linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	baijiaju1990@gmail.com,
+	ziyuzhang201@gmail.com
+Subject: [PATCH v2] IB/iser: Fix blocking connect hang and endpoint double free
+Date: Tue, 24 Nov 2026 17:01:21 +0800
+Message-Id: <20261124090121.77115-1-ziyuzhang201@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,34 +99,176 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] mfd: cgbc-core: Add support for conga-PA7
-From: "Thomas Richard (congatec GmbH)" <thomas.richard@bootlin.com>
-To: Markus Haberlander <markus.haberlander@rosenberger.com>
-Cc: Thomas Richard <thomas.richard@bootlin.com>, Lee Jones <lee@kernel.org>, 
- mfd@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-In-Reply-To: <20261123-cgbc-conga-pa7-v1-1-f3d17fb02e43@rosenberger.com>
-References: <20261123-cgbc-conga-pa7-v1-1-f3d17fb02e43@rosenberger.com>
-Date: Tue, 24 Nov 2026 10:00:05 +0100
-Message-Id: <179551080501.9961.1835193533099263045.b4-review@b4>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 
-> The conga-PA7 is a Pico-ITX board with an Intel Elkhart Lake SoC, like
-> the conga-SA7 SMARC module. Its board controller is of the same
-> generation and is accessed through the same I/O ports, so the existing
-> driver works with it once the board is matched.
-> 
-> Match the board vendor and name, as for the other boards: the system
-> vendor and product name are empty on this board.
+iser_connect() waits for up_completion while holding
+iser_conn->state_mutex.  The RDMA CM callback that advances the
+connection state machine needs the same mutex, so a blocking connect
+can never finish establishing and the wait only returns when a signal
+arrives.  The caller then sits there with rx_queue_mutex held, which
+stalls the iscsi netlink path for the whole daemon.
 
-These fields are expected to be empty. It is not Congatec's responsibility
-to fill them, it is the system vendor's responsibility. The conga-PA7 is
-not a system nor a final product. So drop "as for the other boards: the
-system vendor and product name are empty on this board."
+Dropping the mutex around the wait is not enough on its own:
+up_completion is only completed on RDMA_CM_EVENT_ESTABLISHED, so an
+address, route, connect or reject error still leaves the waiter asleep
+forever; complete it from iser_connect_error() as well.  The cleanup
+events are the other way an attempt can end without an establishment:
+DISCONNECTED, ADDR_CHANGE, TIMEWAIT_EXIT and DEVICE_REMOVAL reach
+iser_cleanup_handler() with the connection still ISER_CONN_PENDING,
+where iser_conn_terminate() does nothing because it only acts on an
+established connection.  Terminate a PENDING connection there and wake
+the waiter, leaving the established-connection cleanup unchanged.
+iscsi_iser_ep_poll() must then look at the connection state when the
+completion fires, otherwise a failed attempt is reported as a
+successful connection.
 
+Finally, the failure paths left the connection in ISER_CONN_PENDING or
+ISER_CONN_TERMINATING.  iser_conn_release() destroys iser_conn->ep when
+the state is not DOWN, and iscsi_iser_ep_connect() destroys the same
+endpoint again on the error return, so the endpoint was freed twice.
+Terminate the connection and mark it DOWN under the state mutex instead,
+so the endpoint keeps a single owner, and so that no handler can keep
+operating on a connection that is being torn down.
+
+DOWN is terminal: iser_connect() drops state_mutex before the cma_id is
+destroyed, so a late CM error event can still reach iser_connect_error().
+That handler used to move the state to TERMINATING unconditionally, so
+iser_conn_release() destroyed the endpoint first and
+iscsi_iser_ep_connect() destroyed it again when iser_connect() returned.
+Leave a DOWN connection alone there.
+
+Fixes: 504130c039f9 ("IB/iser: Protect iser state machine with a mutex")
+Fixes: 9a3119e4b787 ("IB/iser: Release the iscsi endpoint if ep_disconnect wasn't called")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ziyu Zhang <ziyuzhang201@gmail.com>
+
+---
+Changes in v2:
+- Wake up the blocking waiter on connection errors and on cleanup events
+  received while the connection is PENDING, including device removal.
+- Check the return value of wait_for_completion_interruptible() and
+  propagate signal interruption errors.
+- Terminate the connection and set its state to DOWN under state_mutex
+  on connect failure, leaving endpoint destruction to the caller.
+- Keep DOWN terminal in iser_connect_error() so a late CM error cannot
+  trigger endpoint destruction in iser_conn_release().
+- Check the connection state after a positive completion result in
+  iscsi_iser_ep_poll() to distinguish successful and failed connections.
+- Expand the commit message to explain the failure wakeups and endpoint
+  cleanup ordering.
+
+v1: https://lore.kernel.org/linux-rdma/20261123144440.65441-1-ziyuzhang201@gmail.com/
+
+ drivers/infiniband/ulp/iser/iscsi_iser.c | 11 +++++-
+ drivers/infiniband/ulp/iser/iser_verbs.c | 50 +++++++++++++++++++++++-
+ 2 files changed, 58 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/infiniband/ulp/iser/iscsi_iser.c b/drivers/infiniband/ulp/iser/iscsi_iser.c
+index 7df441685780..47c264cb9aff 100644
+--- a/drivers/infiniband/ulp/iser/iscsi_iser.c
++++ b/drivers/infiniband/ulp/iser/iscsi_iser.c
+@@ -843,7 +843,16 @@ static int iscsi_iser_ep_poll(struct iscsi_endpoint *ep, int timeout_ms)
+ 	rc = wait_for_completion_interruptible_timeout(&iser_conn->up_completion,
+ 						       msecs_to_jiffies(timeout_ms));
+ 	/* if conn establishment failed, return error code to iscsi */
+-	if (rc == 0) {
++	if (rc > 0) {
++		/*
++		 * up_completion is also signalled when the connection attempt
++		 * failed, don't report that as a successful connection.
++		 */
++		mutex_lock(&iser_conn->state_mutex);
++		if (iser_conn->state != ISER_CONN_UP)
++			rc = -1;
++		mutex_unlock(&iser_conn->state_mutex);
++	} else if (rc == 0) {
+ 		mutex_lock(&iser_conn->state_mutex);
+ 		if (iser_conn->state == ISER_CONN_TERMINATING ||
+ 		    iser_conn->state == ISER_CONN_DOWN)
+diff --git a/drivers/infiniband/ulp/iser/iser_verbs.c b/drivers/infiniband/ulp/iser/iser_verbs.c
+index 55fe68e5b837..f57d71e3d448 100644
+--- a/drivers/infiniband/ulp/iser/iser_verbs.c
++++ b/drivers/infiniband/ulp/iser/iser_verbs.c
+@@ -480,7 +480,18 @@ static void iser_connect_error(struct rdma_cm_id *cma_id)
+ 
+ 	lockdep_assert_held(&iser_conn->state_mutex);
+ 
++	/*
++	 * A failed iser_connect() moves the connection to DOWN and drops
++	 * state_mutex before the cma_id is destroyed.  A late error event
++	 * must not move it back: iser_conn_release() would then destroy
++	 * the endpoint that iscsi_iser_ep_connect() destroys as well.
++	 */
++	if (iser_conn->state == ISER_CONN_DOWN)
++		return;
++
+ 	iser_conn->state = ISER_CONN_TERMINATING;
++	/* Wake up a blocking iser_connect() waiting for the result */
++	complete(&iser_conn->up_completion);
+ }
+ 
+ static void iser_calc_scsi_params(struct iser_conn *iser_conn,
+@@ -652,6 +663,19 @@ static void iser_cleanup_handler(struct rdma_cm_id *cma_id,
+ 	struct iser_conn *iser_conn = cma_id->context;
+ 
+ 	lockdep_assert_held(&iser_conn->state_mutex);
++
++	/*
++	 * A cleanup event during connection setup ends the attempt before
++	 * it reaches ISER_CONN_UP.  iser_conn_terminate() only acts on an
++	 * established connection, so wake up iser_connect() and
++	 * iscsi_iser_ep_poll() here.  A late event after a failed connect()
++	 * finds the connection DOWN and leaves it alone.
++	 */
++	if (iser_conn->state == ISER_CONN_PENDING) {
++		iser_conn->state = ISER_CONN_TERMINATING;
++		complete(&iser_conn->up_completion);
++	}
++
+ 	/*
+ 	 * We are not guaranteed that we visited disconnected_handler
+ 	 * by now, call it here to be safe that we handle CM drep
+@@ -778,7 +802,21 @@ int iser_connect(struct iser_conn *iser_conn, struct sockaddr *src_addr,
+ 	}
+ 
+ 	if (!non_blocking) {
+-		wait_for_completion_interruptible(&iser_conn->up_completion);
++		int ret;
++
++		/*
++		 * The connection state machine is driven from the RDMA CM
++		 * callback, which needs state_mutex: don't hold it while
++		 * waiting for the connection to be established or to fail.
++		 */
++		mutex_unlock(&iser_conn->state_mutex);
++		ret = wait_for_completion_interruptible(&iser_conn->up_completion);
++		mutex_lock(&iser_conn->state_mutex);
++
++		if (ret) {
++			err = ret;
++			goto connect_failure;
++		}
+ 
+ 		if (iser_conn->state != ISER_CONN_UP) {
+ 			err =  -EIO;
+@@ -795,8 +833,16 @@ int iser_connect(struct iser_conn *iser_conn, struct sockaddr *src_addr,
+ id_failure:
+ 	ib_conn->cma_id = NULL;
+ addr_failure:
+-	iser_conn->state = ISER_CONN_DOWN;
+ connect_failure:
++	/*
++	 * The connection never made it to ISER_CONN_UP.  Terminate it in
++	 * case the wait raced with a successful establishment, and mark it
++	 * DOWN so iser_conn_release() leaves iser_conn->ep alone: on this
++	 * path the endpoint is still owned by iscsi_iser_ep_connect(),
++	 * which destroys it when we return an error.
++	 */
++	iser_conn_terminate(iser_conn);
++	iser_conn->state = ISER_CONN_DOWN;
+ 	mutex_unlock(&iser_conn->state_mutex);
+ 	iser_conn_release(iser_conn);
+ 	return err;
 -- 
-Best Regards,
-Thomas Richard
+2.34.1
 
