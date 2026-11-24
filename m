@@ -1,82 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795507758;
-	b=zOB07ObhMsl+7H3ZsfyJShcdfVY9ZrctA/Cx4qpaqp2qyyqc5nTUkcFQYrn81+87qleR
-	 RmumcjKu3cd68wa61ug/zr+tNR/hPKdbkV9kv0kJw1v3dmA4fNL574GsZvv52Z82seWUi
-	 n2z03Ka7qoc88zsD4pkJZtmK2/TTxp6eHLpFEHFdqVnFZQ3USsluVbfuw0RltAZiRYnTG
-	 sseBm+do0PD5PtGK7SjtXUBO+RaiG1B6CIpf8o+GKrETkE376uR8OTrJFPFjKUO4nTpLn
-	 52t//SncfpfMITTSfwFwTIgBVXgJRdw1k2KqpkN8c36vlVQQKLvPjCeLxkYaSFTsYLw==
+	t=1795507761;
+	b=WCxSywmjTTwTG7Y1OYgxUIqZzvp7+JLzJSFkSTDsHdOA6NtpreUTrXM81MCV5+W+2ZFQ
+	 BNQc/lo4C9qVOnku/c0lJ+s2Y7GuVECVjYW6m1AMtLr2RLeB1rDTxHa7gOIgPxBta8Eyu
+	 b+6lGzuBLUug2Pq258SaOyGkXjBj0uzsYY0VCrG7z4oxX6qIeyXs01YQcDx8eCmJ5AE3d
+	 AhxBd5EQZ9WNU6zf0HZiNlib5hLQH6DvAFlIoFBfOCc8mHL5L1JMIOW/sc9BIBb49mJkh
+	 kVgOjh08N9DaJ8TuxOGeup1U3gexhi/KacEtnrUu0elBN7vOwE7acsmiKNRxXZ8V+Aw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795507758;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=EHE8YClXc9FFppzZgrQs5Zf5py88spwpx6w6Rv+xfNI=;
-	b=gQFj4lIKZDuYXaqRxQqqKOSVmtsF4BvwRT/P6PcvR9KfjygE63YRzm4UMwf1/fmxsPte
-	 TvefjB6hMt4iaJUESm6joV9eTLdvOzTwcpQp1iu6wnfnuiHS5hZFR7U9AA8zFlqRk62LV
-	 CwMdAt7ho1bBl9ZqsNA7RC1EEFOM8LYW50pFY6snF9+c82dABXrFC0ErOs3WJsegVUvPv
-	 IXOrMCdNNgpvxKntD32TRuPfsW6q8SgraiO8UrcPeWFrgBvZcIdEph4pMGjWPn3Gprsj3
-	 tzgBqTIe6tevfRQ1Mx3stQX/EDryxW6KHAv1oK5j3q8eEiRQG9e0kIhgHlp6EoE5BbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795507761;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=pgJJhQTIQiKQaa8Lw1i6CYXbTQ1mnofot/VGVFKwdRw=;
+	b=yvb7wtLA9+NRvLjbThXXCiFVP/HeXr61JHarqVm2HB++kmSwVPoaj65T8NfvW4OYvkUm
+	 5wTPkbV/gzXenMpTA+MOGEwRe2YqsGCVyfyM8qsHC89nQSyc+Ngpb46bdhcikgiva4b4q
+	 KlVrtzqWKzPkRQMLlGVnBHnDPNRAj9TR6ChVgnmYN+lLbhPfyR4nGyB+uWxO+G0iDU1ty
+	 dpZxayfqi6GtRIF5IDGvmqQ9pBtcNRP9WKAHqc8axlvK1RjoIZSsxyPn11K7GNW06MABH
+	 vww3ZSJdTidg/9zIIvKles4ESAOhUkVJkCqRr00cQod5RoxUtEjX1bjSzWGID03zcZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=i207joxA;
-	arc=none smtp.remote-ip=192.198.163.18
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fXcOS09F;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4517B606A326;
-	Tue, 24 Nov 2026 08:09:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4517B606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77F64606A326;
+	Tue, 24 Nov 2026 08:09:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=i207joxA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795507758; x=1827043758;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=7Lref5JkTIVvgIpN4q2Dgd96p3Q3h4N9LcHJa2eD2gs=;
-  b=i207joxAwWiFwZl669N6tyh104p2O3ZNIu3AEipQxqJSz59DEPNRZ6l7
-   RWToQnkLLJDGaAS2sIPNfNVoeYK2cENgvvIOh9h+zy4ZOGULK4fMK1RHZ
-   yz97jZVFq23HKUNMvpfuWhOak4tkoibdqiadcwRN83kdow3qeaUfmIf36
-   Gk434ug+DbmLpwVDAQMYp0xpPmgqLtLZ5+ghhFXL3mZvFWJplceJHPu1O
-   ImPMc9E8KeEAS/ZyS2hQoNOaQIvFW5lHzD5V6ILe6Ybs1h2xKJJfa2KzR
-   3fDPCTgU38ULzUwwxEZR3vT2wanh7XtZpIzCmX/DeDVkhfYrNEsJbfsln
-   A==;
-X-CSE-ConnectionGUID: 3WsK4eolSpO/UUlvhsWdNg==
-X-CSE-MsgGUID: yXrInX3FR8ObmvB9g7+Ivw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4360143"
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="4360143"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:08:16 -0800
-X-CSE-ConnectionGUID: nOBOnBEKRGmTXu/B3LDF2g==
-X-CSE-MsgGUID: gwWnqpw6QWuDRVzPauS7FA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="11537549"
-Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:08:13 -0800
-Date: Tue, 24 Nov 2026 10:08:10 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Gerard Marull-Paretas <gerard@teslabs.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Frank Li <Frank.li@nxp.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 4/4] iio: magnetometer: mmc5633: Add mount matrix
- support
-Message-ID: <awVF6ktwwpW7SiiY@ashevche-desk.local>
-References: <20261123202616.17334-1-gerard@teslabs.com>
- <20261123202616.17334-5-gerard@teslabs.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fXcOS09F
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63BF01F000CA;
+	Tue, 24 Nov 2026 08:09:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795507761;
+	bh=pgJJhQTIQiKQaa8Lw1i6CYXbTQ1mnofot/VGVFKwdRw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=fXcOS09FthIT/38JvcjvxPU6RSSDx1u/VEC8iAvkDl97tS63XAWF5eynuhlEGy2Ph
+	 Z2MK9bvbkta7+uQdnziGBhZ701VCuvkXuww6ANgEQ6pJxpWhiEdE3sJ2mLIUhoEw6M
+	 5Q/RQ5o1DLhAN6Lt+o5cZYlgWqSF7jrC8lHkuUw8McV7KBwUx4rUuiVQSGYwLPGwfr
+	 DZk4o+p9g7byxQPhq6mPR16RvEMh9i0wjaMArxgxO1wKNBeXiN/RLRGphJNe7T860O
+	 Tetp2SgzldBebdxocTN+OdFxbmMKcIX7ydtid3rPxVPj+kaZDGMiA0ubUlRSsfN0Vy
+	 zZgocxgHXk/QA==
+Message-ID: <c1f92faf-2a8d-4b4a-bc28-1750938b5b57@kernel.org>
+Date: Tue, 24 Nov 2026 09:09:10 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,23 +51,119 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123202616.17334-5-gerard@teslabs.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/4] powerpc/spufs: consider vm_pgoff in
+ spufs_mem_mmap_access()
+To: Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Willy Tarreau <w@1wt.eu>,
+ Jani Nikula <jani.nikula@linux.intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko Ursulin
+ <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Chris Wilson <chris@chris-wilson.co.uk>,
+ Matthew Auld <matthew.auld@intel.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>, Rik van Riel <riel@redhat.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ linuxppc-dev@lists.ozlabs.org, stable@vger.kernel.org
+References: <20261122-access_shite-v2-0-808d8d2aa700@kernel.org>
+ <20261122-access_shite-v2-3-808d8d2aa700@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261122-access_shite-v2-3-808d8d2aa700@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Mon, Nov 23, 2026 at 09:26:15PM +0100, Gerard Marull-Paretas wrote:
-> Read the mount matrix from the firmware and expose it, so that user
-> space can account for how the sensor is oriented on the board.
+On 11/22/26 18:55, David Hildenbrand (Arm) wrote:
+> spufs_mem_mmap_access() calculates the local store offset relative to the
+> start of the VMA and ignores vm_pgoff. After VMA splits, debugger reads and
+> writes access the wrong part of the local store. Mappings created with a
+> nonzero file offset have the same problem.
+> 
+> Properly take the vm_pgoff into account, just like spufs_mem_mmap_fault()
+> already does.
+> 
+> Fixes: a352894d0705 ("spufs: use new vm_ops->access to allow local state access from gdb")
+> Cc: stable@vger.kernel.org
+> Acked-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> ---
+>  arch/powerpc/platforms/cell/spufs/file.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/powerpc/platforms/cell/spufs/file.c b/arch/powerpc/platforms/cell/spufs/file.c
+> index 98c47bafaf678..0a46d6f7178ab 100644
+> --- a/arch/powerpc/platforms/cell/spufs/file.c
+> +++ b/arch/powerpc/platforms/cell/spufs/file.c
+> @@ -248,7 +248,8 @@ static int spufs_mem_mmap_access(struct vm_area_struct *vma,
+>  				void *buf, int len, int write)
+>  {
+>  	struct spu_context *ctx = vma->vm_file->private_data;
+> -	unsigned long offset = address - vma->vm_start;
+> +	unsigned long offset = address - vma->vm_start +
+> +			       (vma->vm_pgoff << PAGE_SHIFT);
+>  	char *local_store;
+>  
+>  	if (write && !(vma->vm_flags & VM_WRITE))
+> 
 
-There is no explicit ACPI support, so the mount matrix enabling is
-straightforward.
+If I can get an ACK on this change, I'll merge it through the mm-core tree.
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+Unless maintainers want to pick this here separately. Patch #4 might make it
+easier to trigger, though.
 
 -- 
-With Best Regards,
-Andy Shevchenko
+Cheers,
 
-
+David
