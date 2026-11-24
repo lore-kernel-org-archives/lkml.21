@@ -1,56 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795538749;
-	b=hnHdRDsoVXlIje8dAw0Jg1gwFYYPiIpHihfDMP6XUkrm0rG5G6jhlQJpig/4S69Pu/OD
-	 bj4Jz1JtDHzarZ8CUVO5ocaKvXXDUCQZ2HEDBvBUbStOLGyl9uH3tvYYmGnKuyML+XL3O
-	 gUrJ/K4fDLAIZraHb6iU3j568ZM7AAdz65AZ+h85Xvla4XvzfkVBgqMhT86wZK4qrnsLk
-	 VzMZ4NkzPBeOQcVju5rjKRzWQhu2/B7X9yMoRcG2nBqMLE8Eqvoar7H2raekces0C/ygt
-	 HO3plnO3/FS20PrQDWKonGkivDgBtSODqHjCWZfQy6RVDp6WPvc9bc83sZWAJ0PrE9w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	b=k/iYV9j1Z8EQrhF0RXfkQzihAcFpYqAtTtUZKsPRvmQwofwUUQSdh+9ITvNT/VUGWc7x
+	 x6pX/u4+PCoNscokShr6SbL16ClfJ0vqKPOcRpkpbKLAA/oOHCOwngQxrAjMaNXySfWvk
+	 /hP5qL5BW4cXdaof7D3mg7udgk7b0buVXxK8b5h8+LEHqNnIMX09M5iieTWR51gdplvwz
+	 JpUQ7GCxuGlOGewdMBadiTsHd730qoYkYnxa+9PNPEzvUHI+ZefagGZwR8f9UOcf67IBp
+	 8clcqOpTPVo9Dl0b7Hjwe8WvG+ExPmuy5zNUvpANfdNcwTdQMbxshuyho5IigeK/8gA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795538749;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
-	bh=NxEUqxMS4+QPrlaTVEWgJwJSWYwUiBTj4xqIdeG8VuI=;
-	b=c6hs31roB6kRA28bVebgk3uvyn8FYF5Zxf5WR+zoiaeZGMKTAuB1TlWKvx0py73UCOzE
-	 v7LG4DRrhrQwTggHTHaZHW26+s+OrtJbR0GzsAOa4cYkeY2kb8ob2cqLP+vbTGDRuv70Z
-	 ZPzj6eP1tiVZOK78nP5iZtRLhETAjVlZdF10IxE4mmW530ZPRhVbPWAuGgRGJOxd+Gjse
-	 CVoqcunpmPf05qNgg1Ue0ImEF5/TnD0Lnbz7zW7cKGTcJ6TMJalq1mUYOOL6aWnUpmm2p
-	 gvws3o6cs2dDUlA3jDTp4W6s45uFGKgwcbuw2Uxnw9khcPfb8/uJiPAfFYjWOR0YOtQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rong.moe;
-	spf=pass smtp.mailfrom=rong.moe;
-	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=j+SuMpjC;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=6E55DgioevsqnUthVC0I7AGghmjRxCtN2YxQEDFNluI=;
+	b=siG51lfxoclzRDd7UPAzTAinPpnwmxJk4mlLR0mBzUe8e9KUQKt7w6k+UZkefRk87Iev
+	 eIk6LZ74U64pTsUvmbgv4wThWB1FJ3NsQJpxGB5m5G6noBbAeQp5LQKhevhCoiG0LaEy8
+	 OJ3d6dQhnid54iBkaN/9tlDCTur6iDRgU3sOfbJxapFLm90No6DvOE9ykJD02VaCOt+XJ
+	 95VUwgJhqmawVx+t9FCeyQeqRAyvFOx5EjVS4FFvwl5vrl6is8c1kBIRu/YwyeZfYNNam
+	 GKVMIeubu+YSg0FfbKdM40ICPpGoNSj3gfLB3yYkkvRclrNE4lEVLqVndcKdcWlaaew==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=FtWrwjiL;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFC28606A323;
-	Tue, 24 Nov 2026 16:45:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DFC28606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DED89606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:45:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DED89606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=j+SuMpjC
-ARC-Seal: i=1; a=rsa-sha256; t=1795538706; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=hBw7/fL+7KNbfb2O6t/yUndg7jvZphFbt0KjZyW6VH/GfxRVH5PDanZiZdZswWhUnN8y3yRZzEOCYZvTYZXQuPoDyhTaZCnNHtgafWk5cJsQmNzsoDs5hg5D4Mu2/JfOPIuHNoREaqkgboy7aEcc3UEFUfpsf5WsrGLNdZT+eQY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795538706; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=NxEUqxMS4+QPrlaTVEWgJwJSWYwUiBTj4xqIdeG8VuI=; 
-	b=HhtG0/YORTLcH1iFSvA0p7zRqb5kS0KtedG2bngTNjE6IwSCQbXvvGzWWzggTAZsjIKEC0qXcXarjnmod99KoRmzJ1f+0ndfg1LonTIcehIXpIQJhUR+D/p1y1hNHRvwBO8XrWD8ar70tfbNiJ+8dxss76IWTv81SlwfIkgpfKE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: a=rsa-sha256; b=j+SuMpjCQK1dtnTgay5IQIcy7CDGV3eL2KQN+OY0LydmB5njXLP9fPEGaGpzRf70YJ2PMeUJ3lsFZC3plIObpkzukmbZC2SPflVe+Q2pYqNTaqSpBaQBcz89PgrWwIymYZkJxPiMIb8+rEq3UmILHKTIxDS5/Y0ckIJfMjCvKC4dNRpf5IfTcK1TZ9rg5891JbNT9Hd8c98+JydByDOA16fsYaXMMOj3SRLgTBBIP1VSf2RtXTQIvQVgSgGYITc2ZhBGitfUaFFQLMmbGB+2rnQrQjX/VuZLrONQdnb1kiyrXC/ZqKGUaahCvS7wqqM2i6ZloO+fMqMNwApb964mIQ==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=NxEUqxMS4+QPrlaTVEWgJwJSWYwUiBTj4xqIdeG8VuI=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795538704996748.7946167071358;
-	Tue, 24 Nov 2026 08:45:04 -0800 (PST)
-From: Rong Zhang <i@rong.moe>
-Date: Wed, 25 Nov 2026 00:44:29 +0800
-Subject: [PATCH v4 1/9] HID: haptic: Get rid of input_ff_destroy() in error
- paths
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=FtWrwjiL
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 822D44E41764;
+	Tue, 24 Nov 2026 16:45:47 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 507E0601E1;
+	Tue, 24 Nov 2026 16:45:47 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7C89111E69A69;
+	Tue, 24 Nov 2026 17:45:40 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795538746; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=6E55DgioevsqnUthVC0I7AGghmjRxCtN2YxQEDFNluI=;
+	b=FtWrwjiLDpjgJsxc1XvsmFhtN/v+unropdAzhWXUR0mbi7oKuM+1dDUVmCZr9Kk2i285+D
+	OGRh1tSlN5b0GbSsk7neg523du9ZKzbvl/YJpbiFhbq3m/zpeOuC50AlTLRWp+0xKGxnVK
+	0v/Nu7V2dwZ+86FFNXP0hx0/7ho8ddq37E4gHruhiShMvm08tRMMd/CA/qqRPGwakDD15w
+	o7uOGlPQ+BxcsFL6rw1K1k7coG620V7rlyzpyGPLkh7dnK3QYaB+acoMuhIO64NZWQtCs5
+	uIsqj55pjzcP51IpyD4ZVHUF27CWSTKyn6SooDSc4xJBQ5BbRgMlDFQrs6ML4A==
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+Date: Tue, 24 Nov 2026 17:45:20 +0100
+Subject: [PATCH net-next v8 1/3] net: macb: cache ENST config across link
+ down/up
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,123 +65,452 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-hid-haptic-kmod-v4-1-03713a89f656@rong.moe>
-References: <20261125-hid-haptic-kmod-v4-0-03713a89f656@rong.moe>
-In-Reply-To: <20261125-hid-haptic-kmod-v4-0-03713a89f656@rong.moe>
-To: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
- Angela Czubak <aczubak@google.com>, Henrik Rydberg <rydberg@bitmath.org>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Rong Zhang <i@rong.moe>, stable@vger.kernel.org
-X-Mailer: b4 0.17-dev-ce4c1
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261124-macb-set-channels-v8-1-770cf8e50e6d@bootlin.com>
+References: <20261124-macb-set-channels-v8-0-770cf8e50e6d@bootlin.com>
+In-Reply-To: <20261124-macb-set-channels-v8-0-770cf8e50e6d@bootlin.com>
+To: Conor Dooley <conor.dooley@microchip.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Nicolai Buchwitz <nb@tipi-net.de>, Paolo Valerio <pvalerio@redhat.com>, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+ Gregory CLEMENT <gregory.clement@bootlin.com>, 
+ =?utf-8?q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
+ Tawfik Bayouk <tawfik.bayouk@mobileye.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Vineeth Karumanchi <vineeth.karumanchi@amd.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ stable+noautosel@kernel.org
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 
-It's painful to have error paths after calling input_ff_create(),
-because input_ff_destroy() frees too much things but does not restore
-some other things. For example, every error path calling
-input_ff_destroy() frees ff->private, while the others don't. This
-divergence has caused quite a lot of trouble.
+Currently, ENST is not explicitly restored across interface close/open.
+If HW keeps its register state then ENST is kept, otherwise it is lost;
+but we do not write the ENST schedule again on open.
 
-Additionally, the driver's get_device() bail-out path calls module_put()
-right before hid_haptic_destroy() calling it again, causing refcount
-underflow.
+This causes trouble if the config is not compatible with the new open
+and link-up. The two issues that can occur are a link speed change (as
+all timings are configured in a unit relative to the link speed) or a
+change in the # of queues.
 
-Since commit 2ae35f090d02 ("Input: destroy force-feedback device on
-input unregistration"), the HID device is now guaranteed to have a
-longer lifetime than the FF device, making get_device()/put_device()
-unnecessary.
+The latter is the main reason we do this change before implementing
+ethtool -L support.
 
-Due to the driver being unable to build as a module since commit
-083a4f3f3cc7 ("HID: Kconfig: Fix build error from CONFIG_HID_HAPTIC"),
-try_module_get()/module_put() is needless, too.
+If on link-up, the cached ENST config is invalid (link speed changed),
+then we drop the cached config, log a warning and explicitly override
+all ENST timings previously configured in the registers. If it is
+valid, we explicitly re-apply it.
 
-Remove the said calls, so that there is no error path after
-input_ff_create(), eliminating the call to input_ff_destroy(). In this
-manner, we don't need to restore dev->flush and dev->event either.
+Take this opportunity to replace a kmalloc in
+macb_taprio_setup_replace() with a simple and tiny (104b) stack value.
 
-Fixes: 083a4f3f3cc7 ("HID: Kconfig: Fix build error from CONFIG_HID_HAPTIC")
-Cc: stable@vger.kernel.org
-Suggested-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Link: https://msgid.link/f44447354f28c295e79a025bbcab7a4e@gmail.com
-Signed-off-by: Rong Zhang <i@rong.moe>
+Drop the old hack of checking for pm_runtime_suspended(), which has
+little value because we could race with the runtime_suspend() call.
+
+Synchronise our config using the existing bp->mac_cfg_lock mutex, taken
+by macb_taprio_setup_replace() and macb_taprio_destroy(). To avoid an
+ABBA deadlock between bp->mac_cfg_lock and phydev->lock taken by
+phylink_ethtool_ksettings_get(), cache the link speed as bp->speed_mbps.
+
+Fixes: 89934dbf169e ("net: macb: Add TAPRIO traffic scheduling support")
+Cc: <stable+noautosel@kernel.org> # more a feature than a bugfix!
+Signed-off-by: Théo Lebrun <theo.lebrun@bootlin.com>
 ---
-Changes in v4:
-- Drop get_device()/put_device() and try_module_get()/module_put()
-  completely, as they are needless now (thanks Dmitry Torokhov)
----
- drivers/hid/hid-haptic.c | 25 -------------------------
- 1 file changed, 25 deletions(-)
+ drivers/net/ethernet/cadence/macb.h      |  47 +++++---
+ drivers/net/ethernet/cadence/macb_main.c | 187 +++++++++++++++----------------
+ 2 files changed, 124 insertions(+), 110 deletions(-)
 
-diff --git a/drivers/hid/hid-haptic.c b/drivers/hid/hid-haptic.c
-index b7fadfbddc4c..c675e14f06e1 100644
---- a/drivers/hid/hid-haptic.c
-+++ b/drivers/hid/hid-haptic.c
-@@ -380,12 +380,8 @@ static int hid_haptic_erase(struct input_dev *dev, int effect_id)
- static void hid_haptic_destroy(struct ff_device *ff)
- {
- 	struct hid_haptic_device *haptic = ff->private;
--	struct hid_device *hdev = haptic->hdev;
- 	int r;
+diff --git a/drivers/net/ethernet/cadence/macb.h b/drivers/net/ethernet/cadence/macb.h
+index b7b4b6a38298..00258866623f 100644
+--- a/drivers/net/ethernet/cadence/macb.h
++++ b/drivers/net/ethernet/cadence/macb.h
+@@ -1327,6 +1327,35 @@ struct macb_context {
+ 	struct macb_txq		txq[MACB_MAX_QUEUES];
+ };
  
--	if (hdev)
--		put_device(&hdev->dev);
++/**
++ * struct macb_queue_enst_config - Configuration for Enhanced Scheduled Traffic
++ * @start_time_mask:  Bitmask representing the start time for the queue
++ * @on_time_bytes:    "on" time nsec expressed in bytes
++ * @off_time_bytes:   "off" time nsec expressed in bytes
++ *
++ * This structure holds the configuration parameters for an ENST queue,
++ * used to control time-based transmission scheduling in the MACB driver.
++ */
++struct macb_queue_enst_config {
++	u32 start_time_mask;
++	u32 on_time_bytes;
++	u32 off_time_bytes;
++};
++
++/**
++ * struct macb_enst - Cached Enhanced Scheduled Traffic configuration
++ * @queues:     per-queue timing (zeroed for queues without schedule)
++ * @speed_mbps: link speed the timings were computed for, 0 if no schedule
++ * @queue_mask: queues enabled by the current schedule, 0 if no schedule
++ *
++ * The timings are expressed in bytes, so they depend on the link speed.
++ */
++struct macb_enst {
++	struct macb_queue_enst_config	queues[MACB_MAX_QUEUES];
++	u32				speed_mbps;
++	u32				queue_mask;
++};
++
+ struct macb {
+ 	void __iomem		*regs;
+ 	bool			native_io;
+@@ -1427,11 +1456,14 @@ struct macb {
+ 
+ 	/* Redundant to netif_carrier_ok(), but set under bp->mac_cfg_lock. */
+ 	bool			link_up;
++	u32			speed_mbps;
+ 
+ 	u32	rx_intr_mask;
+ 
+ 	struct macb_pm_data pm_data;
+ 	const struct macb_usrio_config *usrio;
++
++	struct macb_enst enst;
+ };
+ 
+ #ifdef CONFIG_MACB_USE_HWSTAMP
+@@ -1532,19 +1564,4 @@ struct macb_platform_data {
+ 	struct clk	*hclk;
+ };
+ 
+-/**
+- * struct macb_queue_enst_config - Configuration for Enhanced Scheduled Traffic
+- * @start_time_mask:  Bitmask representing the start time for the queue
+- * @on_time_bytes:    "on" time nsec expressed in bytes
+- * @off_time_bytes:   "off" time nsec expressed in bytes
+- *
+- * This structure holds the configuration parameters for an ENST queue,
+- * used to control time-based transmission scheduling in the MACB driver.
+- */
+-struct macb_queue_enst_config {
+-	u32 start_time_mask;
+-	u32 on_time_bytes;
+-	u32 off_time_bytes;
+-};
 -
- 	kfree(haptic->stop_effect.report_buf);
- 	haptic->stop_effect.report_buf = NULL;
+ #endif /* _MACB_H */
+diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+index 9f6111661b40..1e0666692116 100644
+--- a/drivers/net/ethernet/cadence/macb_main.c
++++ b/drivers/net/ethernet/cadence/macb_main.c
+@@ -847,6 +847,7 @@ static void macb_mac_link_down(struct phylink_config *config, unsigned int mode,
+ 	mutex_lock(&bp->mac_cfg_lock);
  
-@@ -404,8 +400,6 @@ static void hid_haptic_destroy(struct ff_device *ff)
+ 	bp->link_up = false;
++	bp->speed_mbps = 0;
  
- 	kfree(haptic->hid_usage_map);
- 	haptic->hid_usage_map = NULL;
--
--	module_put(THIS_MODULE);
+ 	if (!(bp->caps & MACB_CAPS_MACB_IS_EMAC))
+ 		for (q = 0, queue = bp->queues; q < bp->num_queues; ++q, ++queue)
+@@ -955,6 +956,43 @@ static void gem_shuffle_tx_rings(struct macb *bp)
+ 		gem_shuffle_tx_one_ring(queue);
  }
  
- int hid_haptic_init(struct hid_device *hdev,
-@@ -419,8 +413,6 @@ int hid_haptic_init(struct hid_device *hdev,
- 	};
- 	const char *prefix = "hid-haptic";
- 	char *name;
--	int (*flush)(struct input_dev *dev, struct file *file);
--	int (*event)(struct input_dev *dev, unsigned int type, unsigned int code, int value);
++static void macb_apply_enst_config(struct macb *bp)
++{
++	struct macb_queue_enst_config *config;
++	struct macb_queue *queue;
++	u32 queue_mask;
++	size_t q;
++
++	/* Short-circuit to avoid writing to invalid register offsets */
++	if (!(bp->caps & MACB_CAPS_QBV))
++		return;
++
++	guard(spinlock_irqsave)(&bp->lock);
++
++	/* Disable ENST for all queues.
++	 * Reconfiguring timings must be done with ENST disabled.
++	 */
++	queue_mask = BIT_U32(bp->num_queues) - 1;
++	gem_writel(bp, ENST_CONTROL,
++		   queue_mask << GEM_ENST_DISABLE_QUEUE_OFFSET);
++
++	for (q = 0, queue = bp->queues; q < bp->num_queues; ++q, ++queue) {
++		/* Configure queue timing registers.
++		 *
++		 * Those fields must be zero if the queue has ENST disabled:
++		 * notice we don't bother reading bp->enst.queue_mask & BIT(q).
++		 */
++		config = &bp->enst.queues[q];
++		queue_writel(queue, ENST_START_TIME, config->start_time_mask);
++		queue_writel(queue, ENST_ON_TIME, config->on_time_bytes);
++		queue_writel(queue, ENST_OFF_TIME, config->off_time_bytes);
++	}
++
++	/* Enable ENST for all configured queues in one write */
++	if (bp->enst.queue_mask)
++		gem_writel(bp, ENST_CONTROL, bp->enst.queue_mask);
++}
++
+ static void macb_mac_link_up(struct phylink_config *config,
+ 			     struct phy_device *phydev,
+ 			     unsigned int mode, phy_interface_t interface,
+@@ -972,6 +1010,7 @@ static void macb_mac_link_up(struct phylink_config *config,
+ 	spin_lock_irqsave(&bp->lock, flags);
  
- 	haptic->hdev = hdev;
- 	haptic->max_waveform_id = max(2u, haptic->max_waveform_id);
-@@ -499,8 +491,6 @@ int hid_haptic_init(struct hid_device *hdev,
+ 	bp->link_up = true;
++	bp->speed_mbps = speed > 0 ? speed : 0;
  
- 	input_set_capability(dev, EV_FF, FF_HAPTIC);
+ 	ctrl = macb_or_gem_readl(bp, NCFGR);
  
--	flush = dev->flush;
--	event = dev->event;
- 	ret = input_ff_create(dev, FF_MAX_EFFECTS);
- 	if (ret) {
- 		dev_err(&hdev->dev, "Failed to create ff device.\n");
-@@ -513,23 +503,8 @@ int hid_haptic_init(struct hid_device *hdev,
- 	ff->playback = hid_haptic_playback;
- 	ff->erase = hid_haptic_erase;
- 	ff->destroy = hid_haptic_destroy;
--	if (!try_module_get(THIS_MODULE)) {
--		dev_err(&hdev->dev, "Failed to increase module count.\n");
--		goto input_free;
+@@ -1009,6 +1048,15 @@ static void macb_mac_link_up(struct phylink_config *config,
+ 
+ 	spin_unlock_irqrestore(&bp->lock, flags);
+ 
++	if (bp->enst.speed_mbps && speed != bp->enst.speed_mbps) {
++		netdev_warn(bp->netdev,
++			    "TAPRIO dropped because link speed changed\n");
++
++		memset(&bp->enst, 0, sizeof(bp->enst));
++	}
++
++	macb_apply_enst_config(bp);
++
+ 	if (!(bp->caps & MACB_CAPS_MACB_IS_EMAC)) {
+ 		macb_set_tx_clk(bp, speed);
+ 		gem_shuffle_tx_rings(bp);
+@@ -4754,19 +4802,23 @@ static int macb_taprio_setup_replace(struct net_device *netdev,
+ 				     struct tc_taprio_qopt_offload *conf)
+ {
+ 	u64 total_on_time = 0, start_time_sec = 0, start_time = conf->base_time;
+-	u32 configured_queues = 0, speed = 0, start_time_nsec;
+-	struct macb_queue_enst_config *enst_queue;
+-	struct ethtool_link_ksettings kset = {};
++	u32 configured_queues = 0, start_time_nsec;
+ 	struct macb *bp = netdev_priv(netdev);
+ 	struct tc_taprio_sched_entry *entry;
+-	struct macb_queue *queue;
+-	u32 queue_mask;
++	struct macb_enst config = {};
+ 	u8 queue_id;
+-	size_t i, q;
+-	int err;
++	u64 off;
++	size_t i;
++
++	guard(mutex)(&bp->mac_cfg_lock);
++
++	if (unlikely(!bp->speed_mbps)) {
++		netdev_err(netdev, "Invalid speed, link-down?\n");
++		return -EINVAL;
++	}
+ 
+ 	if (conf->num_entries > bp->num_queues) {
+-		netdev_err(netdev, "Too many TAPRIO entries: %zu > %d queues\n",
++		netdev_err(netdev, "Too many TAPRIO entries: %zu > %u active queues\n",
+ 			   conf->num_entries, bp->num_queues);
+ 		return -EINVAL;
+ 	}
+@@ -4777,23 +4829,6 @@ static int macb_taprio_setup_replace(struct net_device *netdev,
+ 		return -ERANGE;
+ 	}
+ 
+-	/* Get the current link speed */
+-	err = phylink_ethtool_ksettings_get(bp->phylink, &kset);
+-	if (unlikely(err)) {
+-		netdev_err(netdev, "Failed to get link settings: %d\n", err);
+-		return err;
 -	}
--	if (!get_device(&hdev->dev)) {
--		dev_err(&hdev->dev, "Failed to get hdev device.\n");
--		module_put(THIS_MODULE);
--		goto input_free;
+-
+-	speed = kset.base.speed;
+-	if (unlikely(speed == SPEED_UNKNOWN || !speed)) {
+-		netdev_err(netdev, "Invalid speed %d, link-down?\n", speed);
+-		return -EINVAL;
 -	}
- 	return 0;
+-
+-	enst_queue = kzalloc_objs(*enst_queue, bp->num_queues);
+-	if (unlikely(!enst_queue))
+-		return -ENOMEM;
+-
+ 	/* Pre-validate all entries before making any hardware changes */
+ 	for (i = 0; i < conf->num_entries; i++) {
+ 		entry = &conf->entries[i];
+@@ -4801,25 +4836,23 @@ static int macb_taprio_setup_replace(struct net_device *netdev,
+ 		if (entry->command != TC_TAPRIO_CMD_SET_GATES) {
+ 			netdev_err(netdev, "Entry %zu: unsupported command %d\n",
+ 				   i, entry->command);
+-			err = -EOPNOTSUPP;
+-			goto cleanup;
++			return -EOPNOTSUPP;
+ 		}
  
--input_free:
--	input_ff_destroy(dev);
--	/* Restore dev flush and event */
--	dev->flush = flush;
--	dev->event = event;
--	return ret;
- stop_buffer_free:
- 	kfree(haptic->stop_effect.report_buf);
- 	haptic->stop_effect.report_buf = NULL;
+ 		/* Validate gate_mask: must be nonzero, single queue, and within range */
+ 		if (!is_power_of_2(entry->gate_mask)) {
+ 			netdev_err(netdev, "Entry %zu: gate_mask 0x%x is not a power of 2 (only one queue per entry allowed)\n",
+ 				   i, entry->gate_mask);
+-			err = -EINVAL;
+-			goto cleanup;
++			return -EINVAL;
+ 		}
+ 
+ 		/* gate_mask must not select queues outside the valid queues */
+ 		queue_id = order_base_2(entry->gate_mask);
+ 		if (queue_id >= bp->num_queues) {
+-			netdev_err(netdev, "Entry %zu: gate_mask 0x%x exceeds queue range (max_queues=%d)\n",
+-				   i, entry->gate_mask, bp->num_queues);
+-			err = -EINVAL;
+-			goto cleanup;
++			netdev_err(netdev, "Entry %zu: gate_mask 0x%x exceeds active queue range (num_queues=%u)\n",
++				   i, entry->gate_mask,
++				   bp->num_queues);
++			return -EINVAL;
+ 		}
+ 
+ 		/* Check for start time limits */
+@@ -4828,34 +4861,33 @@ static int macb_taprio_setup_replace(struct net_device *netdev,
+ 		if (start_time_sec > GENMASK(GEM_START_TIME_SEC_SIZE - 1, 0)) {
+ 			netdev_err(netdev, "Entry %zu: Start time %llu s exceeds hardware limit\n",
+ 				   i, start_time_sec);
+-			err = -ERANGE;
+-			goto cleanup;
++			return -ERANGE;
+ 		}
+ 
+ 		/* Check for on time limit */
+-		if (entry->interval > enst_max_hw_interval(speed)) {
++		if (entry->interval > enst_max_hw_interval(bp->speed_mbps)) {
+ 			netdev_err(netdev, "Entry %zu: interval %u ns exceeds hardware limit %llu ns\n",
+-				   i, entry->interval, enst_max_hw_interval(speed));
+-			err = -ERANGE;
+-			goto cleanup;
++				   i, entry->interval,
++				   enst_max_hw_interval(bp->speed_mbps));
++			return -ERANGE;
+ 		}
+ 
+ 		/* Check for off time limit*/
+-		if ((conf->cycle_time - entry->interval) > enst_max_hw_interval(speed)) {
++		off = conf->cycle_time - entry->interval;
++		if (off > enst_max_hw_interval(bp->speed_mbps)) {
+ 			netdev_err(netdev, "Entry %zu: off_time %llu ns exceeds hardware limit %llu ns\n",
+-				   i, conf->cycle_time - entry->interval,
+-				   enst_max_hw_interval(speed));
+-			err = -ERANGE;
+-			goto cleanup;
++				   i, off,
++				   enst_max_hw_interval(bp->speed_mbps));
++			return -ERANGE;
+ 		}
+ 
+-		enst_queue[queue_id].start_time_mask =
++		config.queues[queue_id].start_time_mask =
+ 			(start_time_sec << GEM_START_TIME_SEC_OFFSET) |
+ 			start_time_nsec;
+-		enst_queue[queue_id].on_time_bytes =
+-			enst_ns_to_hw_units(entry->interval, speed);
+-		enst_queue[queue_id].off_time_bytes =
+-			enst_ns_to_hw_units(conf->cycle_time - entry->interval, speed);
++		config.queues[queue_id].on_time_bytes =
++			enst_ns_to_hw_units(entry->interval, bp->speed_mbps);
++		config.queues[queue_id].off_time_bytes =
++			enst_ns_to_hw_units(off, bp->speed_mbps);
+ 
+ 		configured_queues |= entry->gate_mask;
+ 		total_on_time += entry->interval;
+@@ -4866,82 +4898,47 @@ static int macb_taprio_setup_replace(struct net_device *netdev,
+ 	if (total_on_time > conf->cycle_time) {
+ 		netdev_err(netdev, "Total ON %llu ns exceeds cycle time %llu ns\n",
+ 			   total_on_time, conf->cycle_time);
+-		err = -EINVAL;
+-		goto cleanup;
++		return -EINVAL;
+ 	}
+ 
+ 	netdev_dbg(netdev, "TAPRIO setup: %zu entries, base_time=%lld ns, cycle_time=%llu ns\n",
+ 		   conf->num_entries, conf->base_time, conf->cycle_time);
+ 
+-	/* All validations passed - proceed with hardware configuration */
+-	scoped_guard(spinlock_irqsave, &bp->lock) {
+-		/* Disable ENST queues if running before configuring */
+-		queue_mask = BIT_U32(bp->num_queues) - 1;
+-		gem_writel(bp, ENST_CONTROL,
+-			   queue_mask << GEM_ENST_DISABLE_QUEUE_OFFSET);
++	config.queue_mask = configured_queues;
++	config.speed_mbps = bp->speed_mbps;
++	bp->enst = config;
+ 
+-		for (q = 0, queue = bp->queues; q < bp->num_queues; ++q, ++queue) {
+-			/* Configure queue timing registers */
+-			queue_writel(queue, ENST_START_TIME,
+-				     enst_queue[q].start_time_mask);
+-			queue_writel(queue, ENST_ON_TIME,
+-				     enst_queue[q].on_time_bytes);
+-			queue_writel(queue, ENST_OFF_TIME,
+-				     enst_queue[q].off_time_bytes);
+-		}
+-
+-		/* Enable ENST for all configured queues in one write */
+-		gem_writel(bp, ENST_CONTROL, configured_queues);
+-	}
++	macb_apply_enst_config(bp);
+ 
+ 	netdev_info(netdev, "TAPRIO configuration completed successfully: %zu entries, %d queues configured\n",
+ 		    conf->num_entries, hweight32(configured_queues));
+ 
+-cleanup:
+-	kfree(enst_queue);
+-	return err;
++	return 0;
+ }
+ 
+ static void macb_taprio_destroy(struct net_device *netdev)
+ {
+ 	struct macb *bp = netdev_priv(netdev);
+-	struct macb_queue *queue;
+-	u32 queue_mask;
+-	unsigned int q;
++
++	guard(mutex)(&bp->mac_cfg_lock);
+ 
+ 	netdev_reset_tc(netdev);
+-	queue_mask = BIT_U32(bp->num_queues) - 1;
++	memset(&bp->enst, 0, sizeof(bp->enst));
+ 
+-	scoped_guard(spinlock_irqsave, &bp->lock) {
+-		/* Single disable command for all queues */
+-		gem_writel(bp, ENST_CONTROL,
+-			   queue_mask << GEM_ENST_DISABLE_QUEUE_OFFSET);
++	if (bp->link_up)
++		macb_apply_enst_config(bp);
+ 
+-		/* Clear all queue ENST registers in batch */
+-		for (q = 0, queue = bp->queues; q < bp->num_queues; ++q, ++queue) {
+-			queue_writel(queue, ENST_START_TIME, 0);
+-			queue_writel(queue, ENST_ON_TIME, 0);
+-			queue_writel(queue, ENST_OFF_TIME, 0);
+-		}
+-	}
+ 	netdev_info(netdev, "TAPRIO destroy: All gates disabled\n");
+ }
+ 
+ static int macb_setup_taprio(struct net_device *netdev,
+ 			     struct tc_taprio_qopt_offload *taprio)
+ {
+-	struct macb *bp = netdev_priv(netdev);
+ 	int err = 0;
+ 
+ 	if (unlikely(!(netdev->hw_features & NETIF_F_HW_TC)))
+ 		return -EOPNOTSUPP;
+ 
+-	/* Check if Device is in runtime suspend */
+-	if (unlikely(pm_runtime_suspended(&bp->pdev->dev))) {
+-		netdev_err(netdev, "Device is in runtime suspend\n");
+-		return -EOPNOTSUPP;
+-	}
+-
+ 	switch (taprio->cmd) {
+ 	case TAPRIO_CMD_REPLACE:
+ 		err = macb_taprio_setup_replace(netdev, taprio);
 
 -- 
-2.55.0
+2.56.1
 
