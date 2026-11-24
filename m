@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795534169;
-	b=gAy2ToW8Eyor3ZJFHqDKIhn4neB4yTZWuud98iHaTAlecry8KJKAX8mH2OvBjhT1ZlRD
-	 erOz4OByFXA79io5PiRq7d2fjankVUjXmHGZP7i6LHiIvyndq7w4Vn8u2TsNYj0P+9Y6G
-	 P4ufpEbku+/+naLuzzq1SK1NhE5521PAtfmpidpobsc0SbG9p2aoa0iKsGQXY5/pKY3XN
-	 pBwXGhcs+zzgMh8VKG0fy336Yi5yn1wTQY6eBLEgrioBmBf9EIdvFghYO8XRtMbiE+ABE
-	 zhGW+xSItGc8F0uRbEQmR82f7px8yyurDSYQPPDIkbunY39lf9hSx9NuWioE1tz0XUg==
+	t=1795534170;
+	b=DLZvb1I0CNxdJL+MftrjTVlExUNOMneK9cD0hxatnTGutK15HzVAQSrD0J/qJwfdbv9A
+	 tsVLfrRzpW5+IXyUVCRGv6/2wAkYMQ+pengO/LP4LTtFxxqoCnVjDUA0getrhMZLn57+J
+	 dU9a/kgRuw0kve5OoAXY0uEzoh3jwcLTgadX0wJpPk0/DAhSyknUnrs3fwaVEESOfP1kk
+	 VTaws4f5cZ1AxOmH1cPbpurNaIq9KZm4ve6/37fTtOKb0XXmz3bk0cC+l8YGTR8fahLyI
+	 ch6nHBt9oE8h4io5cNrOBVaLO8BKdyZrCEaKBXFnGbBZT02628vdamExexFvGkgmeFA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795534169;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795534170;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=KCmmFYGZgx+JwvyRTb8zdRtAiUdIEZ77HMLwsBCfOrY=;
-	b=Tv3r0zj4QoBRY8SunBW7R4v91TxfGDuAOJuFjaFyEDkrtg3ZcKlLszY6NX+RstKMpAoU
-	 WYtEOqWVxF1Z+unj3yiTh+ptKKejvR5lZ7yoERRlqa6R6e3Gc1VKrZY89kdzIQcLCSAZY
-	 HDGg9lZE7jT+rX6OZthkhvusMBWQlqa7UnirqvJ0J5E/YMd3PAiHROMv8Phm+NO3bZjp7
-	 IWD62gcGYzhuHxCmFzKmdDzPAH5xQx5Bd6ajoUM/caPCZTGeHfH2Eg+9xcwLp2x4o17Nc
-	 Z+t0uIsUUpfzfSgKgG+CVOvJIDqVJTnIwzvkUJBSH/xOBhNhetd5HFIzzz45lgQ4uUQ==
+	bh=CtGiWyJqdsDfW25/kKrYUtQQXV4c5pNEpPrlJDPGzlc=;
+	b=uG92MoZKSy9sRUa+90GjdO694TTJa/oVes3NFP2Zk5PbgbFXnotzQuxBr1HGAzH5BwFR
+	 tAqaYDpRtusqOCMYqiMtIV2jAjtflmE3Yf1C5zeFI1yYyh9h6MOYcA1FQrQj8/1yvy5Yu
+	 6HhnEP7YGV9ie/eLQgsjilL9r5YxnObpEj6l8GRJezxp3sFA7EpSeo8ZOw7pWxXIM25CM
+	 jZUir8uHCzPhdu5QyICv8oVjLg4i3I/gXCFIdb7lAuspUqA6nlgJD3FzKUV+F0/m/xwnW
+	 BbCe+1UrCtMgl05QHai7vWHT2Cax0albUX3TQZRARDRtiUBqXDRwxS9OHQQChwWfmSA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--vdonnefort.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=P4vS2nwx;
-	arc=none smtp.remote-ip=209.85.128.71
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com [209.85.128.71])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=VdfCctRO;
+	arc=none smtp.remote-ip=209.85.221.72
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com [209.85.221.72])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20D10606A33A
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:29:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20D10606A33A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C07160A2614
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:29:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C07160A2614
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--vdonnefort.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=P4vS2nwx
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-49febef74e3so39420085e9.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:29:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=VdfCctRO
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-490d2ac331bso4088028f8f.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:29:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795534167; x=1796138967; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795534169; x=1796138969; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=KCmmFYGZgx+JwvyRTb8zdRtAiUdIEZ77HMLwsBCfOrY=;
-        b=P4vS2nwxWayRhsGlY+OO6p/RgeHfIxKhAUOwXiD07f3eXx9VKtPq5mh7WlX39CiwhR
-         rkBR4YrFTIuiXqxclJoUcvCjqGE8f5eJ1z471DDG3IJN78O4iJ61Di7mB8bxj1BieAEF
-         Ler1nwXkrPA6WQcWsT9vekISkWvJR1gPERxcJP+ewyfRnyiQyNERPQUIM3RVsLLqw0IJ
-         htO1uByQL6abgc2YHFqSsQctNMjzhriWVUQirDNALRoZzzxvOnTqnRFEpX40UhD80pEb
-         t9SP085/H0+QdasXEgANuSmzmbeaIrNzeuWawdqiV83Qelrn/m0A302lhygOQR38D92W
-         lCfQ==
+        bh=CtGiWyJqdsDfW25/kKrYUtQQXV4c5pNEpPrlJDPGzlc=;
+        b=VdfCctROFBof7wQDQIkz9UFLUBHf50vhZUezaBVpyjwertM6RA7INHAfO/+PY3xUJ3
+         V7YBAZ5+22ibaSJXmf6laqRLI2XlSvBgT71h6LTCdPAcwNyn4T7aMgNFZN5WZjpheeiF
+         Y3Ww79UL8XhKKHJKS5OaT3zQKeX5QlSkOpwF7HElatoz2LBciHw8yjXTqXDsoDAxytYj
+         X5xjvF2nBE5ScsKTvKmi3X/HDpd8lX/yuhHvy5CySYNERyOAJbRfHjcJQe5Z1jFGE1vm
+         6J/k7pkcI2VPJBCDBfXTBLixKjCJKdR6B3UWIoWpF1NPGuXa/FWIwHMiL1MovtIuw5Us
+         m76A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795534167; x=1796138967;
+        d=1e100.net; s=20260707; t=1795534169; x=1796138969;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=KCmmFYGZgx+JwvyRTb8zdRtAiUdIEZ77HMLwsBCfOrY=;
-        b=ISw20dlPzU7Cx6zIWHyuV26X3K4F5RAbnFfzEg3SysMQq0e7Mlf5YqJ9LN60L06nov
-         o+wIUV7D7wQBkUHxw4Z6nJOnxIySlslcjz6WK3RVYgPbzk3xSFTdVdaUlWT3xonOWPiG
-         PGhUHtprYcJfqs7NJCQ4jLKYZ25i/XfEkN8W5XWt1nbUHu3N/XEkWfwWhTdQNLWIlBT7
-         H9KBVrJS9lgA12/Y3Xg0QIbxzpF5Q8B/vVPi3DRkCiJPxA9V86vIJsxpzIN2OgHewCxP
-         t+CSFNRUmrwQ946mN95CL7ghil3ckiHIjUppVsXLcN1Tq2EGsybTHpWo0W1AutVgQsgF
-         MhXA==
-X-Forwarded-Encrypted: i=1; AL+hErEPJndLKZlvBGM0p6wDusbTwJzv8M86L2tyzkI24xSj6VFhyETd2zFlyxO3CN/20agaEy1nUdrHmROlbNE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z++OJ5UoMWOknc2vDKoPfd33CN7xTDgCCPCskS0l2J1jilv68nm
-	Gp89xXn/eGeLnkTzkYX6nPNjj3niRUGzLGmZrvHuvxX5SBgCRzRkzKp1u1MKi61+CDUAmTNW0KG
-	0acuocPmfkUsW/ApsAgJLlw==
-X-Received: from wmmr3.prod.google.com ([2002:a05:600c:4243:b0:4a3:5d77:a650])
+        bh=CtGiWyJqdsDfW25/kKrYUtQQXV4c5pNEpPrlJDPGzlc=;
+        b=YCxeUT+heHZ5fwnyzRQZGtvNx1PzPWgBRjGYnmerhkvLT7CZ0XWrdOIoc4j2efhPRI
+         KTKkOVHnZOYzdFxvuvvIYkvxys9phabEgVQ2q/Lh21ObZZMiqzDAcFnafUEMF3dKTT+D
+         VSKL9FZE9Y1apkaa1K47UiJPWswE8mMOTGLDpUz/mZDQB0zgW6x10sCisD/2PR86g3kF
+         k9iUsjfbkUB6M5hMXZa+y03Pfo9gCOVmxnx3iuWcLKzNr5AZSmet9Fm94/r2VdbtfVC/
+         QWG0Y4dkgzP5UpBi5xc0K/MmFP0W7515x3cU+r1GK1TfwsNojVOx7ZfXrKkl49HL+gjn
+         R8RA==
+X-Forwarded-Encrypted: i=1; AL+hErGq5I39nq6PZOPCcPM1MlVmiiNr5+CEuJqMBOo3kUkvFxu6RIKxVCmujoVgsuM/Eeac3GXdkOBTV0rkrxU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8gpfqslqxTjBS5uKatozPTjN2EV1bv8eY2j9PFsXvGWbmvkE01
+	os3OsE6eH+zVCxTv2HKkz9u2ge46jAnLSvs7DzxMzMe3k1284yM+hYouTeV3QJXssubAQdLrgij
+	mMsPTu5BeVpcDOIU3AqYopQ==
+X-Received: from wmjy5.prod.google.com ([2002:a7b:cd85:0:b0:4bb:6476:9406])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:a085:b0:4bb:85d9:156e with SMTP id 5b1f17b1804b1-4bb8880fe46mr307171115e9.11.1795534167302;
- Tue, 24 Nov 2026 07:29:27 -0800 (PST)
-Date: Tue, 24 Nov 2026 15:28:34 +0000
+ 2002:a05:600d:8449:b0:4bb:8e95:8ce1 with SMTP id 5b1f17b1804b1-4bb8e958ce4mr202525055e9.23.1795534168529;
+ Tue, 24 Nov 2026 07:29:28 -0800 (PST)
+Date: Tue, 24 Nov 2026 15:28:35 +0000
 In-Reply-To: <20261124152845.2233401-1-vdonnefort@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,65 +81,70 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261124152845.2233401-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261124152845.2233401-11-vdonnefort@google.com>
-Subject: [PATCH v9 10/21] tracing/remotes: selftests: Prefix hypervisor folder
+Message-ID: <20261124152845.2233401-12-vdonnefort@google.com>
+Subject: [PATCH v9 11/21] ring-buffer: Use irqsave for the reader lock in ring_buffer_poll_remote
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, 
 	linux-trace-kernel@vger.kernel.org
 Cc: mathieu.desnoyers@efficios.com, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
+	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>, 
+	Sashiko <sashiko-bot@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 
-Rename the hypervisor tests directory to "00hypervisor" to ensure they
-run first. This prevents the hypervisor tests from being interleaved
-with other remote tests which is confusing.
+Calling rb_wakeups with the reader lock held but interrupts enabled can
+lead to a deadlock: the irq_work might run on the same CPU, but will
+block when acquiring that very same reader spinlock.
 
+First, rb_wakeups does not even need to be called under the reader lock.
+Move the function outside of the reader lock scope.
+
+Second, the reader lock must be acquired with IRQs disabled anyway. Use
+the irqsave variant of the spinlock.
+
+Fixes: 2e67fabd8b77 ("ring-buffer: Introduce ring-buffer remotes")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://sashiko.dev/#/patchset/20260602171146.2238998-1-vdonnefort%40google.com # patch 8
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 ---
- .../test.d/remotes/{hypervisor => 00hypervisor}/buffer_size.tc    | 0
- .../ftrace/test.d/remotes/{hypervisor => 00hypervisor}/dmesg.tc   | 0
- .../ftrace/test.d/remotes/{hypervisor => 00hypervisor}/hotplug.tc | 0
- .../ftrace/test.d/remotes/{hypervisor => 00hypervisor}/reset.tc   | 0
- .../ftrace/test.d/remotes/{hypervisor => 00hypervisor}/trace.tc   | 0
- .../test.d/remotes/{hypervisor => 00hypervisor}/trace_pipe.tc     | 0
- .../test.d/remotes/{hypervisor => 00hypervisor}/unloading.tc      | 0
- 7 files changed, 0 insertions(+), 0 deletions(-)
- rename tools/testing/selftests/ftrace/test.d/remotes/{hypervisor => 00hypervisor}/buffer_size.tc (100%)
- rename tools/testing/selftests/ftrace/test.d/remotes/{hypervisor => 00hypervisor}/dmesg.tc (100%)
- rename tools/testing/selftests/ftrace/test.d/remotes/{hypervisor => 00hypervisor}/hotplug.tc (100%)
- rename tools/testing/selftests/ftrace/test.d/remotes/{hypervisor => 00hypervisor}/reset.tc (100%)
- rename tools/testing/selftests/ftrace/test.d/remotes/{hypervisor => 00hypervisor}/trace.tc (100%)
- rename tools/testing/selftests/ftrace/test.d/remotes/{hypervisor => 00hypervisor}/trace_pipe.tc (100%)
- rename tools/testing/selftests/ftrace/test.d/remotes/{hypervisor => 00hypervisor}/unloading.tc (100%)
+ kernel/trace/ring_buffer.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/buffer_size.tc b/tools/testing/selftests/ftrace/test.d/remotes/00hypervisor/buffer_size.tc
-similarity index 100%
-rename from tools/testing/selftests/ftrace/test.d/remotes/hypervisor/buffer_size.tc
-rename to tools/testing/selftests/ftrace/test.d/remotes/00hypervisor/buffer_size.tc
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/dmesg.tc b/tools/testing/selftests/ftrace/test.d/remotes/00hypervisor/dmesg.tc
-similarity index 100%
-rename from tools/testing/selftests/ftrace/test.d/remotes/hypervisor/dmesg.tc
-rename to tools/testing/selftests/ftrace/test.d/remotes/00hypervisor/dmesg.tc
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/hotplug.tc b/tools/testing/selftests/ftrace/test.d/remotes/00hypervisor/hotplug.tc
-similarity index 100%
-rename from tools/testing/selftests/ftrace/test.d/remotes/hypervisor/hotplug.tc
-rename to tools/testing/selftests/ftrace/test.d/remotes/00hypervisor/hotplug.tc
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/reset.tc b/tools/testing/selftests/ftrace/test.d/remotes/00hypervisor/reset.tc
-similarity index 100%
-rename from tools/testing/selftests/ftrace/test.d/remotes/hypervisor/reset.tc
-rename to tools/testing/selftests/ftrace/test.d/remotes/00hypervisor/reset.tc
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/trace.tc b/tools/testing/selftests/ftrace/test.d/remotes/00hypervisor/trace.tc
-similarity index 100%
-rename from tools/testing/selftests/ftrace/test.d/remotes/hypervisor/trace.tc
-rename to tools/testing/selftests/ftrace/test.d/remotes/00hypervisor/trace.tc
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/trace_pipe.tc b/tools/testing/selftests/ftrace/test.d/remotes/00hypervisor/trace_pipe.tc
-similarity index 100%
-rename from tools/testing/selftests/ftrace/test.d/remotes/hypervisor/trace_pipe.tc
-rename to tools/testing/selftests/ftrace/test.d/remotes/00hypervisor/trace_pipe.tc
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/unloading.tc b/tools/testing/selftests/ftrace/test.d/remotes/00hypervisor/unloading.tc
-similarity index 100%
-rename from tools/testing/selftests/ftrace/test.d/remotes/hypervisor/unloading.tc
-rename to tools/testing/selftests/ftrace/test.d/remotes/00hypervisor/unloading.tc
+diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
+index 554013a189b9..928fdd4718ea 100644
+--- a/kernel/trace/ring_buffer.c
++++ b/kernel/trace/ring_buffer.c
+@@ -6928,14 +6928,19 @@ int ring_buffer_poll_remote(struct trace_buffer *buffer, int cpu)
+ 	struct ring_buffer_per_cpu *cpu_buffer;
+ 
+ 	if (cpu != RING_BUFFER_ALL_CPUS) {
++		bool wakeup;
++
+ 		if (!cpumask_test_cpu(cpu, buffer->cpumask))
+ 			return -EINVAL;
+ 
+ 		cpu_buffer = buffer->buffers[cpu];
+ 
+-		guard(raw_spinlock)(&cpu_buffer->reader_lock);
+-		rb_read_remote_meta_page(cpu_buffer);
+-		if (rb_num_of_entries(cpu_buffer))
++		scoped_guard(raw_spinlock_irqsave, &cpu_buffer->reader_lock) {
++			rb_read_remote_meta_page(cpu_buffer);
++			wakeup = rb_num_of_entries(cpu_buffer);
++		}
++
++		if (wakeup)
+ 			rb_wakeups(buffer, cpu_buffer);
+ 
+ 		return 0;
+@@ -6950,7 +6955,7 @@ int ring_buffer_poll_remote(struct trace_buffer *buffer, int cpu)
+ 	for_each_buffer_cpu(buffer, cpu) {
+ 		cpu_buffer = buffer->buffers[cpu];
+ 
+-		guard(raw_spinlock)(&cpu_buffer->reader_lock);
++		guard(raw_spinlock_irqsave)(&cpu_buffer->reader_lock);
+ 		rb_read_remote_meta_page(cpu_buffer);
+ 	}
+ 
 -- 
 2.56.1.809.ga0b61035b5-goog
 
