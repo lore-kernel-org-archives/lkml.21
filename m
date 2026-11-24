@@ -1,100 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.171
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795557969;
-	b=O6J0qY1dZ+VaiA6nagPQACEpTG3Ey9vEciPOOPJVWGwWPZSvQTHqlFYajm5Gn/yqNkzC
-	 J3TKjQ0yQNOCXeVSziwzXRjSmtMbTzw/V++rb/AwwS5pB8lNk4btKCrl1BN+MZZ3bV9h1
-	 NKmOzvNhANwzV4FCOJGa1wD4REFqob5swvv6cE0qaaAJ4gyyRUNE2X+cSoysk5tIH8aX9
-	 UTNueSmF+NyrBqfnU01W6BiR2A2jWTgbIE8G319PJKzpaLO0ALXIXg/Fip2RHdKasjIEP
-	 lav1w7kYvqloMF5V1u2ClaDAQ3U1KwpoTc3hgBwBmbXSHImFRN/nHhBFU/61LFcMbwg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795557969;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=csthBXWoYuqZlipfPcre6aDWuJqEg0KlKenjY0/u3Xc=;
-	b=YuAl95XBBDoaV//xA9zZja6pvFKDGQqSJ4mVl0PITCcAd6QWWc7DDf2SBb0fIaBCwPhG
-	 LWh+1WSj+OcgD7T3RRDSRP756Gq6UhtTEQ1RA/k2RYDgtUYq0qTn8SOfouoN8ljhFcEmL
-	 c0884SxRD24nGAJwkbd3oVu3Y6mK3juIuXMUpO6lKj3a39ISKvZJiMbxgGrrqU+gebqu/
-	 qinaV6D90WPSxgxoudBBQ5bS96Ne9+QakFDzejZJthDqee89/kGfhT4/W9ITYbHgVUI+m
-	 bWmXjfGBdc3QHItpSXbICgKUSBUnsZwShzRaDNfwP9a/zmkmccoqN6Jd8bThexLdkEg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=googlemail.com;
-	spf=pass smtp.mailfrom=googlemail.com;
-	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=d27cduBR;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.171
-Received: from mail-yw1-f171.google.com (mail-yw1-f171.google.com [209.85.128.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.135.74
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795558112;
+	b=ijk0+RoRsUWNI1UJaBaGgNNwX5gkk2bDo5czfQdbT6Kk2axgJElmIPMfQAorKv3evUGG
+	 BmfYBKzAHG1MFGKCylcTR6V4e1vQgsyLMqiYwoYRxmeRIVHNjBoa1TAnv/ug3QQanm45p
+	 JR2I8NT8OXzd6aN0gb70EGGzJ2QF4IaEQsuzdiHAWYpyYP6nyKXXBe0cp4Y0TdqIBuRsO
+	 07hWAz9wJyMgJazqVPBxte357bue+istO8z3Ps5cJjqiJ8p0YiaWY5lPItzjJ6CaKPA1L
+	 GgJWA6XPnDwf7OhrXXZLTXjPDbI90k8dsO9vV/Sr9z87hooGrXguYXHfTRShE+trCAQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795558112;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
+	 X-Received:X-Received:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=wUd7P3Ye34O3sWY6zQup7AwNcEoSACo5n0ZnarzR1XI=;
+	b=aioTTLbycuMbvFqBXVhwdp2MAmF8je9tNs+3cpYipF2kLSYvKXxEZHGawL+4uO92lqnv
+	 yuE2hYOQZNNWyFiU/NRld8JIFMxp8tjHQrXiAUIcZbjJoRmt+dNnPOE/mxX1xXkOzMlOY
+	 IPVsw9cUIXvq9uGDY33Fh56uu/JJJctZ39WVZR+kc1ogktroKqOxtVLlpLh2fQVutNgpO
+	 OOXin4M7r8rQ5nRSOQ18S0ZQdR5yhj05twkR+iddhM7KZ0s29oSIXhjEN/5jLzkc+WAfc
+	 +huVdYOTPraG3YiM7EVtASJFiYnxqSAv0WEjAz8u/4CSNoHMykKBrgKxJ+tQf1ImnlA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=columbia.edu;
+	spf=pass smtp.mailfrom=columbia.edu;
+	dkim=pass header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=JFArw5gx;
+	dkim=pass header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=cpKA93ld;
+	arc=none smtp.remote-ip=148.163.135.74
+Received: from mx0a-00364e01.pphosted.com (mx0a-00364e01.pphosted.com [148.163.135.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23607606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:06:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23607606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CD02606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:08:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8CD02606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=columbia.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=columbia.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=d27cduBR
-Received: by mail-yw1-f171.google.com with SMTP id 00721157ae682-8b360828905so46761797b3.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:06:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795557968; cv=none;
-        d=google.com; s=arc-20260327;
-        b=FQxqeLw7jVl4Wsaw7/Cfe5XGDGjF4PgYolnfbWpYkemPbx/4Rkt4cUIyhOjESG/3bx
-         1T1A2tSIiZgjAjgaNHZd7K2br3LsRgqe1JdTkSvy2/fW5EyMm8RYQAj1J2BL6W8T7dJl
-         nxCYcqnHUBOH1HRJPNtLPErTuu0VsrOkMqp5vdIFRC8F7vCEGU6qJLPgT1NKyLOKBz7c
-         ifp+ul5csCOqpHGLbL/SIZMiJqiggru0ahv3+we2FpqI0rUErukPGZ0zOBmt03eTTFma
-         QwTrIr7LQlr6uaVPL0A4kS3Coa2nPOYCZAD5DDeKiA4P3MrivPnKLUY0zzx5ck0jLlT+
-         gRYA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=csthBXWoYuqZlipfPcre6aDWuJqEg0KlKenjY0/u3Xc=;
-        fh=tBcOtJsyo/hVL/u9vx7l4FRDVT7WQwF/8GwpDSMU1Jw=;
-        b=dfjMiWXy1rZPuwdY7sJ4b0a/L6XqClN7EGjysmXBbLHja7PrwsXVL4kq7jMxKhC+ei
-         Wybb3ar3gFD3agqmLNgoECfeJLqbJl6YQwZhvgZrYKsv6bXt3xxQqGy9ieJ1pYzdkA6P
-         qtzR+37CFWjBNyRIg5b2qzbfFk+RioPU5rcIAldR2Si8+5OAef6qpd2kXwPRdFGTwdGY
-         2/dXIgVT7BBT6U/PUo9foWYQSTleQb+9DyA1jayRz9xf25Ks/bZHdcqcCfG2kJjKyfVT
-         2JqoA1df0s4K7S6feQMZ5tsj+dU14oapmGiZF+53u3dv+LvaniX6iSLEN4Kl4ze2Veho
-         +ehw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=JFArw5gx;
+	dkim=pass (2048-bit key, unprotected) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=cpKA93ld
+Received: from pps.filterd (m0167068.ppops.net [127.0.0.1])
+	by mx0a-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOLXJPv3412684
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:08:31 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=columbia.edu; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=pps01; bh=wUd7P3Ye34O3sWY6zQup7AwNcE
+	oSACo5n0ZnarzR1XI=; b=JFArw5gxspepOPID2sCILSVWBL62zA1klYsJ7L0s3j
+	mOyS6r4fCbJwPN8phjF0SlzHJuEJSmCK4NCDrWcmZiodznvt6H9U3enfhyLB1BBt
+	GMeGTESD6Lu0s7Qe8VxZtF58mFV+ragHiqZ4UG4zd4DocY88bbIwY8EZbM8sod7b
+	tfgD+nSrMRc8NNO1aHJJN8vO4B74oExHRrV5hhuZMlwzv/dGBzdwRfh+TKIDQFQ2
+	9k7HanLce70Lkg9n9hdGqFHcbaZOH7w0Dq0pKOqQDXtVfiz0XOQsTRMxn7l6nK2f
+	vo/0I48irWi0iRqAW5xUVY184z+oZUxe50sCqQ8ViawA==
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	by mx0a-00364e01.pphosted.com (PPS) with ESMTPS id 4j5euktq3g-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:08:30 -0500 (EST)
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-92106c98714so104200796d6.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:08:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20260707; t=1795557968; x=1796162768; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=csthBXWoYuqZlipfPcre6aDWuJqEg0KlKenjY0/u3Xc=;
-        b=d27cduBRSCI4Fx7E8JEwH4YkEnonereNTCPDQf1MqytROJcGGGMvHL3Zr80JbXggHB
-         E0wcnOWFhVTUKUD0qU4PYjj1VflQoE5ZSxKEd+KccQRNVtKdw9S27TVP7NcGTKSV7/KC
-         2oqwPsUkDnZNq1Adzg5tpDhVrgwbH5B3i08sVQv7zGMCmfaxhcJiAAg8b726Rpsr5klY
-         lGfmGJlIEYS/AL74iTCcBG4GzGy14qSYjXFjr17lVGwMVGoX61/OvSCSODiZDouWm5XR
-         fGn7on9CLOGvLFpcz363wjCsxy9b9KK6GE9dxwc6kQlypkH/RvLMRh0ly0GRsC4yElhb
-         ZMJQ==
+        d=columbia.edu; s=lionmail; t=1795558110; x=1796162910; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=wUd7P3Ye34O3sWY6zQup7AwNcEoSACo5n0ZnarzR1XI=;
+        b=cpKA93ld8v1LZnPqOyIfSem64jpgWC0h+R2fzejK1ynoPZg3MapwXMFWB2KgaLxJGM
+         Hm/h0WINz9LX9qtOINdHoY3FEz5+/VwC+MAGo4vpHf3OMAT4XRcq4fRV7B4ePdq1NHzJ
+         2qq1SpWkw5oJ7Ls8EmmdUJ0wqXbhgFdz50SCno88c4UlIGyUbtM82unY3qxEVaD4fMlz
+         Ko7z0Zv5GYuwXMVXfKh8z5KsGsKwTVmax44VWYgTyLrNC+ifp75KEMJkg9h0W+rTgVoL
+         jH06hkEtz7sQVON5uCtz2JDX9oz+f5BQF1++crDoCRVgQMwis6ljyY0jImGdmuCUnGuL
+         NOVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795557968; x=1796162768;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=csthBXWoYuqZlipfPcre6aDWuJqEg0KlKenjY0/u3Xc=;
-        b=lmyyx7Y9y8phHe32B6l1G+jvxNXY/rdSq+7GLtO+dR33RR43QWkTRqgCdB+njG4GJy
-         8E7Qxe91h+8Iad1BWfSMgRimdxRQ8VSsa8wMEnKGVjUEPpfaIzR1kw1Zwp4LPz0oLH3z
-         hHnzekuiOf/jZ3AyzU6Yvl+j8xSBDOr9g3CIJHXYn5EF5XLxIKpILbv0HqxUCln+QHJJ
-         ov9/3LPEWmbhSz1V97b5Q26cv2Ps6tD2lbs9Okg8wuMUQS/Kb2cot+uG59jGgda1t5q2
-         NoU07YgL00iC0FKYC6iXLlP5Y5CbbWS4DWjwqEkg9k5U+3ShpKC3kOFZrbY7L4srvNhr
-         INZA==
-X-Forwarded-Encrypted: i=1; AL+hErGDIEyPPyNuzIWr13t8wdOdvPwu8e7n2rjNpYl6DZ3kEXt0q2mmy94YdeVnW7fNQMhz1QMtFdFCRsqmm1E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/bdFV7OfqVMIEtZJ3ymJVWy6Dp4CWPe2+IG9HErStFlOXuMdO4
-	af2AWLlVeeY0nw3MNoYdgch8r5lQWNjVcMnuntuya8mal2JdkcO2SOjFiXUyGIq/zmk6NpORj3s
-	dtUKrtLGZRQwwbEfy6GCEYv095b6Vy84=
-X-Gm-Gg: AZFdTZfSr5POK9idQy7c5XiS+m6HiFsb/MBHEg/b/hDsfewPuYj11aNtWPw9E2Tyw3q
-	tPnIt+QvhxcUE2v+46I0134HxudIyfFcNz6wl5WLQqmAOz08uzUDPk08Ysk/DcUUDN6AurU7mAH
-	nZlrJi7tqfFys0Q2zpUDSDuF3xXpiekn5VKnB1R5r+X1Q2a4WU+KNrOs/EQNFZznuXyHFIDV5GK
-	KXPHY2GyGw39T6ziRCHpjXyd3Y4EQIAGYQVYIj+mfhFGaztLA9ZZ9I5mimFpQNeWug1PUecMSM3
-	oYfB5s9l/rDazPmMefe6feiM89CnwptiNcX9TkL9JRtHCsP/xUuYDDScCyqhfMswnJlvvWGkEa2
-	rx30r/xS7FCKqma1okwjaArroxUOswyq7eucq4meuz9W7Y9XnfiGnRVmqTjNeUmMfjLXr1g==
-X-Received: by 2002:a05:690c:4806:b0:8b3:33cf:1ff8 with SMTP id
- 00721157ae682-8b52047e1abmr62214977b3.51.1795557968035; Tue, 24 Nov 2026
- 14:06:08 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795558110; x=1796162910;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=wUd7P3Ye34O3sWY6zQup7AwNcEoSACo5n0ZnarzR1XI=;
+        b=uwTs6cdkaN6YRREtz1Xjksna3oDjjHkozbdXyR+v5cSvjawX89lwHB2gZIhpZLHAf/
+         ITl3WQmRB8d5wxxXF/HYdTvOAqW6IB5zHovT+JbYGzr7IFN6wyoNYpcrRnaRsZ6ce3GL
+         M34GUAQbJgsG+O1OZqG4Zhwvkc335WUzDjD6sLiV9RvIhVs9tk1RGL05uYGvsbVOETJD
+         x1r3X0JvRZGbtSXI0RTybdwr5PROWt/wd123tV1AGLb6Znm14TemCyNQR16GW4iZRAki
+         KiPMwzvuroGJ5pslHONt3DYJpXTs/dzuWPgnqAQDNtprwGHXXuAwGVNUtbMNCJOrv8d1
+         l1Hw==
+X-Gm-Message-State: APuU4Z+yB2wg6+E75VZGhbtX8n1Ff33kVFgLvfa6Ljz0Oug1uIT1k7X4
+	DwI5W1XWkRF0rKUmX9b4f4tGjowy3jMCieLHbgmd6yU1LfpC3gciIQKK1Ms7pZTm5x7DWXCFpvz
+	OiCKvw/r2hTmFxqtnhiVs+7dqiXiXRC+3UblMVc2guCDDf0RMeJNtdAYUD+gnUw==
+X-Gm-Gg: AZFdTZeOGHuy/cv2s46c9r8ZI1iMtjY6ou4IIeEzImj7NJ3xSrLGZT/2rsIgmvE7Mi8
+	O8tXhHscmfX+8sTNS8YlOgDukhodwECzMumfK9IJExN2ZrLkwPRL+8mmHaIAfk7wpkwBVJPq/D4
+	IkXpYO10OJjrtVONjpRtu1URS1BD1+tbq+MyMU3P6A/YQ2GC/1ShpgTtW2UgV6yTLR19+6vA+uo
+	KEe6069ob3eqylKtG6m0ipubc5bKaX51VAbdjeeBYBJOEUNTCSh5g38ggeUgNxvfIvwYI8Lzszq
+	TRybXlCa6hs/VHbNSMcR6PkwCm42aqo0/mj6j/Pf/uTcf5BaaJ2X8evG1t5x8pyDKNKK8eKyL4I
+	FTJ4g8M//VZ7Iga7WZoozU1kDwnGxo/wPVrX4RewQiExKZDVKWyqd6o/FJFU=
+X-Received: by 2002:a05:6214:458b:b0:917:bfa7:2598 with SMTP id 6a1803df08f44-92134aae4damr283166476d6.18.1795558109770;
+        Tue, 24 Nov 2026 14:08:29 -0800 (PST)
+X-Received: by 2002:a05:6214:458b:b0:917:bfa7:2598 with SMTP id 6a1803df08f44-92134aae4damr283166086d6.18.1795558109408;
+        Tue, 24 Nov 2026 14:08:29 -0800 (PST)
+Received: from [127.0.1.1] ([129.236.231.128])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349b3a0csm144944586d6.14.2026.11.24.14.08.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 14:08:28 -0800 (PST)
+From: Tal Zussman <tz2294@columbia.edu>
+Date: Tue, 24 Nov 2026 17:08:18 -0500
+Subject: [PATCH] virt: acrn: unpin the interrupt monitor page when
+ destroying a VM
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,60 +112,92 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123-meson-drm-create-hdmitx-phy-v4-0-3fb94f5534ca@aliel.fr>
-In-Reply-To: <20261123-meson-drm-create-hdmitx-phy-v4-0-3fb94f5534ca@aliel.fr>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Tue, 24 Nov 2026 23:05:57 +0100
-X-Gm-Features: Aa3M54obAOudEtwcvYkDuGnJHvL3A4XdBNW-oHonc9K3rZo32rUzvFY7EEi7VPQ
-Message-ID: <CAFBinCD822UPQrrd_8ZbVRUVCVJ-3pGN69vbZBxUE+0yeMcysg@mail.gmail.com>
-Subject: Re: [PATCH v4 00/11] phy/drm: amlogic: Extract Meson HDMI TX PHY into
- a dedicated driver
-To: linux-kernel-dev@aliel.fr, Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Vinod Koul <vkoul@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Ulf Hansson <ulfh@kernel.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	linux-pm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-acrn-unpin-monitor-page-v1-1-097458800936@columbia.edu>
+X-B4-Tracking: v=1; b=H4sIANEKBmsC/yXMQQqDMBCF4avIrDtgIo3Qq5QuYhzbEZyEiYog3
+ t1Ulx+89++QSZkyvKodlFbOHKXAPCoIPy9fQu6LwdbWGWMN+qCCiyQWnKLwHBWTLzPX2P45tK2
+ rQwPlnZQG3q7y+3M7L91IYf7n4DhOEA6cy3sAAAA=
+X-Change-ID: 20261121-acrn-unpin-monitor-page-632d5f7760c3
+To: Fei Li <fei1.li@intel.com>, Zhi Wang <zhi.a.wang@intel.com>,
+        Shuo Liu <shuo.a.liu@intel.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Reinette Chatre <reinette.chatre@intel.com>
+Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+        Tal Zussman <tz2294@columbia.edu>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795558108; l=1265;
+ i=tz2294@columbia.edu; s=20250528; h=from:subject:message-id;
+ bh=H8wehEAUOYpvrHyb1qYk3+1cUineECJ+mIJ3t8JdECM=;
+ b=byMqRJeO06XTgFeiumRYTldhQ5lhm+UaD14l657W89Gzqzq0DYteCj4m4uGEgSHVhs89eKLg7
+ Qz/fKrytaDKD3CcTN2ZwajcFVXFA0RLsAwD4XzsAjIIgU6q2sb3PAG1
+X-Developer-Key: i=tz2294@columbia.edu; a=ed25519;
+ pk=BIj5KdACscEOyAC0oIkeZqLB3L94fzBnDccEooxeM5Y=
+X-Authority-Analysis: v=2.4 cv=HJBWhYtv c=1 sm=1 tr=0 ts=6b060ade cx=c_pps
+ a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=LNQXEAmb7IHcZyFqmLK0PA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=x7bEGLp0ZPQA:10 a=A0y_DWxS2BwA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Da8U98TiO7q1upZEImrf:22 a=usPcmh10W0ubT8QP8_c3:22
+ a=VwQbUJbxAAAA:8 a=vjun-3o0SPL4aK9ehdYA:9 a=QEXdDO2ut3YA:10
+ a=pJ04lnu7RYOZP9TFuWaZ:22
+X-Proofpoint-GUID: LV-CVHTOAHDkXytEJlpTmotNDgg7zAwi
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA4NyBTYWx0ZWRfXw4PAhqIuFUkp
+ UWEDcgYvg3U2NJnTVWLIGNA6Gh0l5e9orDG77b69D4OfKBXuA/lEtLz17aD0FjuG96X3ap4YOuB
+ mu1gafnbV6GThlCk4kmttbcH+DSBBbydXvOxaUs1ryy3MqnjRbz4
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA4NyBTYWx0ZWRfX3xOO5jhtPcSa
+ ktrenFU4VjoskhOmejviuGZfIYmGN8+nEZeb88VWz4ljhTWdDosIaZUEeQQmKjv4ildfMzihOvn
+ 2myIUADcyI53fk1lnenzaCZ7MmJrwgJeHPdl3mt8Xi3ZZRxpFFfKFTVGRY9qI7f2ftiPB5GqmWc
+ tgAc3EUmIdcfOJ7C32E0WF91pHURrTA2pAsWN6nWxFtUnxYnEDrWbWGhDNYTM/mPF1g4aAtt/YX
+ ++2ONduNrk+BTkHB/stjBBAqL6nE4dAn+i9DOy+SNa8oZt6kVD2ybwNqC4Ly2aewhXqlMM1RUi4
+ qexKh/fUYFlPk8qRRN8G0nLSiqsCCoXtORhHsBkchkR8YNhUtdV68rnmeMrFlLQd0Bo48s48hQS
+ XdXgf+osbNrcLzNicaMqps73wETEO2lrj0lo3N1fPbfOqi0APz44+ijwzs95Tjl9p9PAHOcEgNf
+ V4yU4Qq74inlHPCeTzw==
+X-Proofpoint-ORIG-GUID: LV-CVHTOAHDkXytEJlpTmotNDgg7zAwi
+X-Proofpoint-Virus-Version: vendor=nai engine=6900 definitions=11976
+ signatures=596817
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=10 clxscore=1015 adultscore=0 bulkscore=10 phishscore=0
+ spamscore=0 malwarescore=0 suspectscore=0 priorityscore=1501 impostorscore=10
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240087
 
-Hi Ronald, Hi Neil,
+ACRN_IOCTL_VM_INTR_MONITOR pins the page it is given with
+pin_user_pages_fast() and stores it in vm->monitor_page. The ioctl
+releases a previous page with unpin_user_page(), but acrn_vm_destroy()
+releases the last one with put_page().
 
-first of all: thanks Ronald for picking this up!
-I like the overall approach. Before I dive deep into this series I
-will finish the code-review of Valerio's AUDIN series.
+put_page() doesn't undo a pin. A small page is never freed, and a large
+folio is freed with its pin count still raised.
 
-Two quick notes below.
+To fix it, use unpin_user_page() in acrn_vm_destroy() as well.
 
-On Mon, Nov 23, 2026 at 8:38=E2=80=AFPM Ronald Claveau via B4 Relay
-<devnull+linux-kernel-dev.aliel.fr@kernel.org> wrote:
-[...]
-> Overview of the series:
-> - Patches 1-3: Fix compatible matching in meson-gx-hhi-sysctrl bindings,
->   add the new amlogic,meson-hdmi-tx-phy DT schema, and allow the
->   "hdmi-phy" child node under the HHI syscon.
-It's been a long time, but I think we've been asked by the devicetree
-maintainers to have reg properties for the nodes within &hhi
-But I can't find the message at the moment.
+Fixes: c7cf8d27244f ("virt: acrn: Introduce interrupt injection interfaces")
+Cc: stable@vger.kernel.org
+Signed-off-by: Tal Zussman <tz2294@columbia.edu>
+---
+Compile tested only.
+---
+ drivers/virt/acrn/vm.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> - Patch 4: Add the new Meson HDMI TX PHY driver implementing the HDMI
->   PHY configuration ops, along with the temporary legacy creation
->   helper.
-At quick glance your PHY approach would also fit phy-meson8-hdmi-tx.c
-There seem to be minor differences:
-- two additional enable bits in HHI_HDMI_PHY_CNTL1 on GXBB and newer:
-HDMI_FIFO_ENABLE=3DBIT(2) and  HDMI_FIFO_WR_ENALBE=3DBIT(3)
-- newer SoCs seem to have HHI_HDMI_PHY_CNTL3..5
+diff --git a/drivers/virt/acrn/vm.c b/drivers/virt/acrn/vm.c
+index 3753b27c5312..49643dc52831 100644
+--- a/drivers/virt/acrn/vm.c
++++ b/drivers/virt/acrn/vm.c
+@@ -82,7 +82,7 @@ int acrn_vm_destroy(struct acrn_vm *vm)
+ 	acrn_ioreq_deinit(vm);
+ 
+ 	if (vm->monitor_page) {
+-		put_page(vm->monitor_page);
++		unpin_user_page(vm->monitor_page);
+ 		vm->monitor_page = NULL;
+ 	}
+ 
 
-Meson8/8b/8m2 HDMI support is not upstream yet. That's why those SoC's
-won't need the backwards compatibility code. So if you need to tweak
-the driver: feel free, there's not much you can break!
-
+---
+base-commit: c44104f3642da720164042623e4832836aefdd8e
+change-id: 20261121-acrn-unpin-monitor-page-632d5f7760c3
 
 Best regards,
-Martin
+--  
+Tal Zussman <tz2294@columbia.edu>
+
