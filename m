@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795489048;
-	b=W7Yw8Fdllr211YOwgzILTxjMkGSyiML/ZOqm6hJ7XN+kXk+YfXs02YqwBOKYmcjkSRsA
-	 G1A9huKlNyrC5m8HymU/hmDUyemfI8LbECoN5pvy5kydf//Z3dBy1r8mfDLIgLgsOlPmO
-	 +Cw0sAzXJYo6kmNmd4IMRKAIqIRfzLogV6/YkP+P012+9D/4ogbol+xOD8hSpVWG/WNpz
-	 JyknQ2/PHe4PAzqgsEwK5JAlQIRG1GrAVNW5B2FFWZIDQrKMB9w4Bo61Ld8paodmJ1AUH
-	 40xc65tniWLkR/KlNIgKdl5MpUi0uiosiSdLvIePGuNc1Hcu79r0qkbeuy7lvYbtcXg==
+	t=1795489052;
+	b=Mt30fVLCThQqQtJWUl5QF5aZADHCV9BSaYQMCT5PmcUvBFw+2h8rAZ48/lVJGZaTTsHY
+	 Wou/Hmr4DBJiQ3DEwe9+krvnBnFds+/6UavCDzDZWx95Tm1TLDCGYoxIp8xjHHsaVIBas
+	 h19o4lBccROuwbCOg8PhRwCQ+iDBSCmr+h91gRC+CkFCXswOMvLYnmZntyijONxGsmaEp
+	 d8JuE7qRlAoJo7INmNF9l4efzjwO/HjkQ8cLLe1HdYXVOa/ACQi6hG6Lm6vxLKy8C/ae0
+	 RNK+JpOkQhT1qDaMrrPtMg0SWBG4zwbJSv4JRx7zSIu4hz59aH0SxmHnujxazxLTYJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795489048;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795489052;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=DW/y0V2pY9Y4Xur0V/dpfl+A1FMpAkofjo0sl92zmcc=;
-	b=qCStcOmcSqhNlENgNTHGDV2EdU+EEIwj/WhayBlL6fkOa66uCt4NbBPipW8R7eNxCYEL
-	 l9XFFgG2eb/W3lFRsXk6/CqQalsQJjkbq/89aox1AGucucLSC2aqpoB7k07N950r/4dHw
-	 k+0nTt+V0/TUY5KRZLhQ5Ah0cdCPsAvONfsP+RAcdX+DVcZrnJHUgsmEb+6Y98O5HY7Uq
-	 ghqj3fRgYIIEipbW0lQ3vU2dgu0YIObEZ8TwN4AIpMsa/BaGuCm3q6jRMXzabH+H15VbY
-	 NhdyKZLyxdzlKoac1hpKzIIqay3mOPkIYq4BBblA5eNI9F6IMMhhCJuEVQ++rFhqzNA==
+	bh=H+uZoQjS1BIMRWiRpM7snGk69h3ThnDcheT6OPJs5xc=;
+	b=T/bVaXNoLsvmCxYuVxMX6eJwXobJJVZG+E8/EP/5WddtZfPHc/MUTBMFqfoQBZ8WLdVj
+	 90ZcphBiGO6jmbKB3mqR9yrH2bqa+A+k22omamv9dehWhAZdA/84KqozrOsul3g+qwYtH
+	 nTFOnNZnOiWEtJzzKGq+/jXByd2qVFn3InCN0jXZ/dlL+UEwjfk9QmJEQ+MC92z97H+9/
+	 ntQkQM7gwO+N7nh4/SlHq7zIq5SKCUKz0vT8p/VfVE/ajd9RkqacbaEvIlHkAgbeR8f5W
+	 Mjv2Ug480VGvMVXlhmKYBIrl/67b7p6UWUjK/iWUmuP+32m9WSfHNhAqJnaegZs6JTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RuylJtBp;
-	arc=none smtp.remote-ip=209.85.216.53
-Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UaeO0IKH;
+	arc=none smtp.remote-ip=209.85.214.171
+Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 224D5606A322
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:57:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 224D5606A322
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03C4C606A32E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:57:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03C4C606A32E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RuylJtBp
-Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3ae691283ecso1921454a91.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:57:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UaeO0IKH
+Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f037bc348dso32405005ad.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:57:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795489047; x=1796093847; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795489050; x=1796093850; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=DW/y0V2pY9Y4Xur0V/dpfl+A1FMpAkofjo0sl92zmcc=;
-        b=RuylJtBpHaYhu4+iZs15myrfOkxc/za2TaDpCh5O6mbIVxSZZuZaP6RhfPQja7e0Kc
-         j8bARKFLuuQizjSusBxeyAsou4QYwJIea/iehMTfKxlTJRB8OSWzZQy/23Z0hqqc6EOa
-         Uk3eLmlgnmiHWfyYOTceY5uDvBgPif7RFxxfNHfxS5Qz2H1//GvltkfqiQ5qomr15awm
-         YW6zoDjcn1SRKHBG68BrtPzASnaD8pOA/CaZKGGsDrqc2Utj7YVjYmJn3QO7W/1GeN0a
-         9cbZSiKbo9Rmx/cWMqcaEcBQddK7WZimdQBncXik2uaIuWvGW1t87CfcFG/H90cmE8VH
-         j08Q==
+        bh=H+uZoQjS1BIMRWiRpM7snGk69h3ThnDcheT6OPJs5xc=;
+        b=UaeO0IKH5e7nNIcnmn+4W4A/rp4L2/9vASPuMnByH/OwsqKOctCGR9e/WrKAV18QkL
+         YB6q7p24b//D0iRmjp0nRBoK7mdt85Bi87ggyC7dMVi/4F/8QMKst+cNmr8DIQdl74bK
+         YOtB7LvAY4bx0tYfnITPg4vBkzaPa9nHHSkEtzd59o8IsKIA+eE+ZPopljSxE3MtYeyk
+         /D5k7AIWwOaTKnTlQJz3we76+i0l9yu5NjGIN8sVhqAVJY6XXCYAiX2IgHXI14Xpuptw
+         dEvTI7KIAVc7I/FjG+PlKV32AXjF0geaTxL3NjZdDWNbexppAhQcG2fBQwWwTYlFmQVW
+         0QEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795489047; x=1796093847;
+        d=1e100.net; s=20260707; t=1795489050; x=1796093850;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DW/y0V2pY9Y4Xur0V/dpfl+A1FMpAkofjo0sl92zmcc=;
-        b=yDYw/LPHEIbBOwnrsg8BQS/C72blqOQc8+b5n6YApE+SqdL3lZqU0I5K1fcPUMvKJv
-         6451R0N6o5YY7wtsRQzHjzUQeJ+Hx2ayW5vNVMmc/6AfwBUIXI49EernonYpQY7bQvMm
-         JbsVQ8fDDf1jH7RTGR/gvbzLORD4ndNR9kqvmCT3qIONfzO9drvkW0eUIG//VPuZkGxp
-         wKlYQjBygO5fKNzAMGAwEJJil38i+NvAV2bU1OuRrnM5LkDyyYvbrQeNvIqrIvKJZbfi
-         eTHzTLKk+7v6kaqDVH1TcfSvSFlgZYaUvBsqAz/zH8zu/2SGVoSw3Bgr+V2qM2Gg6FbA
-         Zz9w==
-X-Forwarded-Encrypted: i=1; AL+hErGYTgZQjhUJ+lm6vPw3bexH5GLE8O/tx97Vg7Q2zULjGxHlWHK5q8P1Tz5M+7RL+ARtnZWCuyPcNBwl2Qk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9qRKZm5kswsg3hAB1YmaJ9TmYeRfOxhqG57oDFaG0ZVoQ3UOrX
-	pZwqChomd6U6AQvc4TLJesm7O4VSUwxU2PKk/sOCUWfP3CXMJrViHAdKxBG40x/t
-X-Gm-Gg: AZFdTZdL0c2d05BB2EFo3Ob0IWNhZP6C9PAMeJ5B8MRIWrkj74fl2pjbge/08xEoAYr
-	htW0pD/NTUcXO2ATWB4zLVojMb1uB6ZrjuxbyeHMSxEsnzu7QgDTfTQV+4L6GD5jeqs9iNzVbzM
-	FKU+ZikztflGn4K/p/feus6SIyrh2JQXAvFnVjVNqpbmhi1klwGZ5o8bpqyQvhlxF+XX2rVLvSS
-	GtQr3FhsX4Ya7e2Cob+PcGJfvY/bzU+ODpvuDxRLeD1tn4S76RaI23ynigy7vP06ssH9Qcb4kBO
-	Tvk19AODICB3XHQ8yKjd67bPJSaO8fhjEG+djcW02JS6IHiNLkCBR7B3N7TZ0+rlz/oDAHDmpQH
-	89dMSdC6sQDLtwyB/xwZwIAweWVFXT1YJPriorvKgIH+KDi5XxRSgZOMl7DblGLPeteOUGmvt1A
-	WQfY3OmK2DBdECcm5NNcWgA9jS4FTEYGBmWD1bWXpwBNxfnZmrLXyv0mHQNL/PAtv8KbdaT4zE3
-	X+3TD/H8En89rsK7T9iC5T1UulD1xhnP12mcF9kefWW4QpbZKRaGMdE6WLOXSXLnxSvc4WO5NXl
-	vuSYCmnE4wWQZUuXoNupSCzf6SHx3psmVA==
-X-Received: by 2002:a17:90b:2ccb:b0:3ac:b6eb:e0cd with SMTP id 98e67ed59e1d1-3b40a62fe77mr11447094a91.48.1795489047353;
-        Mon, 23 Nov 2026 18:57:27 -0800 (PST)
+        bh=H+uZoQjS1BIMRWiRpM7snGk69h3ThnDcheT6OPJs5xc=;
+        b=RiNs5KMXhrN40uKGgWommeMxymBXGqc2VQNRIlbC29M4ediOxEltdztCOGLC5Iol00
+         1uvmMsjy96+ZpEDLes9n9sA+cyh+dSxX3Y1+HHF0K9yKxwNLySo3z/6Cte/Ra0755BQf
+         yUPTJ/Kx8rNpMkVofIGc1/bLWx56GfloEv8pLWb8XHt3TX8NXmghbTcv85g2wGILt+is
+         42dUDpLxDSZ6bHWRIygQkcak9rBV0YkuFS3B9SOTQaq7um6g9S1sqGD7b93FnGqYC8yA
+         +8i6wAle31osKD0Ep1UZXnDFGtMKQzZDPlejqLVaSMHJbM8/g+ZXZgHbnaDEgNb2GMeo
+         RXuA==
+X-Forwarded-Encrypted: i=1; AL+hErHOvxbUygiBxz65SkdCqk2cT2RybCnjgv536/V5vtEn63aa7j342yfengIXacnAY2Uw1dE5ecIvPBaKrU8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8MXeOUmEzwLMvLlwzKM8KDpXFlww7KHkEGq0gSZukiXGlNWfPN
+	pVZOqVCsq00gppAl7xT6AjSt65Z7VTApj/E5nUErdZCvXSRCDZV8hByY
+X-Gm-Gg: AZFdTZf5vOKpxRY9IzkwIMxQ1qEm7ohu+4WdAYSZ60DR+tbJIYQjRCDALU3W6I+y2p3
+	0Gz+dQX8LLdtaXWbHGeU/tRuueCRTAtYkgJsmpwKCiH7+15ZomSjH79im9cSAUAH5qX3octpvel
+	I3raA7MMb2EPqPUzOp6YTUNgLGxVsaCGgUl4ixdc1Nossee55ji793gs3IrPLNC5r6vD6K6UKPL
+	bngAYzLW63YygEF+sNznHNCRpg7OVURkL6nfqUrjoJ90Jnq+diVHroBJukFKyrRuoKYyN86fKVG
+	UzLPBY/svrwJDfxhcHaj3s3BlSzhFpYCSR+LfbHVJ35gQIBT3psAwS2VEDtAHeYa7yT41DU/izh
+	JCJQPX369pdAkgUT7QKkksQleQv4ZPWkTp9Qa2tqpjM/0T9hgAYyn91vOAFMkIbnPc716StB5pL
+	Y2h9aHfPe3Ovhx2VjZcBS5DBwqCB2rU12B+EAUjim5y80GG+Sa+3daNQjZ0HVwzU6tANDf5E6FW
+	ZhwaWHAwfr5XJfwi7quZ/EKHsW512bzNxJT9Vm9Nt9Y6Q2ZKekhI4aJ4ce2U2Ix8m5QY1adJKdT
+	JhhtDplNX6a+QYTUWbDy7JQ8WJ1GRY/pU6HOOvBxPZRRypJ3Z2GCr+g=
+X-Received: by 2002:a17:902:f642:b0:2ef:da10:bea3 with SMTP id d9443c01a7336-2f03f1cf4c1mr135650875ad.11.1795489049823;
+        Mon, 23 Nov 2026 18:57:29 -0800 (PST)
 Received: from server225.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84294sm60823275ad.9.2026.11.23.18.57.25
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84294sm60823275ad.9.2026.11.23.18.57.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 18:57:27 -0800 (PST)
+        Mon, 23 Nov 2026 18:57:29 -0800 (PST)
 From: Ping Li <leeonion.muyu@gmail.com>
 To: miquel.raynal@bootlin.com,
 	richard@nod.at,
@@ -85,12 +85,13 @@ To: miquel.raynal@bootlin.com,
 Cc: linux-mtd@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Ping Li <leeonion.muyu@gmail.com>
-Subject: [RFC PATCH v2 0/2] mtdchar: per-device bounce buffer policy
-Date: Tue, 24 Nov 2026 10:57:20 +0800
-Message-Id: <20261124025722.1476247-1-leeonion.muyu@gmail.com>
+Subject: [RFC PATCH v2 1/2] mtd: core: add per-device bounce buffer allocation helper
+Date: Tue, 24 Nov 2026 10:57:21 +0800
+Message-Id: <20261124025722.1476247-2-leeonion.muyu@gmail.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261119090055.1255028-1-ping.li@horizon.auto>
+In-Reply-To: <20261124025722.1476247-1-leeonion.muyu@gmail.com>
 References: <20261119090055.1255028-1-ping.li@horizon.auto>
+ <20261124025722.1476247-1-leeonion.muyu@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,76 +103,138 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This is the second revision of the RFC I sent earlier [1], following
-the discussion with Miquel [2][3].  It implements the agreed
-direction: low-level drivers decide whether they may receive
-non-linear-map buffers, and a helper applies the allocation policy
-accordingly.
+Introduce mtd->allows_vmalloc_bufs and two helpers for the callers:
 
-  Patch 1 introduces mtd->allows_vmalloc_bufs (defaults to false,
-  partitions inherit it from their master) and mtd_alloc_buf()/
-  mtd_free_buf().  By default buffers come from
-  mtd_kmalloc_up_to(), which gracefully shrinks the size under
-  fragmentation, so a driver never unexpectedly receives a buffer
-  which is not DMA-able.  Drivers that only memcpy() the buffer,
-  or which bounce it internally, may set the flag to get
-  kvmalloc()'s vmalloc fallback and keep the requested size, so a
-  large read()/write() no longer silently degrades into many
-  small mtd_read()/mtd_write() calls.  The size reduction is
-  intentionally not kept as a last resort for those devices: an
-  allocation failure is reported to userspace rather than
-  silently shrinking the buffer.
+  - mtd_alloc_buf(): by default buffers come from
+    mtd_kmalloc_up_to(), which gracefully reduces the size under
+    fragmentation so that drivers never receive a buffer which is
+    not DMA-able.  Drivers that only memcpy() the buffer, or which
+    bounce it internally, may set the flag in their probe to get
+    kvmalloc()'s vmalloc fallback instead, so the requested size is
+    kept even when the buddy allocator is too fragmented to serve a
+    contiguous block; this avoids degrading large transfers into
+    many small ones.  The size reduction is intentionally not kept
+    as a last resort for those devices: an allocation failure is
+    reported to userspace rather than silently shrinking the
+    buffer, so that the declared contract cannot be quietly broken.
+  - mtd_free_buf(): the matching release, kvfree() based.
 
-  Patch 2 converts mtdchar_read()/mtdchar_write() to the helper
-  and updates the stale comment above mtdchar_read().
+The flag defaults to false (zero-initialized) and partitions
+inherit it from their master, so a driver which does not opt in
+-- on the master or any partition -- keeps today's behaviour and
+can never unexpectedly receive a non-DMA-able buffer.
 
-Compared to v1, the flag is an explicit opt-in with a conservative
-default rather than core-set, the halving fallback after
-kvmalloc() is dropped, and the powernv_flash declaration patch is
-no longer needed since the conservative default already covers it.
+No functional change yet; mtdchar is converted in the following
+patch.
 
-Converting the drivers which already bounce internally
-(brcmnand, gpmi, atmel, am654-hbmc, ...) to the new flag is
-planned as a follow-up series.
-
-Numbers from our platform (an IPC-backed NOR flash device where each
-mtd_read()/mtd_write() is forwarded to a remote controller):
-
-  - one transaction costs t ~= 20ms + 0.3ms/KB, i.e. ~620ms for the
-    2M+2K transfer this platform uses for OTA updates;
-
-  - with the opt-in, every 2M+2K read() issued during the tests
-    (~80 runs across clean, fragmented and severely fragmented
-    memory states) produced exactly one transaction, in every
-    single run;
-
-  - without the opt-in, the same command was observed to produce
-    both single full-size and halved (len=1049600, two transactions)
-    transfers within the same session, depending on transient
-    allocator state.  The split is not reproducible on demand;
-
-  - wall-clock throughput is not the benefit: a halved transfer pays
-    only one extra fixed cost (~3%).  The benefit is determinism:
-    the opt-in makes the transaction count and buffer size
-    independent of memory state, which is what transaction-bound
-    backends need.
-
-[1] https://lore.kernel.org/linux-mtd/20261119090055.1255028-1-ping.li@horizon.auto/
-[2] https://lore.kernel.org/linux-mtd/875wxtf8uy.fsf@bootlin.com/
-[3] https://lore.kernel.org/linux-mtd/87y0akuer5.fsf@bootlin.com/
-
-Ping Li (2):
-  mtd: core: add per-device bounce buffer allocation helper
-  mtd: mtdchar: use mtd_alloc_buf() for the read/write bounce buffers
-
- drivers/mtd/mtdchar.c   | 24 +++++++++++-----------
+Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
+---
  drivers/mtd/mtdcore.c   | 44 +++++++++++++++++++++++++++++++++++++++++
  drivers/mtd/mtdpart.c   |  1 +
  include/linux/mtd/mtd.h | 16 +++++++++++++++
- 4 files changed, 74 insertions(+), 11 deletions(-)
+ 3 files changed, 61 insertions(+)
 
-
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+diff --git a/drivers/mtd/mtdcore.c b/drivers/mtd/mtdcore.c
+index b170c3144ca8f..83365c0fbf063 100644
+--- a/drivers/mtd/mtdcore.c
++++ b/drivers/mtd/mtdcore.c
+@@ -2566,6 +2566,50 @@ void *mtd_kmalloc_up_to(const struct mtd_info *mtd, size_t *size)
+ }
+ EXPORT_SYMBOL_GPL(mtd_kmalloc_up_to);
+ 
++/**
++ * mtd_alloc_buf - allocate a bounce buffer for an MTD device
++ * @mtd: the MTD device the buffer will be used for
++ * @size: requested size, updated to the size actually allocated
++ *
++ * By default (see mtd->allows_vmalloc_bufs) buffers come from
++ * mtd_kmalloc_up_to(), which gracefully reduces the size under
++ * fragmentation so that drivers never receive a buffer which is not
++ * DMA-able.
++ *
++ * Drivers that declared themselves vmalloc-safe (they only memcpy()
++ * the buffer or bounce it internally) get kvmalloc()'s fallback
++ * instead, so the requested size is kept even when the buddy
++ * allocator is too fragmented to serve a contiguous block; this
++ * avoids degrading large transfers into many small ones.  The size
++ * reduction is intentionally NOT kept as a last resort for those
++ * devices: an allocation failure is reported to userspace rather
++ * than silently shrinking the buffer, so that the declared contract
++ * cannot be quietly broken.
++ *
++ * Buffers must be released with mtd_free_buf().
++ *
++ * Returns a pointer to the allocated buffer on success; otherwise, NULL.
++ */
++void *mtd_alloc_buf(const struct mtd_info *mtd, size_t *size)
++{
++	if (!mtd->allows_vmalloc_bufs)
++		return mtd_kmalloc_up_to(mtd, size);
++
++	*size = min_t(size_t, *size, KMALLOC_MAX_SIZE);
++	return kvmalloc(*size, GFP_KERNEL);
++}
++EXPORT_SYMBOL_GPL(mtd_alloc_buf);
++
++/**
++ * mtd_free_buf - release a buffer allocated with mtd_alloc_buf()
++ * @buf: buffer returned by mtd_alloc_buf()
++ */
++void mtd_free_buf(void *buf)
++{
++	kvfree(buf);
++}
++EXPORT_SYMBOL_GPL(mtd_free_buf);
++
+ #ifdef CONFIG_PROC_FS
+ 
+ /*====================================================================*/
+diff --git a/drivers/mtd/mtdpart.c b/drivers/mtd/mtdpart.c
+index ddded0dbe77e0..9c245ad421a55 100644
+--- a/drivers/mtd/mtdpart.c
++++ b/drivers/mtd/mtdpart.c
+@@ -75,6 +75,7 @@ static struct mtd_info *allocate_partition(struct mtd_info *parent,
+ 	child->oobsize = parent->oobsize;
+ 	child->oobavail = parent->oobavail;
+ 	child->subpage_sft = parent->subpage_sft;
++	child->allows_vmalloc_bufs = parent->allows_vmalloc_bufs;
+ 
+ 	child->name = name;
+ 	child->owner = parent->owner;
+diff --git a/include/linux/mtd/mtd.h b/include/linux/mtd/mtd.h
+index 8d10d9d2e8300..4296d255c15d8 100644
+--- a/include/linux/mtd/mtd.h
++++ b/include/linux/mtd/mtd.h
+@@ -368,6 +368,20 @@ struct mtd_info {
+ 	 */
+ 	bool oops_panic_write;
+ 
++	/*
++	 * Low-level drivers that only memcpy() the data buffers received
++	 * from the MTD layer, or which handle non-linear-map buffers
++	 * themselves (internal bounce), may set this to receive vmalloc'd
++	 * buffers, keeping the requested size intact even under heavy
++	 * memory fragmentation.
++	 *
++	 * Defaults to false: buffers always come from
++	 * mtd_kmalloc_up_to(), which gracefully shrinks the size under
++	 * fragmentation, so drivers never unexpectedly receive a buffer
++	 * that is not DMA-able.
++	 */
++	bool allows_vmalloc_bufs;
++
+ 	struct notifier_block reboot_notifier;  /* default mode before reboot */
+ 
+ 	/* ECC status information */
+@@ -699,6 +713,8 @@ struct mtd_notifier {
+ extern void register_mtd_user (struct mtd_notifier *new);
+ extern int unregister_mtd_user (struct mtd_notifier *old);
+ void *mtd_kmalloc_up_to(const struct mtd_info *mtd, size_t *size);
++void *mtd_alloc_buf(const struct mtd_info *mtd, size_t *size);
++void mtd_free_buf(void *buf);
+ 
+ static inline int mtd_is_bitflip(int err) {
+ 	return err == -EUCLEAN;
 -- 
 2.34.1
 
