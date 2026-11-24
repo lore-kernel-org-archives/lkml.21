@@ -1,101 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.48
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795513699;
-	b=VkNXOVRUP1tycyEuWgMEgBL2s/CqFNj1A8FfLKyxQpOmGHKrvj1kmNZ0LfN4UwDAkorz
-	 Ek6uJoMH+7jfCCckYuNoue2UO+ZBJOiweQeug/ofYDkobABXfvvNPo/VjfaM9JQsgQ2D9
-	 kAvL3ID136B31qw/Wu3lBofLzSqqk/FJBOvhxlVlFEzZ+AVucDKSEprR9UtUmyxmDl+SJ
-	 6uSJ/ekRp5rsjk7TTSa1ACLscqTbqx3FS1Qqw5ZL3JXbSjGHpGCuhvq7lzmuJ1heABmi5
-	 CkCavlZWXMey2BnjuS1hjPZeqSGxCer2EnrYArajRGAPqqsMTyCQwN2a3R9T1B/4sNw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513699;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.171
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795513761;
+	b=DRtsW7wS2fSAMwstPPVU6H41ilZ+egwpYKzwQzdBKWzscI3EsB/aOhR6cBcgaPFozy9j
+	 +AXQctHMPG+uQeRZHnudpWSMDWX0IPPlsc6l1Tt/CpEd7QW1mXZTqD3AjGMxYgPb8KDRV
+	 2eF9OpqaqduHgzCJQlMmbYkpveeEZM+9C8H0RP1QlrfuKww12mHNAXfO3AzEzAN6HeSWJ
+	 T45vqOynjDOY+N2GH9sj2BIFl628oHZWFK2wzbI8CCCKsMKGDtWsdHIp2aIDeXlJLJRo2
+	 /oA1rbTxp61lLlkyGGzGfP61/7fDrMIL9XZYy8qPgs8d0dQwTflh+Dcs52M8zkoWNjQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795513761;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Cu7c9/w2+WpfuPJC0OfHVPmh5TZ1Kfq6VnMQBRjBpjA=;
-	b=HRpmAQJefuX+JSCAe5DkWCyXkGtR678mMwxOO6G97mGZD9Ob8u84saboRoJLWlqzT8Pd
-	 nxjIll0PCTc/0BY6Pk2YpExwg2bgYOLH/tW4jRv6v7/SFMSfpinj+FWfuDxfB+byqC33n
-	 5EmTsY/3BtIGKytLUcBCyYNJ1xginsTj+MdN12HIju8BdolbdNZ9pKtwkdQ64umddi+wh
-	 sEylwX5SZtXPZe4jrfXkE7YVy0yIwxyL99F6HKPMKCqQOJZfZRHHVTO/+vC9iwOLf3190
-	 QWMA3AxLjagyuIVxrbED1eDUbvjkWjuPeofKaGam2fNUa1RvpD87fq/s65Up2753kFA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=rX7X115JgfakFeoi0yaVLbpqCl54/vBNVgzXw3d6i5Y=;
+	b=vg89I3/lI3pwjCzAEplqBtIeTnqge1rfGrcOCH+J3qOwyS9f7HAa89ym+Pa9jFCWyAIe
+	 w156lyJT7zFQIXjC9dhBqP+M1+ZCKnJIB5MAPp8zsHxz2e9dMFY+ReapYElPOCXum/Uet
+	 ZtbmaKUqzqwjCIxGHUgFgyW6TGyP26vo2jHVKsrYjAX7JzMqf9TzxVwyaEfG8BTI8EfhR
+	 su0rKno5e1QTYHPPwLcXK/EAqihsP4AbW28qtirqYrj0SoPf5mGcpoP3TVJWUwzNjRTl2
+	 zQ7aJ1mJsUaBYT2S+Op6mLIRR1SM+TJPzZFsBAyYou0eApkpN2s6ITvHfNKlVwV7FZA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LNxEuZAB;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="JejtrES/";
+	arc=none smtp.remote-ip=209.85.208.171
+Received: from mail-lj1-f171.google.com (mail-lj1-f171.google.com [209.85.208.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7958F606B020
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:48:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7958F606B020
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05DE9606A87D
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:49:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05DE9606A87D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LNxEuZAB
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso41599805e9.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:48:19 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795513698; cv=none;
-        d=google.com; s=arc-20260327;
-        b=QHgUt/SPHc9h2oYXYv+bd9Om3Ik6i1oKPfay/GqEkrg/DCo6ppBeW/dXmDC6xf4R63
-         6dNKv9RtXx0kYTPxI2e1YeXvj+ScwOolBbQzZjq92EIXGY15yLS2ALBkumX1A6wzbpmO
-         9Rm9KhD13MOJ+lgQ2XRWI1+Xmn8alCf1LOexn7BtL8pKhhzwCj/VJeMySfWaXc/olgW4
-         ptMz23nNesY82Hmr+WpjU1tqyMvAHleXOTxTLWR83lCRwowxGtHDm4jLZi/3gMSByuN8
-         Wm/T+aZHBn9M7lvIfTOi5upqh0KhRxrwMu1K5FdHGjwd7A8mz3W3gA3lDitvypkNijq6
-         q8DQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Cu7c9/w2+WpfuPJC0OfHVPmh5TZ1Kfq6VnMQBRjBpjA=;
-        fh=5kqGyMei5PZWBLWzQztHa7UYziKCMVxe+nqWJotjjSA=;
-        b=kmNKIPyMtU2Agu480sVs6wn7uicAb+YrjNu6BVhKERmCVao3qyTyY7zLCy3DfQLrXd
-         NW/GmrLRvJ1axGw5+nQ1+iLCpbERZFTR7l8MA/k1crI7cySH3+4GRwq7ZQIt4WAnh2o0
-         R6b3o/UcLg3K6gvxn967ir4ytzmF7b8uiPCZCW/qBDpcGDSP9ui48cl1ry0mc2HssFsx
-         SNYKPg0ocueux13rBzf0vJrwr45E5iDTqcTkXbWDxGTL//H5a75cWdDYXHCHdf09bkNH
-         AJ1LiSdVk5956FvAMLDdIO0Pd0abfmHhosVUZVErnz1v1QtGGFT+KVYEtkZ4KK086g+X
-         ZQPg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JejtrES/
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-3acc7a0b558so42360391fa.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:49:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795513698; x=1796118498; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Cu7c9/w2+WpfuPJC0OfHVPmh5TZ1Kfq6VnMQBRjBpjA=;
-        b=LNxEuZAB+9FYaWJhuVSM9gs0zli480tdbq04T0zY2yCtuWfDQI/rkUlx32zjIzQ5mL
-         sPq5KSJNkRzVsTQUZPjBrQryExhlouFUCoZJfD47O4i2kf6z6t1Y2Qdbvx9o37cFedy8
-         hw0sLfuMimGwigzjzXp/cXb08IH/6dduTBMsDoV9l5RRfFkpH5QSKmVW5jSTL4urBk4g
-         iYy0KSOdnRA2pL0DQWeN1C5Xo9lP+yWE13sHodaCiG+sINokO1WQQkWavm+8XaJU6COH
-         y2hcpe0FH/OkeZ1M6U9KGD3FTQbZqqfr2yVrMEE3O5lVSn/EnGxyua3kNlOfFG63Ncmw
-         0JkQ==
+        d=gmail.com; s=20260707; t=1795513758; x=1796118558; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=rX7X115JgfakFeoi0yaVLbpqCl54/vBNVgzXw3d6i5Y=;
+        b=JejtrES/lnVMjmjUdXjmQXLRPKx7lAtzYlK28LW0y/7fmrMUltLhAlEO2z9BJY4BH5
+         lmtqOc8KpsbwBYUI4eUM9n+yO8zEKvLaXIINlJckyZnsvVuL6ZnKBS4CpuREkZSQiBg/
+         bWsBaFlmm5HSgXbuO2DpbgO+Hkym1r88ylUmWj42VW8bBmBRKvItKfLms9Ynn3ESa+/e
+         q6R5/NfHWkDZpm1jW67w59K8rVSWui3PPJD03CPAoWoUxpotM5sFauyIn2x1ogmhM+3L
+         AEXZT/+ly9zqautC7XDkEE45IFQy00pvT4FvVRHEEQMzTQ4ZG7Wf6N3dym7ThosSWjg+
+         hPjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795513698; x=1796118498;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Cu7c9/w2+WpfuPJC0OfHVPmh5TZ1Kfq6VnMQBRjBpjA=;
-        b=e+X0spvJDs7iFydHHMN/KAYWVhYcjURbpCEY+Ema1LeneiZFl4hFqcp087cDC63Dia
-         PW8JVrhl5Fgh0af64X0YBKKHP4Tkgn2jxZIGLnpFl3dksQ4MMRqrRVzNo8oo2NfwQVPl
-         zrp0Jgoaux4ZMbRqJNy+DHj0ftMXfcKLWTr7MwQfVm3UfQc0TWAS5oiVBdjKa2lkPGKf
-         JC5l0cR7VvVhW888NAv1L+ivpll1hvWrHBVAN/n3KQ4DS0kLf+Q9MIX5nk5TtI69RYjV
-         d0vgV3IfItowKJKoZIRWOsE16eRmw/MI2Bftuf1Swsp1WLrN8CbSxOl9yuWBfvQX49zS
-         DjrA==
-X-Forwarded-Encrypted: i=1; AL+hErGHaboUSVCTUDhP3iHUO3GqjAGaSY7LpcRfucdoTqQUgZhRcFbHG26Wu9IFl8kLzd52ekNhqMdXIsScoU4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/OBs6Agc/olF+JwH+pbxzxfay79AtQ8kFyvZ7ouYghGFQA0i8c
-	JITCdrZJz7qCjgXeNJ23RlaPdyeqeLx68NewTx4ATGupNCdGU3PvwSYMvT2FpX1yX7yxfr7LcNb
-	V6U6jaUj8RXDV2KmqQx+gJgQ2c+U+Sj1eShKpGpY=
-X-Gm-Gg: AZFdTZebrENC5IqjK3khsAQy3jpED42tL6WcRHxu1LDsWVzD9cTu4tJKWWf6ALWxo+2
-	LMcUgWUEoVuVKxsg1FwXO9t+jHli5r5gU/K+c4coe0Pd7ZGFuVhlSsyZyuXJNvm9NC85Pw3J/e/
-	AH3zC4hTREWJ4Nt6qmM5K38zcyMx93qRJR5sWu/sA0/sVcOARebQ9RHrQlT+4xVXJynwLF106vx
-	460fPuh0OJPIAC/6yF25KE3+8EbZ3Bj4laz2XT+d7fBKdgp0EV9UJLp9VtawOFqreGi/E9p9tf0
-	IYHN0BC1UJnrNxcRsuZ9UFU1HM3LKz9cRQdQhs3rT51EHnQ90AkMOrKjic9+H8/fLMLP4h4R2ad
-	XdjcbfIyIIxfYotk5+8cQzNi23cFwYgLOL90e/UAoOpeSiaJ0rJMZ2br1YrvyEU91QadOXMqvGk
-	2LPqlsuEmqQurLXczwDJ7FmYKLCYRC8mD0m9ed30km9TvR7L77nsPZ
-X-Received: by 2002:a05:600c:4f4b:b0:49f:fd2d:23c7 with SMTP id
- 5b1f17b1804b1-4bb888226c0mr345010985e9.27.1795513697227; Tue, 24 Nov 2026
- 01:48:17 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795513758; x=1796118558;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rX7X115JgfakFeoi0yaVLbpqCl54/vBNVgzXw3d6i5Y=;
+        b=STSZ4trMAlrkSFIVI7554PICNXXhe/oOzfb3AC0yTFUOxkxpwEDB0zCvdFejqkclpO
+         NKJdosdadcbDkDXcJXuaAD8GjT+TqlSJhCymnnT0Nw3kcKq7lDrwadLnatKhIIQv6xA3
+         fXP58V5+nKraAEQYvBAycqbdRCqpYnQYyZIWhKX2w1rg8PePTP9AS7SuTg9KsUXF3ZUX
+         Ck9vVSheTDuWoR0bPYVYDl/41DgKMFZatJkfnFqfeUhPdYFgJLERrrz1Eo8E+/Jvroy6
+         8fpy1pQW4vR3lMwYQR9VBt5WhfoNfsC0MXHi5Bzsixm6wCUwoMa0mpF2WxsYgPzftG/m
+         92ow==
+X-Forwarded-Encrypted: i=1; AL+hErHl0e5BNWnZFQ3r6fv3TYDqEPEBwy9s3Rucr6WMaYeTQ1qvjDWPhnhb00VQu19I2kb4wFojsRnX+hjEMoY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9wIa/6hQ13ETFA9lP3qujExWKbGxP9hwI4St1Sm88sH4toAGrI
+	NoqoJY4Pj6iYJ4KDBnQu7FbGLbrTeVt3AjfL6eO/kNZM8iLuZ1R/aZ4L
+X-Gm-Gg: AZFdTZe6lTX7yGS5HHS4pMGUV0c1Baah5rv5IuD7K3/CxGJj0NUSYJUfBF29ImHPK4R
+	dYN301nJQoERmYUk0xZ3EUhHzUQO2U1CP0cfd3axXJKhGpxAIuaf9tMGpXFwLwMrTylhTRSkUtu
+	sCONrh7uBmcIvPig24Nwtr7dw/6yHo/7iAR/pwW0sK8H/n5dSqLXnyefY5iGVX6xjE0MLnmJ39J
+	oVlkjwmwGuiQtFTtISRdyu1Tu+CcECsKbbM+iPS+bRbpC5P7tqqSRYMr1FgXYbNMDqPxQHHWrf4
+	ipoCKb8Y8vxTev3GGmf9S5cY5RMMKV314X+qGrr0d6sX+/yEz7gLB+aqKTpY8wgO/OrRuIkFtGL
+	HkYD0ws6MhLBjP/oPlGRHTLCyGZ+BYU2qsJyS0+qZo6lQOnFM+8mASTCCUC46rT1V+2RBlQvWt7
+	xajhKjrAz5pfvetaslr3iAZBUbHu0oy68tWrXdVsIz4EYK2Tl27j+PAoNOv6VWtEczPV93LUuFp
+	uI31LaQqlHvYBzMqef7qjtOaHO3OScN7AS/+jwYu8VjZnuEL7fnGubkwrR6thwiE1qbAvIheIlg
+	0quh6HSNwu2cIVxUEQd9OyVMAZGNrRNd9cS7QHNgt/m4sJE=
+X-Received: by 2002:a2e:a98e:0:b0:3ac:ee2a:ce63 with SMTP id 38308e7fff4ca-3ae7fa13056mr38666771fa.18.1795513757928;
+        Tue, 24 Nov 2026 01:49:17 -0800 (PST)
+Received: from NB-6746.corp.yadro.com ([188.243.183.76])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae8051bfbfsm38756431fa.20.2026.11.24.01.49.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 01:49:17 -0800 (PST)
+From: Artem Shimko <a.shimko.dev@gmail.com>
+To: andrew@lunn.ch,
+	hkallweit1@gmail.com,
+	linux@armlinux.org.uk,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	maxime.chevallier@bootlin.com,
+	pavel@ucw.cz
+Cc: Artem Shimko <a.shimko.dev@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-leds@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH net-next v5 0/3] net: phy: dap8211r: add LED control support
+Date: Tue, 24 Nov 2026 12:49:09 +0300
+Message-ID: <20261124094914.2993988-1-a.shimko.dev@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,88 +108,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <CAN_Opa-WpbC9wXTYPybiZCrkMjQbSTnfJvUck7YiMP9wG59y4Q@mail.gmail.com>
- <awRF7-R1JjQczRgn@elver.google.com>
-In-Reply-To: <awRF7-R1JjQczRgn@elver.google.com>
-From: KunWu Chan <kunwu.chan@gmail.com>
-Date: Tue, 24 Nov 2026 17:48:05 +0800
-X-Gm-Features: Aa3M54qFnbsBEn1eiLbpnltoodYvHJBEshBpyws-J9vb1R6b7JBMIVOplFRo3Uc
-Message-ID: <CAN_Opa_N4N0njq=fL7eBhKON8faLk10D9EBC_UDadca0kGogPQ@mail.gmail.com>
-Subject: Re: [RFC] KCSAN support for *_THIS_CPU()
-To: Marco Elver <elver@google.com>
-Cc: Dmitry Vyukov <dvyukov@google.com>, "Paul E. McKenney" <paulmck@kernel.org>, kasan-dev@googlegroups.com, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 9:56=E2=80=AFPM Marco Elver <elver@google.com> wrot=
-e:
->
-> On Mon, Nov 23, 2026 at 04:15PM +0800, KunWu Chan wrote:
-> > Hi Marco and Dmitry,
-> >
-> > Paul suggested I get in touch about helping with KCSAN support for
-> > *_THIS_CPU(). The wrappers [1] and the got_idle_tick annotation [2]
-> > are now in tip's timers/nohz branch. The idle task and the tick
-> > hardirq intentionally race on their CPU's flag. A conflicting access
-> > from another CPU to the same instance should still be detectable.
-> >
-> > I'd start with static per-CPU objects in strict mode. One option is
-> > to keep the lvalue API and pass the actual address and a THIS_CPU
-> > tag to KCSAN, which could warn on a known remote instance. This
-> > would let us check the pointer the tick callback gets from
-> > container_of().
-> >
-> > If both accesses are tagged and verified as local, a hardirq hit on
-> > the same byte range would leave the task's watchpoint armed for a
-> > later cross-CPU hit. With a per-CPU record, the sampled task would
-> > stay non-preemptible while the record is live. We'd also record
-> > permitted local writes, since they can explain a value change when
-> > no other hit is captured.
-> >
-> > Does leaving the watchpoint armed on a permitted local hit fit
-> > KCSAN? For the ownership check, would you prefer a separate check in
-> > KASAN or in the primitives? Would it be better for the primitives
-> > to take a __percpu pointer and resolve the instance themselves?
->
-> This is a lot more complex than needed. KCSAN already has the building
-> blocks:
->
-> 1. Same-CPU races: if the watchpoint is armed with interrupts (and
->    NMI checking) disabled, a local hardirq can never hit it, and the
->    interrupted task can never hit the hardirq's watchpoint. KCSAN
->    already does this by default, and for reordered accesses even with
->    CONFIG_KCSAN_INTERRUPT_WATCHER=3Dy. No per-CPU record, no "permitted
->    local hit" state, no recording of local writes.
->
-> 2. Cross-CPU races: READ_ONCE/WRITE_ONCE are atomic to KCSAN, so today
->    the *_THIS_CPU() wrappers aren't checked at all. Making them
->    ASSERT_EXCLUSIVE_WRITER/ACCESS-style checks reports any concurrent
->    access from another CPU, marked or not.
->
-> So the whole thing is a new KCSAN_ACCESS_THIS_CPU flag that forces
-> interrupts off for that watchpoint, plus the wrappers calling
-> kcsan_check_access() with ASSERT|THIS_CPU. It works for any object
-> (static or dynamic per-CPU, container_of() or not) and in both strict
-> and non-strict mode. A separate ownership check (KASAN, a __percpu
-> pointer API, "known remote instance" lookups) is out of scope; it's
-> a different class of bug, and if a wrong instance is used concurrently,
-> the assertion catches it anyway.
->
-> I have a patch with tests [1]; would you mind giving it a spin on
-> your end?
->
-> Thanks,
-> -- Marco
->
-> [1] https://lore.kernel.org/all/20261123135148.1146372-1-elver@google.com=
-/
+Hello,
 
-Hi Marco,
+This series adds support for LEDs on the DAP8211R
+Gigabit Ethernet PHY.
 
-Thanks for the patch. I see how the existing assertions and the
-IRQ-off watchpoint path fit together. I've run it on my end and
-will post the results and a test comment on the patch thread.
+The first patch fixes mistakes in function comments about locking mdio.
+The second patch documents the optional "leds" node in the Device Tree
+binding. 
+The third patch introduces a small helper to write extended
+registers, since the LED registers are accessed indirectly via
+EXT_ADD/EXT_DATA and implements the three LED callbacks
+required by the PHY library.
 
-Thanks,
-Kunwu
+$ make dt_binding_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/net/dptel,dap8211r.yaml 
+  SCHEMA  Documentation/devicetree/bindings/processed-schema.json
+  CHKDT   ./Documentation/devicetree/bindings
+  LINT    ./Documentation/devicetree/bindings
+  STYLE   ./Documentation/devicetree/bindings
+  DTEX    Documentation/devicetree/bindings/net/dptel,dap8211r.example.dts
+  DTC [C] Documentation/devicetree/bindings/net/dptel,dap8211r.example.dtb
+$ yamllint Documentation/devicetree/bindings/net/dptel,dap8211r.yaml
+$ grep -i "dap8211r" Documentation/devicetree/bindings/processed-schema.json
+    "http://devicetree.org/schemas/net/dptel,dap8211r.yaml": {
+        "$filename": "/home/a-shimko/patchwork/linux/Documentation/devicetree/bindings/net/dptel,dap8211r.yaml",
+        "$id": "http://devicetree.org/schemas/net/dptel,dap8211r.yaml#",
+        "title": "DAPU Telecom DAP8211R(I) Gigabit Ethernet PHY",
+
+Required:
+CONFIG_NEW_LEDS=y
+    CONFIG_LEDS_CLASS=y
+    CONFIG_LEDS_TRIGGERS=y
+        CONFIG_LEDS_TRIGGER_NETDEV=y
+
+Testing:
+$ ip link set eth1 up
+$ ls /sys/class/leds/
+stmmac-1:01:amber:lan  stmmac-1:01:green:lan
+$ echo netdev > /sys/class/leds/stmmac-1:01:green:lan/trigger
+$ echo eth1 > /sys/class/leds/stmmac-1:01:green:lan/device_name
+$ echo 1 > /sys/class/leds/stmmac-1:01:green:lan/link_1000
+$ cat /sys/class/leds/stmmac-1:01:green:lan/offloaded
+$ ip addr add 192.168.5.100/24 dev eth1
+$ ping -I eth1 192.168.5.1
+
+$ echo netdev > /sys/class/leds/stmmac-1:01:amber:lan/trigger
+$ echo eth1 > /sys/class/leds/stmmac-1:01:amber:lan/device_name
+$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/tx
+$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/rx
+$ cat /sys/class/leds/stmmac-1:01:amber:lan/offloaded
+
+$ echo none > /sys/class/leds/stmmac-1:01:amber:lan/trigger
+$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/brightness
+
+$ echo netdev > /sys/class/leds/stmmac-1:01:amber:lan/trigger
+$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/tx
+$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/rx
+$ ip addr add 192.168.5.100/24 dev eth1
+$ ping -I eth1 192.168.5.1
+
+--
+Best regards,
+artem
+
+ChangeLog:
+  v5:
+    - Drop redundant $ref to common.yaml and inner unevaluatedProperties: false
+    from the led@[0-2] subnode, as they are already inherited from
+    ethernet-phy.yaml.
+    - Move write of LED_x_CON first and clear FORCE_EN afterwards in
+    dap8211r_led_hw_control_set().
+    - Report TRIGGER_NETDEV_LINK instead of individual speed flags in
+    dap8211r_led_hw_control_get() when all three link speed bits are set, as
+    netdev trigger rejects reporting them together. Based on [1].
+    - Add checking of DAP8211R_LED_ACT_BLINK alongside TX/RX bits in
+    dap8211r_led_hw_control_get().
+    - Add -EOPNOTSUPP in dap8211r_led_hw_control_get() if unsupported
+    hardware bits are set in LED_x_CON.
+    - Link: [1] https://lists.infradead.org/pipermail/linux-arm-kernel/2026-September/1172246.html
+  v4:
+    - squash extended register write helper into the LED control patch to
+    fix netdev/build_32bit, netdev/build_allmodconfig_warn, netdev/build_clang
+    fails (patchwork.kernel.org)
+    - add andrew+netdev@lunn.ch to Cc of dt-bindings patch to fix
+    netdev/cc_maintainers warning (patchwork.kernel.org)
+    - Link: https://lore.kernel.org/all/20261122131900.2951586-4-a.shimko.dev@gmail.com/T/#u
+  v3:
+    - fix kernel-doc comment for DAP8211R_LED_FORCE_MODE_ON and
+    DAP8211R_LED_FORCE_MODE_MASK
+    - use FIELD_PREP() for DAP8211R_LED_FORCE_MODE_ON 
+    - Link: https://lore.kernel.org/all/20261120081106.2919010-1-a.shimko.dev@gmail.com/T/#t
+  v2:
+    - add a commit fixing kernel-doc comments for dap8211r_read_ext() and dap8211r_modify_ext()
+    - move LED child node down below tx-internal-delay-ps in dptel,dap8211r.yaml
+    - add blank lines in dptel,dap8211r.yaml
+    - restrict LED reg index to 0..2 and fix schema properties in dptel,dap8211r.yaml
+    - fix kernel-doc comment for dap8211r_write_ext()
+    - add LED brightness (force mode) support to driver
+    - remove rules == 0 statement
+    - add TRIGGER_NETDEV_LINK to DAP8211R_LED_SUPPORTED_TRG for dap8211r_led_hw_is_supported()
+    - clean up switch (index) statements
+    - Link: https://lore.kernel.org/all/CAOPX74709XiLXLoioDJStTSzzhstC2sHpM4GieAO=3-37E18pw@mail.gmail.com/T/#u
+  v1:
+    - Link: https://lore.kernel.org/all/20261113110546.173624-1-a.shimko.dev@gmail.com/T/#t
+
+Artem Shimko (3):
+  net: phy: dap8211r: fix kernel-doc comments for extended register
+    helpers
+  dt-bindings: net: dptel,dap8211r: add LED nodes
+  net: phy: dap8211r: add PHY LED control support
+
+ .../bindings/net/dptel,dap8211r.yaml          |  41 +++
+ drivers/net/phy/dap8211r.c                    | 261 +++++++++++++++++-
+ 2 files changed, 300 insertions(+), 2 deletions(-)
+
+-- 
+2.43.0
+
