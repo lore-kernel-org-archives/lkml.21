@@ -1,18 +1,18 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.0
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.229.19
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795512080;
-	b=q33eRoQh22OsxYSiBdalFRDplW81E45S5SnrcO/pu6QeUZr6bt5AjCv6tp/GGI6IOQ7l
-	 Z1w9jhLSmRvxwTQJMY29XlvGp/2AB+Bp1vw6EWsVpg+WxVbkqCWutJ5Wsc02M+CePkK0a
-	 wHn/ApigN3+g9LuoEnK4Y8hfYYA6E6JHDVwS8TKf29H8EreliA7zVxLqG8j07QT0mrKnr
-	 GyeSPeIRluroIHZGg5fCpA6StqD82imt8M07V/ZBmV8JtQF7zmcM1zgtuacoQTjkJ0aAp
-	 J3dBXb2XW4tLv/v/7dHwpfJlNpg9Kg7DG9wNoDcPhPRMz5aYruvhfcZU5VioQfLK5Ig==
+	t=1795512090;
+	b=Aeee7l66upT9oWdh6tkyOebeqt0xLiZIMZSwi7QVsSs7FDLIf2H5KorCJ/G6Lrz+vALt
+	 +HxWWpcHo+B0ZpkZ6sWkb8KT+tewjZBo8vqCrB0aXUlHRzttesqimbAgHMYaK7v+LxmBK
+	 jk5k3HigRe0n4tXpHC6V82n4HRNGEm0EffaukL1aK5ZLHmhwwOOfvMeomd53kMdgzd7MV
+	 ie0z8UDDYwGam9XNmmklv5f21VabJR7+ILm4Q2dPqQKkG0qVXlEN9mPGWhjcHT9lxYMpF
+	 9iyYuQZoj3h4ck8PZ0rnLGqInCFQTFUMzi3u1R5te63/8rvg3r9YXmd1DnFljHU+Xwg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795512080;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795512090;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-LD-Processed:X-MS-Exchange-SenderADCheck:
 	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
 	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
@@ -24,76 +24,85 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=2j8L2zRBSJ1CYa45it2ANAkhvL5pY6D6F+PM6DZDi1o=;
-	b=1n3sGeSSClNs8bBVwLmFDzHJCPMSy/Fm1WwOjlIlp1MhDN+dZMZWVhCdz9uNP0msVzWC
-	 G2rIG0LH6pP7AzZV5NQAzWoFXGDn/hffg4HQV9448hEyUTNfZagTE/NXEwobP6G3tc0OE
-	 f81uVe0Z+EWXfLWIUZb6aHdatVJkW7bQzA4zc4A0wNxLx5SnSiftpR/yDBZJfMe1bwLw1
-	 Pe+v3JpYzDZpAkP14BSyS/jqz7S1yJjiUb8bqgNNA6VE9KSbcRCYIkjKynFqMTj1Bd0no
-	 I7cqGUWVjxCqInIqIUthcElY949F+Q84ciyZUV/vanfKjUBBp4htUIleF3/amSzzeZg==
+	bh=ctbxF5B+y6L/JHufQc69gZUon7h+6IHwoGQ5DYI4x3Q=;
+	b=qn0tQBuQXqrIkK694nfgWGbDprum+kCYWs5E8z3AYFVyAA78caxUMraRFVFJyDtJw4fO
+	 QxkZ9fNNL+A8d2xEWmr6D+mgiM5UXhDUJQ2iqR2x1LJtD5NLecdG7EKvB0LDUtgbMz4C7
+	 HW7tPk8c7NH0g9CDa3hu/4tqYZp+WOv867k8DVKwd7raIn5Etj0lRowhP9IHRjvimyRmH
+	 UDKt53a6wDdQPqm4cCpRVmvFQ95rhRGPGICR0blkVzqzW9ZrSlMByzjhXwbQdtV6FmJZG
+	 jQKq68VzSjAfXrJVRgz7P70BY+LzJ5jsoOmJxExt/frgSqMmErEcXshSzCwPNgRC2cg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=rnbRif3m;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.0
-Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011000.outbound.protection.outlook.com [52.101.57.0])
+	dmarc=pass header.from=bp.renesas.com;
+	spf=pass smtp.mailfrom=bp.renesas.com;
+	dkim=pass header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=EV9Yunri;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.229.19
+Received: from TY3P286CU002.outbound.protection.outlook.com (mail-japaneastazon11010019.outbound.protection.outlook.com [52.101.229.19])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DC64606A68D;
-	Tue, 24 Nov 2026 09:21:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DC64606A68D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8CB1606A338;
+	Tue, 24 Nov 2026 09:21:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8CB1606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bp.renesas.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bp.renesas.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=rnbRif3m
+	dkim=pass (1024-bit key, unprotected) header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=EV9Yunri
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QW39BIRoVwJpZL79x/OSsWupbz7dsFrOLn5xzJNx+hR5StUXGtrRsZx5wZbK4eXYgI8dqN/Yf3pbLJlL/1cuCPqmuC0+Pp3M/LK2m7eLDytCZqPaF0/KZDZ1E474nqcEUuMRlgdMQOS8rDue6F//vjYCOzGsZy1ixz/v6o92msMpps7ERdarmvQMOS7pAJNDvr+6A2bRsXpPtxUkSHnysU3A7eGvzB6K69bJE/bynX/BfhVO/5B4w2G/dvLebldHWIr1+KNz4w6z0+EkrX74rKGF9V5/6z93GtboZZLKMKfb3u+lhz+NR1Z4fekRUUsFkiFQP3jIueJYmOLLcErB/A==
+ b=H5avUopaTGjF18kMnWumcAM32chjZiG1L513DAe76x1BiAXM1x7WxxxqEvJEW5H3LkeLs/fiSDxoXbUarPCrDSfYFjiRVn6JHCw3wFO97vVFnp+urordzF/GMCWn0w12iq8LHuemNLMJ2zmcPXiWrTt0qs5ttskYMYG5qTCZ8ogYpSZnx49IJodC884cG2DaeM76u71jrfwwctF0r7l65Rm4HcFwDVZ31NOPK7NK/VxG2WMc3XLQKLTbAPKRGMOC4+1tXoDfxNU4iVyVxC6ZUup2R61SEDmPWfDIIBhT1vNv9m9W0MNSgL2TdP4qamzU9y6dO7l+DdSqB3Z+hlr2/A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2j8L2zRBSJ1CYa45it2ANAkhvL5pY6D6F+PM6DZDi1o=;
- b=zKx4/V3VSVZpX8hgAG+BKWwjhRDInzWb+KpX+ivkwMloMj9VuQ5LQsLbbPnThV+28QxwzyB3jt9Ps42SaWD7c/LdgvAcm6oz1swyg2BF7RACfc2QaBD2tFzyrk/jVuUpr5Zzy50LOcjuA1Mc1Zln8/xod7S3cgoOCP8n8n+u6zEMdnP0x5T4oxw6xTpS1ahHh2XpIPgMV8+XVNXcJ+aTcoedWsFCEP/ftsDIWCwpwRGD3jgxux1pCDazF4+1GlrpK9PjQIEeK82w8njeqOmLhrI5/8q06PVWwCjl02UTuYdGfpTmup3ehxToNE1Ts5slVmmUEO3BSoOna9StemmqEg==
+ bh=ctbxF5B+y6L/JHufQc69gZUon7h+6IHwoGQ5DYI4x3Q=;
+ b=oMrV/jI21PsncKCH4uex0d904mvG6fLGNblFAx25s1wtvIC6fEzNfA9Y35VdjY9rfCiNG9hdLEwvH0fF/F3QUJmDZ/MNkEiReP/6dB9CE/1Y8qvFykDkCN9k+BDC8vCHEWTK14+i9ZD0ee3DB5GV3nOEBnIY6WQQE766fANeC11bkNFAQrhqsNa0qKqy+hASAVzGedvyCrSZzr8ksyPlU5mjBonw7JTyY0qE5UHUZWwGDzJXIPqKl5LEM0I7XB//1KLcObl5swOLLHMhvhvEZbZOxyZeI2po6U7WX/9bYsmrNm2gDsEIO3VWc6B9dv+VPZns1oKxTJhT3gnkX5nVXA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2j8L2zRBSJ1CYa45it2ANAkhvL5pY6D6F+PM6DZDi1o=;
- b=rnbRif3mcZmkNWdfEXsLoBI3EwfXIflJCkslWr6ZkPuqATbMMzCLDeACJYQ+Uaom7rgEG6EBIj0N9bgnX6gyEoSiS2tPx5hKrnRsoqCMzv/lWunfXQnYkQSgoUEebbiooC+JUi+TjNm6ppFN4IFpckiDUWqPbHFdGS4aaHWE+5lXeJvGWjZev329QBZyHGP39+FoOVilasfsHQevuGtVOnMZgqi6ckkejUW+IsP+4xdFr8fmDEX5KWj+zG1NCICnjYwP+ld05lVh++f+ytaldB6I1XZEDj5ir4k1ty87XGApjCmTGY82cwZqTtGusE9o3fb29T/BSNj6e5KNWXmn6Q==
+ bh=ctbxF5B+y6L/JHufQc69gZUon7h+6IHwoGQ5DYI4x3Q=;
+ b=EV9YunriUcbmyZ4TZ6507yWa1MzAs6gooQWi4ziDuR2aWtKpV9RXfvQHdEAgxcZGo4Llxwq+2f5XI0xCOHK8FFj9P2lvviq7h0aF/G8IuNDos1r6jnUZz3bLnWqxp9nJnxtnFrd+ln+OsxWXj64PxIdQTDeniHqiTpSkDAnwX4s=
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from PH7PR12MB5974.namprd12.prod.outlook.com (2603:10b6:510:1d9::19)
- by IA3PR12MB870191.namprd12.prod.outlook.com (2603:10b6:208:712::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Tue, 24 Nov
- 2026 09:21:10 +0000
-Received: from PH7PR12MB5974.namprd12.prod.outlook.com
- ([fe80::f5a5:bbc3:e9da:f8a0]) by PH7PR12MB5974.namprd12.prod.outlook.com
- ([fe80::f5a5:bbc3:e9da:f8a0%3]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 09:21:10 +0000
-From: Adrian Ambrozewicz <aambrozewicz@nvidia.com>
-To: Bartosz Golaszewski <brgl@kernel.org>,
-	Linus Walleij <linusw@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Kent Gibson <warthog618@gmail.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Jia Jia <physicalmtea@gmail.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v8 7/8] gpiolib: let the character device free its IRQs first on chip removal
-Date: Tue, 24 Nov 2026 11:20:38 +0200
-Message-ID: <20261124-gpiolib-chip-removal-v8-7-aambrozewicz@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124-gpiolib-chip-removal-v8-0-aambrozewicz@nvidia.com>
-References: <20261124-gpiolib-chip-removal-v8-0-aambrozewicz@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TL2P290CA0006.ISRP290.PROD.OUTLOOK.COM (2603:1096:950:2::6)
- To PH7PR12MB5974.namprd12.prod.outlook.com (2603:10b6:510:1d9::19)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+Received: from TY7PR01MB045388.jpnprd01.prod.outlook.com
+ (2603:1096:403:405::18) by TY7PR01MB17940.jpnprd01.prod.outlook.com
+ (2603:1096:405:39f::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Tue, 24 Nov
+ 2026 09:21:26 +0000
+Received: from TY7PR01MB045388.jpnprd01.prod.outlook.com
+ ([fe80::efc7:876a:53ee:a019]) by TY7PR01MB045388.jpnprd01.prod.outlook.com
+ ([fe80::efc7:876a:53ee:a019%6]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
+ 09:21:14 +0000
+Date: Tue, 24 Nov 2026 10:20:36 +0100
+From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+To: Biju Das <biju.das.jz@bp.renesas.com>
+Cc: Tommaso Merciai <tomm.merciai@gmail.com>,
+	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	"magnus.damm" <magnus.damm@gmail.com>,
+	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v10 08/12] drm: renesas: rz-du: Separate the DU instance
+ from the DRM device
+Message-ID: <awVW5B4p06FUfBHw@tom-desktop>
+References: <cover.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
+ <68fcf838eee14c1906f23b2b7c74c560793cd1d4.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
+ <OS3PR01MB65968FEBCB08429F11188CE986452@OS3PR01MB6596.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <OS3PR01MB65968FEBCB08429F11188CE986452@OS3PR01MB6596.jpnprd01.prod.outlook.com>
+X-ClientProxiedBy: LO0P123CA0015.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:354::12) To TY5PR01MB864802.jpnprd01.prod.outlook.com
+ (2603:1096:403:512::7)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,270 +113,219 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB5974:EE_|IA3PR12MB870191:EE_
-X-MS-Office365-Filtering-Correlation-Id: bd8d342d-07a9-460b-b43b-08df4a0c46ce
+X-MS-TrafficTypeDiagnostic: TY7PR01MB045388:EE_|TY7PR01MB17940:EE_
+X-MS-Office365-Filtering-Correlation-Id: 85e18807-547e-4a96-9db1-08df4a0c4929
+X-LD-Processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|261102130727099003|261026140227099003|261026121527099003|261022075727099003|261022105027099003|261028144727099003|261021121427099003|261021123027099003|261102123227099003|11063799006|56012099006|10067099003|261009223027099003|6133799003|18002099003|22082099003;
+	BCL:0;ARA:13230040|1800799024|23010399003|52116014|376014|7416014|366016|22082099003|18002099003|4143699003|11063799006|261026121527099003|56012099006|261026140227099003|10067099003|261009223027099003|38350700014|261028144727099003|261021121427099003|261021123027099003|261022075727099003|261022105027099003|261102123227099003;
 X-Microsoft-Antispam-Message-Info:
-	jmBKgdtC1MmtmfhkrkYJZaSA/Z5wthtHS+v8VBcTwULGVtu4wmvHXvL52dISNkiYLj++GdY46Un1MwzKMx7VJS0kn7kLYmAyWGvWriQ+fp6+GWUKByuxlDeLId06WbkeXY41/im+huJ80YoRfzZGtH9slfspW8McUoJE6zqkOLnmqMyYx2V7MNtjBMYE/HdaNzYvz0uUxc+NRGe0lcJDDR/CsPzq9bXPV5mGMqh3Yj0GcplsS6s0k3s1TDuWdsQPlW/ziSG+ib0bY71YJVS/mboG9JmmgkvIUexKvF3bQTL2q4bHgKJwC+GQJ6f9hAvXo0EXLyrXX5UpBPfxDtXgilMrRgrgfFnUd8Uqi+nSw3Jp5qrboj5N9FNxOs3lTpepWqA6epAv6VzSWi+U244BcU9eHS4E0WyinrD9LznJVIg6PhaeXwii0N+aPO/ylEYOHhiNnbDC368mLkPwI8ks4Ye9opOyF1XypKjcKxJVqeAMXeZj6wNtktTQluxnkN/hhUf6rMalvhrmlW+vlmOLy5KQIP4rv47aSDZlT2NjXQtTL1envEZBPT31uBmHTNcfeK9IzwNK7uCpCfMkxqkGrMHWrr8t6mo4YHcOnuxpJKWOGcx4bzM+08y5SC1cTVhMxb2vpu8Yt3S4Xn6oJZwFcVP4uTx3DpG6el+V8qHddj4=
+	zq9TKljw5kjkbe6QhBhzINVLhqMuKx7z1gE1/ct2wlqdNkokS7BBPKYgrYCCgT3UGGpGEHwNtzHdnNUx7p9kxNLnHbjF4DrmU6iaog4twLaA9LhlF7QKZSpRa2P8KoyMdgzYCTsjhND4VqlWqH0ovrbDxRRIVaI82saGb/GFYfvxKb816MrNzQ9ioFgx4JGyChQnpQr3I2+DWOH9Qc14x6ZNTFrpGWS2BNv5iqHjpbfSr2PFci3+hoHrZPQBpDJ0jvANzZ0MFc5EW7nrFtStkP0JAZyXSTmo28FZ0dWJMxfKuZpR2L5aLbEzmjQgU7LCK4w2rP7irCtz/5XFLe7Q006NfIYtI4vffxaTJELTM3mg1HwRhMPr3BhoHB15iFJNjFn6/hUzu9v3eQTmqKx49nQWJwR0OocGsN+/VFZU1007zx/tcbIz5mRY65bLzBOXAjNxZ305pZEoQK/zrS8QpFWYW+rrBCDrh0vR5K4CONIsH3kr/OGoZ1WX1PtVaIy2fub19JyyLg1T7xKUdx2ZbLprthgoytruPZY62f4iFBZbu4XOEyZbH6VxAm9Jcw+kN42uUKCbKY0CwmsqpNTua8uil5kWsh0fAf7N5NQUPoOKodyQuw4oTFLpbi0P5lFYsQWvjBlJ27D2q3uH9ycHYTsVMH3ygLeP1zmTBgXebEYdSAySOqsELQ06JfrZUwHvmmL++6sUn3LPK7immZ2LkaFFbE11YtnzxET0FPs76FA=
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5974.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(261102130727099003)(261026140227099003)(261026121527099003)(261022075727099003)(261022105027099003)(261028144727099003)(261021121427099003)(261021123027099003)(261102123227099003)(11063799006)(56012099006)(10067099003)(261009223027099003)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7PR01MB045388.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(52116014)(376014)(7416014)(366016)(22082099003)(18002099003)(4143699003)(11063799006)(261026121527099003)(56012099006)(261026140227099003)(10067099003)(261009223027099003)(38350700014)(261028144727099003)(261021121427099003)(261021123027099003)(261022075727099003)(261022105027099003)(261102123227099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?d5wyOtJ6LleLObPrAXiA2//Yyhpd6Kc05XmdocL524dFDScDlTD2WQqGWewP?=
- =?us-ascii?Q?co/PmWPWUxI8XSs8r2HyGsPlVFqTVnMFCbHHe3Ne7SjMypqtGUYB1GgZLpS+?=
- =?us-ascii?Q?KOJB0s32g9rgR2rrZmNFTaMR5wKvZq2YQyNHV4tKuv3UzvKuC4r6+xJUrRGQ?=
- =?us-ascii?Q?ecjEMB8IS0GQ7C9V1rQOmWTL6bfKIqVMf4hNja1FvTeV62uQ3lqOjIbFrhU3?=
- =?us-ascii?Q?RpDkSTuGh54M74hBQXg/MSbmVVRC6JJh9lFItXXdQOz4/kU9fjodBkvHKfxX?=
- =?us-ascii?Q?RBT1TaVmEwEJXIY1mwB8oM410xPcdCSVBMBOWyuzRrNasmrg8TPXIxY6GJGf?=
- =?us-ascii?Q?AifLM/9Wx3c4+I943UvMIzWNP4zEK5fVrtvBzDbLIqangtkCj5DRC6kmUq8u?=
- =?us-ascii?Q?6d3zI+b33md4UL6rOP6fAhYjy3Xlzs0wwi5PvfdxhIY/ujzza/p7Edz6bcmn?=
- =?us-ascii?Q?1a+YfNvQotNDjQTufWuTV5cTaTrGQuryK84Jn9ZxHqEQLJ6tHnGCh7dOjMoa?=
- =?us-ascii?Q?BrkMtWKoL6Hy8Oki1uUyZQXT/IhPnd0748B+HT13FXVZOtjN23f/fXOvO9uJ?=
- =?us-ascii?Q?Lyu/PPZN75I7gOBVidSOUDmDe232mD4B+3822xoTZcbxJfUpJcLlND3Z1kYw?=
- =?us-ascii?Q?Jurbso4T8nmoCHMwNMxbVTygUAO1oXD8vQC9mb69uLgPVg/nRL+MKbDJVGFc?=
- =?us-ascii?Q?H1iRYBmIl4KXZkmfTraV2kJ0fYlQIi7NlI0mv347VYnZzBtrkK47PzTH6HZr?=
- =?us-ascii?Q?ndJfaO75WV0EkDOatimcJ9qWv8poExOaPZ8kSr9xHRFCu6vTmSEFe0WWIozi?=
- =?us-ascii?Q?TbXLNv/t4a44MnhduqHJtR/l4ExNMqur5gKXSgXzB7UQnbZfTeRMB48hkqMf?=
- =?us-ascii?Q?2DWwGpFmA5PXjDHe02y+0VSxY9VVlKSg5xacxbSBwg9Kr8GOtyUAJCE++dib?=
- =?us-ascii?Q?Cv5j3ddx1tm8hg9PkqWzyxwpKdgdDInGRS6Sn1mBLcQSHDLuI+gSq7SKp6rF?=
- =?us-ascii?Q?LQDx5LizmLzB/6dWYRj1Arut1jrH8wtK6WkIvjyf8GAb6rjq7ep8lnPdGbbZ?=
- =?us-ascii?Q?U6PdR4vH+fQoyBF/o3Mv3buSjnFwr/unZ6M5MNgsiPeYOyVeX+hqk2meFgQW?=
- =?us-ascii?Q?j/ZR4TJwQa05w66uZNziTAdSEDaFvcYWMEV4v1sOOMI6CRIyp90qj8M/DUrX?=
- =?us-ascii?Q?FVFcfloeKtJ0LcukN7wEBvfG/TF8LDjrmtgd2dM9bI1lcYJXvL7LxpivHc2O?=
- =?us-ascii?Q?9L857rRrTRXxc3/4JyV1yTDKk8HDZEW6aM8yWvFv2ucZ0LIApYUquJE32/ql?=
- =?us-ascii?Q?d7HWwNcRwpCx0Kxiag7gj2gRpBEeL2bJZu9R41bGgtl3tAyTcNp79+LUC21a?=
- =?us-ascii?Q?fa2pf25lwYa0N0L+Fsd2UIq9xcoC8q0Pohh/03gL/0Vvqd4iW2ZX1hsXE9yl?=
- =?us-ascii?Q?hk5EMRJUzTBoRghIf+JKYgH8sQKAzZrlGjjX8tndar1wu4r6zHZiE/8ZsTmF?=
- =?us-ascii?Q?RZBreVbX/cjTyOAve+CavWE31ULBrfLBBYz//X12La9o/eth1LQ8jgZvCMoo?=
- =?us-ascii?Q?VpNQTWriKs+Gi01QNoX3fhD65TRPp5RkrzkO+6P9CFwdElAkV1GvAruJyDc1?=
- =?us-ascii?Q?N7ph0JMkCTaK48OFX+oH5Q6+nr8t7kVp48bN6LKtzab7tbG7S1UDku8DE2oB?=
- =?us-ascii?Q?g0W99DqyvNQTQKYa2s1mmKKY8Ipw9VcjOypseYkK0+HNmEdVnmD8XXjbqj+E?=
- =?us-ascii?Q?/lxEnQHLiQ=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bd8d342d-07a9-460b-b43b-08df4a0c46ce
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5974.namprd12.prod.outlook.com
+	=?us-ascii?Q?bqTOtDClPONyyt1sjoALC+JC6eJ+vTjCddkA/rAmNnwdKryESo8/zRlVWeCn?=
+ =?us-ascii?Q?gFnZYUvI7wW/S0t34xidIe+nq4TCewvJIcsbRqgFqEI8WTcNggVkwhIEh+U3?=
+ =?us-ascii?Q?88oPO+5/D7XDWXL97a8rZqDDinBpoPMfxIjkokZEtgGR3qDSXACBkfMmANR1?=
+ =?us-ascii?Q?+giF3MCpXKhI999kX6j1QlTMj+PQ5GfnoXUWZrcA7m8PLsWAYetky2hXNVFU?=
+ =?us-ascii?Q?Gsge4M3H3eP6uAQ3X50xV3n/zbkI8CV+yP58MYDzKdGT/xkbPuBmspTm/sS/?=
+ =?us-ascii?Q?XFxTBVJ4GxuQn+Fq2B5Sf5r7qGULpLo1fsoUTQtbaCNbhSLcShoUjd2AT8cx?=
+ =?us-ascii?Q?Wt77h3EwkOoKbyW0Qged+CjuKwF7egajkrvnCtteZHNHXr4pEWL/DbwI2Osm?=
+ =?us-ascii?Q?JRC6C+0heZMaJ29jrydMjuzqDHZxz6sRwQj0mQZtzEkq9zeNDkJ2jh39Ig3w?=
+ =?us-ascii?Q?RfGgMmD9WlYQXFNoxpwwFF5AcCKCW7InNMURK3qRFH0epXqTSdZQC0+4qbt5?=
+ =?us-ascii?Q?Sbgz724rq4eaXK07yvUUl75O6tiB3QSwn5LYK/3+PRJtIrhw02Isk8lS4saB?=
+ =?us-ascii?Q?0+YUqT/BV2CbLQqq57SKfhL94vRehPtalvFSZgP1fLtQCqyBwqY8LL5HNTti?=
+ =?us-ascii?Q?UFQV57GG9qcVa3Y6SPGkq2UPgDP6BDoRLfrCV59sfIrsnG/fRHXTYxN6VhMC?=
+ =?us-ascii?Q?DVpAlvMoIxAjGTHX1fjti2SZgnGVWz4f/Z0LEhF/Jgx0slVshfWFyoQiQeNo?=
+ =?us-ascii?Q?I4gcuDTa8ufI8EICRenkf4ZQB4RaMABcIjZXsbY5Nuq/tO19YALWZ/1E1SL8?=
+ =?us-ascii?Q?zkrPasOeEonbCJUvQIWq0PvnGC0+NSH3zmdBl0F0+vzjB8xadxeu8fGp5rQP?=
+ =?us-ascii?Q?qFMTCNVOLSsgt0X85yJruw8xDxwJfz3NZ8WERjePVvgAOsL6hKPLspj9ACzO?=
+ =?us-ascii?Q?umXZEHFGByv1NIWQfAfrpGiZZVqYCrpCKLnPu9yICgfEqI37uF5KxHlsOdtE?=
+ =?us-ascii?Q?DakUhD8HSxYSbzyJBmj2idnkkpQKnowRKfrA+gHfXBBNPpm2MHoHDyb/xIoe?=
+ =?us-ascii?Q?E9sxf3XPPY5UmxhupuZ4WP/jKLjwflrUrmzAzbdcws1x+HBke2Zy1aFEv+za?=
+ =?us-ascii?Q?8//ZeYQLLdZ2AAZBwtqo37dWIWx5PEwljbwc5s91tICB+CuO5r3Ak9dEHI/4?=
+ =?us-ascii?Q?p3TSgg5FWeTmq5MQD+Xy5sV4+6Fw4YNDs+afOjCt3rkVk4gKYKaeC6/gOZM9?=
+ =?us-ascii?Q?QMc5abe+UmpOk0tV5Rnsq599Ty9EhhPPfGgTu9MKo/el+n9VKhMjAMQGmv1C?=
+ =?us-ascii?Q?nBI3B163sUrxO0K6UiNorSkCIjCfFNWILIckO7fP+OYBJaOABpDx0ufwJgty?=
+ =?us-ascii?Q?D6oF5QiCFIc3UyxOIpIApe/N6wdv/bA6WC4+Xsqk0UihpZw7ptV2A/i4eyoQ?=
+ =?us-ascii?Q?dIr9ek+htKTzn7N9vGMAJEOP2LwErlCgfcRcCKZj1IXhMZ+Zc4/65p4kRzNi?=
+ =?us-ascii?Q?it3+WzzWo4T0wmps7ol8mSi7hxLYZGMS+86rlQ/ScgJqXgrGbdF+nO5l5nub?=
+ =?us-ascii?Q?6ax5UcEH/wbGXRXyNFzysSdFc0WsN+DS9VjNDRTJze4xV/+3Jk3vwAKSG1Zu?=
+ =?us-ascii?Q?4DOTA7z30jXqG0MX7AyKq2+JGEqP6eMhhfUBJVn36tX95CDNj/pWCFmuUv0J?=
+ =?us-ascii?Q?fspacBMcx9WkfCJysQvX3s+Hhlan5ydEkfMFYHBA1HFOzBxYAPINO7NyU73k?=
+ =?us-ascii?Q?Vcd+jlfrYcyyGpzrulf+3bupo1j0WlrvYGlqoV0Wec2gdY3Xsw0l?=
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 85e18807-547e-4a96-9db1-08df4a0c4929
+X-MS-Exchange-CrossTenant-AuthSource: TY5PR01MB864802.jpnprd01.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 09:21:10.1216
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 09:21:14.0610
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 98c21I8MW4iSk9jl1QBr8dGjOE+TyBo7VSeZjw/hHMkdLk4qxcBRmn1+zim9Ee4dZpcTU/EucjLMzJcpvtbARA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR12MB870191
+X-MS-Exchange-CrossTenant-UserPrincipalName: A5xNAP9bG3DZwxXiyV5x1FiMvr3l/W3gbgtf90mevL4M37BObb9nFLgwuKsX8TK9Tyu6qN4anl7o/kMYIgwR7fXYDIaNjLzOch9gN28QHgFQCrj3wUMjdaZEO0nEE5Ed
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY7PR01MB17940
 
-gpiochip_remove() force-frees the remaining IRQs, removes the irqchip,
-and only then calls the notifier on which the character device frees
-its IRQs. It may then free an IRQ it no longer owns, after its mapping
-was disposed of and the number reused, or from a release racing
-gpiod_free_irqs() and gpiochip_irqchip_remove(). free_irq() then warns
-"Trying to free already-free IRQ" or uses a disposed descriptor.
+Hi Biju,
+Thanks for your review.
 
-Herve Codina first proposed calling the notifier earlier [1]. Call it
-after the chip pointer is cleared and SRCU synchronized, when no ioctl
-can request IRQs, then free the rest. The release paths now free their
-IRQs before unregistering, under the lock the callback takes
-(config_mutex, or a new mutex for v1 line events). Initialise
-config_mutex on allocation: linereq_free() takes it, also on
-linereq_create()'s error returns.
+On Mon, Nov 23, 2026 at 04:59:32PM +0000, Biju Das wrote:
+> Hi Tommaso,
+> 
+> > -----Original Message-----
+> > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > Sent: 13 November 2026 12:20
+> > Subject: [PATCH v10 08/12] drm: renesas: rz-du: Separate the DU instance from the DRM device
+> > 
+> > On RZ/G3E two DU instances share a DRM device, which can only be created once both instances have been
+> > probed.
+> > 
+> > Split the DU device structure: keep the match data and the registers in a structure allocated with the
+> > platform device, and allocate the KMS objects with the DRM device in a new rzg2l_du_instance_init()
+> > helper, as they are released with it.
+> > 
+> > No functional change intended.
+> > 
+> > Signed-off-by: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > ---
+> > v9->v10:
+> >  - New patch.
+> > 
+> >  drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c | 61 ++++++++++++++------
+> >  1 file changed, 44 insertions(+), 17 deletions(-)
+> > 
+> > diff --git a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c b/drivers/gpu/drm/renesas/rz-
+> > du/rzg2l_du_drv.c
+> > index d3cccbdf9012..d102876c07e1 100644
+> > --- a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
+> > +++ b/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
+> > @@ -162,6 +162,27 @@ static int rzg2l_du_pm_resume(struct device *dev)  static
+> > DEFINE_SIMPLE_DEV_PM_OPS(rzg2l_du_pm_ops,
+> >  				rzg2l_du_pm_suspend, rzg2l_du_pm_resume);
+> > 
+> > +/*
+> > +-----------------------------------------------------------------------
+> > +------
+> > + * DU instance
+> > + */
+> > +
+> > +static int rzg2l_du_instance_init(struct rzg2l_du_device *du,
+> > +				  struct drm_device *ddev)
+> > +{
+> > +	struct rzg2l_du_device *rcdu;
+> > +
+> > +	rcdu = drmm_kzalloc(ddev, sizeof(*rcdu), GFP_KERNEL);
+> > +	if (!rcdu)
+> > +		return -ENOMEM;
+> 
+> Why there is duplicate allocation of rcdu? One in probe() and here
 
-IRQs left requested by in-kernel users are now freed after the chip
-pointer is cleared, when gpiod_*() calls fail.
+The two allocations have different lifetimes.
 
-Reproduced with a test chip on the hierarchical irqchip: both races
-warned in 30 of 30 cycles; with this change, none.
+The one in rzg2l_du_probe() is tied to the platform device. It holds
+what is needed before the DRM device exists and outside of the
+component bind (dev, info, mmio, and ddev/is_master for the master,
+PM and remove), as on RZ/G3E the DRM device is only created once both
+instances have been probed.
 
-This patch depends on patches 3 and 5 of this series.
+The one in rzg2l_du_instance_init() holds the KMS objects (crtcs, vsps,
+lvds, index). Their drmm cleanup handlers point into it and run when
+the DRM device is released, which can happen after the platform device
+has been unbound, so it has to be allocated with the DRM device.
 
-Link: https://lore.kernel.org/all/20240227113426.253232-1-herve.codina@bootlin.com/ [1]
-Fixes: ec8b6f55b981 ("gpio: free irqs that are still requested when the chip is being removed")
-Cc: stable@vger.kernel.org
-Signed-off-by: Adrian Ambrozewicz <aambrozewicz@nvidia.com>
----
- drivers/gpio/gpiolib-cdev.c | 37 ++++++++++++++++++++++++++-----------
- drivers/gpio/gpiolib.c      | 28 +++++++++++++++++++++++-----
- 2 files changed, 49 insertions(+), 16 deletions(-)
+Thanks, Tommaso
 
-diff --git a/drivers/gpio/gpiolib-cdev.c b/drivers/gpio/gpiolib-cdev.c
-index d829f7d00b5e..ceecce572a52 100644
---- a/drivers/gpio/gpiolib-cdev.c
-+++ b/drivers/gpio/gpiolib-cdev.c
-@@ -1590,19 +1590,25 @@ static void linereq_free(struct linereq *lr)
- {
- 	unsigned int i;
- 
-+	/*
-+	 * Stop edge detection while still registered for the notification, so
-+	 * that gpiochip_remove() does not get past it until the IRQs are freed.
-+	 */
-+	scoped_guard(mutex, &lr->config_mutex) {
-+		for (i = 0; i < lr->num_lines; i++)
-+			edge_detector_stop(&lr->lines[i]);
-+	}
-+
- 	if (lr->device_unregistered_nb.notifier_call)
- 		blocking_notifier_chain_unregister(&lr->gdev->device_notifier,
- 						   &lr->device_unregistered_nb);
- 
--	for (i = 0; i < lr->num_lines; i++) {
--		if (lr->lines[i].desc) {
--			edge_detector_stop(&lr->lines[i]);
--			gpiod_free(lr->lines[i].desc);
--		}
--	}
-+	for (i = 0; i < lr->num_lines; i++)
-+		gpiod_free(lr->lines[i].desc);
- 	kfifo_free(&lr->events);
- 	kfree(lr->label);
- 	gpio_device_put(lr->gdev);
-+	mutex_destroy(&lr->config_mutex);
- 	kvfree(lr);
- }
- 
-@@ -1673,6 +1679,7 @@ static int linereq_create(struct gpio_device *gdev, void __user *ip)
- 	if (!lr)
- 		return -ENOMEM;
- 	lr->num_lines = ulr.num_lines;
-+	mutex_init(&lr->config_mutex);
- 
- 	lr->gdev = gpio_device_get(gdev);
- 
-@@ -1690,7 +1697,6 @@ static int linereq_create(struct gpio_device *gdev, void __user *ip)
- 			return -ENOMEM;
- 	}
- 
--	mutex_init(&lr->config_mutex);
- 	init_waitqueue_head(&lr->wait);
- 	INIT_KFIFO(lr->events);
- 	lr->event_buffer_size = ulr.event_buffer_size;
-@@ -1790,6 +1796,7 @@ static int linereq_create(struct gpio_device *gdev, void __user *ip)
-  * @eflags: the event flags this line was requested with
-  * @irq: the interrupt that trigger in response to events on this GPIO
-  * @irq_label: the name @irq was requested with
-+ * @irq_lock: serializes freeing @irq on release and on chip removal
-  * @wait: wait queue that handles blocking reads of events
-  * @device_unregistered_nb: notifier block for receiving gdev unregister events
-  * @events: KFIFO for the GPIO events
-@@ -1804,6 +1811,8 @@ struct lineevent_state {
- 	u32 eflags;
- 	int irq;
- 	char *irq_label;
-+	/* release vs. chip removal notifier */
-+	struct mutex irq_lock;
- 	wait_queue_head_t wait;
- 	struct notifier_block device_unregistered_nb;
- 	DECLARE_KFIFO(events, struct gpioevent_data, 16);
-@@ -1839,8 +1848,10 @@ static int lineevent_unregistered_notify(struct notifier_block *nb,
- 	struct lineevent_state *le = container_of(nb, struct lineevent_state,
- 						  device_unregistered_nb);
- 
--	free_line_irq(le->irq, le, &le->irq_label);
--	le->irq = 0;
-+	scoped_guard(mutex, &le->irq_lock) {
-+		free_line_irq(le->irq, le, &le->irq_label);
-+		le->irq = 0;
-+	}
- 
- 	wake_up_poll(&le->wait, EPOLLIN | EPOLLERR);
- 
-@@ -1920,14 +1931,18 @@ static ssize_t lineevent_read(struct file *file, char __user *buf,
- 
- static void lineevent_free(struct lineevent_state *le)
- {
-+	scoped_guard(mutex, &le->irq_lock) {
-+		free_line_irq(le->irq, le, &le->irq_label);
-+		le->irq = 0;
-+	}
- 	if (le->device_unregistered_nb.notifier_call)
- 		blocking_notifier_chain_unregister(&le->gdev->device_notifier,
- 						   &le->device_unregistered_nb);
--	free_line_irq(le->irq, le, &le->irq_label);
- 	if (le->desc)
- 		gpiod_free(le->desc);
- 	kfree(le->label);
- 	gpio_device_put(le->gdev);
-+	mutex_destroy(&le->irq_lock);
- 	kfree(le);
- }
- 
-@@ -2101,6 +2116,7 @@ static int lineevent_create(struct gpio_device *gdev, void __user *ip)
- 	le = kzalloc_obj(*le);
- 	if (!le)
- 		return -ENOMEM;
-+	mutex_init(&le->irq_lock);
- 	le->gdev = gpio_device_get(gdev);
- 
- 	if (eventreq.consumer_label[0] != '\0') {
-@@ -2836,5 +2852,4 @@ int gpiolib_cdev_register(struct gpio_chip *gc, dev_t devt)
- void gpiolib_cdev_unregister(struct gpio_device *gdev)
- {
- 	cdev_device_del(&gdev->chrdev, &gdev->dev);
--	blocking_notifier_call_chain(&gdev->device_notifier, 0, NULL);
- }
-diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
-index 9832f755312f..e0ba17a73c4b 100644
---- a/drivers/gpio/gpiolib.c
-+++ b/drivers/gpio/gpiolib.c
-@@ -854,11 +854,22 @@ bool gpiochip_line_is_valid(const struct gpio_chip *gc,
- }
- EXPORT_SYMBOL_GPL(gpiochip_line_is_valid);
- 
--static void gpiod_free_irqs(struct gpio_desc *desc)
-+static void gpiod_free_irqs(struct gpio_chip *gc, struct gpio_desc *desc)
- {
--	int irq = gpiod_to_irq(desc);
--	struct irq_desc *irqd = irq_to_desc(irq);
-+	struct irq_desc *irqd;
- 	void *cookie;
-+	int irq;
-+
-+	/* Called with gdev->chip already NULL, so gpiod_to_irq() can't be used. */
-+	if (!gc->to_irq)
-+		return;
-+	irq = gc->to_irq(gc, gpiod_hwgpio(desc));
-+	if (irq <= 0)
-+		return;
-+
-+	irqd = irq_to_desc(irq);
-+	if (!irqd)
-+		return;
- 
- 	for (;;) {
- 		/*
-@@ -890,7 +901,7 @@ static void gpiochip_free_remaining_irqs(struct gpio_chip *gc)
- 	struct gpio_desc *desc;
- 
- 	for_each_gpio_desc_with_flag(gc, desc, GPIOD_FLAG_USED_AS_IRQ)
--		gpiod_free_irqs(desc);
-+		gpiod_free_irqs(gc, desc);
- }
- 
- static void gpiodev_release(struct device *dev)
-@@ -1439,7 +1450,6 @@ void gpiochip_remove(struct gpio_chip *gc)
- 	/* FIXME: should the legacy sysfs handling be moved to gpio_device? */
- 	gpiochip_sysfs_unregister(gc);
- 	gpiochip_free_hogs(gc);
--	gpiochip_free_remaining_irqs(gc);
- 
- 	scoped_guard(mutex, &gpio_devices_lock)
- 		list_del_rcu(&gdev->list);
-@@ -1448,6 +1458,14 @@ void gpiochip_remove(struct gpio_chip *gc)
- 	/* Numb the device, cancelling all outstanding operations */
- 	rcu_assign_pointer(gdev->chip, NULL);
- 	synchronize_srcu(&gdev->srcu);
-+
-+	/*
-+	 * No new interrupts can be requested through the character device now.
-+	 * Have it free the ones it holds before forcibly freeing the rest, and
-+	 * both before the irqchip and its mappings go away.
-+	 */
-+	blocking_notifier_call_chain(&gdev->device_notifier, 0, NULL);
-+	gpiochip_free_remaining_irqs(gc);
- 	gpio_device_teardown_shared(gdev);
- 	gpiochip_irqchip_remove(gc);
- 	acpi_gpiochip_remove(gc);
--- 
-2.43.0
-
+> 
+> Cheers,
+> Biju
+> 
+> > +
+> > +	rcdu->dev = du->dev;
+> > +	rcdu->info = du->info;
+> > +	rcdu->mmio = du->mmio;
+> > +	rcdu->ddev = ddev;
+> > +
+> > +	return rzg2l_du_modeset_init_du(rcdu); }
+> > +
+> >  /* -----------------------------------------------------------------------------
+> >   * Platform driver
+> >   */
+> > @@ -190,44 +211,48 @@ static void rzg2l_du_shutdown(struct platform_device *pdev)
+> > 
+> >  static int rzg2l_du_probe(struct platform_device *pdev)  {
+> > +	const struct rzg2l_du_device_info *info;
+> >  	struct rzg2l_du_device *rcdu;
+> >  	struct rzg2l_du_drm *rzgdrm;
+> > +	void __iomem *mmio;
+> >  	int ret;
+> > 
+> >  	if (drm_firmware_drivers_only())
+> >  		return -ENODEV;
+> > 
+> > -	/* Allocate and initialize the RZ/G2L device structure. */
+> > -	rzgdrm = devm_drm_dev_alloc(&pdev->dev, &rzg2l_du_driver,
+> > -				    struct rzg2l_du_drm, ddev);
+> > -	if (IS_ERR(rzgdrm))
+> > -		return PTR_ERR(rzgdrm);
+> > +	info = of_device_get_match_data(&pdev->dev);
+> > +
+> > +	/* I/O resources */
+> > +	mmio = devm_platform_ioremap_resource(pdev, 0);
+> > +	if (IS_ERR(mmio))
+> > +		return PTR_ERR(mmio);
+> > +
+> > +	ret = dma_coerce_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
+> > +	if (ret)
+> > +		return ret;
+> > 
+> > -	rcdu = drmm_kzalloc(&rzgdrm->ddev, sizeof(*rcdu), GFP_KERNEL);
+> > +	/* Allocate and initialize the RZ/G2L device structure. */
+> > +	rcdu = devm_kzalloc(&pdev->dev, sizeof(*rcdu), GFP_KERNEL);
+> >  	if (!rcdu)
+> >  		return -ENOMEM;
+> > 
+> >  	platform_set_drvdata(pdev, rcdu);
+> > 
+> >  	rcdu->dev = &pdev->dev;
+> > -	rcdu->info = of_device_get_match_data(rcdu->dev);
+> > -	rcdu->ddev = &rzgdrm->ddev;
+> > -
+> > -	/* I/O resources */
+> > -	rcdu->mmio = devm_platform_ioremap_resource(pdev, 0);
+> > -	if (IS_ERR(rcdu->mmio))
+> > -		return PTR_ERR(rcdu->mmio);
+> > +	rcdu->info = info;
+> > +	rcdu->mmio = mmio;
+> > 
+> > -	ret = dma_coerce_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
+> > -	if (ret)
+> > -		return ret;
+> > +	rzgdrm = devm_drm_dev_alloc(&pdev->dev, &rzg2l_du_driver,
+> > +				    struct rzg2l_du_drm, ddev);
+> > +	if (IS_ERR(rzgdrm))
+> > +		return PTR_ERR(rzgdrm);
+> > 
+> >  	/* DRM/KMS objects */
+> >  	ret = rzg2l_du_modeset_init_drm(&rzgdrm->ddev);
+> >  	if (ret < 0)
+> >  		goto error;
+> > 
+> > -	ret = rzg2l_du_modeset_init_du(rcdu);
+> > +	ret = rzg2l_du_instance_init(rcdu, &rzgdrm->ddev);
+> >  	if (ret < 0)
+> >  		goto error;
+> > 
+> > @@ -243,6 +268,8 @@ static int rzg2l_du_probe(struct platform_device *pdev)
+> >  	if (ret)
+> >  		goto error_fini;
+> > 
+> > +	rcdu->ddev = &rzgdrm->ddev;
+> > +
+> >  	drm_info(&rzgdrm->ddev, "Device %s probed\n", dev_name(&pdev->dev));
+> > 
+> >  	drm_client_setup(&rzgdrm->ddev, NULL);
+> > --
+> > 2.54.0
+> 
