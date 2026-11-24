@@ -1,67 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=168.119.38.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795528327;
-	b=XaPhyCfDE9elaZfjyl9FstNR0Z28i8ZbVIy+cvn6qiFbQbH1hgDWFUwE2iCF534ljgnF
-	 TPikUzgiMUs8YuB203w2A0TWkivnhqRrA5aTsnFmnF5Nj85AQFaMG6UZDROhzrvjaRi1X
-	 Z6xUQCDGHb479+B4MyDBGPzR9iUBE82H8eDczgITVQCh1E2TdR3Y65RlYfb654Ctsa6H/
-	 i0iOo5xokBw0+Eyhe23yYzHVnBuC0We9cBFBN3S4pNHV1dUKgq1yBijXij937pBtVK/mu
-	 U/FnsVn7lOlLqaozBIXV+X96KBHgtX81Ck1BBbuzRTBW7xnseZBxap8/jtrkhQiRj8A==
+	t=1795528366;
+	b=4NwVdJvx1lqGu9W0sVn0BBDru2OTRM35tHA0bjWmxql1bu2wxHmFFyDPHNjJibO22xD0
+	 Yid54Y0DhB/w9CAN+WUv4Gg4uVpAWixos6D6K62MsqRMC0QqPGFWwgAC292anBlWrLuwH
+	 czANL3ThRjAd7VZCNrn5uzFg0NkWsq7Fv2BL/hveRprCO/9d265XKp5YMa57Q8saioeKK
+	 zoHou9t2xnKrd4e4Bz1sTkLHsram7iPzSq6slxP5Q4lCrFfRngG35tF8qqV2nkAjElZEJ
+	 JphW2Bu4+BolUZ/eK29wZeh0Uv4zDb9SN+AM5PHQeitz6wKKAVTwpkP/GyxD/7Yn/cw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795528327;
-	h=DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:Date:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version:X-malware-bazaar;
-	bh=h+GOkO/r4k3wl8EouStenYOarylixVL/kfH/mmyBMMo=;
-	b=iTien//23pCojbv9o8ENWU64V2QqqFOgHYa5gnByq0BpQu95642Kzz6pCk8/cACv+1mE
-	 wKjR59jGi8TBo5SnAt1AqvK9ZnxYKCtQbr9OkXiG/H7KgnIGuIHLyah+eoWwXKG8DRjF5
-	 S0kzUSKgGpSdoX2Xd436TauLorTgBzhaDrIi04mQDgllOtlXY6GPfbTkwc4v4kFk9Y7VD
-	 EJVJO9xH6K2xhd1V8P0NjyTsnoXVPj9hFT4BMsyctRTiuhuJSNSMYiFD/mJaFy7f3E31I
-	 TBM8dwvfW7JNLlrpfS4JfEmLFHwvWDX55puXF/5KHz1vFm2kP7PJsOQCFzJhAcwb86g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795528366;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding;
+	bh=HZKKQf4VXfezngqUfgj7MhmoCUm8tU6EzL5wE2W3U7c=;
+	b=zWI3McVxqjLeIribpC7WYsx6NNqMDNv10CKhiwvIW+iTbv1KjLeB5aWBcPHx6uARwXPG
+	 sb5rUbbqDm3Kuc7B7MbURZpbvjJPhJUVfBIvZM/HuDvT2ufP6Xk3WgFF2w+7le2hnUXaw
+	 Bzi4uhOJRT+0pHwB5icBMrdue0do+PTNnALhdXqzdGPmrPBsoZTefZg3kPI+XZmgOrUK5
+	 hKBAhuTgfyHXUc2tRznKxCceDYA5TSZFr6eEMj7knCyOH2RxrQbW0ovuE//UcOgxhkYcl
+	 G8ltkjtdzYcNjlTLC2K+9xAoXiE6o1jcEXP48u+831FdRxuG3nauBCZqMZLlO0JE7JQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=permerror header.from=sipsolutions.net;
-	spf=pass smtp.mailfrom=sipsolutions.net;
-	dkim=pass header.d=sipsolutions.net header.i=@sipsolutions.net header.a=rsa-sha256 header.s=mail header.b=x2AZMQ4p;
-	arc=none smtp.remote-ip=168.119.38.16
-Received: from sipsolutions.net (s3.sipsolutions.net [168.119.38.16])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p8oMBJxA;
+	arc=none smtp.remote-ip=209.85.208.52
+Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com [209.85.208.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30AF0606A31E;
-	Tue, 24 Nov 2026 13:52:06 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org; dmarc=permerror header.from=sipsolutions.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sipsolutions.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07A2F606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:52:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07A2F606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=sipsolutions.net header.i=@sipsolutions.net header.a=rsa-sha256 header.s=mail header.b=x2AZMQ4p
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
-	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
-	Resent-Cc:Resent-Message-ID; bh=h+GOkO/r4k3wl8EouStenYOarylixVL/kfH/mmyBMMo=;
-	t=1795528326; x=1796737926; b=x2AZMQ4pg/HJUx0+Jpa0J1ilQfhCxqBem8n6m9Hx1xOG8Gk
-	coRJY9NVedcv7B/+hhfQMGDuhA204wnGDm/EbhAB4EC0Tp3Ap1/XOxkzVlRfPtDEwV1NAg9j+ahpy
-	mjaQb6trUQ1SPmLHWsQOpmD8tBfjrep/Xqvr2OpA+3FUWo2gIAmJcMIfRlFt/GYIrkIj1EXIQjO/v
-	7u9jICrf+dbvHgGTiNdg+j36lwtID7jQVEQsw2GuxCL4b4vAitbNzGOQs4hKeaxHvFpN4VFR2e6Jn
-	SYTAwi981oHbM8m31mXIdtf/6GjsPAJhhtlrJ080rAaXSDnn8X2yZKNMq8YoMVsg==;
-Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__ECDSA_SECP256R1_SHA256__AES_256_GCM:256)
-	(Exim 4.98.2)
-	(envelope-from <johannes@sipsolutions.net>)
-	id 1xVqwF-0000000CKQe-3XHW;
-	Tue, 24 Nov 2026 14:52:04 +0100
-Message-ID: <26593ae869ed222980ac78ac869bc2745d2c282a.camel@sipsolutions.net>
-Subject: Re: [PATCH wireless-next] wifi: mac80211: replace the CSA beacon
- before clearing csa_active
-From: Johannes Berg <johannes@sipsolutions.net>
-To: Mehmet Fide <mehmet.fide@gmail.com>
-Cc: Simon Wunderlich <sw@simonwunderlich.de>, Toke
- =?ISO-8859-1?Q?H=F8iland-J=F8rgensen?=	 <toke@toke.dk>,
- linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	mehmet.fide@screeningeagle.com
-Date: Tue, 24 Nov 2026 14:52:02 +0100
-In-Reply-To: <20261117153154.1804945-1-mehmet.fide@gmail.com>
-References: <20261117153154.1804945-1-mehmet.fide@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p8oMBJxA
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6b894a5ce3dso6140933a12.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:52:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795528364; x=1796133164; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=HZKKQf4VXfezngqUfgj7MhmoCUm8tU6EzL5wE2W3U7c=;
+        b=p8oMBJxAx6x3jrAj+qLWsbMnExh+m0b1TDLDWSf2O06ANZAz9+SN8L8cBlKhDtYVVv
+         yjp0NrP0a1Rxr5SmB5DjgViu+xxATWx5uJlKvy9HaZtUfnog5Ri2UF6Zw4Y1CBVi9zGb
+         wMNPbBjqh9sNC0MSKymoM8csiUT5iMG4YHcYdpQnsrybTdGoSKx5aVPDGL3+PTAFNgv4
+         20FzR+vqn+eA6tPO+5qJBKvy55aqkzkXIGQRb4usG4ZNcFlYaNJJ4BFkmmCZi2XO2/jI
+         HAhz1Of3qk4PXRAeW7JluwGThK8DfDBQ114r4/GMjMWB+FYM686D2iY2QzCZVAd9EHnx
+         DuyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795528364; x=1796133164;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=HZKKQf4VXfezngqUfgj7MhmoCUm8tU6EzL5wE2W3U7c=;
+        b=0z3geuMJEdZyRzUv16xDtSCMDJFo5Z82oyVMtZ+xpJbLKs9nOWTFLyaYdedLny0X4t
+         +Ewl0ZCfxqhET+yGetmEsQfQblv/IH7zn64NI7d+alsQYwOaBUcapWiGI73mEj3sjatG
+         GMOb5psFnVl9lYobYiirWxgJ8xTv90jaXnXJTe8bmFs58BsgIZAc9brVR5+E05PfV3KQ
+         UFc4J1F2vB/ToTsZmdSN3J0E2K40LjwbL+FLLaPQ3YEvN4KL7BvwZXIm+0H5HLvXZBqN
+         x+kw5DtCV8vYYDjFzPflcpglGDnE93ogI2aNqjpSDVK9U/jsvLctbGRQt2h2eaza1wUK
+         gfLQ==
+X-Forwarded-Encrypted: i=1; AL+hErHhnpkSQAAAc09quAcjKDQbMD0YpXJZqLIYWVS65VOru/a8K9qnWe9jTSPBJNFLfe+y3mu+OyYS5ZvHPCo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8opuYroiw1qQhYgGkPpdJyd+ujno6tvpdK+Nq8tyPbcEttlAGE
+	DF7yGv4apGMKUhe2pZ5/Xb14uJnlWuiDOJ8zMP1a3p0r0T1YmHYRh7sT
+X-Gm-Gg: AZFdTZeJkFRPjY32+HMb8KtOODnpKNpO1qo6j3fFYEsmVVLLvh6o+F284jCqj9nK1ZT
+	HSDycHDHHuuwF02fSlBx4i+NOPXa36ENSRzHg0VDbKuJUort/eA4kkHl4XDlER91/qxj1fcl0dO
+	mvYT6iRZUjlpuEL2UJx5cHsAJuevM0bWkOJGsMAN/t+JAYRXD3NOnpikJg73bxWxT5S49MthYLu
+	jBEYk7+s2TNleI4OOomvUYGZQ0i7P3mdojmqyDfhkLEh7PoDx7e+x5NKNvoVc8bwwql+UCMpter
+	Uki+LwDpVukCW4IgUNX6eHwCYsdF7MdtO0ydliJCotFTy1vp5J/WCaapH3cvt5qlwhaX+r19/4p
+	0/XYSKiz3Hf6B/6xKcnNL5t/sBDjuS3b3xr6P4l2FtImU2oihZFowSmZnWCYBAXZw4OvEpglrjC
+	W0eR41NaRB/dmUJFVrrDUx3oinOb2i3WkXMu4DWmuHlMwYeiuMGdos1zWeUmZUCiL3ASQ/sNJgm
+	dySeVqJBb1sM0CL6+QrsxwiHv9D3Ip4vmEpvd/sjAvHcQk/E5oTbmtcA/tgsayL7oqahcpxDbIw
+	CW6JXS6hyoCYQDYdsKV3HlNaJDK//dro2Y55Um2/u/3aQu4ZOvY/
+X-Received: by 2002:a05:6402:3222:b0:6b8:7e86:3e90 with SMTP id 4fb4d7f45d1cf-6ba654bcff6mr8479709a12.38.1795528364057;
+        Tue, 24 Nov 2026 05:52:44 -0800 (PST)
+Received: from ArchOarora ([95.179.249.152])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba37109b55sm6582079a12.32.2026.11.24.05.52.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 05:52:43 -0800 (PST)
+From: Oarora Etimis <oaroraetimis@gmail.com>
+To: Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Melissa Wen <melissa.srw@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	jose.exposito89@gmail.com,
+	Jonathan Corbet <corbet@lwn.net>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Lucas De Marchi <demarchi@kernel.org>,
+	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	sebastian.wick@redhat.com,
+	victoria@system76.com,
+	thomas.petazzoni@bootlin.com,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v6 07/43] drm/drm_color_mgmt: Expose drm_get_color_encoding_name
+Date: Tue, 24 Nov 2026 14:52:28 +0100
+Message-ID: <awWVztVSyL8uOIzt@Oarora>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261120-vkms-all-config-v6-7-78ace90f4fc1@bootlin.com>
+References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com> <20261120-vkms-all-config-v6-7-78ace90f4fc1@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,28 +127,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-malware-bazaar: not-scanned
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 
-On Tue, 2026-11-17 at 16:31 +0100, Mehmet Fide wrote:
-> From: Mehmet Fide <mehmet.fide@screeningeagle.com>
->=20
-> __ieee80211_csa_finalize() clears csa_active and only then replaces the
-> CSA beacon with the one for after the switch. A driver that fetches its
-> beacons with ieee80211_beacon_get() and skips them once the countdown
-> is complete, as ath9k does in ath9k_csa_is_finished(), tests csa_active
-> first. A beacon fetched between the two steps passes that test and gets
-> the CSA beacon again, which goes out on the new channel, and
-> ieee80211_beacon_get() reports "beacon TX faster than countdown".
->=20
-> Replace the beacon first, as the finalize work did before the clear was
-> moved ahead of it. csa_active is still cleared when replacing the
-> beacon fails.
->=20
-> Fixes: e487eaeb076a ("cfg80211/mac80211/ath6kl: acquire wdev lock outside=
- ch_switch_notify")
+On Fri, Nov 20, 2026 at 06:58:49PM +0100, Louis Chauvet wrote:
+> drm_get_color_encoding_name can be useful to display debug information
+> outside drm core. Export it so it could be used for VKMS
+> 
+> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+> ---
+>  drivers/gpu/drm/drm_color_mgmt.c    | 2 +-
+>  drivers/gpu/drm/drm_crtc_internal.h | 2 --
+>  include/drm/drm_color_mgmt.h        | 2 ++
+>  3 files changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/drm_color_mgmt.c b/drivers/gpu/drm/drm_color_mgmt.c
+> index e4e31bc0153e..de219c23322f 100644
+> --- a/drivers/gpu/drm/drm_color_mgmt.c
+> +++ b/drivers/gpu/drm/drm_color_mgmt.c
+> @@ -496,7 +496,7 @@ const char *drm_get_color_encoding_name(enum drm_color_encoding encoding)
+>  
+>  	return color_encoding_name[encoding];
+>  }
+> -EXPORT_SYMBOL_IF_KUNIT(drm_get_color_encoding_name);
+> +EXPORT_SYMBOL(drm_get_color_encoding_name);
+>  
+>  /**
+>   * drm_get_color_range_name - return a string for color range
+> diff --git a/drivers/gpu/drm/drm_crtc_internal.h b/drivers/gpu/drm/drm_crtc_internal.h
+> index 3492787c3697..f3a3ffd358dc 100644
+> --- a/drivers/gpu/drm/drm_crtc_internal.h
+> +++ b/drivers/gpu/drm/drm_crtc_internal.h
+> @@ -38,7 +38,6 @@
+>  #include <linux/err.h>
+>  #include <linux/types.h>
+>  
+> -enum drm_color_encoding;
+>  enum drm_color_range;
+>  enum drm_connector_force;
+>  enum drm_mode_status;
+> @@ -121,7 +120,6 @@ int drm_mode_destroy_dumb_ioctl(struct drm_device *dev,
+>  				void *data, struct drm_file *file_priv);
+>  
+>  /* drm_color_mgmt.c */
+> -const char *drm_get_color_encoding_name(enum drm_color_encoding encoding);
+>  const char *drm_get_color_range_name(enum drm_color_range range);
+>  
+>  /* IOCTLs */
+> diff --git a/include/drm/drm_color_mgmt.h b/include/drm/drm_color_mgmt.h
+> index 5140691f476a..133ca77d91c7 100644
+> --- a/include/drm/drm_color_mgmt.h
+> +++ b/include/drm/drm_color_mgmt.h
+> @@ -113,6 +113,8 @@ enum drm_color_range {
+>  	DRM_COLOR_RANGE_MAX,
+>  };
+>  
+> +const char *drm_get_color_encoding_name(enum drm_color_encoding encoding);
+> +
+>  int drm_plane_create_color_properties(struct drm_plane *plane,
+>  				      u32 supported_encodings,
+>  				      u32 supported_ranges,
+> 
+> -- 
+> 2.56.0
 
-I don't see why it would be that?? Please explain that.
-
-johannes
---=20
-pw-bot: cr
+Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
