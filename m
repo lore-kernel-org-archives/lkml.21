@@ -1,100 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.177
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795492853;
-	b=cmRyD1yQ3U5ZBe1D2PkIsEs94W7+uivR0PYTkQ2Xe5vUMHZ2IL8oxQ+2f6zYfRR61DU1
-	 y/FoznsHx7JkS2kQvBXoJ55Q6gaSzFA1EaqI4IStgBW2hBIQrbZbyEFaFFdoyEstdXcFv
-	 i+oJFdMzHaOSvWySx4T4sfEeJv2TH4/qifG7lg4h2hEO791Gg48Wf2+1DcMJ4DHZuQ7mn
-	 L00x6cnlGWiXedPcw7WfSn5M22w1wPShZQ7ZQczZjirqlnDEJfv+5Mf8OrcPTpEBfhNm4
-	 1gUM/NIUMpqy4La/IVjCewV6OOXbHbQ3TAj1g8Pn8EPXB6UGVYcjI8TFMUYG/z1j5pw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795492853;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795492947;
+	b=s+kWrrqQ+tPelEOLvt2/ht4EMNCuzxbpIaXdZTbNWsVXQoXNPYAIJU+fWTRvR8EU0WfI
+	 buvWrQDuy3IBIZowqHlAH/OXiA8bEq90TQr8M/F20zAKPYdzVnQAUkZ5yPrHIfGV7kAQI
+	 db4DEdAm4hWFlF/29UHNsQqvmw5kivGPFXAX5TbVHQCTKNsaKH8yxb3zimjQr5hfAFNHr
+	 MFpJ+6IMvZbd84X1vOZUQWZUn8CbHetl5s42WXK1bSEvNs8UrAEnyvDqJrgKl8pAK1sxJ
+	 VjaemP62IOtnLzDYSrUHSttPo52UrE8lLoKXiX1W9Oh9ibTjxrPc6+SvZt4E64MHyUg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795492947;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=35yxV76fuMTZupLunX4MeNiX3puXHVhhoMmA7IX+fzU=;
-	b=FchEjhLg4Xi/W006OfTersg/LYwoA2eg/1jkNyT/bRZCOmomQJbyw0YcBsPf4nN2FtPE
-	 uiF+u1kriPx5bl8v09JBjDG27Uo10BFnbnlJX6tSSxZ3Zsu3df+YOnNeRQIgfbebrANOK
-	 XR/o6oVBPHDbHj/bAKazL4nlnY06WD3+Kr3aqi1atp8C7C+v6GoTXDqccOntWQA4MsVnv
-	 tLaZ4qfITKb18j/6m+lFRMQw+25hRL5dAQkKYmuv7rYVJfV3M2cmEboFPNm1148rDeE+K
-	 pQFjRMezWvLEkgqB0pRcDWIqwKjJOaafmqDh6pdgctwqw89U3mfDkJ86TLflTVwu6pw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=TQU/HIX5TEt1B81IWYObhBXBEJngh0gUw6npxUDBNUE=;
+	b=VuCxsvTnV341gRIhWBdUBuEBr9liofQ4yoq8rUAbJB2AhJoVuPKez89aD8fv5M5YD+YU
+	 LEnix4THCpMcUXhBY5L6qc6zi82qw7PfXbcW5fAIlHV+n3Tuc9MiAomElALghiqMK0JzL
+	 M1bSeUZlFBKBf5weqgZhvJAoBaUvtzgleO92FwsPlNFrqtbklVr3uy6A5Bhp2hU/3KECO
+	 OgeSvUZMG3zZXHPXYTpWlH+OBQLh371wEVF3I1IMWuKJ1aaS1vJWBkgdlC0arI7TBH1o3
+	 HDxOeaPlCF4IOdvcA5TK2Xh1VMvXSdrXcuwxEQn7Ix1R1ABNlCqXVQHF7cO/O/JhpcQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pJydpIHZ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.177
-Received: from mail-yw1-f177.google.com (mail-yw1-f177.google.com [209.85.128.177])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Z8Jvq/NB";
+	arc=none smtp.remote-ip=209.85.214.180
+Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64DA8606A33D
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:00:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64DA8606A33D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1CA9606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:02:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1CA9606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pJydpIHZ
-Received: by mail-yw1-f177.google.com with SMTP id 00721157ae682-8b0dba37a7fso32676657b3.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:00:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795492852; cv=none;
-        d=google.com; s=arc-20260327;
-        b=aM7gJKhLnZr2PPbaa46DQr8p1y3Eygr6kG0imQJs+xSbm4y1VeUg5eCw1D3sTV/j/I
-         Br7rXLYtlRwJoylQwHvGWGVuF+u1lCHX9jpW+axvuvoST3QNrguoo9vEtB7ELa2qm3rE
-         P392XHPs7DPBFtiBoYf0SrT5+MmbS5AvqKzEb2ystm7pCXjm/mAz0pAc0peekGC+T1ZN
-         OUtkWcak9ePSqfpTfM1kdqTzZfYhRwWujXBoQzWD0/r+8fwmFzYtaE7JH9NGhq/A/8ry
-         93RuebVN52vl7+0HYXNW9uTOZwGrt871XQKpmdL4pQ/V5XHp7PxetFXacg3KevgBnvs2
-         UDpw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=35yxV76fuMTZupLunX4MeNiX3puXHVhhoMmA7IX+fzU=;
-        fh=ibCmaJGgeWpXskEGcWob2IXUMOKtuSrTAPr4y5dvEqY=;
-        b=U6SYJN7y0XIFGjTDNcfxD/UzHvAMFEaA0+rzbHIr2LeBgqpiEebMpA5wN3zS8ibqsL
-         tZSkBHoe1V1xrB0nDyLEc9CGuhZqBLv02ITY4/2Kjw/WG34sFM2BJ53pTtd6IGa2xmCw
-         lK6be0K9yEtKpWcUbzsU4luL01HvhV4jN1+tktxyJbj2eP1KyYyLZBRxfx1Bzhiv0BiU
-         c+g61caYzWDDXfuH99ScSeEvx4pn8iVyxDxF+Q1Cnlp/X7ZuTIvWiVgIb4gxsayiOJ5B
-         s2goaM/YEeuv3RW0iZmbbhbNVKUL784m/yppPjCWM+mdMqlKa+PKtedGkdGyRmksZpgM
-         y2ww==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z8Jvq/NB
+Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2f03eeda984so21520835ad.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:02:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795492852; x=1796097652; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=35yxV76fuMTZupLunX4MeNiX3puXHVhhoMmA7IX+fzU=;
-        b=pJydpIHZC+jgHMbGbpKTWCLHhOdsM07+l+r6Iur+1AhfH/oT988kwuWHphDXcip7/P
-         cbRY9NEZIDjPm9AyosZX+sPvzjMrSZfr3OB+obOF2BcguyJL/e85jRu80yQge87IhNEV
-         Pw5EtxwHAzUjKkh/1GENQ/1oXtMjOQo0ePqUidxQzhHZpuBboxaYE8e5Eof4XStZLPV+
-         n4mJUPW412DeDIJ1zU0Hoct2/PlcexBGHDsxWGY01pkoS2/2OhMKIlICdZWKVWSh374T
-         MRegLkHQLpWoA90n2Guv5NgKnEq40qd7n3BG22dlg0/MPsg5LP8t4ZYEG1zJdPvSu9jm
-         Idtw==
+        d=gmail.com; s=20260707; t=1795492946; x=1796097746; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TQU/HIX5TEt1B81IWYObhBXBEJngh0gUw6npxUDBNUE=;
+        b=Z8Jvq/NBdpYzCcne54+bFLSc517CjxZ8f9t/fxqRS4JaXg1NvBCT0lg7/BGRehku8Y
+         57oMa5SJRygDDspteLr3UBXE94RD566Z2pjCmZJxt5QUWzMDC12VpWP2In1SwlGRkwfm
+         gbhE3KHFKBbX4552yTA6I3BGFDUD5eNQbV7xpsETTFJeSWcxcZ+ErLhj6WPKREHQgTpA
+         tvth68v7isiJXWeGiMDdn56TEuNvAd+nYwEym+lXdzyNB/WMVfLydX8ZfXyE7DccglnP
+         /iZyDz5V8P/CjH85wA621E2lFK+yfTPXkGlmnxAJgTrawc6XB79J0BWZYpYPgZGLo/tk
+         WKMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795492852; x=1796097652;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=35yxV76fuMTZupLunX4MeNiX3puXHVhhoMmA7IX+fzU=;
-        b=KC9bFHfcDICALXBOJ7LQOHeG4dnCAC4Rf9SEoGc7Fg0oXKCTmLwAYpe67TO0hCYwhc
-         yzKgJGFIiRHWsei+7VG12ZgO/YWt2jjhHUVUdMJ3O21k0dMspFwyIWc9UnILdH22aAEM
-         Mucl4o+A4xt/M3sj+SWKVNmIctEp5JlQJIxLMOZI5e9nPVYWf+3J4QmuwofxLZFC5Ucr
-         1KJ5sNP7Qo/DwUkbDV8Vsh9fOxbCPINI9cjzpJ4P45lENGgx5Vt67znwwQ5/5bHtzJB7
-         1+AIxK/9eUanLbJoybqjrfq3NmMvwmzc5kGVDEe9dLw2P9D6hK4sE3gm+35KveiPM3Is
-         l0dQ==
-X-Forwarded-Encrypted: i=1; AL+hErEHzhHbWqTCp0jDFpvhMJH9Zm9Wgf85zhXWQ8vsLxJTQr8urEqT28evAL2Cp4Sr1xQdJ9tzUs3Ie2WlYA0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+lyuYOMHcTcXnWPnrb1vJT4LTXjM67bsBWfnmwlYrn1DliFz1g
-	TNPTk13XmypAS9JvoIVkpzq91w5XhO5qxrJFUtBzePIzUzTbaMLNllB79ku9lSyC7HcUVOebx0E
-	ktkOYC/eiZ3uCYsmzicpO6lagySoABM8=
-X-Gm-Gg: AZFdTZehvImij/AOdWN00BkRrHWKh7sUOUI4YVw8xIBTq7LuXN5rYNNtVkFYI5GYZQE
-	/P55ueg+HSHNMGSLOK7+16IqMmwBihA9TohP8YcJmyUhNZ/6P7GZE2s6ag9H5WdG/VeyADJ1EQw
-	sHpkKvwpMfsysDMvpUPU57xvgutRVMtJ6vrhcuqYnWD4WtGjtNaZ5l2lLAf+QfA/1HDlEF1QNIm
-	L7h827exN3h+XNQoRlIlZI+W7NohPsqesnPrPdMQ9p5rNQuWXkYTDU83J1MkGVijT2YczLQh2o9
-	73FSdgsgrHzFnumefAdIemFISohMYLn8MLrx6eIShd4gK+65sCkitGDCmZAMCD6vzfR78NvpVDf
-	2NFMqtOtB8OonCd4rGfYa+fROO7W8WWanioduO9bmLbEq+OAXxLRxD/uUuBf1lyhfTw4=
-X-Received: by 2002:a05:690e:4813:b0:67c:1907:922c with SMTP id
- 956f58d0204a3-67df44257d7mr2356677d50.44.1795492852350; Mon, 23 Nov 2026
- 20:00:52 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795492946; x=1796097746;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TQU/HIX5TEt1B81IWYObhBXBEJngh0gUw6npxUDBNUE=;
+        b=Q/TOqc/gBkurblaMXWZAA/tMXJiBZlENY2HibxisNkkfpSRo0ViiMtgA63xKpkMStE
+         svCG63uMNIIZS0u6CnA0kuap9Z7lLX/xdCxhHsyaHwX0Rkf3QfPL79aCgOcULwTcSapf
+         IVi9yyipVhz0G4NVU1yOql2/iFgx03axE2Tza7zGUs0DQlpwUc4ldX8SiYs4OS/7cmD0
+         jvs9VmpnuQMS/6xyw5QQaMaH0Jq/FFXtJOSVnijopbDAj3P2Ai5DntIiQsoYjM27tlHW
+         EO+Z8aOtqL7jkzdiXxbVCNXHbLNgKg2/6qYrW3aoVyjobBBY+RsWkBWLvMrb9n2n85+u
+         8oow==
+X-Forwarded-Encrypted: i=1; AL+hErFSL9HMVvtDLKsMJARDOq+HD7a0HDnhfsQh7lA8gUZVU8p0eRUAQnSYagy+ROekUcfzRWUShPO9ASaKgFM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8DGh6uauAmUNwReuhV1crmdv6mkyQIP9ibzBRX8Gje6JbrR3WZ
+	x7VNgAf3J/pIBT5h5YlR19+9rps8fdzlFkwMMspk6b9fSdcvjLNQmZfW
+X-Gm-Gg: AZFdTZeiH2bRgitxSo0adO7E0s5SBfrbzwt3c9NS6uWIp1UfwFifsUPVrsxvHMi+Q/2
+	Ie9l/DCen8flQ34thjjCYEoB7FoXgP4E4Yl5DCojzo8kOrjJqzfHdGJVjfuU+jFzCeAHjFCP7Vi
+	xFuby9lUWop+E+UoVkXEqMKv4lB5Nx6OD6h66xlW02vBiAa2tsoWYe0gp8zyVWUy7L4rnWLaNFS
+	NgNxTpLI/G1isA5Uf+aaCxjkOv+GSSxZFX1+HivDFkDTfUOmt3hwn9+THZhcZ+v0Fb/9H/w2IbA
+	Hz0MO4T7+Mu3NoBTYdYUpaWco0VtMmxGvi6KZtCzjL4kCmJRSVZWnRoNM4i71hZZnjKgeRnXVk8
+	CgkhJH5Mt3YI03EyFQXT6jqNHDN6EWGRsQzKWIaf/BPuBfy5lsRlbY7AO6ucwfTugJ/zxNpxYyB
+	974Yiaj98rXE/PPKmaBKkKfiM5dcF0Os5HCCWUr3ElLN7BpHkWb6Yi6f6wlGo4rVVKBinx36PMd
+	SNA0maA97huuhpegkxgk8EBH/Q3/efcfHigM8l2rqsUZV1IihvoZL1eULWy/JZ+CTbg+PKsEtEW
+	C6NvlCYXqZ4+emNc9OKwQZmaq29chrzPSR0y/1NN50u77KTqpbgpgS+ZyqW7FNglbobBR5tPIA=
+	=
+X-Received: by 2002:a17:903:40d1:b0:2f0:b599:8c98 with SMTP id d9443c01a7336-2f0b5998f1emr21408035ad.42.1795492946134;
+        Mon, 23 Nov 2026 20:02:26 -0800 (PST)
+Received: from JIAPENGLIN-MC0.tencent.com ([43.132.141.25])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f08164dacbsm33115955ad.68.2026.11.23.20.02.23
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 23 Nov 2026 20:02:25 -0800 (PST)
+From: Lin Jiapeng <ljp1205831794@gmail.com>
+To: jhs@mojatatu.com,
+	jiri@resnulli.us,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	paolo.valente@unimore.it,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Lin Jiapeng <jiapenglin@tencent.com>,
+	TencentOS Corvus AI <corvus@tencent.com>
+Subject: [PATCH v2 net] net/sched: sch_qfq: bound backward slot rotation
+Date: Tue, 24 Nov 2026 12:01:43 +0800
+Message-ID: <20261124040208.13282-1-ljp1205831794@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,75 +104,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123-klp-series-v3-v1-0-427c95811d9b@vt.edu> <DM6PR05MB41373C039888AD13938D3838D1452@DM6PR05MB4137.namprd05.prod.outlook.com>
-In-Reply-To: <DM6PR05MB41373C039888AD13938D3838D1452@DM6PR05MB4137.namprd05.prod.outlook.com>
-From: Yafang Shao <laoar.shao@gmail.com>
-Date: Tue, 24 Nov 2026 12:00:13 +0800
-X-Gm-Features: Aa3M54q7s3VMxk7FJweeUn3luJjDb4P7LcCfNfajJc0izoqcRUVhUDIdY_OqAjc
-Message-ID: <CALOAHbDu5NmVowk4SHzeUDxASaxKkbL_w1dModFWzdi8yK9tBw@mail.gmail.com>
-Subject: Re: [PATCH 0/2] livepatch: Do not lose exiting tasks during a transition
-To: "Ravindran, Binoy" <binoy@vt.edu>
-Cc: "Paul E. McKenney" <paulmck@kernel.org>, Frederic Weisbecker <frederic@kernel.org>, 
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, Joel Fernandes <joelagnelf@nvidia.com>, 
-	Josh Triplett <josh@joshtriplett.org>, Boqun Feng <boqun@kernel.org>, 
-	Uladzislau Rezki <urezki@gmail.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Lai Jiangshan <jiangshanlai@gmail.com>, 
-	Zqiang <qiang.zhang@linux.dev>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, 
-	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>, 
-	Ingo Molnar <mingo@kernel.org>, Jiri Kosina <jikos@kernel.org>, 
-	"rcu@vger.kernel.org" <rcu@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"live-patching@vger.kernel.org" <live-patching@vger.kernel.org>, "Shastri, Jaidev" <jaidevshastri@vt.edu>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 6:40=E2=80=AFAM Ravindran, Binoy <binoy@vt.edu> wro=
-te:
->
+From: Lin Jiapeng <jiapenglin@tencent.com>
 
-Hello Ravindran,
+QFQ+ keeps aggregates in timestamp-ordered slots and rotates the
+occupied-slot bitmap when a group's start time decreases, avoiding the
+need to move the aggregates themselves. Insertions are capped so that
+occupied slots leave room for a later backward adjustment.
 
-Thanks for driving this fix.
+A stale aggregate can make the decrease larger than the slots can
+represent. Rotation can then drop occupied bits or alias distinct logical
+slots onto one physical hlist, and a later removal can clear bits in the
+following slot-list pointers or leave stale bits. KASAN reports a
+slab-use-after-free read of size 8 in qfq_choose_next_agg+0xd04/0xd90 by
+task repro/92 after the corrupted group is selected, followed by a panic.
 
->
-> The two issues Sashiko reported on patch 2 are valid:
->
-> 1. An exiting task that has not been unhashed is on both the task list
->    and an exit list, so klp_start_transition() can visit it twice and
->    set TIF_PATCH_PENDING again after it has switched.
->
-> 2. Between exit_tasks_rcu_finish() and its final switch, an exiting
->    task is on neither list and can still enter patched code with a
->    stale patch_state.
+Limit backward rotation using the highest occupied bit so every occupied
+offset remains below QFQ_MAX_SLOTS. If the decrease exceeds that limit,
+move the activating aggregate's S/F and rounded start time forward by the
+same slot-aligned delta before rotating. This preserves its service
+interval and the logical-to-physical slot mapping, including repeated
+rotations, while leaving representable rotations unchanged.
 
-We also discussed this issue at the thread:
+Fixes: 462dbc9101ac ("pkt_sched: QFQ Plus: fair-queueing service at DRR cost")
+Reported-by: TencentOS Corvus AI <corvus@tencent.com>
+Link: https://lore.kernel.org/all/20261116121710.77403-1-ljp1205831794@gmail.com/
+Signed-off-by: Lin Jiapeng <jiapenglin@tencent.com>
+---
+v2:
+ - Derive the backward rotation limit from the highest occupied slot.
+ - Keep occupied offsets below QFQ_MAX_SLOTS to prevent hlist aliasing.
+ - Update the insertion and rotation comments.
 
-   https://lore.kernel.org/live-patching/CALOAHbA9WHPjeZKUcUkwULagQjTMfqAdA=
-g+akqPzbZ7Byc=3Dqrw@mail.gmail.com/
+v1: https://lore.kernel.org/all/20261116121710.77403-1-ljp1205831794@gmail.com/
 
-and Josh suggested something along the lines of what you are proposing,
+ net/sched/sch_qfq.c |   23 ++++++++++++++++++-----
+ 1 file changed, 18 insertions(+), 5 deletions(-)
 
-  https://lore.kernel.org/live-patching/20250124010848.pdcxokfsk2ngrowl@jpo=
-imboe/
-
-I did not take it for the same reason Sashiko raised in issue 2: the
-RCU exit list narrows the race window but does not close it.
-I could not see how klp_synchronize_transition(), as you describe
-below, completely resolves it. Could you please explain that in
-detail?
-
->
-> v2 will walk the exit lists under tasklist_lock and skip tasks that are
-> still hashed, so each task is visited exactly once. It will also call
-> klp_synchronize_transition() before func->transition is set and before
-> completion, to wait out tasks in that last stretch. It will document
-> rtp_exit_cursor as well.
->
-> I'll post v2 after testing it on mainline. Please hold off on
-> reviewing v1.
-
-
---=20
-Regards
-Yafang
+diff --git a/net/sched/sch_qfq.c b/net/sched/sch_qfq.c
+index e900890e9c54..3e2b40bea668 100644
+--- a/net/sched/sch_qfq.c
++++ b/net/sched/sch_qfq.c
+@@ -843,9 +843,9 @@ static void qfq_make_eligible(struct qfq_sched *q)
+  * The index of the slot in which the input aggregate agg is to be
+  * inserted must not be higher than QFQ_MAX_SLOTS-2. There is a '-2'
+  * and not a '-1' because the start time of the group may be moved
+- * backward by one slot after the aggregate has been inserted, and
+- * this would cause non-empty slots to be right-shifted by one
+- * position.
++ * backward after the aggregate has been inserted, and this would cause
++ * non-empty slots to be right-shifted. Backward rotation is separately
++ * bounded so that every occupied slot stays below QFQ_MAX_SLOTS.
+  *
+  * QFQ+ fully satisfies this bound to the slot index if the parameters
+  * of the classes are not changed dynamically, and if QFQ+ never
+@@ -965,7 +965,8 @@ static struct qfq_aggregate *qfq_slot_scan(struct qfq_group *grp)
+  * because we use ffs() to find the first non-empty slot.
+  * This covers decreases in the group's start time, but what about
+  * increases of the start time ?
+- * Here too we should make sure that i is less than 32
++ * The caller keeps every occupied slot below QFQ_MAX_SLOTS after the
++ * shift, preserving the one-to-one mapping between bits and bucket lists.
+  */
+ static void qfq_slot_rotate(struct qfq_group *grp, u64 roundedS)
+ {
+@@ -1300,7 +1301,8 @@ static int qfq_enqueue(struct sk_buff *skb, struct Qdisc *sch,
+ static void qfq_schedule_agg(struct qfq_sched *q, struct qfq_aggregate *agg)
+ {
+ 	struct qfq_group *grp = agg->grp;
+-	u64 roundedS;
++	u64 roundedS, slot;
++	unsigned int max_back;
+ 	int s;
+ 
+ 	roundedS = qfq_round_down(agg->S, grp->slot_shift);
+@@ -1318,6 +1320,17 @@ static void qfq_schedule_agg(struct qfq_sched *q, struct qfq_aggregate *agg)
+ 		if (!qfq_gt(grp->S, agg->S))
+ 			goto skip_update;
+ 
++		slot = (grp->S - roundedS) >> grp->slot_shift;
++		max_back = QFQ_MAX_SLOTS - 1 - __fls(grp->full_slots);
++		if (unlikely(slot > max_back)) {
++			u64 deltaS = grp->S - roundedS -
++				((u64)max_back << grp->slot_shift);
++
++			agg->S += deltaS;
++			agg->F += deltaS;
++			roundedS += deltaS;
++		}
++
+ 		/* create a slot for this agg->S */
+ 		qfq_slot_rotate(grp, roundedS);
+ 		/* group was surely ineligible, remove */
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+-- 
+2.55.0
