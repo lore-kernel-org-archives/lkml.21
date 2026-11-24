@@ -1,100 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.169
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795550039;
-	b=rJGs/G+UvmJFOG+QKDPTsg1MqNx7csV4q/+0iSHA4dWbQ4GxZM+Ex1UzLLX3Tv5MCp1F
-	 aYRr4a8Ihf/22Mz/PjbPtBbOcbdzGwXVqFI9d8346R2qW9oKWG9iZ6jw504zVrIxkMI7b
-	 G67VU2CXZVUl084QDjpOExZ9eoGArYvTEOBF1tbWIXXpNDXvTKZTCUR0SQ/3N71MrQd57
-	 CLM1KMsZktZc+oSMVj3QgeUF7bLinUgmxi0mRzI+bemS4jmFK3SAp5ViOHFmFocvBZ6xA
-	 daADcRpdNQKAvDir7pyglteb9y7k4IzUvDh77kD0SbrAjJEdHQ4fn1TLx4rV7FClf6A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795550039;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795550084;
+	b=C2T8jYmiUVwgBqRFUNDpSyQcCjiFnpEKaObQKUZZA2ERdvzylQH+6rDaE1SmCIVLt8Hd
+	 jJz4iakGq+WkjUEOLmDjBbHNdVa0YSXVk0iruBHK6wUwufAxAY9m4XpgVFNGJwhQPQgqb
+	 /OW5IalpOGbxRlFiqBKGHFefdqnT47drE/qB9vhM+lXo3EZN4y1hbNojizRTiYFzqKFMH
+	 0H9uYzh+qIfd8DsFezogQUxCsHhy1nvoagQ9huZQrdsVPncWgR1VvR5LalsNf6XE18Mih
+	 67zPp8asH/FxiLnvi6yX27QeuAduLT9q9YiyEQbywP8kfI+O7dBcG3yz2+d3tIcD2BA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795550084;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=N6ZDf32T5nk+m9wvqXhF4I4mA8DVMOcsP/R42tSMkxg=;
-	b=zHMjN4Fh/JfkMD0XfT+k0BjbtWiELAI4g28hE6bpGfKzEwC9r9qMUXQXnqzQPjYDZTZu
-	 daa/vK350HQjDal4kF/7u7Z9BRqYEnI/b/QWUVKUlAtQ6N7HhkCWmIIaOb1oH9AHhqUdq
-	 HHwsdDkej09j5lJdwgC8b4OEfgtXgmHXrt7nGVjCbtAJ9TZwvFnySK1Lc99fj8V7xE1n0
-	 ZakolwoMbIjyJRC/vzNCQlVcKgfQfbRBt8QFjaj/2RduDvJAKN8JhYJ6pX7aay2XNhdEc
-	 iTIv84HYqRpFBAf7hvHnhnX3szJ0PCKIJ2HUFMh0346MS3CvYPkXTWhW0jhdtrvhLsw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=m7dKlY44;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.169
-Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com [209.85.160.169])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=CMRL7IAFTXqZ9ddm2mkT9rLkzrVp3O3yLJXKdJzaMHw=;
+	b=zOeXoQaLxvBBoU251WnGxKejWgG/X1VgVsCOlg7MOZ0la9r6vwJ4EEoyHObDX2p+q7kE
+	 jHZj1J2Od0/UsBS2arpPMIVpFwrEcBA+oxYnHm+ZVD/Y9Jn12bG4EWJNGUI27nswAhMri
+	 JwMtRUjSvqZq1tmM8Hpfgo+1GoiqpH/Hq9ZN9FOFh0wP1UUM/USxSsVJ/fqnZsGy71tFc
+	 Ne0bdW3i4UCo8oP3Msfmv87xJgDCy+j4izAVPaSYeBDnhIesmxRaECKREQLcs7SJmBBTn
+	 lV9t17NxBO0Hjgf67yLXQcec7RUPjnuGaXLrJxRPa4GshE7FnE/t/5AsS0t/3/JoTwA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=amutable.com;
+	spf=pass smtp.mailfrom=amutable.com;
+	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=HwF08vE8;
+	arc=none smtp.remote-ip=209.85.221.43
+Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9E57606A327
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:53:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9E57606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BA57606A333
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:54:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9BA57606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amutable.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amutable.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=m7dKlY44
-Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-55c7445cf85so928781cf.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:53:58 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795550037; cv=none;
-        d=google.com; s=arc-20260327;
-        b=HZSHimc4bC1X0yTUM878uCBMnNimn4lzk3HOl8Eh7olmlfJJVFXL2qyBn51zBe8pFA
-         sapBdyj8gPWoi6MJXeR+0Of2VBomSdLzbLc/7sVU1qYot4/XdXs0eccQ8dfRuuF0QnGa
-         jxfCo+/WgoioNtKNkqPsJabk4Gg1FZ9ifaeEQ0igCpTJso/oVhcdwKtEJA9RKgKb8bRL
-         Esf+2f+3xKpSdBqr+ynDP5g+dFjx3rUcwuzi24nw83d7OscZ393B2FAubL3DQRkfeYun
-         U1bR+ZpKq5IocZ85huB+gq6Qmk1FzVljMDn2I6NG4CM0CZMkz96zerwpD7yfm/EeKHVN
-         ODvA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=N6ZDf32T5nk+m9wvqXhF4I4mA8DVMOcsP/R42tSMkxg=;
-        fh=fOFhzMivm7eqfQmJscM45B3OSSwTw87JJWUDmGLgU5A=;
-        b=fBpvwbxADGPQglx5grblW6vX1+fK5dajmPRUDUKJE75+wb3Sr4JAzRx4QBrW7rK84s
-         1EuldjJwOKdux7mgDZsLttl3QCoqLQ4DDr0CI708CWSR5ipQlNt81Qw28DNN3329o4o7
-         7XLc3nkNh/DTsRLruXVY2mLdYsFShYl6mj9SE1d67I62eKRAAJlMOCt/idJZGRvm0Hx3
-         fD0eELbsk5R36jkVX71LQJu2mmU1NUozqjtcpNksxPZL4N9MkZcUxj0FcyXsBCoanr0b
-         qtHXNyLMtsFXqOtCkBnn4vJZyoD5JWSRMOdoDW9sEA6GGiPTtHCyHwfJ3rBalYcCtdZx
-         7EBA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=HwF08vE8
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-4a357b1c649so2919991f8f.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:54:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795550037; x=1796154837; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=N6ZDf32T5nk+m9wvqXhF4I4mA8DVMOcsP/R42tSMkxg=;
-        b=m7dKlY44pC/+c16oejDGXzDJlmCY6pTFCcJ4svC7Nzdhr5/1XP3p8+YapylGbS5gdR
-         kUWih5IOLkt8HwVIK8DxT+wpC29qsTeiWtXzocUQv7VuKT1PFYo13YwaMZyWi0Z81TfW
-         7CABF2NA2iYMErTLz4AGuVEhvw8i4hPkaCrNLdiLvnNe6GXfwKrug5JYrsZoCTPKaxy8
-         lXQgrS2a9IIsi0d//UkLYkAcYylvClK8TO8BKyLg+YlGEXvaoXWYQsCyp7YGAfi9A1iM
-         l9ODMId9I0aVNBk/1L5cHJ9LLQbLiN9gUYPkuYJa2+xj1AUFxuVSaLpCoT1HZLsdmQC6
-         MBOg==
+        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1795550082; x=1796154882; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CMRL7IAFTXqZ9ddm2mkT9rLkzrVp3O3yLJXKdJzaMHw=;
+        b=HwF08vE8pTntd6ebrHbTMoSPpoWYr18xwDyN09ucSsKYQAsnMjh5JfMToykcXZTLWb
+         fq8FxhScBcP9Fyj7wc6yq/GnqCTxqEzu9ke3XMel0xx4fo3VgJvHxAm4LivZK5srCgXU
+         bLpyyl2zZ7j1RRJUneUQuyRJeN5c067KX9YOtgnsBU0/gKmoDC4aOjlDXbQcaWGlCyWh
+         hjsIqolz+TOYnPlKLN6X77d65g3YKloMIeyQ2w9rZI8sYTT5kAODBi62DEKTuLowOJJn
+         utILCQNfu5pQgRMoHfVWyoiefQNEG4VoKJnjQQqbuJbpgukWgeaJjbWOfCWKyRmL2alA
+         4Fcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795550037; x=1796154837;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=N6ZDf32T5nk+m9wvqXhF4I4mA8DVMOcsP/R42tSMkxg=;
-        b=Y6AldtEVFEMddpQ2GmjmQG1+8fhZQOZFTXwodLZJYHIAa5qJpU7pcr0xb0NHVSsKrh
-         KBGpFGD6sJumlQd+TAfM90LRd8NmIMqHiNnwLSpgbwNToV7Mzb7/878QioNtiZEnyZBa
-         5ruSDPmprxuwRPtyHdRbX8Eribsu4ESMOVjOl9zoH2PmxuyUsS5sAe21IMV87414XoFA
-         3JRLENqVylat5aeECi0cYFTkY4lLlrT0KEOBWK3wFdL8PP15Mxj6eacgUS8FMfJ9Kq+4
-         /YHJaZ8Fxfmk38q3pdcVWZsTrYvsrSj3XWO4zc0OhqzVt2iV+s1QKQFF0WBRbXKCn7FA
-         Ehow==
-X-Forwarded-Encrypted: i=1; AL+hErHppY4Y7HXsrcSkOa6Xm0kesXisCh+vfJAbPvpjUHV44K2B+MFIjWQ0NAzN1CabFR1mJeNCOhmLaxrpHoM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/h/KCQxRzbAW939u5fetS3XcjLB62y695SxQtXbvi+zHxIth3B
-	TWJmJBN49UI1mLvaExs9nJlvn9dhXvuS5OHgNbdiO2kt/NE1pwenJng/DTwx6dsWRJ/Dsu5iPSL
-	rM7qLa7Uif39l3tCexdC0qnCjxaPo5BnTd7cGRh4k
-X-Gm-Gg: AZFdTZdfrjipF9haLbJsqMDB+tDYCHZTaZqF+eEN/YdYBRaPnWMxmyhqGQFvto42+wX
-	4KL4TaLD27ByzcFA1vtfD9+4p9j375Dg5N4e7e7BOK/wlKkjRJJ0EVUrgiSjS6/AY5Pxsto6FwQ
-	0am1UE4QijaeG5f9CN65mHJxGzO4SabDXaTWze8w8vfwsLECW0TEGS4OYLKfpUdkFGfcMEZvHWO
-	qS+jS6v8JNHuYdNtMUCqOQDuVt8pIzJlTqQwDLy64t6WZwui4GuGgc/x/irp6lJ8/9d2VoDaifu
-	e3I5N8tOpJ7inkw8L252fnMkObD80FLWHGAaq1hQZh1E4/IujB/NzF+brYM6kFkdteHNlvgE3NP
-	sTz+GIm+NWf9nPOA9yGIOku1uH4C2gu0ci6zttwR4wlbGQ690Q+5V8DeavfWiyl1XSGg=
-X-Received: by 2002:a05:622a:544d:b0:535:ce3:ee07 with SMTP id
- d75a77b69052e-55d89061678mr68501161cf.13.1795550036714; Tue, 24 Nov 2026
- 11:53:56 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795550082; x=1796154882;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CMRL7IAFTXqZ9ddm2mkT9rLkzrVp3O3yLJXKdJzaMHw=;
+        b=PzLBU3MN5n8Oh4Ul9NRgHFvfqLCBfL1PUkbOOvIH7wDtbaBCiVDz3K0EEdJeOKl0zG
+         pguYTi/JpNFQBt3KT6v2Ih0JuYnqr7kNSn+VGe3UUp4ZFMT1LxylvnHjt6VYbcTeyKiW
+         NEJ5Z8abq2NcCAiAbbaPhx+K3t63zgjY7exlO0ua5qxcHoCYLtA+N05UU2sbO4JXKmcy
+         LxuwHYP+lab+ia+4VTEhiKQJ9LYuK0O0Btn8myzy+gE1k/mCIiVssbTWxYwHJIAGCMJ6
+         ovjtFnjJww3bDw/XWrAM/UIeLnPDXQot4A6fzfkdXdLqLDyRK/CC1CChGn4xDeHE7MUC
+         wuoA==
+X-Forwarded-Encrypted: i=1; AL+hErGMV/qtUyxMtclBtAViXXFEQc5E8pc17zykkIb2olHo0VBnRletyvuNJnuIRp5ncdgH7j+q7cVKQdDjONQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9J22TBRZODJPvBBonm53MFHeFcCm+tNHpyY/6mOew14Msl0E0v
+	p4r6MZXiLCv8feQ8cp6sA+oUTkJrI5PCkYmm9q30OyVHMIYwsOyinfz0X6Stvf25DZ08
+X-Gm-Gg: AZFdTZfdUfxk3fCdrhGvG1edQ6GHmlHsG4SNusHc/7JFxZnO9unVd70MZaKHxrCKYud
+	wpHXRZ+dPr9zFoXyTE1vydU+yCP1HUGpiUCjSpt0/zDXUAzsnc6phTKncmhkOvGNv+6+PAfg2IT
+	n+bOJEXcQ3lrXt55l3khf/RhggNOAy8pkQ2byn+/GOAMqSE3PrWDXYXVef8usdG5M07+pveHRvN
+	IfWFM8VneKugAGWGkoyHPD13ZK3FcdnnFHIBLA/Ub9lTlX9uo/TwoyaiWGLYUHXp01/Cn5Jy2qE
+	I5pdiVTVHYy9l7YBdlySr9fMkSdXV54Wlj3l1NBqAEDeyMycJW0Nc1yU7rPbiHD/DNu7ZII8bEA
+	rzNDOdwVz2macZEhVZ73dsvCQTjz+DmxUJT/tpo9UV0CpRX0DDK3BSULs/2mQ5OhmOdP1DeiYBU
+	6kjfXbLnPlO9OEIZU1tLv4hoJDOFFWaHBsoQAKhgFN845zXOfmjKUiAsnx6Ile70kSIiJ8fSvLM
+	D3q3V8qD0s0bjq29iIStVHfnxLEHeoQHIgfyuExPykyRfaGsHU+X0dKW7W3lVOOFWks/DLm2EiI
+	P6MhE9951dAV2kcsOnb0Io6P+0agu/fKKYUbKfg0IvsQ4v6L7riSzolcdHklLM1EQOC32tw3NkK
+	O7+uaG4YUse3KZGY1mfGTIFHOl3f1XAhgYJGy
+X-Received: by 2002:a05:6000:2dc5:b0:4b3:71c7:42bb with SMTP id ffacd0b85a97d-4b371c74483mr14127763f8f.19.1795550082102;
+        Tue, 24 Nov 2026 11:54:42 -0800 (PST)
+Received: from alex-t14g7.lan (p200300cf572c2800fb4fa6aa0455ce36.dip0.t-ipconnect.de. [2003:cf:572c:2800:fb4f:a6aa:455:ce36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb98b4dsm30622222f8f.53.2026.11.24.11.54.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 11:54:41 -0800 (PST)
+From: Alexander Mikhalitsyn <alex@amutable.com>
+To: code@tyhicks.com
+Cc: brauner@kernel.org,
+	ecryptfs@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	Alexander Mikhalitsyn <alex@amutable.com>,
+	Jan Kara <jack@suse.cz>,
+	Seth Forshee <sforshee@kernel.org>,
+	Paul Moore <paul@paul-moore.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ecryptfs: release inode on error path in ecryptfs_lookup_interpose
+Date: Tue, 24 Nov 2026 20:54:29 +0100
+Message-ID: <20261124195430.105522-1-alex@amutable.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,208 +101,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116074414.3174737-1-irogers@google.com> <20261116074414.3174737-4-irogers@google.com>
- <awTf5TZhEyoYCgjH@google.com>
-In-Reply-To: <awTf5TZhEyoYCgjH@google.com>
-From: Ian Rogers <irogers@google.com>
-Date: Tue, 24 Nov 2026 11:53:43 -0800
-X-Gm-Features: Aa3M54r_R7N5tykK528Kk0UaPPpJN4-KPZlHhxP0nzf_Gn4oainZgaRRyC6TiE8
-Message-ID: <CAP-5=fUXDW6BGEr1nfJpzVjSav_E3WM6CFmTqXJ2PnUWpK3xDw@mail.gmail.com>
-Subject: Re: [PATCH v3 03/19] perf/uapi: Add BUILD_ID_OFFSET sample types to UAPI
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
-	Leo Yan <leo.yan@linux.dev>, Dmitry Vyukov <dvyukov@google.com>, 
-	"Steinar H . Gunderson" <sesse@google.com>, Stephen Brennan <stephen.s.brennan@oracle.com>, 
-	Thomas Falcon <thomas.falcon@intel.com>, linux-perf-users@vger.kernel.org, 
-	bpf@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 4:52=E2=80=AFPM Namhyung Kim <namhyung@kernel.org> =
-wrote:
->
-> Hello,
->
-> On Sun, Nov 15, 2026 at 11:43:58PM -0800, Ian Rogers wrote:
-> > Introduce PERF_SAMPLE_BUILD_ID_OFFSET and
-> > PERF_SAMPLE_CALLCHAIN_BUILD_ID_OFFSET in enum perf_event_sample_format.
-> >
-> > For PERF_SAMPLE_CALLCHAIN_BUILD_ID_OFFSET (and
-> > PERF_RECORD_CALLCHAIN_DEFERRED when PERF_RECORD_MISC_MMAP_BUILD_ID is
-> > set), encode a deduplicated table of variable-length build IDs
-> > (u32 nr_build_ids, u32 nr_offsets, followed by packed { u8 size;
-> > u8 data[size]; } entries padded to 8-byte alignment) and an array of
-> > 64-bit offsets whose top 8 bits encode the 1-based build ID index (or
-> > 0x00 for unresolved user addresses and 0xff for kernel/context entries)=
-.
-> > In common cases where multiple callchain frames belong to the same
-> > binary, each unique build ID is encoded only once.
-> >
-> > Suggested-by: Namhyung Kim <namhyung@kernel.org>
-> > Signed-off-by: Ian Rogers <irogers@google.com>
-> > ---
-> >  include/uapi/linux/perf_event.h | 59 ++++++++++++++++++++++++++++++---
-> >  1 file changed, 54 insertions(+), 5 deletions(-)
-> >
-> > diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_=
-event.h
-> > index deb7c42d109b..775420ed9aee 100644
-> > --- a/include/uapi/linux/perf_event.h
-> > +++ b/include/uapi/linux/perf_event.h
-> > @@ -165,8 +165,10 @@ enum perf_event_sample_format {
-> >       PERF_SAMPLE_DATA_PAGE_SIZE              =3D 1U << 22,
-> >       PERF_SAMPLE_CODE_PAGE_SIZE              =3D 1U << 23,
-> >       PERF_SAMPLE_WEIGHT_STRUCT               =3D 1U << 24,
-> > +     PERF_SAMPLE_BUILD_ID_OFFSET             =3D 1U << 25,
-> > +     PERF_SAMPLE_CALLCHAIN_BUILD_ID_OFFSET   =3D 1U << 26,
-> >
-> > -     PERF_SAMPLE_MAX =3D 1U << 25,             /* non-ABI */
-> > +     PERF_SAMPLE_MAX =3D 1U << 27,             /* non-ABI */
-> >  };
-> >
-> >  #define PERF_SAMPLE_WEIGHT_TYPE      (PERF_SAMPLE_WEIGHT | PERF_SAMPLE=
-_WEIGHT_STRUCT)
-> > @@ -840,7 +842,8 @@ struct perf_event_mmap_page {
-> >   *
-> >   *   PERF_RECORD_MISC_EXACT_IP           - PERF_RECORD_SAMPLE of preci=
-se events
-> >   *   PERF_RECORD_MISC_SWITCH_OUT_PREEMPT - PERF_RECORD_SWITCH* events
-> > - *   PERF_RECORD_MISC_MMAP_BUILD_ID      - PERF_RECORD_MMAP2 event
-> > + *   PERF_RECORD_MISC_MMAP_BUILD_ID      - PERF_RECORD_MMAP2 and
-> > + *                                         PERF_RECORD_CALLCHAIN_DEFER=
-RED events
-> >   *
-> >   *
-> >   * PERF_RECORD_MISC_EXACT_IP:
-> > @@ -852,7 +855,7 @@ struct perf_event_mmap_page {
-> >   *   Indicates that thread was preempted in TASK_RUNNING state.
-> >   *
-> >   * PERF_RECORD_MISC_MMAP_BUILD_ID:
-> > - *   Indicates that mmap2 event carries build ID data.
-> > + *   Indicates that mmap2 or deferred callchain event carries build ID=
- data.
-> >   */
-> >  #define PERF_RECORD_MISC_EXACT_IP            (1 << 14)
-> >  #define PERF_RECORD_MISC_SWITCH_OUT_PREEMPT  (1 << 14)
-> > @@ -1095,6 +1098,38 @@ enum perf_event_type {
-> >        *      { u64                   code_page_size;} && PERF_SAMPLE_C=
-ODE_PAGE_SIZE
-> >        *      { u64                   size;
-> >        *        char                  data[size]; } && PERF_SAMPLE_AUX
->
-> I think AUX should be the last entry so that it can take the rest of
-> sample area after processing all other sample data.
+Currently, when ecryptfs_i_size_read() fails we only do make_bad_inode()
+which only removes the inode from a hash. So it's not getting released
+and on umount we get "VFS: Busy inodes after unmount of ecryptfs" (see below).
 
-Good catch, agreed! In perf_prepare_sample(), PERF_SAMPLE_AUX clamps
-its payload against U16_MAX - header_size, so placing new fields
-before PERF_SAMPLE_AUX ensures AUX only takes the remaining sample
-space.
+Let's fix it by using iget_failed() when inode is I_NEW and iput() when it's not.
 
-One minor caveat with inserting new fields before PERF_SAMPLE_AUX is
-older perf.data parsers that warn on unknown attr.sample_type bits
-rather than rejecting the file (such as legacy tools/perf's
-perf_attr_check() / __evsel__parse_sample()): when PERF_SAMPLE_AUX is
-not set, the wire layout is unchanged and trailing build-ID bytes are
-simply ignored via header.size, whereas if both PERF_SAMPLE_AUX and
-PERF_SAMPLE_*BUILD_ID_OFFSET are enabled together an un-updated parser
-expecting AUX right after CODE_PAGE_SIZE will misread the build-ID
-bytes as aux_sample.size (failing OVERFLOW_CHECK, or seeing size =3D=3D 0
-when bid.size =3D=3D 0). That matches the precedent set by
-PERF_SAMPLE_CGROUP, PERF_SAMPLE_DATA_PAGE_SIZE, and
-PERF_SAMPLE_CODE_PAGE_SIZE, which were all likewise inserted prior to
-PERF_SAMPLE_AUX.
+This was accidentally found while working on SB_I_PSEUDO fix.
 
-In v4 I've moved PERF_SAMPLE_BUILD_ID_OFFSET and
-PERF_SAMPLE_CALLCHAIN_BUILD_ID_OFFSET before PERF_SAMPLE_AUX in the
-UAPI layout comment, kernel
-perf_prepare_sample()/perf_output_sample(), and perf tools (sample
-parsing, synthesis, and perf inject --sample-buildids).
+------------[ cut here ]------------
+VFS: Busy inodes after unmount of ecryptfs (ecryptfs)
+WARNING: fs/super.c:731 at generic_shutdown_super+0x117/0x1a0, CPU#11: umount/402
+Modules linked in:
+CPU: 11 UID: 0 PID: 402 Comm: umount Not tainted 7.4.0-rc1-virtme #9 PREEMPT(lazy)
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
+RIP: 0010:generic_shutdown_super+0x125/0x1a0
+Code: 5d 5d c3 cc cc cc cc e8 19 d0 f3 ff 48 8b bb 18 01 00 00 eb d7 48 8d 3d a9 93 d1 01 48 8b 43 50 48 8d b3 d8 03 00 00 48 8b 10 <67> 48 0f b9 3a 4c 8d ab 40 05 00 00 4c 89 ef e8 17 6c b0 00 48 8b
+RSP: 0018:ffffccc0406bbcf8 EFLAGS: 00010283
+RAX: ffffffff87d54a20 RBX: ffff8a7bc2358800 RCX: 00000000000000b5
+RDX: ffffffff873e7853 RSI: ffff8a7bc2358bd8 RDI: ffffffff87e52550
+RBP: ffffccc0406bbd10 R08: ffff8a7bc235d408 R09: fffff12a00000000
+R10: ffffccc0406bbcf0 R11: ffffffff87d209d8 R12: ffff8a7bc2358d48
+R13: ffff8a7bc2388824 R14: 0000000000000000 R15: 0000000000000000
+FS:  00007fd846e02840(0000) GS:ffff8a7c76af9000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fd84716e8e0 CR3: 00000000037d8000 CR4: 0000000000350eb0
+Call Trace:
+ <TASK>
+ kill_anon_super+0x1c/0x80
+ ecryptfs_kill_block_super+0x1a/0x50
+ deactivate_locked_super+0x39/0xc0
+ deactivate_super+0x47/0x60
+ cleanup_mnt+0x3b/0x80
+ __cleanup_mnt+0x16/0x20
+ task_work_run+0x64/0x90
+ exit_to_user_mode_loop+0x177/0x570
+ do_syscall_64+0x352/0x410
+ ? up_read+0x1f/0xe0
+ ? schedule+0x27/0xb0
+ ? schedule+0x27/0xb0
+ ? schedule+0x27/0xb0
+ ? trace_preempt_on+0x28/0x80
+ ? schedule+0x38/0xb0
+ ? preempt_count_sub+0x4d/0x70
+ ? irqentry_exit+0x2e1/0x700
+ ? exc_page_fault+0x8d/0x170
+ ? do_syscall_64+0x33/0x410
+ entry_SYSCALL_64_after_hwframe+0x76/0x7e
+RIP: 0033:0x7fd84705c1d7
+Code: 0d 00 f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 31 f6 e9 09 00 00 00 66 0f 1f 84 00 00 00 00 00 b8 a6 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 01 c3 48 8b 15 09 3c 0d 00 f7 d8 64 89 02 b8
+RSP: 002b:00007ffd3839fae8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+RAX: 0000000000000000 RBX: 000055b7f819dbf8 RCX: 00007fd84705c1d7
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 000055b7f819df30
+RBP: 0000000000000000 R08: 00007ffd3839e8d0 R09: 00000000ffffffff
+R10: 0000000000000103 R11: 0000000000000246 R12: 00007fd8471ba26c
+R13: 000055b7f819df30 R14: 0000000000000000 R15: 000055b7f819daf0
+ </TASK>
+---[ end trace 0000000000000000 ]---
 
-Thanks,
-Ian
+Fixes: 3b06b3ebf441 ("eCryptfs: Fix new inode race condition")
+Signed-off-by: Alexander Mikhalitsyn <alex@amutable.com>
+---
+ fs/ecryptfs/inode.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
+diff --git a/fs/ecryptfs/inode.c b/fs/ecryptfs/inode.c
+index 48e520960d66..3a966348a578 100644
+--- a/fs/ecryptfs/inode.c
++++ b/fs/ecryptfs/inode.c
+@@ -362,7 +362,10 @@ static struct dentry *ecryptfs_lookup_interpose(struct dentry *dentry,
+ 	if (S_ISREG(inode->i_mode)) {
+ 		rc = ecryptfs_i_size_read(dentry, inode);
+ 		if (rc) {
+-			make_bad_inode(inode);
++			if (inode_state_read_once(inode) & I_NEW)
++				iget_failed(inode);
++			else
++				iput(inode);
+ 			return ERR_PTR(rc);
+ 		}
+ 	}
+-- 
+2.47.3
 
-> Thanks,
-> Namhyung
->
->
-> > +      *      { union {
-> > +      *              struct {
-> > +      *                      struct perf_build_id    bid;
-> > +      *                      u64                     offset;
-> > +      *              };
-> > +      *              struct {
-> > +      *                      u64                     zero;
-> > +      *                      u64                     context;
-> > +      *                      u64                     cookie;
-> > +      *                      u64                     ip;
-> > +      *              }; && attr.defer_callchain
-> > +      *        }; } && PERF_SAMPLE_BUILD_ID_OFFSET
-> > +      *      { u32                   nr_build_ids;
-> > +      *        u32                   nr_offsets;
-> > +      *        struct {
-> > +      *              u8              size;
-> > +      *              u8              data[size];
-> > +      *        }[nr_build_ids];
-> > +      *        u8                    pad[];
-> > +      *        u64                   offsets[nr_offsets];
-> > +      *        #
-> > +      *        # Entries in offsets[] include PERF_CONTEXT_* markers (=
-which
-> > +      *        # have top 8 bits 0xff). Kernel/hypervisor entries (aft=
-er
-> > +      *        # PERF_CONTEXT_KERNEL, PERF_CONTEXT_HV, PERF_CONTEXT_GU=
-EST,
-> > +      *        # or PERF_CONTEXT_GUEST_KERNEL) and the cookie word fol=
-lowing
-> > +      *        # PERF_CONTEXT_USER_DEFERRED are raw 64-bit values. Use=
-r
-> > +      *        # entries (after PERF_CONTEXT_USER or PERF_CONTEXT_GUES=
-T_USER,
-> > +      *        # or in PERF_RECORD_CALLCHAIN_DEFERRED) use the top 8 b=
-its to
-> > +      *        # encode a 1-based index (1..254) into the build_ids ta=
-ble and
-> > +      *        # the lower 56 bits for the DSO file offset, or 0x00 fo=
-r an
-> > +      *        # unresolved user virtual address.
-> > +      *      } && PERF_SAMPLE_CALLCHAIN_BUILD_ID_OFFSET
-> >        * };
-> >        */
-> >       PERF_RECORD_SAMPLE                      =3D 9,
-> > @@ -1306,8 +1341,22 @@ enum perf_event_type {
-> >        * struct {
-> >        *      struct perf_event_header        header;
-> >        *      u64                             cookie;
-> > -      *      u64                             nr;
-> > -      *      u64                             ips[nr];
-> > +      *      union {
-> > +      *              struct {
-> > +      *                      u64             nr;
-> > +      *                      u64             ips[nr];
-> > +      *              };
-> > +      *              struct {
-> > +      *                      u32             nr_build_ids;
-> > +      *                      u32             nr_offsets;
-> > +      *                      struct {
-> > +      *                              u8      size;
-> > +      *                              u8      data[size];
-> > +      *                      }[nr_build_ids];
-> > +      *                      u8              pad[];
-> > +      *                      u64             offsets[nr_offsets];
-> > +      *              }; && (header.misc & PERF_RECORD_MISC_MMAP_BUILD_=
-ID)
-> > +      *      };
-> >        *      struct sample_id                sample_id;
-> >        * };
-> >        */
-> > --
-> > 2.56.1.703.gf848ed807c-goog
-> >
