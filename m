@@ -1,101 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.50
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795532072;
-	b=TXc4ulSgg/zYE1GavLwE910toV6vr7B9I4L5wfLniN8D9r8ZqJseRVCfH6fUCtXlOV/n
-	 DE4Yal46KJ0tXFRmj49j2VIJhrizI/bOpdwZKnYL6YomyB/tE/9l4lxhLCBk5olw5ODeK
-	 vmLfi96n5NW5EA/KjzpEWNEEmUvTDd3vvGHB5J+D1YoV1X3AAIGIJ4jp/E7V0vhLP+nn5
-	 4V9lc6dDQBrSmhdBs7BWOwheypxnLcGukV6ne1nt0kYCCA0u4b/G9dfWwXsGKX6EYXcqF
-	 YpMgocHDDt1ZjCUtwQgE6oN6048waZYckNcpW/1k1NDc7KcJx04Vq9AgyxixwH4kCIw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795532072;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=71dTwShTfEdOQIdmJmi7XEX/3XHsadk4lJT6tIe3bHc=;
-	b=Ae6wR4NmtOxZ2v0kTMrXac8gMAijYMTXREkgYi3DQzykPgIdAUn+j22EmbgifzIetRsW
-	 JdNfqqaDd6xMq7VtIig2GxKcrO4hR6xvpM7ovNmX2hvb1SuAQOw4q4Cn5nkNzzYWnY468
-	 Sfgv0ZXSlXmHuQ6EuRCHzo6gYlCeABX6Zc6YXXdpbk1wHAobJvuIGnNCWDTK3uMr5K23C
-	 Bv4fvIxT2cj24ojtJz5hO3cwb0r3mo8+IuKeg+TR6Y5o5mE84OyMt2ovpA9kop9yaH0KK
-	 UZzz0g49pRlqoOlwT5saaq00YncoyfoqpuIn4JGcNIkTljB0KrH3xaVt0QmgFm52/NA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wB1jEgxo;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.50
-Received: from mail-ua1-f50.google.com (mail-ua1-f50.google.com [209.85.222.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795532117;
+	b=eP9SqTUB4FrZJZzmB5rsVCBE21Htu+hErg/qDyN7moDBfL88WJFehaXyG7K3gSLkdWyg
+	 sCAPkCWUFJvj39fCRZeIeF7TG1T97Yr4Q2wbVbn3SV6g8syDYDR1m5nnojQeoYrv1WQ1X
+	 kjEG5uofLRLw/eXR+T4QPHQ+F/FYyYloEcQeOR2GbzaOgBWhxibWOZdcdrVTWoqkUaNYh
+	 46qrHSV2NAU986PCvo2gIix997COJtzpx+jrm7AKRkARE1WRSdWlqm0WSuTLUbqEY7ore
+	 fFGvxKV7EE0gdXfy9DjOoUJGnJBiAgFY0bKuwgCi3TLrYnpFPHWtoOq6OY0NiSL2/bw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795532117;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=D+hSgyqO/o/m5Gc+8nN83BXmFEuYW3cQNIGgjao79ow=;
+	b=SUv0byRLSamStS0URZQBIM+PY9/DZ5hwU8pNimedrYQMLr21rxa2oeh8Rz3DtqTlAOEN
+	 AXUiRnJiVltqNeMpy4cyTkVVPTQnImpSpJGCL/d0An9TkVELCoewtU9b41U2yOeoVRhyp
+	 OKdwebrOu2Og5cZk5YmIHNgKWYF6WU1LpctTae9RW+Btzeci9FLOyfrgWe1Z2xdoKgRUx
+	 aNkEmYuBMpHP9RxUywusxzwrl+61x0Nhpf6OXABlvmZS3OdlzZxr9xkKn88cKymcx92rA
+	 Mmx1fZNZH1JrH61RMmWxYymb78S5kOtljPlRuo+1an88TdbDWmXdNX6S9nQxx9Ypehg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=apShX2Xm;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 360FF606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:54:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 360FF606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F763606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:55:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F763606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wB1jEgxo
-Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-980c4f5c921so1195571241.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:54:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795532070; cv=none;
-        d=google.com; s=arc-20260327;
-        b=sBwvOIk62AEIyfT+hSXvuxsiTvrmKFdYwguQxazlUqS/ypIyhDHK3oj5Gz3X30kkT+
-         LR02ydMgzWb4EpXlmlNRxU66nZx+XuI1ryWmjbkCxezqrUyW4dO2YoDgPcyLoMMcpK16
-         dtRT+9KSANv7TjNlTYj111WtN2BP16D3LEasI4hsU9gFZnAQot76AuORLpd/nq4FklQJ
-         6XuPaF96YPlfbi8NPWAE4uf9H2JvZ04ye6oD4Z00aF/8x4afmd8KMZlS7YJoRE+DlDAS
-         ulaCreVaaSS7TgOPV+0khTfRsrIYEdcegEAughRBuvBFuc4L96cuv5nsiAKoQq5NgJgF
-         redg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=71dTwShTfEdOQIdmJmi7XEX/3XHsadk4lJT6tIe3bHc=;
-        fh=Yi6ZoZ0Fn2rtNMh5lW+GalnIl4O/fXqc/RmotFJn+34=;
-        b=MH4q76gc5lSXKpOMXg5ykFAO4Ic+GuKMHfILSqmX8GmoWtZ+QFgEpQ/z1jr5biXLo2
-         Io5gMfxKtsYQSFrqE9YDbVyc0DTMTfq76mnGUgCyxBEJl7sp5qBAn99+ZD6TxeAp7ceg
-         LxrGm66LquKtkqWU0b34lDUA1GmichFcIyHrY20TNTjUsyQN83QjB7DYKnm0oteC3RDs
-         qSBv0687I3atThFBvbdGSIzdBGSMtTw8hmHxm2Jl2KyLEc9pdf3qU5cPvNpg1HFG76L2
-         YWlQopeN/sPtQFA9qRm9bDq09ljk3qQu9lMysFMhr1WXFOFB0dFFW7EDHnw9qTlCg823
-         6qGQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795532070; x=1796136870; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=71dTwShTfEdOQIdmJmi7XEX/3XHsadk4lJT6tIe3bHc=;
-        b=wB1jEgxo3LCEB1zMm4kQGiZA7qS05r8+teZkpkEZ4S0amfm3fFSnZ/fohoGDEw0n8L
-         Actc5v1/1+UxYOGIy0WzJtxW+adaMk48aS/uuUYvR/tdF7IWMHD4Hkt0gfohMdQGv4Uz
-         b8T7x1qAOH2Nt6HOugRiojVc0wu7iPfd7R+oCXU+fWnyK9qG/TE8a8SC3WVlwKD/m30o
-         a/m2gWdwteae1N7+Uck4xVr86kGvEhgl0F3IqAuC8lYwW/YDk3hNui82pDRdk8ytBwoW
-         J9Kce+gP93vjixTE+vY+qkRgtgfPTsbBp6WW1KVUT0m30+OLu2iDEsX+AlKkUGf46iHs
-         kGIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795532070; x=1796136870;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=71dTwShTfEdOQIdmJmi7XEX/3XHsadk4lJT6tIe3bHc=;
-        b=iWYKsVbSj4njc94uWmQxKMX07+dVlmsn+FGg57G0u4gJnljlKlqamh9ltTTBpogVE3
-         P95k3++6S+HPS91raCTvjMIAof/hdnGV/JVbsQ5iRC9KfRKnc0lxDgeRcChjsSgNlkA8
-         ISNLRhnNr3hE3Vo+V/dYE/s31v5JvV6WBvIS5JhEDLtk3JnjqjUvBvH/tUTj/TyH8GXz
-         PTqcaddhTmlU8we3UYmRaUwbocnbjB59XfiOSsfXcJmX+sI/NzeM8vwimWXYZoHvfGF7
-         vxlnFom1qUGm0WTs3iRfToxtXHoy0+GFj4joB3g8S2VC5GXYC+Gj+K9mKefSw2U9BRW1
-         eHbA==
-X-Forwarded-Encrypted: i=1; AL+hErEFgh3JDhcU6WAHzCV3Fwf1fUMRuR9GJLIyJ0k2o5s61k36djSwZMUTR6Bsf3dgvCKSFBR8Mh8Cej++yTs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9X94ZCuJ3KwRvkgvZKjRAsy4oPNc+pk6yzF9VGMTjTUmEuEyd0
-	i70V36wmwNN8m4y2oZLOfqxPV4svTqmjN0cOzreaT++IeS4MetBrXJEarsvfmO4rvck/5VXsrPM
-	0hNBVeFKRNfItfIFnL8TKAL6CMqHtR7c=
-X-Gm-Gg: AZFdTZfnUkVzHpiDDt4uAq2I2/BrnlLMnwpiVykvtwK72RsRMqkgqL+2wXB7Kk7ZEnX
-	iW3kgppjwu1htGWGEP9+JTGcK48votK1U+BGv9r7E3f96w1tE2orQ5tq7LmaqWoI4hxoPAhKNmi
-	H62KZcbIhf66yCwh6xsoOlbVrL9+aX0Y3qBAHkXxZqJ3He9pijqSx1opv+x2qmumjvlTQZz7eb6
-	Mx/0/B5Il821b5nMKlA8QgouNCsll9gRw7ADwZdLdzIFZAnw6tVTZXRLRbWbjp8LRukBML3P7aB
-	6Euibxxq3YR1HlfEYGS1Subwrvn5lhBFCCmD+VHdmF557PT7DACnKcMEr+zyJbAe3AiYzgUjT+R
-	WGl9/hTvI642Ac2cqc2/SLaCJh8Z0pn0n9KnL0Z9HdNIijaklaiMqqJyUf3q/lOHYrT+jBRwXvv
-	7H/slG21LuXYCpm04+7EnXuetfOte8/6N3qcGd2ITf3WjiMvF5divY8NBA5x8=
-X-Received: by 2002:a05:6102:5494:b0:7cc:2cd0:e74f with SMTP id
- ada2fe7eead31-7d7398031b4mr5994320137.30.1795532070049; Tue, 24 Nov 2026
- 06:54:30 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=apShX2Xm
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id B6F191A17C3;
+	Tue, 24 Nov 2026 14:55:14 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 829BC601E1;
+	Tue, 24 Nov 2026 14:55:14 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5324011E682C5;
+	Tue, 24 Nov 2026 15:55:10 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795532113; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=D+hSgyqO/o/m5Gc+8nN83BXmFEuYW3cQNIGgjao79ow=;
+	b=apShX2XmOcZ8Y9rsgu2DhgLWhow7BGxZ29+aVKYkUNeIHDKVD3XOlDxcg1Ith9pI39a2YS
+	ZluQ9EZWe/AYKBOZXTH46yvBn6BTO4WLbUHY4t2xntNdo0bN+V49DQdBZ5AOGi0hvUedXp
+	GW/jYLMdoUrpseuB1nh5lRlkzZNlhhqALhCLXMTxBWvTMIsFmrWPKDUyJY+zU9siZCNKuR
+	cwrCbSZTgUtScu+8x/nQIpFqb70a5GSK5RhCkJrsL6WaLOStVZlhq3w3Lk1XMewW9QE3Ol
+	nj9vYqgUR1oUvqzADk1CkRKtjhAZpAf+XdLzByQ7yADRokS+3cWRLVM4hL+56g==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Arseniy Krasnov <AVKrasnov@sberdevices.ru>,  Boris
+ Brezillon <bbrezillon@kernel.org>,  Kyle Roeschley
+ <kyle.roeschley@ni.com>,  linux-mtd@lists.infradead.org,
+  linux-kernel@vger.kernel.org,  stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] mtd: rawnand: macronix: serialize OTP access
+ with NAND operations
+In-Reply-To: <20261122-submit-rawnand-operation-locking-v1-v2-1-030bc867f0c7@gmail.com>
+	(James Hilliard's message of "Sun, 22 Nov 2026 02:25:20 -0700")
+References: <20261122-submit-rawnand-operation-locking-v1-v2-0-030bc867f0c7@gmail.com>
+	<20261122-submit-rawnand-operation-locking-v1-v2-1-030bc867f0c7@gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Tue, 24 Nov 2026 15:55:09 +0100
+Message-ID: <87a4mys2ia.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,49 +76,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120035521.2098757-1-pkfxxxing@gmail.com>
-In-Reply-To: <20261120035521.2098757-1-pkfxxxing@gmail.com>
-From: Xin Long <lucien.xin@gmail.com>
-Date: Tue, 24 Nov 2026 09:54:17 -0500
-X-Gm-Features: Aa3M54raP4uMsSk2aQXqFMpGIN55EvV3pDaZPRhl-7iMNA5lcjzDRXxQYcX7lvI
-Message-ID: <CADvbK_e_qUTwQmhDquPnQNn3ghHmnHDA+3sdQ8p3-DNV6sQiXQ@mail.gmail.com>
-Subject: Re: [PATCH net v4] sctp: fix use-after-free after association migration
-To: Yong Liu <pkfxxxing@gmail.com>
-Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, Jakub Kicinski <kuba@kernel.org>, 
-	linux-sctp@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Thu, Nov 19, 2026 at 10:56=E2=80=AFPM Yong Liu <pkfxxxing@gmail.com> wro=
-te:
->
-> SCTP timers and ICMP error handling can cache asoc->base.sk before
-> locking it. If accept or peeloff migrates the association in between,
-> processing under the old socket lock can race with an abort on the new
-> socket that frees the association's queues. Transport and association
-> references do not keep those queues alive. With mdelay() instrumentation
-> widening the race, KASAN reported a slab-use-after-free in
-> sctp_chunk_abandoned() from the T3 retransmit path.
->
-> Recheck the association's socket after taking its BH lock and defer
-> mismatched timer callbacks through the existing retry path. Pass the
-> locked socket to the IPv4 and IPv6 ICMP handlers instead of rereading it,
-> and treat a mismatch like a busy socket before processing ICMP errors.
-> Skip socket error reporting after migration and check PMTU only under
-> the owning socket's lock.
->
-> Use READ_ONCE() for socket pointer reads in these paths and receive/backl=
-og
-> processing, including transport lookup, paired with WRITE_ONCE() in
-> sctp_assoc_migrate(). Take the new socket reference before publishing it.
-> The cached socket is protected by BH context and the endpoint's
-> RCU-deferred sock_put().
->
-> This issue was discovered by an LLM.
->
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Yong Liu <pkfxxxing@gmail.com>
 
-Acked-by: Xin Long <lucien.xin@gmail.com>
+> OTP I/O can also run while the chip is suspended.
+
+Really? Where does that come from?
+
+[...]
+
+> --- a/drivers/mtd/nand/raw/nand_base.c
+> +++ b/drivers/mtd/nand/raw/nand_base.c
+> @@ -207,7 +207,7 @@ EXPORT_SYMBOL_GPL(nand_deselect_target);
+>   *
+>   * Release chip lock and wake up anyone waiting on the device.
+>   */
+> -static void nand_release_device(struct nand_chip *chip)
+> +void nand_release_device(struct nand_chip *chip)
+
+You export a core helper...
+
+>  {
+>  	/* Release the controller and the chip */
+>  	mutex_unlock(&chip->controller->lock);
+> @@ -336,7 +336,7 @@ static int nand_isbad_bbm(struct nand_chip *chip, lof=
+f_t ofs)
+>   *
+>   * Lock the device and its controller for exclusive access
+>   */
+> -static void nand_get_device(struct nand_chip *chip)
+> +void nand_get_device(struct nand_chip *chip)
+>  {
+>  	/* Wait until the device is resumed. */
+>  	while (1) {
+> diff --git a/drivers/mtd/nand/raw/nand_macronix.c b/drivers/mtd/nand/raw/=
+nand_macronix.c
+> index 16847f28b19d..d7f5a9e7c240 100644
+> --- a/drivers/mtd/nand/raw/nand_macronix.c
+> +++ b/drivers/mtd/nand/raw/nand_macronix.c
+> @@ -380,6 +380,7 @@ static int __macronix_30lfxg18ac_rw_otp(struct mtd_in=
+fo *mtd,
+>  	int ret, cleanup_ret;
+>=20=20
+>  	nand =3D mtd_to_nand(mtd);
+> +	nand_get_device(nand);
+
+...and you use it across the entire OTP operation...
+
+>  	nand_select_target(nand, 0);
+>=20=20
+>  	ret =3D macronix_30lfxg18ac_otp_enable(nand);
+> @@ -426,6 +427,7 @@ static int __macronix_30lfxg18ac_rw_otp(struct mtd_in=
+fo *mtd,
+>  			write ? "write" : "read");
+>=20=20
+>  	nand_deselect_target(nand);
+> +	nand_release_device(nand);
+>=20=20
+>  	return ret ? ret : cleanup_ret;
+>  }
+
+...and in the commit log you mention:
+
+> Make the existing NAND serialization helpers available within the raw
+> NAND core and hold them across the entire OTP transaction
+
+Why are you doing the serialization in one vendor driver then? Aren't
+all the vendors affected by the exact same issue? Why isn't taking the
+lock once for all in the core a better idea?
+
+Miqu=C3=A8l
