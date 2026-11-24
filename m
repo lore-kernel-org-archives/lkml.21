@@ -1,60 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795519893;
-	b=IvHvdYfuxOp69q8owz/T0kP6xFYn59oKeqjO46MYWYSFa0PKyG7pac8OOZSq6mfFAxF7
-	 h8K2ULmAaUnM04FuVTlB4DDm1cx08RLDv2LzVeS9r4XRTV3ig1+60ex/7yflLmIcm2+F8
-	 MKhj2GSkm1XZ/g70WzOEbX6yAXC979BboG4MZrkXHMSc4kgHGsS+8hNsA/V0beArBpqhG
-	 F2eZWYJNlpj9UnfatSr21vPNRYRrQSmC5nBThwICUTR3bKQCgP0wjLD+UsF+vbN/c0QcJ
-	 i59fOA1WmHsMl0PYDO0ppoT7bpkOkYUIMZe4HFdFtPyiLLzG4Qg6MzuNAOmA5Bqm2bA==
+	t=1795519979;
+	b=BF0rfQ0XSYGrwH4aKrxhiD8m7X9UNtfxKWyQsVypvJimiXXAj3I/OG2YKNWE6Yqm8Aqj
+	 8M9FD+dTvUqvRuw+XXewO4UV0VBdb8LzogRdl8QrtHfADYCzgO72cbX+8KbBXjZGhCOCt
+	 /B+zEQjPPBU+8e9oFaVtFG9f0a92n4uhoNsaNAPdAcn+45wVAUtAEnxkm909rm8Jf40Je
+	 7qEBQYi3iskSJyexw6VP7Co9MQeMAt4YRnPM9yxjivm508WGVg79BpiqrCA9XJdxuy3E4
+	 7Mv4ZjpuSVKbNZVAvXz9q/A5qMAUkhMtxH8WEjYhMR65y4V7kjBudr+kg85RIt3RYPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795519893;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=q3qGM9Qy57cVjK1+KGIJlLy1Vw4Q8SXTPS0xOWRA8sQ=;
-	b=gJVKSoAUeyHZeSUcLZuba21W7N+2VolR9t69YEwJDPFpdDbNhLmL6Lvkeko+UUentKjS
-	 GvDYT10ZUWtmcz5Rb7KaziDEB3fHP69DuGZQYX3c+WEUv57UKtQWY3QCpeJAu/CCLp06X
-	 1WihbCKHiaV1kfVf4VGH89h2jbKk3QrNtuZHB8bnbQBus42YZw7me83bJClpdBGjsJuDQ
-	 KYN6Ku63zem77JbwmWSP/C4nRRmIJAVEK9emfy8bSwLP+XvlsQhyfmBrKzMcqbIiz2KLs
-	 eyoEw4JK+eLPrEvQEw7oIOBFF+qfAjsBZmeYvNtsvFv8aDsr313ZLarO8O5EWV3uCiQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795519979;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=SSz1UkrPYOtP7qjRzAhNmZAnsxclw+c33mPfbQ/t5hM=;
+	b=ihI6jA580VjCgL0qLSP2Z5Jy4z5V3MfukHeGZV30om7NiXbhIwK7ssgTJzvovzucK//G
+	 NpOyNIe4PGUK8bXDbEEYNEJtWRcnStbjobM/61ACZcGDzcDTBB0UaCTPSdtTdwV1SDjPv
+	 wbd/RRSeOBJSG2NJS3HZ6PMiD2pIx2mXXJpx8yeYGS5DfuFhiqhoTpwM5rN2P1RLa85ua
+	 i+pxT0qgL9G3egR/xcZWz7nnEDL4prHIRiPT5pWgGx84RrDY9cEzsnxfvWEKbAAFtyxc4
+	 RFb6349T7rZmOZFueeqG25OYk6K0qdNkmyojIuPvsLBSbE+mIpDYhB5q6TtVSTAA4yg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hP6mj4zp;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 164D7606A32E;
-	Tue, 24 Nov 2026 11:31:32 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=H5MXMBDM;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8518C606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:32:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8518C606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hP6mj4zp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82D821F008B2;
-	Tue, 24 Nov 2026 11:31:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795519892;
-	bh=q3qGM9Qy57cVjK1+KGIJlLy1Vw4Q8SXTPS0xOWRA8sQ=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=hP6mj4zpBvCMnt331ApoLcM/EzFJdkOQ0GKsGIwM6rXUl9fXR9PpeeeCKOVahaf/+
-	 TapgVEyLnfqMcvxpeEJFtizvFXH1G5+yyA0Qmc4qw5lBZKlfakiSt32WPDNuMarveG
-	 AfSi1ycHFWrX5ztj6VycNVo0inJxipzydzfIgIxZlYZU2AqtaPxrEW1ui3/m/k62l1
-	 r01EDYCEkz7UPpvB+th4u5h7Ou1D/TLepSI4nezhObegXj+Rs3ndDDsiqucG1a9eU2
-	 53oHD0bs0k+DZ7pgrjOfaV4AI1rcRnq4gGn2fRW0PsRcf+prP/G2Srb8CiqU2q7fF1
-	 u/RlK23s5higw==
-From: Mark Brown <broonie@kernel.org>
-To: Ryan Wanner <ryan.wanner@microchip.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
- =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?= <jensemil.schulzostergaard@microchip.com>
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
-In-Reply-To: <20261113-spi-atmel-poll-short-pio-transfers-v2-1-f280762685e2@microchip.com>
-References: <20261113-spi-atmel-poll-short-pio-transfers-v2-1-f280762685e2@microchip.com>
-Subject: Re: [PATCH v2] spi: atmel: poll short PIO transfers
-Message-Id: <179545926826.25092.9908100181391728430.b4-ty@b4>
-Date: Mon, 23 Nov 2026 18:41:08 +0000
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=H5MXMBDM
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6785C339;
+	Tue, 24 Nov 2026 03:32:55 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5906B3F86F;
+	Tue, 24 Nov 2026 03:32:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795519978; bh=v3Pi6dD8yf3tjc5InZwV+u8P5LclNlEmMiAiF4I5Szk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=H5MXMBDMJKVCFIyGahPkkVnBRk2zGUz5hPAU1GIsup9V1bpYv2c/A7RVEs05X4yR5
+	 UHBKcGMJ/KeicUdin1Q4DVsFxIbV39gmdD3c9YRrru+iuVV9tAv9/9jegJT1JdBnxt
+	 tOLjTds56EIfwL8EX+LGaPXSAno4XavXzNqROgUA=
+Date: Tue, 24 Nov 2026 11:32:53 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: will@kernel.org, mark.rutland@arm.com, maz@kernel.org,
+	oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, anshuman.khandual@arm.com, tabba@google.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: Use symbolic constants for the ccmp NZCV
+ immediates
+Message-ID: <awV15Rv-caDclC9K@arm.com>
+References: <20261009072147.474952-1-fuad.tabba@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,46 +63,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1102; i=broonie@kernel.org;
- h=from:subject:message-id; bh=lS+VtYxRGDrxj2oCgEImHpbzYp61PHJSeMh1QIq9P8c=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJZSyesmHslPHWmot8Or+1PS+KSkqV3Hz2sweTxJSA6h
- TdOQ7elo5SFQYyLQVZMkSUui/tlfcnrNXwHF7bBzGFlAhnCwMUpABNJL2L4X8wvLqLlO+Ow+yOB
- hG1xbafs0n85hxdsNfes3sz9qUdZguEX09VGlYP/FB0WiKuwbSnIvPzoM7v2giJ9k+w3Z3YqSrV
- zAQA=
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261009072147.474952-1-fuad.tabba@linux.dev>
 
-On Fri, 13 Nov 2026 16:20:32 +0100, Jens Emil Schulz Østergaard wrote:
-> spi: atmel: poll short PIO transfers
+On Fri, Oct 09, 2026 at 08:21:47AM +0100, Fuad Tabba wrote:
+> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+> index f7dc5fb9427d6..15c381ef7d2c2 100644
+> --- a/arch/arm64/include/asm/ptrace.h
+> +++ b/arch/arm64/include/asm/ptrace.h
+> @@ -30,6 +30,10 @@
+>  #define PSR_MODE_THREAD_BIT	(1 << 0)
+>  #define PSR_IL_BIT		(1 << 20)
+>  
+> +/* CCMP NZCV immediates that make the named condition hold */
+> +#define CCMP_NZCV_EQ		(PSR_Z_BIT >> 28)
+> +#define CCMP_NZCV_LT		(PSR_N_BIT >> 28)
+> +
+>  /* AArch32-specific ptrace requests */
+>  #define COMPAT_PTRACE_GETREGS		12
+>  #define COMPAT_PTRACE_SETREGS		13
 
-Applied to
+One nit: I'd place the definitions above (or below) the
+ARM64_S390_COMMON block, the generated s390 header shouldn't need them.
+Otherwise it greatly improves clarity.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.5
-
-Thanks!
-
-[1/1] spi: atmel: poll short PIO transfers
-      https://git.kernel.org/broonie/spi/c/24e635993ca5
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
