@@ -1,56 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795537651;
-	b=3bwP746EB+1/aYKUkzMfSGYmKYRgC2eGLPO4AWamt1/B0HMmBYPU8+5JMhTm+66iAzqO
-	 2yeMjxhEhR7SzdijJKVU/f2UpaoIcwU6olf1kCtMff/q91owtSJ75/dyUll/qmuvgI/sK
-	 Nsa3N6emaqCzBqNeLjWvvzO337zEHIjYuSOol19fXbRTfmPxXamp0oFVpOeEBMnNCSarX
-	 hc3Gd9JtAKuADCHboQktnMdikQ3bXZWjFztqTkjWF8ovGZFdLjHCmLbHbQ8SDJVvEI6Kq
-	 raUuw9yn2wesp7TS0IpIFYkn1UrCZanJ6gdeBus9vS9CC812K/wSqkCrXpv0kZiagOg==
+	t=1795537654;
+	b=prqTA/hgFjEjNhU4514tO2pfk3iWAGHf6JrTu46tUKsTqxw2/yQGweyryztZioMsu5C7
+	 vgQKy6hkKUTAvbZPF64ljIhP1riGYTtI+spCuzdsvl8SnmSliL6D5xgoIdpPLDw/gnEvh
+	 0WcS/5zgjZSNybQ0+hdQllrPtPYZGX0Iq+T1dXw1D+mK//m6373SGSk0eoDhfzQnGKnHL
+	 kBGHuyQetqS4XPdcZ5DxBgws7eZE7uhrY9CSbJHZITbKE4uzTlzl8RiqFRG0RZnICJqHl
+	 5yB+ytVakZS/xy6VTZM2UGbBxIM7LaHPWbbpjbl4KkyjgagEdc8JSSOqHTtjd1l/9Mw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795537651;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537654;
 	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=EYwlmi6nVR2KBTF/EYBGQySw9lW8D/ABKdT8CfSaVg8=;
-	b=Bl35qkIVp9OEqw9lUu1vD6pCszb0g7NbtqPSS4a/tpZnFyrrbRNYUG3k3jmpufdvdJyw
-	 VknR/WTZ7mqePNwrTSeBaAECDtEq0PqoCK/L+MJzvyg3PjwnfIN/+obOiRCyYJc9GPF5U
-	 Wk5d6koJXqfAW7PRzI1d0N/Te5mQN7lx5DsdMp/D1bDJOOB9vXnd9lgLx/5tnq2wYLqFG
-	 5fceGScg/SkurWZHD1y54QyBFp9EfuzlgiqADv1XEfPN7zCguf78KVTZerT/BRzkNVhH5
-	 K0yUo2G31Lueaq+dDMPzlY8GsrZybdcLPUgAPQ7wOzfb9fspyFvnNt4T6nXHtEteZFg==
+	bh=72DsguPX3SxJiTs5bSAHIvajccwjl55CWuZ9hwooaCw=;
+	b=VCSV8xNr0oeMwvQ9bYygLk0oEX1tlS6wwGbeasOEge9FMTLOTbt5z9n5eF0U4l0sA87f
+	 WEXCOmmn7WcYe41qxXl5I7LVa0FNjcPCoHn+5VcezywozWfMQClhwV0tb5zTZZPJkxJSY
+	 KByb/8TlcuA8lQZBDvxiGDOCCxP/ZjQZ+fIxkcSxTNbvKL7qbJRGm2YS4VmEuG0hcW53W
+	 o9uk/qM2AkYyfEjMHRV+YdJmYnTJ362wzz0BgejjlTb9qllWZsTEiAYoCV1Hw/FMlm7sX
+	 pj0TrpK8XKWrEY93OWuYKB68wUyC2gMS3oKPI9Y82PZ17nEWntjtAHX6OUS3LSfP5Ow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=mandelbit.com;
 	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=Fuqxaacd;
-	arc=none smtp.remote-ip=195.10.208.52
-Received: from mout-b-203.mailbox.org (mout-b-203.mailbox.org [195.10.208.52])
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=r90umDw1;
+	arc=none smtp.remote-ip=195.10.208.42
+Received: from mout-b-112.mailbox.org (mout-b-112.mailbox.org [195.10.208.42])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10E19606A31E;
-	Tue, 24 Nov 2026 16:27:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10E19606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36AA8606A32C;
+	Tue, 24 Nov 2026 16:27:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36AA8606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=Fuqxaacd
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=r90umDw1
 Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA512)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-b-203.mailbox.org (Postfix) with ESMTPS id 4jYpB71G33zLmY9;
-	Tue, 24 Nov 2026 17:27:27 +0100 (CET)
+	by mout-b-112.mailbox.org (Postfix) with ESMTPS id 4jYpB908Xzz5xPJ;
+	Tue, 24 Nov 2026 17:27:29 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795537647;
+	s=MBO0001; t=1795537649;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=EYwlmi6nVR2KBTF/EYBGQySw9lW8D/ABKdT8CfSaVg8=;
-	b=FuqxaacdRITZwmg52GFge1uH5xPdkOdlMGebKPBpHv69a/KKI7TLnTwsrPnVUR6n3E+zDL
-	LfzO843JWD8av+ZWZ8Sp0/Yvx3JSoUjRKm65W1cwJK/SexQhdIXMQylGw1+k29EjY3jmv0
-	t2B+rnQBRH2HNeTOmhxelrTB53cGpqZEVyAprXXHpMJPqw15eepQFa2baEjGkx2Vv/Tf9d
-	2U/CVxCVj6tjd2ID/CpKq0TJmNP8hLy6VKN/Q6w41H8/3CfpTfeehZquwtZKBnmxKtdzq9
-	Yeramoa7tnWDTlDGGJPu+B8I10kfM8UbQtX4EMW5Qsu/pxb/cMYMZ+VVKJmJWQ==
+	bh=72DsguPX3SxJiTs5bSAHIvajccwjl55CWuZ9hwooaCw=;
+	b=r90umDw1oHvl/Yl3C/MhO9iRQ1lhoV9eOCRGByg2jX+O5taxB6kA2IGTJBDIWlbkPheupX
+	P55Uldyb4FR+lItIkuum9JI7kyKxsYiJ2I4POKOrEczstA9FJesj5oz8Fy2OrEipnHatWk
+	ugpS4OI4BGMQ9ZbIgg61/ssHFkVlnAfYUVdhMNh63K9qv/J3RuDUMdmHdEstvQY9yBRwGo
+	M7fIhcGY/Pzdyc2VwuqhBCDWE8haAqR8R6fg2tBdYRbwxbjFtwiNuP+ROFiED4x/80m+R/
+	7rv5GInBHQ+QxjsB5BKPDvAU8BTU/k97TNRtEf6/G7eRx1tNqUMcMy190efp5A==
 Authentication-Results: outgoing_mbo_mout;
 	dkim=none;
 	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
@@ -65,6 +65,7 @@ Cc: Ralf Lici <ralf@mandelbit.com>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Simon Horman <horms@kernel.org>,
 	Kuniyuki Iwashima <kuniyu@google.com>,
+	Sagarika Sharma <sharmasagarika@google.com>,
 	Steffen Klassert <steffen.klassert@secunet.com>,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Florian Westphal <fw@strlen.de>,
@@ -72,9 +73,9 @@ Cc: Ralf Lici <ralf@mandelbit.com>,
 	Sabrina Dubroca <sd@queasysnail.net>,
 	Antonio Quartulli <antonio@mandelbit.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v5 1/4] ipv6: stamp the default route node with a fresh serial on link failure
-Date: Tue, 24 Nov 2026 17:27:07 +0100
-Message-ID: <002e141deadfa855bc389899aba43be60e840d5c.1795537128.git.ralf@mandelbit.com>
+Subject: [PATCH net-next v5 2/4] ipv6: advance the serial after rebalancing in fib6_ifup and fib6_ifdown
+Date: Tue, 24 Nov 2026 17:27:08 +0100
+Message-ID: <66b34fd272dce584863f6aabfd2e85c9d8017dbc.1795537128.git.ralf@mandelbit.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <cover.1795537128.git.ralf@mandelbit.com>
 References: <cover.1795537128.git.ralf@mandelbit.com>
@@ -88,90 +89,78 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jYpB71G33zLmY9
+X-Rspamd-Queue-Id: 4jYpB908Xzz5xPJ
 
-ip6_link_failure invalidates the cached dsts of an RTF_DEFAULT route by
-writing -1 into the node's fn_sernum. Once the node already holds -1,
-another link failure leaves the serial unchanged, so dsts cached with
-that cookie can survive subsequent failures.
+fib6_ifup and fib6_ifdown update the node serial before calling
+rt6_multipath_rebalance. A lookup that runs between the two can select a
+nexthop using the old ECMP upper bounds and read the new serial as its
+cookie. The cached dst then passes dst_check although it was selected
+from the old state, until the next relevant change.
 
-The assignment also leaves net->ipv6.fib6_sernum unchanged, making the
-invalidation invisible to lookups watching the namespace generation.
+Update the serial after rt6_multipath_rebalance, so that it is published
+only after the routing state it describes. fib6_new_sernum allocates the
+serial with a fully ordered atomic_try_cmpxchg, which orders the
+rebalance before the serial update. The invalidation scope is unchanged:
+fib6_ifup still updates the node and its ancestors, fib6_ifdown only the
+node.
 
-Use fib6_update_sernum under tb6_lock to allocate and stamp a fresh
-serial. This makes repeated invalidations distinguishable and allows the
-lookup stamps introduced later in this series to detect them.
+The lookup stamps introduced later in this series rely on this order: a
+lookup that reads the new generation must also observe the routing
+change it describes.
 
-Advancing the namespace generation also invalidates unrelated dsts using
-nexthop objects, which are validated against that generation. This
-happens once per ip6_link_failure call: once per queued skb when the
-neighbour of the default router fails, and once per packet on the
-tunnel transmit error paths that call dst_link_failure, some of which a
-remote host can trigger with ICMP errors. These are error paths and add
-no cost to the fast path.
+Reported by Sashiko while reviewing an earlier revision of this series.
 
-Found while reviewing the IPv6 routing code to address the dst-cache
-race.
-
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Fixes: d7dedee184e7 ("ipv6: Calculate hash thresholds for IPv6 nexthops")
+Fixes: 4bc852006b62 ("ipv6: update route serial number on NETDEV_CHANGE")
 Signed-off-by: Ralf Lici <ralf@mandelbit.com>
+Reviewed-by: Xia Yan <yanxia@cmss.chinamobile.com>
 ---
-Changes since v4 https://lore.kernel.org/netdev/79fea581787dd175005d81090d246e982a07cc51.1795166508.git.ralf@mandelbit.com/
-- Mention the tunnel transmit error paths. (Sashiko)
+Changes since v4 https://lore.kernel.org/netdev/363e8614dfd168dcaf90cf7f158e12d587ec8355.1795166508.git.ralf@mandelbit.com/
+- Reword the reference to the lookup stamps.
 
-Changes since v3 https://lore.kernel.org/netdev/5b59512a6c51c7a5d7c7b4e16728de3c522d9a1e.1794906743.git.ralf@mandelbit.com/
-- Note that the generation advances once per ip6_link_failure call.
-  (Sashiko)
-- Widen the rt6_exception_net comment. (Sashiko)
+New in v4
+- Split out of v3 2/3 (David):
+  https://lore.kernel.org/netdev/7af19082325ce83699c5fd82de4925e52ed7dff2.1794906743.git.ralf@mandelbit.com/
+- Add Fixes tags.
+- Carry Xia's Reviewed-by from v3 2/3, the code is unchanged.
 
-Changes since v2 https://lore.kernel.org/all/143461e2c94a20060ff4c7d6e5eb46c47ac46aa0.1794384146.git.ralf@mandelbit.com/
-- Add a Fixes tag referencing the initial git import. (Sashiko)
-- Clarify that the nexthop-object invalidation is a harmless side
-  effect, rather than a deficiency being fixed. (Sashiko)
-
-No changes since v1 https://lore.kernel.org/netdev/5b039a5a24808f2678eedd283c29f8dae514ef5e.1793806941.git.ralf@mandelbit.com/
-
- net/ipv6/route.c | 18 ++++++++++--------
- 1 file changed, 10 insertions(+), 8 deletions(-)
+ net/ipv6/route.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-index 4a4c5ace63c5..bbe6d67bb696 100644
+index bbe6d67bb696..98e3ca0644ab 100644
 --- a/net/ipv6/route.c
 +++ b/net/ipv6/route.c
-@@ -1531,9 +1531,11 @@ static struct rt6_info *rt6_make_pcpu_route(struct net *net,
-  */
- static DEFINE_SPINLOCK(rt6_exception_lock);
+@@ -4913,8 +4913,8 @@ static int fib6_ifup(struct fib6_info *rt, void *p_arg)
+ 	if (rt != net->ipv6.fib6_null_entry && !rt->nh &&
+ 	    rt->fib6_nh->fib_nh_dev == arg->dev) {
+ 		rt->fib6_nh->fib_nh_flags &= ~arg->nh_flags;
+-		fib6_update_sernum_upto_root(net, rt);
+ 		rt6_multipath_rebalance(rt);
++		fib6_update_sernum_upto_root(net, rt);
+ 	}
  
--/* Exceptions are accounted to the netns their dst was allocated in.
-- * Unlike dev_net(dst->dev), it does not change when the device moves to
-- * another netns or when dst_dev_put() points the dst to blackhole_netdev.
-+/* Return the netns the dst was allocated in, which owns the fib6 table of
-+ * its route. Exceptions are accounted to it, and ip6_link_failure advances
-+ * its generation. Unlike dev_net(dst->dev), it does not change when the
-+ * device moves to another netns or when dst_dev_put() points the dst to
-+ * blackhole_netdev.
-  */
- static struct net *rt6_exception_net(const struct rt6_info *rt)
- {
-@@ -2873,13 +2875,13 @@ static void ip6_link_failure(struct sk_buff *skb)
- 			rt6_remove_exception_rt(rt);
- 		} else {
- 			struct fib6_info *from;
--			struct fib6_node *fn;
- 
- 			from = rcu_dereference(rt->from);
--			if (from) {
--				fn = rcu_dereference(from->fib6_node);
--				if (fn && (rt->rt6i_flags & RTF_DEFAULT))
--					WRITE_ONCE(fn->fn_sernum, -1);
-+			if (from && from->fib6_table &&
-+			    (rt->rt6i_flags & RTF_DEFAULT)) {
-+				spin_lock_bh(&from->fib6_table->tb6_lock);
-+				fib6_update_sernum(rt6_exception_net(rt), from);
-+				spin_unlock_bh(&from->fib6_table->tb6_lock);
+ 	return 0;
+@@ -5017,8 +5017,8 @@ static int fib6_ifdown(struct fib6_info *rt, void *p_arg)
  			}
+ 			rt6_multipath_nh_flags_set(rt, dev, RTNH_F_DEAD |
+ 						   RTNH_F_LINKDOWN);
+-			fib6_update_sernum(net, rt);
+ 			rt6_multipath_rebalance(rt);
++			fib6_update_sernum(net, rt);
  		}
- 		rcu_read_unlock();
+ 		return -2;
+ 	case NETDEV_CHANGE:
+@@ -5026,8 +5026,8 @@ static int fib6_ifdown(struct fib6_info *rt, void *p_arg)
+ 		    rt->fib6_flags & (RTF_LOCAL | RTF_ANYCAST))
+ 			break;
+ 		rt->fib6_nh->fib_nh_flags |= RTNH_F_LINKDOWN;
+-		fib6_update_sernum(net, rt);
+ 		rt6_multipath_rebalance(rt);
++		fib6_update_sernum(net, rt);
+ 		break;
+ 	}
+ 
 -- 
 2.56.0
 
