@@ -1,111 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.156
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.226.149.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795537104;
-	b=jNdgVYTTpAJOJ8wqUPPXlKm2uTsZkRJwYEpFTNcgER2YIOv/aVyKzhDbhJ2odG1Ctjea
-	 9Go2PoI9bB6Ty3Fv09+z/eeR9wrSKhDz2cwjCCWVVEBm4Ft5PeI5rE1rYN7mt481L2V/R
-	 RtkflISuZ1vdB75pizdgyw4qA0a7x2HRdDo9Hfm4IjUPn2sJzmPE0SCcW9ehVj1XSvO+w
-	 bEGZdk7OP+R1tx1RoGIXoUlM4jbcZY7bHoLbcINIq6jHaIQK/vn6+/erKz5WkkBkGRHtX
-	 AwuqK0vqm8xc/fg2Mhedb6/LXoCQ63WyPgYg0LOBCwNh3jjEgviC2GxFAjw4lQzQqwQ==
+	t=1795537114;
+	b=2h5a3gNtxEk6T1CqDJLjLvn116LOWtZVvjG5i4lQqNeV4UBgkDQqPadYTEHr/iedsVIk
+	 X7+TpOA260GgdFytMOgK6tZb+1BFJ7PgMfLMnFNf6zdxltDdk9w0UJj4glNIozyfaov1D
+	 iIJ4FJTr/NihJo/mvvf2U0K1WVwInQjdKMk+Sf1/YzDb9R1xR77j1Fjf53tCxlo4cPARs
+	 VmhvLkaLLgt8QTv5QK1S5cF+k7YkPhAj9RYGVsd+5HYYIA6DWdeInMRZf7Qu6Khna2OmR
+	 K1ZYl/IurKxsr3OzxfaIF9du8RF8EYxl658h03PtHenabjd0mH3wgqCTUUZ/LTI0t3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795537104;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
-	 Subject:Content-Type:Content-Transfer-Encoding;
-	bh=aKujtusrB6LzjVyUaPpb06mvTUym2bW2N3pWpSZYSks=;
-	b=uMFQubeiBPEd0IYyAiUmsnYHodaclsjcIZoEk71OLWz6hNK/SahghdcXbU9YP8UuaCgn
-	 fdXLarNdFDuRTlidiXdug69/QiekOH9qGCvGfbPzZRCG9R7D+crzHfqT675j0rYlQteEs
-	 XKYBvsyxTYxHwO08fvQYDlNG0skMbvBYRaMqUqQ7oW/LgT1mxSTkcGbHWMQ3y/IaH1M/X
-	 HRrZ6CpQgpP8nUSpbA8qLcYMuwPCsG8NngyhrlRRUG5cjy61O66qqA54+7OCABQ3boVvJ
-	 BQdtg8I+nC0mjJR1nuC43AqdGtbSDTiwcPzeaF+lRWELoOJCmR+beXX7LDmWWMns4WA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537114;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:From:Subject:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=OS+g8r/vEgbbXgK47jEcIac9E+hDiBGHrAOXRbTPV0U=;
+	b=wW/wnFGEidU06vRkABz4BS8MILzPwAf7w7hDGtBXFQ5HVaFfznm8Mhv1eYhK1ZQ9OocC
+	 0E2qoBnUxSP6E9aTxEQ6uKGF76ZpVivnsCr98oSzmTLVylbVD97hC5REWUVs/bx105Ahk
+	 1K3INzDn3eYUL+gQRwe5sAVPwSc0lEDfXpABb4W8XpQrZOoISsnvYvC9s6Jp1en5SsM94
+	 O3BikNJ3DyXNaJ6ft1nTBPC8Cn6NxUu+BKTh/WUWXAWZ1zjHkaKu2J1YfiFS/BdC/rnLr
+	 bMywC+2mxPQmsDJN1HYlo+Wbwx4PyZyMSMR402HPcUuuCbCfTY2TELTJDgovx2ORcOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=howett.net;
-	spf=pass smtp.mailfrom=howett.net;
-	dkim=pass header.d=howett.net header.i=@howett.net header.a=rsa-sha256 header.s=fm3 header.b=f8dxeYFr;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=s0AC6Vcu;
-	arc=none smtp.remote-ip=202.12.124.156
-Received: from fhigh-b5-smtp.messagingengine.com (fhigh-b5-smtp.messagingengine.com [202.12.124.156])
+	dmarc=pass header.from=rbox.co;
+	spf=pass smtp.mailfrom=rbox.co;
+	dkim=pass header.d=rbox.co header.i=@rbox.co header.a=rsa-sha256 header.s=selector1 header.b=EYBjD2Kp;
+	arc=none smtp.remote-ip=185.226.149.37
+Received: from mailtransmit04.runbox.com (mailtransmit04.runbox.com [185.226.149.37])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16514606A323
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:18:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16514606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=howett.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=howett.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E15BF606A330
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:18:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E15BF606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rbox.co
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rbox.co
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=howett.net header.i=@howett.net header.a=rsa-sha256 header.s=fm3 header.b=f8dxeYFr;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=s0AC6Vcu
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 6E8997A055F
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:18:23 -0500 (EST)
-Received: from phl-imap-10 ([10.202.2.85])
-  by phl-compute-03.internal (MEProxy); Tue, 24 Nov 2026 11:18:23 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=howett.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1795537102;
-	 x=1795623502; bh=aKujtusrB6LzjVyUaPpb06mvTUym2bW2N3pWpSZYSks=; b=
-	f8dxeYFrDuBK+y5p1a5v0yR28F533zCn+Nh1zgXMWze3Oy3rnPpvLE0j1OIyUMV8
-	aK5TTh2mlDAV5j7tCk4nwq8mUY4jlXNCAH4EouiIv6VcTZC4HUW4rwy80Yzj6FEN
-	X+8rYpmsWkhAibVCWgwuSuhRkDBCtY/J3LQi8R/LCU/bB4G3pgbblsZWK5iTfpcu
-	nLQMcUp9CeggznMYAMXomCVYX7RI7xovXUH0dBp9zgg/eTk3PLMgp6mLBACdjYD7
-	0PAhNTDBz8tBxVaZUIGvAhetunzPs350+X3dFliGzUh06UHv5uTlBdisREHkLEU/
-	PNYJ3Ijm/wbDI6078hRDtQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795537102; x=
-	1795623502; bh=aKujtusrB6LzjVyUaPpb06mvTUym2bW2N3pWpSZYSks=; b=s
-	0AC6Vcu+vqLBVYKJNfocOw9BIzjC4qDFpmnrRBiElxbTwonlDuTzCBcGWArvSrm4
-	wEoGvNOv2LY2W0OZ/1XG0znngOKMl0YIDN36N339fTUac0lxBKpeNtJwTG1DJl1C
-	FE9MF9/E//tnlhvXycb4A8Kk0fQcbs0jdhx9OjC4dW+zRtiUiNTdd/cbfAzFbxYA
-	9uO79TFm/ZHcvh+SisUOTVPfx82PinyZ5/rqYd9FXGMGqw8uYlQ21gvTKCzLuEx1
-	k/2LFrLlt3/lol71bwgTpUlHViXMvepbHaepdURjSIaygTSW6aRvhQH5whXXdSPh
-	rMwX8GWI9GfTl3IWmf+Sg==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=howett.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795537102; d=howett.net;
-	mf=PGR1c3RpbkBob3dldHQubmV0Pg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:igSizJk8cv7SjnWMeR/rFEVQM5R4A4JWzF8zboTn5o12FSh
-	vBpEDF4FSL1M4IYTLsoJvj/Vnv3dC7yLMpjSs2HLuRsXjq8g7zQMkagEujHH2kcX
-	MkYEUl4r7cUSz5LwPWwndKbyEd6kZc+Qp8DaUuYLyiUFVa9kanZ1pMyNGXskKp4Y
-	DXtgSb4qAM487nc5ilP9DRcmfZev9GBfs/l1BqNn9qYxiyxqVwX+BfarV2Rir0fU
-	FtrMoPbqSd1x88BBZliPFs1LtMPbNb+XKE1FMuzuirIfLOmfaieYw1XUAXn3Bb4m
-	0dMES9XsbJFVPOQmPbMS/sX41lKZLmSZbszahXQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:hmeEYVbfR0R4szuu4GrWSrce0j6br6om3Dk7NG9ijvg=:aKujtusrB6LzjVyUaPpb06mvTUym2bW2N3pWpSZYSks=;
-X-ME-Sender: <xms:zrgFa7T2dAsCMwnlL5If4bMWV0WHFN570zIXRskgewhCc_NBbVyduQ>
-    <xme:zrgFa3mW8VfjW9uzVUZbYLlcGB90_4iZruXkQtYz1X54X4SmmnJLLTYT-D1hPZ2UH
-    IDEsX7UJ3ogiJsP_7rHLtZ0llfD5jJd0gUMKACSlPpYsW1agUbtdhxW>
-X-ME-Proxy-Cause: dmFkZTEo2b6ZfN44Yjq87LvtOfWKBBrvsdf2ZOnuTN6UJz8zQwHQibE7E0BEY0RCrVRl/K
-    wp1X5/LJkVTyssAgXWVjP0gv3X2C9+9tJkcjEDcRurhah/vNaaUHH475goieaZ75533HGk
-    0wtM+mN6fetzaknjiu02GH0lP136Axek/pYD8nGZLRa8zxQOH4jvWPo7o/40CF7UzNK5Iy
-    hStCbbdLW66VJyZuHcfl4/r9KgD8GC2OB2+dxs7pnEmAsqUtXIsJBbyb3AJMoEyaTKx8O9
-    s+bksGvRwllzTnqsyBacAoa8EK8tgWsQb0PzXfoxNem7uNKf/5RBm7XIQQusseKHIxC9lh
-    U2lnZJpT249eLdxgInfgEiqHqRTDDb760Y7Oy9qJCDCZQq1UkQpsL54q/B/eWauxL8zkOz
-    G5fqkkqqQJ/EZFrxatDlXlrK+InNrLBYAe55ZWmMnm5yhojFqupfwdnuQUIdgrJAZYDe6u
-    3g5w4goO1u5x0sjljWPZ1tnPAnFIV/UDrkoRv/9Kst6Bet/1ESoWsQofcQf5nSBRsM9ad9
-    j5UqwWK0tckwmTSLM/tugUKaqk3uiu1RmwPES0SsEkj00BtxM+c385VMXVaYSx32JQhbnR
-    yd4vsHD7MPKOmwZn7I4EsAZphI9G7mio62GxPJOXVd1nwrBQzHB4bEM6tWDg
-X-ME-Proxy: <xmx:zrgFa2eZyz4nLq8T83L8Cy_8n2z1LjT0UyCw-uDft6vR3CI9R6SYxA>
-    <xmx:zrgFa5I0c2nmWIfVusb01UQjdRDtRPbQcaxVmzv8nEkl8sbZ0XtEuw>
-    <xmx:zrgFazHWGdCayByCLWXckinu8nHloXmVBLy0IAVzRANR0NmZDI-Tpw>
-    <xmx:zrgFa0B6DbynqDl7prYWBNvolKe2gVw57VyO79P6s802tODFcr3x4w>
-    <xmx:zrgFa-CeV5DR3Wkey1oY3ydFGvyezOCLVS1e2UNnFMVOMaAGAQEEnK92>
-Feedback-ID: i32264b73:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 5DC58216008A; Tue, 24 Nov 2026 11:18:22 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key, unprotected) header.d=rbox.co header.i=@rbox.co header.a=rsa-sha256 header.s=selector1 header.b=EYBjD2Kp
+Received: from mailtransmit02.runbox ([10.9.9.162] helo=aibo.runbox.com)
+	by mailtransmit04.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.93)
+	(envelope-from <mhal@rbox.co>)
+	id 1xVtDj-006Jvm-Op; Tue, 24 Nov 2026 17:18:15 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=rbox.co;
+	s=selector1; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:References:
+	Cc:To:Subject:From:MIME-Version:Date:Message-ID;
+	bh=OS+g8r/vEgbbXgK47jEcIac9E+hDiBGHrAOXRbTPV0U=; b=EYBjD2KpncwOkqCBy/Xwbbew40
+	T5T9y/FvwFAM/8tQGhwyZbmpWQ4tKU/Alb+XzOvucJjfXCxSH4wHWA2WvM3rhdR0ZejkSD96rIuQg
+	LCdHMDAixnlWjI/8kE5u2qC0wpAPEKfrwHAzwX1TAd02I+yG0Ud/RQ/bT0wn9hp2/PnbSy2kQVELT
+	xG2EitK9Qv824kJ41t96dtri3io4/EU9A92H0hziRFcOG8a8rUBOvz4rXYS3K/86cUPGNvIf7MSSD
+	yKGpbUvEP+A27VFPm4fq5aeRPftdyiqJsHYReeVB4a/Fx1NUWuZ/Jz9Xu3dPv4upGxzjgiuA+wfIi
+	9H6qGmvg==;
+Received: from [10.9.9.73] (helo=submission02.runbox)
+	by mailtransmit02.runbox with esmtp (Exim 4.86_2)
+	(envelope-from <mhal@rbox.co>)
+	id 1xVtDe-0001Sk-3T; Tue, 24 Nov 2026 17:18:10 +0100
+Received: by submission02.runbox with esmtpsa  [Authenticated ID (604044)]  (TLS1.2:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.95)
+	id 1xVtDR-009PeQ-BJ;
+	Tue, 24 Nov 2026 17:17:57 +0100
+Message-ID: <ca274ecf-3525-4bf0-a525-0460b5ea2d28@rbox.co>
+Date: Tue, 24 Nov 2026 17:17:56 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,28 +66,172 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Tue, 24 Nov 2026 10:18:01 -0600
-From: "Dustin Howett" <dustin@howett.net>
-To: "Andi Shyti" <andi.shyti@kernel.org>
-Cc: Whinis <whinis@whinis.com>, linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org, "Till Harbaum" <till@harbaum.org>
-Message-Id: <c3be081c-4b86-4587-938c-512681a22ac0@app.fastmail.com>
-In-Reply-To: <20261027-i2c-oops-electronics-v2-1-0601f2ebf579@howett.net>
-References: <20261027-i2c-oops-electronics-v2-1-0601f2ebf579@howett.net>
-Subject: Re: [PATCH v2] i2c-tiny-usb: add support for the Oops Electronics SFP Media
- Buddy
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+From: Michal Luczaj <mhal@rbox.co>
+Subject: Re: [PATCH net v2] vsock: only undo SS_CONNECTING when connect()
+ fails
+To: Bobby Eshleman <bobbyeshleman@meta.com>
+Cc: Stefano Garzarella <sgarzare@redhat.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, George Zhang <georgezhang@vmware.com>,
+ Andy King <acking@vmware.com>, Dmitry Torokhov <dtor@vmware.com>,
+ virtualization@lists.linux.dev, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Kyle Zeng <kylebot@openai.com>
+References: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
+ <ed28d36a-682e-4db5-abf4-1339734e7c57@rbox.co>
+ <awTJ8EOl52W0ph1K@devvm29614.prn0.facebook.com>
+Content-Language: pl-PL, en-GB
+In-Reply-To: <awTJ8EOl52W0ph1K@devvm29614.prn0.facebook.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On Tue, Oct 27, 2026, at 9:35 AM, Dustin L. Howett wrote:
-...
+On 11/24/26 00:19, Bobby Eshleman wrote:
+> On Sat, Nov 21, 2026 at 07:32:15PM +0100, Michal Luczaj wrote:
+>> On 11/18/26 02:34, Bobby Eshleman wrote:
+>>> vsock_connect() sleeps with the socket unlocked. Meanwhile the transport
+>>> can complete the handshake, setting sock->state to SS_CONNECTED, and then
+>>> reset the connection, e.g. in vhost_vsock_reset_orphans(),
+>>> virtio_vsock_reset_sock() or vmci_transport_handle_detach(). When
+>>> connect() gets the lock back, it finds sk_err set and moves the socket
+>>> back to SS_UNCONNECTED. Userspace can then connect() the socket again,
+>>> and a connect() to a CID on another transport makes
+>>> vsock_assign_transport() release the transport the socket was connected
+>>> on.
+>>>
+>>> Only move the socket back to SS_UNCONNECTED if it is still
+>>> SS_CONNECTING. A socket that got connected stays SS_CONNECTED, and
+>>> another connect() fails with -EISCONN.
+>>>
+>>> Likewise, only move sk_state to TCP_CLOSE if it is still TCP_SYN_SENT.
+>>> Otherwise a second thread blocked in connect() on the same socket can
+>>> time out after the first one failed and called listen(), and overwrite
+>>> TCP_LISTEN.
+>>
+>> Ohh, this took me a while.
+>>
+>>> +/* Avoid breaking the socket when another thread has changed its state while
+>>> + * we were asleep.
+>>> + */
+>>> +static void vsock_connect_close(struct socket *sock)
+>>> +{
+>>> +	struct sock *sk = sock->sk;
+>>> +
+>>> +	if (sk->sk_state == TCP_SYN_SENT)
+>>> +		sk->sk_state = TCP_CLOSE;
+>>> +	if (sock->state == SS_CONNECTING)
+>>> +		sock->state = SS_UNCONNECTED;
+>>> +}
+>>
+>> I was wondering why not
+>>
+>> 	if (sk->sk_state == TCP_SYN_SENT) {
+>> 		sk->sk_state = TCP_CLOSE;
+>> 		sock->state = SS_UNCONNECTED;
+>> 	}
+>>
+>> and I think the only reasons we can't say "SYN_SENT iff CONNECTING" is
+>> because shutdown() can flip SYN_SENT/CONNECTING to SYN_SENT/DISCONNECTING.
+>> On connect's failure, the blocking path kinda-ignores such shutdown() and
+>> resets the socket to UNCONNECTED anyway, while the non-blocking (i.e.
+>> vsock_connect_timeout()) also consults sk_shutdown != SHUTDOWN_MASK.
+>>
+>> So how about being consistent:
+>>
+>> static void vsock_connect_close(struct socket *sock)
+>> {
+>> 	struct sock *sk = sock->sk;
+>>
+>> 	// we follow vsock_connect_timeout():
+>> 	// TCP_SYN_SENT implies SS_{DIS,}CONNECTING;
+>> 	// and we do check sk_shutdown
+>> 	//
+>> 	// or am I missing something?
+>>
+>> 	if (sk->sk_state == TCP_SYN_SENT &&
+>> 	    sk->sk_shutdown != SHUTDOWN_MASK) {
+>> 		sk->sk_state = TCP_CLOSE;
+>> 		sock->state = SS_UNCONNECTED;
+>> 	}
+>> }
+>>
+>> What do you think?
+> 
+> I think we could say TCP_SYN_SENT implies SS_{DIS,}CONNECTING, but
+> probably not the reverse... without a peer on the other end our connect
+> request gets an RST reply, switching to TCP_CLOSE but leaving untouched
+> SS_CONNECTING. Using only TCP_SYN_SENT then skips resetting
+> SS_CONNECTING to SS_UNCONNECTED, and future connect() retries hit
+> -EALREADY forever.
 
-> Changes in v2:
-> - Matching on interface class as well (thank you Andi)
+Ugh, true. And your double-if approach has it covered.
 
-Hey Andi,
-Any further concerns with this patch? No huge rush, just trying to clear off my
-"needs attention" list.
+> It seems to work for vsock_connect_timeout() because that function only
+> needs to test if the attempt to connect is still pending (if yes, then
+> close everything up), but vsock_connect_close() needs to know more
+> precisely if the socket still holds the state that this current connect
+> attempt changed... so it separately checks "Did we set TCP_SYN_SENT? if
+> so, set to TCP_CLOSE.  Did we set SS_CONNECTING?  If so, set to
+> SS_UNCONNECTED."
 
-Thanks,
-d
+Right, got it.
+
+> I think it might even make more sense to consolidate in the other
+> direction and make vsock_connect_timeout() a caller of the new
+> vsock_connect_close(), since it appears there is a similar edge case
+> there...
+> 
+> connect(), O_NONBLOCK
+>   transport->connect()  /* OP_REQUEST */
+>   mod_delayed_work(connect_work)
+> 
+> shutdown(SHUT_RDWR)
+>   sock->state = SS_DISCONNECTING
+>   sk_shutdown = SHUTDOWN_MASK
+> 
+> vsock_connect_timeout()
+>   skips the socket because of SHUTDOWN_MASK
+>   /* still TCP_SYN_SENT / SS_DISCONNECTING */
+> 
+> late OP_RESPONSE, virtio_transport_recv_connecting()
+>   sk_state = TCP_ESTABLISHED
+>   sock->state = SS_CONNECTED
+>   vsock_insert_connected()
+> 
+> So the attempt never times out, and a late OP_RESPONSE connects a
+> socket the user already shut down, overwriting SS_DISCONNECTING with
+> SS_CONNECTED. I think that's a separate bug for a separate patch,
+> though.
+
+Great, I'm all in favour of consolidation. So in the scenario above,
+invoking vsock_connect_close() on vsock_connect_timeout() (with sk_shutdown
+check dropped) would result in CLOSE/DISCONNECTING, and no more late
+virtio_transport_recv_connecting(), right?
+
+>> I guess this approach also addresses "[Severity: Low] What happens if
+>> another thread calls shutdown() while a blocking connect() is asleep?". As
+>> for "[Severity: Medium] Can a connect() waiter that times out late still
+>> abort a newer connect attempt on the same socket?", isn't this the current
+>> situation?
+>>
+> Yeah, Sashiko is worried that a racing shutdown() breaks reusing the
+> socket, but AFAIK vsock doesn't support reuse after shutdown anyway.
+> Before this patch a second connect() could succeed, but the shutdown
+> flags are never cleared, so sendmsg() still returns -EPIPE and recvmsg()
+> returns 0. With this patch the socket stays SS_DISCONNECTING, so
+> connect() fails with -EINVAL instead.
+
+One more detail: currently a sock that went through a failed connect() can
+still become a listener. A transport-bearing listener, which I don't think
+is good. So, except for the connect+shutdown case, this does not change
+with your patch, right?
+
+> And agreed about the medium issue, the late connect() waiter race is no
+> different than before this patch.
+
+Paolo, is this the "multiple threads connecting/disconnecting the same
+socket concurrently" you were referring to? Yeah, I think there's an
+agreement it's not an issue.
+
+thanks,
+Michal
