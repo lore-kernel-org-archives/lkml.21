@@ -1,98 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795512133;
-	b=39bbAjVJTMCEqB9puvyhC7vWojXscYD9e6jfNs0VfpfxoJoDp/3fzMzrD29gnBk8naaI
-	 bBdFQbDuqZlsLFSFYpNc/OsxKSfyLKHY9axFYX1f13dlPIqM0vAQ3gX+NMAblGcD0k5kC
-	 jXP8HsulpnHSX40MN/RfMnFJuzXAbia5v9AkSyBp/aOBrIGl2+ThQVejcpvSJC/KUwXFP
-	 cd5cse0Tm0qPPg1SFEhSXmVyja9BZqDBpThFai9Woq7kXPQBwBKmGk43IIl+BSozGg/yt
-	 +kAMoOL5nyeEO89Q0KOoyUD74dQhhiLD4CEIv35RkoKbRt2MX/Jk4+7bHVyE3hwbZww==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795512133;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=jrYGP2NUS8MDFLO947LbBcMGV4wVMpRFW1toqHZsyiQ=;
-	b=xIhunccY/xa9RywYzR6JWS9YANve0D0IQFKQRn/CptvnQHB4HNrpmbuhk2Fd3MMuZ1WY
-	 T1hNpvmm50hjqKWeFIt0TIMRH1IJURFndz12111/xbkjpRECHibkc7m7EyTrzBt7+ESa6
-	 zDF+mq3BpbNP///+9IuUyDdeBkgEY8SXR94WT9sk39vI9IIPgAwrbKNn9ifMpkURZayFw
-	 UH9xchmDxo6nwOxTUzij8YCWm/Wrq49/wmpM81L2CvzbrZFi31gIne0m+Hjrgzcy025Bn
-	 ux9luW/GPfG21MC4v8uDLCFv4Mmgv5ss50lgGFonziBG128A2PtgzPJa3SSIqLerWSw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yHelgFAX;
-	arc=none smtp.remote-ip=74.125.82.181
-Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795512171;
+	b=EL26Gu9XaJDX7EVKfyZHo+a6o1Hsse41vdZLnfhmA1gxzr9sQrNVpRY6tJdk/DZbdoJV
+	 v8pqgEGIfdCy17tCflWGGrC8jaZh74gAy0Lv6M/2XdtN4V0GCfo9GpmMZqd0Y69zINeG5
+	 KXRHbs87HKL48142zsfYU6htWHELMMM/024dOALRaNTt/LovTtEF5ajuCUnfMDxSr9AcN
+	 hnwb3gyzBxj4KA3VG4BnUpmSCtV3I6/iO6bLRYq7q6XFZFXaPDNcYC9TNWwsij+uazbyk
+	 35p9cMSEy70NYztlzPPbx25hnIA229ICRmV7OEqe7apUVdqooalgkBvK6zh5HKn7yTQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795512171;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=yeaPuQOyc2+PcyGK62lj/sAWaop4WT2t2qNQ1jKa9JI=;
+	b=v1kEEGsI4N3TuU5G5WGU6Kyq4UxpasTWaC+kUFG98f8M+P7Zb7F4gf/eCt04L9uxqqH+
+	 vmao9x2gcAJ1duKeCkHYLdxWh4p9LEwB5aMMlul2uDYYXTZ1jg76xDQ4ntWEzMirXmT38
+	 FN2q8WaqAxn3uBgC2g1O70u2AUkcwtqyeHMZUcx6+Ddg6COGmpvGUrrpwxCQ46bONQPOJ
+	 MwpHkxMg03HCrLc89/C7W2AL7m85O0NyUjoVwUtEEZyXoC4B+Rh3CyIpWmXyXSwnPMd/5
+	 f44mg890cYG8bn6emkaMNwEzHAUO7iZXPnHD91YaFpUV7/gxJDtA7jQ6G4zBrxC3pww==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hRAX45B0;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B78C8606A326;
+	Tue, 24 Nov 2026 09:22:51 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hRAX45B0
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795512171;
+	b=j/R+zxJLcz5nlDzghtoshpeNVeMOmOkDxnGX3KtM/jR68hMYMkzgU7bLUoNzzd6ayuxk
+	 wYVtQI2hYu3JCqKJRsJUIbZqeJ7Cz1um4Bep9qKcd4+4qbHerUnLDua4Iv1kE2C20/xd0
+	 EYfJmPYyL0hyXqbiXJTgV/Ch1m70XhlKVrmtT4B5OUk0GkfSl876MSV6Imz3aJc9vZOrt
+	 bVrs1RA5q8c+BYDn7JVtJBwb8o+fuJ3B4SdpbLIUAaVsOGt8+cYuY1KVl8wkyrqa6k1NR
+	 CRFbxip3LBPAJwrt8wlhIqpZkgCBmfMl+LEtPjuWJkb/8pYVMzblADMNnQ9xSFDfNdQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795512171;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=yeaPuQOyc2+PcyGK62lj/sAWaop4WT2t2qNQ1jKa9JI=;
+	b=jFpxeSe6i0q6X+DtrIXP/dlPczFhKtcJUfIB9j8NWn3G6afZCSBJjVOM29e2jwksZ3UQ
+	 ygYpQnTa9+lkoyZOe78sjDh8ehDB70oWpRt5HPM3tH8l5pbUC4piEJ02gVyY8dn9Jxi3s
+	 Q5akr3JZohOmE5bRqTjxKbwcZcfQjM5afAdh/syfteeBM7DBIh0svMZgZjHtnEY4pbK1J
+	 q0Sy1t6Wt36YvGhCBXE2cctX6QuJgjEkjFqOLAeDikoOtiGDXS3cXfHu7pXmt4hezYvaJ
+	 A3sxBPHy2uE1OsbUWkd6FQTc5OFsnfc49nE6Ksol7D/irCuPhmnqHupW0RDtkhkZ2Rg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6D29606A6A1
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:22:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6D29606A6A1
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yHelgFAX
-Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-3869f03af6aso3508799eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:22:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795512131; x=1796116931; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jrYGP2NUS8MDFLO947LbBcMGV4wVMpRFW1toqHZsyiQ=;
-        b=yHelgFAXHZlKvExHvczgHRjsBLUOzun6wvv98SQTI27ld6w0gqkFpdDqLZPkzojczO
-         Tlw/xOZqjwWcfDKs3kzRys1VVO4NdDw/PXwWSZH0JTk1QltoBrVwBrilicExolBya0Na
-         4m27JH0nxVIkJsCpvEZj+BVwq5kk98fyfFmjdlUt18W+ao1sUebf/QiW/Ap/10RSghII
-         XOfPl8vbmPQyLuAbklXzAwt5ucs96Pm9ipadzRAQsH6gE4u1wZB0aBPX263P/YqncJ+g
-         gD3bqiW9JTfzTN62bBJEeO7q9vVV/iA5EUGIPqwHG2WS5xxRkytsiJOUO2H35LpwKC0t
-         km0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795512131; x=1796116931;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=jrYGP2NUS8MDFLO947LbBcMGV4wVMpRFW1toqHZsyiQ=;
-        b=mpIAVwIAzTW5LEc+x0j46OZSpRMtWVYpRqyqh8GHJLY6TdFADLUQGh3fVhMw/+ko+u
-         /M55wGcFsk0ynHWYaQcmXHt8I4/6VuCVL68/Gl6OwH2KbuPqcwadAM7QQj/hdLbA4AYB
-         Cp7SoIVRv6I1ozSHO4u8YJiopSYdgx1po9gwfOhmvGEDesN14zLGek4n1hMLOQgSB/qn
-         LsnX4hmS10Uvk4RvXSX/aeKbujm1NKBGQH1f2UlWrCstOB7Ll6KdeO/HaQ1XmTqICczI
-         8tfX//ooeiNRZsqL8X6+2bg9TTOiS4oO9lbc8cR7q68pzxgEXJvXvDslfIDLf1C6cV3w
-         912Q==
-X-Forwarded-Encrypted: i=1; AL+hErH9LoAyMALq6aQU5xvoWOz2ST5rpWfb4H5v5gAu77p8WdebaDziABkH7abqByrveurfTWxjlAZIwV331SA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/BdTJGlkvsElltpX/MqQZrWZ8ZRwXquWi3eCevZw+bbzlEokol
-	prih3iEPUwVHyj7EoSEm3TKZ9ikVWVUh0YhwSPp2Vweofgb9rxFqZ87X
-X-Gm-Gg: AZFdTZebrDodds7a0htMC5RhXa+0n6ykvfnpc0KGYV63gD8fmQ4ce0M+1f6R5NidFfK
-	MTgOCchXRR4rnDSuucUBc3MYDCeZxvxVfuS2nWjH+4t544syQzTA98eh7zw4DHRJORzpfeogd+v
-	9S6A2D7exE2BkGzE9Q9LlrR2K4BxqXLn6krQfzDEv3+g9Oo4cXYNBxX80znK8dPlTukOisYhj3P
-	1K0t1KkowtS6NDUDBP/KwgZXyzxmBIF0Q7yvND8zr7OIATePPPTmW1BhJgQnB1Jw0N4yXF0wO0B
-	3qzuUupPQukY7M0Frn2Jktk2pQuZkADQGLSvshXMU1xDJFO04DVpB91kRVfNqan7cs9MhnpCO+0
-	gmVa2Pi9hd34ReQ9StFjtRK7PtoTVbghkexaJeimaQfnrUErV2j9614htj1s3Z888Csr3NsV1ZQ
-	gm/OAo7onxwG6XaRWur50bsHea/pUakrT6CsqFdJgZhTTsp41YHeFJv7t61+svU9/f/v6Hwe2vt
-	YBOLRZJCW/PzRy9rpGVlrAGcBfM3BYUBd3DJvHtyln7AS4t8X4KywiZw6VZloLbDjavJIgefdnm
-	kDoChE0dnjqYdTdE+fw9WFnzsS7ETLnpRafX3FD3ry2y8Ik=
-X-Received: by 2002:a05:7301:7187:b0:386:bd8:7abb with SMTP id 5a478bee46e88-3860bd889c6mr13672914eec.11.1795512130689;
-        Tue, 24 Nov 2026 01:22:10 -0800 (PST)
-Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c349csm45902545eec.22.2026.11.24.01.22.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 01:22:10 -0800 (PST)
-From: Cong Nguyen <congnt264@gmail.com>
-To: Vignesh R <vigneshr@ti.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Tony Lindgren <tony@atomide.com>
-Cc: Josua Mayer <josua@solid-run.com>,
-	linux-omap@vger.kernel.org,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] i2c: omap: do not deselect the mux-state twice in remove()
-Date: Tue, 24 Nov 2026 16:22:02 +0700
-Message-Id: <20261124092202.3766910-1-congnt264@gmail.com>
-X-Mailer: git-send-email 2.25.1
+	by smtp.kernel.org (Postfix) with ESMTPS id D8AA41F000E6;
+	Tue, 24 Nov 2026 09:22:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795512171;
+	bh=yeaPuQOyc2+PcyGK62lj/sAWaop4WT2t2qNQ1jKa9JI=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=hRAX45B0v4dr+OwBfMHuIaWsq1OjqMrIEW9nuS1dqd+RfOutTcC8DTqv2aYkQ0xTw
+	 OcakbjBquPSsXsPPyOaM+423A5srGkkKg7C8NsfB+ps24t4uEvRqfg7JIKjDlNNyUL
+	 dIH27tT+x+43EC7Q4X3sVpfhLl0zZesftdoMOuHNfn+TjCbdfiFqBKtvaWXej0hvDQ
+	 JrU6Bo/odPcYrVqYiiTmf3cSkDHCsFh/TLIKnVNoNQVUWreLv9YCd2tbm2vIh8ihsh
+	 y2/xdlqN4aPWF5nlGLAFC6nkh7Qqm5VtZp/atniKcxAnQrQ/E0aQC0rCI/tlhu2K6C
+	 2jMBFpHwszm1A==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 6F1064C97C;
+	Tue, 24 Nov 2026 09:22:41 +0000 (UTC)
+From: Markus Haberlander via B4 Relay <devnull+markus.haberlander.rosenberger.com@kernel.org>
+Date: Tue, 24 Nov 2026 10:22:38 +0100
+Subject: [PATCH v2] mfd: cgbc-core: Add support for conga-PA7
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,37 +82,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261124-cgbc-conga-pa7-v2-1-18a114b1801c@rosenberger.com>
+X-B4-Tracking: v=1; b=H4sIAF1XBWsC/3WNQQ6CMBBFr0Jm7RjaGkhceQ/Dop0OpSa2ZIpEQ
+ 7i7gGuXL3n//QUKS+QC12oB4TmWmNMG+lQBDTYFxug3Bl3rRiltkIIjpJyCxdG26KlpvWHN3jS
+ wjUbhPr6P4L37cXm5B9O0V3ZjiGXK8jkeZ7V7f+OzQoW98artXa35Ym6SCyfHEljOlJ/Qrev6B
+ WDrxr3EAAAA
+X-Change-ID: 20261123-cgbc-conga-pa7-dc67d3e2ed36
+To: Thomas Richard <thomas.richard@bootlin.com>, Lee Jones <lee@kernel.org>
+Cc: mfd@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, 
+ Markus Haberlander <markus.haberlander@rosenberger.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795512160; l=1669;
+ i=markus.haberlander@rosenberger.com; s=20261123;
+ h=from:subject:message-id;
+ bh=IOEHi9ik+Gei7mZb0tLBs620x7KvO4P21+5TgD1iQJs=;
+ b=/8vMuI5kp5xVkSw0F53JIvS5TevRM+LtzH1vjlnHPKRYKTMU1lsFeD10e1jxejYOjf3R/uMYa
+ bsG8CYGNVwdAp5ESWSqFH1mKuSsZ1MXIW8Mqhz4EID1mVWMRl6vjSUj
+X-Developer-Key: i=markus.haberlander@rosenberger.com; a=ed25519;
+ pk=baNIWlZCf58g17gE2FS6ir0ymNwyBXguoQENSJkXdeQ=
+X-Endpoint-Received: by B4 Relay for
+ markus.haberlander@rosenberger.com/20261123 with auth_id=1612
+X-Original-From: Markus Haberlander <markus.haberlander@rosenberger.com>
+Reply-To: markus.haberlander@rosenberger.com
+Content-Transfer-Encoding: 7bit
 
-omap_i2c_probe() gets the mux-state with
-devm_mux_state_get_optional_selected(). The helper selects the mux and
-deselects it again when the device is released.
+From: Markus Haberlander <markus.haberlander@rosenberger.com>
 
-omap_i2c_remove() also calls mux_state_deselect(), so the mux is
-deselected twice for one select. Drop the call from remove().
+The conga-PA7 is a Pico-ITX board with an Intel Elkhart Lake SoC, like
+the conga-SA7 SMARC module. Its board controller is of the same
+generation and is accessed through the same I/O ports, so the existing
+driver works with it once the board is matched.
 
-This issue was found by auditing the driver with an LLM coding assistant.
+Match the board vendor and name.
 
-Fixes: 43c00f2bcff7 ("i2c: omap: switch to new generic helper for getting selected mux-state")
-Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+Tested on a conga-PA7 (board revision A.2, BIOS PA70R026): the core
+driver loads through its DMI alias and adds its GPIO, I2C and hwmon
+cells.
+
+The patch and this changelog were drafted with the help of Claude
+Opus 5.5 and reviewed and tested by me.
+
+Cc: stable@vger.kernel.org # 6.13.x
+Signed-off-by: Markus Haberlander <markus.haberlander@rosenberger.com>
 ---
- drivers/i2c/busses/i2c-omap.c | 3 ---
- 1 file changed, 3 deletions(-)
+Changes in v2:
+- Drop the remark on the empty system vendor and product name from the
+  commit message (as requested by Thomas Richard)
+- Link to v1: https://patch.msgid.link/20261123-cgbc-conga-pa7-v1-1-f3d17fb02e43@rosenberger.com
+---
+ drivers/mfd/cgbc-core.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/i2c/busses/i2c-omap.c b/drivers/i2c/busses/i2c-omap.c
-index 4dd111f77ea0..d3c576ca7681 100644
---- a/drivers/i2c/busses/i2c-omap.c
-+++ b/drivers/i2c/busses/i2c-omap.c
-@@ -1520,9 +1520,6 @@ static void omap_i2c_remove(struct platform_device *pdev)
+diff --git a/drivers/mfd/cgbc-core.c b/drivers/mfd/cgbc-core.c
+index 8a63923d1..cd68d396d 100644
+--- a/drivers/mfd/cgbc-core.c
++++ b/drivers/mfd/cgbc-core.c
+@@ -379,6 +379,13 @@ static struct platform_driver cgbc_driver = {
+ };
  
- 	i2c_del_adapter(&omap->adapter);
- 
--	if (omap->mux_state)
--		mux_state_deselect(omap->mux_state);
--
- 	ret = pm_runtime_get_sync(&pdev->dev);
- 	if (ret < 0)
- 		dev_err(omap->dev, "Failed to resume hardware, skip disable\n");
--- 
-2.25.1
+ static const struct dmi_system_id cgbc_dmi_table[] __initconst = {
++	{
++		.ident = "PA7",
++		.matches = {
++			DMI_MATCH(DMI_BOARD_VENDOR, "congatec"),
++			DMI_MATCH(DMI_BOARD_NAME, "conga-PA7"),
++		},
++	},
+ 	{
+ 		.ident = "SA7",
+ 		.matches = {
+
+---
+base-commit: 1cb7268b6638c411fc32f373e965eb8ba9e9b2b4
+change-id: 20261123-cgbc-conga-pa7-dc67d3e2ed36
+
+Best regards,
+--  
+Markus Haberlander <markus.haberlander@rosenberger.com>
+
 
