@@ -1,61 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795551394;
-	b=Z57f83MeUobcrnKUK+avXaR4pxhsEz+FuUe3Q3hylNDL5uj9V0CtXDQR7vGcJkRyYOYm
-	 Kr4dqeyap3UUOOOwfjf7HjwUnmFdK62AN5eFEet+F3qMjk8zYT0+F2V2wPdI8o+edGkiK
-	 i58HKu/49uA5gQpvGf4Ukxi2ozHDkUU4SkN7xE16Yr2u5lOG79RDDC2wuiBYpr1wFmo3X
-	 uci6rXbEXdgfeet5HJGyjy18bEq56SPDS9Qg4ou7db1oHeMScbzZN093niUP8+Xoz46jb
-	 /dYVcZb6kG3kTeY0OTPAhh4i7A7D2WwmP0ShGw/BuOWxk6Tu1WDyQp/wi8wgYS9EuJg==
+	t=1795551423;
+	b=a6/YnWrnMxFaI6GYuBVojML+aFcEcZtP1rEKssVNhlJyX+gf2/iBaWxMvveffc7CIUI2
+	 7+d3bs+j00sNvyi7+GmqFhyE5jmr0I2oT0oJui9fgEaGzLu012KAxqJ6PgGpZMl1wFlF1
+	 kvgf7VGckISmQCruph+bJUyjDKY/jgwVZYCFXyd4pRzPR91fEZ4ghTxY9Dv10RIh3SVBA
+	 faEa7LoGL/ZUmnyPQpJCcrKQNIM5XaAIr5tcAZzQbFwODOR7ggusUeYwGlgzCKkxT+ZTv
+	 aEmMaskbWYbkT/F88syjDZ/MZP2dz3ZcmvLh3miyBH1MfBo0A0IVzSyXuSDkcszOZyA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795551394;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=SP1wbcINzSUJyNuETmkM+dOjtDQCPAxHCIc0cwhm72Q=;
-	b=ywDAqxZx2NzTXeGg8lO5jOKt6eUnaJUxRHM5dv4026HSYkBvqZ3AtaMILq8IyrPxZZkR
-	 BKH4FZxAiSs16GkndVILdjOgU6kgBZqocZb3vwi+50fnFSg+cyUe0flGUp8GcEkwpM7tm
-	 wXveSfiTMdvgYheXPXlrG7QN7NWJZ9OUT1rA5B1CROH0wyQahkyc+ftNyLH9tfPXXGBjK
-	 V4ERgR/Ol7ixBB02eGPZW/Ym87bOOzyKRBkYpxtTGRiB5nzIbAVVVM+Xtu6ML9jedRPvC
-	 H6XMSzRgl4VOn+duMlLl7T8jYMZdVCfpZ5HnvAACLl40dLlB7T+iA1/jMRxV/v8cnow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795551423;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Date:Message-Id:Cc:Subject:From:To:In-Reply-To:
+	 References:Content-Transfer-Encoding:MIME-Version;
+	bh=19rRlZPT1LVmqMdWRk6gML8eP6Esmj++HIxjdU6f6nE=;
+	b=RsRbpgOgP++8uSuSVTUOYgEoR+4qO9Q551tVmjH5Fzp0AmB4D0vT0U4sBqvIYsWHZHi/
+	 A/IoqNwCSlyEnq8z9hFcvGOp8wv81ksobw4Mn9FG8RiRHE1eliRe/dztOeZZVyF4WXewa
+	 BemnnQz3FJ8Myg1KHXdJ6TugL/x5j9pc9pGYosSPHZKwFl1DtmDUChZulWkmbrTndjGDP
+	 /I3VyPJayql5KaDDolcxa7haxXGgTxI+LvLNOjPDgc5Zk9Qn6r0t76x6Enaz32zcO8UJr
+	 XZKORLOPkCPr+u6tMd3MqCZ5w4J+yTCFfUW7tvrVJzL2/vuza06enM6FXid1s4XVsDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aK9UEqY+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Bg+8NGH8;
+	arc=none smtp.remote-ip=209.85.214.173
+Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C738C606A33F;
-	Tue, 24 Nov 2026 20:16:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 804F8606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:17:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 804F8606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aK9UEqY+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74E911F000D2;
-	Tue, 24 Nov 2026 20:16:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795551394;
-	bh=SP1wbcINzSUJyNuETmkM+dOjtDQCPAxHCIc0cwhm72Q=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=aK9UEqY+mBz44I1gh/UJ7vwYJYr2FVX7fMnR8pJGpMDajsMAWvwfgmq01W+kLPPjC
-	 /BqMx5jh5TRnM2ZXcHWW4AyrzKQVxqWXBNk266tIJxKaXbFo2T+shXc0Z4Dq0jQqtD
-	 ImYwGasCdXxCUN9tSU2w5BskS/z0W99IeZQsRwsdszj3Mp0Z1biEEhzSLu5QeWCdXw
-	 KxuwakZTgoTfpmNDVdVfUXgJHn0pVtO9S3e3PW7WgfWgrsMSzKPcn5n6Ta5S4cZmGF
-	 kBTg4EvmMvBdgaQHvZrWLXCCvPxfiOHhOiNde2/GyCkTlFot6s46A+qxJyAN3drMnS
-	 1gRbS1g57Bq3w==
-Subject: Re: [PATCH net] selftests: drv-net: pause: detect the link partner
- from the remote side
-From: netdev-bot+sashiko@kernel.org
-To: maxime.chevallier@bootlin.com
-Cc: andrew@lunn.ch, kuba@kernel.org, davem@davemloft.net, edumazet@kernel.org,
- willemb@google.com, pabeni@redhat.com, horms@kernel.org,
- linux@armlinux.org.uk, skhan@linuxfoundation.org, bobbyeshleman@meta.com,
- sdf@fomichev.me, leitao@debian.org, matttbe@kernel.org,
- thomas.petazzoni@bootlin.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Date: Tue, 24 Nov 2026 20:16:33 +0000
-Message-ID: <179555139301.3135.11150049621951436064@kernel.org>
-In-Reply-To: <20261123201406.479904-1-maxime.chevallier@bootlin.com>
-References: <20261123201406.479904-1-maxime.chevallier@bootlin.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Bg+8NGH8
+Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2f0414c1062so29229765ad.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:17:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795551423; x=1796156223; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=19rRlZPT1LVmqMdWRk6gML8eP6Esmj++HIxjdU6f6nE=;
+        b=Bg+8NGH8bdD517brgNx6BmmvHoIJvf2qPj8L84H8t1SkQUuzHMTixOn9GZqTfbiWd7
+         JVmtTgivhGJrT+f9aYNpPEF5TBduBrG5120dkrLfKt1263YMM84lTX9A9QKMtAECI2+S
+         T7+FUFm2fql6mTt404hQS0usO+g2vGaui2neZLRC3bdOia9CFtWRDGtmxe/ugRTgYoLD
+         5lCIQeuUAhk9pK6x7AUYPuvq6EQ+V/WbS44NKjN8f7dYT9Kz5XFtd9rm5fEKxTnFozi+
+         zWfeUn/b8ZWj3Miny40ImzrE4wcH5olhqXfMj9bgnUexSpNLVKavzcnXHKsDcIXIkusV
+         vrBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795551423; x=1796156223;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=19rRlZPT1LVmqMdWRk6gML8eP6Esmj++HIxjdU6f6nE=;
+        b=jfTULXw8qMdJ5CajPhs/gy5ouYRzZ9hYAtgBuHCAatJlWxV6ZhMKtS49XHfVh7kU8E
+         +x2ZwlnhOU1z7vSKvD4RFWbTXYOuWPwsgYmm59TJycZwA4gaPru9w2EIvqrMo0O08YlM
+         UVF1jjiHrDYoeBpga4o7ocCy6YSJI2u5MO9zdneu2zWxTgEGRg97e8oI4SVuo1Pph5eM
+         6Tznx1CfcpfPP0ssqXOr6bJLRPvu7QrMsIeTjGtK5tDuzYR1h8ffQdYH4uZhjjAQIRLg
+         ZsN0DLHPEqSnnz7Gcc3k0PhdVPB9roeh3MZ+VK6pmQ9V+Ub1XjLCIMBODQ3H5fM2QFSi
+         nnYA==
+X-Forwarded-Encrypted: i=1; AL+hErFW5fPlW0OTg7IwmzNx7ipJaK/UIWnqQYUPgku7wtgKpcMHtVWFKBjd1i3w7VfzAOL8T3dZl11j/RqXge4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z94Hl9AVGpDURNYxMkx6eeTq3TAykm0OLnPVxEooBj5Ypi7xAw8
+	Fb4SWv5SqgF8m9BDQu5PD1dkVe/lp23+uCMFiN7Srg1kKxWzqs5Jzk+c
+X-Gm-Gg: AZFdTZelc6xCq9ImRXJWqYrA+WJd/s9KGPMKp3QLirPNp3moCbKq/VFzKu/7V8csw/o
+	coqTb0N+0Z9ZKHniWVWCcObZmz64L7mzj9MxSbBhjSisCbSvrtdCJ2DQFyihn3A2pac1X8PRNIP
+	GUTtkIrYPzBCyyErE8pBN5lUHRir8vHKRld8MjH3LRC0wekU05X3u14PLwAvdPGLLd/uQpU592a
+	HQkEmIxLOrjSENYRMuNAgaKxEX9tHeAvtbAFFyY6IXazYedF3I9vl5MYoOEXqb5AA6osXNKDc4+
+	AJj86Sf5ayTVg5Q7qeZJjOyRSNg91RnESQBae3Lhlh0X+0A88cLmUP16ditlNiMq6Gb0drAzByz
+	Em7sc7e9g9Q1Ndd7hyvQ4FiXuYmtXKRpZ6cH7gKOZXDsvIsnbvm6EU9X1feaCAtmrrlrZZXNtl4
+	JK94FQkH1yLapfp4LUXY6FcFRCxrtLkfO5YFnlr8zMdt0sMSkue1D+g19lhNNuV8l+fU0o0UJHc
+	fX9fIZPhzYK2zkqSzNaoZ/TamjF9OjXOitj+wSTA56eGVm6GD0KFOAkdgdTmGjLotfeREnBgQDS
+	u21YL1+GgnshNmeYvr/f5HpvlQGD5VOf3rrbdqgN5+XJUMF0GNUGeXqZ872D2trGrtpzgO5R+MX
+	1JxH1JhAmOmObpal3ZeNnfJyWt4kFIQrMug==
+X-Received: by 2002:a17:903:24b:b0:2e9:9bac:2e90 with SMTP id d9443c01a7336-2f03f1aa1d0mr135413125ad.65.1795551422519;
+        Tue, 24 Nov 2026 12:17:02 -0800 (PST)
+Received: from localhost ([153.61.198.243])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1a8asm73930925ad.24.2026.11.24.12.17.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 12:17:02 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 24 Nov 2026 20:17:01 +0000
+Message-Id: <DN3PUVNYI5U3.EG46DZP94II5@gmail.com>
+Cc: "Borislav Petkov" <bp@alien8.de>, <bpf@vger.kernel.org>, "Puranjay
+ Mohan" <puranjay@kernel.org>, "Andrii Nakryiko" <andrii@kernel.org>,
+ "Daniel Borkmann" <daniel@iogearbox.net>, "Eduard Zingerman"
+ <eddyz87@gmail.com>, "Emil Tsalapatis" <emil@etsalapatis.com>, "Ihor
+ Solodrai" <ihor.solodrai@linux.dev>, "Dave Hansen"
+ <dave.hansen@linux.intel.com>, "Andy Lutomirski" <luto@kernel.org>, "Peter
+ Zijlstra" <peterz@infradead.org>, "Thomas Gleixner" <tglx@kernel.org>,
+ "Ingo Molnar" <mingo@redhat.com>, <kkd@meta.com>, <kernel-team@meta.com>,
+ <x86@kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups
+ for user address faults under SMAP
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Dave Hansen" <dave.hansen@intel.com>, "Kumar Kartikeya Dwivedi"
+ <memxor@gmail.com>
+In-Reply-To: <077779c3-aac7-49c5-8887-0d4266caa2d6@intel.com>
+References: <20261009024925.3169077-1-memxor@gmail.com> <20261009024925.3169077-2-memxor@gmail.com> <20261009041346.GHashp-hYpLl-o-l3M@fat_crate.local> <DM0ESVBT9553.2S1RWK1W7M8WW@gmail.com> <a08e55c4-26dd-4502-9cca-b063387a0e06@intel.com> <CAP01T77AiqVjyTJbHYqXe2v_h+PYzFEe3DeVTc1nyZVnzOfd5w@mail.gmail.com> <077779c3-aac7-49c5-8887-0d4266caa2d6@intel.com>
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -67,221 +110,41 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 5 potential
-issue(s) to consider.
+On Tue, Nov 24, 2026 at 07:25 AM Dave Hansen <dave.hansen@intel.com> wrote:
+> On 11/23/26 09:23, Kumar Kartikeya Dwivedi wrote:
+>> It would be equivalent of doing copy_from_kernel_nofault() in the
+>> normal kernel.
+>
+> ... and running afoul a userspace address. So, no, it's not equivalent.
+> These accesses are more wild than anything else we have in the kernel.
 
-Critical: 0 · High: 0 · Medium: 4 · Low: 1
+copy_from_kernel_nofault() runs into user addresses too.
+sysrq-t does it for every idle kworker in print_worker_info():
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+  copy_from_kernel_nofault(&pwq, &worker->current_pwq, sizeof(pwq));
+  copy_from_kernel_nofault(&wq, &pwq->wq, sizeof(wq));
 
-- [Medium] In controllable_lp()
-  (tools/testing/selftests/drivers/net/hw/pause.py, lines 107-111), the…
-- [Medium] Before this patch, controllable_lp() ran `ethtool -r
-  {cfg.ifname}` on the local device and turned any failure into…
-- [Medium] The new detection in controllable_lp() can still return a
-  false 'not directly connected', the same failure the commit claims to…
-- [Medium] The new controllable_lp() decides the remote is the link
-  partner if it sees any local carrier drop followed by link-up within…
-- [Low] controllable_lp() now runs `ethtool -r` on the remote instead of
-  the local device (lines 102-105).
+An idle worker has current_pwq == NULL, so the second call gets address 8.
+That's the same walk as sk->sk_socket->file: no locks, no NULL check.
 
---
+The set of addresses is the same. The difference is who refuses a bad one.
+"CPU" is a fault and a fixup via extable:
 
-selftests: drv-net: pause: detect the link partner from the remote side
+                              user, guard,                  unmapped
+                              vsyscall page  non-canonical  kernel
+  --------------------------  -------------  -------------  --------
+  copy_from_kernel_nofault()  compare        compare        CPU
+  PROBE_MEM today             compare        CPU            CPU
+  PROBE_MEM, patch 2, SMAP    CPU            CPU            CPU
 
-This commit reverses the direct-link detection in controllable_lp(). The
-old code renegotiated locally and then checked the remote's
-carrier_changes counter. The new code runs ethtool -r on the remote and
-waits for the local carrier to drop and come back up. A TimeoutError from
-wait_for_aneg() is now taken to mean the remote is not the link partner.
+Every cell ends the same way: no data and no oops.
+The series changes one cell.
 
-> diff --git a/tools/testing/selftests/drivers/net/hw/pause.py b/tools/testing/selftests/drivers/net/hw/pause.py
-> index ca4a55e59c30f..31518b7ec53ba 100755
-> --- a/tools/testing/selftests/drivers/net/hw/pause.py
-> +++ b/tools/testing/selftests/drivers/net/hw/pause.py
+> Do we at least require that these super specialized programs have the
+> bpf_prog_info->gpl_compatible bit set?
 
-[ ... ]
-
-> @@ -99,17 +99,17 @@ def controllable_lp(cfg):
->      if controllable is not None:
->          return controllable
->  
-> -    before = int(cmd(f"cat /sys/class/net/{cfg.remote_ifname}/carrier_changes",
-> -                     host=cfg.remote).stdout)
-> -
-> -    ret, _ = ethtool_ret(f"-r {cfg.ifname}", is_get=False)
-> +    ret, _ = ethtool_ret(f"-r {cfg.remote_ifname}", is_get=False,
-> +                         host=cfg.remote)
->      if ret != 0:
-> -        raise KsftSkipEx(f"ethtool -r {cfg.ifname} failed: {errno.errorcode.get(ret, ret)}")
-> +        raise KsftSkipEx(f"ethtool -r {cfg.remote_ifname} failed: {errno.errorcode.get(ret, ret)}")
-
-[Severity: Medium]
-
-Before this change, the local ethtool -r also checked that the local
-device supports renegotiation. If it failed, every
-require_controllable_lp() user was skipped. Now that the probe runs on
-the remote, is that guarantee gone?
-
-pause_autoneg_off_while_link_autoneg_on() still depends on it:
-
-    require_link_autoneg(cfg)
-    pause_setup(cfg)
-    require_controllable_lp(cfg)
-    ...
-    ethtool(f"-r {cfg.ifname}")
-    wait_for_aneg(cfg, link_drop=True)
-
-This ethtool() call runs with fail=True. require_link_autoneg() only
-checks supports-auto-negotiation. If the local driver has no .nway_reset
-(for example gianfar, mlx5 or enetc), ethtool_nway_reset() returns
--EOPNOTSUPP:
-
-net/ethtool/ioctl.c:ethtool_nway_reset() {
-    ...
-	if (!dev->ethtool_ops->nway_reset)
-		return -EOPNOTSUPP;
-    ...
-}
-
-Take such a DUT paired with a remote that does support ethtool -r. Would
-this test now fail with CmdExitFailure where it used to skip?
-
-[Severity: Low]
-
-The skip condition here also moves from the local device to the remote
-one, and the commit message doesn't mention it.
-
-pause_advertising_test() only uses the result to decide whether to also
-check the peer's lp_advertising:
-
-    pause_setup(cfg)
-    lp = controllable_lp(cfg)
-
-controllable_lp() raises KsftSkipEx instead of returning False. So when
-the remote driver has no .nway_reset, every variant of
-pause_advertising_test() is now skipped, even though the local
-advertising checks don't need the peer. Is that intended?
-
-In a switched setup, the old code saw the local flap within a few
-seconds. The new code only flaps the remote's switch port. It then waits
-the full 15 second deadline in wait_for_aneg() for a local drop that
-never comes.
-
-Could the commit message mention these trade-offs? Right now it only
-says:
-
-    it doens't really matter which side of the link flaps first here.
-
->  
-> -    wait_for_aneg(cfg, link_drop=True)
-> +    try:
-> +        wait_for_aneg(cfg, link_drop=True)
-> +        cfg.lp_controllable = True
-
-[Severity: Medium]
-
-Can a flap that only happened on the local side be taken for the
-remote's renegotiation? Any local carrier drop followed by link-up inside
-this window gives lp_controllable = True. Nothing shows where the drop
-came from.
-
-The first call to controllable_lp(), whose result is cached, is in
-pause_advertising_test(). That test runs right after
-pause_test_support(), which only reconfigures the local port: link
-autoneg on and off, forced speed, and repeated ethtool -A. Its deferred
-cleanup restores ethtool -s <ifname> autoneg on and the original pause
-settings, and either of these can restart local aneg.
-
-pause_setup() then ends with:
-
-    wait_for_link(cfg)
-
-This only checks that carrier reads 1. It does not wait for a pending
-renegotiation to settle.
-
-Some drivers report link-down asynchronously: polled C45 PHYs, phylink
-resolve work, firmware or watchdog link handling. With those, the late
-local drop can land inside this polling window.
-
-In a switched topology, would that cache lp_controllable = True? The
-LP-dependent tests would then treat the switch port as the link partner,
-and their lp_advertising and pause resolution checks would fail.
-
-The old approach read the remote's carrier_changes, which a local-only
-flap behind a switch cannot change.
-
-> +    except TimeoutError:
-> +        cfg.lp_controllable = False
-
-[Severity: Medium]
-
-Does this except clause catch more than the "not directly connected"
-case? wait_for_aneg() can raise TimeoutError in two places, and both come
-from wait_file():
-
-def wait_for_aneg(cfg, link_drop=False, timeout=15):
-    ...
-    try:
-        wait_file(f"/sys/class/net/{cfg.ifname}/carrier",
-                  lambda x: x.strip() == "0",
-                  deadline=timeout if link_drop else 2)
-    except TimeoutError:
-        if link_drop:
-            raise
-
-    wait_for_link(cfg, timeout)
-
-Only the first one means the remote isn't the link partner.
-
-Suppose the local carrier does drop after the remote ethtool -r, but the
-link doesn't come back within 15 seconds. The TimeoutError from
-wait_for_link() also lands here, and lp_controllable = False is cached.
-
-Every later require_controllable_lp() caller would then skip with
-"... is not directly connected to ...". pause_advertising_test() would
-carry on with lp=False.
-
-Before this patch, that timeout propagated and the test reported an
-error. Should the link-up wait stay outside the try block?
-
-[Severity: Medium]
-
-Can this still give a false "not directly connected" result, which is
-the problem this patch sets out to fix?
-
-The remote renegotiation goes through Remote.cmd(), which starts a new
-ssh process for each command. nway_reset implementations usually just set
-ANRESTART and return. Local polling only begins after the ssh process
-exits.
-
-wait_for_aneg(link_drop=True) then polls the carrier level through
-wait_file(), sleeping 5ms between reads. The local link might go down and
-come back up before the first read, or between two reads. Then carrier
-never reads "0", the 15 second deadline expires, and
-lp_controllable = False is cached.
-
-The commit message says:
-
-    The current
-    wait_for_aneg() already waits for a full "up - down - up" cycle, so
-    it doens't really matter which side of the link flaps first here.
-
-That only seems to hold if the link is still down when polling starts.
-On 1000BASE-T copper, aneg takes more than a second, so the setup
-described in the commit message probably won't hit this. Faster links
-might.
-
-Would it help to read the local /sys/class/net/<ifname>/carrier_changes
-before the remote ethtool -r, and then wait for it to increase and for
-carrier to read 1? That way the test doesn't depend on catching the down
-state as it happens.
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123201406.479904-1-maxime.chevallier%40bootlin.com
+Yes. check_ptr_to_btf_access() rejects a load from a kernel struct in a
+non-GPL prog:
+"Cannot access kernel 'struct sock' from non-GPL compatible program"
+The check right above it wants CAP_PERFMON.
+It's the same as bpf_probe_read_kernel(), which is gpl_only.
