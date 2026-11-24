@@ -1,47 +1,145 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795535018;
-	b=s3BP4K42E514tjJGd59h9ZtnpTgAWEMqTmX5NgmJUSY94xZpRig2y3YMNWo4EXiwAj2D
-	 KbPjXDkavsOTjOdd9Mz6Au8wxroVfeoxf92ZAA0v1uwvN29Yw8ywt2D5vY4mmbNayux7F
-	 0Gb7He7VdKdk7kvaXoBGAgA3MdaLaL0SyAS1G9fvBoLbIYiG3av3hLxmKDDThDViwNvDc
-	 gQBZamxLMqdLccOgr33sK3fUDwNCcuKymZPUYUXWKREGbwXxMvIjwFh6NCR9GemnLgqIt
-	 cklSGQ419eeS3zIGLu7ihJSdSXnsXFGVxEZOyvgGHS/fgNinsbzyGPKBrGHyDI5hLvQ==
+	t=1795535058;
+	b=h8Jv+jRlZE/upmvezvMU0ANAYHPcbKFKKjfj5beEh1zUcxOtqJIaVCk/KbbElzCYTHjY
+	 wItWoVrY+RQKiwUyTu/cLc1QXC2lu26TUKSCgmW5sBvWXVrK03iy2msaYqxyFKWhETuUL
+	 SCF48ERVDSjihc9fdHkFt2Nn0lCB6jJDHEycHj1nwPXck4qaGu7rZIkk2vXLj5X28t6Ec
+	 RBa5yV5uppKggw4veFZys1MV3zEufcxbwTHejEhKmDIm4iX45DFu3t/J7fm9cUaatIVrq
+	 Y9Jyw+F28m9xvwkG8QumTLKM1+rwzwAnI38VQIYZPrPmckJRtj1nhJ1ajYbOhXaqCWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795535018;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=OphDtjftykvKdSXxRrxRevI7lA3nqKW0OusdY6IhM/M=;
-	b=yPTJc/PPG9d+kzoac1cXiOpNwBZp3TiH8hbXGhzfZvphjbol/r5qm7omzY2YR1Bd9Oq/
-	 ih2rTMgEUmXbheIjHa3nPfQ7FlfPyQJTSxBUFZ1iZVV1MvkdJpUcruvsnTyCwbtGXQ9bS
-	 SMjqQ0XM4Oirt0R+H18ZSbvGCDpokU5aG70nGZIwuac6p5cZE30LFCkwB9fo1J639UWFk
-	 FjCEWHMSKo+37LcqQLXMlz+XWRfe+HcPhBIMvMkSbHJljnX9gFnaE8lDXIH8B9t2boR9X
-	 RtJXf540NQ4xf1rDhXK1KzPsqKrQfb7eBbnE/4nj0v+JkfpXjsKKofci+YVnLeH8eUA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535058;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=8Wh2J5LCLeX/St1gCrsUVWC0JxeZaZODNNMq16jMKlM=;
+	b=iQHSHV6O4BIc42T6gE2NhwxCg2BxkbWQtx5uMeCbHNtKdRifuSt7iDPUp38qyj+JCTuf
+	 y9heXdldG+33LBRoS1BhqVR2nIlF4+6aBbMLz8s8F7ZkG89OgZPglZwfwm12lDvRHi7fI
+	 IIQxQ9nfLrcE2/fYNTHdSecd+V/D3yt9+oowJ4sPya7ALLbYyAUIgvnvUmftxcRFUYwBP
+	 a9yt9H1TnK9xR5/GgdiBe8bwPbpubW7Apl/nSFwjTp38nxylMIUkS2DenyLWvcx/uqUjW
+	 We1shSgMRp+Ln+IfXqmnQUBn7mWgWrsCSK8zrUV29IlSbT1sNZ034WlIRSoxfGdJpEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FDSJ3luv;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=SySTtlAI;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=PXqolqyV;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE2FC606A31E;
-	Tue, 24 Nov 2026 15:43:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C9BD606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:44:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C9BD606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FDSJ3luv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C39291F000D0;
-	Tue, 24 Nov 2026 15:43:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795535018;
-	bh=OphDtjftykvKdSXxRrxRevI7lA3nqKW0OusdY6IhM/M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=FDSJ3luvCCCCFeOHqHUybs816Kvog2lbKmIiDAI1UCzZ/xOs8qFjGgwxxDLp8T9Fk
-	 pBfEKHK7kuhuFaSTLeHQTBYzhZCNE+AvJYjtkZRyTk5VUTGRJFJxJUT6JtbeSATuCA
-	 3DhAkc93kMbzHyAOcMRp7qeNQC1LXp48cJ7SuiuPRSkv46l/5GN+vRewwpsZ89DoUg
-	 DmGuf/QsVrNrnnM1iz7+6uKSq/IIlTGy+5TAxTSJZsgJke2GR9z6wyc5VmP1/PCF/h
-	 kvp2eeTDso+vogwTi8YwpDBMhpbbZPs38vsKggY25z/37YwTOLDIHdq6J9SCjUr3CO
-	 Sc7iwi5Gn2fow==
-Message-ID: <8fe2c124-204e-42bb-906b-fec676895c6b@kernel.org>
-Date: Tue, 24 Nov 2026 16:43:33 +0100
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=SySTtlAI;
+	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=PXqolqyV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795535051;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8Wh2J5LCLeX/St1gCrsUVWC0JxeZaZODNNMq16jMKlM=;
+	b=SySTtlAIoNllGAiUdnT7c6hsGGDUu5zLBIKPSHXtVJdwMRi6YJthJhF3CneTf6AoKx8rWG
+	2WW3QruAbNWKbJu+IFZkqofmKiAEHRJITRjbzcXnOAqcTJR7L0kbNMzfh5hjqa8BtxYaJy
+	OjJ3UUL3hJ/qTA6UkpI526VU4hBteGc=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-693-EpEU_iFdP96gojquYw32oQ-1; Tue, 24 Nov 2026 15:44:08 +0000
+X-MC-Unique: EpEU_iFdP96gojquYw32oQ-1
+X-Mimecast-MFC-AGG-ID: EpEU_iFdP96gojquYw32oQ_1795535047
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4a359b714f8so28467415e9.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:44:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795535047; x=1796139847; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=8Wh2J5LCLeX/St1gCrsUVWC0JxeZaZODNNMq16jMKlM=;
+        b=PXqolqyVxLtS9Y3Kdn50iNcuOkpgeNkxuNF0RhvBc+fb5oLj22JDF1P+gRBUy3NqmL
+         7FNFDdq/5Yzr1nxilngcU56x3j7/P6YoSQ1yZHUGrrY6ilJXPn9iXlR/5p48kjqY40c8
+         h9BJ7/zs3qoxP3h1eGGErwV+PBrh5WfhsAV6W3RqXn6BE801z+NKWmixGToSYpSW6HJL
+         Z1XJwaRHQC+EO7B0Qb8LDLzaEdfpM9saXXFiFAvcaqxuju2TnZdKHU6CrIa7MKDyM/wG
+         y6F2tpPy21RSNO5U05ILiH0NExZTTuh7EAC2fIbPSeoRRXAd6FpyRcwfYbLdtzXiw/Et
+         BaEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795535047; x=1796139847;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8Wh2J5LCLeX/St1gCrsUVWC0JxeZaZODNNMq16jMKlM=;
+        b=hX4vctlz696B5lGIoNU/bo6d7XM7sJD1iBOzi7xN4RHoifNkhMt+Gu91d5kAUSbGen
+         IC/hN474iIoEiwxSdvuydr/AvIzEULMJLPLd08Fn4H6o7gmPt5nCbAy14ukJ9rqJu6eH
+         WacPPXPskrJIpNC6YcFxspQXhLn4v0jgN4uKe21eiM3L5wHEB4OMfqVXVtvHO+KS1f0V
+         u5U7meykgXau8cL8oElYp5pMhC/EU9frbuGFZwL8grKDulTUfhjQdGJFN3ZcJi+gwTpX
+         tbcyuuLAZcK5VQ9/lfzpIHCZBojOd/Tni00jQLsAzKVLUz/TkCpNWGL6j2aLHz8b1Y5L
+         AUsQ==
+X-Forwarded-Encrypted: i=1; AL+hErFmNZm9y9AvyWS84fIxhXP0c7A2QJ2b7RYgP4MCiPQeyx+9Q+PCFexdfMnKDOTWv6WzQxPAFFaSoBpIXz4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8OiMcAcx+CfILFxyzN5y6DKRPh4zXIFHf7MYFxL0SHFNJ1SxvM
+	62SJjyGvkpNUy/z4xzQHQGcFQy1lvLgP5i89hm2kiEZ7kLTI0HF3eM9mLRgkS+TWtNe7DydV4kS
+	TX16Dc2yD0TKvAHqwMkHUytIKcSqXFaSXYHHtOXvnMu8sjXS/70yhBe9OIvyS8etZbg==
+X-Gm-Gg: AZFdTZdboScM8YbmVwCzrk5EaQlwmJ0kuXfXiZmoq37yJgd4s4CJ0nBV+fRaLJjgzI6
+	EZu7VEOtakpJ1Nn8qDIrtJuex4Y+ZrvmWDwkJk962ezPEmGC6JAimlhcGernmZkUCnotRF1jD6/
+	MOB2CyXX8iSBdGDpYoJGNX2SPqxBgAEP1l8xlhBACsbDElVr5mB4PEvool2lScN5FY+eytk9haV
+	H4oTZLEbOkdwl5A2Zx+T1B7pcqfKLf8K9yBfRuRpXITXF17BZlCFGcHJNdFrpelxA4mwz7E8JED
+	DJqIrVyaLYfXABzNaqQ14Nl9e45fDYJoYlNvLHCHoB3wOTEJXzWovGhQhtr41px97P8Xw2bctlm
+	hP8g0Tf/2KB0IbF1wBwaHM+fEfMYzunod96j/gdsqHC8R3uknG0RfhHeJHRlinoBLisSNjOTTJk
+	TbqLk=
+X-Received: by 2002:a05:600c:3555:b0:4a1:9663:7639 with SMTP id 5b1f17b1804b1-4bb8882907fmr313576395e9.34.1795535047127;
+        Tue, 24 Nov 2026 07:44:07 -0800 (PST)
+X-Received: by 2002:a05:600c:3555:b0:4a1:9663:7639 with SMTP id 5b1f17b1804b1-4bb8882907fmr313575655e9.34.1795535046648;
+        Tue, 24 Nov 2026 07:44:06 -0800 (PST)
+Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.158.90])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm381716475e9.2.2026.11.24.07.44.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 07:44:06 -0800 (PST)
+Date: Tue, 24 Nov 2026 16:44:03 +0100
+From: Juri Lelli <juri.lelli@redhat.com>
+To: Phil Auld <pauld@redhat.com>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
+	rcu@vger.kernel.org, linux-doc@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	luca abeni <luca.abeni@santannapisa.it>,
+	Yuri Andriaccio <yurand2000@gmail.com>,
+	Yuri Andriaccio <yuri.andriaccio@santannapisa.it>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>, Davidlohr Bueso <dave@stgolabs.net>,
+	Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Qais Yousef <qyousef@layalina.io>,
+	John Ogness <john.ogness@linutronix.de>
+Subject: Re: [PATCH v4 3/6] sched: Add sysfs files for the per-CPU
+ fair_server knobs
+Message-ID: <awWww6oWUrvRDjOV@jlelli-thinkpadt14gen4.remote.csb>
+References: <20261123-sched_dl-v4-0-d523e4d960d3@linutronix.de>
+ <20261123-sched_dl-v4-3-d523e4d960d3@linutronix.de>
+ <awVDG-ABOvj7zGRg@jlelli-thinkpadt14gen4.remote.csb>
+ <20261124080833.0I9HFgtf@linutronix.de>
+ <awVgALGuilf2FMsT@jlelli-thinkpadt14gen4.remote.csb>
+ <20261124151955.GA1855213@pauld.westford.csb>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,84 +149,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] dt-bindings: clock: rockchip,rk3506-cru: Add SAI
- MCLK output gate IDs
-To: Xiangyu Zhu <1194781887@qq.com>, Heiko Stuebner <heiko@sntech.de>,
- Stephen Boyd <sboyd@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-clk@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <cover.1795394137.git.1194781887@qq.com>
- <tencent_6A1DF318251B1F7D01E6E6B8AB9A45E3EA07@qq.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
- /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
- s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
- EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
- rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
- DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
- IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
- vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
- oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
- sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
- vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
- Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
- BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
- 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
- f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
- WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
- XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
- IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
- YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
- p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
- GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
- YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
- vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
- ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
- QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
- +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
- wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
- c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
- K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
- n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
- qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <tencent_6A1DF318251B1F7D01E6E6B8AB9A45E3EA07@qq.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124151955.GA1855213@pauld.westford.csb>
 
-On 23/11/2026 01:38, Xiangyu Zhu wrote:
-> Add clock IDs for the four SAI MCLK output-to-IO gates of the RK3506.
-> SAI0 and SAI1 are controlled by bits in the PMU GRF, SAI2 and SAI3 by
-> bits in the system GRF.
+On 24/11/26 10:19, Phil Auld wrote:
+> On Tue, Nov 24, 2026 at 10:59:28AM +0100 Juri Lelli wrote:
+> > On 24/11/26 09:08, Sebastian Andrzej Siewior wrote:
+> > > On 2026-11-24 08:56:11 [+0100], Juri Lelli wrote:
+> > > > Hello,
+> > > > 
+> > > > On 23/11/26 14:41, Sebastian Andrzej Siewior wrote:
+> > > > > The fair_server exposes the runtime and period knobs per-CPU in the
+> > > > > debugfs folder. The debugfs interface is not a stable ABI.
+> > > > > Make the /sys/kernel/debug/sched/fair_server/cpu*/{period|runtime} knobs
+> > > > > available as /sys/kernel/sched/cpuX/{fair_server_period|fair_server_runtime}.
+> > > > > 
+> > > > > It adds a struct kobject to the rq and exposes only those two. The
+> > > > > per-runqueue folder is named `cpu' rather than `rq' since it might be
+> > > > > more intuitive to the user than `rq' or `runqueue'.
+> > > > > 
+> > > > > The set logic is pulled from the debugfs folder but it is still shared.
+> > > > > That debugfs logic could be removed (after providing the same for
+> > > > > ext-server) or symlinked for a while.
+> > > > 
+> > > > ...
+> > > > 
+> > > > > +static ssize_t rq_fair_server_runtime_show(struct kobject *kobj, struct kobj_attribute *attr,
+> > > > > +					   char *buf)
+> > > > > +{
+> > > > > +	struct rq *rq = kobj_to_rq(kobj);
+> > > > > +	struct sched_dl_entity *dl_se;
+> > > > > +
+> > > > > +	dl_se = &rq->fair_server;
+> > > > > +
+> > > > > +	return sysfs_emit(buf, "%llu\n", dl_se->dl_runtime);
+> > > > > +}
+> > > > 
+> > > > Since these files are new and meant to replace debugfs, how about using
+> > > > ns everywhere (you partly commented about it in the cover letter), as
+> > > > sched_attr and the dl_server parameters already do, with the unit in the
+> > > > name? I.e. fair_server_{runtime,period}_ns here and
+> > > > dl_{runtime,period}_ns in 2/6, with only the procfs compatibility path
+> > > > converting from us. Right now /sys/kernel/sched/ has dl_*_us in us next
+> > > > to cpuX/fair_server_* in ns without a suffix.
+> > > 
+> > > I can do both in ns (or us depending what is easier/ more useful). Let
+> > > me update that then.
+> > 
+> > Mind that it would be nice to hear from others in this thread before I
+> > make you do changes that others might not agree with. :)
+> >
 > 
-> Signed-off-by: Xiangyu Zhu <1194781887@qq.com>
-> ---
->  include/dt-bindings/clock/rockchip,rk3506-cru.h | 4 ++++
->  1 file changed, 4 insertions(+)
+> I did notice the lack of units on the fair files.  I'd certainly go along
+> with adding the _ns to those at least. I don't have a strong preference
+> about them both being the same unit if they are properly named.
+> 
+> It probably makes sense but I leave it to people who know dl better to
+> say if sub-us configuration makes sense.
 
-OK, three patches on 23... close to /dev/null.
+On second thought, not in practice. DEADLINE rejects runtimes below
+1024ns and periods (of tasks and dl-servers) below 100us; above that ns
+values are taken as is, but enforcement (tick, or hrtick plus overheads)
+isn't precise enough (today, at least) for sub-us differences to matter.
 
+So it's mostly about consistency. For the fair_server files ns keeps
+the values unchanged for whoever migrates from the debugfs ones, and
+matches sched_attr. For dl_{runtime,period} us would match the procfs
+files and the sched_deadline_period_{min,max}_us sysctls, while ns
+would give a single unit under /sys/kernel/sched/. I'd lean towards ns
+everywhere, but either works for me as long as the unit is in the name
+(as you say).
 
-No changelog, dozen of random patches in mailbox and patchwork.
-
-I will mark everything you as changes requested. This is all half
-broken, b4 review cannot even fetch for review.
-
-Best regards,
-Krzysztof
