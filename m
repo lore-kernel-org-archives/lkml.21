@@ -1,58 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795528725;
-	b=e0d0aAo3TBh+4/SvyjLqPu6Re79QCfg3I8uhsxzD3FvQKkRHcYM+QM99wDBrvgXGunyh
-	 qQfOJXJsm5c2dYhITC7FC98Svr9aHcW5CK5y6wkbO33zWRtmX7+pcpu9deFDYFpbBxO49
-	 ICoGsThBAjArek8zVhRNraBQ6/f/Wmb92uE8bnrq2fcY3bSn43QN3OommIkuULEBhD1oR
-	 MQ085VAK8ZvVjk7/I6fqB7zsjqX/8EdZQ5HwE0OSnDNLr35g+iJS5G58gP9nPi/bz26SK
-	 5cz6RHEvJ6uqb8MVPcivWannRsSOCOqTTcZuP+5H69pS3p9shomW0JzOU+yMgMT76rQ==
+	t=1795528726;
+	b=EKnaTVuRapBtd/jC7jrPOV28jeqZVJu6dVQzg4jDB9iReNRUODuQb/x5G3/k4YyLF/Mp
+	 9Qa1QHM621y/wcyx9opM2IG81xtOxxwNZszrFESwyto8kP+7U5qMrQmGHG2nbYVjtEetz
+	 88qvHhs68PNrz02upM1D2KywSlKsdDJW0QMF9QlozXAnT/kR/bNqgxjUIZvTFq66Q68Vt
+	 AjGvyBx42wdSDqP8H+jFbLdyYZiGBG1+7ABC6/YMQA14M3r9KhEx1W7PmE/MNS/kXcR4q
+	 re9HDjuiFl5arFoSL/aLc1loPhgufqFOJC9oc6wKKLd3wxfhp+OuGT4sWc//6jOH7FQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795528725;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=UWV/2wtSmri4o3sL0eBk9QAtoQv6kUUvklQ+1DmEMto=;
-	b=sD8dw1hCyJXhD73bkmKAMTbVBFhRGVwiaEXksbLh6YmsYwH4rMf1aztdkGOFunQ+au62
-	 LJROFeHZyKGb0OYdE0sl3wKfoMnFfiwuty135X+s6Shmnl9rMDrStxvYGGVtDqy+wxz9f
-	 G5S00yFCC4rRzt0g+r4ASFq/3AcytLiDevu0beaPImrUTks15cbyvM8wBbQWJfaHQp3r+
-	 Sl7KowTAjLHODJPJiTz3jo6wfRjbi9SYpU0Z0Nno+rfXxDWxfwO2Mi8JbSiF04WBvHhN/
-	 eZZnWqtTvTWgcPaZgc1XzJlOsrRWWbXkWkcT0WoIQnSo/oa9lNJyeX3HrE8V3h1xmhw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795528726;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-HM-Tid:
+	 X-HM-MType:X-HM-Spam-Status:DKIM-Signature;
+	bh=+HySKkOVbW474osHQ9Y0YmzT/kE7CKLfCjwENY+Iv3I=;
+	b=zSo94itHHGOFBgUcoLk1gi48seGU9nkPLAs0ZezICFS45FJc4e035MvYYAmrrARz6zlF
+	 mbyN7i02fYIMe1Hkyhno5zfTPyoX4uhyCQFoldG7Z30oKGoXeORf6uFN5/+Hzn4ili2Bp
+	 EmJgAbVseX7EfaPqREIWm/0SIswYSsIEdGvSt4MYCEYWwxdKF9RB+xxsi84hFXNNfa9R1
+	 CN3jNZ98Mk8/80XOK8JCNZ8FNDD9+645vGdg7V6bDVMUdOJzsBYzXi68Bfnhx+ZYEGCT8
+	 UFLuXo0Z2naZx1vfQ8awMK9klkjkwtb3gsmAJZoCckxLVXBHm43c7rfbT26fMjso18g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dlWMaQ10;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=mail.sdu.edu.cn;
+	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=LWPg5PLb;
+	arc=none smtp.remote-ip=45.254.49.197
+Received: from mail-m49197.qiye.163.com (mail-m49197.qiye.163.com [45.254.49.197])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20C4B606A32C;
-	Tue, 24 Nov 2026 13:58:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88FF2606A326;
+	Tue, 24 Nov 2026 13:58:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88FF2606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dlWMaQ10
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFF491F000C0;
-	Tue, 24 Nov 2026 13:58:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795528724;
-	bh=UWV/2wtSmri4o3sL0eBk9QAtoQv6kUUvklQ+1DmEMto=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=dlWMaQ10wlbTGUugt+naZw+NKoidgo0O2J7/km+IWB1cK3dvXlh0FnAlk6HAlhVep
-	 GSiP7huMz9AsrbrZGxqAdzxYJhqOuoBTrGKVhr9ulspjW+DH48zz5r+0G87BWWeHsB
-	 MymjlqFa3iKKZ1DIPLWOsTIKj9aYGzeaHVLp9frLZluCqOQ4w7jxBOTJPC4+IBoaYs
-	 YOJ+O3X5LU4k8AFn9yfImeeMJwLbwR67sZEZp5NBsVx6T6bsiraLursJAP2BurDtfc
-	 EdWWOluQD8hiePgIbXxAFgakvTJUn0ItlfE069e1hS0jIU2DTGHPwhrmgvvzhRAuQ6
-	 KmsFXrnYFd26w==
-Subject:
- Re: [PATCH] rtnetlink: fix NULL pointer dereference in rtnl_get_link()
-From: netdev-bot+sashiko@kernel.org
-To: mdshahid03@gmail.com
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Tue, 24 Nov 2026 13:58:43 +0000
-Message-ID: <179552872338.3135.1493919120916016303@kernel.org>
-In-Reply-To: <20261120134548.214126-1-mdshahid03@gmail.com>
-References: <20261120134548.214126-1-mdshahid03@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=LWPg5PLb
+Received: from lgs.. (unknown [101.76.249.61])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 55d4cdb9f;
+	Tue, 24 Nov 2026 21:58:42 +0800 (GMT+08:00)
+From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+To: Jingoo Han <jingoohan1@gmail.com>,
+	Helge Deller <deller@gmx.de>
+Cc: linux-fbdev@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH v2] fbdev: s3c-fb: Fix potential registration corruption on probe failure
+Date: Tue, 24 Nov 2026 21:58:40 +0800
+Message-ID: <20261124135840.2276343-1-liguangshuo@mail.sdu.edu.cn>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,77 +56,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa20dda064003a1kunma2178d373424ae
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTExLVk1NT0sdHkgYHUJIHlYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
+	NMVUpLS1VLWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=LWPg5PLb9d6gzJORAqlgK8DHlzCNVSaYpI4KfipNPdYA+XydQSYkdramj35/25nIPUmVuwHaqa5nL+7ui10BOaIg3lQZS+mT6oPuGvB/+i5QykrN5JbjRW9hA4xSrGmAPGu74EQLjZtQU60V1R4yM5eky1pMAjwzOGKLb47IlR0=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
+	bh=+HySKkOVbW474osHQ9Y0YmzT/kE7CKLfCjwENY+Iv3I=;
+	h=date:mime-version:subject:message-id:from;
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+s3c_fb_probe_win() publishes its window before registration succeeds.
+On failure, the caller unregisters that unregistered framebuffer, whose
+zero-initialized node can remove another framebuffer from registered_fb[0].
+Colour-map allocation failure is also ignored.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Unwind failed windows inside s3c_fb_probe_win() and publish them only
+after successful registration. Stop the window before freeing its display
+memory if registration fails, and skip empty slots in the caller's cleanup.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+This issue was found by our static analysis tool under development.
 
-- [Medium] The commit message describes a crash that cannot happen.
+Fixes: ec549a0fdc32 ("fb: add s3c-fb driver for newer Samsung SoC framebuffer devices")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+---
+Changes in v2:
+  - Unwind failed windows in s3c_fb_probe_win() and publish the window
+    only after registration succeeds, without a registration flag.
+  - Stop on colour-map allocation failure and skip empty cleanup slots.
+  - Blank the enabled window before freeing memory if registration fails.
 
---
+ drivers/video/fbdev/s3c-fb.c | 27 +++++++++++++++++++--------
+ 1 file changed, 19 insertions(+), 8 deletions(-)
 
-rtnetlink: fix NULL pointer dereference in rtnl_get_link()
+diff --git a/drivers/video/fbdev/s3c-fb.c b/drivers/video/fbdev/s3c-fb.c
+index fde78707d313..8fae4d909bb7 100644
+--- a/drivers/video/fbdev/s3c-fb.c
++++ b/drivers/video/fbdev/s3c-fb.c
+@@ -1197,7 +1197,6 @@ static int s3c_fb_probe_win(struct s3c_fb *sfb, unsigned int win_no,
+ 	WARN_ON(windata->yres == 0);
+ 
+ 	win = fbinfo->par;
+-	*res = win;
+ 	win->variant = *variant;
+ 	win->fbinfo = fbinfo;
+ 	win->parent = sfb;
+@@ -1208,7 +1207,7 @@ static int s3c_fb_probe_win(struct s3c_fb *sfb, unsigned int win_no,
+ 	ret = s3c_fb_alloc_memory(sfb, win);
+ 	if (ret) {
+ 		dev_err(sfb->dev, "failed to allocate display memory\n");
+-		return ret;
++		goto err_release_fb;
+ 	}
+ 
+ 	/* setup the r/b/g positions for the window's palette */
+@@ -1249,16 +1248,17 @@ static int s3c_fb_probe_win(struct s3c_fb *sfb, unsigned int win_no,
+ 	ret = s3c_fb_check_var(&fbinfo->var, fbinfo);
+ 	if (ret < 0) {
+ 		dev_err(sfb->dev, "check_var failed on initial video params\n");
+-		return ret;
++		goto err_free_memory;
+ 	}
+ 
+ 	/* create initial colour map */
+ 
+ 	ret = fb_alloc_cmap(&fbinfo->cmap, win->variant.palette_sz, 1);
+-	if (ret == 0)
+-		fb_set_cmap(&fbinfo->cmap, fbinfo);
+-	else
++	if (ret) {
+ 		dev_err(sfb->dev, "failed to allocate fb cmap\n");
++		goto err_free_memory;
++	}
++	fb_set_cmap(&fbinfo->cmap, fbinfo);
+ 
+ 	s3c_fb_set_par(fbinfo);
+ 
+@@ -1269,12 +1269,22 @@ static int s3c_fb_probe_win(struct s3c_fb *sfb, unsigned int win_no,
+ 	ret = register_framebuffer(fbinfo);
+ 	if (ret < 0) {
+ 		dev_err(sfb->dev, "failed to register framebuffer\n");
+-		return ret;
++		goto err_blank;
+ 	}
+ 
++	*res = win;
+ 	dev_info(sfb->dev, "window %d: fb %s\n", win_no, fbinfo->fix.id);
+ 
+ 	return 0;
++
++err_blank:
++	s3c_fb_blank(FB_BLANK_POWERDOWN, fbinfo);
++	fb_dealloc_cmap(&fbinfo->cmap);
++err_free_memory:
++	s3c_fb_free_memory(sfb, win);
++err_release_fb:
++	framebuffer_release(fbinfo);
++	return ret;
+ }
+ 
+ /**
+@@ -1470,7 +1480,8 @@ static int s3c_fb_probe(struct platform_device *pdev)
+ 		if (ret < 0) {
+ 			dev_err(dev, "failed to create window %d\n", win);
+ 			for (; win >= 0; win--)
+-				s3c_fb_release_win(sfb, sfb->windows[win]);
++				if (sfb->windows[win])
++					s3c_fb_release_win(sfb, sfb->windows[win]);
+ 			goto err_pm_runtime;
+ 		}
+ 	}
 
-This patch adds a NULL check in rtnl_get_link(). The check covers the case
-where the PF_UNSPEC fallback handler table is also NULL, so the function
-returns NULL instead of dereferencing tab[msgtype].
-
-> However, the fallback table can also be NULL,for example
-> after rtnl_unregister_all(PF_UNSPEC) clears it.
->
-> In that cass, dereferencing tab[msgtyp] results in a NULL
-> pointer dereference.
-
-[Severity: Medium]
-Can rtnl_msg_handlers[PF_UNSPEC] actually become NULL at runtime? Nothing
-in the tree seems to call rtnl_unregister_all(PF_UNSPEC). Its callers all
-pass a specific family:
-
-  net/can/gw.c:        rtnl_unregister_all(PF_CAN);
-  net/ipv6/addrconf.c: rtnl_unregister_all(PF_INET6);
-  net/ipv6/af_inet6.c: rtnl_unregister_all(PF_INET6);
-  net/ipv6/route.c:    rtnl_unregister_all(PF_INET6);
-  net/mpls/af_mpls.c:  rtnl_unregister_all(PF_MPLS);
-  net/phonet/pn_dev.c: rtnl_unregister_all(PF_PHONET);
-
-The PF_UNSPEC table is allocated at boot in the __init function
-rtnetlink_init():
-
-	rtnl_register_many(rtnetlink_rtnl_msg_handlers);
-
-Nothing frees that table afterwards.
-
-Modules that remove PF_UNSPEC handlers do it through
-rtnl_unregister()/rtnl_unregister_many(). Those only clear individual slots:
-
-net/core/rtnetlink.c:rtnl_unregister() {
-    ...
-	link = rcu_replace_pointer_rtnl(tab[msgindex], NULL);
-    ...
-}
-
-They never set rtnl_msg_handlers[PF_UNSPEC] to NULL.
-
-The callers in rtnetlink_rcv_msg() already handle a NULL link:
-
-	link = rtnl_get_link(family, type);
-	if (!link || !link->doit) {
-
-So the new check looks like harmless defensive code, not a fix for a crash
-anyone can reach. Could the commit message say that, or show the real
-trigger, with a reproducer or oops trace if there is one? As written, the
-subject and body read like a reachable NULL dereference fix, and stable
-backport tooling might pick it up as one.
-
-There are also some typos: "cass" should be "case", "msgtyp" should be
-"msgtype", and "NULL,for" is missing a space.
-
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120134548.214126-1-mdshahid03%40gmail.com
+2.43.0
+
