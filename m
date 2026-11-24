@@ -1,84 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795510046;
-	b=dDLXt6uCJt424PTbA3o6kM90mXyg3uhrlqBlUefqi+8SSeANmgeV8kxucs83rSW6TwaL
-	 o66g4SqvClsCCuPAA0h04xEHC42DwXZme0p4y2maXLPFqlt9AoIrTYz/hcYj4ODLQUKgn
-	 0LkzYlb3PoVzJzQDDpD7uD1+cqcwucIh6d7krNXF+PRNsDt0cDdN5wIFBsGMXPND8phb9
-	 4G8uyiVx6g7e8MkePU76kvbC1JIR1LGN5gyGOi5hwxvjBANa51GwVVnP9hWIXexy8G5oA
-	 FFugC5xF3+UyDFxqjrPjZswxneHqW4ELgsbcSKZN+zR5/mreatS8J9hFAUCw4tAtUsg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795510046;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=DYPXkbyVo7I6I6nELw212corw/FRZ2v9BlNSxZlJef8=;
-	b=2dWK+mAwONPgFCwFnnD2Fz5KT1PJ0ea6l5DZnOJXW7YS49IsyhZFjfG4klCn2+sJmFVR
-	 4TbQGHyCZgmhIXE0rzyTK1vH6J34RfWMquFHYMPIFtZzT9jyzO56s1oAYCwlBLToLhfut
-	 y1QJd1wmkESUuQh3b2rY8/da5S/Dy2wsnCGejJz97RDoZPjb7vjnAj13kjBwRo6PhQJgn
-	 90+KU3Jl2v6s4FdEMeYvqHapY/3/hwfAiP7l4uH9+eMWJAZvWv9zJm4uH38gpKeOTRQE+
-	 OcsOu+gR27HA2GqrDe4/GxcRbniDNxFavz3DMnHoiXUe86wxDTl9V8bdDtEIKLZIMWw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=I8ghgZjH;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795510150;
+	b=cAvJfEuMGGdFLOCp6R+tJpW7MhTqFBTiN782L9bw1NgUEMpdR8hr8amsYH3c0O7rCBLz
+	 s7l+X/IrIQZknYWvd0Tg6BzPXUWHjP5GdL0VPkqZu8IAVKDZ/tYYD+SSZe9N2XG6Uiyed
+	 QLxRRFSJ0tmuu36tJSxOesmdxfZVc0bLqLo/ill5w594Xsy9kWHB02pumz9wT/xu+HZTR
+	 7KZpRPbqyMnRq2qBlRs33RbxICt0UZztc/QygMhmanf+qOW/oOff7LvC085WwYyVf9Y7C
+	 H20PQQBehzlYnHlklA6VUApp+MrfW/KYK086Ql4Patg5znP4O5ZmJiFkpjFrjpUzFTg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795510150;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=MFg6AsJZlAHZYkg8EWkBVHGKeTBRg/h+xqjFyeI8VnA=;
+	b=RHRstNzj2GWjcAexnIZbY47g1f1WRuf58Yfc//T83F/0fkdit4y2LUZ6s+0FLi1icT4C
+	 erD4xu0D0AyW22f6A24BGlk88JrSC7G/Zo0Lh080dV/cwTwkuPG0BouM84w59wdabymc/
+	 70v0d9mc+Hk6+1h3Mqez5pOazHzyEKcuJ2S0z9S7qlVoQ3nMTE5kDCdSPf6KBc/d4EE0l
+	 XYD65NH+kROMDCNXrTOGJkAitxDZcwfcIlQ1FPcSj94+cwOW7Ugn5SLqKzH1PRLhP56mW
+	 FRR5+ikdz2CNcIiEbS9FgsdC8dGqWo1TrGRAO/pg91paqV0AE2pULpggfr17I0kOZMw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Qa+8K6Kp;
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02CD3606A322;
-	Tue, 24 Nov 2026 08:47:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02CD3606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F642606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:49:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F642606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=I8ghgZjH
-Received: from pengutronix.de (ptz.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::77])
-	(Authenticated sender: mkl@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 0200520041D;
-	Tue, 24 Nov 2026 09:47:16 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795510037;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DYPXkbyVo7I6I6nELw212corw/FRZ2v9BlNSxZlJef8=;
-	b=I8ghgZjHda3I6UwJei9788PmS1iSVMuvOyyTXaDO3XqhMMmxX470AyrvozCVqyyf0Bu0Po
-	37piT1VWL4/TNqZbfz/EXJ30txwturdGcCL2iBOiim4gaKXdkQmcWRvdq5znUCQor2OZ1r
-	NvYegUHaU/Fp8YoYm110YMNfOb4O3oe6kmuLjQuRf+BexFV0gXQlbWEKQL8UchP4Z2Rje+
-	JR22hO0WRgAc7yyQN0bvA775wUvTnMKJ4HCoIUhYvARCPSg7VlZ2stwucC2TlHReZCrJHA
-	QlF1QWzLM4HY5FVXYw7LTnKGjNq8VcKpJfqUlRARGSDOXez0fekJw3ugWWeDkw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795510037;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DYPXkbyVo7I6I6nELw212corw/FRZ2v9BlNSxZlJef8=;
-	b=IASNyQ6ykbuBzpTURWdZL+P9Ed8cVn48Y3qmTqU/KaOHa0XhuPEAq6SskO+AyB1onSHPVu
-	gKu1fkWgrs37sWtszMeL41EDN2edrO18vrOMOyDwOKVfCFf1Mk5Y5k5s/Kf9N0KLZVzXMo
-	QUzDaxzRSRgSrt9tPlrlI/yzkCSL8zmpH66BGIBYu+65b7ZuUk1rLno64ghLUqx6aE6GBD
-	mvwaYwdMtMBwY2JeO11X5zjTZbyVLz/mkOSK990z8ZXVfMvYO+nbjuLh9C2SBg/fieIfTB
-	z6dpVOH+ijREZRMhDf7+laSt6cIb6KetW1Hdip+JKuCfxgVoOCX+0BWL59syJg==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=mkl@pengutronix.de smtp.mailfrom=mkl@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795510037; a=rsa-sha256;
-	cv=none;
-	b=WujyuN0c+YiPfodubhSl4OlPlxsNW5As5HBWCSRj0TLc4sviDInRXRwWBxf4QZ42RNWNHk
-	zQorX5b02SelyIzxq814nKugDMQCu4KHKV2T9+GryYGfsXcTTcTN4sGua1EdVPANSOKI0D
-	TaHyMX7oh8ySbawQe3+t+NvM3uySSpbc09PcBr3OHVRCGSWxgi1quN9v+Nvu8Rg8osGLM/
-	c7Dq0guwkqmKl3rIc203Bh89TmQ3L7+bM55IR0Fg4aJco4/hLLpvzjtO1t1zECqWANsAyX
-	9LfONUA+21Y0VZaZbQaRXJpV4MOcOJP/8XX4aXkCFc0v1wW5+yanpRfEtGlxrw==
-Date: Tue, 24 Nov 2026 09:47:16 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Guangshuo Li <lgs201920130244@gmail.com>
-Cc: Vincent Mailhol <mailhol@kernel.org>, 
-	Joakim Zhang <qiangqing.zhang@nxp.com>, linux-can@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Subject: Re: [PATCH] can: flexcan: fix runtime PM reference imbalance on
- probe failure
-Message-ID: <20261124-purring-kraken-from-uranus-549346-mkl@pengutronix.de>
-References: <20260915170327.2503156-1-lgs201920130244@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Qa+8K6Kp
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-490d59c3f0aso1934292f8f.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:49:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795510148; x=1796114948; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MFg6AsJZlAHZYkg8EWkBVHGKeTBRg/h+xqjFyeI8VnA=;
+        b=Qa+8K6KpprmVocNR0qPP3+ECxTeqDLhv5D0nLQ9Q9rFR4ELA01sl8+UrM08OHiEQ0e
+         gon9i6/HyR+FzMEpsPeoBgRTds/lHsT6AWq3Y16gVR3cqbxoUAHzq99V314EOSkyj2p6
+         eYHf9s7uU31HhQNqxanx9elNSJj/CUAkJUKE+4R+57K1PlE1aMJP9hi8H88UNMDPhxWW
+         Q2otxFGC3h9rnKdsfHnRO4dncMnV1y0z7Jp5v+NUmRZVEQbrvZcN6VgIf0ximeea5W0O
+         /u9cbZYGGs3G8+ZYzbXkVVHFXrjpsmEVJL+i5skNNgQg9j7KBh01JOb8r4J1Yb9Ouj4c
+         T80Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795510148; x=1796114948;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MFg6AsJZlAHZYkg8EWkBVHGKeTBRg/h+xqjFyeI8VnA=;
+        b=ht+KFPpD/UhNosfZ7hFU5w90LLbdQhVUPdQrS5pPp89pB3xfndG3kOAQC1ALVCGoSy
+         I8p+dXWEqwHCtP85CML4hkcu+3ocx57TAIZqZ7V7DQ8CYvDNv00dpxuImBTA0tplHFRZ
+         baH4UFvkG1X0zp0mghH0kqSfkDro5oQcpgjPaKVZY8TMXFzjNPCtU/9L1OnJZCg15YUd
+         mXd8kDbk3X6C6eWXrEgM2ROHj7b5X7HiDOKLFi6j8aBGAl6NixBrSs3ugZD5N6/Sa9I2
+         7mc6kJNo4tQ1RVHLVYyFCVBPSWpLNUwSxMjeh1ure+E/+Y7eqLCpV1fELZUu9TUJXH/B
+         0lsQ==
+X-Forwarded-Encrypted: i=1; AL+hErFLm6wxVGxzK4EHYlf/KV6iyPaUnofwWAFZDiOBfngh9UwC+z1LnkNOp1FpFyDjgQkF19zEH1B4XiaIy20=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9EgniCpk/cgYna68Fs4hwO5fbcPhODiX17JnfI+Rf9LqQMuppY
+	kuAK+xIjNDc+PIyc6zWuu5RvtMVE9mMOEsbcizlJNn85Q+Euqb+oCGLq
+X-Gm-Gg: AZFdTZe/xGPYJD61zQMgWg4xWhJF7rpYCcwPkt3UNPe3x6jY6eBWzBUNkkg4lsg6YRP
+	Hr/TVEKVMSFCbABfezt9JGI4R1wJgc90WaQSNmcTFmpUP1Djs8XjnYb91KJoza2Ya39bmBSzCO4
+	fd/fow2Vmv/jgf254cJWNyY1YMxopQijE+fkMadT2JMYMetWJZVeYE1JqVVhTv3Qil4tLHgtD8o
+	2ckzNYLsT1CQu/SaTp+moWr+Btav3uOWxpr62qRozy8BM5E4EizSZRYIPnmSiVaAos+0iUoNgnc
+	ipNoRMho/fG5hwyYkD/bkXhfbCIqgvxRtKaj/Rp67MigLBXHIMVMRvAcdkgXtLv6Zi8lA9yxsNB
+	XxpC4h5uVcCICJdX5o6FoJRKTZRVJMapYrzcVvmke7cOxdCk2aO5isLPopkcuXTk35AvbAhWNa3
+	stvXB/YHFmixk/e4g+tRphZqm5iF+pCbd57WhivEUdtVPkNqbrPI4QQxK/sOBe4BXvoqSnLI9pu
+	RG+43plkrZLhIUkpLIP0ogfgkzwMEmOOGQMcl5XedkFKCYoITVaypz44IUEkQEjFtetrzOpCA3Z
+	0MWWVWzHa/SlR7B+HReZ+Zb3cI/3PHDX0tAJGL4LM8h/hDiuqb03uPr05V0uWZZybF+dtXsvOn4
+	b0wQd+lzVSwRmKWEw3uywZ7SSaF9+aYwYsVgQY8Z/d43sU578Ij1yJsFfNPpgNCTtBPs3oehzZq
+	645ugJqA2vPTKh+b1g+T3BG0laXaK5X6CTILs0Y5SdNkTzJFdGC0KndBlocGMeePBIxU8uPYzqS
+	CZnwM/pyAvz+DRSpzoQ2saI7QD/GwmPDSimQQ8=
+X-Received: by 2002:a05:6000:288e:b0:49e:4ba2:a775 with SMTP id ffacd0b85a97d-4abb86e50eamr26630676f8f.56.1795510148163;
+        Tue, 24 Nov 2026 00:49:08 -0800 (PST)
+Received: from coder-gsekar-hip-hyg-new-69bc66c5b4-skkj6.coder.svc.cluster.local (ec2-13-205-193-176.ap-south-1.compute.amazonaws.com. [13.205.193.176])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm27270565f8f.3.2026.11.24.00.49.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 00:49:07 -0800 (PST)
+From: Gokulkrishna Sekar <gokulkrishnasr@gmail.com>
+X-Google-Original-From: Gokulkrishna Sekar <Gokulkrishna.Sekar@harman.com>
+To: linux-pci@vger.kernel.org
+Cc: bhelgaas@google.com,
+	mika.westerberg@linux.intel.com,
+	linux-kernel@vger.kernel.org,
+	Gokulkrishna Sekar <Gokulkrishna.Sekar@harman.com>,
+	Gowthami Thiagarajan <gthiagarajan@marvell.com>
+Subject: [PATCH] PCI: Correct PCIe port type field encoding
+Date: Tue, 24 Nov 2026 08:48:28 +0000
+Message-ID: <20261124084828.15318-1-Gokulkrishna.Sekar@harman.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,88 +101,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="36gkf2k7v4wktzl6"
-Content-Disposition: inline
-In-Reply-To: <20260915170327.2503156-1-lgs201920130244@gmail.com>
+Content-Transfer-Encoding: 8bit
 
+set_pcie_port_type() validates PCIe port topology and corrects
+invalid upstream/downstream port type information in the cached
+pcie_flags_reg value.
 
---36gkf2k7v4wktzl6
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] can: flexcan: fix runtime PM reference imbalance on
- probe failure
-MIME-Version: 1.0
+When performing these corrections, the code updates
+PCI_EXP_FLAGS_TYPE using PCI_EXP_TYPE_UPSTREAM or
+PCI_EXP_TYPE_DOWNSTREAM directly. The PCI_EXP_TYPE_* values are
+decoded port type numbers, not values encoded for the
+PCI_EXP_FLAGS_TYPE bitfield, so the corrected type is stored in the
+wrong bit position.
 
-On 16.09.2026 01:03:27, Guangshuo Li wrote:
-> flexcan_probe() increments the runtime PM usage counter with
-> pm_runtime_get_noresume() before registering the CAN device.
->
-> On successful registration, register_flexcandev() drops this reference
-> with pm_runtime_put(). However, if flexcan_setup_stop_mode() subsequently
-> fails, the error path unregisters the CAN device and falls through to
-> failed_register, where pm_runtime_put_noidle() drops the same reference
-> again.
->
-> This results in an unbalanced runtime PM usage counter on the stop mode
-> setup failure path.
->
-> Skip pm_runtime_put_noidle() after a successful register_flexcandev()
-> and only disable runtime PM before freeing the CAN device.
->
-> This issue was found by manual code inspection.
->
-> Fixes: 812f0116c66a ("can: flexcan: add CAN wakeup function for i.MX8QM")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
-> ---
->  drivers/net/can/flexcan/flexcan-core.c | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/drivers/net/can/flexcan/flexcan-core.c b/drivers/net/can/fle=
-xcan/flexcan-core.c
-> index f5d22c61503f..7d675696797f 100644
-> --- a/drivers/net/can/flexcan/flexcan-core.c
-> +++ b/drivers/net/can/flexcan/flexcan-core.c
-> @@ -2266,8 +2266,10 @@ static int flexcan_probe(struct platform_device *p=
-dev)
->
->   failed_setup_stop_mode:
->  	unregister_flexcandev(dev);
-> +	goto failed_pm_runtime_disable;
->   failed_register:
->  	pm_runtime_put_noidle(&pdev->dev);
-> +failed_pm_runtime_disable:
->  	pm_runtime_disable(&pdev->dev);
->   failed_platform_get_irq:
->  	free_candev(dev);
+As a result, a device whose type has been corrected may subsequently
+be reported as PCI_EXP_TYPE_ENDPOINT instead of the intended
+upstream or downstream port type.
 
-Better fix the underlying problem: Call flexcan_setup_stop_mode() and
-of_can_transceiver() before register_flexcandev(). Also see this sashiko
-finding:
+Use FIELD_MODIFY() to update PCI_EXP_FLAGS_TYPE so the corrected
+port type is encoded consistently with the format used in the PCI
+Express Capabilities Register.
 
-| https://sashiko.dev/#/patchset/20260618140147.142489-2-u.kleine-koenig@ba=
-ylibre.com
+Fixes: ca78410403dd ("PCI: Get rid of dev->has_secondary_link flag")
+Reported-by: Gowthami Thiagarajan <gthiagarajan@marvell.com>
+Link: https://lore.kernel.org/all/20241213070241.3334854-1-gthiagarajan@marvell.com/
+Signed-off-by: Gokulkrishna Sekar <Gokulkrishna.Sekar@harman.com>
+---
+ drivers/pci/probe.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-regards,
-Marc
+diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+index 9a178e0e5f7f..4c7e0ad1aa1a 100644
+--- a/drivers/pci/probe.c
++++ b/drivers/pci/probe.c
+@@ -1673,8 +1673,8 @@ void set_pcie_port_type(struct pci_dev *pdev)
+ 		 */
+ 		if (pcie_downstream_port(parent)) {
+ 			pci_info(pdev, "claims to be downstream port but is acting as upstream port, correcting type\n");
+-			pdev->pcie_flags_reg &= ~PCI_EXP_FLAGS_TYPE;
+-			pdev->pcie_flags_reg |= PCI_EXP_TYPE_UPSTREAM;
++			FIELD_MODIFY(PCI_EXP_FLAGS_TYPE, &pdev->pcie_flags_reg,
++				     PCI_EXP_TYPE_UPSTREAM);
+ 		}
+ 	} else if (type == PCI_EXP_TYPE_UPSTREAM) {
+ 		/*
+@@ -1684,8 +1684,8 @@ void set_pcie_port_type(struct pci_dev *pdev)
+ 		 */
+ 		if (pci_pcie_type(parent) == PCI_EXP_TYPE_UPSTREAM) {
+ 			pci_info(pdev, "claims to be upstream port but is acting as downstream port, correcting type\n");
+-			pdev->pcie_flags_reg &= ~PCI_EXP_FLAGS_TYPE;
+-			pdev->pcie_flags_reg |= PCI_EXP_TYPE_DOWNSTREAM;
++			FIELD_MODIFY(PCI_EXP_FLAGS_TYPE, &pdev->pcie_flags_reg,
++				     PCI_EXP_TYPE_DOWNSTREAM);
+ 		}
+ 	}
+ }
+-- 
+2.54.0
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---36gkf2k7v4wktzl6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCawVPEgAKCRDMOmT6rpmt
-0oNNAP9B98Fql06W1PzsSOR3rDyhuytNMi7v3e0UXGo0qd2b8gEA1trf3KlVnmKL
-896WuKbMzWVd6ylyKjg88dNRSjHhIQg=
-=eMdo
------END PGP SIGNATURE-----
-
---36gkf2k7v4wktzl6--
