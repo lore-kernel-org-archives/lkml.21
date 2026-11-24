@@ -1,68 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.240.11.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795521715;
-	b=oBOJkfwcaLPpNNskrXJY1gqaTpKBM7N7SWfqx4LF/jJPMDb6q9cBynxQpE4FAJMfeaCA
-	 QvRZgAhF+cKST/bHcHJlzEzO1nHpQoqpza6QujqVHLmLEoFfMeLvGppRkQ+U0vNL+p1lG
-	 uTsBAO8uNaTM0VptsuLRQ0UqAJ9trTp3EW6sSbwMMnb291gympsprnRzofVpUNAaH9dUH
-	 Mt1Pq97Ou4gxB1ZuSKOF5CPXRHjmcgmxukXyFLtXZEinkAz0BH5LpbjWXjig1PPRBYjpx
-	 7DnXOVZtdABvnsQ8Rs4zJKPNaHDPz3Vmj8QtE/tegZj1lypPWDTfT6/PiBvgSs5qrPg==
+	t=1795521768;
+	b=yJXzFmL+cIKyfZm62XCjBAy4+gxGQQnn2KQskfi7YzVDrvOStOIK3j7LiFD2eXanzSH2
+	 po7M4gFAOOLzEJevzSwpI7W9v9tZlNVp+hoISRJ4yb1gwLkRlPU/uVTJdNyUH+gF/lwsK
+	 A+JIA9lJPS+5sqUC7g0K/iWAfT3Hho+82M2bCky3/mNbYiTIDTXHqsZpYKPcRWTZDhesK
+	 ZyZw9tP/sGXfN1zJiaznpTTZogIsB5eT58rLNFh3GliJ98DL6vn8ZKqOBlWWH4IBYBSB+
+	 Dv0WZLll+xzIOIeh5muKmQqmy2XCi7Bz+x5UWDbB497pki9/BsJ8lxcghlTS/5ekvKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795521715;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:In-Reply-To:References:
-	 From:To:Cc:Subject:Message-ID:Content-Transfer-Encoding:Date:
-	 MIME-Version:Content-Type:Feedback-ID:X-SES-Outgoing;
-	bh=No9/JIXtRy979Z043SiqjeN22vYM1iefUiyNpdBFUIA=;
-	b=FPZ5twQTPT/1vENKQdNMOIkFUxenqGarOLK+VE5HIefkeguQaM9rry2O2TGvr1McNOvG
-	 qf16tUGEUxn2bP7eS8VCmxvW5qEC9kEF5aHj+duH8vno1loWN0WpHl0+ydSsxk9qMxxxq
-	 kjnn8Y9ahfKI66e27KQsX9zWjpi7KMJKpLXtnC86f8sdG5TIOYJWeCo2/XGJtql3xLF6u
-	 qfwpA1chlL/CFS0FxwRbdWi6VivBQYLMqiNzbH2T5RE2IEX9C9a+laKrPBrzfg1DKyfT8
-	 aNRC/hL5p03gmOlTBSX2J0FEBKeeIE9HAhoQMXHFkEdHQeaqaGxEVkSR7X/JLmfFJPg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795521768;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=njjx8+oQtzyGAC1NugS2WX1liqLqjY/p8JrPnTCC5tw=;
+	b=Ys13w1pLWspoCBZPobVbM6U34pnnzq3dkEfLw6cgDYul55+m17eYN6PQvAVi8aA+1znI
+	 QAS6JP+flmmmkzw0DlDjAEN2BYYnSRpMxyM0ZVM9frbXIubD2v2A3Id2acqkmS0QnWhi1
+	 qmr+0Rjaa+hUkSPvBMW1HmoL33GEZimRt5msvM9U5wgzrrl/tJPcATWzHod00QAbBsgWR
+	 Y75Ayt+zEc/hfrrYDSs3nVmd47J/I5tiK95DtgH9brJUNUPLpmLQloErFLKTRFJSIx3J+
+	 xY9gBfuWrfhVo5XwlYpcihOb7OQ6B9avksFyIDE9tvlkIQSqWuMgTnYQrZbeKqFkA3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ahmedabdelfattah.dev;
-	spf=pass smtp.mailfrom=send.ahmedabdelfattah.dev;
-	dkim=pass header.d=ahmedabdelfattah.dev header.i=@ahmedabdelfattah.dev header.a=rsa-sha256 header.s=resend header.b=XeGQB387;
-	dkim=pass header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=YvQPgaYY;
-	arc=none smtp.remote-ip=54.240.11.34
-Received: from a11-34.smtp-out.amazonses.com (a11-34.smtp-out.amazonses.com [54.240.11.34])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T5sA80UE;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6E56606A69B;
-	Tue, 24 Nov 2026 12:01:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6E56606A69B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ahmedabdelfattah.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=send.ahmedabdelfattah.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80F83606A31E;
+	Tue, 24 Nov 2026 12:02:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=ahmedabdelfattah.dev header.i=@ahmedabdelfattah.dev header.a=rsa-sha256 header.s=resend header.b=XeGQB387;
-	dkim=pass (1024-bit key, unprotected) header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=YvQPgaYY
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=resend;
-	d=ahmedabdelfattah.dev; t=1795521713;
-	h=In-Reply-To:References:From:To:Cc:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type;
-	bh=No9/JIXtRy979Z043SiqjeN22vYM1iefUiyNpdBFUIA=;
-	b=XeGQB387QqyyotW4raLdH/NfhVJS1kwcx941g9S+lI1l2jKG4BgxbG2f6CVdL5Wq
-	uobJocSKw47oB9by4OwaB4if4c9PD4vhSvKbbOUtmtrUS4BWS2Jp19+wAN/QGDVGLW/
-	eEANaS0wYxl5QBTEXlV765U/XY+7v4KszXz/uFV8=
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
-	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1795521713;
-	h=In-Reply-To:References:From:To:Cc:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type:Feedback-ID;
-	bh=No9/JIXtRy979Z043SiqjeN22vYM1iefUiyNpdBFUIA=;
-	b=YvQPgaYYTPn/f3sJVnAmWvnB2mIiUiuF5RbXCPhggLzvGiU576xAyDJ+Hbjne+kq
-	fwHlRuzX9Op37YFRiXEcfqD7urkL43893+ltRbvT705edzvlZ6m0bo/8e5P3Y7FF98y
-	6ZceJqtS47pGHNcvpj1Omm5J4ewB+kZy7QeirM1A=
-In-Reply-To:
- <CY8PR12MB729072D1314C6AAAA367C82BD1442@CY8PR12MB7290.namprd12.prod.outlook.com>
-References:
- <20261124-edac-mc-poll-msec-jiffies-v3-1-a377fda35aed@ahmedabdelfattah.dev>
- <CY8PR12MB729072D1314C6AAAA367C82BD1442@CY8PR12MB7290.namprd12.prod.outlook.com>
-From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
-To: "Qiuxu (Leo) Zhuo" <qzhuo@nvidia.com>
-Cc: Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>, 
-	linux-edac@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] EDAC/mc: Convert the poll period to jiffies when it
- is changed
-Message-ID: <010001a20d6f15fd-e5ecc215-ea74-486d-89ae-59638abd8a2b-000000@email.amazonses.com>
-Content-Transfer-Encoding: 7bit
-Date: Tue, 24 Nov 2026 12:01:53 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T5sA80UE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 681591F000C0;
+	Tue, 24 Nov 2026 12:02:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795521768;
+	bh=njjx8+oQtzyGAC1NugS2WX1liqLqjY/p8JrPnTCC5tw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=T5sA80UElmTUAuIRL5pUw6nY1Si5Bdm8QwlmsCPUJ/48JEa1fPf1cgtnLhmY55jC7
+	 AZvJ44RmX7x40HuogE96i423f6vu34ng8Ak6+7MykRRfxLVWjEZk4/c5/ipxkSlFbe
+	 nVJMjnjHL0GZ+vW36PdD8/RCuT1d86YiG1kP2q/1+nVqQQKiZqKAi8qT1uul7L7z5h
+	 JaLs/x6BNcvWdfLWok5RTLgp4A1J3qYZUOOVtv6K2LeFbbK32YI3op32Y8muACGY7e
+	 hunqr6LsGluVTI4NCdWJ58A4IvvJS86EZWBIHM+N+YaFL2iPUERBSQqqif9PtDSi3T
+	 xnh3yi+1YV9FQ==
+Subject: Re: [PATCH net-next v3 3/7] net: ethernet: oa_tc6: Add support for
+ MDIO indirect access
+From: netdev-bot+sashiko@kernel.org
+To: iustin.stolniceanu@analog.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, parthiban.veerasooran@microchip.com,
+ hkallweit1@gmail.com, linux@armlinux.org.uk, marcelo.schmitt@analog.com,
+ alvin.sipraga@analog.com, ciprian.regus@analog.com,
+ Selvamani.Rajagopal@onsemi.com, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Tue, 24 Nov 2026 12:02:46 +0000
+Message-ID: <179552176696.3135.1446966801724449711@kernel.org>
+In-Reply-To: <20261123115743.29523-4-iustin.stolniceanu@analog.com>
+References: <20261123115743.29523-4-iustin.stolniceanu@analog.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,28 +67,202 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Feedback-ID: :1.us-east-1.uCKvsN4fow5iTxhgdfCiLkD52dLS8e5zeZeNIHIyObThYgWj6io55JEpA9Lr59BibvMHOQwybONW0pi/CZ0koY1A1i17AG2yWEV8SeTaUDUkRN5zlcaoQEhviEafOoOqtPZhQs319GE3nsx7+JZeBdmAUyq6td6+kg0Qy2oXHvo=:1.us-east-1.pAEstvQcjyhQNKGKcgSlzI7SVR8ZSG5wSmKwiz/A8Dg=:AmazonSES
-X-SES-Outgoing: 2026.11.24-54.240.11.34
 
-On Tue, Nov 24, 2026 at 02:02:46AM +0000, Qiuxu (Leo) Zhuo wrote:
-> How about using delay_jiffies instead of jiffies?
-> This would avoid shadowing the global 'jiffies' and the associated W=2
-> warning.
->
-> The same applies to both the declarations and definitions.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Fine with me. It still says what unit the argument is in, and W=2 stays
-quiet.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-Boris, you asked for "jiffies" in the v1 review. Is delay_jiffies OK
-with you? I will wait for your answer and send v4 with the name you
-prefer.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-> Otherwise, this looks good to me.
->
-> Reviewed-by: Qiuxu Zhuo <qzhuo@nvidia.com>
+- [Medium] SPECULATIVE (this depends on MAC-PHY MDIOACC trigger semantics
+  that I could not check against the OA TC6 specification).
+- [Low] In indirect mode, oa_tc6_mdiobus_register()
+  (drivers/net/ethernet/oa_tc6.c:674) installs read_c45/write_c45, which…
 
-Thanks for the review.
+--
 
-Ahmed
+net: ethernet: oa_tc6: Add support for MDIO indirect access
+
+This patch reads STDCAP when the OA TC6 MDIO bus is registered. If direct
+PHY register access (DPRAC) is not supported but indirect access (IPRAC)
+is, the Clause 22 and Clause 45 MDIO operations go through the MDIOACC
+registers. On a turnaround error, reads return 0xffff so the PHY bus scan
+skips the address, and writes return -EIO.
+
+> diff --git a/drivers/net/ethernet/oa_tc6.c b/drivers/net/ethernet/oa_tc6.c
+> index c05480b7920ea..ca33df9f045eb 100644
+> --- a/drivers/net/ethernet/oa_tc6.c
+> +++ b/drivers/net/ethernet/oa_tc6.c
+
+[ ... ]
+
+> @@ -434,24 +435,149 @@ int oa_tc6_write_register_mms(struct oa_tc6 *tc6, u8 mms, u16 address,
+>  }
+>  EXPORT_SYMBOL_GPL(oa_tc6_write_register_mms);
+>  
+> -static int oa_tc6_check_phy_reg_direct_access_capability(struct oa_tc6 *tc6)
+> +static void oa_tc6_handle_link_change(struct net_device *netdev)
+>  {
+> -	u32 regval;
+> +	phy_print_status(netdev->phydev);
+> +}
+> +
+> +static int oa_tc6_mdioacc_wait_done(struct oa_tc6 *tc6, u32 *regval)
+> +{
+> +	int ret, err;
+> +
+> +	ret = read_poll_timeout(oa_tc6_read_register, err,
+> +				err || (*regval & OA_TC6_MDIOACC_TRDONE),
+> +				100, 30000, false, tc6, OA_TC6_REG_MDIOACC(1),
+> +				regval);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return err;
+> +}
+
+[ ... ]
+
+> -	return 0;
+> +static int oa_tc6_indirect_mdiobus_read_c45(struct oa_tc6 *tc6, int addr,
+> +					    int devnum, int regnum)
+> +{
+> +	u32 reg_val;
+> +	int ret;
+> +
+> +	reg_val = FIELD_PREP(OA_TC6_MDIOACC_OP, OA_TC6_MDIOACC_OP_ADDR);
+> +	reg_val |= FIELD_PREP(OA_TC6_MDIOACC_ST, OA_TC6_MDIOACC_ST_C45);
+> +	reg_val |= FIELD_PREP(OA_TC6_MDIOACC_PRTAD, addr);
+> +	reg_val |= FIELD_PREP(OA_TC6_MDIOACC_DEVAD, devnum);
+> +	reg_val |= FIELD_PREP(OA_TC6_MDIOACC_DATA, regnum);
+> +
+> +	ret = oa_tc6_write_register(tc6, OA_TC6_REG_MDIOACC(0), reg_val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	reg_val = FIELD_PREP(OA_TC6_MDIOACC_OP, OA_TC6_MDIOACC_OP_RD);
+> +	reg_val |= FIELD_PREP(OA_TC6_MDIOACC_ST, OA_TC6_MDIOACC_ST_C45);
+> +	reg_val |= FIELD_PREP(OA_TC6_MDIOACC_PRTAD, addr);
+> +	reg_val |= FIELD_PREP(OA_TC6_MDIOACC_DEVAD, devnum);
+> +
+> +	ret = oa_tc6_write_register(tc6, OA_TC6_REG_MDIOACC(1), reg_val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = oa_tc6_mdioacc_wait_done(tc6, &reg_val);
+
+[Severity: Medium]
+This one depends on how a MAC-PHY executes the MDIOACC frames. The code
+doesn't describe that, and I couldn't check it against the OA TC6
+specification, so this may well be fine.
+
+The ADDRESS frame is written to MDIOACC0 and the READ frame to MDIOACC1,
+in two separate SPI control transactions. Nothing waits for TRDONE in
+MDIOACC0, and oa_tc6_mdioacc_wait_done() only polls MDIOACC1.
+oa_tc6_indirect_mdiobus_write_c45() uses the same split sequence.
+
+For Clause 22, oa_tc6_indirect_mdiobus_read() and
+oa_tc6_indirect_mdiobus_write() write their only frame to MDIOACC1:
+
+	ret = oa_tc6_write_register(tc6, OA_TC6_REG_MDIOACC(1), reg_val);
+
+The adin1110.c driver uses the same register layout. It puts its single
+C22 frame in MDIOACC0 (ADIN1110_MDIOACC, 0x20) and polls that register.
+
+Suppose a MAC-PHY starts at MDIOACC0 and stops at the first entry that
+already has TRDONE set. Would a C22 frame written only to MDIOACC1 ever
+run? Would the C45 sequence stop after the ADDRESS frame, because MDIOACC1
+still has TRDONE set from the previous transaction?
+
+In that case oa_tc6_mdioacc_wait_done() would time out after 30ms. The
+error would propagate out of the C22/C45 bus scan, and mdiobus_register()
+and oa_tc6_init() would fail.
+
+On a MAC-PHY that runs one frame per register write, could the MDIOACC1
+write arrive while the ADDRESS frame is still on the wire?
+
+This sequence apparently works on the ADIN1110. The framework, though,
+claims support for any MAC-PHY that reports IPRAC. Would it be more robust
+to write both C45 frames in one burst with
+oa_tc6_write_registers(tc6, OA_TC6_REG_MDIOACC(0), vals, 2), and to use
+MDIOACC0 for C22 as adin1110.c does? That would also save one SPI transfer
+per C45 access.
+
+> +	if (ret)
+> +		return ret;
+> +
+> +	return oa_tc6_mdioacc_read_data(reg_val);
+>  }
+
+[ ... ]
+
+> @@ -533,8 +673,21 @@ EXPORT_SYMBOL_GPL(oa_tc6_mdiobus_write_c45);
+>  
+>  static int oa_tc6_mdiobus_register(struct oa_tc6 *tc6)
+>  {
+> +	u32 regval;
+>  	int ret;
+>  
+> +	ret = oa_tc6_read_register(tc6, OA_TC6_REG_STDCAP, &regval);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (!(regval & OA_TC6_STDCAP_DIRECT_PHY_REG_ACCESS)) {
+> +		if (!(regval & OA_TC6_STDCAP_INDIRECT_PHY_REG_ACCESS)) {
+> +			netdev_err(tc6->netdev, "MDIO direct/indirect access not supported\n");
+> +			return -ENODEV;
+> +		}
+> +		tc6->mdio_indirect_mode = true;
+> +	}
+
+[Severity: Low]
+In indirect mode, oa_tc6_mdiobus_register() still installs read_c45 and
+write_c45, and it doesn't set phy_mask. Does this make the phylib C45 bus
+scan very expensive over SPI?
+
+In direct mode, oa_tc6_mdiobus_read() ignores addr. The C22 scan fills
+mdio_map[] at every address, and mdiobus_scan_bus_c45() then skips all of
+them because they are already populated.
+
+In indirect mode, PRTAD is encoded, so the integrated PHY answers at only
+one address. __mdiobus_register() then runs the C45 scan over the other 31
+addresses:
+
+drivers/net/phy/mdio_bus_provider.c:__mdiobus_register() {
+    ...
+	prevent_c45_scan = mdiobus_prevent_c45_scan(bus);
+
+	if (!prevent_c45_scan && bus->read_c45) {
+		err = mdiobus_scan_bus_c45(bus);
+    ...
+}
+
+mdiobus_prevent_c45_scan() only blocks the scan for Micrel OUIs.
+
+At each empty address, oa_tc6_mdioacc_read_data() returns 0xffff on
+TAERR. get_phy_c45_ids() therefore sees devices-in-package as all ones and
+walks every MMD, which is about 62 indirect C45 reads per address.
+
+Each of those reads is an MDIOACC0 write, an MDIOACC1 write and at least
+one MDIOACC1 poll read, usually with a 100us sleep in read_poll_timeout().
+That comes to roughly 31 * 62 * 3, or more than 5,700 SPI control
+transactions during probe.
+
+adin1140.c sets phy_mask = GENMASK(31, 1) on its OA TC6 MDIO bus, and
+adin1110.c sets phy_mask = ~GENMASK(2, 0). Could the scan be limited with
+phy_mask here as well? Alternatively, could the C45 pass be skipped once
+the C22 scan has found the PHY?
+
+>  	tc6->mdiobus = mdiobus_alloc();
+>  	if (!tc6->mdiobus) {
+>  		netdev_err(tc6->netdev, "MDIO bus alloc failed\n");
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123115743.29523-1-iustin.stolniceanu%40analog.com
