@@ -1,65 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795527230;
-	b=k1p1OW+tmHbcbv5JL4Nh19SF9dtTGgGOpWBPP+xCkB3yFZLCXoLSSFAGcd0ejqX2dZpG
-	 vJ4rv2nl7AyTQMw0EdwfLXVg5UmLS6EiScWCTFnarJTNvvczkjqLcKg/m6QZ8Y5lhSq3c
-	 NmgWKKx88GYPpHXsqnbjrKvn102VPaMPYDDbMmsSnycuFIgEbT7SmvlZ0ytZqVKsKEVCx
-	 LWIMBdju0TkDWBOnDQAud4Jrtv4A90qf3EHriiKazFTyGnII/2np2qb3/TXwuIi8i2bGZ
-	 9o/cfRaFxayxvBiXS1WXEbi2gQ0BCg6z2qKOk3VrlpsOMOjxTMJ2COO6y4wIFq9gpcg==
+	t=1795527288;
+	b=Ez97wpyKwx6dG7gWIzwyRgV6OqR0tmrXj9S4c4cfOfO51i1bSgtVOw/EsBopmrMfrPKc
+	 CrQWcr7VjhJKe1qiDBIc1qDUzqiia+qGyvfMyO3xCY3HcTKgURRWtcGjdu13H5oKntdjN
+	 YLr+09EF9obiX+IbUtSdUdmn++K2gWAhDIP44MreziLhVcKIRxNSiIjg6tmEQWgst+IWN
+	 yOmQdXSJiMcyzpoo9FWLyHpcsUddT6rUrIPcSfiZCseipK6zDFAe5tEs/GCBjGr4gqtQq
+	 4X8cWFqiIH0W33IHjlGXc5hirnCa7+pI7hPCKFs8MBY6UEAaAnj9GTFP58qeTtP52HQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795527230;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Tw89vx+OifOo+5VNZiA+F3pyDNZVao5o60IiMpmo4FY=;
-	b=BTJjiOenvSCZ85tnc6RxN2W9qUmV4xDLUF534Ev4sxPbXcJwzfMq3vDk3B+sERXPHEtC
-	 sxRCo0ACsOdgWONxSUf5r2nhi8+Td7kdgDb9iBZUUsqP3pT9pVO6wtQduvY5VAOewsJfc
-	 +P28VfWOC6+0jYh2CwMFVDj4MKsvy951PgFtvUgrEpitk7mrBHP+rJcs5v4sFeNHbWIhI
-	 aC9LfQxL1MCKHYfnwZcLO0lybgk7dkXvdsdkPRFdHEXuOhLFY1vIJllMQgUS9pjEIorZx
-	 G+NcDmz5s0eOD3RtcPe1vDAee2XUKtrO9IwKGiGImQmD/Q/DixbYM+j8QB1oPIHGeYw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795527288;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
+	bh=HJW8lCu0LwjPi/yznQ1wwCg3MbHuP8qP0Yz0AXfMEvE=;
+	b=hJhkXJPS6+F1KVLQkathvXJzktprqgFVVyKsvxMCs1KmlickaRaJZrvFwlbOhHR4lXle
+	 6pAuNeiMySWI5uQ6NXHggGg2kSwqleGrMdt58AqEIKPt2f2VBa9n/QYlT4YmA0+06tko4
+	 g9V3ViHI0P2/FfCBHOwJZ4zgut9nDIPRpi9/wb5BjpImO7mckRpnXiO+bHQW1C1x2WVoS
+	 0ore1C7/53Isz5wAghzLG/L3uim8AlivC6MoxRO7fsJiqz/P6Z1i25uxwjesWdOW+YWWY
+	 qgpnmg8aKCZzqMP/kEAZi0Q28VdnoOfrLx9Wl18/F+QMsov/L2ro4LkaA0y/LvJZO1A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IbLPDnmg;
-	arc=none smtp.remote-ip=95.215.58.33
-Received: from mta1.migadu.com (out-33.mta1.migadu.com [95.215.58.33])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YD3R5opB;
+	arc=none smtp.remote-ip=74.125.82.178
+Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17B06606A33D
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:33:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17B06606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2A0C606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:34:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2A0C606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IbLPDnmg
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=BVwErX9fDWBYGSkb3De31XAysI9DwTvwsT449Emq5JU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795527228; v=1; x=1796132028;
- b=IbLPDnmgiIzI7ilKeR3N0vdgm8UN/zo5n1wx4Brht3Gi4oL3MdC+SOEcX1RpS+52Rk3QOYCo
- hgZnwEA84ocgELmAQpBkvClUvztuCgCgnLszwnRqaCCq/SUKCT9ZIaSQjIpruiUowk1BJjqslf9
- 6KlutfCbBB/Q4/3oIdEv7+L8=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 2cc7aee88a6dd40e;
-	Tue, 24 Nov 2026 13:33:48 +0000
-X-Mizu-Trace-ID: 2cc7aee88a6dd40e
-X-Migadu-Flow: FLOW_OUT
-From: Huiwen He <huiwen.he@linux.dev>
-To: Namjae Jeon <linkinjeon@kernel.org>,
-	linux-cifs@vger.kernel.org
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Tom Talpey <tom@talpey.com>,
-	ChenXiaoSong <chenxiaosong@chenxiaosong.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] ksmbd: retain unsent READ pages on the TCP send queue
-Date: Tue, 24 Nov 2026 21:33:30 +0800
-Message-ID: <20261124133331.1186589-1-huiwen.he@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124132554.1185817-1-huiwen.he@linux.dev>
-References: <20261124132554.1185817-1-huiwen.he@linux.dev>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YD3R5opB
+Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-38644aedba1so6950924eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:34:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795527287; x=1796132087; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=HJW8lCu0LwjPi/yznQ1wwCg3MbHuP8qP0Yz0AXfMEvE=;
+        b=YD3R5opBT1lfX98nfjXVonYPqAjoJ1aGohJMHLTBFpcr4UHbONARRICEYVLGlOo8Cv
+         G1LgOO/JBYMngyBCB1cPDz5seotwizoXNIcEFMnlGBVxXKUi4lNM+IQdZChID5m/DnYu
+         MXnPZauNzrYJp9ppjc7xuvLZLOf7dOTZKvYzBwNR8osRxRQIDpsM1YxwYcmPFBWDRQt4
+         DvRQ39IgNtAETWQW8v0h/GswGOkf02lijPSIIWpw8zp4i+m0lpqp2DO8DeYWpMTeT6d+
+         tNyLGRLHYPYHSorTbDrUt++XuHBFvbHrnNMjUXybA15x0Ry9z/sDzhjK1WLmxE/JKq1n
+         uJfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795527287; x=1796132087;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HJW8lCu0LwjPi/yznQ1wwCg3MbHuP8qP0Yz0AXfMEvE=;
+        b=ioNLeEujfsiTQSwwAZASrlAXwTbfS93aTxle8W8v8U+BYJD1nLiC/LD/ea8fguMNm0
+         ZWdJuDKlJeti6d97P8f+QjSF/7dunh0ju7hZq1aNXKrpgzKrE6Zyt4TPKo1Cq+BlLC1Y
+         XR7vq6FfmXDudrZ6nEFoeeX/GsFkISOuQhbjw1KHrB8V4umAy1vCLzsfFbiqSnhrNCp9
+         3/pLphtbzDlcoV6ztRu/t2gFkKbLm/fugc+rlNIv+32u4R+Ee9Wg4pqfrVz9qlUXigkO
+         xzttqhlu24Tl8MpSlc5T5CdboFlksv3a66TpdzoOrpvczU4N7eDwy/0fqWfKEeb4ygDH
+         WOgQ==
+X-Forwarded-Encrypted: i=1; AL+hErEOoln3SLk7oPUGLxGkIasUhdFI3SwYf4JSFONlIbhI6TNtkCyCaRgN9sHuv5rZINGSedBdFLg53svHyCE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9cjUNV567326ledKEDaZUBq3Ha3sx8AVROFNlhJkKsjL+36+nH
+	guqjk/+GaBFZ57taKcAJaTg/2D03o+JIaE3jycjikEWCnY/uau+GHqfs
+X-Gm-Gg: AZFdTZek+Q5M0JiVNqfJB9LmnjkpZ77vG0ZKddQ1FJ5uZ/9K1/dZXe3gAsHdYTY1TKy
+	cRXRnJcz7HEZVuIW+xhTE8stHg33ZNGR5JISmJRKvFxrURiPK4Mwh4znWIDndhHr0maEHVAmNBF
+	Rnb6m4FU/QvWL+/EgxzUCieuEy2rlqNWAV0AKSqDN6Vc81F2CUNbA7f+iz+fgnepVUtugdjjpNg
+	xwgsUdK3xXnaW/5t3RlZAnvtS0TDI/z0H/yXCpHUeNQOzPVBZAhQdvCEAcPA6NloPO62n+hoiFU
+	R8Gx8qFYZPoL9AVJ9Ip942xo9BirruJiTdXvTzoD8wDVEdS8oXoSq8/qr1lQBl2jdE91nOl83Tq
+	/Z3Dxs3BNok94Tk51Seec5ZUqOY3kd1MmFUvTSp4/qj8yR607vcLeYLdkiHl/vRuUmUrgmDstd8
+	vLvQMW/tKIMoenjFMWtkSnDcdHMlee/0s7ywTSHqDBtS210NKxKFxlhojmWhjPcJT6IlcPSOtFu
+	c0H3mK6LGEup4vI8csEA+l4V9IlWM11AnpwYFTNNalHcEsR9Sux/UxgbQADq+xAJwyU3fV2YIgw
+	W9fFnoTTAdd28Vy+6Y56gJln6tuxnjm7KHXzQA==
+X-Received: by 2002:a05:693c:8641:20b0:383:50b7:1d78 with SMTP id 5a478bee46e88-38571223ee7mr16750852eec.40.1795527286504;
+        Tue, 24 Nov 2026 05:34:46 -0800 (PST)
+Received: from [192.168.29.85] ([2405:201:8026:213e:1412:77ad:61f2:79f2])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd40c5sm54267035eec.10.2026.11.24.05.34.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 05:34:46 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,317 +88,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] rtnetlink: fix NULL pointer dereference in
+ rtnl_get_link()
+From: mdshahid03@gmail.com
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: mdshahid03@gmail.com, Jakub Kicinski <kuba@kernel.org>, 
+ davem@davemloft.net, edumazet@kernel.org, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <41103c9d-5c08-495a-b5b1-66fc15e2517e@redhat.com>
+References: <20261120134548.214126-1-mdshahid03@gmail.com>
+ <20261120100415.363fcb19@kernel.org>
+ <179525944307.361783.17801110279499293110.b4-reply@b4>
+ <250c2bb2-57d7-4f91-a32c-8f6ac7d55a46@redhat.com>
+ <179544969959.175192.4403952228876691788.b4-reply@b4>
+ <41103c9d-5c08-495a-b5b1-66fc15e2517e@redhat.com>
+Date: Tue, 24 Nov 2026 19:04:12 +0530
+Message-Id: <179552725231.187861.14163919455346118294.b4-reply@b4>
+X-Mailer: b4 0.16.0
 
-From: Huiwen He <hehuiwen@kylinos.cn>
+Thanks Eric and Paolo for the detailed explanation.
 
-When TCP accepts only part of a READ reply or an earlier reply is
-already queued, ksmbd copies the unsent bytes into a queue entry.
-TCP copies the payload again when the send worker runs.
+On 2026-11-24 09:56 +0100, Paolo Abeni wrote:
+> On 11/23/26 17:01, mdshahid03@gmail.com wrote:
+> > I think,I may have misunderstood this part from NET documentation guidelines:
+> > 
+> > "The commit message must disclose whether reproducing the issue required
+> > modifying the kernel (e.g. inserting a delay to widen a race, or[[**writing
+> > a loadable module to issue the right sequence of calls)**]] or using error injection."
+> > 
+> > I interpreted this as allowing a out-of-tree test module to produce
+> > an issue,provided that it uses legitimate kernel APIs.
+> 
+> Please do not top post.
+> 
+> The problematic point is the 'legitimate API'. Adding a delay under
+> a lock is legitimate, de-registring core functionalities is not.
+>
+> If you want to use a kernel module to demonstrate an 'issue', such module
+> must do exclusively things the kernel is already doing, it should just
+> enforces specific timing/sequence that must be already possible in vanilla.
+> 
+> And if the race is possible only with such a module, at very best the
+> issue will get low priority.
+> 
+> /P
+> 
+> 
+> 
 
-Keep references to the unsent payload folios and store any remaining
-header bytes in the queue entry. The worker sends the header first,
-then passes the pages to TCP with MSG_SPLICE_PAGES. Charge each folio
-in full against the queue limit and copy small tails that would keep
-a large folio pinned.
-
-Tested with fio sequential reads (16 jobs, QD32 per job) from a
-4-vCPU virtio-net guest. The Xeon Gold 6430 host had 128 logical CPUs
-and served a tmpfs share over SMB3.1.1. The "before" column includes
-"ksmbd: send READ payloads with MSG_SPLICE_PAGES".
-
-Channels  I/O       Throughput (MiB/s)        Host Gcycles/GiB
-                   before   after change    before   after change
-       1  4 KiB     284.2   281.6  -0.9%    28.576  28.265  -1.1%
-       1  64 KiB   2501.8  2524.8  +0.9%     4.552   4.284  -5.9%
-       1  256 KiB  3243.4  3414.6  +5.3%     4.511   3.497 -22.5%
-       1  1 MiB    3145.6  3435.5  +9.2%     3.578   2.425 -32.2%
-       4  4 KiB     454.2   454.9  +0.2%    24.338  24.377  +0.2%
-       4  64 KiB   4337.1  4448.3  +2.6%     2.977   3.000  +0.8%
-       4  256 KiB  6969.5  6938.8  -0.4%     1.932   1.916  -0.8%
-       4  1 MiB    7705.3  8255.6  +7.1%     2.673   1.746 -34.7%
-
-Signed-off-by: Huiwen He <hehuiwen@kylinos.cn>
----
- fs/smb/server/transport_tcp.c | 171 +++++++++++++++++++++++++++++-----
- 1 file changed, 149 insertions(+), 22 deletions(-)
-
-diff --git a/fs/smb/server/transport_tcp.c b/fs/smb/server/transport_tcp.c
-index ae7957ec3e04..8456ad35a5dc 100644
---- a/fs/smb/server/transport_tcp.c
-+++ b/fs/smb/server/transport_tcp.c
-@@ -4,9 +4,11 @@
-  *   Copyright (C) 2018 Samsung Electronics Co., Ltd.
-  */
- 
-+#include <linux/bvec.h>
- #include <linux/freezer.h>
- #include <linux/page_frag_cache.h>
- #include <linux/uio.h>
-+#include <linux/vmalloc.h>
- 
- #include "smb_common.h"
- #include "server.h"
-@@ -35,9 +37,15 @@ struct tcp_tx {
- 	struct list_head		list;
- 	size_t			len;
- 	size_t			offset;
-+	size_t			charge;
- 	unsigned long		deadline;
- 	int			msg_flags;
--	u8			data[];
-+	unsigned short		nr_vecs;
-+	unsigned short		header_len;
-+	union {
-+		DECLARE_FLEX_ARRAY(u8, data);
-+		DECLARE_FLEX_ARRAY(struct bio_vec, bvec);
-+	};
- };
- 
- struct tcp_transport {
-@@ -478,12 +486,104 @@ static int ksmbd_tcp_read(struct ksmbd_transport *t, char *buf,
- 	return ksmbd_tcp_readv(TCP_TRANS(t), &iov, 1, to_read, max_retries);
- }
- 
--static bool ksmbd_tcp_tx_has_space(struct tcp_transport *t, size_t size)
-+static bool ksmbd_tcp_tx_has_space(struct tcp_transport *t, size_t pdu_size,
-+				   size_t charge)
- {
--	size_t limit = max_t(size_t, READ_ONCE(t->sock->sk->sk_sndbuf), size);
-+	size_t limit = max_t(size_t, READ_ONCE(t->sock->sk->sk_sndbuf), pdu_size);
- 
- 	/* Allow one large response, but bound the retained response buffers. */
--	return READ_ONCE(t->tx_queued) <= limit - size;
-+	return charge <= limit && READ_ONCE(t->tx_queued) <= limit - charge;
-+}
-+
-+static void *ksmbd_tcp_tx_header(struct tcp_tx *msg)
-+{
-+	return msg->bvec + msg->nr_vecs;
-+}
-+
-+static void ksmbd_tcp_free_tx(struct tcp_tx *msg)
-+{
-+	unsigned int i;
-+
-+	for (i = 0; i < msg->nr_vecs; i++)
-+		folio_put(bvec_folio(&msg->bvec[i]));
-+	kvfree(msg);
-+}
-+
-+static struct tcp_tx *ksmbd_tcp_alloc_read_tx(struct tcp_transport *t,
-+					      const struct ksmbd_transport_write *tx,
-+					      size_t offset)
-+{
-+	struct kvec payload = tx->iov[2];
-+	size_t remaining = tx->size - offset;
-+	size_t payload_left = min(remaining, payload.iov_len);
-+	size_t header_left = remaining - payload_left;
-+	size_t charge = header_left;
-+	struct tcp_tx *msg;
-+	struct iov_iter iter;
-+	unsigned int i, max_vecs;
-+	unsigned short nr = 0;
-+	bool vmapped;
-+
-+	if (payload_left < PAGE_SIZE)
-+		return NULL;
-+	payload.iov_base += payload.iov_len - payload_left;
-+	payload.iov_len = payload_left;
-+	vmapped = is_vmalloc_addr(payload.iov_base);
-+	if (vmapped) {
-+		max_vecs = DIV_ROUND_UP(offset_in_page(payload.iov_base) + payload_left,
-+					PAGE_SIZE);
-+		if (max_vecs > USHRT_MAX)
-+			return NULL;
-+	} else {
-+		struct folio *folio = virt_to_folio(payload.iov_base);
-+
-+		/* A small unsent tail must not keep a much larger folio alive. */
-+		charge += folio_size(folio);
-+		if (get_order(payload_left) < folio_order(folio) ||
-+		    !ksmbd_tcp_tx_has_space(t, tx->size, charge))
-+			return NULL;
-+		max_vecs = 1;
-+	}
-+
-+	/* The unsent header follows the payload vectors in the queue entry. */
-+	msg = kvmalloc(size_add(struct_size(msg, bvec, max_vecs), header_left),
-+		       KSMBD_DEFAULT_GFP);
-+	if (!msg)
-+		return NULL;
-+	if (vmapped) {
-+		iov_iter_kvec(&iter, ITER_SOURCE, &payload, 1, payload_left);
-+		if (iov_iter_extract_bvecs(&iter, msg->bvec, payload_left, &nr,
-+					   max_vecs, 0, 0) != payload_left)
-+			goto fail;
-+		for (i = 0; i < nr; i++) {
-+			struct folio *folio = bvec_folio(&msg->bvec[i]);
-+
-+			if (get_order(msg->bvec[i].bv_len) < folio_order(folio))
-+				goto fail;
-+			charge += folio_size(folio);
-+		}
-+		if (!ksmbd_tcp_tx_has_space(t, tx->size, charge))
-+			goto fail;
-+	} else {
-+		bvec_set_virt(&msg->bvec[0], payload.iov_base, payload_left);
-+		nr = 1;
-+	}
-+
-+	msg->nr_vecs = nr;
-+	if (header_left) {
-+		iov_iter_kvec(&iter, ITER_SOURCE, tx->iov, 2, tx->size - tx->iov[2].iov_len);
-+		iov_iter_advance(&iter, offset);
-+		if (!copy_from_iter_full(ksmbd_tcp_tx_header(msg), header_left, &iter))
-+			goto fail;
-+	}
-+	for (i = 0; i < nr; i++)
-+		folio_get(bvec_folio(&msg->bvec[i]));
-+	msg->header_len = header_left;
-+	msg->charge = charge;
-+	return msg;
-+fail:
-+	kvfree(msg);
-+	return NULL;
- }
- 
- static struct tcp_tx *ksmbd_tcp_alloc_tx(const struct ksmbd_transport_write *tx,
-@@ -503,9 +603,9 @@ static struct tcp_tx *ksmbd_tcp_alloc_tx(const struct ksmbd_transport_write *tx,
- 		kvfree(msg);
- 		return NULL;
- 	}
--	msg->len = remaining;
--	msg->offset = 0;
--	msg->msg_flags = tx->msg_flags;
-+	msg->nr_vecs = 0;
-+	msg->header_len = 0;
-+	msg->charge = remaining;
- 	return msg;
- }
- 
-@@ -515,7 +615,7 @@ static void ksmbd_tcp_purge_tx(struct tcp_transport *t)
- 
- 	list_for_each_entry_safe(msg, next, &t->tx_queue, list) {
- 		list_del(&msg->list);
--		kvfree(msg);
-+		ksmbd_tcp_free_tx(msg);
- 	}
- 	WRITE_ONCE(t->tx_queued, 0);
- }
-@@ -526,6 +626,33 @@ static bool ksmbd_tcp_send_retry(int ret)
- 		ret == -ENOMEM;
- }
- 
-+static int ksmbd_tcp_send_queued(struct tcp_transport *t, struct tcp_tx *msg)
-+{
-+	struct msghdr hdr = {
-+		.msg_flags = MSG_NOSIGNAL | MSG_DONTWAIT | msg->msg_flags,
-+	};
-+	size_t offset = msg->offset;
-+	struct kvec iov;
-+
-+	if (!msg->nr_vecs) {
-+		iov.iov_base = msg->data;
-+		iov.iov_len = msg->len;
-+	} else if (offset < msg->header_len) {
-+		iov.iov_base = ksmbd_tcp_tx_header(msg);
-+		iov.iov_len = msg->header_len;
-+		hdr.msg_flags = (hdr.msg_flags & ~MSG_EOR) | MSG_MORE;
-+	} else {
-+		hdr.msg_flags |= MSG_SPLICE_PAGES;
-+		iov_iter_bvec(&hdr.msg_iter, ITER_SOURCE, msg->bvec, msg->nr_vecs,
-+			      msg->len - msg->header_len);
-+		iov_iter_advance(&hdr.msg_iter, offset - msg->header_len);
-+		return sock_sendmsg(t->sock, &hdr);
-+	}
-+	iov_iter_kvec(&hdr.msg_iter, ITER_SOURCE, &iov, 1, iov.iov_len);
-+	iov_iter_advance(&hdr.msg_iter, offset);
-+	return sock_sendmsg(t->sock, &hdr);
-+}
-+
- static void ksmbd_tcp_tx_work(struct work_struct *work)
- {
- 	struct tcp_transport *t = container_of(to_delayed_work(work),
-@@ -538,13 +665,6 @@ static void ksmbd_tcp_tx_work(struct work_struct *work)
- 	mutex_lock(&t->tx_lock);
- 	while (!READ_ONCE(t->tx_stopped) && !list_empty(&t->tx_queue) && budget--) {
- 		struct tcp_tx *msg = list_first_entry(&t->tx_queue, struct tcp_tx, list);
--		struct msghdr hdr = {
--			.msg_flags = MSG_NOSIGNAL | MSG_DONTWAIT | msg->msg_flags,
--		};
--		struct kvec iov = {
--			.iov_base = msg->data + msg->offset,
--			.iov_len = msg->len - msg->offset,
--		};
- 
- 		/* MSG_DONTWAIT bypasses sk_sndtimeo, including for retained PDUs. */
- 		if (time_after_eq(jiffies, msg->deadline)) {
-@@ -552,16 +672,18 @@ static void ksmbd_tcp_tx_work(struct work_struct *work)
- 			failed = true;
- 			break;
- 		}
--		ret = kernel_sendmsg(t->sock, &hdr, &iov, 1, iov.iov_len);
-+		ret = ksmbd_tcp_send_queued(t, msg);
- 		if (ret > 0) {
- 			msg->offset += ret;
- 			t->tx_sent += ret;
- 			if (msg->offset == msg->len) {
--				WRITE_ONCE(t->tx_queued, t->tx_queued - msg->len);
-+				WRITE_ONCE(t->tx_queued, t->tx_queued - msg->charge);
- 				list_del(&msg->list);
--				kvfree(msg);
-+				ksmbd_tcp_free_tx(msg);
- 				continue;
- 			}
-+			if (msg->offset == msg->header_len)
-+				continue;
- 		} else if (!ksmbd_tcp_send_retry(ret)) {
- 			WRITE_ONCE(t->tx_stopped, true);
- 			failed = true;
-@@ -682,7 +804,7 @@ static int ksmbd_tcp_writev(struct ksmbd_transport *t,
- 			mutex_unlock(&tt->tx_lock);
- 			return -EPIPE;
- 		}
--		if (ksmbd_tcp_tx_has_space(tt, tx->size))
-+		if (ksmbd_tcp_tx_has_space(tt, tx->size, tx->size))
- 			break;
- 		mutex_unlock(&tt->tx_lock);
- 		if (tx->msg_flags & MSG_DONTWAIT)
-@@ -693,7 +815,7 @@ static int ksmbd_tcp_writev(struct ksmbd_transport *t,
- 					READ_ONCE(tt->tx_stopped) ||
- 					ksmbd_conn_exiting(t->conn) ||
- 					ksmbd_conn_releasing(t->conn) ||
--					ksmbd_tcp_tx_has_space(tt, tx->size),
-+					ksmbd_tcp_tx_has_space(tt, tx->size, tx->size),
- 					timeout)) {
- 			/* A queued PDU may already have a prefix in the socket. */
- 			ksmbd_conn_abort(t->conn);
-@@ -719,7 +841,9 @@ static int ksmbd_tcp_writev(struct ksmbd_transport *t,
- 	}
- 
- 	/* The request buffers can be freed as soon as writev returns. */
--	msg = ksmbd_tcp_alloc_tx(tx, sent);
-+	msg = tx->splice_read ? ksmbd_tcp_alloc_read_tx(tt, tx, sent) : NULL;
-+	if (!msg)
-+		msg = ksmbd_tcp_alloc_tx(tx, sent);
- 	if (!msg) {
- 		if (sent)
- 			WRITE_ONCE(tt->tx_stopped, true);
-@@ -728,9 +852,12 @@ static int ksmbd_tcp_writev(struct ksmbd_transport *t,
- 			ksmbd_conn_abort(t->conn);
- 		return -ENOMEM;
- 	}
-+	msg->len = tx->size - sent;
-+	msg->offset = 0;
-+	msg->msg_flags = tx->msg_flags;
- 	msg->deadline = deadline;
- 	list_add_tail(&msg->list, &tt->tx_queue);
--	WRITE_ONCE(tt->tx_queued, tt->tx_queued + msg->len);
-+	WRITE_ONCE(tt->tx_queued, tt->tx_queued + msg->charge);
- 	queue_delayed_work(system_dfl_wq, &tt->tx_work, 0);
- 
- accepted:
--- 
-2.43.0
 
