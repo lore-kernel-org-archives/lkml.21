@@ -1,111 +1,129 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.25
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795515177;
-	b=APumEvXoZY5XY4i/BIW8DtTm/KJ6jvg3ksX/yWPnekzYB4STq9bmN9pv/AaL7rou8Zcc
-	 bH0w7V5lkprBzUWQ8qj+Ok2yAO8gfIEIiF0jr5OWtNGskPLeGNoV6GQy0uyN8vUTFQs9+
-	 nEkg/VvJRtNsJmyp5W+de7jlmpWgL12B1HnJSxglXUffkLpUHGe3qkhBKnjRiuhGgksJK
-	 kL+52fCg8OGQ9gXCDAl6e+ddnDTVBluCsEPgsckjr8laJChwM3dEitGHGFDPayp7FQTMc
-	 aBOUed8ej/t+ryZL/GlfgqkmamVq/gL1J5XjhHWwmG6ozruO3gBYPT5+FC6oY63NrTw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795515177;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=VKC+C8ybzGYMaCz02wqAguW/gdEv3GswSoOixLdvuEU=;
-	b=TJMaS3+x+hknfOzkW8AMX0mreu9HgVwqImehM8KaN0h25bhQY7brq+2zybjXreSKcYR5
-	 +uqL9oP64HcPCUsMv7AP1ceLId+YKW+jTgdPNjOWKJykxuWHFg6Hkp7UNz8iARVvHqsiB
-	 jxa4OgUz1dsHB5KySd9k/k0YpwAmSYSbGaTNt1904hQ7rfawQlTR6RgF4MDAzjnf929Uw
-	 Ni0ARbcOJQeNOgEcT2lsHkTEzPP3sUS9Y5SP1t2M46OVmFUCr2FuhVpIJwaWlIb1RF9AI
-	 xuCs4j8El/0CSu7qRTq9Jpn0fFBUdg0FPJmQ46LqocVcKUNAtcSYO7rhk1BO82mVNJw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=jabil.com;
-	spf=pass smtp.mailfrom=jabil.com;
-	dkim=pass header.d=jabil.com header.i=@jabil.com header.a=rsa-sha256 header.s=selector1 header.b=XpzPLph6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.25
-Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010025.outbound.protection.outlook.com [52.101.193.25])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795515209;
+	b=XAth3GFQI/gddR/XnvpggkjCP8i1WALqcj2haWUrUtIi5OF3JUgK2+i1uDRKRvtpOKrL
+	 ew/v9YQERpBfvYK9Fmpl3pAxw52nQOMsz6ZXUHMt5w6pw01sUTvNg7bNzOuF+Oe7R2dtG
+	 hd4wWk8OMl81VYlpklJrAYhORKXnPqOakJ6fLhgj2Z8dVRFbTpFcsaBWVMLIEXPwMPZXk
+	 t2aa9pm4zhoTOgCd3p8hsQfE0wEtQrSlDgFi6Q1QNuiYwCLdnqeKiGffGeBq3sopuZXTa
+	 OFLlX22P/Nb3UWCuG21no6m4n1K3On8kU1+tqvkUa7dNU4SRqzFDOucTQ25RHxmJL5w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795515209;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=jXZ6L78F6EFUbyACsiZAuSZsaiYj54Jynp+2S5EVBJ4=;
+	b=qW2mtM/DCaVVVx2ZsE46rWwZ3fKpGWfzGngjFNJqK3T8RCKd5JLZu/QQiRrgUoregXYC
+	 arhIGptBGF7EE5zS6LNu268PRrb0yFnha2Rs//1oa9OWoqGW+0z/rykXlIDFoBJfsg60v
+	 mwoEGQmPXmUBk8nOSYmsZOhodUrFg3JikWmRLZo1vTPxN1hhbgVLqVRTihJr0f4epw04t
+	 rDoIn+7XfTKrck8JbTd0fykk3V0LoUd/8JZqM1QQgM9/xAX1JR+gh4pvXbXEyo8eLKTWd
+	 RoLYW4XJ/bNBMTZlVjtPioeZgz5yW9DcPM33tS66ZghCwImhCs3KibO8l5YWFnoavZQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="iDNxg5/f";
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=dMVH+aDS;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72C26606A690;
-	Tue, 24 Nov 2026 10:12:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72C26606A690
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=jabil.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jabil.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB9DF606A330
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:13:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB9DF606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jabil.com header.i=@jabil.com header.a=rsa-sha256 header.s=selector1 header.b=XpzPLph6
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DzLf7IA+NwtlmnuMqCIBCL7m99pef9i1RrWpYsX/5ezyky4X836gwQ6nW3Qmgmhkxq8OyJB9GxUP6DR1VrehUwgpBWS5hv22FH0ool/IeXsTCv3Xt41wufW6tPXzcZkDLBqn2DiipvmDGaIN0aMNtzBJjYZ5ye/q91nHSGy03+C/2Picet452LVqaqlfnpAbwunyl/RGqPsw9L0eYa4C4QfWXZ2BWJd6X+hH0SVh3DKRiUWGVlf26SSH7j5QzMw5H5QFnhrVla0V9KX8DYGcSQnFA5uEUeSVn7X8P57arPYMZO7r+mSuQ0RqQ34meq8Gr4HbDxhEC1KxMC/AZkRwoA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VKC+C8ybzGYMaCz02wqAguW/gdEv3GswSoOixLdvuEU=;
- b=Ie0MEOe7nEP9cbCDgRR778UilL7JXVzXQFRAbC3EOOl/NuGZ5hxHxEnH9tkqXk3TS3tmPHuW8+78BGCYYVbOkasiIHBJAZPvkzpZKqm+5D+dPQh1fPiaICg3XIS5PZUeHnX5LCpjvbWRgpf3moMDbO8lvw1xZFqRUVGJHgpYBX/or7ociwduR4kskM35Nxob5qd58Efa5XiR0tVrITsbpnaqWDoo8jABM5kO+GOHLS6PAFcReQD7P48s2w4FPZaAP87Ov5rBN9e21P5BN6x6iSDB7wFMCaWqLvx1rn0KgVnJtliqV0rbxjpiyYvcL32IARh/qBeucD9i9OED/QfBIw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 69.31.5.41) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=jabil.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=jabil.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jabil.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VKC+C8ybzGYMaCz02wqAguW/gdEv3GswSoOixLdvuEU=;
- b=XpzPLph6ZKN46vOXXiDqTh9+6D5PEsgD1poosT9B9RsfKzwOnY+d/fULN5BpoT9s2sDJZlpxLQJz8wDp5EdYnuZ95bvNxzrBJ2ucY8RgqvhaRZTri6cdtkhQfLPP2eHcb2nNNxxg9ip3WquYszr3SPZx3bMvUVAtKQQ7lM46pNQglzxraHiOJ6khzeYF4HKCmmxEbV/vmzab9nOOyL7JtMRWCS2YdoRVcpai85ZrT053S3Q/a8qO3yB1IHbvsyYkvqG25+1M+MsVSSktNEMHveSLdyFUYA65vM6+TcxR9aHKYWL54Hhfrxc24M6trjhHp04lxYZ7a7qr0f4PzwCEFw==
-Received: from MN0PR02CA0012.namprd02.prod.outlook.com (2603:10b6:208:530::9)
- by PH0PR02MB8470.namprd02.prod.outlook.com (2603:10b6:510:10e::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 10:12:43 +0000
-Received: from IA0PEPF00000039.namprd03.prod.outlook.com
- (2603:10b6:208:530:cafe::6f) by MN0PR02CA0012.outlook.office365.com
- (2603:10b6:208:530::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.6 via Frontend Transport; Tue, 24
- Nov 2026 10:12:43 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 69.31.5.41) smtp.mailfrom=jabil.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=jabil.com;
-Received-SPF: Pass (protection.outlook.com: domain of jabil.com designates
- 69.31.5.41 as permitted sender) receiver=protection.outlook.com;
- client-ip=69.31.5.41; helo=jabil.com; pr=C
-Received: from jabil.com (69.31.5.41) by
- IA0PEPF00000039.mail.protection.outlook.com (10.167.249.70) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 10:12:42 +0000
-Received: from USPLND0HUB81.staging.JABIL.ORG (10.11.24.250) by
- USASHC0HUB02.corp.JABIL.ORG (10.11.24.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.49; Tue, 24 Nov 2026 05:12:41 -0500
-Received: from USASHC0HUB02.corp.JABIL.ORG (10.11.24.125) by
- USPLND0HUB81.staging.JABIL.ORG (10.11.24.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Tue, 24 Nov 2026 04:12:41 -0600
-Received: from 0BMCAMI.corp.JABIL.ORG (10.11.27.252) by
- USASHC0HUB02.corp.JABIL.ORG (10.11.24.125) with Microsoft SMTP Server id
- 15.2.2562.49 via Frontend Transport; Tue, 24 Nov 2026 05:12:38 -0500
-From: Kenny Hsieh <kenny_hsieh@jabil.com>
-To: <netdev@vger.kernel.org>, Jeremy Kerr <jk@codeconstruct.com.au>, "Matt
- Johnston" <matt@codeconstruct.com.au>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, <stable@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH net v5] mctp i2c: fix double free of midev on netdev register failure
-Date: Tue, 24 Nov 2026 18:12:37 +0800
-Message-ID: <20261124101237.3884438-1-kenny_hsieh@jabil.com>
-X-Mailer: git-send-email 2.50.1
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=iDNxg5/f;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=dMVH+aDS
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO8WG584128898
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:13:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=jXZ6L78F6EFUbyACsiZAuSZs
+	aiYj54Jynp+2S5EVBJ4=; b=iDNxg5/fCzrJEN/fr6lSGglP+NKGiUTg0bHDgGbZ
+	oPvkxENj907CBnVb1tk4xGoAxAiY+79qAGhwrz1hkyrWqfC8oFUGSkHmrZ3/eGfM
+	WzDlAKgin54Y9sGk9CmLcFxiKNfkiI3K2rl9+d801pKme6OnqQ1KZJi8HRE7UgSM
+	dq7VCm9S+YK6f/zQgWJaSeOnhPfqKPSoZR9HtIstrS1pCDeeLLEL6MMNi82hDyGB
+	W4ARPa8jv9Anpp6sji9UegFduGckSPRAUMCpgRPB43O8SsGg/8BLdMpNQyKc1waX
+	98BfDijfjQViMKvKsekqkLTLYNkJTSxrWcCnfnSPqfOpyA==
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4yyt25cs-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:13:24 +0000 (GMT)
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-3854627c1c8so6443989eec.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:13:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795515203; x=1796120003; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=jXZ6L78F6EFUbyACsiZAuSZsaiYj54Jynp+2S5EVBJ4=;
+        b=dMVH+aDSmOzOrv5taCHA3lxNcXLLrnBm22QohViRryiui61PbKHDboJ2yeIPhi9YlE
+         KaAkGX82o5ET9dBT2gmYhKVyxk+0uGb0hQSRj2rtV96VJ22fe0tdzg9S/uWDRopPzNGn
+         HOA64U2DvRq/Hif9HweGMzmnJEHTzUBztwy7Xat9rvB2HLsWP4v+w+872K9gJfyxOleV
+         2yVQjxT4RCbrEPqlQTu54pn8J5Lo6Cdl5rIlAQNvf1IOFA4pQnKifxoGdjOPoVSwMvWA
+         6+dvu/P4xDNl1rFS8+L/PbRV+1TRAIj+i1Rc8Fo1kxK/CMteSSdItAlM9htP/tsI3vy8
+         dimQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795515203; x=1796120003;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jXZ6L78F6EFUbyACsiZAuSZsaiYj54Jynp+2S5EVBJ4=;
+        b=SeeAGe2wybx9/vN72+BjmSiwlmnNjhYPbnSSjnnDhBGyId35bXDdXHnNLKjutznpcr
+         doHGu08mUb+kd9wjONqj4ZNVxxgs7YaEtl03sE9pT6S4AnOXTR2REf9C3FrPKxrdT8tA
+         d7KyCBgXkwRHmFSHsbwyIgPsO4chX4iHb04ETHCVKms2nWGRfQI6v+KwEm+Q6uGXX59S
+         ovJna30S0hCCCeGujaoWjwEzHcIwEKRRjxNxxNVmEpDUYsuHbbN/nQskGMNaXlbkezvd
+         nw20j6S1xuL6EMoZqRRlcDad19Xx+eMK1QjVmnnYwQjvcDABSu2F7pkl5CCTxqcZKNGA
+         LYNw==
+X-Forwarded-Encrypted: i=1; AL+hErH5F+eEs2dM2Mhg/VZ2wqeZij8/vapuxIbi+GQycZ6+x1HJaIyhE5kyju4lyAhlBfZW+EUey/kyLPo1l+k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Z3994Pk8ZvmIT7vfZCC/iVm7neX89LMDoqdImNBUITB8QNIRI
+	FLPFGb4HU/T7Uf9BxIS/UQVJYcrRZK735+mB4+GetL+x5BMS60gcn4raaM1YahcYzyOcr1Ld3Cz
+	R7kvZldHhk2PAK5xfuU+/4H72PSe8S6hfzCFOnXcOJ7R42oq2qgx0M+etxJEjt6ZMSac=
+X-Gm-Gg: AZFdTZfFpuCND7cIVBdPpbu9cGAdXjC8IzR0Pc7tIwA2QEwyF96VFrXT4HUEwMGlFuq
+	Svw1VM32VpwdS1x7oiwd6q9fD2v092avluFV956OyHb4iybn7+hU3KIcYUMOtt9bl/4JrXOds5f
+	WtNvV8D5s2BIjRa5rtZyfIHh/o+nalEpm7nNkBKbQM9gUsBpx36e4RxB98aA3hMV6XDqJAX+fYd
+	fDOoKB4JOgNeyLUcEo1Z86FeHZ1Q5iGNI/FgCzKrQxEE/57abV8sSDGnRkd1xsbeaWoy0Otu2Zw
+	MsQL/lKoiMjrksAcVBXipFzfMJgKwa6LP2b9irSC1qWyM/5DbCP8OTpGhouewbXUQLxJlWU5GrE
+	JWrEOgiWXkpIx4z4HT8Nwt2vS80WSK0uXpV9Vd0hhIAJxFl8hy8dNVODtWIt719Ri94EOZKs4bQ
+	Ql
+X-Received: by 2002:a05:7301:259a:b0:36e:800a:71fe with SMTP id 5a478bee46e88-3856c4b844cmr14143848eec.1.1795515203352;
+        Tue, 24 Nov 2026 02:13:23 -0800 (PST)
+X-Received: by 2002:a05:7301:259a:b0:36e:800a:71fe with SMTP id 5a478bee46e88-3856c4b844cmr14143814eec.1.1795515202730;
+        Tue, 24 Nov 2026 02:13:22 -0800 (PST)
+Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386992b404bsm32189994eec.1.2026.11.24.02.13.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 02:13:22 -0800 (PST)
+Date: Tue, 24 Nov 2026 15:43:13 +0530
+From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+To: Komal Bajaj <komal.bajaj@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Kumar Patro <bibek.patro@oss.qualcomm.com>,
+        Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+        Luca Weiss <luca.weiss@fairphone.com>,
+        Shawn Guo <shengchao.guo@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-remoteproc@vger.kernel.org
+Subject: Re: [PATCH v7 2/5] dt-bindings: remoteproc: qcom,shikra-pas: Add
+ iommus constraints
+Message-ID: <20261124101313.vezsh4klcxcklg2a@hu-mojha-hyd.qualcomm.com>
+References: <20261120-shikra-el2-v7-0-9d9000eb50d4@oss.qualcomm.com>
+ <20261120-shikra-el2-v7-2-9d9000eb50d4@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,213 +133,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PEPF00000039:EE_|PH0PR02MB8470:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0d450710-eadb-42e6-9b64-08df4a1379fc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|36860700016|376014|7416014|1800799024|82310400026|10067099003|11063799006|5023799004|56012099006|261021121427099003|261026121527099003|261026140227099003|261022105027099003|261022075727099003|261021123027099003|261102123227099003|261028144727099003|261009223027099003|18002099003|6133799003|13003099007;
-X-Microsoft-Antispam-Message-Info:
-	Ge91guC5V7IRtds0871ez9gH2m3lgrjoQBQmjscSeB/K65q5rWG1oOwDwV9bvNVr5izvvM6y6Sa3/FCO5UFa16Af4lnu6xZQdzP/pL2VmTn4sS3pw+9eT2cxmcNcetz7GZ8Bjkd7Z9It0aPr0sS9CIBf/nnlovvj0kp8P2hYWcZxmEL48EW3Xj6c/iica0D4tAUHpNEFCS1L7cQTblE3fqBhMTByOu1l/BuFMfazhGxsFvaclpsHVslOmg9w2SaZE17ttz+NrYuKJTVFhwPOPEyLIw3RXVFoGhZF3gjjlYzlZYyhfCOEzV3RJctv/lIaydzlwBjb6sxaS4ZM6nMhCwVEHLkTA5TT+NdO4s/eUpFsfZaerylMb55nhOIwpypGvP04HpBu9CfY4DvhEn/kYhFTu18iWmWjfGHkbSdUCh3dVQxL3JMrhJAWP0PoOaJ1KI10Fpk+8/UgJQD4H+tK3Y6UZkrQY/d50TNtbgmMtwvyCVxKN0latfwELww18gPrhm/9GTKRT9qIPEY8NRVA/stuHqy58uiSgbqY0KoI/hnIvmW/Cs62wc0j1oa4cCsXeCXNd0G1P6bDPcloFC2JgAEVjec4UgVsSkfErM1baZlaqEOiPJaltfHyZRuV9Dhpb6K6k/oEZiIM129I4/WQaQ==
-X-Forefront-Antispam-Report:
-	CIP:69.31.5.41;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:jabil.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(376014)(7416014)(1800799024)(82310400026)(10067099003)(11063799006)(5023799004)(56012099006)(261021121427099003)(261026121527099003)(261026140227099003)(261022105027099003)(261022075727099003)(261021123027099003)(261102123227099003)(261028144727099003)(261009223027099003)(18002099003)(6133799003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	5tkS5sXWcN06Qg5orNCDzZTseyaA9O+UFO+eMGtFrjVSK8MqX7mZnM/tKje4EZVA9jerirKfxOfKAtU9hspe92zORN3lgYbLau7Kfl+VTxdutBq3rMezFe88mwyV1O+oUAIP3/gfQpKQ2pnzc/Zdl8CxA/MnZrVgKu+gOL/LS2V6Lw3dcXDA7dYGw7OpV73pQXMagRWPkJz7FrVVwr+l4byRoal/LV2h/Qo6vsDhuaOr6TjyF8XtkO36/PdqSViePVFZjQIsruMlub6DxXMNWm0qCxWfwdNnCa93xLaSYoAQi1c2UtmQvvF8Ad84zxhkCMllowVlrxzVKMrnnLUcRpFrv2UAS/Q6kLUO5e2YFm+4aQYbetJJi55bb8QMBTtBJG1XKjmir19aeueNOUqNU/orvcwxB9b/p+AkDcxKQXInlM2w496XMsnkxq6q3Jgf
-X-OriginatorOrg: jabil.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 10:12:42.1185
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0d450710-eadb-42e6-9b64-08df4a1379fc
-X-MS-Exchange-CrossTenant-Id: bc876b21-f134-4c12-a265-8ed26b7f0f3b
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bc876b21-f134-4c12-a265-8ed26b7f0f3b;Ip=[69.31.5.41];Helo=[jabil.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	IA0PEPF00000039.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR02MB8470
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120-shikra-el2-v7-2-9d9000eb50d4@oss.qualcomm.com>
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAzOSBTYWx0ZWRfX9sUqRr9/SvQp
+ ug/aw889OoBRkAFLi/rNlQTJlwtMNKh2bXyJQXiA+oy0AnawRwQuPgwnlrOWy0xYKii/JxLghca
+ 70BFMGJ9E1N+slTgywdtO1FGqoG7lp0=
+X-Proofpoint-GUID: DURtDRQKdqXTNVc8iMebUlAIPLhGzBuF
+X-Proofpoint-ORIG-GUID: DURtDRQKdqXTNVc8iMebUlAIPLhGzBuF
+X-Authority-Analysis: v=2.4 cv=W9OtxhWk c=1 sm=1 tr=0 ts=6b056344 cx=c_pps
+ a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=EUspDBNiAAAA:8 a=FHuKVeeB07r6xee7kg0A:9 a=CjuIK1q_8ugA:10
+ a=6Ab_bkdmUrQuMsNx7PHu:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAzOSBTYWx0ZWRfX4mkY3HaIPRPw
+ p5aomcLUXU20gMl0UddyEvrC3ZQQQvg2MdMsPXn4IVVqruIq1UZi6N+WRPZHmU1FWx8+CooAnWX
+ lroHNM29EEBESEZhvTb5cZrJ22WtN/W54NCxngV2VcmgVdQCD1b8MNQdl4+DWCnh5pHsiLKf41X
+ V0p6LV/nktRe6PoYkoElSAeZ19hYEQUcnwOywzCgvZ5VqfAYxKIOehWf3NhWx+AsQ50zcEMU2uB
+ sGrd/2Ezv4FETLgejIQ5eF1dToIyRHLxikmrh1ORETKhute3dffiKbtUOSz/nQd7EfExnYP7eGN
+ oTMJmurqLxl94GD7iFYtcF9OSIz9WiXQ9Drzx6cZFzuGbfVCX7j/H8FdhAUI1YxUbazZbyK15xD
+ mzW1UGQ4jxufNzfcQcYQUWss7C6U784dyEjOKoKOb7dLQ39NYcQ+NXxzY2h+UrDJcfn2mYnV6M7
+ 0ERk5eXXRz27xjIclhQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 suspectscore=0 phishscore=0 priorityscore=1501 spamscore=0
+ malwarescore=0 bulkscore=0 adultscore=0 clxscore=1015 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240039
 
-mctp_i2c_add_netdev() frees midev if mctp_register_netdev() fails, but
-register_netdevice() may already have freed it through ndo_uninit,
-mctp_i2c_ndo_uninit(). midev is then freed twice: list_del() runs on a
-poisoned entry, and the adapter and client lose a second reference.
+On Fri, Nov 20, 2026 at 06:50:50PM +0530, Komal Bajaj wrote:
+> The number of IOMMU streams used by a remote processor is not necessarily
+> limited to one. On Shikra, LPAICP uses three streams, while CDSP uses one
+> and MPSS does not use any. The existing single-entry limit therefore cannot
+> describe the LPAICP firmware streams.
+> 
+> Increase the maximum number of iommus entries to three and constrain it per
+> compatible: require three entries for qcom,shikra-lpaicp-pas, allow only
+> one for qcom,shikra-cdsp-pas, and disallow the property for
+> qcom,shikra-mpss-pas.
+> 
+> Signed-off-by: Komal Bajaj <komal.bajaj@oss.qualcomm.com>
 
-Free midev only where it was set up: in the add_netdev() error path,
-and in mctp_i2c_unregister() before free_netdev().
+Reviewed-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
 
-ndo_uninit no longer frees midev. It still stops the tx thread, drops
-mcli->sel's reference and purges tx_queue before the core waits for
-the last netdev reference, also when a NETDEV_REGISTER notifier
-fails, and each step is safe to repeat.
-
-Freeing after unregister exposes two more things the old order hid.
-Flows released while the netdev unregisters queue the unlock marker,
-which is embedded in midev and must not reach kfree_skb() through the
-purge, so the purge takes the marker off and splices the queue out
-under one hold of the queue lock. And the bus lock, an rt_mutex taken
-by the tx thread, was released by whoever called kthread_stop(); the
-tx thread now drops it itself before exiting.
-
-The double free was pointed out by the Sashiko AI review of a pending
-mctp-i2c change, as a problem that predates it. None of this was hit
-on hardware: it takes a late register_netdevice() failure, or a flow
-key race during unregister.
-
-Suggested-by: Matt Johnston <matt@codeconstruct.com.au>
-Fixes: f5b8abf9fc3d ("mctp i2c: MCTP I2C binding driver")
-Closes: https://lore.kernel.org/netdev/179239912623.3135.11352652156626817288@kernel.org/
-Cc: stable@vger.kernel.org
-Assisted-by: Claude:claude-opus-5-5
-Signed-off-by: Kenny Hsieh <kenny_hsieh@jabil.com>
----
-v5:
- - Take the unlock marker off and splice tx_queue out under one hold of
-   the queue lock. With two holds, release_flow() could queue the marker
-   again in between, and the purge would kfree_skb() it. Found by
-   Sashiko on v3.
- - Dropped the unlock_reset() in mctp_i2c_midev_free(). The tx thread
-   already drops the bus lock when it stops, so it did nothing.
- - Dropped the early detach in mctp_i2c_unregister(), added in v2.
-   ndo_uninit does it before the refcount wait, so sel is now moved at
-   the same point as upstream.
- - Stop the tx thread at the start of ndo_uninit. On a failed
-   register it was still running, and could select midev again after
-   the detach, keeping a netdev reference that blocks the unwind.
-   Found by Sashiko on v4.
-
-v4: https://lore.kernel.org/netdev/20261119094307.3864679-1-kenny_hsieh@jabil.com/
-v3: https://lore.kernel.org/netdev/20261118090515.3390034-1-kenny_hsieh@jabil.com/
-v2: https://lore.kernel.org/netdev/20261027053715.1623087-1-kenny_hsieh@jabil.com/
-v1: https://lore.kernel.org/netdev/20261022031704.2295541-1-kenny_hsieh@jabil.com/
-
- drivers/net/mctp/mctp-i2c.c | 76 +++++++++++++++++++++++++++----------
- 1 file changed, 56 insertions(+), 20 deletions(-)
-
-diff --git a/drivers/net/mctp/mctp-i2c.c b/drivers/net/mctp/mctp-i2c.c
-index b02476d338bbf..ef095028143a8 100644
---- a/drivers/net/mctp/mctp-i2c.c
-+++ b/drivers/net/mctp/mctp-i2c.c
-@@ -628,8 +628,11 @@ static int mctp_i2c_tx_thread(void *data)
- 	unsigned long flags;
- 
- 	for (;;) {
--		if (kthread_should_stop())
-+		if (kthread_should_stop()) {
-+			/* Only the rt_mutex owner may release the bus lock */
-+			mctp_i2c_unlock_reset(midev);
- 			break;
-+		}
- 
- 		spin_lock_irqsave(&midev->tx_queue.lock, flags);
- 		skb = __skb_dequeue(&midev->tx_queue);
-@@ -782,32 +785,59 @@ static struct mctp_i2c_dev *mctp_i2c_midev_init(struct net_device *dev,
- 	return midev;
- }
- 
-+/* Removes midev from the parent i2c client and moves sel off it.
-+ * Safe to call more than once.
-+ */
-+static void mctp_i2c_midev_detach(struct mctp_i2c_dev *midev)
-+{
-+	struct mctp_i2c_client *mcli = midev->client;
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&mcli->sel_lock, flags);
-+	if (list_empty(&midev->list)) {
-+		spin_unlock_irqrestore(&mcli->sel_lock, flags);
-+		return;
-+	}
-+	list_del_init(&midev->list);
-+	if (mcli->sel == midev) {
-+		struct mctp_i2c_dev *first;
-+
-+		first = list_first_entry_or_null(&mcli->devs, struct mctp_i2c_dev, list);
-+		__mctp_i2c_device_select(mcli, first);
-+	}
-+	spin_unlock_irqrestore(&mcli->sel_lock, flags);
-+}
-+
-+/* The unlock marker is embedded in midev, so keep it from kfree_skb() */
-+static void mctp_i2c_tx_purge(struct mctp_i2c_dev *midev)
-+{
-+	struct sk_buff_head tmp;
-+	unsigned long flags;
-+
-+	__skb_queue_head_init(&tmp);
-+	spin_lock_irqsave(&midev->tx_queue.lock, flags);
-+	if (midev->unlock_marker.next)
-+		__skb_unlink(&midev->unlock_marker, &midev->tx_queue);
-+	skb_queue_splice_init(&midev->tx_queue, &tmp);
-+	spin_unlock_irqrestore(&midev->tx_queue.lock, flags);
-+
-+	__skb_queue_purge(&tmp);
-+}
-+
- /* Counterpart of mctp_i2c_midev_init */
- static void mctp_i2c_midev_free(struct mctp_i2c_dev *midev)
- {
- 	struct mctp_i2c_client *mcli = midev->client;
--	unsigned long flags;
- 
- 	if (midev->tx_thread) {
- 		kthread_stop(midev->tx_thread);
- 		midev->tx_thread = NULL;
- 	}
- 
--	/* Unconditionally unlock on close */
--	mctp_i2c_unlock_reset(midev);
--
- 	/* Remove the netdev from the parent i2c client. */
--	spin_lock_irqsave(&mcli->sel_lock, flags);
--	list_del(&midev->list);
--	if (mcli->sel == midev) {
--		struct mctp_i2c_dev *first;
-+	mctp_i2c_midev_detach(midev);
- 
--		first = list_first_entry_or_null(&mcli->devs, struct mctp_i2c_dev, list);
--		__mctp_i2c_device_select(mcli, first);
--	}
--	spin_unlock_irqrestore(&mcli->sel_lock, flags);
--
--	skb_queue_purge(&midev->tx_queue);
-+	mctp_i2c_tx_purge(midev);
- 	put_device(&midev->adapter->dev);
- 	put_device(&mcli->client->dev);
- }
-@@ -828,7 +858,7 @@ static void mctp_i2c_unregister(struct mctp_i2c_dev *midev)
- 	wait_for_completion(&midev->rx_done);
- 
- 	mctp_unregister_netdev(midev->ndev);
--	/* midev has been freed now by mctp_i2c_ndo_uninit callback */
-+	mctp_i2c_midev_free(midev);
- 
- 	free_netdev(midev->ndev);
- }
-@@ -837,11 +867,17 @@ static void mctp_i2c_ndo_uninit(struct net_device *dev)
- {
- 	struct mctp_i2c_dev *midev = netdev_priv(dev);
- 
--	/* Perform cleanup here to ensure that mcli->sel isn't holding
--	 * a reference that would prevent unregister_netdevice()
--	 * from completing.
-+	/* Stop tx first, or it can select midev again after the detach */
-+	if (midev->tx_thread) {
-+		kthread_stop(midev->tx_thread);
-+		midev->tx_thread = NULL;
-+	}
-+
-+	/* Drop sel's reference and queued skbs before unregister waits
-+	 * for the last netdev reference. midev is freed elsewhere.
- 	 */
--	mctp_i2c_midev_free(midev);
-+	mctp_i2c_midev_detach(midev);
-+	mctp_i2c_tx_purge(midev);
- }
- 
- static int mctp_i2c_ndo_open(struct net_device *dev)
 -- 
-2.50.1
-
+-Mukesh Ojha
