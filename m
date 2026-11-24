@@ -1,89 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795513996;
-	b=J/XxJvVkue0pzouLhdSIEmKTjPpntzkggWwIQ6hJRTH2rRdV4atwpp/xfEUTlQsyF23I
-	 tgOyd5Kc5tk9cl703aA8zG8uWnjoxxMYvPmglBosAaHg82VipUAMgVnaOXjMmZzeUeDev
-	 hrELMTLqdT+PHDICyi+9OSCdZVAqTXWgXzt2wbl6FOoNeqRMU7dKO6NVfgj1+v/rdY3XQ
-	 xVLhAof40aG7P+bsSHOnuYufcmb7rWI/VjRgrZ2qXWZvoskGPCoh2NBYHbXw90OB31vKl
-	 jCIVnTDYC+pcL8gOH6t6Xzd3EGwnvseVu+nd3vioX+esygQoN8xP/GjayJRz42piVpA==
+	t=1795514003;
+	b=zPuO/OIfTOVcnh7BRDWqJZeMg/XMkZZK3eqsFKS9D85iYuW0jHVQZrpxBVKJW/7CGCFX
+	 Hnwk4l0I4KjkVZVwdUnjG5Cn6GCluF3YvJzI/0bwLRU0LC1Jsa6Ji9q0xjGPaVs5AX8uR
+	 /h/yEvq8H5dWq+u/5Kt9yxljbbPrb/NPU+ZqJllASCaNNsqdoilkdofGHxsGWR1NlXOcG
+	 axyBTpRBAfJhPR93ShJPpQTIi8i7b6wl/rnQ3FUa21M1IfaYzH5gAKaTI8/RqNeElVRea
+	 BUFhJ+tWwMHXmvtEAoHZT1TLmM3M761Bd9vawFVcSVdSgkNVWTgH4s3rFrshv/vOMIw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513996;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=s3HEy2luFzOKtpXEMJaCVU6qsnBsmUBR+KRo1CZ+Kxc=;
-	b=tkEOEtT8qCie3rHcTFKlEaEMqVT6re736r2GmboLjEjqCBv5cIuqMTqGlzm6/AJ734aj
-	 4bsrGZ4jXC7MiZTlv2GaCWKD/9+9Dlkq9h1aW9UE6uL1BuSShUGSHMhtCRPQYu+dwGi0L
-	 2Fh3BKGQQfFw4FnurulRqq5h8S1GNJsieWkEPB0emeB1R7xzSMBOTcFmsCafjdRejyT1t
-	 IZgnDLZwjyRPNlDlQvVmqlxIPMack9PaeralNMHybda70hjgLLzJn2a/3urtgr9qojZTO
-	 txoyuYOUgkLBWuzasaAFiAb8osL5vgVyu+H6sitgJ9SAVmv42t79ZHdhx915VtFn3sQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514003;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=G2B3PXz2d/f4bHwViboEiMQwxd1eDk0zUDSOpThlHwQ=;
+	b=jOqaVhmU1uxaqPBeQF5ifxkgI+p5h1uzcrwxfNsHe7NVj7oy94SanpBaOct1nbbhfrZi
+	 9mp2IThNEMqRGb54QnPNseDFso5JJhHLlzpihr+Rh1NJrQX7sMcew+b68INJJhplHZhXw
+	 j0NijBese/5EiWnqSVaERDCWdSC936WXwuQCmReax29JFMAVOHPNtXvOi8BUEpKkwMkbR
+	 uyWkoiRuMmTbGDn1RrnxJBz5e3xL2Kyd7xbqQRud2hWdSebwMX1FLFbP3/aNxtHaRnZew
+	 P1aFTXSPs8CYZyeIoora0DbbnWd2mzDC6FIfGkWjFsX25y7sySRnKtQ7u1NSYyuJUeA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=o13itCkh;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jjzRmLqw;
+	arc=none smtp.remote-ip=192.198.163.12
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B910606A33B
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:53:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B910606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29512606A327;
+	Tue, 24 Nov 2026 09:53:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29512606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=o13itCkh
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4ac95761c85so32956645e9.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:53:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795513991; x=1796118791; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=s3HEy2luFzOKtpXEMJaCVU6qsnBsmUBR+KRo1CZ+Kxc=;
-        b=o13itCkhMBF029+oImbtjlAQZs8479YW9/eib40OcJPcvsnajrtdwXo03Nl5nLZkur
-         TQLkW4lWYxsfZlqOKgV5tJwIzNZ6sbb3NkpvReSLnkPpwiROhhBib4JxYRLSBHnFhk8n
-         cdeCvYAbGTzKLvv+ctL4RaUISRw26U8N95eDywwht0RlIp9cbqjbsFcpmBEP4pNUoXcO
-         MqyY667zhtA571uVGj8Fuo14Ufa9S1EEqRzQSBplvX8L4W3vrmw5w0VPZDLKODCPPl4/
-         nm5uZi4/9p8GIdYukk6ooqIxsbyyGDNczi0v7NTdw7ppYBMU+8vsPJ59nE+cF0q/bHHx
-         SyKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795513991; x=1796118791;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=s3HEy2luFzOKtpXEMJaCVU6qsnBsmUBR+KRo1CZ+Kxc=;
-        b=z5Rbz1JeqLRjruKAijYeZkfyV/SvDEM9CJImJfS+xQFDEldQxE+lsml++MpLjNmO2y
-         f89sYlI1DAE8w0hYwKxOWXyknuIZFeeWco8uGJRvW1npgZNmWxBdaFgNKChI/Qap0Y//
-         2Ma2nQ9iHGSD+QJyxK6pj3PqLVW/kF2+R+1BwgLDkZvTGiQZ7Q4ky7jF67XOEF5qYleg
-         kWR0KpczcXK1CIsUXJyYWq/0wbwxS23hkB6PrqeQfoEt+kSquGY1K5xpD5xJiwOIphZ2
-         89798Xs8xbEmayyr9dS3lIdocA8uWZH6ArsIqBTB5TK9R33Yk8phlrsxh9IzLIzhE+YJ
-         6+GQ==
-X-Forwarded-Encrypted: i=1; AL+hErHEW6YWbefsK+ghZsZIK8k6iZaw6gay/pUcRiwz0742IGt//K8w7kFj/UpPBs0WZTMmGKhlrK5TWbzSN4I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9YvXm+9Vd49w3863Y1saDZrKe/u196j00v7iHj5A1/1K7Bsltp
-	0TrE6iuoKlSOCi1UHHayhhzLn5+NI5fweNxv7bHx6mAI03eaUo4MIEfiUr+ZHWXcIsE=
-X-Gm-Gg: AZFdTZd3BmcD85ONoVOMfpR3rDJHtAvDPWKX+mY8Hi/uaG6sJvzwOLAaJQNJqd+ysTk
-	3siTz2XxA0bbB9bZTjKbjLd7UTCb3ZSNp1pJ1VFvZ57tkA/Mnj/MtAVJj6dc1KH1m1wZqWRZCPe
-	27nE5S7KfXCAmloRTVdAH2NjvxxYBOwTxw5PzpvklC+BZ/M/HhdB1tMs6sxocUMNBJ0kq1jd3bU
-	e3MiytTsT+ThaD6RpZtdegsu4HK2WKDR0EkgL/BGPUoubKTn4j9hFtVZ8q6p6xnpYL9OQeix9p5
-	6y66I9/WqVAngTme63O40xqpghimo58FnfdMP46txuZ/Ko84G1JuM3GMFdA9gaBA2p86UxBSOzd
-	pIrnyZNVB9ObcW8z5Y1juJcoQB+IHj8ncoqqODbwd2ePlzAcFXVvKsQSwqVUJkmYlH1aWKiqG9t
-	7dinIyDAY3mVdYSSycc5Vsdh+8d2+3+00beiuhrYARYk8360oCELhSaoB1A2ZeSfokQgaid62tO
-	Pu4qOR/WFZX9yenUcGpIdmOBRt1ZGi62XRfxGar75O69FExZjkhE5XgHQry+c6qycfXd5OBnpyT
-	QrBtDB6nr10sNfUfrNcO0ve3IaJv2gh3a/xBXwb+uM4S9uSc0SXkruZjx4PeCGkKx+a4eAfa7/R
-	jMQ==
-X-Received: by 2002:a05:600c:4e0b:b0:4bb:6f45:2a79 with SMTP id 5b1f17b1804b1-4bb88817920mr309330195e9.22.1795513991045;
-        Tue, 24 Nov 2026 01:53:11 -0800 (PST)
-Received: from ?IPV6:2001:8a0:d6cd:9000:86f4:4e71:9fc8:3183? ([2001:8a0:d6cd:9000:86f4:4e71:9fc8:3183])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88442995sm435581505e9.2.2026.11.24.01.53.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 01:53:10 -0800 (PST)
-Message-ID: <2fd706ef-8205-4564-bed7-527b6bae8790@baylibre.com>
-Date: Tue, 24 Nov 2026 09:53:08 +0000
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jjzRmLqw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795514002; x=1827050002;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=xYrsAl676k8RliagPA6F0EN4aMPgS7arcYwLsWYXJ08=;
+  b=jjzRmLqw/IQzI91m+Gm+SWUet5HFgDAzcfrn+Rdek8/3V1FmTUxvI8OM
+   L5cw17+kta7TpUDhMRosi2cTEZufVIt81hAEsVPScOe7FQHUjXcok8FHZ
+   SZj9javnLr5nwyVeIwe1ve6E+ZNLG1s1eNlEvC0+CPd4L4AetYJOz9Fxb
+   Lo21AiHg98SbtgcprZ+xiu5asTb6q1MDf1W5x53DTWOsRpMHv38QxRZ3r
+   8kEbJxLh+3lZi6WZuBkd1DU7zqNRGPleA/b4u1hb54BQcImllo8oRBbvo
+   SU+F0CMbYUvZRTbDeVpBFdJXO2LilJ4O0z56YiPfU36KmcMeEhYiqXxO5
+   w==;
+X-CSE-ConnectionGUID: N7cG9+wtSwKbCsgX1XBK7w==
+X-CSE-MsgGUID: tNjXEvPDRdavoM/FG5hp3w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4222876"
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="4222876"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 01:53:21 -0800
+X-CSE-ConnectionGUID: jjZGfFuVSiavu0FDtMnGtg==
+X-CSE-MsgGUID: gnN+xDUAS4WteYVYL40Q0A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="11404701"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 01:53:18 -0800
+Date: Tue, 24 Nov 2026 11:53:16 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>
+Cc: Amit Kucheria <amitk@kernel.org>,
+	Thara Gopinath <thara.gopinath@gmail.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, kamal.wadhwa@oss.qualcomm.com,
+	Pankaj Patil <pankaj.patil@oss.qualcomm.com>
+Subject: Re: [PATCH v3] thermal: qcom-spmi-adc-tm5-gen3: move hardirq actions
+ into threaded handler
+Message-ID: <awVejPXcrT5k9n5j@ashevche-desk.local>
+References: <20261124-adctm5_gen3_hardirq_removal-v3-1-c7923e9a54c1@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,50 +85,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18 5/8] accel/rocket: add a GET_PARAM ioctl for the
- hardware version
-To: Jiaxing Hu <gahing@gahingwoo.com>, tomeu@tomeuvizoso.net,
- heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
- p.zabel@pengutronix.de, ogabbay@kernel.org, zhangqing@rock-chips.com
-Cc: royalnet026@gmail.com, sidong.yang@furiosa.ai,
- ulf.hansson@oss.qualcomm.com, abel.vesa@oss.qualcomm.com,
- sebastian.reichel@collabora.com, chaoyi.chen@rock-chips.com,
- shawn.lin@rock-chips.com, finley.xiao@rock-chips.com,
- diederik@cknow-tech.com, alchark@flipper.net, leonard@lausen.nl,
- vlwwwwww@gmail.com, jeff.hugo@oss.qualcomm.com,
- dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1795478392.git.gahing@gahingwoo.com>
- <cbb77a43deedadb6667a84bd1c57030cf1c9ce74.1795478392.git.gahing@gahingwoo.com>
-Content-Language: en-US
-From: Daniel Drake <ddrake@baylibre.com>
-In-Reply-To: <cbb77a43deedadb6667a84bd1c57030cf1c9ce74.1795478392.git.gahing@gahingwoo.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124-adctm5_gen3_hardirq_removal-v3-1-c7923e9a54c1@oss.qualcomm.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On 24/11/2026 00:01, Jiaxing Hu wrote:
-> Add DRM_IOCTL_ROCKET_GET_PARAM so that userspace can tell which NPU it
-> runs on. DRM_ROCKET_PARAM_HW_VERSION returns an enum
-> drm_rocket_hw_version value, taken from the compatible's match data when
-> the first core probes. The PC_VERSION registers cannot be used: the
-> RK3568 reads 0 from them.
+On Tue, Nov 24, 2026 at 02:33:49PM +0530, Jishnu Prakash wrote:
+> adc_tm5_probe() registers the ADC_TM interrupt with both a primary
+> handler and thread function (adctm5_gen3_isr/adctm5_gen3_isr_thread)
+> with IRQF_ONESHOT. The primary handler calls adc5_gen3_read(), which
+> takes the SPMI regmap's lock (a regular, non-raw spinlock) from hardirq
+> context. With CONFIG_PROVE_LOCKING enabled, this leads to a warning
+> about an attempt to take a lock in an invalid wait context:
+> 
+>   swapper/0/0 is trying to lock:
+>   ffff000b67201018
+>   (qcom_spmi_pmic:259:(&spmi_regmap_config)->lock){....}-{3:3}, at:
+>   regmap_lock_spinlock+0x20/0x40
+>   other info that might help us debug this:
+>   context-{2:2}
+> 
+>   Call trace:
+>   regmap_lock_spinlock+0x20/0x40
+>   regmap_raw_read+0x88/0x328
+>   regmap_bulk_read+0x10c/0x340
+>   adc5_gen3_read+0x38/0x50 [qcom_spmi_adc5_gen3]
+>   adctm5_gen3_isr+0x90/0x130 [qcom_spmi_adc_tm5_gen3]
+> 
+> There is no requirement for any of the work done in the primary handler
+> to run in hardirq context. Drop the primary handler and move all the
+> actions in it to the threaded handler, which removes the invalid wait
+> context warning.
+> 
+> Note that both handlers used a local variable to hold the index of the
+> SDAM whose IRQ was triggered ('sdam_num' in the primary handler and
+> 'sdam_index' in the thread function). These are the same value under
+> different names and 'sdam_index' is kept now, since the variable
+> represents an index, not a count.
 
-I also spotted that the vendor driver uses compatible-based matching for
-this kind of thing.
+LGTM now,
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 
-> @@ -197,6 +224,9 @@ static int rocket_probe(struct platform_device *pdev)
->  		devres_close_group(&drm_dev->dev, rdev_group);
->  	}
->  
-> +	if (hw_version != rdev->hw_version)
-> +		return -EINVAL;
-> +
+> Reported-by: Pankaj Patil <pankaj.patil@oss.qualcomm.com>
+> Closes: https://lore.kernel.org/all/1cb6d902-73f3-4d65-96f4-4b3c5217253c@oss.qualcomm.com/
 
-This check can be dropped, we can assume that a DT that gives cores with
-a mix of hw versions is invalid and broken.
+You should probably get a formal Tested-by from the reporter before going
+further.
 
-With that change feel free  to add my Reviewed-By
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
