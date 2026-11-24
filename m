@@ -1,96 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795504422;
-	b=19gqZFjPdyVxjqskVXtMfVTO5kVrSZdJgD6qmV+0qPdwWZZAMpzeLAkIyl9OKZ0/XMyp
-	 8hLy9nSvF+EwHlEsoDckacmhKrqiNWA8KPGnFLVwADpjq90JQSMYueDWKdTGO32bwXbR/
-	 f82IP989LdT1ZXtIkvwnWHL/eyISqx09HFxYfL2rrVwoJd82WZttuKNnzXVHlIdOMcMEa
-	 RbEmq1jELBOtOGYJfYowH9h4aPgNHRq+EWKa0D2dN5QFDU1E0Ged8YBMJg3vtZGYxAq5d
-	 KuI4gY6Lpkz7pkw4sYLSAsjN6OmfA30A9EyC59H6arFAZo7OjGEvX9Mk6PKcQVRhR8w==
+	t=1795504474;
+	b=L6fYPy0SDMMsltcIS2vDmRGk9svxeJRNtQpX3cn5dITDL1Xoc1DwLkg6HeGy5z0z94qW
+	 Gzf0/DCoCagoccLMZ9Jop1Es20cBHKh7HOS1o2bCzD0EfYQ4Tr3YeSJ6I+EXsMGJDKXA1
+	 wPvGwIcKoUwFdR0HWN7aLGN7YlbmkMbBH7H1PR7TeTGEWTPDWOmOF9K7H8yWl7Sho5C5g
+	 zt+2BWZyHAlIhJnpGWfDv83Azs2j1MDZ/WyLZzZbC3WZd8ItL9dM+IgT74o+iGoOFKlNv
+	 DbHZqfIZ7WOweY99o+fz8BO6Lm7+NgIFhkg4+TlVgK9QuCCUbD0uLZkAstVdEsqU4OA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795504422;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795504474;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Oc2Ja2JUG5wbQDezjA0JUnZUWQF9I7pDq5BAs+s6d6I=;
-	b=TSInYkpHl7GU/CdgCIAum/GZnmv0JPgT9atqAxeJuoYU9iuW/ddDD/TIFIQeoS8dxmNC
-	 pWZhvp0PLYkFNoPQgJZ/hoT/WZjtMNcWTI3nIyCKscQnlOjmcG462OukdeOldscbHJXye
-	 BgfMDdOh6bu8bn9ZTrHUX2xsi1f8NJKcfwNASdNdPXjyVRu03B4bJdZlzXD7Q2at2OzJ1
-	 Ak5Y0Wxs5jpeUGNyhVYWi53jmnFhv1ULUzxbN3YgHE0/dpOuNiXoDj/lTGXvSS0owROHc
-	 yoKClxM57toBqlpS8aozf28KZzJmPH3EvXSLTvFjLxvbZMo/djqiBBMeUzfz9KXbLZQ==
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=LAq2DbxeZILLxvhcSwaRL4Dj4tgtiHKeHZHk2yK0WuY=;
+	b=3iFW61XPucF8gMmli/CPplg+4y5M+cq0HSS8ckddVK/GoonfGdxl9Tmxe1VpDl1zYJ5O
+	 fefDUDzD2QPNXH+JDl1Blz4xfp0SlKUIeio6F+rh1F4krt5PVlrf+BpFeqVwYkUv2bLY3
+	 /RzGcXEOnjrMUA+9/8Z1apBIf+SMOgD6QeeOmjvTdR5o3rWet6QWm0OJl+LeMZFmi0VAr
+	 wXy7vnoBiYdT2XHX+Mufw5mVN7SX4Ou9DsS8d4PF7vHaPuFfAqj/qOHQ+9L7yOkr/OI9b
+	 SDmxz36uY/R7DSIZyO4FJ7MIABunRI1gv/5ozLI7GkkxXRHkrjZCyy14y7wmXoPm01g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kalp+CyM;
-	arc=none smtp.remote-ip=209.85.215.173
-Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Cno1UpEe;
+	arc=none smtp.remote-ip=209.85.210.178
+Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A888606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:13:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A888606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B19E0606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:14:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B19E0606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kalp+CyM
-Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cdb1199bfd8so1888654a12.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:13:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Cno1UpEe
+Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8a06e79e152so1952817b3a.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:14:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795504420; x=1796109220; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Oc2Ja2JUG5wbQDezjA0JUnZUWQF9I7pDq5BAs+s6d6I=;
-        b=kalp+CyMZbk28V1CAWfask1PI+LtBLcDCm4Taq1wYbpn9GWr9UDoi/PKaFFdrz9fqI
-         M/1I3aP4arxnk3vBp8XZRna+NRwcu95K0CtVPZU1fYQBc9Kx6Nt8Rsx54EN+3wJobgn2
-         NDVnUxxNTYdeJlkqO8Rd8eRy5rKmD/NMVBwVgdaDTp67kTC6E4RI3epMT0k6DlNFVr4Z
-         SW5YaABGBZyHs+i4+85oArUoasC/UTUoF8W6kNfKLL+6zefwFrQcmdTHiZvLg5/s34rW
-         9fWRdLzt/FVzakR0CiJUVRgX7w/uxE5qn0mRCCIia0tYeAFiEQG3HHzB+mODn1eK/5T9
-         3JtA==
+        d=gmail.com; s=20260707; t=1795504473; x=1796109273; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=LAq2DbxeZILLxvhcSwaRL4Dj4tgtiHKeHZHk2yK0WuY=;
+        b=Cno1UpEeosAC6mD+3etNspr12WHfikJ8O5g72jn7q7WIx1rNlK0Ay/v/tN2cPWAxl1
+         0aZPfNjZsXo20YmHdrfp7YTqHdvesiM/HQKqvdituSFEQuxeonbpnDzXOHw8SYnHM1qd
+         YDhO5UkO1qDQMb/WQH+bsqTbF3bRx134MFGc/3zC/dfeU0c4xc0Z2aVcw6gqBw1U0HfH
+         TXs+yRFw2IPmaHDArU28Xeo3+TK9C+T57FpB2Y3SEo7pzOm2SvSVmoS32DaBnHG/sW2K
+         AAPrPfpKA9BPmOy3LwVoayeMvvjtznaHF5whoP9oE+mP/aTx18sglY9j66dMw/tyO1kw
+         RSuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795504420; x=1796109220;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Oc2Ja2JUG5wbQDezjA0JUnZUWQF9I7pDq5BAs+s6d6I=;
-        b=OOzUBS/epDYCrC2P2dHDSr4vGs6eBTVCp5C0ORZmjlP/lmrWKs1UYTAteG2ZV55ef1
-         ou2LeTX5XRlVia4jwuFH1DjR4RuFhYeFPdbCwCIRA1rOV0+GYvR3sjNLutM6aPImzgzy
-         kOG7NNWUNX+NCD9T4Abv5utB/NYJvXafiP30DBEVbU4SZ/s1qQPWsAnuJaxhq+u0JTXT
-         IpceVjVoDPM0F65lvT56J6efG2EiCePQlOq77GiNcL6jg7h/RwKsXa83JLAwY6hj+PBG
-         JNYRqb58pH3ehb3nlp96cOWP3hsZtab1yK6K59en4xpDqpZv+d9lsOSvS2eFdGs6jO0Z
-         HkuA==
-X-Forwarded-Encrypted: i=1; AL+hErFudnFX1EL1RF59I8qTjdVg3B141+5UEFFMJYW5EUCaABG11tdB0zwUL4Faf2+tfuVDhxg1wjNIC2oAcxI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+beGTx4KX+xHb6b9hkdZY0N//55RbNFh+eCsLKvAL7ksElX35Q
-	0q6JeMbU48RhKcF+x4DL/ypbPNXWwTSKpER8/nqxYChsfJQF9tiUJm4z
-X-Gm-Gg: AZFdTZcqAE29rRTtOP62Ke1ZFnKcvyzCgBVMZNEGCF2HxB+z+SzbMx78eVqWdgIPy8Y
-	QfdJSb/Q9gdkMLM/UZTp8EXvtfxyUnVl0oQWJ4swI7CdpKMe6Fnz4jSQd4mvf49R0roht2qFEOZ
-	MbEdAM5vvb561kkL3dUcwR3e3nuIRWGHBe//n6onfayheX9Ytjss3+5NJS+03yytg+WV0qrL6b/
-	EZIi3R6wFhTd2cdxa66cq20FDkutRkDeckgqnRMI+TAVd9FxwbWRE0zWza7pysOW1kDTcBhMiWQ
-	GCCsCBWWvPfeP14qXZhW2d1eG2D6mY0gSJGrUKhn9xXfQNnM6MImSwlNPu12/Cz9LLj62MXY4/I
-	XeJvUQIP6Xg7ZkIHEGISPsQzER/20AhDPEUgI6w2x7ySN9HOFjMaktqnwoNzde9FipYA8XpDZ3k
-	sf+eXVrc8D0P5X1xd4WfeqqJ7u7Zv+liPvC5p5+CLdMnWgk00thadyka8XKg668+UcX5q5MyZ+X
-	JMvXYtxSqBJtiFqN6oQfqDN9rx4sBgio/PgG7WHWcsRM2dNu6ZUYHq5omQXjBFpbX5coSdffAcs
-	9f5h2TfW8b/NbulcfXFk
-X-Received: by 2002:a17:90b:17cd:b0:3ae:6fda:78b1 with SMTP id 98e67ed59e1d1-3b41c95b6bcmr12189973a91.43.1795504420433;
-        Mon, 23 Nov 2026 23:13:40 -0800 (PST)
-Received: from fedora ([103.156.164.95])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1276c5sm68236315ad.67.2026.11.23.23.13.37
+        d=1e100.net; s=20260707; t=1795504473; x=1796109273;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=LAq2DbxeZILLxvhcSwaRL4Dj4tgtiHKeHZHk2yK0WuY=;
+        b=HIK/v1yj9DhRj4Onfz07pByP1LvwXDsIv9nd0nMjxeIaeku3parRXjFi1NZsEZ2mRY
+         58wyvhwmVW984ZWEXVotjcQQJ43SbGzSy4ALBSlSuaM7bqQVK7hU0GlhoURPRGlu+7BV
+         OHLO4/kVpyATclrGcf0YBWr0LkWBDuw8cEw/43MvsJCqErjKidXcAcqSoDDZFOxmRFW3
+         Ossv5lLRW/EWV9y825S3YWgbs6eWg257F6c/rAOF1KXjH1gnT9251it40/DE8u0+hpEX
+         NEFL9GGtVHFSil5lGFFvq2Lc6ro64KUj5Y5g6YkFaKsaP6EyAqrKnz01H/GUs+Sxmnld
+         fULw==
+X-Forwarded-Encrypted: i=1; AL+hErEliNVOezJgbmNd6UMOCGj4X4DDrp2udCM3N+BRrJwAg9VVnLJXYmhDUl68Tg/QcFmOqqJ8VUGqrFFbYqM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8DhxBCCvqf+zZErUbpjr+6h1+tCna9B9jlMFgaKTAQfQOBmAh+
+	aQA4Vphc6W/F2NwQZCR6vZn9oPLXg37SHIemmiJqKnnNa+C5YLJIpbh2rI/5TQ==
+X-Gm-Gg: AZFdTZfvVtM/WxqawB408Qltwzbb0CfjvWGK16K5lNMlgIPC+zoJ0O/mxWqhUsqv98A
+	hq/svw7elWbk0aLS8ztxAsis7eIHwFfNp5oqnvDjaeo6DZnYp3rL+ovAgaEtzmkAndCEOZK2cK3
+	PeAjj+1Lzwdi11LdMaE5r8mUQ26MeDbYQhBsw5cILGAvKVEES9JbL1Q4UGE65EG44Y9W71Yp/ss
+	rKh00NdQRbDFxghcX7ZnbecaeOZcgDabe8ByVY/Y7Mb5U/o48ntvvWWp901iuVN0/JjEOPIcto4
+	aXBMwpZ1Wjag4XvP6KNQ/8YFO745j6WNY4y8BWsNLbly8Hke76GkvQltp8kzu2EY+QHMiG9BEx9
+	ewwWt8Vto5FvTaSXieFuz7x3RETivt3+P9ObIXW3buHG8Q+ycRriv/tJn6hzY+oOZ9KfdZItVzl
+	voqOc5EI0/IsNIrAYzkImr8Sf6jmPXSbSUTAARIgwOELrxuyA6o+b6w/3w2YAmi0tFXbqlMPx8u
+	3tDOcywhFLm2K/+K9E4k31d7Tonx4f99sfVGxGKueCX2t1COeYo3phFxnZH6JrMfxK4rI4kLs1p
+	HaOdocSvt+8qrd/X4JNqQvIlAlzxdcOpuRztVx1lxK6rwhLa
+X-Received: by 2002:a05:6a21:4cc1:b0:3e0:dbf5:59f1 with SMTP id adf61e73a8af0-4014e6565eemr12593150637.91.1795504472734;
+        Mon, 23 Nov 2026 23:14:32 -0800 (PST)
+Received: from embedsky001.tail6d6b2f.ts.net ([183.13.19.200])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfcadffsm6475836a12.9.2026.11.23.23.14.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 23:13:39 -0800 (PST)
-From: Mulky Fauzan <qapkyy3@gmail.com>
-To: qapkyy3@gmail.com
-Cc: hansg@kernel.org,
-	ilpo.jarvinen@linux.intel.com,
-	jlee@suse.com,
+        Mon, 23 Nov 2026 23:14:32 -0800 (PST)
+From: Yonghao Zhang <hyz3367@gmail.com>
+To: mathieu.poirier@linaro.org,
+	andersson@kernel.org
+Cc: linux-remoteproc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org
-Subject: Re: [PATCH] platform/x86: acer-wmi: Add support for Acer Nitro ANV16-71
-Date: Tue, 24 Nov 2026 14:12:58 +0700
-Message-ID: <20261124071258.31780-1-qapkyy3@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261123155520.121595-1-qapkyy3@gmail.com>
-References: <20261123155520.121595-1-qapkyy3@gmail.com>
+	Yonghao Zhang <hyz3367@gmail.com>
+Subject: [PATCH v2 0/4] remoteproc: core: Fix the error unwind paths
+Date: Tue, 24 Nov 2026 15:14:05 +0800
+Message-Id: <20261124071409.972-1-hyz3367@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,38 +98,69 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi,
+This series fixes four problems in the error unwind paths of the
+remoteproc core.
 
-I did some additional testing of this patch on an Acer Nitro
-ANV16-71 (BIOS v1.09) running Fedora with Linux
-7.3.4-300.fc45.x86_64, with the patched acer-wmi built as an
-out-of-tree module. This is in addition to my earlier testing on
-7.4-rc4. I verified the exposed interfaces down to the WMI and EC
-register level.
+The most visible change in v2 is 3/4.  It no longer reworks the attach
+unwind to prefer detach() over stop(): without the STM32 review that
+behaviour change required, it could not be justified.  The patch now
+only guards the unconditional ops->stop() call against an
+implementation that does not provide it, exactly as 2/4 does in
+rproc_start().  Implementations that provide stop() keep the existing
+unwind, so the STM32 detach() path is not affected.  The detach()-first
+semantics can be revisited separately with the platform maintainers.
 
-DMI and driver load:
- - The DMI product name matches "Nitro ANV16-71" and acer-wmi loads
-   without any ACPI/WMI errors.
+The patches:
 
-Hardware monitoring and manual PWM fan control:
- - CPU (fan1_input) and GPU (fan2_input) speeds are reported correctly.
- - Manual control (pwm1_enable=1 / pwm2_enable=1) works independently
-   for both fans and returns to automatic control with =2.
+ - 1/4 resets a freed vring entry to FW_RSC_ADDR_ANY instead of 0.
+   0 is a valid device address, so a remote processor that reads the
+   entry while it is still running could mistake it for a real vring.
+   The sentence in the comment above the reset that is no longer true
+   is dropped at the same time.
 
-Platform profiles (WMI and EC verification):
- - All five profiles (low-power, quiet, balanced,
-   balanced-performance, performance) are accepted by the firmware via
-   WMI method 22 (SetGamingMiscSetting, index 0x0b) with status 0x00,
-   including performance (turbo). WMI calls were traced with bpftrace.
- - Reading the EC (read-only, via ec_sys), the thermal profile
-   register 0x2C updates consistently:
-     quiet                -> 0x00
-     balanced             -> 0x01
-     balanced-performance -> 0x04
-     performance          -> 0x05
-     low-power            -> 0x06
+ - 2/4 skips the stop() rollback in rproc_start() when the
+   implementation does not provide it, instead of dereferencing NULL.
 
-Tested-by: Mulky Fauzan <qapkyy3@gmail.com>
+ - 3/4 adds the same guard to the attach unwind in __rproc_attach().
 
-Thanks,
-Mulky Fauzan
+ - 4/4 releases the resources of a boot that a failed recovery was
+   trying to restore, following the cleanup sequence of
+   rproc_shutdown(), and voids the power references when the failure
+   leaves the processor offline or detached.
+
+Testing: on an Allwinner T153 (sun8iw22) with an E907 remote core,
+driven by an out-of-tree platform driver.  The vring reset of 1/4 and
+the recovery failure of 4/4 were exercised on this hardware.  The
+guards in 2/4 and 3/4 cover configurations that the in-tree drivers do
+not exercise today.
+
+---
+Changes in v2:
+- 1/4: Keep the existing comment and drop only the sentence that
+  became obsolete; trim the changelog (Mathieu).
+- 2/4: Select between stop_rproc and unprepare_subdevices at the
+  rproc_start_subdevices() error path instead of branching in the
+  shared unwind path (Mathieu).
+- 3/4: Replace the detach()-first rework with a guard against a
+  missing stop(), so no existing driver changes behaviour.  The
+  STM32 detach() path is not affected anymore.
+- 4/4: Describe the code as applied, follow the __rproc_shutdown()
+  cleanup sequence, and check for RPROC_OFFLINE/RPROC_DETACHED
+  explicitly; trim the changelog (Mathieu).
+
+v1: https://lore.kernel.org/all/20260929075453.2324597-1-hyz3367@gmail.com
+
+Yonghao Zhang (4):
+  remoteproc: core: Reset freed vring entries to FW_RSC_ADDR_ANY
+  remoteproc: core: Guard against a missing stop() in rproc_start()
+  remoteproc: core: Guard against a missing stop() in the attach unwind
+  remoteproc: core: Clean up after a failed recovery
+
+ drivers/remoteproc/remoteproc_core.c | 47 +++++++++++++++++++++++-----
+ 1 file changed, 40 insertions(+), 7 deletions(-)
+
+
+base-commit: f39ba58941efa63e6c7d10d53d183d6077524bdb
+-- 
+2.34.1
+
