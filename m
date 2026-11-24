@@ -1,77 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795534793;
-	b=5V3vma6cdxdTFgEF997w/epS6fS6Uxh+NxLqtVomSqr+AxmMsCZGUNwPvWaBCNEgBeEM
-	 /Quzl1htL9APAGKoyAU6ymcVha6yaXw/NHkHU0wDPhm4MFhmKHflfmfrEqt4U2zrvdHKR
-	 nUAJd5DR+8Mc3mtwZjvwkKfmQb1HgpAkePrdb1ynajO/Q6iPqj4DgNoaPlje9M+6S7IjW
-	 7RzXja/MguEwdpSZ8Lp6BvnvT2V1hgcewSVR6MYWHgMVSAkqaTrI0XlVZsUmFLh7bIiDS
-	 p8f5ElfA3objIuLQ9cv2gbKaxPy82AsrWRwhd9m2cJKIkKjyXYlZ8KjPJ+tE3XtUluQ==
+	t=1795534872;
+	b=yTUJFMfp9IIVQKjGzouh3lRvTf02pcq6u/rU2v8EcqK9a7WDQz9wkEF4PAcix5EoRhMN
+	 mfuPshUkEG0+jLp7NRCOVMYJbU051ZnjFMFMDzFyv04pkoeodi+GOXSJBCYgv1LPqy0IY
+	 57rOusBkzWHc1bGFrbAQEEjiqeI+qxztWgbS7onaELwC17P/mZfh9gfLp39xHBTbcuEbb
+	 u5TxSX2cNsEAzTk8Q5P/25EyGdrnHnqan7oJt+Eo0P2GmiW6C+qsEDuGt++DrY0LpjIOT
+	 luyKTOGqfvRMNoFFVtu5wCLncnyCHUjx2kpUPeqs1Z8hh67kJT1morQEKa4k+FfcEXg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795534793;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
-	 UI-OutboundReport;
-	bh=OYPrV8hXvhuntKwG5p3Iglqruciu9KECE577Pogmpjw=;
-	b=RMhU+9Uj9l11uhGT0qFqO2nX1IKbwCB7pzHmol+FZORgTtgFQarqscmEu/rU2bZfC9dL
-	 rh6ELvR+HEmmSK125+n+Am7wxzRUZR9jr+EnZt/5r2kHyYhVMgoa3U/g6PfEQjT+VUUdF
-	 xy+WYVDxm6qXee9GCSGd+L2GzZnPAxmX2h1zKOY6ofUwl1/rRcPFVwpXXg5VMPD83f5ne
-	 HKtc53u3qyOay+XIIQzqXCv1eQt7uPK3eF3xLB9Nw03uIEwE6XhlxibnzrZd7qO31tFir
-	 XyMRHYCgP8G6LJBPkAsKvIBESwcrruj0TBh+W3nVNs7MPGQIu2iWLOtpfMyLXyVLNlg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795534872;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Spam-Status:X-Spam-Checker-Version;
+	bh=F/F+/Vl9CXYnxppmJ1inDEnMHeZ7DKWXFKbh0mG1AVA=;
+	b=bHL1SI8tdYz0WibyLCqR86kED2UUi3LVcPgMiRWYU/vShXdrWmDI1iaBqYuIaufyLlZm
+	 Uv19rM8Aw+RjatvNC3SeH6yJpwMBlt9za0+1kyN6JQ8Jlx6fXReiIGjrMI/kMekSH1Ca6
+	 AgkiI6fdz7EeEPTFG6YAI7DOe9LahDLkS50lyNO+N2uKccYLs4+lFEs82WNMDKBJUDhH1
+	 naTe1fIej2xkkfHHi8kt0oMpnfuw5/c2gn6bJITjRxlH7ZQt9bGoLcs4QPzEoNNcKFiNI
+	 pxDo3j0vedX1d9qdJCe+dar45LRC5SfIJlf4I+oysgPwZE2zG7diiLUfqB+9waFZyUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmx.de;
-	spf=pass smtp.mailfrom=gmx.de;
-	dkim=pass header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=qwUWnu27;
-	arc=none smtp.remote-ip=212.227.17.21
-Received: from mout.gmx.net (mout.gmx.net [212.227.17.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D04E606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:39:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D04E606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=mUZRuf+5;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E1399606A32C;
+	Tue, 24 Nov 2026 15:41:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1399606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=qwUWnu27
-DKIM2-Signature:  i=1; m=1; t=1795534790;
- mf=PFdfQXJtaW5AZ214LmRlPg==;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=gmx.de;
- s=s31663417:rsa-sha256:cOE0OvRDhD41P9n71+mrnUL6R1/Q
-   AthOQiNi8NgB0CB5zTej7z8zkOnctGJxTYULIjT8axhMxKBxaQ91TQw8oDluRZR6B2myGoUuaJQ
-   bImAuqS/HKuY7jan09jgo3qXhr1AFVa3vIRwRSxSi5ZERWCyzhp4m+ezWOtvgk7Xbnmr6X3t9ax
-   t4FJkJBYWOC18xxA0/kV+rJF+80CLiCGTAKikAawBt/EoZR0cl82c+SAG8KUf/9Bg4kpH9X3zaY
-   20qW8Kmimv2IzOtkACJjgUTR2h8vkj1DqP0XvwCo6ST/j/SN5TkUVvOIlEnLQoM8vzsU2CbIkN7
-   wcfvurhbxx+tFA==;
-Message-Instance:  m=1;
- h=sha256:
-   opIVfuWk7g1nE20RL3SLI6Ou7EpAB8cisuCS9VJtp1s=:
-   I9UMvducYLxBtNrj1aGKbrYb+CdCSFxiliU+iHDodRk=,
-  sha512:
-   XDaDo5RZNHTZDtikXqKSdoaC/BAVXUerzBLkzmO26kihk1RYOZZtw4eB+24MyGrpplBYxHX+N5mUzSnH+2f9wA==:
-   RU1YafkXsQgFSogDOuIZ5xIt/y+zfQ71XvlFNedHgR/lEv1lBHIHpLOnju7yFdnjNrYTy5pVC44l/WtK50boZA==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1795534779; x=1796139579; i=w_armin@gmx.de;
-	bh=OYPrV8hXvhuntKwG5p3Iglqruciu9KECE577Pogmpjw=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=qwUWnu27UcjojpjunWbUyOeHg055gbx4Huh0GuD6AOJ52Pq2CMrWCO2t6azYLmn+
-	 o1ntf2uN29FRV4PKqX1ZIcmqL+0J6ng5/MTRstW5ysjNMLm0akeKzDp2ao3eu4SCY
-	 G1FFvkLrdObGN0jsoBjWd3q7Dtlfdu9bQkGEC7G5Qiec53f5wgS3Y9mdE9JfZkBEN
-	 Gnlrs2joqYesshBpv45JKhpfiSJphdpmki9m9Ft7Zzga/wYs8Kz0LYb1rQ2pd+7NQ
-	 FAX+BsiqajzQ4hZfkpiWIrdOs4oamUbfJszNu+HKNvhlSBvs0Q6K091XsPhPMXvcw
-	 AKuJ1cXQs5sBPyC3mw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MowKc-1yJkwu3rKg-00pSfZ; Tue, 24
- Nov 2026 16:39:39 +0100
-Message-ID: <90a3cf06-ab77-4995-ab27-8e10eb9d8e87@gmx.de>
-Date: Tue, 24 Nov 2026 16:39:37 +0100
+	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=mUZRuf+5
+Received: from weh-cvm-dev-vm.y50bckvjo0hefgfnzfztsfttff.phxx.internal.cloudapp.net (unknown [20.169.55.37])
+	by linux.microsoft.com (Postfix) with ESMTPSA id D768420B7171;
+	Tue, 24 Nov 2026 07:41:05 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com D768420B7171
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1795534866;
+	bh=F/F+/Vl9CXYnxppmJ1inDEnMHeZ7DKWXFKbh0mG1AVA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mUZRuf+5/rvsWD2v+viEqarL9Dc1CrwWNo6bop59T9dFGT5jOdq1tk3EmZCGCRumD
+	 QKbUslhhCSY6ZFugXo1Btwz9o7srbcISpD1rHqfpCn/IHQdNZf+DbBorR9u/f3FSpK
+	 +I69L0tg0jSw2HUNaWzHl2LtPW0iZpvwY2Fqy18I=
+From: Wei Hu <weh@linux.microsoft.com>
+To: longli@kernel.org,
+	kotaranov@microsoft.com,
+	kuba@kernel.org,
+	davem@davemloft.net,
+	pabeni@redhat.com,
+	edumazet@google.com,
+	andrew+netdev@lunn.ch,
+	jgg@ziepe.ca,
+	leon@kernel.org,
+	haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	decui@microsoft.com,
+	shradhagupta@linux.microsoft.com,
+	horms@kernel.org,
+	ernis@linux.microsoft.com,
+	stephen@networkplumber.org
+Cc: netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-hyperv@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	gargaditya@linux.microsoft.com,
+	kees+treewide@kernel.org,
+	kees@kernel.org,
+	mawasthi@linux.microsoft.com,
+	weh@microsoft.com,
+	edumazet@kernel.org,
+	shacharr@microsoft.com
+Subject: [PATCH net-next v12 3/5] net: mana: protect the HWC response buffer until the sender returns
+Date: Tue, 24 Nov 2026 15:40:56 +0000
+Message-ID: <hwc-v12.91ec3eff9cb647d5bc5cc932b3c6f60c.3@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <hwc-v12.91ec3eff9cb647d5bc5cc932b3c6f60c.0@linux.microsoft.com>
+References: <hwc-v12.91ec3eff9cb647d5bc5cc932b3c6f60c.0@linux.microsoft.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,267 +84,259 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] platform/x86: uniwill-laptop: Remove cTGP control from
- unsupported devices
-To: Werner Sembach <wse@tuxedocomputers.com>, Hans de Goede
- <hansg@kernel.org>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?=
- <ilpo.jarvinen@linux.intel.com>
-Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261124151303.435534-1-wse@tuxedocomputers.com>
-Content-Language: en-US
-From: Armin Wolf <W_Armin@gmx.de>
-In-Reply-To: <20261124151303.435534-1-wse@tuxedocomputers.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:iZsdawWUuuO4kHfV8D4uwy+kIF/99JzU7/wLGKW5vA9P59CfwHP
- 6DzX2KwUD5fH7iWxTKqpZb5eXJWXxqZ2NhGm3uD5rsBbic5MJAHaWtXI5rRaxzMSQvsIKgA
- F8Z4CJ1az7iILawKw4OhGv5jBeowwk7nwjFMsn4lo637yLEWTtUyZQaPYKk6IMVPWe4yd1u
- V+qdkn4bEecCFufTjknEg==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:PAgnk6pX+y0=;VcMUsh5DnhNtsTqn/lmNhHzGjmo
- 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
+Content-Transfer-Encoding: 8bit
 
-Am 24.11.26 um 16:11 schrieb Werner Sembach:
-> Some devices like the InfinityBook Pro series have Dynamic Boost support=
-,
-> but the cTGP setting is actually ignored.
->=20
-> This commit adds the ability to still initialize DB, but hide the noop c=
-TGP
-> sysfs attribute and applies this to the respective devices.
->=20
-> Signed-off-by: Werner Sembach <wse@tuxedocomputers.com>
-> ---
-> V2: Fix "force" mode not respecting mutual exclusivity of new feature bi=
-t.
->=20
->   drivers/platform/x86/uniwill/uniwill-acpi.c | 30 ++++++++++++++-------
->   1 file changed, 20 insertions(+), 10 deletions(-)
->=20
-> diff --git a/drivers/platform/x86/uniwill/uniwill-acpi.c b/drivers/platf=
-orm/x86/uniwill/uniwill-acpi.c
-> index e2a6a704e942e..bef072f9f1b55 100644
-> --- a/drivers/platform/x86/uniwill/uniwill-acpi.c
-> +++ b/drivers/platform/x86/uniwill/uniwill-acpi.c
-> @@ -366,10 +366,12 @@
->   #define UNIWILL_FEATURE_PRIMARY_FAN		BIT(8)
->   #define UNIWILL_FEATURE_SECONDARY_FAN		BIT(9)
->   #define UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL	BIT(10)
-> -#define UNIWILL_FEATURE_USB_C_POWER_PRIORITY	BIT(11)
-> -#define UNIWILL_FEATURE_KEYBOARD_BACKLIGHT	BIT(12)
-> -#define UNIWILL_FEATURE_AC_AUTO_BOOT		BIT(13)
-> -#define UNIWILL_FEATURE_USB_POWERSHARE		BIT(14)
-> +/* Mutually exclusive with the cTGP control feature */
-> +#define UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY	BIT(11)
+From: Long Li <longli@microsoft.com>
+Date: Mon, 7 Sep 2026 20:51:56 -0700
 
-Hi,
+A response can race with a sender that has timed out. Clear the output
+pointer under the same lock used to copy the response, so the handler
+cannot write to the caller's buffer after the sender returns.
 
-i think it would be better to instead split=20
-UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL into=20
-UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL and UNIWILL_FEATURE_NVIDIA_DB_CONTROL.
+Reset the completion and result under that lock when assigning a slot.
+If the response wins the race with timeout, return its result. This
+does not change admission or prevent reuse of the message ID.
 
-Devices that currently support cTGP control just need to also set=20
-UNIWILL_FEATURE_NVIDIA_DB_CONTROL, and devices that only support dynamic=
-=20
-boost only need to set UNIWILL_FEATURE_NVIDIA_DB_CONTROL.
+Fixes: ca9c54d2d6a5 ("net: mana: Add a driver for Microsoft Azure Network Adapter (MANA)")
+Signed-off-by: Long Li <longli@microsoft.com>
+Signed-off-by: Wei Hu <weh@microsoft.com>
+---
+ .../net/ethernet/microsoft/mana/hw_channel.c  | 125 +++++++++++++-----
+ include/net/mana/hw_channel.h                 |   4 +-
+ 2 files changed, 95 insertions(+), 34 deletions(-)
 
-This way we can avoid having another set of mutally exclusive feature flag=
-s.
-
-> +#define UNIWILL_FEATURE_USB_C_POWER_PRIORITY	BIT(12)
-> +#define UNIWILL_FEATURE_KEYBOARD_BACKLIGHT	BIT(13)
-> +#define UNIWILL_FEATURE_AC_AUTO_BOOT		BIT(14)
-> +#define UNIWILL_FEATURE_USB_POWERSHARE		BIT(15)
->  =20
->   enum usb_c_power_priority_options {
->   	USB_C_POWER_PRIORITY_CHARGING =3D 0,
-> @@ -1004,7 +1006,9 @@ static int uniwill_nvidia_ctgp_init(struct uniwill=
-_data *data)
->   {
->   	int ret;
->  =20
-> -	if (!uniwill_device_supports(data, UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL=
-))
-> +	if (!uniwill_device_supports_any(data,
-> +					 UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
-> +					 UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY))
->   		return 0;
-
-Should we still set CTGP_DB_CTGP_ENABLE if cTGP control is not=20
-supported? Also i think we should not touch EC_ADDR_CTGP_DB_CTGP_OFFSET=20
-if cTGP support is not present, the same goes for dynamic boost.
-
-Thanks,
-Armin Wolf
-
->  =20
->   	ret =3D regmap_write(data->regmap, EC_ADDR_CTGP_DB_CTGP_OFFSET, 0);
-> @@ -2577,7 +2581,9 @@ static int uniwill_suspend_usb_powershare(struct u=
-niwill_data *data)
->  =20
->   static int uniwill_suspend_nvidia_ctgp(struct uniwill_data *data)
->   {
-> -	if (!uniwill_device_supports(data, UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL=
-))
-> +	if (!uniwill_device_supports_any(data,
-> +					 UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
-> +					 UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY))
->   		return 0;
->  =20
->   	return regmap_clear_bits(data->regmap, EC_ADDR_CTGP_DB_CTRL,
-> @@ -2686,7 +2692,9 @@ static int uniwill_resume_usb_powershare(struct un=
-iwill_data *data)
->  =20
->   static int uniwill_resume_nvidia_ctgp(struct uniwill_data *data)
->   {
-> -	if (!uniwill_device_supports(data, UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL=
-))
-> +	if (!uniwill_device_supports_any(data,
-> +					 UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
-> +					 UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY))
->   		return 0;
->  =20
->   	return regmap_set_bits(data->regmap, EC_ADDR_CTGP_DB_CTRL,
-> @@ -2910,7 +2918,7 @@ static struct uniwill_device_descriptor phxtqxx_ph=
-xagxx_phxaqxx_phxpgxx_descript
->   		    UNIWILL_FEATURE_GPU_TEMP |
->   		    UNIWILL_FEATURE_PRIMARY_FAN |
->   		    UNIWILL_FEATURE_SECONDARY_FAN |
-> -		    UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
-> +		    UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY |
->   		    UNIWILL_FEATURE_USB_C_POWER_PRIORITY |
->   		    UNIWILL_FEATURE_KEYBOARD_BACKLIGHT,
->   	.kbd_led_single_color =3D true,
-> @@ -3106,7 +3114,7 @@ static int phxarxx_phxaqxx_probe(struct uniwill_da=
-ta *data)
->  =20
->   	if (value & HAS_GPU)
->   		data->features |=3D UNIWILL_FEATURE_GPU_TEMP |
-> -				  UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL;
-> +				  UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY;
->  =20
->   	return 0;
->   };
-> @@ -3711,7 +3719,9 @@ static int __init uniwill_init(void)
->  =20
->   	if (force) {
->   		/* Assume that the device supports all features except the charge li=
-mit */
-> -		device_descriptor.features =3D UINT_MAX & ~UNIWILL_FEATURE_BATTERY_CH=
-ARGE_LIMIT;
-> +		device_descriptor.features =3D UINT_MAX &
-> +			~(UNIWILL_FEATURE_BATTERY_CHARGE_LIMIT |
-> +			UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY);
->   		/* Some models only have a (white) single color keyboard backlight *=
-/
->   		device_descriptor.kbd_led_single_color =3D false;
->   		/* Some models only support 3 brightness levels */
-
+diff --git a/drivers/net/ethernet/microsoft/mana/hw_channel.c b/drivers/net/ethernet/microsoft/mana/hw_channel.c
+index 39a0ed32e43c7953885146b647249db6e03fb8bb..a98e58b83f9c75bf8b40183c73a9286670d4aef4 100644
+--- a/drivers/net/ethernet/microsoft/mana/hw_channel.c
++++ b/drivers/net/ethernet/microsoft/mana/hw_channel.c
+@@ -9,6 +9,7 @@
+ static int mana_hwc_get_msg_index(struct hw_channel_context *hwc, u16 *msg_id)
+ {
+ 	struct gdma_resource *r = &hwc->inflight_msg_res;
++	struct hwc_caller_ctx *ctx;
+ 	unsigned long flags;
+ 	u32 index;
+ 
+@@ -19,8 +20,17 @@ static int mana_hwc_get_msg_index(struct hw_channel_context *hwc, u16 *msg_id)
+ 	index = find_first_zero_bit(hwc->inflight_msg_res.map,
+ 				    hwc->inflight_msg_res.size);
+ 
++	ctx = &hwc->caller_ctx[index];
++	spin_lock(&ctx->lock);
++	reinit_completion(&ctx->comp_event);
++	ctx->output_buf = NULL;
++	ctx->output_buflen = 0;
++	ctx->error = -EINPROGRESS;
++	ctx->status_code = 0;
++
+ 	bitmap_set(hwc->inflight_msg_res.map, index, 1);
+ 
++	spin_unlock(&ctx->lock);
+ 	spin_unlock_irqrestore(&r->lock, flags);
+ 
+ 	*msg_id = index;
+@@ -90,14 +100,21 @@ static void mana_hwc_handle_resp(struct hw_channel_context *hwc, u32 resp_len,
+ 	}
+ 
+ 	ctx = hwc->caller_ctx + msg_id;
+-	err = mana_hwc_verify_resp_msg(ctx, resp_msg, resp_len);
+-	if (err)
+-		goto out;
+ 
+-	ctx->status_code = resp_msg->status;
++	spin_lock(&ctx->lock);
++	if (!ctx->output_buf) {
++		spin_unlock(&ctx->lock);
++		mana_hwc_post_rx_wqe(hwc->rxq, rx_req);
++		return;
++	}
+ 
+-	memcpy(ctx->output_buf, resp_msg, resp_len);
+-out:
++	err = mana_hwc_verify_resp_msg(ctx, resp_msg, resp_len);
++	if (!err) {
++		ctx->status_code = resp_msg->status;
++		memcpy(ctx->output_buf, resp_msg, resp_len);
++	}
++
++	ctx->output_buf = NULL;
+ 	ctx->error = err;
+ 
+ 	/* Must post rx wqe before complete(), otherwise the next rx may
+@@ -106,6 +123,7 @@ out:
+ 	mana_hwc_post_rx_wqe(hwc->rxq, rx_req);
+ 
+ 	complete(&ctx->comp_event);
++	spin_unlock(&ctx->lock);
+ }
+ 
+ static void mana_hwc_init_event_handler(void *ctx, struct gdma_queue *q_self,
+@@ -709,8 +727,10 @@ static int mana_hwc_test_channel(struct hw_channel_context *hwc, u16 q_depth,
+ 	if (!ctx)
+ 		return -ENOMEM;
+ 
+-	for (i = 0; i < q_depth; ++i)
++	for (i = 0; i < q_depth; ++i) {
+ 		init_completion(&ctx[i].comp_event);
++		spin_lock_init(&ctx[i].lock);
++	}
+ 
+ 	hwc->caller_ctx = ctx;
+ 
+@@ -1019,6 +1039,37 @@ void mana_hwc_free_retained_channel(struct gdma_context *gc)
+ 	gc->hwc.gdma_context = NULL;
+ }
+ 
++static int mana_hwc_response_status(struct hw_channel_context *hwc,
++				    u32 command, int error, u32 status)
++{
++	if (error)
++		return error;
++
++	if (!status || status == GDMA_STATUS_MORE_ENTRIES)
++		return 0;
++
++	if (status == GDMA_STATUS_CMD_UNSUPPORTED)
++		return -EOPNOTSUPP;
++
++	if (command != MANA_QUERY_PHY_STAT)
++		dev_err(hwc->dev, "Command 0x%x failed with status: 0x%x\n",
++			command, status);
++
++	return -EPROTO;
++}
++
++static void mana_hwc_finish_request(struct hw_channel_context *hwc,
++				    struct hwc_caller_ctx *ctx, u16 msg_id)
++{
++	unsigned long flags;
++
++	spin_lock_irqsave(&ctx->lock, flags);
++	ctx->output_buf = NULL;
++	spin_unlock_irqrestore(&ctx->lock, flags);
++
++	mana_hwc_put_msg_index(hwc, msg_id);
++}
++
+ int mana_hwc_send_request(struct hw_channel_context *hwc, u32 req_len,
+ 			  const void *req, u32 resp_len, void *resp)
+ {
+@@ -1026,26 +1077,32 @@ int mana_hwc_send_request(struct hw_channel_context *hwc, u32 req_len,
+ 	struct hwc_wq *txq = hwc->txq;
+ 	struct gdma_req_hdr *req_msg;
+ 	struct hwc_caller_ctx *ctx;
++	unsigned long flags;
+ 	u32 dest_vrcq;
+ 	u32 dest_vrq;
+ 	u32 command;
++	u32 status;
+ 	u16 msg_id;
+ 	int err;
+ 
+-	mana_hwc_get_msg_index(hwc, &msg_id);
++	err = mana_hwc_get_msg_index(hwc, &msg_id);
++	if (err)
++		return err;
+ 
+ 	tx_wr = &txq->msg_buf->reqs[msg_id];
++	ctx = hwc->caller_ctx + msg_id;
+ 
+ 	if (req_len > tx_wr->buf_len) {
+ 		dev_err(hwc->dev, "HWC: req msg size: %d > %d\n", req_len,
+ 			tx_wr->buf_len);
+-		err = -EINVAL;
+-		goto out;
++		mana_hwc_finish_request(hwc, ctx, msg_id);
++		return -EINVAL;
+ 	}
+ 
+-	ctx = hwc->caller_ctx + msg_id;
++	spin_lock_irqsave(&ctx->lock, flags);
+ 	ctx->output_buf = resp;
+ 	ctx->output_buflen = resp_len;
++	spin_unlock_irqrestore(&ctx->lock, flags);
+ 
+ 	req_msg = (struct gdma_req_hdr *)tx_wr->buf_va;
+ 	if (req)
+@@ -1067,11 +1124,24 @@ int mana_hwc_send_request(struct hw_channel_context *hwc, u32 req_len,
+ 	err = mana_hwc_post_tx_wqe(txq, tx_wr, dest_vrq, dest_vrcq, false);
+ 	if (err) {
+ 		dev_err(hwc->dev, "HWC: Failed to post send WQE: %d\n", err);
+-		goto out;
++		mana_hwc_finish_request(hwc, ctx, msg_id);
++		return err;
+ 	}
+ 
+ 	if (!wait_for_completion_timeout(&ctx->comp_event,
+-					 (msecs_to_jiffies(hwc->hwc_timeout)))) {
++					 msecs_to_jiffies(hwc->hwc_timeout))) {
++		spin_lock_irqsave(&ctx->lock, flags);
++		ctx->output_buf = NULL;
++		err = ctx->error;
++		status = ctx->status_code;
++		spin_unlock_irqrestore(&ctx->lock, flags);
++
++		if (err != -EINPROGRESS) {
++			mana_hwc_finish_request(hwc, ctx, msg_id);
++			return mana_hwc_response_status(hwc, command, err,
++							status);
++		}
++
+ 		if (hwc->hwc_timeout != 0)
+ 			dev_err(hwc->dev, "Command 0x%x timed out: %u ms\n",
+ 				command, hwc->hwc_timeout);
+@@ -1080,27 +1150,16 @@ int mana_hwc_send_request(struct hw_channel_context *hwc, u32 req_len,
+ 		if (hwc->hwc_timeout > 1)
+ 			hwc->hwc_timeout = 1;
+ 
+-		err = -ETIMEDOUT;
+-		goto out;
++		mana_hwc_finish_request(hwc, ctx, msg_id);
++		return -ETIMEDOUT;
+ 	}
+ 
+-	if (ctx->error) {
+-		err = ctx->error;
+-		goto out;
+-	}
++	spin_lock_irqsave(&ctx->lock, flags);
++	ctx->output_buf = NULL;
++	err = ctx->error;
++	status = ctx->status_code;
++	spin_unlock_irqrestore(&ctx->lock, flags);
+ 
+-	if (ctx->status_code && ctx->status_code != GDMA_STATUS_MORE_ENTRIES) {
+-		if (ctx->status_code == GDMA_STATUS_CMD_UNSUPPORTED) {
+-			err = -EOPNOTSUPP;
+-			goto out;
+-		}
+-		if (command != MANA_QUERY_PHY_STAT)
+-			dev_err(hwc->dev, "Command 0x%x failed with status: 0x%x\n",
+-				command, ctx->status_code);
+-		err = -EPROTO;
+-		goto out;
+-	}
+-out:
+-	mana_hwc_put_msg_index(hwc, msg_id);
+-	return err;
++	mana_hwc_finish_request(hwc, ctx, msg_id);
++	return mana_hwc_response_status(hwc, command, err, status);
+ }
+diff --git a/include/net/mana/hw_channel.h b/include/net/mana/hw_channel.h
+index fc2c26f809047703244ffd30ff4a7a115c682617..bcaf276976a81dca825ee08804a3b2fa5ee24a9a 100644
+--- a/include/net/mana/hw_channel.h
++++ b/include/net/mana/hw_channel.h
+@@ -168,10 +168,12 @@ struct hwc_wq {
+ 
+ struct hwc_caller_ctx {
+ 	struct completion comp_event;
++	/* Protects initialization, output storage and response state. */
++	spinlock_t lock;
+ 	void *output_buf;
+ 	u32 output_buflen;
+ 
+-	u32 error; /* Linux error code */
++	int error; /* Linux error code */
+ 	u32 status_code;
+ };
+ 
