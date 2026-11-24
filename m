@@ -1,47 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795502482;
-	b=qck4rTCBHZRAFVVsQBENqaUYO2JkpMAyFDP1mDq7yD+uHqLt9ytkGR4XTvDoqPRRvgev
-	 tgQcnmJrIXHrD8C9TOXexnMfmyLJhAXeBbvGInpW3Zc7Cb2nyMLC7J1o0I1gwYY+hqqWP
-	 AAiEJfYRJR+X/jPK0ect8xw0yKGAwWV4AvlpQOot1yAavYLNrgAVcFwec1Q0PMG7BFNf8
-	 YZ3owlkF6VG/kpg85FLpVRFq1TypPQUZ5DjdCyH+8/U0BJSWOu2t3cZQ3QYyNjBGsvP7h
-	 pqJc5geeyQoBhLkB4feJDvwtmvTfB0tT9FHIb0xKQATIkasxkHyo4Ozy0JMPxzGA4xQ==
+	t=1795502510;
+	b=3Zk5Wtce1LTeOUBP7SRtn9Usv+Jne4BFVEplcmmiLOGGqCGPkqZo1SDqzZvrjPenUKMf
+	 mn8JqdZKInNpcW9hEwXxawphC41l6ZhAoC3L+yVmg22TM9elhuZA3r/DMWVUzMetvkiKU
+	 QFyXsUTtLUairHtNJpmY08FFevUU+IofUqkfhK9znp5A1uwCl9+hJEJrwjPBOI5c2StWk
+	 6WthxSbwSfA6F7tCuqVsM/9xsRDgdeBKljk2fkwfJeC6mD+TJzCwSfzN5YdPmRxvvn9eQ
+	 OmFGcuZGorFi5AZhGFe5hPqcJP4yvaB9XvdkyN0xTM2/lWZgKtU1A7692yb0J3gNw/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795502482;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=D0iXW4cQ6r7peoDFl+A6eW97uV9tAAL0MLqDFk+woko=;
-	b=TjWnFa3SbJaPTKeoaW7YoU4Fhl7R6nlVFDAcaZQT+EVZcgpn6xUewYFVxl9hlLjd7t7y
-	 TJrLfeJVe8dhf+J2C/QJRVGb9WsKCHMlOC/Dv/1jAXErd8HZm6Oa8SY7KcmArQLiEV2/7
-	 tbCUIb6G7Es5OoU+i4koEPaCA9jSK5uDgO8AFSZLTEP0L8Ok7JqX5LXX+I77CwfP+ck8b
-	 JzcklhhfBrpoxeJEiTOeSUZh2swVTAvT7Qnmu4gXpUBn7L6K1mrLO2yeyZ6t6nTzLDwZD
-	 nzBK95lGms2Z8Fm/IC5R7hjh8mFz9LbIMPvRUshSGfKvxDZ4O2p3cdxRWJ1ub8bKagQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795502510;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=4WuFVQOFRYWtvH5f7uOdSI8usx8SQMpezyzM1BSEdVs=;
+	b=gA7UvpE3k31Jbf3ytdcLEsOWor/X4fvQx4TvugpY+MXr4jEq9b0StBLDgjtixNRKmMhf
+	 5FoxzpFCwUkOWZnAiPLpRIvnG9W0ClvFX20QtmnEZcOeWMVqwhzZVbXM0C0LcOT2Rm5WN
+	 zhbMYWlubWSzyxvMtSm9Ikcsw01eSy/4dMfAhVjsoDalMOIvZtjsydHwFCYqWs6KgKUCx
+	 K5jWU4HoiIjDxqDJ/mlp1fwe+nxRHcCdKyYT2bUIG++ouauhfJEZZ0FsK502d3Hz9gdWe
+	 BhPCPtCNJiD9jU4ja8FBcukUuHt9qyqK1Fyf/lguOogQ2sgrb21Uyrvbt6Lv7jf9yVg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bgDbZiCK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JoiCtpsv;
+	arc=none smtp.remote-ip=209.85.210.171
+Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AEB6606A326;
-	Tue, 24 Nov 2026 06:41:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 427D1606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:41:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 427D1606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bgDbZiCK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E44C1F0089E;
-	Tue, 24 Nov 2026 06:41:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795502481;
-	bh=D0iXW4cQ6r7peoDFl+A6eW97uV9tAAL0MLqDFk+woko=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=bgDbZiCK/ZKa00WDXAUWPS269+6R3R6rqkH5S5llCEDGPFKXb8jKhdFa3mtRisUaS
-	 xm4Zizp87kzhzeGM0c0e6XH40AM+2D8kEO9kV6NmYO/tci25Q/pcgIcAMRpOgfih5W
-	 as1tjQOmdNjeuBK9cCQN83Gz7fSxk8mtcdJHGKhOucahc89TT4kb97anUOPAakrN9d
-	 0VFVZzMQNzKS4XBUECUYYEGCGuP0lF64vN1f4pEFbc9wD3gSaRfiOHje6QG9WkKo9L
-	 TWMd/MdfDGfQduJXbBm6NoPbgtLjkKYP71mbqfxX8iFJs3lWw4v10g/TvSur5eVRPs
-	 Mn/k+UFhMS3Hw==
-Message-ID: <7bce0280-704e-42ce-ba65-d3ab369bc20c@kernel.org>
-Date: Tue, 24 Nov 2026 07:41:14 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JoiCtpsv
+Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8b5a6f2f27fso1650119b3a.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:41:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795502508; x=1796107308; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4WuFVQOFRYWtvH5f7uOdSI8usx8SQMpezyzM1BSEdVs=;
+        b=JoiCtpsvXsQ/VkZFCgPsrpTHZls7GZeB/h2eq2znbxwhUUgd91Fm14p/fcB4WMzo17
+         GsFvh+YAVMgX46Gmqm3NQA8fmOm3Tzvbdm8h0wuzqpITtWxq3wdUK/4eHXY7StKTAABd
+         7odUFdb+aPg8zmxXILJ86GriTDPeyqQy+scF0oMb9sjoPyEJ9NDd8k8kD55N/86UcLXb
+         J7pJIh9AHeyGQCrXZMc9hIrO0L0vnLe7FuWg12D7VWsK0b4j9Qrec6MkbKYI999XDTEW
+         Z/6WRWZnK9miT7rdMvEI1FEISpdjB2lzuHlOGWR5E5N4cM9NWghH7e2XWfMQW4N3ptB6
+         ylZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795502508; x=1796107308;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4WuFVQOFRYWtvH5f7uOdSI8usx8SQMpezyzM1BSEdVs=;
+        b=vbNQxdDDJSUeYW1OiduVmKwPgp0zuGFy413Wegu8y/+7ULQeFIHjP+BB8dbLafgJli
+         +9yeTBGTWixbbNOX14T+nRRhtlmzcT0DML3pJpwNz9dXoWrIfP4WOKAhRlTobFFo/O/f
+         g8+yBEsW8BewYBva24OSWjG7HcEnwZvXJ6jXGT3yBCBCRmBclSx7ULTShdjdihFdwF5s
+         DT4UyFq2yBsb2ivASwcvJM7BJltZD0ZJO5ydi0LwNUBojKuaDW0AiwLmIggL6n51Aiil
+         asw9vv8ka5oTlArVveXcHkow+BaW8i5fxHV7wch6j96A0RniuBfkmyyzDEse5yBZQUZH
+         Guvg==
+X-Forwarded-Encrypted: i=1; AL+hErHlGHzPLx8jeqbnQtJZM83vtOMP9keDjqGp/v8l8rvXygHTOUmygpg7wW18PfiSPKurK8XwvY8KyBx2J4g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/d0Ct5gMMGo0a5pf6L+MZc1sEN3ARDhtXWsttEQa14yH1ESf43
+	BSc3Re+YLxKVb0CiVqcKAqBtS8AWuUOzQbChWh3qZEQbbykA9pSPctbraaXnpQ==
+X-Gm-Gg: AZFdTZclCAmlQv0LZESd2TZnGYaWL+5wki5eHs2xexdtm0BfD3vCNkUlSitKhuNbzEv
+	+c+BJfpmLfYDyLWBzwjOoqQ2FdjiLGt/Vk+7TAYybkvbc8nvYW35/ZuIdNGk6UocHsLuCtg8jGI
+	SWnh1wFmfDdtrL0DGYOyWnZtdURt0L3GJ8PHj9MXIRVcrailpAQ/A+J/W1uWTMZP5uj6XwDhkYW
+	q1XqaXlTLUrANjOX58+tLPuxOhPGPbpD6GP7zQ992nOlK3X9y/xqkbuvrC2uqfSNvOVZJrS11sP
+	+uF4Y1KcjpR+YRfzU0CuwKzZjooEhAiUCicFIFlM8AlBFlog9fbJTMoisyUQhictGWO/evlG9N+
+	i7GU1N/XiBQRc/UQuuiI0/GWPIPQB9ivo16+YwPqtAouT5aqJRCBOE0X4LzW1tt0PVOSMLYiCAN
+	AMnGItbQxw32By+KMKZD6hRY96SeOtIxY214IYARc65VLoIKOYF137F+jw8DisUr0Gwktv0Wemg
+	jjWRhwRuGSJJ2t88YNL1FtFIxuaZkLDLgb8eznyl6nB8sRzeAWWxRh8cc23KVErzV+Ym5dFjq3q
+	5JSgG34P8JDmmCPbiWaJHdB8XOPCC74=
+X-Received: by 2002:a05:6a00:4a06:b0:8c9:4ad:abf5 with SMTP id d2e1a72fcca58-8c904adb638mr8505595b3a.27.1795502508396;
+        Mon, 23 Nov 2026 22:41:48 -0800 (PST)
+Received: from thangnn-ASUS.. ([2a09:bac1:7ac0:e88::247:18])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077a058sm6745089b3a.8.2026.11.23.22.41.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 22:41:48 -0800 (PST)
+From: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
+To: dm-devel@lists.linux.dev
+Cc: Alasdair Kergon <agk@redhat.com>,
+	Mike Snitzer <snitzer@kernel.org>,
+	Mikulas Patocka <mpatocka@redhat.com>,
+	Benjamin Marzinski <bmarzins@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	syzbot+dbad68398c8646e5a382@syzkaller.appspotmail.com
+Subject: [PATCH] dm cache metadata: drop the last reference under table_lock
+Date: Tue, 24 Nov 2026 13:41:43 +0700
+Message-ID: <20261124064143.118819-1-ngocthang2710.1999@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,83 +98,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/5] dt-bindings: soc: Add Cortina Systems CS7542
- global control block
-To: filipp.dunsky@gmail.com, Linus Walleij <linusw@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, linux-gpio@vger.kernel.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261123-cs7542-syscon-v3-0-f1c07a1703f8@gmail.com>
- <20261123-cs7542-syscon-v3-1-f1c07a1703f8@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261123-cs7542-syscon-v3-1-f1c07a1703f8@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 23/11/2026 21:54, Fil Dunsky via B4 Relay wrote:
-> From: Fil Dunsky <filipp.dunsky@gmail.com>
-> 
-> Describe the shared global register block and its strap-selected APB,
-> CPU and AXI clocks. A pinctrl child will share the syscon regmap. Keep
-> clock IDs in the order used by the previous out-of-tree CS75xx clock
-> provider.
-> 
-> AI assistance: Codex prepared this change from the existing OpenWrt port
-> and GPL vendor sources.
-> 
-> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+dm_cache_metadata_close() drops the reference with
+refcount_dec_and_test() and only then takes table_lock to unlink the
+object from the shared table. In between, a concurrent
+dm_cache_metadata_open() on the same metadata device can find the
+object in the table and call refcount_inc() on a zero refcount:
 
-I commented at v1 10 hours after it was posted and now I see v3.
-Dropping from patchwork, so this won't cut the queue.
+  refcount_t: addition on 0; use-after-free.
+  WARNING: lib/refcount.c:34 at refcount_warn_saturate+0xc0/0xe0
+  Call Trace:
+   lookup+0xa9/0xc0
+   dm_cache_metadata_open+0x104a/0x1560
+   cache_ctr+0x145f/0x37b0
+   dm_table_add_target
+   table_load
+   ctl_ioctl
 
-Best regards,
-Krzysztof
+The closing thread then destroys and frees the object, leaving the
+opener holding a dangling pointer.
+
+Use refcount_dec_and_mutex_lock() so the final decrement and the
+list_del() happen atomically with respect to lookup().
+
+Fixes: 9b1cc9f251af ("dm cache: share cache-metadata object across inactive and active DM tables")
+Reported-by: syzbot+dbad68398c8646e5a382@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=dbad68398c8646e5a382
+Signed-off-by: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
+---
+Tested in QEMU (x86_64, 4 vCPUs, KASAN + lockdep) with the syzbot C
+reproducer (4 threads racing DM_TABLE_LOAD of a cache target on the
+same metadata device):
+  - unpatched: "refcount_t: addition on 0" in lookup() in 3 of 5 boots
+  - patched:   0 hits in 4 boots x 8 runs x 25s, no other warnings
+
+ drivers/md/dm-cache-metadata.c | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/md/dm-cache-metadata.c b/drivers/md/dm-cache-metadata.c
+index 461044dca367a..04140e6b1fb92 100644
+--- a/drivers/md/dm-cache-metadata.c
++++ b/drivers/md/dm-cache-metadata.c
+@@ -877,15 +877,16 @@ struct dm_cache_metadata *dm_cache_metadata_open(struct block_device *bdev,
+ 
+ void dm_cache_metadata_close(struct dm_cache_metadata *cmd)
+ {
+-	if (refcount_dec_and_test(&cmd->ref_count)) {
+-		mutex_lock(&table_lock);
+-		list_del(&cmd->list);
+-		mutex_unlock(&table_lock);
++	/* Drop the last ref under table_lock so lookup() never sees it at 0. */
++	if (!refcount_dec_and_mutex_lock(&cmd->ref_count, &table_lock))
++		return;
+ 
+-		if (!cmd->fail_io)
+-			__destroy_persistent_data_objects(cmd, true);
+-		kfree(cmd);
+-	}
++	list_del(&cmd->list);
++	mutex_unlock(&table_lock);
++
++	if (!cmd->fail_io)
++		__destroy_persistent_data_objects(cmd, true);
++	kfree(cmd);
+ }
+ 
+ /*
+-- 
+2.43.0
+
