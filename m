@@ -1,92 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.51
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795544381;
-	b=XbRUDaxzF/npV35ylLpbOgu/fmrN7UsLNBN9WyGF48+M+OGOTWZfMGVp78fw8+ymBDPN
-	 HcOgCfwMRhbD3NpQxrsvq53ccC3YPVZ580MuzSF4Wpu3WVdd6Vt7Fubf3PAXeH+KChEhm
-	 pK6yrtuC91zcJdY4MtFU0L/ZI7YKNKEq6t7k5pBqWNOE7vckVg6G1BhHTY5vhErpo5Alc
-	 v9T2QG+Mmu0J62dpQAlYKO9BigbzHEUo3tyFHP8jtGIyohIx+Hqx8b+xd1exxzn91idRO
-	 ld4uswZCSfoMnhudvl9retnoWTLA37xvnUhFrDpnl3aSPQdnftkmtyIob/VGoQSeGHA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795544381;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=9akaBTfF6wDI9oHwKMXEjnbhxpjEIU4hGAF8pqsrUb0=;
-	b=ZzJxtJde2oAeZ/Vnr9mkjO+JDReOVFHozKmull0AgX+I3b3qaVGCDCuOp7EIeHBzoKRD
-	 zrUmhh0RR2O0wiAkB6PfxhI0Qu2Bc5RAV8g/upvPItjS5j0ZiIYCXl0tJRuJ+N+rPpkAU
-	 3vSzoMdUyWIiTJdH3oFT00xSIw8VHUXZQYjftlIkwkdx2zCNSS6JDxxPmuqfF+haw4gVT
-	 CX+bP4MDt4F9Ynle7m1OU16W2TRRtHIDB0Q3kdtW06T1/AwhduovS0GhFP7/hV4oUR80a
-	 ZG66dsSch98k9wmVou/xKOFTwAaIuudZ2AinjNYmZN6pMZduLg1S80M698Ly2cujtag==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wY7ezL7Z;
-	arc=none smtp.remote-ip=74.125.82.51
-Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795544386;
+	b=rF9MaTemEuZ/knX3PjJI2oNfYYpCLzOXJuX6ZNLXEy2QChBSU2QkgP2T7sXV7rSPRi4h
+	 b3uXUP3gbQh+DFVUv+g7h/oYTcHyZTzQuTlNAOs1TI6n0/GNbfgWUnahgdmaQfXhXzzht
+	 aTVZxD+eQdkuleL0Kzj6LDwmdY4A83yY6u/GVzTo5DNzNU5M0cC/gSx2dKYInJGyGfeeu
+	 3lKaw0AO3vEOYr9gt9PSi9l+uwiMN9wG5OlRZ7ixs/V4Y8AgV74ZPOLH9VYm5AgxPGxbS
+	 xQqKPlkQDLK2ts/5ir4aEHUFpYme+W8Aw2m5fGm41dbFp09EDE4LHJ/4jJgFxAeVA0Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795544386;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
+	bh=0CFwRkc7fD2jpDw8kPdd9uyzkG3LdOvAaySDOx0LxLM=;
+	b=OehWGkU9iod3+jmAyvJqars02n810jrybJLlwh0IUW/qJlyhparxvQagwPLZoOd3ui4r
+	 slYNcGsyqFIXmxrL0SRTefB+XOPsUP3zg540BlCN1L2H70atAzxZ4j106bnF9maqOwBtX
+	 8W758qV7ic72O90BY2MvnuMrX+YYbdZE5E781hSB4vGiyeSJj13gDpxkA+J6S4uQJ2tfg
+	 3+LKM5LoIe94c900Xlm6KZtVa0lxnpm6BglYKH8VNXPBQqVbbCPvfLKAxrFBVs0ZsTbqq
+	 nL/QO+JupnD05EyK9jlnEkdxxNUl3A5b5yNIA2GU0x95ikiF5WvJbGB1VGHPS6pGbXg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=rong.moe;
+	spf=pass smtp.mailfrom=rong.moe;
+	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=M2i7jdDQ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E258A606A697
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:19:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E258A606A697
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44915606A69C;
+	Tue, 24 Nov 2026 18:19:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44915606A69C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wY7ezL7Z
-Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-1b244fb7fffso4628419c88.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:19:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795544380; x=1796149180; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=9akaBTfF6wDI9oHwKMXEjnbhxpjEIU4hGAF8pqsrUb0=;
-        b=wY7ezL7ZJHSy88yNX5eWm11tPgbR57oSI8+P+lsVZYh+5Mlo0A26pskKG4s36ZD+UN
-         p4fImx6DwC1Zrs5SpEhwQ+snEAbkWiB1ytpte51ijioXfMV5XuMM96UDXyHo45cTBNPu
-         aI3G3gMKo/DwMj+J1G3saAvoesUq59uZYN/AosPraqswPu/5/CF92kAfeFkAhJtwc9nx
-         wHSfflEMWq49wGrOoAPyRtSaJEQI9/R2zUkiQV4Bt6F9Dbv2yanx3Z8GCqX6oRoWnVK+
-         NaNp1du21foNoqRlBYQDLV9FRL8zsB9/6NCuMi6Rin6NCEnljWT8+KPxvKci0TZOIcmh
-         rEng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795544380; x=1796149180;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9akaBTfF6wDI9oHwKMXEjnbhxpjEIU4hGAF8pqsrUb0=;
-        b=a2RwUdE84hWfoqfbG17yfg/zXS2kyhACUQS6/absha99XouXG9cz/rvSC5VcXZfeVc
-         UhgH7R8kwRMcAzHqBSF8b6+c/3UltwSHE+oIX/z/U68khlFSl7KAr9xEnwt//+XDShRu
-         fIuneDUSDkOtwAw0DjbXeGarK1iDpEzZ02lMkZm5pDk5Zy9dqlpgEifiNykKAZcYyKhZ
-         QImx1P4Vvi7790izz5CKQPt5+r9tbtRIQ25ymKOu7wfbJjNJWd9QmLRqBaojZG2YbIzj
-         xdfLCqpZAZSDE2W5eVCvtKh1gFrMtO0VwCJyfbla9pc1Qa/G+sif5sla4xoTIggCKXDF
-         l2oQ==
-X-Forwarded-Encrypted: i=1; AL+hErGu+dMKSLzPTY7PW698oZUFDingK0ZI2HIEDCxufaN1G6zXuz+v0eZNJN09E0zd6MhdjP9Ijj/D4gbzwdI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+rCQ9dkTFKjaD6YWvHjRBJHktvvPZ4Acdnmx7RDOb9lronYu65
-	LK1LNYk9AKGNsoFEIdvtV0kU9RsmQ8j4/Xt6iIf21PcfPRfO7r3ahQxrFYXaM+nf
-X-Gm-Gg: AZFdTZd+lYa6K8EzvhLUnd2X68d0QtdPtkc5FwsRn7RgEurMdYYPYBVwUzT72q5jap7
-	ptIOV8k4YezsLTCmmlb6eBxgnhZQfApgIE4Z6oQI6g0WT/mzWPwXEO/Hj/KdjifvChS/r8KiR6i
-	XUyj8Ng5rzB1ICuMK182vr/xHgMyYtiW1q42liATE4CvBhBifRW93J8O7DHwqKJ4V/td3/gekZs
-	QpIdZafL8hzE70hla85TQdh/3v/Z1fekS6AnBDeea5/jW4p/GPgfF+3xKuRwTPMJgno9g5T2RRo
-	hN/7wiDfl+WV6yGmEDCczU2Ij5fctpfI0di47LrkPheENQXD4zNYzGVNMIJx8F3bFcJdXZIeYaY
-	FHxxGfaEbEacvqPEIK8MkfFgsATrhjVBIM7UsvTSD8yIj5dMMsPsPxQ3XQ3ac/hmPphZ7T/h4PT
-	3bHPJKy3dwP7IDY0N6AopvTPCyLlRH759qj0MfcHs1uKYNoRylKqwSQrWy19l/LKgs9Q0e6+L5W
-	rpGyWs6m3KYXxj1WAJFIGU7La8RnavXoebvuFMTZ7FUFrLrMzF0czbyS3zZIWthePLcu6WoBV5g
-	UaxkVJmqlp/P6SmJ4BnxFxgtKNIzslEisd3ygpppS42YRS73Kb/0kiZ+d3LY3nypjfc4Z3w=
-X-Received: by 2002:a05:7023:e41:10b0:1b5:43f6:74ee with SMTP id a92af1059eb24-1b5567c1250mr13792658c88.1.1795544379818;
-        Tue, 24 Nov 2026 10:19:39 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:ee3b:b892:771b:3bc7])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm59688327c88.9.2026.11.24.10.19.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 10:19:37 -0800 (PST)
-Date: Tue, 24 Nov 2026 10:19:35 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Daniel Palmer <daniel@0x0f.com>
-Cc: linux-input@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Input: amimouse - Fix the buttons
-Message-ID: <awXVMoykw0uYsIsO@google.com>
-References: <20261124100604.2380938-1-daniel@0x0f.com>
+	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=M2i7jdDQ
+ARC-Seal: i=1; a=rsa-sha256; t=1795544281; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=PpaHgY46gBH4qcNI8PeqHu4EYeMkcgVRcpnJe9MA1DqIuxLgIEGE+WT9cwUpGjQw0TwMC+n4qKEJdBtDwRXv2bGFyBO/SkWvjSsv6ZwlTVAT5Jji8E6SVrtujMzi1zHzzb2V47E0NrmQpURX2rnPFCvtJ3Ng660xUVRCgJX0SkY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795544281; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=0CFwRkc7fD2jpDw8kPdd9uyzkG3LdOvAaySDOx0LxLM=; 
+	b=B9AUlWPG60fNnEQPUd6DsoLoMxfigI7/IpxB56tiAIKjkBfUEuw+pskiHMqBFMJChXCQuVWheuSJNEAHn3CTfP0OET34b4bVwo5iRCeK3g4gCkItoGVr5tX/YWTWT1vCqKd7Ut6oAR7b755bHQ91bTerPWdzUMGyqDbnxP65P9A=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: a=rsa-sha256; b=M2i7jdDQIyzPtkcjXwYWyPG+ZYbbYy65mrs77bfqJVI5J7XOehKwUkFplUM33qBQ5tmWFC+kUX5lS+c/HRSoM20li1wXVRDAGR1mnkKyqkkbio8GIRO7MBaimwBNwyUEcxecnvZ1oKtottRE8Jd9IeHKKnT+qSj9HG4AobA7k9OUitKFDsj6Vzi34RrAJlSQt60tDE4RJSFYQKwUBGAMkEyPiAs8bA9WR5DUef5pdVauhclQnQxXoeCd3Nu+HeHjKdDyb/vDKYn14UroQGQ0ftRTwZsi3aQbVROhm2JMExbyoBVJBOvlGiZWCDcXhHJ0ElIFQYBoKKvMzAFlQkmQYQ==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=0CFwRkc7fD2jpDw8kPdd9uyzkG3LdOvAaySDOx0LxLM=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795544279714605.8739311643643;
+	Tue, 24 Nov 2026 10:17:59 -0800 (PST)
+From: Rong Zhang <i@rong.moe>
+Date: Wed, 25 Nov 2026 02:17:01 +0800
+Subject: [PATCH v2 5/7] platform/x86: lenovo-ymc: Refresh posture on resume
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,30 +59,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124100604.2380938-1-daniel@0x0f.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-ymc-82yl-v2-5-624bdcb3c50e@rong.moe>
+References: <20261125-ymc-82yl-v2-0-624bdcb3c50e@rong.moe>
+In-Reply-To: <20261125-ymc-82yl-v2-0-624bdcb3c50e@rong.moe>
+To: Mark Pearson <mpearson-lenovo@squebb.ca>, 
+ "Derek J. Clark" <derekjohn.clark@gmail.com>, 
+ Hans de Goede <hansg@kernel.org>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Gergo Koteles <soyer@irl.hu>, Ike Panhc <ikepanhc@gmail.com>, 
+ Andrew Kallmeyer <kallmeyeras@gmail.com>
+Cc: Eduard Aliman <edialiman20@gmail.com>, 
+ platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Mahir Faisal <mahirfaisalantiq33@gmail.com>, Rong Zhang <i@rong.moe>
+X-Mailer: b4 0.17-dev-ce4c1
+X-ZohoMailClient: External
 
-On Tue, Nov 24, 2026 at 07:06:04PM +0900, Daniel Palmer wrote:
-> On the Amiga the left button is connected to CIAAPRA bit 6 (/FIR0)
-> and the middle and right ones are POTINP (called potgor in the code)
-> bits 8 (DATLX) and 10 (DATLY), all of these are active low according
-> to the "Amiga Hardware Reference Manual (3rd edition)":
-> 
-> In chapter 8, "Interface Hardware": under "Mouse Buttons" a 0 in CIAAPRA
-> bit 6 means "switch closed", and under "Digital I/O on the Controller
-> Port" reading POTINP "will produce a 0 if the button is pressed, a 1 if
-> it is not".
-> 
-> Invert the bits from the registers so the state of the buttons is
-> correct.
-> 
-> Tested with Quake on a real Amiga 4000.
-> 
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-> Signed-off-by: Daniel Palmer <daniel@0x0f.com>
+When the device's posture is changed during suspend, the software
+posture may become out of sync after resume.
 
-Applied, thank you.
+Add a resume callback refreshing the posture and poke ideapad-laptop to
+trigger the EC.
+
+Reported-by: Mahir Faisal <mahirfaisalantiq33@gmail.com>
+Closes: https://msgid.link/CAGAHqH62UiDKktoqg6cJ_oqj02NqH6FDjj32ucw7w+L2-_-NOg@mail.gmail.com
+Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+Signed-off-by: Rong Zhang <i@rong.moe>
+---
+ drivers/platform/x86/lenovo/ymc.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/drivers/platform/x86/lenovo/ymc.c b/drivers/platform/x86/lenovo/ymc.c
+index cb3ae49dfd9e..b2bb8ad9de0c 100644
+--- a/drivers/platform/x86/lenovo/ymc.c
++++ b/drivers/platform/x86/lenovo/ymc.c
+@@ -17,6 +17,7 @@
+ #include <linux/input/sparse-keymap.h>
+ #include <linux/mutex.h>
+ #include <linux/notifier.h>
++#include <linux/pm.h>
+ #include <linux/wmi.h>
+ #include "ideapad-laptop.h"
+ #include "wmi-events.h"
+@@ -118,6 +119,16 @@ static int lenovo_ymc_notify(struct notifier_block *nb, unsigned long action, vo
+ 	}
+ }
+ 
++static int lenovo_ymc_resume(struct device *dev)
++{
++	struct lenovo_ymc_private *priv = dev_get_drvdata(dev);
++
++	lenovo_ymc_refresh(priv, YMC_POSTURE_UNKNOWN);
++	return 0;
++}
++
++static DEFINE_SIMPLE_DEV_PM_OPS(lenovo_ymc_pm_ops, NULL, lenovo_ymc_resume);
++
+ static int lenovo_ymc_probe(struct wmi_device *wdev, const void *ctx)
+ {
+ 	struct lenovo_ymc_private *priv;
+@@ -189,6 +200,7 @@ MODULE_DEVICE_TABLE(wmi, lenovo_ymc_wmi_id_table);
+ static struct wmi_driver lenovo_ymc_driver = {
+ 	.driver = {
+ 		.name = "lenovo-ymc",
++		.pm = pm_sleep_ptr(&lenovo_ymc_pm_ops),
+ 		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
+ 	},
+ 	.id_table = lenovo_ymc_wmi_id_table,
 
 -- 
-Dmitry
+2.55.0
+
