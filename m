@@ -1,49 +1,145 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.146
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795478470;
-	b=z0m54RI4clLZlCHzwBeaDV69JM1a/tx+ETUoQt50HohySwhkUFRnGDMMOwNiUIbCJNMO
-	 YALxVTqgy2oaFdjyV4qcX4HwxFz6lbx6/xRNSHBhH5PyG9D7UCJDG4br1QIufjk8nBOiu
-	 Uix72Th464Fe3Gb/Jog3ppw0cBKdi10ZW4Sw17vhSnpsXTTbsu3rf8Y7ioeuz2h5HrGq8
-	 yTsYeYx/cHzCK/mecdxY1RIFn5fZFdglJxJPwxlwO3I54+91FPyA2iyXPt6Sk9UJg0NBM
-	 6revg7Hu3YZhnuzby2pxbe1zYc9cj1DFwmUIicu9tsvJhG13EDTWRZ/XfKbK8isVWSw==
+	t=1795478516;
+	b=MINRSGSed/JbPNTh/AddZHqKuZnRTtezvtXQ4vnliQ/ZFO/u9DGHdCUBCkmd2ygNs217
+	 z4h8e4fCuPcNbGfnlE6DIKcRoNnLMYqWZQ5QF+Rvul4OJvOkRLySjrxoowtcGH6/LHKyJ
+	 TQUm85WVElnkA5BwTOqdVT8kqYV42SBl2CKA4PjO8hBX104xP6TM+jK8GEjm7UD2HFF7Y
+	 2uNT2LtWA3nIfmTni7XmQ5jsxnItF33k93wuRZxMPkNMOA+3raO/XLeLFfnNmU1Nz6E1o
+	 i4MP5aY2B9I+go3o9Vs15VBRH99f4G40DiaQlxBlK7YIGLAo/J0ZYI7LUFrUePUVFXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795478470;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:From:To:Cc:
-	 References:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=mvZfEfW5RStelXlEG0PRgWitbRj+0/EdNDsq46xASbM=;
-	b=uHwwwb7t6vPO3dQP82oiiZ2cg1S6Iv8FXPAVe28ubGa/Zkz/h6zD4xEW3QSkUYD/wk08
-	 AY6L2c4GuK/DRt0azvvPKbP8+ROBmq/jShwir3mK3zAQZdEpRblapukAzDX5ZM8yrzQHm
-	 ONPQsg8+pFYluPqJCSj/fM3aGQk2zxHvPpLX0VL5amjYwq+HCQVBLITpkWuxvVG7AsKjt
-	 WJ/0LAg9M0HybXkNL6noNfaP6DKbKaw/GZH+KY0oMgd2W7zyOOTFy/oISA0WI7Gh1XW2Q
-	 ozmG748fW/enohcKPPL7atUE9xphKoOoh937uBv3tfjVG0Ofx5eakIoRm5r/EDXcJZg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795478516;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=KKx5Q0VuU2/e6f1PoJVzvJ/nSVlotgFqvYyL3B4vcIA=;
+	b=DXgg9Tfff/B1po3Reo/Fm9fksVfAlbxfIObel7gqLLls68HlSEGdT7sVQ7tqQKa657uR
+	 /Fb7c1E5OlrS38VZTEjbLQ+hrIkq5/4GAAX5C+Z7XlHncWCoKxJYvaHwzFYfXMRhhxvIi
+	 HDjJzkOafWu+GPIdA97cIrWim+y8dEyYNW3l9mUA3DkW9Oy/hdiHRJuT9R2qRdv8l5E+D
+	 RBfbRcvOwqAStD6M3PxiUFxEGUB0bCYV16ZXp3pteNpD+PfWMYITbMbtGoxgNB8gwIRdq
+	 Jooo9qcmqKeVZhit9GMPVTQJEXDefz3mXb9bjtknk7R2foTcuT3XCsMfN1USRrmE8uA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=c4KjOW5B;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 06E26606A326;
-	Tue, 24 Nov 2026 00:01:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06E26606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=gahingwoo.com;
+	spf=pass smtp.mailfrom=gahingwoo.com;
+	dkim=pass header.d=gahingwoo.com header.i=@gahingwoo.com header.a=rsa-sha256 header.s=fm2 header.b=iWP9oYfo;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=gQR7ZRGp;
+	arc=none smtp.remote-ip=103.168.172.146
+Received: from fout-a3-smtp.messagingengine.com (fout-a3-smtp.messagingengine.com [103.168.172.146])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E432606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:01:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E432606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gahingwoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gahingwoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=c4KjOW5B
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1ADFC339;
-	Mon, 23 Nov 2026 16:01:05 -0800 (PST)
-Received: from [10.57.72.180] (unknown [10.57.72.180])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4C7213F763;
-	Mon, 23 Nov 2026 16:01:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795478468; bh=z+PUNwa9+EwbdaBwXou0c5+rj8T7/aI/DwQawFtJnzc=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=c4KjOW5BN9ItMHCoak80zBU8BS/AQ/7DYC9pa1KyF8ybcl+E3+zHmcpmUjFciBjuU
-	 DhI/i1i+PRwzk6i/8pYVS0rmfSz92fJcWwcDyaxGqmK1QrQ2UkqB9sJtFjpU4PMn19
-	 QYcGemWHIzJsSmGftPtNImsHDcDAz/UpM2Zu8BZk=
-Message-ID: <4ac7d031-ed52-48ae-be47-c8045bdc58f7@arm.com>
-Date: Tue, 24 Nov 2026 00:01:02 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=gahingwoo.com header.i=@gahingwoo.com header.a=rsa-sha256 header.s=fm2 header.b=iWP9oYfo;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=gQR7ZRGp
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfout.phl.internal (Postfix) with ESMTP id 71478EC0B1A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:01:54 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-02.internal (MEProxy); Mon, 23 Nov 2026 19:01:54 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm2; t=1795478514; x=1795564914; bh=KKx5Q0VuU2
+	/e6f1PoJVzvJ/nSVlotgFqvYyL3B4vcIA=; b=iWP9oYfoKz8vdvVNcJkyegK3+z
+	oxjhFo8zLPV1e5JTMsdtpsA71/dRj2MAPN1RaxlitWXRGx2fYBQxhIKv/zgylpQD
+	Tf3vK2EXGngcYtBN9c0+9kYAMut5WqBjt9Q9Z82sFd2nFb+GzYkuXjToxQcoQUoR
+	3wa/umu+6zFYqVpV1ihmJ7JSK9vJvhaym9KrKY0AMjk3OEXCvsRBVf2H0kWOhrrK
+	OPDpadAmmfd/LZFSHt+4nAj18BCPqcDiJmiyLSbgVdECd2O+AG+TQvJmMSJvqUxQ
+	YeCsxuS3Vsk3EM3sYw8SSmAGFTmUX0cR/xTxx+We8BX+zTRNrheEGfPLMhBg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795478514; x=1795564914; bh=KKx5Q0VuU2/e6f1PoJVzvJ/nSVlotgFqvYy
+	L3B4vcIA=; b=gQR7ZRGpskGrnADFQKWrb14P8mlnCclct9k2/KYMVnN6Gf93Ybx
+	1LU1kQVBem85ahKLYrtkst1Cs7DqG43rz6G7vcwhndP2Zei4wVHxv0ufYTjR7fw4
+	kEargYnXlT/8wRI1E9TJU48GfAJF1RvIT94eNvcnRR6nNBqxRpyd0GJwjdMt3T5y
+	cf83Jwy9z6A1yUjxSfP3xuYSnVJYuMk6AdkTHu25p2kOHsbJC3fBpJMZuW7elhBV
+	/U4b29hoC2vyWgbB0KEMQPIOSIn1wx1Gh9IUARvZ7V0VWmw+J/dVyv4LsDaQBBR4
+	lEv2SDPgagWX7x073PEYlOiufFME48j5bQw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=gahingwoo.com a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795478514; d=gahingwoo.com;
+	mf=PGdhaGluZ0BnYWhpbmd3b28uY29tPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:F0P26W9DjHQnXX2+T/wQdHXfRjO7URda8qvK0WzAg4lF6np
+	8pkMDAcweKfR669X65D7BGaSOhGnxQuc+prJPDWiiUiFs4BM5f3qHh2p8yaOvSbx
+	YY5JCS4jdnEEV/UitajaCEYUiVqmkkHkc8Doh+kZo4hCe6FqhxcRIeZSyHTi7F97
+	2PvdMI9dj0uTd8eRiDwdTUO2OOcSWntPtT7FvonW7rCGew9U9yjNHpC3OjUeDbbl
+	l+fSoGZxJfkzg8XsxjNc0d3bIzfJYyt2iF8RXtemq+yqqkOWXslDWfOezGYe9++Q
+	4xiCuYX89iYchttoo2oVMZ197f1M/rOkrcq2jtg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=9;
+	hn=cc,content-transfer-encoding,date,feedback-id,from,
+	message-id,mime-version,subject,to;
+Message-Instance: m=1; h=sha256:XBkiax/mVjOMH/ql7HbN1vjdn1dgmhEk1Pibb2QZj2k=:WYvuWbIIUB3/05DuEse5xWx7f10TYxwWRMKXRK08Xl4=;
+X-ME-Sender: <xms:8dMEa5Q7GFQyWfmn6M9VlmrtPHkVNST4OkH2QALO10rOkYdGcpJlQA>
+    <xme:8dMEa9I9uXZbbBl6PBd5LpSWy3I5vUvriH2bzmx8NTeQ-Ma5SCHGuNG5EPzLNBAcA
+    qdNubJmgBJCV6t8tmo_w7UkW-TJvZ6pGXYLk1tTHiggjpKFT4cra4cB>
+X-ME-Received: <xmr:8dMEa6Z_269ozBlVDI5c3b5mczVizDJ2V8PnXiYVNlEsMffgrL4ei_qXvYG1RRtc4Xn1zYiE>
+X-ME-Proxy-Cause: dmFkZTEO+jdX3VbqHwNFG1H/l5IqV/QA4KK2LxyqGkusUGBknKv3Xj1lEXrn/q0NWh9696
+    uJcRyqwNAgUu1eI3+mw5Mm0lXI+Exbp4rbR7odfV5Ie/H0+KLpwyZZ9uObBJ4SUlfoT+VV
+    jocDoaizgQd+irp/EWqfciQcGw/n6DFOoj1bsZAd80lRzyEqUKsjh5+A1TUQJwLoKPrirF
+    8d754mQQjnz/m7I+bJphRJV6dZeDq5BGGozuCVQyiIOs/eBUa85noikxAgpdNeqSmOEuFe
+    PF00S25zKkH6GNlyYmUPhzJBBYBJYmg4dhW0bNIZ1ocOseioSLu17CndKIRu5UbiZ7B2Wf
+    ATDSyiy6FfIwiCqc/QL1C7jwcUgXg62S5yLczvcCP4qxN3pTTRxSVSuctoE7SO2Jv2ayUH
+    0//0I1s/t/BMhQ+1jndiqqyRhZ63gfp/VP+M2qNceL7vyl9PNi1xi2PFYpDYfMk/kE2CsC
+    SHGVwn9U/i0vmhucAEGBzmh6r/iyGS3AUJiio4tZEGOUlWCvYtGLJT/RdtXNjnmM3FypAq
+    /3dEJc7sfWi4mEASfJV/tN4Kiw3hWAmi/mKOjZG9Cee7fImCoG4tZJPIz7HgDT/wpLuEWa
+    J5ZoXeBdOSpflVemgYwT6jlfQhiiLUe1HXIWLy0L+Q13w/cGAhJRuP1cFzWg
+X-ME-Proxy: <xmx:8dMEa7A4zAOKarBr9xXMWLiVNimIkqor8QYvbth8i3N05OZym_Sr2g>
+    <xmx:8dMEa8XUWsqAPPDWYowJDKdh5vGsj10EcaLLAbu2IZ-Mc9cbuRSlhA>
+    <xmx:8dMEa01imZHdK2-zwjv01fhHmen8aSw_yKvCDuaFrWtrL9OoLbuQYg>
+    <xmx:8dMEa9XAgztFcAtfHyF-goqFUxB_ZAcGa9HN5Xxd406HjJFlpXQSFA>
+    <xmx:8tMEa9HK4cR-7P3qY6agrjudQ3l39i8KhrPlp4qd2TTjwTa3bSsKA5U4>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 23 Nov 2026 19:01:45 -0500 (EST)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: tomeu@tomeuvizoso.net,
+	heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	p.zabel@pengutronix.de,
+	ogabbay@kernel.org,
+	zhangqing@rock-chips.com
+Cc: ddrake@baylibre.com,
+	royalnet026@gmail.com,
+	sidong.yang@furiosa.ai,
+	ulf.hansson@oss.qualcomm.com,
+	abel.vesa@oss.qualcomm.com,
+	sebastian.reichel@collabora.com,
+	chaoyi.chen@rock-chips.com,
+	shawn.lin@rock-chips.com,
+	finley.xiao@rock-chips.com,
+	diederik@cknow-tech.com,
+	alchark@flipper.net,
+	leonard@lausen.nl,
+	vlwwwwww@gmail.com,
+	jeff.hugo@oss.qualcomm.com,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	iommu@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v18 0/8] accel/rocket: RK3576 NPU (RKNN) enablement
+Date: Tue, 24 Nov 2026 13:01:35 +1300
+Message-ID: <cover.1795478392.git.gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,315 +149,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 06/11] KVM: arm64: CCA: Destroy RTTs
-Content-Language: en-GB
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Kohei Enju <enju.kohei@fujitsu.com>
-References: <20261123104233.95710-1-steven.price@arm.com>
- <20261123104233.95710-7-steven.price@arm.com>
- <b224f2af-5881-4ea9-9e6f-38b8fef8ad9e@arm.com>
-In-Reply-To: <b224f2af-5881-4ea9-9e6f-38b8fef8ad9e@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-On 23/11/2026 11:57, Suzuki K Poulose wrote:
-> On 23/11/2026 10:42, Steven Price wrote:
->> The RMM owns the stage 2 page tables for a realm, and KVM must request
->> that the RMM creates/destroys entries as necessary. The physical pages
->> to store the page tables are delegated to the realm as required, and can
->> be undelegated when no longer used.
->>
->> Creating new RTTs is the easy part, destroying them is a little more
->> tricky. The result of realm_rtt_destroy() can be used to effectively
->> walk the tree and destroy the entries (undelegating pages that were
->> given to the realm).
->>
-> 
-> 
->> Tear down a created Realm whether it is still new or has been activated.
->> Unmap the Realm IPA space once during stage-2 teardown. Defer
->> destruction of non-root RTTs until final Realm destruction, after
->> REALM_TERMINATE and before destroying the RD; root RTTs remain until the
->> RD has gone away.
-> 
-> While I understand what this is trying to convey, it may be unclear
-> to someone who is not familiar with the "Realm Liveness".
-> How about something like :
-> 
-> Realm can be destroyed ONLY if all stage2 Root RTTs are not live
-> (along with no RECs or other resources assigned to it).
-> i.e., there are no live mappings or tables mapped from the Root
-> tables. So, we unmap the entire stage2 and move the Realm to
-> ZOMBIE state then destroy all the non-root level RTTs. The Root
-> level RTTs can only be reclaimed after the RD is destroyed.
-> 
-> The comment in the code is actually pretty clear.
-> 
->>
->> Use the same minimum of two stage-2 levels as VTCR when deriving
->> the Realm's starting RTT level. Without this, narrow IPAs on
->> 64K-page hosts can give the RMM a different starting level from
->> KVM's own page tables.
-> 
-> I believe this paragraph can go as we now have start_level cached.
-> 
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->>
->> ---
->> Changes since v3:
->> - Match VTCR's minimum of two stage-2 levels for Realm RTTs.
->> - Use explicit config_lock cleanup in Realm destruction.
->>
->> Changes since v2:
->> - Use the actual stage-2 start level and correct the RTT skip
->>    granularity. Free SRO state on final teardown errors.
->>
->> Changes since v1:
->> - Tear down created Realms in both NEW and ACTIVE states. Fix the
->>    RTT start level, page accounting on failed undelegation, and
->>    handling of RTT granules returned by RMI.
->> ---
->>   arch/arm64/include/asm/kvm_rmi.h |   3 +
->>   arch/arm64/kvm/mmu.c             |  17 ++-
->>   arch/arm64/kvm/rmi.c             | 178 +++++++++++++++++++++++++++++++
->>   3 files changed, 197 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/ 
->> asm/kvm_rmi.h
->> index 4ac1af622872..01ecaabd839b 100644
->> --- a/arch/arm64/include/asm/kvm_rmi.h
->> +++ b/arch/arm64/include/asm/kvm_rmi.h
->> @@ -58,6 +58,7 @@ enum realm_state {
->>    * @state: The lifetime state machine for the realm
->>    * @ia_bits: Number of valid Input Address bits in the IPA
->>    * @start_level: Starting level of the Realm Translation Table
->> + * @stage2_unmapped: The Realm stage-2 mappings have been removed
->>    */
->>   struct realm {
->>       phys_addr_t rd_phys;
->> @@ -72,11 +73,13 @@ struct realm {
->>       enum realm_state state;
->>       unsigned int ia_bits;
->>       int start_level;
->> +    bool stage2_unmapped;
->>   };
->>   u32 kvm_rmm_ipa_limit(void);
->>   int kvm_init_realm(struct kvm *kvm);
->>   void kvm_destroy_realm(struct kvm *kvm);
->> +void kvm_realm_unmap_stage2_all(struct kvm *kvm);
->>   #endif /* __ASM_KVM_RMI_H */
->> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->> index 84b02699f103..4a975715375c 100644
->> --- a/arch/arm64/kvm/mmu.c
->> +++ b/arch/arm64/kvm/mmu.c
->> @@ -1149,9 +1149,24 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct 
->> kvm_s2_mmu *mmu, unsigned long t
->>       return err;
->>   }
->> +static void kvm_realm_uninit_stage2(struct kvm_s2_mmu *mmu)
->> +{
->> +    struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
->> +
->> +    guard(mutex)(&kvm->arch.config_lock);
->> +    if (kvm_realm_state(kvm) == REALM_STATE_NEW ||
->> +        kvm_realm_state(kvm) == REALM_STATE_ACTIVE) {
->> +        kvm_set_realm_state(kvm, REALM_STATE_DYING);
->> +        kvm_realm_unmap_stage2_all(kvm);
->> +    }
->> +}
->> +
->>   void kvm_uninit_stage2_mmu(struct kvm *kvm)
->>   {
->> -    kvm_free_stage2_pgd(&kvm->arch.mmu);
->> +    if (kvm_realm_is_created(kvm))
->> +        kvm_realm_uninit_stage2(&kvm->arch.mmu);
->> +    else
->> +        kvm_free_stage2_pgd(&kvm->arch.mmu);
->>       kvm_mmu_free_memory_cache(&kvm->arch.mmu.split_page_cache);
->>   }
->> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
->> index fafca2439c46..435174ac3d87 100644
->> --- a/arch/arm64/kvm/rmi.c
->> +++ b/arch/arm64/kvm/rmi.c
->> @@ -16,22 +16,196 @@ u32 kvm_rmm_ipa_limit(void)
->>       return u64_get_bits(rmi_feat_reg(0), RMI_FEATURE_REGISTER_0_S2SZ);
->>   }
->> +static void free_rtt(phys_addr_t phys)
->> +{
->> +    kvm_account_pgtable_pages(phys_to_virt(phys), -1);
->> +    if (rmi_free_delegated_page(phys))
->> +        kvm_account_pgtable_pages(phys_to_virt(phys), 1);
->> +}
->> +
->> +/*
->> + * realm_rtt_destroy - Destroy an RTT at @level for @addr.
->> + *
->> + * Returns - Result of the RMI_RTT_DESTROY call, and:
->> + * @rtt_granule:    RTT granule, if the RTT was destroyed.
->> + * @next_addr:        IPA corresponding to the next possible valid 
->> entry we
->> + *            can target
->> + */
->> +static long realm_rtt_destroy(struct realm *realm, unsigned long addr,
->> +                  int level, phys_addr_t *rtt_granule,
->> +                  unsigned long *next_addr)
->> +{
->> +    unsigned long out_rtt;
->> +    long ret;
->> +
->> +    ret = rmi_rtt_destroy(realm->rd_phys, addr, level,
->> +                  &out_rtt, next_addr);
->> +
->> +    if (ret == RMI_SUCCESS)
->> +        *rtt_granule = out_rtt;
->> +
->> +    return ret;
->> +}
->> +
->> +static int realm_destroy_rtt_level(struct realm *realm, int level,
->> +                   unsigned long start, unsigned long end)
->> +{
->> +    ssize_t map_size;
->> +    unsigned long addr, next_addr;
->> +
->> +    if (WARN_ON(level > KVM_PGTABLE_LAST_LEVEL))
->> +        return -EINVAL;
->> +
->> +    map_size = kvm_granule_size(level - 1);
->> +    if (WARN_ON(!IS_ALIGNED(start, map_size)))
->> +        return -EINVAL;
->> +
->> +    for (addr = start; addr < end; addr = next_addr) {
->> +        phys_addr_t rtt_granule;
->> +        long ret;
->> +        unsigned long align_addr = ALIGN(addr, map_size);
->> +
->> +        next_addr = ALIGN(addr + 1, map_size);
->> +
->> +        if (next_addr > end || align_addr != addr) {
->> +            /*
->> +             * The target range is smaller than what this level
->> +             * covers, recurse deeper.
->> +             */
->> +            ret = realm_destroy_rtt_level(realm,
->> +                              level + 1,
->> +                              addr,
->> +                              min(next_addr, end));
->> +            if (ret)
->> +                return ret;
->> +            continue;
->> +        }
->> +
->> +        ret = realm_rtt_destroy(realm, addr, level,
->> +                    &rtt_granule, &next_addr);
->> +        if (ret < 0)
->> +            return ret;
->> +
->> +        switch (RMI_RESULT_STATUS(ret)) {
->> +        case RMI_SUCCESS:
->> +            free_rtt(rtt_granule);
->> +            break;
->> +        case RMI_ERROR_RTT:
->> +            if (next_addr > addr) {
->> +                /* Missing RTT, skip */
->> +                break;
->> +            }
->> +            /*
->> +             * We destroy the RTT range for the full IPA
->> +             * space, after everything is unmapped. Also we
->> +             * descend down only if we cannot destroy a
->> +             * top level RTT. Thus RMM must be able to walk
->> +             * to the requested level. e.g., a block mapping
->> +             * exists at L1 or L2.
->> +             */
->> +            if (WARN_ON(RMI_RESULT_DATA_LEVEL(ret) != level))
->> +                return -EBUSY;
->> +            if (WARN_ON(level == KVM_PGTABLE_LAST_LEVEL))
->> +                return -EBUSY;
->> +
->> +            /*
->> +             * The table has active entries in it, recurse deeper
->> +             * and destroy the RTTs.
->> +             */
->> +            next_addr = ALIGN(addr + 1, map_size);
->> +            ret = realm_destroy_rtt_level(realm,
->> +                              level + 1,
->> +                              addr,
->> +                              next_addr);
->> +            if (ret)
->> +                return ret;
->> +            /*
->> +             * Now that the child RTTs are destroyed,
->> +             * retry at this level.
->> +             */
->> +            next_addr = addr;
->> +            break;
->> +        default:
->> +            WARN_ON(1);
->> +            return -ENXIO;
->> +        }
->> +    }
->> +
->> +    return 0;
->> +}
->> +
->> +static int realm_destroy_rtt_range(struct realm *realm,
->> +                   unsigned long start, unsigned long end)
->> +{
->> +    /*
->> +     * Root level RTTs can only be destroyed after the RD is 
->> destroyed. So
->> +     * destroy everything below the root level
->> +     */
->> +    return realm_destroy_rtt_level(realm, realm->start_level + 1,
->> +                       start, end);
->> +}
->> +
-> 
-> minor nit: May be we could fold the above into realm_destroy_rtts()
-> 
->> +static int realm_destroy_rtts(struct kvm *kvm)
->> +{
->> +    struct realm *realm = &kvm->arch.realm;
->> +    unsigned int ia_bits = realm->ia_bits;
->> +
->> +    lockdep_assert_held(&kvm->arch.config_lock);
->> +
->> +    return realm_destroy_rtt_range(realm, 0, (1UL << ia_bits));
->> +}
->> +
->> +void kvm_realm_unmap_stage2_all(struct kvm *kvm)
->> +{
->> +    struct realm *realm = &kvm->arch.realm;
->> +
->> +    lockdep_assert_held(&kvm->arch.config_lock);
->> +
->> +    if (realm->stage2_unmapped)
->> +        return;
->> +
->> +    write_lock(&kvm->mmu_lock);
->> +    kvm_stage2_unmap_range(&kvm->arch.mmu, 0,
->> +                   BIT(realm->ia_bits - 1), true);
+This series adds RK3576 NPU (RKNN) support to the mainline rocket
+driver.
 
-Actually, the unprotected IPA mapping entries are not "live".
-So we could unmap only the protected IPA half and destroy the
-RTTs directly on the unprotected IPA.
+Changes in v18
 
-Suzuki
+- Rebased onto next-20261120. Patches 1-4 of v17 are in v7.4-rc4 and
+  are dropped. The pmdomain series has been applied by Ulf (1/3 to
+  fixes, 2/3 and 3/3 to next).
+
+- 4/8 (was 8/12), following Daniel's review: the clocks are taken with
+  devm_clk_bulk_get_all() and the resets as a reset array, so their
+  number is no longer given per SoC and enum rocket_clk is gone. On the
+  RK3588 this changes the reset deassert order: srst_a is now released
+  before srst_h.
+
+- 5/8 (was 10/12): GET_PARAM now comes before the RK3576 support. The
+  hardware version is taken from the match data when the first core
+  probes and stored in rocket_device, so READ_ONCE is not needed and
+  core 0 is not assumed to exist. The driver keeps its own enum rather
+  than PC_VERSION, which reads 0 on the RK3568. The UAPI documentation
+  no longer ties the version to a compatible.
+
+- 6/8 (was 9/12): the RK3576 TASK_CON uses a register definition
+  generated from Mesa's registers.xml, selected by the hardware
+  version. The cores are counted in rocket_drv.c. The "# Conflicts:"
+  lines left in v17 are gone.
+
+- 7/8 and 8/8: test notes removed from the commit messages; 8/8 states
+  its dependency on b1bff9ced657 in Ulf's tree.
+
+- All commit messages shortened.
+
+Review tags
+
+Kept: Reviewed-by from Igor and Heiko and Tested-by from Sidong on 1/8,
+Reviewed-by from Krzysztof on 2/8, Acked-by from Conor on 3/8. Dropped
+Sidong's Tested-by on v17 8-10, which were rewritten.
+
+Sidong, could you test this again on the RK3588? The reset and recovery
+path after a job timeout matters most, since the deassert order has
+changed.
+
+Testing
+
+Radxa ROCK 4D (RK3576), v7.4-rc4 with this series, in an image built
+with Armbian:
+
+- Both NPU cores probe.
+- GET_PARAM returns the RK3576 hardware version (2); invalid requests
+  return -EINVAL.
+- 30 inference runs in a row give identical output, with no job
+  timeout, IOMMU error or SError.
+- Booted 3 times with the NPU not enabled: NPUTOP, NPU0 and NPU1 are
+  switched off, and so is the NPU rail.
+
+Known issue
+
+A core reset after a job timeout can leave bank 0 of the IOMMU paging,
+and the NPU then does not recover. The fix has been sent separately:
+
+https://lore.kernel.org/all/20261123235154.315460-1-gahing@gahingwoo.com/
+
+With repeated forced timeouts on the ROCK 4D, about one in every 2 to
+10 is not recovered from without the fix; with it, 20 in a row all
+recovered.
+
+Notes
+
+- 594 MHz (Daniel's question): mainline does not scale the NPU
+  frequency or voltage yet. The NPU boots at 786 MHz and 750 mV, which
+  is not in the vendor's OPP table. That table runs up to 600 MHz at
+  725 mV, so 594 MHz is within it.
+
+- npu-supply: the binding requires it and the RK3588 device trees set
+  it, but the driver does not use it. The NPU rail is switched by the
+  power domain through domain-supply.
+
+- The register definitions are generated from Mesa's registers.xml;
+  the XML change will go with Mesa MR !43804.
+
+LLM-assisted.
+
+Jiaxing Hu (8):
+  accel/rocket: factor the completion tail out of the IRQ handler
+  dt-bindings: npu: rockchip: add rockchip,rk3576-rknn-core
+  dt-bindings: iommu: rockchip: describe the RK3576 NPU MMU
+  accel/rocket: take the core clocks and resets from the devicetree
+  accel/rocket: add a GET_PARAM ioctl for the hardware version
+  accel/rocket: add RK3576 NPU (RKNN) support
+  arm64: dts: rockchip: add NPU (RKNN) nodes to rk3576
+  arm64: dts: rockchip: enable the NPU on rk3576-rock-4d
+
+ .../bindings/iommu/rockchip,iommu.yaml        | 26 +++++++
+ .../npu/rockchip,rk3588-rknn-core.yaml        | 40 ++++++++++-
+ .../boot/dts/rockchip/rk3576-rock-4d.dts      | 22 ++++++
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi      | 70 ++++++++++++++++++-
+ drivers/accel/rocket/rocket_core.c            | 25 +++----
+ drivers/accel/rocket/rocket_core.h            | 13 +---
+ drivers/accel/rocket/rocket_device.c          | 11 +--
+ drivers/accel/rocket/rocket_device.h          |  6 +-
+ drivers/accel/rocket/rocket_drv.c             | 52 ++++++++++++--
+ drivers/accel/rocket/rocket_job.c             | 45 ++++++++----
+ drivers/accel/rocket/rocket_registers.h       | 32 +++++++++
+ include/uapi/drm/rocket_accel.h               | 43 ++++++++++++
+ 12 files changed, 329 insertions(+), 56 deletions(-)
+
+
+base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
+-- 
+2.43.0
+
