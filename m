@@ -1,101 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795483721;
-	b=Fz7yA4jUCTw/mtFPlMLRvDxCEhrT7SVKfWVodMSGR9Jl+6mT0O1qxQUvu2hAO7G27VEn
-	 ZZ1yK+9AxaQQLL0U0P2ZfUcIK+EYmd+SyPaG1aE6gZEJpWCNgDfGT2tV79F2XxhzdNLCu
-	 8gDHFBrC6oYJW4hYfrwR9wBTxXj1yP9CbGRtNj2MX2jBHNoohfwUXxiKlycmrD8F9oYFd
-	 GPNWEt1HNA66i7mdNhNYPhv2VHJO+hFuokL6vvLIhccHnArcidToF83NTcbaxTH8FPLpg
-	 SwiFgPFbP3LtLDmNszOAHuq16Xpn8qI5imCGreyCQlPtwgRKvJTJXkwxpZqluCRNVkA==
+	t=1795483724;
+	b=QcA6CfQ9T4lOywIWdt4mLShdpl6bxiuXu7MK/aGZrSfk7jl+/H6CLoCgZbfU39T6nF0K
+	 CANatXpZwaKtT3hUJRrs3EqpdI1IypyV+rgGdot2et3gM46Z+JnOAxhAiFUGDg3IeK1UG
+	 /uXtrOE2C7r5MLHnB20gNBcaLknDfNZjzCY3rU0ZfFbwP60N8AdADY4j/VIYq69i+lF2/
+	 7fHj8bM6WD3pkXmslkqAC3rUZAuLfZHcOcHHnYzwIsgf0xm6gf1w3fnfsXsgSBElN7ST+
+	 DhP/WbVjmyh6f+Ifs3mPX58xMOrjho7bgD3uAGGMLRsSTs8hw4vsDJQdp/AwC6GV75w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795483721;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795483724;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=uzgThVtz5FyRtzpWhXy/XQBj1yMgQbdQfAysHaetNR4=;
-	b=3I/50QmdW3inMCHmbYgjRJ72bzi0U5QNU+kRhsCUfMmsSxw3b0fw8OfQydfBB18mqT+d
-	 HSEMHftdkcpY2pdKUwWyfYFWkZb+9/yLQtA8NHEcqewcro9XlmD0YOTkUJLKamFdWZavi
-	 5zfAfTdwl1AOffSfZM9xE7MFuDAqomBTX5diRibs/82ihdr7mYVidCWX+Nz9JQ+606lI6
-	 s9r+zltTnnYgRxJ6IrUz4wLCgqTG/nXBE8ccT5di31ir60oTyjqiN+vtehAhHBXd1at7Z
-	 CGXssh5+sEWPta6A1yRnsbjvuyCZhKhHgmEsCdrTUVudLnlPSfaZuw7C9WiJJQfUW5A==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=gsmrT1Kg0rxxGoc36p22ViQ2rJPlJwTOuRCru3tpkAk=;
+	b=xAZzFQHDxMhNOgl72HyAg9gmrHf6nRd7UHvruXscB+0evYWyYQmQahIvln6+7pCm4Nct
+	 v6NGOhWtUmwMfCC3JAnBeaQM0ar5aREE8UE3yjYb6aexSjc5wZ5xM92TEri2AdtsE7VlN
+	 ubbHgqzt9KE8a3SpmrnCC+3Rojina5aiY6cRL6K0zrFAfEfkRMeK0lox8zsho8nWcNIUH
+	 +BHa8mOYNtxHXsK9PPP7MJigouYlQGuUlrXxmSmon1qgn9WM8GV3pOoqGZqsaEcKi5jNz
+	 Sb0xFqAZZNaNXLwNGXbTp1XemsU3Tio2dLweqNztRKv+9l5aCS9iAFKvOARaa0dg1Fg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Tg/baRzb";
-	arc=none smtp.remote-ip=209.85.210.171
-Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pyyebHOd;
+	arc=none smtp.remote-ip=209.85.216.54
+Received: from mail-pj1-f54.google.com (mail-pj1-f54.google.com [209.85.216.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88D2F606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:28:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88D2F606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFADA606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:28:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFADA606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tg/baRzb
-Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8a06e79e152so1840167b3a.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:28:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pyyebHOd
+Received: by mail-pj1-f54.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so3129565a91.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:28:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795483721; x=1796088521; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=uzgThVtz5FyRtzpWhXy/XQBj1yMgQbdQfAysHaetNR4=;
-        b=Tg/baRzbsZ4MOxkIjrZ/B5lU6Fg/bjyV/logqMV1Ui1y31rDJSBd9tR660cSMf2F++
-         C12+iqoEf/yPkP9JuTucDcpS1R0J6l9bUYC27oXB4I72759oIrBEBlx2Dn2Eoa2pOC9Q
-         Nj/x/6fCVuoUrS3+FYMUcxMX7jGfl8E0Fo8GBLQxh/yrgJX3SxEsZhsWxCxdjKp8ti4b
-         QWg7SWwnG4Xr/JLzzZymTqF8Iul2/6Mb2ecmHBRH9d+Ya4iWf5LkSGdCUzM7ZUdcZur5
-         3TA0usdlayEF04ePUUIlLrCZFy1fGrabGj+Ae9XiHvZPm8H91gmpmH8MHsmCoJz019k/
-         6tLQ==
+        d=gmail.com; s=20260707; t=1795483723; x=1796088523; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=gsmrT1Kg0rxxGoc36p22ViQ2rJPlJwTOuRCru3tpkAk=;
+        b=pyyebHOdCbBRcqF32gHWfW7RT039/UxtIUyZxamidXzRK+iSjdTwMG44X7w/Tx1sKk
+         0uweSFGpEzolUASUPkNndXdPNZYjLOaPj2rtqniZno3LkQVs38nzSrLPhExRvcX49OpW
+         FGlrzswJ9izWUPnZ5hKSrxZpsj5IiBxdG+3iTqpXulkWapXt30oTY0lqWD8UPXGJZ9X1
+         3W9t6EpQTg8u9MaOvungQT0JismsJM3gbhsmscXzzTJncoaJAHq9AaXTslXLx0lN0sk0
+         qCE8n7Mr+YKf276O4Kb+3FsKSCI0T9bxk56EC7hFa663mmQjsi4EEUIDz/kzWpHmbQAi
+         Qv7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795483721; x=1796088521;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=uzgThVtz5FyRtzpWhXy/XQBj1yMgQbdQfAysHaetNR4=;
-        b=erU70JPa2EBL4GltjNEemDZYaogkpisRj6YDUvphzsvMxaNyiuRn7991dEFjRc0elN
-         OAS4K8uNvcQ72/ReYNJPQ2MX0+ll6jpY6olIs+rxCW3dX7NXqaFFAQhRiJWltjk5tdy2
-         r3HM3sCGRJwIYCzJLpKPeNpYshPrKHfQXuQ5gIb76AAs1yhkGZT70tEogjRXVWf1WdqY
-         u0W4C7FQON4dd+EE/8t5gCfZXYNZDLR4R0dMHEVZ1T1TAIRXy50Huju4+334ZExepbVz
-         yODtNExdfhyx7rxdqqkgcNvZ2JZHetWdTpyiThQsaPBQ51H//+dOCn8JbpiWZILMNz16
-         xlKg==
-X-Forwarded-Encrypted: i=1; AL+hErEwBd1snKuswbgCEhRXJTXi5myV9DGa1Z6fTAW4Wh6thBKwOzvbGxUSWKImFHhgqf+tY3APTrWwrc2ArpQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+WmQtSdAWvEFmK5YK4hOp9N7nQxnZ4AuMnooukZjpoBpi7QvLp
-	95EtnMYN8INeroEn+2buP4Pk2raQzQlGR75Zb3IrrIR7j7Wy23XskRoq
-X-Gm-Gg: AZFdTZeOO5IMjA/sGi6JHGHUx92oJrxjsqkOxTG/BjDplWblv3WT52D8Xp690j+WAOO
-	dX497B43phBs1MeEmC+UBecBzRQCvX51Nn+43SCzDgVKss4zH5fWhWEJtXwreNl/tEO1G9ZYlOy
-	vDUHC8PmDFz2vfItHL2c8+ln6SMd+im1GxN9xKLvL+FeOPgXmRFfg5n9IgXjYrR+WShgB5QXtay
-	3Rv6VRAk+HtQDFGz27WncmKro9PWZJ/RcMGLkiub+qvM/nIDTd9PJYNbQDWEo8KzCzPZyH19RCH
-	DZq4rkeSleYhstG/cS7TNw1DUdNTspQ6QV8LAXWiD7zHX338sdKnE9w/zEd43x7QFP++VkMh9he
-	iUVRho2dzML4FRQ4kujZLcz3RLGWM3xZg7MwZkr1hEOVwdQ6TH6GdWDfSr76mrmjNElQLQXZzoK
-	UNDET+W9Holaf8aOvRA0vLM/ZtV2ns1qoLsmILjohfEZ/PoqQ8pmMFjcqfEQa6xarXVdbxyIvif
-	MiSG4yTQyBtJl4lfRYzxuWCi/9WFpPkQ26hrBpth1lZ7irfjAup1Ai2SlKdSyVpn3wAso1PtT3H
-	cnzE6MZpQtPjJKbQi8JO/Hx/SFgjU53RIKNFHlGQB92HetPu3QeWdfs=
-X-Received: by 2002:a05:6a20:3d1a:b0:3eb:37a7:12a2 with SMTP id adf61e73a8af0-4014cf57a08mr12321296637.33.1795483720826;
-        Mon, 23 Nov 2026 17:28:40 -0800 (PST)
-Received: from d.home.yangfl.dn42 ([2a09:bac1:7680:d30::4d0:8e])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e457d1sm6115243b3a.30.2026.11.23.17.28.37
+        d=1e100.net; s=20260707; t=1795483723; x=1796088523;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=gsmrT1Kg0rxxGoc36p22ViQ2rJPlJwTOuRCru3tpkAk=;
+        b=Nqv8YULOacH0/lzvrJCvsackyCOFZfqDArKuIZL7vdIyA0+WmQruui+WIJEQP7qPoV
+         s+j9bsyjesIa1qJD8zZuJWV9DfI4oosc3Bf/30NSAxnmjdtEI4cmhx5+YjQuRN6OveEe
+         4QCVMvkbNeXdTVoabO26kTD6FaYgAvHfh0pVXtzK2CvtvtCykaST4wGTqHsjUb7FbB8A
+         YCAr09/kSsjKpS3f6cpRq/263CLT/E3XAoPT5hiJVDR5oD4K/Q+lXtildHc+0ntzvfOS
+         7cGTWMfNeJgJ2gVNOY3QTFVgQPV4FLb9+rXU85z43j2V3mHNSB923UICtTQgw8DqWrGW
+         N4Dg==
+X-Forwarded-Encrypted: i=1; AL+hErEc8oFw/PDduKDpkaqhC7naF2Q5VDtwFSLOHPo+exoIxonlv6jUDNLPVAFOyMju+Mgr8AfxC0I5hFRD704=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8bS7epk9QFUCOBubAGQ0SG8loq/c+LfwclkmPYvWpY3tUEJ3kV
+	YDbcdOyXfOYK7UOUsFgzDTT6lpzkcp3OwM5+5jg65Eqv42fKPZ5DE/0G
+X-Gm-Gg: AZFdTZcNIEB3XB2zdGbnN2sOV4ea8ny7Mxvk1ZiuVTa6/RZruEEv/L4N9p0PYrgrM9g
+	7cPFrNMh2Z3oHGgman1VU+nIgetpaw7414zUOHlygb1TCt3UO7B2yd/yYE/RBzep6+3hLyGnGgz
+	A347QiP0lyCu5DmqzQAaneK0gvdwzFJSEVy+ntMnoiwQxFBAWkxW3REaf2umHd9NWVFidK87yn2
+	afqGUnMMeKnfwSx/YydL7puAz1Gn2dS2xGJDok59JljNs6zUtytDZ3o5NAIfr69BM7bRkv4hJ/s
+	252IxnTSfuSpKBO7eSxvHKZMfIfccjXZcoFT+MssnjL0gaLBIO2Ln9G3aowF06N65Gnu6F6fDSj
+	dPCXC1QIvb5vvg6rpVfhGASAJd9rJOBTgUGk8SBes5k5QLAyPn39WAIxU20yWlo9R6rAqlE/mmr
+	vjmUCEddLIs0BccY7fW0FlYtKJtHjcUVP+Y9kNpn0nTxq20K2UuJM3xSA03fVzYYHjD/dnrF3sv
+	8k72/c8eGIHwHuOfKffCbfk4xPqPQB3hmf9fNk0QN9VpvONhB8ZI/folYMhuHm+3ENyrE9YhJy8
+	ybCTCgnxzrPXiv9c9H61Ej8MLRtNYkvpV0h7
+X-Received: by 2002:a17:90b:5287:b0:3b4:d22:8601 with SMTP id 98e67ed59e1d1-3b41c8fa9c8mr11382841a91.23.1795483722909;
+        Mon, 23 Nov 2026 17:28:42 -0800 (PST)
+Received: from hanzj-mi.. ([157.185.136.247])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4b3c71192sm3954665a91.5.2026.11.23.17.28.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 17:28:40 -0800 (PST)
-From: David Yang <mmyangfl@gmail.com>
-To: linux-watchdog@vger.kernel.org
-Cc: David Yang <mmyangfl@gmail.com>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Wei Xu <xuwei5@hisilicon.com>,
-	devicetree@vger.kernel.org,
+        Mon, 23 Nov 2026 17:28:42 -0800 (PST)
+From: hanzhijian1991@gmail.com
+To: linux-usb@vger.kernel.org
+Cc: andreyknvl@gmail.com,
+	gregkh@linuxfoundation.org,
 	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 3/4] arm64: dts: hisilicon: hi3798cv200: Add watchdog node
-Date: Tue, 24 Nov 2026 09:27:37 +0800
-Message-ID: <20261124012755.328774-4-mmyangfl@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261124012755.328774-1-mmyangfl@gmail.com>
-References: <20261124012755.328774-1-mmyangfl@gmail.com>
+	syzbot+d83b3c49738aea97c0e5@syzkaller.appspotmail.com
+Subject: [PATCH v3] usb: gadget: raw_gadget: fix memory leak on connect event failure
+Date: Tue, 24 Nov 2026 09:28:37 +0800
+Message-ID: <20261124012837.2071714-1-hanzhijian1991@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,33 +98,43 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add the on-chip watchdog controller node to hi3798cv200.dtsi,
-backed by the new hisilicon,histb-wdt platform driver.
+From: Zhijian Han <hanzhijian1991@gmail.com>
 
-Signed-off-by: David Yang <mmyangfl@gmail.com>
+gadget_bind() allocates an ep0 request and stores it in dev->req.  If
+raw_queue_event() fails to queue the connect event, the function
+returns without releasing the request, leaking it.
+
+Release the request before returning in that case.
+
+Reported-by: syzbot+d83b3c49738aea97c0e5@syzkaller.appspotmail.com
+Link: https://syzkaller.appspot.com/bug?extid=d83b3c49738aea97c0e5
+Signed-off-by: Zhijian Han <hanzhijian1991@gmail.com>
 ---
- arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Changes in v3:
+- Move the changelog below the --- separator and drop the duplicated
+  entry, as requested by Greg KH.
 
-diff --git a/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi b/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi
-index e5010c9d4c39..169a919bb282 100644
---- a/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi
-+++ b/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi
-@@ -254,6 +254,14 @@ range: gpio-range {
- 			};
- 		};
- 
-+		watchdog0: watchdog@8a2c000 {
-+			compatible = "hisilicon,hi3798cv200-wdt", "hisilicon,histb-wdt";
-+			reg = <0x8a2c000 0x1000>;
-+			interrupts = <GIC_SPI 29 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&crg HISTB_OSC_CLK>;
-+			status = "disabled";
-+		};
-+
- 		uart0: serial@8b00000 {
- 			compatible = "arm,pl011", "arm,primecell";
- 			reg = <0x8b00000 0x1000>;
+Changes in v2:
+- Fix author name and add missing Signed-off-by (full name), as
+  requested by Greg KH.
+
+---
+ drivers/usb/gadget/legacy/raw_gadget.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/usb/gadget/legacy/raw_gadget.c b/drivers/usb/gadget/legacy/raw_gadget.c
+index 4febf8dac7ca..33d70b552b6d 100644
+--- a/drivers/usb/gadget/legacy/raw_gadget.c
++++ b/drivers/usb/gadget/legacy/raw_gadget.c
+@@ -316,6 +316,8 @@ static int gadget_bind(struct usb_gadget *gadget,
+ 	ret = raw_queue_event(dev, USB_RAW_EVENT_CONNECT, 0, NULL);
+ 	if (ret < 0) {
+ 		dev_err(&gadget->dev, "failed to queue connect event\n");
++		usb_ep_free_request(gadget->ep0, dev->req);
++		dev->req = NULL;
+ 		set_gadget_data(gadget, NULL);
+ 		return ret;
+ 	}
 -- 
-2.53.0
+2.43.0
 
