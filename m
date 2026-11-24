@@ -1,88 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795540257;
-	b=GrzlC48TAbAwOFGOKXIvzcXHUVCPIiZfrqPayyBRvt8RnOkSsiD/BylUdvl2n/D3Rgvy
-	 4pSGD72gMbdvIilFTMAAgSEvx4D7FAvQ1YphQkJ+bKRNUuSIPfIJXfJuWL95AkwSxcZed
-	 hPTd0LNiKzIJ569+tv3Pxn/RcVopcQlMJh0CopJuObwQTue5C03Aba9mpfBhJqMCgTe/D
-	 m3zb8lAGANkLtYFookJllx8VQSuWASm1//iZIe72eiz+1ZJdTcZ3FZ97uRoNHE9HVL7tA
-	 DN3B5z5qNWvfIRiQKBZBHN92Ejgn+/W8LdASTWYeSwJyxq9ndd6nasWSglTkuK/ZqVg==
+	t=1795540261;
+	b=2zLEt1NKkOr5ByH35xLDRwO2Mma9kWjc+juUaVsV4Cv2Bxh8xFhEQnuQqJuaAypFg8PM
+	 iMdXY3rDctT8WwUPR5PXRa0TCpITJXoRMSox+QzSA58uubPlX5SQ6AMayjKDcGIB+xGdL
+	 NrHRBbzBBmo77JR9YUjTt5PbngGDFFjKdNlFCit+PhW1t7oz0VclV1MBFOQMk2OePdhtf
+	 dTYseK+eDWAvTyWnPezV6qxzsr7FOJTwjkRn8h6LhJ5Ffcoj0L9vf+9NDzOVsA5AF2MPs
+	 3eOk6q2DPE5EOQgMUrK3+Y7yAHI71X9zFc0CUo3hJQZnJXYaj6T8hyw80SN1l7jmr0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540257;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=ZpsnwIPSBX2ymIHUMpa9KT8hWPzkQMht9fFSCNLgavw=;
-	b=pQibM4H6bZIenFqZKBK7NkTNp278j4ja7TOSD44bipBPe46t4WPEKirYLhJdFAlXVGmp
-	 ugTpFTvfeDl036u9kqlG4yIqvFOYimb57ozDh9KDK1rJzsjwHFSc2MIMu8mMb76bm6tE7
-	 gn3jVvgsqagqK+hmjOf4PmkK0g3i8+hDquhQCSLsrP18lWqKjdVkk6Yz6KaxIJHIFnD2f
-	 KQMeCXAP2COupdaUW4gKpJ49F5vZiD9SieADV6ot4EVe46/Rp3SYvCIBw95xGWWpnSfxl
-	 u3i5h2/RJhEEJxvZeyAO7tJixZZOCqtAFw9zDIUjz9I7ESoW3M9uNtxoKOwComhOBFA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540261;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=3C06+AGRplNn4HpuEEq4N+vB6T6r5jTxGaKPsMTS1cI=;
+	b=bmRlhurRvWEb9k4VW785vscd2nYfYcEt7B9j3wgX41nxhN1mdWEGt+MnR//X99sGHhyT
+	 zdM5cgjXbAMmsVTvLVsIE4/vrXPaMHAj9maY9Wzbr90ZjZULRjvd3ciWS2iq/Hr/9YvlX
+	 pt5MhvjorbaINhiR5n22/0FxyyN3au153WlLeJmqjvqvzUyuw179Agpr6OsImad28j+ng
+	 Pm95VuwXi2KJKYsWXkSqvZiyIaJ0gv6SdjyN5QZ0bsfJDrdyZD08Den9McwUAAWdekHg6
+	 4CUJndeS+xp4lMN3mm+azO6iLK5nfQa/JnyRSkFg2QUAtj4mC6ELqYNh/rVCqXU9uRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bDwXID9M;
-	arc=none smtp.remote-ip=209.85.210.44
-Received: from mail-ot1-f44.google.com (mail-ot1-f44.google.com [209.85.210.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=On0RbNge;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=THcpQsSX;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91DAA60A2614
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:10:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91DAA60A2614
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD53860A2622
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:11:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD53860A2622
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bDwXID9M
-Received: by mail-ot1-f44.google.com with SMTP id 46e09a7af769-85ac281604dso2307871a34.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:10:57 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=On0RbNge;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=THcpQsSX
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOFtmDS1684099
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:11:00 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	3C06+AGRplNn4HpuEEq4N+vB6T6r5jTxGaKPsMTS1cI=; b=On0RbNgecIE+Z6ZA
+	UevaVQVEqEWIaEY9S/3PLJ46Z9LcW+1gf/bfmdaRWe/Ilx/XTrwEEqpfOO1ST/E2
+	3jITyDrQkrWVXoSF9MEY3CxphB5sH1PbqrP8UlNjOYs0+KsZuIPLlrWJQ49U3r06
+	SExIAvKnAlHLn1DMtInny6jyMjrhkpAOe2coFxsSgbuUCN359crdKLEicH3X0tU9
+	fZMsLcHjPasu/h168BdK9q//DjwFm1CIJvPMk9fmiaKRcDEUDjDIBLjS6V4MZrMD
+	hAtjcroeagok/FN9zShwSjT0Wdv9xzPBX7mYkHNSqwKtdwQY9oF9458JQQXA1LMk
+	lYZwfw==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5dnggbha-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:10:59 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2f040c6e0ceso45376065ad.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:10:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795540256; x=1796145056; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ZpsnwIPSBX2ymIHUMpa9KT8hWPzkQMht9fFSCNLgavw=;
-        b=bDwXID9MvbScZxb5MnX9Q7E7XYzfn4T/NPl8YsROpcIH+sYfuNSIt2epE40Ayy12Xr
-         hGY2wF03pnjpS/Sehhz9FJGz7tDKOT7lpEN7gmIgBzkwXWpQlvzjthnCwZjtXX8q/dti
-         REB5bm7kIKWSXyi9fkgaZi/CWPWtsIyZI8mktJfd7OcFK4Sc6MTgpbdMMB+9eO+PtN8c
-         M1omD50VaIrwHYeJoo4wiZFPxoud+kb98ACPUDUnSprFNr2b/tb1xRCfkq8xZEACq1HN
-         sWjQHVfTKF5pqCbfn1Vh5Qsfpc/lhA9KatP7Mr1hVvA7zORRoB4kmbUhnShVjXslIeO1
-         Q5LQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795540256; x=1796145056;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=oss.qualcomm.com; s=google; t=1795540258; x=1796145058; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ZpsnwIPSBX2ymIHUMpa9KT8hWPzkQMht9fFSCNLgavw=;
-        b=DIzb7A+KIwScWqTGbT1D5LxiTdm/5q4T8RgAsVqtqCg7RiTKoigPhZzwQwt8Jgkw4k
-         RKjkr79XRsKnwfD9KVj2N3MiPeyzPbAemVx79DWjz3xMccHIwC664q7XjvSTjjHHVNTG
-         jFcBfeNw4To5eLn+Q7irKr7NVL3BRn1EgWACRfIOIrUrtRidd+SAU2qLq47Zgrw3ifuq
-         wJ6d+h62Jfv+ZkToEFyRStPpRUasZvT7teWVB/UpNyZpCvK7x02FAQC+e9eFB6UGwX3q
-         T+9mlL6tT5jxQHXaTWYvzWFPc0l57q+Nkj8g86R4w069NVIYol456ls6uX+4zTMgaD3w
-         PpLg==
-X-Forwarded-Encrypted: i=1; AL+hErG1g3FzSQ5OR5cq6ll1JTf8HIF0qiPUC2WWjInAWz5hu2m/4In7hRfN9P5ufuAERC4KTQC46Q5jhbxZ8mE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8vqbO6oz/dIZnxQueKoUvequKCe1nuO6mm1mbiRytfoIrdgooH
-	EBHCtvXnB1Lekcj2JVQv0vQ1BONLHV4bUP8zBL/dhUazeh7v9oeX1dGN
-X-Gm-Gg: AZFdTZf3nfymFaELBbKAhQxeaqab2L679dXMXoblCJL/FtGg+cqrHANMmsBFjwqOsvV
-	YalHlknTlDMTnnuF98nNkAoKemUuA5tkwLb8qxZ4JpFbwPRGBvOv82dX22OldSCmjjzlervHegM
-	IFuIyhdpq4k1P0nJTXr3uyGN/FnUZNrVi60wC1Nkg3NDDOgSLOq8DMHVY4+Vfu1MhhlrCSUzvP/
-	vji/NomsRkI03tLGT5jD7dOXG3oHmGDPcAWYFKCCzVRFTxv/sKEWPjQ5EZYQtQiEW8E59qNzWvm
-	4r4opV7pYKGZDRarl6kz/LLfJAbLlfRo3r7+myyOh28j0j0/30Eyvhyu2RjRcn4mtJiYaepEdMD
-	YrR2v6MCmgFf1bIqR7goNAD1WdWlQnwEY9dpEc9cWJdNiMQkNgnKaFfu4skE/sETx969bkYvUF6
-	xEmubI0/da85qiYmgR6+kmGzYA44XahSN1YvCA5kwtq5N5MLhIao1zTL7r3P8wwPCZmqUY+yHTR
-	NUSN9KGMbvyJsxMOT4orcmFuevoAxvdD37gfzyS0inYXYJ1h0yRN/sG5us6CoPTetb9v+1QvsGa
-	+fyWEs2nrKZQSiA=
-X-Received: by 2002:a05:6830:2649:b0:862:b76e:3a73 with SMTP id 46e09a7af769-86315a6d398mr16010581a34.29.1795540256523;
-        Tue, 24 Nov 2026 09:10:56 -0800 (PST)
-Received: from [127.0.1.1] ([150.117.174.129])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168dd6besm11131021a34.11.2026.11.24.09.10.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 09:10:56 -0800 (PST)
-From: Gary Wang <is0124@gmail.com>
-Date: Wed, 25 Nov 2026 01:10:35 +0800
-Subject: [PATCH v2 1/5] pinctrl: tigerlake: add ish_uart groups and
- functions for INTC1055
+        bh=3C06+AGRplNn4HpuEEq4N+vB6T6r5jTxGaKPsMTS1cI=;
+        b=THcpQsSXHIQPOeV+ZOa94JqihPuWoz3N0GMhuY5I0tSMXO1TOjHyT6FxdJ/8vmGD5a
+         ugjjz9y4qjhbAwu1KkNXox9NRZgsff8Y0CvniprN7xb+8S0lBcY5zVPc1rfoqqNidavp
+         u0gVs8oMryk9eT9Ck0Uut3kXodG/eNvNh30NPwmnY85+34YWLSJEZZzC4VXT9IgbkMj1
+         WWg8F7a44Pj6YxvB4gFfS7adXf+xx+h3md/GKLPOaiLE0GChoG3BtwFskBV1m7qblLtQ
+         zM3eQQNGirhfjlFpjLIZ50vlzxN/+B3ykv9K2fVHs80sO4IdqXCopNtWak/SPZlP+EFl
+         gvKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795540258; x=1796145058;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3C06+AGRplNn4HpuEEq4N+vB6T6r5jTxGaKPsMTS1cI=;
+        b=Hq/ZAKzCTBAf2dP1Qlrok7+U0wBTzjh5Jl03gm1KURajzHQo39fIe2sQel3JJNzAly
+         LXnY6LPkQAv8oYG5L7W361Vvdj8v6/a3Vz+GkAM+w5ozCB6/AfjTnRqkdPBjBgpq4Q+k
+         rgzqyCv/ADuyoSHFDkPxfCDJ89f2WfEEkiGgbBz8TFRXQIjEt7SHu7piDjZUijaZ9wbd
+         4MsmEWdxYoxG8oRJb4QVFJc0MtZxNGMAxa3Po9IAMOEnVby2Kz1BdrRNoAOBAr/irmUB
+         4OfMwD1cFI2KI3odZBGS7HLI/2C0eulB7xGdUW9gbYHknhrYNUc1tAPF6Z3/HJQRwMNv
+         w+2A==
+X-Forwarded-Encrypted: i=1; AL+hErFyKoF0I7Oi/RcIdDyOVe6FUqWluf3aamgzGOUhYz/AOkQ/wiScpqfoZpTccXtB6p1u5M5RtYldCg6pxl4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9cNfnei6Z4JBI2Jxs+Ehe7ibc2HgzaNiRl32djmnubJJvJc3bc
+	gWE6vlqw02utdQCwUAHJuzEhywDRDnOBzYFV+JWMHHBbUgy6P2KsDZJX3xKj2jZzik8X5074sRl
+	2o3v/d7DOOa1hROAMCsAaCOidCFVMhlOT5L886Da86KStkid3JSW3A1XLj4eixQ3zBHE=
+X-Gm-Gg: AZFdTZdp0VWGQubKY3SeKsRXPRYBeUkTlAKrmotgZfxYJCKf8LG7UBoUYFjCFE9P0ps
+	V7jMyELDjI6JPnbPdswWDnpWkz4LSOlXA9sA7ooo9iI9MUrlIDkNnN+IIaa+IaTWB/iv8GujCJ+
+	5n6pC/SR948di9Jxyw8cYhfRaaIhFN3Wgs+G59NC0aLVYQbfs5Ea2zzlv/s4Ca0tExN2j90JfXz
+	zDejzZqYmI7++wzZuXsrTjCDPPoXNpNDwYebuzGwRfZxlFrN7LG/vRQ6D/AEE9Us4ld2pTj64/I
+	N5Yprv/pV/X5PVCtlDwVMX/YCRbrseO6kDfHIvYwQRF7/8vfMZYodGzlKRSm277rwb9zxa4kVkP
+	zJ9OkhM1M6arm2LZC6XEmJSOP+JjmiHXtJds4TPNEg4cKQrXFxqHUDB+U23fuQkx5iwItC8axmQ
+	TDGI9B5g57sRilYU2Wmw==
+X-Received: by 2002:a17:902:e80b:b0:2e9:9a19:c43 with SMTP id d9443c01a7336-2f03f118277mr150323265ad.15.1795540258225;
+        Tue, 24 Nov 2026 09:10:58 -0800 (PST)
+X-Received: by 2002:a17:902:e80b:b0:2e9:9a19:c43 with SMTP id d9443c01a7336-2f03f118277mr150322945ad.15.1795540257698;
+        Tue, 24 Nov 2026 09:10:57 -0800 (PST)
+Received: from [192.168.0.3] ([49.204.135.92])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f14a432sm72737855ad.75.2026.11.24.09.10.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 09:10:57 -0800 (PST)
+Message-ID: <9e1403bc-9069-4024-b4c2-c62c2f0d5100@oss.qualcomm.com>
+Date: Tue, 24 Nov 2026 22:40:51 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,68 +116,193 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH ath-next v4 00/14] wifi: ath12k: add initial Wi-Fi 8
+ support for QCN9575
+To: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>,
+        Johannes Berg <johannes@sipsolutions.net>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Jeff Johnson <jjohnson@kernel.org>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Bill Wendling
+ <morbo@google.com>,
+        Justin Stitt <justinstitt@google.com>
+Cc: linux-wireless@vger.kernel.org, devicetree@vger.kernel.org,
+        ath12k@lists.infradead.org, linux-kernel@vger.kernel.org,
+        llvm@lists.linux.dev
+References: <20261124-wifi8_qcn9575_bringup-v4-0-1f5b87ece6a3@oss.qualcomm.com>
+Content-Language: en-US
+From: Vasanthakumar Thiagarajan <vasanthakumar.thiagarajan@oss.qualcomm.com>
+In-Reply-To: <20261124-wifi8_qcn9575_bringup-v4-0-1f5b87ece6a3@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-upboard-pinctrl-add-intc1057-intc105e-support-v2-1-c8079f8f569f@gmail.com>
-References: <20261125-upboard-pinctrl-add-intc1057-intc105e-support-v2-0-c8079f8f569f@gmail.com>
-In-Reply-To: <20261125-upboard-pinctrl-add-intc1057-intc105e-support-v2-0-c8079f8f569f@gmail.com>
-To: Mika Westerberg <mika.westerberg@linux.intel.com>, 
- Andy Shevchenko <andy@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Thomas Richard <thomas.richard@bootlin.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Daniele Cleri <danielecleri@aaeon.eu>, 
- JunYingLai <junyinglai@aaeon.com.tw>, Louis Chen <louischen@aaeon.com.tw>, 
- BillyChou <BillyChou@aaeon.com.tw>, linux-gpio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Gary Wang <is0124@gmail.com>
-X-Mailer: b4 0.13.0
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA2NyBTYWx0ZWRfX3bYJV67hWaaQ
+ nYDw5iMMGU+7VdXSRx/Mcr0zhTeBuGTgqXiQ99+gKfZ+51emrw9/z9hHDnbkuDF9VTpVKbRNIuu
+ mnc6kBv+zqYaqZb2p+bknj1Ex1w84pk=
+X-Proofpoint-ORIG-GUID: -Ta2RNt40u4RLNetUKoU2SYJCMubs85H
+X-Proofpoint-GUID: -Ta2RNt40u4RLNetUKoU2SYJCMubs85H
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA2NyBTYWx0ZWRfX210/QS1ANZJL
+ Wlq2Ked69NYpaqazEOjsdpNJbYS5dKOgFMalGqu0CKMhhRRYZ4Xuzp26F/wBwHwqYCnKL7FUejI
+ s/AMRCNub4gTeTrmNg9kdVvjfidSfB2Onur0igO43F+Fu6hP4s34sOYf3Ltf/0xq+j4yCU4Gglm
+ yO09M0Cv4Cwj72TYg/1+gQdvuPH6MKP6Bys0pXw+fmZ3cI5EUcKJvLEwn0NSN5kgUiHFXIf0eyD
+ /aC03mTZfTCBRkGAvvjGeEB+RsEWD6SWYuxPUSmivjhUJxCCvTzbdQWA4w3ES4UYajcdlm5Ii6Z
+ MQEfN48eZUiBzwMYyq6jAdT74156fTa5q690Gjz+faaGFwu1iidYRqovlF9VWlugRuU9PgnpCbZ
+ ZHcfP+SzzxQopN08Vkrj22BofFIFfBXFtgSC7Po4hxRfeTElSQUTW6UQErlGppd2B5S4RimOnyD
+ COflnYSYCwEvSt/FU7A==
+X-Authority-Analysis: v=2.4 cv=U9cHnuru c=1 sm=1 tr=0 ts=6b05c523 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=Ag5bUDVj9uQYXS0Rj44fbA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=bC-a23v3AAAA:8 a=EUspDBNiAAAA:8 a=stkexhm8AAAA:8 a=VwQbUJbxAAAA:8
+ a=1XWaLZrsAAAA:8 a=JfrnYn6hAAAA:8 a=BwtDmdOm_RcmM6cCN5sA:9 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22 a=FO4_E8m0qiDe52t0p3_H:22 a=pIW3pCRaVxJDc-hWtpF8:22
+ a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_04,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 adultscore=0 priorityscore=1501 spamscore=0 phishscore=0
+ malwarescore=0 bulkscore=0 impostorscore=0 clxscore=1015 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240067
 
-Add ish_uart pin groups & functions in tgllp_soc_data for device id
-INTC1055.
-The pinctrl-upboard driver set the correct pin function corresponding
-to these data.
 
-Signed-off-by: Gary Wang <is0124@gmail.com>
----
- drivers/pinctrl/intel/pinctrl-tigerlake.c | 4 ++++
- 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/pinctrl/intel/pinctrl-tigerlake.c b/drivers/pinctrl/intel/pinctrl-tigerlake.c
-index 93234f4a9bd0..80c847875faf 100644
---- a/drivers/pinctrl/intel/pinctrl-tigerlake.c
-+++ b/drivers/pinctrl/intel/pinctrl-tigerlake.c
-@@ -333,6 +333,7 @@ static const unsigned int tgllp_i2c0_pins[] = { 5, 6 };
- static const unsigned int tgllp_i2c1_pins[] = { 7, 8 };
- static const unsigned int tgllp_pwm0_pins[] = { 99 };
- static const unsigned int tgllp_uart1_pins[] = { 85, 86, 87, 88 };
-+static const unsigned int tgllp_ish_uart_pins[] = { 112, 113, 114, 115 };
- static const unsigned int tgllp_ssp2_pins[] = { 108, 109, 110, 111 };
- 
- static const struct intel_pingroup tgllp_groups[] = {
-@@ -340,6 +341,7 @@ static const struct intel_pingroup tgllp_groups[] = {
- 	PIN_GROUP("i2c1_grp", tgllp_i2c1_pins, 2),
- 	PIN_GROUP("pwm0_grp", tgllp_pwm0_pins, 2),
- 	PIN_GROUP("uart1_grp", tgllp_uart1_pins, 2),
-+	PIN_GROUP("ish_uart_grp", tgllp_ish_uart_pins, 2),
- 	PIN_GROUP("ssp2_grp", tgllp_ssp2_pins, 7),
- };
- 
-@@ -347,6 +349,7 @@ static const char * const tgllp_i2c0_groups[] = { "i2c0_grp" };
- static const char * const tgllp_i2c1_groups[] = { "i2c1_grp" };
- static const char * const tgllp_pwm0_groups[] = { "pwm0_grp" };
- static const char * const tgllp_uart1_groups[] = { "uart1_grp" };
-+static const char * const tgllp_ish_uart_groups[] = { "ish_uart_grp" };
- static const char * const tgllp_ssp2_groups[] = { "ssp2_grp" };
- 
- static const struct intel_function tgllp_functions[] = {
-@@ -354,6 +357,7 @@ static const struct intel_function tgllp_functions[] = {
- 	FUNCTION("i2c1", tgllp_i2c1_groups),
- 	FUNCTION("pwm0", tgllp_pwm0_groups),
- 	FUNCTION("uart1", tgllp_uart1_groups),
-+	FUNCTION("ish_uart", tgllp_ish_uart_groups),
- 	FUNCTION("ssp2", tgllp_ssp2_groups),
- };
- 
+On 24-11-2026 22:13, Madhavan Ganesan wrote:
+> QCN9575 is a Wi-Fi 8 (802.11bn) PCIe target that represents a new
+> hardware family distinct from the existing Wi-Fi 7 devices (QCN9274,
+> IPQ5424). It supports 2.4 GHz, 5 GHz, and 6 GHz bands across upto two
+> radios.
+> 
+> This series adds the initial bring-up scaffolding needed to register
+> QCN9575 with the ath12k driver. No protocol-level 802.11bn features are
+> enabled yet; the goal is to establish a functional base with the new
+> ATH12K_DEVICE_FAMILY_WIFI8 family tag and a dedicated wifi8/ subdirectory
+> that follow-up series can build on.
+> 
+> Patch 1 moves the PCI window register constants from pci.c into
+> per-device structures, so Wi-Fi 7 and Wi-Fi 8 can each define
+> independent window layouts instead of sharing one fixed set of
+> constants.
+> 
+> Patches 2 and 3 extend the shared QMI layer: a larger WLAN config
+> message to describe the CE and service pipe count QCN9575 requires,
+> and support for downloading an extended firmware binary.
+> 
+> Patches 4 through 12 introduce the wifi8/ subdirectory with its own
+> Makefile, followed by the hardware scaffolding: hw_params, HAL
+> register table, HAL ops and descriptors, unified firmware image
+> support, MHI channel/event config, CE and service pipe map, WMI
+> resource config, and hw ops.
+> 
+> The final two patches integrate QCN9575 into the driver: a mac80211
+> ops skeleton is added and hooked in, and the series closes with the
+> Wi-Fi 8 PCI driver scaffolding. QCN9575's device ID is intentionally
+> left out of the PCI id table in this series, so the module builds and
+> links cleanly but no physical device can match and probe; the id
+> table entry lands in the follow-up CP/DP series once the device is
+> actually functional.
+> 
+> Each patch compiles and links cleanly on its own; where follow-up
+> patches fill in callbacks, stubs are used to keep the tree
+> bisect-safe.
+> 
+> This series has been boot-validated on internal firmware version
+> WLAN.WBO.1.0-01410-QCAHKSWPL_SILICONZ-1 together with the remaining
+> Wi-Fi 8 enablement patches (CP, DP setup, MAC datapath) that complete
+> device bring-up; those patches will be posted as a follow-up series.
+> 
+> In addition, each ath12k driver patch contains Tested-on: tags for
+> existing platforms where it was verified that there are no
+> regressions.
+> 
+> ---
+> Changes in v4:
+> - Dropped patch "dt-bindings: net: wireless: add ath12k wifi device
+>    QCN9575" per Krzysztof's review comment.
+> - Link to v3: https://patch.msgid.link/20261118-wifi8_qcn9575_bringup-v3-0-9875d2a3953f@oss.qualcomm.com
+> 
+> Changes in v3:
+> - Replaced u32_replace_bits() with a plain AND/OR in "refactor PCI window selection to per-device layout" to fix a build failure.
+> - Link to v2: https://patch.msgid.link/20261118-wifi8_qcn9575_bringup-v2-0-d81a3046290e@oss.qualcomm.com
+> 
+> Changes in v2:
+> - Addressed sashiko's review comments in patch "refactor PCI window selection to per-device layout"
+> - Link to v1: https://patch.msgid.link/20261112-wifi8_qcn9575_bringup-v1-0-3f30fbc2bb69@oss.qualcomm.com
+> 
+> To: Johannes Berg <johannes@sipsolutions.net>
+> To: Rob Herring <robh@kernel.org>
+> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> To: Conor Dooley <conor+dt@kernel.org>
+> To: Jeff Johnson <jjohnson@kernel.org>
+> To: Nathan Chancellor <nathan@kernel.org>
+> To: Nick Desaulniers <ndesaulniers@google.com>
+> To: Bill Wendling <morbo@google.com>
+> To: Justin Stitt <justinstitt@google.com>
+> Cc: linux-wireless@vger.kernel.org
+> Cc: devicetree@vger.kernel.org
+> Cc: ath12k@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: llvm@lists.linux.dev
+>   
+> ---
+> Madhavan Ganesan (14):
+>        wifi: ath12k: refactor PCI window selection to per-device layout
+>        wifi: ath12k: add extended QMI WLAN cfg for CE and service pipes
+>        wifi: ath12k: add QMI support for extended firmware binary download
+>        wifi: ath12k: add Wi-Fi 8 directory and base module scaffolding
+>        wifi: ath12k: add initial Wi-Fi 8 hw params and init helper for QCN9575
+>        wifi: ath12k: add Wi-Fi 8 HAL register table and hal init hook for QCN9575
+>        wifi: ath12k: add Wi-Fi 8 HAL ops and descriptor definitions for QCN9575
+>        wifi: ath12k: add unified firmware image support for QCN9575
+>        wifi: ath12k: add Wi-Fi 8 MHI config for QCN9575
+>        wifi: ath12k: add Wi-Fi 8 CE config and service pipe map for QCN9575
+>        wifi: ath12k: add Wi-Fi 8 WMI init for QCN9575
+>        wifi: ath12k: add Wi-Fi 8 hw ops for QCN9575
+>        wifi: ath12k: add and hook Wi-Fi 8 mac80211 ops skeleton for QCN9575
+>        wifi: ath12k: add Wi-Fi 8 PCI driver scaffolding for QCN9575
+>   
+>   drivers/net/wireless/ath/ath12k/Makefile           |   1 +
+>   drivers/net/wireless/ath/ath12k/ahb.h              |   6 +
+>   drivers/net/wireless/ath/ath12k/core.h             |   4 +
+>   drivers/net/wireless/ath/ath12k/fw.c               |   8 +
+>   drivers/net/wireless/ath/ath12k/fw.h               |   1 +
+>   drivers/net/wireless/ath/ath12k/hal.h              |  10 +
+>   drivers/net/wireless/ath/ath12k/htc.c              |  18 +-
+>   drivers/net/wireless/ath/ath12k/htc.h              |   8 +
+>   drivers/net/wireless/ath/ath12k/hw.h               |   5 +
+>   drivers/net/wireless/ath/ath12k/mhi.c              |   4 +-
+>   drivers/net/wireless/ath/ath12k/pci.c              |  46 +-
+>   drivers/net/wireless/ath/ath12k/pci.h              |  11 +-
+>   drivers/net/wireless/ath/ath12k/pcic.c             |  27 +-
+>   drivers/net/wireless/ath/ath12k/qmi.c              | 484 ++++++++++++++++++++-
+>   drivers/net/wireless/ath/ath12k/qmi.h              |  73 +++-
+>   drivers/net/wireless/ath/ath12k/wifi7/ahb.c        |   6 +
+>   drivers/net/wireless/ath/ath12k/wifi7/hal.h        |   9 -
+>   drivers/net/wireless/ath/ath12k/wifi7/hw.c         |  14 +
+>   drivers/net/wireless/ath/ath12k/wifi7/pci.c        |   4 +
+>   drivers/net/wireless/ath/ath12k/wifi7/pci.h        |   8 +
+>   drivers/net/wireless/ath/ath12k/wifi8/Makefile     |  10 +
+>   drivers/net/wireless/ath/ath12k/wifi8/ce.c         | 404 +++++++++++++++++
+>   drivers/net/wireless/ath/ath12k/wifi8/ce.h         |  13 +
+>   drivers/net/wireless/ath/ath12k/wifi8/core.c       |  31 ++
+>   drivers/net/wireless/ath/ath12k/wifi8/hal.c        | 434 ++++++++++++++++++
+>   drivers/net/wireless/ath/ath12k/wifi8/hal.h        | 171 ++++++++
+>   drivers/net/wireless/ath/ath12k/wifi8/hal_desc.h   |  88 ++++
+>   .../net/wireless/ath/ath12k/wifi8/hal_qcn9575.c    | 124 ++++++
+>   .../net/wireless/ath/ath12k/wifi8/hal_qcn9575.h    |  15 +
+>   drivers/net/wireless/ath/ath12k/wifi8/hw.c         | 250 +++++++++++
+>   drivers/net/wireless/ath/ath12k/wifi8/hw.h         |  14 +
+>   drivers/net/wireless/ath/ath12k/wifi8/mhi.c        |  70 +++
+>   drivers/net/wireless/ath/ath12k/wifi8/mhi.h        |  10 +
+>   drivers/net/wireless/ath/ath12k/wifi8/pci.c        | 105 +++++
+>   drivers/net/wireless/ath/ath12k/wifi8/pci.h        |  11 +
+>   drivers/net/wireless/ath/ath12k/wifi8/wmi.c        |  57 +++
+>   drivers/net/wireless/ath/ath12k/wifi8/wmi.h        |  13 +
+>   37 files changed, 2510 insertions(+), 57 deletions(-)
 
--- 
-2.43.0
-
+Reviewed-by: Vasanthakumar Thiagarajan <vasanthakumar.thiagarajan@oss.qualcomm.com>
