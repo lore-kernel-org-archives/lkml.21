@@ -1,100 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.23
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795538866;
-	b=vpb6AHLuin5jy4FaeOLf1IeRgzmxpf7RCuyS0DJ4KtXZKyK4CszhT/WZBB9RdyKj+o8c
-	 Rs9HsCq02fQkZS58X6LEY/cY2O7haiA6klqiyzUZcmjc2OXSZlCtXomMmsV+QJ8gv15xz
-	 uXLDE8MLp2Peu8deDbh0RR3GVM6QRdYzGmkhSQnHt1cOwecDfMolrq8xaHnVQJVrNy8r9
-	 3jyXsVDSpvOllkNXn2THRtEF05J0wP4V99Rc8MTtaNFlrqqKfODebVTZGrmsjpzGvNln2
-	 DgeFkZbXfrqeII84hpabQwiV7YNl0JAU8nUHdpmUBSr1ZXCNYggedxDU4bxYwro+5ZA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795538866;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:Subject:Date:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:CC:X-Mailer:
-	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=y+yn6fQIzVNwQR8JFuIlJlUSSNys1A+g4VrUArgxRlE=;
-	b=1+8M7kivUdDHThWc3HZ76LprqFpCZmSEt7yU1KYswrSDQWuKGsFi/vH+8nw5i+eVBmur
-	 VtK1jkU8fcBHvlTinhLCr9RlSDvD97zaXTHoRcv2xqMpT+5IQoxmh8QDHsGHm5Ffg4Fhm
-	 lgdhsBKARrC/TbYdDFI6s/W7sLLMb+I90CGaMXRnF8atbAeRn0g+iAU/KqAz5/38S8LHD
-	 XobEWe4mUKLjCiYB7TunQ8Z9Q0aNbE1cFYjddmkjoChhdiOL/ucvEevUutlBY9ecrSvNg
-	 /10p1PxwHUfLJqcstukRs/kn5rlIdXYaeA7BGJmQqesNjVi1PwW9PKgvIWBS37xeeNg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=foss.st.com;
-	spf=pass smtp.mailfrom=foss.st.com;
-	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=EHwrqg+3;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.23
-Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11011023.outbound.protection.outlook.com [52.101.70.23])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795538867;
+	b=ctViK6TT+yqw5g84NSFRUm5HHPcSIyizAj3pZOxLFtcXGkHNPW1sFItgB7V4IUIpimPa
+	 CHTF+pBoYwGlPDNoNutZJ7guA8hejPC62ClGXB7hPfp26UnlaHIXpdpcMEHstBQzhsuZS
+	 cC/FYttLsfsL0YVrJX823e3Uk5oL1dF73SH291xMTfDVyF0Bf2Uk/tc5zuIjaD1G8exPu
+	 gNC7oM+JgUMOpLiXhRTNLC08GInk9MGNjCXLkMdkXp+/TpsgoDMiZodkySc+RiK7Wyjd1
+	 XULChuXW1vIZkH3vBd5LI9EVqyqlcD4MHedn8tCIrwFnakzqtuGeBp5TQVpt1O13baQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795538867;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=Zwd69s5iiFQhNtL3OETfY3InFvNRDefVxvbxKiMIjdc=;
+	b=Sw9xEBAR3Rpei1W3ta8cf9768f1INT8VK4Gqf94g5cJc+aIHwuLKma1y+sAvYNmGqMlu
+	 yVWufJq9miZz490AKXBVHQknjg0bBoNdtcWoULsliYsTzhYhg9dKWbuxnJ35RpNtYmkpm
+	 UduhlOOWwlsw1+g3Rc06MRUwyDOwU7PYWC8yLJdvdBIJzSlkBTadds9JXb4JZKgiHMJRs
+	 8h8xFWKm0Wrpe/Dd3Wuel1Zjg3Y33+8Ge+HambFjeT/8HqQMiaIvEtHeVcu+6NcYHCl/8
+	 GcVtroSmyBVgJhcQRIba9IdF0LH9nCgu0B0G09TxOom51OCPPXheQUvQ0X4F9e5wZrQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="D/wehGwS";
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Gu+RTcrm;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE893606A321;
-	Tue, 24 Nov 2026 16:47:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE893606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DA82606A6A7
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:47:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DA82606A6A7
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=EHwrqg+3
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GbPpB2GV1tlSRGDoWouWTQ7HCd4TRjHkGdhXMKNntmw7E93ouzKPt6HXfMzqAWQMUr7eDZ0bh/dkow6heMsZ2VWJNRG+ki3ENBCIHCg22ErdVHZHFJpwMsig0NTiP1Kq/wRuWEpUJ96/AwbGWWYp+lLpx9Fb97PpCI9F3tTQs6MRAED/fwdm6G8m0pERHKOnLC2YpP7CNLG+nXI8luMIUl51jgataZDJJvxmvoJ/BqlnkTYyLSDSsxduz3T5xHszuVFG/zFPtfTB8ESkGFZZvreUCn43YPYvWxqx59KfxEC6sw1A3wFId+fRxIrT+ko2SKmjE24TNkzCDDxQtGKlCw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=y+yn6fQIzVNwQR8JFuIlJlUSSNys1A+g4VrUArgxRlE=;
- b=jm3dxsxcqetjADEsjtpxhrZnbJhuzlD1Hh70siVtYMxbx53N6hJtTZi6IET5RyWDnEJZXiLtSdifVx3B/t2+80/B0Ppm5/wf5mvoKYhW8IsDAdAx2m3LugEnZG6P0aZ3Gz0nqNrOMFJhUl2ZMA4bLBTM1/k90wW/iBFbBXRjocjgGEbGvZN69gnjQxfPuMZ37t4uLU5b+wUqOSDShn+Exy5C8koBx3I60YbuN+qgWai7yfwFpW2gvtEiQ65gduOmJSRVnjmdLXsuxHkIAY5dAxP2enlRqPT7Atjv/Bhg+2dB4LgK6iMR8URY7KRbgdWohavvEkgcwj6XJUMcF8s6gg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=y+yn6fQIzVNwQR8JFuIlJlUSSNys1A+g4VrUArgxRlE=;
- b=EHwrqg+3Ew5Xkxut4dIBTK6zUDoIF+ZCKsr8RSLEV86h4sXOp+wTMI5YXTD7qpRHM3v1z+PCbRIc4W9gJTnVo7kuNslFm1PzFMspjwEHN1+zXzD/rAuPvUlhxYUSm2cmvH44PHjdNyjCmWxNMmHQkdf6BOaXyZmMfDE1NzwpiQjd6f6WqpiQtO8wp6GHtYZi/yM6aHVainHQpgasu7sDZXFDUDfMsw4T+RGA9Z4+2VDFD6yAQ+EYOlEVUTJXKXP0aTR55xYSdKIHkmN121cbobnWsHyV4AizRcMUkzO330XOULzne656ufzQOCZWGqraLCKICDwqY5GI7SdwctSU7g==
-Received: from VI6PEPF00000215.AUTP296.PROD.OUTLOOK.COM (2603:10a6:808:1::8cd)
- by CPHPR10MB759348.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:380:10e::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
- 2026 16:47:40 +0000
-Received: from ZR1PEPF0000E6BA.eurprd07.prod.outlook.com (2603:10a6:918::149)
- by VI6PEPF00000215.outlook.office365.com (2603:10a6:808:1::8cd) with
- Microsoft SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id
- 15.21.662.6 via Frontend Transport; Tue, 24 Nov 2026 16:47:39 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- ZR1PEPF0000E6BA.mail.protection.outlook.com (10.167.241.73) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 16:47:39 +0000
-Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 24 Nov
- 2026 17:48:44 +0100
-Received: from localhost (10.48.87.93) by STKDAG1NODE1.st.com (10.75.128.132)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 24 Nov
- 2026 17:47:38 +0100
-From: Patrice Chotard <patrice.chotard@foss.st.com>
-Subject: [PATCH v6 00/10] Add STM32 TAMP nvram driver support
-Date: Tue, 24 Nov 2026 17:47:33 +0100
-Message-ID: <20261124-upstream_nvram_reworked-v6-0-ea0cfccc20b0@foss.st.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=D/wehGwS;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Gu+RTcrm
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOFLITK3878762
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:47:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Zwd69s5iiFQhNtL3OETfY3InFvNRDefVxvbxKiMIjdc=; b=D/wehGwSYdfacokR
+	vMRQuw7sbuVVO4g7TxKw7T9jNTrcpseIidz1veGPlzdKE3SpsS+670tW5usDqOYN
+	xGHVhB7lBsd+Nclznm+xYhvfmE/BEfHU5Ef4dVQSFG23foboGNY+mkC2tFaSQH2Q
+	pPEyFc4PvkhqqA1H+shE7kyjyQFMsamus+UpyIk49tqZZXo9iCtFaoja5DNhG7Cr
+	ykjAiU6r1AUWrcQpWpBySBJz4mbN4JVb9XkrzomWmvSPjUzmWRD1dqQYJ7/zVd3K
+	9L4ft5yq5c6j0nvoRa8WKwIvPZRKpUKxAiseMGLLOrkKT8W//dMnjm1LTnjGk9+4
+	0GyUXw==
+Received: from mail-yw1-f199.google.com (mail-yw1-f199.google.com [209.85.128.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4yy13wxq-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:47:45 +0000 (GMT)
+Received: by mail-yw1-f199.google.com with SMTP id 00721157ae682-8b0f1c06332so71999617b3.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:47:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795538865; x=1796143665; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Zwd69s5iiFQhNtL3OETfY3InFvNRDefVxvbxKiMIjdc=;
+        b=Gu+RTcrmQFfiAKpjD75dlfKRCtjvJZV4hCbf2/kirFYtZHErpOwZD+/ZWf94QDs9tl
+         k2gGe4pb+riYYevVNNZjlgNqHq6k75mLfjk2ojUFL23Z9SreFfXCYgQvHdaQuiwfOIVJ
+         n2WvpIIsjF+4bQRagnvr9zL4AGuejqeTmtgxxueS0IH8GzRw4xcHqeD0eg+nami4ftcE
+         +HO/lbQ4ASE07WUdiv3fSGjBh9TKkBBOu0A4mWO+eEWLTSEbBDygfSJ6msmn1vkFAa1g
+         eA0FMUOo/9ZwoS7zGYJKKrggsI2hk3BppYQHL/x03Fwr+eBIbetwTeYKOFxEM7/pU2dI
+         0HLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795538865; x=1796143665;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Zwd69s5iiFQhNtL3OETfY3InFvNRDefVxvbxKiMIjdc=;
+        b=KupD1ptWPjcRphZwpp8G8W4fKVfGrZvMKVvPCn3o7Htlc7KIYo5DhG3+PoQnpN7sit
+         sP2VcVGvzx0zp1pI0kUcuB9JjSnMIHlJ/2ebNWxVyCBang5wdrbXkdaxn3iwdIrwbij0
+         wlf2ofyUkuFd1WO+/7TMGuQtGzFMktXITq8VGwEyARZm3LrSbit1xRqWNEinV3HmRYdq
+         ZVp25Pwa3WAYhk8sq8wo98jbQJAPOlDg42iREXeQbGpL0UaQ4t3Ltb4dkzSRLsdqqkWx
+         9S+qCrNfYuxw08Na1B9X4YMnQOKGjJpP8xQZlAxgKijIu0VOO/XCs066/APQRk2RR6vw
+         LStA==
+X-Forwarded-Encrypted: i=1; AL+hErFaxKVT+rOWBaou4tcX/7n9eqveBCX7hLbX4RI5H6BckrvBgnHRhLtBe3kVvxwVD1tAozk0rK1PluTJ3iU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z83aEdPSuVdmJ6MlibE657kW3zM/F8qmy3Nwu9Jnm+y0rlvpGpy
+	/mDofPv41AHhpKMNSWC8DEfJG7JlcrOe+PYwRS6v9umh9LIWM5zZHz94foPZ/ZtomtmcZ2wPRSP
+	iAyUieWrNJBWA9h08S0FCEP6IWEmJVhR2AeQEEyTp+b7Oz9r/SmRXIInBqxZbmQ4hlsk=
+X-Gm-Gg: AZFdTZdIWVgmSfwpNsL2Ft/o5YGTbUdKTjrH3joGZW296L+AEma4z0bHYmn+0XV60kg
+	RnaBJbJYidbc8/egxArdzemWwaamyCZ2s9FFsAKA7oWEpySw9Xfm3qMIlLp2cpXT5s+isWJ740a
+	X7OGSp6no2epPqQyrVc235Ed064i0tWU4oQkBc1VGdhj7sMfcR8+RknE+Yq45HEtT/9YShgvQ6f
+	2Ilw9zPQc8sW+FBqQEtiMIrA9I2/jl1N0JTGZvZGPk/9XKs3ZXRgAGwkEvu/bOAhChepWiYgXJ8
+	YxAB2TQ3TIXbPTeroByHONI7wfzE/si0XqH+c/lHkT4Gw4Sn6KACmV1jhh9+FAymPkXJb3F5RaD
+	5eUYK/an5hcl/Af8gmB0OVugEwOmdMdb6aIFWMfpYE2MVegxZRELOWuEB/luIk77sLSIYAeoT8q
+	VxThr+aC6lIdU+5mVtta/JxN2B+jm4r310JQwYgzdLruyumedN3LfKhzUnHm9A7B4Rdy1Il8Top
+	utCLHSmF2Ng32xKKBVkW9g+1PnQ
+X-Received: by 2002:a05:690c:e0c:b0:8b4:e258:408 with SMTP id 00721157ae682-8b52051832fmr70265007b3.58.1795538864491;
+        Tue, 24 Nov 2026 08:47:44 -0800 (PST)
+X-Received: by 2002:a05:690c:e0c:b0:8b4:e258:408 with SMTP id 00721157ae682-8b52051832fmr70264837b3.58.1795538863804;
+        Tue, 24 Nov 2026 08:47:43 -0800 (PST)
+Received: from QCOM-eG0v1AUPpu.na.qualcomm.com ([2a01:e0a:830:450:6c6b:1e5a:79dd:a527])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d55sm29388605f8f.5.2026.11.24.08.47.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 08:47:43 -0800 (PST)
+From: Loic Poulain <loic.poulain@oss.qualcomm.com>
+Date: Tue, 24 Nov 2026 17:47:38 +0100
+Subject: [PATCH 1/2] media: qcom: camss: Latch buffer addresses through a
+ single helper
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,150 +119,133 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKa/BWsC/33NQU7DMBAF0KtUXpNqxhnbMSvugRBK7DE1qEllp
- wFU5e44BUFRCZuRvvTn/ZPInCJncbs5icRTzHHoS9A3G+F2bf/EVfQlCwlSgwVbHQ95TNzuH/s
- plZv4dUgv7KvQUEtdbRo0TpTvQ+IQ387y/cNnzsfumd24cEtjF/M4pPfz9IRL72sFYXVlwgoqJ
- dGhRqMch7sw5LzN49YNe7HsTPJCqv+RZJFc8K0hywyduZbqbwkB9bpUFyloZaEhCy78IdGPhED
- rEhUJiUASWd0SXUvqUlLrkiqS98H4LmAnbfNbmuf5A1uWyVr6AQAA
-X-Change-ID: 20260909-upstream_nvram_reworked-f84a4b37817c
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christophe Roullier <christophe.roullier@foss.st.com>, Srinivas Kandagatla
-	<srini@kernel.org>, Russell King <linux@armlinux.org.uk>
-CC: Simeon Marijon <simeon.marijon@foss.st.com>,
-	<linux-stm32@st-md-mailman.stormreply.com>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Patrice Chotard <patrice.chotard@foss.st.com>, Gatien Chevallier
-	<gatien.chevallier@foss.st.com>, =?utf-8?q?Cl=C3=A9ment_Le_Goffic?=
-	<clement.legoffic@foss.st.com>
-X-Mailer: b4 0.16.0
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE1.st.com
- (10.75.128.132)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZR1PEPF0000E6BA:EE_|CPHPR10MB759348:EE_
-X-MS-Office365-Filtering-Correlation-Id: 16a87442-e3ca-433a-54b6-08df4a4aa6c7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|82310400026|36860700016|10067099003|11063799006|261021123027099003|261026121527099003|261022115727099003|261021130227099003|261021135927099003|261102123227099003|261028144727099003|261022113327099003|261021121427099003|261026135527099003|261026130827099003|261022105027099003|261026140227099003|261021133027099003|261022075727099003|56012099006|261009223027099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	kewX0+rvURzJGe7mkGawCzuEC+UX7ogJgbojbrzUxPzWvMcpPJKrmyV/7fDj3jea06Y9NVvbyO6Tzm9jdomAtJonpfiZfvPNlEuxjDwdeZ3Q8lVhxU64YbQGB/vDAtD634zFay9QdDd516LFL5bBgwd5LBHKYrY1VZOzWUNHfS0bDF1Nmtzd8MWk0nfcx1I4jHt+gYcByT9GkVyBZrm089ZCniVmnpeAoLgiPrUJ+8FYcGu0yh0azbEDadeZf1R+VDDUEGUYbOrE79nu9FBT32Qr5VjH6hSRufQqHX5QgzUlSZKnq6t5oIOmTKKRpPuSJXQmfG2oUW/hMpljk1awak9CT9G1HS4N1qY11LJBziOkC+mx5OiK0Fe27eyPeFWbWO4aLUPW98o0zu+Swn8cQA5iSqtMrea2ERIJHamgMCfy/xGQSd6fNTRvrR9NZ/JHY4EkTv69N5OcXZ4GahW7xjLbb7YxECA1bFW/0BUkilKrACcKNFrX0aEhaN8LszO3Lt+5VRyP4ojLBAMjMKXPEI/1YaR768vNGzIbRwnzydGTJ6rBZXUDVGGWH/BAou/Bid/KxJLqpfI+IVFH4Yl4Z4XKxw7+eU5kWC4saDzvp5aTcf/IG01d+8X2cfbC/lsjvv0Q09v9uq8X5ykzIQpZrw==
-X-Forefront-Antispam-Report:
-	CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(82310400026)(36860700016)(10067099003)(11063799006)(261021123027099003)(261026121527099003)(261022115727099003)(261021130227099003)(261021135927099003)(261102123227099003)(261028144727099003)(261022113327099003)(261021121427099003)(261026135527099003)(261026130827099003)(261022105027099003)(261026140227099003)(261021133027099003)(261022075727099003)(56012099006)(261009223027099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	msjRir2/LnPeIZ8YNkepPrxZy20Obp5yaqhsfWnf8VHKtav05GvR2UqbRL8LIX6RdLMMOdL2TdOqVxj7U4AcZEmfwyZu3NdSbffpAft3amzEkGNgfFtBha8vTjiEl7XEJ6qixgkATvS0yq4AG9A7DS2bdsTjXCMpLkiOSN1gSkmgIfxZWoHT/T1VLNxQxcUjs6MI/jQuMCc9mXCew1cWMCbxXsE9PMYZWA9KdrCgw+2zptCJeJmrHaAo3AeuDzq4IUs2EF5rhWbZ1lUCvjCq0LL58F7I00hBuhYT3NYtZOcJHtl5IxL7EUuryDYe5DlzoUl6ZUkc8vm+3ROoYSjcpQ7PHUTEAKEJY4E2TMUoEQwQydSw6+83x5J0g98xwj5Z6809rqa75BXAHOZViguFeSAEtJaJAl8nRLMJkUBPJHZryfszz74ojZF37ZixSIR6
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 16:47:39.5436
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 16a87442-e3ca-433a-54b6-08df4a4aa6c7
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	ZR1PEPF0000E6BA.eurprd07.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CPHPR10MB759348
+Message-Id: <20261124-tfe-fix-irq-v1-1-fd9840d952ae@oss.qualcomm.com>
+References: <20261124-tfe-fix-irq-v1-0-fd9840d952ae@oss.qualcomm.com>
+In-Reply-To: <20261124-tfe-fix-irq-v1-0-fd9840d952ae@oss.qualcomm.com>
+To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Proofpoint-ORIG-GUID: EjFDyiwWURHGpImMzQnqzD2c4sv-rudr
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA2NSBTYWx0ZWRfX/AgNzxj+u2ml
+ r94dc7ATSi6cdIpEId+ba+HdRTk7TOcAIcSajRAUE57ssielayhShPXmNjHZQHVShINxEf1NBWv
+ VxlsqHpV2OOJ5RNxC4mhsZG3SeCu7II=
+X-Authority-Analysis: v=2.4 cv=JYspPkKV c=1 sm=1 tr=0 ts=6b05bfb1 cx=c_pps
+ a=72HoHk1woDtn7btP4rdmlg==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8
+ a=q_A1cxkaZBfKfFhyi8QA:9 a=QEXdDO2ut3YA:10 a=kA6IBgd4cpdPkAWqgNAz:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA2NSBTYWx0ZWRfX4Vt4vsdLwhKv
+ RxFox9jxhxFRAK9ybWpvgSgAR3gi/pp3M+VmqZXMQT46mgRWVNE1QZ+y9Htm5WFqkXgu3zrmWa+
+ azxq7FHY+5iJCgbkQhzWq850RqfCkmTeP7fWpCDK24g22/m2n4F7oScjiK94crzqLD5iTITlzkm
+ tZTrIj9fFXNzhkk+GAxYXwHgQ3hSyrvMBzJbgQEqA6pxhpyLFHkJjIBfzK0saKTQAMjRPFrD0f6
+ Vg0d51CEBBvx5xrR7BUSfRkWGAtc87+Q1jMaPwuNmeWhcM1gxlvCsnUN+WWMOUOFuKWSI1v17+T
+ fi8HQdOgPAMF4ML3Y1Z/QQtu05BjygBoi/S+sztlJJOsJzC+9rA+uyEw/aQ7o0iOr9dLptH2KO8
+ wyQCGpCzUIqmB32fIzDj5BqXy2nRdxLBtYsMcOov2JOXTUQQWn5T5vr5BIMcr58Nvi0Kjko5Klx
+ ihUo3lj/VPfDuB/d3MQ==
+X-Proofpoint-GUID: EjFDyiwWURHGpImMzQnqzD2c4sv-rudr
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_04,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 spamscore=0 adultscore=0 clxscore=1015 bulkscore=0
+ malwarescore=0 suspectscore=0 lowpriorityscore=0 impostorscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240065
 
-Propose bindings and driver to enable TAMP nvram driver
-support for STM32MP SoC's family.
-It allows to expose TAMP backup registers as nvmem cells.
+The buffer address written by vfe_wm_update() has to be made visible to
+the hardware, and the way to do that depends on the generation, the older
+ones only expose a register update, some relies on a FIFO, while the newer
+ones expose a dedicated address update that triggers the latch on its own.
 
-Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+Both sequences are open-coded at every call site today, with the address
+update being additive and always followed by a register update. This
+leaves no way for a generation to tell that an address update alone is
+enough, or that no latching is needed at all.
+
+Add vfe_buf_addr_latch(), which calls the generation's addr_update() when
+it provides one and falls back to reg_update() otherwise.
+
+The write master configuration programmed by vfe_wm_start() still needs
+committing, so vfe_enable_output_v2() now latches each initial buffer
+address inside the loop and issues a single register update afterwards.
+
+Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
 ---
-Changes in v6:
-- Enable NVMEM_STM32_TAMP in both multi_v7_defconfig and arm64 defconfig
-- Remove "Co-authored-by: Copilot..." from patch 2.
-- Update conditionnal block in st,stm32-syscon.yaml.
-- Fix indentation in nvmem/st,stm32-tamp-nvram.yaml.
-- Link to v5: https://patch.msgid.link/20261105-upstream_nvram_reworked-v5-0-ddf7dbf1b298@foss.st.com
+ drivers/media/platform/qcom/camss/camss-vfe.c | 33 ++++++++++++++++++++-------
+ 1 file changed, 25 insertions(+), 8 deletions(-)
 
-Changes in v5:
-- include DTS patches previously submitted separately in https://patchwork.kernel.org/series/1176665/
-- Link to v4: https://patch.msgid.link/20261104-upstream_nvram_reworked-v4-0-144024496a44@foss.st.com
+diff --git a/drivers/media/platform/qcom/camss/camss-vfe.c b/drivers/media/platform/qcom/camss/camss-vfe.c
+index f9bd2367671f6e50c6948a6405f78b8c2b03e5f7..f39e1f303c9bb64a41c59d0d413608b5cb54a8ed 100644
+--- a/drivers/media/platform/qcom/camss/camss-vfe.c
++++ b/drivers/media/platform/qcom/camss/camss-vfe.c
+@@ -443,6 +443,25 @@ u32 vfe_hw_version(struct vfe_device *vfe)
+ 	return hw_version;
+ }
+ 
++/*
++ * vfe_buf_addr_latch - Latch a newly programmed buffer address
++ * @vfe: VFE Device
++ * @line: VFE line
++ *
++ * Make the address just written by vfe_wm_update() visible to the hardware,
++ * through a dedicated address update when the generation provides one, or
++ * through a register update otherwise.
++ */
++static void vfe_buf_addr_latch(struct vfe_device *vfe, struct vfe_line *line)
++{
++	const struct vfe_hw_ops *ops = vfe->res->hw_ops;
++
++	if (ops->addr_update)
++		ops->addr_update(vfe, line->id);
++	else
++		ops->reg_update(vfe, line->id);
++}
++
+ /*
+  * vfe_buf_done - Process write master done interrupt
+  * @vfe: VFE Device
+@@ -491,9 +510,7 @@ void vfe_buf_done(struct vfe_device *vfe, int wm)
+ 		ops->vfe_wm_update(vfe, output->wm_idx[0],
+ 				   output->buf[index]->addr[0],
+ 				   line);
+-		if (ops->addr_update)
+-			ops->addr_update(vfe, line->id);
+-		ops->reg_update(vfe, line->id);
++		vfe_buf_addr_latch(vfe, line);
+ 	} else {
+ 		output->gen2.active_num--;
+ 	}
+@@ -564,10 +581,12 @@ int vfe_enable_output_v2(struct vfe_line *line)
+ 		output->gen2.active_num++;
+ 		ops->vfe_wm_update(vfe, output->wm_idx[0],
+ 				   output->buf[i]->addr[0], line);
+-		if (!ops->addr_update)
+-			ops->reg_update(vfe, line->id);
++		vfe_buf_addr_latch(vfe, line);
+ 	}
+ 
++	/* Commit the write master configuration programmed above */
++	ops->reg_update(vfe, line->id);
++
+ 	spin_unlock_irqrestore(&vfe->output_lock, flags);
+ 
+ 	return 0;
+@@ -601,9 +620,7 @@ int vfe_queue_buffer_v2(struct camss_video *vid,
+ 		output->buf[output->gen2.active_num++] = buf;
+ 		ops->vfe_wm_update(vfe, output->wm_idx[0],
+ 				   buf->addr[0], line);
+-		if (ops->addr_update)
+-			ops->addr_update(vfe, line->id);
+-		ops->reg_update(vfe, line->id);
++		vfe_buf_addr_latch(vfe, line);
+ 	} else {
+ 		vfe_buf_add_pending(output, buf);
+ 	}
 
-Changes in v4:
-- Make usage of of_device_get_match_data() wrapper.
-- Rework ioremap of syscon's memory region to avoid overlapping
-  between parent and child node. This allows to remove
-  bkpregs_regmap_cfg declaration for both STM32MP1 and STM32MP2.
-_ Add select MFD_SYSCON in Kconfig.
-- Link to v3: https://patch.msgid.link/20261016-upstream_nvram_reworked-v3-0-f65908490cf7@foss.st.com
-
-Changes in v3:
-- Fix issue found by sashiko-bot:
-  - rely on the already resolved priv->data->nb_zones instead of
-    of_device_is_compatible() to set priv->bkpreg_access
-  - Fix max_register of stm32mp1_tamp_nvram_regmap_cfg and
-    stm32mp2_tamp_nvram_regmap_cfg
-  - Update zones_end type to int*
-  - Replace both memcpy by put_unaligned_le32 and get_unaligned_le32
-  - Link to v2: https://patch.msgid.link/20260930-upstream_nvram_reworked-v2-0-cfda749ee0b7@foss.st.com
-
-Changes in v2:
-- Update commit title of nvmem dt-bindings's patch.
-- Add required compatible for patternProperties in stm32/st,stm32-syscon.yaml.
-- Fix issue found by sashiko-bot:
-  - Add freeing compartment_owner.
-  - Replace regmap_read/regmap_write by regmap_update_bits in stm32_tamp_nvram_write_byte().
-  - Update error return in stm32_tamp_nvram_read_byte(), stm32_tamp_nvram_write_byte(),
-    stm32_tamp_nvram_read() and stm32_tamp_nvram_write() to return the actual regmap_read() /
-    regmap_write() error instead of -EIO.
- - Add freeing field and update error return values for stm32_tamp_nvram_get_backup_zones().
- - Update error return for stm32_tamp_nvram_probe().
-- Link to v1: https://patch.msgid.link/20260910-upstream_nvram_reworked-v1-0-521c16175cef@foss.st.com
-
-To: Simeon Marijon <simeon.marijon@foss.st.com>
-To: Patrice Chotard <patrice.chotard@foss.st.com>
-To: Srinivas Kandagatla <srini@kernel.org>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>
-To: Christophe Roullier <christophe.roullier@foss.st.com>
-To: Russell King <linux@armlinux.org.uk>
-Cc: linux-stm32@st-md-mailman.stormreply.com
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-
----
-Patrice Chotard (5):
-      dt-bindings: arm: stm32: allow TAMP nvram child node for syscon
-      arm64: dts: st: add TAMP backup register in stm32mp211.dtsi
-      arm64: dts: st: add TAMP backup register in stm32mp231.dtsi
-      ARM: multi_v7_defconfig: Enable NVMEM_STM32_TAMP
-      ARM: arm64: defconfig: Enable NVMEM_STM32_TAMP
-
-Simeon Marijon (5):
-      dt-bindings: nvmem: add STM32MPX TAMP backup registers
-      nvmem: stm32: add TAMP nvmem driver
-      ARM: dts: stm32: add TAMP backup register in stm32mp131.dtsi
-      ARM: dts: stm32: add TAMP backup register in stm32mp151.dtsi
-      arm64: dts: st: add TAMP backup register in stm32mp251.dtsi
-
- .../bindings/arm/stm32/st,stm32-syscon.yaml        |  43 +-
- .../bindings/nvmem/st,stm32-tamp-nvram.yaml        |  58 ++
- MAINTAINERS                                        |   8 +
- arch/arm/boot/dts/st/stm32mp131.dtsi               |  34 ++
- arch/arm/boot/dts/st/stm32mp151.dtsi               |  83 +++
- arch/arm/configs/multi_v7_defconfig                |   1 +
- arch/arm64/boot/dts/st/stm32mp211.dtsi             |  31 +
- arch/arm64/boot/dts/st/stm32mp231.dtsi             |  31 +
- arch/arm64/boot/dts/st/stm32mp251.dtsi             |  31 +
- arch/arm64/configs/defconfig                       |   1 +
- drivers/nvmem/Kconfig                              |  11 +
- drivers/nvmem/Makefile                             |   2 +
- drivers/nvmem/stm32-tamp-nvram.c                   | 680 +++++++++++++++++++++
- 13 files changed, 1011 insertions(+), 3 deletions(-)
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20260909-upstream_nvram_reworked-f84a4b37817c
-
-Best regards,
---  
-Patrice Chotard <patrice.chotard@foss.st.com>
+-- 
+2.34.1
 
