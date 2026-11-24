@@ -1,78 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795538649;
-	b=l8UYy9XOlbIvFvpyVdfi04son0A0TT9DELfiganT1uJlK/28bfPs+gSPtP9/mwR0cUbo
-	 Lkl5bKk2RyQR/gR9Sx9t2uXQEsLm1X5G7ZQ6dxgIUYx6ccmxjgQNHXc7gILRfUcHNxao2
-	 WEqS21krEjvIqgdUsf9FE92tPwM0KzheShS5s4vLkbFPtnYbJPafqcX0H+aYM4OWECqy6
-	 dykDDHA7Jp7qhnar20+6R9gOOcZaIcPwbGBYDeAvSZwfhUNT8oK7/tOBMROLlu48hUg9K
-	 aeTXZRKKrgziocU8yiauJ0hVTM/TjVnHT0X2hWWdFxiv/IhZAxjY10cR4byCaB/ZcqQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795538649;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=2kGWDLp/BfGH9hESLhfoFwYnNZbaS5sbCerz9BqE1+A=;
-	b=3BgGvfW0ZJlf1ZdICs/wU5gWvCxLbmd/GDMaM9CAHGOp8jKNG7fxeudzDILmgn3f2PAt
-	 B00MruqBOEQYBQ4EA8EYsB/L4WxbRovwjJZD/OY3rtR7af1i9MmlIQ3851q8UNA3MKmG3
-	 QcuMnnaJf8/3n51yQbjvhIIsLtDf8mYu+l/BhBKzyXImZsAxbjpgh34jtlMlYUXUzA3bk
-	 Gf0Fh5479nnHiMazhmIgIsJ+xU4wcl8CmbpHcXCqd0nrfiuV+toCEwIff6pZqyoSaRj0x
-	 sVhu8BCKjqfyzIY11D19rjmooW5a6/xg2P8BsE8jBf9SkzD3JYx9mdk/ZpECpv7iaPw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d030bkLI;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC13D606A323;
-	Tue, 24 Nov 2026 16:44:09 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d030bkLI
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795538648;
-	b=Y+17EtfAOOOsWiA4RutXCN9XoIF7H+XQdwMzWmFDW27Tso/M1SjSPdl+GY1W6RLS8Uhx
-	 46sJZh3Ap2gE5CbucsZmEXzVSfKMK5vj0fZBrNCgF1eH+s1R2q2mtvUwZMveC5tdptclc
-	 DRvu7v+tyPpALC3xEnjmNF3ZJTg+eEj+JIuYugPOToebIWXFA5a//IYFk4s0LmqIRY8P8
-	 8AfLLtdqQn68Yhz9ZFJR2CqfyG7LS6336PGSzjGiLnUAqxXVUur4QBzLXINCb3onwVRmV
-	 jIwecdNAVaYDKYENWWKaSj3tf1XCrH31HzfhErk5d5QByDJFn4ZqGQWy9knlvZzDAWA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795538648;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=2kGWDLp/BfGH9hESLhfoFwYnNZbaS5sbCerz9BqE1+A=;
-	b=f139UdWOs0ke+67pm+W/6ttBKwUbLtk0rDQvd7xcH+u82e8hsaYMtKvVfD0+JHJXjMB0
-	 jmAdNVy2JqeBtFO8MwpU6eXnsw6MDDaijkI15qZxnWziBUHxw+3QmEipFFKtABtPv0ZD2
-	 vcJUBtBKogMzGgRH82GAIsrNMiiHXYmDJtbHmqY6qoDl6/Iqh0kRJj39xHNXrF39bjcJw
-	 bnQ+dzyp5uVklfH2u1YHAKnpvCOzPqFfCccIYvW16dFvNISNf8SbdPKVND5ia6reCNiMA
-	 UfxsoOsEILOm9N9cr9cinh3OsdUSCf2fm0t6meZ69nkUU8XlLfjmxa3+pHqbRDu6sUQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795538650;
+	b=UuIxHeVZfvW11HYz8JOlL9H62Z+GJga5bZH7XHffYMvxCvmjNTNIEUbh/jGmfG35qaV0
+	 5Hu95Ip6OFIcm3qejrK6VJLfZcKyDNo+gMSjG1at7Rpp9BBlRIvzF5vKhKeKKCmo+pzJM
+	 AU9ndZNqX8pCFTjL9nwBbIkdfdPGFjmjrM9afCb2uTsLc7OsTLZV2Xm1iz1CehUjaxDR6
+	 Gv+O52rqp1lj7YqhBw0k3LGUuFamMArhOj3AxEbx2cAlUI40BhkfhgyBJQTxBTPcdKIG9
+	 1BJ/+y2dmqhXgsT5EHnGrDuE/gI9QblA3uakL6RdLpL/AjAEX0rbMwndtaotyDXuG0A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795538650;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:X-Authority-Analysis:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=8gVImVKSYwlu0y9iYIfF4tE463YxrNVJDP1PpJFp4zg=;
+	b=T6QrJFnTOVUZ1C9+19cxTq0Ci1qXKcHkdM4vgPnmuMDS+6yjIuuLqwfR/S7VKoXhRCuh
+	 fChBc5MHFqpTm+lv3/XI1PlwD9ZqQuXp4n9dH48EdciGpQ/ezJDZ5lFCtVDGtSWuzp6Tu
+	 /w8PgFnsf/Hdwf7WtZoS6cdjZREHakBn2ZUTMO3GSfDLskP8AbxZaaATTxRFpSDnazRIE
+	 Hy9nin1+ERLJv/ZOr6MNh2xO8ciRNFeE+bkRT/H20+78emj5IOBG8QdlEgOEKevmE2tvj
+	 kejSv2vhcwKJJ1yCFMuxWHqBCwLcP2IfQZGr6/6TcRBX5KlDPQk6Vub2RzdS5XhRnEQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Mgsz5mts;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=CAjBpALU;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 2DC301F01561;
-	Tue, 24 Nov 2026 16:43:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795538648;
-	bh=2kGWDLp/BfGH9hESLhfoFwYnNZbaS5sbCerz9BqE1+A=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=d030bkLIiQZVSzu2W9LONcD52mM6g8bLLJiM4TW8q39f3hrQ6NqV4USf8eUqxlk6U
-	 KYjc37drYpYBiD15AS2FJmWDTdpTrc9xvpNpCl97EqYqE7yeoShjYU1Jz/bHpjhHyX
-	 qd5Q+Z36qFoP8yrotqpOHBdwKmT5Q/b1Jv5KRdo5E5+BzbZg7Rq+DFxq8/3VANq2Ds
-	 UY+xicQRlzmdM8vc8N9KV00ze8fqi4cXcx76+W3Saveum0sdZe50PlpAzQE2lCDBRi
-	 3mMDX9jRkBly0x6V9BUyrNPLpazdCLVN80tzQRmAFi6fqjW/QzKsoNqQW+JLK7Nma0
-	 uRxWlenMa9nVw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id A994C4CADC;
-	Tue, 24 Nov 2026 16:43:51 +0000 (UTC)
-From: "Louis H. Poulin II via B4 Relay" <devnull+poulin.louis.student.oaklandcc.edu@kernel.org>
-Date: Tue, 24 Nov 2026 11:43:52 -0500
-Subject: [PATCH v2 2/2] kunit: tool: Fail on out-of-sequence test numbers
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0C0F606A335
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:44:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0C0F606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Mgsz5mts;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=CAjBpALU
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOFL4SR1183909
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:44:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	8gVImVKSYwlu0y9iYIfF4tE463YxrNVJDP1PpJFp4zg=; b=Mgsz5mtsbM/YV7L8
+	vevAtQYJmK3evPgUU75EUO/zGexMQvfuhN2MPiDhUc4p4Hqq1yy2NJUSioln4enh
+	NKkslAnb7JvPFqr/b/B6cvLeCY/1oQYi7py+DDD9QfkeUr4n/qsQoU6zXx23iJ1d
+	p69m73mKlZA9wMXFrSeW8MSx8jtaLq26V/bZ2KnONenwcTQoSCRcnODhfFCCoLTa
+	aKrdj+t0T8e6wdJCUCBEi1p4jFPcFqi19Fo6zlBw6eaa921mxdsbfyYKbryPYWGH
+	plGNxf6nhVnkf5UOcxDFXpXnWRXyz3LKIfRlKH5afB+Bw8S+I2E7lpVvXYQdOnl9
+	znefFw==
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j50ky3qvr-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:44:08 +0000 (GMT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-382af5cfc58so4051529eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:44:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795538648; x=1796143448; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8gVImVKSYwlu0y9iYIfF4tE463YxrNVJDP1PpJFp4zg=;
+        b=CAjBpALU0ayznAHnq9U2b+VP+pCCML4I7mMDHJhNUH8wdGcGzzAG4+xV/zhKSU5gjS
+         UE5axrETJ+8HwI/lUjPK0u4wvntc69MPjVbSiNmFOz70rdncZMtDDbBKpnVriyivEQxs
+         Pg9/twQ1bsRx1goAMsbrdSXnDf6v6vZg0lNTFPlav3L82OuGZVBIlbxfLVRo3XiAZZOy
+         RAxn5FQ3w311c84zYAN6HuDcOzdS/JD+FqAhGOC8SNELKb7iUZGQR2NxHuvegsKkkJ6b
+         k3FBjPsBFoLvXc1HcImjV7MY1qrEHuBy78kKED9KbLzNf20QCMj59F3ml2ds4sTXTAk3
+         RWxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795538648; x=1796143448;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8gVImVKSYwlu0y9iYIfF4tE463YxrNVJDP1PpJFp4zg=;
+        b=ThFsut7KTq7BBWBkMK1gYkZc0HiPW/GdmM8Zm/d7KpAXqLiiWa453Fa4S8DrwKqn8l
+         F4KcK4n36gRqzFNsYUGHhemelzreBDM2l+9y0ph2w0d5Sbf9RtCUd0EOWig1vnL2qfuI
+         XfveedMD6Hk5RK9Dz2rI6WwFEqEM7ov/CKgd05Ipm0U5yGkGPDq02R4rhoWprqYxu1P/
+         TSyvM549djL0aw4/LYU39WFn3xyUJwZtC4evtbDUwirZsFLS9ilnGTV8RWMpKV9j+d5g
+         XdqEP8da/OyhUfiCgxG/jlvJH3LNTeA7xlP69JmPV4CLzNzBy14hAis3oLtOGXgJWeAZ
+         DMsw==
+X-Forwarded-Encrypted: i=1; AL+hErFjfHRgORm30cUU1R0ZUoBDDqfgGYVQBWZn+gmo+9LYR4LnwHZxK7iPy++Lmu45GLYddyX2wxf1EI7TsUI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/OirwqxDFarezdjxOVk4CEidWduIi0Bat9lOs2vv+5fxNsIuiz
+	Cwh9iOwNOMsinxdWOw44IMV3UvIk6VvhELR2gXCtgQZFBVZMCVfaKwWNlHafYJuGFX/+j2Jmdj+
+	jSW0X/cqqi7nWAFE7GeNGJkfPLie20eNOhla2W8hN8CYYTTJEFZOQNimfmnr8ZJov0s8=
+X-Gm-Gg: AZFdTZcNeRfF/BciLhabXoFKlqKuW8u44nEVxzXeqJoEslgbyzXpzm3rvz9DD2fPP08
+	htrbdgkBJ0mtpbCl8h33OJ9Es+MsnubbRNRcE0pJzBDap9o2l9gvFpTah+V//01F87V6HBmrDZs
+	CzhF2mT2Pj5KY4sbWCjcJ08CL+a0GzjIJtrTI1sk6Wc2X5JDBTVIHVit9WseuuhTqAhII+2Kw2B
+	Cy1L7PqKBzWXH1JPop5ndPbZL5X5RgfZgy24jWvbreOZoHWqtha50uD9pwkIAZvjWcTRoxKje6r
+	XakcIgxSwDoPWkIROp1BpBif9nhZtEXW5O97Yp1ZxgKjKHxF7J9iS/9w1jT75IpvSSELAZLeOk4
+	5ZI1T25w1kB+qASKryPwg47IefEXlixKnHuue7d6iazX/mqdhp2skIAxKLAv9yTIeasF4SEuxHS
+	Vmrbj1LCWBcprfjBhurBBGFvdk8MIrrEHsoY7h668yiT8LEUAKVYjJ4gCpbUb+uTAkM8i9verRY
+	Xc=
+X-Received: by 2002:a05:7301:dd94:b0:36c:9afe:fcd8 with SMTP id 5a478bee46e88-3856f559cfemr15111447eec.30.1795538647889;
+        Tue, 24 Nov 2026 08:44:07 -0800 (PST)
+X-Received: by 2002:a05:7301:dd94:b0:36c:9afe:fcd8 with SMTP id 5a478bee46e88-3856f559cfemr15111421eec.30.1795538647325;
+        Tue, 24 Nov 2026 08:44:07 -0800 (PST)
+Received: from hu-madhgane-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c349csm49093900eec.22.2026.11.24.08.44.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 08:44:07 -0800 (PST)
+From: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
+Date: Tue, 24 Nov 2026 22:13:32 +0530
+Subject: [PATCH ath-next v4 06/14] wifi: ath12k: add Wi-Fi 8 HAL register
+ table and hal init hook for QCN9575
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,193 +118,223 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-kunit-v2-v2-2-e1adbcad6b48@student.oaklandcc.edu>
-References: <20261124-kunit-v2-v2-0-e1adbcad6b48@student.oaklandcc.edu>
-In-Reply-To: <20261124-kunit-v2-v2-0-e1adbcad6b48@student.oaklandcc.edu>
-To: Brendan Higgins <brendan.higgins@linux.dev>, 
- David Gow <david@davidgow.net>
-Cc: Rae Moar <raemoar63@gmail.com>, linux-kselftest@vger.kernel.org, 
- kunit-dev@googlegroups.com, linux-kernel@vger.kernel.org, 
- "Louis H. Poulin II" <poulin.louis@student.oaklandcc.edu>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795538631; l=7561;
- i=poulin.louis@student.oaklandcc.edu; s=20261123;
- h=from:subject:message-id;
- bh=9gIm8lwEHUBfPgQsOux5N4mfKiU+6pcgKwtui91p1t4=;
- b=f4nQNOjB4AHdvJL1btW6LZtQfAeiO1Vg0vrOlewhReNYB94rc1wHXYHf9SKuDY3j/MMWwxD6k
- 5wmnTQeIjl1DuIN03PB/4/dKhhO0FEhY+a0tBjltfV/jRgYc0OI9Hmv
-X-Developer-Key: i=poulin.louis@student.oaklandcc.edu; a=ed25519;
- pk=LwBiuOLz0gqWTufz54rXgw2coado8UrJcWQ13DbYfxw=
-X-Endpoint-Received: by B4 Relay for
- poulin.louis@student.oaklandcc.edu/20261123 with auth_id=1616
-X-Original-From: "Louis H. Poulin II" <poulin.louis@student.oaklandcc.edu>
-Reply-To: poulin.louis@student.oaklandcc.edu
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-wifi8_qcn9575_bringup-v4-6-1f5b87ece6a3@oss.qualcomm.com>
+References: <20261124-wifi8_qcn9575_bringup-v4-0-1f5b87ece6a3@oss.qualcomm.com>
+In-Reply-To: <20261124-wifi8_qcn9575_bringup-v4-0-1f5b87ece6a3@oss.qualcomm.com>
+To: Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Jeff Johnson <jjohnson@kernel.org>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Bill Wendling <morbo@google.com>,
+        Justin Stitt <justinstitt@google.com>
+Cc: linux-wireless@vger.kernel.org, devicetree@vger.kernel.org,
+        ath12k@lists.infradead.org, linux-kernel@vger.kernel.org,
+        llvm@lists.linux.dev,
+        Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Authority-Analysis: v=2.4 cv=Y+ptIReN c=1 sm=1 tr=0 ts=6b05bed8 cx=c_pps
+ a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=k5nCMmGC1qFvne7xG5UA:9 a=QEXdDO2ut3YA:10
+ a=bBxd6f-gb0O0v-kibOvt:22
+X-Proofpoint-GUID: 7hxeWsivqCjuwyG2GLrudJKj70t2qp3m
+X-Proofpoint-ORIG-GUID: 7hxeWsivqCjuwyG2GLrudJKj70t2qp3m
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA2NSBTYWx0ZWRfX4cQIzrEgv5dh
+ 11TkBEgzGaKYcbPvpbc6LccieskTCbvXSxo0lh8xus3M+6eW982gPaGdJMIM9Z5+F29KH+H711Y
+ +ad3CqCjOrb99xxN6CcrfDsqnrGl28M=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA2NSBTYWx0ZWRfXxWDHux6rQcgZ
+ ygCBKAwntyLbTE8sNjN53IUZoKH654YQaeYO4Mj1GGt///6oQdVvGOD43V+Nq2HlXT0x93aj3z7
+ C1+h1lg1AOHfAz7gokvDPDnwru9iYuJBazm4HHJPrObR1fS4HINKsL4sbxCKXfZBcfgTkXY05ZD
+ iJ4Mz7SbjrIMSUb5bHa/Lj5Kl0rIKb0CxKz0a8V965tChwtlXQq+GYhKd68kwOWbnI+uEgQcZpy
+ T2mKCe7jW8SmKS4oYqdK3ayOK+ypotjC0ZjS2r48+CxHWd0dNFKgNco6MkbtkHqhRyOB+F2xdC2
+ qUYKfXjUQg7ESfyT9aAo2Yx/7kq2L1VEODjq4+ODdPn00mgbXeuQAc+TAIc4Ih9CxzSRZHdeT4/
+ Wr1NTmHLwPYIGQtlGfYZHOMcM9nFqiQlNkQaJ4h0Rcx3CSwYB0tWH742lDAgMoVwjgmH3E2XbYd
+ WO2EYHVtmFVlTOAHx2g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_04,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 clxscore=1015 malwarescore=0 adultscore=0 spamscore=0
+ lowpriorityscore=0 bulkscore=0 suspectscore=0 impostorscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240065
 
-From: "Louis H. Poulin II" <poulin.louis@student.oaklandcc.edu>
+QCN9575 uses a different HAL register layout from Wi-Fi 7 and requires a
+dedicated register table and HAL init path. Add QCN9575-specific HAL
+register definitions in wifi8/hal_qcn9575.c (qcn9575_regs) and its
+header.  Add wifi8/hal.c with an ath12k_hw_version_map entry that points
+ATH12K_HW_QCN9575_HW20 to qcn9575_regs, and introduce
+ath12k_wifi8_hal_init(). Invoke ath12k_wifi8_hal_init() from
+ath12k_wifi8_hw_init() so HAL setup is hooked into the Wi-Fi 8 hardware
+init path. Keep HAL ops and params fields as NULL placeholders;
+follow-up patches fill operation tables and remaining HAL parameters.
+Update wifi8/Makefile to build hal.c and hal_qcn9575.c.
 
-KTAP requires numbering to start at 1 and increase by one at each
-nesting level. The parser notes a mismatch as an error but can still
-mark an ok or skipped result as successful. A saved log with duplicate
-numbers can make kunit.py parse exit 0.
+Tested-on: QCN9274 hw2.0 PCI WLAN.WBE.1.6-01243-QCAHKSWPL_SILICONZ-1
+Tested-on: WCN7850 hw2.0 PCI WLAN.HMT.1.1.c7-00108-QCAHMTSWPL_V1.0_V2.0_SILICONZ_UPSTREAM-3
 
-After decoding ok or SKIP, mark a wrongly numbered result as FAILURE.
-The result record is malformed even if the test assertion printed ok.
-It then contributes to both failed and error counts. This avoids a
-broader policy of failing on every parse error, which would also
-change late-plan handling. The preceding patch preserves this failure
-when a parent suite has only skipped children.
-
-This change covers numbering mismatches only. A missing numbered line
-can flag subsequent results whose numbers differ from their expected
-positions. Other malformed or truncated logs retain their existing
-status policy.
-
-Commit 14e594a1fc8b ("kunit: tool: fix count of tests if late test
-plan") deliberately kept a parsed pass despite missing results after
-a late plan. Its fixture also had an unrelated ok 4 result. Number
-that result as ok 1 to keep the plan test focused, and cover a wrong
-first number separately. Add duplicate, SKIP, nested-suite, missing
-number and CLI exit-code tests.
-
-Signed-off-by: Louis H. Poulin II <poulin.louis@student.oaklandcc.edu>
+Signed-off-by: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
 ---
- tools/testing/kunit/kunit_parser.py    | 11 ++---
- tools/testing/kunit/kunit_tool_test.py | 79 ++++++++++++++++++++++++++++++++--
- 2 files changed, 82 insertions(+), 8 deletions(-)
+ drivers/net/wireless/ath/ath12k/wifi8/Makefile     |  2 ++
+ drivers/net/wireless/ath/ath12k/wifi8/hal.c        | 23 ++++++++++++
+ drivers/net/wireless/ath/ath12k/wifi8/hal.h        | 13 +++++++
+ .../net/wireless/ath/ath12k/wifi8/hal_qcn9575.c    | 42 ++++++++++++++++++++++
+ .../net/wireless/ath/ath12k/wifi8/hal_qcn9575.h    | 13 +++++++
+ drivers/net/wireless/ath/ath12k/wifi8/hw.c         |  3 ++
+ 6 files changed, 96 insertions(+)
 
-diff --git a/tools/testing/kunit/kunit_parser.py b/tools/testing/kunit/kunit_parser.py
-index dce365d1..38547312 100644
---- a/tools/testing/kunit/kunit_parser.py
-+++ b/tools/testing/kunit/kunit_parser.py
-@@ -423,11 +423,6 @@ def parse_test_result(lines: LineStream, test: Test,
- 	else:
- 		test.name = match.group(4)
+diff --git a/drivers/net/wireless/ath/ath12k/wifi8/Makefile b/drivers/net/wireless/ath/ath12k/wifi8/Makefile
+index 277b5f13754d..b1b90c109c76 100644
+--- a/drivers/net/wireless/ath/ath12k/wifi8/Makefile
++++ b/drivers/net/wireless/ath/ath12k/wifi8/Makefile
+@@ -1,5 +1,7 @@
+ # SPDX-License-Identifier: BSD-3-Clause-Clear
+ obj-$(CONFIG_ATH12K) += ath12k_wifi8.o
+ ath12k_wifi8-y += core.o \
++		  hal.o \
++		  hal_qcn9575.o \
+ 		  hw.o \
+ 		  pci.o
+diff --git a/drivers/net/wireless/ath/ath12k/wifi8/hal.c b/drivers/net/wireless/ath/ath12k/wifi8/hal.c
+new file mode 100644
+index 000000000000..1afc6fc21d0f
+--- /dev/null
++++ b/drivers/net/wireless/ath/ath12k/wifi8/hal.c
+@@ -0,0 +1,23 @@
++// SPDX-License-Identifier: BSD-3-Clause-Clear
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++#include "../hal.h"
++#include "../hif.h"
++#include "hal.h"
++#include "hal_qcn9575.h"
++
++static const struct ath12k_hw_version_map ath12k_wifi8_hw_ver_map[] = {
++	[ATH12K_HW_QCN9575_HW20] = {
++		.hw_regs = &qcn9575_regs,
++	},
++};
++
++void ath12k_wifi8_hal_init(struct ath12k_base *ab)
++{
++	struct ath12k_hal *hal = &ab->hal;
++
++	memset(hal, 0, sizeof(*hal));
++
++	hal->regs = ath12k_wifi8_hw_ver_map[ab->hw_rev].hw_regs;
++}
+diff --git a/drivers/net/wireless/ath/ath12k/wifi8/hal.h b/drivers/net/wireless/ath/ath12k/wifi8/hal.h
+new file mode 100644
+index 000000000000..311fc5b8015c
+--- /dev/null
++++ b/drivers/net/wireless/ath/ath12k/wifi8/hal.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: BSD-3-Clause-Clear */
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#ifndef ATH12K_WIFI8_HAL_H
++#define ATH12K_WIFI8_HAL_H
++
++#include "../core.h"
++
++void ath12k_wifi8_hal_init(struct ath12k_base *ab);
++
++#endif /* ATH12K_WIFI8_HAL_H */
+diff --git a/drivers/net/wireless/ath/ath12k/wifi8/hal_qcn9575.c b/drivers/net/wireless/ath/ath12k/wifi8/hal_qcn9575.c
+new file mode 100644
+index 000000000000..56d45785ecd4
+--- /dev/null
++++ b/drivers/net/wireless/ath/ath12k/wifi8/hal_qcn9575.c
+@@ -0,0 +1,42 @@
++// SPDX-License-Identifier: BSD-3-Clause-Clear
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++#include "hal_qcn9575.h"
++
++const struct ath12k_hw_regs qcn9575_regs = {
++	/* SW2TCL(x) R0 ring configuration address */
++	.tcl1_ring_id = 0x00001604,
++	.tcl1_ring_misc = 0x0000160c,
++	.tcl1_ring_tp_addr_lsb = 0x00001618,
++	.tcl1_ring_tp_addr_msb = 0x0000161c,
++	.tcl1_ring_consumer_int_setup_ix0 = 0x0000162c,
++	.tcl1_ring_consumer_int_setup_ix1 = 0x00001630,
++	.tcl1_ring_msi1_base_lsb = 0x00001644,
++	.tcl1_ring_msi1_base_msb = 0x00001648,
++	.tcl1_ring_msi1_data = 0x0000164c,
++	.tcl1_ring_base_lsb = 0x000015fc,
++	.tcl1_ring_base_msb = 0x00001600,
++
++	/* REO DEST ring address */
++	.reo1_ring_base_lsb = 0x00000848,
++	.reo1_ring_base_msb = 0x0000084c,
++	.reo1_ring_id = 0x00000850,
++	.reo1_ring_misc = 0x00000858,
++	.reo1_ring_hp_addr_lsb = 0x0000085c,
++	.reo1_ring_hp_addr_msb = 0x00000860,
++	.reo1_ring_producer_int_setup = 0x0000086c,
++	.reo1_ring_msi1_base_lsb = 0x00000890,
++	.reo1_ring_msi1_base_msb = 0x00000894,
++	.reo1_ring_msi1_data = 0x00000898,
++
++	/* CE base address */
++	.umac_ce0_src_reg_base = 0x01b80000,
++	.umac_ce0_dest_reg_base = 0x01b81000,
++	.umac_ce1_src_reg_base = 0x01b82000,
++	.umac_ce1_dest_reg_base = 0x01b83000,
++
++	.gcc_gcc_pcie_hot_rst = 0x1e38438,
++
++	.qrtr_node_id = 0x01e03300,
++};
+diff --git a/drivers/net/wireless/ath/ath12k/wifi8/hal_qcn9575.h b/drivers/net/wireless/ath/ath12k/wifi8/hal_qcn9575.h
+new file mode 100644
+index 000000000000..e2dd68ebd82f
+--- /dev/null
++++ b/drivers/net/wireless/ath/ath12k/wifi8/hal_qcn9575.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: BSD-3-Clause-Clear */
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#ifndef ATH12K_WIFI8_HAL_QCN9575_H
++#define ATH12K_WIFI8_HAL_QCN9575_H
++
++#include "../hal.h"
++
++extern const struct ath12k_hw_regs qcn9575_regs;
++
++#endif /* ATH12K_WIFI8_HAL_QCN9575_H */
+diff --git a/drivers/net/wireless/ath/ath12k/wifi8/hw.c b/drivers/net/wireless/ath/ath12k/wifi8/hw.c
+index 6e89a42111b6..91d8f762e642 100644
+--- a/drivers/net/wireless/ath/ath12k/wifi8/hw.c
++++ b/drivers/net/wireless/ath/ath12k/wifi8/hw.c
+@@ -11,6 +11,7 @@
+ #include "../debug.h"
+ #include "../hw.h"
+ #include "../mhi.h"
++#include "hal.h"
+ #include "hw.h"
  
--	# Check test num
--	num = int(match.group(2))
--	if num != expected_num:
--		test.add_error(printer, f'Expected test number {expected_num} but found {num}')
--
- 	# Set status of test object
- 	status = match.group(1)
- 	if skip_match:
-@@ -437,6 +432,12 @@ def parse_test_result(lines: LineStream, test: Test,
- 		test.status = TestStatus.SUCCESS
- 	else:
- 		test.status = TestStatus.FAILURE
-+
-+	# A malformed result must not make the run successful.
-+	num = int(match.group(2))
-+	if num != expected_num:
-+		test.add_error(printer, f'Expected test number {expected_num} but found {num}')
-+		test.status = TestStatus.FAILURE
- 	return True
+ static const struct ath12k_hw_params ath12k_wifi8_hw_params[] = {
+@@ -129,6 +130,8 @@ int ath12k_wifi8_hw_init(struct ath12k_base *ab)
  
- def parse_diagnostic(lines: LineStream) -> List[str]:
-diff --git a/tools/testing/kunit/kunit_tool_test.py b/tools/testing/kunit/kunit_tool_test.py
-index 5fd386d0..6a3011de 100755
---- a/tools/testing/kunit/kunit_tool_test.py
-+++ b/tools/testing/kunit/kunit_tool_test.py
-@@ -410,13 +410,78 @@ class KUnitParserTest(unittest.TestCase):
- 	def test_parse_late_test_plan(self):
- 		output = """
- 		TAP version 13
--		ok 4 test4
-+		ok 1 test1
- 		1..4
- 		"""
- 		result = kunit_parser.parse_run_tests(output.splitlines(), stdout)
--		# Missing test results after test plan should alert a suspected test crash.
-+		# Keep this test focused on a late plan, not result numbering.
- 		self.assertEqual(kunit_parser.TestStatus.SUCCESS, result.status)
--		self.assertEqual(result.counts, kunit_parser.TestCounts(passed=1, errors=2))
-+		self.assertEqual(result.counts, kunit_parser.TestCounts(passed=1, errors=1))
-+
-+	def test_wrong_first_number_fails(self):
-+		output = ['KTAP version 1', '1..1', 'ok 4 - fourth']
-+		result = kunit_parser.parse_run_tests(output, stdout)
-+		self.assertEqual(kunit_parser.TestStatus.FAILURE, result.status)
-+		self.assertEqual(result.counts, kunit_parser.TestCounts(failed=1, errors=1))
-+
-+	def test_repeated_test_number_fails(self):
-+		output = ['KTAP version 1', '1..2', 'ok 1 - first', 'ok 1 - second']
-+		result = kunit_parser.parse_run_tests(output, stdout)
-+		self.assertEqual(kunit_parser.TestStatus.FAILURE, result.status)
-+		self.assertEqual(result.counts,
-+			kunit_parser.TestCounts(passed=1, failed=1, errors=1))
-+
-+	def test_missing_number_fails_later_results(self):
-+		output = ['KTAP version 1', '1..3',
-+			'ok 1 - first', 'ok 3 - third', 'ok 4 - fourth']
-+		result = kunit_parser.parse_run_tests(output, stdout)
-+		self.assertEqual(kunit_parser.TestStatus.FAILURE, result.status)
-+		self.assertEqual(result.counts,
-+			kunit_parser.TestCounts(passed=1, failed=2, errors=2))
-+
-+	def test_wrong_numbered_skip_fails(self):
-+		output = ['KTAP version 1', '1..1', 'ok 2 - skipped # SKIP reason']
-+		result = kunit_parser.parse_run_tests(output, stdout)
-+		self.assertEqual(kunit_parser.TestStatus.FAILURE, result.status)
-+		self.assertEqual(result.counts, kunit_parser.TestCounts(failed=1, errors=1))
-+
-+	def test_wrong_numbered_suite_result_fails(self):
-+		output = ['KTAP version 1', '1..1',
-+			'    KTAP version 1', '    # Subtest: suite', '    1..1',
-+			'    ok 1 - case', 'ok 2 - suite']
-+		result = kunit_parser.parse_run_tests(output, stdout)
-+		suite = result.subtests[0]
-+		self.assertEqual(kunit_parser.TestStatus.SUCCESS, suite.subtests[0].status)
-+		self.assertEqual(kunit_parser.TestStatus.FAILURE, suite.status)
-+		self.assertEqual(suite.counts,
-+			kunit_parser.TestCounts(passed=1, failed=1, errors=1))
-+		self.assertEqual(kunit_parser.TestStatus.FAILURE, result.status)
-+		self.assertEqual(result.counts, suite.counts)
-+
-+	def test_wrong_numbered_nested_case_fails(self):
-+		output = ['KTAP version 1', '1..1',
-+			'    KTAP version 1', '    # Subtest: suite', '    1..1',
-+			'    ok 2 - case', 'ok 1 - suite']
-+		result = kunit_parser.parse_run_tests(output, stdout)
-+		suite = result.subtests[0]
-+		self.assertEqual(kunit_parser.TestStatus.FAILURE, suite.subtests[0].status)
-+		self.assertEqual(suite.counts,
-+			kunit_parser.TestCounts(failed=1, errors=1))
-+		self.assertEqual(kunit_parser.TestStatus.FAILURE, result.status)
-+		self.assertEqual(result.counts, suite.counts)
-+
-+	def test_wrong_numbered_suite_with_skipped_child_fails(self):
-+		output = ['KTAP version 1', '1..1',
-+			'    KTAP version 1', '    # Subtest: suite', '    1..1',
-+			'    ok 1 - case # SKIP reason', 'ok 2 - suite']
-+		result = kunit_parser.parse_run_tests(output, stdout)
-+		suite = result.subtests[0]
-+		self.assertEqual(kunit_parser.TestStatus.SKIPPED, suite.subtests[0].status)
-+		self.assertEqual(kunit_parser.TestStatus.FAILURE, suite.status)
-+		self.assertEqual(suite.counts,
-+			kunit_parser.TestCounts(failed=1, skipped=1, errors=1))
-+		self.assertEqual(kunit_parser.TestStatus.FAILURE, result.status)
-+		self.assertEqual(result.counts, suite.counts)
+ 	ab->hw_params = hw_params;
  
- def line_stream_from_strs(strs: Iterable[str]) -> kunit_parser.LineStream:
- 	return kunit_parser.LineStream(enumerate(strs, start=1))
-@@ -797,6 +862,14 @@ class KUnitMainTest(unittest.TestCase):
- 		self.assertEqual(self.linux_source_mock.run_kernel.call_count, 1)
- 		self.print_mock.assert_any_call(StrContains('Could not find any KTAP output.'))
- 
-+	def test_parse_duplicate_number_exits_failure(self):
-+		with tempfile.NamedTemporaryFile(mode='w+', delete=True) as log:
-+			log.write('KTAP version 1\n1..2\nok 1 - first\nok 1 - second\n')
-+			log.flush()
-+			with self.assertRaises(SystemExit) as result:
-+				kunit.main(['parse', log.name])
-+		self.assertEqual(result.exception.code, 1)
++	ath12k_wifi8_hal_init(ab);
 +
- 	def test_exec_no_tests(self):
- 		self.linux_source_mock.run_kernel = mock.Mock(return_value=['TAP version 14', '1..0'])
- 		with self.assertRaises(SystemExit) as e:
+ 	ath12k_info(ab, "Wi-Fi 8 Hardware name: %s\n", ab->hw_params->name);
+ 
+ 	return 0;
 
 -- 
-2.56.1
-
+2.34.1
 
