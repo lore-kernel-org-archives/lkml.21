@@ -1,83 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795513598;
-	b=vldZHgjB+GAb1jhA8YqLxNRkDAlL+HeV/os3PAx0sDwReKrv5duI5pGtzXKq0pKYtXrI
-	 hfAZQXOoF7afN7mQgVZ7Wu1wzTD6b85WIxZOfYU+S0Lxk1E35Ck+bPpEFOYP4q9g38rx8
-	 +fSCvDipw+NqjIIZMIkP0IUX1zcdZkIyUVNfQGFG4f4lVcKoc3h+5AB1Ud6Tme2e9G3K+
-	 89WEN5PCbrFIX1Z3ssYhPxul4PoLCiZf3mpWu/XhkX7jE0o8MbcfbpE6miHaO2Z8jGdH7
-	 w0hqs3zo8WYh2mRoOGqZwl8PdWJq/vg8jD1C6cT2aeTAFHA/Yw9btoJc8H3iWaY10Tg==
+	t=1795513599;
+	b=5R7/QWAbqUfyA2+Kq3npx5rfHJg/Evo/VYY/jwQT+ws224IYU4Rt//VcUsxIdQcMnJ97
+	 FmtF+YG+MzCZ0DC39sVApkTVe/1JNoArjLsLX342ppzyEFZ6JllFuUAIzGroEqrAdTM7y
+	 P3RZS8arGd2+tK7FjjScqtUmA4FjWi30wuVh3DW3NwdNOPSMettkkHD4yruio97fxRwju
+	 MugebrM6EFbh5KXyR3hHjjKNLUlX8l8U8Y5JkikVm6bq4jUbjZxShJ+j+Zd6bybyo1nlP
+	 xC9EqUSwWp8lC143qsa0rSLthsFa+8dltxPvNIOmTJRe2ZCgu2jsOh3+hoG8VHWgjEA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513598;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795513599;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Dw2szGzhNZKbIRuCqz5QNq1//TAtEEWAm+O/VeExQnI=;
-	b=qwDu8YwMEnHJ9HQ2S2sVOSQBlD7r1lZReImoGimtrNAyOCoxlRv4rKJTQGzBgNNwiDvm
-	 p7rdT5B6q5HduY6aIwHFmPiK9xczO99RT/YrFshFmG6T8L7OTTwQAjprdruuXn4MtPE3Q
-	 GWlveynqZTwMBKENCIoZ/3zmvyGiia0i7JHW+X2LM1ZwHwgrOdvOOH1tiaOXC7bhhuZWF
-	 JygsJq7ecjC2gUq3TUzPGvSFhQNgeakHJF3tJq1cScfk74ZpDubqvaZdSnyEi/4qKKNr0
-	 jPVj7lPtqT0vKj3VZrPc59HDa/EZeZPR5iHAiugY2S0jTbUPUKLEoGpxQOCxcGBDiqA==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=GnZSqwlaadL4PUZcokgyQtKhCiqmTb5kZKgMwBNaw/w=;
+	b=Jy18HHjBWkfKrzw7HR6XqjZ5N0Wc0bN+6PU0KzJsdJCQY2AZKl+cVgyqgrWSc+uJ21OS
+	 V6qPrem3SMZ4ZPYKx/jl3ssvG6jyaGzBCAP6krFmHMxsWiWkp+gGPvsT1uI565EjA9sQE
+	 IcoZrADR92DzO4K94FOoTRLJgdLYMNDsu228FZgIpwyneKoJRIzP/GC7qc94BaKFjdE6p
+	 WKjXnjaCfrVv30U/MZl+0ovNVfz7X+H8foVgbf+ZESHb4+/qiVrpXFJp986ye5vAwxySj
+	 lHE0cBvkQGYkdSrNkQfZa3FljYkmlmgzAeI8IJMC4TUC2Jwt2nRUHzvoMfeXoiWfKmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=teslabs.com;
 	spf=fail smtp.mailfrom=teslabs.com;
-	dkim=pass header.d=teslabs-com.20260707.gappssmtp.com header.i=@teslabs-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=XrTkkVIJ;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	dkim=pass header.d=teslabs-com.20260707.gappssmtp.com header.i=@teslabs-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=SWOat0uM;
+	arc=none smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E69C6606CC02
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:46:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E69C6606CC02
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA9D760777CD
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:46:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA9D760777CD
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=teslabs.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=teslabs.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=teslabs-com.20260707.gappssmtp.com header.i=@teslabs-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=XrTkkVIJ
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb5b8ef642so37024315e9.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:46:35 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=teslabs-com.20260707.gappssmtp.com header.i=@teslabs-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=SWOat0uM
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4a210470b49so41811225e9.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:46:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=teslabs-com.20260707.gappssmtp.com; s=20260707; t=1795513594; x=1796118394; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Dw2szGzhNZKbIRuCqz5QNq1//TAtEEWAm+O/VeExQnI=;
-        b=XrTkkVIJOxi9g1abZS5IU2PN3XbVXZxOdgQbHNuwB3hQFXIzjJe6KLtEEbcyKD4dxD
-         XiBMBMPe3jMdueNkFlAO2uTMJQNxVvmQnkxW49siEpTgg3ZdP8eigBhpc452GIPle7Ll
-         qhSM1xVYjNGoftUNMqBbx0oyIcl/1rlCZqV5J1gdgdaX+nmZW9vEcvywix0MTFtiXzwl
-         qQ/SUyiPazIzGlSYtBrFPsn0XGK6d/f99GFjwxicWHtDNp/TupiR3f8QiPIwMLskRXCP
-         oAAcZP9jFFDk2H2KyOcc0tDXnzDTOpRft6ibynSlFrnhrYDO3gcg7FLblBPZNUb3vOAh
-         ActA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795513594; x=1796118394;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=teslabs-com.20260707.gappssmtp.com; s=20260707; t=1795513597; x=1796118397; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Dw2szGzhNZKbIRuCqz5QNq1//TAtEEWAm+O/VeExQnI=;
-        b=GWoH3LiX5NOZRoKTXrq0JzRX+etzYvzpXFN8vFZua6TydXSibk4SR11MuRMrlZULZz
-         R9QSmnz6yDlNsBY8j95H28zkDuVuAXcqoLVZVTmHfxMLy4rBTO2MmWkutwOqarUqqD1l
-         HyZJDcm7fl7P/0LnMUF64ojmHp5jQzTQnNOQAY1rxp63JVUAAFBpqL9vz9pK6WikyB8G
-         QMDzEE1IVQAIp2QH1U/2tluW2keu2dxwf3ts3zya7LjboUZK9BpUViWLPHEoixvw47YS
-         luUXemEFQ6Z6eSvtTM5RkXyrb0o5cFXUloQm9gk+cMpQj7zI4ELjvadjk9FusrmxtIzX
-         64Cw==
-X-Forwarded-Encrypted: i=1; AL+hErEsSGt3O3/y179ORntGb94o+NyOvMFgfg4cDnyLVQLtFQCgasgi3oIHRBnekXoWLBI6f7mJlT66rv2T0I8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9KQg5SmaQHfKk6bVZ2/0pGWvbmPYzreUG+T+bjgcy6JBstbAkb
-	JU/EQkdUIcAN8ATGDIHaKERLC5KkS3RSkYrkfXx26vYxgvGAcZv/qIRLDC5xZrtHiIs=
-X-Gm-Gg: AZFdTZcDV0Bz+a90yO0mlFKYWN/mToM59riTUKYJ4GU0eIq2o+89vxUMwNKWKZfZqQ8
-	0TX9kyU0zI1rrEBXrehAzxGuUMfScXWaTS2zsyXf2TVoTqNQeF9diESh4Ce9HnTJNlUGZvW+/Fb
-	PGinjGW1zcV43ivc34H29y0Z1fhWkzY7LGEFNkRDODzeQnAKIbAMhu9uTRZsgvakXK3ulY0tJBD
-	rY9yr5nmq/uT6GTlBEYsebvGodoBIXx1idbGnzkTgxkIatSXc84e6DlpstA+p430P9rswbGU+ui
-	84aXZrMuzWWOYgEgaTqYMIrtUWVgucdzHDQNa3t6wsmQu7JGUyL8AD7mm7vR3FFeDTwAdvCCciO
-	2YTAEgV6PJ+WNCLif73oqbOs6zugEl7xUb63h8TQuS28OfG3QtMJIxIaopkKvzMTbCThvEnthid
-	LDSswW8802iXuqxDva0HNYYQPX1ITeV4JX6bLfMWJS0ERzjYfd25mle8DoDvkhm3ubVtvo8NxDu
-	b3UcEEIZCfSkWpr9O8n+lhEyAsEiNBiNPOyJ6uU8z7jAm2NL/eUHTgnmffGd/d8J9+uPEo2yecT
-	rMubcHTVvYCqMphZy3wbBtlK8tdNxNQ9IjvkjkvhG8YH+xjvG2VmhJ7OKCtcsj9BYu8R2wcpxGD
-	idpceI9ZGjpg=
-X-Received: by 2002:a05:600c:820d:b0:4a1:dfaf:f465 with SMTP id 5b1f17b1804b1-4bb887c2ca3mr296620815e9.4.1795513594081;
-        Tue, 24 Nov 2026 01:46:34 -0800 (PST)
+        bh=GnZSqwlaadL4PUZcokgyQtKhCiqmTb5kZKgMwBNaw/w=;
+        b=SWOat0uMtykoLrOOWFDDMs7TMV4cfqWsKi6cZpyxQ6x1B8U3bBeY+BrBehM1SdbsfS
+         D9YA2Rztbp/ssELZIBseqhnvrukpJKgPTsd0HcV4HRH4d09PQrqo2sWs+4Ye7MOp7AW6
+         aqhlVvcU4Ez3Y1U/3LpV2RfSLxOaliJc2F3j8hbjsRh4Aduo8iQN+gaTnzuIUFUj5LRQ
+         q8EahHyO3QnDP9m/B8MINzZEmHfjVt0suVbJk2aDaZTgnJGvfafiy81Nb6XW1ImpTEZH
+         mkzr500eodJoDpvBVMbm29YB9ImpG3eYdQxda8zcb3ZOtjCbojoIt5TZ0x7vCf8cC7lp
+         Gv2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795513597; x=1796118397;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=GnZSqwlaadL4PUZcokgyQtKhCiqmTb5kZKgMwBNaw/w=;
+        b=v/3a4cAlYus8I1usuGBfzQzKlglG/umUGNr7df/gwMu8ZOQcsVzsIcN5Cw3+fiIM/E
+         DjW1GuUsnzKU8fcCjaaxynW8nvrrk9GxNOIsGr5w2oGatZuLNAHpzpkZOxWqmGXeq8yC
+         vAqkmmTOvCJ/IAoV36J11xVgM+lLsTI/8c8be+qk9GtwfxX0N72AgvsZe51ArTo+aBKw
+         Y/MsdKvRTOIPdU0tRJdQTQQrxMJ+mh86Lp65csFjWEFdvF8OyDST2hMbkopRGxfZSXqk
+         ktzwgH/Sq97WWuklV5oN756SSy83RJJGaiNq+6Wnf5LP1fz2SADShrly+sJ2se0BMl9G
+         tjPA==
+X-Forwarded-Encrypted: i=1; AL+hErHDlEPU0m+WXtRBrFomxyfFZfxQgekmwxwj53OlmBzImHQcsHyj+TCPbNhTKEFF6WMTskNaTEDuhtfWs2w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8/Pnp4c1McD9+T+fcj4gLLuvUT+8bU9gx1vnOnA2WQIgFEqEbG
+	zNb8U0+S4hGrr5++RDb2QY8VIkW9gpje0rl/KnrEspI/xcNsLcfUAZFAq4Cv+yHpMEd2OaQX5S9
+	bUzXMIUSg4g==
+X-Gm-Gg: AZFdTZcR2oK+BE5DZWOvFN4mhXWD5fiXVf2nlFk8T5PZUByYcJe0Pw5Vrj5fPoZ30Uc
+	H3LzHdcsE6Zcgw7dyfazJn+dXDJ1WNB0heIJLuONr51ev9KPy2hrEzH3o5ZwfiFl4n9jeg/Uj+V
+	A/QMRINVPgq041JNO3bZEAIudYnm5y41j5xqUUDUm1LP7MfrgqS/qJWo+ajZzgrAhnqoytU2NbA
+	zsLI/xaj+L+cssL0W/9/AUnwRRKbtfiXAXK3feib4PAXXrNk5TPr3GI7BRmJK5JQ2NClGLKUr2t
+	sTyE3lIGjvD50XXF9Ps3Is0GR6TO5bafpMsAnVwpfI+1Wp4T4j56HX/fIEvunb+ehE7jBGGc58i
+	lsScCU03DyfBD7sUYRnz1YxGjOJwq5cdCesnqK0G66u44VU502Lr41aFX+lJBV9xuIt+c2MYYli
+	Q1JMKWNY/9kamNCvVuO/s24sRse4MNrHq+q7E2llqv/4Aoz/CBKaa1nHcSO/Va3h58nF3NqD0LQ
+	Us6XRdRwlJKDf+zm0IEonAs0mDZj5MAgBp/GVta92GqiQ/lC24WN+RNL0vdkMROdWWnxW3C2Zrs
+	tOhC3FlxHFk+OKggQJ8BtFyIb9lSYL2VHQiype/3nLVbcxZYlnIuide5jByeG3iQMK/IKNCg9SA
+	In8RzLT5ICZc=
+X-Received: by 2002:a05:600c:530f:b0:4bb:781f:6067 with SMTP id 5b1f17b1804b1-4bb887e21e4mr276037095e9.1.1795513597154;
+        Tue, 24 Nov 2026 01:46:37 -0800 (PST)
 Received: from localhost.localdomain ([139.47.121.129])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884c3063sm431782555e9.15.2026.11.24.01.46.33
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884c3063sm431782555e9.15.2026.11.24.01.46.36
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 24 Nov 2026 01:46:33 -0800 (PST)
+        Tue, 24 Nov 2026 01:46:36 -0800 (PST)
 From: Gerard Marull-Paretas <gerard@teslabs.com>
 To: Jonathan Cameron <jic23@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -90,10 +92,12 @@ Cc: David Lechner <dlechner@baylibre.com>,
 	linux-iio@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 0/4] iio: magnetometer: mmc5633: Binding, supply and mount matrix
-Date: Tue, 24 Nov 2026 10:46:28 +0100
-Message-ID: <20261124094632.8879-1-gerard@teslabs.com>
+Subject: [PATCH v5 3/4] iio: magnetometer: mmc5633: Enable the VDD supply
+Date: Tue, 24 Nov 2026 10:46:31 +0100
+Message-ID: <20261124094632.8879-4-gerard@teslabs.com>
 X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20261124094632.8879-1-gerard@teslabs.com>
+References: <20261124094632.8879-1-gerard@teslabs.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,54 +109,54 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The MMC5603 and MMC5633 are listed in trivial-devices.yaml, but boards
-need to describe their supply and orientation. Patch 1 gives them a
-binding of their own. These bindings are also used by PebbleOS, which
-is where the need came from.
+Boards may switch the supply of the sensor, so get and enable it before
+initialising the chip, and wait the 5 ms both parts need after VDD is
+valid before they can be operated.
 
-Patches 2 to 4 add the matching support to the driver. I have no board
-running Linux with these sensors, so they are only compile tested (W=1);
-feel free to take only patch 1 if you prefer.
+Signed-off-by: Gerard Marull-Paretas <gerard@teslabs.com>
+---
+ drivers/iio/magnetometer/mmc5633.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-Changes in v5:
-- List the datasheets under the section in the tSR comment, and give
-  tOp the same full reference instead of pointing at tSR's (Andy)
-- Add Andy's Reviewed-by to patches 2 and 4
-
-Changes in v4:
-- Describe tSR and tOp where they are defined, citing both datasheets
-  by revision, page and section, and drop the older tSR comment at its
-  use (Andy)
-
-Changes in v3:
-- Reference the datasheet timings tOp and tSR in comments, with the
-  tSR one in a new patch 2 (Jonathan)
-
-Changes in v2:
-- Cover the MMC5633 too, including its I3C connection (Jonathan)
-- Add supply and mount matrix support to the driver (Jonathan)
-- Drop the mention of the missing I/O supply (Jonathan)
-
-v4: https://lore.kernel.org/all/20261123202616.17334-1-gerard@teslabs.com/
-v3: https://lore.kernel.org/all/20261123194943.57601-1-gerard@teslabs.com/
-v2: https://lore.kernel.org/all/20261122190836.66111-1-gerard@teslabs.com/
-v1: https://lore.kernel.org/all/20261122093412.71604-1-gerard@teslabs.com/
-
-Gerard Marull-Paretas (4):
-  dt-bindings: iio: magnetometer: Add MEMSIC MMC5603 and MMC5633
-  iio: magnetometer: mmc5633: Reference the datasheet for the SET/RESET
-    wait
-  iio: magnetometer: mmc5633: Enable the VDD supply
-  iio: magnetometer: mmc5633: Add mount matrix support
-
- .../iio/magnetometer/memsic,mmc5633.yaml      | 61 +++++++++++++++++++
- .../devicetree/bindings/trivial-devices.yaml  |  4 --
- drivers/iio/magnetometer/mmc5633.c            | 44 +++++++++++--
- 3 files changed, 101 insertions(+), 8 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/iio/magnetometer/memsic,mmc5633.yaml
-
-
-base-commit: c44104f3642da720164042623e4832836aefdd8e
+diff --git a/drivers/iio/magnetometer/mmc5633.c b/drivers/iio/magnetometer/mmc5633.c
+index 8142ba741ddc..08bebc8eb5f6 100644
+--- a/drivers/iio/magnetometer/mmc5633.c
++++ b/drivers/iio/magnetometer/mmc5633.c
+@@ -27,6 +27,7 @@
+ #include <linux/mutex.h>
+ #include <linux/pm.h>
+ #include <linux/regmap.h>
++#include <linux/regulator/consumer.h>
+ #include <linux/time.h>
+ #include <linux/types.h>
+ #include <linux/unaligned.h>
+@@ -70,6 +71,13 @@
+  * - MMC5633NJL datasheet (Rev. A, page 23)
+  */
+ #define MMC5633_WAIT_SET_RESET_US	(1 * USEC_PER_MSEC)
++/*
++ * tOp, time to operate the device after VDD is valid, per
++ * Operating Timing Diagram section in
++ * - MMC5603NJ datasheet (Rev. B, page 15)
++ * - MMC5633NJL datasheet (Rev. A, page 23)
++ */
++#define MMC5633_POWER_ON_US		(5 * USEC_PER_MSEC)
+ 
+ #define MMC5633_HDR_CTRL0_MEAS_M	0x01
+ #define MMC5633_HDR_CTRL0_MEAS_T	0x03
+@@ -474,6 +482,12 @@ static int mmc5633_common_probe(struct regmap *regmap, char *name,
+ 	if (ret)
+ 		return ret;
+ 
++	ret = devm_regulator_get_enable(dev, "vdd");
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to enable VDD regulator\n");
++
++	fsleep(MMC5633_POWER_ON_US);
++
+ 	indio_dev->info = &mmc5633_info;
+ 	indio_dev->name = name;
+ 	indio_dev->channels = mmc5633_channels;
 -- 
 2.45.2
 
