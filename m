@@ -1,103 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795557003;
-	b=bXTSa4JWZtGH2f9VztMsaOyHR4v4J8fVoaKGlBWb7h4f479F2nPCo1Jo3NJByMmEIhf2
-	 rDv8pvBYpb7ryZcxVmJn6HLQ1RiyoBvK9vjY2dY5Sv0KetirpAiiGG9CKzalBiBuXV0w4
-	 tD4eg7murO+uEJOOrxOx8MWstRK0zqaJuyfYNnSqRSDRK1ALHOPh+wYzCqVLHNFOOKMrO
-	 5Js1EQGxMXHigoNYDOaUt+e1hC0wVrrhFOYVaX6oQeC+TeDb7lvjreGBUl9PFspqu9f3S
-	 ftmDDEyDOpe8gnYvdbrr+QY0Gl8goOJ+oUtXj5RZ5tyOELkmaVTR6WPYBdkAeNRRs+w==
+	t=1795557039;
+	b=o+phFy68fex1rZ2WHSljPP6RlcoaP/JnuU3xpwWapdgm+/7iCLQ8ES/WsLFWD5rwt//1
+	 wBfDyurCxGr1cMjYRwLT1TCaB3Nv9yvXJWtxnaihdsq9ugpX+pFZPo+D2UjMU5jQ/51lv
+	 iO2rOEGbhr6luJZ4Qqgd94S0IlAVnJ/Zug4HvkWunysTOsBwNKl3VforSZ5z/y2Lnogso
+	 25SOAbWvu/ghJlblFw+wDWpj3CvnORicGhINkX3d5GIkn++KAfgR3Z1IcCiLC1iw7r6ae
+	 5KVKVgNG+rMSHDdzGiwhdDZf+Si27P4XGR19Lz2wjLpjEDBPT5zXf8Bix0kyr6EbpSg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795557003;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=70XYBogHCXCBdw3YSd/sa8Nm9h583bMMPGxQWoXbuvc=;
-	b=nKYiAJsGIxVzTOUC7+MlUqkVlhjT0t1orytW5aj/I0W0vpKCtxdxxY7HFfRU2qNMZYED
-	 gFzMjncQkNVnwB25WGkK7c7bEWdODHxRYjMM0EDTcgVl2yd4KIpekblP8rStRW5QeL/gk
-	 n+ptPgKrPD3YOkpaehVgJsHyUb5JzCOKi6KoAXU/3j14mJk3LoiUNnPClLVSSOwveOFvE
-	 jYpsKZCgwuh7QzHFyBI8OPXdmou1WhCtu28oahKMm3w6CRsUjZbrwQ3gmRY6c6gehHV7E
-	 YpB7BLQPDJgMPXPssmKpP0l6HSbUkTfPdcigyMNzjfbZN6cxHrF/xfBhUoaDC5pWGoQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795557039;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=HPQGhKZOJYbcgM9bz9ZQjAOFYxjCQ/qr2l3E19IpCeA=;
+	b=DdaKc3PX/J62e0DH4qmmpW/m/GjQFxJFZ5YJnBhHZjGpithtvfP8imyvUd9sVDRW5Fp9
+	 T8hHekexLXw6s8brWBQdPK7c/Ynhsw5I2jFj+zZr1TSd1Br6XufwN5e7Hsp4E92YinTHu
+	 jCaRVVVj6GLRIQE5cehTBKvdGaQITfBu9b3326BIjGxR6rvvzqP6sHxAVBn8uPlj1imM2
+	 qhlczytU+muvzaSnLVXL6/A77QiZCgNNPkXSSrEqegOZ/NBssY61HschuyhVGbGFjl2YX
+	 p/5/k5eVanb8RygZSrzmkS1v7FC1WJV9oMqDC5fqMFsPUi48zM5rl4YomZsErXWUVNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fp1Mhntr;
-	arc=none smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jc7OOvaP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99F81606A323
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:50:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99F81606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 236A0606A326;
+	Tue, 24 Nov 2026 21:50:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fp1Mhntr
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-4a35df85cc8so382663f8f.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:50:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795557002; x=1796161802; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=70XYBogHCXCBdw3YSd/sa8Nm9h583bMMPGxQWoXbuvc=;
-        b=fp1MhntrLogHIUip4FbRNJKgWHj0LrTc8fZZovGtzElIDsO9y0NOAIL6mqq35lixzC
-         AwmfPCM/wLJd1kp/v46CitnfBIH12MWpgZr8aJZ9uK+eZz24zYRUlwADwEaNNft/PSYD
-         9Y2ieWJ9h6JfkronDg3awtzO/DkFNEG/2dQYe0sR5it+ERZ6uT+LJMmO5GbLUh93nefu
-         VUlqC7eFCZ98QJQFZoO90yVKuuRukiBGyhi8yzXNZ4YJ931B5azsQqNPH7C2UEj6hM+h
-         lazIEN1nFiHKmHlrjcWublPnYkeXVLNeH9Ts3DJMUTc40lD0CuzsuBG/fbJno8piySZQ
-         pfbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795557002; x=1796161802;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=70XYBogHCXCBdw3YSd/sa8Nm9h583bMMPGxQWoXbuvc=;
-        b=kosLZEDSMiWIh7JhvM8IesmEQm4zYGdHwDtLmLC3ji0j7gI7/rO9zG4rDuGTO2glBp
-         qFnuYjwND68WyqLGM0HO4kF/PxSEvt5DRZyG3GG83UUcgmuaRS9IupYkuyUwS17fBANh
-         /8K1YSV4xiGh53HDIyx1OHD73yt9ZHKcjeP1DTyB/8oifRoH9mTpoZMQlgFHMHPXizYP
-         FSM5iLSgYi/n47jB9NkBrrffdk56MaS+OycI74Uo34QKW0dBE1l72tmmMalMg533fQRj
-         ftn6ntOEuSDdJKdCgi9ZHTOygiPajkIuigERUTeElKsMdcjWcmYBNubn4dv0U+7FLFbm
-         734g==
-X-Forwarded-Encrypted: i=1; AL+hErFzVvhHa8hQEphI3eeG5ZoPvOIv+q12pwXdTqxTR6Y6e6jnEQaM/1/Fn221ZG1N2tgKZUETqoDpCgAomj0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+7W6EkFVflMomuLJ4iIaxTXFF8jYGl3zO+TlIGAshjtvnD80A5
-	LI3u3WK+NCOKrjWzUVroP9QLm1LlTYTM6HJOYjPFe9nMieCeaZZhYQP0
-X-Gm-Gg: AZFdTZfb0NWohEkyhrRSnC9w9uVOddnvEYUAmMNHR7JtocqBztzWb9Zqq1WgWW+4pOt
-	qfxz8Slt6KbMEWezEonBw4z0/b+D7QnyBTSOGpCS7+EXymDqtsv91oUvVtdg1ImQ3ds6Ldp08IU
-	OImL6oCLw9lGakZNszbJZ9GhRIbKxh42C2L+9yAtt5aEjvQsA9RPW45hD8wmGhM5EEp6SNfn/Gr
-	E2QxL6zq2l6qUkWjyOD2mrQdEwWqWfpUqErCunEpoTVzkkcEN8wkr1Otf3zQJnPtUceEQ+N9ayN
-	9EwP4+m8WVx7SY13DWI/Y9T5BnnkgqcL4NSNapUMIDOAC1qOmeyaHijrDOqFo8kKNPKozZmhkxW
-	pwnbiMW5UYyGQZyTzj5VGQ+1joUPj8+7JQ+AqIotZnbSlSS/rNXOVgf3DMsnc6a5i+4IynD0lA8
-	voOKpF6XIn9EH7DxMJpz9Aprb+BLJXBujUuK6ctYt5vh1QjKWMahXT0z68TvNY0xjCjGX7i6edp
-	nSBXM/GV+QuQx47UtDDTWXDLGlkNhTQWCaKohbZTjQeaJDddEf7viAL1P2seXocPo66218nJc8J
-	Yd2v1YuZc7cN0BFECXeFMtBBZI6+hq6Xsgyp9eAQ9cq88ez9Yd0khAjwqEtO5TTm0rQ+Y2oj+Qg
-	d0YPF8gF427r7DfQ=
-X-Received: by 2002:a05:6000:2310:b0:491:2367:1dca with SMTP id ffacd0b85a97d-4b3fd477a9amr13343648f8f.3.1795557001928;
-        Tue, 24 Nov 2026 13:50:01 -0800 (PST)
-Received: from Nuel20.localdomain ([105.118.4.83])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab5ffcad11sm29188507f8f.0.2026.11.24.13.49.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 13:50:01 -0800 (PST)
-From: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-To: hangbin.liu@linux.dev
-Cc: netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	shuah@kernel.org,
-	linux-kernel@vger.kernel.org,
-	skhan@linuxfoundation.org,
-	emmaonana18@gmail.com
-Subject: Re: [PATCH net-next] selftests: net: sk_connect_zero_addr: fix mislabeled connect diagnostic
-Date: Tue, 24 Nov 2026 22:49:47 +0100
-Message-ID: <20261124214947.13846-1-emmaonana18@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261123054754.GI10218@Liu-laptop>
-References: <20261123054754.GI10218@Liu-laptop>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jc7OOvaP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C7301F000E0;
+	Tue, 24 Nov 2026 21:50:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795557038;
+	bh=HPQGhKZOJYbcgM9bz9ZQjAOFYxjCQ/qr2l3E19IpCeA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Jc7OOvaPR9KhpUEr3/6FLFv27Uabh1Q3B0tiRuK7P69iUJkNdpDNEg3nraglUcLLz
+	 yVQxsYtLr4SXFdGZiPFhIxzZrG2M2XNG5ZTTl0p3ofLyn35D+dKTfrwD1DEc607VHq
+	 tQuAO7VIqpSyFi0o7KxHcZYW13RG1fQqcsFE/iIfyenNTrpKj2UEX9Ic5VzlrKZJcT
+	 t1zKl91o4GUJSSrWgmalI/j5Yb0aPRI6m+JxJJu0rXOY86hcVFceirH2Wh1sKwqGHk
+	 vwJk+sn/Q1va0JBDfNz1g+z45NOaoJM2bnPdjHLpTBdFjbAQS4f9d7wBOXGPcUgG9h
+	 YY8EEDtHeIoiQ==
+Date: Tue, 24 Nov 2026 21:50:35 +0000
+From: Eric Biggers <ebiggers@kernel.org>
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: keyrings@vger.kernel.org, dm-devel@lists.linux.dev,
+	linux-crypto@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-integrity@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	Ahmad Fatoum <a.fatoum@pengutronix.de>,
+	Alasdair Kergon <agk@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Benjamin Marzinski <bmarzins@redhat.com>,
+	David Gstir <david@sigma-star.at>,
+	David Howells <dhowells@redhat.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Ignat Korchagin <ignat@linux.win>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	James Morris <jmorris@namei.org>,
+	James Prestwood <prestwoj@gmail.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Jonathan Corbet <corbet@lwn.net>,
+	Lukas Wunner <lukas@wunner.de>, Mike Snitzer <snitzer@kernel.org>,
+	Mikulas Patocka <mpatocka@redhat.com>,
+	Mimi Zohar <zohar@linux.ibm.com>, Paul Moore <paul@paul-moore.com>,
+	Peter Huewe <peterhuewe@gmx.de>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Sumit Garg <sumit.garg@kernel.org>
+Subject: Re: [PATCH v2 6/9] KEYS: Factor out KEYCTL_PKEY
+Message-ID: <20261124215035.GE2227373@google.com>
+References: <20261124194043.1651679-1-jarkko@kernel.org>
+ <20261124194043.1651679-7-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,13 +81,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124194043.1651679-7-jarkko@kernel.org>
 
-On Mon, 23 Nov 2026 13:47:54 +0800 Hangbin Liu wrote:
-> An "e" here?
+On Tue, Nov 24, 2026 at 09:40:40PM +0200, Jarkko Sakkinen wrote:
+> diff --git a/crypto/asymmetric_keys/Kconfig b/crypto/asymmetric_keys/Kconfig
+> index c73979b2e98e..1c78a9a663c5 100644
+> --- a/crypto/asymmetric_keys/Kconfig
+> +++ b/crypto/asymmetric_keys/Kconfig
+> @@ -2,6 +2,7 @@
+>  menuconfig ASYMMETRIC_KEY_TYPE
+>  	bool "Asymmetric (public-key cryptographic) key type"
+>  	depends on KEYS
+> +	select KEYCTL_PKEY
+>  	help
+>  	  This option provides support for a key type that holds the data for
+>  	  the asymmetric keys used for public key cryptographic operations such
 
-Thanks for catching it. Fixed in v2.
-https://lore.kernel.org/all/20261124214736.13398-1-emmaonana18@gmail.com/
+Could we use this opportunity to give CONFIG_KEYCTL_PKEY an
+off-by-default prompt like CONFIG_KEY_DH_OPERATIONS, please?  There are
+a lot of systems that need ASYMMETRIC_KEY_TYPE for verifying signatures
+but don't the KEYCTL_PKEY keyctls.  The fact that the KEYCTL_PKEY
+keyctls get pulled in too has always been a huge problem, given the
+additional attack surface they expose as well as other issues like the
+kernel's RSA code not being resistant to timing attacks.
 
-Omokefe
-
+- Eric
