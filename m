@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795558222;
-	b=14G7YuWtkfPZawq4235MyQBxSJwJqF64SgbhKxd9MVKr5y0ZBNsKUeU+TDheEzZnml4C
-	 2nj98EvKQkFfRy85YFYjq9JyegM2fSJxftCQiq+dqkuNW57ryAWWI6QsbWnJlDf7UFN6W
-	 DvgPQMTBQFkcPOOe8+ET93e0peORMuQ+4jI+2mapQenz7QYuXYKmx6TOdot7P+JEDrcyv
-	 93st6rS/ZCelu/hTyrVBPcggDkA5qZsrSBn2Vh65FISpAk+4uZZ2xV9T3fUHQanvNhxrc
-	 RgdXIXdmzPt0HsTlNSlnJaLJLhpeXXprbR5Nv9+XMGUkpyTjjCY9KKtSw/bdlXD4jPQ==
+	b=Ti+QHM5d2fuwB9DOH2IrKayEkhiClnOB+chEvkDYYFy88s0YzC1aQWyePjBMXaKNIN7V
+	 Xb0ajdxYQREJNKMgZRa6QpWd03yxD3nUFkQ/gzZ1EsJi0R5NlTa4KIfGyuWnaAJIagAUc
+	 yrcGIZT5C7p9eHQKAcmnxMOPf1dNANTh/TGXCOiNbwZmUQDQtGavwO88Ny1yxqHVbehX/
+	 0+rPD0JcPKjvzLwAKlciWEu01DnijrxI9U6WKg8mjrnwXblnC7OGi8T0Hhqd/F6C4rLdN
+	 a2iZHwinYiS9eDD2zeYFND9m8FC5fV41VVboWN6dQf5F8RAhcAjVkigY3wdOJypEZEQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795558222;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=v6bJWGJV5mMZDYLX31c8NtD1QW48bqWZ0xQYf+Io+I8=;
-	b=D7JsuM/kgqj+gENah0ydrM6iefbGZybHjYS40cHldsblndB6hYejvHRUpvUwNyybd+uz
-	 7CYwLpf7f7WxVLJSknX3tLQBVPT7dc4JslYKDCXx+yq7CaCMMMdPrMKAjnFWP0RKOWFM+
-	 IKLTwEGjDbSbcIMtOlIcYCoeDyF1HFoTQgOkDOoDYW++nN5j1BdEw+EeOrx/xd7kmSCbR
-	 BQdue7S9xsQCAdJmkGDjUuTrhkaVn/BYHej1qqd43DynVHi/9f5yQbPBePOWqqCrD5D/D
-	 Pu2PZwNxvxCgMUIYvhXAIuamQmmvuLtLo5Mi3cFM6yjL+4x7HSZGnu18y8cdVnoOkiA==
+	bh=1pspu/1j0VfO+MpxjeItr0EX3K7hNHhPnXhNqflS3og=;
+	b=tTLFW/kTEfzAD34pmyCTz6+YA7f7JTR9q6yFTbu37tOqNsN+WcVRDBtPj7Y0UuuJZbe9
+	 DRL496I6MpKRdjdknTn3pjingvVoVdivfMRbzu+0rdZmQqEBHeLXO1AU6i8nUiJ8I3yt5
+	 KOezVvMtZwZ2OFiHljR/1/G3mjR60WDmIMUqSPXpCEGZs+dazMfGl/6hUVxYcypouOrrM
+	 yUYKB+E3DS0ckYmfEPVDJPQxT1dv5qWJ7CjBRN3mA5I5GxWXKhC/o8HtzeeGa9Z5Bee04
+	 OJXGnlVlJStxmMJ2NJ00UEVZMFVhrRYvDe2R2OWv0qVJy96zvzCDjQo6ohRKWCmAwKA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Cn9rH4dx;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ekazWHYy;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0488960A2639;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F37F60A380E;
 	Tue, 24 Nov 2026 22:10:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Cn9rH4dx
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ekazWHYy
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795558221;
-	b=CeeSYXsAvjy9wxH40o4DYe4X7lDfJt87m5fuwQQewxumDaQpVikiXMj0wtvFStztsQ9B
-	 6liBAWFQ59YaV7k/lZntR17kjbdCnhB/OAEMWUtCPDmHGb5+0Wt8cT613QusZ0UXbIiDC
-	 ftphn+WBJaJj8YbXOHKhsWtQpesQ27YFOEbcune2M7vlRahgwoN67/yhFUKZFH0Mffkvq
-	 QCAFOMaLTXLpgEo3zExApCF/SUIuQMvVJ5OYY7gYB2MH0M2O33v9bqpwiOqNHAbNemuob
-	 mkIpGepbnkyIwkmqNXAfO3pXAvXNnpfsDiAXAH4JCZu7CUIowpPm0/VmsG77/3JXY+Q==
+	t=1795558222;
+	b=uyMnAx2sTEYpLk9iZGnJFRu1nqq0vUISUYdLuuoYDyVCAnv6zeprgWurY34IHLHlcNXp
+	 FSyz/o7pObWBikvD3oxIx36aggHVtdzZEV5iSRPF+oneITZhHp0eF0dKTAnI3RT6k9Riq
+	 1EBrbWtTyVAlDYWSOnv/MswhQDMXfrDBqeqz1cilRjmMBp+DB2akHP7QfjU6Z+VSuICaV
+	 su+OvMKueDdxqWrl2mtjG86U+ZbAPgBJZr4m7Y95nmqR3LCb6l4/2PdjSdoFHKXpowgf4
+	 WdjSeWpLU3kaLTvX0a3Uc/qq6wlSRS6Ds5XHQR0zuSUcbFJ5mz6syNRI3wkohFPf61A==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795558221;
+	c=relaxed/relaxed; t=1795558222;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=v6bJWGJV5mMZDYLX31c8NtD1QW48bqWZ0xQYf+Io+I8=;
-	b=yxClCCv4cFCjIeNWmbuT0/3qxINpPAn/x/bRohwqpBV3GM0tn7BFn4hdFazDgURyNTVl
-	 5gg5ALTMz+5yPoN2Rzc/lsXZ4ZQeDaytAiRnDU/DjxkcEdu+c/kDMiBNtmDadAQIObZlM
-	 /Mwv4y1mM+U1Qc+TWnlemzFtoQnAawB6DdOK9e3YDp7k0M5D3ue7ZkfnmwJCLTnzCSl6F
-	 pMjUPq2xXpsOZ6PZxHH6DP/arXcyqyp5wjL8+c7PG9tIol1qthqGH1IeNYznjF/zTk6Fq
-	 wzQfB9DIzcKkJiEjZk+pe7PxyaK3mFKW567Kg/b7GUm9WP3Ow+6QA7eLARaHd73ZNbA==
+	bh=1pspu/1j0VfO+MpxjeItr0EX3K7hNHhPnXhNqflS3og=;
+	b=0oU4s5FiPtw3zMt2DLYcJa9dcdTwaYWL8F3luwtfpNjfahECv4B97GzQuXAlUmiqWgQo
+	 2XHupGS6A25MtJ6VGa0t6t4eqrZmG36hfi01XTXxAXGqmQWTtDtynggGWfHTfBTcaIE3w
+	 HM8vqw6uLjye4vHUM+1C8P9tiyQE/e9F6Ro/TiJUA74WBIhKqG5YlI2ZzFsvKSlmGS9Xn
+	 pZtBklAkF/XidqTOfOC5Sf8D2t/bn2XvksCHWq2Wj+OvBjePJiT5gKHm0sC52Wxsc9F8D
+	 biuOfI3djG7ktK1BtKCHYiyse0dTN3DM+4bD0sOwwfWlek1XYU8HYP39VvGvV6+UxWw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 86BB61F000EF;
+	by smtp.kernel.org (Postfix) with ESMTPS id 5D7531F000EB;
 	Tue, 24 Nov 2026 22:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795558221;
-	bh=v6bJWGJV5mMZDYLX31c8NtD1QW48bqWZ0xQYf+Io+I8=;
+	s=k20260515; t=1795558222;
+	bh=1pspu/1j0VfO+MpxjeItr0EX3K7hNHhPnXhNqflS3og=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Cn9rH4dxV97wntT6RzTZO6nEH77XxRbkhcTkpCGLAV879g+OX9xOZf8KUYr26RZSo
-	 JyGM5Ev3dlY/cULN0LaTN3ATglwZovQgNXd7mbsBSEOjBg9RNBt4IVDyyLtmehrU+m
-	 ssN5OsiP/5paMN3G5hDkPizs9VPC+H1MNj2nYaXXJmblH85+89pXyCqzwMP3kvVesx
-	 NosfuOii2pyZAgNlcOFm3bj2OYK2IFlnEIjyD8mXZpIUoged19Zj1hmMEQJ4kgZtZV
-	 AWiObd62VsZaNtSDYzHDjjglF48mKatrvYPvYGrWLcEZRawAON8K0IGLJzvIOB2CPP
-	 TTtGLARwVxWQA==
+	b=ekazWHYyFc59pXp+kon4GfNXsq4FZ2stsajqT7G2hayo5QKBDsElr4sLtL5NQ+Rq6
+	 t9zYWfMN9t5gno63Xz7ZjTvoXXaVvTevYjhgHlui7zoy6rihUW/BV3vqhgPi3lU/Ru
+	 hyoI30JRfSXquN7mF5mGBRWdxT8fcuw41w+E6M8ku5ngrlKn371T5Ls2wXRPflZNOJ
+	 uJODzV51IvAtvUc6enlk8+dn86p3QFyvkDMK/ooQYyu0XVmZdkHiUw6xDdK0BDx5ir
+	 PmkkL3iluzBdlmnlR7kktcCqNZo0NRnOgB1CpFZ3boUdwyw449qnE69wcrySeNTN//
+	 8APBaMtqP3IBA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id CADC84CBED;
+	by lkml.kernel.org (Postfix) with ESMTP id 8F85E4CBE5;
 	Tue, 24 Nov 2026 22:09:57 +0000 (UTC)
 From: Selvamani Rajagopal via B4 Relay <devnull+Selvamani.Rajagopal.onsemi.com@kernel.org>
-Date: Tue, 24 Nov 2026 14:09:59 -0800
-Subject: [PATCH net-next v12 11/15] net: phy: ncn26000: Enable enhanced
- noise immunity
+Date: Tue, 24 Nov 2026 14:09:57 -0800
+Subject: [PATCH net-next v12 09/15] net: ethernet: oa_tc6: Support for
+ vendor specific MMS
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-s2500-mac-phy-support-v12-11-3575855d99f9@onsemi.com>
+Message-Id: <20261124-s2500-mac-phy-support-v12-9-3575855d99f9@onsemi.com>
 References: <20261124-s2500-mac-phy-support-v12-0-3575855d99f9@onsemi.com>
 In-Reply-To: <20261124-s2500-mac-phy-support-v12-0-3575855d99f9@onsemi.com>
 To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
@@ -106,11 +106,11 @@ Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  Ciprian Regus <ciprian.regus@analog.com>, 
  Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795558193; l=2436;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795558193; l=6195;
  i=Selvamani.Rajagopal@onsemi.com; s=20260531; h=from:subject:message-id;
- bh=C966iz3saGflBqVM1+r8sZrgsCLRry/KSK6GQ55D7VM=;
- b=6odO8G91jLGqNTePKgtHxLVUmJqbZd01Z89tS+zzSR3StKHNx6SjXmxd4FjZF9ftjrPjjN+aW
- w6f/27zPrIbDFXQqWBxNz/xqykICC7G/uu7NeN2y+7fZtGkzb6XC/XD
+ bh=1MjkVLzuAaXBWXeuv00U8/V6OxD8o95U9vnwuGPge64=;
+ b=FcqtpJ+3NRkXbSM9r/N2qDysZnvI1/tbj89cQiQvYctPz8CGCZDj3s6BHH+Hl79/RQ1x3weiD
+ 7H406ZSmjnrC29rwzFRx/xHc2/DoGa4cvmf2WkVAgx0jJqXYEd5FqaR
 X-Developer-Key: i=Selvamani.Rajagopal@onsemi.com; a=ed25519;
  pk=5QRdM0HS/LGWWcUZZ9hVfZ+qbPQGZCumcTXOiN7Fyug=
 X-Endpoint-Received: by B4 Relay for
@@ -121,23 +121,30 @@ Content-Transfer-Encoding: 7bit
 
 From: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
 
-Intercept PLCA enable/disable requests in set_plca_cfg() and set or
-clear the proprietary ENI bit accordingly. By setting the ENI bit,
-noise immunity is improved and it is specifically meant for PLCA
-enabled nodes.
+Add vend1_mms to struct oa_tc6_quirks to let a vendor driver
+map MDIO_MMD_VEND1 to one of the vendor specific MMS values,
+10 to 15, in table 6 of the OPEN Alliance 10BASE-T1x MAC-PHY
+Serial Interface specification.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+The mapping must be known when oa_tc6_init() scans for the PHY,
+which can access MMD VEND1.
+
+A zero vend1_mms keeps the current behavior. A value outside 10 to 15
+makes oa_tc6_init() fail with -EINVAL.
+
 Signed-off-by: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
 
 ---
+
 changes in v12
-  - No change
+  - Dropped Reviewed-by from Andrew Lunn as the code has changed.
+  - MMD VEND1 mapping is now part of the quirks, not an API.
 changes in v11
-  - Updated commit message to be more accurate
+  - Accidentally patch got removed
 changes in v10
   - No change
 changes in v9
-  - Added Reviewed tag
+  - No change
 changes in v8
   - No change
 changes in v7
@@ -145,63 +152,155 @@ changes in v7
 changes in v6
   - No change
 changes in v5
-  - No changes
+  - no change
 changes in v4
-  - No changes
+  - no change
 changes in v3
-  - Moved as a separate patch
+  - no change
+changes in v2
+  - Moved the handling of vendor specific MMS mapping to separate patch
+  - new patch
 ---
- drivers/net/phy/ncn26000.c | 23 ++++++++++++++++++++++-
- 1 file changed, 22 insertions(+), 1 deletion(-)
+ Documentation/networking/oa-tc6-framework.rst | 12 +++++++++++-
+ drivers/net/ethernet/oa_tc6/oa_tc6_main.c     | 22 ++++++++++++++++------
+ drivers/net/ethernet/oa_tc6/oa_tc6_std_def.h  |  6 +++++-
+ include/linux/oa_tc6.h                        |  1 +
+ 4 files changed, 33 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/net/phy/ncn26000.c b/drivers/net/phy/ncn26000.c
-index cabdd83c614f..888d74b83125 100644
---- a/drivers/net/phy/ncn26000.c
-+++ b/drivers/net/phy/ncn26000.c
-@@ -35,6 +35,9 @@
+diff --git a/Documentation/networking/oa-tc6-framework.rst b/Documentation/networking/oa-tc6-framework.rst
+index 390529419133..558dc25038d3 100644
+--- a/Documentation/networking/oa-tc6-framework.rst
++++ b/Documentation/networking/oa-tc6-framework.rst
+@@ -469,7 +469,17 @@ The include/linux/oa_tc6.h defines the following functions:
+                                            struct net_device *netdev, \
+                                            struct oa_tc6_quirks *quirks)
  
- #define TO_TMR_DEFAULT			32
- 
-+#define NCN26000_REG_PHYCFG1		0x8001
-+#define NCN26000_PHYCFG1_ENI		BIT(7)
+-Initialize OA TC6 lib.
++Initialize the OA TC6 lib. Pass ``NULL`` for quirks if no device-specific
++settings are needed.
 +
- static int ncn26000_config_init(struct phy_device *phydev)
- {
- 	/* HW bug workaround: the default value of the PLCA TO_TIMER should be
-@@ -100,6 +103,24 @@ static int ncn26000_read_status(struct phy_device *phydev)
- 	return 0;
++The quirk_flags field supports:
++
++- OA_TC6_BROKEN_PHY: Leave MDIO bus registration and PHY connection to the
++  vendor driver instead of the framework.
++
++A zero value for vend1_mms means no Clause 45 ``MDIO_MMD_VEND1``
++mapping is requested; it does not select MMS 0. For any nonzero value
++outside the range 10 through 15, ``oa_tc6_init()`` fails with ``-EINVAL``.
+ 
+ .. c:function:: void oa_tc6_exit(struct oa_tc6 *tc6)
+ 
+diff --git a/drivers/net/ethernet/oa_tc6/oa_tc6_main.c b/drivers/net/ethernet/oa_tc6/oa_tc6_main.c
+index c69ed576b41d..228cc2a3dc2d 100644
+--- a/drivers/net/ethernet/oa_tc6/oa_tc6_main.c
++++ b/drivers/net/ethernet/oa_tc6/oa_tc6_main.c
+@@ -619,7 +619,7 @@ static int oa_tc6_mdiobus_write(struct mii_bus *bus, int addr, int regnum,
+ 				     val);
  }
  
-+/* Intercept PLCA enable/disable request to
-+ * set the proprietary, ENI mode accordingly
-+ */
-+static int ncn26000_c45_plca_set_cfg(struct phy_device *phydev,
-+				     const struct phy_plca_cfg *plca_cfg)
-+{
-+	int ret = genphy_c45_plca_set_cfg(phydev, plca_cfg);
-+	u16 eni_cfg = 0;
-+
-+	if (ret || plca_cfg->enabled < 0)
-+		return ret;
-+
-+	eni_cfg = (plca_cfg->enabled) ? NCN26000_PHYCFG1_ENI : 0;
-+	return phy_modify_mmd(phydev, MDIO_MMD_VEND2,
-+			      NCN26000_REG_PHYCFG1,
-+			      NCN26000_PHYCFG1_ENI, eni_cfg);
-+}
-+
- static irqreturn_t ncn26000_handle_interrupt(struct phy_device *phydev)
+-static int oa_tc6_get_phy_c45_mms(int devnum)
++static int oa_tc6_get_phy_c45_mms(struct oa_tc6 *tc6, int devnum)
+ {
+ 	switch (devnum) {
+ 	case MDIO_MMD_PCS:
+@@ -632,6 +632,8 @@ static int oa_tc6_get_phy_c45_mms(int devnum)
+ 		return OA_TC6_PHY_C45_AUTO_NEG_MMS5;
+ 	case MDIO_MMD_POWER_UNIT:
+ 		return OA_TC6_PHY_C45_POWER_UNIT_MMS6;
++	case MDIO_MMD_VEND1:
++		return tc6->quirks.vend1_mms;
+ 	default:
+ 		return -EOPNOTSUPP;
+ 	}
+@@ -645,7 +647,7 @@ int oa_tc6_mdiobus_read_c45(struct mii_bus *bus, int addr, int devnum,
+ 	int mms;
+ 	int ret;
+ 
+-	mms = oa_tc6_get_phy_c45_mms(devnum);
++	mms = oa_tc6_get_phy_c45_mms(tc6, devnum);
+ 	if (mms < 0)
+ 		return mms;
+ 
+@@ -663,7 +665,7 @@ int oa_tc6_mdiobus_write_c45(struct mii_bus *bus, int addr, int devnum,
+ 	struct oa_tc6 *tc6 = bus->priv;
+ 	int mms;
+ 
+-	mms = oa_tc6_get_phy_c45_mms(devnum);
++	mms = oa_tc6_get_phy_c45_mms(tc6, devnum);
+ 	if (mms < 0)
+ 		return mms;
+ 
+@@ -722,7 +724,7 @@ static int oa_tc6_phy_init(struct oa_tc6 *tc6)
  {
  	int ret;
-@@ -151,7 +172,7 @@ static struct phy_driver ncn26000_driver[] = {
- 		.read_status		= ncn26000_read_status,
- 		.handle_interrupt       = ncn26000_handle_interrupt,
- 		.get_plca_cfg		= genphy_c45_plca_get_cfg,
--		.set_plca_cfg		= genphy_c45_plca_set_cfg,
-+		.set_plca_cfg		= ncn26000_c45_plca_set_cfg,
- 		.get_plca_status	= genphy_c45_plca_get_status,
- 		.soft_reset             = genphy_soft_reset,
- 	},
+ 
+-	if (tc6->quirk_flags & OA_TC6_BROKEN_PHY)
++	if (tc6->quirks.quirk_flags & OA_TC6_BROKEN_PHY)
+ 		return 0;
+ 
+ 	ret = oa_tc6_check_phy_reg_direct_access_capability(tc6);
+@@ -761,7 +763,7 @@ static int oa_tc6_phy_init(struct oa_tc6 *tc6)
+ 
+ static void oa_tc6_phy_exit(struct oa_tc6 *tc6)
+ {
+-	if (tc6->quirk_flags & OA_TC6_BROKEN_PHY)
++	if (tc6->quirks.quirk_flags & OA_TC6_BROKEN_PHY)
+ 		return;
+ 
+ 	phy_disconnect(tc6->phydev);
+@@ -1700,7 +1702,15 @@ struct oa_tc6 *oa_tc6_init(struct spi_device *spi, struct net_device *netdev,
+ 	init_completion(&tc6->ts_cfg_done);
+ 
+ 	if (quirks)
+-		tc6->quirk_flags = quirks->quirk_flags;
++		tc6->quirks = *quirks;
++
++	if (!tc6->quirks.vend1_mms)
++		tc6->quirks.vend1_mms = -EOPNOTSUPP;
++	else if (tc6->quirks.vend1_mms < OA_TC6_VENDOR_MMS_MIN ||
++		 tc6->quirks.vend1_mms > OA_TC6_VENDOR_MMS_MAX)
++		return ERR_PTR(dev_err_probe(&spi->dev, -EINVAL,
++					     "Invalid VEND1 MMS: %d\n",
++					     tc6->quirks.vend1_mms));
+ 
+ 	/* Set the SPI controller to pump at realtime priority */
+ 	tc6->spi->rt = true;
+diff --git a/drivers/net/ethernet/oa_tc6/oa_tc6_std_def.h b/drivers/net/ethernet/oa_tc6/oa_tc6_std_def.h
+index 014b48e7e27d..cc7cda673f1b 100644
+--- a/drivers/net/ethernet/oa_tc6/oa_tc6_std_def.h
++++ b/drivers/net/ethernet/oa_tc6/oa_tc6_std_def.h
+@@ -32,6 +32,10 @@
+ #define OA_TC6_CTRL_HEADER_LENGTH		GENMASK(7, 1)
+ #define OA_TC6_CTRL_HEADER_PARITY		BIT(0)
+ 
++/* Vendor-specific MMS range from Table 6 of OA TC6 specification. */
++#define OA_TC6_VENDOR_MMS_MIN			10
++#define OA_TC6_VENDOR_MMS_MAX			15
++
+ /* Data header */
+ #define OA_TC6_DATA_HEADER_DATA_NOT_CTRL	BIT(31)
+ #define OA_TC6_DATA_HEADER_DATA_VALID		BIT(21)
+@@ -131,7 +135,7 @@ struct oa_tc6 {
+ 	bool int_flag;
+ 	bool disable_traffic;
+ 	bool prot_ctrl;
+-	enum oa_tc6_quirk_flag quirk_flags;
++	struct oa_tc6_quirks quirks;
+ 	struct gpio_desc *reset_gpio;
+ 	struct list_head ttsc_skb_list;
+ 	struct ptp_clock *ptp_clock;
+diff --git a/include/linux/oa_tc6.h b/include/linux/oa_tc6.h
+index 32c25b5e2aa3..f34ed8218a7c 100644
+--- a/include/linux/oa_tc6.h
++++ b/include/linux/oa_tc6.h
+@@ -86,6 +86,7 @@ enum oa_tc6_quirk_flag {
+ 
+ struct oa_tc6_quirks {
+ 	enum oa_tc6_quirk_flag quirk_flags;
++	int vend1_mms;
+ };
+ 
+ struct oa_tc6 *oa_tc6_init(struct spi_device *spi, struct net_device *netdev,
 
 -- 
 2.43.0
