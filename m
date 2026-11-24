@@ -1,54 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.80
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.87
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795501636;
-	b=ZhyM8O71PWcTZmK+ZROKhw02MxDoMPQXt3gyNgNqP6utRnPid3zd0tOvDZ29pBG89cwL
-	 HhCTV210oLbrA+aDWBs/icPb6sqcta0yT7AceiTMH87yeb4e8lNK3/zTp/+XXB24mknvS
-	 uLeSBvg/EW9wQ+pEtixipj8MDgyc5c1KlgoMLVlMlihJf2m82s6ahmQxgUnzEWlT5pbvV
-	 u6Tj1bMhnivmuYpxxDH/e3Y6o0Y2L6sRLF/KlhV9HuKLBtZw/hLMwDPa346LKWD3rwAb2
-	 U5yomDN5AFXtvVERbVbrrAd0wZER1IZCJqeLxVV8a7Vt1nuwDd3henD9hnxfCUv1f/g==
+	t=1795501950;
+	b=ofcgTfsQwEUJfi3w1WM9tbo+1YOKm7vC0Agb9s1IM1tg/rQKTUDUwMZgvR9L74vr/jTq
+	 x+bV2N8Lb4QwGNOvNJ4Dcbg4BRu7Nr53tObMbj+fBiCDb4zh18d1+no359VniyZ72qutY
+	 W9EB3d8CLeLxluX0483rZ67dJHeQMwo/FUDimX9PjndMcb13SS2W631OiQ09GZbLKMlEU
+	 sUQpO2WZAsZbtqQ6UsacDafwdwjRY1BN+/FXIiktWuijlZ5BWI4lNlCb/xdx1I+IAPNsh
+	 zJyFES5HGmNE0KHDJka71b3P9/V1T/yUMgNe9myfkvRstCkcrewPWUaV06/QN3ZcBcA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795501636;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795501950;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=7u094NZKZxpETVB03vTt5m2yLYD6kPFSRwEM5jWpjdA=;
-	b=moLUzUufKiZvPu8Ms82ILuB5IkstVqKrT7e6v2rEPHbBGlXY5Org6PlSGSpx/gIeIK6O
-	 PVBAElryRDmXZ1ALu1mv63UKAJBmjPoIota82EF+GxuVceoPC7q7sl23h684TVtHUov7J
-	 BRqzNGJXOZVX89ceL6G0Gyy9jSwbkru6fmqnIt1J11aDgvI0Rm6OQv/CrL0erSZT84cyt
-	 TAz4G43Zu/a24VMazGa6QS/yDlQPFokgo1LETmkpxLorICwP+delh2VMLofYTEMHdDrSr
-	 q/2Cujgy+iywus6x97stsyUOkuLQUvZhyefJm27fi9mBYi7nhg1AFEFEXziz2S5FTgw==
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=eIsQJv9Oj9zGZmN+c0jrpc0IZPXKs0cvb4N1pTA7hAg=;
+	b=L88HRDgchYjjxneln2GY3Gncn/0UiWUNHKDG31xs9SqfsdBIWzUKjqfzyYSQ4UP7nrvc
+	 /AqDiy4jBHTm6lWawu5NwVSXCBEheoo/qKbXuOZMsKVhWY28qKNvPzBcmhnt8QuQ2oPt7
+	 FgOv1lsIE7p7dbmYFfU73QoF6hRRDMGjUHOmq9y4h5XLBprd6NYG3BtiGz33CxANlv7fC
+	 P+Pn9QAeZaUo6kT1cSsptUz6MA2psNlmmUSv7sc9sf8nbjjAxvF+E/5rDGHNI7jpgX32/
+	 ooTLzfqfvHH3Fxbi1Kni2bxYthc230vszZxjT79n6ISsvlhycY+ajxwu52230+o+PjQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Gh5wSmnL;
-	arc=none smtp.remote-ip=91.218.175.80
-Received: from mta0.migadu.com (out-80.mta0.migadu.com [91.218.175.80])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=FXirBR9n;
+	arc=none smtp.remote-ip=95.215.58.87
+Received: from mta1.migadu.com (out-87.mta1.migadu.com [95.215.58.87])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60646606A322
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:27:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60646606A322
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99D8B606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:32:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99D8B606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Gh5wSmnL
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=FXirBR9n
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=473BHmUcpoTKfEKxqqh8pcmuw4bO0dBRaaAPnB0eK70=;
+DKIM-Signature: a=rsa-sha256; bh=coFYJTNAO2JCglWYtwvpj8VRSsxBhfxAQ3/CUjARS3A=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795501633; v=1; x=1796106433;
- b=Gh5wSmnLFmCRHN4BGff7kZfKIiLvS5PAGUz6ExmleynNnCer02szrsjnDVBZzSKPcPmTcz1+
- NynYpWjjXmLjbYeCbaoAKmqP5crQ7wSWzBanfAAeM7Zw2JQtKZl6DxHCg+O56u7pGhwmZv6V09e
- 2ftwTAORAx96bmja1ZFz2TkI=
+ t=1795501947; v=1; x=1796106747;
+ b=FXirBR9nLD677/Dzg+KBSQfUH03GDT/LNfdHBSxrTugXy3OtDJ7sWeIt13hIbClZOc0Ej387
+ XmhmPKt89gsl85Dq1u2YCeb7+wSvC9/QjF0KyfBAzez6B/OaYpweFfozzFFMVHnl300CdH9kdRH
+ QiEh+UqddWAz/ohaeplaU6+I=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 948f5afaef9c9964;
-	Tue, 24 Nov 2026 06:27:13 +0000
-X-Mizu-Trace-ID: 948f5afaef9c9964
+Received: by mta10.migadu.com with ESMTPS id 5948dfb6ee4b1eee;
+	Tue, 24 Nov 2026 06:32:27 +0000
+X-Mizu-Trace-ID: 5948dfb6ee4b1eee
 X-Migadu-Flow: FLOW_OUT
-Message-ID: <fd8bf876-6e10-4183-96da-8778f8c4ca3f@linux.dev>
-Date: Tue, 24 Nov 2026 14:27:03 +0800
+Date: Tue, 24 Nov 2026 14:32:22 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Kyuwon Cho <kyuwoncho18@gmail.com>
+Cc: netdev@vger.kernel.org, Jay Vosburgh <jv@jvosburgh.net>,
+	Nikolay Aleksandrov <razor@blackwall.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v4 1/1] bonding: keep non-Ethernet slaves out of
+ 802.3ad bonds
+Message-ID: <20261124063222.GB14932@Liu-laptop>
+References: <179549697473.218888.8044828119056769556@gmail.com>
+ <179549697473.218888.6814133305133689781@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,100 +70,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v3 4/9] bpf: Add log support for cgroup prog
- link_create
-To: bot+bpf-ci@kernel.org, bpf@vger.kernel.org
-Cc: ast@kernel.org, daniel@iogearbox.net, john.fastabend@gmail.com,
- andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
- martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
- jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
- rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
- kpsingh@kernel.org, matt@bobrowski.net, shuah@kernel.org,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, netdev@vger.kernel.org,
- martin.lau@kernel.org, mason@kernel.org
-References: <20261123152743.19629-5-leon.hwang@linux.dev>
- <ec5343ff7b660c9126b72574cd89cbd54772bd4291d4af16f1b9e39f16939398@mail.kernel.org>
-Content-Language: en-US
-From: Leon Hwang <leon.hwang@linux.dev>
-In-Reply-To: <ec5343ff7b660c9126b72574cd89cbd54772bd4291d4af16f1b9e39f16939398@mail.kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179549697473.218888.6814133305133689781@gmail.com>
 
-On 24/11/26 00:04, bot+bpf-ci@kernel.org wrote:
->> bpf: Add log support for cgroup prog link_create
+On Tue, Nov 24, 2026 at 02:13:03PM +0900, Kyuwon Cho wrote:
+> bond_open() adds the 8-byte lacpdu_mcast_addr to every slave of an
+> 802.3ad bond with dev_mc_add(), which copies the slave's addr_len bytes.
+> A slave with a 16-byte address, such as an ip6tnl device, makes it read
+> past the array:
 > 
-> TL;DR: The new bpf_log() calls in cgroup attach run under cgroup_mutex and
-> cgroup_bpf_mutex, so a copy_to_user() fault on the user log buffer may stall
-> other cgroup operations. Consider logging after unlock.
+>   BUG: KASAN: global-out-of-bounds in __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
+>   Read of size 16 at addr ffffffff878a2940 by task test/114
+>   Call Trace:
+>    <TASK>
+>    __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
+>    dev_mc_add (net/core/dev_addr_lists.c:1036 net/core/dev_addr_lists.c:1054)
+>    bond_open (drivers/net/bonding/bond_main.c:4405)
+>    __dev_open (net/core/dev.c:1762)
+>    __dev_change_flags (net/core/dev.c:10022)
+>    netif_change_flags (net/core/dev.c:10087)
+>    do_setlink.isra.0 (net/core/rtnetlink.c:3294)
+>    rtnl_setlink (net/core/rtnetlink.c:3633)
 > 
->> diff --git a/kernel/bpf/cgroup.c b/kernel/bpf/cgroup.c
->> --- a/kernel/bpf/cgroup.c
->> +++ b/kernel/bpf/cgroup.c
+> Commit c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet
+> devices") rejects such a slave only when enslaving it changes the
+> bond's type. A bond keeps the type of its last slave after that slave
+> is released, so a bond that once had an ARPHRD_TUNNEL6 slave can be set
+> to 802.3ad and take another TUNNEL6 device. A slave that is itself a
+> bond can also change its type after it was enslaved, when a
+> non-Ethernet device is enslaved to it.
 > 
-> [ ... ]
+> Check that an 802.3ad slave is an Ethernet device before the type
+> handling, for every slave, and refuse NETDEV_PRE_TYPE_CHANGE for a
+> slave of an 802.3ad bond, as team does for its ports. Other modes still
+> allow the type change, as bond-eth-type-change.sh expects.
 > 
->> @@ -1045,23 +1060,33 @@ static int __cgroup_bpf_attach(struct cgroup *cgrp,
->>  	atype = bpf_cgroup_atype_find(type, new_prog->aux->attach_btf_id);
->>  	if (atype < 0)
->>  		return -EINVAL;
->> -	if (revision && revision != cgrp->bpf.revisions[atype])
->> +	if (revision && revision != cgrp->bpf.revisions[atype]) {
->> +		bpf_log(log, "Cgroup revision mismatch: expected %llu, actual %llu.\n",
->> +			revision, cgrp->bpf.revisions[atype]);
->>  		return -ESTALE;
->> +	}
+> Fixes: c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet devices")
+> Suggested-by: Jay Vosburgh <jv@jvosburgh.net>
+> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+> ---
+>  drivers/net/bonding/bond_main.c | 17 +++++++++++------
+>  1 file changed, 11 insertions(+), 6 deletions(-)
 > 
-> [ ... ]
+> diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+> index 776afdb9df43..cf67104777d0 100644
+> --- a/drivers/net/bonding/bond_main.c
+> +++ b/drivers/net/bonding/bond_main.c
+> @@ -1951,6 +1951,13 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+>  		return -EPERM;
+>  	}
+>  
+> +	if (slave_dev->type != ARPHRD_ETHER &&
+> +	    BOND_MODE(bond) == BOND_MODE_8023AD) {
+> +		SLAVE_NL_ERR(bond_dev, slave_dev, extack,
+> +			     "8023AD mode requires Ethernet devices");
+> +		return -EINVAL;
+> +	}
+> +
+>  	/* set bonding device ether type by slave - bonding netdevices are
+>  	 * created with ether_setup, so when the slave type is not ARPHRD_ETHER
+>  	 * there is a need to override some of the type dependent attribs/funcs.
+> @@ -1960,12 +1967,6 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+>  	 */
+>  	if (!bond_has_slaves(bond)) {
+>  		if (bond_dev->type != slave_dev->type) {
+> -			if (slave_dev->type != ARPHRD_ETHER &&
+> -			    BOND_MODE(bond) == BOND_MODE_8023AD) {
+> -				SLAVE_NL_ERR(bond_dev, slave_dev, extack,
+> -					     "8023AD mode requires Ethernet devices");
+> -				return -EINVAL;
+> -			}
+>  			slave_dbg(bond_dev, slave_dev, "change device type from %d to %d\n",
+>  				  bond_dev->type, slave_dev->type);
+>  
+> @@ -3992,6 +3993,10 @@ static int bond_slave_netdev_event(unsigned long event,
+>  	slave_dbg(bond_dev, slave_dev, "%s called\n", __func__);
+>  
+>  	switch (event) {
+> +	case NETDEV_PRE_TYPE_CHANGE:
+> +		if (BOND_MODE(bond) == BOND_MODE_8023AD)
+> +			return NOTIFY_BAD;
+> +		break;
+>  	case NETDEV_UNREGISTER:
+>  		if (bond_dev->type != ARPHRD_ETHER)
+>  			bond_release_and_destroy(bond_dev, slave_dev);
+> -- 
+> 2.43.0
 > 
->> @@ -1143,13 +1168,14 @@ static int cgroup_bpf_attach(struct cgroup *cgrp,
->>  	cgroup_bpf_lock_hierarchy();
->>  	ret = __cgroup_bpf_attach(cgrp, prog, replace_prog, link, type, flags,
->> -				  id_or_fd, revision);
->> +				  id_or_fd, revision, log);
->>  	cgroup_bpf_unlock_hierarchy();
->>  	return ret;
-> 
-> Can these bpf_log() calls block other cgroup users while the locks are
-> held?
-> 
-> cgroup_bpf_attach() takes cgroup_mutex and cgroup_bpf_mutex through
-> cgroup_bpf_lock_hierarchy() before calling __cgroup_bpf_attach(), and
-> the new messages are emitted from inside it (and from get_prog_list()
-> via insert_pl_to_hlist()):
-> 
-> cgroup_bpf_attach()
->   cgroup_bpf_lock_hierarchy()
->   __cgroup_bpf_attach()
->     bpf_log()
->       bpf_verifier_vlog()
->         copy_to_user(log->ubuf + ..., log->kbuf, ...)
-> 
-> log->ubuf is the user supplied log_buf, so if that page is not resident
-> (swapped out, or backed by FUSE or userfaultfd), copy_to_user() can sleep
-> in the fault for as long as the caller chooses.  While it sleeps,
-> cgroup_mutex and cgroup_bpf_mutex remain held, so cgroup mkdir/rmdir,
-> migration, BPF attach/detach, BPF_PROG_QUERY and the cgroup bpf release
-> work would all wait.
-> 
-> Commit 40aec6bab02e ("bpf, cgroup: Protect cgroup_bpf state with its own
-> mutex") split these paths out from cgroup_mutex to avoid hung tasks, and
-> before this patch the attach path did not touch user memory under these
-> locks.
-> 
-> This isn't a lock ordering problem, since cgroup_mutex -> mmap_lock
-> already exists, but would it be better to record the message and emit it
-> from cgroup_bpf_link_attach() after cgroup_bpf_unlock_hierarchy()?
-I think it's okay to call bpf_log() inside those locks' critical
-section, even though copy_to_user() could unlikely trigger page fault.
 
-I didn't have good idea to address such concern. Probably, in
-cgroup_bpf_attach(), prepare a local buffer before
-cgroup_bpf_lock_hierarchy(), pass the buffer to __cgroup_bpf_attach() in
-order to store the log messages, then call bpf_log() after
-cgroup_bpf_unlock_hierarchy() if __cgroup_bpf_attach() returns error.
+The type change for other modes can be discussed later. The current change
+targeting this issue looks good to me.
 
-Thanks,
-Leon
-
+Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
