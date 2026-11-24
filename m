@@ -1,85 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795491875;
-	b=AEdZJjfuJqtxo70LS6wpnesMKIKdI21oXfVPQHtqYe2c5Zpx2nM5074NJo5r4P79km/7
-	 MxLl+PHkJ7ucnzlgQEb276u0LwZr5NPYZqED4pe0h++ty7vf4C1Fi5Ws2FgRE9fwMkNrw
-	 jKaNseamDfiYUsDotTGv9YxMT8VsNOxHZBmP8caxDOwtHS0PQPnAHhEJAwZsUZHDdmiKd
-	 4WmwWDFt15ySuC4TFRLw272PyY68TFHRdpZ1zox9KA5hnedhxBWsUPJ9RHwaZJ2I705GA
-	 E9v3wbP3ZZkyS7jY71fkIeVtxT58H3NlX+hWrbFc9AaXFQW3CbImyKdBTfw9T4KGJUQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795491875;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=iXPJfQL37+lFuWrPBpgG/yJPGWXB8XjhyfXUrG6mrgA=;
-	b=VfQst1YQMw1Bl1tre+cZ0We9zV1/OkLPv/4ZK0VAdxOU1aL6KeMTgto7aUgvvo3wN/GH
-	 Tf3qKcs/AtdrRrmsJIIgvsji61bG7aNtJigiKxCftptT0UA/lF6MLRs01r376jKrOEvQv
-	 X2WR7HcjJ6Iq0aaEx5cWW95ZgtCCAQ3FUzZ4K+HwHPhSGL2ThsADin55QEztcFZbhOLRF
-	 Cx/n38nY2GPIoLyYHk1fHLp/zItL9siRagj1L9CysC52BSK4oCM55sAEDyQ8AfWL0SNZR
-	 CbqeGzceEXcmeqlF3FM5yJSs0EQFmH/IMuVlWNdv0Tl3jY6QEgM22YX2nMUKmLlRJNg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Vj8u7L60;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.48
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795491928;
+	b=reXGnQYcIHt3G+J1VfFeUlRG+wZdqJ9sg+oqeAV3afEcbLUMuKlnnUcZfzKT0E2Luq7f
+	 jpLVLlWDvZETLrV9kJF91I8CX0JMt8Cj2zQL2kbgYO4CtUaKoSJDT06d7edLz/DxAEG1h
+	 uNt5Zl4TNUntD7vTXg4j7ifG08ap5a/oCxaD4+6FyDo/5BqEj8CCEizXCY5XrqRHGFDrS
+	 oU59B2QTQE1BjkTAiO9tpOH1vS11qPirfCmAYHybl1YLlztFBzo56mMjDHzFLklQNIaXv
+	 YAbMQeZlzlUtF25bA/3xx12dmAMWSV4YIDI/oaR1ePw86aWhdlni1u0IfScDVBf+wCQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795491928;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=qUctoQrzdfE5LseLd3ifkcwY8pow6PXXGWGTUDShPZ0=;
+	b=nIbSCebK84t7xlAGmtb4askF5Xwjq8zCr3/L4Xcze5rAZi4CN/oYSWPlbGNlCveOCbwZ
+	 v9doeDix7oVeQ1sPni86kHkHr+NxZjvJnG53xPCzqG+tXMu0+mYfHYI+XnzJURF21bgYZ
+	 krjz6jFaK2JDpeH9QRvot0n27AnL4xWQgbEio4ki20qxSF2S79zsKF/3GqQQQLg1ZYqRU
+	 LqaubceNORBj7sEWP03THBKPTT1UHkKRFmxhLmgYTNjhSaWbfzhBm6wCrNOv8nb0T4RlY
+	 cNVa3pfUOxh5wcYxwkUaK7oadaOB2kyS583opfSDKRpA9dniLyIFaEx8EUCHWs4xbkA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=0x0f.com;
+	spf=pass smtp.mailfrom=0x0f.com;
+	dkim=pass header.d=0x0f.com header.i=@0x0f.com header.a=rsa-sha256 header.s=google header.b=mL6KHw4b;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.48
+Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F436606A31E;
-	Tue, 24 Nov 2026 03:44:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F436606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B163606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:45:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B163606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=0x0f.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=0x0f.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Vj8u7L60
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795491873;
-	bh=nMy8A8dspKyD4GQcj7I09F4uoZ54ej+K/KIoy3ZgamU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=Vj8u7L60X2/fSBAqE7B8mTW5UwhE4nXuBjHrS8KCtkpKKcbMtxLHf4wtXLUaVvID4
-	 pL2YYg6FYFXWqafhzHVqx3wEoROA0OzKyGXOexhXeT1YfB9BK9+x06jILxkqXEzFok
-	 NYEbNoCeVMkFwW6aoqdiurnfGZ2A2sYgnjha9qYs72W13Io8qqFJoQdAT+P5LRB7WT
-	 XpiNaevNeVpLmZ0TOCcr5FYzIlxd1B0n5rjfvKvCEhsCkQyyrTh+Qs86hBhkqX27+f
-	 //D06V3rLOEYC21jgh9OzfR8iP32p6RmMLO64ixjChwNE5t+xBtF1vLm2vYH/zP/Zx
-	 aDBhywIK6GAog==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6D4F517E0CD7;
-	Tue, 24 Nov 2026 04:44:32 +0100 (CET)
-Message-ID: <1e59911003612aa645607efcd502c010f1972a5e.camel@collabora.com>
-Subject: Re: [PATCH v7 2/3] media: verisilicon: AV1: Fix luma size
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
-	p.zabel@pengutronix.de, mchehab@kernel.org, heiko@sntech.de,
- hverkuil@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Date: Mon, 23 Nov 2026 22:44:31 -0500
-In-Reply-To: <3dfe5ae59107fa77075676fc226ac818bc2700f9.camel@collabora.com>
-References: <20261120143135.71134-1-benjamin.gaignard@collabora.com>
-		 <20261120143135.71134-3-benjamin.gaignard@collabora.com>
-	 <3dfe5ae59107fa77075676fc226ac818bc2700f9.camel@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-VHcejEzEPR4GHlk6YEht"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (1024-bit key) header.d=0x0f.com header.i=@0x0f.com header.a=rsa-sha256 header.s=google header.b=mL6KHw4b
+Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-170135e43c7so5814132c88.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:45:27 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795491927; cv=none;
+        d=google.com; s=arc-20260327;
+        b=soH3fu2bNFwKcXOUP/oAYEn/jbOZe3wJeE3QrGmGo3hMhyEjMMezIxWZ82N4Ib5Hnw
+         WU34sVfc2qKqjZtwitTbpQN0Nj8tVi+NetrwdUb1juRgPr+HM68oI6PULgPjB+fuFBTU
+         5OvKEtJcWYywfBz8ArxtSycCkMQYLtvaTk6cBf3z9NMuzB+t6BJlf20VqU4LX34Ayq7v
+         XwddQdVlULBZZV3gvlTab02f3g1Bh/4qgQ5YCLJp52sZ63N7OIugsZqqVjEUx4d2B8qI
+         /Ce+d+Og9ypwHVIytuD1q/YhDi91Jx5WnzJxZputwkTrIrjCUCCfllNnCXgOJDpt+8qC
+         M0/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=qUctoQrzdfE5LseLd3ifkcwY8pow6PXXGWGTUDShPZ0=;
+        fh=5dOuAv4SBCavqL2890mXKPJ/2/sq38SsgRkdtQWq4Ak=;
+        b=TTNeG4ByF0BH/EDIKYffMo7Gb3Oas2UxUY6ygZM6+1BB5OoyQvcis/0XgLUjAY4DDT
+         mLYfs7JMkQISY5RT0E6QDjcTMJ7Stz7AOojpcdIqnW9gJDYK2yb3NBc7j29Nxv10aufr
+         +O4LcF7wXN4vw3dvsMibGi6xR2PC1AuJ7qS9xFaD4J16vwuN7U6D+NuWDtRMYnyBuGY7
+         ztv6KK14A2+xBY/jUfQe/qHP9KYx1+rNLFXoV2Y3LDuXX1xo9Y3Th+vQfkoLRc6ZXg0d
+         sF/thlG6kWHg/xHc80oRcXwPwLH5Ap9kXRFQzwD2x48lCI/ozVPyRus3em1P271LNUsX
+         oYzQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=0x0f.com; s=google; t=1795491927; x=1796096727; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qUctoQrzdfE5LseLd3ifkcwY8pow6PXXGWGTUDShPZ0=;
+        b=mL6KHw4b0KLimydjfHoPp53Yxar0dSnFLxK17BJz+GuI4raQi3w+QD1RjR7nfxFcqN
+         AzmBcMGaKJuDc9v5uZm7+EsVcsJMNU0QgUjTouIp8ojnqKjfKj3JX+wXKaNo4IvhMpKH
+         E2Wt+4IBKjIFGYOMSso6qvzQ0Wh9Q6/bw8Huw=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795491927; x=1796096727;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=qUctoQrzdfE5LseLd3ifkcwY8pow6PXXGWGTUDShPZ0=;
+        b=PRrrxVxCXW1tdsc154Y1SizjXIrkMsYBPsRxKsm6vShOiI1G/0lxUhn1nuh2FUhQaX
+         2y/LK8UFXAUCKyMlc7jfsaL9/yDEtIQq0W4QNtM69aAx9ZbhxLBs0RNXqDg/MmgKptuI
+         TclQMNnAqZ9zl8gcZ4q1h+BLA9Dq3m7KvPQPyTr83LHUpYmQQlKVDeUc3vgB2d2U7P5M
+         ZL7Q1WY+PCocoGxP4RAWy1Q1qKAU0UY/tvzZJBMmRp6PV2jWDCb1OF2fJg+He5S7mBVY
+         o1VNFaE+BHL/8RB9tAqWBu0PHI0UbvPWtzIpXPwBmT7VCJnWiHmRlDbdP6dNSfAZm7Nk
+         fT5Q==
+X-Gm-Message-State: APuU4Z/H+Zv3+aZkfuzFrTkmwovry+EN9iy6BF27/Tp9IMKIwAF7Q3qJ
+	89IKu6IET+q8XJnIjhrq8wq39bRY1b0rOVuqlOmp5ZoMuV5CganKgjV4hJixab72lKYayF3k0Rs
+	vOhldcyS2OCjKTIWQOYDpy4TfodL5mkWhSuuNhvhXgw==
+X-Gm-Gg: AZFdTZdAKx9COxZxFSF6THyyZmYfE8KKM2covTSQtoiR7YnfT8wx0+bUodUR0TLa4J4
+	mgFkJJ/ZjuSYezNx+vtLnFMEcBxhn8bE6AYsOEny31CoI5eJgbBSmLU5GVIs//1FcxAQSluJZaf
+	O8alEprG5SunmCVZhleTK6V0Pu+mP5PUkNSGxqFYS05bt+0SM3pILN0ryhbxJiWVzphYdQ6KLBo
+	XbkyS9S7F2LkmD+g+0xjCbtZr0kC0U+x1d/MNqUC4bBQkP1Zd+gGcyLIOMZeZE3AmmzowdMv5mj
+	cvBLEI47vNYSQsO6sk8zTduoUjOXoCn+gIvX10Lwy08xo0aShLTnn9ikPGcYp+JEO39JKXBmDKG
+	ExVjvA6kWKk9KLqizha01x8gJmyhMn6gn/TVApL9a14aVwkNzKW7ehRHob2LX
+X-Received: by 2002:a05:701b:21cd:b0:1b5:e9d:c641 with SMTP id
+ a92af1059eb24-1b5568bc08amr13417093c88.18.1795491926992; Mon, 23 Nov 2026
+ 19:45:26 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,66 +99,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
---=-VHcejEzEPR4GHlk6YEht
+References: <20261124025555.2348580-1-daniel@0x0f.com>
+In-Reply-To: <20261124025555.2348580-1-daniel@0x0f.com>
+From: Daniel Palmer <daniel@0x0f.com>
+Date: Tue, 24 Nov 2026 12:45:15 +0900
+X-Gm-Features: Aa3M54rZ51tZkUYoAXWOn99Dz7MpcsEFJ1pC9mQcihsDmDqKlxmxIqXJBljv_DU
+Message-ID: <CAFr9PXnVV=HtAEeCO69-iw0=byRweauT+KqRYmMsq1Y6S6mfuw@mail.gmail.com>
+Subject: Re: [PATCH] m68k: Define the m68k-specific syscalls with SYSCALL_DEFINE
+To: geert@linux-m68k.org, gerg@linux-m68k.org, linux-m68k@lists.linux-m68k.org
+Cc: linux-kernel@vger.kernel.org, arnd@arndb.de
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Since you need a v8 ...
+Replying to myself..
 
-Le lundi 23 novembre 2026 =C3=A0 22:30 -0500, Nicolas Dufresne a =C3=A9crit=
-=C2=A0:
-> Le vendredi 20 novembre 2026 =C3=A0 15:31 +0100, Benjamin Gaignard a =C3=
-=A9crit=C2=A0:
-> > Use the values computed by v4l2 helpers to get luma size.
-> > Unlile before this will also take care of padding.
+On Tue, 24 Nov 2026 at 11:56, Daniel Palmer <daniel@0x0f.com> wrote:
+>sys_atomic_cmpxchg_32()
 
-    Unlike
+Sashiko reports that this got broken because it can't use its trick
+for getting pt_regs now that it's wrapped.
+I'll send a v2 with this fix at some point:
 
-> >=20
-> > Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> > Fixes: 727a400686a2c ("media: verisilicon: Add Rockchip AV1 decoder")
-
-Fixes goes before Signed-off-by, does this need to be cc to stable?
-
->=20
-> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
->=20
-> > ---
-> >  drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >=20
-> > diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_=
-dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> > index 5da59104a966..5e0cd5268f22 100644
-> > --- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> > +++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> > @@ -221,7 +221,7 @@ static void rockchip_vpu981_av1_dec_clean_refs(stru=
-ct hantro_ctx *ctx)
-> > =20
-> >  static size_t rockchip_vpu981_av1_dec_luma_size(struct hantro_ctx *ctx=
-)
-> >  {
-> > -=09return ctx->dst_fmt.width * ctx->dst_fmt.height * ctx->bit_depth / =
-8;
-> > +=09return ctx->ref_fmt.plane_fmt[0].bytesperline * ctx->ref_fmt.height=
-;
-> >  }
-> > =20
-> >  static size_t rockchip_vpu981_av1_dec_chroma_size(struct hantro_ctx *c=
-tx)
-
---=-VHcejEzEPR4GHlk6YEht
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawUIHwAKCRDZQZRRKWBy
-9AgzAQCYcZQsQXxWhzBG+rQkqaUoWlXfLw76Ec7suNYc7L3DYgD/WVROKXt7doP/
-gd9qyH1wa0gnWIXTtyOoUMoj8l+1TQY=
-=hkrb
------END PGP SIGNATURE-----
-
---=-VHcejEzEPR4GHlk6YEht--
+--- a/arch/m68k/kernel/sys_m68k.c
++++ b/arch/m68k/kernel/sys_m68k.c
+@@ -514,12 +514,8 @@ SYSCALL_DEFINE6(atomic_cmpxchg_32, unsigned long,
+newval, int, oldval,
+                   Make the kernel do the necessary page stuff, then re-iterate.
+                   Simulate a write access fault to do that.  */
+                {
+-                       /* The first argument of the function corresponds to
+-                          D1, which is the first field of struct pt_regs.  */
+-                       struct pt_regs *fp = (struct pt_regs *)&newval;
+-
+                        /* '3' is an RMW flag.  */
+-                       if (do_page_fault(fp, (unsigned long)mem, 3))
++                       if (do_page_fault(current_pt_regs(), (unsigned
+long)mem, 3))
+                                /* If the do_page_fault() failed, we don't
+                                   have anything meaningful to return.
+                                   There should be a SIGSEGV pending for
