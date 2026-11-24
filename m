@@ -1,75 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795534171;
-	b=VT9Ew6MQ+zQ2C7IP+Pft1LtzoPGbhZxA9tcOvgPvGQ1MmV1oodUHk7cVlTZ6mH1Vq2VW
-	 twFcoDvT1gVFcajSKOl2R01qeta18m83Iom7mUCu40k0uowwwDPRWQjf1qQGhyZYAYSsh
-	 b0vBWiMX3VEXy0UabCe+0gIlsmo0Y1LaKQaB6cwvbi54QciiGLjKofDm7mbgL3srfQId5
-	 QDaoAUKkTYMvpl+PuPJm8pqlKTyRy3sShdddJIt5UIicwbRwuGkiSXLM4QI2KXMh6zzH5
-	 rRh5nwlT0b89Ms99+SLajZ1uJJwMWLflQzS48nMH6lZ0m1HC9fAl+/1wyuzUDfyUU/w==
+	t=1795534172;
+	b=Gyn5D+1nUsZ+lCbeRRNVk2aB/KM6LPTuB2uIgmuplmZNMzSg59rvOTQL4KP9obMAltHl
+	 Nqg4P8SVGSiUlWTsrNC+/WyOjTYC3ed3JD1shfTrNL6J+aHO1jg0AVGHyAs9jb/sOuYm8
+	 x1HVKIXDGNlrkBTIPsZPc2Wn9SjFbRs1UxWo9bRaxiwoiYopXUyRdsmMg1sBAPx6mrWwv
+	 H0w+l1MQG6uqDf6miKL99KkU5txxpLU1snuTJctfhhBP6Q2XQ2Lg6icaMbUZyixaK9p0x
+	 4CGjSwKoC8jZznDLvYXE/e3ffVqaqLpW/ZU0zP7GWD3SFOfegjJ2L0L3+f4ZGA5r0lg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795534171;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795534172;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=pIZqHCS9uMGA/JN3ND+wWAQA7pc+psBTl5VMPUonuyw=;
-	b=xfXNjg+N8XNgShcoNnvvewZSCIHMZSlMoHuYFUY2UmNRAyoMWwqmnGFgNl3WPZ38ivdH
-	 ev+DRiNgXVeOPD94SfgYCLq6dP0zusHkA6OfHREHU0oeyigFqJIbwIGcu1vbW2r3IeL1f
-	 9qo1IUW/w1DJkgJKnN8bZZioQjO1Id4z69v5jS0lFZykhEkIyRccM82TEyBTORzL6rq7k
-	 Dzc57NRtM8JZS+cui4gCYD5TuJDGUwYDItwlZ4Lu4gP3jubqMAhWyF+URiz3ojljs9jxV
-	 AkAPb0K0Ka4xLuMRJHeft6muJDKyOzRtVUXbHgTwvk7/SBTSd67seRuKDNUe3kF6YdQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=8tLbVEeC13kOazgUWlOjd/prAO3qeJSqezX08+mwwAo=;
+	b=T0KiiaqHR71INwRWZEcbl2QH1Tun2K/a/ZO1wMcLPPI2h1IURA1jdQENhq8yvsr12jY5
+	 +I8zh3j29JWvPDzKuRCIGu0LO0FtbzztdhH9R3Uv+ex3P1bl18zoIzX0mSeiscvweR55a
+	 C5tN0LESr8gUx+oD+scIlkWDbFOi/gWNwt6XKzbs0K4ZIBtcTfWSoghAKLpP7QaKfGCD7
+	 huu/DCMP1c+1TEZYzM8giHNEmO5UklSjtd4SMh+48+vFzxgSt1Cntc/d/sESailPyXKRh
+	 hwt+idMCjGA9KzBJmXk2Th/FD4QjF0z8IEvMMiPSf2IAA4Eu2x+qS+jPvRj50FDJ1pA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--vdonnefort.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cTQKgVGh;
-	arc=none smtp.remote-ip=209.85.128.69
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com [209.85.128.69])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ESB8LODa;
+	arc=none smtp.remote-ip=209.85.218.52
+Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93C5A606A692
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D63C9606A6AF
 	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:29:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93C5A606A692
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--vdonnefort.bounces.google.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D63C9606A6AF
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cTQKgVGh
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4bb6bbc025aso36197375e9.3
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ESB8LODa
+Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c4d5b2db4bbso922303766b.0
         for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:29:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795534170; x=1796138970; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pIZqHCS9uMGA/JN3ND+wWAQA7pc+psBTl5VMPUonuyw=;
-        b=cTQKgVGhtoXxnPlZ/YExWGY0uWxQfuIvF9e/WL9/yFg8ZNF8rhxZf6dLD/oJs3e+fU
-         g7QTQbdht5LGFTT+MoMom498LzipJ2ZipT8Sb/ZltPcMORc7r2Ql5izvmiSnoy7UGiE6
-         mcY89wBKlsquROfRW6wTHaAxmgekN0gHZcrvqNHr05otd2LnIDPZxK5b822d+k+Au0pR
-         vSzhn9fGIGpvYVdDNQKXMmFUdFWfvKE0h/IkBDboKugpsQLnYrPLIYaqKVaz7wzJMv1l
-         ImkKik59G74c+ubuNXNcognhAdutupbuyL2OFBDXlTXShj7NxVuNfOAdzX/upwwGYvyW
-         YyGw==
+        d=gmail.com; s=20260707; t=1795534170; x=1796138970; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=8tLbVEeC13kOazgUWlOjd/prAO3qeJSqezX08+mwwAo=;
+        b=ESB8LODa35Vf5EcyPsyzwx5pgl/mMKWV85vMM/1+lenyfAOt7Bz0Q0zY7FjolGmpzF
+         YMNP/J9mTqdTFQTAhTBC7jljpZ9TjrZbBCd0tK/xddphcbcZPR3sT0Be1DVddcCvG/r1
+         SY6tklwyNsafnfzBjy93ZHI+FYsPBss7I9FHT4qEZuO+p+cIy9a0IbRS7QhARwKsMTZ7
+         4c9Jg1moj8o9x86oVfV+4t0cqOWdJWcl+5AW25mtQvkei41jvhOHl1A72nJk9ftdCcbd
+         e/cCx1xCkoGCUN+/j8eH2tspcmYxodWCUPHko6eZYfoW7hoqrxR8GwvcQR+HU+RGm7Rq
+         F7ZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795534170; x=1796138970;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pIZqHCS9uMGA/JN3ND+wWAQA7pc+psBTl5VMPUonuyw=;
-        b=t2iimm+8JZzX8evGUGhCSs/RCwQ8feLFMSNFrf1b8+HEf7lsWmovuE+qwOwVGvm/M5
-         Mq6PlB8D7wt97HR3X8MgXHYKHQ6oaJdf/cwOw79gS5y0shjHjh3HpuFJ9kuz6InYTJXz
-         KTFAUQU11FwSbQ27Ahem42olbGvJNxZ6sb1ZQR4HJag8zDke5mCE+V/f+L6jk5j6TkTC
-         1VWbnMRxFODVCk4bWXOTW19uIPhuaAKDwp643WXdwyJJqI7YCvy8S1CfwOvChspUh6fC
-         rCsSAPa443wF1XmTtYg5fSzHLH8cECZT87OkYYEWV+ausoGNseuS57ibGnnpguFxl6+e
-         LrWw==
-X-Forwarded-Encrypted: i=1; AL+hErGhecOdgD0URHNsqEIaCXgQ+lEfgCqX1A3aArxtLhqQ9udN99nrN5QxVD6X8fwaoKWpS3CTYuMluzPCQbU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z95yqiIAaFXaornf2UefC5y6tWWGwEjWhp6fEESPtfZbHLYoK+L
-	NZ1QOZZg6Qe+49VcqcjcKWQmLGiRWwkxfFzAmI8xNUaln5Z4JnkTETpJ2qT/3Cn2RCxUzvwSDvF
-	ng6qJwbKhCUF5LmZUc7ut2g==
-X-Received: from wmlc16.prod.google.com ([2002:a7b:c850:0:b0:4b6:b851:c655])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:8287:b0:4a1:6992:f861 with SMTP id 5b1f17b1804b1-4bb887e064dmr315561905e9.1.1795534169555;
- Tue, 24 Nov 2026 07:29:29 -0800 (PST)
-Date: Tue, 24 Nov 2026 15:28:36 +0000
-In-Reply-To: <20261124152845.2233401-1-vdonnefort@google.com>
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=8tLbVEeC13kOazgUWlOjd/prAO3qeJSqezX08+mwwAo=;
+        b=pORYSdXRTEGuTuwBowEo7518GzwzZV2f2qY7toj7g8bovC4Fpm52bFrMTQo/l9ENYG
+         1yiLaKs+Aqy9GD4foOmBXBYqSeWoXPgLWIIRZYURdMZVKw7BGFYxRW7Er7PILWWgMI/e
+         xgf1BxmOeQtf/+PK2gxmUtKvlXJrs4RhCRnfpGYareyqmyl+JJpSY/6oAEoZ3Sy7lEAb
+         DtHKfNeMH6yJvvLe/a4lDVZx+l3VgDQ+WBqC/h2NqTA8iJ42HaupIymSIGJRSUVOmCMc
+         KhVU3VwN6htC9ZyiWke9IfyeUlLWXl/Sy6d6nwT8VWYtpp/fA/TrMrv8td5qaXevaoD3
+         ljEA==
+X-Forwarded-Encrypted: i=1; AL+hErHm0Oquxj7SwPY6zij9xlMhKdomlaUWNKze45tMG4O7EwaTg0dOnzFJyFQG9kg9x8fv68dOiSdokPo8opE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9FtS5UDP7o6lBSs1F1ZvL7bVSfql8mneKj2Nh1qVmiin0Ec2D3
+	GTb2YtQnj716JxHkRMk5EYWA/AuSaX61YtFFNfIMUwlyWxnfkWO2NMsU
+X-Gm-Gg: AZFdTZctuKOZZ6B4+1BSth5d34jimFt5D8veul2wqHzrg7+vkHwYYAi4yUfBN0RIpSI
+	NfZUkHtXl26BBe8jR4NlptBGbtv3ayV3v2nUU3i4E8gzB6yF9Z67CsyFADl3jeNTFMe0xyiKDwY
+	RS0chmrzo/lV5sU4F5VHplq2upF8iJyGjMoSSi5CsQprT8pTnkMO9nCacP8lK2yz5FkjGLcrjef
+	d19gVmz1NVnRjvKh8iAIKJsPdB5Xi+oZ9jowkhiUwixZQMfmCVcqiXu3qm59YZ78jnMoYjPVlY3
+	lvPq797CebRtRkxbT+hx7QLSQ+oKGBlsC8949ySqsggK3RGa88SAqjfC7/w3Iw2yik69J+aG4xt
+	IWdnw1A2cl/25nc4i+R3SySSSBP4tdayItFYeTTPqVH9hNSItxWytPsoKNNxKmyRkRtyS+VMVlF
+	mbjfNlWudvhxGvtu3zbQOlpVvZNPjRNrf8w3eDjzaSZ9UKNT30SxOtuJd6wFR0KUF+9OZy5Iv9y
+	DZOqnbvmoZFCpjOJdEol6IXNYcxC1rKGZVc+inh7pw/XbI5FSrqzsFLzrOslQGu4cUxf52Gpaua
+	/WI4GWku09AN2dh/ITUlggKQd3IjsJhhuyQR2w==
+X-Received: by 2002:a17:907:2d23:b0:c40:2439:4d9a with SMTP id a640c23a62f3a-c51319c24fcmr1434115166b.28.1795534170279;
+        Tue, 24 Nov 2026 07:29:30 -0800 (PST)
+Received: from [10.32.31.239] ([212.58.121.92])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ad026a4sm540425166b.2.2026.11.24.07.29.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 07:29:29 -0800 (PST)
+From: Stanislav Aleksandrov <lightofmysoul@gmail.com>
+Subject: [PATCH v4 0/2] Add pinctrl driver for Qualcomm Halliday (SXR2250P)
+Date: Tue, 24 Nov 2026 15:29:16 +0000
+Message-Id: <20261124-halliday-tlmm-v4-0-3e3a1d0fb4eb@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,53 +91,75 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261124152845.2233401-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261124152845.2233401-13-vdonnefort@google.com>
-Subject: [PATCH v9 12/21] ring-buffer: Avoid reader_lock deadlock during panic
-From: Vincent Donnefort <vdonnefort@google.com>
-To: rostedt@goodmis.org, mhiramat@kernel.org, 
-	linux-trace-kernel@vger.kernel.org
-Cc: mathieu.desnoyers@efficios.com, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>, 
-	Sashiko <sashiko-bot@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEytBWsC/13NTQ6DIBCG4asY1qVhRqDaVe/RdIGASuNPA9bUG
+ O9etGliXH5hnpeZBOudDeSazMTb0QXXd3HwU0J0rbrKUmfiJshQArCM1qppnFETHZq2pSUKll5
+ 4fLGMRPPytnSfrXd//HZ4F0+rhzWyXtQuDL2ftg9HWO/+7fzQHoEyqiADIzgC1+ZWtco1Z923Z
+ G2PuNMgjxqjLrgxgqFWwPGo051GftRp1LIQIK0oUeZ6r5dl+QIOYVJOOAEAAA==
+X-Change-ID: 20261108-halliday-tlmm-f250374110e0
+To: Bartosz Golaszewski <brgl@kernel.org>, 
+ Bjorn Andersson <andersson@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Konrad Dybcio <konradybcio@kernel.org>, linux-arm-msm@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ Stanislav Aleksandrov <lightofmysoul@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795534168; l=1775;
+ i=lightofmysoul@gmail.com; s=20261108; h=from:subject:message-id;
+ bh=gCYQs/30s75gOvGg0mt5Y5EZUj0bRBXdi1OgnGxyCjM=;
+ b=DOTlVjHNhTZyfIOMSm753f9p4pgPiVLI9TU5wLjeUxJcXQiyhzmLx4wXDRguUIG/4/lsho8Vk
+ eKeoshsCGzWAEoXQQjXjTC347ci9toIjPkHmwaRpgSZE1oVxF7dvecJ
+X-Developer-Key: i=lightofmysoul@gmail.com; a=ed25519;
+ pk=jeRUlfmkhE53CJPoeIIXgu7rTE0ybDRH0HQrEwbydzg=
 
-Although reader_lock is taken with IRQs disabled, panic shutdown can
-stop CPUs with NMIs (most likely if the first attempt with maskable
-interrupts failed). Those NMIs may stop a CPU while it holds the
-reader_lock. Use trylock when panic_on_this_cpu() just like in_nmi().
+This series adds the devicetree bindings and pinctrl/GPIO driver for the
+Top-Level Mode Multiplexer (TLMM) on the Qualcomm Halliday (SXR2250P /
+Snapdragon XR2+ Gen 2) SoC.
 
-Fixes: 289a5a25c5d0 ("ring-buffer: Give NMIs a chance to lock the reader_lock")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/linux-trace-kernel/20260924151509.23AEE1F000FF@smtp.kernel.org/
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+This is part of the initial bring-up effort for Qualcomm Halliday
+and Samsung Galaxy XR.
+
+This work was made together with Claude, ChatGPT and Gemini.
+Reviewed and tested on my Galaxy XR.
+
+Signed-off-by: Stanislav Aleksandrov <lightofmysoul@gmail.com>
 ---
- kernel/trace/ring_buffer.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Changes in v4:
+- Use MSM_GPIO_PIN_FUNCTION() for egpio (Bartosz)
+- Link to v3: https://patch.msgid.link/20261124-halliday-tlmm-v3-0-6b516e5f269c@gmail.com
 
-diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
-index 928fdd4718ea..42507e97291f 100644
---- a/kernel/trace/ring_buffer.c
-+++ b/kernel/trace/ring_buffer.c
-@@ -22,6 +22,7 @@
- #include <linux/kthread.h>	/* for self test */
- #include <linux/module.h>
- #include <linux/percpu.h>
-+#include <linux/panic.h>
- #include <linux/mutex.h>
- #include <linux/delay.h>
- #include <linux/slab.h>
-@@ -6323,7 +6324,7 @@ EXPORT_SYMBOL_GPL(ring_buffer_iter_peek);
- 
- static inline bool rb_reader_lock(struct ring_buffer_per_cpu *cpu_buffer)
- {
--	if (likely(!in_nmi())) {
-+	if (likely(!in_nmi() && !panic_on_this_cpu())) {
- 		raw_spin_lock(&cpu_buffer->reader_lock);
- 		return true;
- 	}
--- 
-2.56.1.809.ga0b61035b5-goog
+Changes in v3:
+- Add the egpio function for GPIOs 185 to 223, which have EGPIO_PRESENT
+  set (Bartosz). The binding gets it in its function list.
+- Use the exact PDC map provided by Bartosz
+- Add the Reviewed-by tag (Krzysztof)
+- Link to v2: https://patch.msgid.link/20261116-halliday-tlmm-v2-0-b4dd502ca142@gmail.com
+
+Changes in v2:
+- dt-bindings: Add the tlmm label that gpio-ranges refers to in the
+  example (Bartosz)
+- Link to v1: https://patch.msgid.link/20261109-halliday-tlmm-v1-0-a181d54214cd@gmail.com
+
+---
+Stanislav Aleksandrov (2):
+      dt-bindings: pinctrl: document the Halliday Top Level Mode Multiplexer
+      pinctrl: qcom: Add Halliday pinctrl driver
+
+ .../bindings/pinctrl/qcom,halliday-tlmm.yaml       |  146 ++
+ drivers/pinctrl/qcom/Kconfig.msm                   |   10 +
+ drivers/pinctrl/qcom/Makefile                      |    1 +
+ drivers/pinctrl/qcom/pinctrl-halliday.c            | 1840 ++++++++++++++++++++
+ 4 files changed, 1997 insertions(+)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261108-halliday-tlmm-f250374110e0
+
+Best regards,
+--  
+Stanislav Aleksandrov <lightofmysoul@gmail.com>
 
