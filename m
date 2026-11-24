@@ -1,59 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795505295;
-	b=AGKTKWjDt0+dLJ7X9lzmjnQR4jUcm+JdUat8zd/GpCcnMUNVefsSyutpDShBUzZAbeoQ
-	 5UZtbGmbaA4HaZpHFpoH0kg4OHTYbT/IJhmtx/QCESyn/Vt6UVq2QmfCXwsFEiS0DsAiC
-	 SXzoSMHI7ob4xVOU+nI9SS6LOqrYBExzjeSNf2LmEVNg26rTrSy+9AchHBGqYXkwVi522
-	 sNv+NFzgnfMfMYyA6nGBzQGKA9Sq5jcv/O+KPXsv5/9UWahhfT8l5ZRGZWTUDIGH9f/a2
-	 o2uPUgpnrjXhqY59Vi/yvdMefEuRkFS3F28+RZCS+dgP1A8tc9frk0iSaAUFZn9F4sg==
+	t=1795505324;
+	b=jZgyK9p23RyQbdDS05xwIrqD9oLCZd6vSvN3ej+XmroVWLKxGcuysg3KNB1aN1JQJurt
+	 wGch7QRJ1QW1tFsV72bkU8pzY/Gnxomk0Bt0AUIy3NmnhxPKlMCCWnAVluDsf1RZep4jp
+	 u8p1qQPi0zf7hkEhxOpqYtqbh746cXZMcnezRFeLJMHqfI4uEF2FEyUHRWaDAJE+5rFid
+	 XpZW/SbxqNV3eDgLtKSWutBShtIm/3fNh9/PG6ojdig73cLXArahfRpYGSpV4qv/l4fYz
+	 JQH551mtPN+xlW87ktXn7rl9lW8NbbGGdBtJIAHKyjb4cg4DyOY1RVCu+fXlSN9SWqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795505295;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=66jrq+oJZdf0irrtzpu4akObhjJYRkg//+AlDyPnUv8=;
-	b=BAUlPPvdKhq5l0nqu2JzASZnr89S60TnszAQ0nzG/qH/Qat6qnLUKQ4yYtUTkvN1zcCC
-	 uXSAq43KVrKJtNs+OB2OMnHP5HK/wpi/1cTAflPWN20uocretLv7rcuEx3YJe0FRZcQfX
-	 gn/Q5GANQ+uYUh4mQnncFFCvX986nNqi9dw/UDgHC9HaaKffm6dBXPIAQi5xFViNXz1oT
-	 BBSRrhR1jY4mS9obPckyOpgfongiONkHxoUs9bSfPunOuLDqUQ45GddpNWeKIbgiongNh
-	 FAiisfTQGs3QOYTjcdne+RfyKxAdGxoHe5upDSjewMWKJWcEdFAZbbxcOn9sA3DkO2Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795505324;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=WtLZKv4PnV43ule2KMeNIz98TT04uu2TzULijbQvMnI=;
+	b=s3vjxivBrMLvXpfx4pCVSXD+r0ftHbMaKhegoD5qmdFuwwfWWq6FV5MnQcJkq0torz/2
+	 h0BLjKff+OY/u0Wqu3eWEU3CqjdJo68VOcSjyzhNXX9eZmJYriPVbMLaK5j0K5Ui44IbB
+	 fNJ/5u5N48v48iNZRW8vsSDMZB6lzf23zZeyQV2P2pb1zP67sx/h0wfyVMnFCNtzNIMS8
+	 Zg6hMKEWytt6kItuWZ20mof5bO5ipuIL4SSXonLODfOWYkbMsffspUfRQworW682+8RVK
+	 WuO2yH0/4MwDmigE/YYi3NHiy45gkLbSVV+SVMrfdJ+Lik0K4S97R9E28p1aQeXUSBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b="15/CTDVr";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=QuSDH9g0;
+	arc=none smtp.remote-ip=74.125.82.52
+Received: from mail-dl1-f52.google.com (mail-dl1-f52.google.com [74.125.82.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A2DC606A31E;
-	Tue, 24 Nov 2026 07:28:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38639606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:28:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38639606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=15/CTDVr
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03A2A1F000C6;
-	Tue, 24 Nov 2026 07:28:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795505294;
-	bh=66jrq+oJZdf0irrtzpu4akObhjJYRkg//+AlDyPnUv8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=15/CTDVrFH2SxtpCRrv/Y947QZufP/g6l3FNki8VHXKH2JrZsWdGUh9UFqvVpCeAw
-	 hMNZRVtFZr52TldkPhxU+uLYGgebjs4LdvlWCSmepZ0tG1wb2COTOQGrI6omSnDRDx
-	 5dcdDsWz/CbpmH4nNWzgEKmsgeSAnK6em+bVALEY=
-Date: Tue, 24 Nov 2026 08:28:11 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Sasha Levin <sashal@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>,
-	linux-phy@lists.infradead.org,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>
-Subject: Re: linux-next: build failure in the final build
-Message-ID: <2026112402-squid-king-c8df@gregkh>
-References: <awR7nSOWkxRm-iP6@sirena.org.uk>
- <20261123212627.1203724-1-sashal@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=QuSDH9g0
+Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-170135e43c7so6060702c88.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:28:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1795505323; x=1796110123; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WtLZKv4PnV43ule2KMeNIz98TT04uu2TzULijbQvMnI=;
+        b=QuSDH9g0Yf1FWzuIb52bLRWBfPmSOfshu7ZDI9PbEK461SZrYtGMFyFm5hVWhm7E89
+         UdhFa9srtOTK43Nzl1sJG4bkO5u6bEgjqvpbmV1GjahzECGTMrJDfU9zrxJNtOjrVzuj
+         X3wMQHhQJBg/YbyZVdFuLz18WgrhRrqez6gBQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795505323; x=1796110123;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WtLZKv4PnV43ule2KMeNIz98TT04uu2TzULijbQvMnI=;
+        b=rOWV/rCWYLDpWv1/gsyWayNFRq74uLhyjpa8KjsoO4AxuVBkHbYJWtnAhtFOQYJgbX
+         7po4K2OhOcgnCU8jizmnyTrHYpQLExjsHbcKomRMdU24HElWkOQCay9eu16Xs4CZi6Tv
+         wDQqBPMR9kHtB29iLJz1qkqK6on6zwNelDqZtOx1WIGN6RBhTUPLSkqTe/U900FFFyGk
+         iKxqS5AguYl/7LmyckYXiGcubcbe/tQOlEeqo69koKppOqJyIWcgw2QJQInpIrLEo926
+         FK9H3ObKg7rUNqW6Icz9gv0nZYK3Q3OD9qnqHQxHAfk7GtlP3QHEdR/FtDSE1gO2h7Xa
+         z0ug==
+X-Forwarded-Encrypted: i=1; AL+hErFKQcc2M4glUYmk8STQY5Al1TYVuhdYSupmrr1LyDIsvXQZSAPnruj/pCbh+KDJS/KJ0mQBUmxuUBSBbSo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/hwVy77k47QXbrCliz6g3qao8l0nmNbWiQMFzMQDUganbnc2Y0
+	dtG2my1mIPIEqmKaL7w4wvvsWaJ2LPH+xU5iq73c7qY9zeh6O3Rt/mF9Q9+0ymcNEw==
+X-Gm-Gg: AZFdTZdH6Htub3E1qClPNr1KPM/0ppz0jbPEPSWXFv5cnB4LcoABWCzwyhxtJ2HBmRN
+	7fy6FFnarw2GzHPlxYz5ODV4+IShoPpC0C7usArJbZXLv+mxQ85cJ8R9MStL7HOuPQ5s1WZTuR7
+	dTEfkIYo901O8xHx9PioOt+/rZCloP3VYS89QfSxfahBLTVJu3cA6633M3Op87VtOA2A9Ls9gmQ
+	PLSIkCQH90hl9XGHPVXgL5554PWIGr82eJmkN5Sno1deBpgG3NPbe+cCaO2cxoUR7ui3AEUQQ8+
+	DUWhKpv4nzu71Lm9QKU59XCftvzSJ7fm7E18VwUIakiU3E2g72ukD7T0AwbCFQF0GJ+jGEzzfpW
+	UPTeFetTqEPmf4W6JLEE6LkqfBxpTXUIF+8KVRI91Ndza1awhNls7rIysYPQ+3j66JuHf4EJfWm
+	x1BeRy+Hdbqy2P0mdnCfaZAyoOXWRtvx+cnDfPljSqmdVksQc5mgZ0UgA/5e/WY2hyrP7Emtqc7
+	QO+CiwhTKz0l6OsRfGm/chKYbs7byOCh6JRlLRxhHEgTne+fMiJPAFyk0iJHbC4DMni0QcIiTY7
+	UatSHHU/mFfqwyTrkQQGCUNzFIa6/Q0ppEQxmbHtpo+3+75mt2AwWdBVxj5+OkzJ2zvh/NZmmoC
+	mDmv6+cW8n2gPYgc=
+X-Received: by 2002:a05:693c:8083:b0:376:6530:248f with SMTP id 5a478bee46e88-38570a3717dmr16522843eec.24.1795505323304;
+        Mon, 23 Nov 2026 23:28:43 -0800 (PST)
+Received: from google.com ([2a00:79e0:2031:6:d159:d585:9ced:38ba])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm44118149eec.28.2026.11.23.23.28.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 23:28:42 -0800 (PST)
+Date: Tue, 24 Nov 2026 16:28:39 +0900
+From: Sergey Senozhatsky <senozhatsky@chromium.org>
+To: Xueyuan Chen <xueyuan.chen21@gmail.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, Nhat Pham <nphamcs@gmail.com>, Yosry Ahmed <yosry@kernel.org>
+Cc: Minchan Kim <minchan@kernel.org>, 
+	Sergey Senozhatsky <senozhatsky@chromium.org>, Jens Axboe <axboe@kernel.dk>, linux-kernel@vger.kernel.org, 
+	linux-block@vger.kernel.org
+Subject: Re: [PATCH RFC 2/3] lib/lz4: add safe decompression from two input
+ buffers
+Message-ID: <awU7nwcEVC20uGMi@google.com>
+References: <20261122-zram-split-decomp-mm-rfc-v1-0-4e69b08c0fed@gmail.com>
+ <20261122-zram-split-decomp-mm-rfc-v1-2-4e69b08c0fed@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,20 +100,237 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261123212627.1203724-1-sashal@kernel.org>
+In-Reply-To: <20261122-zram-split-decomp-mm-rfc-v1-2-4e69b08c0fed@gmail.com>
 
-On Mon, Nov 23, 2026 at 04:26:27PM -0500, Sasha Levin wrote:
-> On Mon, Nov 23, 2026 at 05:45:01PM +0000, Mark Brown wrote:
-> > I did not specifically identify the commit that triggered this, it will
-> > be some include file reorganisation which causes PHY_TYPE_PCIE from the
-> > DT headers to become visible to the driver, clearly there is a
-> > namespacing issue going on here.  I have ignored this for today.
+Let me Cc Herbert and zswap folks on this.  Herbert mentioned previously
+(back in the days when we landed SG-list based zsmalloc object read API)
+that lz4 can be extended to support spanning zsmalloc objects and, if this
+lands, then zswap may also be interested in adopting it (along with zram).
+
+On (26/11/22 01:09), Xueyuan Chen wrote:
+> LZ4_decompress_generic() assumes contiguous input. Its wide literal
+> loads can cross the boundary between independently mapped fragments.
 > 
-> I sent a fix for the driver yesterday. It renames the driver's enum
-> values so they don't clash with the dt-bindings ones:
+> Add a dictionary-free block decoder that reads from two buffers and
+> handles literals, lengths and offsets that cross the split.
 > 
->   https://lore.kernel.org/all/20261122152857.1113943-1-sashal@kernel.org/
-
-I'll go queue that one up now, thanks.
-
-greg k-h
+> Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> ---
+>  include/linux/lz4.h      |  18 ++++++
+>  lib/lz4/lz4_decompress.c | 163 +++++++++++++++++++++++++++++++++++++++++++++++
+>  2 files changed, 181 insertions(+)
+> 
+> diff --git a/include/linux/lz4.h b/include/linux/lz4.h
+> index ad6042a718b5..3b6217bd9a9b 100644
+> --- a/include/linux/lz4.h
+> +++ b/include/linux/lz4.h
+> @@ -292,6 +292,24 @@ int LZ4_decompress_fast(const char *source, char *dest, int originalSize);
+>  int LZ4_decompress_safe(const char *source, char *dest, int compressedSize,
+>  	int maxDecompressedSize);
+>  
+> +/**
+> + * LZ4_decompress_safe_split() - Decode a single block from two buffers
+> + * @first: address of the first input fragment
+> + * @first_len: bytes in the first input fragment
+> + * @second: address of the second input fragment
+> + * @second_len: bytes in the second input fragment
+> + * @dst: output buffer, disjoint from the input buffers
+> + * @capacity: bytes available in the output buffer
+> + *
+> + * The fragments, in order, contain one dictionary-free LZ4 block.
+> + * Their addresses need not be adjacent. An empty fragment may be NULL.
+> + *
+> + * Return: the decoded size, or -EINVAL on error.
+> + */
+> +int LZ4_decompress_safe_split(const u8 *first, size_t first_len,
+> +			      const u8 *second, size_t second_len,
+> +			      u8 *dst, int capacity);
+> +
+>  /**
+>   * LZ4_decompress_safe_partial() - Decompress a block of size 'compressedSize'
+>   *	at position 'source' into buffer 'dest'
+> diff --git a/lib/lz4/lz4_decompress.c b/lib/lz4/lz4_decompress.c
+> index 3a2cd9acada4..548197faa3e3 100644
+> --- a/lib/lz4/lz4_decompress.c
+> +++ b/lib/lz4/lz4_decompress.c
+> @@ -39,6 +39,11 @@
+>  #include <linux/kernel.h>
+>  #include <linux/unaligned.h>
+>  
+> +#ifndef STATIC
+> +#include <linux/errno.h>
+> +#include <linux/limits.h>
+> +#endif
+> +
+>  /*-*****************************
+>   *	Decompression functions
+>   *******************************/
+> @@ -705,6 +710,164 @@ int LZ4_decompress_fast_usingDict(const char *source, char *dest,
+>  }
+>  
+>  #ifndef STATIC
+> +struct lz4_split_input {
+> +	const u8 *first;
+> +	const u8 *second;
+> +	size_t split;
+> +	size_t size;
+> +	size_t pos;
+> +};
+> +
+> +static __always_inline size_t
+> +lz4_split_input_left(const struct lz4_split_input *in)
+> +{
+> +	return in->size - in->pos;
+> +}
+> +
+> +static __always_inline int lz4_split_get_byte(struct lz4_split_input *in)
+> +{
+> +	size_t pos = in->pos;
+> +
+> +	if (unlikely(pos == in->size))
+> +		return -1;
+> +	in->pos++;
+> +	if (pos < in->split)
+> +		return in->first[pos];
+> +	return in->second[pos - in->split];
+> +}
+> +
+> +/* The caller has checked that two bytes remain in the block. */
+> +static __always_inline int lz4_split_get_offset(struct lz4_split_input *in)
+> +{
+> +	size_t pos = in->pos;
+> +
+> +	in->pos += 2;
+> +	if (pos >= in->split)
+> +		return get_unaligned_le16(in->second + (pos - in->split));
+> +	if (in->split - pos >= 2)
+> +		return get_unaligned_le16(in->first + pos);
+> +	return in->first[pos] | (in->second[0] << 8);
+> +}
+> +
+> +static __always_inline bool
+> +lz4_split_copy_literals(struct lz4_split_input *in, u8 *dst, size_t len)
+> +{
+> +	size_t pos = in->pos;
+> +
+> +	if (unlikely(len > lz4_split_input_left(in)))
+> +		return false;
+> +	if (!len)
+> +		return true;
+> +	if (pos < in->split) {
+> +		size_t n = min(len, in->split - pos);
+> +
+> +		memcpy(dst, in->first + pos, n);
+> +		pos += n;
+> +		dst += n;
+> +		len -= n;
+> +	}
+> +	if (len)
+> +		memcpy(dst, in->second + (pos - in->split), len);
+> +	in->pos = pos + len;
+> +	return true;
+> +}
+> +
+> +/* The decoder has checked the lookbehind distance and output capacity. */
+> +static __always_inline void
+> +lz4_split_copy_match(u8 *dst, size_t distance, size_t len)
+> +{
+> +	size_t copied = min(distance, len);
+> +
+> +	if (distance == 1) {
+> +		memset(dst, dst[-1], len);
+> +		return;
+> +	}
+> +
+> +	memcpy(dst, dst - distance, copied);
+> +	/* Reuse the period already written, keeping each copy disjoint. */
+> +	while (len - copied > copied) {
+> +		memcpy(dst + copied, dst, copied);
+> +		copied *= 2;
+> +	}
+> +	if (copied < len)
+> +		memcpy(dst + copied, dst, len - copied);
+> +}
+> +
+> +static __always_inline int
+> +lz4_split_read_length(struct lz4_split_input *in, int length, int limit)
+> +{
+> +	int byte;
+> +
+> +	if (length > limit)
+> +		return -EINVAL;
+> +	if (length < RUN_MASK)
+> +		return length;
+> +
+> +	do {
+> +		byte = lz4_split_get_byte(in);
+> +		if (byte < 0 || byte > limit - length)
+> +			return -EINVAL;
+> +		length += byte;
+> +	} while (byte == 255);
+> +	return length;
+> +}
+> +
+> +int LZ4_decompress_safe_split(const u8 *first, size_t first_len,
+> +			      const u8 *second, size_t second_len,
+> +			      u8 *dst, int capacity)
+> +{
+> +	struct lz4_split_input in = {
+> +		.first = first,
+> +		.second = second,
+> +		.split = first_len,
+> +	};
+> +	int written = 0, min_last_literals = 0;
+> +
+> +	if (capacity < 0 || !dst || (!first && first_len) ||
+> +	    (!second && second_len) || first_len > SIZE_MAX - second_len)
+> +		return -EINVAL;
+> +	in.size = first_len + second_len;
+> +
+> +	for (;;) {
+> +		int token, literal, distance, match;
+> +
+> +		token = lz4_split_get_byte(&in);
+> +		if (token < 0)
+> +			return -EINVAL;
+> +		literal = lz4_split_read_length(&in, token >> ML_BITS,
+> +						capacity - written);
+> +		if (literal < 0 ||
+> +		    !lz4_split_copy_literals(&in, dst + written, literal))
+> +			return -EINVAL;
+> +		written += literal;
+> +		if (!lz4_split_input_left(&in))
+> +			return literal >= min_last_literals ? written : -EINVAL;
+> +
+> +		/* A match must leave room for the final literal sequence. */
+> +		if (lz4_split_input_left(&in) < 2 + 1 + LASTLITERALS ||
+> +		    capacity - written < MFLIMIT)
+> +			return -EINVAL;
+> +
+> +		distance = lz4_split_get_offset(&in);
+> +		if (!distance || distance > written)
+> +			return -EINVAL;
+> +		match = lz4_split_read_length(&in, token & ML_MASK,
+> +					      capacity - written - MINMATCH -
+> +					      LASTLITERALS);
+> +		if (match < 0)
+> +			return -EINVAL;
+> +		match += MINMATCH;
+> +		lz4_split_copy_match(dst + written, distance, match);
+> +		written += match;
+> +		/*
+> +		 * Leave at least LASTLITERALS bytes and end at least MFLIMIT
+> +		 * bytes past the start of the last match.
+> +		 */
+> +		min_last_literals = max(LASTLITERALS, MFLIMIT - match);
+> +	}
+> +}
+> +EXPORT_SYMBOL_GPL(LZ4_decompress_safe_split);
+> +
+>  EXPORT_SYMBOL(LZ4_decompress_safe);
+>  EXPORT_SYMBOL(LZ4_decompress_safe_partial);
+>  EXPORT_SYMBOL(LZ4_decompress_fast);
+> 
+> -- 
+> 2.47.3
+> 
