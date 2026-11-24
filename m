@@ -1,60 +1,71 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795541615;
-	b=afk5AwbQeoBVp9mhnF+0aqruoCFCsjzJ4DKm7AYRh8KzxK4olFPhXKZUtnKsJSp8nnIi
-	 zdD8hu/nB5JEEAa+ppVRJHt3yqgwWALT31QrX6l2K2H2R1qq3j0Nqw+TN5GgE5ZxNnyL6
-	 KvFyGdVZghqW+qVmcBOTGvTMRwjgpoPLAfCNuFQD36Qb71wJ6aa0byJHlGSy765tC1y7t
-	 Ei7kN3f/+BQ2hiu46cNkZP3Hvp8E0YIRXgvxF2G9Z+TvtoGnwo8mTMVAZuLzIj86Gff7R
-	 75tZqRjOHjiWocm0tqfHE2Zvp+i7uskO1iobcEUqtDxP/UtlxnjM3mcIOWwb8KzXLPg==
+	t=1795541611;
+	b=E3s/6EKLjDFHRqzeHcl2eZHxGKxHwFFssk3hI0uM9UrIcR5/EhWFInMhwWVh2RXasELV
+	 g5Xb+I5/wdb1VxsoPyIeJDkORIOtVjhQDWAnYEb1WTydygTb4zxzM6D7hkNW3N2psmlpT
+	 Xfiy2RSc3rJH6qw3o+XPq7RVpt/rr0AFj3zFpYGhdWeah4yrn0Z2Sf6MspAPF8N4aDOR2
+	 hUNpyqhEN4UY6jLESr4riizfRd+ITTURxH18enG5fiWV1JR6exqzUMcP+0SU2OEmDYl/A
+	 OgCTClbTVB4wUW84ijMMYf5lji3RgQeKFvdg1ZKj+G1kTpog9Q77KRqanrfh/+x1BLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541615;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=pEuF4UXdvuOAlixC85PRtyQwE7CW1r+JuVMVWrFv2yA=;
-	b=s38G7kAN3bnj9Dditu7HfrUXhmqIs9HLSASYY99Rf56duUTZQ8mJcl0zLiZ6BiURYs3g
-	 UIgoN6OUiLDsfg9/pLSW2XebGIrkVXMg9KpDZU5C6h+I+7wi42gN/B52bsz9LpKTgnYv9
-	 JhKfcYUp2Jadhp8w3cJLLJPsKJRsCNwaY5gOxEmGS4XpcOhzm2pZVJ9OdSEAWnigW0T44
-	 A8pKRL6f6QGwpaz9XWuFmU80jfW9pSIPciJ1KgSH3Y/r6qwJQ4Fa+0XmWqr3mPaNZqUbS
-	 anXfUIHvtQcM+6mUWJXJbW0aKG0RTjODm8n24vLyLMr0OcBIlaMHPBJBhXDEyisEjIQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541611;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-Id:
+	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=blq/el2aPt5UfDt/KiVCvCZ0Fkkm7VLYJBz/or3AGCI=;
+	b=cZBe0YdBpNp+JlEKsADugMjXmKCYKfpbXXNflRGchHK+FVeKZdpRqBeYCaAiClLymtF5
+	 lBNoDK9C4akWH7B9qT5zzAfX0QUfNf3MKjDdjT5Ncti5QWFZbOM4F1+JOqa3YjYXpPLBy
+	 C48a6SRMhWxx5c0CIh0TpYXrxuBwVEAJ5RR2UU1yM/6iecu2TlXBjKp5H80OrFp7l9HsS
+	 wpcd8f6KYhsDoZNLk6+XOYGYJ9CDG/llL96Q8bvIwxO/vz3B7GCgoWp2vSis2lixzkEbL
+	 1Rlh5AxMNnTwSPtPI2spOZCTqjCJKJz2+bbZFvvm3aGxOi/4KLXEkba/dZCyx0hNrOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AGBBiw76;
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=b4UlxNx+;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A036606A688;
-	Tue, 24 Nov 2026 17:33:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E20E7606A31E;
+	Tue, 24 Nov 2026 17:33:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AGBBiw76
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B3CE1F00A3E;
-	Tue, 24 Nov 2026 17:33:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795541614;
-	bh=pEuF4UXdvuOAlixC85PRtyQwE7CW1r+JuVMVWrFv2yA=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=AGBBiw76bODRsuyoba/o6wZYt7FGGBiCRpBG9PdHYHwkXomfNiRqJudM9UdN73Bog
-	 wN6wbpmo5iPTJAu4t555S0VpxjpP3Y3rNzKpsMSRoyEym+0vrnGaCr+EMI/lJLh+M2
-	 jw9SJWUeiP2Ml+Zpp468oybRSFmZ3UDR+2vUMgIM8gj4vhLF1aZRwZi4iwlZJVDzsr
-	 eD1OhsTqpNg9x9iIpBfz8Ms2y3shT6dRc0I5/e7As5yPhyRHsZDyMudrfdD/F1DxNB
-	 EjPZP6dPzqIDF5WS6puIfwyGTaUBbO6yh1SYMk+MZiwW2wn1w49zeDizcFti7tJ3qq
-	 vyzPzhQHAb9dw==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, 
- Charles Keepax <ckeepax@opensource.cirrus.com>, 
- Richard Fitzgerald <rf@opensource.cirrus.com>, 
- David Rhodes <david.rhodes@cirrus.com>, Lee Jones <lee@kernel.org>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: patches@opensource.cirrus.com, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org, mfd@lists.linux.dev
-In-Reply-To: <20261123-arizona-asoc-v2-0-6323d3c0961a@gmail.com>
-References: <20261123-arizona-asoc-v2-0-6323d3c0961a@gmail.com>
-Subject: Re: [PATCH v2 0/4] ASoC: arizona: switch to generic device
- properties and clean up
-Message-Id: <179553350367.264265.622212709195339744.b4-ty@b4>
-Date: Tue, 24 Nov 2026 15:18:23 +0000
+	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=b4UlxNx+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 090C61F000E0;
+	Tue, 24 Nov 2026 17:33:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux-foundation.org; s=korg; t=1795541610;
+	bh=blq/el2aPt5UfDt/KiVCvCZ0Fkkm7VLYJBz/or3AGCI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=b4UlxNx+hHhTvQlpuWn5Ve2tZChP3vfavnkVO8u3JGwAdSDvVnEl9QrxbONCENhk3
+	 DWYyWCuN5+CAQekwedZhHBjXousbu7eTBul+L2nCB4J8Y16encOJ22C99TIMv0Paca
+	 mifcMmZICk8tDWEmGDl+z8GQuiwgDybK5mZ9iTx4=
+Date: Tue, 24 Nov 2026 09:33:28 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Suren Baghdasaryan <surenb@google.com>, Puranjay Mohan
+ <puranjay12@gmail.com>, Pedro Falcato <pfalcato@suse.de>, Ingo Molnar
+ <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Juri Lelli
+ <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt
+ <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman
+ <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, K Prateek
+ Nayak <kprateek.nayak@amd.com>, Kees Cook <kees@kernel.org>, David
+ Hildenbrand <david@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Michal Hocko <mhocko@suse.com>, Shakeel Butt <shakeel.butt@linux.dev>, Jann
+ Horn <jannh@google.com>, Alexei Starovoitov <ast@kernel.org>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
+ Chris Mason <mason@kernel.org>, stable@vger.kernel.org
+Subject: Re: [PATCH] mm/vma: drop mm asynchronously in vma_start_read()
+Message-Id: <20261124093328.3ba2e066e5d5081c69e0e667@linux-foundation.org>
+In-Reply-To: <awXHR007d8MlhJUC@gremlin>
+References: <20261124-vma-read-lock-mmdrop-async-v1-1-257f99f551de@kernel.org>
+	<awWLCZ-jBjSD7V3M@pedro-suse.tail5790ac.ts.net>
+	<CAJuCfpGk6eYK43Unxo+O4ML5=GM_siZ9owp6oa9fO0ipZXVg-g@mail.gmail.com>
+	<CAJuCfpEd1rz3P7fB7W_mHkyzbpq9TscRE+QNwvHdYME=WJj6cw@mail.gmail.com>
+	<awWz3nc_b8x3mIXq@gremlin>
+	<CANk7y0gAxY18Ew+6j5YsqrOsf5Dx+v5M78r7_8JLXh5RHZj4qA@mail.gmail.com>
+	<CAJuCfpFuDCUPTUi3SuAhmbtw5tubRZ0+YEY3PotjyJ8Or8pdQQ@mail.gmail.com>
+	<awXHR007d8MlhJUC@gremlin>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,69 +74,59 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2295; i=broonie@kernel.org;
- h=from:subject:message-id; bh=AAwwm4kVkDk6Y8/0C98PPgTZBZCFethq14/7w3Cowyc=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJZT2Xt/ZXHvCJOjbHubv99n/SaVd0HVE8xGFQERL2Z3
- ipa8Vmxo5SFQYyLQVZMkSUui/tlfcnrNXwHF7bBzGFlAhnCwMUpABPZ9ZCR4WHN56+LquXKz96X
- vchqdMNS7lLtn0krG6oanBdPWrVr1mlGhm0yMXKbejiPHnct+WQ/3U6s8J3zHqY8G56GWd/sOVI
- 6OAA=
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Mime-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Mon, 23 Nov 2026 15:00:53 -0800, Dmitry Torokhov wrote:
-> ASoC: arizona: switch to generic device properties and clean up
+On Tue, 24 Nov 2026 17:23:35 +0000 "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
+
+> On Tue, Nov 24, 2026 at 08:34:40AM -0800, Suren Baghdasaryan wrote:
+> > On Tue, Nov 24, 2026 at 8:06 AM Puranjay Mohan <puranjay12@gmail.com> wrote:
+> > >
+> > > On Tue, Nov 24, 2026 at 9:28 PM Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
+> > > >
+> > > > On Tue, Nov 24, 2026 at 07:51:42AM -0800, Suren Baghdasaryan wrote:
+> > > > > Actually, VMAs are allocated from a SLAB_TYPESAFE_BY_RCU slub. With
+> > > > > that RCU unlocking move you don't need other_mm copy and the comment
+> > > > > that comes with it. VMA won't be freed until RCU lock is dropped.
+> > > >
+> > > > Yeah but they can be reassigned? They won't be _freed_ until a grace period but
+> > > > they can go back to the slab and then allocated elsewhere  right?
+> > > >
+> > >
+> > > Yes, they can go back to the slab and become a different VMA.
+> >
+> > Yeah, you are right about that. So, we either have to keep the RCU
+> > unlock in place to keep other_mm comment valid (my personal
+> > preference) or update the comment next to other_mm to explain the new
+> > reason it is needed. Either way is fine with me.
 > 
-> This series converts Arizona ASoC drivers to generic device properties
-> and cleans up dead code and formatting issues:
+> I think let's just change the comment?
 > 
-> - Convert audio platform data parsing from OF-only APIs to generic
->   device property helpers and drop CONFIG_OF guards across the codec
->   drivers.
-> - Parse device properties unconditionally in the jack detection and codec
->   drivers even when platform data is supplied, preserving existing
->   channel settings and boolean flags when properties are absent.
-> - Drop unused hpdet_acc_id and hpdet_acc_id_line fields from struct
->   arizona_pdata along with the unreachable HPDET accessory ID logic in
->   the jack detection driver.
-> - Clean up coding style and argument alignment in arizona-jack.c.
+> Andrew could you change:
 > 
-> [...]
+> 	 * stable and can be freed in the narrow window after vma->vm_refcnt
+> 
+> ->
+> 
+> 	 * stable and can be reused in the narrow window after vma->vm_refcnt
+> 	                     ^
+> 			     |
+> 			     just this freed -> reused :)
+> 
 
-Applied to
+np.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
-
-Thanks!
-
-[1/4] ASoC: arizona: convert audio pdata parsing to generic device properties
-      https://git.kernel.org/broonie/sound/c/e479ed6b6ccf
-[2/4] ASoC: arizona: always parse device properties regardless of platform data
-      https://git.kernel.org/broonie/sound/c/53136aa2d64d
-[3/4] ASoC: arizona: drop unused HPDET accessory ID support
-      https://git.kernel.org/broonie/sound/c/a516c1f40ea4
-[4/4] ASoC: arizona: clean up coding style and formatting
-      https://git.kernel.org/broonie/sound/c/ce694590177a
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+--- a/mm/mmap_lock.c~mm-vma-drop-mm-asynchronously-in-vma_start_read-fix
++++ a/mm/mmap_lock.c
+@@ -300,7 +300,7 @@ err:
+ err_unstable:
+ 	/*
+ 	 * If vma got attached to another mm from under us, that mm is not
+-	 * stable and can be freed in the narrow window after vma->vm_refcnt
++	 * stable and can be reused in the narrow window after vma->vm_refcnt
+ 	 * is dropped and before rcuwait_wake_up(mm) is called. Grab it before
+ 	 * releasing vma->vm_refcnt.
+ 	 */
+_
 
