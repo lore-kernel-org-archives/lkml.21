@@ -1,93 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795490876;
-	b=eXNB8/NeZ9qSTrlYhQHf9L1IrqFGH2hYz7q2FiFY+NKMrbX21cpxHac9rtkUr4a7bR4U
-	 yO3a8wtkt4+EL+/lNRmTN3I7jhI3uhvYjQfzTRfYQN90NOTCfsVKozWV7ef4EjNlW0Ng/
-	 slSAL8kPumzDoRSdJ5nrbc5b5s/uykaEBZI07ElHN2NvKE6m9nDZJYEDlD34bfwP2p5ci
-	 q2cBxUR6VCqvJfY8Re11ZTDncc8U9KfjTl+23Gs2NLWydceiUDMzm8v9uuGxJQ756m4r9
-	 sXAXVPO3TJhO8M3SXj2IJY0IYaLH+RFbKbVjvx0/5LdU/xZxl2LEnNHNb2QPKnV7V0w==
+	t=1795490877;
+	b=j5XYh/34G5DJNatyiAwvIjsMS8khFIVTaroC3My/48XTCP5di/UwLB6S+qgh3mR2NueF
+	 jzr77wpWxqp1sNJzLmpDvQRXY/S24/ddVk7bx4vOsRq+LX+yWZ+UsNocTRvd7CQm4UgxN
+	 y5RkAym86Gvm4WDMuFfAa+IZca4EZyQvM0LJ06P1cEfp0dd280bvhjszyQ+FKMafF5w5F
+	 RVOlMCodBFHUMf0g4tDMaKQKsl+5xg/Vj/ABY1aplmV555xdwtJqpH0U69T/RwUYihwNS
+	 FgXU87jHLM0N82+wfaE5+Egd6rIaWySdtKYqOhaLsaP4owQVXOn9+yzzON+Mj/Og5kQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795490876;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795490877;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=hhfV7rDvQGkX8svztm1wWEU7DwBbew5Nukh/CQf2+fA=;
-	b=ZaYv2rpWeNYsQmIZ8Z902pWDAu2aVEXfcdtV/42AuOqq7SNvNaAQ1tD5xZf7j1m47G8C
-	 Deyvpp0igt11BsS6MZ2KdXUMPMCUWYIQMfVzjjsfTERlk7DsyaRbjw+Jdldy4IliGdQgC
-	 AZhr+yeoM+61s60obs4PfDr0kuvA1Z+kxcrzTFkyweUM42HufrxVZ9PT16lkKh+SIBdWQ
-	 Kz4tCUoDC5pD0owSNnOAmhveYftoe78fuMzx8wVE0jBpakBY5Bx9cT2/3nT583yRw2fcd
-	 7Pe2+q00kCKDvxSZj9Cj4gIshuyHP1nKAU4kQR5ljRQdFNqENP4/z77UZ/bseAF4BBQ==
+	bh=oN/cZp9q5wZoqC1lfLoWR2vXWj83Wie4hQDwsy7qSN4=;
+	b=f+4UD0E3qz9Qk9uamKJANAeuGY8fRViMhxbSK2YZAjlxjVCl435UvZbM4jfY3rT7Dijv
+	 7AJJuBTrjO9Pu/hJpe4Js9tUzRZp0MDU2/kxkFgizhtHLU0jBjRyjGnHaUfZSI0lQLbud
+	 P88UbSGpRSFCkFYsKxAr7iptKuykHQ1ykx1SwYtplsIgOcx17NikKACCmmRdWt3aEV9nQ
+	 DRgmNTlOf0U8hN2fRZ2mwBqKFMWAVYz133tUz+Gv4B5v+iFiO1mH7CsETGR/PZY/RDgar
+	 3JaDephcmxMvkJoxPBn9ObpA8oQdgCSLA0z9MABc65JhwJZxFueX+w7B7y2Zr5sJuLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vg4j30II;
-	arc=none smtp.remote-ip=209.85.214.173
-Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LvWVL2vm;
+	arc=none smtp.remote-ip=95.215.58.232
+Received: from mta1.migadu.com (out-232.mta1.migadu.com [95.215.58.232])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA0F1606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:27:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA0F1606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 729E8606A32E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:27:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 729E8606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vg4j30II
-Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2efddf749e5so20095605ad.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:27:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795490875; x=1796095675; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hhfV7rDvQGkX8svztm1wWEU7DwBbew5Nukh/CQf2+fA=;
-        b=vg4j30II83qAo21CgEp+YvJSc3iCY6B0L3MN5figp/Z8qazJdhaWBFFdUXkguA/Bev
-         Ik6ZXKxLyog7KvafE4ASlOlqQkYn8tSoaWsPkXtUKyWSv6EWR5QEvMzGs5cGp75q9c2l
-         MZHuaHaRRX66wjT+++hqhvwc2zoaDRAXY/U9F1SsrFKcTJg8xpbXJm5GnqKd77bYTRhW
-         G5uO7X5FT94I8EAGIggAi/fUMsAz0Q1j9xdhyd/Lfuol51vKjnjptGN345vvsBtBVjZ6
-         6pAQYvicZqoT8aSZ5tfC2oHkBRwKsUEPdTjDvmAcJ/V8pdSHaLietMzs4+ggAJK2Fktq
-         p+oQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795490875; x=1796095675;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hhfV7rDvQGkX8svztm1wWEU7DwBbew5Nukh/CQf2+fA=;
-        b=0QQAEVBx0aV0tvUK4kHigVkA+Yk5CbSPUFdkcTUUsYWVOJPumTU5BXK+IBhT3uzJVb
-         SSu8NGyWgxyou5nfrEVS+VkuTCE+Ex+9hdDr4s1b+Knv1l097xA99gnI1J8SPrzuEjzE
-         DFtho2PMr5xp2ToOeaTbIJ2MjBsaG7xQyFv9b9viMBkLOSIJ6d7oXTfwLXLDp54CJ2mB
-         ka3oil69D+Zn95jysvXBgUgvFWRQY/+IClt2X2sEW5MT6VNL59/OuZiMKGNp1T+7/Fv8
-         +TqobEeuW9watjc/UTGavfzbChsp30OnpcKhwNiNKYwVqMalozpnJOXVqV29MyLuVJOk
-         HCKA==
-X-Forwarded-Encrypted: i=1; AL+hErFPaaNRFueyC0CW/z8AzyvvmpRBGqoZyn6UQj+i1SeFuowwMDHnBRPaXTsOPrVwPvHp1o+vB3wWVNmKblI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z98164HqyoeKt0OwtJ43mnLQd8FiCmGQZMDsXYy3fi1poQ3W72G
-	d5RxkdNckYpvKGuTFMiSt9Oj4XHdj9s2p5cJ49gl3JxNaa6p4njDosDK
-X-Gm-Gg: AZFdTZe8EUjDJcHi7BpzWF08XyW4rny6N+f8QBYW9wUL+876m+l5dTmaZWqRHvLDpDX
-	axzPw0qHAm/SoD9e9lneg/YhfheB5RmulKeMIua08xD5L0WBl90WgyUcIRhzG/w7c9Sy66psbon
-	K1jV/MfolkazKQgCX5ieg7Pg/ug69bGNjrelHql4+Mmc+Jk8iRF0CSRVhYSjEG95ZIOfqXgQ7Gm
-	OfCf5sbXecQgAwip43fZYhmZ+a8erETEzVIIjLM10gF30xhryAz6uHpIWzAHViPTVAA/l9Z2MIZ
-	PqxgFmvPdoIrPpcES46ngGGuAW3m9YiuQkgr5vseIoEfzDG/K/ab1345gIAxElF92NOfMkifY+2
-	UAwecMPkGLd6O1nUPKlCh9dlZXPPmtlTziwtd2MTYUYYSvI8wug/DcxPqhmzA07AWuRp4luLz+b
-	EI5DS6h90yKgDGSxUZX3NI6vZQAIsCZfNvJfWgbNnYwgLE8aUee/mD0RSi08ktcmne6kG1sTLde
-	bajc27LH0L18udRUapv9t/D407Sc+9uHdc6Nq1mstEYnXrjy7xcOJq/Cxky41EpiI6CenyNm+qx
-	aqb7yMMBvhLSAHrWUgfEq++3I0S/eiWldQiIJnED3EDJibNJS9DIRtXYaDGsc3g3kVhVea1RnfR
-	hux0=
-X-Received: by 2002:a17:90b:4490:b0:3b0:a7b5:c044 with SMTP id 98e67ed59e1d1-3b41c7bbef0mr8070993a91.1.1795490874885;
-        Mon, 23 Nov 2026 19:27:54 -0800 (PST)
-Received: from normalone-940XGK.tailec472e.ts.net ([117.17.158.201])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40578dca0sm24008676a91.2.2026.11.23.19.27.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 19:27:54 -0800 (PST)
-From: Younho Choi <gdool88@gmail.com>
-To: Sean Christopherson <seanjc@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>
-Cc: kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Younho Choi <gdool88@gmail.com>
-Subject: [PATCH] KVM: x86: Reject SMM on VMs with private memory
-Date: Tue, 24 Nov 2026 12:27:48 +0900
-Message-ID: <20261124032748.1221979-1-gdool88@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LvWVL2vm
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=ma8JFmeoCyTpTT72snN16G84AYASmM5bzTvQRXIbf+Q=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795490874; v=1; x=1796095674;
+ b=LvWVL2vmsqiZ07mYjNpuAy99QXZuRLBrA2LsGEFgea6IxXzbjLHtY6FcdNW+vf0aQ1JwtXbR
+ vvbmLznQ2MmvaKilhcmJqcCaUnJIn2U1ihYWD+UkMD6uKnpcbZv/ztJI1+2JOeAENQSKe6mflxe
+ /CShumiobZa//kXBpy2ao2ug=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 1a2ced6113f13d6e;
+	Tue, 24 Nov 2026 03:27:54 +0000
+X-Mizu-Trace-ID: 1a2ced6113f13d6e
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <7dbec7f4-35d0-4351-a61d-ab0a649c41d6@linux.dev>
+Date: Tue, 24 Nov 2026 11:27:43 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,97 +58,146 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH-next v2 2/3] sched/isolation: Forbid the boot CPU from
+ being domain isolated
+To: Waiman Long <longman@redhat.com>, Tejun Heo <tj@kernel.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
+ <mkoutny@suse.com>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>,
+ Anna-Maria Behnsen <anna-maria@linutronix.de>,
+ Frederic Weisbecker <frederic@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+Cc: cgroups@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ Guopeng Zhang <guopeng.zhang@linux.dev>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+References: <20261123041209.382726-1-longman@redhat.com>
+ <20261123041209.382726-3-longman@redhat.com>
+From: Ridong Chen <ridong.chen@linux.dev>
+In-Reply-To: <20261123041209.382726-3-longman@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-A VM created with private memory (KVM_X86_SW_PROTECTED_VM, SEV-SNP, TDX)
-reports a single memslot address space, because kvm_arch_nr_memslot_as_ids()
-returns 1 when kvm_arch_has_private_mem() is true.  Nothing, however, prevents
-such a VM's vCPU from entering SMM, in which case kvm_arch_vcpu_memslots_id()
-still selects address space 1.  The existing comment "SMM is currently
-unsupported for guests with private memory" is not enforced anywhere.
 
-Because address space 1 is initialised with generation 1 and is never swapped
-for a private-memory VM, while address space 0's generation advances by
-kvm_arch_nr_memslot_as_ids() (i.e. 1) per swap, after a single memslot
-operation both address spaces have generation 1.  The per-vCPU last_used_slot
-cache in kvm_vcpu_gfn_to_memslot() validates only on the generation number, so
-a slot cached in address space 0 is reused for an in-SMM (address space 1)
-lookup.  After that slot is deleted and freed, the stale per-vCPU cache is
-dereferenced: a host-kernel use-after-free of struct kvm_memory_slot reachable
-by an unprivileged process that can open /dev/kvm.  The same aliasing also
-leaves SMM-root SPTEs that mmu_notifier invalidation never zaps (it walks only
-address space 0), and can trigger a BUG() in the TDP MMU.
 
-Enforce the documented assumption: do not support SMM on VMs with private
-memory.  Stop advertising KVM_CAP_X86_SMM and emulating MSR_IA32_SMBASE for
-such VMs (which also makes kvm_inject_smi() and guest-driven SMIs fail), and
-reject enabling SMM via KVM_SET_VCPU_EVENTS.
+On 11/23/2026 12:12 PM, Waiman Long wrote:
+> It is reported that with CONFIG_CPUSETS=n, a kernel booted with
+> isolcpus=domain,0 hits the BUG() in select_fallback_rq() during boot
+> [1]. At boot time, cpu 0 is the only CPU online and an unbound kworker
+> cannot be run on a domain isolated CPU causing kernel panic.
+> 
+> Sashiko also reports that domain isolating the boot CPU can break system
+> suspend and trigger a BUG_ON() [2]. So it is problematic if the boot CPU
+> is domain isolated.
+> 
+> There may be other kernel subsystems that have problem if the boot CPU
+> is domain isolated as most of them won't take into account the fact that
+> boot CPU is currently allowed to be domain isolated. Given the fact
+> that the boot CPU is likely to be disallowed from the nohz_full list,
+> it makes sense that we should not allow the boot CPU from being set in
+> the isolcpus boot parameter as well. This will also avoid the kind of
+> problems listed above.
+> 
+> Do that by clearing the boot CPU from the isolcpus range when it is
+> specified in the boot command line. A warning may also be printed when
+> that happens. If the users want to have boot CPU in the managed_irq
+> or nohz isolation list, a standalone isolcpus boot parameter will be
+> needed instead of combining domain and other flags in the same isolcpus
+> boot parameter.
+> 
+> This is indeed a change in behavior which is customer visible. So the
+> kernel-paremeters.txt is updated to mention the fact that boot CPU
+> cannot be isolated.
+> 
+> [1] https://lore.kernel.org/lkml/20261117144817.265109-1-mathieu.desnoyers@efficios.com
+> [2] https://sashiko.dev/#/patchset/20261108180849.1268263-1-longman%40redhat.com
+> 
+> Signed-off-by: Waiman Long <longman@redhat.com>
 
-Fixes: 89ea60c2c7b5 ("KVM: x86: Add support for "protected VMs" that can utilize private memory")
-Signed-off-by: Younho Choi <gdool88@gmail.com>
----
- arch/x86/kvm/svm/svm.c | 8 ++++++++
- arch/x86/kvm/vmx/vmx.c | 8 ++++++++
- arch/x86/kvm/x86.c     | 9 +++++++++
- 3 files changed, 25 insertions(+)
+This fixes a boot-time BUG(), so it seems worth a Fixes?
 
-diff --git a/arch/x86/kvm/svm/svm.c b/arch/x86/kvm/svm/svm.c
-index e30ee8062..0b8cd1502 100644
---- a/arch/x86/kvm/svm/svm.c
-+++ b/arch/x86/kvm/svm/svm.c
-@@ -4841,6 +4841,14 @@ static bool svm_has_emulated_msr(struct kvm *kvm, u32 index)
- 		if (!IS_ENABLED(CONFIG_KVM_SMM))
- 			return false;
- 
-+		/*
-+		 * SMM uses a second (SMRAM) address space, which a VM with
-+		 * private memory does not have; SMM is unsupported for such
-+		 * VMs (see kvm_arch_nr_memslot_as_ids()).
-+		 */
-+		if (kvm && kvm_arch_has_private_mem(kvm))
-+			return false;
-+
- #ifdef CONFIG_KVM_AMD_SEV
- 		/*
- 		 * KVM can't access register state to emulate SMM for SEV-ES
-diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index 82eb891f6..b6d5b33c1 100644
---- a/arch/x86/kvm/vmx/vmx.c
-+++ b/arch/x86/kvm/vmx/vmx.c
-@@ -7098,6 +7098,14 @@ bool vmx_has_emulated_msr(struct kvm *kvm, u32 index)
- 	case MSR_IA32_SMBASE:
- 		if (!IS_ENABLED(CONFIG_KVM_SMM))
- 			return false;
-+		/*
-+		 * SMM uses a second (SMRAM) address space.  A VM with private
-+		 * memory exposes only one address space (see
-+		 * kvm_arch_nr_memslot_as_ids()), so SMM is not supported for
-+		 * such VMs; advertising it leads to memslot aliasing.
-+		 */
-+		if (kvm && kvm_arch_has_private_mem(kvm))
-+			return false;
- 		/*
- 		 * We cannot do SMM unless we can run the guest in big
- 		 * real mode.
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index 26e7beaff..59565747d 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -3050,6 +3050,15 @@ static int kvm_vcpu_ioctl_x86_set_vcpu_events(struct kvm_vcpu *vcpu,
- 			      | KVM_VCPUEVENT_VALID_TRIPLE_FAULT))
- 		return -EINVAL;
- 
-+	/*
-+	 * SMM is unsupported for VMs with private memory, which expose a single
-+	 * memslot address space; entering SMM would select address space 1 and
-+	 * alias it with address space 0 (see kvm_arch_nr_memslot_as_ids()).
-+	 */
-+	if ((events->flags & KVM_VCPUEVENT_VALID_SMM) && events->smi.smm &&
-+	    kvm_arch_has_private_mem(vcpu->kvm))
-+		return -EINVAL;
-+
- 	if (events->flags & KVM_VCPUEVENT_VALID_PAYLOAD) {
- 		if (!vcpu->kvm->arch.exception_payload_enabled)
- 			return -EINVAL;
+
+> ---
+>   .../admin-guide/kernel-parameters.txt         |  7 +++---
+>   kernel/sched/isolation.c                      | 22 +++++++++++++++----
+>   2 files changed, 22 insertions(+), 7 deletions(-)
+> 
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index 930cee4de79a..1c8bf3583b0b 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -2954,11 +2954,12 @@ Kernel parameters
+>   
+>   			  You can move a process onto or off an "isolated" CPU via
+>   			  the CPU affinity syscalls or cpuset.
+> -			  <cpu number> begins at 0 and the maximum value is
+> -			  "number of CPUs in system - 1".
+> +			  <cpu number> begins at 0 and the maximum value
+> +			  is "number of CPUs in system - 1". However boot
+> +			  CPU (cpu 0) cannot be domain isolated as it
+> +			  may cause problem with some kernel subsystems.
+>   
+>   			managed_irq
+> -
+>   			  Isolate from being targeted by managed interrupts
+>   			  which have an interrupt mask containing isolated
+>   			  CPUs. The affinity of managed interrupts is
+> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+> index c0c8b8862cbd..de8152351450 100644
+> --- a/kernel/sched/isolation.c
+> +++ b/kernel/sched/isolation.c
+> @@ -231,6 +231,7 @@ static int __init housekeeping_setup(char *str, unsigned long flags)
+>   {
+>   	cpumask_var_t non_housekeeping_mask, housekeeping_staging;
+>   	unsigned int first_cpu;
+> +	int boot_cpu = smp_processor_id();
+>   	int err = 0;
+>   
+>   	if ((flags & HK_FLAG_KERNEL_NOISE) && !(housekeeping.flags & HK_FLAG_KERNEL_NOISE)) {
+> @@ -253,12 +254,25 @@ static int __init housekeeping_setup(char *str, unsigned long flags)
+>   
+>   	first_cpu = cpumask_first_and(cpu_present_mask, housekeeping_staging);
+>   	if (first_cpu >= nr_cpu_ids || first_cpu >= setup_max_cpus) {
+> -		__cpumask_set_cpu(smp_processor_id(), housekeeping_staging);
+> -		__cpumask_clear_cpu(smp_processor_id(), non_housekeeping_mask);
+> +		__cpumask_set_cpu(boot_cpu, housekeeping_staging);
+> +		__cpumask_clear_cpu(boot_cpu, non_housekeeping_mask);
+>   		if (!housekeeping.flags) {
+> -			pr_warn("Housekeeping: must include one present CPU, "
+> -				"using boot CPU:%d\n", smp_processor_id());
+> +			pr_warn("Housekeeping: must include one present CPU, using boot CPU:%d\n",
+> +				boot_cpu);
+>   		}
+> +	} else if ((flags & HK_FLAG_DOMAIN) &&
+> +		   cpumask_test_cpu(boot_cpu, non_housekeeping_mask)) {
+> +		/*
+> +		 * If the same isolcpus boot parameter covers both domain and
+> +		 * managed_irq/nohz, the boot CPU will also be removed from the
+> +		 * managed_irq/nohz isolation list. Users have to use a separate
+> +		 * isolcpus boot parameter for them if they want to include the
+> +		 * boot CPU.
+> +		 */
+> +		pr_warn("Housekeeping: Boot CPU must not be domain isolated, clearing %d from isolcpus range\n",
+> +			 boot_cpu);
+> +		__cpumask_set_cpu(boot_cpu, housekeeping_staging);
+> +		__cpumask_clear_cpu(boot_cpu, non_housekeeping_mask);
+>   	}
+>   
+>   	if (cpumask_empty(non_housekeeping_mask))
+
+The code change itself looks good to me.
+
+Reviewed-by: Ridong Chen <ridong.chen@linux.dev>
+Thanks.
+
 -- 
-2.43.0
+Best regards
+Ridong
+
