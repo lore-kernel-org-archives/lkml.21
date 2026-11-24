@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795560594;
-	b=IQCOIp+rFFKleq7JG+9NddCTZTJFzpiATgneMjtbp5ErCwLbdYQQ5XqAfIynxlWuHQq7
-	 FopsuaOu+fHZdq6fKBfiOGHbc4tShJey/zaE2gXExFBryIVDTNiDodUg3/fSAlpfS+Ndn
-	 hY+g0/h5faRe/ay9NG4BGkYAtvuPNo+Gv+XOc9AeVa3MtXI2pkC8xTppzn+bEq6+ikJ3H
-	 Xq8NK/d64YsRUbWAN/Kq+mY9fcr2Gt5XrrmbdMXWSBWbXpn4rpL8c51Tk4q+rEMwgo/vp
-	 YNsGhT0Ne0sZZ1hHhPhJGqq4+5+NtqGO8OMumJQYYaD0Gz3R5pzNX/S4iMJ4NgUQ/5Q==
+	t=1795560590;
+	b=raIdjrQJXSi4htpz1xqQvSpLHNoVHsdMSjx7Uep5uCMTMYf0xsS3do2GcbTXRc2GhVsK
+	 nIlKQHLkvHYi34mdh/gLoSyIS46jVErIoP5vYNRUJPNpDbHSD0pQbPVjNMCXLmhZI8ABz
+	 pbQJYXGpXAosCml6jC9ryi7pDOSbp0FL2e5nDUSikvBX8dyNcwyrxcGKRBg9PCt0A3kT7
+	 DCnyZ26DrKbkZ+fxeGNWmvp3XZflSxPUv1LleuYyNmmD8MNZb/FibJDffdcY9TmDZ8NRU
+	 R4pUHykWlZ9gzuvd7CTXoPCmb/+TgGFH0Yhi6Y/7YtLCe8FhSmjejTkrB/HD14kmwNQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795560594;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795560590;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=+RidziUgx+kZM9EX+B/idvPdGe7SZT8gd5HysQwlsX0=;
-	b=qGsbbZUK8xl2y31/aIOe2GE5OA5hce6Z7R8gZU+7qVyqmvX3ymTOU5sfIuku2avRHQgF
-	 MvzJjs6oyhAxA7Gar5jzev5yDgcE88O8uwis2U1lunfwotRTu7OiM07EJz/k+rqrf43+a
-	 eA5MHlNHVd7jYG2vi2N8onDYkDSzno191auFda1wZgL5+ir4O0mTlMoj8dDQ5vN9ljCVu
-	 +mE0bzvhzoPG1EZ1m4y+PMmCHhJXXWz//LQzii5BCMPCj9pwgDRC7nKYlx/CPKy3DUAiK
-	 458Qb9meihWNd/ay5GPt0rgUPNnuzJwL3dJl1k+yDSuWncopAEiI1+tQxa4AXq4HKDQ==
+	bh=YV2JdqZdNOI7ycmBXV78PiZO7JzjZmcHuQmjmgwRjME=;
+	b=wT7f6MmOuPsRhALFtlk7wqeEc+9AFaawGsnfSMUD+J0SzkY8+YeR8gXFAggqnRWJiuEK
+	 dlrzB63KCdYQLF9wAVDT70wic+kXneC1ztqpezttKMRFFN2bEZiwkC+d/nOg3EPTo9Kx3
+	 J3X8UlPk14GjBrxcPlS/zhNahBdOt1o6QPjIQUFfkrf7IddRxn4hEU72BilNTDCtNDtrw
+	 vPwi5JDuOVyTpfJx9fHF3G4ObkRbOBf0nJTDZeY5QS9YI2YRSbd3+UTAOacB7jPi4i0w1
+	 sZIR8h4XP7KEihd7aBAdVD/hW+ly8nPs80bhPLATeCIOXukCBEutuWolmLoD4udAZUA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VhNLX3xQ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="fVslJqv/";
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5597C606A683;
-	Tue, 24 Nov 2026 22:49:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D644606A32C;
+	Tue, 24 Nov 2026 22:49:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VhNLX3xQ
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fVslJqv/
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795560593;
-	b=ehRj4PwXRuqno0JkFuvXLH63lXyPl3l2nD860Lzr1l0pcpRpuzPUFI5I05Xf8gtOgnsn
-	 /QtGUjrTmlIcbULmvsYRehLPjW90SH21KKVHyzoCzuRvtXZnVzmnhxAazl7vTiIC1hCEr
-	 ikl9W/YCm5SlP9GiN1pSt6ZzN6c47QwzbezMJuTlsLEBudT9dDVIFM9hMIuSqgMQniIs9
-	 pFMqnEJriYxTIrggOK4e5ztIBg/nobaZySUoXRMwHrfBs8kU3iFsKxJMCXTbezfJlIMPQ
-	 4WbL5U/FDJWCyzl/mmPaK5HW0X9nxLj9QPphqLng+wgLPlf/+CDalFMryiklYSAMM4w==
+	t=1795560590;
+	b=c27Kr1txmcoPMSfZuGOtM1+L6Im9bNo9gOxwTqRs89lSMDpk3I12xfPprQEmpmgNL9wy
+	 373rDHGmqXzx4RN10G7ymCxPxnzM9TICwc/RhnjGf9usQl8/fTuvNfVmLF2YzA7TDJEFv
+	 F92nAwPddXNvAdIzefB6mwzhvkggRb8gx2Ak8r/zkS/ufWZMkDxvpRw0s+qp4VeoXtCJk
+	 ZM0yIBSzVh1bRWT8FMCIdDvLCRYdiK2ZR6vsD451L+bZWU3ySjFJeUko6LfjHB4h63P9i
+	 aMT9rF8qRAPw0sOot/KOLOruDKzlIUSFG4000s7ZSujArE0rgUF6BhZCqR96FaysuUA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795560593;
+	c=relaxed/relaxed; t=1795560590;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=+RidziUgx+kZM9EX+B/idvPdGe7SZT8gd5HysQwlsX0=;
-	b=YwmWBsIf0jv6U2XzF8cDoBSorJ+Cz3U+bYPNKuA+pdm9DtHe+NN9wtB7dXihRFk2RVpA
-	 cSoZotJ0tSX5+eYgpoygEpzlDd88WrvGJZ1FVNXCvrMzWbEwilvCBT583FXazjyutAY7x
-	 mrPpjVsYunhLw+zmswO+8SS1A3qCkL/LiQW7RnAXCGqy7FpYsDanylx9GhOT0Cf8mUSef
-	 JxUKn82m3hBF05hfmo11By65Ncji+QpGZR/5B6DhCDJmb4sM5okYqXzvO6EVJ6qRkh1tM
-	 Tx9a270UbfkKP0tskTgkl79Af9esyACCLCZtixrGvDx3RJA6OiYJLMemNaKSw3NjIrg==
+	bh=YV2JdqZdNOI7ycmBXV78PiZO7JzjZmcHuQmjmgwRjME=;
+	b=q05SUFOYTml8VwEeeC306xW/bxepOhVh9n5zuoK+sJaPu4wpE9lQ+YTKKgmwv62MjR0u
+	 L347vdN0agUZjfz7oIwV2HVr93yOtRlWHpWTebtntBDrw/Bv11P9aTU8gXASQhd+NQ2Uj
+	 vNujyfXUzDlIXZqnoRDMHWl6I/fReSvEreQAHLkEMj+rY1A890YDjWIfxMRpHzCrxsKjZ
+	 8YtniEQSEXDoM3IL8dXFJlRZVlk96SvMiMLOJxL6oJOM0bhkYIavgVSNLMRMQiyaUJ41A
+	 Ks5OA9q5wC1SXGRHDlK1LhMvPFHs4If3MZmHoXw48m6Gn97Qa9VYawyq7dJkWzGcaSQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B7E6E1F000D2;
+	by smtp.kernel.org (Postfix) with ESMTPS id 7F2151F000CF;
 	Tue, 24 Nov 2026 22:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795560593;
-	bh=+RidziUgx+kZM9EX+B/idvPdGe7SZT8gd5HysQwlsX0=;
+	s=k20260515; t=1795560590;
+	bh=YV2JdqZdNOI7ycmBXV78PiZO7JzjZmcHuQmjmgwRjME=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=VhNLX3xQE1jJyGl+QClYBZfzNVpeVj/ynOCi5YReulh9XPTA4PmayoyoIFYGD5xma
-	 IDu45HOw9N9ed2ua6pZ7j2tvw283njokSiSo3ZAP4d9dFB4sA0jnEtt1gDS3lhG0gU
-	 Js5bqL4/snuqMxlXJp8wkYfAUknJac659usA2lldVzIcCXe/t6ds987eWTZY1vh4dw
-	 6yG2A/B2exHWi25fRWd17E7bItuZNEpPfmb/qv/+fnGptEMPZcrJFQkALFS8qVmHUi
-	 R8RDM17W11nRjxI8c+RR/t7SUaCd959C0JhGJ+/iPBvc8GInRVktQcWsfrZ8x2L2eW
-	 dSNCJAR4315cA==
+	b=fVslJqv/6O5vS8nHFZeoHg4/d5Y4sWEbtfBih27WjfLqRbxYlHwMFnUrcptR6T7o8
+	 iL/KKCKxGNZ3I45H+LMu6W9AtmLy75xrGvkdU8u8Feg4fmhNudB0PYYO9tpeGLc5Nb
+	 oz3SHlX/eF08W2sLIeKOohavdJtw/Or9uODOsWMIblIy0GCZQgzrk6ZEg5kMwZNYIw
+	 trQ4qwtQT5u66T8SRQ8On7va4w/lIfJ46dXrLX4pepxpirxNk1ZLPjeECu1+Cl9cAZ
+	 96sHwVxqIu0fJN3j+DjI07idO77i+7sbnfPILqOlipeWc5wBhiT5VqmyQAWr84snOt
+	 TGHk7+tEpVsEg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 49D714CC20;
+	by lkml.kernel.org (Postfix) with ESMTP id 10DAC4CC14;
 	Tue, 24 Nov 2026 22:49:38 +0000 (UTC)
 From: Ernest Borowski via B4 Relay <devnull+ernest.borowski.git.proton.me@kernel.org>
-Date: Tue, 24 Nov 2026 23:49:38 +0100
-Subject: [PATCH v2 04/11] ntfs: do not consume delalloc reservations when
- filling holes
+Date: Tue, 24 Nov 2026 23:49:36 +0100
+Subject: [PATCH v2 02/11] iomap: add a helper to mark a range of a folio
+ dirty
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-b4-ntfs-delalloc-fixes-v2-4-f394c800ec03@proton.me>
+Message-Id: <20261124-b4-ntfs-delalloc-fixes-v2-2-f394c800ec03@proton.me>
 References: <20261124-b4-ntfs-delalloc-fixes-v2-0-f394c800ec03@proton.me>
 In-Reply-To: <20261124-b4-ntfs-delalloc-fixes-v2-0-f394c800ec03@proton.me>
 To: Namjae Jeon <linkinjeon@kernel.org>, Hyunchul Lee <hyc.lee@gmail.com>, 
@@ -95,13 +95,13 @@ Cc: Christian Brauner <brauner@kernel.org>, Christoph Hellwig <hch@lst.de>,
  linux-kernel@vger.kernel.org, Zhan Xusheng <zhanxusheng1024@gmail.com>, 
  stable@vger.kernel.org, Ernest Borowski <ernest.borowski.git@proton.me>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2158;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2884;
  i=ernest.borowski.git@proton.me; s=default; h=from:subject:message-id;
- bh=+jVS4i0N2xYWTOmK5KLBxioqsjuDV8wLrjNVc80eqAM=;
- b=owGbwMvMwCVWzJ65uCpJ5D/jabUkhmw2kXrPqauXXE0L/L/rCdfHoEML1u6/5eZ9yPDweh229
- VbHnji2dJSyMIhxMciKKbJ0/L8R4hPy7dOyOK0+mDmsTCBDGLg4BWAiJiyMDO+C+q6XJFs+2PA+
- MtE984D/w5SfW1Pyr9w/K+nO/2JPWjTDL6YXz51Ck6YzLF117GCo54Ol2dPP9dj1HZ98O3xTdAu
- bCiMA
+ bh=i0mxnQ4RlIZOshN7UDhDAACtyhM3XWJqWt2QLrbCFUc=;
+ b=owGbwMvMwCVWzJ65uCpJ5D/jabUkhmw2kfpnRkdrvuo8To/XeT6tzSlc+Yqky/ZHC5ZwC29sl
+ 43vr57cUcrCIMbFICumyNLx/0aIT8i3T8vitPpg5rAygQxh4OIUgImInmFkmMbxpLUycMqCH9uu
+ pJmtDvCdJ/ynqv/Ah9ser/jenT31/CXDfxdGNaWJdy7Z+h/7runOIbC/etNZ8cpLu2Kany+Z/4z
+ jPhsA
 X-Developer-Key: i=ernest.borowski.git@proton.me; a=openpgp;
  fpr=88FFD8544C54F6F2A65E2A8E730769A37A6214FF
 X-Endpoint-Received: by B4 Relay for ernest.borowski.git@proton.me/default
@@ -112,54 +112,71 @@ Content-Transfer-Encoding: 7bit
 
 From: Ernest Borowski <ernest.borowski.git@proton.me>
 
-ntfs_attr_map_cluster() always calls ntfs_cluster_alloc() with
-is_dealloc set, which makes the allocator skip the dirty_clusters check
-and subtract the allocated clusters from vol->dirty_clusters.  That is
-right for writeback converting an LCN_DELALLOC run, whose clusters were
-reserved by the buffered write, but ntfs_attr_map_cluster() also fills
-plain holes for fallocate(), direct I/O and page_mkwrite(), which never
-reserved anything.  Those allocations release reservations that belong
-to dirty data of other files, and can use clusters that are promised to
-that data, so writeback of the delayed data can later run out of space
-although every earlier check succeeded.
+A filesystem that allocates in units larger than a block may need
+writeback to write blocks that a buffered write did not copy into.  ntfs
+reserves whole clusters for delayed allocation, and after a short copy
+into a cluster that was a hole, writeback must also write the rest of
+that cluster, or the cluster shows its old contents on the disk there.
+folio_mark_dirty() marks every block of the folio dirty, so the delalloc
+release that follows no longer finds the clean blocks of the clusters
+the write did not reach and keeps them reserved: with 1 KiB and 2 KiB
+clusters, writeback then allocates a cluster that holds no data.
 
-Reproducer: write 1 MiB to file A without syncing (statfs() free space
-drops by 256 clusters), then fallocate() 1 MiB on file B: free space
-does not drop at all.
+Add iomap_dirty_folio_range(), which marks the folio and only the blocks
+covering a byte range dirty.
 
-Only treat the allocation as consuming a reservation when the run being
-filled is a delalloc run.  Filling a hole now fails with ENOSPC when the
-remaining free clusters are all reserved for delayed data, so a write
-fault into a hole of an mmap()ed file gets SIGBUS in that case, as on
-other filesystems with delayed allocation.
+"ntfs: zero the rest of a new cluster after a short buffered write"
+later in this series needs this, so it goes to stable with it.
 
-Fixes: 495e90fa3348 ("ntfs: update attrib operations")
 Cc: stable@vger.kernel.org
 Signed-off-by: Ernest Borowski <ernest.borowski.git@proton.me>
 ---
- fs/ntfs/attrib.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ fs/iomap/buffered-io.c | 19 +++++++++++++++++++
+ include/linux/iomap.h  |  1 +
+ 2 files changed, 20 insertions(+)
 
-diff --git a/fs/ntfs/attrib.c b/fs/ntfs/attrib.c
-index 4028c310fc..cdac846f37 100644
---- a/fs/ntfs/attrib.c
-+++ b/fs/ntfs/attrib.c
-@@ -5520,8 +5520,14 @@ int ntfs_attr_map_cluster(struct ntfs_inode *ni, s64 vcn_start, s64 *lcn_start,
- 		}
- 	}
+diff --git a/fs/iomap/buffered-io.c b/fs/iomap/buffered-io.c
+index 2eb8070e34..8c8851d16f 100644
+--- a/fs/iomap/buffered-io.c
++++ b/fs/iomap/buffered-io.c
+@@ -858,6 +858,25 @@ bool iomap_dirty_folio(struct address_space *mapping, struct folio *folio)
+ }
+ EXPORT_SYMBOL_GPL(iomap_dirty_folio);
  
-+	/*
-+	 * Only a delayed-allocation run holds a reservation in
-+	 * vol->dirty_clusters for the allocator to consume.  Holes filled by
-+	 * fallocate(), direct I/O or page_mkwrite() have none and must leave
-+	 * the reservations of other writers alone.
-+	 */
- 	rlc = ntfs_cluster_alloc(vol, vcn, clu_count, lcn_seek_from, DATA_ZONE,
--			false, true, true);
-+			false, true, lcn == LCN_DELALLOC);
- 	if (IS_ERR(rlc)) {
- 		err = PTR_ERR(rlc);
- 		goto out;
++/**
++ * iomap_dirty_folio_range - mark a range of a folio dirty
++ * @folio: the locked, uptodate folio
++ * @off: byte offset of the range in @folio
++ * @len: length of the range in bytes
++ *
++ * Mark the blocks that cover [@off, @off + @len) and @folio dirty, but none
++ * of the other blocks of @folio, so that writeback writes only those blocks.
++ */
++void iomap_dirty_folio_range(struct folio *folio, size_t off, size_t len)
++{
++	struct address_space *mapping = folio->mapping;
++
++	ifs_alloc(mapping->host, folio, 0);
++	iomap_set_range_dirty(folio, off, len);
++	filemap_dirty_folio(mapping, folio);
++}
++EXPORT_SYMBOL_GPL(iomap_dirty_folio_range);
++
+ static void
+ iomap_write_failed(struct inode *inode, loff_t pos, unsigned len)
+ {
+diff --git a/include/linux/iomap.h b/include/linux/iomap.h
+index 78a1b7603a..6a6e67b87f 100644
+--- a/include/linux/iomap.h
++++ b/include/linux/iomap.h
+@@ -445,6 +445,7 @@ struct folio *iomap_get_folio(struct iomap_iter *iter, loff_t pos, size_t len);
+ bool iomap_release_folio(struct folio *folio, gfp_t gfp_flags);
+ void iomap_invalidate_folio(struct folio *folio, size_t offset, size_t len);
+ bool iomap_dirty_folio(struct address_space *mapping, struct folio *folio);
++void iomap_dirty_folio_range(struct folio *folio, size_t off, size_t len);
+ void iomap_folio_mark_uptodate(struct folio *folio);
+ int iomap_file_unshare(struct inode *inode, loff_t pos, loff_t len,
+ 		iomap_iter_next_fn next,
 
 -- 
 2.56.1
