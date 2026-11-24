@@ -1,118 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795478352;
-	b=lCnh7GsKAcIl/M+GjMmzg1gr+7TUldihhr9IHI/sDwbZ5azwwzjo7kPTNLcfEmavD0uY
-	 bj//sViC3sXb6nYPsddMatqVf6TeuA1A9v9VXPxKOEO+6Fr+D/7YhvWRK/YcHnOqsNIbF
-	 eVgnekHtfJ9pdg1264BIvSrH0tb+/UODf90T2qf54e3Rp/swc7ElsmipJkLoyDSHXrA76
-	 oHeJo6o6NV1fFa74nIvbFAeJW6cLiCq67btGHkVSpSn3QbO9HgFKYGOBuuiyz/f2Gmalv
-	 IFot+oL0k82tNm00jlUoMts2foH9PJ6jlHb4ouzXF4LQwj7jYk8Sugw8c8EEK244Kpw==
+	t=1795478470;
+	b=z0m54RI4clLZlCHzwBeaDV69JM1a/tx+ETUoQt50HohySwhkUFRnGDMMOwNiUIbCJNMO
+	 YALxVTqgy2oaFdjyV4qcX4HwxFz6lbx6/xRNSHBhH5PyG9D7UCJDG4br1QIufjk8nBOiu
+	 Uix72Th464Fe3Gb/Jog3ppw0cBKdi10ZW4Sw17vhSnpsXTTbsu3rf8Y7ioeuz2h5HrGq8
+	 yTsYeYx/cHzCK/mecdxY1RIFn5fZFdglJxJPwxlwO3I54+91FPyA2iyXPt6Sk9UJg0NBM
+	 6revg7Hu3YZhnuzby2pxbe1zYc9cj1DFwmUIicu9tsvJhG13EDTWRZ/XfKbK8isVWSw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795478352;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=JPIzmh8MgAGzwbd/e1qtcX2ELMVKAJVPBlKusfiCnS0=;
-	b=dU7vaFz8Tp6DfCvO3iWGcMN94XHekzH1CvzYWBUxzz6i7GlIOMV/apPmTsOSYNkViUQc
-	 DxEQppYiO9dffKH8P8d9Cu59GrDM0Q/mybFV6SPfmC29LSk/lWY23A5AkcWfX9PmZSgwE
-	 KDkjoNe3QJyBx+CLqv64t1vzNjF0bSybbCBahJFbH/NDTeZBks7nD3AmuqjZ7/cgUxWBs
-	 NQMIe5TJVkqM4M+BuCl0OCjwcB09HrtopTijWUIdawFYFtMCBKh58gQiBB7HB6E6pbdYC
-	 mtvjLnt8PduguX3/4mJ7g55pT/upk+3rdFsEk4wvBuVnpDwH9KecLFjVdn5kvoEZUSw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795478470;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:Content-Language:From:To:Cc:
+	 References:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=mvZfEfW5RStelXlEG0PRgWitbRj+0/EdNDsq46xASbM=;
+	b=uHwwwb7t6vPO3dQP82oiiZ2cg1S6Iv8FXPAVe28ubGa/Zkz/h6zD4xEW3QSkUYD/wk08
+	 AY6L2c4GuK/DRt0azvvPKbP8+ROBmq/jShwir3mK3zAQZdEpRblapukAzDX5ZM8yrzQHm
+	 ONPQsg8+pFYluPqJCSj/fM3aGQk2zxHvPpLX0VL5amjYwq+HCQVBLITpkWuxvVG7AsKjt
+	 WJ/0LAg9M0HybXkNL6noNfaP6DKbKaw/GZH+KY0oMgd2W7zyOOTFy/oISA0WI7Gh1XW2Q
+	 ozmG748fW/enohcKPPL7atUE9xphKoOoh937uBv3tfjVG0Ofx5eakIoRm5r/EDXcJZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=ihd5XTrx;
-	arc=none smtp.remote-ip=209.85.221.41
-Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38D1D606A684
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:59:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38D1D606A684
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=c4KjOW5B;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 06E26606A326;
+	Tue, 24 Nov 2026 00:01:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06E26606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=ihd5XTrx
-Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-491f34b4e0fso1819675f8f.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:59:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795478349; x=1796083149; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JPIzmh8MgAGzwbd/e1qtcX2ELMVKAJVPBlKusfiCnS0=;
-        b=ihd5XTrxJPETqHH0T2zdVVTVWTiHMWwJRRFTWCgV9Su1m9S7wCJpK/GbB2TOsPjPID
-         R9mNRn++nv6XjdWznxpHpwYgggGtvNKh7Jq7EbbxIPqTvR7EpByJYBvlJyF+MpDq85KJ
-         Aaih13pQo5ae5iL8N0ZVZA0Tgq3xYKBlx0DQQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795478349; x=1796083149;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JPIzmh8MgAGzwbd/e1qtcX2ELMVKAJVPBlKusfiCnS0=;
-        b=uq5qQ5LkfteGSMou7i8a9EW6krFTj6cmyHH8XBxrI3Bfq5PPBa/U71J98PZ7KVnn/h
-         mJ77pw/xhPisyWj82/+SqfPrRytW2+r64KHxnqeeNk2pVfp1AQAQYf0TyC96DWdcrCj2
-         lUtTiCX1bQTXi4Uhti4IrG8ojbV0tycvldIX37JwoVrt4lyTPZhzYq4+i3Ehp9uBSx+b
-         92PcBX4GiErfkfneW2DEFQ87hzb/6qxMoh2nipP+1qXZHv3pVDhSE9J4Zp0iZ4W23ci8
-         8mBjfVQhLBHH1YrZ7aVWpehQyK40eBMQDUppdERSKYTEUI/Px9oA07EtUXhLoPJGleqV
-         VBWQ==
-X-Forwarded-Encrypted: i=1; AL+hErFwR9s+3sIJMVmKm6UyPsz/P6lQmskRpUnc7xthCKHYfHx64GIVlm3DR90rNQ3ueTe38No3JkAsx2nhVaA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+RiErORktMdIEbXiKBzE4QjDFPti6CDVOTCxvLBb5Nv6+xZ5fC
-	5OhFXkeonMHbgZsV5PLAZDAJiIISCnsvjeb+7wKWHG5nmGYKAJqLaRFvSnGM5SNW2Q==
-X-Gm-Gg: AZFdTZdFR+G27IzIClChMios64btsWwGE+1in1naEPwnNbbj7KyroivghUDu8HlaF+g
-	BJHp4Facl4mx8ePVLMecTGizvPc5nrIHMuOfj7J3maxwK5zsCoLIAMh/Z6yAKsK724icthBT7Vw
-	kKQk09hsh0cI0agQadQv54Shuyr7gBx+BHVg4Q+kEQWvQGogU7Q2U3+lnWXgw2cHHCcLK6QsrJj
-	jTRjP4SSR0+7voGLYZP4svSfOfktAH8ax4qQeypAaw/RrJccSuQTDjTwcINFwEeVgyJDdXBQTmL
-	ohGcmBoEcVBg8O04Kthq07ZhihZv7NVqRTMtF+PlGUI2YRnWDBYTUz6Z/UkQrq5xLtXziczJhl1
-	3jvqkwN0fYd/3c+J8JX07isghAP1JkJnfjHsGXkn3uPZRESMyXXrRfpmmBgabOAvWV5sTZcw9kh
-	1yc9t0IVlDuAzUZZDVeWdAyzE6uV35gnOfdATOO6qgNr31vi4c+h3pqUZ0Cd7lUFKeJaYcEi9aC
-	qe0Y+EtziVrSAUqgzTB2JAezL0cIRpGyWALAgCu4jphjqaD/F36pXmDH6wjZxFBDz+Lv5BG0/3H
-	Y2rQRLY+56xZs4XsNJeXL3/uXduYTTVFJyL+r7tVCB8Se0E3OlwY6NCDKeqdnBdvfO+Ka5D2v1o
-	iivnR9mEINcD3pwfDGw==
-X-Received: by 2002:a05:6000:2883:b0:4a4:39bb:970d with SMTP id ffacd0b85a97d-4abab02c469mr24709044f8f.2.1795478349545;
-        Mon, 23 Nov 2026 15:59:09 -0800 (PST)
-Received: from dmaluka.c.googlers.com.com (120.142.205.35.bc.googleusercontent.com. [35.205.142.120])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61e53asm25727068f8f.59.2026.11.23.15.59.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 15:59:08 -0800 (PST)
-From: Dmytro Maluka <dmaluka@chromium.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Lu Baolu <baolu.lu@linux.intel.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Dmitry Torokhov <dtor@google.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Bjorn Helgaas <helgaas@kernel.org>,
-	iommu@lists.linux.dev,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	Joerg Roedel <joro@8bytes.org>,
-	Joshua Peraza <jperaza@google.com>,
-	Jesse Barnes <jsbarnes@google.com>,
-	Len Brown <lenb@kernel.org>,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	"Oliver O'Halloran" <oohall@gmail.com>,
-	Pavel Machek <pavel@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Rajat Jain <rajatja@google.com>,
-	Rajat Jain <rajatxjain@gmail.com>,
-	Will Deacon <will@kernel.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Vineeth Pillai <vineeth@bitbyteword.org>,
-	Aashish Sharma <aashish@aashishsharma.net>,
-	Grzegorz Jaszczyk <jaszczyk@chromium.org>,
-	Tomasz Nowicki <tnowicki@google.com>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Dmytro Maluka <dmaluka@chromium.org>
-Subject: [PATCH v11 2/2] PCI: Rename pci_dev->untrusted to pci_dev->requires_dma_protection
-Date: Mon, 23 Nov 2026 23:58:29 +0000
-Message-ID: <20261123235845.564027-3-dmaluka@chromium.org>
-X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-In-Reply-To: <20261123235845.564027-1-dmaluka@chromium.org>
-References: <20261123235845.564027-1-dmaluka@chromium.org>
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=c4KjOW5B
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1ADFC339;
+	Mon, 23 Nov 2026 16:01:05 -0800 (PST)
+Received: from [10.57.72.180] (unknown [10.57.72.180])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4C7213F763;
+	Mon, 23 Nov 2026 16:01:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795478468; bh=z+PUNwa9+EwbdaBwXou0c5+rj8T7/aI/DwQawFtJnzc=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=c4KjOW5BN9ItMHCoak80zBU8BS/AQ/7DYC9pa1KyF8ybcl+E3+zHmcpmUjFciBjuU
+	 DhI/i1i+PRwzk6i/8pYVS0rmfSz92fJcWwcDyaxGqmK1QrQ2UkqB9sJtFjpU4PMn19
+	 QYcGemWHIzJsSmGftPtNImsHDcDAz/UpM2Zu8BZk=
+Message-ID: <4ac7d031-ed52-48ae-be47-c8045bdc58f7@arm.com>
+Date: Tue, 24 Nov 2026 00:01:02 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -122,278 +53,315 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 06/11] KVM: arm64: CCA: Destroy RTTs
+Content-Language: en-GB
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Kohei Enju <enju.kohei@fujitsu.com>
+References: <20261123104233.95710-1-steven.price@arm.com>
+ <20261123104233.95710-7-steven.price@arm.com>
+ <b224f2af-5881-4ea9-9e6f-38b8fef8ad9e@arm.com>
+In-Reply-To: <b224f2af-5881-4ea9-9e6f-38b8fef8ad9e@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-From: Rajat Jain <rajatja@google.com>
+On 23/11/2026 11:57, Suzuki K Poulose wrote:
+> On 23/11/2026 10:42, Steven Price wrote:
+>> The RMM owns the stage 2 page tables for a realm, and KVM must request
+>> that the RMM creates/destroys entries as necessary. The physical pages
+>> to store the page tables are delegated to the realm as required, and can
+>> be undelegated when no longer used.
+>>
+>> Creating new RTTs is the easy part, destroying them is a little more
+>> tricky. The result of realm_rtt_destroy() can be used to effectively
+>> walk the tree and destroy the entries (undelegating pages that were
+>> given to the realm).
+>>
+> 
+> 
+>> Tear down a created Realm whether it is still new or has been activated.
+>> Unmap the Realm IPA space once during stage-2 teardown. Defer
+>> destruction of non-root RTTs until final Realm destruction, after
+>> REALM_TERMINATE and before destroying the RD; root RTTs remain until the
+>> RD has gone away.
+> 
+> While I understand what this is trying to convey, it may be unclear
+> to someone who is not familiar with the "Realm Liveness".
+> How about something like :
+> 
+> Realm can be destroyed ONLY if all stage2 Root RTTs are not live
+> (along with no RECs or other resources assigned to it).
+> i.e., there are no live mappings or tables mapped from the Root
+> tables. So, we unmap the entire stage2 and move the Realm to
+> ZOMBIE state then destroy all the non-root level RTTs. The Root
+> level RTTs can only be reclaimed after the RD is destroyed.
+> 
+> The comment in the code is actually pretty clear.
+> 
+>>
+>> Use the same minimum of two stage-2 levels as VTCR when deriving
+>> the Realm's starting RTT level. Without this, narrow IPAs on
+>> 64K-page hosts can give the RMM a different starting level from
+>> KVM's own page tables.
+> 
+> I believe this paragraph can go as we now have start_level cached.
+> 
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>>
+>> ---
+>> Changes since v3:
+>> - Match VTCR's minimum of two stage-2 levels for Realm RTTs.
+>> - Use explicit config_lock cleanup in Realm destruction.
+>>
+>> Changes since v2:
+>> - Use the actual stage-2 start level and correct the RTT skip
+>>    granularity. Free SRO state on final teardown errors.
+>>
+>> Changes since v1:
+>> - Tear down created Realms in both NEW and ACTIVE states. Fix the
+>>    RTT start level, page accounting on failed undelegation, and
+>>    handling of RTT granules returned by RMI.
+>> ---
+>>   arch/arm64/include/asm/kvm_rmi.h |   3 +
+>>   arch/arm64/kvm/mmu.c             |  17 ++-
+>>   arch/arm64/kvm/rmi.c             | 178 +++++++++++++++++++++++++++++++
+>>   3 files changed, 197 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/ 
+>> asm/kvm_rmi.h
+>> index 4ac1af622872..01ecaabd839b 100644
+>> --- a/arch/arm64/include/asm/kvm_rmi.h
+>> +++ b/arch/arm64/include/asm/kvm_rmi.h
+>> @@ -58,6 +58,7 @@ enum realm_state {
+>>    * @state: The lifetime state machine for the realm
+>>    * @ia_bits: Number of valid Input Address bits in the IPA
+>>    * @start_level: Starting level of the Realm Translation Table
+>> + * @stage2_unmapped: The Realm stage-2 mappings have been removed
+>>    */
+>>   struct realm {
+>>       phys_addr_t rd_phys;
+>> @@ -72,11 +73,13 @@ struct realm {
+>>       enum realm_state state;
+>>       unsigned int ia_bits;
+>>       int start_level;
+>> +    bool stage2_unmapped;
+>>   };
+>>   u32 kvm_rmm_ipa_limit(void);
+>>   int kvm_init_realm(struct kvm *kvm);
+>>   void kvm_destroy_realm(struct kvm *kvm);
+>> +void kvm_realm_unmap_stage2_all(struct kvm *kvm);
+>>   #endif /* __ASM_KVM_RMI_H */
+>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>> index 84b02699f103..4a975715375c 100644
+>> --- a/arch/arm64/kvm/mmu.c
+>> +++ b/arch/arm64/kvm/mmu.c
+>> @@ -1149,9 +1149,24 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct 
+>> kvm_s2_mmu *mmu, unsigned long t
+>>       return err;
+>>   }
+>> +static void kvm_realm_uninit_stage2(struct kvm_s2_mmu *mmu)
+>> +{
+>> +    struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+>> +
+>> +    guard(mutex)(&kvm->arch.config_lock);
+>> +    if (kvm_realm_state(kvm) == REALM_STATE_NEW ||
+>> +        kvm_realm_state(kvm) == REALM_STATE_ACTIVE) {
+>> +        kvm_set_realm_state(kvm, REALM_STATE_DYING);
+>> +        kvm_realm_unmap_stage2_all(kvm);
+>> +    }
+>> +}
+>> +
+>>   void kvm_uninit_stage2_mmu(struct kvm *kvm)
+>>   {
+>> -    kvm_free_stage2_pgd(&kvm->arch.mmu);
+>> +    if (kvm_realm_is_created(kvm))
+>> +        kvm_realm_uninit_stage2(&kvm->arch.mmu);
+>> +    else
+>> +        kvm_free_stage2_pgd(&kvm->arch.mmu);
+>>       kvm_mmu_free_memory_cache(&kvm->arch.mmu.split_page_cache);
+>>   }
+>> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+>> index fafca2439c46..435174ac3d87 100644
+>> --- a/arch/arm64/kvm/rmi.c
+>> +++ b/arch/arm64/kvm/rmi.c
+>> @@ -16,22 +16,196 @@ u32 kvm_rmm_ipa_limit(void)
+>>       return u64_get_bits(rmi_feat_reg(0), RMI_FEATURE_REGISTER_0_S2SZ);
+>>   }
+>> +static void free_rtt(phys_addr_t phys)
+>> +{
+>> +    kvm_account_pgtable_pages(phys_to_virt(phys), -1);
+>> +    if (rmi_free_delegated_page(phys))
+>> +        kvm_account_pgtable_pages(phys_to_virt(phys), 1);
+>> +}
+>> +
+>> +/*
+>> + * realm_rtt_destroy - Destroy an RTT at @level for @addr.
+>> + *
+>> + * Returns - Result of the RMI_RTT_DESTROY call, and:
+>> + * @rtt_granule:    RTT granule, if the RTT was destroyed.
+>> + * @next_addr:        IPA corresponding to the next possible valid 
+>> entry we
+>> + *            can target
+>> + */
+>> +static long realm_rtt_destroy(struct realm *realm, unsigned long addr,
+>> +                  int level, phys_addr_t *rtt_granule,
+>> +                  unsigned long *next_addr)
+>> +{
+>> +    unsigned long out_rtt;
+>> +    long ret;
+>> +
+>> +    ret = rmi_rtt_destroy(realm->rd_phys, addr, level,
+>> +                  &out_rtt, next_addr);
+>> +
+>> +    if (ret == RMI_SUCCESS)
+>> +        *rtt_granule = out_rtt;
+>> +
+>> +    return ret;
+>> +}
+>> +
+>> +static int realm_destroy_rtt_level(struct realm *realm, int level,
+>> +                   unsigned long start, unsigned long end)
+>> +{
+>> +    ssize_t map_size;
+>> +    unsigned long addr, next_addr;
+>> +
+>> +    if (WARN_ON(level > KVM_PGTABLE_LAST_LEVEL))
+>> +        return -EINVAL;
+>> +
+>> +    map_size = kvm_granule_size(level - 1);
+>> +    if (WARN_ON(!IS_ALIGNED(start, map_size)))
+>> +        return -EINVAL;
+>> +
+>> +    for (addr = start; addr < end; addr = next_addr) {
+>> +        phys_addr_t rtt_granule;
+>> +        long ret;
+>> +        unsigned long align_addr = ALIGN(addr, map_size);
+>> +
+>> +        next_addr = ALIGN(addr + 1, map_size);
+>> +
+>> +        if (next_addr > end || align_addr != addr) {
+>> +            /*
+>> +             * The target range is smaller than what this level
+>> +             * covers, recurse deeper.
+>> +             */
+>> +            ret = realm_destroy_rtt_level(realm,
+>> +                              level + 1,
+>> +                              addr,
+>> +                              min(next_addr, end));
+>> +            if (ret)
+>> +                return ret;
+>> +            continue;
+>> +        }
+>> +
+>> +        ret = realm_rtt_destroy(realm, addr, level,
+>> +                    &rtt_granule, &next_addr);
+>> +        if (ret < 0)
+>> +            return ret;
+>> +
+>> +        switch (RMI_RESULT_STATUS(ret)) {
+>> +        case RMI_SUCCESS:
+>> +            free_rtt(rtt_granule);
+>> +            break;
+>> +        case RMI_ERROR_RTT:
+>> +            if (next_addr > addr) {
+>> +                /* Missing RTT, skip */
+>> +                break;
+>> +            }
+>> +            /*
+>> +             * We destroy the RTT range for the full IPA
+>> +             * space, after everything is unmapped. Also we
+>> +             * descend down only if we cannot destroy a
+>> +             * top level RTT. Thus RMM must be able to walk
+>> +             * to the requested level. e.g., a block mapping
+>> +             * exists at L1 or L2.
+>> +             */
+>> +            if (WARN_ON(RMI_RESULT_DATA_LEVEL(ret) != level))
+>> +                return -EBUSY;
+>> +            if (WARN_ON(level == KVM_PGTABLE_LAST_LEVEL))
+>> +                return -EBUSY;
+>> +
+>> +            /*
+>> +             * The table has active entries in it, recurse deeper
+>> +             * and destroy the RTTs.
+>> +             */
+>> +            next_addr = ALIGN(addr + 1, map_size);
+>> +            ret = realm_destroy_rtt_level(realm,
+>> +                              level + 1,
+>> +                              addr,
+>> +                              next_addr);
+>> +            if (ret)
+>> +                return ret;
+>> +            /*
+>> +             * Now that the child RTTs are destroyed,
+>> +             * retry at this level.
+>> +             */
+>> +            next_addr = addr;
+>> +            break;
+>> +        default:
+>> +            WARN_ON(1);
+>> +            return -ENXIO;
+>> +        }
+>> +    }
+>> +
+>> +    return 0;
+>> +}
+>> +
+>> +static int realm_destroy_rtt_range(struct realm *realm,
+>> +                   unsigned long start, unsigned long end)
+>> +{
+>> +    /*
+>> +     * Root level RTTs can only be destroyed after the RD is 
+>> destroyed. So
+>> +     * destroy everything below the root level
+>> +     */
+>> +    return realm_destroy_rtt_level(realm, realm->start_level + 1,
+>> +                       start, end);
+>> +}
+>> +
+> 
+> minor nit: May be we could fold the above into realm_destroy_rtts()
+> 
+>> +static int realm_destroy_rtts(struct kvm *kvm)
+>> +{
+>> +    struct realm *realm = &kvm->arch.realm;
+>> +    unsigned int ia_bits = realm->ia_bits;
+>> +
+>> +    lockdep_assert_held(&kvm->arch.config_lock);
+>> +
+>> +    return realm_destroy_rtt_range(realm, 0, (1UL << ia_bits));
+>> +}
+>> +
+>> +void kvm_realm_unmap_stage2_all(struct kvm *kvm)
+>> +{
+>> +    struct realm *realm = &kvm->arch.realm;
+>> +
+>> +    lockdep_assert_held(&kvm->arch.config_lock);
+>> +
+>> +    if (realm->stage2_unmapped)
+>> +        return;
+>> +
+>> +    write_lock(&kvm->mmu_lock);
+>> +    kvm_stage2_unmap_range(&kvm->arch.mmu, 0,
+>> +                   BIT(realm->ia_bits - 1), true);
 
-Rename the field to make it more clear, that the device can execute DMA
-attacks on the system, and thus the system needs protection from such
-attacks from this device.
+Actually, the unprotected IPA mapping entries are not "live".
+So we could unmap only the protected IPA half and destroy the
+RTTs directly on the unprotected IPA.
 
-No functional change intended.
-
-Signed-off-by: Rajat Jain <rajatja@google.com>
-Reviewed-by: Mika Westerberg <mika.westerberg@linux.intel.com>
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
-Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-Signed-off-by: Joshua Peraza <jperaza@google.com>
-Reviewed-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Signed-off-by: Dmytro Maluka <dmaluka@chromium.org>
----
- drivers/iommu/amd/iommu.c   |  2 +-
- drivers/iommu/dma-iommu.c   | 16 ++++++++--------
- drivers/iommu/intel/iommu.c | 10 +++++-----
- drivers/iommu/iommu.c       |  5 ++---
- drivers/pci/ats.c           |  2 +-
- drivers/pci/pci-acpi.c      |  2 +-
- drivers/pci/pci.c           |  2 +-
- drivers/pci/probe.c         | 10 +++++-----
- drivers/pci/quirks.c        |  4 ++--
- include/linux/pci.h         |  7 ++++---
- 10 files changed, 30 insertions(+), 30 deletions(-)
-
-diff --git a/drivers/iommu/amd/iommu.c b/drivers/iommu/amd/iommu.c
-index 41ee4ad1dcf8..aa592a1e5298 100644
---- a/drivers/iommu/amd/iommu.c
-+++ b/drivers/iommu/amd/iommu.c
-@@ -3223,7 +3223,7 @@ static int amd_iommu_def_domain_type(struct device *dev)
- 		return 0;
- 
- 	/* Always use DMA domain for untrusted device */
--	if (to_pci_dev(dev)->untrusted)
-+	if (to_pci_dev(dev)->requires_dma_protection)
- 		return IOMMU_DOMAIN_DMA;
- 
- 	/* Apply device specific quirks */
-diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
-index 78742aeba932..30f9d108897e 100644
---- a/drivers/iommu/dma-iommu.c
-+++ b/drivers/iommu/dma-iommu.c
-@@ -589,16 +589,16 @@ static int iova_reserve_iommu_regions(struct device *dev,
- 	return ret;
- }
- 
--static bool dev_is_untrusted(struct device *dev)
-+static bool dev_requires_dma_protection(struct device *dev)
- {
--	return dev_is_pci(dev) && to_pci_dev(dev)->untrusted;
-+	return dev_is_pci(dev) && to_pci_dev(dev)->requires_dma_protection;
- }
- 
- static bool dev_use_swiotlb(struct device *dev, size_t size,
- 			    enum dma_data_direction dir)
- {
- 	return IS_ENABLED(CONFIG_SWIOTLB) &&
--		(dev_is_untrusted(dev) ||
-+		(dev_requires_dma_protection(dev) ||
- 		 dma_kmalloc_needs_bounce(dev, size, dir));
- }
- 
-@@ -611,7 +611,7 @@ static bool dev_use_sg_swiotlb(struct device *dev, struct scatterlist *sg,
- 	if (!IS_ENABLED(CONFIG_SWIOTLB))
- 		return false;
- 
--	if (dev_is_untrusted(dev))
-+	if (dev_requires_dma_protection(dev))
- 		return true;
- 
- 	/*
-@@ -1184,12 +1184,12 @@ static phys_addr_t iommu_dma_map_swiotlb(struct device *dev, phys_addr_t phys,
- 				      &attrs);
- 
- 	/*
--	 * Untrusted devices should not see padding areas with random leftover
--	 * kernel data, so zero the pre- and post-padding.
-+	 * Zero the pre- and post-padding to prevent exposing kernel data to devices
-+	 * requiring DMA protection.
- 	 * swiotlb_tbl_map_single() has initialized the bounce buffer proper to
- 	 * the contents of the original memory buffer.
- 	 */
--	if (phys != (phys_addr_t)DMA_MAPPING_ERROR && dev_is_untrusted(dev)) {
-+	if (phys != (phys_addr_t)DMA_MAPPING_ERROR && dev_requires_dma_protection(dev)) {
- 		size_t start, virt = (size_t)phys_to_virt(phys);
- 
- 		/* Pre-padding */
-@@ -1790,7 +1790,7 @@ size_t iommu_dma_max_opt_mapping_size(void)
- 
- size_t iommu_dma_max_mapping_size(struct device *dev)
- {
--	if (dev_is_untrusted(dev))
-+	if (dev_requires_dma_protection(dev))
- 		return swiotlb_max_mapping_size(dev);
- 
- 	return SIZE_MAX;
-diff --git a/drivers/iommu/intel/iommu.c b/drivers/iommu/intel/iommu.c
-index 5a2e705a2f2e..dd75b41f47ab 100644
---- a/drivers/iommu/intel/iommu.c
-+++ b/drivers/iommu/intel/iommu.c
-@@ -2625,7 +2625,7 @@ static void __init platform_optin_force_iommu(void)
- 
- 	/*
- 	 * If Intel-IOMMU is disabled by default, we will apply identity
--	 * map for all devices except those marked as being untrusted.
-+	 * map for all devices except those marked as requiring DMA protection.
- 	 */
- 	if (dmar_policy_off()) {
- 		pr_info("Intel-IOMMU force enabled due to platform opt in\n");
-@@ -3630,13 +3630,13 @@ static bool intel_iommu_is_attach_deferred(struct device *dev)
- }
- 
- /*
-- * Check that the device does not live on an external facing PCI port that is
-- * marked as untrusted. Such devices should not be able to apply quirks and
-- * thus not be able to bypass the IOMMU restrictions.
-+ * Check that the device does not require DMA protection. Such devices should
-+ * not be able to apply quirks and thus not be able to bypass the IOMMU
-+ * restrictions.
-  */
- static bool risky_device(struct pci_dev *pdev)
- {
--	if (pdev->untrusted) {
-+	if (pdev->requires_dma_protection) {
- 		pci_info(pdev,
- 			 "Skipping IOMMU quirk for dev [%04X:%04X] on untrusted PCI link\n",
- 			 pdev->vendor, pdev->device);
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index b486b8bbd1fc..e0bae0c94741 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -1901,10 +1901,9 @@ static int iommu_get_default_domain_type(struct iommu_group *group,
- 		driver_type = iommu_get_def_domain_type(group, gdev->dev,
- 							driver_type);
- 
--		if (dev_is_pci(gdev->dev) && to_pci_dev(gdev->dev)->untrusted) {
-+		if (dev_is_pci(gdev->dev) && to_pci_dev(gdev->dev)->requires_dma_protection) {
- 			/*
--			 * No ARM32 using systems will set untrusted, it cannot
--			 * work.
-+			 * ARM32 systems don't support DMA protection.
- 			 */
- 			if (WARN_ON(IS_ENABLED(CONFIG_ARM_DMA_USE_IOMMU)))
- 				return -1;
-diff --git a/drivers/pci/ats.c b/drivers/pci/ats.c
-index 9cb23780093d..34e9147e52c7 100644
---- a/drivers/pci/ats.c
-+++ b/drivers/pci/ats.c
-@@ -40,7 +40,7 @@ void pci_ats_init(struct pci_dev *dev)
-  */
- bool pci_ats_supported(struct pci_dev *dev)
- {
--	if (!dev->ats_cap || dev->untrusted)
-+	if (!dev->ats_cap || dev->requires_dma_protection)
- 		return false;
- 
- 	if (dev->is_virtfn)
-diff --git a/drivers/pci/pci-acpi.c b/drivers/pci/pci-acpi.c
-index 5971ffc2a375..f6b199a121bd 100644
---- a/drivers/pci/pci-acpi.c
-+++ b/drivers/pci/pci-acpi.c
-@@ -1454,7 +1454,7 @@ void pci_acpi_setup(struct device *dev, struct acpi_device *adev)
- 
- 	pci_acpi_optimize_delay(pci_dev, adev->handle);
- 	pci_acpi_set_external_facing(pci_dev);
--	pci_dev->untrusted |= pci_dev_has_dma_property(pci_dev);
-+	pci_dev->requires_dma_protection |= pci_dev_has_dma_property(pci_dev);
- 	pci_acpi_add_edr_notifier(pci_dev);
- 
- 	pci_acpi_add_pm_notifier(adev, pci_dev);
-diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-index 7c6f2aba8144..a2246049cae7 100644
---- a/drivers/pci/pci.c
-+++ b/drivers/pci/pci.c
-@@ -1017,7 +1017,7 @@ static void pci_std_enable_acs(struct pci_dev *dev, struct pci_acs *caps)
- 	caps->ctrl |= (dev->acs_capabilities & PCI_ACS_UF);
- 
- 	/* Enable Translation Blocking for external devices and noats */
--	if (pci_ats_disabled() || dev->external_facing || dev->untrusted)
-+	if (pci_ats_disabled() || dev->external_facing || dev->requires_dma_protection)
- 		caps->ctrl |= (dev->acs_capabilities & PCI_ACS_TB);
- }
- 
-diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-index 9a178e0e5f7f..d69ac5a746fe 100644
---- a/drivers/pci/probe.c
-+++ b/drivers/pci/probe.c
-@@ -1738,7 +1738,7 @@ static void set_pcie_cxl(struct pci_dev *dev)
- 
- }
- 
--static void set_pcie_untrusted(struct pci_dev *dev)
-+static void pci_set_requires_dma_protection(struct pci_dev *dev)
- {
- 	struct pci_dev *parent = pci_upstream_bridge(dev);
- 
-@@ -1748,14 +1748,14 @@ static void set_pcie_untrusted(struct pci_dev *dev)
- 	 * If the upstream bridge is untrusted we treat this device as
- 	 * untrusted as well.
- 	 */
--	if (parent->untrusted) {
--		dev->untrusted = true;
-+	if (parent->requires_dma_protection) {
-+		dev->requires_dma_protection = true;
- 		return;
- 	}
- 
- 	if (arch_pci_dev_is_removable(dev)) {
- 		pci_dbg(dev, "marking as untrusted\n");
--		dev->untrusted = true;
-+		dev->requires_dma_protection = true;
- 	}
- }
- 
-@@ -2082,7 +2082,7 @@ int pci_setup_device(struct pci_dev *dev)
- 
- 	set_pcie_cxl(dev);
- 
--	set_pcie_untrusted(dev);
-+	pci_set_requires_dma_protection(dev);
- 
- 	/* "Unknown power state" */
- 	dev->current_state = PCI_UNKNOWN;
-diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
-index 4a02fc80755d..e081b6ca1fc0 100644
---- a/drivers/pci/quirks.c
-+++ b/drivers/pci/quirks.c
-@@ -5526,7 +5526,7 @@ static void pci_quirk_enable_intel_rp_mpc_acs(struct pci_dev *dev)
-  * PCI_ACS_SV | PCI_ACS_RR | PCI_ACS_CR | PCI_ACS_UF
-  *
-  * TODO: This quirk also needs to do equivalent of PCI_ACS_TB,
-- * if dev->external_facing || dev->untrusted
-+ * if dev->external_facing || dev->requires_dma_protection
-  */
- static int pci_quirk_enable_intel_pch_acs(struct pci_dev *dev)
- {
-@@ -5567,7 +5567,7 @@ static int pci_quirk_enable_intel_spt_pch_acs(struct pci_dev *dev)
- 	ctrl |= (cap & PCI_ACS_CR);
- 	ctrl |= (cap & PCI_ACS_UF);
- 
--	if (pci_ats_disabled() || dev->external_facing || dev->untrusted)
-+	if (pci_ats_disabled() || dev->external_facing || dev->requires_dma_protection)
- 		ctrl |= (cap & PCI_ACS_TB);
- 
- 	pci_write_config_dword(dev, pos + INTEL_SPT_ACS_CTRL, ctrl);
-diff --git a/include/linux/pci.h b/include/linux/pci.h
-index aa3765a20a96..b3fb044c5a4b 100644
---- a/include/linux/pci.h
-+++ b/include/linux/pci.h
-@@ -491,13 +491,14 @@ struct pci_dev {
- 	unsigned int	is_thunderbolt:1;	/* Thunderbolt controller */
- 	unsigned int	is_cxl:1;               /* Compute Express Link (CXL) */
- 	/*
--	 * Devices marked being untrusted are the ones that can potentially
--	 * execute DMA attacks and similar. They are typically connected
-+	 * Devices marked with requires_dma_protection are the ones that can
-+	 * potentially execute DMA attacks and similar. They are typically connected
- 	 * through external ports such as Thunderbolt but not limited to
- 	 * that. When an IOMMU is enabled they should be getting full
- 	 * mappings to make sure they cannot access arbitrary memory.
- 	 */
--	unsigned int	untrusted:1;
-+	unsigned int	requires_dma_protection:1;
-+
- 	/*
- 	 * Info from the platform, e.g., ACPI or device tree, may mark a
- 	 * device as "external-facing".  An external-facing device is
--- 
-2.56.1.831.g720f3f5937-goog
-
+Suzuki
