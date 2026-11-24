@@ -1,101 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.46
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795557775;
-	b=WEa7vheMxSrSq1DZjK7KTjfFDpXhIhfwvzckVBiHBQqt6T9CBB/JKen33zl0Fm3HEz9Y
-	 Is0MTAzB4Q6YyLBq5tiFUH1YR/wyzo5MEHPyEcd5bn5PkFH2rDNs+t3nvNiaOVX/tQSMB
-	 Jq4AmslKJCVeGwUOUnHbfHukxIJXD4CJ9oimK5pAEmh18g/mXiane9QyJx3c1fz5f0wwZ
-	 DClNt9vda7piobsalMPG4pQQPM3OtSpgPlPs5aNy3Xyvdbqz6lb8EGZOpzrLPNf4pwEv8
-	 bDYnNM++05ANrHL2GvC934wMA/qhpZ0Ft7HOQSOPDswRrfmrGR22Qsei7OVPO0WpAjg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795557775;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=MTsG6ObX1QZphRq69WtSXAGO8I5Qp7B9rjGutUJIVt0=;
-	b=lPy5822EXYqgi6Q1p4Nb/ejWy95yo1gNezKEXeNj9Dw/o5jBH8RvKWTrsIta0D3K0ykT
-	 N7FCt0R3OXY89wECPy4hqZcjOP757gMDhPTduijyhsKTFINtBF6OIdc5CTXoxNie9bbgA
-	 c/LMVxTmSRYfamQXYjbSn1wIwHwxzvJnkjD9U++xbaqhMOmfo/pD5W+RO0k92AZUCiEjk
-	 vsTrGrHDlRi1d5jLnj3q7ONLQd2O487upEx+lOTeMKe0RKhldO1J/XFPtRkjwZ3o6N0iF
-	 R33biEwqoJMYM3PeTaDQcipfEq+5Pslh/a2InPvD4Z9HSxGzP9gDlh6jUs1F4TS1ALw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Hz7o8//i";
-	arc=none smtp.remote-ip=209.85.210.46
-Received: from mail-ot1-f46.google.com (mail-ot1-f46.google.com [209.85.210.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795557781;
+	b=lDI5e8C2vdyx/Ej8BpphSAXAf1D8WoIRmK73kc/fX4HG5n8JsIhlj8jOLUcVy6+XR3Cv
+	 Y8Kjs+J5IG4iNwlPxygWgXL+K3vOAeto7hNYWB+zAgi+RFNo2SI9zxYTJD3MpfSnHIBLh
+	 CQAd93+PbEwAsKH1o1PFHjCR+a5JfpeTJZPcuWWjRIgHLAHg4UyhQdY8SgfxROuY1fI9a
+	 JnWaKsAUlxwYNDmAoE49kb+Gjacn0EkTlwQIVDXNb79Wp9bDWiZCkKFAl0r2yq+2UeeHn
+	 eKEUmzPGWN6JYXSqsPc7WQr+8IqZbRB6e8M8q6DMDG1HWegVEyiLxs/lXbMNnRv1DJA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795557781;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=yqSNzruG07jwQaPwVKFS1LEgr0ZuJsVIG8sfjHpXyOs=;
+	b=O4idbVvKnyPXCu7Gd0ucCvw2kSaA5BKkA9KBw26BwCKc/yp4d2d+jemgBXdqh4U/Yr44
+	 sjxyQDjEgmg6e/8e0BjwsGIHHWkjRmOJc8Dv3aQwRKoSI3qEHn0i9ixHYZKIFVbKXX93t
+	 zTo7Z8WKaLaxEOBgRu6JkfU62NuMvfD0fmJbg3RCcrC+MJ77xvgUKYlw394rwjO0agB0K
+	 0OEWnDz7xkK/8Nla916x2/HbU0aspzNaGKXPgw7zrjtV3uwrCwj32cneIw74UF3BMvuzA
+	 aYwg8OoLVU4bT8H2yvZ2DXqbhpdf3oOnQak5oVyMHu+9RgIlmlx3vFXZ7d2xKQ2A2jg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TH6Etpqe;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC93B606A323;
+	Tue, 24 Nov 2026 22:03:01 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TH6Etpqe
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795557781;
+	b=zp+Gn7KAXRHpZyfnniZMyPmjRaYmprrELA1f4Ctl6WyvIWpFTFv8+suRduTTn45T9I3d
+	 tuLYkZgLejXNqhSfpyjZYAVUG1AdUm403lipnNIGHNka4DpKAy6LBytiG9vmsIjI3LUhs
+	 JT/sivH3mo5sHNmC/d/CP3HIGKAO0C15wrJJ5wk4kDYkHEYdumXEECIw+al4u854DXO1c
+	 sW+chSBJ4ZvLfR/bs3j3lFh4vqRPhuVQD/8nKDaD/n1TzLIqpmar+kaETMckw0IvThbZ2
+	 xbcLkWw+xVVTTOm47GKdHORZFVdKQNjEHR+GXOItlQVhQNwoLYck6ZM46kxZue8lp5g==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795557781;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=yqSNzruG07jwQaPwVKFS1LEgr0ZuJsVIG8sfjHpXyOs=;
+	b=AIRd56IqA+PumoEcLod1uGTNPe3HCxt40nqOBtmPyYnvWCGiM7MXtvsssPk0Vown2gN6
+	 iSnq7YEnrFY2mWH1WDEAs+1hdN5gI+wZUTTlwjs3JevrN3R3wlIibQ0+YwrVXJQApL7p9
+	 DxShgTw3yDC0c3r2Xz4VfnNi2tbJH2v13rhXoY8L/J1RE98n1zUDnF31ZdWdH5A7kuvpc
+	 l/0s2bH/PvZqDbxyKMWLQVEJd1U1lAy6ipCTkvphCgsNKd1WqNav2wuZIX0fzDiNxz3rK
+	 JsOeftHObXS5hprR2jGZezt8QGlmaj1TTfKlliF/T2xzMpzQybZtn8NkiZDF6Kv1PpA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0471C606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:02:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0471C606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Hz7o8//i
-Received: by mail-ot1-f46.google.com with SMTP id 46e09a7af769-8629ef8613aso2000684a34.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:02:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795557774; x=1796162574; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MTsG6ObX1QZphRq69WtSXAGO8I5Qp7B9rjGutUJIVt0=;
-        b=Hz7o8//ifyypD2vcRuajMaBRFCCt7gq5hVxY4h34XSTuCklaUZjCviBkF/B6bk/hf3
-         hctWcH7ztS2urkic7Jlkz9DF0pVagybCHw1UQ88mMHivAfyyKW5+g1+FDOr4vIAFFMTh
-         C6K7wmKqxX7zD3McLzBVfxzWF0Tmo2/QUETVMRntMNrwbQILhPLUg/BFc7ze/Q7bldsO
-         jqM9BRbs94s1/Dv0Y8Kz3nxiZRKTT2tIgkrEjM+ObxB2erd4R10JUdCFdt67Uj+wEVK1
-         qnghUqKs225CQJsJlw07EKkVs0cE6y0yDyMxEyuHmpXx8XbTe9kTTB3eSQ0l53mc9yFN
-         6BDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795557774; x=1796162574;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MTsG6ObX1QZphRq69WtSXAGO8I5Qp7B9rjGutUJIVt0=;
-        b=pLYLQdqsQcBRUuIpDOwvdsMxaEij01EPInl3gxhZ1U75iY1yXRDiuFF3llT2qu+faH
-         MoS0Y919s2WgockjidSU4gjRaNY82A/pQl/KGon0nzrbNGFq17SuwcbnpVTVX8WuwynA
-         pwF8WsAgOKZoqov3f3tU0PIZjoH81IKMnleGmtP/BgaavfZQNpRft6uVl+fBkYyO7UeM
-         9XdynD6y1xQIy1RHgPmnUGBRJPtZz6HXw1HbgWXMTrakD3EaXsdeEL1lPHzo8zaR2XF0
-         3vQehSVHaFe4xwufAVXcRzkMIjdqrizg1lAsCvZvPFwTQA7s90I/51pPLNBROWeWZiPi
-         mQ7g==
-X-Forwarded-Encrypted: i=1; AL+hErHqSaimvL6fCf8+2ehALcbad3s1Aq3knC+6n8/Gl+IXJpa7ARcn8LtgKSUeJmp/bFPs3UMjewKaoZdz1UA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+5LXE0mlrQx+HNlzHc8PrMRKxEuTebcYQ9LGw4NkDzPaL3UPec
-	o0UZqSEXIP7u3p5P1lcnhAB/ofpyHl1LcqFAz8BrsmAYDSFl2ultd5Z9
-X-Gm-Gg: AZFdTZekZnIiL40aQCX+z0b7mnVmQoFctlXKjrEKXGCFYYQn2Pm9VKNIQ1YmDkkgmCR
-	8BtkrQKzvD2raab2rCy9V//jY2UfpVJklXTK2hYksGAnaY1/YhjOlOPqlaK3f9RE8IQS5RLaygR
-	fyQuRuocjOKyj+jqC6ngd/QvyQUnwb90yGYT6+Bd7x457R/YHLeUYTPi5Tzfm9amEjTbzgR/QDb
-	qCjkb7Rwy8JTdgjwUfNlV/4S+CSXRmHGGi6Jx6N+UaDaiXJxjfp0Mrp8BgUwmrhdRQ0NIF1mgiC
-	BOvlEhcIZoJBkC6pRYpbP7Ccb9j1GtdaUMSHUbBhNicWi7CVn5kkoUdmxveN5oA7koNn7Lmgwbw
-	Fr7MUxOvceKYdPArwVbzksPyVakpa07wC3NBmYulpJ90NSwSQ4zKKsY6oVrlzG2G1fP3HlebKjy
-	1AEixp+A6+DKpybJalZ8YRGT2X8Iu0w6tw80HAx+tFQwmBbsYBZ6363y+m7JvHZp3Kj2aTWqjAj
-	leAJ99r1hKZ26ppxXmVgufHbjdlcK23CR6ZyTU4v+W7BgQbz9xxwfh2lgfeYzFVcD3YRhukEGGu
-	+7takl1hOIM7f2jmXq0Dnq5qmkM=
-X-Received: by 2002:a05:6830:4119:b0:862:f05c:2fd with SMTP id 46e09a7af769-863152c5e83mr17966959a34.3.1795557773847;
-        Tue, 24 Nov 2026 14:02:53 -0800 (PST)
-Received: from localhost ([2a03:2880:31ff:52::])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168c1bc5sm11180539a34.6.2026.11.24.14.02.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 14:02:53 -0800 (PST)
-From: Mohsin Bashir <mohsin.bashr@gmail.com>
-To: netdev@vger.kernel.org
-Cc: saeedm@nvidia.com,
-	leon@kernel.org,
-	tariqt@nvidia.com,
-	mbloch@nvidia.com,
-	cjubran@nvidia.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mohsin.bashr@gmail.com,
-	linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v3] net: mlx5: Allow police as the last action of a TC rule
-Date: Tue, 24 Nov 2026 14:02:51 -0800
-Message-ID: <20261124220251.776944-1-mohsin.bashr@gmail.com>
-X-Mailer: git-send-email 2.53.1
+	by smtp.kernel.org (Postfix) with ESMTPS id 978B51F000D3;
+	Tue, 24 Nov 2026 22:02:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795557781;
+	bh=yqSNzruG07jwQaPwVKFS1LEgr0ZuJsVIG8sfjHpXyOs=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=TH6Etpqegdn1DMto6xKK51Liren1EN/WaD7U9SVflvoeeV3HRN3aiSaIz07R66+k6
+	 wBOEW16K9o0L/SnuihwWFeYdpTvFZpjiCzbYMRq3ozBhuAqFctEk95x3MIUmLUnmRY
+	 rE3wQpuw0e6bMmjKbhYQWm905cZ5tPJZcVEUq5ZgfqAvxkATfRnoP9NlU/Q2rl56GG
+	 9n6IHSozfpZQ+aOvxhRq9raaomLrma6R9FPpv9C7MF32vxCUk7+YeG4gQ8abPK/1ZN
+	 sVE18wU6ocR0kBeGI6FZQXNXAtTRf4eBK5mP7Q2Oed/BZVRLzC6wngMRlnO8RkbTj4
+	 63yrUKyyK0ZUA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 18F2E4CBBA;
+	Tue, 24 Nov 2026 22:02:49 +0000 (UTC)
+From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
+Date: Tue, 24 Nov 2026 23:02:47 +0100
+Subject: [PATCH v4] media: qcom: camss: Don't reject sensor links faster
+ than 4x the CSIPHY timer
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,232 +83,129 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261124-csiphy-sdm845-limits-v4-1-f39f9149b62e@ixit.cz>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XNywrCMBCF4VeRrI1kJr3pyvcQF00ysSNeSlNLa
+ +m7myooLsTlgZnvH0WghimIzWIUDXUc+HqJI1kuhK3Ky4Eku7gFKsxUgSht4LoaZHDnIknlic/
+ cBmmAtDOlT50uRHytG/LcP9nd/rXDzRzJtrM1X1Qc2mszPLsdzHd/Eh1IkE5nyvjcxozfcs/ty
+ t7FHOjwQ6wh+UFgJDJEZ9IyI+PVN6HfBCjMfxA6EjYt1pATJKDyDzFN0wOlc7/vTgEAAA==
+X-Change-ID: 20260822-csiphy-sdm845-limits-b1e3dbaf5d38
+To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
+ Loic Poulain <loic.poulain@oss.qualcomm.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Todor Tomov <todor.too@gmail.com>
+Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+ Bjorn Andersson <andersson@kernel.org>, linux-media@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ phone-devel@vger.kernel.org, David Heidelberg <david@ixit.cz>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3233; i=david@ixit.cz;
+ h=from:subject:message-id;
+ bh=ochRMDocSCeX7Q8h0M1gcBIPdY3ayiUWJfkM116gdZ4=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBrBgmIfWQ8kSxonNKGJu66CneXdPYw15r2NNJLO
+ OiPPPEZlN2JAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCawYJiAAKCRBgAj/E00kg
+ cuXuD/9woMc8aXmQRwX/klS4HBOrhKnWOdHCx+CqlQASJ6KXM2UP3OiVqfwUFjeg74wu+Fqr7li
+ VW2g/jK/fmUrVZDchZKZ7wABQrkJlTC6sW/tZJBVjWTe5FuM0oRTeSRrNsxMNkOSCm3aJwnlwcF
+ PicfOLHXVEMzBRBH2YZ/dqpsyIFC+ONY+y2LIgni+yCoIp5hH/vTx4mlQai5fUgDWXJ/OunT1Ts
+ Fe4yLzcjVaxtA16bOWb1RMoNUx8xxMel3tQHDIiPhEcmnTyvw/UT8Tyef7Tm9ogQ0yHdPn1k9Kl
+ sC8uPr6hbD8Mmsmo71bzbiszimmMt9Bv57bKVSm6sWR/86VkUCraoAcdR7ShAv613Wq4EIUG2dt
+ 3mCQQ2JjOo3WNeDr5uQ0wTEG4ANZ7hv1vUi5oiqQ/pCNAF8cbHEp3D9FmRP7LzcGaVD/Vd0r25o
+ 2kam/INm9jDLtRcZFXYrnC3CjaomGL93h+jym2324De2wk//KxLLeScNbWoNaZbSk4/ly+U/RQf
+ lRknt/rIkBS9cHAtRzjaxrpAu+ccOdWxLlO2HxU3J7Lr2wD/z089mu2hcF0fSqmsm5dyfgVc66M
+ ZVNONOg6VfPDrcNhBVPpymXRrQFfh5kKeaB4O+CY78d3pib8TVDF9RTEETRaWKKwOA1jvIye9Wm
+ 9UhKuqHJUHzMijw==
+X-Developer-Key: i=david@ixit.cz; a=openpgp;
+ fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
+X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
+X-Original-From: David Heidelberg <david@ixit.cz>
+Reply-To: david@ixit.cz
+Content-Transfer-Encoding: 7bit
 
-From: Mohsin Bashir <hmohsin@meta.com>
+From: David Heidelberg <david@ixit.cz>
 
-In switchdev mode, mlx5 does not offload a rule where police is the last
-action, although TC needs no other action for such a rule. The upcoming
-selftest series relies on these rules. With nothing after police, the
-police result alone decides where the packet goes, so each result must
-be offloaded as TC executes it. The driver does not do that today. An ok
-result is handled as pipe and runs the actions after police, a pipe
-result always returns to the post action table, and a jump is counted
-from police while TC counts it from the start of the action list. A rate
-police is also rejected by verify_attr_actions(), as its forward to the
-post meter table is added only after the check.
+The timer clock has no such relationship to the link rate. Both the 2ph
+and 3ph code use it only as the reference for csiphy_settle_cnt_calc(),
+where a faster link makes the settle count smaller, not larger: at
+269.33 MHz the count converges to 16 as the link rate grows. The vendor
+driver pins the timer to 269.33 MHz for every sensor (it is the highest
+rate in the SDM845 clock plan) and streams this exact link with it.
 
-Make the offloaded rule behave as it does in TC. An ok result ends
-processing in TC. A pipe result does the same when police is the last
-action. Send both to the end of the TC chains as the driver already does
-for gact ok. For jump, offload only the simple case where police is the
-first action and the skipped actions are all drop or all ok. Reject the
-rest. Existing rules where police is followed by other actions also
-change. An ok result now accepts the packet instead of running those
-actions. Finally set the forward to the post meter table while parsing
-police. This is already done for police with mtu and lets a police-only
-rule pass verify_attr_actions().
+Clamp to the highest listed rate instead of failing, the same way the
+unknown-link-rate case is already handled.
 
-Tested on a ConnectX-7 in switchdev mode with the commands below. The
-hardware drop counter showed that the rules are offloaded and limit the
-traffic to the configured rate, that the second police only sees the
-packets conforming to the first, and that the jump lands on its target.
+Solves issue on sdm845 that caps the link at ~1.02 GHz,
+so the Samsung S5K2X7SP, ~2.3 Gbps/lane, link 1.15 GHz) fails with
+Pixel clock is too high for CSIPHY
 
-  tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
-    ip_proto udp dst_port 5201 \
-    action police rate 100mbit burst 1m conform-exceed drop/ok
-
-  tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
-    ip_proto udp dst_port 5201 \
-    action police rate 200mbit burst 1m conform-exceed drop/pipe \
-    action police rate 100mbit burst 1m conform-exceed drop/pipe
-
-  tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
-    ip_proto udp dst_port 5201 \
-    action police rate 100mbit burst 1m conform-exceed drop / jump 2 \
-    action drop action ok
-
-Cc: Carolina Jubran <cjubran@nvidia.com>
-Signed-off-by: Mohsin Bashir <hmohsin@meta.com>
+Fixes: bbde31047434 ("media: camss: Use optimal clock frequency rates")
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Reviewed-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
+Signed-off-by: David Heidelberg <david@ixit.cz>
 ---
-Changelog:
-v3:
-  - Offload jump only when police is the first action, the target is a
-    later action, the skipped actions are all drop or all ok, and the
-    same action is not used twice in a row, as discussed on v2:
-    https://lore.kernel.org/netdev/5c493bd0-31f5-430a-844a-ad011a5f0ba8@nvidia.com
-  - Update commit message
-
-v2: https://lore.kernel.org/netdev/20261119040010.1405900-1-mohsin.bashr@gmail.com
-v1: https://lore.kernel.org/netdev/20261117031337.4126403-1-mohsin.bashr@gmail.com
+Tested on SHIFT 6MQ with sdm845-next-20260820-9.
 ---
- .../mellanox/mlx5/core/en/tc/act/police.c     | 59 ++++++++++++++++++-
- .../net/ethernet/mellanox/mlx5/core/en_tc.c   | 26 +++++---
- 2 files changed, 75 insertions(+), 10 deletions(-)
+Changes in v4:
+- Fix stranded ` and rebased a top of next-20261120.
+- Link to v3: https://patch.msgid.link/20261027-csiphy-sdm845-limits-v3-1-c58917e14107@ixit.cz
 
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
-index 1bd1c94fb977..f03a992cbc27 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
-@@ -37,6 +37,52 @@ static int police_act_validate(const struct flow_action_entry *act,
- 	return 0;
- }
+Changes in v3:
+- Added R-b and Fixes: tag.
+- Link to v2: https://patch.msgid.link/20260914-csiphy-sdm845-limits-v2-1-622db5a6ebf0@ixit.cz
+
+Changes in v2:
+- Drop the camcc change entirely; the 269.33 MHz ceiling stands. (Konrad)
+- Fix the check in camss instead: clamp the timer clock to the highest
+  listed rate rather than failing, matching the vendor driver.
+- Link to v1: https://patch.msgid.link/20260822-csiphy-sdm845-limits-v1-1-d360bf7cd38f@ixit.cz
+---
+ drivers/media/platform/qcom/camss/camss-csiphy.c | 16 +++++++---------
+ 1 file changed, 7 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/media/platform/qcom/camss/camss-csiphy.c b/drivers/media/platform/qcom/camss/camss-csiphy.c
+index cdb803843792c..459175709670f 100644
+--- a/drivers/media/platform/qcom/camss/camss-csiphy.c
++++ b/drivers/media/platform/qcom/camss/camss-csiphy.c
+@@ -159,25 +159,23 @@ static int csiphy_set_clock_rates_legacy(struct csiphy_device *csiphy)
+ 			long round_rate;
  
-+static bool
-+police_act_can_offload_jump(struct mlx5e_tc_act_parse_state *parse_state,
-+			    const struct flow_action_entry *act,
-+			    int act_index, u32 target)
-+{
-+	const struct flow_action *flow_action = parse_state->flow_action;
-+	struct netlink_ext_ack *extack = parse_state->extack;
-+	const struct flow_action_entry *prev, *entry;
-+	u32 i;
-+
-+	if (act_index) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "Jump is only supported when police is the first action");
-+		return false;
-+	}
-+
-+	if (!target || target >= flow_action->num_entries) {
-+		NL_SET_ERR_MSG_MOD(extack, "Jump target must be a later action");
-+		return false;
-+	}
-+
-+	prev = act;
-+	for (i = 1; i <= target; i++) {
-+		entry = &flow_action->entries[i];
-+
-+		if (i < target &&
-+		    ((entry->id != FLOW_ACTION_DROP &&
-+		      entry->id != FLOW_ACTION_ACCEPT) ||
-+		     entry->id != flow_action->entries[1].id)) {
-+			NL_SET_ERR_MSG_MOD(extack,
-+					   "Jump can only skip actions that are all drop or all ok");
-+			return false;
-+		}
-+
-+		if (entry->id == prev->id && entry->hw_index == prev->hw_index) {
-+			NL_SET_ERR_MSG_MOD(extack,
-+					   "Jump over the same action twice in a row is not supported");
-+			return false;
-+		}
-+
-+		prev = entry;
-+	}
-+
-+	return true;
-+}
-+
- static bool
- tc_act_can_offload_police(struct mlx5e_tc_act_parse_state *parse_state,
- 			  const struct flow_action_entry *act,
-@@ -49,6 +95,16 @@ tc_act_can_offload_police(struct mlx5e_tc_act_parse_state *parse_state,
- 	if (err)
- 		return false;
+ 			camss_add_clock_margin(&min_rate);
  
-+	if (act->police.exceed.act_id == FLOW_ACTION_JUMP &&
-+	    !police_act_can_offload_jump(parse_state, act, act_index,
-+					 act->police.exceed.extval))
-+		return false;
-+
-+	if (act->police.notexceed.act_id == FLOW_ACTION_JUMP &&
-+	    !police_act_can_offload_jump(parse_state, act, act_index,
-+					 act->police.notexceed.extval))
-+		return false;
-+
- 	return !!mlx5e_get_flow_meters(parse_state->flow->priv->mdev);
- }
+ 			for (j = 0; j < clock->nfreqs; j++)
+ 				if (min_rate < clock->freq[j])
+ 					break;
  
-@@ -94,13 +150,14 @@ tc_act_parse_police(struct mlx5e_tc_act_parse_state *parse_state,
- 		      MLX5_FLOW_STEERING_CAP_MATCH_RANGES))
- 			return -EOPNOTSUPP;
+-			if (j == clock->nfreqs) {
+-				dev_err(dev,
+-					"Pixel clock is too high for CSIPHY\n");
+-				return -EINVAL;
+-			}
+-
+-			/* if sensor pixel clock is not available */
+-			/* set highest possible CSIPHY clock rate */
+-			if (min_rate == 0)
++			/*
++			 * The timer clock is only the reference for the
++			 * settle count and does not need to track the link
++			 * rate. Use the highest listed rate when the link is
++			 * faster than the table covers or unknown.
++			 */
++			if (j == clock->nfreqs || min_rate == 0)
+ 				j = clock->nfreqs - 1;
  
--		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
- 		attr->flags |= MLX5_ATTR_FLAG_MTU;
- 	} else {
- 		attr->action |= MLX5_FLOW_CONTEXT_ACTION_EXECUTE_ASO;
- 		attr->exe_aso_type = MLX5_EXE_ASO_FLOW_METER;
- 	}
- 
-+	attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
-+
- 	return 0;
- }
- 
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-index 1d35c97aea0b..7e7111e6d058 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-@@ -3874,7 +3874,7 @@ static int
- alloc_branch_attr(struct mlx5e_tc_flow *flow,
- 		  struct mlx5e_tc_act_branch_ctrl *cond,
- 		  struct mlx5_flow_attr **cond_attr,
--		  u32 *jump_count,
-+		  u32 *jump_count, bool last,
- 		  struct netlink_ext_ack *extack)
- {
- 	struct mlx5_flow_attr *attr;
-@@ -3891,11 +3891,17 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
- 	case FLOW_ACTION_DROP:
- 		attr->action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
- 		break;
--	case FLOW_ACTION_ACCEPT:
- 	case FLOW_ACTION_PIPE:
--		err = set_branch_dest_ft(flow->priv, attr);
--		if (err)
--			goto out_err;
-+		if (!last) {
-+			err = set_branch_dest_ft(flow->priv, attr);
-+			if (err)
-+				goto out_err;
-+			break;
-+		}
-+		fallthrough;
-+	case FLOW_ACTION_ACCEPT:
-+		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
-+		attr->flags |= MLX5_ATTR_FLAG_ACCEPT;
- 		break;
- 	case FLOW_ACTION_JUMP:
- 		if (*jump_count) {
-@@ -3967,7 +3973,7 @@ dec_jump_count(struct flow_action_entry *act, struct mlx5e_tc_act *tc_act,
- static int
- parse_branch_ctrl(struct flow_action_entry *act, struct mlx5e_tc_act *tc_act,
- 		  struct mlx5e_tc_flow *flow, struct mlx5_flow_attr *attr,
--		  struct mlx5e_tc_jump_state *jump_state,
-+		  struct mlx5e_tc_jump_state *jump_state, bool last,
- 		  struct netlink_ext_ack *extack)
- {
- 	struct mlx5e_tc_act_branch_ctrl cond_true, cond_false;
-@@ -3980,7 +3986,7 @@ parse_branch_ctrl(struct flow_action_entry *act, struct mlx5e_tc_act *tc_act,
- 	tc_act->get_branch_ctrl(act, &cond_true, &cond_false);
- 
- 	err = alloc_branch_attr(flow, &cond_true,
--				&attr->branch_true, &jump_count, extack);
-+				&attr->branch_true, &jump_count, last, extack);
- 	if (err)
- 		goto out_err;
- 
-@@ -3988,7 +3994,7 @@ parse_branch_ctrl(struct flow_action_entry *act, struct mlx5e_tc_act *tc_act,
- 		jump_state->jumping_attr = attr->branch_true;
- 
- 	err = alloc_branch_attr(flow, &cond_false,
--				&attr->branch_false, &jump_count, extack);
-+				&attr->branch_false, &jump_count, last, extack);
- 	if (err)
- 		goto err_branch_false;
- 
-@@ -4052,7 +4058,9 @@ parse_tc_actions(struct mlx5e_tc_act_parse_state *parse_state,
- 
- 		dec_jump_count(act, tc_act, attr, priv, &jump_state);
- 
--		err = parse_branch_ctrl(act, tc_act, flow, attr, &jump_state, extack);
-+		err = parse_branch_ctrl(act, tc_act, flow, attr, &jump_state,
-+					flow_action_is_last_entry(flow_action, act),
-+					extack);
- 		if (err)
- 			goto out_free_post_acts;
- 
--- 
-2.53.1-Meta
+ 			round_rate = clk_round_rate(clock->clk, clock->freq[j]);
+ 			if (round_rate < 0) {
+ 				dev_err(dev, "clk round rate failed: %ld\n",
+ 					round_rate);
+ 				return -EINVAL;
+ 			}
+
+---
+base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
+change-id: 20260822-csiphy-sdm845-limits-b1e3dbaf5d38
+
+Best regards,
+--  
+David Heidelberg <david@ixit.cz>
+
 
