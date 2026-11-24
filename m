@@ -1,115 +1,153 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795535611;
-	b=XoLWVPQZpk2x0SJlyuti78idhwIpY74JHliwuhmZIprEMu5SujRGxerNJNIpMS97zq4+
-	 63rZJ1gfQiFICVQ3TejAQDqzNgevYv9iGrbuIeKe+UzXr9A1d2GmQVpDAK2ub5rxm4/U+
-	 b0V6tux5Ate1cUEOFE3dxynNPgKdKDWpU9mjtFfGuPrenYIzErwEoKc/eyWV2nG1Qv9Vr
-	 rkJekadQ2npy3fVYRpVBoz6YR3dlFAn9v4JzYfTxCnfKsWHZ//Ey9ERikbHCtA0nf1Cx+
-	 iAe5icH+A5ZKT6fpSeXa6JyVOn+rFZ8BZb4dST+JjrN5HWetsz7A8YqkLT8W8tMhAbg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795535611;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
-	bh=lUyOpI4ZllHADObrpfElouVz31YbKj6UKHW0iS6ONz0=;
-	b=X2tYG3I3QfwtClvnp/l/x3k54i5R2t4IRRBPquag3a2nrlsWlFe5K3JBECYsTYPTF+Cq
-	 Haf6A6RH81KQFIzj38AtMTPCT0w6fzKgrCGwQeV7Mx7hq1sU1nUOxcXGGfX7/8BQNk7Lw
-	 iDUce71BnBmqTcT0u4T2x2u030gmvTnbdEVcOBYHs0No1hZYRBIYlTyD2zDfiz7EHfSAl
-	 lDLluqhMkeyXFw9q0L2QX9wxcPZw2KG+xztSI9M+Q6UW86oIwSF1NTIGK4hm0n8sj5Kwx
-	 G1xUZd2n/7HIzycgGRHycfW/QjC2Mf49Dg+w5XLDViEZuGmIE8TGeu17L06JlaL82DA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=If0WT6b1;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="+oeAg/Fq";
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b="yiDg/mTp";
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=vsI4CcAK;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.43.26
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795535626;
+	b=kriEMkAqb4k4dQq/SJUWpsyplL7n+OtpurpxwK/pnGL1LObVmN19LQaZM5Ur59Yh9IJr
+	 ULLIGTLr+RSaAiJ4lJbZkzZiSRScwh0w82Ey+te9SMS7XBVMFt9gn0EouyiIA5GGP6SqC
+	 sQWtJkWVYzh/NdYf/dazqq2wWlj4fI0cycGGMNyl/mfbsKrrsL/Qv7OtRl0RJEfmI7/Kc
+	 kL67+YFgeZskx/JI1f6cWvqgZREzE1M6Y+0WySXVKj3NgT1XUeciw32lwW/W+93tAhS05
+	 cRbyvc7ImEP0Rr/N9xIlF9ozS0t3rzcXn6RYGwVU+4/Hbd7QxZakfN1zqJJB6hx1lqw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535626;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:Accept-Language:
+	 Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:
+	 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=GZujQcb1vIGlqn+UNi02fGM1tAPwUlH77khPImIX75E=;
+	b=hEY7BgVpHvw5+bREw8inFSf7J/kB4vrY77e293MSfH3wX+CqdE9qiSR71hAK7fixAs1q
+	 cldqU0OiRwQvM50Gm+n4ShJyxmKVIR3Gibk0iz5TtgNegpCDZtfz7WxE5kEnX5FJN4s65
+	 97Ajy7FiNFRGoBenEb/vsXowj3y9pNTYdYru4t89XNtRuBn4p2rQBtK1ZI8xA8aeiHbWT
+	 FX0KtX5vH9oQ1oAGSN0nZAmAdKEVaYyQR39wsdzd6rWKtRaYZgouIqjZOBWAUIs5s+XmZ
+	 9bj1pvrEaEUdzo78eBcr7aULWIBuq5XFh1K/qrEws78UHhaWzAh5EV+6hc1Nj8bbJMw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=outlook.jp;
+	spf=pass smtp.mailfrom=outlook.jp;
+	dkim=pass header.d=OUTLOOK.JP header.i=@OUTLOOK.JP header.a=rsa-sha256 header.s=selector1 header.b=pimBKHcb;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.43.26
+Received: from TYVP286CU001.outbound.protection.outlook.com (mail-japaneastazolkn19011026.outbound.protection.outlook.com [52.103.43.26])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0043606A330;
-	Tue, 24 Nov 2026 15:53:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0043606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2910606A31E;
+	Tue, 24 Nov 2026 15:53:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2910606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.jp
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.jp
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=If0WT6b1;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=+oeAg/Fq;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=yiDg/mTp;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=vsI4CcAK
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id B28931FA90;
-	Tue, 24 Nov 2026 15:53:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795535607; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lUyOpI4ZllHADObrpfElouVz31YbKj6UKHW0iS6ONz0=;
-	b=If0WT6b1oNX0NsP8KXz5hz6w0OSeaw9JT644GXpYQPnGdADQ91TExi85nHg0ISPl7nU+2N
-	ZVcK1R8Lho0S30c61RiduJcde4OSOU10IQeqWnqPmREm60rliRvK3SSKNewPcD2f3KTQug
-	fCxn2YndinPp5MBbEXNnjJjqVkCB2V0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795535607;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lUyOpI4ZllHADObrpfElouVz31YbKj6UKHW0iS6ONz0=;
-	b=+oeAg/FqO3xs5p1Ei7p3mNU8GOy5FY7hkYBtNZSfuvMxBYbqTbUEK3IVXh4H4UwrpTjBRn
-	MfdpvvR5kyIT/oDA==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795535606; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lUyOpI4ZllHADObrpfElouVz31YbKj6UKHW0iS6ONz0=;
-	b=yiDg/mTpoeRxI9KmKBzg8ax7YuuDuBdFThYc2xjfBHx2IK27wifmrA1ITt+9arXDIDNSeg
-	GzX6e5MS12JLhCVOqI0hUR9w+f6p4MgYeo+YmTVHJ0ogsA9KCLO3B7yABEw2m0xFCVh2MB
-	wXI9UYfiA+ThNfcbbHAMzjvaEBPdYus=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795535606;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lUyOpI4ZllHADObrpfElouVz31YbKj6UKHW0iS6ONz0=;
-	b=vsI4CcAKPvBK1xOClFivut6AW0vsOHLUURooEVG6ffRR+bPZXrjlbQida2R6oYVmoN+JIK
-	yLL7eT6at1S5fZAA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 8638813505;
-	Tue, 24 Nov 2026 15:53:26 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id A0S1GPayBWsUCAAAD6G6ig
-	(envelope-from <jack@suse.cz>); Tue, 24 Nov 2026 15:53:26 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id 150C227A04; Tue, 24 Nov 2026 16:53:22 +0100 (CET)
-Date: Tue, 24 Nov 2026 16:53:22 +0100
-From: Jan Kara <jack@suse.cz>
-To: Zhang Yi <yi.zhang@huaweicloud.com>
-Cc: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>, 
-	Ojaswin Mujoo <ojaswin@linux.ibm.com>, Theodore Ts'o <tytso@mit.edu>, Jan Kara <jack@suse.cz>, 
-	Baokun Li <libaokun@linux.alibaba.com>, Andreas Dilger <adilger.kernel@dilger.ca>, 
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, guolingxing <guolingxing@tju.edu.cn>, 
-	Josef Bacik <josef@toxicpanda.com>, Chris Mason <mason@kernel.org>, linux-ext4@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, regressions@lists.linux.dev
-Subject: Re: [REGRESSION] ext4: silent data loss when a split at I/O
- completion gets ENOSPC
-Message-ID: <osarljpnd2viffbi3lrgqccyjxjo6ktez73sizcstqjiaw3cbc@e5jnepamtbkl>
-References: <d400205a-0d3d-4ec3-a916-6c0a085841b4@linux.dev>
- <d8ac3185-44c8-41e7-9cbf-3d1baa27f272@huaweicloud.com>
- <20261117-jf-ext4-enospc-reply-zhangyi-v9-b19eeb966ad0@linux.dev>
- <10712329-a587-496d-babf-620ebfd0e60e@huaweicloud.com>
- <20261118-jf-ext4-enospc-reply-zhangyi-v13-3886a3248c32@linux.dev>
- <9be1cb3e-4417-4609-bc0d-67dcfa24aa10@huaweicloud.com>
+	dkim=pass (2048-bit key, unprotected) header.d=OUTLOOK.JP header.i=@OUTLOOK.JP header.a=rsa-sha256 header.s=selector1 header.b=pimBKHcb
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DGs+loAMDHL6HUmWFiqGgIXs9MaabJfxflDXh80NfYn4sXgt7BZ+OAjT+4kGx36kaQgd0tTeWKdJMbBcyGflJU6UadkYOm+VXnxmKVSlLD6b+qyhg8euTdgWX6JmkRD2eZi/mlSUSTzQR85Hj+UE7ZYhCGz3ZPJbuo71DkLtjKV/+01VPG3fNx0kXvfHYtbAeTecJ87NAAainbAv0ncLAPfTWoGoICiiiWRe3say3myGFy30kU1KfBOW/9+tkjU20/wNtwrJKKzMgAm0ntq9LA9ryb+w0ftyruLPGKupRwQ0dyCE1+/8D8PyrhfxFvVjZ2Y4jGlPNHYOlsuc83yQgw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GZujQcb1vIGlqn+UNi02fGM1tAPwUlH77khPImIX75E=;
+ b=uDyecwCCS0YuALQ7uxvMedzy/JJNVNnXnVgO0mfAxlQq2AW7GoTo2bY2Ru1/uMveoIRTgo+tjGZnGlENJiUogh4wBgevgY47/Lyd/bi7Fyl/h7tn/G2wEn5WKBWd7weJ/V3h8W2tViHvLrpgDgUAiIkKg/Mj2aj+R4rjqpaHJn9i41uijdCZGvfKN40BMzNajYrKNNsiHeYSsr28XA7wIfKUe0GGTqQFBUCgADvyF3sOxOVVbxYGZJMG/IXE4UQYAI6I9G/d8zSZm4zLy01sQlifAI5amc9o/F4uqmpx1hJoyBBgaclJvYCn7jHsntpR5y/vNmGtjRms34MWP7QpDg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=OUTLOOK.JP;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GZujQcb1vIGlqn+UNi02fGM1tAPwUlH77khPImIX75E=;
+ b=pimBKHcb+aDi4101VuPh8cMEWgfuKJWtgmz1zZfO77RLBSdwmlmq20TTXBVW+owO0sfTmpIYqhzvxA0Q2ZfD5+r58/jP0gCWsValOKHdLVUKhxj0cyXNWeG+36ySD3ynQqXcPcvJLgdCF2Z73L12r7SZd13kMQw7xTc4CJn8RWNhUNcyHTz7pcX+jCOiBBlXVAXRrUkV0ROhWQu7pBSRBw9mv2epqNbVOTRIDUwSm4QzB0NVuoVCxS94McBh32b+m/exTxey9ZMyD/s422hURYp2lQt32fxcgNZm3nBdupSKIwmLl8ICq92PKJ7mvBk+oh2ZZ1EIX4m+GDGO8D9Hvg==
+Received: from OS7PR01MB14363.jpnprd01.prod.outlook.com
+ (2603:1096:604:388::11) by OS9PR01MB14000.jpnprd01.prod.outlook.com
+ (2603:1096:604:35f::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
+ 2026 15:53:40 +0000
+Received: from OS7PR01MB14363.jpnprd01.prod.outlook.com
+ ([fe80::eeff:dfdb:bd3b:591b]) by OS7PR01MB14363.jpnprd01.prod.outlook.com
+ ([fe80::eeff:dfdb:bd3b:591b%6]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
+ 15:53:39 +0000
+From: Keisuke Tsukuda <tkdkei@outlook.jp>
+To: "a.fatoum@pengutronix.de" <a.fatoum@pengutronix.de>
+CC: "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"James.Bottomley@HansenPartnership.com"
+	<James.Bottomley@HansenPartnership.com>, "jarkko@kernel.org"
+	<jarkko@kernel.org>, "zohar@linux.ibm.com" <zohar@linux.ibm.com>,
+	"dhowells@redhat.com" <dhowells@redhat.com>, "paul@paul-moore.com"
+	<paul@paul-moore.com>, "jmorris@namei.org" <jmorris@namei.org>,
+	"serge@hallyn.com" <serge@hallyn.com>, "linux-integrity@vger.kernel.org"
+	<linux-integrity@vger.kernel.org>, "keyrings@vger.kernel.org"
+	<keyrings@vger.kernel.org>, "linux-security-module@vger.kernel.org"
+	<linux-security-module@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Keisuke Tsukuda <tkdkei@outlook.jp>
+Subject: [PATCH] KEYS: trusted: caam: propagate protected key option parsing
+ errors
+Thread-Topic: [PATCH] KEYS: trusted: caam: propagate protected key option
+ parsing errors
+Thread-Index: AQHdfCv5bjdYMvpuBEqVKq2niinaTw==
+Date: Tue, 24 Nov 2026 15:53:39 +0000
+Message-ID: <20261124155310.32044-1-tkdkei@outlook.jp>
+Accept-Language: en-US, ja-JP
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OS7PR01MB14363:EE_|OS9PR01MB14000:EE_
+x-ms-office365-filtering-correlation-id: 03b8ff89-92f9-41fa-33cc-08df4a431bb4
+x-microsoft-antispam:
+ BCL:0;ARA:14566002|25031999004|15080799012|8062599012|22141099003|38102599003|4140399003|25010399006|8060799015|24021099003|31061999003|19110799012|41001999006|39105399006|41105399003|40105399003|102099032|26104999009|440099028|3412199025|1710799026;
+x-microsoft-antispam-message-info:
+ =?iso-8859-1?Q?xp4lSqN/MVVGYi31fDDbiOwdGyLOXZyNMplFNmh+CAV7DDr+D/CtA1PbTv?=
+ =?iso-8859-1?Q?BJC+mbre/fM1/0F8TPnx1PY/Q4itYSJYNHGxe+jnWOGl/P35sfLReoC0yF?=
+ =?iso-8859-1?Q?J+dTpR80PkzHo+SOfTWAPQ24b79vybZVvE+rKwa5cQj1st8uinRK3CLdiy?=
+ =?iso-8859-1?Q?J42F0OFEALhZKUjrrCAtTWrMYeWhhvdGtnwm9n/AIOq5/4OMD8GR1UPRgz?=
+ =?iso-8859-1?Q?TXxe1XMMRAQnuFrDm0ddmv0YE71Eauw1U5qTAUdbbNri/Wjy/UScukOSOK?=
+ =?iso-8859-1?Q?Ni28LUXGyc6a5M2P4qIYjuioO1jhaK0ccO2FNisQILkP7OgLkARazHkzAM?=
+ =?iso-8859-1?Q?OnoJ1CycErGz5dOaxccc3nBjdXrsEhOMnfNBlmjgIg4dCtIgUQa53q3OmJ?=
+ =?iso-8859-1?Q?2jFxKFZpw/cidH5XYmXW84oIC5CR/Kc2QycnBJH1FyPfYG0FcTJJ3LhMMV?=
+ =?iso-8859-1?Q?SJgZUb5NDI7bDHz4++CUaamxGQqSk573nxB2P36H7Tyz197emFtBZwHyEH?=
+ =?iso-8859-1?Q?2uwz7SkGCR3HwUgp1Nvylfem5O4a6ViFqtBbtsvCl2iOhwA6UzuYBkPX9f?=
+ =?iso-8859-1?Q?PIxPSCvQQo6Z4jOZAlHYmjIj8UiXy1oPTwlajVq2ciismc2o2pQXx4s5l5?=
+ =?iso-8859-1?Q?MKR/U4z858n9SNPjXVRfhLXAqI4/zZGT4q+PJygw5ZLXgxtdfBqe5MGKPb?=
+ =?iso-8859-1?Q?cR1HJjzccyY1YOfLOC1JAsfsEzvaHyW+8eDsdUUFawB4YqTtThLWmXFNzX?=
+ =?iso-8859-1?Q?wXgcZUHRUcRP0rYVTy2YPz1B7s+e5/RM1Zq/OqBri9OdC2PZSlMZgdy7NG?=
+ =?iso-8859-1?Q?1MXsx/KmwZaKazWPSCGr7tQ0WCS8+jJ5UfBGMKupKYbWRfdbN7OvkjxRZ+?=
+ =?iso-8859-1?Q?gZjfUkiTsoV4WZ+3d7kiJ0KoCNSrn0dqDohg0fHJOZX7puDrhIpB2icEWa?=
+ =?iso-8859-1?Q?N1mUtAOHBGr5APnp8nl1t4N8Q1y2LDmib4+Ms2PwJLiCT1wL+A58LJurV6?=
+ =?iso-8859-1?Q?JZ3fhv3ea2XdEgaafvT4GvRA3WubINgDc9MvXj8i74hlfrZQ7ilPsv1Onq?=
+ =?iso-8859-1?Q?2BQmhwVU9l1n7TV9Imehi1y0r5TpZDAdYbQraljNizbs52IzkQ9tM9J1V4?=
+ =?iso-8859-1?Q?ACwYsyglWnv0Fy06/w75AwbozXAaU0p8iE7qGqPHEFZ61xHNlQ?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-8859-1?Q?s2TthIOGV1m/IYjVs9qCIcbAKH3lg+hS014T7HMTnz4P87JcPslUHfdNxw?=
+ =?iso-8859-1?Q?YxxFnEeaqPq3P8uxaNHqgEMIoHc3J5l8GElzDYqApCXqRlHAg71lGb9sGM?=
+ =?iso-8859-1?Q?BOOCVRFvpT3w6Kvllcs/nKXMQlv8tOZqWpjsDfP3XbXqoDxNhYH7sx2HQr?=
+ =?iso-8859-1?Q?I+mnIN+YXlDPZhodpOU1N2lsJIE10lh6jMtkz7BVuiApfPnIuUYdICvv4d?=
+ =?iso-8859-1?Q?pRbyc6JPuahhrWO/rik/fDHPQ5N4eKn7Slm/2kKSv1PRqxEdbHs0OjteOS?=
+ =?iso-8859-1?Q?DgsGQzyNCDobKMhcvVcsr0op8FWAXj/OOHVSb6NG7ddl+M16FIPPJ9Y0Od?=
+ =?iso-8859-1?Q?tqOIjTpbVvfLz8OqvYFjsnRVQwrojq8jzl4Gu74Mey9cFJoI4o5f96cCT5?=
+ =?iso-8859-1?Q?0M68HSzZB18rjNsDr4hKjTiahTBDwWJUNd/7rc7pKM/tPh7xwgpzd9oxp7?=
+ =?iso-8859-1?Q?35LHWIKPEbrwsUgG4V6BcA/xUjaSVuDpi3tbT7Bw+avQtDlU/184ho5xu+?=
+ =?iso-8859-1?Q?iUqPvKFXsfKSMlsogE+q+H34/65by4oeGk1jq4ctS80xozNDNalxz9OP0r?=
+ =?iso-8859-1?Q?/PXXdhKGxJdg563eEGsqUXhuabeZDz7y+f+bcJPX1jZGM2ofcYNpHFEXJF?=
+ =?iso-8859-1?Q?C24Y6v1V2ucEhdVn73EWq98aglkLgqhY0FQiS1G1c3Bgt/6zR0IYwyAwI9?=
+ =?iso-8859-1?Q?MFA48rqyZmBeeHeKHfsJ3AmsoUbVgvFDGUdK20kiJOpXwvPtXTb9b8C8wY?=
+ =?iso-8859-1?Q?4hQjcfklaiG6QoVjF7FqSK2OJ5RMWqiabig/YY/oyC0rnlx0IHxatbaJGn?=
+ =?iso-8859-1?Q?AUXTZWiX0f+NEByp662KGOIqm4eRohTE1ZYw/9ssSdd140ewQ7oBJ/Vs2n?=
+ =?iso-8859-1?Q?Ftc0Aypz6h+Zcw23BBJLoGTzJY5I9e1ANoGMSwbiPDjL/2uu8WQfB6f2gO?=
+ =?iso-8859-1?Q?TeIJnsyjCo3qH6IdUH6S3QsRTT5fPcKoBSVxaot1sSY7CEgL5avVjr/elQ?=
+ =?iso-8859-1?Q?K3MzVRrleY1PEc6nHdG77JB7rFC6F9UAEA6WT6OAx4QGxvWcLqiaLlcQ+1?=
+ =?iso-8859-1?Q?/1895LGCFQRKFsNZW4KONaNUsKEC9/5FpN73e3RIOh8wgnREGBVbY4Evmz?=
+ =?iso-8859-1?Q?EZgHCvgbuMnCAtRWpCd6nqgIhlXmoKPERd4+Ym/AkpC1lzRcGM6hSri+Z3?=
+ =?iso-8859-1?Q?4vH+CX4KzHTzmo92t/l1zJ0eUcGnUcB3Ng+FAmcOF1QRVonZVOVRFJywJ2?=
+ =?iso-8859-1?Q?5XDqOIIyLFcGH6uciFzTuJB5VXcQh/kRBuXdFlkjqsZaBZU3V2MLPYxagc?=
+ =?iso-8859-1?Q?QSuwLUUrpm33a1IarK/wyNwvRBhvO09VwIpWr8jYEsXe9j0afLelRPw4HH?=
+ =?iso-8859-1?Q?QKoD+WD7Y295j8tact/kk0tL3zUJbK7nhnM4WVCN7IM0Trmtz232g=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,439 +157,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9be1cb3e-4417-4609-bc0d-67dcfa24aa10@huaweicloud.com>
-X-Spamd-Result: default: False [-11.30 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[14];
-	TAGGED_RCPT(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	TO_DN_SOME(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[linux.dev,linux.ibm.com,mit.edu,suse.cz,linux.alibaba.com,dilger.ca,gmail.com,tju.edu.cn,toxicpanda.com,kernel.org,vger.kernel.org,lists.linux.dev];
-	RCVD_COUNT_THREE(0.00)[3];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_TLS_LAST(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -11.30
-X-Spam-Level: 
-X-Spam-Flag: NO
+X-OriginatorOrg: sct-15-20-9412-3-msonline-outlook-b83fc.templateTenant
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OS7PR01MB14363.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 03b8ff89-92f9-41fa-33cc-08df4a431bb4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Nov 2026 15:53:39.7638
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS9PR01MB14000
 
-On Tue 24-11-26 12:49:19, Zhang Yi wrote:
-> On 11/18/2026 10:06 PM, Jose Fernandez (Anthropic) wrote:
-> > On Wed, Nov 18, 2026 Zhang Yi wrote:
-> >> Could you provide a reproducer? My guess is that high concurrency causes
-> >> the blocks freed by my current process to be taken by I/O issued by
-> >> other processes
-> > 
-> > That fits our runs. I'll send you the script off-list.
-> > 
-> > - Jose
-> 
-> 
-> Thank you for the reproducer. After debugging, I confirmed the cause. On
-> each failed endio conversion, the retry commits the journal, but the
-> blocks released by the commit are soon claimed again by the
-> background fallocate loop, so after 3 retries the DIO finally returns
-> ENOSPC.
-> 
-> Although Ojaswin's v2 does track the exact ranges when submitting I/Os,
-> we cannot convert the whole extent after zeroing until all in-flight I/Os
-> overlapping this extent have finished, which is too expensive to me. So I
-> think we may still need the split to succeed.
-> 
-> Note that we do reserve space for exactly this case. At mount time we
-> set aside s_resv_clusters (2% of the clusters, capped at 4096 clusters),
-> and EXT4_GET_BLOCKS_METADATA_NOFAIL is allowed to use it. The problem is
-> that this reservation is not effective today. s_freeclusters_counter is
-> incremented when blocks are freed, but for journaled frees the blocks
-> only return to the buddy allocator after the freeing transaction
-> commits. Most allocation paths already run inside a transaction, so we
-> cannot force a commit from there, and even between retries the released
-> space can be taken again, as the reproducer shows. So ordinary
-> allocations can currently consume the reserved pool, and endio extent
-> splits can be fooled into thinking space is available. This hurts both
-> endio extent conversion and delalloc writeback.
-> 
-> My idea is to make this a real reservation of currently allocatable
-> clusters rather than just a counter check. We can subtract
-> sbi->s_mb_free_pending from free_clusters in ext4_has_free_clusters().
-> Then a successful check no longer counts clusters that cannot be
-> allocated yet, ordinary allocations can no longer eat into the reserved
-> pool, and the endio split can fall back on the reserve without having to
-> force a commit first. Delalloc reservations benefit as well, since
-> writeback is less likely to run into ENOSPC.
-> 
-> The downside is that ENOSPC may be returned earlier, e.g. by buffered
-> writes under the same heavy concurrency. I think that is acceptable
-> since the retry is best effort anyway, and ext4_should_retry_alloc()
-> still forces a commit when there are pending frees, so it can cover most
-> scenarios. Even if it does fail, it is better to fail early than to fail
-> after the data has already been written. This is also consistent with
-> the behavior of allocating blocks directly when writing in old
-> dioread_lock mode.
-> 
-> With the reproducer, this takes the DIO ENOSPC rate from ~11% to 0, and
-> failed conversion attempts from ~1500-2200 per run to ~0.3 per run.
-> fallocate ENOSPC did not increase noticeably (2.0% before vs 2.2% after).
-> However, the probability of returning ENOSPC for pure append writes
-> increases by about 10%.
-> 
-> Does this approach sounds OK?
-
-Yes, it sounds good to me. I was also puzzled why the reserved clusters are
-not effective so thanks for explaining that :)
-
-								Honza
-
-> The specific POC V2 fix code is as follows (based on Ojaswin's v1
-> series, and in addition to changing the free_cluster accounting, it also
-> fixes the fsync_tid issue mentioned earlier).
-> 
-> 
-> diff --git a/fs/ext4/balloc.c b/fs/ext4/balloc.c
-> index 778fe8788f06..d4e0bb90a402 100644
-> --- a/fs/ext4/balloc.c
-> +++ b/fs/ext4/balloc.c
-> @@ -625,12 +625,14 @@ static int ext4_has_free_clusters(struct ext4_sb_info *sbi,
->  				  s64 nclusters, unsigned int flags)
->  {
->  	s64 free_clusters, dirty_clusters, rsv, resv_clusters;
-> +	int pending_clusters;
->  	struct percpu_counter *fcc = &sbi->s_freeclusters_counter;
->  	struct percpu_counter *dcc = &sbi->s_dirtyclusters_counter;
-> 
->  	free_clusters  = percpu_counter_read_positive(fcc);
->  	dirty_clusters = percpu_counter_read_positive(dcc);
->  	resv_clusters = atomic64_read(&sbi->s_resv_clusters);
-> +	pending_clusters = atomic_read(&sbi->s_mb_free_pending);
-> 
->  	/*
->  	 * r_blocks_count should always be multiple of the cluster ratio so
-> @@ -639,13 +641,23 @@ static int ext4_has_free_clusters(struct ext4_sb_info *sbi,
->  	rsv = (ext4_r_blocks_count(sbi->s_es) >> sbi->s_cluster_bits) +
->  	      resv_clusters;
-> 
-> +	/*
-> +	 * Clusters in s_mb_free_pending are already counted in
-> +	 * s_freeclusters_counter when freed, but they can't be allocated
-> +	 * until the transaction that freed them commits, so don't count
-> +	 * them as available.
-> +	 */
-> +	free_clusters -= pending_clusters;
->  	if (free_clusters - (nclusters + rsv + dirty_clusters) <
->  					EXT4_FREECLUSTERS_WATERMARK) {
-> -		free_clusters  = percpu_counter_sum_positive(fcc);
-> +		free_clusters  = percpu_counter_sum_positive(fcc) -
-> +				 pending_clusters;
->  		dirty_clusters = percpu_counter_sum_positive(dcc);
->  	}
-> -	/* Check whether we have space after accounting for current
-> -	 * dirty clusters & root reserved clusters.
-> +
-> +	/*
-> +	 * Check whether we have space after accounting for current
-> +	 * dirty clusters, pending frees & root reserved clusters.
->  	 */
->  	if (free_clusters >= (rsv + nclusters + dirty_clusters))
->  		return 1;
-> diff --git a/fs/ext4/ext4.h b/fs/ext4/ext4.h
-> index 8069521442a7..441356999594 100644
-> --- a/fs/ext4/ext4.h
-> +++ b/fs/ext4/ext4.h
-> @@ -1761,6 +1761,7 @@ struct ext4_sb_info {
-> 
->  	/* workqueue for reserved extent conversions (buffered io) */
->  	struct workqueue_struct *rsv_conversion_wq;
-> +	struct workqueue_struct *iomap_conversion_wq;
-> 
->  	/* timer for periodic error stats printing */
->  	struct timer_list s_err_report;
-> diff --git a/fs/ext4/extents.c b/fs/ext4/extents.c
-> index 91857b46ce24..f9502d78f86b 100644
-> --- a/fs/ext4/extents.c
-> +++ b/fs/ext4/extents.c
-> @@ -3423,10 +3423,29 @@ static int ext4_split_extent_zeroout(handle_t *handle, struct inode *inode,
->  		if (err)
->  			/* ZEROOUT failed, just return original error */
->  			goto out_unlock;
-> +	} else if (flags & EXT4_GET_BLOCKS_SPLIT_NOMERGE) {
-> +		/*
-> +		 * The caller wants to split the extent before submitting
-> +		 * the I/O, but the split failed.  Zeroout the whole extent
-> +		 * and mark it initialized as the last resort, the upcoming
-> +		 * I/O will overwrite the map range.
-> +		 */
-> +		if (!is_unwrit) {
-> +			/* Shouldn't happen. Just exit */
-> +			err = -EINVAL;
-> +			goto out_unlock;
-> +		}
-> +
-> +		lblk = ee_block;
-> +		len = ee_len;
-> +		pblk = ext4_ext_pblock(ex);
-> +		err = ext4_issue_zeroout(inode, lblk, pblk, len);
-> +		if (err)
-> +			/* ZEROOUT failed, just return original error */
-> +			goto out_unlock;
->  	} else {
->  		/*
-> -		 * We no longer perform unwritten to unwritten splits in IO paths.
-> -		 * Hence this should not happen.
-> +		 * This should not happen.
->  		 */
->  		WARN_ON_ONCE(true);
->  		err = -EINVAL;
-> @@ -4073,6 +4092,38 @@ ext4_ext_handle_unwritten_extents(handle_t *handle, struct inode *inode,
->  	trace_ext4_ext_handle_unwritten_extents(inode, map, flags,
->  						*allocated, newblock);
-> 
-> +	/* get_block() before submitting IO, split the extent */
-> +	if (flags & EXT4_GET_BLOCKS_SPLIT_NOMERGE) {
-> +		int depth;
-> +
-> +		path = ext4_split_convert_extents(handle, inode, map, path,
-> +						  flags, allocated);
-> +		if (IS_ERR(path))
-> +			return path;
-> +
-> +		/*
-> +		 * shouldn't get a 0 allocated when splitting an extent unless
-> +		 * m_len is 0 (bug) or extent has been corrupted
-> +		 */
-> +		if (unlikely(*allocated == 0)) {
-> +			EXT4_ERROR_INODE(inode,
-> +					 "unexpected allocated == 0, m_len = %u",
-> +					 map->m_len);
-> +			err = -EFSCORRUPTED;
-> +			goto errout;
-> +		}
-> +		/* Don't mark unwritten if the extent has been zeroed out. */
-> +		path = ext4_find_extent(inode, map->m_lblk, path, flags);
-> +		if (IS_ERR(path))
-> +			return path;
-> +		depth = ext_depth(inode);
-> +		if (ext4_ext_is_unwritten(path[depth].p_ext))
-> +			map->m_flags |= EXT4_MAP_UNWRITTEN;
-> +		else
-> +			ext4_update_inode_fsync_trans(handle, inode, 1);
-> +		goto split_out;
-> +	}
-> +
->  	/* IO end_io complete, convert the filled extent to written */
->  	if (flags & EXT4_GET_BLOCKS_CONVERT) {
->  		path = ext4_convert_unwritten_extents_endio(handle, inode,
-> @@ -4126,7 +4177,7 @@ ext4_ext_handle_unwritten_extents(handle_t *handle, struct inode *inode,
->  		err = -EFSCORRUPTED;
->  		goto errout;
->  	}
-> -
-> +split_out:
->  	map->m_flags |= EXT4_MAP_NEW;
->  map_out:
->  	map->m_flags |= EXT4_MAP_MAPPED;
-> diff --git a/fs/ext4/file.c b/fs/ext4/file.c
-> index 52b1fb99484d..96049dc54963 100644
-> --- a/fs/ext4/file.c
-> +++ b/fs/ext4/file.c
-> @@ -450,14 +450,30 @@ static int ext4_dio_write_end_io(struct kiocb *iocb, ssize_t size,
->  	loff_t pos = iocb->ki_pos;
->  	struct inode *inode = file_inode(iocb->ki_filp);
-> 
-> +	if (!error && size && (flags & IOMAP_DIO_UNWRITTEN)) {
-> +		int retries = 0;
-> 
-> -	if (!error && size && (flags & IOMAP_DIO_UNWRITTEN) &&
-> -			(iocb->ki_flags & IOCB_ATOMIC))
-> -		error = ext4_convert_unwritten_extents_atomic(NULL, inode, pos,
-> -							      size);
-> -	else if (!error && size && flags & IOMAP_DIO_UNWRITTEN)
-> -		error = ext4_convert_unwritten_extents(NULL, inode, pos, size,
-> -						       NULL, 0);
-> +retry_convert:
-> +		if (iocb->ki_flags & IOCB_ATOMIC)
-> +			error = ext4_convert_unwritten_extents_atomic(NULL,
-> +					inode, pos, size);
-> +		else
-> +			error = ext4_convert_unwritten_extents(NULL, inode,
-> +					pos, size, NULL, 0);
-> +
-> +		/*
-> +		 * The conversion may have failed to allocate metadata for
-> +		 * splitting the extent.  Blocks freed by other operations
-> +		 * (e.g. an unlink) may still be waiting for a journal
-> +		 * commit, so commit and retry the conversion.
-> +		 */
-> +		if (error == -ENOSPC && EXT4_SB(inode->i_sb)->s_journal &&
-> +		    ext4_count_free_clusters(inode->i_sb) &&
-> +		    ++retries <= 3) {
-> +			if (ext4_force_commit(inode->i_sb) == 0)
-> +				goto retry_convert;
-> +		}
-> +	}
-> 
->  	/*
->  	 * If this dio covered an unwritten extent, we would have incremented
-> diff --git a/fs/ext4/inode.c b/fs/ext4/inode.c
-> index 13449e4ebb6a..03d296f54b6d 100644
-> --- a/fs/ext4/inode.c
-> +++ b/fs/ext4/inode.c
-> @@ -991,7 +991,8 @@ int ext4_map_blocks(handle_t *handle, struct inode *inode,
->  			goto out;
->  		if (map->m_flags & EXT4_MAP_UNWRITTEN &&
->  		    (flags & EXT4_GET_BLOCKS_UNWRIT_EXT) &&
-> -		    !(flags & EXT4_GET_BLOCKS_CONVERT)) {
-> +		    !(flags & (EXT4_GET_BLOCKS_CONVERT |
-> +			       EXT4_GET_BLOCKS_SPLIT_NOMERGE))) {
->  			/* Contains EXT4_GET_BLOCKS_CREATE - mark mapped. */
->  			ret = check_block_validity(inode, map);
->  			if (!ret)
-> @@ -2600,8 +2601,17 @@ static int mpage_map_one_extent(handle_t *handle, struct mpage_da_data *mpd)
->  			   EXT4_EX_NOCACHE;
-> 
->  	dioread_nolock = ext4_should_dioread_nolock(inode);
-> -	if (dioread_nolock)
-> -		get_blocks_flags |= EXT4_GET_BLOCKS_UNWRIT_EXT;
-> +	if (dioread_nolock) {
-> +		get_blocks_flags |= EXT4_GET_BLOCKS_SPLIT_NOMERGE |
-> +				    EXT4_GET_BLOCKS_UNWRIT_EXT;
-> +		/*
-> +		 * The io_end is accounted in i_conv_pending_ios only after
-> +		 * the first unwritten extent has been mapped, so tell the
-> +		 * zeroout fallback whether our own count is already included.
-> +		 */
-> +		if (!(mpd->io_submit.io_end->flag & EXT4_IO_END_UNWRITTEN))
-> +			get_blocks_flags |= EXT4_GET_BLOCKS_NO_CONV_ACC;
-> +	}
-> 
->  	err = ext4_map_blocks(handle, inode, map, get_blocks_flags);
->  	if (err < 0)
-> diff --git a/fs/ext4/page-io.c b/fs/ext4/page-io.c
-> index e99816017a18..35826bd19b51 100644
-> --- a/fs/ext4/page-io.c
-> +++ b/fs/ext4/page-io.c
-> @@ -649,7 +649,7 @@ static void ext4_iomap_finish_ioend(struct iomap_ioend *ioend)
->  	unsigned long io_mode = (unsigned long)ioend->io_private;
->  	bool is_disksize_grow = (io_mode == EXT4_IOMAP_IOEND_DISKSIZE_GROW_IO);
->  	handle_t *handle;
-> -	int credits;
-> +	int credits, retries = 0;
->  	int ret, err;
-> 
->  	/*
-> @@ -684,6 +684,8 @@ static void ext4_iomap_finish_ioend(struct iomap_ioend *ioend)
->  	/* Wait for disksize-pending zeroed data to be written out. */
->  	ext4_iomap_wb_disksize_pending_wait(inode, pos, size);
-> 
-> +retry:
-> +	ret = 0;
->  	/*
->  	 * We may need to convert one extent, update the i_disksize and
->  	 * dirty the inode.
-> @@ -702,6 +704,8 @@ static void ext4_iomap_finish_ioend(struct iomap_ioend *ioend)
->  						    is_disksize_grow);
->  		if (ret)
->  			goto out_journal;
-> +
-> +		is_disksize_grow = false;
->  	}
-> 
->  	if (ioend->io_flags & IOMAP_IOEND_UNWRITTEN)
-> @@ -714,6 +718,12 @@ static void ext4_iomap_finish_ioend(struct iomap_ioend *ioend)
->  		ret = err;
->  out_err:
->  	if (ret < 0 && !ext4_emergency_state(sb)) {
-> +		if (ret == -ENOSPC && EXT4_SB(sb)->s_journal &&
-> +		    ext4_count_free_clusters(sb) && ++retries <= 3) {
-> +			if (ext4_force_commit(sb) == 0)
-> +				goto retry;
-> +		}
-> +
->  		ext4_msg(sb, KERN_EMERG,
->  			 "failed to convert unwritten extents to written extents or update inode size -- potential data loss! (inode %llu, error %d)",
->  			 inode->i_ino, ret);
-> @@ -768,7 +778,7 @@ void ext4_iomap_end_bio(struct bio *bio)
-> 
->  	spin_lock_irqsave(&ei->i_completed_io_lock, flags);
->  	if (list_empty(&ei->i_rsv_conversion_list))
-> -		queue_work(EXT4_SB(ioend->io_inode->i_sb)->rsv_conversion_wq,
-> +		queue_work(EXT4_SB(ioend->io_inode->i_sb)->iomap_conversion_wq,
->  			   &ei->i_rsv_conversion_work);
->  	list_add_tail(&ioend->io_list, &ei->i_rsv_conversion_list);
->  	spin_unlock_irqrestore(&ei->i_completed_io_lock, flags);
-> diff --git a/fs/ext4/super.c b/fs/ext4/super.c
-> index 3c53bf27da45..859b9c65fc0b 100644
-> --- a/fs/ext4/super.c
-> +++ b/fs/ext4/super.c
-> @@ -1326,6 +1326,7 @@ static void ext4_put_super(struct super_block *sb)
->  	flush_delayed_work(&sbi->s_ea_inode_work);
->  	ext4_quotas_off(sb, EXT4_MAXQUOTAS);
-> 
-> +	destroy_workqueue(sbi->iomap_conversion_wq);
->  	destroy_workqueue(sbi->rsv_conversion_wq);
->  	ext4_release_orphan_info(sb);
-> 
-> @@ -5668,6 +5669,23 @@ static int __ext4_fill_super(struct fs_context *fc, struct super_block *sb)
->  		goto failed_mount4;
->  	}
-> 
-> +	/*
-> +	 * Buffered iomap conversions may have to force a journal commit and
-> +	 * retry.  That commit can wait for the writeback/endio of a
-> +	 * buffer_head io_end which is completed on rsv_conversion_wq, so the
-> +	 * iomap conversions must not share that single-threaded workqueue.
-> +	 */
-> +	EXT4_SB(sb)->iomap_conversion_wq =
-> +		alloc_workqueue("ext4-iomap-conversion",
-> +				WQ_MEM_RECLAIM | WQ_UNBOUND, 1);
-> +	if (!EXT4_SB(sb)->iomap_conversion_wq) {
-> +		ext4_msg(sb, KERN_ERR, "failed to create workqueue");
-> +		err = -ENOMEM;
-> +		destroy_workqueue(EXT4_SB(sb)->rsv_conversion_wq);
-> +		EXT4_SB(sb)->rsv_conversion_wq = NULL;
-> +		goto failed_mount4;
-> +	}
-> +
->  	/*
->  	 * The jbd2_journal_load will have done any necessary log recovery,
->  	 * so we can safely mount the rest of the filesystem now.
-> @@ -5842,6 +5860,8 @@ failed_mount8: __maybe_unused
->  	sb->s_root = NULL;
->  failed_mount4:
->  	ext4_msg(sb, KERN_ERR, "mount failed");
-> +	if (EXT4_SB(sb)->iomap_conversion_wq)
-> +		destroy_workqueue(EXT4_SB(sb)->iomap_conversion_wq);
->  	if (EXT4_SB(sb)->rsv_conversion_wq)
->  		destroy_workqueue(EXT4_SB(sb)->rsv_conversion_wq);
->  failed_mount_wq:
-> @@ -6543,6 +6563,7 @@ static int ext4_sync_fs(struct super_block *sb, int wait)
->  		return ret;
-> 
->  	trace_ext4_sync_fs(sb, wait);
-> +	flush_workqueue(sbi->iomap_conversion_wq);
->  	flush_workqueue(sbi->rsv_conversion_wq);
->  	flush_delayed_work(&sbi->s_ea_inode_work);
->  	/*
-> 
-> 
-> 
-> 
-> 
-> 
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+From: Keisuke Tsukuda <tkdkei@outlook.jp>=0A=
+=0A=
+get_pkey_options() returns -EINVAL for invalid protected key options,=0A=
+such as "key_enc_algo=3DGG". trusted_caam_seal() and trusted_caam_unseal()=
+=0A=
+ignore this error and return 0. The trusted key core then instantiates=0A=
+a key without a blob for "new", or with a zero-length key for "load".=0A=
+=0A=
+On an i.MX6Q running a 7.4.0-rc2-based kernel, adding a key with=0A=
+"new 32 pk key_enc_algo=3DGG" succeeds, but KEYCTL_READ returns zero=0A=
+bytes because no blob was created. The key cannot be saved and=0A=
+reloaded.=0A=
+=0A=
+Return the parsing error from both paths. On the patched kernel,=0A=
+"new" and "load" with "key_enc_algo=3DGG" both fail with -EINVAL, while=0A=
+valid requests succeed.=0A=
+=0A=
+Fixes: a703a4c2a328 ("KEYS: trusted: caam based protected key")=0A=
+Signed-off-by: Keisuke Tsukuda <tkdkei@outlook.jp>=0A=
+---=0A=
+ security/keys/trusted-keys/trusted_caam.c | 4 ++--=0A=
+ 1 file changed, 2 insertions(+), 2 deletions(-)=0A=
+=0A=
+diff --git a/security/keys/trusted-keys/trusted_caam.c b/security/keys/trus=
+ted-keys/trusted_caam.c=0A=
+index 6a33dbf2a..33000d7bb 100644=0A=
+--- a/security/keys/trusted-keys/trusted_caam.c=0A=
++++ b/security/keys/trusted-keys/trusted_caam.c=0A=
+@@ -110,7 +110,7 @@ static int trusted_caam_seal(struct trusted_key_payload=
+ *p, char *datablob)=0A=
+ 		info.pkey_info.is_pkey =3D 1;=0A=
+ 		ret =3D get_pkey_options(datablob, &info.pkey_info);=0A=
+ 		if (ret < 0)=0A=
+-			return 0;=0A=
++			return ret;=0A=
+ 		dump_options(&info.pkey_info);=0A=
+ 	}=0A=
+ =0A=
+@@ -142,7 +142,7 @@ static int trusted_caam_unseal(struct trusted_key_paylo=
+ad *p, char *datablob)=0A=
+ 		info.pkey_info.is_pkey =3D 1;=0A=
+ 		ret =3D get_pkey_options(datablob, &info.pkey_info);=0A=
+ 		if (ret < 0)=0A=
+-			return 0;=0A=
++			return ret;=0A=
+ 		dump_options(&info.pkey_info);=0A=
+ =0A=
+ 		p->key_len =3D p->blob_len + sizeof(struct caam_pkey_info);=0A=
+-- =0A=
+2.50.1 (Apple Git-155)=0A=
+=0A=
