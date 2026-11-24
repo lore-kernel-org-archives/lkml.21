@@ -1,101 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.127.143
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795501049;
-	b=PaGwWeMPb3fp+ygM4q4X0iGmm87lqMe7lxSBf5SyY7++XimA430OdDGtSCHHXoZ3oUom
-	 u0mnP0eHPA5LfmZKCmIThIu0JpqC/I4eJSJJ4+z+lvfLFHOD1P16XejlXgatIrdo1DJ5J
-	 SvtpLhLXWtiIErGHJgABQz9qG3nFEl/7vRfTstU/3RbseIRmGeIEWREahC8LSEqhqzL4X
-	 /TT18C2lwzZwqFJm68E4YN22AL9J4lUwwafvdn4wjX0aAVkGNEExa59Nu5nfmgBStpU6j
-	 pfUf9gfn5PXwJY/2F6DG+owMX04lFKA97ObJZpnZ6lPrjDsLEt0YEXYUJKCHvYRKk3Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795501049;
-	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
-	 Received-SPF:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795501077;
+	b=y17DMe6+4mCwogLvStZczhGe3uRWqjPJMN82e7crEG8TRYyJPtOZ8WfKa5Q7TTteDd/B
+	 NTVneVWRJaNXGdjPAI8QOL3so00OhXZewoBu8qhqZKWUGYZS4OFSkA0KUQ8fnR5o3ML4z
+	 BDi5cuaJcUfjkG61LeiVGx0P1MSn2Db05tzIkXbnlJMA0NjIP7PUGY19cTrwBCi5558DD
+	 TeB4R/nLTPzQSpbevy6iCaDuA8n6fJVPwWcyAqPdbGXUafrh/wHYo2wyAUncAwwBN7YOU
+	 Tpm4BunRHwbs8Ip5hjp4kXFXw0qeHyp3dU9OYITdFaI71aG1zps5fwXMUn/baOElUbA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795501077;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=EC1SwcRnB3qHtnUS6OrmTOLXoja38qTpuQD344gSjAk=;
-	b=ZR7rZ6ygUtmOB1LlL94Ras0WX128J/y+L2m0/tVFnpmzQ8umSfW4+rXCz6xe52InJZ1i
-	 I76GShhnxMcL/vnf4zM541+4aZb56L1EyN7csBpyR8nyIon+a9ouWyjtYrUfg9giRtJaB
-	 jUzAGc98EZe/eS79uBCvsQSfeWFCel2oScDyoiHLzGWoRO4T3k+Nkmt1/T7q8AB/KkueC
-	 MzI0lY1qavZ/Gs6vZzTHhieVrNRxb4T7OlO9gcdsJZSaMZL2oqnVGCgZo/SL+GH3YPpCh
-	 2sWo7cCwCbr6StVR7sstgLgM/2wCkwK2ZbntggGHc9aAmep1EE6J8GaZGBaGk63QtAQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=cixtech.com;
-	spf=pass smtp.mailfrom=cixtech.com;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.127.143
-Received: from TYDPR03CU002.outbound.protection.outlook.com (mail-japaneastazon11023143.outbound.protection.outlook.com [52.101.127.143])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 X-ClientProxiedBy;
+	bh=Fns5KSeLA1lAqdtuoDUdCMp8WJ8wrSCmXQUe1et8xFI=;
+	b=qHuJfeb+JirhuzX7H+573cDeeDRUggI4y+F3i2KOAQwzisgLexcol5a+i0kmiH/4/YO3
+	 0eucuuL0QX3J3vHk9Tfl0U1Qud+eoAcfYW5ja96Qz9tAG2D3UiWOOnnux3PXZKAbQ4wRC
+	 bwXY/bASJIthUss1KXQ2TEsXU1wr+GyPIuLawKS7GnL8wpp3TuJaJgIGfhrkMdKCAYHfe
+	 LGHz+O0pADslJ9r4zcYGKDx0zKTiM4CwSoJBxmQL02/5SqUmP74YZNHYHKbKkdVEnVX/K
+	 NzGz/UwUBtWGXrSoq4sSMRafrDjP8PSRLYtAXBmFcP2p3RuSj3JeA8kLqpf0soOBuqQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=CuMNmgBk;
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DF9D606A321;
-	Tue, 24 Nov 2026 06:17:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DF9D606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iDzo75pPBOQVifFr52WvuspjAFBYKZh+IYyjppbs6+DVjg45Y7B6BenQkupjeYHtQybXFWtP5sOLS0azAd9zFfEsNHn11N1bnXYDhHwnNcCMZ91KWJK6p5/dRduXWzZjc+AFkyy4q8taWXlURWvS9uhgIWHQtgIAZ54L2zihq1H1c1BpwN/bqh1C/aGxdERohU8qisEo3NazkuCSDbbwC4/JKUIeCUyiLkzItSvB62yBo2GAHP4spysRoaKOPY2zrVevty6Aah74T5mrW2CahvJPDHmPxm39pjkaB+saBedLpnw/TfDR61oprAjtuI8r/2X0AT7Yn60BBFDoBbb4lg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EC1SwcRnB3qHtnUS6OrmTOLXoja38qTpuQD344gSjAk=;
- b=dIR2zvYFokA51Vu6JdWRNFpvT+8cYdsFP1aztlDIYOIeEPrAjuFzdao5hQYqYsi4+DlWQyONhTRs36GY4JXGz/U3texcYwPzhgGoTkH+tI08a/t75drHEhuAE3M8R7LgTOMzspuEwam+z5PtZLHpOzMK51mbMqKkfzJfFCfKZ5+eh5Lvkbfn4T9MZwrRsJhh+CTyAPpx6rY+Fz51hXRaE+DDEObAJkXaQkZpzKK4S2Rt5KULooi9pMFguUgITjyct3g18Vs3IsG+23Jhd7LZa9gZ0xaGinNdwOZhZElkfpAPyZ+gIGXl2n8gweQgg8DFfVMGRwwKn+skDiSBpHihFQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from OS7PR01CA0045.jpnprd01.prod.outlook.com (2603:1096:604:257::20)
- by PUZPR06MB6171.apcprd06.prod.outlook.com (2603:1096:301:11e::5) with
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3425D606A321;
+	Tue, 24 Nov 2026 06:17:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3425D606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=CuMNmgBk
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id F0989206D0;
+	Tue, 24 Nov 2026 07:17:53 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 72SRn53h-tJp; Tue, 24 Nov 2026 07:17:53 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.secunet.com (Postfix) with ESMTPS id 580BD201C7;
+	Tue, 24 Nov 2026 07:17:53 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 580BD201C7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795501073;
+	bh=Fns5KSeLA1lAqdtuoDUdCMp8WJ8wrSCmXQUe1et8xFI=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=CuMNmgBkP7qTfM6MdxNUQ6ZyVyFsrN51hj1M1RaCrS/5jRfJkAFbqvLG2UzS3NtM/
+	 Lcg5KAuLcfVffLvgrX+EcXiVUgPrMB6Oenm9MyxVshBWaox4J5C6JNKRglv9dctAQw
+	 5XJ0IxPDsK3bZEa1qDH/MWmz5iQF78pJFMvPRjp6bhKCFczY1u3b4ZqDbBkBs36oj/
+	 BPhB8a9Ix0gI/uXi8R6tdQuT0h5c/Jv99Q6w98eIRyNkIEnzvHc1E5Wk2hf08UOwYJ
+	 yQjiFDbvwvAA225xSuKdx17rxcb50t8f3ugwLxr2wZh0t7xClgswJGTE+v3rjaB3ev
+	 Bkv3vBs4jrdSA==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
- 2026 06:17:22 +0000
-Received: from OSA0EPF000000C9.apcprd02.prod.outlook.com
- (2603:1096:604:257:cafe::15) by OS7PR01CA0045.outlook.office365.com
- (2603:1096:604:257::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Tue,
- 24 Nov 2026 06:17:22 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- OSA0EPF000000C9.mail.protection.outlook.com (10.167.240.55) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 06:17:22 +0000
-Received: from cix (unknown [172.16.64.42])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 30991427EFD7;
-	Tue, 24 Nov 2026 14:17:21 +0800 (CST)
-Date: Tue, 24 Nov 2026 14:17:20 +0800
-From: Cunyuan Liu <cunyuan.liu@cixtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: boris.brezillon@collabora.com, steven.price@arm.com,
-	liviu.dudau@arm.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, gary.yang@cixtech.com, fugang.duan@cixtech.com,
-	daniel.almeida@collabora.com, aliceryhl@google.com,
-	p.zabel@pengutronix.de, daniel@fooishbar.org,
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	rust-for-linux@vger.kernel.org, cix-kernel-upstream@cixtech.com,
-	robin.wang@cixtech.com
-Subject: Re: [PATCH v3 3/7] dt-bindings: gpu: arm,mali-valhall-csf: Add
- system-cache policies
-Message-ID: <awUr8JIE8GTgxwL4@cix>
-References: <20261119123850.2994625-1-cunyuan.liu@cixtech.com>
- <20261119123850.2994625-4-cunyuan.liu@cixtech.com>
- <20261122-greedy-cuddly-hog-06c4ac@quoll>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 24 Nov
+ 2026 07:17:51 +0100
+Received: (nullmailer pid 3202217 invoked by uid 1000);
+	Tue, 24 Nov 2026 06:17:52 -0000
+Date: Tue, 24 Nov 2026 07:17:52 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Kyuwon Cho <kyuwoncho18@gmail.com>
+CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+	<horms@kernel.org>, <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [BUG] xfrm: ESP SA in route optimization mode hits WARN_ON_ONCE
+ in xfrm_state_mtu() and xfrm_input()
+Message-ID: <awUsEE7XZIFwc0Ws@gauss4>
+References: <179493154245.3969421.1349059390749040254@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,94 +83,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20261122-greedy-cuddly-hog-06c4ac@quoll>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSA0EPF000000C9:EE_|PUZPR06MB6171:EE_
-X-MS-Office365-Filtering-Correlation-Id: b3589386-f308-4dd4-a37c-08df49f299e2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|23010399003|36860700016|261009223027099003|6133799003|18002099003|22082099003|3023799007|261028144727099003|261022105027099003|261102123227099003|261026140227099003|261021121427099003|10067099003|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info:
-	Y+leva9Kz6CeEVTixEYppxAgAl6EAsvL/h3l8UlbmR/H+yKOktYkKCdbOK8TDoonWz9VMzhJCP+azL94x2MK5X52UAFg+bCTQ4ioRazhtbwqRQSF/zKzpxhXImEv8kgP3n6MDqgj0B/I6oGTxHY9bQYbsuni34l1ytBiOHpHGiLhmbWiM0LV/yexOw49AEoKpNwWGY/o76nkfU7O9MY+JB48ssdU+hYcR4cstIR6q+saNBWlgdvhYPt1vuV2T2zY/wqecpM1Icjk+U5dHNZxq9Xcl1hubJRmrGN2HvCsS1LQW1brs6LIjiV7HUz4XKc838MbB+CJcAotfqqoGVfgDq92QjY0wukZgRcdAqHjW5xlIYt5Zw7D31/h34YVgwQV6wLEaWHmZkKylMbIkmq7HvAtgTnEHAPE5I5GRMCtYfFUTS3yD39Pmkf23zMMzux6yrevlwS9Le0ctLz7PwDn85MbAdlxO6mDeX+fYeM9OFkm0RYiF4ja8hxNE18IuBcQt5mzOPOoHW++yyb2MIZ+ODN1jjIcOIfnsqqkzPXcVFHJf6T+OiFZOAk5N0xbygat1tUQLMzBMtWpCIKAD+xpYN1Bskx09aV5T6/3hD44FCumXsG0w6ZoVKfft2VPhuRvUnTWlpctMQ8ypyWdKbcwp1id+oGbLQY4aNsy2OiTRSNIc4G9g4Bchb+CD6OOnvMxyR40HYH7h4axMRFm+QZymg==
-X-Forefront-Antispam-Report:
-	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(23010399003)(36860700016)(261009223027099003)(6133799003)(18002099003)(22082099003)(3023799007)(261028144727099003)(261022105027099003)(261102123227099003)(261026140227099003)(261021121427099003)(10067099003)(56012099006)(4143699003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	IL0Gfrf+Jsz2oDqhODFYXdUSRsoTBXMvreGJrUUVuKju4Zmrz7lwQqtgEE3ERM1upQmhLGn+lYmtc04i7I86TsMr8WgpHM8E4/FHXlqL691MuqQ0m1d3m/zI933LTm/npPv/k0JgGU5ZnRsYZ7FJ8wGwDJRNEOTKNC97V4m/wu9xIzMw0oU9QhJxlpuqJcMiK1Poc1Li9MzbSKcTnq4feN7hNyDs1/1ri1LdqgMx6VpkFumtCfdy+9MxlcjXbUxMUespsnPP42xFEWoh+RogLJU6i5lykG3LOUTC8Dy6zDgTfKdOReyqX3tM1chjAbubr5H53D9WfOjk5TX+hEQyOX19ndYoRP9fYaickeHh/r0rXZbkG60itbtujgy3OK9tZJPgj81NQq4KikfrNdW6gqd2fb8x0OHNlsW47ZCIRzWvpcoQNXlJ/PcxB+lw7A7o
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 06:17:22.0515
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b3589386-f308-4dd4-a37c-08df49f299e2
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	OSA0EPF000000C9.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB6171
+In-Reply-To: <179493154245.3969421.1349059390749040254@gmail.com>
+X-ClientProxiedBy: EXCH-02.secunet.de (10.32.0.172) To EXCH-01.secunet.de
+ (10.32.0.171)
 
-Hi Krzysztof,
-
-On 2026-11-22 17:58:56 +0100, Krzysztof Kozlowski wrote:
-> On Thu, Nov 19, 2026 at 08:38:46PM +0800, Cunyuan Liu wrote:
-> > Describe system-cache allocation policies for Mali GPUs with SYSC_ALLOC
-> > registers. The policy depends on how the GPU is integrated with the rest
-> > of the system and belongs in DT rather than a platform table in the driver.
+On Tue, Nov 17, 2026 at 08:05:46AM -0800, Kyuwon Cho wrote:
+> Hi Steffen, Herbert,
 > 
-> Explain why.
+> While testing v7.4-rc3 with an LLM-guided test generator that we are
+> developing as a research prototype, we found that XFRM_MSG_NEWSA accepts
+> an ESP state with mode XFRM_MODE_ROUTEOPTIMIZATION, and that one packet
+> through it hits two WARN_ON_ONCE()s. An unprivileged user can do this
+> from its own user and network namespace. Sending the packet:
 > 
+>   WARNING: net/xfrm/xfrm_state.c:3264 at xfrm_state_mtu+0x239/0x3d0, CPU#1: test/107
+>   CPU: 1 UID: 65534 PID: 107 Comm: test Not tainted 7.4.0-rc3 #1 PREEMPT(lazy) 
+>   RIP: 0010:xfrm_state_mtu+0x239/0x3d0
+>   Call Trace:
+>    <TASK>
+>    xfrm_bundle_create+0x1560/0x2340
+>    xfrm_resolve_and_create_bundle+0x158/0x2d0
+>    xfrm_lookup_with_ifid+0x483/0x18e0
+>    xfrm_lookup_route+0x1e/0x180
+>    ip6_dst_lookup_flow+0x196/0x1e0
+>    udpv6_sendmsg+0x163b/0x2d70
+>    __sys_sendto+0x2b1/0x3c0
+>    __x64_sys_sendto+0xdb/0x1b0
+>    do_syscall_64+0x116/0x630
+>    entry_SYSCALL_64_after_hwframe+0x77/0x7f
+>    </TASK>
 > 
-> > [...]
-> > +  arm,sysc-alloc:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> > +    minItems: 1
-> > +    maxItems: 32
-> > +    items:
-> > +      items:
-> > +        - description: GPU internal source ID
-> > +          minimum: 0
-> > +          maximum: 31
-> > +        - description: Read allocation policy
-> > +          enum: [0, 2, 3, 4, 5]
-> > +        - description: Write allocation policy
-> > +          enum: [0, 2, 3, 4, 5]
-> > +    description:
-> > +      System-cache allocation policies for GPU architecture 11.0.3 and later.
-> > +      Each entry contains a source ID, a read policy and a write policy.
-> > +      Source IDs must be unique. Reserved source IDs and access directions
-> > +      not supported by the GPU must use zero policies. Policy values are
-> > +      0 for L2 allocation, 2 for never allocate, 3 for always allocate,
-> > +      4 for partial allocation and 5 for L2 partial allocation. When present,
-> > +      all source policies start at zero and the listed entries override them.
-> > +      Omitted sources therefore use L2 allocation. If absent, the register
-> > +      defaults are preserved.
+> and receiving it:
 > 
-> Looks like integration specific, so implied by the compatible.
->
+>   WARNING: net/xfrm/xfrm_input.c:449 at xfrm_input+0x2176/0x5f50, CPU#1: test/107
+>   CPU: 1 UID: 65534 PID: 107 Comm: test Tainted: G        W           7.4.0-rc3 #1 PREEMPT(lazy) 
+>   RIP: 0010:xfrm_input+0x2176/0x5f50
+>   Call Trace:
+>    <IRQ>
+>    xfrm6_esp_rcv+0x83/0x1c0
+>    ip6_protocol_deliver_rcu+0xc71/0x13d0
+>    ip6_input_finish+0x192/0x3f0
+>    ip6_input+0xcb/0x220
+>    __netif_receive_skb_one_core+0x114/0x1b0
+>    process_backlog+0x3c6/0x12c0
+>    __napi_poll.constprop.0+0x9c/0x5c0
+>    net_rx_action+0x48e/0xe30
+>    handle_softirqs+0x22d/0x980
+>    do_softirq+0x43/0xa0
+>    </IRQ>
+> 
+> verify_newsa_info() accepts XFRM_MODE_ROUTEOPTIMIZATION for any
+> protocol; only IP-TFS is limited to ESP. esp6_init_state() treats every
+> mode other than BEET and TUNNEL as transport:
+> 
+> 	switch (x->props.mode) {
+> 	case XFRM_MODE_BEET:
+> 		...
+> 	default:
+> 	case XFRM_MODE_TRANSPORT:
+> 		break;
+> 
+> so the state is created. The ESP paths then reach code that assumes
+> route optimization never comes with ESP. xfrm_state_mtu() has no case
+> for it and falls to:
+> 
+> 	default:
+> 		if (x->mode_cbs && x->mode_cbs->get_inner_mtu)
+> 			return x->mode_cbs->get_inner_mtu(x, mtu);
+> 
+> 		WARN_ON_ONCE(1);
+> 
+> and xfrm_inner_mode_input() has
+> 
+> 	case XFRM_MODE_ROUTEOPTIMIZATION:
+> 		WARN_ON_ONCE(1);
+> 		break;
+> 
+> The packet is dropped on input, so the effect is the warnings, which
+> panic a machine with panic_on_warn. Both WARN_ON_ONCE()s date from the
+> 2019 xfrm mode cleanup (c2d305e51038, c7b37c769d2a).
+> 
+> Accepting XFRM_MODE_ROUTEOPTIMIZATION only for the Mobile IPv6 types
+> (IPPROTO_ROUTING and IPPROTO_DSTOPTS) in verify_newsa_info(), as it
+> already limits IP-TFS to ESP, or rejecting it in esp6_init_state()
+> (route optimization exists only for IPv6 states), should avoid it. We
+> have not tested either change.
 
-SYSC_ALLOC is a standard Mali GPU feature (architecture 11.0.3 and
-later), not a Sky1-specific register, so other SoCs integrating these
-GPUs may also need different allocation policies depending on their
-system cache integration.
+I think adding a guard to verify_newsa_info() makes sense. Can you
+submit a fix?
 
-On CIX Sky1, devices on the MMHUB bus (such as the display controller)
-cannot access the system-level cache. Buffers shared between the GPU and
-MMHUB devices therefore require specific SYSC_ALLOC policies, otherwise
-the GPU display output is corrupted.
+Thanks!
 
-In v2, these policies were in the driver via panthor_soc_data, similar
-to the MediaTek mt8196 asn_hash table. I moved them to DT in v3 and
-split them into this patch following Liviu's and Daniel's review on v2
-so we could discuss the representation here.
-
-Krzysztof, Liviu, Daniel: should I drop arm,sysc-alloc from DT and
-derive the policies from "cix,sky1-mali" in the driver, or keep a
-DT property?
-
-
-Best regards,
-Cunyuan
