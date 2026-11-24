@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795479805;
-	b=JwjfS3vmqmXfWO9huajrA3OnkB3mJMpG+A5A9ONQs1auG+0ceGYXXkseRJkmrWUybyUJ
-	 2wMiLXeAnZawGD+XrfuWYexLDlH9JRAQIxy8t+4kw9KaPBOOOntAEM+G6cpkND8ednNTc
-	 Kf8c+mkmvYRpvSTGb5ZRna1yuwrJOahrHMi1F+7pto3ICGFzBWDr9FoaM1yQWGY/U+Zaf
-	 2tQ33RpzzlHR3oPrWR4P8FvSB0OoSnPa+SeZEpuvwGlqqCGAx7CMj80MP1+mPxPpIZ5GW
-	 peymBXTsNCB7iJoRJigGSGkVgDG/50Js4sP9RDUly5Hfex0hFHWbc0nLIJaecU6dQmQ==
+	t=1795479811;
+	b=eyDFfgitM5SWmoIzjJe5zi8e9Av5St/QVr0vUtVNAe3q/UcQ5iaN18WpeQQ42La4aupB
+	 UlFKTkGdF50EvAc4U6Ve+774gCx/G4fqf6O7aevT24EqRO5WRPyLkAOsaOQyG4m3pcCxf
+	 GI3f9iLLD8OGlNIKoZ1Z4zK010N0gG86lYAa49MHJkhQodit723ChOUMnAEPi5MkUxdG3
+	 WCavWI3rSnK/vQzO7kRmCNMaFphGMLDTnnYmbOMZrWdyiM9BR07kcUKU6oG1PHn24uR0E
+	 glACKmZSZiNpC02iA3aOZFhQGHuR5fST9p66J+GjRj263bSsgZkmiHvEYDOGED4jdYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795479805;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795479811;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=LT2epryqp8Iw+la1Zy6zB4f94YOcjD3RdwJUl5rJ/5M=;
-	b=BXNBA2Htovr9oC8FPuAnSP3BS+w3AppxuaWWW3QGp6ZQo2ANMYwq5InAt4X42OzTMRaP
-	 giJ37LwvcG5BNFUKulfqCkVqQ/iK+LmnyDZixtSg3McnHRjJPir6/7Rrn1/XKk+syctK+
-	 /dGCH+MwEHkiCdArxSOwGI2pAK4pqDY6NhcI5h+3vGKELuR3XGxAG22LIlbWsEw566x+H
-	 kiWCOFJkwtAC1yR8K6GnAcRWDnBcIP6kBUJUzwQfx4gxx4xKEY14GQtkYjkXBLqsY50a6
-	 5uzuuLBv2kPpVt1fYZIGWNRyxJFRA0woP8pDM2+d/8ObyQ+9NoKj++YGamrZAglxbLQ==
+	bh=F+4s8J9yOZzJoecMyFoMiRmMZAjm9Tj+d8QGgFbVS5E=;
+	b=s4I4A4Bp44h3uak0XkLHzdO1U141QPcacslAXDlz6Hl8ifo+XdGTt/SWlqQ8yzgfC2JT
+	 iVBQzBJ7JNt6TUNag7Tx+4edEyxwvOLgeyV5fXwElTmN9SDg5Uh61OxFb3l70OtiGDwbz
+	 QRpzkAe+F/x9VhmGaap6yHFIXMkDeqdY5IfUPYw0hysjju+LtzoaQjZ3EGVr3yud6YJ3X
+	 u6BqzPPmO7D2kJtvHK/ENBeopDR+btUA8F5zjoqyngmDomIFd09zD3ky4dHMNrAAcHl2E
+	 BD05egiZlxavzx1JDxC22ABeu0cAxvbXrlz35a8CC9HsydrrbO/HrcMLlXLzmjpQ3Ww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZLtF6PDq;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AxLsuMyR;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47C8360A5BC0;
-	Tue, 24 Nov 2026 00:23:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D401A60A6F4F;
+	Tue, 24 Nov 2026 00:23:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZLtF6PDq
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F29671F0089E;
-	Tue, 24 Nov 2026 00:23:23 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AxLsuMyR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E27511F000F2;
+	Tue, 24 Nov 2026 00:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795479804;
-	bh=LT2epryqp8Iw+la1Zy6zB4f94YOcjD3RdwJUl5rJ/5M=;
+	s=k20260515; t=1795479811;
+	bh=F+4s8J9yOZzJoecMyFoMiRmMZAjm9Tj+d8QGgFbVS5E=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ZLtF6PDqtGDXEY0XTDVrPoY56UBEuUcatQmPe3w4pJ1fekdZB/ZGEHrdo8/Kho/5a
-	 gJlzBMoE75CxMT7eDFGKAvliR02hCO6z7Fngxzcs05Q44zMEdvxj+CEKsU9mHUx7NJ
-	 USqj3YFLBcfj7tCYYkSJjLE8LltzVawEJzrhoYhhA1byf8mixwYwY3svQcxWhuafNv
-	 w0SEMpHQBrNozKNSZBDbspChIvVpegHDyyFhx/UHDUHJ1ooWmMQZ2VO7DgYqz/It8t
-	 tBnSX5AyzBFfy+XQDc5n6Cog8sv5LH5Weu9VqLzijHdDN13QvVcQFdNvxmtyeb1bad
-	 pv5KB0kcicWXA==
+	b=AxLsuMyRb8xnCnMV2TUUCw1XMCfD4S1B//qtVjS5nZQ7/Qk+dV9W1JqBkSIKPktM8
+	 1XRoAk9NeOFQRlDZzjR8UFxaF/b3ArD+jZnbFxUH8C/1uSRaQJGv26O8CrQYGRmtpi
+	 criD6f3AvVk5NwoWxgrdyTxaKYkpYyofZxlFsrjnheiwyS4UX8RD8HtjRHgXjO9Y+2
+	 YjiRexLdZpx8LQ0FTAdZGY7Cj7TeFPQKXLqaQjJlvEh46aNmJvcpV0BGxVIMBlE1tB
+	 SQdqY2K3/Pes4FjGbZi+1J3fTYQVxpKB+cQBmrvQvUTA8Zd0qTedzpwwkT3jDLIJXJ
+	 +pJogPGwP5BFw==
 From: Yosry Ahmed <yosry@kernel.org>
 To: Sean Christopherson <seanjc@google.com>,
 	Peter Zijlstra <peterz@infradead.org>
@@ -61,9 +61,9 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	kvm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Yosry Ahmed <yosry@kernel.org>
-Subject: [RFC PATCH 11/26] KVM: x86/pmu: Move PMC MSR and type helpers earlier
-Date: Tue, 24 Nov 2026 00:22:48 +0000
-Message-ID: <20261124002303.1785363-12-yosry@kernel.org>
+Subject: [RFC PATCH 16/26] KVM: x86/pmu: Write GLOBAL_CTRL to hardware if the guest context is loaded
+Date: Tue, 24 Nov 2026 00:22:53 +0000
+Message-ID: <20261124002303.1785363-17-yosry@kernel.org>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
 In-Reply-To: <20261124002303.1785363-1-yosry@kernel.org>
 References: <20261124002303.1785363-1-yosry@kernel.org>
@@ -78,105 +78,133 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Move {fixed_counter,gp_counter,gp_eventsel}_msr() above
-pmc_write_counter(), and pmc_is_{gp,fixed}() above pmc_read_counter(),
-in preparation for using them to access PMCs in hardware while the
-guest's mediated PMU context is loaded.
+In preparation for leaving the guest's mediated PMU context loaded
+during slowpath VM-Exit handling, write the guest's GLOBAL_CTRL to
+hardware on AMD if the guest context is loaded.  On Intel, the guest's
+GLOBAL_CTRL lives in the VMCS and is loaded by hardware on VM-Enter, so
+intel_pmu_write_global_ctrl() already writes it to the right place.
 
-No functional change intended.
+Add kvm_pmu_set_global_ctrl() to update the software copy and forward
+the value to vendor code, and implement write_global_ctrl() for AMD
+using kvm_pmu_guest_context_wrmsr().  Disable IRQs across the update, so
+that checking whether the guest context is loaded and writing the MSR
+are atomic with respect to perf reclaiming the mediated PMU (via IPI)
+and putting the guest context.
+
+Disabling IRQs isn't needed on Intel, as the VMCS isn't affected by perf
+reclaiming the PMU, but special casing Intel isn't worth the trouble.
+Alternatively, the software update and disabling IRQs could be moved
+into vendor code, but the software copy also needs to be updated for
+the emulated PMU (which doesn't use write_global_ctrl()), so keeping
+the update in common code is simpler.
+
+Document GLOBAL_CTRL as a control that's read from the software copy and
+written through to hardware while the guest context is loaded.
 
 Signed-off-by: Yosry Ahmed <yosry@kernel.org>
 ---
- arch/x86/kvm/pmu.c | 30 +++++++++++++++---------------
- arch/x86/kvm/pmu.h | 20 ++++++++++----------
- 2 files changed, 25 insertions(+), 25 deletions(-)
+ arch/x86/kvm/pmu.c     | 17 ++++++++++++-----
+ arch/x86/kvm/pmu.h     | 14 ++++++++------
+ arch/x86/kvm/svm/pmu.c |  6 ++++++
+ 3 files changed, 26 insertions(+), 11 deletions(-)
 
 diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
-index eef2f792dc9e8..4d170abb2b384 100644
+index ffee8a4741ee1..d312f1b2f586a 100644
 --- a/arch/x86/kvm/pmu.c
 +++ b/arch/x86/kvm/pmu.c
-@@ -404,6 +404,21 @@ static void pmc_update_sample_period(struct kvm_pmc *pmc)
- 			  get_sample_period(pmc, pmc->counter));
+@@ -873,6 +873,16 @@ static void kvm_pmu_mark_pmc_in_use(struct kvm_vcpu *vcpu, u32 msr)
+ 		__set_bit(pmc->idx, pmu->pmc_in_use);
  }
  
-+static __always_inline u32 fixed_counter_msr(u32 idx)
++static void kvm_pmu_set_global_ctrl(struct kvm_vcpu *vcpu, u64 global_ctrl)
 +{
-+	return kvm_pmu_ops.FIXED_COUNTER_BASE + idx * kvm_pmu_ops.MSR_STRIDE;
++	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
++
++	guard(irqsave)();
++	pmu->global_ctrl = global_ctrl;
++	if (kvm_vcpu_has_mediated_pmu(vcpu))
++		kvm_pmu_call(write_global_ctrl)(global_ctrl);
 +}
 +
-+static __always_inline u32 gp_counter_msr(u32 idx)
-+{
-+	return kvm_pmu_ops.GP_COUNTER_BASE + idx * kvm_pmu_ops.MSR_STRIDE;
-+}
-+
-+static __always_inline u32 gp_eventsel_msr(u32 idx)
-+{
-+	return kvm_pmu_ops.GP_EVENTSEL_BASE + idx * kvm_pmu_ops.MSR_STRIDE;
-+}
-+
- void pmc_write_counter(struct kvm_pmc *pmc, u64 val)
- {
- 	if (kvm_vcpu_has_mediated_pmu(pmc->vcpu)) {
-@@ -1304,21 +1319,6 @@ int kvm_vm_ioctl_set_pmu_event_filter(struct kvm *kvm, void __user *argp)
- 	return r;
- }
- 
--static __always_inline u32 fixed_counter_msr(u32 idx)
--{
--	return kvm_pmu_ops.FIXED_COUNTER_BASE + idx * kvm_pmu_ops.MSR_STRIDE;
--}
--
--static __always_inline u32 gp_counter_msr(u32 idx)
--{
--	return kvm_pmu_ops.GP_COUNTER_BASE + idx * kvm_pmu_ops.MSR_STRIDE;
--}
--
--static __always_inline u32 gp_eventsel_msr(u32 idx)
--{
--	return kvm_pmu_ops.GP_EVENTSEL_BASE + idx * kvm_pmu_ops.MSR_STRIDE;
--}
--
- static void kvm_pmu_load_guest_pmcs(struct kvm_vcpu *vcpu)
+ int kvm_pmu_get_msr(struct kvm_vcpu *vcpu, struct msr_data *msr_info)
  {
  	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
+@@ -934,15 +944,13 @@ int kvm_pmu_set_msr(struct kvm_vcpu *vcpu, struct msr_data *msr_info)
+ 
+ 		if (pmu->global_ctrl != data) {
+ 			diff = pmu->global_ctrl ^ data;
+-			pmu->global_ctrl = data;
+ 			kvm_pmu_request_counters_reprogram(pmu, diff);
+ 		}
+ 		/*
+ 		 * Unconditionally forward writes to vendor code, i.e. to the
+ 		 * VMC{B,S}, as pmu->global_ctrl is per-VCPU, not per-VMC{B,S}.
+ 		 */
+-		if (kvm_vcpu_has_mediated_pmu(vcpu))
+-			kvm_pmu_call(write_global_ctrl)(data);
++		kvm_pmu_set_global_ctrl(vcpu, data);
+ 		break;
+ 	case MSR_CORE_PERF_GLOBAL_OVF_CTRL:
+ 		/*
+@@ -1043,8 +1051,7 @@ void kvm_pmu_refresh(struct kvm_vcpu *vcpu)
+ 	    (kvm_pmu_has_perf_global_ctrl(pmu) || kvm_vcpu_has_mediated_pmu(vcpu)))
+ 		pmu->global_ctrl = GENMASK_ULL(pmu->nr_arch_gp_counters - 1, 0);
+ 
+-	if (kvm_vcpu_has_mediated_pmu(vcpu))
+-		kvm_pmu_call(write_global_ctrl)(pmu->global_ctrl);
++	kvm_pmu_set_global_ctrl(vcpu, pmu->global_ctrl);
+ 
+ 	bitmap_set(pmu->all_valid_pmc_idx, 0, pmu->nr_arch_gp_counters);
+ 	bitmap_set(pmu->all_valid_pmc_idx, KVM_FIXED_PMC_BASE_IDX,
 diff --git a/arch/x86/kvm/pmu.h b/arch/x86/kvm/pmu.h
-index 090c9bbb74f48..ff4b6f15b915c 100644
+index 89d35a39b524b..a83560ac51e00 100644
 --- a/arch/x86/kvm/pmu.h
 +++ b/arch/x86/kvm/pmu.h
-@@ -127,6 +127,16 @@ static inline u64 pmc_bitmask(struct kvm_pmc *pmc)
- 	return pmu->counter_bitmask[pmc->type];
+@@ -175,12 +175,14 @@ static inline u64 pmc_read_counter(struct kvm_pmc *pmc)
+  *    guest context is put (counters) must be read from hardware, and
+  *    written to both hardware and the software copy.
+  *
+- *  - Controls whose software copy is always up to date (event selectors
+- *    and FIXED_CTR_CTRL) can be read from the software copy, but writes
+- *    must be propagated to hardware.  Guest writes to event selectors and
+- *    FIXED_CTR_CTRL are always intercepted.  Note, the value written to
+- *    hardware may differ from the guest-visible value, e.g. eventsel_hw
+- *    vs. eventsel.
++ *  - Controls whose software copy is always up to date (event selectors,
++ *    FIXED_CTR_CTRL and GLOBAL_CTRL) can be read from the software copy,
++ *    but writes must be propagated to hardware.  Guest writes to event
++ *    selectors and FIXED_CTR_CTRL are always intercepted, and GLOBAL_CTRL
++ *    is saved on every VM-Exit if guest writes aren't intercepted.  Note,
++ *    the value written to hardware may differ from the guest-visible
++ *    value, e.g. eventsel_hw vs. eventsel, and the guest's GLOBAL_CTRL
++ *    lives in the VMCS on Intel.
+  *
+  * Write a guest PMU MSR, but only if the guest context is loaded on this
+  * CPU.  Callers must keep IRQs disabled across updating KVM's software copy
+diff --git a/arch/x86/kvm/svm/pmu.c b/arch/x86/kvm/svm/pmu.c
+index 1b5ed347bf1df..9c7d248f4ee10 100644
+--- a/arch/x86/kvm/svm/pmu.c
++++ b/arch/x86/kvm/svm/pmu.c
+@@ -242,6 +242,11 @@ static bool amd_pmu_is_mediated_pmu_supported(struct x86_pmu_capability *host_pm
+ 	return host_pmu->version >= 2;
  }
  
-+static inline bool pmc_is_gp(struct kvm_pmc *pmc)
++static void amd_pmu_write_global_ctrl(u64 global_ctrl)
 +{
-+	return pmc->type == KVM_PMC_GP;
++	kvm_pmu_guest_context_wrmsr(MSR_AMD64_PERF_CNTR_GLOBAL_CTL, global_ctrl);
 +}
 +
-+static inline bool pmc_is_fixed(struct kvm_pmc *pmc)
-+{
-+	return pmc->type == KVM_PMC_FIXED;
-+}
-+
- static inline u64 pmc_read_counter(struct kvm_pmc *pmc)
+ static void amd_mediated_pmu_load(struct kvm_vcpu *vcpu)
  {
- 	u64 counter, enabled, running;
-@@ -145,16 +155,6 @@ static inline u64 pmc_read_counter(struct kvm_pmc *pmc)
+ 	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
+@@ -313,6 +318,7 @@ struct kvm_pmu_ops amd_pmu_ops __initdata = {
+ 	.is_mediated_pmu_supported = amd_pmu_is_mediated_pmu_supported,
+ 	.mediated_load = amd_mediated_pmu_load,
+ 	.mediated_put = amd_mediated_pmu_put,
++	.write_global_ctrl = amd_pmu_write_global_ctrl,
  
- void pmc_write_counter(struct kvm_pmc *pmc, u64 val);
- 
--static inline bool pmc_is_gp(struct kvm_pmc *pmc)
--{
--	return pmc->type == KVM_PMC_GP;
--}
--
--static inline bool pmc_is_fixed(struct kvm_pmc *pmc)
--{
--	return pmc->type == KVM_PMC_FIXED;
--}
--
- static inline bool kvm_valid_perf_global_ctrl(struct kvm_pmu *pmu,
- 						 u64 data)
- {
+ 	.EVENTSEL_EVENT = AMD64_EVENTSEL_EVENT,
+ 	.EVENTSEL_HW_SET = AMD64_EVENTSEL_GUESTONLY,
 -- 
 2.56.1.809.ga0b61035b5-goog
 
