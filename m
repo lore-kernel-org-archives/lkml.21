@@ -1,66 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=199.89.1.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795546048;
-	b=k1AIlD8K8ZdcZghS8ka8m6uESqe7xXDQexM7mc+9sME++boqWdFnlr+8NooeTqYlIrth
-	 NsH6zIkvJsFeqOWX6BlAeOI+fq4gsjaDXQiaCZsN/y0iTH/7+Dp1HwwdTnCV4Ij/gxjHi
-	 2kXJetnmZOLApv2esOYO7kJilybrVJAZKnP5L4zfTY30dt0vyKWz9S/I6Qfs9Qm8a74Ve
-	 tVguhNmTvjq/pVCGo9mca0CUukE3RiN31Nle4Z/sl9HJE2yCfOQVeoAYvSG6iBF1Amolj
-	 ddfC+TOeHLAPhtUAoHoWy0QUBuivxwLFKta4i3vf4W7wUqkLdYf9eX9HHH+/qaUqabQ==
+	t=1795546047;
+	b=T9nn+TNQfoucvDHdDSAqWIt0ebiswDJ5b0/F+Hn2+OS+6DG/ArkmPbjQFDKtkKyi9oQQ
+	 ToKzi4pYFQwrD6PIG+oUTGZ+kp/1pY7Z+t5r6Hybp6ZxxWZq4JBHwjzNIeB9GD+2RwHzv
+	 KPAa8GxGVFvDcDDmN9lD5HoNqpMd9qRSxwvtNvA/sxI8JMEi6yLd9012faUgWRqO04yTb
+	 SnC7AGsTf23qNnB76flF5zP0DuCs7k8TClzL0DJsTdzLErywyOxSjFv+0MDuz6vwzf1K6
+	 rYQXHhqMjqcY3KfSsJPxVrDZrQd2w7R2olutW2JIvt/5tYrQnt/2iyMe+SBt6Hy5Djw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795546048;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795546047;
+	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=pxqaOIl3y8m+NcD9JxB0/2XOKtk2qG69zXikgpiO/6s=;
-	b=AQaD+CKhZtOwtve+vOP/JQdIwxwM+D+2+Z6IKHtdk4VH2CMuNkFIzonWQwjJYjTMn1mo
-	 ulA9T7LVh+aNS5QVKRCezt6TvRDnOqB2MWZZcjY+8pmwbCGSe/VUy3S2RxKQZcS9ZKHfe
-	 7HiXYgVW05kAFeIvDS7acsVCuWEekG1FECwViDOxEP3QRgsuSqRWmM0pqVNH0w1KftUmR
-	 FF4j10ayJag6MxHKioWCKOUvKOef0RHTpR81xUAODWgfYSJIPtCY4cV2UO5PFAOp5o1Us
-	 qicwd36oVJ8Hdso8Iyod3zIGBbcX6s3LIVB17Ojfy+6iCpK+r3XJN+7sdDFFpNDzfBQ==
+	bh=z2Hsh7q0vkgnrZd8VrB7TvHooxViXh8npaot090DDvQ=;
+	b=cMSdMzUTDhYqcoH35YZeisC03UylV8CrWlKoKJla8M7y+f0E+NYNyqLue37eOTyzUrP+
+	 MbbDLnY2Eu9RnL18Ae4G9z+zXQ1kS/QMRx5DlICsx69OCC3/Zpg0gbiPtSDCl4Lfox9ix
+	 vPKGmrEMvtuss8Zn+WgTEvY8m+P/yPd4WnHaKqs8SQIx41iILGBGls96cBnLAyAp8UZy+
+	 JCs3ebMrBGDeAOWThoP0onnDVzcxPNize1lCmK8pXYL0U3eo3d8/Na/PUVE+P12ICQJIl
+	 cNyIbds1fJ9nnkwYLgeqKwVN+6sHYGyO3vqQG7xeCSn+vEKHfUX9RvYyZOPRTLBaBZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=acm.org;
-	spf=pass smtp.mailfrom=acm.org;
-	dkim=pass header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=3Wst0cvj;
-	arc=none smtp.remote-ip=199.89.1.16
-Received: from 013.lax.mailroute.net (013.lax.mailroute.net [199.89.1.16])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SUGYs84X;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E160C606A32A;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A20C606A321;
 	Tue, 24 Nov 2026 18:47:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E160C606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=acm.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=acm.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=3Wst0cvj
-Received: from localhost (localhost [127.0.0.1])
-	by 013.lax.mailroute.net (Postfix) with ESMTP id 4jYsHg2vfBzllB6K;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SUGYs84X
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2561D1F000C6;
 	Tue, 24 Nov 2026 18:47:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
-	content-transfer-encoding:content-type:content-type:in-reply-to
-	:from:from:content-language:references:subject:subject
-	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1795546042; x=1798138043; bh=pxqaOIl3y8m+NcD9JxB0/2XO
-	Ktk2qG69zXikgpiO/6s=; b=3Wst0cvjNuA8A+j92CbKfbrkasPXQg+jYq4wfIvZ
-	mfcOIbXqO87ADaog31kZkYeDThwkaIH6qy5mJ+R1cIn4I+OBNujw0xdY4EkanRfd
-	V/bZvC92EdF0uXu14MZ5rJOLMSs7hoJAp7E02QbiEg4lDq6JZKhfzU3C0C7z7Phe
-	hZg6xJ8+6qEPEJb5EvOrqZft+27v7eEsrGpVy99ExRGDngLXXmx9Iyjdmhd2wNyQ
-	d7aVsb7ZdWJiunz3FM+yKda8N70R8FMT5mt5Th1wtwxwbKpYTX7ssaETkbyGQ1Rx
-	Bi5fnGbscW/mCTDn6B/dG2smbq2/foibJ4krnZUWR6MCAQ==
-X-Virus-Scanned: by MailRoute
-Received: from 013.lax.mailroute.net ([127.0.0.1])
- by localhost (013.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id uE7rlzqzQucy; Tue, 24 Nov 2026 18:47:22 +0000 (UTC)
-Received: from [100.80.227.185] (unknown [104.135.182.41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bvanassche@acm.org)
-	by 013.lax.mailroute.net (Postfix) with ESMTPSA id 4jYsHY3B22zlpHx2;
-	Tue, 24 Nov 2026 18:47:21 +0000 (UTC)
-Message-ID: <8413e7bc-f647-40ab-9633-0515863f3dd4@acm.org>
-Date: Tue, 24 Nov 2026 10:47:19 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795546047;
+	bh=z2Hsh7q0vkgnrZd8VrB7TvHooxViXh8npaot090DDvQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=SUGYs84X+rHx5Jhlz9tqODYGR3XBGKt5MJ8kY5HpsHzHjv+cAm2NKkVpcNcA1rdRp
+	 vyRqt76aLpxH04KjUvcLxppU2kFsjMWsLKDOZaAaagXJRgBiqCiKU/gfk1sWYk/koz
+	 axF9qE5lOPneSDvBXg/aX6IeFVHWI/ezOWUCD8BjIBft/9YScOEFnbyRgqfgB4ETp8
+	 FhDjgcdZLmvRddCOdfP7xZzReN+Q7YuzhCOoulSO74vuuzt4Ixx318eWEsAhN8/rL1
+	 wHVHWTiXddMGDC2kDJes3v6+MwX4pI73E3nMDt/yww+mNzmVVUEriFYZJHZ9Zqs3Hm
+	 aSPO0B1SYYwvw==
+Date: Tue, 24 Nov 2026 08:47:26 -1000
+Message-ID: <837253372dc1b40de4e20924c1e4549d@kernel.org>
+From: Tejun Heo <tj@kernel.org>
+To: Zhan Xusheng <zhanxusheng1024@gmail.com>
+Cc: hannes@cmpxchg.org, mkoutny@suse.com, mhocko@suse.com, roman.gushchin@linux.dev, shakeel.butt@linux.dev, muchun.song@linux.dev, akpm@linux-foundation.org, kolyshkin@gmail.com, chris@chrisdown.name, cgroups@vger.kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, zhanxusheng@xiaomi.com
+Subject: Re: [PATCH 0/2] cgroup: list processes whose leader has exited where their threads are
+In-Reply-To: <20261124033547.2373352-1-zhanxusheng1024@gmail.com>
+References: <20261124033547.2373352-1-zhanxusheng1024@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,98 +57,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] scsi: ufs: core: Add debugfs for PA TFS/FEC error
- counters
-To: Po-Wen Kao <powenkao@google.com>, linux-scsi@vger.kernel.org
-Cc: Konstantin Vyshetsky <vkon@google.com>,
- Alim Akhtar <alim.akhtar@samsung.com>, Bean Huo <beanhuo@micron.com>,
- Stanley Jhu <stanleyjhu@google.com>,
- "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
- "Martin K . Petersen" <mkp@kernel.org>, Peter Wang
- <peter.wang@mediatek.com>, Can Guo <can.guo@oss.qualcomm.com>,
- linux-kernel@vger.kernel.org, John Garry <john.garry@linux.dev>,
- Li Qiang <liqiang01@kylinos.cn>
-References: <20261124012951.3143833-1-powenkao@google.com>
- <20261124012951.3143833-3-powenkao@google.com>
-Content-Language: en-US
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <20261124012951.3143833-3-powenkao@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: 7bit
 
-On 11/23/26 5:29 PM, Po-Wen Kao wrote:
- > +static int ufs_pa_err_read_rec_cnt(struct ufs_hba *hba, u8 peer, u64 
-*val)
- > +{
- > +	u32 hi_before, lo, hi_after;
- > +	int err, retry;
- > +
- > +	for (retry = 0; retry < UFS_PA_ERR_REC_READ_RETRIES; retry++) {
+Hello, Zhan.
 
-Does the UniPro v3.0 specification define whether or not reading
-PA_TFS_RecErrorCountL latches PA_TFS_RecErrorCountH? If it does, this
-retry loop is not necessary. If it doesn't, please mention this in a
-source code comment.
+On Tue, Nov 24, 2026 at 11:35:45AM +0800, Zhan Xusheng wrote:
+> This implements Tejun's suggestion in [1].  Patch 1 makes PROCS walks
+> visit an exited leader left behind by a cgroup.procs migration at the
+> first live thread of its process.  Patch 2 makes the memcg OOM group
+> lookup do the same.
 
- > +	/*
- > +	 * Per MIPI UniPro v3.0 Section 5.6.7, setting PA_TFS_RecErrorCountL
- > +	 * clears the entire 64-bit PA_TFS_RecErrorCount counter to 0.
- > +	 */
- > +	err = ufshcd_dme_set_attr(hba, UIC_ARG_MIB(attr->mib_attr),
- > +				  ATTR_SET_NOR, 0, attr->peer);
+The main problem I see is that it's difficult to keep the walks intact
+this way. The thread that a leader is visited at is picked by testing
+PF_EXITING, which isn't synchronized with css_set_lock, so, as the comment
+in patch 1 notes, a walk can skip a process or visit it more than once. A
+walk shouldn't miss processes.
 
-This comment only applies to one of the four attributes while the code
-below it applies to all attributes. Please make that clear in the
-comment.
+It also looks fragile in general. AFAICS, only cgroup_migrate() sets
+cg_leader_left, so when a cgroup.subtree_control write moves the threads
+to a new css_set, a walk of that controller's css, e.g. the memcg OOM
+scan, still misses the process. And as a walk can now return a leader
+whose css_set isn't the process's, every user has to know to use
+task_procs_css().
 
- > +static const struct ufs_pa_err_attr ufs_host_pa_err_attrs[] = {
- > +	{ "fec_err_cnt", PA_TFS_FECERRORCOUNT, DME_LOCAL },
- > +	{ "crc_err_cnt", PA_TFS_CRCERRORCOUNT, DME_LOCAL },
- > +	{ "format_err_cnt", PA_TFS_FORMATERRORCOUNT, DME_LOCAL },
- > +	{ "recovered_fec_symbols", PA_TFS_RECERRORCOUNTL, DME_LOCAL },
- > +	{ }
- > +};
- > +
- > +static const struct ufs_pa_err_attr ufs_dev_pa_err_attrs[] = {
- > +	{ "fec_err_cnt", PA_TFS_FECERRORCOUNT, DME_PEER },
- > +	{ "crc_err_cnt", PA_TFS_CRCERRORCOUNT, DME_PEER },
- > +	{ "format_err_cnt", PA_TFS_FORMATERRORCOUNT, DME_PEER },
- > +	{ "recovered_fec_symbols", PA_TFS_RECERRORCOUNTL, DME_PEER },
- > +	{ }
- > +};
+I'm trying out a different approach.
 
-These two arrays only differ in the value of the .peer member. Has it
-been considered to use a single array?
+Thanks.
 
- > +static void ufs_debugfs_pa_err_create_dir(struct ufs_hba *hba,
- > +					  struct dentry *parent,
- > +					  const char *name,
- > +					  const struct ufs_pa_err_attr *attrs)
- > +{
- > +	const struct ufs_pa_err_attr *pa_attr;
- > +	struct dentry *sub_dir;
- > +
- > +	sub_dir = debugfs_create_dir(name, parent);
- > +	if (IS_ERR_OR_NULL(sub_dir))
- > +		return;
- > +
- > +	d_inode(sub_dir)->i_private = hba;
-
-The comment above hba_from_file() says that @file corresponds to a
-debugfs attribute in directory hba->debugfs_root. That comment is no
-longer accurate. Please update it.
-
- > +static void ufs_debugfs_pa_err_init(struct ufs_hba *hba)
- > +{
- > +	bool host_sup = hba->ufs_version >= ufshci_version(5, 0);
- > +	bool dev_sup = hba->dev_info.wspecversion >= 0x500;
-
-The PA_TFS_* attributes are UniPro attributes. Has it been considered
-to check the UniPro version (PA_LOCALVERINFO and PA_REMOTEVERINFO)
-instead of the UFSHCI version and wSpecVersion? That would require
-adding a UFS_UNIPRO_VER_3_0 constant in include/ufs/unipro.h.
-
-Thanks,
-
-Bart.
+--
+tejun
