@@ -1,102 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514909;
-	b=xoNONg8QVZoQIvYMeS7Y0tJDU6pOauWsV7quBp0JXaLy/xspOJF/5cxTspeqh6P8A7kC
-	 sle+ep2IzKbnBN/7MFXdq3hG6aQlLhzeJqMXaLMM2blXp+v6EbdcwOdvSzv6egVk6vx4L
-	 LeU7lcb+krjWbO3mIDsUQjN+jW59awhP++pq6mRwSYW4mc4q6bIcSZkkT57GgFc9bW9rs
-	 gAioG8vcdkNlx9IJ+Lq9QVUnSKM3aTBb0NNMlgJlaNzczh03/pxZ+m+Mnc95zIglpuvvW
-	 WNBrTj3/ZXNLB8bInqsxk4gpRTBNkBxKhO55ZesE8I/Se97eExDjdSCKAyvTRlqgUDQ==
+	t=1795514914;
+	b=06WAoh75DH1YZZHBbfwIn0AKh/nY+OyMflwlNUzsGtHxLjaC7eIoiQb/JoFE/V8J+MCq
+	 Zoe73ivYLZJhO5CErWw4TyloG3/EzGzuIRdV69sQDfUWhRYo575Lj1A6a86OXb91BU6Jz
+	 iBktJq6x/GR37JHnAkObu5T+z+8ueR6ObsXehNjvNjjFgY7nfy9E/yHQ/vzc/smjdgqXO
+	 Un8v8FEfy+I3CiUxJzjfiA9yIUzetTLmnb5VM287gCvAja9cxhcLTes2+zWMLx84a1VMJ
+	 v9xE4M5hqInrqphGFpr4rX243OyQ4+7iNC7qZaY4obF4L0Z+kg/7z+JbkuQxOYVa1vg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514909;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Spam-Flag:X-Spam-Level:
-	 X-Spamd-Result:X-Spam-Score;
-	bh=bcZqlRNYWH5Ii2gko6iIHLFmdnmspwME+BV7jWvJSdg=;
-	b=1YnW+lI59wuu3geFWMpUYhDXeQHqzItazs2ic95uRbWgh3e1IoAoB4Vb/vmlOU3OcOXw
-	 N7WDH5Xi9tF0l7kCKxkN3ezsSTiP+20XPNuEcj5zalij5SgzfGLj/F57A+nG/EOm4YVly
-	 qT0ZIZsocSLkVU9MgS3CNPj+3TwjSipUgCqlXBZCdTV2t7+A6mhSHXq0aUpfDgzoJGRaw
-	 yFpHpVMZFF+lFlpzJQ9zRnhmr+Dk/CmQUWTDA+2sINey9JgGmmx5NZ+eM47KQ1hW9XblB
-	 okLbcg+cxrDqm1nj6xoQyQS1mBpLkAM0yCASZVKgQsftKG44r5NFs1NYNgFL1NKIaOQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514914;
+	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=yLmbCnIzwX/ysBFtfZMsby49iJlwe0G7SWznrkEb6+Y=;
+	b=myUVl2IkOaOBUOZN0+DhWoufEe1dufAq9vMsaozZBwtte8ORdgzGX7IDbyWgEC9KZqp8
+	 GHV7cMeBZwQHqAaTNbi93w4b8oo+aB+f5LY47sI//wrcta/Jyo20l0SCQj4zUmdDXAa8R
+	 n8bCDee6eOfWwyTooVGBfZAS7ui1EqAF6fkZ1Ap1GOBI1lKNCor4X+3DLAXvv1CkDs+Am
+	 ZujpLtl03rLaBkR6wolUWVRZAmg9Ljwv5jBeP75f65DUx/6VccZVVLJJX39Su+oC5OAzk
+	 IhX1VFY/guZEc9lDckVdV6wHgu/j/WQiGkz/ouIHXcMWuhTBlF2OZr+ASP+dp89rdkg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=QNjQRWeg;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=9b3Lh6If;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=b1QYJpJN;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=rzOrrWHA;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dmarc=pass header.from=ideasonboard.com;
+	spf=pass smtp.mailfrom=ideasonboard.com;
+	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=PcAlb0O2;
+	arc=none smtp.remote-ip=213.167.242.64
+Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EE9A606A685;
-	Tue, 24 Nov 2026 10:08:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8EE9A606A685
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0B7E606A6B1
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:08:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0B7E606A6B1
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=QNjQRWeg;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=9b3Lh6If;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=b1QYJpJN;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=rzOrrWHA
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id E651522023;
-	Tue, 24 Nov 2026 10:08:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795514906; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bcZqlRNYWH5Ii2gko6iIHLFmdnmspwME+BV7jWvJSdg=;
-	b=QNjQRWegIq/3QTe/4ULZZbfked4CXt+6o6ie2FVZOd5Rtz/j0CoTRlvZDELpBvrbTifykT
-	LnYNJvDzQ6mknt1YOQUyP22InNaYHo8AcEHFlbEeitdi5aH2Ejh5DchytR++xTGrwxQkkd
-	B2YOHeKma2rM/GzVKt0XYb5En4/2JBk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795514906;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bcZqlRNYWH5Ii2gko6iIHLFmdnmspwME+BV7jWvJSdg=;
-	b=9b3Lh6IfKBcE+gnSXdReLuzt+ipqeaMFuBOwlS0EsOIzMtnNQTvEM6tL0AvBdn6i9o5Z56
-	XJWhGGuOPKlAA4BQ==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795514904; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bcZqlRNYWH5Ii2gko6iIHLFmdnmspwME+BV7jWvJSdg=;
-	b=b1QYJpJNsr470K3cZYhUGqun0B9y7bL70cReTPK//Zrr0Qro0ZHDLqrewc/PtvaZLgOAx2
-	7JK0POsFMohQWIB3gCI3nas4zgS6nmB6BZvcy6QIXsv/SPLk/m0sjQQtz0YT58QUkE0ro+
-	aJvsPQQY0kMG46tpA4iwJp3UfhiYL1g=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795514904;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bcZqlRNYWH5Ii2gko6iIHLFmdnmspwME+BV7jWvJSdg=;
-	b=rzOrrWHAgvt+HyvpEnm5RyDKQjtELSc45r8pdHrxd3JhkEJygeKiKuUtOpjRp5vDZYh2Rg
-	Cjnro1X9aq9bM2Aw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 1165B1339F;
-	Tue, 24 Nov 2026 10:08:24 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id KkjLNBdiBWvecAAAD6G6ig
-	(envelope-from <fmancera@suse.de>); Tue, 24 Nov 2026 10:08:24 +0000
-Message-ID: <0ced8e3d-af12-41cb-829a-109ea25ec07d@suse.de>
-Date: Tue, 24 Nov 2026 11:06:51 +0100
+	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=PcAlb0O2
+Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 2E1D6177A;
+	Tue, 24 Nov 2026 11:05:58 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1795514759;
+	bh=HjY1Jit5MOe1m04ersiQVCkKniAXMUZXAH64XmY7Abs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=PcAlb0O27tqRbmRPZ56+Ejp/C7oM07zV2us53LC1Wus9Zx1y7D0hxBFQUUsActNUX
+	 IgvDxEAI47dDvSxJnEKTb1rBhO5ykbkpMATJ2E0X36fgsOJw7TvxNOd2B3oTHweRxl
+	 GleeH74QOv/qbL7Qdt8ZhkXep/a9Tuyz2+o5Bm4E=
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Date: Tue, 24 Nov 2026 12:07:54 +0200
+Subject: [PATCH v6 03/13] drm/bridge: tc358762: Improve LCDCTRL defines
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,78 +55,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH ipsec v2] xfrm: iptfs: make room before copying a
- continuation in reassembly
-To: Andrii Tereshchenko <opensource@andrii.net>,
- Steffen Klassert <steffen.klassert@secunet.com>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Christian Hopps <chopps@labn.net>, Willem de Bruijn <willemb@google.com>,
- Piyus Kedia <piyus@iiitd.ac.in>, netdev@vger.kernel.org,
- ipsec@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <e417c7f2-eaee-4fb0-b365-65cd521efd6b@mid.andrii.net>
-Content-Language: en-US
-From: Fernando Fernandez Mancera <fmancera@suse.de>
-In-Reply-To: <e417c7f2-eaee-4fb0-b365-65cd521efd6b@mid.andrii.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Spam-Flag: NO
-X-Spam-Level: 
-X-Spamd-Result: default: False [-13.29 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-0.999];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	XM_UA_NO_VERSION(0.01)[];
-	FROM_HAS_DN(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[15];
-	MIME_TRACE(0.00)[0:+];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	MID_RHS_MATCH_FROM(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[andrii.net:email,suse.de:email,imap1.dmz-prg2.suse.org:helo,iiitd.ac.in:email]
-X-Spam-Score: -13.29
+Message-Id: <20261124-tc358762-fixes-v6-3-bd38fed6460f@ideasonboard.com>
+References: <20261124-tc358762-fixes-v6-0-bd38fed6460f@ideasonboard.com>
+In-Reply-To: <20261124-tc358762-fixes-v6-0-bd38fed6460f@ideasonboard.com>
+To: Marek Vasut <marex@denx.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andreas Kemnade <andreas@kemnade.info>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3058;
+ i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
+ bh=HjY1Jit5MOe1m04ersiQVCkKniAXMUZXAH64XmY7Abs=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBrBWIXJP/a+DGGPNC5HD3A+JkmK2F7VIYzGMgh1
+ UfQw/ESwvWJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCawViFwAKCRD6PaqMvJYe
+ 9UjyD/4tkN99svkaSNZZAT4p/kmaAP513Cm9I7xtGrDCubVhmUgX6Y5NVSPzfIVr2+iq25/gKpV
+ TJLv5RzroZjhram5VgeCU/012Lx6d9ULsCu6Do5mwUXTsJTzSTTt/zkV2qF6e2d5UE9XbLAs+/d
+ 9KRnIsbpAz9R0ck8G1SyUtPBgmGRdNIOTRfKD/wzvzSjN3OPDqB+LWG1hOhk1AXJKIrfMO6UwgE
+ UcQPN6NH1pxxCzIkLpjWgfZHYOUM2wDvHQ4dRBLYZ+0REQCJBokHnlhEhD9vI73f7M/aJsZwx4w
+ vgUnOMtNF+RoQITD+FUN6iWLp9p853No/1/aRYi3Q6oedJRZfB57tBaNCGyuymaGS/7qVvPfK1i
+ /8ITJmCS4386kr6ONecUFu+Ee9cGO2cgzxg6ac1HIcafNrbcVBAL3Nqfx1hw5VFQOlSQwszAqeO
+ 7K2sZHKcB04eotsdfsgZVgalJFkbZbGbUmnOOphZFprx3VIiTJJ7ijzsUqKc0Z3P2Hxn0KZq2Gc
+ RwuJbk8soD4F2ZsNk6hWEC5HNVeD3go6O2ezFNvpkY4iIwJOOeB6/YFxAfhvkFUubZH8/0C7WE1
+ M53vNtBA5d9fILVxOl90sjQCz8p4t/M040qh0B47xwnKc0563npTonEkduSDJrhWn4se4pSh3uo
+ 0zj53jTf3sZ8jUA==
+X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
+ fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 
-On 11/22/26 2:09 PM, Andrii Tereshchenko wrote:
-> When iptfs_reassem_cont() cannot share a continuation as page frags, it
-> linearizes the in-progress skb and copies the data in with skb_put(),
-> without checking the tailroom. An skb started by iptfs_pskb_add_frags()
-> has little room after linearizing, so a larger continuation panics the
-> kernel in softirq:
-> 
->    skbuff: skb_over_panic: ... len:2884 put:1442 ... end:0x6c0 dev:eth1
->    kernel BUG at net/core/skbuff.c:215!
->    Call Trace:
->     <IRQ>
->     skb_put.cold+0x1f/0x1f
->     iptfs_reassem_cont+0x242/0x760
->     iptfs_input_ordered+0x382/0x3e0
->     iptfs_input+0x24d/0x630
->     xfrm_input+0x12a5/0x29f0
-> 
-> After linearizing, grow the head if the rest of the inner packet does
-> not fit, and abandon the reassembly if that fails.
-> 
-> Made with an AI coding assistant, reviewed by the submitter.
-> 
-> Fixes: 5f2b6a909574 ("xfrm: iptfs: add skb-fragment sharing code")
-> Fixes: 0b352f83cabf ("xfrm: iptfs: fix skb_put() panic on non-linear skb during reassembly")
-> Reported-by: Piyus Kedia <piyus@iiitd.ac.in>
-> Closes: https://lore.kernel.org/all/20261119142308.3272570-1-piyus@iiitd.ac.in/
-> Link: https://lore.kernel.org/all/20260908224855.1591147-1-kuba@kernel.org/
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
+LCDCTRL fields are quite wrong in the driver. Fix the field defines.
 
-Reviewed-by: Fernando Fernandez Mancera <fmancera@suse.de>
+A few notes about the wrong fields:
 
-Thanks!
+LCDCTRL_VSDELAY(1) actually sets LCDCTRL_DCLK_POL
+LCDCTRL_UNK6 | LCDCTRL_VTGEN actually set LCDCTRL_PXLFORM_RGB888
+LCDCTRL_RGB888 actually sets LCDCTRL_DPI_EN
+
+The total still resulted in a working display even if the defines were
+quite wrong.
+
+Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
+Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+---
+ drivers/gpu/drm/bridge/tc358762.c | 33 ++++++++++++++++++++-------------
+ 1 file changed, 20 insertions(+), 13 deletions(-)
+
+diff --git a/drivers/gpu/drm/bridge/tc358762.c b/drivers/gpu/drm/bridge/tc358762.c
+index 59c68432f8e1..26671dc66874 100644
+--- a/drivers/gpu/drm/bridge/tc358762.c
++++ b/drivers/gpu/drm/bridge/tc358762.c
+@@ -46,17 +46,22 @@
+ #define DSI_LANEENABLE_L0EN	BIT(1)
+ #define DSI_LANEENABLE_L1EN	BIT(2)
+ 
+-/* LCDC/DPI Host Registers, based on guesswork that this matches TC358764 */
++/* LCDC/DPI Registers */
+ #define LCDCTRL			0x0420 /* Video Path Control */
+ #define LCDCTRL_MSF		BIT(0) /* Magic square in RGB666 */
+-#define LCDCTRL_VTGEN		BIT(4)/* Use chip clock for timing */
+-#define LCDCTRL_UNK6		BIT(6) /* Unknown */
+-#define LCDCTRL_EVTMODE		BIT(5) /* Event mode */
+-#define LCDCTRL_RGB888		BIT(8) /* RGB888 mode */
+-#define LCDCTRL_HSPOL		BIT(17) /* Polarity of HSYNC signal */
+-#define LCDCTRL_DEPOL		BIT(18) /* Polarity of DE signal */
+-#define LCDCTRL_VSPOL		BIT(19) /* Polarity of VSYNC signal */
+-#define LCDCTRL_VSDELAY(v)	(((v) & 0xfff) << 20) /* VSYNC delay */
++#define LCDCTRL_VTGEN		BIT(1) /* Use chip clock for timing */
++#define LCDCTRL_PXLFORM		GENMASK_U32(6, 4)
++#define LCDCTRL_PXLFORM_RGB666		0	/* x:R:G:B 6:8:8:8 */
++#define LCDCTRL_PXLFORM_RGB666_24	1	/* x:R:x:G:x:B 2:6:2:6:2:6 */
++#define LCDCTRL_PXLFORM_RGB565		2	/* x:R:G:B 8:5:6:5 */
++#define LCDCTRL_PXLFORM_RGB565_1	3	/* x:R:x:G:x:B 3:5:2:6:3:5 */
++#define LCDCTRL_PXLFORM_RGB565_2	4	/* x:R:x:G:x:B:x 2:5:3:6:2:5:1 */
++#define LCDCTRL_PXLFORM_RGB888		5	/* R:G:B 8:8:8 */
++#define LCDCTRL_DPI_EN		BIT(8)
++#define LCDCTRL_HSYNC_POL	BIT(17) /* Polarity of HSYNC signal */
++#define LCDCTRL_DE_POL		BIT(18) /* Polarity of DE signal */
++#define LCDCTRL_VSYNC_POL	BIT(19) /* Polarity of VSYNC signal */
++#define LCDCTRL_DCLK_POL	BIT(20) /* Polarity of pixel clock */
+ 
+ /* SPI Master Registers */
+ #define SPICMR			0x0450
+@@ -139,14 +144,16 @@ static int tc358762_init(struct tc358762 *ctx)
+ 
+ 	tc358762_write(ctx, SPICMR, 0x00);
+ 
+-	lcdctrl = LCDCTRL_VSDELAY(1) | LCDCTRL_RGB888 |
+-		  LCDCTRL_UNK6 | LCDCTRL_VTGEN;
++	lcdctrl = FIELD_PREP(LCDCTRL_PXLFORM, LCDCTRL_PXLFORM_RGB888) |
++		  LCDCTRL_DPI_EN;
++
++	lcdctrl |= LCDCTRL_DCLK_POL;
+ 
+ 	if (ctx->mode.flags & DRM_MODE_FLAG_NHSYNC)
+-		lcdctrl |= LCDCTRL_HSPOL;
++		lcdctrl |= LCDCTRL_HSYNC_POL;
+ 
+ 	if (ctx->mode.flags & DRM_MODE_FLAG_NVSYNC)
+-		lcdctrl |= LCDCTRL_VSPOL;
++		lcdctrl |= LCDCTRL_VSYNC_POL;
+ 
+ 	tc358762_write(ctx, LCDCTRL, lcdctrl);
+ 
+
+-- 
+2.43.0
+
