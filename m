@@ -1,66 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.204.27.37
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795493312;
-	b=BZpV6U9ORqcvF3ASc3rtYK1Q/kyBZqU9n4YZqUk3qPd1mTiBGcJ6+I6xcUKlPZko6oYx
-	 8MAbSTl+O9CF5zJE6W0FDaQS19syuycIAymgDR17U1F2oA/OHDKlDfyAdpGzjEfuLc/PF
-	 lt1t62LmwVLDTNbR+MeDO2Q2Affs95MZxPjXeHBNHj6MJrS1N9j4O74ls8rQXV/rlyqfk
-	 MgA+ko0SLjdUq6hSn0SPdFqUa64LGD3tlqE7z52sqCKwMfkW47RKtfB+yAgPX9kZBWZkg
-	 J7m8SzRSxEuEZpriXhmBz7wjw+rQs3UqnLWIyEkr8gsCSab2sUZ+ZbPOW3KOfNP0WIQ==
+	t=1795493590;
+	b=kYjVtTjE2YcrAqmNjkcPZvDO/QoehZO/7bdfpxKN7e12WdXaYv2crQgt9F7KBt064rQw
+	 fC0UdYnMgBCXVWCsRiw8h2zB4nGmCoXlVPMB4j0qdCRwj1M8CcpI6ZuUOgdj2FpdMY7a1
+	 ee4RZ7euQku7yGKD+RTuntaUxDE3cDZspwDEH0OLX8z7CXzUgFHhzuXat1Haa/8hyP8/q
+	 8+kcOAgQdAvDJs8+Z6NPjEOrJTVj3EImbS9zsW0DBkfptwq6xpp9gUbl+wx798wT0jKL4
+	 ksi4ljhwPyjWKB8H+HL7rm0+8m78b/kmprh49reCKkucovbcpACToXElRuI1JzQzpDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795493312;
-	h=DMARC-Filter:Received:Received:Received:Received:Received:From:To:CC:
-	 Subject:Thread-Topic:Thread-Index:Date:Message-ID:Accept-Language:
-	 Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=DXqftGDNEC6TtcVu5qAokvKPDz6c4q39pkdugAXkr+A=;
-	b=UehWCKHLzcj77PwjIhc5SHBK/GSg1xebbxN8E3Lmjs9thYoNZ15Y45FfHibM84FflFCX
-	 WIVlGGm5ENfioTq5BtkWe9AEdW2UN8h4JNMtQuHDzlxe2GFTgmHx1QHjUX7jxqSD546qg
-	 5OAfR0znVAjvq2n1SW/w3IPV5wSiIvz1PuIbdvJrfSPcK2kIoligzugd+JFW3LOJSncWM
-	 3sKnkYW1zfZJPJo5Ka8pgBMlYDFYsaQxZ9sqkBvwqdYaSMk5n7LreNAWpX+mC4AJrs/GD
-	 7bi9GrwEr3ulPqAQOKGKquxex2BXFKQKlptbAOHfIKaVXgkyYw3NyNqUXiaSTf7ULhA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795493590;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Date:From:To:
+	 Cc:Subject:Message-ID:Reply-To:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=wgVbbg8AN2+MC7E46KUqvSner2LscJzA+99+j0fw+b0=;
+	b=tze1PwG6h4oc34Nbb2cD3d1iMW1tTl8nK/xz4e2DJQELzw7iY6nEPPYUObVdNDd/CK5A
+	 4JGyi/wmUZK1eHybA5fuCOS10BR5yNx0qPPRjAp4dPSLt5oYwTPlsD+Mi3FZ8/E2GFPto
+	 BWeZlvt1vVpuzJtbHUHlfDw29Gkx85Kv5SMHVJyZH64DuYtUurhnG4s6fRbNZQ1pM9d63
+	 9WoII3rN1ZLYx0voEGWp0rbqmbrB7Gsk+RH1ugATv4cMniiHRyh1ngYwt9wgBYZHMImoF
+	 GCthvNz80OBUK0ja191hcOHVQ13OL8JdS63Gc5EXy1Ka7Il8UEGbxAcbQqEyT3uLtuw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hygon.cn;
-	spf=pass smtp.mailfrom=hygon.cn;
-	arc=none smtp.remote-ip=101.204.27.37
-Received: from spam01.hygon.cn (unknown [101.204.27.37])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id D657E606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:08:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D657E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hygon.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hygon.cn
-Received: from maildlp2.hygon.cn (unknown [127.0.0.1])
-	by spam01.hygon.cn (Postfix) with ESMTP id 4jYTn51rkdzVcB9;
-	Tue, 24 Nov 2026 12:08:09 +0800 (CST)
-Received: from maildlp2.hygon.cn (unknown [172.23.18.61])
-	by spam01.hygon.cn (Postfix) with ESMTP id 4jYTn22m9hzVcB6;
-	Tue, 24 Nov 2026 12:08:06 +0800 (CST)
-Received: from cncheex03.Hygon.cn (unknown [172.23.18.113])
-	by maildlp2.hygon.cn (Postfix) with ESMTPS id CC3F93792775;
-	Tue, 24 Nov 2026 12:06:55 +0800 (CST)
-Received: from cncheex04.Hygon.cn (172.23.18.114) by cncheex03.Hygon.cn
- (172.23.18.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 24 Nov
- 2026 12:08:06 +0800
-Received: from cncheex04.Hygon.cn ([fe80::1b6f:6c58:58a4:430d]) by
- cncheex04.Hygon.cn ([fe80::1b6f:6c58:58a4:430d%10]) with mapi id
- 15.02.1544.036; Tue, 24 Nov 2026 12:08:06 +0800
-From: Shance Luo <luoshance@hygon.cn>
-To: Borislav Petkov <bp@alien8.de>
-CC: "x86@kernel.org" <x86@kernel.org>, Ingo Molnar <mingo@redhat.com>, "Thomas
- Gleixner" <tglx@linutronix.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H
- . Peter Anvin" <hpa@zytor.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] x86/CPU: Fix FPDSS on Hygon
-Thread-Topic: [PATCH] x86/CPU: Fix FPDSS on Hygon
-Thread-Index: Ad17yWdyQQHb33aNRxCAZ2iec9bJgA==
-Date: Tue, 24 Nov 2026 04:08:06 +0000
-Message-ID: <3670e857db444608b685ca4785a62ffd@hygon.cn>
-Accept-Language: en-US, zh-CN
-Content-Language: zh-CN
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b="f9/Yjb0N";
+	arc=none smtp.remote-ip=115.124.30.124
+Received: from out30-124.freemail.mail.aliyun.com (out30-124.freemail.mail.aliyun.com [115.124.30.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF98B606A31E;
+	Tue, 24 Nov 2026 04:13:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF98B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=f9/Yjb0N
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795493585; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=wgVbbg8AN2+MC7E46KUqvSner2LscJzA+99+j0fw+b0=;
+	b=f9/Yjb0NXEHBedXWjgqEvPuTBmkS669673zujoI6o+wM66P5KOO5vn4cw7APgt5XegCg2vj3pGjZLFlY01oSoMAu7hb6Vn6dFo1kZC9CXl1FpSuQchaWBHrlv2fwAekXtCHk4Xg+YwJE8MFHhjhau2V6RsuLDYBaxv8C+/Q1XSI=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R151e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=dust.li@linux.alibaba.com;NM=1;PH=DS;RN=10;SR=0;TI=SMTPD_---0XFNJZxt_1795493584;
+Received: from localhost(mailfrom:dust.li@linux.alibaba.com fp:SMTPD_---0XFNJZxt_1795493584 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 24 Nov 2026 12:13:05 +0800
+Date: Tue, 24 Nov 2026 12:13:04 +0800
+From: Dust Li <dust.li@linux.alibaba.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, Breno Leitao <leitao@debian.org>,
+	Sasha Levin <sashal@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 6.6.y] net: free_netdev: exit earlier if dummy
+Message-ID: <awUO0BqIzkLTLvFb@linux.alibaba.com>
+Reply-To: dust.li@linux.alibaba.com
+References: <20261107161415.1917665-1-dust.li@linux.alibaba.com>
+ <2026112329-moonshine-vanity-29ae@gregkh>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,16 +65,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2026112329-moonshine-vanity-29ae@gregkh>
 
-SGkgQm9yaXMsDQoNCj4gSXMgdGhpcyB0aGUgbGVnYWwgbmFtZSB5b3Ugd291bGQgbGlrZSB0byBi
-ZSBpbiB0aGUgZ2l0IGFyY2hpdmVzIHdoZW4gSSBhcHBseSB0aGUgcGF0Y2g/DQo+IC4uLg0KPiBG
-cm9tOiBTaGFuY2UgTHVvIDxsdW9zaGFuY2VAaHlnb24uY24+DQo+DQo+IEFncmVlZD8NCg0KWWVz
-LCAiU2hhbmNlIEx1byIgaXMgdGhlIG5hbWUgSSB3YW50IGluIHRoZSBnaXQgYXJjaGl2ZXM6DQoN
-CiAgRnJvbTogU2hhbmNlIEx1byA8bHVvc2hhbmNlQGh5Z29uLmNuPg0KICBTaWduZWQtb2ZmLWJ5
-OiBTaGFuY2UgTHVvIDxsdW9zaGFuY2VAaHlnb24uY24+DQoNCkknbGwgdXNlIHRoaXMgc3BlbGxp
-bmcgY29uc2lzdGVudGx5IGZvciBmdXR1cmUgcGF0Y2hlcy4NCg0KPiBUaGF0IHBhcmFncmFwaCBp
-cyBub3QgbmVlZGVkIGluIHRoZSBjb21taXQgbWVzc2FnZS4gSWYgYW55dGhpbmcsIGl0IG5lZWRz
-IHRvIGJlIGhlcmUuLi4NCg0KWW91J3JlIHJpZ2h0IC0gaXQgZG9lcyBub3QgYmVsb25nIGluIHRo
-ZSBjb21taXQgbWVzc2FnZS4gUGxlYXNlIGRyb3AgaXQgd2hlbiBhcHBseWluZy4NCg0KVGhhbmtz
-LA0KU2hhbmNlDQoNCg==
+On 2026-11-23 08:26:37, Greg Kroah-Hartman wrote:
+>On Sun, Nov 08, 2026 at 12:14:15AM +0800, Dust Li wrote:
+>> From: Breno Leitao <leitao@debian.org>
+>> 
+>> For dummy devices, exit earlier at free_netdev() instead of executing
+>> the whole function. This is necessary, because dummy devices are
+>> special, and shouldn't have the second part of the function executed.
+>> 
+>> Otherwise reg_state, which is NETREG_DUMMY, will be overwritten and
+>> there will be no way to identify that this is a dummy device. Also, this
+>> device do not need the final put_device(), since dummy devices are not
+>> registered (through register_netdevice()), where the device reference is
+>> increased (at netdev_register_kobject()/device_add()).
+>> 
+>> Suggested-by: Jakub Kicinski <kuba@kernel.org>
+>> Signed-off-by: Breno Leitao <leitao@debian.org>
+>> Reviewed-by: Ido Schimmel <idosch@nvidia.com>
+>> Signed-off-by: David S. Miller <davem@davemloft.net>
+>> Signed-off-by: Dust Li <dust.li@linux.alibaba.com>
+>> ---
+>>  net/core/dev.c | 3 ++-
+>>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+>
+><formletter>
+>
+>This is not the correct way to submit patches for inclusion in the
+>stable kernel tree.  Please read:
+>    https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
+>for how to do this properly.
+>
+></formletter>
 
+Hi Greg,
+
+Sorry, I missed the upstream commit id in the commit message.
+I'll pay more attention on that next time.
+BTW I notice Sasha had already picked it and added the corrent id, thanks Sasha !
+
+Best regards,
+Dust
