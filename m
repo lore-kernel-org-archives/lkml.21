@@ -1,100 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.61.82.184
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795486986;
-	b=N8pSiEm6qgjjXKjf6maqNwC2SsRDDJFJxjGnYs8QthfRIBPa0QwHJwpIxEav2PlCDdZN
-	 VPdoi1tdE+QdIJTPftrzTFkA3BLXOmeIldJehNugQzG5wlHFWO3MhaGqtjlNyOZ5yn2Pm
-	 9HAsUuBCvdtIELqoLZy76Pll578E18hYUBekRsYcMzBVm18Iwf84gQY82+fQoyTmBhSDo
-	 8LzvMxI+vTac6ZfIj2QsVabyRudiPBpMVitGwdT0ErGq8JIP6g3PFB8DW1sVgh1PZmurJ
-	 nRxumQKKS3cbVVjjSgyjCwRkr9fakDM4f0QWecCe3Wu290Dfbw0Pdw3JdIgplRzjBPg==
+	t=1795487008;
+	b=h3QysV7YvWJR+qK1mwO/zD5ZVIVPfo8ibQqaNPq7Ne0l32a1qbcdOFGTbNLxJ8BVPBPH
+	 ztjL54ETtH8Jei7catCr5OnisLLK/LqMTbYQ8chqv28bfWbfsXq4B5/A4WkmgD1AsGtiV
+	 KT9EjhTPlW1dYbWye5EXlMRXuY/6SFVezmVZjc+QF0PAyTl/xRhrBff84hbrQczUdH2PG
+	 2FzQb7H6k8hDL2Ez9F47LGhRcuvEMXpIH3D+Prp2Kx274xbtDCfArv6Hvk7vB/pMzdTaN
+	 YARQEsfuBqaHuZ806NbgPB0PZX1sMkAgeT+NAAD19FLqoD9OgGvMAz9oHQfpF+5JkHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795486986;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=WvgO7pqnsYsS4en6wj3vVV2RD6XhcMibM3J3Ihuie2c=;
-	b=e1Vzl+WmcBIQP3rMC9Ao0CB3tWJ7HX9adGD5+cG8g2PhmQRwButMJsAiNiXhkYRARL+g
-	 3zGil3hz87VhsbGnOs+UfZhLKBF6vYObutLRluVd8ES/8zM/qcGlcAGBXUz507t8DR82M
-	 ML8HPCZPbso5QqmcgQaM7x8eZCHpS4mi5gq5wXL4E0gvWdKEzoUps2qvJ8jNgu8UjFoK4
-	 CxcaURG068vvIPGPTZ9Lvm5fws9btA/F1lf1MKrWZKzuLEYE/hvqwAKfAZllTcMGy1Dun
-	 ZnzM74vA0xAWt9CfpUwtE6wGF6xoex8KOBsNOz6yZNyBJ9c3Tlm3XOpz378fLpupp+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795487008;
+	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	bh=UNUvkkoXMlvuDfjJLSm2/fjyDo5rQyvistv2Jyy+JQE=;
+	b=AHVqadHvUcCGJXEXSKyAt851W7T6xcp4PBWn6XfwW35GF6oZFDcykGEdzZWlMaFiIbjw
+	 1p8LAo0a+F1K1qIvj2gVryhLeMfE1vb6t1Ee3JOJHSkChDxqecqZR3a15or50TRo3YMc5
+	 Pf3/GUJAJ4n88PXF9oQc1UkejxcosVb3MjTJWrEU9w6mYPHVab4JzPKZ2A1X1JhBzL7zl
+	 c8B4NFl7rCsu0C1NcTyKxTI5eIU1oF+uetrFzITuE3ssjURNhQNgYTnUOm+bq+GKpuWIf
+	 EnisBCmb3EOntd7NzwD099P/HQ/FtjiXFpUFlbHDJ5EFV4vUAskhT2R25EHhCfRKDYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dEImYII+;
-	arc=none smtp.remote-ip=209.85.210.182
-Received: from mail-pf1-f182.google.com (mail-pf1-f182.google.com [209.85.210.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=mediatek.com;
+	spf=pass smtp.mailfrom=mediatek.com;
+	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=U25I7SPf;
+	arc=none smtp.remote-ip=210.61.82.184
+Received: from mailgw02.mediatek.com (unknown [210.61.82.184])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 019A1606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:23:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 019A1606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD753606A31E;
+	Tue, 24 Nov 2026 02:23:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD753606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dEImYII+
-Received: by mail-pf1-f182.google.com with SMTP id d2e1a72fcca58-8b6a88e4341so1699332b3a.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:23:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795486985; x=1796091785; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=WvgO7pqnsYsS4en6wj3vVV2RD6XhcMibM3J3Ihuie2c=;
-        b=dEImYII+AfBPykE1rln6dfkL/AoigkBcD+0xCIDiMpHb0H8cNcjZkygfwDhgtjDfcJ
-         9Fo/Od1n/r+bfOkmHI5VnGla2dpbCoMf21vdRipAzEwyw4z+bW6s2y1rpBcihJEm0H5I
-         yL+cO/0mhUu1Zk5yczDwP1D0zZX0QVhOrUejPEVarYUtJorOiYsLISNW8bUdqVLiZJky
-         4Q0fsvMtpnx8J+ZF0M1CrwQDO6ODKggsQ1LSFfZiKSjfgOxpXv5FBjUlsjrbVMlLMnax
-         VJDTfHgIfvNp/d9GMakzf5ixPqr3Ym4Th/X+gzTtKbMYJhmCRSh0apOqXXrBefiGAVxq
-         D5bA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795486985; x=1796091785;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=WvgO7pqnsYsS4en6wj3vVV2RD6XhcMibM3J3Ihuie2c=;
-        b=SCIy0ZYtPImfmyr6FfWL00oZE6QXgEPMaOZJagU0CideaUymd7nX57AN7H6fyM2isQ
-         KELv52hJRNfqWxiEofDuxJ/tY32g3Uj28I3yQ3ZACaGf9HTu84Tv724vfbhyDRmNVaQb
-         2+G2TWGCwhFIhL0xXHXJvMkX0xl7xzqvghGKuinsjk4PB3exEPzMed67tpGIEd/WpBr+
-         T6zrB/+71nA0XwREONbtgxPJauYpBUVJ1b3DVGqR/U0WpdUEYnSEL2Bmwozt+gEimBFH
-         sEH8euAmbkHE+xST1B8bSWgUT94fJcjac0saa8Y6evBcc3eRdeUya1+1b6t//E7a0f4+
-         fgYQ==
-X-Forwarded-Encrypted: i=1; AL+hErHXVWxsFOKP78iOFg2Hkog4C0B0HjsGeIuxkdbZcoO6894XaZbtEJ3HfDQ8kWB8XExXChTcBEQEh4apPV0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9rpyLlCtBDTP546CSbUYarSaRGU9NKBDOghYJMiN2s2EnDMG+/
-	6uBm5++6zOV1nnvlKne8EBxdb+lYSUiW207fhbIpc1CsMl093ls6BG8f
-X-Gm-Gg: AZFdTZcb/TeP+NwUSVgSebVUCnMq2bDrAmgtINL8PvTRsG2YB++cQtlyq8I0mQ96Buq
-	ALgau8PHpkki0PuGure9IEUpIIqeAMMv+uteM/mLFonnQlY4ytKmetxYx+8asNFfLm5Hpvzk1dJ
-	LovK9S0+QWi1BJP/5OyLZNDzdvt2Wk26k9x1UZUX/642TU/QkNLKSogWirQvhKjHaqcmfQgiwGa
-	qARGyK85OnHrSCKx1tNmngpQsDhs0L2Pap4CA09jgTNToKEsB86RLefu84Qgw3jLEWKkKyF5Osn
-	BTZeSvmbIbyWxjEcf6GuuEhrbMSEn6fnCViyk5TTXl884KHI6X/EWufs5rC/ritmbjqXtbFcgSp
-	mMvfPVCmL3P61QAl8R/uEhUlcppSrVDycprU2FGQkfl1wYcKc0Jktetecg7J6XPRHDZBubfk+WY
-	Y0g4zwqYkv3sB0CCCXRmgCtXToF8DzBmDN+ubRGPPh9G3SAb3CwtU8dGpbjEDvWlwzEgb5wpFb4
-	fmTsZeco9Hw4yoBi8tpl6J+RSgy7OdGYQ1iGJGDWQQthU4imC3vyjLutrUWx9qd6fJx42OW1dfr
-	b6LSPj5uExK5lVxGXUpCzT4eoZNR7lFMrBkpyv5+rXkeLM52HUM+qza1XdVsLTH9hwgnsgFZ81R
-	USbj9SKp6g+nQIniQSApVsBxE
-X-Received: by 2002:a05:6a20:ef19:b0:3f8:500c:1de5 with SMTP id adf61e73a8af0-4014ed55fd8mr12187901637.66.1795486985241;
-        Mon, 23 Nov 2026 18:23:05 -0800 (PST)
-Received: from [127.0.1.1] ([74.176.208.23])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077944bsm6439892b3a.2.2026.11.23.18.23.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 18:23:04 -0800 (PST)
-From: Yaohan Li <shunsheng1218@gmail.com>
-To: Mika Westerberg <westeri@kernel.org>
-Cc: Mika Westerberg <mika.westerberg@linux.intel.com>,
- Andreas Noever <andreas.noever@gmail.com>,
- Yehezkel Bernat <YehezkelShB@gmail.com>, linux-usb@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject:
- Re: [RFC PATCH] thunderbolt: cancel pending DP bandwidth requests on teardown
-Date: Tue, 24 Nov 2026 10:23:00 +0800
-Message-ID: <179548698032.1835311.976395071942954809@gmail.com>
-In-Reply-To: <20261123054525.GM229695@black.igk.intel.com>
-References: <20261119023558.1495581-1-shunsheng1218@gmail.com>
- <20261123054525.GM229695@black.igk.intel.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=U25I7SPf
+X-UUID: 0545d542e7ae11f18dc8c9802ae25ab1-20261124
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=UNUvkkoXMlvuDfjJLSm2/fjyDo5rQyvistv2Jyy+JQE=;
+	b=U25I7SPfWYuJ7xEQ5DSjVMZLVQioUJw+0TR8UKh9ZY6JJnSo02pvNO/FvmamMIoEAb4gDqhOUHVzemK5+hjeU8A+AUZEzGsWBNtOIfo7mrT2VNHKpER2rzaFyLNMA1Tx0XNTieVBFCcd6K0jgTBibjQGZXgvgLpshx/vZxJ1x/k=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:1276a6d1-74bf-458b-8ecc-f6b3a45e6eb3,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0318ac,CLOUDID:702816ea-4eb9-4755-ac2a-8e95ba251d29,B
+	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
+	DM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
+	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 0545d542e7ae11f18dc8c9802ae25ab1-20261124
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
+	(envelope-from <chris.lu@mediatek.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 737341873; Tue, 24 Nov 2026 10:23:22 +0800
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Tue, 24 Nov 2026 10:23:21 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.56 via Frontend Transport; Tue, 24 Nov 2026 10:23:21 +0800
+From: Chris Lu <chris.lu@mediatek.com>
+To: Marcel Holtmann <marcel@holtmann.org>, Johan Hedberg
+	<johan.hedberg@gmail.com>, Luiz Von Dentz <luiz.dentz@gmail.com>
+CC: Hao Qin <hao.qin@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, Will
+ Lee <will-cy.Lee@mediatek.com>, SS Wu <ss.wu@mediatek.com>, linux-bluetooth
+	<linux-bluetooth@vger.kernel.org>, linux-kernel
+	<linux-kernel@vger.kernel.org>, linux-mediatek
+	<linux-mediatek@lists.infradead.org>, Chris Lu <chris.lu@mediatek.com>
+Subject: [PATCH] Bluetooth: btusb: Add USB ID 0e8d:e028 for MediaTek MT7928
+Date: Tue, 24 Nov 2026 10:23:17 +0800
+Message-ID: <20261124022318.663787-1-chris.lu@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,17 +83,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 
-Hi Mika,
+Add the USB device ID of the MediaTek MT7928 Bluetooth controller.
+MT7928 is the marketing name of the chip, which identifies itself as
+MT7935 (chip ID 0x7935) in hardware.
 
-Thanks for the feedback.
+The hardware ID of the Bluetooth interface is:
 
-I don't have access to Thunderbolt or USB4 hardware at the moment, so I
-cannot provide the hardware reproduction or the regression testing you
-asked for.  I will put both RFCs on hold until I have that evidence.
+USB\VID_0E8D&PID_E028&MI_00
 
-I also take your points about keeping the fixes small and writing the
-changelogs myself.
+Signed-off-by: Chris Lu <chris.lu@mediatek.com>
+---
+ drivers/bluetooth/btusb_main.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Thanks,
-Yaohan
+diff --git a/drivers/bluetooth/btusb_main.c b/drivers/bluetooth/btusb_main.c
+index 95398e2ca098..e94a5d0ca1ec 100644
+--- a/drivers/bluetooth/btusb_main.c
++++ b/drivers/bluetooth/btusb_main.c
+@@ -848,6 +848,10 @@ static const struct usb_device_id quirks_table[] = {
+ 	{ USB_DEVICE(0x2c7c, 0x7009), .driver_info = BTUSB_MEDIATEK |
+ 						     BTUSB_WIDEBAND_SPEECH },
+ 
++	/* MediaTek MT7928 (MT7935) Bluetooth devices */
++	{ USB_DEVICE(0x0e8d, 0xe028), .driver_info = BTUSB_MEDIATEK |
++						     BTUSB_WIDEBAND_SPEECH },
++
+ 	/* Additional Realtek 8723AE Bluetooth devices */
+ 	{ USB_DEVICE(0x0930, 0x021d), .driver_info = BTUSB_REALTEK },
+ 	{ USB_DEVICE(0x13d3, 0x3394), .driver_info = BTUSB_REALTEK },
+-- 
+2.45.2
+
