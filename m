@@ -1,81 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795517480;
-	b=2TnS8Rya4rv+7L+Z3mAcYhv/u2QvoMSbvoPZg/BGopM1irgAe9jfkd4jcLydLeFix6Mj
-	 QLtHPtVFPTgJqIg/OSHX6ZIca1ANsEQwD3kqa7v3+d6GEoFG6ZxiSpCgNWJaD+K50sFZm
-	 jS0yGJpOEGjDesz7m2TrY0hZgDi9gy0OFWJiBHvwoMHumAdbsl8L70iyWrS+DmsUcYC/6
-	 PcX0D89rlqQJC99xn5aT31Nr0McVLrH9owLkmfR0UPdk8L5LAyas9mWQImCTIKOiTF0EM
-	 VOOPPFbzrWuh1AcjO/Ki8BAlsqSNlMMvGl1xg7ZC8qDoNQoIR0TWk6N7zehtBkNIJXw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795517480;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=4zO4rDfr4nG2QMVUenWO5tqTmd6cL22mP2XVe5vj/fI=;
-	b=2Fs4YRJD7nVg9IMeIOCKwhpkATQOv86K1abjXZwDVxQfyJzm4kjQXuFNEWlBqUjTTN+c
-	 ZRBerDXgRfHDpUCZZWt2L8Ts2JBVxaQJVYFOxtRID+XkXAWxBp/2duUmIfsOsNEl/NUUC
-	 37TDkSnYehh5pkM6CWNPXcnnhmMItMP/9UH4XHy4p2j2U7q8pCJqp3Y+l5EaXaJ5sHZMh
-	 D0lo6fkDaCatHJ4bXU1wrqOb+2DMT7uAgHLUfkEznNqFdpSqW/NDpaFAIMF95pYM3PScq
-	 DZS4jmym8NK7FFafuLmIGzOEGmJ3/X3Of6/ZFBUcmhTM3NB2GRaGMWHkL6u210zNLrw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=IMFYM5mw;
-	arc=none smtp.remote-ip=198.175.65.9
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.35
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795517534;
+	b=bbTLA0RiBVJyNCJZaGgV8Zks04ZYctJ8HWxT1JDoVn3j3wQ2GcRc8IiGR9Hi9OyFdxZm
+	 Ex4lixWqkUtO2TXiqpLTR+4Mr5H7NQtHzsgCHbAFd7TyKfyQN0M1kFSgVNjm7F8Wbs7vH
+	 7ZHSOAsB8sfETRHQPjBFR+SuHebFMeuM+a6qJ2wUe3w/gsfkwe/vnqLhmFqZ0Thx8HPtF
+	 nf0I4emhyJ2y3FQAzGis5L+t0BFR1gIVYpW7Vn8iIVj2FIEIxcSF5eWRn0gwcMvfvqtWJ
+	 1wgbC356uuEbsVemsKGm/xK9wp+AvfBjxUzyDk18q+JgFs+AkSPnKLBboMj4vISWF+A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795517534;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=6OY/g2KahDEwLBaN2yrWMkgC0Tody4yh2gB38BZZHZc=;
+	b=WrAoBfR92ScNc8yLwpJH68+0Iue+C0Sn8aC6deDrp6euHOJAzLpWRissRJK7jq/3A1nu
+	 ZMBInCq0FiMTsV2xBrK4fif1Jkq+owd+0lYqS1mByq11BOOgPNH5ghgVb53qhumceyVXe
+	 2Re2wbh03ySpb8/oRq4pyCvyYD3WM+zEK9rrcJgaArYzD9mQ2H2ibKrc2RDluCiAeGZSO
+	 TZ7nL/5E4rFKUO5aZ58wbesj6N93t1L+NXN2xunECWRuc2/DEHPgbjiQ4meyuNy2m2LnZ
+	 iQzHCy5yRYB8uiHgevBR+TFh3x5F0D+7emiYT8bqiUY8THPShJr7PIWyhqE+aN4dQmg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=foss.st.com;
+	spf=pass smtp.mailfrom=foss.st.com;
+	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=UwBS7oLZ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.35
+Received: from DB3PR0202CU003.outbound.protection.outlook.com (mail-northeuropeazon11010035.outbound.protection.outlook.com [52.101.84.35])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1446E606A321;
-	Tue, 24 Nov 2026 10:51:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1446E606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BA39606A326;
+	Tue, 24 Nov 2026 10:52:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7BA39606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=IMFYM5mw
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795517480; x=1827053480;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=AWg78TjOm1CVOXHavM5ONlcLRv970rnOjuXn9t1XkSk=;
-  b=IMFYM5mwpZb2nrrcxH5uMBaDl0njEydg0ELaCPAy/CvdHcbkFeezlBGS
-   9mT/53VktlbWlwLHdptIQ9CMJtQiqXnREoGBnGTGFnKMCcnKMtUeRWMqZ
-   U7Yz2w6XPmd0bqq7jsePa9SHQiS5kdUP0zYkWuFueTE2td0RleltlRZBI
-   AGYP9n30t7qCo6bfxBnlJ/L+Gv4DX5lgximrSGZJSCV+meH4UwvcHVEcM
-   ddPt5EBYtjTSf+Clq9Ltu/brMe4ZacANF9hzpTU3Hil5K5Rvm3wOcBv/8
-   mxW78bxdaPUkYymSns6zqzcHBJrkIqHvQ2SJx/l7AyjZxi77BhAnOM2yk
-   A==;
-X-CSE-ConnectionGUID: WCwOmDcZRomE/Ugobeq03g==
-X-CSE-MsgGUID: D4Uk31zgT72w9eUPtv4HgA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4210813"
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="4210813"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 02:51:19 -0800
-X-CSE-ConnectionGUID: 88S0v+WJRn+EG/3x2OL0zQ==
-X-CSE-MsgGUID: fxmCzNynTWqHqrNvjMMKaQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="11428883"
-Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 02:51:17 -0800
-Date: Tue, 24 Nov 2026 12:51:15 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Joshua Crofts <crofts@kernel.org>
-Cc: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Rupesh Majhi <zoone.rupert@gmail.com>
-Subject: Re: [PATCH v1 1/1] iio: core: Split debugfs routines
-Message-ID: <awVsI5KfsvEruJYG@ashevche-desk.local>
-References: <20261124094502.557175-1-andriy.shevchenko@linux.intel.com>
- <09328c36-a32f-488b-a2c9-76fab784d259@kernel.org>
- <awVq-mE1H2g01yS4@ashevche-desk.local>
+	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=UwBS7oLZ
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IQTlKZ7sUE++K8Ydmt3iMr4r3Ks2Z5MJYaGLIynEfoEcw+yEa1MKeUbLtKCc6KFi2r1DYohAg4I3wFBwA7c5evSo8F+MFOXZzWR9+LHB7Z4x2AlBlusY865KN94JB1pdrwzKLLprO0XK5priJe8C67rrJK5UJU32MLZ9AtLZ3scbXDxvKswrqlgJjCdbUZKhmf/CM1QFvkb777oFit4BJbSXj6vDQguVmuKreGbGxVs1tw5UDIUToozV7V6wESEPzZLlKipitiRDRY52bMvRlxh25UwBBVVzt0FHUpnniJrrhGalEf4l/ovu01YAkgoKUrW57C4XmYZeMuUZ4wqL8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6OY/g2KahDEwLBaN2yrWMkgC0Tody4yh2gB38BZZHZc=;
+ b=PSpLZt5LRPQo3Uxjz94HChrZHDfW5gBG8nPKHQGPFvb0foOFjp/rpj+ZHcx0WWjLIFfUOwAv/K1CNQNZll3bz3tAP0h5ujAaFe7fmZAiXhn6gMa5qjKxtDwgGMsZD6ATiy/Q966M0cps95Nnnns2VFsfFSzil94uCIPDJmYa5/i52kWBCvF51NYI1y9vhRKKp9tVo32t+bjxtpttCOnDnyto0dUUqgk0BMW+qIsPQF4HVn/oSPCRqbtENiBzQK0EfVr/JDeVXrHlGsnZMTDpcs94VrZbfakcu1EbV2abR9U3KpoCV7DCwmrlQn547HgZGz7Hcqa/Hp66c931esW6VQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=gmx.net smtp.mailfrom=foss.st.com; dmarc=fail
+ (p=none sp=none pct=100) action=none header.from=foss.st.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6OY/g2KahDEwLBaN2yrWMkgC0Tody4yh2gB38BZZHZc=;
+ b=UwBS7oLZUvUpWK5f+fcQ/S24KGGY+A6OrQu0UUnl6IOIChyDEU+sYZeq1NI1VlWT7C3u0yWEpB0KmDc5kfClU0aDmYZY8ka+LvcAYRvNJaXm+xQrMU3FQudR7otF6xBAsc8AOG+iM8JVwMf6xJO70jaDM7mOodDDqqgRwSA3r9yXtxdRhzaSMbEBPjwVxOIcbtUQpONTeKHYpMHqd1kJvuG4Fyc772rNovyzb6/QdGS7oWBFhLoImNT9w8rNPwJRaBdRIcYJ6VbhuWYJvDJLeeB3l637n9jUKbYSYukyDgJyHW1tEbgO6B2z/tW56cKekokgXkFKA5JwtlGYayWIcg==
+Received: from PA7P264CA0072.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:2de::13)
+ by GVSPR10MB325529.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:714::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
+ 2026 10:52:09 +0000
+Received: from MAD0EPF000008C1.eurprd05.prod.outlook.com
+ (2603:10a6:102:2de:cafe::7c) by PA7P264CA0072.outlook.office365.com
+ (2603:10a6:102:2de::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Tue,
+ 24 Nov 2026 10:52:09 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ MAD0EPF000008C1.mail.protection.outlook.com (10.167.241.197) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 10:52:08 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 24 Nov
+ 2026 11:52:56 +0100
+Received: from [10.48.86.251] (10.48.86.251) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 24 Nov
+ 2026 11:52:07 +0100
+Message-ID: <7ffe72c6-6204-43ab-bfb7-5df87341ce7b@foss.st.com>
+Date: Tue, 24 Nov 2026 11:52:06 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,49 +104,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awVq-mE1H2g01yS4@ashevche-desk.local>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/7] usb: dwc2: fix recovery after PM domain off
+To: Stefan Wahren <wahrenst@gmx.net>, Thinh Nguyen
+	<Thinh.Nguyen@synopsys.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Douglas Anderson <dianders@chromium.org>, Artur Petrosyan
+	<Arthur.Petrosyan@synopsys.com>, Amelie Delaunay
+	<amelie.delaunay@foss.st.com>, Jisheng Zhang <jszhang@kernel.org>, "Felipe
+ Balbi" <balbi@kernel.org>
+CC: <linux-usb@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>, <stable@vger.kernel.org>
+References: <20261117-dwc2-low-power-fixes-stm32-v5-0-0f197e0e6362@foss.st.com>
+ <20261117-dwc2-low-power-fixes-stm32-v5-1-0f197e0e6362@foss.st.com>
+ <af32cbc3-9c24-4e43-a7ca-f4716f48cb34@gmx.net>
+Content-Language: en-US
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+In-Reply-To: <af32cbc3-9c24-4e43-a7ca-f4716f48cb34@gmx.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MAD0EPF000008C1:EE_|GVSPR10MB325529:EE_
+X-MS-Office365-Filtering-Correlation-Id: 54703c32-89c1-4a18-1ff4-08df4a18fcb4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|376014|36860700016|23010399003|1800799024|82310400026|10067099003|4143699003|11063799006|56012099006|261022105027099003|261022075727099003|261026121527099003|261028144727099003|261026140227099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	ILp9mCXvw0scW+AgbJzaoKfBily0BSZMOj1k7YG0UNX8fu6GfCHczorBXJix2B8h4jUIFCC6Mi0aPePPqmgOzLsgjkYyl3P28DwnYILs7jIAZ9o5mmn7Y15ynIm+V2ZM5/Y50xAVLedjIwnv3lyemmPCaa2AlcL9Rc0dZipqJfA1CkDrdz/hSJ/1xbtGGp4T5LU4W9hCeLxHUpZbbWxqKsaWKEp9ZhLFyjadSknC2fxXS4gsgpluOpfFtnT8/r24LhW3yszwKPEpmfNuNvuWpntoMgVd1B09tXylDU/GYgfnuNsIhLnrETyGGMSC+yKcl7TeT1dZCpejxMveqbrUsmIPwBUOBG4+LXt5w9BjqwWmhYFsgLzrjZiEX3YjrhuuOfryX6Pq90/kCMCk7RtqMkBRWW/hq6L4YNRyt6kkvz9v6ArPCfaurHi76Y9LGkvltvmFbFht7RScEN47+Q0f4MyZEYY6ojIbKSD4KlI9GRlQSZ12S9HLEbImVSUY+68NAFlfKhW64z93aK59K1BdcnOm41iU2mjkB1eLtWAms9J3crIWlIOn/x1Enj838+p8L48iTSG14xgvgydLTEHwtjuLoiJs9Mfje17VUsavNycjtj/we/33NF4rejv8rFyP8tIGA8fTg8thkCxwdwzjoRNHiRgfs3nLwzWMmnaAEFbwZaPIaHfXUiiD99ykPdgJpDful/ZYJNPpiG1X5NZkvA==
+X-Forefront-Antispam-Report:
+	CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(23010399003)(1800799024)(82310400026)(10067099003)(4143699003)(11063799006)(56012099006)(261022105027099003)(261022075727099003)(261026121527099003)(261028144727099003)(261026140227099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	mVjCJVm4AFjXDKt0Iy8a+gZI/gPMR4B4n6SqjKz+GZCFdxMa+tRQslqRaq4wnxm7rJN8qt2yVYsIOmWL5rixaiICziwDqGOGJeMEWnToviZ3Ct3VjnWR5rCeeqCo7QUMqnuuwxj6pQdynoRg76duy+ybDMtFUiYHcepfI5LC3+EP+LJgVFu7UqYQKsycjD5UTaOB/kUtl3NebsckVAssRSo2F4UTP7IbZk/+QLXlJYdn4QXEqQ5armrblgHlWAMEtumjvNtoIGJTzOSBfoPqRMcr4gExQpIfLXXRiJvRbkqjBoQX80Bp+yHv6iXO/voshwuH3HIG3ydKoucF5U1z0JB0U5/jIHnNjgOSOKuaRHbJZIDiH4z3XDIaAU8sPYdP24fhNGa+MXYSwRmN0WwbUmk2VNEUW8cMDYnOD98BPW2miQhcJGm8lHusHoQPnI4n
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 10:52:08.8135
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 54703c32-89c1-4a18-1ff4-08df4a18fcb4
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	MAD0EPF000008C1.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVSPR10MB325529
 
-On Tue, Nov 24, 2026 at 12:46:22PM +0200, Andy Shevchenko wrote:
-> On Tue, Nov 24, 2026 at 11:17:01AM +0100, Joshua Crofts wrote:
-> > On 24-Nov-26 10:44, Andy Shevchenko wrote:
-
-...
-
-> > > +#if defined(CONFIG_DEBUG_FS)
-> > 
-> > Veeery small nit, but why not #ifdef CONFIG_DEBUG_FS? It's not
-> > as if you're checking for multiple defines.
+On 11/21/26 21:38, Stefan Wahren wrote:
+> Hi Fabrice,
 > 
-> Or even IS_ENABLED()?  Let me check if we have a precedent in IIO, I will use
-> then the same or most used style.
+> Am 17.11.26 um 18:06 schrieb Fabrice Gasnier:
+>> When the power domain containing the DWC2 controller is disabled during
+>> suspend, its registers are lost. Reading registers to back them up from
+>> dwc2_suspend() after clock gating can hang STM32MP1 in both host and
+>> device mode. Host suspend enters clock gating directly; in device mode,
+>> this can happen if the host suspended the USB bus before system suspend.
 
-FWIW, iio core uses exactly this form for DEBUG_FS test, so for the consistency
-I leave it as it, and if required we can fix this later.
+Hi Stefan,
 
-$ git grep -n '^#if.*DEBUG' -- drivers/iio/ include/linux/iio/
-drivers/iio/gyro/adis16136.c:66:#ifdef CONFIG_DEBUG_FS
-drivers/iio/humidity/dht11.c:87:#ifdef CONFIG_DYNAMIC_DEBUG
-drivers/iio/humidity/dht11.c:235:#ifdef CONFIG_DYNAMIC_DEBUG
-drivers/iio/iio_core.h:19:#if defined(CONFIG_DEBUG_FS)
-drivers/iio/imu/adis.c:227:#ifdef CONFIG_DEBUG_FS
-include/linux/iio/iio-opaque.h:73:#if defined(CONFIG_DEBUG_FS)
-include/linux/iio/iio.h:1010:#if defined(CONFIG_DEBUG_FS)
-include/linux/iio/imu/adis.h:573:#ifdef CONFIG_DEBUG_FS
+> sorry for breaking this platform, but I only had the Raspberry Pi for testing and I didn't get much
+> feedback last year.
 
-...
+I saw your series, sorry about that, but unfortunately I haven't tested in time...
 
-> > Static here but not in the header file. Same goes for register_debugfs().
 > 
-> Oh, how does it compile?
+> I'm not familiar with STM32MP1, could you please clarify based on the compatible which is affected?
 
-Will be fixed in v2. I'll wait a bit and send an update tomorrow.
+Yes, "st,stm32mp15-hsotg"
 
--- 
-With Best Regards,
-Andy Shevchenko
+> 
+> Could you please explain, why backing up the registers before clock gating isn't an option?
 
+Well, that can probably be an option, thanks on your suggestion!
+
+That's not the way I had in mind (power gating and clock gating are two things).
+This means: prepare for register loss each time the controller is put into clock gating mode (but
+drop the backup values when exiting clock gating without PM-wide platform suspend, as these are
+normally not lost).
+
+I can rework this in V6:
+- Add the registers backup call when entering clock gating. This will backup the registers when the
+bus gets suspended (either as device or host), then a later PM suspend request can skip the backup,
+if they are already backed-up.
+- Remains some stale states, as raised by Sashiko: when doing this, most of state flags have to be
+re-initialized. I'll try to split into separate patch to ease review.
+
+Is it basically what you're thinking of ?
+
+Best Regards,
+Fabrice
+
+> 
+> Best regards
 
