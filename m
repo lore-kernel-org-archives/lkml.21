@@ -1,112 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795542430;
-	b=T06rCa9DFo84FYy1Y2Ym8uVRz9mpvCw+l7cPunlpBxZMlt4ilEnqfHMDTIZC2kNq644C
-	 MMuTqfaZnvCiDKz2VIUre7z9xNNJU4CS0PARh/r7ymdVWQ5VFdUVjRu+7vBBUGn7O8Cgi
-	 xg15Uc7jvJWuRfl75W61NZJiQG0utqvhBBueHXo9mE4noBlZNKOW2su3hLzM9Uy74s62O
-	 rv7CLCp71nPSkJV/EvwkDrNlNHAlE6JIpa7ZvdborgtlTpDeQmOavanJuPr626V/efgo5
-	 nh0z5Lsk5Uz/NOf3RDPWbL0QEZkrQaii1ZaPWC1jE++ZxguycTquJBdEhGg4IyFD+xA==
+	t=1795542437;
+	b=cDHE3dTMZ9ZT1gO0roc3L82c+VJsEhU4saHDQqXb+cUkzts5Jd871OwZUj60UQONT3NA
+	 IBD+ULuzmRySTo2AHrcdZcx11Fs6agNlYYhyZqbcSjJvuSRh8i8n/g8+WvyW8GMgRN5Ri
+	 qelKq4UGWIIVLRXI2VaxJXidfJMrnEQaLFRwsK6dnxpSQp+v54WMO5yOd28zhQFslgOcO
+	 u0TEeMtrnRs3dIWpecVEPRMhXF34ANsDbuEVncFYAUMVRPWHb9VSvfxlL3jchHyQozXOT
+	 8fp+y56FBMacErpCEs9PFc6/+BcVamcglvKMDHHnjWfngfM4nKu0XQTbAQ8C7dei2jg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795542430;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=wewU4YhwoHM+23LFA0ZsEWBKZr1o3y1gc2SPKdBGIr4=;
-	b=Von2UhW0ztVp8o79rPoNSOiuXM50aEngL2iQ7qJ+un/fPbM7A9i18QvjCGQmSBjGYeF4
-	 JdXX7ALKb6aRLIHemI9iJC42AYqf/KplGVw0blr1vphWBgg+BwhtnW93BVzwcX0V9R38m
-	 x6P+aIFJyEE/RCHZg68eK4vzAymeBCtWvWlf65WqVEM8w2lKgj1m+vJJuq43zCmB7nA9y
-	 je5jURJo3De/eF5CxDlnqUsAcyRr2VmiU1jv87Z/rE+Fsez3M4wxixa9HwJEojOixuqja
-	 Ok4bt6bhtiQSkAp2BTZnSXi2fNssl8pTR5sN3Bg4hjPsmF+GQhRxikIU5l020V1wNQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795542437;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:X-Forwarded-Encrypted:X-Received:Received:From:In-Reply-To:
+	 References:MIME-Version:Date:X-Gmail-Original-Message-ID:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
+	bh=zddTylz8qiVh2ypmdVkH2gu5RcJeF+l5NRl7cFaw7gE=;
+	b=prF61sSafwf/6nI8Q7ehWl5L3ir329LXq6mSObo42P0zqLDTunyyjyx1hgOdgQCGE/Oa
+	 vIf2Y4AeYfA51z2QKVTA+4XnNnLaPnZQyr2aTYadwbJLgGkf6dus+5n8LU4IsnGTxJi/2
+	 Z9Iq70bghwfNIuH78ypgHUkwGKGI0v2gmeH4rErAx+fD628u0S9p6AffLLm4q3L5bNpHz
+	 QJsLR80he9xEBakmot0SqE1nrjFoFCEKPzN4wW1QS2JhlL4JhoC12ozIZxTLEHxr4HbTr
+	 7Qfo7xLKuNzTuU8bEz2l/3H3Vwt32DgpJORdeNipHyyv28kD1dVbFXLVddNlFodIUPQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="MNs6LN3/";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=bZJsQ1Fo;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=linux-foundation.org;
+	spf=pass smtp.mailfrom=linuxfoundation.org;
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=NpKbcXxM;
+	arc=none smtp.remote-ip=209.85.218.41
+Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 907D1606A68D
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:47:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 907D1606A68D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87570606A323
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:47:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87570606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MNs6LN3/;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=bZJsQ1Fo
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOHQXZ02852905
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:47:09 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	wewU4YhwoHM+23LFA0ZsEWBKZr1o3y1gc2SPKdBGIr4=; b=MNs6LN3/lG7+yYHD
-	4I+pmw6gq5biWDVZybF3pSL5Y8yvHq8GMXNkJBViJJG0c7qhi4cpsFwKAI97TW4q
-	sOtJM6FXnBa4LDnZiCrMIsN8Z5oeMsXQSyr6SfwrPmnvtmrLg59TvRAateI48O8+
-	yIdHnDehRmNX8NzJKhFXKvZXJRCVOWmH5kgJCjVXN0R30gGEgiiRWXnxXIG6pSLl
-	ImlpVHCjYXoESluFnKTAf6xfIvn0uq175VN4JxWfXZVwNFKpXb8+8jkfW8bcdkbz
-	uK8dBe8JAb6vLv07jQNAZF7Ox4mg3c63iBHM0hDd6mKYsHfg0NiXHi5DKv8ixx3O
-	BBH1LA==
-Received: from mail-vk1-f200.google.com (mail-vk1-f200.google.com [209.85.221.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5f00g2yc-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:47:08 +0000 (GMT)
-Received: by mail-vk1-f200.google.com with SMTP id 71dfb90a1353d-5c83124d530so3971718e0c.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:47:08 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=NpKbcXxM
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c516a574bffso438866266b.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:47:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795542428; x=1796147228; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=wewU4YhwoHM+23LFA0ZsEWBKZr1o3y1gc2SPKdBGIr4=;
-        b=bZJsQ1FoaVIgKZbBM51qzc6a3py4dYf+5W93a05HEwF051NprRArqZ+ow3K94l0dZ2
-         KKL/MXtCuGapcHIUaylyVp6OAT2zUZ9fSPOUKeudD3LJB21LfigaPUNTJSH+v7K6m52n
-         Gh8MrgNHgraewYEISTt7cAw2S5tn5tEn1ZIDO4wLkFizeU1V0X4qh0vr9gmSFrRHr+jD
-         pdmcduhcWRQEc+IPU1EvU6Hny+1D4dpKm+F7Qyc+G5sHx/MGq05Wxuzfi0JovbkJ50Gr
-         epqGedB25Y3tKt2FYERv+vv1l9YaUxq0rMpqWaF/Ehb1WSnLngvfHpT3P2Rzs+Scwv9l
-         IQ+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795542428; x=1796147228;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=linux-foundation.org; s=google; t=1795542436; x=1796147236; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=wewU4YhwoHM+23LFA0ZsEWBKZr1o3y1gc2SPKdBGIr4=;
-        b=SJfTD2Der0xHW3wKvvt5vEdvRbzTJuA1aNMu8YWgP9FqMJsyWu8aV02ucrki+UNopJ
-         qU49JySCkBUQ+Glrn/W/08/CCKx4UQWRVF8AqlGZbbD134DxGFgKHxiqtkQrCaUnkgTB
-         4vj7MCQ2Ec6pLou/8dcIEoVisUTutFhDTifwq6dN2l833ehOcsrX7nM8RejdK2x2C1is
-         L81Va0e4Mf8J46ljRIKqDHIQP33c5Nlq4bRm3y1GR+tehMk1TZ4gWnWe3NiyRc2EApEA
-         8cPNx4cri5DuPkXV6IFTI5402fqqkKH8qLd8jDFvBS3OORQkLw0u+Tbdtdcj3SlmUc2N
-         oNiQ==
-X-Forwarded-Encrypted: i=1; AL+hErGyLk2OxRtpujH+VttzkskfZ+jbm6cy5IfZKuCxGNWNfGoWhKodvbSBTCjzr5Wk+lgkJfc7Qd3ikTQGoVw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Xri7lFinXMLYxMFOt+RoZY58PmsROYePiWRzPMDBdhNuFjG2N
-	1BwWoC7fV9+msgvhKfWjM7Rrngf2sBrMyVHtiUVYeTCJ7XgSRP47uOTSrY2EylO5FmfZ1aWifIt
-	o8L++Zo8bpDJXVmObW3I821DpI19L8TtYAt9Iq6MSK38bZ3PHXJET7Zn4xxFGNPlMlF8=
-X-Gm-Gg: AZFdTZf9v3gkmlPWjb6u+8W0Hvy1/B60uKgcgeJJPRL378ePs/SoZhqK0jdaeoKoL/B
-	3HJNUoN+Z1IlqiJvtMTIC7gXGymZ7R7tgW5Kyow5oB484GSVIbkP/Qxu3yEAqUp0dDSDd1prZDp
-	aTbMuwh65jA2EhKgk9KmNNs25nyRe0jITtFKsHqgO2c3Tl6Ia83LyQuBFUH2Cod/ylO36ZdEJGD
-	PF0wewALdJNUoGvbzltZbWowF7UrfS0/2v1K/75SX18V5SMNKSRbfiMcTm8A5oLWmdfvGkFU47j
-	KMz5pi/SuHWvSb0N8fOf+amsr+IHpPF9SEHIjIW2s6mqfDz5XH29JoheOVM9JYGuS8KsmCMyCVn
-	Qo0DuM9Bk/bDaXHOd/QPTgyPzfmSRLNuNIs8/obBhgNy3qvJzImhnd5cEEjI50oh+Sm4CRtq8K2
-	c8mYNx4RIELtsF
-X-Received: by 2002:a05:6122:893:b0:5ea:be1b:1b24 with SMTP id 71dfb90a1353d-5ee8af4d132mr9297807e0c.13.1795542427710;
-        Tue, 24 Nov 2026 09:47:07 -0800 (PST)
-X-Received: by 2002:a05:6122:893:b0:5ea:be1b:1b24 with SMTP id 71dfb90a1353d-5ee8af4d132mr9297784e0c.13.1795542427090;
-        Tue, 24 Nov 2026 09:47:07 -0800 (PST)
-Received: from [127.0.1.1] (93-159-22-70.cgnat.inetia.pl. [93.159.22.70])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fa8basm7396418a12.20.2026.11.24.09.47.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 09:47:06 -0800 (PST)
-From: Igor Opaniuk <igor.opaniuk@oss.qualcomm.com>
-Date: Tue, 24 Nov 2026 18:46:51 +0100
-Subject: [PATCH v3 2/2] usb: misc: qcom_eud: set the TCSR check register
- before enabling on QCM2290
+        bh=zddTylz8qiVh2ypmdVkH2gu5RcJeF+l5NRl7cFaw7gE=;
+        b=NpKbcXxM/sWf4ylUScUTK/cRXw0DIHEDvJYZbF/tGSZzwhEk/py0Koc/7YOugIoN1w
+         vzGNQvm39Eu0+wQd436t4X2cV3Phx4C3mxKtXuP8NzEGQ9L4EiO3+nY8ptiScN7Myyng
+         KCM4iQayDIgEve8EkXeMbGgeRgx7O3B5TwiWk=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795542436; x=1796147236;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=zddTylz8qiVh2ypmdVkH2gu5RcJeF+l5NRl7cFaw7gE=;
+        b=e2vPnfUziOIladrt67B71QL16EunAIkYonlE2rzStJ3bDg7zMk91HrWffekRDOFvJZ
+         DEi9aLda/PkkmMu2PFirkpwO2luAuU7t2CiJIrMYkc/o551U4HsHxp6qiSwX6TtKGnIF
+         j/zfDBbl3tKMZ8GbtrqealYhkmCcPpRETpFEV1qB4V0WPLa9c09sMK1w14NKlgeOmfwg
+         XyOEhlwwOHWGDDu9B5hRgnCPA1zDGeNd7OSsCTG9UhOYeRPITfecDg10bYWIVLA3EdYt
+         Fm+NcZj/dThoGmKve/gwLL8+YPPCiqIcrNb+aCUffmTcym6DU5svlqKt12mcyAQmYbll
+         /8kQ==
+X-Forwarded-Encrypted: i=1; AL+hErHuUMGKSViHSWqEYzeJHUF9puBt61FdJiROE2DY2VbSNcpmVL95iVQr5AxfUSMqisgqvS45FV55nocdCkI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+35VSG1XTFzf7uIcY4VjFpXvfsBw42ZruIo0FGvc3xHWkIQQfB
+	m1oCCv1XdZqMA0ApDJ0SJgTcGNvPual/upxvN/JyitV7foq7XOpPuaXTbjlOqrcE+08NUPZ8bTR
+	TPa28IkzqOA==
+X-Gm-Gg: AZFdTZdv/qvIXhHZLT99gH6xVvkOv68dvNnLFhMKWr0rSMu1lkId5UN4rHqe/6T1Ovl
+	dK8W4yjuDbkVt6FTj/5bFqCbjcu6E2iB0NCGo9nth8T/pG2gbJFSbheYu9nSWC2Gl/oZU5PdvKg
+	cfGDAABIda2IP8ZSHTo7vpqBCDb/6Zo2IRKdX7IFyeI3R31vT7qsg83uaQQ6tz+gqghnHv1sofv
+	JggyrT/X1Ar+pwtYOcDffjQoLaa+RYp7NOanI72AvVuGsgE6BuSRp2mSy+/KFQsP2BnTv6U1NCe
+	eYmQvMWTYiQZloE4ngpFflp3QvkRfKlEZO/wW+xvx+bkVude0afipcXsuJYZn4xwrRQNCXtemwm
+	f5IAJbOWYyOKqHUCnrf+6EilfGx2rjzXFLj3Nyw6d1YIDZ74/YRBdiD6/PtS88dJx83ze6mYK2H
+	fQE3za7hXEHfJpJ71vdeVXhGVkvTdyqTShGDRCO/KGqgxpfjpWWeyaFSg3Zem+0GJRh7PDZ9FSt
+	PMt+50GTtsq9uM/BYRR+dEszEYTu2+mOuwbDXlEXOCYNvu3rj3dxqYT1cMazkPYXrCmJ+oydHml
+	me40tysGi+lUTf2rEhAUHI5HyCc9x4sQg30hDrunabisPZ+xRtJi7yxIAnwVvXqyR78tkZRWnCO
+	w694D
+X-Received: by 2002:a17:906:7d7:b0:c46:8913:d89d with SMTP id a640c23a62f3a-c513a9997c4mr1020234766b.14.1795542435058;
+        Tue, 24 Nov 2026 09:47:15 -0800 (PST)
+Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com. [209.85.218.47])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acff65bsm564635666b.4.2026.11.24.09.47.14
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 09:47:14 -0800 (PST)
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c4322d310e7so248120966b.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:47:14 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHxqcEHqIAZjk6j7qyD7suiKjlNTpIF1GHq7Uq/XwrHI6MSrS7MYAwV+uDuEXFoTK41PkbP8b92NEg7z9I=@vger.kernel.org
+X-Received: by 2002:a17:907:6091:b0:c3e:f39b:2286 with SMTP id
+ a640c23a62f3a-c513a25e36bmr1373884966b.0.1795542434448; Tue, 24 Nov 2026
+ 09:47:14 -0800 (PST)
+Received: from 425495914135 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 24 Nov 2026 11:47:13 -0600
+From: Linus Torvalds <torvalds@linux-foundation.org>
+In-Reply-To: <CAHk-=wgYc9vFEmyV0Ch_e49j6GOhUCMQMnMV4f1FLLvumZOmRw@mail.gmail.com>
+References: <20261122-b4-sched-wait-intr-head-v2-0-4a764b64e8ce@columbia.edu>
+ <20261122-b4-sched-wait-intr-head-v2-1-4a764b64e8ce@columbia.edu>
+ <CAHk-=wj_eqNh+gNhCQh3exrL5Pmo5hbZBcL0W-4Ah_Nw0Kegzw@mail.gmail.com>
+ <awWSwmvaTwBxfU-r@redhat.com> <CAHk-=wj3GCXZohdFWWPAOkC_LHno4X0oQW+0sQFJzRMvjpODUg@mail.gmail.com>
+ <CAHk-=wgYc9vFEmyV0Ch_e49j6GOhUCMQMnMV4f1FLLvumZOmRw@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,178 +103,197 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-qcm2290-eud-v3-2-4f31aef8c1c3@oss.qualcomm.com>
-References: <20261124-qcm2290-eud-v3-0-4f31aef8c1c3@oss.qualcomm.com>
-In-Reply-To: <20261124-qcm2290-eud-v3-0-4f31aef8c1c3@oss.qualcomm.com>
-To: Souradeep Chowdhury <quic_schowdhu@quicinc.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-usb@vger.kernel.org,
-        Elson Serrao <elson.serrao@oss.qualcomm.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Igor Opaniuk <igor.opaniuk@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Proofpoint-ORIG-GUID: 87NNmlHRKSXAFGx7ZA-sLDSVNmxmA9rM
-X-Proofpoint-GUID: 87NNmlHRKSXAFGx7ZA-sLDSVNmxmA9rM
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA2OSBTYWx0ZWRfX0jVS38EFHCZ3
- C7gdZyjHoYh1V3CJpRhgcwl9xw5sOTKLnsm2aqv9uOFavQCix9d1xdz5sfMpccQf4pK7wScY3Hp
- z32HtU4Oytz/0cXsEgrtA/yxGPwiJ4Y=
-X-Authority-Analysis: v=2.4 cv=JqtkP84C c=1 sm=1 tr=0 ts=6b05cd9c cx=c_pps
- a=wuOIiItHwq1biOnFUQQHKA==:117 a=ySe+0nHqNG5yihRO1pIWsw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=RGBH_sVsAxb1F4UfViYA:9 a=QEXdDO2ut3YA:10
- a=XD7yVLdPMpWraOa8Un9W:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA2OSBTYWx0ZWRfX0L/yumL66cL6
- ksPhBvbskfEduCmjouI8oIwQCh4Ksy1LkdXKG7i4zJIr+xQawjlJu419QwBdqcIUCz+xaQVAiIp
- GyAe0vV7eUWEF7sQEvWGTBepbylmjsTu4I/Q/7EsKPx1YoGapyzVbeWiejj09pY+y4vRnxkqoZE
- 5Bq85cQyJhAe8Fyy3qCfKNya2/baRzXginn+ERdnkERYyWoppaHSLbdgtW1NrVSWsFEs7x75V7J
- h3u9b+2ydRGUGpo5h4zJ7K+WjGI5IV5qrcZ/1tUVafQKBRxsNkDiyQc0TdmPDwpnB7ZVYxQP5Po
- lyQsimwLdjepMUCt0WyzUreuhetTS24MAoPMZRXVtHRpWkJmNp3NzxumouAO7CIWV2W0Uuf7Cg3
- rhiQUBHtUz9pL5k6rc8mOmiE5XzkeWecaHdJEOW6mE9nHzcXyn+/6vlKQB5MeYThWu770hpIWs/
- 6xGSxTyoX3Tb9YwdUJg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_04,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 suspectscore=0 impostorscore=0 spamscore=0
- priorityscore=1501 malwarescore=0 adultscore=0 clxscore=1015 phishscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611240069
+Date: Tue, 24 Nov 2026 11:47:13 -0600
+X-Gmail-Original-Message-ID: <CAHk-=wi4z0tv+1KLCec4xmctgzK8TzDOBDfPUo7cm7ixbGzdfA@mail.gmail.com>
+X-Gm-Features: Aa3M54qUYvjHET6ZCUFf6jPslA74Mny1q3-g-c-Fn4dOshcSMOv9NPJMWy8y-3k
+Message-ID: <CAHk-=wi4z0tv+1KLCec4xmctgzK8TzDOBDfPUo7cm7ixbGzdfA@mail.gmail.com>
+Subject: [PATCH 6/7] sched/wait: remove __add_wait_queue_entry_tail()
+To: Oleg Nesterov <oleg@redhat.com>
+Cc: mt4022@columbia.edu, Jens Axboe <axboe@kernel.dk>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Christian Brauner <brauner@kernel.org>, Michal Nazarewicz <mina86@mina86.com>, Wen Yang <wen.yang@linux.dev>, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	tz2294@columbia.edu, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On QCM2290 the EUD mode manager ignores EUD_EN2 unless the TCSR
-register TCSR_APSS_SPARE_REG1 is set first. Without it EUD_EN2 is
-accepted, the driver reports success, and the EUD stays in bypass.
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Mon, 23 Nov 2026 16:56:58 -0800
+Subject: [PATCH 6/7] sched/wait: remove __add_wait_queue_entry_tail()
 
-The boot firmware sets that register itself (TCSR_APSS_SPARE_REG1 = 1,
-then EUD_EN2 = 1), but only when the device's debug policy asks for the
-EUD.
+__add_wait_queue() and __add_wait_queue_entry_tail() are now the same.
 
-Take the register from the optional "qcom,tcsr-reg" property and write
-it through qcom_scm_io_writel(), like EUD_EN2:
-
-- on enable, set it right before EUD_EN2, and clear it again if EUD_EN2
-  is refused;
-- on disable, clear it after EUD_EN2.
-
-Whether the writes are allowed stays the secure firmware's decision.
-
-Signed-off-by: Igor Opaniuk <igor.opaniuk@oss.qualcomm.com>
+Cc: Oleg Nesterov <oleg@redhat.com>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Juri Lelli <juri.lelli@redhat.com>
+Cc: Vincent Guittot <vincent.guittot@linaro.org>
+Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
 ---
- drivers/usb/misc/qcom_eud.c | 55 ++++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 54 insertions(+), 1 deletion(-)
+ block/blk-iocost.c                   | 2 +-
+ drivers/gpu/drm/i915/i915_sw_fence.c | 2 +-
+ fs/orangefs/orangefs-bufmap.c        | 2 +-
+ include/linux/wait.h                 | 7 +------
+ kernel/locking/percpu-rwsem.c        | 2 +-
+ kernel/sched/wait.c                  | 8 ++++----
+ mm/filemap.c                         | 6 +++---
+ 7 files changed, 12 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/usb/misc/qcom_eud.c b/drivers/usb/misc/qcom_eud.c
-index 6743a1c7d717..30ca6ad564bf 100644
---- a/drivers/usb/misc/qcom_eud.c
-+++ b/drivers/usb/misc/qcom_eud.c
-@@ -11,6 +11,7 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
-+#include <linux/of_address.h>
- #include <linux/platform_device.h>
- #include <linux/slab.h>
- #include <linux/sysfs.h>
-@@ -36,6 +37,7 @@ struct eud_chip {
- 	struct usb_role_switch		*role_sw;
- 	void __iomem			*base;
- 	phys_addr_t			mode_mgr;
-+	phys_addr_t			tcsr_check;
- 	unsigned int			int_status;
- 	int				irq;
- 	bool				enabled;
-@@ -46,9 +48,23 @@ static int enable_eud(struct eud_chip *priv)
- {
- 	int ret;
- 
-+	/*
-+	 * On QCM2290 the boot firmware sets the TCSR check register before
-+	 * EUD_EN2; without it the mode manager ignores the enable.
-+	 */
-+	if (priv->tcsr_check) {
-+		ret = qcom_scm_io_writel(priv->tcsr_check, 1);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	ret = qcom_scm_io_writel(priv->mode_mgr + EUD_REG_EUD_EN2, 1);
--	if (ret)
-+	if (ret) {
-+		/* The enable was refused: do not leave the check register set */
-+		if (priv->tcsr_check)
-+			qcom_scm_io_writel(priv->tcsr_check, 0);
- 		return ret;
-+	}
- 
- 	writel(EUD_ENABLE, priv->base + EUD_REG_CSR_EUD_EN);
- 	writel(EUD_INT_VBUS | EUD_INT_SAFE_MODE,
-@@ -65,6 +81,9 @@ static int disable_eud(struct eud_chip *priv)
- 	if (ret)
- 		return ret;
- 
-+	if (priv->tcsr_check)
-+		qcom_scm_io_writel(priv->tcsr_check, 0);
-+
- 	writel(0, priv->base + EUD_REG_CSR_EUD_EN);
- 	return 0;
- }
-@@ -190,6 +209,36 @@ static void eud_role_switch_release(void *data)
- 	usb_role_switch_put(chip->role_sw);
- }
- 
-+/*
-+ * Optional TCSR check register, given as a TCSR syscon phandle and an offset.
-+ * It is written through the secure IO SMC, so only its address is needed.
-+ */
-+static int eud_find_tcsr_check(struct eud_chip *chip)
-+{
-+	struct device_node *np = chip->dev->of_node;
-+	struct of_phandle_args args;
-+	struct resource res;
-+	int ret;
-+
-+	ret = of_parse_phandle_with_fixed_args(np, "qcom,tcsr-reg", 1, 0, &args);
-+	if (ret == -ENOENT)
-+		return 0;
-+	if (ret)
-+		return ret;
-+
-+	ret = of_address_to_resource(args.np, 0, &res);
-+	of_node_put(args.np);
-+	if (ret)
-+		return ret;
-+
-+	if (args.args[0] > resource_size(&res) - sizeof(u32))
-+		return -EINVAL;
-+
-+	chip->tcsr_check = res.start + args.args[0];
-+
-+	return 0;
-+}
-+
- static int eud_probe(struct platform_device *pdev)
- {
- 	struct eud_chip *chip;
-@@ -220,6 +269,10 @@ static int eud_probe(struct platform_device *pdev)
- 		return -ENODEV;
- 	chip->mode_mgr = res->start;
- 
-+	ret = eud_find_tcsr_check(chip);
-+	if (ret)
-+		return ret;
-+
- 	chip->irq = platform_get_irq(pdev, 0);
- 	if (chip->irq < 0)
- 		return chip->irq;
+diff --git a/block/blk-iocost.c b/block/blk-iocost.c
+index 0ffe34bd95b7..f435bb894d71 100644
+--- a/block/blk-iocost.c
++++ b/block/blk-iocost.c
+@@ -2764,7 +2764,7 @@ iocg_handle_over_budget(struct rq_qos *rqos,
+struct ioc_gq *iocg,
+ 	wait->abs_cost = abs_cost;
+ 	wait->committed = false; /* will be set true by waker */
 
+-	__add_wait_queue_entry_tail(&iocg->waitq, &wait->wait);
++	__add_wait_queue(&iocg->waitq, &wait->wait);
+ 	iocg_kick_waitq(iocg, ioc_locked, now);
+ 	return action_wait;
+ }
+diff --git a/drivers/gpu/drm/i915/i915_sw_fence.c
+b/drivers/gpu/drm/i915/i915_sw_fence.c
+index f24f616e23ee..e107ba9d4c24 100644
+--- a/drivers/gpu/drm/i915/i915_sw_fence.c
++++ b/drivers/gpu/drm/i915/i915_sw_fence.c
+@@ -382,7 +382,7 @@ static int __i915_sw_fence_await_sw_fence(struct
+i915_sw_fence *fence,
+
+ 	spin_lock_irqsave(&signaler->wait.lock, flags);
+ 	if (likely(!i915_sw_fence_done(signaler))) {
+-		__add_wait_queue_entry_tail(&signaler->wait, wq);
++		__add_wait_queue(&signaler->wait, wq);
+ 		pending = 1;
+ 	} else {
+ 		i915_sw_fence_wake(wq, 0, signaler->error, NULL);
+diff --git a/fs/orangefs/orangefs-bufmap.c b/fs/orangefs/orangefs-bufmap.c
+index a557e1cf7436..34195f2cd845 100644
+--- a/fs/orangefs/orangefs-bufmap.c
++++ b/fs/orangefs/orangefs-bufmap.c
+@@ -48,7 +48,7 @@ static void run_down(struct slot_map *m)
+ 	if (m->c != -1) {
+ 		for (;;) {
+ 			if (likely(list_empty(&wait.entry)))
+-				__add_wait_queue_entry_tail(&m->q, &wait);
++				__add_wait_queue(&m->q, &wait);
+ 			set_current_state(TASK_UNINTERRUPTIBLE);
+
+ 			if (m->c == -1)
+diff --git a/include/linux/wait.h b/include/linux/wait.h
+index bf0a3713ed0f..4f87ad870f51 100644
+--- a/include/linux/wait.h
++++ b/include/linux/wait.h
+@@ -184,16 +184,11 @@ __add_wait_queue_exclusive(struct
+wait_queue_head *wq_head, struct wait_queue_en
+ 	list_add(&wq_entry->entry, &wq_head->head);
+ }
+
+-static inline void __add_wait_queue_entry_tail(struct wait_queue_head
+*wq_head, struct wait_queue_entry *wq_entry)
+-{
+-	list_add_tail(&wq_entry->entry, &wq_head->head);
+-}
+-
+ static inline void
+ __add_wait_queue_entry_tail_exclusive(struct wait_queue_head
+*wq_head, struct wait_queue_entry *wq_entry)
+ {
+ 	wq_entry->flags |= WQ_FLAG_EXCLUSIVE;
+-	__add_wait_queue_entry_tail(wq_head, wq_entry);
++	__add_wait_queue(wq_head, wq_entry);
+ }
+
+ static inline void
+diff --git a/kernel/locking/percpu-rwsem.c b/kernel/locking/percpu-rwsem.c
+index 6c78961fe753..0e1b6e3210a2 100644
+--- a/kernel/locking/percpu-rwsem.c
++++ b/kernel/locking/percpu-rwsem.c
+@@ -152,7 +152,7 @@ static void percpu_rwsem_wait(struct
+percpu_rw_semaphore *sem, bool reader,
+ 	wait = !__percpu_rwsem_trylock(sem, reader);
+ 	if (wait) {
+ 		wq_entry.flags |= WQ_FLAG_EXCLUSIVE | reader * WQ_FLAG_CUSTOM;
+-		__add_wait_queue_entry_tail(&sem->waiters, &wq_entry);
++		__add_wait_queue(&sem->waiters, &wq_entry);
+ 	}
+ 	spin_unlock_irq(&sem->waiters.lock);
+
+diff --git a/kernel/sched/wait.c b/kernel/sched/wait.c
+index a14e14202279..c77f104ae2fb 100644
+--- a/kernel/sched/wait.c
++++ b/kernel/sched/wait.c
+@@ -33,7 +33,7 @@ void add_wait_queue_exclusive(struct wait_queue_head
+*wq_head, struct wait_queue
+
+ 	wq_entry->flags |= WQ_FLAG_EXCLUSIVE;
+ 	spin_lock_irqsave(&wq_head->lock, flags);
+-	__add_wait_queue_entry_tail(wq_head, wq_entry);
++	__add_wait_queue(wq_head, wq_entry);
+ 	spin_unlock_irqrestore(&wq_head->lock, flags);
+ }
+ EXPORT_SYMBOL(add_wait_queue_exclusive);
+@@ -276,7 +276,7 @@ prepare_to_wait_exclusive(struct wait_queue_head
+*wq_head, struct wait_queue_ent
+ 	spin_lock_irqsave(&wq_head->lock, flags);
+ 	if (list_empty(&wq_entry->entry)) {
+ 		was_empty = list_empty(&wq_head->head);
+-		__add_wait_queue_entry_tail(wq_head, wq_entry);
++		__add_wait_queue(wq_head, wq_entry);
+ 	}
+ 	set_current_state(state);
+ 	spin_unlock_irqrestore(&wq_head->lock, flags);
+@@ -335,7 +335,7 @@ EXPORT_SYMBOL(prepare_to_wait_event);
+ int do_wait_intr(wait_queue_head_t *wq, wait_queue_entry_t *wait)
+ {
+ 	if (likely(list_empty(&wait->entry)))
+-		__add_wait_queue_entry_tail(wq, wait);
++		__add_wait_queue(wq, wait);
+
+ 	set_current_state(TASK_INTERRUPTIBLE);
+ 	if (signal_pending(current))
+@@ -352,7 +352,7 @@ EXPORT_SYMBOL(do_wait_intr);
+ int do_wait_intr_irq(wait_queue_head_t *wq, wait_queue_entry_t *wait)
+ {
+ 	if (likely(list_empty(&wait->entry)))
+-		__add_wait_queue_entry_tail(wq, wait);
++		__add_wait_queue(wq, wait);
+
+ 	set_current_state(TASK_INTERRUPTIBLE);
+ 	if (signal_pending(current))
+diff --git a/mm/filemap.c b/mm/filemap.c
+index a1b2ca5b933c..126f5b9849f4 100644
+--- a/mm/filemap.c
++++ b/mm/filemap.c
+@@ -1293,7 +1293,7 @@ static inline int folio_wait_bit_common(struct
+folio *folio, int bit_nr,
+ 	spin_lock_irq(&q->lock);
+ 	folio_set_waiters(folio);
+ 	if (!folio_trylock_flag(folio, bit_nr, wait))
+-		__add_wait_queue_entry_tail(q, wait);
++		__add_wait_queue(q, wait);
+ 	spin_unlock_irq(&q->lock);
+
+ 	/*
+@@ -1439,7 +1439,7 @@ void softleaf_entry_wait_on_locked(softleaf_t
+entry, spinlock_t *ptl)
+ 	spin_lock_irq(&q->lock);
+ 	folio_set_waiters(folio);
+ 	if (!folio_trylock_flag(folio, PG_locked, wait))
+-		__add_wait_queue_entry_tail(q, wait);
++		__add_wait_queue(q, wait);
+ 	spin_unlock_irq(&q->lock);
+
+ 	/*
+@@ -1757,7 +1757,7 @@ static int __folio_lock_async(struct folio
+*folio, struct wait_page_queue *wait)
+ 	wait->bit_nr = PG_locked;
+
+ 	spin_lock_irq(&q->lock);
+-	__add_wait_queue_entry_tail(q, &wait->wait);
++	__add_wait_queue(q, &wait->wait);
+ 	folio_set_waiters(folio);
+ 	ret = !folio_trylock(folio);
+ 	/*
 -- 
-2.53.0
-
+2.56.0.313.g975a75ca90
