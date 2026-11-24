@@ -1,80 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795561306;
-	b=sIzGx5YYD0WSl+0uYWLGUgVuhkI9Gd8BQoGxAfJsq34DeCI5E7Di21BxQEj3lqTFG2Cy
-	 w0DvxARh3zMs7DcUvaytoFqmdc1g044yhVC3wYA58U8t+ngKua3uCvBXitpJ7vnbKjmzk
-	 xeKMUWeUy30KqWs5mJKVhsyttqSqmbA4j2VngNw9LJEwuIjvn5QR2I30Mb3AFrXECJvS9
-	 O9Imqbe4ca2YN7C1Q/fWY/a4dap/3DUlzdLNHYuNba+hpptQAcySrPkmirLVHUwR6984S
-	 yoyeqwAccN21n20JbRg0qVdLl2yYU5f5iHPzra+QcHm7v73GOnSHEiCC8WCjBlhlaQg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795561306;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=WwRGi9/gboonDby6o+AqgHp8QwWUxtuqcvbTxyROofo=;
-	b=df+6Q4sM06gwcw8us0pjwD9Zh/DpSD4zpyFAAXrXu1/J31Sks6gBFvqjyYrqljZXb7na
-	 SCnYhGqyw7QkbLIMzSaoHKnAoBtmnbC/Cm0/aRhPqWb6IuQtRumeguWRajKkcbfJHXH+7
-	 pFk60xeBETxSSCWqCKKWJIOkDxCY3yESitH11+rKgB/LfnL3sAigNLGSISQSoPr+btKHk
-	 SIXEZKPSnTZeoXgJHDxAagw2vASNQzXR6oDG0cyS7Z3kcqlLdK/+tOEz+lEHjjwzae3EV
-	 4DquEPWIQa1SArbeN5XoPLFVXkwySbUrvexhWZq2C0VnavL34MHYz874OIF+72RpSGw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="YO2pQ4n/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6044E606A321;
-	Tue, 24 Nov 2026 23:01:46 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YO2pQ4n/
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795561305;
-	b=P+LtR59+uSCrhgOVj0bqUNQ/kKauaJSnliIG7FyyPEebmFIySRg2+dWdd3QhPYQptKJb
-	 PtdJL+Npxj6FQ0gRyBnBCUo2V299YcCn81D4CVjP9agLwehKzHSQuNwYbQYcLGfv49f2i
-	 lqp57wpNx9/GbQ8OJdyaoSyRCyYW/+DqU0I+Yutk6mptTxo0GsYL5TippaWgVc60nLm6x
-	 MaNoDi4+sUqi/x87HIF+XtX6R9vyFfYzNCpRcY5OnsxkAKcFaZiDb+PuehUH3BDpB5QRU
-	 3DxqB7FA8SBUnnPu2QHCgewx1n7PNTJLgb6r9Ie2XEvu5gcTy5ggYnm/JjTiCSZ0wBQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795561305;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=WwRGi9/gboonDby6o+AqgHp8QwWUxtuqcvbTxyROofo=;
-	b=KCDAvs4k2l2r+Q6cVDT09kMyYl70n8ADC36y94C5+MbmtpAevAvAO57X2TRKbyyvQBGp
-	 f0QrpfpB0zfS9vbnMBmSk5mgObdUJpkPEB04g18lfga73f0SFwIfCnTfzej0utQh4ASlF
-	 Aredbd/UCM+yJqQygHLbtZUcTsgULR/osWk1X+c2RrIGfHp1FsQdqwVN0JGw5KbVkpQtM
-	 23JWvHs/bldnBGBiT1Rj1jNJlXygmDwi+E01X/B25J35PPcrnWwtdIzXTM326TLLxpiop
-	 e5X7Gn0meY1T519nkg5kExI2DEe3Z+JIlpiVboBqssGR3dtRGw6i35fV/IxCf28G9Eg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795561347;
+	b=rsAElK31VEKufaYHsZpVN2KicWEnck69pQvmnaGKCgZXUW0eS8P1QdbvcutaiMmVrxID
+	 CiF/4F5OH6fTdMniPUCXQvxWjrxf5syXVFlsQPzT3ie0/BtSm/Olm7+2HsAtFNwyRPL+Q
+	 VgMRFReYHMu2dnRhs+Yd2AiCNV1TBPGIvongCPU+5sphMGFCZ6NQm/bIbNMZH8DvKQkGn
+	 W3pY31zzUfVnwsiall+oyN0p9dOoGes2saYiiquJ54YPpW7a4h0QcWurUOo7GrXOvcbpv
+	 zMa7DpDozWprglec5lC6aZb/Py91tCnch3sg/eh1ABDW2bTLdaaUAtpP/O883qMt09g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795561347;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Subject:From:To:Cc:Date:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=lVlaaAsq67HaSInDi3IQqUKqJIz/RKf/oDeO9AktRqs=;
+	b=TNA4fTjwsAi0JqLl9hhRA7Iuh1wYvXPBDFp1RArPviWdxSJ2kA/X9a18sd5lSAZ2tjLf
+	 1HrLMlJdcjXQ3ctyoSKTDBZITVaau8XIlwKyJQq8PWPvYGQ3J0WnfJg0tp5VYQKbPSWUq
+	 rHateGlk58ICifLOluplFbgrFavwA4terqVwyy1X+tVC60yh1OB+e4svaeo+35ujr4YbK
+	 8DhvXttkMzounZBX/XODYtdDaxlpSj1uQ86TGonZ33jGqdhyxcODzaoUNxUe16IPC1YcV
+	 JlUMsfqZg5h1oa5c0mD50cN56pn6KXVtF1GZb3mk2gvJC9r0Gkp0cURiKpeedG/ypTA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Z1MknK44;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=C2oNYAJk;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 1253B1F000E1;
-	Tue, 24 Nov 2026 23:01:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795561305;
-	bh=WwRGi9/gboonDby6o+AqgHp8QwWUxtuqcvbTxyROofo=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=YO2pQ4n/zfmbIZS9Vx+2GwQDrlxpZw9l6p5wNlFNu4QhqRo2TLjcqg5nm3bd9k674
-	 wmJzye1ajqpt+OBCRIEHD1QztMhty6+kAqhH5O3BGlDlalPp9lKHTNDW+wCfUXhdO6
-	 9Ait6mp1YLMQY4OfY8NeTjqdjxdYq+mXFee7KdKXQLToLSVa3p+1QuBAk8OzhmfhBD
-	 mDHwQF2WPKN2xqokDY4VnMUy5QV7SfpZ282A4b3NDnkj6LwhzcKE8Mtp0gFgsx7KUK
-	 CBPZQQZi12mazgqYPOv8XW4AUIii8Nl5hJvsZHB9S2Aja+SSJfHdKm09Xh3/xBeoDv
-	 INJX+6Oicy3SQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 691D14CC30;
-	Tue, 24 Nov 2026 23:01:35 +0000 (UTC)
-From: Robert Ijtsma via B4 Relay <devnull+robertijtsma.gmail.com@kernel.org>
-Subject: [PATCH net-next 0/3] net: ipa: add Qualcomm SC8180X (IPA v4.1)
- support
-Date: Wed, 25 Nov 2026 00:01:32 +0100
-Message-Id: <20261125-qcom-ipa-sc8180x-v1-0-48a889acbe6b@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 124FD606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:02:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 124FD606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Z1MknK44;
+	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=C2oNYAJk
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795561346;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lVlaaAsq67HaSInDi3IQqUKqJIz/RKf/oDeO9AktRqs=;
+	b=Z1MknK44IfDjQGRRuf7+QPIO3gHJYlO88Ka0sieHfAM2XlPJc4LnFntT8JJUCggshnfF5H
+	MPiuTU3nXaLFqxRhjtM6ouwJBsdSTB1g9zWD3IXrcOIjASNfx3tWJFqZ7LcUEfzr/wKMfV
+	G93hk+G2xleWzNRsKU1AcsZylvO8WDs=
+Received: from mail-vs1-f72.google.com (mail-vs1-f72.google.com
+ [209.85.217.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-107-SXHyvl5GN0WtZGxt61jy6w-1; Tue, 24 Nov 2026 23:02:23 +0000
+X-MC-Unique: SXHyvl5GN0WtZGxt61jy6w-1
+X-Mimecast-MFC-AGG-ID: SXHyvl5GN0WtZGxt61jy6w_1795561343
+Received: by mail-vs1-f72.google.com with SMTP id ada2fe7eead31-7d2f2df81bbso2917127137.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:02:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795561343; x=1796166143; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=lVlaaAsq67HaSInDi3IQqUKqJIz/RKf/oDeO9AktRqs=;
+        b=C2oNYAJkQDVZQjl+r6m1PVwF3yAfDSEd94Yeqy0OP+2Q8Z+sqKzReUjkENOVekxVdB
+         dZ4isSA8hmnTo+E2J67hC0ET29g4Y9TaY0kNgzI2yNT9vVk/RypsZ9v1hz8MlOuGlk/w
+         0w2atOFL56h1bLro+o2Z4lr0tI67rAzkz38gdsENMAWOJnMpQdhn1cDstap5KqF2vifX
+         WCxXUL98cJME6HuSH9jS7+bB1ZV+FywEGwM+4yoC0sTmD8hhp2I2tT7qG3udZ0quahSb
+         UT7X7GNuaJCJYn54uNSlqTn9y0x2+M+rWqur6uQtxFu5DRhZVIFG8XLoJYK9tZStuZ9s
+         IjWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795561343; x=1796166143;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lVlaaAsq67HaSInDi3IQqUKqJIz/RKf/oDeO9AktRqs=;
+        b=kPG/WoL9SYla42a3sg0MUKHNJN7HfozisyjwtGXh5wnjRp3yJBNFliRdJsQGpGEMqh
+         c6iiBy4t/pRxi8Etp/YWRRsBBCNl/eHIrMMNt367sR1VQHP6s44NfA5Yy5o3DXzxW8UH
+         IdXUMDVTi/z3xVnAmB88w7aT1lkwNehloNGeNrrh0nMZ5JJt/9KZS9NF5snELOcKsx9m
+         EMRmx5uq0GVJI/sxMvJCXK6wj0CvAJpTWqGghKrgBVIHc+1ykp9TjVPWPj09LWmLrtEf
+         oBrdj2YGO/IAa6MOoLRwXuOJLmISlVsO6Dhns/h/UJXzEMukQueuvC2ctcqe7g9EpgIP
+         BGJQ==
+X-Gm-Message-State: APuU4Z9/Wwr7Se3Unfq3mTUYmMFBiYgGcrOhWXz9VXX2WXmPOtwVn8uq
+	B7EmsFGiDtnelD/sqA4l5oKnQ2ZbCLaInVWhrSK47by/sFXE9KKtHVB4FlMqaCeZ35JAKcZkaR6
+	YplAIk/X6WTETuXioqxMNpTruuQRdzTkPpc/s7KsqbD4YwsKxWai5ZDhNG+12AZ4qxg==
+X-Gm-Gg: AZFdTZdjQR8JL1uI1QOS1w7mufAp1QQMWoUIXp0SLw7j1WDROty6jmWJaF3UHaXGVdQ
+	AFAtmzbTmGBHHcso9VO8puf3qExUOSsimWydpoCdZv4d5L6bejfpu5jZPQhi6AOEYqfxhEMQeA3
+	j3QSu1Q7fAMsaKex1eypH81o0kNZekppe35nhTtaaH9/zexhUDmtmL1U/+SOdfZBgDagoplLMBW
+	jhijuZ0RwaNufb4AXtjV4HfDoQOgvChLx79O45v0aAm35vxFCBQ+ZIFzpjumT5SGML8kcPuEUV8
+	EonyzS/gQ+RibwL0hObfR+2TpVZDMh8cZwt97+Om3RRORjrTbZh1G6fhF76NSeFXEtODSY15Ftv
+	dRjuLwK5kTRkeUDg/OeNFE8zN8SfKJXVQtCf4EWx09Emx9ZLqV+MscT4x6BabCCEjuZxs1s0hEH
+	VJXk4QQYi7Tvu0aQ==
+X-Received: by 2002:a05:6102:26d4:b0:7d6:83ea:1183 with SMTP id ada2fe7eead31-7d7395b6140mr9305363137.23.1795561343349;
+        Tue, 24 Nov 2026 15:02:23 -0800 (PST)
+X-Received: by 2002:a05:6102:26d4:b0:7d6:83ea:1183 with SMTP id ada2fe7eead31-7d7395b6140mr9305309137.23.1795561342760;
+        Tue, 24 Nov 2026 15:02:22 -0800 (PST)
+Received: from [192.168.5.11] (pool-108-49-8-79.bstnma.east.verizon.net. [108.49.8.79])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134bf848dsm147522066d6.44.2026.11.24.15.02.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 15:02:22 -0800 (PST)
+Message-ID: <8d952f5fa8d93c5d5f92292b5af203e83e5de3ae.camel@redhat.com>
+Subject: Re: REGRESSION - 2652aca460dc ("drm/nouveau/kms/nv50-: Enable
+ atomic modesetting by default")
+From: lyude@redhat.com
+To: Mike Galbraith <efault@gmx.de>
+Cc: lkml <linux-kernel@vger.kernel.org>, Dave Airlie <airlied@redhat.com>
+Date: Tue, 24 Nov 2026 18:02:21 -0500
+In-Reply-To: <96444f8e0155d34c7a07fd5cc67ed87784bedd38.camel@gmx.de>
+References: <96444f8e0155d34c7a07fd5cc67ed87784bedd38.camel@gmx.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-2.fc43) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,69 +119,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWM0QrCMAwAf2Xk2cAaik5/RXzoskwj2M2mSmHs3
- +3c43HcLWCSVAwuzQJJvmo6xQru0AA/QrwL6lAZqKWjc+TxzdMLdQ5o3LmuLcjn0dMpCPmhh5r
- NSUYt/+UVomSMUjLcdmOf/imctyOs6w+7508EfgAAAA==
-X-Change-ID: 20261124-qcom-ipa-sc8180x-c9f427ae24db
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alex Elder <elder@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Robert Ijtsma <robertijtsma@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795561294; l=1671;
- i=robertijtsma@gmail.com; s=20261122; h=from:subject:message-id;
- bh=B0CIwbvN+2fYF0mDco/OQwdk/RBQil8KeHGz3LsDY8I=;
- b=d/sW/21nAhnGYf05i9driPQgnzDMyy2gs1OBsU6vDu3+5t812nTY/rv9PzsBMmM8kd1E17kDT
- 0Ob3TPx0sGMCyoYZlJfzu8znlC4uDwzoSZp9ZC9dAdhZ+wI5jGbQuLh
-X-Developer-Key: i=robertijtsma@gmail.com; a=ed25519;
- pk=qiDyKVqFicxFIR5sB5m+p9SWPKL2/+mMoiQnUx0C9P0=
-X-Endpoint-Received: by B4 Relay for robertijtsma@gmail.com/20261122 with
- auth_id=1604
-X-Original-From: Robert Ijtsma <robertijtsma@gmail.com>
-Reply-To: robertijtsma@gmail.com
 
-Add Devicetree binding documentation, IPA v4.1 register definitions, and
-SC8180X configuration data for the Qualcomm IP Accelerator v4.1 present
-on the SC8180X SoC.
+On Tue, 2026-11-24 at 14:16 +0100, Mike Galbraith wrote:
+>=20
+> In said commit, you say...
+>=20
+> =C2=A0=C2=A0=C2=A0 Now that we've protected against breaking things for c=
+hipsets
+> where atomic
+> =C2=A0=C2=A0=C2=A0 isn't supported (<nv50) - let's enable it by default o=
+n
+> generations of
+> =C2=A0=C2=A0=C2=A0 hardware that support it. We'll leave the module param=
+eter around
+> for the
+> =C2=A0=C2=A0=C2=A0 time being, as turning it off may be helpful in the po=
+ssibility
+> that we hit
+> =C2=A0=C2=A0=C2=A0 regressions.
+>=20
+> My now a tad long in the tooth desktop box regressed, symptom being
+> an
+> apparently bricked GTX980.=C2=A0 It bricks instantly at login when
+> starting
+> a plasma6 wayland session.=C2=A0 Plasma6 X11 or iceWM (et al?) sessions
+> work
+> fine.=C2=A0 nouveau.atomic=3D0 makes GTX980 wayland agnostic again.
+>=20
+> [=C2=A0=C2=A0=C2=A0 2.846347] nouveau 0000:01:00.0: NVIDIA GM204 (124000a=
+1)
+> [=C2=A0=C2=A0=C2=A0 2.928383] nouveau 0000:01:00.0: bios: version 84.04.1=
+f.00.02
+> [=C2=A0=C2=A0=C2=A0 2.930480] nouveau 0000:01:00.0: pmu: firmware unavail=
+able
+> [=C2=A0=C2=A0=C2=A0 2.935007] nouveau 0000:01:00.0: vgaarb: deactivate vg=
+a console
+> [=C2=A0=C2=A0=C2=A0 2.935270] nouveau 0000:01:00.0: fb: 4096 MiB GDDR5
+> [=C2=A0=C2=A0=C2=A0 2.935288] nouveau 0000:01:00.0: bus: MMIO write of 80=
+00017d
+> FAULT at 10eb14 [ PRIVRING ]
+> [=C2=A0=C2=A0=C2=A0 3.002282] nouveau 0000:01:00.0: drm: VRAM: 4096 MiB
+> [=C2=A0=C2=A0=C2=A0 3.002287] nouveau 0000:01:00.0: drm: GART: 1048576 Mi=
+B
+> [=C2=A0=C2=A0=C2=A0 3.002291] nouveau 0000:01:00.0: drm: TMDS table versi=
+on 2.0
+> [=C2=A0=C2=A0=C2=A0 3.003475] nouveau 0000:01:00.0: drm: MM: using COPY f=
+or buffer
+> copies
+> [=C2=A0=C2=A0=C2=A0 3.069569] [drm] Initialized nouveau 1.4.3 for 0000:01=
+:00.0 on
+> minor 0
+> [=C2=A0=C2=A0=C2=A0 3.104139] fbcon: nouveaudrmfb (fb0) is primary device
+> [=C2=A0=C2=A0=C2=A0 3.155613] nouveau 0000:01:00.0: [drm] fb0: nouveaudrm=
+fb frame
+> buffer device
+>=20
 
-Register layouts, resource group limits, and shared/IMEM regions were
-cross-referenced against the downstream Qualcomm msm-4.14 poipu/sm8150
-IPA v4.1 driver and SC8180X devicetree definitions. The corresponding
-sc8180x.dtsi node will be submitted separately via the Qualcomm SoC
-tree.
+Hi - do you think you could paste the entire dmesg from after when the
+bug happens? There aren't really errors here besides the MMIO write
+(which isn't unexpected)
 
-Tested end-to-end on Microsoft Surface Pro X SQ2 (SC8180X) with the
-integrated Snapdragon X24 LTE modem over rmnet_ipa0 (QMAP / MAPv4).
-
-Signed-off-by: Robert Ijtsma <robertijtsma@gmail.com>
----
-Robert Ijtsma (3):
-      dt-bindings: net: qcom,ipa: add qcom,sc8180x-ipa compatible
-      net: ipa: add IPA v4.1 register definitions
-      net: ipa: add SC8180X (IPA v4.1) configuration data
-
- .../devicetree/bindings/net/qcom,ipa.yaml          |   1 +
- drivers/net/ipa/Makefile                           |   4 +-
- drivers/net/ipa/data/ipa_data-v4.1.c               | 319 ++++++++++++++
- drivers/net/ipa/gsi_reg.c                          |   1 +
- drivers/net/ipa/ipa_data.h                         |   1 +
- drivers/net/ipa/ipa_main.c                         |   4 +
- drivers/net/ipa/ipa_reg.c                          |   2 +
- drivers/net/ipa/ipa_reg.h                          |   1 +
- drivers/net/ipa/reg/ipa_reg-v4.1.c                 | 475 +++++++++++++++++++++
- 9 files changed, 806 insertions(+), 2 deletions(-)
----
-base-commit: 4843f6873f7c4835e62f2c73ba0fd538e57a2f22
-change-id: 20261124-qcom-ipa-sc8180x-c9f427ae24db
-
-Best regards,
---  
-Robert Ijtsma <robertijtsma@gmail.com>
-
+> 	-Mike
 
