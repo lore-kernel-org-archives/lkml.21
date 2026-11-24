@@ -1,144 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=192.198.163.9
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.226
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795551218;
-	b=d3CevqRO5F750D/HiXtEZroMKEwvnU+GOHSEO0OmKLphMvR/pkSr8lV4zCD5om6UVqZr
-	 n9XWx9FlMcWUoXAiu46AnsR5kzBEBTFF6lbmDrn5Je17TjN8pST1Mqhr6cAeMk3I++9cy
-	 eoKq7J5/gy81u2AKMlU74ygGOpgnsqml8YZBOvt5OqFbMwWJltcWjKfciQaNkp/rg+MSA
-	 f/Nzq3yExOEVeZXKVId0iJT6GzliNPK+vuTGer6AVzneUT2syWUB/c0aF44rOSQYDT/vb
-	 eBgkfeBXwRRCfQZCLkHcCvfWKcKztuY68OYfl49Lp64CetZ6JNnGHEmukxVyQxb8bcQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	b=hkTAIxLAbziwg2S0MYK921KXAXIYFVIJEeiwc+jsp7fOTCMVhCf1BpIK73iuaqXIIwTJ
+	 1fTRquTYd8sJWOKYUyKxGIJVfro9CdsY9jWhE0rw0+zxerW0tefTqasvufXgkVbSLQFed
+	 SN2auP5UQ2J2KewIK3WHJscJndvAC4WNEnFC2h/+ez1c9Su2ZP6dIlJK92uC5724QC667
+	 6b/8wCLcASKW85nY5LkrgSEPS/+oqLSFDGR8qDOKGK9TOCi6VJ2v+7cUlJdza2Gqe8p6N
+	 VS3T2Aca47hXDDbcUAVp/8HD+5pW3OvIVjgbKjOJ5MtMONTvmFxgSxHephsasBt1Bnw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795551218;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
-	 Message-ID:References:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=sBhNi12CaJv+dpx26cbDx+H+cbifqUmI89MdqXA+xoE=;
-	b=UGmhf7XZeNCTnWiIC81yxStCP1Iq7xNHBpMIJP5Q1wMGrKps00NBmb6C8UBHfwKwL9W0
-	 dGy+Yj7rxXuNak0zmuo7R0/UQKeXp28YZ3cpgt7CPXQTYyLBMCIB917LVhsVFVoQEtMiO
-	 XzBBwmt5jH7OZJLoma4SB6n7ZCRGWwGCiNBGieHoC1nfdgHUqwBDjmPWi+BiETlKSvdqg
-	 fZUa+SdZKbUm2iI/DcWC3dZ/DvcEYAqPFa8ltnfdFYkwjYoMCT2/cTJkcDVInk+/NVUHF
-	 +zJdMA2VBmenpzQdU4exAGFyN45wY4WLb08Sk0EuQhEu0W1LyAKpdQ/HdbOW9egBWvg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gjquP0Y3;
-	dkim=fail reason="signature verification failed" header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b="jb/0ZFGb";
-	arc=fail smtp.remote-ip=192.198.163.9
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-DetectorID-Processed;
+	bh=t37btjtuYVqm7Wn4q7QKh/abPX/yviKnKeRqyTCpvJQ=;
+	b=JDZG8+/9jkx/vnssweHkRg0psUcpZP8y93ay4Rv1JHhRs6jNwO/k4xr0ZvJOBJj40Jkl
+	 xHFTO5eGuHTwcuZk+ktiJQWt2ya9G1gAljr8VXnTYUCqSb/OwOEClsbnL0Jgmq3tA/HQv
+	 +teilC0ARwp0L7tRnM6ZZflNqNUgJpO9GcVnC2Orb7A+SkHrzmMojdZHgiwIj6L1d3kpb
+	 HxcbHX1dBG1LtKnovZmtWDFXOzZEheJclNUv1cY75bbVvxK5HBanntUAjvDbdJlJ0f1Xv
+	 kJTSWxZCB7wakHTGeQW+1FT26ahfqYJJiW//MnjbaGAUByeCNdDarvNutTrXBnlhVuQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=VLAQDHWk;
+	arc=none smtp.remote-ip=209.85.215.226
+Received: from mail-pg1-f226.google.com (mail-pg1-f226.google.com [209.85.215.226])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5478606A32E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:13:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5478606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77172606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:13:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77172606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gjquP0Y3;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=jb/0ZFGb
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795551218; x=1827087218;
-  h=date:from:to:cc:subject:message-id:references:
-   content-transfer-encoding:in-reply-to:mime-version;
-  bh=KOSMmCrFtI4p0y4M7ZhEcJBjw0OMFXSjWQo5yJ0cKe8=;
-  b=gjquP0Y3hBTzWpjzTkP6bUlp59nAZPT95FBtwq7Ar5/aG8MpNqJ0DT5x
-   oq5GHg0GbtqGttzDc2CmQB9yH955+ZZBO+UfZx+iiXVVOoAHrTTkT5dyX
-   oOJbXCZe7k4QPYCNBh50rzKUZCHp7EOPx+CruNx27g2Pdr1K1S/lTL/dp
-   X83EC9DHqUbdloY1RLtFIW+fGFtLzI/pMsn7wB5b7uoUh+FZD8tQnvwpZ
-   3tM7vdByM7+k2Qc3ZvoAxNbBX971FzbXaMVEP8vKThS/5EznD2Cxbo3gW
-   VQBwWYaYPVvgATS4NDUaG2dDR2T6KbS2WsVn8GJFcnFvpTvHnBlPLTmVX
-   A==;
-X-CSE-ConnectionGUID: lauQmTmRSwmJ7Kro+zkgeA==
-X-CSE-MsgGUID: YQTkw0OhRgyMiOSeoT/Duw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4297478"
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4297478"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 12:13:37 -0800
-X-CSE-ConnectionGUID: EvK2U4alSnKm+FhhMSJrFA==
-X-CSE-MsgGUID: 6xaDG1cMTCmslx9GsI1aww==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="11985532"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by orviesa009.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 12:13:36 -0800
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 24 Nov 2026 12:13:36 -0800
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Tue, 24 Nov 2026 12:13:36 -0800
-Received: from BYAPR05CU005.outbound.protection.outlook.com (52.101.85.53) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 24 Nov 2026 12:13:36 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JN+HAl48X/ymUjkq/1esn5x0inJWRdbyJ13ePp2lfHl3aPOwnE7oiNXLSzON4E6wH8aR2I+Xrh6NcXUK3ogvpZfG1pFacP0oaHmqNyOBpOKKlgZrn09WXAz7HJEMtjJ2MHxqDqbrsTifPH1J9hgrQ6xKxIz8go26V36J4k1Nw9hN6yqd3Jjzn2dhr12FV3w8Lf4F7GpeG+z175eTt2a2mliyO6VmBdWlwYciksCwnLL0mNxB2svkvpIO/duH+3qLWzE4nQMC6obXltCwxl0fYVpJty/AUF7LuwHwrpmELOU1LwEQQ/qvWYChyYMgczI8X4urtQUsqG9EyHLDRpwUnA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=O+ivveOGBeG9ocCze5/ZYrHi6KL+ZyCKycn6aBDka+o=;
- b=Z50QrglWvM3kYcQTxjQsiJ6MmYNXdxQFS3ApbNTf9gkSlwldM8gA/TfiPSMmVMUbqZMlnMXnIDApeeA/ABQFdFxq48uN3PsyULEcPvb1m/+07gMZa/tcLFyU70QuQ3gJc5XSi+tQlIq2Lr/6wAMeSQM5qHwhdVpX0iAYWfjDsznlBJw0/2ve+38A1znbUkoEbkVakMrxJun9F+MqWEVk0xBw67bwnNYWEqKYb2HDpvQ8GBajUGr+Fb6RJkyzqIUycUBMHLeh3mHFVeAPpt829uoCshQNnTZwpm0NdNQET00n8gKzR8cuTZ38C4yzg3VZ2IUQcnEJOEboX47U4fl7yA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O+ivveOGBeG9ocCze5/ZYrHi6KL+ZyCKycn6aBDka+o=;
- b=jb/0ZFGbmry/wSlgTmqNThVKXKZn7pMruQjBruEX6cdTauTyY3YZFCSpdFsDrFTlXlH1sqs1lPvftHhXKXg8peK/Uu/6jROJXbprnn4T8x8GTsGwaplsI6qx5HVfjpUst6aH1v+GWlfeXa8jg7/J9MrwsDw40VDWkHhWyq3jwLc=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from CO1PR11MB4787.namprd11.prod.outlook.com (2603:10b6:303:95::23)
- by CH0PR11MB5283.namprd11.prod.outlook.com (2603:10b6:610:be::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
- 2026 20:13:33 +0000
-Received: from CO1PR11MB4787.namprd11.prod.outlook.com
- ([fe80::e7eb:a872:53d1:21fd]) by CO1PR11MB4787.namprd11.prod.outlook.com
- ([fe80::e7eb:a872:53d1:21fd%4]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 20:13:33 +0000
-Date: Tue, 24 Nov 2026 12:13:30 -0800
-From: Matthew Brost <matthew.brost@intel.com>
-To: Niranjana Vishwanathapura <niranjana.vishwanathapura@intel.com>
-CC: <intel-xe@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-	Carlos Santa <carlos.santa@intel.com>, Ryan Neph <ryanneph@google.com>,
-	Christian Koenig <christian.koenig@amd.com>, Huang Rui <ray.huang@amd.com>,
-	Matthew Auld <matthew.auld@intel.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, <linux-kernel@vger.kernel.org>, Thomas
- =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>
-Subject: Re: [PATCH v3 21/33] drm/xe: Add defrag GT stats
-Message-ID: <awXv6i0XOixBYI5l@gsse-cloud1.jf.intel.com>
-References: <20260711025619.2540575-1-matthew.brost@intel.com>
- <20260711025619.2540575-22-matthew.brost@intel.com>
- <avEdhk66ta4lHZlj@nvishwa1-desk>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <avEdhk66ta4lHZlj@nvishwa1-desk>
-X-ClientProxiedBy: BY1P220CA0042.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:59e::17) To CO1PR11MB4787.namprd11.prod.outlook.com
- (2603:10b6:303:95::23)
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=VLAQDHWk
+Received: by mail-pg1-f226.google.com with SMTP id 41be03b00d2f7-cde5a7d79b0so2437356a12.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:13:38 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795551218; x=1796156018;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=t37btjtuYVqm7Wn4q7QKh/abPX/yviKnKeRqyTCpvJQ=;
+        b=WqXrj5eo3Laa0/hbPq8bJ9g25n54EzU2oEK0N+ruJG7fKmTT5gb5RaR693/w0thwEV
+         bl4TN56M4Bp91xyyFXg/RdDF3NINkR3WA9ARG79e/JOWM8BlCEMGVDGTo5hfNEHkpWZb
+         +hTNxWYn8EZ+o9ysXFix2P1vcmLCT+0XGFaR7uR2JTYYjQK1y+KVSWwp4Eft/ofd/6XT
+         GukOKWAhgzLP2NE9ZoDVAwsp1cJ/9/fBcW9XKC+4XuVvzoXYymeZyZqQ0XUVx/We8tkK
+         +v1V+qHqxtt2YRW9xLYoxs3dbuurexQEJIO2csa1ZXIElpStK5AsG7D8OXmgwIAMptUq
+         iLPg==
+X-Forwarded-Encrypted: i=1; AL+hErGPAZJqJjVQ4/ST/YIgMmclIy9Zy0tLu5E42WXY04SBDbJg95vWwW/cDeZh1jxqBNv69MQAoI57I18t55k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9MRNUumQNuRUgP2Tkhf0ofNLBJTL8XPTo3LTxqAmNZQ5PdgYt5
+	uyqRPyGLq8TaxeC01H6y9PXyoeGf2q+IRj6Ljcknv9arC9qWHr+eQvq/sn4oYnPoO3J1UKPOWAP
+	0GfKj/M45X5YVhVVizktGsdUC3IKWgZ1eLj4dyXSKVxk2n6ai5H5UzVcMWQIkJNZmpUeXABc/GK
+	rmEqkCTr2Wzz/QM69NKwcQdDBNP/jiAd1A06OkEmxjkfYRZVl0MX6uCE/eAz2S7uCjc1EcWomWo
+	A2atpg0k04fQlrxT0nmFUU=
+X-Gm-Gg: AZFdTZe9TLp2kNI4qIMs4fO4a/3iIZC7MyeOb3fYxZET8ZvrA/IunVjCgfGGAWpOz/d
+	VquIL4iWRkr/pomQxFJpsIJZKtyu+whN0cJ+lUpVfYkgUUrgvA4BFknFIxN1piVLffkT77hbFEy
+	6/5E2dWzKYXHvge807K8U39ds8ToZmcPh895hWTEya/lZRHt3Uy8VoqI+VoAUJedPucwapM30uq
+	kbWi6hh66VxNC86xCYtLjA41lTRso5mcSwWFQO5fEUVZQqGu+jSo/eG0xF7EzL+ooWtCVfmejAL
+	GjOyaah//ALF1dd7R26gS26R55z+Rg+BDPG4Ys9VOrAZeVXYOKMEAA23Gk7AKbmobxcKKXxtv6S
+	lsVwfxNWmY+iNzPi3S8LAuDzqD6br76pwHBNSMU8i+lVlOIj4KcKEn67/F2Lrv9C3gaxJmTYUTT
+	8LQ+vQMCqyg7jkpLihsdJNtoRF7ms5n/XgO0l3H2A=
+X-Received: by 2002:a17:90b:498c:b0:3ab:be66:ddbe with SMTP id 98e67ed59e1d1-3b41c902f3emr14035092a91.28.1795551217708;
+        Tue, 24 Nov 2026 12:13:37 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b411775fa6sm12262115a91.1.2026.11.24.12.13.37
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 24 Nov 2026 12:13:37 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-5363b06bcb2so96809521cf.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:13:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795551216; x=1796156016; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=t37btjtuYVqm7Wn4q7QKh/abPX/yviKnKeRqyTCpvJQ=;
+        b=VLAQDHWktpzfOfscQ8PtAkXHGaDDQnkVfk43xA7HG0TYZlp2IPLSMpN9YV4FSlMIay
+         ohrGl6c96Wj62wNdk9CAQ+wwgRJ0lAvs/Rly+LQ1nmBcdk+cq3xWNnaxtj7wanGiyqxG
+         SoADUj2NVTTSNDpy3aBPzCfjRznSPzvy75CS0=
+X-Forwarded-Encrypted: i=1; AL+hErGeN1PNw4NHxmvlmGZ3kWsrBuLPxN5fRFwyMCo4iUnXYCfAT+RMRjyW3Tade1UXDcESu5pxHW4nR/K9/dc=@vger.kernel.org
+X-Received: by 2002:ac8:59cd:0:b0:533:3bd5:b6e0 with SMTP id d75a77b69052e-55d76b1dc4fmr292105391cf.59.1795551216080;
+        Tue, 24 Nov 2026 12:13:36 -0800 (PST)
+X-Received: by 2002:ac8:59cd:0:b0:533:3bd5:b6e0 with SMTP id d75a77b69052e-55d76b1dc4fmr292104831cf.59.1795551215467;
+        Tue, 24 Nov 2026 12:13:35 -0800 (PST)
+Received: from bld-bun-02.bun.broadcom.net ([192.19.176.227])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55db5bc2f31sm7518711cf.20.2026.11.24.12.13.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 12:13:34 -0800 (PST)
+From: Arend van Spriel <arend.vanspriel@broadcom.com>
+To: Andre Eikmeyer <dev@deq.rocks>
+Cc: linux-wireless@vger.kernel.org,
+	brcm80211@lists.linux.dev,
+	brcm80211-dev-list.pdl@broadcom.com,
+	linux-kernel@vger.kernel.org,
+	Yossef Osman <Yossef.Osman@proton.me>,
+	Aditya Garg <aditya.garg@linux.dev>,
+	Arend van Spriel <arend.vanspriel@broadcom.com>
+Subject: Re: [PATCH wireless v2] wifi: brcmfmac: keep ARP and ND offload off on Apple BCM4355 and BCM4364
+Date: Tue, 24 Nov 2026 21:13:31 +0100
+Message-ID: <20261124201331.3492571-1-arend.vanspriel@broadcom.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261118123933.74517-1-dev@deq.rocks>
+References: <20261118123933.74517-1-dev@deq.rocks>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -148,258 +117,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PR11MB4787:EE_|CH0PR11MB5283:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6d1ef32e-091e-4700-af35-08df4a676a3d
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|366016|261009223027099003|22082099003|18002099003|56012099006|4143699003|11063799006|261028144727099003|261102123227099003|261026140227099003|261026121527099003|261022075727099003|261021135927099003|261021123027099003|261021121427099003|261022105027099003|10067099003;
-X-Microsoft-Antispam-Message-Info: vkjBGTMv9yE0ekiA8qWLnpclKpNWltMZK8JjmcLnMkoTRGD2yImsHdHqSvlD20ZPBnSsuk8T/qVMd6KcboZowEeeW+4sY0vzo70TD5xAmkP/OVgFe+e7xBI+Piyh8HvbUpaELR/tOEKT8W7tMBjpv8gnejgVX93mYbz3NPYkNxwYQbaclDhREDheN7MWbaphmcyUlKqbYic7dsKEs1XAbmx3OnNr1+SNUjiZxBnqw4OcTX0tCZ8k/NhSyaBgNIXDkNeQ8EBUixKC9gY735/TWd6O2YKrPaVToWcO8rGlz1GGOocczgJjYYT0wgOuZDx5zzgYHUQf3PXMus4DRdXveU8ons8p5vtxnJmzYHMBii2w70oe0/BRf4HWCOk+joAcM96yQ9Pnjj4EwPD1J8a1KcHIH143FaOHr+A7TD5qgo8EuOE77lxS7sxAlTeGHPDrpLIjUkP0EIobnZboS+HhELvOyfPy4TWhF4ZPdozV/3YGwrP8hpgy/+JUZ030rIQa6/1hiJPaVrkRBsluiNBWGCsBQrcRAoKtpWBFG3OUwY0KVwnis+INsC4vIYYisr1Ggf9823Pe990TTN9OO9MTzNFTc7tl26rjhVBPA0T5BW36DLdi6ZNXOuHX+9FMfruvosoATN41A0Y71oQSxgCD7RjQ+j7L76autroFZJMzDJs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB4787.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(366016)(261009223027099003)(22082099003)(18002099003)(56012099006)(4143699003)(11063799006)(261028144727099003)(261102123227099003)(261026140227099003)(261026121527099003)(261022075727099003)(261021135927099003)(261021123027099003)(261021121427099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?8y2YWxED+V7TqMspTVUPVVSeeL0VzFGEmRXN8ZI9/+1rw7OWj0syWLjzxk?=
- =?iso-8859-1?Q?o1nEnPg63uIu2s+8GSgiq99+k0P6395oINu7eP8X5DD2IJsoBmm/oRNcWX?=
- =?iso-8859-1?Q?fmKpSYqxfPxiXYlO5rmgm5DeOvzATsyd01GbXD7GcJ6QbuWYL4kFODMKYL?=
- =?iso-8859-1?Q?9dincksrwrKaqOxReZsXkz072PkAvrGRDXIgRQ841BatBqysI1Acm0MJ1p?=
- =?iso-8859-1?Q?MX3WyD3Kl4rFBDqsQGV94mnBTMFDxPc1aFoJa5JgMJremYZlv2zg3W3ZBN?=
- =?iso-8859-1?Q?5igpVYkud5zrqwk7KDM36jvDHYurWLjjG+8YCrUzTbf/Kiya5GC0H91H2k?=
- =?iso-8859-1?Q?scVnCLJ+oCI8NpERo0JN26cTmmBPkTUyuvU5t6r0oGojWmuvM9cuVMhwhm?=
- =?iso-8859-1?Q?YSNrTf3WR9o32x+qJfvUt+lOp+Uob4B8ksXdOMex/5nZW3heNLyUx4VxyM?=
- =?iso-8859-1?Q?BemzHtAm8KO40WG7fnqqDAWKRLbqj2BSJEIm3S3nCiHUPZoB+eXiqDwsLQ?=
- =?iso-8859-1?Q?2qDoI52dHrn8lMZLXc/Gg7L4kIX+eH9EhhM7X+VDUUS1EB1HBuOUYxDaPs?=
- =?iso-8859-1?Q?9UnDjBnGAQu/XM2bL3FRtTIE+q/AcILbtMkLXLzuY4JZeJvNrJGmeTaz7J?=
- =?iso-8859-1?Q?z7EuyNA7TPUQ/ZuJIhSewMEiCY4+86qdBYcUqhM25gu6nRmX0qYmI3m69u?=
- =?iso-8859-1?Q?wr/9qYPlfAXjD/RHweikjiYLxJqcKnRUcMctz7g0d1JikAh58UF4s8oEPm?=
- =?iso-8859-1?Q?nuqaztBTd3j9elygzWfEenSkSSHUzY2zvhuYZQUh9CD1BBafIUzkhWY3aO?=
- =?iso-8859-1?Q?qOPOuFNWNVMZZOJVoEssIMs3VBHS17GM703NxSlFPbQw/CtYLK5BxwUzHt?=
- =?iso-8859-1?Q?kIxboXO+ADEFCnGPXkU+DytG3nKabGRHhNAjesEmnDZ2iWGxngh3sZjrkW?=
- =?iso-8859-1?Q?kA45KZWfPbl+P5s5uG2M9iGFhdbr3mbmskhKnprpGPAKgZsZ8NcZjHTUZV?=
- =?iso-8859-1?Q?dy1L8utxpY6JjDxZUvZL4fNTXLsGPRqI2srme+o+m31JMxBhk8aIuuThbk?=
- =?iso-8859-1?Q?TFId/ePWui9NPXMi8oJnj4xVzzMkmcOf3SHk/MiIUhamqdZ+51fAR323im?=
- =?iso-8859-1?Q?S4SWqsiNsN1XcaFVGwf0BYnxKZc8lFgUZK0EBbuJiYYMbkUboZWYvj0zA1?=
- =?iso-8859-1?Q?YEEs05MuoqOgWZhOJHMAfqne1gSGgwpgnciYYxy5GfghOhCUVyUnnOK5Tu?=
- =?iso-8859-1?Q?mC+WWYQGPQI+t2spT48eYCS09c9BPY7CUMpBaohwjoo2aGwAkA2Or0f7w6?=
- =?iso-8859-1?Q?0V2r13ki5xHJ/uy4W/O74LsgScFlVvd3uCZQhyUTFa0DtxYbUU6DsFJ089?=
- =?iso-8859-1?Q?tADw98r+yqRggEf39x/+6vNG6NlF0BsHpWcMMu10Ol1RtSwluT/u3XUU9P?=
- =?iso-8859-1?Q?6ZI5E3lorRPnuPDT1aN6o3dg3xx7X6OjkNzsHQ3+9JYft0RuzPgIMIt8uS?=
- =?iso-8859-1?Q?oAUsk4xN9Z8jLoBQ0L8dIlYPG2Jw1K3pIGLQPyyQ1IUxIYsVWY7GAvC+SL?=
- =?iso-8859-1?Q?g7Bnh2ccHRkSdu7VXwbD3+PEm7DL/o8ZY1SeY3MSrRHAWHRR2kQeAi4+Ae?=
- =?iso-8859-1?Q?ChtprGKRgK7iiclestIPT1M+1IHb718BzKpJlGU2MKHGSOoE7ec9PyBRjd?=
- =?iso-8859-1?Q?PM3NIzP/lLQYn6NfeD84USkblydmZwL3ODv3t1Bp+BP9CnUXMZydJLwTzM?=
- =?iso-8859-1?Q?rzucoVkkTDWL2IoAzzVPHAz7JJYibVEYWB1KsZo5CO4yBj/aJMRM4wk67k?=
- =?iso-8859-1?Q?Un6Ym3bX2w=3D=3D?=
-X-Exchange-RoutingPolicyChecked: f26E7fw++m2zwoCIDMGn18gVCXrRvnCO5LWcFykFOf6Un9of8qgIOHVf91r2eYUjgG9Rzc+Qullqtgjd3Olbbl1f8c4buJxPfQX7d/cSv7qwPIMrwHivRmAE27+idGgedi74K2EGgq7pAgUH+0zslLI7g/jqmPkzBz5fSo1fFj6k9Zir9UQbmEIu/W5JlnRE9Un4PzIaPT9OErx20P2oLaEu3gsZLr+ejOquQroXF3mYZOazpACgx83EaXcOfjwnAOJmeG9LYVia28wyMn3LoqrR8d+dkjXEHNA+5TNCSJ1eX2tgCKQW8GBtQKDMf2RPzgEyaHyBbnMS/+KPI1Rk0g==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6d1ef32e-091e-4700-af35-08df4a676a3d
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB4787.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 20:13:33.6515
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XzLjSNf0rYjSeN93NGPEb+sO8NKcL0/XVLWf4E4D0//rp0kLy0brjMBOwv/sZfi+Gp1pH4NJ/3IF6fsf5+DBxA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR11MB5283
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-On Sun, Nov 08, 2026 at 05:10:30PM -0800, Niranjana Vishwanathapura wrote:
-> On Fri, Jul 10, 2026 at 07:56:07PM -0700, Matthew Brost wrote:
-> > Add observability for the page defragmentation worker.
-> > 
-> > Introduce four primary-GT statistics counters: defrag_added_count
-> > (BOs queued onto the defrag list after being backed at a sub-optimal
-> > page order), defrag_success_count (BOs fully re-backed at the beneficial
-> > order), defrag_partial_success_count (BOs only partially re-backed at the
-> > beneficial order) defrag_failed_count (attempts that failed and left the
-> > BO on its original backing) and defrag_mb_moved. The
-> > ineligible/already-removed fast path is intentionally not counted as
-> > either success or failure.
-> > 
-> > Cc: Carlos Santa <carlos.santa@intel.com>
-> > Cc: Ryan Neph <ryanneph@google.com>
-> > Cc: Christian Koenig <christian.koenig@amd.com>
-> > Cc: Huang Rui <ray.huang@amd.com>
-> > Cc: Matthew Auld <matthew.auld@intel.com>
-> > Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> > Cc: Maxime Ripard <mripard@kernel.org>
-> > Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> > Cc: David Airlie <airlied@gmail.com>
-> > Cc: Simona Vetter <simona@ffwll.ch>
-> > Cc: dri-devel@lists.freedesktop.org
-> > Cc: linux-kernel@vger.kernel.org
-> > Cc: Thomas Hellström <thomas.hellstrom@linux.intel.com>
-> > Assisted-by: GitHub_Copilot:claude-opus-4.8
-> > Signed-off-by: Matthew Brost <matthew.brost@intel.com>
-> > ---
-> > drivers/gpu/drm/xe/xe_bo.c             | 18 +++++++++++++++++-
-> > drivers/gpu/drm/xe/xe_gt_stats.c       |  5 +++++
-> > drivers/gpu/drm/xe/xe_gt_stats_types.h | 17 +++++++++++++++++
-> > 3 files changed, 39 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/gpu/drm/xe/xe_bo.c b/drivers/gpu/drm/xe/xe_bo.c
-> > index 907cfa57481f..073d926ef9ac 100644
-> > --- a/drivers/gpu/drm/xe/xe_bo.c
-> > +++ b/drivers/gpu/drm/xe/xe_bo.c
-> > @@ -26,6 +26,7 @@
-> > #include "xe_dma_buf.h"
-> > #include "xe_drm_client.h"
-> > #include "xe_ggtt.h"
-> > +#include "xe_gt_stats.h"
-> > #include "xe_map.h"
-> > #include "xe_migrate.h"
-> > #include "xe_pat.h"
-> > @@ -1160,6 +1161,8 @@ static void xe_bo_defrag_add(struct xe_bo *bo)
-> > 				xe->mem.defrag.interval_ms = XE_BO_DEFRAG_INTERVAL_MS;
-> > 			list_add_tail(&bo->defrag_link, &xe->mem.defrag.list);
-> > 			atomic_inc(&xe->mem.defrag.count);
-> > +			xe_gt_stats_incr(xe_root_mmio_gt(xe),
-> > +					 XE_GT_STATS_ID_DEFRAG_ADDED_COUNT, 1);
-> 
-> Assisted-by: LLM
-> 
+On Wed, 18 Nov 2026 13:39:33 +0100, Andre Eikmeyer <dev@deq.rocks> wrote:
+> brcmfmac enables the firmware's ARP and IPv6 ND offload (ndoe) whenever
+> the interface is up and not promiscuous. On the Apple firmware for the
+> BCM4355 and BCM4364, ndoe makes downloads collapse.
 
-Yes.
+[...]
 
-> I am not sure if ADDED_COUNT is much helpful here. But BOs added here can get silently
-> dropped. Also, a silently dropped BO can get re-added.
-> 
+> Fixes: 52f22fb21764 ("brcmfmac: add neighbor discovery offload ip address table configuration")
+> Cc: stable@vger.kernel.org
+> Closes: https://github.com/t2linux/kernel/issues/34
+> Closes: https://github.com/t2linux/T2-Debian-and-Ubuntu-Kernel/issues/227
+> Link: https://github.com/t2linux/linux-t2-patches/pull/85
+> Tested-by: Yossef Osman <Yossef.Osman@proton.me>
+> Tested-by: Aditya Garg <aditya.garg@linux.dev>
+> Co-developed-by: Aditya Garg <aditya.garg@linux.dev>
+> Signed-off-by: Aditya Garg <aditya.garg@linux.dev>
+> Signed-off-by: Andre Eikmeyer <dev@deq.rocks>
+> ---
+>  .../broadcom/brcm80211/brcmfmac/core.c        | 27 +++++++++++++++++++
+>  1 file changed, 27 insertions(+)
 
-That is in fact true and if you run the xe_defrag IGT this happens a
-lot. I personally find this one useful and so has the ALOS team.
+[...]
 
-> Perhaps a better count would be a 'defrag_pending byte guage'? Also, probably make it
-> not-resettable so that it gives the current state of fragmentation.
-> 
+> @@ -103,6 +120,16 @@ void brcmf_configure_arp_nd_offload(struct brcmf_if *ifp, bool enable)
+>  		return;
+>  	}
+>  
+> +	/* With ND offload on while awake, the Apple firmware for the BCM4355
+> +	 * and BCM4364 makes IPv6 downloads drop to low rates. macOS runs ARP
+> +	 * and ND offload only in sleep, keep both off on these chips.
+> +	 */
+> +	if (enable && brcmf_is_apple_nd_offload_broken(ifp->drvr)) {
+> +		brcmf_dbg(TRACE, "Skip ARP/ND offload enable on Apple BCM%x\n",
+> +			  ifp->drvr->bus_if->chip);
+> +		enable = false;
+> +	}
+> +
+>  	if (enable)
+>  		mode = BRCMF_ARP_OL_AGENT | BRCMF_ARP_OL_PEER_AUTO_REPLY;
+>  	else
 
-I think for something like that debugfs would be the better choice
-rather than GT stats - e.g., Take spin_lock walk the defrag list and
-which shows the current state. This is a different patch though but
-probably worth adding.
+The comment says IPv6 downloads drop, but according to the commit message
+and BlaÅ¾'s test report IPv4 downloads drop too on the BCM4355. Please
+reword the comment to match.
 
-> > 		}
-> > 	}
-> > 
-> > @@ -1274,8 +1277,21 @@ static int xe_bo_defrag_one(struct xe_device *xe, struct xe_bo *bo,
-> > 	xe_dbg(xe, "Defrag attempt on BO size=%zu: ret=%pe consumed=%llu\n",
-> > 	       xe_bo_size(bo), ERR_PTR(ret), *consumed);
-> > 
-> > -	if (!ret && ttm_tt_is_beneficial_order_failed(bo->ttm.ttm))
-> > +	if (!ret && ttm_tt_is_beneficial_order_failed(bo->ttm.ttm)) {
-> > 		*needs_more = true;
-> > +		xe_gt_stats_incr(xe_root_mmio_gt(xe),
-> > +				 XE_GT_STATS_ID_DEFRAG_PARTIAL_SUCCESS_COUNT,
-> > +				 1);
-> > +	} else {
-> > +		xe_gt_stats_incr(xe_root_mmio_gt(xe),
-> > +				 ret ? XE_GT_STATS_ID_DEFRAG_FAILED_COUNT :
-> > +				       XE_GT_STATS_ID_DEFRAG_SUCCESS_COUNT, 1);
-> > +	}
-> > +
-> > +	if (!ret)
-> > +		xe_gt_stats_incr(xe_root_mmio_gt(xe),
-> > +				 XE_GT_STATS_ID_DEFRAG_MB_MOVED,
-> > +				 *consumed >> 20);
-> 
-> This will truncate the size which can accumulate over multiple BOs and the size
-> here will be significantly off from real size that is moved.
-> 
+Acked-by: Arend van Spriel <arend.vanspriel@broadcom.com>
 
-I'm not following. Consumed is the number of newly pruned bytes, thus
-the total number of bytes copied on the migrate queue. A single BO can
-prune in anywhere from 2M to DRM_XE_BO_DEFRAG_SIZE_LIMIT per
-xe_bo_defrag_one call when !ret is true.
-
-I use these stats all the time and they seem accurate.
-
-> > 
-> > unlock:
-> > 	xe_bo_unlock(bo);
-> > diff --git a/drivers/gpu/drm/xe/xe_gt_stats.c b/drivers/gpu/drm/xe/xe_gt_stats.c
-> > index 789397514f3e..68e60d9500c8 100644
-> > --- a/drivers/gpu/drm/xe/xe_gt_stats.c
-> > +++ b/drivers/gpu/drm/xe/xe_gt_stats.c
-> > @@ -154,6 +154,11 @@ static const char *const stat_description[__XE_GT_STATS_NUM_IDS] = {
-> > 	DEF_STAT_STR(PRL_2M_ENTRY_COUNT, "prl_2m_entry_count"),
-> > 	DEF_STAT_STR(PRL_ISSUED_COUNT, "prl_issued_count"),
-> > 	DEF_STAT_STR(PRL_ABORTED_COUNT, "prl_aborted_count"),
-> > +	DEF_STAT_STR(DEFRAG_ADDED_COUNT, "defrag_added_count"),
-> > +	DEF_STAT_STR(DEFRAG_SUCCESS_COUNT, "defrag_success_count"),
-> > +	DEF_STAT_STR(DEFRAG_PARTIAL_SUCCESS_COUNT, "defrag_partial_success_count"),
-> > +	DEF_STAT_STR(DEFRAG_FAILED_COUNT, "defrag_failed_count"),
-> > +	DEF_STAT_STR(DEFRAG_MB_MOVED, "defrag_mb_moved"),
-> > };
-> > 
-> > /**
-> > diff --git a/drivers/gpu/drm/xe/xe_gt_stats_types.h b/drivers/gpu/drm/xe/xe_gt_stats_types.h
-> > index 425491bed6c4..c42b494390f8 100644
-> > --- a/drivers/gpu/drm/xe/xe_gt_stats_types.h
-> > +++ b/drivers/gpu/drm/xe/xe_gt_stats_types.h
-> > @@ -122,6 +122,18 @@
-> >  * @XE_GT_STATS_ID_PRL_ABORTED_COUNT: Times the page reclaim process was
-> >  *   aborted.
-> >  *
-> > + * @XE_GT_STATS_ID_DEFRAG_ADDED_COUNT: Times a buffer object was added to the
-> > + *   page defragmentation list after being backed at a sub-optimal page order.
-> > + * @XE_GT_STATS_ID_DEFRAG_SUCCESS_COUNT: Times the defrag worker successfully
-> > + *   re-backed a buffer object at the beneficial page order.
-> > + * @XE_GT_STATS_ID_DEFRAG_PARTIAL_SUCCESS_COUNT: Times the defrag worker
-> > + *   partially re-backed a buffer object at the beneficial page order.
-> > + * @XE_GT_STATS_ID_DEFRAG_FAILED_COUNT: Times the defrag worker failed to
-> > + *   re-back a buffer object at the beneficial page order.
-> > + * @XE_GT_STATS_ID_DEFRAG_MB_MOVED: Data (MiB) actually (re)allocated while
-> > + *   re-backing buffer objects at the beneficial page order. Chunks borrowed
-> > + *   from the old backing for free are not counted.
-> > + *
-> 
-> NIT...all GTs applied to root GT, which is fine, but probably update stats documentation?
-> 
-
-Yes, let me add that.
-
-> >  * @__XE_GT_STATS_NUM_IDS: Number of valid IDs; not a real counter.
-> >  *
-> >  * See Documentation/gpu/xe/xe_gt_stats.rst.
-> > @@ -181,6 +193,11 @@ enum xe_gt_stats_id {
-> > 	XE_GT_STATS_ID_PRL_2M_ENTRY_COUNT,
-> > 	XE_GT_STATS_ID_PRL_ISSUED_COUNT,
-> > 	XE_GT_STATS_ID_PRL_ABORTED_COUNT,
-> > +	XE_GT_STATS_ID_DEFRAG_ADDED_COUNT,
-> > +	XE_GT_STATS_ID_DEFRAG_SUCCESS_COUNT,
-> > +	XE_GT_STATS_ID_DEFRAG_PARTIAL_SUCCESS_COUNT,
-> > +	XE_GT_STATS_ID_DEFRAG_FAILED_COUNT,
-> > +	XE_GT_STATS_ID_DEFRAG_MB_MOVED,
-> 
-> NIT...Few other counts that might be helpful are,
-> - defrag failure reason (DEFRAG_FAILED_BUSY/ENOMEM)
-
-I practice ENOMEM is really the way it can fail (e.g., we ask the core
-for 2M page with aggresive reclaim flags and it fails). So not sure if
-this is really useful.
-
-> - time cost of defrag (DEFRAG_US)
-
-This is tricky one. What would DEFRAG_US measure here? The time to
-allocate memory (e.g., reclaim time), the time to prune in memory under
-dma-resv, or the copy job time?
-
-You can figure out all the above via ftrace and that how I profiled /
-tuned the implementation + how I believe the ALOS team if proving this
-works / tuning Kconfig options so we don't miss page flips on a defrag.
-
-> - 'removed_without_defrag' so that 'MB_MOVED + removed_without_defrag + defrag_pending'
->   is the total suboptimal size added to defrag list.
-
-Removed without a defrag is probably useful and perhaps a total of
-suboptimal bytes added could be helpful too. Let me add those.
-
-Matt
-
-> 
-> Niranjana
-> 
-> > 	/* must be the last entry */
-> > 	__XE_GT_STATS_NUM_IDS,
-> > };
-> > -- 
-> > 2.34.1
-> > 
+Regards,
+Arend
