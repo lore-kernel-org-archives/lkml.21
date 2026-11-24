@@ -1,77 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795487832;
-	b=luZ7qppUMjVDlIMCY6weIDuPIgyL4+YLaq41o/sdvlz4RQuGxPlDDTOaozElh8H6Vtvk
-	 Wi7DFDR5fZHocOfZeGGJMIs3J0kOJY6Wb9NeBy5ame/IGMjWgTOqCWrMvmIhhknSmO7UO
-	 gG5kINmuLLfL2rFpboxstlcB1AmO+kiTTo/XskMEHoSkJxDOAWrpJcjePnu5HSrbmZfKg
-	 yEdx8z6Bl1JGvPXldrg7NhpGHdS69Mo961LtbmFgAtoeDZWPPVkgH6fx+QCafy8gAuWvL
-	 2s7qPWN0Oq/ND2s0gNLusYunyqX7QOv1/9AdgBIFEC7OAx71AjvldNKZUydiO+f53Bw==
+	t=1795487852;
+	b=AgS0h4qhNsKl6sCndPCTOC/amdFZVmsBWAODFrOlu55AoC4PKqkex4j2p1XnDI/QjBha
+	 wW8bixOY1mrRvsLyKGxL/EBt8LLWApHKYeWJqI6liE9vXhZvAo3liS591U+M664iOPgJC
+	 7a2enRnr9bCs1vrgcWYNhW1Ycmp3sHWBBimOEfRAZCA411AwtyTYrcxco1EsCUETCr570
+	 E9uHmkIjDtnP7foJITlv2dcZMGgES6NMzOf6eXQUwblFA3fbAYVIBrHek6m5rfG2wLPLb
+	 rjpeBaoHix4RXJr6ITKVnXjgDbZC3EmXeofoZGcWlHfkuHWA3+bL/6nJlN6CcnoSGug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795487832;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	bh=Gn1iKGRhqTBlJ2TLF/wXgHueVqFg63taAlkjw91Ipws=;
-	b=s/eumtEnZG2tRgi899w2q9RSHGb3ZU29w+bnsutsVxOSXv34xNNrR16aFpzEZOscauAY
-	 2crpBQVQ/VfZyNhLbiDdIwTxHOa4ljW9szonW48OJafe8Sfn+lbMSdyJnmlTsMBKCrsu0
-	 5YvZWishn1VRpbaDyJHKUGdzxlH68T+Mt0H2VS3+89evR1/+nVLYvwwdARj/ZDqL824rs
-	 Agsm+EqjqmDlGNYOBmitsVrs8Gq5FGBDpz366uVYBeiIcq/abY0nHtI48QscBcCLpmfZn
-	 fW2bPm38LqgYUuVRfYXLL/4aUB0JudupzTWgmEyf7bV/QLeRCov0Hi81Ao0rGds7Ytg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795487852;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=9aaMJwAetaq46EUyI+XQENYtiynOb1k9BZrDSha3iyo=;
+	b=0xdvFvcSI6Ol2492J5m3Bjcc9Do5UdehBXNbnSop2Eon7VrBRxtdlxsIsocNSmT+LIvW
+	 f+5swCnFGSrH/lyYWqgjtOc8vQuxqpdJ+C7Ux1R2JIDXCzL3s4aluU7ovuXMhqku55glJ
+	 s2ue/vGrboZ+u3LZNDlIdGlqZqtNoS0glwUiz+tSVqYVhyE9oW7V4Qy4bLVTS3UI8MHZN
+	 eXbIkBPTK1vvsaNRnrNwWbPYMIqo4LqKENbZtbQOIfYxysEGATr1xi7wueUUJbeX/2QBr
+	 iItWzIvgVIgBJBQ1XkqhXYvZu7R0HutU8VL8leVdf+uGj6wd0i+yzhE0qBwdj3xyTmQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=GfWtOEb+;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PuCm+535;
+	arc=none smtp.remote-ip=198.175.65.14
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADD6E606A6B3;
-	Tue, 24 Nov 2026 02:37:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ADD6E606A6B3
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 120A5606A32E;
+	Tue, 24 Nov 2026 02:37:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 120A5606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=GfWtOEb+
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AO2ZwH522160542, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795487758; bh=Gn1iKGRhqTBlJ2TLF/wXgHueVqFg63taAlkjw91Ipws=;
-	h=From:To:CC:Subject:Date:Message-ID:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type;
-	b=GfWtOEb+1jLIK66ieIAhsGAtwicq+/EoU0WBEYiYN+jkhQVyEFt8p4pCJqFXyZYVE
-	 5Am71dA2ttb3rwwiCG2nbE0yNSLXXrrvU8xk/5x5IqgU0Nchj9SGkKeWQUEGpdewrb
-	 e4xrONwokEwYCIFTmqJYkPdL6953lfZCgP0lqx5ZkNluSFSZHbOEI4bq5LCnmibhiA
-	 t3JV22XQ4EZR5BQLG04wiCNZ8t5xV5+JaBAZkS9/bKtQ/GTBAx66slx8Eukd1rUKAd
-	 A1HeOIEShXz0PZhqEEpTyZqIu8IvoyJSSzzwm6jO4kiBMakZpvBsbdt3dDDhsKo8FW
-	 vTxUr+WS0/CAA==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AO2ZwH522160542
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 24 Nov 2026 10:35:58 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 24 Nov 2026 10:35:58 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 24 Nov 2026 10:35:58 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
- (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.56 via Frontend
- Transport; Tue, 24 Nov 2026 10:35:58 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <sboyd@kernel.org>, <bmasney+clk@redhat.com>, <jbrunet+clk@baylibre.com>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>
-CC: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
-	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
-	<eleanor.lin@realtek.com>
-Subject: [PATCH v17 0/9] clk: realtek: Add RTD1625 clock support
-Date: Tue, 24 Nov 2026 10:35:48 +0800
-Message-ID: <20261124023558.4088635-1-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PuCm+535
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795487853; x=1827023853;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=TSZzxm9AhzGQXVzzdZ8sPb2fgY5Sb9l8OdPTSCZyscU=;
+  b=PuCm+535LXpgsOLhfUsPLufVqAKnUS9melj7joL+GRJbT9bJbs5bj1EA
+   BJrLeDKP0QjgFj17weip3B1JTuO6/BCJp8G/mvOAgMXwlhV+dbHmpXwC9
+   P4FfHrgvTQpJAkFiaAgsuzCVjVxU9dsynWD5fgbw/hAhdPhtzjtvBFHOh
+   464FPr/w4p4gRYOlzfEBe9iidUpfdzDmte8aqGYHm5+k6XE88dH1eGfLk
+   5k/whw7TsuLx/AgGhU2e2lNNuzDZacpLWhTYNAs86Dykokh619eQakBGZ
+   yRYAkH2rwA7d/O0rB6Ze+h3fFeQXKFfIXmFYtxet2ORe7d9dPrHmaOgNK
+   Q==;
+X-CSE-ConnectionGUID: HxDXShFuSkid/WF6yhUsMA==
+X-CSE-MsgGUID: +APJomvpR4Ob3EqpYkewsg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4205146"
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="4205146"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 18:37:32 -0800
+X-CSE-ConnectionGUID: 1S6kDrGQQZeK7IapvQ1q1w==
+X-CSE-MsgGUID: +FisAPidR9u832zlRFgwhg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="11764117"
+Received: from linux.intel.com ([10.54.29.200])
+  by orviesa009.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 18:37:32 -0800
+Received: from [10.107.17.224] (unknown [10.107.17.224])
+	by linux.intel.com (Postfix) with ESMTP id CD81720B8CD1;
+	Mon, 23 Nov 2026 18:37:28 -0800 (PST)
+Message-ID: <bb5c5880-5a8f-4991-8dcd-91ffa3fa2271@linux.intel.com>
+Date: Tue, 24 Nov 2026 10:37:27 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,144 +76,134 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 1/1] af_packet: Fix wrong timestamps in tcpdump
+To: Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+ Tony Nguyen <anthony.l.nguyen@intel.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, Song Yoong Siang <yoong.siang.song@intel.com>,
+ Looi Hong Aun <hong.aun.looi@intel.com>, KhaiWenTan <khai.wen.tan@intel.com>
+References: <20261111053728.2611070-1-khai.wen.tan@linux.intel.com>
+ <willemdebruijn.kernel.2721e06a6436@gmail.com>
+Content-Language: en-US
+From: KhaiWenTan <khai.wen.tan@linux.intel.com>
+In-Reply-To: <willemdebruijn.kernel.2721e06a6436@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Hello,
+On 11/13/2026 6:01 AM, Willem de Bruijn wrote:
+> KhaiWenTan wrote:
+>> From: Vinicius Costa Gomes <vinicius.gomes@intel.com>
+>>
+>> Since commit 97dc7cd92ac6 ("ptp: Support late timestamp determination"),
+>> timestamps may need to be retrieved with input from the driver
+>> .ndo_get_tstamp(). Support was missing from mmap'ed AF_PACKET sockets.
+>>
+>> The problem was noticed using the igc driver, that since commit
+>> 069b142f5819 ("igc: Add support for PTP .getcyclesx64()") has migrated to
+>> use .ndo_get_tstamp() that timestamps were wrong on the receiving side,
+>> when using tcpdump.
+>>
+>> Fixes: 069b142f5819 ("igc: Add support for PTP .getcyclesx64()")a
+> 
+> Fixes: 97dc7cd92ac6 ("ptp: Support late timestamp determination")
+> 
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
+>> Signed-off-by: KhaiWenTan <khai.wen.tan@linux.intel.com>
+>> ---
+>>   net/packet/af_packet.c | 29 ++++++++++++++++++++---------
+>>   1 file changed, 20 insertions(+), 9 deletions(-)
+>>
+>> diff --git a/net/packet/af_packet.c b/net/packet/af_packet.c
+>> index cf6429f09477..7197236c8a3b 100644
+>> --- a/net/packet/af_packet.c
+>> +++ b/net/packet/af_packet.c
+>> @@ -456,15 +456,20 @@ static int __packet_get_status(const struct packet_sock *po, void *frame)
+>>   	}
+>>   }
+>>   
+>> -static __u32 tpacket_get_timestamp(struct sk_buff *skb, struct timespec64 *ts,
+>> -				   unsigned int flags)
+>> +static __u32 tpacket_get_timestamp(struct net_device *dev, struct sk_buff *skb,
+>> +				   struct timespec64 *ts, unsigned int flags,
+>> +				   unsigned int sk_tsflags)
+>>   {
+>>   	struct skb_shared_hwtstamps *shhwtstamps = skb_hwtstamps(skb);
+>>   
+>> -	if (shhwtstamps &&
+>> -	    (flags & SOF_TIMESTAMPING_RAW_HARDWARE) &&
+>> -	    ktime_to_timespec64_cond(shhwtstamps->hwtstamp, ts))
+>> -		return TP_STATUS_TS_RAW_HARDWARE;
+>> +	bool cycles = sk_tsflags & SOF_TIMESTAMPING_BIND_PHC;
+> 
+> nit: whitespace line between variable declarations
+> 
+>> +
+>> +	if (shhwtstamps && shhwtstamps->hwtstamp &&
+>> +	    (flags & SOF_TIMESTAMPING_RAW_HARDWARE)) {
+>> +		ktime_t tstamp = netdev_get_tstamp(dev, shhwtstamps, cycles);
+> 
+> Does this call need to be conditional on SKBTX_HW_TSTAMP_NETDEV, to
+> interpret the union as netdev_data?
+> 
+> like get_timestamp, resolve the orig_dev.
+> 
+>> +
+>> +		return ktime_to_timespec64_cond(tstamp, ts) ? TP_STATUS_TS_RAW_HARDWARE : 0;
+>> +	}
+>>   
+>>   	if ((flags & SOF_TIMESTAMPING_SOFTWARE) &&
+>>   	    ktime_to_timespec64_cond(skb_tstamp(skb), ts))
+>> @@ -476,11 +481,16 @@ static __u32 tpacket_get_timestamp(struct sk_buff *skb, struct timespec64 *ts,
+>>   static __u32 __packet_set_timestamp(struct packet_sock *po, void *frame,
+>>   				    struct sk_buff *skb)
+>>   {
+>> +	struct net_device *dev = skb->dev;
+> 
+> validate skb->dev != NULL
+> 
+>> +	unsigned int sk_tsflags;
+>>   	union tpacket_uhdr h;
+>>   	struct timespec64 ts;
+>>   	__u32 ts_status;
+>>   
+>> -	if (!(ts_status = tpacket_get_timestamp(skb, &ts, READ_ONCE(po->tp_tstamp))))
+>> +	sk_tsflags = READ_ONCE(po->sk.sk_tsflags);
+>> +	ts_status = tpacket_get_timestamp(dev, skb, &ts, READ_ONCE(po->tp_tstamp), sk_tsflags);
+>> +
+>> +	if (!(ts_status))
+>>   		return 0;
+>>   
+>>   	h.raw = frame;
+>> @@ -2424,9 +2434,10 @@ static int tpacket_rcv(struct sk_buff *skb, struct net_device *dev,
+>>   	/* Always timestamp; prefer an existing software timestamp taken
+>>   	 * closer to the time of capture.
+>>   	 */
+>> -	ts_status = tpacket_get_timestamp(skb, &ts,
+>> +	ts_status = tpacket_get_timestamp(dev, skb, &ts,
+>>   					  READ_ONCE(po->tp_tstamp) |
+>> -					  SOF_TIMESTAMPING_SOFTWARE);
+>> +					  SOF_TIMESTAMPING_SOFTWARE,
+>> +					  READ_ONCE(sk->sk_tsflags));
+>>   	if (!ts_status)
+>>   		ktime_get_real_ts64(&ts);
+>>   
+>> -- 
+>> 2.34.1
+>>
+> 
+Hi Willem,
 
-This patch series adds the clock controller support for Realtek's
-RTD1625 SoC platform.
+We have gotten approval from Kohei to include his patch into our current 
+patch. Will be updating a v2 for both patches based on your comments.
 
-Because the reset controllers share the same register space with the
-clock controllers on this platform, we utilize the Auxiliary Bus framework
-to decouple them. The clock controllers act as the primary devices,
-registering the reset controllers as auxiliary devices.
+Thank you.
 
-The series includes:
-1. Device Tree Bindings:
-   - Add bindings for the Realtek RTD1625 Clock & Reset Controllers.
-
-2. Clock Subsystem Infrastructure:
-   - Introduce a common probe, and add support for basic clocks including
-     PLLs, gate clocks, mux clocks, and MMC-tuned PLLs.
-
-3. Clock Platform Drivers:
-   - Add the clock controller drivers for RTD1625-CRT and RTD1625-ISO.
-   - These drivers provide the clock sources and instantiate the
-     corresponding auxiliary reset devices.
-
-Best regards,
-Yu-Chun Lin
----
-Changes in v17:
-
-Patch 1 (dt-binding):
-- Move the 'clocks' and 'clock-names' item descriptions to the top level, and
-keep only the item counts in the if/else branches.
-
-Patch 2:
-- Make the "Realtek Clock Common" Kconfig symbol a bare tristate and drop its
-prompt and help text.
-- Change the type of aux_name from 'char *' to 'const char *'.
-
-Patch 3 (PLL):
-- Move the power-on sequence from '.enable()' to '.prepare()', and use
-'regmap_read_poll_timeout()' instead of the atomic variant: 'wait_freq_ready()'
-can take up to 500 us, which is too long to busy-wait in atomic context.
-- Drop the spinlock now that '.prepare()', '.unprepare()' and '.set_rate()'
-are all serialized by 'prepare_lock'.
-- Turn 'ftbl_find_closest_by_rate()' into a macro so that tables other than
-'struct rtk_freq_table' can use it.
-
-Patch 4 (GATE):
-- Return 0 instead of the error code from '.is_enabled()'.
-
-Patch 6 (MMC PLL):
-- Reuse the 'ftbl_find_closest_by_rate()' macro and drop the local duplicate.
-- Make 'rate_tbl' optional and add a built-in default table, which also covers
-the SPI-NAND operating point at 99,999,206 Hz.
-- Add an 'ssc' flag to 'struct rtk_clk_pll_mmc_rate', so that the SSC analog
-registers are left untouched in SPI-NAND mode.
-- Replace 'shift' with 'phsel_mask' in 'struct rtk_clk_pll_mmc_phase', and use
-'field_prep()'/'field_get()'.
-- '.recalc_rate()' always computes the rate from the dividers instead of
-reverse-matching the rate table.
-
-Patch 7 (CRT):
-Add '.suppress_bind_attrs = true'
-
-v16: https://lore.kernel.org/lkml/20261112052544.555563-1-eleanor.lin@realtek.com/
-v15: https://lore.kernel.org/lkml/20261002074331.3066919-1-eleanor.lin@realtek.com/
-v14: https://lore.kernel.org/lkml/20260901072446.2563145-1-eleanor.lin@realtek.com/
-v13: https://lore.kernel.org/lkml/20260812020009.3480538-1-eleanor.lin@realtek.com/
-v12: https://lore.kernel.org/lkml/20260804163807.1285869-1-eleanor.lin@realtek.com/
-v11: https://lore.kernel.org/lkml/20260728142806.1954638-1-eleanor.lin@realtek.com/
-v10: https://lore.kernel.org/lkml/20260713155630.3054636-1-eleanor.lin@realtek.com/
-v9: https://lore.kernel.org/lkml/20260624112940.3475605-1-eleanor.lin@realtek.com/
-v8: https://lore.kernel.org/lkml/20260610080824.255063-1-eleanor.lin@realtek.com/
-v7: https://lore.kernel.org/lkml/20260508111641.3192177-1-eleanor.lin@realtek.com/
-v6: https://lore.kernel.org/lkml/20260402073957.2742459-1-eleanor.lin@realtek.com/
-v5: https://lore.kernel.org/lkml/20260324025332.3416977-1-eleanor.lin@realtek.com/
-v4: https://lore.kernel.org/lkml/20260313081100.596224-1-eleanor.lin@realtek.com/
-v3: https://lore.kernel.org/lkml/20260122110857.12995-1-eleanor.lin@realtek.com/
-v2: https://lore.kernel.org/lkml/20260113112333.821-1-eleanor.lin@realtek.com/
-v1: https://lore.kernel.org/lkml/20251229075313.27254-1-eleanor.lin@realtek.com/
-
-Cheng-Yu Lee (7):
-  clk: realtek: Introduce common probe()
-  clk: realtek: Add support for phase locked loops (PLLs)
-  clk: realtek: Add support for gate clock
-  clk: realtek: Add support for mux clock
-  clk: realtek: Add support for MMC-tuned PLL clocks
-  clk: realtek: Add RTD1625-CRT clock controller driver
-  clk: realtek: Add RTD1625-ISO clock controller driver
-
-Yu-Chun Lin (2):
-  dt-bindings: clock: Add Realtek RTD1625 Clock & Reset Controller
-  arm64: dts: realtek: Add clock support for RTD1625
-
- .../bindings/clock/realtek,rtd1625-clk.yaml   |  93 ++
- MAINTAINERS                                   |   7 +
- arch/arm64/boot/dts/realtek/kent.dtsi         |  41 +
- drivers/clk/Kconfig                           |   1 +
- drivers/clk/Makefile                          |   1 +
- drivers/clk/realtek/Kconfig                   |  39 +
- drivers/clk/realtek/Makefile                  |  12 +
- drivers/clk/realtek/clk-regmap-gate.c         |  59 ++
- drivers/clk/realtek/clk-regmap-gate.h         |  54 ++
- drivers/clk/realtek/clk-regmap-mux.c          |  40 +
- drivers/clk/realtek/clk-regmap-mux.h          |  42 +
- drivers/clk/realtek/clk-regmap-pll-mmc.c      | 443 +++++++++
- drivers/clk/realtek/clk-regmap-pll-mmc.h      |  69 ++
- drivers/clk/realtek/clk-regmap-pll.c          | 177 ++++
- drivers/clk/realtek/clk-regmap-pll.h          |  44 +
- drivers/clk/realtek/clk-rtd1625-crt.c         | 859 ++++++++++++++++++
- drivers/clk/realtek/clk-rtd1625-iso.c         | 140 +++
- drivers/clk/realtek/clk-rtk-common.c          |  84 ++
- drivers/clk/realtek/clk-rtk-common.h          |  37 +
- drivers/clk/realtek/freq_table.c              |  39 +
- drivers/clk/realtek/freq_table.h              |  45 +
- .../dt-bindings/clock/realtek,rtd1625-clk.h   | 166 ++++
- 22 files changed, 2492 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml
- create mode 100644 drivers/clk/realtek/Kconfig
- create mode 100644 drivers/clk/realtek/Makefile
- create mode 100644 drivers/clk/realtek/clk-regmap-gate.c
- create mode 100644 drivers/clk/realtek/clk-regmap-gate.h
- create mode 100644 drivers/clk/realtek/clk-regmap-mux.c
- create mode 100644 drivers/clk/realtek/clk-regmap-mux.h
- create mode 100644 drivers/clk/realtek/clk-regmap-pll-mmc.c
- create mode 100644 drivers/clk/realtek/clk-regmap-pll-mmc.h
- create mode 100644 drivers/clk/realtek/clk-regmap-pll.c
- create mode 100644 drivers/clk/realtek/clk-regmap-pll.h
- create mode 100644 drivers/clk/realtek/clk-rtd1625-crt.c
- create mode 100644 drivers/clk/realtek/clk-rtd1625-iso.c
- create mode 100644 drivers/clk/realtek/clk-rtk-common.c
- create mode 100644 drivers/clk/realtek/clk-rtk-common.h
- create mode 100644 drivers/clk/realtek/freq_table.c
- create mode 100644 drivers/clk/realtek/freq_table.h
- create mode 100644 include/dt-bindings/clock/realtek,rtd1625-clk.h
-
--- 
-2.43.0
-
+Best Regards,
+KhaiWen
