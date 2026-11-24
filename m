@@ -1,71 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795542522;
-	b=tfwRNfiZ2mYuSpavG9tGu7QF9ZiZIeWfneQvaQOgOz3xgiKKK0VrvgOrdkflmqvquuVe
-	 e2Pk28ClBlOSyPoJUL1Kbc+1im9dZi9UTUO4bl5zMGTTg99+LZbnp2xK7ovKOqv2bwkIi
-	 665A15Cxt2cq22HVCbw1hfbdKybmOOjS1cRb2Ki4rG2Bb6kUA3zs1jj6K5nKXSgiOFtxH
-	 ammPhwG+hWYf0QVR8C8q29tvnXxDmGQEpDsdHYwga0IykhjR4PwxIVL7kGdpD50nJ/+IA
-	 Uz8Pe9hSIB5+UIZnnyvyKg/5QZh/dpDcAqr8MgsP/y8fhHvor16BCcCzmBqFhwjkXJQ==
+	t=1795542550;
+	b=Ze26Icl/75cpmdBAVNXrvB9szsy9qN7kdPTCierYgVGLAJySb5pS0DEoRNbc/wVunMnR
+	 UEoFGdalw15lI6inDk8fcscz2/b0IqsckR8it+6qB/1ACumlXbBw0/oyPRBclveC019w5
+	 XtmGtKOnDBXWT/JfV7BKD2j5Kb07j+KynfrG24OSFm12BoZpJIdWrtqfFLwoq+XPmxFHP
+	 i6o4FxxAR5a3RnmA8UZS7JfZSKxi+1wl6P46Q17c/+jBI+NENcWZ1tXrYBJQT7t27qtYH
+	 RSgrWivTQzl53X/AqRlGaBR7oyCF8PKOwNxOmJLp/pBZ8koeRSnlBvKphVMcbOpGyCQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795542522;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=iAxXNBw21OAhqAVbpLzIkcF+I6WgYNRYnju4tgLuhNo=;
-	b=ogoV68Y6/UurZKUIZAO50ODyOnlNdqcGJ/sb0dzlD15bv/D5mltA3WRzWEfZqHs+BoUi
-	 ux8TnBKmiqKi7pZH9vDxnYrja8B2zAbaW25ZjRLHnUtTXCQKJNH43TzQzMHwWqx8dMdnS
-	 0WTfE1vlL9LO3SwAcMhP2Kxl5O4LGacUT5JuyGoN+kc0/nDZqVaqjPdPucWHZ8YMDlGyB
-	 B5bOYm+S3whXgyJVc3A4KnakKWgxsTogK24ZOmUA6uAWN6jBwrP6u2M6k3GMqlxGmaben
-	 5khyg+C30sHLY6QKvQVh+OvY0v/gutIyGwijdjkwQ5dntWqzYVPMTI0HypJ3bjv4B9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795542550;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:
+	 Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=POpfJK4+Ds84ziNJmqrh8bTeJhFMlY0kf77NTrQGQPw=;
+	b=A8LshbkYhbr1uuiGMK/wDbEGbuTcJNdPfnhYhwlrcmFH2ewN+HLhfzStmZm6oi0OsIuf
+	 dDn94zxArAzOwYzsqAKAZd4LNvLfTFjAiTWYOxtSE4qZmLAILifzlASjPNwBUciIT2/0z
+	 HXlXcQYYo/zdNcMOWnlrIgmu0NB8gLaHtK2QeDjEPdJCjyUwyEC34qKJNVyE0iCLlGsp1
+	 yU8mlOlkYyp23tPMHO8evIcSH+JSBJdivMvNJX46JxD9yQVkE3/Ni80p2mgxYCL6N3GK+
+	 fsZXH6L5HacpQcXeehKvYdN0wXruIV5xQWvnE1iQg2mapCdfG3V2nbXLcxtmSVmTA7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=o9oSUpqr;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="378Q0/Lt";
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Fvprcw4n;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BH4nMRM6;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21D6B606A31E;
-	Tue, 24 Nov 2026 17:48:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21D6B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAE99606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:49:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DAE99606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=o9oSUpqr;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=378Q0/Lt
-Date: Tue, 24 Nov 2026 18:48:37 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795542519;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iAxXNBw21OAhqAVbpLzIkcF+I6WgYNRYnju4tgLuhNo=;
-	b=o9oSUpqr51DMerEkCYl2Zk2l2Yc1flM2MDtCTpSw3Fp3rz6kv9jCmEQF/Xh36oYu9ipRJa
-	xnY4510j0DppTsblJJYCGpHsEWNSIl5QOriw6dUmjNmKi6hzDY+bDT0Tjnj7s2EE6O/fUC
-	NRcydLhv89OUUus/gL1Dn3Z3cs4im9+ODQNggFVfLLxQ3rePiIHM5d4XS5twp4e2PBaF6T
-	aRw3GUTuTVF9o0cByks8lQeo0UFuQDZEJz1L3P+EwtzuPi6eeng76L+IuSFXmOmgRWbSk2
-	UUxpGbb/D4p1v74nmozvZzCCrDTbQaHC1QTB00ELu9azBAYaEmWaAhuJ+DWulg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795542519;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iAxXNBw21OAhqAVbpLzIkcF+I6WgYNRYnju4tgLuhNo=;
-	b=378Q0/LtFoKLUUPTs/BLM0vx6CsDeF1MrAPHTV3ZaSQ7qkB4ECH4qbg9fkhUIkcF8mhdvO
-	nhcGsdqsXtub47DA==
-From: "Ahmed S. Darwish" <darwi@linutronix.de>
-To: Zixin Wang <w1355457260@gmail.com>
-Cc: linux-doc@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	bigeasy@linutronix.de, frederic@kernel.org,
-	john.ogness@linutronix.de, clrkwllms@kernel.org,
-	rostedt@goodmis.org, corbet@lwn.net, wagi@monom.org,
-	atomlin@atomlin.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5] Documentation: real-time: Add boot parameters and
- task isolation section
-Message-ID: <awXN9RY3x5xEGFe4@lx-t490>
-References: <20261124163202.56921-1-w1355457260@gmail.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Fvprcw4n;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BH4nMRM6
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOFLKqY3267099
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:49:08 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=POpfJK4+Ds84ziNJmqrh8b
+	TeJhFMlY0kf77NTrQGQPw=; b=Fvprcw4n8FQXr2lkkwPwPPlEj8n5X4VXDSzsI5
+	4tgC4G+Twv90AGGvKQXKrFij/xE8PgYUx2Dmw59cYyFDhzbzQNWYFn40LqIymgEZ
+	Kw7urCICJ+PQ1Ed4QxT2s1WrOzDeuyg+QkPEvHBE0A4XiZXOMCpU00Ef5Q59ucog
+	ZLJwupxW6V0Yi8aD/q9OEjxGPmgl7J5co28LneALbG2HkXVH7m1Pr/9PNTrSAxZx
+	iWzdHDjnZJN22flQlWKfuAjywR7caLwaFV1PHpoNmS8EzNCoc/Dw40gP9lmF8LWa
+	gmAnjxYe5iSe9FQyflh8KLR9hPX+J2H7vL4kCKdRp8DYOjfQ==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5ad7sk53-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:49:08 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93f6f4fe531so749129485a.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:49:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795542548; x=1796147348; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=POpfJK4+Ds84ziNJmqrh8bTeJhFMlY0kf77NTrQGQPw=;
+        b=BH4nMRM6/1ghNQB9BrnDibJGeDeQaIf4xp7c7TxaLID7gX2hc16Fg76vBbGU2o0m1d
+         /EpeliAIJcOOIbAlfQycWYoqRhY5gtGhbOYngBQi/a04DK7taXk9zg9Dp0df9YQcT9Af
+         pV8rtWKiTYEOl33i6j2q3C2f2DSSie2yesYWYNJ3ZhRNyF9/+VK7V2/DpO/9sg0v+wJ5
+         NUYBogXN4+oDskMGUeeGK6d5ZrxCXIEiNxSzOf/yHEZ9dHujvM+AKIFGgQ/zTTSOON1F
+         HQtms95jPaPV0WD/vEkECziMbOphBW0Vp1gSZ1eJHysnd+5+FlZf61OsaRp33dfrOyig
+         eahA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795542548; x=1796147348;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=POpfJK4+Ds84ziNJmqrh8bTeJhFMlY0kf77NTrQGQPw=;
+        b=ATULvNEmcZ69I/zCC5H3iRRwt/UiM6wa/GDeBM81hoq/AZzME03i4sTUtc4pRBfzNm
+         Xh0pwAivnbUOL+0Sgf7FiIOAwS3W1YreCxhhpmxefGMVRwGdnCA1DA5vrpdzMbpuzYvN
+         oapz4vx72avT8mPrke12DbKbz6TQfPt6Gc8fX961sLsZLKHIbLXlJhIeIkAVbM4IyMd7
+         kl+Y2JInUk/22nbH3koVpaRWXWAZgeEtdUYMNBk+wkUChKLZcpNIvmCIFe/HnjrukuAf
+         QBPymrbLnOiKyCxQJ49eiMT39xUHr4U67V8wTCa2hW4HblVxyqqyapy8ex8RBpav3ZOM
+         TDHw==
+X-Forwarded-Encrypted: i=1; AL+hErFa5GfbcgfobUy8opENjW8cgGu8Ovaq7J/ktEx2qTPeG2Q1xa9d09yA7Jxrb/Q+MGg365TIzabCqKbvXlQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/zvJpgSfJtMDDzM/6BPbGaawe9hsIX2+5pWhrR/Wi1wmp0RWdj
+	OYm+fVUiXqG1rfvdj37uthqcPzCvX8aP1yV55702eLGrc7WYlExiXorX1g/NDX9fj/5gUDedPT3
+	0nlwDPhJdx39lck1W0+5fyCnAg7X1DB6swGuD38A8U+kIK9B3rIIhZ58DHlWObE3mCSt98dqdNT
+	c=
+X-Gm-Gg: AZFdTZeDq9HOXoGLKNORaBvLwSU+hw8RpzI1x1nth+Vf6luU6knvRgEsfpZ1xGvK0Ny
+	50qCDTykeR25o+vaBbXC/6Tp3Ug8q6HjC3UQW4Ot44o0L+T7nAjsxCh33PssxxLcCKvA7JtZEe9
+	0HotFCK+gu6cL3JaviYGCYoQ+xOUUbaIm1ERhaBiWBYuvs6NWXnI5qyIS9Znga3rD+bHIjV1lOe
+	sOucvavx5Ozu+cxGxlhFnMtSipn0AYyQW1u2VLXXRXGjSBA5pEAkkZBS+oqxL+gdTIXXSBAR70F
+	/XPken9PiFzIAnOVWuzRh9EoNMN4N2wP56dR3fTXpW4A37fraJ396wNzZVLxXlaE0zsCOVC521h
+	3Qbntfo1dW3pe+0/+bK0YxeVuoXhrCeevqWrJ7D6Zr+nH09iuKu3nOm0SEakhOoqZFevAnY0SGS
+	SsPf4/QbXx6lcO
+X-Received: by 2002:a05:620a:4611:b0:93e:4d74:68fd with SMTP id af79cd13be357-949baa0b126mr2720162385a.65.1795542547918;
+        Tue, 24 Nov 2026 09:49:07 -0800 (PST)
+X-Received: by 2002:a05:620a:4611:b0:93e:4d74:68fd with SMTP id af79cd13be357-949baa0b126mr2720157685a.65.1795542547480;
+        Tue, 24 Nov 2026 09:49:07 -0800 (PST)
+Received: from [127.0.1.1] (93-159-22-70.cgnat.inetia.pl. [93.159.22.70])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370e77d8sm6899678a12.14.2026.11.24.09.49.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 09:49:06 -0800 (PST)
+From: Igor Opaniuk <igor.opaniuk@oss.qualcomm.com>
+Subject: [PATCH v3 0/3] arm64: dts: qcom: QCM2290: add the Embedded USB
+ Debugger
+Date: Tue, 24 Nov 2026 18:48:50 +0100
+Message-Id: <20261124-qcm2290-eud-dts-v3-0-b3e5af3701e7@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,153 +117,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124163202.56921-1-w1355457260@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQyMT3cLkXCMjSwPd1NIU3ZSSYt0UM2MDQ3PDNIPkxCQloK6CotS0zAq
+ widGxtbUAOaWZ6WEAAAA=
+X-Change-ID: 20261124-qcm2290-eud-dts-d630171f0cab
+To: Souradeep Chowdhury <quic_schowdhu@quicinc.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Elson Serrao <elson.serrao@oss.qualcomm.com>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Igor Opaniuk <igor.opaniuk@oss.qualcomm.com>,
+        Abel Vesa <abel.vesa@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA2OSBTYWx0ZWRfX5IJlFfKIy+qN
+ vYwwJOZYUtwYT2hZX3GD2/JMmop5k5JkiSiSuKiJWE7WIIMeCy0Cy2BcCBIq6Jkf09Gtf4osRTh
+ cN5RoskXeUtnS9FRtfaBxtlcaGkmf7s=
+X-Authority-Analysis: v=2.4 cv=cI51IVeN c=1 sm=1 tr=0 ts=6b05ce14 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=ySe+0nHqNG5yihRO1pIWsw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=_DArt4jzgbN4o2ndQLMA:9 a=QEXdDO2ut3YA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA2OSBTYWx0ZWRfX795YZ6nYtAkS
+ 1v3jabsvMcQvbklypzIE7/2P9Kqs0tzhox2jyVqc1lR+WHO372IVKyp2wVh7N4kI/pT/Z9UUUAH
+ hlrOkeNfty8zWQ8X6yRI3xHk0neYMJZUqDaM3L+/Z20qsiueTwMZdcxg29oSUWBbLiN1VlHFF6V
+ TGS6HiCTFZDuaPFfI09B+vgft+DpoWaod9ZNTg44gYpWnVV7Zle2w36KQPgReVLBuMZxb4T7cp3
+ 9jOLSkC8Rs3QEHQLNePw8kY3wRueJx6X6Od40ZZQVSaFXawov5jR+0laevSchqbusI8ZA5iVXeL
+ M56pQ5QtjdBof7XeQiwZvrpqmhKFPRl12p2qh9fEfPLm0MunV/IR+LcizrJXqKsj0peWrlLBPhn
+ UNOnQKoK1T2vFNNeE7Rq54gcIvJuF1LGes0EQn/PWyZR0q7lEt0tHedmTUTrZpXMNwL4cG7ox82
+ BxkfEcvjNWi4iUBLWPA==
+X-Proofpoint-ORIG-GUID: ahEzGaclMKCCN8dN6tGd6MF8yYfRd_ok
+X-Proofpoint-GUID: ahEzGaclMKCCN8dN6tGd6MF8yYfRd_ok
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_04,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 lowpriorityscore=0 bulkscore=0 suspectscore=0
+ clxscore=1015 impostorscore=0 spamscore=0 adultscore=0 malwarescore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611240069
 
-Hi Zixin,
+Describe the Embedded USB Debugger of the QCM2290 and enable it on the
+Arduino UNO Q.
 
-On Tue, 24 Nov 2026, Zixin Wang wrote:
-> +
-> +``rcu_nocbs[=cpu-list]``
-> +  Offload RCU callback invocation from the listed CPUs to the
-> +  corresponding ``rcuo`` kthread, which can run on a housekeeping CPU.
-> +  This reduces callback-processing jitter on the CPU that enqueued them.
-> +  On a non-real-time kernel this also moves invocation out of softirq
-> +  context; with PREEMPT_RT, callbacks already run in kthread context
-> +  because ``rcutree.use_softirq`` is false, and the offload only changes
-> +  where they run.  If the parameter is given without a CPU list, no CPU
-> +  is offloaded at boot; the mode can still be toggled at runtime through
-> +  cpusets.  The parameter takes precedence over
-> +  ``CONFIG_RCU_NOCB_CPU_DEFAULT_ALL``.
-> +
-> +``rcu_nocb_poll``
-> +  Make the ``rcuo`` kthreads poll for callbacks instead of requiring the
-> +  offloaded CPUs to wake them.  This improves the real-time response at
-> +  the cost of higher power consumption, because the kthreads wake up
-> +  periodically to do the polling.  Consider this option only when wakeup
-> +  latency matters more than power.
-> +
-...
-> +.. _real_time_boot_parameters:
-> +
-> +Boot parameters and task isolation
-> +==================================
-> +
-> +Kernel configuration options alone do not determine a real-time system's
-> +worst-case latency.  Integrators commonly rely on boot parameters and
-> +runtime tunables as well, to keep kernel housekeeping work away from
-> +latency-sensitive tasks.  The parameters below complement the options
-> +described above.  Some of them correspond to a configuration option and
-> +are referenced from that option's section, so the configuration and
-> +runtime guidance stay together.  Each one is documented in detail in
-> +Documentation/admin-guide/kernel-parameters.rst; the notes here focus on
-> +the aspects that matter for real-time latency.  Consider these options
-> +only when the workload suffers from the corresponding interference;
-> +leave them disabled otherwise, as each of them trades flexibility or
-> +power for a lower worst-case latency.  The notes below follow the
-> +decisions an integrator has to make: whether to keep tasks off a CPU,
-> +whether to stop its tick, and where interrupts should run.  Idle state
-> +limits are discussed with ``CONFIG_CPU_IDLE`` above, and RCU callback
-> +offloading with ``CONFIG_RCU_NOCB_CPU`` above.
-> +For the full CPU isolation model and its limitations, see
-> +Documentation/admin-guide/cpu-isolation.rst.
-> +
-> +.. caution::
-> +
-> +  CPU isolation is best effort.  Work that is explicitly bound to an
-> +  isolated CPU, such as per-CPU kernel threads, bound workqueues, and
-> +  interrupts, may still run there unless it is steered away.  Measure
-> +  the resulting latency with tools such as ``osnoise``, ``timerlat``,
-> +  and ``rtla`` rather than assuming that an isolated CPU is free of
-> +  kernel noise.  See Documentation/timers/no_hz.rst and
-> +  Documentation/tools/rtla/index.rst.
-> +
-> +CPU isolation
-> +-------------
-> +
-> +``isolcpus=``
-> +  Format: ``[flag-list,]<cpu-list>``.  Isolates the listed CPUs from the
-> +  disturbances selected by the flag list (default: ``domain``):
-> +
-> +  ``domain``
-> +    Remove the CPUs from the scheduler domains.  This is the default
-> +    when no flag is given.  Domain isolation cannot be undone at
-> +    runtime; use cpusets when the isolated CPU set must change
-> +    dynamically.  Isolated CPUs remain usable through CPU affinity or
-> +    cpusets.  Unbound workqueues and unbound kernel threads are
-> +    confined to the housekeeping CPUs as a side effect.  Consider it
-> +    for CPUs dedicated to a latency-sensitive workload.
-> +
-> +  ``nohz``
-> +    Equivalent to ``nohz_full=``; see below.  The residual 1 Hz tick is
-> +    offloaded to workqueues, which must be affine to the housekeeping
-> +    CPUs through the global workqueue ``cpumask``
-> +    (/sys/devices/virtual/workqueue/cpumask).  By default the global
-> +    workqueue runs on all CPUs; configure this cpumask manually after
-> +    boot, or use the ``domain`` flag to confine unbound workqueues.
-> +
-> +  A practical configuration therefore combines ``isolcpus=`` with
-> +  ``nohz_full=``, ``rcu_nocbs=``, an interrupt affinity mask, and, on
-> +  x86 systems, a C-state limit.
-> +
-> +  Timer placement follows the same choice.  By default a migratable
-> +  timer expires on the CPU that armed it; with ``nohz`` (or
-> +  ``nohz_full=``), timers and hrtimers armed on the isolated CPUs are
-> +  migrated to housekeeping CPUs.
-> +
-> +``nohz_full=``
-> +  Format: ``<cpu-list>``.  Requires ``CONFIG_NO_HZ_FULL=y``.  Stops the
-> +  scheduler tick on the listed CPUs whenever possible.  The boot CPU is
-> +  forced outside the range to maintain timekeeping, and the RCU
-> +  callbacks of the listed CPUs are offloaded as if they had been
-> +  passed to ``rcu_nocbs=``; see the ``CONFIG_RCU_NOCB_CPU`` section
-> +  above.  This parameter takes precedence over
-> +  ``CONFIG_RCU_NOCB_CPU_DEFAULT_ALL``.
-> +
-> +  The trade-off between tickless operation and the kernel-to-userspace
-> +  transition latency is described in the ``CONFIG_NO_HZ`` /
-> +  ``CONFIG_NO_HZ_FULL`` section above.
-> +
-> +Interrupt affinity
-> +------------------
-> +
-> +``irqaffinity=``
-> +  Format: ``<cpu-list>``.  Sets the default affinity mask for
-> +  interrupts that do not have an explicit affinity, steering them to
-> +  the housekeeping CPUs.  Managed interrupts are not affected by this
-> +  setting and cannot be redirected through ``/proc/irq/*``.  Verify
-> +  the resulting placement in ``/proc/interrupts``.  See
-> +  Documentation/core-api/irq/managed_irq.rst.
-> +
->
+These are patches 2/5, 4/5 and 5/5 of the v2 EUD series: the binding
+(the "qcom,qcm2290-eud" compatible and the "qcom,tcsr-reg" property) and
+the DTS, split from the USB driver patches as Krzysztof asked. The
+driver change that writes the register named by "qcom,tcsr-reg" is in
+the series "usb: misc: qcom_eud: add the QCM2290 Embedded USB
+Debugger", v3 [1].
 
-Thanks for the write-up above.
+Testing is described in that series' cover letter: Arduino UNO Q, with
+TF-A and with stock QTEE, the host enumerates the EUD and OpenOCD
+attaches over SWD.
 
-I wrote the RT configuration guide some time ago, where "configuration"
-here implied kconfig build-time .config generation.
+dt_binding_check and dtbs_check (qrb2210-arduino-imola, qrb2210-rb1)
+are clean.
 
-It is true, of course, that "kernel configuration options alone do not
-determine a real-time system's worst-case latency".  But this does not mean
-that all the RT optimization tricks above must be squeezed together into
-the kernel RT /configuration/ guide.
+[1] https://lore.kernel.org/r/20261124-qcm2290-eud-v3-0-4f31aef8c1c3@oss.qualcomm.com
 
-There's also a kernel configuration checker that produces lots of links to
-this guide:
+---
+Changes in v3:
+- Split by subsystem (Krzysztof): the binding and the DTS patches form
+  this series, the USB driver patches are a separate one.
+- Collected Reviewed-by tags from Krzysztof (patch 1) and Abel (patches
+  2 and 3). No patch changed from v2, so no tags were dropped.
+- Link to v2: https://lore.kernel.org/r/20261123-qcm2290-eud-v2-0-9bfc432dee07@oss.qualcomm.com
 
-    https://msgid.link/20261106091922.7560-1-darwi@linutronix.de
+Changes in v2, from the Sashiko review of v1:
+- Binding, dtsi: the TCSR register is no longer a third reg entry of
+  the EUD node. It is a "qcom,tcsr-reg" phandle + offset to the TCSR
+  syscon, which already covers it.
+- Link to v1: https://lore.kernel.org/r/20261114-qcm2290-eud-v1-0-b6157b817377@oss.qualcomm.com
 
-So I don't think that expanding the scope of this document into overall RT
-optimizations tricks will help.
+---
+Igor Opaniuk (3):
+      dt-bindings: soc: qcom: eud: add the QCM2290 EUD
+      arm64: dts: qcom: agatti: add the Embedded USB Debugger
+      arm64: dts: qcom: qrb2210-arduino-imola: enable the EUD
 
-Since the whole of Documentation/real-time/ is dedicated to PREEMPT_RT, why
-not integrate these RT-optimization information into a proper guide there?
+ .../devicetree/bindings/soc/qcom/qcom,eud.yaml     | 25 ++++++++++++++++
+ arch/arm64/boot/dts/qcom/agatti.dtsi               | 34 +++++++++++++++++++++-
+ arch/arm64/boot/dts/qcom/qrb2210-arduino-imola.dts |  4 +++
+ 3 files changed, 62 insertions(+), 1 deletion(-)
+---
+base-commit: 84abb955b1015477aa11a96e2f3ac1b938b77f48
+change-id: 20261124-qcm2290-eud-dts-d630171f0cab
 
-Then, let this configuration guide link to the relevant sections only when
-necessary.  This way, scope creep is avoided.
+Best regards,
+-- 
+Igor Opaniuk <igor.opaniuk@oss.qualcomm.com>
 
-Thanks!
-
---
-Ahmed S. Darwish
-Linutronix GmbH
