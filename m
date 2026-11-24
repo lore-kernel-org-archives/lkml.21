@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795534179;
-	b=v9d6p6ZugJSnstio+kjP0L7ZfV/v/qO0NoO0iNP9pyPJGawCDIngVYDdH7PlA34IUL4X
-	 CKIphgYRDzZ2pnhn5rlXgeNz0zXe0A66lzbFkS+Bg8zQxeY/saCOrHmpdBaq3IIZynkUf
-	 y5H/h/C/2IrK/b5RROBNy7xrcckjwe3UsTS7euOUhZnEwyvxW4hP5KoQujZ6U3dGP53ni
-	 jbt0YFqnVf+7QxQVcalnwmmcAuw0mtSK3qAAnoZuvUIpDccGaOghF+L7iaMux1SDxxEi5
-	 jviBgGfWFtRMiOe/33fSG4NskTfiLROtNYIBmOZ90Tgv8z9DAfj4yj2ACoakHsugjKg==
+	t=1795534181;
+	b=Gn1i6L9DRNWdyU67L7hSVIo5M63wKHPr5iyrKZiRZ4xoy0QPUK3enMlo/N10Z9o+AErV
+	 8otNRPnxjITFXEgbpCXvQVgbqIvsau+DpG41yCbF4AHkYnTRAOcK4KQPr3nH7e9VKOpLv
+	 mDBywC3fjjp/U6Gg2eIR8w3/ylLMC/WbDmDJ3Uad073fVZKq8ueNtyCSG+jHQzI4VhlEC
+	 JmZOH8Mar7u+hWHABO8uQo2I7sfdU/Ibxr+iq+LO4qf6yruHioXUjsdBj66wb5IuHA0iG
+	 R7QzPuU0DRhkleLzFPwG8bwNlqN+8tAu63BfxxpAzIbUc41Sl5av87E+R+YGW95RvZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795534179;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795534181;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=Upb9mkcI4L7fHZrxtf7TuAgSddn2CA2QS2TCt7RKQ4E=;
-	b=T0Cyh+GAwgLmiJKOoAULCwg2WXHOwoTrvEJ1hUdZaLNAxb3YHvPQ8AhspGSSwA/1R+ZS
-	 8fE1P3PMGDZbxXEvMEHRIyn4Wv6WCusnmZ7rfNv5kTm5JlA3sKJvkcKOMNcAJr3/KBv3G
-	 Ofm3pmwbSiU2m59ZFCPZNMfUs8i8h3PyVvTWXvpoimExQmAFgrSVB3k7w5FzUTt315BiE
-	 U7OKbRXvrVpAjkzPAvvx7/m0dmJq5kDCiSSKgGmzdIgQLI3fO6OTJJ+1aUiAqqDsnp4Ao
-	 b2p462aUXBtMJom7RjwkUhYEE4mtjk201jpkSsDqtY1TdSG6p4lOVyjvfqUzM4pMCxA==
+	bh=TSEZMfxOLFCjZ2pTZlRgmUJ/uywE/FfuQfRBfLgNG8o=;
+	b=OoJ3JMy6l6FYSwWwCa3/dirn3HR1tXCIIIpkIVnO3UJlSo4zmh0CTSo/h1J9UBh6vqyd
+	 AbXdv/XKQWMWLth2CYpGyQih9E9IImgxANtqPm4X31MZs8C6jhHPjdgr7s4f6ePMps0Uk
+	 V0XE2aUL28O0ngO18V7qplQqIk0O/r4GB5CMNfc1nCN77G/+tOZrAtgtEskeeUMv6QJGg
+	 QuMY/FHWmzT+7m5G0ie4WXKXrkFrYBwBJ93SU6H3LkogfH3TckrAbr5mpXmWbNw6Eb0wH
+	 Q/oEYCfsVNzKN7vKEJ8DVaerclz7Y4bfmbUTFuvwe9104FNnhn+wmB5BxVuq5k01IdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--vdonnefort.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=eQxUEQF7;
-	arc=none smtp.remote-ip=209.85.221.72
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com [209.85.221.72])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=HvhJ4axR;
+	arc=none smtp.remote-ip=209.85.221.70
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com [209.85.221.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7581760A5BE3
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:29:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7581760A5BE3
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0940606A329
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:29:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0940606A329
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--vdonnefort.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=eQxUEQF7
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-48fbcf023dcso2124022f8f.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:29:39 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=HvhJ4axR
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-49d70f45b22so2708161f8f.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:29:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795534178; x=1796138978; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795534179; x=1796138979; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Upb9mkcI4L7fHZrxtf7TuAgSddn2CA2QS2TCt7RKQ4E=;
-        b=eQxUEQF7GA7D942C+TqQ37BgZEOmBYZvjRWGuHjvXvTPdjLqXbkFX7XFRfuwnUHDI1
-         no3+shDQXbCbvdjqLzpT8fKsbp5fwRvCJ+XOsH1tS8lNT5Qctu5Gx4cHZKGJ62xpE0JT
-         HVJkQdIM2h1/dnfbli+o6r4D5a6hIkWWb/fwaFV8JKeeMtRydYzyK+gJ8eX6BqhEq4yz
-         DGlywhvSk1GEQTPgRbI+fiiviQt0ySak+Ga78OHyaR11PsON0p/FuF+WtBLkJn49wp1w
-         8199bM6sIFLJ3jMYGBpP6jtybIvkQbgTIDIGwBY8tMO6DKqx+zlTklJyZcTNLXtHjjNn
-         XKkA==
+        bh=TSEZMfxOLFCjZ2pTZlRgmUJ/uywE/FfuQfRBfLgNG8o=;
+        b=HvhJ4axRqUDPYwxmsR8FhIWQMz9ei8GkNnkFc+KfGZ6qldg9DvdNN8LFx9yrjMjZB3
+         msI1ZxHIraNHUyH/tvzDhopRiE9vlc2DgIuXUJNcYMuCezUolx7+P7LhPfYT9USeh06e
+         eD9yBoZyFCWxs8WwJ15+5HYwPRayzaeImo5+1+g11O6eJN2L9QdVCGXVDoxzJyRRsCyX
+         8ojMJO3USNVtfo8Ctkt40uPU1jDhsP+W3FeXxRWf6aI8mQpZ+Butd65ATVUVjp1UNL72
+         aJSPPF0gclAZcf1apPP9rZ2zF9Vr5IcWNuYxxcB1EHwvLTGF4wJXpVKWDE/nWtxTybiJ
+         jrDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795534178; x=1796138978;
+        d=1e100.net; s=20260707; t=1795534179; x=1796138979;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Upb9mkcI4L7fHZrxtf7TuAgSddn2CA2QS2TCt7RKQ4E=;
-        b=b9sCIl8AiwX27tdw2sZ5UYdq2d3Fu+H5qBG6zKn6DJSU/NfviaJRF8w0M53PChPnHR
-         1psz1QqmhVaL4n/qf0t4Uiimhu8VkhHNO/6F05goeukg/fbAQ1zzDC/pGzRbwI0WndET
-         56CtNSpx9MdfANPLUBWSlADnibelYqJkm4oMLsrevRCMOUB0Q/DtEijzqLH/F4wRXjJM
-         5GRMMLphhVTminEEJVTmrgeCmswLBaJ7IZ+XxwNgN+c9SuZplusvbUtUDDkGkm9EHla+
-         iWAzNH/KE1XWI+OQEKel1UIW83fHzAmmcNY/4sh2V/S+ZZTucxVu6r+bdxeMkPwBh85+
-         H7cw==
-X-Forwarded-Encrypted: i=1; AL+hErEtjqIVri6wblFz27PM45PnPZoFtzZG1cEiuSYSr3KKMeWielb1C7iH4sAptPgM0u4mVgLi1Edcvk5rNZs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+oyB7JnNIxADDBqyZBbdlm96viQFiGc+OF3qG3sTMmYLC+4iPF
-	+zjjUJvM0ADCPD9t3UElu1z/pwrFKuMmGF/KimR1fbwFGi6euMJOprlOVkDt4wX4aVX3ZYSZl2L
-	PMNJukmLWLADsXjIvMgBfIQ==
-X-Received: from wrsf15.prod.google.com ([2002:adf:fccf:0:b0:4b2:1ff8:ed76])
+        bh=TSEZMfxOLFCjZ2pTZlRgmUJ/uywE/FfuQfRBfLgNG8o=;
+        b=tjf5fueAhtq/v2HiDvgS/99gcDjc7OObGl9zimzPnfLxx4ARQMhBx8SduZqG1pL5G2
+         29/38vsi9m25xYaOBLMhGEoiFMwSP0lsC6WALhMZ5+ElYloGwMCvcoZCRWBwJeUEHejX
+         LJP5SxuZN0ZKJ0C88Ca6k1TcWsslNCmSJGQ6qkoF4552qeYhoc1O0DafNT9vSI9JlBRG
+         EYuRmR2XCVBnF8TgdIvctn5M4LZlmxBhatFAlWshUEWtY+mITInmWPGq+QJImkRP1YlF
+         t83YWOt9m6YigsaYRC1MZX9aOu8Hoju5cdCoLBHJKhVjoeJtdmHdx5iFkYrOyTILSwUU
+         2JTg==
+X-Forwarded-Encrypted: i=1; AL+hErEF/mxC/v8bCQAXIArPwvQDwKEEGkqqxSHSayHZiwIHq6poxPhmLTU0vN7DehUfsK6p/jrVylEz5iYAJvA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9OqR+6uc+Chz0XgtFehmEWsuhTrWWqInwJNgaI/xm6Wu4MJa4+
+	HDiAhl4ufkN6QdiMaRJmPLtVrz2nSajkWIwrcpjYbkiDrIgAmH+gyh49zWmG2thGqUiRkGbzGqj
+	tpZgQYsA5IResVGsd8iqe4g==
+X-Received: from wrxk7.prod.google.com ([2002:a05:6000:47:b0:4b8:22cf:5b06])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a5d:4b51:0:b0:49a:fbfd:92c4 with SMTP id ffacd0b85a97d-4abb3a4d650mr21945630f8f.29.1795534177489;
- Tue, 24 Nov 2026 07:29:37 -0800 (PST)
-Date: Tue, 24 Nov 2026 15:28:43 +0000
+ 2002:a5d:5d03:0:b0:492:cd78:7137 with SMTP id ffacd0b85a97d-4abaa9764d3mr29902854f8f.8.1795534178633;
+ Tue, 24 Nov 2026 07:29:38 -0800 (PST)
+Date: Tue, 24 Nov 2026 15:28:44 +0000
 In-Reply-To: <20261124152845.2233401-1-vdonnefort@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261124152845.2233401-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261124152845.2233401-20-vdonnefort@google.com>
-Subject: [PATCH v9 19/21] tracing/remotes: Add trace_remote cmdline options
+Message-ID: <20261124152845.2233401-21-vdonnefort@google.com>
+Subject: [PATCH v9 20/21] Documentation: tracing/remotes: Add detailed tracefs layout
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, 
 	linux-trace-kernel@vger.kernel.org
@@ -90,192 +90,98 @@ Cc: mathieu.desnoyers@efficios.com, kernel-team@android.com,
 	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-Following the same format as trace_instance, add a cmdline to configure
-a trace remote on registration:
-
-  trace_remote=<remote>^<opt1>^<opt2>,<evt1>,<evt2>
-
-Enabling events automatically turns on tracing.
+Add a description for each tracefs file available in a trace remote
+instance.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 ---
- kernel/trace/trace_remote.c | 145 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 145 insertions(+)
+ Documentation/trace/remotes.rst | 66 +++++++++++++++++++++++++++++++--
+ 1 file changed, 62 insertions(+), 4 deletions(-)
 
-diff --git a/kernel/trace/trace_remote.c b/kernel/trace/trace_remote.c
-index 0a899ed5b34b..980f34a7603a 100644
---- a/kernel/trace/trace_remote.c
-+++ b/kernel/trace/trace_remote.c
-@@ -14,6 +14,8 @@
- #include <linux/trace_seq.h>
- #include <linux/types.h>
+diff --git a/Documentation/trace/remotes.rst b/Documentation/trace/remotes.rst
+index 1f9d764f69aa..b02ebed4a03f 100644
+--- a/Documentation/trace/remotes.rst
++++ b/Documentation/trace/remotes.rst
+@@ -19,8 +19,8 @@ for which the host kernel can see and expose to user space.
  
-+#include <asm/setup.h>
-+
- #include "trace.h"
+ Register a remote
+ =================
+-A remote must provide a set of callbacks `struct trace_remote_callbacks` whom
+-description can be found below. Those callbacks allows Tracefs to enable and
++A remote must provide a set of callbacks `struct trace_remote_callbacks` whose
++description can be found below. Those callbacks allow Tracefs to enable and
+ disable tracing and events, to load and unload a tracing buffer (a set of
+ ring-buffers) and to swap a reader page with the head page, which enables
+ consuming reading.
+@@ -28,8 +28,66 @@ consuming reading.
+ .. kernel-doc:: include/linux/trace_remote.h
  
- #define TRACEFS_DIR		"remotes"
-@@ -1177,6 +1179,136 @@ static int poll_ms_show(struct seq_file *s, void *unused)
- }
- DEFINE_TRACE_REMOTE_ATTRIBUTE(poll_ms);
+ Once registered, an instance will appear for this remote in the Tracefs
+-directory **remotes/**. Buffers can then be read using the usual Tracefs files
+-**trace_pipe** and **trace**.
++directory **remotes/**. The files within this directory allow configuring
++and reading the remote buffer (see `The File System` below).
++
++The File System
++===============
++A remote tracing instance is represented by a directory in Tracefs under
++**remotes/**. The layout and files within it are very similar to standard ftrace
++instances. Inside the remote directory, the following files and directories are
++available:
++
++  tracing_on
++	This file allows enabling or disabling the remote tracing.
++
++  buffer_size_kb
++	This file displays and allows changing the size of the per-CPU ring
++	buffers used by the remote. It also shows if the buffer is **loaded** or
++	**unloaded**. To change the size, the remote buffers must be unloaded
++	first. Remote buffers are automatically unloaded when **tracing_on** is
++	off, no one is reading the buffer (either by accessing **trace_pipe** or
++	when **dmesg** is on) and no events remain in the buffer.
++
++  trace
++	Display the human-readable content of the remote buffers. Reading this
++	file is non-consuming. Writing to this file clears the ring buffers.
++
++  trace_pipe
++	Similar to **trace** but reading it consumes the events from the ring
++	buffers (consuming read). It blocks if there are no new events.
++
++  dmesg
++	When enabled, all events from the remote are redirected to the kernel
++	dmesg. This is similar to the **tp_printk** option for in-kernel events.
++	It counts as a reader of the remote buffers and prevents unloading.
++
++  dump_on_panic
++	When enabled, the remote tracing buffer is dumped to the console when a
++	kernel panic occurs.
++
++  poll_ms
++	Modifies the polling interval for the trace_remote.
++
++  per_cpu/
++	This directory contains subdirectories for each possible CPU (e.g.,
++	**cpu0/**, **cpu1/** ...)
++
++  per_cpu/cpuX/trace
++	This is similar to the **trace** file, but it will only display the data
++	specific for the CPU. If written to, it only clears the specific CPU
++	buffer.
++
++  per_cpu/cpuX/trace_pipe
++	This is similar to the **trace_pipe** file, and is a consuming read, but
++	it will only display (and consume) the data specific to the CPU.
++
++  events/
++	This directory contains remote events that can be enabled or disabled.
++
++  events/enable
++	Allows enabling or disabling all the remote events.
++
  
-+static char trace_remote_cmdline[COMMAND_LINE_SIZE];
-+
-+static int __init set_trace_remote_cmdline(char *str)
-+{
-+	trace_append_boot_param(trace_remote_cmdline, str, '\t', COMMAND_LINE_SIZE);
-+	return 1;
-+}
-+__setup("trace_remote=", set_trace_remote_cmdline);
-+
-+static bool trace_remote_apply_cmdline_opts(struct trace_remote *remote, char *cmdline)
-+{
-+	bool dmesg_on = false;
-+	char *opt;
-+
-+	while ((opt = strsep(&cmdline, "^"))) {
-+		if (!*opt)
-+			continue;
-+
-+		if (!strcmp(opt, "dump_on_panic")) {
-+			WRITE_ONCE(remote->panic_on, true);
-+		} else if (!strcmp(opt, "dmesg")) {
-+			dmesg_on = true;
-+		} else if (!strncmp(opt, "buf_size=", 9)) {
-+			unsigned long long size;
-+			char *end;
-+
-+			size = memparse(opt + 9, &end);
-+			if (!*end && size && size < ULONG_MAX)
-+				WRITE_ONCE(remote->trace_buffer_size, size);
-+			else
-+				pr_warn("Invalid trace remote buffer size '%s'\n", opt);
-+		} else if (!strncmp(opt, "poll=", 5)) {
-+			unsigned int poll_ms;
-+
-+			if (!kstrtouint(opt + 5, 10, &poll_ms) && poll_ms)
-+				WRITE_ONCE(remote->poll_ms, poll_ms);
-+			else
-+				pr_warn("Invalid trace remote poll '%s'\n", opt);
-+		} else {
-+			pr_warn("Unknown trace remote option '%s'\n", opt);
-+		}
-+	}
-+
-+	return dmesg_on;
-+}
-+
-+static struct remote_event *
-+trace_remote_find_event_by_name(struct trace_remote *remote, const char *name);
-+
-+static int
-+trace_remote_enable_event(struct trace_remote *remote, struct remote_event *evt, bool enable);
-+
-+static bool trace_remote_apply_cmdline_events(struct trace_remote *remote, char *cmdline)
-+{
-+	bool tracing_on = false;
-+	char *token;
-+
-+	while ((token = strsep(&cmdline, ","))) {
-+		struct remote_event *evt;
-+		int ret;
-+
-+		if (!*token)
-+			continue;
-+
-+		evt = trace_remote_find_event_by_name(remote, token);
-+		if (!evt) {
-+			pr_warn("trace remote event '%s' not found\n", token);
-+			continue;
-+		}
-+
-+		ret = trace_remote_enable_event(remote, evt, true);
-+		if (ret)
-+			pr_warn("Failed to enable trace remote event '%s' (%d)\n", token, ret);
-+		else
-+			tracing_on = true;
-+	}
-+
-+	return tracing_on;
-+}
-+
-+static void trace_remote_apply_cmdline(const char *name, struct trace_remote *remote)
-+{
-+	char *cmdline, *curr, *next;
-+	char *events_cmdline = NULL;
-+	char *opts_cmdline = NULL;
-+	bool tracing_on = false;
-+	bool dmesg_on = false;
-+	int ret;
-+
-+	if (!trace_remote_cmdline[0])
-+		return;
-+
-+	cmdline = kstrdup(trace_remote_cmdline, GFP_KERNEL);
-+	if (!cmdline)
-+		return;
-+
-+	guard(mutex)(&remote->lock);
-+
-+	next = cmdline;
-+	while ((curr = strsep(&next, "\t"))) {
-+		char *token = strsep(&curr, ",");
-+		char *rname = strsep(&token, "^");
-+
-+		if (strcmp(rname, name))
-+			continue;
-+
-+		opts_cmdline = token;
-+		events_cmdline = curr;
-+
-+		if (opts_cmdline)
-+			dmesg_on |= trace_remote_apply_cmdline_opts(remote, opts_cmdline);
-+		if (events_cmdline)
-+			tracing_on |= trace_remote_apply_cmdline_events(remote, events_cmdline);
-+	}
-+
-+	if (dmesg_on) {
-+		ret = trace_remote_enable_dmesg(remote, true);
-+		if (ret)
-+			pr_warn("Failed to enable trace remote dmesg (%d)\n", ret);
-+	}
-+
-+	if (tracing_on) {
-+		ret = trace_remote_enable_tracing(remote);
-+		if (ret)
-+			pr_warn("Failed to enable trace remote tracing (%d)\n", ret);
-+	}
-+
-+	kfree(cmdline);
-+}
-+
- static int trace_remote_init_tracefs(const char *name, struct trace_remote *remote)
- {
- 	struct dentry *remote_d, *percpu_d, *d;
-@@ -1353,6 +1485,7 @@ int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs,
- 	}
- 
- 	list_add(&remote->node, &trace_remotes);
-+	trace_remote_apply_cmdline(name, remote);
- 	retain_and_null_ptr(remote);
- 
- 	return 0;
-@@ -1840,3 +1973,15 @@ static struct remote_event *trace_remote_find_event(struct trace_remote *remote,
- 	return bsearch((const void *)(unsigned long)id, remote->events, remote->nr_events,
- 		       sizeof(*remote->events), __cmp_events);
- }
-+
-+static struct remote_event *
-+trace_remote_find_event_by_name(struct trace_remote *remote, const char *name)
-+{
-+	int i;
-+
-+	for (i = 0; i < remote->nr_events; i++) {
-+		if (!strcmp(remote->events[i].name, name))
-+			return &remote->events[i];
-+	}
-+	return NULL;
-+}
+ Declare a remote event
+ ======================
 -- 
 2.56.1.809.ga0b61035b5-goog
 
