@@ -1,115 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.35
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795527195;
-	b=Yx6/kUtNWG04yklDP8yC4YnaA4osyABfB9uH/IE4CWzBe5NGZ7uvSrFk+cGkTbmK9mxW
-	 eJhYuvdT6e5Nk4wXhXN0os23JhpCIA29F6X4H5VKR634E2IedHF4AKElSnDB/gLRgG5v1
-	 vOGEik/s3FWKKg//Cb4FBZSxpBHf+jfqe9LXEe2hmVDmBqXD5pBMka+RYrpgN89xmqWy5
-	 JFKKlFtsV1dRzZMMmTEm+6H9jxxQQM4YOsxr92KpFrT6x14KBuJWVQnv8Y8r0iIZ6mRzH
-	 zq7jToMOmNQC/J//ejRMU0D14NhY9Z0gDu6cGgvo0SFzQh/o07szaNKo/jXxkzwsSQA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795527195;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=1wdoQHbPv3tXS7S4MStolc76uOgtWQZBqgClzx/HElo=;
-	b=f6qcwYIUmop/Lp4bHCuKJBzocaQAKuM+v9kJX8UIqaGgV0GrgdlaaqBp2RBcxv63NSt5
-	 rb8oiQmBt5IrPwdSQtlc3oLdMsyZY6SmDod0tf/2g82IDxfpONn8XFisOVCbBjx/vSwMf
-	 PEJu9dlcgyVywIUNCy3zrKA7rjrM3maP2gMGR8JoIyUkxAa7PpCL9YLFf9vz3xXuafV6v
-	 vOU+6xjv9SWeOvbcF2IpcNLHNnAU3pE8FpsCwVNwyNPlBFn/DD1PCjddAejCGuIm/PD07
-	 xSLhZvhimMvl1+Jvi8aS+NASzPj9w7meAly56UlPRYHJzH/sTe520i1N1rxZyzqM4hA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gcMMxg3e;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.35
-Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010035.outbound.protection.outlook.com [52.101.61.35])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.33
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795527230;
+	b=k1p1OW+tmHbcbv5JL4Nh19SF9dtTGgGOpWBPP+xCkB3yFZLCXoLSSFAGcd0ejqX2dZpG
+	 vJ4rv2nl7AyTQMw0EdwfLXVg5UmLS6EiScWCTFnarJTNvvczkjqLcKg/m6QZ8Y5lhSq3c
+	 NmgWKKx88GYPpHXsqnbjrKvn102VPaMPYDDbMmsSnycuFIgEbT7SmvlZ0ytZqVKsKEVCx
+	 LWIMBdju0TkDWBOnDQAud4Jrtv4A90qf3EHriiKazFTyGnII/2np2qb3/TXwuIi8i2bGZ
+	 9o/cfRaFxayxvBiXS1WXEbi2gQ0BCg6z2qKOk3VrlpsOMOjxTMJ2COO6y4wIFq9gpcg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795527230;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Tw89vx+OifOo+5VNZiA+F3pyDNZVao5o60IiMpmo4FY=;
+	b=BTJjiOenvSCZ85tnc6RxN2W9qUmV4xDLUF534Ev4sxPbXcJwzfMq3vDk3B+sERXPHEtC
+	 sxRCo0ACsOdgWONxSUf5r2nhi8+Td7kdgDb9iBZUUsqP3pT9pVO6wtQduvY5VAOewsJfc
+	 +P28VfWOC6+0jYh2CwMFVDj4MKsvy951PgFtvUgrEpitk7mrBHP+rJcs5v4sFeNHbWIhI
+	 aC9LfQxL1MCKHYfnwZcLO0lybgk7dkXvdsdkPRFdHEXuOhLFY1vIJllMQgUS9pjEIorZx
+	 G+NcDmz5s0eOD3RtcPe1vDAee2XUKtrO9IwKGiGImQmD/Q/DixbYM+j8QB1oPIHGeYw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IbLPDnmg;
+	arc=none smtp.remote-ip=95.215.58.33
+Received: from mta1.migadu.com (out-33.mta1.migadu.com [95.215.58.33])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F396606A33B;
-	Tue, 24 Nov 2026 13:33:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F396606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17B06606A33D
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:33:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17B06606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gcMMxg3e
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pF1JYmYHIJI+BSYrbbuTbLmOFm/ZXrTaMfx+Cu1Tnb7k8tdSYaVGxI8LMCNcFNTJ97emGsY+UVwG+Sed1L+LeEiMmx8EsEWrR7GNCZVXIPyjedu1mmEbSsfJl/YquIOUPQSFFTlKs1A5pBY/kJ/b5uTJPASCqlVyYTZZm1TD8Pnh3j5g6I2UL9k0ch5Vq/XPVlaMbVMLwlgiNjjVo642IsiZ5wpLuYMTtlpiEBvWSxe66AGP9y+pPStZ58f+tOvjC/BIVJr5p3gDJ95KU5rTHOtAr23Cl7YtmJt1fnvnX8N0Wj1Qi3ILQ2rB5DF9H1N3cPiKOGA50rIidfex69b+ww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1wdoQHbPv3tXS7S4MStolc76uOgtWQZBqgClzx/HElo=;
- b=tHLihW/e+afyCpontU84xI86CxDAzcn0d74in9RTPpBicHnXgmoRJGNdIETpcO7mil5l8Nz5pa/N1eSqhWALxD2/aksL3koLiiqA9tXQHUTorHP+y5Yk09GjbmwMYZY0AX9Shgim0Qtw3Eg6TaEaYLDW1wyoWeuGP+7HroKjgwBu9i6CGFKWa8qH/nrj8aLq/2wehR/4r2tuJAzvBW3IzkwfmfHgKQStcgn6FW4cxKEr22G7BMJ46CpN737++HgEsL4vvSamUH5ih/gPkYAE8Zh00dsDp7Uotiku2TC55QCjlpBF2Xpnnzhm/PW7jogpfBBDt3dJgGQT1d2C0BEQPQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1wdoQHbPv3tXS7S4MStolc76uOgtWQZBqgClzx/HElo=;
- b=gcMMxg3ek/EA9w8jNoQ9wguHVXjoN+Uf6Tx9bXmO1PSimCMjs+YY2sovr50+tX/QkUoNFoPklYZusfktfBl4jRX1VI3VCBxajpQC6GDBhGEvdtn4tcgZ1XLa4I+X25LpPAkhOBFVgnVYt3cr04RxoShrMbwYwQzvWXBNLfAWLvk=
-Received: from BN0PR04CA0080.namprd04.prod.outlook.com (2603:10b6:408:ea::25)
- by DM4PR12MB6109.namprd12.prod.outlook.com (2603:10b6:8:ae::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
- 2026 13:32:47 +0000
-Received: from LV8PEPF00000068.namprd03.prod.outlook.com
- (2603:10b6:408:ea:cafe::aa) by BN0PR04CA0080.outlook.office365.com
- (2603:10b6:408:ea::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.6 via Frontend Transport; Tue, 24
- Nov 2026 13:32:46 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- LV8PEPF00000068.mail.protection.outlook.com (10.167.248.41) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 13:32:46 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
- 2026 07:32:45 -0600
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
- 2026 07:32:44 -0600
-Received: from pankaj-M75q.amd.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Tue, 24 Nov 2026 07:32:44 -0600
-From: Pankaj Gupta <pankaj.gupta@amd.com>
-To: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
-	<x86@kernel.org>
-CC: "H . Peter Anvin" <hpa@zytor.com>, Tom Lendacky <thomas.lendacky@amd.com>,
-	Ard Biesheuvel <ardb@kernel.org>, Kiryl Shutsemau <kas@kernel.org>, "Ilias
- Apalodimas" <ilias.apalodimas@linaro.org>, <linux-kernel@vger.kernel.org>,
-	Mike Rapoport <rppt@kernel.org>, <linux-mm@kvack.org>,
-	<linux-efi@vger.kernel.org>, <Pankaj.gupta.linux@gmail.com>, Pankaj Gupta
-	<pankaj.gupta@amd.com>
-Subject: [PATCH RFC 3/3] x86/e820: Ignore mem= in confidential guests
-Date: Tue, 24 Nov 2026 07:32:41 -0600
-Message-ID: <20261124133241.221719-4-pankaj.gupta@amd.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261124133241.221719-1-pankaj.gupta@amd.com>
-References: <20261124133241.221719-1-pankaj.gupta@amd.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IbLPDnmg
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=BVwErX9fDWBYGSkb3De31XAysI9DwTvwsT449Emq5JU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795527228; v=1; x=1796132028;
+ b=IbLPDnmgiIzI7ilKeR3N0vdgm8UN/zo5n1wx4Brht3Gi4oL3MdC+SOEcX1RpS+52Rk3QOYCo
+ hgZnwEA84ocgELmAQpBkvClUvztuCgCgnLszwnRqaCCq/SUKCT9ZIaSQjIpruiUowk1BJjqslf9
+ 6KlutfCbBB/Q4/3oIdEv7+L8=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 2cc7aee88a6dd40e;
+	Tue, 24 Nov 2026 13:33:48 +0000
+X-Mizu-Trace-ID: 2cc7aee88a6dd40e
+X-Migadu-Flow: FLOW_OUT
+From: Huiwen He <huiwen.he@linux.dev>
+To: Namjae Jeon <linkinjeon@kernel.org>,
+	linux-cifs@vger.kernel.org
+Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Tom Talpey <tom@talpey.com>,
+	ChenXiaoSong <chenxiaosong@chenxiaosong.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 2/2] ksmbd: retain unsent READ pages on the TCP send queue
+Date: Tue, 24 Nov 2026 21:33:30 +0800
+Message-ID: <20261124133331.1186589-1-huiwen.he@linux.dev>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261124132554.1185817-1-huiwen.he@linux.dev>
+References: <20261124132554.1185817-1-huiwen.he@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,65 +70,316 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PEPF00000068:EE_|DM4PR12MB6109:EE_
-X-MS-Office365-Filtering-Correlation-Id: a137cdd8-6f2b-4f86-8c0b-08df4a2f6d26
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|7416014|36860700016|23010399003|1800799024|82310400026|10067099003|11063799006|56012099006|261021121427099003|261102123227099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	u+MHLehXfHQFP4KAI7hgNY4Ncw+1lRAgTb4UnFBKqz1oyJDrLyo/8tKOOndwbJ/V3e54sID08W7stvfkV5Fblx3lIUdS/YvRwau1yeud0PCzQmtSg1bUVsblLnG9RCTI6U6TdUH1nhpUm+qiMObY7yqhgHM7c2eHOWXlDKl0kelzC5z9wfjvqAw0fMNNNK5u8XqnGJ18mIx+zGtjtJrue7VZPsRhNaqoX6VuQWykvBEoHrGDK/lQNFTRZ4NIiaDUCYDX6vI6vcbYlTtR3RpphqQzA9ZW+e1nQSl8BVWG2/tBEpF54QM1wo1aDkFz32UeOQ7JkO327huBeC5TaCO/HbDu0w0b5EC/Ia2MC9NtQM2IeuW84RfH4lJnDrVgdFlViZ0h0CPfr2cfAFK9E/YK92h6+5gQKHgjgpkcvXFbQzbYEadMnjX6zWNBIvLktnnV23/2he/G/CXkOIRds7TYJBoAJrnSDTLtPD/lrnjp65Oe+3eLktsZvRn2wrpaOEN/eI0P3eUJIT0Na0Xkhy3uSzCOUxVuFLeiGMIFeWtigpw4/it/Q3nCtzsh/mLyemceRvsvjdsh8hQmGBPjkJnRoePh6G3cWQWxdUD7bqGSWOJ84bR674MioTpklLybAOcT6mgYGh8mRPSAIExBToO7LBLlArbENuDCuSgmGQmJGifDG6PazyvP47366XETbYqkZBMg1B4QdA5WJ6+RhgagzQ==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(23010399003)(1800799024)(82310400026)(10067099003)(11063799006)(56012099006)(261021121427099003)(261102123227099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	mP0Kptxin80t7k+xLYrlgUvxTQdLtQouTV4MJsn+XF9jSK6afXJmVsimjjtTRAIZInFA5Ihc+YXKWmPuIhHkI8PwHn2TIwR3WSTppMtTiVwGkgq0AKryZW3E93n/UcunOraphXLHFJYZ5xVR59/ZnWtzBYRfOCoHnU+oAiyDa3W3RV/JruajYzv+aYG3rk3jj/03jOtCZt/Vo3x8pt2s25hJqOcJLYqV9T3QlVzTT9aXKwhkBbHQCuWzAmNPl3k2qyCMiJfFEy4jCE+PXqX4hoIZ5Txgu7fmB4SUgck2avijYiieOyp0coZCOp9xwrABhacipiF3aeR0YIKpwlx7S6WLDOHSYcKkTFPV/nh6F+uiixo2losInk7VtfLBp4wU4AZGnA3CwS1SkB4//lVdNdyol4dOBct1eZlajjnil77Otum4LxDO8xBt4DoRTD08
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 13:32:46.4507
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a137cdd8-6f2b-4f86-8c0b-08df4a2f6d26
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	LV8PEPF00000068.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6109
 
-mem= also only edits the E820 table, after the firmware and the EFI stub
-have set up the unaccepted memory bitmap. It removes the RAM above the
-given limit, but the bitmap bits for it stay set.
+From: Huiwen He <hehuiwen@kylinos.cn>
 
-accept_memory() accepts whole units, and one more unit when the range ends
-on a unit boundary.  Memory below the limit can therefore pull in a unit
-that is no longer in the E820 table. On SEV-SNP that memory is not mapped
-and PVALIDATE faults.
+When TCP accepts only part of a READ reply or an earlier reply is
+already queued, ksmbd copies the unsent bytes into a queue entry.
+TCP copies the payload again when the send worker runs.
 
-Warn and ignore mem= in confidential guests, for the same reason as
-memmap=.
+Keep references to the unsent payload folios and store any remaining
+header bytes in the queue entry. The worker sends the header first,
+then passes the pages to TCP with MSG_SPLICE_PAGES. Charge each folio
+in full against the queue limit and copy small tails that would keep
+a large folio pinned.
 
-Signed-off-by: Pankaj Gupta <pankaj.gupta@amd.com>
+Tested with fio sequential reads (16 jobs, QD32 per job) from a
+4-vCPU virtio-net guest. The Xeon Gold 6430 host had 128 logical CPUs
+and served a tmpfs share over SMB3.1.1. The "before" column includes
+"ksmbd: send READ payloads with MSG_SPLICE_PAGES".
+
+Channels  I/O       Throughput (MiB/s)        Host Gcycles/GiB
+                   before   after change    before   after change
+       1  4 KiB     284.2   281.6  -0.9%    28.576  28.265  -1.1%
+       1  64 KiB   2501.8  2524.8  +0.9%     4.552   4.284  -5.9%
+       1  256 KiB  3243.4  3414.6  +5.3%     4.511   3.497 -22.5%
+       1  1 MiB    3145.6  3435.5  +9.2%     3.578   2.425 -32.2%
+       4  4 KiB     454.2   454.9  +0.2%    24.338  24.377  +0.2%
+       4  64 KiB   4337.1  4448.3  +2.6%     2.977   3.000  +0.8%
+       4  256 KiB  6969.5  6938.8  -0.4%     1.932   1.916  -0.8%
+       4  1 MiB    7705.3  8255.6  +7.1%     2.673   1.746 -34.7%
+
+Signed-off-by: Huiwen He <hehuiwen@kylinos.cn>
 ---
- arch/x86/kernel/e820.c | 3 +++
- 1 file changed, 3 insertions(+)
+ fs/smb/server/transport_tcp.c | 171 +++++++++++++++++++++++++++++-----
+ 1 file changed, 149 insertions(+), 22 deletions(-)
 
-diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
-index 9c206ad4369c..c7b86267a480 100644
---- a/arch/x86/kernel/e820.c
-+++ b/arch/x86/kernel/e820.c
-@@ -940,6 +940,9 @@ __init static int parse_memopt(char *p)
- #endif
+diff --git a/fs/smb/server/transport_tcp.c b/fs/smb/server/transport_tcp.c
+index ae7957ec3e04..8456ad35a5dc 100644
+--- a/fs/smb/server/transport_tcp.c
++++ b/fs/smb/server/transport_tcp.c
+@@ -4,9 +4,11 @@
+  *   Copyright (C) 2018 Samsung Electronics Co., Ltd.
+  */
+ 
++#include <linux/bvec.h>
+ #include <linux/freezer.h>
+ #include <linux/page_frag_cache.h>
+ #include <linux/uio.h>
++#include <linux/vmalloc.h>
+ 
+ #include "smb_common.h"
+ #include "server.h"
+@@ -35,9 +37,15 @@ struct tcp_tx {
+ 	struct list_head		list;
+ 	size_t			len;
+ 	size_t			offset;
++	size_t			charge;
+ 	unsigned long		deadline;
+ 	int			msg_flags;
+-	u8			data[];
++	unsigned short		nr_vecs;
++	unsigned short		header_len;
++	union {
++		DECLARE_FLEX_ARRAY(u8, data);
++		DECLARE_FLEX_ARRAY(struct bio_vec, bvec);
++	};
+ };
+ 
+ struct tcp_transport {
+@@ -478,12 +486,104 @@ static int ksmbd_tcp_read(struct ksmbd_transport *t, char *buf,
+ 	return ksmbd_tcp_readv(TCP_TRANS(t), &iov, 1, to_read, max_retries);
+ }
+ 
+-static bool ksmbd_tcp_tx_has_space(struct tcp_transport *t, size_t size)
++static bool ksmbd_tcp_tx_has_space(struct tcp_transport *t, size_t pdu_size,
++				   size_t charge)
+ {
+-	size_t limit = max_t(size_t, READ_ONCE(t->sock->sk->sk_sndbuf), size);
++	size_t limit = max_t(size_t, READ_ONCE(t->sock->sk->sk_sndbuf), pdu_size);
+ 
+ 	/* Allow one large response, but bound the retained response buffers. */
+-	return READ_ONCE(t->tx_queued) <= limit - size;
++	return charge <= limit && READ_ONCE(t->tx_queued) <= limit - charge;
++}
++
++static void *ksmbd_tcp_tx_header(struct tcp_tx *msg)
++{
++	return msg->bvec + msg->nr_vecs;
++}
++
++static void ksmbd_tcp_free_tx(struct tcp_tx *msg)
++{
++	unsigned int i;
++
++	for (i = 0; i < msg->nr_vecs; i++)
++		folio_put(bvec_folio(&msg->bvec[i]));
++	kvfree(msg);
++}
++
++static struct tcp_tx *ksmbd_tcp_alloc_read_tx(struct tcp_transport *t,
++					      const struct ksmbd_transport_write *tx,
++					      size_t offset)
++{
++	struct kvec payload = tx->iov[2];
++	size_t remaining = tx->size - offset;
++	size_t payload_left = min(remaining, payload.iov_len);
++	size_t header_left = remaining - payload_left;
++	size_t charge = header_left;
++	struct tcp_tx *msg;
++	struct iov_iter iter;
++	unsigned int i, max_vecs;
++	unsigned short nr = 0;
++	bool vmapped;
++
++	if (payload_left < PAGE_SIZE)
++		return NULL;
++	payload.iov_base += payload.iov_len - payload_left;
++	payload.iov_len = payload_left;
++	vmapped = is_vmalloc_addr(payload.iov_base);
++	if (vmapped) {
++		max_vecs = DIV_ROUND_UP(offset_in_page(payload.iov_base) + payload_left,
++					PAGE_SIZE);
++		if (max_vecs > USHRT_MAX)
++			return NULL;
++	} else {
++		struct folio *folio = virt_to_folio(payload.iov_base);
++
++		/* A small unsent tail must not keep a much larger folio alive. */
++		charge += folio_size(folio);
++		if (get_order(payload_left) < folio_order(folio) ||
++		    !ksmbd_tcp_tx_has_space(t, tx->size, charge))
++			return NULL;
++		max_vecs = 1;
++	}
++
++	/* The unsent header follows the payload vectors in the queue entry. */
++	msg = kvmalloc(size_add(struct_size(msg, bvec, max_vecs), header_left),
++		       KSMBD_DEFAULT_GFP);
++	if (!msg)
++		return NULL;
++	if (vmapped) {
++		iov_iter_kvec(&iter, ITER_SOURCE, &payload, 1, payload_left);
++		if (iov_iter_extract_bvecs(&iter, msg->bvec, payload_left, &nr,
++					   max_vecs, 0, 0) != payload_left)
++			goto fail;
++		for (i = 0; i < nr; i++) {
++			struct folio *folio = bvec_folio(&msg->bvec[i]);
++
++			if (get_order(msg->bvec[i].bv_len) < folio_order(folio))
++				goto fail;
++			charge += folio_size(folio);
++		}
++		if (!ksmbd_tcp_tx_has_space(t, tx->size, charge))
++			goto fail;
++	} else {
++		bvec_set_virt(&msg->bvec[0], payload.iov_base, payload_left);
++		nr = 1;
++	}
++
++	msg->nr_vecs = nr;
++	if (header_left) {
++		iov_iter_kvec(&iter, ITER_SOURCE, tx->iov, 2, tx->size - tx->iov[2].iov_len);
++		iov_iter_advance(&iter, offset);
++		if (!copy_from_iter_full(ksmbd_tcp_tx_header(msg), header_left, &iter))
++			goto fail;
++	}
++	for (i = 0; i < nr; i++)
++		folio_get(bvec_folio(&msg->bvec[i]));
++	msg->header_len = header_left;
++	msg->charge = charge;
++	return msg;
++fail:
++	kvfree(msg);
++	return NULL;
+ }
+ 
+ static struct tcp_tx *ksmbd_tcp_alloc_tx(const struct ksmbd_transport_write *tx,
+@@ -503,9 +603,9 @@ static struct tcp_tx *ksmbd_tcp_alloc_tx(const struct ksmbd_transport_write *tx,
+ 		kvfree(msg);
+ 		return NULL;
+ 	}
+-	msg->len = remaining;
+-	msg->offset = 0;
+-	msg->msg_flags = tx->msg_flags;
++	msg->nr_vecs = 0;
++	msg->header_len = 0;
++	msg->charge = remaining;
+ 	return msg;
+ }
+ 
+@@ -515,7 +615,7 @@ static void ksmbd_tcp_purge_tx(struct tcp_transport *t)
+ 
+ 	list_for_each_entry_safe(msg, next, &t->tx_queue, list) {
+ 		list_del(&msg->list);
+-		kvfree(msg);
++		ksmbd_tcp_free_tx(msg);
+ 	}
+ 	WRITE_ONCE(t->tx_queued, 0);
+ }
+@@ -526,6 +626,33 @@ static bool ksmbd_tcp_send_retry(int ret)
+ 		ret == -ENOMEM;
+ }
+ 
++static int ksmbd_tcp_send_queued(struct tcp_transport *t, struct tcp_tx *msg)
++{
++	struct msghdr hdr = {
++		.msg_flags = MSG_NOSIGNAL | MSG_DONTWAIT | msg->msg_flags,
++	};
++	size_t offset = msg->offset;
++	struct kvec iov;
++
++	if (!msg->nr_vecs) {
++		iov.iov_base = msg->data;
++		iov.iov_len = msg->len;
++	} else if (offset < msg->header_len) {
++		iov.iov_base = ksmbd_tcp_tx_header(msg);
++		iov.iov_len = msg->header_len;
++		hdr.msg_flags = (hdr.msg_flags & ~MSG_EOR) | MSG_MORE;
++	} else {
++		hdr.msg_flags |= MSG_SPLICE_PAGES;
++		iov_iter_bvec(&hdr.msg_iter, ITER_SOURCE, msg->bvec, msg->nr_vecs,
++			      msg->len - msg->header_len);
++		iov_iter_advance(&hdr.msg_iter, offset - msg->header_len);
++		return sock_sendmsg(t->sock, &hdr);
++	}
++	iov_iter_kvec(&hdr.msg_iter, ITER_SOURCE, &iov, 1, iov.iov_len);
++	iov_iter_advance(&hdr.msg_iter, offset);
++	return sock_sendmsg(t->sock, &hdr);
++}
++
+ static void ksmbd_tcp_tx_work(struct work_struct *work)
+ {
+ 	struct tcp_transport *t = container_of(to_delayed_work(work),
+@@ -538,13 +665,6 @@ static void ksmbd_tcp_tx_work(struct work_struct *work)
+ 	mutex_lock(&t->tx_lock);
+ 	while (!READ_ONCE(t->tx_stopped) && !list_empty(&t->tx_queue) && budget--) {
+ 		struct tcp_tx *msg = list_first_entry(&t->tx_queue, struct tcp_tx, list);
+-		struct msghdr hdr = {
+-			.msg_flags = MSG_NOSIGNAL | MSG_DONTWAIT | msg->msg_flags,
+-		};
+-		struct kvec iov = {
+-			.iov_base = msg->data + msg->offset,
+-			.iov_len = msg->len - msg->offset,
+-		};
+ 
+ 		/* MSG_DONTWAIT bypasses sk_sndtimeo, including for retained PDUs. */
+ 		if (time_after_eq(jiffies, msg->deadline)) {
+@@ -552,16 +672,18 @@ static void ksmbd_tcp_tx_work(struct work_struct *work)
+ 			failed = true;
+ 			break;
+ 		}
+-		ret = kernel_sendmsg(t->sock, &hdr, &iov, 1, iov.iov_len);
++		ret = ksmbd_tcp_send_queued(t, msg);
+ 		if (ret > 0) {
+ 			msg->offset += ret;
+ 			t->tx_sent += ret;
+ 			if (msg->offset == msg->len) {
+-				WRITE_ONCE(t->tx_queued, t->tx_queued - msg->len);
++				WRITE_ONCE(t->tx_queued, t->tx_queued - msg->charge);
+ 				list_del(&msg->list);
+-				kvfree(msg);
++				ksmbd_tcp_free_tx(msg);
+ 				continue;
+ 			}
++			if (msg->offset == msg->header_len)
++				continue;
+ 		} else if (!ksmbd_tcp_send_retry(ret)) {
+ 			WRITE_ONCE(t->tx_stopped, true);
+ 			failed = true;
+@@ -682,7 +804,7 @@ static int ksmbd_tcp_writev(struct ksmbd_transport *t,
+ 			mutex_unlock(&tt->tx_lock);
+ 			return -EPIPE;
+ 		}
+-		if (ksmbd_tcp_tx_has_space(tt, tx->size))
++		if (ksmbd_tcp_tx_has_space(tt, tx->size, tx->size))
+ 			break;
+ 		mutex_unlock(&tt->tx_lock);
+ 		if (tx->msg_flags & MSG_DONTWAIT)
+@@ -693,7 +815,7 @@ static int ksmbd_tcp_writev(struct ksmbd_transport *t,
+ 					READ_ONCE(tt->tx_stopped) ||
+ 					ksmbd_conn_exiting(t->conn) ||
+ 					ksmbd_conn_releasing(t->conn) ||
+-					ksmbd_tcp_tx_has_space(tt, tx->size),
++					ksmbd_tcp_tx_has_space(tt, tx->size, tx->size),
+ 					timeout)) {
+ 			/* A queued PDU may already have a prefix in the socket. */
+ 			ksmbd_conn_abort(t->conn);
+@@ -719,7 +841,9 @@ static int ksmbd_tcp_writev(struct ksmbd_transport *t,
  	}
  
-+	if (cc_ignore_cmdline_mem("mem"))
-+		return 0;
-+
- 	userdef = 1;
- 	mem_size = memparse(p, &p);
+ 	/* The request buffers can be freed as soon as writev returns. */
+-	msg = ksmbd_tcp_alloc_tx(tx, sent);
++	msg = tx->splice_read ? ksmbd_tcp_alloc_read_tx(tt, tx, sent) : NULL;
++	if (!msg)
++		msg = ksmbd_tcp_alloc_tx(tx, sent);
+ 	if (!msg) {
+ 		if (sent)
+ 			WRITE_ONCE(tt->tx_stopped, true);
+@@ -728,9 +852,12 @@ static int ksmbd_tcp_writev(struct ksmbd_transport *t,
+ 			ksmbd_conn_abort(t->conn);
+ 		return -ENOMEM;
+ 	}
++	msg->len = tx->size - sent;
++	msg->offset = 0;
++	msg->msg_flags = tx->msg_flags;
+ 	msg->deadline = deadline;
+ 	list_add_tail(&msg->list, &tt->tx_queue);
+-	WRITE_ONCE(tt->tx_queued, tt->tx_queued + msg->len);
++	WRITE_ONCE(tt->tx_queued, tt->tx_queued + msg->charge);
+ 	queue_delayed_work(system_dfl_wq, &tt->tx_work, 0);
  
+ accepted:
 -- 
-2.34.1
+2.43.0
 
