@@ -1,48 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795540248;
-	b=xSNuQ8dJP1yAfG4VxiCp80iO7UOgx++gngJ7Y9vrX+R9tLj0+clveg0A21Y1QviNQfph
-	 5JGuAZOV3YLJVDCmMwxVODIIRaTfcFYVVmRNNP5myrhCkjLzMQAF/5SxC0ga0TLeky3Ne
-	 Uk0+XUbdtXNy+c5NtTrMm8OjF90WK4JPhO8/kV01rTt+jETClSJecDarg6NlIFbeh+H0T
-	 FagKOaJnVuoqZLgg/KedfGdkmSb6a1Gf8BXvR1EWa/xyu/SXZOAUfFheR27oXcn0ktSOX
-	 yq+TYWU+QgwuvBS+DR49i56VEIQK0nBS2s/tq1U28/GCCzq5IyYgWn530mjVPD6WBzA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540248;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=Hoi6ZKqF0rWP2dY8L9fi70WXIdQ16OJirLzXOK8DLeI=;
-	b=pDGt0A/3toN8EkS8GZAWFXUA2nEqfdc5rNu5MW4SW2fyNtS6WZSursg46TGQLe9kfeb0
-	 UhhS7ahm92Uf2QlUGg7gnf5fHeIJGYHNQE6dLjRVHUxRhJ8oM21cAn8S7mc8NE/cAxvID
-	 MtT/92I9uzpbQNKfAxXAyrzSPT4u7bzJO2ZuDesNEOObeYGFk7rRB4naTkfZJYo7d395C
-	 azCprW7/i7YskEQWccwolP+7mfdsvePh3qxqq0cMQcu4p/DUwxaLMN8j+21hYcUq8P0Kn
-	 U042nWu7tPVniLDtCUNwLB4mrveX9RISXhPKt7srq48DCF/Ge+lnxYfp0PHgrS3jw6g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mQ7IdyS4;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.177
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795540255;
+	b=JS9Mu6Spw/m53rl7eJ/MIgK1jm5nHUP7Vu9FO70NpQNg45OMsxHuXqBDwp9Knt1xDztz
+	 0C65ILEYYy0teeiV/VdHGggwnhylBPHlbMYlz76Uk/nKiHsAjlFt9U1X4a/YO5m1540PS
+	 alBGqBrlNqoebcGR2s7Rvxa8Zszn7k9jKF5Hr4M1vy0pRmfV1Rh2PfuLVs4FjDk1/6WTO
+	 HhlWaAhadr05DG7laP1bpFcgdMBVFHDWSXn5/+I4nxNJH8naLM6wKOHIHOQpppb79ydXy
+	 eIMh4IIyJ7zByW5DxWV/P1z3lLU8Ex6mugdn67umjlmiotzsXTZyJBOFqXGGVHS3Yww==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540255;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=YD659iZbhB9OAfnpI+8tlGtmEiCdl2kb0qCNC7Yp8ls=;
+	b=aBH8XZ9T+zdQan4NhtGeYvuMCXXpwnmcIfwA+/eUu2OFWpDN8ZesN9lAkQuKAPpf3J4W
+	 4BujZ5vhAn7Z0lXSoMRYfkkwt3129zz54ATKFivMueImQylpabbe6zm08q6TbKfDOzG+h
+	 GbZhWtQn19Dd6XmSnNDBkMZ5k5EvrL5yi6PSm8WNniD2XRhOwAR6WA5uev8UXBIfpancW
+	 J8KZ/oCqnHTQkLB0AcOrGJyA1mS0JEHtcoAOs5/hztzgmU60FlHH+WzXHitHt/SLYdTXu
+	 RWoE4Qyc1i0/LtGKkT7b6thQW9+FNlEn90RqgwFWFqsGrLzNPB9AL4b53QdzjOio8Aw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=paul-moore.com;
+	spf=pass smtp.mailfrom=paul-moore.com;
+	dkim=pass header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=XGZP1B9e;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.177
+Received: from mail-pg1-f177.google.com (mail-pg1-f177.google.com [209.85.215.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4C39606A31E;
-	Tue, 24 Nov 2026 17:10:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA4B1606E172
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:10:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA4B1606E172
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=paul-moore.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paul-moore.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mQ7IdyS4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEBC21F000EC;
-	Tue, 24 Nov 2026 17:10:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795540248;
-	bh=Hoi6ZKqF0rWP2dY8L9fi70WXIdQ16OJirLzXOK8DLeI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=mQ7IdyS49AENVW+aKfDJc1YLjA04/p8tIxN7YRDMM8ueVAsZNqc2KIWGDZ3TZPGty
-	 gXMLycS92SL17oxb9pNQUQLbr9BYnh+cML/2JQxhWGRdxcCNG34TvnqPHj++AvZRcI
-	 o33kofJHgb0IFg9vyzDiBYV4hAn0XY/Sk18425ehbjJVVj28odQrfwj5Z8yO+gQjhE
-	 KLpLeuZ3Il5hlLlMZ1Kg/+btvjNwhLcNVBzd1kF8lsjFQZ2wOGGFFNyNoK+HoQrcGj
-	 deyGUfLK3i0oz1rS4zwVcXps7U2kHgDwdvxcey8H2XvzU/DYFD7/9y1q9N/5mNwN4R
-	 BsRMnajdG7pUQ==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 24 Nov 2026 17:07:59 +0000
-Subject: [PATCH v2 07/11] perf: convert VMA flag tests to use vma_flags_t
+	dkim=pass (2048-bit key) header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=XGZP1B9e
+Received: by mail-pg1-f177.google.com with SMTP id 41be03b00d2f7-cdb75699c7cso1837971a12.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:10:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795540254; cv=none;
+        d=google.com; s=arc-20260327;
+        b=oMsoGxU7ztFNLBl40xMTK7qUkfuW1Qoasg/bn4mI5/2I7knConGl4Fra8IbV+EsBye
+         ycoDAurIXIOEkZaAvNbOgdi7yWsqNQjALytKikbUsXCH02EXUreUQbg7hsjroV1iEhtq
+         T5o5tFw57o9kPubjzhEwwPFkpZEn08yLcKHy9xilCtE/C53emFO2zz5sXY2l/1hlj0BF
+         QlaJ3/RYtDknX3VDIbWVshKiXdyhzdJqAZvriayMRsJriY9npGK2NDqAOqqP/plLXxzE
+         GtZyTg04FTAgXOjNHhxxauvbbcZLyFQyKvndCSHWamYTKRr3mwpWwOQ6yaPG3vhz+vos
+         s8ZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=YD659iZbhB9OAfnpI+8tlGtmEiCdl2kb0qCNC7Yp8ls=;
+        fh=eKD4aBJna7xvKtEQ2NnctORx5l2bAJWXbp1EukUZ4AE=;
+        b=a/ixe9hma8FPu0AZwnoi11YEj3gYbdgVAzovVvRMfXYTsDInOItek+o/Nibv/Sd/U1
+         U1Kx0L0r0Q4Mc2DqR0Y+Fv6Ipbqwob9UxKcxS7NkfuAkEXXySXBWxER30C2Oy3ZTw2JR
+         iBUeurFefJ1E19gXnlGgkpiakwpLARlGUPHXkpx4YvmxMZOF+sUFSzV2zzp8xT1/+8T2
+         S0dvk7PX2WTr/O6pl9xUEQicE2s4ss/BxJcZ+FhqfzwIn7DqLZSP+1lSxg+ZJ2TNQqrT
+         AUaqNMRUZrsLvaTHHP7+cAp7jHJe0/KplrSiGFIlU3hIfFkMkSw2AW0hBySFaT5GcgYt
+         7QaQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=paul-moore.com; s=google; t=1795540254; x=1796145054; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YD659iZbhB9OAfnpI+8tlGtmEiCdl2kb0qCNC7Yp8ls=;
+        b=XGZP1B9ebdkS8ePIk89ZuzQ1iCcHMbjCNYVdkW1Ikavfb7BfPm2cIFvIY/wrKRe72B
+         sgtUsrG0y94ks58sAPWoPUZbaXTVzgig7BodyAWi6buZ0/NCmjX8E7Xfnq/JXDVG1uOG
+         gZmhWdPv5Y4dY390ZwAB3s+ccss4ZSLw2/FwNYsfSGt8q4qrX7ZMBdKbJIYEOW8LtS7z
+         Npr7U/WjzZAIMnhBXhD2TiYX3sPVYyxAi7D7cu4ltg1q/lUVnLTeEwduU2vlu+2Pccuk
+         wuolouFPHsPqHmaPGaztToyeO/jvTkDu6eHV/VvaKPn2hibcKXvDCckQQZ30iZidEfwA
+         ic6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795540254; x=1796145054;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YD659iZbhB9OAfnpI+8tlGtmEiCdl2kb0qCNC7Yp8ls=;
+        b=WCapCdK5vj42Jvcb0BmKdAFw2rAGmzDVPi/PG2u9zIfuoJVlqLCugD0tcY7s1hs06f
+         uU87QLMHJ29mw8GHNLstuQoxt/m845z2q9rufRBwzc8J5tRNL6oL6cI+L1WAMs93kfPo
+         QmDVAswf/l//acEmLmaUzscY6W2zb+xILyQdxTIZyiaQ1cGi5CQYEFnW1Jz8j8CV2gl0
+         8S3YFA57viyBZykJoSiuzlog0sc5l1adkEZUt0yZJML9cihTZ1Zyt4OSB/5G2lakjiDn
+         GF51W1D3w69SeHA6brbkJH/Vn+7lpbmHiNSYbNtwCcTGFeceN2fVGrT9mIiMl7FgCuBh
+         JeQw==
+X-Forwarded-Encrypted: i=1; AL+hErHIobT30qB81WiCbSrMigsqrcbgNapNMBEdGNkv28YRFzWxH4ylX1wDSCawEmwJ3Ort6ftBI7fmM4DyjZ0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Fcd4H19poYB+6RFSKCcXufDfKxMTP0XaE6Wm9K7gNRoS875B2
+	7gDVtjWgAFRkUACZFZ2B7H2H1vPhphWboIijSLKi1Ey31VB10FGpTDzRdgEOD4NvIWOR6k1WKDt
+	1P+nde/mHPUXxR28NrG6tKId9w9QMp+RF0mHy2A4g
+X-Gm-Gg: AZFdTZfphgAH2Mqs71xCfrh/rWqJEboXDSavrWKjBQjRePAEBA1DerdKv29VIOaOXYu
+	p2zpreIb7adv/KORZl+ZuoxEu6wzjAlYs+HL6MmhN2OapKFJUBjcRn5ez3AHtdl9HyzJwgPHlHV
+	0D44+yLiPrZjJ+P9kVx9MBw1vWMY8UDMqt8lZPKMyiqxgPjbf8FkBuF3sMSP7QixWgrx2J5py8r
+	fq34pNXbI7kWtE8zDZ9JOEpZeLqP6UEWrVWuE/N9Za2/0o19J8Fri9HbzGgadrffXkV0/SA8dEb
+	Fk8mK8+JOoXKzzmmEvDdr7QGctCjqYsETVB8ujZfE9XFjjp+MgBG0cfPjKa1LVmW5ATIewBkZ49
+	KU3EXe6v31fxY+ZyQBqAfinn7Wc8ntqn2I7RUNjCMFDk3dSsATEDF4JWFOslz7pRaHP3x
+X-Received: by 2002:a17:90b:50:b0:3b0:9e2c:9b5f with SMTP id
+ 98e67ed59e1d1-3b41c7b6044mr14858398a91.2.1795540253878; Tue, 24 Nov 2026
+ 09:10:53 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,191 +104,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-late-2026-vma-flags-v2-7-bf3fade93064@kernel.org>
-References: <20261124-late-2026-vma-flags-v2-0-bf3fade93064@kernel.org>
-In-Reply-To: <20261124-late-2026-vma-flags-v2-0-bf3fade93064@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>, 
- John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
- "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
- Rik van Riel <riel@surriel.com>, "Liam R. Howlett" <liam@infradead.org>, 
- Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>, 
- Jann Horn <jannh@google.com>, Lance Yang <lance.yang@linux.dev>, 
- Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>, 
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
- Gregory Price <gourry@gourry.net>, 
- Ying Huang <ying.huang@linux.alibaba.com>, 
- Alistair Popple <apopple@nvidia.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
- Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
- Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
- Xu Xin <xu.xin@linux.dev>, Chengming Zhou <chengming.zhou@linux.dev>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
- Shrikanth Hegde <sshegde@linux.ibm.com>, Pedro Falcato <pfalcato@suse.de>, 
- Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
- Shakeel Butt <shakeel.butt@linux.dev>, 
- Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
- Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
- Michal Hocko <mhocko@suse.com>, Leon Romanovsky <leon@kernel.org>, 
- SJ Park <sj@kernel.org>, Rakie Kim <rakie.kim@sk.com>, 
- David Rientjes <rientjes@google.com>, 
- Alexander Viro <viro@zeniv.linux.org.uk>, 
- Christian Brauner <brauner@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- James Clark <james.clark@linaro.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
- John Johansen <john.johansen@canonical.com>, 
- Georgia Garcia <georgia.garcia@canonical.com>, 
- Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
- "Serge E. Hallyn" <serge@hallyn.com>, Mimi Zohar <zohar@linux.ibm.com>, 
- Roberto Sassu <roberto.sassu@huawei.com>, 
- Dmitry Kasatkin <dmitry.kasatkin@gmail.com>, 
- Eric Snowberg <eric.snowberg@oracle.com>, Fan Wu <wufan@kernel.org>, 
- Stephen Smalley <stephen.smalley.work@gmail.com>, 
- =?utf-8?q?Ondrej_Mosn=C3=A1=C4=8Dek?= <omosnacek@gmail.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- kvm@vger.kernel.org, damon@lists.linux.dev, 
- linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- apparmor@lists.ubuntu.com, linux-security-module@vger.kernel.org, 
- linux-integrity@vger.kernel.org, selinux@vger.kernel.org, 
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4026; i=ljs@kernel.org;
- h=from:subject:message-id; bh=q20FVgbTncUenAoabJhU/UxTd+TaqPmkjn0LMdXaCOg=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJZj+RF2V0qzp2xM3oL74zmDK+Z+RnTxFOPPFVP9luzJ
- jDCKeRXRykLgxgXg6yYIsvzL+L7g0TC5nVe8HeDmcPKBDKEgYtTACbiq8zwT+vOYc6+XYVPrHo8
- OWZ+OPZ28utjqd2p/7Z4WG7T+u1SE8jIcKHchD2gyiI/9KzN/XOBF34rtFxkrHpYcjxYlL2Z392
- AFQA=
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+References: <20261123-x25-v1-1-4432d3892f8b@gmail.com> <c70bad57add6ff8cd52125c698f3f54a@dev.tdt.de>
+In-Reply-To: <c70bad57add6ff8cd52125c698f3f54a@dev.tdt.de>
+From: Paul Moore <paul@paul-moore.com>
+Date: Tue, 24 Nov 2026 12:10:41 -0500
+X-Gm-Features: Aa3M54pQl1423xvicd2W8eKUxg-iwZ3pBcyz1tFldZ8tVNfr4v2hJioLBtMFymY
+Message-ID: <CAHC9VhTLg2FLNf3sLe3+A=q5Mo4gKs+gB7zi5sQT1jizsOPuNQ@mail.gmail.com>
+Subject: Re: [PATCH net] net/x25: inherit the listening socket's security
+ label on accept
+To: Martin Schiller <ms@dev.tdt.de>
+Cc: shyckless@gmail.com, davem@davemloft.net, kuba@kernel.org, 
+	edumazet@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org, 
+	linux-x25@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, stevewong@hust.edu.cn, 
+	kaixuan.li@ntu.edu.sg
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Replace use of the legacy vm_flags_t flags with vma_flags_t values in the
-perf mmap and mmap event logic.
+On Mon, Nov 23, 2026 at 11:44=E2=80=AFAM Martin Schiller <ms@dev.tdt.de> wr=
+ote:
+>
+> On Mon, 23 Nov 2026 01:31:20 +0100, Suyuan Wang wrote:
+> > x25_make_new() creates the socket that accept() returns by copying
+> > fields from the listening socket, but it never clones the listening
+> > socket's LSM security state -- there is no security_sk_clone(osk, sk).
+>
+> Thanks!
+>
+> Acked-by: Martin Schiller <ms@dev.tdt.de>
 
-No functional change intended.
+My apologies, but I'm about as X.25 ignorant as possible, so a quick
+question: the x25_make_new() function is called by
+x25_rx_call_request(), which as far as I can tell is on pretty
+analogous to an accept() operation, is that correct?
 
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-Reviewed-by: Lance Yang <lance.yang@linux.dev>
----
- kernel/events/core.c | 26 ++++++++++++++------------
- 1 file changed, 14 insertions(+), 12 deletions(-)
+If that's the case (x25_rx_call_request() acting similar to accept()),
+cloning the listening socket's LSM data makes sense, but if it's
+something else we may want to leave the new socket as-is, labeled by
+the process performing the operation.
 
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index e870f12c3ad8..219b7af9a632 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -7234,6 +7234,7 @@ static int map_range(struct perf_buffer *rb, struct vm_area_struct *vma)
- 		unsigned long va = vma->vm_start + PAGE_SIZE * pagenum;
- 		struct page *page = perf_mmap_to_page(rb,
- 				vma_start_pgoff(vma) + pagenum);
-+		vma_flags_t vma_flags = vma->flags;
- 
- 		if (page == NULL) {
- 			err = -EINVAL;
-@@ -7241,8 +7242,9 @@ static int map_range(struct perf_buffer *rb, struct vm_area_struct *vma)
- 		}
- 
- 		/* Map readonly, perf_mmap_pfn_mkwrite() called on write fault. */
-+		vma_flags_clear(&vma_flags, VMA_SHARED_BIT);
- 		err = remap_pfn_range(vma, va, page_to_pfn(page), PAGE_SIZE,
--				      vm_get_page_prot(vma->vm_flags & ~VM_SHARED));
-+				      vma_flags_to_page_prot(vma_flags));
- 		if (err)
- 			break;
- 	}
-@@ -7360,7 +7362,7 @@ static int perf_mmap_rb(struct vm_area_struct *vma, struct perf_event *event,
- 	if (!perf_mmap_calc_limits(vma, &user_extra, &extra))
- 		return -EPERM;
- 
--	if (vma->vm_flags & VM_WRITE)
-+	if (vma_test(vma, VMA_WRITE_BIT))
- 		rb_flags |= RING_BUFFER_WRITABLE;
- 
- 	rb = rb_alloc(nr_pages,
-@@ -7441,7 +7443,7 @@ static int perf_mmap_aux(struct vm_area_struct *vma, struct perf_event *event,
- 
- 		WARN_ON(!rb && event->rb);
- 
--		if (vma->vm_flags & VM_WRITE)
-+		if (vma_test(vma, VMA_WRITE_BIT))
- 			rb_flags |= RING_BUFFER_WRITABLE;
- 
- 		ret = rb_alloc_aux(rb, event, pgoff_start, nr_pages,
-@@ -7476,7 +7478,7 @@ static int perf_mmap(struct file *file, struct vm_area_struct *vma)
- 	if (event->cpu == -1 && event->attr.inherit)
- 		return -EINVAL;
- 
--	if (!(vma->vm_flags & VM_SHARED))
-+	if (!vma_test(vma, VMA_SHARED_BIT))
- 		return -EINVAL;
- 
- 	ret = security_perf_event_read(event);
-@@ -9848,7 +9850,7 @@ static int perf_event_mmap_match(struct perf_event *event,
- {
- 	struct perf_mmap_event *mmap_event = data;
- 	struct vm_area_struct *vma = mmap_event->vma;
--	int executable = vma->vm_flags & VM_EXEC;
-+	bool executable = vma_test(vma, VMA_EXEC_BIT);
- 
- 	return (!executable && event->attr.mmap_data) ||
- 	       (executable && (event->attr.mmap || event->attr.mmap2));
-@@ -9881,7 +9883,7 @@ static void perf_event_mmap_output(struct perf_event *event,
- 		if (use_build_id)
- 			misc |= PERF_RECORD_MISC_MMAP_BUILD_ID;
- 	}
--	if (!(mmap_event->vma->vm_flags & VM_EXEC))
-+	if (!vma_test(mmap_event->vma, VMA_EXEC_BIT))
- 		misc |= PERF_RECORD_MISC_MMAP_DATA;
- 
- 	perf_event_header__init(&mmap_event->event_id.header, &sample,
-@@ -9932,19 +9934,19 @@ static void perf_event_mmap_event(struct perf_mmap_event *mmap_event)
- 	char *buf = NULL;
- 	char *name = NULL;
- 
--	if (vma->vm_flags & VM_READ)
-+	if (vma_test(vma, VMA_READ_BIT))
- 		prot |= PROT_READ;
--	if (vma->vm_flags & VM_WRITE)
-+	if (vma_test(vma, VMA_WRITE_BIT))
- 		prot |= PROT_WRITE;
--	if (vma->vm_flags & VM_EXEC)
-+	if (vma_test(vma, VMA_EXEC_BIT))
- 		prot |= PROT_EXEC;
- 
--	if (vma->vm_flags & VM_MAYSHARE)
-+	if (vma_test(vma, VMA_MAYSHARE_BIT))
- 		flags = MAP_SHARED;
- 	else
- 		flags = MAP_PRIVATE;
- 
--	if (vma->vm_flags & VM_LOCKED)
-+	if (vma_test(vma, VMA_LOCKED_BIT))
- 		flags |= MAP_LOCKED;
- 	if (vma_is_hugetlb(vma))
- 		flags |= MAP_HUGETLB;
-@@ -10110,7 +10112,7 @@ static void perf_addr_filters_adjust(struct vm_area_struct *vma)
- 	 * Data tracing isn't supported yet and as such there is no need
- 	 * to keep track of anything that isn't related to executable code:
- 	 */
--	if (!(vma->vm_flags & VM_EXEC))
-+	if (!vma_test(vma, VMA_EXEC_BIT))
- 		return;
- 
- 	rcu_read_lock();
-
--- 
-2.56.1
-
+--=20
+paul-moore.com
