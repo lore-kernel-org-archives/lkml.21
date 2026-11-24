@@ -1,102 +1,102 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.125.188.122
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514794;
-	b=C4oMBrZQJ7n5V3G2BpBQVeyvv/LNiSYbL0rWjIsvod5nqW4ca3muMaEYpvYKwIp+VUer
-	 BNeGbDboZ095Jdqx6imBghtac306iCZ+XDsg3L64Zp4rEpQBYGZ1cf/brO38o9Yws/Fja
-	 F/W6kMse4AT86BsaZNa6mLr3mpTBadIuw8SX3AKmaYTONEyh+VVyhlDLKUuxT1/04jGI8
-	 lfWmFUI89DJV/iWbdr6lob4teBa2bGHNHfDD2u8yV86SAG/qydMMcxDfsgWs38D2LYfVD
-	 QzmMDDk6rNyPwkQL78bLuHm15r42qUWcgGXhxiSCaG3YFRWcgTl+cbeMKtmfzYKtcxg==
+	t=1795514796;
+	b=P+HeCngcQfsHw/s5qINwgsrUwf4QrEFzjI9Tybp6tWc3Z62XC9vtkX1Aixs3XCVn1+NH
+	 73hADy+2NAtVowcq9ztEdqhGRe2HMPxOB8ORxLuDdvuAAJ3Q9XYRVXathQesl1zY9fljd
+	 LY6ho2tT3aj1etG8bFdSNoXxggTP0KxBF/Uhr5LzPxADp5G4njLk9e/2H/gPwRuzd78Qh
+	 OYc4DEnisiy+YtGpUGNkDQ+RfeFXhHKIN9pJ4RVD3zJUG/JQVQ9TuYgq0n52MZlcYec8y
+	 Stls55gTRneVr7JvTiVMAViBPPCkzmK2Di9BPlCaMVuDUxz/DWDJ9KdtawusAtXpaqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514794;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514796;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:
 	 X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:X-Received:
 	 X-Received:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=r7DitdOlHqA5mEYHwEterBTbi/yNYMUAPnVhvFCyj2E=;
-	b=5SzgkmYQ4+uPVmnas9oLsZCqZqHAi6mwJaF80wRjpEJZzG78d0u3d7vQtC2sJF3c0NZO
-	 VIovdBn/rPqcOHyTvHtqWTfiv3hgwTaQmtjEwxElHv8WYc0zKLLf3TquDIuJiWj4UKyny
-	 M2lpqeR7zl/ZIZLMpD4HcheDVYLlb4Z1B/k3mXrl1OPKQVSberINnrR4agEzRJlR5UEjD
-	 5saDYgNmOYLuJ8fAkj8GCVhxPOvSmpuvuDbTFSHygDfCm1AeOwExcoWB5aucJOAGSY6qx
-	 5sBGJKt1OJdM8R27zSUslI97XNCyyzmXu6KJKWqsw9JuX35VySo3fQQ8K1a6s26ZU+g==
+	bh=gfNvtXSxyuDlmfpI57mT75R6rqxcaduwh6nIpzcsO4U=;
+	b=N/a96/n0rkT8D02I6MYcyXGzltegy6lJ5qSZlvQEfkhxg0cq433zpmIGwL4RWMtVZi9P
+	 tfvKF4k1X5nDuUIQZjxcU3ka23gh2iB9cXOV199GwkwKzF7t1ZNcQTOkrflyZPaeILjm1
+	 rhZT9QtHcVONeZEURhfbhIfjmSru7hXMMEpPgYBgeTMTJ7g/PbBhRAS5COFBXvEG9Sob7
+	 t6LKkNDdAyV35PC1j6VEnq51sLrQmee2xAvhAbWGlJlZsPcM+tRwD7RgzarQfPNHG3DqD
+	 7iVcUZy/XslznYOsGR5ZctOrwYfF+7NT/+l46t4vp/7XYbHTKdng2Mxjt0aMiklGmvw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=canonical.com;
 	spf=pass smtp.mailfrom=canonical.com;
-	dkim=pass header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=cKv1l4nC;
+	dkim=pass header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=agqZzCaN;
 	arc=none smtp.remote-ip=185.125.188.122
 Received: from smtp-relay-internal-0.canonical.com (smtp-relay-internal-0.canonical.com [185.125.188.122])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D650606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:06:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D650606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA70D606A686
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:06:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA70D606A686
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=canonical.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=canonical.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=cKv1l4nC
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com [209.85.221.71])
+	dkim=pass (4096-bit key) header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=agqZzCaN
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com [209.85.221.69])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id EC6943FE35
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:06:26 +0000 (UTC)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 4096A3F78C
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1795514786;
-	bh=r7DitdOlHqA5mEYHwEterBTbi/yNYMUAPnVhvFCyj2E=;
+	s=20251003; t=1795514789;
+	bh=gfNvtXSxyuDlmfpI57mT75R6rqxcaduwh6nIpzcsO4U=;
 	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version;
-	b=cKv1l4nC/cZA1617zkIKmrDHFPjpQljL67xewC+/wTyK6Pki5BdB0JNBS9dRx6c5C
-	 an5gsXsvorHRYUtUnzEZ4DPJ5f+S4rVMir2n00UxNc17z2x0xyGnWNS4H7uEdcra6z
-	 gybD9IeLjjpn7Z+2Dv8UOcSKhM0NsUoCyTrGngmoGWFIb8VVNBiRanaQtKFp/iz2u3
-	 3RYZOSndYfI4O69QK5XDokCwOwdpgC2n3Ly+AbZ+yKabKXeJp8xuoVFbFfhdwJCarv
-	 cn9mEz5VwDyOMRqDpvNV5CGbw2wyNlfkrm/qyvF7/7OCJPwWHu0Fth9gLjg0WuI6BJ
-	 3BSgm6VbpGI0+EqIPx25ua3Kqh27yvPzvqGO4ErAFdGil1EpUsPtDoofaV2Lc1tV/6
-	 hVaR1f0r2Pm15WC732MwDOMpssoWKIeMa0eCk1Trm3d/jTM7vDAnFne+CKBuoGDAid
-	 1qP8aXeo2nA98PRMgskTsBUB08jfvPPzBy1+yM216FzbQEP47CvvBeTroAIV7aQK/R
-	 fO8mEfcFVzmoldVdAav063vzUhmp0XHggHAtIfBFHicdDkjjAKoHQjCTye38eJT3Rb
-	 ndIjLBUMVGfCcwNjj4qj3lwJb4Ee0xELN4okOm3/3OZB/TdrFF9ZCeSMBGE1SOX9kF
-	 H1OVdhI4xkQ98tzmZfihR3ns=
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4923b9fdd43so2693378f8f.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:06:26 -0800 (PST)
+	b=agqZzCaNDF12yx7F6w1BGAY6YRf5CRhfBBjHRMZlNb98PToIdogbkzD01HIQpf+y6
+	 V2rHgH3REGFkCndoSAnMLVjfcantkSPdLX6hYDZTKRNTjNkAv4yodsLO4OKi7jHvMc
+	 mwYp/1YSjCd4hAOoqusHKwJKikLkrgLblTwmuJboseK8Xq5Oshy00/grFfnS0f6qv1
+	 Waz2EO+hQNNUmzRY/uRe0+tbjHVLiVkIbcnJ3zV6QT9UcMUNrC+1FOfljOKZyyLU7X
+	 lM3kxLvygV7Gylj76DVWATSLeNFkIC48Z2TSJa5+odVjFgPaQ0AJ6vmzfhL8F/i4qO
+	 ufxMRjh7zysXfQP2n7a130zgm8PeZdPiUPqF1zInSanAYREvQjyWv4DW/162mTMctc
+	 hDoTYE0Gk9rV530WWqvzBmEkS/AgLL6oyefCdNOzla80dV5zjIXWCQ3kveTBCXbB8R
+	 K6XspAjJi1p3gYiBBeNsFBxmAGTNyzSriVsOLI62WegbX0x7wSn7HAm3DyCMYGI4Jw
+	 Nr7cMbar0DopaouXtsx5pG4VebB+wcs7rsCqqbqpQbCvrN1KkCqiYx9bUn5KqzqgKo
+	 fgBgURCEpSEbQtUhu/L2MtDHINRn68U2RwbVQoPftfo94yPjzR6FmpW2t6RQSSBoiV
+	 Bk/BrNOO5DclBzovLkQq1dx8=
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4ab855a8c21so3533054f8f.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:06:29 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795514786; x=1796119586;
+        d=1e100.net; s=20260707; t=1795514789; x=1796119589;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=r7DitdOlHqA5mEYHwEterBTbi/yNYMUAPnVhvFCyj2E=;
-        b=C8e6UcGBwfLYNAJgwsVVNJVTlTyPIBe+wpIFVhHuxG9QirrC3kIasegEYok8zBvzWe
-         nywC5DaIDSeiWzrNS/Cp3k204x4U6Jyc7hKImpZf2ZrufcKjwSGWhcZAbasoXxk+oEmQ
-         1cGz93AfT1e1ylE9zq8s93Vj/WFFBa/Ix49DkYXByb72M1b/00vePwh9OlaOlu8MXh1Z
-         RxK4szVs58MLJR376q0C0U6VoNaNVGBt++D8VOO6tXsrN6x4T8u4BQABJIcPJwmahUTA
-         6ak+6Lx7XQkh7RCJhy0dJ7H1lAN7VKJn7aZZkZkvCT1jHqLqlnBul0PrlTYaxT/O4dmM
-         43eQ==
-X-Gm-Message-State: APuU4Z8QviR4jkkZm52/wcjUxZ85lY20OTQpYwHVB2jqLe6yQ+Lh23D4
-	ayDRzgV1VlQrKPHuns5jB1Z3ezSaS/+6rTx6L6ISD0CPK7VjtooQ6txEn5yPn5jU8RicT36SoSr
-	P/PhOjqJ6Kyqqj9QuhrEEiRqIpHtDZxHJcVnsNlD6Tibll5pGhuD9z3Wany0M2PRlxruqQIyh1Z
-	eyk3noNw==
-X-Gm-Gg: AZFdTZfOvthn/RqyodYUGkdWS22tBMD9rgbSogHhpOa/D+1n5I5sedBZOfS1TjeWIlR
-	C3AlfJHZ/N8SgKwbekGnYqAYPAPAxysDF569qlxabd1dWwUrtinNVMam+vOqOqgH09e1nK9AEPz
-	rfihSQCf92nWeNlO7v7oKfqj8saMLAEhflg59RqLsguUpe5QjT9viWr/GNoN0hTnhSUhYVAhDc+
-	Zqawg9C2QQ8IU7W+waqLzIbc2B2WXs4XYzz6nqPfACkxI8MvdVD5aHDefcLXu5nS+DvGZCeCUsx
-	6FhTUjgFKYvfSAfroKCFAiDtSfm4NdXzVBqCre8aKwmnLX9yloHuCfGNNRWVbutB8gUcXcDUg05
-	nEdYV+2PUWfS/IeIuPiy4gXPDBhCnoTUuLlDqeanx+2JPUhg46GlADvqdtaFRlmc=
-X-Received: by 2002:a05:600c:4755:b0:4bb:7033:de79 with SMTP id 5b1f17b1804b1-4bb8881dd02mr294185695e9.35.1795514786372;
-        Tue, 24 Nov 2026 02:06:26 -0800 (PST)
-X-Received: by 2002:a05:600c:4755:b0:4bb:7033:de79 with SMTP id 5b1f17b1804b1-4bb8881dd02mr294185315e9.35.1795514786008;
-        Tue, 24 Nov 2026 02:06:26 -0800 (PST)
+        bh=gfNvtXSxyuDlmfpI57mT75R6rqxcaduwh6nIpzcsO4U=;
+        b=bxQ3Wc7ScF3HDyaJLx9C8cIPpYsh5iZuQA9oVkMrP2RuDAddc47dnU6KAdLbizfi/F
+         XNSUr+9PbQR1ZdRrfOPtGwwVFQqn2xCf2caNLKyXsAl8RtHUOKoLPXOBfaZsAzYnLcOJ
+         tZcoOAkiY2RGciXq0NZDZkaQ5hPkSYY7J4aSqkAPqXcnh3WNypm9K7jxLoSqcgrGsvlG
+         A/UMsknO5oiRq7L8K0X3ZXzDuvtKn6E+LvSCt3KQXT9kZ8RA2M5kQZyv4K8ma/88YGYH
+         ELto/KRRAeCkaIXKpG9aLHZZpWKj41UeTfVEE2IA7eezTfKcMrOM1L3OZCNeesS7OofY
+         EAjg==
+X-Gm-Message-State: APuU4Z/uAuAe38InqCaXCK8NVcbudnsMQXplZNfDNJ9zA+7goOn3ZTyv
+	75ekh/8hcQdqgateRrVXbbYPqvWbUaBt7AzHzwwWRAX+/t/J1+a4Mb7ebfWYOrohE+PB9DOsvUj
+	VQ/xkBXea6dbMbRH8Ss98mRpwrVg+/AyBatTojiT8lawKysurN+AG/8kO5m0gMLb1kR3C3p4inp
+	MOyToXOw==
+X-Gm-Gg: AZFdTZduf8Tpe2UZY39RuC7DtD6oq5Zn4JtOb7COW8TYPPQkN6EJE0P6U16zsMuqJYL
+	iZumJAIH03nYhC2sBSTijUr+p3y0dYP67P5AisQqLRnDGrHjEbQH3m1G4jBAbVLQs33oJoExxgK
+	UD1gQ9a/rFU/Hs4ryIsKu/RSaJfq0+29uZQrM1G6LfZICzxgaYQ/gLc/IpxSvDCfA20K25VxKil
+	ak9KpaUcm0muWmGf3Gjt+cS6PKIOlH9tJ74yHV5FP02E/KqQEnY8/tKt5wdB1qYw/6KobpKDi5T
+	MiZGAvsDYMKOXfap+hXseXZHxPTgOVfkkLa6nWzOBCssGdnoyoJAMbvwg0BuEdBVUp3nOWoKjwM
+	xrpdWXyPhpvIaCimrr6lOn8jMEuOwIy3HMXP+2u+Mwy+yhwEaZda62awHJWipBrc=
+X-Received: by 2002:a05:6000:4304:b0:4a3:1e75:16c9 with SMTP id ffacd0b85a97d-4abb4c7bb49mr26336957f8f.40.1795514788733;
+        Tue, 24 Nov 2026 02:06:28 -0800 (PST)
+X-Received: by 2002:a05:6000:4304:b0:4a3:1e75:16c9 with SMTP id ffacd0b85a97d-4abb4c7bb49mr26336925f8f.40.1795514788336;
+        Tue, 24 Nov 2026 02:06:28 -0800 (PST)
 Received: from px13.Home ([2a06:5902:822:4600:d3c1:2e3f:2545:da9f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa397asm27831841f8f.48.2026.11.24.02.06.25
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa397asm27831841f8f.48.2026.11.24.02.06.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 02:06:25 -0800 (PST)
+        Tue, 24 Nov 2026 02:06:26 -0800 (PST)
 From: Chris Bainbridge <chris.bainbridge@canonical.com>
 To: linux-media@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
 	laurent.pinchart@ideasonboard.com,
 	hansg@kernel.org,
 	mchehab@kernel.org
-Subject: [PATCH 1/3] media: uvcvideo: Report the failing control when restoring controls fails
-Date: Tue, 24 Nov 2026 10:06:21 +0000
-Message-ID: <20261124100623.2227323-2-chris.bainbridge@canonical.com>
+Subject: [PATCH 2/3] media: uvcvideo: Restore auto controls first and skip inactive slaves
+Date: Tue, 24 Nov 2026 10:06:22 +0000
+Message-ID: <20261124100623.2227323-3-chris.bainbridge@canonical.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261124100623.2227323-1-chris.bainbridge@canonical.com>
 References: <20261124100623.2227323-1-chris.bainbridge@canonical.com>
@@ -111,146 +111,269 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-When uvc_ctrl_commit_entity() fails while restoring the controls after a
-USB reset_resume, the only message visible at the default loglevel is
-the generic "reset_resume error -5" from the USB core. The control that
-caused the failure and the reason for it are only visible with the
-uvcvideo trace parameter enabled (UVC_DBG_CONTROL), which makes the
-problem almost impossible to diagnose in the field.
+A UVC device rejects a SET_CUR request for a manual control while its
+master auto control is enabled. On the Logitech C270 (046d:0825),
+restoring WHITE_BALANCE_TEMPERATURE while WHITE_BALANCE_TEMPERATURE_AUTO
+is enabled stalls the request with UVC error code 7 (Invalid Request)
+and leaves automatic white balance wedged until power cycle, while
+aborting the restoration of the remaining controls of the processing
+unit. Two rules are needed to avoid this.
 
-On a Logitech C270 (046d:0825, USB_QUIRK_RESET_RESUME), the processing
-unit restore fails with UVC error code 7 (Invalid Request), mapped to
--EIO, and the user only sees "reset_resume error -5". The restore order
-suggests that WHITE_BALANCE_TEMPERATURE is written while auto white
-balance is enabled, which the device rejects.
+First, restore the master controls before the other controls of each
+entity. uvc_ctrl_commit_entity() sends the controls of an entity in
+index order: Auto-Exposure Mode (index 1) precedes Exposure Time
+(index 3) in the camera terminal, but Focus Absolute (index 5) precedes
+Focus Auto (index 17), and in the processing unit Hue (index 2), White
+Balance Temperature (index 6) and White Balance Component (index 7) all
+precede their corresponding auto controls (indices 11, 12 and 13). After
+a reset the device has auto white balance enabled at its default, so
+even when the user has set the auto control to manual mode, the manual
+value is written while the device still has auto enabled, and is
+rejected. Restore the masters first (committing the first pass only when
+at least one master is dirty), so that manual controls are written with
+their master in its final state. A control is a master if any of its
+mappings has a non-zero slave_ids[] entry.
 
-Pass the err_ctrl out parameter of uvc_ctrl_commit_entity() and report
-the name, the selector and the entity id of the failing control,
-together with the error code, using a ratelimited warning. If the
-failing control is not known, report the entity and the error code only.
+Second, skip the slave controls that are currently inactive. When the
+master was restored in the first pass or is already loaded in the cache,
+decode its value without generating any USB traffic; otherwise query the
+master via GET_CUR using __uvc_ctrl_load_cur() (taking struct uvc_device
+directly). If the master control is write-only or GET_CUR fails, treat
+the slave as active rather than decoding an unpopulated zero buffer,
+matching uvc_ctrl_is_accessible(). Clear ctrl->loaded when skipping an
+inactive slave so that subsequent reads fetch the firmware-driven value
+from the hardware, even on devices that omit UVC_CONTROL_CAP_AUTOUPDATE
+in GET_INFO.
 
-Also extend the "Control error %u" debug message in uvc_query_ctrl()
-with the name of the UVC error code, the name of the request, the
-selector and the unit, so that the cause of the STALL is visible in the
-trace log.
+This addresses the restore order concern noted in the TODO comment for
+auto/manual control pairs.
 
+Fixes: c0efd232929c ("V4L/DVB (8145a): USB Video Class driver")
 Signed-off-by: Chris Bainbridge <chris.bainbridge@canonical.com>
 ---
- drivers/media/usb/uvc/uvc_ctrl.c  | 36 +++++++++++++++++++++++++++++--
- drivers/media/usb/uvc/uvc_video.c | 31 +++++++++++++++++++++++++-
- 2 files changed, 64 insertions(+), 3 deletions(-)
+ drivers/media/usb/uvc/uvc_ctrl.c | 152 +++++++++++++++++++++++++------
+ 1 file changed, 126 insertions(+), 26 deletions(-)
 
 diff --git a/drivers/media/usb/uvc/uvc_ctrl.c b/drivers/media/usb/uvc/uvc_ctrl.c
-index d2f722bc3459..f70fa37800a4 100644
+index f70fa37800a4..d11ad3da1d50 100644
 --- a/drivers/media/usb/uvc/uvc_ctrl.c
 +++ b/drivers/media/usb/uvc/uvc_ctrl.c
-@@ -3199,6 +3199,34 @@ int uvc_xu_ctrl_query(struct uvc_video_chain *chain,
-  * Suspend/resume
-  */
+@@ -1463,7 +1463,7 @@ static int uvc_ctrl_populate_cache(struct uvc_video_chain *chain,
+ 	return 0;
+ }
+ 
+-static int __uvc_ctrl_load_cur(struct uvc_video_chain *chain,
++static int __uvc_ctrl_load_cur(struct uvc_device *dev,
+ 			       struct uvc_control *ctrl)
+ {
+ 	u8 *data;
+@@ -1482,13 +1482,12 @@ static int __uvc_ctrl_load_cur(struct uvc_video_chain *chain,
+ 	}
+ 
+ 	if (ctrl->entity->get_cur)
+-		ret = ctrl->entity->get_cur(chain->dev, ctrl->entity,
++		ret = ctrl->entity->get_cur(dev, ctrl->entity,
+ 					    ctrl->info.selector, data,
+ 					    ctrl->info.size);
+ 	else
+-		ret = uvc_query_ctrl(chain->dev, UVC_GET_CUR,
+-				     ctrl->entity->id, chain->dev->intfnum,
+-				     ctrl->info.selector, data,
++		ret = uvc_query_ctrl(dev, UVC_GET_CUR, ctrl->entity->id,
++				     dev->intfnum, ctrl->info.selector, data,
+ 				     ctrl->info.size);
+ 
+ 	if (ret < 0)
+@@ -1509,7 +1508,7 @@ static int __uvc_ctrl_get(struct uvc_video_chain *chain,
+ 	if ((ctrl->info.flags & UVC_CTRL_FLAG_GET_CUR) == 0)
+ 		return -EACCES;
+ 
+-	ret = __uvc_ctrl_load_cur(chain, ctrl);
++	ret = __uvc_ctrl_load_cur(chain->dev, ctrl);
+ 	if (ret < 0)
+ 		return ret;
+ 
+@@ -2572,7 +2571,7 @@ static int uvc_mapping_get_xctrl_compound(struct uvc_video_chain *chain,
+ 		return -ENOMEM;
+ 
+ 	if (which == V4L2_CTRL_WHICH_CUR_VAL)
+-		ret = __uvc_ctrl_load_cur(chain, ctrl);
++		ret = __uvc_ctrl_load_cur(chain->dev, ctrl);
+ 	else
+ 		ret = uvc_ctrl_populate_cache(chain, ctrl);
+ 
+@@ -2816,7 +2815,7 @@ int uvc_ctrl_set(struct uvc_fh *handle, struct v4l2_ext_control *xctrl)
+ 	 * operation.
+ 	 */
+ 	if ((ctrl->info.size * 8) != mapping->size) {
+-		ret = __uvc_ctrl_load_cur(chain, ctrl);
++		ret = __uvc_ctrl_load_cur(chain->dev, ctrl);
+ 		if (ret < 0)
+ 			return ret;
+ 	}
+@@ -3227,43 +3226,144 @@ static void uvc_ctrl_restore_error(struct uvc_device *dev,
+ 			     name, err_ctrl->info.selector, entity->id, ret);
+ }
  
 +/*
-+ * Report a failure to restore the controls of an entity. @err_ctrl points to
-+ * the control that failed, or is NULL if the failing control is not known.
++ * Return true if the control is a master control, i.e. one of its mappings
++ * has slave controls.
 + */
-+static void uvc_ctrl_restore_error(struct uvc_device *dev,
-+				   const struct uvc_entity *entity,
-+				   struct uvc_control *err_ctrl, int ret)
++static bool uvc_ctrl_is_master(const struct uvc_control *ctrl)
 +{
 +	const struct uvc_control_mapping *mapping;
-+	const char *name = "Unknown Control";
++	unsigned int i;
 +
-+	if (!err_ctrl) {
-+		dev_warn_ratelimited(&dev->intf->dev,
-+				     "Failed to restore controls on unit %u: %d\n",
-+				     entity->id, ret);
-+		return;
++	list_for_each_entry(mapping, &ctrl->info.mappings, list) {
++		for (i = 0; i < ARRAY_SIZE(mapping->slave_ids); ++i) {
++			if (mapping->slave_ids[i])
++				return true;
++		}
 +	}
 +
-+	mapping = list_first_entry_or_null(&err_ctrl->info.mappings,
-+					   struct uvc_control_mapping, list);
-+	if (mapping)
-+		name = uvc_map_get_name(mapping);
++	return false;
++}
 +
-+	dev_warn_ratelimited(&dev->intf->dev,
-+			     "Failed to restore control %s (selector %u on unit %u): %d\n",
-+			     name, err_ctrl->info.selector, entity->id, ret);
++/*
++ * Return true if the control is currently inactive, i.e. it is a slave
++ * control whose master is not in manual mode.
++ *
++ * The master value is read from the driver's cache when available, or queried
++ * from the device via GET_CUR if the master was neither restored in the first
++ * pass nor loaded yet. If the master control cannot be found in the same
++ * entity, is write-only, or fails GET_CUR, the control is considered active,
++ * matching uvc_ctrl_is_accessible().
++ */
++static bool uvc_ctrl_is_inactive(struct uvc_device *dev,
++				 struct uvc_entity *entity,
++				 struct uvc_control *ctrl)
++{
++	struct uvc_control_mapping *mapping;
++
++	list_for_each_entry(mapping, &ctrl->info.mappings, list) {
++		struct uvc_control_mapping *master_map = NULL;
++		struct uvc_control *master_ctrl = NULL;
++		s32 val;
++
++		if (!mapping->master_id)
++			continue;
++
++		__uvc_find_control(entity, mapping->master_id, &master_map,
++				   &master_ctrl, 0, 0);
++
++		if (!master_ctrl || uvc_ctrl_mapping_is_compound(master_map))
++			continue;
++
++		if (!(master_ctrl->modified &&
++		      (master_ctrl->info.flags & UVC_CTRL_FLAG_RESTORE)) &&
++		    !master_ctrl->loaded) {
++			if (!(master_ctrl->info.flags &
++			      UVC_CTRL_FLAG_GET_CUR) ||
++			    __uvc_ctrl_load_cur(dev, master_ctrl) < 0)
++				continue;
++		}
++
++		val = uvc_mapping_get_s32(master_map, UVC_GET_CUR,
++					  uvc_ctrl_data(master_ctrl,
++							UVC_CTRL_DATA_CURRENT));
++		if (val != mapping->master_manual)
++			return true;
++	}
++
++	return false;
 +}
 +
  /*
   * Restore control values after resume, skipping controls that haven't been
   * changed.
-@@ -3210,6 +3238,7 @@ int uvc_xu_ctrl_query(struct uvc_video_chain *chain,
+  *
++ * The controls of each entity are restored in two passes: first the master
++ * controls (the auto modes), then the remaining controls. This way a master
++ * is set to its final state before its slaves are restored.
++ *
++ * Slave controls that are currently inactive, because their master is not
++ * in manual mode, are not restored: devices reject SET_CUR requests for
++ * them and some firmwares misbehave when written in auto mode. The manual
++ * value only takes effect once the master is switched back to manual mode.
++ *
+  * TODO
+  * - Don't restore modified controls that are back to their default value.
+- * - Handle restore order (Auto-Exposure Mode should be restored before
+- *   Exposure Time).
   */
  int uvc_ctrl_restore_values(struct uvc_device *dev)
  {
-+	struct uvc_control *err_ctrl;
+ 	struct uvc_control *err_ctrl;
  	struct uvc_control *ctrl;
  	struct uvc_entity *entity;
- 	unsigned int i;
-@@ -3230,9 +3259,12 @@ int uvc_ctrl_restore_values(struct uvc_device *dev)
- 			ctrl->dirty = 1;
- 		}
+-	unsigned int i;
++	unsigned int i, pass;
+ 	int ret;
  
--		ret = uvc_ctrl_commit_entity(dev, NULL, entity, 0, NULL);
--		if (ret < 0)
-+		err_ctrl = NULL;
-+		ret = uvc_ctrl_commit_entity(dev, NULL, entity, 0, &err_ctrl);
-+		if (ret < 0) {
-+			uvc_ctrl_restore_error(dev, entity, err_ctrl, ret);
- 			return ret;
-+		}
- 	}
- 
- 	return 0;
-diff --git a/drivers/media/usb/uvc/uvc_video.c b/drivers/media/usb/uvc/uvc_video.c
-index a92a986ab714..b10064defaf4 100644
---- a/drivers/media/usb/uvc/uvc_video.c
-+++ b/drivers/media/usb/uvc/uvc_video.c
-@@ -68,6 +68,32 @@ static const char *uvc_query_name(u8 query)
- 	}
- }
- 
-+static const char *uvc_error_code_name(u8 error)
-+{
-+	switch (error) {
-+	case 0:
-+		return "No error";
-+	case 1:
-+		return "Not ready";
-+	case 2:
-+		return "Wrong state";
-+	case 3:
-+		return "Power";
-+	case 4:
-+		return "Out of range";
-+	case 5:
-+		return "Invalid unit";
-+	case 6:
-+		return "Invalid control";
-+	case 7:
-+		return "Invalid request";
-+	case 8:
-+		return "Invalid value within range";
-+	default:
-+		return "Unknown";
-+	}
-+}
+ 	/* Walk the entities list and restore controls when possible. */
+ 	list_for_each_entry(entity, &dev->entities, list) {
++		for (pass = 0; pass < 2; ++pass) {
++			bool master_pass = pass == 0;
++			bool dirty = false;
 +
- int uvc_query_ctrl(struct uvc_device *dev, u8 query, u8 unit,
- 			u8 intfnum, u8 cs, void *data, u16 size)
- {
-@@ -125,7 +151,10 @@ int uvc_query_ctrl(struct uvc_device *dev, u8 query, u8 unit,
- 		return ret < 0 ? ret : -EPIPE;
++			for (i = 0; i < entity->ncontrols; ++i) {
++				ctrl = &entity->controls[i];
++
++				if (!ctrl->initialized || !ctrl->modified ||
++				    !(ctrl->info.flags & UVC_CTRL_FLAG_RESTORE))
++					continue;
++
++				if (uvc_ctrl_is_master(ctrl) != master_pass)
++					continue;
++
++				if (!master_pass &&
++				    uvc_ctrl_is_inactive(dev, entity, ctrl)) {
++					uvc_dbg(dev, CONTROL,
++						"skipping restore of inactive control %pUl/%u/%u\n",
++						ctrl->info.entity,
++						ctrl->info.index,
++						ctrl->info.selector);
++					ctrl->loaded = 0;
++					continue;
++				}
++
++				uvc_dbg(dev, CONTROL,
++					"restoring control %pUl/%u/%u\n",
++					ctrl->info.entity, ctrl->info.index,
++					ctrl->info.selector);
++				ctrl->dirty = 1;
++				dirty = true;
++			}
+ 
+-		for (i = 0; i < entity->ncontrols; ++i) {
+-			ctrl = &entity->controls[i];
+-
+-			if (!ctrl->initialized || !ctrl->modified ||
+-			    (ctrl->info.flags & UVC_CTRL_FLAG_RESTORE) == 0)
++			if (master_pass && !dirty)
+ 				continue;
+-			uvc_dbg(dev, CONTROL, "restoring control %pUl/%u/%u\n",
+-				ctrl->info.entity, ctrl->info.index,
+-				ctrl->info.selector);
+-			ctrl->dirty = 1;
+-		}
+ 
+-		err_ctrl = NULL;
+-		ret = uvc_ctrl_commit_entity(dev, NULL, entity, 0, &err_ctrl);
+-		if (ret < 0) {
+-			uvc_ctrl_restore_error(dev, entity, err_ctrl, ret);
+-			return ret;
++			err_ctrl = NULL;
++			ret = uvc_ctrl_commit_entity(dev, NULL, entity, 0,
++						     &err_ctrl);
++			if (ret < 0) {
++				uvc_ctrl_restore_error(dev, entity, err_ctrl,
++						       ret);
++				return ret;
++			}
+ 		}
  	}
  
--	uvc_dbg(dev, CONTROL, "Control error %u\n", error);
-+	uvc_dbg(dev, CONTROL,
-+		"Control error %u (%s) for %s control %u on unit %u\n",
-+		error, uvc_error_code_name(error), uvc_query_name(query), cs,
-+		unit);
- 
- 	switch (error) {
- 	case 0:
 -- 
 2.53.0
 
