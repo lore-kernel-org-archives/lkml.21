@@ -1,124 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.48
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795513699;
-	b=jnq0hMpHSNZmtGiCa0vvA2JrgvL74pMUqNtdq8DkPrJs40XXzuBCMLYGZeSfsPRQYs6q
-	 lDyUAMvunR1RAoqZRUSiL4eRve09rN1uVfiMg0XDTqJhN+DewP51BMra8Nm48cxitHaqf
-	 IdUG7WjhCsoYICuFRZMtju+l0JMwopKrTnmEhZxUwO1OexzMwAFAN+cjYhMB6yjpv+YaD
-	 TyltP+jZZdNlbGb0rOETbGyf0uD/QQD8Vg40/REzPzvvRAew7JPjk0jlVCLJKJnkWAsqG
-	 qA7tJ3S8Xk+sx1ChGtnbdUgTFuy2ejBgGQWX6jT0h+CEhc1vugHzYv96zIYmBkMdD1Q==
+	b=VkNXOVRUP1tycyEuWgMEgBL2s/CqFNj1A8FfLKyxQpOmGHKrvj1kmNZ0LfN4UwDAkorz
+	 Ek6uJoMH+7jfCCckYuNoue2UO+ZBJOiweQeug/ofYDkobABXfvvNPo/VjfaM9JQsgQ2D9
+	 kAvL3ID136B31qw/Wu3lBofLzSqqk/FJBOvhxlVlFEzZ+AVucDKSEprR9UtUmyxmDl+SJ
+	 6uSJ/ekRp5rsjk7TTSa1ACLscqTbqx3FS1Qqw5ZL3JXbSjGHpGCuhvq7lzmuJ1heABmi5
+	 CkCavlZWXMey2BnjuS1hjPZeqSGxCer2EnrYArajRGAPqqsMTyCQwN2a3R9T1B/4sNw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795513699;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
-	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Cc:Content-Type:Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=PYXPyQn5i+rKtffQDXwKT7j2n2EdeKt2c28XS2Q64K4=;
-	b=EGDk58pXM3iScVqNBSpToNHO7ZtX2EmoU26Jqp2hHP+NcZMEG1r/LUydDfFOE8JlmKI8
-	 /ur4Lo8KlKOw1+olewz0bUvLVugsA4Ng5ZTZDOcCAP8PmsqpLShrmYzgZHKkI8L9C9Xp3
-	 r0RMy4fZrbg8FAGZmQQwKEIer3/LqLahRaVMb+Rii5a/+P4IrmH++MVENZF449E8odQEf
-	 v7OZo3yx596vAxvfoc+r7P4k9q1hnKsUX9g4RQwfQBSVF2ZQKvfTieKioCULgf8rO+ZxN
-	 ZqfWSzLlBH6PAMbmBBY0Iq4VkcOV6WAvskIWZzcviKoETtpTb5UWRYgxZN4sxoYx4jA==
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Cu7c9/w2+WpfuPJC0OfHVPmh5TZ1Kfq6VnMQBRjBpjA=;
+	b=HRpmAQJefuX+JSCAe5DkWCyXkGtR678mMwxOO6G97mGZD9Ob8u84saboRoJLWlqzT8Pd
+	 nxjIll0PCTc/0BY6Pk2YpExwg2bgYOLH/tW4jRv6v7/SFMSfpinj+FWfuDxfB+byqC33n
+	 5EmTsY/3BtIGKytLUcBCyYNJ1xginsTj+MdN12HIju8BdolbdNZ9pKtwkdQ64umddi+wh
+	 sEylwX5SZtXPZe4jrfXkE7YVy0yIwxyL99F6HKPMKCqQOJZfZRHHVTO/+vC9iwOLf3190
+	 QWMA3AxLjagyuIVxrbED1eDUbvjkWjuPeofKaGam2fNUa1RvpD87fq/s65Up2753kFA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=cIDsYu9H;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="TUxq9Gq/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LNxEuZAB;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33781606B72E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:48:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33781606B72E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7958F606B020
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:48:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7958F606B020
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=cIDsYu9H;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=TUxq9Gq/
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO8ZCT13225405
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:48:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	PYXPyQn5i+rKtffQDXwKT7j2n2EdeKt2c28XS2Q64K4=; b=cIDsYu9HJ9HN1b8Y
-	hZKFIAXF0MFNqUwmdTocHq+Ey3Q6CZqgudQwT38Ke70o8MIoJjDUGJIFLEF8E2iI
-	5gWITQ0qqy7ZrBkVx5yBtwToDWUotcZoNYxD+NTF5QxVnjtbqrOyYbcYStTSVyEj
-	wXWpzHVxcm2Jy5HlmHMTfcekbHRbG2dZ8jZGVdWOgLFvlGK68l6icq92vcMGDAnW
-	D6/O/PiEDBKnSvcWEf/19M0CCiuate2SqM0rCldvk9/jknznjqOFzGKk7zAaQAqI
-	BcgYLh/MgFujzJr4Z39PZ5NwNjjbEH7lNk6+gvApQFodyfPAZcoTq4yQcc9aOECh
-	9HsAcw==
-Received: from mail-yx1-f72.google.com (mail-yx1-f72.google.com [74.125.224.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4x8f2bsf-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:48:18 +0000 (GMT)
-Received: by mail-yx1-f72.google.com with SMTP id 956f58d0204a3-67dae919cb1so6851148d50.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:48:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795513697; cv=none;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LNxEuZAB
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso41599805e9.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:48:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795513698; cv=none;
         d=google.com; s=arc-20260327;
-        b=mou06YttG/xHY0ukt9g4Oa8yTLQSaz3RuFSe39HdmaLR2kLKymVovoNPuLH7Ii7CPW
-         eROE+0m3CuIzpxwNjRwowvw6S1ygpJ+5OD8KZ2AKl9yOgNZRn8N/sGHWiebwB7QVye/V
-         yUDKNk6dEhuxR29lqyP+uw8nXns4RCNpoLX8CXRZd3zEnpu3DLyxqR53gt8KOKIVsT2s
-         RJNHxEE9Hn11BuBLQaS7iHzDCLzk4Ejmg/373+Jxs2UppWcaDMjGVJUw3M783Ey9XPXq
-         3y6U3FwEBhVHztNzAnM2pW933qZOX1OYNzc7NFP2ODh/OumvNSEOruXUnbP6qpXcRsxX
-         KPIw==
+        b=QHgUt/SPHc9h2oYXYv+bd9Om3Ik6i1oKPfay/GqEkrg/DCo6ppBeW/dXmDC6xf4R63
+         6dNKv9RtXx0kYTPxI2e1YeXvj+ScwOolBbQzZjq92EIXGY15yLS2ALBkumX1A6wzbpmO
+         9Rm9KhD13MOJ+lgQ2XRWI1+Xmn8alCf1LOexn7BtL8pKhhzwCj/VJeMySfWaXc/olgW4
+         ptMz23nNesY82Hmr+WpjU1tqyMvAHleXOTxTLWR83lCRwowxGtHDm4jLZi/3gMSByuN8
+         Wm/T+aZHBn9M7lvIfTOi5upqh0KhRxrwMu1K5FdHGjwd7A8mz3W3gA3lDitvypkNijq6
+         q8DQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=PYXPyQn5i+rKtffQDXwKT7j2n2EdeKt2c28XS2Q64K4=;
-        fh=CRUtsgNHtt9GbwyC6/NQ+J+ywycbYeaSQslOo8GWf2A=;
-        b=gr+u3vD0uMKBII9V17oE8Syw9AW7Omvv9c3T1CgyHmQrxnbZ4MpaSXby5FdWvSSkwX
-         4l0nY5UNJ2ShIYlugTFHzEBbJJZWBZMhy9aQ6pQZYeIhMekpu6APQ+nkeOjEBZAGU+f3
-         YsJAFapjg+ZFWz3TDmf9eQcpV97OXYSp8VPUF7VlhddggxmgE3fw8RfQvJzyJYcqd5+F
-         +vtsjMeHak40G+/dz+fUgbIFLdWu2Ji5fD+Oy73iyM+5fjyH2W+EMheuwg2DMKWdscea
-         FhNQIk5ctr7Xekry1nL+9jRvcqNZ4Of2plqC8M6cFfjX9P7wLh+qLDp30KksuobLh15m
-         lCyg==;
+        bh=Cu7c9/w2+WpfuPJC0OfHVPmh5TZ1Kfq6VnMQBRjBpjA=;
+        fh=5kqGyMei5PZWBLWzQztHa7UYziKCMVxe+nqWJotjjSA=;
+        b=kmNKIPyMtU2Agu480sVs6wn7uicAb+YrjNu6BVhKERmCVao3qyTyY7zLCy3DfQLrXd
+         NW/GmrLRvJ1axGw5+nQ1+iLCpbERZFTR7l8MA/k1crI7cySH3+4GRwq7ZQIt4WAnh2o0
+         R6b3o/UcLg3K6gvxn967ir4ytzmF7b8uiPCZCW/qBDpcGDSP9ui48cl1ry0mc2HssFsx
+         SNYKPg0ocueux13rBzf0vJrwr45E5iDTqcTkXbWDxGTL//H5a75cWdDYXHCHdf09bkNH
+         AJ1LiSdVk5956FvAMLDdIO0Pd0abfmHhosVUZVErnz1v1QtGGFT+KVYEtkZ4KK086g+X
+         ZQPg==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795513697; x=1796118497; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795513698; x=1796118498; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=PYXPyQn5i+rKtffQDXwKT7j2n2EdeKt2c28XS2Q64K4=;
-        b=TUxq9Gq/qoPpvwHq4yArYXt0E5C9a+3whK+UFzI/vDi98648+mlPWeCyB9bfkQ6yik
-         OCmWGvn7NZ8e3sjT5X6r52juTWgJmrbHItVrV2gIOz2VtSODGb9G3m1bOFW5DXvKFKcr
-         Py/WvYn3z9paNDqDaOBZQhrgQsQ2y09cTnx7EzjYmcbNp8kTJ2aE9G7uO9QoOss5G+DI
-         Oarg/Ov+bcixUT9IqI5ToRn6gwuyjxrBXNAORjwl6Obn5RTLaFIP3h0nrE3xaN61iQ5z
-         SdeKc/Rlzvb2bimcS1xm3EmNWXiEfGvCr0c6/NrKu0RqMVM3/xh7AWVwsVS9Z1YmRCuX
-         uuWA==
+        bh=Cu7c9/w2+WpfuPJC0OfHVPmh5TZ1Kfq6VnMQBRjBpjA=;
+        b=LNxEuZAB+9FYaWJhuVSM9gs0zli480tdbq04T0zY2yCtuWfDQI/rkUlx32zjIzQ5mL
+         sPq5KSJNkRzVsTQUZPjBrQryExhlouFUCoZJfD47O4i2kf6z6t1Y2Qdbvx9o37cFedy8
+         hw0sLfuMimGwigzjzXp/cXb08IH/6dduTBMsDoV9l5RRfFkpH5QSKmVW5jSTL4urBk4g
+         iYy0KSOdnRA2pL0DQWeN1C5Xo9lP+yWE13sHodaCiG+sINokO1WQQkWavm+8XaJU6COH
+         y2hcpe0FH/OkeZ1M6U9KGD3FTQbZqqfr2yVrMEE3O5lVSn/EnGxyua3kNlOfFG63Ncmw
+         0JkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795513697; x=1796118497;
+        d=1e100.net; s=20260707; t=1795513698; x=1796118498;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PYXPyQn5i+rKtffQDXwKT7j2n2EdeKt2c28XS2Q64K4=;
-        b=RfZSHmgFdrUofQflwJntHVliDfnVYhVmIHXHiCngZpQN21UulGoKcFZ03NtLJF0jLq
-         7cx4WIYSkjJLDndbNC1/+Mha/pl1pa6dw54hb1SDndh+WMNI+Q9nzVQVA2o9qAo+YgcJ
-         cwmCD+pegMV/BXL0cGBKmk5NbexIvDojLOSyHjnHYKA0QOBAdelNKPA0I52j90Lfq0RO
-         gD+tPREC7UiZHmOk2TTJUZcUvCpqIL2PdI9WZZVaK4EKTl1pg8dPcieWgVQWeEC3hQYL
-         Mbh3DZc0jZMXDyub0O07CZIbc4Lm5qpkF+i3QlJfa+8uiGAC80p3nTj+yAAdlO7/lw6E
-         lgdw==
-X-Forwarded-Encrypted: i=1; AL+hErHdcFjbLVJydDbnQbfzAK1LymS3H0p3HWHBjuXPuL8VTSLcrPZ2JP2iUglARNTVTcOTby/jGhPKNvJWVzU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8d79fuY+S/qDd13IBf0BxjwVf0bLsN5t49GCrKzf3bPYUEeWRb
-	GjwspahgmPPQjlC2swGQbfo9bSfj7a0q+kEPLFRujglXLF5rwE6eIfZZq8QdwFSYCXmXeP9wEer
-	IjdYcaxzetul50Ty09ogKOeHkLMTAK9L8IKfZSqJDFxAT08ILf0EktUfRykHBNHqs78KZ3G65fz
-	yGu6hhloexOTXY1QaMkI7KhmvXSAxyE/ITyd1bE/siCDeK7KcZU0qN2VYUxg==
-X-Gm-Gg: AZFdTZehJjJbupvOoJ5mmL3DOK9VUJLK+JrhJO5VCBRyob8Ui9Y8S7yGL3CjU3wcVs0
-	F3wR0NIrq+JQDzyhHcWjhLqvqWqvNXatbmAuHOw1GDcAge8ol1S+Z2MOC1Lzx1S0+mMaLe444aq
-	9jYqdfqgMPLNe+Pcvkx1i8Q8J9lDYNnDevBlQJFPwW3D+OIMOACjIfl5ic4ei7EuPtSIK8tlX8k
-	oCjk02a7y7yw6xBqHTIPpKTrDFEedN8miYRU0DK
-X-Received: by 2002:a05:690e:c8e:b0:66c:e21d:9ab7 with SMTP id 956f58d0204a3-67dec41ebe8mr5944851d50.12.1795513697212;
-        Tue, 24 Nov 2026 01:48:17 -0800 (PST)
-X-Received: by 2002:a05:690e:c8e:b0:66c:e21d:9ab7 with SMTP id
- 956f58d0204a3-67dec41ebe8mr5944846d50.12.1795513696773; Tue, 24 Nov 2026
- 01:48:16 -0800 (PST)
+        bh=Cu7c9/w2+WpfuPJC0OfHVPmh5TZ1Kfq6VnMQBRjBpjA=;
+        b=e+X0spvJDs7iFydHHMN/KAYWVhYcjURbpCEY+Ema1LeneiZFl4hFqcp087cDC63Dia
+         PW8JVrhl5Fgh0af64X0YBKKHP4Tkgn2jxZIGLnpFl3dksQ4MMRqrRVzNo8oo2NfwQVPl
+         zrp0Jgoaux4ZMbRqJNy+DHj0ftMXfcKLWTr7MwQfVm3UfQc0TWAS5oiVBdjKa2lkPGKf
+         JC5l0cR7VvVhW888NAv1L+ivpll1hvWrHBVAN/n3KQ4DS0kLf+Q9MIX5nk5TtI69RYjV
+         d0vgV3IfItowKJKoZIRWOsE16eRmw/MI2Bftuf1Swsp1WLrN8CbSxOl9yuWBfvQX49zS
+         DjrA==
+X-Forwarded-Encrypted: i=1; AL+hErGHaboUSVCTUDhP3iHUO3GqjAGaSY7LpcRfucdoTqQUgZhRcFbHG26Wu9IFl8kLzd52ekNhqMdXIsScoU4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/OBs6Agc/olF+JwH+pbxzxfay79AtQ8kFyvZ7ouYghGFQA0i8c
+	JITCdrZJz7qCjgXeNJ23RlaPdyeqeLx68NewTx4ATGupNCdGU3PvwSYMvT2FpX1yX7yxfr7LcNb
+	V6U6jaUj8RXDV2KmqQx+gJgQ2c+U+Sj1eShKpGpY=
+X-Gm-Gg: AZFdTZebrENC5IqjK3khsAQy3jpED42tL6WcRHxu1LDsWVzD9cTu4tJKWWf6ALWxo+2
+	LMcUgWUEoVuVKxsg1FwXO9t+jHli5r5gU/K+c4coe0Pd7ZGFuVhlSsyZyuXJNvm9NC85Pw3J/e/
+	AH3zC4hTREWJ4Nt6qmM5K38zcyMx93qRJR5sWu/sA0/sVcOARebQ9RHrQlT+4xVXJynwLF106vx
+	460fPuh0OJPIAC/6yF25KE3+8EbZ3Bj4laz2XT+d7fBKdgp0EV9UJLp9VtawOFqreGi/E9p9tf0
+	IYHN0BC1UJnrNxcRsuZ9UFU1HM3LKz9cRQdQhs3rT51EHnQ90AkMOrKjic9+H8/fLMLP4h4R2ad
+	XdjcbfIyIIxfYotk5+8cQzNi23cFwYgLOL90e/UAoOpeSiaJ0rJMZ2br1YrvyEU91QadOXMqvGk
+	2LPqlsuEmqQurLXczwDJ7FmYKLCYRC8mD0m9ed30km9TvR7L77nsPZ
+X-Received: by 2002:a05:600c:4f4b:b0:49f:fd2d:23c7 with SMTP id
+ 5b1f17b1804b1-4bb888226c0mr345010985e9.27.1795513697227; Tue, 24 Nov 2026
+ 01:48:17 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,130 +105,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261025192555.210257-1-christian.koever-draxl@student.uibk.ac.at>
-In-Reply-To: <20261025192555.210257-1-christian.koever-draxl@student.uibk.ac.at>
-From: Jens Wiklander <jens.wiklander@oss.qualcomm.com>
-Date: Tue, 24 Nov 2026 10:48:06 +0100
-X-Gm-Features: Aa3M54rCeSWPLabRKxpMyY7xQTHa_5h3mdus28HWlTKKE_dLD7QlkdvZ8TUkSI0
-Message-ID: <CAGgiveVtFW=t15nosGVtQ79Gr5jiWTAP3U9Wc5LCfV3Rr=fehQ@mail.gmail.com>
-Subject: Re: [RFC PATCH] tee: optee: allow forcing the reserved shared memory pool
-To: christian.koever-draxl@student.uibk.ac.at
-Cc: jenswi@kernel.org, sumit.garg@kernel.org, op-tee@lists.trustedfirmware.org,
-        linux-kernel@vger.kernel.org,
-        =?UTF-8?B?Q2hyaXN0aWFuIFN0ZWZhbiBLw7Z2w6lyLURyYXhs?= <ckoever@outlook.de>
+References: <CAN_Opa-WpbC9wXTYPybiZCrkMjQbSTnfJvUck7YiMP9wG59y4Q@mail.gmail.com>
+ <awRF7-R1JjQczRgn@elver.google.com>
+In-Reply-To: <awRF7-R1JjQczRgn@elver.google.com>
+From: KunWu Chan <kunwu.chan@gmail.com>
+Date: Tue, 24 Nov 2026 17:48:05 +0800
+X-Gm-Features: Aa3M54qFnbsBEn1eiLbpnltoodYvHJBEshBpyws-J9vb1R6b7JBMIVOplFRo3Uc
+Message-ID: <CAN_Opa_N4N0njq=fL7eBhKON8faLk10D9EBC_UDadca0kGogPQ@mail.gmail.com>
+Subject: Re: [RFC] KCSAN support for *_THIS_CPU()
+To: Marco Elver <elver@google.com>
+Cc: Dmitry Vyukov <dvyukov@google.com>, "Paul E. McKenney" <paulmck@kernel.org>, kasan-dev@googlegroups.com, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAzNyBTYWx0ZWRfX96XM5ym9nXpI
- kMmLDorSHtdNEtoUhkjPElcpdPUgPuB49VoEKAIJ5vN5DuFUKHpi/mUR3eH5EmZEEAWogpIYE/S
- lTFKaM5tBYB/37ICOG3Y8Ax20VCQWG4=
-X-Authority-Analysis: v=2.4 cv=JbgpPkKV c=1 sm=1 tr=0 ts=6b055d62 cx=c_pps
- a=VEzVgl358Dq0xwHDEbsOzA==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=YMgV9FUhrdKAYTUUvYB2:22 a=HrFImSkvvj_0lBCYv5gA:9 a=QEXdDO2ut3YA:10
- a=uujmmnXaIg8lM0-o0HFK:22
-X-Proofpoint-GUID: jT1qGkLkBtOCD9kpT0TisVvqaSn2-Bb2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAzNyBTYWx0ZWRfX2JnzR0GC5krl
- fixDkmrqk5ptoN2/+xkacgVQxrOpp4JfV10ttSh1JRxjrDB/9ec+Dy4A9ABbn0Nkp0ivLUWzGvk
- GIFCGtEcq/RXreaehDYbe54nTPiVFiNoAPjQgup3BARqO0l8WcYu4eKU8RLhrNQRQutEwgoDNAD
- C9xk9xGo/01Q461OKYrZLbw7YgRjXghPknPPsvaEXmEUEzevmAK8uQDxcSHI43UVi6H0+5zXxBg
- h75cy/aYKyX/ikfmkcLVox6VCWb7ilUI03l9c6CjKdWWg8rvemDXZuBnnBKR9zAK2q0kALgxURT
- qLaMyCc0YQphMGIpcOZrAu7dic+hXQwgsz8Cy+O83ugJ7LlhsQCQhreHgDs+0EiMfVAfWTVfHSV
- TTReQZHeszb2O4gyRY2SaIvW/ydOP4ONHbiogbK9xYN0UG7biHqr6J71ZELjaVv3RK0/HdXIbde
- 0YkCBk5C4BERpyVTcEg==
-X-Proofpoint-ORIG-GUID: jT1qGkLkBtOCD9kpT0TisVvqaSn2-Bb2
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 bulkscore=0 lowpriorityscore=0 malwarescore=0 spamscore=0
- impostorscore=0 suspectscore=0 clxscore=1015 priorityscore=1501 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240037
 
-Hi,
+On Mon, Nov 23, 2026 at 9:56=E2=80=AFPM Marco Elver <elver@google.com> wrot=
+e:
+>
+> On Mon, Nov 23, 2026 at 04:15PM +0800, KunWu Chan wrote:
+> > Hi Marco and Dmitry,
+> >
+> > Paul suggested I get in touch about helping with KCSAN support for
+> > *_THIS_CPU(). The wrappers [1] and the got_idle_tick annotation [2]
+> > are now in tip's timers/nohz branch. The idle task and the tick
+> > hardirq intentionally race on their CPU's flag. A conflicting access
+> > from another CPU to the same instance should still be detectable.
+> >
+> > I'd start with static per-CPU objects in strict mode. One option is
+> > to keep the lvalue API and pass the actual address and a THIS_CPU
+> > tag to KCSAN, which could warn on a known remote instance. This
+> > would let us check the pointer the tick callback gets from
+> > container_of().
+> >
+> > If both accesses are tagged and verified as local, a hardirq hit on
+> > the same byte range would leave the task's watchpoint armed for a
+> > later cross-CPU hit. With a per-CPU record, the sampled task would
+> > stay non-preemptible while the record is live. We'd also record
+> > permitted local writes, since they can explain a value change when
+> > no other hit is captured.
+> >
+> > Does leaving the watchpoint armed on a permitted local hit fit
+> > KCSAN? For the ownership check, would you prefer a separate check in
+> > KASAN or in the primitives? Would it be better for the primitives
+> > to take a __percpu pointer and resolve the instance themselves?
+>
+> This is a lot more complex than needed. KCSAN already has the building
+> blocks:
+>
+> 1. Same-CPU races: if the watchpoint is armed with interrupts (and
+>    NMI checking) disabled, a local hardirq can never hit it, and the
+>    interrupted task can never hit the hardirq's watchpoint. KCSAN
+>    already does this by default, and for reordered accesses even with
+>    CONFIG_KCSAN_INTERRUPT_WATCHER=3Dy. No per-CPU record, no "permitted
+>    local hit" state, no recording of local writes.
+>
+> 2. Cross-CPU races: READ_ONCE/WRITE_ONCE are atomic to KCSAN, so today
+>    the *_THIS_CPU() wrappers aren't checked at all. Making them
+>    ASSERT_EXCLUSIVE_WRITER/ACCESS-style checks reports any concurrent
+>    access from another CPU, marked or not.
+>
+> So the whole thing is a new KCSAN_ACCESS_THIS_CPU flag that forces
+> interrupts off for that watchpoint, plus the wrappers calling
+> kcsan_check_access() with ASSERT|THIS_CPU. It works for any object
+> (static or dynamic per-CPU, container_of() or not) and in both strict
+> and non-strict mode. A separate ownership check (KASAN, a __percpu
+> pointer API, "known remote instance" lookups) is out of scope; it's
+> a different class of bug, and if a wrong instance is used concurrently,
+> the assertion catches it anyway.
+>
+> I have a patch with tests [1]; would you mind giving it a spin on
+> your end?
+>
+> Thanks,
+> -- Marco
+>
+> [1] https://lore.kernel.org/all/20261123135148.1146372-1-elver@google.com=
+/
 
-On Sun, Oct 25, 2026 at 8:26=E2=80=AFPM
-<christian.koever-draxl@student.uibk.ac.at> wrote:
->
-> From: Christian Stefan K=C3=B6v=C3=A9r-Draxl <ckoever@outlook.de>
->
-> The X98Q's vendor BL32 runs OP-TEE 3.8 and reports sec_caps 0x5, that is
-> HAVE_RESERVED_SHM | DYNAMIC_SHM, with neither UNREGISTERED_SHM nor
-> RPC_ARG.
->
-> For that combination optee_probe() picks the dynamic pool and sets
-> OPTEE_SHM_ARG_ALLOC_PRIV, so every message argument is an unregistered
-> private page passed to secure world by physical address via
-> OPTEE_SMC_CALL_WITH_ARG. This OP-TEE will not accept that: every call
-> comes back OPTEE_SMC_RETURN_EBADADDR (4), which optee_open_session()
-> converts into TEEC_ERROR_COMMUNICATION / TEEC_ORIGIN_COMMS. The result
-> is that no session can be opened at all - not to the Amlogic firmware
-> loading PTA the video decoder needs, and not to any built-in PTA either.
->
-> Registering memory works fine, and HAVE_RESERVED_SHM is set, so the
-> existing static pool path is usable. Add optee.no_dyn_shm to select it.
-> With the reserved pool the device enumeration PTA opens cleanly and the
-> system PTA answers with its own ACCESS_DENIED, so the ABI is healthy.
->
-> The driver arguably should not use unregistered arguments unless secure
-> world advertised UNREGISTERED_SHM; a parameter keeps the change local
-> until that is confirmed upstream.
->
-> Signed-off-by: Christian Stefan K=C3=B6v=C3=A9r-Draxl <ckoever@outlook.de=
->
-> ---
-> Tool use (Documentation/process/generated-content.rst):
-> This work was done with the help of an AI coding assistant, Claude
-> (Anthropic), used through Claude Code over many sessions. It did a large
-> part of the hands-on work: it read the vendor kernel and the firmware
-> interfaces, probed registers on the board, drafted the code and the
-> changelogs, and ran the builds, checkpatch, dt_binding_check and the
-> tests on the hardware. I directed the work, reviewed every change and
-> the final patches, and take responsibility for them. There is no single
-> prompt to quote; the sessions were of the form "find out why X fails on
-> this board, fix it, test it on the box".
->
-> Tested on an Amediatech X98Q TV box (Amlogic S905W2, S4 family, 2 GiB),
-> vendor U-Boot and BL31/OP-TEE, Linux 7.3 plus this work.
->
->  drivers/tee/optee/smc_abi.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/tee/optee/smc_abi.c b/drivers/tee/optee/smc_abi.c
-> index 51624443359b..1824aead78a6 100644
-> --- a/drivers/tee/optee/smc_abi.c
-> +++ b/drivers/tee/optee/smc_abi.c
-> @@ -34,6 +34,11 @@
->  #define CREATE_TRACE_POINTS
->  #include "optee_trace.h"
->
-> +static bool optee_no_dyn_shm;
-> +module_param_named(no_dyn_shm, optee_no_dyn_shm, bool, 0444);
-> +MODULE_PARM_DESC(no_dyn_shm,
-> +                "Ignore the secure world's dynamic shared memory capabil=
-ity and use the reserved pool instead");
-> +
->  /*
->   * This file implement the SMC ABI used when communicating with secure w=
-orld
->   * OP-TEE OS via raw SMCs.
-> @@ -1770,7 +1775,7 @@ static int optee_probe(struct platform_device *pdev=
-)
->         /*
->          * Try to use dynamic shared memory if possible
->          */
-> -       if (sec_caps & OPTEE_SMC_SEC_CAP_DYNAMIC_SHM) {
-> +       if ((sec_caps & OPTEE_SMC_SEC_CAP_DYNAMIC_SHM) && !optee_no_dyn_s=
-hm) {
->                 /*
->                  * If we have OPTEE_SMC_SEC_CAP_RPC_ARG we can ask
->                  * optee_get_msg_arg() to pre-register (by having
->
-> base-commit: 7be4bc52fd9e0e55dc9a2e0232b89427d2c4b614
+Hi Marco,
 
-This appears to be a broken downstream implementation of that
-interface. Could the downstream OP-TEE implementation be fixed instead
-of adding an upstream Linux parameter to work around it?
+Thanks for the patch. I see how the existing assertions and the
+IRQ-off watchpoint path fit together. I've run it on my end and
+will post the results and a test comment on the patch thread.
 
-Cheers,
-Jens
+Thanks,
+Kunwu
