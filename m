@@ -1,72 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.134.164.83
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795536003;
-	b=j3F+97L9Cif76DXQ8FqUMhvYxb9o5xqH532ZPhL2R85dnvWQvAwsvVxtZf2YDFU2/1nE
-	 yrAN0VLjHZ/5tJepzDOUYz/jUPv8AHXFACjTkG5PEIg/2fIg5fV9DCL+CfI5nAVhSqwPi
-	 9xYqcVX/KsqxRYByiQpB6oxbx8rMtJyXnVogwWmzo/rbgCBNAYyOh8CuHYirO9pWUr29j
-	 VYvbek6t90luzQEHsCZb8ozQvxgQpAOf/eMGaY71UtVn2ki5VBzl9rH1Hk7FdSqLOvVIP
-	 Emc6frkPSE+1wyYPqvkJGOlgNfBkMUxIvu839lcgewU4ckMR7z3LSEd6Vq7hoGsrYGA==
+	t=1795536011;
+	b=HwTMq+7qN/2GhpKn1hgksVp/g8iCnbv0Kp7fKNsAtvsXXuph80fC/sgwleHadR+ddWxZ
+	 6E/F1OaBBbQvVIMPCW8ZusLgtz+2OpmD/O0x3w+n2O8xTNF3fS50c1yFU4NvgZ8OQeVnE
+	 RTOtWf11RUvmboiZ3ekw6X+Bx7UwDOPUn4Z1gR13FCLIlbYUb1fMS8VavRF2O5v9pNQzd
+	 WA2vXFJDGyX5lEtNXVX/ygn7deKD+g8hf7R/CVSY048S2AWJSEW2b/uUrPISY2DZaFuvJ
+	 pS0Cj6gKl+bP2r6mxrOlQ7fZEKNIsMsmosajp3OscfaXU4GKVQbi0T9Ma1u3L0GYQsw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795536003;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=rL3yauhJSOYPMRDtwW6VqcZRfGD+hMiB8U0Y5a+546s=;
-	b=G2LO3xJkpnwF2KZDPwgbiXiSryGZc5XoasWYzHdGQ6u1czFuP1UsHds2rxluRGp7pTzW
-	 hiZL77DqDkvAJjf7D/i84OG0smRB2XcKCp2oeYd33w2J8AchJbBCFLLhqQ4A6+1eomESJ
-	 PMQ0Gc97BQ+4X4v8IdF1aaNzdjNiHOmY6jcJNAlly0dwSalhbGOAYcLRIeb4KMCKeC0TV
-	 Q6F7u3iz6koidWG1kLZsR6GxXZxQ2FU8QNfBZKbndMRGA5iotgWLQhudJZiAeIMJ3o7Kt
-	 TQzNK+qCtEMoxiV4mYv2/gTClxgsOJcVBtSrbfYeeRkSn1wIh3dnGeC4c4vXPMNoxUA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795536011;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
+	bh=WyDdvfjHNhbIjglf8XuLVeDKVR/gcGoOR6RkKSo72Xg=;
+	b=UC4eKI260X15caep67EZYsD18wUeOwcdD9+otW581rA4aiLqN1oEylNXdAC9Ai74L6Qu
+	 o+7teJjOdrv/y25AHMoSfrszRiKDSaIHZaVzIh2xFuLzr+R+xBkTVO9Fub7IHIKKcUVlJ
+	 bsNTHubxW+ZrbeFmer/7zd5e7rxBlNJx2XxaAQqODmLTafGFfh8GMM+/0u3PcQJQIlPjO
+	 j618bOEyzHV/q7YVLbi4YPZsVeNbdVQDlXF5RLoU7AAGJSGfAn8Cb1np7KZcKuCVywFQb
+	 O2JEMhRZwFGvut5QCqhXemf5E289HeCyI+no5yGXk0s2jHg9crmmAeQjAPqVoQk1fTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=inria.fr;
-	spf=pass smtp.mailfrom=inria.fr;
-	dkim=pass header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b="AJ/xrwr/";
-	arc=none smtp.remote-ip=192.134.164.83
-Received: from mail2-relais-roc.national.inria.fr (mail2-relais-roc.national.inria.fr [192.134.164.83])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=OJSXW4JT;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=sHN2TWmm;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=OJSXW4JT;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=sHN2TWmm;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CED71606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:00:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CED71606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=inria.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=inria.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98638606A327;
+	Tue, 24 Nov 2026 16:00:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98638606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=AJ/xrwr/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=inria.fr; s=dc;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=rL3yauhJSOYPMRDtwW6VqcZRfGD+hMiB8U0Y5a+546s=;
-  b=AJ/xrwr/ON7D+gAxRFgeMchuq4Xqiig50kJxryxCxXwRpI3NUkpka7wj
-   uHsrXC9W6BGuld1+ZVOgLBSNKE3nUjJVFJ9zhCSw/FpFKNWwmdt69dVeA
-   wgRKBvBZKVko856WPZdfVsNBNgjxcuG5pNiD5YIdZQS7DBE5cgDocIsih
-   8=;
-X-CSE-ConnectionGUID: Q6x/h2TaTi6q0l76VutpdA==
-X-CSE-MsgGUID: PUVI08BJQjSy21/i26Ie2A==
-Authentication-Results: mail2-relais-roc.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=keisuke.nishimura@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
-X-IronPort-AV: E=Sophos;i="6.27,231,1787004000"; 
-   d="scan'208";a="307136874"
-Received: from nr-lil-536.grid5000.fr (HELO gros-29.nancy.grid5000.fr) ([194.254.60.35])
-  by mail2-relais-roc.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 16:59:52 +0100
-From: Keisuke Nishimura <keisuke.nishimura@inria.fr>
-To: Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	linux-kernel@vger.kernel.org
-Cc: julia.lawall@inria.fr,
-	jean-pierre.lozi@inria.fr,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>
-Subject: [PATCH] sched/fair: Don't pick recent_used_cpu if target has no LLC domain
-Date: Tue, 24 Nov 2026 16:51:06 +0100
-Message-Id: <20261124155107.358643-1-keisuke.nishimura@inria.fr>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=OJSXW4JT;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=sHN2TWmm;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=OJSXW4JT;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=sHN2TWmm
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 46B6E222FC;
+	Tue, 24 Nov 2026 16:00:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795536008; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WyDdvfjHNhbIjglf8XuLVeDKVR/gcGoOR6RkKSo72Xg=;
+	b=OJSXW4JTlCx8xys7tyF6wx/SiwZqltuo49A48APilde8a20vmcTR4+N6WFauzBkUxca1jb
+	mkGjYfJT2h6Yk9JKlq9SH2CaNfNJenQl5XP+EQNwpTmVT73RCnyAzDhHrNRfkmXJ5LMhAN
+	LO3MwbBS0WGnH1jyEQsu0wCAzB+8Jn4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795536008;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WyDdvfjHNhbIjglf8XuLVeDKVR/gcGoOR6RkKSo72Xg=;
+	b=sHN2TWmm9SnvEtBxVEAhWLxgnorU/8t4HbU4Xfp5rhsecu+IuOkETQSETThWurkQ1hqkfL
+	yS4jWWCXmoFsUcCg==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795536008; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WyDdvfjHNhbIjglf8XuLVeDKVR/gcGoOR6RkKSo72Xg=;
+	b=OJSXW4JTlCx8xys7tyF6wx/SiwZqltuo49A48APilde8a20vmcTR4+N6WFauzBkUxca1jb
+	mkGjYfJT2h6Yk9JKlq9SH2CaNfNJenQl5XP+EQNwpTmVT73RCnyAzDhHrNRfkmXJ5LMhAN
+	LO3MwbBS0WGnH1jyEQsu0wCAzB+8Jn4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795536008;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WyDdvfjHNhbIjglf8XuLVeDKVR/gcGoOR6RkKSo72Xg=;
+	b=sHN2TWmm9SnvEtBxVEAhWLxgnorU/8t4HbU4Xfp5rhsecu+IuOkETQSETThWurkQ1hqkfL
+	yS4jWWCXmoFsUcCg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 1836F1339F;
+	Tue, 24 Nov 2026 16:00:08 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id lHpUOYe0BWv4DgAAD6G6ig
+	(envelope-from <jack@suse.cz>); Tue, 24 Nov 2026 16:00:08 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 9D39427A0B; Tue, 24 Nov 2026 17:00:03 +0100 (CET)
+Date: Tue, 24 Nov 2026 17:00:03 +0100
+From: Jan Kara <jack@suse.cz>
+To: koraynilay <koray.fra@gmail.com>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Edward Adam Davis <eadavis@qq.com>, 
+	Amir Goldstein <amir73il@gmail.com>, Miklos Szeredi <miklos@szeredi.hu>, linux-kernel@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH] vfs: fix file_getattr hint to request xflags
+Message-ID: <254hewuzyamtl5ud7rgmirp3klfqzlqua5ky2z54c2im54bs5h@oycxxuv7zbgz>
+References: <20261124150108.189282-1-koray.fra@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,102 +111,213 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124150108.189282-1-koray.fra@gmail.com>
+X-Spam-Flag: NO
+X-Spam-Level: 
+X-Spamd-Result: default: False [-11.30 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_TLS_LAST(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,qq.com];
+	FREEMAIL_TO(0.00)[gmail.com];
+	RCVD_COUNT_THREE(0.00)[3];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FREEMAIL_CC(0.00)[zeniv.linux.org.uk,kernel.org,suse.cz,qq.com,gmail.com,szeredi.hu,vger.kernel.org];
+	MISSING_XM_UA(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[9];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.cz:email,suse.com:email]
+X-Spam-Score: -11.30
 
-select_idle_sibling() can return prev or recent_used_cpu if they are idle
-and share the LLC with target. However, cpus_share_cache() returns true
-for any two isolated CPUs because their sd_llc_id is never set and keeps
-the initial value.
+On Tue 24-11-26 16:01:08, koraynilay wrote:
+> When using a FUSE mount over an underlying filesystem that supports
+> xflags, querying them from userspace with file_getattr() strips them
+> because file_getattr sets flags_valid = true so FUSE uses
+> FS_IOC_GETFLAGS instead of FS_IOC_FSGETXATTR.
+> 
+> Fix it by setting fsx_valid = true instead.
+> 
+> Output when using a simple FUSE mount that simply forwards the ioctls to
+> the underlying fs:
+> 
+> before the fix:
+> 
+>   /xfs/file: FS_IOC_FSGETXATTR: ret=0, projid=69
+>   /xfs/file: file_getattr:      ret=0, projid=0
+>   /ext4/file: FS_IOC_FSGETXATTR: ret=0, projid=42
+>   /ext4/file: file_getattr:      ret=0, projid=0
+> 
+> after the fix:
+> 
+>   /xfs/file: FS_IOC_FSGETXATTR: ret=0, projid=69
+>   /xfs/file: file_getattr:      ret=0, projid=69
+>   /ext4/file: FS_IOC_FSGETXATTR: ret=0, projid=42
+>   /ext4/file: file_getattr:      ret=0, projid=42
+> 
+> Fixes: cb184dd19154 ("fs: init flags_valid before calling vfs_fileattr_get")
+> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.11
+> Signed-off-by: koraynilay <koray.fra@gmail.com>
 
-As a result, the original implementation can move a task between
-isolated CPUs.  Consider the following situation:
-* isolcpus=1,2
-* recent_used_cpu=1
-* target=prev=2
-* affinity=1,2
+Good catch! Feel free to add:
 
-When CPU 1 is idle but CPU 2 is busy, select_idle_sibling() returns
-recent_used_cpu (CPU 1).
+Reviewed-by: Jan Kara <jack@suse.cz>
 
-To prevent the scheduler from moving the task among isolated CPUs, add a
-check whether target has an LLC domain.
+								Honza
 
-The path for prev is not impacted, because target == prev if target is
-isolated. Add the same check there for consistency.
-
-This bug was found with the help of verification using Frama-C.
-
-Fixes: 32e839dda3ba ("sched/fair: Use a recently used CPU as an idle candidate and the basis for SIS")
-Signed-off-by: Keisuke Nishimura <keisuke.nishimura@inria.fr>
----
- kernel/sched/fair.c | 16 +++++++++-------
- 1 file changed, 9 insertions(+), 7 deletions(-)
-
-diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index da0d9e19c457..6314ff4c2f99 100644
---- a/kernel/sched/fair.c
-+++ b/kernel/sched/fair.c
-@@ -9151,7 +9151,7 @@ static inline bool asym_fits_cpu(unsigned long util,
- static int select_idle_sibling(struct task_struct *p, int prev, int target)
- {
- 	bool has_idle_core = false;
--	struct sched_domain *sd;
-+	struct sched_domain *sd, *sd_asym;
- 	unsigned long task_util, util_min, util_max;
- 	int i, recent_used_cpu, prev_aff = -1;
- 
-@@ -9175,10 +9175,13 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
- 	    asym_fits_cpu(task_util, util_min, util_max, target))
- 		goto select_smt_priority;
- 
-+	/* NULL if target has no LLC domain, e.g. isolcpus */
-+	sd = rcu_dereference_all(per_cpu(sd_llc, target));
-+
- 	/*
- 	 * If the previous CPU is cache affine and idle, don't be stupid:
- 	 */
--	if (prev != target && cpus_share_cache(prev, target) &&
-+	if (prev != target && sd && cpus_share_cache(prev, target) &&
- 	    choose_idle_cpu(prev, p) &&
- 	    asym_fits_cpu(task_util, util_min, util_max, prev)) {
- 
-@@ -9213,7 +9216,7 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
- 	p->recent_used_cpu = prev;
- 	if (recent_used_cpu != prev &&
- 	    recent_used_cpu != target &&
--	    cpus_share_cache(recent_used_cpu, target) &&
-+	    sd && cpus_share_cache(recent_used_cpu, target) &&
- 	    choose_idle_cpu(recent_used_cpu, p) &&
- 	    cpumask_test_cpu(recent_used_cpu, p->cpus_ptr) &&
- 	    asym_fits_cpu(task_util, util_min, util_max, recent_used_cpu)) {
-@@ -9233,7 +9236,7 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
- 	 * sd_asym_cpucapacity rather than sd_llc.
- 	 */
- 	if (sched_asym_cpucap_active()) {
--		sd = rcu_dereference_all(per_cpu(sd_asym_cpucapacity, target));
-+		sd_asym = rcu_dereference_all(per_cpu(sd_asym_cpucapacity, target));
- 		/*
- 		 * On an asymmetric CPU capacity system where an exclusive
- 		 * cpuset defines a symmetric island (i.e. one unique
-@@ -9242,8 +9245,8 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
- 		 * SD_ASYM_CPUCAPACITY. These should follow the usual symmetric
- 		 * capacity path.
- 		 */
--		if (sd) {
--			i = select_idle_capacity(p, sd, target);
-+		if (sd_asym) {
-+			i = select_idle_capacity(p, sd_asym, target);
- 			if ((unsigned int)i < nr_cpumask_bits) {
- 				target = i;
- 				goto select_smt_priority;
-@@ -9252,7 +9255,6 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
- 		}
- 	}
- 
--	sd = rcu_dereference_all(per_cpu(sd_llc, target));
- 	if (!sd)
- 		return target;
- 
+> ---
+> Hi, I found this issue while working on the v2 of [1], here is the
+> reproducer, not in the commit message because of the size.
+> 
+> script:
+> 
+>   #!/bin/bash
+>   truncate -s 100M xfs.img
+>   truncate -s 100M ext4.img
+>   mkfs.xfs xfs.img
+>   mkfs.ext4 -O project ext4.img
+>   mkdir xfs ext4
+>   
+>   mount xfs.img xfs
+>   mount ext4.img ext4
+>   touch {xfs,ext4}/file
+>   
+>   chattr -p 69 xfs/file
+>   chattr -p 42 ext4/file
+>   
+>   mkdir fuse
+>   ./repro_fuse_getattr fuse "$PWD"/xfs/file
+>   ./repro_fuse_getattr fuse "$PWD"/ext4/file
+>   
+>   umount xfs ext4
+> 
+> where repro_fuse_getattr is a simple fuse mount, compiled with:
+> 
+>   gcc repro_fuse_getattr.c -o repro_fuse_getattr $(pkg-config fuse3 --cflags --libs)
+> 
+> and used like:
+> 
+>   ./repro_fuse_getattr <fuse_mount_dir> <full_path_to_real_file>
+> 
+> repro_fuse_getattr.c:
+> 
+>   #define _GNU_SOURCE
+>   #define FUSE_USE_VERSION 35
+>   #include <fuse3/fuse.h>
+>   #include <stdio.h>
+>   #include <string.h>
+>   #include <errno.h>
+>   #include <fcntl.h>
+>   #include <unistd.h>
+>   #include <sys/syscall.h>
+>   #include <sys/ioctl.h>
+>   #include <sys/mount.h>
+>   #include <linux/fs.h>
+>   
+>   /* needed to get the file's file descriptor for the ioctl */
+>   static int my_getattr(const char *path, struct stat *st, struct fuse_file_info *fi)
+>   {
+>   	memset(st, 0, sizeof(*st));
+>   	if (!strcmp(path, "/")) {
+>   		st->st_mode = S_IFDIR | 0755;
+>   		st->st_nlink = 2;
+>   		return 0;
+>   	}
+>   	return stat(fuse_get_context()->private_data, st) < 0 ? -errno : 0;
+>   }
+>   
+>   /* pass down the ioctl to the fs */
+>   static int my_ioctl(const char *path, unsigned int cmd, void *arg,
+>   		    struct fuse_file_info *fi, unsigned int flags, void *data)
+>   {
+>   	int fd = open(fuse_get_context()->private_data, O_RDONLY);
+>   	int ret = ioctl(fd, cmd, data);
+>   	close(fd);
+>   	return ret < 0 ? -errno : 0;
+>   }
+>   
+>   static const struct fuse_operations ops = {
+>   	.getattr = my_getattr,
+>   	.ioctl   = my_ioctl,
+>   };
+>   
+>   int main(int argc, char *argv[])
+>   {
+>   	const char *mnt = argv[1]; /* FUSE mount point */
+>   	const char *real_file = argv[2]; // full path of the file on the
+>   					 // underlying fs
+>   
+>   	/* start FUSE */
+>   	pid_t pid = fork();
+>   	if (pid == 0) {
+>   		char *fuse_argv[] = { "fuse", "-f", (char *)mnt, NULL };
+>   		return fuse_main(3, fuse_argv, &ops, (void *)real_file);
+>   	}
+>   
+>   	usleep(300000); /* wait for FUSE mount */
+>   
+>   	/* Query the file attributes through FUSE mount */
+>   	char fuse_file[4096];
+>   	snprintf(fuse_file, sizeof(fuse_file), "%s/file", mnt);
+>   
+>   	int fd = open(fuse_file, O_RDONLY);
+>   
+>   	struct fsxattr x = {};
+>   	int ret_fsget = ioctl(fd, FS_IOC_FSGETXATTR, &x);
+>   
+>   	struct file_attr fa = {};
+>   	long ret_sys = syscall(SYS_file_getattr, -100, fuse_file, &fa, sizeof(fa), 0);
+>   
+>   	close(fd);
+>   
+>   	printf("%s: FS_IOC_FSGETXATTR: ret=%d, projid=%u\n",
+>   	       real_file, ret_fsget, x.fsx_projid);
+>   	printf("%s: file_getattr:      ret=%ld, projid=%llu\n",
+>   	       real_file, ret_sys, (unsigned long long)fa.fa_projid);
+>   
+>   	umount(mnt);
+>   	return 0;
+>   }
+> 
+> Thanks,
+> koraynilay
+> 
+> [1]: https://lore.kernel.org/all/DN2YMTH77KWE.3IPE9OG8377X0@gmail.com/T/#t
+> 
+>  fs/file_attr.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/fs/file_attr.c b/fs/file_attr.c
+> index 833e03810b24..3b249a0a6b36 100644
+> --- a/fs/file_attr.c
+> +++ b/fs/file_attr.c
+> @@ -383,7 +383,7 @@ SYSCALL_DEFINE5(file_getattr, int, dfd, const char __user *, filename,
+>  	struct path filepath __free(path_put) = {};
+>  	unsigned int lookup_flags = 0;
+>  	struct file_attr fattr;
+> -	struct file_kattr fa = { .flags_valid = true }; /* hint only */
+> +	struct file_kattr fa = { .fsx_valid = true }; /* hint only */
+>  	int error;
+>  
+>  	BUILD_BUG_ON(sizeof(struct file_attr) < FILE_ATTR_SIZE_VER0);
+> 
+> base-commit: 3857587d9d6fa44d40d1c73bde6a39f6f7a5216c
+> -- 
+> 2.56.0
+> 
 -- 
-2.34.1
-
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
