@@ -1,79 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795495632;
-	b=1FBVMzJysaN02ijVPz+eOx8Ax/UIskBg5zHC/6dnNqZiff9p0PBr9QBgip2Dg8UCH/mR
-	 rxYNgOSvpyvEqcOSPeGarzeFgsIxhCYy+aXTgL2JTJ7GMkos9WWyNDQK0x7EHpYSBz3a1
-	 C3jM+qvZkCyLZtpfbBcZ8dpteQLRNwAxSxQ18DebkHPFBszUHmnvjFa0jvLtzSXvUZ/iK
-	 udiYM5m5cLL86k2vp2O0fmNlOI2Y+vwc4jazrcaeGTynY2PeQDHgk44ASwkv6rznFfXZ5
-	 hYPQVjKZ+A8po0Hf6BLYrfKnNC5aooXexItcSvgcFI0/rXK0O+u3anDs4ORQywW8G9Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795495632;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=1Q9Idu/BDrRLsyvIqbFJ0rTBe43Ed9KRtwgCLPenha8=;
-	b=gm2xv4ijvKsumRqArsGklOePybMA6IDwnKKnUKZnIeTqDa76w9g/BGTRLB8YdWYJAE4L
-	 wf1Q5zSiELZtVkJXWeO1y7RzQTGXHV2g6QRMZLHN2c228yxZkpPSJajd59WsIvVORKxe0
-	 RxNPnVI5RDHa2fjBa90JnbMa8KjolYIQc9pBg9WL7SN+/xDHK1tadO4s0wYOWQ/IXzbhQ
-	 DMgB4j4qAx+i1O7/mlUhbcHNMstP7F+AOPW67JfgZ+4NEVQmxFqQSRfPkf/2yRtDknjmZ
-	 8I1XgQ/fl5G319/WspMII54tQB/8fergyAIX6ABL4UCPq+97HrwcHNkhPzSch/BZ30w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rh+Oi7CZ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45632606A31E;
-	Tue, 24 Nov 2026 04:47:12 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rh+Oi7CZ
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795495632;
-	b=ZJ3tGrpePXgpEd1q0UGwUOF961+OGVn2SLLGfHkrO032O/l61CeQ6zn3Cgskkbpp7Rwp
-	 iXT4K+bObp0aJYYdTGSSZRwWtgq5EensJVQBFKeUMX6b/khPKJgZMtj+SwXvUXjbYhDfk
-	 BcR5PhohpepMAIqjX420YbevwbzZLCfDr2LuLa3b9ztFwL2bfUhVpFqkodWeb1aAqgTKU
-	 VpPh6gRB5Q82/PYIUa5sAVen+OzNDLopT6o8WL5Ldb15xr+VUJM+dELxhILJA9PiPjC29
-	 rJDCbj3gim2GU2FUyN710QE6cUGysgtyDzHFka3VuRlxuZgPxkwRovm41l18z54zvPw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795495632;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=1Q9Idu/BDrRLsyvIqbFJ0rTBe43Ed9KRtwgCLPenha8=;
-	b=pfciPBv4JbhFTJJjTI5Lm0PEsXmSCN7xTAY0ecS1VLpLyWWZ4iBz+niduwPbab7IQOFU
-	 SO+/abRQc100cY9eoQb5nP85BGDKpSgv/Pk1VsFnLSG6sqcIGwYZ0lgRvNsLKJliQPUt6
-	 cqnHuHIkBLjALa14BVcKwHRC5OCmDpPRoB33BN5cYWOX4/s5eo4roNE85HsyBUVaEG74t
-	 yKvdWh3tNVg+R9xt4S5FRINbe3t5NQqph9HgH2Cm8TChti7SXQq2Iv0pVqf2jtDXY2T+6
-	 3OYpwWEerKgO5pv8mmdpg5m+2OCBeSEW7p3y64lkrTUYfNLMFf/55szP6nthgzsz6dA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795495774;
+	b=mt6nbFVXtpp5CzqNfJaQBBnoLrA7WH6qp7PsP/qcNUE3F8Ee27qhuB/ONCjd4whSY8nb
+	 EXnXIVp1gDKGmgCfAg94KCXi6JALPJokvTQMQYK9YeUSGxAfsg8vL7sf+9n+TrKlRdOHJ
+	 JAMc7Nn5aEHfmzrD/b8P7d5mO6eA+XZlR7hTmfQK+rwTnvaKSNcO2ANGTRZjFj3heyCSk
+	 kd1KY9bwljp1ea8Xqwe2mUCAuhZJ//LtimLWpF7wfnIYbvCz6fSWHLbTg7hxbyI9oy6E5
+	 rxLucvMqsuf7F2cQj7ZpEwhFG5+bguyp2OYsE1dlFjRqx0irwRG95SXiHsgYiQ9RPIg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795495774;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Content-Disposition;
+	bh=q2AtCKrcnRowgK9UMYU4R00JyvBBzeu6djBwCY8oBcw=;
+	b=t8OO0a0yY3FbMSsO66YHZMSwzSZKSqFY6UB1XHg+/jOIe7x0XmdG6BQDnmm7E+t3urxD
+	 7DJSQuK0s+QeFXHvZpgA63FM3ejbzOXGP1PG77p9RkVmJH+f0WmlwjKSlE3B8JddBUbdi
+	 DrNkitWUtzLu524ENI4WWrj4KmQQqrv/vlSEcVzxUuxU17dTj6wbcSAdLFnqgV6jiUrH4
+	 joQTYYlNC2r1w6bG1lfpkdbMlBSfLTZcYGlkmTn18hN3iw2ifr5k68vWlATx2w/JC5Veb
+	 jNyjK1dX0yXzoA899BquAhEupysLh1SqbZYzBcsQ9qwNOBi09TDCVX/hmCR4ACmR8Wg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=T16l0T0G;
+	arc=none smtp.remote-ip=74.125.82.175
+Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B09241F000C0;
-	Tue, 24 Nov 2026 04:47:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795495632;
-	bh=1Q9Idu/BDrRLsyvIqbFJ0rTBe43Ed9KRtwgCLPenha8=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=Rh+Oi7CZ5Sl0gly4Hr0bfUqNsokxEBt3ui97bpJSIWywmBfVzmXg+6xsGhWHqO5Vv
-	 1b4v3bxtRInZwdSTTMPrQI/TDQF79UtEasYBvL4QDtWUHGOSyceZ3O7bFexvh9ldOD
-	 GrhPuDv/qoJjlxxRnjiXVJCGghOFDPvROdmAuO+HVXOr/2ABHUit2cmsHI3Siice90
-	 FDLlHcekcDgF61lHfvi+NumHD0diQzfOZduaUXu1SCfMbSPaCDhFtTT/Uahr2tb1UU
-	 L0ucgoj3DH9A5dhr1Rj+IOjE9K/8nCXfp6LOIiz4WnFqO91NIjNzInZYbvbemS+DMp
-	 DR4OQlF+PVUDA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 158044C88A;
-	Tue, 24 Nov 2026 04:47:08 +0000 (UTC)
-From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
-Date: Tue, 24 Nov 2026 04:47:07 +0000
-Subject: [PATCH] ALSA: mixart: Don't touch the mailbox when the BAR mapping
- failed
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 947C5606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:49:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 947C5606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=T16l0T0G
+Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-386ab9ab619so3836625eec.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:49:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795495774; x=1796100574; darn=vger.kernel.org;
+        h=content-disposition:content-transfer-encoding:content-type
+         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=q2AtCKrcnRowgK9UMYU4R00JyvBBzeu6djBwCY8oBcw=;
+        b=T16l0T0GKicmhbZqRU168+261kQqzq5E0ht5XNJJoCO0QQhpcTXbyhHAMZk8Dv+kdS
+         Zgx2o2KdXpllzpKV/tDJvD9CSZOSS2Xtuh0nJqQfHth0cjymilkWeV9ugO1W3Xu/uim5
+         VJXX794Aawd6Xh9OYL6YaxqC0oNXD03VnrfMpm3mhrkFKTu0SypT3Sjp6UCj3CxbB5T7
+         GTnjHpPwMH+iC/Wcop7g+dDTwv3m66TBh80+D0l+WLVQXmqwtolbLZL/9kCT5WnHkkGf
+         j7AtHdSBeVSPmf8qpOvjjtYSe8HmP2NPTfBa9PjseyDIs9aKp7x+iUpxvHw7vdEUDW5f
+         OYiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795495774; x=1796100574;
+        h=content-disposition:content-transfer-encoding:content-type
+         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=q2AtCKrcnRowgK9UMYU4R00JyvBBzeu6djBwCY8oBcw=;
+        b=fjK1YTpRDgBmKDrZO7Cd8m7RS60PJ+smkfy3y7EapDyRFnpGC67WCgdZ0PjZI44g4P
+         wUzE/e8ZM8osj3uiJFdQpSR58bo+rfAOMApewKyOZF5c321kx9Bvr+3I+n88H+GIwM4x
+         WCx/Km8NbLFjpxBDge0sE3gpxFx/4S8g4XHPZUUlak6UC30M7id9/T9VJFluyEtAhKyG
+         wwUyKs30otx5D2vxq3m/+8IzHf/7aXbTY3LYxdb0C7bz4MBqyLu1RLKSv5K//R3+TYm3
+         OiSe3B2Ftr2jKmK26Ea8R2oxzlMzs0HDV8L0FrlC+jkRPvewWjvuTyHA0JbfwwMArL6d
+         5Maw==
+X-Forwarded-Encrypted: i=1; AL+hErGscKWcioTUfJdEWIozxdVzB3Px5ReEfzyzdvbCjHlcItj0swXZklvwbOkypLgtkHadGatlrGRFLW9zVMg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9zD7IY3nGqx5RAxdVbbj8+HOfygdgXP/9B+oEUzEjxC7jpTFsl
+	0gjCCBE/3sOF6EqIxfugSENCfliDOfsHUJr39aWnC+hhWFpu4MbWTNlD
+X-Gm-Gg: AZFdTZeCP+axpmBxxpbVnzxOpcG+r0TaVprkqPCYdUSeGSly5JtkkUkX6PGnykyiwd0
+	xy/C6gKyyg/o9U5aPFgp+r7RlMsxfhn64sn8M3/S2dsn2xvFaHMKT3IqFDFXsqtnZTi7EL3dBLL
+	lnrz+HoJgPRA9UNaPbp4uVzw9QGrgMoSMZt3WbXO64YWx8aSRHd+1KFuZ6t3KGB0VtD+C6lE1tT
+	45JH/twgdShEnUJIAIH8wbkZhdz6x1R+9KJrQCaIQ9/8ayALkfKhFlF5+ghiShM4+hmtqh+FC3b
+	WoM03pj5fZ+44rrjKo4MpnjrYhq0x5W5cJPhlPHe2e12SKhNZJAjN+ckFMeuXGdHhseKmTNm/+N
+	K3K0YRzYdKja48CldNHo9KznfIFUV/pXa564UjE/coK/JmeIr4tLVdP0EbKtz5Fk5sE/n9BGuvS
+	55X0HCfJWPV55SIp17TvvswIHkumt9uukhX5iBOHL5N1A/kY+byPx6YmXR0C4SHSXkkvZ3o5cZa
+	H38c9yu8pCIfOhSknTcAY257uxH4bVAFhvbOb5BBuI54YWODQdAZIlOeb4p2EdsjZSyHrjLkZd5
+	8aKMM8EUX9pekfmYVLSwC1EX25VltujHG2gHZAo2orSfDAsZx5bCP3QI4YOJYHS3yO6xV+3SwaH
+	6AuSY8hoeS3VmAAo=
+X-Received: by 2002:a05:7301:7004:b0:386:c5b8:960b with SMTP id 5a478bee46e88-386c5b89f9emr166158eec.17.1795495773579;
+        Mon, 23 Nov 2026 20:49:33 -0800 (PST)
+Received: from localhost ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385f68bc0adsm37247605eec.13.2026.11.23.20.49.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 20:49:32 -0800 (PST)
+Date: Mon, 23 Nov 2026 20:49:31 -0800
+Message-ID: <3e575d6e2eb90d4a3707319d37134c1a@gmail.com>
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Pooyan Azad <pooyan.azadparvar@gmail.com>
+Cc: Uwe Kleine-König <u.kleine-koenig@baylibre.com>,
+	Muhammad Bilal <meatuni001@gmail.com>,
+	Herlangga Maulani <w1zardsec@proton.me>,
+	Rob Herring <robh@kernel.org>,
+	Jeffrey Lin <jeffrey.lin@rad-ic.com>,
+	linux-input@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] Input: raydium_i2c_ts report handling fixes
+In-Reply-To: <cover.1790612085.git.pooyan.azadparvar@gmail.com>
+References: <20260927114425.442803-1-pooyan.azadparvar@gmail.com> <cover.1790612085.git.pooyan.azadparvar@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,75 +104,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-mixart-free-v1-1-13765d8d445b@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAMoWBWsC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQyMT3dzMisSiEt20otRUXQuTNEvz1GTDJDMLEyWgjoKi1LTMCrBp0bE
- QfnFpUlZqcgnICKXaWgBdPnQNbwAAAA==
-X-Change-ID: 20261124-mixart-free-84f97ec1b684
-To: tiwai@suse.com, perex@perex.cz
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795495627; l=1657;
- i=shyckless@gmail.com; s=default; h=from:subject:message-id;
- bh=KroNMBNLmqXWTwC1spkNnjxXDnIiXoTFsmYu+3KeonU=;
- b=GAspBgd8YPw6ltv7qrF8nA9eRiO3UmTQ86OaVDcOYWUL9OEtz7qm3/FnRkjgzwyP1GrQWhvdI
- CQD7uD8ekRuDKHyPBA5WVmjASfUJe4xJ9jw1zXLq/4Q8f4QbCulLwug
-X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
- pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
-X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
- auth_id=1498
-X-Original-From: Suyuan Wang <shyckless@gmail.com>
-Reply-To: shyckless@gmail.com
+Content-Disposition: inline
 
-From: Suyuan Wang <stevewong@hust.edu.cn>
+Hi Pooyan,
 
-snd_mixart_probe() calls snd_mixart_free() when pci_ioremap_bar() fails
-for either BAR. snd_mixart_free() then unconditionally calls
+On Mon, Sep 28, 2026 at 06:26:15PM +0200, Pooyan Azad wrote:
+...
+> Patch 2 resizes an existing report buffer when a firmware update changes the
+> packet size. Patch 3 moves the initial allocation to the main firmware query
+> so devices can remain usable for recovery when they probe in bootloader mode.
 
-	snd_mixart_exit_mailbox(mgr);
+There is a teardown ordering issue with using devm_krealloc() in patches 2
+and 3.
 
-which masks the outbound mailbox interrupts by writing to
-MIXART_REG(mgr, MIXART_PCI_OMIMR_OFFSET), i.e. through mgr->mem[1].virt.
-mem[1].virt is still NULL if either BAR mapping fails, so the error
-path oopses on a write near address 0 instead of returning -EBUSY.
+When a device probes in bootloader mode, ts->report_data has no devres
+entry before devm_request_threaded_irq() is called: in patch 2,
+devm_kmalloc() with size 0 returns ZERO_SIZE_PTR without calling
+devres_add(), and in patch 3, ts->report_data is NULL. When a later
+firmware update transitions the controller to main mode and runs
+raydium_i2c_query_ts_info(), devm_krealloc() takes its ZERO_OR_NULL_PTR()
+fallback to devm_kmalloc() and appends the buffer to the devres list after
+the IRQ. On driver unbind, devres releases resources in reverse order,
+freeing ts->report_data before free_irq() runs while raydium_i2c_irq() can
+still execute.
 
-Only call snd_mixart_exit_mailbox() when the register BAR is mapped. The
-rest of snd_mixart_free() already copes with a partly set up manager:
-iounmap() accepts NULL, and the IRQ and DMA buffers are checked before
-release.
+I do not think we need dynamic allocation for the report buffer at all.
+Since pkg_size is a u8 (at most 255 bytes) and raydium_i2c_read() uses
+ordinary i2c_transfer() rather than DMA-safe buffers, we can simply embed
+"u8 report_data[U8_MAX];" in struct raydium_data. That eliminates the
+separate devres allocation, avoids -ENOMEM during firmware updates and
+ZERO_SIZE_PTR/NULL handling in bootloader mode, and guarantees the buffer
+outlives the IRQ. Patches 2 and 3 then collapse into a single patch
+keeping local staging of info/report parameters in
+raydium_i2c_query_ts_info() and switching report_data to a fixed-size
+array.
 
-Found with a static analysis tool and checked by hand.
+While looking at bootloader recovery, note that raydium_i2c_fw_update()
+also unconditionally sets ts->boot_mode = RAYDIUM_TS_MAIN even if
+raydium_i2c_initialize() returns 0 after seeing RAYDIUM_TS_BLDR, which
+can leave contact_size at 0 after a bootloader-mode probe.
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Cc: stable@vger.kernel.org
-Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
----
-Compile tested on x86_64 (W=1, no new warnings). I don't have a miXart board.
----
- sound/pci/mixart/mixart.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+Thanks.
 
-diff --git a/sound/pci/mixart/mixart.c b/sound/pci/mixart/mixart.c
-index f451554cff5f..0266467734ca 100644
---- a/sound/pci/mixart/mixart.c
-+++ b/sound/pci/mixart/mixart.c
-@@ -1066,8 +1066,9 @@ static int snd_mixart_free(struct mixart_mgr *mgr)
- 			snd_card_free(mgr->chip[i]->card);
- 	}
- 
--	/* stop mailbox */
--	snd_mixart_exit_mailbox(mgr);
-+	/* stop mailbox, unless the register BAR was never mapped */
-+	if (mgr->mem[1].virt)
-+		snd_mixart_exit_mailbox(mgr);
- 
- 	/* release irq  */
- 	if (mgr->irq >= 0)
-
-
-
-
+-- 
+Dmitry
