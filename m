@@ -1,100 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.75.134
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795505768;
-	b=347JfG1tsF9cSlMStvUZZRAcbOAFvTN9rxkGcNc7RheswNWqI66EviEcLrQBEPet1d6M
-	 nH6yZ7sNad9/g0YjLjJuFPPwiJs38x20SB5JGhDNbwZNyA2F1nUxyCdgtiV0Oyh5yBsgw
-	 Zm9+hTvZhBK3O/3G/7sMT8f78W8o6QOyHX71ckvtaFLHdvE4JkK8A+Mw723ROOB0Xew/5
-	 yZq1La5yMsbFos5DyCrZDfuOXsFHi6Qr6EH/vDypoMZZdw6Hpw+JDQDTZWky/EzL2af+P
-	 YTiw/TrIADKO8sr/ErPfsX+AsHb460M+8MlDoCzN8FrhDp+r4hPdqnB65Q4xDApulTA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795505768;
-	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
-	 Received-SPF:Received:Received:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:Content-Type:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=nLTK6VncmzGr5SZASmqw5/lkxvT4Lsj+DAdF8kNAm/4=;
-	b=L7bK4+uws7gUfhkQwWigEPCOSZ3iY8u7FVUFe0TRp0aRl45La2hMTPoPe067+KrU5SPJ
-	 UL3hyMnwo3y7VDRTN3Ea3eF/tTYFO8tAybH7a4Z0VcZ0CMHwEGWKRcb0LVqeI3UIWy9j7
-	 9zSbRo4EQlpwXlEIeag+0YGMSWwohAJ6w6VgKGsiJh5fu12cfxFdaZgUb6X6sgt53TUaU
-	 4dREq3E62vjk35ZElCr/Cq3dBMpqgXbSpfcti8dJ52ZLAHxi0wvO81l0+RZqf8N/N2/7G
-	 1Ycx6KGhQ0fRmXv3yR2P5DAjEafF9zPkJUDL7p/N5ZsKY+v97aouTJ9tEz87d8/p4FA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=cixtech.com;
-	spf=pass smtp.mailfrom=cixtech.com;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.75.134
-Received: from OS8PR02CU002.outbound.protection.outlook.com (mail-japanwestazon11022134.outbound.protection.outlook.com [40.107.75.134])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795505857;
+	b=wlKi8mKzHsX1yjBuz/WR+rkzup2y/rQGy18U/OBBPalcQc+b1PKlmZ/1Sq9botdUiV5g
+	 FkTG0lCKQIZXgse70oBTfSO2EnLSEzLJg6AfQbgD+CLQaB3M/QPK1qjI6iavZz7qexcQ0
+	 5nz8hWPz/ZF1IYDvN4lSxOUxJrSxX2TecUKxeES/YS5uG0/vvxq77UqVgliXu4wFzvcvl
+	 L6NCnGzq/7NTwgFYmHaEGZKmd9vZ5Gtcoq60ECkR067tV35oen/mYJIMsYW5rW6TEnWIx
+	 r0llgQbGOytmKupU1TRbkAAEKYB5ABR/p3922s1GughPJTtOs8Q7i4BuCnkb5WOTx8g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795505857;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=VZz40K9c7iszeT4LjKfNCTetedFh8HwkJLhbm1kh5wE=;
+	b=31zJp+k/wKHz+q/vS+zknLAEf0q61ID68W3vfwz104HiIX0FmyB0R6T30UBGefB3p2Qp
+	 P6kIXFD511+okbtJXF6ELTDOYrt5odNxlxxayzSsmDRDmPGaufcMLkV13n+sjIBeX2Ggn
+	 Q5UtGGCmyF9K4ZC/bTJwa3z3+uQTvA8BRiydlAABAUyqp8JV5qterx4t4RVibNpod8LsX
+	 9vnLO0FDC63hCijsJxHxa2E/CgP7iZihcZMhW9LEuchzcJD+3pGvVE1RltyoqUGKoJMQI
+	 6RgjBdHFKNDB+9yGkPEU8bdt6c3WgZIhWz+gva/tH7iX30nFmZgGWMfZo9kNraRtRzg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XWsmm4zD;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F449606A322
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:36:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F449606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WhHG41tD+tmBfxwgXU1pMWdn8rtT9Pi/WprqcV2UKURxOPYw0yRAMkLoVNLcrbzoPkKAYOMQZcW5ewQYEVF3Rh/pyFE4qUFS75nNE/JQjqmG5UOS1d+yzakNP3f/FNHK8DovQ09Jjeszc+bQFIPsZzTkwgcOFwHS4FFnu4oBBoX0ugTNeWLvXWHaPRF1ZPsU0hVmxse/giAuBK2NoWlgXgxvOvLGHjC0yc4wlFkBQ0vm4k+DjP0qykyTwBrS99jJe2325rhB7mwSvHXJaZXuGj30ApDFV3E5QogzyhAAb/KekEjO1wwSiU7a3jxVnSAbY4XYSc6DPZ40xQ7XjJY7CQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nLTK6VncmzGr5SZASmqw5/lkxvT4Lsj+DAdF8kNAm/4=;
- b=Jiw+6NNOkq/HGV94OUkqwBqBAWgHzx0CaJ8A/YfnHOoJ04YttDK4fukbi242dCUwQh4titxaWW1+wjyNnPTVeVfVWBfLQiblYedRmnitfMfIwJoD9futpId4kYSuIbKfdUY+amHzUNMRZFKRYQooPncf19CqH0bVuXxbuAouHy+NC9Cpt6Si8IrWoRTjFaZmSjt6K/cvFr4KtTcJsDPUNA0vGraAPN1nD/Uv8zeUj37rPKYEQe0e+xcOYEp6DY5vTz6dJR9zqKLH1WstmR0ooa7VD9glccA8zqjAc4jkQquyODfUudoATEp89fc55XfmgYYuMSxl3P5QBQA3AHHffw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from KUZPR04CA0009.apcprd04.prod.outlook.com (2603:1096:d10:32::17)
- by SE1PPF00709BB50.apcprd06.prod.outlook.com (2603:1096:108:1::404) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
- 2026 07:36:04 +0000
-Received: from SG1PEPF000082E5.apcprd02.prod.outlook.com
- (2603:1096:d10:32:cafe::a3) by KUZPR04CA0009.outlook.office365.com
- (2603:1096:d10:32::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Tue,
- 24 Nov 2026 07:36:03 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG1PEPF000082E5.mail.protection.outlook.com (10.167.240.8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 07:36:02 +0000
-Received: from localhost.localdomain (unknown [172.16.66.33])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id C9DC940920E7;
-	Tue, 24 Nov 2026 15:36:00 +0800 (CST)
-From: Luo Liu <Luo.Liu@cixtech.com>
-To: liviu.dudau@arm.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	dri-devel@lists.freedesktop.org,
-	cix-kernel-upstream@cixtech.com
-Cc: airlied@gmail.com,
-	simona@ffwll.ch,
-	linux-kernel@vger.kernel.org,
-	Wuyi.Shen@cixtech.com
-Subject: [PATCH v2 3/3] drm/komeda: Free the IRQ before clearing dev_private
-Date: Tue, 24 Nov 2026 15:36:00 +0800
-Message-Id: <20261124073600.3124817-4-Luo.Liu@cixtech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261124073600.3124817-1-Luo.Liu@cixtech.com>
-References: <20261124073600.3124817-1-Luo.Liu@cixtech.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C26B2606A336;
+	Tue, 24 Nov 2026 07:37:37 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XWsmm4zD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 221CF1F000CA;
+	Tue, 24 Nov 2026 07:37:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795505857;
+	bh=VZz40K9c7iszeT4LjKfNCTetedFh8HwkJLhbm1kh5wE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=XWsmm4zDYaUDj8gdU7RgeaDhJpIlaG4ZO1vr5LK+C4m5/fEIddjGI6mucsVYwVnPv
+	 Q6hFrOSHl4bMIrw8RvUumHdV0ItUJTBBnZssEHpLOliOAIASLtRyjWXthlYP1iBiCL
+	 B0fn41KQLSIpdBTzaMcBqP6sBN9nJZC1yykO5UFHL5PSe7chOZicY8r51Envj4cO+t
+	 M90pJukU5jPkjNnMEaYnxkXhaw/I+g0zGrksu/KbL5oBKUBDaNe+qVic6Dlb++/Biz
+	 Z0JakSeJpC/jUBYUYZLd78wOhvtDl2GqpJ18mrs8nR6I8r0wpaWQ6tMmei7zMLrXQk
+	 FvJiS4WMNNTRA==
+Message-ID: <3dee4f97-5d49-4aed-bb6a-e3f2567566a9@kernel.org>
+Date: Tue, 24 Nov 2026 08:37:30 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,74 +51,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E5:EE_|SE1PPF00709BB50:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: a4935a0e-7ac8-4ab7-e95c-08df49fd97c9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|42112799006|376014|36860700016|1800799024|23010399003|22082099003|18002099003|261009220027099003|56012099006|261026121527099003|261028144727099003|261102123227099003|261009223027099003|261009221227099003|261026140227099003|261021121427099003|261022105027099003|261009223327099003|261009221727099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	WpU24c6RxVPj0vwGMll82sBEUPsmnnWB4WpFslG7CqSJ9ad+uyBfFlgkq1itbkobKvOv1uS6kUJTDA5nBoYHoUlf7gocH0ufxHqTlw8MSr2XUtRO3oB0WYP8O33vR2Hkr9WIF6Q9KAHqqoL9fqWlC1E0QRdbKGU64YSR9tzdW222v/JfE+Ppojx6jMOtiGG/KC5YwaO6hsLtVxbsTMQkM9t3Skp0ZNuJJcGsvnZeLkFdczDW+lbDX9pYf3AFiyuwS+o0XoxKuBAzXty6AnEXuiL/1cD8nzp+4cbZxpZFqhBzbNQgO34ihupcB0vYJwf6/tjVVZdJu3fXgFd6EiGz/eL10Wzt6X34uApaKVZDctMnWi1oB8lFlJRQKrswYCCMNURMvytSABhyCPKl7fqyZS89WOA7OqokJHS2Mmc8kpIhOseInUumgf+5nd22up/JmYioiTa9PsMr/eqlGpmhjHtIko2aHg7859owq27DgKWrA5k0wkMuHnXsnq2XAExS5ajLZAJBqHHpZCiwj2YtqzjfGM92rE/obR1hRA0PC+of51cb8m9jNLrN7l+Pyc67zRzS8ITVFpmglV8i4c31oaO9Kcb13QKFba/wM34Xn+/BS1UDHlz7lSqQo0JEYDddmzpbrrh5scnM4YWPeRwx6hBzLbzdnhQnHYKNzLaagxNO/2caPqm8bX/CXadVusbqcy5yiQcKd7OwRWmwqx2JKA==
-X-Forefront-Antispam-Report:
-	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(42112799006)(376014)(36860700016)(1800799024)(23010399003)(22082099003)(18002099003)(261009220027099003)(56012099006)(261026121527099003)(261028144727099003)(261102123227099003)(261009223027099003)(261009221227099003)(261026140227099003)(261021121427099003)(261022105027099003)(261009223327099003)(261009221727099003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	vOmehZEx9JmIQjNVEFml1aJnrU4I5scKeo/q3PadoKdeiFKdRaZNWIyoUpvZ2vlkdhw1Brha9O133M9otI0a+v1F6qdSRcfGzacHPS1FNKh3LQnULnDEgPWwyK/geAGcIZF4dTBpAdz7/afLhxztYrk4nn5aRvUeuixtHk6x3zKHXEkPZM0tv8RLXj2fz2faMy3XMTUS1GZkXbYJdNF2QqZxYdK8YYmXbn130pUJ4pvCopy8lCX9++EsandgWBrkLu0Pu//KRGfkmBm4EY24jgA4rmntmdWKUZ/In8GELU1fmmaInglRonRb25dhBNsbYH1u/NNVaSgpN/mjdRNiYr8EDwoaWMNuObhD2W0tGkHvJ4ibD1ToTcw0kqHYpvNpt1Kl90ubOyaR2ywbOAxZA1/UZmVMBh9cHscnCTIbZcl5msbupXxE1iiNcDO8ZYNU
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 07:36:02.4304
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a4935a0e-7ac8-4ab7-e95c-08df49fd97c9
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	SG1PEPF000082E5.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE1PPF00709BB50
+User-Agent: Mozilla Thunderbird
+Subject: Re: linux-next: build failure in the final build
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Sasha Levin <sashal@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>,
+ linux-phy@lists.infradead.org,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Linux Next Mailing List <linux-next@vger.kernel.org>
+References: <awR7nSOWkxRm-iP6@sirena.org.uk>
+ <20261123212627.1203724-1-sashal@kernel.org>
+ <2026112402-squid-king-c8df@gregkh>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
+ /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
+ s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
+ EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
+ rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
+ DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
+ IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
+ vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
+ oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
+ sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
+ vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
+ Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
+ BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
+ 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
+ f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
+ WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
+ XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
+ IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
+ YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
+ p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
+ GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
+ YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
+ vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
+ ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
+ QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
+ +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
+ wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
+ c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
+ K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
+ n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
+ qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
+In-Reply-To: <2026112402-squid-king-c8df@gregkh>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-The interrupt is requested with devm_request_irq(), so it remains
-registered until the device is removed and its devres resources are
-released. komeda_kms_detach(), and the komeda_kms_attach() error path
-taken when drm_dev_register() fails, clear drm->dev_private before that,
-while komeda_kms_irq_handler() still reads mdev from it. The interrupt
-line is shared, so another device can raise it in that window and make
-the handler dereference a NULL pointer.
+On 24/11/2026 08:28, Greg Kroah-Hartman wrote:
+> On Mon, Nov 23, 2026 at 04:26:27PM -0500, Sasha Levin wrote:
+>> On Mon, Nov 23, 2026 at 05:45:01PM +0000, Mark Brown wrote:
+>>> I did not specifically identify the commit that triggered this, it will
+>>> be some include file reorganisation which causes PHY_TYPE_PCIE from the
+>>> DT headers to become visible to the driver, clearly there is a
+>>> namespacing issue going on here.  I have ignored this for today.
+>>
+>> I sent a fix for the driver yesterday. It renames the driver's enum
+>> values so they don't clash with the dt-bindings ones:
+>>
+>>   https://lore.kernel.org/all/20261122152857.1113943-1-sashal@kernel.org/
+> 
+> I'll go queue that one up now, thanks.
 
-Free the interrupt explicitly with devm_free_irq() before dropping
-drm->dev_private. free_irq() removes the action and synchronizes with
-any handler in flight, so the handler cannot run afterwards.
+Fix is fine, except that Vinod disagreed (and did not review/ack)
+original PHY patch, so it really should not go via your tree.
 
-Fixes: 2cfb1981dd0d ("drm/komeda: Make Komeda interrupts shareable")
-Signed-off-by: Luo Liu <Luo.Liu@cixtech.com>
----
- drivers/gpu/drm/arm/display/komeda/komeda_kms.c | 3 +++
- 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/gpu/drm/arm/display/komeda/komeda_kms.c b/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
-index 37388d45b31f..4fabe1aba25f 100644
---- a/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
-+++ b/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
-@@ -334,6 +334,7 @@ struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
- 
- free_interrupts:
- 	drm_kms_helper_poll_fini(drm);
-+	devm_free_irq(drm->dev, mdev->irq, drm);
- cleanup_private_objs:
- 	komeda_kms_cleanup_private_objs(mdev);
- 	drm->dev_private = NULL;
-@@ -348,6 +349,8 @@ void komeda_kms_detach(struct komeda_kms_dev *kms)
- 	drm_dev_unregister(drm);
- 	drm_kms_helper_poll_fini(drm);
- 	drm_atomic_helper_shutdown(drm);
-+	/* The handler dereferences drm->dev_private, which is about to go. */
-+	devm_free_irq(drm->dev, mdev->irq, drm);
- 	komeda_kms_cleanup_private_objs(mdev);
- 	drm->dev_private = NULL;
- }
--- 
-2.25.1
-
+Best regards,
+Krzysztof
