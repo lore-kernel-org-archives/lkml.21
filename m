@@ -1,141 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795541283;
-	b=LRZgHEK588iWtDBp8hN3tA7PFJHqy3iLGGtlDMwPldGlN2JqchTRFlzRYY2zq7ETQiby
-	 c6jQT1Ldb+UnhR2lG0mNPj6oP9bAC1EIMuFS+v+R+u/KH7K7ikelZTmzdq/I2jaO+BRXK
-	 DWHPRedeStcgQEPxCBEnnB41y2LnJq2feLC23RvZjITW/p7rm8g/UJIo74radCXjuGiiG
-	 Q/BuVJWKmZTUTvXnKgRvn5LrrPbkrQOY1i4WGrHNXnvaqcN4O8pG6nV+UC4S897ArHFKU
-	 NwVg1/Dnq8m3lhGAurF8JV2fdXhu27JmXtFXtRqUL5qyA+4lA7KWE1UjpBJvhUBvMhQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541283;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
-	 Subject:To:CC:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=pzmpHYBkEtZ8m1N7wvYIf+1YqQ7n9HnUtsXG0Q/N0LQ=;
-	b=hUse23A5JZQDAWoiGOnRw7hJEUiDAtasiv76unKtuWbReWl2xofk0qeiK2/IMxcVKUfo
-	 7Kz4g1JexEq+GXuSxheNaCR1pFD7sbKyeAuDXp6LfR0X4HtsNCcdTjdvFiHWMLTy0jUH/
-	 E0cgCC26N7cbCAtCf6mPVBehQF2XtNVKoxPzmynY7FSyrdM6J4ocX6W/btTT1yBPB7B+n
-	 yy/Lh8uS7TnY/Q9gIpQ0GmZ/k67jfhP2eSwZJLXEyXczwbHr+5ib1xo2dxRS4bukAW7t3
-	 h87fl0Vi4QKcxpm9eTmxPk8jVe2aQEao+179Fvff7xs5Kfma3JdYRGgWqjgXD3fUhKg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="LreN/8lg";
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=kRwAeKvk;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.18
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.243.244.52
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795541284;
+	b=XYjEoLqhG3thY2HpXyWS5TQ1ME4wDVH3eb0btD5dMtcpvnAc2SCFYmp9y0iHvbg+bcm0
+	 0eyKEzoxI7M6myu/IO3ocWRhk6bt2APOM9fJEMqoFpOKQIkN4UkdvtnEH2kjPtl7l1TtE
+	 70TkXNOFt8fMFCjVqTcNZ0IFqTUvB+iXkMhsQ6/aVKzzI//HI9aaGoRi7HYuzkgp2y5l0
+	 Vwr4/ELdzca+V/c1QoHORh2926MxI2GsYUVmerQ/f0WZEu8qN2Ssq9YzHNrH2l7Zwptuk
+	 WhTPmSMGqRlFoL6mEfoNwhYgAur4dX+z6r4zj3ZguvzlFtNRXuYfDOYEjkRGVGGQvUg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541284;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=btuqp/NU9Ngt66DLJ4H1O8xQwjMO8DGc4b51EvYEnjA=;
+	b=Rt2ywdOd7rSDcohoT2gLsM4HWm8BHOkBE36oNGUBmXXsSTMd/L+B2rlAGrV116ej1GSj
+	 NIP9N26Q+KB97QnmhGAVyNkvpeEIfN593iMi68iT01BxLFbvrMZxaP4Uv2hXG33QhJDBk
+	 LIFTi3pU1E/Pk6Qr6z3zgETUZszhcdOkJNq1vOYn1V0KPDL8XyhCdv5dRDNwCDwBtu3D4
+	 kaWicOIoIyihf+CLvRU0y6LFBEMsEI6BogyqjmuGbZvSnwGmfk8hRhikcvXM4c5sDmX6G
+	 lGv89LGBRd+qvWGPI+ZW4jU4U79PtqmDxNRL8e/qxGsfKNugoqYXPoUR0jGY6im1cbQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=mail.sustech.edu.cn;
+	spf=pass smtp.mailfrom=mail.sustech.edu.cn;
+	dkim=pass header.d=mail.sustech.edu.cn header.i=@mail.sustech.edu.cn header.a=rsa-sha256 header.s=oemc2211 header.b="IO+/2yKR";
+	arc=none smtp.remote-ip=54.243.244.52
+Received: from smtpbguseast3.qq.com (smtpbguseast3.qq.com [54.243.244.52])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74F1B606A329
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:28:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74F1B606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63B59606A327;
+	Tue, 24 Nov 2026 17:28:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63B59606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sustech.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sustech.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LreN/8lg;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=kRwAeKvk
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795541282; x=1827077282;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=DNPzhXLMSAW99m+RYCL7tl7ZvjpU3QmYlKH2BmQSbZ4=;
-  b=LreN/8lgao+RyVaJGSfCJ+erOrKIlbDZeIrwzMqnV8pm6SFnBhykY7Zk
-   Euttmt1DlIRnTn55F2Kl8dxDvIPXt9Brnlv3qbdS/efDtjlHlbIPqt7Xm
-   mYCyOPsFEjACWnunZ69Y+iZ/IPi2d8f3q5cWBheVjEyNfd92PaBFhuPMB
-   MpOIuRnmmh4vp2l/ZgqbIyH798aLha5mQD8D3XHI/FI81w66VywnVC7DG
-   8+7+NeUoGdIxCteOmJmpf2pCmYvHKdbbi56l0DzUurLig40NQBkTBIcMn
-   l2w90iBDT+jc8DHqp2jB0I5wnszqkhkCYhVVtTON/jX/OSMkmVLjG9Cbu
-   w==;
-X-CSE-ConnectionGUID: CW140kmfSZuEJIVqUbSo0w==
-X-CSE-MsgGUID: 5qH+f0y4SgaCZdvRRgKgUQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4411606"
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4411606"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 09:27:42 -0800
-X-CSE-ConnectionGUID: jhUU0CBvTZWWrgkJ0eKoFQ==
-X-CSE-MsgGUID: hyL3wd2RR0Czl7KRnZF9Zg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="11614740"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 09:27:42 -0800
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 24 Nov 2026 09:27:42 -0800
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Tue, 24 Nov 2026 09:27:42 -0800
-Received: from CY7PR03CU001.outbound.protection.outlook.com (40.93.198.66) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 24 Nov 2026 09:27:41 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=M0j4h9FORP2223gnXCFjIzBBqI566fXpsFKU7H9hvtHXcebtbtS09OzRsN2EMItWv4q64ZADt8A6wdrY8M+CPjHYiqL0q5CYGHGa27TGWh0jACEYaK7zKLlQz3E0hGDr7o+QJ5bkZ+JZreUQjzhLkCUbVGGN1IHccN06ammI3dIhwrtTYpnEHsV/N+oO6E7MY2WE/yWFC7JuYSCTTmjQout3fA3iErIpTIpFaa4AdPmQd8B5yyUSiu0E9fg9m1dx/lH2VsyfRDPz4L4UFLJSt9aiI5eTanEIecDeHCB+/54y5hLjXBJ4ER+iSwzXso2ad/bKqir82tP3aVg6pUSKig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pzmpHYBkEtZ8m1N7wvYIf+1YqQ7n9HnUtsXG0Q/N0LQ=;
- b=HrzxUb8YnK4/nZ+UpGDECZ/ZdgYsySsz1KrF0NQyN/kjWt9b1pYM2C8avT1/0+wgKOxZv3OAnwqiTTMMXENAKYr+1K5dA0iiHP+8CT2apoL/+JDnD2jxdC/bRDcptRuVa6mDB52ZGKR8TX0eU5Gyg9e2+Eh7pJhIMhuRt4VjxEQYvhKTkwgDh6vG40wmDyVn1lsunHu+8L1q9n/E625JrcNlSQPG4629KpXdMfmq6wYL0Jp9HmL3Kwb6WnN17ZznDUiDKAaq8Fn41EEsfKaLspy1vI9IV66H9pctpZuXMQNP5AmQ7Y/uait2mHtaOk+q7nlL/dCi6MzR/7KU51Hndw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pzmpHYBkEtZ8m1N7wvYIf+1YqQ7n9HnUtsXG0Q/N0LQ=;
- b=kRwAeKvkjfNqxjI1pGSoQuycahHq1y3/BwTVYKHwoXW7wdE4GUtBe+etMsHYSC8pln1clAfpnJMZ4JjOdwcSTI/+SRIflQyqF7eYF7ZSUn5VZXyOY588DWaKvolgfOQLnnCg5nsmlYfpIgNQGE3RZcdzgBmuvHIjzCg3oLURuYg=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
- by DSWPR11MB9931.namprd11.prod.outlook.com (2603:10b6:8:3a4::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Tue, 24 Nov
- 2026 17:25:36 +0000
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc%5]) with mapi id 15.21.0615.009; Tue, 24 Nov 2026
- 17:25:36 +0000
-Message-ID: <da363967-f3be-4e55-8b8f-d6af20fb8f2f@intel.com>
-Date: Tue, 24 Nov 2026 09:25:34 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] fs/resctrl: Report unknown schemata domains
-To: <x86@kernel.org>, Borislav Petkov <bp@alien8.de>, Thomas Gleixner
-	<tglx@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com>, Ingo Molnar
-	<mingo@redhat.com>
-CC: Fenghua Yu <fenghuay@nvidia.com>, Dave Martin <Dave.Martin@arm.com>,
-	"James Morse" <james.morse@arm.com>, Babu Moger <babu.moger@amd.com>, Ben
- Horgan <ben.horgan@arm.com>, Drew Fustini <fustini@kernel.org>,
-	<linux-kernel@vger.kernel.org>, Nirmoy Das <nirmoyd@nvidia.com>, Tony Luck
-	<tony.luck@intel.com>
-References: <20261118205825.3339003-1-nirmoyd@nvidia.com>
-Content-Language: en-US
-From: Reinette Chatre <reinette.chatre@intel.com>
-In-Reply-To: <20261118205825.3339003-1-nirmoyd@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR02CA0021.namprd02.prod.outlook.com
- (2603:10b6:303:16d::31) To SJ2PR11MB8370.namprd11.prod.outlook.com
- (2603:10b6:a03:540::20)
+	dkim=pass (1024-bit key) header.d=mail.sustech.edu.cn header.i=@mail.sustech.edu.cn header.a=rsa-sha256 header.s=oemc2211 header.b=IO+/2yKR
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mail.sustech.edu.cn;
+	s=oemc2211; t=1795541221;
+	bh=btuqp/NU9Ngt66DLJ4H1O8xQwjMO8DGc4b51EvYEnjA=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=IO+/2yKRy8zYGYDANKDqSHuoOP+QHuElc7NJy7K/9TUIHHUCQRExMo3jctJuJwdSD
+	 7cGQf/4KqlCowDr8U7Zl7WsWIxe8P9zLrg4/jZn2KmGvoIDtb/r+3eMWj5k7Ab0Az4
+	 WGe3hGmIGmoW+QqpIlRH9t/X+RtkNh7KW5MwLWZg=
+X-QQ-mid: zesmtpgz9t1795541215t9dde1f49
+X-QQ-Originating-IP: WUvYmrX2zvPXBcfRQozLfizPRUaiI9AUrw9XU8nsO7c=
+Received: from sakura-NbF-XX.sustech.edu.cn ( [116.7.234.244])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 25 Nov 2026 01:26:53 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 17900397123399840377
+EX-QQ-RecipientCnt: 7
+From: Fuwei Xie <12313607@mail.sustech.edu.cn>
+To: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Hans de Goede <hansg@kernel.org>
+Cc: Fuwei Xie <12313607@mail.sustech.edu.cn>,
+	platform-driver-x86@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Eren=20=C3=96zen?= <erenozen@protonmail.com>,
+	Zheng Shuyang <yhshzh0@gmail.com>
+Subject: [RFC PATCH v3 0/5] platform/x86: huawei-wmi: expose native firmware power profiles
+Date: Wed, 25 Nov 2026 01:25:27 +0800
+Message-ID: <4F34E5193B4633F6+20261124172651.37716-1-12313607@mail.sustech.edu.cn>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -145,102 +71,211 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|DSWPR11MB9931:EE_
-X-MS-Office365-Filtering-Correlation-Id: c90ce998-8afc-4a0b-a1a5-08df4a4ff3e8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|18002099003|22082099003|3023799007|11063799006|261022105027099003|261021121427099003|10067099003|261028144727099003|261009223027099003|56012099006|261026121527099003|261102123227099003|261026140227099003;
-X-Microsoft-Antispam-Message-Info: NDrQvuQbKlzWQwX6yGmCVpJAvUwSdYk7PaiKUZvyclSLDhp79HpidW3wrEckOMXJRRoDaGag+kTpJt4I0rBGXo33ybrRnbytBqBTTPZQFaqyMuOm/qtw4/0EB35GSPe/JfKEIrlbjnUhfk1EamRP7p+ZPlF15A3z6iWjqL66zFqt2wQuypD8CBii0ySNp6of9I5BNN9IkfVP/zSDRMSgcSU6VKaubf2kWhaTKpT5a2K9SvIP051BCoAcWeiiiWZF2LG74GvDUvFmxnl0Kmq/kKRXrn/FYmMSi/mp80yDVZqF5iznlmk03JM2FomKiXAHEW2MV3uM5hGZb0skMwhHyz7ZUKAqojXcKMwZqZXPXYqvVQCSh/uwc8Wb2/7TNsSmnd7G+DHMklQ0to8PYWm8R0OTxrT0RI7QXOO+RH3Xh34uTxJVCWSLjVHeBAf2yQp5+ZIIRWL95EQUistYF8kdgU6gTniaw0B9lCv5KYa/QruXJfxDzBL5uDQRmp6o9EKKAWoTkX0EcT0tKqkS3dG/RUDzYSRutl38k2on9RMXy/7iCPGdShz/KzaefNUEMq8U3ViPRBLOH1lwvrBygQO7qB/oGpvxbheP7c4BzBqaIXuZt3JSX4svoAhELP6x50S++TqI3I+7k8Ru2biNygMWDbhnMgMNBVXqufDuh1lR8hY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(18002099003)(22082099003)(3023799007)(11063799006)(261022105027099003)(261021121427099003)(10067099003)(261028144727099003)(261009223027099003)(56012099006)(261026121527099003)(261102123227099003)(261026140227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?THJCclVDbU5CeE1hRCtMMGF5WEQ5TWlwdENYTTlqZ1doc1VPQkhFNndxcjZ0?=
- =?utf-8?B?dmprd3pyVXY0cUJUbEUweXM4L3RnL3FLZHZuNmdxU3dabG5uWHh6eWR4VVhU?=
- =?utf-8?B?YmpqUGlWTGJFZWhIWFN0SjB4V0VBdWhnd09PakxaS1p4MHA0Y2ZrNDRCWEcz?=
- =?utf-8?B?c0dhdFRBa0hpeWRFYTRVNmloWTNxeE5ZaTFLU0ZQYjVFdVBONForKzY0SFk0?=
- =?utf-8?B?M09oMnl3T1EzQWVXeVF4SHRIV3gzd3JkbU5oTTNldmRHRkE5cHhXS2RsL1Fw?=
- =?utf-8?B?cDRnUy9pRGxCQURzMHNYNmJTSlR3RTZQTnFCQnRWUmFNaFlCM0tSTmxPOSsx?=
- =?utf-8?B?MnVaRjEzQ3lqaDhXT1VwY2VLeFFXcTQxR1F4YUtxODFTbWQvYU1XVmttY0xJ?=
- =?utf-8?B?by9mQUNBUUNzK0NRRmszTGdHT2tGMDEvelU3Uk0xMEVaUldvOWhSYjVRam1F?=
- =?utf-8?B?RzB1WWJNWXdoYndpQ0wyVnJvRWt0aEpTelRIbTFvRFBEeitDbG9iY2FUcDNC?=
- =?utf-8?B?cjdFOVFsRFh5MTd4OW1IZU5NU0wvSVZIb0lzNXRRNnJ2YWdibERrRGQ4bjV3?=
- =?utf-8?B?ckpDNUZRKzZxQkxFK3NnRHRlZ29Bc2NSWXJRdGZzekIxMGZDdXVOTDFjK0pF?=
- =?utf-8?B?V2tzTjdEVkFuT08wSGNxZ1lFUEF4ZGd1MnZUbzJxcTJYNFd0R0Q3ZmxiMk9T?=
- =?utf-8?B?cWl5YkJVa0ZWeUlnNC90RU9lTnJRTXQ0NDhJUWpPRGlxWThBbWZEU1Y1TXNk?=
- =?utf-8?B?WWlWNUd1RFRqcHpxbHFrYzNTM3pQUGtCTEwra2o1Tk5LQmJ3YlRPWThxeTNu?=
- =?utf-8?B?TzJ3eldKQXJRV0toSW1YdGxrY0NzUkx2T0lqaDI0TTJQRGM0NWlMNmRjc2xG?=
- =?utf-8?B?N3ZSanVOUDBQTUVJblgxK0tCQ1NVd01RcCtBN1ZmaURmcSt2SXZtNi9NYjd1?=
- =?utf-8?B?OStkbzJRT1lqamkvTEF3WWREWjJKbnNSNkJIVEdDVTFQZDdQTGY0WjExQzl3?=
- =?utf-8?B?Z2hoYjRZVWRsdFEzZEM5VVNmbkxmQWlydWJWWitxY2g0dUJJdDFnaWVYV1Ns?=
- =?utf-8?B?ZmtBcTBIYm1LT3pnakVDbHpscE9hZFh5M3FRbjB2K2R4bStmSm1yL0pGRnJy?=
- =?utf-8?B?NE02ZmpkMTIyUVVOdk5UaHN3Nldrb0FlZGNtNFJTTURBU0hNRExqcUxpb3I0?=
- =?utf-8?B?YUYwb3NvOXlZWVhuUUY4U3RMTDhodDFHZzNLYXdpZWNaSW82Unk5bnVCQllh?=
- =?utf-8?B?TjBtS0FPd0I1NG9MSEZYOWpTcUIrN2FVdlpIT2tLVjBnYkFFYWVuRStkOEI3?=
- =?utf-8?B?SnA1RlFrNDYwbHl2NTRUbnViM1JLWG1Sc05YSUVCZktjQ0FKSkFOOW1aMHpV?=
- =?utf-8?B?Wkc5M0FJY3MraVlOVUZZQytrNmMvdS9SekJaUG41NXVRQmE2ZHBFTnp0NTQ0?=
- =?utf-8?B?ekZPcmpCYkRmS3U5UUtsZDB2azR0aEJQSS9jMlJ6TkFCNzgwVzR2ZDJxSURi?=
- =?utf-8?B?V0daS1BEd3g5blU4bzM0cFErOFZoREx4YStoUWMxYVJwcVpyY0xqejFCcFpE?=
- =?utf-8?B?NmswbXlvTmhzdUJmR1lDbzZzcFRHRkViV01wRzlRb2tjWjFDR2s2TUZKcEs3?=
- =?utf-8?B?cjBtOVU0VkFuZlEyTGsrN2pFalZnVThldVNyTHpqRmk1eHFRajhEdi9NQnM0?=
- =?utf-8?B?anFRUnhXaUxkTzBjQ1ZTWjNrcElhQlEzWk9yVHoxYmRlSmVmQ0VETFV1SytW?=
- =?utf-8?B?UncyYWFiWE1HVzEwb2VQRXNkaGdkUUhlamJkL3ZpQWtkUDlDTU5tdzVWZVN1?=
- =?utf-8?B?Uk1pdEZ5MUt2US9uTXRzdjFoTkN3QzF3MlZXRVpDN1NuVUppaVY2QjZqTk9B?=
- =?utf-8?B?bldPS1ZaN0F4V2xCc1RKWllic0szVlBicE1SaDBpZHprUDA0MXVTV3hPQy8v?=
- =?utf-8?B?aTFvTUZMbC9rSkJ6TkpxbUxLRUdVaXg4VHNJM0cwNzIvV3FRR1ZRYkpuRGxM?=
- =?utf-8?B?YzFacVYvaVZ0QUFVMW9NMk43YkkzUW9ocWg1MXBHNlJRZk04YzJYcjhJdVJv?=
- =?utf-8?B?NGw3QS81VmREMzZRRmIxdWNWQzhWSlMzQVZRRjZZQ2MwR1ZYZWhkYmlGY01Y?=
- =?utf-8?B?Sk9lazFmQkVKWTJyM2hZMzZqWktJZjJpU21EVVUxc0l0L2xRcWN3NUI4TUFz?=
- =?utf-8?B?K1lsREV1Q1FhRExWNjAybkIwRGZqdmt5N1VkdE1PS29INnNwN1FQQ3RaQXdk?=
- =?utf-8?B?MVZvSXFzM09kNis2MXBYYjdFK05BSC9mMHZtdWN1YlVteDhtVnlVYWVWVENv?=
- =?utf-8?B?V3lmZEdlT0hROVh1NXlJVnNieDFOc2NkMU9ieVY1U3RlTVZvbElQUnk1WUlo?=
- =?utf-8?Q?myrUssSYk0jj9Fno=3D?=
-X-Exchange-RoutingPolicyChecked: HtMOLc/cw/sYKExQStEmgH5qbAb49ctNEzXY+TDZ5lGvSf3KPc2jS6j+LHEgITk90ny1NfMDUxLQQDhQt3F1tN6bcutXxhaX4Dz5ITcMTql1SZQM9+lB+PNaS99SyXTEsF5al+OmNcoFqBrv2Y7F2Uj+ykItDRQWvVu2ER/Q+7l2jqA6KVRCifycuLG5zufilfpCAXsWS5Ce87/jbWt/WCctHxx/3VDERIo+H7xFvwEp8uwXpQ7B87MwCBaxHcXiu4S1CospSXCBKRLszg/ub6wGIZz35I4cLgtdwvbC7mrehfZUiE7LYUODuZgeINqRhFLkX1ox3QTvgz1+u9qiFQ==
-X-MS-Exchange-CrossTenant-Network-Message-Id: c90ce998-8afc-4a0b-a1a5-08df4a4ff3e8
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 17:25:36.6835
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: e7vcBhFztFBZYlcM48GyiOJfn1lsyM6c5jhuX1IVBePLDP3WyuLDPt5JpSiokf5BjxYrqzftemD8lsWcISLuoZs751/IuAviQOQPo06kWH4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSWPR11MB9931
-X-OriginatorOrg: intel.com
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:mail.sustech.edu.cn:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MwQdfXoP8nuzApoFzAGAat0zwadEjWNu7XxSj4AMG/coiteb8uxzf9nc
+	lCun8JxiyussoGUQZ6KBjDl6i/8f2mOqQ9Tcbhwbvg7xBZwz4ylbWoofBjqG7CweKtY5bNP
+	t3bnQInfR+OtcdDJIE9peovyZDjTrotWz/g2+Oz4YW/28MzVhqaBtiTxRFNXNIpfm/9kKUt
+	CFqQN+SV4CgF3WWpgGCJtX4qTgNnlrRLTrBleCKHRYLaoSHcGfRZE5c8OLlwLsPCzRL1sCi
+	VY3AfJIx744OJ1eIWKR+ZWUblLC7uf26R3lKdYfVhMSsxmCvPI77PrQwAHyjLJ5TTOPdzFX
+	VqK8fKnz5OZvENYICjO5vSHdsa8bLVN9qE933SIPagB4ky2MGUYOAfVLIt5vmfo7UWnxhm2
+	LPVeBAmvxj2dARxpzcwAXNMeQfsHqt2y6htwslUhVyDUqob2OUMEmpVMXwYl8jH31nE0j1L
+	umYI2WAi2Glw2ygvg1bJE7JVkqklaK3o/LtN6kQAL7Kx+TaN/E+2Uf97mT1RdF8b+PWFfw/
+	H+u6vG5br/JPQl4wvfJapyOcIFTA9HDLvwqLb3hNJDBB3nFLA6P7SkgUdlWfeN4NTpAG5Bc
+	33iexEewRvf9bffUaV0Xm32TVSLCzXnX8Mdyr+An/KVgA8EjD1fys//c+cEtuQxE1BZ1CIo
+	wKNLUYz0YPuxdhro/kbcCqnChheHHKKBaAq7VMO+oR4Qfy5Dd8ADHCVE4xHcm1Nja65UacU
+	fU86oz76bjzDhvLZvMa+wRyVSQ8dLb1FeW9bkjCTWigwLQ+NoBjN1dl5z79bV6LQwlSXuBW
+	0YM0thLfT9OMfUTJG3UTUXt5ZjVk+ovy7AAnqel5P2IFRIMuGdmmBGiAjogtK1GZCzLTR43
+	D/gYAOdtzAXQILeFuBGaxWWIBfY/qnPzANRiowx4/Ee6RI8pmFjXLjVX+m9scXH67ATHpxw
+	REBH8Udy3Muize/Qiu6DX/4FX246sNkkMg/Z7MrcxbcQeFAjdipr0xaFeKSxuhXW31dwEM6
+	p7kFJ7chlrshnwTioamCj526Lt2t7tZ2gePi94VnKBP+ok5RqQjt068uzVmiI=
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+X-QQ-RECHKSPAM: 0
 
-Dear x86 maintainers,
+Hi Ilpo, Hans, Eren and Zheng,
 
-Could you please consider including this fix?
+This is RFC v3. Thank you for the review of v2 and for the tests from
+Eren and Zheng.
 
-Thank you very much.
+1. What this series does
 
-Reinette
+   Huawei firmware on some MateBook and HONOR machines provides a
+   balanced/performance mode through the WMI methods \GTUB (read) and
+   \STUB (write). This series exposes that mode through platform_profile,
+   so the desktop power mode control can switch it.
 
-On 11/18/26 12:58 PM, Nirmoy Das wrote:
-> A schemata write to an unknown domain returns -EINVAL without setting
-> last_cmd_status. The status buffer is cleared before parsing, so reading
-> last_cmd_status after the failed write incorrectly reports "ok".
-> 
-> Report the invalid domain before returning -EINVAL, matching the existing
-> I/O allocation parser diagnostic.
-> 
-> Fixes: c377dcfbee80 ("x86/intel_rdt: Add diagnostics when writing the schemata file")
-> Signed-off-by: Nirmoy Das <nirmoyd@nvidia.com>
-> ---
->  fs/resctrl/ctrlmondata.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/fs/resctrl/ctrlmondata.c b/fs/resctrl/ctrlmondata.c
-> index 69123b2a3274804a..2f7db6c669214c3a 100644
-> --- a/fs/resctrl/ctrlmondata.c
-> +++ b/fs/resctrl/ctrlmondata.c
-> @@ -279,6 +279,7 @@ static int parse_line(char *line, struct resctrl_schema *s,
->  			goto next;
->  		}
->  	}
-> +	rdt_last_cmd_printf("Invalid domain %lu\n", dom_id);
->  	return -EINVAL;
->  }
->  
-> 
-> base-commit: 2a93af75384b7e95d62c5a9a39e13573e2170ec5
+   The driver only maps the firmware state and reports changes. It does
+   not write RAPL limits, does not force a fixed wattage, and does not
+   add a background daemon. Probe checks that both methods exist and
+   samples the current mode once; it never changes the mode to probe.
+   Profile reads use the cached mode. A userspace write sends STUB and
+   returns its status. Fn+P events carry the new mode; on 0x2a6 and
+   0x2a5 the driver re-reads the firmware mode.
+
+2. What changed since v2
+
+   2.1 Reply ownership and the two-call handshake.
+       A preparatory patch moves each ACPI reply into a __free(kfree)
+       scope, so the first reply is released before a retry. The method
+       mutex is held across both attempts.
+
+   2.2 The sized WMI interface.
+       Following the review, normal commands use wmidev_invoke_method()
+       with its min_size argument. Both firmware layouts have a
+       four-byte prefix followed by the status byte; the WMI core
+       unmarshals them and the driver checks the fields each getter
+       needs. On the NbF-XX, WMAA returns status 1 in a full-sized reply
+       on the first call and dispatches the command on the second.
+
+   2.3 Binding the WMI devices.
+       The method GUID is bound through the WMI bus, and the hotkey and
+       legacy key data GUIDs are bound by two more WMI drivers. The
+       existing platform device and its sysfs paths are kept as the
+       parent of the userspace interfaces. Event-only machines keep
+       working without the method device.
+
+   2.4 0x2a6 and 0x2a5.
+       A STUB write can return success while the EC still reverts the
+       mode a few tens of milliseconds later. The driver therefore
+       refreshes the reported mode on 0x2a6 instead of trusting an
+       immediate readback. Zheng measured the revert at about 51.8 ms
+       on FMB-P; that firmware also emits 0x2a5 for TBF2-restricted
+       transitions, and v3 refreshes on 0x2a5 as well.
+
+3. What the five patches do
+
+   Patch 1 scopes each ACPI reply and releases it with __free(kfree)
+   before a retry.
+
+   Patch 2 binds the method GUID and gives the platform device the
+   bound wmi_device, keeping the existing sysfs location and the
+   event-only path.
+
+   Patch 3 moves normal commands to wmidev_invoke_method() with
+   min_size, holds the mutex across both attempts, and validates the
+   data each getter needs.
+
+   Patch 4 registers platform_profile, samples the firmware once, reads
+   from the cache, writes STUB, and refreshes on the WMI mode events.
+
+   Patch 5 binds the hotkey and legacy key data devices on the WMI bus,
+   keeps the existing input and sysfs paths, and displays the marshalled
+   WMI reply bytes in debugfs.
+
+4. What I tested
+
+   4.1 Hardware.
+       Capability detection, platform_profile registration and
+       switching work without a DMI entry on:
+
+         - NbF-XX, Intel i5-1240P, BIOS 3.07, Ubuntu 7.3.0-10
+         - MateBook 16 CREM-WXX9, Ryzen 7 5800H, BIOS 2.32
+         - HONOR MagicBook Pro 14 FMB-P, Core Ultra 5 225H, BIOS 1.16
+
+       On NbF-XX the final series was hot-loaded; platform_profile
+       reads balanced, Fn Lock reads 0 and the charge thresholds read
+       75/80. Eren covered Fn+P and AC unplug on CREM-WXX9; Zheng
+       covered those plus s2idle, battery thresholds, Fn Lock, the
+       micmute LED and module reload on FMB-P. Physical Fn+P and unplug
+       on NbF-XX with the current revision are still pending.
+
+   4.2 0x2a6 timing.
+       Zheng measured a refused STUB returning success in 0.8 ms while
+       GTUB still read 1 at 0.9 ms; the EC reverted CRWM at 51.8 ms and
+       emitted 0x2a6. The driver therefore refreshes on the event
+       instead of reading back immediately.
+
+   4.3 Build and host tests.
+       The five patches apply to c339f4010dea and build as modules with
+       W=1 for the development tree and Ubuntu 7.3.0-10-generic; the
+       final revision was built by DKMS and hot-loaded. QEMU covered
+       modern and event-only firmware, duplicate GUIDs, and
+       unbind/rebind; the transport and profile harnesses passed 54 and
+       19 cases with ASan and UBSan.
+
+   4.4 thermald.
+       Ubuntu's default thermald 2.5.12-1 caps PL1 below the firmware
+       ceiling (25.2 W instead of 28 W on NbF-XX); thermald_next
+       (8eeddcff786b, including f9411e884698) returns the full 28 W.
+       That ceiling is set outside this driver.
+
+   4.5 Firmware quirk on NbF-XX (BIOS 3.07).
+       Fn+P enables Turbo at about 20% displayed charge, while STUB
+       enables Turbo at about 20% battery health. The driver reports
+       the firmware state and does not paper over the difference; the
+       21% boundary is not tested.
+
+5. What I did not test
+
+   - other models, BIOS versions or firmware revisions
+   - long runs, repeated suspend cycles, or concurrent stress
+   - 0x2a5 semantics beyond Zheng's FMB-P observation
+   - fan RPM; this machine exposes no fan sensor
+
+6. Userspace counterparts
+
+   6.1 ppd reads a firmware notification after about two seconds.
+       sysfs_notify() generates a modification event without a
+       close-write event. power-profiles-daemon 0.30's platform-profile
+       driver only acts on G_FILE_MONITOR_EVENT_CHANGES_DONE_HINT, so a
+       Fn+P change reaches D-Bus about 2 s later. Handling
+       G_FILE_MONITOR_EVENT_CHANGED as well, watching the inode with
+       G_FILE_MONITOR_WATCH_HARD_LINKS, and setting the monitor rate
+       limit to zero brings the observed Fn+P-to-D-Bus latency to
+       11.6 ms going to performance and 6.8 ms going back to balanced
+       with the same kernel. That change belongs to ppd and will be sent
+       to the ppd project separately.
+
+   6.2 tuned-ppd needs sysfs_acpi_monitor for firmware-initiated changes.
+       Stock power-profiles-daemon 0.30 follows the notification
+       immediately. Fedora's tuned-ppd only follows external
+       platform_profile changes while its sysfs_acpi_monitor option is
+       enabled (off by default before tuned commit bd5f2850, which
+       enables it); see
+       https://github.com/redhat-performance/tuned/issues/710. Enabling
+       the option in ppd.conf or upgrading tuned makes the menu follow
+       Fn+P.
+
+7. Related change: Eren's charge-mode patch
+
+   Eren's \SBCM patch also touches huawei_wmi_battery_get(), so the two
+   series conflict in a few lines. v3 changes the helper signatures and
+   the reply offsets; after his patch lands I will rebase on top of it.
+   The combined tree builds cleanly; a hardware retest is pending.
+
+8. Questions
+
+   1. Is keeping the platform device for the existing sysfs ABI while
+      binding the method, event and data devices on the WMI bus the
+      right shape?
+   2. Is treating 0x2a5 like 0x2a6 (re-read the mode, notify only on a
+      change) acceptable, or would you prefer to leave 0x2a5 unhandled
+      until its meaning is confirmed?
+   3. Would you like the series split differently, for example the
+      transport and __free changes sent separately first?
+
+9. AI assistance
+
+   OpenAI Codex assisted with code, test tooling and drafting this RFC.
+   I set the scope, reviewed the changes and ran the hardware tests; the
+   observations above are mine.
+
+Thanks,
+Fuwei
+
+Fuwei Xie (5):
+  platform/x86: huawei-wmi: scope method responses to each call
+  platform/x86: huawei-wmi: bind the Huawei method device
+  platform/x86: huawei-wmi: use the sized WMI method interface
+  platform/x86: huawei-wmi: expose native firmware power profiles
+  platform/x86: huawei-wmi: bind hotkeys and key data on the WMI bus
+
+ drivers/platform/x86/Kconfig      |   1 +
+ drivers/platform/x86/huawei-wmi.c | 778 +++++++++++++++++++++++---------------
+ 2 files changed, 468 insertions(+), 311 deletions(-)
+
+base-commit: c339f4010dea8b0d754f84ace70cd1b089878ef8
+-- 
+2.55.0
 
