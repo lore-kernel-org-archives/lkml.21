@@ -1,81 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795518311;
-	b=4L9O7HDfCbWyUY/rPk+4GtbzVc5mGfasS+FlAB68xzkm5PzDLxswPP3hQfwDpRrmjfMX
-	 0/3sQ6VqlI7uFmugDWp7kUAtetnMn9Xa/bTGzYy0cjCLQY7GCj1PIyhc4Br5jeOqOjuA4
-	 rRiEOcuzcK3Kkoxvfkh2YUqA9b1hfIdDFYwWnfm2NI+WMhBkkHFkMvNbVLzuRNYLhMs+y
-	 /Acc2k8W6bMeuM8uoRp+MxtEw/Zy2lkdlfHhBhZgGmWP95/A25SBMYKqwwDaIpOvnCAQo
-	 aOQMupe3SA6XK9Cg4KE/S5ZfIJZl7ANyzXkS8/QohkaQ39PVZshx3TfrQohZmKBnxug==
+	t=1795518338;
+	b=TdgotQb3JdxuEVKie1U6kMH7ncwmrSTPvZX3sHFm+zVsETboi6F6+ZGtJOsBkZy0hrQd
+	 Ep2v9lkOvjGPMcIKIOaU5IpZSadOGRklb+l+EWyfhug1tvfnZeGYXg0YbSqfMzNaGeoto
+	 syqErR7pK0PIkxSOwHsh9wf3PiCy+Oa1LZ3Bj3D04euKGOSNkEJy6OuQ76W14ijAlATlE
+	 9UwjhpkIYP0mxTSia9Awq+CsU3PBO0lIaxK/H43uY4rXKxoPEaci/6IMGSbW4u3EcYyvU
+	 4rVB6f5rFub5rN7y2EeZRMEQpYps6kvsuUBQhY52V9tNjSXUQhjRBFFFOX9G7MZyzfA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795518311;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=cMYYBh43HY5xutvnzofxwE95gQWfanq+WzepalGdUdE=;
-	b=Cit8Bz916nHQuX2HSsFdYPuX+7nmcFCPZvynCq6NaPBRlPODz9bo221nYS9o2gi2OpF8
-	 avxGmCj40+FYtqVFQXtXuejBir9IbgwHbOjVEwIzPjmhetHtkEyvQixS1zhlhhc5yq8Qi
-	 za4bg/2mL72DlUMgWCODgIhgLUR8Va6moLi7YhP60VJAs+OtP+rYkYeXD1+96/1jg+ffj
-	 +j06o1+VlnISbzV16hcidNDF4pU2uow3Lup4Rfaz8Ckjoaq26QUU/Q6bAg/rJw2Mnr2ee
-	 +5W9Q4CgbEficR30z7cIm+R+eEK8r8hLN/pgQ8QgCMAmHebwJeeRaz2eabvXHAHlf2g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795518338;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Developer-Key:
+	 X-Developer-Signature:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=q1FewmwQpyYBj5/92ypDDWXTNPW1ruAQcVRFBx9mNXs=;
+	b=x2ssRB1eWMBtJipijZxCmrobasgQu2U/jojuSswhzgJNhMsRlbqZfBaPsCTc8owB+Jv6
+	 3tUUyF/NgvJdCXj3kZc7JDwniTjlosDBfKuaqDhx3iq2YzLHIft1vuAj4QLo3vEtp9TbV
+	 3ltSG1ut1ZbPcf5hEIeT4Y3ICpveUSUTQGea38SEUqSTJ/RKiHIGpzI6auNHs479BSvq4
+	 e/LLiIW97jVOu2QiU/++mNwgeZx5yj4+vXzyyPzS5mEtDbE3K07uwRbtC8MfsKhK1RuIE
+	 4HbVf6uQXpFlqo1L+BkBah8Cx7ue8uDKwdc881yoj8N16T4wLd5LWpNnsEjC5glJ18Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=kIFlonZS;
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--ardb.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hRAF2ovc;
+	arc=none smtp.remote-ip=209.85.221.72
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com [209.85.221.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7E68606A334;
-	Tue, 24 Nov 2026 11:05:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7E68606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFFD9606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:05:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFFD9606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--ardb.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=kIFlonZS
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795518310; x=1827054310;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=Of+dCjox0s9BBeFJuiYkmvAKAj13vw6zap47XQbk6Oo=;
-  b=kIFlonZSgM4/72v39DA+gSAhGW8JDIJvVTafxBRe4y/ut0FR5ukriyRV
-   i0Hu0U3+s3vekG7pVUh7mmSznZ1DuXsDhAtMr/+ZB+VeQLtqM+/Kfmted
-   YEugnSJ6HFQ8USGnWIWLd8jrKAl0NjydEpHcD7qyK+PzOLua8jxmdE0Qv
-   j1y6zg6Asy05qCCr/svs2r4rHWV7tgaFssv8ZUI9ijl8j98Y3ObRDjW1+
-   4kqYrjm1IqKcQQsejV8l94GU1TMMXyGhO8w1YJB2plOnWhaVmn8wppuhf
-   TykY4PekDYl7XTwyx4p0XOD1Yb3Rk7J+hwFOFBsokpmHzcmoTiUfs2Chd
-   w==;
-X-CSE-ConnectionGUID: RdIhBla4TTmUq7KP99ZVFQ==
-X-CSE-MsgGUID: RG/anjkeS4Gk78FY/ubCuQ==
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="234021366"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Nov 2026 04:05:09 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 24 Nov 2026 04:05:09 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Tue, 24 Nov 2026 04:05:06 -0700
-Date: Tue, 24 Nov 2026 12:05:05 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: <netdev-bot+sashiko@kernel.org>
-CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <Steen.Hegelund@microchip.com>,
-	<UNGLinuxDriver@microchip.com>, <richardcochran@gmail.com>,
-	<linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<robert.marko@sartura.hr>, <horatiu.vultur@microchip.com>,
-	<jensemil.schulzostergaard@microchip.com>, <horms@kernel.org>
-Subject: Re: [PATCH net-next v3 5/9] net: sparx5/lan969x: size the FDMA
- buffers from the port MTUs
-Message-ID: <20261124110505.66k7x7qluhxcnm62@DEN-DL-M70577>
-References: <20261120-sparx5-mtu-change-v3-5-55c272fe1acc@microchip.com>
- <179544589573.3135.16010204842375196022@kernel.org>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hRAF2ovc
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-48e0461e040so3429150f8f.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:05:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795518336; x=1796123136; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=q1FewmwQpyYBj5/92ypDDWXTNPW1ruAQcVRFBx9mNXs=;
+        b=hRAF2ovc6btmk4ke2cEeEcDPy9S0CtF84jMlh0iBJlIowssAGSx+alHBYLptm5VCoN
+         GLD/mzWU+oYVdxpXHg2ljF7GIofDvHdYAe7kZ5bOGFJq9+VrxSTcn9lqXv1KEHf9pAA9
+         ji2PExaDyNaoYg8o+0BhAYDj0ihnkLuxcv8jVjLyv+TWWFzq50uxnHe4Ct1AbqG+g1FU
+         YLwL2VS9kprBuYsleiKC2AEmGVQs4brGhiFvbJ9uWVOGCNif0n2C+OuayhiC+V1aYRU7
+         sdmdj+KbSO4Nh4yO204AAREQnAmE/qsbDADXLmo3i8idgBtkMpKf62MmU/SFXS72UbeS
+         PqWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795518336; x=1796123136;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=q1FewmwQpyYBj5/92ypDDWXTNPW1ruAQcVRFBx9mNXs=;
+        b=YfbPV3Yw9jeRGHL2caHlZgo+MyRmKy1PN/AQAhzpWEwF6CdNodEuPwLIoFd0kiIy69
+         zgcJoNRLy8L4ksFuX2TrADv+wvBgeLmHNjdp+WtSg3NUclc1Lob+2AlydjzLLlLAAOFy
+         4A3QUpi8EZn8S3reFQ/dTPWiAqPQTTpG6L+ysdu96Mei8fB/UBVGxEd5cqimIEoJdz0K
+         MyFx3u3wsAP87ennFl+32nQwT/plMdZ0Fv2V3OZieaw5OFPUBWTSBP7RoV71OSsHfrom
+         2aPIg3c0tKaMpPZE8WHvCQPgQ73Ol11R5lZL/3xNf2xtSWZiJUDl+VnOrbXKN+RK/5WX
+         ZocA==
+X-Gm-Message-State: APuU4Z8C0bKBh3KLFZ8HJ0Of4R9PqyFTPVNSWGhORP6AADeReF52z3Gi
+	JssHYdLs5IO+ZJ8Lt0Ncou9NORCp39U596oTVEib6VMlJTrrwkqwEBL9+tGZQr5OHSnT0YmIig=
+	=
+X-Received: from wrva18.prod.google.com ([2002:a5d:5712:0:b0:4b8:5e5b:92ea])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:470c:b0:4a7:557:fc0
+ with SMTP id ffacd0b85a97d-4abb225fb4bmr26841487f8f.32.1795518336014; Tue, 24
+ Nov 2026 03:05:36 -0800 (PST)
+Date: Tue, 24 Nov 2026 12:05:23 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,177 +75,313 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179544589573.3135.16010204842375196022@kernel.org>
+Mime-Version: 1.0
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11650; i=ardb@kernel.org;
+ h=from:subject; bh=SDc+5FPp/AF/6SxWAP97nVgzcWB9q6/E+VASAxZN4iY=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIZs1v7iR82zta/kTii84Hk2oufF7se6GJ76HWmNiFxsml
+ Jjd6/frKGVhEONikBVTZBGY/ffdztMTpWqdZ8nCzGFlAhnCwMUpABM5mcDwP6ltdcSrI/cnsgcv
+ E7Fjf6FV+m3u2x29sz8zKGnZ/39deYnhv8O2DTkiop3VT85bt5j2JnIv1I+Zvv/z98olPKtj1s3 /zgcA
+X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
+Message-ID: <20261124110522.1371247-2-ardb+git@google.com>
+Subject: [PATCH v2] x86: Always permit the kernel to be placed at any physical address
+From: Ard Biesheuvel <ardb+git@google.com>
+To: x86@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org, 
+	Ard Biesheuvel <ardb@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>
+Content-Type: text/plain; charset="UTF-8"
 
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
-> 
-> Critical: 0 (1) � High: 1 � Medium: 0 � Low: 0
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [High] net: sparx5: UAF of two-step PTP skb on TX drop in
->   sparx5_port_xmit_impl()
-> 
-> Pre-existing issues:
-> - [Critical] Use-after-free and double free of two-step PTP skbs on the
->   Sparx5 TX drop path.
-> 
-> --
-> 
-> net: sparx5/lan969x: size the FDMA buffers from the port MTUs
-> 
-> This commit sizes the Sparx5 and lan969x FDMA buffers from the largest port
-> MTU plus the Ethernet header, FCS, IFH and two VLAN tags, rather than a
-> fixed single page. On Sparx5 the RX and TX DB size is that length rounded
-> up to 128 bytes, and sparx5_fdma_xmit() now drops frames that do not fit.
-> On lan969x the page_pool page order is derived from the max frame size.
-> 
-> > diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-> > index 537c945409bba..b92d249777f0b 100644
-> > --- a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-> > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-> 
-> [ ... ]
-> 
-> > @@ -224,6 +223,10 @@ int sparx5_fdma_xmit(struct sparx5 *sparx5, u32 *ifh, struct sk_buff *skb,
-> >  	struct fdma *fdma = &tx->fdma;
-> >  	void *virt_addr;
-> >  
-> > +	/* Drop frames that do not fit in the TX buffers */
-> > +	if (unlikely(IFH_LEN * 4 + skb->len + ETH_FCS_LEN > fdma->db_size))
-> > +		return -EMSGSIZE;
-> > +
-> 
-> [Severity: High]
-> This is a pre-existing problem in sparx5_port_xmit_impl(), but the
-> new -EMSGSIZE return makes it much easier to hit. What happens to a
-> two-step PTP skb that fails here?
-> 
-> sparx5_port_xmit_impl() calls sparx5_ptp_txtstamp_request() before
-> ops->fdma_xmit(). For two-step PTP, that puts the skb on
-> port->tx_skbs with skb_queue_tail() without taking an extra
-> reference. It also increments sparx5->ptp_skbs and port->ts_id.
-> 
-> If fdma_xmit() then returns anything other than -EBUSY, the code
-> jumps to the drop label, which only calls dev_kfree_skb_any(skb).
-> Only the busy label calls sparx5_ptp_txtstamp_release(port, skb). The
-> freed skb is therefore still linked on port->tx_skbs.
-> 
-> Later walks of port->tx_skbs happen in
-> sparx5_ptp_txtstamp_old_release(), in the sparx5 and lan969x PTP IRQ
-> handlers, and in sparx5_ptp_deinit(). These read SPARX5_SKB_CB() from
-> freed memory, call __skb_unlink() through stale list pointers, and
-> call dev_kfree_skb_any() on the same skb again. Isn't that a
-> use-after-free and a double free?
-> 
-> sparx5->ptp_skbs is also never decremented for these skbs. After
-> SPARX5_MAX_PTP_ID such drops, sparx5_ptp_txtstamp_request() returns
-> -EBUSY forever, and two-step TX timestamping on the switch stalls.
-> 
-> Before this patch the Sparx5 TX DB was PAGE_SIZE. The drop path could
-> only be reached through the -EINVAL ring-full return here, or through
-> the -ENOMEM DMA mapping failure in lan969x_fdma_xmit(). With the
-> default MTU of 1500, db_size is now
-> ALIGN(1518 + 36 + 8, 128) = 1664. Any two-step frame with skb->len
-> above 1624 now takes the drop path every time.
-> 
-> Such frames can still reach a 1500 MTU port, for example through tc
-> mirred or bpf_redirect from a device with a larger MTU. They can also
-> arrive when the MTU is lowered while larger skbs are already queued,
-> which becomes possible later in this series.
-> 
-> The commit message relies on this drop path. Should the drop label in
-> sparx5_port_xmit_impl() release two-step PTP skbs the same way the
-> busy label does? Or would you rather check the length before
-> sparx5_ptp_txtstamp_request() is called?
+From: Ard Biesheuvel <ardb@kernel.org>
 
-This is pre-existing. The drop path already misses the PTP release before this
-series, e.g when the TX ring is full, so the handling of the PTP tx_skbs is
-broken regardless of this check. I have two WIP patchsets for lan966x and
-sparx5/lan969x that will rework the PTP tx_skb handling. These will be submitted
-in the near future.
+On i386, the virtual displacement relative to PAGE_OFFSET must equal the
+physical displacement relative to LOAD_OFFSET, and so relocations need
+to be applied to all virtual symbol references at boot if the actual
+physical load address deviates from the build-time default.
 
-> 
-> [Severity: Critical]
-> This is a pre-existing issue, but this new return gives a second,
-> deterministic way to hit it. What happens to a two-step PTP skb that gets
-> -EMSGSIZE here?
-> 
-> By this point, sparx5_port_xmit_impl()->sparx5_ptp_txtstamp_request() has
-> already put the skb on port->tx_skbs without taking a reference:
-> 
-> sparx5_ptp.c:sparx5_ptp_txtstamp_request() {
->     ...
-> 	skb_queue_tail(&port->tx_skbs, skb);
-> 	SPARX5_SKB_CB(skb)->ts_id = port->ts_id;
-> 	SPARX5_SKB_CB(skb)->jiffies = jiffies;
-> 
-> 	sparx5->ptp_skbs++;
-> 	port->ts_id++;
->     ...
-> }
-> 
-> Back in sparx5_port_xmit_impl(), only -EBUSY goes through
-> sparx5_ptp_txtstamp_release(). Any other negative return frees the skb
-> while it is still on the list:
-> 
-> sparx5_packet.c:sparx5_port_xmit_impl() {
->     ...
-> 	if (ret == -EBUSY)
-> 		goto busy;
-> 	if (ret < 0)
-> 		goto drop;
->     ...
-> drop:
-> 	stats->tx_dropped++;
-> 	sparx5->tx.dropped++;
-> 	dev_kfree_skb_any(skb);
-> 	return NETDEV_TX_OK;
-> busy:
-> 	if (skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP &&
-> 	    SPARX5_SKB_CB(skb)->rew_op == IFH_REW_OP_TWO_STEP_PTP)
-> 		sparx5_ptp_txtstamp_release(port, skb);
-> 	return NETDEV_TX_BUSY;
-> }
-> 
-> The next two-step request then walks the list in
-> sparx5_ptp_txtstamp_old_release():
-> 
-> 	skb_queue_walk_safe(&port->tx_skbs, skb, skb_tmp) {
-> 		if time_after(SPARX5_SKB_CB(skb)->jiffies + SPARX5_PTP_TIMEOUT,
-> 			      jiffies)
-> 			break;
-> 
-> 		__skb_unlink(skb, &port->tx_skbs);
-> 		dev_kfree_skb_any(skb);
-> 
-> Does this read the cb of the freed skb and then free it again? The TX
-> timestamp IRQ handler can also find the stale entry. ptp_skbs and ts_id
-> also stay incremented, so can the PTP ID pool run out?
-> 
-> This path could already be reached through the -EINVAL return when the
-> next TX DB is not done, i.e. when the TX ring is full.
-> 
-> With this patch and the default MTU of 1500, db_size goes from 4096 to
-> ALIGN(1518 + 36 + 8, 128) = 1664. A two-step timestamped frame longer
-> than 1624 bytes used to be sent, but now it always takes the drop path.
-> Such frames can still reach a 1500 MTU port, for example through tc
-> mirred or bpf_redirect from a device with a larger MTU.
-> 
-> The commit message says it will "make sparx5_fdma_xmit() drop frames that
-> do not fit", so it depends on this drop path. Should the drop label in
-> sparx5_port_xmit_impl() call sparx5_ptp_txtstamp_release() for two-step
-> PTP skbs, the same way the busy label does? sparx5_port_xmit_impl() is
-> still unchanged at the end of the series.
-> 
-> -- 
-> Sashiko AI review � https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-sparx5-mtu-change-v3-0-55c272fe1acc%40microchip.com
+This requires CONFIG_RELOCATABLE=y, otherwise the decompressor will
+place the kernel at its build-time default physical load address, so
+that no relocations need to be applied.
+
+On x86_64, this logic was inherited, even though the virtual placement
+of the kernel is independent from the physical load address, and so the
+kernel can always be placed at its build-time virtual default address
+regardless of where it was placed in the physical space, requiring no
+relocation fixups to be applied.
+
+This means that for the 64-bit kernel, the CONFIG_RELOCATABLE dependency
+can be dropped. Instead, always present it as 'relocatable' via the
+bzImage metadata as well as to the EFI stub, and only depend on
+CONFIG_RELOCATABLE when enabling KASLR (CONFIG_RANDOMIZE_BASE=y).
+
+For symmetry, do the same for the 32-bit kernel. This makes
+CONFIG_RELOCATABLE a hard dependency there, as the relocation metadata
+is always required, but this is already the default in practice.
+
+While at it, tidy up the Kconfig help texts.
+
+Cc: H. Peter Anvin <hpa@zytor.com>
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+---
+Changes since v1: [0]
+- make i386 kernels always relocatable as well
+- clean up Kconfig help texts a bit more
+
+[0] https://lore.kernel.org/all/20261111091843.3621782-2-ardb+git@google.com/
+
+ arch/x86/Kconfig                   | 94 ++++++--------------
+ arch/x86/boot/compressed/head_32.S |  2 -
+ arch/x86/boot/compressed/head_64.S |  4 -
+ arch/x86/boot/compressed/misc.c    |  4 -
+ arch/x86/boot/header.S             | 10 +--
+ 5 files changed, 28 insertions(+), 86 deletions(-)
+
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 58dce0b66179..bc3647515e8b 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -19,6 +19,7 @@ config X86_32
+ 	select MODULES_USE_ELF_REL
+ 	select OLD_SIGACTION
+ 	select ARCH_SPLIT_ARG64
++	select RELOCATABLE
+ 
+ config X86_64
+ 	def_bool y
+@@ -1898,7 +1899,6 @@ config EFI
+ config EFI_STUB
+ 	bool "EFI stub support"
+ 	depends on EFI
+-	select RELOCATABLE
+ 	help
+ 	  This kernel feature allows a bzImage to be loaded directly
+ 	  by EFI firmware without the use of a bootloader.
+@@ -1990,66 +1990,37 @@ config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
+ 	def_bool CRASH_RESERVE
+ 
+ config PHYSICAL_START
+-	hex "Physical address where the kernel is loaded" if (EXPERT || CRASH_DUMP)
++	hex "Physical load address of the kernel" if (EXPERT || CRASH_DUMP) && X86_32
+ 	default "0x1000000"
+ 	help
+-	  This gives the physical address where the kernel is loaded.
+-
+-	  If the kernel is not relocatable (CONFIG_RELOCATABLE=n) then bzImage
+-	  will decompress itself to above physical address and run from there.
+-	  Otherwise, bzImage will run from the address where it has been loaded
+-	  by the boot loader. The only exception is if it is loaded below the
+-	  above physical address, in which case it will relocate itself there.
+-
+-	  In normal kdump cases one does not have to set/change this option
+-	  as now bzImage can be compiled as a completely relocatable image
+-	  (CONFIG_RELOCATABLE=y) and be used to load and run from a different
+-	  address. This option is mainly useful for the folks who don't want
+-	  to use a bzImage for capturing the crash dump and want to use a
+-	  vmlinux instead. vmlinux is not relocatable hence a kernel needs
+-	  to be specifically compiled to run from a specific memory area
+-	  (normally a reserved region) and this option comes handy.
+-
+-	  So if you are using bzImage for capturing the crash dump,
+-	  leave the value here unchanged to 0x1000000 and set
+-	  CONFIG_RELOCATABLE=y.  Otherwise if you plan to use vmlinux
+-	  for capturing the crash dump change this value to start of
+-	  the reserved region.  In other words, it can be set based on
+-	  the "X" value as specified in the "crashkernel=YM@XM"
+-	  command line boot parameter passed to the panic-ed
+-	  kernel. Please take a look at Documentation/admin-guide/kdump/kdump.rst
+-	  for more details about crash dumps.
+-
+-	  Usage of bzImage for capturing the crash dump is recommended as
+-	  one does not have to build two kernels. Same kernel can be used
+-	  as production kernel and capture kernel. Above option should have
+-	  gone away after relocatable bzImage support is introduced. But it
+-	  is present because there are users out there who continue to use
+-	  vmlinux for dump capture. This option should go away down the
+-	  line.
++	  The minimum physical load address of the decompressed image. The
++	  kernel will be placed here by the decompressor if it was loaded below
++	  this address. If it was loaded at or above this address, the kernel
++	  will be placed at the actual load address rounded up to
++	  PHYSICAL_ALIGN.
+ 
+-	  Don't change this unless you know what you are doing.
++	  Legacy i386 kdump use cases based on vmlinux rather than bzImage
++	  might need to override this, otherwise leave at its default.
+ 
+ config RELOCATABLE
+-	bool "Build a relocatable kernel"
+-	default y
++	def_bool y
+ 	help
+-	  This builds a kernel image that retains relocation information
+-	  so it can be loaded someplace besides the default 1MB.
+-	  The relocations tend to make the kernel binary about 10% larger,
+-	  but are discarded at runtime.
++	  This builds a kernel image that retains relocation information,
++	  allowing its placement in the virtual address space to deviate from
++	  the build time default. The relocations are applied at boot and then
++	  discarded, so their runtime memory footprint is zero.
+ 
+-	  One use is for the kexec on panic case where the recovery kernel
+-	  must live at a different physical address than the primary
+-	  kernel.
++	  On i386, the virtual displacement relative to PAGE_OFFSET must equal
++	  the physical displacement relative to LOAD_OFFSET, and so this option
++	  must always be set.
+ 
+-	  Note: If CONFIG_RELOCATABLE=y, then the kernel runs from the address
+-	  it has been loaded at and the compile time physical address
+-	  (CONFIG_PHYSICAL_START) is used as the minimum location.
++	  On x86_64, the virtual displacement is independent from the physical
++	  placement, and the relocations are only used when randomizing the
++	  virtual address space (KASLR).
+ 
+ config RANDOMIZE_BASE
+ 	bool "Randomize the address of the kernel image (KASLR)"
+-	depends on RELOCATABLE
++	select RELOCATABLE
+ 	default y
+ 	help
+ 	  In support of Kernel Address Space Layout Randomization (KASLR),
+@@ -2085,30 +2056,19 @@ config RANDOMIZE_BASE
+ # Relocation on x86 needs some additional build support
+ config X86_NEED_RELOCS
+ 	def_bool y
+-	depends on RANDOMIZE_BASE || (X86_32 && RELOCATABLE)
++	depends on RELOCATABLE
+ 	select ARCH_VMLINUX_NEEDS_RELOCS
+ 
+ config PHYSICAL_ALIGN
+-	hex "Alignment value to which kernel should be aligned"
++	hex "Minimum alignment of the physical load address"
+ 	default "0x200000"
+ 	range 0x2000 0x1000000 if X86_32
+ 	range 0x200000 0x1000000 if X86_64
+ 	help
+-	  This value puts the alignment restrictions on physical address
+-	  where kernel is loaded and run from. Kernel is compiled for an
+-	  address which meets above alignment restriction.
+-
+-	  If bootloader loads the kernel at a non-aligned address and
+-	  CONFIG_RELOCATABLE is set, kernel will move itself to nearest
+-	  address aligned to above value and run from there.
+-
+-	  If bootloader loads the kernel at a non-aligned address and
+-	  CONFIG_RELOCATABLE is not set, kernel will ignore the run time
+-	  load address and decompress itself to the address it has been
+-	  compiled for and run from there. The address for which kernel is
+-	  compiled already meets above alignment restrictions. Hence the
+-	  end result is that kernel runs from a physical address meeting
+-	  above alignment restrictions.
++	  The minimum alignment of the kernel's physical load address. If the
++	  decompressor was loaded at a physical address > PHYSICAL_START but
++	  not aligned to this value, it will round it up to the next multiple
++	  and decompress the kernel there.
+ 
+ 	  On 32-bit this value must be a multiple of 0x2000. On 64-bit
+ 	  this value must be a multiple of 0x200000.
+diff --git a/arch/x86/boot/compressed/head_32.S b/arch/x86/boot/compressed/head_32.S
+index 1cfe9802a42f..79d9e2c330ba 100644
+--- a/arch/x86/boot/compressed/head_32.S
++++ b/arch/x86/boot/compressed/head_32.S
+@@ -82,7 +82,6 @@ SYM_FUNC_START(startup_32)
+  * %ebp is calculated to be the address that the kernel will be decompressed to.
+  */
+ 
+-#ifdef CONFIG_RELOCATABLE
+ 	leal	startup_32@GOTOFF(%edx), %ebx
+ 	movl	BP_kernel_alignment(%esi), %eax
+ 	decl	%eax
+@@ -91,7 +90,6 @@ SYM_FUNC_START(startup_32)
+ 	andl    %eax, %ebx
+ 	cmpl	$LOAD_PHYSICAL_ADDR, %ebx
+ 	jae	1f
+-#endif
+ 	movl	$LOAD_PHYSICAL_ADDR, %ebx
+ 1:
+ 
+diff --git a/arch/x86/boot/compressed/head_64.S b/arch/x86/boot/compressed/head_64.S
+index 1aca51390f73..de1973f032c7 100644
+--- a/arch/x86/boot/compressed/head_64.S
++++ b/arch/x86/boot/compressed/head_64.S
+@@ -143,7 +143,6 @@ SYM_FUNC_START(startup_32)
+  * for safe in-place decompression.
+  */
+ 
+-#ifdef CONFIG_RELOCATABLE
+ 	movl	%ebp, %ebx
+ 	movl	BP_kernel_alignment(%esi), %eax
+ 	decl	%eax
+@@ -152,7 +151,6 @@ SYM_FUNC_START(startup_32)
+ 	andl	%eax, %ebx
+ 	cmpl	$LOAD_PHYSICAL_ADDR, %ebx
+ 	jae	1f
+-#endif
+ 	movl	$LOAD_PHYSICAL_ADDR, %ebx
+ 1:
+ 
+@@ -316,7 +314,6 @@ SYM_CODE_START(startup_64)
+ 	 */
+ 
+ 	/* Start with the delta to where the kernel will run at. */
+-#ifdef CONFIG_RELOCATABLE
+ 	leaq	startup_32(%rip) /* - $startup_32 */, %rbp
+ 	movl	BP_kernel_alignment(%rsi), %eax
+ 	decl	%eax
+@@ -325,7 +322,6 @@ SYM_CODE_START(startup_64)
+ 	andq	%rax, %rbp
+ 	cmpq	$LOAD_PHYSICAL_ADDR, %rbp
+ 	jae	1f
+-#endif
+ 	movq	$LOAD_PHYSICAL_ADDR, %rbp
+ 1:
+ 
+diff --git a/arch/x86/boot/compressed/misc.c b/arch/x86/boot/compressed/misc.c
+index 0f41ca0e52c0..7a4aff845fbd 100644
+--- a/arch/x86/boot/compressed/misc.c
++++ b/arch/x86/boot/compressed/misc.c
+@@ -314,12 +314,8 @@ static size_t parse_elf(void *output)
+ 			if ((phdr->p_align % 0x200000) != 0)
+ 				error("Alignment of LOAD segment isn't multiple of 2MB");
+ #endif
+-#ifdef CONFIG_RELOCATABLE
+ 			dest = output;
+ 			dest += (phdr->p_paddr - LOAD_PHYSICAL_ADDR);
+-#else
+-			dest = (void *)(phdr->p_paddr);
+-#endif
+ 			memmove(dest, output + phdr->p_offset, phdr->p_filesz);
+ 			break;
+ 		default: /* Ignore other PT_* */ break;
+diff --git a/arch/x86/boot/header.S b/arch/x86/boot/header.S
+index 9bea5a1e2c52..d06ebc6d4c06 100644
+--- a/arch/x86/boot/header.S
++++ b/arch/x86/boot/header.S
+@@ -332,24 +332,16 @@ initrd_addr_max: .long 0x7fffffff
+ kernel_alignment:  .long CONFIG_PHYSICAL_ALIGN	#physical addr alignment
+ 						#required for protected mode
+ 						#kernel
+-#ifdef CONFIG_RELOCATABLE
+ relocatable_kernel:    .byte 1
+-#else
+-relocatable_kernel:    .byte 0
+-#endif
+ min_alignment:		.byte MIN_KERNEL_ALIGN_LG2	# minimum alignment
+ 
+ xloadflags:
+ #ifdef CONFIG_X86_64
+ # define XLF0 XLF_KERNEL_64			/* 64-bit kernel */
+-#else
+-# define XLF0 0
+-#endif
+-
+-#if defined(CONFIG_RELOCATABLE) && defined(CONFIG_X86_64)
+    /* kernel/boot_param/ramdisk could be loaded above 4g */
+ # define XLF1 XLF_CAN_BE_LOADED_ABOVE_4G
+ #else
++# define XLF0 0
+ # define XLF1 0
+ #endif
+ 
+-- 
+2.56.1.831.g720f3f5937-goog
+
