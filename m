@@ -1,82 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795490204;
-	b=F/OdVazd65S1vrF4oYzwHUracIfGipdkptwddToneQMezwrK6yK+h4WaLjiQESklX08y
-	 0ZY8jYvT5uwGcoRvBBNk1B+zWu3n15YxYnEMzuUFX4urJaB+nY9k6J5INdYK26knGETrC
-	 Bz6EkqsknBBeIJCLaEIjxIGs+jWY9tB0wmdIFPco2MTDCbXr0nKfBC76GVdGakDS861/B
-	 n/fA9iTgb0G9z5MKymW89PzQLeMZhd0X7V+xJrMys/gTRnQMKkCxEmyKfBUE0KeMN6MmA
-	 /IYI1Lq//y/XaHG0E2C/95Hy3EI8DELsG/7qHr3FJ/AuwDMZRkCodL9KyV4/ScuO3dw==
+	t=1795490215;
+	b=ki60a8KgXefU2w7K7+R6gxD7Z/FD/w5BYmYGtf6ZbO9VVbqIymDurSuONIDkJlYbXp+R
+	 LaUED2lspWAuRkM1bynrIySDUaJcEORbLW/uC3unlTRdx4uq5Ac2dxiiHuHGfWESW+QBl
+	 17NjJ45YAO488WZ9tstvznjdTuGkjbA+vIdHKmWcjgy17ynHM9wjrBtQm23GJm7iAWdym
+	 KbWpc4LHabv5j4OBsa9WLPaLWkaCxoHXSIFce/xQqEdBCDLRo4El77eAEwAN/bx1iHZWU
+	 ypQX1swygYwCZYGm8Wlpv+KTuFrY+d2SZMlpTUWeSsaZadx74N3KcYvf4/d+p1QyS8Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795490204;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=RkloPgeYnVworbSxGLqoxyXm4gptRQR8Vz5x7cCV1eE=;
-	b=JVhAvYP6mkB5ULI40WjeK0UmJSvqR1VaXMxS65pxLhJBg0EEPC7WOCotMxrvoTQQepXT
-	 Gt1/pA6W9FoKBzOc1c4JX5IX7C1DErSs6+OzrmbmA9FXjyDcMUVGMPfRmxt4ejLexcbsK
-	 HSAAghCAoW8FvJjo0qnXztlz6aGBLw9dY1LMSVaaFQV6QPSf3UbkLggMKyxdQkL1t/Rzz
-	 OIWSR8AjAeD6dHz8r4Yo4dUarS5e5Z/+BOxVnQE5k/OonwC0P8No76Gju0JN61I7Nb5IY
-	 4u7UX07LdQrEsK+SFtAEkGNE6YFMGLRaiwrZxYLPmHAXs9srM1/Bsus+ELjAbNmOASA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795490215;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=EKCwUBMZXEgwJsoK8+iw5jP9TfBZ6zy/Sv767cpvROI=;
+	b=V39q/Trwh/vWmGcDkeK4HU8R6l64Ec3folBjMnhdgIy7QflErFdFuKdZojmo56nXOLZg
+	 gLNIbgysmHEMkHhhIMYZJLwaub3tq1VOxzE5djfCiC6Cwf9ZmON7QPjxPz556SKNZQUb3
+	 SHy/hFql1jriIQUWU97/1jYb0rTXI33ETgFapmkXizChMmOaY8Yj/06Ubf9zlM4EpY58f
+	 XdUu5ESSfGcnqIhe9Y6lZZ4t6B9In3oB+5yNhpgzKUWi4p/RhnB5D8jqxGGNF2lS2JcO2
+	 491HvzpOSYR6mQzsZz4MNiFKQBJwAbdfHB4pdnHIH83I3ru9WQzP8ib6SK2REvU7LmQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=alien8.de;
-	spf=pass smtp.mailfrom=alien8.de;
-	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=aKpHQdFD;
-	arc=none smtp.remote-ip=65.109.113.108
-Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WFpGA4KB;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 002A5606A31E;
-	Tue, 24 Nov 2026 03:16:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 002A5606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2490606A32D
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:16:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2490606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=aKpHQdFD
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id D2F8B40E02CD;
-	Tue, 24 Nov 2026 03:16:41 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id 24w3iiim0GVx; Tue, 24 Nov 2026 03:16:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1795490198; bh=RkloPgeYnVworbSxGLqoxyXm4gptRQR8Vz5x7cCV1eE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aKpHQdFDKeGusPE/tOflleC18Z3OLOFKakXGrLfcmVFlY62/veNHO1AAAKn2nAAsm
-	 uMYfGrsCD/E9lP/uMXltUkeb1OPNkxNZgRkN25iBQgG/Jt2gA7mi4QNT6OMemtas/L
-	 PuqGYV1xT/RLV6HlS6ycx1we2CPKQy9fsN9UmwsiFYgm2smm6+nvh8apABlB1pvbbf
-	 vlJUjSaVIROQGNcMXoHxFiNI+stdwmxYL06YBdIXDNA4v0VRhxj+g+88KoFzdAUZwX
-	 rO0TkrnrLtkpvysxSpziIu+oMABwPrEu7lRmC4DqV4D3wcUkTrZcbRU9QcvZyDDSI4
-	 v+nBL2Krkh8hF8u60GTj/x2RMnBwN8z1yzK8vYT2z/q2Nws0BF/EyMBApDbbWk3J46
-	 mcQmZVPGGmXVyPkOwv0dmC7VT7Hf5bhNFPDG8YygU7ErqYUHu3P26fBe/Gt++0evtk
-	 BhmrCCTRgy7CU//eJFpXudqHdshJ7eeLpU3jhAMPJz3XoA6LOhCBTe/Nd3DvzWkXt3
-	 LBVI29jtSaOToLr/O+OuEudMZgMRqAXTZPBT/VCSpxEJm+D45NGQ78qQiEWFc+q3Uw
-	 bOCcFtXBBVMYPZxOqhBmBdj6byw+TEwSiYc2d57I5d+vjnuS7266epc5YBB3D5Ef2X
-	 dsdniRpKDC+vaRjKHlJPoNig=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 0949440E02A9;
-	Tue, 24 Nov 2026 03:16:25 +0000 (UTC)
-Date: Mon, 23 Nov 2026 19:16:22 -0800
-From: Borislav Petkov <bp@alien8.de>
-To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-Cc: linux-edac@vger.kernel.org, git@amd.com, shubhrajyoti.datta@gmail.com,
-	michal.simek@amd.com,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Tony Luck <tony.luck@intel.com>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 03/12] EDAC/versalnet: Fix use-after-free in
- remove_one_mc()
-Message-ID: <20261124031622.GKawUBhv2labxD1Gbd@fat_crate.local>
-References: <20261118142213.100581-1-shubhrajyoti.datta@amd.com>
- <20261118142213.100581-4-shubhrajyoti.datta@amd.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WFpGA4KB
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a2153c8525so31538485e9.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:16:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795490213; x=1796095013; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EKCwUBMZXEgwJsoK8+iw5jP9TfBZ6zy/Sv767cpvROI=;
+        b=WFpGA4KB996Tu7hKVOnRNmXinER0wbZZXQoxSH7+GXHZ8IoVoxqX7VnyceUOGOqCNs
+         WkwohfjDJenHbBSN+VDFxM2jVYwJ8IsOMdUJ2yz+783MhZ1kpbN8C2aVQkAx5KJFz/6O
+         VoHrdCqbgxoKlKyvZ+U9LVvXgz7LODsr+/gzoTyfTFZ2ObuAaHFNkRR3uThSRrIGEf6T
+         kVDFjPQO3n6MC8I6N7LGXTU/ajuZq9bf060LgWVpNeeuXGSKK++WWXIx9uxb5q8duH+A
+         qSAZeckM2cwFAL6//k1WNoopWbqqksKVmOE8m2sd0JcbqjW1nI6dj3XaA604/Jvf2A5C
+         94+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795490213; x=1796095013;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=EKCwUBMZXEgwJsoK8+iw5jP9TfBZ6zy/Sv767cpvROI=;
+        b=eKNNDSQSXPrPiKi9XpNE+fG69RiA2kIZBQ3KxOpFGXfjl3ARVyNT1dtRUBScis7Maa
+         B5LVEzyd17M/Jyifq/yYlnOFYSe2/eI2D+ERu34Z2p6ZJP5fa0FsBw0gEWq/S8N8B1De
+         I88OIsCIKyojF0xWxSRpUXj7H29u+4XD1kXYcPC4/RgACRhwF1ScQgdufS6jkc4G9keE
+         AmMZhxyqqHDZpZ/udFB24G4TKe2CjgH/r6bef9nUKgPXoyR2pnY5xwnBfD9PO0lQbkAY
+         +EqEQjgcnYfXbo0S1jHG5UzaZHpw9v12tx6Hzn9XxCE8M3pygNYz5zPfeRmkTbPh87oo
+         wzfg==
+X-Forwarded-Encrypted: i=1; AL+hErHHgUjTSiL3UbXKzU+4F7m2rKiaucsSRKuj4yeeU9htL+LHmU7HpSWGBXj20oXgPtErmcXhRW1+3QHVyBo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ZFW71EEJSHjfb0uUQGa3OzR6KYne+iHZnIgcg4i31BUDxHbbT
+	0N+SXdoHoBlVFiYeO+HI894QQZBcOx97kWUOA/r8vKw13xEc21kgY01r
+X-Gm-Gg: AZFdTZd5Q+m+hjQfWANkeoNQII2MhJXtpMAux4BkUnyMfr1ky1Vf92/t1LB6ft2JTOe
+	55vajj+l2nHrUoDkrEwgwGs0J3qKH/jY5Axw09XOaEXJzBfUNng0sYoUk6IVjheSDfMkAQZ6qXI
+	j453P+6xOB7voKyrBon73ZnJM0tBwchbT5cFSjUb2vG9Vz3ASXNSJuzF1aA5Lg1Jo+ogZ/Dyz5o
+	2Oq4Cojtc9ZHmMkhE+WEBnwqlaIwjIdWya/FiokhE0R0DOu9ok24OgOEWu7T/nr+lczEDkRZFla
+	N/RXRyBauVCMOIuUmtwiGSmvotYWHmzIR5MTBaD15BYUp/QDF2Qc7sBftYLjTM5tjAjAvvVWHnO
+	U7GQvpE9yjJ62m1r+8cZWl664nHkfQiCgINKM2HbmyuWoz5xbdwIAV/Se+yCNNbBEmAz4cVGTz/
+	QgCtRSIdj/vY86lS8USmP/ZyEFlWLET0f4nPqrpHt6PtGZ95PG+YdmID/sUS1baYDLdbZ+RNKWu
+	S9y44LFem+R797ppZbiDIvKiONWhTWkw4nzIAUQI4UxezE2nqxI0pQmkSHSz5o48wY6lDe0owtI
+	eaI1VaYTYYFrM6yHgPkfDDP9PqgW/+mekpT+qF6ctdv5ch3/QEaOxW05KM+7JI4fvB1CR2YaIiJ
+	cDcf0RKILiY6xTcxmwQ1LebuBLAPVva5tfB5Lc/q8eSwx3+lxz6xTCdnG7JFCte9mKcFxQtVCpM
+	7INS98/Mm7B8gOjeSRtinaz86p5SXIFa8n
+X-Received: by 2002:a05:600c:1389:b0:4bb:6519:477e with SMTP id 5b1f17b1804b1-4bb88813b35mr273527695e9.17.1795490212815;
+        Mon, 23 Nov 2026 19:16:52 -0800 (PST)
+Received: from localhost.localdomain (dynamic-2a02-3100-ad33-0d01-f099-1558-bc26-fd06.310.pool.telefonica.de. [2a02:3100:ad33:d01:f099:1558:bc26:fd06])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884911e3sm473350865e9.6.2026.11.23.19.16.51
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 23 Nov 2026 19:16:52 -0800 (PST)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: bpf@vger.kernel.org
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Shuah Khan <shuah@kernel.org>,
+	Tejun Heo <tj@kernel.org>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	=?UTF-8?q?Michal=20Koutn=C3=BD?= <mkoutny@suse.com>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Waiman Long <longman@redhat.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	cgroups@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: [PATCH bpf-next v2] cgroup/rstat: disable preemption in css_rstat_updated()
+Date: Tue, 24 Nov 2026 04:16:42 +0100
+Message-Id: <20261124031642.40616-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,39 +120,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261118142213.100581-4-shubhrajyoti.datta@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 07:50:27PM +0530, Shubhrajyoti Datta wrote:
-> diff --git a/drivers/edac/versalnet_edac.c b/drivers/edac/versalnet_edac.c
-> index de97b2ac45aa..2d1417135e42 100644
-> --- a/drivers/edac/versalnet_edac.c
-> +++ b/drivers/edac/versalnet_edac.c
-> @@ -765,11 +765,13 @@ static void versal_edac_release(struct device *dev)
->  static void remove_one_mc(struct mc_priv *priv, int i)
->  {
->  	struct mem_ctl_info *mci;
-> +	struct device *dev;
->  
->  	mci = priv->mci[i];
-> -	device_unregister(mci->pdev);
-> -	edac_mc_del_mc(mci->pdev);
-> +	dev = mci->pdev;
-> +	edac_mc_del_mc(dev);
->  	edac_mc_free(mci);
-> +	device_unregister(dev);
+BPF programs can call css_rstat_updated() with preemption enabled.
+The kfunc calls __css_rstat_updated(), which requires preemption to
+be disabled while it queues an rstat update. A cgroup iterator can
+hit the lockdep assertion on both RT and non-RT kernels. The
+cgroup_hierarchical_stats selftest can also hit it on PREEMPT_RT:
+spin_lock_irqsave() on trace_cgroup_path_lock leaves preemption and
+interrupts enabled there.
 
-Btw, if this is using device_unregister(), you probably should simplify
-init_one_mc() by using device_register() there instead of the two initialize
-and add steps you're using now.
+Disable preemption in the BPF wrapper after validating the CPU and
+before calling __css_rstat_updated().
 
-In any case, first three queued.
+Fixes: 36df6e3dbd7e ("cgroup: make css_rstat_updated nmi safe")
+Reported-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+Closes: https://lore.kernel.org/r/20251119111402.153727-1-jiayuan.chen@linux.dev/
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
+Assisted by an LLM.
 
-Thx.
+v2 places the preemption guard in the kfunc as Alexei requested:
+https://lore.kernel.org/r/DN26CP5BB6O7.23ALW6CZUBYSD@gmail.com/
+Since 8817005efbdf split out the BPF-only wrapper, v2 does not add
+preemption operations to the in-kernel callers discussed when Jiayuan
+proposed the earlier kernel-side version in November 2025:
+https://lore.kernel.org/r/20251121040655.89584-1-jiayuan.chen@linux.dev/
+v1: https://lore.kernel.org/r/20261121082843.44614-1-kmehltretter@gmail.com/
 
--- 
-Regards/Gruss,
-    Boris.
+Tested in x86-64 KVM guests with lockdep on bpf-next 9867c61abbd4
+(base and v2) and 2bf3351c5f89 (v2). Both tests passed on all 24 boots.
 
-https://people.kernel.org/tglx/notes-about-netiquette
+  Boots with an rstat warning               base     v2   rebased v2
+  PREEMPT_RT, cgroup_hierarchical_stats      2/2    0/2          0/2
+  PREEMPT_RT, iter/cgroup                    2/2    0/2          0/2
+  PREEMPT (!RT), cgroup_hierarchical_stats   0/2    0/2          0/2
+  PREEMPT (!RT), iter/cgroup                 2/2    0/2          0/2
+
+ kernel/cgroup/rstat.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/kernel/cgroup/rstat.c b/kernel/cgroup/rstat.c
+index de816a43db9f..d72fe721cea0 100644
+--- a/kernel/cgroup/rstat.c
++++ b/kernel/cgroup/rstat.c
+@@ -131,6 +131,7 @@ __bpf_kfunc void css_rstat_updated(struct cgroup_subsys_state *css, int cpu)
+ 	if (unlikely(cpu < 0 || cpu >= nr_cpu_ids || !cpu_possible(cpu)))
+ 		return;
+ 
++	guard(preempt)();
+ 	__css_rstat_updated(css, cpu);
+ }
+ 
+
+base-commit: 2bf3351c5f894697e8443eeef5333d4c4ce90cab
