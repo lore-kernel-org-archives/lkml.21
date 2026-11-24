@@ -1,96 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795512480;
-	b=APa4t1Ga/d4CXVV+BtpkiUSJad2juMSsg4CGk8+HA+xyJHopKa4ChlDluXA9bm5A8gb6
-	 h4HwJesqeDGdARwq2O2P1gttmc1bpuCQ8da+jRFdl12bmMIVIE/7SmLegQg+e0+tvZCZA
-	 po510zL6hzi+p4WKlRos/E83cGk3V85EYv9ixUoWoWi4LuPdMmHSQqKGVwMbpkr2BraPW
-	 tOhZImzXI6eC0fX0rH8JvpA1kHGRapVBz5FTjyxmdkNOljff9Y99G8xzGmmGIJa/a/XLN
-	 AH2EBWPM28yUayZWq5Fz+iKNVBc1NlwA5olfReZsrcsbx8P1xyIB+1DzPI8s1Ttj1qg==
+	t=1795512520;
+	b=TUCFX9HvPz+qmHhLcY59y6BhVrSuFaJ7qFfMR9ABASzHD5Qt75fdwVhWEorPXXvwEVcn
+	 52u+sKuUemLAoRAxstzEVenVjyjT1QAJXCp11e73haEBma9AP4ZLXSkrAXMizn0e3KZxl
+	 VO8QLFBz1rTfyzEY/p0PtWM6k7nN4gxsCY1LxwPU1wkQCmeenKOMistWa+DxDmMdYTLgE
+	 anZhlu4ox40tM3nN3/iproKGpx3H8uiaqJD69t7JIMGxEK5WV7kcoNdeaKHI3M52XelDy
+	 Q4nEyWRwBNtBPKUddj3SADMlRyAN2dE7DXC1nrwoU75Tm6HodRz3yHAKcphbGBSP+/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795512480;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795512520;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=TWHNEL++1iAc8xuUz6pXGuwhXqWb9DFmAWCQn+tw8lw=;
-	b=IBtgEeYlPPUnps9L/X3/aVjR53aa2/JMaRZUI1TCgS3emfrGqYsn3KC2O6RUi4CwPdT9
-	 CR8VdgZkiNTeUMeIyjsFteoH1VS7PH0iDWHlqJf3cnaD3L+KJoRx3/naMcCohpHsUFtuh
-	 F5vqHNrDKYdvRMGgr1AIXATRS6qthE7w/ZVbmIy03yvE9cRH+ROqJrTQTPuexiihSuilh
-	 AxfbdaTLhJVjj14OpKEUEvKBb5UIh7/1mL9u4zqt94deX3R5gk6bdgYKZDVzH7AuiVCEX
-	 mcS09qzrNdMkt+EYhzClm9juBG/AQV6tpUpvBmWUowTHlGGWDqsH7PwfvKsM2V4LITg==
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding;
+	bh=CzKgPvM79v6jsfljA7yM9iAbIcPsktxf49AuQD8Felg=;
+	b=29SfFGp/ax95REZdeUdQqTWrLugBA2isOQSy4dFwrgFiJD5Uaea0Y+2DE1csbJsUlCXj
+	 RucUq5LqQqmLm4B2PN/C3/cPcX6GfKVgyH++7Mkhs7IxzuOg7gi1282kIW2JGjEKQYFnS
+	 2QNurQokMBebUNpxEUtlIYAMEutEku8C5ep3EtkJ22vpAXl3w2AII12yy4lFHO6mlTpvL
+	 ptZrgPepOnmCgtN1t2YyQAsFqF8bb7JtSSmjOT80F7eNImyRz2NwYeM3wgWOyG7eu2XYu
+	 /H9ysFzaoUk9isHZoZIpXHyeLQyb2Cw+318SyTx5+AA+z80CTL3mCfZR9pY6OXMS/nA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=krel1Mzw;
-	arc=none smtp.remote-ip=209.85.221.42
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a5KW4ryk;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3686C606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:27:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3686C606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82AF8606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:28:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82AF8606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=krel1Mzw
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-491971ac844so3891488f8f.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:27:59 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a5KW4ryk
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb77a462c6so39011255e9.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:28:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795512478; x=1796117278; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TWHNEL++1iAc8xuUz6pXGuwhXqWb9DFmAWCQn+tw8lw=;
-        b=krel1MzwQ3o6GDc3R5qx13RZMJumZpXH71QSH9vKpM4ufGRROwg4GKcKX8zyAU+HDX
-         VRbV/kH5LLlV+nvXM4vrtEzzo7Ov1LVJFAhLv7bBXYCO8CSes0mEDk7XHgXhdwfksL8K
-         5B7IwQLkSP6eTVemubwDyuJ/vyxFoc3IP+Vv3rEjH8unDPKal0eUPU31zvhqEsgecik7
-         zD1aYd6+nEtwP3kQmcf990YHSRzAGVkL/Gm4iCtgSp5EJYidKtpGjk4u9/chThQrkmZZ
-         a7srxP8YmRef3Rzn1Oa6hzwEsrslsw1A35VkQQHVbUiCE5MyS285TWd2YdelhQlFObR5
-         grKg==
+        d=gmail.com; s=20260707; t=1795512518; x=1796117318; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CzKgPvM79v6jsfljA7yM9iAbIcPsktxf49AuQD8Felg=;
+        b=a5KW4rykzmoBF3wpBKu6drmzIHlRb0P4hCdIPV0t6U4Zfn6x+uBKAXogFnZn8p0sYK
+         keE5gJbm0vr4PZx4QFkVG9HDIi1NMNDvnJMaGTUk/LN6sdCX1XWI6DXDNgMmST3r5EcF
+         aVcmcl1tSvUV0sWwqer2aUv7IV/7xd3ObJ0LC4WO08KD2mcGGdHq59CKdvRETcHxLJPJ
+         r1hFIg2P6qeQYVO1G1D5NTlvC11jsCGBHLHTd0EMuQ+tOMueed7B75XA5s2jX6wEuMHy
+         vsch2iLxmQG/7vRjqtyqcgcJloEDQ7SB2dKEtHQTdGRNWmO+kvhlWRdk8wtdiLdphFEu
+         wPfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795512478; x=1796117278;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TWHNEL++1iAc8xuUz6pXGuwhXqWb9DFmAWCQn+tw8lw=;
-        b=0r5pgsAk2R0Qx4ZINgt6u0Va2/CdE/IR0YOayKctuz/sabQ79IrReKEVQDcUVTOhM4
-         PUBIzSLcfMp8S2tdv59vwYpVNQ1Y4bjcn8i938lPoX7IWuzHa9pnY7wQNp7fUuh4AVlu
-         4mv3FxYvvVOv38+MTZIbnQcGWQfVHQXkTG/yAs+TWiBvHwN3s6GbtI/dE/Rz8oLKJwTp
-         mX6vr0OcmqTf/JxvePkEABNLFMp7HcZ0mElRAo3bjF5wUhjmUOeVA9r/tXeXIPZlJZ4K
-         0quFFixRmOAJft7dCDUt3p7BiptFYwew1XYdaHpcSVgbUaGFXm/T+TTm0LqOM1+d+Xbb
-         Ulbg==
-X-Forwarded-Encrypted: i=1; AL+hErG3GOyorDGK9HiuIjWhPH/Jrn0uMaxcN7fM5IPRBlN/VoViaBm85k0qKoL96tbxOYrwhwwYRp8ESHhT1vo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Dr1tHDVIa/n8TeoaV8Q2/mABdgwl7oWuR/3ay74f6xoDLHvxJ
-	OkJjv/ADRsLmKKAH/tRxo11bWttv6N3ED9SmSh+MnTHqIq07zC+4w25E
-X-Gm-Gg: AZFdTZeoA/nax59Q1vfq60wivGFzzLzykfoUHbACHySri+xWO4MoedGYhSJ/p04tR7h
-	AcmbARBp6d1KZFr0y5wBQG0yAlANTT9kcjqfHhkqOeR/nZP8B5UwtyA3UUAnlFAAGZebMgi3Uf1
-	eLER3JdfyJqAnuTbAujQhJnAkH1ANPkP0WgiRwPuVtt3Ju7aD9wGJyQK8SD+AhfCMYqDql3+vyJ
-	vt/le6UAw2CrRAA+zBW0HLFe2w5qK+u7FA8Fbo1Tk5pmTVHlrpBllpd6fLVMdaP6HD0IF2T+k66
-	RZ8+wp+hkOViw5RS3+qX7sp97bH/K3Q64mb+QiUx6AGZHZo0E3ajbenrYkWgy7g69SZ4nvNl2CE
-	XXk5LALE2wVPy5EN4QP8EL/6VnIbpCgnxeBK4CwCN8n6b86+Mo3Y1nAfb4cD0FzMaBbqO67aIcb
-	r4ZKJQcJn7qvaqwO3Xe/eWMri6Ma8pnK3McJ7h/Pj3TlxZ/UZFrj05erJKnz37qpZ6QxuD5x7lE
-	QvuP3Ec/AJrKTom1o1+RA6VbxND9dbajpVP03nmLIN8a+xjNLBIrIR3QNz1hCDyeCFk/OJrXyep
-	hWGTEPrj3yMjLeI0WJJssL4ENk8vWrXSMU8=
-X-Received: by 2002:a5d:5888:0:b0:487:1ac0:32af with SMTP id ffacd0b85a97d-4abb47b0fb1mr27082941f8f.51.1795512478103;
-        Tue, 24 Nov 2026 01:27:58 -0800 (PST)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf685asm26445202f8f.20.2026.11.24.01.27.57
+        d=1e100.net; s=20260707; t=1795512518; x=1796117318;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=CzKgPvM79v6jsfljA7yM9iAbIcPsktxf49AuQD8Felg=;
+        b=xI258Oh/Q3kaNIIuY3vHmje/Gf7RyUbWNBcC+EbW9XOvR3vbM+6eDnN2D54EdBYS2K
+         CKETzzUCxqzMlG0VbhvpWlXnkGVC2s/+ZUC+KoHvUQz9767ooT2JNeeIKH9IdL/ryaXI
+         Z2BrqaAG7CdcGtpATGRzcXnTVE0UTyfiznX7occGy7NbTR4XXvO7M4rH7OrD+oHitr4t
+         3RclpwPiMGgOxQD+cO9sUYC1xYVcYH313lqyO+nGPhMt4Ctz3evbvrBU8wIixcRjdCcP
+         oOE9Pxv7dZR3qGNdnSpYqB5aQ1ktJ9GR/xAW7+t6UVnjwSB5E4evTGNRKw0tmmPLMO1s
+         Ib9g==
+X-Forwarded-Encrypted: i=1; AL+hErFlqJ8MEVObIHHaJtGl+0dwd0yVmXn5+A9wGYZZ4tN8yzkgefR7tJzk7JLh2hrMFdubwycMXV3ubK0ckHc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/yPH8RDyi3Z1Fjo3D1nYfubmlhQ7ZCyztVdvnp8GCnkpWsrFXW
+	ZKcKiJVvsPv0Xex6YAf4Ves77QUy3EIrZG+Y3LEKHQyXtX/YT+mvD/sK
+X-Gm-Gg: AZFdTZfy/dRtpTXMhTGbea6BJ1TBxVZiGzspWKsic0kvx/P9TMpmNU+IPyBgDf9aUbe
+	zaFZrgfC7UXjEalZ6OwfqGgR/dAypaO817skQOd/2xsOhAFx+RUDPyXH3kRv9AJpsIOUFuR0beO
+	V6i2mn3EMKG9P59s4faTl0sZtFVCVsdSlj3gbZRrFe7yykKtoJHH1CAjGUlwnYwZTDXC4SWr3hA
+	GMyfGtJ5VCp5c2x1y5HFaGhKJ4+6PbHMugc04quFbb9SRoCW0kaoJnoCo0Zl+nh33LOeh5KAHog
+	P0cRWQCqEFYBa2drC85PmCkdLxR4HWmv6m+oWA0sCaFiZWOoyAV+cc7mmB7YfRACJNO4EUp+C7J
+	ME7q1PdJ/ZwdtSEBQQfZ8cNSwpoPzWFzXK1ve+3gGOYVnQa/o+nfUuecnWgG/B1xdxsvl3Tk0ae
+	AHXv1Mj4PqPMeQOioL7H5HVaNq2IPXA16HKzMp+tPRy3jzR6IYqew37q61Ye4AFTIRryhBPQTep
+	iQ1d68Cm4zS4hqlQiQ2XkaJ5h3RATxRSkRnpe9pNBYB8T+S5b16fgd64lz/uFPkqjJEZD4msajt
+	MeSFKTKZE1dWXLgIzvyyRHT6HPg/ibCr0g==
+X-Received: by 2002:a05:600c:6749:b0:4bb:5d38:259f with SMTP id 5b1f17b1804b1-4bb8881099cmr275531005e9.12.1795512517667;
+        Tue, 24 Nov 2026 01:28:37 -0800 (PST)
+Received: from ArchOarora ([2001:19f0:6c01:2c43:5400:5ff:fef6:1b30])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf61e8sm28275775f8f.11.2026.11.24.01.28.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 01:27:57 -0800 (PST)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: Luka Gejak <luka.gejak@linux.dev>,
-	Ping-Ke Shih <pkshih@realtek.com>
-Cc: Bitterblue Smith <rtl8821cerfe2@gmail.com>,
-	linux-wireless@vger.kernel.org,
+        Tue, 24 Nov 2026 01:28:36 -0800 (PST)
+From: Oarora Etimis <oaroraetimis@gmail.com>
+To: Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Melissa Wen <melissa.srw@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	jose.exposito89@gmail.com,
+	Jonathan Corbet <corbet@lwn.net>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Lucas De Marchi <demarchi@kernel.org>,
+	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	sebastian.wick@redhat.com,
+	victoria@system76.com,
+	thomas.petazzoni@bootlin.com,
+	dri-devel@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
-	mehmet.fide@screeningeagle.com
-Subject: Re: [PATCH rtw-next v14 2/3] wifi: rtw88: support channel switch in AP mode
-Date: Tue, 24 Nov 2026 10:27:56 +0100
-Message-ID: <20261124092756.211244-1-mehmet.fide@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <243260ca062b40ba965eece69e5c52f7@realtek.com>
-References: 
+	linux-doc@vger.kernel.org,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	llvm@lists.linux.dev,
+	=?utf-8?B?Sm9zw6kgRXhww7NzaXRv?= <jose.exposito@redhat.com>
+Subject: Re: [PATCH v6 04/43] drm/drm_mode_config: Add helper to get plane type name
+Date: Tue, 24 Nov 2026 10:28:20 +0100
+Message-ID: <awVWbUPDh_7UHoay@Oarora>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261120-vkms-all-config-v6-4-78ace90f4fc1@bootlin.com>
+References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com> <20261120-vkms-all-config-v6-4-78ace90f4fc1@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,17 +128,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 
-Hi Ping-Ke,
+On Fri, Nov 20, 2026 at 06:58:46PM +0100, Louis Chauvet wrote:
+> Create and export a helper to display plane type using the property
+> string. This could be used to display debug information in VKMS.
+> 
+> Reviewed-by: José Expósito <jose.exposito@redhat.com>
+> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+> ---
+>  drivers/gpu/drm/drm_mode_config.c | 16 ++++++++++++++++
+>  include/drm/drm_mode_config.h     |  3 +++
+>  2 files changed, 19 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
+> index c1e993a78702..0d814424c698 100644
+> --- a/drivers/gpu/drm/drm_mode_config.c
+> +++ b/drivers/gpu/drm/drm_mode_config.c
+> @@ -419,6 +419,22 @@ static const struct drm_prop_enum_list drm_plane_type_enum_list[] = {
+>  	{ DRM_PLANE_TYPE_CURSOR, "Cursor" },
+>  };
+>  
+> +/**
+> + * drm_get_plane_type_name - return a string for plane type name
+> + * @type: plane type to compute name of
+> + *
+> + * Returns: The name of the plane type. "(unknown)" if type is not a known
+> + * plane type.
+> + */
+> +const char *drm_get_plane_type_name(enum drm_plane_type type)
+> +{
+> +	if (type >= 0 && type < ARRAY_SIZE(drm_plane_type_enum_list))
+> +		return drm_plane_type_enum_list[type].name;
+> +	else
+> +		return "(unknown)";
+> +}
+> +EXPORT_SYMBOL(drm_get_plane_type_name);
+> +
+>  static int drm_mode_create_standard_properties(struct drm_device *dev)
+>  {
+>  	struct drm_property *prop;
+> diff --git a/include/drm/drm_mode_config.h b/include/drm/drm_mode_config.h
+> index 084517beb924..545a5b684acc 100644
+> --- a/include/drm/drm_mode_config.h
+> +++ b/include/drm/drm_mode_config.h
+> @@ -30,6 +30,7 @@
+>  #include <linux/llist.h>
+>  
+>  #include <drm/drm_modeset_lock.h>
+> +#include <drm/drm_plane.h>
+>  
+>  struct drm_file;
+>  struct drm_device;
+> @@ -1011,4 +1012,6 @@ int drm_mode_config_create_initial_state(struct drm_device *dev);
+>  void drm_mode_config_reset(struct drm_device *dev);
+>  void drm_mode_config_cleanup(struct drm_device *dev);
+>  
+> +const char *drm_get_plane_type_name(enum drm_plane_type type);
+> +
+>  #endif
+> 
+> -- 
+> 2.56.0
+>
 
-> You can decide if they are necessary. As I mention in another patch in
-> the same patchset. If you think that is rare case, just reply your
-> opinion, and let it go.
-
-Then I will let them go. Both are rare: a failed download was only seen
-in unbind and crash tests, and the AP stop needs an AP and an associated
-station on one RTL8822C. The same holds for the minimum interval in
-3/3, as hostapd uses 100 TU by default.
-
-Mehmet
+Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
