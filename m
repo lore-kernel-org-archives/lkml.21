@@ -1,83 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795511577;
-	b=kqTwzu65KWyiQOse7Pq8zOaXiHtiHbWEVu2ZDQMvR8UxYRaY/WaynbzX+cErsFfHIO6m
-	 onvWNtUCxHH9M9++KB8P8P2YLf7M5U+/7su+p5q7TDfnDHY3JE5apsP/+6xzhDLny16na
-	 q/ZOjeP5neOieN4g9+9+cyJFmZvsSJvbA5PVkDERz+wmeHtxd4mOLvWTuaiuSQdiDpsUM
-	 D2Oz1qDQ7dDB0pEqE9ZremUEMBi19qvNxOQrCWhuORAJYB1TSh7xoF4kSZXZbkAktjqZQ
-	 bKdyWeKium8bCVITDjriRx0XWlss44KXHBTMH3u7fNjaMK3ePstoqaUYtrd3K9SC4Og==
+	t=1795511593;
+	b=UOBhYwoHQRNjegPT7TYuvMBjCsowprkLIuhCqk090X1E/YriiMNBkxvqjPbx0+TDl+gH
+	 KGNsy5qp6QBGvMNMjoI5uUhoIsHVcGICBovbBHpqyS4MWu3CJ3qSG/uj9tIWe0C1yybL4
+	 U16t1UPXJ6yO56c+WPw2ocqAH9IgG60CtvXRZVInISgP32xwMEtIBBArtOz4jg3YyUxQ+
+	 LUjAqEgBvXTHhqve42rGGd2Ifw3PF4cnivb5caNVFw9so8Y9/0fv44+rFJhGGnTzFauEG
+	 eUid3VmYHAADk8zyxuX+px8Vn5FHvylVaAL4cfA3GosM/j9hq7JIJgE/GBvRnXe56Og==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795511577;
-	h=DMARC-Filter:X-UUID:X-CTIC-Tags:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=GJneH8WUjBY5s9CodC4bPCZpe8JECIqQOCGbt8Uh/xI=;
-	b=dT73VfT5c+BozQx/bRIdofaAfD1+BE6EXS4iudEppvLjMOXzD6o0dfPUIaYt9h0OCkDI
-	 TB7fb6qGtVx6n03qJi5HMFkS0U5+B1wpSlAgOtn1G/dqm20OyR7NMVVnZdf5DF/gjjaCd
-	 KHEx79tE9dtTP0ybbVgWeSc/xPVy/cJ0EtXollIMrX5lI63OLE+Up6klxQ5n3KhIQv+yB
-	 R+CqqOnGlAMLReCgtvEqv5VONwx5kDLNeX+LTAhfA0Vy9lpGuilJwRCApWhWEOjUuvq9x
-	 w5Wt1GMp8kkXWW4E7W2SLng0NMpwh/ce7FQ1upSg8PCV60GUAqCfKvGoP2bPvwYHAFA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795511593;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=285F8rEC74nMX2FnbEwp9EQ7OPlK3L+w9+JpHnSwueo=;
+	b=JYEw4fzk+khnxBicvcAqDQQegGbgTB+MGRnNfA3RNEGfC/dQCbSwluDMuOq9wfTRAS/0
+	 VTsVA7F9nQ+FDUr3dx98PxB+UXKunpeVxO6ISouQQiN5edQU+I2rB9wR8P9A59WIdwn0g
+	 do/EgqglI/KKCc58Z0lmiAe/uZrINC4al1fggEYxrDfGmsk0oraunVz/orwxV8kFmUSDx
+	 03jkmhoXISy5fbsu605mepFeJj3BfRrGBbK+aG9IGwdM4XPc6FATSkSfmrM52q/k5D3nZ
+	 tsD1tdyqXEa5BpK2xMfk1o0yFYd6oAzhmlHZMrg2wNfb8RjLM619Y6peNsUfV+ScBtQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=kylinos.cn;
-	arc=none smtp.remote-ip=124.126.103.232
-Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CrvWKLZT;
+	arc=none smtp.remote-ip=209.85.221.42
+Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 976B3606A31E;
-	Tue, 24 Nov 2026 09:12:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 976B3606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
-X-UUID: 367e1d3ee7e711f19a56ed5b684f684d-20261124
-X-CTIC-Tags:
-	HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CC_NO_NAME, HR_CTE_8B
-	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME
-	HR_SJ_DIGIT_LEN, HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM
-	HR_SJ_PHRASE, HR_SJ_PHRASE_LEN, HR_SJ_WS, HR_TO_COUNT, HR_TO_DOMAIN_COUNT
-	HR_TO_NAME, SA_EXISTED, SN_EXISTED, SPF_NOPASS, DKIM_NOPASS
-	DMARC_NOPASS, CIE_BAD, CIE_GOOD, CIE_GOOD_SPF, GTI_FG_BS
-	GTI_RG_INFO, GTI_C_BU, AMN_GOOD, ABX_MISS_RDNS
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:4618be1b-9be4-436e-957c-fb218c8e3194,IP:10,
-	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:10
-X-CID-INFO: VERSION:1.3.19,REQID:4618be1b-9be4-436e-957c-fb218c8e3194,IP:10,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:10
-X-CID-META: VersionHash:7db8b62,CLOUDID:be6408c1bbafe87a0f16f7bc689fee3f,BulkI
-	D:261124171249ZIC22BAL,BulkQuantity:0,SF:17|19|38|66|78|81|82|102|127|153|
-	850|865|898|915,TC:nil,Content:0|15|50|99,EDM:-3,IP:-2,URL:0,File:nil,RT:n
-	il,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0
-	,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FAS,TF_CID_SPAM_FSD
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 367e1d3ee7e711f19a56ed5b684f684d-20261124
-X-User: maguicai@kylinos.cn
-Received: from localhost.localdomain [(36.106.123.207)] by mailgw.kylinos.cn
-	(envelope-from <maguicai@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1444677330; Tue, 24 Nov 2026 17:12:46 +0800
-From: Guicai Ma <maguicai@kylinos.cn>
-To: David Howells <dhowells@redhat.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>
-Cc: Paul Moore <paul@paul-moore.com>,
-	James Morris <jmorris@namei.org>,
-	"Serge E . Hallyn" <serge@hallyn.com>,
-	keyrings@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5015B606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:13:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5015B606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CrvWKLZT
+Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-48dfc0421d9so4042781f8f.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:13:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795511592; x=1796116392; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=285F8rEC74nMX2FnbEwp9EQ7OPlK3L+w9+JpHnSwueo=;
+        b=CrvWKLZTMDbHqKh/5iyDZV9KoZQJgBoBEFMe6sOBH30S6/GroRWa4jAP/zBH5eU/JZ
+         SkwQQITeMoXrcZGsPuZFKxcXu0abYnZaKrObFXphGm0+56lDdEboBu88TqNT0N4m+66m
+         mkZlHi7HOFpztGROVA3zbQU4P37H5hAD9Bb7bYOCbu51IYbOOWjORO8rdhJjcxlrBsVt
+         u1sAbqtlznvoxYKgxdlud2+UlTnlTfPVmMobd+0d85uDFln7TbY36Mku+mGT7gpwuxSq
+         uOyaXspgVNG14PrMIQpconkRdZzFqnNh7JlFqblXOF1AGHcry1FONzMcWs0G2zyU6E50
+         KLDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795511592; x=1796116392;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=285F8rEC74nMX2FnbEwp9EQ7OPlK3L+w9+JpHnSwueo=;
+        b=XxeR8i4rJV2v/nCvuNP2A+wSt5yhUhsW6YcIMk2iR3bqLgu6EoU/ZVBDLaZsC43Bhk
+         eSS3XiESjW28w68jbDnkLPFnagE1Xg7mCI3AyOXB3iCXtcdx9c5VStsoPlNSVEkjXZFv
+         GRi8HwE9eexeexfvbGt7lX6pWhsd15/9tQTwtu+NTwhfXiGgEYy1TFu+3ocWqGx7yjpn
+         uUv4bjQsP0k2T/VNCdDrvb6qumrMGFKZm9AcZ1AndwbZrSUqjcKACNMGiOEtQXSIP7uC
+         pKftQYDjZTYc4l02j+RU5Aq8ZOOEEQ5wsG77vhVqEMKsjRO6TPx82SIp9Mt1G0jJxOHu
+         OS3g==
+X-Forwarded-Encrypted: i=1; AL+hErH0JBl4/rc3Moq96MhMscUS1ziuXskMFUwi/D/hrAp5R6uqbE88QtJPq2pVCKJYeX50mwMU22EUVWp5kOs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/MJi/ifKwlPG/QyV72xoOctGtM0/Key/rHZOxhDLLmtpIHjuG5
+	zAa3t57P3PaTVyILChVlePYyBYa4urGbqgEVvo5fusXbSbOaeBoVsZwV
+X-Gm-Gg: AZFdTZerZlfcHvhEq7XpvCncYaihm743rlV0K+sKUQZ0Hz9PKjFuQekWp5dhi8IfZ67
+	vgr55u4zf36nxYV/ivPay3JsekJjwt8w7/x2ozWcmQH5HbcPCjwnzW30PvnKXM7CAXoKsUKXlC7
+	5wApa1N20z5ECXmPk3u21wZZNEjrx20Q5CDBP+7DWbiUAPu2j+nTZP7msLuiCQQSg8T3hdlYc5j
+	GGFUsSyqNhT1tive3Ur8XC4LxGvjrsRSi6n/xPZQ4PjwD+1pV+l556G7Afs9euQhgh2NRFjblGx
+	//x3C3akG187SYNHo5FeR91DFF2KHY/FUMnxcmyk41ywatNsaelRr/zysFAFKN+NxO6eIn28y6F
+	jv+8ICvRhPkEIkS7A0KxZI7cmZeWdJe0qU5zn3GAakAlaBBGRdfSWr0q+k4drtOmLIu1OTqsDDo
+	WVjdOw2B8iLjnWdDiQMHC5YnHMKchzTykREcp0jtHpncHH/pPJ+mKuZk1XSYnBdmn1d+udeqDO6
+	+4i1oDyGxShiCna+pLQwhVIr/bdmoti+0EGGIquba5qRkWRlgoYCMp3dYJn2RF61fPrARu8kXeq
+	fFwo4PNWZWwrPCveYDReJmRRBHovZGo=
+X-Received: by 2002:a05:6000:4705:b0:4a9:3fba:5eef with SMTP id ffacd0b85a97d-4abb5db6cd8mr25609288f8f.24.1795511591322;
+        Tue, 24 Nov 2026 01:13:11 -0800 (PST)
+Received: from thinkpad.lan ([2a06:c701:4770:2100:9c14:8a7c:ec54:34])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa397asm27559136f8f.48.2026.11.24.01.13.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 01:13:10 -0800 (PST)
+From: Avi Weiss <thnkslprpt@gmail.com>
+To: mhiramat@kernel.org,
+	oleg@redhat.com,
+	peterz@infradead.org
+Cc: andrii@kernel.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Guicai Ma <maguicai@kylinos.cn>
-Subject: [PATCH v2] KEYS: Protect key instantiation and rejection against type removal
-Date: Tue, 24 Nov 2026 04:12:43 -0500
-Message-ID: <20261124091243.1019217-1-maguicai@kylinos.cn>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261124053303.940216-1-maguicai@kylinos.cn>
-References: <20261124053303.940216-1-maguicai@kylinos.cn>
+	Avi Weiss <thnkslprpt@gmail.com>
+Subject: [PATCH v2] uprobes: avoid postponing return-probe SRCU lease expiration
+Date: Tue, 24 Nov 2026 11:12:52 +0200
+Message-ID: <20261124091252.567037-1-thnkslprpt@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,354 +103,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-key_instantiate_and_link() reads key->type->def_datalen and ->preparse,
-passes key->type to restrict_link->check(), and invokes ->instantiate()
-and ->free_preparse() without synchronizing against key type removal.
-A reference on the key keeps the key object alive, but does not pin the
-module that provides its type.
+prepare_uretprobe() reprograms the per-task return-instance timer on every
+successfully installed return probe. If a traced outer function remains
+active while nested traced calls arrive more frequently than the timeout,
+the shared timer keeps moving forward and the outer instance can hold its
+SRCU read-side lease indefinitely. This delays unrelated synchronous uprobe
+unregister operations that wait for the same SRCU grace period.
 
-unregister_key_type() removes the type from key_types_list and waits for
-key_garbage_collector() to run three passes: pass 1 sets KEY_FLAG_DEAD
-and clears key->perm, pass 2 unlinks dead keys from keyrings, and pass 3
-takes key->sem for writing, retypes key->type to &key_type_dead, and
-destroys the payload. A key still under construction stays in
-KEY_IS_UNINSTANTIATED with a valid authorisation key, so an upcall
-helper calling KEYCTL_INSTANTIATE after pass 3 reaches
-__key_instantiate_and_link() and jumps to key_type_dead.instantiate,
-which is NULL:
+Keep the first pending expiry by arming the per-task timer only when it is
+not pending. prepare_uretprobe() is the only rearming producer for the
+current task's timer. Order return-instance publication before the pending
+check, and order the timer core's detach before the callback reads the
+return-instance list. These full barriers prevent both sides from missing
+an instance at the expiry boundary.
 
-  Unable to handle kernel NULL pointer dereference at
-  virtual address 0000000000000000
-  Internal error: Oops: 0000000086000006 [#1] SMP
-  pc : 0x0
-  lr : __key_instantiate_and_link+0xb8/0x2f8
-  Call trace:
-   0x0 (P)
-   key_instantiate_and_link+0x2e8/0x36c
-   keyctl_instantiate_key_common+0x1cc/0x338
-   keyctl_instantiate_key+0xbc/0x120
-   __arm64_sys_keyctl+0x218/0x3f0
-
-If the module unloads while ->preparse() or ->instantiate() is running,
-execution can also return into freed module text or skip
-->free_preparse(). While the request_key() syscall holds key_types_sem
-across the upcall, in-kernel request_key() callers do not, so
-unregister_key_type() can run before KEYCTL_INSTANTIATE or
-KEYCTL_REJECT.
-
-key_reject_and_link() shares the same window: it links the key into
-@keyring and calls key_set_expiry() (which reads key->type->flags)
-without checking KEY_FLAG_DEAD. Linking a dead key between GC pass 2 and
-pass 3 leaves it in the keyring's assoc_array while pass 3 overwrites
-key->type (which aliases key->index_key.type) in place.
-
-Neither key->sem nor key_types_sem can be taken here: holding key->sem
-across __key_link_lock() and __key_instantiate_and_link() inverts lock
-order against encrypted_instantiate() (which locks the master key's
-semaphore under keyring->sem and key_construction_mutex), and
-key_instantiate_and_link() is already called with key_types_sem held for
-reading (e.g. from request_key_auth_new()).
-
-Add key_type_srcu and call synchronize_srcu(&key_type_srcu) at the end
-of GC pass 1 (KEY_GC_REAPING_DEAD_1) whenever dead keys were marked.
-SRCU rather than RCU because ->preparse() and ->instantiate() may sleep.
-Hold key_type_srcu across the full body of key_instantiate_and_link()
-and key_reject_and_link() and check KEY_FLAG_DEAD:
-
-- Callers that observe !KEY_FLAG_DEAD finish all key->type accesses and
-  any keyring linking before pass 2 unlinks dead keys and pass 3 retypes
-  them to key_type_dead.
-- Callers entering after synchronize_srcu() observe KEY_FLAG_DEAD:
-  key_instantiate_and_link() returns -EKEYREVOKED (matching
-  key_validate()), and key_reject_and_link() skips linking (returning
-  -EKEYREVOKED if @keyring was given) and key_set_expiry() while still
-  completing negative instantiation so waiters wake up and @authkey is
-  invalidated.
-
-Also return -EOPNOTSUPP in key_instantiate_and_link() if a live key type
-does not provide ->instantiate().
-
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guicai Ma <maguicai@kylinos.cn>
+Fixes: dd1a7567784e ("uprobes: SRCU-protect uretprobe lifetime (with timeout)")
+Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
 ---
-Changes since v1:
-- Replace down_read(&key->sem) with a dedicated SRCU (key_type_srcu)
-  synchronized at the end of GC pass 1, avoiding the ABBA lock inversion
-  with encrypted_instantiate() and avoiding locking key->sem on dead
-  modular keys whose lockdep class was freed on module unload.
-- Revert the down_write_nested(&keyring->sem, 1) change in
-  security/keys/keyring.c, which is no longer needed.
-- Check KEY_FLAG_DEAD (returning -EKEYREVOKED) in
-  key_instantiate_and_link() and protect key_reject_and_link() under the
-  same SRCU so dead keys are not linked between GC pass 2 and pass 3 and
-  key_set_expiry() does not race with type removal.
+v2:
+ - use timer_pending() and add_timer() for the per-task single producer
+ - explain the actual store/load ordering for the full barriers
 
-Testing (7.4.0-rc3 arm64 KVM, KASAN + lockdep + CONFIG_ENCRYPTED_KEYS=y):
-- Deterministic rmmod before KEYCTL_INSTANTIATE (ringid=0 and session
-  keyring): returns -EKEYREVOKED with 0 lockdep unlock-imbalance or
-  KASAN warnings (unpatched Oopses at pc=0).
-- KEYCTL_REJECT on a dead key: ringid=0 returns 0, ringid=session
-  returns -EKEYREVOKED without linking into the keyring; request_key()
-  waiter wakes up with -ENOKEY and no WARN_ON.
-- Instantiating a user key via request_key() upcall followed by
-  add_key("encrypted", ..., "load ..."): passes with 0 lockdep warnings.
-- Nested keyring creation and 200 concurrent instantiate/reject vs rmmod
-  rounds with jitter: 0 errors, debug_locks remains 1.
+ kernel/events/uprobes.c | 18 +++++++++++++++++-
+ 1 file changed, 17 insertions(+), 1 deletion(-)
 
- security/keys/gc.c       |  13 +++++
- security/keys/internal.h |   2 +
- security/keys/key.c      | 108 +++++++++++++++++++++++++++++----------
- 3 files changed, 95 insertions(+), 28 deletions(-)
-
-diff --git a/security/keys/gc.c b/security/keys/gc.c
-index eda445f815d4..61cb2b9a7aaf 100644
---- a/security/keys/gc.c
-+++ b/security/keys/gc.c
-@@ -35,6 +35,8 @@ static unsigned long key_gc_flags;
- #define KEY_GC_REAP_KEYTYPE	1	/* A keytype is being unregistered */
- #define KEY_GC_REAPING_KEYTYPE	2	/* Cleared when keytype reaped */
- 
-+DEFINE_SRCU(key_type_srcu);
-+
- 
- /*
-  * Any key whose type gets unregistered will be re-typed to this if it can't be
-@@ -286,6 +288,17 @@ static void key_garbage_collector(struct work_struct *work)
- 		key_schedule_gc(new_timer);
- 	}
- 
-+	if (unlikely((gc_state & KEY_GC_REAPING_DEAD_1) &&
-+		     (gc_state & KEY_GC_FOUND_DEAD_KEY))) {
-+		/* Wait for any in-flight key_instantiate_and_link() or
-+		 * key_reject_and_link() calls that did not observe
-+		 * KEY_FLAG_DEAD before pass 2 unlinks dead keys from keyrings
-+		 * and pass 3 retypes them to key_type_dead.
-+		 */
-+		kdebug("gc dead type sync");
-+		synchronize_srcu(&key_type_srcu);
-+	}
-+
- 	if (unlikely(gc_state & KEY_GC_REAPING_DEAD_2) ||
- 	    !list_empty(&graveyard)) {
- 		/* Make sure that all pending keyring payload destructions are
-diff --git a/security/keys/internal.h b/security/keys/internal.h
-index b7b622bc36a1..73d71de274c2 100644
---- a/security/keys/internal.h
-+++ b/security/keys/internal.h
-@@ -19,6 +19,7 @@
- #include <linux/compat.h>
- #include <linux/mm.h>
- #include <linux/vmalloc.h>
-+#include <linux/srcu.h>
- 
- struct iovec;
- 
-@@ -86,6 +87,7 @@ extern struct kmem_cache *key_jar;
- extern struct rb_root key_serial_tree;
- extern spinlock_t key_serial_lock;
- extern struct mutex key_construction_mutex;
-+extern struct srcu_struct key_type_srcu;
- extern wait_queue_head_t request_key_conswq;
- 
- extern void key_set_index_key(struct keyring_index_key *index_key);
-diff --git a/security/keys/key.c b/security/keys/key.c
-index 3f1f0fc13710..9e51cb2b1d34 100644
---- a/security/keys/key.c
-+++ b/security/keys/key.c
-@@ -422,9 +422,10 @@ static void mark_key_instantiated(struct key *key, int reject_error)
- 
- /*
-  * Instantiate a key and link it into the target keyring atomically.  Must be
-- * called with the target keyring's semaphore writelocked.  The target key's
-- * semaphore need not be locked as instantiation is serialised by
-- * key_construction_mutex.
-+ * called with the target keyring's semaphore writelocked.  The caller must
-+ * hold key_type_srcu (after checking !KEY_FLAG_DEAD) or key_types_sem for
-+ * reading via key_type_lookup(), so the type cannot be retyped to
-+ * key_type_dead or its module unloaded while its methods run.
-  */
- static int __key_instantiate_and_link(struct key *key,
- 				      struct key_preparsed_payload *prep,
-@@ -496,7 +497,9 @@ static int __key_instantiate_and_link(struct key *key,
-  *
-  * If successful, 0 is returned, the authorisation token is revoked and anyone
-  * waiting for the key is woken up.  If the key was already instantiated,
-- * -EBUSY will be returned.
-+ * -EBUSY will be returned.  If the key's type has been removed, -EKEYREVOKED
-+ * will be returned.  If the key type does not provide an instantiate method,
-+ * -EOPNOTSUPP will be returned.
-  */
- int key_instantiate_and_link(struct key *key,
- 			     const void *data,
-@@ -506,7 +509,28 @@ int key_instantiate_and_link(struct key *key,
- {
- 	struct key_preparsed_payload prep;
- 	struct assoc_array_edit *edit = NULL;
--	int ret;
-+	int ret, srcu_idx;
-+
-+	/*
-+	 * A reference on the key does not pin the module that provides its
-+	 * type.  Hold key_type_srcu across every use of key->type
-+	 * (def_datalen, preparse, restrict_link->check, instantiate and
-+	 * free_preparse) and across linking into @keyring.  Pass 1 of
-+	 * key_garbage_collector() sets KEY_FLAG_DEAD and waits for
-+	 * synchronize_srcu(&key_type_srcu) before pass 2 unlinks dead keys
-+	 * and pass 3 retypes them to key_type_dead.
-+	 */
-+	srcu_idx = srcu_read_lock(&key_type_srcu);
-+
-+	if (test_bit(KEY_FLAG_DEAD, &key->flags)) {
-+		ret = -EKEYREVOKED;
-+		goto out;
-+	}
-+
-+	if (!key->type->instantiate) {
-+		ret = -EOPNOTSUPP;
-+		goto out;
-+	}
- 
- 	memset(&prep, 0, sizeof(prep));
- 	prep.orig_description = key->description;
-@@ -517,17 +541,17 @@ int key_instantiate_and_link(struct key *key,
- 	if (key->type->preparse) {
- 		ret = key->type->preparse(&prep);
- 		if (ret < 0)
--			goto error;
-+			goto out_free_preparse;
- 	}
- 
- 	if (keyring) {
- 		ret = __key_link_lock(keyring, &key->index_key);
- 		if (ret < 0)
--			goto error;
-+			goto out_free_preparse;
- 
- 		ret = __key_link_begin(keyring, &key->index_key, &edit);
- 		if (ret < 0)
--			goto error_link_end;
-+			goto out_link_end;
- 
- 		if (keyring->restrict_link && keyring->restrict_link->check) {
- 			struct key_restriction *keyres = keyring->restrict_link;
-@@ -535,19 +559,22 @@ int key_instantiate_and_link(struct key *key,
- 			ret = keyres->check(keyring, key->type, &prep.payload,
- 					    keyres->key);
- 			if (ret < 0)
--				goto error_link_end;
-+				goto out_link_end;
- 		}
- 	}
- 
- 	ret = __key_instantiate_and_link(key, &prep, keyring, authkey, &edit);
- 
--error_link_end:
-+out_link_end:
- 	if (keyring)
- 		__key_link_end(keyring, &key->index_key, edit);
- 
--error:
-+out_free_preparse:
- 	if (key->type->preparse)
- 		key->type->free_preparse(&prep);
-+
-+out:
-+	srcu_read_unlock(&key_type_srcu, srcu_idx);
- 	return ret;
- }
- 
-@@ -581,7 +608,8 @@ int key_reject_and_link(struct key *key,
- 			struct key *authkey)
- {
- 	struct assoc_array_edit *edit = NULL;
--	int ret, awaken, link_ret = 0;
-+	int ret, awaken, link_ret = 0, srcu_idx;
-+	bool dead;
- 
- 	key_check(key);
- 	key_check(keyring);
-@@ -589,22 +617,42 @@ int key_reject_and_link(struct key *key,
- 	awaken = 0;
- 	ret = -EBUSY;
+diff --git a/kernel/events/uprobes.c b/kernel/events/uprobes.c
+index caf444762a27..838e0080ae1b 100644
+--- a/kernel/events/uprobes.c
++++ b/kernel/events/uprobes.c
+@@ -2052,6 +2052,13 @@ static void ri_timer(struct timer_list *timer)
+ 	 */
+ 	raw_write_seqcount_begin(&utask->ri_seqcount);
  
 +	/*
-+	 * Hold key_type_srcu across linking into @keyring and
-+	 * key_set_expiry() (which reads key->type->flags).  If the key is
-+	 * already marked dead, skip linking and expiry but still complete
-+	 * negative instantiation so waiters are woken and @authkey is
-+	 * invalidated.
++	 * expire_timers() calls detach_timer() before invoking us.
++	 * Order its pending-state store before loading return_instances.
++	 * A publisher that saw the timer pending must be visible here.
 +	 */
-+	srcu_idx = srcu_read_lock(&key_type_srcu);
-+	dead = test_bit(KEY_FLAG_DEAD, &key->flags);
++	smp_mb();
 +
- 	if (keyring) {
--		link_ret = __key_link_lock(keyring, &key->index_key);
--		if (link_ret == 0) {
--			/*
--			 * Check the restriction under the keyring semaphore.
--			 * keyring_restrict() installs it while holding the
--			 * semaphore, so testing it beforehand races with a
--			 * concurrent restriction install.
--			 */
--			if (keyring->restrict_link) {
--				__key_link_end(keyring, &key->index_key, edit);
--				return -EPERM;
-+		if (dead) {
-+			link_ret = -EKEYREVOKED;
-+		} else {
-+			link_ret = __key_link_lock(keyring, &key->index_key);
-+			if (link_ret == 0) {
-+				/*
-+				 * Check the restriction under the keyring
-+				 * semaphore. keyring_restrict() installs it
-+				 * while holding the semaphore, so testing it
-+				 * beforehand races with a concurrent
-+				 * restriction install.
-+				 */
-+				if (keyring->restrict_link) {
-+					__key_link_end(keyring, &key->index_key,
-+						       edit);
-+					ret = -EPERM;
-+					goto out;
-+				}
-+				link_ret = __key_link_begin(keyring,
-+							    &key->index_key,
-+							    &edit);
-+				if (link_ret < 0)
-+					__key_link_end(keyring, &key->index_key,
-+						       edit);
- 			}
--			link_ret = __key_link_begin(keyring, &key->index_key, &edit);
--			if (link_ret < 0)
--				__key_link_end(keyring, &key->index_key, edit);
- 		}
- 	}
+ 	for_each_ret_instance_rcu(ri, utask->return_instances)
+ 		hprobe_expire(&ri->hprobe, false);
  
-@@ -616,7 +664,8 @@ int key_reject_and_link(struct key *key,
- 		atomic_inc(&key->user->nikeys);
- 		mark_key_instantiated(key, -error);
- 		notify_key(key, NOTIFY_KEY_INSTANTIATED, -error);
--		key_set_expiry(key, ktime_get_real_seconds() + timeout);
-+		if (!dead)
-+			key_set_expiry(key, ktime_get_real_seconds() + timeout);
+@@ -2304,7 +2311,16 @@ static void prepare_uretprobe(struct uprobe *uprobe, struct pt_regs *regs,
+ 	ri->next = utask->return_instances;
+ 	rcu_assign_pointer(utask->return_instances, ri);
  
- 		if (test_and_clear_bit(KEY_FLAG_USER_CONSTRUCT, &key->flags))
- 			awaken = 1;
-@@ -641,7 +690,10 @@ int key_reject_and_link(struct key *key,
- 	if (awaken)
- 		wake_up_bit(&key->flags, KEY_FLAG_USER_CONSTRUCT);
+-	mod_timer(&utask->ri_timer, jiffies + RI_TIMER_PERIOD);
++	/*
++	 * Order the return-instance store before timer_pending() loads
++	 * the pending state. Either the callback sees this instance or
++	 * we rearm the timer.
++	 */
++	smp_mb();
++	if (!timer_pending(&utask->ri_timer)) {
++		utask->ri_timer.expires = jiffies + RI_TIMER_PERIOD;
++		add_timer(&utask->ri_timer);
++	}
  
--	return ret == 0 ? link_ret : ret;
-+	ret = ret == 0 ? link_ret : ret;
-+out:
-+	srcu_read_unlock(&key_type_srcu, srcu_idx);
-+	return ret;
- }
- EXPORT_SYMBOL(key_reject_and_link);
- 
--- 
-2.47.3
+ 	return;
+ free:
 
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
