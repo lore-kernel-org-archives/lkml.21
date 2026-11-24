@@ -1,65 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795535890;
-	b=QA2EpJ80AB2IPRvLOFkn8FprVPo/PTxO4pRwbfZY1XWsLlcjnp3H4GJYhUGuhsiKvOlH
-	 LVyDTr/svIY/WAdIYaF9TWL5NtBAwQCc9jl6GgFCTx4LoFfZnoVnq8lc2iJ7OUd3Le0ad
-	 VQGpONBl3o+z638K4DV+48n8EhgIHWEvkqTUodlXsXTSEB61Q9pJ2syr0Pbr+JQbydTAx
-	 qqGNxg1ztHFyI+QeCw1BzpA4YJlT3GyV3BwCLWMacAUZuvQcdeovIrWLL2NlIFSuwynDh
-	 8Q7jJhjMdt4uiOyNhZYgFtIwnjcYSkF4xTQ/2caQoHImI18B41SUbJoGJ4U0DeGINLg==
+	t=1795535914;
+	b=bkj0ur0cph+PID/ARW5Z10iBavIngUDYgnX6cK4splcPcRH0ik557mrtRKA3gjs8gENG
+	 nHdlvEj1bJBDZMz1igH4OzF+BHsRQOyDXtXz34VZcjYmwQHQYoskIUE2tvVSNB6nawgFn
+	 nC58iOCubiQynlC5RMrOikBG+S20ORA/+dp9TUdPOKYqDTSFQpwFRcBqoEpaVH7ryOj11
+	 /1KKCWGVJ5MY0uGiJu/qyZljtnn3XgQxcZx92aKa9BVRvoDNgd20pbwGdkaYWlnCGnwF8
+	 4uMaRp8nXPJrMS9FSwMs3vzf6swR48wj/c7q3HKkRziJEeXm56vgkUlDIvQQto3RXIA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795535890;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=pIDEOjbq7+ZKjdjmkL/WuaSrdrNA5P329n5oCOdc1mI=;
-	b=wM5DGx1qzCfjL8pix9YUGl3YqCwwBGuXijyOAFSQaGvlyhjdTztP1a3CIA2XhvV5PgJj
-	 AeNdXippye5hBjZEZANd9dUVFCxZCMdgyrxV96e0L71PJVMJZtRARbVU2e10DU6MTssvC
-	 ek/0zi+RdIhh9J/2qljQRTolWSXVwxCf9kbRED1mHgreWjbzh94RXBwvTECZCDZ0KYP8U
-	 4+vG8HN7VqRQZ5KyBoyZUQFcrsnqU2qXCgiEd6NaKNJKX7g0KRPToTOnlPT+c9WLh17Gy
-	 f7xXWuu6DAMQDaS/eSZ5V2pwyfxqwzJ7TPspyv5EGSDhwWrP7DQnhn2JUXktE3pJuyA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535914;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=OGW1pesUgBXQRVvPeLaAto75CWDUmEXOH2vREiIu1hI=;
+	b=KFpzeBzMjC8FYk5nmCWRZqHGzwER6dVMjKO/kWtdejEmjJ6J16F8Vj5bQvg6yiq5SKKt
+	 /8PmgWknf86vJlamblvvUzLUbfB0PlaP3YLag/oHPa+fY8OGAaR/2gr8tq/N9Ky8fRMnQ
+	 pArEyq8QtVQ/Q402Zt8/oPbK1At6fARt2uyc0dYIIN49vwewHotN+vNKOJ5AMLIzahhAS
+	 9WOKKyFiQC0UFvOpCZI5+SvvIFSW4+fuz4HBC88DH4evNTTeQfsWS7gYI7vzvYBvHsM1k
+	 LU/h0Wel/L/pUXUQw3y4t0zrHN5V9vhXjnGCEon74DaFRxsY13Kd0PVx9DUlvAuvmqA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WzV0GS8z;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cPkqEExz;
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F392606A31E;
-	Tue, 24 Nov 2026 15:58:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3AC7606A31E;
+	Tue, 24 Nov 2026 15:58:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3AC7606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WzV0GS8z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D68651F000D0;
-	Tue, 24 Nov 2026 15:58:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795535889;
-	bh=pIDEOjbq7+ZKjdjmkL/WuaSrdrNA5P329n5oCOdc1mI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WzV0GS8zHavb1OFv0CO1J+MIVGhMkE8wteCr9YvLcQ9aNqWJv8gqMkrMMPRSKkymt
-	 BEkdel8+bZ8C3ox0N6XRuftLsrJF/RuPn9hdn6iRTeemIUKiSzp293OrBxf1TjiN9g
-	 rWx2ZkO1flwawt/+BdqA0vsQeuUyIs8R/mzMjr2uIEMBofdv2mZXAGaErHrZVrku0G
-	 6QV6jjJ1iYqHdqV6VUUF7OA/cAEmRb0W38AhpynJbExx3tVdVmK+g9BhloPm/ABYYW
-	 0w+9rsA2vIlSz2/CJ9ie0OPwJEk2Z5wpOO+JSPiUbTrTwK1vBoKymKPjPrTn/qHuEn
-	 c9xRac28REvvA==
-Date: Tue, 24 Nov 2026 15:58:00 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Suren Baghdasaryan <surenb@google.com>
-Cc: Pedro Falcato <pfalcato@suse.de>, Ingo Molnar <mingo@redhat.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
-	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
-	Kees Cook <kees@kernel.org>, David Hildenbrand <david@kernel.org>, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
-	Jann Horn <jannh@google.com>, Puranjay Mohan <puranjay@kernel.org>, 
-	Alexei Starovoitov <ast@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org, Chris Mason <mason@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH] mm/vma: drop mm asynchronously in vma_start_read()
-Message-ID: <awWz3nc_b8x3mIXq@gremlin>
-References: <20261124-vma-read-lock-mmdrop-async-v1-1-257f99f551de@kernel.org>
- <awWLCZ-jBjSD7V3M@pedro-suse.tail5790ac.ts.net>
- <CAJuCfpGk6eYK43Unxo+O4ML5=GM_siZ9owp6oa9fO0ipZXVg-g@mail.gmail.com>
- <CAJuCfpEd1rz3P7fB7W_mHkyzbpq9TscRE+QNwvHdYME=WJj6cw@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cPkqEExz
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795535914; x=1827071914;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=u2cm4iCPSe9XdaKEcS9x2ZNPfXRScR7FSXj0COT09zI=;
+  b=cPkqEExzLtqPiRPPXmYWHwjwOuEphWhQP8TrBE30LyqZt3oDR/qNSWvt
+   onMJ9GZBXcn0pTQ2pi3DfLIMTsVvkSdpGJif1gPoY9lz+lSr1A38zQkzn
+   ksh1xZFD3QA4WnSfzd2OmSAEjSHACWc9fhJ2IaozdCGT8gB10DkqAH84N
+   V3NTBJaDrYlUwIL3kBhHjJG7Ejae/L59FDopTLkrGC54xvDWh9nTpzOw9
+   78ThUaW66lxg8npaeq7vJXSqiVPibQIytDG1o0sFMjBNAOB/VYocFc5Lw
+   FfhgyK3uepYrQNtH3X9gY69BfXFLhyLbfDfT4IvHWZ2QLLI+KJCVbxjE+
+   A==;
+X-CSE-ConnectionGUID: UYjcsCQnTMuP5bg4gY1ENg==
+X-CSE-MsgGUID: hUosqgtwTIe4l9ghTrTeGg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4441248"
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="4441248"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 07:58:34 -0800
+X-CSE-ConnectionGUID: 0Htf26JWQYCdoBHrJ102Wg==
+X-CSE-MsgGUID: dXHu2Wf3RyGLbGT7u9pJkQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="11577700"
+Received: from sghuge-mobl2.amr.corp.intel.com (HELO [10.125.110.20]) ([10.125.110.20])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 07:58:32 -0800
+Message-ID: <2dd40d0d-2e1f-4a7f-ba65-2cceccd82028@intel.com>
+Date: Tue, 24 Nov 2026 07:58:31 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,17 +73,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAJuCfpEd1rz3P7fB7W_mHkyzbpq9TscRE+QNwvHdYME=WJj6cw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 0/3] x86/e820: Ignore memmap= and mem= in confidential
+ guests
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Pankaj Gupta <pankaj.gupta@amd.com>, Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H . Peter Anvin" <hpa@zytor.com>, Tom Lendacky <thomas.lendacky@amd.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Kiryl Shutsemau <kas@kernel.org>,
+ Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, linux-efi@vger.kernel.org,
+ Pankaj.gupta.linux@gmail.com
+References: <20261124133241.221719-1-pankaj.gupta@amd.com>
+ <e08f2321-749e-40f6-9ed4-3dba8e1625ba@intel.com>
+ <awWzrkLxfQ2_ODKe@kernel.org>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <awWzrkLxfQ2_ODKe@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 07:51:42AM -0800, Suren Baghdasaryan wrote:
-> Actually, VMAs are allocated from a SLAB_TYPESAFE_BY_RCU slub. With
-> that RCU unlocking move you don't need other_mm copy and the comment
-> that comes with it. VMA won't be freed until RCU lock is dropped.
+On 11/24/26 07:56, Mike Rapoport wrote:
+> On Tue, Nov 24, 2026 at 07:09:42AM -0800, Dave Hansen wrote:
+>> On 11/24/26 05:32, Pankaj Gupta wrote:
+>>> In a confidential guest (SEV-SNP, TDX) the EFI stub builds the unaccepted
+>>> memory bitmap before the command line is parsed. memmap= and mem= edit
+>>> e820_table only afterwards.
+>> memmap= and mem= are debugging tools, right? 
+> I wish they were 🙂
+> But AFAIU they are used to carve out "pmem" or PFN-mapped memory.
 
-Yeah but they can be reassigned? They won't be _freed_ until a grace period but
-they can go back to the slab and then allocated elsewhere  right?
+I've used them that way for development, but production pmem systems
+always had persistent memory in their BIOS-provided memory maps.
 
---
-Cheers, Lorenzo
+How are folks depending on these in production in confidential guests?
