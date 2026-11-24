@@ -1,51 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795505270;
-	b=i3YNqqGT2Iu94qbVMYdjx0G0TY9Kf5HhDPdNTconT1dwk79r4J1j9Q2jwmsYhNLNSo/R
-	 VdGD0LENHqtnYw2/NcWQgZDZFemdmQHAK2KthacJ1PjCplU+cXObwxQ/nLYpqNy0TEA3m
-	 dUOwI4xG2tS2gVbsjNb1TOpvPONAUox+vKZ2eMSabZbQ3f9Z2fkZu6ifRuQ1A4iNRzubC
-	 UeH1rrmyNZMY91HccC4BrNH3dPfCLyh+5gaSlXk2L+dkFyISpz7kcTaJJZFxexGbmwUcy
-	 ubmGlpTBrkMcbJuLMiJTp2mKLieaiHYW14hDfW2YC3M5iNEE4WGa8ycrKb5n3SAVmxA==
+	t=1795505295;
+	b=AGKTKWjDt0+dLJ7X9lzmjnQR4jUcm+JdUat8zd/GpCcnMUNVefsSyutpDShBUzZAbeoQ
+	 5UZtbGmbaA4HaZpHFpoH0kg4OHTYbT/IJhmtx/QCESyn/Vt6UVq2QmfCXwsFEiS0DsAiC
+	 SXzoSMHI7ob4xVOU+nI9SS6LOqrYBExzjeSNf2LmEVNg26rTrSy+9AchHBGqYXkwVi522
+	 sNv+NFzgnfMfMYyA6nGBzQGKA9Sq5jcv/O+KPXsv5/9UWahhfT8l5ZRGZWTUDIGH9f/a2
+	 o2uPUgpnrjXhqY59Vi/yvdMefEuRkFS3F28+RZCS+dgP1A8tc9frk0iSaAUFZn9F4sg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795505270;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795505295;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=Jyx/keQNI3yIKwQG0ayazeVW4ab3XGMg9ymZtuz4VZA=;
-	b=uGleZCGnV5bDlnnB1tTS9+4m9qKUq7GFLjsSODMTyxRkAk5xEVTMUvw+sxlD9nt92Hn5
-	 V6wjFB8dt7iVDCJG8Mf2sUwFQTG20V63lDCi12jVYVWSVmUZ3kRzuVs649hn3mWAjwaN5
-	 /lzBe8z901kmJilRKsb6kWB+Ch3CLKM2RY02UqrbIDp0TrB86YIq5nNOfR5Vi4qX0B8zQ
-	 FfUhVUSC3/MlylK3+YPiJsHeGx03klsKhkpz3NX19Xp/RqJRUZi2aeaeEI2T/JIh7Owv9
-	 q3VUNvbzj5UDBVp6Kl8qZYrG7sFeWdA/uzLX2FoCu91cN3JrokRCOffo/WNriuGR74Q==
+	bh=66jrq+oJZdf0irrtzpu4akObhjJYRkg//+AlDyPnUv8=;
+	b=BAUlPPvdKhq5l0nqu2JzASZnr89S60TnszAQ0nzG/qH/Qat6qnLUKQ4yYtUTkvN1zcCC
+	 uXSAq43KVrKJtNs+OB2OMnHP5HK/wpi/1cTAflPWN20uocretLv7rcuEx3YJe0FRZcQfX
+	 gn/Q5GANQ+uYUh4mQnncFFCvX986nNqi9dw/UDgHC9HaaKffm6dBXPIAQi5xFViNXz1oT
+	 BBSRrhR1jY4mS9obPckyOpgfongiONkHxoUs9bSfPunOuLDqUQ45GddpNWeKIbgiongNh
+	 FAiisfTQGs3QOYTjcdne+RfyKxAdGxoHe5upDSjewMWKJWcEdFAZbbxcOn9sA3DkO2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=oDgRveHL;
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b="15/CTDVr";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DC1F606A321;
-	Tue, 24 Nov 2026 07:27:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A2DC606A31E;
+	Tue, 24 Nov 2026 07:28:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=oDgRveHL
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 045181F008B2;
-	Tue, 24 Nov 2026 07:27:48 +0000 (UTC)
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=15/CTDVr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03A2A1F000C6;
+	Tue, 24 Nov 2026 07:28:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795505269;
-	bh=Jyx/keQNI3yIKwQG0ayazeVW4ab3XGMg9ymZtuz4VZA=;
+	s=korg; t=1795505294;
+	bh=66jrq+oJZdf0irrtzpu4akObhjJYRkg//+AlDyPnUv8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oDgRveHLl5+DDLP7KUkeS7guQJ6fC2v+4EnGvNSMw2iBjsLYKBHXv9Ce6jXXsMzQy
-	 9kULQVBdYWRiyUS0/mj8Qk+k5FIz2d5c/T+IG7tIshzuFPNM8PuEfnTwW/vExMZDdV
-	 qHidARzxFXPcmIz6H3KL6kWZKqgPLxfBgi/FuorI=
-Date: Tue, 24 Nov 2026 08:27:46 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Ziheng Wei <zihengw03@163.com>
-Cc: Jiaming Fan <fan.jiaming@hotmail.com>, amit@kernel.org, arnd@arndb.de,
-	virtualization@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] virtio_console: drop device reference when DMA
- allocation fails
-Message-ID: <2026112438-juggle-squeamish-22ea@gregkh>
-References: <20261123102321.8605-1-zihengw03@163.com>
- <179550385418.475969.16498839426484137487.zihengw03@163.com>
+	b=15/CTDVrFH2SxtpCRrv/Y947QZufP/g6l3FNki8VHXKH2JrZsWdGUh9UFqvVpCeAw
+	 hMNZRVtFZr52TldkPhxU+uLYGgebjs4LdvlWCSmepZ0tG1wb2COTOQGrI6omSnDRDx
+	 5dcdDsWz/CbpmH4nNWzgEKmsgeSAnK6em+bVALEY=
+Date: Tue, 24 Nov 2026 08:28:11 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Sasha Levin <sashal@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>,
+	linux-phy@lists.infradead.org,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>
+Subject: Re: linux-next: build failure in the final build
+Message-ID: <2026112402-squid-king-c8df@gregkh>
+References: <awR7nSOWkxRm-iP6@sirena.org.uk>
+ <20261123212627.1203724-1-sashal@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,10 +65,20 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <179550385418.475969.16498839426484137487.zihengw03@163.com>
+In-Reply-To: <20261123212627.1203724-1-sashal@kernel.org>
 
-On Tue, Nov 24, 2026 at 07:04:14AM +0000, Ziheng Wei wrote:
-> Yes, you are right. This is the same issue and effectively the same fix
-> as Michail's earlier patch.
+On Mon, Nov 23, 2026 at 04:26:27PM -0500, Sasha Levin wrote:
+> On Mon, Nov 23, 2026 at 05:45:01PM +0000, Mark Brown wrote:
+> > I did not specifically identify the commit that triggered this, it will
+> > be some include file reorganisation which causes PHY_TYPE_PCIE from the
+> > DT headers to become visible to the driver, clearly there is a
+> > namespacing issue going on here.  I have ignored this for today.
+> 
+> I sent a fix for the driver yesterday. It renames the driver's enum
+> values so they don't clash with the dt-bindings ones:
+> 
+>   https://lore.kernel.org/all/20261122152857.1113943-1-sashal@kernel.org/
 
-There is no context here at all :(
+I'll go queue that one up now, thanks.
+
+greg k-h
