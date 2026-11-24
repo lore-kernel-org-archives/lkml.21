@@ -1,110 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.228.6
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795521587;
-	b=EjaitDTu8Mzg7iIGIpdHipjtv4pfI2koGbSLHg2yyx1T9eZ3BNMoEVhF0p0tjTGV5Y0B
-	 5ORbP55a49KuRRt7s7gG0Tz3NvTGTGyUrgrST6i1TqvGld8d94kTH/af+i9P83+jxL9J5
-	 qP5TE8yJG88Is6W+tym0rCTjKFZ1opFD5bnLbouSt13stZc1Q9OOpYjGkDoo5zqWEra2M
-	 OSzE2BTuFJ2NYUTtSG80kTLUirGPWjXX0h34uXW/L9vVK12YkPrtkFfJLd5lFXJY7Ixg9
-	 VWV0zoITPa0f7j7yVYmpASWdWPeQ+ltNWeVxIcOfKO2maMSchmDnHCTCmPGlZTn4dpA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795521587;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-LD-Processed:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=MkQ7O4ci2DO+2OuuLaZzYN6eFECYXykIeXfRK7Rpi3g=;
-	b=MhLLILEKHQQg7YmJk0mwFGoPRE1S4h5raP6uXv9X1Kmo8F24KqYndP1yRsnkzMh1VNT0
-	 Dah7qB5cj6dEeuiLPMT5Q7aY6hm9Bkv8+7UlFr3tqVoItcnGJve/ho+DV7MD4NxSZy3w/
-	 rKAK9r6eUmstLaJFikeZPrQih8+e0lBvQC6mYzJdx5jxiYaXqQ5VJweVuieLC4PeAfDln
-	 5fsRFazD+TKSgDEpcUp6Geypr7Zv4p717M8bDA+Nt8agUts+jtldROCcRfMQn6OVBdVXa
-	 FToXiF2eocLo9i8RUicBin329PnJmuJLTpKtd+xWSkiau6OvdHg7S4IG12dNMRl2/uQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bp.renesas.com;
-	spf=pass smtp.mailfrom=bp.renesas.com;
-	dkim=pass header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=fmGGiFTS;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.228.6
-Received: from OS0P286CU011.outbound.protection.outlook.com (mail-japanwestazon11010006.outbound.protection.outlook.com [52.101.228.6])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E0CC606A31E;
-	Tue, 24 Nov 2026 11:59:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E0CC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bp.renesas.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bp.renesas.com
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795521613;
+	b=CCYQ1K69nf8xRS9ZIppokHAyWwKgufE2yOkoj0e1wq097Rds/woRZqpl6TkOaVawycX+
+	 9AYjOPh5JDD51J7qUcB7BV/KMtqwxtGkuScTqbL3bnf6qbtath4niJqX7wjpSURx91M10
+	 bBIrMF8aMxqAP39fBhLjfwi2T8ZnVxrnZhIeONV5dxPI61cJ9V2sT5TBfquEUZ+M+BK5B
+	 wxmEZCZVNvfu4Htg93q9ohCqGUwaqi3/Zo8LlW7s/KtVdZnD7nPlWezPM1fgA7iIq5HLh
+	 /92948zMWZXScvhVDyWfdGjAJBzyJ0KJLrLXlMzMBzC9dMlcvTTY0w/ZSXqHd+jUcXg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795521613;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=h5wQQ7f1ar5cJYDkFl+pZ9+cYyLrpIguOheOkQ4y6uQ=;
+	b=EUZK+KgVUCn21XorQOTtb17REIxtUR2cP6t92L+rTDigUAkoXKAaUJMBstNUxT+o0liR
+	 81ECy7xHayNynklpkbIdaCp+kNrJjgUjvFIdO9ImDmz8wXlXc3QMg95hZ3gIZlPdyu6Qc
+	 dtWiOs82u9lcnluUnHtvHMjo9u2l7U0hHBB6+Ve+CZn/7omtgtRIgg8wsL6260UK0gqnY
+	 aaSnErUgUR6gC16k7i+zfzqjjYCPlQUZgxym5rxXUSQQnZYmfWtZAEmgWvt7Zn1wKcpJk
+	 n1rtM5BY55Ldd4iGTyyRWEwSam8MJH9NNZ2RSABCqMlCPe39Bc9+E+ekZdkCCKfNj5w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=lsDcQAN9;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 81003606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:00:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81003606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=fmGGiFTS
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zUN6/LHj6D98F5UB1GkMOPWncQ4thHdoGqvln008LDig8B2R6wJkIQhCFltty1+clXZ8egL7Wc8H66WJ58ad2NaRpKYn3v0wH/EUqoM6XsOVIKRbgBVs7qjI+2jt3gXVE4Rlb4BWd+6tYty/fWt6cEqtV5CtI//ymw34gzAwJ9vmOD+PqO/WHtnCFK0pMjf45bNcyb2Zoz2x0J3hDGKv5FRHHaY9ovYIIBKAtCS/LvNoZO+rQvYF3tzxsL3NNIV/nwQlMVIWClU0DSP35NqJ45bSLbpktLYyVYUeQ+FJZu4tW+1OO4IFNRtBxOopkhrgqXkeQR2/CqDOYSTjiouogw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MkQ7O4ci2DO+2OuuLaZzYN6eFECYXykIeXfRK7Rpi3g=;
- b=YTlSyEsK4cQmn0dXVWbfNNnoTUjFeVSoLUoltEcGyIvuy9D9fivQ9CZZdPnm4Gio/B3JoTqNuXxTc+eg2DtWDyYdw0uuFZKPgufiDlp5lAeCTJ0YPPteCkGVs0osavXul5e4NaL5lDSEIJJcLHOczIR6FgngIzDGZ8ykEmSFNyLRY6suHvbl3twlI1fJIGdEo5oeouz1cdqDUbodnymdTQAdamwTk2ivGg6EJ8IFsMxuEEaKUjDBwN9QcHOIa2xyXXt423KlNw58KNY3sGLV9bbrpFOe/ajDgFXpxbfXNTYjtFfwM26XIs0gRd4ePCv8YI+CFIyBKVsuCeodrE+p2g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
- header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MkQ7O4ci2DO+2OuuLaZzYN6eFECYXykIeXfRK7Rpi3g=;
- b=fmGGiFTSZjyAl/B0/O27qJ8LM+fWVcdR0C+DrdBF+hO+s02q899PRxwDTfVReA59vTPnlQDUBdAfWmnjiTc37/wFjgfDsUeFDwYWKKaxzH+jUx8DxYRdnaYHqSePoKqUQ2DT2ko2zMQjLOxD4VchaWFMZJaDGvL1xxiUDZ62wsg=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=bp.renesas.com;
-Received: from OSOPR01MB295138.jpnprd01.prod.outlook.com
- (2603:1096:604:521::15) by OS7PR01MB13793.jpnprd01.prod.outlook.com
- (2603:1096:604:36a::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
- 2026 11:59:42 +0000
-Received: from OSOPR01MB295138.jpnprd01.prod.outlook.com
- ([fe80::4f0e:fd0e:ff2b:b180]) by OSOPR01MB295138.jpnprd01.prod.outlook.com
- ([fe80::4f0e:fd0e:ff2b:b180%7]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 11:59:42 +0000
-Date: Tue, 24 Nov 2026 12:59:23 +0100
-From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
-To: Biju Das <biju.das.jz@bp.renesas.com>
-Cc: Tommaso Merciai <tomm.merciai@gmail.com>,
-	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	"magnus.damm" <magnus.damm@gmail.com>,
-	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v10 08/12] drm: renesas: rz-du: Separate the DU instance
- from the DRM device
-Message-ID: <awV8G86QIth4GtaA@tom-desktop>
-References: <cover.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
- <68fcf838eee14c1906f23b2b7c74c560793cd1d4.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
- <OS3PR01MB65968FEBCB08429F11188CE986452@OS3PR01MB6596.jpnprd01.prod.outlook.com>
- <awVW5B4p06FUfBHw@tom-desktop>
- <TYYPR01MB6603AA1B7A48B7D899604EE586442@TYYPR01MB6603.jpnprd01.prod.outlook.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <TYYPR01MB6603AA1B7A48B7D899604EE586442@TYYPR01MB6603.jpnprd01.prod.outlook.com>
-X-ClientProxiedBy: FR4P281CA0347.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:f4::15) To OSOPR01MB295138.jpnprd01.prod.outlook.com
- (2603:1096:604:521::15)
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=lsDcQAN9
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AAF4B339;
+	Tue, 24 Nov 2026 04:00:07 -0800 (PST)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B2BF83F86F;
+	Tue, 24 Nov 2026 04:00:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795521610; bh=jiz/KmB886ULkylTGCTD9Mfzgphbfa2Ch+aTgzZXGJs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lsDcQAN9sHDwXQ6eWQr9134ntQyDSsW5CnsxVZ6SCvBf0jx100UN/4sOY3u1U0wuI
+	 ZUY1xcd9mFzsztUbL2ibphYi/8JWrSvrPVp/fYaQ23PG26IqIkKAg3EE10oadM8TFu
+	 UhgFsUleZ0qIUC925PscD8dMiHpwCZWmtXEIXCmI=
+Message-ID: <2576e9e5-395e-4842-aa83-e09494e97d4d@arm.com>
+Date: Tue, 24 Nov 2026 12:00:06 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,250 +53,162 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSOPR01MB295138:EE_|OS7PR01MB13793:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7c23e799-1643-4d95-0f62-08df4a226c91
-X-LD-Processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|7416014|52116014|366016|23010399003|1800799024|38350700014|10067099003|11063799006|4143699003|56012099006|261022105027099003|261022075727099003|261021123027099003|261021121427099003|261026140227099003|261026121527099003|261028144727099003|261102123227099003|261009223027099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	cLL6SStOtZFdQB9ZX/ZynibUxmxkGnOkxQrc4i7wiogKxdgq/QOt06af7BuEMJePh9LdhEg3kYW8rNxB0anqRSycUeYE0fQEB19+DL9o3Xo7L3gpXOdBdRGz9bwP1favQ8aoQ5d5OPkPLgsHVQfnMYBNqj6gZ46zfdVz82yh/6s3M6NHrwj6BsJ5f/wCXdtetpJJMMgBHVqD4aEmfitpawFIsTfVl66Q3Quiu4x0XigITvGN7l0Vyt/FVt3S1TQIAb3LbqJVarN6mKFVoTuX57zmmeMDPyXZp3nHrdS4kax23FST1Yig94ukPoo2CLeTW0IfZWLm/YClNzqIMM2gUnSgc+opFQaCQbxq3aQejN2/yrtpNvcdSx4hCax3KVHFn9eutmmq1RSKSrdp16SLv6TyDRg1QmxqXZgZ4Bctefe95p10B4uOLDskeIwO76g89UycnbwfnwTfiy5s2Csuz3F0kFPz6wCkcs7jY7mZZP2aiVXL3ayZxcPWhvvZMrLZ3pLn54MYuVXu4Y8ngeOuQYYOINTHSiMOH/b+GDVKU8t4NdCdv2g3ScPdOnESSAyqcDRX+y92VUZd67eGa/LbKoKAQPhVzUjptVdAC/xGi6/81CqWZgEXoRMflSfqoZn5e9aaeFRvYdQ2p++1NJGl6bX1QHyPYr+WT8adzKllCizM/qzUW7/qCk85Cy+Et+E2WZ3sdNzbo59yCv+RngXd4MNOIZvi+wDVtFKbr7Fvp0g=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSOPR01MB295138.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(23010399003)(1800799024)(38350700014)(10067099003)(11063799006)(4143699003)(56012099006)(261022105027099003)(261022075727099003)(261021123027099003)(261021121427099003)(261026140227099003)(261026121527099003)(261028144727099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?QjdhB8Z8rthagdnddK8NtVkAU6rf6Su1FCCVTXoybVUQ/63eOjFkY6PZmAoO?=
- =?us-ascii?Q?XQ2IM4J6+DvK/hZBCewEHuKQsRFI/sRiVEb7FJJ34YK/cy/2fMSwzsKYByH5?=
- =?us-ascii?Q?CRFoRzNEjUvZmNxt0OCw5QBZOYBOR3jmODWRfCeVSGJu8amHtwr7S9uOwMyV?=
- =?us-ascii?Q?uZP4t18+mw1SbOMAtRf70jrk/IoUpgG3ZmBJFMCx1Jxjuntjzy1Ly5jzzqdL?=
- =?us-ascii?Q?mN5N+9UZ+BqlkKCSh6uIkzq2FvdhHYiWHhGWJWEC7NwYNM2BjnExHq/FluDt?=
- =?us-ascii?Q?6xm48jF7JaJ/W0ZXPgo+2ZApSq9S14rfv9fIK89L/QZffPx+ADEyShrcOxeM?=
- =?us-ascii?Q?MsrxmSlas0FvpKxeU3h9Wlx2nPHOv4Jv05oYMrQ1k631Cwclv0ODDoyRg9uM?=
- =?us-ascii?Q?HXgW2UUZfUMrc2s/RBaABGqojgY77E4dJ7/ahKi3lm29iZHNijI3VFXmpZkp?=
- =?us-ascii?Q?K+g79eF/bSSmC/qc/A2Gq8d3yyyyyJ3ND6PaXCW+GAuICtYlv9ihji+NbIFD?=
- =?us-ascii?Q?9ZsE+8FQJvL0Vy1PTbDfCdt4QY+RAKnWdyjWlbXpo2VWG4DSzH6sz2zE7HGs?=
- =?us-ascii?Q?xeBdWnPgInliPscEU03u8eTRmp7/W4FPycBnJRvRE0PPwzl5KiMaC8ENyg6s?=
- =?us-ascii?Q?/4Tb39RlBa2h0iG+TH0grdwZSQHq4Iyt56FanWDVaMBSHnYJTytgXj34yFXA?=
- =?us-ascii?Q?gwpjbMUuq3RkHaIob4MCqIK8dODM7UaK4euB8v3x1QuGBJNTl8goi1+tKAMZ?=
- =?us-ascii?Q?weOqrcEpRvoo2NrNtLW4G8mNGyHXZTGA4owrZ7KM9Fh7W1dA8cUDI9n06Uxg?=
- =?us-ascii?Q?C2AE1nE2i4vrz1GHtIUYk7w8huUesTsHL4LtWxYnKWrjPdK7ddOQrGoLVKFc?=
- =?us-ascii?Q?ljKgg3nVO1qvlIxNtspRuB0GPSHE46L7Me6AuY4jX6oyq1vA4z4xiYalpFCk?=
- =?us-ascii?Q?UOTIHPRA3dLJPBiCiRhqFZhSkqYM+yR1tsEJuSyOl9kcndGNysaI2Y9joOBJ?=
- =?us-ascii?Q?w0M+HoqGZNcFkU6l/Hv950SFlkLj9YtZUz2eLpd8zhRZt8I+JebDTsOoiLVy?=
- =?us-ascii?Q?jgbqLALlGjBqtEB9H3aFJm56v8bQroeZSDnOFUEy5a7PwZIe9V5Y1USvTIXJ?=
- =?us-ascii?Q?WQWh8Jm2BpStSaoPjc1LtqnoTf71UG7hICdCrG+JAYkSA8sXLErF3f1L0D0B?=
- =?us-ascii?Q?WJ8r+mq5VJ6qgYPhb26lhfjNofol3a0zjq4RjrIdNb4RglllI6Sq/BhomrqA?=
- =?us-ascii?Q?+xShbJzqnRFFoHWoFQLXERzmxaJqA205xsgQrrJxJWqtvu8gIQIryuYDps5d?=
- =?us-ascii?Q?pp5iPfb6eflCbi7tge1i16aul41zNn8Ge+aqNdsWRSf2Jf2yxjaO0h5vm6sH?=
- =?us-ascii?Q?D33r7quIYasnbx1edrjtSauxm6BDLP4trNND/213x3P34RV72oe39VG9nnwB?=
- =?us-ascii?Q?h9ZFTHMIMcRLlSRo7PvZ2kno9evzL8C+G27fkOVxchPtp2pvEV+0N/b72CVi?=
- =?us-ascii?Q?ob4dKGKQbNVRRd08UGhsi0kgbKfENPWK4Rm+KXCgc6vkOjYBM0OJGs+nkpfh?=
- =?us-ascii?Q?eWUos7jFYeQ9hrCcbsX59l4AHbTRMTs3YJq6ae819OUSRdi9dn+BfI8SYf06?=
- =?us-ascii?Q?y+8LO5OddiuGPWM0mwixrrBiGlFwPkLqvh8UI5qvwhqxzQ490tV8lfgiVwvZ?=
- =?us-ascii?Q?FQXlIFnp3gUNRRfYWAAcapDfGMcYEF9bHnph7Epoq33vCY9LLU+w1syGP3Li?=
- =?us-ascii?Q?sK3IET4QXOOYTpPuWzDk0SxhEEZ4YYE1QFtLmwqsX6a767giX+Xg?=
-X-OriginatorOrg: bp.renesas.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7c23e799-1643-4d95-0f62-08df4a226c91
-X-MS-Exchange-CrossTenant-AuthSource: OSOPR01MB295138.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 11:59:42.3650
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /y9IOBvwgrrjfxqriN4NpDrb/fPVB9DkPvXGo/takpuo6Cm0ir2c2AEUMQHDyPmm3k99I0e9wEGHiCzz4PbdvZh9BSzp5zZnpLv/cMXscu+8enMEFC3XR95Zj4DClXbB
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS7PR01MB13793
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5] KVM: arm64: Trap guest MPAM accesses whenever MPAM is
+ implemented
+To: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>
+Cc: James Morse <james.morse@arm.com>, Xi Ruoyao <xry111@xry111.site>,
+ Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Steffen Eiden <seiden@linux.ibm.com>,
+ Gavin Shan <gshan@redhat.com>, Yuan Yao <yaoyuan@linux.alibaba.com>,
+ Fuad Tabba <tabba@google.com>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20261102095656.2948964-1-fuad.tabba@linux.dev>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20261102095656.2948964-1-fuad.tabba@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hi Biju,
+Hi Fuad,
 
-On Tue, Nov 24, 2026 at 09:33:13AM +0000, Biju Das wrote:
-> Hi Tommaso,
+On 02/11/2026 09:56, Fuad Tabba wrote:
+> finalise_el2_state() clears the EL2 MPAM traps on every CPU whose ID
+> registers advertise MPAM once the arm64.nompam override is applied.
+> KVM sets them again on guest entry only when ARM64_MPAM is set, a
+> capability that also requires MPAM1_EL1.MPAMEN. Without EL3, only
+> MPAM2_EL2.MPAMEN is writable, and the kernel never sets it, so
+> ARM64_MPAM stays clear and so do the traps. A guest can then access
+> MPAM0_EL1, MPAM1_EL1, MPAMSM_EL1 and MPAMIDR_EL1 while its
+> ID_AA64PFR0_EL1.MPAM reads 0.
 > 
-> > -----Original Message-----
-> > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
-> > Sent: 24 November 2026 09:21
-> > Subject: Re: [PATCH v10 08/12] drm: renesas: rz-du: Separate the DU instance from the DRM device
-> > 
-> > Hi Biju,
-> > Thanks for your review.
-> > 
-> > On Mon, Nov 23, 2026 at 04:59:32PM +0000, Biju Das wrote:
-> > > Hi Tommaso,
-> > >
-> > > > -----Original Message-----
-> > > > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
-> > > > Sent: 13 November 2026 12:20
-> > > > Subject: [PATCH v10 08/12] drm: renesas: rz-du: Separate the DU
-> > > > instance from the DRM device
-> > > >
-> > > > On RZ/G3E two DU instances share a DRM device, which can only be
-> > > > created once both instances have been probed.
-> > > >
-> > > > Split the DU device structure: keep the match data and the registers
-> > > > in a structure allocated with the platform device, and allocate the
-> > > > KMS objects with the DRM device in a new rzg2l_du_instance_init() helper, as they are released
-> > with it.
-> > > >
-> > > > No functional change intended.
-> > > >
-> > > > Signed-off-by: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
-> > > > ---
-> > > > v9->v10:
-> > > >  - New patch.
-> > > >
-> > > >  drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c | 61
-> > > > ++++++++++++++------
-> > > >  1 file changed, 44 insertions(+), 17 deletions(-)
-> > > >
-> > > > diff --git a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
-> > > > b/drivers/gpu/drm/renesas/rz- du/rzg2l_du_drv.c index
-> > > > d3cccbdf9012..d102876c07e1 100644
-> > > > --- a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
-> > > > +++ b/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
-> > > > @@ -162,6 +162,27 @@ static int rzg2l_du_pm_resume(struct device
-> > > > *dev)  static DEFINE_SIMPLE_DEV_PM_OPS(rzg2l_du_pm_ops,
-> > > >  				rzg2l_du_pm_suspend, rzg2l_du_pm_resume);
-> > > >
-> > > > +/*
-> > > > +-------------------------------------------------------------------
-> > > > +----
-> > > > +------
-> > > > + * DU instance
-> > > > + */
-> > > > +
-> > > > +static int rzg2l_du_instance_init(struct rzg2l_du_device *du,
-> > > > +				  struct drm_device *ddev)
-> > > > +{
-> > > > +	struct rzg2l_du_device *rcdu;
-> > > > +
-> > > > +	rcdu = drmm_kzalloc(ddev, sizeof(*rcdu), GFP_KERNEL);
-> > > > +	if (!rcdu)
-> > > > +		return -ENOMEM;
-> > >
-> > > Why there is duplicate allocation of rcdu? One in probe() and here
-> > 
-> > The two allocations have different lifetimes.
-> > 
-> > The one in rzg2l_du_probe() is tied to the platform device. It holds what is needed before the DRM
-> > device exists and outside of the component bind (dev, info, mmio, and ddev/is_master for the master,
-> > PM and remove), as on RZ/G3E the DRM device is only created once both instances have been probed.
-> > 
-> > The one in rzg2l_du_instance_init() holds the KMS objects (crtcs, vsps, lvds, index). Their drmm
-> > cleanup handlers point into it and run when the DRM device is released, which can happen after the
-> > platform device has been unbound, so it has to be allocated with the DRM device.
+> Record two per-CPU flags at KVM's CPU init: whether MPAM is
+> implemented as finalise_el2_state() tests it, and whether
+> MPAMIDR_EL1.HAS_HCR is set (MPAMHCR_EL2 is UNDEFINED without it).
+> Read ID_AA64PFR0_EL1, ID_AA64PFR1_EL1 and MPAMIDR_EL1 from cpu_data,
+> which holds them with the overrides applied since commit 342e62ded77c6
+> ("arm64: cpufeature: Read MPAMIDR_EL1 in __cpuinfo_store_cpu()"). Set
+
+Ok as long as this patch isn't expected to be backported.
+
+> the traps from those flags. MPAMEN isn't part of any MPAM trap
+> condition, so the traps take effect whether or not it is set.
 > 
-> Then there is an issue right, platform unbound will unmap mmio and other data structures it allocated
-> in rzg2l_du_probe()and drm driver is using after that( Use after free Bug)
-
-Mmmm In theory no.
-
-The KMS part keeps its own copy of dev, info and mmio, and its drmm
-cleanup handlers only drop references, they don't access the hardware.
+> Fixes: 31ff96c38ea3 ("KVM: arm64: Fix missing traps of guest accesses to the MPAM registers")
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 
 
-Kind regards,
-Tommaso
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 
+Thanks,
+
+Ben
+
+> ---
 > 
-> Cheers,
-> Biju
+> Notes:
+>     Changes since v4:
+>      - Take ID_AA64PFR0_EL1, ID_AA64PFR1_EL1 and MPAMIDR_EL1 from cpu_data
+>        (was __read_sysreg_by_encoding() and read_sysreg_s()).
+>      - Commit message tightened, and the TIDR comment no longer
+>        rewritten.
+>      - Ben's Reviewed-by dropped, since the probe changed.
+>      - Rebased on 7.4-rc1.
+>     
+>     Based on Linux 7.4-rc1 (6628e7d4c6b25).
+>     
+>     v4: https://lore.kernel.org/all/20260924165329.1684155-1-fuad.tabba@linux.dev/
+>     v3: https://lore.kernel.org/all/20260911104715.307500-1-fuad.tabba@linux.dev/
+>     v2: https://lore.kernel.org/all/20260908145651.2828597-1-fuad.tabba@linux.dev/
+>     v1: https://lore.kernel.org/all/20260903160819.831518-1-fuad.tabba@linux.dev/
 > 
-> > 
-> > Thanks, Tommaso
-> > 
-> > >
-> > > Cheers,
-> > > Biju
-> > >
-> > > > +
-> > > > +	rcdu->dev = du->dev;
-> > > > +	rcdu->info = du->info;
-> > > > +	rcdu->mmio = du->mmio;
-> > > > +	rcdu->ddev = ddev;
-> > > > +
-> > > > +	return rzg2l_du_modeset_init_du(rcdu); }
-> > > > +
-> > > >  /* -----------------------------------------------------------------------------
-> > > >   * Platform driver
-> > > >   */
-> > > > @@ -190,44 +211,48 @@ static void rzg2l_du_shutdown(struct
-> > > > platform_device *pdev)
-> > > >
-> > > >  static int rzg2l_du_probe(struct platform_device *pdev)  {
-> > > > +	const struct rzg2l_du_device_info *info;
-> > > >  	struct rzg2l_du_device *rcdu;
-> > > >  	struct rzg2l_du_drm *rzgdrm;
-> > > > +	void __iomem *mmio;
-> > > >  	int ret;
-> > > >
-> > > >  	if (drm_firmware_drivers_only())
-> > > >  		return -ENODEV;
-> > > >
-> > > > -	/* Allocate and initialize the RZ/G2L device structure. */
-> > > > -	rzgdrm = devm_drm_dev_alloc(&pdev->dev, &rzg2l_du_driver,
-> > > > -				    struct rzg2l_du_drm, ddev);
-> > > > -	if (IS_ERR(rzgdrm))
-> > > > -		return PTR_ERR(rzgdrm);
-> > > > +	info = of_device_get_match_data(&pdev->dev);
-> > > > +
-> > > > +	/* I/O resources */
-> > > > +	mmio = devm_platform_ioremap_resource(pdev, 0);
-> > > > +	if (IS_ERR(mmio))
-> > > > +		return PTR_ERR(mmio);
-> > > > +
-> > > > +	ret = dma_coerce_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
-> > > > +	if (ret)
-> > > > +		return ret;
-> > > >
-> > > > -	rcdu = drmm_kzalloc(&rzgdrm->ddev, sizeof(*rcdu), GFP_KERNEL);
-> > > > +	/* Allocate and initialize the RZ/G2L device structure. */
-> > > > +	rcdu = devm_kzalloc(&pdev->dev, sizeof(*rcdu), GFP_KERNEL);
-> > > >  	if (!rcdu)
-> > > >  		return -ENOMEM;
-> > > >
-> > > >  	platform_set_drvdata(pdev, rcdu);
-> > > >
-> > > >  	rcdu->dev = &pdev->dev;
-> > > > -	rcdu->info = of_device_get_match_data(rcdu->dev);
-> > > > -	rcdu->ddev = &rzgdrm->ddev;
-> > > > -
-> > > > -	/* I/O resources */
-> > > > -	rcdu->mmio = devm_platform_ioremap_resource(pdev, 0);
-> > > > -	if (IS_ERR(rcdu->mmio))
-> > > > -		return PTR_ERR(rcdu->mmio);
-> > > > +	rcdu->info = info;
-> > > > +	rcdu->mmio = mmio;
-> > > >
-> > > > -	ret = dma_coerce_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
-> > > > -	if (ret)
-> > > > -		return ret;
-> > > > +	rzgdrm = devm_drm_dev_alloc(&pdev->dev, &rzg2l_du_driver,
-> > > > +				    struct rzg2l_du_drm, ddev);
-> > > > +	if (IS_ERR(rzgdrm))
-> > > > +		return PTR_ERR(rzgdrm);
-> > > >
-> > > >  	/* DRM/KMS objects */
-> > > >  	ret = rzg2l_du_modeset_init_drm(&rzgdrm->ddev);
-> > > >  	if (ret < 0)
-> > > >  		goto error;
-> > > >
-> > > > -	ret = rzg2l_du_modeset_init_du(rcdu);
-> > > > +	ret = rzg2l_du_instance_init(rcdu, &rzgdrm->ddev);
-> > > >  	if (ret < 0)
-> > > >  		goto error;
-> > > >
-> > > > @@ -243,6 +268,8 @@ static int rzg2l_du_probe(struct platform_device *pdev)
-> > > >  	if (ret)
-> > > >  		goto error_fini;
-> > > >
-> > > > +	rcdu->ddev = &rzgdrm->ddev;
-> > > > +
-> > > >  	drm_info(&rzgdrm->ddev, "Device %s probed\n",
-> > > > dev_name(&pdev->dev));
-> > > >
-> > > >  	drm_client_setup(&rzgdrm->ddev, NULL);
-> > > > --
-> > > > 2.54.0
-> > >
+>  arch/arm64/include/asm/kvm_host.h       |  2 ++
+>  arch/arm64/kvm/arm.c                    | 12 ++++++++++++
+>  arch/arm64/kvm/hyp/include/hyp/switch.h |  8 ++++----
+>  3 files changed, 18 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 97332ffcb1300..d6b9538cbec36 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -839,6 +839,8 @@ struct kvm_host_data {
+>  #define KVM_HOST_DATA_FLAG_VCPU_IN_HYP_CONTEXT		4
+>  #define KVM_HOST_DATA_FLAG_L1_VNCR_MAPPED		5
+>  #define KVM_HOST_DATA_FLAG_HAS_BRBE			6
+> +#define KVM_HOST_DATA_FLAG_HAS_MPAM			7
+> +#define KVM_HOST_DATA_FLAG_HAS_MPAM_HCR			8
+>  	unsigned long flags;
+>  
+>  	struct kvm_cpu_context host_ctxt;
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 157bf4b812020..5bab4833c9d33 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -32,6 +32,7 @@
+>  #include <asm/mman.h>
+>  #include <asm/tlbflush.h>
+>  #include <asm/cacheflush.h>
+> +#include <asm/cpu.h>
+>  #include <asm/cpufeature.h>
+>  #include <asm/virt.h>
+>  #include <asm/kvm_arm.h>
+> @@ -2496,9 +2497,20 @@ static void cpu_set_hyp_vector(void)
+>  
+>  static void cpu_hyp_init_context(void)
+>  {
+> +	struct cpuinfo_arm64 *info = this_cpu_ptr(&cpu_data);
+> +	u64 pfr0 = info->reg_id_aa64pfr0;
+> +	u64 pfr1 = info->reg_id_aa64pfr1;
+> +
+>  	kvm_init_host_cpu_context(host_data_ptr(host_ctxt));
+>  	kvm_init_host_debug_data();
+>  
+> +	/* cpu_data has the overrides applied, as finalise_el2_state() does. */
+> +	if (id_aa64pfr0_mpam(pfr0) || id_aa64pfr1_mpamfrac(pfr1)) {
+> +		host_data_set_flag(HAS_MPAM);
+> +		if (info->reg_mpamidr & MPAMIDR_EL1_HAS_HCR)
+> +			host_data_set_flag(HAS_MPAM_HCR);
+> +	}
+> +
+>  	if (!is_kernel_in_hyp_mode())
+>  		cpu_init_hyp_mode();
+>  }
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> index e0c55644224cb..f487d3a93fe27 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> @@ -298,11 +298,11 @@ static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
+>  	u64 clr = MPAM2_EL2_EnMPAMSM;
+>  	u64 set = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1;
+>  
+> -	if (!system_supports_mpam())
+> +	if (!host_data_test_flag(HAS_MPAM))
+>  		return;
+>  
+>  	/* trap guest access to MPAMIDR_EL1 */
+> -	if (system_supports_mpam_hcr()) {
+> +	if (host_data_test_flag(HAS_MPAM_HCR)) {
+>  		write_sysreg_s(MPAMHCR_EL2_TRAP_MPAMIDR_EL1, SYS_MPAMHCR_EL2);
+>  	} else {
+>  		/* From v1.1 TIDR can trap MPAMIDR, set it unconditionally */
+> @@ -317,12 +317,12 @@ static inline void __deactivate_traps_mpam(void)
+>  	u64 clr = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1 | MPAM2_EL2_TIDR;
+>  	u64 set = MPAM2_EL2_EnMPAMSM;
+>  
+> -	if (!system_supports_mpam())
+> +	if (!host_data_test_flag(HAS_MPAM))
+>  		return;
+>  
+>  	sysreg_clear_set_s(SYS_MPAM2_EL2, clr, set);
+>  
+> -	if (system_supports_mpam_hcr())
+> +	if (host_data_test_flag(HAS_MPAM_HCR))
+>  		write_sysreg_s(MPAMHCR_HOST_FLAGS, SYS_MPAMHCR_EL2);
+>  }
+>  
+> 
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+
