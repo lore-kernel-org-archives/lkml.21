@@ -1,53 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795530292;
-	b=GnJWAYoSTi/RAqk2iahjJNmD6+ASr2l/d9EMcAUvOfca2oTRzZWVMOlmW2JXo9IG3MPY
-	 8VPqDsLmcAEiim81v6p0yp7Qmpw5sqHoq4pVklVbHBnu4ZYqSwCodE5d+JD+WW+VQwLfL
-	 Tkfac66OXNS623EK7aJqvNglqaewB1Lj0pmfUf8QVs7Qr+PNADqMUhZYjWlwc2TUYog5n
-	 Tf5eFHdV3WhLx+mZ7ca/QqsC0mFNG+c/GkE5KDMATke78+3paRO+wQ05UWtD5EEtl3gbI
-	 lClqYzcma45kFo13EtTmTnVxmT5B8Zijz3yM4Uj9niqwjeSSSlbaOjBrTwFSVKIk6AQ==
+	t=1795530293;
+	b=jHKj5foJa+n4YUTZ98TPJF63sQC0QwtYFEyTA1w4nPBlpka16effrSWUOLhpVA+nz2QZ
+	 44qoKRbeEgXNlocoAXaQwHQ2Tnd5DpnHzBmiOUt6EkzAPZl+GR/4tKs/wGM6GqEeM68y3
+	 HMlgRF4l41U2u9QC9rfFd4/LgdnDX9Vo41NeZIKSMM0QnVuGlysfsgMsvcvtlFLUdPFNg
+	 lkwzhs4J0wURvcHDJSNYkRWx35BGFesedCo+vswV1+9PjyUAFSRkO9Vokyei2A+FQAXHk
+	 rltwe7XoYYyI7PdxDqAHIXpgUs/KuO+JWaJcwfs1LvfP5AKhbaqFMc5Lwg5O8QkKl7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795530292;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Rspamd-Server:X-Rspamd-Queue-Id:X-Stat-Signature:X-Spam-Status:
-	 X-Session-Marker:X-Session-ID:DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=1LOcVQNYAG/m8FwGOgpeskXItoFPNok4dIXg82mENYE=;
-	b=zA3pEtrdS0xwHxPt0bp9pDZ3t+KX7Dn/Nclp+oYF3Yg2som9BSqBbS8sYnJxqHhS0vzz
-	 U0WeVH7SPzS48FYIS9DYlniiYZCXsxxyrfWP2BU9m0ikF+oIOlnuH7ZDf6G+vO++27usY
-	 mo4DGDhJUq+HWYFTW7qTbhMNxTNvKa+AiIEElgFG/T8q2ToD3gfxnX1fLmw0SKDiRuuxO
-	 8/vxNpiCG5aOrbXlMcS0/5ZZS8asiXbf8aU2ew3r53GZhQZ4ysfPFQOI+J+hi+f8Sq8z3
-	 3euzqdv8h1tQ/5l2DYSc7UhDM8xPwI+8IXkblI/0CNxujAspM7gi1aXIUxGo3ha4vHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795530293;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=YSiUJXA7jP1X5fyNltCeT27Ku9O4ReEnxhpFpx6/UHk=;
+	b=w+lqaKd6udnPXWZgl9SuGsp3TMQS2YJunUtfHBCOVD8mxKtG8qhn0Mv1mI2jSuam25eH
+	 nq1gzE8pfZ6pIEen2g34uw5011myzRXVSWLtOwHONjTm2YyWgIYUQBt841WO+jDrnF4nj
+	 wytRnF1brpEh37rFWqhei4eBDXslUfKIcN9VJYCuIIfFtg9YcD2GYND4UY019r+7jBNO1
+	 Zwwwe6/HAMbYA6jdgd8ptAIJVc15hKf/ZJbKgshLaCS8OATQU+QEnKtHUokLuoBJxpdOp
+	 zpMzOSlE3USQHZOxTKe8/t3ua+IGIYK6vqUGLr9NcIaaTsF9FKwG7i6sctKGEhWKz1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=JuH+hMlD;
-	arc=none smtp.remote-ip=216.40.44.16
-Received: from relay.hostedemail.com (smtprelay0016.hostedemail.com [216.40.44.16])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gtRH6YKs;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98AE7606A331;
-	Tue, 24 Nov 2026 14:24:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98AE7606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90C56606A339;
+	Tue, 24 Nov 2026 14:24:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=JuH+hMlD
-Received: from omf09.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay10.hostedemail.com (Postfix) with ESMTP id 260B7C0BD5;
-	Tue, 24 Nov 2026 14:24:50 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf09.hostedemail.com (Postfix) with ESMTPA id 83E1A2002E;
-	Tue, 24 Nov 2026 14:24:48 +0000 (UTC)
-Date: Tue, 24 Nov 2026 09:24:47 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: LKML <linux-kernel@vger.kernel.org>, Linux Trace Kernel
- <linux-trace-kernel@vger.kernel.org>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>
-Subject: [PATCH v8] tracing/probes: Zero out faulted dereferenced fields
-Message-ID: <20261124092447.4dbf5233@gandalf.local.home>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gtRH6YKs
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EBBA1F000D1;
+	Tue, 24 Nov 2026 14:24:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795530293;
+	bh=YSiUJXA7jP1X5fyNltCeT27Ku9O4ReEnxhpFpx6/UHk=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=gtRH6YKsamtR0aVi/9eOGDXcQx14AzLXV/2+2FHuztbKotP6nOxCMWXCidG62DRix
+	 Iob6B/l07YW7Of8bOJLmeJR0QMgsoZiWl+maRfTCBISS2+FV6VG0KwQWFURGzunToW
+	 DPBRpQjhqBoe9UujZ9gq+9LVUXQFZ1xrb7zZeoTy+EQu944lcrlXK/ob++s+meoMLX
+	 C1NUCkVvpj49+I8Df1BmWJJYpKeMSDQ+SCZXpPDF2AvDhQ/gPGLbScotcOjMMsF4HP
+	 pkDHT0lTaLnPhbKNrhWp2el1SQ0QBuOEA0m29Wlnjp5ox8CpD38uLO6oh+UCqZGcJU
+	 sKu8fhIKmh8wQ==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 8A8A2198004A;
+	Tue, 24 Nov 2026 09:24:50 -0500 (EST)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Tue, 24 Nov 2026 09:24:50 -0500
+X-ME-Sender: <xms:MJ4FayrenX1n_QQ0UBReEj_-07DSJWaMmVBp2XvjFkCJ1tkDuU-QwA>
+    <xme:MJ4Fa7cnGGhdnEL8OGcY7J7pVyM_DC431gulx6ANHeDPl9jUs7MESVUApfeMmxi71
+    hEnv3w6QmPb-BLpk9UjY91NnagWQWJqQpH12ox2CX6M-lnacCrvbVqn>
+X-ME-Proxy-Cause: dmFkZTEeI/VnZe3weSWJvKW4r0xqOAy6MhJ+KiOnoSatFvw6iRFZYsuXQhPELvhnCaRO+1
+    JqSb2F5VWzYIFdhpnFcny4u4+3aL6ttqF8MtzE0N8SlJ0nNJYKq46flGe1YKof+yLnL0Wz
+    eIWIbbvsRdGWkfh8UrW3nwlVF7uk4SRLwgtlbnPu43ADGDGgPe/TxSyXFKiWzqdUeS6zsD
+    T5xNZTGCszj+x+ULiYehxvWxQGnQtMe/APAs9MfcHYnjitR4RLAxpab7l8kCuysqgEENbo
+    b57SGYKzrA4wubz8KkpVKEYRw4tpb2RvyqzOgP61zipcHFvdmAYu+dppqsYr3ZxgoYP7Sm
+    C46rafMMqhU2GamcpYuDPI4HisZ0cNhMCi3/dKSpun06BIDvlHEASXYaienwZkmLy/JGVh
+    V9QpE92cOOHCVWvQlCxHGf8GFM0VLDzOqzc26+dWmZyaLMsd8IkhBtkxL7tNvTur9fEdx3
+    taxce8jltwROINC960VBm9txVWG+o1HWrlvYxDR8rjLEWm63L1oE9bT9od5we6hm5l2IfI
+    fM6sfenhyu185ozy8X12qsiZRB4FEC4A84kyqRIQLjfA6zuuE/2uOKVlmflrp5x3fNsWPn
+    292TRVFsRjxi6KB3AJ5GpN4h78/XIMkewDc3fb/QF8GRG/5pVROERyD/yFgg
+X-ME-Proxy: <xmx:Mp4Fa9tfHYrXTjLQZm_cV3iud42zmSDNuIAscAg_nNTbefjopO8xJA>
+    <xmx:Mp4Fa1iN7QjcwxwND5oAuWBGtvu_IWGk3F0z2CaGx4zyVAkTkQpK0w>
+    <xmx:Mp4Fa2_8zmoZMV0IpaoWT61EVDQxQpwgerMl0SYVgkYwnSNFfpAgEw>
+    <xmx:Mp4FawtTKt6VP3ZIVGlIkoNvhElgAFrFm8vj9lJgbOV4sS_jiSE_Cw>
+    <xmx:Mp4FayrMA9_19elOiI5ThEPT0njd2fc3dnj5jaswKgTYEBLhySNFQ5Pb>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 9D78CF8009A; Tue, 24 Nov 2026 09:24:48 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,264 +77,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+X-ThreadId: ApnSy8YMrSZR
+Date: Tue, 24 Nov 2026 15:24:28 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Sebastien WENSKE" <sebastien@wenske.fr>, linux-efi@vger.kernel.org
+Cc: swenske@veepee.com, "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
+ "James Le Cuirot" <chewi@gentoo.org>, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Message-Id: <c753baad-b5e3-4e9e-9af1-ae146bc908d9@app.fastmail.com>
+In-Reply-To: <20261124140640.0f627d7e212c@wenske.fr>
+References: <20261012133712.618913-1-sebastien@wenske.fr>
+ <37c38d1e-03cc-44ae-b617-d45fbf80acc5@app.fastmail.com>
+ <20261124140640.0f627d7e212c@wenske.fr>
+Subject: Re: [PATCH] efi/libstub: Allocate the INITRD table in ACPI reclaim memory
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-X-Rspamd-Server: rspamout01
-X-Rspamd-Queue-Id: 83E1A2002E
-X-Stat-Signature: pekdud8xugcwkn6j476t7m3t1o8aq51z
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX185e3D9loKvSDyp9pRDXXeEiP4mCEPXlfg=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=1LOcVQNYAG/m8FwGOgpeskXItoFPNok4dIXg82mENYE=; b=JuH+hMlD48lb3di18Hee9FXnyxim0ufEryo542nNnl2hutQvH4Cu3Bgx45EjmG46/mgG4sPhNeVCpjDCzDKSchTpGxukFWiGuCQ4zs3Ypt/uByEt9OQtEwoZVSvJqVMGhM312ctX663WXFD5eRn7B+VjabHWC5TAA4voo8pyMR4=
-X-HE-Tag: 1795530288-998317
-X-HE-Meta: U2FsdGVkX19O0OkT3IIMhA09qI0FrhCqvdbj5ORcoWyhWR9tOYISBb8xtGrJe79TQe0dMMMbITvsP6EWfX3hoztoF8txQJBN4qRRbDaRxn9Y6IN5TwOeEEDr0b8B3KcHS50lYjr/RbhY1tGUcSAhfU9LgHvtJtdahMC09c6eq+Hnad/utgdTO/J91Eirom9utVLguzhG1AYqIwMYuRjmkYf3s4nSrQqI7NuIU5YsDYzhC0aX/My2hKT/HMPH2+J19FkvgYbBTPJp98fOXr9ecqMTBRiMbwKvMpBr7ryuNK0gn2upsqu5MmNV2tVAwlbolQH+aY7gR0ToPzN6ck4dzAksdJbv5U2Ysq7p0PihBRyKhvtF/sMB2X9zqgxZT8aBJvQbktxp3jSAWCAAHoXOT2liqMPDs+heyOZbBb82Rd1gknFv45bitDLEACGdsFDz9iu6yFet/iOuEKYy58xcKhrIp1iswVwTwLkwF0QjuEU=
 
-From: Steven Rostedt <rostedt@goodmis.org>
 
-While looking at tasks global descriptor tables, I discovered the
-following anomaly:
 
-~# echo 't:sched sched_switch prev=prev mm=(task_struct)prev->mm ppgd=(task_struct)prev->mm->pgd' > /sys/kernel/tracing/dynamic_events
+On Tue, 24 Nov 2026, at 15:06, Sebastien WENSKE wrote:
+> On Tue, 24 Nov 2026, at 12:38, Ard Biesheuvel wrote:
+>> There was a report recently about EFI_ACPI_RECLAIM_MEMORY being
+>> problematic in combination with hibernate, as those regions tends
+>> to move around.
+>>
+>> Can you try this fix instead please?
+>>
+>> https://git.kernel.org/pub/scm/linux/kernel/git/efi/efi.git/commit/?h=urgent&id=6863183e8b65e833f8140e20d526282a725e040e
+>
+> Hello Ard,
+>
+> It works, thanks - please consider my patch withdrawn.
+>
+> Tested on x86_64 under QEMU/KVM (q35, SMM) with Debian's OVMF
+> 2025.02, both the plain and the Secure Boot capable builds (no keys
+> enrolled), the kernel booted as a systemd-stub UKI (initrd through the
+> LINUX_EFI_INITRD_MEDIA_GUID device path), then kexec'd twice in a row
+> with kexec_file_load() and an initrd:
+>
+> - v7.2.10, the setup of my report: without any patch the kexec'd
+>   kernel oopses in tcp_parse_options+0xe7 again, 16 bytes of its text
+>   zeroed at the stale table's address (0x1d4bcf98). With your patch
+>   both kexec'd kernels log
+>
+>     efi: ... (MEMATTR=0x1d4b9018 unusable) (INITRD=0x1d4bcf98 unusable)
+>
+>   and run normally.
+>
+> - v7.3.6, with a debug print before the wipe: without a fix the
+>   kexec'd kernels read what looks like their own text at the table's
+>   address (e.g. base 0x74fb894800000002 size 0x7400000208b73b26) and
+>   clear it, without any visible failure this time. With your patch the
+>   table is disregarded and the wipe never runs - also with the flash
+>   locked to SMM (-global driver=cfi.pflash01,property=secure,value=on).
+>
+> - v6.18.65: applies, both kexecs fine.
+>
+> Tested-by: Sebastien WENSKE <sebastien@wenske.fr>
+>
 
-The above creates a tprobe on the sched_switch tracepoint and records the
-previous task_struct pointer, it's mm_struct and the pgd the mm_struct
-points to.
-
-~# trace-cmd start -e tracepoints:sched
-
-            bash-1050    [000] d..3.    90.829478: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d30b623600 mm=0xffff88d30108c600 ppgd=0xffff88d33352b000
-          <idle>-0       [002] d..3.    90.836024: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d301870000 mm=0x0 ppgd=0x0
-     rcu_preempt-15      [002] d..3.    90.836031: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d3013ad100 mm=0x0 ppgd=0xffff88d33352b000
-
-The first event has is a user task that has both a valid mm_struct and a pgd.
-The second event is a kernel task where the mm_struct is NULL and so is the
-dereferenced pgd pointer.
-
-The third event is where things looked strange. The mm_struct is NULL but
-the dereferenced pgd has a value! That is: NULL->pgd produced something
-other than zero.
-
-The reason for this is that the probe_mem_read() and probe_mem_read_user()
-do not write to the destination on failure. The process_fetch_insn_bottom()
-loop does not check the return value of the dereference (as it is the last
-one), and does not update the event. That leaves the value for that failed
-field to be whatever was in the ring buffer at that time.
-
-Have both probe_mem_read() and probe_mem_read_user() set the destination to
-zero on failure to read the address.
-
-Now all pgd are zero when mm is zero.
-
-Also update the stage 2 of process_fetch_insn_bottom() to not return on
-fault but to just set the value to zero and also do not even bother
-dereferencing the address if the value is already zero. This allows the
-code to continue and fill in the zero into the memory location on the
-ring buffer.
-
-Cc: stable@vger.kernel.org
-Fixes: 533059281ee59 ("tracing: probeevent: Introduce new argument fetching code")
-Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
----
-Changes since v7: https://patch.msgid.link/20261123213246.00440bfc@gandalf.local.home
-
-- Have all the helper functions test for null pointer before
-  dereferencing (Sashiko).
-
- kernel/trace/trace_probe_tmpl.h | 103 +++++++++++++++++++++++++-------
- 1 file changed, 83 insertions(+), 20 deletions(-)
-
-diff --git a/kernel/trace/trace_probe_tmpl.h b/kernel/trace/trace_probe_tmpl.h
-index 8acc0f0ebd7a..b9fd2f61a0ca 100644
---- a/kernel/trace/trace_probe_tmpl.h
-+++ b/kernel/trace/trace_probe_tmpl.h
-@@ -96,7 +96,8 @@ fetch_store_symstring(unsigned long addr, void *dest, void *base)
- 		return -ENOMEM;
- 
- 	__dest = get_loc_data(dest, base);
--	len = sprint_symbol(namebuf, addr);
-+	/* Do not dereference NULL pointers */
-+	len = addr ? sprint_symbol(namebuf, addr) : -1;
- 	if (len < 0) {
- 		*(u32 *)dest = make_data_loc(0, __dest - base);
- 		return 0;
-@@ -133,13 +134,65 @@ process_common_fetch_insn(struct fetch_insn *code, unsigned long *val)
- 	return 0;
- }
- 
-+/* On failure, zero out the destination */
-+static nokprobe_inline int
-+do_probe_mem_read_user(void *dest, void *src, size_t size)
-+{
-+	int ret;
-+
-+	/* Do not dereference NULL pointers */
-+	ret = src ? probe_mem_read_user(dest, src, size) : -1;
-+	if (ret < 0)
-+		memset(dest, 0, size);
-+	return ret;
-+}
-+
-+/* On failure, zero out the destination */
-+static nokprobe_inline int
-+do_probe_mem_read(void *dest, void *src, size_t size)
-+{
-+	int ret;
-+
-+	/* Do not dereference NULL pointers */
-+	ret = src ? probe_mem_read(dest, src, size) : -1;
-+	if (ret < 0)
-+		memset(dest, 0, size);
-+	return ret;
-+}
-+
-+static nokprobe_inline int
-+do_fetch_store_string(unsigned long addr, void *dest, void *base)
-+{
-+	/* NULL addr gets zero size string */
-+	if (!addr) {
-+		void *__dest = get_loc_data(dest, base);
-+
-+		*(u32 *)dest = make_data_loc(0, __dest - base);
-+		return 0;
-+	}
-+	return fetch_store_string(addr, dest, base);
-+}
-+
-+static nokprobe_inline int
-+do_fetch_store_string_user(unsigned long addr, void *dest, void *base)
-+{
-+	/* NULL addr gets zero size string */
-+	if (!addr) {
-+		void *__dest = get_loc_data(dest, base);
-+
-+		*(u32 *)dest = make_data_loc(0, __dest - base);
-+		return 0;
-+	}
-+	return fetch_store_string_user(addr, dest, base);
-+}
-+
- /* From the 2nd stage, routine is same */
- static nokprobe_inline int
- process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
- 			   void *dest, void *base)
- {
- 	struct fetch_insn *s3 = NULL;
--	int total = 0, ret = 0, i = 0;
-+	int total = 0, ret = 0, i = 0, offset;
- 	u32 loc = 0;
- 	unsigned long lval, llval = val;
- 
-@@ -147,25 +200,26 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
- 	/* 2nd stage: dereference memory if needed */
- 	do {
- 		lval = val;
-+		/* Prevent dereferencing NULL val pointer */
-+		offset = val ? code->offset : 0;
- 		switch (code->op) {
- 		case FETCH_OP_DEREF:
--			ret = probe_mem_read(&val, (void *)val + code->offset,
--					     sizeof(val));
-+			do_probe_mem_read(&val, (void *)val + offset,
-+					  sizeof(val));
- 			break;
- 		case FETCH_OP_UDEREF:
--			ret = probe_mem_read_user(&val,
--				 (void *)val + code->offset, sizeof(val));
-+			do_probe_mem_read_user(&val, (void *)val + offset,
-+					       sizeof(val));
- 			break;
- 		case FETCH_OP_CPU_PTR:
--			val = (unsigned long)this_cpu_ptr((void __percpu *)val);
--			ret = 0;
-+			/* Do not dereference NULL pointers */
-+			if (val)
-+				val = (unsigned long)this_cpu_ptr((void __percpu *)val);
- 			break;
- 		default:
- 			lval = llval;
- 			goto out;
- 		}
--		if (ret)
--			return ret;
- 		llval = lval;
- 		code++;
- 	} while (1);
-@@ -175,17 +229,18 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
- stage3:
- 	/* 3rd stage: store value to buffer */
- 	if (unlikely(!dest)) {
-+		offset = code->offset;
- 		switch (code->op) {
- 		case FETCH_OP_ST_STRING:
--			ret = fetch_store_strlen(val + code->offset);
-+			ret = val ? fetch_store_strlen(val + offset) : 0;
- 			code++;
- 			goto array;
- 		case FETCH_OP_ST_USTRING:
--			ret = fetch_store_strlen_user(val + code->offset);
-+			ret = val ? fetch_store_strlen_user(val + offset) : 0;
- 			code++;
- 			goto array;
- 		case FETCH_OP_ST_SYMSTR:
--			ret = fetch_store_symstrlen(val + code->offset);
-+			ret = val ? fetch_store_symstrlen(val + offset) : 0;
- 			code++;
- 			goto array;
- 		default:
-@@ -193,27 +248,33 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
- 		}
- 	}
- 
-+	/*
-+	 * Once val is zero, it is pointing to NULL. Any new dereference is
-+	 * also treated as a NULL pointer.
-+	 */
-+	offset = val ? code->offset : 0;
-+
- 	switch (code->op) {
- 	case FETCH_OP_ST_RAW:
- 		fetch_store_raw(val, code, dest);
- 		break;
- 	case FETCH_OP_ST_MEM:
--		probe_mem_read(dest, (void *)val + code->offset, code->size);
-+		do_probe_mem_read(dest, (void *)val + offset, code->size);
- 		break;
- 	case FETCH_OP_ST_UMEM:
--		probe_mem_read_user(dest, (void *)val + code->offset, code->size);
-+		do_probe_mem_read_user(dest, (void *)val + offset, code->size);
- 		break;
- 	case FETCH_OP_ST_STRING:
- 		loc = *(u32 *)dest;
--		ret = fetch_store_string(val + code->offset, dest, base);
-+		ret = do_fetch_store_string(val + offset, dest, base);
- 		break;
- 	case FETCH_OP_ST_USTRING:
- 		loc = *(u32 *)dest;
--		ret = fetch_store_string_user(val + code->offset, dest, base);
-+		ret = do_fetch_store_string_user(val + offset, dest, base);
- 		break;
- 	case FETCH_OP_ST_SYMSTR:
- 		loc = *(u32 *)dest;
--		ret = fetch_store_symstring(val + code->offset, dest, base);
-+		ret = fetch_store_symstring(val + offset, dest, base);
- 		break;
- 	default:
- 		return -EILSEQ;
-@@ -237,11 +298,13 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
- 			if (s3->op != FETCH_OP_ST_STRING &&
- 			    s3->op != FETCH_OP_ST_USTRING) {
- 				dest += s3->size;
--				val += s3->size;
-+				/* Only update a non NULL val */
-+				if (val)
-+					val += s3->size;
- 				goto stage3;
- 			}
- 			code--;
--			val = lval + sizeof(char *);
-+			val = lval ? lval + sizeof(char *) : 0;
- 			if (dest) {
- 				dest += sizeof(u32);
- 				*(u32 *)dest = update_data_loc(loc, ret);
--- 
-2.53.0
-
+Excellent!
