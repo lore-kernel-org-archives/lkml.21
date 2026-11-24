@@ -1,103 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.170
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795543399;
-	b=IO9dngWNZbbnd/zorMikcFythZrk8muVcZG6hgGEX2qT1ZdNKfs74wlVkZR5LEApFJog
-	 8gmap9KXYN+7/8ULKHhg+ktz0wearwIQidGu15MRKEhlrhGLrb7xFE1gkfENcke1iw59D
-	 xpYXtJ6scVvFKYdgFbmPq48u4gnDUJUboz4jcq8g9cR5xH+/dQTi24rlq9Tr37pid6FFl
-	 N5uIVgDt9EVcYuGT7zH3vKRFo7F33ERuz/txbqWJb0fQqOf0+JDh7rxMuGeTPUUoVYg8R
-	 AtQ/EHbq5SZ4aQED6w79Rh/HhNhvmJj4FVs+HZAiiWaNIoRWg4t5YufE+g3Zlzl9PuA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795543399;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=fp+A2IBIJBhlc95VqLzwi8xXI2svbhFRA1unILMyFZE=;
-	b=o77Yi/efb47oVkzSnxHsGiVHaKP/NkQ5gUIRI9ixrbpHOHZmJUYvq+ujtnqZPgTGqiGl
-	 vdTYns7abLx8/9BMqNv6/M8zh77El+BpUPH5mLqEbdEO+03dlbaO0LvdPOXScY7FxJi1s
-	 d4l6iqGPw9Nn23gm2lENK2AMdS4bOA0q9bHXaS5HZ3h06KYtj6p+fQW8o0QMMvPwpuFg2
-	 SorzivfPsqtrUhrOFn7G29fCI2hZkBVrpmDtDFPSA5Epvn9lxLyzzGtdG8OZpR+g79+G7
-	 GPmxRsoy2hfBwyVBS2WgQX8mqC+Rhs7WjQB1ZkYLlVOxBrR0FW6umW/H3RCPqcVca3w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=dz9t0zlm;
-	arc=none smtp.remote-ip=209.85.214.170
-Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com [209.85.214.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795543409;
+	b=To2/7cwDW8R0+OWn++6oehAx7NO2GYzFtzGJvddCuHUE+1HdJpr2BSWLcvZF0mqZX0oA
+	 yc7wZLmYzFcJ3lfnthVBYdDzOJfOFrdWv4EC8Lmf73tCTI2wM7FpwJnzAX0CYS3lrJIVe
+	 2ld57wFd3ux26GiLDlW1bqV2m4tNZ5wfUpIV3ee6lMTVE6jzfyHsdI5dEZ3jL0688yo/q
+	 CWxc3Ig8b16yr4YpvjdvJF/7Mfvuc1GEo+WgoEfa3mhAwKv+81S/Qph/i912r7yL5KAA9
+	 jfv01GQtSiS2pu5AIwvW/EvonBBmLWv0a1bf4p3H6e+Q/S7DoyxGIAgTR7TnUlLfIeA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795543409;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
+	bh=j/SG/DUg2z4KV+ZcQAUS9i2yJHVt3YWd0v5WH1bdfDc=;
+	b=c/ZdzFu0Lfhe0jT8YwwZaLOOBcddY/qLPg1/Aq36azPfbhOoYkluxt0H4C7vBQDhYK0X
+	 woIJtl7XrnyB0bpcmSTld26ktB1dKnAxGUb7G7QbYlsx9guG4+E59pgu4Vi63c2ltJ15g
+	 BbZ78UVtTKK/Ao9mjWhAalc7a2V2CngmbtdRTF62tqDvUiwViBTyKALPagH/Rh6DkJXXC
+	 g2+3baeaVvFeV8fLBRIOpvQdy6C8PCOkq1S/XyGt+/fzexJyP+Lz7AEUl5ODFZfW5deDW
+	 xNE26w2Nvli6XVk6BE+a0fxYwYmOKBefrrmG3xd/kyPrlZjEpY9k9w6pGVAomi7uqGQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=rong.moe;
+	spf=pass smtp.mailfrom=rong.moe;
+	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b="leOLZ/nB";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF597606A331
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:03:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF597606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EC51606A31E;
+	Tue, 24 Nov 2026 18:03:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0EC51606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=dz9t0zlm
-Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2f04bea9a93so42007595ad.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:03:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795543392; x=1796148192; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fp+A2IBIJBhlc95VqLzwi8xXI2svbhFRA1unILMyFZE=;
-        b=dz9t0zlmm8R2fkO7mnxJ3INo/OsP6/g1LMXAS2NmXszuoqB5yL09fiBO9x907+5kac
-         /bHB+8+X/mTELSy4Jo5xKmd2yaCvrEIPNCc8H0h1vvR9qkxwOOqoLCH1zl3lyQ2UyzLg
-         /ABrNBByraMRdUHgcdov2HegrLy81ZaSVPj1Q=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795543392; x=1796148192;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fp+A2IBIJBhlc95VqLzwi8xXI2svbhFRA1unILMyFZE=;
-        b=QC5t4sStg8eSxo/+KA1Ip+2lxX7IXe0nEQJluU/Bsreicn4+AH0vKvOWo7DFP/11FE
-         dKZ+eHYwvIDFjlVzYVRuCUSL4XdtCiTgi3UV1HBBupAqn60Wo6BGRlEdYF/g6Jv4xSuw
-         PqSnDOhPHs/58JsfJ9Igh7NlznP5DVQAzAplj4jg3tTAL9EsLUqNPk6UIXn4VsmgkOJh
-         VlHifh9jjH3iLClCeu7UfioIsoc8PCzPJb7lB6QXv9o4jyGltsoIdGBdajZjSqd3wnXa
-         5pICvTZVglFrwwaTaQtqWi+2G739zkbSTMEdxo0tSn8yBNYVH79UAc7NL/qC856tJtZi
-         NAFg==
-X-Forwarded-Encrypted: i=1; AL+hErEHjltAwv1Q6DyZBJXtsbDfe7Jc0cdssiSNL6KHO1Bx4RvQ6E17E1BVRacAG2eTXKUl8vaeo3ODdxT7/Aw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+3l0pC6MoM/Md/Y8LMn+DjAMD9/o3UUHJbnns4dFKbqB/96pfP
-	VQVNdQcregVQylMoAH6X2K/Fgqv1EtZJV+a5rxF9LqDqc/Q+8LPJMr9KToTpLlJP8do=
-X-Gm-Gg: AZFdTZd1FOlSdnjHPaaK5+Mt5wYWO3LMohYzF129Vxu7Z5GX9GpvqngZ/VyLGr8+0m8
-	Zps0ZzyeclmdSOsEbFH0XsauJ7shRv3rIvnySv9jyrpCxtX+prgqOfyrnH34PW8JPTh8XFijRGj
-	u5WDEvaiSkWtXuNLI2or3b3WdmsH8jQoRwuG4w1ChTGEtBFtFvrA+RZ0GzaWiktMdA8bc3LzVw4
-	DYB9KRNSvzvJxW7pMe4qFqzBrAKdZpvJ8ChTHpEE02RI0WGwNZL+vZR79NqdlwUQW3Y5DG2jank
-	R8+7BNQkjS7CfnWXgDitDQryI8ZW3CfS9U7QEo9vEZg5WxdwbQqig06hk6VRfSVxMzOajsbZ8Ok
-	TnFUIVNGbfk2gujQuwXGpPbbtuiHXIYyICaV7byUgZDY9tTNqNmBYjm/lN9KzyNe+koGsBdIZAg
-	mhcYFijAixvit3ShYZ4UeozWHH46O7w9NdmmU6Mj9PjU2TOGP618eqKy6hxk1xExU/z3++aXLTs
-	BhTNtDkfmFJp5W5Bq//a8x3AZxvFnTiabQLrvrP++4ViK677WFgRQPsbzoMl/McmJQZ9+1H4eHQ
-	gL+C2700TKcpCxXjWOUsUi+SLNlRxsE0gUVJS0vUbGzOTbJugLtnudr9ZAzDK3QgepXG3JEDCdX
-	KmUMhc/1c3B1c5HIuqbPOT/6pbZVLOEwyowH3o7EXpOJklSARLOoY7pu+Dsrif/Ul
-X-Received: by 2002:a17:902:e847:b0:2ed:3d74:b640 with SMTP id d9443c01a7336-2f03f26b691mr143912525ad.59.1795543392125;
-        Tue, 24 Nov 2026 10:03:12 -0800 (PST)
-Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0dc0ebsm70508185ad.33.2026.11.24.10.03.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 10:03:11 -0800 (PST)
-From: Piyus Kedia <piyus@iiitd.ac.in>
-To: wenjia@linux.ibm.com,
-	jaka@linux.ibm.com,
-	alibuda@linux.alibaba.com,
-	tonylu@linux.alibaba.com,
-	guwen@linux.alibaba.com
-Cc: netdev@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	kapil@presceralabs.ai,
-	stable@vger.kernel.org
-Subject: Re: [PATCH net v2 2/2] net/smc: bound the DMB-nocopy send-buffer credit as well
-Date: Tue, 24 Nov 2026 23:33:05 +0530
-Message-Id: <20261124180305.622194-1-piyus@iiitd.ac.in>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <179552966151.3135.8162716126718648323@kernel.org>
-References: <179552966151.3135.8162716126718648323@kernel.org>
+	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=leOLZ/nB
+ARC-Seal: i=1; a=rsa-sha256; t=1795543378; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=b2+nNu+yB3pit+40KI3TFv7JI9FB6mnQU87Ge5fZ9SMCkdJSwca8QqjsHbJN8afP2h5MpCdCpjP+r2dP3X9X9g5XSbgpO2XonwERyT+O/nD+sEEAKRFbDzKNrpSA76GgScUWq6qzTYFjH6t7gcU9vum7jIIWBLFmMroXaVWQn90=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795543378; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=j/SG/DUg2z4KV+ZcQAUS9i2yJHVt3YWd0v5WH1bdfDc=; 
+	b=IkJC/mfR+hRsSck5DsS8R6qqrsAbjJ5sH3LnLKvee8+D/6JVp2l3P8mGF9L6mVB79GXOAi7SVAPuwzjtvJ6Q/ramqM63cxYYg3F8UtXo4sGoEnAO01aq062B8edPjnGm0vOufUTUlPzPv5YIUg+ssSWcXsGBGX3hdERk2fvHKkw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: a=rsa-sha256; b=leOLZ/nBRXfzAGXkyhjSjyr3Cu0X3kLqrKP/NboTuzd9QsuOWiOl2DCBE9IQcQwDhaZwJ6u2wFHI/VPu/xRQ2DxMRY4yc7CCHxqmfY6lHgzsT1s2UucR3/AH6lutkC2KfnbpBZIMGnE3kb10fpBDcKApwWRmj7T11njiyBtcOxRq0XDncvhFTNwOYpn+QFzrdGH/2g8Mpn6q+PJH/jUn6Qa4cXbplJe1L8a3Di3LvfFGN2MdgdZuE+JVY/HQnD9RiRrOEIkR//quxVkysv7QKnf04aqWO6fjWA2cMVmqI/6UfXyAAl1EdE8RVUyuE9QX3bC8jM8aqfSeF2UPLrLv9g==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=j/SG/DUg2z4KV+ZcQAUS9i2yJHVt3YWd0v5WH1bdfDc=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795543377027365.18746490809224;
+	Tue, 24 Nov 2026 10:02:57 -0800 (PST)
+From: Rong Zhang <i@rong.moe>
+Date: Wed, 25 Nov 2026 02:02:39 +0800
+Subject: [PATCH v2 1/5] platform/x86: lenovo-wmi-other: Retrieve private
+ data from firmware_attributes device
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,108 +60,146 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-lwmi-no-singleton-v2-1-37611a7b2fc4@rong.moe>
+References: <20261125-lwmi-no-singleton-v2-0-37611a7b2fc4@rong.moe>
+In-Reply-To: <20261125-lwmi-no-singleton-v2-0-37611a7b2fc4@rong.moe>
+To: Mark Pearson <mpearson-lenovo@squebb.ca>, 
+ "Derek J. Clark" <derekjohn.clark@gmail.com>, 
+ Hans de Goede <hansg@kernel.org>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Armin Wolf <W_Armin@gmx.de>
+Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Rong Zhang <i@rong.moe>
+X-Mailer: b4 0.17-dev-ce4c1
+X-ZohoMailClient: External
 
-Thank you - both of these were worth the mail.  The first changed the patch:
-the bound is now the one you suggest.  The second is pre-existing, as you
-say, and I have answered its two questions below rather than fold an
-unrelated counter into this one.
+Currently, each tunable_attr_01 stores a pointer to the WMI device,
+which is unnecessary, as attributes' show/store callbacks can always
+access the firmware_attributes device through the kobject hierarchy.
+This also makes the driver fail to satisfy the requirements of a
+no_singleton driver.
 
-v3 of this patch is posted as a separate thread:
+Store a pointer to the driver's privated data in the firmware_attributes
+device's drvdata, and retrieve it in attributes' show/store callbacks,
+so that we can get rid of tunable_attr_01.device and make it possible
+for upcoming refactoring to eliminate all wrapper callbacks created by
+macros and constify all statically allocated variables relevant to our
+firmware_attributes interface.
 
-  [PATCH net v3] net/smc: bound the DMB-nocopy send-buffer credit by what
-                 was sent
+Fixes: edc4b183b794 ("platform/x86: Add Lenovo Other Mode WMI Driver")
+Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+Signed-off-by: Rong Zhang <i@rong.moe>
+---
+ drivers/platform/x86/lenovo/wmi-other.c | 27 ++++++++++++++++-----------
+ 1 file changed, 16 insertions(+), 11 deletions(-)
 
-Each patch of the v2 series drew its own review, so each is respun in its own
-thread; the other one is answered where it was reviewed.  The v3 changelog is
-under the --- line with a Link: back to the v2 posting.
+diff --git a/drivers/platform/x86/lenovo/wmi-other.c b/drivers/platform/x86/lenovo/wmi-other.c
+index bd64e7b44669..c31a8bd08a85 100644
+--- a/drivers/platform/x86/lenovo/wmi-other.c
++++ b/drivers/platform/x86/lenovo/wmi-other.c
+@@ -967,7 +967,6 @@ static void lwmi_om_psy_remove(struct lwmi_om_priv *priv)
+ /* ======== fw_attributes (component: lenovo-wmi-capdata 01) ======== */
+ 
+ struct tunable_attr_01 {
+-	struct device *dev;
+ 	u8 feature_id;
+ 	u8 device_id;
+ 	u8 type_id;
+@@ -1124,6 +1123,11 @@ struct capdata01_attr_group {
+ 	struct tunable_attr_01 *tunable_attr;
+ };
+ 
++static inline struct lwmi_om_priv *kobj_to_om_priv(const struct kobject *kobj)
++{
++	return dev_get_drvdata(kobj_to_dev(kobj->parent));
++}
++
+ /* Attribute Methods */
+ 
+ /**
+@@ -1163,7 +1167,7 @@ static ssize_t attr_capdata01_show(struct kobject *kobj,
+ 				   struct tunable_attr_01 *tunable_attr,
+ 				   enum attribute_property prop)
+ {
+-	struct lwmi_om_priv *priv = dev_get_drvdata(tunable_attr->dev);
++	struct lwmi_om_priv *priv = kobj_to_om_priv(kobj);
+ 	struct capdata01 capdata;
+ 	u32 attribute_id;
+ 	int value, ret;
+@@ -1219,7 +1223,7 @@ static ssize_t attr_current_value_store(struct kobject *kobj,
+ 					const char *buf, size_t count,
+ 					struct tunable_attr_01 *tunable_attr)
+ {
+-	struct lwmi_om_priv *priv = dev_get_drvdata(tunable_attr->dev);
++	struct lwmi_om_priv *priv = kobj_to_om_priv(kobj);
+ 	struct wmi_method_args_32 args = {};
+ 	struct capdata01 capdata;
+ 	enum thermal_mode mode;
+@@ -1277,7 +1281,7 @@ static ssize_t attr_current_value_show(struct kobject *kobj,
+ 				       struct kobj_attribute *kattr, char *buf,
+ 				       struct tunable_attr_01 *tunable_attr)
+ {
+-	struct lwmi_om_priv *priv = dev_get_drvdata(tunable_attr->dev);
++	struct lwmi_om_priv *priv = kobj_to_om_priv(kobj);
+ 	struct wmi_method_args_32 args = {};
+ 	enum thermal_mode mode;
+ 	int retval;
+@@ -1304,6 +1308,7 @@ static ssize_t attr_current_value_show(struct kobject *kobj,
+ 
+ /**
+  * lwmi_attr_01_is_supported() - Determine if the given attribute is supported.
++ * @priv: Driver private data
+  * @tunable_attr: The attribute to verify.
+  *
+  * For an attribute to be supported it must have a functional get/set method,
+@@ -1324,10 +1329,10 @@ static ssize_t attr_current_value_show(struct kobject *kobj,
+  *
+  * Return: true if capdata and set/get modes are found, otherwise false.
+  */
+-static bool lwmi_attr_01_is_supported(struct tunable_attr_01 *tunable_attr)
++static bool lwmi_attr_01_is_supported(struct lwmi_om_priv *priv,
++				      struct tunable_attr_01 *tunable_attr)
+ {
+ 	u8 modes[2] = { LWMI_GZ_THERMAL_MODE_CUSTOM, LWMI_GZ_THERMAL_MODE_NONE };
+-	struct lwmi_om_priv *priv = dev_get_drvdata(tunable_attr->dev);
+ 	struct wmi_method_args_32 args = {};
+ 	bool cd_mode_found = false;
+ 	bool cv_mode_found = false;
+@@ -1350,8 +1355,7 @@ static bool lwmi_attr_01_is_supported(struct tunable_attr_01 *tunable_attr)
+ 	if (!cd_mode_found)
+ 		return cd_mode_found;
+ 
+-	dev_dbg(tunable_attr->dev,
+-		"cd_mode_id: %#010x\n", args.arg0);
++	dev_dbg(&priv->wdev->dev, "cd_mode_id: %#010x\n", args.arg0);
+ 
+ 	/* Determine tunable_attr->cv_mode_id, returns 1 if supported */
+ 	for (i = 0; i < ARRAY_SIZE(modes); i++) {
+@@ -1371,7 +1375,7 @@ static bool lwmi_attr_01_is_supported(struct tunable_attr_01 *tunable_attr)
+ 	if (!cv_mode_found)
+ 		return cv_mode_found;
+ 
+-	dev_dbg(tunable_attr->dev, "cv_mode_id: %#010x, attribute support level: %#010x\n",
++	dev_dbg(&priv->wdev->dev, "cv_mode_id: %#010x, attribute support level: %#010x\n",
+ 		args.arg0, capdata.supported);
+ 
+ 	return capdata.supported > 0;
+@@ -1558,9 +1562,10 @@ static void lwmi_om_fw_attr_add(struct lwmi_om_priv *priv)
+ 		goto err_destroy_classdev;
+ 	}
+ 
++	dev_set_drvdata(priv->fw_attr_dev, priv);
++
+ 	for (i = 0; i < ARRAY_SIZE(cd01_attr_groups) - 1; i++) {
+-		cd01_attr_groups[i].tunable_attr->dev = &priv->wdev->dev;
+-		if (!lwmi_attr_01_is_supported(cd01_attr_groups[i].tunable_attr))
++		if (!lwmi_attr_01_is_supported(priv, cd01_attr_groups[i].tunable_attr))
+ 			continue;
+ 
+ 		err = sysfs_create_group(&priv->fw_attr_kset->kobj,
 
+-- 
+2.55.0
 
-1. Is len - sndbuf_space the right bound here?
-
-> The peer can only consume up to the producer cursor it was given.
-> smc_tx_rdma_writes() advances that cursor together with tx_curs_sent. A
-> consumer cursor that claims more than tx_curs_sent is therefore clamped
-> only to prep - fin. The smc_curs_add() above can then move tx_curs_fin
-> past tx_curs_sent.
-> Would that break the fin <= sent <= prep ordering implied by the
-> tx_curs_sent ("sent data") and tx_curs_fin ("confirmed by peer") field
-> comments in smc.h?
-
-It is not the right bound, and yes it would.  The ordering is what those
-comments say:
-
-	union smc_host_cursor	tx_curs_prep;	/* tx - prepared data */
-	union smc_host_cursor	tx_curs_sent;	/* tx - sent data */
-	union smc_host_cursor	tx_curs_fin;	/* tx - confirmed by peer */
-
-and nothing else in this branch moves tx_curs_sent, so the clamp was the only
-thing standing between a forged cursor and fin > sent.  Your consequence
-follows too: once fin is past sent, a later smc_tx_sendmsg() can wrap out of
-tx_curs_prep into [tx_curs_sent, tx_curs_prep) and overwrite data that has
-been queued but not yet advertised - on this path, in the peer's DMB.
-
-v3 uses the bound you give:
-
-	unconfirmed = smc_curs_diff(conn->sndbuf_desc->len,
-				    &conn->tx_curs_fin, &conn->tx_curs_sent);
-	diff_tx = min_t(int, diff_tx, unconfirmed);
-
-The honest-peer case is unchanged: a cursor that reflects real consumption
-cannot be past the producer cursor the peer was given, so it is at most
-tx_curs_sent and the bound does not bind.  smc_curs_diff() already returns 0
-rather than a negative value, so the max_t() that guarded the subtraction is
-gone with it.  The variable is no longer called "sent", and neither the
-comment nor the commit message says "outstanding" any more - as you note,
-that described a tighter bound than the code computed.
-
-Your reading of smc_switch_cursor() is right as well: it rewinds tx_curs_sent
-to tx_curs_fin and then advances both, so the order holds there even with the
-longer distance.  That patch has a review of its own and v3 of it stops
-clamping altogether - a cursor that claims more than was prepared is treated
-as a protocol violation and the connection is dropped - so the two patches no
-longer share a formula.
-
-
-2. peer_rmbe_space is credited with no bound (pre-existing)
-
-> With a forged cursor, can peer_rmbe_space exceed peer_rmbe_size here?
-> That would make the comment false.
-
-Yes.  diff_cons is bounded only by peer_rmbe_size, since that is the size
-passed to smc_curs_diff(); the atomic_add() applies no clamp, and the only
-thing that lowers peer_rmbe_space is smc_tx_rdma_writes() as it writes.  So a
-cursor that reports consumption this side never produced raises it without
-limit, and the "guarantee 0 <= peer_rmbe_space <= peer_rmbe_size" above it is
-not a guarantee.  It runs for every SMC-R and SMC-D connection, as you say,
-not only the nocopy ones.
-
-> Would an inflated peer_rmbe_space mean the urgent data sender is never
-> woken through that path?
-
-Through that path, yes.  The wake-up tests equality:
-
-	if (diff_cons && conn->urg_tx_pend &&
-	    atomic_read(&conn->peer_rmbe_space) == conn->peer_rmbe_size) {
-
-so while the counter sits above peer_rmbe_size the test cannot become true
-and urg_tx_pend stays set.  I have not traced whether another route clears it
-in practice, so I would not claim more than that the condition here can no
-longer be met.
-
-And your point that the two counters can now disagree is fair: after this
-patch sndbuf_space and tx_curs_fin are bounded while peer_rmbe_space still
-takes the full diff_cons, and the comment above the nocopy branch does speak
-of both being updated because "peer has already consumed the data".
-
-I have left it out of this patch rather than fixed it quietly.  It is a
-different counter with a different Fixes: tag, it is not confined to the
-loopback-only branch this patch is about, and the natural bound is a
-different quantity - the distance from cons_old to the producer cursor the
-peer has actually been given, rather than anything derived from the send
-buffer.  Getting that wrong would stall flow control on every connection, and
-we have no SMC-R setup here to exercise it on; the route to this patch's
-branch is loopback-ism, which is why this one is hardening rather than a fix.
-So I would rather post it on its own, or leave it to the SMC maintainers if
-they would prefer to take it.  Either way it should not be lost - it is the
-same class of bug on a path that every connection uses.
