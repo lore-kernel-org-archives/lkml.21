@@ -1,75 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795490999;
-	b=X607hP4Gk5Q4L8EM2DsmA7Og6pBNkwnFd2NhKxJ0Nf3H0bUBB7adGI/SzOVv1bg812gC
-	 1SP8P6q3fcV1zAxZJhzwcbLkPfDG7aNkEryvCVyRx9jyCwbVxOzI7nG2ka2azMhG0M/ZS
-	 4PIT8RvDUgV76dUx3K85AW62H0Jzg/t2W7g/xBtDA2mBnN7SMO0T6suqQz2ifKVxS4xA0
-	 tC2cqmmgIfJZgM60rdrHLsT2ngTTVH0i0e+y3/mQgT5IG/mKyCAUaf54f+c4H0eA/JY1W
-	 Nod5CNxLpAFFe+yY4DjBKYco+CaJZXa8sQnxV6R55vLtNji/DEU5edhhuNDElmzK7Ww==
+	t=1795491059;
+	b=Pe57gR31K8LqsvDglA/8oBxW6EyinebWHfv2Mj2sGCvYEaSs9t5PqtQbnqNo0MvNi01E
+	 QfP4Bn+VJJO8/dDtajBTb9NQtgV3e+kJVqBIamoDu356VMNJ3A+6VNfkTmBusN2GUVLvx
+	 y817W8HfuyF2QLKuSq6NybqlYSmvvbq8/DJEBzvRUU0600r+IJj9cdm/z6Yh9KLLKLwNb
+	 vw0VqXVA1SXXBWJpffaVy4puMBcU7y3vBnsB7+C4kfxXOZvKH6W2cXvWPqGdY4b1yiqis
+	 AcFE28kfy+OpnhNp8I0zMWlSUN4+cBU1mPkBkrVnvvu/wRwuGmlF6rtyTKmIqxcwZDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795490999;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=8eCq9dib8jOAF7T/Xv3lvdH1JoM5UBCk+ZQipVveLXA=;
-	b=IP8jE+wJL9k2ex5uXo7ktQdJ99pmWotsAU4NO0KW6UAfVhv/BsZGMVbkkBiQMqReQnlL
-	 hZlzt8cG32BGHc8Jv55TcD/4hhpBltPc58Ie5pvIdTkuTuBwTL0bl01IXQLIwbpqB2Hw8
-	 ar6hnw+uDprf0F4ASw6M7gfkUCyR040V0mxpBEN0XnYNkDFQ3nSrIU1sNJYnyYoEcQytX
-	 WsCnh72n+z2SzVZarq/u/IVkEXznXGFx/buFMFTMC5ZdXmihU+1qFL7ZyRodiaHrchUpz
-	 J2Eqtsd6+fqSY2wmY4yCspXUr5sGe6TA0CVaOF4rASU9vdUhv17irKMdimv/Udm3Qug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795491059;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=pyHexj0+tqVSxaKhaBY2HOeWK/ZBGwKQEd3in6nz0eo=;
+	b=OmHewNRqmOOiIJY5VZnFvNQ64/Dn1NBc4VR+FVZgHWMCp7rgRGmUYvwNosh1wGRhWV/l
+	 7GPsKa9m3nl7fIFaHVi/T1/xtkqaNl6b0qXezx/+LDvZ1Y1W3OD9HXBc+9Wq5Y4kh+nDL
+	 L90AlQFRTZKSAgIIN2n5G9kf20jH5CsiiY8qWSlQfP3k19gI/ku8jB23sqVZoE1Y101//
+	 FNsimWDF8Bbmbi4lEDlBOf6cm64ttb4CyyWtffGiCP/38VOHhGREpuptKfZLwYtA5jGxE
+	 EnA1Vm7p972LAkCz9GnDIny82WsbeNB6xo3PLkBBBzP7I69kEzTL9/kscztFs55sytw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nM6iVLRV;
-	arc=none smtp.remote-ip=74.125.82.197
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=g8aBUN+B;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CC94606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:29:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CC94606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04EED606A31E;
+	Tue, 24 Nov 2026 03:30:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 04EED606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nM6iVLRV
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-38531c1a566so2779528eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:29:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795490997; x=1796095797; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8eCq9dib8jOAF7T/Xv3lvdH1JoM5UBCk+ZQipVveLXA=;
-        b=nM6iVLRV+E5DEkmJ8PrBOFUkLT1+E0ajv2uzNxmiCETMayVDGZQIAACNQV2LGmp1jo
-         8MSB9tByEVkGCYavNn0Gl/aUb7wDTzReNQ/RkCfy4rDo4KfC1up6dXDk54LmgHSD4B7y
-         6jicJi1ntP7lLQKpGt1j8kGGz5whtqBV6AB0r12KNLtcoa4qNtUIieD0Mp3AkmgA5kj4
-         tR4uau9kpl8oYfdTrn4Nfz0uxLZ3Aot68KuUH0XWGwc6M3WidaiI+0R3aa/PNs7HQZcB
-         0XLNVpQr7cZsaCS71X4X++d0EJvojjyOBUthrbGSKH7A3VRBggJrL/fwzoTznIRlEOxj
-         LedQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795490997; x=1796095797;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8eCq9dib8jOAF7T/Xv3lvdH1JoM5UBCk+ZQipVveLXA=;
-        b=2eOJIQ8mWX0vQRdlVbCL9LScpUhPzZMHrZIuZXNzkPXTVKiOE4Y0K/KKmcvrK1AVz8
-         668w3YzMEhVTpZI+PAFAMu8pTjbtJshUWmvTygtwcJ07AulwyUHd0/aYUx8j9OTG27ds
-         UKeX9wTFyaRWJChtwq0Ro8AKICc4lSscIrmUKATHtKn01Zm28HGO0HXUmtAC6J3MHyRe
-         yhKtoWS9nrgrigSlxwPwrhheEGV5kubGmCoawUPH3F87nSRBg66ys6zn8TaJ5egKKGYi
-         RuInLW4CEMkZFmpfY+aYHqA8134G6rbErNm9ekOFIcACJ8ktkAavlwfE5dssdISgCncI
-         xzng==
-X-Forwarded-Encrypted: i=1; AL+hErH3CKqSwLcb0aL7V3WVj4CApQ75XbJ4fjN5ixCg+Z7DjPF7ZqTCcx/2XLJucj458bHCbHp75R4oACpO4hA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9w12/Gj1p4rzQCqqn9DHoOABXZf1N+KGGHLgMb8/sCDYDcJnz3
-	71GUePgkl2Eq8mc5M5VcnfyrU5gBuWBsLMGVe1vspq8R3xo04A30l9jN2hu8tTeymi9OoAJl7no
-	/9oDJpSLhzQ==
-X-Received: from dybzy8.prod.google.com ([2002:a05:7301:e108:b0:382:22da:973b])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:d941:b0:381:3a24:1be2
- with SMTP id 5a478bee46e88-3856fd5d566mr15197140eec.13.1795490996929; Mon, 23
- Nov 2026 19:29:56 -0800 (PST)
-Date: Mon, 23 Nov 2026 19:29:02 -0800
-In-Reply-To: <20261124032902.3859564-1-irogers@google.com>
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=g8aBUN+B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795491057;
+	bh=MXmoufWPYFfbg0i+dQ2JQfkHgdQBAEq1ck4w5GVrS1w=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=g8aBUN+BqSSSKgas34zbSjAaPlvO1DOSkb5RBYmhN2GiUoYiJ6MSQqsYmlV004Do9
+	 ufJJelzxExcuaVBsJt9LI6rdv2DwlG6xCpV5pmIuTsBZ4JW52Q02m+MngLe1AMVU9v
+	 mzDtJDNE9Fz8zIZc204+C8yCDCebvOMXipPJHQTbleWPHdE65TDKK7/g2I64VDzmlS
+	 T2jl90Lnrj1cxLi+MjVRw5oCNHOUqrfxf/Lx53sxXl1l+475TJUh9TQeiPXPUlgFpc
+	 bxJaz1UFU+J2RQnVoVvk7yYWUhYyLCOhd1FttKNJrGbvXZxLAH18F7Y8U/SPAMNkm7
+	 DHThxfOw9steQ==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DD3EF17E0CD7;
+	Tue, 24 Nov 2026 04:30:55 +0100 (CET)
+Message-ID: <3dfe5ae59107fa77075676fc226ac818bc2700f9.camel@collabora.com>
+Subject: Re: [PATCH v7 2/3] media: verisilicon: AV1: Fix luma size
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+	p.zabel@pengutronix.de, mchehab@kernel.org, heiko@sntech.de,
+ hverkuil@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Date: Mon, 23 Nov 2026 22:30:54 -0500
+In-Reply-To: <20261120143135.71134-3-benjamin.gaignard@collabora.com>
+References: <20261120143135.71134-1-benjamin.gaignard@collabora.com>
+	 <20261120143135.71134-3-benjamin.gaignard@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-UcH2Qzf5k/0Fqhh/w578"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,227 +87,54 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261124032902.3859564-1-irogers@google.com>
-X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261124032902.3859564-12-irogers@google.com>
-Subject: [PATCH v9 11/11] perf test symbols: Add session allocation wrapper
- and lock contention tests
-From: Ian Rogers <irogers@google.com>
-To: Namhyung Kim <namhyung@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
-	Alireza Haghdoost <haghdoost@uber.com>, Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+MIME-Version: 1.0
+
+--=-UcH2Qzf5k/0Fqhh/w578
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Add test_session_alloc_shrink() to tools/perf/tests/symbols.c verifying:
-- machine__session() and dso__session() back-pointer resolution.
-- perf_session__malloc(), zalloc(), calloc(), realloc(), and strdup()
-  allocation wrappers and perf_session__shrink() eviction.
-- Multithreaded contention between dso__find_binary_type()
-  (dso__data_open_lock -> dso__lock(dso)) and perf_session__shrink() under
-  dso__lock(dso), plus perf_session__e_machine() shard iteration.
+Le vendredi 20 novembre 2026 =C3=A0 15:31 +0100, Benjamin Gaignard a =C3=A9=
+crit=C2=A0:
+> Use the values computed by v4l2 helpers to get luma size.
+> Unlile before this will also take care of padding.
+>=20
+> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> Fixes: 727a400686a2c ("media: verisilicon: Add Rockchip AV1 decoder")
 
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/tests/symbols.c | 162 +++++++++++++++++++++++++++++++++++++
- 1 file changed, 162 insertions(+)
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-diff --git a/tools/perf/tests/symbols.c b/tools/perf/tests/symbols.c
-index 1fd6bfdc4147..c6375bd7e3d9 100644
---- a/tools/perf/tests/symbols.c
-+++ b/tools/perf/tests/symbols.c
-@@ -8,6 +8,8 @@
- #include <errno.h>
- #include <inttypes.h>
- #include <limits.h>
-+#include <pthread.h>
-+#include <stdatomic.h>
- #include <stdbool.h>
- #include <stddef.h>
- #include <stdio.h>
-@@ -19,6 +21,7 @@
- #include "dso.h"
- #include "env.h"
- #include "machine.h"
-+#include "session.h"
- #include "srcline.h"
- #include "thread.h"
- #include "symbol.h"
-@@ -320,6 +323,161 @@ static int test_dsos_shrink(void)
- 	return ret;
- }
- 
-+struct shrink_lock_race_args {
-+	struct dso *dso;
-+	atomic_bool stop;
-+};
-+
-+static void *shrink_lock_race_worker(void *arg)
-+{
-+	struct shrink_lock_race_args *args = arg;
-+
-+	while (!atomic_load_explicit(&args->stop, memory_order_relaxed))
-+		dso__find_binary_type(args->dso);
-+
-+	return NULL;
-+}
-+
-+static int test_session_alloc_shrink(void)
-+{
-+	struct perf_session *session = zalloc(sizeof(*session));
-+	struct dso *dso;
-+	struct thread *th;
-+	pid_t pid = getpid();
-+	char *p1 = NULL, *p2 = NULL, *p3 = NULL, *s = NULL, *tmp;
-+	int ret = TEST_FAIL;
-+
-+	if (!session)
-+		return TEST_FAIL;
-+
-+	perf_env__init(&session->header.env);
-+	if (machines__init(&session->machines, session))
-+		goto out;
-+	session->machines.host.env = &session->header.env;
-+	if (machine__session(&session->machines.host) != session) {
-+		pr_debug("machine__session did not return owning session!\n");
-+		goto out;
-+	}
-+
-+	dso = machine__findnew_dso(&session->machines.host, "/tmp/perf_test_session_dso");
-+	if (!dso)
-+		goto out;
-+	if (dso__session(dso) != session) {
-+		pr_debug("dso__session did not return owning session!\n");
-+		dso__put(dso);
-+		goto out;
-+	}
-+	dso__put(dso);
-+
-+	p1 = perf_session__malloc(session, 64);
-+	p2 = perf_session__zalloc(session, 64);
-+	p3 = perf_session__calloc(session, 4, 16);
-+	s = perf_session__strdup(session, "perf_session_alloc_test");
-+	if (!p1 || !p2 || !p3 || !s || strcmp(s, "perf_session_alloc_test") != 0) {
-+		pr_debug("perf_session allocation wrappers failed!\n");
-+		goto out;
-+	}
-+
-+	tmp = perf_session__realloc(session, p1, 128);
-+	if (!tmp) {
-+		pr_debug("perf_session__realloc failed!\n");
-+		goto out;
-+	}
-+	p1 = tmp;
-+
-+	if (perf_session__shrink(session) == 0) {
-+		pr_debug("perf_session__shrink failed to evict unreferenced DSO!\n");
-+		goto out;
-+	}
-+	down_read(&session->machines.host.dsos.lock);
-+	if (session->machines.host.dsos.cnt != 0) {
-+		up_read(&session->machines.host.dsos.lock);
-+		pr_debug("perf_session__shrink failed to evict unreferenced DSO!\n");
-+		goto out;
-+	}
-+	up_read(&session->machines.host.dsos.lock);
-+
-+	/*
-+	 * Regression test for AB-BA lock inversion between dso__lock(dso_A)
-+	 * (held by dso__load() when calling perf_session__shrink() to evict
-+	 * unreferenced dso_B) and dso__data_open_lock (acquired before
-+	 * dso__lock(dso_A) by dso__find_binary_type()).
-+	 */
-+	dso = machine__findnew_dso(&session->machines.host, "/tmp/perf_test_contended_dso");
-+	if (!dso)
-+		goto out;
-+	{
-+		bool was_singlethreaded = perf_singlethreaded;
-+		struct shrink_lock_race_args race_args = {
-+			.dso = dso,
-+			.stop = false,
-+		};
-+		pthread_t worker;
-+
-+		perf_set_multithreaded();
-+		if (pthread_create(&worker, NULL, shrink_lock_race_worker, &race_args) != 0) {
-+			if (was_singlethreaded)
-+				perf_set_singlethreaded();
-+			dso__put(dso);
-+			goto out;
-+		}
-+		for (int i = 0; i < 200; i++) {
-+			struct dso *evict = machine__findnew_dso(&session->machines.host,
-+								 "/tmp/perf_test_evict_dso");
-+
-+			dso__put(evict);
-+			mutex_lock(dso__lock(dso));
-+			RC_CHK_ACCESS(dso)->bintype_searched = 0;
-+			perf_session__shrink(session);
-+			mutex_unlock(dso__lock(dso));
-+		}
-+		atomic_store_explicit(&race_args.stop, true, memory_order_relaxed);
-+		pthread_join(worker, NULL);
-+		if (was_singlethreaded)
-+			perf_set_singlethreaded();
-+	}
-+	dso__put(dso);
-+	perf_session__shrink(session);
-+
-+	/*
-+	 * Verify perf_session__e_machine() -> threads__for_each_thread() does
-+	 * not self-deadlock on table->lock when a non-leader thread looks up or
-+	 * creates its leader thread in the same shard.
-+	 */
-+	{
-+		bool was_singlethreaded = perf_singlethreaded;
-+		uint16_t e_machine;
-+
-+		perf_set_multithreaded();
-+		th = machine__findnew_thread(&session->machines.host, pid,
-+					     pid + THREADS__TABLE_SIZE);
-+		if (!th) {
-+			if (was_singlethreaded)
-+				perf_set_singlethreaded();
-+			goto out;
-+		}
-+		thread__put(th);
-+		e_machine = perf_session__e_machine(session, NULL);
-+		if (was_singlethreaded)
-+			perf_set_singlethreaded();
-+		if (e_machine == EM_NONE) {
-+			pr_debug("perf_session__e_machine failed!\n");
-+			goto out;
-+		}
-+	}
-+
-+	ret = TEST_OK;
-+out:
-+	free(p1);
-+	free(p2);
-+	free(p3);
-+	free(s);
-+	machines__exit(&session->machines);
-+	perf_env__exit(&session->header.env);
-+	free(session);
-+	return ret;
-+}
-+
- struct shrink_reload_find_args {
- 	struct symbol *kept;
- 	u64 first_start;
-@@ -822,6 +980,10 @@ static int test__symbols(struct test_suite *test __maybe_unused, int subtest __m
- 	if (ret != TEST_OK)
- 		return ret;
- 
-+	ret = test_session_alloc_shrink();
-+	if (ret != TEST_OK)
-+		return ret;
-+
- 	ret = init_test_info(&ti);
- 	if (ret != TEST_OK)
- 		return ret;
--- 
-2.56.1.809.ga0b61035b5-goog
+> ---
+>  drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_de=
+c.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> index 5da59104a966..5e0cd5268f22 100644
+> --- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> +++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> @@ -221,7 +221,7 @@ static void rockchip_vpu981_av1_dec_clean_refs(struct=
+ hantro_ctx *ctx)
+> =20
+>  static size_t rockchip_vpu981_av1_dec_luma_size(struct hantro_ctx *ctx)
+>  {
+> -=09return ctx->dst_fmt.width * ctx->dst_fmt.height * ctx->bit_depth / 8;
+> +=09return ctx->ref_fmt.plane_fmt[0].bytesperline * ctx->ref_fmt.height;
+>  }
+> =20
+>  static size_t rockchip_vpu981_av1_dec_chroma_size(struct hantro_ctx *ctx=
+)
 
+--=-UcH2Qzf5k/0Fqhh/w578
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawUE7gAKCRDZQZRRKWBy
+9BAHAQD8fgjmNX5KD6ctzH1SuyeuStMfmVDc3EEZMVnX5nWbKAD6AtSq07MlurJ6
+azwsqiLQeRsU+00eDSZ5RRKn8CSpTA8=
+=2h/7
+-----END PGP SIGNATURE-----
+
+--=-UcH2Qzf5k/0Fqhh/w578--
