@@ -1,98 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.152
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795516513;
-	b=F4kQ7gHW4dHQGMdA9eQ6SsPL1Jn6ULOo86FXm/3KnPrC7iMSoMCEAJaHyWqyL20lJTPt
-	 5srVtfD0d9sqRCBpwUAPJghNwuWGHhYSLgZosTt2DYajE8J43gkILFKU6DuJE4yLlh9AN
-	 DG1DVgfV5v6dcXih4ZNsFmi3cL4W+/CBuURNhA6QYzpNkS9uRq6QiEaQ25lOTt0uWJf4e
-	 WoEQdGubhNA/PwtF0tuHLvddd5znu6s1hYg1DuGv9Sf0cjt21Eatse9YZzOMJsEnpEvqN
-	 B09XifxntTohe7hlE/Beoc4NBwTDar9tC5+HIO6wIT99HJD6QaKLRPN5FdMYZt/YF7A==
+	t=1795516538;
+	b=c715rxCSrYrfw0r12d0YoUnow/k025BCzL3RC0mMhm3wUpoLBsnMSL/zwQky8vcLTgap
+	 AmNec07KCge8TCQRoYxFdEeGE6DT+r7COwjeLo11oyj3av2vwpo0otlIZbo7/3ph8HMn0
+	 9T91S7dSenZcicGOKxS5RJ8XqPrG3cLGdLfYMXc67w/tvkRy85mmQjB+zA9ZeYdRN7NXA
+	 u1YCeMvBwTEimm6Lb3196fhTrt/lZvU2YqEXi7mX3Mg9Dia9EHsGjeG2cnwm9a8P2eyd7
+	 8HPPXnAsHtjQZwgVffxEUkNSRkPWvJF3ePZjbq2MVWBqxvuaiMbcLHX0l1kQ5UE32fQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795516513;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=yv05lreakyU5Zw1UHDQ2CzNSi5TT2d/xJeOs5UM7o/w=;
-	b=wtlQwW9HRMb+/DH9ow9exh7bb33wdvT3CAjDHNtKMqGfbvmmyAB6tY7kOGY4grJmnyhA
-	 Jf6NmtWbpEkrb7gnZ9rF2JTgH09y//fL6OveUn7O97BqqKu0J1kzThOoBv4uY4J8zKWQ4
-	 +qEoiwGl7XVREN9fGHTALZ3A2G0a4ETrtlBj/6q7Hp1kbFmMKX/iEOlpAUWenJL2PMTz3
-	 bw3HVRQHxEUrRI7Y6hrcC1x+Rgm7bRvmTLGw+dYicpK3hU5RRUEnfFOIgZkD/Wuqep7vY
-	 KsTMOi6BpljuVgNN2oID2OQIa02CZjGNNhqYTdKyklOVc80kZ5IhmpMyANaFYndNpCQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795516538;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=h29w5MPc3IARPXVDT8+ZatXwCwMx2JhL/am+F3d6xAw=;
+	b=vCWM1zDhHryL6Iw6zCI8/En7ArbFyrjYTMvCAzpw1jgBhNDZDIRNfupgxZtVcFRcMyVM
+	 LCtPSDEnup8ip24x7XDXdCvv4UTQr26ijF+E02lpM3GL0T1rsWqxI3pJ7ZWF0oHFuB229
+	 NfAgy48BXju2cWx62jIg+wYUwbzUXAqXoOZjT6Qc14fqbhj4N+INOHkQ1UCSoLqJKtWVa
+	 eVjBWqUHXp20gg5vUp+D2CZ00c+KPLzi0Hp2M/P50t/nKNSqeuTxsvxpJumg/t8nKuf/4
+	 Kl2BpNjWoIg+aoMocWsmjYyu8PcYGOj4jNIdaQ4xYfZDBZ10B9IK/2WpH47C+LTN0cA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=QQNodHch;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=IKRx4wbF;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dmarc=pass header.from=arndb.de;
+	spf=pass smtp.mailfrom=arndb.de;
+	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=QR5QhD91;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=iGKcs8f7;
+	arc=none smtp.remote-ip=202.12.124.152
+Received: from fhigh-b1-smtp.messagingengine.com (fhigh-b1-smtp.messagingengine.com [202.12.124.152])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2536A606A31E;
-	Tue, 24 Nov 2026 10:35:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2536A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90851606A332
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:35:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90851606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=QQNodHch;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=IKRx4wbF
-Date: Tue, 24 Nov 2026 11:35:07 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795516510;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yv05lreakyU5Zw1UHDQ2CzNSi5TT2d/xJeOs5UM7o/w=;
-	b=QQNodHchhyX5xW2TbJwMMMneSDT2veM3lVNYotwlk+fOrqDHVnGmQLqNQYXbKpQpHqkWYt
-	hmKDy5yLHJhi5eumhBW27QPPsPRvs1g9r1lI2zSkagge+gSZ71XUCEx2U4/cR6VKsgoYLd
-	N04u5ORDfxciLV9fTUzcqaFfexZA0UIH1eYjroB1Yt9tITz68chKXfPUcRSnTpKbpwGsxW
-	Jx2aeao14PQXET4a9uyYHVYwQC7wJVzAYWJTiiQF0RuOK8yDSmRhBQGIo4M8fnlvXrG+dh
-	fSi06PmyG1a34MYcMHgfYaAxT+oNtqPMAGnGJzWBWeNzYvyK92bKQoXCqGn3og==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795516510;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yv05lreakyU5Zw1UHDQ2CzNSi5TT2d/xJeOs5UM7o/w=;
-	b=IKRx4wbFbw6QxGlL5tBNume37ux5OI7Jm46WVa/wkUV9eR+RfCJ61cCY6468pkcM3OGmZg
-	+BN36z6Gp4bWAwAg==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Juri Lelli <juri.lelli@redhat.com>
-Cc: linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
-	rcu@vger.kernel.org, linux-doc@vger.kernel.org,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	luca abeni <luca.abeni@santannapisa.it>,
-	Yuri Andriaccio <yurand2000@gmail.com>,
-	Yuri Andriaccio <yuri.andriaccio@santannapisa.it>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Davidlohr Bueso <dave@stgolabs.net>,
-	Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
-	Michal =?utf-8?Q?Koutn=C3=BD?= <mkoutny@suse.com>,
-	Qais Yousef <qyousef@layalina.io>,
-	John Ogness <john.ogness@linutronix.de>
-Subject: Re: [PATCH v4 2/6] sched: Move DL's admission control to sysfs
-Message-ID: <20261124103507.4u5Sz_bU@linutronix.de>
-References: <20261123-sched_dl-v4-0-d523e4d960d3@linutronix.de>
- <20261123-sched_dl-v4-2-d523e4d960d3@linutronix.de>
- <awU9KmFsbiyvbcOr@jlelli-thinkpadt14gen4.remote.csb>
- <20261124075332.nZysJRfS@linutronix.de>
- <awVfotZsGc8S_aB0@jlelli-thinkpadt14gen4.remote.csb>
+	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=QR5QhD91;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=iGKcs8f7
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id DBD637A0527
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:35:36 -0500 (EST)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Tue, 24 Nov 2026 05:35:37 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795516529;
+	 x=1795602929; bh=h29w5MPc3IARPXVDT8+ZatXwCwMx2JhL/am+F3d6xAw=; b=
+	QR5QhD91aJ54ql8mUgm316Mz+oCXoluhG9l+ZYme8M2G+x0jdp5UA8bhvvuSmmPG
+	r/s0JxohssGT4GxWzUcjIV9sJFbCMdMSOtp+Mmlrl8U3Pc7w2PN/jBSpxzxRaKot
+	mxUhWBBg6qP8HCHmwGMr5wspTR2XvT7WFgEUCcDpFqwaWLuE/CGMFAk7wRRdLz/I
+	BXSl1gcTFO+1HM6ewliKZr0dlcv39PiHNExo0Mpcgu8r4E3XgG49eLEpiXGaoLxP
+	EYh3epCziZMZGodQb7eze5od3F35NMsF5LfhxPa71ZIPd6b2xfnD8maQuBi4dEM0
+	S+POAA2XdJI8SPnJ0AfOsA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795516529; x=
+	1795602929; bh=h29w5MPc3IARPXVDT8+ZatXwCwMx2JhL/am+F3d6xAw=; b=i
+	GKcs8f7LhKJkwUOmjFr9n2CzjOE5rFHtnkGsgjEU0wJqmI6UOsfjdZHiqGLcpO38
+	y42+DoOYAEtpsQOn2U6cUPDCWXTbZuUztH6JDRl7gp+jbNMw71CkqQRi4yeZXo1R
+	sqQs8HpAp884Bh2en5nEEdZIltd98KMUZYaQqONhTtfohoXtjuqkgz7dUV0xTFRx
+	ZugOwP6x1XOTmTu53Kj0E5ykLVdGbWVBHJMDNJOm5uNwsNxx8iN5NRYWW/SvR4Xl
+	x3nHLCVG13VHRwKaDnH351v9hoS2W++nypnya/hXA/r5NEIOofoeBIY7hPozMYhG
+	EMzyB8dKpo3FW2/CHR1kg==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795516529; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:ZpOscXEpcCQpa4rgzzrOpixQbs9vn1dQUJxdyoXtfVj0Vta
+	voT6axuH08pOOExbefCCkjYjRxpJ7MQeMcV2qNIzgR0mLrQcYJ0Ck3ii3bCmVWRR
+	M3cUW0lcStTLUBibn7gW7gWYqhT3oiDspmmNJ+Jdi5G3Yql2FtsXPNzcPBfe0waG
+	i0DyLW9xUbrTCmY1lnWGVfNGedoA+YfHLOzURh82ZZ5gMTi/5lzCMNvBKkEa2xif
+	ULHsA3pWpEjpkqnOsXQK6C9nhofMFVsK1EF6pTFILRdkwp+hkmNf9cPHz0Plbx5T
+	OXcZK9XbDj14sk0GlTwH7ntx9oU/SAPNpb//NYw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:26UoChXvqnJgDioMpdDKaEIVG9Ys+yx/QqFhqG7bubE=:FexWu6ZggMSM/AlYzTtwyjLoLJNpbM5OYZH4WwT6TfE=;
+X-ME-Sender: <xms:bGgFa8kyevDy6AbQkYR0ov94WVfCb09GQjqNdyCiuwCb84sKto-xnw>
+    <xme:bGgFa2oJgyiQtT3i80IOtcqVTORwgMbcnsTLcjZ-WfwLU1oenXxzk7N_poko01Df_
+    XgHy-v2vZGTAmHBWDe457UA3XIivyXvYnEurRZFvezOzNOH83b7iDo>
+X-ME-Proxy-Cause: dmFkZTG1i2UK43yng2es4nNnnm9clvXkEIigNaxebY34n7hBDrqbhqkKmGrPgHOp2fmd3Z
+    bY2ws6ZN02yDcgZGxwa+KupuUVj/p4Gef08zp+G3mKZbhOFtnZaOvWjN3N3PeIW8gDIFD4
+    z7X2vW9q8Hve1tIa2IQPTdiOzDmXTg4VXcKOIpVGiZfK2M8p+hO6SjSlYTYoTPiBF7JFH+
+    kEtQipFn/6RXHrnBfyHMhYqFliWJoQ409eQXg9eSLu0Mp+MOeWDog/RqlCOebc3j6itDpN
+    hJGXEd0WGo5oy7IJd+17o4sLXWfVS0C8HYVuiIEwoGbbLC1cVtDhLyRVODLKOrZE9O97Nl
+    UXJEnEUhFRTu4UyLEtTv2l8uC9HuV7XAs1ens6OBsCMla7ae5gfuQAANhHtLG6BBSr9Azr
+    bx+2Dz2vA5fqwj/gBXkemc9GH6geIigGo/Ie81TcQfNf3AA857lh62qs1MmSypZ9NAsUce
+    M1TEcZGemmNwFAMvdWGF3RGKw62JhZ5t/jUmPVjEauccaxBiVumd9n2Vw9veMSG06pvWe3
+    8fJc0jx3m6hbbbbQxv/PR8p8uR3XeNI6TP7sci1Wqt5x9DQA1bnRZQPLfpjuiov33CEkKJ
+    dr4GTzt4WDjc64mKZu8BzgaJhg1F82ZZ17H2liJW27m4BrDpebv2ku9UNsKw
+X-ME-Proxy: <xmx:bmgFa41s1mcE9-GeWfDbvxxhLiODzV0l28-APItf-SWCx1JYWJe4CA>
+    <xmx:bmgFa2zZlNFeJtzu4pSf4ZH252N4ZDtFsN1uBRloN6gmkB2S30BoFA>
+    <xmx:bmgFa5jovtZ0yyPxCt4EjOz3MpSwcUV3Dr60w-DPSsQx0ea54M-Ogw>
+    <xmx:bmgFazPg4WCd_XI1oauRhj266hTC329Lho2y_qBDB8nUB2xxkRTBng>
+    <xmx:cWgFa-CqKjefAu2WUh3ps10VxzlG7HAk67xfR_XJ9gmR0J1BWhxhXVMq>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 8944532A009E; Tue, 24 Nov 2026 05:35:24 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,40 +115,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <awVfotZsGc8S_aB0@jlelli-thinkpadt14gen4.remote.csb>
+X-ThreadId: AMBXs8AlnIpN
+Date: Tue, 24 Nov 2026 11:34:54 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Jim Cromie" <jim.cromie@gmail.com>, "Jason Baron" <jbaron@akamai.com>,
+ "Luis Chamberlain" <mcgrof@kernel.org>, "Petr Pavlu" <petr.pavlu@suse.com>,
+ "Daniel Gomez" <da.gomez@kernel.org>,
+ "Sami Tolvanen" <samitolvanen@google.com>,
+ "Aaron Tomlin" <atomlin@atomlin.com>,
+ "Andrew Morton" <akpm@linux-foundation.org>
+Cc: linux-kernel@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
+ linux-modules@vger.kernel.org, "Louis Chauvet" <louis.chauvet@bootlin.com>,
+ "Joe Perches" <joe@perches.com>
+Message-Id: <27fccf72-7642-4a16-83fc-fff7309b6fe9@app.fastmail.com>
+In-Reply-To: <20261123-vmlinux-lds-v2-0-6f608abfa042@gmail.com>
+References: <20261123-vmlinux-lds-v2-0-6f608abfa042@gmail.com>
+Subject: Re: [PATCH v2 0/6] dyndbg,vmlinux.lds.h: fix i386 section alignment in
+ BOUNDED_SECTION macros
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-On 2026-11-24 10:57:54 [+0100], Juri Lelli wrote:
-> > > Nothing updates sysctl_sched_rt_{period,runtime} when the sysfs files
-> > > are written, but this always passes both, so a procfs write of one knob
-> > > resets the other to its stale sysctl value? E.g. write 2000000 to
-> > > dl_period_us, then -1 to sched_rt_runtime_us: admission control is
-> > > disabled as expected, but sysctl_sched_rt_period is still 1000000 and
-> > > the period is back to 1s.
-> > 
-> > You want this working both ways?
-> 
-> Want is definitely too strong of a word. :)
-:)
+On Tue, Nov 24, 2026, at 02:30, Jim Cromie via B4 Relay wrote:
+> This series fixes a latent i386 section-alignment bug by adding
+> explicit alignments to the BOUNDED_SECTION_* linker script macros.
+> On i386, struct _ddebug_classmap is 28 bytes, so without an explicit
+> ALIGN(8) in the macro, a following __dyndbg section inherits 4-byte
+> alignment instead of 8-byte alignment, causing a NULL pointer
+> dereference in dynamic_debug_init().
+>
+> 1. Drop the unused HEADERED_SECTION* macros from vmlinux.lds.h.
+>
+> 2. Refactor BOUNDED_SECTION_* macros from vmlinux.lds.h into
+>    include/asm-generic/bounded_sections.lds.h for reuse.
+>
+> 3. Add explicit ALIGN(8) defaults to BOUNDED_SECTION_* (with _ALIGNED
+>    variants for non-8-byte tables like ORC_UNWIND_TABLE,
+>    EXCEPTION_TABLE, TRACEDATA, INIT_SETUP, and NOTES), fixing the i386
+>    NULL deref in dynamic_debug_init().
+>
+> 4. Remove now-redundant outer `. = ALIGN(8);` directives preceding
+>    BOUNDED_SECTION* uses in vmlinux.lds.h.
+>
+> 5. Add include/asm-generic/dyndbg.lds.h with DYNDBG_SECTIONS() for
+>    vmlinux.lds.h and MOD_DYNDBG_SECTIONS() (`0 : ALIGN(8)` + `KEEP`) for
+>    scripts/module.lds.S, fixing lost __dyndbg* sections in DRM modules
+>    under CONFIG_DRM_USE_DYNAMIC_DEBUG=y.
+>
+> 6. Generalize checkpatch linker script macro exceptions to match any
+>    *.lds.h via a single `$is_linker_file` regex across all 4 checks.
+>
+> NB: most of this patchset was split out of a larger series fixing
+> dyndbg-classmaps.
+>
+> Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
 
-> > I assumed you use the proc interface because you don't know better. The
-> > warning makes you aware that the throttling knobs and DL knobs moved to
-> > sysfs. The DL bits are mirror to the sysfs interface in case you ignore
-> > the warning and keep using proc.
-> > If you move to using sysfs then everything is fine. From here, going
-> > back to proc looks odd.
-> 
-> Odd indeed, but I wondered if it might happen that a sysadmin configures
-> things properly using the new interface and some time later, say, an old
-> application that hasn't switched yet to the new interface resets/tweaks
-> using the old interface?
+Acked-by: Arnd Bergmann <arnd@arndb.de>
 
-Therefore I wanted to remove the old interface. The legitime users would
-want to change the default DL attributes. I am more afraid of those that
-intend to disable RT throttling and are failing to do so.
+for merging the include/asm-generic changes through some other tree,
+not sure who would best pick up the patches.
 
-We could also make the proc interface return -EINVAL on read/ write once
-the sysfs was used. What about it?
+I can merge it through the asm-generic tree as well, but in that
+case I'd like someone else to properly review the linker script
+changes.
 
-Sebastian
+      Arnd
