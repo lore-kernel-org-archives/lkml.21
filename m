@@ -1,107 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.127.110
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795513174;
-	b=YKi653+LTXw1veCxeMvf4PNGst/zgWRNP6vjFw+DnyZmR/pSZ/VgK51OyCqW1lct72Cp
-	 w0A7+unBrmoizzfaeyhziHR5s76JbiCYdwaziD+TCT7RatzGRdDZuAjsrHrvBQXtOQgOZ
-	 UhubgeNF3zOehWpctJegJITQuaNTMmIH6ItVtS0JheGoDuI6dUkNmN/Hd5J+j0YkkQN8o
-	 l5k1u0NTRpuODs1QnDTE+rHFnKNAYQQ798KGoaaFzxOAbImEnuJm8K2jM+m91E9Slwt6I
-	 sr9/y4QTeEoZkCxMmUusxGvsZXCwpi6n58sFW6trk7aKSycJMrx/kOvmx1hZ1QiZezA==
+	t=1795513182;
+	b=FXk74PiabS8N1WGtvYztJqvQ9ZOuTg+Mh4WLZM8CEYb8YuYTtg5aPgmE3XYPkebL+mJ4
+	 IXnGNIx5HM0JRGMlbaAInWRXzppV91jK/NpaeGwJQ5posHzMZDMDk/3TDEss6kqb5fk9f
+	 PmK2GElYC4OKRR8iY0YgcGFymY9zGaEhZJSt9MiRZw2GssetgHbdpxjgwTqCnjSmlpCxv
+	 6mp+RkmYNm3/7e5IL6rk0mrdiAPM9IzIDwBC+6vOqpi5voqu4IkEciabQrcWvsT4/AwEJ
+	 jaI2UBDTHIHuUys3JwgfxwqUa3a0asro3iap6Hr8csYm/zeXg4u8Gxp5fCIj20ihcIg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513174;
-	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
-	 Received-SPF:Received:Received:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:Content-Type:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=1PS0YeE8SMRJhJumT1urXmJUui+Lz5HSvuayNaA0WeI=;
-	b=RXnozczQOS5FSFdtabDgxmfeIonY2iBijf3/EOCSFDnLiY7LAKECI9Azm69Vmzi/G/B+
-	 Qji7tm4kFguXZEb4MSBBZGUi3ZHUjQ8IHCgtvPWuYvbKiUVd2mmOMIfbzk7quJHNt7E0s
-	 QWXQDFmeawHL/j3Tyd1Jqtjzey8MY0cu68QZnJ2W5qAtTaHZC1TURSp4DQJYKd4y3EPmE
-	 fDtLnvSpMf92t9p8PTScQOB8hZ3KxieSVefCwupth4LI42aIemztBr6+eYi5tJQNtsYGk
-	 lPMMscMD9ovFLefDV6xBRhXMfSKthKVZBw+5aY36ymktgbE9PTd7rQd/aaQv8GYNI6Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795513182;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
+	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
+	 Cc:Content-Type:Content-Transfer-Encoding:X-Authority-Analysis:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=GX67EW3QpXd2wmF3bvhni8ri2RMj3q5a7d/LeFQfIjg=;
+	b=ToqrZNBdXntgqfVQPdRH9m3FZy+drNqYXvWk6nt9MF/26lwah1F9uoueYlRLDlYTR0j6
+	 WEdiOVH4IUBUN8a8vylsbDp14fy0kIO8o8h+nMVPrAXbjngGA/OFMnIWAzpT9H4Yze0wJ
+	 1rlK5lT1BSe15tCLDMXcCqXIhVhhHnYT0rrzYnG/8Vs8glMDpzrcASuCBRNzsF6H1n8gx
+	 5vtR6CoV5WgVXGMLBjdrXn1Nxvx7jitt0y1Nh3Ea9UtZoEdYqba8rRi98N5B3vYvQRgu9
+	 P+a7UTItQBRerz6t93l1e2iRP//koWbeMNySKD4EiP+i860ePU0Hqpf3uXe+bI/MERQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=cixtech.com;
-	spf=pass smtp.mailfrom=cixtech.com;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.127.110
-Received: from TYDPR03CU002.outbound.protection.outlook.com (mail-japaneastazon11023110.outbound.protection.outlook.com [52.101.127.110])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=dTk8bDSE;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=WMXKYfH1;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14840606A327
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:39:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14840606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rg+OAF6CP+CxyoRJFePpENxcktuoli7krKVCKAelxnP6aov/zGC4AVEINwTZ+xvSD3iek5Lxh2VcAOPfAj5xBP8A3e8LE7uPlHxN9yeq/KsO1/flKaROagR3A86+pPiAgGeTK82K1nhLc0VW3umV3O9NeLz3UC6uFZz4lq8CCl8YncvC3IRlOsHNAWSVUiyz0n1IrV8lknnm073kjwt7RoVunB7kASoP8skQ0nXX4OqEVAoFB4h1CsCoyS/CJXHZhLgm0DXPidl38x3qwerlHEkujwbnX/tpmRv9YiBmwBqr3pZxC60wt8QrJyGQ033wDR2CD27JK8K/qy+gWnZrsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1PS0YeE8SMRJhJumT1urXmJUui+Lz5HSvuayNaA0WeI=;
- b=QH1GZ5Woms6kbVYACU0WODT1RTv4pyaniSjcly1d6nbDO4vC4/x31nl8256O7kqAy2JtFCGyD8t5VC6kFueSEjkVK3WnzlX8mVC4BqwKvCLRAo7LHvpj4egab5MKbdc8l/fTi2ngM2zMhFcg8yNslY7xnyEERP7bnIdxeC99e8LzZfSh0Ijwv1RqPFhc72AHphBNhj5FgfSCZkif/8cp/dChHYRmqnNHBh/W/a1NjrkwwvpkjBdz5lS6IZdDFJXun38jz8yjc4u2S1YXWpYF48HZqJukC+B5KxLv1/yjl+wQ3JqtvpX8ntuQmc8qFGRGSTEAueVvbP4fcKl2EF1c+w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SG2P153CA0049.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::18) by
- SI4PR06MB8448.apcprd06.prod.outlook.com (2603:1096:4:299::10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3; Tue, 24 Nov 2026 09:39:30 +0000
-Received: from SG1PEPF000082E5.apcprd02.prod.outlook.com
- (2603:1096:4:c6:cafe::50) by SG2P153CA0049.outlook.office365.com
- (2603:1096:4:c6::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.688.3 via Frontend Transport; Tue, 24
- Nov 2026 09:39:30 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG1PEPF000082E5.mail.protection.outlook.com (10.167.240.8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 09:39:29 +0000
-Received: from localhost.localdomain (unknown [172.16.66.33])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 6935640920E5;
-	Tue, 24 Nov 2026 17:39:28 +0800 (CST)
-From: Luo Liu <Luo.Liu@cixtech.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	dri-devel@lists.freedesktop.org
-Cc: Ayan Halder <Ayan.Halder@arm.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 4/4] drm/bridge: tda998x: fix DRM_BRIDGE_ATTACH_NO_CONNECTOR support
-Date: Tue, 24 Nov 2026 17:39:28 +0800
-Message-Id: <20261124093928.3220071-5-Luo.Liu@cixtech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261124093928.3220071-1-Luo.Liu@cixtech.com>
-References: <20261124093928.3220071-1-Luo.Liu@cixtech.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EC59606A6A4
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:39:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EC59606A6A4
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=dTk8bDSE;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=WMXKYfH1
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO8dFek3701144
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:39:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	GX67EW3QpXd2wmF3bvhni8ri2RMj3q5a7d/LeFQfIjg=; b=dTk8bDSEiqxTbg3U
+	oCSrJdEvIJRJSkFKq31xn8QSz8auMxz3OMom76294AEERLzHdUhss58H0lSpKtKE
+	0GaaohZUnx/Bm02qtXna0C8ZvNdydTqmfOgYz5Ya4BooN2AIlE0bqVFrAUr2M09x
+	WQBHSAzzCxlU2JArvfbOf0Ox0TJa8kCd/xsj9Uzb2ifO40ZhaJnSYI+tEP70a6zA
+	MLkmsFiPQApe8HUCQuUGxINbSA2bXDDMhBVvw1h7NCf+9JCRZSx6LFOsX4edZAfz
+	SZmzfte0A14PfJlIqWFkZdr5BYc47qJjsmfDDLW6UL8dbAJAucpUZzokS4tWxnBt
+	SD+UPQ==
+Received: from mail-yw1-f198.google.com (mail-yw1-f198.google.com [209.85.128.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j50ky1tx1-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:39:40 +0000 (GMT)
+Received: by mail-yw1-f198.google.com with SMTP id 00721157ae682-86c3a053d9bso59043557b3.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:39:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795513179; cv=none;
+        d=google.com; s=arc-20260327;
+        b=CYOptv9nQWq73iCyoJESStXlSi9H36av0jidfzM4mJYf98tf/n1Gi4GZckvWYVGX0g
+         UhKcfNW201AWcjzUvhk2Ra3JBD5OAk9dO9ivu1OzI9RJCbV011ekVgaNGBPqsGDX4EV/
+         Gi082whNLcjfLSEgEf2iNBKh8GZZI6mb9Y7TM2OXhn7j/mwayZe0uxA2d2cAUzxUKx3L
+         iiTOm584itQr7esYpnDW2rkuIzkwEZpePYwdZvdR4LfrU40+RF/FtUnHDwXQkMzkXp40
+         m6firF6hxGSuqmEFMNEAgvm380npnXAa9TOrpfrFxE0IUxpWf2LgdFXvdANcGCoHGqej
+         SBcA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=GX67EW3QpXd2wmF3bvhni8ri2RMj3q5a7d/LeFQfIjg=;
+        fh=4JW3/QBWv94pG8yKG+OIpy0KzonZnQq88Re1Zv0tYtI=;
+        b=Q85Jr3uWuah/Q0AAb5mz1lfcnR0wbb90QKclPVtxCR9Gq9n9CrUVHtH0hh/TpLvgR1
+         B2Jim620Y04DgOkJwXcWcstB9bfWRipjhxcr7zJtQLKK2/mgZjkBZ/TA9irMyHXZr4WT
+         sew3gIml+sLyOFL+Td6NnhrkBrZvw8i/IZC5BwbrBIOLkVF9T2Xjk+UqY2E+nLYnQQSI
+         4qIAkZQSLD0n4B8FNlMWnmb3kuajvFhFy9ia/O7iR5O/TxgfKVFRjhFjpQt/RrqNAB+t
+         QA8tx+F24TAtBh5yhGuEWPDl0FQ1dKjp6Jjkor5bYDEnEALFghGEQsCQWRhbts/7oPKk
+         Cmuw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795513179; x=1796117979; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=GX67EW3QpXd2wmF3bvhni8ri2RMj3q5a7d/LeFQfIjg=;
+        b=WMXKYfH1GbLGA0n1SAP/AWKZLVIONJPyt2UyshxCll64fTWkZJOjUL1Mi5HOzsP53e
+         7JW85+JF7Z5MLE7Xblri4sxL657aHOXUG2tSSKJxI06oiUGn0wRa4Osqk1kRdFwz//2n
+         OQEp2pOqH/JRxDv6LVvYefbfdEzn3mZVJ8HnrYbAkVyvnN9axkvA/zvZkKS+dliBEsHd
+         Lqx7Mpw9Ae0IYdSU4gXZaLJH7OOeLKnxRRZGXhilI6LiP4+kvLxQl3sg0+ntNNO8cOfb
+         dp8IIQ+lNRoYxC8a2xkldVycdMXISwp0LJEqfTex89pGWeSk0RzEgzCiU3HRlzBErng1
+         QPPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795513179; x=1796117979;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GX67EW3QpXd2wmF3bvhni8ri2RMj3q5a7d/LeFQfIjg=;
+        b=ojNL1qi6sG2f+O7vePBlDPpY0mMXtxADs3Caa97dZlVWuqvxHIFVhfuyC9enjvwJQD
+         Q6A+VIqcUuLHCUtzU97UOggT0R2EJaGKm9cF5znUoQiDEcrkmh/CNXMVbLA4uaItuPdu
+         VvF5cUqRoNLFEWE4ZBNUdGF4z0yc2/xWWPonHbZTVRj66t073W2W75DWOmZiC9IsBFyW
+         P5wsL9+9v9U0HWN+hRoUF+5gN1PImIebHshoJBi+Kl5ugKNaqTDJyfvawa3x2/a7EHYS
+         jfcVsez0iBEqMiPpP5GVk2q0uUyIK6gdo8oXi3+Iby9XNXY5TrWirqE/oZTQ3SCO0fm7
+         gHNg==
+X-Forwarded-Encrypted: i=1; AL+hErH5I24s8lPEUSTgV712XHuf/mApq2EVcsxlo5ocdbNQF6lo5N8AU5x+zRhhP2fNDBeiVAMQCOzFvPQYdrA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/x91USS3tTql1ye9jhG8BzGtVhQlIqdPyniasba/6iNeEVnQIZ
+	4ZY9qBm9qbSpwCsqCX5+B3QT0aYUYM4QQMSfJ7LaXmbQ+OCBbv6xFufozbDfS1eLO42gsc3joQZ
+	dM+qK1Pi6eGNIuOIyVjqjtbg6UbG9oxjlkEsbNnudfH8ULHFWfgEYRZKB8+6cQG3LosN/ZS5/iK
+	7yjsiD6bNlEAgeP7uv28100XLjMnrhjWyaGSMp7awSDw==
+X-Gm-Gg: AZFdTZdU/Lz+9J1DFkdN+sngIxfNIKNEEvX6BnTWzAi35v16CZZpQSOuyS2YZcHN5Aq
+	SFhKk7IkI6R5WDMnyvMkXdj0HPMCzW+p8Pq2Jxork9xK7E50qdbOLBOU1ZkzR7aUr/coyO/JKTC
+	I6RCS57NX/Q6WDbGet80lbA0POw7WdCddXQy7hMRlj1Nn7UNvszXvFixk=
+X-Received: by 2002:a05:690c:9a8f:b0:8b3:17fc:1066 with SMTP id 00721157ae682-8b5204e150amr61751797b3.44.1795513179518;
+        Tue, 24 Nov 2026 01:39:39 -0800 (PST)
+X-Received: by 2002:a05:690c:9a8f:b0:8b3:17fc:1066 with SMTP id
+ 00721157ae682-8b5204e150amr61751737b3.44.1795513179141; Tue, 24 Nov 2026
+ 01:39:39 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,244 +127,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E5:EE_|SI4PR06MB8448:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 44b43f01-999d-47c8-3562-08df4a0ed677
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|1800799024|82310400026|7416014|36860700016|23010399003|42112799006|6133799003|261009223027099003|22082099003|18002099003|261022115727099003|261022105027099003|261021133027099003|261022075727099003|261021123027099003|261022113327099003|261028144727099003|261021135927099003|261026121527099003|261026130827099003|261026135527099003|261026140227099003|261021130227099003|56012099006|261021121427099003|10067099003|261102123227099003;
-X-Microsoft-Antispam-Message-Info:
-	vyPi3wzyiEdAAdR4gvscay1tgA22FeJAv8FGQXp6tsIOMRRXH97Cy9ablIA7uw2dXUS2W/G49P/oF4AhaGSa/LkmTpkl02rC0CXBdbe/BZZsay0cbOUYfywgW9e/x1dfpa5QTfRtB5K0zda6V+XHzlZh6qTfZBpMOJUB0tm1EJZQUgY2/iDxbZXoTHWaqsSqgC7b6WHu7m7S4TiOZD6OgkVbYk3kw99OH4FHwGg+OC5tty+eZfeObymj2df/pE62i0rKbzj2m8sgLB1Pw8pjYbzo6VZUQ+o9f84ZzqTycfGS8PRctDQA275aIVm7MjLW7hPZ3YEYxMYDggcfXlXngBFaGWCOEGDEXyev5ow+pwV2I1Nqht1De48kL1H9g3K5o8B/4+rNYj3o2pgJ9vQOjWk75JpBcFOUNHHL5gYQjIRI6R7MkllsashKzYsfNMi2J86OCc/n9B0KIIte8nA46gSTYEEpy5O7pA2MNBHNlZSeC1Z4nTsi7iiWXxp99zjsSnke5XNc9L96vNm82tTsqK+dGOMrGOWtzaYh5e7guom3hhQeGDNIX4EVBzad0YEsguP1eUsWdtr3ePvwNAFtHPX0rP3crZdIy3gNnaPoFG2NOdGXpYla7fpWKn6aEdwfeEV+FXWhJlmUCr6Kfk4hovhvtnsqNSt8pnbGGCU2zKgb6VS59zuSg0xvqPgCyuFasXpmfJ3cVXz/Wcw8J+8QXQ==
-X-Forefront-Antispam-Report:
-	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(7416014)(36860700016)(23010399003)(42112799006)(6133799003)(261009223027099003)(22082099003)(18002099003)(261022115727099003)(261022105027099003)(261021133027099003)(261022075727099003)(261021123027099003)(261022113327099003)(261028144727099003)(261021135927099003)(261026121527099003)(261026130827099003)(261026135527099003)(261026140227099003)(261021130227099003)(56012099006)(261021121427099003)(10067099003)(261102123227099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	TQ33Qqkw8OLThvnETo629fe+nHYL2DWL9CLzj4MI7NB/+hQR7uIRCsXAy7eEsJaT0KpxMZDl4qEG5gS9oiJRa9xNiRuEzfknG1ydbhGXk4pYELeNS4GWKF3R5SkYM+ggi18LrQyj8/Dh8Dfz1LXpjxFUABYX+i4syYU+V5gCOs2uC2oQNQInkMeXN+wBQnlq7WUVixfqA3ixm6gsqGAhxyDGjVvmgqdFLUJ2Lnff4P1t+LPM4tvtNlJR/v36TtavQd3P092TpcgZMEHX4vvB2MJ+PrWhSw4jlmoghs7VcpCec5+zeoxXbOlJ5AfuG8cWJWyejpoqtuoNFyP8SHhGzhLRnTNOIUEq9GRoc6O3bkivDAnbMlsoNGiObEjOuEOSHNst8vO5LfklLhU/wJda4Hvw1q+hZS2weZRDsWmZRT8FqwBeVSWOtZIFasi8LJiK
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 09:39:29.6200
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 44b43f01-999d-47c8-3562-08df4a0ed677
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	SG1PEPF000082E5.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI4PR06MB8448
+References: <20261123-qcm2290-eud-v2-0-9bfc432dee07@oss.qualcomm.com>
+ <20261123-qcm2290-eud-v2-4-9bfc432dee07@oss.qualcomm.com> <ba76dc4c-f8d7-4d7e-a9d4-c2de88e9a9b3@kernel.org>
+In-Reply-To: <ba76dc4c-f8d7-4d7e-a9d4-c2de88e9a9b3@kernel.org>
+From: Igor Opaniuk <igor.opaniuk@oss.qualcomm.com>
+Date: Tue, 24 Nov 2026 10:39:28 +0100
+X-Gm-Features: Aa3M54r9dlpa1zHkZUYs8QQIpfUY7qTgP8CTQlWBurbJeaYxxsFl26_dQcCj_Yg
+Message-ID: <CAPzfCAYSMpReEtrendxOHPtQRCEf-9UN--MywjS+f=7OOU4HXA@mail.gmail.com>
+Subject: Re: [PATCH v2 4/5] arm64: dts: qcom: agatti: add the Embedded USB Debugger
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Souradeep Chowdhury <quic_schowdhu@quicinc.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+        Elson Serrao <elson.serrao@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Authority-Analysis: v=2.4 cv=Y+ptIReN c=1 sm=1 tr=0 ts=6b055b5c cx=c_pps
+ a=g1v0Z557R90hA0UpD/5Yag==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=_K5XuSEh1TEqbUxoQ0s3:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=rs2CXmWTE79dq6mJqzAA:9 a=QEXdDO2ut3YA:10 a=MFSWADHSvvjO3QEy5MdX:22
+X-Proofpoint-GUID: YfZYKX9hjqrJ0HmiVN4P1q63evvJzZsJ
+X-Proofpoint-ORIG-GUID: YfZYKX9hjqrJ0HmiVN4P1q63evvJzZsJ
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAzNiBTYWx0ZWRfX078F2Q4Al8mN
+ dmw8gqaoCPpR5YH3mpDB93UZkUJLKIeI9tb2PEtix+8f9zRGPe31i293FeS2GHZg4TeA7IH7QKb
+ lgsnAe9kLndI6iJY4zAo9R0ZtIVkV50=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAzNiBTYWx0ZWRfX8JFCgleD2f3A
+ BYzJzEp4+z53Lnyo00fEPdTB5uP0cmbKPnd49eBjMNp/9zxRLMzL61F2zqgQDGmDrsEgodhJW7O
+ tP1At+GXhQKf4a8cUCKiNC03BOnxNG5dxXlxa7/0mT4MKqNpgJHxYoD5202qoBMm6BtGuHwQTZn
+ YZd6/4Zo9ftJN7aZF4s1YkcKn8FzfISdPB4OUZnt1i5l3PpI8EpRJSdVTIJQcRxxQD8Ps7IkDQc
+ 9njTvLsFVzw84EsG5q0Bk/VX106YFdsGc2OrmnNZvmsR7xI4BC9Jc3ziVkaOSZr6ht9W5Eqpacw
+ vdeZhrdGapMNRbuwuj1fSY5AQrdfKc32a3jHyF3YoAD0r8IB4E5yLoG4X/iWoCHXbgRqKdMPOb2
+ dWWxqCfR3mRddMKa98veQXwsTpojXQYi6ElkgNolenip/axF3PFyk0ZLaNrSAwlbus4G5GdJjHE
+ 5hkVAsVGGwEEowa5LRw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 clxscore=1015 malwarescore=0 adultscore=0 spamscore=0
+ lowpriorityscore=0 bulkscore=0 suspectscore=0 impostorscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240036
 
-When attached with DRM_BRIDGE_ATTACH_NO_CONNECTOR, the connector is
-created by drm_bridge_connector_init() and the driver's own connector
-is never initialised. Several paths still access that connector:
+Hi Krzysztof,
 
-- tda998x_bridge_mode_set() reads display_info from it to decide the
-  RGB quantization range and whether infoframes and audio are
-  supported. As it stays zeroed, the bridge always operates in DVI
-  mode.
+On Tue, Nov 24, 2026 at 7:37=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
+>
+> On 23/11/2026 17:42, Igor Opaniuk wrote:
+> > Describe the EUD:
+> >
+> > - its CSRs at 0x1610000 and the mode manager register at 0x1612000;
+> > - TCSR_APSS_SPARE_REG1 (0x3e5018), as offset 0x25018 into the TCSR
+> >   syscon;
+> > - its interrupt (eud_int[1], GIC SPI 189).
+> >
+> > Hook its port to a second endpoint of the dwc3 high-speed port so the
+> > driver finds the role switch, while the board keeps the first endpoint
+> > for its connector.
+> >
+> > Signed-off-by: Igor Opaniuk <igor.opaniuk@oss.qualcomm.com>
+> > ---
+>
+> USB parts in this patchset grew here, so now DTS must be split:
 
-- tda998x_audio_get_eld() copies the ELD from it, which is always
-  empty.
+Will do in v3, thanks!
 
-- tda998x_detect_work() uses its drm_device to send hotplug events,
-  which never happens because the connector was never registered.
+>
+> DTS cannot be combined in this patchset and must be split. Don't mix
+> patches from independent subsystems when you send something explicitly
+> targeting only one subsystem.
+> See also: Documentation/devicetree/bindings/submitting-patches.rst
+>
+>
+> Best regards,
+> Krzysztof
 
-Use the connector passed to the bridge detect and EDID read operations
-instead of the driver's own connector whenever one was provided, and
-report hotplug events through drm_bridge_hpd_notify(). Also advertise
-interlaced mode support through the bridge, otherwise the bridge
-connector rejects them.
-
-Fixes: c76a8be4feec ("drm/bridge: tda998x: Add support for DRM_BRIDGE_ATTACH_NO_CONNECTOR")
-Signed-off-by: Luo Liu <Luo.Liu@cixtech.com>
----
- drivers/gpu/drm/bridge/tda998x_drv.c | 64 +++++++++++++++++++---------
- 1 file changed, 45 insertions(+), 19 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/tda998x_drv.c b/drivers/gpu/drm/bridge/tda998x_drv.c
-index 0b966c9844e7..40379d74a53a 100644
---- a/drivers/gpu/drm/bridge/tda998x_drv.c
-+++ b/drivers/gpu/drm/bridge/tda998x_drv.c
-@@ -81,6 +81,7 @@ struct tda998x_priv {
- 	struct drm_encoder encoder;
- 	struct drm_bridge bridge;
- 	struct drm_connector connector;
-+	struct drm_connector *bridge_connector;
- 
- 	u8 audio_port_enable[AUDIO_ROUTE_NUM];
- 	struct tda9950_glue cec_glue;
-@@ -95,6 +96,19 @@ struct tda998x_priv {
- #define bridge_to_tda998x_priv(x) \
- 	container_of(x, struct tda998x_priv, bridge)
- 
-+/*
-+ * When attached with DRM_BRIDGE_ATTACH_NO_CONNECTOR, the connector is created
-+ * by drm_bridge_connector_init() and handed to the bridge detect and EDID
-+ * operations; otherwise it is the driver's own connector.
-+ */
-+static struct drm_connector *tda998x_get_connector(struct tda998x_priv *priv)
-+{
-+	if (priv->bridge_connector)
-+		return priv->bridge_connector;
-+
-+	return &priv->connector;
-+}
-+
- /* The TDA9988 series of devices use a paged register scheme.. to simplify
-  * things we encode the page # in upper bits of the register #.  To read/
-  * write a given register, we need to make sure CURPAGE register is set
-@@ -769,6 +783,14 @@ static int tda998x_edid_delay_wait(struct tda998x_priv *priv)
- 	return wait_event_killable(priv->edid_delay_waitq, !priv->edid_delay_active);
- }
- 
-+static enum drm_connector_status tda998x_conn_detect(struct tda998x_priv *priv)
-+{
-+	u8 val = cec_read(priv, REG_CEC_RXSHPDLEV);
-+
-+	return (val & CEC_RXSHPDLEV_HPD) ? connector_status_connected :
-+			connector_status_disconnected;
-+}
-+
- /*
-  * We need to run the KMS hotplug event helper outside of our threaded
-  * interrupt routine as this can call back into our get_modes method,
-@@ -778,10 +800,11 @@ static void tda998x_detect_work(struct work_struct *work)
- {
- 	struct tda998x_priv *priv =
- 		container_of(work, struct tda998x_priv, detect_work);
--	struct drm_device *dev = priv->connector.dev;
- 
--	if (dev)
--		drm_kms_helper_hotplug_event(dev);
-+	if (priv->bridge_connector)
-+		drm_bridge_hpd_notify(&priv->bridge, tda998x_conn_detect(priv));
-+	else if (priv->connector.dev)
-+		drm_kms_helper_hotplug_event(priv->connector.dev);
- }
- 
- /*
-@@ -859,12 +882,12 @@ static void tda998x_write_aif(struct tda998x_priv *priv,
- static void
- tda998x_write_avi(struct tda998x_priv *priv, const struct drm_display_mode *mode)
- {
-+	struct drm_connector *connector = tda998x_get_connector(priv);
- 	union hdmi_infoframe frame;
- 
--	drm_hdmi_avi_infoframe_from_display_mode(&frame.avi,
--						 &priv->connector, mode);
-+	drm_hdmi_avi_infoframe_from_display_mode(&frame.avi, connector, mode);
- 	frame.avi.quantization_range = HDMI_QUANTIZATION_RANGE_FULL;
--	drm_hdmi_avi_infoframe_quant_range(&frame.avi, &priv->connector, mode,
-+	drm_hdmi_avi_infoframe_quant_range(&frame.avi, connector, mode,
- 					   priv->rgb_quant_range);
- 
- 	tda998x_write_if(priv, DIP_IF_FLAGS_IF2, REG_IF2_HB0, &frame);
-@@ -873,10 +896,11 @@ tda998x_write_avi(struct tda998x_priv *priv, const struct drm_display_mode *mode
- static void tda998x_write_vsi(struct tda998x_priv *priv,
- 			      const struct drm_display_mode *mode)
- {
-+	struct drm_connector *connector = tda998x_get_connector(priv);
- 	union hdmi_infoframe frame;
- 
- 	if (drm_hdmi_vendor_infoframe_from_display_mode(&frame.vendor.hdmi,
--							&priv->connector,
-+							connector,
- 							mode))
- 		reg_clear(priv, REG_DIP_IF_FLAGS, DIP_IF_FLAGS_IF1);
- 	else
-@@ -1152,10 +1176,10 @@ static int tda998x_audio_get_eld(struct device *dev, void *data,
- 				 uint8_t *buf, size_t len)
- {
- 	struct tda998x_priv *priv = dev_get_drvdata(dev);
-+	struct drm_connector *connector = tda998x_get_connector(priv);
- 
- 	mutex_lock(&priv->audio_mutex);
--	memcpy(buf, priv->connector.eld,
--	       min(sizeof(priv->connector.eld), len));
-+	memcpy(buf, connector->eld, min(sizeof(connector->eld), len));
- 	mutex_unlock(&priv->audio_mutex);
- 
- 	return 0;
-@@ -1193,14 +1217,6 @@ static int tda998x_audio_codec_init(struct tda998x_priv *priv,
- 
- /* DRM connector functions */
- 
--static enum drm_connector_status tda998x_conn_detect(struct tda998x_priv *priv)
--{
--	u8 val = cec_read(priv, REG_CEC_RXSHPDLEV);
--
--	return (val & CEC_RXSHPDLEV_HPD) ? connector_status_connected :
--			connector_status_disconnected;
--}
--
- static enum drm_connector_status
- tda998x_connector_detect(struct drm_connector *connector, bool force)
- {
-@@ -1390,6 +1406,8 @@ static void tda998x_bridge_detach(struct drm_bridge *bridge)
- {
- 	struct tda998x_priv *priv = bridge_to_tda998x_priv(bridge);
- 
-+	priv->bridge_connector = NULL;
-+
- 	if (priv->connector.dev)
- 		drm_connector_cleanup(&priv->connector);
- }
-@@ -1449,6 +1467,7 @@ static void tda998x_bridge_mode_set(struct drm_bridge *bridge,
- 				    const struct drm_display_mode *adjusted_mode)
- {
- 	struct tda998x_priv *priv = bridge_to_tda998x_priv(bridge);
-+	struct drm_connector *connector = tda998x_get_connector(priv);
- 	unsigned long tmds_clock;
- 	u16 ref_pix, ref_line, n_pix, n_line;
- 	u16 hs_pix_s, hs_pix_e;
-@@ -1465,7 +1484,7 @@ static void tda998x_bridge_mode_set(struct drm_bridge *bridge,
- 	 * it, otherwise reduce to limited-range.
- 	 */
- 	priv->rgb_quant_range =
--		priv->connector.display_info.rgb_quant_range_selectable ?
-+		connector->display_info.rgb_quant_range_selectable ?
- 		HDMI_QUANTIZATION_RANGE_FULL :
- 		drm_default_rgb_quant_range(adjusted_mode);
- 
-@@ -1674,7 +1693,7 @@ static void tda998x_bridge_mode_set(struct drm_bridge *bridge,
- 	 * ignore CEA version 2 and below (iow, behave as if we're a
- 	 * CEA-861 source.)
- 	 */
--	priv->supports_infoframes = priv->connector.display_info.cea_rev >= 3;
-+	priv->supports_infoframes = connector->display_info.cea_rev >= 3;
- 
- 	if (priv->supports_infoframes) {
- 		/* We need to turn HDMI HDCP stuff on to get audio through */
-@@ -1701,6 +1720,9 @@ tda998x_bridge_edid_read(struct drm_bridge *bridge,
- 	const struct drm_edid *drm_edid;
- 	const struct edid *edid;
- 
-+	if (connector)
-+		priv->bridge_connector = connector;
-+
- 	drm_edid = tda998x_edid_read(priv, connector);
- 	if (!drm_edid) {
- 		dev_dbg(&priv->hdmi->dev, "failed to get edid\n");
-@@ -1729,6 +1751,9 @@ tda998x_bridge_detect(struct drm_bridge *bridge,
- {
- 	struct tda998x_priv *priv = bridge_to_tda998x_priv(bridge);
- 
-+	if (connector)
-+		priv->bridge_connector = connector;
-+
- 	return tda998x_conn_detect(priv);
- }
- 
-@@ -2011,6 +2036,7 @@ tda998x_probe(struct i2c_client *client)
- 
- 	priv->bridge.ops |= DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT;
- 	priv->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
-+	priv->bridge.interlace_allowed = true;
- 	drm_bridge_add(&priv->bridge);
- 
- 	return 0;
--- 
-2.25.1
-
+Best regards,
+Igor
