@@ -1,99 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795483066;
-	b=VwuqRa1qLpWjZj9xJ4vlMX+JNkaVAOuy/kpluRGXKb0TxOXijA3uatgJlJM4EkAwgl1v
-	 /7m4RCftTxOjBTpfMFYkqV6YpD/Z0SoQCGFSH+MyPcFLT8bxOECyx7AwPrMRgLpbw7bsU
-	 omxCkbJpdWT7+XDwxOdBJULzy1gWtH1zkykb+kVtlhlNWASVevT4waZO4Cl5TGNlcaz/g
-	 IZX6sC9fueCsiFW0pezu5RQA/eySJm95O66FX4gOl4NYWkUcT0YrSs3jniJg8n+CLfKjl
-	 6avxyz2whApx0caZDwTK9VZ1hMAVwYsLWl5NzgifhxFNFv8GFCHyHC/dDS2eoz9dinw==
+	t=1795483176;
+	b=kVEYKliK0PgBhDfT9TZfsixzmqFoJPGdu8TaE8Y1XRX5LMB10G1oREnt2cHYqDXt8CQ0
+	 jqk43oDoU/bE89ZN1R6B4Ca+de1Xv8AiApESfBLnwa5kgOBYUbkFdHPFl4xbHAl1nV/Uo
+	 /ad2Y8pCOTBpPnT3wzpxg/RJeKIjiWjtrHcxkLlLp/mWy8v7PgJmTemic34j/h1PxBtu6
+	 aTP+ORGwt82QzVtJATgMvAo793swdq5DTjxOhsn01Aec+3/IRUfkr6RSPBHsPKNY1m+uj
+	 bQROeRwPGGBndKdae+Qf4N5SRLa0dk7n8PBZWoOQrLS4ZMwZMMYHYeYuaxOQ+PQVJTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795483066;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=itmP4L3DXMSGmXVmoLrQUEVKU8nQc0azolCH6tmT1Xg=;
-	b=JvWnZR67iwl2EiQS0KI6IZgykouv3+thbAM7HNoHVx9eoL3QiE3dSgBfJ7ECh4bvG20p
-	 ldsMVB1swqSkjolZBOlV+L6p86oa07Si1uUK2qwwhYvZiXXDOt7hvz2S3c/G6iaxuOSP0
-	 3Kc+Hi+FIjvrsZxEFrvwH04neuFJnFZKcm+kAVJB79URlzGQRgU+r6wNGNqLICJBWTRX1
-	 CaeCxqI5/5xP/gPPPYnEprQxUMh7okAcraba1OHLqrXBkBJzE2xtI+4ipOzcK8lRJhnNd
-	 zjXKU1wJfteAp5Agdn6XuWt3PDg8f9r0IRt9H5xGGpQUtS/+pESh0COQ907FyXrLBcw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795483176;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=TqTFyo2p9NHEAlnK/bLSQvmwgpmG1lbV/jfBCx+FnUY=;
+	b=Wr8Ow0KZZm/Zsi5p8G7Vf7g4W/vB4J1QGHTGomCII7ycr37Fc4NgmK3z9kq5c9qz/sW2
+	 L1+Ywh2vyJwLtlrDeiK22CI2G59foABEXmH046k8XtUmCL2cqpA77fCbP6OH91PTX4f8l
+	 H7cjgw7HUDJaonI2aGi1sPvM48IqIZzJuJPZgDGGuPczfYvj8nAdRMlPC5WzWmv9UCy25
+	 i5CrBC8FZaSc6hxeu5Mywmx3pZ41Jnw9qO2B9T5ePTT9AmnxCHyxec5TSYltddBygdoEb
+	 R8ppsripwoN5hDsX6h1ZQttdeth+dzdHrL0LF6Zy0t3695kHdovk9hYnwPp4hmXI1kw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i01IyUkS;
-	arc=none smtp.remote-ip=74.125.82.171
-Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FpgAv4k7;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8076A606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:17:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8076A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 673DF606A31E;
+	Tue, 24 Nov 2026 01:19:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i01IyUkS
-Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-385d8a00598so5564677eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:17:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795483065; x=1796087865; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=itmP4L3DXMSGmXVmoLrQUEVKU8nQc0azolCH6tmT1Xg=;
-        b=i01IyUkS0KDuGi4r0vPByL9Ph/bF+DMoLWNnGC5wDRiYFVB5FX+8LgDdJPGreC/onL
-         GDTZvEtWSXzH9ZWWEGZVQwtuF0FBC8bBMoK2yBz4Wjbc/goC9bv1lq+ijZHB7M6dDyAM
-         Rcuou1wycq3mqkzRV2/+hnCpFTpwUnm6EvVKW4h8IUtWyxYlPS7woChKvYYRu+/+ZZno
-         btkvuAdDEdYbzNFS8Rn0aucLfJiHyLAjBKaiNJpga9ctbDtYN4CALtEC7Ju8mSVpt9m5
-         bvaVQ/i/iiqWwpVU0EXroxtQ/Z3laiFt0iHeNXQNNjiXOnCH7WILCQKbqlrMLlNCKOWl
-         a8hg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795483065; x=1796087865;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=itmP4L3DXMSGmXVmoLrQUEVKU8nQc0azolCH6tmT1Xg=;
-        b=eNv0JVc7DoSV2Rw5FT50oyuzH9jGw4HlLetC4ue8N8bWYia9ghlZ3CizkJogNveo2j
-         2c8TrFPJv1Ka1OXQdDdTuLlutqEdEt6IgQl5V5iUagvyZGvYJhLHjhLd8f0n80p+1nRK
-         Nd1fK0nJrLuq7sXLP0+1L9obH1ATDDmTjE4NS2DgTg43qW3SdjwFPdr2FtIr6lxRJXWu
-         U/vuo/jJqG2VG9Vy0nJ8tDJi2D5YzQIdoVTOX4FWkZPZNGriKc5ntLTiZ42VzXg3YWHZ
-         mGImNq5GVK8iLFK7R9sZ4MyczPLJtJwaRwOXMC2604XcpP0VrsHXRi7SQEQSflc4hSyO
-         JNkA==
-X-Forwarded-Encrypted: i=1; AL+hErHOyqsV47TwG4ivHH8UFqHuh9/TP9z1PYPhRRgVEPI4SnJVzV4tK61D8IpdVQjxGV1EXkUgN+YAmqC1mWk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+sBLdAs8CadFxYPxxgUHhC/EuMDVOx9oz5FQQb/vFIGsVilez+
-	97ix8f0ZcSbcZu/t7zEYtysyGZ2Vrg2PQ6sbdaKhmG+l4EuNAEfv+qSuSwvP/oqf
-X-Gm-Gg: AZFdTZejN8sahSdPe/toTiYkvt7K+6Txef+Iqi0Fun1C43LznjYMg5B/5A6G8e/Ob0x
-	HuUCSTJfRvg1q3BFoMXH5WltC4wljgfA7psNOQjz68jkMnMe01ETqq7AcggquHy++m+Qn8IhH1a
-	KMC2JvWxrHlRJAiWEUrpziiojOUMdtEPg7dFrRoSdxABIridMSeRhKM3VBzhmUbd020/wWDUuEy
-	h0A36qx+cyfLWnFH0Rz+HdDL7kN33LwYzqq8kwckGISNnu8nZf+8+XlQYsqodjgvNvnFZbNwapa
-	sPRSc8ZdhcTjy1f2392mXjlgHBypac0WsTPpWDAKf1WcEsZ17su+Zi3HzuBQVWJSh1VmXyn9J8V
-	IL6LIXI0JzbLLc5q0B3rKC5JgXCd+vCLbHD9ZPtdghZAIeTqXkxF7pAqN5094orLu/lduvfSjdv
-	TCvLnUK3YHfBznXyRi+Yem78o3gjvtximizp2jaPO8yTgbcL87TudvFtJSsNpI1G9Bax/LcBY/8
-	jSfUyonvYgfrbJYY9F9hT/aCcfTjibjsJHhOEHynbU3B+/S7sHTF9mCYK22dVsaTe/iRekZcA3j
-	X8eT3QVjzdM3vt/gJ1TFEelXp4oBDbjnwy7L6VDPt2dHeW7cWcwXMdr3wWIp7v7MeXs9TQKZLpa
-	ysooKO0+5Z/w3THiwknqqh5+QeUJaus88TVa7pkqT
-X-Received: by 2002:a05:7301:4704:b0:383:729:cabe with SMTP id 5a478bee46e88-3856f8519ecmr14464834eec.19.1795483064438;
-        Mon, 23 Nov 2026 17:17:44 -0800 (PST)
-Received: from nugod-NUC15CRHU5.tail9f095a.ts.net ([218.237.104.87])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aa203267sm15112586eec.0.2026.11.23.17.17.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 17:17:43 -0800 (PST)
-From: HyeongJun An <sammiee5311@gmail.com>
-To: Lee Jones <lee@kernel.org>
-Cc: HyeongJun An <sammiee5311@gmail.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 04/10] soundwire: stream: Clean up allocated runtime resources on config failure
-Date: Tue, 24 Nov 2026 10:17:38 +0900
-Message-ID: <20261124011738.395295-1-sammiee5311@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261123075522.405347-5-lee@kernel.org>
-References: <20261123075522.405347-5-lee@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FpgAv4k7
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 5602A1F000C6;
+	Tue, 24 Nov 2026 01:19:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795483176;
+	bh=TqTFyo2p9NHEAlnK/bLSQvmwgpmG1lbV/jfBCx+FnUY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FpgAv4k7DgTjREaE3kro0UZn3XG5jzdbXdwUqCiY0H/lFIyxXhzxKdUjGfewSzdRJ
+	 AQv/xvoOKqEm+aHsUnmXP7PwlobCZQd+uY7uHAZTyThrK/+fCSfOgXaaTDk8zdtC9V
+	 uZXFUa2oVY74if4PpQoYMmsWfcoAzHvkyUqGZf4VbXQZrql0SqEm0LqqOBNr8pf3Bk
+	 ChIpk1dvOQ0+H9x+KeXwb+c+0oJ0CqAHmhymiEOisQGz0RmR6YY6DWkqMqZDxnuKqj
+	 pQYz9w2/bOPD5gPpVIjBUGn/+/+YICibM0voCPOItGdwtQz84KoY3IMZqMK5FJtKgJ
+	 uPDRW+LVkgcSw==
+Date: Tue, 24 Nov 2026 03:19:32 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: bpf@vger.kernel.org, containers@lists.linux.dev,
+	linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org,
+	Aleksa Sarai <aleksa@amutable.com>,
+	Alexander Mikhalitsyn <alex@amutable.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christian Brauner <brauner@kernel.org>,
+	David Howells <dhowells@redhat.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Giuseppe Scrivano <giuseppe@scrivano.org>,
+	Hugh Dickins <hughd@google.com>, Jan Kara <jack@suse.cz>,
+	Jeff Layton <jlayton@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Josef Bacik <josef@toxicpanda.com>, Kees Cook <kees@kernel.org>,
+	KP Singh <kpsingh@kernel.org>,
+	Lennart Poettering <lennart@poettering.net>,
+	Neal Gompa <neal@gompa.dev>, Oleg Nesterov <oleg@redhat.com>,
+	Paul Moore <paul@paul-moore.com>,
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: Re: [RFC PATCH v7 00/26] userland: Userland containers
+Message-ID: <awTmJIErjasO4lqq@kernel.org>
+References: <20261122193539.3334213-1-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,31 +79,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261122193539.3334213-1-jarkko@kernel.org>
 
-Hello Lee,
+On Sun, Nov 22, 2026 at 09:35:13PM +0200, Jarkko Sakkinen wrote:
+> SYSCALLS
+> ========
+> 
+> Two new system calls are proposed:
+> 
+> 1. userland_open(): open an opaque staircase-initialized container
+>    object (modeled on Intel SGX enclave initialization with separate
+>    build and live states) with no embryonic state, opting selected
+>    shared namespaces in via an allow-list instead of unshare semantics.
+> 2. userns_set_idmap(): configure all UID, GID, and project ID map
+>    extents for a container user namespace in a single atomic system
+>    call.
 
-I tested v3 on the same Dell Latitude 9420 as v2 (Tiger Lake, SOF IPC3,
-sof_sdw with rt711-sdca, two aggregated rt1316 and rt714), on soundwire
-next afd88e7ad781 with all ten patches applied. Only the soundwire-bus
-and soundwire-intel modules differed between the runs. Two local changes
-outside SoundWire were loaded in both runs, my SOF control range check
-and a debug print in rt711-sdca.
+I played on patching systemd and userns_set_idmap() alone does already
+a lot of good. I'm figuring out userland_open() integration next.
 
-With and without the series, all four peripherals attach, and playback
-and capture work on every endpoint. 40 start/stop cycles of the
-multi-link Speaker stream pass, 10 of them after the links had runtime
-suspended. All links stream at the same time, and Jack Out start/stop
-while Speaker is playing passes. ALSA pcm-test shows 24 pass and 0
-fail. There are no SoundWire or SOF errors or warnings in the kernel
-log.
+For the test implementation I probe the opcode's and dependening on that
+use either "userland path" or "fallback path".
 
-These runs only take the normal stream setup path, so the port and
-stream configuration failures that this patch handles were not hit.
+This auto-probing is done so that I can commit the patches to my kernel
+test harness, which already has systemd, and try them out when built
+against userland-enabled kernel (via LINUX_OVERRIDE_SRCDIR):
 
-Tested-by: HyeongJun An <sammiee5311@gmail.com>
+https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd-test.git/tree/?h=main
 
-I ran these with Claude Code (Claude Opus 5.5) on the laptop.
+The project builds a hybrid ISO, which is a bootable bootc/composefs
+based operating system, and has toolbx bundled i.e., a reasonable test
+environment for all of this. It is also device-installable via "npx
+@puu/install"
 
-Best regards,
-HyeongJun An
+I had to level the harness up a lot so that I could realistically test
+lockdown-hibernate but it is is also pretty good emulation environment
+for any possible container features.
+
+Br, Jarkko
