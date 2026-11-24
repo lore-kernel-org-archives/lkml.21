@@ -1,96 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514059;
-	b=LJO5yf+Z65K+8Lq+/PMJKu1PdFyXGJfCP5X19Mx2oxc2FWfEAqeEyN5zLU86OnbLV39q
-	 WeAaKh9nBCd5MUo/EhtQKyYSoOpdXsfMIU/JUxZKWu3wl9vjwzpcYCJViCyWOGzVMtqLj
-	 awzKvXfmsPldz0U8riqYcB7FJAoFec4u2yEm4txYt/14E2aHzJZcs3XEOUkm61rHoDmK8
-	 QtzuKsxzFmcmEAl6A8wsvtcyeR1Yu7seS9/DY47sUGiMTGPlLfrZMfZOzJrQsHcUpordI
-	 7bCma4buWg69yYULc1UTt2d9OWJX4FpxbcFs3KF2G+seRkEkjAYH12kEk1hoUw9xiRg==
+	t=1795514164;
+	b=TxpSA1F/aAGerARbAZF1nnrStbKaAck2kcK0V4dq23WfUOxtacSCJKJb8NatDUFruAxd
+	 P42cEgyAJZiJmD/P7RGCzAaJ9Yg6ZHs5w9FHaNzKHF25R96aVIIPDfxMNU17V5B/eeYTO
+	 omzMUKxFCfi4SEK8b0fGoi9BD2lVhsW5ZlrS6rDT/E93TtTYFA/zAb7vv+5u6YhVphliJ
+	 NckV2AOpSqdQT+TvkQeTNAhX5gQT4q/3OlchAUQcaY4RRVkzNudAgB7MsswCfTcxhA+43
+	 393rA70HrjDBt8NYnnYJyekas6npNald3KALyJke3oBPJWXR5GR0yFCLyHYzmPK9yYA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514059;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=fJ3JKeUaCakN7r7cr85UYuo9cA76onoVrZv6mAvryU0=;
-	b=JPPQW8Q10LM9LC0IJUVuNSsZ1YPJOOggEDmoSBjXXUhpFhOcuHRg2ceHfAzzq/DjnD4c
-	 hCfP/JWO/0yDJCWVk9bfqB4koPO7V48QMwvirVjhAhf9u9reX6KP3sM5Q4EkL3G56xiPD
-	 J76FZkr3R0JoImJh55wPXUrF4JOa66polNSPmL7Fi6vBVmU8jSx/lmNKoITnFCDDPjZxe
-	 +z11J3Pr1wNtVwE/v3NFv/K2ERaNpe042kMq55/wSkxqFwru3ZPxn7nhiwAZv25itqwQE
-	 JwJjiOn5BOUzyec6zbJ3HgHlyYjlHcoCAmY6Bd/FomZ44Klpd+QtCIpu2BAOzIow8mQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514164;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:
+	 X-EPHeader:X-CMS-RootMailID:References;
+	bh=CYvIYIwuDiGcctglkMMhgqQL8VutkqVe7MrezV6RgL0=;
+	b=GtwRUjGkv7utlgH17GNevTWf7fgz/H9yGtRcDyCUByFeADyru5yLPU2SX8Ek76mpyvi6
+	 hRAkEAc7vmXt8QU2Ur7FVWZ1f2H2mXd3RO9Qfcal27ko3oA0Xc5PF/MGO8QtcZO3NXDr4
+	 FRwltooEntqAa/ItcelBDQSbfQAYC5Z4CL2LUMsriSkoiKupzbt/GFcEu7AjJzP+6LHXx
+	 8C4qbPEsGrL0dZOm/oyL8rkSxCipFU5SdTT/xHV2s0uW+YlNWcXWCJqSQmaGzKzapH5mQ
+	 vHKufhyXZztwDKdBXYT5M0rfxZUrPOdqrFhx4Yeh9nWJAzVthcHLqrj0hDCzHHB/1iA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GYvLW7Et;
-	arc=none smtp.remote-ip=74.125.82.182
-Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=WwfClyRH;
+	arc=none smtp.remote-ip=210.118.77.11
+Received: from mailout1.w1.samsung.com (mailout1.w1.samsung.com [210.118.77.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D118E606A33C
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:54:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D118E606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 155D0606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:56:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 155D0606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GYvLW7Et
-Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-38699cf08dfso4678904eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:54:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795514058; x=1796118858; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fJ3JKeUaCakN7r7cr85UYuo9cA76onoVrZv6mAvryU0=;
-        b=GYvLW7EtY6bkCOR6NvKJ1Hf72uqK0d02l2YNbW2RfH6Dpj8iv+dwbosi7qpatZHZFs
-         RPCZlSUNX8kvHUmXiIIcxnyBAlSIxpxLgapSdHmDyajkiBD3xZEdUuATKXoETl/B2Zkf
-         GJuDRvL7107dSfetWrSKDsd1DaT5TJC5E/ylpXHf9WW1/n8jwI0UcoQ681i1Ppsmy8gs
-         h9MYjWc4q39/qkqJHGxSejLnT9Uqv4ZAX4aMyMmC/X1iyNy4UJNYXscohq/dm0zNzYQj
-         YFV0fiwrfwDqoOfnK0ayMRD+m/7++eZzSdt1o4ANTvf8fT0sSk5Msi9SQomxxe866Ryx
-         lCGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795514058; x=1796118858;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fJ3JKeUaCakN7r7cr85UYuo9cA76onoVrZv6mAvryU0=;
-        b=XS1ifcu2U8TbS6F3Wx6y1tesg4auQDAXFrT0AM/4/j0I/5HdFP+gTZqXI8Qqklvnyg
-         7CoTY97cLXnDNHGAasPA90PjlUsvvggnwP0KO2KatgyyD29LnaY6usnec/GDNcwoPt99
-         GBIboLGysQfxXstAUugEW/TZRzWhdcWfUMbuD+Io3BNFKH9S3qV3J0hRIyR6aIGb2vzp
-         r5wgTxkMCeo919hQ1hIjmN9cHNhpjdw6+DT5+zjTtK1gR63XHYvbcP/bhdQwq0FIumXi
-         ndf7CgTY+l2SHX8KNBxiB1eOtTvqe8DMi5KGEpB56H08krZ/f/zytvDZUtNoSU5kLJRV
-         vfiw==
-X-Forwarded-Encrypted: i=1; AL+hErHKXSEPkvdt2FCEgSEGf72XjA4SWmrUJb88HmAt9rNe6InQaf4r/LV29URN+ady/Ol67Kvo9Ifb2TYrdSk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/UzFah4vLZKoec8QLXNNU0HxsXK/tfdPxXeEzkDHDcpgPB/Z+H
-	u+Mih0kr8BA2xjC45VRNt6AEpN4zNqJqTzjIm9jaSsCgeZUeK+m5hx3B
-X-Gm-Gg: AZFdTZcIQoK9vnBteGW2ch1P/PhYrIw5rOEuWW9SARtGFEp7IllR+aPjGIpR1JCXJfG
-	YM3ePm5NBejX7lE0e3kPL9hiZ+UafuPB4ZRPFT22x+wBBEr4UQQx5UUpYREBKPEUfWLytKFlIj/
-	JPHIkkW3j1HOj1ADzraiBo+0beI/BFi6OFTyHJoaGElJi9ETxhSK4wDQhC10wC0vx8ApNvb81pk
-	4bcQf1Fhk8iNW5JSK/pvBMuMzIl4zZdhS8qnP0SAkKKo8ZqrrKGhNratKmvJ4FQb1IcEl2xu3Ht
-	Txl++6yM8mwJWqugC3pFH09ITqkF5Mjs9jJEjcq0B24sxDlLUKvVjnvQXWOkhGePfJHHOwo9HdR
-	B3wj54cRGywt1AC1W2BpZ8YyBhUNlYXRLiffNa5pguFCIG5mG0XGDKWRNVwEJmYW5BB/ZH2Nfh7
-	QmRrKxrwa4Mi+/XoxqOW+9474KqetyboT5B4oZY37x5cWADzDn/yNQp5o/g4p04ZlvVzrSXYBUx
-	E+nwM/iVURymyu1eF8unvf9oZ+4vQH7Bft+qYv0Fl1N7Ue3BBu4y/Efiqng/tHYsMFesEEh9bn3
-	4woB8cbP4m6qObHJ3ECPojRvDBzXBXvA5vviuthMnVNuxQ0ecduT5tyZTu9EeMck7tgy
-X-Received: by 2002:a05:7301:d183:b0:386:a728:6c11 with SMTP id 5a478bee46e88-386a72872d3mr8372043eec.17.1795514057856;
-        Tue, 24 Nov 2026 01:54:17 -0800 (PST)
-Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386992b404bsm32041395eec.1.2026.11.24.01.54.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 01:54:17 -0800 (PST)
-From: Cong Nguyen <congnt264@gmail.com>
-To: Lee Jones <lee@kernel.org>,
-	Pavel Machek <pavel@kernel.org>
-Cc: Fenglin Wu <quic_fenglinw@quicinc.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-leds@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] leds: flash: qcom-flash: release v4l2 flash devices on torch clamp failure
-Date: Tue, 24 Nov 2026 16:54:08 +0700
-Message-Id: <20261124095408.3842986-2-congnt264@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261124095408.3842986-1-congnt264@gmail.com>
-References: <20261124095408.3842986-1-congnt264@gmail.com>
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=WwfClyRH
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261124095555euoutp0149f6aa5c690512be074a8e6e37d5b3ad~q8pxvBKlm0174501745euoutp016
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:55:55 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261124095555euoutp0149f6aa5c690512be074a8e6e37d5b3ad~q8pxvBKlm0174501745euoutp016
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795514155;
+	bh=CYvIYIwuDiGcctglkMMhgqQL8VutkqVe7MrezV6RgL0=;
+	h=From:Subject:Date:To:Cc:References:From;
+	b=WwfClyRHLPK544Ef2cxjG7Ov23Q8bJc1uyBIoXqQ/zTWRtAjjMgQrdP+ewgEnvRzA
+	 nbmf076xGVJY+37fSdQEpHRWAKENsIorrWAqmf0R28U2wPG/fKtbw5O54fs54qlkTe
+	 XVw46ZZgbEtyv3nUj5/0DQ1BUsDQG0JnvxNasCqA=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261124095554eucas1p15e201436f33ffd2920ab65afc1a44e71~q8pxVQtHa2052320523eucas1p1e;
+	Tue, 24 Nov 2026 09:55:54 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261124095553eusmtip2be9028c7f2a29e7979dde987e18f7400~q8pwcQXO_0411504115eusmtip2B;
+	Tue, 24 Nov 2026 09:55:53 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Subject: [PATCH v8 0/5] phy: Add the StarFive JH7110 Innosilicon HDMI PHY
+Date: Tue, 24 Nov 2026 10:53:57 +0100
+Message-Id: <20261124-jh7110-inno-hdmi-phy-v8-0-5e3008122cba@samsung.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,45 +66,148 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALVeBWsC/3XOzWrDMAzA8VcpPk9DsRJ/9NT3KD1ktlJ7LE6IW
+	7NS8u5zA9sYo8e/QD/pLjIvkbPY7+5i4RJznFIN87ITLvTpzBB9bSFRqgalgfegmwYhpjRB8GO
+	EOdzAEHdu6FVLTKKuzgsP8XNjj6faIebLtNy2K6V7TDcQrbTfoPvgPkHm5KF0gGDkW+sNk1NOH
+	3I/5ms6v7ppFA+vqB/j+VNFVWYg0laZ1lvN/xn9yzSonjC6Mr61pAwhGcS/zLquX1tzKXVFAQA A
+X-Change-ID: 20261028-jh7110-inno-hdmi-phy-83e5cfa643e3
+To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
+	<neil.armstrong@linaro.org>,  Manivannan Sadhasivam <mani@kernel.org>, Rob
+	Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor
+	Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,  Emil Renner
+	Berthing <kernel@esmil.dk>,  Hal Feng <hal.feng@starfivetech.com>, Dominique
+	Belhachemi <db@domibel.de>,  Michal Wilczynski <m.wilczynski@samsung.com>,
+	Andy Yan <andyshrk@163.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,  Marek
+	Szyprowski <m.szyprowski@samsung.com>,  Icenowy Zheng
+	<zhengxingda@iscas.ac.cn>,  Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	Joshua Peisach <jpeisach@ubuntu.com>, Byron Stanoszek <gandalf@winds.org>, 
+	OOHehir <oo.hehir@gmail.com>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5181;
+	i=m.wilczynski@samsung.com; h=from:subject:message-id;
+	bh=rm2cOug6bBmR4Ol7dMEohetL7wgq09jQCr4wqNGckLg=;
+	b=owGbwMvMwCGWumv6zndzRCIZT6slMWSzxmsGP9VyZOsv2Mr0rk4z3tZLmmFq66rXvq/ZuaJYZ
+	03IXZPWUcrCIMbBICumyHJ2Y7SR5D+Gp+XHH/+CmcPKBDKEgYtTACay4xrD/8warkWajP+2Npy/
+	Wf69TG5pvscZ26B6w++BkqfqZDvVBRkZOvczn8+5J1uXslz/9jGm9DP/t6/JXbb/+of7fko3LKb
+	OYwQA
+X-Developer-Key: i=m.wilczynski@samsung.com; a=openpgp;
+	fpr=CDB15B3219FE00E577C7E3FA65BA97B9EE9C1459
+X-CMS-MailID: 20261124095554eucas1p15e201436f33ffd2920ab65afc1a44e71
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261124095554eucas1p15e201436f33ffd2920ab65afc1a44e71
+X-EPHeader: CA
+X-CMS-RootMailID: 20261124095554eucas1p15e201436f33ffd2920ab65afc1a44e71
+References: <CGME20261124095554eucas1p15e201436f33ffd2920ab65afc1a44e71@eucas1p1.samsung.com>
 
-qcom_flash_led_probe() registers the LEDs and their v4l2 flash
-sub-devices in a loop, and then returns the result of the final
-regmap_field_write() of the torch clamp field. Every other failure after
-the first v4l2_flash_init() jumps to the release label, which calls
-v4l2_flash_release().
+This series adds the HDMI PHY driver for the StarFive JH7110 and shares
+the pre-PLL code it has in common with the Rockchip RK3328 Innosilicon
+HDMI PHY.
 
-If this last write fails, probe fails without releasing the v4l2 flash
-sub-devices. They are not device managed, so they stay registered after the
-LED class devices that they use are freed.
+Up to v5 it was part of the JH7110 display series [1]. It is split out
+as Vinod suggested, so it can go through linux-phy on its own; the rest
+continues as v6 of "drm: starfive: jh7110: Enable display subsystem".
+Nothing here depends on the display series. The display series depends
+on this one: its HDMI subsystem binding references the PHY binding from
+patch 1, and it needs the PHY driver at runtime.
 
-Jump to the release label on failure of that write as well.
+[1] https://lore.kernel.org/all/20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com/
 
-This issue was found by auditing the driver with an LLM coding assistant.
+The JH7110 has the same Innosilicon PHY as the RK3328, offset by 0x100
+because it sits behind the HDMI controller in a shared register block.
+Patch 2 factors out the pre-PLL config format, table lookup,
+determine_rate, recalc_rate and the pre-PLL programming; patch 3 moves
+Rockchip onto it; patch 4 adds the JH7110 driver. Pixel clock tables,
+post-PLL and analog config stay SoC specific.
 
-Fixes: 5974e8f6c3e4 ("leds: flash: leds-qcom-flash: Update torch current clamp setting")
-Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+Patch 3 should be a no-op for Rockchip - same writes, same order, same
+values - and RK3228, whose pre-PLL is at different addresses, keeps its
+own register code and shares only the lookup. I have no Rockchip
+hardware, so it is build tested only (arm and riscv). A Tested-by would
+help.
+
+Patch 5 adds MAINTAINERS entries for the common Innosilicon HDMI PHY
+library and for the JH7110 binding and driver.
+
+Testing
+=======
+
+Tested on a VisionFive 2 v1.3B together with the display series, using
+modetest: all 42 modes the sink advertises work, with pixel clocks from
+25.175 MHz up to 297 MHz. Display off/on at an unchanged pixel clock
+and unbinding/rebinding the PHY driver work too.
+
+Every commit builds for riscv and arm.
+
+Changes in v8:
+- Address the Sashiko review findings (Vinod):
+  - Fix the fractional dividers of eight JH7110 pre-PLL table entries
+    (25.175 MHz, 25.2 MHz and the six *.75 MHz rates) so that each
+    entry produces the rate it describes; the 25.2 MHz entry
+    (640x480@60) came out at 25 MHz and the others did not read back
+    as a table rate
+  - Avoid 32-bit overflows in inno_hdmi_phy_pre_pll_recalc_rate() and
+    log the actual VCO rate
+  - Make the JH7110 bias and RX enables follow the pixel clock prepare
+    state, keep the cached rate across disable, and wait for the pre-PLL
+    to lock when .set_rate runs on a prepared clock, so re-enabling at
+    an unchanged rate works
+  - Power the post-PLL down while its dividers are written
+  - Drop the unused inno_read() and register macros, and use the
+    macros instead of raw values
+  - Get the reference clock and register the clock provider through
+    devres so teardown runs in reverse probe order; drop .remove
+- Add a MAINTAINERS entry for the common Innosilicon HDMI PHY library
+- Link to v7: https://lore.kernel.org/r/20261106-jh7110-inno-hdmi-phy-v7-0-d49368303800@samsung.com
+
+Changes in v7:
+- Point the binding example comment at the hdmi-subsystem binding's new
+  location in bindings/display/starfive/, where the display series moved
+  it
+- Rebased onto v7.4-rc1
+- Link to v6: https://lore.kernel.org/r/20261028-jh7110-inno-hdmi-phy-v6-0-f3379684d97e@samsung.com
+
+Changes in v6:
+- Split out of the JH7110 display series (Vinod)
+- inno_read() returns the regmap_read() error and recalc_rate checks it,
+  instead of a failed read turning into a zero divisor (Vinod)
+- Bound the pre-PLL and post-PLL table walks with the table size instead
+  of relying on a sentinel (Vinod)
+- Lowercase hex in the JH7110 pixel clock table (Vinod)
+- New patch 5: a MAINTAINERS entry for the JH7110 HDMI PHY, moved out of
+  the display series' entry
+- Rebased onto v7.3, collected tags
+- Link to v5: https://lore.kernel.org/all/20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com/
+
 ---
- drivers/leds/flash/leds-qcom-flash.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Michal Wilczynski (5):
+      dt-bindings: phy: Add starfive,jh7110-inno-hdmi-phy
+      phy: Add common Innosilicon HDMI PHY helpers
+      phy: rockchip: inno-hdmi: Use the common Innosilicon PHY helpers
+      phy: starfive: Add jh7110-inno-hdmi-phy driver
+      MAINTAINERS: Add entries for the Innosilicon and JH7110 HDMI PHYs
 
-diff --git a/drivers/leds/flash/leds-qcom-flash.c b/drivers/leds/flash/leds-qcom-flash.c
-index 1003ba060b42..b335784fe68c 100644
---- a/drivers/leds/flash/leds-qcom-flash.c
-+++ b/drivers/leds/flash/leds-qcom-flash.c
-@@ -951,7 +951,11 @@ static int qcom_flash_led_probe(struct platform_device *pdev)
- 		flash_data->leds_count++;
- 	}
- 
--	return regmap_field_write(flash_data->r_fields[REG_TORCH_CLAMP], flash_data->torch_clamp);
-+	rc = regmap_field_write(flash_data->r_fields[REG_TORCH_CLAMP], flash_data->torch_clamp);
-+	if (rc < 0)
-+		goto release;
-+
-+	return 0;
- release:
- 	while (flash_data->leds_count)
- 		v4l2_flash_release(flash_data->v4l2_flash[--flash_data->leds_count]);
+ .../phy/starfive,jh7110-inno-hdmi-phy.yaml         |  49 ++
+ MAINTAINERS                                        |  13 +
+ drivers/phy/Kconfig                                |   8 +
+ drivers/phy/Makefile                               |   1 +
+ drivers/phy/phy-inno-hdmi.c                        | 359 +++++++++++++
+ drivers/phy/rockchip/Kconfig                       |   1 +
+ drivers/phy/rockchip/phy-rockchip-inno-hdmi.c      | 169 +------
+ drivers/phy/starfive/Kconfig                       |  20 +
+ drivers/phy/starfive/Makefile                      |   1 +
+ drivers/phy/starfive/phy-jh7110-inno-hdmi.c        | 561 +++++++++++++++++++++
+ include/linux/phy/inno-hdmi-phy.h                  |  88 ++++
+ 11 files changed, 1126 insertions(+), 144 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261028-jh7110-inno-hdmi-phy-83e5cfa643e3
+
+Best regards,
 -- 
-2.25.1
+Michal Wilczynski <m.wilczynski@samsung.com>
 
