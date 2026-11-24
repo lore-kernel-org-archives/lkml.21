@@ -1,89 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795541548;
-	b=IvW7zYrk7u14lVCgTPgvFYbf3DPn0p8BglfjLVfx2Zotl6SqDMRvgY7AD0x1NzvKX9kx
-	 8aSc765cLGZHpU5lXKs6gbqHFgZ3XEnA3Okyq8GKlvzoT6pLjfXn+nUzSbyjfM8kxh82+
-	 jYAbHWpy1SascmUq76QJFDIH1kNJSGeEDba07BNMeapuSnTHzBe2ljX2gDDUsN6SLmWIo
-	 4xRzeelpyfAxbeiPqs3jS3k+LxZbSAoA2xtQLosSmgOqvFB5ZY6JRtgzSB4t8GvdjKozC
-	 BgVL/k8HDE4R+bIIYSdGeY+PDr2rrarS4vMU5Dokj/jNCQMJJ/qQCj+tv/gIz1/97Hw==
+	t=1795541549;
+	b=iAjphhVC5mkdOsEe5R/5PIHHcbHtXlYJUQ/PGXumS824jpNfq4ieT95urScvFhIRWr++
+	 8cKTmY/GoCYNtI2ZsPshi9ncF2ne7y6CXcU9qwIMUTnth0S1ASzoWurpybENyVAx2jvw2
+	 2DntJ1Gp2zE7VD7M0N+NFxgaM6gwnIkuGMLWMzLPGSYZQgvJtMEl5A8B+9WqPE6/BNvjD
+	 NQYeGafeqqysX3Z2kl02eglWgRFA83EiJGRpuxxX0JsNZ7kVu2yPb57I7fipqIzWGQCqM
+	 3RP+3GkpR+omJgzT57FHvzNKmuSLuLw7TtwIw3sKrKiYSMd7gHh1tV9qZD/nowSaybA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541548;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541549;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=V7ZSOMsXYdAcwhycQflcDLMzQhl4tW5MNdpWt5mDy8M=;
-	b=bXiCQ9CDoBv43zQRLbVk952NOrQHjmLyG6bE8aZMmWa1S7+4yX6IqE2y2cE42KrEshgk
-	 O72rot3wP0cyHhVl4uQhIuVK3pjGiUoCpLCsx58OzeUvie1565ndxtPeAy9vTYjUX1EVn
-	 ZwiOElcXykWOAwh6RU46LwBo4W5nFCYe7w6gpu+GyQuz4CzVGNHhR1FRcxujSfKoXDz21
-	 qJL9WctvBCh7TXoCtAGDNwtMirF/uZjqMvjzIC4bUZBWJRntKERcR9oULYAHgTnWeJUM8
-	 VEYjQLZ+OzHcEb+LrnzwDvlZXVv3ZM4CTgDSJbSWzHsWmTgTpIwO+iAeKrtNucLPE4A==
+	bh=+SL1KT/eGq3EnDcZK3GAhW4sKp/ckh6MgmCYDRbhWdE=;
+	b=lNIOvAA0S4hHWam+YSHYZ6Y3iIr+gZolz+FTFMsMteQEqsGOwR/N5sifpPReyvxtm26y
+	 sEfATdMBBXJ1QUvHeOZxfxjzX2orrpjIv6rIv4GcGLB3Si7mXQbtypoIIW5GzK9Ke38Sm
+	 4DBe1zmroRD/cBspKdupMvK05VfnfiG6luUW3XAhD4v4cQAYGnLHiJqBA/sLNPkAKG5Dg
+	 6enXxZc8ozT0Jh5nWnVkTMkpEvuNAJjZ07ae3o24A9g/BcDzfALzYPV3T/2oiPlCZAdm6
+	 xboqwXNrp42l3RuuwFG2jHEzdKPjgjNcC30oDtMfH8oT09OxsETD81jLqJrovA4tP1A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linaro.org;
 	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=BpJ6RwtJ;
-	arc=none smtp.remote-ip=209.85.221.46
-Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=CAzlwEmN;
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D331606A6A2
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:32:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D331606A6A2
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0328C606A6A0
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:32:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0328C606A6A0
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=BpJ6RwtJ
-Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-49a92144733so2362766f8f.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:32:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=CAzlwEmN
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-48e47347279so2864095f8f.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:32:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795541546; x=1796146346; darn=vger.kernel.org;
+        d=linaro.org; s=google; t=1795541547; x=1796146347; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=V7ZSOMsXYdAcwhycQflcDLMzQhl4tW5MNdpWt5mDy8M=;
-        b=BpJ6RwtJp5VhvEXIOH/3bDVpriA+nkklT+lEBQ+xJ1fLiehAeW0gCo6dFrMpPtSQuK
-         ke/zClaDtLDEqFIkfXowzigpbkwH94ACz1Tth1nvOdT5lFDuIe8Q7CR+A8s9PhaGLMSg
-         +ZppDh9ezrllnzKM20p8OhYWH3PLYJ1C1zsI5UoKufu6ueD1eIF0sRVNo0X+8UNuf7Kf
-         ty/2UpQQxzKiE62WrzBCDJaj+QWIajL7gDpy0NM7yK+2K1wbjYomPN00yEry109OFK3p
-         pBFmNaA6VHSx4GH6W2L3pdHibb3qNmEi3iXKai+F/yVvePY0zsYPZDTVx3vwc+ZrUYAA
-         2T0g==
+        bh=+SL1KT/eGq3EnDcZK3GAhW4sKp/ckh6MgmCYDRbhWdE=;
+        b=CAzlwEmN9dC0GaiVbvr6PRQMqbM1riHbYgXNkb53ws4oCaBivG/BoCh6bN1Sw/ZEHC
+         w07Y5Et6b/7Vwgw93y8Zf9iNg8vLY94qHeb9zERCMCMU/gbsQk7eRXSLhop7B/BBXFbo
+         r3kXgiOfdeRzVurOJekr/lfLMZ7bJwhUHvdi9zx4ADlaWpCBE6sElkHpP0oMyTGVk78T
+         JDa9oMJobNxa685jtKfLjKFNv7bgE4QDUJ2lh6gVwAGC/sIqtAtVKPd/R6WShfIj97bK
+         k6JI+94y8BtWCVvlCbOJcO/Nwmuty1yIT+ES+lJlj1cfMDmBNSk6+eqeEPHGwxq4uT2h
+         5U3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795541546; x=1796146346;
+        d=1e100.net; s=20260707; t=1795541547; x=1796146347;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=V7ZSOMsXYdAcwhycQflcDLMzQhl4tW5MNdpWt5mDy8M=;
-        b=LkAPkHVDT5QxEyXz5e6ZIv45Vl7xIbi6pjwdPBakt/KqUrI2gRXsiPEs3LErRkDUuP
-         diQUZ8nDWrv3DJwphzg9IChEMz4EAYeV3wUd528pYjsTDQK9kNBF9qvjV7IibKHUpwe4
-         z0sxClJKtS9cDEFhkJ+YgpO2XnEKnz7jOaXsU0nSvTMEqCjoG9QHTAE1UMLa+ajQ4hGl
-         o5Yfa7C8Vn+PgxQzEyUlOQgbX3mB3lqANQnFyo6oNoOeSF4RmCyb2qX8YebmIa2IZya+
-         Hli2Y7D7TuX/X4lQGeaUwB6N2bHuRz/2DtdrfqrMmjyQy8VmR/XRT1sQXE1wmR8qjaAs
-         MCww==
-X-Forwarded-Encrypted: i=1; AL+hErE4jbKqd1rz+Uz3wHku/rr4ikFl70Gl34oGhlDOuH9xSN3F/CGj/bXt1ntYymB301lDJnaPpdh1W5hPr2E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/KNLrhIo5bs2YBHToToAKZOA7M+Ubm8exrg+2yeU+eKaiBM41N
-	GX5li25GQQ3tj0LjT8aDbb5OKpg9IThyUfAY9P4MCyK2dGYnv3nyWcDGNEhUbw5jUg8=
-X-Gm-Gg: AZFdTZfAIIapjlovWWv8r4XojbQf0CEY4NGLd4e1tv0nEIuPLi9KSW1zEWEZkMdPJ4t
-	qH5Ja4axpa2hq7mAoKjuYyaelJZiIsC3HQ2GFlWIHG1vKzZab3a8uWq8nm5aF7jmIFo9NI6iory
-	aeJyUX/5xjTIawUi2U2kAidAq2FfueeYJ6hVHP8inOm1+f1r0Vad/1F5vLnLhCYYXy2kyGrphSM
-	VT95n+Skre/Jg8DTJj8F38qFBHe4Xc2wUTeAXpDV7HSuRBC/OvQOIGNtBwPbR3RVItAWkVkoHf0
-	HI2eh6jt2IuSazCiTWxbvWfHdQ8DOnAV8OyMRou2SpaPhIXUlEV+jQFNT3OKYLsJ0R3rAOXKUM3
-	aT2CjOA1PuhYOji6Pa1x5CJosnk+6ZgSndnNV6CyUobtrIHVU5TLIslYIufYv07PiU1af0N1LdM
-	5h+Vc4ETC6V1Ka9cY51QZDv5ZnzHZa4kciaGacldK2x/hgQdlJl1K3Wf2NOHdfc6Cnt8bHnqhct
-	zMxpfpKdkhIrFQYAalBeRpbW/1aj0uauy1xHHMvoGDHP5nhNYbuqAwMBxKrgIF++fAPTC+hvpiy
-	b42jkK92wFaNh1QDPf6SzLvsNr60mi+gK+9WUYeJrVDyMV0Lgw==
-X-Received: by 2002:a05:6000:1865:b0:4b8:75e5:301d with SMTP id ffacd0b85a97d-4b875e5306amr2896256f8f.0.1795541546329;
-        Tue, 24 Nov 2026 09:32:26 -0800 (PST)
+        bh=+SL1KT/eGq3EnDcZK3GAhW4sKp/ckh6MgmCYDRbhWdE=;
+        b=RZBTrQ4v/21mWlmZLOXZnu8NCDgfR8dTtfDd/cp66ubk8JO39GySR0Vm/FSrbqhqTJ
+         quykuMC2XojnzieTqfDLXirUSM8+q9dcejDlfuKbduJaZiHl/J62nkSDXiis2GrpsS2/
+         vnLkt4xhP71ofhso2GE8rCq/0bPcXPTiRojUwZwmEbBV2U6iWGIuJ/esTePfvbRDavao
+         jXsSncWm33/+T995CXOv8veLkGiat294bw7SP//uwyxpi0VlnX6I3AZr5XdkBMMlM9Y1
+         x7pVqvPusg51nybkcMGTbCckigKHZxOxGiwd8NV+GLVPpvFNOTqqN8i6uBtirsFEl4Bs
+         rCOQ==
+X-Forwarded-Encrypted: i=1; AL+hErE2YYXf0pGSIiCWpmgpXLv+EL+hvwQOp5edA0rRe4BwInxMwjQP4ZN5eFtIJ/vXQK6N3OVgvL9fu73mUG0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+r5T0p7C6hcy511ry7Y5vPTEb05l5QQVOTjkIANWY7YEOCFgky
+	epi8beRATlNV4o003KqrX20m1FqlKlr5/Ub3+L4+XlSXpq0r5LE/UPt1BVXFjNnQjKI=
+X-Gm-Gg: AZFdTZdejoKqbD9zMSIfyD+BaPuHJh8TfPKlXgfe+9sWhbsC53a2SPKaVUnpqeNWg3J
+	bYzlMBvy0Mt3wk1YQgK0urU34yF3VbnKOX4pIyRGfRrQ+mRHk+opE09+Gdqu2rtucvQSQkyUTG3
+	r3Vo/+10DHTHR6dv9fgzxl1RDPs9CE1j1ltkLe63VeIjZdHIK1X5L9+cQzr/5J09BeDhxiXrKVv
+	lJNiX2VvhsVhIsxB2iGtcBFp6tmCHYF+q8WYbhaeRpgsNrjOp3aEGFBN/QooVf+hAyAPrkDVO7N
+	kEg4qjw0nI4+5/tBs7VOPPdR/SpA+YXV9h+exjURFqYuNgiVdEg4amZMbS8/e6hfpUJEXFS1Y5H
+	dwQrGNcdlq8wKqIe9RcWqYluKsTYJSRU832V0tdbtnXeTpAuXgUqgX0N1TzZnbQ9SBVFeqIMzt1
+	/E2x7VpTc6Y4fHBxfooyn17ZTfzBOsNeWCtE5yPp2wvF9Joo4bNOWCoT9G/xzaa7/rWngR05s0x
+	ZbMNcufwvnJqUD/kLiXEqFyzu6jlcSjmy0BYyqkVlqJb1c1V8K8R8uzTxQYd4sHd9X9kZn9sMSc
+	Ms8qNClQS7bnanxxhExIQQUqB8D2nJAKNyEW1AfmM9YA5s7LwA==
+X-Received: by 2002:a05:6000:2383:b0:4a8:8004:5261 with SMTP id ffacd0b85a97d-4abb6d04250mr34327691f8f.44.1795541547074;
+        Tue, 24 Nov 2026 09:32:27 -0800 (PST)
 Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b9add26sm29560057f8f.44.2026.11.24.09.32.25
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b9add26sm29560057f8f.44.2026.11.24.09.32.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 09:32:25 -0800 (PST)
+        Tue, 24 Nov 2026 09:32:26 -0800 (PST)
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Date: Tue, 24 Nov 2026 18:32:13 +0100
-Subject: [PATCH v2 06/19] ASoC: dt-bindings: qcom,lpass-cpu: document the
- SM8650 LPASS
+Date: Tue, 24 Nov 2026 18:32:14 +0100
+Subject: [PATCH v2 07/19] ASoC: codecs: lpass-wsa-macro: handle the macro &
+ dcodec power domains
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,7 +95,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-topic-sm8650-el2-v2-6-174e159f0f69@linaro.org>
+Message-Id: <20261124-topic-sm8650-el2-v2-7-174e159f0f69@linaro.org>
 References: <20261124-topic-sm8650-el2-v2-0-174e159f0f69@linaro.org>
 In-Reply-To: <20261124-topic-sm8650-el2-v2-0-174e159f0f69@linaro.org>
 To: Srinivas Kandagatla <srini@kernel.org>, 
@@ -109,152 +109,60 @@ Cc: linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Neil Armstrong <neil.armstrong@linaro.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3635;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1340;
  i=neil.armstrong@linaro.org; h=from:subject:message-id;
- bh=U1eEhA1am3Rmu5NcORdiBRTvDJRsaqBll4kDIGaC0o8=;
- b=owEBbQKS/ZANAwAKAXfc29rIyEnRAcsmYgBrBcoc7YAZGjqvFWy1Hwr4StX2FIbeGMrz3KE/Uc+k
- rozWyO2JAjMEAAEKAB0WIQQ9U8YmyFYF/h30LIt33NvayMhJ0QUCawXKHAAKCRB33NvayMhJ0WYwEA
- CBD87Kf9q8Rx1GAQLQseBuF7Vwd8DcmTDESFe00xldXtQ+v2rFmEzYfk07dJhWibQHKpPQz7uJWwhp
- XhliW0ntXGQ5uj/gTgWjroHRkd9RR6Bj42yoRRr4/3yMVLmwlfm0/fw2KZE2AgekRykwwvxQCaORyH
- 82/j7DC7fQ+aSZNwC7htfg3/J/syD9xcIsG5Qe0kdshsohyPkdwcE5GcU4sCAOuw3g+SoAtVIfVcDD
- Y3HyIqr0GJFX8N4XFsijbm915VZUk8+gxct55EXK8WIr5AQ+MUtLypCNIqCVctjILnfY/lIyzEFcgK
- cyT395KbWObZ2/0ZQJ2pGdD/OWJ+HBIG2KbsSFKIAi6SXcZMwdJI57rBrFospEfsVRh2aYgtvP2AeN
- qjABxSEBxPlnuo49RuKo1c2Q3fxTYTfCR1LZlXaUhqrMtou8YGReH4l6Rgyf80cR1ZTeH0+y58YXna
- PSRdpKrbCUnySWnobocJ5u9jdp97BcSRxz+WRSPVeusuegKsMXVZtnzHTLt2vnHXG8kSokagrRgHQz
- Cb9OrFFSp+fhOXiuNx/3ccVtRiMugXENWEiwKefGpCgYw3ku2hNYuVA3LLUaJEJYzhIhMS17unJslk
- aBy/ejlGDcsUMehb9QSyuKISnM42Ip7lxfs+I0+LitJadCoK1mVE/T3EQplQ==
+ bh=hVFg3Y31Ispb6dIhV4lKOW6ZJCfvIzuJH+rNG0A18RE=;
+ b=owEBbQKS/ZANAwAKAXfc29rIyEnRAcsmYgBrBcod3y0YQ0h2BUQpIM4apyqk8yOgOGlztGUy36oe
+ 7e2JPcqJAjMEAAEKAB0WIQQ9U8YmyFYF/h30LIt33NvayMhJ0QUCawXKHQAKCRB33NvayMhJ0Se7EA
+ DFos36gYy4RYDRa7R1O6n7gn3ZjBST+lXq0rc+BtlYRhQBkv+plvM/fdkv1vhFxFcAL3LMJm26pgg6
+ EAc4ea/zyMm9nLe9JZyBXI6R6tXmPSAmnPfA/pkc1g+26Bi6HDrv0w4qYPDemOZ4TR9ErrHRlxZiZu
+ mpt2Ay4r42L0T5QF0jszfiuoqbbFFNGNiGzfHH4Tg0br95tQSgrAQBQx0RkLJR1s8YJfxUpEe63yof
+ SC4bjrgMa0Ahd1TUkY6pTmdg+OKqeokhbO+Q/Fx/ay0lrjEHJVMytyAXvxH+PFZY2iyjXS/y9jhaF8
+ VhOvgz9bAIx6y+fvgPBlsT7Dr//jgYQ7DswTbC/UxeDRt9LTUo4Mj+9atQYvyI5jyPcfTpcamZD7kK
+ w6cWGJvKV3dh1t+oG9+UReA+HOfaoaTxhqTRKBcawcNNKXZPJBAfKylGj3lepPQKcOr355h5x5kT54
+ 1i9QipL2N1hlE/atQCVwnJqBXhn8CLUitlCjTufD97ldbJisg0H39XzrNTkk+7vYdzMqM9EbVnM8X8
+ DLDZFllX1fV2ip2iOIdk0cOgB8X+pJgjDWJqUG116Z2A/oTam9YlFZUMurEh2KcRo5TI3JTrI8Efsy
+ URFlBGIaJG7OAI/gE5gHeOFA3XAzLGZtxhSz552Lx6KQ/360SRc1kHU0qUFw==
 X-Developer-Key: i=neil.armstrong@linaro.org; a=openpgp;
  fpr=89EC3D058446217450F22848169AB7B1A4CFF8AE
 
-The SM8650 LPASS can be driven by Linux through lpass-cpu, with extra LPAIF
-instances, LPMs and clocks compared to the other SoCs.
-
-Document the SM8650 LPASS CPU registers, clocks and interrupts.
+When the LPASS is not handled by the ADSP firmware, the WSA macro lies
+in the LPASS core and audio power domains like the RX, TX and VA
+macros, so attach and power them with lpass_macro_pds_init() like
+the other macro drivers.
 
 Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
 ---
- .../devicetree/bindings/sound/qcom,lpass-cpu.yaml  | 74 ++++++++++++++++++++--
- 1 file changed, 68 insertions(+), 6 deletions(-)
+ sound/soc/codecs/lpass-wsa-macro.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/sound/qcom,lpass-cpu.yaml b/Documentation/devicetree/bindings/sound/qcom,lpass-cpu.yaml
-index 3a559bd07a79..f431173a0e88 100644
---- a/Documentation/devicetree/bindings/sound/qcom,lpass-cpu.yaml
-+++ b/Documentation/devicetree/bindings/sound/qcom,lpass-cpu.yaml
-@@ -23,32 +23,33 @@ properties:
-       - qcom,apq8016-lpass-cpu
-       - qcom,sc7180-lpass-cpu
-       - qcom,sc7280-lpass-cpu
-+      - qcom,sm8650-lpass-cpu
+diff --git a/sound/soc/codecs/lpass-wsa-macro.c b/sound/soc/codecs/lpass-wsa-macro.c
+index 2b63954f783b..254b8faaa8a1 100644
+--- a/sound/soc/codecs/lpass-wsa-macro.c
++++ b/sound/soc/codecs/lpass-wsa-macro.c
+@@ -419,6 +419,7 @@ struct wsa_macro {
+ 	struct clk *macro;
+ 	struct clk *dcodec;
+ 	struct clk *fsgen;
++	struct lpass_macro *pds;
+ 	struct clk_hw hw;
+ };
+ #define to_wsa_macro(_hw) container_of(_hw, struct wsa_macro, hw)
+@@ -2769,6 +2770,14 @@ static int wsa_macro_probe(struct platform_device *pdev)
+ 	if (IS_ERR(wsa->fsgen))
+ 		return dev_err_probe(dev, PTR_ERR(wsa->fsgen), "unable to get fsgen clock\n");
  
-   reg:
-     minItems: 1
--    maxItems: 6
-+    maxItems: 8
-     description: LPAIF core registers
- 
-   reg-names:
-     minItems: 1
--    maxItems: 6
-+    maxItems: 8
- 
-   clocks:
-     minItems: 3
--    maxItems: 10
-+    maxItems: 16
- 
-   clock-names:
-     minItems: 1
--    maxItems: 10
-+    maxItems: 16
- 
-   interrupts:
-     minItems: 1
--    maxItems: 4
-+    maxItems: 6
-     description: LPAIF DMA buffer interrupt
- 
-   interrupt-names:
-     minItems: 1
--    maxItems: 4
-+    maxItems: 6
- 
-   qcom,adsp:
-     $ref: /schemas/types.yaml#/definitions/phandle
-@@ -59,6 +60,8 @@ properties:
-     maxItems: 3
-     description: Phandle to apps_smmu node with sid mask
- 
-+  dma-coherent: true
++	wsa->pds = lpass_macro_pds_init(dev);
++	if (IS_ERR(wsa->pds))
++		return PTR_ERR(wsa->pds);
 +
-   power-domains:
-     maxItems: 1
- 
-@@ -241,6 +244,65 @@ allOf:
-         - iommus
-         - power-domains
- 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: qcom,sm8650-lpass-cpu
++	ret = devm_add_action_or_reset(dev, lpass_macro_pds_exit_action, wsa->pds);
++	if (ret)
++		return ret;
 +
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 16
-+          maxItems: 16
-+        clock-names:
-+          items:
-+            - const: aon_cc_audio_hm_h
-+            - const: core_cc_sysnoc_mport_core
-+            - const: core_cc_ext_mclk0
-+            - const: core_cc_ext_if0_ibit
-+            - const: core_cc_ext_if1_ibit
-+            - const: aon_cc_ext_if1_ibit
-+            - const: audio_cc_ext_if1_ibit
-+            - const: audio_cc_ext_if2_ibit
-+            - const: audio_cc_ext_if4_ibit
-+            - const: audio_cc_ext_if5_ibit
-+            - const: audio_cc_codec_mem
-+            - const: audio_cc_codec_mem0
-+            - const: audio_cc_codec_mem1
-+            - const: audio_cc_codec_mem2
-+            - const: audio_cc_codec_mem3
-+            - const: aon_cc_va_mem0
-+        reg:
-+          minItems: 8
-+          maxItems: 8
-+        reg-names:
-+          items:
-+            - const: lpass-hdmiif
-+            - const: lpass-lpaif
-+            - const: lpass-rxtx-cdc-dma-lpm
-+            - const: lpass-rxtx-lpaif
-+            - const: lpass-va-lpaif
-+            - const: lpass-va-cdc-dma-lpm
-+            - const: lpass-wsa-lpaif
-+            - const: lpass-aud-lpaif
-+        interrupts:
-+          minItems: 6
-+          maxItems: 6
-+        interrupt-names:
-+          items:
-+            - const: lpass-irq-lpaif
-+            - const: lpass-irq-hdmi
-+            - const: lpass-irq-vaif
-+            - const: lpass-irq-rxtxif
-+            - const: lpass-irq-wsaif
-+            - const: lpass-irq-audif
-+        power-domain-names: false
-+
-+      required:
-+        - iommus
-+        - power-domains
-+
- examples:
-   - |
-     #include <dt-bindings/sound/sc7180-lpass.h>
+ 	base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
 
 -- 
 2.34.1
