@@ -1,63 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795547245;
-	b=h8ggtq0tJemysG8waQuYzKA/WB4RVrI0JWGlK/rgCy+u7o/tJjjHxu9kytjqlWicWqUM
-	 K8BXfj/RhJ8iZ8o7vNSZ5Zvp4Nq4VDxwlSRRIR6XD5ERWGChKEg4a8sXZxUKvQ8pTn7rb
-	 XE7Knk/T/DsKls3/8uapZvCxUCpUqexbXJ9gMHrG+TZ6ZkCPnNTBFEzInwf8S5JaAiMV2
-	 Rk9MOWx+XRV1AfYmfTZqZAO27+OUEbgL+6TTgbGKbw66po0xi1BGgX81Pq2zs+SvoJ3RA
-	 vpZcQXtiuEP4DTweKLZC9PeGvlY4N4tmm7XOOGKxIBJeOws3KZV/cx+O+zkj538XtkQ==
+	t=1795547266;
+	b=CsJYGf6G/UAyvI2AsZmodzJg9LzEwJzF5AWSNUI2/LAgWWiZ1YqTmtaSTFDABXHLNjKc
+	 T191bKGtfFg0GOqvIJTyTOwXtG3LeDCrA9YS6tclga37qLcl8vDk+/T8jjFYROmQrJQru
+	 9dJE/CRkjUi00+IvwSvGVDL1NExP7lT/w2f9vbdRgWiBUmGF5TK4qlXcZusSfoltvkUZc
+	 n2/5RlVahEnMsXsqBxA1Pp/7RDrGENsCX5vohBCfuVWWVJCkBleLygW9liFSE5pAJ+OZg
+	 DcvXBsJiOdAzxq9F0SD8UPEb9mPOS2ttVztoz6JfeFbzQskeyn/Ncejkszrj3hLVp+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795547245;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=DgGrkzJmFZWQtPibLYb2wzpNsiS5IONW5wJ5P8ZexXg=;
-	b=SUR9Wp9yjvmvVLlsft6tSRRSnt0lSgZEhMMRYK+Frxfnx2mprY/YuPl032shM2qRTTlc
-	 MAxtCfPcGrSPlxok1ICE17y7iaGwZqMCViivuUckJggiaVOIB6isSybG6vJN4iJVkkb6m
-	 EXa23mm4O9eAbutsvDaKqAelopv8DWH3HZnio5wuS75lKQtJATY87cEzaUvB/CuEJoMS5
-	 ppVH4zpDvF5IVub77isZ0e0Gw6XRMuj4cmRGDEqkOsHqMZ+kz+zHPWs8MdcpH5+57Qe3/
-	 EXv4b9V+3Pta5T8j0xeTWDFvpKHJrHp9zN79p2dgj/nytSCn4KP4XykP35TrFfdC8gg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795547266;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Rspamd-Server:X-Rspamd-Queue-Id:
+	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:
+	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=2hvsQ2s+JmeC1O4RxfSoWmDQJ01X3ndusdsZNhaRzvY=;
+	b=xjA9PC7XW3NtjtYoPrxz5kxZnQbw/1b+AmSi0PQf3o8prZh+fWCy1Mwqw9IbAMxjZxeF
+	 3zzI1rjdaEU7OpO4ItYikOebRon0Efo1V/AOBYeLCSP/XpQTzMtUN/ztjA07ciWmQ0RZV
+	 BVgzPLgd8st6uZKHubC0lmlrY1atmiWDX/kF60UGOyjDFuQbaHsN40lz6s7sOYf49mujI
+	 uN0B9AfNRwL2cKBVTDEFmKNz5Up5embu+PIny9Pq4xD/bKO7sMhezDW3lTfN/npo5yW/S
+	 q5X+FBO6hT8Ri6R4Xls5gZPDvk8tEkm/wnJLYJyLdRVa2Nw+I8C15iUQrYWmvd8fYSQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="PQYQDj/+";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b="Zluu/EFq";
+	arc=none smtp.remote-ip=216.40.44.11
+Received: from relay.hostedemail.com (smtprelay0011.hostedemail.com [216.40.44.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AB70606A31E;
-	Tue, 24 Nov 2026 19:07:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D59FC606A31E;
+	Tue, 24 Nov 2026 19:07:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D59FC606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PQYQDj/+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BC441F000C4;
-	Tue, 24 Nov 2026 19:07:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795547244;
-	bh=DgGrkzJmFZWQtPibLYb2wzpNsiS5IONW5wJ5P8ZexXg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PQYQDj/+4pQgYpzPl6xOnSmGkgNxV/ryCOcW3JEXxVs5ZN3SHvDylHc2wwiJoN8Hv
-	 F8D+SFd0uaLbceiilkOyWJestNHyUE/dZWwWmKWNM4H5/QSvlSblwHps021N4vFUIg
-	 2pyOk1/C5NTYJn/bNjK2MGgsCrEVI1xgoTsDgEKqwiTgTGLuk631LED18sAJpXYnzW
-	 SO3C1zHYQu5jtXgCdPd/WZ2JGRksHn1SAWmj1vuiPUpLzOxlN7Jv3rcHENQYVLC3EB
-	 Mt60YFutqCZDXGjfHqDfKK9VezTnOE2gFuDzSPBxEusXsaigCyewh9ASX4evMj2Y6i
-	 56wEP0wJP89nA==
-Subject: Re: [PATCH net v3] net: stmmac: preserve RX checksum capability when
- offload is disabled
-From: netdev-bot+sashiko@kernel.org
-To: james.hilliard1@gmail.com
-Cc: netdev@vger.kernel.org, maxime.chevallier@bootlin.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, peppe.cavallaro@st.com, wens@kernel.org,
- jernej.skrabec@gmail.com, samuel@sholland.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-sunxi@lists.linux.dev
-Date: Tue, 24 Nov 2026 19:07:22 +0000
-Message-ID: <179554724297.3135.12604093728631257002@kernel.org>
-In-Reply-To: <20261120-submit-stmmac-rx-checksum-capability-v1-v3-1-e9e1fd85f380@gmail.com>
-References: <20261120-submit-stmmac-rx-checksum-capability-v1-v3-1-e9e1fd85f380@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=Zluu/EFq
+Received: from omf11.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay02.hostedemail.com (Postfix) with ESMTP id 5886D120C6D;
+	Tue, 24 Nov 2026 19:07:38 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf11.hostedemail.com (Postfix) with ESMTPA id 6DD3F2002C;
+	Tue, 24 Nov 2026 19:07:36 +0000 (UTC)
+Date: Tue, 24 Nov 2026 14:07:34 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+Cc: Shuah Khan <shuah@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v4 06/15] tracing/filters: Fix quoted operand parsing in
+ function event filter
+Message-ID: <20261124140734.65f7c57b@gandalf.local.home>
+In-Reply-To: <undine-1795048701823215055-2066a0c9c680e81e@undined.local>
+References: <179323784538.740114.15323117974242744566.stgit@devnote2>
+	<179323790096.740114.15868280894145147902.stgit@devnote2>
+	<20261117191421.41cc174c@gandalf.local.home>
+	<undine-1795048701823215055-2066a0c9c680e81e@undined.local>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,237 +64,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Server: rspamout02
+X-Rspamd-Queue-Id: 6DD3F2002C
+X-Stat-Signature: 3id4qze1yjbq3obs73j4y9abjcbq1fjb
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1+9ezuQCN/o8BTizhDxixwXOI4E2GMTmIk=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=2hvsQ2s+JmeC1O4RxfSoWmDQJ01X3ndusdsZNhaRzvY=; b=Zluu/EFqYtHqV5wzct1naS2/mEzCIHVhbu1tHeC/p8mC33K35lehvDD1lCDfGsko+oqVOuaSgK2s0dsP+2CtK5JXCob8uobwKyJ4u15sZRJO7/EKF0dUgTi2CLTHZykSDeHbThj4IGZx2mWvDsSb6ogy6EL9nunyJ8BQ4uNs3U8=
+X-HE-Tag: 1795547256-243944
+X-HE-Meta: U2FsdGVkX1934XH8xZfhz4L4nUsjadgjpkAUamuTs242LvDIVzh1fabQxko9Qa++ADtWxWti05M1VvYcyzbpNyGNdxl4tqULsDc9w09mHeZ1KTjTHj7FZN0x2urS1FHGncinqe3MNYDvCCSiEI723XBOBZh5ESdzSCvD4HcTPxjvxd2/9+gWcADUz0FI4c4zb7jSchJWnKN2wF7rS8etiW4OT3hq8sGgFnE+Ax889NzGZdxhLdqA3v0AvHNeQu1rOLRlnjJZD7W/MHcnlblZvXm7AudkfBEvRBLycOVB+hW8OxNw5+fMydzbvkeJnUvEf1w815aDkykx3E+Avtg+aSEQuyWmEm63
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On Thu, 19 Nov 2026 09:38:21 +0900
+"Masami Hiramatsu (Google)" <mhiramat@kernel.org> wrote:
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
+> For this issue, we need to use "perf record" to reproduce it. It seems
+> that expected behavior [1], only perf can set filter to
+> ftrace:funtion event. From the tracefs, ftrace:function event does
+> not have filter .
+> 
+> /sys/kernel/tracing # ls events/ftrace/function/
+> format  hist    id
+> 
+> But perf (perf_event_open + ioctl(PERF_EVENT_IOC_SET_FILTER)) can
+> set the filter to ftrace:function event e.g.
+> 
+> perf record -e ftrace:function --filter 'ip == "schedule"' -a -- sleep 1
+> 
+> This should succeed, but it fails without this patch because parse_pred()
+> stops at the closing "(double quote). 
+> 
+> failed to set filter "ip == "schedule"" on event ftrace:function: Operation not permitted
+> 
+> With this patch, the perf succeeds to run.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Ah this is filter logic that can only be hit by perf. That's because it
+does magic to have the function event's ip field to be automatically
+treated as functions.
 
-- [Medium] When RXCSUM is wanted but the MAC never accepts the IPC
-  enable, the reset-time reconcile goes through ndo_set_features.
-- [Medium] Toggling RX checksum offload on a running interface
-  (stmmac_set_features() -> stmmac_set_rx_csum()) flips the MAC IPC bit…
-- [Low] The patch changes the stmmac_ops::rx_ipc contract in hwif.h to
-  "Configure RX checksum offload and return whether the checker is…
+OK.
 
---
-
-net: stmmac: preserve RX checksum capability when offload is disabled
-
-This patch keeps the detected RX COE type when the IPC bit reads back as
-clear, and adds an enable argument to the rx_ipc callback. If an enable
-fails, it masks NETIF_F_RXCSUM in feature negotiation until the next MAC
-reset. It also splits stmmac_hw_setup() so open and resume can reconcile
-RX checksum features before RX is started.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> index 2ece7ba9dd73b..d7dd6c5d95d47 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> @@ -699,7 +699,7 @@ static void sun8i_dwmac_get_umac_addr(struct mac_device_info *hw,
->  }
->  
->  /* caution this function must return non 0 to work */
-> -static int sun8i_dwmac_rx_ipc_enable(struct mac_device_info *hw)
-> +static int sun8i_dwmac_rx_ipc_enable(struct mac_device_info *hw, bool enable)
->  {
->  	void __iomem *ioaddr = hw->pcsr;
->  	u32 v;
-
-[Severity: Low]
-
-The new rx_ipc comment in hwif.h says the callback should "Configure RX
-checksum offload and return whether the checker is enabled". The body
-here still ignores the new enable argument:
-
-sun8i_dwmac_rx_ipc_enable() {
-	...
-	v = readl(ioaddr + EMAC_RX_CTL0);
-	v |= EMAC_RX_DO_CRC;
-	writel(v, ioaddr + EMAC_RX_CTL0);
-
-	return 1;
-}
-
-On sun8i, running ethtool -K rx off on a running interface goes through:
-
-stmmac_set_features()
-  stmmac_set_rx_csum(priv, 0)
-    stmmac_rx_ipc(priv, priv->hw, false)
-      sun8i_dwmac_rx_ipc_enable(hw, false)
-
-That call sets EMAC_RX_DO_CRC and reports the checker as enabled. The RX
-path won't mark packets verified, because hw->rx_csum is 0. However, the
-hardware checker stays on.
-
-Should this clear EMAC_RX_DO_CRC when enable is false, so the requested
-setting actually reaches this MAC as the commit message describes? The
-notes below the --- defer the sun8i changes to a separate net-next series,
-and that series isn't in this tree.
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index f256244ce0d11..88abac5afa0a3 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -3727,25 +3727,51 @@ static bool stmmac_tso_channel_permitted(struct stmmac_priv *priv,
->  	return !(priv->dma_conf.tx_queue[chan].tbs & STMMAC_TBS_AVAIL);
->  }
->  
-> +static int stmmac_set_rx_csum(struct stmmac_priv *priv, unsigned int rx_csum)
-> +{
-> +	int ret;
-> +
-> +	if (!rx_csum) {
-> +		WRITE_ONCE(priv->hw->rx_csum, 0);
-> +		stmmac_rx_ipc(priv, priv->hw, false);
-> +		return 0;
-> +	}
-> +
-> +	ret = stmmac_rx_ipc(priv, priv->hw, true);
-> +	if (ret <= 0) {
-> +		WRITE_ONCE(priv->hw->rx_csum, 0);
-> +		priv->rx_csum_failed = true;
-> +		return ret ?: -EIO;
-> +	}
-> +
-> +	WRITE_ONCE(priv->hw->rx_csum, rx_csum);
-> +	return 0;
-> +}
-
-[Severity: Medium]
-
-Does this fully handle the running interface case? stmmac_set_features()
-calls this under RTNL only, while RX DMA and NAPI keep running. Nothing
-quiesces or drains the RX ring around the IPC toggle.
-
-On enable, once the readback succeeds and rx_csum is published, the next
-stmmac_rx() poll takes a single snapshot:
-
-	int coe = READ_ONCE(priv->hw->rx_csum);
-
-That snapshot is then applied to descriptors that were written back
-while IPC was still off. Those descriptors don't carry csum_none. For
-example, dwmac4_wrback_get_rx_status() only sets csum_none on
-RDES1_IP_HDR_ERROR or RDES1_IP_PAYLOAD_ERROR. RDES1_IP_CSUM_BYPASSED
-only increments a counter. So stmmac_rx() reaches:
-
-		if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb) ||
-		    (status & csum_none))
-			skb_checksum_none_assert(skb);
-		else
-			skb->ip_summed = CHECKSUM_UNNECESSARY;
-
-Can this mark frames that the checker never examined as
-CHECKSUM_UNNECESSARY?
-
-On disable, a poll that already cached a non-zero coe keeps marking
-frames as verified after IPC is cleared, up to the NAPI budget.
-stmmac_dispatch_skb_zc() has the same per-call snapshot.
-
-On Type-1 COE cores, enh_desc_get_rx_frame_len() subtracts 2 bytes based
-on the current software coe, not on the IPC state when the frame
-arrived. stmmac_rx_buf1_len() and stmmac_rx_buf2_len() also re-read
-rx_csum for each descriptor. Could frames in flight across a toggle end
-up with lengths that are off by 2 bytes?
-
-The commit message says:
-
-  Check the result of an enable before allowing RX to mark packets
-  CHECKSUM_UNNECESSARY, including when the checker is first enabled on a
-  running interface.
-
-A similar window existed before this patch. It was wider, because
-rx_csum was published before IPC was written. The patch only orders the
-register write against the flag update.
-
-Would RX or NAPI need to be quiesced around the toggle for the statement
-above to hold?
-
-> +
-> +/* Recheck the wanted features if this reset clears or uncovers a failure. */
-> +static bool stmmac_init_rx_csum(struct net_device *dev)
-> +{
-> +	struct stmmac_priv *priv = netdev_priv(dev);
-> +	bool was_failed = priv->rx_csum_failed;
-> +	unsigned int rx_csum;
-> +
-> +	priv->rx_csum_failed = false;
-> +	rx_csum = dev->features & NETIF_F_RXCSUM ? priv->plat->rx_coe : 0;
-> +	if (stmmac_set_rx_csum(priv, rx_csum))
-> +		netdev_warn(dev, "RX IPC Checksum Offload disabled\n");
-> +
-> +	return was_failed || priv->rx_csum_failed;
-> +}
-
-[Severity: Medium]
-
-What happens on later resets if the MAC never accepts the IPC enable
-while NETIF_F_RXCSUM stays in wanted_features?
-
-On the first open:
-
-__stmmac_open()
-  stmmac_init_rx_csum()
-    stmmac_set_rx_csum(priv, rx_coe) fails, rx_csum_failed = true
-  netdev_update_features()
-    stmmac_fix_features() masks NETIF_F_RXCSUM out of dev->features
-
-On the next open, MTU reopen or resume:
-
-__stmmac_open() or stmmac_resume()
-  stmmac_init_rx_csum()
-    rx_csum_failed = false
-    rx_csum is taken from dev->features, which no longer has RXCSUM
-    stmmac_set_rx_csum(priv, 0) succeeds
-    returns true because was_failed was set
-  netdev_update_features()
-    stmmac_fix_features() no longer masks NETIF_F_RXCSUM
-    stmmac_set_features() with RXCSUM on, netif_running() is true
-      stmmac_set_rx_csum(priv, rx_coe) fails again, returns -EIO
-    __netdev_update_features() logs "set_features() failed (-5) ..."
-    and returns -1, so netdev_features_change() fires
-
-netif_running() is true here because __LINK_STATE_START is set before
-ndo_open, and stmmac_resume() only gets this far when the interface is
-running.
-
-Is it intended that every later open, MTU reopen and resume prints this
-core netdev_err and sends a NETDEV_FEAT_CHANGE notification? The
-driver's own "RX IPC Checksum Offload disabled" warning is not printed
-again on those resets.
-
-There is a related problem in stmmac_set_features() when a live enable
-fails:
-
-	if (running && rx_csum != priv->hw->rx_csum) {
-		ret = stmmac_set_rx_csum(priv, rx_csum);
-		if (ret)
-			return ret;
-	}
-
-This returns before hw_vlan_en is updated and before
-stmmac_set_hw_vlan_mode() is called, so the core rejects the whole
-request. With a command like "ethtool -K eth0 rx on rxvlan off", is the
-VLAN stripping change dropped for that request?
-
-The commit message says:
-
-  This leaves unrelated changes, such as VLAN stripping, available even
-  when RXCSUM is still requested.
-
-The v3 notes also say "Keep a failed enable from blocking unrelated
-feature changes". That only seems to hold for later requests, not for
-the request in which the enable fails.
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-submit-stmmac-rx-checksum-capability-v1-v3-1-e9e1fd85f380%40gmail.com
+-- Steve
