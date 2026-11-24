@@ -1,54 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795540718;
-	b=GsZHvG+Sx2rMla5nAMBP8ec4qD7q/Ua55VmbiFRdrYM/V2DDCaLSeAzht89IAt0IlfIi
-	 FHlibbJd9naZ9vMJdJPOBknmXJKvOVfAVnzzoHg9Q+b3oxUXZZuYwj2dS6vjR5wI6wS0X
-	 ocHDYFLBV/S72uhAh5InG4QBb7kyL6b1I2DHFy7KjtkGqqmhbYMag4c8Wg5MDBFdp4moN
-	 OW812AWqWQLf66pKrboh7qUQYoGho4G4w9quZ7eYvK6eX7CYpVSTDEOK4ycbAfdlRORg4
-	 LXLZylNMiQR47cHfdXwwlXhqC68NZv+ESAY0k6zp0FSB7yYU7DWW6LpeNvh+XRwl7zg==
+	t=1795540716;
+	b=UxBrsX8VJCiJfKyn76c7eBUbQYYspxONLZjDZ8x8lCkTK+p0pWot8su4igdcxInVZU4Q
+	 YnL+dtxsfb+Evh0l6gaSFmtkbDb4T00a1u/3LKkxRPbU+8Na0lPDBmOkBtRwgxWwiqzjM
+	 M+sL7gdmIEAl6QE0sNbqlnKdku5crw9vOTkpM/bNWh6PKW2CvDatsZL9EW3N9muJLnoLs
+	 g0nESW5KW7ClAj29Nwl37DhhKhlctRWtQbEBIOEfvCqbZE6/ocvwwPo8zAh40rsFqhkIi
+	 cQVTmmaGzbQPmCSf0Jx1fAv9VNhMn/7fB1CoZIXMvPFT5qj68XJwjvMgSXfPoQmnCqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540718;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=soJkr184OzWpwDgsoaY68pRGyt4XwVTMqpDdnHjHds0=;
-	b=e6aCM0A3nfPx2CZY+prnJiZcwzlxHkDh7X1WZwX2pKWH6t3i2whpaFnBX/mgJX+ZEXUd
-	 Autkm+2/ZrZhvL5WdjbA9wwIJhv0ROpxSv+uDABS42kbIkyhxjUesJfQeGw094jLkFed5
-	 SpjYzgtxfnaYIak8gFptQCDyc0CkZLesO6qxP6Vd+E5rtgxs+MO/tPqK8RDCnmCVQjv2B
-	 unLh8viEEmYnyge0uQ3jLLLXWVPU4oeo1u7WxcnI/0O632BrWEsxB0Yl2TZTgfh/map4N
-	 U/JrMMBY+FxIeqB2yoIWEw4f82cBubY+fe8zd3X9LWxGhEIE9Sz+793cYdR7UCeP6pw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540716;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=nvoHQblVvTO5wjfDWw+R4A1RKcGOawuDiPZT0xUmZY4=;
+	b=uyZUnhnfF6UypWnYApPddyuKTCd7GYjn9xMsbJ58jMbU9TM5VrndNnCshAsAlyAM9ntj
+	 XkZy0Sq84LJ2WVACOMgbkNhhXJSMRJQOwL5bZKE7rDg+BvZvRLC0ZjxTSRopRW56LPqCf
+	 ytFjO+PuysgK3Sp1xbJuOlfsUSzX6fLoU8zhcCNukxAQqMqPTvmh7GuOapX9+1IWcqJpz
+	 fRKD6g2eO3aFjhPH4piadMKWOurcrXKgo17SGf7rPpjO+cU56fXbuhCnhV3iW0cX7mM0D
+	 b+WCJMpsq+0FUSEpQQtXXJdD/RIofJ1B1v21tsinPAwkGP+SqLfDYpK41YSA1usS3WQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OeAJP7rq;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EX8mlVkF;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 93295606A333;
-	Tue, 24 Nov 2026 17:18:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34D66606A31E;
+	Tue, 24 Nov 2026 17:18:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OeAJP7rq
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 9E0A31F000D4;
-	Tue, 24 Nov 2026 17:18:37 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EX8mlVkF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43E321F000C6;
+	Tue, 24 Nov 2026 17:18:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795540718;
-	bh=soJkr184OzWpwDgsoaY68pRGyt4XwVTMqpDdnHjHds0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OeAJP7rqeF5fhHtCGxSIyjakVHmz9pmbHe6/jkkhDmu1cYueKA9xSezT6evR4vN5S
-	 uIvxnaj+2OibkbIysQTEOD13yBmTM7ZyskbqetfrcJh1LArTwOwqd4dmdn505thhNJ
-	 H631sOpWNHeyfHk9HWVdHdIJKtH8osV7tKyqfZfpKSQBvR6r+fRuFCWaOWfqogElkJ
-	 xEPFuF0J3pxylSj6nXnBDVAOl6jo2j0/NxFcUKbbmnQXP/nzyUzoS79BG22+UzL6mV
-	 ZSzv9dLH7dciBMggP4Ggk1mKNrQr/V697Lm4mr6DE4Y2CZ6weHIPQoCn2hTvRVTR04
-	 ZuVtQEffoL33Q==
-Date: Tue, 24 Nov 2026 19:18:34 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Guicai Ma <maguicai@kylinos.cn>
-Cc: David Howells <dhowells@redhat.com>, keyrings@vger.kernel.org,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
-	"Serge E . Hallyn" <serge@hallyn.com>
-Subject: Re: [PATCH] KEYS: Use kfree_sensitive() in keyctl_pkey_e_d_s()
-Message-ID: <awXG6k1HFYsE2wE5@kernel.org>
-References: <20261124052849.940005-1-maguicai@kylinos.cn>
+	s=k20260515; t=1795540715;
+	bh=nvoHQblVvTO5wjfDWw+R4A1RKcGOawuDiPZT0xUmZY4=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=EX8mlVkFDQ45BTbBIoQlcpPzpgAQL1amuGMGG2K7MEaJbt4ny4QukQE+pR/a3w7TK
+	 alrApm09A9rr8JGOE0CjhWVLCrAsbbO0dodGqZwTsxHoVm1agIewe0sR1PIWoQ9Nx/
+	 8VnUtG5Y0+qo6GBEU9pl8JynO08H7WBxQWjAAaZezKOBKX6nIAU4AS3dsHAaa5FT9Q
+	 arjY+mu/MaXGpVMaf58edxi8G7shYeq+WZAt46JxY/5SXH5yO3VhESEhrYlMIGdKM0
+	 uHPvU4VgCg+AQslxZBipoyl3RaA5/zW3IDoLZ9U25h9UJ6jXnMJjUPla+YOMkFbVr6
+	 5uxqZivw5IFZw==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,44 +49,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124052849.940005-1-maguicai@kylinos.cn>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] clk: tegra: tegra124-emc: Skip timings whose parent
+ rate cannot be set
+From: Brian Masney <masneyb@kernel.org>
+To: Patrick Fischer <admin@tsv-stahl-riesa.de>
+Cc: Prashant Gaikwad <pgaikwad@nvidia.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Mikko Perttunen <mperttunen@nvidia.com>, 
+ Svyatoslav Ryhel <clamor95@gmail.com>, Brian Masney <bmasney@redhat.com>, 
+ Thierry Reding <treding@nvidia.com>, linux-clk@vger.kernel.org, 
+ linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ stable+noautosel@kernel.org, Brian Masney <masneyb@kernel.org>
+In-Reply-To: <20261111-upstream-clk-emc-parent-v1-1-636eea572572@tsv-stahl-riesa.de>
+References: <20261111-upstream-clk-emc-parent-v1-1-636eea572572@tsv-stahl-riesa.de>
+Date: Tue, 24 Nov 2026 12:18:26 -0500
+Message-Id: <179554070638.342734.6160657540275227565.b4-review@b4>
+X-Mailer: b4 0.17-dev-8145e
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1385; i=masneyb@kernel.org;
+ s=20250903; h=from:subject:message-id;
+ bh=ir3UQjLHGDw/zLIAiMWv27Yk3ypbdfQgTmPg/94dMhk=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLJZjz3e+avzTppv0XWBDYovxBRmsWdl2l9aU3v1jJT47
+ 0nTp2zi7yhlYRDjYpAVU2RZkmtUEJG6yvbeHU0WmDmsTCBDGLg4BWAie1UYGb593FG5ZGL4B03u
+ Xw/uGM3mOC7N/UdFJ+587ZYV0W+nvdNg+Kc5e43l1+VbWk34j5gvO6hqnMBz7VZ54r7A99MLdPL
+ 9AhgB
+X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
+ fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
 
-On Tue, Nov 24, 2026 at 12:28:49AM -0500, Guicai Ma wrote:
-> keyctl_pkey_e_d_s() frees the temporary 'in' and 'out' buffers with
-> kfree(). For encrypt, decrypt and sign operations these buffers hold
-> plaintext or other sensitive data.
-> 
-> Free them with kfree_sensitive() instead.
-> 
-> Closes: https://sashiko.dev/#/bug/linux-4199b169-0b8d-4055-9a71-6b5b79e38eb3
-> Fixes: 00d60fd3b932 ("KEYS: Provide keyctls to drive the new key type ops for asymmetric keys [ver #2]")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Guicai Ma <maguicai@kylinos.cn>
-> ---
->  security/keys/keyctl_pkey.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/security/keys/keyctl_pkey.c b/security/keys/keyctl_pkey.c
-> index e7121523b9c9..8d2c2b65f50b 100644
-> --- a/security/keys/keyctl_pkey.c
-> +++ b/security/keys/keyctl_pkey.c
-> @@ -314,9 +314,9 @@ long keyctl_pkey_e_d_s(int op,
->  		ret = -EFAULT;
->  
->  error_out:
-> -	kfree(out);
-> +	kfree_sensitive(out);
->  error_in:
-> -	kfree(in);
-> +	kfree_sensitive(in);
->  error_params:
->  	keyctl_pkey_params_free(&params);
->  	return ret;
-> -- 
-> 2.47.3
+Hi Jon / Thierry / Mikko,
 
-Thanks applied.
+> Each EMC timing names a parent clock and the rate that parent has to run
+> at. On Tegra114, PLLM is registered with TEGRA_PLL_FIXED, so its rate
+> cannot be changed, but the Tegra114 device trees still contain timings
+> on pll_m at rates the bootloader did not set up, e.g. 792 MHz on a
+> Tegra Note 7 where the bootloader leaves PLLM at 408 MHz.
+> 
+> emc_set_timing() calls clk_set_rate() on the parent, which succeeds
+> without changing anything, and then loads the 792 MHz timing while the
+> EMC runs at 408 MHz. On the Tegra Note 7 that gives a refresh interval
+> of about 15 us instead of 7.7 us (DDR3 allows 7.8 us), and the clock
+> core then reports 408 MHz, so later requests for 408 MHz keep the
+> 792 MHz register values.
+> 
+> Skip timings whose parent cannot be rounded to the requested rate when
+> loading them, so that the highest reachable timing is used instead.
+> On Tegra124 PLLM is not fixed, so its timings should all stay; this was
+> not tested on Tegra124.
+> 
+> Fixes: cf561283254d ("clk: tegra: set up proper EMC clock implementation for Tegra114")
+> Cc: stable+noautosel@kernel.org # needs the Tegra114 EMC auto-calibration fixes
+> Signed-off-by: Patrick Fischer <admin@tsv-stahl-riesa.de>
 
-Br, Jarkko
+I'd like to see someone from Nvidia review this before I take it.
+
+Brian
+
+-- 
+Brian Masney <masneyb@kernel.org>
