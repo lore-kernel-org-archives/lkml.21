@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795554310;
-	b=gOv+dz7l297cS6quZPRF7OAX9aK7wmyA8zfAOBD7oYZTZB2jR2+7XYgY0PdvRIALwcua
-	 AGjLyB7nsEwiqq8f5GBNPPwCDvFpZD3YCXWVE8yaVHsrJuQEzY9a/9LXqRc4Z3tsQoPlv
-	 6oQqDuIiTWTNY0qs8nQ9Lo2KT1KLG9+ZOlOeJeBOUw8oAfNJ8Gfuznz7gXz4aUqUCgTXp
-	 vjVkqFs0lJYkavXvdUIfglcTT24UH1VxjGVMU1tbk8lKHfcZ29k4ApUJGIiutMquWGgvw
-	 JciRRrPrqxRoTVxf7ibr5Cj+KJJ1M7QCXUEUjSe1P5m95spOz2PCVSQrBKri+KHVYqA==
+	t=1795554306;
+	b=pcq4S+rAjKwpsJZQO20tECcTtqWq0G3ynQnGh54oCIWpEJ3qZ7TkK/MQRUnhEz33hDUt
+	 nwuuhGmwzFO+rDPnArNan2A0wUjyikpg/xHr/MUzLm3FuUYaS/PWJbpyrCedVFgTgV+O2
+	 PWx+vavdcxBZpjnnCJoJFrwZg/PgD6RQ0UiWrdnlaDk3oyTePRqDSwFcYedT4E2Pt8RI5
+	 nS8Z/RlcseoIEg9ejqBoWL19uuebctN9ySicWhK5b0Cr793CL0nV3fBr9Bu1/rkUfDAUY
+	 NaCIW03oBwnKNH8v74iz36uFXmETN8eYkTPlCeNtMWLvot77xQtmVBLf5uiwQ7X7gdA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795554310;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795554306;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=pkpq8GK0gZhArObYbGxp6BFjgE9VIEQP5FZ3dfj6SyI=;
-	b=rMGqhB6Li92DnIuTAWpO6Mj/k5PcnkENug477077AIaIBoAPmRjngm2M8powF1lb9kNE
-	 PiIaa24XtowE84aqqM2Z4LQTh32+tJU2gbYwD44PF0QwChRvmhYAohRNkPyIEmRyhAyW1
-	 c2f1RM7erz0uR2Di8VDNuJhxlBvhzLr2LiO/cloliL4XjIA1KkdOnhZMh15XwqrnwNowy
-	 mycwFvlbxlh5OiAJ9q2tiJh+jC0VSmVLPK8XDdjOMuujbCtzahnbIYb9FJib/4pcc90Di
-	 ei1CxgVsfNJwhvLMzy7n52UQVGErU/4w03Hm+KEjpcEFDjYMcPtRBp8LtHcUsxQ4OYA==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=90ySVS7hFllKNsIC11jHxkWHM6vP6j5bkByJOZCMJWY=;
+	b=KYf3t/9kNjaDSmjgo94GyTm8RMbtj3bmvaijRl1cukz3dPL3p9wvb2WAZfKu2wn0kf2B
+	 sAqC7RLfSbpBaj3bfpiCKcw04+TnVgfbcYTpq9GYCd5AJAwkl3pkybiQzCBinbX4qSKyw
+	 j1eJzkm7AHeKJjW6DGd4RwbTwhqPlNqklbJx+kB/PVnzD9mMa9Vt1FBupcqweyHCP6UGC
+	 8JwW8QHSsQZoKSG6M60wEqmnZQMy3inHZWgsdzZdv+f3Lofv/r4kWSUN/spYxKwUYWdtA
+	 yzFui6KJbEJaLSKrPEVCWQz8dc/R+nrA3jrfeDGbCGVk8K5SHDQk+DkBJNEGFkCtGbg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=blockcast.net;
 	spf=pass smtp.mailfrom=blockcast.net;
-	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b="TY1/C6MC";
-	arc=none smtp.remote-ip=74.125.82.54
-Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
+	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=W2EdbeF2;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9BCC606A33D
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:05:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9BCC606A33D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66201606A336
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:05:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66201606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=blockcast.net
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blockcast.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=TY1/C6MC
-Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-1b5786e099cso3052642c88.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:05:09 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=W2EdbeF2
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-38431138772so6436303eec.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:05:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blockcast.net; s=google; t=1795554309; x=1796159109; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pkpq8GK0gZhArObYbGxp6BFjgE9VIEQP5FZ3dfj6SyI=;
-        b=TY1/C6MClitj3g7ZFW8jz1IBUox0fftxB68Lv2pLQEPfo3k+LnsCT0m4x90lxryPGY
-         bQtrKyS3s1EOtgdj2HDepS2YwikFjB0BpYZkK+mDMukbVENqnnE1YytNB/Wp2uKa229f
-         1OL6U0He+djX+9JkuDaDexNzrdlAuAjmJaSwoDnWsaELKKSKLD1lLNyiwS2PrBCyMWQl
-         00wLpPo1fkPK8jg67CXFzAKh/5mOdL9zJHYD535CgsygjMymtd2MctTa/KxQvzsxpQ1d
-         QvInikWTR9I9IcX5vjtaC4w5lQKQUb20oqVr//IsOS7u9ffjAP6hZMhmRR7ddOMiug7L
-         767Q==
+        d=blockcast.net; s=google; t=1795554304; x=1796159104; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=90ySVS7hFllKNsIC11jHxkWHM6vP6j5bkByJOZCMJWY=;
+        b=W2EdbeF2CmGlq6/lfa8avuwYnflLpGlZYidKq55U1iZzCrlOVT3bMLjONtr27Lp5QK
+         v73XkdXRWk1uucS3u5ZR5MOA51Gt6qJ3BD6GXGsJ7I4uetFtciYv6+05FL14qi7qO2ij
+         amGu7hSnuCOaXWPNbCNIP+xqJVJ5IVZTDxmCDUaDfGnfTrjKjek6wPXdc9UGvjb2xScH
+         xH2YQBUqSkmMO1w748ZbHl6/IWt+cPeUmRKmeojXJfEmY5nXlbUDOKJwRzYJVIks4iW2
+         8oPIsatfKr90JRDwv6kNPGh4lVrRaTXETBcgeWST91m08JVppsA91sX3zB2ko2Z7AM9t
+         IQLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795554309; x=1796159109;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pkpq8GK0gZhArObYbGxp6BFjgE9VIEQP5FZ3dfj6SyI=;
-        b=W89MeFqu43Bbup7L7d0/TF856dIYNuepPbsCkNRFtNzVpiUx0WDscnSxMGjJg7/7kM
-         We5oH5tca7OPJkyAzpbjRWAf8/7eB87h58+4a/3++2myeVZu2B6ZqF6Qs0OEUGtXiRBZ
-         VZfpPywld2MVo0Vro4VKjNjOm5KfaaOL3dJLmabSXji7Foq1Xzm0nyJHSLIxqyuBkgMZ
-         sr8vi1avm/xRTT/L/oiIsZ4UozH7867GOkJo2i6lCZkW23L1gKqCmK1ldoBaIaFQNic6
-         I9h4Ur6CkquohZ8NxqcJwfwrFwiH6STe2nx+1ugzxaEkSS4C3/w6uzWXReWW7u3lGjn6
-         4dlw==
-X-Forwarded-Encrypted: i=1; AL+hErHHyXbXbT0uuYBijermo6OenTcdDTbkPEzJ00KD8/1LElLlvuQJJkYDMiyOftNRoa6yMw5uTzYiNOG2SxI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9cVAKxqoB4l/nbp//LcnFm3zwPkgIH9HTVL2s867XmfuTFGiJK
-	rptifn/orR26ATBI1uY6FLzoP4lz1HQYOdm3c4qJMhFoD2ozgYUwdK4cRWDP8/p0cjQ=
-X-Gm-Gg: AZFdTZfjAp+TIn9DTNL7PpC1uiK00h4rVNr5+DFctZmdLenuGCswEkLKrhqgoqm8WEa
-	KmQ2dItQszMTvjpNZX0i9Us2/0PZUOGzZhejWslQpqYHvzs0IV5On73/4QXK0RO8Qi47Vvv8L7p
-	JTuvnvziwgDaNJjtHEfaOh/1xRNmEYvSJ1cM2ChomcvuS5mvrGhGbNYRxsNuot4uddPzUnvI9KT
-	IBlAOAcI9y+xS07BBAQ6sINYFHbztjG26gof7GC6ooclwEPwNo8L9gHphf7IVEtMSleu1TbiBA7
-	hQIKLXkkzFjgJ2fY2BZt6y4s89vIuoQVNDH9YRN4iLfyR20YnMz0XhziWw2WTej9V0xpWZXi+5B
-	ECTDrCcbVCm+wPQaLgQV8JGqm4lSBSx89zGacLoYHidmbc6Z8KqII39krPI96xhq2vQmXU9GJw6
-	EEeCwvLEjUE4F6x0c6V6pPYLpY2gGe2iFZtr0mUrCI4rsSQM7pJz912ICzMc03uaa1jqA8pf8n9
-	Wlb9/QSgmC78uxpBzZ5o7DHkS6FQyj29Zfc/KKbzxlijkzVWB+rwajpVWG2cYSsqyfe6ZRP0fwc
-	Hmyjf4bgeaHymoJDA29Mizosx1DZRmRTkA6NsthNVnjsE+BpXUHQYn9vbP0rtWGUXbOMGSGgqno
-	j0HW0MfRrvy53Wm4/c4AiXKUyExkthcc+TPOAsotiKpSSGSl2uOWTKGYFGUfIyLHJGjbIFb/8
-X-Received: by 2002:a05:7022:ea8d:b0:163:c5eb:d42f with SMTP id a92af1059eb24-1b5567c02b5mr15256299c88.5.1795554308666;
-        Tue, 24 Nov 2026 13:05:08 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795554304; x=1796159104;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=90ySVS7hFllKNsIC11jHxkWHM6vP6j5bkByJOZCMJWY=;
+        b=MSpCVOCSoEbVyb2KwKHCVwBIWUMk02hKF5pUrURWIMrhfy2E5/BJQqBfeioJVc8Zz9
+         s/aQPffva02KdomM4sIO5f2uK9ysptZqlr7G7ivSdzwsA9SY6Za3ogQvm44UFVnwTQgO
+         mchkCeJsQge96u6EUTpdGmg2ubdv7Umc/JVPF/2+xOlOGTH4u6+O9kfLy1F6nShyIa07
+         /UUlfAkuq7p0DTXvHwgXL+EMuPgVJF23Q0q7wjfz+zhbIg1CjUOCEEVAlk73WJV/q7TN
+         wJuk01MXD1D8cisQ8K9Gj9cB76NySNaF3sLAzkKGGYdepAkbZY0Qb6zGHmiSl+uEF3ra
+         5hvw==
+X-Forwarded-Encrypted: i=1; AL+hErFjpYANU6jEM6RYgzj/2HtOfpRagOcCB8X7BjPSZOlVweEO9AaNB3OmsIARIOiWizy3Yl0wzIe1tx74Tis=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/+wx0tp0qeUleXHYCajk7Rp7F2uJxs19c87ZGuY/kKKY56axq7
+	7SY9vjYyFSWixTOMEuaKRAm68b8i0D0F53KM3VSM3YMYLgyQKtW4UJw4Xx2WUevqAdG+h8igf5O
+	rO4WbDBQ=
+X-Gm-Gg: AZFdTZcBjeggH+EK5kuHE1lQkARLuibfY06zQuZOepcIufsGST1y2By64YjJ2UrRW9U
+	X3X+XOYJv8yshYYuGNjdfM82lTUTwW/CPVpAAcsBRYzhUJAtmH1mSQbD1FqGff4RmUg3jbH52CH
+	VUQ6UQMK+tqM3jfqklojqvd2mKU1t9P49cn1p4U86Lmb6ge57QepRhD+q5QwyIwy36RwpnLHSga
+	S8WivWncDnHTp2h0XEjYg8xg2Ytat/pGSJfSG8igvqSKBdWA6KEqwfiiFLZxBSaOm5vq+QXfjei
+	sJkybOK0sTGKWnZhoOEmL2Tjgkw35UIVM34aDYF0VX9LA2gGm2v532oFPKx2vMNAt6AP8jbK4Hl
+	KEsAb/SK14v1iSBJydBlMvP5eV0LU2fIozI+W5TvJ65HJQxL8dJK37j6iaQj5MyvK//p4YcNwuv
+	xxA1LVd+8dGR6t4TPls8x8wmR3macZEOe5juGs234I27UPYxz7NDlWPUPjfvdZLj6rlqLiTnEsr
+	9+D9cHf3Lqqyv2MO97Ow+Tz+umjV7d+dlwVFvyyQgSBhVQhO8JESr6om6UzyLkBLveLp6LyiGuP
+	vY5Hw/fDrcRRhNYNzektLzmgo+dfNK31AW15m6420QWY8g51Llab7C9xOjCC0DxbdnYZUliJgky
+	ivYjEvlNh9H2Z9UN+Tmccpo4xKYuIvwPrF2/IHLcUA9B0Bb8sVTY=
+X-Received: by 2002:a05:7301:1a02:b0:376:b957:c08 with SMTP id 5a478bee46e88-3856fe5acd0mr15785797eec.9.1795554304270;
+        Tue, 24 Nov 2026 13:05:04 -0800 (PST)
 Received: from devbox.ts.blockcast.net ([69.25.95.32])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386c7c62a91sm5577813eec.17.2026.11.24.13.05.07
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386c7c62a91sm5577813eec.17.2026.11.24.13.05.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 13:05:08 -0800 (PST)
+        Tue, 24 Nov 2026 13:05:03 -0800 (PST)
 From: Omar Ramadan <omar@blockcast.net>
 To: Taehee Yoo <ap420073@gmail.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -89,12 +89,10 @@ To: Taehee Yoo <ap420073@gmail.com>,
 Cc: netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Simon Horman <horms@kernel.org>
-Subject: [PATCH net-next v4 3/3] amt: make the per-tunnel group and source limits configurable
-Date: Tue, 24 Nov 2026 21:05:01 +0000
-Message-ID: <20261124210501.70394-4-omar@blockcast.net>
+Subject: [PATCH net-next v4 0/3] amt: configurable per-tunnel limits, with bounded report work
+Date: Tue, 24 Nov 2026 21:04:58 +0000
+Message-ID: <20261124210501.70394-1-omar@blockcast.net>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124210501.70394-1-omar@blockcast.net>
-References: <20261124210501.70394-1-omar@blockcast.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,184 +104,108 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-A relay caps the state one gateway tunnel can hold at AMT_MAX_GROUP (32)
-group records and AMT_MAX_SOURCE (128) source records, counted across
-all of the tunnel's groups. Both are compile-time constants. An SSM
-receiver uses a source record for every (S,G) it joins, so a gateway that
-needs more than 32 groups or 128 channels through one tunnel has the
-excess joins dropped, and the relay operator cannot raise either limit.
+A relay caps one gateway tunnel at 32 group and 128 source records, both
+compile-time constants. v2 made them configurable [1]. Sashiko and Paolo
+pointed out that at the new ceilings a single Membership Update can
+livelock the host: records are applied under tunnel->lock in softirq,
+and only the packet length bounds them [2].
 
-Add IFLA_AMT_MAX_GROUPS and IFLA_AMT_MAX_SOURCES, read when the link is
-created, like IFLA_AMT_MAX_TUNNELS. Zero or an absent attribute keeps the
-current defaults. Gateways drive these allocations, so the policy caps
-them at 512 groups and 4096 sources per tunnel, and strict_start_type
-has it validate them, and any attribute added after them, strictly.
-Report both limits in amt_fill_info().
+This series keeps the processing in the RX path and bounds it instead:
 
-The group and source hashes keep their AMT_HSIZE (256) buckets. Sizing
-them from max_sources would push every group node and tunnel node into
-kmalloc-8k once max_sources passed 2048, doubling per-group memory; at
-4096 sources in one group a chain averages 16 entries, which only makes
-a lookup longer.
+1/3 makes the A-B case of amt_lookup_act_srcs() linear. It used to
+    compare every source in the group with every source in the record.
+2/3 charges every group record for the passes it makes over its group
+    and stops applying records once a report exceeds twice the cost of
+    refreshing the tunnel's whole state. A record for a group the
+    tunnel has no room for does no walk and is not charged, so a host
+    joined to more groups than max_groups keeps its refreshes.
+3/3 is v2 with the group ceiling lowered from 1024 to 512. The hashes
+    keep their 256 buckets, so one tunnel at the ceilings holds about
+    2.75 MiB [estimated, from pahole sizes]. Since twice a full refresh
+    grows with the limits, it also caps the budget of 2/3 at what one
+    report as large as the device's MTU can cost: a host splits its
+    report to the MTU, so a report names at most mtu / 8 groups.
 
-Raising the limits also raises the previous patch's bound on the work of
-one Membership Update, twice what refreshing every group the tunnel may
-hold costs: about 2.0 million bucket and source visits at 512 groups and
-4096 sources, 17 times the default 120,320. Cap it at what one
-legitimate report can cost. A host splits its report to the MTU, so a
-report names at most mtu / 8 groups, IGMPv3 records being the smallest.
-On a 1500-byte stream link (relay MTU 1460) that caps one Update at
-about 416,000 visits at the ceilings, 3.5 times the default, above the
-roughly 348,000 that the largest legitimate report costs. The defaults
-keep the previous bound. A report larger than the relay's own MTU, from
-a gateway on a jumbo link to a relay on a standard one, has the records
-past the bound ignored at high limits, as an over-budget report already
-does.
+The work one Membership Update may cause, in bucket and source visits
+[estimated, from the code], at 32 groups / 128 sources and at the
+ceilings of 512 groups / 4096 sources:
+
+                          defaults    ceilings
+  v3                       120,320   3,850,240
+  this version             120,320     416,256 (1500-byte stream link)
+
+The largest legitimate report at the ceilings, on that link, costs
+about 348,000.
+
+Measured cost of one Membership Update under tunnel->lock, in a UML
+guest (KASAN off, so slower than native; compare the columns only), with
+the relay at the ceilings. v3 and this version were built from the same
+base and booted alternately on one machine, five rounds each
+[measured]:
+
+  one Update, relay at the ceilings           v3, ms        v4, ms
+  attack, stream MTU 1500 (64 KiB of empty
+  records naming one 4,096-source group)      8.2 - 8.9     1.3 - 1.6
+    records applied before the budget stops   119           13
+  the same attack, stream MTU 65535           8.4 - 8.9     5.3 - 5.7
+    records applied                           119           66
+  refresh of 512 groups x 8 sources in
+  1,400-byte reports, slowest report          0.14 - 0.15   0.11 - 0.13
+  the same refresh in one 64 KiB report       1.5           1.1 - 1.2
+
+Without 2/3 (v2), the attack report held tunnel->lock for about two
+seconds (measured for v3's cover letter, on another machine).
+
+Deferring report processing to a per-tunnel work item would also take
+the work out of softirq. I have not done that here: with the work
+bounded, the deferral would add a queue and its own limits without
+changing the worst case much. Happy to do it if you prefer.
+
+This depends on the net series "amt: relay tunnel lifetime, validation
+and request-path hardening" [3], which is in net-next; this is based on
+24630ff92eff, the net-next merge of net that brought it in.
+
+Testing: tools/testing/selftests/net/amt.sh, unmodified, on net-next
+24630ff92eff with this series applied, x86_64 under virtme-ng/KVM (4
+vCPUs, 4 GiB) with generic KASAN (inline), PROVE_LOCKING, PROVE_RCU and
+AMT=y: all six tests pass, amt.sh exits 0, and no KASAN, lockdep or
+WARNING report appeared during the run. amt.sh does not reach the new
+limits, so this covers the normal paths only; the budget is covered by
+the measurements above. Each patch builds with W=1 C=1, with IPv6=y and
+IPv6=n, with no warnings in amt. pahole gives 200 bytes for
+amt_group_node and 168 for amt_tunnel_list, so with 256 bucket heads
+both stay within 4 KiB.
+
+[1] https://lore.kernel.org/netdev/20261015231825.2852054-1-omar@blockcast.net/
+[2] https://lore.kernel.org/netdev/361bbccf-6ce7-4b1f-bd55-4d8270423320@redhat.com/
+[3] https://lore.kernel.org/netdev/20261110210538.217936-1-omar@blockcast.net/
+[4] https://lore.kernel.org/netdev/179547826432.3135.16263442399696125291@kernel.org/
+
+v4:
+- 3/3: keep hash_buckets at AMT_HSIZE (256). Growing it to 512 put
+  every group and tunnel node in kmalloc-8k and doubled their memory [4].
+- 3/3: cap the 2/3 budget at the cost of one MTU-sized report. At the
+  ceilings v3 allowed 3.85M visits per Update, 32 times the default [4].
+- 2/3: AMT_REC_WALKS and AMT_REC_LOOKUPS are an upper bound, not the
+  exact maxima; say so (Sashiko).
+v3: https://lore.kernel.org/netdev/20261122235724.2898320-1-omar@blockcast.net/
+v2: https://lore.kernel.org/netdev/20261015231825.2852054-1-omar@blockcast.net/
+v1: https://lore.kernel.org/netdev/20261014221334.2443184-1-omar@blockcast.net/
 
 Assisted-by: LLM
-Signed-off-by: Omar Ramadan <omar@blockcast.net>
----
- drivers/net/amt.c        | 48 +++++++++++++++++++++++++++++++---------
- include/net/amt.h        |  9 ++++++++
- include/uapi/linux/amt.h |  8 +++++++
- 3 files changed, 54 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/net/amt.c b/drivers/net/amt.c
-index 177bc0b..fd907eb 100644
---- a/drivers/net/amt.c
-+++ b/drivers/net/amt.c
-@@ -2167,18 +2167,33 @@ static u64 amt_rec_cost(const struct amt_dev *amt, u32 nr_sources, u16 nsrcs)
- 	       (u64)AMT_REC_LOOKUPS * nsrcs;
- }
- 
--/* The most work one Membership Update may cause: twice what refreshing
-- * every group the tunnel may hold, with every source, costs.  The packet
-- * length used to be the only bound, and a report that names one full
-- * group many times costs far more than one that refreshes the whole
-- * tunnel.
-+/* The work of a report naming @recs groups, each walked in full, plus two
-+ * passes over every source the tunnel may hold and a lookup per source.
-+ */
-+static u64 amt_report_cost(const struct amt_dev *amt, u64 recs)
-+{
-+	return (u64)AMT_REC_WALKS *
-+	       (recs * amt->hash_buckets + 2 * (u64)amt->max_sources) +
-+	       (u64)AMT_REC_LOOKUPS * amt->max_sources;
-+}
-+
-+/* The most work one Membership Update may cause.  The packet length used
-+ * to be the only bound, and a report that names one full group many times
-+ * costs far more than one that refreshes the whole tunnel.
-+ *
-+ * Twice what refreshing every group the tunnel may hold costs, but never
-+ * more than a report as large as this device's MTU can legitimately cost:
-+ * a host splits its report to the MTU (RFC 3376 s4.2.16, RFC 3810
-+ * s5.2.15), so one report names at most mtu / 8 groups, IGMPv3 records
-+ * being the smallest.  The second bound is what limits the work at high
-+ * IFLA_AMT_MAX_GROUPS; at the defaults the first is the smaller.
-  */
- static u64 amt_report_budget(const struct amt_dev *amt)
- {
--	return 2 * ((u64)AMT_REC_WALKS *
--		    ((u64)amt->max_groups * amt->hash_buckets +
--		     2 * amt->max_sources) +
--		    (u64)AMT_REC_LOOKUPS * amt->max_sources);
-+	u64 recs = READ_ONCE(amt->dev->mtu) / sizeof(struct igmpv3_grec);
-+
-+	return min(2 * amt_report_cost(amt, amt->max_groups),
-+		   amt_report_cost(amt, recs));
- }
- 
- static void amt_igmpv3_report_handler(struct amt_dev *amt, struct sk_buff *skb,
-@@ -3583,6 +3598,7 @@ static void amt_link_setup(struct net_device *dev)
- }
- 
- static const struct nla_policy amt_policy[IFLA_AMT_MAX + 1] = {
-+	[IFLA_AMT_UNSPEC]	= { .strict_start_type = IFLA_AMT_MAX_GROUPS },
- 	[IFLA_AMT_MODE]		= { .type = NLA_U32 },
- 	[IFLA_AMT_RELAY_PORT]	= { .type = NLA_U16 },
- 	[IFLA_AMT_GATEWAY_PORT]	= { .type = NLA_U16 },
-@@ -3591,6 +3607,8 @@ static const struct nla_policy amt_policy[IFLA_AMT_MAX + 1] = {
- 	[IFLA_AMT_REMOTE_IP]	= { .len = sizeof_field(struct iphdr, daddr) },
- 	[IFLA_AMT_DISCOVERY_IP]	= NLA_POLICY_EXACT_LEN(sizeof(__be32)),
- 	[IFLA_AMT_MAX_TUNNELS]	= { .type = NLA_U32 },
-+	[IFLA_AMT_MAX_GROUPS]	= NLA_POLICY_MAX(NLA_U32, AMT_MAX_GROUP_LIMIT),
-+	[IFLA_AMT_MAX_SOURCES]	= NLA_POLICY_MAX(NLA_U32, AMT_MAX_SOURCE_LIMIT),
- };
- 
- static int amt_validate(struct nlattr *tb[], struct nlattr *data[],
-@@ -3657,8 +3675,10 @@ static int amt_newlink(struct net_device *dev,
- 
- 	spin_lock_init(&amt->lock);
- 	seqcount_spinlock_init(&amt->key_seq, &amt->lock);
--	amt->max_groups = AMT_MAX_GROUP;
--	amt->max_sources = AMT_MAX_SOURCE;
-+	amt->max_groups = nla_get_u32_default(data[IFLA_AMT_MAX_GROUPS], 0) ?:
-+			  AMT_MAX_GROUP;
-+	amt->max_sources = nla_get_u32_default(data[IFLA_AMT_MAX_SOURCES], 0) ?:
-+			   AMT_MAX_SOURCE;
- 	amt->hash_buckets = AMT_HSIZE;
- 	amt->nr_tunnels = 0;
- 	get_random_bytes(&amt->hash_seed, sizeof(amt->hash_seed));
-@@ -3774,6 +3794,8 @@ static size_t amt_get_size(const struct net_device *dev)
- 	       nla_total_size(sizeof(__u16)) + /* IFLA_AMT_GATEWAY_PORT */
- 	       nla_total_size(sizeof(__u32)) + /* IFLA_AMT_LINK */
- 	       nla_total_size(sizeof(__u32)) + /* IFLA_MAX_TUNNELS */
-+	       nla_total_size(sizeof(__u32)) + /* IFLA_AMT_MAX_GROUPS */
-+	       nla_total_size(sizeof(__u32)) + /* IFLA_AMT_MAX_SOURCES */
- 	       nla_total_size(sizeof(__be32)) + /* IFLA_AMT_DISCOVERY_IP */
- 	       nla_total_size(sizeof(__be32)) + /* IFLA_AMT_REMOTE_IP */
- 	       nla_total_size(sizeof(__be32)); /* IFLA_AMT_LOCAL_IP */
-@@ -3804,6 +3826,10 @@ static int amt_fill_info(struct sk_buff *skb, const struct net_device *dev)
- 			goto nla_put_failure;
- 	if (nla_put_u32(skb, IFLA_AMT_MAX_TUNNELS, amt->max_tunnels))
- 		goto nla_put_failure;
-+	if (nla_put_u32(skb, IFLA_AMT_MAX_GROUPS, amt->max_groups))
-+		goto nla_put_failure;
-+	if (nla_put_u32(skb, IFLA_AMT_MAX_SOURCES, amt->max_sources))
-+		goto nla_put_failure;
- 
- 	rcu_read_unlock();
- 	return 0;
-diff --git a/include/net/amt.h b/include/net/amt.h
-index 82aaa6b..fa3a61d 100644
---- a/include/net/amt.h
-+++ b/include/net/amt.h
-@@ -392,6 +392,15 @@ struct amt_dev {
- #define AMT_GC_KICK		2048
- #define AMT_MAX_GROUP		32
- #define AMT_MAX_SOURCE		128
-+/* Upper bounds for IFLA_AMT_MAX_GROUPS and IFLA_AMT_MAX_SOURCES. Gateways
-+ * drive these allocations: at the bounds one tunnel holds about 2 MiB of
-+ * group nodes (each a kmalloc-4k object with AMT_HSIZE bucket heads) and
-+ * under 1 MiB of source nodes, and max_tunnels multiplies that.  The work
-+ * one Membership Update may cause is bounded separately, by
-+ * amt_report_budget().
-+ */
-+#define AMT_MAX_GROUP_LIMIT	512
-+#define AMT_MAX_SOURCE_LIMIT	4096
- /* Per group record, an upper bound on the passes the mode handlers plus
-  * amt_cleanup_srcs() make over a group's buckets and sources, and on the
-  * hash lookups they make per record source.  The handlers need at most 5
-diff --git a/include/uapi/linux/amt.h b/include/uapi/linux/amt.h
-index 2dccff4..a106d7a 100644
---- a/include/uapi/linux/amt.h
-+++ b/include/uapi/linux/amt.h
-@@ -54,6 +54,14 @@ enum {
- 	IFLA_AMT_DISCOVERY_IP,
- 	/* This attribute specify number of maximum tunnel. */
- 	IFLA_AMT_MAX_TUNNELS,
-+	/* Maximum number of group records one tunnel may hold.
-+	 * Zero or absent means the default of 32.
-+	 */
-+	IFLA_AMT_MAX_GROUPS,
-+	/* Maximum number of source records one tunnel may hold, counted
-+	 * across all of its groups. Zero or absent means the default of 128.
-+	 */
-+	IFLA_AMT_MAX_SOURCES,
- 	__IFLA_AMT_MAX,
- };
- 
+Omar Ramadan (3):
+  amt: make the A-B source walk linear
+  amt: bound the source-state work of one Membership Update
+  amt: make the per-tunnel group and source limits configurable
+
+ drivers/net/amt.c        | 127 ++++++++++++++++++++++++++++++++-------
+ include/net/amt.h        |  19 ++++++
+ include/uapi/linux/amt.h |   8 +++
+ 3 files changed, 131 insertions(+), 23 deletions(-)
+
+
+base-commit: 24630ff92eff08500ec4772728d4b1fa08c28f47
 -- 
 2.43.0
 
