@@ -1,45 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795540716;
-	b=UxBrsX8VJCiJfKyn76c7eBUbQYYspxONLZjDZ8x8lCkTK+p0pWot8su4igdcxInVZU4Q
-	 YnL+dtxsfb+Evh0l6gaSFmtkbDb4T00a1u/3LKkxRPbU+8Na0lPDBmOkBtRwgxWwiqzjM
-	 M+sL7gdmIEAl6QE0sNbqlnKdku5crw9vOTkpM/bNWh6PKW2CvDatsZL9EW3N9muJLnoLs
-	 g0nESW5KW7ClAj29Nwl37DhhKhlctRWtQbEBIOEfvCqbZE6/ocvwwPo8zAh40rsFqhkIi
-	 cQVTmmaGzbQPmCSf0Jx1fAv9VNhMn/7fB1CoZIXMvPFT5qj68XJwjvMgSXfPoQmnCqA==
+	t=1795540724;
+	b=JI2Edd2uyJ7X1jVT+N4vEBsQEaAOuPMBhuDqRyyZI2HhE2lwFiDYRFKVDtbwv6rXH6sn
+	 U4Jz33mSsapecWIEKNOCa7zFP7ouKjgjFssD6JKn9hM6Zqd/xpcZf4fvOgBx7tccqXsOW
+	 GQvENyg+rgk7TvBVOHUV+ofZi/UnOhU+PXCZbzksBM1+Sa9GJK3fJqLbaNIYw+RVtZ0Hg
+	 siB7QFsRxYD51U2vyrATrTqy97v+h2SekzHMcPJEOAkvD2vzf1TlvIZ0xKxRj5h6IMxoa
+	 P4YUhgBalmEEjSbKXsUk+CPmYOUkDpVzYzBoWo4VzrYBFisA2HiQ4mN2fdbn8RpQepQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540716;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=nvoHQblVvTO5wjfDWw+R4A1RKcGOawuDiPZT0xUmZY4=;
-	b=uyZUnhnfF6UypWnYApPddyuKTCd7GYjn9xMsbJ58jMbU9TM5VrndNnCshAsAlyAM9ntj
-	 XkZy0Sq84LJ2WVACOMgbkNhhXJSMRJQOwL5bZKE7rDg+BvZvRLC0ZjxTSRopRW56LPqCf
-	 ytFjO+PuysgK3Sp1xbJuOlfsUSzX6fLoU8zhcCNukxAQqMqPTvmh7GuOapX9+1IWcqJpz
-	 fRKD6g2eO3aFjhPH4piadMKWOurcrXKgo17SGf7rPpjO+cU56fXbuhCnhV3iW0cX7mM0D
-	 b+WCJMpsq+0FUSEpQQtXXJdD/RIofJ1B1v21tsinPAwkGP+SqLfDYpK41YSA1usS3WQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540724;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:Date:Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Last-TLS-Session-Version;
+	bh=MMIveEgZcxzjxz6ZQiv/+4zr63avK8Y8JIemnxMuPEU=;
+	b=lqPBE8vetJ5APL2a8WEKp9h60m3Ho27WThy1tsDhkF/yFZjl8UMXEqbyhuAnHOfz1BD1
+	 Ks3lUsd7RpJiC0WQOhyPadTLNdNlE+e0fGTidEqpOAGGh8VPK3tZagh5vfAx0boqNVjh8
+	 lZFGUvMdaaQ7eq9SsNjlkiZcrD+MAR4fufFZFqmD21o2U13NiBuEdQp602Ir6Vq9f0rIw
+	 7QvZMevwJMzABhemTVopInSUU1GISfpGLTkbE1vq7h8UhphzfAYRtNuvWq7otrG2Q7ZAW
+	 r3FNX+L7E15BcMFuHisQPMY+ks5v4IQFs21+DMFIhz7f/4Ul+/5BWnrdfZSOXn8RD2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EX8mlVkF;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=g+54x+pL;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34D66606A31E;
-	Tue, 24 Nov 2026 17:18:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B26D606A321;
+	Tue, 24 Nov 2026 17:18:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B26D606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EX8mlVkF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43E321F000C6;
-	Tue, 24 Nov 2026 17:18:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795540715;
-	bh=nvoHQblVvTO5wjfDWw+R4A1RKcGOawuDiPZT0xUmZY4=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=EX8mlVkFDQ45BTbBIoQlcpPzpgAQL1amuGMGG2K7MEaJbt4ny4QukQE+pR/a3w7TK
-	 alrApm09A9rr8JGOE0CjhWVLCrAsbbO0dodGqZwTsxHoVm1agIewe0sR1PIWoQ9Nx/
-	 8VnUtG5Y0+qo6GBEU9pl8JynO08H7WBxQWjAAaZezKOBKX6nIAU4AS3dsHAaa5FT9Q
-	 arjY+mu/MaXGpVMaf58edxi8G7shYeq+WZAt46JxY/5SXH5yO3VhESEhrYlMIGdKM0
-	 uHPvU4VgCg+AQslxZBipoyl3RaA5/zW3IDoLZ9U25h9UJ6jXnMJjUPla+YOMkFbVr6
-	 5uxqZivw5IFZw==
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=g+54x+pL
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 43DEBC2C65F;
+	Tue, 24 Nov 2026 17:18:47 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9B4E7601E1;
+	Tue, 24 Nov 2026 17:18:39 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8F64211E69AC2;
+	Tue, 24 Nov 2026 18:18:25 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795540717; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=MMIveEgZcxzjxz6ZQiv/+4zr63avK8Y8JIemnxMuPEU=;
+	b=g+54x+pLU5Kc2m40alhMaVRIENF1mgYNwpY79Wr/hIkUVfH+6KcxX042P/N7vI3ZCrXQqX
+	cYHmmzcrNhi+W0dZqmqEUgBvYr9/fuq5j+inrTYwA6DcNo09xgx1XmHjalE/+PCrBWJEyZ
+	j5DKjgo4ZSJIql7gm2ZokKvKKEEZm0HeKhDDWDX9AHr1r0fubD5FZibQ0tt9dVmRYPd9Jf
+	jFDN2GIIN+I0MPPul+TJs7I/VKkQ89JfMGb3h5uQSCmY0enkaucsyfdDToglMov2VdE3Iq
+	r+2Mu+QbFeLnZ/WHPeTkSIOMEyWaW8fraPv+FHvSYkSfVPjk5f23Gs9RqtwDng==
+From: Benjamin Robin <benjamin.robin@bootlin.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yuti Amonkar <yamonkar@cadence.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tero Kristo <kristo@kernel.org>, Andrew Davis <afd@ti.com>,
+ Vinod Koul <vkoul@kernel.org>, Chintan Vankar <c-vankar@ti.com>,
+ Abhash Kumar Jha <a-kumar2@ti.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Thomas Richard <thomas.richard@bootlin.com>,
+ Swapnil Jakhade <sjakhade@cadence.com>,
+ Siddharth Vadapalli <s-vadapalli@ti.com>,
+ Gregory CLEMENT <gregory.clement@bootlin.com>,
+ =?UTF-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>,
+ Tawfik Bayouk <tawfik.bayouk@mobileye.com>,
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
+Subject: Re: [PATCH 4/4] phy: cadence-torrent: rewrite Torrent PHY driver
+Date: Tue, 24 Nov 2026 18:18:24 +0100
+Message-ID: <22sq13shQmSOkQPF53jaXw@bootlin.com>
+In-Reply-To: <20261121-artichoke-sturgeon-of-karma-a7c4e5@quoll>
+References:
+ <20261120-phy-cadence-torrent-ng-v1-0-da2db7125cd7@bootlin.com>
+ <20261120-phy-cadence-torrent-ng-v1-4-da2db7125cd7@bootlin.com>
+ <20261121-artichoke-sturgeon-of-karma-a7c4e5@quoll>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,64 +95,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] clk: tegra: tegra124-emc: Skip timings whose parent
- rate cannot be set
-From: Brian Masney <masneyb@kernel.org>
-To: Patrick Fischer <admin@tsv-stahl-riesa.de>
-Cc: Prashant Gaikwad <pgaikwad@nvidia.com>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Thierry Reding <thierry.reding@kernel.org>, 
- Jonathan Hunter <jonathanh@nvidia.com>, 
- Mikko Perttunen <mperttunen@nvidia.com>, 
- Svyatoslav Ryhel <clamor95@gmail.com>, Brian Masney <bmasney@redhat.com>, 
- Thierry Reding <treding@nvidia.com>, linux-clk@vger.kernel.org, 
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
- stable+noautosel@kernel.org, Brian Masney <masneyb@kernel.org>
-In-Reply-To: <20261111-upstream-clk-emc-parent-v1-1-636eea572572@tsv-stahl-riesa.de>
-References: <20261111-upstream-clk-emc-parent-v1-1-636eea572572@tsv-stahl-riesa.de>
-Date: Tue, 24 Nov 2026 12:18:26 -0500
-Message-Id: <179554070638.342734.6160657540275227565.b4-review@b4>
-X-Mailer: b4 0.17-dev-8145e
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1385; i=masneyb@kernel.org;
- s=20250903; h=from:subject:message-id;
- bh=ir3UQjLHGDw/zLIAiMWv27Yk3ypbdfQgTmPg/94dMhk=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLJZjz3e+avzTppv0XWBDYovxBRmsWdl2l9aU3v1jJT47
- 0nTp2zi7yhlYRDjYpAVU2RZkmtUEJG6yvbeHU0WmDmsTCBDGLg4BWAie1UYGb593FG5ZGL4B03u
- Xw/uGM3mOC7N/UdFJ+587ZYV0W+nvdNg+Kc5e43l1+VbWk34j5gvO6hqnMBz7VZ54r7A99MLdPL
- 9AhgB
-X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hi Jon / Thierry / Mikko,
+On Saturday, November 21, 2026 at 5:16=E2=80=AFPM, Krzysztof Kozlowski wrot=
+e:
+> On Fri, Nov 20, 2026 at 01:55:52PM +0100, Benjamin Robin wrote:
+> > The Cadence Torrent PHY (sd0801) is a multi-protocol SerDes used in
+> > several SoCs, among them the Texas Instruments J72xx family. Its
+> > programming depends on many parameters: the selected protocol (each
+> > associated PLL has to be set to a different frequency), the DisplayPort
+> > bit rate, the reference clock frequency, whether spread-spectrum
+> > clocking (SSC) is enabled, the number of lanes, and the PHY revision
+> > and technology (process node).
+> >=20
+> > The current phy-cadence-torrent driver hard-codes, for every supported
+> > configuration, the set of register values to program. Because this
+> > configuration space is large, adding a new board or a new combination
+> > of standards requires duplicating dozens of opaque register values,
+> > which is inflexible and hard to maintain.
+> >=20
+> > This new driver version computes the register values instead:
+> >=20
+> >   - registers that depend on the reference clock frequency or on a PLL
+> >     frequency are computed at run time, from the reference clock
+> >     obtained through the clock framework and from the PLL frequency
+> >     derived from the selected standard;
+> >   - the other registers, which only depend on the standard type, the
+> >     PHY revision and the technology, are handled by one function per
+> >     register, using an internal table selected through a
+> >     standard/revision/technology key.
+> >=20
+> > The PHY revision and technology are detected automatically from the
+> > PHY identification registers, and the DisplayPort link initialization
+> > and rate reconfiguration have been rewritten.
+> >=20
+> > Compared with the existing driver, this rewrite provides:
+>=20
+> 10k lines patch!
 
-> Each EMC timing names a parent clock and the rate that parent has to run
-> at. On Tegra114, PLLM is registered with TEGRA_PLL_FIXED, so its rate
-> cannot be changed, but the Tegra114 device trees still contain timings
-> on pll_m at rates the bootloader did not set up, e.g. 792 MHz on a
-> Tegra Note 7 where the bootloader leaves PLLM at 408 MHz.
-> 
-> emc_set_timing() calls clk_set_rate() on the parent, which succeeds
-> without changing anything, and then loads the 792 MHz timing while the
-> EMC runs at 408 MHz. On the Tegra Note 7 that gives a refresh interval
-> of about 15 us instead of 7.7 us (DDR3 allows 7.8 us), and the clock
-> core then reports 408 MHz, so later requests for 408 MHz keep the
-> 792 MHz register values.
-> 
-> Skip timings whose parent cannot be rounded to the requested rate when
-> loading them, so that the highest reachable timing is used instead.
-> On Tegra124 PLLM is not fixed, so its timings should all stay; this was
-> not tested on Tegra124.
-> 
-> Fixes: cf561283254d ("clk: tegra: set up proper EMC clock implementation for Tegra114")
-> Cc: stable+noautosel@kernel.org # needs the Tegra114 EMC auto-calibration fixes
-> Signed-off-by: Patrick Fischer <admin@tsv-stahl-riesa.de>
+I was expecting this kind of feedback, which is why the cover letter says:
 
-I'd like to see someone from Nvidia review this before I take it.
+  Because this is a complete rewrite, the diff is large and not well
+  suited to a line-by-line review. The rewritten driver can be fetched
+  from the phy-cadence-torrent branch at https://github.com/benjarobin/linux
 
-Brian
+To give more context: the new driver was written from scratch, in a new
+empty file, although a very small part of the old driver was copied over.
+I initially considered adding the new driver to staging, but after internal
+discussion we decided against it.
 
--- 
-Brian Masney <masneyb@kernel.org>
+>=20
+> No, instead improve the driver instead of doing bunch of significant
+> changes like:
+>=20
+> > -#define MAX_NUM_LANES		4
+> > +#define MAX_NUM_LANES		8
+
+Regarding incremental changes: I could try to build a series of smaller
+steps from the old driver towards the new one. That comes at an
+additional "cost", since intermediate patches would fix functions or
+how there are called, that a later patch then removes or replaces.
+
+However, even with such a series, the core transformation remains: one
+patch replacing all the tables with per-register functions computing the
+values. That patch alone removes roughly 3k lines and adds 2.5k lines,
+which cannot really be split further.
+
+So, I am going to try to create an incremental series: many "small" patches
+converging towards the new implementation, with one unavoidable large patch.
+
+With this additional context, could you confirm whether you would
+prefer the series split into smaller patches?
+
+>=20
+> This is absolutely unreviewable.
+
+
+=2D-=20
+Benjamin Robin, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
+
+
