@@ -1,79 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795496533;
-	b=s06xU0IFSZuUJ5Wt4VcUi+JqIkb5TzaUeetHS2R/gRxG6jhoVWNB29zOKCG6011sv+at
-	 jDsGSNLg9S+X3atXR+Kw+O+AoxKcA+xHctZcv+3n0IeaOq8XPXXismZ9ZaBcGBUMjAqmM
-	 gswOXbuDp0KaT6pK8HXneDuluf6RogBry6XS8DN20CaLnd3AVbnjAHtSL5UrWx4Q++tuf
-	 dbvQMG93fSJX/Sr4DAkxkW88jyKhfJYcieGE6Ep0rpIU8aUv9aCGdusJFvvq9qMmpENTs
-	 JY/1ldnnVanTOw/rWxK1UjLKHvBxJIsPRCF/BAPRCPbErokWHnYcQTw8p9Fz8U201XA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795496533;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=FGmaBKjTw7sbJX8afks/yYiQG4z/9NW2BJ5SkSn85gg=;
-	b=iRrXP5USiR65/X9ivul3SI48vBkOUUJTU1nfdG5BXrNeudsuYP2jswm7PJUCkurxehbn
-	 RYyfkc4I73z2+CyWE8hrg4FmyRXzlN67xhrkNQcfkYeerllZlPCUebo4k5tu6DCfCTxdg
-	 Ya5jWc9VVM7MkDahGsmto+w5wnTBiZ/qU8Xej8Gfxn5iCWsL7UHShfNKDkRcPAcjx6wae
-	 127+hZVWRymCSm046VbDJVvrP730IrtUhMfTaP5cd7I2m77tRdB073z7/reSWt2NaCXGA
-	 gyDQ9Qo8GpzBB6qsd9U7iLN4LPoezLYaZJcmwdLdH0MwtN0xhe3hcne7CY8f9QN/AQA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LLI0SNvr;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64A80606A31E;
-	Tue, 24 Nov 2026 05:02:13 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LLI0SNvr
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795496532;
-	b=O2I93kund2tLPHy+wdq2+MLBosAA3wJ9hjepGfZGv39c2in7+jwJ7xDy1Vpn7Zvi+U4x
-	 b3k+M8EN3zMcja01a7Qvv9B98NYxsWWNn/BEICfeV8oDiigl2H1xG92tdrzefYT91aZ00
-	 Y6LyJxcwsPMRPHoyriHwfDOMdb7s8DfGlR20GYobPlNgtIhP/NZZeXq1/o4Kn+w/hk27C
-	 2DWb+7zkDJdIN0VtDFNjoizs6ZYQy+EUN3OnBmZHw0FcjUv2ToefzkglCGdYCrVJGGHdK
-	 nGkavrGh/tzGceJJa5qT/c7n1q92gMEqmIPwB+CLVeBPpVTtsH215cn5np7Jd4YnU2A==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795496532;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=FGmaBKjTw7sbJX8afks/yYiQG4z/9NW2BJ5SkSn85gg=;
-	b=yTEdNO1MMBqxmbNAfwxp6TqHgftXIUYflh5bho+cgXchHns7sEiLNKkE3tnK2dshN+IO
-	 XMXKcWkK3tNgDKe7qRCbhZhs27l1rLvwGVnm0UfOvqryIUZjXaEUw3vt50tWcLXhHdhH5
-	 1uSJX8tiHh0goE9xGExDUc4R0UUsaG3Mbxk4dRji/Nbx9xTc+qDCgDSrUE4OwyNup1K5W
-	 KVZIrro8+W9f43HXue8PlxXbRuToGJduaIg+9neg9TnnRL4J3+DNojERHZMfI3ZimTjOu
-	 CErRxRiCiiePoZTBHZluYhg31HAdoiEeiWervvJBACElFT2nhpkUgshQ9Q86eXrSpJQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.245
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795496602;
+	b=ZNYp4KBagfaToHSMqUZlEKJ1zyZrLs2O/xfvUNY1nxxU6dh6+lDkaPq9Vs0qOXltRs2z
+	 EmhvFrDRMxfChvo5JiY6wN0EDKL6NwgZ9PgdqOI4PovMM+y3EFofTQYiIsGw5AxbX1nNE
+	 Lr8WaNIlMJ8imsA3yCiFZEOrjVbCJ3mY1HhpHtbAXGJ9PBxsc1a14G/EX3iGFvB+F+OUt
+	 oD3vXy5dvEmxOa856nm3N8yAHPzQ5hIQ8+qhfbrKHzjxIVrwg49Z+1E+G52aitKtCViWG
+	 Ftar7u5nWNxfWo9YcJWEhEfSv4Wqizh8KxsgRIz07yhm0+R8U6Q9qPyfg+3DNB+993w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795496602;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=S2gozbY24olxUageBz+NlIzZXi6x5SrXPb32SM57AJM=;
+	b=z7/z7EbSX6Lc/WVfQhslgEzFiFzOSmbdOiAoMDA9lHHkz5tY711IP3E6uAj1NXSJfqvZ
+	 KBy0dgihvnkJrdDQIhRSK4txU6QrEuxoMAJDPVQMhnga4pv92qU4zvK4HWJQ5f7xOUCI6
+	 QIbpeLyy+vi97dMcSq0d6m3wQ8klh55y7x9PIY//4GEZizecr8viYuVQsKcm5px81IT5W
+	 0DbJ+xyo/MUbc3RAdzFLAbdAs/Yo/0hm7CAhh3hhn4etJFQxXmP/eHiPN0ipnZlVQYrKx
+	 Pq7l4aeOKQpYepYibtFVEYXTdmya3M1Tr9ZLhqPFx4ZduI3wRMFXT2d/LsXqypA5lmQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EHi93Q8K;
+	arc=none smtp.remote-ip=91.218.175.245
+Received: from mta0.migadu.com (out-245.mta0.migadu.com [91.218.175.245])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 0A0B31F000C0;
-	Tue, 24 Nov 2026 05:02:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795496532;
-	bh=FGmaBKjTw7sbJX8afks/yYiQG4z/9NW2BJ5SkSn85gg=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=LLI0SNvrIMZj9olcZcU4V0l7fzrWpqKhlGlEsvUYDGt1MFbwRIVBr7m7a6yP1ydF0
-	 XOeGo3NqihPowRvrt2zRLRQt4qWm4J1EIiSNsGHcNW6dkSw49rKbWafrelvUrpaNa0
-	 3JTs4V+kn397Uk9t6yl80E0W6KTVE0niw26SimAsdT6Eb8oHI4GxKtfau09isBh6CC
-	 gP3thPfjLli8Y8V02Fz1FeUp8wpFigHWhcA+HBbMKCLeTuVVK5as8uhG8tGbkr+ZlM
-	 6RqXiSkh6yXMJ3h83ydaf6Zh2h76Q9XUQEoQTy7EMtjVP+yaBDJE79A/mkpQk3xI9K
-	 pZIyLoNLraT+A==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 621FC4C899;
-	Tue, 24 Nov 2026 05:02:07 +0000 (UTC)
-From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
-Date: Tue, 24 Nov 2026 05:02:06 +0000
-Subject: [PATCH] ASoC: arizona: Disable jack detection when the component
- is removed
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0D06606A327
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:03:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0D06606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EHi93Q8K
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=pZwquf+TOycXJqm5EEWgkMHD8Suyd/T8rx/DR0eESz0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795496599; v=1; x=1796101399;
+ b=EHi93Q8KppmvlCPPbQHFZbV1arZr9h53O/lUisfvlbqeOPCXVBOJKhrG+sTLx1kMjNa18Wn/
+ F3gqamW6qJPqCWEWVpIeZZYtBmY7SMYJdyhNJkAX5jY+ogb5QhmAUTBS4T7RAzaMJmAbzbhwFHN
+ 1GzW5XZwOULYV1sSkP1YbrO8=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 9439c991d20d68e6;
+	Tue, 24 Nov 2026 05:03:18 +0000
+X-Mizu-Trace-ID: 9439c991d20d68e6
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <c665ace5-dfd5-4fb7-abcc-7454f732fb36@linux.dev>
+Date: Tue, 24 Nov 2026 13:03:04 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,133 +58,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v2] cgroup/rstat: disable preemption in
+ css_rstat_updated()
+To: Karl Mehltretter <kmehltretter@gmail.com>, bpf@vger.kernel.org,
+ Tejun Heo <tj@kernel.org>
+Cc: Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
+ <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
+ Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>,
+ Ihor Solodrai <ihor.solodrai@linux.dev>, Shuah Khan <shuah@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
+ =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Waiman Long <longman@redhat.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Puranjay Mohan <puranjay@kernel.org>, cgroups@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-rt-devel@lists.linux.dev
+References: <20261124031642.40616-1-kmehltretter@gmail.com>
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+In-Reply-To: <20261124031642.40616-1-kmehltretter@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-arizona-jack-remove-v1-1-11d8ec426a41@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAE4aBWsC/yXMQQ6CMBBA0auQWTuJLWIoVzEsSjvoYGzJFAiBc
- HeLLt/i/x0SCVOCpthBaOHEMWSoSwHuZcOTkH026Ku+K6VvaIW3GCwO1r1R6BMXws6Yuipd5Y2
- vIZejUM/r7/po/05zN5CbzhUcxxdFtCX+dwAAAA==
-X-Change-ID: 20261124-arizona-jack-remove-b99853c5d9d8
-To: broonie@kernel.org, lgirdwood@gmail.com
-Cc: linux-sound@vger.kernel.org, hansg@kernel.org, 
- patches@opensource.cirrus.com, ckeepax@opensource.cirrus.com, 
- tiwai@suse.com, linux-kernel@vger.kernel.org, perex@perex.cz
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795496526; l=4168;
- i=shyckless@gmail.com; s=default; h=from:subject:message-id;
- bh=Oaisq3p6rMX4Q4Ds45HjON9EqUYd1zTuwXtIopcCDBc=;
- b=W/TJdv9E2ClGOA9zfIwOOmaePJa8iiYkWfjXwl00iovCeloLkIo8L9WHN/i0JBQjSRFQHxFxN
- UxddUZBWLmGAx9GkkY5JZH+GC4rePJXUIZlWLhg0MMwGpK0+WOaGzWr
-X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
- pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
-X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
- auth_id=1498
-X-Original-From: Suyuan Wang <shyckless@gmail.com>
-Reply-To: shyckless@gmail.com
-
-From: Suyuan Wang <stevewong@hust.edu.cn>
-
-The wm5102, wm5110, wm8997 and wm8998 codecs start jack detection when
-the machine driver calls snd_soc_component_set_jack().
-arizona_jack_enable_jack_detect() then requests the jack, MICDET and
-HPDET interrupts of the arizona MFD with the codec's struct arizona_priv
-as the cookie, and keeps the snd_soc_jack pointer in info->jack. Only
-set_jack(NULL) frees these interrupts and cancels the detection works.
-
-Nothing calls set_jack(NULL) on teardown. The component_remove
-callbacks don't, and neither does bytcr_wm5102, the only machine driver
-that sets a jack on these codecs. The interrupts belong to the MFD, so
-they stay registered after the card or the codec goes away:
-
-- When the card is unbound, the snd_soc_jack in the machine driver's
-  private data is freed, but jack detection stays active and can still
-  report events to it.
-- When the codec is unbound, its private data, which contains struct
-  arizona_priv, is freed while the interrupts still use it as cookie.
-
-A later headphone plug or unplug can then run the handlers, or the
-works they queue, on freed memory.
-
-Before commit 37dbabf14ff6 ("ASoC: arizona: Make the wm5102, wm5110,
-wm8997 and wm8998 drivers use the new jack library"), jack detection
-was done by the extcon-arizona driver, which freed these interrupts and
-cancelled the works in its own remove callback.
-
-Disable jack detection in the component_remove callbacks. The component
-is removed both when the card and when the codec is unbound, and
-disabling does nothing if no jack is set. When the card is bound again,
-the machine driver sets the jack again.
-
-Found with a static analysis tool and checked by hand.
-
-Fixes: 37dbabf14ff6 ("ASoC: arizona: Make the wm5102, wm5110, wm8997 and wm8998 drivers use the new jack library")
-Cc: stable@vger.kernel.org
-Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
----
-Compile tested on x86_64 (W=1, no new warnings). I don't have hardware
-with these codecs.
----
- sound/soc/codecs/wm5102.c | 2 ++
- sound/soc/codecs/wm5110.c | 2 ++
- sound/soc/codecs/wm8997.c | 2 ++
- sound/soc/codecs/wm8998.c | 2 ++
- 4 files changed, 8 insertions(+)
-
-diff --git a/sound/soc/codecs/wm5102.c b/sound/soc/codecs/wm5102.c
-index 762e81979cb8..43df7cb46b59 100644
---- a/sound/soc/codecs/wm5102.c
-+++ b/sound/soc/codecs/wm5102.c
-@@ -1982,6 +1982,8 @@ static void wm5102_component_remove(struct snd_soc_component *component)
- {
- 	struct wm5102_priv *priv = snd_soc_component_get_drvdata(component);
- 
-+	arizona_jack_set_jack(component, NULL, NULL);
-+
- 	wm_adsp2_component_remove(&priv->core.adsp[0], component);
- 
- 	priv->core.arizona->dapm = NULL;
-diff --git a/sound/soc/codecs/wm5110.c b/sound/soc/codecs/wm5110.c
-index faa85d88a489..c772f4380ae7 100644
---- a/sound/soc/codecs/wm5110.c
-+++ b/sound/soc/codecs/wm5110.c
-@@ -2340,6 +2340,8 @@ static void wm5110_component_remove(struct snd_soc_component *component)
- 	struct wm5110_priv *priv = snd_soc_component_get_drvdata(component);
- 	int i;
- 
-+	arizona_jack_set_jack(component, NULL, NULL);
-+
- 	for (i = 0; i < WM5110_NUM_ADSP; ++i)
- 		wm_adsp2_component_remove(&priv->core.adsp[i], component);
- 
-diff --git a/sound/soc/codecs/wm8997.c b/sound/soc/codecs/wm8997.c
-index f041dfc905a4..aa9f23ddd997 100644
---- a/sound/soc/codecs/wm8997.c
-+++ b/sound/soc/codecs/wm8997.c
-@@ -1077,6 +1077,8 @@ static void wm8997_component_remove(struct snd_soc_component *component)
- {
- 	struct wm8997_priv *priv = snd_soc_component_get_drvdata(component);
- 
-+	arizona_jack_set_jack(component, NULL, NULL);
-+
- 	priv->core.arizona->dapm = NULL;
- }
- 
-diff --git a/sound/soc/codecs/wm8998.c b/sound/soc/codecs/wm8998.c
-index 1158e9ca40a1..47adbcd80e07 100644
---- a/sound/soc/codecs/wm8998.c
-+++ b/sound/soc/codecs/wm8998.c
-@@ -1301,6 +1301,8 @@ static void wm8998_component_remove(struct snd_soc_component *component)
- {
- 	struct wm8998_priv *priv = snd_soc_component_get_drvdata(component);
- 
-+	arizona_jack_set_jack(component, NULL, NULL);
-+
- 	priv->core.arizona->dapm = NULL;
- }
- 
 
 
 
+On 11/24/26 11:16 AM, Karl Mehltretter wrote:
+> BPF programs can call css_rstat_updated() with preemption enabled.
+> The kfunc calls __css_rstat_updated(), which requires preemption to
+> be disabled while it queues an rstat update. A cgroup iterator can
+> hit the lockdep assertion on both RT and non-RT kernels. The
+> cgroup_hierarchical_stats selftest can also hit it on PREEMPT_RT:
+> spin_lock_irqsave() on trace_cgroup_path_lock leaves preemption and
+> interrupts enabled there.
+> 
+> Disable preemption in the BPF wrapper after validating the CPU and
+> before calling __css_rstat_updated().
+> 
+> Fixes: 36df6e3dbd7e ("cgroup: make css_rstat_updated nmi safe")
+> Reported-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+> Closes: https://lore.kernel.org/r/20251119111402.153727-1-jiayuan.chen@linux.dev/
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> ---
+> Assisted by an LLM.
+> 
+> v2 places the preemption guard in the kfunc as Alexei requested:
+> https://lore.kernel.org/r/DN26CP5BB6O7.23ALW6CZUBYSD@gmail.com/
+> Since 8817005efbdf split out the BPF-only wrapper, v2 does not add
+> preemption operations to the in-kernel callers discussed when Jiayuan
+> proposed the earlier kernel-side version in November 2025:
+> https://lore.kernel.org/r/20251121040655.89584-1-jiayuan.chen@linux.dev/
+> v1: https://lore.kernel.org/r/20261121082843.44614-1-kmehltretter@gmail.com/
+> 
+
+I suggest you target cgroup-tree instread of bpf-tree if you need revise, because
+you only modified pure cgroup file.
+
+Since your v2 does the same operation as my previous v1 which was denied
+by cgroup maintainer, I also suggest you wait their replies (
+As time goes by, situation can change).
+
+I still insist on kernel-side modification just like this patch because we should
+prevent 'wrong' bpf code from triggering WARNING.
+
+
+> Tested in x86-64 KVM guests with lockdep on bpf-next 9867c61abbd4
+> (base and v2) and 2bf3351c5f89 (v2). Both tests passed on all 24 boots.
+> 
+>   Boots with an rstat warning               base     v2   rebased v2
+>   PREEMPT_RT, cgroup_hierarchical_stats      2/2    0/2          0/2
+>   PREEMPT_RT, iter/cgroup                    2/2    0/2          0/2
+>   PREEMPT (!RT), cgroup_hierarchical_stats   0/2    0/2          0/2
+>   PREEMPT (!RT), iter/cgroup                 2/2    0/2          0/2
+> 
+>  kernel/cgroup/rstat.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/kernel/cgroup/rstat.c b/kernel/cgroup/rstat.c
+> index de816a43db9f..d72fe721cea0 100644
+> --- a/kernel/cgroup/rstat.c
+> +++ b/kernel/cgroup/rstat.c
+> @@ -131,6 +131,7 @@ __bpf_kfunc void css_rstat_updated(struct cgroup_subsys_state *css, int cpu)
+>  	if (unlikely(cpu < 0 || cpu >= nr_cpu_ids || !cpu_possible(cpu)))
+>  		return;
+>  
+> +	guard(preempt)();
+>  	__css_rstat_updated(css, cpu);
+>  }
+>  
+> 
+> base-commit: 2bf3351c5f894697e8443eeef5333d4c4ce90cab
 
