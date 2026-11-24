@@ -1,86 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795525526;
-	b=gJrwsqOZ7IXCL2++Q+LkNI+GMZw3szSAQcNzk8gAZPaYRRYAoT4TrYRWpCeIPp1ESpZr
-	 0pjKWOplid3+AQPsMQ1oftm6939njp9Wr/HbAikWApxiIzS8N5Pi1h5VQRGok1MsRJ0kB
-	 dPQgVhg5F2h8aYqFQClVd/Vs31apVS0EUvxre3gtePurxSp7R5v4VoyVvReLTeMz+zHgp
-	 eKBQuECncBaxmzi3Y4mdkgfvoZ1kc36dQb0SG9rxvh/3WZOgcqTKaRbp1CljG3LqiuxfJ
-	 36Zt6doKnWb2EC2AwiXdSG7VEO3Y6cInWy+eUJP2CFCFAO8hQu+K59yv4T+EsdC5sow==
+	t=1795525569;
+	b=HhzUE7Kzs+t5+W6crE/OlR9IKfaxRxlIVzhcDKRJ1pjytCrTHiVo0uIVrOrOOvZLf+f0
+	 +wm0v3N3anbNSyJJzJP3zEnxC646Vg+nLul06/rpxx6kglOXkA7qXPYPK9zDOUfFZNzig
+	 v0vY6wh50wRvhCVWM5Mcrflz9IvSeuMbo9mAPnP1yy0SC5ImLibkaut52j2LPqtcDxvG9
+	 IyX1jz+m0o37QNpKP/+k2Q5T2e9p8NmF3pkRhbKMXAxUrtIZdTw0R0/GWcyR8KpstQM9H
+	 fDDGodmMe3GueB0MdWgkpO4uoAQU4+Oeec/6OaV6JXGLO9sIW6s0lJkFOLxpZjvUvbQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795525526;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795525569;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
 	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:Autocrypt:In-Reply-To:Content-Type;
-	bh=1fSkvm5OP0PEIuFbARo1EL9pn1CvUDlyi1JdnlX4EPM=;
-	b=D36EdUZtUSGR7PqsLuKBezpX1bH5aYNN4bx66lh3zmOsGCk6KaqDAZc+S0c1/DP+HaE4
-	 NznTpHjHNQEZhOy5xHFvFTQuZlhs1VwFeQhoKOMYvvt2GFYvQcUhgOhUu1BTcL3jwejJj
-	 kZhdVWgl6BNodKgGbIsnVC/3Fe95SqML3C4pRHFCpYYuFamI+OToPhD8V6PDB0l/j5ij+
-	 YTSMoaXg6yeuUtfcqA1RytALtZ+4ElsV1usR/xmWDPuso8iH2pREx1RONL7FrnJ9X8qoc
-	 YIgQkcKHyFZm3NH/rWBrDV5IUFXzoyKeRYF6bc3LowVvN9aK/qmkQb3LU3WfxMfAI/g==
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=ISTbz4wvFFAt6bzo0qkX0pE8/CfrFExmmIE+Q/E+mRk=;
+	b=S+2K5LAisTONPuqaThojLB10EzEy/FPvjJV3mim70K5NB8ICF0Irn/WKlhgZZD2EbYVX
+	 xjljj6zrhm8EUuifUVzSh5MECXoAQ5kgP2LuAp6fsQLFmZDcHJDUx1adZ1QKiwYcYxQk7
+	 A3wPAIOn9N63pqJiWXaTYTa79422pOiT1CSUxSGM+P1CDXVFXTgHVlMgRxakf5JgmUV32
+	 tSPjx4hsbIF75+n7PZeVmyXaaAoq+lOopXsJGnIKrkxZdYGB88osvxNibT5u5UDI7cEYg
+	 8PCJUdf+Xsl+wgyqtZe+HKxR8mxGOZGheP71zgM0rNSxNcDlm2H9inNUJm6A9l5j30w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Q5I09lLB;
-	arc=none smtp.remote-ip=209.85.208.47
-Received: from mail-ed1-f47.google.com (mail-ed1-f47.google.com [209.85.208.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CECDE606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:05:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CECDE606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=c7i3xfZK;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id AD36F606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:06:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD36F606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Q5I09lLB
-Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-6b894d9a075so4882140a12.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:05:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795525524; x=1796130324; darn=vger.kernel.org;
-        h=content-type:in-reply-to:autocrypt:from:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=1fSkvm5OP0PEIuFbARo1EL9pn1CvUDlyi1JdnlX4EPM=;
-        b=Q5I09lLByp8GrAga+z61+5M+gvAlJ4pVvlpe2jvfzdMI2JQJMoATfFS5LS9ZPidGNG
-         jvWAweA+jd8KhbSMzj8JNgWmrPoQ5lrScSGaamKRZp2hJQCxvHllSSzIfxwEsbWPVFXU
-         lmdK2+4F6qqkNeLXGkpDfOmSbd4o5l5NC2wcTUepdRIAry9l+Jx1W7DtlRdDsFcSG20I
-         pU/Q0/zdgU1SWjHx38yKkYYDu1dKBwlnJjXRgbPkOvFy9W13kzHN9N3zrAUpbCkJi0oX
-         ivNHAKp2pnuBYc11PL+TcwnZiPE4MJ3KJxnnf11wUXRLGKg3/O7crwPnWEW6JTakoUTj
-         1MTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795525524; x=1796130324;
-        h=content-type:in-reply-to:autocrypt:from:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1fSkvm5OP0PEIuFbARo1EL9pn1CvUDlyi1JdnlX4EPM=;
-        b=yI0459aYZmplbprlg2d1rhcXmv3QqZfBgQcBPVGPHoS83HJr1jSokUEPvjADy9xwVD
-         e3MW8iltpEecbPPKlI11WzVymoT9uUo0+wK8kX7UpgWVU5hq1QrcpU1u9oIbPZcWwSDz
-         ywnTbbEdL+4n3Eb7OIqemL11EwWAw2mfcIRLcTNsAbDFbjgvQvpBp0pawj7dxtdfEJQp
-         2KR/NP401cj4cVZIObDDZUTmNbUuWmZJ6EoD6EB3A4UYWaeQX3Mz+nWA0SOq92cRiM/8
-         Yq4X3heVGcBSda+/G7eeMijAF8xa+m8j5PhXu2SDn6XHbi3XGHOnE3n8l3b1YbdNR9JX
-         2BUg==
-X-Gm-Message-State: APuU4Z/sP3YwJ1I2PSzSytsENwfDN5GexNm9dJL9MRWSG2ARBznKUZBl
-	BB7Q1hYc639Hta1t6+zD529FYuXe8xKynnWsDUWiDT48N12zDvxRA2+fIo4BWlM7w0c=
-X-Gm-Gg: AZFdTZd9reXO2yqmYGklyDVy8QCgzFR70TJVL3Sayvt+gryTO6e72poXUIr7qEPjgPo
-	wTARxq37h9OQZkuHoqWrvbNhopfrrOSWy++G5PlF3XHSaqJYOIdp81cDQl2rLIp4gBahE9q6E9c
-	BNnlNuU4buuFtxMB+D8GY3KV2ANyIdNlB3jjRNA8PviutOCA4HZGU+Ylg5cI+qMlIUwIdcqMe9a
-	RZKuRLaW6seVZ1+/tABxxpbm+b7ud51P1AaM6rroaEoAmO3xMvjNDFg86Es5zMe+vR9wsh26huj
-	jqBgTqnmyGMvjlCyIY62LFhOdbBIKyFdCaiZCML6hiqkUNYx7E25DJflQ2XWw7UlnhXMLTZ+L+i
-	EJOWXnhSGx2dIfu+SgFsrZdKz59bnQ1osV3+qu/AKVWAgA2SbOeHAmNT1vyJD3GgjV/wm+j+Lfr
-	wMoFBPP3bewSCk3oCY3mR9Ej0HogyIz/raMGKvU7hwiOLfEnwAxCCOFoNdC/PMCNYGuyckrl/3Z
-	tMOWw+VQJu+txXrvHZFNEB5RbRDEJVtCd/m6L8hduwFEHDHKxfo7LAt0FfvweLBlS/UK9KowzH/
-	18qwr9IWPO8CMrgf2UnCZTI1NmyK+Ql8WWkCb8Fgi4/gIDM4s7NjS++vD6gwnf+YQt65mZcJPJ9
-	k+jy3NqCBqH+C8rsnv1nBR3RNdTizrfpNIsMNWq7vxVST6Qnlt2E=
-X-Received: by 2002:a05:6402:3645:b0:6ba:c85e:c0e0 with SMTP id 4fb4d7f45d1cf-6bac85ec268mr3910962a12.28.1795525524131;
-        Tue, 24 Nov 2026 05:05:24 -0800 (PST)
-Received: from ?IPV6:2a00:12d0:afa3:c01:92cc:e257:77ba:97a1? (2a00-12d0-afa3-c01-92cc-e257-77ba-97a1.ip.tng.de. [2a00:12d0:afa3:c01:92cc:e257:77ba:97a1])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370cbb80sm6784029a12.9.2026.11.24.05.05.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 05:05:23 -0800 (PST)
-Message-ID: <59d4ee28-0605-4e93-8ac1-19c8d0272bee@suse.com>
-Date: Tue, 24 Nov 2026 14:05:22 +0100
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=c7i3xfZK
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 94475339;
+	Tue, 24 Nov 2026 05:06:04 -0800 (PST)
+Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2F3AE3F86F;
+	Tue, 24 Nov 2026 05:06:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795525567; bh=KfcNb14BPbce/SMMQsbu3BnOADE88adplfkak0jlU4k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=c7i3xfZKuhYWfmc8XuthD9SjMtI8KP5JiTYsk//7UKJ7SUqxhDPCOk1lCAF75Z4GJ
+	 F6spa/1VAV5pLsBL13FVJTxxgHFMSHzf9eWaP0yf4p4nxYEm45ENeCWFLOvjeBq4hL
+	 dJfNqW7ezncp/U9hLs4gCQQIFxuYEQwoAogbIbok=
+Message-ID: <09e172d0-3ef5-44ef-a966-7db3b8a4af9a@arm.com>
+Date: Tue, 24 Nov 2026 13:06:04 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,157 +54,159 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] msr: replace rdmsr()/wrmsr() in comments
-To: Ingo Molnar <mingo@kernel.org>
-Cc: linux-kernel@vger.kernel.org, x86@kernel.org, linux-doc@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-hwmon@vger.kernel.org,
- platform-driver-x86@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Randy Dunlap <rdunlap@infradead.org>, Peter Zijlstra <peterz@infradead.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, James Clark
- <james.clark@linaro.org>, Guenter Roeck <linux@roeck-us.net>,
- Tony Luck <tony.luck@intel.com>, Ashok Raj <ashok.raj.linux@gmail.com>,
- Hans de Goede <hansg@kernel.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-References: <20261124064108.2440277-1-jgross@suse.com>
- <awWHd9ygPFipisb3@gmail.com>
+Subject: Re: [PATCH] coresight: perf: End AUX output when an event is
+ throttled
+To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
+ James Clark <james.clark@linaro.org>, Vlad Poenaru <vlad.wing@gmail.com>,
+ Amir Ayupov <aaupov@fb.com>, Suyash Mahar <smahar@meta.com>,
+ Song Liu <song@kernel.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261124-arm_cs_fix_throttling_oops-v1-1-3ad1dfad0159@arm.com>
 Content-Language: en-US
-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-Autocrypt: addr=jgross@suse.com; keydata=
- xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
- ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
- dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
- NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
- XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
- AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
- CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
- mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
- G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
- kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
- Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
- RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
- vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
- sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
- aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
- w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
- auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
- 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
- fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
- HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
- QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
- ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
-In-Reply-To: <awWHd9ygPFipisb3@gmail.com>
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------fzIBNZKANk2e40IQjwqLyzcB"
-
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------fzIBNZKANk2e40IQjwqLyzcB
-Content-Type: multipart/mixed; boundary="------------eO6WT9kL6g4GOfnRabTN4O78";
- protected-headers="v1"; hp="clear"
-Message-ID: <59d4ee28-0605-4e93-8ac1-19c8d0272bee@suse.com>
-Date: Tue, 24 Nov 2026 14:05:22 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] msr: replace rdmsr()/wrmsr() in comments
-To: Ingo Molnar <mingo@kernel.org>
-Cc: linux-kernel@vger.kernel.org, x86@kernel.org, linux-doc@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-hwmon@vger.kernel.org,
- platform-driver-x86@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Randy Dunlap <rdunlap@infradead.org>, Peter Zijlstra <peterz@infradead.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, James Clark
- <james.clark@linaro.org>, Guenter Roeck <linux@roeck-us.net>,
- Tony Luck <tony.luck@intel.com>, Ashok Raj <ashok.raj.linux@gmail.com>,
- Hans de Goede <hansg@kernel.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-References: <20261124064108.2440277-1-jgross@suse.com>
- <awWHd9ygPFipisb3@gmail.com>
-Content-Language: en-US
-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-Autocrypt: addr=jgross@suse.com; keydata=
- xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
- ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
- dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
- NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
- XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
- AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
- CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
- mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
- G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
- kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
- Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
- RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
- vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
- sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
- aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
- w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
- auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
- 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
- fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
- HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
- QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
- ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
-In-Reply-To: <awWHd9ygPFipisb3@gmail.com>
-
---------------eO6WT9kL6g4GOfnRabTN4O78
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20261124-arm_cs_fix_throttling_oops-v1-1-3ad1dfad0159@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
 
-T24gMjQuMTEuMjYgMTM6NDcsIEluZ28gTW9sbmFyIHdyb3RlOg0KPiANCj4gKiBKdWVyZ2Vu
-IEdyb3NzIDxqZ3Jvc3NAc3VzZS5jb20+IHdyb3RlOg0KPiANCj4+IFJlcGxhY2UgYWxsIG1l
-bnRpb25pbmcgb2YgcmRtc3IoKSBhbmQgd3Jtc3IoKSBpbiBjb21tZW50cyB3aXRoDQo+PiBy
-ZG1zcnEoKSBhbmQgd3Jtc3JxKCksIGFzIHRoZSBmb3JtZXIgZnVuY3Rpb25zIGFyZSBubyBs
-b25nZXINCj4+IGV4aXN0aW5nLg0KPj4NCj4+IEluIGRyaXZlcnMvaHdtb24vY29yZXRlbXAu
-YyBkcm9wIG1lbnRpb25pbmcgcmRtc3Ivd3Jtc3IsIGFzIHRoZQ0KPj4gY29tbWVudCB3YXMg
-aW5jb3JyZWN0IGluIHRoaXMgcmVnYXJkLg0KPj4NCj4+IFNpZ25lZC1vZmYtYnk6IEp1ZXJn
-ZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT4NCj4+IC0tLQ0KPj4gVG8gYmUgYXBwbGllZCBv
-biB0b3Agb2YgY3VycmVudCBjb3JlL21zciBicmFuY2ggb2YgdGhlIHRpcCB0cmVlLg0KPj4g
-VjI6DQo+PiAtIGRyb3AgY29tbWVudCBpbiBkcml2ZXJzL2h3bW9uL2NvcmV0ZW1wLmMgKEFz
-YWYgTnVyaSBCZXJ0aXpsaW9nbHUpDQo+PiAtLS0NCj4+ICAgRG9jdW1lbnRhdGlvbi9hcmNo
-L3g4Ni9taWNyb2NvZGUucnN0ICB8IDIgKy0NCj4+ICAgYXJjaC94ODYvZXZlbnRzL2FtZC9p
-YnMuYyAgICAgICAgICAgICB8IDIgKy0NCj4+ICAgYXJjaC94ODYvZXZlbnRzL2ludGVsL2Nv
-cmUuYyAgICAgICAgICB8IDIgKy0NCj4+ICAgYXJjaC94ODYvZXZlbnRzL2ludGVsL2xici5j
-ICAgICAgICAgICB8IDYgKysrLS0tDQo+PiAgIGFyY2gveDg2L2luY2x1ZGUvYXNtL3NoYXJl
-ZC9tc3IuaCAgICAgfCAyICstDQo+PiAgIGFyY2gveDg2L2tlcm5lbC9jcHUvZmVhdF9jdGwu
-YyAgICAgICAgfCAyICstDQo+PiAgIGRyaXZlcnMvaHdtb24vY29yZXRlbXAuYyAgICAgICAg
-ICAgICAgfCAzICstLQ0KPj4gICBkcml2ZXJzL3BsYXRmb3JtL3g4Ni9pbnRlbC9pZnMvbG9h
-ZC5jIHwgNSArKystLQ0KPj4gICA4IGZpbGVzIGNoYW5nZWQsIDEyIGluc2VydGlvbnMoKyks
-IDEyIGRlbGV0aW9ucygtKQ0KPiANCj4gWWVhaCwgc28gSSd2ZSBhbHJlYWR5IGFwcGxpZWQg
-LXYxIHdpdGhvdXQgdGhlIGNvcmV0ZW1wLmMgYml0cywNCj4gaWUuIGp1c3QgdGhlIG1lY2hh
-bmljYWwgcmVuYW1lcy4NCj4gDQo+IE1pbmQgc2VuZGluZyB0aGUgY29yZXRlbXAuYyBwYXJ0
-IGFzIGEgc3RhbmRhbG9uZSBwYXRjaCwgd2l0aA0KPiBBc2FmIE51cmkgQmVydGl6bGlvxJ9s
-dSdzIChwcmVzdW1lZCkgQWNrZWQtYnk/DQo+IA0KDQpJJ2xsIGp1c3QgZ28gd2l0aCBoaXMg
-IlN1Z2dlc3RlZC1ieToiDQoNCg0KSnVlcmdlbg0KDQo=
+On 24/11/2026 12:00, Leo Yan wrote:
+> Perf throttles a group by calling each event's PMU stop callback with
+> flags set to zero. On a CPU with a trace path, ETM stops tracing and
+> leaves the AUX transaction open because PERF_EF_UPDATE is clear. When
+> perf unthrottles the event, perf_aux_output_begin() warns because
+> aux_nest is still set.
+> 
+>    [  181.161897] ------------[ cut here ]------------
+>    [  181.161906] WARNING: kernel/events/ring_buffer.c:415 at perf_aux_output_begin+0x1dc/0x1f0, CPU#0:2
+>    [  181.234120] arm-scmi arm-scmi.1.auto: timed out in resp(caller: do_xfer+0x1a0/0x558)
+>    [  181.234223] cpufreq: __target_index: Failed to change cpu frequency: -110
+>    [  181.286675] Modules linked in: panfrost tda9950 hdlcd tda998x drm_shmem_helper drm_client_lib cect
+>    [  181.314139] CPU: 0 UID: 0 PID: 352 Comm: perf Not tainted 7.1.0-rc1-00058-gdca922e019dd-dirty #11
+>    [  181.323915] Hardware name: ARM LTD ARM Juno Development Platform/ARM Juno Development Platform, B5
+>    [  181.334732] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>    [  181.341721] pc : perf_aux_output_begin+0x1dc/0x1f0
+>    [  181.346547] lr : perf_aux_output_begin+0x9c/0x1f0
+>    [  181.351280] sp : ffff800080003be0
+>    [  181.354606] x29: ffff800080003be0 x28: ffff0008023fc000 x27: ffff4b45d287f000
+>    [  181.361789] x26: ffff0009764787a8 x25: 0000000000000000 x24: ffff00080dc99710
+>    [  181.368970] x23: ffffb4c334553000 x22: 0000000000000001 x21: ffff00080dc99710
+>    [  181.376151] x20: ffff0009764787a8 x19: ffff000801cc6000 x18: 00000000ffffffff
+>    [  181.383332] x17: 0000000000000000 x16: ffffb4c3a118c998 x15: 0000000000000000
+>    [  181.390512] x14: 00003d0900000000 x13: 00000001ffff006e x12: 696765625f747570
+>    [  181.397692] x11: ffffb4c3a52758d8 x10: 0000000000000108 x9 : ffffb4c3a117f620
+>    [  181.404873] x8 : ffff800080003a58 x7 : ffff000808de4000 x6 : 00000000000fffff
+>    [  181.412053] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000000
+>    [  181.419232] x2 : 0000000000000007 x1 : 0000000000000000 x0 : 0000000000000007
+>    [  181.426411] Call trace:
+>    [  181.428868]  perf_aux_output_begin+0x1dc/0x1f0 (P)
+>    [  181.433692]  etm_event_start+0xdc/0x290 [coresight]
+>    [  181.438665]  perf_event_unthrottle+0x70/0xa8
+>    [  181.442964]  perf_event_unthrottle_group+0x40/0x170
+>    [  181.447871]  perf_adjust_freq_unthr_events+0x178/0x1a8
+>    [  181.453038]  perf_adjust_freq_unthr_context+0x74/0xf8
+>    [  181.458120]  perf_event_task_tick+0xa8/0x290
+>    [  181.462418]  sched_tick+0x144/0x2c8
+>    [  181.465937]  update_process_times+0xc0/0x198
+> 
+> End the AUX transaction with size zero on a throttling stop so
+> unthrottling can acquire a fresh handle. Collect trace data only when
+> PERF_EF_UPDATE is set.
+> 
+> Check AUX handle ownership before updating the buffer or ending AUX
+> output. Drop the post-update check because the full stop runs with
+> local IRQs disabled, which prevents the TRBE IRQ from closing the
+> handle during the stop.
+> 
+> This patch is limited to fixing the event throttling case. Other issues,
+> such as CPUs without a trace path and pending TRBE IRQs during sink
+> teardown, will be addressed by the following patch series [1][2].
+> 
+> [1] https://lore.kernel.org/linux-arm-kernel/20260915-arm_cs_support_aux_sample-v1-6-35cf6f297d20@arm.com/
+> [2] https://lore.kernel.org/linux-arm-kernel/20261016-trbe_enable_disable_irq_handle_refactor-v2-9-3f57cf3199b1@arm.com/
+> 
+> Fixes: 9734e25fbf5a ("perf: Fix the throttle logic for a group")
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-etm-perf.c | 34 +++++++-----------------
+>   1 file changed, 10 insertions(+), 24 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> index 909bfd5960331d44547a028fde336f7819488a1a..e506116723c4ed723d66bc721021718b5d176117 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> @@ -698,7 +698,7 @@ static void etm_event_pause(struct coresight_path *path,
+>   static void etm_event_stop(struct perf_event *event, int mode)
+>   {
+>   	int cpu = smp_processor_id();
+> -	unsigned long size;
+> +	unsigned long size = 0;
+>   	struct coresight_device *source, *sink;
+>   	struct etm_ctxt *ctxt = this_cpu_ptr(&etm_ctxt);
+>   	struct perf_output_handle *handle = &ctxt->handle;
+> @@ -757,33 +757,19 @@ static void etm_event_stop(struct perf_event *event, int mode)
+>   	 * handle due to lack of buffer space), we don't
+>   	 * have to do anything here.
+>   	 */
+> -	if (handle->event && (mode & PERF_EF_UPDATE)) {
+> -		if (WARN_ON_ONCE(handle->event != event))
+> -			return;
+> +	if (!handle->event || WARN_ON_ONCE(handle->event != event))
+> +		goto out;
+>   
+> +	if (mode & PERF_EF_UPDATE) {
+>   		/* update trace information */
+> -		if (!sink_ops(sink)->update_buffer)
+> -			return;
+> -
+> -		size = sink_ops(sink)->update_buffer(sink, handle,
+> -					      event_data->snk_config);
+> -		/*
+> -		 * Make sure the handle is still valid as the
+> -		 * sink could have closed it from an IRQ.
+> -		 * The sink driver must handle the race with
+> -		 * update_buffer() and IRQ. Thus either we
+> -		 * should get a valid handle and valid size
+> -		 * (which may be 0).
+> -		 *
+> -		 * But we should never get a non-zero size with
+> -		 * an invalid handle.
+> -		 */
+> -		if (READ_ONCE(handle->event))
+> -			perf_aux_output_end(handle, size);
+> -		else
+> -			WARN_ON(size);
+> +		if (sink_ops(sink)->update_buffer)
+> +			size = sink_ops(sink)->update_buffer(sink, handle,
+> +							     event_data->snk_config);
 
---------------eO6WT9kL6g4GOfnRabTN4O78--
+Could we retain the READ_ONCE() check to handle the TRBE case here ? 
+This looks like introducing a regression. Something like :
 
---------------fzIBNZKANk2e40IQjwqLyzcB
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+		if (!READ_ONCE(handle->event)) {
+			WARN_ON(size);
+			goto out;
+		}
 
------BEGIN PGP SIGNATURE-----
 
-wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmsFi5MFAwAAAAAACgkQsN6d1ii/Ey/z
-ZAgAisD+DZAdNXgjnVdM3s2bM/G2CpMIMc5aSo46KHC0SSFWxqgAn0uhLwg6oV0HfEM4WXejTWZ4
-EPP6mOPAZTe1Y4she3H0RVq9qe7OAi2Rn3YM5XbKYmsxBf1dLD+xOmgZtSrVKA53/tvzcF6CriaX
-w/KdLsxB0ASxzQIvaBez16RFmGVZ+veCA7XSqlfjCSvT7Ir6NTNPfbt/MixiHLfp+RMEBYG+gHzg
-SSvjqAx7UG7fvGOt1cA1zW8ETewsqo+MpGIDVocuH5M5pF/kk0470EkP7An2N/FRvf296caLYPpy
-LI550rDXjx1h/XL2gRPjKEKSJ4WJ4qz032FTkhwbDA==
-=wTmJ
------END PGP SIGNATURE-----
+>   	}
 
---------------fzIBNZKANk2e40IQjwqLyzcB--
+
+Otherwise looks good to me
+
+Suzuki
+
+
+>   
+> +	perf_aux_output_end(handle, size);
+> +
+> +out:
+>   	/* Disabling the path make its elements available to other sessions */
+>   	coresight_disable_path(path);
+>   }
+> 
+> ---
+> base-commit: 8e3ac058be1b613aeabcb7ce18c142e4603cc5dd
+> change-id: 20261124-arm_cs_fix_throttling_oops-140053eb0883
+> 
+> Best regards,
+
