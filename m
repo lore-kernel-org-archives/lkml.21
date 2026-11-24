@@ -1,96 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.169
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795487619;
-	b=mryVXzshDr6UXAvjniouyWaJ0ePRFrvyloxQpOWxDle1913q2Dx/QyeF9VeO2QEyxs55
-	 u5esf7yTJHwNChWYbyzBwUVJoUWL76NOXcoN8GK6WBrxC4WKMrMkXzoaGO7jk1F/ICOp3
-	 qGCa6nPqN3EvOUW3d6nehzrJ81VFxfVtP+BfX+CwagQ9+9m2HgJ5+BpmAgg/Aie0ghFwI
-	 zfRiaIGsKMh8rmr6XkV44K2We0ZUKZDiv/pwwMN7Ap4z+z/XiSKFMjWOCQwA4MRFf8CWv
-	 3siYtdT6cQpe5QW3p9g4TKLx1OaoukHfjbyzIWlrsEHxzj9lRph8H1sRkw+1CYTpLvw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795487619;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.169
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795487665;
+	b=vzuOaXfHcDMhebMsuNSqa+y4EjmhZvz83hitVdNbhy9CNBf3/olhsyg/l+7ZCA6wPw2B
+	 ZTS6Ec+p15zn6h/CTleCE3J1PE8tbR5UUwKyaYXUIEOEj2LILXqXWG0TnUm9H86+YUot1
+	 hDzBOA/vIVpQW/eGcy8+xTILlPI+D1CFLsiVwaCps1kx3/RWa6XKxtRagO3WATJNvDCh+
+	 Z8r6mMoj6zSmCFIRob8xE1zoIGn3tSYPoxCbsXDG2ScceK6aCx/9W+yrgpHgrOyTm6WZm
+	 /CEvidkN/XzHhXXO+MbJPfMRj0OGIMEVm1junT8wFNrWfmvnRWiJwzZJFgzWygvkV7w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795487665;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=RQQttVqr/R7iBy6MzhUoFsIhHj8TNdW/zBA3gjiLRU0=;
-	b=sJFj6SguNygTcgSojHuaks0YIJxYsF+iPTYGL3Jdi4pz1Lv0EBeJmE4+9EZcCzPuJXR3
-	 g4JG9+KOmNl5zQu3ka9LJcea3c8SwHDcYIN+EPcD2TEZ220yKNvRwCL2+trKOIGWxpe6G
-	 RWeXgcKTFuufXk4RJLir0l3II8J0C4vhUTFiYgP2OuTOizg3en259C1HEwAt26s5rdzfF
-	 khajDGGl4aQwAaoRBmsxE3xQAeCLxW+rWToLfRsaWnc0ea1fffVzL+E95HpV+1aufNHGi
-	 ho7hzG4/zB4sKpazy4/gxslufkUDu2tbSyjJuMaWiC4P0a+/qnrSYTc9TXl+rFQNBkg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=syCWviLhKc8HEd/Doho3DCGH7TWvvwwtNfK52176Cc8=;
+	b=p6jOkghO+LnGhNXyZEkjryVD52XiC3ZUklhmOk/YYd9lpsOR8Bc4vNocNCzc2JxLDbeh
+	 fW/NHmdYTUfigca8l7cq1gq4eT99kuhWnCQf9PpxozbUFQzH2zuSI0d97GkgOfb9bAWHH
+	 m1j3wExJ/9FPEXiNPrBCIyQIpPsqG+r/TP33WjbD3u4Z2cRtrG0JTAqXiNODjB12G8fKH
+	 m4044qJEUlymJsUQDxlmPzc67MzXk/cWgVMaUxo3tk4oOJQUHLYkXG8bko6Wjtr09z5DP
+	 L9Br7lwrk/gS1Xp5yVOjm/9XtihfX5F2tG5xBfMwZ7SBwYc9BX8ghSm9v1dacNwVGbQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wN1Q5tPp;
-	arc=none smtp.remote-ip=209.85.215.169
-Received: from mail-pg1-f169.google.com (mail-pg1-f169.google.com [209.85.215.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FzzBcWWN;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.169
+Received: from mail-lj1-f169.google.com (mail-lj1-f169.google.com [209.85.208.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B7C7606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:33:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B7C7606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECC69606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:34:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ECC69606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wN1Q5tPp
-Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-cdb1199bfd8so1801721a12.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:33:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FzzBcWWN
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3adfc004920so37304971fa.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:34:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795487663; cv=none;
+        d=google.com; s=arc-20260327;
+        b=osP79+zu7E+KLT+gjvW7darM5/5dQLvPv9Yubj65yqHnPP4OjF1RTdVhdBkH3isIFy
+         lO6VIZgF3oVb4t+3f7PaouzDfIMlkj5CLPBmKCxmupbby4LtZJNajDdEbtAWr578Db+D
+         bUZBcJvFMOv0iEn72coN8xN1L/kQeTShnb9QqiSoyh/5mw0WDOXTRgv5AFofwP2VI5rH
+         AUIy6n+cA0Z8Dxv8AdzkW6Cx+PA6A0ujyQomZJM24rUZSOA+H5zSVTUUSzZv0gzevd/I
+         pn7+2vSChjsK/bQvb7CzcLaodx8la+yJoBjzEeioUj3Tz6cdv3KvDNby/VdCItgTyJYy
+         pOIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=syCWviLhKc8HEd/Doho3DCGH7TWvvwwtNfK52176Cc8=;
+        fh=d5CPhmSrZPUWagB2g35F/W5jCU3G6uKIOFOvxlOH/nc=;
+        b=rP4l5Gh+rBNe+bhWw2pWfXCah3OnihpUfuRvSP77w0vqqBn9BQagumQzrZ+m7PNeeJ
+         thDgYGXDkGPTuWPXjgX46Y+yR7gpGVGY7TpL98eXOFupg7rOsEfN5q6L9QCmYrfJqCr5
+         kKSv3RVdqU03pZbcAyzepOPLQ4zX2a54NfPRDyfLzNTNA9wcpYO9Q0LkuR4+BaLXpSAH
+         ooMYwXGn1JfthaEv5sZ6zNBIuiR4Ggdkn5ksDyKE3IABDOm4vrbmErjiIxeoJ8XuI0LG
+         bkHPvDagYiuQxUw0q3qluBMzihmFYeFwNKxjMCUBSwCqvjtvegHsWmg2sjJQ7J2T3Z9a
+         aFQA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795487618; x=1796092418; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RQQttVqr/R7iBy6MzhUoFsIhHj8TNdW/zBA3gjiLRU0=;
-        b=wN1Q5tPpDRdN3DOfdq8rSdB5+m+y8Um4IX3GDkzYAUrrwfhoFSbzBdTmEtJDqFT4wZ
-         ZWWgxFnd+w9bSslvyDt0J1e7OeJfkSbgEFClEx/HqmBQfX326yWffRxRi5Sw2DG0uDQg
-         X3lmVtoynILiKMkkfWEEhMxmWXBHhSRtLC9U2kr3Wifl+w0Bn+T8UufrwPAlG3PJlAqQ
-         66V+ymOAMphNjwt/jWhA9wPRKhpCj3k8LUlqSZtii148wTGHVqg/jxejLTdkAs5inCCE
-         e1nOnicN+N2/EC+NB1IwX74uWIjppwHFbFGSpHA+Xe5GazU1lOL7cfeANwDKAm4GwzRi
-         D27g==
+        d=gmail.com; s=20260707; t=1795487663; x=1796092463; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=syCWviLhKc8HEd/Doho3DCGH7TWvvwwtNfK52176Cc8=;
+        b=FzzBcWWNW7iCw6bu7hCm/vuKc7jaBSwA/R4Q1Z3tuKeUTWU/uxc389oP5JAr3eAe//
+         zwuXy1XCQx+QVzADE3DTnxzvqw6JtuvrtF/pQ2Mrpl0d4DyeWLVK/oznWptb6YCzj9h2
+         pj7klLSLe6XI8+Juck7bVmm2DFFQw03GoCfQK0AZHEYnnsXLgNnYk85Vyy0zDOzuKGNO
+         YxYro1yWJ0h5PncZbfhDzOwj57gdCNmJIgKwBLKL0fm3OhmQQfRDs7Eal+vt2WwrKgP/
+         d6hX2bBK+gC+GgE17VtlRENEec5v2yhQ/KL0AjUFdsXNJrGRtDyzKU7QZbXFVqWhZ/AR
+         +7Fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795487618; x=1796092418;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RQQttVqr/R7iBy6MzhUoFsIhHj8TNdW/zBA3gjiLRU0=;
-        b=ps5qoi01hT9WUdnyKuCVAleEfKmgN1lJlEK4VCO6BPZ86v+MLB3X5slTAD4fdlNJsH
-         AJQWngmxSVkxU4y7EqEAS2037ljbZ2F4/zGJdXaVVFxLtkPGuXgDVPRFp7nPL6cuIhK0
-         4CTXbeRLfOEV4BFCebQbsIDF1lLP3VUud9POa/WIpwdGAHca6UZ7AxM2HL3jFFCAxznj
-         SqfeScQFOTEhGuIKYR2SPkVe+j+dmJSX/vKK+0oFvW5hFD/ZpjZ5pUE+E2jOyeWKDwP1
-         A9XyJ0CHtKfux8A3WPBByzYRco4AilsrTfu7rw7O5Cw2XRzLJKAye5Yn0G4hO/D7TGQ5
-         xT+w==
-X-Forwarded-Encrypted: i=1; AL+hErFeuX74jwE1hzeChRlfJFIZeRbphclpP7XTzsmsEOQWmwNTpAT3tQEDbCsxlBn/NoSwv3OXfvBleisL4N8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z99YB75ihek8XhvbrXtNKkDLaFB6yZ6Fx4080yJp40qJUmtt8D/
-	ARRh9ZU9N9dV7pBMDiqo0O4BYWKKj73495XQPl6/0CiDeo8+AnkGQBMJ
-X-Gm-Gg: AZFdTZfO7EspSLNQOoFrVweWAEYrgPYmllg3/wVgSIxzFces1mztZgd1lCj6wLTWG/I
-	WuKX/a/eB5XHOVK7ZiUWaZOPi9YmXIssDxQ/qGD+SUoIVClj93lDFcPq2MxCuX/1Arp2t4o2KAr
-	KEKO0JxfIBVh4cB0tEXx5tOSxmS7Pyf7y8CtmX6lmsAe0vISEZxSgSC8AMGvKQbK852oq8fBdGZ
-	zKWTF638QKpvgd8bJeS/eWx4XJIZuwk81FQApZ5Mh+o0Zkyn6D//9zojQzIPgYOcMyA6V30DGL+
-	/JdC7DhzF8reOP16fLapYi/PjoV7+zD5cBE3k8uo5zA85p7ERas6XfZ43qvwO2IMp1DZp201isf
-	vEAsymrFZfedprbSmOuAZH5brXG/4fH5lcuBzfk/kvR37wCUgM/bMOvnLGMUCT1e7xOP92iwX9o
-	gRGVWmUxFNjll9ZE56ixLPRI5IrwKMtvLIYuKbnFZMbhD20O9DFeCwFoEoTulTUIKxUVWfJLCUO
-	F9V1xsSAjC9uzsZfNu+JdzD3bWeZggmSb8mfKMQI+lWabL6mD9s9C3s6epqsCf17fp44esEars9
-	02N3T8lMWJmmpy2K+AO52Fd13OtsqhIL4rOTsS3jrv3f/AV/JsB4
-X-Received: by 2002:a17:90b:1644:b0:3ad:47ce:3876 with SMTP id 98e67ed59e1d1-3b41c9a9cf7mr11736514a91.61.1795487617893;
-        Mon, 23 Nov 2026 18:33:37 -0800 (PST)
-Received: from fedora.lan ([172.219.65.15])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde797af60dsm4709056a12.29.2026.11.23.18.33.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 18:33:37 -0800 (PST)
-From: artem122novak@gmail.com
-To: linux@armlinux.org.uk,
-	florian.fainelli@broadcom.com
-Cc: ray.jui@broadcom.com,
-	scott.branden@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Artem Novak <artem122novak@gmail.com>
-Subject: [PATCH] ARM: bcm2835: make RPCSEC_GSS_KRB5 modular
-Date: Mon, 23 Nov 2026 20:33:35 -0600
-Message-ID: <20261124023335.170889-1-artem122novak@gmail.com>
-X-Mailer: git-send-email 2.56.1
+        d=1e100.net; s=20260707; t=1795487663; x=1796092463;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=syCWviLhKc8HEd/Doho3DCGH7TWvvwwtNfK52176Cc8=;
+        b=MdLN6E7fhhCuH0DNg66WHAByleZFvCw8nUTuXGnnzIMxuh70MnSD15ukAh7+2DhiNq
+         0FMy9cLhKc/XQkRJge/It2xVnmDv4mxaQSmx2aK2+IqmVHQjAj5tTH2vVoTXvB3BOx/1
+         nRzSGbztWPmZQ23MMAnC0IcvJJVxXgVYOByl/0LGTx22Dz03VZcv8dtg1vtqp2K1mclB
+         0qdEMxVe22CQXfWotDVHG0dGtK2UgTUIl8eatysi2IaB+BF+w/ZwP5763r4VBNHSti7/
+         C48BWFB13GndrfcKFbVo9PdRFhX/4y3x5DZ3PKpNNMP+Nt65TTYg4ISG/iSiwwNeYe7K
+         1fQw==
+X-Forwarded-Encrypted: i=1; AL+hErFFwjNgeDZVPPDZFo7/d+Xbm8GJlPKJ+NZPMgvEMpoltJ3JSvsOLunUE6ZWcbLt23wUcNMd8goodQFEGOw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8+fbSDWwTRBZZBxKgoiS45Sagqv4VMoTH+1YzufnOuRrNtUS5E
+	LuYE00abLRSzbFHUXeH+NRBM/MlGgG43MavC58kDci1GugDXJgvb6NUcRQ55bZygD8qyWF6JlZ5
+	YMCfAMvWj22bavx0qUgEPK5aucTwS8VE=
+X-Gm-Gg: AZFdTZfkZgTW8PPy5rsIgAS0xdu4Nd5T5MHkKnhGiXrJcVKcRM0rK+XNhBQt4wFQOT+
+	wfndI4bCCA/L8uaqDKusHqA5pFTYzRsigXRQ5E6g4CsvzwxjU5KRp8XrME/JGKXz3HzKjkiytpN
+	xqf3tixPUPhr9a2QfkYlWSVLJn6wCe1O4YTKIKRxcduXyHscNhZwZpV0sMJy2bM1VwSFvxXCfog
+	ET+FiO56tjbFbddd5B+303vnr4tt/3xggYmwn8uSjDQE1AjGnAMy6rtB6Cbd62mSDSYsVZsCjXd
+	teNkmVtR9WKgp4WTN6A7EUqiwVE7Ev2U/aPCw6RbD2rqA+TjJ4ZsdHdYC+DmkJDIRjFEPThLlER
+	3wc2D0JE/r9C//DOoFtRof+mPl+d1AvnPmBiZ
+X-Received: by 2002:a05:651c:54f:b0:3ac:e14b:4233 with SMTP id
+ 38308e7fff4ca-3ae7fa6909dmr41897861fa.26.1795487662852; Mon, 23 Nov 2026
+ 18:34:22 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,31 +103,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261111015250.1037116-2-oss.patchbox@gmail.com> <SJ1PR11MB6153C84754841451300463D4BF782@SJ1PR11MB6153.namprd11.prod.outlook.com>
+In-Reply-To: <SJ1PR11MB6153C84754841451300463D4BF782@SJ1PR11MB6153.namprd11.prod.outlook.com>
+From: Yuho Choi <oss.patchbox@gmail.com>
+Date: Mon, 23 Nov 2026 21:34:11 -0500
+X-Gm-Features: Aa3M54r62-4InDKJw9hPjR5eUSXgR47wB9UUHtprcSyuMey_aZzsLMj4AcUTZFA
+Message-ID: <CAGG=RgA4Bt=DEmJRjkK2wq4LEvLxTA=s6G27J1hQOUM5Dgb61w@mail.gmail.com>
+Subject: Re: [PATCH v1] virt: acrn: Don't free a VM the hypervisor refused to destroy
+To: "Li, Fei1" <fei1.li@intel.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Shuo Liu <shuo.a.liu@intel.com>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 
-From: Artem Novak <artem122novak@gmail.com>
+On Fri, Nov 20, 2026 at 08:01:14AM +0000, Li, Fei1 wrote:
+> Hi Yuho,
+>
+> Thanks for fixing this UAF issue!
 
-Enable RPCSEC_GSS Kerberos authentication as a loadable module in
-the BCM2835 defconfig.
+Thank you for the review and suggestions.
 
-This allows the SunRPC GSS authentication framework and Kerberos
-5 support to be loaded when needed, rather than being built into
-the kernel.
+> Besides your current change, I suggest:
+>
+> 1. In acrn_dev_release(), try calling hcall_pause_vm(vm->vmid) before
+>    acrn_vm_destroy(vm) when vm->vmid is valid and not yet marked as
+>    destroyed.
 
-Signed-off-by: Artem Novak <artem122novak@gmail.com>
----
- arch/arm/configs/bcm2835_defconfig | 1 +
- 1 file changed, 1 insertion(+)
+That makes sense. If the device model exits without pausing the
+VM, the hypervisor refuses to destroy it and the VM ends up leaked.
+Pausing it first in acrn_dev_release() would let it be cleaned up properly
+in that case.
 
-diff --git a/arch/arm/configs/bcm2835_defconfig b/arch/arm/configs/bcm2835_defconfig
-index b469ecc36cf5..a8ae699e337b 100644
---- a/arch/arm/configs/bcm2835_defconfig
-+++ b/arch/arm/configs/bcm2835_defconfig
-@@ -187,3 +187,4 @@ CONFIG_STACK_TRACER=y
- CONFIG_SCHED_TRACER=y
- CONFIG_STRICT_DEVMEM=y
- CONFIG_TEST_KSTRTOX=y
-+CONFIG_RPCSEC_GSS_KRB5=m
--- 
-2.56.1
+I'll make the pause best-effort and still attempt to destroy the VM if
+it fails.
+If the destroy also fails, the VM will be retained as in v1.
 
+> 2. Call try_module_get(THIS_MODULE) in acrn_vm_create() (and roll it
+>    back on failure), paired with module_put(THIS_MODULE) when
+>    acrn_vm_destroy() succeeds. This keeps the module pinned when a VM
+>    cannot be destroyed and remains in memory, preventing rmmod from
+>    triggering a kernel crash via active ioeventfd kthreads or irqfd
+>    callbacks under CONFIG_ACRN_HSM=m.
+
+Good point. I had missed the module unload case.
+
+Since acrn_vm_create() is called through an ioctl and acrn_fops.owner
+is already set to THIS_MODULE, the caller holds a module reference.
+Could we instead use __module_get(THIS_MODULE) at the end of
+acrn_vm_create(), after successful initialization? That would avoid
+having to roll back the module reference on the creation failure paths.
+
+Unless you prefer try_module_get(), I'll go with __module_get() and
+incorporate both changes in v2.
