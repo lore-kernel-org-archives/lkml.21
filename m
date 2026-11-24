@@ -1,120 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.97
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795546716;
-	b=CqdrLhF1qAtf2H9GlO5ZMQUOldz6kyGeJQyTsrz5KJTeUKh71k8JrFTkRrTMlkgiidjk
-	 Z46t8UWba7x5oQQTfuN0kxE3UVc91FV9Wx3eZtp+l6tEdwhZGoEAdUQkRq612cZFe1ujr
-	 fjfLlGcP0cmwtprep3KImQfK4rcCmvaX/1jEhi7EmRtwYxbw1kLR9hOMFR0ADMwNmIeZ2
-	 T5gw4RhIJ5QUFSNKHTt0KU1ClxccWT5Ootxpv91zR45Liw++KDrZ3A3dDsU6HcL8TJjWu
-	 Z15s9XVnReVxeW4NyA0ALEquxFWl606hwonLPAL3YJdMEu7kkZ31naiowaXFquhoNUQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795546716;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=tdQj4jlDcQV4Kx+PZkwi5r21miBHCD6VTb5zxRYuV7w=;
-	b=snWIlGCZFqOb2VRSHTS3U05JVatpErvQydbzdMRGpnomiPxn9bAgLpL/JyKbqmx29Z9w
-	 pCgDGoDCZNyCWjPmyOe3g424SdaCjQIo3XpLZKV4C/PoyH2/hjax2cFVKpu9KCqok71lm
-	 MOTLRsxQ4N/IRNQa90hh4/59OkRsMgttCzX5q/8lQSHcfltTwA+inM2jP1MrDvHmoEWTn
-	 0fSOSt7gjcaxEMyFUx/DIoShbqL2KOm9i+IxvSv8so2hh6dBZ+QfYqE2Kap4y/k0kecVT
-	 DxL/IHpRskBxHHmSmpblwezdz07ldM8sCkngZ1KYXiXxOuuptHFsRrrAat7MdMW2O7Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=ONq65drB;
-	arc=none smtp.remote-ip=209.85.216.97
-Received: from mail-pj1-f97.google.com (mail-pj1-f97.google.com [209.85.216.97])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.46
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795546805;
+	b=3V+C69XisRL/WTANQg9Qgu5nXGGf2VIWKp72zgZmmBBYJCom5AHC22EEMYCgpnbGzq5q
+	 XncE3C1bwlqshFCUKyJm6EzabkBwOkcXq31YU00dmphPIJROuZ73gg+p6FVUtlIg1DmFT
+	 ny4yDnvePcVI3MrAf1ud5mG7XdTmgT/yut6brcnhIl1thkg5CDFOJJFm6wRY/o78IIYDd
+	 WVABosYCcnBG4sU0QmBIYR2PjuGAgc8FckRdn6uani6NanmE53HbmF9L1QwiKGKvOwC7/
+	 RZRfS/FCmqk8WgT09bc8r9brNYZfPyr9g9H6MPGpIGDd/Q2AK8Am9dW/1yKha9I0TRA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795546805;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=pI18bHQi+lJnh+lP+mc40mct9lRe+QxMEvK17p079oo=;
+	b=O8jo/HXO8TeV8mzq3kOW3mt38SMuGpAkJc619/cBWlYelIbIhE/O9VGmRk34MuMNeRhc
+	 InZ8pd6/0ALFiDIKwwhL46sYzSufVjmaT+XEusvprr4SjJrmznTU7fefUlApMeHro8BLG
+	 EcHi+zggG20rK9dXd7qEld4frBahy6qElInnFQR+PsmzgLsaxy7ZblYumlv3ic9lDJzpj
+	 t2ukBN1zm6NaIOVymVXw90wuibhDfMMIzv04M1lDezQ1JPUGodVp9WyeQZ+KrEzeEycds
+	 /Zrvb9te+/SOwRtupAfBV/Z5tTp0cghCXdpx+HZl2eF+AzT+53FWVTJ4+Q52DyI+DkA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=BSHRGF8j;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E38BE606A32D
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:58:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E38BE606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0570A606A692
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:00:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0570A606A692
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=ONq65drB
-Received: by mail-pj1-f97.google.com with SMTP id 98e67ed59e1d1-3b09a83d12aso3433708a91.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:58:34 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=BSHRGF8j
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb845433b8so139225e9.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:00:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795546803; cv=none;
+        d=google.com; s=arc-20260327;
+        b=s4x590/d9RnNkUjURqc7BCu+8fvzA38aAPfiUtx9uxhhr4swBVl3cAwHv/XP1MhSnF
+         rOMIlqXC+uN0b3j5DWlNJ4Da+AKPiCJBpksWAuODcuKVjAiYLOUWzuLNlFi0+O7aMqD9
+         2Q4XHhKtIWZCyywZm3LYHKmZI9+tID3xve1R/Qo+axI9DrSxwC4F1J9lrgWmI8JKgRl6
+         tDZ7H0LZvTUNkRCOnUuTwQ5WO4gLxu737b67mJNK0LZunRI7yooN5MTR4T4mgfHtyK23
+         dNX5MKhbKp1n4jJfuzFxiF9q7yq/9lLKmyHW1uLxo9Z/2Ue3N0hXBcNk6xDjDAJKx0Yt
+         AFdA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=pI18bHQi+lJnh+lP+mc40mct9lRe+QxMEvK17p079oo=;
+        fh=KeihRPsg3e/bY4RTw+VT2PenNc/lBeS5qqtLGME4opA=;
+        b=K+AZlYTZqN+oTiS3yVOqgHixHKGE9pDxmYKaKWfAEgfIFEmhXRgEvmKzUL6rmSue6d
+         0KvmQ4JAnDnhxX6MI01RZAxvjO3abLGga15j48Nq7+zeKlGgV43yon/g242kDSzZKwS1
+         +xHs8xYTsIrIZnrPL0eQ4imOzLVkBdHFWaI8+9b/9ASKUlO4MfAq46FkoolMXrBPH7+p
+         ArD2unLnLu6ZVen134jF564OpEaH6tTyTu7Qf32NPWb79R2aQZ7ajG/CM8afZ64E/9j5
+         8ijTJLzFUw/ayIoJAQE3eFhySTx7CuMs9KKfOMNpvot6IZUnZMylBQsIWfGUG43gGZzR
+         YgrQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795546803; x=1796151603; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=pI18bHQi+lJnh+lP+mc40mct9lRe+QxMEvK17p079oo=;
+        b=BSHRGF8jOSIVT/X5yLBPZ5Px8eJI2o9bBmEJF/puKHGpS+UJEtovyL3ZhGpVb4Gbw9
+         efrFX6XQ6m1PdozusC4S/B0UVGkabwZIsQF4hixK2+e424VWFxPpZraZBOvd+lQaHVTq
+         APkzx4gIJ949uye76nUHu1oyaZ/f/mMBBawN7R+yATrPSRaY6WzUU4snJgAJ/aF85jeu
+         iAjrhU0WXIpO7XxSla8ou6VpCJGEVxEytgNh6FE1+jV6ENTp+gDKT/FD9xEQu6QeUcZA
+         14qPzrV1hOlB+5gTtzdmKsbyk27JmDFauvXS+R4Fvi4gPAufmjfiQH2CZe8jw69EsOft
+         VHFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795546714; x=1796151514;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
+        d=1e100.net; s=20260707; t=1795546803; x=1796151603;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=tdQj4jlDcQV4Kx+PZkwi5r21miBHCD6VTb5zxRYuV7w=;
-        b=jlFt8MA0dYcr+pPA2nevZTUebWCGfBVXgKd08bdJ/aQ7Dxi7KPg69yWcUAcUSc7zWB
-         h7lPBYab6SVtI75NvDLct8QX1inF6pimhe5D7qaEeM9/lIARmcKiDktFsyQ+4WKPXkrn
-         NGybTKTE8dSAMu9NIYqzq08riBqrRgwZhBkPJ0By9XORssLNaZuLKqoK9AnIaqI/nwU6
-         tA6vMrQsdJWlK0EQU6Jj/zgX1sS8BouVKeO8C5Yss/QGt2D0cFsDYtT2r82RS863FMmg
-         muUUnI/fo/C1Kv996dFaY8x10QhOzSyYHti6+G4wSPE9KDiSIzNR3fXhKz1NKST5B2nA
-         8uLQ==
-X-Forwarded-Encrypted: i=1; AL+hErEkP4o9BztZucDYLKEbudTIwiA/vVECu/uEODERJQE5KBHNbFoBg/oEahpNFVzFXMdWeBGUyIxhIj+QU1g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z85IwaK79scmwOrSm1heL7LGeJxoZ7tzv2oxR0OxV/TSxsrMGHx
-	BcWaER0yVs8Q0LgI2+8KruAAQ0ySO9R8Alvu0OfGJMfvuMxHtSF1p9vI54jBBlxnjoU7rGd+o/g
-	7WfpV0bz734aPvbVs7e8/fzVUoubPGpY3bWDG5ev1urFpvlJNXYMOAOmU3Te34nfwfVXQnHMyW6
-	W0nipcLYB3IDY7uTWSrmXjRk8VV0ipPxZOvenabwKgtB1/FpIskiIefpiNCgFL2WwCEiCSIOlFK
-	lqbg6Q9mwpJDeawJSZITXtI
-X-Gm-Gg: AZFdTZesA6uUAorHN3EnOSxYt47RTsOzy2t9WPapUL61ZMpWMx+WQLYCWKfB+5kfXzg
-	RPSo6uw/nM8r3byIfNGIATCK/5OtJwo5xs50Rw4RoEtu817kfpI0QxXGeufSdy2SdHp6VcXwYmB
-	M1JZpyN+W18P8JXACGsZx85IwEbyuZ1QRVIhhIK7cJn4GWY24CP5salFNbtTTICGvhJZfIumCYP
-	bVEKiqB9bzRt1vdHQnOTkzTKRPj3ubd55fbkErMwAclmtmJdCaSXYty2MG6unkLnhzFXBby1B+d
-	4PM0/MI1JVsxkSF4sIppbFIM4fBEYqHyQsh+RmQhSy71MjBHcGBgEeyhRVa3abtVRS6ZQsPNpep
-	0qU6Y8MQjiu3pOIE1AFJaT4d3446gt/Eu63Ngu6Dq/huvZIdmiFde5OnyZLLEbVAdGI4ktNGo1D
-	tzemQd/2Mclh3hu2HiLUqfIHVexpYK1hhmitrMi2mO
-X-Received: by 2002:a17:90b:278c:b0:3b1:bdc8:c32b with SMTP id 98e67ed59e1d1-3b41c97ac78mr15541953a91.53.1795546714161;
-        Tue, 24 Nov 2026 10:58:34 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b4062eb7cdsm11760071a91.8.2026.11.24.10.58.33
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 24 Nov 2026 10:58:34 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-386b8624cf7so5039038eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:58:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795546712; x=1796151512; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=tdQj4jlDcQV4Kx+PZkwi5r21miBHCD6VTb5zxRYuV7w=;
-        b=ONq65drBFlW92qG6gvctt2Xq0C7JXeJqHX/4rw2NkPWPnv9KANebEypEXQbHMZjehG
-         Tqr+pdgx2AUdlNrO1mIh8Gc3LmLALwWzKL3NHrVKTHxg9x2OrfgDNs00GjXJ3ceLZVPt
-         ClfYMhlzedIUXh2g64s9fzWHOPlELXUiVgEZ4=
-X-Forwarded-Encrypted: i=1; AL+hErF2JXlHb5qNTpvgefrJ9phw5m1bMag+qyOsBWMMJEnHABjupNjdKTpiDmDEgh+A8PejivwlI/udblx9Yhg=@vger.kernel.org
-X-Received: by 2002:a05:701b:4308:b0:1b5:1a6e:1bec with SMTP id a92af1059eb24-1b5568779e3mr15312920c88.10.1795546712058;
-        Tue, 24 Nov 2026 10:58:32 -0800 (PST)
-X-Received: by 2002:a05:701b:4308:b0:1b5:1a6e:1bec with SMTP id a92af1059eb24-1b5568779e3mr15312881c88.10.1795546711177;
-        Tue, 24 Nov 2026 10:58:31 -0800 (PST)
-Received: from stbirv-lnx-1.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm41712779c88.13.2026.11.24.10.58.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 10:58:30 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: netdev@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Nicolai Buchwitz <nb@tipi-net.de>,
-	Carlos Soto <carlos.soto@broadcom.com>,
-	Doug Berger <opendmb@gmail.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org (open list),
-	Mlody12 mlody12 <kudzo51@gmail.com>
-Subject: [PATCH net-next v7 3/4] net: mdio: mdio-bcm-unimac: Poll for completion at 1us granularity
-Date: Tue, 24 Nov 2026 10:58:19 -0800
-Message-Id: <20261124185820.3954716-4-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261124185820.3954716-1-florian.fainelli@broadcom.com>
-References: <20261124185820.3954716-1-florian.fainelli@broadcom.com>
+        bh=pI18bHQi+lJnh+lP+mc40mct9lRe+QxMEvK17p079oo=;
+        b=06c5KrYOqZoM0339l84ybSu4ZKKLS3UFLoWKknNk4PqBtRK2YDJQdVcsMKVMLLxvMh
+         08Mm3iYT9C3TyBIFrBVf2u+uEpnfp9bi6qcNJ2RPMk9HRPZNbViRqsCQpCEYGn6WH2Ve
+         UdYpYfOTxPCZmhQYFHziOUbYfklhiXkCGJ3GVpnCth6/7YrCx07ook9lmnSvnary0bC/
+         Z7y+KQvnbpnphXsxRNHSRMrfwCu8WywZ33FB/nb9CU44q8HEpmASZWiqk1PayxYC8xOa
+         /wGLVBhAiX8jWIdwlTK9CkG3rh/FD5x8b3qlPS5IEIJ19aPatJH4FvN9B8L6TbRXyWSz
+         omLg==
+X-Forwarded-Encrypted: i=1; AL+hErG/QLrpvqGEYcMYB7FUx2DO7xWT2Y1V7+2UQotD3lEz18nQ8RIvkHQFJWbQWpwQQTXQF44AXTnlpqHG290=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/K9Fj9G/yrI7NBd7zWDtIyVpGxxtnjaEkPS0crCV0GSHA5/fsb
+	mTY793wJtrWY6d5wzM8RV4iuJm1MxTRbDUocyaBsxONirMDCzGPdXwnPKqrIjDV/Hb+WVMkFN9d
+	vReKZbAyoGm7EukD9begHFshGwDKT5rN4ReNgXtZd
+X-Gm-Gg: AZFdTZfpq3OvQ9DgKllncGhi/iA5OwoIKxpH72Sxgx/mh/mkv4gDKtrmvU+kwedbOfb
+	jfj5Z59x7RKaK2RkbLFKklGwnK29NB1m6G/1WOS/b8U0z/pynT/mS2HuSMue2DCMpvxNvoXFzIc
+	BLlWSMwU0a29jEfaYuru7yOFhEHb5LIAi1G8wxfLeFXd8AHh6WGl0P3pD3jGMyzL8vl4dNnXZnu
+	0L3HsZs568HFt3HRy9kCCnBGzrqB+TLU+XStPw7DbSOiPoi7ECxMw8XCQZmdt6PpZOFbgcMBFPk
+	NgN38fsC4ZQHyYIuPQhjfGYoHTf7c4x2z3lKhoF5wFZ37il0f/9IFiH495lClTCDZm341VinPJS
+	IeTPXaHTFws4KOVi9nNwrwhGK2B2rBqSmnpRhO+rw/ZGVQXAutC/m4Fs6A7hGukRnRLnJCRsrA1
+	iOA6CdTb8TgBEWzoa/V3OKiAw=
+X-Received: by 2002:a05:600c:4ba8:b0:4bb:5e6b:2dfc with SMTP id
+ 5b1f17b1804b1-4bb91646004mr2422425e9.13.1795546802578; Tue, 24 Nov 2026
+ 11:00:02 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -124,86 +105,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+References: <20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org> <20261117-huge-pfnmap-fault-races-v2-4-276007e73bcb@kernel.org>
+In-Reply-To: <20261117-huge-pfnmap-fault-races-v2-4-276007e73bcb@kernel.org>
+From: "T.J. Mercier" <tjmercier@google.com>
+Date: Tue, 24 Nov 2026 10:59:50 -0800
+X-Gm-Features: Aa3M54o4WZZXMe5rkCzAWiCKTf4u9AcgtxpDdtwUOt0YCIX4IAOM1qzNi5J1mGI
+Message-ID: <CABdmKX34z2s-7KE2+JwFSQRN3eGoTy8bs+KB_hWXw0YbF9msLg@mail.gmail.com>
+Subject: Re: [PATCH v2 4/4] mm/huge_memory: only compare PFNs of huge entries
+ on huge fault insert
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Alex Williamson <alex@shazbot.org>, 
+	Peter Xu <peterx@redhat.com>, Zi Yan <ziy@nvidia.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+	Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+	Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>, 
+	Roman Kisel <romank@linux.microsoft.com>, Saurabh Sengar <ssengar@linux.microsoft.com>, 
+	Naman Jain <namjain@linux.microsoft.com>, Michael Kelley <mhklinux@outlook.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, Eliav Farber <farbere@amazon.com>, stable@vger.kernel.org, 
+	"Jose A. Perez de Azpillaga" <azpijr@gmail.com>, "Gregory Price (Meta)" <gourry@gourry.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The current polling code unconditionally waits 30us, which was sized for
-a ~25us Clause 22 transaction, and then polls MDIO_CMD with a sleep of up
-to 2ms between samples.
+On Tue, Nov 17, 2026 at 10:32=E2=80=AFAM Lorenzo Stoakes (ARM) <ljs@kernel.=
+org> wrote:
+>
+> A driver that implements both ->fault and ->huge_fault must anticipate
+> concurrent use of both.
+>
+> This can happen, for example, if a user calls prctl(PR_SET_THP_DISABLE)
+> concurrent with faulting, as that only holds the mmap write lock and thus
+> does not exclude faulting threads stabilised by VMA lock.
+>
+> insert_pmd() and insert_pud() have issues with this as they both assume
+> that, if the page table entry being populated is not empty, it must be a
+> present huge entry.
+>
+> This is problematic as if it is a write fault, it compares its PFN agains=
+t
+> the one being inserted, warning if they differ, on the assumption that th=
+e
+> entry is a huge leaf.
+>
+> Since the entry may be a page table, this is invalid and can result in
+> spurious warnings.
+>
+> Equally, the entry might be non-present. Nothing can install such an entr=
+y
+> in the VMAs that reach this code today, but there is no reason to rely up=
+on
+> that.
+>
+> Therefore only examine the PFN if the entry is both present and huge, and
+> otherwise simply return VM_FAULT_NOPAGE so the fault is retried and handl=
+ed
+> at the appropriate level.
+>
+> This is what already happens for a read fault, for which the existing ent=
+ry
+> is not examined at all.
+>
+> Target the commit which introduced the first driver which both mixes faul=
+t
+> orders and passes the write flag for the fix (since this commit, both
+> drm_gem_shmem and panthor are prey to this issue).
+>
+> Reported-by: Eliav Farber <farbere@amazon.com>
+> Closes: https://lore.kernel.org/all/20261112051440.16140-4-farbere@amazon=
+.com/
+> Fixes: 7bfe3b8ea6e3 ("Drivers: hv: Introduce mshv_vtl driver")
+> Cc: stable@vger.kernel.org
+> Reviewed-by: Jose A. Perez de Azpillaga <azpijr@gmail.com>
+> Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+> Tested-by: Gregory Price (Meta) <gourry@gourry.net>
+> Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-Adding Clause 45 support means that every access becomes two back to back
-transactions (an ADDR cycle followed by a READ/WRITE cycle), so a fixed
-delay sized for a single C22 transaction is no longer meaningful, and a
-sleep of up to 2ms between samples can add significant latency to each
-access when the transaction has not completed at the first sample.
-
-Instead, poll the MDIO_START_BUSY bit every microsecond so that the
-completion is noticed as soon as it happens, regardless of the type of
-transaction. This turns the wait into a busy wait, which is bounded by a
-timeout reduced from 100ms to 1ms: a 64 bit MDIO frame takes about 33us at
-the lowest MDIO clock the driver can program from a 250MHz reference clock,
-so even a two frame C45 access completes well within that.
-
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
-Co-developed-by: Carlos Soto <carlos.soto@broadcom.com>
-Signed-off-by: Carlos Soto <carlos.soto@broadcom.com>
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
----
- drivers/net/mdio/mdio-bcm-unimac.c | 24 ++++++++++++++++--------
- 1 file changed, 16 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/mdio-bcm-unimac.c
-index 5f79f31220f2..f8e5c1811d96 100644
---- a/drivers/net/mdio/mdio-bcm-unimac.c
-+++ b/drivers/net/mdio/mdio-bcm-unimac.c
-@@ -6,8 +6,8 @@
-  */
- 
- #include <linux/clk.h>
--#include <linux/delay.h>
- #include <linux/io.h>
-+#include <linux/iopoll.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
-@@ -36,6 +36,13 @@
- #define  MDIO_CLK_DIV_MASK	0x3F
- #define  MDIO_SUPP_PREAMBLE	(1 << 12)
- 
-+/* A 64 bit MDIO frame takes ~25us at 2.5MHz and ~33us at the lowest MDIO
-+ * clock the driver can program from a 250MHz reference clock. The timeout
-+ * applies to the wait for one frame, so a 1ms timeout leaves a wide margin.
-+ */
-+#define MDIO_POLL_DELAY_US	1
-+#define MDIO_POLL_TIMEOUT_US	1000
-+
- struct unimac_mdio_priv {
- 	struct mii_bus		*mii_bus;
- 	void __iomem		*base;
-@@ -79,14 +86,15 @@ static int unimac_mdio_poll(void *wait_func_data)
- 	struct unimac_mdio_priv *priv = wait_func_data;
- 	u32 val;
- 
--	/*
--	 * C22 transactions should take ~25 usec, will need to adjust
--	 * if C45 support is added.
-+	/* A frame should take ~25 usec. A C22 transaction is a single frame,
-+	 * a C45 transaction is an address frame followed by a data frame and
-+	 * each of them is waited for separately.
- 	 */
--	udelay(30);
--
--	return read_poll_timeout(unimac_mdio_readl, val, !(val & MDIO_START_BUSY),
--				 2000, 100000, false, priv, MDIO_CMD);
-+	return read_poll_timeout_atomic(unimac_mdio_readl, val,
-+					!(val & MDIO_START_BUSY),
-+					MDIO_POLL_DELAY_US,
-+					MDIO_POLL_TIMEOUT_US, false, priv,
-+					MDIO_CMD);
- }
- 
- static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
--- 
-2.34.1
-
+Reviewed-by: T.J. Mercier <tjmercier@google.com>
