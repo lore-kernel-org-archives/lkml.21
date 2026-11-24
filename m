@@ -1,45 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795543380;
-	b=N6TYtu5XocvcyGT8mxciBzFf8GTHAMFBwdwVx+3cu0Ia141BLTvAqg0Km4ZLmu8mmecH
-	 KTrqyt6ZHqIwFKP7zHYPdluXvNWkgX1kby5piKXuDsnBmVyIKlAsgyr6B8Jb+K0AJmhqu
-	 Qy+YCMJJcV7Vo50j+Yxa+0IBOon37zBsCHm8lGyjAj9l2uQ0SIPNBR5KqABS1qsN50NcB
-	 60e54yF2n1J1VCklU2tG1sd/IUe5iW1y5VpTxwPsY9/+XazRzaDMrThz0QCQkyMbZGALQ
-	 /dTpfUId+OknwlKQSR2/eZZX1tgIq1I2pfWs0duFmpFBGU3/yXesPGpPixeMxqXqi+Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795543380;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=+s/pSWYEicfBjwGMsJ0V5M+5lqwSaSDECXGtDKSmQ04=;
-	b=I63yCMlJDbOAdpjRVtUWF3NGZk51y4+QTWr1HRZ6NUWvDaFcZMYjIJ3xqbaCs2Hxwkm0
-	 CxdTR5SCs4o1/HY1EdaMOWZpgN2yVfs4PoQ51G5GXakrbqHN6hXDCSr/1YKQibgP8yO6j
-	 MNxiiz3FeUyNDhDcyosAScC7TA2RrTJY1OCUWDTHmUum1Jg10ubORpClc37jWImWVfGsn
-	 hfHkkyxFh80Hd8ncmJ49TyOGiuHVI9lhpLRjtpSwOVPO2p6F6r3a0r0r+EELO1aDvonME
-	 hA+0m7+kxmkYJqxA2fqBsdK0hen8xP5WKP4PYN5R+WtYlCp77jODhWMcwoqEjhwDOXQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ClDp25Df;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795543389;
+	b=szU6JRw3Thpx0temfUwKJ3gKusgHWFRRwEhcQU2kUyEU5c0fSyRjcuBFx3WhkNnFfDg1
+	 Z8EJnKj1U6lvHjGgRbWcgGzG4EroPKHLXqzuMQRB3eJPS9eSoGkNrvLTVAL84DqACLOPo
+	 NunM1peaAGAiCvaFxHO4TGmLI9HlcwIFx8kPhhZ7SxeWmO/woBYCkOejHGwrcOoUKyrIB
+	 toGujIc/mdDfJdOC8LDxhKJkv4QVYhdVzv2vpnXwQMXvw+vvC4qc39YqJYgZGcrdFOAnC
+	 XvoRccsZWMh7dPwiMoJmtbdG62xpasB89OGY8VZ8VxuABJy4ewP8DIFEIPBWf3AY9Yg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795543389;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-ZohoMailClient;
+	bh=dz9+ADitlgzsDNxkxrOPLbIYSXSNRs/g5s6tyi3QL/o=;
+	b=Wnr9ALDPV5VGN8g4dSMXs1igx5oLt/y5Bft6z8Ly/iCIuCIJKx5GL/qQRKKcnUVAoP0S
+	 EEx0g8F3lZlV9V956JbE0qQ2T7nr3ioMMJGGbDzAcSsXD6ZO13KhBHZ25lEHEsl3aOGwU
+	 D715P+4uylxAwUhfremL7lBqyZ+7SOglwQP/VxOcVtkX5NX3LXe/kL6mfQ+/iiHJ/VGxE
+	 7C5okDrR2GeeJ+WsKVGvnP6tdRLnFSBgAKxmHPrpSjyxStfOWUpgHkgQmlqAQGoeCzbSN
+	 mJkWc+8BziMNgFpgQdWPHCkRmzuoEKd3cC0S5eCEhUo/RQXnf7/6mkYfo5EpDvyT6yg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=rong.moe;
+	spf=pass smtp.mailfrom=rong.moe;
+	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=cXs6Ucuz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A5BF606A31E;
-	Tue, 24 Nov 2026 18:02:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8C98606A31E;
+	Tue, 24 Nov 2026 18:03:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8C98606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ClDp25Df
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFD501F000C4;
-	Tue, 24 Nov 2026 18:02:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795543379;
-	bh=+s/pSWYEicfBjwGMsJ0V5M+5lqwSaSDECXGtDKSmQ04=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=ClDp25DfPkorfz8AIyXtWi0fQxZ56izXBcw/49/a4ORshdCwZikRsC4WG1jBERGSe
-	 +28ZBwp7OB1mnkUHU67bDf5jzdO4DvPJMzSDA8EKWwrPEUEEQ0dsL4GOxrBuVZEAfc
-	 bUBWhBtw0k7kEdXTnpmS0CUD83/IG2ESFZt5+LQKQxvyjN5HKDSLf6xs/GgfDNq4ki
-	 WM6S//jDysHo2C/bIQWKFgFbidJoCej8lLowQ3BHgyh4SNpb7zA5AktzQYZs25RNqT
-	 hX4tCGU6o2UFlawjZnNEOc3CWLEiv7Gc1iFTa0KObSbtLlWWYW7HHB1sP/zdFi/88T
-	 kYVdGEjOnanGw==
+	dkim=pass (2048-bit key, unprotected) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=cXs6Ucuz
+ARC-Seal: i=1; a=rsa-sha256; t=1795543376; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=NNFBFMo/ThAZEubmvkR+AYAyokT/nxT7TA9MvODY/V4u9EpCn2ZYY0/mIdPZNe22AX9DwPGnXOcwjWlCXN+0GB957DJU94z9PKXBkvve8Qk5K1XutHvGjSdd8aKu13eerYQ9vEP82gn6KgQ8N6vBIzizJpvhhF8Chubb8pDocaU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795543376; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=dz9+ADitlgzsDNxkxrOPLbIYSXSNRs/g5s6tyi3QL/o=; 
+	b=X9vY875rdy1DiMmZdSfQ/kWSYkGy8y85nxw5cJgh5Nx4ypu0eSs+hHcHR4JX4osKwWgRxmlL69ZmxrfXgPURvbr5IrRifnOl/5bBowdeZG+p5mrE4dpyoUijqgE0LEzpjGmN7MVNANtaqC1bxriECYRvsz6HCWBCrGo7ilLnO4o=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: a=rsa-sha256; b=cXs6UcuzCkevhdrLgRv0Wt0InGaLqACynNkxUm8D4dnq7aJcpRi1QacWapDVoa30cOKtfyOG5W7M/mzQit2AlO3bHsYBVw1c72I2DX+ZcANwfcq2Q4pY8Z3968H3QP83IiRebf44H8RCZY3HvilKUbzbzg3JH0WvCICpRRoai89UwQGU6ZaiqqJGIAZ+rtc8ZE3k+mf703G7bNyVEeGSai3SdHm9I5o41LdzO8GizqVFQuSHSuhqmgDtxVJ0E8TSwL9qs7DBPHuc9icnzlICDH4Rnpc10dDu5HfZ8P6dLLobWBGute3PIZweQDFvZK0H/nOm8/mYv1XGZ5GnDDtLqg==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=dz9+ADitlgzsDNxkxrOPLbIYSXSNRs/g5s6tyi3QL/o=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 179554337431539.146940877737165;
+	Tue, 24 Nov 2026 10:02:54 -0800 (PST)
+From: Rong Zhang <i@rong.moe>
+Subject: [PATCH v2 0/5] platform/x86: lenovo-wmi-other: Refine
+ firmware_attributes interface
+Date: Wed, 25 Nov 2026 02:02:38 +0800
+Message-Id: <20261125-lwmi-no-singleton-v2-0-37611a7b2fc4@rong.moe>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,49 +63,61 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH 1/4] ASoC: tlv320aic32x4: Add missing DAC and driver
- output mixer routes
-From: Mark Brown <broonie@kernel.org>
-To: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
-Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
- Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, 
- Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261123234050.150364-2-gianfranco.mariotti94@gmail.com>
-References: <20261123234050.150364-1-gianfranco.mariotti94@gmail.com>
- <20261123234050.150364-2-gianfranco.mariotti94@gmail.com>
-Date: Tue, 24 Nov 2026 18:02:55 +0000
-Message-Id: <179554337505.947306.7216985666736610034.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1031; i=broonie@kernel.org;
- h=from:subject:message-id; bh=ZBR7L1W394LeicZssVSWRjbC5NHnyZ1U+Hl8ykMixMc=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJZL/obTJ7GFtjMdNv/TcL+h/f+8M76k3vk+vKL8WZHt
- 5zy0Aw811HKwiDGxSArpsgSl8X9sr7k9Rq+gwvbYOawMoEMYeDiFICJKB5g+B/76A37iWsm0xMO
- l8mGFrY1F7rH/79usfdxQ/WXiNDZBjsZ/jvOrH9jfFnxut1ah1Vx39YELjgtK9B0LzJp58bry/5
- 0JfIBAA==
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22NQQ6CMBBFr0JmbU2nQhVX3sOwgDqFMdCaFlFDu
+ LsFty5f8v77M0QKTBHO2QyBJo7sXQK1y8B0tWtJ8C0xKCPJnDAX/Wtg4byI7NqeRu9EfbBlXuC
+ xrAsJafcIZPm9Na/Vj+OzuZMZ19BqdBxHHz7b6YSrB0oqjYjln/6EQgrdSG2NbQpU+hK8a/eDJ
+ 6iWZfkC8qVn+sMAAAA=
+X-Change-ID: 2c0ec814-lwmi-no-singleton-a3f945179a50
+To: Mark Pearson <mpearson-lenovo@squebb.ca>, 
+ "Derek J. Clark" <derekjohn.clark@gmail.com>, 
+ Hans de Goede <hansg@kernel.org>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Armin Wolf <W_Armin@gmx.de>
+Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Rong Zhang <i@rong.moe>
+X-Mailer: b4 0.17-dev-ce4c1
+X-ZohoMailClient: External
 
-> The HPR and LOL output routing selection registers (Page 1, Registers 13
-> and 14) support routing the opposite DAC channel's negative
-> reconstruction filter terminal as well as bridging the HPL and LOR
-> output amplifier stages for mono differential configurations:
-> - AIC32X4_HPRROUTE bit 4: Left DAC negative terminal to HPR
-> - AIC32X4_HPRROUTE bit 0: HPL output driver to HPR
-> - AIC32X4_LOLROUTE bit 4: Right DAC negative terminal to LOL
-> - AIC32X4_LOLROUTE bit 0: LOR output driver to LOL
+The driver declares `.no_singleton = true' but stores device-specific
+data to statically allocated tunable_attr_01 variables. This violates
+the requirements of a no_singleton driver (even though no device in wild
+ever has more than one such WMI device).
 
->  static const struct snd_kcontrol_new hpr_output_mixer_controls[] = {
-> +	SOC_DAPM_SINGLE("L_DAC Switch", AIC32X4_HPRROUTE, 4, 1, 0),
->  	SOC_DAPM_SINGLE("R_DAC Switch", AIC32X4_HPRROUTE, 3, 1, 0),
->  	SOC_DAPM_SINGLE("IN1_R Switch", AIC32X4_HPRROUTE, 2, 1, 0),
-> +	SOC_DAPM_SINGLE("HPL Switch", AIC32X4_HPRROUTE, 0, 1, 0),
+The series moves tunable_attr_01.device to the firmware_attributes
+device's drvdata and introduces a tunable_attr_01_ctx array to struct
+to store c[dv]_mode_id. In this manner, all statically allocated
+variables relevant to our firmware_attributes interface are constified.
 
-Is this supported for all the devices covered by the driver?  See
+This also eliminates all attribute-specific callbacks by moving their
+data into a newly-introduced container struct capdata01_attr, so that
+all remaining attribute callbacks becomes generic and are shared among
+different attributes, which shrinks the module size by 42.7%.
 
-   https://www.ti.com/lit/pdf/slaa463
-   https://www.ti.com/lit/pdf/slau306
+To further follow the common practice of sysfs attributes, all attribute
+groups are now created and removed at once using sysfs_create_groups()
+and sysfs_remove_groups() by providing an is_visible() callback.
 
--- 
-Mark Brown <broonie@kernel.org>
+Signed-off-by: Rong Zhang <i@rong.moe>
+---
+Changes in v2:
+- Swap device_id and feature_id in tunable_attr_01 (thanks Mark Pearson)
+- Rephrase the commit message of PATCH 4 (ditto)
+- Link to v1: https://patch.msgid.link/20261119-lwmi-no-singleton-v1-0-6b06fcfb5126@rong.moe
+
+---
+Rong Zhang (5):
+      platform/x86: lenovo-wmi-other: Retrieve private data from firmware_attributes device
+      platform/x86: lenovo-wmi-other: Eliminate attribute-specific callbacks
+      platform/x86: lenovo-wmi-other: Factor out tunable_attr_01 definition into a macro
+      platform/x86: lenovo-wmi-other: Constify tunable_attr_01 variables
+      platform/x86: lenovo-wmi-other: Hide unsupported attributes using is_visible() callback
+
+ drivers/platform/x86/lenovo/wmi-other.c | 566 +++++++++++++++-----------------
+ 1 file changed, 259 insertions(+), 307 deletions(-)
+---
+base-commit: 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
+change-id: 2c0ec814-lwmi-no-singleton-a3f945179a50
+
+Thanks,
+Rong
+
