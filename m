@@ -1,99 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795533016;
-	b=AHlpYGXUFMuMcLyumiW4du7Rcrg6kxm+VwOPBhQ7yTVSh36g7ars1TGrzH8tff2lxp6C
-	 M7FkeYZ2cigUT9BqVfsYn1/yOplQiUUstGVOv2y6r5WDgkB4TeGT2MdpFonLanO4NkKFs
-	 mEylwzryDV5gtdguBabyPeJdQrAOiH54za1DaVf1BpFraAeNkzjUBfOS4x9Vzz46yLPF2
-	 Tst4f5UOfFMgWV2ZqUWOPQd6M2D1y9yiSdKhylJjIvSpDBznwGDpFaUNqbgnMq9FYrJLm
-	 bO+v6NkBZHx5mBekdkJvh9ij3ASfA63hl5jC5wDK/Xl/ZdmHoeF7YVEEDX+IGaXckOw==
+	t=1795533072;
+	b=B59Y5hNfA/C/sMvWYhi+R7gRfQ2YZIoyub8DuDTGdGV7qjUUZxhvmegXumP/nqVT/1LF
+	 wNLH5kQ0lIr3aT2T6B8C4aiZjcbKvLhkb15KNiGql9PeQQR6yysu/YUr/EPkD9N6F9Kl1
+	 rkgXKqBY+T8D4gSInmuGfOjGQUQfzWTiBlhP/MbWEFwPYxAFj+rRja8GHhbIDtfx7FIZQ
+	 PYjS5VR6B6oUnsQIhrVXSrV8cFwcnrnNMojgbOTrd6BYQfdrnhj0zTqM73Z+iHj1QScfC
+	 i7M1TL4wjzjYX+P2uV0rrgu0CqZlivKyfo7oPQEiskD2sy1fv8gTpwjpEF4OS9RNfGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795533016;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795533072;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=zLnilNtv6TgFtWLmY0P+M7M3ZbXmBZe4pPd+K5XLsr0=;
-	b=i8n2mDmq7T/ed3EiTSP1MchMuT4YxF5rVGk6du22mUVYzzPzoJubcNVZAN7yuCw9Xy6P
-	 DpQSIfpE53iGt+ia4cEjRN5wm4zmDvhkZk34Atirti5wkned1z7oa75oQO5lxXU2KAO4A
-	 zqSojKCdWP3Ww0UOCMF9MX7klQu4zzbqVMRBwUGK2pIkKmz/ejAdbPpO0zkuytxQUtErK
-	 JmDFcGS2+/o6D5islA4eTp7evCYJFhUBsCi2lH5Knv3ZR//TbNdC1cS/pmQD0drwgc4s3
-	 6jV4PvRb3wGgINlI8GthFumboBjovziCXDzVNxIfxP8tX0hnjQF9mXnVd6sCWRcbhUA==
+	bh=4i9A70D1gPOP4oksoFqIZyMS3O6430jvP/+79vhurdg=;
+	b=IvdzaDYRsBCxcJYD5NQf+AZFcZ3GSI5Y5aKcNKVVZqKAHprApWxFrSvNBFQxnK7CT1Er
+	 GDidOTtx1PuodTo/s2UVKvJxsNWMQ+wq4hW9SZTWTgqLDkBwX9koF5xzIhReKOMZrSUM2
+	 h4ZhrtzXFEQL4V+SNIM2ETPDfVyxNaCmE7R0KUyP9hGkRSlYZQB3FHYOJGPM2/bwtxYT0
+	 fxt1bpyDw6nGaW0psDNNdIqVdScd+cq8SjHt9cR7/QCF/v/FEZwN0jFZzNpc4Crof+eSs
+	 ZNKnfj4fxjdOlEVysoZbqCTdYXSXS/+GJSk7FjhEbrKwdcokhX2b1KgzNNNTavm7E/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GZhksYgP;
-	arc=none smtp.remote-ip=209.85.160.45
-Received: from mail-oa1-f45.google.com (mail-oa1-f45.google.com [209.85.160.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jdmxpstl;
+	arc=none smtp.remote-ip=198.175.65.11
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B2BF606A327
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:10:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B2BF606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8FA8606A321;
+	Tue, 24 Nov 2026 15:11:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8FA8606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GZhksYgP
-Received: by mail-oa1-f45.google.com with SMTP id 586e51a60fabf-451a49abd8aso4665920fac.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:10:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795533015; x=1796137815; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zLnilNtv6TgFtWLmY0P+M7M3ZbXmBZe4pPd+K5XLsr0=;
-        b=GZhksYgPAY37clzdNFEqyPrcq+rItQ+EVlz/36uIp3ryGtUoXq8xDuF4cWnp10gT2o
-         rxY+ULkzgcKT3fB5LzP/kSaffBYJyosXsvGzGbfFH6MGmdxT67wPCJIuQc6kgcPUms4w
-         G35rYL30SbviZK91LmanaBszRXyqM18C/kcxhalrfu1XALe1DdLlesnCi2frXlvbfRbY
-         QUGRLXDOUpk96Zfp+A6cbEmqvBepmzrR55oX8yEfhCk1pIuyIp2zsnFPNqUqXt+HnUZf
-         ldozSwEDdiRogUdvz2RehJZknxR8U0VUsuLI80/zWIBA16xzxdqem8qw7Cezu9NCU3Vs
-         Q1sA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795533015; x=1796137815;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=zLnilNtv6TgFtWLmY0P+M7M3ZbXmBZe4pPd+K5XLsr0=;
-        b=gSUJ3Vkn0qkpyNiQO9ga1kWVX9MfLsRpm6BCwfyH0qrQ9Pkzolp6KhXh4PZn8sSVMs
-         /Z9wYJ23bcQa/XJyVvq8X4s61dvEy2sfucG6yA2YjV8wsYUNghLvGQig/FELvGTW2nJu
-         rfzBzAqH/PpOFq957AYP2rRhZ6bMePfJ/EenKjH2VqPR2N/XrU1JDS563eFq959Ew243
-         qNeExKIs0fBzktnifJ1SzlqrE5Re4lLkU52WzXDtna6JIFCrf2GneT5H55IpRtMv2a6E
-         pTWfajnBF+0wW4isxgpDkT3HVadCleBK+kA698l89kN604JTDm4IW6qZO6AMb6Mh32yX
-         GKEA==
-X-Forwarded-Encrypted: i=1; AL+hErEZqD1u+Y0PiFMg+IcjraqgxTMsQRKpukN+3Vyk+ESsmR9+NWSxGZeJ9K14943TH02iDL7Y315KwVm4HiU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/iyalKonh6Imy6qKcoihqQLrQmq9FNJetTtpyFJvlR3zu3vkbN
-	XuNd3m/cisR3sQX9m1w54FQq3oIEMgOlqM3ZcFaxbOuslejD3wL9Fou7
-X-Gm-Gg: AZFdTZetmB2nIfYhNgl+b+ooIfFaTOgQLRif3OudVFTS9vO7XHpZjJceRJcoKGM8fQg
-	/iOLgaxt6FLX1iPjhZ1hliwEjP8vlYDhG7ggblBWbJ6uEGOBiSzyrIACHRhU66jfduPqaQFvI4X
-	3d1W4yhFOThne/dF+uo75IER9QjrpaJIAbKoSNAx2rOoaEVy3TMqVbtzmURJU6hKr/+x34gvqjP
-	HWAWVcjf+DcVLw/tsPajqma2vTJCA0LtlX4UN2z2FU0BRFdYVxtjRoV2oRUJ8wH85rDWKsNlGDT
-	lZApg1/JlCm4AnOpj0Vbort6+ZOYEP+5iPALCHPy8Rdac/LxcwsL9UWOVgh7HEMbm+1G6tBHIAC
-	c5AmxyrCHrYBxnr4zE1u7SmydmK96pTIslgXb3rOFUOCuZcRceG8IiLTRdgj7vOegt4nBg/ZiOR
-	8Qoo7FMWkgNoagunJDGMFM4HknG6vVIM5x1eMnkX5DtN5VezBxgW40k4h4wMX8t0na2QONtBBgK
-	d8QMFtE9aX0myOZPH6jXYOsoFW9gz9zKZbCmnGuTsUkrDcBC7jxxUUtyx0TAAVQCSH8+6rtZrcv
-	r0Mh8ekVLEpKT1YVBBByqKB4Q3Q5aEJq8DLmrMQDI40lTKhKTbuSacRgeWwQxuwfLgYLf0kqePi
-	+7nBklNFMPoyMobt3nA7S8JV1Ka98YcjkVxWdHmVoGNoFzzlBqBA0VMdqkNeLM/jdWpA=
-X-Received: by 2002:a05:6870:b0d6:b0:43b:b245:30ac with SMTP id 586e51a60fabf-4bc81aa21f4mr13572490fac.16.1795533014780;
-        Tue, 24 Nov 2026 07:10:14 -0800 (PST)
-Received: from tempest-testimage-cc-centos9-stream-server-1191361818 (chi-dyn-129-114-108-164.tacc.chameleoncloud.org. [129.114.108.164])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bd3008160dsm14404091fac.16.2026.11.24.07.10.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 07:10:14 -0800 (PST)
-From: Yuho Choi <oss.patchbox@gmail.com>
-To: Kevin Hilman <khilman@baylibre.com>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Roger Quadros <rogerq@kernel.org>,
-	Tony Lindgren <tony@atomide.com>
-Cc: Russell King <linux@armlinux.org.uk>,
-	Pavel Machek <pavel@ucw.cz>,
-	linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yuho Choi <oss.patchbox@gmail.com>
-Subject: [PATCH] ARM: OMAP2+: Fix CPCAP node reference leaks
-Date: Tue, 24 Nov 2026 15:10:06 +0000
-Message-ID: <20261124151012.333306-2-oss.patchbox@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jdmxpstl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795533071; x=1827069071;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=NxeC1Wybb77mO9Kjd+nB0CN+fae9IJOOQ1ybh9mDWzM=;
+  b=jdmxpstlIex3Ja4vTb3OsFT4KVnoN4JAQi9MOOxxoAVfBUwEXfqq50Kr
+   mIfdJ1PEgpPAnEvYbZu4XtrVMe/9jdEuXFpbv1J1r25T1lT8QKjBsKeMx
+   ffX5HozHYW07kuoaI5vNEBs7MmkV40rQ/ARpLY+vnhmcEiwqnAPj3HRqx
+   MTW5GmwO6leGRThQ32K3L6SMkPNTBtaobrHjEZL1fsgflKRGFmyguOUKa
+   HL6c3OvPzU8jiwwXmVVu46ojWafp4i6Yg8egUgP+1QY9RUPS3gk9VHAf3
+   VXzjgXFcu/pLP1p87/F54k99YXrEDMORX4RdsZsaZls/Kc/mNeW173+bc
+   g==;
+X-CSE-ConnectionGUID: 73rnKCWRTLWIfXCur7c7CA==
+X-CSE-MsgGUID: v7gRX3wxQ4KdNaD7ruCIqw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4270715"
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="4270715"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 07:09:40 -0800
+X-CSE-ConnectionGUID: rYqzc2CPTh+6pvl8qSuViA==
+X-CSE-MsgGUID: GXBH/9peRMOWfKr0EK0fKg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="11709101"
+Received: from sghuge-mobl2.amr.corp.intel.com (HELO [10.125.110.20]) ([10.125.110.20])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 07:05:04 -0800
+Message-ID: <90346f3d-6b46-4786-9d57-3f39b6fdd7b5@intel.com>
+Date: Tue, 24 Nov 2026 07:05:03 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,86 +73,106 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 04/13] x86/sgx: convert vepc mmap hook to mmap_prepare
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Juergen Gross <jgross@suse.com>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, "Michael S. Tsirkin" <mst@redhat.com>,
+ Jason Wang <jasowangio@gmail.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
+ <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+ Jarkko Sakkinen <jarkko@kernel.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner
+ <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Jan Kara <jack@suse.com>,
+ Paul Moore <paul@paul-moore.com>,
+ Stephen Smalley <stephen.smalley.work@gmail.com>,
+ =?UTF-8?B?T25kcmVqIE1vc27DocSNZWs=?= <omosnacek@gmail.com>,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai
+ <billy_tsai@aspeedtech.com>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+ Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
+ Scott Branden <scott.branden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Richard Cochran <richardcochran@gmail.com>,
+ David Woodhouse <dwmw2@infradead.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: xen-devel@lists.xenproject.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev,
+ linux-sgx@vger.kernel.org, selinux@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-arm-msm@vger.kernel.org, op-tee@lists.trustedfirmware.org,
+ netdev@vger.kernel.org, linux-mm@kvack.org
+References: <20261124-late-2026-mmap_prepare-v2-0-0b0d99d655f9@kernel.org>
+ <20261124-late-2026-mmap_prepare-v2-4-0b0d99d655f9@kernel.org>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <20261124-late-2026-mmap_prepare-v2-4-0b0d99d655f9@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-omap4_cpcap_init(), cpcap_late_init() and omap4_twl_init() call
-of_find_compatible_node() to check whether the device tree has a
-"motorola,cpcap" node. of_find_compatible_node() returns the node with
-its reference count raised, but the callers only test the returned
-pointer and never drop that reference.
+On 11/24/26 06:02, Lorenzo Stoakes (ARM) wrote:
+> Move from the deprecated mmap hook to the new mmap_prepare hook. The hook
+> only checks that the mapping is shared and sets VMA flags, operations and
+> private data.
+> 
+> Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-Put the node right after the check.
-
-Fixes: d44fa156dcb2 ("ARM: OMAP2+: Configure voltage controller for cpcap")
-Fixes: ccd369455a23 ("ARM: OMAP2+: Remove bogus warnings for machines without twl PMIC")
-Fixes: 7397daf1029d ("ARM: omap: pmic-cpcap: do not mess around without CPCAP or OMAP4")
-Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
----
-Compile-tested only (ARM omap2plus_defconfig, W=1). I have no OMAP4
-board with a CPCAP PMIC to test it on.
-
- arch/arm/mach-omap2/omap_twl.c   | 10 ++++++++--
- arch/arm/mach-omap2/pmic-cpcap.c | 11 +++++++++--
- 2 files changed, 17 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm/mach-omap2/omap_twl.c b/arch/arm/mach-omap2/omap_twl.c
-index d4dab041324d..e103088bb34f 100644
---- a/arch/arm/mach-omap2/omap_twl.c
-+++ b/arch/arm/mach-omap2/omap_twl.c
-@@ -213,11 +213,17 @@ static struct omap_voltdm_pmic omap4_core_pmic = {
- int __init omap4_twl_init(void)
- {
- 	struct voltagedomain *voltdm;
-+	struct device_node *np;
- 
--	if (!cpu_is_omap44xx() ||
--	    of_find_compatible_node(NULL, NULL, "motorola,cpcap"))
-+	if (!cpu_is_omap44xx())
- 		return -ENODEV;
- 
-+	np = of_find_compatible_node(NULL, NULL, "motorola,cpcap");
-+	if (np) {
-+		of_node_put(np);
-+		return -ENODEV;
-+	}
-+
- 	voltdm = voltdm_lookup("mpu");
- 	omap_voltage_register_pmic(voltdm, &omap4_mpu_pmic);
- 
-diff --git a/arch/arm/mach-omap2/pmic-cpcap.c b/arch/arm/mach-omap2/pmic-cpcap.c
-index 9f9a20274db8..2f487ad41685 100644
---- a/arch/arm/mach-omap2/pmic-cpcap.c
-+++ b/arch/arm/mach-omap2/pmic-cpcap.c
-@@ -238,9 +238,12 @@ static struct omap_voltdm_pmic omap4_fan_iva = {
- int __init omap4_cpcap_init(void)
- {
- 	struct voltagedomain *voltdm;
-+	struct device_node *np;
- 
--	if (!of_find_compatible_node(NULL, NULL, "motorola,cpcap"))
-+	np = of_find_compatible_node(NULL, NULL, "motorola,cpcap");
-+	if (!np)
- 		return -ENODEV;
-+	of_node_put(np);
- 
- 	voltdm = voltdm_lookup("mpu");
- 	omap_voltage_register_pmic(voltdm, &omap443x_max8952_mpu);
-@@ -264,8 +267,12 @@ int __init omap4_cpcap_init(void)
- 
- static int __init cpcap_late_init(void)
- {
--	if (!of_find_compatible_node(NULL, NULL, "motorola,cpcap"))
-+	struct device_node *np;
-+
-+	np = of_find_compatible_node(NULL, NULL, "motorola,cpcap");
-+	if (!np)
- 		return 0;
-+	of_node_put(np);
- 
- 	if (soc_is_omap443x() || soc_is_omap446x() || soc_is_omap447x())
- 		omap4_vc_set_pmic_signaling(PWRDM_POWER_RET);
-
-base-commit: 8dac6df92a2e66e2098bbc69061964cfe7e8375b
--- 
-2.56.1
-
+Acked-by: Dave Hansen <dave.hansen@linux.intel.com> # x86 bits
