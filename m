@@ -1,59 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795550228;
-	b=H5WndoED9nMkUTxrQEo1nvzVylAeFLWMLWqP8HMuFjqS8Uz5qHB7nFocwM4qXMiYNcEa
-	 LV3hdIOptPbGsji550I8GRjoErDXeFkOyF9iXz+lcPVHaA5/j4VC5rFuhZYzo/ALIhi9x
-	 jX33CbtXP97yRdQYSdVLs7Q9VZjjZftxhv+6WT8hxPVpWJOYB2lQLt+GaT2Dh5ctqkEoQ
-	 xdovtH8cCgiD1OcssdXTx2NGO7flaG4wFjU7XoI+jY8npcnNp9N/BDhWfJ9aQlLFAo7r4
-	 gZ1obrpbRjEy1xARj9x0vpplbjDSwSwjqYKjvSR7hxHpc3K6yEDRS6ZkZvLWisXuDTA==
+	t=1795550239;
+	b=P8Qm0zsDUkbumgAHagE5XIg3LnUakp52Pl6b38/MwsaxEMy0qrLsuUaxOzMPSL5QhxqV
+	 4ArbAjPDMMx7PdU01n5DWXlKzQ91DIooIJkMrd5PW+Kpm2+iqVm8Ufpme9F5yHLaVIUCY
+	 p395nksAdISIxeFE+8J1zkyijULb1UIdIPSRc/cbQtmdc8aGzxqEvRr+MA56C07wzsT/u
+	 zkmqziImMszg/0pKDP+E+SrS9JujeoQgRJud0rmMnH5nh4NYhjr6m10yFF9iE0Ymjy28y
+	 ZAU7TvjZR8I5RULh2lIislJuxTLiEPymHb9h01YLkjAgkAJJ3oCohp9ObRRVEJDTGiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795550228;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=TRHGsWUwkskS4t6ufJrJoi4yNfFVdpXAPSTFROsXCBE=;
-	b=gz0fdrDNFHw7AvbDcp4TROchaJtv+mCkojFeiLo3LhMn3m95QN+OA1pD5T7POH2ulwqt
-	 SXENjvBq2OGPmFu0ooPh6F1FOVPuMcu5kqRbTVwxG4oAsgFJLSAfE4aieQ66ynQB+HhBe
-	 qnA1Tfl2sj2JlfZilbEzuOAoUwEFrymvt5WiQgykalKnv+B+FqTYSmkKFNBYlxT2cdfPh
-	 istRKSR7zHYUWPNXaKlmlMbCWywNljdwYLHW6+qySIqQ/UBiPg6cv47z5BSaKnKM0DAUm
-	 seP32EOZqkoQhLYU0k0170fqTxWofRTUINeOz5dfkJWUWzZOA5xED8nLRcR8YX3Gpuw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795550239;
+	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=GvTBx3SWfsHsXzfmPLEMfq8rSPuRCBnLn2CVl4+lqXI=;
+	b=mD7a7TqMDqcOGJbev9na34/itPGA6KHM6cpUckeITenVQOGTJ15y9SBuU6jhYOE0YWCb
+	 f4POukMMPrVEuEtwrtxEtx7Sg2JUvUKRA5QUDbEacUCouR8o/RcOTMGS3IrXcdckpKOZ6
+	 uCqZb1vWb+Va3bp47I18TsJyk4F9kZdRJhJB6ePZZSOEZdEJDMweLq2iO+KipGSU3JI8t
+	 M5EKvSUcBvyEtuJGuPn3jcse0OdlFmDe9CZZfOV//HqighflQ9zf+YBImx7zHsi5Cyayp
+	 KFqQgU9HOCly6dziaajK1ANbJavQCxC4jp94G79iKKzk+U9WUgKONCi60XglkqXnpHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GbEERPZR;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RAFZPikH;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33DFE606A31E;
-	Tue, 24 Nov 2026 19:57:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 437A7606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:57:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GbEERPZR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A0071F000C0;
-	Tue, 24 Nov 2026 19:57:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RAFZPikH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFEAC1F000CA;
+	Tue, 24 Nov 2026 19:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795550227;
-	bh=TRHGsWUwkskS4t6ufJrJoi4yNfFVdpXAPSTFROsXCBE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GbEERPZRKJonoWvvipuAMRiOHFSDoWDxOtEY44h8E2+AxZDLcrlIP/LLhG+fbhVUH
-	 AfVV5Cuy6mOgsV4iG78DHSnZHhqLHuFmspwiYZK8yeVaQJfwHdZIGZ4xb4/qEqKCTh
-	 CCDJoNS20co+GETB+oJd+3EYgX/Pf8EW8LV4/9NCpfRJidwWD0oyx8804xo1xcThda
-	 onIHTsgXo3d1ru6YvR3wETEiysHKRCAlnj91e5n+icCNbzEqSVgvYuabYoQPlxtXxK
-	 9x6AAuNFStxd/fB0hqUyRhtah9ZaSZuveg/ipnnLDJvsSmK6E5JW+/rTzmvlDf+6Be
-	 GdFElckCifjYw==
-Date: Tue, 24 Nov 2026 13:57:05 -0600
-From: Rob Herring <robh@kernel.org>
-To: =?utf-8?B?S3J5xaF0b2YgxIxlcm7DvQ==?= <cleverline1mc@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lino Sanfilippo <LinoSanfilippo@gmx.de>,
-	Matous Hybl <hyblmatous@gmail.com>,
-	Miroslav Ondra <ondra@faster.cz>, linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: serial: pl011: Reference rs485.yaml
-Message-ID: <20261124195705.GA3075022-robh@kernel.org>
-References: <20261121-pl011-rs485-v1-1-0d18008f4a12@gmail.com>
+	s=k20260515; t=1795550239;
+	bh=GvTBx3SWfsHsXzfmPLEMfq8rSPuRCBnLn2CVl4+lqXI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=RAFZPikHQ8uonDh8njmHLYB7oJyb3btujbsNyBkOJqvKTTD4M8RwHCd1srVKzljio
+	 AVBtbP3Kli2bVS6E4Z/kf6q0LzsVroBLGDb+cK1MQwGqjY8i8Dd6SEYla4nkK7UFUP
+	 PJg6VPD6i6u+aqncd0++a62QnAwlci0j2qxgi0wI7rihhCut7dlbC6cUxj0445G9c6
+	 3qICeps5AeQJCw2HZZ5U/49Me8NcujDtll3OY8+Rz/MzTDwT3pv4+o4HQkT+nT2o9D
+	 JSnK963XHm7mzmN6gWkoMhWZFmes2hfFJxv6VCT+uWBsHTXzPIcdXKMLvTusEp0dJq
+	 Xta3Tsyi/J/NQ==
+Date: Tue, 24 Nov 2026 09:57:18 -1000
+Message-ID: <d966a0f7346e1bf9061e4cccecd14b6e@kernel.org>
+From: Tejun Heo <tj@kernel.org>
+To: Saurabh Sengar <ssengar@linux.microsoft.com>
+Cc: jiangshanlai@gmail.com, linux-kernel@vger.kernel.org, ssengar@microsoft.com
+Subject: Re: [PATCH] workqueue: Skip redundant unbound updates during CPU bringup
+In-Reply-To: <20261124180010.1505819-1-ssengar@linux.microsoft.com>
+References: <20261124180010.1505819-1-ssengar@linux.microsoft.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,24 +57,14 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261121-pl011-rs485-v1-1-0d18008f4a12@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 21, 2026 at 04:10:33PM +0100, Kryštof Černý wrote:
-> The amba-pl011 driver supports RS-485 and parses the generic RS-485
-> properties with uart_get_rs485_mode(), but the binding does not allow
-> them. Reference rs485.yaml.
+Applied to wq/for-7.4-fixes with the following tag added:
 
-Is supporting RS-485 really specific to the UART? Can't pretty much any 
-UART support it? Whether a driver does or doesn't doesn't matter. If so, 
-then serial.yaml should probably just reference rs485.yaml.
+  Fixes: 84193c07105c ("workqueue: Generalize unbound CPU pods")
 
-> 
-> Fixes: 8d479237727c ("serial: amba-pl011: add RS485 support")
-> 
+Thanks.
 
-Drop blank line.
-
-> Signed-off-by: Kryštof Černý <cleverline1mc@gmail.com>
+--
+tejun
