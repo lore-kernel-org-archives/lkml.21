@@ -1,54 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795520187;
-	b=IkjjlgsHd01/vH7dzjRGXwpJGTpAKt/W3NF2rLHPhjRt3Ny8wED8b++iiAGzpR6OzsDZ
-	 uBPLoSvVs2Q0HHG90NcL+/A6/sCs7Fdscf2QOaVQn4mscxu82j/JFV/QtUNwZtNBf4gZh
-	 kMmpDCEL88xq1LKBY8+xsUCo63mn40zScyGfAO3hY9Qq+pLQjgXya8oV8frVNwl/kVwLW
-	 srPkuRxPBz0HCX7HROi1P6WOez/20YNyu8iTzefpHU8Fsnj7Q52fvU4nYHeJ5ycTw4YoC
-	 8qU5gyDr77gFr08TeRaBiklR2oSgpgNfRY2hfT5ihzN9UaJTPJ8QFpq9NXHaFmR5LhQ==
+	t=1795520188;
+	b=ybhaSdEAr1jPioIqSchUGMvlkkGeTbywwh59Sn6/ceuqWoi9d8DYG3iQ/Ev4L6eSsmOj
+	 /5h76fFwXd57KS91r4fvboYxdz0YPBtQurxji0wC2AucJDm8hOMf0T8RpQoismB/VVMqP
+	 DnA8M3ou7Nm3YKOgTuyoWtg5ydwd+tGcHXWff8ZWnxhDxh778EwYh9DKhqcYYRgvh/99o
+	 rt7WRCifQKZani2qAfN3f+2kJeq8EfbYHGwJxKIMo1znjKyu07Dz2RVZz4qFlHIfFUf+r
+	 2sDCWQroe7oweTDdU4VNIYcQVFNmGaOs1A34zyUVNnORs8mtteet0xBCFYmeNqKW1gA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795520187;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=5+z0RjfvMj/pFpchqzNvBrhynlyvv9N8yyd9ZoIwcDk=;
-	b=GZo4Hu1NmFfXTr0FLsuRqC4qJG4Lu7ZIPcwJEq1gCtvH/DLDFK9nKMtj3FTSqd+BTxmu
-	 oizvWh1+n3F8MJPV7i/A4FA6YIyWWq2PWyyWhTycRqneMItAQ1MhK0EWGE9qAsHirdEdJ
-	 J7WWxlMAvyM9aQiQs3ysjldlY+8aKgoKZoCTlv5CEJzituDcE+/gTeMG3+CrP1TunAefP
-	 UBUC+Xv2wWs99g69lmFTFCNNm8kLVT3bmNEopaoUIbk5lPs517V/syF03Rj+qvk4j2tWV
-	 SWUW9F2snMiY9RyueryZxauCPer5AuCGgWjntKAn4BsQTKLu+t5rK9g2KCeskLfDB3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795520188;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=yjkaFmMB/EOjRsxFRMCL6eH/Ahn9j6F0qkTMZyl7g/4=;
+	b=yfDKx9Keexhf5aX8QC0/8plfIX5ScpmHL1j4xhTF4cMDwR/wmnV6Vpn3Fxjb2HrR1C0F
+	 uKRlazqe4054VNi5uXuUUCF9tH6ob+GCMI8hEgDyGr64Mu0HA8w66qffRc9wSDcU68kZP
+	 wMYIu4t4cvjMseYV0R0pq6CLFroMwJ4/NMSzxKhN/qyqopcA+9vwaFy9vZlp+6I5cu1OL
+	 VI6q8z+1EK4XtGsowEHz2YBfD9MuUcrw+dhgmQQWtkqVdiuiVSJ9hjfw3yPi+fBmD3kDE
+	 Rs2qXLnuU0WGiQzCKLTEJo5SToxF3W5/bRYsGzg8WyMd+W25rWkDO5D7kMRgA6DQh/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.210.69
-Received: from mail-ot1-f69.google.com (mail-ot1-f69.google.com [209.85.210.69])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DCFC606A334
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:36:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DCFC606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-ot1-f69.google.com with SMTP id 46e09a7af769-8632a144987so2298543a34.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:36:27 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795520186; x=1796124986;
-        h=content-type:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5+z0RjfvMj/pFpchqzNvBrhynlyvv9N8yyd9ZoIwcDk=;
-        b=xFLKx/G3yQAFpRxcDhhZ45PaXBvxHvUrm5l37v3Wtijq1Pb+yJKE/dJsWQ42ZxCkc+
-         bUR5Fzd0UnaDLRqb1uYyKkhWqEneA94PKoHUrKclzkj13AAslanuf3onwW7f80IR2Uvd
-         mQNkqEoxuYT4v8Li7CreSlAAGI2UIP97XX8EyYqA4wFd3x77cbKI1DZpRr3yGrCLFgL/
-         PNrPg4ps6znYiIRECU1EamUusczftTrTeqcIOUtITwBn0JsZDLH94w/PxDDJBoRLRYq2
-         OS49Q5w28sGbGSGLckYvmTyZcZm55s/bHublBlG2aCRWPzHnQqBIRJ2KNdnJ4uMs0byI
-         RLLw==
-X-Forwarded-Encrypted: i=1; AL+hErHKPrXFIQmyvBBtSumqvSthXCmTPaJke7ISQ4o4Dgu3ejB2Af4/RVgfJiqC4+hw7PRxaFl0b7ewZdHPj1I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9p8Xvahyf7gH6rHA7lL8RRde0VNjjHi6neo8TFVuXOPIzZf7JS
-	GqgfTab+EyGxlWttxQ6MqSBM77rxNcDxLmx5RHZ1dnmiyExxTaK/AJUORKr3tkCEKsL+r03HsXs
-	h4/8QVbwNQwx+8l/IiBEbMoSq3sS4TV6Dcnqqmc4hgvkZXMhMhrHyOHP6GDg=
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=oPfsPL9p;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id C75BA606A330;
+	Tue, 24 Nov 2026 11:36:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C75BA606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=oPfsPL9p
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4ABAE1595;
+	Tue, 24 Nov 2026 03:36:24 -0800 (PST)
+Received: from e143943.arm.com (unknown [10.57.70.100])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A02013F86F;
+	Tue, 24 Nov 2026 03:36:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795520187; bh=TeduYDtsc0fp7HuojRA+mdJj2cMUWG0JMpMHLy/kQ7Q=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=oPfsPL9p/qYKOAZaE0L25gRUd/9OIvj3/4MdCMTcIxuBesHWFAVwa9EdOwVDw+eg0
+	 EcSNCeBrg6J8/NMYFabYou7K030Xhfiw3xVYyhdjun6PzKEWgm7jaNShuakYw4LFgU
+	 NlHQE8zZFoJR8txbVQPEGYtTRmGm4MMjhxgwC1ZQ=
+From: Beata Michalska <beata.michalska@arm.com>
+To: ojeda@kernel.org,
+	dakr@kernel.org,
+	gregkh@linuxfoundation.org,
+	rafael@kernel.org,
+	aliceryhl@google.com
+Cc: boqun@kernel.org,
+	gary@garyguo.net,
+	bjorn3_gh@protonmail.com,
+	lossin@kernel.org,
+	a.hindborg@kernel.org,
+	tmgross@umich.edu,
+	daniel.almeida@collabora.com,
+	boris.brezillon@collabora.com,
+	work@onurozkan.dev,
+	samitolvanen@google.com,
+	acourbot@nvidia.com,
+	rust-for-linux@vger.kernel.org,
+	driver-core@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org
+Subject: [PATCH v6 3/3 DO NOT MERGE] drm/tyr: enable runtime PM
+Date: Tue, 24 Nov 2026 12:34:14 +0100
+Message-ID: <20261124113555.2480381-4-beata.michalska@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261124113555.2480381-1-beata.michalska@arm.com>
+References: <20261124113555.2480381-1-beata.michalska@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,265 +78,345 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:6711:b0:4c4:a240:9c3a with SMTP id
- 5614622812f47-57a077151demr14292068b6e.4.1795520186508; Tue, 24 Nov 2026
- 03:36:26 -0800 (PST)
-Date: Tue, 24 Nov 2026 03:36:26 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b0576ba.a481e175.27cf24.0027.GAE@google.com>
-Subject: [syzbot] [ext4?] BUG: workqueue lockup in update_super_work
-From: syzbot <syzbot+97fde463a8ffb9e839d2@syzkaller.appspotmail.com>
-To: adilger.kernel@dilger.ca, jack@suse.cz, libaokun@linux.alibaba.com, 
-	linux-ext4@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	ojaswin@linux.ibm.com, ritesh.list@gmail.com, syzkaller-bugs@googlegroups.com, 
-	tytso@mit.edu, yi.zhang@huawei.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-Hello,
+Add runtime PM support to the Tyr platform driver. Move the clocks
+and regulators used by runtime suspend and resume into the PM
+payload, register the PM callbacks, configure autosuspend,
+and let DRM paths take a PM usage reference while querying
+device state.
 
-syzbot found the following issue on:
-
-HEAD commit:    a041bdbe1f3a arm64: Drop stdint.h type overrides from asm/..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
-console output: https://syzkaller.appspot.com/x/log.txt?x=1410c1d9580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=4e8e6c1701ad8af2
-dashboard link: https://syzkaller.appspot.com/bug?extid=97fde463a8ffb9e839d2
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-userspace arch: arm64
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=17576985580000
-
-AI-generated root cause summary:
-The workqueue watchdog detected a 35-second lockup on CPU 0's per-CPU worker
-pool (`pool 2`), where all four busy workers (`update_super_work`,
-`smc_ib_port_event_work`, `srcu_invoke_callbacks`, and `wg_packet_tx_worker`)
-are in `TASK_RUNNING` (`state:R`) and switched out at `__switch_to`, unable to
-be scheduled onto CPU 0 while CPU 1 (`pool 6`) continues running normally.
-Because `srcu_invoke_callbacks` and `smc_ib_port_event_work` (which blocked on
-`rtnl_lock`) cannot resume on CPU 0, the stall cascades to
-`fsnotify_mark_destroy_workfn` (`synchronize_srcu`), `cfg80211_wiphy_work`,
-`reg_todo`, and `batadv_tt_purge`. The exact code currently monopolizing CPU 0
-cannot be conclusively determined from this report because
-`show_cpu_pool_busy_workers()` checks `task_is_running()` rather than whether a
-worker is actively executing on the CPU, and therefore skipped
-`trigger_single_cpu_backtrace(0)`.
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=97fde463a8ffb9e839d2
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+97fde463a8ffb9e839d2@syzkaller.appspotmail.com
-
-BUG: workqueue lockup - pool cpus=0 node=0 flags=0x0 nice=0 stuck for 5s!
-Showing busy workqueues and worker pools:
-workqueue events: flags=0x100
-  pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=6 refcnt=8
-    in-flight: 4867:update_super_work for 6s
-    pending: refresh_vm_stats BAR(5070), vmstat_shepherd, 2*nsim_dev_hwstats_traffic_work, free_obj_work
-  pwq 6: cpus=1 node=0 flags=0x0 nice=0 active=1 refcnt=2
-    in-flight: 24:request_firmware_work_func for 42s
-workqueue mm_percpu_wq: flags=0x108
-  pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
-    pending: vmstat_update
-workqueue kblockd: flags=0x118
-  pwq 3: cpus=0 node=0 flags=0x0 nice=-20 active=2 refcnt=3
-    pending: 2*blk_mq_timeout_work
-pool 2: cpus=0 node=0 flags=0x0 nice=0 hung=5s workers=5 idle: 1171 10 1104 9
-pool 6: cpus=1 node=0 flags=0x0 nice=0 hung=0s workers=6 idle: 26 4849 876 4848 4769
-Showing backtraces of busy workers in stalled worker pools:
-pool 2:
-task:kworker/0:4     state:R  running task     stack:0     pid:4867  tgid:4867  ppid:2      task_flags:0x4208060 flags:0x00000010
-Workqueue: events update_super_work
-Call trace:
- __switch_to+0x2b4/0x6e4 arch/arm64/kernel/process.c:792 (T)
- context_switch kernel/sched/core.c:5583 [inline]
- __schedule+0x1368/0x2b50 kernel/sched/core.c:7382
- __schedule_loop kernel/sched/core.c:7459 [inline]
- schedule+0x13c/0x20c kernel/sched/core.c:7474
- io_schedule+0x1c/0xe0 kernel/sched/core.c:8146
- bit_wait_io+0x1c/0xe8 kernel/sched/wait_bit.c:258
- __wait_on_bit+0xb8/0x178 kernel/sched/wait_bit.c:52
- out_of_line_wait_on_bit+0x130/0x184 kernel/sched/wait_bit.c:67
- wait_on_bit_io include/linux/wait_bit.h:106 [inline]
- __wait_on_buffer+0x6c/0x7c fs/buffer.c:118
- wait_on_buffer include/linux/buffer_head.h:476 [inline]
- ext4_commit_super+0x2b4/0x458 fs/ext4/super.c:6417
- update_super_work+0x2dc/0x384 fs/ext4/super.c:817
- process_one_work kernel/workqueue.c:3495 [inline]
- process_scheduled_works+0x91c/0x1250 kernel/workqueue.c:3578
- worker_thread+0x798/0xbd0 kernel/workqueue.c:3659
- kthread+0x304/0x3d4 kernel/kthread.c:436
- ret_from_fork+0x10/0x20 arch/arm64/kernel/entry.S:854
-BUG: workqueue lockup - pool cpus=0 node=0 flags=0x0 nice=0 stuck for 8s!
-BUG: workqueue lockup - pool cpus=0 node=0 flags=0x0 nice=-20 stuck for 3s!
-Showing busy workqueues and worker pools:
-workqueue events: flags=0x100
-  pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=7 refcnt=9
-    in-flight: 4867:update_super_work for 9s
-    pending: refresh_vm_stats BAR(5070), vmstat_shepherd, 2*nsim_dev_hwstats_traffic_work, free_obj_work, psi_avgs_work
-  pwq 6: cpus=1 node=0 flags=0x0 nice=0 active=1 refcnt=2
-    in-flight: 24:request_firmware_work_func for 45s
-workqueue events_dfl_long: flags=0x2
-  pwq 8: cpus=0-1 flags=0x4 nice=0 active=1 refcnt=2
-    pending: defense_work_handler
-workqueue mm_percpu_wq: flags=0x108
-  pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
-    pending: vmstat_update
-workqueue kblockd: flags=0x118
-  pwq 3: cpus=0 node=0 flags=0x0 nice=-20 active=2 refcnt=3
-    pending: 2*blk_mq_timeout_work
-pool 2: cpus=0 node=0 flags=0x0 nice=0 hung=8s workers=5 idle: 1171 10 1104 9
-pool 6: cpus=1 node=0 flags=0x0 nice=0 hung=0s workers=6 idle: 4849 26 876 4848 4769
-Showing backtraces of busy workers in stalled worker pools:
-pool 2:
-task:kworker/0:4     state:R  running task     stack:0     pid:4867  tgid:4867  ppid:2      task_flags:0x4208060 flags:0x00000010
-Workqueue: events update_super_work
-Call trace:
- __switch_to+0x2b4/0x6e4 arch/arm64/kernel/process.c:792 (T)
- context_switch kernel/sched/core.c:5583 [inline]
- __schedule+0x1368/0x2b50 kernel/sched/core.c:7382
- __schedule_loop kernel/sched/core.c:7459 [inline]
- schedule+0x13c/0x20c kernel/sched/core.c:7474
- io_schedule+0x1c/0xe0 kernel/sched/core.c:8146
- bit_wait_io+0x1c/0xe8 kernel/sched/wait_bit.c:258
- __wait_on_bit+0xb8/0x178 kernel/sched/wait_bit.c:52
- out_of_line_wait_on_bit+0x130/0x184 kernel/sched/wait_bit.c:67
- wait_on_bit_io include/linux/wait_bit.h:106 [inline]
- __wait_on_buffer+0x6c/0x7c fs/buffer.c:118
- wait_on_buffer include/linux/buffer_head.h:476 [inline]
- ext4_commit_super+0x2b4/0x458 fs/ext4/super.c:6417
- update_super_work+0x2dc/0x384 fs/ext4/super.c:817
- process_one_work kernel/workqueue.c:3495 [inline]
- process_scheduled_works+0x91c/0x1250 kernel/workqueue.c:3578
- worker_thread+0x798/0xbd0 kernel/workqueue.c:3659
- kthread+0x304/0x3d4 kernel/kthread.c:436
- ret_from_fork+0x10/0x20 arch/arm64/kernel/entry.S:854
-pool 3: no worker in running state, cpu=0 is busy (nr_workers=2 nr_idle=2)
-The pool might have trouble waking an idle worker.
-Backtrace of last woken worker:
-task:kworker/0:1H    state:R  running task     stack:0     pid:4368  tgid:4368  ppid:2      task_flags:0x4208060 flags:0x00000010
-Workqueue:  0x0 (kblockd)
-Call trace:
- __switch_to+0x2b4/0x6e4 arch/arm64/kernel/process.c:792 (T)
- context_switch kernel/sched/core.c:5583 [inline]
- __schedule+0x1368/0x2b50 kernel/sched/core.c:7382
- __schedule_loop kernel/sched/core.c:7459 [inline]
- schedule+0x13c/0x20c kernel/sched/core.c:7474
- worker_thread+0x924/0xbd0 kernel/workqueue.c:3674
- kthread+0x304/0x3d4 kernel/kthread.c:436
- ret_from_fork+0x10/0x20 arch/arm64/kernel/entry.S:854
-Sending NMI from CPU 1 to CPUs 0:
-NMI backtrace for cpu 0
-CPU: 0 UID: 0 PID: 5064 Comm: syz-executor298 Not tainted syzkaller #0 PREEMPT 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-pstate: 00001000 (nzcv daif -PAN -UAO -TCO -DIT +SSBS BTYPE=--)
-pc : 0000ffff92d12354
-lr : 0000ffff92c64e84
-sp : 0000ffffd134ccf0
-x29: 0000ffffd134ccf0 x28: 0000ffff92cb3000 x27: 0000ffff92cb3000
-x26: 0000ffff92cb3000 x25: 0000ffff92cb3000 x24: 0000000000000004
-x23: 0000ffffd134cdd0 x22: 0000000000000001 x21: 0000ffff92d00000
-x20: 0000ffffd134ce90 x19: 0000ffff92d01000 x18: 0000000001503538
-x17: 0000000ca3baf921 x16: 0000000000000017 x15: 0000000000800000
-x14: 0000000ca3c7df44 x13: 0000000000002490 x12: 000000007fffffff
-x11: 0000000000000001 x10: 0000000000000001 x9 : 0000ffff92d0e010
-x8 : 0000ffff92d0e000 x7 : 0000000000000000 x6 : 0000000000000000
-x5 : 0000000000000000 x4 : 0000000000002490 x3 : 0012c684c0000000
-x2 : 0000ffff92d12310 x1 : 0000ffffd134ce90 x0 : 0000000000000001
-BUG: workqueue lockup - pool cpus=0 node=0 flags=0x0 nice=0 stuck for 11s!
-BUG: workqueue lockup - pool cpus=0 node=0 flags=0x0 nice=-20 stuck for 6s!
-Showing busy workqueues and worker pools:
-workqueue events: flags=0x100
-  pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=7 refcnt=9
-    in-flight: 4867:update_super_work for 12s
-    pending: refresh_vm_stats BAR(5070), vmstat_shepherd, 2*nsim_dev_hwstats_traffic_work, free_obj_work, psi_avgs_work
-  pwq 6: cpus=1 node=0 flags=0x0 nice=0 active=1 refcnt=2
-    in-flight: 24:request_firmware_work_func for 48s
-workqueue events_unbound: flags=0x2
-  pwq 8: cpus=0-1 flags=0x4 nice=0 active=3 refcnt=4
-    pending: nsim_dev_trap_report_work, toggle_allocation_gate, nsim_dev_trap_report_work
-workqueue mm_percpu_wq: flags=0x108
-  pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
-    pending: vmstat_update
-workqueue kblockd: flags=0x118
-  pwq 3: cpus=0 node=0 flags=0x0 nice=-20 active=2 refcnt=3
-    pending: 2*blk_mq_timeout_work
-pool 2: cpus=0 node=0 flags=0x0 nice=0 hung=11s workers=5 idle: 1171 10 1104 9
-pool 6: cpus=1 node=0 flags=0x0 nice=0 hung=0s workers=6 idle: 4849 26 876 4848 4769
-Showing backtraces of busy workers in stalled worker pools:
-pool 2:
-task:kworker/0:4     state:R  running task     stack:0     pid:4867  tgid:4867  ppid:2      task_flags:0x4208060 flags:0x00000010
-Workqueue: events update_super_work
-Call trace:
- __switch_to+0x2b4/0x6e4 arch/arm64/kernel/process.c:792 (T)
- context_switch kernel/sched/core.c:5583 [inline]
- __schedule+0x1368/0x2b50 kernel/sched/core.c:7382
- __schedule_loop kernel/sched/core.c:7459 [inline]
- schedule+0x13c/0x20c kernel/sched/core.c:7474
- io_schedule+0x1c/0xe0 kernel/sched/core.c:8146
- bit_wait_io+0x1c/0xe8 kernel/sched/wait_bit.c:258
- __wait_on_bit+0xb8/0x178 kernel/sched/wait_bit.c:52
- out_of_line_wait_on_bit+0x130/0x184 kernel/sched/wait_bit.c:67
- wait_on_bit_io include/linux/wait_bit.h:106 [inline]
- __wait_on_buffer+0x6c/0x7c fs/buffer.c:118
- wait_on_buffer include/linux/buffer_head.h:476 [inline]
- ext4_commit_super+0x2b4/0x458 fs/ext4/super.c:6417
- update_super_work+0x2dc/0x384 fs/ext4/super.c:817
- process_one_work kernel/workqueue.c:3495 [inline]
- process_scheduled_works+0x91c/0x1250 kernel/workqueue.c:3578
- worker_thread+0x798/0xbd0 kernel/workqueue.c:3659
- kthread+0x304/0x3d4 kernel/kthread.c:436
- ret_from_fork+0x10/0x20 arch/arm64/kernel/entry.S:854
-pool 3: no worker in running state, cpu=0 is busy (nr_workers=2 nr_idle=2)
-The pool might have trouble waking an idle worker.
-Backtrace of last woken worker:
-task:kworker/0:1H    state:R  running task     stack:0     pid:4368  tgid:4368  ppid:2      task_flags:0x4208060 flags:0x00000010
-Workqueue:  0x0 (kblockd)
-Call trace:
- __switch_to+0x2b4/0x6e4 arch/arm64/kernel/process.c:792 (T)
- context_switch kernel/sched/core.c:5583 [inline]
- __schedule+0x1368/0x2b50 kernel/sched/core.c:7382
- __schedule_loop kernel/sched/core.c:7459 [inline]
- schedule+0x13c/0x20c kernel/sched/core.c:7474
- worker_thread+0x924/0xbd0 kernel/workqueue.c:3674
- kthread+0x304/0x3d4 kernel/kthread.c:436
- ret_from_fork+0x10/0x20 arch/arm64/kernel/entry.S:854
-Sending NMI from CPU 1 to CPUs 0:
-NMI backtrace for cpu 0
-CPU: 0 UID: 0 PID: 5064 Comm: syz-executor298 Not tainted syzkaller #0 PREEMPT 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-pstate: 00001000 (nzcv daif -PAN -UAO -TCO -DIT +SSBS BTYPE=--)
-pc : 0000ffff92d12364
-lr : 0000ffff92c64e84
-sp : 0000ffffd134ccf0
-x29: 0000ffffd134ccf0 x28: 0000ffff92cb3000 x27: 0000ffff92cb3000
-x26: 0000ffff92cb3000 x25: 0000ffff92cb3000 x24: 0000000000000004
-x23: 0000ffffd134cdd0 x22: 0000000000000001 x21: 0000ffff92d00000
-x20: 0000ffffd134ce90 x19: 0000ffff92d01000 x18: 0000000001503538
-x17: 0000000d5ab774a1 x16: 0000000000000017 x15: 0000000000800000
-x14: 0000000d5ac496d8 x13: 00000000000026f6 x12: 000000007fffffff
-x11: 0000000000000001 x10: 0000ffffd134ccf0 x9 : 0000ffff92d0e010
-x8 : 0000ffff92d0e000 x7 : 0000000000000000 x6 : 0000000000000000
-x5 : 0000000000000000 x4 : 00000000000026f6 x3 : 0014dc9380000000
-x2 : 0000ffff92d12310 x1 : 0000ffffd134ce90 x0 : 0000000000000001
-
-
+Signed-off-by: Beata Michalska <beata.michalska@arm.com>
 ---
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
+ drivers/gpu/drm/tyr/driver.rs | 220 +++++++++++++++++++++++++---------
+ drivers/gpu/drm/tyr/file.rs   |   7 +-
+ 2 files changed, 169 insertions(+), 58 deletions(-)
 
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+diff --git a/drivers/gpu/drm/tyr/driver.rs b/drivers/gpu/drm/tyr/driver.rs
+index c2b99d67369f..c82f31e2d2b4 100644
+--- a/drivers/gpu/drm/tyr/driver.rs
++++ b/drivers/gpu/drm/tyr/driver.rs
+@@ -9,7 +9,11 @@
+         Bound,
+         Core,
+         Device,
+-        DeviceContext, //
++        DeviceContext,
++        pm:: {
++            self,
++            *,
++        }, //
+     },
+     dma::{
+         Device as DmaDevice,
+@@ -21,17 +25,13 @@
+         poll,
+         Io, //
+     },
+-    new_mutex,
+     of,
+     platform,
+     prelude::*,
+     regulator,
+     regulator::Regulator,
+     sizes::SZ_2M,
+-    sync::{
+-        Arc,
+-        Mutex, //
+-    },
++    sync::Arc,
+     time, //
+ };
+ 
+@@ -55,35 +55,59 @@
+ 
+ pub(crate) struct TyrPlatformDriver;
+ 
++#[pin_data]
++pub(crate) struct TyrHW<'bound> {
++    /// Firmware sections.
++    pub(crate) fw: Firmware<'bound>,
++
++    /// GPU MMIO register mapping.
++    pub(crate) iomem: Arc<IoMem<'bound>>,
++
++     /// GPU information read from hardware during probe.
++    pub(crate) gpu_info: GpuInfo,
++}
++
++
+ #[pin_data(PinnedDrop)]
+ pub(crate) struct TyrPlatformDriverData<'bound> {
+     #[pin]
+-    _reg: drm::Registration<'bound, TyrDrmDriver>,
++    #[uses('pm: invariant, 'hw)]
++    _reg: drm::Registration<'pm, TyrDrmDriver>,
++    // This needs to be dropped after drm::Registration as that one
++    // borrows PMContext.
++    #[pin]
++    #[uses('hw: invariant)]
++    pub(crate) pm: pm::Registration<'hw, TyrPlatformDriver>,
++    #[pin]
++    hw: TyrHW<'bound>,
++}
++
++#[pin_data]
++pub(crate) struct TyrPMRegistrationData<'pm>
++where
++    exists<'bound>: 'pm,
++{
++    #[uses('bound: invariant)]
++    pub(crate) hw: &'pm TyrHW<'bound>,
+ }
+ 
++
+ /// Data owned by the DRM [`Registration`].
+ ///
+ /// This data can have references tied to the parent platform device binding scope
+ /// and is accessible only while the DRM device is registered with userspace.
+ #[pin_data]
+-pub(crate) struct TyrDrmRegistrationData<'drm> {
++pub(crate) struct TyrDrmRegistrationData<'drm>
++where
++    exists<'bound>: 'drm,
++{
+     /// Parent platform device.
+     pub(crate) pdev: &'drm platform::Device<Bound>,
+ 
+-    /// Firmware sections.
+-    pub(crate) fw: Firmware<'drm>,
+-
+-    #[pin]
+-    clks: Mutex<Clocks>,
+-
+-    #[pin]
+-    regulators: Mutex<Regulators>,
+-
+-    /// GPU MMIO register mapping.
+-    pub(crate) iomem: Arc<IoMem<'drm>>,
+-
+-    /// GPU information read from hardware during probe.
+-    pub(crate) gpu_info: GpuInfo,
++    /// Runtime PM context owned by the PM Registration
++    pub(crate) pm: PMContext<'drm, 'drm, TyrPlatformDriver>,
++    #[uses('bound: invariant)]
++    pub(crate) hw: &'drm TyrHW<'bound>,
+ }
+ 
+ fn issue_soft_reset(dev: &Device, iomem: &IoMem<'_>) -> Result {
+@@ -113,6 +137,7 @@ impl platform::Driver for TyrPlatformDriver {
+     type IdInfo = ();
+     type Data<'bound> = TyrPlatformDriverData<'bound>;
+     const OF_ID_TABLE: Option<of::IdTable<Self::IdInfo>> = Some(&OF_TABLE);
++    const DEV_PM_OPS: Option<pm::OpsRef<Self>> = Some(TYR_PM_OPS.pm_ops());
+ 
+     fn probe<'bound>(
+         pdev: &'bound platform::Device<Core<'_>>,
+@@ -130,6 +155,22 @@ fn probe<'bound>(
+             let mali_regulator = Regulator::<regulator::Enabled>::get(pdev.as_ref(), c"mali")?;
+             let sram_regulator = Regulator::<regulator::Enabled>::get(pdev.as_ref(), c"sram")?;
+ 
++            let runtime_payload = TyrRuntimePMPayload {
++                clks: Clocks {
++                    core: core_clk,
++                    stacks: stacks_clk,
++                    coregroup: coregroup_clk,
++                },
++                _regulators: Regulators {
++                    _mali: mali_regulator,
++                    _sram: sram_regulator,
++                },
++            };
++
++            let mut pm_configs = KVec::<PMConfig>::with_capacity(2, GFP_KERNEL)?;
++            pm_configs.push(PMConfig::AutoSuspend(true), GFP_KERNEL)?;
++            pm_configs.push(PMConfig::AutoSuspendDelay(300), GFP_KERNEL)?;
++
+             let request = pdev.io_request_by_index(0).ok_or(ENODEV)?;
+ 
+             let iomem = Arc::new(request.iomap_sized::<SZ_2M>()?, GFP_KERNEL)?;
+@@ -150,41 +191,59 @@ fn probe<'bound>(
+ 
+             let unreg_dev = drm::UnregisteredDevice::<TyrDrmDriver>::new(pdev, Ok(()))?;
+ 
+-            let mmu = Mmu::new(pdev.as_ref(), iomem.as_arc_borrow(), &gpu_info)?;
+-
+-            let firmware = Firmware::new(
+-                pdev.as_ref(),
+-                iomem.clone(),
+-                &unreg_dev,
+-                mmu.as_arc_borrow(),
+-                &gpu_info,
+-            )?;
+-
+-            firmware.boot()?;
+-
+             Ok(try_pin_init!(TyrPlatformDriverData {
+-                // SAFETY: `_reg` is stored in `TyrPlatformDriverData` and dropped when the
+-                // driver is unbound; it is never forgotten.
+-                _reg <- unsafe { drm::Registration::new(
+-                    pdev.as_ref(),
+-                    unreg_dev,
+-                    pin_init!(TyrDrmRegistrationData {
+-                        pdev,
+-                        fw: firmware,
+-                        clks <- new_mutex!(Clocks {
+-                            core: core_clk,
+-                            stacks: stacks_clk,
+-                            coregroup: coregroup_clk,
+-                        }),
+-                        regulators <- new_mutex!(Regulators {
+-                            _mali: mali_regulator,
+-                            _sram: sram_regulator,
+-                        }),
+-                        iomem,
+-                        gpu_info,
+-                    }),
+-                )},
+-                _: { dev_dbg!(pdev, "Tyr initialized correctly.") },
++                    hw <- {
++                        let mmu = Mmu::new(pdev.as_ref(), iomem.as_arc_borrow(), &gpu_info)?;
++
++                        let firmware = Firmware::new(
++                            pdev.as_ref(),
++                            iomem.clone(),
++                            &unreg_dev,
++                            mmu.as_arc_borrow(),
++                            &gpu_info,
++                        )?;
++
++                        firmware.boot()?;
++
++                        pin_init!(TyrHW {
++                            fw: firmware,
++                            iomem,
++                            gpu_info
++                        })
++                },
++                pm <- {
++                    // SAFETY: `pm` is owned by the driver data and remains accounted for
++                    unsafe {
++                        pm::Registration::new(
++                            pdev.as_ref(),
++                            &TYR_PM_OPS,
++                            None,
++                            Some(pm_configs),
++                            pin_init!(TyrPMRegistrationData{hw: hw.get_ref()}),
++                            pm::RuntimeStatePayload::Active(runtime_payload)
++                        )
++                    }
++                },
++
++                _reg <- {
++                    // SAFETY: `_reg` is owned by the driver data and is not forgotten.
++                    unsafe {
++                        drm::Registration::new(
++                            pdev.as_ref(),
++                            unreg_dev,
++                            pin_init!(TyrDrmRegistrationData {
++                                pdev,
++                                pm: pm.get_ref().get_ctx(),
++                                hw: hw.get_ref(),
++                            }),
++                        )
++                    }
++                },
++
++                _: {
++                    pm.get_ctx().enable(RuntimePMState::Active)?;
++                    dev_dbg!(pdev, "Tyr initialized correctly.");
++                },
+             }))
+         })
+     }
+@@ -239,3 +298,52 @@ struct Regulators {
+     _mali: Regulator<regulator::Enabled>,
+     _sram: Regulator<regulator::Enabled>,
+ }
++
++pub(crate) struct TyrRuntimePMPayload {
++    clks: Clocks,
++    _regulators: Regulators,
++}
++
++static TYR_PM_OPS: pm::Ops<TyrPlatformDriver> = pm::Ops::new();
++
++#[vtable]
++impl PMOps for TyrPlatformDriver {
++    type Adapter = platform::Adapter<TyrPlatformDriver>;
++    type DeviceType = platform::Device<kernel::device::Bound>;
++    type RegistrationData<'a> = TyrPMRegistrationData<'a>;
++    type ActivePayload<'a> = TyrRuntimePMPayload;
++    type SuspendedPayload<'a> = TyrRuntimePMPayload;
++
++    fn runtime_suspend<'a>(
++        _dev: &'a Self::DeviceType,
++        _reg_data: &'a Self::RegistrationData<'a>,
++        payload: Self::ActivePayload<'a>,
++    ) -> Result<Self::SuspendedPayload<'a>, (Self::ActivePayload<'a>, Error)> {
++        payload.clks.coregroup.disable_unprepare();
++        payload.clks.stacks.disable_unprepare();
++        payload.clks.core.disable_unprepare();
++        Ok(payload)
++    }
++    fn runtime_resume<'a>(
++        _dev: &'a Self::DeviceType,
++        _reg_data: &'a Self::RegistrationData<'a>,
++        payload: Self::SuspendedPayload<'a>,
++    ) -> Result<Self::ActivePayload<'a>, (Self::SuspendedPayload<'a>, Error)> {
++        if let Err(e) = payload.clks.core.prepare_enable() {
++            return Err((payload, e));
++        }
++
++        if let Err(e) = payload.clks.stacks.prepare_enable() {
++            payload.clks.core.disable_unprepare();
++            return Err((payload, e));
++        }
++
++        if let Err(e) = payload.clks.coregroup.prepare_enable() {
++            payload.clks.stacks.disable_unprepare();
++            payload.clks.core.disable_unprepare();
++            return Err((payload, e));
++        }
++
++        Ok(payload)
++    }
++}
+diff --git a/drivers/gpu/drm/tyr/file.rs b/drivers/gpu/drm/tyr/file.rs
+index 9f60a90d4948..28a78ed17e5a 100644
+--- a/drivers/gpu/drm/tyr/file.rs
++++ b/drivers/gpu/drm/tyr/file.rs
+@@ -1,6 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0 or MIT
+ 
+ use kernel::{
++    device::pm::PMProfile,
+     drm::{
+         self,
+         Registered, //
+@@ -37,10 +38,12 @@ pub(crate) fn dev_query(
+         devquery: &mut uapi::drm_panthor_dev_query,
+         _file: &TyrDrmFile,
+     ) -> Result<u32> {
++        // Runtime suspend called when pm_scope gets dropped
++        let _pm_scope = reg_data.pm.get(PMProfile::new())?;
+         if devquery.pointer == 0 {
+             match devquery.type_ {
+                 uapi::drm_panthor_dev_query_type_DRM_PANTHOR_DEV_QUERY_GPU_INFO => {
+-                    devquery.size = core::mem::size_of_val(&reg_data.gpu_info) as u32;
++                    devquery.size = core::mem::size_of_val(&reg_data.with_hw(|hw| hw.gpu_info)) as u32;
+                     Ok(0)
+                 }
+                 _ => Err(EINVAL),
+@@ -54,7 +57,7 @@ pub(crate) fn dev_query(
+                     )
+                     .writer();
+ 
+-                    writer.write(&reg_data.gpu_info)?;
++                    writer.write(&reg_data.with_hw(|hw| hw.gpu_info))?;
+ 
+                     Ok(0)
+                 }
+-- 
+2.43.0
 
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
