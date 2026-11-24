@@ -1,94 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=60.244.123.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795500893;
-	b=zkAocAW6zDKk72kZ3DUixQOLeLqpyHpIfPj/ENUOc8uLwaVsLaniOqH6WvjeyLB4ApoM
-	 lOjc0/bLR1F9iMLFdXBWyXBxd0uXlkawMHel7czcNOlqL+YAfWSoonAH91uF695f7IJS/
-	 YRXtSSSSzLEFgE8qRXkzJW1KEhL5T+aCbXiqOnby3wfofdkeg/eLj3wiP9NXyrgVSth+U
-	 1sFK5NM3V60+Eb/19Kckgw46EkGF28bdUNzidtOqdynU2oy2uUhTTjb68Bx5jLSSO+EOB
-	 8z1y7nZnXLObiBXJllAeVIt42rDqjkYyDvIhP+GSKTw/g++LXe17CZa6GyIbbY71PTQ==
+	t=1795500925;
+	b=n96XI6vH4vCwunOKgZYsqVT31rqip/7NrRQN9Jcj66HCDyTzL6wlWikqgwbAobiZRYOf
+	 2RRgw5erTvd/9uhtkf87suCJ+b80cE4ayv5kqisxPoj13mUrjs+b9m9aFhyiwp5fq1ieu
+	 /hMzCE5wXyJ2Lp6NuMjPtMyCTQP7sAhgps2WdO7n1EsIC/Mu4SFT9zpnN1xbTS2/NsK/v
+	 /WYapqGlE6BJ2MYa/5H76jVODb1NLTwZnHBv3bdGlvPHXrIAOzBmrYQ8Ot1iorrjtp0wm
+	 asth99Y+ILRcIumjscJSmIFGj6eBwhGb+g6u3LPyzLKP05Y4kxdsbFlYYQh10iaMCiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795500893;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=jZ43zXMGQsDQJ/kOcZ+O6TRwG6ELUr556TGyE0uK/yE=;
-	b=DmVQ34WeBRMZu2VSLAoR/LFh+iBLe1NQwO3+XGOBhfUa+nGD+Mdn3tej0Oym30QaaVjY
-	 Y2m/hlRgphLAaOAfrQKEngXMKlnn+SH8B5Ss37/dZbD17uHhe4oCxqZLsMBVikboFoZzb
-	 EYI1/6klr6sBKIMQp6OOEYKldsEVEg+y5hJG9ph+hL6UmEKB8ZaAVhcKMUfIBsqcEnbwz
-	 z9yKlFBUEIMNQjhbhye7A0LOMBQr9fub5KJy/cGYxHG2u97at6il81H7fgc3I4Kw/jg+y
-	 RQQX4ln96AP+Aa+U0u+PWkGm52ngC2s4MgsaFArck+xgDuvA1khbAsXdO9S8oPjWJSw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795500925;
+	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
+	 Received:Received:Message-ID:Subject:From:To:CC:Date:In-Reply-To:
+	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
+	 MIME-Version:X-MTK;
+	bh=+4tuJ3sQ79kX7bfOp9ca8lxjDfbJ3a+aPY7AHi0Ja6w=;
+	b=YCZbTBQF7PhsPy0KtG1fg7u/CHL73v/TALdlzMHJA3vkYCwecUB8PwHUbYUDxUpOllcm
+	 7PSz19KD9/V19d5v8wU0nRT8UT3zLpnQP8rDb/934IaHE0tZOAVWRB292nd4Q84FV/2Xr
+	 V+TkjiUsbLv8Rw86YWi8hNDH6H5iWZ7NMypKv+psO/TfBcjn5rKCACfzQQt28PhOopeg+
+	 xMwpFUXlemNFtED5e2u1fg/8PeLvBw02WimjhbosTGLw80YUPvqogj61yIJLy9buMrrlz
+	 YwLwU/4oMjU6gJqRow+hRRwv/tBgWDKeLbayzrrMJQFvFUmInEd8RCpgQOWlSjw06+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QjGj4Udx;
-	arc=none smtp.remote-ip=74.125.82.176
-Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=mediatek.com;
+	spf=pass smtp.mailfrom=mediatek.com;
+	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=rqiFUmiT;
+	arc=none smtp.remote-ip=60.244.123.138
+Received: from mailgw01.mediatek.com (unknown [60.244.123.138])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 013FC606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:14:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 013FC606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DD81606A322;
+	Tue, 24 Nov 2026 06:15:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1DD81606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QjGj4Udx
-Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-386c4d2e2ccso273307eec.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:14:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795500892; x=1796105692; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jZ43zXMGQsDQJ/kOcZ+O6TRwG6ELUr556TGyE0uK/yE=;
-        b=QjGj4UdxVVJ6Ict/WGa6OCqL5YWVIijBF/PMwateYbBV8/JOSZ1quWCTiiRPwWJzHD
-         9AdjJ591T/idte24u040VJ1d9cXhrqOgKDWn13jSUGsWImr/Hqv8B+M0u/Nermw+zrGt
-         Q4t+CecrToohOA2bf+0uPhwqJPrpzGeZKh7h9nMesBlGiVmJ6+tRYfyEZ/yfhHDiXDCQ
-         k+lXRdfGZSh1RhYaZOsAHoRraT+VQkEIvsOJQ7gyuWfnf4TVfdhL8y/+rIQ8AXL/bRb1
-         0MAORgxGoPjtM73Y2lYgpahaaNAOkelXCcyItJrmeuobKbepxJE3LuPfVAt7kQNltsXW
-         rung==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795500892; x=1796105692;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jZ43zXMGQsDQJ/kOcZ+O6TRwG6ELUr556TGyE0uK/yE=;
-        b=NoZ1td70ltnIyeVcWkIKM17Ip1Yfnq7ONeA99eB/TOjV+2/Jk1tTKd1GMH6FChYYqa
-         XgYGrDgOypgZYvzeN6wQrhdZ22zHYufQ/Or1zWB4c0/6AVV/bpD4qpemnGFZUHahmH8f
-         uPTp1zt/59gm1BI1gJObV4XtinUpJaCDfFidarMSnwEkYLbl1p3p4f5+cn3qtxeoeIuM
-         llJeF15bZomo/ow5MGJBV9+TI3N6SUGKhz10/mbmWXyq1aJZy0ilK/yidaxmM7GBEODj
-         Ln1kZ9k9NHvlrmsqF2i4oZHJiEvKPY6Iz5+R+gwpwhLQFMmAPeeY67KbiFgc1oyMnZS1
-         p7+A==
-X-Forwarded-Encrypted: i=1; AL+hErFOqAn9QR8C0Y+UpM+sVg5URAuZcwz8uuNwm4Xbm86DLprXOqT9VNRF5F215IW236yn1Nqck4XKaj6hze4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9+bQRcegAA9r3Zjip38Jaq/kkCF9V1uVmwIgsoXNN1rd0rRwDy
-	0Mbj1qsOacE1F5oONpyxhFReCfw11slXuGIfz1PUkeM4OuvT7ExPL13D
-X-Gm-Gg: AZFdTZf+VlF7ugF97Xo2mv77CnDUQQhAro6PfmHtn0Prd7jz13k1qXmhy196yZuJjkr
-	yME3OO0SD/OO+4AgblDq5Kjsc00787vR6IkaEDuDypRtlaIswcSoI3pZjtiZo3PRmPYW7DXZmVd
-	eNIfglLM7QYyPvdx2qQcymfQD68iIAzfQgloWCvtLwfEilAoYhDraLHCKTMGpGw2jLKwMzLSEet
-	Ov+EZhvQQcCU2HR8SIwb3XhOIK6RPn0Fkt6H13FKUfwTCwF8vTidXVnCOw5UcCgPWgWpAtjqpEm
-	gOwnlBqpWTxgQrxpDCP5nKr4xzdBaYRj+49la1b7osVSu3ZiRaJdXY+yqJJwxMBHyYd7WS1m1Hl
-	MptjoCeqwDkOHs+dTIebnMsKGVaXb/QZyDlJgMpU6xUGKy1mxEFcRqyB46HL1J60gesl+y9Jlg+
-	QMVQfmyh/N4F0jP3dpVyaKZGHhv70pAJOtEzrawtt+QhYQGza5X57JMp/3mWs7BJ8yJ9ciyCdP7
-	SN1hAAj/7bvkSMJJNKA9hsE4UeQyj+Vr/3wUjA5L/he0ZfQmNYedWydJcBVMaxaaY/bsQY4YrRO
-	tB89grXfMYh3IRO0TPNxMCwo9CXM7iIWvs+XJfikqnem77BpwedlvWoZ1BaW8IbfED4XDHmpzBx
-	5/v2yQ7SWf9zVFR45cg==
-X-Received: by 2002:a05:693c:39cc:b0:386:48c1:6c5e with SMTP id 5a478bee46e88-38648c1719dmr12070166eec.37.1795500891853;
-        Mon, 23 Nov 2026 22:14:51 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:ee3b:b892:771b:3bc7])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b1965c02sm13328033eec.27.2026.11.23.22.14.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 22:14:51 -0800 (PST)
-Date: Mon, 23 Nov 2026 22:14:48 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Siqi Chen <chensiqi@uniontech.com>
-Cc: Anshul Dalal <anshulusr@gmail.com>, 
-	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>, linux-input@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Input: adafruit-seesaw - check i2c_transfer() return
- value
-Message-ID: <awUrVOJjlHUrDXUD@google.com>
-References: <20261124054344.1067234-1-chensiqi@uniontech.com>
+	dkim=pass (1024-bit key) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=rqiFUmiT
+X-UUID: 6c76bbeee7ce11f1b1788b6acf885367-20261124
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=+4tuJ3sQ79kX7bfOp9ca8lxjDfbJ3a+aPY7AHi0Ja6w=;
+	b=rqiFUmiTYkMDJiOrbrTUw7SnmQASVcjYhPnJEQgJvCZbSYnxK6LGy1S/MEWd9sRH1rsW/kgUDIieYfJG7kA5PwzJRC6nFtQ65VS16LIaiiVyIYVbgrOMehntQmvduIxvrB3Qr7qlGOIuINjBNnSTGO7tnurwwOFxsyumSfn589c=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:12e2abde-9861-459d-a129-4334b6286f57,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0318ac,CLOUDID:bafbb566-4b51-4c95-bb1b-80ac6aad9c96,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|836|865|888|898,TC:-5,Content:
+	0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0
+	,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 6c76bbeee7ce11f1b1788b6acf885367-20261124
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+	(envelope-from <peter.wang@mediatek.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1752007391; Tue, 24 Nov 2026 14:15:19 +0800
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Tue, 24 Nov 2026 14:15:18 +0800
+Received: from [10.233.130.16] (10.233.130.16) by mtkmbs11n2.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.56 via Frontend
+ Transport; Tue, 24 Nov 2026 14:15:18 +0800
+Message-ID: <8abfa94806f6cec468551673126497d5e5f65a52.camel@mediatek.com>
+Subject: Re: [PATCH v2 1/2] scsi: ufs: core: Defer debugfs init until after
+ device init
+From: Peter Wang <peter.wang@mediatek.com>
+To: Po-Wen Kao <powenkao@google.com>, <linux-scsi@vger.kernel.org>
+CC: Konstantin Vyshetsky <vkon@google.com>, Alim Akhtar
+	<alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, Bean Huo
+	<beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, "James E . J .
+ Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K . Petersen"
+	<mkp@kernel.org>, Can Guo <can.guo@oss.qualcomm.com>,
+	<linux-kernel@vger.kernel.org>, Li Qiang <liqiang01@kylinos.cn>, John Garry
+	<john.garry@linux.dev>, HOYOUNG SEO <hy50.seo@samsung.com>, "Hyeoncheol
+ Jeong" <hyenc.jeong@samsung.com>
+Date: Tue, 24 Nov 2026 14:15:18 +0800
+In-Reply-To: <20261124012951.3143833-2-powenkao@google.com>
+References: <20261124012951.3143833-1-powenkao@google.com>
+	 <20261124012951.3143833-2-powenkao@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,26 +92,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124054344.1067234-1-chensiqi@uniontech.com>
+X-MTK: N
 
-On Tue, Nov 24, 2026 at 01:43:44PM +0800, Siqi Chen wrote:
-> i2c_transfer() returns the number of messages transferred or a negative
-> error code. The seesaw register read helper only checks for negative
-> errors and therefore treats short transfers as successful.
-> 
-> If only the register-address message is transferred, callers consume
-> data that was not read from the device. This can result in bogus button
-> or axis events.
-> 
-> Require both messages to be transferred, preserve negative error codes,
-> and return -EIO for a short transfer.
-> 
-> Fixes: 52c4e5985a73 ("Input: driver for Adafruit Seesaw Gamepad")
-> Signed-off-by: Siqi Chen <chensiqi@uniontech.com>
+On Tue, 2026-11-24 at 09:29 +0800, Po-Wen Kao wrote:
+> ufshcd_hba_init() currently creates the debugfs hierarchy and fault
+> injection attributes before the controller version (hba-
+> >ufs_version),
+> controller locks, and device descriptor (hba->dev_info.wspecversion)
+> are
+> initialized.
+>=20
+> Move ufs_debugfs_hba_init() and ufs_fault_inject_hba_init() into
+> ufshcd_init() alongside ufs_sysfs_add_nodes(), and move the matching
+> ufs_debugfs_hba_exit() from ufshcd_hba_exit() into ufshcd_remove()
+> alongside ufs_sysfs_remove_nodes(). Use disable_delayed_work_sync()
+> in
+> ufs_debugfs_hba_exit() so an in-flight exception event cannot re-
+> queue
+> debugfs_ee_work while scsi_remove_host() is still tearing down
+> devices.
+>=20
+> Moving the exit call symmetrically keeps probe error paths from
+> tearing
+> down uncreated debugfs state, drains debugfs readers before
+> scsi_remove_host() removes the WLUN during unbind, and lets debugfs
+> initialization inspect both hba->ufs_version and
+> hba->dev_info.wspecversion directly.
+>=20
+> Suggested-by: Peter Wang <peter.wang@mediatek.com>
+> Signed-off-by: Brian Kao <powenkao@google.com>
+> ---
 
-Applied, thank you.
-
--- 
-Dmitry
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
