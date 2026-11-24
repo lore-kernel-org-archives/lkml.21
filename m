@@ -1,61 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=168.119.38.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795528301;
-	b=z80BdZRE3HHwlBCZbNk0rnje7N6FGBOC7o9oAMIFvNbcu8fM6hGN68PnqD5r/MsLraD2
-	 2jeW5cHju63NqwlEckMZ364sReMzTPD6bygYd2o0HfcKVQQw/W2HVA7MHqzcq4GIC3jX4
-	 dvbUPrY/aKR9lYxHr9QSNQbJ2dzFfqno94eJNfbqDTwHtMmYyqyJX6S2LiwUt+OcuxofO
-	 6AjTpHwJ2mcULb2efkTjRt2Yf8GauP1s/s9bSOnX7J06USnjHCAywWMf+FxvTAb6aRlkM
-	 1vRD8XiuJNzDdGBe2evL48f8n67HXhtHYmW4cpenmFo5iNB+GC2T73nJ+ch+6BfMCdw==
+	t=1795528327;
+	b=XaPhyCfDE9elaZfjyl9FstNR0Z28i8ZbVIy+cvn6qiFbQbH1hgDWFUwE2iCF534ljgnF
+	 TPikUzgiMUs8YuB203w2A0TWkivnhqRrA5aTsnFmnF5Nj85AQFaMG6UZDROhzrvjaRi1X
+	 Z6xUQCDGHb479+B4MyDBGPzR9iUBE82H8eDczgITVQCh1E2TdR3Y65RlYfb654Ctsa6H/
+	 i0iOo5xokBw0+Eyhe23yYzHVnBuC0We9cBFBN3S4pNHV1dUKgq1yBijXij937pBtVK/mu
+	 U/FnsVn7lOlLqaozBIXV+X96KBHgtX81Ck1BBbuzRTBW7xnseZBxap8/jtrkhQiRj8A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795528301;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=wG3ZtixJaFFhkZXxYdcnHox9YkW7VVSHInEX8jMe+5w=;
-	b=xMj/Q1VcelD0TV0GOLfhxulp4H8Be/vmtQAmSVc0JSNPxI6hnj03cOoUnTWgKeCy2IyA
-	 D/uF+bzdXNY/sEb72fxOVbDqIF4ARDj/ao28hkIrML3FJC8S/r9vLSoAoczk/lJhyFxdO
-	 Ld1oFn3wOsfVtSwIqdox4+QvNzCoDRxGZJ8XblX4XpJm2rwZ6KdPEFwZp3iJ58ND19hXh
-	 LCGJ2JvFmilXQMCmZ+7RaJyEkgX4VMV11H3FQpfKNVbd619akUR4Fwv05KHEEGqgXO4Is
-	 QGv6iOUY232uyd2bACNEvLDsN0q7WzFYZqQuocS9iJFyF6JSwC4cJsN7vA/UaIRHpDA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795528327;
+	h=DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:Date:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version:X-malware-bazaar;
+	bh=h+GOkO/r4k3wl8EouStenYOarylixVL/kfH/mmyBMMo=;
+	b=iTien//23pCojbv9o8ENWU64V2QqqFOgHYa5gnByq0BpQu95642Kzz6pCk8/cACv+1mE
+	 wKjR59jGi8TBo5SnAt1AqvK9ZnxYKCtQbr9OkXiG/H7KgnIGuIHLyah+eoWwXKG8DRjF5
+	 S0kzUSKgGpSdoX2Xd436TauLorTgBzhaDrIi04mQDgllOtlXY6GPfbTkwc4v4kFk9Y7VD
+	 EJVJO9xH6K2xhd1V8P0NjyTsnoXVPj9hFT4BMsyctRTiuhuJSNSMYiFD/mJaFy7f3E31I
+	 TBM8dwvfW7JNLlrpfS4JfEmLFHwvWDX55puXF/5KHz1vFm2kP7PJsOQCFzJhAcwb86g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BKhJ5xLI;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=permerror header.from=sipsolutions.net;
+	spf=pass smtp.mailfrom=sipsolutions.net;
+	dkim=pass header.d=sipsolutions.net header.i=@sipsolutions.net header.a=rsa-sha256 header.s=mail header.b=x2AZMQ4p;
+	arc=none smtp.remote-ip=168.119.38.16
+Received: from sipsolutions.net (s3.sipsolutions.net [168.119.38.16])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 506D4606A31E;
-	Tue, 24 Nov 2026 13:51:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30AF0606A31E;
+	Tue, 24 Nov 2026 13:52:06 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org; dmarc=permerror header.from=sipsolutions.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sipsolutions.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BKhJ5xLI
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 160D31F000C0;
-	Tue, 24 Nov 2026 13:51:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795528300;
-	bh=wG3ZtixJaFFhkZXxYdcnHox9YkW7VVSHInEX8jMe+5w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BKhJ5xLI57wn3jcdh+k3UYMM+UZH/iP3LwGv3HpcYTAoS7feQKOPpAaR9qn3kUsth
-	 vhoY/yvQd+Vbke+6trVtFw2wfac1ic3ibsn1lKpZ7h7zWG3Re5RfpxKcYWb+fRhbSO
-	 vkrIYcEg0evcjLmDX6Qs24X0cPCxS5NYQ100VdjZ3HPx1rc39UbHRgyth/e+hZ3oSl
-	 tDQpsNq+vvcfGOQu95049GJxDBFm2NcxzC17vmRGtf/8cZ2hyUHR7Nhko/L4bdnUUP
-	 ef5f2Me+jA6dLerR0uj8pREuFrxw43n0k6GOh71YtVQ+XClfgJBkVFlbWZo6YZujpe
-	 zBcg8RxjFwkkw==
-Date: Tue, 24 Nov 2026 13:51:29 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: "Michael S. Tsirkin" <mst@redhat.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, kvm@vger.kernel.org, 
-	virtualization@lists.linux-foundation.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	2312891301@qq.com, blum@kernel.org, co+6dcbccedc9ec6452@bugs.sh, 
-	eperezma@redhat.com, fangxy@xiaopeng.com, jasowangio@gmail.com, 
-	kmehltretter@gmail.com, linfeng.sun.dev@gmail.com, lirongqing@baidu.com, 
-	longpareto@gmail.com, oss.patchbox@gmail.com, p@1g4.org, phx0fer@gmail.com, 
-	physicalmtea@gmail.com, sergiiushakov@google.com, shubham@octane.security, 
-	stable@vger.kernel.org, stjepan.poljak@gmail.com, 
-	syzbot+13df72e0dc4be5c62215@syzkaller.appspotmail.com, tavhadia@gmail.com, tjdqudcks0424@naver.com, tz2294@columbia.edu, 
-	xieyongji@bytedance.com, xmei5@asu.edu, yuz08559@gmail.com, zenghui.yu@linux.dev, 
-	zhaimingbing@cmss.chinamobile.com, zhangjiao2@cmss.chinamobile.com
-Subject: Re: [GIT PULL] vhost,virtio,vdpa: bugfixes
-Message-ID: <awWOpS3HR_2FTN3I@gremlin>
-References: <20261104081535-mutt-send-email-mst@kernel.org>
+	dkim=pass (2048-bit key) header.d=sipsolutions.net header.i=@sipsolutions.net header.a=rsa-sha256 header.s=mail header.b=x2AZMQ4p
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
+	Resent-Cc:Resent-Message-ID; bh=h+GOkO/r4k3wl8EouStenYOarylixVL/kfH/mmyBMMo=;
+	t=1795528326; x=1796737926; b=x2AZMQ4pg/HJUx0+Jpa0J1ilQfhCxqBem8n6m9Hx1xOG8Gk
+	coRJY9NVedcv7B/+hhfQMGDuhA204wnGDm/EbhAB4EC0Tp3Ap1/XOxkzVlRfPtDEwV1NAg9j+ahpy
+	mjaQb6trUQ1SPmLHWsQOpmD8tBfjrep/Xqvr2OpA+3FUWo2gIAmJcMIfRlFt/GYIrkIj1EXIQjO/v
+	7u9jICrf+dbvHgGTiNdg+j36lwtID7jQVEQsw2GuxCL4b4vAitbNzGOQs4hKeaxHvFpN4VFR2e6Jn
+	SYTAwi981oHbM8m31mXIdtf/6GjsPAJhhtlrJ080rAaXSDnn8X2yZKNMq8YoMVsg==;
+Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__ECDSA_SECP256R1_SHA256__AES_256_GCM:256)
+	(Exim 4.98.2)
+	(envelope-from <johannes@sipsolutions.net>)
+	id 1xVqwF-0000000CKQe-3XHW;
+	Tue, 24 Nov 2026 14:52:04 +0100
+Message-ID: <26593ae869ed222980ac78ac869bc2745d2c282a.camel@sipsolutions.net>
+Subject: Re: [PATCH wireless-next] wifi: mac80211: replace the CSA beacon
+ before clearing csa_active
+From: Johannes Berg <johannes@sipsolutions.net>
+To: Mehmet Fide <mehmet.fide@gmail.com>
+Cc: Simon Wunderlich <sw@simonwunderlich.de>, Toke
+ =?ISO-8859-1?Q?H=F8iland-J=F8rgensen?=	 <toke@toke.dk>,
+ linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	mehmet.fide@screeningeagle.com
+Date: Tue, 24 Nov 2026 14:52:02 +0100
+In-Reply-To: <20261117153154.1804945-1-mehmet.fide@gmail.com>
+References: <20261117153154.1804945-1-mehmet.fide@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,34 +71,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261104081535-mutt-send-email-mst@kernel.org>
+X-malware-bazaar: not-scanned
 
-On Wed, Nov 04, 2026 at 08:15:35AM -0500, Michael S. Tsirkin wrote:
-> chenglong.ma (1):
->       vduse: fix VA/PA confusion in the coherent page fault path
+On Tue, 2026-11-17 at 16:31 +0100, Mehmet Fide wrote:
+> From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+>=20
+> __ieee80211_csa_finalize() clears csa_active and only then replaces the
+> CSA beacon with the one for after the switch. A driver that fetches its
+> beacons with ieee80211_beacon_get() and skips them once the countdown
+> is complete, as ath9k does in ath9k_csa_is_finished(), tests csa_active
+> first. A beacon fetched between the two steps passes that test and gets
+> the CSA beacon again, which goes out on the new channel, and
+> ieee80211_beacon_get() reports "beacon TX faster than countdown".
+>=20
+> Replace the beacon first, as the finalize work did before the clear was
+> moved ahead of it. csa_active is still cleared when replacing the
+> beacon fails.
+>=20
+> Fixes: e487eaeb076a ("cfg80211/mac80211/ath6kl: acquire wdev lock outside=
+ ch_switch_notify")
 
-This has landed as commit bb2e6f166547 ("vduse: fix VA/PA confusion in the
-coherent page fault path") but I don't see the patch anywhere on lore (off-list
-security report?)
+I don't see why it would be that?? Please explain that.
 
-Anyway, clearly nobody actually _ran_ this code in 7.4, not even claude, as
-it's completely broken.
-
-Commit 99fd6bf43d5d ("mm/vma: enforce that mm-managed mappings may not set
-VMA_IO_BIT") literally made setting VM_IO incorrectly, like this patch does, a
-WARN_ON error on mmap(), i.e. it _refuses_ to mmap it :)
-
-It looks like it doesn't need VM_IO anyway, the other changes in the patch
-make it redundant AFAICT, so you should send something like the below with
-a Fixes pointing at bb2e6f166547:
-
---- a/drivers/vdpa/vdpa_user/iova_domain.c
-+++ b/drivers/vdpa/vdpa_user/iova_domain.c
-@@ static int vduse_domain_mmap(struct file *file, struct vm_area_struct *vma)
--       vm_flags_set(vma, VM_IO | VM_DONTDUMP | VM_DONTEXPAND);
-+       vm_flags_set(vma, VM_DONTDUMP | VM_DONTEXPAND);
-
---
-Cheers, Lorenzo
+johannes
+--=20
+pw-bot: cr
