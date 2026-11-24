@@ -1,90 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.162
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795523519;
-	b=WElOnS+HDExs22+5oTxZ0vYVpg4wkHFXWreeD8nSw1siet6OYu5UsOj8V/z6VSMdO/vc
-	 tSXpA4JpbZrN7W3dAwl1u2jl3+3+LYkA7c5DdaVBk76ApPx+IXA+Hd1TDBvl7RfEnnd/K
-	 Hocm3BSE93vuq6aSrj5TRiiRuFUaA3sFYX+MZpESVT+avV1+ShW3wXtPuFP+zc90ZsSth
-	 r8ubnZM3+ehQlCsuIoJmFfdvBHlsfD4XtvLdAtd9DH9JE0PbwchQ60nBcWcq6VngmqJL9
-	 nBIsy2je634Ej/dHpjc3jbPwzXSf7zZM6TtM3BvG/kHeZ+XAVI1OWstG6NcN29tPUZA==
+	t=1795523713;
+	b=kN4tvRwJr2jv+ihlpK8XHU6X/BMgHxc+aenneBpQCXnFTjDgPjnVQZ3JhMa9bxE5nRuD
+	 /lLVStu8eYM+jYLFnL3EEd5cXoRApT1pv/R2AeIVD/tZMxadBoD5QbIPyjewQDrdrEnlZ
+	 BzFifJnaJYKhJTf7ry5cZ2NyAjbnNWYohZGe5T+4jt69to8Q/h/wp1vbdJxT1GphDC271
+	 4a8MoiAK9rsm2OFWkoM3wmpdcuty/NeVlOJLPX4Z5uC5eEmHSmu1O9D7a8++Phymb6ExN
+	 6XS3/VPwGrg92IasRTGd39z9uB0FwXz0xqpRs0HSRzOdeWHFKL/JjdJ+5z3Rb1OGNVg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795523519;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=VAGi8ADLbe1nwsDdtMJUG+mqysismIkmi3QPANzknRE=;
-	b=N3Oy/TQ5GvVnqazuzcRXCLRuAhTK9alqEkSXFmIGy4Gzu2wVd64O0/kUY1XO6glI0jFC
-	 rrmuveJUhd/lyce4rC3VDp5xZ1YRYZQEPpjsUmNQt8zov9YCMnixu462GgH8EhyQQ6oQj
-	 7h0R29gWakoQwByVE8sl2BazYPI4YxPHIjqs5IjWvFSfRl6AbDoeHrjYOmGsmWk/0Sm8N
-	 tGtpYKthHiT58xRSgGAqIXElrbm9E1RAaC5z02WBWWk3pfO77eZ4acDjHgsZ6eTJpsZ6x
-	 glBzETm8GK5kWlyJxaV9e997S12d6hLTwnye76du8hBh1xRV1khFQIIyGKJfGgJwxcA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795523713;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer;
+	bh=XXjPe5Ek8pXsbdEkqZpVTiDeauZE69h9WIl8B5p4vNo=;
+	b=AlJZOVMn7LhEUi7uaaemi/gXOM64Tnjtt8Q892Re56JZdrohBleLWTtVOW1zIUVfq0xM
+	 bLnJbaWme4EBi8og/XPOIUozys7pca1hKH6fCPHop2EG3abbuPypo9sEiq+sBMxefPkF6
+	 evj7lMZdBH/3oKFluFxRMW7Boc7TAJotWwjgHS7N0V5/xts/Z8KM16FQPrTfvT1HaBmOd
+	 cFHzE6qb5CJAgOjyYbVdbhyYdKgjD0jU6kc7Ei11BVejFxa7gCShr1qYAscxh4dWXTZOn
+	 k46AlN5akwa6PNJSaNWl8Nw6Npwk5AJpleSrVPkZ22DBmzWqPedy13YOcmTRsK8ftIA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wjCUpmNl;
-	arc=none smtp.remote-ip=209.85.208.44
-Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com [209.85.208.44])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QU3EcD3L;
+	arc=none smtp.remote-ip=95.215.58.162
+Received: from mta1.migadu.com (out-162.mta1.migadu.com [95.215.58.162])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8914606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:31:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8914606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38A8F606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:35:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38A8F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wjCUpmNl
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-6b894d9a075so4844971a12.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:31:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795523517; x=1796128317; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VAGi8ADLbe1nwsDdtMJUG+mqysismIkmi3QPANzknRE=;
-        b=wjCUpmNl+mRVvplDoEgumYPE3g2vqJKQo580YWEMbgKWCwgMLPfczJbnJxQ2Lx6fJS
-         yMpi0u2vJaALSnXWBIHszPeiqA8DCjAM+BWjq6vY+ps/NaGroZjTsfuQgmP7K4h+36Qz
-         tQUPmLxV+LEfU1HxNxDFfHAgAqiFd4ma61hQXlKn1wGEgaZaDUk6pSN5v6EIgXxgMe3t
-         npl0OXnPrxY6k3giZUxQ58l7irS7XvjxWs1BVUZvTke76E5MjqYYNGj9HMBsQwvf+U3l
-         9EdajxbwknzTCJQr6V2FnxbYW82Nsi7Bp338o/4kSx+7Bzf7mU9y9WbTXxn2OZQzyleL
-         bErw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795523517; x=1796128317;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VAGi8ADLbe1nwsDdtMJUG+mqysismIkmi3QPANzknRE=;
-        b=aJcp7BcU12kkmnomC1D18DWJjkPdcn8IWOuAempOS2yxqUtUARX/iLNiCG16WIAZ8s
-         ARE12nlt0cGSDQhZx5VnnrTH0WXQ0KKz4p61JAzHvYNENr28sXUTuZOktn8Id6p+5ojJ
-         kUWogJ27bmdbUfojGS/UaYyb4On77o8tHAmgBXZsxgOkWeuLpc5X9ZBsrsWnXeV0vzZV
-         9z911vjIYAWNVHjnNX8OBTY8nNVZ2gdoq/Z/0//GdIQG+PuQ4hhIt/NlFvMcDdK3+oKz
-         nz2KIQf9jFbLsoZ5K6WiCDOo+uQCZmcsi8nlYWtx21zqZ6EEc9D4ixdGbDoEQST10tSd
-         OZhw==
-X-Forwarded-Encrypted: i=1; AL+hErEAJaC7sgafq2tJVicsZgagR5MTtC4cHcWHWZL00YU0ulLc7QXjZBCA0qPteejXasTnE/KwkjiaausLn/Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/rJHITkszmqiQtace9SwRqk5H0XIMrqGOcErr+1NhDeddOOx45
-	nDQvr+rRHnazWCPXHD+WDxdup1uPekFtcUUZpMGHfva0HwgixOeUaMiP
-X-Gm-Gg: AZFdTZcLnXInbosEcwF7bapablP3oLV5p4TF0GLZ9br/aVVm8TaDDYukgUeZwZb8E76
-	4FnQb9W13Za7Ld/TYtEBE1pYaJyov5O4v0yoTXXgiVn9CUD5BoEiVGLdJlk5gm2cJP74KSWogkv
-	QxDyfpFgJzWwYF44zsxq5Dlc4LDbSgV93uM4WAUHPWw5PhY/56UeXnEie8lnSScvxjqTh/QtxqO
-	Mzo2zrYgft73iHjpgRzPeD0JZe9NjOD5HUhq8y3wgQNDkWFs6judGhiKZEpc5vwCNK4vGQavq51
-	2GzaYD03f5R7ioeS857zv42eKefcaVGGFYWsafsRy9GZH83z3O93mCtNArq34Fr22w6saaG/vAl
-	oJEOIaoLykB4hESnDP1bzY2oc0eUqGr4pYzjVbXQzXifkMRmS8KNzYMvteTENmFggB261TJaFA9
-	gHIx3tPaswc017uU04RfqfmyDa4yHVS4UPeaBgeDgbJXLYTD7zMmnbZ1FeOXREFjEF0eClOIriw
-	7hY7G90E3FoMRwo/C9ViS0Ekbj/0RuVAqBRjpqSMzIw7iqu5n6T5gF7eh6b5uxDVqmugg2Qoqo7
-	rFIYB+NLyBVe+cy8Oln1FgMPsGkhixOh/jmBjGWw6OrrLSIcA+OVwCH25mlGZyYoT2yX1yp03Gl
-	IpD6qeikgmjyuO/mV1vMnrCkLO9FSovOvlEEKtx6WmcXKFMEH0GyGITUgCEEBYGiyIpvnmV5swz
-	/owlQaqKGHstP6Htr6Yboc5wSjV9rJZb0WBFb7c+3nPqt9VI2Wf9CmAlVwk69Ofhs=
-X-Received: by 2002:a05:6402:ea9:b0:6ba:eb4c:487a with SMTP id 4fb4d7f45d1cf-6baeb4c48ccmr1907009a12.22.1795523516710;
-        Tue, 24 Nov 2026 04:31:56 -0800 (PST)
-Received: from [192.168.100.100] (87-205-15-91.static.ip.netia.com.pl. [87.205.15.91])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba854bed08sm4675512a12.30.2026.11.24.04.31.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 04:31:56 -0800 (PST)
-Message-ID: <02419845-bab8-4e36-9a98-6830761da1b9@gmail.com>
-Date: Tue, 24 Nov 2026 13:31:55 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QU3EcD3L
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=6aEj/3h/YT3eGMs5093On2XEql6VSQDAJINouErQmDg=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795523709; v=1; x=1796128509;
+ b=QU3EcD3LDf6TXR3KiAQUFNl4YRJt6m0TALvESSETyu71FrGJ8fccrUmKb36Or3HhwfSnU0yS
+ Ye0RyihvA9G/mDuGLgorVJfNDsaPBOHptucABzOUVXNP6Ln2zZsAPk1qHitHL8MbxOl9rOfCEqb
+ i02+pWKhvTkBPGUZi2S0L3W4=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id 7a7810e481f97de3;
+	Tue, 24 Nov 2026 12:35:07 +0000
+X-Mizu-Trace-ID: 7a7810e481f97de3
+X-Migadu-Flow: FLOW_OUT
+From: Hangbin Liu <hangbin.liu@linux.dev>
+Date: Tue, 24 Nov 2026 20:34:52 +0800
+Subject: [PATCH net-next] bonding: roll back fail_over_mac if enslave fails
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,72 +59,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] net/x25: fix invalid lock_sock() usage in
- x25_kill_by_neigh()
-To: netdev-bot+sashiko@kernel.org, syzbot@kernel.org
-Cc: syzkaller-bugs@googlegroups.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, linux-x25@vger.kernel.org,
- ms@dev.tdt.de, netdev@vger.kernel.org, pabeni@redhat.com,
- duoming@zju.edu.cn, horms@kernel.org, linux-kernel@vger.kernel.org,
- syzbot@lists.linux.dev, ngocthang2710.1999@gmail.com
-References: <00f667e3-a158-4fb5-84a3-9ecda4718ce8@mail.kernel.org>
- <179551432467.3135.11868205229731190547@kernel.org>
-Content-Language: en-US
-From: Krystian Kaniewski <krystianmkaniewski@gmail.com>
-In-Reply-To: <179551432467.3135.11868205229731190547@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-bond_fail_over_mac-v1-1-9caee319331f@kylinos.cn>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWM0QrCIBhGX2X81wlTKluvEiHqvtUfpUNtDMbef
+ a4uD4dzFspIjEzXZqGEiTPHUEEeGvJPGx4Q3Fcm1aqzlOooXAy9GSy/TZyQzMd6Ad2dlO40Lq2
+ jGo4JA8+/6Y0CigiYC93/Jn/dC77sT1rXDfWnAjuAAAAA
+X-Change-ID: 20261124-bond_fail_over_mac-e7952797e80b
+To: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Hangbin Liu <hangbin.liu@linux.dev>, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Hangbin Liu <hangbin.liu@linux.dev>
+X-Mailer: b4 0.16.0
 
-On Tue, 24 Nov 2026 09:58:44 +0000, netdev-bot+sashiko@kernel.org wrote:
-> - [Medium] When the new softirq path finds a socket owned by a task, it
->   only sets a flag and leaves the dead call usable until release_sock().
+From: Hangbin Liu <liuhangbin@kylinos.cn>
 
-Agreed. While a task owns the socket, the flagged call keeps its LCI
-binding until release_sock(). __x25_find_socket() still returns it, so
-frames that arrive after the restart go to its backlog and are processed
-in the old state before x25_release_cb() runs. The owner can also still
-transmit on the old LCI, and after a LAPB disconnect this brings the
-link back up.
+bond_enslave() can change bond->params.fail_over_mac as a side
+effect: when the first slave cannot set its own MAC address and the
+bond is in active-backup mode, fail_over_mac is forced to "active" so
+bonding never writes the slave MAC. If enslave fails later, the
+forced value stays behind, silently changing a user-configured
+option after a failed operation and affecting subsequent failover
+behaviour.
 
-This patch follows the same design as Thang's patch from October [1].
-In that thread Martin confirmed both effects in a test on 23 November
-and announced a v2 which skips flagged sockets in __x25_find_socket()
-and returns early from x25_kick() and x25_write_internal() for them.
-That covers this finding, so please drop this patch in favour of his
-series. I will not send a v2 of it.
+Snapshot fail_over_mac on entry and restore it on the error path.
 
-> Pre-existing issues:
-> - [High] This problem wasn't introduced by this patch, but it is still
->   reachable after it.
+Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
+---
+ drivers/net/bonding/bond_main.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Agreed as well. x25_disconnect() clears x25->neighbour since commit
-4becb7ee5b3d ("net/x25: Fix x25_neigh refcnt leak when x25
-disconnect"), and x25_sendmsg() and x25_output() dereference it after
-they take the socket lock again. Martin wrote that he has a separate
-fix for this.
+diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+index 9249a79a168e..3817c82e89e2 100644
+--- a/drivers/net/bonding/bond_main.c
++++ b/drivers/net/bonding/bond_main.c
+@@ -1890,6 +1890,7 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+ {
+ 	struct bonding *bond = netdev_priv(bond_dev);
+ 	const struct net_device_ops *slave_ops = slave_dev->netdev_ops;
++	int orig_fail_over_mac = bond->params.fail_over_mac;
+ 	struct slave *new_slave = NULL, *prev_slave;
+ 	struct sockaddr_storage ss;
+ 	int res = 0, i;
+@@ -2412,6 +2413,7 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+ 	kobject_put(&new_slave->kobj);
+ 
+ err_undo_flags:
++	bond->params.fail_over_mac = orig_fail_over_mac;
+ 	/* Enslave of first slave has failed and we need to fix master's mac */
+ 	if (!bond_has_slaves(bond)) {
+ 		if (ether_addr_equal_64bits(bond_dev->dev_addr,
 
-x25_recvmsg() has the same kind of window, and the review did not
-report it. If x25_disconnect() runs after skb_recv_datagram() has
-dequeued a packet and before lock_sock() returns, x25_recvmsg() then
-calls x25_check_rbuf() on a socket without a neighbour.
-x25_disconnect() does not clear x25->condition, so with
-X25_COND_OWN_RX_BUSY still set and sk_rmem_alloc below half of
-sk_rcvbuf, x25_check_rbuf() sends an RR through x25_write_internal(),
-which dereferences x25->neighbour. I found this by reading the code and
-have not reproduced it, but it may be worth covering in the same fix.
+---
+base-commit: 9545bf5293dfb83138faec013f7ce4184218f304
+change-id: 20261124-bond_fail_over_mac-e7952797e80b
 
-Martin, syzbot tracks this report separately from the one in Thang's
-patch (extid 9faa82ae2e94c5c7d2ef). Could you also add the Reported-by
-and Closes tags for 300375dfd44665f063a6 to the series, so that syzbot
-closes this one too?
+Best regards,
+--  
+Hangbin Liu <liuhangbin@kylinos.cn>
 
-I am happy to test the series with the syzbot reproducer once it is
-posted.
-
-[1] https://lore.kernel.org/all/20261001150118.128470-1-ngocthang2710.1999@gmail.com/
-
-pw-bot: cr
-
--- 
-Krystian Kaniewski
