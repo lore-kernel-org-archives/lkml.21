@@ -1,70 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.251.229.89
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=77.75.78.89
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795512665;
-	b=ns8VGlG2G8IrJ6s/zF3KIkTAAPdAhZdd7JA6VIQ5dirUfTJKSxeecBXw5HemcOaF1qRF
-	 8OO3AuU9sicKtyamgm0nOODElcB1m6DsXD+80ISQodYoidEMFXoO0ZNkUol+tRB+/1y3Q
-	 GG7Nep/z4EfUWA26FgRdwsvwt9A2jAeLr7ZRSPpmdCELtw60RbpWrqjXhNdF1GMiI4nI/
-	 e8G+jDp1b4oY0wqeKOQ5s9oELGwCTkzwQGOiKyOTK3jW0nPIjOJ1+QhDXk9CEeOrnv5Rj
-	 V+EB9wWz7QpC6+k91zRux0FlIbJsD0g8f/doyqFTuAMe75FfHp2O6KPWxhpdD330Z3g==
+	t=1795512675;
+	b=f3NQksMEdec+IOdKw3SsWqIii/AWzmE5XM559xrEPP5vS7nel3yKWHj3Q/gL7rA3uLBq
+	 rTlN+RbNSu3KmnI35XcCfBvD7mpHxHQR07YgKuZEIbVtNhrvcanrJ8jAcI50788rdze8O
+	 kMj13vx/Ob9JRunIfHaPLrSd+pd/sXIRbI6knMzu9v97wNKohdIT0AE5/UwZ62cyNhE4/
+	 fJ8IoPqxZbrsbst92sdq4ujKsHDBrjT9S/nRR663tmd2sXt08C+KF77hrBuHjM7UDp05y
+	 SWCEhy0eiUesbyBh9aZ7z8gMEchAKFd6izhfL52fb+7tuVa9T4eMkauTR7MxnNlNpUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795512665;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:In-Reply-To:References:Organization:X-Mailer:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=imyZFS08/kI8TMFYUNmHJ21/sEomX2lbtjI8H1u7w74=;
-	b=uNB1+wKSkddgHv7ZD0XMhtMrt1NFc480Gol/hYFBI3WN+PkxZ/roSZDClG6C1wMLDYoE
-	 zOBWDE/L0HVEoodpBBJ9Mu9a+oBj8TuvyXx75RLtogzVP0r39DBfVuRqpgkA37Y1pfWZ/
-	 l7jZjVNUoYXToEn+fcUSilgUMoqHYt9JZGYdlAVqlL5YslTE6rGsevy0Z2gCBIvAl4VNV
-	 h2BVtTPeBC1OhE7WwpRp1FvOADY74ElGhDk7C2yOVMfMSgxcyJ4McEUdamh1OTCwKgQhE
-	 +5nPMERtSZu9gTUgQ28OKXgyAs8b1fRI970NEugMoDfX8njYsXTrUU6A/rxs/5xnKRA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795512675;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer;
+	bh=jm0pg8mi4c+vKOs4I3fCVMNCqq2U0x5wOZd4jvsZzpo=;
+	b=5cPHxgt8Vy0MblMF6+wHq6koSzo7+RTAmQgXS9gk2JCjzRYafn2jQgvuBWzoSAo886AG
+	 kG/67MZeSFI9v6NCfTRVo4CEiWeGx3mnB6Kr9XAbvEJjRYC/H3tqyhPfonp8j84l94xUK
+	 nl8tdXNQVEKEsM1gLtjveYQmhZTainpngS5xjkRVegKlEryCrOwlIRM5axCC9EfTKzVmC
+	 HMM8OKVcpNPBHtFSSheENjrV1S0n5N6rayffO7KwxuQtamftcG6rW7cBsGPrXAM+Floge
+	 j9KlaJGtVmuLIT21gAFw8inwfjmSgh/3aQmRTl4g8GhQ2IlTtXxencIky1YwYgIcoBw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nabladev.com;
-	spf=pass smtp.mailfrom=nabladev.com;
-	dkim=pass header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=e5DycNuL;
-	arc=none smtp.remote-ip=178.251.229.89
-Received: from mx.nabladev.com (mx.nabladev.com [178.251.229.89])
+	dmarc=pass header.from=podgorny.cz;
+	spf=pass smtp.mailfrom=podgorny.cz;
+	dkim=pass header.d=podgorny.cz header.i=@podgorny.cz header.a=rsa-sha256 header.s=szn1 header.b=W+je61bn;
+	arc=none smtp.remote-ip=77.75.78.89
+Received: from mxb.seznam.cz (mxb.seznam.cz [77.75.78.89])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BDDE606A336;
-	Tue, 24 Nov 2026 09:31:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8BDDE606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nabladev.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nabladev.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA4B5606A32D;
+	Tue, 24 Nov 2026 09:31:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA4B5606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=podgorny.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=podgorny.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=e5DycNuL
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1D01B10D89A;
-	Tue, 24 Nov 2026 10:30:48 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1795512652;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=imyZFS08/kI8TMFYUNmHJ21/sEomX2lbtjI8H1u7w74=;
-	b=e5DycNuLi9zgkTT8fyyvQKpKBxIJ7O6F9LCKyKKF+K5pL1AeJH6S4Uvl6VWKi/Rf2TN9J3
-	RfNo3q0PfD6biAHbrXIVXAB01hFUjQ1P5AOedFxNB8clAIzuRYl9H4pNoVTVy9gq2+Spjn
-	rwgRJNTabNzLX+xx/V6YefwQq1fxAGqcAceY/HRb2K5o2BIox7hRUccM0385M7CN2Yogfv
-	R/ztALu/KSsGevhng+Gp3iHQvyCMpMTzB5M52gjzHTU/UukFv0bVH8zsO0E9MSDNLsqjJK
-	KLjHJ7qhLsIDtyEzc2cu0zLGKLsowBP5KGzN4K94FzXKIt7ls8092u5CyOhvBA==
-Date: Tue, 24 Nov 2026 10:30:47 +0100
-From: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukma@nabladev.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Shawn Guo
- <shawnguo@kernel.org>, Guenter Roeck <linux@roeck-us.net>, Daniel Baluta
- <daniel.baluta@nxp.com>, Jonathan Cameron
- <jonathan.cameron@oss.qualcomm.com>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 3/3] arm64: dts: imx8mm: Add Cloos CBASE support
-Message-ID: <20261124103047.5dc56f82@wsk>
-In-Reply-To: <awR-Al7YQMSSqt5J@SMW015318>
-References: <20261120094211.1742416-1-lukma@nabladev.com>
-	<20261120094211.1742416-3-lukma@nabladev.com>
-	<awR-Al7YQMSSqt5J@SMW015318>
-Organization: Nabla
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key, unprotected) header.d=podgorny.cz header.i=@podgorny.cz header.a=rsa-sha256 header.s=szn1 header.b=W+je61bn
+Received: from email.seznam.cz
+	by smtpc-mxb-5bd84c9575-nc5th
+	(smtpc-mxb-5bd84c9575-nc5th [2a02:598:64:8a00::1000:947])
+	id 083ec157be046c4e0db1db1f;
+	Tue, 24 Nov 2026 10:31:02 +0100 (CET)
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed; d=podgorny.cz; s=szn1;
+	t=1795512662; bh=jm0pg8mi4c+vKOs4I3fCVMNCqq2U0x5wOZd4jvsZzpo=;
+	h=From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:To:Cc;
+	b=W+je61bnNwlWPSDdsDV2KnQBJTHPT5jRfmtHJ9HrDpqqretK199cNpK2oJWDHc7Jb
+	 WakhYRLcKGSfNj1MoTlisAJruvzbEjQs3rwBISOhUhdwyeIjJm/HiYC43Suy/YEx5m
+	 r4zveCQNjUuVeUo+C8+MBj9BlektwkzV/xwWnjlINMZN45WibyS7mav1Z6R58BmZc6
+	 3RhTGUHkSsgUXsGBGq+QfagtPhd1Nrs7S9f3j5Hs8oPLm2uP1ZZpUyaBgfykK6CN+f
+	 xO4f8lJRnhyjnbZPEbLnPRCla1BCZWtTt71VI1c6CZIz1lwk2CC7KP6ZEJoYQ4p+8S
+	 deP9MVJPpGmxQ==
+Received: from [192.168.31.57] ([2a01:9422:904:1ee:e65e:37ff:feee:e29c])
+	by smtpd-relay-584bc557d7-pqx9t (szn-email-smtpd/2.0.97) with ESMTPA
+	id c5c0371c-fdd6-47ba-8132-755a04ca86f3;
+	Tue, 24 Nov 2026 10:31:01 +0100
+From: Radek Podgorny <radek@podgorny.cz>
+Date: Tue, 24 Nov 2026 10:30:58 +0100
+Subject: [PATCH v4 2/4] Bluetooth: connect to an RPA as to the identity
+ behind it
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,97 +65,184 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Message-Id: <20261124-for-upstream-le-conn-params-rpa-v4-2-f2dd5eb41f45@podgorny.cz>
+References: <20261124-for-upstream-le-conn-params-rpa-v4-0-f2dd5eb41f45@podgorny.cz>
+In-Reply-To: <20261124-for-upstream-le-conn-params-rpa-v4-0-f2dd5eb41f45@podgorny.cz>
+To: Marcel Holtmann <marcel@holtmann.org>, 
+ Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Cc: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>, 
+ Johan Hedberg <johan.hedberg@intel.com>, 
+ Jakub Pawlowski <jpawlowski@google.com>, linux-bluetooth@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Radek Podgorny <radek@podgorny.cz>
+X-Mailer: b4 0.15.2
 
-Hi Frank,
+A connect made to a peer's RPA through hci_connect_le_scan(), from Pair
+Device, an L2CAP socket or a CIS, looks for an existing connection by
+that RPA only. A bonded peer's established connection is kept under its
+identity, so the lookup misses it and a second hci_conn is created
+under the RPA, which waits until the connect times out. An L2CAP
+connect to the RPA of a connected peer does exactly that on v7.3.5.
+The connect also marks params under the RPA for itself, while the
+peer's advertising reports are resolved to its identity before
+check_pending_le_conn() looks params up, so it is never started either.
 
-> On Fri, Nov 20, 2026 at 10:42:11AM +0100, Lukasz Majewski wrote:
-> > Add support for CBASE board, which incorporates the TQMa8MQML
-> > module.
-> >
-> > Signed-off-by: Lukasz Majewski <lukma@nabladev.com>
-> > ---
-> > Changes for v2:
-> > - Fix the DTS according to the sashiko bot review
-> > (gemini/gemini-4-argon) Changes for v3:
-> > - None
-> > Changes for v4:
-> > - Use hex values for switch reg property
-> > - Change subject and commit message according to community feedback
-> > ---
-> >  arch/arm64/boot/dts/freescale/Makefile        |   1 +
-> >  .../arm64/boot/dts/freescale/imx8mm-cbase.dts | 581
-> > ++++++++++++++++++ 2 files changed, 582 insertions(+)
-> >  create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-cbase.dts
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/Makefile
-> > b/arch/arm64/boot/dts/freescale/Makefile index
-> > a80cccf34eb5..c14e5ae2e4a0 100644 ---
-> > a/arch/arm64/boot/dts/freescale/Makefile +++
-> > b/arch/arm64/boot/dts/freescale/Makefile @@ -121,6 +121,7 @@
-> > dtb-$(CONFIG_ARCH_MXC) += imx8dxl-hummingboard-telematics.dtb
-> > dtb-$(CONFIG_ARCH_MXC) += imx8dxp-tqma8xdp-mba8xx.dtb
-> > dtb-$(CONFIG_ARCH_MXC) += imx8dxp-tqma8xdps-mb-smarc-2.dtb
-> > dtb-$(CONFIG_ARCH_MXC) += imx8mm-beacon-kit.dtb
-> > +dtb-$(CONFIG_ARCH_MXC) += imx8mm-cbase.dtb
-> >
-> >  imx8mm-data-modul-edm-sbc-overlay-cm4-dtbs := \
-> >  	imx8mm-data-modul-edm-sbc.dtb \
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mm-cbase.dts
-> > b/arch/arm64/boot/dts/freescale/imx8mm-cbase.dts new file mode
-> > 100644 index 000000000000..fdfa2ef9a065
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mm-cbase.dts
-> > @@ -0,0 +1,581 @@
-> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> > +/*
-> > + * Copyright 2022 Fabio Estevam <festevam@denx.de>
-> > + * Copyright 2026 Lukasz Majewski <lukma@nabladev.com>
-> > + */
-> > +
-> > +/dts-v1/;
-> > +  
-> ...
-> > +
-> > +/* SPI-NOR memory is not mounted on the used SoM */
-> > +/delete-node/ &flash0;  
-> 
-> Use status = disabled.
+Resolve an RPA to the identity first, through a new
+hci_rpa_to_identity(), so the connect proceeds as one made to the
+identity: it finds the peer's connection and marks the identity's
+params. hci_connect_le() still puts the RPA on air when the controller
+cannot resolve it. SMP can free the IRK without hdev->lock, so the
+identity is copied out under rcu_read_lock().
 
-As pointed out earlier - the 
+A connection hci_connect_le() is already creating for the peer is kept
+under the RPA it dials, which the lookup by the identity now misses.
+Fall back to finding the peer's connection by its IRK, which also finds
+it after the peer has moved to a new RPA.
 
-+&flexspi {
-+	status = "disabled";
-+};
+Fixes: f75113a26008 ("Bluetooth: add hci_connect_le_scan")
+Assisted-by: Claude:claude-opus-5-5
+Signed-off-by: Radek Podgorny <radek@podgorny.cz>
+---
+ include/net/bluetooth/hci_core.h |  2 ++
+ net/bluetooth/hci_conn.c         | 57 ++++++++++++++++++++++++++++++++++++++++
+ net/bluetooth/hci_core.c         | 20 ++++++++++++++
+ 3 files changed, 79 insertions(+)
 
-is disabled.
-
-So we do not enable the FLEXSPI subsystem and also clearly indicate
-that the flash0 is NOT mounted (and will not be as we don't use it at
-this project).
-
-Is this OK? Or shall I do something more?
-
-> 
-> Frank
-> 
-> > --
-> > 2.39.5
-> >
-> >  
-
-
+diff --git a/include/net/bluetooth/hci_core.h b/include/net/bluetooth/hci_core.h
+index 4aa0b49ae104..28eb79dd51f0 100644
+--- a/include/net/bluetooth/hci_core.h
++++ b/include/net/bluetooth/hci_core.h
+@@ -1927,6 +1927,8 @@ int hci_bdaddr_list_del_with_irk(struct list_head *list, bdaddr_t *bdaddr,
+ 				 u8 type);
+ void hci_bdaddr_list_clear(struct list_head *list);
+ 
++void hci_rpa_to_identity(struct hci_dev *hdev, bdaddr_t **addr,
++			 u8 *addr_type, bdaddr_t *id_addr);
+ struct hci_conn_params *hci_conn_params_lookup(struct hci_dev *hdev,
+ 					       bdaddr_t *addr, u8 addr_type);
+ struct hci_conn_params *hci_conn_params_add(struct hci_dev *hdev,
+diff --git a/net/bluetooth/hci_conn.c b/net/bluetooth/hci_conn.c
+index 8638b7f8dee3..c1583cb6c28a 100644
+--- a/net/bluetooth/hci_conn.c
++++ b/net/bluetooth/hci_conn.c
+@@ -1520,6 +1520,54 @@ u8 hci_conn_set_handle(struct hci_conn *conn, u16 handle)
+ 	return 0;
+ }
+ 
++/* A connection to a peer the controller cannot resolve is kept under the
++ * peer's RPA until it completes, and the peer may have moved to a new RPA
++ * since. Match it by the peer's IRK instead of by address.
++ *
++ * This function requires the caller holds hdev->lock.
++ */
++static struct hci_conn *le_conn_by_irk(struct hci_dev *hdev,
++				       const u8 irk_val[16])
++{
++	struct hci_conn_hash *h = &hdev->conn_hash;
++	struct hci_conn *c;
++
++	rcu_read_lock();
++	list_for_each_entry_rcu(c, &h->list, list) {
++		if (c->type != LE_LINK ||
++		    !hci_bdaddr_is_rpa(&c->dst, c->dst_type))
++			continue;
++
++		if (smp_irk_matches(hdev, irk_val, &c->dst)) {
++			rcu_read_unlock();
++			return c;
++		}
++	}
++	rcu_read_unlock();
++
++	return NULL;
++}
++
++/* Find the LE connection of the peer at addr by the peer's IRK, for when it
++ * is kept under one of the peer's RPAs instead of addr.
++ *
++ * This function requires the caller holds hdev->lock.
++ */
++static struct hci_conn *le_conn_lookup_irk(struct hci_dev *hdev,
++					   bdaddr_t *addr, u8 addr_type)
++{
++	struct hci_conn *conn = NULL;
++	struct smp_irk *irk;
++
++	rcu_read_lock();
++	irk = hci_find_irk_by_addr(hdev, addr, addr_type);
++	if (irk)
++		conn = le_conn_by_irk(hdev, irk->val);
++	rcu_read_unlock();
++
++	return conn;
++}
++
+ struct hci_conn *hci_connect_le(struct hci_dev *hdev, bdaddr_t *dst,
+ 				u8 dst_type, bool dst_resolved, u8 sec_level,
+ 				u16 conn_timeout, u8 role, u8 phy, u8 sec_phy)
+@@ -1787,6 +1835,7 @@ struct hci_conn *hci_connect_le_scan(struct hci_dev *hdev, bdaddr_t *dst,
+ 				     enum conn_reasons conn_reason)
+ {
+ 	struct hci_conn *conn;
++	bdaddr_t id_addr;
+ 
+ 	/* Let's make sure that le is enabled.*/
+ 	if (!hci_dev_test_flag(hdev, HCI_LE_ENABLED)) {
+@@ -1796,6 +1845,12 @@ struct hci_conn *hci_connect_le_scan(struct hci_dev *hdev, bdaddr_t *dst,
+ 		return ERR_PTR(-EOPNOTSUPP);
+ 	}
+ 
++	/* Connect to the peer as if by its identity, under which its
++	 * connection and parameters are kept. hci_connect_le() puts its RPA
++	 * on air when the controller cannot resolve it.
++	 */
++	hci_rpa_to_identity(hdev, &dst, &dst_type, &id_addr);
++
+ 	/* Some devices send ATT messages as soon as the physical link is
+ 	 * established. To be able to handle these ATT messages, the user-
+ 	 * space first establishes the connection and then starts the pairing
+@@ -1806,6 +1861,8 @@ struct hci_conn *hci_connect_le_scan(struct hci_dev *hdev, bdaddr_t *dst,
+ 	 * and return the object found.
+ 	 */
+ 	conn = hci_conn_hash_lookup_le(hdev, dst, dst_type);
++	if (!conn)
++		conn = le_conn_lookup_irk(hdev, dst, dst_type);
+ 	if (conn) {
+ 		if (conn->pending_sec_level < sec_level)
+ 			conn->pending_sec_level = sec_level;
+diff --git a/net/bluetooth/hci_core.c b/net/bluetooth/hci_core.c
+index 024960e9af66..a87c92dccd4f 100644
+--- a/net/bluetooth/hci_core.c
++++ b/net/bluetooth/hci_core.c
+@@ -2359,6 +2359,26 @@ int hci_bdaddr_list_del_with_irk(struct list_head *list, bdaddr_t *bdaddr,
+ 	return 0;
+ }
+ 
++/* A peer we hold the IRK of is tracked under its identity address, so
++ * point *addr and *addr_type at the identity behind an RPA we can resolve.
++ * SMP can free the IRK without hdev->lock, so the identity is copied to
++ * @id_addr before leaving the RCU read-side section.
++ */
++void hci_rpa_to_identity(struct hci_dev *hdev, bdaddr_t **addr,
++			 u8 *addr_type, bdaddr_t *id_addr)
++{
++	struct smp_irk *irk;
++
++	rcu_read_lock();
++	irk = hci_get_irk(hdev, *addr, *addr_type);
++	if (irk) {
++		bacpy(id_addr, &irk->bdaddr);
++		*addr = id_addr;
++		*addr_type = irk->addr_type;
++	}
++	rcu_read_unlock();
++}
++
+ /* This function requires the caller holds hdev->lock */
+ struct hci_conn_params *hci_conn_params_lookup(struct hci_dev *hdev,
+ 					       bdaddr_t *addr, u8 addr_type)
 
 -- 
-Best regards,
+2.56.1
 
-Lukasz Majewski
-
---
-Nabla Software Engineering GmbH
-HRB 40522 Augsburg
-Phone: +49 821 45592596
-E-Mail: office@nabladev.com
-Managing Director : Stefano Babic
