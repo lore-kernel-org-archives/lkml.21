@@ -1,49 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795550643;
-	b=wcLdc8fKDUwLDqOxLyxys0ILEgg/Gi1EhTQSvUT0FpgVcPoB5gBKG51lJe5VnRhozqJA
-	 lZ+ykTvOOwODVhgOwwhRtJYbSd1bgdts7/j7b4hoVMjM3VcRVGmzgENjrIUghR9bCtQJf
-	 mAz4HQSNtZhXE0E+fstcxPZptdVML/7dJwsyQ8CMEeiQ0d2e4TI9U5xmObe76+73JCxhP
-	 4mJD4e40Eat+297eIAyoyE2mb/PAwhHnbGiQwVN/44yXgSdfwzhETfs3n3wjpLSwROZhA
-	 sLEy/pm8JYHGF8iW0Gq0tzcQi67GLXHLWI4Lvra+7t/jtGqBtSss15Dpr4BayJT9qAA==
+	t=1795550653;
+	b=nzRqLVyo4mkd6umsN3JX/1+yNTFuHR7bCShh6kHeKFi0n05RYwC7xTXp9Yd25KiK40st
+	 q4c6e8nCbMlFVoakfnBMeo+CGXf9iOogS742ATaTwlb6XigsLVgcBsnxYi2jsazNhHsks
+	 04Et911BckUUC37hzEARRaeZrBqo3UD9mdL8lWSFHTnTTVykItUJKU/DzGEqthsEFaCKR
+	 OaxnJ7u/KKkNWnUCqNThnvEPCvM4/iArCXiyCs6lULyAIcUnGtfUXVokAhOkn2l7EkMqI
+	 MS3gqdvTvu3+LHQCKWdQwHpV0QLD2EcpMZnSIUGjMlPvglCMdpErgvsDIhTK/1mlDQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795550643;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=LqL9E2CsknPEvpMVhLoxgxMbDObTKIGjsIWFOHL2N0I=;
-	b=ds9plMBPSi70UI3wYXn2ATUi0usQnJzH2tgr75Q9CPtTYFD6MpOkZmnoOTOCzrKsuwIq
-	 8gAZewl8z+YouC0M6t2IQbt7i71ofu7YT3lLwnF27RCt94RjARblpuIxPuSCT00sVrizW
-	 nvQ1FqZn2zIyfGadzvS0cHJ5WrFAC+8bdzOos4yhugaAAj/651h+x6SxfHW0ZsvyKCyLX
-	 3nKvj0oOFEDsEAFVIx0+Dj8MJwTYAEMBymfbqUtwtupweTPVYZS0BFpLjylaFO1ffgNi6
-	 1rwyABf1JI1xWKnpWOyeRbHIHrbHC22TZOQ1mnEAdBZ/T79UOiCD/NiQ3q2niKHxmQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795550653;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=7ipmu1RjM6Rh1EJ3Z3e0jsQckbhS/99owpow7ZIHu9I=;
+	b=HoWJR/Uz3rwqzdfhxOv1OLQgmbqVPj14Qi8xQcpqjstNZ80QQxgOGwC51kFpgvRipoLp
+	 FmYBwarnP2J3K7P2b4GJJfmeFjKFzbLwcsKLouSazmjNwmPfqz/RyVGI0M4fNO10jf+/9
+	 vWfbSJ/p/RtvLYi0MWj/WofzrlOZ4CiVYSL6xLQemUAD32bxad9qjHvMVjPcv8hBM1hLY
+	 MggniMwLps9wex5mLoFheFs4ySD28LaAsHfmDNgfP0kZATGJ67zrqzS15PYphdKgfRNZ3
+	 ii9UCLDzVlR8iDJHIKZNl8kB0kAfZRxx+QVU0amvRtA6RrSHA/7I8v727loHJnXj65g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=YWezaFgy;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 69FA9606A31E;
-	Tue, 24 Nov 2026 20:04:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69FA9606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EClf+Go4;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E69A606A336;
+	Tue, 24 Nov 2026 20:04:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=YWezaFgy
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9AFF2339;
-	Tue, 24 Nov 2026 12:03:59 -0800 (PST)
-Received: from [172.16.5.16] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE66C3F86C;
-	Tue, 24 Nov 2026 12:03:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795550642; bh=tH2ftS9r4c42XZ26viYlbeouW30U4/gw4lJnh0zk7SU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YWezaFgy8T10St9qmvBLJvNxDlbL/eye1ooesVYZOfNAfSSorrjH81ZvoCdRYf8j+
-	 PKHCQk6RZLXWbgZ0FWxE7sw4azkh8UT/jpVVnUYrLezL0D22YEQRXDDt5FvnNRUPcq
-	 JK0SDhRZNSxWmQHbdZEC7WCFMcUlyCe8nTS/SfbM=
-Message-ID: <0e94af87-71d1-4a5c-a2bb-218a2306db27@arm.com>
-Date: Tue, 24 Nov 2026 21:03:56 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EClf+Go4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09D361F000D4;
+	Tue, 24 Nov 2026 20:04:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795550652;
+	bh=7ipmu1RjM6Rh1EJ3Z3e0jsQckbhS/99owpow7ZIHu9I=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=EClf+Go4PVg7a8mggnTHsDhnMlCNx1v/2yrevK6okbCl9HDr6P09yg7a7ShNqYVIK
+	 oo3sGprNkQANpmIcmONSiZUTDQmWmhQdCdMkJtyZEj6QvdmCxl1PXgtZ52FHb5W7AX
+	 iOvissy8R4TuqZdAntpszbkhEEcNJFvrSpfLzZ/eewuxmie53/sxnh/8RcTh/svyF7
+	 FQHQzCzDjuWYRPZ9wDQv5IPShaxk4BvMf5q1vSx+M+/KOTPnRQsfSuphZ9lGxI3i60
+	 gOWHrSYrcMr3z26K9JdRy5qgyFObpophQlvhrsKvIFHkFwnDILlIdOYYWoglgY5ZVl
+	 QktbBcP5Q5UwQ==
+Subject: Re: [PATCH net-next v5 3/4] net: mdio: mdio-bcm-unimac: Poll for
+ completion at 1us granularity
+From: netdev-bot+sashiko@kernel.org
+To: florian.fainelli@broadcom.com
+Cc: netdev@vger.kernel.org, andrew@lunn.ch, nb@tipi-net.de,
+ carlos.soto@broadcom.com, opendmb@gmail.com,
+ bcm-kernel-feedback-list@broadcom.com, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, linux-kernel@vger.kernel.org,
+ kudzo51@gmail.com
+Date: Tue, 24 Nov 2026 20:04:11 +0000
+Message-ID: <179555065159.3135.7257809284035507896@kernel.org>
+In-Reply-To: <20261120194318.3952487-4-florian.fainelli@broadcom.com>
+References: <20261120194318.3952487-4-florian.fainelli@broadcom.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,108 +66,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/3] arm64: dts: allwinner: add A733 SoC description
-To: wens@kernel.org, Enzo Adriano <enzo.adriano.code@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- jernej.skrabec@gmail.com, samuel@sholland.org,
- Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>,
- Jerome Brunet <jbrunet@baylibre.com>, Pablo Mazzini <pmazzini@gmail.com>,
- Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
- Alexander Sverdlin <alex@sverdlin.org>, Jun Yan <jerrysteve1101@gmail.com>,
- Lukas Schmid <lukas.schmid@netcube.li>
-References: <20261121-a733-cubie-a7s-dt-v5-0@gmail.com>
- <20261121-a733-cubie-a7s-dt-v5-2@gmail.com>
- <CAGb2v64c5oirvfq7R3a1CWQCydfOOipcRD7dhSFAb=zczRdTHw@mail.gmail.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <CAGb2v64c5oirvfq7R3a1CWQCydfOOipcRD7dhSFAb=zczRdTHw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
 
-Hi,
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-On 11/24/26 17:44, Chen-Yu Tsai wrote:
-> On Tue, Nov 24, 2026 at 1:42 AM Enzo Adriano
-> <enzo.adriano.code@gmail.com> wrote:
->>
->> Provide the SoC description needed by the initial Cubie A7S DTS for its
->> console, PMIC, EEPROM and microSD. Describe the CPUs, PSCI, architectural
->> timers, GIC, RTC, main and always-on clock/reset and pin controllers.
->> Include the main and R-domain UART/I2C instances and MMC0-2 with their
-> 
->> pin groups. Use mux 6 for I2C0 on PG8/PG9, as in Radxa's BSP pinctrl
->> driver and its Cubie A7S device tree.
-> 
-> This should be evident from the schematic itself (the pins are used for
-> I2C). And then the datasheet would tell you which mux value it is.
-> 
-> Just saying, trust the datasheet and schematic a little more than the BSP.
-> And one really should write the device tree based on the schematic. The
-> BSP is there in case something doesn't work, to look for existing quirks
-> or workarounds.
+Low priority / nit picks for your consideration:
 
-Fully agree with that, the BSP is sketchy at best, especially their DT. 
-I have seen contradictory information in there already.
+- [Low] Concern: the commit message and the new comment in
+  unimac_mdio_poll() (drivers/net/mdio/mdio-bcm-unimac.c) describe…
 
-Also I think the commit message reads a bit awkward, at least it 
-deviates from what we typically see. I would start with a brief 
-introduction of the SoC. Just mentioning that we have the full user 
-manual and that this has been tested on a real board should be 
-sufficient, then it's obvious where those values come from.
-  >> The GIC maintenance PPI 9 and ARMv8.2 EL2 virtual-timer PPI 12 follow
->> the A733 User Manual v1.00, section 12.2.3. The GICD/GICR/ITS windows
->> and noncoherent attributes follow Andre Przywara's public A733
->> reference and the A523 precedent. The CPUX interconnect diagram in
->> section 5.1.2 supports noncoherency as an integration inference. The
->> ITS stays disabled pending its clock/reset and MSI integration.
->>
->> Describe the single DynamIQ unit and shared L3 shown in section 5.1.2
->> (figure 5-1). The big and little DVFS groups can be described by their
->> clocks, OPP tables and supplies. Partition PPI 7 (section 12.2.3,
->> table 12-1) between the Cortex-A55 and Cortex-A76 PMUs so each probes
->> its own core type. Defer capacity-dmips-mhz until it is measured on A733.
->>
->> Link: https://gist.githubusercontent.com/apritzel/60fd7379b9560a15b8b352986b69d39f/raw/efd9cdf8f26ba5b0c7e138f093af44a1cf322469/sun60i-a733.dts
->> Link: https://github.com/radxa/allwinner-bsp/blob/2045a3ca2a01f088c0314dc924bda59d154e363e/drivers/pinctrl/pinctrl-sun60iw2.c#L1591-L1610
->> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
->> ---
->>
->> v4 -> v5: Rename osc to hosc and add the I2C0 PG8/PG9 group. Keep the
->> one-cluster CPU map and the two PMU partitions.
->>
->> Untested on v5: physical CPU/cache topology, PMU counting, EL2
->> interrupt delivery and ITS/MSI.
-> 
-> Someone please test the PMU.
-> 
->>   .../arm64/boot/dts/allwinner/sun60i-a733.dtsi | 663 ++++++++++++++++++
->>   1 file changed, 663 insertions(+)
->>   create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
->>
->> diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi b/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
->> new file mode 100644
->> index 000000000000..8a258f16751e
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
->> @@ -0,0 +1,663 @@
-> 
-> [...]
-> 
->> +               uart0: serial@2500000 {
->> +                       compatible = "allwinner,sun60i-a733-uart",
->> +                                    "snps,dw-apb-uart";
-> 
-> We can't merge this because the bindings haven't been merged. And they seem
-> to still be going through a lot of churn?
+--
 
-But I think the binding patch for that is fine? And we are pretty sure 
-that we need SoC specific compatible strings for every SoC, actually, 
-regardless of how those UART fixes series' (Vinicius' and James') proceed.
-So I wonder if you could take just that binding patch already, to not 
-block progress here?
+net: mdio: mdio-bcm-unimac: Poll for completion at 1us granularity
 
-Cheers,
-Andre
+This commit drops the fixed 30us udelay() and the 2ms sleeping poll in
+unimac_mdio_poll(). It now busy-polls MDIO_START_BUSY every microsecond
+with read_poll_timeout_atomic(), and the timeout goes from 100ms down
+to 1ms. The goal is to cut per-access latency before Clause 45 support
+is added.
+
+> diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/mdio-bcm-unimac.c
+> index 5f79f31220f26..f8e5c1811d96b 100644
+> --- a/drivers/net/mdio/mdio-bcm-unimac.c
+> +++ b/drivers/net/mdio/mdio-bcm-unimac.c
+
+[ ... ]
+
+> @@ -79,14 +86,15 @@ static int unimac_mdio_poll(void *wait_func_data)
+>  	struct unimac_mdio_priv *priv = wait_func_data;
+>  	u32 val;
+>  
+> -	/*
+> -	 * C22 transactions should take ~25 usec, will need to adjust
+> -	 * if C45 support is added.
+> +	/* A frame should take ~25 usec. A C22 transaction is a single frame,
+> +	 * a C45 transaction is an address frame followed by a data frame and
+> +	 * each of them is waited for separately.
+>  	 */
+
+[Severity: Low]
+This isn't a bug, but the new comment in unimac_mdio_poll() describes C45
+address and data frames that are waited for separately. At this commit
+there is no C45 path yet. unimac_mdio_probe() only sets bus->read and
+bus->write, and only MDIO_RD_C22/MDIO_WR_C22 are defined.
+
+The next patch in the series, "net: mdio: mdio-bcm-unimac: Add Clause 45
+support", adds unimac_mdio_addr_c45() and unimac_mdio_do_read()/do_write().
+Each of these calls unimac_mdio_wait(), so the comment is accurate once
+the series is applied. Would it be clearer to add this comment in that
+patch, or to word it so it makes sense for this commit on its own?
+
+The 100ms to 1ms timeout reduction for existing C22 users is stated in
+the commit message. The numbers hold up: the largest divider allowed by
+MDIO_CLK_DIV_MASK is 128, which gives about 1.95MHz from a 250MHz
+reference clock and about 32.8us per 64 bit frame. That is well under
+MDIO_POLL_TIMEOUT_US.
+
+> -	udelay(30);
+> -
+> -	return read_poll_timeout(unimac_mdio_readl, val, !(val & MDIO_START_BUSY),
+> -				 2000, 100000, false, priv, MDIO_CMD);
+> +	return read_poll_timeout_atomic(unimac_mdio_readl, val,
+> +					!(val & MDIO_START_BUSY),
+> +					MDIO_POLL_DELAY_US,
+> +					MDIO_POLL_TIMEOUT_US, false, priv,
+> +					MDIO_CMD);
+>  }
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120194318.3952487-1-florian.fainelli%40broadcom.com
