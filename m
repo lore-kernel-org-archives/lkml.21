@@ -1,48 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795546623;
-	b=H9dV44hm5ojAk4LSsTGx7fylftCAQeLUi5kb/effs190Z11kFU9O75/cb22ACWYWdliU
-	 cSlBj3jk8LwbBdLrrgkdYu1KO+KegisSVP4q7FcEASAevzPw6st1THd+vlRbzoANXdWSW
-	 +7LYXheezf8M/4T6cHg7jSSCJIISesOZy71c6ugN2ACtlMwJNPbq46Sr4ZMWAGsFBn+j/
-	 Ct342ZtPHSzPilv+oJ8wseZh4hr1DDxeQEcPcXIZJKWTzTADgWsJSKIef+DupbcsPYBSX
-	 ukY/KhhvMS97CO0cbBVFit0vLKyKaBCEDhPq2L4RT4TuBtnJqgfJux8KepCclq0F/BQ==
+	t=1795546686;
+	b=EvLT/WGSmR7vb3HF3zj/z4xorWTbmRS9YQ5oeGXXQnvAq8wDjbZ0JIwPdU8xrd07nHYT
+	 5XZb9MXngjSHW/xr8bJLR5KMTWzxvnRQgBrdUaXjPPXwvdhg0QRAMsc2dXf23BFOI6BK4
+	 vRviyOC1MfmmPv8u2pZ5136X0Gg94zaVl+fRiy/TycmfF9Qc0K7Mz+RIBWB/n+0ITadm9
+	 9eh0H0ONcuK7lEKxpCxZjsb1gexByjVcsYSytfnSGhG9KpTS6YTS1ngn4SKpa2KPYt8uk
+	 Cd0MILAtB66YatPYpMwIM0l85KAX/1JBmnWrTx2ZGN/usxO9uYj5mRrg/zHe94VVqHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795546623;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=K75Fomuhl/TeDSAhojtFFsF9TENIiJs0NQdhbNDZn+8=;
-	b=4pVcSWlPlo0lY3LdLGzWMp8l3dWUknFFnPcK8sRkej7vjZEmgnzWMYtpTESrFq4Vy7eb
-	 Gxxs6vXeV9cwIT6+WW9yr98N/JK/lVx/j5p8Jj+pCKvj1cDqgnLLlTslRAvVehnnFcOeY
-	 fC5CmPzbWV3kfSGcf7sNLcSvHiSAGerGRZu2XxPVRQdmw6x5QWZJkohwUXNAU3dZhwxcK
-	 fx0diwrVh8zWd2omih9JHKp5H4p3EjTCqxbUu2Q5bJOSanKSPu8mfZy8NztCFZVz8bNEN
-	 BGflzd7IngruFyxU7ZDFBaOiyhASO8HXMsSwPFY5BPYuDuF7DJbsnpXOidu9hIdx9hw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795546686;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Subject:From:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
+	 MIME-Version:User-Agent:X-TM-AS-GCONF:X-Proofpoint-Reinject:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=uqq04Dy6isK/nibhKSp5arYzUNNXHVOftTNvu6kl/OA=;
+	b=WJ73aw6ylyPK4X6DHB2I2qVG+h9pZIYMOar+jqAU8y1Cg0lTfxh2wqlPygLCGB6+lcCk
+	 OQ1x04U/UElsV56PRIh3Ml40OrC+xhJbuyvbPdear3HJWMMZ4O368sahmSl/3u64vwz/2
+	 safvhhmFKqLFwMY6QaLFJqctjJpaDKhGGpEAm/ecZzXt3V+Kr3YSY0Ga6RDPM2cIWlhnM
+	 bNk756dTN028PFe4+emmk7ih0iVX9e8OrT8U/r9J4tbwBfumw6NolYmGY5ZsyI5J8JsR3
+	 GKPjkPhwc1UBPRh7KwiBDUgULLIUcWU+6nN2mF12aZ0cFx1z77yFxPwa+YVfvx1uhMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="D3dPwe1/";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=HfV3u0oY;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83431606A31E;
-	Tue, 24 Nov 2026 18:57:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FF6E606A321;
+	Tue, 24 Nov 2026 18:58:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FF6E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D3dPwe1/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6135A1F000D0;
-	Tue, 24 Nov 2026 18:56:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795546622;
-	bh=K75Fomuhl/TeDSAhojtFFsF9TENIiJs0NQdhbNDZn+8=;
-	h=From:Date:Subject:To:Cc;
-	b=D3dPwe1/1qD1ZZgtB2coXTHOK1EaWGzIMeeU4TukjN+rtf5chKTy+Br7BuJctDfT0
-	 dLN89Kpf9dQINhB28PCvc3lQGwlyGRmczLhATl3VsJJZ3iOY+zjQw6K7rBE0BfEt1z
-	 6lm7b0KKUpb7LZU2EWw6/e8NGK9eeV49VpzAEJQlkbwsI+gKa/6FsDVYHiXUW3ioGV
-	 mYeTqpbEYFNeAiDKNnjwLMvuuaycvPu8y9HD0sEJDAkIMsw5sQDP1Q6BndT0MCnzOG
-	 qBVhPcG1CW9fZlfUJUzoiMEM8cFz/ibu8WSjYSwDNERaJFTeE0BfIkVH7fcUELy/MV
-	 rrANpkd8sVdPA==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 24 Nov 2026 18:56:46 +0000
-Subject: [PATCH v2] mm/vma: drop mm asynchronously in vma_start_read()
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=HfV3u0oY
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOIYld43227618;
+	Tue, 24 Nov 2026 18:57:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=uqq04D
+	y6isK/nibhKSp5arYzUNNXHVOftTNvu6kl/OA=; b=HfV3u0oYsHK/2oysOj7z7w
+	d/1edf/+i3BrSGx8kohgNwUJx3hS97CxKYZaqldB7DXk17NXBgKCtupb6asdpLnN
+	W0BsbYY11JMsYv652cyBGcYMiF7aEsPYRQD+d82CbP1F3A/0FXkKSF0ri1aagOnA
+	A6xBx9jHsZ3K2XH6prPoF/46EGIXu2JrhJd0iOVHc+tYh9HstEQDMfgFch0P+de4
+	wGHTEcPdW4l5t4OhWn8iHXkIK9K19nBzIK/tM1vzVKhPXL/ISXCDSXRrFwJ1WNu9
+	dLATIKrkr8gfkFcFePD/gsW/08nd+XuGFGz+kN2589qmZgiREA/zZdXYKd2ojFtw
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g18taa-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 24 Nov 2026 18:57:46 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOIZW7J3101401;
+	Tue, 24 Nov 2026 18:57:45 GMT
+Received: from smtprelay03.wdc07v.mail.ibm.com ([172.16.1.70])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3p0vkvhn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 24 Nov 2026 18:57:45 +0000 (GMT)
+Received: from smtpav04.dal12v.mail.ibm.com (smtpav04.dal12v.mail.ibm.com [10.241.53.103])
+	by smtprelay03.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AOIurgx31195846
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 24 Nov 2026 18:56:54 GMT
+Received: from smtpav04.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id EA14D58056;
+	Tue, 24 Nov 2026 18:57:44 +0000 (GMT)
+Received: from smtpav04.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2C1A558052;
+	Tue, 24 Nov 2026 18:57:44 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.4.47])
+	by smtpav04.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Tue, 24 Nov 2026 18:57:44 +0000 (GMT)
+Message-ID: <d22a4eafc73dcb6d2c80862f422fe69d54e79f4b.camel@linux.ibm.com>
+Subject: Re: [PATCH v2 06/13] ima: handle errors from resolving the real
+ inode
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Christian Brauner <brauner@kernel.org>,
+        Amir Goldstein
+ <amir73il@gmail.com>, linux-fsdevel@vger.kernel.org
+Cc: Chris Down <chris@chrisdown.name>, Miklos Szeredi
+ <mszeredi@redhat.com>,
+        linux-unionfs@vger.kernel.org, linux-kernel@vger.kernel.org,
+        bpf@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+        linux-integrity@vger.kernel.org, linux-security-module@vger.kernel.org,
+        linux-mm@kvack.org
+In-Reply-To: <20261116-work-ovl-d_real-v2-6-90564c4ae347@kernel.org>
+References: <20261116-work-ovl-d_real-v2-0-90564c4ae347@kernel.org>
+	 <20261116-work-ovl-d_real-v2-6-90564c4ae347@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Tue, 24 Nov 2026 13:57:43 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,209 +102,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-vma-read-lock-mmdrop-async-v2-1-8139b5cf24bb@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/43NTQqDMBBA4auEWTvFCVrRVe9RXKTJRIM/kUkJF
- fHupZ6g27f43gGJJXCCTh0gnEMKcYVO6UKBHc06MAYHnQJd6juRrjAvBoWNwznaCZfFSdzQpH2
- 1+DIVNdaRJV9CoWAT9uFz4c++UDCG9I6yX69Mv/oXmwkJdd34tvV1TY4fE8vK8y3KAP15nl9ea
- lnIxQAAAA==
-X-Change-ID: 20261124-vma-read-lock-mmdrop-async-ba417cd1c1f0
-To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
- Juri Lelli <juri.lelli@redhat.com>, 
- Vincent Guittot <vincent.guittot@linaro.org>, 
- Dietmar Eggemann <dietmar.eggemann@arm.com>, 
- Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, 
- Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, 
- K Prateek Nayak <kprateek.nayak@amd.com>, Kees Cook <kees@kernel.org>, 
- David Hildenbrand <david@kernel.org>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Suren Baghdasaryan <surenb@google.com>, 
- Shakeel Butt <shakeel.butt@linux.dev>, Pedro Falcato <pfalcato@suse.de>, 
- Jann Horn <jannh@google.com>, Puranjay Mohan <puranjay@kernel.org>, 
- Alexei Starovoitov <ast@kernel.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
- ljs@kernel.org, Chris Mason <mason@kernel.org>, stable@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5425; i=ljs@kernel.org;
- h=from:subject:message-id; bh=+GlkRGCdNbNl6lPRsAZ0GstxY0HQDDSVM2C8Wjvm9gk=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJZ735h09sQtFmBeXrXw5mxXfOCP9XkSc/Y/p157addx
- rcdv0u96ChlYRDjYpAVU2R5/kV8f5BI2LzOC/5uMHNYmUCGMHBxCsBEhBYyMixZuUTd+eS+hMP3
- MzaI8sfytiYvrJHZLFhgfmyNeOSdxMcM/1SkTs3heCliXSxXf8zjqcvU6wsXyalc/jT/7WX2aeu
- kVnMCAA==
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+User-Agent: Evolution 3.58.3 (3.58.3-2.fc43) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: yZjGn-DEeq1kE4tVMh88FNtfLffg03sv
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA3MyBTYWx0ZWRfX61M3IaFKEsaH
+ 7mS6MNfRj/IINRdNIeW6tGSQh3Ue5NbtgMDCNRXnLJ5OBU41aPp0+wD1i+vutgxz/3h/j9mJs5G
+ Kea5URj1fxQhihtFOZid/BAAI03/vXQ=
+X-Proofpoint-GUID: NedgcETWwMWTjELFHod-RGSG4ukHSub7
+X-Authority-Analysis: v=2.4 cv=c8M+0h9l c=1 sm=1 tr=0 ts=6b05de2a cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VwQbUJbxAAAA:8
+ a=VnNF1IyMAAAA:8 a=lMkFumaAjUwUa6GXabIA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA3MyBTYWx0ZWRfXyr1nQkXtkjai
+ DyvG50RFNvMZx7HXm6G4R2VhVPWuhpDl0ODZObKFI/5i9UjVKCRWDNEtYSBwO5tR18KcDHXxbjS
+ WeC8RQlng8HO9axVheyKPB/GnxVt127Z7IbLPYelZK9I9G09/Q+VnYJPoDLQyl80iQTsQJHRbGF
+ JYrcAG4FYcRLeWBrTy81y2EXqZ+jT9zu5ZQoHnG7iLDSE9L980eeEWLawlLzTDPqHXA1Mhbw1Qm
+ 1QQqDxnUDyJNXMssDkwH/MD6ocinO5NE4vU258iOrRj0CCJnu4XKi8oB0UnO5s/y7Q3J9o5+N/e
+ nE/aH7AaB4PGybrLyST/CIMwLQaOOiFWe9FGTSvm/Mt4NRQNNfD+pATTeprrWDUCjG4UPWnCTov
+ sSb3/51afK0h8df7UmmItmgeHTWtIxX4F9NjEBaq9M0GN6z8AU0TqTfCCEdB1UFWgkp2t+BOj0Q
+ oCK32Ok7gkRButWmKQw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_05,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 clxscore=1011 malwarescore=0 suspectscore=0 bulkscore=0
+ priorityscore=1501 phishscore=0 adultscore=0 spamscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240073
 
-Commit bee9ef4a40a2 ("bpf: switch task_vma iterator from mmap_lock to
-per-VMA locks") open-codes a lock_next_vma() implementation that does
-roughly the same thing in bpf_iter_task_vma_find_next(), only without
-fallback to an mmap_lock.
+On Mon, 2026-11-16 at 10:44 +0100, Christian Brauner wrote:
+> d_real() is about to be able to fail for D_REAL_DATA. So switch IMA
+> from d_real_inode() to d_real_data_inode() and deal with the error.
+>=20
+> Currently, if overlayfs fails to resolve the data of a file it hands
+> back the overlayfs inode. process_measurement() then sees
+> real_inode =3D=3D inode, skips the detection of changes in the backing fi=
+le
+> and returns the cached verdict. That's the wrong default. With
+> metacopy and verity this isn't limited to files nobody opened yet
+> either. A metadata-only copy-up of an open file makes overlayfs validate
+> the verity digest of the data again on the next D_REAL_DATA lookup and
+> that can fail.
+>=20
+> So if the inode hosting the data can't be resolved in
+> process_measurement() we can't tell whether the data changed. Treat it
+> like a change and clear IMA_DONE_MASK and measured_pcrs so the file is
+> evaluated again. The metadata check for EVM stays independent of that.
+>=20
+> This is a no-op until d_real() can actually fail.
+>=20
+> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
 
-This is because bpf_iter_task_vma_find_next() can be called from
-non-sleepable contexts.
+The patch, itself, looks fine, but I'm not able to reproduce the error.
 
-However, lock_vma_under_rcu() gave no guarantee as to which contexts it is
-safe to be called from, and indeed it turns out this assumption is unsafe.
+The existing IMA overlay tests are working with and without this patch set.=
+  The
+tests check:
+* test 1: checks file signature is copied
+* test 2: checks backing file signature is copied up to overlay
+* test 3: detects modified backing file
 
-Since commit 9bbffee67ffd ("mm: fix a UAF when vma->mm is freed after
-vma->vm_refcnt got dropped"), this call chain is possible on x86:
+Reviewed-by: Mimi Zohar <zohar@linux.ibm.com>
 
-lock_vma_under_rcu()
-  -> vma_start_read()
-    -> mmdrop()
-      -> __mmdrop()
-        -> mm_free_pgd()
-          -> pgd_free()
-            -> pgd_dtor()
-              -> spin_lock(&pgd_lock)
-
-Thus, a plain spin_lock() can occur when lock_vma_under_rcu() is
-called. Since bpf_iter_task_vma_find_next() can be called in softirq
-context, this can deadlock, for example:
-
-pgd_alloc()
-  -> spin_lock(&pgd_lock)
-    <softirq>
-    bpf_iter_task_vma_next()
-      -> lock_vma_under_rcu()
-        ...
-	  -> spin_lock(&pgd_lock) [ DEADLOCK ]
-
-Alexei Starovoitov also pointed out that a BPF program attached to
-trace_contention_end() can similarly cause a deadlock:
-
-  pgd_alloc()
-    spin_lock(&pgd_lock)
-      queued_spin_lock_slowpath()
-        trace_contention_end()          <- pgd_lock is held
-          tp_btf/contention_end prog
-            bpf_iter_task_vma_next()
-              lock_vma_under_rcu()
-                vma_start_read()
-                  mmdrop(other_mm)      <- last put takes pgd_lock again
-
-Resolve the issue by having vma_start_read() use mmdrop_async() instead of
-mmdrop() so the work is deferred to a work queue.
-
-Make mmdrop_async() an internal mm function, defined in mm/internal.h, to
-avoid abuse elsewhere (kernel/fork.c includes this header, so still retains
-access).
-
-Commit 0b16f8bed19c ("mm: change vma_start_read() to drop RCU lock on
-failure") accounted for the fact that the RCU lock had to be dropped for
-this operation, which is no longer applicable.
-
-Remove the now-defunct comment on the 'heavy operation', but leave
-examining that to a follow up.
-
-Reported-by: Chris Mason <mason@kernel.org>
-Fixes: bee9ef4a40a2 ("bpf: switch task_vma iterator from mmap_lock to per-VMA locks")
-Cc: stable@vger.kernel.org
-Link: https://lore.kernel.org/all/DN267JUKDRNS.2VMV07CQ58R4X@gmail.com/
-Reviewed-by: Suren Baghdasaryan <surenb@google.com>
-Acked-by: Pedro Falcato <pfalcato@suse.de>
-Reviewed-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
----
-v2:
-* Put the rcu_read_unlock() back where it was, a follow-up can address
-  anything else here.
-
-v1:
-https://lore.kernel.org/r/20261124-vma-read-lock-mmdrop-async-v1-1-257f99f551de@kernel.org
----
- kernel/fork.c  | 16 ----------------
- mm/internal.h  |  3 +++
- mm/mmap_lock.c | 19 +++++++++++++++++--
- 3 files changed, 20 insertions(+), 18 deletions(-)
-
-diff --git a/kernel/fork.c b/kernel/fork.c
-index 5efceb8d58a7..4d5866c83481 100644
---- a/kernel/fork.c
-+++ b/kernel/fork.c
-@@ -744,22 +744,6 @@ void __mmdrop(struct mm_struct *mm)
- }
- EXPORT_SYMBOL_GPL(__mmdrop);
- 
--static void mmdrop_async_fn(struct work_struct *work)
--{
--	struct mm_struct *mm;
--
--	mm = container_of(work, struct mm_struct, async_put_work);
--	__mmdrop(mm);
--}
--
--static void mmdrop_async(struct mm_struct *mm)
--{
--	if (unlikely(atomic_dec_and_test(&mm->mm_count))) {
--		INIT_WORK(&mm->async_put_work, mmdrop_async_fn);
--		schedule_work(&mm->async_put_work);
--	}
--}
--
- static inline void free_signal_struct(struct signal_struct *sig)
- {
- 	taskstats_tgid_free(sig);
-diff --git a/mm/internal.h b/mm/internal.h
-index de4593b3e3b6..cc95019c7e4b 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -1671,4 +1671,7 @@ static inline bool can_spin_trylock(void)
- /* char-mem.c */
- bool file_is_dev_zero(const struct file *file);
- 
-+/* mmap_lock.c */
-+void mmdrop_async(struct mm_struct *mm);
-+
- #endif	/* __MM_INTERNAL_H */
-diff --git a/mm/mmap_lock.c b/mm/mmap_lock.c
-index 073c5125b424..d28bbc3ba734 100644
---- a/mm/mmap_lock.c
-+++ b/mm/mmap_lock.c
-@@ -306,11 +306,10 @@ static struct vm_area_struct *vma_start_read(struct mm_struct *mm,
- 	 */
- 	other_mm = vma->vm_mm; /* use a copy as vma can be freed after we drop vm_refcnt */
- 
--	/* __mmdrop() is a heavy operation, do it after dropping RCU lock. */
- 	rcu_read_unlock();
- 	mmgrab(other_mm);
- 	vma_refcount_put(vma);
--	mmdrop(other_mm);
-+	mmdrop_async(other_mm);
- 
- 	return NULL;
- }
-@@ -560,6 +559,22 @@ void __mm_reset_vma_seqcounts(struct mm_struct *mm)
- }
- EXPORT_SYMBOL(__mm_reset_vma_seqcounts);
- 
-+static void mmdrop_async_fn(struct work_struct *work)
-+{
-+	struct mm_struct *mm;
-+
-+	mm = container_of(work, struct mm_struct, async_put_work);
-+	__mmdrop(mm);
-+}
-+
-+void mmdrop_async(struct mm_struct *mm)
-+{
-+	if (unlikely(atomic_dec_and_test(&mm->mm_count))) {
-+		INIT_WORK(&mm->async_put_work, mmdrop_async_fn);
-+		schedule_work(&mm->async_put_work);
-+	}
-+}
-+
- #ifdef CONFIG_LOCK_MM_AND_FIND_VMA
- #include <linux/extable.h>
- 
-
----
-base-commit: 913390e679e23e3a45643028ee7f992889094051
-change-id: 20261124-vma-read-lock-mmdrop-async-ba417cd1c1f0
-
-Cheers,
--- 
-Lorenzo Stoakes (ARM) <ljs@kernel.org>
-
+Mimi
