@@ -1,65 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795527929;
-	b=YMRrRvx3YFQQiHgW6LTARMg40oyVULAPspBe5MYxS1n5SQJYYibIIksi3wAUtefv8Ya4
-	 AIR6TDqVOAZ4/uI9NOqkzybnNdxpCcqi7UuEArHgQ/P+MVRwbhNtFuibDJjVhRSt27eyE
-	 qnyzReI+PB6oPCk5ySzXg7MTF96nAVM6ib4USoDc08zDtjnEa5VYln0s9YP9H7fJnzPA0
-	 zZrVPw995PvAXffVKtWye5LsDwpdVwie1sGApODqdD6ul/8HgnvCVFyGN+7QKiLGgrZDG
-	 lSr9JDnjubw/+BcwPWMqMoFw2wzT6oreJBBGbr7J9sitWIPFL4aCsT8ECRdFgOhm7Mg==
+	t=1795527956;
+	b=UJy2ATXS8TTuWuaVo5yt/vqQaZHg20328Bn9bZBF+sRFA0eIq7K6MzmdEvyonSe5nHmg
+	 dEsymFrwa9LmZIJ1MqLzuQd3hNcvTyRvnAa8bNGgixx8O6ADaIXbUr0e97M0mSF8EdqOX
+	 CobIJ49aUsRhqMQmzSkycCJmaIIQZ7CHpvnzOyFGu0c6lxbekY/JwV2dh1OAk/OsfYlIg
+	 81x6J/MPxB4CXlD4uJjIzC0K4jISQcLr9NTSq2s5NGDKvHa+29MUBmIyzmqtBaUcLLk1g
+	 ioMtVA5i46dSmwOvxNHEuPipIpwy+YkVlzS0YqPi2YmJl8h5/AjHeNwK9AsXf90f44w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795527929;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795527956;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
 	 X-Cookie;
-	bh=hveWDX3wRu+9ZTN3oYj1ZM1AyoIHQ/8kekmLbhh+wKE=;
-	b=VGG+gUMFixd2IX1F0qAY/fQHKUgm1idxnWCavMurTEy6dlR92s4/KvHYEPUx3SjgWHxU
-	 Ho7NnwNJ7yDa/OId8NDfgX6MiX7b1/EeLV8AtYay/Ms9SvnYtqc3njKUhFV/QpYi2b2B5
-	 FJPG0vUHkIv9BSrWHzm1AjI9xgEJv44ApjWGfkQtBIgoC0XuGHhL5attY4W4ktfHWEcld
-	 0/a6vGG0NIFzCODhKshnoFYpACLULZ558BaLP2lEB0C4rkMUiA2eQ7ud1kzBY8+fZYjmu
-	 rUNYhCZ39V0kv6mXe944Qfhp2c+hm0Xag4m9DwvA9bJ1/sTc5bHU+688lbGsX9kdvmw==
+	bh=klse+WkM5nsp7cQ6XpAeI80imLNq4UgVB6hd9cWjqJ0=;
+	b=rXore6cw0RDd89QI1utPQoqxlXyZapzaUphM+EwDkGkh1mqm7l63si4EZTK52NN6cAtK
+	 HNpQVgPIcaAGb2jv4RRHtR0Pz/IjyRay1K9rwqDH+EJDGk75je3v7QIMfj3ou+VQdOm62
+	 lzkVJ85wxkeXJKnSJBABZWRyGD05aE/AGZM3oxX7cXTu98hkW3OdlPZ6+Zrqf+vHYYdsp
+	 TdD+cg0cYHosR3M1Plo0eZKMbys2Qt7k27jAPMx1effnndxjSKYqY1eAjnw8nIqrtl7oQ
+	 WbTK2TZeeHlrxG7vEKRhh4v0A0z/4BofSDBO+TbvCFqjJekBb4THC/SfRB0xvvYA/JA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KcKns4C3;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UNgmgpNH;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A3E8606A31E;
-	Tue, 24 Nov 2026 13:45:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4759D606A31E;
+	Tue, 24 Nov 2026 13:45:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KcKns4C3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6A551F000E0;
-	Tue, 24 Nov 2026 13:45:24 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UNgmgpNH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40B3E1F000CA;
+	Tue, 24 Nov 2026 13:45:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795527928;
-	bh=hveWDX3wRu+9ZTN3oYj1ZM1AyoIHQ/8kekmLbhh+wKE=;
+	s=k20260515; t=1795527955;
+	bh=klse+WkM5nsp7cQ6XpAeI80imLNq4UgVB6hd9cWjqJ0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KcKns4C37cDcZREkdVNnQEb8IQFMLSj4V1neI8M9mN6W5wzQUPtiytsIW5fttWDSD
-	 s/slDHx2X60gCjhMGGx+JuhS3edwdlkzy6ThNKo9izuLasqbKzGndgNfqtVMoBsiJY
-	 IVOC6iZ0mHunboaLEW31VMHA+cgWA1jiff+A0GUCLKbLmmiUQxuqVSdamn8dC22Qtp
-	 3I2dC9YX0TIbR4TQJOyJtKT++iFDlsxmHkJ0EXl2SonlJhczMD3CqbiOMJNCeV/8vY
-	 58eswUfYjmvSRWuaHZFFqyTVdrzBSq/TGz8sWZvdgkCnyUFWOF0Usd6+51+J73SM3R
-	 hIsYqVV+350tA==
-Date: Tue, 24 Nov 2026 13:45:22 +0000
+	b=UNgmgpNHrbdULPvjKIavxxzZRxy4Xjer0TkEjH3zHYzAE6re4X+AWlr8/5Xeo4iOS
+	 qk9d+EGekW5+Q+UjrVTe5GrJjV0s9sBEIdjGw62hVKabx1hrt4CVDgErzl/tRvxGXx
+	 5de8akPt0sRem+qH8swqBWrG0fX46E9pEic1EYzJDFY2MmxWqNcM+MPdtqMt9BYFIg
+	 D41KgXkAEnfg086kymdrgSCVXeheERzRHF6Kcv0aOicNqG8cviYyq+InADWzmBm8WU
+	 ifckWuON0WFW6OTZkpxgD1CXhkm7YUdr5N6+Li/Oxn6UakAXz2lwIZfWGcobYZCSjf
+	 Ey1cOp9mcx2Kg==
+Date: Tue, 24 Nov 2026 13:45:50 +0000
 From: Mark Brown <broonie@kernel.org>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Michael Walle <mwalle@kernel.org>,
-	Takahiro Kuwano <takahiro.kuwano@infineon.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, praneeth@ti.com,
-	u-kumar1@ti.com, p-mantena@ti.com, a-dutta@ti.com, s-k6@ti.com,
-	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mtd@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 00/11] mtd/spi-mem: Enable DQS control
-Message-ID: <73680b0b-2c98-4ebc-bcb8-4ca144b469f7@sirena.org.uk>
-References: <20261120-winbond-nand-next-phy-tuning-v4-0-8c21e1f71f41@bootlin.com>
- <164905f5-2857-4b8e-8d99-26939b45cde4@sirena.org.uk>
- <875wxmttj7.fsf@bootlin.com>
+To: Raffaele Tranfaglia <raffaele.tranfaglia@gmail.com>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev
+Subject: Re: [PATCH RFC] regmap: kunit: add tests for values wider than
+ val_bits
+Message-ID: <a78a0db4-041d-42e7-aba3-f8f737bbf6a1@sirena.org.uk>
+References: <20261117-regmap-kunit-val-bits-v1-1-a1cd02063217@gmail.com>
+ <av1qOFxolvDhQTKs@ashevche-desk.local>
+ <a93f6d11-22a2-42db-81d8-297240c9bd2d@sirena.org.uk>
+ <CAJsKa+4KEU8ejsDvj0=qCh3=XC5dZZNv_X+Saco4Ln3Y9q9dOg@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,37 +66,41 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mS7vwsVuRtIn6CIJ"
+	protocol="application/pgp-signature"; boundary="fZ3qR/wdXIXW2/8j"
 Content-Disposition: inline
-In-Reply-To: <875wxmttj7.fsf@bootlin.com>
+In-Reply-To: <CAJsKa+4KEU8ejsDvj0=qCh3=XC5dZZNv_X+Saco4Ln3Y9q9dOg@mail.gmail.com>
 X-Cookie: Real Users never use the Help key.
 
 
---mS7vwsVuRtIn6CIJ
+--fZ3qR/wdXIXW2/8j
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-On Tue, Nov 24, 2026 at 11:26:04AM +0100, Miquel Raynal wrote:
+On Tue, Nov 24, 2026 at 07:29:34AM +0000, Raffaele Tranfaglia wrote:
 
-> What is your plan with Santhosh's series? If his series will make it
-> this round I will respin once applied. Otherwise I can just respin the
-> independent spi-mem bits.
+> > It means we can't enable this test cases without addressing the underneath
+> > implementation(s) of the regmap. I think the proper solution is to cut upper
+> > bits on the regmap level, so the cache and HW will see it as expected.
 
-I had review comments that he hasn't responded to.
+> Mark, would you be ok with masking in the core? I would mask val at the
+> start of _regmap_write(), before the cache is updated, so that the cache
+> and the bus see the same value, and document it for regmap_write().
 
---mS7vwsVuRtIn6CIJ
+Yes.
+
+--fZ3qR/wdXIXW2/8j
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsFlPEACgkQJNaLcl1U
-h9A7Wwf9G5jpVxn4bfkt4gltGtnYP3Jbkb/TG05RkTtbEqfImQDwFegYXJ2dJF/E
-eg4ewl0Fn8lpXuz42oKqc9x21PJ7sAU/+KWWFI+/6SALErsRfVKOKjofa11tZfRy
-z7Ly2hOHSCyVebl+djzEYzvadmrAF2VEz901fTdeSorM8rfWBX7jqkcJERi9gwYm
-YtDVPa/5N58DSJpjqWBtgToYSJoj0W2BiUgFNyY6uyYPQQywy0xGFJ31qB1nZxxD
-CsB5zVY9w/1Vm1n5mXAOAZE6sqwTQHdRfxrYDzoQGpDnJWQQbkA375Sq3BwR1mcT
-hlN8KyZcJ6B8wH34HmOFGVqpjktcRA==
-=dhJf
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsFlQ4ACgkQJNaLcl1U
+h9BqAgf+NN8K8XBHfrCWcWFWZZkgpjw/m2yiERZtFwStD9K/017B7ex8fgl9eq1y
+NgQ6Yxb/qape0IW9/Xrk2GGbJIPSrtJnT9fvTa+H8oxgHPmudbhXkM8Pr4s55TKi
+Yyah0aXWeEXzmUPXPdd9p1o8f7PmC39q9Qi5zD8P5NHzumjSJpkNpgyP45raFDtA
+1ndwnCBKdDx7GasjFsg4iLzja2RS8spe8hz0SHtXLZZrhM849mt+mhtMEJmRwgcB
+zVFFpsDasVG56ppaOEm/mAsg7ffpTzfUoZRoNVH7W9fo7bo44B2C7ilEUpAiWQy1
+NHkEVlmW0ETwNeqABwmMUjip0beYMQ==
+=2Wln
 -----END PGP SIGNATURE-----
 
---mS7vwsVuRtIn6CIJ--
+--fZ3qR/wdXIXW2/8j--
