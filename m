@@ -1,82 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795503418;
-	b=EzuAGAcAW38bUGzRoPdpc4eTX59Z7a8KwnYaK2yCbsf7Q/04V1MmKjcYStEJOxR0tkXG
-	 McJNAeFehAgmzKq3exnIEsIQZHIDzAc0PV5nRirjldrUPF5Yg6aotcrwqWYfQDqWgIVZP
-	 pd33rqceQjKgS2w2K1gXCLJhV2+t/XxWwBl+M4xtauoAmiG/OyzcBPDZyuu4PzQRLkJa+
-	 y6C5PwB4XsH8Mc4ETKTSmq+4iq5G1M7FWkNWA7Z4tQnSB2QdBQAfb/EohHvK3+TXgK1kz
-	 P36W1qpgu+zF7FYFwgwuefx59N4inlUgl5Io9bq4iHJvkZikvFK01rWdojyvHXi7mzw==
+	t=1795503422;
+	b=QMzzNbri/lgIV7I5c2g+2X60VbBCra4IljcRO2F5P6cvi6WFswV8jtjtUa2VJhAqCMsW
+	 PGEGmr6XKlZTV32hsSYhPELUI9IaNYR7bYVdbfy9k4j7e/2EkcvE9eSzV7bPRHpTtZ44H
+	 Xf/ZwQx3q5z9L8eMcEE0roSwFlFGGoK03bQGez6rr70P78JUMiiT1nIEIdQuSBpTjlJEY
+	 ohWuJ+5ZIJHV9LlRkRFRVlpdKBG7xW4+Doll8eP7XDJheZsMKM9lbFE6c9P9zoDIEv16S
+	 UIqu2sGTTA28E2hTmjT0rjhaQJ3uEwbdymPeGF6ffsQSRwCHtaqoXIELrdXP0MEFGRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795503418;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795503422;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=0p+z8V7ioNXKJBlEmlxyaewpcaFtJJtS6Wmykgz/hUU=;
-	b=toi+qEBiRNE4Y0w6RG0WrjLme5XaPXmdW0AWsx6GrSqMKJhI6cjKN7Y/5Ptrw46nKOa2
-	 OfJROQaaRpWzi6gOOOgNrMUhCzx9OWARZEWMfWU76UofAahb+D80MMX92t7/3xqLS4pgf
-	 fEHSrExKJdOxhmIYhHVmQeUiJrUlCdwZmZJDQ/2R6ct2MwilUF7ynpBcCb6dgcTjPRWCn
-	 QuVIyXakssgjqbHFOdW95lNLqNfksxWlaMED2yYArKxrfl+5VMHfYz7Ltv6NgkeKRmhPE
-	 D9amFUW6kpjmRW7Q5XeMME+vxlIJ7dDxHFtZlPxUOe+fNczdjOSa+uE7+sl/yS7W28Q==
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=WUgckmCiFEyGBP0TcCUPMUukDceeXTTvOHMOsE4uhQ4=;
+	b=KmiL8kcWOXHGxkpyuojaeXh8qLPoPOTMLB9MEa84RrHuargrptuUdqMVfmt3cMAKVzw4
+	 ZPdBSpvFViSyvt1p8MkHVaGV6lQ6/uesAwHhYBXF4hDcQsl0YKdsq8oLR6nUGT6WkuKBQ
+	 VBH3g9Kl2nOQnjHTy7SgiDcBuCBn0YSi81lwbHE5zF2jFZEpsw4ZhCf6TpqM2ht27kNcm
+	 mhtw7KgZaNDer+nl+9igVhgihSLhHnXVvh090WiXLZeS7tBbvJiyFaj8DVS892bC7mIzC
+	 H3wmaMbXgRJMcjTwBfThEQGFBka2SRIBNggRjp+AIdDW2FlOkUBE4NwIb2PPlqsViRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yCmxpkjL;
-	arc=none smtp.remote-ip=209.85.214.175
-Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=X2fzgBTQ;
+	arc=none smtp.remote-ip=209.85.214.171
+Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27A0D606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:56:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27A0D606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61A31606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:57:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61A31606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yCmxpkjL
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f0634667aaso13171895ad.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:56:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=X2fzgBTQ
+Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f04e3bf46dso29106475ad.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:57:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795503417; x=1796108217; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0p+z8V7ioNXKJBlEmlxyaewpcaFtJJtS6Wmykgz/hUU=;
-        b=yCmxpkjLeRp3We4XMW2bEcLNtPzLCmR4pE5kniBxxPe3VflVrfmtbII+29g3bRNEr+
-         40ED6qdgbegXHXEX8NCAwjlLLeDk/w1l+CQ+uqkA/ei5TO1MVixjAwKJaHMjELtUFSbO
-         /CF/cVJsczgYFmH8p3eDdqvN6FoCa5xyDJdMG2qmH6p7cX8GHvhSmBLL5JpaOHkOL9Dy
-         U4jraiX5jWKz7bTXlQA/a6jhLufMG/pLrkTZWU/8m+EDfQUnXnczGuPfERl+/ONovGrk
-         yc0/1UIdlD3NL2mQ+dBmzX5AHl02H3tHcKSOZ5FNwuGQoUQXj3Kv0nhh58DSuJedfwlj
-         rNLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795503417; x=1796108217;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795503422; x=1796108222; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=0p+z8V7ioNXKJBlEmlxyaewpcaFtJJtS6Wmykgz/hUU=;
-        b=2RzKUR2QGU8FykFZWF799ZvKPL+aOXV4XZEzMM/j+EMcJ/Af+jV0waydM3EZQ6h5Bp
-         rvQA6xxeRYttDIjBvhHrXJceItjYHEqWLoAG19yn3Ko27u13S3WJMg9Nw1fDplUosMOW
-         1w3SgXdm8inNeN5f4Rnb9TshRGAm951MV2QJ4Rgo6xAljYu6a0VLxsCN2B+vfOFb2JSM
-         smvcOTuJsFOXgt0KxdZsIotUQjf12NWSWpS+VaGoWlorDeCeLvPnzER6aCZqsEHnwOHk
-         723yZ9t67WOBcZ94Uwp9YdTMY93vpNzZhIGgPSpiMARjwsGjmSt6XozKwhW465NEzsu5
-         VF+g==
-X-Forwarded-Encrypted: i=1; AL+hErG6rs1BpeOJg/UJDt7NONZ9gtsjskOL634DVneUbxft1DoJtpKUmTFcKx8M8Nrb4wrYr9SOdW47TNYIkL8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z84VPOEOPhwmz6ANirpvA0UTWQB20GBH0WnVOepJeEiFuNPNbPX
-	mxhaahG8xTT4h4YrKZaLXgHkoTLjfThktHF2AR+2XRHE7JRF1EIyi2Gs
-X-Gm-Gg: AZFdTZefnf9iJ7IMChXYnjLssnbgiC+Na6CuTenzbGNLM1Nz5kGPipafSbsifpjYSFb
-	wxuZWAC2b5HfYHSEz7eQxchzDif4RfMzXk80vGy7H3h7OaMoyZSc8dwnOgCd0MZkd/rpg5VQdKi
-	NAqAhBwfAYzpWI8m9Y4TKL2YbzlekOa19IHtmq39nlY+CD1VS5Yppw0I2ryHr5CcbReYSjI5qg+
-	GLQQUciziK0+LJ7Kq3T9PE+OboPhc+RBvAa0U6TnU3zwGahBgnmmdnpPKVjcpowR6tx6nszfmYJ
-	0xIpgaUc7l4J3pwCuwxpazPeIx5wBos0shQPcezG095PIPpDf9uRayFL8Z/Q431LKeZceO+BWQv
-	WMIfFYxjM6tmjG6En+UcTWjh2mezFhq4Zwy1cNZfbZkS0IEV36eh+9veg2eQxxmy06Oe0ydwnPd
-	UqY5oKw79xtTBp3443UNqzsOXlyhJ7uWu5gIT1g1L/0zv+7dLRQya0MQM8BfVAyb17St9kK1I9u
-	CPxjCQpWhsZ8Rkz1ubarWzHaJJPBZDSzusQ3+opdEYSMffvmrJ6BvOi+PY9/2lTcQ7jBvETNDcr
-	VT3PuCZEWbB6EqkN2pbYUzMOAUkiEwNFPQ==
-X-Received: by 2002:a17:90b:5546:b0:3b4:1e3d:ef99 with SMTP id 98e67ed59e1d1-3b41e3df0aamr9878515a91.56.1795503417481;
-        Mon, 23 Nov 2026 22:56:57 -0800 (PST)
+        bh=WUgckmCiFEyGBP0TcCUPMUukDceeXTTvOHMOsE4uhQ4=;
+        b=X2fzgBTQBUUgafJfw6TglJ7HoYs5NAlzBMgEkbAAsUlVviA1rfcI7g0YJqHmp/jVBp
+         4hrGAgKgdI1P4IUxJ+zDW8VHGaoP6Ee5+J2fW9fuDfVgqju2lBXRkdLdGuOGfjmyUw7i
+         f+AykNCdrgxazxPBkaG9Ug4vUdntIxVVCgRjka6HoE2t9c2nYQ+83xNltZOkJx0mouJ6
+         OJ1CEjAPCwaZchW3dpVhHgDXLLEb3CloczmxTO6qLZBP9IrKO+ftc9hLNXFYhMMjPu+c
+         RlKMnK5/3T91nBCp5sCUudIPMP0pf4bQGLRDcRj5E1F5udIZqViM8H4JJ514Dz+PSWmc
+         AWcA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795503422; x=1796108222;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=WUgckmCiFEyGBP0TcCUPMUukDceeXTTvOHMOsE4uhQ4=;
+        b=TWvy+EAoFImaJf3QEz8rF5s0U5MQQ9ySk4f17m9FwMoNWYghviUN76DtKqqNszkOM4
+         irGUHEKG16A1s4FbUMtPZWtm1JnJBge6QecVvQii1HoohinmiQYdAeeYJcxQuTiUuQEs
+         TaQdbSAV/MLefd9TZrov8Xim+AdEL5+fWTZZm2gZapzU32LRShk8gYu5EQ4q3ndnG7R2
+         VqhKNg8B1htFUVgipB01i43z1WtE+Jq+eOiZj/q8yO4blG7d+7bkXlTtf5CgiUjQ/NCq
+         1oyZfUNc1xTRXFn4veuCHPLADZRyHVSFjg/3OjeVnOnqnGEQes4fjg+GAVmbivGnr2Ot
+         XRUA==
+X-Forwarded-Encrypted: i=1; AL+hErFBwGbZoOQou751lEsnCw0UYl/l3QO+sjHIdhvAGB+n1KQT2SWsuOB2Ai454H4DmpedF7nwxJEP/icU5G0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8LBJumkEYYGg2OacHQoCTzJCEb578vRENsxBEqMWPPbkud37Gd
+	btdwugC7WpHetTG2/Dbe+JpB0YQLwjy2zA2hRlWBwDpjFLzUG9iXQlci
+X-Gm-Gg: AZFdTZdPSDJ2RfqvLD3YAzr28e8zeg5PT6XGAZJ2vyg7DURplqeu98vzfBgM/Ufb1jh
+	f93P8R80e6whWtB9RiVC4VOOc3fPQZZLrxu3HtWXY4c2sE85O4fwi6jj5lpIvIZVtI0swuAmu+3
+	RTnipVUBwClXdkabDenmKBWjBZvJ4XCueWlz8JYr7XAd+6wCeTjuC57PAjX1jjIUx1GwqzDtjEz
+	52PltiK0Tf4s2PokFUMg/POt0+3Z/tzZLsqIFkt+twMgra5JnvbWvmejwOJ0y/EMA7BScJ47l0i
+	i2FH34l8wHDunI5td9rwa3O8Z3eZyOzS5/5+wxsT1PQdGsJqB+HOMCr28h9co/2UBo1ATkCDX/L
+	0H4ThEu+PXheHW7I0jYxME3YvIKFSufkybdRoO7DLuIglGYDapm7Dd7mclk3CgcFQE0yvs3v7L/
+	4NOMnSK+nsP4GYVZgVnG0AZXZw1MupQ7YuC7SSdbX1G2swz7isjWd1nf2O72HYpZoXmCM5YNS6v
+	kLRNwgzIH/xvrV9gyz7eCIGPP3nHr7C/bFqnRgMl/IxHfHcknCARthIPvM9g2T9CpujpUG4eMqY
+	8u3W+z5+426xtdVFhOq2MjEooZ52aCiUCn72AKHiLAkbPmFfh2ldTE4=
+X-Received: by 2002:a17:903:41cd:b0:2ef:efae:e8e7 with SMTP id d9443c01a7336-2f03eded341mr142785705ad.0.1795503421589;
+        Mon, 23 Nov 2026 22:57:01 -0800 (PST)
 Received: from server225.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f105b66sm64966685ad.51.2026.11.23.22.56.53
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f105b66sm64966685ad.51.2026.11.23.22.56.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 22:56:57 -0800 (PST)
+        Mon, 23 Nov 2026 22:57:01 -0800 (PST)
 From: Ping Li <leeonion.muyu@gmail.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -91,10 +92,12 @@ Cc: mark.rutland@arm.com,
 	linux-kernel@vger.kernel.org,
 	u-boot@lists.denx.de,
 	Ping Li <leeonion.muyu@gmail.com>
-Subject: [PATCH 0/2] arm64,riscv: boot: emit standard LZ4 frame for Image.lz4
-Date: Tue, 24 Nov 2026 14:56:48 +0800
-Message-Id: <20261124065650.1968930-1-leeonion.muyu@gmail.com>
+Subject: [PATCH 1/2] arm64: boot: emit standard LZ4 frame for Image.lz4
+Date: Tue, 24 Nov 2026 14:56:49 +0800
+Message-Id: <20261124065650.1968930-2-leeonion.muyu@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261124065650.1968930-1-leeonion.muyu@gmail.com>
+References: <20261124065650.1968930-1-leeonion.muyu@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,53 +109,50 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The shared cmd_lz4 rule in scripts/Makefile.lib passes -l to the lz4
-tool, producing the legacy LZ4 format (magic 0x184C2102).  The only
-in-kernel lz4 decompressor, lib/decompress_unlz4, understands exactly
-this format, and all of its users - the self-extracting images of
-arm, mips, parisc, s390 and x86, and the lz4-compressed initramfs -
-keep working through the *_with_size variants and plain cmd_lz4.
+The shared cmd_lz4 rule passes -l to the lz4 tool, producing the
+legacy LZ4 format (magic 0x184C2102).  That is the format understood
+by the kernel's own decompressor, lib/decompress_unlz4, whose users
+are the self-extracting images of other architectures (all of which
+compress their payloads with the *_with_size variants) and the
+lz4-compressed initramfs.  An arm64 boot image is not consumed by the
+kernel itself though: it is decompressed by the bootloader.
 
-arm64 and riscv also build Image.lz4 with the plain cmd_lz4, but a
-compressed boot image on these two architectures is not decompressed
-by the kernel itself - it is handed to the bootloader.  U-Boot, which
-implements this via the 'booti' compressed-kernel path (boot/image.c
-image_decomp -> lib/lz4_wrapper.c ulz4fn), only accepts the standard
-LZ4 frame (magic 0x184D2204) and returns -EPROTONOSUPPORT for
-anything else.  U-Boot's own host tooling (binman) likewise emits
-standard frames.
+U-Boot, which supports booting compressed arm64 kernels with 'booti'
+(boot/image.c image_decomp -> lib/lz4_wrapper.c ulz4fn), only accepts
+the standard LZ4 frame (magic 0x184D2204) and returns
+-EPROTONOSUPPORT for anything else.  Its host tooling (binman)
+likewise emits standard frames.  As a result, an arm64 Image.lz4
+built today cannot be decompressed by U-Boot at all.
 
-So the Image.lz4 targets of both architectures currently produce
-images that no mainstream bootloader can decompress.  Fix both by
-emitting the standard frame through local rules, leaving the shared
+Emit the standard LZ4 frame through a local rule, leaving the shared
 cmd_lz4 untouched for the in-kernel users.
 
-Bootloaders that decompress the legacy format do exist in the wild
-(mkbootimg on Android offers a separate lz4_legacy option), but
-U-Boot and its tooling only ever supported the standard frame.
-
-Testing:
- - Verified that the lz4 invocation used by the new rules emits the
-   standard frame magic (04 22 4d 18) and round-trips with the lz4
-   CLI, while the old rule emits the legacy magic (02 21 4c 18).
- - No full kernel build environment was available for either arch
-   here; the rule changes are mechanical.  Boot testing on real
-   hardware, especially on riscv, would be appreciated.
-
-Related: an arm64 'make install' fix that recognises all compressed
-image formats is under review at
-https://lore.kernel.org/all/20261119041945.3624785-1-leeonion.muyu@gmail.com/
-
-Ping Li (2):
-  arm64: boot: emit standard LZ4 frame for Image.lz4
-  riscv: boot: emit standard LZ4 frame for Image.lz4
-
+Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
+---
  arch/arm64/boot/Makefile | 9 ++++++++-
- arch/riscv/boot/Makefile | 9 ++++++++-
- 2 files changed, 16 insertions(+), 2 deletions(-)
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+diff --git a/arch/arm64/boot/Makefile b/arch/arm64/boot/Makefile
+index d42d07667822..19b26aa83203 100644
+--- a/arch/arm64/boot/Makefile
++++ b/arch/arm64/boot/Makefile
+@@ -28,8 +28,15 @@ $(obj)/Image.bz2: $(obj)/Image FORCE
+ $(obj)/Image.gz: $(obj)/Image FORCE
+ 	+$(call if_changed,gzip)
+ 
++# The shared cmd_lz4 passes -l, producing the legacy LZ4 format that
++# matches the kernel's own decompressor.  Image.lz4 is decompressed by
++# the bootloader though, and U-Boot only supports the standard LZ4 frame
++# format, so use a local rule that omits -l.
++quiet_cmd_lz4_std = LZ4     $@
++      cmd_lz4_std = cat $(real-prereqs) | $(LZ4) -9 - - > $@
++
+ $(obj)/Image.lz4: $(obj)/Image FORCE
+-	$(call if_changed,lz4)
++	$(call if_changed,lz4_std)
+ 
+ $(obj)/Image.lzma: $(obj)/Image FORCE
+ 	$(call if_changed,lzma)
 -- 
 2.34.1
 
