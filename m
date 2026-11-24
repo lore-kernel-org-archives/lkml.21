@@ -1,80 +1,63 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795559226;
-	b=k2b6lPpU0T+1lzZPA/AeA9QluWccogsalE0lEP8yXJZxemgaVG7sLL0LLBaG9Jx0cZom
-	 UvyFsS6fAe5VraGedU0QFM5x8wAhSAmrlDrmk3hE1DNGDcq15fbsInKkVXRWnZN2xc59B
-	 Ag0w3pd5kQe7Yi1KPuDbqsObXxeRHmYe9RQodl3G0ejOg8Mw8AqJgSeLF3azZ/29dptuX
-	 uegh07pNivbFwBDXvtJC+u6/5+33bvS3mSjgHVHXA5eMNocCTKgMwoOFib7tU2jHydo81
-	 AWA13JsLYH8Gmo7bIfJNP8/QHOBqGfA1Y72/6UN7R+9UMx+OaQFickVxhc5Ptu0Zo8Q==
+	t=1795559352;
+	b=N4R4o5tYuogawXPecl+DPczqZzOLo81k3liXhtKowgQxde9uuXWCtVi/8W12YEkymDsZ
+	 ktax/Hr1tpwyUbfA0Z8IpCzaMdIKDmHXygy4ewofbAQfVdEUfiUA9sZxEUu/EQYzMuMEd
+	 OgawgbDfegBqAK8u38dkh7nOUf9xK6XE5KIRLGs6lS8Uo3Sh8GO1XoYS8wCRPdSmu12hF
+	 9Uf7j29kPoTbSIIv4NZB0XHlln/sPtwuFn5uQ/36MFWu7VY8HAFh9UUKlW9hzB52QqUIl
+	 RehsGIB1WGXD0G2NNBPPxjEF0vNaJP+DwdAUQVjLMiSjYWms2cSJiTJf4VFcIE0XTDA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795559226;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-Id:
-	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=dtMZbHm3lkM6o/yW+HmQOChZENqEt7jGlIYiYyXmUrc=;
-	b=MkSYg/ltagjX51R3H8BXXDm6+ET6TWRFH7MbBO9dzcK/Q7LkTQWslBm66W3B7Yozcdum
-	 J6NABQVR7fLcVQERsFaqTkv+5HuAcjI1TX/8G4dy+jdy/W4oWSqd8pCM7YkKR2FqyMnLy
-	 nIGJvJbVw9ZgWKcaZQD+m8Ijrlj+08yBToo4yr2gMtsJVI6MsNZ2EcQFZ6kYp/goKbUYx
-	 KEHLJXxzCC8UupiEDX8iTWsK7HAib1hsq2JaMTj3dGi3hEB9KqoiXh1vu2kZkXwYI2O75
-	 ZftysgPdE3Ub5NDoLF7VhXS1Ri/M+xYQU3f8bC4+sel3mBqG9euwywY4v9Mg/HQyxTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795559352;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=WkLgW+c6Vs03pawnWwBT2nJkyF8m6BmAQ32Lw7TCuco=;
+	b=NEWZJ7pLAeWsh7b2o9rYVIcEbUeMKFnqaDG99rV4lgcqCVbbMAsH6cg0ALbxzBgbbbCc
+	 GLFoGfyMF5BmmitvNeU/6TB3+SqTsC/XXEmy3tN9VGcpuHSXOOKOpndiIfrM/arkJ5mGf
+	 4btxqZ4BzRCQ0EUNxCQhdF2EuY0VeD5ThFu272tp+SNv8Slnyl9dXpcaOE5Ip7r5+oGoE
+	 dPWubAlx3aBEmhqV04TdX5D20ivBZ86cNWHZo3haalgY9ROPx8QeqMf6+qWLWyB4TKCz8
+	 laXB0hxd+cMmCMfTyjqfYuTUUchw2IowwetVOhcahcMse5tF85R9BysS29vmmjE3m3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b="ugOr/v4c";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=o2vpPnrm;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7774606A327;
-	Tue, 24 Nov 2026 22:27:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFDC5606A31E;
+	Tue, 24 Nov 2026 22:29:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=ugOr/v4c
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B5741F000ED;
-	Tue, 24 Nov 2026 22:27:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1795559226;
-	bh=dtMZbHm3lkM6o/yW+HmQOChZENqEt7jGlIYiYyXmUrc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=ugOr/v4ceQqckoPQJ/g4UCaTyO+koHIT2A4RUIfXBsU1JVNTjLPiYJiVbIG3PBhXs
-	 cQ9UXFCWsh7ke9FpqJnH2bUu4Jume8Vz7EZPuKtb9E8g8EMBIGl7EyVWY/I16PMPbn
-	 B5BPEJXFGwvq3OGEHbKmuOIcSyHevi31Sq/46n4I=
-Date: Tue, 24 Nov 2026 14:27:03 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Tal Zussman <tz2294@columbia.edu>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>, Mike Rapoport
- <rppt@kernel.org>, Peter Xu <peterx@redhat.com>, James Houghton
- <jthoughton@google.com>, Andrea Arcangeli <aarcange@redhat.com>, Suren
- Baghdasaryan <surenb@google.com>, Balbir Singh <balbirs@nvidia.com>,
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>,
- Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro
- Falcato <pfalcato@suse.de>, Michal Hocko <mhocko@suse.com>,
- =?UTF-8?Q?Micha=C5=82_Miros=C5=82aw?= <mirq-linux@rere.qmqm.pl>, Andrei
- Vagin <avagin@gmail.com>, Muhammad Usama Anjum <usama.anjum@arm.com>,
- Stephen Rothwell <sfr@canb.auug.org.au>, Arnd Bergmann <arnd@arndb.de>, Zi
- Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn
- <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, Gregory Price
- <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair
- Popple <apopple@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>,
- Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev
- Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang
- <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau
- <kas@kernel.org>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador
- <osalvador@suse.de>, =?UTF-8?Q?Miko=C5=82aj?= Lenczewski
- <miko.lenczewski@arm.com>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- stable@vger.kernel.org, Breno Leitao <leitao@debian.org>, Thomas
- =?ISO-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>, Lyude Paul
- <lyude@redhat.com>, Danilo Krummrich <dakr@kernel.org>, Felix Kuehling
- <Felix.Kuehling@amd.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky
- <leon@kernel.org>, dri-devel@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, nouveau@lists.freedesktop.org,
- amd-gfx@lists.freedesktop.org
-Subject: Re: [PATCH v3 0/9] userfaultfd: assorted fixes (part 1)
-Message-Id: <20261124142703.8b6e07eabcd510e9b99b03a4@linux-foundation.org>
-In-Reply-To: <3ebb01ea-fe77-4467-a1de-7f30a91593f3@columbia.edu>
-References: <20261117-uffd-state-fixes-v3-0-b617009d1a4a@columbia.edu>
-	<4f23b0bc-b89a-46c1-b8cd-853e7815b7ac@kernel.org>
-	<3ebb01ea-fe77-4467-a1de-7f30a91593f3@columbia.edu>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=o2vpPnrm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02D111F000C4;
+	Tue, 24 Nov 2026 22:29:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795559351;
+	bh=WkLgW+c6Vs03pawnWwBT2nJkyF8m6BmAQ32Lw7TCuco=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=o2vpPnrmCxtOS8P4HVMlKGd/mwISEMkCQRNhDBmEksIcnnp4Ig8q/vKSsvXIk1N92
+	 gq2c8oMJW97kGIf8vTTNEC55YbRTgmE7EsPpgpY71ZmAA5mN8Im31aoxF+g+0Xa31D
+	 ZMUIEhm/KJpYM3iJNv1PGvI3m00mxPUsr0hb4bqC1xgPIj9rETcK42HhQD3QgK15JB
+	 l5WF86ZE2CQA6vbKe/1b5JS5s+x8Mx4l0NjHrFs1PJxyJPr0D6K5RAacpwY8hJvI/X
+	 XD/wFKxYwcO9mEch31+86IlVIegcSheoZKzm0XYpj+SApYC3/dKZp+64j9frnHmoq2
+	 UTnxdnXBiZKLw==
+Date: Tue, 24 Nov 2026 14:29:09 -0800
+From: Oliver Upton <oupton@kernel.org>
+To: Nathan Chen <nathanc@nvidia.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>, Fuad Tabba <fuad.tabba@linux.dev>,
+	Marc Zyngier <maz@kernel.org>, Tom Matthias <tmatthias@nvidia.com>,
+	Shameer Kolothum Thodi <skolothumtho@nvidia.com>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Julian Miller <julianmiller@nvidia.com>
+Subject: Re: [RFC PATCH 0/6] KVM: arm64: nv: Grow the shadow S2 MMU pool on
+ demand
+Message-ID: <awYPtXVeY1NYeTla@kernel.org>
+References: <20261124211218.2751086-1-nathanc@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,54 +66,50 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124211218.2751086-1-nathanc@nvidia.com>
 
-On Tue, 24 Nov 2026 14:37:11 -0500 Tal Zussman <tz2294@columbia.edu> wrote:
+Hi Nathan,
 
+On Tue, Nov 24, 2026 at 01:12:12PM -0800, Nathan Chen wrote:
+> A nested-capable VM gets 2 shadow stage-2 MMUs per vcpu. Once the guest
+> hypervisor runs more nested VMs than that, nearly every nested context
+> switch recycles a live MMU and spikes host CPU usage.
 > 
-> 
-> On 11/18/26 4:41 AM, David Hildenbrand (Arm) wrote:
-> ...
-> > 
-> > So, I would be picking up ...
-> > 
-> >> Tal Zussman (9):
-> >>       userfaultfd: use anonymous memory for UFFDIO_ZEROPAGE on private file mappings
-> >>       userfaultfd: refuse UFFDIO_MOVE into a non-present huge destination PMD
-> >>       fs/proc/task_mmu: downgrade writable migration entries in PAGEMAP_SCAN write-protect
-> >>       mm/migrate: warn on a writable migration entry with the uffd bit set
-> > 
-> > This
+> This series lets KVM grow the shadow MMU pool on demand when the pool
+> is too small, up to a host-wide VMID budget. It also parks grown MMUs
+> on a guest TLBI ALLE1 and when a guest range invalidation leaves them
+> empty, in order to return unused capacity.
 
-1
+Thanks for taking a look at the problem. There's no argument that we
+need to do something, the existing MMU allocation policy was good enough
+for doing nested development and would get replaced eventually.
 
-> >>       fs/proc/task_mmu: write-protect device-private THPs in PAGEMAP_SCAN
-> >>       mm/huge_memory: build the moved huge zero PMD from the destination VMA
-> > 
-> > This
+With that said, I feel rather strongly that we should not invest further
+in the MMU array because it is quite inflexible. On top of that we need
+an actual eviction policy that selects cold MMUs as victims instead of
+the current round robin approach. I don't think you need to do anything
+special on the invalidation side with a good eviction policy.
 
-2
+I think this is what we need:
 
-> >>       mm/mremap: resolve uffd state when the context is dropped, not during the move
-> >>       mm/migrate_device: do not migrate a uffd-protected zero page
-> > 
-> > This
+ - A VM-wide hashtable for storing stage-2 MMUs, keyed off of
+   {VTCR_EL2, VTTBR_EL2, HCR_EL2.VM} to align with how we handle TLB
+   match at stage-2. The hashtable can be dimensioned based on a
+   configurable VM limit for shadow stage-2 MMUs.
 
-3
+ - A state tracking mechanism for victim selection. An LRU list seems
+   like a reasonable starting point.
 
-> >>       mm/userfaultfd: check the hugetlb alignment of every VMA in the pre-scan
-> > 
-> > 
-> > After waiting a bit longer for more review. Andrew can take the rest.
-> > 
-> > 
-> 
-> @Andrew, could you pick up the rest of these (everything but 4 and 8)?
+ - RCU replacement of the evicted MMU. I need to think about it a bit
+   more but you should be able to reuse the PGD in the new MMU context
+   as well since we know that no vCPU holds a reference on the victim.
+   That ought to be the goal anyway.
 
-9-3 != 9-2
+That should allow us to dynamically allocate MMUs while also improving
+upon the current behavior for constrained MMU allocations.
 
-np, I grabbed 1,2,3,5,6,7,9 (whatever isn't in other-peoples-trees) and
-massaged the cover letter a bit.
-
+Thanks,
+Oliver
