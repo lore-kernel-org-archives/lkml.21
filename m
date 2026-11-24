@@ -1,120 +1,155 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795521385;
-	b=zMknNEclftGyYTnc4bAh5rUGaSq2hCCxAeFDg4NtNkfIO433Fk/ccpOkJo2T9lNOpRbJ
-	 tyEGIlO6Yg5h9SuPlr9b7iutp80N/d4YlXV4h7gK0i3t9YfHGbu8Iq5OZaxeu7i7PN5ce
-	 0nYbzM9vMylFgz0Gvw2qKhnm9FiieK6QeFs8gm6b2nUKfXNtemYAsejtFkQIJcXlqgHGk
-	 bbGk2IrczgVfy8SKRAOU0kVhVFjYlrnjwZJnvxdrk0AHTBUWI1chvtHvuwkM82ZFUqgS+
-	 MCDjONiBd1NIPXBQ3b3IUKxLG8nemp1Z311n7tM8MCe9OHdgVzVVlaq0XiXjufBUoKQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795521385;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=qiJdwOJzBM6Kd1w598aMZRytqMeSnmHW/XmVJ2AjRfc=;
-	b=gCOHeXe33vxfiEkC5/oTLWdyjx244ffNbSWAIBa2azhFaQUzhEmPRaIi4upO8dhiF9c6
-	 spRMCr1yWyI0xiG5dlw+3Z3dGDhwctixtvpmLJNNZ0W9po27to8RXjxHPeAaPvqgX3yuN
-	 XAeGwN1KMRq92XgkPkLMLBpcFc5TmUpDEUKR+U3wIR5ooORyCV9E8Sb4P5tdIkqIA6lU4
-	 fAuwJjBcixbWwNy0JKvFxh4UMMKDlNx/3+irBCS6WwV/yDDPSglShGb2uxGou2QAMX7b/
-	 C+3yXIYwjdj1EkVUUvdaRKtRvE009BTK0dhDInX0aEo+Pky2/hfGApF7EVB6Yr/rFsA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="Nxx//tJE";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jHUiewJC;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.14.56
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795521415;
+	b=Q+EX8NPKyJ7IoE4zKRVitBOyx89mtfHPjn5FE1N9roNvpfctzEeTqNv0XCAEWO/7uEwW
+	 ecBcDwCSKxHwob7MdXh1zdFbc7ZCGszhP20cdZY5tVJpDRnjqCg/BeZEOGnmCgDlQ8Eka
+	 zeiD05pSBEiqAeWUX9zxgh9x42Hte6HRcQ+kKviBi8/c5SESeU+Nt3bG3lqKv5moEFBz3
+	 ecJ3UVfW7sacTXCkA3iiAB2VeXxsZuk204lfUxKRegtR5OOP68bqhYTTeuqp5K/q8eWW1
+	 DCRwMvUyav+0LX7F+CqS/baY4pXYg0I6C8FJNBWx+5gkR1F/yIfZTzNtmSve9ZvlNeA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795521415;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:Accept-Language:
+	 Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:msip_labels:
+	 x-ms-exchange-messagesentrepresentingtype:x-ms-publictraffictype:
+	 x-ms-traffictypediagnostic:x-ms-office365-filtering-correlation-id:
+	 x-ms-exchange-slblob-mailprops:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:
+	 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=YVzILDmeFWssy2zu3ggeewF0M+JUBTSRc+ywnSHLLzM=;
+	b=rCYsmJpqLPHx9WzEdbsJtOLlfNEktHbP0FZU0x8e5ce3yxEFlOD1v2WaJoIUjhBn4uVx
+	 4g6EGsyMHhz8dUZceaQE123oh2Zk0n4jA8femRZ7eCZzZX4thkImjsRJMGR3tRCmNGNAB
+	 M6ckcCqIARVynOjWqmivJKBOU/GM9XAf1APVCbZfDNpsZml2nvlb5qXn+VoeYP2GtIufu
+	 SCS3zgd3hxntSXQ1dzmTl5L04espcFTaHMUfYFSgs3Oo2l9lLZ3XBI/HnULCzXRs/4VUd
+	 OCrZ3AmlNriAwuATZONxqCdv0bgJGkwlkfKo2NehD4PXfrRFF4wvL1r4nTXzB8DKjKA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=outlook.com;
+	spf=pass smtp.mailfrom=outlook.com;
+	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=G6r2OAoj;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.14.56
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazolkn19011056.outbound.protection.outlook.com [52.103.14.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3430E606A327
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:56:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3430E606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C0CC606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:56:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C0CC606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Nxx//tJE;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jHUiewJC
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOAuqUW1113723
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:56:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=qiJdwOJzBM6Kd1w598aMZRyt
-	qMeSnmHW/XmVJ2AjRfc=; b=Nxx//tJEuRhKaWvnXEsr7ScrUeXod/e92f006Vut
-	R2NVMCBIkodXOR2yMuJEPkDFPq2TLnLhFqon+sCO+BQR6PwCPXSbZcWL0b1ANd1d
-	J7EkB7at4972z4M8cdKaU6D0Ci5hxBgvVWKcIjEQR2Bt39P8xZUX08SvNdDn/ItF
-	r1frv/UOGmmi/J0MNVn7xt/4/ccr3KWbpC+tlnDl8lZn3Y4CDNI13QAjiSXvr34B
-	aMDLTcSOJ2OCx54rV/QWSWs3OionBPeT4ihyCddbXKzwNklyLjVUU1wulBePn0oG
-	w9KRhA/TWy1Q86pRRZrlnL+rV4hi9rkkJsNrZf/8+7u47w==
-Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4u9nunrk-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:56:23 +0000 (GMT)
-Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1383723dfddso4637533c88.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:56:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795521383; x=1796126183; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=qiJdwOJzBM6Kd1w598aMZRytqMeSnmHW/XmVJ2AjRfc=;
-        b=jHUiewJCLezAMwgz7kRicDKbISqfg1rtZzbj5O7WfMq5pgUtVyzgBIAQd7G4ZZtYe/
-         HTdPxnzujwqjNsOr4gh5/SfnoGbKqe9cewmCjHvcVr0P3YNH1NUVDwIEbLwp+u+8TTSM
-         Ch5Rhy+Ctr3UqiTRc60JbLozMrUkG47GdsChTBHKuuGj+WmArJK51cQQoznVxRRuX/eR
-         +TQp5qRERlQSKxcUCG5VKRPMcDI7MIgtwz441wpiyJBQJ/BTCSTinLRFjyynLVZkaTqJ
-         sdHbizXcAnfPaIPGSPVaj47iNPq58HBB5TesJov50OxZe30hbJDBAABLfYb0db7e3+ks
-         GgNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795521383; x=1796126183;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qiJdwOJzBM6Kd1w598aMZRytqMeSnmHW/XmVJ2AjRfc=;
-        b=TfsUXOaz8sxhAeZHhN2uw6PszbLBbfORSvJvyCx38+kQyya4SqxXXUOsPI7CEAMou1
-         VXAr0lWqM2/ztFuH1bkI0Mnimm1V3pF508WdeIKhePpXoPppUazyVkw0ICjt7MpHOzJL
-         VLqZUNDoYKUrdhBSXiF8vYi6QDjZEiH7cklK0TXY+ZaNgTP6CLXI8ZRlIsOufpKOW0wm
-         7GEVmjYj2pFwgewfzlCr8D+b1KckxAq4Po/9tLpezxYtg0VCKDYjkdiX/HCX5cEI+1Dl
-         6Id5xK6zZP8UD+K1oBwQ06d6oL6UYC6UZL41cNX3r+NzNq9oTw6tJJoI8IDJyrTZmeQG
-         pScg==
-X-Forwarded-Encrypted: i=1; AL+hErHNL412SPriCQxZurRBtG1TORZ39At0pd+dQWiPV4AqiYiAFNFAegwJzzufraqjtMSFHTEY417ZVyYnmVM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z85CSLz3vPbk4k4vcUWLZoFOgwYSrkVpNLnASy6yTW54EBDVn50
-	tw1tJRKGN5v2gkZU2p094cK39H0HabMMS7HhgEWkVGzvdDce+rzg1SI8yFwgY46GHpWovIr/YMS
-	cCUv+u0MBMkNw/H9fjKaJxifNLiAXLwEZzSC8k2Lsc3h6qDlPweoBY6JFGM3fa0yvxRI=
-X-Gm-Gg: AZFdTZdPkog+0YBt1CD+cA/FGNUp2w8IivE2+Azcsf+ZJoBgTCrEhy3lYIKQkNIqN/h
-	9fBN9LsTAogug8SQcKz5H2SNHLkr9/F0dkcu/IUQSlBH683b5aDOhph4pzy97qVyLGyev5OBZnE
-	fv7qI4jpjtUhZgLTG/Dm/iPKun0o+gtDD9tBOE+owt1yjVrPsLMf0rEy8Y/DUCE9NnolTqqpCp7
-	vyzD4WKRpp8DKkk1dOk2pjDgHmmtGUBwpbEe2J8ZI3zcZKHMPkrhzRef5Ycn2Z9+H/K6/PVEX0y
-	4SQjxU1XJgbuctErWUGLyhul8fdMASct17TFntMaKHvQtwsdTuEbSsB7R3f1zfZ/IALflbaySb7
-	ZCPkZVq6LvV4Dldy4OiwJsdNe2KpeT/2fhxRC4hUfBvpqELS71TNYUUTF7QrxUJTPQZ7bFzvXHh
-	c7
-X-Received: by 2002:a05:701b:4591:10b0:143:297c:276c with SMTP id a92af1059eb24-1b55691aac2mr12967272c88.33.1795521382754;
-        Tue, 24 Nov 2026 03:56:22 -0800 (PST)
-X-Received: by 2002:a05:701b:4591:10b0:143:297c:276c with SMTP id a92af1059eb24-1b55691aac2mr12967252c88.33.1795521382015;
-        Tue, 24 Nov 2026 03:56:22 -0800 (PST)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55682d301sm35145257c88.10.2026.11.24.03.56.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 03:56:21 -0800 (PST)
-Date: Tue, 24 Nov 2026 17:26:14 +0530
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: Yadu M G <yadu.mg@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, linux-arm-msm@vger.kernel.org,
-        linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] pinctrl: qcom: Add Seca TLMM support
-Message-ID: <20261124115614.cqzo6ilr2shmzrxa@hu-mojha-hyd.qualcomm.com>
-References: <cover.1795517583.git.yadu.mg@oss.qualcomm.com>
+	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=G6r2OAoj
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QNEDapgTtKs9ijvnmmKyOjpvPXppKY//zQAhCIQD7NhKrc/1ulIZAtmWyRfgSVAklSilLGMJrS6dwlRB8909n4H+UwV9IQ9G6Byr5joiDtMBJQ6QyH/wj2pS4fcgCKNb+mVOp4zECCxRkFlmw3YSdcn2CiY/wQXtuYGHonaVFtF9L5VjIDmAXemc0IePO47cgsvDPINxBV1ite5CnQr1flEE1Qszhy7WtCt6ZlXaXO84eLyzhRmJu+05OwL9fq/KxeqiJZaPLDhD0RxbAMrCq7lSd2G+Ve9ZrUqh3oGh7XVEIcDdhFENBuCkLxl/9VzsHUreqNux/lXrWZA5KTWTdQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YVzILDmeFWssy2zu3ggeewF0M+JUBTSRc+ywnSHLLzM=;
+ b=UA3vz+2UuqgWaX7oF+rxpzm0Q8QYP7YVY6E45pCtPZ2Ky/CtE6EUZBRodK7+BSUDoH/S8/qkX14yMSaAR6NSNRohL+TFb5h5W1dzk+w0j0Lr1rp1bVS+jorFMTbTw1p8d9RtUjMeOyW2cp8X7BVQukKfqAek3b0onvFxWzcyHKrcRmoSpzan6kqOfEY/XCNVQ/RnC6cSD1gQAmm2gYLC9ogCZTEcuvdlQQx720lRAkocPAwKA1UhtiPZnI6MirYwAeiw5QfkdpCPk5P3Fz9gMluE6u1k+PU0yMuXGUwBWp9YEPaodib1qRS6hGlJnzggDVOgmjh3Nhaq9nHio4lvwg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YVzILDmeFWssy2zu3ggeewF0M+JUBTSRc+ywnSHLLzM=;
+ b=G6r2OAojVCYIYCXBpigPFqnnhxHQe6SxA3k4a75HlYn60K6UByEaARa+2ECHEkd9obftjYkKvRN3wELVsUrTXfCUkg8J9A7mhuvZVzvuP1Yxtms11ggkeo7Pkg/SYYtxJ4WlGw5876zS2evoe4uqAeXEVTKtTf9cvarXu5o4j3a39PAOA9bUtAIPwKT54AXHHTt0Ai100cJMMl4L6XsF3Og1PWFyjFe1t8PBuyBm74EAys/T3Aox9Yju2mvzdc2hziFvN7fWTT9z44W90yK+9eOzyJY0zrJeum1147ehW8p3GUuiV7vImVRVKuneVf6Ap4shlkiKtSfPSgoFDs3DQQ==
+Received: from CY5P221MB0926.NAMP221.PROD.OUTLOOK.COM (2603:10b6:930:29::14)
+ by IA4P221MB1719.NAMP221.PROD.OUTLOOK.COM (2603:10b6:208:568::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Tue, 24 Nov
+ 2026 11:56:53 +0000
+Received: from CY5P221MB0926.NAMP221.PROD.OUTLOOK.COM
+ ([fe80::bde4:f456:ea01:16a2]) by CY5P221MB0926.NAMP221.PROD.OUTLOOK.COM
+ ([fe80::bde4:f456:ea01:16a2%5]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
+ 11:56:52 +0000
+From: James Buck <jbuck2005.linux@outlook.com>
+To: K Prateek Nayak <kprateek.nayak@amd.com>, Andrea Righi <arighi@nvidia.com>
+CC: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>, Juri Lelli
+	<juri.lelli@redhat.com>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Valentin Schneider <vschneid@redhat.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "regressions@lists.linux.dev"
+	<regressions@lists.linux.dev>
+Subject: [REGRESSION] sched/fair: SIS_UTIL limit in select_idle_capacity()
+   leaves busy tasks on little CPUs while big CPUs are idle
+Thread-Topic: [REGRESSION] sched/fair: SIS_UTIL limit in
+ select_idle_capacity()   leaves busy tasks on little CPUs while big CPUs are
+ idle
+Thread-Index: AQHdfAck+KCFXApIQE6kQJzIQrVbdw==
+Date: Tue, 24 Nov 2026 11:56:52 +0000
+Message-ID:
+ <CY5P221MB09262B7D6A68954CC1B3199FBD442@CY5P221MB0926.NAMP221.PROD.OUTLOOK.COM>
+Accept-Language: en-CA, en-US
+Content-Language: en-CA
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CY5P221MB0926:EE_|IA4P221MB1719:EE_
+x-ms-office365-filtering-correlation-id: f6baefd2-6a1d-48c8-c4db-08df4a2207b0
+x-ms-exchange-slblob-mailprops:
+ qdrM8TqeFBvhuFgLLe5qs4jWk9CHdv0AxGbJ782BIZwqmk8QkM41WZBsCPmv8+YKU2npGTGPRzdGhfmLdoA/vCZDaVcnnk8OZZfBHRqu+mrOqZmx6c7FPO0DksJms6MbIcMDRmPSjou8PyVAZj1eJXy0P+g68N5tk0h6rDmbFSJJTkvuWJ4/IEBhBdz1rBScJ/0db6GhM1h5nkOhLSUcjkX8veUIC0kBcIEDF3ck7vBruzYMEulfWjv25pkbefznQw0DyEflVYIbgkLIRFDzoZaPXzbyIfGyaI2/m2CDVAjU0SepVUJO9pSmFS3L6HxAB/G7/vogWR3nGkjpu8bOJrXVYgqis3Mww/etb3dcHzWli9hai7b/McKSelgGK3zyjnl8oSf4XvZFvrEzAbKwMMAtuHCwbCxIrCpjDaa1mlQ4jgSFUJspU6lkIboBTNXnx69tY2Fd0S508Lyy9jWDEkX97gY4+ax9/Hj6wm8MGIgCj4pVzTDXFMNpUQBzgRHKyDwUMzn8pyHxs9B2DaF0eTYxbRWhFhfCRBQby7UFsI4I+H+HCY/0QrqwlucDfu8PN7W3xKb7KdW6ztdZZzR62kJRehqtu0hFEXtRo0dVpZIN72v0s15OOtDg6Les3mmYLd5nIV48Jsl7fzWQc2a+g7zP1WQhDBD4JzRG7s0q5OIXVYd8zpToCv0I8xzt0JlgvIfN7nxj6HoQ8d7rOjZJ0YH5kvzjsBKSgB8IcAwjyy82Fu0KipeupeZL+UpqNnJ2paESyoWIk7EqIjI3zPVmFqWDBuU5af5y
+x-microsoft-antispam:
+ BCL:0;ARA:14566002|13031999006|25010399006|39105399006|4140399003|24021099003|31061999003|37011999003|20031999006|15030799006|15080799012|41001999006|19110799012|8060799015|8062599012|40105399003|102099032|440099028|3412199025;
+x-microsoft-antispam-message-info:
+ =?iso-8859-1?Q?B78ubwEY6ZfLQPKqGXLoX5UMI61/CBCFVhqzn6RQeYr0mqjy9HeOZsEJBa?=
+ =?iso-8859-1?Q?1LAkVSezVffXiWR6KBTnNQRJme8jhjlHKvPTYlxItdQHfaSXLxKa1ZhGZV?=
+ =?iso-8859-1?Q?k3Q953ITMOPSyJLNSoxGkACKZCVcKpxCbpqaxwPSpAf6JnZLYM8HieEIGi?=
+ =?iso-8859-1?Q?0JnfJLlk573r8GMtLhCQRYEn3knuWmteIRlDnqI4U/dCsPdvyfh45/AHPS?=
+ =?iso-8859-1?Q?DbacDgjAFdagP15zjl4jzUTA4bPrl0PvMVaw47YPBaGlLuT0bF009oA1Kc?=
+ =?iso-8859-1?Q?L9C95oHLrbLmpW6B114sei7B7wVIFRbf2S7fhRL6hlizIT1CG60UNtO/J2?=
+ =?iso-8859-1?Q?iRLaEN6oHC0AySHrWt7LOZX05geYtQuADXBuLx4yDa1yaAj652XHWxc53X?=
+ =?iso-8859-1?Q?o8RBZCLmAl932SzrgB3GeeW1ZXN3HlSBXj8c8hTnoSE0KywOUDUFynQ9W3?=
+ =?iso-8859-1?Q?dt2Y2nBFUFNry+LhwLfMKzQT798Lf31FUHtsU2xdA6KyJorR3xiouJBBlz?=
+ =?iso-8859-1?Q?WRrbJsSiM4b8CKQpNUviV/eZrMFq5ZMDa70adfF3ELfXF5npLFMyg9hUis?=
+ =?iso-8859-1?Q?AMaDzjexQW8zqTeSZ3LjYjC1KqA9RU0jwQk7XAQ8iWobkDL6rk2XgoiC5F?=
+ =?iso-8859-1?Q?/qNIuMo7PfPR7x4sk+UxDDAh68c/yPoVjVzs3ZtFJQK04N5iFUPAzTcnBY?=
+ =?iso-8859-1?Q?GmMjNNMIDAuZI2H4mf/5t4tMMqJ9W4ohD3EwOhcqT24MBmqGkkB+dFY4PS?=
+ =?iso-8859-1?Q?tP6sV3Vrq0ynmpNveMCOCEn30dFj04+94BshYolCx12Jzmfi0M/BgCCw1/?=
+ =?iso-8859-1?Q?Z8V/rZNEj0RGpjpWzhzeW9RaHHU4v9Ev5ntAOKFg7KYnsgp4n1wbbmZvPp?=
+ =?iso-8859-1?Q?gMJcehO30uMUyiMt4IqG5BhROppU5+QCvq71OLewu9SppiRn+eh2VrX4YY?=
+ =?iso-8859-1?Q?X4Q2pwbMjy4icPuJ8Ue7DFD+tSFYOaillIwwM0TBjlt8XYxTxjc0mp2eNd?=
+ =?iso-8859-1?Q?2WHURJEdkMfDMUF3bfsCgyXMaLMQnruqcNPWGG66NRjUXxVtX0XfvAJbKZ?=
+ =?iso-8859-1?Q?ew+d11hWkae3Tv+aDy3cUCUjq47vBjsosGlIQSFgFkSHGuQc9Hew4Cm8Iw?=
+ =?iso-8859-1?Q?jZ9HfZMOW9jmoMkyK+60gFvOXOGQ0=3D?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-8859-1?Q?HBrovQIgBCdftAlDQykyAG+8C3djoFx6EzV3W9V6FJ1ee61WcGqe9ilNMU?=
+ =?iso-8859-1?Q?mPMGWa2M7BOJpEQ1atMgmigejz1fTyf4WiGVYYJ0w6BXXW/6PHo/dkYWR4?=
+ =?iso-8859-1?Q?gsdxE7axLCT12QNcrBxEp1Ud9UYqSHg5TvHfJ64WVeTs09BdIXW0OW7doX?=
+ =?iso-8859-1?Q?0QOiyWeW3OHYEVqDCaBX4ZDTCsdeWp/AvHiUkz7tJDZCuJqx4mAgYeTyNX?=
+ =?iso-8859-1?Q?3UvenOmMPdDHBPNX6aAT5KvKzB9btL8L222ogtWcqwb6+EhgpZJoE/kSpS?=
+ =?iso-8859-1?Q?SHgdie1ypU2Nq5VX5kG21GD8gXh5zF99cxTJJTj6e9vijyXxs9tXNnsJom?=
+ =?iso-8859-1?Q?UnPbHnJS1YSzGkugdXtesTbytMIkuYaEVqWMjzwnSyqfA62ZnRHnuUTd4U?=
+ =?iso-8859-1?Q?fr8B7wq1GRkI8wJeW3sXj1F1Y2DloRFQm9zCdwvRTCPTNVcklfJa7AflmF?=
+ =?iso-8859-1?Q?0NzEOuNp8VDl1Fd68cP7QsG7dxV3En19nTjh3wH84IxpA3kdkzTx4qt9Vw?=
+ =?iso-8859-1?Q?mpQEcx+ezJUTEYBw28j1s7VFqqqIwbow4oq61id9NHY+MRh4Q/18A2qxJf?=
+ =?iso-8859-1?Q?cCzL8siMblKonxF4aHzpIOhk46SXrZMW2MmdTBZf7gwjuZoJouVWM3tV7m?=
+ =?iso-8859-1?Q?AbeMPjciP/LvoWXGAl4pdstzgjBNVl15Gvf4mDifguQyMg4pDibB47Wbd/?=
+ =?iso-8859-1?Q?1Sz1icLsCjv74LHZeIbgurxSpamxMMyGFlCdcOJcut1E4+BeXzcnA7T3Sw?=
+ =?iso-8859-1?Q?TgGrd74kltV/2PiP3kSU1Hy8na+SLBo6+Opi6irq5YcZ+9KdzwV0DYlvbi?=
+ =?iso-8859-1?Q?JrCI5fYoiDP3YCB/l1mbuAFYPM+JD1o755N+H/mLp5qbSe80AtXLMDy/e2?=
+ =?iso-8859-1?Q?zH+0gMYy9wmHes7HyuJEcVGHN9bSwsY9hNNisef8vKQBQQYR6vn1+xrgNU?=
+ =?iso-8859-1?Q?+efXrN9AANHmeASFJOpB0VhJO2zPikQqIBToxDTKxzU8JHLQL+wuYm0iMt?=
+ =?iso-8859-1?Q?z2JQLSqNV7EywA1+Ir97cFYz7qryE0DP88jg7vp+YlQ+sQPtRBx5TM2JQC?=
+ =?iso-8859-1?Q?Ofp/fSbOMkpqhugwcggwDKR6uBQp7mPeiTQls8Xv1HvmhZBTRTsQ2UlwHt?=
+ =?iso-8859-1?Q?OGMcDSaZokaKxxe06BRgGNed9jGftKLvLAtUNiIPrH61fLMXdcel2kI10Z?=
+ =?iso-8859-1?Q?cXWRv+cGiisDQbxduMcNnrF+fAwgj8aZVf5P7/jyWSNn4vyWHVD0Gkl5ik?=
+ =?iso-8859-1?Q?cJmjiJtKXnpdp9cLXFsGLHPJURf26CdoBK3jI1uJrtBoIJ+3tR1405IqDY?=
+ =?iso-8859-1?Q?BAuiZp9wRPcpyOedFZE6lAZeLUqKo8ZcY7OiKc0tPYzs8hWeVixN+B1mVZ?=
+ =?iso-8859-1?Q?WAil9BlU/6+uX+Zt216m0y9vayjhQwygkwGMGyIH3kZ7QcUxN0NDo=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -124,67 +159,166 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1795517583.git.yadu.mg@oss.qualcomm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA0NiBTYWx0ZWRfX+ktCngUaffex
- MdNg/U08ChGYv5/KE92MoHXI6WpNfa1ONVwhmmsJj/ERTSjZjVTgejCdUvzcIAFmQbpymZbQWgO
- WhsqMnwdlkfDJIbObSTiwS38L9Tt3u8EsE6kcC+zMj20wfI4F6P9VVRcxD6dIaIuNbGhXXufNZo
- 3lj6d/ai7S6fGg9hOMgbZjWDY7+NU0Q/5nuUjTk7PdjR7enEy5rOjKZwPxVpFuv+gaiZWm41sS7
- nriwqedWpQflDYrS32SMzksqNIz8tdIGu+LOpZaiKiBVRBy+Gjl7wqVX2QHyAVioJZdg+r84lk7
- ChW8Z7I4ISz7fWYegrbug2Jwq0r60Op9shnlitMiKf3qtd9/1X8ZoPXEYpXS9zVnNtWSvwHlMj8
- Vgcex+XKzA1nDUKctEQQtVyOtyaNAvBbRwQ8NropWzhq3bAZazUTBh9mbX043An4+Rm3uSlKUGr
- xt96iO9Uqner4+cxbnA==
-X-Proofpoint-GUID: 7VEyYpW_lCA5ieDCRoHH4UdlBSDi3Nqk
-X-Authority-Analysis: v=2.4 cv=f4ndl+yM c=1 sm=1 tr=0 ts=6b057b67 cx=c_pps
- a=bS7HVuBVfinNPG3f6cIo3Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=6J28aJzw-_SWfeiIoy8A:9 a=CjuIK1q_8ugA:10 a=vBUdepa8ALXHeOFLBtFW:22
-X-Proofpoint-ORIG-GUID: 7VEyYpW_lCA5ieDCRoHH4UdlBSDi3Nqk
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA0NiBTYWx0ZWRfXwZFf2PfufYyf
- Yq6M2qRYP1SjoANdK+EIqY8GQBhVmUws+3tqoIGdz2cef+zjS2UD3l9EWnNKu0Sp6Uwv2Np8oS0
- q3/GPV9rUTzDkxdDh7VRYcOEJVtm0ww=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_02,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 bulkscore=0 impostorscore=0 adultscore=0 phishscore=0
- malwarescore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240046
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CY5P221MB0926.NAMP221.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: f6baefd2-6a1d-48c8-c4db-08df4a2207b0
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Nov 2026 11:56:52.7890
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4P221MB1719
 
-On Tue, Nov 24, 2026 at 04:23:01PM +0530, Yadu M G wrote:
-> Add the TLMM pin controller binding and driver for the Qualcomm Seca
-> automotive SoC.
-
-Where is the introduction of Seca ? what is  Seca..?
-
-> 
-> This series was prepared with help from an AI coding assistant
-> (Claude). It assisted with review on the device tree, bindings and
-> driver (formatting and alignment fixes), rewording commit messages,
-> and running the validation steps (checkpatch, dt_binding_check,
-> dtbs_check and W=1 builds). All changes were reviewed and tested on the
-> Seca Ride board.
-> 
-> Yadu M G (2):
->   dt-bindings: pinctrl: qcom: Add Seca TLMM bindings
->   pinctrl: qcom: Add seca pinctrl driver
-> 
->  .../bindings/pinctrl/qcom,seca-tlmm.yaml      |  135 ++
->  drivers/pinctrl/qcom/Kconfig.msm              |   11 +
->  drivers/pinctrl/qcom/Makefile                 |    1 +
->  drivers/pinctrl/qcom/pinctrl-seca.c           | 1705 +++++++++++++++++
->  4 files changed, 1852 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pinctrl/qcom,seca-tlmm.yaml
->  create mode 100644 drivers/pinctrl/qcom/pinctrl-seca.c
-> 
-> 
-> base-commit: 3191063649dbf7c0d0b768e1f3655e4c5fc6edb5
-> -- 
-> 2.43.0
-> 
-
--- 
--Mukesh Ojha
+Hi,=0A=
+=0A=
+Since commit 61ea17a63719 ("sched/fair: Add SIS_UTIL support to select_idle=
+_capacity()"), first in v7.2, CPU-bound multi-threaded work on my big.LITTL=
+E arm64 board runs 12-19% slower than on v7.1 and earlier, because waking t=
+hreads are placed on idle little CPUs while idle big CPUs are never looked =
+at.=0A=
+=0A=
+Turning SIS_UTIL off at runtime restores the old speed. select_idle_capacit=
+y() and update_idle_cpu_scan() are unchanged in v7.4-rc4, so I expect mainl=
+ine to behave the same.=0A=
+=0A=
+#regzbot introduced: 61ea17a63719=0A=
+=0A=
+System=0A=
+------=0A=
+Orange Pi 6 (CIX CD8180 "Sky1"), 12 CPUs in five clusters, ACPI boot, no SM=
+T:=0A=
+  =0A=
+CPUs     capacity=0A=
+0-1       1024  =0A=
+2-5         279   (little)=0A=
+6-7         905=0A=
+8-9         866=0A=
+10-11     984=0A=
+=0A=
+The firmware's PPTT gives one MC domain over all 12 CPUs. It has SD_ASYM_CP=
+UCAPACITY(_FULL) and SD_SHARE_LLC, with a CLS domain per cluster below it. =
+The kernel is v7.3.5 plus the out-of-tree Sky1 SoC=0A=
+driver patches the board needs to boot. None of them touch kernel/sched/; t=
+he only one in drivers/base/arch_topology.c adds a helper that updates capa=
+city_freq_ref when boost is toggled.=0A=
+=0A=
+Workload=0A=
+--------=0A=
+llama.cpp llama-bench, Qwen2.5 1.5B Instruct Q4_K_M, CPU only, 8 threads, p=
+p512 / tg128, tokens/s:=0A=
+  =0A=
+6.18.64                           123.5 / 36.5=0A=
+7.3.5                               109.0 / 29.5=0A=
+  =0A=
+7.3.5, taskset to the 8 big CPUs   121.4 / 34.7=0A=
+7.3.5, NO_SIS_UTIL at runtime     122.1 / 35.9=0A=
+7.3.5, patch below                       121.7 / 35.7=0A=
+=0A=
+Sampling each worker thread's CPU every 5 s on stock 7.3.5 showed one to fo=
+ur of the 8 threads on cpu2-5 in every sample, with big CPUs idle. With NO_=
+SIS_UTIL, or with the patch below, threads only make brief visits to the li=
+ttle CPUs. That costs nothing measurable, and 6.18 does the same. llama.cpp=
+ syncs all threads at a barrier after every operation, so one thread on a 2=
+79-capacity CPU holds up the other seven.=0A=
+=0A=
+Other things I ruled out with runtime toggles or test builds: EAS off, llc_=
+balancing off, the performance governor, NI_RATE/NI_RANDOM, the 6.18 misfit=
+ logic, and restoring the old sd_init() rule that cleared SD_PREFER_SIBLING=
+ on the child of an asymmetric domain. None of them changed the result. The=
+ slowdown only shows when prompt processing is part of the run, where the w=
+orkers block and wake far more often than during generation, which points a=
+t the wakeup path.=0A=
+=0A=
+What I think happens=0A=
+--------------------=0A=
+The workers' util is about 850-1018, so they fit no CPU, not even a 1024 on=
+e (the limit there is about 819). select_idle_capacity() therefore never re=
+turns early. It returns the highest-capacity idle CPU among those it scanne=
+d. =0A=
+=0A=
+With 8 of 12 CPUs busy, nr_idle_scan comes out at about 6:=0A=
+  =0A=
+x =3D 7200 / 12 =3D 600=0A=
+y =3D 1024 - 600^2 * 117^2 / (10000 * 1024) =3D ~543=0A=
+=0A=
+nr =3D 12 * 543 / 1024 =3D ~6=0A=
+=0A=
+So the scan stops after six CPUs counted from target. From cpu0 that is cpu=
+0-5. With cpu0 and cpu1 busy, the best idle CPU it can see is a little one,=
+ and the idle cpu6-11 are never checked. From cpu10 the scan covers 10, 11,=
+ 0, 1, 2 and 3, with the same result. Once a thread is on a little CPU, its=
+ next scan starts there, so it tends to stay.=0A=
+Above about 85% load nr drops to 1 and the function returns -1 at once.=0A=
+=0A=
+The CPU numbering here (littles between two groups of bigs) makes it easy t=
+o hit. But the effect looks general: for a task that fits no CPU, a scan cu=
+t short by nr returns the best of a partial set. On a system with the littl=
+es at 0-3 and the bigs at 4-7, a wakeup with target on a little CPU and nr =
+<=3D 4 sees only little CPUs.=0A=
+=0A=
+The patch below (drop the limit from select_idle_capacity() only; select_id=
+le_cpu() keeps SIS_UTIL) is what I run now.=0A=
+=0A=
+I'm not proposing it as the fix, since it gives up what the commit wanted o=
+n large asymmetric domains.=0A=
+=0A=
+One option might be to keep scanning past nr while nothing has been found t=
+hat fits. I'm happy to test anything on this board, and I can send the topo=
+logy and sched domain dumps, /proc/schedstat, or traces if they help.=0A=
+=0A=
+Thanks,=0A=
+James=0A=
+=0A=
+=0A=
+=0A=
+--- a/kernel/sched/fair.c=0A=
++++ b/kernel/sched/fair.c=0A=
+@@ -9049,7 +9049,6 @@ select_idle_capacity(struct task_struct *p, struct sc=
+hed_domain *sd, int target)=0A=
+ 	int fits, best_fits =3D ASYM_IDLE_THREAD_MISFIT;=0A=
+ 	int cpu, best_cpu =3D -1;=0A=
+ 	struct cpumask *cpus;=0A=
+-	int nr =3D INT_MAX;=0A=
+ =0A=
+ 	cpus =3D this_cpu_cpumask_var_ptr(select_rq_mask);=0A=
+ 	cpumask_and(cpus, sched_domain_span(sd), p->cpus_ptr);=0A=
+@@ -9058,28 +9057,17 @@ select_idle_capacity(struct task_struct *p, struct =
+sched_domain *sd, int target)=0A=
+ 	util_min =3D uclamp_eff_value(p, UCLAMP_MIN);=0A=
+ 	util_max =3D uclamp_eff_value(p, UCLAMP_MAX);=0A=
+ =0A=
+-	if (sched_feat(SIS_UTIL) && sd->shared) {=0A=
+-		/*=0A=
+-		 * Same nr_idle_scan hint as select_idle_cpu(), nr only limits=0A=
+-		 * the scan when not preferring an idle core.=0A=
+-		 */=0A=
+-		nr =3D READ_ONCE(sd->shared->nr_idle_scan) + 1;=0A=
+-		/* overloaded domain is unlikely to have idle cpu/core */=0A=
+-		if (nr =3D=3D 1)=0A=
+-			return -1;=0A=
+-	}=0A=
+-=0A=
++	/*=0A=
++	 * Scan the whole domain, as 6.18 did. Do not cut the scan short with=0A=
++	 * the SIS_UTIL nr_idle_scan hint: on a busy system the hint drops to a=
+=0A=
++	 * few CPUs, the scan then stops at whatever idle CPU it met first, and=
+=0A=
++	 * a task that fits no CPU (util above every capacity margin) lands on=0A=
++	 * an idle little core while an idle big core is never looked at.=0A=
++	 */=0A=
+ 	for_each_cpu_wrap(cpu, cpus, target) {=0A=
+ 		bool preferred_core =3D !has_idle_core || is_core_idle(cpu);=0A=
+ 		unsigned long cpu_cap =3D capacity_of(cpu);=0A=
+ =0A=
+-		/*=0A=
+-		 * Stop when the nr_idle_scan is exhausted (mirrors=0A=
+-		 * select_idle_cpu() logic).=0A=
+-		 */=0A=
+-		if (!has_idle_core && --nr <=3D 0)=0A=
+-			return best_cpu;=0A=
+-=0A=
+ 		if (!choose_idle_cpu(cpu, p))=0A=
+ 			continue;=
