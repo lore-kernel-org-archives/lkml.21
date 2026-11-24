@@ -1,116 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795541094;
-	b=dOWVctyMtlbPApyuC3cwRNgy98avPD/thCXVrueLoWhBxQgkUGWfHCT2m2OML/x9cZYl
-	 pQLNtApqMvzB4KUTGBH3QgFsnQWJtSPGu/7Cf31wPCIJ9JWz/i/TUSCnddVoBFJcQReXY
-	 2iqOVQWubtMEomugxtVs1kUv/4Iw2NTpiCgZasITn8TvNmzsNUfhAu3V5i9RmmD3jYVzM
-	 quJx3z1OADrbSsEL/0vmhf39A7Hwo26BinrYKTP/EVLTGRJ6xez3dHfp40p/gAxBcBzZ2
-	 FTXhcuEp9gUpn5F/DcM2shgTzN/Mqdl4P+oBx0HBWmVqL1wrc50MWjZ+9b2KmWF3wiA==
+	t=1795541103;
+	b=5rqkufRAmgHFv0MY4A5/oP+I6S+Y9AL0HhT3q7XzOmejRfG5o0KnuU+K6Lv/SDAOwkyD
+	 TQlj2t+INtKVnhSCzg/KslI8QG1e/PuYwIkVHTHZ46Moqx0IW2afsg9X2bTSRlHwWj9ef
+	 4HoDdf0erbLaRbA9Q9N65xaU4hPy/tRIqGr8eu9P0W6BhYW4/xNStsNGFsYYc1GXIdO04
+	 T2beNoaQ+7BOfMfCAizFq/rqk/R+0vnLQauW/gOD+SrZrp15ZYRWAxByGSJCgpkUbJdQh
+	 iHNc72MAYXsnIYoGKMpSPbWxShkBlUivnxoTfM+F3EunwcD/clLB9suJOMtRHNoLkfQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541094;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=ozTidCXqTzSwi9dcCKWD5fJGGI9rCJsLQ/Ov08gLSsk=;
-	b=UMuhwdE7B8WiLoF87ROjlc8eoJlr9k/ljVEx5KeMN/hcw8Wi5RFlxKeoagySSfFfM56Q
-	 iUvWtRLl6NnVTGZKFehEbBxhGuy+HnXA1H2cVkQ037Vab5j0gCx/h309rTwdU3sTuHg2p
-	 E5NutpTGn791sDqnSVdOdzDayF9iYxnsaOxj20JBy5FTOukZceESUAage8C3+KuZZR3v6
-	 OpMmvVoXL5aH95RAkNPQVIfiJwVc18zYIEHG/L5VkRXfSWIeSsAbeBf7KzxdYGrGxsjlP
-	 ZXEdMwctFLhG1FgLhEr0gTmRntC24lNGJh54ArcRzh9GHZ1PK8U2D6qJBwbWuo3T6yg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541103;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=5+CTeAPHlaIrzOxsi+n6+brzSDzv5QqqwUg52jb6nl0=;
+	b=KKVYfy1tvhCMkkXnp68zFfLwdEntS11P8O+ZPcTtfI/7NRx7qVl0rIS5hC4wgK7FTyts
+	 sXnt/oDiO4h/QGpq8tkvFzGRXvN3syupV93Zt+I+0L7eJxGtmBkMA3U6Fcgre5dXZdFax
+	 aWZbPHhzjbF6R/eL9JEXC5w+cx2LU/YBD6jdrAAC4aYgzNHyxzKA1PnGzttI0GLshY1/e
+	 Tf8simmzkgeZbRBy2gR+Hbu6Q30ZCtuhigiF7fZ5I/shJoNeJQk4r+DDnZuX/IvkjGiUZ
+	 UEGKQ2RuYr7HQ03bL4HuKBEmHdHtaAMF1wLVeYKzetN83oiAmK084aME0Lvuaw/nTZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UEsvIshR;
-	arc=none smtp.remote-ip=209.85.214.171
-Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=PfClU7bE;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02260606A330
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:24:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02260606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CEE7606A31E;
+	Tue, 24 Nov 2026 17:25:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CEE7606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UEsvIshR
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f04ad2c46dso28517905ad.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:24:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795541093; x=1796145893; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ozTidCXqTzSwi9dcCKWD5fJGGI9rCJsLQ/Ov08gLSsk=;
-        b=UEsvIshRIY9txsH2W7YuViBjWyb6RCmLJ1dlolrxjjdbyMWW9RSfAuE9mVkyY4ufZF
-         8FqH0V9X71v8mD8MmM0dodRkQVkzFJayU5PbfS5SUlKcQbQNIhmha312AWigEQacHXvz
-         tlnJ+cXXRtr3CeJHvWoUEP1wLuvCJhLY3xGgX5UGoXy34aaRiRbh2mM2C6hREOrMuzd+
-         0HL60opQThWLEOzStOspPHJ508wq8IPVtyTge/TpJczhosNhj0+uO5zfRoaDcTTXL78F
-         qGmrthQRxbkjyyqlkMbgk/kUdP/CkQc8Fsl1Uby5M2xrJzqUzzuCunvvAzUvLaQSbJbY
-         SVJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795541093; x=1796145893;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ozTidCXqTzSwi9dcCKWD5fJGGI9rCJsLQ/Ov08gLSsk=;
-        b=Lcgydska1GOFPKIGlObADbBgsmrB0f/mU89bcmLTWHm69NuvO/3Dl4prTyKwFZnOoZ
-         QGJqPfVOh1i1x2pcx4rEtNEscDWhbqTZvJ42tOuoTcCBKCYSyIjQ064R97237wX+eDD+
-         j2kOFINFOe71X1ox8KLv6nOBN/VJIxm2IevDjiT803E3YR1OK/oNuwUsEwiRj9j9QDqh
-         sa5qdybAcgZh1UuqrsSTmdFcoDX9XTacRwORbqyUN4m0AZUEePTctEfOW01Shvir4NxK
-         K0PL8iPq2tnWe9pkFWeltjGJddFJV7I6/RifRfBF9yPswZZ9ZWSFOw4tNDcEft16yPF7
-         7J1A==
-X-Forwarded-Encrypted: i=1; AL+hErHcKScT5QPFhhoyib49z3df9pTvJgRpsWvVByIKHcSrNl5v4Cki6Nu+vUlFIHkD1zQyWw/AO4YNLf4Fp6A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+QVS8Obb4/pE0HHegIeca+EKVnnjm/LLd0Ce7egPXZf1gmmJcb
-	c1IF3iDEW44wTYv3wsa8kHnUpvWiL2+d1/i+csziWKkDzTTvfIQtKW3b
-X-Gm-Gg: AZFdTZcZKLl7wt715Yn7+x4Q8eIs3ke8/EU3pSGDkBL3q62C9WUecKJoFMHqWpKhalY
-	7KYCOb2/MLETb24rJXmr4koIdiJmDAM/VvFIXgxNberJkb+BJ9B8Hs+W3C9p7jE/L0xizJIy2IF
-	/aDCgptuszbiOqOM+ZmYaWtzcP7X3+fK/e8LB7rQg/tUxiJKklINo8lPPKVsoHGWtVmLQg46KJe
-	5bSwOmIv851jpsDPO4oL7ipgRlE0UfUkPcmvFcWtNxWUUM7Sbkv0Bgjk8vOTFy5sVQYPiYAm8/j
-	NgMvFFyaYd3qD55IYJctTqx3bdfdfGKt8CMNHSK8P6u4GaM7PZbRNoAWVjP372GNS6dUYQrUmAv
-	PO/ba+zJ7un5t3v3UKGCrDcKym9dmJkuCGkicMbKd5kCMacccW3wD5jfkrjaBQidnUviY7FqSqg
-	y37Rhar+8Jmyrvlrr07hB+Hrm6ebT6q9/2tDIiAcKzWXQKeLjZzN6IKOgk7ZYdn8JZwGFo35gpO
-	e9xMJuMWQaxU6Joz+1Jr5ybqOOHQmm3dmPi/JfVFeb01538F2/sts+Wwt+QgDPHCa/IBcLjJL2D
-	nu7NhJVvDtTi8ZSIdqx0raeynICk4GsZCIcT7vvKU/PoZKEgqByA8hsuEeNRCVdLc2B5m0w=
-X-Received: by 2002:a17:902:f647:b0:2ef:e130:1505 with SMTP id d9443c01a7336-2f03f17d196mr143597245ad.10.1795541093208;
-        Tue, 24 Nov 2026 09:24:53 -0800 (PST)
-Received: from KASONG-MC4 ([101.32.222.185])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f102fc4sm72406805ad.43.2026.11.24.09.24.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 09:24:52 -0800 (PST)
-Date: Wed, 25 Nov 2026 01:24:38 +0800
-From: Kairui Song <ryncsn@gmail.com>
-To: Zi Yan <ziy@nvidia.com>
-Cc: kasong@tencent.com, linux-mm@kvack.org, 
-	Andrew Morton <akpm@linux-foundation.org>, Johannes Weiner <hannes@cmpxchg.org>, 
-	Muchun Song <muchun.song@linux.dev>, Qi Zheng <qi.zheng@linux.dev>, 
-	Ying Huang <ying.huang@linux.alibaba.com>, Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
-	Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
-	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
-	Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>, 
-	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>, 
-	Youngjun Park <youngjun.park@lge.com>, Gregory Price <gourry@gourry.net>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, 
-	Hugh Dickins <hughd@google.com>, SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, 
-	Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>, 
-	Zicheng Wang <wangzicheng@honor.com>, Tal Zussman <tz2294@columbia.edu>, 
-	Xiang Liu <liuxiang.277@bytedance.com>, Ehab Ababneh <ehab.ababneh@intel.com>, 
-	Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang <lianux.mm@gmail.com>, 
-	Joanne Koong <joannelkoong@gmail.com>, Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>, 
-	Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org, cgroups@vger.kernel.org, 
-	damon@lists.linux.dev, linux-doc@vger.kernel.org, Tianyi Chen <hi@tychen.cc>, 
-	Ridong Chen <ridong.chen@linux.dev>
-Subject: Re: [PATCH v6 15/18] mm/huge_memory: mark folio as accessed more
- accurately on split
-Message-ID: <awXABa3dYhEN0YEt@KASONG-MC4>
-References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
- <20261124-mglru-fg-v6-15-8ffea39934a6@tencent.com>
- <DN2V8E26C4EL.2TU52TEVLUFA@nvidia.com>
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=PfClU7bE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795541101;
+	bh=m07kO0w39ZGOpJ7N1oAJdrXNCV6zROzJBkUq6TvKKEw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=PfClU7bENUiH3dPsxzpNT3P8oZ2zd+jYU51lg9/WdVuT8DtjQBOps63DLdwp+Td5B
+	 iYMvqXfK8xAQ9Qk2QPJI4x3FiOvlU0AxJq7hb/ky2j3WjaBrgvcAZvXHTBweUZ/qRR
+	 awgL3hY1rC4+/rjvTDGq4ndmJhCTKB4dNe537+Ln766hBvdiNrzEaiagzSOwZmYTYn
+	 kBeJFHuDVooR5zo+8V2J0SvqEVawXSg4CetbSYuH+EvUyGm7614o0VCKBfyN8w6np5
+	 8qLaEmdfDYZL62LVmBNnd+wSJfxjEKoDbK3tE+qzmLH0Sb0qKEo3ZCHsyk05liAg/4
+	 jjYzS0peNNuVA==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 433CC17E00E8;
+	Tue, 24 Nov 2026 18:24:59 +0100 (CET)
+Message-ID: <17ff7540be764241e6083ba2b6876f7a90787333.camel@collabora.com>
+Subject: Re: [PATCH v3 3/3] media: verisilicon: leave room for the JPEG
+ header and one stream burst
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: shomenkow@gmail.com, Benjamin Gaignard
+ <benjamin.gaignard@collabora.com>,  Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil	
+ <hverkuil@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Ezequiel Garcia	
+ <ezequiel@vanguardiasur.com.ar>, Chen-Yu Tsai <wenst@chromium.org>, Hugues
+ Fruchet <hugues.fruchet@foss.st.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Date: Tue, 24 Nov 2026 12:24:57 -0500
+In-Reply-To: <20261124-hantro-buflimit-v3-3-780903970ca0@gmail.com>
+References: <20261124-hantro-buflimit-v3-0-780903970ca0@gmail.com>
+	 <20261124-hantro-buflimit-v3-3-780903970ca0@gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-9hyBsZW3zMk+VaUuUSDf"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,44 +95,127 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <DN2V8E26C4EL.2TU52TEVLUFA@nvidia.com>
 
-On Mon, Nov 23, 2026 at 03:17:05PM +0800, Zi Yan wrote:
-> On Mon Nov 23, 2026 at 1:53 PM EST, Kairui Song via B4 Relay wrote:
-> > From: Kairui Song <kasong@tencent.com>
-> >
-> > The behavior of updating the folio's access info isn't consistent for
-> > huge mapping splitting or ordinary unmapping. The page table's young
-> > flag has to be translated into folio's access info.
-> >
-> > Right now it only checks and sets the folio's referenced flag, which isn't
-> > enough since folio flag updates on access have their own rules. Ordinary
-> > unmapping (zapping) calls folio_mark_accessed(), and it also checks
-> > if the VMA has recency to avoid false updates.
-> 
-> Can you elaborate on why vma_has_recency() should be used? "false updates"
-> might be too vague.
+--=-9hyBsZW3zMk+VaUuUSDf
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thanks for the careful review!
+Le mardi 24 novembre 2026 =C3=A0 16:40 +0300, Sergei Khomenkov via B4 Relay=
+ a =C3=A9crit=C2=A0:
+> From: Sergei Khomenkov <shomenkow@gmail.com>
+>=20
+> hantro_try_fmt() keeps any non-zero CAPTURE sizeimage of the JPEG
+> encoder, however small. The CPU writes the 624-byte header into the
+> plane, and on the RK3026 the H1 then writes at least one 64-byte burst
+> even with a stream limit of 0, so a smaller plane is written past its
+> end. A plane smaller than the header also makes the WARN_ON() in
+> hantro_h1_jpeg_enc_set_buffers() fire on every job.
+>=20
+> Add a minimum plane size to struct hantro_fmt, set it to header_size +
+> 64 in the JPEG encoder formats of the Rockchip and STM32MP25 variants,
+> and raise a smaller coded sizeimage to it in hantro_try_fmt().
+>=20
+> Fixes: 775fec69008d ("media: add Rockchip VPU JPEG encoder driver")
+> Cc: stable@vger.kernel.org
+> Assisted-by: Claude:claude-opus-5-5
 
-Right, maybe I shouldn't say these are "false updates" indeed. But it
-makes sense to do so, will reword that paragraph.
+Drop if v4 needed.
 
-The young PTE becomes folio hotness via the LRU refs to help improve
-LRU accuracy: telling the LRU that the folio is accessed, so it should
-be protected as it is more likely to be reused soon.
+> Signed-off-by: Sergei Khomenkov <shomenkow@gmail.com>
 
-But vma_has_recency() is the app's hint that these accesses are not a
-recency signal: MADV_RANDOM expects "page references in random order",
-POSIX_FADV_NOREUSE sets FMODE_NOREUSE, and MADV_SEQUENTIAL expects
-pages which "may be freed soon after they are accessed", which is the
-opposite of what the refs mean. In all these cases, marking the folio
-referenced from a PTE access hurts instead of helping.
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-zap_pte_range() and folio_referenced_one() already ignore the accessed
-bit for such VMAs. The split path is the last place translating a young
-PTE into folio hotness without it. So while converting to the more
-useful folio_mark_accessed(), also add the missing recency check to
-avoid wrong promotion.
+> ---
+> Found with an LLM coding assistant while porting mainline Linux to a
+> Rockchip RK3026 board; the assistant also drafted this change. Tested
+> on that board: a sizeimage of 1 or 600 now reads back 688, and frames
+> that do not fit a 688-byte plane stop exactly at its end. Not tested on
+> other SoCs.
+> ---
+>  drivers/media/platform/verisilicon/hantro.h           | 2 ++
+>  drivers/media/platform/verisilicon/hantro_v4l2.c      | 3 +++
+>  drivers/media/platform/verisilicon/rockchip_vpu_hw.c  | 1 +
+>  drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c | 1 +
+>  4 files changed, 7 insertions(+)
+>=20
+> diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/=
+platform/verisilicon/hantro.h
+> index 0353de154a1e..f51beae79f1f 100644
+> --- a/drivers/media/platform/verisilicon/hantro.h
+> +++ b/drivers/media/platform/verisilicon/hantro.h
+> @@ -286,6 +286,7 @@ struct hantro_ctx {
+>   * @codec_mode:=09Codec mode related to this format. See
+>   *=09=09enum hantro_codec_mode.
+>   * @header_size: Optional header size. Currently used by JPEG encoder.
+> + * @min_size:=09Optional minimum sizeimage, for bitstream formats.
+>   * @max_depth:=09Maximum depth, for bitstream formats
+>   * @enc_fmt:=09Format identifier for encoder registers.
+>   * @frmsize:=09Supported range of frame sizes (only for bitstream format=
+s).
+> @@ -297,6 +298,7 @@ struct hantro_fmt {
+>  =09u32 fourcc;
+>  =09enum hantro_codec_mode codec_mode;
+>  =09int header_size;
+> +=09u32 min_size;
+>  =09int max_depth;
+>  =09enum hantro_enc_fmt enc_fmt;
+>  =09struct v4l2_frmsize_stepwise frmsize;
+> diff --git a/drivers/media/platform/verisilicon/hantro_v4l2.c b/drivers/m=
+edia/platform/verisilicon/hantro_v4l2.c
+> index 83af9fa1ce94..b3dbc0629d25 100644
+> --- a/drivers/media/platform/verisilicon/hantro_v4l2.c
+> +++ b/drivers/media/platform/verisilicon/hantro_v4l2.c
+> @@ -394,6 +394,9 @@ static int hantro_try_fmt(const struct hantro_ctx *ct=
+x,
+>  =09=09 */
+>  =09=09pix_mp->plane_fmt[0].sizeimage =3D fmt->header_size +
+>  =09=09=09pix_mp->width * pix_mp->height * fmt->max_depth;
+> +=09} else {
+> +=09=09pix_mp->plane_fmt[0].sizeimage =3D
+> +=09=09=09max(pix_mp->plane_fmt[0].sizeimage, fmt->min_size);
+>  =09}
+> =20
+>  =09return 0;
+> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c b/drive=
+rs/media/platform/verisilicon/rockchip_vpu_hw.c
+> index d201b058e5e8..ab5abe2c78ad 100644
+> --- a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
+> +++ b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
+> @@ -50,6 +50,7 @@ static const struct hantro_fmt rockchip_vpu_enc_fmts[] =
+=3D {
+>  =09=09.codec_mode =3D HANTRO_MODE_JPEG_ENC,
+>  =09=09.max_depth =3D 2,
+>  =09=09.header_size =3D JPEG_HEADER_SIZE,
+> +=09=09.min_size =3D JPEG_HEADER_SIZE + 64,=09/* header + one burst */
+>  =09=09.frmsize =3D {
+>  =09=09=09.min_width =3D 96,
+>  =09=09=09.max_width =3D 8192,
+> diff --git a/drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c b/driv=
+ers/media/platform/verisilicon/stm32mp25_vpu_hw.c
+> index 833821120b20..3f337554e936 100644
+> --- a/drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c
+> +++ b/drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c
+> @@ -83,6 +83,7 @@ static const struct hantro_fmt stm32mp25_venc_fmts[] =
+=3D {
+>  =09=09.codec_mode =3D HANTRO_MODE_JPEG_ENC,
+>  =09=09.max_depth =3D 2,
+>  =09=09.header_size =3D JPEG_HEADER_SIZE,
+> +=09=09.min_size =3D JPEG_HEADER_SIZE + 64,=09/* header + one burst */
+>  =09=09.frmsize =3D {
+>  =09=09=09.min_width =3D 96,
+>  =09=09=09.max_width =3D FMT_4K_WIDTH,
+
+--=-9hyBsZW3zMk+VaUuUSDf
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawXIaQAKCRDZQZRRKWBy
+9BOUAQDB13SGsNUp9oo0GULFzOq8ooFbMD+D1z8pwpgBhY3I/gD7BBun+nzgWLRF
+kcm+xZkcOJAH6AFAmIgpuo+y1l8swgM=
+=tHV6
+-----END PGP SIGNATURE-----
+
+--=-9hyBsZW3zMk+VaUuUSDf--
