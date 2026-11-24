@@ -1,78 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795526802;
-	b=D4tv77VGuRtNdMT/Zh58rO3EQfJU96gFEz/1E5PxVPf7YpjeTqx31OIkdrDx87JGnOyf
-	 HE623yVmFhlWaRLnISsdd9AyNd3unFCl/S0spivEejh8cafs0JMBiQuS7Ia06eE634GYp
-	 iQTXh39ZLD8iZAdFYaai73QloKTN3wtzabe82QxNmfPs98qwJmGwMT9VynIy2+mTmpAsF
-	 l49pJ5eOqMrbV0aSKCP17CaRPz8HWuynyeSwGBEFVPxZz6A+a+DWkFyzpSISlJ8S8xW0I
-	 zvSzaaNFbzQLeyggUhwjQQPxHu92YmgL3N/Zduy/qr/VgiObOdCuxoiQb/+CVRPcW7g==
+	t=1795526809;
+	b=SgUB9bqS7Uwisriu0ofXPuvMCAAyqRSAwulzPeh95AY46DA86SO8FlXVrPoet9stsdtl
+	 adxwDWTS6NWajO8c9abL84Y/iPjbSM0B2+AKeRpjF5N21+3Fr26b1TZoJf66kdBnKOQ9Q
+	 BKDoH3fvBrIiavOWdJJe4GV+rSZOJsrL/GYnkMvCrLIjby7kldDqXWVB71qON6B1ZFkzP
+	 oBvgNvii2ijg2UiD3FAN0UbKmZKWn15csmm96YiPR8AGsMVqnV5peea3Dgybd/UjPCPfA
+	 7x5cF020R9BVHmEuBLp4hF0XOmB3x+xsnc0Rq8qOrVImWOHjOAGTR5h73P4vy5pcjTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795526802;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=51d7Hjkss66lBP5vv+XJb6BNuDcdS0Ogfcckps/05kE=;
-	b=iJkeK0luRtUFRikEdd0ilpIi9wPZ/c3H49H/cKoFHkG3uLn1EbUMiVMPymyEZtpk/Dz1
-	 8Udv5+bTKYqyeR/S8OTkC5WYubt31uusGErt0Y4fU1gfb7mz/6u7sycroUPEZkl7y//NX
-	 7mq0/LdqgY9b/GT3ZJbR/v0ZdbJRcJ0NCTDuoNzd2P94YokY2WR4RzcJ0Uq7I8UeqmQyd
-	 2g+SHHu9V6S1clUooUf54U6Ka0DwGVsPRLFy3DShLPoS0K4hqv/XeZqfWR0dStfZbPxyj
-	 5ep5YxnMvyXqx0kgQPWjxCiR7jwpEslu2g8W1BLGUsJmND+3SORYJth/FJ01GFYSNjA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795526809;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=TGbRNMlBiqQcwxv0P2/3UU/uHuduzqYaI4dTeURK6EI=;
+	b=gvbRTjjDonn2nolmu+/6gQgIPBGnpkQw20YmxXiRlKSUoK7QKmnowcG71QwunAbOenR9
+	 va7oTYSyeOSY1Arx3mDbC6YowMMbq6sr79F0dP4InqThPuDotALcKe5auPSIxy2YmCyNz
+	 3MKIKedXhYYX4n3wZC+0xVZvmlC8YAYSrKPe5ECj0wfpdJcDiWCplIgIpIltZJ59zJ81T
+	 eeZH/lRarr+PHj/GU6MHnRmMsp+iorJZE2EJD6X8KcQGZtHDouHZtG4QmbpaCRFD6JT5U
+	 hie+LXAGPvFYR5/dSlSXOK+JcszmChXEMv/BcpReKV174eg144Jmq0E+8XJxeqWRrZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=T0cgrtTE;
-	arc=none smtp.remote-ip=198.175.65.19
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=omtiuRGg;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 689DF606A322;
-	Tue, 24 Nov 2026 13:26:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 689DF606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 88F7B606A31E;
+	Tue, 24 Nov 2026 13:26:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=T0cgrtTE
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795526802; x=1827062802;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=z/DWyL0A6zmh4VbCs9zmXC38a5oMz4PJV4CZsHZSATs=;
-  b=T0cgrtTEH3V0k1GZQIXPl9iK4SCA3ybL70KNdStqwM/jwL4rY26avPz/
-   4kGuLFmejmJJTBYtcareiHz6oMWEu09MtYHyDLYkdhvJK2pnixm0IUzSh
-   hBCGN0Cr+WdB5BrMFjHSdwgrOO/yeAhvq99/F8eOwlw+x7F6CsRD1MtTg
-   Doqy1tK37YaIq1ODoZEIJvIBFxwXZCUfAKawutkc5/7ibJyDScjsrg091
-   GvRTJtbLfMiKT1zZP1Bm25BBkggHhhEadbgd17foJGeNfE2A4MiHibzSH
-   g/4/DqfYJqO4G2UakliaeHEhlSyMakVkt+kctJ7mZtJdS+Mi9FPF+8lN+
-   Q==;
-X-CSE-ConnectionGUID: Po3pgy8jRwKUh9DrJWP0HA==
-X-CSE-MsgGUID: 4Duh4iGKQe+2GPksUpejsw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4416269"
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="4416269"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 05:26:41 -0800
-X-CSE-ConnectionGUID: dTBriG0TTxGpiAiOFdzJ1g==
-X-CSE-MsgGUID: IQrsLZwKQxCxggu4xvD31w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="11887873"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa006.fm.intel.com with ESMTP; 24 Nov 2026 05:26:39 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1001)
-	id 58E2594; Tue, 24 Nov 2026 14:26:38 +0100 (CET)
-Date: Tue, 24 Nov 2026 14:26:38 +0100
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Gokulkrishna Sekar <gokulkrishnasr@gmail.com>
-Cc: linux-pci@vger.kernel.org, bhelgaas@google.com,
-	linux-kernel@vger.kernel.org,
-	Gokulkrishna Sekar <Gokulkrishna.Sekar@harman.com>,
-	Gowthami Thiagarajan <gthiagarajan@marvell.com>
-Subject: Re: [PATCH v3] PCI: Correct PCIe port type field encoding
-Message-ID: <20261124132638.GO229695@black.igk.intel.com>
-References: <20261124085038.17299-1-Gokulkrishna.Sekar@harman.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=omtiuRGg
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 969DE1F00A3C;
+	Tue, 24 Nov 2026 13:26:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795526809;
+	bh=TGbRNMlBiqQcwxv0P2/3UU/uHuduzqYaI4dTeURK6EI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=omtiuRGgWioc714Sp525Z1hVz4JVmy5BO+Xq0XWMZNEbT5E8pw/lYSrplLQCThmMx
+	 Q+Hs/1c9oV/a3JulF6gdm0xy+uhmYYQnwH2to/tg/YpHUVf4brynmd/FBSGU3OUatC
+	 g/ZqJg6MyJy5u/ILQEptaI3G+tvDMClleSJPzgfqg7YukZ4ShqRNHrEsz8lCq+g2qw
+	 URf8D7QbdBGVblT+Yv6vcWHt6eD/P8LktNfJOAHmohU0YK3XWtwFmbibLD8950rw2F
+	 GSIpq8fPSkka/7AygDKUtCSnG6LLBMdesl8k+ch8LMsYFzsnvFZgIlHRq4+3oUtSHh
+	 pf3VesqmGugOA==
+Date: Tue, 24 Nov 2026 14:26:46 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Yu Zhang <yuz08559@gmail.com>
+Cc: Stefan Wahren <wahrenst@gmx.net>, 
+	Linus Walleij <linus.walleij@linaro.org>, linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH] pwm: gpio: unregister the chip on driver unbind
+Message-ID: <awWQWD1RG-0F2r_o@monoceros>
+References: <20261101032646.11397-1-yuz08559@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,33 +57,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="icbp37xdehavlxab"
 Content-Disposition: inline
-In-Reply-To: <20261124085038.17299-1-Gokulkrishna.Sekar@harman.com>
+In-Reply-To: <20261101032646.11397-1-yuz08559@gmail.com>
 
-On Tue, Nov 24, 2026 at 08:50:38AM +0000, Gokulkrishna Sekar wrote:
-> set_pcie_port_type() validates PCIe port topology and corrects
-> invalid upstream/downstream port type information in the cached
-> pcie_flags_reg value.
-> 
-> When performing these corrections, the code updates
-> PCI_EXP_FLAGS_TYPE using PCI_EXP_TYPE_UPSTREAM or
-> PCI_EXP_TYPE_DOWNSTREAM directly. The PCI_EXP_TYPE_* values are
-> decoded port type numbers, not values encoded for the
-> PCI_EXP_FLAGS_TYPE bitfield, so the corrected type is stored in the
-> wrong bit position.
-> 
-> As a result, a device whose type has been corrected may subsequently
-> be reported as PCI_EXP_TYPE_ENDPOINT instead of the intended
-> upstream or downstream port type.
-> 
-> Use FIELD_MODIFY() to update PCI_EXP_FLAGS_TYPE so the corrected
-> port type is encoded consistently with the format used in the PCI
-> Express Capabilities Register.
-> 
-> Fixes: ca78410403dd ("PCI: Get rid of dev->has_secondary_link flag")
-> Reported-by: Gowthami Thiagarajan <gthiagarajan@marvell.com>
-> Link: https://lore.kernel.org/all/20241213070241.3334854-1-gthiagarajan@marvell.com/
-> Signed-off-by: Gokulkrishna Sekar <Gokulkrishna.Sekar@harman.com>
 
-Reviewed-by: Mika Westerberg (Intel) <westeri@kernel.org>
+--icbp37xdehavlxab
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] pwm: gpio: unregister the chip on driver unbind
+MIME-Version: 1.0
+
+Hello,
+
+On Sun, Nov 01, 2026 at 01:26:46PM +1000, Yu Zhang wrote:
+> pwm_gpio_probe() registers the chip with pwmchip_add(), but the driver
+> has neither a remove callback nor a devm action calling
+> pwmchip_remove(). On unbind the devres callbacks release the GPIO
+> descriptor, cancel the hrtimer and drop the reference taken by
+> devm_pwmchip_alloc(), while the chip stays registered: it is still in
+> the pwm_chips idr, its sysfs attributes and character device are still
+> there and chip->operational is still true.
+>=20
+> The chip can therefore still be reached through sysfs export, the
+> character device, debugfs and pwm_get() from a consumer. Those paths
+> call into chip->ops, which point into unloaded module text once the
+> module is gone, and pwm_gpio_apply() re-arms the cancelled hrtimer and
+> drives a GPIO descriptor the driver no longer owns.
+>=20
+> Use devm_pwmchip_add() so that the chip is removed before the hrtimer
+> is cancelled and the GPIO is released.
+>=20
+> Fixes: 7f61257cd6e1 ("pwm: Add GPIO PWM driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yu Zhang <yuz08559@gmail.com>
+
+Applied with Stefan's Reviewed-by tag to
+https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
+next
+
+Thanks
+Uwe
+
+--icbp37xdehavlxab
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsFkJMACgkQj4D7WH0S
+/k5nWAf+KbEtCX2TojwT9s89cuwvkSRQWogDjs+iq1QUnlR5Adse+e6q9UDhTNgW
+60BLcbTXyTCUZbybVqOdfkO6HrsTDbxh3CqlBpTLRx9OvWrhw+CSNBbCJBdd2VRq
+5qo7XLJQKEMlIzM1k0JTdiETY4sCXH0yQnxY+wMJ2PeqDm1H9leYznt98CKDQgZj
++3Eg6/gmowkCmlYWldMWga22780eFByBWwlxoLtSIe5Dz+b0uZBo6SfHtmVzI+PZ
+G/pLOrrvW4mraL1k5j4ktv0iP9K087/lSk8QF/Iln8hQvv1doi+u0loj8dOQ29eU
+XicX0aAbLMMFvvOEsmADQHgxi+4Fgg==
+=oZSU
+-----END PGP SIGNATURE-----
+
+--icbp37xdehavlxab--
