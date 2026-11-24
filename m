@@ -1,119 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.227
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795546713;
-	b=UBv4lt3IP7V1ZI4gs6D3ckVqS+KozikcOLmJOvKlo646KKDN27kycEkPfHPDGuH8zMEX
-	 iYDQR9jEl31TEdUMPx5jHSSbwT4QUjS0+EQGuOA064LOSpucPqMCQEwRH1R0I3jhIlWGv
-	 p0yJZKJxL4xdO9Np9GP3mTT/Hb4Absml2xVB5HnNCdNvW9V4VGlp3W11y74Jrzy09/gEb
-	 srOYm5huUfJV1BtZ2KmbCVQFmuTh49naCY5Diakg9KES6x1TON7w7Y5rYp+uYn87/CvnO
-	 UtkQ0AinlM/FuKz7Mi31qUVFHgUfGVuGwZx/fnoH1a8jmuLuajKwNVRFKgm/WcNbIZg==
+	t=1795546718;
+	b=AoQyNcA34oz9m3TEBg5GHBNKqruioAqMVahPmkaGd1E9Jk+Hh5Wt7T8qK1uv/MybFEnK
+	 li2F4AMC4xPQamdmMQVfgxzEJLg/NYxNM4anOSVCpuPEZMpYgs3r9oce639PqR4StJ8DB
+	 bqpQdO/vKFTsVFgKX6cAGAzMO97DsZ6kWWVjEQI6TtMqQvoeabK0LseI1mpllJgbpcKJ/
+	 VB8NzRSVlFMMaVc0ol85lSGfB62UGzYd4KoRhfrgKwWxXKZ7PbgOHo2D3fGqJxRzJclYk
+	 +z0mUgK3sFshQ1/Ih130ukP0Cp2EraO7OOFFsAAo4+ihM8pO5yfYd6zxwxrQnW/tgYA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795546713;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=quBmEvssoIq+k9UatqjHYNevuhuRtNF9HPhUjS1B/Ls=;
-	b=Y4jY5FOP5lY25nL9HIIIWJaLF1YV9/XlWvTdfEM47ziNQbSa0I499lqdV7/mD3wRFUiL
-	 dPRWzm44etQtTw0bar2aM2bGfuzRzPqgdf3C2IJMEVVoirKRQlSzolLFwRbqJxjS5emzl
-	 61ekRqai6mcQdqnmUHDpQW3M40q/hpqAB3ELRRyF9jtaIDvDZtpOiA0zY8L9q7n64RICL
-	 UOTGQiH4J8C2bpMkpdSWyHPwpvg2adLYhRNvjlXv2+rwh8BrZNEkD4BR1UF4L9TxSO5qm
-	 JqpR1z9ZSi3e17YSs1GwJQPw4DdQCF2e8lQY3RWRwii0/sdQ+ELE5Hq0GWbqUIV9L4g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795546718;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=rKVd0WB9GKER5oLiGhqXKhoz1U/fSQCfKOepi4KUjiM=;
+	b=mWWc/29Y7auUvpDJdFxvPyerS/bo2qkV2SaeL0pWo2bkRupq2wZJIWEcflovCNXLoLd4
+	 LutGXfIv2f8xSKqeoneRUcd17PC7os8yvbiVVuJILyrmPB6hd9JJDDIWnl/fcHjAtXKiA
+	 QIW6fIZcBa3JbSPcrr99QxQcO/RY2WpRpEyfBFd/HuoeO7QXL26tc36tMzWJis6jQhTE2
+	 absttOaNDko86ng+fvR4OGchWrf1UlJm/xLUYmnV8Ee3ZzPykdgkGwHadfKc/oR+xPGDL
+	 gSK0OARTtsnGm/b3mr5kI7Or7j10r+byciEG2C+nDDGlJNyby0vFRGJARKL3GH/Y5sQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=dbZZv5BW;
-	arc=none smtp.remote-ip=209.85.222.227
-Received: from mail-qk1-f227.google.com (mail-qk1-f227.google.com [209.85.222.227])
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=bDP7tg7r;
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9EE59606A329
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:58:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9EE59606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17922606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:58:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17922606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=dbZZv5BW
-Received: by mail-qk1-f227.google.com with SMTP id af79cd13be357-94961bfe1a0so321575785a.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:58:32 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=bDP7tg7r
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-4a5024b3c28so3476582f8f.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:58:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1795546716; x=1796151516; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=rKVd0WB9GKER5oLiGhqXKhoz1U/fSQCfKOepi4KUjiM=;
+        b=bDP7tg7rXIWgB+hAPfjr5hkfXqq3/feAOEYjiTHuNZrQlhTtTN46nfDNyfwQbJPZFF
+         9dIgjYOemEri6j3ST+69bdA6wEwAor2eTWvN7U35JZAsxdhhRIUlxX9rIE9vYUa4xshh
+         me3UKBz9ojnotyqPz1jk4D5mb5c58YTf5H6Ys=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795546711; x=1796151511;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
+        d=1e100.net; s=20260707; t=1795546716; x=1796151516;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=quBmEvssoIq+k9UatqjHYNevuhuRtNF9HPhUjS1B/Ls=;
-        b=ofm4jePvIRVMIa9l7rYNwCZ5emM0UQzxpSI+bERGy6oyfTrodjOPHjMIcAEouO7kbq
-         27gOgl+9D9+3wBl0tHaW9I6DB34fdJxHkk7TuRYaoW+tzJX+/uY61QZF0H6RyeIJsy9n
-         ZQd6svDPgm+SOVgzcg5T/MJvHKfBQmEyNtIn2htjPx6NWV0zmytYP3n6nwHBjHR/jNqe
-         Z0KcgILBjTNceosAoQg71PGGsG6k90OsY+hWuYas0oxZHfw8FDDwGa1Szgum5iI8snK0
-         O0YgNlrRkwaEnwYUZzyytQBFcwSnkqeQ1+PcbXF+LqFlfbDqO1+aPysLHV995Jvkmf3t
-         JogA==
-X-Forwarded-Encrypted: i=1; AL+hErEr49MOcDquYcmxHlp/Y12m3Boc8Qd3A+/NI4sBXUcLWEw2csUpdWvgbK9LLS4LtgwWe0+05gdl1bwHRDQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8zdO9TH4sxuMQMz5emgiSC7WXFX9klASKnmeMS9HvWKhhW1jwi
-	baDPMIHzkeQBqWNzmZ1U6jyoMUICMDrikUVtyCkcB6uWPDXHMSPrAN0rUD6aoPe20FbgJD4cbjE
-	QT++74eyH6/mZBoagyUEdaGpj2sYlhrAjpQiw+Fd5UQoqfh4Ig4cQUOsuYUmgggTZn4YlUYe2rJ
-	irzhkbmy/1SyTJdDN6OiltF9UN/G4WWgOFN4qF/+bWU+qhdc+2JXFee0f0FnMGIp6jQPNnvI3zY
-	fl7xev6KOwcX/3OrJMQ1EEK
-X-Gm-Gg: AZFdTZdOwop8XLLuwUHwekNPFNMzxECx8cc7CqmIR3srZN3Xd8Bh2vQLA66mCCbL+4X
-	3fJE6HNp+WCZ0bQMAVWhloxJ83t18EP/3XjZpZW5AdQVYdepK001UdFET/nzcK3Ns7VS4QJMuIJ
-	TBtsZoGVi5CfHp+2aXYWMCzriVyGu014SOZA9lGWYLhr8Y5eNNjxFVPSxsjwYrBGqiB6uVg5W5+
-	X5rNTGfhxDTsv8Mk9i+JmY75XhszLRIutv6noJqWiIZu7xz8p7PytVQUcbITpAya7rh8pksEy/e
-	+pm6hy2tSn5xfPUOS0DAAunRzG5uDj9AJzEnLPniZ5JKVVia50fE0CvXn/j7CmTRlEYFGG9kWt4
-	cXCpL3kkKSSDo3AuscRGhSJwZtnAzL3+HdWdYNdRa9VZ1aKKvoO+jZyR/8d4AQB90Kgj3+xHnq0
-	Y3pJtr/xiirISllAf550yfNvNv9qBI19Jb/naNFdwTtEU=
-X-Received: by 2002:a05:620a:130d:b0:943:f301:49b9 with SMTP id af79cd13be357-949bab32ac3mr2451948985a.53.1795546711303;
-        Tue, 24 Nov 2026 10:58:31 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
-        by smtp-relay.gmail.com with ESMTPS id af79cd13be357-949baed3b2asm111590485a.0.2026.11.24.10.58.30
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 24 Nov 2026 10:58:31 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1b3b45597c7so6206004c88.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:58:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795546709; x=1796151509; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=quBmEvssoIq+k9UatqjHYNevuhuRtNF9HPhUjS1B/Ls=;
-        b=dbZZv5BWl2tBxh3X2gf4/mQoyyfdlCwzS4vl4tY4G8KL8AKrGWk6F4OHbF1CEJ88QM
-         /X/uDSbdVXe6hhoWRyIcBCEii0YsMH/OmEimW0iaAg3yz1NHPR92lX/NCgXWVazHhBTr
-         B7c5c7VMsaJO9mBiTAyzUlbdLaAIO/7Aoq77Y=
-X-Forwarded-Encrypted: i=1; AL+hErHpJELzOABN2yum9cADTKO9fjCF6UY+nKp6ycY/suhduK8wkYStpuJOvt1R4HB0pwCciLJesj9I0sHZKb8=@vger.kernel.org
-X-Received: by 2002:a05:7022:38b:b0:1b5:2dce:1b6d with SMTP id a92af1059eb24-1b55689ab30mr18357599c88.17.1795546708858;
-        Tue, 24 Nov 2026 10:58:28 -0800 (PST)
-X-Received: by 2002:a05:7022:38b:b0:1b5:2dce:1b6d with SMTP id a92af1059eb24-1b55689ab30mr18357526c88.17.1795546707818;
-        Tue, 24 Nov 2026 10:58:27 -0800 (PST)
-Received: from stbirv-lnx-1.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm41712779c88.13.2026.11.24.10.58.26
+        bh=rKVd0WB9GKER5oLiGhqXKhoz1U/fSQCfKOepi4KUjiM=;
+        b=CrAGfi5onD+KRXzUCuaDuNznAiYeXnYY3m+ocsvKHZWxIbvOZxWYtmy/PV9uAdJPVx
+         4j4jOs9b5OvtH1wtyYDtLe+4M4bZaJgbcDVLPujlQXXkhyztZZ+pgNBtHjNeNwO7Jyq6
+         2j62tAPJBoqr0DztEFWb7RqRo+SdJ56IMbkgIEPS3KTZS0NveSj96ewEBDO76A+tovc0
+         rVRl0FiUiWXX+KbPceflpuH5cNf9lt9e46FOnzMmMf495u+Qnvvg8LFBOeK6uhwhel23
+         NAr5STeRq8iHaMor9NtnnKU5BPeRGHqeiM1zfM5zfjRQSqO5Wz2yPA8OrNMAmXmuKn9A
+         rCDA==
+X-Forwarded-Encrypted: i=1; AL+hErGWiit/LalXSZVSX+ofuf24aAC40pUrwhJdfi/bNvJQr41SzXjJDZAOJywULFqe4BVGhiDNQDPok8FdiOY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8adLa3JqfS6+Wj9vDhNsIHUrdLSWrx0tHFogMQvt7gye552GVU
+	ARLYRyZe7UHRbhRoclu+9H+AjN9D+4Yds9d79umbbQVTO+yU7sUmmkBEx0vkDXjbHg==
+X-Gm-Gg: AZFdTZe6t2fe1jvxE8yeOl59B/Fp3cwsFWVPCTXpqhPLW7RD62VRA9BY+zIX4G9/hRp
+	N2oxw01jV4XqmHk6vzWHXdcSoWeB8HqIoWbypfy9Ry3PA+/qxFctoIIdBsIvfivl0ZcfryQf07g
+	SsewwNF1XXl4sQxCCIo8CBzfEcNO/5V05aNEEMGOixuVe8WzWwdopG/IN0oBnT2i7vE6iafwCbX
+	/SXakNd0qBB1lHraYZZu5ZhMgG01T1wbtFetOYoH/N6De/YhHknZzdfIhPIpPPtkPTU14gkaLMv
+	tn/ADE1H/dwqjLPIj6h2MJvvg4qe2XhHzyN0Lrhsn77Bmg9QHKTlFFlwRlMgTPwZm02HIE3uH95
+	R3yO0IO1n7hKSvgYLMF6fUWszzbvdQnyF8XyhlDPyxS8FFZYyzMV5YmyUpOBQ3tIOBYQcq9Ij7l
+	Iht/tXXbzNtYaWyiVrhKjErZ2E6Oqn0lYYg0aCayUgB1FqRfmz0Oml2MJcsjQQH+WtfhTJyOJJj
+	d6dn4hEdEGISnYrCxGlk9lIzYWoEERRhr6DICnP5zDa76uOm2I+bPM3wwkc9Y9nwhQkqEFhXJBA
+	WJJG4i6GZEyO691OpvllpatL0IMyqY7/1Xhhj+Fd0b+tZlUUnbhrppyPEwR10e/q
+X-Received: by 2002:a05:600c:4585:b0:4a1:c6f5:2450 with SMTP id 5b1f17b1804b1-4bb8881b8e4mr321879025e9.17.1795546716413;
+        Tue, 24 Nov 2026 10:58:36 -0800 (PST)
+Received: from google.com ([2a00:79e0:285b:8:af0c:c5f1:ee8a:b81f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853ca452sm445870355e9.15.2026.11.24.10.58.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 10:58:27 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: netdev@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Doug Berger <opendmb@gmail.com>,
-	Nicolai Buchwitz <nb@tipi-net.de>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org (open list),
-	Mlody12 mlody12 <kudzo51@gmail.com>
-Subject: [PATCH net-next v7 1/4] net: phy: Map C45 probe read errors to -ENODEV during bus scan
-Date: Tue, 24 Nov 2026 10:58:17 -0800
-Message-Id: <20261124185820.3954716-2-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261124185820.3954716-1-florian.fainelli@broadcom.com>
-References: <20261124185820.3954716-1-florian.fainelli@broadcom.com>
+        Tue, 24 Nov 2026 10:58:35 -0800 (PST)
+Date: Tue, 24 Nov 2026 19:58:31 +0100
+From: Dmytro Maluka <dmaluka@chromium.org>
+To: sashiko-reviews@lists.linux.dev
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Dmitry Torokhov <dtor@google.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Bjorn Helgaas <helgaas@kernel.org>, iommu@lists.linux.dev,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>, Joshua Peraza <jperaza@google.com>,
+	Jesse Barnes <jsbarnes@google.com>, Len Brown <lenb@kernel.org>,
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Oliver O'Halloran <oohall@gmail.com>,
+	Pavel Machek <pavel@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Rajat Jain <rajatja@google.com>, Rajat Jain <rajatxjain@gmail.com>,
+	Will Deacon <will@kernel.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Vineeth Pillai <vineeth@bitbyteword.org>,
+	Aashish Sharma <aashish@aashishsharma.net>,
+	Grzegorz Jaszczyk <jaszczyk@chromium.org>,
+	Tomasz Nowicki <tnowicki@google.com>,
+	Dmytro Maluka <dmaluka@chromium.org>
+Subject: Re: [PATCH v11 1/2] PCI/ACPI: Support Microsoft's "DmaProperty"
+Message-ID: <awXeV5Jo4WTjLc8c@google.com>
+References: <20261123235845.564027-1-dmaluka@chromium.org>
+ <20261123235845.564027-2-dmaluka@chromium.org>
+ <sashiko-outbox-230247@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -123,153 +117,119 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <sashiko-outbox-230247@kernel.org>
 
-get_phy_c22_id() maps a bus read error of -EIO or -ENODEV to -ENODEV, so
-that mdiobus_scan_bus_c22() carries on with the next address when nothing
-answers. get_phy_c45_ids() only does so for phy_c45_probe_present(); a
-failed read of the devices in package registers is turned into -EIO, which
-mdiobus_scan_bus_c45() treats as fatal and which makes the whole
-__mdiobus_register() fail.
+On Tue, Nov 24, 2026 at 12:15:46AM +0000, sashiko-bot@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issues to consider:
+> - [Medium] PCI/ACPI: platform_optin_force_iommu() ignores DmaProperty
+>   devices
+> - [Medium] PCI: SR-IOV VFs do not inherit untrusted flag from
+>   DmaProperty PF
+> --
+> 
+> commit 534ec8c0dc4ebcebaa88d905d9760f867ca5b38f
+> Author: Rajat Jain <rajatja@google.com>
+> 
+> PCI/ACPI: Support Microsoft's "DmaProperty"
+> 
+> This commit adds support for the Microsoft ACPI _DSD "DmaProperty" to mark
+> PCI devices as untrusted when the property is set to 1.
+> 
+> Link: [1] https://docs.microsoft.com/en-us/windows-hardware/drivers/pci/dsd-for-pcie-root-ports#identifying-internal-pcie-ports-accessible-to-users-and-requiring-dma-protection
+> Link: [2] https://docs.microsoft.com/en-us/windows/security/information-protection/kernel-dma-protection-for-thunderbolt
+> 
+> > diff --git a/drivers/pci/pci-acpi.c b/drivers/pci/pci-acpi.c
+> > index 1150f2fbabf41..5971ffc2a375a 100644
+> > --- a/drivers/pci/pci-acpi.c
+> > +++ b/drivers/pci/pci-acpi.c
+> > @@ -1427,12 +1427,34 @@ static void pci_acpi_set_external_facing(struct pci_dev *dev)
+> >  		dev->external_facing = 1;
+> >  }
+> >  
+> > +static int pci_dev_has_dma_property(struct pci_dev *dev)
+> > +{
+> > +	struct acpi_device *adev;
+> > +	const union acpi_object *obj;
+> > +
+> > +	adev = ACPI_COMPANION(&dev->dev);
+> > +	if (!adev)
+> > +		return 0;
+> > +
+> > +	/*
+> > +	 * Property used by Microsoft Windows to enforce IOMMU DMA
+> > +	 * protection from any device, that the system may not fully trust;
+> > +	 * we'll honour it the same way.
+> > +	 */
+> > +	if (!acpi_dev_get_property(adev, "DmaProperty", ACPI_TYPE_INTEGER,
+> > +				   &obj) && obj->integer.value == 1)
+> > +		return 1;
+> > +
+> > +	return 0;
+> > +}
+> > +
+> >  void pci_acpi_setup(struct device *dev, struct acpi_device *adev)
+> >  {
+> >  	struct pci_dev *pci_dev = to_pci_dev(dev);
+> >  
+> >  	pci_acpi_optimize_delay(pci_dev, adev->handle);
+> >  	pci_acpi_set_external_facing(pci_dev);
+> > +	pci_dev->untrusted |= pci_dev_has_dma_property(pci_dev);
+> 
+> [Severity: Medium]
+> Should platform_optin_force_iommu() also check for devices marked via
+> DmaProperty?
+> 
+> In drivers/iommu/intel/iommu.c, platform_optin_force_iommu() only checks
+> has_external_pci(), which tests pdev->external_facing:
+> 
+> drivers/iommu/intel/iommu.c:has_external_pci() {
+> 	...
+> 	for_each_pci_dev(pdev)
+> 		if (pdev->external_facing) {
+> 			pci_dev_put(pdev);
+> 			return true;
+> 		}
+> 	return false;
+> }
+> 
+> On systems with CONFIG_INTEL_IOMMU_DEFAULT_ON=n where firmware sets the
+> DMAR platform opt-in flag and marks internal ports or devices with
+> DmaProperty instead of ExternalFacingPort, has_external_pci() returns
+> false.  platform_optin_force_iommu() then returns early without enabling
+> DMAR_FORCE_ON, and intel_iommu_init() disables the IOMMU, leaving those
+> devices without DMA remapping protection.
 
-MDIO controllers that report a read from an empty address as a bus error
-(e.g. MDIO_READ_FAIL on the UniMAC MDIO block) and that provide read_c45()
-with unmasked addresses therefore cannot be registered: the C45 scan fails
-on the first empty address. mdio-bcm-unimac does not provide read_c45()
-yet, this is enabled by "net: mdio: mdio-bcm-unimac: Add Clause 45
-support" later in this series.
+Makes sense to me. As I understand, prior to this patch,
+platform_optin_force_iommu() was technically not buggy, since
+pdev->untrusted was only set for devices downstream of external-facing
+ports; whereas with this patch, internal (e.g. SoC-integrated) devices
+may also be marked as untrusted i.e. requiring DMA protection, thus
+platform_optin_force_iommu() should check pdev->untrusted along with
+checking pdev->external_facing.
 
-Make get_phy_c45_devs_in_pkg() apply the same mapping as get_phy_c22_id()
-to its first read (MDIO_DEVS2): a failure with -EIO or -ENODEV there means
-that nothing answered and is reported as -ENODEV. A failure of the second
-read (MDIO_DEVS1) happens once the first one succeeded, i.e. once the MMD
-has answered, and is still reported as -EIO so that the PHY is not silently
-skipped.
+Baolu, do you agree?
 
-get_phy_c45_ids() then handles -ENODEV in the two places that look for a
-device at an address: the loop over the MMDs and the MMD 0 fallback. In the
-loop, an MMD that does not answer is handled like one that reads as all Fs,
-except that the remaining MMDs are not probed: the scan goes straight to
-MMD 0, and -ENODEV is only returned if that does not answer either, so PHYs
-that only respond on MMD 0 are still found while an empty address costs a
-bounded number of bus reads. Carrying on with the remaining MMDs is not an
-option: the vendor MMD presence check done on the way fails with the same
-bus error on such a controller and ends the scan before MMD 0 is reached.
+> [Severity: Medium]
+> Do SR-IOV Virtual Functions inherit pci_dev->untrusted when DmaProperty is
+> placed directly on an endpoint Physical Function?
+> 
+> When VFs are created via pci_iov_add_virtfn() -> pci_iov_scan_device() ->
+> pci_setup_device(), set_pcie_untrusted() checks pci_upstream_bridge(dev).
+> Because pci_upstream_bridge() resolves pci_physfn(dev) first and returns
+> the bridge upstream of the PF (or NULL on a root bus) rather than the PF
+> itself, and VFs do not share the PF's ACPI companion, virtfn->untrusted
+> remains 0.  IOMMU and DMA paths then treat the VFs of an untrusted PF as
+> trusted.
 
-This patch does not change how the other errors are reported: the vendor
-MMD presence check done while reading the identifiers and the reads of the
-per-MMD identifiers themselves only happen once a device has answered, and
-their error is returned as is. The kernel-doc therefore documents "a
-negative error code" rather than -EIO as the only alternative.
+Yeah, similarly agree. Looks like pci_iov_add_virtfn() is implicitly
+relying on an assumption that pdev->untrusted is *only* true for PFs
+downstream of external-facing ports, which happens to be the case
+without this patch, but is no longer the case with this patch.
 
-This is not limited to mdiobus_scan_bus_c45(): get_phy_c45_ids() is reached
-through get_phy_device(bus, addr, true) and phy_get_c45_ids() by every C45
-caller. For those, a failed devices in package read is now reported as
--ENODEV instead of -EIO, which is what C22 callers already get:
-
-- fwnode_mdiobus_register_phy() for "ethernet-phy-ieee802.3-c45" nodes:
-  __of_mdiobus_parse_phys() logs that the device is missing and registers
-  the bus without it, instead of failing the registration.
-- sfp_sm_probe_phy(): the mdio-i2c buses report a PHY that does not
-  answer as a read of all Fs, so nothing changes for an absent PHY. The
-  only error that can reach this code is an I2C transport error (-EIO) on
-  a RollBall module: it is now handled like the -ENODEV that C22 modules
-  already get, i.e. retried and, if it persists, reported as "no PHY
-  detected" instead of "mdiobus scan returned -EIO" and SFP_S_FAIL.
-- gpy_probe() through phy_get_c45_ids(): the driver core treats -ENODEV as
-  a silent match rejection rather than a probe failure.
-
-Fixes: 17b447539408 ("net: phy: c45 scanning: Don't consider -ENODEV fatal")
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
----
- drivers/net/phy/phy_device.c | 37 ++++++++++++++++++++++++++++--------
- 1 file changed, 29 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-index b39e945cebd7..60440b62e6c7 100644
---- a/drivers/net/phy/phy_device.c
-+++ b/drivers/net/phy/phy_device.c
-@@ -780,7 +780,11 @@ static int phy_c45_probe_present(struct mii_bus *bus, int prtad, int devad)
-  * Description: reads devices in package registers of a MMD at @dev_addr
-  * from PHY at @addr on @bus.
-  *
-- * Returns: 0 on success, -EIO on failure.
-+ * Returns: 0 on success, %-ENODEV if the first read failed with -EIO or
-+ * -ENODEV, which is how a controller signals that nothing answered at this
-+ * address, or %-EIO on any other failure. A failure of the second read, once
-+ * the first one succeeded, means that the MMD did answer and is therefore
-+ * always reported as %-EIO.
-  */
- static int get_phy_c45_devs_in_pkg(struct mii_bus *bus, int addr, int dev_addr,
- 				   u32 *devices_in_package)
-@@ -789,7 +793,10 @@ static int get_phy_c45_devs_in_pkg(struct mii_bus *bus, int addr, int dev_addr,
- 
- 	phy_reg = mdiobus_c45_read(bus, addr, dev_addr, MDIO_DEVS2);
- 	if (phy_reg < 0)
--		return -EIO;
-+		/* Like get_phy_c22_id(): returning -ENODEV doesn't stop bus
-+		 * scanning
-+		 */
-+		return (phy_reg == -EIO || phy_reg == -ENODEV) ? -ENODEV : -EIO;
- 	*devices_in_package = phy_reg << 16;
- 
- 	phy_reg = mdiobus_c45_read(bus, addr, dev_addr, MDIO_DEVS1);
-@@ -810,8 +817,10 @@ static int get_phy_c45_devs_in_pkg(struct mii_bus *bus, int addr, int dev_addr,
-  * the PHY identifiers for each device. Return the "devices in package"
-  * and identifiers in @c45_ids.
-  *
-- * Returns zero on success, %-EIO on bus access error, or %-ENODEV if
-- * the "devices in package" is invalid or no device responds.
-+ * Returns zero on success, %-ENODEV if the "devices in package" is invalid or
-+ * if no MMD responds (including when the bus reports -EIO or -ENODEV for the
-+ * reads that look for a device), or a negative error code from a failed bus
-+ * access otherwise (usually %-EIO).
-  */
- static int get_phy_c45_ids(struct mii_bus *bus, int addr,
- 			   struct phy_c45_device_ids *c45_ids)
-@@ -844,8 +853,18 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
- 				continue;
- 		}
- 		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, i, &devs_in_pkg);
-+		if (phy_reg == -ENODEV) {
-+			/* The MMD did not answer: treat it like a read of all
-+			 * Fs, which is what controllers that do not check the
-+			 * turnaround return, and go straight to the MMD 0
-+			 * probe below. Do not probe the remaining MMDs, each
-+			 * one costs two bus reads on a slow bus.
-+			 */
-+			devs_in_pkg = 0xffffffff;
-+			break;
-+		}
- 		if (phy_reg < 0)
--			return -EIO;
-+			return phy_reg;
- 	}
- 
- 	if ((devs_in_pkg & 0x1fffffff) == 0x1fffffff) {
-@@ -855,7 +874,7 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
- 		 */
- 		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, 0, &devs_in_pkg);
- 		if (phy_reg < 0)
--			return -EIO;
-+			return phy_reg;
- 
- 		/* no device there, let's get out of here */
- 		if ((devs_in_pkg & 0x1fffffff) == 0x1fffffff)
-@@ -1077,8 +1096,10 @@ EXPORT_SYMBOL(phy_device_remove);
-  * phy_get_c45_ids - Read 802.3-c45 IDs for phy device.
-  * @phydev: phy_device structure to read 802.3-c45 IDs
-  *
-- * Returns zero on success, %-EIO on bus access error, or %-ENODEV if
-- * the "devices in package" is invalid.
-+ * Returns zero on success, %-ENODEV if the "devices in package" is invalid or
-+ * no MMD responds (this includes a bus read failing with -EIO or -ENODEV while
-+ * looking for a device), or a negative error code from a failed bus access
-+ * otherwise (usually %-EIO).
-  */
- int phy_get_c45_ids(struct phy_device *phydev)
- {
--- 
-2.34.1
-
+...Although, independently of this series, looks like
+set_pcie_untrusted() is completely buggy on non-x86 since v6.13, since
+it solely relies on arch_pci_dev_is_removable(). I've just reported that
+at https://lore.kernel.org/all/awXXSfrhLHK7TNbp@google.com/
