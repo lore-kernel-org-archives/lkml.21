@@ -1,83 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.11
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795518477;
-	b=VlGcaMOkUNt02gXwSsUYkkJuzRWliX0d6Hp3mOwGtMfrkW0cqNQMP4EjaFp8/igLtK4y
-	 f/35VNTfmVnUcGy35KerwDr9HZ1CU6lybbixvhKOPB/rZ9DC9UOKniP0IJQ3gYHyevnDk
-	 8zbmRFg3DrwsHBvl86A6RdSDXV5eMoTNfZuGJmmUwnbhB4OflbJBWGcPYbezscNXchAeQ
-	 zgXl9dhgZJ/3LabhJzWmBACx9nmN6nutyatZm2nLt1WiNnZbe8nxrpvqCz4K41WftYpiA
-	 f3MkxoJRoDrmQcFfQ72DrPYG+9htxT4CQu+2J4AerGcjdjISYrpFyDwwhwMAxer4ItA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795518477;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=5NpROjfn9S19F+PP+SU4tu7Dh10hYCyLji15RDL3+e8=;
-	b=W9GdzdRl4KLslUu1b8mS8fX70Fmpv5jib4mf9Xqi9NcPVhqXRL+Eic62f8HmDC9nMOMn
-	 P0ohtiMHco42mqO1UbuODIn5Gz1yAhg+llEZ9kYUkbLAvlVXyQMBnx4XS9wF/vm0gGcaz
-	 TyMsSqaFSk1pIisXXNkPkQky3tBsfgEBB3O1DIUC6BOosos5WHw7rWn1essK9HjFNuQIp
-	 DXGJCLMzInH6FBLP668BT3LJZjovt4KQ6UzP64kqwfZgx6ZfvsO+diwAaZ0cA3A32iphu
-	 qhJ3BnwOWmwwffBPrpTI0ri8bmtISZoRiHeaZBcee8DfBb1oD9DLouelga/tumbGzPw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cFxOp516;
-	arc=none smtp.remote-ip=192.198.163.11
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.47
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795518489;
+	b=REPr3NdnatUGpEo51zitXiTUw7+Sa5XSLkI01lUWL9H5jr9k3q61pkHZGVAmzR0PEBvQ
+	 N2L3F2eHsX6zjr5rF2Vz/cJoS2U/gQFRbf9BEa4vIWUQ66TOwyYUJXfZVQbeGwxjnAv/1
+	 Wh+yyOEgY5Fa4JcimaJsst7GkQZ8r8zM846ycEblThf7Z7Mk4MNeWZwMh9ZlaMFzJrT28
+	 dcLlsKTwZac38ndIAiM2zEFK4GU77izbNVb4opKb0gqkqTea/Ic71IcGZ6YkvGzhfwxai
+	 MB6pVg7BvZ8jK+V5h9LaxjYiIj+f9wtmiPSaMW4rDWcTHTpHd89jsBLQV23bgo0Xr8w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795518489;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=CSG8ulEk4ASRkphCd8GtzCLacYX5T3eijsggHwB+VQw=;
+	b=qeLfs4S2xxqJ2OxtPo3ifi6uexgEh0scqjGAG2um+GzuDk1BP4FuqONncVPo3sdanqwQ
+	 Nqoc4Dmd88rkzNCWmbHrgYgEnneIyx9LbOX46O1jIYim9XBi85ww3+qWlDOv1EH2zBJay
+	 6h+nkDgsyQLNOr7aGEybeDEU8iJEsnkdK+B8p3rbYtVbvfBps7B3VNGiNAnmnzR6h0oQu
+	 dZ7SLj7S3nMNK+soq1oYhRGt3skroXhzfxjDXrR3QS/Bh4ivh/0OmTWoAeNHNrxzCmYf7
+	 pQkIVdyM4KZ5LHydZr6G3kc+hGAuq4YEHA68sxLRjsvgzOsPKILGn2F5EWxc8RaPnbQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Gh8+vZKK;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.47
+Received: from mail-dl1-f47.google.com (mail-dl1-f47.google.com [74.125.82.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 815D6606A31E;
-	Tue, 24 Nov 2026 11:07:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 815D6606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9333606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:08:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9333606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cFxOp516
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795518478; x=1827054478;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=uXO0MdgcqEofUAk5uNBXc+ZK1bEtIEm0MeHVCxyP08c=;
-  b=cFxOp516v7CLgcfyTuA6UnEOPwiMbYrleTykjGfvuT5vB0j74hv2/ObP
-   8UbQNYFbnfIml+wZv4gqJAWdjj0omVdYQqwsSWC8KSpvPZ7eNMgaLh8Nd
-   NtJnEN+u0k6ZYUnF3IUBhc5BjlGcaHaVkJfA3DYzNfl7a+7fgr12HA/Xi
-   8ok79a5fEXjEHmUdt3fdR+bhqelyvXsCWfqsLY+YCEYXrPZp2d7NIYFVI
-   5Q+K8F/1cx+HJZuKXpLMXWZaEi+Cg+TcBYFciOMvC3GJNb6G/sa+rJOmV
-   guaqKxWhwlR86x0lugUX/EUiyNGagwwCHGy0FBmVjEVOc5zwC7SG4bc3I
-   w==;
-X-CSE-ConnectionGUID: AnRpyvijQEymZZiz+L+VAA==
-X-CSE-MsgGUID: hMZB8FoxRpmrq3EGn5lDlg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4263552"
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="4263552"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 03:07:57 -0800
-X-CSE-ConnectionGUID: UQ11Q+3oRjmI4ajNLNUSAg==
-X-CSE-MsgGUID: Jf3P03WtTz2lDztrGH6FHg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="11870354"
-Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 03:07:54 -0800
-Date: Tue, 24 Nov 2026 13:07:52 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Joshua Crofts <crofts@kernel.org>
-Cc: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Rupesh Majhi <zoone.rupert@gmail.com>
-Subject: Re: [PATCH v1 1/1] iio: core: Split debugfs routines
-Message-ID: <awVwCFJjjrMoiWCB@ashevche-desk.local>
-References: <20261124094502.557175-1-andriy.shevchenko@linux.intel.com>
- <09328c36-a32f-488b-a2c9-76fab784d259@kernel.org>
- <awVq-mE1H2g01yS4@ashevche-desk.local>
- <awVsI5KfsvEruJYG@ashevche-desk.local>
- <508193e9-0157-4ff6-8276-760463ec5e60@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Gh8+vZKK
+Received: by mail-dl1-f47.google.com with SMTP id a92af1059eb24-1b3beeaf6f9so5466042c88.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:08:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795518488; cv=none;
+        d=google.com; s=arc-20260327;
+        b=VZKqpQ9v6oRfJLVYQHqBrWvCNlTFjRkoX5MvuCGdyLW1xo4pogzuzK5uZU+aS6GjQv
+         whcu6FceCmuOc2cE/FQYrsJ6uvEdhl5raOSTyrdBLFX+i9DFGDzbacLpm2iFnyZ+NXeW
+         susTjyJDvb7lDQNb3ZVsBxZOdQQZUDOvf61vDG3ckfyzeQKL7PgLVA4ko23RRzQJRyYI
+         U607dqEXLkSkIH2i+1MNtEUtkeSKr3oaC9Cfu/wbVkWOzUY/ZlHRP9asTQkaqKO30IIv
+         sAamSyCICml8Oa+GhjR7Csf5btF+OUl8/yF4gA39vUmbG6Hufhff7qUZgQBYnpc8TqPY
+         G5kA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=CSG8ulEk4ASRkphCd8GtzCLacYX5T3eijsggHwB+VQw=;
+        fh=8stc+k494P55eJrUV/efUQejosd8yWqDq6coibKvPHE=;
+        b=QsFcA2sKnnFOBR0EIyZDgU3I8uKWhoWjTn9y2rjpEuwoSZ9ZkCQn5EhLxC75QfI8qQ
+         ASmO2VrLhkPSi6vFviunrAOuHrS31zpbAnThp14/Thai7CbPYzA7ept4pLmYpXbc3f3t
+         datT/jNGck2UCB2kjHKBhPSFHte14MyGuTVcAlZZhexe20SXAi/PKSNWuojab4BIFL64
+         6sMrDTqtrPgmT4obOJxAWDCs5lvCvVFBqLr060HjBs4RmfEJ/fatlWuJUaKwFDfxlRl/
+         cX0aJ2t8xhMZihE+zMTPsQ3XKdMY7sns+rUHzkjlhOOKJMvX2KBlRiW4kS14FC09o0fi
+         vR8w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795518488; x=1796123288; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=CSG8ulEk4ASRkphCd8GtzCLacYX5T3eijsggHwB+VQw=;
+        b=Gh8+vZKK209fK9gkJYckunVrXdTd5nYLvA1Lpo9qvL2NFIfM/JAQyXYQIxxhBEoUfz
+         sCXcBNx86VAxPYkC2lgFy5i1+6ol7da0DaW9cIMfQeBILMJWAUOnH4mDdgGGGzUtruB2
+         8Z1g7U3SEJC/AAnHfiiR1Z5sOhfp5iUgX4Ij/AEfbsNONHQip2OtdU/VmCfp/9R82bRz
+         JQ278CC6aaGVVlPD5csL4ngHb8MUUfXEC3v9jwFxop0QhXyR9V+BRAtjc9l6em1qB4aa
+         7jF5ElSyq9fPTx6acputZUbgay/zMuiFaZolWCQpbtIBZfnBvVRhHUPmV29fyGZUIedA
+         A3lw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795518488; x=1796123288;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CSG8ulEk4ASRkphCd8GtzCLacYX5T3eijsggHwB+VQw=;
+        b=OFu8nMkB+p39D+0+TvTiMl5FkvvOcWXnvj1Y8ND8HR9R+w+LWsIJnY6sZ7w4tNCeyW
+         8l7MOuNrhfEimQenbbdSmsHxdiEmPs8lKDu0WQnGFt21g+iq7V4EuuhKX4oAqV7SooJz
+         9CoYEBpXj+yw5trwT9iggoxF4Otli2yWOLmnc02aEb6DIGYhOHsWF0pTqZDrhciHdEhA
+         j+8aMuZw4ZyyfVr4xkxla9Z/ieqRjtIU25iCxw4ClWaJrNbP6kGcW0NEQ6hmKWdnQHvK
+         6tui/rN8oXpr+k0DdHJmuoyhBbnFKqRv+Q7b7efLKwgw2++YvKCLSK1IOlYlKNIT4gmk
+         vpcQ==
+X-Forwarded-Encrypted: i=1; AL+hErEyjHV8XPztlfLxEdHWF8z02GVNJADKL0u8CPZO445znQwII0t9bwGUDDlG8xKNy2cZIJQvn71CUa+utKQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9IdBpLsVNwUoLq17VnsVCNyn3c4EEReaufiqdh9fajUf7Pr8tF
+	Zp19WN7g+9qKZfU+onOULYgXQLpOs4lKggQTqbvIXNKeRAG+Goa6Tg4vgTuhJkEMnOz2dGd84u/
+	ftRXn9/GwH9rThyJKIYj+NbOLWa7SjUw=
+X-Gm-Gg: AZFdTZdmHywgxpx9AbV9aQaZJVZ/1mNPXZHDchAQonpVLn+VrJ3n0+hEmyJdM8Wy6wB
+	z1cOyuwGThCrRvPYeUG0x96Rc07PeHxE1wp14CXXQhuZ9tQPzrufZuoLv2HRB1o0Y7OyePhQ5tr
+	jR58p4cE+QPHwVnYeGug5izX83gVjbgGmyvtxwXwPoAaEX0Uu69tZCbweakVyEEjSIbz94pFq4j
+	KGKDAngkYaWS9IOjt42qrxEHaFHSvFdICjAo5PzRDOZYci0TJquZ2NjW7+DXt/pNRPmh1js9kmw
+	sAdGFIQiie1NCPP7dbWj2+2+eUjmpGY9hO36XYIiGgUHhJHzGMgME3PSa//Kx60X0c25VdY+L2k
+	/N6PiAOtYtdOu56eJIvWcU0Wd/OMMj/+O0RHVi3Q=
+X-Received: by 2002:a05:7022:c8d:b0:1b3:b3de:9228 with SMTP id
+ a92af1059eb24-1b5568a4f37mr13449809c88.8.1795518487615; Tue, 24 Nov 2026
+ 03:08:07 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,48 +104,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <508193e9-0157-4ff6-8276-760463ec5e60@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20261020104710.2366146-1-dolinux.peng@gmail.com>
+In-Reply-To: <20261020104710.2366146-1-dolinux.peng@gmail.com>
+From: Donglin Peng <dolinux.peng@gmail.com>
+Date: Tue, 24 Nov 2026 19:07:55 +0800
+X-Gm-Features: Aa3M54rJSbFkT150mcAAsBUPDfD2FajCh9qRRPl3qz22VxpNwn4ZoQyq4YKUwi0
+Message-ID: <CAErzpmtcDUu6dtQAvV4fJTuDyr6YqtyrLi6XBjWHLjxS55RTYQ@mail.gmail.com>
+Subject: Re: [PATCH] fgraph: Format error pointers as signed errno values
+To: rostedt@goodmis.org
+Cc: mhiramat@kernel.org, linux-trace-kernel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, pengdonglin <pengdonglin@xiaomi.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 24, 2026 at 11:55:49AM +0100, Joshua Crofts wrote:
-> On 24-Nov-26 11:51, Andy Shevchenko wrote:
-> > On Tue, Nov 24, 2026 at 12:46:22PM +0200, Andy Shevchenko wrote:
-> >> On Tue, Nov 24, 2026 at 11:17:01AM +0100, Joshua Crofts wrote:
-> >> > On 24-Nov-26 10:44, Andy Shevchenko wrote:
+Just a quick ping on this patch.
 
-...
+Thanks,
+Donglin
 
-> >> > > +#if defined(CONFIG_DEBUG_FS)
-> >> > 
-> >> > Veeery small nit, but why not #ifdef CONFIG_DEBUG_FS? It's not
-> >> > as if you're checking for multiple defines.
-> >> 
-> >> Or even IS_ENABLED()?  Let me check if we have a precedent in IIO, I will use
-> >> then the same or most used style.
-> > 
-> > FWIW, iio core uses exactly this form for DEBUG_FS test, so for the consistency
-> > I leave it as it, and if required we can fix this later.
-> > 
-> > $ git grep -n '^#if.*DEBUG' -- drivers/iio/ include/linux/iio/
-> > drivers/iio/gyro/adis16136.c:66:#ifdef CONFIG_DEBUG_FS
-> > drivers/iio/humidity/dht11.c:87:#ifdef CONFIG_DYNAMIC_DEBUG
-> > drivers/iio/humidity/dht11.c:235:#ifdef CONFIG_DYNAMIC_DEBUG
-> > drivers/iio/iio_core.h:19:#if defined(CONFIG_DEBUG_FS)
-> > drivers/iio/imu/adis.c:227:#ifdef CONFIG_DEBUG_FS
-> > include/linux/iio/iio-opaque.h:73:#if defined(CONFIG_DEBUG_FS)
-> > include/linux/iio/iio.h:1010:#if defined(CONFIG_DEBUG_FS)
-> > include/linux/iio/imu/adis.h:573:#ifdef CONFIG_DEBUG_FS
-> 
-> Fair enough. It's just a style preference I guess, hence the very small nit.
-
-Yep, and even if I also think about plain #ifdef the consistency would prevail
-over the style.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+On Tue, Oct 20, 2026 at 6:47=E2=80=AFPM Donglin Peng <dolinux.peng@gmail.co=
+m> wrote:
+>
+> From: pengdonglin <pengdonglin@xiaomi.com>
+>
+> The BTF-aware funcgraph-retval formatter currently treats all pointer
+> returns as hexadecimal values. Error pointers returned with ERR_PTR()
+> therefore appear as high unsigned addresses in smart mode, obscuring the
+> underlying errno.
+>
+> Recognize error-pointer values for pointer return types in
+> btf_trim_retval() and select signed decimal formatting.
+>
+> Before:
+>   trim_retval_ptr_error(); /* ret=3D0xffffffffffffffea */
+>
+> After:
+>   trim_retval_ptr_error(); /* ret=3D-22 */
+>
+> Users who need to inspect the raw encoded value can enable
+> funcgraph-retval-hex, which produces:
+>
+>   trim_retval_ptr_error(); /* ret=3D0xffffffffffffffea */
+>
+> Signed-off-by: pengdonglin <pengdonglin@xiaomi.com>
+> ---
+>  kernel/trace/trace_btf.c | 7 +++++++
+>  1 file changed, 7 insertions(+)
+>
+> diff --git a/kernel/trace/trace_btf.c b/kernel/trace/trace_btf.c
+> index bcf65fec7bb1..1201105aa48b 100644
+> --- a/kernel/trace/trace_btf.c
+> +++ b/kernel/trace/trace_btf.c
+> @@ -1,5 +1,6 @@
+>  // SPDX-License-Identifier: GPL-2.0
+>  #include <linux/btf.h>
+> +#include <linux/err.h>
+>  #include <linux/kernel.h>
+>  #include <linux/slab.h>
+>  #include <linux/kallsyms.h>
+> @@ -197,6 +198,12 @@ void btf_trim_retval(unsigned long func, unsigned lo=
+ng *retval, bool *print_retv
+>                 if (signed_type && !hex)
+>                         *retval =3D sign_extend64(*retval, msb);
+>                 break;
+> +       case BTF_KIND_PTR:
+> +               if (!hex && IS_ERR_VALUE(*retval))
+> +                       *fmt =3D RETVAL_FMT_DEC;
+> +               else
+> +                       *fmt =3D RETVAL_FMT_HEX;
+> +               break;
+>         default:
+>                 *fmt =3D RETVAL_FMT_HEX;
+>                 break;
+> --
+> 2.34.1
+>
