@@ -1,84 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795503026;
-	b=McCoM308f1vlJdfGwPlUMKvHt12HuXvG0fYD/ycJO/86WOhoJmGT7Mrb0fMjVtrtYqhu
-	 FsQLlk8z/cRmOukr9v8u6GwbhTXZdmB02IjpgC0kuQQuG/s3NqPapVtGANPLI2M/u5Vc/
-	 ZJQben7ZYjzA6ViUMXxAcAlTqmpmL7eTyd3aChx+CJUxJQhuHUjW1distv8ZGrwUPbbur
-	 AIxIMvG5yExMtXAFd/TgsF28hAPkm+lwOVjG+GElKQMha7ji+OrId3Jfz6ddH2JtDgcDo
-	 GnIcr8TJxDzjI605B7QaYiw929rOYu/dTRbVw6qTNcKaw3eDuJWmdB1ZtCuA0ulzs9w==
+	t=1795503022;
+	b=uza9P/aT+uS0ICD77fSIhYIjHE/iC5sVy4rYFXiVzxHotJ/kyBl7CYAdIDP/dD8k/9W5
+	 7ttjnwL17cRooSa1sIKBsLDhfK3G84RZKl641Y/J67xQ/2duHz1BFKeGUBLVl0Xk1Mv5K
+	 B0SAYN3MxYqAkkPNTL44u9wG9xlu6K7KM+mTo1wK5qEM/1MUM4ZiquMeVtymyPMUUbOWR
+	 MHrcrPIzoNIbqXDBtYMF6wQrI/naXuMY+tZMJzTxuTTGCuWASvNYotpY6RvS8lgt1V3yC
+	 TclAaVZmS1b0wg+cx0cVVUZdUmRLZEYeNGZc7BitZZ66vMT4mDv8djFRJVu0bFTB7xw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795503026;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795503022;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=DVeHLifVT1xO67SonoAkU2+l387BllNSZWUCd22A29g=;
-	b=Hr/PAarXVRdRv1YiRJlnO1c12evBX9TQBlPf35EHyRXzNGMAmmYWAETSUIIK8AgpBbNV
-	 HIvx5UysVp9ZAU0cQaZXcxFgwwLwti9/n7XpwnCroPGqNlrKUBBSsMPVCxOO7anS/i2vZ
-	 wxMWdxjL8YcW2E9vyfiejmk8E1KwKJ26tPDfnOsjF+esYY1gAViCN5Tl9Fd9RtsVYIOqD
-	 4C/JyYpw9fh4P25BlKAoQKE3eIPErHOVtTd8OMFwG0HsymIAcZGvBfaiJpNE5KgcYPO9r
-	 ApRwqZUCj4MkcmjUgyWfa7ygzRDrnj4Sr7riUR4p4OkruHPjddLfgI6ymzotK2QGAeQ==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=HENiTwapNaU7NbNMtbDzb4zDBCZlFqydguAonmAa+ZY=;
+	b=BpQDlp9/1Vq1yXwvEtEDvBORyG/W5xnSizubbEtXlI83dhti8vLX5NsQQvVLUV/31fmL
+	 FcM3Ovg9KVMk/7HuEtbCIuXskgXP2qaz+q81fviUBonRCR22QFY0XKjoVaGcx17cIf+sY
+	 Iks9sa9NyVEXPb6LuZG7YiSE2lWrfEdqfvzoo2S9FuAWYhH19EDzn26GzJVEolsl4KCZ3
+	 vIEL5x+kL6QuUXNcDAGei095mZRFQ8S4pIhHPHfjRe6kefKJTtY63yBOQepGa0ECboQQ6
+	 pWabE+0TPr+g8ncR1WIAA2DYaL8MO8K845xl9Vef8F13X1qKtNrOIilloFgqWK/pRHA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Lnr3a9D5;
-	arc=none smtp.remote-ip=209.85.167.53
-Received: from mail-lf1-f53.google.com (mail-lf1-f53.google.com [209.85.167.53])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mS2nLBcx;
+	arc=none smtp.remote-ip=209.85.167.47
+Received: from mail-lf1-f47.google.com (mail-lf1-f47.google.com [209.85.167.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8641D606A6B1
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:50:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8641D606A6B1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1ACC606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:50:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B1ACC606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Lnr3a9D5
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5c1c0c8d61aso2625299e87.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:50:26 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mS2nLBcx
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5c26207ee6eso1726785e87.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:50:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795503025; x=1796107825; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=DVeHLifVT1xO67SonoAkU2+l387BllNSZWUCd22A29g=;
-        b=Lnr3a9D5CojzMvN8BjEuOrqdp/HPrzXZrBKO9VPlyVLg5TW+SIPbc0U9x2gLP1VOH1
-         jwbWZeXSum6NRfAzFH06uGmTth0Z4i5BmgBwAEC+UPeAwKPYZKov76qV0S0ba8VXXExY
-         9wURHdptR4o+qAVyqViHR6iy7Re8MdyTfOb8qe3+doAphAWaY/fqOPoMHGBPih5gwABA
-         GdGMRG70XpQS3fwILAVHDHgGC0DXVoZTD6ToXE5oLfQMXcW9qN54bd4wh+08UG8eZeL9
-         ejbWwahPpLT8ra0fm6hgKsB9edH+4UOIxFygscT4XQCvB1nVduUvvJBM8LNZ3pphJukg
-         OTAw==
+        d=gmail.com; s=20260707; t=1795503020; x=1796107820; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=HENiTwapNaU7NbNMtbDzb4zDBCZlFqydguAonmAa+ZY=;
+        b=mS2nLBcx/X6705BUxPUz2G/dvtJ9frwUyGwvOP11xr+LVW4J+T7aWZ1xX+Pfptulcr
+         1EKi9h4uWpkmN+uC4v4kb37U2636Ru8/6yWwp2i8XkBdj19eRqnr9LkdTypC44YA/wKl
+         z1YNL3NVGanJFWCE+1WrMSgeAG9NDgaUOV47tfB4HmFVXLGr4aaSc7JZ1h9VA7Qd1dyV
+         9cQ/KvhUYY2bwjy4YL+qDp+5wXsxbBwtHpEKXoU88/WuV9cV0R742bLnPugIj5NEdyt8
+         W3qTLMY8/sGc1Re26/W8oVd7eR6oeYnQ8QbZom9PPaul5zNdlyDzBs9Sd7O+/Yr8axIa
+         Oydg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795503025; x=1796107825;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DVeHLifVT1xO67SonoAkU2+l387BllNSZWUCd22A29g=;
-        b=h1wVIr1TSI/n/7t/Eepnu64mg4CMrPKP06YjmIbZ0t0yGHCaj7nmp0cOVx/Cclxw35
-         yPN0f8wrI5TaCKnkg7FXk2aq4+Ky5GQL5EOGcncjXWN5qQcUPsUHkGyOIkozQGcWWnSs
-         IgTTizQwsRNvl3oBwpvJL0PtyIaELz6ojheyw59LKGo9ORi2LrKUMHRteE0doJM1QB+O
-         AfLe0D6rchV0IkMvJ6ZuuB9dhZ68SvbkUoLuH+1Dx4MyGPU6Z2po011z2v1TfclcDLOy
-         cvULzzX7+Bg6mlbOGTPeElvFDYz/xdez7IZ4qE9B0pB/Rw8lHQoumXA1LC8ZaswXCccN
-         nQ0A==
-X-Forwarded-Encrypted: i=1; AL+hErH0hnfh2Pr7v8of1sMc3qx3z2zuwaeJelauFUsfbNp5m/R5pqTfIZf4z32P/TW47f9Q7etSnDz/XHdMcUo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9B7hqV1Ht166h/q+PxdHIqA7D29mRjhpFPpu+sJg8VTjAKKiGO
-	kbpZil0RO2a/aVm6uEYDiAKqeWX2Km2EDIdc8FG7Grlu+edC0iem9Y/1
-X-Gm-Gg: AZFdTZcBPHbhfvwEngY69Lem4fG1a3iOvt9ta8vi1k6Q3KaKkwMuP77sQq1VM+iuiMZ
-	P35/tiORIPJukt3Ceuigf1dAF+/sHx/E/SIZSVACWBUH1nZr232Z/RFKTpe93MMH5r9ijhcnCjB
-	iQXDJRbXjXnc8Thpyon21QK0KLxEicR0wH+3kNiAUhyOLWYWjFjHQXT21ZpSKZqSgr6O/OBiQhs
-	kzJ2WG6lWAlaO/Qid3HK2CVTXvVk/PMU394Jh9nvkrcI+79DOqpFA/3UJ+4ky0C/oAx+/02LTHK
-	IbpF6b8mEmZCZVtnk0L0NfOzgEQsJ2hpjwHqBx5pXtw3YyQCmpWkgpu/U7MF5F5EVPMpd3w4wbP
-	uS+booN/0m6oC8PiM/96hvqs2wFkMDlzK5Y2mEJHrtFJR1Jhs4UctW/VJSR+gxiUzCo1UfbUyzS
-	RZPhWZqQRw1430w4x2CgOW7IGT7Yc2YKeOwoxdqDVj7R46w8I5/Hb7lUrppkT8+mgAqIVmJlWf5
-	U84InHXKa4N3jUqbWvj5aNnwQzlyyVva/1eNRdOonz8DhmmNCnK22XoTkGycTgF5wfoTu2SpqI2
-	8TgCe3yaO/RzOLhoj+NHLOdwVIa5aFsQgSqd+SBRgpkbmJqH0YmJ+zewyWMjQywXCzbHtLU0+r+
-	ChP3ah22pfAGwGAh6pK+qFaVCm2+JVInPeWZXSOY=
-X-Received: by 2002:a05:6512:33c9:b0:5c0:13f:9b6 with SMTP id 2adb3069b0e04-5c1bc81c372mr3862415e87.54.1795503024669;
-        Mon, 23 Nov 2026 22:50:24 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795503020; x=1796107820;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HENiTwapNaU7NbNMtbDzb4zDBCZlFqydguAonmAa+ZY=;
+        b=EBcvGH676qTFERpaig4QJKqBbJuiJ/k878zCEwK0WiPCLFPdWXDHEVqtevdyRH0s22
+         2NAAUhBknjHYynWlfN7hCjvBenRhsiGD0H5xC8qmTvtMfeX4hNx5Qv7Ecj+UHT9Ip+M9
+         /77R50UDFW46hofUhUF5eeB2GJO+BStUto/Oyr3LZBQZAlB6S/HNtXrcI2pgl2mYnNxE
+         aByZisB7vYfIUu2gE+TYnEq+f8kTltuPqH9JYtcJdTFK6Eeu5rUcGXMsem+a7FhD5dF2
+         xGcp5PTUJzbUN3HrnB8OHP+d+WyK7c4w1LzQLyB8b424P8XaoIsOcKxvPccIAn14oKcq
+         q8LA==
+X-Forwarded-Encrypted: i=1; AL+hErEXR+uS5t/jOgDi6o4Qw3OfvCWmFlOLWsffvnHkI4SezSVm/BE833O7c6VmUUaUvQKsSn1ziNbK2QJ2h8A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8qOIiEHsoakQe9rv69kyIXJMngtt7cotFm70syjqt5L+cI53Ul
+	AGpEyaV9tsLh6B8CYjHAE6e+swiqrryIk2ip22wxar7gvlQqrtAg0kM5
+X-Gm-Gg: AZFdTZdW1zC/W/4uo9jFJRIsaXrGGVUZKiyxWqpIYE96Q2XtAE46ylMzvaDNdhv9cPA
+	KizmrmW7CUSz9d5to7yaIJbX3Yj0WCm2tEddwl/154eVR1p3bwhE0J8yC8ChWr3+3wyqTQtTRYt
+	iIraUF3cjeRSg82u9pTaDNfZCPX8rZ+tWycwfgmF7McvaPawzTXO6p0luOWX4E8cDzqZy5F0GT+
+	KreJUXxxCPd2WkwdfaoHMZSS5gseo1YsQ+T7XzO93KcYyOrePit91ri+nTe2CvI2Th5K/inErnP
+	2FAa4O6KILdbnIR1CFWoYWaA0GT8npKnKrMLjxmUDQxggN9w4YVSfzRfpQye04k3PJyhKFJXpMc
+	v6uKQ7gPNjyEF5hHtC0WZaZ0orjht/hFKVP9nyFZNbi2Gg+kb/tH19F8mQEwdYhdc/c97Vzlq/Y
+	RdoCFWjEN9FbI3/JoHibNqVGQO9LKrhwYkEZsWb2aQwpKICoXBvWBZA4K2NL8IZzA08eQUuV5Dq
+	sYMrXbUUE0TGOV48nmrzqxj4cnyDcRn5Dt1fbPchfEJX6W9Z27wECflS0dLqfD0oWQ1hdxeJ2dU
+	6lvBaSRB4waP9AEniumgkUHPcF1cbewKZP+wrBK5j+1kCPLU1c9XeH+S1XdUkFuBUTz2VzPhsOX
+	00IXuX99Pnvyj1ToR3+Y7cZ+rJuSAItjkJXa0mQ==
+X-Received: by 2002:a05:6512:3e1a:b0:5bf:ae0d:5c8e with SMTP id 2adb3069b0e04-5c1bc89ae6emr4162899e87.57.1795503019603;
+        Mon, 23 Nov 2026 22:50:19 -0800 (PST)
 Received: from yantra.. (nekmmqsyyquzw1lm5eb-1.v6.elisa-laajakaista.fi. [2001:99a:d7d:c300:3cd2:d52a:a1ef:5dd3])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd018b45sm3538556e87.41.2026.11.23.22.50.24
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd018b45sm3538556e87.41.2026.11.23.22.50.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 22:50:24 -0800 (PST)
+        Mon, 23 Nov 2026 22:50:19 -0800 (PST)
 From: Rupesh Majhi <zoone.rupert@gmail.com>
 To: Andy Shevchenko <andy@kernel.org>,
 	Antoniu Miclaus <antoniu.miclaus@analog.com>,
@@ -94,12 +93,10 @@ Cc: linux@analog.com,
 	linux-iio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Rupesh Majhi <zoone.rupert@gmail.com>
-Subject: [PATCH 5/6] iio: adc: ina2xx-adc: use iio_debugfs_reg_access_regmap()
-Date: Tue, 24 Nov 2026 08:50:15 +0200
-Message-ID: <20261124065016.185124-6-zoone.rupert@gmail.com>
+Subject: [PATCH 0/6] iio: debugfs register access through regmap in the core
+Date: Tue, 24 Nov 2026 08:50:10 +0200
+Message-ID: <20261124065016.185124-1-zoone.rupert@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124065016.185124-1-zoone.rupert@gmail.com>
-References: <20261124065016.185124-1-zoone.rupert@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,53 +108,43 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The debugfs callback only reads or writes the regmap of the parent
-device, which is what the core helper does.
+More than 25 IIO drivers have a debugfs_reg_access callback that is
+only a regmap_read() or regmap_write() on the regmap of the parent
+device. Patch 1 adds a core helper for that, patches 2 to 5 use it in
+four drivers and patch 6 adds register access to dps310 with it. The
+other drivers can follow in batches if the helper is wanted.
 
-Signed-off-by: Rupesh Majhi <zoone.rupert@gmail.com>
----
- drivers/iio/adc/ina2xx-adc.c | 15 ++-------------
- 1 file changed, 2 insertions(+), 13 deletions(-)
+The helper finds the regmap with dev_get_regmap() on the parent, so it
+only fits drivers with one regmap there. Existing callbacks that take a
+lock or claim direct mode around the access are left alone.
 
-diff --git a/drivers/iio/adc/ina2xx-adc.c b/drivers/iio/adc/ina2xx-adc.c
-index c412f5ed46a1..587e82c33454 100644
---- a/drivers/iio/adc/ina2xx-adc.c
-+++ b/drivers/iio/adc/ina2xx-adc.c
-@@ -895,17 +895,6 @@ static const struct iio_buffer_setup_ops ina2xx_setup_ops = {
- 	.predisable = &ina2xx_buffer_disable,
- };
- 
--static int ina2xx_debug_reg(struct iio_dev *indio_dev,
--			    unsigned reg, unsigned writeval, unsigned *readval)
--{
--	struct ina2xx_chip_info *chip = iio_priv(indio_dev);
--
--	if (!readval)
--		return regmap_write(chip->regmap, reg, writeval);
--
--	return regmap_read(chip->regmap, reg, readval);
--}
--
- /* Possible integration times for vshunt and vbus */
- static IIO_CONST_ATTR_NAMED(ina219_integration_time_available,
- 			    integration_time_available,
-@@ -950,14 +939,14 @@ static const struct iio_info ina219_info = {
- 	.read_raw = ina2xx_read_raw,
- 	.read_avail = ina2xx_read_avail,
- 	.write_raw = ina2xx_write_raw,
--	.debugfs_reg_access = ina2xx_debug_reg,
-+	.debugfs_reg_access = iio_debugfs_reg_access_regmap,
- };
- 
- static const struct iio_info ina226_info = {
- 	.attrs = &ina226_attribute_group,
- 	.read_raw = ina2xx_read_raw,
- 	.write_raw = ina2xx_write_raw,
--	.debugfs_reg_access = ina2xx_debug_reg,
-+	.debugfs_reg_access = iio_debugfs_reg_access_regmap,
- };
- 
- /* Initialize the configuration and calibration registers. */
+Patch 6 is tested on a DPS310 on a BeagleBone Black. I don't have the
+other parts. For those, adxl313, adxl372, bma220 and ina226 (ina219
+uses the same callback) were instantiated on i2c-stub under QEMU:
+reads, writes and refused registers through direct_reg_access give the
+same results before and after.
+
+Based on iio testing.
+
+Rupesh Majhi (6):
+  iio: core: add iio_debugfs_reg_access_regmap()
+  iio: accel: adxl313: use iio_debugfs_reg_access_regmap()
+  iio: accel: adxl372: use iio_debugfs_reg_access_regmap()
+  iio: accel: bma220: use iio_debugfs_reg_access_regmap()
+  iio: adc: ina2xx-adc: use iio_debugfs_reg_access_regmap()
+  iio: pressure: dps310: add debugfs register access
+
+ drivers/iio/accel/adxl313_core.c | 12 +-----------
+ drivers/iio/accel/adxl372.c      | 15 +--------------
+ drivers/iio/accel/bma220_core.c  | 12 +-----------
+ drivers/iio/adc/ina2xx-adc.c     | 15 ++-------------
+ drivers/iio/industrialio-core.c  | 28 ++++++++++++++++++++++++++++
+ drivers/iio/pressure/dps310.c    |  1 +
+ include/linux/iio/iio.h          |  2 ++
+ 7 files changed, 36 insertions(+), 49 deletions(-)
+
+
+base-commit: f2cbef9101b9fc979a324bb1242b8b802a2484b6
 -- 
 2.43.0
 
