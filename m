@@ -1,101 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.53
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795551307;
-	b=fQr640DcI056hZqJOX8mukCqko+5IbZUfXWxEfEQfuxb+U5PG64Od0ysIcirlVtFd3T5
-	 OurCWwrRSiadLCSZB9VrbRon1iW8Sr8T8As2TcB7W278pvye9G0wr5asK1iVA+B5Iw86w
-	 KcGG8Sc5jM7obrXhLTcz9JGKKTc0GVguCrl4pdPJemgG/OkcgYhRzqZfld2odlhODSt3y
-	 CMvVSSZmAOA2VHimiKfNyja5W0QLzzZ3RtK0MB6keHVInIeG5A1UjSBiCtqi6saBgNbyd
-	 2hms1ovZVtpCkRjpvly4Ag/lGQjDMLPOu26H0tExE6pQslnhIuMHXZAGwAnM9Ekb6+w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795551307;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Pi553oKEuwJxtkzT1XB/uqe+x5Rc2UJPrmYbDOw3Bd8=;
-	b=0TOA2HJJUDCier+W2E0MAOJhXDUGQpOAops1TLT710NwjooLlaEpc2XdWEiDvdi1JdpQ
-	 ZMsLZqsjYAw0tVKSlQ7BzmIhPNcEjanRZJXj0T7rSMQz+usLHQlSUG1zZ+r/r4PIyGX6o
-	 n/TQJcDqEwosmUkgNxeMYaTNpQG6tGUDnlZ3Ub0w0LgZdKVUZW2J54+oP7BgRxGm1tpSP
-	 vLerqrspBoqfwWps/vFz6vLVVXTlk0au+P6L7Rjd5AEMfXZnRH9TZCTo5rjdsUT7Alhb8
-	 4PiG0GSgIrKHV+ji4N70ymfja7jdHzAr8oz6UMhVbiQkm3DKnOg+N5L+Y1y4EHP9rTg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="y2eb5/LZ";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795551394;
+	b=Z57f83MeUobcrnKUK+avXaR4pxhsEz+FuUe3Q3hylNDL5uj9V0CtXDQR7vGcJkRyYOYm
+	 Kr4dqeyap3UUOOOwfjf7HjwUnmFdK62AN5eFEet+F3qMjk8zYT0+F2V2wPdI8o+edGkiK
+	 i58HKu/49uA5gQpvGf4Ukxi2ozHDkUU4SkN7xE16Yr2u5lOG79RDDC2wuiBYpr1wFmo3X
+	 uci6rXbEXdgfeet5HJGyjy18bEq56SPDS9Qg4ou7db1oHeMScbzZN093niUP8+Xoz46jb
+	 /dYVcZb6kG3kTeY0OTPAhh4i7A7D2WwmP0ShGw/BuOWxk6Tu1WDyQp/wi8wgYS9EuJg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795551394;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=SP1wbcINzSUJyNuETmkM+dOjtDQCPAxHCIc0cwhm72Q=;
+	b=ywDAqxZx2NzTXeGg8lO5jOKt6eUnaJUxRHM5dv4026HSYkBvqZ3AtaMILq8IyrPxZZkR
+	 BKH4FZxAiSs16GkndVILdjOgU6kgBZqocZb3vwi+50fnFSg+cyUe0flGUp8GcEkwpM7tm
+	 wXveSfiTMdvgYheXPXlrG7QN7NWJZ9OUT1rA5B1CROH0wyQahkyc+ftNyLH9tfPXXGBjK
+	 V4ERgR/Ol7ixBB02eGPZW/Ym87bOOzyKRBkYpxtTGRiB5nzIbAVVVM+Xtu6ML9jedRPvC
+	 H6XMSzRgl4VOn+duMlLl7T8jYMZdVCfpZ5HnvAACLl40dLlB7T+iA1/jMRxV/v8cnow==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aK9UEqY+;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F20A1606A338
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:15:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F20A1606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C738C606A33F;
+	Tue, 24 Nov 2026 20:16:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=y2eb5/LZ
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso49354065e9.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:15:06 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795551305; cv=none;
-        d=google.com; s=arc-20260327;
-        b=BBalBd7B2i+8/dt3qw3U3PSBYLqSqB9FsjXFC28DlGcTM09+MZbkUpZY536qQF7KlJ
-         TS+I7sdS9kSNbpgPO8VhIcxJ5kXFd2PdQiXVxjlN7tXpn8QIBuXrJz1MPumT+Pbd1VqV
-         3k4sGfiQYnTOV5/tNI3oNFC+AiEZBPlQjQpIyzG5QnuZq3nNOqjWPB9Tl/NLAUJIvLQ4
-         4eknS40Jdfsp+MtwALHbJ62nCAD6v45m2jQemIoDLP78zkTp1yf5UCezCXQv5x61B1M7
-         ST4r4ARehggKTiD6O/AUAtygH8DCLYANpQwfNshwS+VaWy82+/fraoIroRKxrQsNymtz
-         pEag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Pi553oKEuwJxtkzT1XB/uqe+x5Rc2UJPrmYbDOw3Bd8=;
-        fh=CFAo/8hgfoPin5Z6MoIj4J7VbMrQzcyodizNs8MD+tw=;
-        b=q6tuOaLMhyXCPzrLa+JdK6PaElEfbFd+hQN46+rNdeEJ9KLi8V2M274VnQlir7goR+
-         PgSuK/RsG+tMw6sAtbjQ3tovcHRGb0SXZd07akJyc87wrxJdIWAtTD8Hp9WfDDh7IIRe
-         tRJPIpZ3QPKNxHZ6cretUBeSks16rp5OTBUcG0bn49jr9JIQrEVoSOvaBTrJahmqTSEC
-         jUE16JTtndTk6l2RO6nliZYCkNi7zX08NQnhADHSFzDo9FmNcMdx4e6Cm7MqYehncYZQ
-         l5E0irrD/s2soJyqKIz3/0niSssBRNaH4RSdNRoV6W0GZWv3dVEDb2MHQWdGsythEm4D
-         apXA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795551305; x=1796156105; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Pi553oKEuwJxtkzT1XB/uqe+x5Rc2UJPrmYbDOw3Bd8=;
-        b=y2eb5/LZeksmRnb/4Tc2gs3zEYVlgZK6T9qGufOag8Bei+G6Y7t18dJrdfcsvGlTj2
-         6lA8CxMUbCuClMKZB5cGfk34by0jLI0jlg1ITdQuWWaeI9HqWFJM2e6Rfg0ZTvX5bQNz
-         sjLTVmYDhHX7FjEy3iFjcH6ocEmZ8837BGVvoM9kmHUGDUOl2mRex509wcp+CrZiqNzJ
-         4wL56UkWq4ohRa//hvlDtRSTqz1NEniqS2+TrZGYFdakFMsHHsAml5jN5QhVCS+IlyRL
-         AZQCCkyozn8O5IF7E3DA218PR/ku9M+5dQeD6rmVKcdzTqGqk2hVspiW/CAq14t162hF
-         fBZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795551305; x=1796156105;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Pi553oKEuwJxtkzT1XB/uqe+x5Rc2UJPrmYbDOw3Bd8=;
-        b=ZDSYo8uKd+NITi6SF4XWNEUSRPYdXJKVJVQW2i4+j52rl7dtySVv0J0jcCNYvT5kZ2
-         jbpGWYsGmadlbDKvanw9+Kj1PiK0GbOgHDQ5pPlMpGwCYRckqZTuU+zgfdWB4TRYRJsL
-         +k9uFyDvdg3y7O1R5eOSFlku+60Q5h8CLXG/GHR9Gc+lw8AkCgvl1HbswfvRR5d5JAHR
-         QqC48DtuMYdanc/0FYHsLqRipesOSUU8CLLqkSImPK2tWnl0mRos+YqRkydMNDLvMbFY
-         NNx3Q9h5uo0eta2Lhs0Pw6wMgKbjx0yBU0j55/OijIPSBz++z3I3hZZJe/Gv868DN8eM
-         vEsg==
-X-Forwarded-Encrypted: i=1; AL+hErGbmH3tCwOjzCrE3XPyaSSuzqYdn3Y54dUinY5Q3Z0sfB9R9C5gf5EOVpOxRQRRTfHHAypnaDqPAbAT1kQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+yCDl1ktC88dkWO8tBcjf+sbg1ftK7E9kHfOuMGMK8MgHtVTlO
-	Oc7s/Vnw+pnchtGWVV48acujZic0oHHkfS05H9TkjKBHlDWszltotW76kF/TW0TTMNlAyYKOPAW
-	GWChttQUzeXfN/mKM34alhRoHGK0g9kY=
-X-Gm-Gg: AZFdTZdmq+TMIz83WEq4E04BJreUWjP3PAoS7kQdrUvjx1TbHDAgKliCb/RNeFByaUD
-	asu65kKvAOJgyKktWxXWp/Jj9p0IOOFrQobeFSjgEOxJd7Ffcc+6UOurCfs4SaQRpKZyAEMcPQT
-	YadgZq0zQGoG/5ySerlSOrOg3vUaDTvjYq+kXz5en9qnttSedMeKd/ATgqEoamFh84wfT8req+R
-	cfGDS68moGoj6v060bLZwkhEo0S3vDFPe3EPb+COgAltg/LYQ2pjUvELcauh3/T7idcWQ6N9SGv
-	vmO3fgu8jvVScTm7jGe+bQArt55+ev+I+yNV3pVFCBi17DT0JI5cyxzlb60bbf/OvMqOyobCpZj
-	ScCKTBPBj566NgImAaC1bKAS0bnckcPTwKUymlPO0cF9EaLauC9zhAZQPl0iGMNHnyFnPohu+Hp
-	uB9mYV+ctlEK5SgHBdWw==
-X-Received: by 2002:a05:600c:1d86:b0:4a1:fa27:df7c with SMTP id
- 5b1f17b1804b1-4bb88922972mr332691925e9.34.1795551305115; Tue, 24 Nov 2026
- 12:15:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aK9UEqY+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74E911F000D2;
+	Tue, 24 Nov 2026 20:16:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795551394;
+	bh=SP1wbcINzSUJyNuETmkM+dOjtDQCPAxHCIc0cwhm72Q=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=aK9UEqY+mBz44I1gh/UJ7vwYJYr2FVX7fMnR8pJGpMDajsMAWvwfgmq01W+kLPPjC
+	 /BqMx5jh5TRnM2ZXcHWW4AyrzKQVxqWXBNk266tIJxKaXbFo2T+shXc0Z4Dq0jQqtD
+	 ImYwGasCdXxCUN9tSU2w5BskS/z0W99IeZQsRwsdszj3Mp0Z1biEEhzSLu5QeWCdXw
+	 KxuwakZTgoTfpmNDVdVfUXgJHn0pVtO9S3e3PW7WgfWgrsMSzKPcn5n6Ta5S4cZmGF
+	 kBTg4EvmMvBdgaQHvZrWLXCCvPxfiOHhOiNde2/GyCkTlFot6s46A+qxJyAN3drMnS
+	 1gRbS1g57Bq3w==
+Subject: Re: [PATCH net] selftests: drv-net: pause: detect the link partner
+ from the remote side
+From: netdev-bot+sashiko@kernel.org
+To: maxime.chevallier@bootlin.com
+Cc: andrew@lunn.ch, kuba@kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ willemb@google.com, pabeni@redhat.com, horms@kernel.org,
+ linux@armlinux.org.uk, skhan@linuxfoundation.org, bobbyeshleman@meta.com,
+ sdf@fomichev.me, leitao@debian.org, matttbe@kernel.org,
+ thomas.petazzoni@bootlin.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Date: Tue, 24 Nov 2026 20:16:33 +0000
+Message-ID: <179555139301.3135.11150049621951436064@kernel.org>
+In-Reply-To: <20261123201406.479904-1-maxime.chevallier@bootlin.com>
+References: <20261123201406.479904-1-maxime.chevallier@bootlin.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,97 +66,222 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20260408100247.2065245-1-keenanat2000@gmail.com>
- <awRRgnRmeMDUvUWz@redhat.com> <awR4plQC_oIvoc2R@redhat.com>
-In-Reply-To: <awR4plQC_oIvoc2R@redhat.com>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Tue, 24 Nov 2026 12:14:53 -0800
-X-Gm-Features: Aa3M54of-GC7sd-E-HO4C2skMXhoQ64d9-dKg68squRz4l7HKi30ussUDXcU57o
-Message-ID: <CAEf4BzanZC0Zwf2FDVUjv7JxDvL3dQ3MKvJ=_Wz5k1aADD4y+g@mail.gmail.com>
-Subject: Re: [PATCH] uprobes: clear extra_consumers before pooling return instances
-To: Oleg Nesterov <oleg@redhat.com>
-Cc: Keenan Dong <keenanat2000@gmail.com>, Andrii Nakryiko <andrii@kernel.org>, peterz@infradead.org, 
-	mingo@redhat.com, acme@kernel.org, namhyung@kernel.org, mhiramat@kernel.org, 
-	mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org, 
-	irogers@google.com, adrian.hunter@intel.com, james.clark@linaro.org, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-trace-kernel@vger.kernel.org, Keke Ming <ming.jvle@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 23, 2026 at 9:32=E2=80=AFAM Oleg Nesterov <oleg@redhat.com> wro=
-te:
->
-> On 11/23, Oleg Nesterov wrote:
-> >
-> > Andrii, can you take a look? I never understood this code in details,
-> > and today I forgot everything...
-> >
-> > On 04/08, Keenan Dong wrote:
-> > >
-> > > ri_pool_push() returns a return_instance to the per-task pool for
-> > > later reuse. The pool reset clears cons_cnt, but it leaves
-> > > extra_consumers behind.
-> >
-> > So at first glance this doesn't look right no matter what...
-> >
-> > > A reused return_instance can later grow a fresh extra_consumers
-> > > array and then reach the cleanup path with a stale pointer from its
-> > > previous lifetime, leading to a double free of the recycled object.
-> >
-> > Can you add more details to explain the possible double free?
-> > This is not immediately obvious, at least not to me.
->
-> May be this has something to do with dup_utask() -> dup_return_instance()=
- ?
->
-> If cons_cnt =3D 0 but ri->extra_consumers !=3D NULL, then
-> dup_return_instance() -> kmemdup() will copy old->extra_consumers, but
-> but kmemdup(old->extra_consumers) won't be called?
->
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
 
-I think all we need this just this:
+Critical: 0 · High: 0 · Medium: 4 · Low: 1
 
-diff --git a/kernel/events/uprobes.c b/kernel/events/uprobes.c
-index c47b1ee266d5..f265527e6897 100644
---- a/kernel/events/uprobes.c
-+++ b/kernel/events/uprobes.c
-@@ -2118,6 +2118,9 @@ static struct return_instance
-*dup_return_instance(struct return_instance *old)
-                        kfree(ri);
-                        return NULL;
-                }
-+       } else {
-+               /* old->extra_consumers can be a leftover buffer from
-ri reuse */
-+               ri->extra_consumers =3D NULL;
-        }
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-        return ri;
+- [Medium] In controllable_lp()
+  (tools/testing/selftests/drivers/net/hw/pause.py, lines 107-111), the…
+- [Medium] Before this patch, controllable_lp() ran `ethtool -r
+  {cfg.ifname}` on the local device and turned any failure into…
+- [Medium] The new detection in controllable_lp() can still return a
+  false 'not directly connected', the same failure the commit claims to…
+- [Medium] The new controllable_lp() decides the remote is the link
+  partner if it sees any local carrier drop followed by link-up within…
+- [Low] controllable_lp() now runs `ethtool -r` on the remote instead of
+  the local device (lines 102-105).
 
-cc'ing Keke Ming who was going to send this as a stand-alone fix
-earlier this summer.
+--
 
+selftests: drv-net: pause: detect the link partner from the remote side
 
-> Damn this code is too complex for me ;) Anyway, I think the changelog
-> should say more.
->
-> Oleg.
->
-> > > --- a/kernel/events/uprobes.c
-> > > +++ b/kernel/events/uprobes.c
-> > > @@ -1945,6 +1945,8 @@ unsigned long uprobe_get_trap_addr(struct pt_re=
-gs *regs)
-> > >
-> > >  static void ri_pool_push(struct uprobe_task *utask, struct return_in=
-stance *ri)
-> > >  {
-> > > +   kfree(ri->extra_consumers);
-> > > +   ri->extra_consumers =3D NULL;
-> > >     ri->cons_cnt =3D 0;
-> > >     ri->next =3D utask->ri_pool;
-> > >     utask->ri_pool =3D ri;
-> > > --
-> > > 2.43.0
-> > >
->
+This commit reverses the direct-link detection in controllable_lp(). The
+old code renegotiated locally and then checked the remote's
+carrier_changes counter. The new code runs ethtool -r on the remote and
+waits for the local carrier to drop and come back up. A TimeoutError from
+wait_for_aneg() is now taken to mean the remote is not the link partner.
+
+> diff --git a/tools/testing/selftests/drivers/net/hw/pause.py b/tools/testing/selftests/drivers/net/hw/pause.py
+> index ca4a55e59c30f..31518b7ec53ba 100755
+> --- a/tools/testing/selftests/drivers/net/hw/pause.py
+> +++ b/tools/testing/selftests/drivers/net/hw/pause.py
+
+[ ... ]
+
+> @@ -99,17 +99,17 @@ def controllable_lp(cfg):
+>      if controllable is not None:
+>          return controllable
+>  
+> -    before = int(cmd(f"cat /sys/class/net/{cfg.remote_ifname}/carrier_changes",
+> -                     host=cfg.remote).stdout)
+> -
+> -    ret, _ = ethtool_ret(f"-r {cfg.ifname}", is_get=False)
+> +    ret, _ = ethtool_ret(f"-r {cfg.remote_ifname}", is_get=False,
+> +                         host=cfg.remote)
+>      if ret != 0:
+> -        raise KsftSkipEx(f"ethtool -r {cfg.ifname} failed: {errno.errorcode.get(ret, ret)}")
+> +        raise KsftSkipEx(f"ethtool -r {cfg.remote_ifname} failed: {errno.errorcode.get(ret, ret)}")
+
+[Severity: Medium]
+
+Before this change, the local ethtool -r also checked that the local
+device supports renegotiation. If it failed, every
+require_controllable_lp() user was skipped. Now that the probe runs on
+the remote, is that guarantee gone?
+
+pause_autoneg_off_while_link_autoneg_on() still depends on it:
+
+    require_link_autoneg(cfg)
+    pause_setup(cfg)
+    require_controllable_lp(cfg)
+    ...
+    ethtool(f"-r {cfg.ifname}")
+    wait_for_aneg(cfg, link_drop=True)
+
+This ethtool() call runs with fail=True. require_link_autoneg() only
+checks supports-auto-negotiation. If the local driver has no .nway_reset
+(for example gianfar, mlx5 or enetc), ethtool_nway_reset() returns
+-EOPNOTSUPP:
+
+net/ethtool/ioctl.c:ethtool_nway_reset() {
+    ...
+	if (!dev->ethtool_ops->nway_reset)
+		return -EOPNOTSUPP;
+    ...
+}
+
+Take such a DUT paired with a remote that does support ethtool -r. Would
+this test now fail with CmdExitFailure where it used to skip?
+
+[Severity: Low]
+
+The skip condition here also moves from the local device to the remote
+one, and the commit message doesn't mention it.
+
+pause_advertising_test() only uses the result to decide whether to also
+check the peer's lp_advertising:
+
+    pause_setup(cfg)
+    lp = controllable_lp(cfg)
+
+controllable_lp() raises KsftSkipEx instead of returning False. So when
+the remote driver has no .nway_reset, every variant of
+pause_advertising_test() is now skipped, even though the local
+advertising checks don't need the peer. Is that intended?
+
+In a switched setup, the old code saw the local flap within a few
+seconds. The new code only flaps the remote's switch port. It then waits
+the full 15 second deadline in wait_for_aneg() for a local drop that
+never comes.
+
+Could the commit message mention these trade-offs? Right now it only
+says:
+
+    it doens't really matter which side of the link flaps first here.
+
+>  
+> -    wait_for_aneg(cfg, link_drop=True)
+> +    try:
+> +        wait_for_aneg(cfg, link_drop=True)
+> +        cfg.lp_controllable = True
+
+[Severity: Medium]
+
+Can a flap that only happened on the local side be taken for the
+remote's renegotiation? Any local carrier drop followed by link-up inside
+this window gives lp_controllable = True. Nothing shows where the drop
+came from.
+
+The first call to controllable_lp(), whose result is cached, is in
+pause_advertising_test(). That test runs right after
+pause_test_support(), which only reconfigures the local port: link
+autoneg on and off, forced speed, and repeated ethtool -A. Its deferred
+cleanup restores ethtool -s <ifname> autoneg on and the original pause
+settings, and either of these can restart local aneg.
+
+pause_setup() then ends with:
+
+    wait_for_link(cfg)
+
+This only checks that carrier reads 1. It does not wait for a pending
+renegotiation to settle.
+
+Some drivers report link-down asynchronously: polled C45 PHYs, phylink
+resolve work, firmware or watchdog link handling. With those, the late
+local drop can land inside this polling window.
+
+In a switched topology, would that cache lp_controllable = True? The
+LP-dependent tests would then treat the switch port as the link partner,
+and their lp_advertising and pause resolution checks would fail.
+
+The old approach read the remote's carrier_changes, which a local-only
+flap behind a switch cannot change.
+
+> +    except TimeoutError:
+> +        cfg.lp_controllable = False
+
+[Severity: Medium]
+
+Does this except clause catch more than the "not directly connected"
+case? wait_for_aneg() can raise TimeoutError in two places, and both come
+from wait_file():
+
+def wait_for_aneg(cfg, link_drop=False, timeout=15):
+    ...
+    try:
+        wait_file(f"/sys/class/net/{cfg.ifname}/carrier",
+                  lambda x: x.strip() == "0",
+                  deadline=timeout if link_drop else 2)
+    except TimeoutError:
+        if link_drop:
+            raise
+
+    wait_for_link(cfg, timeout)
+
+Only the first one means the remote isn't the link partner.
+
+Suppose the local carrier does drop after the remote ethtool -r, but the
+link doesn't come back within 15 seconds. The TimeoutError from
+wait_for_link() also lands here, and lp_controllable = False is cached.
+
+Every later require_controllable_lp() caller would then skip with
+"... is not directly connected to ...". pause_advertising_test() would
+carry on with lp=False.
+
+Before this patch, that timeout propagated and the test reported an
+error. Should the link-up wait stay outside the try block?
+
+[Severity: Medium]
+
+Can this still give a false "not directly connected" result, which is
+the problem this patch sets out to fix?
+
+The remote renegotiation goes through Remote.cmd(), which starts a new
+ssh process for each command. nway_reset implementations usually just set
+ANRESTART and return. Local polling only begins after the ssh process
+exits.
+
+wait_for_aneg(link_drop=True) then polls the carrier level through
+wait_file(), sleeping 5ms between reads. The local link might go down and
+come back up before the first read, or between two reads. Then carrier
+never reads "0", the 15 second deadline expires, and
+lp_controllable = False is cached.
+
+The commit message says:
+
+    The current
+    wait_for_aneg() already waits for a full "up - down - up" cycle, so
+    it doens't really matter which side of the link flaps first here.
+
+That only seems to hold if the link is still down when polling starts.
+On 1000BASE-T copper, aneg takes more than a second, so the setup
+described in the commit message probably won't hit this. Faster links
+might.
+
+Would it help to read the local /sys/class/net/<ifname>/carrier_changes
+before the remote ethtool -r, and then wait for it to increase and for
+carrier to read 1? That way the test doesn't depend on catching the down
+state as it happens.
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123201406.479904-1-maxime.chevallier%40bootlin.com
