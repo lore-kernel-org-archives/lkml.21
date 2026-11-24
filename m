@@ -1,88 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.135
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795553417;
-	b=cicC6u0NDq11X9Q3x0f3+SJRikVeoAaAbA+QQU9VNuSybX9bZtRqJdo+iRFOlTP4fVes
-	 vnRiEl9/sMY7nkmvVVCtGOexHUI+qU9i35BZDnQ/2AmbMx67HBDba63o5uXGBqAhBQ6Dj
-	 auKT+f+6zXwnqtUt0Ld2WNpakMrumw0dZYVUCkG6DxEUdgb2PYaBgIK/Vnw9JwPN+SZhT
-	 dw+Dz+TSY0Z1I+TLLWx0rcrw124pkI3BRHs3rkYaAPeBgOlKvrFUvVAOH71D4y3XZuvAf
-	 egU9mwI5ZdRvaVi4mxQsfp/6f9bb9yeyfAWQyhVxsBmo8dap9E41hTwCff97HHfdkCQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795553417;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.173
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795553449;
+	b=3ZOcqrFhp8Oq0wC5ztVHTzej+7gjHzzNKTvLCXZ2U0PmpEEqCs/bwQHMG8a6gLok3Dpr
+	 aTEH3d/ywiyE7OO8qW27XepnsOIbdcfPC8dH1IBb1Ku7KgwrgeKl6V9A46Kh/wIPceFFE
+	 DT134zmRm4yY3ojXgcOw1v2ivOEEZoJ9AMYZdeqskFxb5KJ+8pZMqutJqIxxWSQhKOW1y
+	 MpoxPwOpIIVyKlx2jyVyLenaTzB+f2k4GxscMQa8QXG6X2b07cn90Mj2LrdOIu4aDQAKF
+	 giZzM5JbZmYNwat3+luTnO7E38dhEYg0WCiAU5R2ZS29iFYFbsnzJtLznS/GFQMRUAw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795553449;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=QlnDF8ulAZKGPu7aCBrq01jV/667L8OVxhejMMbVnbs=;
-	b=N6TN0nY8egj3ksZOhI22BXUO0NYPzOAv9ZU1yFr9EVYG6EFq7221ZJz63m1SJyn76uDl
-	 b9ssSXA3ew69DWCWtuOtV0eUWlbMUfe9hIUuaShHt7A3o6hi4dWjV6HDNw2k56ykXMLY4
-	 O2rtjPrcdojd5NnWQfylDbHb8P2mFxJ8vPCJCqJfMCSUch7C4xfWNDnp3iV2ONU2kyuN/
-	 JgfhyXKkkblHa59qpaIpRJkHxKwKJoBXZmI/Bv8+Zbfl8tAqrocKRA21k3DBFRMHVUirY
-	 mcPrq/RRC8YRQEnNWL/XsgAD6vimXZXK+19xgN9QUfyw9BxXF7wUTURJFNLD+GO42aQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=isffj0A3;
-	arc=none smtp.remote-ip=74.125.224.135
-Received: from mail-yx2-f7.google.com (mail-yx2-f7.google.com [74.125.224.135])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=DUElJOH9/l+/ko03UyVUdQyQrHZyxIkiDH011xj2Lsg=;
+	b=xUq9kkNaxqPX6PnkrVHoXYFgcJQCP/2r1jtxlqMuhmFsA/qkcB+4s2YbAA+W7vSo38df
+	 qVO9uZmrnpBHIj854XLpoLs4EHFtSJqCmOD6IpQG/LO6qKAdj0QTy15Jt0+6586mY5idH
+	 tYE8q/0dywVeVhhE1SqXZagcNITr/qvRui/XTKqzcYBvq9zYEvAOLRkMlLzZfUIJ/TUaG
+	 9TcfptZXM+6VR+oyGgG+kRAsHi/Y1KqMOR8LmzCEJnGcX8jmw35GDHiqNpye6LuLGAvnx
+	 UuH0c/062Iq3sTZv5iSSbGvdlyq3eVPeG4D8H8QIWxn6StXDDqfKTN1O0A9IONKhZ6A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=googlemail.com;
+	spf=pass smtp.mailfrom=googlemail.com;
+	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=ESkkoTdj;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.173
+Received: from mail-yw1-f173.google.com (mail-yw1-f173.google.com [209.85.128.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B02BA606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:50:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B02BA606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CD7B606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:50:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CD7B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=isffj0A3
-Received: by mail-yx2-f7.google.com with SMTP id 956f58d0204a3-67a3d39e406so2030587d50.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:50:16 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=ESkkoTdj
+Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-8b4e246acc2so35918967b3.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:50:49 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795553448; cv=none;
+        d=google.com; s=arc-20260327;
+        b=RwIGOBsh1sKyfOqdG1fBqBEyn6JMvXWVhfVplht2fwgwS0G3sZ5goOH7NLkdxhbqZu
+         ZmGaNagxDEV4DcCe3YNeuaMEY6PvRLCGqKZwzhtiIFZvzsUUP0SwnO5uKH/zJhuZSwMm
+         93xGviS4tmLiwWpCrHYD/fNZtB+XP9Epkh+FX/ABlk3ZDIpSOvbWcM3ZO7wj4un6ETtS
+         R03UbgdqeEVQYsMt/2ez+0wsGVps+MIA2gaY42+/bxuB9SVI2pleLRuSFAzazu14g1wK
+         hJ/H9KmRtvLX7qY/L2+58ezsdwB7PwgB4jUS2TQVBH0YZLLQzV9EkaQ5Iqer5ABkVI2F
+         miNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=DUElJOH9/l+/ko03UyVUdQyQrHZyxIkiDH011xj2Lsg=;
+        fh=rqU5hSJnC7EYImDmFBqadLbifUlRJ0I7fBYGn0Jx8QA=;
+        b=VpCPY/OYLvSaR+1ptzHO76FuT7NBBkX2NLpPy31aZYt/Mg7/rNxAaRBW+/4YpfD1Ps
+         NZbUn+bvbkgC6VxyeAoOmxQzsZ9eGUB4U1mAYfBHzxLcMeUfFs4axTr0/MVk3Bvxi7fG
+         /DNm5gXfTKCr84Epa80RpuGSWbz7FHkLGDY1wQvK8fRh80LTsh+3lZYhE1VY0glrv3K+
+         9Ixrysc11YrZokH45WWAa0CFA43CmPtAI74GCkwPWk/TrVDFPZ1ybbyZWi2uugz2wst5
+         zYaU4LX8MAdoC9ZpkI29EaXpL63MyJRLJAqKDLyHJsqGw+X+tSw+5xFZ2l/1TqBuXltd
+         3BTw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795553416; x=1796158216; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QlnDF8ulAZKGPu7aCBrq01jV/667L8OVxhejMMbVnbs=;
-        b=isffj0A39VIQf4A80ibsjQqEW7OrLqDdpvnGHy3XqiV0bZE05uwUx/iMGx4IpwGayV
-         LyPZvMDBSEk5Z5vM42eGiXIBkFWfI7ePKEi25fWYfnnGPllrUu4PeNPX4fifNVs/IYSN
-         C9Jldnj1SzC6T19Tr7nbs7IX4iDChQGrobNHOS1uA7Q9340zWwQn5ggGwwDaFCloW0uB
-         PPw67vFaXVr4Aw+uhiMz8zq7hNEe/bS+iLvXMGfJRVyHORpnxnMqYDlBLItuE6fMDntw
-         NDRyzEW8JByCZftEEKka2UcFUX+0lunsgeCr9UXcxq/gd8AiQdqaEvgrf51EYBGxsAiJ
-         oMEw==
+        d=googlemail.com; s=20260707; t=1795553448; x=1796158248; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=DUElJOH9/l+/ko03UyVUdQyQrHZyxIkiDH011xj2Lsg=;
+        b=ESkkoTdjbwmuFdjAfks9Lc+duJRqosDcUvfCEui/zJv26FMbm5Huy3zKeShC5aDRAh
+         2K2WOrvfiXnnc6HpXf6tuOUk89LdpKhOA2e/r4vl+z+qCGbYfg1wHLUbyi8fM3zREajb
+         zZC53UGAUMlLt77yEAG0Eg3aMM6euBGA7Ff2Ab8/qsdjQb0bqSbsSXNj26XO6S3z6iPt
+         FzFr3Rlao3sSgf+V1rkWdPSS/bHGvujI0lCTFB5iN8Mx1MR/nSh6Hay1ei/Odci72sBE
+         odfpXRYmBgWpYqt9roq3gJy6fiULArMr4+1loQL6IwHs1c6ScfKWAT17gdDE+cqQ0lAv
+         7WQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795553416; x=1796158216;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QlnDF8ulAZKGPu7aCBrq01jV/667L8OVxhejMMbVnbs=;
-        b=PIYhY3AJP/0ODyaDmvDV2qYhwPiy1RC01y7HDHHReD8IdzbpI+39Gf8+S1DE14fYET
-         4PPos7NyG+3y00vpXwmBYoi7YQq0oKdwQYvACvGeXnUgFXUthrIJHdRpZHReOtHhRzix
-         TDTKSdyatqJJI01EoOd1jIvzUSAgkc0t9Gn069wRqn+NpFiVoM3VHGqeyI28d/6xHR2l
-         gWktkwpxkaZXGLTsw0BBMxu8TyIXZRlFGsOWqIi81Hp554fmgJxmxvtaLnQtBUnuSruQ
-         vUTvR8U4dgTWFIVX/eav6W3tH1Yd2tPrrn2PKoa20xRx+66bTcFvvk2MhH6veJRJqDK7
-         h2VA==
-X-Forwarded-Encrypted: i=1; AL+hErFJSGrnQl6sOkfTFa7qDCLuqjY1TagHPocX4YLJrKLVX9hzsBYw1ZegTLMm3mAq3b0hf7dofUpNy7lmT74=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9e8tgVb3ruKc74tt9OxPjjq0sVdS0ZsAW+pzIGMchz/KGu/9oI
-	QLA8Bahh3Q84VAFIsKU1AkFZ4jjnM2zbcQeYqOLcBo69W9wFSWSlHXGO
-X-Gm-Gg: AZFdTZeB0hqB/Sj9lTlqAsecyxWY42uPsVf1/LZIULrN2YWGkWeykNhoulvIpqRGpWZ
-	ePAK4Q6mv2YKkqxLet0FkfvuOb/elwsDu0bpCUZnEiCmcppbfQL8tmJ6ywyCr2i0c/pDBCL1CLX
-	33Rk/KRP0EhmIcV6Iap2GXJf8whcizNN5CV4LznT+q+xFeQyGnxGhTnNHgt1tNC095uid5QDlmd
-	tM6vYkVcsx/A1VO3K+hWeYJY3kIenCNOjj2J6CuJHenU00pBqZG+zl7fCImofKPNqNvKhgUcfD3
-	Kj/8bx66cV7dKLs1qjY1ktupLClDhewfFn2KLKuY7mun0je3qxjsQslaADcmcTJxm4HtBfyqFvZ
-	GgtnyPbY3bNjHMZLaWsu2nN9GN2iUt7E1pnrr6H7nLRPIUoa2XFuHiwpzrBC/v+jAuUzye4JN13
-	e1XtA92ThQ9evMb3hpcKr/PMxHvH1JWm059Y4zgod/DdDpzpzqkJN/ARX+9/sFu59I3Ag3Yf23s
-	ucfbrrqWHVdRfAoMZVBEEiC1XpGpbh0+qLfTI0Jp2wpXa2p5GG74u1GzyFheXpGW324hV+HwjF2
-	VA88966WCqN3LmF4fMkhgzOS9co/TZY+rOFtVjT+VUVneZWZDdkSX13Pvw==
-X-Received: by 2002:a05:690c:d21:b0:8b3:7621:f695 with SMTP id 00721157ae682-8b5204e0571mr84581997b3.34.1795553415580;
-        Tue, 24 Nov 2026 12:50:15 -0800 (PST)
-Received: from [10.0.0.48] ([71.69.222.122])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b52028c7f5sm64501607b3.12.2026.11.24.12.50.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 12:50:15 -0800 (PST)
-Message-ID: <851e3fa5-ad88-4470-877f-e977bb1a6ad9@gmail.com>
-Date: Tue, 24 Nov 2026 15:50:14 -0500
+        d=1e100.net; s=20260707; t=1795553448; x=1796158248;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DUElJOH9/l+/ko03UyVUdQyQrHZyxIkiDH011xj2Lsg=;
+        b=k39PDKIs/KuHBQ1h5j+DTcb+LWQE8AXUWxm7P/Zlu9NTSqz6YZteotY0A/SrjMDXtR
+         G0i5/gofFgLbXrDcC9/xwxcjuvVwXixkVhYUgwrC+YFnZgsZXM1CqkTrsH1Y2VQEmbo8
+         78wjg+6H0xE/avxr410widxVid0HdO7siv7umYRTSPTQgiPGOh3X0Ev0IU7a/5QdhNoF
+         dKl94s5IotK5T43qtL3cFxyJ7vuRWiSrbBXhQQD1X/nQQqdXKcH2PrPXYC2+rzhCiprM
+         XreH7PxFNGtNOEzCGMdLAXQoMU3zwIRhQpRL+ZH67tXYzvBwv0mGYJ00G+3FaFM1kRxf
+         3j6w==
+X-Forwarded-Encrypted: i=1; AL+hErGHsC8oufeOLEfQvCrJIjD8bHw2345RLNZ/NSyfqIIK9lIRyuGDyr/ivLRaaDpbVyse6+iz9WyRydHd5wY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+5BmfnU9Bt7bTI02wt/QVHFyjmN9rC57HAWAu4ki46FaMPxDQH
+	uRAT5ed0ru8wJKT7ARGtMyQPoiA3X0Y/QpCX7GGcPUzVsIxASNE0aaX503ufDuNT66vU7aIU/WJ
+	JVRkw2D/yFYzg9FaNi/lkJNhX5YFvnTo=
+X-Gm-Gg: AZFdTZfa7+FBPaoVkHegmXxIBPRCCkjchug2Sn2Td06UKBPspdb8Vo+1WEOZHYpBJZf
+	0GOU901+TUVju3vUynMWXJICDEpFdfTUoe20JSmpJpkaHoST1W8g/uF93nCgBoPsGTTmQasaoG9
+	xZAWa/Iq2tAbiprHmZnXtLQtY4qiKPDoKBCacIkMoVhMeN6kt6kmTuEKfy37zVTZk7ExEfQWTOA
+	kAlmMjq/5lrt1lABYCIzOxvX7ZtfJZu8PaRdmcAVGUJXHXSILGOfatsxQp6Gk/n2GJ1dp44ukgP
+	Tprf/llifRffZ8tp8uBUXgzTqYOsW6HjP6lHj1IM31fh1VN0cTritDQ++AdHVJRNksq+tvSWMKw
+	pSmmBLg7AH9rt9DO+s+HoW+5u04U8h1JoicaCBt4LoV4t0lF1Q7uPSsGb0en2Tl9Qgr7lhDLb0q
+	VakP0CdN5+jLXWdoY=
+X-Received: by 2002:a05:690c:9c02:b0:8b2:bb94:8cb2 with SMTP id
+ 00721157ae682-8b5204ac257mr64922377b3.35.1795553448224; Tue, 24 Nov 2026
+ 12:50:48 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,73 +105,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/9] nvme-auth: switch to use the kernel keyring
-To: Eric Biggers <ebiggers@kernel.org>, Hannes Reinecke <hare@suse.de>
-Cc: Hannes Reinecke <hare@kernel.org>, Keith Busch <kbusch@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
- Sagi Grimberg <sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>,
- linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
- keyrings@vger.kernel.org
-References: <20261123-dhchap-keyring-v4-v6-0-5082a49715ab@kernel.org>
- <20261123212105.GA18468@google.com>
- <692e91cc-e2ea-47cc-926f-6639952fb195@suse.de>
- <20261124201152.GA2227373@google.com>
-Content-Language: en-US
-From: Martin Belanger <martin.nvme.dev@gmail.com>
-In-Reply-To: <20261124201152.GA2227373@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20261117-g12a-mux-data-path-v2-1-fc56db5973af@iav.lv>
+In-Reply-To: <20261117-g12a-mux-data-path-v2-1-fc56db5973af@iav.lv>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Tue, 24 Nov 2026 21:50:37 +0100
+X-Gm-Features: Aa3M54qQgZtHIRJ2rEKu9YwpwMfEmR_bHT9xQyRDCd8xOxY9i9IjLVm41ypmXlU
+Message-ID: <CAFBinCALe-8oB5Mwpyx-B_7dKJ-WZcMCjycHv=xH+JasRBOaPw@mail.gmail.com>
+Subject: Re: [PATCH net v2] net: mdio: mux-meson-g12a: keep the MAC data path
+ when switching MDIO
+To: iav@iav.lv
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Russell King <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, netdev@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Igor,
+
+On Tue, Nov 17, 2026 at 1:54=E2=80=AFAM Igor Velkov via B4 Relay
+<devnull+iav.iav.lv@kernel.org> wrote:
+>
+> From: Igor Velkov <iav@iav.lv>
+>
+> Switching the mux to the internal MDIO bus writes SMI_SRC_MAC together
+> with USE_INTERNAL and RX_CLK_EPHY to ETH_PHY_CNTL2. The last two move the
+> MAC data path and RX clock to the internal PHY. On boards whose MAC uses
+> an external PHY, any access to the internal PHY stops reception until an
+> access to the external bus switches the mux back.
+>
+> phylib suspends and resumes the unattached internal PHY across system
+> sleep. stmmac sets mac_managed_pm, and with Wake-on-LAN in the MAC
+> phylink_resume() does not start the external PHY, so nothing switches
+> the mux back. On ODROID-HC4 (RTL8211F), after suspend-to-RAM with WoL in
+> the MAC and an RTC wakeup, ETH_PHY_CNTL2 stays at 0x260 and the MAC
+> receives nothing while TX works.
+>
+> With the MAC on the external PHY, SMI_SRC_MAC alone is enough to read
+> the internal PHY ID (0x0180/0x3301) while RX keeps running; adding
+> USE_INTERNAL or RX_CLK_EPHY stops RX.
+>
+> Set the data path bits only when the PHY the MAC attaches sits on the
+> internal bus. Look the PHY up with fwnode_get_phy_node(), as stmmac
+> does, so phy-handle and the deprecated phy and phy-device all count.
+>
+> Fixes: 7090425104db ("net: phy: add amlogic g12a mdio mux support")
+> Signed-off-by: Igor Velkov <iav@iav.lv>
+sorry, I'm late to the party.
+
+I have just reviewed Lucas patch [0] which adds Ethernet support for the T7=
+ SoC.
+He kept the internal MDIO mux path disabled by default, so boards
+using it will have to enable it.
+Have you tested that approach as well? If not: it would be great if
+you could investigate the pros/cons of your approach vs. Lucas'
+approach.
 
 
-
-On 11/24/26 15:11, Eric Biggers wrote:
-> Keys not being readable from userspace is one of the usual reasons
-> people think they want to use the keyrings.  The cover letter should say
-> what this series is actually trying to accomplish.  Currently, it only
-> mentions making it so that keys no longer need to be specified on the
-> command line.  But when stated like that, it's a userspace issue: if the
-> nvme program doesn't accept keys on stdin like keyctl does, that's an
-> issue in the nvme program, not the kernel.
-
-The goal from the user side is that no DH-HMAC-CHAP secret appears on a
-command line, in a connect string or in a configuration file. These end
-up in shell scripts, config files and logs, where unprivileged users can
-read them. With the keyring, the configuration only names the key.
-nvme-keysd (in nvme-cli) imports the secrets into the keyring from
-systemd credentials or from a KMS, and the connection passes only the
-key description.
-
-> It sounds like the idea is that the kernel would look up the 'struct
-> key' by description again at runtime, such as on reset?  But this series
-> doesn't actually do that.  The lookup just happens once, when the option
-> or sysfs/configfs attribute is written to.  The key is not updatable
-> either, so an external provider that rotates the key has to write to the
-> attribute.  So there's no benefit to keeping the 'struct key' around
-> after that write.
-
-That is the part that does not work for a key provider. The secret
-behind a key description can change at any time, and the new secret
-must be used at the next authentication. This includes a controller
-that is in a reconnect loop, which can last for a long time.
-
-v6 looks up the key by description once, when the connect options are
-parsed, and keeps it in opts->dhchap_key for the lifetime of the
-controller. Every reconnect uses that same key. When nvme-keysd
-replaces the key with add_key(), the controller keeps the old secret.
-When the old key is revoked instead, the reconnect fails with -ENOKEY.
-
-The same happens when an admin changes the secret on the storage
-system. The host must use the new secret at the next reconnect,
-otherwise every reconnect fails until someone writes the new secret to
-the sysfs attribute or connects the controller again.
-
-Copying the secret into 'struct nvme_dhchap_key' once has the same
-problem. What the provider needs is a lookup by description at each
-authentication, the way NVMe/TCP TLS without a pinned key already
-works: nvme_tcp_alloc_admin_queue() calls nvme_tls_psk_default() at
-each reconnect. That lookup runs in a kernel worker, which has no
-process keyrings, so it also needs a fixed keyring: '.nvme', or the one
-given with the 'keyring' option.
-
+Best regards,
 Martin
+
+
+[0] https://lore.kernel.org/linux-amlogic/20261121213102.143130-1-tanure@li=
+nux.com/T/#ma3b325147d6277c4d95dff83cf5bfcb75c1477d0
