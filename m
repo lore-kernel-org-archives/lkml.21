@@ -1,54 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795521704;
-	b=Q/isUAl1pKvxZGONUZsHIP+Hv0v9doqm5pobo/KmLVckju43pvyF8Rhj/d0/6taYoaU5
-	 eBCvoeEPskWWy4/D9gGHRXaUaGaG+t/wAkDtsoU+6iNgmofZ3uQIv3//18/q7150O+hmr
-	 gyZBCKSZn6gDHD6r8ABpRoy3vSj1KeLpoqJK16hdFqpD5fx+N/WWG6gq/gE/qVwJptN8S
-	 FPbP5pPWmGsDUppYD3jqPerqnk8fLXdYurTYl0PrXqkXj5PoA+7pxhmf/naKj+4cpbkvD
-	 W0OLXVib4zqnzXSo98Epn6h0OT01y17xUX38fvZ+X9Xa7Mm/sMesdfohbOADPHZELMA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795521704;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ZohoMailClient;
-	bh=B2aLh1Rb7EeAQdgB6X2lj4SKSG58JQu7NcueyZ/8jZk=;
-	b=07NVOnUez/fP/0e7lFZRdZxIvtHt7SDLui4St6QhMksUpesMFdlM/TLi/EX+9tR34mwc
-	 PcqY50cbRNae9qYDXjVA9Q/eF/WV0a9brKG+E5fkmQ15z4SKihp6L/XZBuwu1OkwkQsgv
-	 /owS5URyJHz98ibcSe7CerDMh6VRAVUMfHZRJtU4iPoc5nt284NUyMzV08HDZ8MuWpEas
-	 Dtb/gSYpHbec65Mt1q0TkMZyBLdMWxSyIbV9OUVHuVcIQKrXAfsjVEhBYmBvxNMO4m5RK
-	 Zl20tL2YDExUaxs81rs1eTc3NigYcDCCo7pLpuxv15bLncWLvZ758mxRHH9qlfYfCWA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=YjSMzvp4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
-Received: from sender6-pp-f112.zoho.com (sender6-pp-f112.zoho.com [165.173.180.112])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795521705;
+	b=otj2okH5JUuWMHl3WpOXFIbnEBD3nZkTh+SLetabpDV6N3cEZuo2wqBsXHCn600bNNSt
+	 hCgkH2WnVZtpsH2JZ8eTjh50ru/S6LWfl2D1W9kRGALVcc+468uc7XP+OUv+Q+Lo7FkYt
+	 WV4AKbEnVlVihcMbtydHoLq4poFaY1ED/jYT8iCn+LPkyWs3D1BWUC6veuG4sv9WkYbZc
+	 3AJNEceRcdNEtwCP9LiMGowTvhwMVedj2GvcruDuAIv7uKEBgBqRsIvEVtM8JMXM1bLMP
+	 T/CBEHxN+MuqlDt5ouvJ3qKZjMz5KmNShtYA1sbEnaJNXBYAlHMJGuw/IoPD2+5h59w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795521705;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=PX3i3hH295kpPITkBNpPh3BYSu3sTmhYQoMN/a0axpA=;
+	b=DeoTxJwG6OpIEhjU3ZkebKYTRXsNUq88dsW4ApZTq+eUIgh+cx7gm6HF6hlZt99ZXkGr
+	 IbfWEHQT+1as5sPrmnnkURbbdlcW38+q3J6HyX/S9Yt7jTz5KwnAPUmmD+nVan+shRhpl
+	 1Mq7nv4b6zHn9V8gA8aZsIs7zQ89UbNrg5dwvXja7Z7nPrZ1YLE78A1JHsjJ64UDzUKpm
+	 2xlcBMJXH2/DWO+i/QvlAsbScL5noXH6fZ8FyUnuu4f9IdpgTo8yXsSolIrTlgPv3nUi+
+	 Pdi+0SWD6QPJ8wo4TC9b+2sXYj7oQInEIuDm/GBhj2s6RHmsxwTuCHPs7S784MwGFRw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RS1YEqrR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFEA3606A321;
-	Tue, 24 Nov 2026 12:01:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFEA3606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id E8F32606A334;
+	Tue, 24 Nov 2026 12:01:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=YjSMzvp4
-ARC-Seal: i=1; a=rsa-sha256; t=1795521679; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Pl+ihXuwYyUvtfSLd1N1Pbi3CQTgNWTthvC04yrOaz++2wfYYtJWTtKApPl+11KRmqT82ZVsVWYf+B/3FLjNyvFVmkWjoJLh2uVfjcSApyb/Sn/hMr+V3G6d065cU91XK93Z6REbc/GelW8uvN2UqnONHOX4bYcx0grBtKbum9Q=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795521679; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=B2aLh1Rb7EeAQdgB6X2lj4SKSG58JQu7NcueyZ/8jZk=; 
-	b=C9J7nEPPlm8RvIJastMZzoNxIfdFtPC1S1tryIq1ipsyj0JH4ktUL1rWJ9CjITyWHRmo2nvA6Baf9KWg/dblKEafxAb9mXVtU6bo5PD68vYKJKbQU/g6IJmXLwWhPRng/nRlNKKUGbSP1AqpEERJLGVHsMce2fjbNRs6Swea3HU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
-	dmarc=pass header.from=<michael.riesch@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=YjSMzvp4ePpoQaOaxcLPjJ9Q5rgzP3v4D9r53X8EDK28J+aL4CTC2B8FFP0337/gTBria6q1Yv9sA18U67IosMMlj/NUKGXdb2xxz2hR+Z+C7SiF9NkSEODJfkrf/ozsOmNolzlzshgU11/b3kENSJY9+PDY7S9CmfU7UXdblck=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=B2aLh1Rb7EeAQdgB6X2lj4SKSG58JQu7NcueyZ/8jZk=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795521671464907.5657925737316;
-	Tue, 24 Nov 2026 04:01:11 -0800 (PST)
-Message-ID: <773b5d1b-6679-4f68-b15e-022842f5109a@collabora.com>
-Date: Tue, 24 Nov 2026 13:01:05 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RS1YEqrR
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 44C371F000C6;
+	Tue, 24 Nov 2026 12:01:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795521703;
+	bh=PX3i3hH295kpPITkBNpPh3BYSu3sTmhYQoMN/a0axpA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=RS1YEqrR13kll9YILGNLIXeAF0/Z3yHVwgGHMZTt0lOba44G/CkxJ5cF+3seYEuby
+	 pUo4TieFjD/xAaBvhRhK0iEuPnDEQo2SmMy6t4qxsauwHYlHcwTWfFeP+/a+xcLksI
+	 jI4qSg3+DMORx3QbKOl+WJBOLWNhSOSPD0AJnk+VcEpt//A7TDC7fhenCqP2EkSEM/
+	 +fslS1g18miqXCHdftr7ELJMsvG5OWKRYiIoFIeVxBL9Mh04+grQusNbni8+x9qJnT
+	 75TvJ1sdSwKoI0qBZFpL9GDsN1g4QJXSeEu7YStNRBtZo70HDXx1qT8YnG6QZNC4H7
+	 pv3aKh1H9/Svg==
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: keyrings@vger.kernel.org
+Cc: Jarkko Sakkinen <jarkko@kernel.org>,
+	dm-devel@lists.linux.dev,
+	linux-crypto@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	Alasdair Kergon <agk@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Benjamin Marzinski <bmarzins@redhat.com>,
+	David Howells <dhowells@redhat.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Ignat Korchagin <ignat@linux.win>,
+	James Bottomley <James.Bottomley@HansenPartnership.com>,
+	James Morris <jmorris@namei.org>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Lukas Wunner <lukas@wunner.de>,
+	Mike Snitzer <snitzer@kernel.org>,
+	Mikulas Patocka <mpatocka@redhat.com>,
+	Mimi Zohar <zohar@linux.ibm.com>,
+	Paul Moore <paul@paul-moore.com>,
+	Peter Huewe <peterhuewe@gmx.de>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	Shuah Khan <skhan@linuxfoundation.org>
+Subject: [PATCH 8/9] KEYS: trusted: Factor out TPM2 blob loading
+Date: Tue, 24 Nov 2026 14:00:43 +0200
+Message-ID: <20261124120044.1481752-9-jarkko@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261124120044.1481752-1-jarkko@kernel.org>
+References: <20261124120044.1481752-1-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,85 +84,412 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] phy: core: add generic MIPI C-PHY configuration API
-To: Bryan O'Donoghue <bod@kernel.org>,
- Anusha Arun Nandi <anusha.nandi@oss.qualcomm.com>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>, david@ixit.cz,
- andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, vladimir.zapolskiy@linaro.org,
- loic.poulain@oss.qualcomm.com, mchehab@kernel.org
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, gjorgji.rosikopulos@oss.qualcomm.com,
- jigarkumar.zala@oss.qualcomm.com, hariram.purushothaman@oss.qualcomm.com,
- akapatra@quicinc.com, linux-media@vger.kernel.org,
- krzysztof.kozlowski@oss.qualcomm.com, daniel@quora.org,
- konrad.dybcio@oss.qualcomm.com, christopher.obbard@linaro.org,
- alex.vinarskis@gmail.com
-References: <20261017041733.3946816-1-anusha.nandi@oss.qualcomm.com>
- <20261017041733.3946816-2-anusha.nandi@oss.qualcomm.com>
- <a6d8514b-269c-441d-b280-4895b5f21fac@linaro.org>
- <f689ccfe-4adb-41f6-b492-97a48090413d@oss.qualcomm.com>
- <e3d322a0-43d5-4369-bd09-128152f4b233@linaro.org>
- <8741d667-efdd-4e3f-a1b2-2f04255d7c7d@oss.qualcomm.com>
- <3Qy0nxBJKeIHC6U9JocO-BGMDL8rLOkC_xTz4kT1GKMFKf86iv9Jhty6HHNLjO2CNSn6ZjK3G8TAXKLwckkhVg==@protonmail.internalid>
- <e579e40b-9ee7-48ba-92b7-78f9dfffbeb8@collabora.com>
- <fab551bc-5cd8-4ab0-b97b-f808027506ad@kernel.org>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <fab551bc-5cd8-4ab0-b97b-f808027506ad@kernel.org>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
 
-Hi Bryan,
+Factor out TPM2 blob loading:
 
-On 11/24/26 12:51, Bryan O'Donoghue wrote:
-> On 24/11/2026 10:13, Michael Riesch wrote:
->> Hi Anusha, hi Bryan,
->>
->> Thanks for your work. I am working on CSI C-PHY support for the Rockchip
->> RK3588 MIPI D-PHY/C-PHY Combo PHY and would love to see this landing in
->> mainline.
->>
->> On 10/24/26 01:20, Anusha Arun Nandi wrote:
->>> [...]
->>>> The CSID needs to know the symbol rate - so that it can vote on the
->>>> appropriate NOC/CamNOC clocks/rails but... does the PHY driver itself
->>>> need to know that ? It does not, symbol_rate is not required in this
->>>> struct no more than it is in DPHY.
->>>>
->>> Yes agree. I was thinking the same. We would not need the symbol_rate in
->>> the struct.
->>
->> How would a timing calculation like in the Rockchip downstream [0] work
->> then? Can this table be implemented once in a common helper, and the
->> resulting values are passed via the struct?
->>
->> I am new to this spec so please bear with me, but it feels the symbol
->> rate should be in the struct?!
-> 
-> Might be the case alright. We have two approaches we can take. Something
-> like DPHY which populates just about everything in the configuration
-> struct or just add stuff in as needed.
-> 
-> Maybe the PHY does need to know the symbol rate.. In our case on qcom we
-> vote for bandwidth in on the CSI decoder side.
-> 
-> But maybe there's a use case for the PHY to know that rate..
+1. tpm2_key_decode() from trusted_key_options.
+2. tpm2_load_blob() and tpm2_buf_append_key_auth() from tpm2_load_cmd()
+   and tpm2_unseal_cmd().
 
-Fortunately, that is a kernel space API, so not *that* critical.
+Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+---
+ include/keys/trusted-type.h               |   1 +
+ security/keys/trusted-keys/trusted_core.c |  18 +-
+ security/keys/trusted-keys/trusted_tpm2.c | 210 ++++++++++++----------
+ 3 files changed, 131 insertions(+), 98 deletions(-)
 
-Then I guess we can put the symbol rate in there. If it is unused, there
-is not much damage done, I would say. Plus there is the possibility to
-remove it too, right.
-
-Just my € 0.02.
-
-Best regards,
-Michael
-
-> 
-> ---
-> bod
+diff --git a/include/keys/trusted-type.h b/include/keys/trusted-type.h
+index 3db61b57cf73..790ffabb0d18 100644
+--- a/include/keys/trusted-type.h
++++ b/include/keys/trusted-type.h
+@@ -33,6 +33,7 @@ struct trusted_key_payload {
+ 	unsigned int blob_len;
+ 	unsigned char migratable;
+ 	unsigned char old_format;
++	void *private;
+ 	unsigned char key[MAX_KEY_SIZE + 1];
+ 	unsigned char blob[MAX_BLOB_SIZE];
+ };
+diff --git a/security/keys/trusted-keys/trusted_core.c b/security/keys/trusted-keys/trusted_core.c
+index 3721980ed83a..b8f980da606d 100644
+--- a/security/keys/trusted-keys/trusted_core.c
++++ b/security/keys/trusted-keys/trusted_core.c
+@@ -149,6 +149,14 @@ static struct trusted_key_payload *trusted_payload_alloc(struct key *key)
+ 	return p;
+ }
+ 
++static void trusted_payload_free(struct trusted_key_payload *p)
++{
++	if (!p)
++		return;
++	kfree_sensitive(p->private);
++	kfree_sensitive(p);
++}
++
+ /*
+  * trusted_instantiate - create a new trusted key
+  *
+@@ -223,7 +231,7 @@ static int trusted_instantiate(struct key *key,
+ 	if (!ret)
+ 		rcu_assign_keypointer(key, payload);
+ 	else
+-		kfree_sensitive(payload);
++		trusted_payload_free(payload);
+ 	return ret;
+ }
+ 
+@@ -232,7 +240,7 @@ static void trusted_rcu_free(struct rcu_head *rcu)
+ 	struct trusted_key_payload *p;
+ 
+ 	p = container_of(rcu, struct trusted_key_payload, rcu);
+-	kfree_sensitive(p);
++	trusted_payload_free(p);
+ }
+ 
+ /*
+@@ -269,7 +277,7 @@ static int trusted_update(struct key *key, struct key_preparsed_payload *prep)
+ 	ret = datablob_parse(&datablob, new_p);
+ 	if (ret != Opt_update) {
+ 		ret = -EINVAL;
+-		kfree_sensitive(new_p);
++		trusted_payload_free(new_p);
+ 		goto out;
+ 	}
+ 
+@@ -283,7 +291,7 @@ static int trusted_update(struct key *key, struct key_preparsed_payload *prep)
+ 	ret = static_call(trusted_key_seal)(new_p, datablob);
+ 	if (ret < 0) {
+ 		pr_info("key_seal failed (%d)\n", ret);
+-		kfree_sensitive(new_p);
++		trusted_payload_free(new_p);
+ 		goto out;
+ 	}
+ 
+@@ -322,7 +330,7 @@ static long trusted_read(const struct key *key, char *buffer,
+  */
+ static void trusted_destroy(struct key *key)
+ {
+-	kfree_sensitive(key->payload.data[0]);
++	trusted_payload_free(key->payload.data[0]);
+ }
+ 
+ struct key_type key_type_trusted = {
+diff --git a/security/keys/trusted-keys/trusted_tpm2.c b/security/keys/trusted-keys/trusted_tpm2.c
+index 482b76d933fe..e3cd02e19857 100644
+--- a/security/keys/trusted-keys/trusted_tpm2.c
++++ b/security/keys/trusted-keys/trusted_tpm2.c
+@@ -97,6 +97,7 @@ static int tpm2_key_encode(struct trusted_key_payload *payload,
+ 
+ struct tpm2_key_context {
+ 	u32 parent;
++	enum OID oid;
+ 	const u8 *pub;
+ 	u32 pub_len;
+ 	const u8 *priv;
+@@ -104,11 +105,11 @@ struct tpm2_key_context {
+ 	bool has_policy;
+ };
+ 
+-static int tpm2_key_decode(struct trusted_key_payload *payload,
+-			   struct trusted_key_options *options,
+-			   u8 **buf, unsigned int *blob_len)
++static int tpm2_key_decode(const struct trusted_key_payload *payload,
++			   const struct trusted_key_tpm *private,
++			   u32 *parent, u8 **buf, unsigned int *blob_len,
++			   enum OID *oid)
+ {
+-	struct trusted_key_tpm *private = options->private;
+ 	int ret;
+ 	struct tpm2_key_context ctx;
+ 	u8 *blob;
+@@ -132,8 +133,10 @@ static int tpm2_key_decode(struct trusted_key_payload *payload,
+ 
+ 	*buf = blob;
+ 	*blob_len = ctx.priv_len + ctx.pub_len;
+-	if (!private->keyhandle)
+-		private->keyhandle = ctx.parent;
++	if (oid)
++		*oid = ctx.oid;
++	if (parent)
++		*parent = ctx.parent;
+ 
+ 	memcpy(blob, ctx.priv, ctx.priv_len);
+ 	blob += ctx.priv_len;
+@@ -209,18 +212,22 @@ int tpm2_key_type(void *context, size_t hdrlen,
+ 		unsigned char tag,
+ 		const void *value, size_t vlen)
+ {
++	struct tpm2_key_context *ctx = context;
+ 	enum OID oid = look_up_OID(value, vlen);
+ 
+-	if (oid != OID_TPMSealedData) {
++	if (oid == OID_TPMSealedData) {
++		ctx->oid = oid;
++		return 0;
++	}
++
++	if (IS_ENABLED(CONFIG_DEBUG_KERNEL)) {
+ 		char buffer[50];
+ 
+ 		sprint_oid(value, vlen, buffer, sizeof(buffer));
+-		pr_debug("OID is \"%s\" which is not TPMSealedData\n",
+-			 buffer);
+-		return -EINVAL;
++		pr_debug("OID \"%s\" is not supported\n", buffer);
+ 	}
+ 
+-	return 0;
++	return -EINVAL;
+ }
+ int tpm2_key_pub(void *context, size_t hdrlen,
+ 	       unsigned char tag,
+@@ -462,6 +469,68 @@ int tpm2_seal_trusted(struct tpm_chip *chip,
+ 	return tpm_ret_to_err(rc);
+ }
+ 
++static int tpm2_load_blob(struct tpm_chip *chip,
++			  struct trusted_key_tpm *private,
++			  const u8 *blob, unsigned int blob_len,
++			  u32 *blob_handle)
++{
++	struct tpm_buf *buf __free(kfree) = NULL;
++	u8 parent_name[TPM2_NAME_SIZE];
++	bool created_parent = false;
++	u32 parent_handle;
++	int rc;
++
++	rc = tpm2_load_parent(chip, private->keyhandle, &parent_handle,
++			      parent_name, &created_parent);
++	if (rc)
++		return rc;
++
++	rc = tpm2_start_auth_session(chip);
++	if (rc)
++		goto out;
++
++	buf = kzalloc(TPM_BUFSIZE, GFP_KERNEL);
++	if (!buf) {
++		tpm2_end_auth_session(chip);
++		rc = -ENOMEM;
++		goto out;
++	}
++
++	tpm_buf_init(buf, TPM_BUFSIZE);
++	tpm_buf_reset(buf, TPM2_ST_SESSIONS, TPM2_CC_LOAD);
++
++	rc = tpm_buf_append_name(chip, buf, parent_handle,
++				 created_parent ? parent_name : NULL);
++	if (rc)
++		goto out;
++
++	tpm_buf_append_hmac_session(chip, buf, 0, private->keyauth,
++				    TPM_DIGEST_SIZE);
++
++	tpm_buf_append(buf, blob, blob_len);
++
++	if (buf->flags & TPM_BUF_INVALID) {
++		tpm2_end_auth_session(chip);
++		rc = -E2BIG;
++		goto out;
++	}
++
++	rc = tpm_buf_fill_hmac_session(chip, buf);
++	if (rc)
++		goto out;
++
++	rc = tpm_transmit_cmd(chip, buf, 4, "loading blob");
++	rc = tpm_buf_check_hmac_response(chip, buf, rc);
++	if (!rc)
++		*blob_handle = get_unaligned_be32(&buf->data[TPM_HEADER_SIZE]);
++
++out:
++	if (created_parent)
++		tpm2_flush_context(chip, parent_handle);
++
++	return tpm_ret_to_err(rc);
++}
++
+ /**
+  * tpm2_load_cmd() - execute a TPM2_Load command
+  *
+@@ -482,18 +551,15 @@ static int tpm2_load_cmd(struct tpm_chip *chip,
+ {
+ 	u8 *blob_ref __free(kfree) = NULL;
+ 	struct trusted_key_tpm *private = options->private;
+-	struct tpm_buf *buf __free(kfree) = NULL;
+-	u8 parent_name[TPM2_NAME_SIZE];
+-	bool created_parent = false;
+ 	unsigned int private_len;
+ 	unsigned int public_len;
+ 	unsigned int blob_len;
+-	u32 parent_handle;
++	u32 parent = 0;
+ 	u8 *blob, *pub;
+ 	int rc;
+ 	u32 attrs;
+ 
+-	rc = tpm2_key_decode(payload, options, &blob, &blob_len);
++	rc = tpm2_key_decode(payload, private, &parent, &blob, &blob_len, NULL);
+ 	if (rc) {
+ 		if (rc != -EBADMSG ||
+ 		    (payload->blob_len &&
+@@ -507,6 +573,8 @@ static int tpm2_load_cmd(struct tpm_chip *chip,
+ 	} else {
+ 		/* Bind for cleanup: */
+ 		blob_ref = blob;
++		if (!private->keyhandle)
++			private->keyhandle = parent;
+ 	}
+ 
+ 	/* new format carries keyhandle but old format doesn't */
+@@ -527,6 +595,9 @@ static int tpm2_load_cmd(struct tpm_chip *chip,
+ 	if (private_len + 2 + public_len + 2 > blob_len)
+ 		return -E2BIG;
+ 
++	if (public_len < 8)
++		return -EINVAL;
++
+ 	pub = blob + 2 + private_len + 2;
+ 	/* key attributes are always at offset 4 */
+ 	attrs = get_unaligned_be32(pub + 4);
+@@ -541,56 +612,40 @@ static int tpm2_load_cmd(struct tpm_chip *chip,
+ 	if (blob_len > payload->blob_len)
+ 		return -E2BIG;
+ 
+-	rc = tpm2_load_parent(chip, private->keyhandle, &parent_handle,
+-			      parent_name, &created_parent);
+-	if (rc)
+-		return rc;
++	return tpm2_load_blob(chip, private, blob, blob_len, blob_handle);
++}
+ 
+-	rc = tpm2_start_auth_session(chip);
+-	if (rc)
+-		goto out;
++static void tpm2_buf_append_key_auth(struct tpm_chip *chip,
++				     struct tpm_buf *buf,
++				     struct trusted_key_tpm *private,
++				     u8 hmac_attrs)
++{
++	struct tpm_header *head;
++	int offset;
+ 
+-	buf = kzalloc(TPM_BUFSIZE, GFP_KERNEL);
+-	if (!buf) {
+-		tpm2_end_auth_session(chip);
+-		rc = -ENOMEM;
+-		goto out;
++	if (!private->policyhandle) {
++		tpm_buf_append_hmac_session(chip, buf, hmac_attrs,
++					    private->blobauth,
++					    private->blobauth_len);
++		return;
+ 	}
+ 
+-	tpm_buf_init(buf, TPM_BUFSIZE);
+-	tpm_buf_reset(buf, TPM2_ST_SESSIONS, TPM2_CC_LOAD);
+-
+-	rc = tpm_buf_append_name(chip, buf, parent_handle,
+-				 created_parent ? parent_name : NULL);
+-	if (rc)
+-		goto out;
+-
+-	tpm_buf_append_hmac_session(chip, buf, 0, private->keyauth,
+-				    TPM_DIGEST_SIZE);
+-
+-	tpm_buf_append(buf, blob, blob_len);
+-
+-	if (buf->flags & TPM_BUF_INVALID) {
+-		tpm2_end_auth_session(chip);
+-		rc = -E2BIG;
+-		goto out;
++	/*
++	 * FIXME: The policy session was generated outside the kernel so we
++	 * don't know the nonce and thus can't calculate a HMAC on it.
++	 * Therefore, the user can only really use TPM2_PolicyPassword and we
++	 * must send down the plain text password, which could be intercepted.
++	 */
++	tpm2_buf_append_auth(buf, private->policyhandle, NULL, 0, 0,
++			     private->blobauth, private->blobauth_len);
++	if (tpm2_chip_auth(chip)) {
++		tpm_buf_append_hmac_session(chip, buf, hmac_attrs, NULL, 0);
++	} else {
++		offset = buf->handles * 4 + TPM_HEADER_SIZE;
++		head = (struct tpm_header *)buf->data;
++		if (tpm_buf_length(buf) == offset)
++			head->tag = cpu_to_be16(TPM2_ST_NO_SESSIONS);
+ 	}
+-
+-	rc = tpm_buf_fill_hmac_session(chip, buf);
+-	if (rc)
+-		goto out;
+-
+-	rc = tpm_transmit_cmd(chip, buf, 4, "loading blob");
+-	rc = tpm_buf_check_hmac_response(chip, buf, rc);
+-	if (!rc)
+-		*blob_handle = be32_to_cpup(
+-			(__be32 *)&buf->data[TPM_HEADER_SIZE]);
+-
+-out:
+-	if (created_parent)
+-		tpm2_flush_context(chip, parent_handle);
+-
+-	return tpm_ret_to_err(rc);
+ }
+ 
+ /**
+@@ -611,13 +666,10 @@ static int tpm2_unseal_cmd(struct tpm_chip *chip,
+ 			   u32 blob_handle)
+ {
+ 	struct trusted_key_tpm *private = options->private;
+-	struct tpm_header *head;
+ 	struct tpm_buf *buf __free(kfree) = NULL;
+ 	u16 data_len;
+-	int offset;
+ 	u8 *data;
+ 	int rc;
+-
+ 	rc = tpm2_start_auth_session(chip);
+ 	if (rc)
+ 		return rc;
+@@ -635,35 +687,7 @@ static int tpm2_unseal_cmd(struct tpm_chip *chip,
+ 	if (rc)
+ 		return rc;
+ 
+-	if (!private->policyhandle) {
+-		tpm_buf_append_hmac_session(chip, buf, TPM2_SA_ENCRYPT,
+-					    private->blobauth,
+-					    private->blobauth_len);
+-	} else {
+-		/*
+-		 * FIXME: The policy session was generated outside the
+-		 * kernel so we don't known the nonce and thus can't
+-		 * calculate a HMAC on it.  Therefore, the user can
+-		 * only really use TPM2_PolicyPassword and we must
+-		 * send down the plain text password, which could be
+-		 * intercepted.  We can still encrypt the returned
+-		 * key, but that's small comfort since the interposer
+-		 * could repeat our actions with the exfiltrated
+-		 * password.
+-		 */
+-		tpm2_buf_append_auth(buf, private->policyhandle,
+-				     NULL /* nonce */, 0, 0,
+-				     private->blobauth, private->blobauth_len);
+-		if (tpm2_chip_auth(chip)) {
+-			tpm_buf_append_hmac_session(chip, buf, TPM2_SA_ENCRYPT,
+-						    NULL, 0);
+-		} else  {
+-			offset = buf->handles * 4 + TPM_HEADER_SIZE;
+-			head = (struct tpm_header *)buf->data;
+-			if (tpm_buf_length(buf) == offset)
+-				head->tag = cpu_to_be16(TPM2_ST_NO_SESSIONS);
+-		}
+-	}
++	tpm2_buf_append_key_auth(chip, buf, private, TPM2_SA_ENCRYPT);
+ 
+ 	rc = tpm_buf_fill_hmac_session(chip, buf);
+ 	if (rc)
+-- 
+2.47.3
 
