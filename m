@@ -1,72 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795559474;
-	b=KfYtShbWPfTAaxPSdZUTdK33CQJV5EbCnmykeZWLkSVrpS/e5YZAVqB4jvN2IBVLhe8W
-	 E67Lw3+38CLtAUZJCTnRtPTHA08r6X/0WTaLAVfV/VsekcipAj7gx78iFDrX5e420VhMQ
-	 6H692XsmHvh7VMg9GUSk2qDPOMxCglQI8PZFSVUf5AGuH3Fovg+LRB54mZ2itDfFpNgCA
-	 4fSzqqdNOFt3dvqBtHCwjaCsBqBlWgkkOhCrhr1G3D8YEbatC3S1oX/uwyJTt6QnILRJ7
-	 P+7+MvrLNyWkTzymMjqno/Vk3hdcqGxalaOOUFzzkSWPzKZpkgt7YMmk1v+j0EsI4WA==
+	t=1795559475;
+	b=JvsPF0vWPcGLSlqkykgPq54O3ZOjXH+VdBrSGT+/SP3jaajXKyiJC7KQli7wZ8sVh8E3
+	 1aYSZLGsrpfsd5PENc1v7RatnzdztGUFuL0Fks17vNs/t/N21WEOcCal3Nrlchzg/b921
+	 IfHeU3hskBKiPpaL6/m5unlWxjbmaG/cNDZ/gUD7fcwb4CYU/zIJyBU9RufbSijpsABr9
+	 SKP4sCF7TuhMdqPiLfPw14OcaHhOoZNzEvPwStDMOF1valfgB4st3RUqZCCtoj/AbL0AH
+	 n0Qz89Y4NMtHERwl5B/i3vXiJaua6j/UC6Fp2VcWJFolCpuPD5y39I/GS73e0PS9+ZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795559474;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795559475;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=eR2Yid5w58nZby8ErCVhupqRkyWBRMwZRADKAX0laNw=;
-	b=3eAUkcDbH3MCWrMyVGim6aIJHYTyf+cwOtmVNu2vjvzYiX2EHGuEQ4Mt71rLVQxch9Y0
-	 y3xZ4aKllbIgXglf3IMj/aH1KYrHWiYZDc37MgdZS1gCj9qiqqqATLH6MccQKRLbD9fiy
-	 A8spgKtdNYQN9aMALsZWpf3QM4LLBCYqxtoCZH+gmbFT/zmNzT022fnIL4oFhFTSgKTlW
-	 o/HEgy060cliixfwoC45J5l3bPmqWhSIs9VzVuFudFhd7jpnO88WAC6IpeAC3N+oaSTZx
-	 3nUdkBAiANaCJpDSFAjz14FhhvN8DPDnEEMJZ6YygAHELVoXgFl0qap9PDYMk1cfrHg==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=7V/ACU51fFvCWw0+7bIibGREJqF726OS4zBMnHqF3LA=;
+	b=fFxLoH6u2690fcvJHy26bnaFscqkbXtfgSmD4Oi2V9aBRzopUWn8FdIl7I3tcxCnFJ9w
+	 aoXiYdcdhIAesTVvfsFBo6QqqYjxv0cdpBk/h+sI/oSgksSeeonyuaYP3j0QfV+8vv8eO
+	 Jo0iaavGrBZODwGZAZuY1/3JHCJHUBNsF0xaGtIENiK10yOVAa0OSSOCd1Cr/K9lnUmO3
+	 V64yBDl3gGu6iORHcYE/j7xo+79NbL6Q+6vCPYvMts9CO/riEbUpziqhMfAT8mcqiGuOc
+	 mezJ0VGydGC2bkAG6LsBWKepGjnQ6YGLEon7VS2TVBJJ7AXpFGjPj4/oDF0NTVOhSUQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hMLmuEHU;
-	arc=none smtp.remote-ip=74.125.82.199
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=YZMqid11;
+	arc=none smtp.remote-ip=74.125.82.70
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB61D606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:31:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB61D606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DE83606A332
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:31:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8DE83606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hMLmuEHU
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-383ec96a7deso5682102eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:31:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=YZMqid11
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-139b62317d0so5908419c88.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:31:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795559473; x=1796164273; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eR2Yid5w58nZby8ErCVhupqRkyWBRMwZRADKAX0laNw=;
-        b=hMLmuEHUfV3g1QcrI51otiZdl+xrR/9/PhciQi2yQvocX9dBo+R1FG+rdTtBLkn/3x
-         +f/kCIeXPMYnB/g2CER6F/VYGGhL3Q21UpO3cuKV35wQCLfeSDe8Avq8K5GFKu2+FEys
-         twiaIl+8SDBVmD/Y1P9RRGbUEZbsyiMGS45TElC5rtMt+luBcLnkc9VoU5qfDQmlVjBa
-         muz6LGndhb0oDggHvFqM/reVrN60Lr1R2TGhKmPrHDhtk4TFX9YTr1pepx88emf5DrWk
-         sNfRJumZWaYh0TEyrgThKraiu6ByNPeQoDMe2q954oIxmvNyPBbtxqeOxpT8gqYDpxGQ
-         tyLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795559473; x=1796164273;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795559475; x=1796164275; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=eR2Yid5w58nZby8ErCVhupqRkyWBRMwZRADKAX0laNw=;
-        b=FF0jB/Sx1OygBVbIBUvqNMNw4rkph9J/sDr2cYA90nGmEXJ9eJPXbmYfj2HV1TYDRm
-         jUzTeI2lnsKP9L/VlKP7YV3+RgBE3N8vygD2Cc9kqBoetAOZUMlvWRdaVheUFrQ7M4M5
-         TzSvt/SXqMwKITvE923mlLaRWrVRvJqmU1QLoTULIYxmKLvPXpUY3cWeH9/g9Pj8x9yO
-         a9UyEn+yM+EsIk7kL6iQwNW8PDtwWIrkbTgZGn0aCpjsaF0wKiO0UfNynTucCJHFj1ve
-         og67u/5qdN89NwHkeMF7QxmHJEBSGW/sZWq0U7Ih5VnD8R8MGqScFLHz1z4PPrdcT0p2
-         9b/Q==
-X-Forwarded-Encrypted: i=1; AL+hErFUW9uy7Coksl/B+IueKQyCi8qX9xmh4ophWH5UIczj8tBLTcNopVfPljrWxVtvV8tkQoX3gvnsuaPXFJ0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/6bHHnmlwwQ1szTS+5YFb2CKTD9gLxoojQ3HxUw2xNG/swtVJQ
-	SV97kL9AEIfVR3XzYo4v6gPGcflnQpiOvNFz1whSoKK/YxWjc3V74Ezbw/hkUIp0v0TA8/ts9Io
-	Ov1CgXuRILQ==
-X-Received: from dlgx8-n2.prod.google.com ([2002:a05:701a:ccc8:20b0:1b2:48fb:f4d0])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:3f07:b0:138:30b1:4c00
- with SMTP id a92af1059eb24-1b5567b5685mr18487898c88.3.1795559472179; Tue, 24
- Nov 2026 14:31:12 -0800 (PST)
-Date: Tue, 24 Nov 2026 14:30:57 -0800
+        bh=7V/ACU51fFvCWw0+7bIibGREJqF726OS4zBMnHqF3LA=;
+        b=YZMqid11Mrd2FUcMhYHHVzbZRVQQP9oDhaOB6wmIUguvOl8btVWyExpFE0B+QURUmo
+         c23uloG/mUn4k/X9PNV6FmZdUmPi0CzpKfg10+BrbhhuakJc1QN3BfXQNaxpfO4F/9XY
+         Za7e/M05tjodv6U9ERsmSXk67J5Rr4ejfNotHNIwyGGNivHdcF73bqiz16b+ePmxsbnk
+         AziUx5L1wF43KBMDXHJP4VaYcUqaxeWZBPpfM1YHno6RhuvU/cik8YCCeoc0T+rt6RPl
+         IyuQ2zRnTPEqGlJrdVGz7QllrnV7BFqn+q21qy4T6DmPvuNU2MQqzXEUEjq3A2sChv52
+         wpOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795559475; x=1796164275;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7V/ACU51fFvCWw0+7bIibGREJqF726OS4zBMnHqF3LA=;
+        b=2saW4X83uuvnwN3ozeydyyHJh9HcSx/g7CZBjJFXILOcJUoPwrTA0slGvyEAVYCTcz
+         aIMBHnjBoTg474/1KDGXgM1XXQw6XQNJ7dG9bylMH9O3dZ2cxjEx4y6LCIhW5jq7QJQK
+         Kq6IRQII1EsMPkmLPLTEcXx1Z37PzUl8VGnBl+QDAhk+tKtRv8bk6JtEl0Jw6jTzh+OD
+         KdHOK0bUgmqwH9JiJauN0WpmMyqBEMSy0AGxaLHYQrd4r4ffIWTg4nRTQ9T+Q8jepxEy
+         2ml+IZhxbQAVM5U6RYfNVrPycr9/RMR6w3Yf8snXl8goXIoRd+FG5AMmvLCrBQLHEO+p
+         KxdQ==
+X-Forwarded-Encrypted: i=1; AL+hErH4yhF+ECXVo08gyJqsrbuMxRBbdl1XsB9Sod4uh4Tw0MkGj5li1lApmNQ3oUZlGfQUGX7ccM6w8Q2nrP4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9zzz5/YZe/23u9fk8lwzIBaRR0Fbk+1Q2bdLiJhBtsbtoCTJ3L
+	lzKsix3g7PAs3s9mjHAki7dTSpBJbtmodEkrrgY+UQll4y/fYkuSDXZFNRK80YG/E5eyPVZIG8+
+	iAqdEJPQf9w==
+X-Received: from dlam23-n1.prod.google.com ([2002:a05:701b:2097:10b0:1b2:4da6:71c1])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:418c:20b0:1b5:39a3:75e5
+ with SMTP id a92af1059eb24-1b556901fccmr16724099c88.33.1795559474171; Tue, 24
+ Nov 2026 14:31:14 -0800 (PST)
+Date: Tue, 24 Nov 2026 14:30:58 -0800
+In-Reply-To: <20261124223109.820609-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,9 +79,11 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
+References: <20261124223109.820609-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261124223109.820609-1-irogers@google.com>
-Subject: [PATCH v10 00/12] perf symbol: Sorted array optimizations and memory shrinking
+Message-ID: <20261124223109.820609-2-irogers@google.com>
+Subject: [PATCH v10 01/12] perf symbol: Fix symbols__fixup_end() for
+ equal-start zero-sized aliases
 From: Ian Rogers <irogers@google.com>
 To: Namhyung Kim <namhyung@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
 	Alireza Haghdoost <haghdoost@uber.com>, Ian Rogers <irogers@google.com>
@@ -87,173 +92,147 @@ Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Jiri 
 	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-Patches 1-6 of v8 (reference counting struct dso in struct dso_symbol,
-converting struct symbols from an rb_tree to a sorted pointer array,
-adding rw_semaphore locking, and natural-run merge sort) were applied to
-perf-tools-next.
+When multiple zero-sized symbols share the same start address (such as
+STB_GLOBAL and STB_WEAK aliases in /proc/kallsyms), symbols__fixup_end()
+previously skipped earlier entries in the equal-start group and only
+updated end on the final entry before the next distinct address.
 
-This v10 series rebases onto perf-tools-next (148690b95cc4), fixes an
-equal-start zero-size alias bug in symbols__fixup_end() uncovered during
-v9 review, and splits the remaining work from v8 (patches 7/10 through
-10/10) into small, self-contained patches:
+Because __dso__load_kallsyms() and ELF loaders call symbols__fixup_end()
+before symbols__fixup_duplicate(), inflating only the last entry gave it
+a non-zero length while leaving earlier aliases at the same address with
+zero length. In choose_best_symbol(), the initial "Prefer a symbol with
+non zero length" check then unconditionally selected whichever alias
+happened to appear last, bypassing the STT_NOTYPE, STB_WEAK, STB_GLOBAL,
+underscore-count, and arch__choose_best_symbol() heuristics (for example
+dropping a global symbol when followed by a weak alias at the same
+address).
 
-  1. Fix symbols__fixup_end() so all symbols in an all-zero-sized
-     equal-start group receive the synthesized end address rather than
-     only the last entry, allowing choose_best_symbol() to reach its
-     binding and name tie-breakers regardless of input order.
-  2. Remove redundant num_by_name and sorted_by_name fields from struct
-     symbols (replaced by @cnt and @symbols_by_name != NULL || @cnt == 0).
-  3. Replace the @sorted boolean in struct symbols with @sorted_cnt
-     prefix length tracking so post-sort appends only sort and merge the
-     newly appended tail (or binary-insert in place for small appends),
-     reducing 'perf bench internals symbols' append + lookup time by
-     90.3% (1551.533 usec -> 150.333 usec).
-  4. Add @sorted_tail_cnt tracking an optional secondary sorted run for
-     out-of-order dso__insert_symbol() insertions with an amortized
-     sqrt(N) merge threshold (keeping sizeof(struct symbols) unchanged
-     at 88 bytes), further reducing append + lookup time by 71.4%
-     (150.333 usec -> 43.000 usec; 3315.200 usec -> 294.000 usec at
-     100,000 symbols).
-  5. Unit tests for sorted insertion, unmerged-vs-merged two-run
-     lookups, and equal-start symbol aliases (including both
-     weak-then-global and global-then-weak kallsyms alias orderings).
-  6. Synchronize dso_cache access under dso__lock(dso) and make
-     dso->loaded atomic in preparation for concurrent shrinking.
-  7. Add symbols__shrink() and symbols__try_delete_unannotated().
-  8. Add dso__shrink() and dso__try_evict() to reclaim cached DSO data,
-     debuginfo, unannotated symbol tables on unreferenced DSOs (reloaded
-     transparently on demand), and unreferenced user DSOs without
-     blocking on contended locks.
-  9. Add dsos__shrink(), machine__shrink(), machines__shrink(), and
-     perf_session__shrink().
- 10. Unit tests for symbol and DSO shrinking, dso_symbol pinning, inline
-     and srcline cleanup, and transparent DSO reload.
- 11. Plumb dso__session() and add perf_session__malloc/zalloc/calloc/
-     realloc/strdup() wrappers that invoke perf_session__shrink() and
-     retry once on allocation failure.
- 12. Unit tests for machine__session()/dso__session(), session-scoped
-     allocation wrappers, and multithreaded lock contention.
+Track group_start across each equal-start group in symbols__fixup_end():
+when no symbol at that start address already has a non-zero size
+(!addr_has_sized), synthesize end for every symbol in the group so
+subsequent deduplication compares equal-length aliases using binding and
+name heuristics (and so allow_aliases callers do not retain zero-length
+earlier aliases). When any symbol at that address already has an
+explicit non-zero size (addr_has_sized), leave zero-sized aliases at
+zero as before so choose_best_symbol() continues to prefer explicitly
+sized symbols.
 
-Dynamic Insertion Complexity & Trade-offs (Patch 4):
-  With a primary sorted run of N = sorted_cnt entries and a secondary
-  sorted run buffered up to B entries before merging:
-  - Shifting pointers inside the secondary run costs sum_{t=0..B-1} O(t)
-    = O(B^2) over B out-of-order inserts, or O(B) per insert.
-  - Merging the secondary run into the primary run costs O(N + B) once
-    every B inserts, or O(N / B) per insert.
-  Minimizing O(B + N / B) balances the two terms at B^2 = N (B = sqrt(N),
-  checked in integer arithmetic via sorted_tail_cnt^2 >= sorted_cnt with
-  a 256-entry / 2 KB L1d-sized floor), giving:
-  - Ascending insert: O(1) amortized (appends and advances sorted_cnt).
-  - Out-of-order dynamic insert: O(sqrt(N)) amortized, O(N) on merge.
-  - Bulk symbols__insert() + first lookup: O(1) per append + O(N) on
-    natural runs (or O(K log K + N) for K unsorted appends).
-  - Address lookup: O(log N) across at most two sorted runs.
+Fixes: 694bf407b061 ("perf symbols: Add some heuristics for choosing the best duplicate symbol")
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ tools/perf/util/symbol.c | 74 +++++++++++++++++++++++-----------------
+ 1 file changed, 42 insertions(+), 32 deletions(-)
 
-  Alternative flat-array structures were also considered:
-  - Implicit array BST (2i + 1, 2i + 2): Zero pointer overhead, but
-    unbalanced sorted inserts blow up array capacity as O(2^k), and
-    in-place rotations move O(subtree) = O(N) entries.
-  - Index-based balanced BST (left/right indices): O(log N) worst-case
-    even on sorted inputs, but adds 8-12 bytes per symbol (giving back
-    up to half of the 24-byte rb_node savings) and loses contiguous
-    binary-search cache locality.
-  - Bentley-Saxe logarithmic runs (<= log2(N) power-of-2 sorted runs):
-    Reduces out-of-order dynamic insert to O(log N) amortized with 0
-    bytes/symbol and O(1) sorted append, but degrades unmerged lookups
-    from 2 binary searches to up to log2(N) binary searches (O(log^2 N)).
-  - Packed Memory Array (gapped sorted array): O(log^2 N) insert and
-    O(log N) lookup, but 2-4x pointer-array memory overhead, O(log^2 N)
-    density rebalances even on sorted appends, and NULL-gap skipping in
-    every linear pass.
-
-  Because perf workloads are overwhelmingly lookup-heavy, bulk loads go
-  through symbols__insert(), and upward-growing JIT/BPF allocations hit
-  the O(1) ascending fast path (while even at N = 1,000,000 symbols an
-  average sqrt(N)/2 tail shift moves 4 KB in L1d cache), two sorted runs
-  keep lookups at O(log N) with zero per-symbol space overhead and
-  minimal code complexity.
-
-v10:
- - Rebase onto perf-tools-next (148690b95cc4).
- - Add patch 1 fixing symbols__fixup_end() to update all entries in an
-   all-zero-sized equal-start group so choose_best_symbol() reaches
-   STB_WEAK/STB_GLOBAL tie-breakers regardless of symbol order, and test
-   both weak-then-global and global-then-weak orderings in patch 5
-   (reported by Sashiko on v9 patch 4).
-v9: https://lore.kernel.org/linux-perf-users/20261124032902.3859564-1-irogers@google.com/
- - Drop patches 1-6 from v8 (merged into perf-tools-next) and rebase
-   onto perf-tools-next (964e8b1c9c79).
- - Remove redundant num_by_name, sorted_by_name, and sorted booleans
-   from struct symbols in favor of (cnt, sorted_cnt, sorted_tail_cnt)
-   and expand the struct symbols kernel-doc.
- - Split v8 patch 7/10 into three patches (sorted prefix tracking,
-   secondary sorted run for dso__insert_symbol(), and unit tests) with
-   fresh -O2 'perf bench internals symbols' measurements.
- - Split v8 patch 8/10 into four patches (dso_cache locking and atomic
-   dso->loaded, struct symbols shrinking, per-DSO shrinking/eviction,
-   and dsos/machine/perf_session shrinking).
- - Split v8 patch 10/10 into two test patches matching the code they
-   exercise.
-v8: https://lore.kernel.org/linux-perf-users/20261122050405.80335-1-irogers@google.com/
- - Rebase onto perf-tools-next (eb79d2fbc230).
- - Fix checkpatch.pl false-positive typo error in struct symbols field
-   ordering and context_unsafe test helper warnings.
-v7: https://lore.kernel.org/linux-perf-users/20261121071651.67118-1-irogers@google.com/
- - Rebase onto perf-tools-next (017fcfa4a4ab), adding Clang
-   -Wthread-safety context analysis annotations (__guarded_by,
-   __acquires, __releases, __must_hold) across struct symbols, dso,
-   dsos, and session helpers.
- - Fix threads__for_each_thread() self-deadlock on shard lock and
-   dso__data_open_lock vs dso__lock(dso) lock-ordering race during
-   shrinking.
-v6: https://lore.kernel.org/linux-perf-users/20261117185305.108003-1-irogers@google.com/
- - Split the monolithic symbols rb_tree-to-array conversion into smaller
-   patches for reviewability (requested by Namhyung).
-v5: https://lore.kernel.org/linux-perf-users/20261116063435.2817923-1-irogers@google.com/
- - Replace heuristic periodic shrinking with explicit perf_session__*
-   allocation wrappers that shrink on allocation failure.
-v4: https://lore.kernel.org/linux-perf-users/20261113171734.2188066-1-irogers@google.com/
- - Address review feedback on symbol sorting, alias handling, and
-   shrinking safety.
-v3: https://lore.kernel.org/linux-perf-users/20261110220803.2503416-1-irogers@google.com/
- - Add symbol table array conversion and DSO/symbol shrinking.
-v2: https://lore.kernel.org/linux-perf-users/20261027231513.816148-1-irogers@google.com/
- - Reference count DSOs in dso_symbol and fix map_symbol lifecycles.
-v1: https://lore.kernel.org/lkml/20260928075237.3055101-1-irogers@google.com/
- - Initial RFC.
-
-Ian Rogers (12):
-  perf symbol: Fix symbols__fixup_end() for equal-start zero-sized
-    aliases
-  perf symbol: Drop num_by_name and sorted_by_name from struct symbols
-  perf symbol: Replace sorted boolean with sorted_cnt prefix length
-  perf symbol: Add secondary sorted run for dso__insert_symbol()
-  perf test symbols: Add sorted insertion and equal-start alias tests
-  perf dso: Synchronize dso_cache access and make dso->loaded atomic
-  perf symbol: Add symbols__shrink() and
-    symbols__try_delete_unannotated()
-  perf dso: Add dso__shrink() and dso__try_evict()
-  perf session: Add dsos, machine, and perf_session shrinking
-  perf test symbols: Add symbol and DSO shrinking tests
-  perf session: Add dso__session() and session-scoped allocation
-    wrappers
-  perf test symbols: Add session allocation wrapper and lock contention
-    tests
-
- tools/perf/tests/symbols.c | 796 ++++++++++++++++++++++++++++++++++++-
- tools/perf/util/dso.c      | 272 ++++++++++++-
- tools/perf/util/dso.h      |  16 +-
- tools/perf/util/dsos.c     |  51 +++
- tools/perf/util/dsos.h     |   3 +
- tools/perf/util/machine.c  |  30 ++
- tools/perf/util/machine.h  |   8 +
- tools/perf/util/session.c  |  78 ++++
- tools/perf/util/session.h  |   8 +
- tools/perf/util/symbol.c   | 406 ++++++++++++++-----
- tools/perf/util/symbol.h   |  58 ++-
- 11 files changed, 1579 insertions(+), 147 deletions(-)
-
+diff --git a/tools/perf/util/symbol.c b/tools/perf/util/symbol.c
+index 35b08c05a2fd..920951aaa5be 100644
+--- a/tools/perf/util/symbol.c
++++ b/tools/perf/util/symbol.c
+@@ -518,7 +518,7 @@ void symbols__fixup_duplicate(struct symbols *symbols)
+ /* Update zero-sized symbols using the address of the next symbol */
+ void symbols__fixup_end(struct symbols *symbols, bool is_kallsyms)
+ {
+-	struct symbol *curr, *prev;
++	unsigned int group_start = 0;
+ 	bool addr_has_sized;
+ 
+ 	down_write(&symbols->lock);
+@@ -529,14 +529,12 @@ void symbols__fixup_end(struct symbols *symbols, bool is_kallsyms)
+ 		return;
+ 	}
+ 
+-	curr = symbols->symbols[0];
+-	addr_has_sized = curr->end > curr->start;
++	addr_has_sized = symbols->symbols[0]->end > symbols->symbols[0]->start;
+ 
+ 	for (unsigned int i = 1; i < symbols->cnt; i++) {
+-		prev = curr;
+-		curr = symbols->symbols[i];
++		struct symbol *curr = symbols->symbols[i];
+ 
+-		if (curr->start == prev->start) {
++		if (curr->start == symbols->symbols[group_start]->start) {
+ 			if (curr->end > curr->start)
+ 				addr_has_sized = true;
+ 			continue;
+@@ -558,40 +556,52 @@ void symbols__fixup_end(struct symbols *symbols, bool is_kallsyms)
+ 		 * like in:
+ 		 *   ffffffffc1937000 T hdmi_driver_init  [snd_hda_codec_hdmi]
+ 		 */
+-		if (!addr_has_sized && prev->end == prev->start) {
+-			const char *prev_mod;
+-			const char *curr_mod;
++		if (!addr_has_sized) {
++			const char *curr_mod = is_kallsyms ? strchr(curr->name, '[') : NULL;
+ 
+-			if (!is_kallsyms) {
+-				prev->end = curr->start;
+-			} else {
+-				prev_mod = strchr(prev->name, '[');
+-				curr_mod = strchr(curr->name, '[');
+-
+-				/* Last kernel/module symbol mapped to end of page */
+-				if (!prev_mod != !curr_mod) {
+-					prev->end = roundup(prev->end + 4096, 4096);
+-				/* Last symbol in the previous module */
+-				} else if (prev_mod && strcmp(prev_mod, curr_mod)) {
+-					prev->end = roundup(prev->end + 4096, 4096);
+-				} else {
+-					prev->end = curr->start;
+-				}
++			for (unsigned int j = group_start; j < i; j++) {
++				struct symbol *prev = symbols->symbols[j];
+ 
+-				/* The next module can start within that page */
+-				if (prev->end > curr->start)
+-					prev->end = curr->start;
++				if (prev->end != prev->start)
++					continue;
+ 
+-				pr_debug4("%s sym:%s end:%#" PRIx64 "\n",
+-					  __func__, prev->name, prev->end);
++				if (!is_kallsyms) {
++					prev->end = curr->start;
++				} else {
++					const char *prev_mod = strchr(prev->name, '[');
++
++					/* Last kernel/module symbol mapped to end of page */
++					if (!prev_mod != !curr_mod) {
++						prev->end = roundup(prev->end + 4096, 4096);
++					/* Last symbol in the previous module */
++					} else if (prev_mod && strcmp(prev_mod, curr_mod)) {
++						prev->end = roundup(prev->end + 4096, 4096);
++					} else {
++						prev->end = curr->start;
++					}
++
++					/* The next module can start within that page */
++					if (prev->end > curr->start)
++						prev->end = curr->start;
++
++					pr_debug4("%s sym:%s end:%#" PRIx64 "\n",
++						  __func__, prev->name, prev->end);
++				}
+ 			}
+ 		}
++		group_start = i;
+ 		addr_has_sized = curr->end > curr->start;
+ 	}
+ 
+-	/* Last entry */
+-	if (!addr_has_sized && curr->end == curr->start)
+-		curr->end = roundup(curr->start, 4096) + 4096;
++	/* Last equal-start group */
++	if (!addr_has_sized) {
++		for (unsigned int j = group_start; j < symbols->cnt; j++) {
++			struct symbol *curr = symbols->symbols[j];
++
++			if (curr->end == curr->start)
++				curr->end = roundup(curr->start, 4096) + 4096;
++		}
++	}
+ 
+ 	up_write(&symbols->lock);
+ }
 
 base-commit: 148690b95cc425950dbba79d73eb4f7938347fce
 -- 
