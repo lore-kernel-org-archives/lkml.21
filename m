@@ -1,49 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795545685;
-	b=0bZpuLiAt52woNGymhINCh4zSY33NB0tZUjGs/7TCkgEugeVdPmBkmovSiNvgaI/i7wa
-	 6eupXVA6fvzp3ju85mObLLNZ/EMZ+bZE/82YBcaP2PUTy3/MgqMP3Ioc943Qs+a8BLJx3
-	 L7gTvvHdjZEnPeipQKr/Y/h7g89sfZB6EZX9eANme9nKdXJTUfv97BYDftT93HO2J94VF
-	 VWW8/LnE0Z/FL/zV5u690NyzWyzWZIPASIXmTMU7SjXv9SVywLghsGYBaoUYnw+j/FY9P
-	 SEF5MV/wJ5evP3xTPC/rbuP+9D7vOVTQVQhDeKZUBRH5Tzek314Ye6zYT4vRH8aPYxA==
+	t=1795545769;
+	b=Notmd/MeNo/dmoK9iFkT6RZI9u4eDGJjCfZAwUy0T3O2Gjf2dZJFDqgiCt7cPlra0W/W
+	 yLIviSltsWZ36Q70bmo/lmVYDQcRQSNl7jJdtVuEr7cdfYHS3qALIcmE/xLikg7qD5SrW
+	 Zy8SCKZpm/mRrPP16jCaFqnB5loQmcxXqdnM3qJImEZumZtvVp5JWgiOkMbkoOZdWd4QS
+	 vpsR3upS+3BmbABG9UNnoSoiaN2zEjxuujKvbeR75OUsJTWxX1+VabQltdj3eBbTaQ+Op
+	 pND3am6wFzvwEKmhaxc9sZ0oTmLRvJAkxm7vqpJBZWNmLFR1uJD8qYVCLIn3u+ugfZg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795545685;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=cyO2jPByXYN8pYPCmp71/uufHPRg/wGpWfA7IftFhZ0=;
-	b=1fbbzJftedahpvSz0bT1+hLXMN84sSRCl2R5q2X+IUYrf5C7xF8uHNk7F1mpaEXtZY4r
-	 TjmX2VRPFVaKvZWcrVXC+UZqh8D/4Gpy26LUBcH00Zr9vkLI8wr63v+12L9pL/HsuxlfF
-	 l2rz/nDRjeQ2eR8rp4AXEczzUeC9ZAAWA0u/oZW6xTmroeOOdU4hZB9Fs9wBak5rW8v4W
-	 1rBDOVlNA302UVX8PaGK4T/ZpLwLGyZ/jG8cGmV3WjS9/RZz3U51yFMTq6BYR6A2o4pyn
-	 OCj7k4+EmdGKneSMjwtlwsVX50F7SToHp/Ix4F14nO0/c6R4tF+MtN0w4PRq17e1ZVg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795545769;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=MIuIK6OTrAaRf7WvqeRgQl00U2uvIZ8xlyhNJbCOjz8=;
+	b=TKCE5yUFYaWG060uAMct0ZAMNajptZuOAe/mNWOMqP0/apQUezQCByo4IUN7ape5s5W5
+	 A3E8BeTpjmK+P14tx4rvaIKVvQMYm3QmYrx8SnFFyt2Ae1lNg0WgFtMbt9mX/nNnJpfN2
+	 cNmMo+ALSGd7AQPTT09a9VJI9YvE/+kRYbNWbHhiUdjgiAYDqwLCgSKKQA005QsJuClBp
+	 YIQhGwn8bLhMqZtlm5b7KCuA83rRlk6TWut/MZPsWukNufhR8sDkdnLOGLNAxkveySX5S
+	 Dmez3w9tz+gZctx9REsG3iup/YUSRF8RZVzLBQFEguFqwoDCZD8a4ML9q9pYgDG7cFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=upmx746P;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 151CC606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:41:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 151CC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b="J/8hRVbb";
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9063606A31E;
+	Tue, 24 Nov 2026 18:42:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9063606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=upmx746P
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B14D339;
-	Tue, 24 Nov 2026 10:41:21 -0800 (PST)
-Received: from [10.57.72.178] (unknown [10.57.72.178])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DB5233F86C;
-	Tue, 24 Nov 2026 10:41:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795545684; bh=qAIeeQEJhH5riHNs9KTeEu719Serj5lraRaIcwOnSzw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=upmx746PYjGwCrJLZJXl0DdLIApNw14ng5Yx4wvKRnLnjmpuBdfijDYws/SE2gN42
-	 2Y8m3owZo+Ca44SKmLPoi3Wor2QQ/rwnDHBz8YsqX78BQUpBfpMUPEfbJ5inWGvFk+
-	 xO+tqGD5h2GSOYL61klCSQAlhv0/Zp1zUGN0C798=
-Message-ID: <cea5c1cb-5bad-49ea-88c7-bbf1cf6e02fb@arm.com>
-Date: Tue, 24 Nov 2026 18:41:19 +0000
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=J/8hRVbb
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=MIuIK6OTrAaRf7WvqeRgQl00U2uvIZ8xlyhNJbCOjz8=; b=J/8hRVbbPlJPInpoIKtpYnZtsS
+	xcHTlKumZX31T9wKrIf1XWA2NUpIOlY5GDutg1KsZBx9byN0hrb5IYLSnGw+tTfn4xexCYYSe5Mhb
+	S/MZcztXgWb5i5Q0v+VvUZaFqwmAVJKRM65x9KoukWc7a1A7DwZR14T875hiaQcWuXf4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xVvTM-00184Q-2v; Tue, 24 Nov 2026 19:42:32 +0100
+Date: Tue, 24 Nov 2026 19:42:32 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, olteanv@gmail.com,
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+	pabeni@redhat.com, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net 4/5] net: dsa: mt7530: disable regulators on setup
+ failure
+Message-ID: <d31b32a8-cbc1-4649-9a74-85a6d479a8d0@lunn.ch>
+References: <179550875789.4156.361477684651496992@mail.zgclab.edu.cn>
+ <179550875790.4156.6284290287819341762@mail.zgclab.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,72 +67,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] sched/fair: SIS_UTIL limit in select_idle_capacity()
- leaves busy tasks on little CPUs while big CPUs are idle
-To: Vincent Guittot <vincent.guittot@linaro.org>,
- James Buck <jbuck2005.linux@outlook.com>
-Cc: K Prateek Nayak <kprateek.nayak@amd.com>, Andrea Righi
- <arighi@nvidia.com>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>,
- Valentin Schneider <vschneid@redhat.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "regressions@lists.linux.dev" <regressions@lists.linux.dev>
-References: <CY5P221MB09262B7D6A68954CC1B3199FBD442@CY5P221MB0926.NAMP221.PROD.OUTLOOK.COM>
- <CAKfTPtDBk=V+ApVCxGHQ0A+juE-rwid-hBxAF_KoeXbg4Vn5nw@mail.gmail.com>
-From: Christian Loehle <christian.loehle@arm.com>
-Content-Language: en-US
-In-Reply-To: <CAKfTPtDBk=V+ApVCxGHQ0A+juE-rwid-hBxAF_KoeXbg4Vn5nw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179550875790.4156.6284290287819341762@mail.zgclab.edu.cn>
 
-On 11/24/26 15:18, Vincent Guittot wrote:
-> On Tue, 24 Nov 2026 at 12:56, James Buck <jbuck2005.linux@outlook.com> wrote:
->>
->> Hi,
->>
->> Since commit 61ea17a63719 ("sched/fair: Add SIS_UTIL support to select_idle_capacity()"), first in v7.2, CPU-bound multi-threaded work on my big.LITTLE arm64 board runs 12-19% slower than on v7.1 and earlier, because waking threads are placed on idle little CPUs while idle big CPUs are never looked at.
->>
->> Turning SIS_UTIL off at runtime restores the old speed. select_idle_capacity() and update_idle_cpu_scan() are unchanged in v7.4-rc4, so I expect mainline to behave the same.
->>
->> #regzbot introduced: 61ea17a63719
->>
->> System
->> ------
->> Orange Pi 6 (CIX CD8180 "Sky1"), 12 CPUs in five clusters, ACPI boot, no SMT:
->>
->> CPUs     capacity
->> 0-1       1024
->> 2-5         279   (little)
->> 6-7         905
->> 8-9         866
->> 10-11     984
->>
->> The firmware's PPTT gives one MC domain over all 12 CPUs. It has SD_ASYM_CPUCAPACITY(_FULL) and SD_SHARE_LLC, with a CLS domain per cluster below it. The kernel is v7.3.5 plus the out-of-tree Sky1 SoC
->> driver patches the board needs to boot. None of them touch kernel/sched/; the only one in drivers/base/arch_topology.c adds a helper that updates capacity_freq_ref when boost is toggled.
->>
->> Workload
->> --------
->> llama.cpp llama-bench, Qwen2.5 1.5B Instruct Q4_K_M, CPU only, 8 threads, pp512 / tg128, tokens/s:
->>
->> 6.18.64                           123.5 / 36.5
->> 7.3.5                               109.0 / 29.5
->>
->> 7.3.5, taskset to the 8 big CPUs   121.4 / 34.7
->> 7.3.5, NO_SIS_UTIL at runtime     122.1 / 35.9
->> 7.3.5, patch below                       121.7 / 35.7
+On Tue, Nov 24, 2026 at 04:25:57PM +0800, Haoran Wang wrote:
+> Once the core and io regulators have been enabled, every later failure
+> in mt7530_setup() returned without disabling them, leaving the rails
+> enabled and making the regulator core warn when devres later puts an
+> enabled regulator.
 > 
-> I have something similar on radxa O6 and 7.4-rc4 with latest tip/sched/core
-> - 7.4-rc4+tip : 124.4
-> - 7.4-rc4+tip NO_SIS_UTIL at runtime : 136.3
+> Route those failure paths to a common error label that disables both
+> regulators, and disable the already enabled core regulator if enabling
+> the io regulator fails.
 > 
-> I'm surprised that the newly_idle and/or periodic load balance doesn't
-> pull the tasks earlier onto a mid/big core. It takes around 15/20ms to
-> migrate a long-running thread to a bigger core when it runs on a
-> little core whereas misfit should trigger an active load balance at
-> next tick. I wonder if the Cluster level could slow down this
-> migration.
-I can reproduce the same on Pixel6 without any CLS, affecting CPU7 then.
-The patch James posted it restores the good behavior and I currently don't
-see a way to not do the full scan in select_idle_capacity().
+> Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
+> Signed-off-by: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+
+    Andrew
