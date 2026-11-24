@@ -1,63 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.204.34.129
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795499063;
-	b=yCvLYjJzadBKGpJWcEEsmiE6Se1e6dGFPbQ9e626f1TzUhQQRe/QRa0qBv9cG68jHpyh
-	 vEH7CryqGf1FfuzK6+8npl5i9jefS73yrXs0H55pdA/1QnyGPDotVm8DrzhLprNa7qd4a
-	 9Z/nhPfPE7oWoAswM3GFGfIP/dDnQknmCEfX5teKJotLL8ww7PE9r+WFIBfsyMHUPjdCO
-	 69qUSJvZgV6MAhin27mCKZumsV1YEEAzdukFYvRtn28oSSmI8YpeSb/GzDyGurGVpOvyH
-	 kjBL3ZYpTcTAQt9gpYTYXNdDG5bBPWxDkOA8ChTReZnGCaiy/ngTXXGEpk9rC78CshA==
+	t=1795499199;
+	b=PngILdBZJiIKgycFGn64uRUpbdg1zCMRAVmFgbEEET8C26lHD7VcZY9XWgtQU8SAjF27
+	 lJ6OoBwIK6gXdjvFCTm8k5z/GC3mD+eGf0VjmmgTO240ogx2mQb+BWSTZmGYP9KSVLbQv
+	 fKaKEYSakD7HLLLkzK7iiqjj4KKspZpHoDhWoEp9H+N6JQNLMOMZEdSEuPrk7K79lFMdB
+	 Q7VBJJCRe4EWopmR6g2rPRESfzA5DHXDdUNLW13jAFqD+uC/ckykymksjG5TpYjwHotut
+	 OlpZ7DlkLORiHq5CV0oqJ9Qf0B1t6mz+TTPSj+6MA82Zw1Q/GgYDIJxgYvB4PIW+3ZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795499063;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
-	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-QQ-SENDSIZE:
-	 Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=IWGZLJw2nEHrhWlpNeplAcvwtMTjObjJ+sOkKeJmTMk=;
-	b=B6sZfxJASvlCHxZLNe85jF2vwoohqEiZgif2on9zcpQ5szpTqu623RAqaHah+hy5Qrp/
-	 kzcoXxbNk1XC9VaRKOOhRciRIRzQuIj61UwIBIP3o5rbGnqfZCJNwD5luzGQqm46A+Hbm
-	 SSzl1O3JJ0SXsCAWJDVx7HMdLtF5G8tcZDfPO/ILMFjMavmd4WK2ERMUpuo+nx9D+SkJ+
-	 coygMmOCiQ7AByankTHskva0PJVcebw4dhiYm8YJEexAa1qkI07VpdqAC9rSgSybumxDX
-	 W1lI+8ToSDZUpiKbAMDVwqivbliko6dZyn/Pq4DWcA4Dl7S/BEIwSXPwHOZjgcapYAg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795499199;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Cc:Subject:To:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=jsMI+Ds46cM6xnlO1TFFO5B5dFdMLZbHbUi3x2wrsRU=;
+	b=V0xjyeO0RZTmPUy868NCkuU/XnyR0hX6mYFTpi9HMlq+DUtcXaXKd2Jk9l/ZUG81yD4n
+	 mWDqNx36Kz3vpeVl/fYWW35uXonL1xffWwBJJxYpHU5WfRgY0a4mzN7mk4mFD4XUzVsBY
+	 Hz5K6varfeJhHPIZrWqdBdrHjQ18EgtRnGejzge0Fy/A5ST/aSXkars/jAXLsWts9C+xS
+	 6jd8PI8goIT2KPkQwGpN4oxHtfRTlOtdLEqhsksOC/LK/SFfBZHCC0DaYpgo/JuzmeVPO
+	 EKCH1kQrCGFEVpqYIbyEWckfmoRMVhAH3z3maLYsPubVnWgtCBDFbRWiscnCEA2nJEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniontech.com;
-	spf=pass smtp.mailfrom=uniontech.com;
-	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=pFIIeVaK;
-	arc=none smtp.remote-ip=54.204.34.129
-Received: from smtpbguseast1.qq.com (smtpbguseast1.qq.com [54.204.34.129])
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=a174nxv9;
+	arc=none smtp.remote-ip=192.198.163.9
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC7B4606A31E;
-	Tue, 24 Nov 2026 05:44:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC7B4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1545606A321;
+	Tue, 24 Nov 2026 05:46:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1545606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=pFIIeVaK
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1795499047;
-	bh=IWGZLJw2nEHrhWlpNeplAcvwtMTjObjJ+sOkKeJmTMk=;
-	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=pFIIeVaKc8JUFxJkyM4IkrFAoqQqxkyV6Jh+s71zvmz+2kBLEHX7o7d7z912UKmVJ
-	 kx0ybTaUGCFBSVybWskUevxoVF4CHHt9iZ3hHmSAeHTpDHsPgLiRfVMqMBzm6/Hdov
-	 pllBucsziTheYg58EVcQOlD2d9roJsKjK6t0Q59Q=
-X-QQ-mid: zesmtpgz4t1795499040t63d20f60
-X-QQ-Originating-IP: QChkp0EFt+LbveBJTyYJYqYToPlQRO1O8RmzGAA61wc=
-Received: from localhost.localdomain ( [113.57.152.160])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 24 Nov 2026 13:43:53 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 17405222007755505708
-From: Siqi Chen <chensiqi@uniontech.com>
-To: Anshul Dalal <anshulusr@gmail.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: =?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>,
-	linux-input@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] Input: adafruit-seesaw - check i2c_transfer() return value
-Date: Tue, 24 Nov 2026 13:43:44 +0800
-Message-Id: <20261124054344.1067234-1-chensiqi@uniontech.com>
-X-Mailer: git-send-email 2.20.1
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=a174nxv9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795499198; x=1827035198;
+  h=message-id:date:mime-version:cc:subject:to:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=Rsqn8C+lyW0grTpsQkc/ILwRR9+emcI8MVVSWwxpppQ=;
+  b=a174nxv9nJnMlsHp2InXEipcPHAM+iUMgWqdu2ejufO7MhiVwGXgVftY
+   TXIFkIRvpDFQ52Gucv5cBBRl0nhafJ5XHIjN1WSXpb8XqmbIUi7jVk69x
+   vaT8aBK7F4kXaSO2dXmh+25zac3Pz61fcHfeTaLW1mcz98Etn4r3+z1EI
+   m8oDVTLT+159s713J/6C6Jr6jQWMLQoHLJ7sMlNYXMOipnX13yOF920ra
+   Zw3dD2YQTQ8sx7CRTxO7mPYQEGPlsmBwEDsk1pUW+8tErYnTE1dsnunf/
+   7HKlLflyqaVZoAWaNoNKe1YCau/Cj3Cj8ROtmZe5liVsaQVguw0r2rQlQ
+   w==;
+X-CSE-ConnectionGUID: JwYJHFUCQ12lYY1xArCmGQ==
+X-CSE-MsgGUID: 06OU5f55TAex5f0QLQWtqw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4207685"
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="4207685"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 21:46:38 -0800
+X-CSE-ConnectionGUID: 1I3+CKVHSkultcLGWbpzKg==
+X-CSE-MsgGUID: G8Z/XUfUTgy0S1A4expfiA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="13272001"
+Received: from unknown (HELO [10.238.1.144]) ([10.238.1.144])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 21:46:34 -0800
+Message-ID: <ac7208aa-04a0-4fd6-bb32-b9478678fd19@linux.intel.com>
+Date: Tue, 24 Nov 2026 13:46:31 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,67 +72,126 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: OBdIB5dfVSDZ4BWcBi788MB/c/e5UFjmFSeX+n1fcJldE/3CPpZNQe5+
-	flB3cGROt/gvkmlWcnhQasTpu0KsYl9Bj6YNQ3hw73tzeE8UbUuo/zHe8UqFLk0dnk9sVPm
-	7EJM1YQkeLqn7s1ldpca+h86R7+ra4CiaJj6TkkJ8+6uV79x7Z9sacm+EmazxZLRwZUfwse
-	Vu3UmxNc+YcATURiTXkLSa3ljz/nvqtZ9U8EhtkGnlWlxt0CiaWonrVCxfhXtBaehTDsFZ7
-	VoYOlqSuB90PRw7jG/gMr+jgOCeS9ADEwBGh0Pv7JyOMCGumpNh/lxZhZORIuz+jzITks0V
-	HzSC71D+gnFK+63b84PJvLLuPod6vP4V0+T6l0k/GZWenNbFi2I0gC4UZqKx1irBftvwGSu
-	ajTjLNSHLYLBWzl+SMohrQkLF3yBV+ou1PEo5zjrLmGUg+wbhet3S1HTtKarzjxmLYtGahd
-	yATbJnpqmmBhi1XhmPgrzH7C6uMpcdiywcf/ZJQ5Q4/nlSz5CEVIzNDuaLHQtW9z8SyOEnG
-	+RWytxaqCDBJgm2y4JCH3PWGJl1PQVG0XnIFQWJ4clrGKh4Sx4T0VXoy64NbQggFRZdk1oX
-	Bk/FhNPZG5cnoGqkAd113E39he/LKoulmdDIg8hHRez/+5NKwJpgtU7jMYAjFa3MrAUVc0j
-	SZi8D/QePyurkyK4d4tFyP8dt6BjWLVfpBD/37IpO6IKmy6fyhLVyOJP0Oi9drSFfoGZrDx
-	lKMVSDgk+1QLekB1tNRZUV0odQLNVKLTT4cPZQeS+pC1eMVb6KHFNsKIqLyRYCeVIg6YMbb
-	57RK7b8rTmdtysB3e78kT2bqiay8k7wtSt50LbTIPWVXMHO8Z74Mif0HY5MaZVsKBG7c5Tj
-	bMGjgLpZOt4K2+vW/T3eLh8TlpVqJbcKEyfy7CTS7pLZUc8+VzAGMRqanLhJ/5Trrh3ZKze
-	nk2+JO164iga7mZ1YwYwr8cQqifnSetPhbMq9OjP1w8+v7U1D2UzyHwU+Z0+y96RoskDx1f
-	lfU8AJKULRUWILeDPu1vaScHNY0X7+u8mKP0Af1V5XNpOfKQEGvi3Lb5y6LskFoN4qW4Vqy
-	zua8oMjv7RW2sM7dvKIvTU=
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
-X-QQ-RECHKSPAM: 0
+User-Agent: Mozilla Thunderbird
+Cc: baolu.lu@linux.intel.com, iommu@lists.linux.dev, x86@kernel.org,
+ linux-coco@lists.linux.dev, kvm@vger.kernel.org,
+ Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>,
+ Kiryl Shutsemau <kas@kernel.org>, Rick Edgecombe
+ <rick.p.edgecombe@intel.com>, xiaoyao.li@intel.com,
+ Chao Gao <chao.gao@intel.com>, Binbin Wu <binbin.wu@linux.intel.com>,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/9] x86/virt/tdx: Add SEAMCALL wrappers for IOMMU
+ setup/clear
+To: Xu Yilun <yilun.xu@linux.intel.com>
+References: <20261112043054.2664857-1-baolu.lu@linux.intel.com>
+ <20261112043054.2664857-2-baolu.lu@linux.intel.com>
+ <awQNpgjgIlwhXrqT@yilunxu-OptiPlex-7050>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <awQNpgjgIlwhXrqT@yilunxu-OptiPlex-7050>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-i2c_transfer() returns the number of messages transferred or a negative
-error code. The seesaw register read helper only checks for negative
-errors and therefore treats short transfers as successful.
+On 11/23/2026 5:55 PM, Xu Yilun wrote:
+>> diff --git a/arch/x86/virt/vmx/tdx/tdx.c b/arch/x86/virt/vmx/tdx/tdx.c
+>> index 4cce77b6a31f..a1f35188a272 100644
+>> --- a/arch/x86/virt/vmx/tdx/tdx.c
+>> +++ b/arch/x86/virt/vmx/tdx/tdx.c
+>> @@ -2567,3 +2567,56 @@ void tdx_sys_disable(void)
+>>   	if (ret && (ret & TDX_SW_ERROR) != TDX_SW_ERROR)
+>>   		pr_err("TDH.SYS.DISABLE failed: 0x%016llx\n", ret);
+>>   }
+>> +
+>> +/* No cache flush is needed; hardware keeps caches coherent across KeyIDs. */
+>> +u64 tdh_iommu_setup(u64 reg_base, struct tdx_iommu_mt_param *param,
+> 
+> param is too general, name it iommu_mt, is it better?
 
-If only the register-address message is transferred, callers consume
-data that was not read from the device. This can result in bogus button
-or axis events.
+Agreed. In a function whose arguments are all parameters, @param doesn't
+say anything. I will rename param to iommu_mt.
 
-Require both messages to be transferred, preserve negative error codes,
-and return -EIO for a short transfer.
+> 
+>> +		    u64 *tdx_iommu_id)
+>> +{
+>> +	struct tdx_module_args args = {
+>> +		.rcx = reg_base,
+>> +		.rdx = __pa(param),
+>> +	};
+>> +	u64 ret;
+>> +
+>> +	/*
+>> +	 * Retry only on TDX_INTERRUPTED_RESUMABLE:
+>> +	 *
+>> +	 *  - TDX_INTERRUPTED_RESUMABLE guarantees forward progress between
+>> +	 *    calls.
+>> +	 *  - On TDX_INTERRUPTED_RESUMABLE, all registers except RAX remain
+>> +	 *    unchanged.
+>> +	 *
+>> +	 * The ABI spec also allows retrying on TDX_OPERAND_BUSY, but that
+>> +	 * status doesn't guarantee forward progress, so retrying could spin
+>> +	 * forever. The host serializes all TDH.IOMMU.SETUP and
+>> +	 * TDH.IOMMU.CLEAR calls for an IOMMU, so the TDX module should never
+>> +	 * report the operand as busy.
+> 
+> Many SEAMCALLs return TDX_OPERAND_BUSY, and this is the generally expected
+> handling. I don't think we don't need the comment if nothing special.
 
-Fixes: 52c4e5985a73 ("Input: driver for Adafruit Seesaw Gamepad")
-Signed-off-by: Siqi Chen <chensiqi@uniontech.com>
----
-OpenCode was used to identify the issue and draft the code and changelog.
+I'd like to keep a shorter note. It's the usual handling for TDX folks,
+but people outside TDX may read this path too.
 
-Compile-tested with CONFIG_I2C=y and CONFIG_JOYSTICK_SEESAW=m using:
+> 
+>> +	 */
+>> +	do {
+>> +		ret = seamcall_ret(TDH_IOMMU_SETUP, &args);
+>> +	} while (ret == TDX_INTERRUPTED_RESUMABLE);
+>> +
+>> +	*tdx_iommu_id = args.rcx;
+> 
+> I remember there was an internal debate about whether to only assign the
+> output upon success.
+> 
+> There are several examples in tdx.c that assign the output regardless.
+> But all of them holds error information, which makes total sense to
+> assign on error.
 
-  make O=/tmp/opencode/linux-build-seesaw W=1 \
-       drivers/input/joystick/adafruit-seesaw.o
+Oh, I overlooked this.
 
-No hardware or I2C fault-injection testing was performed.
+> 
+> This rcx output however doesn't hold info on error. So I think early
+> exit is the right choice. Also see tdh_phymem_pamt_remove()
 
- drivers/input/joystick/adafruit-seesaw.c | 2 ++
- 1 file changed, 2 insertions(+)
+Agreed. rcx carries nothing useful on failure. Will return early and
+only set tdx_iommu_id on success.
 
-diff --git a/drivers/input/joystick/adafruit-seesaw.c b/drivers/input/joystick/adafruit-seesaw.c
-index 897e14bb61f7..8374381dcc87 100644
---- a/drivers/input/joystick/adafruit-seesaw.c
-+++ b/drivers/input/joystick/adafruit-seesaw.c
-@@ -107,6 +107,8 @@ static int seesaw_register_read(struct i2c_client *client, u16 reg, void *buf,
- 			   ARRAY_SIZE(message_buf));
- 	if (ret < 0)
- 		return ret;
-+	if (ret != ARRAY_SIZE(message_buf))
-+		return -EIO;
- 
- 	return 0;
- }
--- 
-2.20.1
+>> +
+>> +	return ret;
+>> +}
+>> +EXPORT_SYMBOL_FOR_MODULES(tdh_iommu_setup, "tdx-host");
+>> +
+>> +u64 tdh_iommu_clear(u64 tdx_iommu_id)
+>> +{
+>> +	struct tdx_module_args args = {
+>> +		.rcx = tdx_iommu_id,
+>> +	};
+>> +	u64 ret;
+>> +
+>> +	/*
+>> +	 * Don't retry on TDX_OPERAND_BUSY. See the comment in
+>> +	 * tdh_iommu_setup().
+>> +	 */
+> 
+> ditto
+> 
+>> +	do {
+>> +		ret = seamcall(TDH_IOMMU_CLEAR, &args);
+>> +	} while (ret == TDX_INTERRUPTED_RESUMABLE);
+>> +
+>> +	return ret;
+>> +}
+>> +EXPORT_SYMBOL_FOR_MODULES(tdh_iommu_clear, "tdx-host");
+>> -- 
+>> 2.43.0
+>>
+
+Thanks,
+baolu
