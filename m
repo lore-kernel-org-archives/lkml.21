@@ -1,97 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795504892;
-	b=vPUUBLSmWbSY+1uiEauil+8zt/XhIYspX5emV5tCRIoBn5NxYPiCr0VgXrYQiYmfwYhg
-	 acss7VeutVO8tgP2CslZ4iXgXTIIE7U5RtxFR3Grahoh/3UO99CvT6fx8S3dvcFoxC7NN
-	 mLf4EjK6hjvC6pxVt+3jMah3HmX/vdCQqyl13JDd1ddB6xblQqr2dbeyktEmZ3SdigCyR
-	 4xey+zbxvX0CnxUUwGFVUpyeGsTJ8Z1KbH4HmDtPRr21w0nQzG8m1vJl2neVoNlwQJBIg
-	 nWY4+byRZwlu+fFZYJKmy2s3wIC1lXZmCejkVYnyiJN3ge3NcYavb/6nhif4Wo0gzeA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795504892;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.45
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795505057;
+	b=G6107nSW3PBLeG4432gm81GvcIVHhBP+iVPcRu0GgRhD9evBAd2FtxgKonAKGw9ffbV6
+	 95ANW7tvS0u3DngUSwg9mbns5rvJTIatlg672smaUfZ970FJ10Ybbbb5Zlz/Fk9FDlf4r
+	 9q/WcULHZYIP0fc5IdoWkVsng59xhdI36L9Iwy66u/aLq6vV5fxUoAcHuSzr0htXswwIh
+	 L6jCHqkSdnv+q2U+X24LTTou6U6SCT01K29N8YyU3e1+Qy933fNHFravkOLF+7EK0wbOv
+	 N+7GJN0JngLN9Teqvsrw7JSOWa4F9HEb70bWe6IhANrAZiWwaO8dYB1smoLx3M5Gvqw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795505057;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=PCjWFrTzcH/5+g/DYitpRwbKVv1E+Kbizes69WQjlhI=;
-	b=r1SvLc9o4aCo6CmKKhPSYrYrhBstJg+HVp/9RxokADIeHAvjcqP6Aeh1Uipfs5Sbtzln
-	 Hf3gOMRqQAXnWF7wnyEQ6j8dm08/I6Yb395rTn2Fz9+28knCd9xC8Ae0DsSkoM1l1/5Ve
-	 3wpRbLX7AFQIzGitiWGdZHA/C/5VVXmVUxxfKrGAZ9H4RIU+aDnUXmynZAYuT0HCUR1vo
-	 3tmIrYVrQo1GlCmhvi3Y1FVN7B8c8zVz7wy1PQEzeo1CYICjiEP1ErOLTcIQRPt4irwVE
-	 C+0QsYWXGMRzlJOhztYXJCd1C/M3YHvJPJEx8wBpAHBvBvdXoUyFoQbI7dy3dMVrFDQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=layalina.io;
-	spf=pass smtp.mailfrom=layalina.io;
-	dkim=pass header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=S51S1Jld;
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=zQkMMF/iZtl8nyKPPF76wrTKqWng+NcxYhzPMVXCFxw=;
+	b=ghGLyqJfgWzTSgeYgBW7F+Tw1/AxSvuZrxHdzscWp1fZ9rLjNo44kySv2Sf+t6kAB1QO
+	 F3XQoDuwKmAKzflKRchZwp5YjLZtETrN0Y8x3Givhap8kkYDPwV4pYw6aLZBQS8Hk6Kw4
+	 MZcxaQPmEok5QWtxV0kw0gahqOjITfpnGM8v/BIJujJB1YHKqdV0BSvbzwZejMyB6L4bw
+	 G6yi+MURqLMCkN/HqCaTZRTajVSTUK8g53EzZXHH9Bxg9mELBh11r8GTA0uYJvsAO7dO1
+	 JrD1vInlDo1wbCya5v9gJ5c9qIuUacsDp8klBVZOPReEc//KEgv4JiHXaqFiJfJielA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VSYZIOCv;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.45
+Received: from mail-lf1-f45.google.com (mail-lf1-f45.google.com [209.85.167.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1748606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:21:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1748606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=layalina.io
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=layalina.io
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 243D1606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:24:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 243D1606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=S51S1Jld
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb64c99d2fso40279735e9.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:21:31 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VSYZIOCv
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5c14f3dab66so3406793e87.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:24:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795505055; cv=none;
+        d=google.com; s=arc-20260327;
+        b=lPIvppXQdafMt5qq4OtKZ0wKL7Ipa+NYQK/R+crOztHxbvSpH4Adl7v/dEdB3CJNWL
+         EOJSSGtDsS3WUZW9Mj27csx3/AGxIwzUOJDAf0vZccZr4rfCmQzfJ5J3xsGsTqBYKCNa
+         NRPLN0msCUxntYX6Jq0uzV86dtLsEi9PJtxsGa8XkQ5HHEDEh+1o8wkVEguOvNBI6O6N
+         7cAZlVKx9NzYTo2d7WQNL8guG8LnoG19czgnwlkQf+C9hfnhi1D2ekyaf/Kit56s2HZ5
+         NdzbsPe0yaze5RVbDo3tzuilPsiGOBVTCcwFdULjMj9Pt8pN91TBDO1ePSqv5sK4iHuI
+         RY2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=zQkMMF/iZtl8nyKPPF76wrTKqWng+NcxYhzPMVXCFxw=;
+        fh=8Ti7wRvuV3zFUhT/DuhNl0If+TXb9bGgUo+HQKD1Zus=;
+        b=QxjaRXxRZvSx+VmWf3CvYo3HZ0LJgvVCHFJFlo0ahZCEIk2VUg3qlAaICC4014oEul
+         a3NinSmwUxl713YdJgKNB1Tp91WwPISy6YWDxPCgDnfKGnH5d5avMaaYOum+ZuYW440I
+         IIGwMmHnsXZTOhiU6c1A/dqOShebXVCjDJZVnBywtWIjo9V5weyPm7Q6RusDxClrplUO
+         DZkjHJk3F+hUcDOVq/mwIWQrNLXm0IA59sY111cTL2T306Yod6vLdfflf1pfIYSnLaU3
+         3JZXwWfhhsQogyc/t1NPUWktVhBRJHr9PtIajiL5FdYqHRrHWGp+rWPIvNvfFOZtqaq/
+         4ykg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=layalina-io.20260707.gappssmtp.com; s=20260707; t=1795504890; x=1796109690; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795505055; x=1796109855; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=PCjWFrTzcH/5+g/DYitpRwbKVv1E+Kbizes69WQjlhI=;
-        b=S51S1Jld0TYnr89GRp/iWdDMGu9TpSFHjWKykoRbZ7+WO2jx7FQGz26JMxFdymzvgu
-         l8A53IIdtheV0n/D+fcJfAByUTs8XGBpOfLuaL8kDK9rOvIrQhcQjcVrTMOpSU189ZK5
-         s9Qek/O5dtH/W74CaQqrLlrpDxzav/Qc5WcRovpAQIJMXmRnzB4RiOk0To3zQYIkoQJe
-         EOsbT3od9fg+w7QykqP+mciV9gAFCO971qH35AhvUev6ik4GrFatYvmNyvUUQkudNB1T
-         VubOG004QnZzHavwN80d/4ZKnAnJhP4EbMfFSux7oc3R0Zd0F7zyFZZyDk1k4bPEelP+
-         3EWA==
+        bh=zQkMMF/iZtl8nyKPPF76wrTKqWng+NcxYhzPMVXCFxw=;
+        b=VSYZIOCvcOvQUj9LYsYZPmOXjBqaNi8d51XoM8nVac28LKKpjkdLS77tVczSFJaKZB
+         fW6v97jHKqvUr8LbRep1I7vKYyPWsyU7X/5yzGLyF8hyQd9AFnZWr9No67QR3DG6j4yI
+         D9vLoNuTLHHxIMVAFs7UuuuErCf2lDJFLC7qbhJbezfduFywYV95CVzH0phdnjYZSeNW
+         kW1JcpnXP6yZK/5cGHw0efH10VszwGCyG9i423p7nsbJFlOzLL3l38e9ufTzGzjxuYUE
+         1iU4DG9GQVh/bk+7bPe3r1kigtVLn5oFrYDOK9FvyEeRoJGWvvKLBh7ySc5svpxOqoXr
+         73gw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795504890; x=1796109690;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795505055; x=1796109855;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PCjWFrTzcH/5+g/DYitpRwbKVv1E+Kbizes69WQjlhI=;
-        b=rXm8Xp8wFeHZFdwmyqe3cyADlpDrhaU/j1pdFwtQ2Ywn+THhoQdJlNLxHyrl681Jvq
-         vRhOi6fzi5n6NxxurreCtYvf1Cs2WFwUsAQLh2rw07B4BEY5xq/R49vz2gzbITYoHJiH
-         5138eyxkFpGEkpEPa03goyiTBAF/GHbajQLu8oMylBjgeUaLnOVVqTPcTyN5TBfUppK7
-         P+7nYZrPBmoLLAoQXZ9+WOpJ6G5f5t3M5yBb6Pr5KvJeGqXw1uWs4R1pPoKA+x58k5Op
-         7oVgcn77ERJ0KeveVojgr27iWRYan1uiJfRlbVgG43pQ243scTAebMdTTPbz5zR0/6qf
-         gJ/Q==
-X-Forwarded-Encrypted: i=1; AL+hErHMwT7aXOpP+7M4IUt4Go9PeT3q7PQCzRuL+jNrnKfjSQddBrv7BjrYaFusbdy71HYdcWNfNkmuqhtyoj4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8W9RS0ebBQdzwr0Ly3mxkwlYSou7zY6daEjmY9RQeuUG7j/C+z
-	/SeinwbdL0Mr80j3PG29PXTlaPUdmutlmLM2yLxcLl05OirilvrDa/DdsttFyvr3d2Q=
-X-Gm-Gg: AZFdTZfd2/FeMkRqryo727uY/gYXZaPf7Un+fWroI+sSnV+G/jvfcVERRS3ixNplLrh
-	BXymG9hKS6Be9c2C7XVIExXB7qbJ/nSbxf6VUm/8Y7PzaLiv9cngg5U1arVcbt0s3BBSIQk988e
-	wAVRihxmd79mdTtiWV9bMox52oFIXv/Qd5Q+oMT7JKDW6y1u5uImgFfLSWLsMh/+MIS/Crt2Nuk
-	SeJkTOl+bwODBPZcuPlQELzmG9qAwkyowyMKrRt1QvMKL5Bf7FDiUafgM9oLAfMk3y28lQjxKX7
-	9aMotX81ZNYes057Fq/p82q3yZY9vq4wjJb5eBVeKUpkyMxLALPWVvPcbtkDzYucLG8DsNSVRzb
-	eZVurv51ntDNLVqPJOJXRtChMHLha+dpxp76McjIgk6RpcLOE4bJWpR9B2eB4rpguwatl8VA4hb
-	G3TR017ItHC1RD7d8xXEYn1J/4c3OyLKWE7ZlGSzf8/v8b7JMMfROvGVsdZd7N2ESmCIqHLU6vH
-	yoot6sokpO/Zk1PQUaDbhN1w5RDjvkQgTjBfP6Vi54YoXKr45wXYTv3KCPHlscJ9EdIsou12lz3
-	yD1UpKZPQEdrUDh4/MCk1gObbqV0ZlB/mDRra6X3ISG4R/A/TqX9c1NVRMCHU2TKb7tYGns027h
-	vjeIyuQ==
-X-Received: by 2002:a05:600c:4f10:b0:4bb:60bd:5398 with SMTP id 5b1f17b1804b1-4bb88804d35mr310228065e9.10.1795504889562;
-        Mon, 23 Nov 2026 23:21:29 -0800 (PST)
-Received: from aerith (host109-153-232-219.range109-153.btcentralplus.com. [109.153.232.219])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9066e34esm241127015e9.3.2026.11.23.23.21.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 23:21:28 -0800 (PST)
-Date: Tue, 24 Nov 2026 07:21:18 +0000
-From: Qais Yousef <qyousef@layalina.io>
-To: Christian Loehle <christian.loehle@arm.com>
-Cc: Ingo Molnar <mingo@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, John Stultz <jstultz@google.com>, linux-kernel@vger.kernel.org, 
-	Kayra Cizmeci <kayracizmeci@gmail.com>
-Subject: Re: [PATCH v6 0/3] Fix uclamp race against non atomic static key
- enable
-Message-ID: <awU36OTU45MPn-Lg@aerith>
-References: <20261121041507.39582-1-qyousef@layalina.io>
- <070726aa-0e91-4d65-b3c5-00df3a180732@arm.com>
+        bh=zQkMMF/iZtl8nyKPPF76wrTKqWng+NcxYhzPMVXCFxw=;
+        b=LuZi/6ffynkjecufSZb4LhjtIAxzhXzlV3KqARaKxZM6RZGFQtsFIkaHOz5fL0pTiC
+         7lr26zVmSRLFFOwU/8vjp/jyVFga7qWN0BM9vEPqfVEkokrLC4ND3SsjomS8F/AU/x0Q
+         NQGU5cKdmIZv+2E+fgmRZqxW9ckIEMrbPPBZkoPkPRfjs56y/XpHX5yt0WFVdyMjeYcI
+         c8iCUrdQChom5hMJQw/VgsvEgy+r1I+Gt8i0dkKH7NpxX07Ehl9MJ/0IN6cJG9McI7r4
+         J0wb0PkhjS1BsCas3TUpT0C9Wa3OKMjg8vm/ROdPuvM/WAuGldOFhZvb4gyE6IeRCgv+
+         mlRQ==
+X-Forwarded-Encrypted: i=1; AL+hErG1lQz2h0J6WxmzLaT1u+tqE7aBvDfvnBfx+mYYKHx+jWoSwVMjVauHSsLibKjICzfDNDDAuPLdGPrnt2U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+jYBPl2Bje+m1/ITygtpj3WF0zR8+dPoYAm0v5xmP6z44DhR22
+	/kWOKPZUtzUBYa7ise8xTChNZ+1Vjb9rjuitPJ+hgRcIpnDUQxL4ibQIJKHjmmQbFEclAPfqfl8
+	YtNgLfYPB/qP0H9QWi9P34A0TEsRyDn8=
+X-Gm-Gg: AZFdTZcjUDYtt6/Da/3yfREFE9K1GHipOhq9U/P/LoEB3q7g4OU0Cr2J9nF7Eyf2qlH
+	FFwCJeojQGcvNVDUZy2YcpQv1576/d607DT5176q39f4PyLZwyAOvJ9wOk/0xbflRuqFbe5X0UT
+	ArHLokB7TyUu6lGDi1maqULqam2KOshYgXXf40rLcSJ9c4vuoH2BfLdJJVRSRVI8gayo5cSgnlv
+	KsslDOajrgBCCZ0Oaa6d+fR3/YEgcSFJypy0umCvbd+iEdaQPV64iovdnSABArAc+1ztETmegPq
+	hc+eSPyW7hol3AmGhW7MPbVPQc13NhazcRq6i8ZiWWizvEEgGozYomnFqhIguvJ4PjVAfe648dG
+	vT8aGpGjRGlkBtf7db1dqJbLOap6a3DyQFebeA6mtemeAzxncXXdXBW/N/y7kQ7uYeTKn8IWZIc
+	RPG82PwUD1nm5PAPc+oLeXWQ==
+X-Received: by 2002:a05:6512:10cd:b0:5c1:a96d:9120 with SMTP id
+ 2adb3069b0e04-5c1bc89c0d6mr2930509e87.19.1795505055133; Mon, 23 Nov 2026
+ 23:24:15 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,43 +105,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <070726aa-0e91-4d65-b3c5-00df3a180732@arm.com>
+References: <20261103084638.1190232-1-lixicaicai@gmail.com>
+In-Reply-To: <20261103084638.1190232-1-lixicaicai@gmail.com>
+From: Keguang Zhang <keguang.zhang@gmail.com>
+Date: Tue, 24 Nov 2026 15:23:38 +0800
+X-Gm-Features: Aa3M54ookgLsrqjSC6-F_GMLxVqJAW1i_-P2hir73PZVimwmsAHCWTB2AmYUUTI
+Message-ID: <CAJhJPsV+1e6=o+yafDcxet=W=xh0xkPH5GJ7riw=BMyMs1NXnA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] dmaengine: loongson1: reject zero-length sg
+ requests in prep_slave_sg
+To: Li Ximo <lixicaicai@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, linux-mips@vger.kernel.org, 
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Wang Haoran <haoranwangsec@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/23/26 09:19, Christian Loehle wrote:
-> On 11/21/26 04:15, Qais Yousef wrote:
-> > Latest version drops the partial revert (patch 3 in v5) as RT group
-> > throttling is going to be marked as broken and anyway a proper fix will
-> > require non trivial rewrite how dequeue happens for throttled tasks or
-> > full revert of subtracting nr_running added 10 years ago. Both of which
-> > is not appealing and with the proposal to mark this feature as broken,
-> > better leave it and hopefully just delete the problem area.
-> > 
-> > So in summary RT throttling is not fixed and being ignored. Fair
-> > throttling is fixed by pairing uclamp_rq_inc/dec with
-> > add/sub_nr_running. For RT, we do that in inc/dec_tasks() which are
-> > called when tasks are actually enqueued/dequeued - as stated will fail
-> > in RT throttling case. Given the minor severity of the problem and
-> > effort required to restructure part of RT group throttling that is being
-> > marked broken as we speak, I think this should do.
-> > 
-> > Changes since v5:
-> > 	- Drop patch 3 to partial revert subtracting rq->nr_running for
-> > 	  RT throttling.
-> > 	- Drop fixes tag from patch 1 as the series now is partially
-> > 	  fixed and not suitable for LTS.
-> 
-> Is this how this is done? I guess we could also NAK the backports?
-> Also presumably this was observed in live systems, so is not-backporting
-> an option?
+Could you please add a cover letter in the next version to provide an overv=
+iew?
 
-Is this the best way you could phrase your question? I asked clearly for
-feedback on v5 and you kept quite. If you have such strong opinion, speak up
-next team at the right moment instead of trolling like this.
+On Tue, Nov 3, 2026 at 4:46=E2=80=AFPM Li Ximo <lixicaicai@gmail.com> wrote=
+:
+>
+> From: Wang Haoran <haoranwangsec@gmail.com>
+>
+> dmaengine_prep_slave_sg() forwards an sg_len of 0 to the driver
+> unmodified. ls1x_dma_prep_slave_sg() does not reject it, and
+> ls1x_dma_prep_lli() then builds no LLIs (the for_each_sg() loop body
+> never executes) yet still returns success, producing a descriptor with
+> an empty lli_list that is queued as a valid transfer.
+>
+> Reject sg_len =3D=3D 0 requests early; a zero-length transfer is meaningl=
+ess
+> anyway.
+>
+> This issue was found by static analysis.
+>
+> Reported-by: Wang Haoran <haoranwangsec@gmail.com>
+> Reported-by: Li Ximo <lixicaicai@gmail.com>
+> Signed-off-by: Wang Haoran <haoranwangsec@gmail.com>
+> ---
+> v1: https://lore.kernel.org/r/20261026115113.3359939-1-lixicaicai@gmail.c=
+om
+> v2: split the two independent fixes into separate patches as requested
+> by Frank Li; no code change.
+>
+>  drivers/dma/loongson/loongson1-apb-dma.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/drivers/dma/loongson/loongson1-apb-dma.c b/drivers/dma/loong=
+son/loongson1-apb-dma.c
+> index 89786cbd2..e7eb40584 100644
+> --- a/drivers/dma/loongson/loongson1-apb-dma.c
+> +++ b/drivers/dma/loongson/loongson1-apb-dma.c
+> @@ -302,6 +302,9 @@ ls1x_dma_prep_slave_sg(struct dma_chan *dchan, struct=
+ scatterlist *sgl,
+>         dev_dbg(chan2dev(dchan), "sg_len=3D%u flags=3D0x%lx dir=3D%s\n",
+>                 sg_len, flags, dmaengine_get_direction_text(dir));
+>
+> +       if (!sg_len)
+> +               return NULL;
+> +
+>         desc =3D ls1x_dma_alloc_desc();
+>         if (!desc)
+>                 return NULL;
+> --
+> 2.30.2
 
-FWIW except for RT group throttling breakage, patch 1 and
-3 could go to stable. Not sure what would be the right fixes tag for patch 3.
 
-FWIW I work with Wei who reported this and this is not a wide spread disaster
-walking on earth. It has taken more effort than it is truly worth actually.
+
+--=20
+Best regards,
+
+Keguang Zhang
