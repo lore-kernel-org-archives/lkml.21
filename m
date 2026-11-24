@@ -1,124 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795478663;
-	b=5srB1TeZOeD+z2wRDw5rGsOcHQyV6BDhy1p6Kg8skOaOMZcbArXE5rq6Xx5dOf28p/XY
-	 FXHBzpZNCvYjZnC4XRlmBGk7wKz4AneIa9ZR7ZJ4N1rI41YlpYP106RvOyZuIy2EyKs+U
-	 4+23MDbwIcrAtYxyS4vVmqf847U/V6t/XVGTLjyEwcdS24Etxmrl7oWz2tIcIt016FOHq
-	 PxhYbLvFHDhyqYPWK6xNYKM+dvnVj+Hr/mtdvngpKnAx7dA+LJlhHrCYb06XboIeefdLP
-	 qBMx9hnGGc9oKF1tNtLqtwt0w0kLGnKaQoMoooyrQAvByq2apkM2Ex7va9MjmDM+s8g==
+	t=1795478689;
+	b=kCBkUil/R1ve7f/qlmGqH65Pq9XkTuhv2pIMqjcg6QSBa9U6/e6LPRFZz4PXO5aGLpOX
+	 EwbLwjY8MLwUCW1+nXjP1Lp+M4rxDHZx6F4MvqrXKh96roBiYDXMMIq9A0UX71KPj3euf
+	 hWaMDLieW325g+N4L0WNVcbFpVkx6VTOCbVOKu01NzrfADXea98MJwnSDx3agPcqFhR4S
+	 rrcPExJ6tjIdkRCyfuJcGK7t1cM9NpWixH7cSXsXvX2oHXpPS0dvA2qqOjm5iq3gCooB0
+	 Q+TcNMId1qOmAjBZBeG6W25oj0ohVedgG1wG/cDQQE0iKKScCNcgsYtqg/W7s0nTUVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795478663;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=FqFPPbSYP82nhsdI2jqUGxCdqdD+UNbXYdolku+tXtM=;
-	b=honQaSj+R/ohdV35fJGsultNC2e3mP1w1w37dewv0fytdQiX9CS9uhoYI1WKm7uCZ/H7
-	 uGaZsjK4shidsxjUWAxNR6uu2iWeTOODplbyotEaJIoc5X9xBIUizT72596JGVDM0/LNV
-	 wYaTvhZ88dPGRAGEWIJ40axE0NFb4gFHwnUhblR9eo0v4EcILP+BS9a+3CmzM6JLfxW8i
-	 UU0tS8PIJO7TjRBtilM/wTGOeUkqDEca+m9bLbKcOel/BZdLwckuUhDAVGfRjZkPpkEg+
-	 tU/1+o6hM1+jihZxaXtiuhsq+ILNIAHh6mAgX3zqvSmdqD+hBa/FtMRHXEprXCsIWOA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795478689;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=NrqsfqzthGjJFnZQLwLkp8teKLCeBqgZhrjo/nTNW9k=;
+	b=xu9wZenxadkZzaemrHlTQ7mJasOYhLIqVOTJmrhL0k6HNx5O7kXFkDDxxDVoA/yZTjUe
+	 vVjz3C+Bp51hk8Q01P3IR0busihy/R9bY1nO5LE1P8gqXQvKo5vQVmwcqbkk2wmhiLd96
+	 kxk5/J7/iHDyWMOkf+ytLosWWKTBo/e1H3zWAVQwmCzU4tnMHs+QhBdOda7CHSup7p5lT
+	 7tDzGaSpYG66AHotSdlEMsxqUmv+Hwvy3wM8lb5cAir3b7EW8YfgSl2slcS3LaNXWJsqa
+	 vAKQubKgsK6SWwQ0GgHyTeXE7A/fxNYzHrSJEOWMQdGfxKuYMYW7SnHs8lTlPtZ4yBw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lu40dQo9;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=cvY4ize6;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gqnhxcHK;
+	arc=none smtp.remote-ip=209.85.216.45
+Received: from mail-pj1-f45.google.com (mail-pj1-f45.google.com [209.85.216.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 397A9606A681
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:04:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 397A9606A681
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1337B606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:04:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1337B606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lu40dQo9;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=cvY4ize6
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJuh733962852
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:04:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=FqFPPbSYP82
-	nhsdI2jqUGxCdqdD+UNbXYdolku+tXtM=; b=lu40dQo9OizBbcc6s3UJTGvIRYF
-	qqU4lyFxqlIu/5N7dHa/LABEUGNw7W4po3R2x3kEzTDPSFSr6954z1vLwslitznT
-	f/U/FKWL1Hrzd3qxU+t7l+5fqKf1LRZTa0a/wKz+DiWqQ0nM8Oy2HNJ5DNckXVIt
-	3+R0X6Zd7gL/C9pQ+MqnoS7ecCg39mLOMC2ywelGfRFkQsW4hZQOJ6epen65eL+j
-	kaXWYo4gSHsp1Ni1PJJ2MhpRZgJdjWhHihZooB+Y0f7Mm6TG6eSsx69uft1NdRn7
-	BMH/XTEe/u9R0q+bNoi9fWplZiajW3yPlu+0ulFnxabkEU6x1jHdSob/sXQ==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4hn7uny4-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:04:21 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-386b8624cf7so2550000eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:04:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gqnhxcHK
+Received: by mail-pj1-f45.google.com with SMTP id 98e67ed59e1d1-3adac5c10e3so2036726a91.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:04:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795478660; x=1796083460; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=FqFPPbSYP82nhsdI2jqUGxCdqdD+UNbXYdolku+tXtM=;
-        b=cvY4ize6ymqBv0xiS2M5UXOkES+fcV5dNfI/JUb8LjN8w8YnFjESEuXeCzz/aH+V/L
-         9shHuWTWWMGpG8KmIiPJhbHeHrLgN8jdOOnm1X+G7gA17I3WPKl2QOVb3CN1oGkXYX9c
-         KgLzJLct+/ox1xRqeafNNgnENhA3HW02Y7V1emd8wHAdRaYZV1QprNqW1GL42zNA4foT
-         c4lK8L359jQImB/RSnpFkO+IQobJ+Xkyb5gjiK5OoBnj1T8TrwnY9Ld+dNhTR2TZHZ99
-         y+EhWYPM0oYLPniPFTFonaI6yP3nfi1MtJeBWWP9S7S8knDryX2mLLHCAd31KJJVNnKy
-         CwPw==
+        d=gmail.com; s=20260707; t=1795478688; x=1796083488; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NrqsfqzthGjJFnZQLwLkp8teKLCeBqgZhrjo/nTNW9k=;
+        b=gqnhxcHKXD3IRaY+uy37bTOm0gMDtN0JowrvVe59uofy9L3GzXkmUymPMHMbYp1nFT
+         XrtL99E1WI/NqFV8PXSeq1CZ2iFUwGadsZIEr5ara+ITENybhtiSLgIHEjh3HB5stw03
+         TlA8A02gMafZr4AyP2p9yz96UQhmIKRVppwxAzHgRdbPOoacBhbpF8MOKpGDuFHCGvn4
+         Pr8erwNvSGoMB2UmNRDwG+AvAT80BBfnlfUiIG0VFSm9eNE7WjIpp4GqIWdepmFHSMhJ
+         kXI36RXcf7jjxTzcMra1CzTgWC1//uKaP7BxQUs7dC81fxIs8307b/a3L6MANmqxILob
+         KgpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795478660; x=1796083460;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FqFPPbSYP82nhsdI2jqUGxCdqdD+UNbXYdolku+tXtM=;
-        b=eWunboXc9ByOAhRHj1vPDB6CeWADzxq1OTlbHtT6eABR4j474vTQC0WUw3OA+dTrWb
-         akeK+stceoA3sMdFZL1Yhc0y2tK5QAVzo+UOvIxCOxYkT5MuEbmxWi92gV28wPVYSYmg
-         C5ZZF/39Hkt0Kpfv26OhmIj4mweLqNIFWILeTxL5pCxjo7Lf+kXx2a6NfB1WE2Ua6dAw
-         EE+yxBPRP9EuYX5sqiTEJOte6jndkaGpSqegZdhhuqa+d+SEPuMNi6mXUIvZq8rzDDJS
-         tiO/RzpP4cNEzR9P7n5cduaj1miIvX7NPOnl9Gd3GjNPZpEmbDxM1N5V3D0dCNoDrBnm
-         +tnA==
-X-Forwarded-Encrypted: i=1; AL+hErHULo+iTszFoNTLJNvekAOkS5lQnCZqhNzUWkzuGtU3PT+U/1gYV04Kn5TDnqGqug/Nt3Xco7Wcoyam0uM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9I3QF59m+mVzpBnDA4K/x54M9KS2D2eJ1DsFRBbFVRJz71Iz4n
-	h9+ncrCzjYEp8O5PrUMR/fXaXna5cFra9FGHJfesABM8HqMRsKUAw1FSvBntn0AaHXrcKsKrnzk
-	c/diA5ilxivItg143cxUwuWM7gC4PSI1h+dod/8pq/Vu9DfyabCs0Clt2ujZRPlqXX2U=
-X-Gm-Gg: AZFdTZfLk1Mm1rBoDMLgjMsooHvRS12VKqama3s8pTo0Uf0FmqUyq8opSoZUHF0/2TB
-	TzWAjKkDeIjqFCdPK+667yq1HLtsoD8TBOyKxOEQ13U3QHJGOYpxmz46eHijfMWNdS7pOUwVdDf
-	YVHkLAjaZOiRZbGqpDgiZ1LI8A+1FZw1An3nw1cEp8t3jM9idENWBZFE1O6ttgzL8gLIs/cpWlX
-	Juh6MBNCQYPn9sFwwayMdloXO2/oFi/Ot1Gov+/Cztg4aKIoLeirvZ5xW7d2OC2h70RHi4alPJ2
-	QsGjcB6plhX/nVZuTxKSemBpiJwKEet7WjZl1E8hjgMDgr7ZsTJOWCZEvBiXgxzYA8unzT8OrVZ
-	iEGvpUaI194yULBJ3d0QnkL53KEtXWWu6ZAdUyB8Dg+JBbootx6/vGpyW7Kpk8wMZfpIOZ6g+si
-	2E8Wzl1v7olJRY8NBtYpXbGcQ/QUo/XsUBVlM=
-X-Received: by 2002:a05:693c:80cd:b0:385:b8f4:756a with SMTP id 5a478bee46e88-385b8f47b36mr13534305eec.12.1795478659147;
-        Mon, 23 Nov 2026 16:04:19 -0800 (PST)
-X-Received: by 2002:a05:693c:80cd:b0:385:b8f4:756a with SMTP id 5a478bee46e88-385b8f47b36mr13534267eec.12.1795478658473;
-        Mon, 23 Nov 2026 16:04:18 -0800 (PST)
-Received: from hu-scheluve-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm41662125eec.6.2026.11.23.16.04.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 16:04:18 -0800 (PST)
-From: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
-To: j.raczynski@samsung.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-        edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-        netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, cs0617.lee@samsung.com,
-        k.domagalski@samsung.com, k.tegowski@samsung.com,
-        abhishek.chauhan@oss.qualcomm.com, lorenzo.bianconi@oss.qualcomm.com,
-        sarosh.hasan@oss.qualcomm.com, hongmei.xu@oss.qualcomm.com,
-        sagar.cheluvegowda@oss.qualcomm.com
-Subject: [PATCH net-next v2 1/3] net: stmmac: separate the TC count from the queue count on XGMAC
-Date: Mon, 23 Nov 2026 16:04:13 -0800
-Message-Id: <20261124000415.4067701-2-sagar.cheluvegowda@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261124000415.4067701-1-sagar.cheluvegowda@oss.qualcomm.com>
-References: <20261124000415.4067701-1-sagar.cheluvegowda@oss.qualcomm.com>
+        d=1e100.net; s=20260707; t=1795478688; x=1796083488;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NrqsfqzthGjJFnZQLwLkp8teKLCeBqgZhrjo/nTNW9k=;
+        b=WJnE+4E4CiS8P+MZbFQiOCpChCFd5OMV9CMdcy/+VTz4sxrClow7xPSj2KKPZb59sH
+         JCE4CNteFGjUw6XNeH6oC1pWlkQhYJImAEkN+2aaTzuYh5EanUsS8ZuDWFEoFkRvytja
+         IafPfZ9cd0s/l4E86lQcFehCAYC2JN6yRnJjK4PU1ADvFMEgIwBiCB/1lymcgnNN81NL
+         wcWZJQ0N/+3cjbHPeHCO+Bhsx0uLq6gSFK5qixUXR+QDUgOOsx/d46yxwKa4iJWt9kL/
+         P6l5zV1Wdmx0/ZSk0dqc35tgDBYJVTj+FjBtFGAnANsLblz5cLLcVkSeuQOWPfS9QEzx
+         Lwbg==
+X-Forwarded-Encrypted: i=1; AL+hErEWeMLfnbptMq7yDhn0+vm3ICf4b8UJfPwdayIa6OJj2oBXvH2S1gVFKGlr2vN7d3HaT6lcllLi7fxixOc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/SKhIM0VdI5LNH1BkHfkyo8whKKxaKjiq+R3zxJSUZo07eDo0U
+	NEWol3zejffLk/uGljbqU0t7lqinweFak2yu5AjDyomna/FHPiby3oQv
+X-Gm-Gg: AZFdTZfG9Xps5MbefxVCP9M2OuuOZD1EzPYtrVLZHpqdlOTGgE4Jr0mWC1dPZPaf6DQ
+	cflYNWwASqzfFsOeUxqaGSD62oMjv5DBQ08yfvvWFUiUq7VoaN2vwWhxab4vP7n72O4jR+6HGFG
+	6yWL4GadCFQpojBX8owqqaFOK0z3Nns6h020DQou8H37tESwbqiWYw+RVCrTUMM8in8EEVXrQkK
+	KRf94SExSzgDiDDErgWu5wD7yG3Ex8FTMQ21PQ9ONCSqc8s+JKQG/8uwQMQCfzqoC6N0RU+OtYO
+	knx3SlGsmlJZ92LeWCun/UJORHWaHjJxn7gblJxk5hSL2p/1uS1s9xsqcVYzTyNghvyChUaocDj
+	8p7bT6jwzqs+PzgWkp0RuBrBlkhtt8m7EmjEV19lvS5QyToq6h40vVQxwiE6IyyXb1+c+hK83x5
+	GA5qSL5+75mXmT7+liJuTknhiV9JtZDaICznPKpaS0Y3kR7CgUqPosB2qHQRTVM5uOwWqfZl/DM
+	EzhM/6p+7aIIPT+OBUikGP49iOyiq0wO9ipCTPeJjkBZ3TfAmOYv5dHEJAE7mvQLMhNaaQJYBpn
+	Mc9lj7RwNfcjxmZ26gXqguAqITG6i6m6KytA9chPVT7n
+X-Received: by 2002:a17:90a:ec88:b0:3b3:b0f4:1bed with SMTP id 98e67ed59e1d1-3b41c8d4855mr11016819a91.19.1795478688087;
+        Mon, 23 Nov 2026 16:04:48 -0800 (PST)
+Received: from ?IPV6:2601:600:a482:7d70::b4f9? ([2601:600:a482:7d70::b4f9])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b704cfesm7096451a91.1.2026.11.23.16.04.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 16:04:47 -0800 (PST)
+Message-ID: <83ed6809-ff39-44af-8e3b-a8affa622177@gmail.com>
+Date: Mon, 23 Nov 2026 16:04:46 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,260 +92,187 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=Ls0HWXdc c=1 sm=1 tr=0 ts=6b04d485 cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=VwQbUJbxAAAA:8
- a=hD80L64hAAAA:8 a=EUspDBNiAAAA:8 a=-GhTu_bopkbqAbyB7lEA:9
- a=PxkB5W3o20Ba91AHUih5:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA5NSBTYWx0ZWRfX+BECNJkB1ly0
- PjTqtYwBpr2SC/nXOJHQxUvctyDRkLRdtNy7rwOTq9qEeQU4QefNZYMrJ1rOSCCckL7pnr+gJTX
- iK1wb8HZ1JWbxGURX2IoYZF0LtlnAD2NrLog2XVyHPL/pQXYvtaisG4YYX3UJyl3SVqACsIR6K5
- OKkgXwA+YwDkv6kYDSjEXAGR/j3dLFuCAwrb+WAYnAGFxwZxzgjxnH7nTvXNo39X+VggpnuSwIF
- 0iZU/NuJWw9oGFxVAG0N/G39AfrsIi7+5Cs0acICqOYhXlUzFeTvWxFkK+yz8RzeSMmqr3NuGuK
- TgUAXnrNz0QXrlr0YcEgNoFDQ5NJ8l1JFhesrYCqpXrKIg9Qk4amM9fNkLE6QhJjgCxd3VWGUX/
- NMbmiRfBJ6SpFjWkRQHAeHUj4nxji3/BTdcOjeT/AIWLXYyoxCsvqP+ahJG/2/eCd2PmYi8aPaL
- tM/AUEXDIhq1jStA6aA==
-X-Proofpoint-GUID: vnA1zpq3gVCNn_zEoFFKzu13E6-nISNc
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA5NSBTYWx0ZWRfXwymZNURTNQh6
- hN4bX7J9DQguBOXu911tyeN6JI2H/dZQhDDle4iPx3qWerZdxhocWuN89u/8BJZBwDjLw2xlxn3
- jjPEi3xaQYnU6/osO5e6JMFQPpJidZc=
-X-Proofpoint-ORIG-GUID: vnA1zpq3gVCNn_zEoFFKzu13E6-nISNc
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_05,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 malwarescore=0 suspectscore=0
- priorityscore=1501 spamscore=0 phishscore=0 lowpriorityscore=0 adultscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611230095
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: wwan: iosm: always send the host sleep message
+ on suspend
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, loic.poulain@oss.qualcomm.com,
+ ryazanov.s.a@gmail.com, johannes@sipsolutions.net, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, m.chetan.kumar@linux.intel.com,
+ mail@maciej.szmigiero.name, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20261122050039.861287-1-davidlwesten@gmail.com>
+ <179541288475.3135.162337854159176054@kernel.org>
+Content-Language: en-US
+From: David Westen <davidlwesten@gmail.com>
+Autocrypt: addr=davidlwesten@gmail.com; keydata=
+ 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
+In-Reply-To: <179541288475.3135.162337854159176054@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-The driver assumes one traffic class per queue and bounds every TC
-based register write by {rx,tx}_queues_to_use. Newer XGMAC hardware
-has more queues than traffic classes (up to 16 queues and 8 TCs),
-and the number of TCs is reported separately by the HW feature
-register. The result is writes to TC registers that do not exist.
+On 11/22/26 9:48 PM, netdev-bot+sashiko@kernel.org wrote:
+> [Severity: Low]
+> 
+> This removes the only callers of ipc_pcie_suspend_s2idle() and
+> ipc_pcie_resume_s2idle(). They are __maybe_unused, so a W=1 build won't
+> warn. ipc_imem_pm_s2idle_sleep(), ipc_protocol_s2idle_sleep() and
+> ipc_pm_set_s2idle_sleep() become dead code along with them.
+> 
+> ipc_pcie->d3l2_support is also still filled from the ACPI _DSM in
+> ipc_pcie_probe(), but nothing reads it any more. Should these be removed
+> too?
+> 
+> There is also a behaviour change. ipc_pcie_suspend_s2idle() was the only
+> code that set bit 0 of ipc_pcie->suspend, and that bit gates IRQ
+> processing:
+> 
+> [...]
+> 
+> On D0L12 platforms, MSIs that arrived between the suspend and resume
+> callbacks used to be dropped. Now they go to ipc_imem_irq_process() and
+> the tasklet. Was this intended?
 
-Add stmmac_num_tc(), which returns the number of TCs for the queues
-in use and falls back to the number of TX queues on cores that do not
-report it, and use it where the register is per TC:
+Yes. v2 removes the s2idle helpers, the _DSM read, d3l2_support and the
+suspend bit. The commit message says that MSIs arriving between the
+suspend and resume callbacks are now processed, as they already were
+with D3L2.
+> [Severity: Low]
+> 
+> Is this comment true in general? For platform-manageable devices,
+> pci_target_state() returns whatever the firmware chooses:
+> 
+> [...]
+> 
+> So firmware can choose PCI_D0. The commit message describes this as
+> platform-specific ("here chooses D3hot"). The comment turns it into a
+> general rule and uses it to justify ignoring d3l2_support.
+> 
+> Where firmware keeps the WWAN function in D0 for s2idle, the modem would
+> now get the ENTER_SLEEP/EXIT_SLEEP handshake while it stays in D0/L1.2.
+> The notes say that case was not tested, and neither were the XMM7560 or
+> platforms where the doorbells work.
 
-- TX queue weight, CBS (replay on resume) and TX priority (TC_PRTY):
-  configure only the existing TCs.
-- ETS: the loop was bound by MTL_MAX_TX_QUEUES, use the 8 TCs the
-  hardware can have. This also keeps it from walking off the TC
-  registers when the macro is raised.
+No, v2 says the PCI core "may" put the device into D3.
 
-Other registers are per queue and only exist for the first 8 queues
-because they are per 802.1Q priority: Qx_TX_FLOW_CTRL and the PSRQ
-fields. Bound them by STMMAC_NUM_PRIO_QUEUES instead of the TC count,
-as the TC count is not the limit for them. Writing Qx_TX_FLOW_CTRL
-past queue 7 would hit RX_FLOW_CTRL and MAC_RxQ_Ctrl4/5. Reject VLAN
-priority filters that name a queue outside this range, and only walk
-those queues when updating the PSRQ assignments.
+> [Severity: Low]
+> The Fixes: tag points at be8c936e540f ("net: iosm: power management").
+> That commit only added iosm_ipc_pm.c and iosm_ipc_pm.h.
+> 
+> The code this patch changes lives in iosm_ipc_pcie.c. That covers
+> ipc_pcie_suspend_cb() and ipc_pcie_resume_cb(), including the switch
+> on ipc_pcie->d3l2_support that picked between the s2idle doorbell path
+> and the host sleep message path. As far as I can tell, all of it came
+> in with 7e98d785ae61 ("net: iosm: entry point").
+> 
+> Should the tag be this instead?
+> 
+>   Fixes: 7e98d785ae61 ("net: iosm: entry point")
+> 
+> There is no runtime effect. But the stable tooling and anyone bisecting
+> later rely on the tag to find the commit that introduced the behaviour
+> being changed, so it is worth pointing at the right one.
 
-The checks are in the callers, which can return an error to the user,
-instead of in the callbacks, which are void.
+Yes, fixed in v2.
 
-Link: https://lore.kernel.org/netdev/20260601162537.553512-2-j.raczynski@samsung.com/
-Signed-off-by: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
----
- .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |  1 +
- .../ethernet/stmicro/stmmac/dwxgmac2_core.c   |  2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  | 17 ++++++++++++++
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 22 ++++++++++++-------
- .../net/ethernet/stmicro/stmmac/stmmac_tc.c   | 21 +++++++++++-------
- 5 files changed, 46 insertions(+), 17 deletions(-)
+> [Severity: Medium]
+> 
+> Every platform now goes through
+> ipc_pcie_suspend()->ipc_imem_pm_suspend()->ipc_protocol_suspend(). That
+> includes D0L12 platforms and platforms without the _DSM. What happens when
+> the handshake fails?
+> 
+> [...]
+> 
+> Could host_pm_state be rolled back on failure, and then either fall back
+> to the doorbells or fail the suspend?
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-index f8ab347f7b5b..77a54792893b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-@@ -291,6 +291,7 @@
- #define XGMAC_TTC			GENMASK(6, 4)
- #define XGMAC_TXQEN			GENMASK(3, 2)
- #define XGMAC_TSF			BIT(1)
-+#define XGMAC_MAX_TC			8
- #define XGMAC_MTL_TCx_ETS_CONTROL(x)	(0x00001110 + (0x80 * (x)))
- #define XGMAC_MTL_TCx_QUANTUM_WEIGHT(x)	(0x00001118 + (0x80 * (x)))
- #define XGMAC_MTL_TCx_SENDSLOPE(x)	(0x0000111c + (0x80 * (x)))
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-index 09194b9d8322..e50c0f4c482d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-@@ -235,7 +235,7 @@ static void dwxgmac2_prog_mtl_tx_algorithms(struct mac_device_info *hw,
- 	writel(value, ioaddr + XGMAC_MTL_OPMODE);
- 
- 	/* Set ETS if desired */
--	for (i = 0; i < MTL_MAX_TX_QUEUES; i++) {
-+	for (i = 0; i < XGMAC_MAX_TC; i++) {
- 		value = readl(ioaddr + XGMAC_MTL_TCx_ETS_CONTROL(i));
- 		value &= ~XGMAC_TSA;
- 		if (ets)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index fcc395321816..24bbe72e0071 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -57,6 +57,11 @@ struct stmmac_tx_info {
- 	bool is_jumbo;
- };
- 
-+/* Number of 802.1Q priorities. This is also the number of queues that have a
-+ * per-priority register (PSRQ field, Qx_TX_FLOW_CTRL) on DWMAC4/XGMAC.
-+ */
-+#define STMMAC_NUM_PRIO_QUEUES	8
-+
- #define STMMAC_TBS_AVAIL	BIT(0)
- #define STMMAC_TBS_EN		BIT(1)
- 
-@@ -441,6 +446,18 @@ static inline bool stmmac_check_timestamp_cap(struct stmmac_priv *priv)
- 	return priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp;
- }
- 
-+/* Most cores have one traffic class per queue, but newer XGMAC can have more
-+ * queues than traffic classes (the number of TCs is reported by the HW
-+ * feature register).
-+ */
-+static inline u32 stmmac_num_tc(const struct stmmac_priv *priv)
-+{
-+	if (!priv->dma_cap.numtc)
-+		return priv->plat->tx_queues_to_use;
-+
-+	return min_t(u32, priv->dma_cap.numtc, priv->plat->tx_queues_to_use);
-+}
-+
- static inline bool stmmac_xdp_is_enabled(struct stmmac_priv *priv)
- {
- 	return !!priv->xdp_prog;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index ca4c7fb11b73..5d02f7034a7a 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1023,7 +1023,11 @@ static int stmmac_legacy_serdes_power_up(struct stmmac_priv *priv)
- static void stmmac_mac_flow_ctrl(struct stmmac_priv *priv, u32 duplex,
- 				 unsigned int flow_ctrl)
- {
--	u8 tx_cnt = priv->plat->tx_queues_to_use;
-+	/* The per-queue flow control registers exist for the first
-+	 * STMMAC_NUM_PRIO_QUEUES queues only.
-+	 */
-+	u8 tx_cnt = min_t(u8, priv->plat->tx_queues_to_use,
-+			  STMMAC_NUM_PRIO_QUEUES);
- 
- 	stmmac_flow_ctrl(priv, priv->hw, duplex, flow_ctrl, priv->pause_time,
- 			 tx_cnt);
-@@ -3531,11 +3535,11 @@ static void stmmac_set_rings_length(struct stmmac_priv *priv)
-  */
- static void stmmac_set_tx_queue_weight(struct stmmac_priv *priv)
- {
--	u8 tx_queues_count = priv->plat->tx_queues_to_use;
-+	u8 num_tc = stmmac_num_tc(priv);
- 	u32 weight;
- 	u8 queue;
- 
--	for (queue = 0; queue < tx_queues_count; queue++) {
-+	for (queue = 0; queue < num_tc; queue++) {
- 		weight = priv->plat->tx_queues_cfg[queue].weight;
- 		stmmac_set_mtl_tx_queue_weight(priv, priv->hw, weight, queue);
- 	}
-@@ -3548,12 +3552,12 @@ static void stmmac_set_tx_queue_weight(struct stmmac_priv *priv)
-  */
- void stmmac_configure_cbs(struct stmmac_priv *priv)
- {
--	u8 tx_queues_count = priv->plat->tx_queues_to_use;
-+	u8 num_tc = stmmac_num_tc(priv);
- 	u32 mode_to_use;
- 	u8 queue;
- 
- 	/* queue 0 is reserved for legacy traffic */
--	for (queue = 1; queue < tx_queues_count; queue++) {
-+	for (queue = 1; queue < num_tc; queue++) {
- 		mode_to_use = priv->plat->tx_queues_cfg[queue].mode_to_use;
- 		if (mode_to_use == MTL_QUEUE_DCB)
- 			continue;
-@@ -3591,7 +3595,8 @@ static void stmmac_rx_queue_dma_chan_map(struct stmmac_priv *priv)
-  */
- static void stmmac_mac_config_rx_queues_prio(struct stmmac_priv *priv)
- {
--	u8 rx_queues_count = priv->plat->rx_queues_to_use;
-+	u8 rx_queues_count = min_t(u8, priv->plat->rx_queues_to_use,
-+				   STMMAC_NUM_PRIO_QUEUES);
- 	u8 queue;
- 	u32 prio;
- 
-@@ -3611,9 +3616,10 @@ static void stmmac_mac_config_rx_queues_prio(struct stmmac_priv *priv)
-  */
- static void stmmac_mac_config_tx_queues_prio(struct stmmac_priv *priv)
- {
--	int i;
-+	u32 num_tc = stmmac_num_tc(priv);
-+	u32 i;
- 
--	for (i = 0; i < priv->plat->tx_queues_to_use; i++)
-+	for (i = 0; i < num_tc; i++)
- 		stmmac_tx_queue_prio(priv, priv->hw,
- 				     priv->xmit_qdisc.prio[i], i);
- }
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-index 5df6ef1dd438..d18d064b42ad 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-@@ -686,12 +686,16 @@ static struct stmmac_rfs_entry *tc_find_rfs(struct stmmac_priv *priv,
- 
- static void tc_update_vlan_prio(struct stmmac_priv *priv, u8 prio)
- {
--	u8 prios[MTL_MAX_RX_QUEUES] = {};
-+	u8 prios[STMMAC_NUM_PRIO_QUEUES] = {};
- 	struct stmmac_rfs_entry *entry;
-+	unsigned int rx_cnt = min_t(unsigned int, priv->plat->rx_queues_to_use,
-+				    STMMAC_NUM_PRIO_QUEUES);
- 	unsigned int queue, i;
- 
--	/* Restore platform assignments with the same precedence as setup. */
--	for (queue = 0; queue < priv->plat->rx_queues_to_use; queue++) {
-+	/* Restore platform assignments with the same precedence as setup. Only
-+	 * the first STMMAC_NUM_PRIO_QUEUES queues have a PSRQ field.
-+	 */
-+	for (queue = 0; queue < rx_cnt; queue++) {
- 		if (!priv->plat->rx_queues_cfg[queue].use_prio)
- 			continue;
- 
-@@ -706,19 +710,19 @@ static void tc_update_vlan_prio(struct stmmac_priv *priv, u8 prio)
- 	 */
- 	list_for_each_entry(entry, &priv->vlan_prio, vlan_node) {
- 		/* The RX queue count may have been reduced with ethtool. */
--		if (entry->tc >= priv->plat->rx_queues_to_use)
-+		if (entry->tc >= rx_cnt)
- 			continue;
- 
--		for (queue = 0; queue < priv->plat->rx_queues_to_use; queue++)
-+		for (queue = 0; queue < rx_cnt; queue++)
- 			prios[queue] &= ~entry->vlan_prio;
- 		prios[entry->tc] |= entry->vlan_prio;
- 	}
- 
- 	/* Install the new assignment before clearing the previous queue. */
--	for (queue = 0; queue < priv->plat->rx_queues_to_use; queue++)
-+	for (queue = 0; queue < rx_cnt; queue++)
- 		if (prios[queue] & prio)
- 			stmmac_rx_queue_prio(priv, priv->hw, prios[queue], queue);
--	for (queue = 0; queue < priv->plat->rx_queues_to_use; queue++)
-+	for (queue = 0; queue < rx_cnt; queue++)
- 		if (!(prios[queue] & prio))
- 			stmmac_rx_queue_prio(priv, priv->hw, prios[queue], queue);
- }
-@@ -749,7 +753,8 @@ static int tc_add_vlan_flow(struct stmmac_priv *priv,
- 	if (!dissector_uses_key(dissector, FLOW_DISSECTOR_KEY_VLAN))
- 		return -EINVAL;
- 
--	if (tc < 0 || tc >= priv->plat->rx_queues_to_use) {
-+	if (tc < 0 || tc >= priv->plat->rx_queues_to_use ||
-+	    tc >= STMMAC_NUM_PRIO_QUEUES) {
- 		netdev_err(priv->dev, "Invalid traffic class\n");
- 		return -EINVAL;
- 	}
--- 
-2.34.1
+Agreed, the state is left at SLEEP_WAIT_D3. v2 adds a patch that sets it
+back to ACTIVE when the modem doesn't report itself active in time, as
+the path where sending ENTER_SLEEP fails already does.
+
+Suspend still continues after that. Failing it would let a modem that
+doesn't answer block every system suspend, and falling back to the
+doorbells would use the path this XMM7360 doesn't survive.
+
+An ENTER_SLEEP that times out still counts as success, since
+ipc_protocol_msg_send() returns 0 on a timeout. That's older than this
+series and affects every message the driver sends, so I'd rather leave
+it for a separate change.
+
+> [Severity: Medium]
+> 
+> Every system suspend now depends on ipc_pm_wait_for_device_active(). Can
+> it lose the wake ack?
+
+Yes, and the signal case is real too. v2 adds a patch for both: it sets
+the bit before testing ap_state, adds the pairing barrier in
+ipc_pm_on_link_wake(), reinitializes the completion before each wait,
+and waits uninterruptibly, like the wait for the ENTER_SLEEP reply does.
+
+> [Severity: Low]
+> 
+> SIMPLE_DEV_PM_OPS(iosm_ipc_pm, ipc_pcie_suspend_cb, ipc_pcie_resume_cb)
+> binds these callbacks to .freeze/.thaw/.poweroff/.restore as well as
+> .suspend/.resume. On D0L12 platforms, hibernation therefore also moves from
+> the doorbells to the ENTER_SLEEP/EXIT_SLEEP handshake. Is that intended?
+> 
+> [...]
+> 
+> S3 on D0L12 platforms changes too.
+
+Since commit 0b6f6593aa8c ("net: wwan: iosm: Fix hibernation by
+re-binding the driver around it") the driver is unbound before
+hibernation, so hibernation only reaches these callbacks on older
+kernels. v2 says so in the commit message, together with the hardware
+it was tested on and what wasn't tested.
+
+S3 changes the same way. Where S3 cuts the card's power, as here, the
+modem reboots and resume fails with either protocol; my S3 series
+handles that case separately.
+
+Thanks,
+David
 
