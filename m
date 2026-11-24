@@ -1,108 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.75.95
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795513174;
-	b=sxKWeUOYDBY40eJSjPmtuKf4v3q27B2VIeEctvZWQ0rChq1fAhWyRuUiS7OIyPUf/74J
-	 JkGfbZ4M/ljSZGmW22DIfwM20BJcL/JqFdPudsogW73HNBa4eAGhw4laB4Sa4LdcTUD5S
-	 xloTHUORR9nRje6D7FsEwyz8WYlaY9Dnwnqrx0WZgU3MGDEbpnAjiWVsiXgotiQImdzs3
-	 45Nl2CLBc6iOGmtUn3YPNYHJ0uohnIeaCOss/fsfiONXy0re7qq1SefOWVrtgGqfMGAg8
-	 Ji9SL9liXKXcqXBQXnF9DLtPQvdZQgKSMdBKYzu/LQNhs0S6famvarHcSlwy+VQPEsA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513174;
-	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
-	 Received-SPF:Received:Received:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:Content-Type:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=L5/ilYjNIdMzPVov6bsQbB0+i0Mj+E7hq2zbDupkePw=;
-	b=XHqKi0lbeF1lDKUtjF/wMfF98+NxNpU9h2X+pLH9c/jQxAQUtC2gvcYujYfgMfV8/xEX
-	 anrlxn4W/Pe8JPk8xrxM2UIojVgFmHQV1BpLcJCrGOwWxLfJj0NHFBC0XJdlkVHbj+dgI
-	 zFGwZqu34jsRjaSj2OH8q5ekPyqK5EI4OQbnRGGxOm+BV1I7Ed+/Ota/qR+unm79ufmoB
-	 aC98nuDb9KInMSEXem4MpgvpNfhltBS7i3y6+gLEKb6SZzruVPYqfzXQJB03Tvfse3yfC
-	 Qaq24lXb5q4nPb87YclEmqS09+EhoQUWoI+jDOJ5xt6GuL8o7sh1K3koDQA/YkISi6w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=cixtech.com;
-	spf=pass smtp.mailfrom=cixtech.com;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.75.95
-Received: from OS8PR02CU002.outbound.protection.outlook.com (mail-japanwestazon11022095.outbound.protection.outlook.com [40.107.75.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795513210;
+	b=0w8Yo/+jaJlwNwHR02zzB5ecvNk9fhEIumbRssYe55dOIETaWDwZJIrsT6c6/iIlRj1w
+	 9wD7qX7OvCQWc/lE4F8DTML8+//hCubVgGTbXcdk8nw+uhNANMABso8S5FpYHKUJJKDDh
+	 JACnVQQvnLcSBtw1DgCUxsus4Z84+faOLc0isvGCElbUCQTUEUwdpWeiloFZvAwDlhDVI
+	 PUfzKaQxlqhdG/hO9s/H3D/IrHgmtWg0pTD9ft8rYw6ZkofqSr2ICj5VOUZ4mpc/LOBc0
+	 E6wUjVwuMhlMR+6+tsNVDX+MR/RjyPk3tz6rnFXfU01ngE7r9E/wkNXALw9fOjEqzRw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795513210;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=s6J8UzkbLV15LGL0oLAQJk9/vn7+grYl4GUZDfRGgJE=;
+	b=SLnzY4RFh62RUm94YXY333ABsRLPa4zCwDcSMrF9tIzxE1ndNK1hl/ovK+EbbPwSLTAb
+	 RL3i51UivepU+ZRaWk9d35tz1B5kG/F0LNC0LhfSzurvgeSde9XGu9ivQDjIg0nsjJ06a
+	 blYmo6inFgW/CGDbUjX7BlS8xBb74+ubquRm3+tWlzOMYwuaCwPLLHkRMGVJQ6l8tVabZ
+	 Qi5949wG1YysreVeIUHJslD4N/o2Mh7LfJKXuQ2hHs8GBNZtLUjhBSvHJFe12YxynnJv5
+	 0Hx1CTZWmqbr27NB3mYuxJCnpPj4I8rIa3moY2nOdF5xjQd5pSeRUQjI62CuDbOcpJA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eWGKozKA;
+	arc=none smtp.remote-ip=74.125.82.42
+Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3BF7606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:39:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3BF7606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uZQPZrcFhD2iwF/X7YX7YUEkImjS1jPEGMQq3d03GJ37sqUQvUVOZaMgDJ5qvYYhH5F7znMqeERlifaJTq+K8CMQexLQhJGSgeN/htl5ieuaN1UqwVxP19PWAnqeueb3+IRE0otj3wkf4KcpCPxykCInpJpJI0nfien/AtE8o7e6eQGUrN7Fm09haUKU8RzQDkEZ0un9Yeujuc5KAR9LwFIC0venYH1ApZeY2rwfxLxaNtm8hN2ZKLIA2xJuiSPukuTQJU3jXIV3ov8IZGa9wEXs2rJH0/qfVJoa1SNykMTEcK4HG6zsYpsfBeLg9zs/IHZSo22e/zT0XrzuZ95cSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L5/ilYjNIdMzPVov6bsQbB0+i0Mj+E7hq2zbDupkePw=;
- b=xBJHyOJ4ehwpzmeU/Ys6j58ErFl2+P9X1U9YuWp2v6/TMYT3E1nSqWeBwQZXJHQbE0NEXLYU2JI+5ldgOjTicRt9z8JAWaIdMOj0K2YDVgsFkSuXAl677s6Lg7KgEEGxOpdaWo7QEPzp8jQ/ZfnF7wHLseQN5jsIn/i3cuMg8TsweJR/vKiwtGryJCo9QEYqDIAGVsfwU158JyJyZH9s0RG/rqOYTYA1zbHAYQs5+QMzRNiQcRpymZ5Mm/nYQLyNHyqlBnAnmZpkhydTRnkrUOlgT5U0NqVyJkVN79RQD/m29jgC29exEjru07oBMUbHjfx544Jzi1cvis/MhjDMTw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from OS3P301CA0005.JPNP301.PROD.OUTLOOK.COM (2603:1096:604:21d::12)
- by SEZPR06MB7188.apcprd06.prod.outlook.com (2603:1096:101:233::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.3; Tue, 24 Nov
- 2026 09:39:30 +0000
-Received: from OSA0EPF000000C7.apcprd02.prod.outlook.com
- (2603:1096:604:21d:cafe::37) by OS3P301CA0005.outlook.office365.com
- (2603:1096:604:21d::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Tue, 24
- Nov 2026 09:39:29 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- OSA0EPF000000C7.mail.protection.outlook.com (10.167.240.53) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 09:39:29 +0000
-Received: from localhost.localdomain (unknown [172.16.66.33])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 474AA40920E1;
-	Tue, 24 Nov 2026 17:39:28 +0800 (CST)
-From: Luo Liu <Luo.Liu@cixtech.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	dri-devel@lists.freedesktop.org
-Cc: Ayan Halder <Ayan.Halder@arm.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 2/4] drm/komeda: Use drmm_mode_config_init()
-Date: Tue, 24 Nov 2026 17:39:26 +0800
-Message-Id: <20261124093928.3220071-3-Luo.Liu@cixtech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261124093928.3220071-1-Luo.Liu@cixtech.com>
-References: <20261124093928.3220071-1-Luo.Liu@cixtech.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92FC4606A336
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:40:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92FC4606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eWGKozKA
+Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1b546061d58so9650879c88.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:40:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795513206; x=1796118006; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=s6J8UzkbLV15LGL0oLAQJk9/vn7+grYl4GUZDfRGgJE=;
+        b=eWGKozKANII+Rz9RAMODyX02fxfRFZDdMm+qH7cLm86ZlqKniPTp6Xgy9L+Liz+VMH
+         yxlJ3EZP14Th7dP8mickQ9yfnLqxmFAKwnARWEav0gs0chRlQyyir77roVD2FxCMMnqY
+         7iZpy7G6Y198ny1E7wPkdDmjC2WLOBuUoSc7zGKaZhluL2RIaQJFa27OVXjnrSb2Ya3D
+         jgmNxMoxisj3XqgJONGXOdpXUKcAaxxNQ+uI6tqXMpsEtLG/xTIPFW6/pTvC/Th7JsBf
+         DdK/uKFCjaskI8/sfGm+5+aDUHnFdBdsppn4HZKgIV1pO2SsvTRWX2S1iVb1OQuenbU5
+         bI8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795513206; x=1796118006;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=s6J8UzkbLV15LGL0oLAQJk9/vn7+grYl4GUZDfRGgJE=;
+        b=zZkfeoWZWkC82n4nmdPmVxf6xpJxQH6dfsSkH4FNWNy2jIVu5vnfgpnYbUbR5PBkzA
+         yecNesQEz93oAjsj5vtpuO90SQSKdhMCTEIfKo5FYpxuwMu8t5gdZxg86qPny2GUbEG6
+         IwEMShMueYPTd3CmlTFZNcdjhcb7sN9SG+w6JGEhOnhSDYti1fNVWb9ytbj9IguUqnlU
+         jdp8YZnrFU5moRqBbx7cYitDds1IoNZWCtuxcVEs6nfVkcnLvZX8aPBA58yQMbrLDjXM
+         V9odIXAQSsIZHgkVCrEAOnO5nevvnq4fvgcVEymwB32g0W+MgXK5ycB6tkzavqH67hg0
+         LXZA==
+X-Forwarded-Encrypted: i=1; AL+hErEPmO84RZtk18vyo/B7O+nThHXybqD/C5LCSbHqwiCou1WDSucAZRNo5QGzW+7RMcFaMXEINlNDxT98RzM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Ix60THjI4K9x99KFFNOXFFx48DQQeaqpARDoHibmUdczOHD9R
+	KK733QRBkm7Xu2H/2e3EHgSU+yrhmuEMMAMMbgKcA1nQagXI9zlulPn8ijmSrsFi
+X-Gm-Gg: AZFdTZcyAmZxT9ZPDwbW7N709DYC+tK7Jxkzx2mPFGiaRlD5zLx+Qn2LO8BCRm3Guv1
+	eZch96VCCayYBbVfXed3XkpuLACz4pmXfDnb0iyBafOgxVy9YL2O87PJFEIOXB7yikiH1P6JlJ6
+	Zk9YDbLqIrBidGZ/40ypWqnVH9ik/4UM2AS9Cx9fl8ofcIhaUqa3UlpP/B865eYb+ghAHXROBnc
+	thDk0d3iAYjeED0/+IVsBYr3/bT2cWpDzInM0AtKJsJWOPy3QFZYqvys+xa/AXW7yztPZSNrY6W
+	0hbBrYcNynH8h1QnlFyocmqTiFznaRsdnr0vE0HT/lTYC85DfKlDDP3q7eoIoiFR04Wl9JGM80u
+	8jwQqQnx8HhtcaZoQRaBl9m9mlrlTMWCU75h4zq/2Cekwap8VGdRdL1LupTCyuPdhyFPvPLYx3A
+	HE9XuNWeX8mgP7G/aQSTZj6MSBVXtPT+eUPe1hmi1PPsZY0ZEJyunBnjMMemYDnYNrrKnSwttSa
+	v/KCA9ojL4W0d4/L254vqG1KmINkVj52S3i62SBz9gxpvBrmI/TppYFwgGSpOYtRV+Xc0lr3sjw
+	v5Gpd7NVMQpzdHGaIl5hKIt6oBYmfFDE2p6e1swLtoq2A4SO5ogZ
+X-Received: by 2002:a05:7022:294:10b0:19a:bbe8:41a8 with SMTP id a92af1059eb24-1b5568c876dmr14069138c88.20.1795513205570;
+        Tue, 24 Nov 2026 01:40:05 -0800 (PST)
+Received: from localhost.localdomain ([103.178.205.105])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c3052sm33847116c88.1.2026.11.24.01.40.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 01:40:05 -0800 (PST)
+From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+To: xuhx@hust.edu.cn
+Cc: broonie@kernel.org,
+	lgirdwood@gmail.com,
+	linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com
+Subject: Re: sound: core: jack kcontrol is published before jack_kctl allocation, and the failure path frees it without removing it from card->controls (null-ptr-deref)
+Date: Tue, 24 Nov 2026 09:39:42 +0000
+Message-ID: <20261124093942.2963-1-sreekuttan2156239@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <28bb004a.2ad18.1a2023a6d95.Coremail.xuhx@hust.edu.cn>
+References: <28bb004a.2ad18.1a2023a6d95.Coremail.xuhx@hust.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,214 +102,29 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSA0EPF000000C7:EE_|SEZPR06MB7188:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 6d5007b9-49db-450f-470d-08df4a0ed658
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|82310400026|42112799006|376014|36860700016|1800799024|7416014|18002099003|22082099003|6133799003|56012099006|261028144727099003|261009221727099003|261021123027099003|261026140227099003|261102123227099003|261026121527099003|261022075727099003|261009223027099003|261009221227099003|261009223327099003|261022105027099003|261021121427099003|261009220027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	i66o/a0BKqfwTfMHNUzQj2WfxYXZdf9JDk7/zH7e1n2fPFEpRBwZ9ESeIB54bPnM41wUQKZ+3AblSkjIyMSOYcwnV78/7mBOxNt2xOxfMQvY3Lc3mW7fFaZxhVGCYOVf+xwm1gkpXvS4RSw2XekkmH11ZVqi2mj2xmrhftcAqyh9ny67DjgQelN+66yRyb8CM7hVCVfV2Q/8pqeg31XkHCGIZurTD5UjTc7rkYuDNuzXL9xTs8pKjE/P5qGz4BYiFyEYSuBK1JR9XqwI+lrUknSdO9VmIAL0vg5mStWdqGNXHXARYfBlrllY8HTJJJ84HKLAo+njMPbmgp3VHQQdaY7gndQpxZZM+4zh0prieqOoe1IrMwh8RnzNjSW8Zkr5yQCd7/2RYDmRp6G1lWIlY4Y3g8HT1G+S2eE9PUw8nitulJa085kyJjj3tDRs8G/YWHxPMOoDitTNa3y8AcLysZq741ioSkZ3YgT7OJCiPJ5bdK8BuPvlrH65809nkTFdK/HrvBmbiEU8jRV8I3f0EGAHU5sALTz/jJMJTinaR6+z7/GHB0l+z6ATMGldg/3mjlnAsi1Si5DYpSJmkSNm5n9eoezH7Sl33dwue4tzLJ/WPuklb7P0Imh3HmqCYYonnToE2CYeumhEEOxaypW3r3oTAOcgKO5+ImaLIqUE3s4dCjEmgik845M2HKyWyRGPJm6O4cXnOGDRXtj1SdKNOA==
-X-Forefront-Antispam-Report:
-	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(42112799006)(376014)(36860700016)(1800799024)(7416014)(18002099003)(22082099003)(6133799003)(56012099006)(261028144727099003)(261009221727099003)(261021123027099003)(261026140227099003)(261102123227099003)(261026121527099003)(261022075727099003)(261009223027099003)(261009221227099003)(261009223327099003)(261022105027099003)(261021121427099003)(261009220027099003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	mjKtjyxxiLOQS/zTz9S5jzszYQXzfG6BswNZkIjBAZxpZo1x7OyT39hPGNpgD5yNvhAgY3mIaT2ME2JI7iVvMHbioB2bjEFkg6DO2m5jkYRQ5uzKmPLkqplr0n3RlTBfCoe6IuCwJoVuq9KhGVhi1ifAKmGNVuKlpqmTU5U0xbuxlZ4NwIIm1takUT6kIlFGrqgE3nf18UGb5kaQG+5r+z+xrSTSyz/jUP0ZSzDBoy0g9DmOoSXVsPse8n0aY7Ckxg+qTONl+4Vpq81YY5NqH2zLreZx7itO3VcQUSQF145IYyf9CnHYnGLwmhA0xxv5zyuKjkJFjQzcDYzowGexFME6x4C+DS0Qo9GdIAV+ySAC8IVWpUT5qU31NkpOYwaYdYkXEGoaqogCFwsssujnyAyHu8BErriFVGbxVCYEhM1Snq7fA60eMOnc3S7MDMyE
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 09:39:29.1135
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6d5007b9-49db-450f-470d-08df4a0ed658
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	OSA0EPF000000C7.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB7188
 
-drm_bridge_connector_init() creates the connector with
-drmm_connector_init(), which does not allow a ->destroy hook and registers
-its own cleanup action instead. Calling drm_mode_config_cleanup()
-explicitly drops the connector's last reference, so drm_connector_free()
-ends up calling a NULL ->destroy pointer. That happens on the
-komeda_kms_attach() error paths, and on unbind as soon as no other
-component holds a connector reference.
+Hi Hanxiang,
 
-Let DRM release the mode configuration: switch to drmm_mode_config_init()
-and drop the explicit drm_mode_config_cleanup() calls. The managed cleanup
-is registered before the connectors are created, so it runs after the
-connector cleanup actions and finds an empty connector list.
+Thanks for the detailed report and the KASAN reproducer.
 
-The mode configuration teardown now happens after komeda_kms_detach() has
-returned, so komeda can no longer rely on drm_mode_config_cleanup()
-detaching the encoders' bridges before komeda_kms_cleanup_private_objs()
-walks mode_config.privobj_list - the bridges are private objects there as
-well, and finalizing them a second time when the encoders are cleaned up
-would corrupt the list and free their state twice. Since the komeda
-private objects belong to the pipeline components, finalize them by
-walking the pipelines instead of the shared list.
+> The same failure-rollback bug has a deterministic companion path:
+> snd_jack_new() can fail after snd_ctl_add() has already published the
+> kcontrol (for example, when its subsequent kstrdup() of the jack id
+> fails), and it also does not undo the publication.
 
-Signed-off-by: Luo Liu <Luo.Liu@cixtech.com>
----
- .../gpu/drm/arm/display/komeda/komeda_kms.c   | 36 +++++++++++--------
- .../gpu/drm/arm/display/komeda/komeda_kms.h   |  2 +-
- .../arm/display/komeda/komeda_private_obj.c   | 23 +++++++++---
- 3 files changed, 40 insertions(+), 21 deletions(-)
+The companion failure path in snd_jack_new() was already fixed by my upstream commit:
 
-diff --git a/drivers/gpu/drm/arm/display/komeda/komeda_kms.c b/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
-index faa8b041373a..37388d45b31f 100644
---- a/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
-+++ b/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
-@@ -253,12 +253,15 @@ static const struct drm_mode_config_funcs komeda_mode_config_funcs = {
- 	.atomic_commit		= drm_atomic_helper_commit,
- };
- 
--static void komeda_kms_mode_config_init(struct komeda_kms_dev *kms,
--					struct komeda_dev *mdev)
-+static int komeda_kms_mode_config_init(struct komeda_kms_dev *kms,
-+				       struct komeda_dev *mdev)
- {
- 	struct drm_mode_config *config = &kms->base.mode_config;
-+	int err;
- 
--	drm_mode_config_init(&kms->base);
-+	err = drmm_mode_config_init(&kms->base);
-+	if (err)
-+		return err;
- 
- 	komeda_kms_setup_crtcs(kms, mdev);
- 
-@@ -270,6 +273,8 @@ static void komeda_kms_mode_config_init(struct komeda_kms_dev *kms,
- 
- 	config->funcs = &komeda_mode_config_funcs;
- 	config->helper_private = &komeda_mode_config_helpers;
-+
-+	return 0;
- }
- 
- struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
-@@ -287,27 +292,29 @@ struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
- 
- 	drm->dev_private = mdev;
- 
--	komeda_kms_mode_config_init(kms, mdev);
-+	err = komeda_kms_mode_config_init(kms, mdev);
-+	if (err)
-+		return ERR_PTR(err);
- 
- 	err = komeda_kms_add_private_objs(kms, mdev);
- 	if (err)
--		goto cleanup_mode_config;
-+		goto cleanup_private_objs;
- 
- 	err = komeda_kms_add_planes(kms, mdev);
- 	if (err)
--		goto cleanup_mode_config;
-+		goto cleanup_private_objs;
- 
- 	err = drm_vblank_init(drm, kms->n_crtcs);
- 	if (err)
--		goto cleanup_mode_config;
-+		goto cleanup_private_objs;
- 
- 	err = komeda_kms_add_crtcs(kms, mdev);
- 	if (err)
--		goto cleanup_mode_config;
-+		goto cleanup_private_objs;
- 
- 	err = komeda_kms_add_wb_connectors(kms, mdev);
- 	if (err)
--		goto cleanup_mode_config;
-+		goto cleanup_private_objs;
- 
- 	drm_mode_config_reset(drm);
- 
-@@ -315,7 +322,7 @@ struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
- 			       komeda_kms_irq_handler, IRQF_SHARED,
- 			       drm->driver->name, drm);
- 	if (err)
--		goto cleanup_mode_config;
-+		goto cleanup_private_objs;
- 
- 	drm_kms_helper_poll_init(drm);
- 
-@@ -327,9 +334,8 @@ struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
- 
- free_interrupts:
- 	drm_kms_helper_poll_fini(drm);
--cleanup_mode_config:
--	drm_mode_config_cleanup(drm);
--	komeda_kms_cleanup_private_objs(kms);
-+cleanup_private_objs:
-+	komeda_kms_cleanup_private_objs(mdev);
- 	drm->dev_private = NULL;
- 	return ERR_PTR(err);
- }
-@@ -337,12 +343,12 @@ struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
- void komeda_kms_detach(struct komeda_kms_dev *kms)
- {
- 	struct drm_device *drm = &kms->base;
-+	struct komeda_dev *mdev = drm->dev_private;
- 
- 	drm_dev_unregister(drm);
- 	drm_kms_helper_poll_fini(drm);
- 	drm_atomic_helper_shutdown(drm);
--	drm_mode_config_cleanup(drm);
--	komeda_kms_cleanup_private_objs(kms);
-+	komeda_kms_cleanup_private_objs(mdev);
- 	drm->dev_private = NULL;
- }
- 
-diff --git a/drivers/gpu/drm/arm/display/komeda/komeda_kms.h b/drivers/gpu/drm/arm/display/komeda/komeda_kms.h
-index 83e61c4080c2..6f1e6c1773f0 100644
---- a/drivers/gpu/drm/arm/display/komeda/komeda_kms.h
-+++ b/drivers/gpu/drm/arm/display/komeda/komeda_kms.h
-@@ -181,7 +181,7 @@ int komeda_kms_add_private_objs(struct komeda_kms_dev *kms,
- 				struct komeda_dev *mdev);
- int komeda_kms_add_wb_connectors(struct komeda_kms_dev *kms,
- 				 struct komeda_dev *mdev);
--void komeda_kms_cleanup_private_objs(struct komeda_kms_dev *kms);
-+void komeda_kms_cleanup_private_objs(struct komeda_dev *mdev);
- 
- void komeda_crtc_handle_event(struct komeda_crtc   *kcrtc,
- 			      struct komeda_events *evts);
-diff --git a/drivers/gpu/drm/arm/display/komeda/komeda_private_obj.c b/drivers/gpu/drm/arm/display/komeda/komeda_private_obj.c
-index 77b3f361091f..51be98ab570e 100644
---- a/drivers/gpu/drm/arm/display/komeda/komeda_private_obj.c
-+++ b/drivers/gpu/drm/arm/display/komeda/komeda_private_obj.c
-@@ -502,11 +502,24 @@ int komeda_kms_add_private_objs(struct komeda_kms_dev *kms,
- 	return 0;
- }
- 
--void komeda_kms_cleanup_private_objs(struct komeda_kms_dev *kms)
-+void komeda_kms_cleanup_private_objs(struct komeda_dev *mdev)
- {
--	struct drm_mode_config *config = &kms->base.mode_config;
--	struct drm_private_obj *obj, *next;
-+	struct komeda_component *c;
-+	struct komeda_pipeline *pipe;
-+	unsigned long avail_comps;
-+	int i, id;
-+
-+	for (i = 0; i < mdev->n_pipelines; i++) {
-+		pipe = mdev->pipelines[i];
- 
--	list_for_each_entry_safe(obj, next, &config->privobj_list, head)
--		drm_atomic_private_obj_fini(obj);
-+		if (pipe->obj.funcs)
-+			drm_atomic_private_obj_fini(&pipe->obj);
-+
-+		avail_comps = pipe->avail_comps;
-+		for_each_set_bit(id, &avail_comps, 32) {
-+			c = komeda_pipeline_get_component(pipe, id);
-+			if (c && c->obj.funcs)
-+				drm_atomic_private_obj_fini(&c->obj);
-+		}
-+	}
- }
--- 
-2.25.1
+commit ebce20196346906cfa33a84a021ce8f9bd91880c
+ALSA: jack: Fix jack control cleanup on error paths
 
+https://git.kernel.org/pub/scm/linux/kernel/git/tiwai/sound.git/commit/?id=ebce20196346906cfa33a84a021ce8f9bd91880c
+
+The patch initializes jack_kctl->list and routes the failure paths in snd_jack_new() through common
+cleanup, ensuring that the previously created kcontrol is removed using snd_ctl_remove().
+
+Could you check whether your reproducer still triggers the issue with this commit applied?
+
+Thanks for reporting this.
+
+Regards,
+Sreeraj
