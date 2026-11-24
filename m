@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.78
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795560521;
-	b=i7RlbG6bZHt0UkzrhVMO9Yo47jjV0WeDcgzjrFEFpS3ppNRN/aZeaC3Ax8NJUxLhTi/3
-	 tUJdAMyPbZ9XzGfvBldXc5Y9KR3XL2gJ7CJ0X0+P+fPfx/faZqV4y8iaByF54OxrI2v/W
-	 0+t4NqnErw32VuH/vx/v84U2p0/xC3Jt5IUO5JlfM3Fw5m+DzWRGDfxfCVuEd+VQRIbrA
-	 ShEkhLhVIs1l2hLO2Y0loq08K9Ynv4xkA7uOPPzeTajWe8mXSS/zDvIPlDGG5WhsOzNRL
-	 ln2gLfPqSQwsQRmb/0eqyrFo3zcgcrqXrHHcT8rl1FmhaR3qOZvjW0z6taHPJUTTpZw==
+	t=1795560525;
+	b=oS62C9HFgbR0UZuOArTQcISF8IjKA64ICfKSlikiMx2UlPX6Rxx5J4DM7S3j+r0Y6D0F
+	 kSm239W6e2bqSAvmZoA+m8FRAFX0/xDjJYDXRdv2jFsw+lyh7bN+dz52IYVzpst6usM7R
+	 SB8wiM1dLHL110EzMluJmubCm/dBi/ZZDwvu6IojS0ndWZQSCfRhpQH6q/VgGrtS7MxZW
+	 +DZu8Y1mDXKc2XMQLyUn59yn24pRW3396dGMkskEcszI6mHVMcnT9xK7mgywUKMLRCX4N
+	 ngBHJ8Uku9FB0hmQcoAB0RvDSJfInd4abjJLin7KWCQ412c/klg/bsHmQ6xaII2QcMg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795560521;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795560525;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=eiFf1/ZX0x4TPZURmW0qi8uagLmw49tN1yU5fbQU1KI=;
-	b=VJtB9vUdFsccQIi91ay6Y9EKYElpcQJFB2vwvlN1XTgsiqvb2FTmxwD8tNLFhM7wCHGT
-	 9IdA60evMi2apSBLPGQhWOE3dr+UGcD5Q19dNvRVQMbRTktbvtLTo9/ausYXmtmIENbkG
-	 dZe+LQlySEYdJ0ohjeshpuI7fxWD2Jqyf9YpAjkoln2tVm7bk4shfGRL3nuAbmDYOW1eT
-	 45XLq4bzrl+tC7JniYtVEXDKvXyzBFCDlA0B+VOGoWzHxriaWtBrQ95k2n/uKGXSDNeY/
-	 RcFBP5aTna/fGfPjCyCfajZ/laC95/YIfKJJZHoGhS8uP79AWhSoxGkjoIc0gDDBkAg==
+	bh=6wjOzGU8wFSb9+4j9IB20HEtOP5PcwiSTLoefqj+xPI=;
+	b=zpFp5LKGlh5ayZBc6VcgPMX2J0H+CNWryjWo9TWHaoZ/FIZ0SmpS9dcmTnAC9JzdB9ym
+	 nAU6mbcIZ3oHBue6nW5tB+61H9AlFd8OBOyRyBt/hSySsbCoglBDoucLPzI72IMlJzAHj
+	 2YI6d/4C1RaWTrNlkdToI2wL1e9qqyGF9PQvmokvFCK8g3OnXWk1q9w2fJGBLdBQNEW7L
+	 yn6jwovzumc9tC7b70P1ZFtze4jEq0QWPF02SvbUzPRooGVw5cBUHPwPsHLCTb1D0PmP5
+	 VvKEzPhpCnUAWxdHHQ60RPAFcoCwA0smzYVaNAwtOgUHtfLaeg9maZeApLoT+CqxFGA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="AvX/+e2o";
-	arc=none smtp.remote-ip=95.215.58.71
-Received: from mta1.migadu.com (out-71.mta1.migadu.com [95.215.58.71])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="EqC01J0/";
+	arc=none smtp.remote-ip=95.215.58.78
+Received: from mta1.migadu.com (out-78.mta1.migadu.com [95.215.58.78])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B0CF606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:48:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B0CF606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93DE1606A331
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:48:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93DE1606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=AvX/+e2o
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EqC01J0/
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=wGzuJ2tsy16VrGrlGhasL3A14wXGG8Z8FdNekGk0n2c=;
+DKIM-Signature: a=rsa-sha256; bh=BFyhtG+w37cAmuVAdcKU6EMG/hj7GNHCLQPRWjUEC8I=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795560518; v=1; x=1796165318;
- b=AvX/+e2oUV+kbAjv0sQvq8Z4GrR5yLZSgXf8sU6uxC/w4S08ilBAOCuEZlimvyLrcmqnajnF
- EUnFfio2+my3xDx9ST7m2TTfprDG55Z25//S2Urk+IXNK5YIgkAoOxTDX65PwiPOqqbIOQShg7J
- TU24QcrzLbOr3QD3aModDUis=
+ t=1795560522; v=1; x=1796165322;
+ b=EqC01J0/RoEYjdEXCBT6mzhATyZVS+ipoJEP7fq/AGdK2T72XHOVtgTa4sONqYZSD2utFRjg
+ iOxB9goQCCJ3bNhHOKFN37O6QrC5wqYWJgJp/msmgYHaPhLbObBxVKneT4rlVjP37NoijfINB92
+ m6AG8RFh7WGk7sQXAlvY3uGw=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 8276b2be94724bc7;
-	Tue, 24 Nov 2026 22:48:37 +0000
-X-Mizu-Trace-ID: 8276b2be94724bc7
+Received: by smtp.migadu.com with ESMTPS id 376c3601e76205b5;
+	Tue, 24 Nov 2026 22:48:42 +0000
+X-Mizu-Trace-ID: 376c3601e76205b5
 X-Migadu-Flow: FLOW_OUT
 From: Ihor Solodrai <ihor.solodrai@linux.dev>
 To: Alexei Starovoitov <ast@kernel.org>,
@@ -62,9 +62,9 @@ Cc: Alan Maguire <alan.maguire@oracle.com>,
 	bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	sched-ext@lists.linux.dev
-Subject: [PATCH bpf-next v3 4/6] selftests/bpf: Test kfunc variant selection by prototype
-Date: Tue, 24 Nov 2026 15:48:09 -0700
-Message-ID: <20261124224811.16134-5-ihor.solodrai@linux.dev>
+Subject: [PATCH bpf-next v3 5/6] resolve_btfids: Reject ambiguous kfunc variants
+Date: Tue, 24 Nov 2026 15:48:10 -0700
+Message-ID: <20261124224811.16134-6-ihor.solodrai@linux.dev>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261124224811.16134-1-ihor.solodrai@linux.dev>
 References: <20261124224811.16134-1-ihor.solodrai@linux.dev>
@@ -79,125 +79,120 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Register two kfunc variants in bpf_testmod that differ only in a struct
-pointee:
+libbpf fails to load a program if a kfunc declaration matches more
+than one kfunc variant. For example, libbpf doesn't distinguish
+integer widths, so a declaration of either of these matches both:
 
-  int bpf_kfunc_variant(struct task_struct *p);
-  int bpf_kfunc_variant___v2(struct file *p);
+  int bpf_foo(u32 flags);
+  int bpf_foo___v1(u64 flags);
 
-Check that a declaration of each resolves to it, and that a __weak
-declaration with struct inode * stays unresolved.
+Check the kfuncs registered in vmlinux or a module at build time, so
+that such a pair fails the build instead. Group them by essential name
+and compare prototypes with libbpf's matcher. Skip unregistered
+functions, which libbpf also considers, so that code unrelated to
+kfuncs can't fail the build. Variants split across modules or vmlinux
+are also caught only by libbpf.
 
 Signed-off-by: Ihor Solodrai <ihor.solodrai@linux.dev>
+Acked-by: Eduard Zingerman <eddyz87@gmail.com>
 ---
- .../selftests/bpf/prog_tests/verifier.c       |  3 ++
- .../selftests/bpf/progs/kfunc_variants.c      | 32 +++++++++++++++++++
- .../selftests/bpf/test_kmods/bpf_testmod.c    | 12 +++++++
- .../bpf/test_kmods/bpf_testmod_kfunc.h        |  3 ++
- 4 files changed, 50 insertions(+)
- create mode 100644 tools/testing/selftests/bpf/progs/kfunc_variants.c
+ tools/bpf/resolve_btfids/main.c | 69 +++++++++++++++++++++++++++++++++
+ 1 file changed, 69 insertions(+)
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/verifier.c b/tools/testing/selftests/bpf/prog_tests/verifier.c
-index 816ab3cfafc7..157267f90177 100644
---- a/tools/testing/selftests/bpf/prog_tests/verifier.c
-+++ b/tools/testing/selftests/bpf/prog_tests/verifier.c
-@@ -8,6 +8,7 @@
- #include "cap_helpers.h"
- #include "sysctl_helpers.h"
- #include "cb_refs.skel.h"
-+#include "kfunc_variants.skel.h"
- #include "verifier_aggregate_arg.skel.h"
- #include "verifier_aggregate_ret.skel.h"
- #include "verifier_alu_range.skel.h"
-@@ -225,6 +226,8 @@ void test_arena_kfunc_jit(void)               { RUN_TESTS(arena_kfunc_jit); }
- 
- void test_cb_refs(void)                       { RUN_TESTS(cb_refs); }
- 
-+void test_kfunc_variants(void)                { RUN_TESTS(kfunc_variants); }
-+
- void test_verifier_aggregate_arg(void)        { RUN_TESTS(verifier_aggregate_arg); }
- void test_verifier_aggregate_ret(void)        { RUN_TESTS(verifier_aggregate_ret); }
- void test_verifier_alu_range(void)            { RUN(verifier_alu_range); }
-diff --git a/tools/testing/selftests/bpf/progs/kfunc_variants.c b/tools/testing/selftests/bpf/progs/kfunc_variants.c
-new file mode 100644
-index 000000000000..a9c393ea9d82
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/kfunc_variants.c
-@@ -0,0 +1,32 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2026 Meta Platforms, Inc. and affiliates. */
-+
-+#include <vmlinux.h>
-+#include <bpf/bpf_helpers.h>
-+#include "bpf_misc.h"
-+#include "../test_kmods/bpf_testmod_kfunc.h"
-+
-+extern int bpf_kfunc_variant___none(struct inode *p) __weak __ksym;
-+
-+char _license[] SEC("license") = "GPL";
-+
-+SEC("syscall")
-+__retval(1)
-+int unsuffixed_name(void *ctx)
-+{
-+	return bpf_kfunc_variant(NULL);
-+}
-+
-+SEC("syscall")
-+__retval(2)
-+int kernel_variant(void *ctx)
-+{
-+	return bpf_kfunc_variant___v2(NULL);
-+}
-+
-+SEC("syscall")
-+__retval(0)
-+int no_match(void *ctx)
-+{
-+	return bpf_ksym_exists(bpf_kfunc_variant___none);
-+}
-diff --git a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-index 1fbc0061cc24..764877cdce6e 100644
---- a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-+++ b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-@@ -1928,6 +1928,16 @@ __bpf_kfunc void bpf_kfunc_trigger_ctx_check(void)
- 	irq_work_queue(&ctx_check_irq);
+diff --git a/tools/bpf/resolve_btfids/main.c b/tools/bpf/resolve_btfids/main.c
+index 0e193c3c73aa..e21ac6843873 100644
+--- a/tools/bpf/resolve_btfids/main.c
++++ b/tools/bpf/resolve_btfids/main.c
+@@ -94,6 +94,7 @@
+ #include <bpf/btf.h>
+ #include <bpf/libbpf.h>
+ #include <bpf/libbpf_tools.h>
++#include <bpf/relo_core.h>
+ #include "btf_colors.h"
+ #include "fmodret.h"
+ #include <subcmd/parse-options.h>
+@@ -1918,6 +1919,70 @@ static int sort_btf_by_name(struct btf *btf)
+ 	return err;
  }
  
-+__bpf_kfunc int bpf_kfunc_variant(struct task_struct *p__nullable)
++struct kfunc_variant {
++	const char *name;
++	size_t essent_len;
++	u32 id;
++};
++
++static int cmp_kfunc_variants(const void *lhs, const void *rhs)
 +{
-+	return 1;
++	const struct kfunc_variant *a = lhs, *b = rhs;
++	int ret = strncmp(a->name, b->name, min(a->essent_len, b->essent_len));
++
++	return ret ?: (a->essent_len > b->essent_len) - (a->essent_len < b->essent_len);
 +}
 +
-+__bpf_kfunc int bpf_kfunc_variant___v2(struct file *p__nullable)
++/* libbpf rejects a declaration that matches more than one kfunc variant */
++static int check_kfunc_variants(const struct btf *btf)
 +{
-+	return 2;
++	const struct btf *base = btf__base_btf(btf);
++	struct kfunc_variant *kfuncs = NULL;
++	u32 cnt = 0, cap = 0;
++	int err = 0;
++
++	for (u32 id = base ? btf__type_cnt(base) : 1; id < btf__type_cnt(btf); id++) {
++		const struct btf_type *t = btf__type_by_id(btf, id);
++		const char *name;
++
++		if (!btf_is_decl_tag(t) || btf_decl_tag(t)->component_idx != -1)
++			continue;
++		if (strcmp(btf__name_by_offset(btf, t->name_off), DECL_TAG_KFUNC) != 0)
++			continue;
++
++		err = ensure_mem(&kfuncs, &cap, cnt + 1);
++		if (err)
++			goto out;
++		name = btf__name_by_offset(btf, btf__type_by_id(btf, t->type)->name_off);
++		kfuncs[cnt++] = (struct kfunc_variant){
++			.name = name,
++			.essent_len = bpf_core_essential_name_len(name),
++			.id = t->type,
++		};
++	}
++	qsort(kfuncs, cnt, sizeof(*kfuncs), cmp_kfunc_variants);
++
++	for (u32 i = 0; i < cnt; i++) {
++		const struct btf_type *a = btf__type_by_id(btf, kfuncs[i].id);
++
++		for (u32 j = i + 1; j < cnt; j++) {
++			const struct btf_type *b;
++
++			if (cmp_kfunc_variants(&kfuncs[i], &kfuncs[j]) != 0)
++				break;
++			b = btf__type_by_id(btf, kfuncs[j].id);
++			if (btf_kfunc_proto_match(btf, a->type, btf, b->type) <= 0)
++				continue;
++			pr_err("ERROR: resolve_btfids: kfuncs %s and %s have matching prototypes\n",
++			       kfuncs[i].name, kfuncs[j].name);
++			err = -EINVAL;
++		}
++	}
++out:
++	free(kfuncs);
++	return err;
 +}
 +
- BTF_KFUNCS_START(bpf_testmod_check_kfunc_ids)
- BTF_ID_FLAGS(func, bpf_testmod_test_mod_kfunc, KF_SPINLOCK_SAFE)
- BTF_ID_FLAGS(func, bpf_kfunc_call_test1)
-@@ -2019,6 +2029,8 @@ BTF_ID_FLAGS(func, bpf_kfunc_implicit_arg, KF_IMPLICIT_ARGS)
- BTF_ID_FLAGS(func, bpf_kfunc_implicit_arg_legacy, KF_IMPLICIT_ARGS)
- BTF_ID_FLAGS(func, bpf_kfunc_implicit_arg_legacy_impl)
- BTF_ID_FLAGS(func, bpf_kfunc_trigger_ctx_check)
-+BTF_ID_FLAGS(func, bpf_kfunc_variant)
-+BTF_ID_FLAGS(func, bpf_kfunc_variant___v2)
- BTF_KFUNCS_END(bpf_testmod_check_kfunc_ids)
+ static int finalize_btf(struct object *obj)
+ {
+ 	struct btf *base_btf = obj->base_btf, *btf = obj->btf;
+@@ -1929,6 +1994,10 @@ static int finalize_btf(struct object *obj)
+ 		return err;
+ 	}
  
- static int bpf_testmod_ops_init(struct btf *btf)
-diff --git a/tools/testing/selftests/bpf/test_kmods/bpf_testmod_kfunc.h b/tools/testing/selftests/bpf/test_kmods/bpf_testmod_kfunc.h
-index 0a7df1798603..ce579eede88d 100644
---- a/tools/testing/selftests/bpf/test_kmods/bpf_testmod_kfunc.h
-+++ b/tools/testing/selftests/bpf/test_kmods/bpf_testmod_kfunc.h
-@@ -381,4 +381,7 @@ void bpf_testmod_test_hardirq_fn(void);
- void bpf_testmod_test_softirq_fn(void);
- void bpf_kfunc_trigger_ctx_check(void) __ksym;
- 
-+int bpf_kfunc_variant(struct task_struct *p__nullable) __ksym;
-+int bpf_kfunc_variant___v2(struct file *p__nullable) __ksym;
++	err = check_kfunc_variants(obj->btf);
++	if (err)
++		return err;
 +
- #endif /* _BPF_TESTMOD_KFUNC_H */
+ 	if (obj->base_btf && obj->distill_base) {
+ 		err = btf__distill_base(obj->btf, &base_btf, &btf);
+ 		if (err) {
 -- 
 2.56.0
 
