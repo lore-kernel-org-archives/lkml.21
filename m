@@ -1,82 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795511596;
-	b=FMVTOm8JUtxHhCCem7EELf6n+XsB7Of1iKNYFFG8QICRkpzsLscTflfrUVdezpnWxmJb
-	 wGzkZ5fJphYQpuBj6vKNbXEVaWd9WWHCyTpZDQd6sGagEwxp9M/9mnE3NQRL5xLBePUMM
-	 OP0d9IjE3FpGPd+gooFM+DowN2zgeRy0p+dJRTOy1r/jlV/4SeNk3lblpw9ntQnqIMbRg
-	 vfxnzss8a4hPIWISm9HshxpbMAFrK3VpYYCu9Ua9TJu9KWa8+XF3nGeYUQ+W2ZVsZwRr8
-	 I3dPu/vUm9gALkYEboW9M3znTsDNfEjhj+98eRcaQxHySZtD+PIfZl9U0ODROPdlKBA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795511596;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=xSsbExyRgnMf+870sb8Orxcq7FevQGTwTXR3rzktG7Q=;
-	b=bOE/R4uYQm4MXoQql0eyL33N5JlpUBNgyFADirKFdYLO2hp3wrz0X+MHnXG5jheNsbWT
-	 VDEFiGHQBqI8qOTLYA9Ud8c7aQ1b5em8oxCZULp3scTfXzgENZCPYez/DgHmlalwC0xQe
-	 LMY0cTZwyLDVX/rNPjNxIE2Dtm6/a7n1c29wl7G9A1SxhJlGAVCDBRw9p4WgvqLPYFBH9
-	 jstXE4Y2BFm7IrrmUWrI3i/0rxsM45HLDvs1URW+Mbh5PsfYxvT+maKcFLCY8jOlzdIII
-	 ksKHx+M28+80uPGm6g9tJeirNp1I9j7QKCGwvNcjuvzFzsU4IKuF8btIWsEV/XukkDA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=ihL73dio;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.49
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795511597;
+	b=y9afFouwe5W08R+VNN0AmW6/iVnsJvFxRoL3mQF/FbYFjYRlXE+e3Ulf+1Q6y+wcYw+I
+	 XjDxzb2xcwACAPuBpDGK2t5qCVirpK+Z8Rm2400fwoXRL89k8A5N/4WcTW/OGVt3ZZcmw
+	 37ELfnyAKZ9SiM3ZuS9oqIfUqEEuOutDpdGQfD4Nk5FagkiBY2KCtzlsI2WEtzEibayVY
+	 Jb0f926+U/nhzA3jWl7By/rrjYXwrZTV/+S8/J95EiArsxG7OLX5urIhXLxBgel8sEyHw
+	 iUsp44RHre2oteRtT2CzfCn8Six+ewergIQ3NaIBHk88ANNZkceLbOlRSTk+GlWfRIg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795511597;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:
+	 Content-Type;
+	bh=tsR1VJt76vdIL7T8X+CNqg3X/XOybnNe8YxQSkiE9cI=;
+	b=1d6wM1ziu2oI8Ja3ZMHWlNA/6N4ffK0tL07ReSkdguvmn7MQIe5PdTp01R2ajhby/sqv
+	 UiUEFl6IJmsbaUVTWO8+/RN50tN/6WIbGzt53TwVr9n3V8aUSgI7jp+LaZU4XUDPYKHnJ
+	 WxYwRMEAciAfwf2lWKJoRPwWIbo9vU+eL6XG/EDvRSRwGzi2sZ4PFPNxeDE/m72DQOlw7
+	 2LfqjVQuLAQDObAnUzGzC5LB+SjB/Ywd8Vwx1QUDs0L5imLPNzhKbUlY9ttHxMg9NhkGW
+	 7FlkNhZt/HSB2CLKn+PPzQjeg4sW7NBW9kRG0qjWHajy5CccArTCnehmvQav9gCjQnw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WQQLn7Qk;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.49
+Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com [209.85.208.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 806B2606A321;
-	Tue, 24 Nov 2026 09:13:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 806B2606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28D8A606A33D
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:13:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28D8A606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=ihL73dio
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO34t3q1217161;
-	Tue, 24 Nov 2026 09:12:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=xSsbEx
-	yRgnMf+870sb8Orxcq7FevQGTwTXR3rzktG7Q=; b=ihL73dioksztXNZnGZbjw2
-	vMmp1i+5gD4IytODK13i1tm3UiSXhtQejWRwEEFHDxDd6KasikNSpBGwzCiqMW9y
-	l0n9xochs9ZjDrxfde70KqEmxRLFzgp6+tNoi2l9Gss0pN1GbNrXB9scWCOY6rEb
-	53W0T3RREPteHzSKIGXLX7HqYVDLmnpAFInxWI4Zd9m4zeC5oxXX2+crsyV+L3nz
-	sX+xSunzxYef/0CeLHORk9wFcow+nEUjThTEF93AYX4nLlbFyf/aUzeyLA6Q1yWv
-	SNWZmQ6sKyDoJEVcMRCie6z+h2LXF48WAYeX7XXeKiEdxe1VRTSr4AqPRMbFrerA
-	==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34gv6kfa-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 24 Nov 2026 09:12:36 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO8rXAt021968;
-	Tue, 24 Nov 2026 09:12:36 GMT
-Received: from smtprelay01.wdc07v.mail.ibm.com ([172.16.1.68])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3pmk20du-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 24 Nov 2026 09:12:36 +0000 (GMT)
-Received: from smtpav04.wdc07v.mail.ibm.com (smtpav04.wdc07v.mail.ibm.com [10.39.53.231])
-	by smtprelay01.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AO9CZVm3015528
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 24 Nov 2026 09:12:35 GMT
-Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B2FD158052;
-	Tue, 24 Nov 2026 09:12:35 +0000 (GMT)
-Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3780258054;
-	Tue, 24 Nov 2026 09:12:27 +0000 (GMT)
-Received: from [9.43.57.13] (unknown [9.43.57.13])
-	by smtpav04.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 24 Nov 2026 09:12:26 +0000 (GMT)
-Message-ID: <80be72d2-c357-4709-aede-a030e6751f25@linux.ibm.com>
-Date: Tue, 24 Nov 2026 14:42:25 +0530
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WQQLn7Qk
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6a642495d81so6807212a12.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:13:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795511595; cv=none;
+        d=google.com; s=arc-20260327;
+        b=eLKkMfooEe5ufGUU3HU3ctvZ0k6YGcVGf0tYG1c6E5n6YgwIebYdLjuyl6sD1FyhkE
+         icM9+1/vgMAm27+0AN76rphNCNy/3QN6zZ3lgOQD59rjuTc+ZVykmab1mc0Fj3UKvOau
+         lcrly+k31beNxFgTP1oPOvG9cmZzZe55qEi3REWWRTvXPgS3HPFEYUO+KA98CWWEs3XS
+         4W/OXNe/cVOEg64a9egQRA/468p0ObDu70ImYrOhyhd5hErevb9n4c9mxrBlsU7f3ytw
+         JfxoNaaXXe8youh0XjXtX+O7tNkk5gDiEJj8HrqiqLBaUS6k4/XbnGclSubzUvc+TyKC
+         1cBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=tsR1VJt76vdIL7T8X+CNqg3X/XOybnNe8YxQSkiE9cI=;
+        fh=pnLUUoQvCBzGShmQpxXw1J6gWHZ91CGhin1IEBdwYeY=;
+        b=bwkbpHwdhrWiGxqyX26x+Bsh//Erq5wwyyasex0jlejRl514yvUUBvA1Ol4xALctEw
+         yK+WO2d5xTJLdSqOrlyHx9TbHyjgmDPWC0pOH5xgtqOTc5SaZ22uBl86NflEA89rMbNG
+         cM5zsPXaol4QlUGXUK2a9ZcNDbjbWhjT0iK9AHRzAQlY5IKF638zCL4wRHJQRMMoSK+W
+         pUYLbVW8hAF/H4w4vCGOG3mItyO5Dh6ys2XVfQ9AvmCqer63YJ6216Wlh7e9YfG5+XDX
+         bcdzsoqGLlhLR2Jz9AU5om/cBK1HiKf9tPJtYFLQm+09n4ypuaf2q4QPQ47k+CMBy+jW
+         5tDg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795511595; x=1796116395; darn=vger.kernel.org;
+        h=content-type:to:subject:message-id:date:from:mime-version:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=tsR1VJt76vdIL7T8X+CNqg3X/XOybnNe8YxQSkiE9cI=;
+        b=WQQLn7Qk4whspfyq0M8/PdsrwRX+uUjJlCKmNhoUc9isSo1s+cBY4q52rI3skIv94X
+         Hcaot+xAY3shC1n5h3Ph/tGvq5Pf7qMc72GGeG3FF1Yl/hWEBCoxQwbBcHFcR+YsYaES
+         CUTbERogvYIUaSV42BpUHU7jYtBeaX06eJPlbXW49X/RFoVYVRqja4ex6XzQfZ98q3n7
+         bYip5R3+c+NfU2E1VPooz/jVzoa4y2B0b+MN1DBYOOLcUrIBqHmAGPxBBixM42iRKS2F
+         JsGJMGGveis8nyVVckYe/xIjH39tCIjWpW7KPnJJtRldSNgzxAux0su6tbGRHfdZ4Cj8
+         tCWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795511595; x=1796116395;
+        h=content-type:to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tsR1VJt76vdIL7T8X+CNqg3X/XOybnNe8YxQSkiE9cI=;
+        b=aFmItJBun/7wIC4aXZNR2P8Z4m4USKexQ3dAnrrETxOLjK9oVKjUiC8JDWXQ998+Sv
+         LIt/oXVrOY4ce+ScDQ2mr/DaW7Hh3B66OMZvsWjfB0+A21+tX/tK5CpQdmxqcaatA7dQ
+         YwnCHo79tcb9T3skut3RvfwMF0P4FXHFqbDsqPB0nI/2kD2kbQduVv2oJugwRZc+0F3/
+         rGzL3OTrEqGBlAXDyT1s6RfmHeHmxRpowuTbsNnlebe5Rz41LQnUO4w/oUzrFJxEfare
+         5K8tQHkJ5J9z4aBDPtRDHFQeL1dCREVXRlKuleREYxkuvnkOZn4mTucLTi7/7yogEizQ
+         9+Mw==
+X-Forwarded-Encrypted: i=1; AL+hErEjX6nKxm3Pz+sPJ4vJ0MA9mjOy2ZmD2COdXcGybivym4jPag8mbxFx5IdpXfky62CjCRUzWqVNZ0mChIE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Uzwa1xuEhwvR1Z/OKsJdwxkPkcMDJoKNldF/96sUmxsn2tjsz
+	CfBzs6zB5Yc2sc0uIiuk7zIesIpDaczyGah9BvN7OXNtfbYTM2cEzxmjDyJpbxD6czP7LWxA/g/
+	6CLmZWh42vuFdnJKSsufWtPEOEX4xso69d/SezvE1XQ==
+X-Gm-Gg: AZFdTZeaQqtQOdQou+8BZerqpTG9CXXit1EQS8mkYZ/fpN04Ti78ynSjdV98SO7oTQt
+	W2TETHkUjyHWBdS6j3y0ncs7ayZa9KCp7xvf92EOOVoH2fH2Wma3FJhXw9tsPTpLjBk17XsMLia
+	iMOW7+nj97BoLlwLmKJYFowAz2VVJS4vBHFClygBAOb180MKQLsmvAuxwv3EUX8tIE9ApJi/WhJ
+	yCQvHl2IRAb04OHhH+yUYd/6wmFe/5s+DjcZD+xQMdeWTeUG8nRT//pSoHcTddiX9YPTZEeEgoL
+	aP7WfkJJwJ5XmIxRZ1hX+wPrh3EpVVb4Hkb7WeDX/Hk0EMMFKJLGE32g3rgrHNjVh9B4oc5TB0X
+	umKv4u37p07/hTSC4DtjRvd13OdFM0Oytm2qXFkyvRrt2fd5wiEZXscprKjgM3MpCbPpu5K4VLm
+	SzPtYY+03HW9BaoKmtEenBD3krVZ6kwe2ufdAJ0A80reqk6+Ju
+X-Received: by 2002:a05:6402:51d2:b0:6b4:583b:daf5 with SMTP id
+ 4fb4d7f45d1cf-6ba37ea1489mr10477145a12.43.1795511595247; Tue, 24 Nov 2026
+ 01:13:15 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,95 +102,141 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/3] powerpc: dts: turris1x.dts: Use wdi-gpios for the
- watchdog
-To: Josef Schlehofer <pepe.schlehofer@gmail.com>,
-        Wim Van Sebroeck <wim@linux-watchdog.org>,
-        Guenter Roeck
- <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-Cc: =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>,
-        =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
-        Tzung-Bi Shih <tzungbi@kernel.org>, Marc Zyngier <maz@kernel.org>,
-        Linus Walleij <linusw@kernel.org>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>,
-        linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
-        linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
-References: <20261124050118.87944-1-pepe.schlehofer@gmail.com>
- <20261124050118.87944-4-pepe.schlehofer@gmail.com>
-Content-Language: en-US
-From: Madhavan Srinivasan <maddy@linux.ibm.com>
-In-Reply-To: <20261124050118.87944-4-pepe.schlehofer@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=CYCdd7rl c=1 sm=1 tr=0 ts=6b055505 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
- a=pGLkceISAAAA:8 a=VPMLOkGST9yvVNcXXMQA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAzNSBTYWx0ZWRfXyh5/t0L+cfiZ
- 8dY9+ntlJy9nMb8kW/Kk6FSRM6YaGcb/sE8DSmUUV3w9Zoxh4RpkT3O9V2SS2FVSEX1VVliERmj
- WPK3BZ9QXnpAPuGZZ5baH6P7HnDXbdc=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAzNSBTYWx0ZWRfX1nq9qCieY781
- I0vSM4rsVO8F+5RQlfdmK0Bv65ydnU+esyZNHdRWYucAnNIEkNBEg33aQbDn0eBp2lrurAnk6x0
- ytouiBYyBVe3Fwo+QRPbeFQyg3kL81HyPf57AvhXVN4QyQoKc2Py3LmHf8eTd+fIszGQlqZI3DN
- C9hXFjgEqb4/hvsXak82gfwyojPqmXggbGOAJTZ1uCyMbKVq0Nq5PHmbrKh+7BjlB4RsT2JoWKQ
- AbHIjelxUrw53iqwUHs3jqv5hauN566AHaAtUzlW8bD6Qx/iPaeF25USGrLeWL25l2Er9iKJdWT
- UyJp53Q88fxf/n6Hh8WylFt8aIQDq0a7AmKZaLXqTGq5zbO99rpqGMMCbG+usBB2ngMXJjvtOR5
- DCELC8J7tYmhZGJszQoRjME6mpaL9mQRMVjls0CgrFpjYuW9I3qQzo0DnU4etyZVZ1+bs3eWIOS
- v9h/L5MRkF+86eMUsVA==
-X-Proofpoint-ORIG-GUID: 5blUheAGpVWOvEiAQCnnklA3GVUVcbJB
-X-Proofpoint-GUID: K3ywaFCt4ZKf6N8a2r1PcnE6SwWAnn0E
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 priorityscore=1501 lowpriorityscore=0
- clxscore=1011 spamscore=0 bulkscore=0 impostorscore=0 adultscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611240035
+From: Herman Semenoff <germanaizek0@gmail.com>
+Date: Tue, 24 Nov 2026 12:13:32 +0300
+X-Gm-Features: Aa3M54pCuXq-v01q8N-WuaE1LM3gsn-4aAd6B7y1XS-9Z8iwG05nAaEc0uY5VVk
+Message-ID: <CAMnMt5Zoj5z1nqcPCp7na72se9f19Ch7SaXBBtzJ_kp49FMLTQ@mail.gmail.com>
+Subject: [PATCH] sched/numa: Fix scan period adaptation and candidate node distance
+To: mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
+	vincent.guittot@linaro.org, mgorman@suse.de, dietmar.eggemann@arm.com, 
+	rostedt@goodmis.org, bsegall@google.com, vschneid@redhat.com, 
+	kprateek.nayak@amd.com, riel@surriel.com, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
+From 4968f8e10002092fd82056772e5a8fc8927a3ff4 Mon Sep 17 00:00:00 2001
+From: Herman Semenoff <GermanAizek@yandex.ru>
+Date: Tue, 24 Nov 2026 12:02:35 +0300
+Subject: [PATCH] sched/numa: Fix scan period adaptation and candidate
+node distance
 
-On 11/24/26 10:31 AM, Josef Schlehofer wrote:
-> The watchdog node passes its WDI GPIO in a gpios property, which the
-> maxim,max63xx binding does not define and the max63xx_wdt driver does
-> not read. dtbs_check reports it for watchdog@2:
->
->    Unevaluated properties are not allowed ('gpios' was unexpected)
->
-> Rename it to wdi-gpios, which the binding defines and the driver reads.
+In update_task_scan_period(), commit 37ec97deb3a8 ("sched/numa: Slow down
+scan rate if shared faults dominate") intended to increase the scan
+period when either memory is already predominantly local or when accesses
+are shared across tasks, while accelerating scanning when private faults
+occur on remote memory pages
 
-Acked-by: Madhavan Srinivasan <maddy@linux.ibm.com>
+However, the implementation suffered from several severe inversions:
 
-> Signed-off-by: Josef Schlehofer <pepe.schlehofer@gmail.com>
-> ---
->
-> Notes:
->      Changes in v4:
->      - new patch
->
->   arch/powerpc/boot/dts/turris1x.dts | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/powerpc/boot/dts/turris1x.dts b/arch/powerpc/boot/dts/turris1x.dts
-> index dff1ea074d9d..494a96a1f78c 100644
-> --- a/arch/powerpc/boot/dts/turris1x.dts
-> +++ b/arch/powerpc/boot/dts/turris1x.dts
-> @@ -363,7 +363,7 @@
->   				 */
->   				compatible = "maxim,max6370";
->   				reg = <0x02 0x01>;
-> -				gpios = <&gpio 11 GPIO_ACTIVE_LOW>;
-> +				wdi-gpios = <&gpio 11 GPIO_ACTIVE_LOW>;
->   			};
->   
->   			reboot@d {
+1. ps_ratio (private / (private + shared)) and lr_ratio (local /
+   (local + remote)) were transposed in the conditional branches. The
+   first branch checked ps_ratio >= NUMA_PERIOD_THRESHOLD under the
+   comment "Most memory accesses are local", causing any task with
+   predominantly private memory residing on a remote NUMA node to slow
+   down scanning instead of accelerating it
+
+2. The shared-fault check tested lr_ratio >= NUMA_PERIOD_THRESHOLD
+   instead of checking whether shared accesses dominate
+
+3. In the fallback branch intended to speed up scanning, computing
+   diff = -(NUMA_PERIOD_THRESHOLD - max(lr_ratio, ps_ratio)) * period_slot
+   resulted in a positive diff whenever ps_ratio exceeded the threshold,
+   further slowing down scanning instead of reducing the period
+
+4. When local + remote == 0 or private + shared == 0, divisions by zero
+   could occur
+
+In addition, in task_numa_migrate(), the candidate node loop over
+for_each_node_state(nid, N_CPU) computed dist = node_distance(env.src_nid,
+env.dst_nid) before setting env.dst_nid = nid, querying distance to the
+previous node instead of the candidate node nid.
+
+Fix both issues by:
+- Correctly checking lr_ratio >= NUMA_PERIOD_THRESHOLD to slow down
+  scanning when memory is predominantly local
+- Checking ps_ratio <= (NUMA_PERIOD_SLOTS - NUMA_PERIOD_THRESHOLD) to
+  slow down scanning when memory accesses are predominantly shared
+- Accelerating scanning via diff = -(NUMA_PERIOD_THRESHOLD - lr_ratio) *
+  period_slot when private memory is remote
+- Guarding against zero fault totals
+- Using node_distance(env.src_nid, nid) in task_numa_migrate()
+
+Benchmark results on server motherboard LGA 2011-3 Lenovo RD450X (2x
+Intel Xeon E5-2699 v3 (Haswell), 72 CPUs,
+2 NUMA nodes, SLIT distance 10 / 21):
+  - test 'perf bench numa mem' (36 threads, 2 nodes):
+    Throughput: 16.165 GB/sec -> 27.247 GB/sec (+68.5%)
+    Latency:    2.227 ns/byte -> 1.321 ns/byte (-40.6%)
+  - test 'perf bench sched messaging':
+    No regression (1.783s vs 1.802s)
+
+Signed-off-by: Herman Semenoff <GermanAizek@yandex.ru>
+Signed-off-by: Herman Semenoff <GermanAizek@aizekgroup.ru>
+---
+ kernel/sched/fair.c | 18 ++++++++++--------
+ 1 file changed, 10 insertions(+), 8 deletions(-)
+
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 69145dda0df5..6d77ea36a416 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -3371,7 +3371,7 @@ static int task_numa_migrate(struct task_struct *p)
+  if (nid == env.src_nid || nid == p->numa_preferred_nid)
+  continue;
+
+- dist = node_distance(env.src_nid, env.dst_nid);
++ dist = node_distance(env.src_nid, nid);
+  if (sched_numa_topology_type == NUMA_BACKPLANE &&
+  dist != env.dist) {
+  taskweight = task_weight(p, env.src_nid, dist);
+@@ -3514,7 +3514,8 @@ static void update_task_scan_period(struct task_struct *p,
+  * migration then it implies we are migrating too quickly or the local
+  * node is overloaded. In either case, scan slower
+  */
+- if (local + shared == 0 || p->numa_faults_locality[2]) {
++ if (local + remote == 0 || private + shared == 0 ||
++    local + shared == 0 || p->numa_faults_locality[2]) {
+  p->numa_scan_period = min(p->numa_scan_period_max,
+  p->numa_scan_period << 1);
+
+@@ -3534,22 +3535,24 @@ static void update_task_scan_period(struct
+task_struct *p,
+  lr_ratio = (local * NUMA_PERIOD_SLOTS) / (local + remote);
+  ps_ratio = (private * NUMA_PERIOD_SLOTS) / (private + shared);
+
+- if (ps_ratio >= NUMA_PERIOD_THRESHOLD) {
++ if (lr_ratio >= NUMA_PERIOD_THRESHOLD) {
+  /*
+  * Most memory accesses are local. There is no need to
+  * do fast NUMA scanning, since memory is already local.
+  */
+- int slot = ps_ratio - NUMA_PERIOD_THRESHOLD;
++ int slot = lr_ratio - NUMA_PERIOD_THRESHOLD;
++
+  if (!slot)
+  slot = 1;
+  diff = slot * period_slot;
+- } else if (lr_ratio >= NUMA_PERIOD_THRESHOLD) {
++ } else if (ps_ratio <= (NUMA_PERIOD_SLOTS - NUMA_PERIOD_THRESHOLD)) {
+  /*
+  * Most memory accesses are shared with other tasks.
+  * There is no point in continuing fast NUMA scanning,
+  * since other tasks may just move the memory elsewhere.
+  */
+- int slot = lr_ratio - NUMA_PERIOD_THRESHOLD;
++ int slot = (NUMA_PERIOD_SLOTS - NUMA_PERIOD_THRESHOLD) - ps_ratio;
++
+  if (!slot)
+  slot = 1;
+  diff = slot * period_slot;
+@@ -3559,8 +3562,7 @@ static void update_task_scan_period(struct task_struct *p,
+  * yet they are not on the local NUMA node. Speed up
+  * NUMA scanning to get the memory moved over.
+  */
+- int ratio = max(lr_ratio, ps_ratio);
+- diff = -(NUMA_PERIOD_THRESHOLD - ratio) * period_slot;
++ diff = -(NUMA_PERIOD_THRESHOLD - lr_ratio) * period_slot;
+  }
+
+  p->numa_scan_period = clamp(p->numa_scan_period + diff,
+-- 
+2.55.0
