@@ -1,112 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795549746;
-	b=Un+ef02oCCFdpEgiGUG9oKYSayFF+GqmKgZz0O4xCD9ukw8+tpK4hi/vYOiVhusO+uVk
-	 fCWyLhAsVvnMR0X8HC59KI22lyybfDDTKLFNuqrJnsSbkKJ3lBNYBz+ctqtdaeNOJq2fs
-	 1KduSZNBcp9LFh7C8zwxMkfy5RTuABTtjrizrev8VRz5EDekks/bzFwvnOOT8NdOYPBXR
-	 oJ8/TnEmYMd4UiJ9eDAzh+i4BwPlLmhm2Aw14gj7LbAZTunrJFcuww1fmnd0Bd1I8QXGI
-	 CMKOQNvsUdz/YmKRaw0O8P0Sjq2iN3hZdf2A5QYMaRjVV1lCceSaiCKRTUqCX4j4f0A==
+	t=1795549757;
+	b=x4SWcMZbKmJMtmN41yH4D2lEyz9T0GlA529YakwkVSNHU/G1fYRdjqcjGrvfhZqdhGWo
+	 UG8LqnLnswIdFVdZHdRYU/a+o6vZ7/tyO9Qz57Sa6bve3F8Jk6bg7ZV5PuqseU29oHn43
+	 7ViMbUaVi3HTzhbVLrQCHgmJN8g1cA6ZGizDu09tY6txf4GKPeDq5sWt0LXcJyYHZB/XZ
+	 V7mwLFBdBZIbpdzEwz4APB8tPBUvknbgd6j6z5blCTr9grjVnNnZn3aueABmIUGC/Y1v6
+	 egcQlIKcJGpn3hLzX8d3GCag5WUjeH0p0tyGUB0Qlx2XR6PCR6MQsBUh00v695oqNlw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795549746;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:From:To:Cc:Subject:In-Reply-To:
-	 Organization:References:Date:Message-ID:MIME-Version:Content-Type:
-	 X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
-	bh=Txnj8npZv8ues6Q9E3gBrI6hVjJw+5y4gtc7DZoJxPM=;
-	b=f7ZQm67k7nN8uSu/6+hFTYg0+YLxyZbaNklPKNNrH6sWf49eJGf+rRPODGcBrxG+JPPW
-	 pep2l/vgvkXCzs77frYtpWTqMloqgV/vgG0Pk7PTFuYiWjH1bX7i+77brJAqXVMhT9+RI
-	 apKeu8cJsWMernCmYHuw337CB5UHqBvCSp2PFnR6yjaUfhMv9Zw7XVVb1Mf4sbFJ+1lyx
-	 FKABQJaglTXNsZaNKC5DD2eUoSI6jshzKFIBX+1D7tsdH9Vla+mfyvybxXsxSF7MiNQxL
-	 t6icf1ArNRhl/C/vkKNlnYfSbQ66jD4FCE/ozUGSy0CPHpg7XRNekdZ5SS0tVi7hbSQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795549757;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=DdV8mCrVdlTy+W2zhIYE2Cj4xwzWt453izMOIQetGoo=;
+	b=Y8TDIo0+Ka4zS2GfjgS6XKkv8P5mf0oVyXyMGoC2wSWqAzGL/Empyq/Vfzjb5Eb3lnEh
+	 8xc7bU60MiOdnH0esBkTqFAqxGakCyyowwwNWEsfCotKrMYTy6+D88QvWDCQrnauxtvA9
+	 c0HX64J47xuvxpa72LwyiyinTB/rF6f1hMKn4Dl7h4bSvMgIhT9zNF46+VYDZUrJVCEdu
+	 TD9JFrnkeXSwQf3JL0TGPYqHXozdKFAubJXkdykRqXTuNZ50YgN/8diRH6WY0z73mZPNA
+	 sAUoMsg+2Vykh1blDZOX28FFYUXGJP5yPZ/ZR3kuP37nRklDASxBuH1GV78LeLJnqTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=zYY69mhW;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=S7x7P8K2;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b="gypI6d/V";
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=5PnAQBSm;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PfpF7sHP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B32A8606A31E;
-	Tue, 24 Nov 2026 19:49:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B32A8606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EE2B606A337;
+	Tue, 24 Nov 2026 19:49:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=zYY69mhW;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=S7x7P8K2;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=gypI6d/V;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=5PnAQBSm
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id CB5D71F74B;
-	Tue, 24 Nov 2026 19:49:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795549744; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Txnj8npZv8ues6Q9E3gBrI6hVjJw+5y4gtc7DZoJxPM=;
-	b=zYY69mhWGahHtc4rta8xtAR9I9Sms1hO1vd1yoRl9NcgG5w+DcMWzAkUd0kzoNszBW4MVL
-	V/gS09B+oOCopBk2j+RqYwkaN77ALHpJUdfniVfq4Mv9k4KPNSFbz5ilwUTOoHhDNx5hOK
-	JEmzuEnfTqO/Ww6My24evBrLkCkHCZs=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795549744;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Txnj8npZv8ues6Q9E3gBrI6hVjJw+5y4gtc7DZoJxPM=;
-	b=S7x7P8K2VQ3r1jrchadebt4oVo40oonPl15EmEEptM8mE8NGJNOlxgSM5y4NmJ8QD7PqYk
-	CgigCZtB5B26NiCA==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795549742; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Txnj8npZv8ues6Q9E3gBrI6hVjJw+5y4gtc7DZoJxPM=;
-	b=gypI6d/VLiNgqpUDnAg2IdzGwqoG9GCLBUFb0SFT+/SyQpXuiX38yhAiWcrIn8JEhYSR9C
-	aLvZCUDHIaIEkoi7L5J7xUuzjQHK9Hh0t131BCauRrUzTwgU1vvebEbgcYn5GR48Ags71z
-	xpb0PKhKBX3tPhbcDhgV16XDXa9kdag=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795549742;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Txnj8npZv8ues6Q9E3gBrI6hVjJw+5y4gtc7DZoJxPM=;
-	b=5PnAQBSmc70hsTm+07PWOG2TbOnH7SWN75B5bhpoC9uBO2ACT3jBWhezjW44cEd+aBudhi
-	aoKDunw42VxtMTDA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 59C621339F;
-	Tue, 24 Nov 2026 19:49:02 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id sYTnNy3qBWsNdgAAD6G6ig
-	(envelope-from <krisman@suse.de>); Tue, 24 Nov 2026 19:49:02 +0000
-From: Gabriel Krisman Bertazi <krisman@suse.de>
-To: Sarthak Kukreti via Linux-f2fs-devel
- <linux-f2fs-devel@lists.sourceforge.net>, Theodore Ts'o <tytso@mit.edu>,
- Jaegeuk Kim <jaegeuk@kernel.org>, Chao Yu <chao@kernel.org>, Al Viro
- <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>
-Cc: Sarthak Kukreti <sarthakkukreti@google.com>,
- linux-kernel@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net, Eric
- Biggers <ebiggers@kernel.org>, linux-fsdevel@vger.kernel.org,
- linux-ext4@vger.kernel.org, Dmitry Torokhov <dtor@google.com>
-Subject: Re: [f2fs-dev] [PATCH v2 2/3] ext4: reject casefolded names that
- fold to ".", "..", or empty
-In-Reply-To: <20261119214944.1480596-3-sarthakkukreti@google.com>
-Organization: SUSE
-References: <20261119214944.1480596-1-sarthakkukreti@google.com>
- <20261119214944.1480596-3-sarthakkukreti@google.com>
-Date: Tue, 24 Nov 2026 14:48:56 -0500
-Message-ID: <87mrqyc8nr.fsf@cartola>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PfpF7sHP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F6581F000D2;
+	Tue, 24 Nov 2026 19:49:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795549756;
+	bh=DdV8mCrVdlTy+W2zhIYE2Cj4xwzWt453izMOIQetGoo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=PfpF7sHP5D+UdHbKu7hc2OG87EjsVqFU155APx6qjquQPt/CqItTGRP65kNR50jOS
+	 TcZJfFNGjZ4XkIiAcJ8X0A06R2hr7pd9Mj7OlMYzyNq1u8KqxBLq07EVvlsEk4Lcfm
+	 UOPp5rDXgluE5TH0+StnhohcbdKn2TU6rGz3vTL6JTUN89qSfUg0rgmFRlLbHGJ4hW
+	 TUJHpA6SOyHyRTHb3S4l/5t9Gv9JS0WGnBJU7IAb2xCANSNMARvtZipOUGZxxgf7pN
+	 9SvRotM/cnlqF8llS+t061q/gqVUC9Nj4c49tcbyzO4nhAW5lC27UARPzy10iiK3m7
+	 R7YZvYO8uKuSw==
+From: Jeff Layton <jlayton@kernel.org>
+Date: Tue, 24 Nov 2026 14:48:42 -0500
+Subject: [PATCH v3 03/12] nfsd: count a delegation in cl_delegs_in_recall
+ only once
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,140 +53,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Spamd-Result: default: False [-12.80 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MISSING_XM_UA(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	HAS_ORG_HEADER(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[13];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -12.80
-X-Spam-Level: 
-X-Spam-Flag: NO
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-delegts-fixes-v3-3-6fe4ba705aef@kernel.org>
+References: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
+In-Reply-To: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
+To: Chuck Lever <cel@kernel.org>, NeilBrown <neil@brown.name>, 
+ Olga Kornievskaia <okorniev@redhat.com>, Dai Ngo <Dai.Ngo@oracle.com>, 
+ Tom Talpey <tom@talpey.com>, Christian Brauner <brauner@kernel.org>
+Cc: =?utf-8?q?Aur=C3=A9lien_Couderc?= <aurelien.couderc2002@gmail.com>, 
+ linux-nfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Jeff Layton <jlayton@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2392; i=jlayton@kernel.org;
+ h=from:subject:message-id; bh=XsSZC4Cb4n47zUuvLr9M3tVFz4Y1vPJNNnSmdy8nAi8=;
+ b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBrBeo1QoTCFQhsiym7XiX/nIAeD5mI/PdqhbUzK
+ HjzYDhgmd6JAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCawXqNQAKCRAADmhBGVaC
+ FWk0D/0Ywle/Jp8UgC49gr9gWuV5TYjAJi2Fn7zR/Gild916zP+w8RCph1/OvbbuBJTHgAFAgPA
+ D3S5eybQl+28l+cbyYkZf7n0Q/PRe3r9V89kCM6eEJGAp29hopGcpmdMpUpW5CIref4AhrgqiL0
+ 5GGmGJ+digfr5NcqZk1ru6r6ew45ovkGR1EGU1Ie4oNBKTRejUYjxkTT0f73pOKW+hUZVMlGJ09
+ VHm0Zyi4xKWewHZNz+ydReUKfMBwYOse2lDvyRCeEdvKtZaBlu+uqucdl3HPFNsGGUSrIQKiJMv
+ tNaSx/O5R5rkMtUl0jZHQeJkXiZEd1+Fvvcb0BhtNwDlENbzJp1zmHJrgjAI1AuShF9WOD+J4yw
+ pJl4OpEFgR0SxWXWwgIY2zua59UcZ9cEB+nGIPuX2J3947RBo0GEuQ012pK/CEqqffU90DWyuCR
+ HmqTXH1QySy4gctMDibXqJylZMXYhmMfQy4wCexFfidaxzqcGEGh7myXZ4FezCaeFqGsaHnphZ3
+ mtS+RKHTYQHOkq9GTjMmsZydMllngXPzPVm4EEUEkzwJI7nPgrJHZY1YRyLoIICcwj60X4iTgdw
+ /OJN7y0mP1dalVosG5m4abyWRMHMZT7BKdnwft6G0ONoHNfyF2M7LeZ20JjfD+SYFQ6SNIei+el
+ 0XC4YcacISO2d+g==
+X-Developer-Key: i=jlayton@kernel.org; a=openpgp;
+ fpr=4BC0D7B24471B2A184EAF5D3000E684119568215
 
-Sarthak Kukreti via Linux-f2fs-devel
-<linux-f2fs-devel@lists.sourceforge.net> writes:
+nfsd_break_deleg_cb() can run more than once per lease:
+- __break_lease() calls lm_break for a read breaker
+  (FL_DOWNGRADE_PENDING) and again for a later write breaker
+  (FL_UNLOCK_PENDING).
+- nfsd_handle_dir_event() and nfsd_recall_all_dir_delegs() call
+  nfsd_break_deleg_cb() directly, possibly repeatedly.
 
-> Filenames consisting solely of ignorable Unicode characters fold to
-> empty strings (causing the first such file to be created on disk and
-> subsequent distinct ignorable-only names to collide with it), while
-> names with leading dots and ignorable characters fold to "." or "..",
-> colliding with on-disk "." and ".." entries and triggering
-> EXT4_ERROR_INODE in ext4_lookup().
->
-> Skip casefolding when the lookup name is literally "." or "..", reject
-> any non-dot names that fold to "", ".", or ".." in
-> ext4_fname_setup_ci_filename(), and fall back to opaque byte hashing in
-> ext4fs_dirhash() when utf8_casefold() yields "", ".", or "..".
->
-> Fixes: b886ee3e778e ("ext4: Support case-insensitive file name lookups")
-> Co-developed-by: Dmitry Torokhov <dtor@google.com>
-> Signed-off-by: Dmitry Torokhov <dtor@google.com>
-> Signed-off-by: Sarthak Kukreti <sarthakkukreti@google.com>
-> ---
->  fs/ext4/hash-test.c | 14 ++++++++++++++
->  fs/ext4/hash.c      |  2 +-
->  fs/ext4/namei.c     |  9 +++++++--
->  3 files changed, 22 insertions(+), 3 deletions(-)
->
-> diff --git a/fs/ext4/hash-test.c b/fs/ext4/hash-test.c
-> index 49b0d874c833..a8b206a6d751 100644
-> --- a/fs/ext4/hash-test.c
-> +++ b/fs/ext4/hash-test.c
-> @@ -541,6 +541,20 @@ static void test_ext4fs_dirhash_casefold_fallback(struct kunit *test)
->  	KUNIT_ASSERT_EQ(test, ret_plain, 0);
->  	KUNIT_EXPECT_EQ(test, folded_dir.hash, plain.hash);
->  	KUNIT_EXPECT_EQ(test, folded_dir.minor_hash, plain.minor_hash);
-> +
-> +	ret_cf = ext4fs_dirhash(&ei->vfs_inode, ".\xe2\x80\xae", 4, &folded_dir);
-> +	ret_plain = ext4fs_dirhash(plain_dir, ".\xe2\x80\xae", 4, &plain);
-> +	KUNIT_ASSERT_EQ(test, ret_cf, 0);
-> +	KUNIT_ASSERT_EQ(test, ret_plain, 0);
-> +	KUNIT_EXPECT_EQ(test, folded_dir.hash, plain.hash);
-> +	KUNIT_EXPECT_EQ(test, folded_dir.minor_hash, plain.minor_hash);
-> +
-> +	ret_cf = ext4fs_dirhash(&ei->vfs_inode, "\xe2\x80\xae", 3, &folded_dir);
-> +	ret_plain = ext4fs_dirhash(plain_dir, "\xe2\x80\xae", 3, &plain);
-> +	KUNIT_ASSERT_EQ(test, ret_cf, 0);
-> +	KUNIT_ASSERT_EQ(test, ret_plain, 0);
-> +	KUNIT_EXPECT_EQ(test, folded_dir.hash, plain.hash);
-> +	KUNIT_EXPECT_EQ(test, folded_dir.minor_hash, plain.minor_hash);
->  }
->  #endif
->  
-> diff --git a/fs/ext4/hash.c b/fs/ext4/hash.c
-> index 978bd92da0ad..65019de4af93 100644
-> --- a/fs/ext4/hash.c
-> +++ b/fs/ext4/hash.c
-> @@ -327,7 +327,7 @@ int ext4fs_dirhash(const struct inode *dir, const char *name, int len,
->  			return -ENOMEM;
->  
->  		dlen = utf8_casefold(um, &qstr, buff, PATH_MAX);
-> -		if (dlen < 0) {
-> +		if (dlen <= 0 || name_is_dot_dotdot(buff, dlen)) {
->  			kfree(buff);
->  			goto opaque_seq;
->  		}
-> diff --git a/fs/ext4/namei.c b/fs/ext4/namei.c
-> index 354fc2d22df1..cd2c9b873cc6 100644
-> --- a/fs/ext4/namei.c
-> +++ b/fs/ext4/namei.c
-> @@ -1368,7 +1368,8 @@ int ext4_fname_setup_ci_filename(struct inode *dir, const struct qstr *iname,
->  	int len;
->  
->  	if (!IS_CASEFOLDED(dir) ||
-> -	    (IS_ENCRYPTED(dir) && !fscrypt_has_encryption_key(dir))) {
-> +	    (IS_ENCRYPTED(dir) && !fscrypt_has_encryption_key(dir)) ||
-> +	    name_is_dot_dotdot(iname->name, iname->len)) {
+Each call increments cl_delegs_in_recall, but nfsd_change_deleg_cb()
+decrements it only once, at F_UNLCK. The leaked count keeps
+nfs4_anylock_blockers() true, so the client can never again become a
+courtesy client.
 
-if name_is_dot_dotdot(iname->name, iname->len) is true, isn't that a
-byte-exact match to dot or dotdot?  Do we actually get here for
-byte-exact matches?
+When dl_recalled is already set, skip the increment, the client expiry,
+and the stores to dl_recalled and fi_had_conflict. All callers and the
+F_UNLCK decrement run under flc_lock. Setting fl_break_time to 0, the
+nfsd_break_one_deleg() call, and the false return stay unconditional.
 
-The rest of the patch looks good to me!
+Fixes: 66af25799940 ("NFSD: add courteous server support for thread with only delegation")
+Fixes: cb7444b27c85 ("nfsd: add notification handlers for dir events")
+Signed-off-by: Jeff Layton <jlayton@kernel.org>
+---
+ fs/nfsd/nfs4state.c | 20 ++++++++++++++------
+ 1 file changed, 14 insertions(+), 6 deletions(-)
 
->  		cf_name->name = NULL;
->  		return 0;
->  	}
-> @@ -1378,9 +1379,13 @@ int ext4_fname_setup_ci_filename(struct inode *dir, const struct qstr *iname,
->  		return -ENOMEM;
->  
->  	len = utf8_casefold(dir->i_sb->s_encoding, iname, buf, EXT4_NAME_LEN);
-> -	if (len <= 0) {
-> +	if (len < 0) {
->  		kfree(buf);
->  		buf = NULL;
-> +	} else if (len == 0 || name_is_dot_dotdot(buf, len)) {
-> +		kfree(buf);
-> +		cf_name->name = NULL;
-> +		return -EINVAL;
->  	}
->  	cf_name->name = buf;
->  	cf_name->len = (unsigned) len;
-> -- 
-> 2.56.1.750.gf70dc682cf-goog
->
->
->
-> _______________________________________________
-> Linux-f2fs-devel mailing list
-> Linux-f2fs-devel@lists.sourceforge.net
-> https://lists.sourceforge.net/lists/listinfo/linux-f2fs-devel
+diff --git a/fs/nfsd/nfs4state.c b/fs/nfsd/nfs4state.c
+index f3d1065d3448..c2c082006d81 100644
+--- a/fs/nfsd/nfs4state.c
++++ b/fs/nfsd/nfs4state.c
+@@ -6654,11 +6654,20 @@ nfsd_break_deleg_cb(struct file_lease *fl)
+ 
+ 	trace_nfsd_cb_recall(&dp->dl_stid);
+ 
+-	dp->dl_recalled = true;
+-	atomic_inc(&clp->cl_delegs_in_recall);
+-	if (try_to_expire_client(clp)) {
+-		nn = net_generic(clp->net, nfsd_net_id);
+-		mod_delayed_work(laundry_wq, &nn->laundromat_work, 0);
++	/*
++	 * lm_break runs again for a write breaker after a read breaker, and
++	 * the dir notification paths call nfsd_break_deleg_cb() directly.
++	 * Only the first call may count the recall, since
++	 * nfsd_change_deleg_cb() decrements cl_delegs_in_recall only once.
++	 */
++	if (!dp->dl_recalled) {
++		dp->dl_recalled = true;
++		atomic_inc(&clp->cl_delegs_in_recall);
++		if (try_to_expire_client(clp)) {
++			nn = net_generic(clp->net, nfsd_net_id);
++			mod_delayed_work(laundry_wq, &nn->laundromat_work, 0);
++		}
++		fp->fi_had_conflict = true;
+ 	}
+ 
+ 	/*
+@@ -6668,7 +6677,6 @@ nfsd_break_deleg_cb(struct file_lease *fl)
+ 	 */
+ 	fl->fl_break_time = 0;
+ 
+-	fp->fi_had_conflict = true;
+ 	nfsd_break_one_deleg(dp);
+ 	return false;
+ }
 
 -- 
-Gabriel Krisman Bertazi
+2.56.1
+
