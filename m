@@ -1,54 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795529885;
-	b=ObJDeQds7Iur3YVRn9CBljeWyT4soXOcaqhx2xyVt1GW5Oa7VIEtdQOtUxlCBwOWW22F
-	 e2QvusfCKz97iDrypW/bBmspa/s9qFqOgLPQPQG17oaczNEPwKjGwiI1K2EHEQIatk7rz
-	 InH2J1z6plD9yXhjo/uqeKRhdSsFfST/nH6AysccmJhnLlvHthO//jp7zxDay1oWKltp8
-	 1dmhBHpcHK97CZndN7Lmdxv+YfDmNJyT5Fhj0WMQ9jXtrryH2Ge9d7PZity5VW+W556H2
-	 8H2B4QCdIGR5556QrZWEW3I1t9CkX6ehx+pdyENlR828wxqYs2Vqym9DJMaY1AAzAbw==
+	t=1795529918;
+	b=UQgDE9dFOllyrmbXvVlADPVS/KOqnmkWLw/LW5KDMdBJWwdJ5Gjdlc3bn0ralmCGUkds
+	 QT3XbXwkVrISSG/9VuKeNb2prXhKMME1oQ8IDI7mjkfDzJD/gS37EiAJmlVW6qxLujrEx
+	 +2I+t78WUSeqnJNyeHqugO85w0S1WIu7LAsdniLTYlAV8NkVGoyBkkR+/hjSw907A4iZ1
+	 YB5QT+gJElm9XSHKe1CdTr1tcwKwllqxuBuXckhE7MbCEwjWqNm32A16qAyICaDbGlGKn
+	 Ohk5PZ6Q4RYAoE06175M7HLU9pbD9vhS2FNFqH5BmiNQC8Ej9/SeF5wdgVziWNG4osg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795529885;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=RcEZBau4Vg0AeEXj4m9HmtRiHgUy7WeKZ8ntHILtOX8=;
-	b=4d4IHRsos7GezzWal+HHfOkLsuzbJBzAe/ePZP/Y81rFuh4HTTsfTvgJFGty0a8QJhGA
-	 Xe03Fu7dUaXWkQmNj/22O69lWTeaSV3T2WKEwhRGZZHgpKthV6xrLccnnqKjtQtK5i5oc
-	 7XXfIcqiqVfI9g6L4bw42HIuwzY2ZXJyGbBiuZfAaBK7ZmZbydJxFwuT7ulZNARpscun2
-	 WiBJ9pK/JXMEakU+Ckelg851HbjzFBct+GRapAzWo7ndcMDXqdHDda4trEruPt3Xv4qT3
-	 d3CCkQ3B5PUxBg7qhzLr3/8Txk8hGvtL1SeKDmL6c0gyU0lGqo1qYZxslMQpV7vUuWA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795529918;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Stat-Signature:X-Rspamd-Server:
+	 X-Rspamd-Queue-Id:X-Spam-Status:X-Session-Marker:X-Session-ID:
+	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=j4MD4Ah8YVfNeDDVCjOQWnQCh8tQKZ8jPvBbtYFrC2A=;
+	b=zSXppkKxxAtHjavqRJbFjsBlCm6iTsrhdjE7a4jEo2dE2PFovVQccahjDD+9Tm2NhUAN
+	 qJpgmowWuYKMzN8ccDP2azpH+fVs96Wy4ISXLQRBWFZGAKGf1y1lwWOhUHl62HU1jGkoZ
+	 gIpsEVmAnQqlgLVcGttd6LnP5TeYkrwcvOMMKPrrWP1/4C66aAFDMMgUcMATdFCyQ6cOD
+	 cGKRM3d1GReoLmPTkB2G2I7Bz+amn6CUc+xGz2h3di6gmXv8wnM/TlLH3xH/rFA3MurA8
+	 tqidEJHw5ZAK3gXnAbRz1JOkZLHKX51aZwdApZPjblSFGNWFVZeozGB/p8+Yad/9cuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HphSiGhN;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=TiIRqxq2;
+	arc=none smtp.remote-ip=216.40.44.17
+Received: from relay.hostedemail.com (smtprelay0017.hostedemail.com [216.40.44.17])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B262606A31E;
-	Tue, 24 Nov 2026 14:18:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE349606A31E;
+	Tue, 24 Nov 2026 14:18:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE349606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HphSiGhN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 624951F000CA;
-	Tue, 24 Nov 2026 14:18:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795529884;
-	bh=RcEZBau4Vg0AeEXj4m9HmtRiHgUy7WeKZ8ntHILtOX8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HphSiGhNs14GVrdk82c2baLULqVwTRrGG+T1Ug40RGxbSfmbi2x/3fLfoXh6N1NoL
-	 nV/8GMv7DYqz/+T56ryRCRWKY3VvscQgsMpelPDytRBKTg5lZzQkyvZAV6HQXMyORP
-	 sT/7toX1vnbW1oQlsgZfCfMko74ayp/7Ie9LtvdWTvoLXYCfu1y6eEcMxznfSzsWBi
-	 6PUnYKTs7kPl+nj6cCe2psgn7wFdpBi+hmc9HQRmxGj7Uf6rlZfRldbpnjcaDZUGcn
-	 yYAplJRTW/jWRtDGlsFWuqaaU8F5RTZ+BPqGUwiq95Fie3YsH2U8fLC6MtqZVB1SRq
-	 8Jy6GDtjW4arA==
-Date: Tue, 24 Nov 2026 16:18:00 +0200
-From: Leon Romanovsky <leon@kernel.org>
-To: Ziheng Wei <zihengw03@163.com>
-Cc: Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] RDMA/hfi1: free CPU to SDMA map nodes after an RCU grace
- period
-Message-ID: <20261124141800.GV14811@unreal>
-References: <20261116130940.1629295-1-zihengw03@163.com>
+	dkim=pass (1024-bit key) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=TiIRqxq2
+Received: from omf17.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay06.hostedemail.com (Postfix) with ESMTP id 56E88A89FB;
+	Tue, 24 Nov 2026 14:18:36 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf17.hostedemail.com (Postfix) with ESMTPA id 6898317;
+	Tue, 24 Nov 2026 14:18:34 +0000 (UTC)
+Date: Tue, 24 Nov 2026 09:18:33 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+Cc: Shuah Khan <shuah@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH] selftests/ftrace: Remove non-existent
+ CONFIG_RESERVE_MEM from config
+Message-ID: <20261124091833.3c3d705d@gandalf.local.home>
+In-Reply-To: <179547315291.329986.16935545207857031949.stgit@devnote2>
+References: <179547315291.329986.16935545207857031949.stgit@devnote2>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,152 +61,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116130940.1629295-1-zihengw03@163.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: 57yfqmaectf9nthzreb4bwrxzbkhcdgs
+X-Rspamd-Server: rspamout05
+X-Rspamd-Queue-Id: 6898317
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX19tPeY4sSVYsy4SHWH1zIl8k4NGYvLi1ew=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=j4MD4Ah8YVfNeDDVCjOQWnQCh8tQKZ8jPvBbtYFrC2A=; b=TiIRqxq2bngPzHkOg1Ol1s5L5NpnWs9XkcIp+QefHs862Xi3cVe2Qk1bMC9uRDxR86tP7PCzyIUnV3/UhORtC0PWlaCtoAnPUXkGxwUAZG+eDn6JTVb7Xqx9/C8/9ujqGr5hLxfJuZ4fFf8GsmK11wo07yiqEBjGZJIddWTCoT0=
+X-HE-Tag: 1795529914-377196
+X-HE-Meta: U2FsdGVkX18DQdcH3lpsWSDC/pyEUlJBHSstbYMpk5TCkIlzLRuTD43FJK8OJraILqs2Bo6LjvRrQ1PY3G9SBLCfQGKmZqCLGYHnO/Gmos8BoXtGce2mnqhlJDkc+/jVDfzCSiFk/zvjh5nhJb7kx9VAsmakBc0V6vL0nr6N6P5113FvSSUy4T0QrCqwAhNlThEfA75ZATnNVWl0QTwO+kQ9FD8mW1ujwuWx8Pb/zGdW80tyjz8+1NIeU/pwuJ62oCx74UH/Scs3ucCgB330pWx+Ty1rdJt6zb9qKFIbJAubkcv9zf+mK4ElDKDGWzfEDd2MaIpD0yPg65jLepMOEKVwVJnc+A70ZlDA9QwVx0AZPiw887sVZXvPDBnIgOVZBYwp71vb40nlq2B6S96xBQ==
 
-On Mon, Nov 16, 2026 at 09:09:40PM +0800, Ziheng Wei wrote:
-> sdma_select_user_engine() looks up the per-CPU sdma_rht_node in
-> dd->sdma_rht under rcu_read_lock() and reads rht_node->map[vl],
-> map->mask and map->sde[].  sdma_set_cpu_to_sde_map(), called when the
-> cpu_list sysfs attribute of an SDMA engine is written, removes a node
-> whose maps have become empty with rhashtable_remove_fast() and then
-> kfree()s the maps and the node right away.  There is no RCU grace
-> period between the removal and the free, so a user SDMA submission on
-> that CPU can read the node and the map after they have been freed.  If
-> the memory has been reused, the map pointer and the engine pointer read
-> from it are arbitrary, and the caller goes on to use that engine.
-> 
-> Writing cpu_list requires CAP_SYS_ADMIN.  The reader is reachable by any
-> user that can open /dev/hfi1_N, when the task submitting user SDMA
-> requests is pinned to a single CPU.  So this needs an administrator to
-> change the SDMA engine CPU lists while jobs are running.
+On Tue, 24 Nov 2026 07:32:32 +0900
+"Masami Hiramatsu (Google)" <mhiramat@kernel.org> wrote:
 
-This is unlikely to occur in any real-world scenario.
+> From: Masami Hiramatsu <mhiramat@kernel.org>
+> 
+> CONFIG_RESERVE_MEM does NEVER exist in Kconfig. The reserve_mem= boot
+> parameter and reserve_mem_find_by_name() are built unconditionally in
+> mm/memblock.c, and persistent ring buffer instances via trace_instance=
+> do not require a separate Kconfig option either.
+> 
+> Remove the non-existent CONFIG_RESERVE_MEM=y entry from the ftrace
+> selftest config fragment and the boottime test README.
+> 
+> Fixes: e666e6528359 ("selftests/ftrace: Add generic boot tracing test framework")
+> Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
-Thanks
+Reviewed-by: Steven Rostedt <rostedt@goodmis.org>
 
-> 
-> The debugfs dump in sdma_seqfile_dump_cpu_list() has the same problem,
-> and in addition does not hold the RCU read lock at all while walking
-> the node, because rhashtable_lookup_fast() drops it before returning.
-> 
-> Free the node and its maps from an RCU callback, as is already done for
-> dd->sdma_map, and do the debugfs lookup and walk inside an RCU read-side
-> critical section.  hfi1_free_devdata() calls rcu_barrier() before
-> sdma_clean(), so no callback can still be pending when the hash table
-> is destroyed.
-> 
-> Found by LLM-assisted static analysis.  Not reproduced, as I have no
-> Omni-Path hardware; build tested only.
-> 
-> Fixes: 0cb2aa690c7e ("IB/hfi1: Add sysfs interface for affinity setup")
-> Fixes: af3674d62d34 ("IB/hfi1: Add new debugfs sdma_cpu_list file")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Ziheng Wei <zihengw03@163.com>
-> ---
-> 
-> Notes:
->     The changelog was drafted with an AI assistant from my analysis;
->     I have reviewed the code, the fix and the text.
-> 
->  drivers/infiniband/hw/hfi1/sdma.c | 45 ++++++++++++++++++-------------
->  1 file changed, 27 insertions(+), 18 deletions(-)
-> 
-> diff --git a/drivers/infiniband/hw/hfi1/sdma.c b/drivers/infiniband/hw/hfi1/sdma.c
-> index a71fc8f2d..bf9e362f1 100644
-> --- a/drivers/infiniband/hw/hfi1/sdma.c
-> +++ b/drivers/infiniband/hw/hfi1/sdma.c
-> @@ -801,6 +801,7 @@ struct sdma_rht_node {
->  	unsigned long cpu_id;
->  	struct sdma_rht_map_elem *map[HFI1_MAX_VLS_SUPPORTED];
->  	struct rhash_head node;
-> +	struct rcu_head rcu;
->  };
->  
->  #define NR_CPUS_HINT 192
-> @@ -886,6 +887,22 @@ static void sdma_cleanup_sde_map(struct sdma_rht_map_elem *map,
->  	}
->  }
->  
-> +static void sdma_rht_free(void *ptr, void *arg)
-> +{
-> +	struct sdma_rht_node *rht_node = ptr;
-> +	int i;
-> +
-> +	for (i = 0; i < HFI1_MAX_VLS_SUPPORTED; i++)
-> +		kfree(rht_node->map[i]);
-> +
-> +	kfree(rht_node);
-> +}
-> +
-> +static void sdma_rht_free_rcu(struct rcu_head *head)
-> +{
-> +	sdma_rht_free(container_of(head, struct sdma_rht_node, rcu), NULL);
-> +}
-> +
->  /*
->   * Prevents concurrent reads and writes of the sdma engine cpu_mask
->   */
-> @@ -1027,10 +1044,11 @@ ssize_t sdma_set_cpu_to_sde_map(struct sdma_engine *sde, const char *buf,
->  							     sdma_rht_params);
->  				WARN_ON(ret);
->  
-> -				for (i = 0; i < HFI1_MAX_VLS_SUPPORTED; i++)
-> -					kfree(rht_node->map[i]);
-> -
-> -				kfree(rht_node);
-> +				/*
-> +				 * sdma_select_user_engine() may still be
-> +				 * using the node under rcu_read_lock().
-> +				 */
-> +				call_rcu(&rht_node->rcu, sdma_rht_free_rcu);
->  			}
->  		}
->  	}
-> @@ -1055,17 +1073,6 @@ ssize_t sdma_get_cpu_to_sde_map(struct sdma_engine *sde, char *buf)
->  	return strnlen(buf, PAGE_SIZE);
->  }
->  
-> -static void sdma_rht_free(void *ptr, void *arg)
-> -{
-> -	struct sdma_rht_node *rht_node = ptr;
-> -	int i;
-> -
-> -	for (i = 0; i < HFI1_MAX_VLS_SUPPORTED; i++)
-> -		kfree(rht_node->map[i]);
-> -
-> -	kfree(rht_node);
-> -}
-> -
->  /**
->   * sdma_seqfile_dump_cpu_list() - debugfs dump the cpu to sdma mappings
->   * @s: seq file
-> @@ -1081,10 +1088,10 @@ void sdma_seqfile_dump_cpu_list(struct seq_file *s,
->  	struct sdma_rht_node *rht_node;
->  	int i, j;
->  
-> -	rht_node = rhashtable_lookup_fast(dd->sdma_rht, &cpuid,
-> -					  sdma_rht_params);
-> +	rcu_read_lock();
-> +	rht_node = rhashtable_lookup(dd->sdma_rht, &cpuid, sdma_rht_params);
->  	if (!rht_node)
-> -		return;
-> +		goto out;
->  
->  	seq_printf(s, "cpu%3lu: ", cpuid);
->  	for (i = 0; i < HFI1_MAX_VLS_SUPPORTED; i++) {
-> @@ -1107,6 +1114,8 @@ void sdma_seqfile_dump_cpu_list(struct seq_file *s,
->  	}
->  
->  	seq_puts(s, "\n");
-> +out:
-> +	rcu_read_unlock();
->  }
->  
->  /*
-> 
-> base-commit: 97d73c8251226cf27cc6656b4c542869bb8c69fa
-> -- 
-> 2.43.0
-> 
+-- Steve
