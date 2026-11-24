@@ -1,49 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795537661;
-	b=HJYN387PDSlAMhtGoeHzXjk1CmCwPAXf2E8cwsp5nxFraU0tH8/FawJ/Twk/VupkZb0T
-	 dncI8eo5qM3AsSyqgLUItvrFgGQjbVC9dG0rL+y9nz72zNjS+jIfcw7O4w7gz++DDY5cY
-	 Pgk/lNtyXce7HcmosuGUYJA15vvSPtfli6El4uLdfl496kNIy9lVWAakiUReLKz7A3WmV
-	 jOaGqxGqHzo1bDlR8frfaN4NSfOiekOjiWdP8NqtT2v3qzB4ovonSG1tL5LKjajdkMJPc
-	 7EInsTDqh3BAbj9ILEL22m/LiYFsJxYtUGv1zcFvnax5PqSfyLGDwD2zS2h/16CWXiA==
+	t=1795537655;
+	b=RzKopj4ESzHzRFaN9ce7DigW4nwthApJxmFvhyqVGQZsWT0lOSoXY9uUHRuqIk1qhl65
+	 U+JsbeWR0lksu3sWxZmD/iFIXtxbYhiEGN7y6PSrCJtSKwqyN6mDSqNtlPeSG5JNO8Q7V
+	 lCHTU/TPVafA/SlpR19QhedXpVlx6QtrEO0ax72qicFU9lu/DqprvP+JgIky+Tba3MrOR
+	 SLSOGN9Xdsl99eWqspxRUm6qxppJcgf+5c+bGQjtCTiJF7mu4Gq/lHjr20eLom1vJqacX
+	 pjA4ta0JFZBTSN30h6eMqwk3udFdWt47728+3UFEjpS/mBwUmPAnyTNkncATBXieosA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795537661;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=/4b+hKquXnrPxas17sH/CIlTC3nyBbdzPmcmTJtv4jk=;
-	b=ErBl2HyP+4nFsAvNHYIQk5EbnPeSaAF+dpG+KMg8F/DQ2YAI2KuX0S83EA7DqMUw/9e6
-	 Z4w1TAcZcXYhzFNk4xC08dZGgMlu0Y0g1vOo9G2sSJxUu+jD4Yt4VLq47UtWMEe3SRvcj
-	 35CmdES5vziIgpyTmRqy9QcvGRgLfvYhq7w/O5siofV4Q7Sus5UPddXn6Lo/UfIEJxjXb
-	 F1uNynGGNtNkxrIo+7tGJybe7vFukkPfee3JLYIfo5o/qD8TDrJewFCjGN1DlZqj4OtHR
-	 jUZV79IxOkhAOMSer5ad/l1a5OMsaazYoYhRe+LIx6E++WUvZbnNI2TXuTRHxOk9vTw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537655;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Rspamd-Queue-Id;
+	bh=RRPKSlH/AFlBoyx42n74fxoqo2DHk47ScSbq0Z4ucHU=;
+	b=vBx9D+0hjhKVnG5jzd2TuRf4YubpwXDq1RcMOV4HiCJqPK+anhgeCqV9CBK0+Km3fCVR
+	 5D6JQEwAn3kcoK0NNKumU2sgIY6DktPmaYhaGBz9D/6zc7W9J7Df9f7/UQQ8Uqj4gWujh
+	 zVHgd6rCgH+nGFSPDq5LiHqnpdeLnyEmOpxrswXnNhjtegy6pmTpWJGetuxviaH3THZMk
+	 vbcrVu2TWofIHFxrD7QhY3fglCY7rvk/zZCl0GC/zhLQFaz4Z3zwFWrWZkHxArfhXJPQ2
+	 Q5gmXrQ9BsoKNoHQ4uCnkZ0fdS/75nABZXgRHR6lpRRd98zv39JozF8DDnjMabaUTSQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=r1eEUBLV;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id B5621606A33C;
-	Tue, 24 Nov 2026 16:27:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5621606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=N3VlWcNJ;
+	arc=none smtp.remote-ip=195.10.208.46
+Received: from mout-b-106.mailbox.org (mout-b-106.mailbox.org [195.10.208.46])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B345A606A330;
+	Tue, 24 Nov 2026 16:27:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B345A606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=r1eEUBLV
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 959A9339;
-	Tue, 24 Nov 2026 08:27:36 -0800 (PST)
-Received: from [10.2.201.43] (e140322.arm.com [10.2.201.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B7B003F86C;
-	Tue, 24 Nov 2026 08:27:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795537659; bh=821rJ0g9HtpMoMuetVK6Nxwg+cBpAnfGyZshLAd+HLM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=r1eEUBLVzAo6010E4T6rWWsxESRfD92OZBhJIp5NCx2BdeNsW2kmJibj4aqGo2iTM
-	 fsTQiEQJHxUyYo52JNvhaBnNMmgw4NiYJJ/n+ncK2uKuYE60Tre1P7wjL9eHR4zIun
-	 msKtL5KKkIJxVH9DP7XBJidE/wsduMfxNcMgKcBQ=
-Message-ID: <39619b6c-7330-459b-aed3-9e8bf303f7dc@arm.com>
-Date: Tue, 24 Nov 2026 16:27:36 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=N3VlWcNJ
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-106.mailbox.org (Postfix) with ESMTPS id 4jYpB51ShWzNmF9;
+	Tue, 24 Nov 2026 17:27:25 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795537645;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=RRPKSlH/AFlBoyx42n74fxoqo2DHk47ScSbq0Z4ucHU=;
+	b=N3VlWcNJ0CwZjW8aK7GT1lYwYzNvntuV9a9kmzG/p9FCnlC3bpWDkZ1Ww6L4ZI2/Jyf8FZ
+	RantTnEQittgImGiK8vaoMFecLyAwgTmMtOXq2JHAy1mEkYdKgLnf8R0PnaPGUG38eIcQh
+	7o25cjA2sceKzLWg7b4Gn63gBMk9hs/2mVTzqlBvY1PGLksZZJkyvrMHL39LaesNPnxRQw
+	sH5J+n3VbFOC54+MtUWWv3sm1mmTb52Kkpyr8PMfx1k1sySMwmuq8ZgGsIrEO7kadNJDWb
+	jGh3ah3rU1LHldhhGBNUpn/h9C7a8EsFWAn35AXBj4xF/bLjpGK3OaCdrOq+XA==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: netdev@vger.kernel.org
+Cc: Ralf Lici <ralf@mandelbit.com>,
+	David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Florian Westphal <fw@strlen.de>,
+	Xia Yan <yanxia@cmss.chinamobile.com>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Antonio Quartulli <antonio@mandelbit.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v5 0/4] ipv6: tie dst validation to the lookup that returned the dst
+Date: Tue, 24 Nov 2026 17:27:06 +0100
+Message-ID: <cover.1795537128.git.ralf@mandelbit.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,132 +84,128 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 08/28] media: mali-vpu: register V76 decoder controls
- and introduce UAPI controls
-To: Nicolas Dufresne <nicolas@ndufresne.ca>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Rathinavel Sankaralingam <rath.sankaralingam@arm.com>,
- Shobhit Pandey <shobhit.pandey@arm.com>
-References: <20261119153758.1426673-1-charvi.mehta@arm.com>
- <20261119153758.1426673-9-charvi.mehta@arm.com>
- <0cb2cae4075d3854ebb9c051d169ca121a8a360d.camel@ndufresne.ca>
-Content-Language: en-US
-From: Charvi Mehta <charvi.mehta@arm.com>
-In-Reply-To: <0cb2cae4075d3854ebb9c051d169ca121a8a360d.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jYpB51ShWzNmF9
+
+Hi,
+
+This series fixes the late cookie sampling race described in [1]: a dst
+can be stored together with a cookie read after a FIB change that its
+lookup did not see, and then passes dst_check until the next change.
+With xfrm, a socket whose lookup ran just before a policy insertion
+keeps its plain dst and leaks plaintext although the policy matches,
+and a more specific blackhole route can be bypassed in the same way.
+
+v4 returned the cookie from the lookup and converted selected cache
+users to it. Following David's objection to growing the API and his RFC
+[2], which moves validity into the dst, this revision keeps validity in
+the dst but stamps it with the fn_sernum of the route's node, sampled
+during the lookup, instead of the netns generation:
+
+- Every holder is covered without being converted, including dst_cache
+  users and the route and path dsts of xfrm bundles.
+- Invalidation keeps its per-node scope, rather than every FIB change
+  invalidating every cached IPv6 dst in the netns.
+- Shared pcpu dsts are never re-stamped: a lookup only reuses one that
+  carries its own stamp, and replaces it otherwise.
+
+Patches 1 and 2 are writer-side fixes from v4: a fresh serial on default
+router failure, and fib6_ifup and fib6_ifdown advancing the serial
+after the ECMP rebalance. Patch 3 samples the stamp during the lookup
+and patch 4 validates dsts against it.
+
+I tested it in a VM with lockdep, PROVE_RCU and DEBUG_ATOMIC_SLEEP,
+using reproducers for the races above, which I can share.
+
+Not addressed here, and noted in the patches where relevant:
+
+- PMTU and redirect exceptions keep being validated against the
+  holder's cookie, so they keep the late sampling. Refreshing them
+  needs PMTU updates serialized with the replacement, a follow-up.
+- The stamp covers the lookup in one table: a fib rule inserted while
+  the rules are evaluated can leave a lookup on the previous table.
+- Deleting one route of an ECMP group rebalances the others without a
+  new serial, changing the forwarding sysctl changes how gateways are
+  scored without one, and deleting a nexthop-object route does not
+  advance the generation. These predate this series.
+- A replaced pcpu dst is released with dst_dev_put, so a holder that
+  sends through it without validating it again, such as a corked UDP
+  socket, loses those packets. This already happens when the route is
+  removed, and now also when a FIB change in the route's subtree
+  replaces the pcpu dst.
+- xfrm_policy_insert advances the generation before unlinking the
+  policy it replaces. I will send the fix separately to the ipsec tree.
+- pcpu dsts dropped when their route is removed, in
+  __fib6_drop_pcpu_from, still release the slot's reference without
+  waiting for a grace period, as before.
+
+[1] https://lore.kernel.org/netdev/20260901122501.482920-1-ralf@mandelbit.com/
+[2] https://lore.kernel.org/netdev/20261123212623.106153-1-dsahern@kernel.org/
+
+Thanks,
+
+Ralf Lici
+Mandelbit Srl
+
+---
+Changes since v4 https://lore.kernel.org/netdev/cover.1795166508.git.ralf@mandelbit.com/
+- Keep validity in the dst instead of returning a cookie from the
+  lookup, with a stamp sampled during the lookup (patches 3 and 4).
+  Drop ip6_dst_lookup_flow_cookie, ip6_dst_store_cookie and the
+  conversion of socket cache users, which are no longer needed, and the
+  ip6_dst_check change for nexthop-object dsts, superseded by patch 4.
+  (David)
+- Mention the tunnel transmit error paths in patch 1. (Sashiko)
+- The xfrm bundle cookies and the UDP rx dst cookie pairing reported on
+  v4 no longer matter, since dsts are validated against their own
+  stamp. (Sashiko)
+- The xfrm_policy_insert ordering reported on v4 will be fixed
+  separately in the ipsec tree. (Sashiko)
+- Reword the fib6_ifup and fib6_ifdown patch to refer to the lookup
+  stamps.
+
+Changes since v3 https://lore.kernel.org/netdev/cover.1794906743.git.ralf@mandelbit.com/
+- Rebase onto current net-next.
+- Split v3 2/3 into the writer ordering (2/5), the ip6_dst_check change
+  (3/5) and the new API (4/5), each with its own explanation. (David)
+- Reword the kdoc of ip6_dst_lookup_flow_cookie to say that it performs
+  the xfrm policy lookup (David) and narrow it to changes that advance
+  the IPv6 generation. (Sashiko)
+- Document the ordering of fib6_new_sernum that the helper relies on and
+  name it in the barrier comments. (Xia)
+- Note the per-call generation advance in 1/5 and widen the
+  rt6_exception_net comment. (Sashiko)
+- Drop the Fixes tag from the conversion patch. (Sashiko)
+- List the known limitations and pre-existing issues above.
+
+Changes since v2 https://lore.kernel.org/all/cover.1794384146.git.ralf@mandelbit.com/
+- Rebase onto current net-next, preserving the connected-only cache
+  lookup introduced by f778e80b3daf ("ipv6: fix cached route reuse for
+  control messages"). (Jakub)
+- Move the serial update after rt6_multipath_rebalance in fib6_ifup and
+  fib6_ifdown. (Sashiko)
+- Add Fixes tags and improve wording. (Sashiko)
+- Clarify that this is the groundwork for fixing the race and a partial
+  conversion to the new API: other users will be covered in a follow-up
+  series.
+
+Changes since v1 https://lore.kernel.org/netdev/cover.1793806941.git.ralf@mandelbit.com/
+- Fix kdoc return statements in patch 2/3. (NIPA)
+
+Ralf Lici (4):
+  ipv6: stamp the default route node with a fresh serial on link failure
+  ipv6: advance the serial after rebalancing in fib6_ifup and
+    fib6_ifdown
+  ipv6: sample the route's serial during the lookup
+  ipv6: validate dsts against the state their lookup found
+
+ include/net/ip6_fib.h |  10 +++
+ net/ipv6/ip6_fib.c    |   4 ++
+ net/ipv6/route.c      | 151 +++++++++++++++++++++++++++++++++++-------
+ 3 files changed, 140 insertions(+), 25 deletions(-)
 
 
-On 11/19/26 21:06, Nicolas Dufresne wrote:
->> Add Mali VPU userspace controls for NALU layout, stream escaping,
->> intermediate buffer size, stream-header handling, frame reordering and
->> firmware debug output. Also expose the standard read-only
->> V4L2_CID_MIN_BUFFERS_FOR_CAPTURE control.
-> I would strongly recommend to keep each vendor control in its own patch. These
-> are API, and they need documentation. In practice, you'll prefer to not
-> introduce vendor control as a first introduction of your driver, its just a bad
-> idea. You completely missed Documentation/
-I had planned to add the documentation for these subsequently, but, I agree,
-it should accompany the controls. The initial driver series may not be 
-the right
-place for these vendor controls, so I’ll remove them and their UAPI 
-definitions
-from this patchset.
+base-commit: c2621b518b38ed38e280e008aa33e6c2d302f8cc
+-- 
+2.56.0
 
-
->> +		.cid = V4L2_CID_MALI_VPU_NALU_FORMAT,
->> +		.type = V4L2_CTRL_TYPE_MENU,
->> +		.name = "NALU format",
->> +		.qmenu = mali_v76_nalu_format_qmenu,
->> +		.min_val = MALI_VPU_NALU_FORMAT_START_CODES,
->> +		.max_val = MALI_VPU_NALU_FORMAT_FOUR_BYTE_LENGTH_FIELD,
->> +		.default_val = MALI_VPU_NALU_FORMAT_START_CODES,
->> +		.step_or_mask = BIT(MALI_VPU_NALU_FORMAT_START_CODES) |
->> +				BIT(MALI_VPU_NALU_FORMAT_ONE_NALU_PER_BUFFER) |
->> +				BIT(MALI_VPU_NALU_FORMAT_ONE_BYTE_LENGTH_FIELD) |
->> +				BIT(MALI_VPU_NALU_FORMAT_TWO_BYTE_LENGTH_FIELD) |
->> +				BIT(MALI_VPU_NALU_FORMAT_FOUR_BYTE_LENGTH_FIELD),
-> This mixes alignment and NAL format. Its historical, but the format is bound to
-> V4L2_PIX_FMT_H264 and is documented as Annex B. If you want to add something
-> such as AVCc formata instead, you'd need a new pixel format. There is
-> V4L2_PIX_FMT_H264_SC, but its hill define, nobody knows what it was originally
-> suppose to do. Venus (Qualcomm) maps it as if it was the same, perhaps they have
-> a clue, but I would stay away.
->
-> For the alignment, V4L2_CID_MPEG_VIDEO_HEADER_MODE does not cover your 1 buffer
-> per nalue case, it only does the split header like OMX IL was doing (sometimes,
-> interoperanility killed OMX).
-The firmware defaults to Annex B, which matches V4L2_PIX_FMT_H264, so
-this control is not needed for that input format. I'll drop this completely.
-
-
->> +		.cid = V4L2_CID_MALI_VPU_INTBUF_SIZE,
->> +		.type = V4L2_CTRL_TYPE_INTEGER,
->> +		.name = "Internal buffer size",
-> No general equivalent, and to be fair, that seems like something the driver
-> should get correctly by itself, I'd say drop.
-The firmware already calculates the intermediate working-buffer size when
-no override is supplied. I’ll remove this control completely.
-
-
->> +	},
->> +	{
->> +		.cid = V4L2_CID_MALI_VPU_STREAM_ESCAPING,
-> No doc, I suppose it was about emulation bytes. Nobody needs that drop.
-Yes, this controls emulation-prevention byte handling.
-Agreed that this can be dropped.
-
-
->> +	{
->> +		.cid = V4L2_CID_MALI_VPU_HOST_PRINT_ENABLE,
-> Debugging goes into sysfs or debugfs, drop.
-Ack. I’ll use an appropriate interface as suggested when I reintroduce this.
-
-
->> +	},
->> +	{
->> +		.cid = V4L2_CID_MALI_VPU_IGNORE_STREAM_HEADERS,
-> If userspace want that, it can just strip the headers itself. Its not like a
-> stateful decoder can work without headers according to the spec. It will always
-> break one way or another.
-This does not skip the initial headers; it retains existing SPS/PPS 
-entries rather
-than accepting replacements with the same ID. It was intended to prevent 
-a heavily
-corrupted stream from replacing valid settings, but it would also ignore 
-legitimate
-changes. Agreed to drop it.
-
-
->> +	},
->> +	{
->> +		.cid = V4L2_CID_MALI_VPU_FRAME_REORDERING,
-> You can thank Samsung, instead you need
-> V4L2_CID_MPEG_VIDEO_DEC_DISPLAY_DELAY_ENABLE and add support for
-> V4L2_CID_MPEG_VIDEO_DEC_DISPLAY_DELAY 0. That will effectively disable
-> reordering. Some vendors calls this the thumbnail mode to add to the fun.
-Agreed, I’ll drop the vendor control. I’ll use the suggested standard 
-controls with a
-delay of zero, when I reintroduce this in subsequent patches.
-
-
->> +/*
->> + * The base for Arm Mali-VPU driver controls.
->> + * We reserve 64 controls for this driver.
->> + */
->> +#define V4L2_CID_USER_MALI_VPU_BASE		(V4L2_CID_USER_BASE + 0x1260)
->> +
->>   /* MPEG-class control IDs */
->>   /* The MPEG controls are applicable to all codec controls
->>    * and the 'MPEG' part of the define is historical */
-> My recommendation, drop all the vendor controls, legacy users can use your
-> downstream kernels.
-I’ll drop the vendor controls from this series.
-
-Regards,
-Charvi
