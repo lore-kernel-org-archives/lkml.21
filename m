@@ -1,98 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.227
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795546686;
-	b=EvLT/WGSmR7vb3HF3zj/z4xorWTbmRS9YQ5oeGXXQnvAq8wDjbZ0JIwPdU8xrd07nHYT
-	 5XZb9MXngjSHW/xr8bJLR5KMTWzxvnRQgBrdUaXjPPXwvdhg0QRAMsc2dXf23BFOI6BK4
-	 vRviyOC1MfmmPv8u2pZ5136X0Gg94zaVl+fRiy/TycmfF9Qc0K7Mz+RIBWB/n+0ITadm9
-	 9eh0H0ONcuK7lEKxpCxZjsb1gexByjVcsYSytfnSGhG9KpTS6YTS1ngn4SKpa2KPYt8uk
-	 Cd0MILAtB66YatPYpMwIM0l85KAX/1JBmnWrTx2ZGN/usxO9uYj5mRrg/zHe94VVqHQ==
+	t=1795546710;
+	b=McEgSPQR8qlIiSI2a+AE6xTnob7gyQFRtXToHUIE5y8AaAa9+AGD9/V763tcz/1U+wlj
+	 E+ohGKTwnaIuBFdN3aB85tQmarlMmfJEob695/awM2BgfbhyDDmZxPKSduvuppl3Kvxi9
+	 CPqtvC6anXiwNP/e4BqBvyid0hxt7+titTLZPJG6MEH5dz/CFvwlW1NQnAptzjck2BU8E
+	 ImPFN37JlJgGoyKmyjq4c6Hb5ky0sX3uEkw24pBMgJt7B0NrfHV7nKciqhe6JTUce+6ro
+	 XtR+wBekr0MD2sII3FA8OlkM3356XYyHRyacxVw2wKtMCd5F/2hSff2SHwJ5uidoarQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795546686;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Subject:From:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
-	 MIME-Version:User-Agent:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=uqq04Dy6isK/nibhKSp5arYzUNNXHVOftTNvu6kl/OA=;
-	b=WJ73aw6ylyPK4X6DHB2I2qVG+h9pZIYMOar+jqAU8y1Cg0lTfxh2wqlPygLCGB6+lcCk
-	 OQ1x04U/UElsV56PRIh3Ml40OrC+xhJbuyvbPdear3HJWMMZ4O368sahmSl/3u64vwz/2
-	 safvhhmFKqLFwMY6QaLFJqctjJpaDKhGGpEAm/ecZzXt3V+Kr3YSY0Ga6RDPM2cIWlhnM
-	 bNk756dTN028PFe4+emmk7ih0iVX9e8OrT8U/r9J4tbwBfumw6NolYmGY5ZsyI5J8JsR3
-	 GKPjkPhwc1UBPRh7KwiBDUgULLIUcWU+6nN2mF12aZ0cFx1z77yFxPwa+YVfvx1uhMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795546710;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=SQM2BpLjbCL5cdHsfYKLxZA0LlvrqCit+Tm1g4u/PRo=;
+	b=w8mjm3CCjqq8YQkbiz2lylRE5rHHehZcR5ywclwf0khNSC9fG9gbkuNpXytFHYoLyQJh
+	 Qaq7EmUVV7pZlV1r1oDN/jMHrubnp/ai2M5RH6Z67UahTDlmGjMLsaCNU+4F6K9V3F9Dv
+	 1Bgq2ygDuES/dzdjy7LrV/+QGStcaOy2au6XdVdTEFqhM7ikgYr1ngV8zbZzzitzFwAOg
+	 1IbYD6prS74Tn5AU4DtLncqSiMpQzMRumojpGivWXJpfAEL5OMnFqA/3iFGTYla/gjM11
+	 wRrlx55ZvcDp9A0pz8RN7WPqa4wCp77qvj7KAhYSP4XnKuwxvA59O2dNTK5KMqCw27A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=HfV3u0oY;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=R+Cwe93O;
+	arc=none smtp.remote-ip=209.85.215.227
+Received: from mail-pg1-f227.google.com (mail-pg1-f227.google.com [209.85.215.227])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FF6E606A321;
-	Tue, 24 Nov 2026 18:58:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FF6E606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3241606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:58:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3241606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=HfV3u0oY
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOIYld43227618;
-	Tue, 24 Nov 2026 18:57:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=uqq04D
-	y6isK/nibhKSp5arYzUNNXHVOftTNvu6kl/OA=; b=HfV3u0oYsHK/2oysOj7z7w
-	d/1edf/+i3BrSGx8kohgNwUJx3hS97CxKYZaqldB7DXk17NXBgKCtupb6asdpLnN
-	W0BsbYY11JMsYv652cyBGcYMiF7aEsPYRQD+d82CbP1F3A/0FXkKSF0ri1aagOnA
-	A6xBx9jHsZ3K2XH6prPoF/46EGIXu2JrhJd0iOVHc+tYh9HstEQDMfgFch0P+de4
-	wGHTEcPdW4l5t4OhWn8iHXkIK9K19nBzIK/tM1vzVKhPXL/ISXCDSXRrFwJ1WNu9
-	dLATIKrkr8gfkFcFePD/gsW/08nd+XuGFGz+kN2589qmZgiREA/zZdXYKd2ojFtw
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g18taa-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 24 Nov 2026 18:57:46 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOIZW7J3101401;
-	Tue, 24 Nov 2026 18:57:45 GMT
-Received: from smtprelay03.wdc07v.mail.ibm.com ([172.16.1.70])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3p0vkvhn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 24 Nov 2026 18:57:45 +0000 (GMT)
-Received: from smtpav04.dal12v.mail.ibm.com (smtpav04.dal12v.mail.ibm.com [10.241.53.103])
-	by smtprelay03.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AOIurgx31195846
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 24 Nov 2026 18:56:54 GMT
-Received: from smtpav04.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id EA14D58056;
-	Tue, 24 Nov 2026 18:57:44 +0000 (GMT)
-Received: from smtpav04.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 2C1A558052;
-	Tue, 24 Nov 2026 18:57:44 +0000 (GMT)
-Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.4.47])
-	by smtpav04.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 24 Nov 2026 18:57:44 +0000 (GMT)
-Message-ID: <d22a4eafc73dcb6d2c80862f422fe69d54e79f4b.camel@linux.ibm.com>
-Subject: Re: [PATCH v2 06/13] ima: handle errors from resolving the real
- inode
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Christian Brauner <brauner@kernel.org>,
-        Amir Goldstein
- <amir73il@gmail.com>, linux-fsdevel@vger.kernel.org
-Cc: Chris Down <chris@chrisdown.name>, Miklos Szeredi
- <mszeredi@redhat.com>,
-        linux-unionfs@vger.kernel.org, linux-kernel@vger.kernel.org,
-        bpf@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-        linux-integrity@vger.kernel.org, linux-security-module@vger.kernel.org,
-        linux-mm@kvack.org
-In-Reply-To: <20261116-work-ovl-d_real-v2-6-90564c4ae347@kernel.org>
-References: <20261116-work-ovl-d_real-v2-0-90564c4ae347@kernel.org>
-	 <20261116-work-ovl-d_real-v2-6-90564c4ae347@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Tue, 24 Nov 2026 13:57:43 -0500
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=R+Cwe93O
+Received: by mail-pg1-f227.google.com with SMTP id 41be03b00d2f7-cdeaf4ea5e0so95428a12.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:58:29 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795546709; x=1796151509;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=SQM2BpLjbCL5cdHsfYKLxZA0LlvrqCit+Tm1g4u/PRo=;
+        b=oQrRQuXVEApu48lmroHBJCa4n4iQoII+MTV5op1H6OI71f4qo//piUvV5N7QitKT4/
+         GnBmwEEm+gZfqABb2Y6JvS8fvpmTwQOoBOYtEINX4y0DUpD8KXZ3xLFwdsTTrvlneAFX
+         9cau12FpXmX5AibuWevw0mkjLMeSoiyPXmdXcfXm0w2Qedd2P/EYGGx2ulUyzH79pKmt
+         KKhozROJuv4DFO2O1QhnmCXxHrxZ0WEnG1H2TZpeEw4IYC74AYEOFSXR6TsOJyziVz22
+         qeOej2wOY0nlnU1o/u6aUQr0kDpA0K/UIh/OZITtGKwaxXPUwXoa2yOuAmFSPsDfFqNE
+         VRew==
+X-Forwarded-Encrypted: i=1; AL+hErGe9pBEPWy1uLdxDIwRqnSvM9ZS9wJy0G+/K36cAKjwdsOXLFuCAAvSNb1VO9blIN1NdbWnLoIFXeC2kZk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+A0TigD8km8rhuiibRak82eB3xFexNmxpRE0//10IbJ8m8C53t
+	Azuaz0aNdzklhz50ohWZD9jpyDezdkxtJB/63fErKlDzpi82N+yRarGRmroNONHbcExZY4SXiDq
+	EVj6YWchR1cpuOBPT82NlIHUf043BvHpRUVLkuplyrHzXP5fOVobP48hTIjccx2lw9gImfyG1T1
+	2tPUV0lS2drmfP0XF2Fh3KKwfXrTSPuwPqG/3d5KRTd/TIa7pDAKfFuHrNxedVxXfbVmbsXBkDq
+	F0RmE6M6/eBDrtWbLulIuqP
+X-Gm-Gg: AZFdTZdqGjpN0+KGLK/la+5wxSDR9IByl+1bG/4b3CyyZjW/poPOjNy74LTdqNmIouc
+	R1xAqJ88TamfKGUk5wEVjfa8uvpk3QTBSTcFjZYQeXcrj6HQR9xcFG/m7I60eET+xmUYItLFnuF
+	m3hb8nnJYqDd25xiSDoeuO4SVOSBDjvQoUAFokO36QCu53giqeh6MBXR2/qLWoOiBd+UStr0go2
+	yFExaOdTCGUGsgax9NVVldujRmUVemll5z+y4pLOdK67l+zg1dMTy0hQNQ7AIBRK4tlwdvN7SwT
+	ztdQMt6WnriHQ9ZcUch8AfZj1GjdJuXhC8jJkBYIG7/52fjon3qLYMXGlsQ2dArdi9wMcYaOMxY
+	mTaqjlhxtk8dRTNTC3KZw6Ge1oLw+srmmZMlFleoBQEcx1G5OpV1rIn2zCzm2/5oKKFTYkvpZ6t
+	Dz6KjaMbNq8oCwAYY7NByUeTT91yKfYZlX3YkVwhsb7EQ=
+X-Received: by 2002:a17:90b:442d:b0:3b0:a413:dd8e with SMTP id 98e67ed59e1d1-3b41c982edbmr9474310a91.43.1795546708843;
+        Tue, 24 Nov 2026 10:58:28 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-100.dlp.protect.broadcom.com. [144.49.247.100])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41add899dsm10942019a91.3.2026.11.24.10.58.28
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 24 Nov 2026 10:58:28 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3425098ae4bso5764133eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:58:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795546707; x=1796151507; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=SQM2BpLjbCL5cdHsfYKLxZA0LlvrqCit+Tm1g4u/PRo=;
+        b=R+Cwe93OjfrWJhvLgguVUbdEZ0ofXS59j8YiQhQBDka//e4Q96JfLq2Zi5kwZRgY2j
+         ngUK1t6sRv2V1WEWiyzJqTWUJ/PvzRsRwPOrE/KrfYaitugeP0Ma99+keci//qIfbAWO
+         CJ7LRPV/dDAm7ekVLUHufZ2FMdWvZaei2g+3M=
+X-Forwarded-Encrypted: i=1; AL+hErF1epGC1SU1TSRMtlNIQXtNXAF8uB+Aj2tqFcM88oS/oMc0JM99MybZcnU4XJzh/lynD/nn0zs+KtjDxks=@vger.kernel.org
+X-Received: by 2002:a05:701b:4550:10b0:1b5:337a:6456 with SMTP id a92af1059eb24-1b55247eff6mr15258705c88.5.1795546706927;
+        Tue, 24 Nov 2026 10:58:26 -0800 (PST)
+X-Received: by 2002:a05:701b:4550:10b0:1b5:337a:6456 with SMTP id a92af1059eb24-1b55247eff6mr15258677c88.5.1795546706183;
+        Tue, 24 Nov 2026 10:58:26 -0800 (PST)
+Received: from stbirv-lnx-1.igp.broadcom.net ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm41712779c88.13.2026.11.24.10.58.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 10:58:25 -0800 (PST)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: netdev@vger.kernel.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Doug Berger <opendmb@gmail.com>,
+	Nicolai Buchwitz <nb@tipi-net.de>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org (open list),
+	Mlody12 mlody12 <kudzo51@gmail.com>
+Subject: [PATCH net-next v7 0/4] net: mdio: Clause 45 support for mdio-bcm-unimac
+Date: Tue, 24 Nov 2026 10:58:16 -0800
+Message-Id: <20261124185820.3954716-1-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,68 +119,133 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Evolution 3.58.3 (3.58.3-2.fc43) 
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: yZjGn-DEeq1kE4tVMh88FNtfLffg03sv
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA3MyBTYWx0ZWRfX61M3IaFKEsaH
- 7mS6MNfRj/IINRdNIeW6tGSQh3Ue5NbtgMDCNRXnLJ5OBU41aPp0+wD1i+vutgxz/3h/j9mJs5G
- Kea5URj1fxQhihtFOZid/BAAI03/vXQ=
-X-Proofpoint-GUID: NedgcETWwMWTjELFHod-RGSG4ukHSub7
-X-Authority-Analysis: v=2.4 cv=c8M+0h9l c=1 sm=1 tr=0 ts=6b05de2a cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VwQbUJbxAAAA:8
- a=VnNF1IyMAAAA:8 a=lMkFumaAjUwUa6GXabIA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA3MyBTYWx0ZWRfXyr1nQkXtkjai
- DyvG50RFNvMZx7HXm6G4R2VhVPWuhpDl0ODZObKFI/5i9UjVKCRWDNEtYSBwO5tR18KcDHXxbjS
- WeC8RQlng8HO9axVheyKPB/GnxVt127Z7IbLPYelZK9I9G09/Q+VnYJPoDLQyl80iQTsQJHRbGF
- JYrcAG4FYcRLeWBrTy81y2EXqZ+jT9zu5ZQoHnG7iLDSE9L980eeEWLawlLzTDPqHXA1Mhbw1Qm
- 1QQqDxnUDyJNXMssDkwH/MD6ocinO5NE4vU258iOrRj0CCJnu4XKi8oB0UnO5s/y7Q3J9o5+N/e
- nE/aH7AaB4PGybrLyST/CIMwLQaOOiFWe9FGTSvm/Mt4NRQNNfD+pATTeprrWDUCjG4UPWnCTov
- sSb3/51afK0h8df7UmmItmgeHTWtIxX4F9NjEBaq9M0GN6z8AU0TqTfCCEdB1UFWgkp2t+BOj0Q
- oCK32Ok7gkRButWmKQw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_05,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1011 malwarescore=0 suspectscore=0 bulkscore=0
- priorityscore=1501 phishscore=0 adultscore=0 spamscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240073
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-On Mon, 2026-11-16 at 10:44 +0100, Christian Brauner wrote:
-> d_real() is about to be able to fail for D_REAL_DATA. So switch IMA
-> from d_real_inode() to d_real_data_inode() and deal with the error.
->=20
-> Currently, if overlayfs fails to resolve the data of a file it hands
-> back the overlayfs inode. process_measurement() then sees
-> real_inode =3D=3D inode, skips the detection of changes in the backing fi=
-le
-> and returns the cached verdict. That's the wrong default. With
-> metacopy and verity this isn't limited to files nobody opened yet
-> either. A metadata-only copy-up of an open file makes overlayfs validate
-> the verity digest of the data again on the next D_REAL_DATA lookup and
-> that can fail.
->=20
-> So if the inode hosting the data can't be resolved in
-> process_measurement() we can't tell whether the data changed. Treat it
-> like a change and clear IMA_DONE_MASK and measured_pcrs so the file is
-> evaluated again. The metadata check for EVM stays independent of that.
->=20
-> This is a no-op until d_real() can actually fail.
->=20
-> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
+This patch series adds support for Clause 45 MDIO operations within the
+mdio-bcm-unimac driver. The series breaks things up in this way:
 
-The patch, itself, looks fine, but I'm not able to reproduce the error.
+- make the C45 bus scan done by the MDIO core carry on when nothing
+  answers at an address, as the C22 scan already does
+- scope the existing defines to make it clear what is C22 vs. C45
+  specific
+- rework the polling completion loop to be a tighter loop
+- add support for clause 45 operations
 
-The existing IMA overlay tests are working with and without this patch set.=
-  The
-tests check:
-* test 1: checks file signature is copied
-* test 2: checks backing file signature is copied up to overlay
-* test 3: detects modified backing file
+Changes in v7:
 
-Reviewed-by: Mimi Zohar <zohar@linux.ibm.com>
+- patch 1:
+  - only map a failed read of MDIO_DEVS2, the first one, to -ENODEV in
+    get_phy_c45_devs_in_pkg(). A failed read of MDIO_DEVS1 happens once
+    MDIO_DEVS2 has answered, i.e. once the MMD has answered, and is returned
+    as -EIO so that the PHY is not silently skipped. This also gets rid of
+    get_phy_c45_probe_err()
+  - correct the commit message about sfp_sm_probe_phy(): the mdio-i2c buses
+    report a PHY that does not answer as a read of all Fs, so only an I2C
+    transport error on a RollBall module is affected, which is now retried
+    and reported as "no PHY detected" instead of failing the module
+  - the errors of the vendor MMD presence check done while reading the
+    identifiers are returned as is, as they were before this patch; reword
+    the commit message to not claim more than that
+  - the commit message explains why the loop over the MMDs does not carry
+    on after an MMD that did not answer: the vendor MMD presence check would
+    end the scan before MMD 0 is probed
+  - the code changed since Nicolai's Reviewed-by tag was given, therefore the
+    tag was removed
+- patches 2 to 4: no changes
 
-Mimi
+Changes in v6:
+
+- patches 1 to 3: no changes
+- patch 4: collect Reviewed-by tag from Nicolai Buchwitz, no code changes
+
+Changes in v5:
+
+- patch 1:
+  - the commit message now says that mdio-bcm-unimac only provides
+    read_c45() with patch 4, which enables the UniMAC case, so that a
+    standalone backport knows about that dependency
+  - the commit message now lists the callers other than the bus scan that
+    see -ENODEV instead of -EIO (of_mdio, sfp, mxl-gpy), which is what C22
+    callers already get
+  - the vendor MMD presence check done while reading the identifiers and the
+    reads of the per-MMD identifiers are intentionally not mapped, since
+    they only happen once a device has answered; say so in the commit
+    message and reword the kernel-doc of get_phy_c45_ids() and
+    phy_get_c45_ids() to document "a negative error code" rather than -EIO
+    as the only alternative to -ENODEV
+- patches 2 and 3: no changes
+- patch 4:
+  - check that the controller is idle after every cycle (the C45 ADDR and
+    data cycles as well as the C22 ones) instead of only after the ADDR
+    cycle, since a wait_func() such as bcmgenet_mii_wait() returns 0 even
+    when it timed out with START_BUSY still set, which could return the
+    command bits instead of the read data or switch MDIO_CFG in the middle
+    of a frame
+  - the commit message says that unimac_mdio_resume() waiting for the bus
+    lock means that resume may wait for an in-flight MDIO access
+  - the commit message says that the C45 scan is slower than the C22 one on
+    the platform device GENET registers without a Device Tree node (e.g.:
+    ACPI) because bcmgenet_mii_wait() sleeps per frame until GENET's
+    interrupt is registered. This is not worked around in this series;
+    making bcmgenet_mii_wait() poll in that window would be a separate
+    GENET change
+
+Changes in v4:
+
+- patch 1:
+  - when the read of the devices in package registers of an MMD fails with
+    -EIO or -ENODEV, treat it like an all Fs reply and probe MMD 0 instead
+    of returning -ENODEV right away, so that PHYs that only respond on
+    MMD 0 (e.g.: Cortina CS4315/CS4340) are still found on controllers
+    that report a bus error for an MMD that does not answer. The remaining
+    MMDs are not probed, to keep the cost of scanning an empty address
+    bounded. -ENODEV is only returned if MMD 0 does not answer either
+  - add a Fixes: tag
+  - update the kernel-doc of get_phy_c45_ids() and phy_get_c45_ids()
+  - the code changed since Nicolai's Reviewed-by tag was given, which was
+    kept, please let me know if it should be dropped
+- patch 2: no changes
+- patch 3: reword the comments about the poll timeout, which applies to each
+  frame, a C45 access waits once for each of its two frames
+- patch 4: no code changes, the commit message now mentions that the C45
+  scan also runs for the platform device GENET registers without a
+  Device Tree node (e.g.: ACPI), since it does not mask any address
+
+Changes in v3:
+
+- patch 1: collect Reviewed-by tag from Nicolai Buchwitz, no code changes
+- patches 2 and 3: no changes
+- patch 4:
+  - after the ADDR cycle, make sure the controller is idle before starting
+    the READ/WRITE cycle, since a wait_func() such as bcmgenet_mii_wait()
+    returns 0 even when it timed out with START_BUSY still set
+  - take bus->mdio_lock in unimac_mdio_resume() around
+    unimac_mdio_clk_set(), such that its read-modify-write of MDIO_CFG
+    cannot race with the C22/C45 clause switch done by the accessors
+
+Changes in v2:
+
+- add patch 1, since providing read_c45/write_c45 makes the MDIO core scan
+  for C45 PHYs on all addresses that are not masked. On a bus registered
+  without a device tree node (e.g.: GENET with ACPI) a read from an empty
+  address fails with -EIO, which get_phy_c45_ids() passed up instead of
+  mapping it to -ENODEV, and made the whole bus registration fail. Reported
+  by Nicolai Buchwitz.
+- patches 2 and 3: collect Reviewed-by tags from Andrew Lunn and Nicolai
+  Buchwitz, no code changes
+- patch 4: no code changes
+
+Florian Fainelli (4):
+  net: phy: Map C45 probe read errors to -ENODEV during bus scan
+  net: mdio: mdio-bcm-unimac: Define MDIO_OP_SHIFT
+  net: mdio: mdio-bcm-unimac: Poll for completion at 1us granularity
+  net: mdio: mdio-bcm-unimac: Add Clause 45 support
+
+ drivers/net/mdio/mdio-bcm-unimac.c | 162 +++++++++++++++++++++++++----
+ drivers/net/phy/phy_device.c       |  37 +++++--
+ 2 files changed, 173 insertions(+), 26 deletions(-)
+
+-- 
+2.34.1
+
