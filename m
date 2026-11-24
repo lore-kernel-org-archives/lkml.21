@@ -1,62 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.145.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795558756;
-	b=YRiy45l3+WrUR2iNZlxLCJSsrdUMs2h08MfZ5TJBLXZUVno0oLTGDvPxQSJNU6BCpS8S
-	 mmAinzFDE2eO6zKu2AM4k6Krxi+1+6NSa7uMuKHTrHhKtNrTEQwKLJQMDMQdnhO2ryM22
-	 obmd0KDYfqU2sGJrCzvx8k6n15Qn2ovBUHuLW9vRqoI/fJDa1MeP5NiKK04nUmmPcd5nF
-	 L0xq8OqcbnPbwBp4A24jDVgI53cxsom4qu2EyY5c7UAQUFsElAKOxipmCr1keQPaY4SwM
-	 Xb5Z0BHmHxiu2s3pD14CzJVNHmHCfF4OkZQqxVNYhe2C6QUUgIX5t9EsRizk04orL9w==
+	t=1795558757;
+	b=oaen71x7f0emfmFps8DeqehbK7lskjHM9F9izKcTGLyqA+AMkrCcwUCIvHmBtLDwuVQX
+	 QAW7IZnWkkZ9xMAr0V/gGgPaFEq00bY0J8OK+Yyxh/PXhOM5qtfZc7zr+TAtcWM0lFqzI
+	 9KSjVymbaeVzp3OkjyLD2rND0LiGNcWjN3vnBNBYIfZNAJQIOW2LvC/vyas+23BsjQ8Q6
+	 yF8u6WS2q01zwdIqJEWC0oOqnkoRMz00Z7WcUb9k3wxANjfD4+NMnFV7RrIpztjZwp5qI
+	 ovA/GWcAj+PY1XMue4Dqriaky8sbqcIoRsOjvIx0noVCDdimrxn1mWjl6ILxX/+8vGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795558756;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795558757;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:X-Authority-Analysis:
 	 X-Proofpoint-Virus-Version;
-	bh=AL2Q6bogdvFV15jrxaTq8dd0ZiEx9fCvxIaR2DYibGM=;
-	b=HCGTvo0FQqUmw6bQq6kVjZc6pEbWmv27VmO9UjHx8zP8WFNThDi20HTf1RAOlyHX/5wT
-	 YjBOEc6oj7Xv7dskybCCN2svcP9XlBShjkHH3j/nstulOTNM9tR2eyzyI3s9sebv4jEXA
-	 OtOGof+9ePSi9m2eCQDkD2aKwR90oOzbbtrDCp6En2NjSBYBlC6X3sAUEVy4Fl1HBLEIp
-	 7dx6mXsIKRw5Ia/25HWzD6/rsGWQPNdewVPk+wBcx/JgA1aoLii7IuXgFaCpCRbrrI6nM
-	 GTBVJqXV2EvQZYs2yaJW9WuHHKO6dWl8QUgTjIqV0qCLYiSwjleZ6MXWt/x0U4CTeag==
+	bh=B01mUzwAXs28NK4CVN5+CFcEjgarYzFHUCEYKNfC1F0=;
+	b=2bRPGPptuMv6Jc/WekYvR+EDwblz/eYcZLvghJ6jsppBLjiFWLyjoily3hgBgrdGKwSM
+	 kLw2WTfqzZTNkGXceasRCfmCmsTQh7tyyKehbZsyI+m/7oaW4vTHJGG1E5fhjiMkJUQvv
+	 rLuXDXkcoCqEKkwGNn2hYZlRyWIcv7N7B92bZ2ETXTm2u+83qbwpcnZxXs3SGH1JzPz8I
+	 NVUwfCiUBo9pT8I063Gnp1amLwGqG706HsxB3LcnZfCxNB8gYO8T+m6Ym4POgFk1tmW9a
+	 bsq6jS/SdfaOvtrvUnal1n0DuuD1lA9IiT7TdfQSddOQ9AxMk3v+8zEF1LurNQwu/Ig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=meta.com;
 	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=PrlPZs5O;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=DIPDhcgB;
 	arc=none smtp.remote-ip=67.231.145.42
 Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.145.42])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82FA0606A687;
-	Tue, 24 Nov 2026 22:19:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82FA0606A687
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A79E606A6B6;
+	Tue, 24 Nov 2026 22:19:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A79E606A6B6
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=PrlPZs5O
-Received: from pps.filterd (m0528009.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOMBQht1712367;
-	Tue, 24 Nov 2026 14:18:20 -0800
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=DIPDhcgB
+Received: from pps.filterd (m0148461.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOMBASh1691505;
+	Tue, 24 Nov 2026 14:18:14 -0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	pps82601-s2048-2026-q3; bh=AL2Q6bogdvFV15jrxaTq8dd0ZiEx9fCvxIaR2
-	DYibGM=; b=PrlPZs5OyGXFJy4mja1jHZqqMLTAuJkoyqkfEU536fROm2z7jyCue
-	zdNz18VG1rFDIRyavCpTW5wkvRCnuJMaM54jZ1BZcMBsHi0Yw78DFBP5EmqcxBvl
-	bckKWt/RnBojUTUCtqUkJjU85iBYjLO36lTNwVN3kOCmiIdZFXepAaAVmebKEovN
-	il7xUJjoptl+FH4+dBotvL8YlNU2ngI8u1pJR2exJERnKLjwGt7xpahP/F6PDTKv
-	NA7UNmeleA5T5J5XaKguEjbBixwBRF7yrBkHRQdGgSDXifV/6kXzHslInb2asymF
-	eX/dCPD9+DJi8vFTiYzPt0dTSvr8r5DdA==
-Received: from maileast.thefacebook.com ([163.114.135.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j5gbp1eat-1
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=pps82601-s2048-2026-q3; bh=B01mUzwAX
+	s28NK4CVN5+CFcEjgarYzFHUCEYKNfC1F0=; b=DIPDhcgBOW4wpZ+jZ5v4fhaH9
+	xpMdconKAniM87K7nB+w7YESZjU7PBxIu7cEWSE2YQsl691r9YXdcITf+HcS4xDW
+	yg3iLY1ZZy8P+QSyCHZds1au7yFjBqw3ylboX/9G8Zx7A7oj48QFGtvWxpnMSShH
+	PbOX0uRln5qZl1T55wyxFrU3lCMA9/TnRUUTthEUcuy24fqvRd0vhIN2M1i1WpKx
+	JUBofx1Bqe7z9uKoB8mYFRrs+Bk2TFwBUUyYm8kmGhl75QhQVyRysgaOULBuN8y6
+	FbIXnCEHhlxSOlXJQPfq2GgwN1zzkZ43Xs26HTzB99q7J8G/odofuLYQ0X8IQ==
+Received: from mail.thefacebook.com ([163.114.134.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j5d6wud05-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Tue, 24 Nov 2026 14:18:19 -0800 (PST)
-Received: from localhost (2620:10d:c0a8:1c::11) by mail.thefacebook.com
- (2620:10d:c0a9:6f::237c) with Microsoft SMTP Server (version=TLS1_2,
+	Tue, 24 Nov 2026 14:18:13 -0800 (PST)
+Received: from localhost (2620:10d:c085:108::4) by mail.thefacebook.com
+ (2620:10d:c08b:78::2ac9) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Tue, 24 Nov
- 2026 22:18:18 +0000
+ 2026 22:18:12 +0000
 From: Todd Freed <toddfreed@meta.com>
 To: <netdev@vger.kernel.org>
 CC: "David S. Miller" <davem@davemloft.net>,
@@ -103,12 +102,10 @@ CC: "David S. Miller" <davem@davemloft.net>,
         =?UTF-8?q?Jonas=20K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>,
         Hangbin Liu
 	<hangbin.liu@linux.dev>
-Subject: [PATCH net-next v3 06/12] net/sched: add act_psp for psp transport mode
-Date: Tue, 24 Nov 2026 14:17:52 -0800
-Message-ID: <20261124221758.3230929-7-toddfreed@meta.com>
+Subject: [PATCH net-next v3 00/12] psp: introduce socket-less associations
+Date: Tue, 24 Nov 2026 14:17:46 -0800
+Message-ID: <20261124221758.3230929-1-toddfreed@meta.com>
 X-Mailer: git-send-email 2.53.1
-In-Reply-To: <20261124221758.3230929-1-toddfreed@meta.com>
-References: <20261124221758.3230929-1-toddfreed@meta.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,652 +117,258 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Proofpoint-ORIG-GUID: xhAFpNXniHM-QgOF_IvJ1qMhW64Lheqn
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA4NyBTYWx0ZWRfXzdXQn2eAePgU
- foUc5n3ZAN4oEcwqa1uMAi5hsEbTkrKOmCLFv7PUlgmhKbRDKyg8RljqmSOpE68ccdbkgp0aTe1
- 5+paC0XrCMsYTa3ngLKGqu6GRPJJl6tpW7FcC252nq1oX/WKd4Q2/Xg7yEZ6j9aNj7kkDDzVPhj
- C0C50EZhlmhl42EQWN9/BHwMP0JVgOLTJ2C7cKumHOcDyOwelAb74Io9D3qGky3mZAlpsv38FAb
- DGf1FB5mwacRxZFHVzP4rmGBKNV/NMzZoOEZY38ik30BEdBgwopuxukUy8m1Rj3Q/D72IDm6SnF
- rRmb29zUfO88D2cK1mLtEIs8bEgSeNvL9rvSQfutC6K5uoLNXLKAAMsX4P7Vuzn2ODbOdaIQVtu
- Sv8FeZ3hI7YhvLkkBPKP26WOvIxSn9ADz/XxtlIgWkz0UuEFtWsVjXcmdBdPz9RlU65kdPYC44V
- D2FVMdu0Db+rVYKrOGA==
-X-Authority-Analysis: v=2.4 cv=fLysTpae c=1 sm=1 tr=0 ts=6b060d2b cx=c_pps
- a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA4NyBTYWx0ZWRfX9GHzVzq2XTDg
+ dRivfQF9/hT7sBJV3eGSswG/jgJyUyv7iAW6NnxDFGCo+gyjx71B6XrgJawtud1VXrnVybPCi9k
+ G8YT+XM6p9D9ZKQ095iOuozimwpxB8Y=
+X-Proofpoint-ORIG-GUID: GlLW5ypFQr7vhs0iJYuSyRfY6NTOTijc
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA4NyBTYWx0ZWRfX35PWmBrehfTS
+ SpdA5ZizRhUB/HA+QCt8nAbmepUgZKWw2QTfdNNneB3HnWwzt1Zfm+wFBfkLJHDiNfRe7x3twY5
+ /lLpplfesE+NQ5XiHTiWLCYe+rO/tX3/Wi/7KNccr8WP3ywbaWDbjP7ilgzGqsRZ0nOCbbp0scv
+ hRVzQor2EUnaKSoiSeipW11DQ4/oz1mfADAgGnbBt1o88aFN9YXpHOj6uAiggdQQs5IqRQe5Q10
+ 9zgiVQAMhJctUkyepvx9AkfeLj7XAPT3n5DJMCOO8D6/bgKMpJcqbPv8jPVKAYseIa78c/l3DTN
+ ZXf46yJrA3sbsi9BN4Z9KG/emnJYd4AKscwUkmSAsyFPUuelltpGrrkUZrMTfTaooqN2njlDxnu
+ GamUX0zu//s0kaNr2JptHSAk+EW503RLqHFilu6ig0PJLhrr0LKoVQg1+Ml8emrS7Ptwn5a+K9c
+ y1p8Um0u7j17Sw5wcTQ==
+X-Proofpoint-GUID: GlLW5ypFQr7vhs0iJYuSyRfY6NTOTijc
+X-Authority-Analysis: v=2.4 cv=f5rdl+yM c=1 sm=1 tr=0 ts=6b060d26 cx=c_pps
+ a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
  a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
- a=U_y8lYiYyhHBU5rMqhb2:22 a=VabnemYjAAAA:8 a=mcTiuxcHTieeVrxoTbEA:9
- a=gKebqoRLp9LExxC7YDUY:22
-X-Proofpoint-GUID: xhAFpNXniHM-QgOF_IvJ1qMhW64Lheqn
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA4NyBTYWx0ZWRfX6vTIXMZaQ6D3
- tE1XVoSjoK8i1tc6RJfrBo12CLWQRlVmw5i+LAVrgsQTbtiDt7QrTbRdKcc5YsAVgdU9CP/eLa8
- 0Bqh6+cVT/qAh46wXSf7OTlBKN1RZFA=
+ a=03ozwUkBphtHgyqjj1sw:22 a=VwQbUJbxAAAA:8 a=VabnemYjAAAA:8 a=NEAV23lmAAAA:8
+ a=fSgYMpO5QbnG1SlCsgEA:9 a=gKebqoRLp9LExxC7YDUY:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-24_06,2026-11-23_01,2025-10-01_01
 
-Add the tc action act_psp, for PSP transport mode encapsulation and
-encryption.
+PSP associations today are bound to a TCP socket when created. Traffic
+on that socket is encapsulated in transport mode PSP, and encrypted.
 
-encap attaches a PSP Tx association to the skb as a METADATA_PSP dst.
-The packet must then be transmitted on the main netdev of the
-association's PSP device, which encrypts it: encap on that netdev's
-egress, or a redirect there from another netdev's egress. Any other
-device drops it.
+This series adds PSP which isn't bound to a socket, which allows PSP
+encapsulation and encryption to be applied to forwarded traffic. You can
+use this to transparently apply PSP to flows, with help from userspace
+to manage the tc rules and orchestrate key exchange.
 
-Encap on ingress isn't supported. Routing replaces the dst of a packet
-entering the stack, so the packet would lose its association before it
-reaches the PSP device.
-A later series will add support for encap on ingress, in hardware
-offload only.
+Socket-less PSP is managed over the PSP netlink family. Tx associations
+hold the peer's key in the device, and are addressable by ID, for the tc
+psp encap action. Rx does not have any kernel state.
 
-On egress, encap sets skb->decrypted, so that sk_validate_xmit_skb()
-drops the packet if it loses the METADATA_PSP dst on the way.
+Since the kernel keeps no Rx state, it doesn't enforce key rotation for
+socket-less Rx. Userspace must remove the decap rules of an SPI before a
+second rotation lets the device allocate the same SPI again. The
+documentation patch describes this, with ways to use tc to keep track of
+the rules.
 
-Some kinds of packets are not supported and are dropped:
+Series structure:
 
- - IPv4 and IPv6 fragments. Encap inserts UDP + PSP between the L3 and
-   L4 headers, and non-initial fragments don't have L4 headers, so
-   transport mode can't support fragments. Tunnel mode PSP, which a later
-   series adds, does support them.
- - IPv6 packets with extension headers. Some extension headers could be
-   supported in the future.
- - Packets already encapsulated for a tunnel (skb->encapsulation). Some
-   tunnel types could be supported in the future.
- - Packets which are too large. On transmit, packets which won't fit the
-   device's MTU once encapsulated are dropped (see the METADATA_PSP
-   patch). The traffic's MTU needs to leave room for the PSP encap.
- - Packets with another encryption offload. Packets of a PSP or kTLS
-   offload socket, for which sk_validate_xmit_skb() would apply the
-   socket's validator instead of checking the association.
+1, 2/ Prepare PSP to work with non-TCP packets.
 
-Decap removes the PSP Rx state of a packet the device decrypted. To
-take the packets of only one Rx SPI, a rule matches the PSP header
-fields it was decrypted with: psp_spi, psp_ver and psp_dev. Those
-flower matches are added in a subsequent patch.
+3, 4/ Add the netlink commands for socket-less PSP.
 
-Signed-off-by: Todd Freed <toddfreed@meta.com>
----
- MAINTAINERS                        |   3 +
- include/net/tc_act/tc_psp.h        |  23 ++
- include/uapi/linux/pkt_cls.h       |   1 +
- include/uapi/linux/tc_act/tc_psp.h |  28 ++
- net/sched/Kconfig                  |  13 +
- net/sched/Makefile                 |   1 +
- net/sched/act_psp.c                | 437 +++++++++++++++++++++++++++++
- 7 files changed, 506 insertions(+)
+5/ Adds a METADATA_PSP dst which carries a socket-less PSP association
+on an skb for Tx, and the transmit checks for it.
+
+6/ Adds the act_psp tc action, psp encap and psp decap. Encap is egress
+only.
+
+7/ Adds flower matches on PSP header fields, for Rx matching.
+
+8, 9/ Add drv-net tests (netdevsim and hardware).
+
+10/ Makes tc-testing run dependsOn probes outside the test namespace,
+where they currently always fail.
+
+11/ Adds tc-testing tests.
+
+12/ Documentation for socket-less PSP.
+
+A following series adds hardware offload of the psp actions and flower
+matches, PSP tunnel mode (which is offload only and therefore not
+included here), encap on ingress (also offload only), and the mlx5
+implementation for switchdev mode. It's available in the tree below.
+
+Relation to the PSP fixes in net:
+
+ "psp, tls: don't send offloaded contents in cleartext"
+
+ https://lore.kernel.org/netdev/20261124010601.3995693-1-toddfreed@meta.com
+
+When net is merged into net-next:
+
+ - net/psp/psp_main.c conflicts around psp_dev_encap_ok(), which both
+   add: net's only allows TCP, this series' (patch 2) takes any L4
+   protocol. Keep this series' version of the function, and its comments
+   above it and above psp_dev_encapsulate().
+ - tools/testing/selftests/drivers/net/psp.py and
+   tools/testing/selftests/drivers/net/config conflict: keep both sides
+   (imports, constants, the list of test cases; the NET_ACT_* options).
+
+Relation to the netfilter fix in nf:
+
+  "netfilter: reject: don't quote decrypted payload in icmp errors"
+
+  https://lore.kernel.org/netfilter-devel/20261123231835.2356740-1-toddfreed@meta.com
+
+Packets which a PSP device decrypted don't have to end in a local PSP
+socket. They can already be forwarded or bridged today, but with
+socket-less PSP that is the intended use, e.g. a router that decaps and
+forwards. The netfilter reject expression in netdev and bridge chains
+builds its own ICMP errors, outside icmp_send() and icmpv6_send(), which
+the net series' ICMP patches cover. A separate patch to nf applies the
+same rule there:
+
+It doesn't depend on this series, and the two don't conflict.
+
+Relation to the iproute2 series:
+
+ "tc: add the psp action and flower psp matches"
+
+ https://lore.kernel.org/netdev/20261112192426.397604-1-toddfreed@meta.com
+
+adds tc support for the psp action and the flower psp matches, which the
+tc selftests of this series need. It waits for this series' uAPI in
+iproute2-next, and needs no change for v3: the tc uAPI is the same.
+
+Trees:
+
+The full tree, with the net fixes, the nf fix, this series and the mlx5
+offload series, and the conflicts above resolved, is at:
+
+ https://github.com/toddfreed/psptc branch psptc
+
+The iproute2 series, plus tc support for the tunnel mode of the offload
+series, is at:
+
+ https://github.com/toddfreed/iproute2-psptc branch tc-psp
+
+Testing:
+
+ - netdevsim: drivers/net psp.py passes (72 tests), and tc-testing
+   psp.json (16 tests), with tc from the iproute2-next series.
+ - mlx5 (ConnectX-7, FW 28.48), two hosts: drivers/net psp.py passes:
+   55 pass, 14 skip (GMAC versions not supported by the device),
+   3 xfail (netdevsim only).
+ - Each patch builds without warnings with gcc and clang, allmodconfig,
+   W=1.
+
+v3:
+ - psp_dev_encapsulate(): refuse a packet with a checksum to complete
+   (CHECKSUM_PARTIAL) for a next header other than TCP or UDP. (Sashiko)
+ - Document the sockless_assocs list in struct psp_dev. (Sashiko)
+ - The METADATA_PSP checks on the transmit path are now behind a static key,
+   enabled while any METADATA_PSP dst exists.
+ - flower: psp_dev 0 is rejected, PSP device IDs start at 1. (Sashiko)
+ - psp.rst: rx-assoc allocates SPIs from the same space as rx-spi-alloc,
+   so stale decap rules have to go before the device rotates, or as soon
+   as it does; list the drop of a packet whose socket gained an offload
+   while queued; a packet redirected to ingress after encap is delivered
+   locally with skb->decrypted set.
+   psp_xmit_md() kernel-doc. Selftests: assoc_sockless_tc no longer
+   relies on tc to reject decap with an association, use the rekey
+   series' helpers, and tdc 3203 and 006b match the kernel's extack. The
+   tc-testing dependsOn fix says which probes failed. (Sashiko)
+ - CC the maintainers which patchwork flagged.
+ - Wrap lines over 80 columns (psp_nl.c, cls_flower.c), fix the unused
+   variable and argument warnings in psp.py. psp.py keeps socket.timeout,
+   which ruff flags (UP041): it is TimeoutError only from Python 3.10, and the
+   kernel's minimum is 3.9.
+ - Rebased on net-next.
+
+v2: https://lore.kernel.org/netdev/20261119013103.1092559-1-toddfreed@meta.com
+ - Moved the mirred, bpf and time-wait validator fixes (v1 patches 6-8)
+   to a net series, with Fixes tags. (Daniel)
+ - Don't store Rx associations at all (Daniel)
+ - Keep socket-less Tx associations on their own device list (Daniel)
+ - Documentation: the userspace key rotation contract, and the use of tc
+   action cookies, filter handles and a chain per key phase to track
+   decap rules. (Daniel)
+ - act_psp: add .get_fill_size. (Sashiko, Jamal)
+ - psp.py: use ctl_file_write(), and _check_data_outq() to wait for
+   retransmits. (Sashiko)
+ - tc-testing dependsOn fix: add a Fixes tag, and document the probe
+   stage. (Sashiko)
+ - Outer UDP source port: only use sk_hash for TCP sockets. (Sashiko)
+ - flower: don't offload a rule which uses the PSP matches, and reject it
+   with skip_sw, until a driver supports them: some drivers would offload
+   it without them. (Sashiko)
+ - Moved the drop of a packet with both a socket offload and a
+   METADATA_PSP dst to the METADATA_PSP patch, with the rest of
+   sk_validate_xmit_skb().
+ - Say that encap on ingress isn't supported, rather than hardware
+   offload only, in act_psp.c, psp.rst and the commit messages.
+   (Sashiko)
+ - psp.rst: an encapped packet is dropped if it loses its association
+   or the PSP device is unregistered, not when the association is
+   deleted. (Sashiko)
+ - tc-testing: the tests of rejected psp actions match the kernel's
+   extack, the decap with an association and encap without an
+   association tests are dropped (tc rejects those itself), and the
+   flower decap tests also probe for the psp action. (Sashiko)
+ - Rebased on net-next.
+
+v1: https://lore.kernel.org/netdev/20261111005533.6436-1-toddfreed@meta.com
+
+Todd Freed (12):
+  psp: get netns from net_device instead of sock
+  psp: take the psp nexthdr from the packet on encap
+  psp: declare psp_assoc_set_tx() in psp.h
+  psp: add support for socket-less psp associations
+  net: add METADATA_PSP dst to carry a psp association on an skb
+  net/sched: add act_psp for psp transport mode
+  net/sched: flower: add psp_spi, psp_ver, and psp_dev matches
+  selftests: drv-net: psp: test socket-less associations and the tc psp
+    action
+  selftests: drv-net: psp: test that software encap on ingress drops
+  selftests: tc-testing: run dependsOn probes outside the test namespace
+  selftests: tc-testing: add tests for the psp action
+  Documentation: networking: psp: document socket-less associations
+
+ Documentation/netlink/specs/psp.yaml          |  91 +++
+ Documentation/netlink/specs/tc.yaml           |  19 +
+ Documentation/networking/psp.rst              | 182 ++++-
+ MAINTAINERS                                   |   3 +
+ .../mellanox/mlx5/core/en_accel/psp_rxtx.c    |   2 +-
+ .../net/ethernet/mellanox/mlx5/core/en_main.c |  33 +
+ drivers/net/netdevsim/psp.c                   |   2 +-
+ include/linux/skbuff.h                        |   4 +
+ include/net/dst_metadata.h                    |  19 +
+ include/net/flow_dissector.h                  |  18 +
+ include/net/psp/functions.h                   | 106 ++-
+ include/net/psp/types.h                       |   4 +
+ include/net/tc_act/tc_psp.h                   |  23 +
+ include/uapi/linux/pkt_cls.h                  |   6 +
+ include/uapi/linux/psp.h                      |   6 +
+ include/uapi/linux/tc_act/tc_psp.h            |  28 +
+ net/core/dev.c                                |  50 +-
+ net/core/dst.c                                |   5 +
+ net/core/flow_dissector.c                     |  27 +
+ net/psp/Makefile                              |   2 +-
+ net/psp/psp-nl-gen.c                          |  60 ++
+ net/psp/psp-nl-gen.h                          |   8 +
+ net/psp/psp.h                                 |   7 +
+ net/psp/psp_assoc.c                           | 122 ++++
+ net/psp/psp_main.c                            | 104 ++-
+ net/psp/psp_nl.c                              | 244 +++++++
+ net/psp/psp_sock.c                            |  16 +-
+ net/sched/Kconfig                             |  13 +
+ net/sched/Makefile                            |   1 +
+ net/sched/act_psp.c                           | 437 ++++++++++++
+ net/sched/cls_flower.c                        |  76 ++
+ tools/testing/selftests/drivers/net/config    |   5 +
+ tools/testing/selftests/drivers/net/psp.py    | 668 +++++++++++++++++-
+ tools/testing/selftests/tc-testing/README     |   1 +
+ tools/testing/selftests/tc-testing/config     |   2 +
+ .../creating-testcases/AddingTestCases.txt    |   4 +-
+ .../tc-testing/tc-tests/actions/psp.json      | 427 +++++++++++
+ tools/testing/selftests/tc-testing/tdc.py     |   2 +-
+ tools/testing/selftests/tc-testing/tdc.sh     |   1 +
+ 39 files changed, 2777 insertions(+), 51 deletions(-)
  create mode 100644 include/net/tc_act/tc_psp.h
  create mode 100644 include/uapi/linux/tc_act/tc_psp.h
+ create mode 100644 net/psp/psp_assoc.c
  create mode 100644 net/sched/act_psp.c
+ create mode 100644 tools/testing/selftests/tc-testing/tc-tests/actions/psp.json
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 97308edec53d..63c5c4c084dd 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22573,8 +22573,11 @@ F:	Documentation/netlink/specs/psp.yaml
- F:	Documentation/networking/psp.rst
- F:	include/net/psp/
- F:	include/net/psp.h
-+F:	include/net/tc_act/tc_psp.h
- F:	include/uapi/linux/psp.h
-+F:	include/uapi/linux/tc_act/tc_psp.h
- F:	net/psp/
-+F:	net/sched/act_psp.c
- K:	struct\ psp(_assoc|_dev|hdr)\b
- 
- PSTORE FILESYSTEM
-diff --git a/include/net/tc_act/tc_psp.h b/include/net/tc_act/tc_psp.h
-new file mode 100644
-index 000000000000..8640d7685475
---- /dev/null
-+++ b/include/net/tc_act/tc_psp.h
-@@ -0,0 +1,23 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __NET_TC_PSP_H
-+#define __NET_TC_PSP_H
-+
-+#include <net/act_api.h>
-+#include <net/dst_metadata.h>
-+#include <linux/tc_act/tc_psp.h>
-+
-+struct tcf_psp_params {
-+	struct rcu_head		rcu;
-+	int			action;
-+	int			psp_action;
-+	struct metadata_dst	*md;
-+};
-+
-+struct tcf_psp {
-+	struct tc_action		common;
-+	struct tcf_psp_params __rcu	*params;
-+};
-+
-+#define to_psp(a) ((struct tcf_psp *)a)
-+
-+#endif /* __NET_TC_PSP_H */
-diff --git a/include/uapi/linux/pkt_cls.h b/include/uapi/linux/pkt_cls.h
-index 28d94b11d1aa..14cff8f5da74 100644
---- a/include/uapi/linux/pkt_cls.h
-+++ b/include/uapi/linux/pkt_cls.h
-@@ -139,6 +139,7 @@ enum tca_id {
- 	TCA_ID_MPLS,
- 	TCA_ID_CT,
- 	TCA_ID_GATE,
-+	TCA_ID_PSP,
- 	/* other actions go here */
- 	__TCA_ID_MAX = 255
- };
-diff --git a/include/uapi/linux/tc_act/tc_psp.h b/include/uapi/linux/tc_act/tc_psp.h
-new file mode 100644
-index 000000000000..e58ebcae77be
---- /dev/null
-+++ b/include/uapi/linux/tc_act/tc_psp.h
-@@ -0,0 +1,28 @@
-+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-+#ifndef __LINUX_TC_PSP_H
-+#define __LINUX_TC_PSP_H
-+
-+#include <linux/pkt_cls.h>
-+
-+#define TCA_PSP_ACT_ENCAP	1	/* attach a PSP association */
-+#define TCA_PSP_ACT_DECAP	2	/* drop PSP Rx state */
-+
-+struct tc_psp {
-+	tc_gen;
-+};
-+
-+enum {
-+	TCA_PSP_UNSPEC,
-+	TCA_PSP_TM,
-+	TCA_PSP_PARMS,
-+	TCA_PSP_PAD,
-+	TCA_PSP_ACTION,		/* u32, TCA_PSP_ACT_* */
-+	TCA_PSP_ASSOC_ID,	/* u32, encap only: Tx association ID from
-+				 * the PSP netlink family (assoc-add)
-+				 */
-+	__TCA_PSP_MAX,
-+};
-+
-+#define TCA_PSP_MAX (__TCA_PSP_MAX - 1)
-+
-+#endif
-diff --git a/net/sched/Kconfig b/net/sched/Kconfig
-index 6ddff028b81a..35f9d76c4cae 100644
---- a/net/sched/Kconfig
-+++ b/net/sched/Kconfig
-@@ -939,6 +939,19 @@ config NET_ACT_GATE
- 	  To compile this code as a module, choose M here: the
- 	  module will be called act_gate.
- 
-+config NET_ACT_PSP
-+	tristate "PSP encryption tc action"
-+	depends on NET_CLS_ACT && INET_PSP
-+	help
-+	  Say Y here to allow PSP associations, created through the PSP
-+	  netlink family, to be attached to packets. PSP capable devices can
-+	  then encrypt them on transmit. Enables transparent psp tunnels for
-+	  forwarded traffic.
-+
-+	  If unsure, say N.
-+	  To compile this code as a module, choose M here: the
-+	  module will be called act_psp.
-+
- config NET_IFE_SKBMARK
- 	tristate "Support to encoding decoding skb mark on IFE action"
- 	depends on NET_ACT_IFE
-diff --git a/net/sched/Makefile b/net/sched/Makefile
-index 5078ea84e6ad..9fe8cc0abfdf 100644
---- a/net/sched/Makefile
-+++ b/net/sched/Makefile
-@@ -31,6 +31,7 @@ obj-$(CONFIG_NET_IFE_SKBTCINDEX)	+= act_meta_skbtcindex.o
- obj-$(CONFIG_NET_ACT_TUNNEL_KEY)+= act_tunnel_key.o
- obj-$(CONFIG_NET_ACT_CT)	+= act_ct.o
- obj-$(CONFIG_NET_ACT_GATE)	+= act_gate.o
-+obj-$(CONFIG_NET_ACT_PSP)	+= act_psp.o
- obj-$(CONFIG_NET_SCH_FIFO)	+= sch_fifo.o
- obj-$(CONFIG_NET_SCH_HTB)	+= sch_htb.o
- obj-$(CONFIG_NET_SCH_HFSC)	+= sch_hfsc.o
-diff --git a/net/sched/act_psp.c b/net/sched/act_psp.c
-new file mode 100644
-index 000000000000..757b15a812a2
---- /dev/null
-+++ b/net/sched/act_psp.c
-@@ -0,0 +1,437 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * tc action that attaches a PSP association to packets.
-+ *
-+ * encap: attach a Tx association referenced by its ID, as a METADATA_PSP dst.
-+ *        The PSP device's netdev encrypts the packet on transmit. Egress
-+ *        only: encap on ingress isn't supported, and drops the packet.
-+ * decap: drop the PSP Rx state (SKB_EXT_PSP) of a decrypted packet. It
-+ *        takes no association. A rule which should only take the packets
-+ *        of one Rx SPI matches what they were decrypted with (flower
-+ *        psp_spi / psp_ver / psp_dev).
-+ */
-+
-+#include <linux/ip.h>
-+#include <linux/ipv6.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/skbuff.h>
-+#include <net/dst.h>
-+#include <net/inet_timewait_sock.h>
-+#include <net/ip.h>
-+#include <net/netlink.h>
-+#include <net/pkt_cls.h>
-+#include <net/pkt_sched.h>
-+#include <net/psp/functions.h>
-+#include <net/tc_act/tc_psp.h>
-+
-+static struct tc_action_ops act_psp_ops;
-+
-+/* The device inserts UDP + PSP between the IP header and the transport
-+ * header, so the transport header must be right by the time the packet
-+ * gets there. On a forwarded packet it may not be. Transport mode doesn't
-+ * support IP fragments or IPv6 extension headers.
-+ */
-+static bool tcf_psp_set_transport_header(struct sk_buff *skb)
-+{
-+	unsigned int off = skb_network_offset(skb);
-+	const struct iphdr *iph;
-+	unsigned int hlen, len;
-+
-+	switch (skb->protocol) {
-+	case htons(ETH_P_IP):
-+		if (!pskb_may_pull(skb, off + sizeof(*iph)))
-+			return false;
-+		iph = ip_hdr(skb);
-+		if (iph->version != 4 || iph->ihl < 5 || ip_is_fragment(iph))
-+			return false;
-+		hlen = iph->ihl * 4;
-+		len = ntohs(iph->tot_len);
-+		if (!pskb_may_pull(skb, off + hlen))
-+			return false;
-+		break;
-+	case htons(ETH_P_IPV6):
-+		if (!pskb_may_pull(skb, off + sizeof(struct ipv6hdr)))
-+			return false;
-+		if (ipv6_hdr(skb)->version != 6 ||
-+		    ipv6_ext_hdr(ipv6_hdr(skb)->nexthdr))
-+			return false;
-+		hlen = sizeof(struct ipv6hdr);
-+		len = hlen + ntohs(ipv6_hdr(skb)->payload_len);
-+		break;
-+	default:
-+		return false;
-+	}
-+
-+	/* The device takes the length of the payload from the packet: it must
-+	 * hold the IP length, and L2 padding, e.g. of a minimum size frame,
-+	 * must not be encrypted as payload. A GSO skb's header doesn't always
-+	 * carry its length (BIG TCP).
-+	 */
-+	if (!skb_is_gso(skb)) {
-+		if (len < hlen || skb->len - off < len)
-+			return false;
-+		if (pskb_trim_rcsum(skb, off + len))
-+			return false;
-+	}
-+
-+	skb_set_transport_header(skb, off + hlen);
-+	return true;
-+}
-+
-+/* The socket of the packet has its own encryption offload, kTLS or PSP:
-+ * sk_validate_xmit_skb() then applies the socket's validator instead of
-+ * checking the association.
-+ */
-+static bool tcf_psp_sk_offload(const struct sk_buff *skb)
-+{
-+#ifdef CONFIG_SOCK_VALIDATE_XMIT
-+	struct sock *sk = skb->sk;
-+
-+	if (!sk)
-+		return false;
-+	if (sk_fullsock(sk))
-+		return !!READ_ONCE(sk->sk_validate_xmit_skb);
-+	return sk_is_inet(sk) && sk->sk_state == TCP_TIME_WAIT &&
-+	       inet_twsk(sk)->tw_validate_xmit_skb;
-+#else
-+	return false;
-+#endif
-+}
-+
-+static int tcf_psp_drop(struct tcf_psp *p, struct sk_buff *skb,
-+			enum skb_drop_reason reason)
-+{
-+	tcf_action_inc_drop_qstats(&p->common);
-+	tcf_set_drop_reason(skb, reason);
-+	return TC_ACT_SHOT;
-+}
-+
-+static int tcf_psp_act(struct sk_buff *skb, const struct tc_action *a,
-+		       struct tcf_result *res)
-+{
-+	struct tcf_psp *p = to_psp(a);
-+	struct tcf_psp_params *params;
-+
-+	params = rcu_dereference_bh(p->params);
-+
-+	tcf_lastuse_update(&p->tcf_tm);
-+	tcf_action_update_bstats(&p->common, skb);
-+
-+	switch (params->psp_action) {
-+	case TCA_PSP_ACT_ENCAP:
-+		/* Encap on ingress isn't supported: routing replaces the
-+		 * dst of a packet entering the stack, so it would lose its
-+		 * association before it reaches the PSP device
-+		 */
-+		if (unlikely(skb_at_tc_ingress(skb)))
-+			return tcf_psp_drop(p, skb, SKB_DROP_REASON_PSP_OUTPUT);
-+		/* PSP on a tunnel isn't supported: the encap would overwrite
-+		 * the inner headers which the device's tunnel offloads use
-+		 */
-+		if (unlikely(skb->encapsulation))
-+			return tcf_psp_drop(p, skb, SKB_DROP_REASON_PSP_OUTPUT);
-+		/* Don't mix the association with another encryption
-+		 * offload: the packet is already marked decrypted, or its
-+		 * socket has an offload of its own
-+		 */
-+		if (unlikely(skb_is_decrypted(skb) || tcf_psp_sk_offload(skb)))
-+			return tcf_psp_drop(p, skb, SKB_DROP_REASON_PSP_OUTPUT);
-+		if (unlikely(!tcf_psp_set_transport_header(skb)))
-+			return tcf_psp_drop(p, skb, SKB_DROP_REASON_PSP_OUTPUT);
-+		skb_dst_drop(skb);
-+		skb_dst_set(skb, dst_clone(&params->md->dst));
-+		/* Must be encrypted: sk_validate_xmit_skb() drops it unless
-+		 * it still carries the association when it is transmitted
-+		 */
-+		skb->decrypted = 1;
-+		break;
-+	case TCA_PSP_ACT_DECAP:
-+		/* Only a packet the device decrypted: on transmit,
-+		 * skb->decrypted means "device, please encrypt", which decap
-+		 * must not undo.
-+		 */
-+		if (!skb_ext_find(skb, SKB_EXT_PSP))
-+			break;
-+		skb_ext_del(skb, SKB_EXT_PSP);
-+		skb->decrypted = 0;
-+		break;
-+	}
-+
-+	return params->action;
-+}
-+
-+static const struct nla_policy psp_policy[TCA_PSP_MAX + 1] = {
-+	[TCA_PSP_PARMS]		= NLA_POLICY_EXACT_LEN(sizeof(struct tc_psp)),
-+	[TCA_PSP_ACTION]	= NLA_POLICY_RANGE(NLA_U32, TCA_PSP_ACT_ENCAP,
-+						   TCA_PSP_ACT_DECAP),
-+	[TCA_PSP_ASSOC_ID]	= NLA_POLICY_MIN(NLA_U32, 1),
-+};
-+
-+static void tcf_psp_release_params_rcu(struct rcu_head *head)
-+{
-+	struct tcf_psp_params *params = container_of(head, typeof(*params),
-+						     rcu);
-+
-+	if (params->md)
-+		dst_release(&params->md->dst);
-+	kfree(params);
-+}
-+
-+static void tcf_psp_release_params(struct tcf_psp_params *params)
-+{
-+	if (params)
-+		call_rcu(&params->rcu, tcf_psp_release_params_rcu);
-+}
-+
-+static struct metadata_dst *
-+tcf_psp_md_create(struct net *net, struct nlattr *id_attr,
-+		  struct netlink_ext_ack *extack)
-+{
-+	struct metadata_dst *md;
-+	struct psp_assoc *pas;
-+
-+	pas = psp_assoc_get_by_id(net, nla_get_u32(id_attr));
-+	if (!pas) {
-+		NL_SET_ERR_MSG_ATTR(extack, id_attr,
-+				    "PSP association not found");
-+		return ERR_PTR(-ENOENT);
-+	}
-+	/* The dst takes over the reference on the association */
-+	md = psp_md_alloc(pas);
-+	if (!md) {
-+		psp_assoc_put(pas);
-+		return ERR_PTR(-ENOMEM);
-+	}
-+
-+	return md;
-+}
-+
-+static int tcf_psp_init(struct net *net, struct nlattr *nla,
-+			struct nlattr *est, struct tc_action **a,
-+			struct tcf_proto *tp, u32 flags,
-+			struct netlink_ext_ack *extack)
-+{
-+	struct tc_action_net *tn = net_generic(net, act_psp_ops.net_id);
-+	bool bind = flags & TCA_ACT_FLAGS_BIND;
-+	struct nlattr *tb[TCA_PSP_MAX + 1];
-+	struct tcf_psp_params *params_new;
-+	struct metadata_dst *md = NULL;
-+	struct tcf_chain *goto_ch = NULL;
-+	struct tc_psp *parm;
-+	bool exists = false;
-+	int ret = 0, err;
-+	struct tcf_psp *p;
-+	u32 psp_action;
-+	u32 index;
-+
-+	if (!nla) {
-+		NL_SET_ERR_MSG(extack, "PSP action requires attributes");
-+		return -EINVAL;
-+	}
-+
-+	err = nla_parse_nested(tb, TCA_PSP_MAX, nla, psp_policy, extack);
-+	if (err < 0)
-+		return err;
-+
-+	if (!tb[TCA_PSP_PARMS]) {
-+		NL_SET_ERR_MSG(extack, "Missing PSP action parameters");
-+		return -EINVAL;
-+	}
-+
-+	parm = nla_data(tb[TCA_PSP_PARMS]);
-+	index = parm->index;
-+	err = tcf_idr_check_alloc(tn, &index, a, bind);
-+	if (err < 0)
-+		return err;
-+	exists = err;
-+	if (exists && bind)
-+		return ACT_P_BOUND;
-+
-+	if (NL_REQ_ATTR_CHECK(extack, nla, tb, TCA_PSP_ACTION)) {
-+		NL_SET_ERR_MSG(extack, "Missing PSP action, encap or decap");
-+		ret = -EINVAL;
-+		goto err_out;
-+	}
-+	psp_action = nla_get_u32(tb[TCA_PSP_ACTION]);
-+
-+	switch (psp_action) {
-+	case TCA_PSP_ACT_ENCAP:
-+		if (NL_REQ_ATTR_CHECK(extack, nla, tb, TCA_PSP_ASSOC_ID)) {
-+			NL_SET_ERR_MSG(extack, "Missing PSP association ID");
-+			ret = -EINVAL;
-+			goto err_out;
-+		}
-+		md = tcf_psp_md_create(net, tb[TCA_PSP_ASSOC_ID], extack);
-+		if (IS_ERR(md)) {
-+			ret = PTR_ERR(md);
-+			md = NULL;
-+			goto err_out;
-+		}
-+		break;
-+	case TCA_PSP_ACT_DECAP:
-+		if (tb[TCA_PSP_ASSOC_ID]) {
-+			NL_SET_ERR_MSG_ATTR(extack, tb[TCA_PSP_ASSOC_ID],
-+					    "decap takes no PSP association");
-+			ret = -EINVAL;
-+			goto err_out;
-+		}
-+		break;
-+	}
-+
-+	if (!exists) {
-+		ret = tcf_idr_create(tn, index, est, a, &act_psp_ops, bind,
-+				     flags);
-+		if (ret)
-+			goto release_md;
-+
-+		ret = ACT_P_CREATED;
-+	} else if (!(flags & TCA_ACT_FLAGS_REPLACE)) {
-+		NL_SET_ERR_MSG(extack, "PSP action already exists");
-+		ret = -EEXIST;
-+		goto release_md;
-+	}
-+
-+	err = tcf_action_check_ctrlact(parm->action, tp, &goto_ch, extack);
-+	if (err < 0) {
-+		ret = err;
-+		exists = true;
-+		goto release_md;
-+	}
-+	p = to_psp(*a);
-+
-+	params_new = kzalloc_obj(*params_new);
-+	if (!params_new) {
-+		ret = -ENOMEM;
-+		exists = true;
-+		goto put_chain;
-+	}
-+	params_new->action = parm->action;
-+	params_new->psp_action = psp_action;
-+	params_new->md = md;
-+
-+	spin_lock_bh(&p->tcf_lock);
-+	goto_ch = tcf_action_set_ctrlact(*a, parm->action, goto_ch);
-+	params_new = rcu_replace_pointer(p->params, params_new,
-+					 lockdep_is_held(&p->tcf_lock));
-+	spin_unlock_bh(&p->tcf_lock);
-+
-+	tcf_psp_release_params(params_new);
-+	if (goto_ch)
-+		tcf_chain_put_by_act(goto_ch);
-+
-+	return ret;
-+
-+put_chain:
-+	if (goto_ch)
-+		tcf_chain_put_by_act(goto_ch);
-+release_md:
-+	if (md)
-+		dst_release(&md->dst);
-+err_out:
-+	if (exists)
-+		tcf_idr_release(*a, bind);
-+	else
-+		tcf_idr_cleanup(tn, index);
-+	return ret;
-+}
-+
-+static void tcf_psp_cleanup(struct tc_action *a)
-+{
-+	struct tcf_psp *p = to_psp(a);
-+
-+	tcf_psp_release_params(rcu_dereference_protected(p->params, 1));
-+}
-+
-+static int tcf_psp_dump(struct sk_buff *skb, struct tc_action *a,
-+			int bind, int ref)
-+{
-+	unsigned char *b = skb_tail_pointer(skb);
-+	struct tcf_psp *p = to_psp(a);
-+	struct tcf_psp_params *params;
-+	struct tc_psp opt = {
-+		.index    = p->tcf_index,
-+		.refcnt   = refcount_read(&p->tcf_refcnt) - ref,
-+		.bindcnt  = atomic_read(&p->tcf_bindcnt) - bind,
-+	};
-+	struct tcf_t t;
-+
-+	rcu_read_lock();
-+	params = rcu_dereference(p->params);
-+	opt.action = params->action;
-+
-+	if (nla_put(skb, TCA_PSP_PARMS, sizeof(opt), &opt) ||
-+	    nla_put_u32(skb, TCA_PSP_ACTION, params->psp_action))
-+		goto nla_put_failure;
-+
-+	if (params->md &&
-+	    nla_put_u32(skb, TCA_PSP_ASSOC_ID, params->md->u.psp_info.pas->id))
-+		goto nla_put_failure;
-+
-+	tcf_tm_dump(&t, &p->tcf_tm);
-+	if (nla_put_64bit(skb, TCA_PSP_TM, sizeof(t), &t, TCA_PSP_PAD))
-+		goto nla_put_failure;
-+	rcu_read_unlock();
-+
-+	return skb->len;
-+
-+nla_put_failure:
-+	rcu_read_unlock();
-+	nlmsg_trim(skb, b);
-+	return -1;
-+}
-+
-+static size_t tcf_psp_get_fill_size(const struct tc_action *act)
-+{
-+	return nla_total_size(sizeof(struct tc_psp))
-+		+ nla_total_size(sizeof(u32)) /* TCA_PSP_ACTION */
-+		+ nla_total_size(sizeof(u32)); /* TCA_PSP_ASSOC_ID */
-+}
-+
-+static struct tc_action_ops act_psp_ops = {
-+	.kind		=	"psp",
-+	.id		=	TCA_ID_PSP,
-+	.owner		=	THIS_MODULE,
-+	.act		=	tcf_psp_act,
-+	.dump		=	tcf_psp_dump,
-+	.init		=	tcf_psp_init,
-+	.cleanup	=	tcf_psp_cleanup,
-+	.get_fill_size	=	tcf_psp_get_fill_size,
-+	.size		=	sizeof(struct tcf_psp),
-+};
-+MODULE_ALIAS_NET_ACT("psp");
-+
-+static __net_init int psp_init_net(struct net *net)
-+{
-+	struct tc_action_net *tn = net_generic(net, act_psp_ops.net_id);
-+
-+	return tc_action_net_init(net, tn, &act_psp_ops);
-+}
-+
-+static void __net_exit psp_exit_net(struct list_head *net_list)
-+{
-+	tc_action_net_exit(net_list, act_psp_ops.net_id);
-+}
-+
-+static struct pernet_operations psp_net_ops = {
-+	.init = psp_init_net,
-+	.exit_batch = psp_exit_net,
-+	.id   = &act_psp_ops.net_id,
-+	.size = sizeof(struct tc_action_net),
-+};
-+
-+static int __init psp_init_module(void)
-+{
-+	return tcf_register_action(&act_psp_ops, &psp_net_ops);
-+}
-+
-+static void __exit psp_cleanup_module(void)
-+{
-+	tcf_unregister_action(&act_psp_ops, &psp_net_ops);
-+}
-+
-+module_init(psp_init_module);
-+module_exit(psp_cleanup_module);
-+
-+MODULE_DESCRIPTION("PSP encryption tc action");
-+MODULE_LICENSE("GPL");
+
+base-commit: c2621b518b38ed38e280e008aa33e6c2d302f8cc
 -- 
 2.53.1-Meta
 
