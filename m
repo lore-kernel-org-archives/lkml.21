@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514917;
-	b=GvhCNniYNOAMw96IUjmOd49/PKAglDRLkHl+2NYjKHKbS89dC6+mgU1lY6VBidXnxuj9
-	 vVRVne4p+23XzrZzlvYeIbMW3u03VkRlWUyoM10f7KofyHtbQlaZywrVCDUnrKTSLI2+B
-	 e0oF+I+Jn0kH8YR+2MSutgRe1fJ8KGd5ZySTUESvQUe5PIJeFceCPKEK8ZDEnxzmlfPoO
-	 XNT0CUBLPG/fF/u+BBsdy+C5ZO3k04yADRmuPLL3oFYo9kPkhgS9TlbAE/e3fmHkJHt1X
-	 yHTF2OBAOyT/qXo+O8E6G711KdR4iw+UgQsbU4JWeBokX5ooDgoTGmLkj52pT7lr77g==
+	t=1795514918;
+	b=wPJ6svYm4p5nF6kF1nApwGzCNFK3onI0x/vYmhye63fa4pVsbL48Jj8M9/eh5XOzmfCf
+	 5RZkCkq5B8MSZr/rNZ0viWDicm1V4YipTf1BXklqLzusUNgsen1TnDhvMTysZ2P0NpYsV
+	 tAuKkYVPB2/dw7n0nBr62JCXxffs6Fd3vUt4yypujrqRuP5P92YsDIDa6XUM8IV/a2LAI
+	 eOsQCL1H+boPZsywCHtP4ra1cnqOyqBndAvYQ2564WW55Wn6qrQw09Rx1ogyADQ2oCW7A
+	 T5f7iRjXeRlkqyuXjrY+7+sgwOVk+DiWcaGhjmaHddLOUkWHzu+GK+Ze/wshlarkdUQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514917;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514918;
 	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=gaGCwayYKF/NyULaYwuelF8YNDZUe/wGR/qICEoQCT8=;
-	b=mcc/k4JIpOuXjZsfO5gxmw/NXJ+9V5nr1T7ptcVVMgQw7vQUGa9qaV2zzV1YZ5lZFccT
-	 2FOl0/ZjjoPP7+0imOduVyugge4H9HOfJuanIab0Kd3GNY/O/ViTd9BCQiW/MUlHaNiRm
-	 VvSauy/FJFklL5H1rSwjJKj0NWnlerPdz/Ve0x0gUbeNS5DDqwKr8a/wplB8UvN9JO+14
-	 drTCHkPgiYmeFXBTgiZyjd1x29K4D9jj0k7z+5UhgQgba75mcBN42HIX/LXDGlfzH6OSf
-	 EIWcR1fSHQt4TLmnJh5YYR89FbhNF+UhldGiqnBvOjsfDNI+az5pYbMFZYrEvKI3zQA==
+	bh=2MYIYUSFIxWgBZ0dn1odR2ZDSbTa3g/YgNpBPROubVc=;
+	b=Qd+ArN9miENSOmJWeE+tGNzcKIoOK6FOE3kNndnY5mw86/mE0L3Tvn1sigToUoWsv+6y
+	 URw2WWjfk1sN3gsjHDQzM4E+Rtu3kR4X1dX7g0Jz2LXV5tTckxzC3NjSMxigwi2qg8cKT
+	 MHK322Q/jnq3Lf+1lHIkNFQEHB3oVB37IJD+acvT/PAmhLUmv2sXxsXQXy/ig1kr9ohUS
+	 xYVG3utU6lyopRW7pplE1TZnNbX56QwRmz5CY/dgYv3Eq+xmizPesE5/4hq+t3HaHix8u
+	 CZDrKK5dFWbH7pf0Gkav2qNraM5yC2rAzkRBPIA4JTn9ic5tMyEsicTHuJckxrTKviw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=ideasonboard.com;
 	spf=pass smtp.mailfrom=ideasonboard.com;
-	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b="B/LnkZrM";
+	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=SxtcvOkv;
 	arc=none smtp.remote-ip=213.167.242.64
 Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1935C60A2608
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:08:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1935C60A2608
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 191F060A260E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:08:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 191F060A260E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=B/LnkZrM
+	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=SxtcvOkv
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3A7921AED;
-	Tue, 24 Nov 2026 11:05:59 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 438DE1D0A;
+	Tue, 24 Nov 2026 11:06:00 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1795514760;
-	bh=95B6XxOlyHoEyrwSZvIyIl6muJUPXqc9RynHldBHXsM=;
+	s=mail; t=1795514761;
+	bh=ltZBsbuuLUgLruugJggBgV13oqzFIQW+pA1XxlBJnRI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=B/LnkZrM/ZQ3UE4AC0Jb/ZrchVUpCQwxQmnSvd5kqk6fdkxTqhw/8GH1IBOnsR7z0
-	 DrgILXUAvCgVPawBj/X0ynnhb58uhD2qc/aDhkM3DmuqOz1T1lhhj8AFN18SplepkN
-	 7p9CzbaW6rGlCv1rBq67sV78yjNmTVYB/lEMXcug=
+	b=SxtcvOkve28bs3tsVAdkcKTPqn4J6dd+mr5psdT3aAQPEHip4GV9hLsc+KY1MQM8H
+	 tJxdIE07M3TVYECDzKETvdZuIPo6GQGKuRnidKX0YcyMbHmV2++hjXEyaQzmIbEw6g
+	 G8z9RBcdYm34Kdl+sD+bVMO9lqlFCpz7V/XkpwDI=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Tue, 24 Nov 2026 12:07:55 +0200
-Subject: [PATCH v6 04/13] drm/bridge: tc358762: Configure SYSCTRL first
+Date: Tue, 24 Nov 2026 12:07:56 +0200
+Subject: [PATCH v6 05/13] drm/bridge: tc358762: Drop SPICMR write
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,7 +57,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-tc358762-fixes-v6-4-bd38fed6460f@ideasonboard.com>
+Message-Id: <20261124-tc358762-fixes-v6-5-bd38fed6460f@ideasonboard.com>
 References: <20261124-tc358762-fixes-v6-0-bd38fed6460f@ideasonboard.com>
 In-Reply-To: <20261124-tc358762-fixes-v6-0-bd38fed6460f@ideasonboard.com>
 To: Marek Vasut <marex@denx.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -72,67 +72,47 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Dave Stevenson <dave.stevenson@raspberrypi.com>, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1689;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=959;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=95B6XxOlyHoEyrwSZvIyIl6muJUPXqc9RynHldBHXsM=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBrBWIXDsBDEjEho+ub2BQu725HZPF7TDuTbaV+M
- tJh5kyM7YuJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCawViFwAKCRD6PaqMvJYe
- 9UQjD/9a+cR8tS/kzQEA+MaHo4TVAcYp5bVy9kFM7Zm6ho7DcjHFdbgrWRZ8kuooFr5rzLDCWIz
- FKwEhdLuHEEoWzLBOjrg676M75srJRQ/v5XbP//jm3EM1gqprd/M8V8kNBAgEO36aGxgWkBOSzp
- PNGRq9NeoES0/ftXTH8Psxeh2VCvr4mmLI+lDke2xgtgY3Z4ML7G2MzVU7xUNGma+jaGECtFCM8
- KKnW7wzpGBEKRWinOFgjQ/EFuJOB9ePv0jVwX9JA75GxQukhPfPvBDBbnkY+IrU4UMiSZRFRVB7
- +n/KKUJLdm+ktFIgik0kPIXUikv7gYe33PPHWyGtXm7/qW9TyBAdopLbWqGM/iM0u+VZfk2UDkA
- co6Aq8ztHJDc6tT/6Y3RS5Y3BohZBoZyIO7VNwmtoLV0X4QyQIf8/xu//5D6i2vAXVo9tkPqhLg
- 2MkOJLPXU9aMSAG30NU0lMU55YzTYfeFp4Q7i8bO3lKShO8jq2x0iUFtVvmwrPXjNhzq/rcuz5W
- PghV0rUUl0Gghz8n1MgduOYV8w8kRUsiOmRVIi/awEZdcT6nfD6yDfarqiU9gVBeDS5DyyUjsyT
- 9jZWn73kbFvRNYM6WtTZe8PHiRp8JR50zGq7BPQGNR/G+G950Zepjurt5goX//DDDncwR+j6tWQ
- /+Th6ZKKG0BS+6Q==
+ bh=ltZBsbuuLUgLruugJggBgV13oqzFIQW+pA1XxlBJnRI=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBrBWIXOUyPoe9xQIjhc5ZTtJRvuBcvt9j+licSc
+ uFW5ITGyGaJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCawViFwAKCRD6PaqMvJYe
+ 9RFTEACX0Gl+X5BHPetvJp4/9G/Qw/OKrXJ0FwiQO+wTv6LpepuFZm9mmnuW31JhB4ukRif7yce
+ jaMtHhS9lYUrGN3bZBJ3JBdrAxV3swPTWY2ym6GXMf0pGSEBBU4fAK3Oy97LPwtAGqixZ4yNErV
+ UzfNXy98sjNwQEOrQ5n600Nx9aJk+pvx8H1dLMJe+LjThYq9OrHAnsFAqu01zOCfZNMxW7nFov9
+ jeuqQkLMOGjnyi230cX/af0RuBzzflmr+UME7/I8mshFiAKDJKEpcYsHpLptOMZD4kJiZlxKTJw
+ cvqGY2Z7VuLJbfGP0QPOnvLIYdzDZc+bMhLIQxZJjeIJJcpUCnmxEfa03ioAKDRBwVNoiCppc9L
+ bSS2XyqlAjsK9PoTlAb7ZgaOKhr6SoBsXnq+P4e5n/p7hxJxB1+IB5/VdbsDjhc+SFrUjLKneqz
+ t2qzqJOMXdYjImwxExNeOlxQdvJgvremBuaz6S+MdwapdcQwnJcyJljJrLGcOnKukMMq2rwm2qC
+ g98L7sxhlXUdT+j1y3ybHX7eBhmCsh4jfefVVxRLHJfAZFH+B8b50oX1wZXbl/D7H6unw9jzXes
+ aG+GKkBudAOhFQ0MbI9dpQ59p/Cvog6jxBKkKOvdfU9DBWWOrKXQ19OQBXajUV4wiDvsxDn30qJ
+ aGO7yKpnWi9n2fw==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 
-SYSCTRL affects the DPI output and the clock tree, but we configure it
-late, when the DPI output is already enabled and clocks are running.
-
-Move the SYSCTRL configuration to the beginning, before anything is
-enabled.
+Drop write to SPICMR. It's unclear why the write is there, as SPI is not
+supported in the driver, and it's mostly just writing zeroes to already
+zero fields (reset defaults). None of the zero bits written disable
+anything wrt. SPI.
 
 Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
- drivers/gpu/drm/bridge/tc358762.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ drivers/gpu/drm/bridge/tc358762.c | 2 --
+ 1 file changed, 2 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/tc358762.c b/drivers/gpu/drm/bridge/tc358762.c
-index 26671dc66874..f5ee781275fc 100644
+index f5ee781275fc..91bc79d36a74 100644
 --- a/drivers/gpu/drm/bridge/tc358762.c
 +++ b/drivers/gpu/drm/bridge/tc358762.c
-@@ -134,6 +134,13 @@ static int tc358762_init(struct tc358762 *ctx)
- {
- 	u32 lcdctrl;
+@@ -149,8 +149,6 @@ static int tc358762_init(struct tc358762 *ctx)
+ 	tc358762_write(ctx, PPI_D1S_ATMR, 0);
+ 	tc358762_write(ctx, PPI_LPTXTIMECNT, LPX_PERIOD);
  
-+	tc358762_write(ctx, SYSCTRL,
-+		       FIELD_PREP(SYSCTRL_DPIDATA_IO_MASK, SYSCTRL_DPIDATA_IO_4MA) |
-+		       FIELD_PREP(SYSCTRL_DPISTB_IO_MASK, SYSCTRL_DPISTB_IO_4MA) |
-+		       FIELD_PREP(SYSCTRL_PCLKDIV_MASK, SYSCTRL_PCLKDIV_DIV_3));
-+
-+	msleep(100);
-+
- 	tc358762_write(ctx, DSI_LANEENABLE,
- 		       DSI_LANEENABLE_L0EN | DSI_LANEENABLE_CLEN);
- 	tc358762_write(ctx, PPI_D0S_CLRSIPOCOUNT, 5);
-@@ -157,13 +164,6 @@ static int tc358762_init(struct tc358762 *ctx)
- 
- 	tc358762_write(ctx, LCDCTRL, lcdctrl);
- 
--	tc358762_write(ctx, SYSCTRL,
--		       FIELD_PREP(SYSCTRL_DPIDATA_IO_MASK, SYSCTRL_DPIDATA_IO_4MA) |
--		       FIELD_PREP(SYSCTRL_DPISTB_IO_MASK, SYSCTRL_DPISTB_IO_4MA) |
--		       FIELD_PREP(SYSCTRL_PCLKDIV_MASK, SYSCTRL_PCLKDIV_DIV_3));
+-	tc358762_write(ctx, SPICMR, 0x00);
 -
--	msleep(100);
--
- 	tc358762_write(ctx, PPI_STARTPPI, PPI_STARTPPI_STARTPPI);
- 	tc358762_write(ctx, DSI_STARTDSI, DSI_STARTDSI_STARTDSI);
+ 	lcdctrl = FIELD_PREP(LCDCTRL_PXLFORM, LCDCTRL_PXLFORM_RGB888) |
+ 		  LCDCTRL_DPI_EN;
  
 
 -- 
