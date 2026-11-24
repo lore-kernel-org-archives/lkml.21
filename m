@@ -1,61 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795538778;
-	b=Wt/Mue5GHTVicdCGekhiVsk+rIQjDz2Jqlx862ci60KsxfOuiaEil46cJTZTLUFxDNPT
-	 IJ9HUF/HdrgSbFp+sJK0YHsV8IVOQSHvWHzD1c7+MIlKADsTwMHcGTOGMrfuG1GCH2HsS
-	 LaKKFxGjb12tRPvk+Y5M9zsXDhofkJ0w/kNm/n4IXT+85OHe/fq2S0jWJM5c/O3z4f8gS
-	 wybBSuKKWqt8ETg325iLcGb8wghM4IYuPSlt8UzHTphRLG9v0zj5+20o28b9hqvtkwMOi
-	 KnybumBNmT8b4EKVUx9YBzRB1s1gIal8MBq11lzf84LLUJtJZY9hlvej2fUWYV1IIjA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795538778;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=66yLjLF09no/CGggODWw/UNlLt5dwM1C2hA7f/88NZE=;
-	b=T8NdhgtGd0eWLBnBug7y6AoiSzJQuHCfHbyMehameWyibT2DhgNa61LpxlZJ0iB1+Uw5
-	 Altf8VpogFEtI6HohQTNS3ruxbyXiWt9eiucqkHgyCt2mtE4hdCFiSLrcvKgi7uuRvYcC
-	 IMFnNNmBClTGISzFO/WDAQTvYUFHlR8MinAe9BXfY8a8xkAfOlH7T0q5HolG46SIGI1cO
-	 0K+C5GU+UAUdBgLaASAVZpdaaXJ7skkk1b+XCMceTBtaBqrtlDhHlOSBR7A7Vtc7S+mZd
-	 9zu4MVTysidg8/XWtyo5Kwrgb0AvJlxuvjDXjIZoQZVH/DyyyjGkJfMTSlk+yxPJ42Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BMaxAH7m;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795538797;
+	b=nTSnYxefmsEAOSh0AQ3WfrsOIlXw9807H7ZzPY96BtkFoeRg7t58DlE5zmkftdkwjXYw
+	 ubIBE7nYsY6ejno9oMnUL+gnrc4JT4p2hxgeDdgbZP0Yo3DuDhNdVV8lQ+1s17AJnPbsF
+	 IDKwZpKn9m2XJnoy1jegKay6ojTpnwOrsPtPGTUY5ac3moQkDYVN/BzQlpyU/Y2Nom1z4
+	 UYWaShsQAhOR1IX8SXYC9OWnNRTQ0YAUOKM9g/j83VSCfpZ2MD0lExoNFmcMd4EHPBpA/
+	 1tKn5F0RBwSZ9nB/6PQZTfqZdY/PqbaJYzRaTT0vfyM6opiuTud8pOslG4s98lT027w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795538797;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
+	bh=whFeiy2C5pn/e+nXVtcQ8J3tkzHLYBnV0Ny268pSTEk=;
+	b=vj/gGX3Y6b+NFjEZl512fyR3/275fmEM+kec/3Njk2MWNBi7nDhLekYM43RmLq9gUpCi
+	 YjqM2cyDZ0Ov6oQqt1Y7SmAzWVx/LpmIs2LzBuXUdx71AbB1zpYI+jC3yTq/ytyXFnZjR
+	 sdQ0o3pZANn5qVbdws010mxIGTRRCPRYQuTUjY4tQM34/aszUMlwJKG+/V3DYl6jFm7gv
+	 HUHuMAi4KIJ+v5Gpgq45Zh7yqO+keUYDnx4bP05ON6I1w3YNwtt2FrQIJN5iQVVkhNP+T
+	 wR9s+9lBWeoERIfKHfM/BrIIDdvnb+Mp4kz832ZhklgomCHp7LnfxhlQbZLz8JIzkVg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=rong.moe;
+	spf=pass smtp.mailfrom=rong.moe;
+	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=Zmnaj0Gp;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
+Received: from sender6-pp-f112.zoho.com (sender6-pp-f112.zoho.com [165.173.180.112])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5076606A321;
-	Tue, 24 Nov 2026 16:46:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A560E606A31E;
+	Tue, 24 Nov 2026 16:46:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A560E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BMaxAH7m
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57CCA1F000D1;
-	Tue, 24 Nov 2026 16:46:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795538778;
-	bh=66yLjLF09no/CGggODWw/UNlLt5dwM1C2hA7f/88NZE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=BMaxAH7m0fFWfiFx4/Wk2I1BVUzKTw3nqggjWxQ7oB52l0+GE1njFSsJtFQbGUbaI
-	 ZKH9WXB+PXzpSZsc2LO+SvxYj8kUvtACPrSpkJhbEsQjItQcTMSZlljF89lET8+q4i
-	 9wDP3A1cWMj4UnxJW9JFwErcg6VHA7hTwsFwFaIV+mq9p82O5DscIHm4uNfPxz5TSv
-	 JdwoMrAGvX5JxeVjlT/s2dpuo9z3fh/tE0fmYmg0qCGWBDXmPFAM5f93m7RK7bVx69
-	 Ew9sUlAt/vfgaXGo+Ktq1otOa78OkrnrUhNESS4C8yN/hnp48GsJxoqXiqQdos0amD
-	 ogwLX7yjHtSSg==
-Subject: Re: [PATCH net-next v2] net: xilinx: axienet: Derive RX frame length
- from residue in dmaengine path
-From: netdev-bot+sashiko@kernel.org
-To: srinivas.neeli@amd.com
-Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
- horms@kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- git@amd.com
-Date: Tue, 24 Nov 2026 16:46:16 +0000
-Message-ID: <179553877690.3135.3125454257939180385@kernel.org>
-In-Reply-To: <20261123164251.48234-1-srinivas.neeli@amd.com>
-References: <20261123164251.48234-1-srinivas.neeli@amd.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=Zmnaj0Gp
+ARC-Seal: i=1; a=rsa-sha256; t=1795538718; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Xodovde6qmxVQihNRsEqNxFOWA/sy/ZPZE2Fp+oZxMLJSSEB6cYkfHrULJPtkt5v6E3pKwiMhRQK15fkR10v7OhLOCGZZEAfKHjjTlGfUpqElM6gDW5V4TVO5GAhq/qbSZBj2snAsBpdrrhZ8zEalu6C1EENpH9YLLpLncNmq/4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795538718; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=whFeiy2C5pn/e+nXVtcQ8J3tkzHLYBnV0Ny268pSTEk=; 
+	b=E4WVwY0qlmVMGJkWK7KiKsLd6WkHVyr7O1bjvnyoUmv/ZM5PaI1gtF7Kz7akKGyZFtn+MPgThw7sAY6cPC+SBW//l6IZv3KmKEVdJnf6Wn1ZITcWFZ3beZ1iWloR0bJaydK4OOLrRIGCJVfuB/bL8oevt4b3TLnKNg+PRNRH8MA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: a=rsa-sha256; b=Zmnaj0GpS39HAkRYObifw9aCk8xW6xTuGZlyiYCYb5izsYdxZjPjyQn+PW5cK0v6U3k33IGnZcXyrvkC5PGQgBULZO6BwGM/vcodhrUNx16XRYEa/nZ65AGrtAuhy1Xzk68XQRc6Q3dEB9lFA5Ux40O6yrLYEPaykTThGXk3Qnsqcx6JHycldkxYe+nQLG3cmXZXVuH7X2D2jPRKC9ZrU/4ieGbGWQ0XpndiKARXHvWR5BYEF26dQREgH4Kc5f+MLqA5m6oT2r86lkzejqn5SQp81yRUj9G3xdD5MVb2cJbA0g0dXsSVayFj0iPJEetqkgptF873jQoThk6kMIZFhQ==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=whFeiy2C5pn/e+nXVtcQ8J3tkzHLYBnV0Ny268pSTEk=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795538716191700.3072928911643;
+	Tue, 24 Nov 2026 08:45:16 -0800 (PST)
+From: Rong Zhang <i@rong.moe>
+Date: Wed, 25 Nov 2026 00:44:31 +0800
+Subject: [PATCH v4 3/9] HID: haptic, multitouch: Check haptic prerequisite
+ properly
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,172 +60,337 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-hid-haptic-kmod-v4-3-03713a89f656@rong.moe>
+References: <20261125-hid-haptic-kmod-v4-0-03713a89f656@rong.moe>
+In-Reply-To: <20261125-hid-haptic-kmod-v4-0-03713a89f656@rong.moe>
+To: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
+ Angela Czubak <aczubak@google.com>, Henrik Rydberg <rydberg@bitmath.org>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Rong Zhang <i@rong.moe>, stable@vger.kernel.org
+X-Mailer: b4 0.17-dev-ce4c1
+X-ZohoMailClient: External
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+The td->is_haptic_touchpad boolean is multiplexed through during the
+probe- and run-time procedures of hid-multitouch. However, the way it
+flips is fragile on faulty devices.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
+MT touchpads have multiple HID_DG_TIPPRESSURE usages, but the value of
+td->is_haptic_touchpad only depends on the last usage, and doesn't check
+if all usages have the same critical annotations. Moreover, if the HID
+device happens to have multiple HID_DG_TOUCHPAD applications, the haptic
+device may be initialized more than once.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Fix them by storing the relevant HID_DG_TOUCHPAD input device (must have
+a pressure sensor) during hid_haptic_check_pressure_unit(), with proper
+sanity checks that reject annotation mismatches and duplicated
+HID_DG_TOUCHPAD input devices. Later, hid_haptic_input_configured()
+continues the initialization only if the input device matches the
+previously stored one.
 
-- [Medium] The commit message says the residue-based length is "correct
-  across all designs, including multi-descriptor frames".
-- [Medium] The commit message says that summing the residue over the
-  chain gives the correct length for multi-descriptor frames.
-- [Low] This patch fixes a real, user-visible RX failure in the dmaengine
-  path of axienet_dma_rx_cb()…
+With that, the td->is_haptic_touchpad is converted into a one-way (false
+=> true) flipping manner. All calls to hid_haptic_*() during the
+probe-time procedures are now guarded by the nullability of td->haptic
+instead of td->is_haptic_touchpad or no guard, preparing to skip
+allocating td->haptic in !CONFIG_HID_HAPTIC builds in the following
+changes.
 
---
+At runtime, relevant haptic methods are called only if the event source
+is the same input device as the stored one.
 
-net: xilinx: axienet: Derive RX frame length from residue in dmaengine path
+Fixes: 7939f787f450 ("HID: haptic: move FF initialization into .input_configured()")
+Cc: stable@vger.kernel.org
+Signed-off-by: Rong Zhang <i@rong.moe>
+---
+Changes in v2:
+- Reject touchpad applications with non-force units (thanks Sashiko)
+- Only call runtime methods if the event source is the same input device
+  as the stored one (ditto)
+---
+ drivers/hid/hid-haptic.c     | 65 ++++++++++++++++++++++++++------------------
+ drivers/hid/hid-haptic.h     | 35 ++++++++++++++----------
+ drivers/hid/hid-multitouch.c | 36 ++++++++++++------------
+ 3 files changed, 77 insertions(+), 59 deletions(-)
 
-This commit changes axienet_dma_rx_cb() so that the dmaengine RX path
-computes the received frame length as the posted buffer length minus
-result->residue. Previously the length came from the APP4 descriptor
-metadata word. It also detects failed transfers through
-dmaengine_result.result and removes the unused LEN_APP macro.
-
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index 7e83c4b5f1931..5b4998e2ca148 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-
-[ ... ]
-
-> @@ -1219,30 +1218,27 @@ axienet_start_xmit(struct sk_buff *skb, struct net_device *ndev)
->  static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
->  {
-
-[ ... ]
-
-> -	/* TODO: Derive app word index programmatically */
-> -	rx_len = (app_metadata[LEN_APP] & 0xFFFF);
-> +	/* Actual length = posted buffer length - residue. */
-> +	rx_len = lp->max_frm_size - result->residue;
-
-[Severity: Low]
-This fixes a receive failure that users can see. Should it carry a Fixes:
-tag and go through net rather than net-next?
-
-The line being replaced came in with commit 6a91b846af85 ("net: axienet:
-Introduce dmaengine support"). On designs without the status/control
-stream, the old code had two failure modes.
-
-If the channel has no metadata_ops, dmaengine_desc_get_metadata_ptr()
-returns ERR_PTR(-ENOTSUPP) and every frame is dropped here:
-
-	if (IS_ERR(app_metadata)) {
-		...
-		dev_kfree_skb_any(skb);
-		lp->ndev->stats.rx_dropped++;
-		goto rx_submit;
-	}
-
-Before commit 8bbceba7dc5090, that ERR_PTR was dereferenced instead.
-
-If metadata_ops is present but the status stream is absent, the invalid
-APP4 value is passed straight to skb_put().
-
-The stable trees that carry the dmaengine RX path won't pick this up unless
-it has something like:
-
-Fixes: 6a91b846af85 ("net: axienet: Introduce dmaengine support")
-
->  	skb_put(skb, rx_len);
->  	skb->protocol = eth_type_trans(skb, lp->ndev);
-
-[Severity: Medium]
-The commit message says the residue-based length is "correct across all
-designs, including multi-descriptor frames where the residue is summed over
-the chain". Does that hold for a frame longer than one posted RX buffer?
-
-axienet_rx_submit_desc() posts each skb as its own dmaengine descriptor
-with a single sg entry:
-
-	sg_dma_len(skbuf_dma->sgl) = lp->max_frm_size;
-	dma_rx_desc = dmaengine_prep_slave_sg(lp->rx_chan, skbuf_dma->sgl,
-					      1, DMA_DEV_TO_MEM,
-
-xilinx_dma_get_residue() only sums the segments of that one descriptor:
-
-	residue += (axidma_hw->control & chan->xdev->max_buffer_len) -
-		   (axidma_hw->status & chan->xdev->max_buffer_len);
-
-So the residue is never summed across the several descriptors that make up
-one frame.
-
-When the MTU is above 1500, axienet_device_reset() sets max_frm_size to
-mtu + VLAN_ETH_HLEN + XAE_TRL_SIZE and enables XAE_OPTION_JUMBO. No maximum
-receive frame length is programmed into the MAC.
-
-If the MAC then accepts frames longer than max_frm_size, any L2 peer can
-send one. For example, a double-tagged frame at MTU size is mtu + 26 bytes.
-AXI DMA S2MM fills the current BD without EOF and continues into the next
-BD, which belongs to the next descriptor and the next skb:
-
-  first callback:  residue == 0, so a truncated max_frm_size frame is
-                   passed to __netif_rx()
-  second callback: rx_len == remainder, so eth_type_trans() parses bytes
-                   from the sender's payload as a new Ethernet header
-
-Could a remote peer use this to inject a frame with its own choice of MAC
-addresses, ethertype and VLAN tag, getting past hardware MAC filtering and
-VLAN separation?
-
-If the remainder is shorter than ETH_HLEN, eth_skb_pull_mac() silently
-fails and the short skb is still passed up the stack.
-
-axienet_dma_rx_cb() never checks XAXIDMA_BD_STS_RXSOF_MASK or
-XAXIDMA_BD_STS_RXEOF_MASK, and dmaengine_result does not carry them.
-
-The missing SOF/EOF handling predates this patch. Before it, APP4 on the
-EOF BD held the full frame length, so skb_put() hit skb_over_panic(). With
-this change the same input instead becomes silent frame splitting.
-
-Should buffers that don't carry both SOF and EOF be dropped? Alternatively,
-could the MAC's accepted frame size be limited to max_frm_size?
-
-[Severity: Medium]
-A related case can happen inside a single descriptor. Is the summed
-residue still correct when the dmaengine provider splits the single RX sg
-into several BDs?
-
-xilinx_dma_prep_slave_sg() caps each hardware BD at xdev->max_buffer_len
-through xilinx_dma_calc_copysize(). max_buffer_len comes from
-xlnx,sg-length-width, which can be 8 to 26 bits.
-
-Nothing in axienet checks lp->max_frm_size against that per-BD limit. Two
-examples where one descriptor ends up with several BDs:
-
-  width 13 (8191) with MTU 9000 (max_frm_size 9022)
-  width 10 (1023) with the default 1522 byte max_frm_size
-
-AXI DMA S2MM ends a BD at TLAST and starts each packet in a new BD. The
-legacy axienet_rx_poll() relies on the same behaviour.
-xilinx_dma_complete_descriptor() only checks the last segment:
-
-	if (!(seg->hw.status & XILINX_DMA_BD_COMP_MASK) && chan->has_sg)
-		break;
-
-With a frame A shorter than BD0, the sequence would be:
-
-  frame A lands in BD0, and the descriptor stays pending
-  frame B lands in BD1, which is the same skb at offset BD0-size
-  BD1 completes, and the residue sum gives rx_len = len(A) + len(B)
-
-Would axienet_dma_rx_cb() then deliver frame A followed by len(B) bytes of
-stale buffer data, and lose frame B? If B is longer than BD1, it spills
-into the next descriptor as described above.
-
-The old APP4 method was also wrong here, because it reported B's length
-from the last BD. However, the commit message explicitly says the
-summed-residue case is handled correctly.
-
->  	skb->ip_summed = CHECKSUM_NONE;
+diff --git a/drivers/hid/hid-haptic.c b/drivers/hid/hid-haptic.c
+index 8312b8edc847..3ef2bce67671 100644
+--- a/drivers/hid/hid-haptic.c
++++ b/drivers/hid/hid-haptic.c
+@@ -48,17 +48,40 @@ void hid_haptic_feature_mapping(struct hid_device *hdev,
+ }
+ EXPORT_SYMBOL_GPL(hid_haptic_feature_mapping);
+ 
+-bool hid_haptic_check_pressure_unit(struct hid_haptic_device *haptic,
++void hid_haptic_check_pressure_unit(struct hid_haptic_device *haptic,
+ 				    struct hid_input *hi, struct hid_field *field)
+ {
+-	if (field->unit == HID_UNIT_GRAM || field->unit == HID_UNIT_NEWTON) {
+-		haptic->force_logical_minimum = field->logical_minimum;
+-		haptic->force_physical_minimum = field->physical_minimum;
+-		haptic->force_resolution = input_abs_get_res(hi->input,
+-							     ABS_MT_PRESSURE);
+-		return true;
++	if (hi->application != HID_DG_TOUCHPAD)
++		return;
++
++	if (IS_ERR(haptic->input_dev))
++		return;
++
++	if (field->unit != HID_UNIT_GRAM && field->unit != HID_UNIT_NEWTON)
++		goto reject;
++
++	if (!haptic->input_dev) {
++		haptic->input_dev = hi->input;
++		haptic->pressure_field = field;
++		haptic->force_resolution = input_abs_get_res(hi->input, ABS_MT_PRESSURE);
++		return;
+ 	}
+-	return false;
++
++	if (hid_haptic_connected_to_input(haptic, hi->input) &&
++	    haptic->pressure_field->unit == field->unit &&
++	    haptic->pressure_field->logical_minimum == field->logical_minimum &&
++	    haptic->pressure_field->physical_minimum == field->physical_minimum &&
++	    haptic->force_resolution == input_abs_get_res(hi->input, ABS_MT_PRESSURE))
++		return;
++
++reject:
++	/*
++	 * Reject if:
++	 * - there are multiple input devices with pressure sensors
++	 * - there is any touchpad application with a non-force unit
++	 * - pressure annotations mismatch among HID_DG_TIPPRESSURE usages
++	 */
++	haptic->input_dev = ERR_PTR(-EPROTO);
+ }
+ EXPORT_SYMBOL_GPL(hid_haptic_check_pressure_unit);
+ 
+@@ -78,28 +101,17 @@ int hid_haptic_input_mapping(struct hid_device *hdev,
+ }
+ EXPORT_SYMBOL_GPL(hid_haptic_input_mapping);
+ 
+-int hid_haptic_input_configured(struct hid_device *hdev,
+-				struct hid_haptic_device *haptic,
+-				struct hid_input *hi)
++bool hid_haptic_input_configured(struct hid_device *hdev,
++				 struct hid_haptic_device *haptic, struct hid_input *hi)
+ {
+-	int error;
+-
+-	if (hi->application != HID_DG_TOUCHPAD)
+-		return -1;
+-
+-	if (!haptic->auto_trigger_report || !haptic->manual_trigger_report)
+-		return 0;
++	if (IS_ERR_OR_NULL(haptic->input_dev) ||
++	    !hid_haptic_connected_to_input(haptic, hi->input) ||
++	    !haptic->auto_trigger_report || !haptic->manual_trigger_report)
++		return false;
+ 
+ 	__set_bit(INPUT_PROP_PRESSUREPAD, hi->input->propbit);
+ 
+-	error = hid_haptic_init(hdev, haptic, hi->input);
+-	if (error) {
+-		dev_warn(&hdev->dev, "Cannot allocate haptic for %s\n",
+-			 hdev->name);
+-		return 0;
+-	}
+-
+-	return 1;
++	return hid_haptic_init(hdev, haptic, hi->input) == 0;
+ }
+ EXPORT_SYMBOL_GPL(hid_haptic_input_configured);
+ 
+@@ -519,6 +531,7 @@ int hid_haptic_init(struct hid_device *hdev,
+ 	kfree(haptic->hid_usage_map);
+ 	haptic->hid_usage_map = NULL;
+ exit:
++	dev_warn(&hdev->dev, "Cannot allocate haptic for %s: %d\n", hdev->name, ret);
+ 	return ret;
+ }
+ EXPORT_SYMBOL_GPL(hid_haptic_init);
+diff --git a/drivers/hid/hid-haptic.h b/drivers/hid/hid-haptic.h
+index 6332991a7844..cd4d9c74d2dc 100644
+--- a/drivers/hid/hid-haptic.h
++++ b/drivers/hid/hid-haptic.h
+@@ -33,12 +33,11 @@ struct hid_haptic_device {
+ 	struct mutex auto_trigger_mutex;
+ 	struct workqueue_struct *wq;
+ 	struct hid_report *manual_trigger_report;
++	struct hid_field *pressure_field;
+ 	struct mutex manual_trigger_mutex;
+ 	size_t manual_trigger_report_len;
+ 	int pressed_state;
+ 	s32 pressure_sum;
+-	s32 force_logical_minimum;
+-	s32 force_physical_minimum;
+ 	s32 force_resolution;
+ 	u32 mode;
+ 	u32 default_auto_trigger;
+@@ -55,20 +54,25 @@ struct hid_haptic_device {
+ };
+ 
+ #if IS_ENABLED(CONFIG_HID_HAPTIC)
++static inline bool hid_haptic_connected_to_input(struct hid_haptic_device *haptic,
++						 struct input_dev *input)
++{
++	return haptic->input_dev == input;
++}
++
+ void hid_haptic_feature_mapping(struct hid_device *hdev,
+ 				struct hid_haptic_device *haptic,
+ 				struct hid_field *field, struct hid_usage
+ 				*usage);
+-bool hid_haptic_check_pressure_unit(struct hid_haptic_device *haptic,
++void hid_haptic_check_pressure_unit(struct hid_haptic_device *haptic,
+ 				    struct hid_input *hi, struct hid_field *field);
+ int hid_haptic_input_mapping(struct hid_device *hdev,
+ 			     struct hid_haptic_device *haptic,
+ 			     struct hid_input *hi,
+ 			     struct hid_field *field, struct hid_usage *usage,
+ 			     unsigned long **bit, int *max);
+-int hid_haptic_input_configured(struct hid_device *hdev,
+-				struct hid_haptic_device *haptic,
+-				struct hid_input *hi);
++bool hid_haptic_input_configured(struct hid_device *hdev,
++				 struct hid_haptic_device *haptic, struct hid_input *hi);
+ int hid_haptic_init(struct hid_device *hdev, struct hid_haptic_device *haptic,
+ 		    struct input_dev *dev);
+ void hid_haptic_handle_press_release(struct hid_haptic_device *haptic);
+@@ -76,6 +80,12 @@ void hid_haptic_pressure_reset(struct hid_haptic_device *haptic);
+ void hid_haptic_pressure_increase(struct hid_haptic_device *haptic,
+ 				  __s32 pressure);
+ #else
++static inline bool hid_haptic_connected_to_input(struct hid_haptic_device *haptic,
++						 struct input_dev *input)
++{
++	return false;
++}
++
+ static inline
+ void hid_haptic_feature_mapping(struct hid_device *hdev,
+ 				struct hid_haptic_device *haptic,
+@@ -83,11 +93,9 @@ void hid_haptic_feature_mapping(struct hid_device *hdev,
+ 				*usage)
+ {}
+ static inline
+-bool hid_haptic_check_pressure_unit(struct hid_haptic_device *haptic,
++void hid_haptic_check_pressure_unit(struct hid_haptic_device *haptic,
+ 				    struct hid_input *hi, struct hid_field *field)
+-{
+-	return false;
+-}
++{}
+ static inline
+ int hid_haptic_input_mapping(struct hid_device *hdev,
+ 			     struct hid_haptic_device *haptic,
+@@ -98,11 +106,10 @@ int hid_haptic_input_mapping(struct hid_device *hdev,
+ 	return 0;
+ }
+ static inline
+-int hid_haptic_input_configured(struct hid_device *hdev,
+-				struct hid_haptic_device *haptic,
+-				struct hid_input *hi)
++bool hid_haptic_input_configured(struct hid_device *hdev,
++				 struct hid_haptic_device *haptic, struct hid_input *hi)
+ {
+-	return 0;
++	return false;
+ }
+ static inline
+ void hid_haptic_reset(struct hid_device *hdev, struct hid_haptic_device *haptic)
+diff --git a/drivers/hid/hid-multitouch.c b/drivers/hid/hid-multitouch.c
+index 3afca07025ea..5eea774dee44 100644
+--- a/drivers/hid/hid-multitouch.c
++++ b/drivers/hid/hid-multitouch.c
+@@ -605,7 +605,8 @@ static void mt_feature_mapping(struct hid_device *hdev,
+ 		break;
+ 	}
+ 
+-	hid_haptic_feature_mapping(hdev, td->haptic, field, usage);
++	if (td->haptic)
++		hid_haptic_feature_mapping(hdev, td->haptic, field, usage);
+ }
+ 
+ static void set_abs(struct input_dev *input, unsigned int code,
+@@ -961,9 +962,8 @@ static int mt_touch_input_mapping(struct hid_device *hdev, struct hid_input *hi,
+ 		case HID_DG_TIPPRESSURE:
+ 			set_abs(hi->input, ABS_MT_PRESSURE, field,
+ 				cls->sn_pressure);
+-			td->is_haptic_touchpad =
+-				hid_haptic_check_pressure_unit(td->haptic,
+-							       hi, field);
++			if (td->haptic)
++				hid_haptic_check_pressure_unit(td->haptic, hi, field);
+ 			MT_STORE_FIELD(p);
+ 			return 1;
+ 		case HID_DG_SCANTIME:
+@@ -1085,7 +1085,7 @@ static void mt_sync_frame(struct mt_device *td, struct mt_application *app,
+ 
+ 	app->num_received = 0;
+ 	app->left_button_state = 0;
+-	if (td->is_haptic_touchpad)
++	if (td->is_haptic_touchpad && hid_haptic_connected_to_input(td->haptic, input))
+ 		hid_haptic_pressure_reset(td->haptic);
+ }
+ 
+@@ -1238,7 +1238,7 @@ static int mt_process_slot(struct mt_device *td, struct input_dev *input,
+ 			minor = minor >> 1;
+ 		}
+ 
+-		if (td->is_haptic_touchpad)
++		if (td->is_haptic_touchpad && hid_haptic_connected_to_input(td->haptic, input))
+ 			hid_haptic_pressure_increase(td->haptic, *slot->p);
+ 
+ 		x = hdev->quirks & HID_QUIRK_X_INVERT ?
+@@ -1441,7 +1441,7 @@ static int mt_touch_input_configured(struct hid_device *hdev,
+ 	if (cls->is_indirect)
+ 		app->mt_flags |= INPUT_MT_POINTER;
+ 
+-	if (td->is_haptic_touchpad)
++	if (td->is_haptic_touchpad && hid_haptic_connected_to_input(td->haptic, input))
+ 		app->mt_flags |= INPUT_MT_TOTAL_FORCE;
+ 
+ 	if (app->quirks & MT_QUIRK_NOT_SEEN_MEANS_UP)
+@@ -1553,10 +1553,11 @@ static int mt_input_mapping(struct hid_device *hdev, struct hid_input *hi,
+ 	if (field->physical == HID_DG_STYLUS)
+ 		hi->application = HID_DG_STYLUS;
+ 
+-	ret = hid_haptic_input_mapping(hdev, td->haptic, hi, field, usage, bit,
+-				       max);
+-	if (ret != 0)
+-		return ret;
++	if (td->haptic) {
++		ret = hid_haptic_input_mapping(hdev, td->haptic, hi, field, usage, bit, max);
++		if (ret)
++			return ret;
++	}
+ 
+ 	/* let hid-core decide for the others */
+ 	return 0;
+@@ -1954,14 +1955,11 @@ static int mt_input_configured(struct hid_device *hdev, struct hid_input *hi)
+ 	struct hid_report *report;
+ 	int ret;
+ 
+-	if (td->is_haptic_touchpad && (td->mtclass.name == MT_CLS_WIN_8 ||
+-	    td->mtclass.name == MT_CLS_WIN_8_FORCE_MULTI_INPUT ||
+-	    td->mtclass.name == MT_CLS_WIN_8_KEEP_LATENCY_ON_CLOSE)) {
+-		if (hid_haptic_input_configured(hdev, td->haptic, hi) == 0)
+-			td->is_haptic_touchpad = false;
+-	} else {
+-		td->is_haptic_touchpad = false;
+-	}
++	if (td->haptic && !td->is_haptic_touchpad &&
++	    (td->mtclass.name == MT_CLS_WIN_8 ||
++	     td->mtclass.name == MT_CLS_WIN_8_FORCE_MULTI_INPUT ||
++	     td->mtclass.name == MT_CLS_WIN_8_KEEP_LATENCY_ON_CLOSE))
++		td->is_haptic_touchpad = hid_haptic_input_configured(hdev, td->haptic, hi);
+ 
+ 	list_for_each_entry(report, &hi->reports, hidinput_list) {
+ 		rdata = mt_find_report_data(td, report);
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123164251.48234-1-srinivas.neeli%40amd.com
+2.55.0
+
