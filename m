@@ -1,84 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795492065;
-	b=EKRo1QGkWGewMh8edcpG5WYeWGhSaH1Q1qG+8BS9K6XMWBFgboy5sCelqQX1yhcNZoXx
-	 CeHcVl1sV06o4zuSsg+iuu6Q3m6v473cxYwQ1U9NJD0Oc0rmLATbcJDrFCOoNRrPDpQeF
-	 MjUDPsyS/LeAsWbPDFNGHXRS7NnKJnsTHruwHLAL+V/eGFwmAY1a+YRdQsYjJcEi+ckya
-	 XtOlh5LOPU1GkhXlbdGKWUl7BDoDQ/YmvnhN0RlU41/vIj5Jkzkesatkk0ICy15rIifyp
-	 GJIZMq40RDspSwbqJEsMV0XkuH8OHxx8griIwev4D0D8PKVowebay+04VtF0YRDzNbw==
+	t=1795492184;
+	b=hOejUBQ8j9yZrX+WUXyJ+Upm9IFo9YWuXWxZZ3+NIw30svvRwaD3HM+7QMxazIrUg9ZP
+	 7yhUW/B4bzI9b0wiOuxUVypvod++AOCRX0tHoGwdeVDsG0j57ihF0ZQ+E7SR4K0iF8xKP
+	 WKRQkGB5Xea2LZoux18cgRzXhjjwQv4CgzZv25WjZ8G0wIqNW+wnJ4Di3plMDmAdoKqZN
+	 YaA4y6Zrb9B4iJoFlMKkAg4s5ygn96nlLuwBuQFifrXi9ZN+U/wNVfeYFbS1yXJPhZNKt
+	 C6DDf0mYM8vnTQnYgOThMEA3LZ/qWPsKZUVFenKl5dzG9sMOwqH/92F9YygdRhnP+Ww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795492065;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=H+3HlGDl0jWhkQoLDJvtkNrFV/RdM1LfAUEpDa6mtKQ=;
-	b=D/TAVGrpD20Cfnlf+Dv4RbzN0cb0gXBdV+dOeuAKg9l7LiqDTursxnPlAceMLf6V12Zg
-	 n54+M5WMQNHHArWqa8gZS1dPNxS/x+gtSkHcoI5WUwZmP/usfV0mGFAPbzMKgUOpJOpXz
-	 mDguavMeDS0u3MtIza9eDYzsohqIhWmUWuFXx/RLYcOhyZR61mXWL+UZ7sRsd5ux1PgY/
-	 rXEgRen6xZ2U636NDO8cwsPOeZ4AyDGKBk/k+kSYWwVcnLx7FoPHz4GWs/ripO3H+kmZ/
-	 LxY5joDEfEj0j7UAzdV0hzLYdu9MZpxeLem6aA2w/DjmMw6u3Avr4E4sNb5+PE7z22g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795492184;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=P8oUfBSexavVUTsAsUc+YhXKOctoAO6rQtDj3JDhBYg=;
+	b=pgiEBAEti4bGVLchJzGl9TPeJ/eI0u5HveRw1ECB8RE89QELjU4JKtCxY6ZAaZ2HT9OD
+	 +w99KVcl957yflFqPmVt0XmhC0o+dGnLkrL3TIOs+MtBqGnvkf6imlEqf/yHHYXVFOe5v
+	 CnWu8YnfMJkv53hRUF6Tk4H1J4/9VIfa9FzIuu614kP0/bs54lXsl2unquKGcmDgOXS8k
+	 Sl2LYHuCEQEU2Z29e9p0a+bNJy4suPBk83iRgQOeMmK5NUO8jF6kH2oN4OduehcNgsCwp
+	 gua0XM7FuNv/6yUM323zN/NGs3P2gGOuqqphO4Rlr1dETMs4Ce/czmzzWILYqnOxzQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Z435zaMX;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=giE+FPGm;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F14A606A31E;
-	Tue, 24 Nov 2026 03:47:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F14A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16B3D606A31E;
+	Tue, 24 Nov 2026 03:49:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Z435zaMX
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795492062;
-	bh=WugA1Xe6UFchQyqrR/baOIOB+aIVWuHq2eVJHKMBAII=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=Z435zaMXqZi+mNCGq7FMDiwNkztASb7kCOR1vOP8q6L2/TSfBCHSHBzaklBXgzP/M
-	 /vPV9bVtqmwpxr2iqrJSx2M+kezCkKDzNIW77smXJlte/9K4WtkYRK+TOMoNjFwFB4
-	 MtYtsYMEU5dWbNOQrSc5HfOkYeyhbf26We46lWLHdrU7MxMxvbtWfH4h6nJyCJpY03
-	 mKI9DQ22deF5g3cfH+sZn9bgyhcjrf8wnzS/kujaAi3ZIra1qaGoWriTeskmaGReVk
-	 OqplmhnEVOYsDGMMYvpmtUeWDha2SXYCyR1Y3A7L7dw6Ucod8yPG0Sgrlec7yTkG1d
-	 9OIfqTKZxuFdA==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6050C17E00B2;
-	Tue, 24 Nov 2026 04:47:41 +0100 (CET)
-Message-ID: <afb9f3dd7efebeadcfd04621d57e72374313fcc8.camel@collabora.com>
-Subject: Re: [PATCH v7 3/3] media: verisilicon: Create AV1 helper library
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
-	p.zabel@pengutronix.de, mchehab@kernel.org, heiko@sntech.de,
- hverkuil@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Date: Mon, 23 Nov 2026 22:47:39 -0500
-In-Reply-To: <20261120143135.71134-4-benjamin.gaignard@collabora.com>
-References: <20261120143135.71134-1-benjamin.gaignard@collabora.com>
-	 <20261120143135.71134-4-benjamin.gaignard@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-rIlrM5CQacjfgEh5f7QL"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=giE+FPGm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37D5B1F000C4;
+	Tue, 24 Nov 2026 03:49:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795492183;
+	bh=P8oUfBSexavVUTsAsUc+YhXKOctoAO6rQtDj3JDhBYg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=giE+FPGmL8O4ON1ufgDF/THgDRe+YvddWR3in6YGUDCpM3wD59LkXShqyW84Dcz7+
+	 4vIOxPJ5yh1XhqlW6coLCrojxhmOl/0L0BD1QBzMtMvKKkXbizBxPBiFh0wFCkXdv8
+	 hm8SbOFmrSn8uSlDSRVtP9yxlDP3u8HSiy/6J06a1/GhCiSlg+nmfUq77iY/riyNjW
+	 kCgw/zTQ5hvOPR+bKc0QjYelSiPxkMlBmLIoZhRp3zCNHCscGNEatrEjDB4yIVRluL
+	 +3xs4L0vfcdATqE+nEWnnogTQf2FAZ8CCawXqWs/t58zBxf8e3cSnsOYsof0UU32OX
+	 KjE1QqWeN34qg==
+Subject:
+ Re: [PATCH] x25: defer socket cleanup on link termination to process context
+From: netdev-bot+sashiko@kernel.org
+To: 847807867@qq.com
+Cc: ms@dev.tdt.de, linux-x25@vger.kernel.org, netdev@vger.kernel.org,
+ davem@davemloft.net, kuba@kernel.org, edumazet@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com,
+ linux-kernel@vger.kernel.org, netdev-bot+sashiko@kernel.org,
+ stable@vger.kernel.org
+Date: Tue, 24 Nov 2026 03:49:42 +0000
+Message-ID: <179549218277.3135.9518512691383315581@kernel.org>
+In-Reply-To: <tencent_8BA4FF587EE5579AB67149C5062618DC7109@qq.com>
+References: <tencent_8BA4FF587EE5579AB67149C5062618DC7109@qq.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,107 +66,188 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
---=-rIlrM5CQacjfgEh5f7QL
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Le vendredi 20 novembre 2026 =C3=A0 15:31 +0100, Benjamin Gaignard a =C3=A9=
-crit=C2=A0:
-> Regroup all none hardware related AV1 functions into a helper library.
-> The goal is to avoid code duplication for future AV1 codecs.
->=20
-> Tested on rock 5b board Fluster score remains the same 204/241.
->=20
-> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> ---
-> change in v7:
-> - rebase the series on v7.4-rc3 tag
->=20
-> change in v6:
-> - include b84f6533a8ed ("media: verisilicon: rockchip: guard VPU981 AV1 d=
-ivisor and tile buffer")
->   and 367db8b23c26 ("media: verisilicon: rockchip: reject AV1 frames exce=
-eding the tile capacity")
->   fixes into the patch to not losing these improvements.
->=20
->  drivers/media/platform/verisilicon/Makefile   |    7 +-
->  .../media/platform/verisilicon/hantro_av1.c   |  816 ++++++++++++
->  .../media/platform/verisilicon/hantro_av1.h   |   64 +
->  ...entropymode.c =3D> hantro_av1_entropymode.c} |   18 +-
->  ...entropymode.h =3D> hantro_av1_entropymode.h} |   18 +-
->  ...av1_filmgrain.c =3D> hantro_av1_filmgrain.c} |  125 +-
->  .../verisilicon/hantro_av1_filmgrain.h        |   48 +
->  .../media/platform/verisilicon/hantro_hw.h    |    7 +-
->  .../verisilicon/rockchip_av1_filmgrain.h      |   36 -
->  .../verisilicon/rockchip_vpu981_hw_av1_dec.c  | 1091 ++---------------
->  .../platform/verisilicon/rockchip_vpu_hw.c    |    7 +-
->  11 files changed, 1140 insertions(+), 1097 deletions(-)
->  create mode 100644 drivers/media/platform/verisilicon/hantro_av1.c
->  create mode 100644 drivers/media/platform/verisilicon/hantro_av1.h
->  rename drivers/media/platform/verisilicon/{rockchip_av1_entropymode.c =
-=3D> hantro_av1_entropymode.c} (99%)
->  rename drivers/media/platform/verisilicon/{rockchip_av1_entropymode.h =
-=3D> hantro_av1_entropymode.h} (95%)
->  rename drivers/media/platform/verisilicon/{rockchip_av1_filmgrain.c =3D>=
- hantro_av1_filmgrain.c} (85%)
->  create mode 100644 drivers/media/platform/verisilicon/hantro_av1_filmgra=
-in.h
->  delete mode 100644 drivers/media/platform/verisilicon/rockchip_av1_filmg=
-rain.h
->=20
-> diff --git a/drivers/media/platform/verisilicon/Makefile b/drivers/media/=
-platform/verisilicon/Makefile
-> index f6f019d04ff0..a1dd6c2d29be 100644
-> --- a/drivers/media/platform/verisilicon/Makefile
-> +++ b/drivers/media/platform/verisilicon/Makefile
-> @@ -19,7 +19,10 @@ hantro-vpu-y +=3D \
->  =09=09hantro_hevc.o \
->  =09=09hantro_mpeg2.o \
->  =09=09hantro_vp8.o \
-> -=09=09hantro_vp9.o
-> +=09=09hantro_vp9.o \
-> +=09=09hantro_av1.o \
-> +=09=09hantro_av1_filmgrain.o \
-> +=09=09hantro_av1_entropymode.o
-> =20
->  hantro-vpu-$(CONFIG_VIDEO_HANTRO_IMX8M) +=3D \
->  =09=09imx8m_vpu_hw.o
-> @@ -33,8 +36,6 @@ hantro-vpu-$(CONFIG_VIDEO_HANTRO_ROCKCHIP) +=3D \
->  =09=09rockchip_vpu2_hw_mpeg2_dec.o \
->  =09=09rockchip_vpu2_hw_vp8_dec.o \
->  =09=09rockchip_vpu981_hw_av1_dec.o \
-> -=09=09rockchip_av1_filmgrain.o \
-> -=09=09rockchip_av1_entropymode.o \
->  =09=09rockchip_vpu_hw.o
-> =20
->  hantro-vpu-$(CONFIG_VIDEO_HANTRO_SUNXI) +=3D \
-> diff --git a/drivers/media/platform/verisilicon/hantro_av1.c b/drivers/me=
-dia/platform/verisilicon/hantro_av1.c
-> new file mode 100644
-> index 000000000000..2cde32f0e935
-> --- /dev/null
-> +++ b/drivers/media/platform/verisilicon/hantro_av1.c
-> @@ -0,0 +1,816 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (c) 2026, Collabora
+Critical: 0 · High: 0 (1) · Medium: 1 · Low: 0
 
-To be accurate:
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-+ * Copyright (c) 2023-2026, Collabora
+- [Medium] The patch makes the X.25 restart and link-termination path
+  tear down calls asynchronously.
 
---=-rIlrM5CQacjfgEh5f7QL
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but struct
+  x25_neigh can be freed while its t20timer is still pending or its…
 
------BEGIN PGP SIGNATURE-----
+--
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawUI2wAKCRDZQZRRKWBy
-9IsJAQDzPkOm075MMWXCcLeu5KEwD4phFMCdQJprCIwoqnSh/AD+JXWa/422lgSo
-mr69aLQM+/vfddhCSMK0pGiFDSIpzgs=
-=rDF1
------END PGP SIGNATURE-----
+x25: defer socket cleanup on link termination to process context
 
---=-rIlrM5CQacjfgEh5f7QL--
+This patch moves the x25_kill_by_neigh() calls in x25_link_control() and
+x25_link_terminated() into a per-neighbour work item on a new x25
+workqueue, so lock_sock() is no longer called from softirq. The work item
+holds references on the neighbour and its net_device, and the NETDEV_DOWN
+and NETDEV_CHANGE notifiers flush it.
+
+Closes: https://syzkaller.appspot.com/bug?extid=300375dfd44665f063a6
+
+> diff --git a/net/x25/x25_link.c b/net/x25/x25_link.c
+> index d1e8cd81c2143..424044c1cf974 100644
+> --- a/net/x25/x25_link.c
+> +++ b/net/x25/x25_link.c
+
+[ ... ]
+
+> @@ -58,6 +60,25 @@ static inline void x25_stop_t20timer(struct x25_neigh *nb)
+>  	timer_delete(&nb->t20timer);
+>  }
+>  
+> +static void x25_kill_by_neigh_work(struct work_struct *work)
+> +{
+> +	struct x25_neigh *nb = container_of(work, struct x25_neigh, kill_work);
+> +
+> +	x25_kill_by_neigh(nb);
+> +	dev_put(nb->dev);
+> +	x25_neigh_put(nb);
+> +}
+
+[Severity: High]
+This is a pre-existing issue and this patch didn't introduce it. Can
+struct x25_neigh be freed while nb->t20timer is still pending or its
+callback is running?
+
+x25_t20timer_expiry() uses nb and always re-arms itself. It holds no
+reference on nb:
+
+net/x25/x25_link.c:x25_t20timer_expiry() {
+	struct x25_neigh *nb = timer_container_of(nb, t, t20timer);
+
+	x25_transmit_restart_request(nb);
+
+	x25_start_t20timer(nb);
+}
+
+The only cancel is x25_stop_t20timer(). It uses timer_delete(), which
+doesn't wait for a running callback, so the callback can re-arm the timer
+right after the cancel.
+
+At module exit, x25_exit()->x25_link_free()->__x25_remove_neigh()->
+x25_neigh_put()->kfree(nb) never stops t20timer. Suppose the link is in
+X25_LINK_STATE_2, for example after a RESTART REQUEST the peer never
+confirmed. The timer keeps re-arming, so after rmmod it would fire on
+freed memory and call a callback in the unloaded module.
+
+Device teardown has a narrower race. timer_delete() in
+x25_link_terminated() (from NETDEV_DOWN) can race with
+x25_t20timer_expiry() running on another CPU. The callback re-arms the
+timer, and then NETDEV_UNREGISTER->x25_link_device_down() drops the last
+reference.
+
+x25_kill_by_neigh_work() adds one more place where the last nb reference
+can be dropped without cancelling t20timer. The commit message says the
+deferred cleanup "cannot race with neighbour or device teardown". That
+seems to hold only for kill_work.
+
+Should t20timer be shut down synchronously before the last reference to
+nb is dropped?
+
+> +
+> +static void x25_defer_kill_by_neigh(struct x25_neigh *nb)
+> +{
+> +	x25_neigh_hold(nb);
+> +	dev_hold(nb->dev);
+> +	if (!queue_work(x25_wq, &nb->kill_work)) {
+> +		dev_put(nb->dev);
+> +		x25_neigh_put(nb);
+> +	}
+> +}
+> +
+>  /*
+>   *	This handles all restart and diagnostic frames.
+>   */
+> @@ -82,7 +103,7 @@ void x25_link_control(struct sk_buff *skb, struct x25_neigh *nb,
+>  			break;
+>  		case X25_LINK_STATE_3:
+>  			/* clear existing virtual calls */
+> -			x25_kill_by_neigh(nb);
+> +			x25_defer_kill_by_neigh(nb);
+>  
+>  			x25_transmit_restart_confirmation(nb);
+>  			break;
+
+[Severity: Medium]
+Does deferring this call change the order of the X.25 restart
+handshake?
+
+Before, x25_kill_by_neigh() ran inline. x25_disconnect() reset lci,
+state and neighbour on every socket, and x25_clear_forward_by_dev()
+removed the forward entries. Both finished before the RESTART
+CONFIRMATION was sent and before the next frame was handled.
+
+Now x25_defer_kill_by_neigh() only queues nb->kill_work and returns. The
+confirmation goes out and the link stays in X25_LINK_STATE_3, but the old
+sockets are still bound to nb with their old LCIs.
+
+Nothing on the softirq paths flushes the work. Only the NETDEV_DOWN and
+NETDEV_CHANGE notifiers do. In the lapbether NAPI poll, more frames can
+be handled in the same softirq run before the worker gets to run.
+
+In that window, x25_receive_data() looks up an existing socket before it
+checks for a call request:
+
+net/x25/x25_dev.c:x25_receive_data() {
+	...
+	if ((sk = x25_find_socket(lci, nb)) != NULL) {
+	...
+	if (frametype == X25_CALL_REQUEST)
+		return x25_rx_call_request(skb, nb, lci);
+	...
+	if (x25_forward_data(lci, nb, skb)) {
+	...
+}
+
+Could a CALL_REQUEST from the peer on a reused LCI go to the stale
+socket's x25_process_rx_frame() and never reach x25_rx_call_request()?
+Frames for LCIs without a socket would also still be forwarded through
+the stale forward entries.
+
+Stale sockets still in X25_STATE_3 can also reach
+x25_kick()->x25_transmit_link(). In link state 3 this sends DATA on LCIs
+the peer considers cleared.
+
+In link states 0 to 2 the frames are queued on nb->queue instead.
+x25_link_terminated() already purged that queue and the deferred kill
+doesn't purge it again, so the frames go out after the link comes back.
+
+When the work finally runs, x25_kill_by_neigh() matches sockets only by
+neighbour pointer:
+
+	if (x25_sk(s)->neighbour == nb) {
+
+Wouldn't calls set up on the restarted link before the worker runs, via
+x25_rx_call_request() or x25_connect(), also be disconnected with
+ENETUNREACH? A pending work item also absorbs later requests. A single
+late sweep would then kill every socket attached when it runs.
+
+The same applies in three other places:
+
+- The X25_RESTART_CONFIRMATION case, where the restart request is sent
+  and nb->state moves to X25_LINK_STATE_2 first.
+- x25_link_terminated() on the softirq X25_IFACE_DISCONNECT path, where
+  nb->queue is purged and nb->state set to 0 before the sockets are
+  detached.
+- The in-tree comments ("clear existing virtual calls", "X.25 03/93
+  4.6.3"), which now describe an ordering the code no longer provides.
+
+The commit message is tagged for stable but doesn't mention this
+behaviour change.
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/tencent_8BA4FF587EE5579AB67149C5062618DC7109%40qq.com
