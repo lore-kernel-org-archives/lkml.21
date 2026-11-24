@@ -1,100 +1,119 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.48
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795554890;
-	b=ss+CVd52OYrMliV7pNu43y+kZPA/HemZd6+1w+f5c+aiwoLerW0DFFdP5agdCY5baXPG
-	 ucPGCjsLA/l3Iqjaf9IQ0Ohf4/cLlorGi4FPHtjvZvD5JilmQuzLBS1aU+eEC4kowmpDk
-	 pOqu8UYMdJXbdHUpYxCaXBi2uyhwM1vfk08IxIVLKiCEo4ylWUyHMt9FE7d4QGyUFL8PC
-	 5OrstPa9rPjsjKIMwUQlbLAFsF8HK4lCgVy5EsAvXUupuBf5KNPtIIC0Kk0wrZcDYnnF+
-	 ++zxvUg0LLgyplaTusNqrtWS3Byv8YSg/bNQ+4dza7C+K1R908sIwTcoBdhiBXaNN7Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795554890;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.171
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795554891;
+	b=zhhmrnvlvnCJIZJvY60QsJbIjMDPuGP2RhbbQqLniieqwzSwf1anqcbwE/rHDvWSgUDm
+	 xZVi3IGNbRKlESNUngZCZYNBCKyK4SBsIeJxNBSOLuqo3XLpI2mGwOjL5J2GzJHNhWAfO
+	 CsYbkYR66aJv8Ne9KsJSIKpwQhZMFFC4zy4AnffZreH82Rswuip9YZZGcJ/ke1KppcuwB
+	 O5/Ts8tm1CUKGWrqv5EfqMPL2uYnqF9Upbpu9KQqVOF81PJoqq8upjhsm+pW46Vhj1TTy
+	 MV/FZ5XQGEUtyi0Qr1lvkkOxp0W1lfpA9KreuxIN6Bvl1gFq3t1S2GkgBBnw6yS1/UQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795554891;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=CdUdyJ+8j1hb94uckgP1slGM98Pz+Lnjg+RuI+nwn9I=;
-	b=qm/OCL4alck+dIi5KwhDqPwhYH3x2USDZNnTbrgFSbwRrAFJrSU2BsRLMtV4sZDP/ljp
-	 BzwBin+ATLGDL3pJvDjp1bNNQh1xgiCzYP1ZISd7cymCVQ+qEwJl8M4iJSj+Bw6qUxcS2
-	 K7OQqOoEgBT6HlIAa+bEn6B/70g/77MR+7VgqEYV/r9ZVuqBY+WRisHkOYwtamEE6Nggi
-	 FnO3q4gYDTcjrnlSiVyU4wykyNNToPoKK50ioE9D5yjhdJie9wOWfQfvmNL3vaQAMzKAp
-	 pzhBLkXrMc4hO54JrT7OTKUzPeEjeOxnMHUhXRBlrA0Kp4sRYF0iWu6HKMIwP3Tw6DQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=googlemail.com;
-	spf=pass smtp.mailfrom=googlemail.com;
-	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=IWBxgdqF;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.48
-Received: from mail-yx1-f48.google.com (mail-yx1-f48.google.com [74.125.224.48])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
+	 Content-Type:User-Agent:MIME-Version;
+	bh=W9arlbU5hy5tgNRpcN7WmEtmYSBI8GYP25HN7JEKy5U=;
+	b=NwugaA74X0Pnq8IKPpOuTd0bio3se7CQunCPYKApZuYyIB9o+19GTlvme7etTv6eUeqU
+	 JOe8kTG/ALHaI+sPnd0vNaZHZrRZJATwdLAEfeEiW4CHeA30Ooa4f6O2/wlif4B6XH/cv
+	 B2s2you1Y8XDcV9EAzRS4Mty2eI+E+punLFJGhbmDmGHI6isthAUzNDe85wAQ2twJqCNZ
+	 Q4ERoQdFkEnNb6BWrHxKZPMyV+IsPjKj8aQCoeugbE8QFXlLC25QFM1SRMiZDohXNbFe/
+	 LPNcmunEbFIJPM2AVUUv/SU0pAFMQhXcZeAT/hoBsuxm8rxsTGTOGQk+gaHAYILw6sA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ndufresne.ca;
+	spf=pass smtp.mailfrom=ndufresne.ca;
+	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=G4Nlx9RE;
+	arc=none smtp.remote-ip=209.85.222.171
+Received: from mail-qk1-f171.google.com (mail-qk1-f171.google.com [209.85.222.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F66B606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F16D9606A335
 	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:14:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F66B606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F16D9606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=IWBxgdqF
-Received: by mail-yx1-f48.google.com with SMTP id 956f58d0204a3-67db23d8892so5533621d50.2
+	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=G4Nlx9RE
+Received: by mail-qk1-f171.google.com with SMTP id af79cd13be357-943e8d35f74so494700785a.0
         for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:14:50 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795554889; cv=none;
-        d=google.com; s=arc-20260327;
-        b=SLRoJiJHdD8mniG82TBgmpYKSe1ef1IaM6pOake3zdU544s+pTnLlArK4+o0wv9l83
-         2pu+yGWnOQ4BBxeWmXyun3KtsLZ9EPffNQA5zroQmZYBvulcZYCsaHXBCXJE/u1YQBgK
-         sz4TQRc14ejscDhsQOhVedq25+kKGJnOug7gwXEJSAp6/a/wgT4wQI0GpPcc9Id5hfhx
-         vsajB8DXwT9TUiktS6RfVqObEL0CzBBIHs7tmfgSDYf/Ox6+XEzZOHalEXkdcZVnJ3a7
-         7vlb1kPkGcD9sG+6v08iSnFaTo4FQ6udFZQxNwc2dB1vzcB5gGNJ0Lsgyf9iZHS9+P8M
-         C10Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=CdUdyJ+8j1hb94uckgP1slGM98Pz+Lnjg+RuI+nwn9I=;
-        fh=H6Hq1Ib3xrw0au0lw7RJTXDbckJ4/xdoo751/iEsm7I=;
-        b=Jm2L/r5OaV+4ydgpugYwXwE4+d2Zja7k//28BUuarhrIG4ipo2YRwHS5IxkMTbAqzX
-         HXupf3Dxn1yOoAtg/HFvnEH3M8P+n3JvtN5zI7yKoDFTxzLpOZqWG8Lz7Axf6VlHnGVU
-         X0AwL/E/ZtZu+QACk560Mwl1nljb2UKqnWV8p3uBPSmXcyz+DU2fqNZNVqYwLV7nCeeB
-         BrEbPkscUyUQ0F76N1polzgx3W6kokfVh85e5HxcAT4Zie6FdpuN+Uvrmia+Ev+ZK/Ak
-         uBISOPk4FJvdg2foFEoLfcS3osucw2mrXaZIVkAbVgyYwlGvZmhRfMy0v1kky1l1dHkc
-         5DQA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20260707; t=1795554889; x=1796159689; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795554890; x=1796159690; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=CdUdyJ+8j1hb94uckgP1slGM98Pz+Lnjg+RuI+nwn9I=;
-        b=IWBxgdqFp2x9XfPCnso0A2FH/xCUErU25ylGd9luJVJO+mW9jwjDcUc6j56Jo7eMZn
-         UjDsGcxdVnO+JPKHL86/tNrDP03a9uOsvyZWaE09Ja/x4zZcuAJZBx6g1lS521mwQm1u
-         1t1xtyQ5Xc/UIv2Iwa35nCEWMfwoQOZ6v93+xvRe7lQgBGjqkjpkS3QMmJFMP0J1KUt6
-         U3jD4FvtgG1wLixarS6ha+vluA8fPBD8j9xI93MGiiJw3J/1B06xQFmp6aKwiJ3g3wHT
-         VDaJ8YFqJ0riQg7jkTA3zaSONIcRhkwO0GSFsrd1WFKF1j/sGlGYViwaJL3wGcoyle0W
-         01+w==
+        bh=W9arlbU5hy5tgNRpcN7WmEtmYSBI8GYP25HN7JEKy5U=;
+        b=G4Nlx9REgrH/w4vF04NI0pyJhkibMqYvmuT/S5FuQ59WnxzHW11aE5qbRBOrpmRAfu
+         VabKZjpHDmFss/jIdlTQOf1qheIDh9NSvFKaATJReeQt0YY+Sy598c7v9wwCgLswSazM
+         +coSR3n8dpoDfReX42DOVcKF9ykbujkHNtfVFPz1xKw2IYDVE+jjWKGNF92cBWqcZzAI
+         D/cTwDMbWsGKgXf2WddVv3Nuphcj9heRbdBFnBGZJrFoEtVZwX7AYXeyu0kDTJ9FHfto
+         mXVFoplI8jq/pXMNeOIjFvbxwzgTZTR+p8nrBW4XVBIZ0e6+3l6+ToXotJr+Ta/GFoZi
+         qj1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795554889; x=1796159689;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795554890; x=1796159690;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=CdUdyJ+8j1hb94uckgP1slGM98Pz+Lnjg+RuI+nwn9I=;
-        b=atWFCgt8XwyFD/pQXjUPcijUhvWUCpXanX9bpj7LdkjV6xOA09gJnvXRkdb8QyrST4
-         KybUfTi+E8BMjmZJEGpQqF6SVqS+x5f5B33R1NDEUipmCgOUUmgP1umfgCMDs1Lj+TC0
-         ooXptHkF7ava8ivTECkQ49aaSnRuUWOmjVMgqTozSu/7sHZ4JRNIjuPjrTNvVWAiyPrk
-         ntf5YTkA30SuRSdRTk9wDufhG5bHookUc8GtOYSDmtuO/G0u5cgZ8WYUy2tK8iA+Nfvo
-         xvN+B4LyYiLusyMEta7D9h7MD0H1BRryVwyL3J4/dIMsdx0eT138ONwks8ORtoZYy9pX
-         ze4w==
-X-Forwarded-Encrypted: i=1; AL+hErExmQgk2zAJT3Yak5EiCkZCpcynhENF3oCU2C0kNjGwz0Dwq+CnbLh7zv3GzIe6vbelDVadIxLnh3b7j/E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/YL8xvcOC8r/whNSkWBoIbxh61LhqGtlWNm2rYYyq00sQlKJtD
-	2JKEZK33yt/BxDXf2pkegAvE7fYa3JJGGflw51iP5klxn+Pifft/jn/SSzqM5YdZkG60ul8O8XR
-	dfSgBhZN937THDDD7/HDYBlECXiv7+IE=
-X-Gm-Gg: AZFdTZe1KwarG6MgrhD51FrIA+SRWcSD622noh/vqBWIn7T2ywX32Ucai4VpdgZZCH2
-	4OKH7ZwKAQd3b4yZbAMx3S9n9rkkmW2alhbaggu/Y8p4X13bIYtR+mT0Gg2xb3t9vH+jhdIOAI0
-	mSTFwSVc+m71VJB6NA//UXMBiqvLrKXwSudmbRtI+NOtWyYV9qvKnYhtfMwrELSo8KoPDZ4l7WU
-	zBvPGJ5WF+YduHiqoPWno+LPpG2fo3n1lPQKFmNwmFN8mWWpa92nheiyRUhrEJdR73nKVS4F/EI
-	7tvi141v5IIgPqwRamXljgf5mKt9VM6SGZiLTSNkOXbMRVoJp4buZFfPwOcqlTbarLcmRAfCzTs
-	wJCuY1kwgoyNZCxsdesWFS4Nf2/jRWUHc6IL66cBDU4HoC6dnt3fwPpglyw5v4kr56OfAAA==
-X-Received: by 2002:a05:690e:4090:b0:67d:a5bf:ac89 with SMTP id
- 956f58d0204a3-67df42b4d7dmr8236792d50.10.1795554889394; Tue, 24 Nov 2026
- 13:14:49 -0800 (PST)
+        bh=W9arlbU5hy5tgNRpcN7WmEtmYSBI8GYP25HN7JEKy5U=;
+        b=naVq7ogZ8AuPy/6B98VZc+G2hmlY/bxuf6BgfIFwXHIniwvqiXNnCEuWIceEIIs4/M
+         D+4HJf+3KJlODODW4DxUvu5f3xXQa7yGfFAKC7MIZ17cH0jmqq3u/EQIoPqnpwHACpNG
+         Puuy1MEX+7CJGAY4NW1J34OVeKQrWNaW47Yc1qyfLFTj8jFZ54CLAITvbTveKiQw8bhi
+         OpuoI9giX52vKaswC46Zqashgwyu7IyDgDs2mLQAsBnWCrfQLBH4zaLkQscOFeYH0WmO
+         1yIoXjAEOwzygqwBaoN3Aj5tIX13c83rblmq/bJtjwDWIrDs3k6CrU+Urj9wKfJlhX9L
+         qlRA==
+X-Forwarded-Encrypted: i=1; AL+hErFWIlpzPa9WKuPl4q/GXWmoGAsd4aeOG0T57oEQfrZ/6j5PlSh5MRSN5lZx5GiLjatNONcqN9q65S3VjTw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+BKqe6AkaNZLgXJ/JXAJhZThHwKyHmOQ4PopVN1GkSukEiO5Yz
+	yp+cpKLXor+NV7+R0XyNTpBHwXEQcPMrJp/qh6FS6LJzKsREQcZOkUQtWTnigqWs89k=
+X-Gm-Gg: AZFdTZcjoKeMLgpnd9XtTnRiS2pnpMhEbLKLf4LMI1t5vfWBuZDFq2TbSOMU+5qz3nF
+	Nouk5cS03lGHPZ/qS391iDtDHQZAgGenFUPgJMwjqeNjQyegpudUk/Zmfnbnm1Bn3Oq8hexv2dI
+	wfExpQoMxsz1yxnx99k9cFK822yB0s8uwuVxAW/JRXg2OQb+rIMl7aHIftgcbFZit4/w0qzRWhk
+	UNed0ZhgAvYfS/yf9JcaKnsr8rOU8N+7XyubYs+jy1h3C1Ri0d3rK1pWRtMSk6FY7bvIsFdbwqo
+	6uT0zLHphMQH2Osq6uceCOUiwmoQs1AZXJclaYrXgtconxGerBoH0w2Dn3f71mz9IAzZ/AUiSOV
+	Bmnvo1TWujqJlRY+tu4p6sS5n6M+oYD7rd74fRQNpp4SjVDy47RPs1EayxCH2CR57gGSsS7oCh8
+	x0zfr6B9h8BN2XiuHpC6lsYWnMtP/zR/wg7NdEygwEkBYdcQFX9S5noksl+veRrEdGj1qMMkQ+z
+	IW/+/TRD/zkOen9y/qRjsmuSAazp0TcBnVcOTZgnRYrL1P9LTV0uSDjDirHblXpQlqkjr9cItcT
+	4mNn2MNNbHFEtfDtMx+HSwptdh63tRsAhgCrGYJXLwUV97egRw9I6pd2JJW1ZD838IKa9OJqjqV
+	m
+X-Received: by 2002:a05:620a:700e:b0:949:735c:90c4 with SMTP id af79cd13be357-949bab1df97mr2669499685a.70.1795554889851;
+        Tue, 24 Nov 2026 13:14:49 -0800 (PST)
+Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb0319fcsm1129758785a.4.2026.11.24.13.14.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 13:14:49 -0800 (PST)
+Message-ID: <728acfd6e085408e7998bc9e7dfbb2d110cd53ed.camel@ndufresne.ca>
+Subject: Re: [PATCH v2 08/17] media: rockchip: rga: move power handling to
+ device_run
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
+	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Mauro Carvalho Chehab
+	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Philipp Zabel
+	 <p.zabel@pengutronix.de>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kernel@pengutronix.de, Detlev Casanova <detlev.casanova@collabora.com>, 
+ Michael Tretter <m.tretter@pengutronix.de>, Guangshuo Li
+ <lgs201920130244@gmail.com>
+Date: Tue, 24 Nov 2026 16:14:48 -0500
+In-Reply-To: <20260916-spu-rga3multicore-v2-8-23aa2cb74e61@pengutronix.de>
+References: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
+	 <20260916-spu-rga3multicore-v2-8-23aa2cb74e61@pengutronix.de>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-VHje7+kFOoy685T8Rgq0"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,106 +123,126 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261018-audin-v5-0-4b8cc13a1b22@baylibre.com>
- <20261018-audin-v5-1-4b8cc13a1b22@baylibre.com> <CAFBinCC+-N8LvoXZwMhoxjOzXgoYUfDKCcvmD7Uuph5=hTSg7g@mail.gmail.com>
- <71ede0e6-7f8f-4594-ae56-5be10f9159a3@baylibre.com>
-In-Reply-To: <71ede0e6-7f8f-4594-ae56-5be10f9159a3@baylibre.com>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Tue, 24 Nov 2026 22:14:38 +0100
-X-Gm-Features: Aa3M54rEVwCpdz6_8gjaGQEhKA7ZqL-_05evb2pOjFxPbafFazCrzB2je-Od50w
-Message-ID: <CAFBinCCd==1Vf7jMCHP0VuWTNa7A5FvRfPYdk2zUaZ8eR54Z+A@mail.gmail.com>
-Subject: Re: [PATCH v5 1/7] ASoC: dt-bindings: add amlogic,gxbb-audin
-To: Valerio Setti <vsetti@baylibre.com>, xianwei.zhao@amlogic.com
-Cc: Jerome Brunet <jbrunet@baylibre.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+--=-VHje7+kFOoy685T8Rgq0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Hi Valerio,
+Le mercredi 16 septembre 2026 =C3=A0 17:09 +0200, Sven P=C3=BCschel a =C3=
+=A9crit=C2=A0:
+> Move the power handling to the device_run function in preparation for
+> enabling multiple cores. This allows to power the only the necessary core=
+s
+> instead of powering all available cores.
+>=20
+> As the decision on which core the given job is executed will be done in
+> device_run, we can only power to correct core there.
+>=20
+> To avoid unpowering the core in a streaming state switch to autosuspend.
+> This avoids powering down the core when the next frame is scheduled in
+> the next 50ms. The timeout maps to a framerate of 20fps, which should be
+> pretty uncommon in a normal video stream.
+>=20
+> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
 
-+Cc Xianwei Zhao, I would appreciate it if you could take some time to
-help us clarify the questions below (or refer us to a colleague).
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-On Mon, Nov 16, 2026 at 11:24=E2=80=AFPM Valerio Setti <vsetti@baylibre.com=
-> wrote:
->
-> Hi Martin
->
->  >> +properties:
->  >> +  compatible:
->  >> +    oneOf:
->  >> +      - const: amlogic,gxbb-audin
->  >> +      - items:
->  >> +          - const: amlogic,gxl-audin
->  >> +          - const: amlogic,gxbb-audin
->  >  From what I can tell it's even amlogic,meson8-audin compatible.
->  > Although I didn't have the time to test in on hardware yet.
->  >
->
-> Thanks for catching it!
-> Any testing is more than welcome. I don't have that board at home and,
-> based on my quick search, it seems not super easy to find one these days.
->
->  > [...]
->  >> +    audio-controller@a000 {
->  >> +      compatible =3D "amlogic,gxbb-audin";
->  >> +      reg =3D <0xa000 0x148>;
->  > I believe the audin registers are 0x300 wide.
->  > Both, GXL datasheet [0] page 43 and GXM datasheet [1] page 48 claim
->  > that the register area is 0x100 wide.
->  > The last documented register with AUDIN_ prefix is AUDIN_FIFO2_PIO_RDH
->  > =3D 0xb8. The datasheet [0] (page 395) lists register numbers divided =
-by
->  > 4, so to get the actual address in the memory map we need to multiply
->  > it by 4, which gives 0x2e0.
->  > The 32-bit SoC vendor kernel [2] has a header that states: #define
->  > AUDIN_ADDR_END 0x28bf (same as in datasheet, we need to multiply this
->  > by 4).
->
-> I know that the register layout in these SoC is a bit messy, so let me
-> explain how I got to the 0x148 that I wrote above.
->
-> When working at this driver I used the S095 and S905X manuals that I
-> found online, but based on the link you shared for the S912, I would say
-> it's the same when it comes to AUDIN.
->
-> Using [0] as reference, the highest register being mentioned in the
-> AUDIN chapter is AUD_RESAMPLE_STATUS whose offset is 0x304 (i.e. 0xc1 *
-> 4). However I noticed that before that there are a lot of registers
-> whose name doesn't start with AUDIN_, but rather with AUDOUT_, PCMOUT_,
-> PCMIN_.
-> The first contiguous block of AUDIN_ stops at AUDIN_FIFO_INT which is
-> 0x148 (=3D 0x52 * 4). The other AUDIN_ block you mentioned is between
-> AUDIN_FIFO0_PIO_STS (at 0x2c0) and AUDIN_FIFO2_PIO_RDH (at 0x2e0).
-Your approach is logical. And I have no way of proving my theory.
-So the question for someone with access to better documentation or the
-actual hardware description is:
-- how big is the AUDIN IP block register space?
-- what inputs are routed to the AUDIN IP block that neither Valerio
-nor I identified so far (one reset line, one clock input, one
-interrupt)?
+>=20
+> ---
+> v2
+> - also set autosuspend flag with pm_runtime_use_autosuspend
+>   (https://sashiko.dev/#/patchset/20260606-spu-rga3multicore-v1-0-3ec2b15=
+675f7%40pengutronix.de?part=3D6)
+> ---
+>  drivers/media/platform/rockchip/rga/rga-buf.c | 12 ------------
+>  drivers/media/platform/rockchip/rga/rga.c     | 13 +++++++++++++
+>  2 files changed, 13 insertions(+), 12 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/medi=
+a/platform/rockchip/rga/rga-buf.c
+> index c0ea6003336bf..3f7c3c68e0cb8 100644
+> --- a/drivers/media/platform/rockchip/rga/rga-buf.c
+> +++ b/drivers/media/platform/rockchip/rga/rga-buf.c
+> @@ -242,14 +242,6 @@ static int rga_buf_prepare_streaming(struct vb2_queu=
+e *q)
+>  static int rga_buf_start_streaming(struct vb2_queue *q, unsigned int cou=
+nt)
+>  {
+>  =09struct rga_ctx *ctx =3D vb2_get_drv_priv(q);
+> -=09struct rockchip_rga *rga =3D ctx->rga;
+> -=09int ret;
+> -
+> -=09ret =3D pm_runtime_resume_and_get(rga->dev);
+> -=09if (ret < 0) {
+> -=09=09rga_buf_return_buffers(q, VB2_BUF_STATE_QUEUED);
+> -=09=09return ret;
+> -=09}
+> =20
+>  =09if (V4L2_TYPE_IS_OUTPUT(q->type))
+>  =09=09ctx->osequence =3D 0;
+> @@ -261,11 +253,7 @@ static int rga_buf_start_streaming(struct vb2_queue =
+*q, unsigned int count)
+> =20
+>  static void rga_buf_stop_streaming(struct vb2_queue *q)
+>  {
+> -=09struct rga_ctx *ctx =3D vb2_get_drv_priv(q);
+> -=09struct rockchip_rga *rga =3D ctx->rga;
+> -
+>  =09rga_buf_return_buffers(q, VB2_BUF_STATE_ERROR);
+> -=09pm_runtime_put(rga->dev);
+>  }
+> =20
+>  const struct vb2_ops rga_qops =3D {
+> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/pl=
+atform/rockchip/rga/rga.c
+> index d7f0712177b70..c24bc8e26b91e 100644
+> --- a/drivers/media/platform/rockchip/rga/rga.c
+> +++ b/drivers/media/platform/rockchip/rga/rga.c
+> @@ -37,6 +37,14 @@ static void device_run(void *prv)
+>  =09struct rockchip_rga *rga =3D ctx->rga;
+>  =09struct vb2_v4l2_buffer *src, *dst;
+>  =09unsigned long flags;
+> +=09int ret;
+> +
+> +=09ret =3D pm_runtime_resume_and_get(rga->dev);
+> +=09if (ret < 0) {
+> +=09=09v4l2_m2m_buf_done_and_job_finish(rga->m2m_dev, ctx->fh.m2m_ctx,
+> +=09=09=09=09=09=09 VB2_BUF_STATE_ERROR);
+> +=09=09return;
+> +=09}
+> =20
+>  =09spin_lock_irqsave(&rga->ctrl_lock, flags);
+>  =09if (ctx->cmdbuf_dirty) {
+> @@ -81,6 +89,8 @@ static irqreturn_t rga_isr(int irq, void *prv)
+>  =09=09v4l2_m2m_buf_done(src, VB2_BUF_STATE_DONE);
+>  =09=09v4l2_m2m_buf_done(dst, VB2_BUF_STATE_DONE);
+>  =09=09v4l2_m2m_job_finish(rga->m2m_dev, ctx->fh.m2m_ctx);
+> +
+> +=09=09pm_runtime_put_autosuspend(rga->dev);
+>  =09}
+> =20
+>  =09return IRQ_HANDLED;
+> @@ -801,6 +811,9 @@ static int rga_probe(struct platform_device *pdev)
+>  =09if (ret)
+>  =09=09return ret;
+> =20
+> +=09pm_runtime_set_autosuspend_delay(rga->dev, 50);
+> +=09pm_runtime_use_autosuspend(rga->dev);
+> +
+>  =09rga->regs =3D devm_platform_ioremap_resource(pdev, 0);
+>  =09if (IS_ERR(rga->regs))
+>  =09=09return PTR_ERR(rga->regs);
 
->  > I'm bringing this up because dt-bindings are supposed to be complete.
->  > So even if the driver doesn't use a resource yet we're supposed to
->  > still describe it.
->
-> I perfectly agree with this, but at the same time I thought that
-> including registers which potentially do not belong to AUDIN was
-> dangerous in the other direction, i.e. we cover a too large area that
-> will be hard to use in the future if/when we want to use it and we
-> realize it's really not part of AUDIN.
-My concern is actually that the AUDIN hardware block spans 0x300 (or
-close to it) and we'll find out later that there's a bit that we need
-to toggle which is outside of the 0x148 area covered already.
-Even worse: what if we put another register area after AUDIN and then
-find out that this theoretical bit sits in the second register area.
+--=-VHje7+kFOoy685T8Rgq0
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 
+-----BEGIN PGP SIGNATURE-----
 
-Best regards,
-Martin
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawX+SAAKCRDZQZRRKWBy
+9BvLAP9Q5/iAdKDJ6TMCJMFG+qc3MCvexx/cnmIvxTp7c1XLhgEA2wrgdWTeGaKA
+sk6wt4xFNb7zeeIPPdyxQHP8JK17XQc=
+=r19R
+-----END PGP SIGNATURE-----
+
+--=-VHje7+kFOoy685T8Rgq0--
