@@ -1,83 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795537660;
-	b=2TBnl7RjqLm5UoGEkbdjGY7vmyd0rx6grMcCprHt/+wkn6NRFHEc77EGj3ynlQKYUewR
-	 mpeXDKK3DYmTpctWIqRpQpaYBsN1NDwHqIkaGdCxYIX4h67aoAPvrMIhgpt+bx3JT+3uI
-	 GAsHN3JkmSpTjX9zl99fE0meG3KXFgLjvZ96tCIQfaLH0DnAnKD7PWXsvPRquKcidzuV/
-	 M2ZzqE5kVhyqiziucYiampAad2H/JqiHjRrEbRFytWBBsD+5zjm8/rOjFP34xQziclHJc
-	 C3Zjb1ept2lFeoxaVu8php/0zhSWjiB9ybdI7Kbs1ElrruzQjA7z4+lrGJ8XVAE5u9g==
+	t=1795537661;
+	b=HJYN387PDSlAMhtGoeHzXjk1CmCwPAXf2E8cwsp5nxFraU0tH8/FawJ/Twk/VupkZb0T
+	 dncI8eo5qM3AsSyqgLUItvrFgGQjbVC9dG0rL+y9nz72zNjS+jIfcw7O4w7gz++DDY5cY
+	 Pgk/lNtyXce7HcmosuGUYJA15vvSPtfli6El4uLdfl496kNIy9lVWAakiUReLKz7A3WmV
+	 jOaGqxGqHzo1bDlR8frfaN4NSfOiekOjiWdP8NqtT2v3qzB4ovonSG1tL5LKjajdkMJPc
+	 7EInsTDqh3BAbj9ILEL22m/LiYFsJxYtUGv1zcFvnax5PqSfyLGDwD2zS2h/16CWXiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795537660;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=h56pUtpzKi6ZjI8yryE2jUzmVykN3g1PyuvGdZZmHnA=;
-	b=RDWNpNi9jYzZ/E1d0PvPApAEWJuGbJOd4Fb6PCN+++3jkUh0dmV5sT94wJqcsZq1hFmG
-	 +x+ipo3JZZDvVRxDhKJGugPuwFYyiqll5+wrP7CiDfUrut349+QRXY1nrfAuUl/pqflvd
-	 Fihg8gqUKpAJR7DmgP9UI+YXHfwSVLly8yGU++PoMT1X1vTEcYY5dyJbHyV1dDLezuyKF
-	 tqa/RpSvZ1ez/LFDdjZN528wqn4Fopakgwj6iTbuAitdvyE7XSf+pD1+mshNTIGj9x/nD
-	 C7B/1WFN9/cPLcrhdzCHt0VWCP2YUhnU78fPAZ0SZF6Ws8aNul+w1zHbYZ2pqg/ljWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537661;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=/4b+hKquXnrPxas17sH/CIlTC3nyBbdzPmcmTJtv4jk=;
+	b=ErBl2HyP+4nFsAvNHYIQk5EbnPeSaAF+dpG+KMg8F/DQ2YAI2KuX0S83EA7DqMUw/9e6
+	 Z4w1TAcZcXYhzFNk4xC08dZGgMlu0Y0g1vOo9G2sSJxUu+jD4Yt4VLq47UtWMEe3SRvcj
+	 35CmdES5vziIgpyTmRqy9QcvGRgLfvYhq7w/O5siofV4Q7Sus5UPddXn6Lo/UfIEJxjXb
+	 F1uNynGGNtNkxrIo+7tGJybe7vFukkPfee3JLYIfo5o/qD8TDrJewFCjGN1DlZqj4OtHR
+	 jUZV79IxOkhAOMSer5ad/l1a5OMsaazYoYhRe+LIx6E++WUvZbnNI2TXuTRHxOk9vTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=BlcVNAk2;
-	arc=none smtp.remote-ip=195.10.208.47
-Received: from mout-b-107.mailbox.org (mout-b-107.mailbox.org [195.10.208.47])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8453A606A326;
-	Tue, 24 Nov 2026 16:27:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8453A606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=r1eEUBLV;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id B5621606A33C;
+	Tue, 24 Nov 2026 16:27:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5621606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=BlcVNAk2
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-107.mailbox.org (Postfix) with ESMTPS id 4jYpBB61ktz3yS1;
-	Tue, 24 Nov 2026 17:27:30 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795537650;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=h56pUtpzKi6ZjI8yryE2jUzmVykN3g1PyuvGdZZmHnA=;
-	b=BlcVNAk2TMrd3fwRAAW4KXBDfq0uxcrx+9zwHeXtqv5buNZ326tXrLtW3sboBAV6QbJtdO
-	Ti6FTShADfo0teCWKwtv7cc+F9ab9KjRDKL+yLv6paMCMOCZNPzl0PPHNUN0PeDPgUwrOO
-	RgKCyyRvO6PalDwMAE4ZWmXOOg6r8IuAg5j1qNmz08q+oC69UqjEsM6lMKSYgFSUH08/hJ
-	axf68VRaA/lrVf72R/4ot0rHQJrRuMiTMZPEblCkRrRoCwPrWi0xgm2FijnW5gHVvfSCAm
-	tQ9glXC4WEJs8ER94g8KPYtIToM0hMmYNvp9uo5jNjpA+P1d4q+ouJwpbVQTBQ==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
-From: Ralf Lici <ralf@mandelbit.com>
-To: netdev@vger.kernel.org
-Cc: Ralf Lici <ralf@mandelbit.com>,
-	David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Florian Westphal <fw@strlen.de>,
-	Xia Yan <yanxia@cmss.chinamobile.com>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	Antonio Quartulli <antonio@mandelbit.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v5 3/4] ipv6: sample the route's serial during the lookup
-Date: Tue, 24 Nov 2026 17:27:09 +0100
-Message-ID: <773ec5346a43c3b6d9cd03e01569caea7043c577.1795537128.git.ralf@mandelbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <cover.1795537128.git.ralf@mandelbit.com>
-References: <cover.1795537128.git.ralf@mandelbit.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=r1eEUBLV
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 959A9339;
+	Tue, 24 Nov 2026 08:27:36 -0800 (PST)
+Received: from [10.2.201.43] (e140322.arm.com [10.2.201.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B7B003F86C;
+	Tue, 24 Nov 2026 08:27:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795537659; bh=821rJ0g9HtpMoMuetVK6Nxwg+cBpAnfGyZshLAd+HLM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=r1eEUBLVzAo6010E4T6rWWsxESRfD92OZBhJIp5NCx2BdeNsW2kmJibj4aqGo2iTM
+	 fsTQiEQJHxUyYo52JNvhaBnNMmgw4NiYJJ/n+ncK2uKuYE60Tre1P7wjL9eHR4zIun
+	 msKtL5KKkIJxVH9DP7XBJidE/wsduMfxNcMgKcBQ=
+Message-ID: <39619b6c-7330-459b-aed3-9e8bf303f7dc@arm.com>
+Date: Tue, 24 Nov 2026 16:27:36 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,198 +53,132 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 08/28] media: mali-vpu: register V76 decoder controls
+ and introduce UAPI controls
+To: Nicolas Dufresne <nicolas@ndufresne.ca>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Rathinavel Sankaralingam <rath.sankaralingam@arm.com>,
+ Shobhit Pandey <shobhit.pandey@arm.com>
+References: <20261119153758.1426673-1-charvi.mehta@arm.com>
+ <20261119153758.1426673-9-charvi.mehta@arm.com>
+ <0cb2cae4075d3854ebb9c051d169ca121a8a360d.camel@ndufresne.ca>
+Content-Language: en-US
+From: Charvi Mehta <charvi.mehta@arm.com>
+In-Reply-To: <0cb2cae4075d3854ebb9c051d169ca121a8a360d.camel@ndufresne.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jYpBB61ktz3yS1
 
-ip6_dst_check validates a dst against a cookie that its holder reads
-with rt6_get_cookie after the lookup has returned. For routes without
-their own sernum, this is the current fn_sernum of the route's node, so
-a FIB change or xfrm policy insertion between the lookup and the read
-pairs an old dst with a new serial, and the stale dst keeps passing
-dst_check until another relevant change.
 
-Sample that state during the lookup instead. ip6_pol_route and
-ip6_pol_route_lookup read the IPv6 generation before walking the FIB
-and, once the route and path are selected, the fn_sernum of the route's
-node followed by the generation again. If the generation changed in
-between, or the route was unlinked meanwhile, the selection may predate
-the change and the sample is 0. Store the sample in struct fib6_result
-and stamp every dst built from the result with it.
+On 11/19/26 21:06, Nicolas Dufresne wrote:
+>> Add Mali VPU userspace controls for NALU layout, stream escaping,
+>> intermediate buffer size, stream-header handling, frame reordering and
+>> firmware debug output. Also expose the standard read-only
+>> V4L2_CID_MIN_BUFFERS_FOR_CAPTURE control.
+> I would strongly recommend to keep each vendor control in its own patch. These
+> are API, and they need documentation. In practice, you'll prefer to not
+> introduce vendor control as a first introduction of your driver, its just a bad
+> idea. You completely missed Documentation/
+I had planned to add the documentation for these subsequently, but, I agree,
+it should accompany the controls. The initial driver series may not be 
+the right
+place for these vendor controls, so I’ll remove them and their UAPI 
+definitions
+from this patchset.
 
-The sample covers the lookup in one table. With fib rules, the table is
-selected before the first generation read, so a rule inserted while the
-rules are evaluated can leave the lookup on the previous table with a
-stamp that still validates. Closing that needs the generation read
-before rule selection and passed down to the table lookups, which is
-left for a follow-up.
 
-Writers that change the selection without advancing the serial are not
-covered either: deleting one route of an ECMP group makes fib6_del_route
-rebalance the remaining ones without a new serial, and changing the
-forwarding sysctl changes how gateways are scored without one, so a
-lookup racing with either can keep its previous path. Both cases
-predate this series.
+>> +		.cid = V4L2_CID_MALI_VPU_NALU_FORMAT,
+>> +		.type = V4L2_CTRL_TYPE_MENU,
+>> +		.name = "NALU format",
+>> +		.qmenu = mali_v76_nalu_format_qmenu,
+>> +		.min_val = MALI_VPU_NALU_FORMAT_START_CODES,
+>> +		.max_val = MALI_VPU_NALU_FORMAT_FOUR_BYTE_LENGTH_FIELD,
+>> +		.default_val = MALI_VPU_NALU_FORMAT_START_CODES,
+>> +		.step_or_mask = BIT(MALI_VPU_NALU_FORMAT_START_CODES) |
+>> +				BIT(MALI_VPU_NALU_FORMAT_ONE_NALU_PER_BUFFER) |
+>> +				BIT(MALI_VPU_NALU_FORMAT_ONE_BYTE_LENGTH_FIELD) |
+>> +				BIT(MALI_VPU_NALU_FORMAT_TWO_BYTE_LENGTH_FIELD) |
+>> +				BIT(MALI_VPU_NALU_FORMAT_FOUR_BYTE_LENGTH_FIELD),
+> This mixes alignment and NAL format. Its historical, but the format is bound to
+> V4L2_PIX_FMT_H264 and is documented as Annex B. If you want to add something
+> such as AVCc formata instead, you'd need a new pixel format. There is
+> V4L2_PIX_FMT_H264_SC, but its hill define, nobody knows what it was originally
+> suppose to do. Venus (Qualcomm) maps it as if it was the same, perhaps they have
+> a clue, but I would stay away.
+>
+> For the alignment, V4L2_CID_MPEG_VIDEO_HEADER_MODE does not cover your 1 buffer
+> per nalue case, it only does the split header like OMX IL was doing (sometimes,
+> interoperanility killed OMX).
+The firmware defaults to Annex B, which matches V4L2_PIX_FMT_H264, so
+this control is not needed for that input format. I'll drop this completely.
 
-Nothing uses the stamp yet, the following patch does.
 
-Suggested-by: David Ahern <dsahern@kernel.org>
-Signed-off-by: Ralf Lici <ralf@mandelbit.com>
----
-New in v5
-- Replaces the lookup cookie API and its users from v4. (David)
+>> +		.cid = V4L2_CID_MALI_VPU_INTBUF_SIZE,
+>> +		.type = V4L2_CTRL_TYPE_INTEGER,
+>> +		.name = "Internal buffer size",
+> No general equivalent, and to be fair, that seems like something the driver
+> should get correctly by itself, I'd say drop.
+The firmware already calculates the intermediate working-buffer size when
+no override is supplied. I’ll remove this control completely.
 
- include/net/ip6_fib.h | 10 +++++++++
- net/ipv6/ip6_fib.c    |  4 ++++
- net/ipv6/route.c      | 49 +++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 63 insertions(+)
 
-diff --git a/include/net/ip6_fib.h b/include/net/ip6_fib.h
-index 232289b439c3..75da95b2349b 100644
---- a/include/net/ip6_fib.h
-+++ b/include/net/ip6_fib.h
-@@ -208,6 +208,10 @@ struct rt6_info {
- 	struct dst_entry		dst;
- 	struct fib6_info __rcu		*from;
- 	int				sernum;
-+	/* fn_sernum of the route's node, sampled by the lookup that built
-+	 * this dst, 0 if the lookup raced with a generation change
-+	 */
-+	u32				cookie;
- 
- 	struct rt6key			rt6i_dst;
- 	struct rt6key			rt6i_src;
-@@ -225,6 +229,12 @@ struct fib6_result {
- 	u32			fib6_flags;
- 	u8			fib6_type;
- 	struct rt6_info		*rt6;
-+	/* sampled by rt6_lookup_stamp: the IPv6 generation and the route
-+	 * node's fn_sernum, both 0 if the generation changed during the
-+	 * lookup
-+	 */
-+	int			gen;
-+	u32			cookie;
- };
- 
- #define for_each_fib6_node_rt_rcu(fn)					\
-diff --git a/net/ipv6/ip6_fib.c b/net/ipv6/ip6_fib.c
-index e1d49897d6ab..c94968a8fcbd 100644
---- a/net/ipv6/ip6_fib.c
-+++ b/net/ipv6/ip6_fib.c
-@@ -123,6 +123,10 @@ static void fib6_walkers_skip_rt(struct net *net, struct fib6_info *rt)
- 	fib6_walkers_replace_leaf(net, rt, next);
- }
- 
-+/* The successful atomic_try_cmpxchg is fully ordered: it publishes the
-+ * routing change before the new generation, and the new generation before
-+ * the nodes stamped with it. rt6_lookup_stamp relies on both.
-+ */
- static int fib6_new_sernum(struct net *net)
- {
- 	int new, old = atomic_read(&net->ipv6.fib6_sernum);
-diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-index 98e3ca0644ab..8b98ee945c58 100644
---- a/net/ipv6/route.c
-+++ b/net/ipv6/route.c
-@@ -1216,11 +1216,48 @@ static void ip6_rt_copy_init(struct rt6_info *rt, const struct fib6_result *res)
- 		rt->rt6i_flags |= RTF_GATEWAY;
- 	}
- 	rt6_set_from(rt, f6i);
-+	rt->cookie = res->cookie;
- #ifdef CONFIG_IPV6_SUBTREES
- 	rt->rt6i_src = f6i->fib6_src;
- #endif
- }
- 
-+static int rt6_lookup_gen(const struct net *net)
-+{
-+	/* the acquire pairs with the full barrier in fib6_new_sernum */
-+	return atomic_read_acquire(&net->ipv6.fib6_sernum);
-+}
-+
-+/* Record in @res the state the selected route was found under: the
-+ * generation read by rt6_lookup_gen and the fn_sernum of the route's
-+ * node. If a FIB change advanced the generation during the lookup, the
-+ * selection may predate it, so record 0, which never validates.
-+ */
-+static void rt6_lookup_stamp(const struct net *net, struct fib6_result *res,
-+			     int gen)
-+{
-+	bool linked;
-+	u32 cookie;
-+
-+	/* a route unlinked by a concurrent deletion has no node left, so no
-+	 * dst built from it should validate: treat it like a generation change
-+	 */
-+	linked = fib6_get_cookie_safe(res->f6i, &cookie);
-+
-+	/* keep the FIB and fn_sernum reads before the final generation read,
-+	 * pairs with the full barrier in fib6_new_sernum
-+	 */
-+	smp_rmb();
-+	if (unlikely(!linked || rt_genid_ipv6(net) != gen)) {
-+		res->gen = 0;
-+		res->cookie = 0;
-+		return;
-+	}
-+
-+	res->gen = gen;
-+	res->cookie = cookie;
-+}
-+
- static struct fib6_node* fib6_backtrack(struct fib6_node *fn,
- 					struct in6_addr *saddr)
- {
-@@ -1291,8 +1328,11 @@ INDIRECT_CALLABLE_SCOPE struct rt6_info *ip6_pol_route_lookup(struct net *net,
- 	struct fib6_result res = {};
- 	struct fib6_node *fn;
- 	struct rt6_info *rt;
-+	int gen;
- 
- 	rcu_read_lock();
-+	/* read before walking the FIB, rt6_lookup_stamp checks it again */
-+	gen = rt6_lookup_gen(net);
- 	fn = fib6_node_lookup(&table->tb6_root, &fl6->daddr, &fl6->saddr);
- restart:
- 	res.f6i = rcu_dereference(fn->leaf);
-@@ -1311,11 +1351,13 @@ INDIRECT_CALLABLE_SCOPE struct rt6_info *ip6_pol_route_lookup(struct net *net,
- 		dst_hold(&rt->dst);
- 		goto out;
- 	} else if (res.fib6_flags & RTF_REJECT) {
-+		rt6_lookup_stamp(net, &res, gen);
- 		goto do_create;
- 	}
- 
- 	fib6_select_path(net, &res, fl6, fl6->flowi6_oif,
- 			 fl6->flowi6_oif != 0, skb, flags);
-+	rt6_lookup_stamp(net, &res, gen);
- 
- 	/* Search through exception table */
- 	rt = rt6_find_cached_rt(&res, &fl6->daddr, &fl6->saddr);
-@@ -2278,10 +2320,16 @@ struct rt6_info *ip6_pol_route(struct net *net, struct fib6_table *table,
- 	struct rt6_info *rt = NULL;
- 	bool have_oif_match;
- 	int strict = 0;
-+	int gen;
- 
- 	WARN_ON_ONCE((flags & RT6_LOOKUP_F_DST_NOREF) &&
- 		     !rcu_read_lock_held());
- 
-+	/* read before the forwarding mode and the FIB, rt6_lookup_stamp
-+	 * checks it again
-+	 */
-+	gen = rt6_lookup_gen(net);
-+
- 	strict |= flags & RT6_LOOKUP_F_IFACE;
- 	strict |= flags & RT6_LOOKUP_F_IGNORE_LINKSTATE;
- 	if (READ_ONCE(net->ipv6.devconf_all->forwarding) == 0)
-@@ -2296,6 +2344,7 @@ struct rt6_info *ip6_pol_route(struct net *net, struct fib6_table *table,
- 	have_oif_match = fl6->flowi6_iif == LOOPBACK_IFINDEX &&
- 			 oif == res.nh->fib_nh_dev->ifindex;
- 	fib6_select_path(net, &res, fl6, oif, have_oif_match, skb, strict);
-+	rt6_lookup_stamp(net, &res, gen);
- 
- 	/*Search through exception table */
- 	rt = rt6_find_cached_rt(&res, &fl6->daddr, &fl6->saddr);
--- 
-2.56.0
+>> +	},
+>> +	{
+>> +		.cid = V4L2_CID_MALI_VPU_STREAM_ESCAPING,
+> No doc, I suppose it was about emulation bytes. Nobody needs that drop.
+Yes, this controls emulation-prevention byte handling.
+Agreed that this can be dropped.
 
+
+>> +	{
+>> +		.cid = V4L2_CID_MALI_VPU_HOST_PRINT_ENABLE,
+> Debugging goes into sysfs or debugfs, drop.
+Ack. I’ll use an appropriate interface as suggested when I reintroduce this.
+
+
+>> +	},
+>> +	{
+>> +		.cid = V4L2_CID_MALI_VPU_IGNORE_STREAM_HEADERS,
+> If userspace want that, it can just strip the headers itself. Its not like a
+> stateful decoder can work without headers according to the spec. It will always
+> break one way or another.
+This does not skip the initial headers; it retains existing SPS/PPS 
+entries rather
+than accepting replacements with the same ID. It was intended to prevent 
+a heavily
+corrupted stream from replacing valid settings, but it would also ignore 
+legitimate
+changes. Agreed to drop it.
+
+
+>> +	},
+>> +	{
+>> +		.cid = V4L2_CID_MALI_VPU_FRAME_REORDERING,
+> You can thank Samsung, instead you need
+> V4L2_CID_MPEG_VIDEO_DEC_DISPLAY_DELAY_ENABLE and add support for
+> V4L2_CID_MPEG_VIDEO_DEC_DISPLAY_DELAY 0. That will effectively disable
+> reordering. Some vendors calls this the thumbnail mode to add to the fun.
+Agreed, I’ll drop the vendor control. I’ll use the suggested standard 
+controls with a
+delay of zero, when I reintroduce this in subsequent patches.
+
+
+>> +/*
+>> + * The base for Arm Mali-VPU driver controls.
+>> + * We reserve 64 controls for this driver.
+>> + */
+>> +#define V4L2_CID_USER_MALI_VPU_BASE		(V4L2_CID_USER_BASE + 0x1260)
+>> +
+>>   /* MPEG-class control IDs */
+>>   /* The MPEG controls are applicable to all codec controls
+>>    * and the 'MPEG' part of the define is historical */
+> My recommendation, drop all the vendor controls, legacy users can use your
+> downstream kernels.
+I’ll drop the vendor controls from this series.
+
+Regards,
+Charvi
