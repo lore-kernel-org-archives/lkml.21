@@ -1,56 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.134.164.83
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795543989;
-	b=RtI7WoE/1G7+mz3EOzR5tj6khmVmJ17DA2yZsGdmfkuUNOtUyBrAkr3MaivrpyHEv1zg
-	 DAsKKrVmFEkCeA9nqXjzwgeE1Q6gTt7WlPX6s/zB597dNgforWAFTGpgUPchXKLV4m6Ra
-	 fygfE5lo3YaXiRaKKZhAV244j5VHSQp1BqrCS6KWMKOE/XpLE4DTlTlWgcJGaUrNQAaeZ
-	 RhICTy1jR8YRlWiWPeKZwUrlA6xx0V7vblinw/uKCqec5yIIZb6kx1DXMoBWTJVNsc5QX
-	 XUVYlEO0Yr7lU8td5Qqir395i7cJhAuK8MCdUd4MWHgIeV0RYCjVg64GSHnRqcOmXqA==
+	t=1795543991;
+	b=td/fWsUcfN7050u0G1DS1bOPEKyq7u+KW/l+Yd9F64AbpxisuRnsNheRcUay0KiGic8K
+	 58qu5HND0yK9wuf3ujippQk6v/AuwR0PUvzvgHYIVLxHq9QBXIyDVbEpGTk2f6/x0Cxv4
+	 ejm9EK/9zPoiSwXRkoftBctyZ5FXCmKpnUeS1GghOifBHjs8fi99JIfmBYx7NaaJtymix
+	 08eYfcM79zfniKcVy8aS7N6k8RbfMi1bv9LMocL8tQaTY5kyfHJfkwKfI0N6aX6CSkA34
+	 Ubj+swiicFCFLYiA4/gDzH6hOQAuKWLxS5kI7p/yKrNrRJ6CSPNF7KTJ7MSh0rlEQNA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795543989;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=z0VN1tpsKHKBMst944km9k66cgg2FkTQu5dxh0kyQz4=;
-	b=RbisrR8v+sPjHFqAfHqfB5eIb7yHEn500czX/Tk0BS3nDT0/JYE2uftIouDsBzdsmT4f
-	 8xtyaJepenrpR7SFLxoGjoh3ppH6qMYXVNSOq6UTvhBnVtxTkdqCZrzLtOWY8WU/gg32J
-	 x1CGNFj793YCNplhbd0R0mhrwtsYy6R14IvSmaYpIt8X51LrUwc6dqE6NLD+bR1QLVixp
-	 ShU26Wz8sQ0BkO7ZViNm4YTg3XNSrTeHz1o/JaD2PmGhHEBgpnCFy2P4BYNdzpg2BZq7w
-	 +AMl9vpq4ATm9wKpOJuyJbkqWzg4RSBo/cwil4C8wqeHvEiG2hHD6YEBrNW2jvAO5Lg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795543991;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=UWXbji1X4pxMzbXfxu88bQcgXa0uUzb1/+z2PU7DMrE=;
+	b=uc+Mb3q7VhqxVQ47cs1uDAG1YDUEobbAWJzF08KgUXl4pWhdCqd7JwIGnjxgChw1K5Ie
+	 x9kj39nyzdU13tyeRu5UcLT+EVA5s9BsSiKslOZIopPUoBrMDs8fbS/BnWAWbKfIty3//
+	 mK7Nzn77ape7Z1bexXSWYYCg6D3LTtZALT3uTVMeEvw2/AV4yHELBQDQlV2xreYE3L5ur
+	 Zlsv5giKrsTJ/xNWJRjhsoiD/0pMm0TKbgg2eN8QV6sKd6Rr4abUdZuNv1+mpVg3TaJnL
+	 W5gDGPbgVRSQXbJ7q+hLL3g6sWKJ/PfhMTzX62QgWJD+1sNMXFubpQEwmS5IuYn3arQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HZ1MMukl;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=inria.fr;
+	spf=pass smtp.mailfrom=inria.fr;
+	dkim=pass header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=kLtZCBId;
+	arc=none smtp.remote-ip=192.134.164.83
+Received: from mail2-relais-roc.national.inria.fr (mail2-relais-roc.national.inria.fr [192.134.164.83])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62208606A31E;
-	Tue, 24 Nov 2026 18:13:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0E4E606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:13:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0E4E606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=inria.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=inria.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HZ1MMukl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D627A1F000CA;
-	Tue, 24 Nov 2026 18:13:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795543988;
-	bh=z0VN1tpsKHKBMst944km9k66cgg2FkTQu5dxh0kyQz4=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=HZ1MMuklpdA0HGXkjtE+D6hC+IShwL70sk/Ui0+EydS1GPylOBWJxiTNv7+CJj3hc
-	 G3BZqDbMh1eyMvN8pzhHaVp9yipm1iCKqY48Mq0eScPucwPgiA3GrV0/hXAWX5k1S1
-	 qS4VbmcI7juTd5zxxCEHS/R7V8ocXyccNQmJtB5ANBaas+mXEad1YYtKTUsraP4ujw
-	 m1zsGUTGlZ4SUum91hYcE/r8abWRO5O/mBG9rR4dlISdbrrCdPqSB0cx4o8g40+Loc
-	 a6tk0dpB/EBN2zq3af8peZqeUEP5ERyH2zOSVu/1j4YygxUH/oC3SS7k8U4wO53bpG
-	 Mn4roAylwEnnA==
-From: Mark Brown <broonie@kernel.org>
-To: Marco Giunta <marco_giunta@outlook.it>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <SN6PR19MB230389321D29F0C88582B4F6FC452@SN6PR19MB2303.namprd19.prod.outlook.com>
-References: <SN6PR19MB230389321D29F0C88582B4F6FC452@SN6PR19MB2303.namprd19.prod.outlook.com>
-Subject: Re: [PATCH] ASoC: aw88166: fix backup restoring the RE value
- instead of saving it
-Message-Id: <179554150944.264265.5918495065220583498.b4-ty@b4>
-Date: Tue, 24 Nov 2026 17:31:49 +0000
+	dkim=pass (1024-bit key, unprotected) header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=kLtZCBId
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=inria.fr; s=dc;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=UWXbji1X4pxMzbXfxu88bQcgXa0uUzb1/+z2PU7DMrE=;
+  b=kLtZCBIdI1R3nZKaeAHSJEIle6jrTdTVGH4wTGtCm3UFM+tRSOtQW4u3
+   AT/e2VbNkgxReb1XFmp4WBVPIq7qTJG71zuiI4q1BQR+eU66qQRM3q2Jx
+   MyrE/ykZmKyrMqtQ1XLaBt1YmBXgCf52lW2W5vg5nb4IyvvYH8SougTNu
+   M=;
+X-CSE-ConnectionGUID: m04h4fJsQPe5s9trrWFVsg==
+X-CSE-MsgGUID: vnsbjmTmRx+Vyz9U2G9L2A==
+Authentication-Results: mail2-relais-roc.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=keisuke.nishimura@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
+X-IronPort-AV: E=Sophos;i="6.27,231,1787004000"; 
+   d="scan'208";a="307166254"
+Received: from dt-aponte.paris.inria.fr (HELO [128.93.67.66]) ([128.93.67.66])
+  by mail2-relais-roc.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 19:13:07 +0100
+Message-ID: <1939197c-ef2d-43e5-8243-3c6e6217d7ba@inria.fr>
+Date: Tue, 24 Nov 2026 19:13:06 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,46 +60,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] sched/fair: Don't pick recent_used_cpu if target has no
+ LLC domain
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Juri Lelli <juri.lelli@redhat.com>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>, linux-kernel@vger.kernel.org,
+ julia.lawall@inria.fr, jean-pierre.lozi@inria.fr
+References: <20261124155107.358643-1-keisuke.nishimura@inria.fr>
+ <CAKfTPtARqb5VW0LBxDjGK6cZV7+6Ba4EsjchEMjqO6L2PkiHHg@mail.gmail.com>
+Content-Language: en-US
+From: Keisuke Nishimura <keisuke.nishimura@inria.fr>
+In-Reply-To: <CAKfTPtARqb5VW0LBxDjGK6cZV7+6Ba4EsjchEMjqO6L2PkiHHg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1156; i=broonie@kernel.org;
- h=from:subject:message-id; bh=KjMOh11PaUi/koWqxHNrt2PxKsKncR8w6XfULZXMCow=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJZL2+Uyql5ZhB5r5QjcYXCwYAHVbvOrDWZ/WT773UJB
- T8XfZ9Z01HKwiDGxSArpsgSl8X9sr7k9Rq+gwvbYOawMoEMYeDiFICJ2OoyMiy+UfNXMO7BhvVd
- eQolspO3TNna9cRjz0tHmf/TF/r8kq1iZNgjuexXcVpB1K+b+ab9BSsqxTdXdrEfeN0mKnxvx8u
- +TfwA
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-On Mon, 23 Nov 2026 18:56:10 +0100, Marco Giunta wrote:
-> ASoC: aw88166: fix backup restoring the RE value instead of saving it
+Hello,
 
-Applied to
+Thank you for the feedback.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
+>> select_idle_sibling() can return prev or recent_used_cpu if they are idle
+>> and share the LLC with target. However, cpus_share_cache() returns true
+>> for any two isolated CPUs because their sd_llc_id is never set and keeps
+>> the initial value.
+> 
+> Are you sure that's because their sd_llc_id is never set and keeps the
+> initial value? Or it's because they are in the same llc_mask() and we
+> use the same sd_llc_id for all CPUs in the same llc_mask ?
+> 
 
-Thanks!
+In the patch, I meant CPUs isolated by the boot parameter isolcpus,
+whose sd_llc_id keeps the initial value. But in the case of cgroup
+isolation, the following statement
 
-[1/1] ASoC: aw88166: fix backup restoring the RE value instead of saving it
-      https://git.kernel.org/broonie/sound/c/b0d43948d45b
+ > their sd_llc_id is never set and keeps the initial value.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+is not true, although the same problem occurs. I will change the description in v2.
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+> Being able to set a dedicated sd_llc_id for isolated cpu seems the right option
+> 
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+That might be a cleaner fix, but I am afraid it would be a bigger change. The id 
+may need to be updated whenever a CPU enters or leaves an isolated partition in 
+cgroup? Since the id also seems to be used for other purposes, e.g. index of 
+per-LLC arrays in cache-aware scheduling (llc_id), the change could affect more 
+than this issue.
 
-Thanks,
-Mark
+As checking sd_llc already covers both boot parameter(isolcpus) and cgroup's 
+isolation, would it be okay to keep this fix in this function?
 
+
+>> @@ -9175,10 +9175,13 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+>>              asym_fits_cpu(task_util, util_min, util_max, target))
+>>                  goto select_smt_priority;
+>>
+>> +       /* NULL if target has no LLC domain, e.g. isolcpus */
+>> +       sd = rcu_dereference_all(per_cpu(sd_llc, target));
+> 
+> if sd_lls is null, can't we return immediately as there is no shared llc ?
+> 
+
+Yes. I will do early-return here in v2.
+
+Best,
+Keisuke
