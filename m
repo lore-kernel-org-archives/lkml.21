@@ -1,100 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.126.140
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795501251;
-	b=YpkI8cU5xWFgi7UJ/d5SaaNGkOyVMbFMsXnP8YU195Uovxli0xfWaMRJZ0xReXifW0qX
-	 2+btZfuXfSVBcoxNhRTq1ztSOIX5GP8evCazq3HHr+dsyfWjoc4Pr8gCQW/Uvey7ab/NO
-	 tXzxavRm6GLMU/+x0UJXEPc2h01ctwp+zz3LmWKi5yx1ldnCPEwjPfor6W9jUdfjn9zFJ
-	 fSBfZlwWHs99PJuGAwfzne31VZTrO58ZTZ3iA+gJ44QGcxxo7J+m5LYTeugDfWvr8Jd1f
-	 d+eqQz16LbOLUXgbKpX4u7M53DSybHCRmdGj1gCoBxfmdzLn+3qS8h0rywat6mLaRJg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795501251;
-	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
-	 Received-SPF:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=iJ2NeUROqKIM1qkArGoQxaXUmesQVvge98lKAIja628=;
-	b=2K8d6wrWFMid7ZVomWoW9/k4hhlWraJZROUWKjsgIA/MGNZyOWBfwPXhE8uIU4y19Ptw
-	 G71TwD2Vv6RS32fqGN2uSoI8OfSHlOv6qTSHEH0sgY8reAzdi5neclmxZENr1+vTGYo6j
-	 UIQBZZOCiI/9rFBLCFxEADT4LbyMOIr6zYCi2tZqP2F7MvhS7anxt+S59USmXw8O1xGkG
-	 cZFAkT5B/VM3b8nr+CGaeXzhBwpwBMH89Ba316mWJAc9LT1Ak6RszjpoKRu0nbuT2jgnW
-	 tyMIaPkIaJUPLR4q7B8t3f1FL66UFXVD4R4klIO8uO0vjO2PbSDWZAnzqL0umsDnbGQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=cixtech.com;
-	spf=pass smtp.mailfrom=cixtech.com;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.126.140
-Received: from TYPPR03CU001.outbound.protection.outlook.com (mail-japaneastazon11022140.outbound.protection.outlook.com [52.101.126.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795501282;
+	b=yUJ0G3PEZEw7OjEMQy8uXp6HX7nHcMpZK0XutOv0XsmGTmihSIioNR6t/TWeMIkJXGkz
+	 FkyLPVXHHR8dgozbspZ6O+bmUWhjA4a64Wb16SUYRCDOVXrqOgKdORHpEfqqwiXiKzTsp
+	 vNPwjaf6HmLvv5kKt3Mh/VvL8UgmRRuLWLMHR0pQo4Em5HTnIBqAddNasQhZ6hUwOQJm0
+	 Jfce1ZDxHzytglKGSjIgCtGKj7FX+5M7dk7GxiAPDU26b3QUzxseP57YVHJzzCGSzPnmP
+	 jXR829AUbCyWBQwXB6GyojfYHPNMIkQCpG30NCm5ZGIkwim3EF4WgxL2662tWTGCR5Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795501282;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Date:Message-Id:Cc:Subject:From:To:In-Reply-To:
+	 References:Content-Transfer-Encoding:MIME-Version;
+	bh=ABoE89s/WFkMcjQ3bulfL2OvrXI3uR+DaKdUMWt3+Do=;
+	b=36GRmkeWHpm8RVDO/Xiqx0wZIZOdKr2qNSUhtwJ1nAgMpMDxFCvC5tynRfCME+o1CB8l
+	 e2JCk3YOoJOJs32sWqnntn+RRCqGoYkIjWvrAyxB1jdlLqtIKtp0N4L0E4fnSwj6G+NJK
+	 UWbA8xWnqLufectaZZ3xr/oWYX3lmVkI52RKrrgJBOqdmDC2TJLGdN+eYMc5Aw9a9Jw7d
+	 dAz96nJedO/og1JwC/wyfP+sL6wTCt7/4D5bJQOZmeQgJ5YuKCWvfaYHZ/sJ2EgivJvAa
+	 nCMbqzyfq+xTEfsjfVNvXWcDSouqtzTtlJFKx6vkRGIhs2NpPZPM+4t1rbr//XFL14A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V0gKFROj;
+	arc=none smtp.remote-ip=209.85.214.182
+Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1209E606A321;
-	Tue, 24 Nov 2026 06:20:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1209E606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ikkxp3ME74nPMIN0yL+sf8xKXjKuFANgA+lLp9iOS9Kd1gzs83rFiXkH0YX/dARS5xHiufS+QLaFioN+HvpbeAx6rbrKFFB7FpXOf14lvEmXTjwevy8EKh6bP+PnmzSaPfwRwWxnvVJMOZcJgJytDITDaxzr/0pd31RZzMJ5dvKpw6ukxm8niQxYC/eMRQfzGKrM1JKONzdcFGp5gKMxg/C4sjZhFZhhXx4Ki+ZzDpUxuXWyMmp16YQyU4+aSs/XnzlIe4eSeBTIZzKHGRjXhH4Boa3/naRehd8CUBcF4TRWVdPizcXujnh5DVVVTY6t2pw0t5Ta/g15w7U1ZlYrHA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iJ2NeUROqKIM1qkArGoQxaXUmesQVvge98lKAIja628=;
- b=bwKstWJvSPfKwVMeFFvlGE5DAX5+I7LSJFOe5z1kdoe+Woi6SRoM7X3BbGJA9kV+zkvTzvAOI4F5abQwL2YculR+rNmZHjV/Y0m9rRGdaGzuhTo+m5RxDwKUfaz9Lb3HfW8G0wvAV7M6GLMX2lENtH7Vop1chI3kw4J4+NdlwegLczdOCsK+EDZBAq67tsBwjJw+ep7gdFVupMYka+HnZOLXD3qxlRs9h6dO0VZPhzpT98Z4wou2k5d8wwj6LKOFoY94QmmRH/HSnB2FkaDJKUO5xxA7RCjF0XNraer++9wHU+WUZazweK1MgBxGUk7aUUC13EHtUjkt1MdaX9WNjg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI3PR03CA0014.apcprd03.prod.outlook.com (2603:1096:4:297::15)
- by SEZPR06MB5342.apcprd06.prod.outlook.com (2603:1096:101:7e::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
- 2026 06:20:47 +0000
-Received: from SG1PEPF000082E8.apcprd02.prod.outlook.com
- (2603:1096:4:297:cafe::2b) by SI3PR03CA0014.outlook.office365.com
- (2603:1096:4:297::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Tue, 24
- Nov 2026 06:20:47 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG1PEPF000082E8.mail.protection.outlook.com (10.167.240.9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 06:20:46 +0000
-Received: from cix (unknown [172.16.64.42])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 0347C427EFC6;
-	Tue, 24 Nov 2026 14:20:45 +0800 (CST)
-Date: Tue, 24 Nov 2026 14:20:43 +0800
-From: Cunyuan Liu <cunyuan.liu@cixtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: boris.brezillon@collabora.com, steven.price@arm.com,
-	liviu.dudau@arm.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, gary.yang@cixtech.com, fugang.duan@cixtech.com,
-	daniel.almeida@collabora.com, aliceryhl@google.com,
-	p.zabel@pengutronix.de, daniel@fooishbar.org,
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	rust-for-linux@vger.kernel.org, cix-kernel-upstream@cixtech.com,
-	robin.wang@cixtech.com
-Subject: Re: [PATCH v3 5/7] dt-bindings: gpu: Add CIX Sky1 Mali support
-Message-ID: <awUsu8VCu9HdzSLe@cix>
-References: <20261119123850.2994625-1-cunyuan.liu@cixtech.com>
- <20261119123850.2994625-6-cunyuan.liu@cixtech.com>
- <20261122-efficient-lobster-of-foundation-abd517@quoll>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A80D606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:21:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A80D606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V0gKFROj
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f0634667aaso13053445ad.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:21:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795501281; x=1796106081; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ABoE89s/WFkMcjQ3bulfL2OvrXI3uR+DaKdUMWt3+Do=;
+        b=V0gKFROj2Bzf4HhEsltf1mgTZkhGBlbfiUtJQ7Qwszx5jk+BDR6xEe6Mxx85AgxRLu
+         cfljBUaPpgAehgbMImm3c4AerftNLXGITO784IcCNvkvVwOEkCMyH8XbAV8Ho1WX+sBc
+         eXkb7nl8gPC7q+CsCtlDBQz0Gk7v6l/HGBZc5m8uVIekFtPf1PdGXFlEdXAPQIaP1hHV
+         +zQdKrcvzWEfaMVPDqnBRo/a7VOGirFpIbMx+d63TFlzJhJkezC8jiht6aYgbEyLBpiR
+         DohSf6IX1o9dRCcc4/3DPcqENbEfF9m7IeyA4TIsGUDdl9mf22xJHeqfMfQWFgacLtwM
+         QKAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795501281; x=1796106081;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ABoE89s/WFkMcjQ3bulfL2OvrXI3uR+DaKdUMWt3+Do=;
+        b=QO6NNlOvBrKLDCgRL4KshJJNRM4YT2k6fHYhwwRzDMZxPPe/sPaYRky1chHgsu73nm
+         ehLr+Udo3mf17n3O73H63dhaN7cLK0DiyLal2sY4Qog62k4dw8ygfJ1VQdB0I54cnBU2
+         0/CfCSjIu1Eqagyj4OUhURErWUquij3TOhh7VRv/+eLsEKS/ZVisrWqUMeL4it6Pxm/S
+         PLpTxrrgrjDYNpk1X8drEr5oM6qjR2FzoJ5pPaIhvd/fLH+aUGZjM/6lbhbDtJeFnwsV
+         tCsDOeWgnvw+xXXgu1T8+0DBU9xj2L6pJSQJ+uTW9CfcqpY+LwBASFL3vV8fjQn2NgDn
+         gsKA==
+X-Forwarded-Encrypted: i=1; AL+hErG2HATN1JM0IxGpXSo3kLYLR+vI+FdE5BaJs5ivYMvHdx4poxVSuUmTSVUbK7ww5Bv0R22p8yxW4QJ0B9g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9P4nCUs0ETlU8BWJJmYYpvutt2c4X4aN3BmYKXUc2cbboxp7sX
+	C9ry+dlipzUnG8sZkRISmuhZOfZPWJ1o9CziF22NqmqMOoKar/JD/YgX
+X-Gm-Gg: AZFdTZcyPle4mEltGxxFG3l6yvVFMMyG2vYhjzeQxmJ4e0sUccnvPXpKATvf5VipAhY
+	5Dv+nf92jhqYg7QzZva2RTPGxE2QSPiQZWbkOimt+GcFEUCpYuCaxCvfGDCh5NAOwXeMuDcqVQt
+	MG7zwtn83bLbR1SkZXTzVWakkubWCPNsyHJ7Y4xoL8+bwsHzopD2zBrId7wpcjPbH9nf15TqyU9
+	IZXgOKwCuIWquQOLd4e8B0m4LqbAXLytTqshd8HAgIdqumfgqdnDqP9O24BAB3urV61kzjivwhJ
+	d5RwJAnLl2Qxiv+awbwoP6B6RilfI8nu/hIPfDs5XPteyyEfaMYSTzNaBeIQN9I/ny6h+g+guvy
+	GCmJzckfwuYEyZbHYpZe9lpJx9mdLGRn5k83s6cv8G3sqokLMcyx/tyVpHmBrvKhqQJHFNPe6ZN
+	4FijeP0AqKM+77cOjzehoNa+gCNQdWZRCgPjBCgk5uthKGMhuMm4yQKpTeiznDBMRqjrRXcvJJ6
+	cTYQss/1S9cdbgxQ37mp7/DiZUJgdvUQ+7y3BSbltCuHw/LBwaEQ57gmUoCRPN5bzyQDS9MkXlJ
+	ytjibED9Larn5E6zNF9+Phr2K7MeUwvr+cGkcjX4220e0DJp1wjHM+z/TOptRA5h02lH2Z+J4wf
+	pZ4anzP4BklPHJUTnOm0x+xbt0CpExFBQlw==
+X-Received: by 2002:a17:902:f54c:b0:2e3:643:279b with SMTP id d9443c01a7336-2f03f1ed636mr98397505ad.31.1795501281131;
+        Mon, 23 Nov 2026 22:21:21 -0800 (PST)
+Received: from localhost ([153.61.198.255])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f118c7dsm64174325ad.55.2026.11.23.22.21.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 22:21:20 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 24 Nov 2026 06:21:20 +0000
+Message-Id: <DN38312WXPDJ.2KLUTCWSDFL3P@gmail.com>
+Cc: "Martin KaFai Lau" <martin.lau@linux.dev>, "Eduard Zingerman"
+ <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, "Song
+ Liu" <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>, "Jiri
+ Olsa" <jolsa@kernel.org>, "John Fastabend" <john.fastabend@gmail.com>,
+ "Emil Tsalapatis" <emil@etsalapatis.com>, "Ihor Solodrai"
+ <ihor.solodrai@linux.dev>, "Steven Rostedt" <rostedt@goodmis.org>, "Masami
+ Hiramatsu" <mhiramat@kernel.org>, "Mathieu Desnoyers"
+ <mathieu.desnoyers@efficios.com>, "JP Kobryn" <jp.kobryn@linux.dev>,
+ <linux-trace-kernel@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH bpf-next v3 0/4] bpf: Check recursion per task for
+ preemptible programs
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: <mikeba@sentinelone.com>, <bpf@vger.kernel.org>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "Andrii Nakryiko" <andrii@kernel.org>
+In-Reply-To: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com>
+References: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com>
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,50 +109,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261122-efficient-lobster-of-foundation-abd517@quoll>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E8:EE_|SEZPR06MB5342:EE_
-X-MS-Office365-Filtering-Correlation-Id: b9b6f106-91fc-4ddd-cbac-08df49f313c6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|7416014|376014|36860700016|23010399003|1800799024|18002099003|22082099003|56012099006|4143699003|261028144727099003|261026140227099003|261022105027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	dKSOuN17JmoKfTBpdyzCTMPcf6s1k6oZmK1428VjX5ZKTOjVI08pFUgRXTmfEsRmsaO7jZEzSBkd6h+ALxXD6sLsAimaImyDI9AJ6ylgX+5pTIULRCip6EDAPpa3+NDLC363QWP6cZkXJ0UOGt6kMOJqjC3bQ6N0CN4t46yIoYR7dwYAxiAvQyjq+1vPutxNembZ1zC+esUwgKCA8B7jMXgdZddKl5SzrjvbSKno4zXO1fGzLeNiVjoORatz2AsICJHF9ytf6DtzyEfc0KSFcX35VDrAc1krlrXrmXwTIDU9ytb2fxSVEm4tcyHRKM+VhWAhpz0g/RjNmwkJ+Q+4E5ZSt42qKaEXiAOykbrhs6jkbGT/yP7vV03ZKi433O185hEUODcFxZQodjkkWgDG+Pw4104gqCBjP6Vwgb+3g+dgbNXynhfjY0sq05OFeEzTSWQykdMjzosnaI85ZLEybXKvAjJVRXhEZovAz3NUhiNowOJpGWROL4MGxH0izawTlxPKJ4ZjdAtLbE0rEs1jpZoem95Sk9PH9PqlaTpCOIi5tmLxEDNNfZ/YzynLfZHXBtytjSE43IusluTP4adob5+anQnlORaHph2HO8lPd4A/bQdzVST2MB64P8qzFdAvQjKJnPKVZOGU+WVL5v6Aoa4FsclDHn3e1aTbUdzD1qI86NBKWm58D57H3oEsUvU/xuSqv+F4JklYDnGXq3RNRQ==
-X-Forefront-Antispam-Report:
-	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700016)(23010399003)(1800799024)(18002099003)(22082099003)(56012099006)(4143699003)(261028144727099003)(261026140227099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	Eivp4tG8gbPEfbi0Rf21LjkQ73w6fpg82OT+xj83CNWxb8bbonoY8LQJYW057RI/Zz35NamkF+gyLrgA1j9GotPF2wZD4mE+WlPQGnMCUtIcWFYdzOPZeC6MPqzhqR7iEPMvphCLNez8euZKpEqycfZj0zK3i1tIYhID76s3L9t2eJDOekcMMdPJH+kWnUvdWJUauWBAnWACOM5ZIVbcwlifwHIdYDYyCglIxVTfFsjNKeeAGD0FaHiE092vnk5B0GVoElPH4Kt6HFLd59xB4OsDFHQeWz9AXGFoH/rcu/9hKQAv+eZt3lGKhLCLLP2Xa11YrnKSeuM1UmL63yOXAyOslpbMR7GR08aQufjjSNe57stjjQKvr9rJNf2/ViHZ7stfeY2cziLilWQdRci535emmDYua1kdIHHHspB48dsg0awOEXvZ8KyVVv7ahykP
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 06:20:46.5732
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b9b6f106-91fc-4ddd-cbac-08df49f313c6
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	SG1PEPF000082E8.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB5342
 
-Hi Krzysztof,
+On Tue, Nov 17, 2026 at 03:29 AM Mike Bazov via B4 Relay <devnull+mikeba.sentinelone.com@kernel.org> wrote:
+> - Marked programs are not fixed. A program with a per-CPU map or a
+>   tail call loses runs to preemption as it does today.
 
-On 2026-11-22 18:01:46 +0100, Krzysztof Kozlowski wrote:
-> So what changed here exactly that you decided to drop review? I run b4
-> diff and there is no relevant difference.
+I suspect users will hate the behavior introdcued by patch 2+3,
+since adding a per-cpu map will suddenly make the prog to miss events.
+But the idea has legs.
 
-Sorry for not noting this in the changelog. Compared to v2, I added
-"arm,sysc-alloc" to the required list and example for "cix,sky1-mali",
-so I dropped Conor's Acked-by out of caution (I noted this in the
-cover letter, not in this patch's changelog).
+Earlier I proposed to insert bpf_preempt_disable() by the verifier.
+No need for that. bpf_prog_exit_run_ctx() can do it when per-cpu access
+is detected. Like below:
 
-If we decide in patch 3/7 to drop the "arm,sysc-alloc" DT property,
-this patch will match v2 again and I will restore Conor's Acked-by in
-the next version.
+> One question: the marking is automatic. A flag that the program's
+> author sets would avoid the second trade-off, but existing programs
+> would keep losing runs until they are rebuilt. Which do you prefer?
 
-Best regards,
-Cunyuan
+No new uapi.
+
+>   series #2    42.34 [42.12-42.78]  39.87 [39.46-41.38]  41.53 [40.79-41.75]
+
+Good enough. let's keep the walk. No need for the array.
+
++static __always_inline bool bpf_prog_enter_run_ctx(struct bpf_prog *prog,
++						   struct bpf_run_ctx *run_ctx)
++{
++	struct bpf_run_ctx *ctx, *old_ctx = NULL;
++
++#ifdef CONFIG_BPF_SYSCALL
++	old_ctx = READ_ONCE(current->bpf_ctx);
+ #endif
++	run_ctx->saved_run_ctx = old_ctx;
++	run_ctx->prog = prog;
++	if (prog->percpu_state) {
++		if (!prog->sleepable)
++			preempt_disable_notrace();
++		/* sleepable prog should be using explicit bpf_preempt_disable() */
++	}
++	for (ctx = old_ctx; ctx; ctx = ctx->saved_run_ctx) {
++		if (ctx->prog == prog)
++			return false;
++	}
++#ifdef CONFIG_BPF_SYSCALL
++	/* Initialize the frame before interrupts and NMIs on this CPU see it. */
++	barrier();
++	WRITE_ONCE(current->bpf_ctx, run_ctx);
++#endif
++	return true;
++}
++
++/* After an enter that returned false the frame is not linked, and the reset changes nothing */
++static __always_inline void bpf_prog_exit_run_ctx(struct bpf_prog *prog,
++						  struct bpf_run_ctx *run_ctx)
++{
++	bpf_reset_run_ctx(run_ctx->saved_run_ctx);
++	if (!prog->percpu_state)
++		return;
++	if (!prog->sleepable)
++		preempt_enable_notrace();
+ }
+
+I think this should minimize the breakage and fix the issue.
+
+pw-bot: cr
