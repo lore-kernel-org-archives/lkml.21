@@ -1,60 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795540703;
-	b=1VF7YdX4kw6/AaWYYN3hv5h7yIP9XRCIg6mMW+GQkmD16tAKmhK9638Ra4kOFZR405EB
-	 JH/zwvgyZIhlpuCWgZ3CxaUyl2Srks7/Gwt3IUK5MmeSc/HJyh7cZ6DPpYcTOAUBljHBL
-	 uxqRhDHFebJ2RXpIJ/6wQjEDWQ/tHFRnx9nUE7E5r2dBH52hGccgEYnc7LouLFvl3s8uD
-	 zvX4fLIw4iKnYit+EhBcgo9GVZa67c9IeVsEYlDzjqb+fWm6peFg5MCEHe5bSoUvMYyLo
-	 QDz4Nccw5qZz3EwmAeSt8vs78DEdiRiVJZWxw8xWsENJtKNRe2W6tKiMMdguCHu5Lsg==
+	t=1795540718;
+	b=GsZHvG+Sx2rMla5nAMBP8ec4qD7q/Ua55VmbiFRdrYM/V2DDCaLSeAzht89IAt0IlfIi
+	 FHlibbJd9naZ9vMJdJPOBknmXJKvOVfAVnzzoHg9Q+b3oxUXZZuYwj2dS6vjR5wI6wS0X
+	 ocHDYFLBV/S72uhAh5InG4QBb7kyL6b1I2DHFy7KjtkGqqmhbYMag4c8Wg5MDBFdp4moN
+	 OW812AWqWQLf66pKrboh7qUQYoGho4G4w9quZ7eYvK6eX7CYpVSTDEOK4ycbAfdlRORg4
+	 LXLZylNMiQR47cHfdXwwlXhqC68NZv+ESAY0k6zp0FSB7yYU7DWW6LpeNvh+XRwl7zg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540703;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
-	b=u4DBjRxqRaubQ16JLS1z0SFUAWTxg198MRrLFBRDLOPjf78f3OhqtZTnYAIgdfMviOr9
-	 C5P0D9JDq9WLayDexNzeTJV8z0YgOytarlCxkf54CNDLhStnJ8ngj9rz+JGRjGv/iYBXR
-	 G5PiWsEgMcvjXHd7DYPV67XrzBu5SNBFr4Czrou7fthSXkCiDtp/LRSl55NzOtffG/YMG
-	 DnZn6wCIjtsSYNyTZXqIFvOuxC9MnNIXUsMcMrjJS7rR6zDYm64EnHoc3mXCQIeacgjiG
-	 wBPGIa9fIzbeqi1VQYnN3pzW9yND4TkymGie5IIQykHaiLTmgVbGpc5WLo9jXv+dERw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540718;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=soJkr184OzWpwDgsoaY68pRGyt4XwVTMqpDdnHjHds0=;
+	b=e6aCM0A3nfPx2CZY+prnJiZcwzlxHkDh7X1WZwX2pKWH6t3i2whpaFnBX/mgJX+ZEXUd
+	 Autkm+2/ZrZhvL5WdjbA9wwIJhv0ROpxSv+uDABS42kbIkyhxjUesJfQeGw094jLkFed5
+	 SpjYzgtxfnaYIak8gFptQCDyc0CkZLesO6qxP6Vd+E5rtgxs+MO/tPqK8RDCnmCVQjv2B
+	 unLh8viEEmYnyge0uQ3jLLLXWVPU4oeo1u7WxcnI/0O632BrWEsxB0Yl2TZTgfh/map4N
+	 U/JrMMBY+FxIeqB2yoIWEw4f82cBubY+fe8zd3X9LWxGhEIE9Sz+793cYdR7UCeP6pw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mEx8F4jI;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OeAJP7rq;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A485D606A31E;
-	Tue, 24 Nov 2026 17:18:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 93295606A333;
+	Tue, 24 Nov 2026 17:18:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mEx8F4jI
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 327F91F000D1;
-	Tue, 24 Nov 2026 17:18:22 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OeAJP7rq
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 9E0A31F000D4;
+	Tue, 24 Nov 2026 17:18:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795540702;
-	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=mEx8F4jII/CcQopaH5GYBs/XSZRwb4RqyqyY97YOvzjxo+kyHzxRcWhK1rcE4ZsUY
-	 ngiaJx/bHOqR786pGY3J2gCZy+WajIwfMCKn5LaCD9gkPNoPKY8LK7n2WHwHFzRi3h
-	 Hhv7BeJEQV2BF3Gg1E/mIRKCyTE8oMW2aZTiuMMQySD2thyMt3pIDbWUHZ0oOMdD9y
-	 rZgy/fZ0bL5ACZILMZBhkhf0+OrqdgT4fQJMy+ERRUqKW4Vfalta33W/pd7/FZgJgG
-	 rrZr/uCdRzwsHhR5fMOxKfzvpPe0uftd5zWLCM/5szp/UTaHqjQiahUDeI500rS+5C
-	 NpvCnbOeR5JaQ==
-From: netdev-bot+sinfo@kernel.org
-To: Birger Koblitz <mail@birger-koblitz.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>,
- linux-usb@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v3] net: usb: aqc111: Fix rx/tx_fixup issues
-Date: Tue, 24 Nov 2026 17:18:21 +0000
-Message-ID: <179554070167.3294.10584370925975655772@kernel.org>
-In-Reply-To: <20261124-aqc111-v3-1-10f2c124d808@birger-koblitz.de>
-References: <20261124-aqc111-v3-1-10f2c124d808@birger-koblitz.de>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1795540718;
+	bh=soJkr184OzWpwDgsoaY68pRGyt4XwVTMqpDdnHjHds0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OeAJP7rqeF5fhHtCGxSIyjakVHmz9pmbHe6/jkkhDmu1cYueKA9xSezT6evR4vN5S
+	 uIvxnaj+2OibkbIysQTEOD13yBmTM7ZyskbqetfrcJh1LArTwOwqd4dmdn505thhNJ
+	 H631sOpWNHeyfHk9HWVdHdIJKtH8osV7tKyqfZfpKSQBvR6r+fRuFCWaOWfqogElkJ
+	 xEPFuF0J3pxylSj6nXnBDVAOl6jo2j0/NxFcUKbbmnQXP/nzyUzoS79BG22+UzL6mV
+	 ZSzv9dLH7dciBMggP4Ggk1mKNrQr/V697Lm4mr6DE4Y2CZ6weHIPQoCn2hTvRVTR04
+	 ZuVtQEffoL33Q==
+Date: Tue, 24 Nov 2026 19:18:34 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Guicai Ma <maguicai@kylinos.cn>
+Cc: David Howells <dhowells@redhat.com>, keyrings@vger.kernel.org,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+	"Serge E . Hallyn" <serge@hallyn.com>
+Subject: Re: [PATCH] KEYS: Use kfree_sensitive() in keyctl_pkey_e_d_s()
+Message-ID: <awXG6k1HFYsE2wE5@kernel.org>
+References: <20261124052849.940005-1-maguicai@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,22 +58,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124052849.940005-1-maguicai@kylinos.cn>
 
-Hi!
+On Tue, Nov 24, 2026 at 12:28:49AM -0500, Guicai Ma wrote:
+> keyctl_pkey_e_d_s() frees the temporary 'in' and 'out' buffers with
+> kfree(). For encrypt, decrypt and sign operations these buffers hold
+> plaintext or other sensitive data.
+> 
+> Free them with kfree_sensitive() instead.
+> 
+> Closes: https://sashiko.dev/#/bug/linux-4199b169-0b8d-4055-9a71-6b5b79e38eb3
+> Fixes: 00d60fd3b932 ("KEYS: Provide keyctls to drive the new key type ops for asymmetric keys [ver #2]")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guicai Ma <maguicai@kylinos.cn>
+> ---
+>  security/keys/keyctl_pkey.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/security/keys/keyctl_pkey.c b/security/keys/keyctl_pkey.c
+> index e7121523b9c9..8d2c2b65f50b 100644
+> --- a/security/keys/keyctl_pkey.c
+> +++ b/security/keys/keyctl_pkey.c
+> @@ -314,9 +314,9 @@ long keyctl_pkey_e_d_s(int op,
+>  		ret = -EFAULT;
+>  
+>  error_out:
+> -	kfree(out);
+> +	kfree_sensitive(out);
+>  error_in:
+> -	kfree(in);
+> +	kfree_sensitive(in);
+>  error_params:
+>  	keyctl_pkey_params_free(&params);
+>  	return ret;
+> -- 
+> 2.47.3
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Thanks applied.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+Br, Jarkko
