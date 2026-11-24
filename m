@@ -1,62 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795530220;
-	b=HJcoQgZJrZCasD8JlJYzWcFRIUuWItOrOx6jEnwJXW4feCLLZRKrcVN91lXqFZuMuhre
-	 9Li6n9rvQpEfZ8sAy5Fq6Owd/KvB1eMbwE1LWVe81JvibjmrXiWiogOiuVz3R74CpZD8K
-	 6rzlukHf2i5UMX6exQo8dxnXQ9GG3X7mUoDcO0iBS47glq0zEULyq+5mgwvbFMe+loUZE
-	 TUwyCqa4jRoTZwzmg5pGRULBS9/EsPaw7NUebSfaXJuTBikO4enIyiIpRs8xnH+r08U6y
-	 BclklXWJMi7GCKwS407p2wb/T0X7IecoJaP1tKMldfU53Fb0niMb0DcVq+jO3LccvEQ==
+	t=1795530238;
+	b=nQTLlzpMkdyGtsImUfXIhp9Q7HBA93ZuB+D60XqyZk9ZuPcAS1/RQClyUayvN6t8Enyt
+	 eqHRN7rGMba6+G2GfvuDNIKjK+ESAfYpJDl/+CuLqArLJKAgE6bQLNMnKCqjrn7y6iJTR
+	 WnHQn2Vw88hKQxn4tPvANNAQcheYW57uI/ndt5qJAtgCd16u201g52fnk7HfsTNjOYHww
+	 AIWd/RCiSFprI1fCs1zue1tLMNMMkD7NPHhQOyZRFynm0o0d6I3cwBcoqcbFSvdDop7a4
+	 JCwwVP4NjwkvjLv+rmyhYekOvP4kqceHg35gQ5y9HUSz/Z82LWeojdxcA0MN6qFfokg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795530220;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=nKFAQ/eQi2+pKN1nmF1ojcPhRlz5R78v/XFET3w6CA4=;
-	b=v973sjNy6cSP13Kz2WC0yJnZTWT0kFvGCrwPE8xJTdEo1SYePvHNrSqsLnFbufuwE69G
-	 0WuxBSo06RjRYJ6Hs53E2nDfhR+v2HJL0TEELCoLQtTGODJlemPZYkR0y5KT0AQRfsc7g
-	 xOjPrHkHuMyMPmiHPtiWBZcXlhkKCjRqC0EW2rPKj4xq5oXT51d8Rci72Fa+4ayvARFtE
-	 fa4EXXpMz47ctiv/EiZhKDfR7DiE7sqAOZGBg71FuUaqEhuCLd4feuPAfNzRlCY3nG6QC
-	 acFfo1pTND5OBjyfxZXnBBJqQhL7SO44eFXqsX+MC1gX4OSDupfsAHP3AkkfBx9KLWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795530238;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=nZDOUwyEX3ckWETnq0livX5FdWDm3IFYxQpcuyKeRbw=;
+	b=fkBKI/arj/3+UL/Ojgg+rtNfEX0LM+wCtgi1nru0fJI97djwyRWTVUsaa++qEkt3qaBb
+	 pq7/Bsyq0EiRfFU4oINaWTAoUEcrUpB6sjsiRIJlvfh7dZbs/gJ2x7W91qr21Fcdxvsaz
+	 FmXK3hFBCvx/tLL/5suDN91yNM+Crmd1ynwWkYPQ4WpTrarGOK9KGuhy0Ur+CUFRm/1hB
+	 +JUf07SojefeE8WvKes9KVLT5RG2xsrdL7lQua8tcrtZlvizhlxSvDI2g0dTrx8hMGE5/
+	 dDH1ZNPY+vlKYGkUAubJM2Y9DbifChUF1uGHMq7NwOweE2M6kxAN+4pZu/HUVe8WBKQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=1vZMMFUR;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IIAJkJgz;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3830C606A31E;
-	Tue, 24 Nov 2026 14:23:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4E22606A31E;
+	Tue, 24 Nov 2026 14:23:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=1vZMMFUR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CD041F000D1;
-	Tue, 24 Nov 2026 14:23:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795530219;
-	bh=nKFAQ/eQi2+pKN1nmF1ojcPhRlz5R78v/XFET3w6CA4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=1vZMMFURAQstEAN6/qM0Pgk2S/TZOWOPkhpVXU0kKW1xIE8Ue4kWLmiRAJhgtRT0N
-	 sOT7euao3S+uLTaQGhgYnKeo8zhdHNUHM59RhT6D+CZZgCt3vIzC2AACBLvpT5l04Q
-	 TEOtMl2ZXhVsQwgLepaW9OJExmWGpEj2lxpnaCKo=
-Date: Tue, 24 Nov 2026 15:24:00 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Subject: Re: [PATCH v8 2/5] include: linux: phy: Add phy attribute "type" and
- associated helpers
-Message-ID: <2026112445-draw-enzyme-628e@gregkh>
-References: <20260913-eusb2-interrupt-v8-v8-0-0f505b9c394b@oss.qualcomm.com>
- <20260913-eusb2-interrupt-v8-v8-2-0f505b9c394b@oss.qualcomm.com>
- <9fa428e0-f685-410c-bcdd-319fd427d2cc@app.fastmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IIAJkJgz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66F521F000CF;
+	Tue, 24 Nov 2026 14:23:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795530238;
+	bh=nZDOUwyEX3ckWETnq0livX5FdWDm3IFYxQpcuyKeRbw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=IIAJkJgznIH2V7j14r2fxrcqXnWasdjh1eRyvcdIO4VxxUUpJvElCxd1niwSicpGs
+	 AdMOfMbtt73bI6OSKiw/UpZGu68Fd2tH/iKInWjMGPbLnx51FH396VfhAMaW4gNtMK
+	 pDxSAkYL9yP3nrBlNkzLGtbBzbmw0oOhKdls7N2rYHduZxEkjOFAESVEe80JOq1AQ7
+	 u/kKs1wVbUTy3Ereaq1/1N1oOa4tQf2uacNyD9NW+xTMoU77vLzU06iQX8DrkmQ7Ar
+	 NzY934ID4z0Zq57r75q1LpP751GPQiqr1I+//cyAKNghUq1kiY246HvwEXS0yis1RM
+	 kVhhTLzOgPnwA==
+From: Mark Brown <broonie@kernel.org>
+To: Maciej Strozek <mstrozek@opensource.cirrus.com>
+Cc: lgirdwood@gmail.com, yung-chuan.liao@linux.intel.com, 
+ pierre-louis.bossart@linux.dev, perex@perex.cz, tiwai@suse.com, 
+ linux-sound@vger.kernel.org, patches@opensource.cirrus.com, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261120162807.1568409-1-mstrozek@opensource.cirrus.com>
+References: <20261120162807.1568409-1-mstrozek@opensource.cirrus.com>
+Subject: Re: [PATCH v2] ASoC: SDCA: Use Function Extension info for FDL
+Message-Id: <179552705489.264265.8821788507436900391.b4-ty@b4>
+Date: Tue, 24 Nov 2026 13:30:54 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,41 +60,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9fa428e0-f685-410c-bcdd-319fd427d2cc@app.fastmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1114; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=H6eGDdSwTZjuuxzB92HyHwty5fWs6Yn9RNV5Gt+z7Lw=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJZ5/5KuHn3aW19WPulc2abtlfuDV3D3tuzS1Vm/pVtz
+ 0qMOE51dJSyMIhxMciKKbLEZXG/rC95vYbv4MI2mDmsTCBDGLg4BWAic/YxMhyOc9j9+//CrJln
+ f3zIiHkw/1vXS/3g1gCmR64dSrqt9QsYGVr4Dv+8dUdug7n23Lue2k9/Lqheyn3LJm3R6RMadeY
+ HC5gA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-On Tue, Nov 24, 2026 at 10:18:06AM +0100, Arnd Bergmann wrote:
-> On Sun, Sep 13, 2026, at 16:40, Krishna Kurapati wrote:
-> 
-> > diff --git a/include/linux/phy/phy.h b/include/linux/phy/phy.h
-> > index ea47975e288a..038c2b58bbe1 100644
-> > --- a/include/linux/phy/phy.h
-> > +++ b/include/linux/phy/phy.h
-> > @@ -21,6 +21,8 @@
-> >  #include <linux/phy/phy-lvds.h>
-> >  #include <linux/phy/phy-mipi-dphy.h>
-> > 
-> > +#include <dt-bindings/phy/phy.h>
-> > +
-> >  struct phy;
-> 
-> This broke the build in linux-next because there are now two conflicting
-> definitions of PHY_TYPE_PCIE visible in drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c:
-> 
-> In file included from include/linux/phy/phy.h:25,
->                  from drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c:15:
-> include/dt-bindings/phy/phy.h:15:33: error: expected identifier before numeric constant
->    15 | #define PHY_TYPE_PCIE           2
->       |                                 ^
-> drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c:47:9: note: in expansion of macro 'PHY_TYPE_PCIE'
->    47 |         PHY_TYPE_PCIE = 1,
->       |         ^~~~~~~~~~~~~
-> 
-> We probably just need to rename the enum values in phy-qcom-uniphy-pcie-28lp.c.
+On Fri, 20 Nov 2026 16:28:07 +0000, Maciej Strozek wrote:
+> ASoC: SDCA: Use Function Extension info for FDL
 
-Already fixed in my tree, should be showing up on next linux-next.
+Applied to
 
-thanks,
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-greg k-h
+Thanks!
+
+[1/1] ASoC: SDCA: Use Function Extension info for FDL
+      https://git.kernel.org/broonie/sound/c/97889ef32b77
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
