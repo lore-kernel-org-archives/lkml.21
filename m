@@ -1,79 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795548563;
-	b=Wu3KRQdauLCDVl5X8v9WS1Bt8qrqwqNTPUOXSs1qGxZxCv6VRc9mzMOAoEy5Wt3VH+CD
-	 IMhuHV8yU0BMDS9jqs9b/aYIvWwSo1VfVQGryCF3Q9cKrwAHpdOY7CHW75MzfbMiwT0nG
-	 nLFmbV9NDa5/bQNgNtIQGT77uY6mpGIXBCW9Z4PHSX9v4+EhVCfNakRr32dLhVsKMBzB8
-	 cuZhJ8hSiKNvi/cTLRu/kdw3ZrC7MM34Z9HXtdtrH76aDmm9XBWXX103X2OXdNRnyhUWM
-	 lKhrNzgw3zAjQbGsNxg6/GqhH3Zor0Genei6r6MhiM58rOCQY3w2Md8HMnuCTK9fK6A==
+	t=1795548568;
+	b=KhH5/xdsGxKCACxf61cRx7X+I6yhFQGIncArmcWqRl0pVyfTXtbObbiDGFLreHNMyDC2
+	 loRhptgnRRLSlaZwIskgMvomE4l2dUWg/wPn7ctJ1O0a03nZ93AXmeWfyRLwmS5e6E0a0
+	 mV1CHxe92RMHScct6JFCkiyF3HR17sbgyvahzfst8Hr8dLdGx68Ks1+a6Ari3i0zAQi4u
+	 OFvYlfkYPmH5Ko3+Inkgdg0XQlCxG1MkGtjfoAadwkvdHolLOX345YSZfXmgpVE+uVCgj
+	 lB1wA40D+zpt3UwAj6+J6xxfU126F1GErRuP0HOk/GXyOfLUlj/vVlCWbKH70wnWiyQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795548563;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795548568;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=h/Y2VRimFh+fCoPctvHHLeBoN3hmhYVmY1/yW9BAWz4=;
-	b=aNe7Hr4yR1A3lfamIexUa+1pV15iM4P/gU3d4wyIQVI1YoXApEHfWvCdJLSAgk49aB68
-	 d1lyDJb/qcXt6ypLUxE2vOd7r7EdkNX4GriEJjg7UTVCxCeG62g9IJzXIJm89hLjQXFAG
-	 arlhcaaUL543nAsiCQyBPW+gIXUCYQ7M0uz/OkzlnpqEok+B8PG/fwcNdxcYHEe+mv9Uw
-	 n4qU6PCXdmbYTmzaq+5XqGLesGMO0kuNuCoLV4jO+fohpuCny6zZAaGmQOORfaDJFHzt4
-	 7LRjLvXW70Mdi5kNnZelDze+HULkn8ONJzDJILpukvxnD3pkpqfT02UqpZOi1w3+YVQ==
+	bh=Jy1neylt+cp4YTrEG01gzCHBY/dd4h8FGy6qmg6zPOA=;
+	b=T5RS8/MFIXti7vnoYUExJo8Rotxl/qn5hhP083EnzabkHtCcRNW39opPBg8MnXZ8bK1R
+	 /opjmjICHLimJePECfvhWWO8ZyhfbFoapZw3oea4vw4d+/OU0bKgAE/WN6MST4w1t/55r
+	 Jae2VQTn6OgA7fNgXYNKpQXStRLYFXnBJum7+qdXKCzhBUbW0sA1e6EAXWW/hcSqksSz6
+	 LZfNBBd+mSZcC7eEOSZszUUGYMW/vCt6eEhX4DovzkGsDJBZ6JTJB9MBD4F3eGQ38+R3o
+	 EwvEPHuCr1Wb9rRrkrR40ZF472NvcztI1Oc8dZsNIkQgUY2d9dpd6N71S1Lej3M0V6A==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NGAC9tdm;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l2VknBrI;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CCA2606A333;
-	Tue, 24 Nov 2026 19:29:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9169D606A68C;
+	Tue, 24 Nov 2026 19:29:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NGAC9tdm
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l2VknBrI
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795548563;
-	b=SZCb1TMSOp4zGK9Y+4gTncYA3GJPuEOhB+l5PQ36DpaO4Hzb/Iwyyco0n0/ZGXg2lyud
-	 ylDhMdIkzXk1yHDfQNHtBycSUEml0OK5fmxZx/IQ02R7kHkKl4Kd7pMHKgq/y5hwsY9Ej
-	 HvahdPIVtNschTjfkOL7Bj/Ttx6a4zhqWMjw9brs8LGe+Gjbx6udgbqXip2vogksuRwHE
-	 LpUnNy9dZr2MKdm5hVRAxQf/79ORxmIKXuTqn32qvek/tki70Aqd5VExrp23NE28iS18C
-	 hyxOTyGY12YpSsgLBLcQcb9i5Y88VXCGIFYVsJ/bfk0WAhK87ZVagSQ1GVa/XV+kU/g==
+	t=1795548568;
+	b=0/WrPEbjEw5zxBVpAlT+KAIww+D0ovH7SzbXEs2hJ48XgxSh+ZARidwBnfKpO6m1guod
+	 agOXRV0QTnSmtOBFiOkbV4LoM7KdkGDdtgO56+8UiG2mWkfwBQS9L80orlPO4WuthVGTD
+	 F9g7aeFrZk9VNGqxzZ3WyWVC9/Srmp771ABc6zf4iQxdaIi2YvRw15fQq4HTDN5/HnGK0
+	 eDZ0M1ZoVUSBXKt8tU3HsTWJ3LxTmHFll9iGc7Bp1sFtR6RPn+kyS8DqYQzbOQortz9e5
+	 fCHRpxxner1fF0hRzF0a3ng3VqkjSc3P7WBOO9HRt4GzVor16YVZZGZ6yoJmQ+TArfA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795548563;
+	c=relaxed/relaxed; t=1795548568;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=h/Y2VRimFh+fCoPctvHHLeBoN3hmhYVmY1/yW9BAWz4=;
-	b=uCOB4+PR4XBiPNA5hWlp9Zwj/0ofj2FHh/GfI4J/nDeWGXpxNQ98KYZXuhXufLN7Ln/a
-	 f6iMcKnKgE8nXcRqdlJ8Og3CARj2mRcU8pEF1ry1Dd9HhkCbkkDg077d1sVuPBPsKBGQz
-	 /4KUSEJJGVeUdfO7qUi7TWCJ5pRyi3JqkOqT0QV33lk3JtoLkmo4slF6MJs5ipbLu1l6I
-	 m+WvwTE0KXN1zIehYzPYvm8gq6mho8MwxtUknAAC8B/lanx9HtZy+e32SB3sL94k7ri7c
-	 WK8FswzXuuX8eKxbqJfM3c/vZVkPuv8vmw2mHfbQduXjVR2x3YQH4wDHGC1HQOCBytA==
+	bh=Jy1neylt+cp4YTrEG01gzCHBY/dd4h8FGy6qmg6zPOA=;
+	b=ICbIhuas9H5LfRenyczPeUFprJ43m/dyowdD0ZXf2dtMenzmQRTH/Zj1uVwjHwpMANWS
+	 85MqW8zql2MJuBXCB+ViIAOJWXQj81bIL2rZ+KJbC/aBb+QHJ6gSXvUnfF9HCLIqR8A2S
+	 8YwWN8q0+81YmLuIXSyc0PvJxSLmA0AkDyKaTAiCKyC4sB1cjhPju64uxbhGDYgUzdDfn
+	 ipaOIeESF+bwAyWWMbh7TR1vVdM0Dtx7Qg99lTLb4iARWV3F4xRB7NormY9UKFJSBidgz
+	 AeGgUTnx7zrXQyqWCmO24DrWrzmIayKDchXIxQM7kthT4Js3o++J8rUnOA8HtoszkLA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id AB7EA1F000F2;
-	Tue, 24 Nov 2026 19:29:12 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id D07841F000D0;
+	Tue, 24 Nov 2026 19:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795548563;
-	bh=h/Y2VRimFh+fCoPctvHHLeBoN3hmhYVmY1/yW9BAWz4=;
+	s=k20260515; t=1795548568;
+	bh=Jy1neylt+cp4YTrEG01gzCHBY/dd4h8FGy6qmg6zPOA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=NGAC9tdmDEMwjDlOxTK3PbZ2U2uJtw9ly/eTYscRkUIaxlw+xrZi3wqjN1qlSLbQD
-	 VQBLZJl0/lDLdZUMWZeCS54bMzFXC4ChUxzDqtDGeDxz7JKVkvIdgRBgzDqkL2sZXO
-	 v+NWQ9Vx6SUo0cRU4piPTs/0rfWDsghl1BLJ/uQ+Lw12p31yLnyTPXE+031Ctgpd39
-	 ZGv0IuQHRDnlQj+ld7LglB099jwbk9oX2X/w9AL4EiiiFFWs7+GupaoS9vmYNLX2qa
-	 k8GUnIU0aeOuxmX7EC0oOtvG6hNgryBkpMFqqujgQoiLyfnxWTe1JvWGIf4RVBwOgp
-	 bmDVWOH5q7SOA==
+	b=l2VknBrIyjMYwzc1m+reNohre/dhdv37RbXywO3vqwUoZM6fiK3NktRUU1gee8EWQ
+	 tJhg4WH8CW4eh1/yIt7ewnlbQeYIBoV3wH34s4qn1/y3LI3XgRBZzFeiKZKnB9AM5n
+	 As1AfkJV2Ki62cygSsQZP57tT/SjOVlQmFUahp52hHp6mPVW3lgGs+TybZ2UzKRG96
+	 rGwLrHqdP88gLlc19Qs3fDT9FuMtCHUaImyISxAxTN9dv7asaV2Wo+qqF5ScqM2lZe
+	 Hhym8s2+/+gdhTIxa5cOw6OjjN27xjYGanZRjM3G/2rV53Cz8pF6+j+pSU1nLlY/Ex
+	 LBsI3qhpdWPbA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 392D94CB71;
+	by lkml.kernel.org (Postfix) with ESMTP id 54E8E4CB75;
 	Tue, 24 Nov 2026 19:29:12 +0000 (UTC)
 From: Alireza Haghdoost via B4 Relay <devnull+haghdoost.uber.com@kernel.org>
-Date: Tue, 24 Nov 2026 11:28:27 -0800
-Subject: [PATCH v9 4/7] perf script: Add --lazy-load-symbols to load symbol
- names lazily
+Date: Tue, 24 Nov 2026 11:28:28 -0800
+Subject: [PATCH v9 5/7] perf report/top: Add --lazy-load-symbols
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +83,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-perf-symbol-memory-send-v9-4-56f298185eae@uber.com>
+Message-Id: <20261124-perf-symbol-memory-send-v9-5-56f298185eae@uber.com>
 References: <20261124-perf-symbol-memory-send-v9-0-56f298185eae@uber.com>
 In-Reply-To: <20261124-perf-symbol-memory-send-v9-0-56f298185eae@uber.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -97,21 +96,21 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Alireza Haghdoost <haghdoost@uber.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=12189;
- i=haghdoost@uber.com; h=from:subject:message-id;
- bh=Fn6dWh25fM8XeseMoNRZqQkumfr1Wuap1WkEd0py2V8=;
- b=owEBiQJ2/ZANAwAIAVNlBDxl2ALYAcsmYgBrBeWFG00fSOUmfHinzrEEQT1V8j6j73nP5Wq8Y
- 9lUVGfepceJAk8EAAEIADkWIQS5+sFL3gX/8PrA0S1TZQQ8ZdgC2AUCawXlhRsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwwLDMACgkQU2UEPGXYAthbww//fZz54ktL7XIgOyDjtmcHc7dVyloYfrP
- ulS+ODG/EJDGVBkZzAjJd7xZqaPqypEokQMpTDm9QBFf9JTZGBtv822Zb3yhA1fJB0UoWKTCXeh
- LUhAEy1ggNNbnfiGcOTSFvOtPi2aHqEW4KqUMAx1omMKNhRDgULP3WOTA6pcvSPZCTqTyhYXl6B
- 57v6743c439Ht086XGO10KE9dYdhiDYFCChEPvSiF6hEfhSsHaP8vZNRvzA0TTkVTxbTCvvlGKM
- wXkA5Xa5boB1P+uAU/UZz2n/VK5Jzr6Azo3Dq80eIqDNYsqocfbmHfKQwenbtjxayKeiIDRKbJJ
- kZUii6eXSSooGQc4huiyuydJo5afelNE6CXNDTCuKCnyIlA/ARBFQ6zaYqXANkmAZLdZUowSPRu
- J7Afvyjrf4333IdGOLe3XaIUpF2kXSm5Q2mQDIvWJNQyPa8r4K15Bcx1TNHey3e+L1K+MS+sCMp
- 2pGJuhRGnT0URIScUrvEjVJDa7XsL9KELI51L/Tznq1rTlEeD/FyTmwz3tVUxtvFWF4AdG/Qdbg
- hc0NKfH+0wBUg5cfhjLzw02hj4daT9tc6N1Z6SjWyvLjCm88ImaIg1z5/EvRWovTx1v2GoJpbQd
- R07mx+j8M1Khp3mBJazNtU+b/Qk3a58T/25k1egwArELvmns2DrE=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4380; i=haghdoost@uber.com;
+ h=from:subject:message-id;
+ bh=ppNlZ3VOcLClwa+EW9IutebfWNly9+u9DmMSRGXy758=;
+ b=owEBiQJ2/ZANAwAIAVNlBDxl2ALYAcsmYgBrBeWGZh4iQF23SP/Y42mypuFVMFz9EAybh/V5y
+ hjctM41xl6JAk8EAAEIADkWIQS5+sFL3gX/8PrA0S1TZQQ8ZdgC2AUCawXlhhsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwwLDMACgkQU2UEPGXYAtizlw/+O2YceLqSGMpr4EXoCF1/P86+mBZY3AE
+ 4c7ar5wUoEjUVE6ghOGrlA+GIEZWtixn6jYxnWVKEIBq+6sB/V9WonqZ0G3O90SMKCKF3PJkG5b
+ 8mJSS6m9AyqN48PPeQyGyZsUs/FzpH9FQDiDCBCkpPEPvT/8aE6Fv1lhWBB+AYT/53u/53b3nRD
+ jFYr+YILHh/EQu/bfUcKLqA8zS/XzE8yClE/0dvX/aUqh0v8hJubeaJl+Ku25GP+99fYi5hSIMB
+ MeNFEXdbidsYmbBg1HYmnTB/F2qd2mM4eWSsOaratdB42RmXRBDxySF6Jy/idO6803UXd3U9SDx
+ jlQbJTte8r03r3IsBfvFhRw3DnwYkn2KWGnZTvKBN8TlTrxKi6ZOXJkRq2Ixv35rxBFWtF85nz2
+ V4TSyegQqUIQzfQvw3Rxilol7g+xS5UHYVcchF5vLaziGpewi2OYLP8zZ4mS1+jfyNh2ZzmkK/0
+ Bs8t6AokLhZAL9vlzVqXvcOidEhfe0EhXemVa9tDtppc2HK6l9GKGMpB9rt/atlkXgLXWTfzl7y
+ xluLmf7lnp+krOYS+Z2PWKcEFjtNKtpCnJDBWGbr/3DFhjOjJV+L6TKSNppULp1bQeAVN93+MlW
+ yb8UIBeE3ek+pcSIEleyVUaVymzz3MF6vHWl634IalBc35mjdz+o=
 X-Developer-Key: i=haghdoost@uber.com; a=openpgp;
  fpr=B9FAC14BDE05FFF0FAC0D12D5365043C65D802D8
 X-Endpoint-Received: by B4 Relay for haghdoost@uber.com/default with
@@ -122,328 +121,95 @@ Content-Transfer-Encoding: 7bit
 
 From: Alireza Haghdoost <haghdoost@uber.com>
 
-This patch adds a --lazy-load-symbols option to perf script. With it,
-the ELF loader creates userspace .symtab and .dynsym symbols with lazy
-names, and perf reads a name only when a lookup returns that symbol.
-Eager loading stays the default.
+This patch adds the --lazy-load-symbols option of perf script to perf
+report and perf top. Like perf script, they load the whole symbol table
+of every DSO that appears in a sample and keep every name until exit.
 
-perf script loads the whole ELF symbol table of every DSO that appears
-in a sample and keeps every symbol, with its demangled name, until exit.
-Most of those symbols are never sampled, and their names take most of
-the memory. On a large profile this is the main memory cost of perf
-script, and in a memory-limited cgroup it gets perf OOM-killed.
+The symbol code already handles both tools. The address lookups that
+build the histogram entries and call chains load the names of the
+symbols they return, and the TUI map browser gets all names from
+dso__named_symbols().
 
-On a 45,073-sample callchain profile of a large C++ service (about 1M
-symbols), lazy loading cuts max RSS from 315 MiB to 164 MiB, with
-identical output. It saves little run time, 1.97 seconds against 2.26,
-because one of the binaries exports most of its symbols, and duplicate
-selection reads the names of each .dynsym copy and of the .symtab
-symbol that it copies.
+perf top reads the names while it runs, which can be long, so a binary
+that is updated in the meantime can show wrong names. The documentation
+of perf top says so.
 
-The loader still creates every symbol, so end fixup, duplicate
-selection, PLT synthesis and IFUNC marking do not change. It uses lazy
-names only if the string table is stored as is in the symbol table file,
-since names are read from it with pread().
-
-A few names are still read at load time: aliases that duplicate
-selection can tell apart only by name, such as the .dynsym copies of
-.symtab symbols, and IFUNC symbols, whose names PLT synthesis uses.
-
-The names are read from the symbol table file while perf script runs,
-at the offsets it had at load time. So the output is the same as with
-eager loading as long as the file does not change in the meantime,
-which is rare.
-
-The kernel, modules, PPC64 .opd and .gnu_debugdata still load names
-eagerly. So does a binary of a process in another mount namespace
-unless it is read from the build-id cache, since names are read in
-perf's own namespace: not every perf top thread can switch namespaces.
-So does a file that dso__load() found through its chroot fallback,
-since perf may not find that file again by the name it builds.
-
+Suggested-by: Namhyung Kim <namhyung@kernel.org>
 Signed-off-by: Alireza Haghdoost <haghdoost@uber.com>
 ---
- tools/perf/Documentation/perf-script.txt |   9 +++
- tools/perf/builtin-script.c              |   2 +
- tools/perf/util/symbol-elf.c             | 129 ++++++++++++++++++++++++++++---
- tools/perf/util/symbol.c                 |   3 +
- tools/perf/util/symsrc.h                 |   2 +
- 5 files changed, 134 insertions(+), 11 deletions(-)
+ tools/perf/Documentation/perf-report.txt |  9 +++++++++
+ tools/perf/Documentation/perf-top.txt    | 10 ++++++++++
+ tools/perf/builtin-report.c              |  2 ++
+ tools/perf/builtin-top.c                 |  2 ++
+ 4 files changed, 23 insertions(+)
 
-diff --git a/tools/perf/Documentation/perf-script.txt b/tools/perf/Documentation/perf-script.txt
-index f0228e784ced..844167017521 100644
---- a/tools/perf/Documentation/perf-script.txt
-+++ b/tools/perf/Documentation/perf-script.txt
-@@ -343,6 +343,15 @@ include::itrace.txt[]
+diff --git a/tools/perf/Documentation/perf-report.txt b/tools/perf/Documentation/perf-report.txt
+index e145124d6c9a..b8c34bb4cd74 100644
+--- a/tools/perf/Documentation/perf-report.txt
++++ b/tools/perf/Documentation/perf-report.txt
+@@ -347,6 +347,15 @@ OPTIONS
  
-         Default: 127
+ 	Default: 127
  
 +--lazy-load-symbols::
 +	Read and demangle userspace ELF symbol names only when perf needs
 +	them. By default, perf reads every symbol name from each binary
 +	referenced by a sample. This option reduces memory use when samples
 +	reference only a small fraction of a large binary's symbols. The
-+	names are read from the binaries while perf script runs, so the
++	names are read from the binaries while perf report runs, so the
 +	binaries must not change in the meantime. If a binary cannot be
 +	opened when a name is needed, perf shows that symbol as unknown.
 +
- --ns::
- 	Use 9 decimal places when displaying time (i.e. show the nanoseconds)
+ -G::
+ --inverted::
+         alias for inverted caller based call graph.
+diff --git a/tools/perf/Documentation/perf-top.txt b/tools/perf/Documentation/perf-top.txt
+index c5e96da6ed82..9ec039c8e0b9 100644
+--- a/tools/perf/Documentation/perf-top.txt
++++ b/tools/perf/Documentation/perf-top.txt
+@@ -218,6 +218,16 @@ Default is to monitor all CPUS.
  
-diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
-index b6691ebb1b4e..88aaf9cfd132 100644
---- a/tools/perf/builtin-script.c
-+++ b/tools/perf/builtin-script.c
-@@ -4287,6 +4287,8 @@ int cmd_script(int argc, const char **argv)
- 		     "Set the maximum stack depth when parsing the callchain, "
- 		     "anything beyond the specified depth will be ignored. "
- 		     "Default: kernel.perf_event_max_stack or " __stringify(PERF_MAX_STACK_DEPTH)),
+ 	Default: /proc/sys/kernel/perf_event_max_stack when present, 127 otherwise.
+ 
++--lazy-load-symbols::
++	Read and demangle userspace ELF symbol names only when perf needs
++	them. By default, perf reads every symbol name from each binary
++	referenced by a sample. This option reduces memory use when samples
++	reference only a small fraction of a large binary's symbols. The
++	names are read from the binaries while perf top runs, so a binary
++	that is updated in the meantime can show wrong names. If a binary
++	cannot be opened when a name is needed, perf shows that symbol as
++	unknown.
++
+ --ignore-callees=<regex>::
+         Ignore callees of the function(s) matching the given regex.
+         This has the effect of collecting the callers of each such
+diff --git a/tools/perf/builtin-report.c b/tools/perf/builtin-report.c
+index 6672a4d16529..8ca54463a84b 100644
+--- a/tools/perf/builtin-report.c
++++ b/tools/perf/builtin-report.c
+@@ -1414,6 +1414,8 @@ int cmd_report(int argc, const char **argv)
+ 		    "Set the maximum stack depth when parsing the callchain, "
+ 		    "anything beyond the specified depth will be ignored. "
+ 		    "Default: kernel.perf_event_max_stack or " __stringify(PERF_MAX_STACK_DEPTH)),
 +	OPT_BOOLEAN(0, "lazy-load-symbols", &symbol_conf.lazy_load_symbols,
 +		    "Read symbol names only when they are needed"),
- 	OPT_BOOLEAN(0, "reltime", &reltime, "Show time stamps relative to start"),
- 	OPT_BOOLEAN(0, "deltatime", &deltatime, "Show time stamps relative to previous event"),
- 	OPT_BOOLEAN('I', "show-info", &show_full_info,
-diff --git a/tools/perf/util/symbol-elf.c b/tools/perf/util/symbol-elf.c
-index 4b9deea65b09..e623fb04cfba 100644
---- a/tools/perf/util/symbol-elf.c
-+++ b/tools/perf/util/symbol-elf.c
-@@ -12,6 +12,7 @@
- #include "libbfd.h"
- #include "map.h"
- #include "maps.h"
-+#include "namespaces.h"
- #include "symbol.h"
- #include "symsrc.h"
- #include "machine.h"
-@@ -1396,6 +1397,7 @@ int symsrc__init(struct symsrc *ss, struct dso *dso, const char *name,
- 	ss->fd     = fd;
- 	ss->ehdr   = ehdr;
- 	ss->type   = type;
-+	ss->chroot = false;
- 
- 	return 0;
- 
-@@ -1716,6 +1718,70 @@ void dso__load_symbol_names(struct dso *dso, struct symbol **syms, size_t nr)
- 	}
- }
- 
-+/*
-+ * symbols__fixup_duplicate() compares the names of symbols at the same
-+ * address only when their size, type and binding tie. Load those names.
-+ */
-+static int dso__load_alias_names(struct dso *dso, int fd)
-+{
-+	struct symbols *symbols = dso__symbols(dso);
-+	unsigned int i, end, a, b;
-+	int err = 0;
-+
-+	symbols__sort_read_lock(symbols);
-+	for (i = 0; i < symbols->cnt && !err; i = end) {
-+		for (end = i + 1; end < symbols->cnt &&
-+		     symbols->symbols[end]->start == symbols->symbols[i]->start; end++)
-+			;
-+		for (a = i; a < end && !err; a++) {
-+			for (b = a + 1; b < end && !err; b++) {
-+				struct symbol *pair[2] = {
-+					symbols->symbols[a], symbols->symbols[b]
-+				};
-+
-+				if (symbol__choice_needs_names(pair[0], pair[1]))
-+					err = read_symbol_names(dso, fd, pair, 2);
-+			}
-+		}
-+	}
-+	up_read(&symbols->lock);
-+	return err;
-+}
-+
-+/* PLT synthesis names IRELATIVE slots after IFUNC symbols. Load those names. */
-+static int dso__load_ifunc_names(struct dso *dso, int fd)
-+{
-+	struct symbols *symbols = dso__symbols(dso);
-+	int err = 0;
-+
-+	symbols__sort_read_lock(symbols);
-+	for (unsigned int i = 0; i < symbols->cnt && !err; i++) {
-+		struct symbol *pos = symbols->symbols[i];
-+
-+		if (symbol__type(pos) == STT_GNU_IFUNC || symbol__ifunc_alias(pos))
-+			err = read_symbol_names(dso, fd, &pos, 1);
-+	}
-+	up_read(&symbols->lock);
-+	return err;
-+}
-+
-+/*
-+ * dso__load_symbol_names() builds the file name again and opens it in perf's
-+ * mount namespace. At load time, perf opened the same file there if it is in
-+ * the build-id cache or if the DSO needs no namespace switch, unless perf
-+ * found it through the chroot fallback.
-+ */
-+static bool dso__can_reopen_symtab(struct dso *dso, struct symsrc *ss)
-+{
-+	struct nsinfo *nsi = dso__nsinfo(dso);
-+
-+	if (ss->chroot)
-+		return false;
-+	return (ss->type == DSO_BINARY_TYPE__BUILD_ID_CACHE ||
-+		ss->type == DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO ||
-+		!nsi || !nsinfo__need_setns(nsi));
-+}
-+
- static int
- dso__load_sym_internal(struct dso *dso, struct map *map, struct symsrc *syms_ss,
- 		       struct symsrc *runtime_ss, int kmodule, int dynsym)
-@@ -1733,11 +1799,23 @@ dso__load_sym_internal(struct dso *dso, struct map *map, struct symsrc *syms_ss,
- 	GElf_Sym sym;
- 	Elf_Scn *sec, *sec_strndx;
- 	Elf *elf;
--	int nr = 0;
-+	int nr = 0, nr_lazy = 0;
- 	bool remap_kernel = false, adjust_kernel_syms = false;
- 	u64 max_text_sh_offset = 0;
- 	struct elf_phdr_cache phdr_cache = {};
- 	struct elf_sec_cache_entry sec_cache[ELF_SEC_CACHE_SIZE];
-+	/*
-+	 * Names are read later from the file of dso__symtab_type(). The
-+	 * .gnu_debugdata symbol table is a temporary file.
-+	 */
-+	bool lazy_allowed = (symbol_conf.lazy_load_symbols && !dso__kernel(dso) &&
-+			     dso__lazy_names(dso) != DSO_LAZY_NAMES__EAGER &&
-+			     syms_ss->type == dso__symtab_type(dso) &&
-+			     syms_ss->type != DSO_BINARY_TYPE__GNU_DEBUGDATA &&
-+			     dso__can_reopen_symtab(dso, syms_ss) &&
-+			     !runtime_ss->opdsec);
-+	bool lazy_names = false;
-+	GElf_Shdr strshdr;
- 
- 	if (kmap && !kmaps)
- 		return -1;
-@@ -1773,6 +1851,11 @@ dso__load_sym_internal(struct dso *dso, struct map *map, struct symsrc *syms_ss,
- 	if (symstrs == NULL)
- 		goto out_elf_end;
- 
-+	/* Names are read with pread(), so the string table must be stored as is. */
-+	if (lazy_allowed && gelf_getshdr(sec, &strshdr) &&
-+	    strshdr.sh_type == SHT_STRTAB && !(strshdr.sh_flags & SHF_COMPRESSED))
-+		lazy_names = true;
-+
- 	sec_strndx = elf_getscn(runtime_ss->elf, runtime_ss->ehdr.e_shstrndx);
- 	if (sec_strndx == NULL)
- 		goto out_elf_end;
-@@ -2011,16 +2094,24 @@ dso__load_sym_internal(struct dso *dso, struct map *map, struct symsrc *syms_ss,
- 			}
- 		}
- 
--		if (!elf_name)
--			elf_name = elf_sym__name(&sym, symstrs);
--		demangled = dso__demangle_sym(dso, kmodule, elf_name);
--		if (demangled != NULL)
--			elf_name = demangled;
--
--		f = symbol__new(sym.st_value, sym.st_size,
--				GELF_ST_BIND(sym.st_info),
--				GELF_ST_TYPE(sym.st_info), elf_name);
--		free(demangled);
-+		if (lazy_names && sym.st_name < strshdr.sh_size) {
-+			f = symbol__new_lazy(sym.st_value, sym.st_size,
-+					     GELF_ST_BIND(sym.st_info),
-+					     GELF_ST_TYPE(sym.st_info),
-+					     strshdr.sh_offset + sym.st_name);
-+			nr_lazy++;
-+		} else {
-+			if (!elf_name)
-+				elf_name = elf_sym__name(&sym, symstrs);
-+			demangled = dso__demangle_sym(dso, kmodule, elf_name);
-+			if (demangled != NULL)
-+				elf_name = demangled;
-+
-+			f = symbol__new(sym.st_value, sym.st_size,
-+					GELF_ST_BIND(sym.st_info),
-+					GELF_ST_TYPE(sym.st_info), elf_name);
-+			free(demangled);
-+		}
- 		if (!f)
- 			goto out_elf_end;
- 
-@@ -2032,10 +2123,19 @@ dso__load_sym_internal(struct dso *dso, struct map *map, struct symsrc *syms_ss,
- 	}
- 	dso__put(curr_dso);
- 	elf_phdr_cache__exit(&phdr_cache);
-+
-+	if (nr_lazy) {
-+		dso__set_lazy_names(dso, DSO_LAZY_NAMES__PENDING);
-+		pr_debug2("%s: %d %s symbols with lazy names\n", dso__long_name(dso),
-+			  nr_lazy, dynsym ? ".dynsym" : ".symtab");
-+	}
- 	return nr;
- out_elf_end:
- 	dso__put(curr_dso);
- 	elf_phdr_cache__exit(&phdr_cache);
-+	/* The symbols inserted before the error stay in the DSO. */
-+	if (nr_lazy)
-+		dso__set_lazy_names(dso, DSO_LAZY_NAMES__PENDING);
- 	return -1;
- }
- 
-@@ -2102,9 +2202,16 @@ int dso__load_sym(struct dso *dso, struct map *map, struct symsrc *syms_ss,
- 	if (nr > 0) {
- 		struct kmap *kmap = dso__kernel(dso) ? map__kmap(map) : NULL;
- 		struct maps *kmaps = kmap ? map__kmaps(map) : NULL;
-+		/* Lazy names are only in syms_ss. */
-+		bool lazy = (dso__lazy_names(dso) == DSO_LAZY_NAMES__PENDING);
- 
- 		symbols__fixup_end(dso__symbols(dso), false);
-+		if (lazy && !symbol_conf.allow_aliases &&
-+		    dso__load_alias_names(dso, syms_ss->fd))
-+			return -1;
- 		symbols__fixup_duplicate(dso__symbols(dso));
-+		if (lazy && dso__load_ifunc_names(dso, syms_ss->fd))
-+			return -1;
- 		if (kmap) {
- 			/*
- 			 * We need to fixup this here too because we create new
-diff --git a/tools/perf/util/symbol.c b/tools/perf/util/symbol.c
-index e1310f950d3d..d6a841dadcad 100644
---- a/tools/perf/util/symbol.c
-+++ b/tools/perf/util/symbol.c
-@@ -2394,6 +2394,7 @@ int dso__load(struct dso *dso, struct map *map)
- 		bool next_slot = false;
- 		bool is_reg;
- 		bool nsexit;
-+		bool chroot = false;
- 		int bfdrc = -1;
- 		int sirc = -1;
- 
-@@ -2419,6 +2420,7 @@ int dso__load(struct dso *dso, struct map *map)
- 				is_reg = is_regular_file(new_name);
- 				strlcpy(name, new_name, PATH_MAX);
- 				free(new_name);
-+				chroot = true;
- 			}
- 		}
- 
-@@ -2440,6 +2442,7 @@ int dso__load(struct dso *dso, struct map *map)
- 
- 		if (!is_reg || sirc < 0)
- 			continue;
-+		ss->chroot = chroot;
- 
- 		if (!syms_ss && symsrc__has_symtab(ss)) {
- 			syms_ss = ss;
-diff --git a/tools/perf/util/symsrc.h b/tools/perf/util/symsrc.h
-index edf82028c9e6..94f51dfaef64 100644
---- a/tools/perf/util/symsrc.h
-+++ b/tools/perf/util/symsrc.h
-@@ -16,6 +16,8 @@ struct symsrc {
- 	char		     *name;
- 	int		     fd;
- 	enum dso_binary_type type;
-+	/* Found through the chroot fallback of dso__load(). */
-+	bool		     chroot;
- 
- #ifdef HAVE_LIBELF_SUPPORT
- 	Elf		     *elf;
+ 	OPT_BOOLEAN('G', "inverted", &report.inverted_callchain,
+ 		    "alias for inverted call graph"),
+ 	OPT_CALLBACK(0, "ignore-callees", NULL, "regex",
+diff --git a/tools/perf/builtin-top.c b/tools/perf/builtin-top.c
+index a79230b81300..02363e5c6460 100644
+--- a/tools/perf/builtin-top.c
++++ b/tools/perf/builtin-top.c
+@@ -1589,6 +1589,8 @@ int cmd_top(int argc, const char **argv)
+ 	OPT_INTEGER(0, "max-stack", &top.max_stack,
+ 		    "Set the maximum stack depth when parsing the callchain. "
+ 		    "Default: kernel.perf_event_max_stack or " __stringify(PERF_MAX_STACK_DEPTH)),
++	OPT_BOOLEAN(0, "lazy-load-symbols", &symbol_conf.lazy_load_symbols,
++		    "Read symbol names only when they are needed"),
+ 	OPT_CALLBACK(0, "ignore-callees", NULL, "regex",
+ 		   "ignore callees of these functions in call graphs",
+ 		   report_parse_ignore_callees_opt),
 
 -- 
 Git-157)
