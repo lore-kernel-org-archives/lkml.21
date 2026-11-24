@@ -1,47 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795496688;
-	b=mppL1ieUCh6iok6xE+b9B3hmGMWdhJNzk7JWVHcVyxHPvF3FN6y2vw/fNokCBzFL5rbS
-	 9YDF6DR2HENHqaE3x+Cvz2z1B+44AcuNjwt15+q6B2fXINrO/+k3tZxztaL2zcJmTImqM
-	 pyuqzdzoU1w91BqQ4l5n94YMI9Yxz/WOKFL821vZqt7dIcV6FUSEp7cfS72CnMTRKDit5
-	 hBpoqVdBvYQfOkFy4MZGQ1TdLKHr6RQ8U/ScSXhF6Y/nG3+TlmvmyWea7Q3xdmR7tRfCA
-	 ELTZWomUxcwXgtc4qPXbEql1ojfIvzdECse6bEhDUe8pW1TKNQwkkQ1QFvEXOE7B6Cw==
+	t=1795497189;
+	b=qHmKzBg8H9w+FT9g6EC75QaXHecojYEnvxUA4M60GbIUx6VZpl5PjNxCamvoNDCd9f0H
+	 K4/26q0Sxhy/rE9XjtEF7u4xBD9t4OZ0vQL/B4a/1wiPAAl/27inNCwt/KuSnUUclJrlF
+	 8/TIJrEg4DpCPN3Zy1xL2ylVwqAhZ3NKmiM55pD/Om2xcxPJhlHD6VopCSDCh76CPyS2Z
+	 3MNIVbEsATx7z02Crc0agvUeueHBaPVRQaYpaO5DfEA8tWORWkPUfpxGc3TKlzsJvJzzB
+	 Xz1a5kcPsRWN5eLWfuXKlBytaBIPyaIesr150R6awr/G1nFZIgM0IGzzoabkrRfs37A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795496688;
-	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-CM-SenderInfo:X-Coremail-Antispam;
-	bh=S9siEsISEhUmobrHfk43GWP8sT+YJJExitvIuJS0LwQ=;
-	b=QyOD/i4fByLw3tazZ/Cc9R5pYXwlJW8duRtSNdNaq17zY0uVlstQ9SP7tWQI2y01exCZ
-	 pxlTBoSYZCgxWh/ErHDCCoHmYDrMxOiuM02EwU+ko1U+n+laB54eKV+fp341kUYW6FW/U
-	 QPivGeZceLdZ+Iz7NPElY4xb4xtnmqsEk7SL3i3ysmasolbiUxqRY3tnBoEZGzomhcLot
-	 C+tO5j94yWrWSWrWmrrl3asa9cLIN9PS6POpDHcodTD/mpsOfSHNK2AN592ehvfju1UD1
-	 OBLv0n9jw0F1iva7LnSKCCT0p9g3libKIMcP/tHs4VDIakHAHCFsZPSqUaCKjxdszmg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795497189;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=fbuF9hlpTG6s4GxKA4A2ztm7Dabcy2UDtXz43/cyP3I=;
+	b=2xLAhLXAEls/HSDxN4/M4fN+IzNKHUoMHx8tzc9MebNpIr7nFzvz4LYhyzuQ0ekFRDfZ
+	 pK8mOytKnb/Hzdgh16g7HW3kwxjMdJjWNZuS0trEoFGAKYWX/mlN50bVRoH1QMiSwrk8U
+	 1gmIFd8gr5Pla4BQ1pAefLxokEKwxn7OnCQq8OfclInbO/bEHidlQ+rdIloJUOtRtgfJN
+	 xqEtRRomRwkLNNz6nJWTAVANab9mUfI8KHwEIKhFA5xzGSJ6xNt7X6BLM95RT4hLKnns8
+	 VoBUMZM8jMNzvdwEpkJYmes6RC8atXILzYtA/3CWHTVr0Mhs05I3FQxhfGTz1AuIvjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=loongson.cn;
-	spf=pass smtp.mailfrom=loongson.cn;
-	arc=none smtp.remote-ip=114.242.206.163
-Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id F1EED606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:04:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1EED606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
-Received: from loongson.cn (unknown [123.138.236.242])
-	by gateway (Coremail) with SMTP id _____8AxS_DmGgVrf3UiAA--.32707S3;
-	Tue, 24 Nov 2026 13:04:38 +0800 (CST)
-Received: from linux.localdomain (unknown [123.138.236.242])
-	by front1 (Coremail) with SMTP id qMiowJCxNs3lGgVr3_82AA--.30298S2;
-	Tue, 24 Nov 2026 13:04:38 +0800 (CST)
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-To: Huacai Chen <chenhuacai@kernel.org>,
-	Hengqi Chen <hengqi.chen@gmail.com>
-Cc: loongarch@lists.linux.dev,
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NxINg8c1;
+	arc=none smtp.remote-ip=209.85.215.171
+Received: from mail-pg1-f171.google.com (mail-pg1-f171.google.com [209.85.215.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FB72606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:13:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1FB72606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NxINg8c1
+Received: by mail-pg1-f171.google.com with SMTP id 41be03b00d2f7-cdb75699c7cso1558373a12.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:13:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795497188; x=1796101988; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=fbuF9hlpTG6s4GxKA4A2ztm7Dabcy2UDtXz43/cyP3I=;
+        b=NxINg8c1AgfCXWKbfYOFtB3nsOrEWsWzdTKChb67uX2acyICeLVFgrKZfC5ZgKZlc9
+         ALuua28Lx/xqPHr75cmIAvyseAdStvWw2xmWDlxMVkWm4DgpA4Hn/VKZKp9iR+d/Tq6i
+         /1MFBMpkcnxfJBLbgnOCGJAD1jjfMeirjxjS00/H6PcZViIgU4d+GUcEB/zI29SDWp/1
+         2TOTuCte/pjie357Iv1QRJfbaqsw1oCwEuhle8D56dkOwXVnOP5N9DFUGFtKP9FGclep
+         Wo8bSfetxsDWh03unjWp69ff1qhJuyFtthDOnrblcnR/0EYBJko2Sm+8eUecTj3rrUb/
+         RoGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795497188; x=1796101988;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fbuF9hlpTG6s4GxKA4A2ztm7Dabcy2UDtXz43/cyP3I=;
+        b=ubOCG7dm30ZN48M+anp5agSOxfrQoZqwd3SqOCEXonr346K9KOX38O8z789nBNATd0
+         DauRhP/Oxa2yFGYVF3EkLjd8ST8S3nxCu4fsGCYBrLyNJideUIk08PGMwaEFBcz8GpxX
+         6HKrjmV8xtF7t4YA6RvaIlfQ2zYDuK5lE3WPb9kOeYHsOQdQPD+ML0tUACRUMueWYdZH
+         qHsbcba5TTZdivLD8PKn5KLt6sAG9d/yjgVMfX6TE7eQdgt8HEapNyFOSt7fIzwEm6eq
+         zFd1mKVlNDrqEZcIQXAgTs1nQOqGgZx6px/B7/YlngT+Jwf6/tZZi3Go5iWPStzm3lgt
+         6zFw==
+X-Forwarded-Encrypted: i=1; AL+hErE+W8O+Xq04jJtzVJHMsiGRPuo1eBnimWJLL8vpZs6w3OxwWU/nY1iULnS6tRHbksgBeongXydLqr9cCW8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+ltdUVN/MEPp+xnVQkBV2ivqfct8J2TdA0qvHaUbY/dIbpaQZu
+	Bv5DsEL3fwvfpXa7pKr992iaQGZmKp+mdjGNlApmW5sCWn+qt3Ggit6s
+X-Gm-Gg: AZFdTZdHjUFP6SrqDWgY9y73bcoOtUbnyAwS6A0VLyr+er+XKGQTdIKhS26XJNkwK6+
+	f0CQWLh6jKInad2VObv8aiyFuJl2Qg//aFSTHm1BAN5gVB26Qz/yaTJ4HlGXTahAGHKJVdLKnHf
+	5FE309dYdNVMz2tsDfoD3vtZ+7NU4cJO6C2ForSl/Y4Bblr3cBuw9KqLZxbsjb1iVgOLC9asRuY
+	4JT5/f4dfcp3gYbenhgAvDOMJy2mAI0TeSmDNjBRhzo4W9vge4YJTA41eLCZJE/67r3hBW3rjro
+	G0aDktORVzPy6TYwtqBu+xsCceF1xGAbLOtwtlYca1p/5CCr1mTMS2v3Na98npeUPOBuHldhDbI
+	kNjLHNS9LZAasThgV+DpBFuABDTb5OUIoqTSkoNCQUmlEkBIkWdRFo+CApeBojQ6F1JSNXgj3AB
+	evbq5vGD7MptPJp1qw6tpcBG1VIzGes7+T60mvRQVuEV1jgTsEAGGjl6wwm4ak9Zl8Qpm0j5WSc
+	AXSkuN0UqKUAFz173Z+i5CVwhZvWkwX+KabUwNHf+iOeXonoXFOnwgW6g5EvdQ/INe/24Ekfhej
+	fUO8wTV2avF5ntL42SNJDpdW7IfJm3NMF/r6ORn7TjhrsierDRxbihwms4xfo+4HqHU=
+X-Received: by 2002:a17:90b:4d10:b0:3ac:9176:e836 with SMTP id 98e67ed59e1d1-3b41c8d4860mr12118607a91.21.1795497188321;
+        Mon, 23 Nov 2026 21:13:08 -0800 (PST)
+Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b704cfesm7500992a91.1.2026.11.23.21.13.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 21:13:07 -0800 (PST)
+From: Kyuwon Cho <kyuwoncho18@gmail.com>
+To: netdev@vger.kernel.org
+Cc: Jay Vosburgh <jv@jvosburgh.net>,
+	Hangbin Liu <hangbin.liu@linux.dev>,
+	Nikolay Aleksandrov <razor@blackwall.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH RFC] LoongArch: BPF: Add support for UHMUL and SHMUL
-Date: Tue, 24 Nov 2026 13:04:37 +0800
-Message-ID: <20261124050437.392-1-yangtiezhu@loongson.cn>
-X-Mailer: git-send-email 2.42.0
+Subject: [PATCH net-next v4 0/1] bonding: keep non-Ethernet slaves out of 802.3ad bonds
+Date: Tue, 24 Nov 2026 14:13:02 +0900
+Message-ID: <179549697473.218888.8044828119056769556@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,103 +101,43 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:qMiowJCxNs3lGgVr3_82AA--.30298S2
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBj93XoW7uFy3uw1rtw17XF47CF1kCrX_yoW5JFy3pr
-	ZFkrn5Crs5XFySqF9rJwsrur43tan3Cry2qF1ayayfJrW3Xa45XF18KwnrKFZ3JaykXFsY
-	gr429rn8uFy3J3gCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUkYb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r106r15M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv6xkF7I0E14v2
-	6r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44I27w
-	Aqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE
-	14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCF04k20xvY0x
-	0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E
-	7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcV
-	C0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF
-	04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7
-	CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU8czVUUUUUU==
 
-Implement JIT lowering for UHMUL and SHMUL on LoongArch by utilizing
-hardware multiplication instructions MULH.{DU,D} and enabling support
-via bpf_jit_supports_hmul().
+bond_open() adds the 8-byte lacpdu_mcast_addr to every slave of an
+802.3ad bond, so a slave whose addr_len is 16, such as an ip6tnl device,
+makes dev_mc_add() read past it. The patch rejects such a slave at
+enslave time in every case and stops a slave of an 802.3ad bond from
+changing its type afterwards.
 
-Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
----
-Not tested yet, just RFC.
+The issue was found by an LLM-guided test generator that we are
+developing as a research prototype.
 
- arch/loongarch/include/asm/inst.h |  2 ++
- arch/loongarch/net/bpf_jit.c      | 24 ++++++++++++++++++++++--
- 2 files changed, 24 insertions(+), 2 deletions(-)
+v4:
+- Target net-next (Nikolay).
+- Merge the two patches into one (Hangbin).
+- Drop the Reviewed-by tags of Eric and Hangbin, as the patch changed.
+- Keep the type change veto to 802.3ad. Refusing type changes after
+  enslave in every mode, as Nikolay noted, would only affect nested
+  non-Ethernet setups and can be discussed separately.
+v3: https://lore.kernel.org/netdev/179535729502.2645501.5219010464870440@gmail.com/
+- Add a patch that refuses NETDEV_PRE_TYPE_CHANGE for 802.3ad slaves
+  (Sashiko review).
+v2: https://lore.kernel.org/netdev/179505868590.3571070.12381528230330714812@gmail.com/
+- Move the check above the type handling, as Jay suggested.
+v1: https://lore.kernel.org/netdev/179500849159.1877154.14715369660816392826@gmail.com/
 
-diff --git a/arch/loongarch/include/asm/inst.h b/arch/loongarch/include/asm/inst.h
-index e061f966f7d1..fd6b39d5f0d0 100644
---- a/arch/loongarch/include/asm/inst.h
-+++ b/arch/loongarch/include/asm/inst.h
-@@ -777,6 +777,8 @@ DEF_EMIT_REG3_FORMAT(subw, subw_op)
- DEF_EMIT_REG3_FORMAT(subd, subd_op)
- DEF_EMIT_REG3_FORMAT(mulw, mulw_op)
- DEF_EMIT_REG3_FORMAT(muld, muld_op)
-+DEF_EMIT_REG3_FORMAT(mulhd, mulhd_op)
-+DEF_EMIT_REG3_FORMAT(mulhdu, mulhdu_op)
- DEF_EMIT_REG3_FORMAT(divw, divw_op)
- DEF_EMIT_REG3_FORMAT(divd, divd_op)
- DEF_EMIT_REG3_FORMAT(modw, modw_op)
-diff --git a/arch/loongarch/net/bpf_jit.c b/arch/loongarch/net/bpf_jit.c
-index 567729921d6d..b12da3e422c6 100644
---- a/arch/loongarch/net/bpf_jit.c
-+++ b/arch/loongarch/net/bpf_jit.c
-@@ -683,6 +683,21 @@ static int add_exception_handler(const struct bpf_insn *insn,
- 	return 0;
- }
- 
-+static void emit_various_muld(struct jit_ctx *ctx, u8 dst, u8 src, s16 off)
-+{
-+	switch (off) {
-+	case BPF_UHMUL:
-+		emit_insn(ctx, mulhdu, dst, dst, src);
-+		break;
-+	case BPF_SHMUL:
-+		emit_insn(ctx, mulhd, dst, dst, src);
-+		break;
-+	default:
-+		emit_insn(ctx, muld, dst, dst, src);
-+		break;
-+	}
-+}
-+
- static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx, bool extra_pass)
- {
- 	u8 tm = -1;
-@@ -804,7 +819,7 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx, bool ext
- 		emit_insn(ctx, mulw, dst, dst, src);
- 		break;
- 	case BPF_ALU64 | BPF_MUL | BPF_X:
--		emit_insn(ctx, muld, dst, dst, src);
-+		emit_various_muld(ctx, dst, src, off);
- 		break;
- 
- 	/* dst = dst * imm */
-@@ -814,7 +829,7 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx, bool ext
- 		break;
- 	case BPF_ALU64 | BPF_MUL | BPF_K:
- 		move_imm(ctx, t1, imm);
--		emit_insn(ctx, muld, dst, dst, t1);
-+		emit_various_muld(ctx, dst, t1, off);
- 		break;
- 
- 	/* dst = dst / src */
-@@ -2571,3 +2586,8 @@ bool bpf_jit_supports_callx(void)
- {
- 	return true;
- }
-+
-+bool bpf_jit_supports_hmul(void)
-+{
-+	return true;
-+}
+The patch was written with LLM assistance; we reviewed and tested it.
+With it, neither the direct nor the nested reproducer triggers the
+report. Enslaving Ethernet devices into an 802.3ad bond, a non-Ethernet
+device into an active-backup bond, and the type change of a bond
+enslaved to a balance-rr bond, as in bond-eth-type-change.sh, work as
+before.
+
+Kyuwon Cho (1):
+  bonding: keep non-Ethernet slaves out of 802.3ad bonds
+
+ drivers/net/bonding/bond_main.c | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
+
 -- 
-2.42.0
+2.43.0
 
