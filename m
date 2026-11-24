@@ -1,66 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795557216;
-	b=GUy8KZgkiX0DVqhhlfJwDZ9XfJBBuauH8K1qHgxgalNeJZT0TiC35v1XQGmSEm9L+9oY
-	 xPMTy5x5ZOBZt4Hc4508hadQ8aqLpalBTJkMajsMlEYDhdFcbmvb0T2nsGyaKpq1aYf8F
-	 ofFYOdDTRxPGxCCvcKcjsKXoYZS1dFJMQviT9OkV8UfHdGBR1nqrY8fFIJMRCBQ/VNERj
-	 oKxD0GE+De+WsO8B8lLT0xQmDnKdSvhsxSeBJdy8go/OgGXXa1xivQGsMqIP6QXAAKTs4
-	 uTiH5ysvZZC/mu34JCyyk6b8FzfUTJGexFJc7ZkQfblaksq8sJ2h5IiDuUyyzKRhWnA==
+	t=1795557212;
+	b=tTmryI451MRJiPQJk85YvjigDeDX1cMNTN4JTM83O6BiZ4lJ8yDJeZCI8Tya7XXB1xyG
+	 pXd+2PmuGLILdx9lH+MzKwj69vuXFG12NXAe4C3Q335GShCBpcTZtNVuGlXZwzwfg1gK3
+	 bxTqds0yJ5aOcR/6GqCO9RyUmGecoKCOAV7bIFvv6jkXw4rMzmEguvlfdy0tkINPknxbh
+	 Af6rxu0VhlzOcr+KGcJ7DEVbLy5PBLiGDmO5J5nRXR7WLa9HpWh21VkvZy2OyvCi65QrN
+	 dN8RvbwqmwmD/kMPD/WB/gq+TB7VP2tf9skVP8eUBjSIRvw3r2g/A4LdjCOvBVwwxpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795557216;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795557212;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Yw8NPBf5o6liEKlFfs2dKNQyQpy6PgTm37JcdYlh50o=;
-	b=Lc/HSayDTF6EtJz3NEyDLk6wtKQF+5KGnhLbWykhmU47sOmsCYHjLXvp4VT8UgfBaIgx
-	 znobUz8bqZKbMgdFPA8QZZ09znmqo+sz2idpFsINrTOuGZi2PKOVDzmyMayDAW9TMLHAt
-	 7wNXDgWC9n6cY7GdhEVyEF0gtIO7O1ga0Z75Gd2fo0EcNJQL/5c80/QOzN0Wodejo1j4j
-	 k7adBzljl8HSQp6PuNHZQ3nCNK+fF+jgXgFbhHRHfqJyqT/jeh63b4XfiA0rsvAcOk2w1
-	 dhq+BrEKqQzzo/znldilRwy7VLDhiuK1gdJVMGAmdq329Ru+Akj/CF5bGswnhEBjpiw==
+	bh=MqEZ0L3Z2NqTuKZ3CGkVKGAK51a4bRw3t0lA655m6Lc=;
+	b=VhtTT+sn6JvJrUn7PmJprotOnbkHvMB5YlpjbeCNIyGB8MMbaOzgu9oRaxH0xyJgnr5k
+	 mcMRpJStryUvpCeVIjPFnlMG1GwE+GphfnCeE9/8ZfBv7EhwHUweZR3h7RGUd3w89jiV/
+	 vL7uuc0n+4U3r3Fo96uJy1G6s2c9Zo0NNl6SzRZP4aFyKpRc6y5YibrL0Vq0DLWVPQO5s
+	 e/119v9yntAVPbZPfsJIgGJEvcj2m0O+edxPOryRgv4ZxdAQX/rjBN93FX+T+sfuurp3c
+	 mewJAcVEcQ48gRBYGNVGgsx9LvWC8quopo2TixpwD2f/jSdLan6+vBYlP4nGDPjJ+lg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hPTcKmEg;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jQdoNXRP;
 	arc=none smtp.remote-ip=192.198.163.9
 Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91E7960A6F61;
-	Tue, 24 Nov 2026 21:53:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91E7960A6F61
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A902960A3825;
+	Tue, 24 Nov 2026 21:53:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A902960A3825
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hPTcKmEg
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jQdoNXRP
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795557214; x=1827093214;
+  t=1795557211; x=1827093211;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=yjumPIyRQytSNbgIsQv4L2h2dgCrn8I9v0aT9bw0TGo=;
-  b=hPTcKmEgi6G46VYIFNHFYHLnpL/TP61EFFufm0i4jGJQ+HGDGi2FIHhE
-   AQz8YKDtBqpYfFNMTth56P/rIK9xLN2HqIpqlXBZB1f+qkAgPISWiZDup
-   e4pYNrXFBQs5+OTsqSaO/Q/ShmI3Urrh+zi4KB7AhcgVF2pOzjvY+JMaW
-   WIRJizEIjCZ3EeCGN5VTlqWm1U52wD9J2hPSPSBon3OhxVpE944g8tmzr
-   lcGC2DfZBt3Bit8Tqaurp2r2MqwnTPzghoqCQJJeVQ17AfLpZc4Hnahca
-   mypONrRNE1qHvKJucxWlUouZuS8W1/GH3alWRDq6apjtyUtL/C9AjFISc
-   A==;
-X-CSE-ConnectionGUID: rvIFbP71RG+2C2Lze+k2Bw==
-X-CSE-MsgGUID: E42NV3L7SdGHJMv8s62jYQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4306094"
+  bh=dpsveV/TwfxxvNQzkj/30m903fPg+5AwzgIa3UXWH98=;
+  b=jQdoNXRPsDZbO7MiK9kD8CfST7OBJZvpHnXtpM/T18aMW8AMpLbA3tMq
+   KnC1/3ZyAVbgnmeBZLPF89yb6Q99NbAdXJLBj41EzFXe0rMljvrI6d0WW
+   6wMLCgVG194THqmvhSuhZ/2PG+sTw4HRxDV+HTsi1TTolwj9M9JvNu1EW
+   pdmibTWN2J+3HHCvz6cljksFubKEhe7iC8b93gY+Zp/AqgCHZk8vsIGFW
+   yre3I0cxDvESQhpa/TJCa/bVGz/8Ab0KSW3sj36y452TqSgtZwMG1JvP0
+   RXxgy0AlYlDJEApOrvGfNIizHj2R5XP5o1q0315sp72Qc881j/YubpgZt
+   g==;
+X-CSE-ConnectionGUID: w8HUYhx+RMKwElHojFokrA==
+X-CSE-MsgGUID: TVRfX8ZxQOCSJBiC3dN9FA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4306070"
 X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4306094"
+   d="scan'208";a="4306070"
 Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:53:32 -0800
-X-CSE-ConnectionGUID: KOgqveNrRIGnQw4fjtsfpg==
-X-CSE-MsgGUID: OBy51t07RVmyJ4UO6R1LbQ==
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:53:30 -0800
+X-CSE-ConnectionGUID: utKTg6JiSjaKr5afK89ofw==
+X-CSE-MsgGUID: I+IwI/tSS7qcFvob7ktO6A==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="12271970"
+   d="scan'208";a="12271953"
 Received: from 9cc2c43eec6b.jf.intel.com ([10.54.77.29])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:53:31 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:53:30 -0800
 From: Zide Chen <zide.chen@intel.com>
 To: Sean Christopherson <seanjc@google.com>,
 	Paolo Bonzini <pbonzini@redhat.com>,
@@ -77,9 +77,9 @@ Cc: kvm@vger.kernel.org,
 	Shukla Manali <Manali.Shukla@amd.com>,
 	Dapeng Mi <dapeng1.mi@linux.intel.com>,
 	Xudong Hao <xudong.hao@intel.com>
-Subject: [PATCH v10 18/18] KVM: selftests: Add Topdown PERF_METRICS test
-Date: Tue, 24 Nov 2026 14:39:01 -0700
-Message-ID: <20261124213901.120572-19-zide.chen@intel.com>
+Subject: [PATCH v10 14/18] KVM: x86/pmu: Support PERF_METRICS MSR in mediated vPMU
+Date: Tue, 24 Nov 2026 14:38:57 -0700
+Message-ID: <20261124213901.120572-15-zide.chen@intel.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261124213901.120572-1-zide.chen@intel.com>
 References: <20261124213901.120572-1-zide.chen@intel.com>
@@ -94,477 +94,284 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add a dedicated selftest to verify Intel Topdown (PERF_METRICS) support
-under the mediated vPMU.
+From: Dapeng Mi <dapeng1.mi@linux.intel.com>
 
-Verify across PMU versions and capability combinations:
-- Positive Topdown counting.
-- RDPMC Metrics Clear Mode.
-- RDPMC (native and FEP), RDMSR, and WRMSR access to PERF_METRICS.
-- Behavior when fixed counter 3 is absent.
-- Behavior when PERF_CAP_PERF_METRICS is unadvertised.
-- Host userspace save/restore via KVM_SET_MSRS and KVM_GET_MSRS.
+Expose IA32_PERF_CAPABILITIES.PERF_METRICS_AVAILABLE[bit 15] only when
+mediated vPMU is enabled, as emulating IA32_PERF_METRICS in the legacy
+vPMU model is impractical.
 
+Enabling Topdown metrics in hardware requires both IA32_PERF_METRICS
+and fixed counter 3 (SLOTS). Therefore, gate MSR passthrough and
+hardware context switching on fixed counter 3 in addition to guest
+IA32_PERF_CAPABILITIES.PERF_METRICS_AVAILABLE[bit 15].
+
+Architecturally, IA32_PERF_METRICS can be partly decoupled from fixed
+counter 3. In that case, keep the MSR intercepted and treat all metric
+fields as reserved (~0ull): reads return 0, writes of 0 succeed, and
+non-zero writes are rejected. IA32_PERF_GLOBAL_CTRL[48] can likewise
+be set without the counter.
+
+Save and restore IA32_PERF_METRICS on vPMU context switches. Also add
+IA32_PERF_METRICS to msrs_to_save_pmu[] to support guest migration.
+
+Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
+Co-developed-by: Zide Chen <zide.chen@intel.com>
 Signed-off-by: Zide Chen <zide.chen@intel.com>
 ---
 v10:
-- Move Topdown metrics tests to a dedicated file to avoid bloating
-  pmu_counters_test.c.
-- Add coverage for RDPMC Metrics Clear Mode, host MSR access, and
-  capability permutations.
----
- tools/arch/x86/include/asm/msr-index.h        |   2 +
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- tools/testing/selftests/kvm/include/x86/pmu.h |   6 +
- .../selftests/kvm/x86/pmu_perf_metrics_test.c | 391 ++++++++++++++++++
- 4 files changed, 400 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/x86/pmu_perf_metrics_test.c
+- Fold v9 patch 11 ("KVM: x86/pmu: Reject writes to reserved
+  MSR_PERF_METRICS bits") into this patch. (Jim)
+- Gate advertising PERF_CAP_PERF_METRICS on num_topdown_events != 0. (Jim)
+- Gate IA32_PERF_METRICS passthrough, perf_metrics_rsvd sizing, and
+  context switch on fixed counter 3. (Jim, Yosry)
 
-diff --git a/tools/arch/x86/include/asm/msr-index.h b/tools/arch/x86/include/asm/msr-index.h
-index 18c4be75e927..851f5c6b9ade 100644
---- a/tools/arch/x86/include/asm/msr-index.h
-+++ b/tools/arch/x86/include/asm/msr-index.h
-@@ -331,7 +331,9 @@
- #define PERF_CAP_PEBS_FORMAT		0xf00
- #define PERF_CAP_FW_WRITES		BIT_ULL(13)
- #define PERF_CAP_PEBS_BASELINE		BIT_ULL(14)
-+#define PERF_CAP_PERF_METRICS		BIT_ULL(15)
- #define PERF_CAP_PEBS_TIMING_INFO	BIT_ULL(17)
-+#define PERF_CAP_RDPMC_METRICS_CLEAR	BIT_ULL(19)
- #define PERF_CAP_PEBS_MASK		(PERF_CAP_PEBS_TRAP | PERF_CAP_ARCH_REG | \
- 					 PERF_CAP_PEBS_FORMAT | PERF_CAP_PEBS_BASELINE | \
- 					 PERF_CAP_PEBS_TIMING_INFO)
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index be5eb2dd85aa..71e0b36089e2 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -106,6 +106,7 @@ TEST_GEN_PROGS_x86 += x86/nested_x2apic_test
- TEST_GEN_PROGS_x86 += x86/platform_info_test
- TEST_GEN_PROGS_x86 += x86/pmu_counters_test
- TEST_GEN_PROGS_x86 += x86/pmu_event_filter_test
-+TEST_GEN_PROGS_x86 += x86/pmu_perf_metrics_test
- TEST_GEN_PROGS_x86 += x86/private_mem_conversions_test
- TEST_GEN_PROGS_x86 += x86/private_mem_kvm_exits_test
- TEST_GEN_PROGS_x86 += x86/save_restore_pf_stress_test
-diff --git a/tools/testing/selftests/kvm/include/x86/pmu.h b/tools/testing/selftests/kvm/include/x86/pmu.h
-index c06ac78db01f..8ffb26a1d824 100644
---- a/tools/testing/selftests/kvm/include/x86/pmu.h
-+++ b/tools/testing/selftests/kvm/include/x86/pmu.h
-@@ -50,11 +50,17 @@
- #define INTEL_RDPMC_FAST			BIT_ULL(31)
+v9:
+- Remove the incorrect comment about writing to MSR_PERF_METRICS.
+---
+ arch/x86/include/asm/kvm_host.h |  1 +
+ arch/x86/kvm/msrs.c             |  6 +++-
+ arch/x86/kvm/pmu.c              |  1 +
+ arch/x86/kvm/pmu.h              | 13 +++++++
+ arch/x86/kvm/vmx/nested.c       |  2 ++
+ arch/x86/kvm/vmx/pmu_intel.c    | 60 +++++++++++++++++++++++++++++++++
+ arch/x86/kvm/vmx/vmx.c          | 12 +++++++
+ 7 files changed, 94 insertions(+), 1 deletion(-)
+
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index 1261f8302dc8..9d9b7aa38043 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -584,6 +584,7 @@ struct kvm_pmu {
+ 	u64 reserved_bits;
+ 	u64 raw_event_mask;
+ 	u64 perf_metrics;
++	u64 perf_metrics_rsvd;
+ 	struct kvm_pmc gp_counters[KVM_MAX_NR_GP_COUNTERS];
+ 	struct kvm_pmc fixed_counters[KVM_MAX_NR_FIXED_COUNTERS];
  
- /* Fixed PMC controls, Intel only. */
-+#define FIXED_PMC_SLOTS_IDX			3
- #define FIXED_PMC_GLOBAL_CTRL_ENABLE(_idx)	BIT_ULL((32 + (_idx)))
+diff --git a/arch/x86/kvm/msrs.c b/arch/x86/kvm/msrs.c
+index 1ccea561f2e0..26eb853baab5 100644
+--- a/arch/x86/kvm/msrs.c
++++ b/arch/x86/kvm/msrs.c
+@@ -219,7 +219,7 @@ static const u32 msrs_to_save_pmu[] = {
+ 	MSR_ARCH_PERFMON_FIXED_CTR0, MSR_ARCH_PERFMON_FIXED_CTR1,
+ 	MSR_ARCH_PERFMON_FIXED_CTR2, MSR_ARCH_PERFMON_FIXED_CTR3,
+ 	MSR_CORE_PERF_FIXED_CTR_CTRL, MSR_CORE_PERF_GLOBAL_STATUS,
+-	MSR_CORE_PERF_GLOBAL_CTRL,
++	MSR_CORE_PERF_GLOBAL_CTRL, MSR_PERF_METRICS,
+ 	MSR_IA32_PEBS_ENABLE, MSR_IA32_DS_AREA, MSR_PEBS_DATA_CFG,
  
-+/* PERF_METRICS enable, Intel only. */
-+#define GLOBAL_CTRL_EN_PERF_METRICS		BIT_ULL(48)
-+
- #define FIXED_PMC_KERNEL			BIT_ULL(0)
- #define FIXED_PMC_USER				BIT_ULL(1)
- #define FIXED_PMC_ANYTHREAD			BIT_ULL(2)
-+/* Fixed counter 3 reuses bit 2 for METRICS_CLEAR_EN (Intel only). */
-+#define FIXED_PMC_METRICS_CLEAR			BIT_ULL(2)
- #define FIXED_PMC_ENABLE_PMI			BIT_ULL(3)
- #define FIXED_PMC_NR_BITS			4
- #define FIXED_PMC_CTRL(_idx, _val)		((_val) << ((_idx) * FIXED_PMC_NR_BITS))
-diff --git a/tools/testing/selftests/kvm/x86/pmu_perf_metrics_test.c b/tools/testing/selftests/kvm/x86/pmu_perf_metrics_test.c
-new file mode 100644
-index 000000000000..07a6c948e4cd
---- /dev/null
-+++ b/tools/testing/selftests/kvm/x86/pmu_perf_metrics_test.c
-@@ -0,0 +1,391 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Test for KVM Topdown Microarchitecture Analysis (TMA) and PERF_METRICS.
-+ *
-+ * Copyright (C) 2026, Intel Corporation
-+ */
-+
-+#include <linux/bitfield.h>
-+
-+#include "processor.h"
-+#include "pmu.h"
-+
-+/* Number of iterations of the loop for the guest measurement payload. */
-+#define NUM_LOOPS			10
-+#define PERF_METRICS_TEST_VAL		0x12345678ULL
-+#define SLOTS_TEST_VAL			0x12345ULL
-+
-+static void guest_test_rdpmc(u32 rdpmc_idx, bool expect_success, u64 expected_val)
+ 	/* This part of MSRs should match KVM_MAX_NR_INTEL_GP_COUNTERS. */
+@@ -2619,6 +2619,10 @@ static void kvm_probe_msr_to_save(u32 msr_index)
+ 		     intel_pt_validate_hw_cap(PT_CAP_num_address_ranges) * 2))
+ 			return;
+ 		break;
++	case MSR_PERF_METRICS:
++		if (!(kvm_caps.supported_perf_cap & PERF_CAP_PERF_METRICS))
++			return;
++		break;
+ 	case MSR_ARCH_PERFMON_PERFCTR0 ...
+ 	     MSR_ARCH_PERFMON_PERFCTR0 + KVM_MAX_NR_GP_COUNTERS - 1:
+ 		if (msr_index - MSR_ARCH_PERFMON_PERFCTR0 >=
+diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
+index d4fd1d9d5d93..93be6ac96a1c 100644
+--- a/arch/x86/kvm/pmu.c
++++ b/arch/x86/kvm/pmu.c
+@@ -1019,6 +1019,7 @@ void kvm_pmu_refresh(struct kvm_vcpu *vcpu)
+ 	pmu->fixed_ctr_ctrl_rsvd = ~0ull;
+ 	pmu->pebs_enable_rsvd = ~0ull;
+ 	pmu->pebs_data_cfg_rsvd = ~0ull;
++	pmu->perf_metrics_rsvd = ~0ull;
+ 	bitmap_zero(pmu->all_valid_pmc_idx, X86_PMC_IDX_MAX);
+ 
+ 	if (!vcpu->kvm->arch.enable_pmu)
+diff --git a/arch/x86/kvm/pmu.h b/arch/x86/kvm/pmu.h
+index 40395d271392..a82f6a9b4cc9 100644
+--- a/arch/x86/kvm/pmu.h
++++ b/arch/x86/kvm/pmu.h
+@@ -287,6 +287,19 @@ static inline bool kvm_vcpu_has_perf_metrics(struct kvm_vcpu *vcpu)
+ 	return kvm_vcpu_get_perf_caps(vcpu) & PERF_CAP_PERF_METRICS;
+ }
+ 
++static inline bool kvm_pmu_has_fixed_counter(struct kvm_pmu *pmu,
++					     unsigned int idx)
 +{
-+	u8 vector;
-+	u64 val;
++	return idx < pmu->nr_arch_fixed_counters;
++}
 +
-+	vector = rdpmc_safe(rdpmc_idx, &val);
-+	__GUEST_ASSERT(expect_success ? !vector : vector == GP_VECTOR,
-+		       "Expected %s on RDPMC(0x%x), got %s",
-+		       expect_success ? "no fault" : "#GP", rdpmc_idx, ex_str(vector));
-+	if (expect_success)
-+		GUEST_ASSERT_EQ(val, expected_val);
++/* Functional Topdown metrics in hardware also require fixed counter 3 (SLOTS). */
++static inline bool kvm_vcpu_can_enable_perf_metrics(struct kvm_vcpu *vcpu)
++{
++	return kvm_vcpu_has_perf_metrics(vcpu) &&
++	       kvm_pmu_has_fixed_counter(vcpu_to_pmu(vcpu), KVM_FIXED_SLOTS_IDX);
++}
 +
-+	if (!is_forced_emulation_enabled)
+ void kvm_pmu_deliver_pmi(struct kvm_vcpu *vcpu);
+ int kvm_pmu_rdpmc(struct kvm_vcpu *vcpu, unsigned pmc, u64 *data);
+ int kvm_pmu_check_rdpmc_early(struct kvm_vcpu *vcpu, unsigned int idx);
+diff --git a/arch/x86/kvm/vmx/nested.c b/arch/x86/kvm/vmx/nested.c
+index 9b0bfa2f854c..2b36088ee056 100644
+--- a/arch/x86/kvm/vmx/nested.c
++++ b/arch/x86/kvm/vmx/nested.c
+@@ -724,6 +724,8 @@ static void nested_vmx_merge_pmu_msr_bitmaps(struct kvm_vcpu *vcpu,
+ 	nested_vmx_merge_msr_bitmaps_rw(MSR_CORE_PERF_GLOBAL_CTRL);
+ 	nested_vmx_merge_msr_bitmaps_read(MSR_CORE_PERF_GLOBAL_STATUS);
+ 	nested_vmx_merge_msr_bitmaps_write(MSR_CORE_PERF_GLOBAL_OVF_CTRL);
++
++	nested_vmx_merge_msr_bitmaps_rw(MSR_PERF_METRICS);
+ }
+ 
+ /*
+diff --git a/arch/x86/kvm/vmx/pmu_intel.c b/arch/x86/kvm/vmx/pmu_intel.c
+index cb7db4784545..da6dae261514 100644
+--- a/arch/x86/kvm/vmx/pmu_intel.c
++++ b/arch/x86/kvm/vmx/pmu_intel.c
+@@ -207,6 +207,8 @@ static bool intel_is_valid_msr(struct kvm_vcpu *vcpu, u32 msr)
+ 	case MSR_CORE_PERF_GLOBAL_OVF_CTRL:
+ 	case MSR_CORE_PERF_FIXED_CTR_CTRL:
+ 		return kvm_pmu_has_perf_global_ctrl(pmu);
++	case MSR_PERF_METRICS:
++		return kvm_vcpu_has_perf_metrics(vcpu);
+ 	case MSR_IA32_PEBS_ENABLE:
+ 		ret = kvm_vcpu_get_perf_caps(vcpu) & PERF_CAP_PEBS_FORMAT;
+ 		break;
+@@ -364,6 +366,9 @@ static int intel_pmu_get_msr(struct kvm_vcpu *vcpu, struct msr_data *msr_info)
+ 	case MSR_CORE_PERF_FIXED_CTR_CTRL:
+ 		msr_info->data = pmu->fixed_ctr_ctrl;
+ 		break;
++	case MSR_PERF_METRICS:
++		msr_info->data = pmu->perf_metrics;
++		break;
+ 	case MSR_IA32_PEBS_ENABLE:
+ 		msr_info->data = pmu->pebs_enable;
+ 		break;
+@@ -413,6 +418,12 @@ static int intel_pmu_set_msr(struct kvm_vcpu *vcpu, struct msr_data *msr_info)
+ 		if (pmu->fixed_ctr_ctrl != data)
+ 			reprogram_fixed_counters(pmu, data);
+ 		break;
++	case MSR_PERF_METRICS:
++		if (data & pmu->perf_metrics_rsvd)
++			return 1;
++
++		pmu->perf_metrics = data;
++		break;
+ 	case MSR_IA32_PEBS_ENABLE:
+ 		if (data & pmu->pebs_enable_rsvd)
+ 			return 1;
+@@ -519,6 +530,30 @@ static void intel_pmu_enable_fixed_counter_bits(struct kvm_pmu *pmu, u64 bits)
+ 		pmu->fixed_ctr_ctrl_rsvd &= ~intel_fixed_bits_by_idx(i, bits);
+ }
+ 
++static void intel_pmu_refresh_perf_metrics(struct kvm_vcpu *vcpu)
++{
++	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
++
++	if (!kvm_vcpu_has_perf_metrics(vcpu))
 +		return;
 +
-+	vector = rdpmc_safe_fep(rdpmc_idx, &val);
-+	__GUEST_ASSERT(expect_success ? !vector : vector == GP_VECTOR,
-+		       "Expected %s on FEP RDPMC(0x%x), got %s",
-+		       expect_success ? "no fault" : "#GP", rdpmc_idx, ex_str(vector));
-+	if (expect_success)
-+		GUEST_ASSERT_EQ(val, expected_val);
-+}
-+
-+static void assert_rdpmc_metrics_cleared(u8 vector, u64 val)
-+{
-+	__GUEST_ASSERT(!vector, "Expected no fault on RDPMC(0x%llx), got %s",
-+		       INTEL_RDPMC_METRICS, ex_str(vector));
-+	GUEST_ASSERT_EQ(val, PERF_METRICS_TEST_VAL);
-+	GUEST_ASSERT_EQ(rdmsr(MSR_PERF_METRICS), 0);
-+	GUEST_ASSERT_EQ(rdmsr(MSR_CORE_PERF_FIXED_CTR3), 0);
-+}
-+
-+static void guest_test_no_perf_metrics(void)
-+{
-+	u64 metrics;
-+	u8 vector;
-+
 +	/*
-+	 * When PERF_METRICS is not exposed to the guest, all accesses
-+	 * must fault (#GP): MSR_PERF_METRICS, GLOBAL_CTRL bit 48,
-+	 * and RDPMC of metrics type.
++	 * Per the SDM, setting GLOBAL_CTRL[48] is allowed as long as
++	 * PERF_CAP_PERF_METRICS is present. However, hardware metrics remain
++	 * inactive without enabling fixed counter 3.
 +	 */
-+	vector = rdmsr_safe(MSR_PERF_METRICS, &metrics);
-+	GUEST_ASSERT_EQ(vector, GP_VECTOR);
++	pmu->global_ctrl_rsvd &= ~GLOBAL_CTRL_EN_PERF_METRICS;
 +
-+	vector = wrmsr_safe(MSR_PERF_METRICS, 0);
-+	GUEST_ASSERT_EQ(vector, GP_VECTOR);
-+
-+	vector = wrmsr_safe(MSR_CORE_PERF_GLOBAL_CTRL,
-+			    GLOBAL_CTRL_EN_PERF_METRICS);
-+	GUEST_ASSERT_EQ(vector, GP_VECTOR);
-+
-+	guest_test_rdpmc(INTEL_RDPMC_METRICS, false, 0);
-+
-+	/*
-+	 * If RDPMC Metrics Clear capability is set without PERF_METRICS,
-+	 * setting METRICS_CLEAR_EN in FIXED_CTR_CTRL must still #GP.
-+	 */
-+	if (this_cpu_property(X86_PROPERTY_PMU_NR_FIXED_COUNTERS) > FIXED_PMC_SLOTS_IDX) {
-+		vector = wrmsr_safe(MSR_CORE_PERF_FIXED_CTR_CTRL,
-+				    FIXED_PMC_CTRL(FIXED_PMC_SLOTS_IDX,
-+						   FIXED_PMC_KERNEL | FIXED_PMC_METRICS_CLEAR));
-+		GUEST_ASSERT_EQ(vector, GP_VECTOR);
-+	}
-+}
-+
-+static void guest_test_no_slots_counter(void)
-+{
-+	u8 vector;
-+
-+	/*
-+	 * Without fixed counter 3, all metric fields are reserved: reads
-+	 * return 0, writing 0 succeeds, and non-zero writes #GP.
-+	 */
-+	GUEST_ASSERT_EQ(rdmsr(MSR_PERF_METRICS), 0);
-+
-+	vector = wrmsr_safe(MSR_PERF_METRICS, 0);
-+	GUEST_ASSERT_EQ(vector, 0);
-+
-+	vector = wrmsr_safe(MSR_PERF_METRICS, PERF_METRICS_TEST_VAL);
-+	GUEST_ASSERT_EQ(vector, GP_VECTOR);
-+
-+	vector = wrmsr_safe(MSR_CORE_PERF_GLOBAL_CTRL,
-+			    GLOBAL_CTRL_EN_PERF_METRICS);
-+	GUEST_ASSERT_EQ(vector, 0);
-+
-+	vector = wrmsr_safe(MSR_CORE_PERF_FIXED_CTR3, 0);
-+	GUEST_ASSERT_EQ(vector, GP_VECTOR);
-+
-+	vector = wrmsr_safe(MSR_CORE_PERF_FIXED_CTR_CTRL,
-+			    FIXED_PMC_CTRL(FIXED_PMC_SLOTS_IDX, FIXED_PMC_METRICS_CLEAR));
-+	GUEST_ASSERT_EQ(vector, GP_VECTOR);
-+
-+	guest_test_rdpmc(INTEL_RDPMC_METRICS, true, 0);
-+}
-+
-+static void guest_test_full_perf_metrics(void)
-+{
-+	int retiring, bad_spec, fe_bound, be_bound, sum, loops;
-+	u64 global_ctrl, metrics, val;
-+	u8 vector;
-+
-+	wrmsr(MSR_CORE_PERF_GLOBAL_CTRL, 0);
-+	wrmsr(MSR_CORE_PERF_FIXED_CTR3, 0);
-+	wrmsr(MSR_PERF_METRICS, 0);
-+
-+	/* Enable fixed counter 3 (TOPDOWN.SLOTS) and PERF_METRICS. */
-+	wrmsr(MSR_CORE_PERF_FIXED_CTR_CTRL,
-+	      FIXED_PMC_CTRL(FIXED_PMC_SLOTS_IDX, FIXED_PMC_KERNEL));
-+	global_ctrl = FIXED_PMC_GLOBAL_CTRL_ENABLE(FIXED_PMC_SLOTS_IDX) |
-+		      GLOBAL_CTRL_EN_PERF_METRICS;
-+
-+	GUEST_RUN_PAYLOAD(MSR_CORE_PERF_GLOBAL_CTRL, global_ctrl, "", NUM_LOOPS);
-+
-+	/* Check test results. */
-+	metrics = rdmsr(MSR_PERF_METRICS);
-+	vector = rdpmc_safe(INTEL_RDPMC_METRICS, &val);
-+	GUEST_ASSERT_EQ(vector, 0);
-+	GUEST_ASSERT_EQ(val, metrics);
-+
-+	retiring = FIELD_GET(GENMASK_ULL(7, 0), metrics);
-+	bad_spec = FIELD_GET(GENMASK_ULL(15, 8), metrics);
-+	fe_bound = FIELD_GET(GENMASK_ULL(23, 16), metrics);
-+	be_bound = FIELD_GET(GENMASK_ULL(31, 24), metrics);
-+
-+	/*
-+	 * Be conservative: the measured payload definitely retires work, so
-+	 * Retiring should be non-zero.
-+	 */
-+	GUEST_ASSERT_NE(retiring, 0);
-+
-+	/*
-+	 * Each level-1 Topdown metric is an integer fraction of 0xff.
-+	 * A +/-3 error margin is chosen for a loose sanity check.
-+	 */
-+	sum = retiring + bad_spec + fe_bound + be_bound;
-+	GUEST_ASSERT(sum >= 0xfc && sum <= 0x102);
-+
-+	/*
-+	 * Burn some cycles; MSR_CORE_PERF_GLOBAL_CTRL is left zeroed after
-+	 * GUEST_RUN_PAYLOAD() returns, so PERF_METRICS is not counting.
-+	 */
-+	loops = NUM_LOOPS;
-+
-+	__asm__ __volatile__("loop ." : "+c"(loops));
-+
-+	/* Confirm PERF_METRICS did not advance while counting was disabled. */
-+	GUEST_ASSERT_EQ(rdmsr(MSR_PERF_METRICS), metrics);
-+
-+	/*
-+	 * Only use the 4 level-1 metric fields (bits [31:0]), which are present
-+	 * whether the CPU supports 4 or 8 Topdown events.
-+	 */
-+	wrmsr(MSR_PERF_METRICS, PERF_METRICS_TEST_VAL);
-+
-+	/* Force a VM-exit to verify KVM restores MSR_PERF_METRICS on VM-entry. */
-+	GUEST_SYNC(0);
-+	GUEST_ASSERT_EQ(rdmsr(MSR_PERF_METRICS), PERF_METRICS_TEST_VAL);
-+
-+	guest_test_rdpmc(INTEL_RDPMC_METRICS, true, PERF_METRICS_TEST_VAL);
-+
-+	/*
-+	 * Test RDPMC Metrics Clear Mode if supported, or verify that setting
-+	 * METRICS_CLEAR_EN injects #GP if the capability is absent.
-+	 */
-+	if (rdmsr(MSR_IA32_PERF_CAPABILITIES) & PERF_CAP_RDPMC_METRICS_CLEAR) {
-+		wrmsr(MSR_CORE_PERF_FIXED_CTR3, SLOTS_TEST_VAL);
-+		wrmsr(MSR_PERF_METRICS, PERF_METRICS_TEST_VAL);
-+
-+		/* Enable Metrics Clear Mode for fixed counter 3. */
-+		wrmsr(MSR_CORE_PERF_FIXED_CTR_CTRL,
-+		      FIXED_PMC_CTRL(FIXED_PMC_SLOTS_IDX,
-+				     FIXED_PMC_KERNEL | FIXED_PMC_METRICS_CLEAR));
-+
-+		/* Confirm RDMSR does not clear either register. */
-+		GUEST_ASSERT_EQ(rdmsr(MSR_PERF_METRICS), PERF_METRICS_TEST_VAL);
-+		GUEST_ASSERT_EQ(rdmsr(MSR_CORE_PERF_FIXED_CTR3), SLOTS_TEST_VAL);
-+
-+		/* RDPMC of PERF_METRICS must return the value and clear both. */
-+		vector = rdpmc_safe(INTEL_RDPMC_METRICS, &val);
-+		assert_rdpmc_metrics_cleared(vector, val);
-+
-+		if (is_forced_emulation_enabled) {
-+			wrmsr(MSR_CORE_PERF_FIXED_CTR3, SLOTS_TEST_VAL);
-+			wrmsr(MSR_PERF_METRICS, PERF_METRICS_TEST_VAL);
-+			vector = rdpmc_safe_fep(INTEL_RDPMC_METRICS, &val);
-+			assert_rdpmc_metrics_cleared(vector, val);
-+		}
-+
-+		/* Restore FIXED_CTR_CTRL to normal counting. */
-+		wrmsr(MSR_CORE_PERF_FIXED_CTR_CTRL,
-+		      FIXED_PMC_CTRL(FIXED_PMC_SLOTS_IDX, FIXED_PMC_KERNEL));
-+	} else {
-+		vector = wrmsr_safe(MSR_CORE_PERF_FIXED_CTR_CTRL,
-+				    FIXED_PMC_CTRL(FIXED_PMC_SLOTS_IDX,
-+						   FIXED_PMC_KERNEL | FIXED_PMC_METRICS_CLEAR));
-+		GUEST_ASSERT_EQ(vector, GP_VECTOR);
-+	}
-+}
-+
-+static void guest_test_perf_metrics(void)
-+{
-+	if (!(rdmsr(MSR_IA32_PERF_CAPABILITIES) & PERF_CAP_PERF_METRICS))
-+		guest_test_no_perf_metrics();
-+	else if (this_cpu_property(X86_PROPERTY_PMU_NR_FIXED_COUNTERS) <= FIXED_PMC_SLOTS_IDX)
-+		guest_test_no_slots_counter();
-+	else
-+		guest_test_full_perf_metrics();
-+
-+	GUEST_DONE();
-+}
-+
-+static void run_vcpu(struct kvm_vcpu *vcpu)
-+{
-+	struct ucall uc;
-+
-+	do {
-+		vcpu_run(vcpu);
-+		switch (get_ucall(vcpu, &uc)) {
-+		case UCALL_SYNC:
-+			break;
-+		case UCALL_ABORT:
-+			REPORT_GUEST_ASSERT(uc);
-+			break;
-+		case UCALL_PRINTF:
-+			pr_info("%s", uc.buffer);
-+			break;
-+		case UCALL_DONE:
-+			break;
-+		default:
-+			TEST_FAIL("Unexpected ucall: %lu", uc.cmd);
-+		}
-+	} while (uc.cmd != UCALL_DONE);
-+}
-+
-+static void test_one_perf_metrics(u8 pmu_version, u64 perf_capabilities,
-+				  u8 nr_fixed_counters)
-+{
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, guest_test_perf_metrics);
-+
-+	vcpu_set_msr(vcpu, MSR_IA32_PERF_CAPABILITIES, perf_capabilities);
-+
-+	vcpu_set_cpuid_property(vcpu, X86_PROPERTY_PMU_VERSION, pmu_version);
-+	vcpu_set_cpuid_property(vcpu, X86_PROPERTY_PMU_NR_FIXED_COUNTERS, nr_fixed_counters);
-+
-+	run_vcpu(vcpu);
-+
-+	kvm_vm_free(vm);
-+}
-+
-+static void test_perf_metrics(u8 pmu_version, u64 perf_capabilities)
-+{
-+	u8 nr_fixed_counters = kvm_cpu_property(X86_PROPERTY_PMU_NR_FIXED_COUNTERS);
-+
-+	pr_info("Testing Perf Metrics, PMU version %u, perf_caps = 0x%lx\n",
-+		pmu_version, perf_capabilities);
-+
-+	/* Test with full/supported fixed counters (fixed counter 3 present if supported). */
-+	test_one_perf_metrics(pmu_version, perf_capabilities, nr_fixed_counters);
-+
-+	/* Test with fixed counter 3 absent. */
-+	if (nr_fixed_counters > FIXED_PMC_SLOTS_IDX)
-+		test_one_perf_metrics(pmu_version, perf_capabilities, FIXED_PMC_SLOTS_IDX);
-+}
-+
-+static void test_guest_perf_metrics(void)
-+{
-+	u8 pmu_version = kvm_cpu_property(X86_PROPERTY_PMU_VERSION);
-+	const u64 perf_caps[] = {
-+		0,
-+		PERF_CAP_PERF_METRICS,
-+		PERF_CAP_PERF_METRICS | PERF_CAP_RDPMC_METRICS_CLEAR,
-+		PERF_CAP_RDPMC_METRICS_CLEAR,
-+	};
-+	u64 advertised_perf_caps;
-+	u8 max_pmu_version;
-+	unsigned int i;
-+	u8 v;
-+
-+	max_pmu_version = max_t(typeof(pmu_version), pmu_version, 5);
-+	advertised_perf_caps = kvm_get_feature_msr(MSR_IA32_PERF_CAPABILITIES);
-+
-+	for (v = 2; v <= max_pmu_version; v++) {
-+		for (i = 0; i < ARRAY_SIZE(perf_caps); i++) {
-+			/* Ignore unsupported features. */
-+			if (perf_caps[i] & ~advertised_perf_caps)
-+				continue;
-+
-+			test_perf_metrics(v, perf_caps[i]);
-+		}
-+	}
-+}
-+
-+static void test_host_perf_metrics(void)
-+{
-+	u64 advertised_perf_caps;
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+	u64 val;
-+	int ret;
-+
-+	advertised_perf_caps = kvm_get_feature_msr(MSR_IA32_PERF_CAPABILITIES);
-+	if (!(advertised_perf_caps & PERF_CAP_PERF_METRICS))
++	if (!kvm_pmu_has_fixed_counter(pmu, KVM_FIXED_SLOTS_IDX))
 +		return;
 +
-+	vm = vm_create_with_one_vcpu(&vcpu, NULL);
-+	vcpu_set_msr(vcpu, MSR_IA32_PERF_CAPABILITIES, advertised_perf_caps);
-+	vcpu_set_cpuid_property(vcpu, X86_PROPERTY_PMU_VERSION, 2);
-+
-+	/*
-+	 * Case 1: Fixed counter 3 present and PERF_METRICS exposed.
-+	 * Host can write 0 and valid non-zero values to MSR_PERF_METRICS.
-+	 */
-+	vcpu_set_cpuid_property(vcpu, X86_PROPERTY_PMU_NR_FIXED_COUNTERS,
-+				FIXED_PMC_SLOTS_IDX + 1);
-+
-+	ret = _vcpu_set_msr(vcpu, MSR_PERF_METRICS, PERF_METRICS_TEST_VAL);
-+	TEST_ASSERT_EQ(ret, 1);
-+	val = vcpu_get_msr(vcpu, MSR_PERF_METRICS);
-+	TEST_ASSERT_EQ(val, PERF_METRICS_TEST_VAL);
-+
-+	ret = _vcpu_set_msr(vcpu, MSR_PERF_METRICS, 0);
-+	TEST_ASSERT_EQ(ret, 1);
-+	val = vcpu_get_msr(vcpu, MSR_PERF_METRICS);
-+	TEST_ASSERT_EQ(val, 0);
-+
-+	/*
-+	 * Case 2: Fixed counter 3 absent.
-+	 * Host writing 0 succeeds (for migration/probe), non-zero fails.
-+	 */
-+	vcpu_set_cpuid_property(vcpu, X86_PROPERTY_PMU_NR_FIXED_COUNTERS,
-+				FIXED_PMC_SLOTS_IDX);
-+
-+	ret = _vcpu_set_msr(vcpu, MSR_PERF_METRICS, PERF_METRICS_TEST_VAL);
-+	TEST_ASSERT_EQ(ret, 0);
-+
-+	ret = _vcpu_set_msr(vcpu, MSR_PERF_METRICS, 0);
-+	TEST_ASSERT_EQ(ret, 1);
-+
-+	/*
-+	 * Case 3: PERF_CAP_PERF_METRICS not exposed (even with fixed counter 3 present).
-+	 * Non-zero writes must fail. Writing 0 succeeds as KVM allows
-+	 * writing 0 to advertised feature MSRs for compatibility.
-+	 */
-+	vcpu_set_cpuid_property(vcpu, X86_PROPERTY_PMU_NR_FIXED_COUNTERS,
-+				FIXED_PMC_SLOTS_IDX + 1);
-+	vcpu_set_msr(vcpu, MSR_IA32_PERF_CAPABILITIES, 0);
-+
-+	ret = _vcpu_set_msr(vcpu, MSR_PERF_METRICS, PERF_METRICS_TEST_VAL);
-+	TEST_ASSERT_EQ(ret, 0);
-+
-+	ret = _vcpu_set_msr(vcpu, MSR_PERF_METRICS, 0);
-+	TEST_ASSERT_EQ(ret, 1);
-+
-+	kvm_vm_free(vm);
++	if (kvm_pmu_cap.num_topdown_events) {
++		pmu->perf_metrics_rsvd =
++			~GENMASK_ULL(kvm_pmu_cap.num_topdown_events *
++				     INTEL_TD_METRIC_FIELD_BITS - 1, 0);
++	}
 +}
 +
-+int main(int argc, char *argv[])
-+{
-+	TEST_REQUIRE(kvm_is_pmu_enabled());
+ static void intel_pmu_refresh(struct kvm_vcpu *vcpu)
+ {
+ 	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
+@@ -597,6 +632,8 @@ static void intel_pmu_refresh(struct kvm_vcpu *vcpu)
+ 			 ((BIT_ULL(pmu->nr_arch_fixed_counters) - 1) << KVM_FIXED_PMC_BASE_IDX));
+ 	pmu->global_ctrl_rsvd = counter_rsvd;
+ 
++	intel_pmu_refresh_perf_metrics(vcpu);
 +
-+	TEST_REQUIRE(host_cpu_is_intel);
-+	TEST_REQUIRE(kvm_cpu_has_p(X86_PROPERTY_PMU_VERSION));
-+	TEST_REQUIRE(kvm_cpu_property(X86_PROPERTY_PMU_VERSION) >= 2);
-+	TEST_REQUIRE(kvm_cpu_has(X86_FEATURE_PDCM));
+ 	/*
+ 	 * GLOBAL_STATUS and GLOBAL_OVF_CONTROL (a.k.a. GLOBAL_STATUS_RESET)
+ 	 * share reserved bit definitions.  The kernel just happens to use
+@@ -652,6 +689,9 @@ static void intel_pmu_init(struct kvm_vcpu *vcpu)
+ 
+ static void intel_pmu_reset(struct kvm_vcpu *vcpu)
+ {
++	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
 +
-+	test_host_perf_metrics();
-+	test_guest_perf_metrics();
++	pmu->perf_metrics = 0;
+ 	intel_pmu_release_guest_lbr_event(vcpu);
+ }
+ 
+@@ -817,6 +857,15 @@ static void intel_mediated_pmu_load(struct kvm_vcpu *vcpu)
+ 	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
+ 	u64 global_status, toggle;
+ 
++	/*
++	 * Without fixed counter 3, Topdown metrics cannot count in hardware.
++	 * Thus, the guest metric state is always zero and no context switch
++	 * is needed.
++	 */
++	if (kvm_vcpu_can_enable_perf_metrics(vcpu) &&
++	    pmu->perf_metrics != rdpmc(INTEL_PMC_FIXED_RDPMC_METRICS))
++		wrmsrq(MSR_PERF_METRICS, pmu->perf_metrics);
 +
-+	return 0;
-+}
+ 	rdmsrq(MSR_CORE_PERF_GLOBAL_STATUS, global_status);
+ 	toggle = pmu->global_status ^ global_status;
+ 	if (global_status & toggle)
+@@ -845,6 +894,17 @@ static void intel_mediated_pmu_put(struct kvm_vcpu *vcpu)
+ 	 */
+ 	if (pmu->fixed_ctr_ctrl_hw)
+ 		wrmsrq(MSR_CORE_PERF_FIXED_CTR_CTRL, 0);
++
++	if (kvm_vcpu_can_enable_perf_metrics(vcpu)) {
++		pmu->perf_metrics = rdpmc(INTEL_PMC_FIXED_RDPMC_METRICS);
++		/*
++		 * The SDM requires restoring fixed counter 3 before
++		 * PERF_METRICS, but order doesn't matter when both are being
++		 * zeroed.
++		 */
++		if (pmu->perf_metrics)
++			wrmsrq(MSR_PERF_METRICS, 0);
++	}
+ }
+ 
+ struct kvm_pmu_ops intel_pmu_ops __initdata = {
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index f04f2d3884d9..7441808be049 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -4289,6 +4289,10 @@ static void vmx_recalc_pmu_msr_intercepts(struct kvm_vcpu *vcpu)
+ 				  MSR_TYPE_RW, intercept);
+ 	vmx_set_intercept_for_msr(vcpu, MSR_CORE_PERF_GLOBAL_OVF_CTRL,
+ 				  MSR_TYPE_RW, intercept);
++
++	intercept = !has_mediated_pmu || !kvm_vcpu_can_enable_perf_metrics(vcpu);
++	vmx_set_intercept_for_msr(vcpu, MSR_PERF_METRICS,
++				  MSR_TYPE_RW, intercept);
+ }
+ 
+ static void vmx_recalc_msr_intercepts(struct kvm_vcpu *vcpu)
+@@ -7934,6 +7938,14 @@ static __init u64 vmx_get_perf_capabilities(void)
+ 		perf_cap &= ~PERF_CAP_PEBS_BASELINE;
+ 	}
+ 
++	/*
++	 * In addition to fixed counter 3, gate on num_topdown_events to
++	 * avoid advertising on generic arch setups (e.g. virtualized hosts).
++	 */
++	if (enable_mediated_pmu && kvm_pmu_cap.num_topdown_events &&
++	    kvm_pmu_cap.num_counters_fixed > KVM_FIXED_SLOTS_IDX)
++		perf_cap |= kvm_pmu_cap.perf_capabilities & PERF_CAP_PERF_METRICS;
++
+ 	return perf_cap;
+ }
+ 
 -- 
 2.56.1
 
