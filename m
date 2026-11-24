@@ -1,47 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.15
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795536417;
-	b=AndOi5A51TFu338UjgZOdWiOmefIbMNcKQ7Mn9MmngaW2YakXnEXSKXdm4+roOm3Y0kb
-	 L18ueQhwTpIoIdFsPCa2MN5t0apLAzGOroP/g0pKEooPxnMC82dxtWTdQ734Zt1S/Iic6
-	 Di9HoZlLHH3b8qKtbqjUrQQ2RF6avvONOlq10RXWhNR5NfwLwQqEXbxIOHDroCPHOoto/
-	 DpQySO7FaPQSSHoyJ4aLR44UCxYU4oER3Wo2oHsfnzaEOBZOx9/1WPfgIwooZ9s9SufO+
-	 N1/oPtu5IfWCK80TfyHfE0EEixrPHr7+qs7BiFZs0SRgys8O1UTRE4OzRxWycaMe19Q==
+	t=1795536525;
+	b=pKFzCiGtGbw/jdLDc0T5z24FvNBY4MtMxmvgCUCDQzzYYDjF4zK/CqIJQ6NwBENIXUN0
+	 A23WzkcA3T/zONizAI0nwWy07qTapnLHnUCcBXSZ/j+6dRo+GVfzD7IkS3gQRB11V2Og0
+	 FprpOAZIEAZOAcvJ6JpTlCskTbc5jBy1ExQSdGKSoD32ogKD6sm6iPlsgvm9J5rS0yPoo
+	 MOOmb4gcC0RkaAJNYXaD9qPuP6RAkyD9oUOqZlGfFAuX9YfJwMTPWKD12nbyLTPh4NIEF
+	 HCwQ5neawbslBv6yShLI2al2UBAW4z0uT8FZ5pdAIPKorphY+HGERMWD8IDK8m7jcAw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795536417;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=rXXjrtFiLnYvPs7xpi14/Y5gRYBhv7epdHU8RemjH7A=;
-	b=k2ha+kaE1HN+hFJiJDeCOYNlf1dtXu+mHLHrl3fqgA69LrK9Yqejp6yUgs1VCiBY5Zh/
-	 jFSu9Cmjqu91N3BxpMgYKL5PhiAEU6J0hEuPGVZY8TfB9QwK6qzRu41KCo0+P09kM3NtF
-	 7bva0FYqNA5wPy6jPym+3OaZOaxJrymaTMz5syQuMuxmuIsGG82/PUyfreEeI9TfQLaXK
-	 0DBvut3Eck6B31c960Hu9GlM8fRoQgGfwU1vGW9CDQkiw4HlWXlvaT78rDbFMojlbiIGr
-	 5BukfrE922Q6y5X5jTGktLtltqsG2iqPE+TjOq53MCqtWgoHDQtCLA1me5RrnR4ZG4w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795536525;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id:X-Stat-Signature:
+	 X-Spam-Status:X-Rspamd-Server:X-Session-Marker:X-Session-ID:
+	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=lHe6t0W6wJIz0Tl4HeE64/VhSLD31cFoO27KI4Qiuhw=;
+	b=JCBwI7+4aexuG0L22oMmPY6L1vRVtmpTxmKBSm0MtEiASjF45aRvxIyqDmQbOx4rPP+w
+	 27vpTn+OM+sVwAJ+0tSZg7uTHMRYE4hQ+BkmHF/BpumnyDLHTyd/E7fgJJS+QJ8KmSoNm
+	 ym2fvKOSyaflCK3Oi10tMiJdoLGviLCy/zgbgt8NMdk/vYvdsOS5DHcx2Gbxl099YKORu
+	 otsvxXuJjaYZwPbXhrEHF754h9kwJkQdEeckHO0h0z/HfBKf79Px2v+AebSbRJkviPpML
+	 LW7lCkrT9JHsoIYmKiifZuenvRIEIlxodLFb9uzLhvR/Kr56xBSpsBagVveB0+Oo+jg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cfWiFkc5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=iN5i07JY;
+	arc=none smtp.remote-ip=216.40.44.15
+Received: from relay.hostedemail.com (smtprelay0015.hostedemail.com [216.40.44.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4058E606A31E;
-	Tue, 24 Nov 2026 16:06:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F79A606A321;
+	Tue, 24 Nov 2026 16:08:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F79A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cfWiFkc5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 742FE1F000CA;
-	Tue, 24 Nov 2026 16:06:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795536416;
-	bh=rXXjrtFiLnYvPs7xpi14/Y5gRYBhv7epdHU8RemjH7A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=cfWiFkc5dCujhCfu7wVvcJI6xXPweke/PQE6QoiecVrMZmUSuq+XbhfQm9enN2+Bo
-	 5Br8ZlgKeOFNGAMyAIHoxH8UZ0XtWGIppbYQRyXd2vdZsUGumlsOHHQX1OXIJGxPTK
-	 ubVEVPjkdARPuz0BiAyYCra1uHEKeUHAaOcF72ijZwYwcJhn9Z172o9smJKZYTB3w5
-	 OuLjlIf/j9BvJE5YxCOZHhtI5Xy7o+OUlEx1uxfItKcC4q6Wruc5nf/qgH6lHSZTNm
-	 0OM+UbaZf2cNOExdVBsuZqut5jo2CTikJEs0MyGIp4lMsdwfQ4KvaccCGOO24ATgJF
-	 dFxO5AJtY69SQ==
-Message-ID: <d70e25d5-f9fc-4939-b325-2502a35d081b@kernel.org>
-Date: Tue, 24 Nov 2026 17:06:50 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=iN5i07JY
+Received: from omf11.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay09.hostedemail.com (Postfix) with ESMTP id 3150A80C03;
+	Tue, 24 Nov 2026 16:08:42 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf11.hostedemail.com (Postfix) with ESMTPA id DBB8D2002D;
+	Tue, 24 Nov 2026 16:08:38 +0000 (UTC)
+Date: Tue, 24 Nov 2026 11:08:37 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Hongyan Xia
+ <hongyan.xia@transsion.com>, Song Liu <song@kernel.org>, Juri Lelli
+ <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, Valentin Schneider
+ <vschneid@redhat.com>, linux-arm-kernel@lists.infradead.org,
+ linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] sched/preempt: Check preempt counts in notrace
+ helpers
+Message-ID: <20261124110837.731d1d2e@gandalf.local.home>
+In-Reply-To: <446e2bd042ce071da52ea80f577fe43c1b3dc031.1794814699.git.kmehltretter@gmail.com>
+References: <cover.1794814699.git.kmehltretter@gmail.com>
+	<446e2bd042ce071da52ea80f577fe43c1b3dc031.1794814699.git.kmehltretter@gmail.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,79 +67,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] dt-bindings: clock: Add Netrani RPMh clocks
-To: SignKirigami <prcups@krgm.moe>, Bjorn Andersson <andersson@kernel.org>,
- Abel Vesa <abelvesa@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261124-netrani-clock-v1-v1-0-ce10cedbfa4b@krgm.moe>
- <20261124-netrani-clock-v1-v1-3-ce10cedbfa4b@krgm.moe>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261124-netrani-clock-v1-v1-3-ce10cedbfa4b@krgm.moe>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: DBB8D2002D
+X-Stat-Signature: y99wuu3wcuparip11f8ts89pfbjmjbeq
+X-Rspamd-Server: rspamout02
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX18DwXvKUKEkZAWHfXqOR0iuglFy7nRSMf0=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=lHe6t0W6wJIz0Tl4HeE64/VhSLD31cFoO27KI4Qiuhw=; b=iN5i07JYlQRQ34fWR1AvoJAloSckSso7iEYRm9WjSFR3aLVMbXWgunSGg28ES0C5FDExitzGh9y49MzgHWF9QII2XRAodQ9+fdAH+0xqYGdEZcoa6I+qKWZROzXUy8sUXt6VD6xZuPfTG4ihukVU+xwbCp5f41/d091E0F7Xc5g=
+X-HE-Tag: 1795536518-760363
+X-HE-Meta: U2FsdGVkX18bnq3lqHEYYRQn2HbnrQkmCuTUkZ8yFM3JKQH/amoJ0fMN2eiSYNF1wZTyTk9ZMcRD0XZw1w2poxlye60YOayZcvOD+Zglk/0yLuYh/x6opXsqualSJdS8TeyIL3St6DBX+yi4braHVjh0wkhAgQoGXzX/Yth1jxC5Pc6LWOixWJ6ZYEjHBoBnePHWECl/K4iirlKgRJSmQMDvBOm7Irjy4rd0j1WHddRVlTpyEsJfsbT9A0ioGHd9b2MYoJNw/Q0zDOj8HHP5VEJrC0Dk4cqJtSpjJCHCByyLxvV3Z7GSbf/Et9mpRzrZX/7dZRF9xSgXtCgSvIfQ0E6CEtS05TYk0JohdFj7TAfA6ZUrtpmT8w==
 
-On 24/11/2026 10:48, SignKirigami wrote:
-> Document the Netrani RPMh clock controller. Require its board oscillator
-> input and the xo clock name so the resource clock rates can be derived
-> from the supplied source.
-> 
-> Signed-off-by: SignKirigami <prcups@krgm.moe>
-> ---
->  Documentation/devicetree/bindings/clock/qcom,rpmhcc.yaml | 11 +++++++++++
->  1 file changed, 11 insertions(+)
-> 
+On Mon, 16 Nov 2026 08:54:24 +0100
+Karl Mehltretter <kmehltretter@gmail.com> wrote:
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> --- a/kernel/sched/Makefile
+> +++ b/kernel/sched/Makefile
+> @@ -27,6 +27,9 @@ endif
+>  
+>  # Branch profiling isn't noinstr-safe
+>  ifdef CONFIG_TRACE_BRANCH_PROFILING
+> +ifdef CONFIG_DEBUG_PREEMPT
+> +CFLAGS_core.o += -DDISABLE_BRANCH_PROFILING
+> +endif
+>  CFLAGS_build_policy.o += -DDISABLE_BRANCH_PROFILING
+>  CFLAGS_build_utility.o += -DDISABLE_BRANCH_PROFILING
 
-Best regards,
-Krzysztof
+Branch profiling is really for checking production code and not debug code.
+I don't see a use case to see what branches are taken when the kernel is in
+debug mode.
+
+I think it would be better to just have BRANCH_PROFILING depend on
+!DEBUG_PREEMPT. Then the above wouldn't even be possible.
+
+Thanks,
+
+-- Steve
+
+
+>  endif
+> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+> index 1a088d4576f59..98ca93bc60887 100644
