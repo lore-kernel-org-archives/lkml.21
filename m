@@ -1,18 +1,18 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.75.107
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.104
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795505768;
-	b=p528qEhF+erb+6ji0yNumqG7FFsKn8lqZIjx/fXnNSTg9mUoGReem1tO/SDy/WCTpPbh
-	 khLTExCOqKY+CIwqKq0t1SZXb7CMIF/4ZfBsO3AdkCl8s7NkGcqh5cuLElLr2FudkLGeT
-	 nbFjyNIrNV3A1qkKXyPgx6+ILOvJyvc5qvZUCjOzL7dv/KCxh3mQwuj74nkquj1vfeGTb
-	 eKN69RIpuH5xmN9p8UDm9uaQZ1fSKcyIO3TkPu+Q9VlUYGpsNPo/5JAdAF9bMULsmM3UV
-	 XYOJa00j5KDCKfR6pYb5BgwlnqNe4o3NC8KnoEFwvBVh45jRUibTzrUMHWa/ovRWb9A==
+	b=2ezkPgsvNKbx6ODniv7wZ/46/H3GV7VJ1W/z7ihEezuU0AI1XGaq28PNGJ4/v9Nh8DZ8
+	 +HYH2yDYMfmI0lTkoNnzctHtgMp03B0+cp7kT3jRrbhZgyn9dbwNXToHjs/4HbgobKtpS
+	 TKtnskacIt3MbWIq8W9qOAxluxnmh36oDv512aaLQbE9+js0aB/O45ctr0mh4aK6WA1u4
+	 Z3raeQLToredsGM39eOVn6elEqCwF5pQQNJsMEAVC4myIiAoc+6nWldnRi+L0PkDt2fYF
+	 f4GxX2+2+rMflNB4hwoeUZ0grOec84IT1ydB+PNAmzKapcEZ+sGN/YKwaW6EymH5l1Q==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795505768;
 	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
 	 Received-SPF:Received:Received:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:Content-Type:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:Content-Type:
 	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
 	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
 	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
@@ -25,45 +25,44 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=Lnh4Hz6eypUahM6CD4PAa9VLWuCYpWMG2wp8hO4gGKw=;
-	b=gS3HRsXSIZ6JgdM87lO7Aqj6XPHBR+yYPqGG6A4PJz0zP1pR4el0SNEt/TLZS5AcebfK
-	 yX2bBxPZU8jdFldO6cVH3l3frgk10PcfqKqsRXoPoyr3QqrmYFunxTIPaUN/ovo7TGCk7
-	 It0n57NDuZbaUXnEeBPJAlKb1lEKNiONuVNBjOBJVGu+gK3JjWEb9W38v1+L4t9ACYkZY
-	 u3gXCr2VwQAFSnLu8bN0xE4MFIK1XwZMaHuPs3PlRNSwA0iJ190s6z5zFqnbWohieDNVD
-	 jXXFUkh0BhS/sHfkKlnPOBaCxW1jDosamxybYGQZld8Dh/OcTnwHaZQbug4b77OwZWA==
+	bh=L5/ilYjNIdMzPVov6bsQbB0+i0Mj+E7hq2zbDupkePw=;
+	b=kZS8r8Rz2av8Kuw0N9rB7DSJ7ayFKSWegTw1PaSfKP1FsFf6/Cc+QIqCUwOBVxKUp87R
+	 zDuEFKG1W197chCWHHYACbNpuVwilVlLiP2GuOAwhs7UgueRlAFX5whLISNDKcT0ZiaLH
+	 J7eXSIDQv5yPlPNKR4tfEL7puqsH5E5bcsgrbQlgzogXXrRLhbn+ptsD3gcX7uMRJ8Rlw
+	 jrn/JB/sL7w0+kmvL/42n8opqokco7jkktdFqHTsA/F1DRq09NOhGFs8X9N++FbyAXfrK
+	 /DfytU29WgI2ep23mAyBNJCAztUf0LyYfFp7oSyx7fy7i6yYkV/8AZSQObg8qmHgKSQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=none header.from=cixtech.com;
 	spf=pass smtp.mailfrom=cixtech.com;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.75.107
-Received: from OS8PR02CU002.outbound.protection.outlook.com (mail-japanwestazon11022107.outbound.protection.outlook.com [40.107.75.107])
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.104
+Received: from SEYPR02CU001.outbound.protection.outlook.com (mail-koreacentralazon11023104.outbound.protection.outlook.com [40.107.44.104])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80CBE606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:36:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80CBE606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1C81606A33B
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:36:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1C81606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZTVx/SQNszfZfWz1nxqruCGb5h2Udm7kgYBBHpIwHJw2HHHlI6EiWT4AWY0cY65n8+V5teJgqbYHwkr9CROZtj7LxN6VVmbxSKWxD+UEYwJ6kFOsSzAST387kltijGrODaHmRPXCdinV4qrOQGK6B4TcJI+0qUvnAGV0+Qyo2zxzT1H/eWXUcMg69Mojv9Dk0Ghp0/tdpBgdDqkbXg484MfsULGi/5e2My5FbWwUlXavScqETohFryN05ZWwsnd0t+vpn9v8aYr0ubIBei8IUK+UdjK27tSK56qIY/VBRlKy6XaV07ax5ZkfHD7uaOilhGc7B3n7gN2gz9BZ1ZkqoQ==
+ b=IBhrc0X1pHU5Jffejjj7a6SJSXFdDVQ+hVh9c+hyaoeDnQqMMN43WYj9RRoCIF0sxontdq5OmsA6KNHZPCZHDqWfGPQJ49CoOUZvma+Fb3QdTFSD4y5rR1cXTFm97Ae/uszV6jzVaSHKJNj/0tv5Y3fDlIKUVD8tQyKK1J7AzFw7VJU6E7vuhUzuBJwtYdigx8EByeZO2DfVxB5MdgPUazHp/ocRJwjpLSynmT2W88opbeR51+/YHSZTU3D6CtR2NB8CKqm+OLN5si+lnqNiDySJXeKmO7+MCrgf0fETey7TWjNZzg5mr3Bviu7HoounvadZJemTOrbKXYKxXro+8A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Lnh4Hz6eypUahM6CD4PAa9VLWuCYpWMG2wp8hO4gGKw=;
- b=J9rZkby2i7KPk7uA/053dXv7YZcuEudK2joExbI1EHeGnfDX6P4ibAHxQHe+V/G4Ym5EdHdDgI84KptoUGbFPgC3T0re62Gx+ZoTH3dji+EtyKoSwpYKjinBkd2g1grCvmRNI85dQ6bOl8EOYu+QXFz1zofnFCAL114mxcva3V2eKScW/MnTRTcxG0Z2TcDJuJ+zwAxNY+LvJqExyIE2MIvWfdFWcvHkel/sxkyu3wZF4yAkcX0HjH+PN5myWZMYk/pnxyC8uiG8QypKNDbjZ4maFIbYT0HT4r7RBnHUDA6R4ykohsCKaA1yiFeiRnYUassxYUeSSWyfy14+DeTyow==
+ bh=L5/ilYjNIdMzPVov6bsQbB0+i0Mj+E7hq2zbDupkePw=;
+ b=fz3o/xxNu/E1XkeLK4pPCHh36gsEpr3E8G7WCq6CHM76XGQ0SY1yXR2nULrSiHK8NLkOMnvknhQThTwaFyBYVlyFGzRVx4iOL4l6QIG1cC5uYbWRequmjTXSx3xR7Z26nDHm/AU1eUFbfvkaG4m9/AFTPAuQUTU45c7jLWz3uuMGmJ6Vgr4X67WPxTFppSXWAmkrq+J1TF3kqJWleIG1OENDbHJOrNYRObdbcrhiw7gRqzOFkKck/sqNcIBSKlkyPhflMrVgqFZzKWBbf2bWBeNUWAtGJSFsIcnpRABqIPpbq/gYHZBRLE/cdrVRbj05Ksdqrv6AA1vN0cG+clr3eg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from SI3PR02CA0003.apcprd02.prod.outlook.com (2603:1096:4:295::15)
- by SEYPR06MB5038.apcprd06.prod.outlook.com (2603:1096:101:52::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
- 2026 07:36:03 +0000
-Received: from SG2PEPF000B66CC.apcprd03.prod.outlook.com
- (2603:1096:4:295:cafe::8b) by SI3PR02CA0003.outlook.office365.com
- (2603:1096:4:295::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Tue, 24
+Received: from SG2P153CA0018.APCP153.PROD.OUTLOOK.COM (2603:1096::28) by
+ TYNPR06MB8957.apcprd06.prod.outlook.com (2603:1096:405:3c2::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3; Tue, 24 Nov 2026 07:36:02 +0000
+Received: from SG1PEPF000082E8.apcprd02.prod.outlook.com
+ (2603:1096::cafe:0:0:2) by SG2P153CA0018.outlook.office365.com
+ (2603:1096::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.688.3 via Frontend Transport; Tue, 24
  Nov 2026 07:36:02 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
@@ -72,11 +71,11 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66CC.mail.protection.outlook.com (10.167.240.25) with Microsoft
+ SG1PEPF000082E8.mail.protection.outlook.com (10.167.240.9) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 07:36:02 +0000
+ 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 07:36:01 +0000
 Received: from localhost.localdomain (unknown [172.16.66.33])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 9B92A427EFD7;
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id BA0B540920E5;
 	Tue, 24 Nov 2026 15:36:00 +0800 (CST)
 From: Luo Liu <Luo.Liu@cixtech.com>
 To: liviu.dudau@arm.com,
@@ -89,10 +88,12 @@ Cc: airlied@gmail.com,
 	simona@ffwll.ch,
 	linux-kernel@vger.kernel.org,
 	Wuyi.Shen@cixtech.com
-Subject: [PATCH v2 0/3] drm/komeda: Use the bridge connector
-Date: Tue, 24 Nov 2026 15:35:57 +0800
-Message-Id: <20261124073600.3124817-1-Luo.Liu@cixtech.com>
+Subject: [PATCH v2 2/3] drm/komeda: Use drmm_mode_config_init()
+Date: Tue, 24 Nov 2026 15:35:59 +0800
+Message-Id: <20261124073600.3124817-3-Luo.Liu@cixtech.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261124073600.3124817-1-Luo.Liu@cixtech.com>
+References: <20261124073600.3124817-1-Luo.Liu@cixtech.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,72 +106,212 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CC:EE_|SEYPR06MB5038:EE_
+X-MS-TrafficTypeDiagnostic: SG1PEPF000082E8:EE_|TYNPR06MB8957:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 26771266-3ff2-414d-ce4a-08df49fd976c
+X-MS-Office365-Filtering-Correlation-Id: 26df25bc-e826-4a66-8c77-08df49fd96cd
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|42112799006|23010399003|36860700016|1800799024|376014|18002099003|6133799003|56012099006|261009220027099003|261028144727099003|261102123227099003|261021121427099003|261009221227099003|261026140227099003|261009223327099003|261026121527099003|261022075727099003|261009223027099003|261009221727099003|261022105027099003|10067099003|261021123027099003;
+	BCL:0;ARA:13230040|23010399003|42112799006|36860700016|82310400026|376014|1800799024|22082099003|18002099003|6133799003|261009221727099003|56012099006|261028144727099003|261102123227099003|261021121427099003|261022075727099003|261026140227099003|261009223327099003|261021123027099003|261009223027099003|261009221227099003|261022105027099003|261009220027099003|261026121527099003|10067099003;
 X-Microsoft-Antispam-Message-Info:
-	eDDA+nHkKTASKBzjvKKngAYMBr1rM0UPjCYojIOhOYj8QkUd/4N/MrWRUIgy79i72iCDb0FZvbu0V+drcE1Hh71JtAP08bTwMj/IuLScdhwH63wb1wVcPJGDkN2bOgY4k5xZu93QZVN6puSRS4Zdzkvxe2dDVGwraG9DRowQ1Ng4Zf6rzaoC7obu3+jeCwJ0Ol9w6XlNezKmf9FbXhy280CPutxvhUMKz1VEveWquH3dtJwFGr3rqJlkJZlSnNCcpm/tvKyf3y46Hl73vO46X/AXDyqBl63Bwzm5amWHcByUNN3pjA4Dw4hzAEfjXkeEj2ftP/CP4qKUe71evNhCl5mrohuMZ5GwYsxZtOCul3HlUEKgoKvCtt/HeTC0wBl6IHH15qzGY+9ZjB4zRUHrvQlBPvK5K3NF/3LQVt3D3cAgtipe4FjPGi4NIMfpUWkJ+n5P7WwhoTWyzEe5KxqyjDUymt6yUtZ0qg9EmmxqLnKRligqCyWHeY8n54Jf15uqqVGHOdVx7vkNoD7IWdkF4NRV6tTcCdhy5S82Rn9PK9JJyCzjO8sGRDGGV3z9sppELXMjW/KGlW8ukPXoA8XRqurESus/QQCLRhqptoXiI/KbbA5aaQGvxAlIs1VbeIH20XptxH+YceRyID1Ka/6ML3qn2/GibAeOUH9kuvJQ6pVM1Kfn9yia2XCX6Vnjcpdq
+	ur8u1pg6djMQV0W1M4sEb3cElNzPzTES0tqt+INn5hFz9G+ZqnrdMFVrkwSLs5EhQx9iLPS1yY1Ai4TXfx698vuIGS6SyaZV8niV0CpV12qoi3NJN3DDleDKWtBon5C0ooF+yp0jay2nYuYygZR6soHkQgYeEJDN/XCumWKA24VxVgadYsCyopdIOqwwHTovF1zzb7CDHaZGTk3Wi0VAgt2sglOPYkwoC93UkpDCnk7lTB9UoI2OZxjNWtASDNlp0sc72smZU4sTn0wNmJt4NzRjimtikuIH64lWCDlaSzg1hBiODf/94qi0rsb2KQDzAVr3GLKET5iiDkNUkzxd+Y+RGa2dxK3da1jUVsgupD/VGrvKxYL5PkK1cqVcW8ghhnxR52c7D0eHFWVHlRV2nmymJx43+x4bF8K/Z4yCD03PuV+fy+wCn2/aFGJIYrsZYVQcdp82Uj5fCHm0Pu6s3ApHwyOQSeXrH2ikzoHtJ6+ugf9FHYNHM8Y33pV1vUWL2BJeuDVTiRL3Ypbg//zXWydz17RTQsINTSgT6UcSB/lW/oSlf4+i1TCljTgYXGFryZdkc1195eMY0ejm/CBKYxMkyg6UFp4MJUWQRbE142dvXU8e33t1i4G5Zph1h3YS71z8zt2ydOmYDcSH2qcCYu1ZfvI6bw265d+ncepgUTUH9irWI0N3P3tOtb+r5Cf4y/v0xEnyJu1fWK+nmHHevw==
 X-Forefront-Antispam-Report:
-	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(42112799006)(23010399003)(36860700016)(1800799024)(376014)(18002099003)(6133799003)(56012099006)(261009220027099003)(261028144727099003)(261102123227099003)(261021121427099003)(261009221227099003)(261026140227099003)(261009223327099003)(261026121527099003)(261022075727099003)(261009223027099003)(261009221727099003)(261022105027099003)(10067099003)(261021123027099003);DIR:OUT;SFP:1102;
+	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(42112799006)(36860700016)(82310400026)(376014)(1800799024)(22082099003)(18002099003)(6133799003)(261009221727099003)(56012099006)(261028144727099003)(261102123227099003)(261021121427099003)(261022075727099003)(261026140227099003)(261009223327099003)(261021123027099003)(261009223027099003)(261009221227099003)(261022105027099003)(261009220027099003)(261026121527099003)(10067099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	znKA9WH/nccUj6W3OFfQqpYcsJ2vs6hptilOM2mB4vSTZpdetIBevnPhGw8wFVMCrO+xtWu3mIpOr/xswAvf1+589J58DWpEslPn0QtlDFxubi1+q9eZ/xfcIfvyAECoqbLMib9t/SmIxR9SuYcNtGBKbFgf3T98prqp5LbMAqnIg7eih2bIxeI6sImmpTg91/+m+rxaqX7buqQqs7gXf8Z8H1dfkYaP084hOp4uehRoFR+0Xeclx/zUuxSa24BuSaNrj/cfvTBAMc4pqUvdGMZ63sWIPlumnV7VH5q/jPfgenHAMlk9t6XpGzKtkB3E/Ld5PBza/m8a4lA5quS5vYpNQRCm/N3ePiPMNowYpuRona+hQB3+JNS5P5k6ty1J1SdVqw+WqUvDIfGWx3SSBk9Bul68hp8ljLE1DPFYO9z1IbFg5R7uYWsV8TtQtLRS
+	s/gCICVedzcdu3z32T84aHXXrelnWn0thqEDgGAtMmeI20XOcM56ZZrUwe1J4gE3UsS88XZli4vkiPNq2Z9jB3KsXsxH/G5Qj2aS6ql6kUxwJOlQUHiEfPgE66ZHt/0eE3rbwJEkQbumugrwnKw9hVkRqiIZODS7c5Xya4JOM8PpgIjN1no+HLew26rAMhMGH1BB+7cuUNIHjrFAhVhoxuz8pQljjo4H4oFExlxvYuCszj8uAEbZc62AF/yonBtne9526k+6a5CovHL2Tqun94WjuUVzCbmGHdQVrjzHBfWCmTZTdIDN8xQuy9GxPRj78/Gv3sELmOKCZw35dU07z6cxVVBTuj2T/JIKXzutFGiETm+0YW+U+BZj9QYEU7KV1XHMuxln2SxwN3MCaqpqXPMi+phNOdA6HLUNHBB6NONtbRZ42a4jHoB7BiQ1NhdW
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 07:36:02.4194
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 07:36:01.3774
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 26771266-3ff2-414d-ce4a-08df49fd976c
+X-MS-Exchange-CrossTenant-Network-Message-Id: 26df25bc-e826-4a66-8c77-08df49fd96cd
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
 X-MS-Exchange-CrossTenant-AuthSource:
-	SG2PEPF000B66CC.apcprd03.prod.outlook.com
+	SG1PEPF000082E8.apcprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB5038
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYNPR06MB8957
 
-The first patch converts komeda to the new DRM bridge model. Bridges
-following that model no longer create a connector themselves, so the
-display driver attaches them with DRM_BRIDGE_ATTACH_NO_CONNECTOR and
-creates one connector for the whole chain with
-drm_bridge_connector_init().
-
-The second patch fixes the teardown path that the conversion exposes.
 drm_bridge_connector_init() creates the connector with
-drmm_connector_init(), which provides no ->destroy hook and leaves the
-cleanup to a managed action. The drm_mode_config_cleanup() call in
-komeda_kms_detach(), and in the komeda_kms_attach() error paths, drops
-the connector references directly, so drm_connector_free() ends up
-calling the NULL ->destroy pointer.
+drmm_connector_init(), which does not allow a ->destroy hook and registers
+its own cleanup action instead. Calling drm_mode_config_cleanup()
+explicitly drops the connector's last reference, so drm_connector_free()
+ends up calling a NULL ->destroy pointer. That happens on the
+komeda_kms_attach() error paths, and on unbind as soon as no other
+component holds a connector reference.
 
-Switching to drmm_mode_config_init() lets the core release the mode
-configuration after the connector cleanup actions have run. The komeda
-private objects are then finalized by walking the pipelines instead of
-mode_config.privobj_list, which also holds the bridges that the encoder
-cleanup releases.
+Let DRM release the mode configuration: switch to drmm_mode_config_init()
+and drop the explicit drm_mode_config_cleanup() calls. The managed cleanup
+is registered before the connectors are created, so it runs after the
+connector cleanup actions and finds an empty connector list.
 
-The third patch fixes a latent interrupt race found in review. The IRQ
-is still registered after komeda_kms_detach(), and the
-komeda_kms_attach() error path, clear drm->dev_private, so a shared
-interrupt can reach komeda_kms_irq_handler() and dereference a NULL
-mdev. It is independent of the conversion.
+The mode configuration teardown now happens after komeda_kms_detach() has
+returned, so komeda can no longer rely on drm_mode_config_cleanup()
+detaching the encoders' bridges before komeda_kms_cleanup_private_objs()
+walks mode_config.privobj_list - the bridges are private objects there as
+well, and finalizing them a second time when the encoders are cleaned up
+would corrupt the list and free their state twice. Since the komeda
+private objects belong to the pipeline components, finalize them by
+walking the pipelines instead of the shared list.
 
-Luo Liu (3):
-  drm/komeda: Use the bridge connector
-  drm/komeda: Use drmm_mode_config_init()
-  drm/komeda: Free the IRQ before clearing dev_private
-
- drivers/gpu/drm/arm/display/Kconfig           |  2 +
- .../gpu/drm/arm/display/komeda/komeda_crtc.c  | 18 +++++++--
- .../gpu/drm/arm/display/komeda/komeda_kms.c   | 39 ++++++++++++-------
+Signed-off-by: Luo Liu <Luo.Liu@cixtech.com>
+---
+ .../gpu/drm/arm/display/komeda/komeda_kms.c   | 36 +++++++++++--------
  .../gpu/drm/arm/display/komeda/komeda_kms.h   |  2 +-
- .../arm/display/komeda/komeda_private_obj.c   | 23 ++++++++---
- 5 files changed, 60 insertions(+), 24 deletions(-)
+ .../arm/display/komeda/komeda_private_obj.c   | 23 +++++++++---
+ 3 files changed, 40 insertions(+), 21 deletions(-)
 
-
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+diff --git a/drivers/gpu/drm/arm/display/komeda/komeda_kms.c b/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
+index faa8b041373a..37388d45b31f 100644
+--- a/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
++++ b/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
+@@ -253,12 +253,15 @@ static const struct drm_mode_config_funcs komeda_mode_config_funcs = {
+ 	.atomic_commit		= drm_atomic_helper_commit,
+ };
+ 
+-static void komeda_kms_mode_config_init(struct komeda_kms_dev *kms,
+-					struct komeda_dev *mdev)
++static int komeda_kms_mode_config_init(struct komeda_kms_dev *kms,
++				       struct komeda_dev *mdev)
+ {
+ 	struct drm_mode_config *config = &kms->base.mode_config;
++	int err;
+ 
+-	drm_mode_config_init(&kms->base);
++	err = drmm_mode_config_init(&kms->base);
++	if (err)
++		return err;
+ 
+ 	komeda_kms_setup_crtcs(kms, mdev);
+ 
+@@ -270,6 +273,8 @@ static void komeda_kms_mode_config_init(struct komeda_kms_dev *kms,
+ 
+ 	config->funcs = &komeda_mode_config_funcs;
+ 	config->helper_private = &komeda_mode_config_helpers;
++
++	return 0;
+ }
+ 
+ struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
+@@ -287,27 +292,29 @@ struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
+ 
+ 	drm->dev_private = mdev;
+ 
+-	komeda_kms_mode_config_init(kms, mdev);
++	err = komeda_kms_mode_config_init(kms, mdev);
++	if (err)
++		return ERR_PTR(err);
+ 
+ 	err = komeda_kms_add_private_objs(kms, mdev);
+ 	if (err)
+-		goto cleanup_mode_config;
++		goto cleanup_private_objs;
+ 
+ 	err = komeda_kms_add_planes(kms, mdev);
+ 	if (err)
+-		goto cleanup_mode_config;
++		goto cleanup_private_objs;
+ 
+ 	err = drm_vblank_init(drm, kms->n_crtcs);
+ 	if (err)
+-		goto cleanup_mode_config;
++		goto cleanup_private_objs;
+ 
+ 	err = komeda_kms_add_crtcs(kms, mdev);
+ 	if (err)
+-		goto cleanup_mode_config;
++		goto cleanup_private_objs;
+ 
+ 	err = komeda_kms_add_wb_connectors(kms, mdev);
+ 	if (err)
+-		goto cleanup_mode_config;
++		goto cleanup_private_objs;
+ 
+ 	drm_mode_config_reset(drm);
+ 
+@@ -315,7 +322,7 @@ struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
+ 			       komeda_kms_irq_handler, IRQF_SHARED,
+ 			       drm->driver->name, drm);
+ 	if (err)
+-		goto cleanup_mode_config;
++		goto cleanup_private_objs;
+ 
+ 	drm_kms_helper_poll_init(drm);
+ 
+@@ -327,9 +334,8 @@ struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
+ 
+ free_interrupts:
+ 	drm_kms_helper_poll_fini(drm);
+-cleanup_mode_config:
+-	drm_mode_config_cleanup(drm);
+-	komeda_kms_cleanup_private_objs(kms);
++cleanup_private_objs:
++	komeda_kms_cleanup_private_objs(mdev);
+ 	drm->dev_private = NULL;
+ 	return ERR_PTR(err);
+ }
+@@ -337,12 +343,12 @@ struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
+ void komeda_kms_detach(struct komeda_kms_dev *kms)
+ {
+ 	struct drm_device *drm = &kms->base;
++	struct komeda_dev *mdev = drm->dev_private;
+ 
+ 	drm_dev_unregister(drm);
+ 	drm_kms_helper_poll_fini(drm);
+ 	drm_atomic_helper_shutdown(drm);
+-	drm_mode_config_cleanup(drm);
+-	komeda_kms_cleanup_private_objs(kms);
++	komeda_kms_cleanup_private_objs(mdev);
+ 	drm->dev_private = NULL;
+ }
+ 
+diff --git a/drivers/gpu/drm/arm/display/komeda/komeda_kms.h b/drivers/gpu/drm/arm/display/komeda/komeda_kms.h
+index 83e61c4080c2..6f1e6c1773f0 100644
+--- a/drivers/gpu/drm/arm/display/komeda/komeda_kms.h
++++ b/drivers/gpu/drm/arm/display/komeda/komeda_kms.h
+@@ -181,7 +181,7 @@ int komeda_kms_add_private_objs(struct komeda_kms_dev *kms,
+ 				struct komeda_dev *mdev);
+ int komeda_kms_add_wb_connectors(struct komeda_kms_dev *kms,
+ 				 struct komeda_dev *mdev);
+-void komeda_kms_cleanup_private_objs(struct komeda_kms_dev *kms);
++void komeda_kms_cleanup_private_objs(struct komeda_dev *mdev);
+ 
+ void komeda_crtc_handle_event(struct komeda_crtc   *kcrtc,
+ 			      struct komeda_events *evts);
+diff --git a/drivers/gpu/drm/arm/display/komeda/komeda_private_obj.c b/drivers/gpu/drm/arm/display/komeda/komeda_private_obj.c
+index 77b3f361091f..51be98ab570e 100644
+--- a/drivers/gpu/drm/arm/display/komeda/komeda_private_obj.c
++++ b/drivers/gpu/drm/arm/display/komeda/komeda_private_obj.c
+@@ -502,11 +502,24 @@ int komeda_kms_add_private_objs(struct komeda_kms_dev *kms,
+ 	return 0;
+ }
+ 
+-void komeda_kms_cleanup_private_objs(struct komeda_kms_dev *kms)
++void komeda_kms_cleanup_private_objs(struct komeda_dev *mdev)
+ {
+-	struct drm_mode_config *config = &kms->base.mode_config;
+-	struct drm_private_obj *obj, *next;
++	struct komeda_component *c;
++	struct komeda_pipeline *pipe;
++	unsigned long avail_comps;
++	int i, id;
++
++	for (i = 0; i < mdev->n_pipelines; i++) {
++		pipe = mdev->pipelines[i];
+ 
+-	list_for_each_entry_safe(obj, next, &config->privobj_list, head)
+-		drm_atomic_private_obj_fini(obj);
++		if (pipe->obj.funcs)
++			drm_atomic_private_obj_fini(&pipe->obj);
++
++		avail_comps = pipe->avail_comps;
++		for_each_set_bit(id, &avail_comps, 32) {
++			c = komeda_pipeline_get_component(pipe, id);
++			if (c && c->obj.funcs)
++				drm_atomic_private_obj_fini(&c->obj);
++		}
++	}
+ }
 -- 
 2.25.1
 
