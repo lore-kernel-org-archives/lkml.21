@@ -1,59 +1,94 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795526935;
-	b=b1ifiRFc3iLY67J8MTG6oBlKnYhIj50vY4hjjRItxpfZr3e5RAQaYTD4KYT7de5RVntA
-	 aodumJz1MZ3bPXABPJCjxgq3bcyfkgcNohoWrnGZH0FhPtJsc/SFyESqeXaflnDktebLx
-	 CMPjkZon3ckWB4gCkhiKqpFqKVo6YS09Y2k2TsCwfymgThtTIWGoLBoGSG3/6nE9fVxS3
-	 S2qydK5EJvQ4ZAG6ozdNtVN25gkkn6XekTxzv2gP3KvSrDeI6vDd2pIM1OxuHrSb6L8h2
-	 FUCPU9uDSk/FkWECUmgGZO2HigsibF6RJpKN3DX3bbaB7I7N6rVo94o8zDjXpsdIcWQ==
+	t=1795526942;
+	b=Ur+BS8KJ+tRXrarV0zPApOVerMLvl5AKYtAMWxPyIPpLbFXRW1TmbvUcAtClqhQkO3U9
+	 KApbE6a2/zdzjOYt8RW1hPV8ZtV63ODm/mqsr5an/NXl8Uh4nKRzhleX6hgV/abCF7YvT
+	 QsmZKRoJsSpQJYhBkHPHsP0THBSRDQMHQCDpX2CcOk1YLASoH0pL067lLLxoBB2SRo5W2
+	 ip3Pq91+8IwHTcN7rZVeSh4TI1E8DaN1K9/BhtPLoEQE13EGv+1VA1yg7r1fTz+ABnh7w
+	 c56LQgQC8ZdbY6MSlVoIEbjXwoa4ulV2yWi2iUeFQJxTa5aQxxlgYsX5lbUSV4nK7rA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795526935;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=ppSLLPWvpI6KxcEisNMO2tcR+grD4AsFIEJZhPBbdo8=;
-	b=c1DUoR75ug9inZkRrMFQtXIsMV6PQ3kJM6CmfbLQCOeAtzwAmFZlgaeRnYQKNl7/FdH3
-	 /iG43qEmSDGYCA7r/drfn9jBhlQpR+lVQgNUBasbfIsWCqelH+eJkX7mRczanTLeLTL2T
-	 UHhDqTCwI6YhxT2oTADPhWywD3+GEfnAljn7AcsYapZxVfQfemHoCbGjB55om5tIAxCGZ
-	 ugCQht3lcHa0+EoUMKioh1ojUB69Kk1vws5xmS+v9PxbklmGlmPc2bRpmfP4BRhDxnJMa
-	 RPKLXmQQCy5ESvimp2VJZ3JImxx/EsiZG0jRzRAPlVbxL37L3XO2eJUi6AGi+CahLZw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795526942;
+	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
+	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
+	 X-SA-Exim-Scanned;
+	bh=/HRoKuntgt7z4Sw/zF+HWikpndrv0Kbgyj8m5F8gu7w=;
+	b=YUl64Zrs2ajQSkaC7fr1VU3Zg2e6x3iHff5yRT0BJz2suDYXGZjNEixDeLYB3hn/aDCQ
+	 uu/hKII6bR1Rgli3Ze5yinrYlYQXneXDmyOfHq0pSiSR8UPIGDs8mJweX15hgdXhAHgFm
+	 NLByqbHbipgarY27wjC0T4kAE8//su+PuCDdHFkY6XhC3WAcA2rn6fId+vQuVDN1fAoSq
+	 l23wLzDT4M2/585EjWa8BoQDq7AF/H5xde4JznYii3THemSEtUUPSMqWZZa/kFtzmmtS9
+	 R/kT8ecwEoyFDeO38uNUygcGKMlzgo7P91Cj5WF/MKdOb3NTJVtS1nZd68RsS2awWAA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k5Sl4Vx3;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fr0PCH40;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C41CA606A33C
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:28:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC496606A321;
+	Tue, 24 Nov 2026 13:29:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k5Sl4Vx3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA64F1F000D3;
-	Tue, 24 Nov 2026 13:28:49 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fr0PCH40
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C7F81F000C4;
+	Tue, 24 Nov 2026 13:29:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795526935;
-	bh=ppSLLPWvpI6KxcEisNMO2tcR+grD4AsFIEJZhPBbdo8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=k5Sl4Vx3VWy0N+lpOv2sBl0aGk/HDmUvQC+w3HCjNp0ahUW8AH3gUUdtEBLzQWUY3
-	 mwyN/EtC+3N+6cIA5hEa09slVNFGiFGhx3f3VBNbRuM6FH2GGRvqwfgZdqKQGe3lBm
-	 qF+WPEyb0K83/aS5BKAF6eRRsNywj8pM9u/6TD+IZh85JLSFGQQjmzPmqaLw8Ec1SN
-	 wPskPb6m7LxhaSCAEbB+38zCfWNStdb0ZA/3STzCfI92Qcpj4MvMuOhYecqu9UQy/y
-	 YPRAMEqlpfXFLDL4ynKnrLab3BZ97RURdwNlV8v0r+KI/oougiUSzi8Wb7REVrQGUo
-	 OwqkmNlFnr9aA==
-Date: Tue, 24 Nov 2026 13:28:46 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Eliav Farber <farbere@amazon.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	David Hildenbrand <david@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Zi Yan <ziy@nvidia.com>, "Liam R. Howlett" <liam@infradead.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>, 
-	Pedro Falcato <pfalcato@suse.de>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
-	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
-	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/5] mm, uio: huge PFN mappings for /dev/mem and UIO
-Message-ID: <awWPTMvlt34wPyux@gremlin>
+	s=k20260515; t=1795526942;
+	bh=/HRoKuntgt7z4Sw/zF+HWikpndrv0Kbgyj8m5F8gu7w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=fr0PCH40STXrlXHmQtkXH7r5TNp4huoMmo+7xg4o5Lka8RyRtO/2FlVVDUTXB7rZ5
+	 3rNYkvEsNxCBdcxdMqFUA8CHg+v2BtNrWx25wVkut8r75xGUq+9Xyz+V0Vwk4LA5O1
+	 Zybhp83eX37Sm64PZ4Fc59w2p3zDy9S+X2vWa/j0aSh6FSKk43g73Qz257JK3n+mN8
+	 AyTAqeMK3bgbGfwcpleBjxDknkYCFOF7vxte4R3WCmnbeovSIB/dAf0U033DcfPKVx
+	 uHs22+iNIVbbGQqesGS+0m+J6rLeNS5/O4UVG2ge9usloyARrq0XRsfcboCkxedlOI
+	 0fzTE+XVrevZg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xVqZv-00000002atd-32ML;
+	Tue, 24 Nov 2026 13:28:59 +0000
+Date: Tue, 24 Nov 2026 13:28:59 +0000
+Message-ID: <865wxmz7c4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Justin He <Justin.He@arm.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey
+ Gouly <Joey.Gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki
+ Poulose <Suzuki.Poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin
+ Marinas <Catalin.Marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark
+ Rutland <Mark.Rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean
+ Christopherson <seanjc@google.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Sascha
+ Bischoff <Sascha.Bischoff@arm.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	Lorenzo
+ Stoakes <ljs@kernel.org>
+Subject: Re: [PATCH 1/3] KVM: arm64: Don't load hardware vCPU state before first run
+In-Reply-To: <AS2PR08MB97865A914C46DA0CE54F9197F7442@AS2PR08MB9786.eurprd08.prod.outlook.com>
+References: <20261123150917.2679600-1-justin.he@arm.com>
+	<20261123150917.2679600-2-justin.he@arm.com>
+	<86eccbzcqh.wl-maz@kernel.org>
+	<AS2PR08MB97865A914C46DA0CE54F9197F7442@AS2PR08MB9786.eurprd08.prod.outlook.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,24 +97,44 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124131510.38745-1-farbere@amazon.com>
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Justin.He@arm.com, oupton@kernel.org, fuad.tabba@linux.dev, Joey.Gouly@arm.com, seiden@linux.ibm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, Catalin.Marinas@arm.com, will@kernel.org, Mark.Rutland@arm.com, pbonzini@redhat.com, seanjc@google.com, shuah@kernel.org, Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, ljs@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 
-What on earth are you doing, Eliav?
+On Tue, 24 Nov 2026 09:06:32 +0000,
+Justin He <Justin.He@arm.com> wrote:
+> 
+> 
+> 
+> > -----Original Message-----
+> [...]
+> > On Mon, 23 Nov 2026 15:09:15 +0000,
+> > Jia He <justin.he@arm.com> wrote:
+> > >
+> > > KVM_PRE_FAULT_MEMORY calls vcpu_load() as soon as
+> > KVM_ARM_VCPU_INIT has
+> > > completed. On arm64, however, kvm->arch.sysreg_masks, the trap
+> > > configuration, vncr_tlb and nested vGIC state are only set up on the
+> > > first KVM_RUN in kvm_arch_vcpu_run_pid_change().
+> > 
+> > I think I'm going to queue a patch disabling prefaulting immediately,
+> > and then we can fix this crap.
+> 
+> I can still reproduce the same vncr_tlb NULL dereference with prefaulting
+> disabled. On kvmarm/fixes, commit 5651590be08a ("KVM: arm64: Load the vcpu
+> in KVM_SET_VCPU_EVENTS") added a vcpu_load() call to KVM_SET_VCPU_EVENTS.
+> A single KVM_SET_VCPU_EVENTS with an all-zero struct kvm_vcpu_events,
+> issued before the first KVM_RUN, is enough to trigger it.
+> For v2, I'll build on your patch and use vcpu_has_run_once() to gate the
+> arch load/put paths for both ioctls.
 
-There was outstanding review on v2, you replied to it with what looks like an
-AI-generated response [0], then instantly sent this respin out?...!
+Ah, you spotted that one already. I should have checked the full
+thread before replying...
 
-Don't send respins unless it is ENTIRELY CLEAR that the feedback is addressed,
-and that goes double if a maintainer is CLEARLY not happy with your responses,
-as is patently obvious in this case.
+	M.
 
-I am inclined to consider your patches as bug reports only moving forwards,
-honestly. Maybe David has more patience than me on this :)
-
---
-Cheers, Lorenzo
-
-[0]:https://lore.kernel.org/all/BY3PR18MB4722314909E880B1D77EED62C6442@BY3PR18MB4722.namprd18.prod.outlook.com/
+-- 
+Without deviation from the norm, progress is not possible.
