@@ -1,94 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.125
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795525697;
-	b=lKSNRqkvXQi8nAJ5UTOfDvOKt0vCVQkX+LjZIBueQF2yKjqkpG8Oiin/3pdWzu+SCr6b
-	 p6bIMPe9ZuSc2RZjyCsX3PxenBGQYyccgu2xUe4COiUaAkwkPqOuFmrV5J1po8TZPThLF
-	 jgaEm84vAAzUMdPGwcK61KOnodgBrfjmusN0fwS9CqIjidOF0pX/1MjZNNgwX12+A0cRD
-	 dotq2CftIr/g0P/oM90Rngjvx0wCok9bk19yIr2ZUj7e5HvIdu43kCn+yjPzOXnC4MLik
-	 rzxDj0oqHnY2aknucV9iK37qmgom7abJULwwk19FQ4+vK4vkeHOBxDrzgVYd8Iy3jKQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795525697;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Gbwli+3jGR+ys5kSnBS4mEXqow+bmaiRcBn2LYzp6yA=;
-	b=w4OmeSAPyiLqpR0XB1Jhi7lbnvJCh8qoit/5wgwHG+gRYRaTj9hSjb3iQHoDB/wU3pdF
-	 nzCnKjXEZaePXGo5hN/go4N+QheNYD0ZncT2XfLnG6IwoPnVN4CK0/920o8ApYJq44FKr
-	 QmeiAikgpX97AqzRH7I9nkEdLbNai+9YZWBrtkj54iZQW8J0TcPgg0j0Ssrga35ygWRvI
-	 h8TAItM30IA0PT8J+csmRtCcplFC7hrRfw+QbCWNvrLcrVAj5mhqYxkQoWsghRwJk80vv
-	 J8PRyQk0fu7KqELpSj5ZRpVte+wroE4ZAGG2EQCH+R769Lq/G/mclNMyZGXyACKEyEA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=RuyPA1g3;
-	arc=none smtp.remote-ip=91.218.175.125
-Received: from mta0.migadu.com (out-125.mta0.migadu.com [91.218.175.125])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.42
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795525703;
+	b=ijrdx3d2Ddvjp6PZxQf1GB6ZX8fm64CUbkBSF1nCM7MVY0Jty1s4CO6+PiGDD+qcivL/
+	 d3pkOo9axuJGA6uhVeVg7PEQzmP0J+nXfBEepF6KM4RXy8nd3VFHJwbca5HcLiXqsQq0X
+	 gLj7yxG7OgNTeuzhLigNdicQ02zC3tTCtFk78d5MW0fHcjRYwOQoteb5bGdUBqhspGgOB
+	 Yto6P08IPm9IrvRsW2fu5uZIQFvTcuYxKahywLMNYdpjyNtQ1qpSOmad6Yd+Wr84GrTNi
+	 QZwiE1EbXjsI1TWKJVGYHBviV7UT05CI+PrQaCodROfQjUyu57W6rdvEEGaVz47/QVA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795525703;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=AkNAAAtF4o2icxeAY7gUNPpfbhQGP8DAKlQu3i/mLV4=;
+	b=U6o0khiQfFmha6sFRQ8vL2XHYthwehOTqouMN+80JiwqDfYR+WMqH5dddiiLv5udP2f0
+	 zr1eHoKb0v29U80hjgBl45vsNrMuh0z5Gs7vo3/3bYBNBZC5oYU2YKtU4xq5rHmeJv7Z4
+	 dckxkI4jM9F1oXykL4YwFBp935yt1fNkf0+dmSGgXzK5JWO4xBNDn1fFYNw5vk6MP3whY
+	 XAvd9/FzYwm8uIzBxm+K5gac7TP53ZOOyoITthb/4RtfcJIE6q/t2c5kjQXRjglb6NkkG
+	 +OY4BHZQbRdpe6fzhzV4zMn3vUGEEFsyyDbeEFTglEKrAigmspOW4wodZDX9cDxVWNg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SlpgVcv5;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.42
+Received: from mail-ej1-f42.google.com (mail-ej1-f42.google.com [209.85.218.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B67C606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:08:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B67C606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6E98606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:08:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6E98606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=RuyPA1g3
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=1OtbO6cAmhEg7HnV0uuoWP9DuSDGmj8P3KgcqLq16Kc=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795525694; v=1; x=1796130494;
- b=RuyPA1g3jj2oOv0KjQwAWoO4GQkYn8Ka4XNqbvhO6RvR9WQcv/cIz5MDJk8uqFBdstrtYnFa
- F/MOoEQguV0FqHaavFdCoj/c/F0cCazNwD0Orq15/0d0gaqqsWkayNCCZuaZX4huzs7Kv83fgAi
- oER8y/gpCgAOJ5yx1IGvtQbg=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 04409754ab00363b;
-	Tue, 24 Nov 2026 13:08:14 +0000
-X-Mizu-Trace-ID: 04409754ab00363b
-X-Migadu-Flow: FLOW_OUT
-From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-To: netdev@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Matthieu Baerts <matttbe@kernel.org>,
-	Mat Martineau <martineau@kernel.org>,
-	Geliang Tang <geliang@kernel.org>,
-	David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Neal Cardwell <ncardwell@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>,
-	Phil Sutter <phil@nwl.cc>,
-	bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mptcp@lists.linux.dev,
-	netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
-	Xuanqiang Luo <luoxuanqiang@kylinos.cn>
-Subject: [PATCH net-next v1 4/6] net: avoid stack canaries in skb_try_coalesce() callers
-Date: Tue, 24 Nov 2026 22:06:29 +0900
-Message-ID: <20261124130631.1886963-5-xuanqiang.luo@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
-References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SlpgVcv5
+Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-c5126505cb3so573825866b.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:08:22 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795525701; cv=none;
+        d=google.com; s=arc-20260327;
+        b=sUNdB7QFVnXe9RIUGBX9zYc+5u3VnemrH8L8+2OVNbxpFOSBVO97Lugy+ezzXpvgUJ
+         +8ysnlnT0UeGerOZw60JWvIeq92DewE7iM+HBMeOZezdkuc71dZW+m975iLT2VGwjyFj
+         ZKw5ZJlp019bUmQEmQBoHMJmgkpdCnWA3pPtjofb8K/h8y2RIfYri4xSCeYES4NMM8VU
+         ly290lT2TOO1X6ViBQID8N7TUCdU+4Pmy78k/C2FJ8cCNdZk0GpNHZP2CGpRBQYb85Dp
+         84Mf5H/tnzt+BJOkkb16UrELakqKQsDgettSZkxT0AkTHv9VWh5RFsyzg3c+J+0MKPrM
+         51Eg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=AkNAAAtF4o2icxeAY7gUNPpfbhQGP8DAKlQu3i/mLV4=;
+        fh=pAJSoDxhLn/+CYSIcIaEPHSqBOMWk6CYH6QUTkwzUdQ=;
+        b=Uok5Nrlk0rljdBMJJQPj6IxywElU52ogsS2kOy7XBuU2LHYUGGLQyJkbQpFFOR1MCG
+         4tWstGxRLvVhtT2xso3ToleULlBoyxx0AY7WxovJYGUY48FvxRcmejZvtF4PtXN+TVY6
+         NZr1zf5hjIbteUplOl4KAlWfpEIOhhVmixnzFxd072F5gv08ZO1KnPDyi6LHtKei1heb
+         chnJaJY6VuP9wLAwH8ekym3V5tknnfjwgRn1l4rJLGksYGdOGBj1kH8KXJ07zLqpUc86
+         H3OCwTb8uUZuFw1NqPHRih+L+NRt6l6BSK4xW+gVVVLhx5Mt6iiBzHdOopCY9fk80DZM
+         oQmg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795525701; x=1796130501; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=AkNAAAtF4o2icxeAY7gUNPpfbhQGP8DAKlQu3i/mLV4=;
+        b=SlpgVcv5gR/UyiZZogcnbsDTFUQAIQrCDAY7YiGvkitjvIjVAnWIz0UUxJuMo2tf4N
+         WB385B/+2VrE9MW3isq9qNWUjB4aS3p/hPVI58rZlqXdRWFOHGElnFD84m5r36FHp34V
+         adiqehJVLWSp1oaCRXR1YpOCxm8z6/23MK9LvpHUtKiCx5sUMaTuevSnN1ZNJ8NttHQ4
+         BYsPx28LyL3o//fK6ckzKE+DKBzvxgoKObS8E/b5UjopZKndW4lUeaf3ZdModShnwlF0
+         3fOopA5oxWIjssOWmS0+ptRm0epVU/DCPaQvKOsx5OLRw3n+UJoG8VSK+bHni0dSyAlr
+         vYYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795525701; x=1796130501;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=AkNAAAtF4o2icxeAY7gUNPpfbhQGP8DAKlQu3i/mLV4=;
+        b=T6ggHkaq7wp3WAqnWDNf4zflP5GuY93T44V7vaLKyrIO50r7TtMJZiNlJTrXDeJk0H
+         tbgKnovpguRmcSjA1wtAIBjPCxoNC/miFWKoAf/WIyGSJn9KKpbMwRiSANDUy/o3UBK7
+         d2e3v5TggM78W8Xu2JWQN2cvyDY4M1h8wn1IvWkTi+6sXp8UsvYki5DrR2IOxuaTq2o5
+         0pwHERoa9HT0YBlvEdmVLwJ9f9js0j1wh3lynefN4B7DtWCSvApc0kusK5l/HPCbIVG9
+         UaRRNR+2LE41lScovAs5r4X3spb6jj296OE/2nE5mbU5oapNmJFtUyhZMdRz2ISl/71O
+         odNA==
+X-Forwarded-Encrypted: i=1; AL+hErEKxWR9GQOnJlDLCpFEmxXDMHXpAyQ2sRyGM5fQDzbXB4uY4PTqzPCGYlfub/14A4Btg2RMZbXbX/0z8YA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8rwcPMxRXqIuaSvDpkLhjQkLOZ5FEjd8yHUvxtm69VLCF+0O9o
+	5bFqCWeVE+7ibfzo1qmqYXJXffR8rTIb0vhKyKmPOSaStvE9GwyNUFJZCOQiCJt5Y5hFi9xMgDi
+	iwE7Xc4+kOiRhk9Ni2/e+mOhTvXkH5kc=
+X-Gm-Gg: AZFdTZcGD5+hPKRApLLaEfB1Scr/dLMmVhk7YQhwkEJfgEPFC2bham87qkaGOaAm536
+	uwsu8n0Fk0NHRT2gsGt61dRfqcl2QuSEwExV2O2TufjQUljj/RR22vlLL1Owdaac0/MTjq7Nnjt
+	yOJFmEO2gJ1f6c2bIjJP3/haUISL/ENKGQze8vZQjr+95Im6L3MimolVcjihRYxGFrRYDT6da9g
+	/y96Y5BQ5NQYXMUunrG+y9bPkorM0jaWgTfYrUo6g6fpeH+QTDpxUHQvis9Z0uCoEPKaHc7I26t
+	9rvVX1JfHHubnLZK7dV8zrZ/DEoKCTKrWL1w0tClvD+r4pLgORL6sFMMTEZnQTraXI+dGZY9Ujm
+	8xUPTsMcPgL3ps0lQ5uRAAeEVjCL/iyQ5l9doRsnHIOQVOyHzkLtby3CHakNxDwC2jmW24Q==
+X-Received: by 2002:a17:907:2d13:b0:c41:21ef:26ef with SMTP id
+ a640c23a62f3a-c513aac43a9mr1237205966b.20.1795525700904; Tue, 24 Nov 2026
+ 05:08:20 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,225 +104,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261123221410.3328780-1-neilb@ownmail.net> <179550252639.1728055.4014817916838632741@noble.neil.brown.name>
+In-Reply-To: <179550252639.1728055.4014817916838632741@noble.neil.brown.name>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Tue, 24 Nov 2026 14:08:07 +0100
+X-Gm-Features: Aa3M54oq4vsQoqGSpoehVE3NGO0KC8qZD269kouvxmZ9wJzsMqau8bWxyLk-dzU
+Message-ID: <CAOQ4uxgF6=QoD9RoAOPmxtvkq1jWf+gG1AsJzR=Kt3ROMA=X0g@mail.gmail.com>
+Subject: Re: [PATCH v6 0/5] Fix easy bits of the negative dentry problem
+To: NeilBrown <neil@brown.name>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Ian Kent <raven@themaw.net>, Jake Edge <jake@lwn.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+On Tue, Nov 24, 2026 at 7:42=E2=80=AFAM NeilBrown <neilb@ownmail.net> wrote=
+:
+>
+> On Tue, 24 Nov 2026, NeilBrown wrote:
+> > This v6:
+> >  - fixes the autofs changes in 1/5
+>
+> Sashiko says this is racy.  I think it is but the original code was just
+> as racy.  Maybe the race isn't relevant.  I haven't properly understood
+> it yet.
+>
+> >  - updates d_duplicate() in 1/5
+>
+> The fix was seriously broken.  Sorry.
+>
+> >  - uses a new version of 2/5 from Amir
+>
+> Sashiko has something to say about this
+>
+>     Can clearing FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN and dropping conn->lo=
+ck
+>     before fsnotify_set_children_dentry_flags() finishes allow a concurre=
+nt
+>     watch-adding syscall to return to userspace before the children's
+>     DCACHE_FSNOTIFY_PARENT_WATCHED flags have been set?
+>
+> Thoughts?
 
-skb_try_coalesce() returns the stolen head indication and the truesize
-delta through pointers to locals of its callers.
+Sashiko is right, but this race is not new.
+The same window exists upstream: if another thread's recalc observes
+the 0->watching transition and does the walk, fanotify_mark() can return
+to userspace before all children have DCACHE_FSNOTIFY_PARENT_WATCHED set.
 
-With CONFIG_STACKPROTECTOR_STRONG=y, this forces a stack canary in
-all of them, some are in TCP receive fast paths.
+What changes with this series is that the walk is sleepable, so the
+window is longer, and in some workloads it could go from rare to
+plausible. OTOH, skipping negative dentries may shorten the walk.
 
-Rename it to __skb_try_coalesce(), and return its results by value in
-a small structure.
+The more important question is whether a child can be left without
+PARENT_WATCHED permanently. Upstream it can: the transition can be
+observed by a recalc from the mark destroy path, which never walks.
+With FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN that cannot happen.
+Every transition sets the flag, and every caller that can add a watch
+consumes it,
+so a walk that started after the transition always runs and fixes the flags=
+.
+What remains is the transient window above.
 
-skb_try_coalesce() is now an inline wrapper, callers do not change.
+I think a proper fix for the transient window needs a sequence counter
+of scans in the connector. Each caller would wait until a scan that
+started after its transition has completed, no matter which thread ran it.
 
-A successful merge never has a negative delta, so that a negative value
-can be used to report a failure.
+I think we can live with this v6 patch for your series and deal with
+the remaining race later if we want to, but I am not sure and would
+like to hear what Jan thinks.
 
-$ scripts/bloat-o-meter -t vmlinux.old vmlinux.new
-add/remove: 2/2 grow/shrink: 1/8 up/down: 1303/-1677 (-374)
-Function                                     old     new   delta
-__skb_try_coalesce                             -    1255   +1255
-tcp_data_queue                              4393    4425     +32
-__pfx___skb_try_coalesce                       -      16     +16
-mptcp_recvmsg                               2108    2092     -16
-alloc_skb_with_frags                         534     518     -16
-__pfx_skb_try_coalesce                        16       -     -16
-tcp_try_coalesce                             386     359     -27
-skb_copy_ubufs                              1645    1613     -32
-__mptcp_move_skbs_from_subflow              1215    1167     -48
-tcp_add_backlog                             1576    1527     -49
-mptcp_try_coalesce                           235     168     -67
-inet_frag_reasm_finish                       672     598     -74
-skb_try_coalesce                            1332       -   -1332
-Total: Before=24067978, After=24067604, chg -0.00%
+If you want, I can implement the sequence counter for v7.
 
-Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
----
- include/linux/skbuff.h | 35 +++++++++++++++++++++++++++--
- net/core/skbuff.c      | 50 +++++++++++++++++++++++-------------------
- 2 files changed, 60 insertions(+), 25 deletions(-)
-
-diff --git a/include/linux/skbuff.h b/include/linux/skbuff.h
-index 55ab6392301a..bbdf64811aed 100644
---- a/include/linux/skbuff.h
-+++ b/include/linux/skbuff.h
-@@ -1370,8 +1370,39 @@ void __consume_stateless_skb(struct sk_buff *skb);
- void  __kfree_skb(struct sk_buff *skb);
- 
- void kfree_skb_partial(struct sk_buff *skb, bool head_stolen);
--bool skb_try_coalesce(struct sk_buff *to, struct sk_buff *from,
--		      bool *fragstolen, int *delta_truesize);
-+
-+/* Result of __skb_try_coalesce(). */
-+struct skb_coalesce_res {
-+	int	delta_truesize;	/* negative if not coalesced */
-+	bool	fragstolen;
-+};
-+
-+struct skb_coalesce_res __skb_try_coalesce(struct sk_buff *to,
-+					   struct sk_buff *from);
-+
-+/**
-+ * skb_try_coalesce - try to merge skb to prior one
-+ * @to: prior buffer
-+ * @from: buffer to add
-+ * @fragstolen: pointer to boolean
-+ * @delta_truesize: how much more was allocated than was requested
-+ *
-+ * Return: true if @from was merged into @to, false otherwise.
-+ */
-+static __always_inline bool skb_try_coalesce(struct sk_buff *to,
-+					     struct sk_buff *from,
-+					     bool *fragstolen,
-+					     int *delta_truesize)
-+{
-+	struct skb_coalesce_res res = __skb_try_coalesce(to, from);
-+
-+	*fragstolen = res.fragstolen;
-+	if (res.delta_truesize < 0)
-+		return false;
-+
-+	*delta_truesize = res.delta_truesize;
-+	return true;
-+}
- 
- struct sk_buff *__alloc_skb(unsigned int size, gfp_t priority, int flags,
- 			    int node);
-diff --git a/net/core/skbuff.c b/net/core/skbuff.c
-index e5b0209aec1c..1da20a7a0bb4 100644
---- a/net/core/skbuff.c
-+++ b/net/core/skbuff.c
-@@ -6602,23 +6602,26 @@ void kfree_skb_partial(struct sk_buff *skb, bool head_stolen)
- EXPORT_SYMBOL(kfree_skb_partial);
- 
- /**
-- * skb_try_coalesce - try to merge skb to prior one
-+ * __skb_try_coalesce - try to merge skb to prior one
-  * @to: prior buffer
-  * @from: buffer to add
-- * @fragstolen: pointer to boolean
-- * @delta_truesize: how much more was allocated than was requested
-+ *
-+ * Helper for skb_try_coalesce(), returning its results by value so that
-+ * callers do not need a stack canary.
-+ *
-+ * Return: @delta_truesize is negative if @from was not merged.
-  */
--bool skb_try_coalesce(struct sk_buff *to, struct sk_buff *from,
--		      bool *fragstolen, int *delta_truesize)
-+struct skb_coalesce_res __skb_try_coalesce(struct sk_buff *to,
-+					   struct sk_buff *from)
- {
-+	const struct skb_coalesce_res fail = { .delta_truesize = -1 };
- 	struct skb_shared_info *to_shinfo, *from_shinfo;
- 	unsigned int len = from->len;
-+	bool fragstolen = false;
- 	int i, delta;
- 
--	*fragstolen = false;
--
- 	if (skb_cloned(to))
--		return false;
-+		return fail;
- 
- 	/* In general, avoid mixing page_pool and non-page_pool allocated
- 	 * pages within the same SKB. In theory we could take full
-@@ -6627,14 +6630,14 @@ bool skb_try_coalesce(struct sk_buff *to, struct sk_buff *from,
- 	 * rare, so not worth dealing with.
- 	 */
- 	if (to->pp_recycle != from->pp_recycle)
--		return false;
-+		return fail;
- 
- 	/* All frags in an skb must either all be struct page-backed or all
- 	 * belong to the same memory provider instance; do not coalesce skbs
- 	 * that would mix them.
- 	 */
- 	if (skb_frags_readable(from) != skb_frags_readable(to))
--		return false;
-+		return fail;
- 
- 	if (len <= skb_tailroom(to) && skb_frags_readable(from)) {
- 		if (len) {
-@@ -6642,41 +6645,40 @@ bool skb_try_coalesce(struct sk_buff *to, struct sk_buff *from,
- 						   skb_tail_pointer(to),
- 						   len))) {
- 				DEBUG_NET_WARN_ON_ONCE(1);
--				return false;
-+				return fail;
- 			}
- 			skb_put(to, len);
- 		}
--		*delta_truesize = 0;
--		return true;
-+		return (struct skb_coalesce_res){ .delta_truesize = 0 };
- 	}
- 
- 	to_shinfo = skb_shinfo(to);
- 	from_shinfo = skb_shinfo(from);
- 	if (to_shinfo->frag_list || from_shinfo->frag_list)
--		return false;
-+		return fail;
- 	if (skb_zcopy(to) || skb_zcopy(from))
--		return false;
-+		return fail;
- 
- 	if (skb_headlen(from) != 0) {
- 		if (to_shinfo->nr_frags +
- 		    from_shinfo->nr_frags >= MAX_SKB_FRAGS)
--			return false;
-+			return fail;
- 
- 		if (skb_head_is_locked(from))
--			return false;
-+			return fail;
- 
- 		delta = from->truesize - SKB_DATA_ALIGN(sizeof(struct sk_buff));
- 	} else {
- 		if (to_shinfo->nr_frags +
- 		    from_shinfo->nr_frags > MAX_SKB_FRAGS)
--			return false;
-+			return fail;
- 
- 		delta = from->truesize - SKB_TRUESIZE(skb_end_offset(from));
- 	}
- 
- 	/* @from claims more data than it has memory for.  Leave @to alone. */
- 	if (WARN_ON_ONCE(delta < 0 || delta < len))
--		return false;
-+		return fail;
- 
- 	if (skb_headlen(from) != 0) {
- 		struct page *page = virt_to_head_page(from->head);
-@@ -6685,7 +6687,7 @@ bool skb_try_coalesce(struct sk_buff *to, struct sk_buff *from,
- 		offset = from->data - (unsigned char *)page_address(page);
- 		skb_fill_page_desc(to, to_shinfo->nr_frags,
- 				   page, offset, skb_headlen(from));
--		*fragstolen = true;
-+		fragstolen = true;
- 	}
- 
- 	memcpy(to_shinfo->frags + to_shinfo->nr_frags,
-@@ -6708,10 +6710,12 @@ bool skb_try_coalesce(struct sk_buff *to, struct sk_buff *from,
- 	to->len += len;
- 	to->data_len += len;
- 
--	*delta_truesize = delta;
--	return true;
-+	return (struct skb_coalesce_res){
-+		.delta_truesize = delta,
-+		.fragstolen = fragstolen,
-+	};
- }
--EXPORT_SYMBOL(skb_try_coalesce);
-+EXPORT_SYMBOL(__skb_try_coalesce);
- 
- static void skb_ext_scrub(struct sk_buff *skb)
- {
--- 
-2.43.0
-
+Thanks,
+Amir.
