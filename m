@@ -1,81 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514233;
-	b=oRKKhwTg+qiDp6oLPMllR2Cd5UxqAVucHWs8UGwhof52nxGrFOKelH1F1QxVeSNaEM8X
-	 GvqsyoqtQAGRmgi06/9EWBZBb0vZt9rrH1s2YMV+2b5ld4V2ZPcKEj8L91mcAuv4wTbJU
-	 P7CxvBPBfOOXb8H4QrQAuAfaERRJFWTluHRPDaITE0TV0NlBLmtiKuF3JV/JsNrKOMASF
-	 vMZfAiULsXbFP+/hnFs8DJ0vDqVRLii+eR4CMB/W9wQujR4dCkNR4MoZQ5xenEM3h7nDr
-	 N2TGe2Rdh7NG4wmSrd7K8R/vdlvqc91XTr2V20skHktwe4DPUNo2ln69KfM7wA+6isg==
+	t=1795514235;
+	b=GavlEJB9zhTtufhcb/rjhcTIg+0c7XVh8nZ4yujrdKWQskyYuXFoGwdGbrJMH0nI9sP/
+	 fS2CqYlSztlEQ3jQq+IMLy/RXLaA/X4umo1bEg4eT6PXn4xDwezn+n81kdxIbDpXKrcQ2
+	 yMYAb3Jy2Etm6Z3kglftPzQ8Hvh3cTAwz3quaMP+t3xQjp0jT2DA4PIrC76qyA9iltLcM
+	 jusD7uXtygfPtvi8iAJFQn+6YoqiKCmXVUbBrSWvmc+WHvP8sWm6NgjIv5/iytIAiBI2M
+	 rsmksQJREzlefZYBK+F8bZpaq5Gz39njn1JpkxQY0y32eQZJw8v7XXd87ePg5Cb9z4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514233;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=48VphuVDqeqN5lD2GcFIyQ7SevY5jaHdnkERpX/nwKA=;
-	b=CvomNxyGv4Q1886eG6XyeeU5rCKpGECXJ5DuaIh7RhIRlLZc+5Mj/Ujsg/g/0pYMXqut
-	 M13eYXtYSamN1Hp5d1ZzkZ2G/ZvTmpRXZ6QmFrkx5sobjS5LaH9oDMi54DFkk1/319khB
-	 yh+S7QaCgOE69JxX67Tvf4YYBMfhfEUneri9if2a1rjE91BT/z3u8o7tKAcJIBmo7Oqu3
-	 npyYsVXYagzCt+grWZy15U2DshA+TyWoiZdUPdTWqWuXw5QJ1jPICvh1rnwEJ9fetEYzj
-	 LTb4N/Es6QW1sRPJzeEFSU8Cd//dm4Uz/2+SToK2DW7o0eBZwTlKPvfsVHa/KwiboXg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514235;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=ZjDaNSB2HLIfLWzDN7uiWUYczNlAzXlQFpNtIilTK4g=;
+	b=rvnYqv4IpJZzA/OvBK/s/bcFPmBFtc77RVuNSy9EzDmVo0cT+hJvRt7XbTqYQzMu/Eos
+	 DnmzC2o9jWDdQxCQULPpIkTG3rsBkTVwCb1ISIFkd76adJCaWjx9grSqo6hH5WyIaOVbH
+	 d9l2SPpfKXU4Iv4R7tKTVwPad1fehyx9k3vayPuSFXBSFjasAm0/V/1L1ErhlTETZXuMc
+	 o9/A+tGd3Izt9r4kc63zc3biLxCJDcRmlPwdAT3t+iH9GRWLWZzqHEcS6qWr0VGldwHsQ
+	 dVjr4009wM9gc6nnpuR64VYMmnJ8iD6RE7QTSQRmcpowL72bTNrcEPn9QLtrbzvpYLA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=QztcFcY7;
-	arc=none smtp.remote-ip=198.175.65.19
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=v7w6IN9a;
+	arc=none smtp.remote-ip=209.85.214.170
+Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com [209.85.214.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A81C7606A31E;
-	Tue, 24 Nov 2026 09:57:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A81C7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF897606A336
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:57:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF897606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=QztcFcY7
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795514233; x=1827050233;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=NLvt/ppyOkmiGQEP/q8ihUkZ6zx5Ghwkgb3ZoISTKoQ=;
-  b=QztcFcY7l68yYtUL+GUq1exwlVI7qqeoxsDIX5wdwG7obUtttb8qHbZI
-   RHuauIvsz9SbbPSt3rc3UFA9iLFvU+qCvFyMRQkgKJt7pXOdPe8rv6lWo
-   KfDyMiFTurtYjzSy1CzuywI2YDW5zCP1l3593lDUstdoCIJS2YIY5Kuk7
-   duM5NfKw8SOafpXwpozT/uJbbIGXlqIPtJVCDkUhjMufd8fYBbEdvf8gG
-   ryzbh+31ABKkE2ErNATlpLgpkxXQCXzdywP9l1nlghlPMmxbrj1BAZ5xQ
-   teFkzNjpmfISgp7+tXCRLqsi3leFY6kmjhfGNnSJOxXFGQ172PJ1wVt8z
-   Q==;
-X-CSE-ConnectionGUID: ZPUuaxDVTdqJ+/DcrxWCvg==
-X-CSE-MsgGUID: w6IaxRYkQa62I0iiG76rSw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4397705"
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="4397705"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 01:57:12 -0800
-X-CSE-ConnectionGUID: T34wVYxBQTGokWt6aW2Y1g==
-X-CSE-MsgGUID: 5qT1tNnvQOqUrpfVsmAZOw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="13206123"
-Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 01:57:10 -0800
-Date: Tue, 24 Nov 2026 11:57:07 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Adrian Ambrozewicz <aambrozewicz@nvidia.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Kent Gibson <warthog618@gmail.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Jia Jia <physicalmtea@gmail.com>, linux-gpio@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=v7w6IN9a
+Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2f02f04a426so34794365ad.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:57:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795514234; x=1796119034; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ZjDaNSB2HLIfLWzDN7uiWUYczNlAzXlQFpNtIilTK4g=;
+        b=v7w6IN9an0o4PTO4bxm+siSV210HGcPWmamp1rYVn/Nat5ZwOGdOtQL6REmEGb3B9n
+         0L+RNL8BiSXnZ+5yoFWze/geC+uqNrYDIb6rEJt2DAdy/Yk5irwqB0pQ9VmkWk+rgFGy
+         DJIhdBBGyPlfJ7dE4abOgpOU+6AFIRo1f8tYXkyp6D3LZ0b6fPGxKFP2hJv6Zs7xWCzA
+         j3LORax0XQ8p4742A4aV6HL2FGfO8KtMcnXZsjUHQaAangAj3qHM/trbpEqaP+4AafFu
+         SNMeC+22K0p2/xoXQGNb8Cl4A8G2PWPvWuQSMSyTYtT+Wms2A+gfMPK3dNY/qnL3AYka
+         STHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795514234; x=1796119034;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZjDaNSB2HLIfLWzDN7uiWUYczNlAzXlQFpNtIilTK4g=;
+        b=2g+UKG6rOmvF/C/1Ix0WkXdYGRYKIqMy8NpILxvuZt9iaYk+hj6shDYdE1txtKffhh
+         mU1jzh5xohRLjQgskjDKC/5Mydzcv5zhT8XGsdU3dj4PZNl+R2Vb+GW02jC5w5zJ2IYa
+         XxCbHLr2phwavcaPlNDkRWMbEbv5+PPOlKnaUbjkEU+p4syvu7GXXZFKONd76Zb+dLp3
+         vv5nS7etr7WOli0zfXjshXTJrtmMjT9HuYpPg+BWtMLAzXUCqJg3Z4zDKzj+d2tBJk64
+         ePNCpi7e5WZu2L+vwAg5zhm/hGOt2nHnv1szRlgsOl4lRFas0y+BYtTLgYIZ6Co/JbTL
+         njKw==
+X-Forwarded-Encrypted: i=1; AL+hErEN26dHPJLm3jAfYaaut2lk2xG7dqX7ENxBiyVgKatUOTR5i0a/UzXqMC6L5+kKpNxvvAJVmD3ovG4FGx0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/lwv3PsFlebkyVrGRFL0vmhDA7MyGbfF5zc3yzUlQTBcoruzyH
+	+o3NsvLa4EO15M3LyC/UnEFb3V4p53GxwrCxsiOnAE4Xa0RVWuCDmQW8
+X-Gm-Gg: AZFdTZd8qvDXuntmxBTTm2+oBGLyvqd+XqSEGxDZOuJBeJNDBXn3tw4OzfrkuXdj1LM
+	wm3VOhsfHVnKaoUibNbR5pJPcOpMYRh/bCrtwdsuHroFUnWK4lvNqQvHMxXoK5VyVmXo4G43keC
+	NDMJSLsJplG2UrRhn/VpoRsluEyHvzcHVfMERncZaC069EovHpL01autnl6mgZYnB22UjkVtIY8
+	xVdDMCmg19zrTZ4dq1WlM3AHGS7KtO+EAunRT+h+2VZl43hddinAjkz1SiXE0Shy6/9TlRjjh/R
+	SuykZfaOi3/ZEWo4wFhBS/dQrcbEu+GqkmqSU8g+ZAKUP39EljYAIwX55DWvsC3RduWSWGmdvHY
+	L9eh/hnU5ZZ+sALjAQ1L9G9Kw+GkFyVdWXpvwBg4ycXsNBQ67IN0yimR9tjF2hx5tW0+HOUB80w
+	KkS9YlkBYB8f3vsCRyzPARSVxIkpuwBdIv1jvOOP9kJ3+QsAl9q9kqYcgkTLNqtjO7wNtWKzacD
+	oJUlIOK3O77VrCXXa/Z1jrvhCn5cHEfxkuQWQky0KZg7dAmgkwQ3XHvo7XyEExi6Xws78r1XUpq
+	2Vc6fTnQul8EgWGmHpcZUjnEykoUXjA85fnuI9r10KwigMg=
+X-Received: by 2002:a17:90b:3891:b0:3b4:127a:2bc2 with SMTP id 98e67ed59e1d1-3b41c8d9bfamr12544097a91.14.1795514234177;
+        Tue, 24 Nov 2026 01:57:14 -0800 (PST)
+Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0b52dsm24186851a91.5.2026.11.24.01.57.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 01:57:13 -0800 (PST)
+From: Cong Nguyen <congnt264@gmail.com>
+To: Lee Jones <lee@kernel.org>,
+	Pavel Machek <pavel@kernel.org>
+Cc: Alexander Sverdlin <alex@sverdlin.org>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	=?UTF-8?q?Andr=C3=A9=20Apitzsch?= <git@apitzsch.eu>,
+	linux-leds@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 0/8] gpiolib: fix chip removal with lines still
- requested from user space
-Message-ID: <awVfc9xLPXbkAov-@ashevche-desk.local>
-References: <20261124-gpiolib-chip-removal-v8-0-aambrozewicz@nvidia.com>
+Subject: [PATCH] leds: rgb: ktd202x: allocate the LED array for the chip's LED count
+Date: Tue, 24 Nov 2026 16:57:07 +0700
+Message-Id: <20261124095707.3852724-1-congnt264@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,46 +98,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124-gpiolib-chip-removal-v8-0-aambrozewicz@nvidia.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 11:20:31AM +0200, Adrian Ambrozewicz wrote:
-> Removing a GPIO chip while user space holds a line request, as when a
-> hot-pluggable GPIO controller goes away, leaks the line labels (patch 2)
-> and IRQ names (patch 5), frees IRQs twice (patches 3, 7 and 8) and lets
-> a blocked read() stall the removal (patch 4). Patch 1 makes
-> gpiodev_release() wait for pending label frees; without it,
-> cleanup_srcu_struct() can warn, more often with patch 2.
-> 
-> Patch 7 also affects in-kernel users: their remaining IRQs are freed
-> after the chip pointer is cleared, when gpiod_*() calls fail. Patch 6
-> drops edge events whose line read fails instead of reporting an edge.
-> 
-> User-visible change: a read() blocked when the chip is removed returns
-> the queued events, then fails with -ENODEV.
-> 
-> For stable: patch 2 needs 1, 5 needs 3, 7 needs 3, 5 and 6, and 8
-> needs 7; patches 3, 5 and 7 fix a 6.13 commit also in 6.12.y, patch 8 a
-> 6.19 commit; patch 4 applies to 6.12.y.
-> 
-> Tested under QEMU (x86_64, arm64) with gpio-sim, a shared gpio-sim line
-> and a test chip on the hierarchical irqchip, with lockdep, kmemleak and
-> KASAN.
-> 
-> Prepared with Cursor and Claude Code, using Claude, which helped analyse
-> the bugs, write the reproducers and draft the patches; I reviewed and
-> tested every change.
+ktd202x_probe() allocates chip->leds[] with one entry per LED child node.
+The allocation helper sets chip->num_leds to that count, but probe then
+overwrites it with the number of LEDs the chip supports (3 for KTD2026,
+4 for KTD2027).
 
-Bart, this series seems contain two parts, core and cdev fixes, the first
-(core) fixes are being reproduced and tested in our lab and they are pretty
-much ready to go. Can we at least have them (patches 1 & 2) pulled rather
-sooner, please?
+If the firmware describes fewer LEDs than the chip supports,
+ktd202x_chip_in_use() reads entries past the end of the allocation each
+time a brightness is set.
 
+Allocate the array with the number of LEDs the chip supports, so that
+num_leds matches the allocation. Entries without a firmware node stay
+zeroed.
+
+This issue was found by auditing the driver with an LLM coding assistant.
+
+Fixes: 0ebdb7210943 ("leds: Add ktd202x driver")
+Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+---
+ drivers/leds/rgb/leds-ktd202x.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/leds/rgb/leds-ktd202x.c b/drivers/leds/rgb/leds-ktd202x.c
+index f1822281c3e6..56f6fa906b70 100644
+--- a/drivers/leds/rgb/leds-ktd202x.c
++++ b/drivers/leds/rgb/leds-ktd202x.c
+@@ -533,6 +533,7 @@ static int ktd202x_probe(struct i2c_client *client)
+ {
+ 	struct device *dev = &client->dev;
+ 	struct ktd202x *chip;
++	unsigned long num_leds;
+ 	int count;
+ 	int ret;
+ 
+@@ -540,7 +541,9 @@ static int ktd202x_probe(struct i2c_client *client)
+ 	if (!count || count > KTD202X_MAX_LEDS)
+ 		return dev_err_probe(dev, -EINVAL, "Incorrect number of leds (%d)", count);
+ 
+-	chip = devm_kzalloc_flex(dev, *chip, leds, count);
++	num_leds = (unsigned long)i2c_get_match_data(client);
++
++	chip = devm_kzalloc_flex(dev, *chip, leds, num_leds);
+ 	if (!chip)
+ 		return -ENOMEM;
+ 
+@@ -558,8 +561,6 @@ static int ktd202x_probe(struct i2c_client *client)
+ 	if (ret)
+ 		return ret;
+ 
+-	chip->num_leds = (unsigned long)i2c_get_match_data(client);
+-
+ 	chip->regulators[0].supply = "vin";
+ 	chip->regulators[1].supply = "vio";
+ 	ret = devm_regulator_bulk_get(dev, ARRAY_SIZE(chip->regulators), chip->regulators);
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.25.1
 
