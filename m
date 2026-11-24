@@ -1,94 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.100
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795528567;
-	b=hxQLsZoY/deMaZJGmgTh+DHhIZbraUVCuqzxE4sWKC2nqC04elTXLdPV3SBeDYU3rtds
-	 tFgy4kgkJrcT7SqBhCLL/2ZMqAjE/QxWq5Ycx99FyTSbY2Yh4eWwknt5BDXvbbrdd88+c
-	 FLmWd4i1zWkWYLWueBq74nCyaoIN+wrymiuHHEqTzYDFA+IHRy4Bb/aJhWkBf8E9pGZNi
-	 FzGO3jHVs3FdbBaCrqh8K+Ed/rmTsFmeNANuSKJPocQaycQ4japH1Hb7RETMCAi/hQVVQ
-	 +Osa5jRsLwvKHCJWgiWIWuY2cGi8X7xZTCRnWB06G0j+b1ktm5RE0+r1kglGgjde22w==
+	t=1795528598;
+	b=olJuf5l1P7o5OAPE+p3/YSAC3AubTv6h3c4kQ+f44yDqPbyz4FHdSAaRJFAJ/MaScITN
+	 SQGMYQa4MWNsxmceKRcWbNF3/qWLyNeoaW1itmm7mr7yy0rl/5ZjT18aw2mD2reZoV8/5
+	 sihAvffxplHFZeAHbH0EJi7+Uc+6DtYCRstmkZ//fRLSLl5wgI0SILNwmaMX1t/3kCjU7
+	 mnCsA0oP7Gn7/8wPIPyqGk97u+eRe+m9GlY6YLwKXEawm5J0vpDLKqHzsg0qaNiL0Zi1h
+	 4n8+Hwd96LX+MNX5PlKZSWIdroz77WGFeIjDdl76VU8ena5uBrIXVgmrUYgeeJyeojg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795528567;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:X-DetectorID-Processed:
-	 Content-Type;
-	bh=9zxVOJsKSedTB3Xke6VoVHG3BYFHZeRSBMBTl/QPXBE=;
-	b=pufEY/af9zNFRcBIU0S/7VlPXxqGDzK/5Y3p09RJZOJaEqaO73ayKaIst6QKHt+rxQgH
-	 AI/5XDCuLTFzIv9o0PBMpjVec8rXOncSewdnmqBvxUA3MW9Yv7JB9rc5MQwwLv6xj3wxY
-	 C/uxM4EP53d2hzS9Zf8W/GUsSzyJToIpXwBH2tjhY3uAncnScEIGAEhsjFT2gN2Mt9xsx
-	 +ZQydokGTUTiN7jhtX/FcGpRQc5kMM9aV8+Hn9UFGnYvHgfXiG8T8XnTduWb9K6Rffrj/
-	 TrDIk8I8d+J+KSQx1pguDXZlYajSev7baFJwG6N59id9iGMPGB4sa7L7fs1azA9Nbqg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795528598;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=LlmXuALX9mBfGSWiCyUcAzbrnd33DvSWTB08RoMtXac=;
+	b=NeCIT/8GbMZjKQpGamVnuUjVlDr6wmNFuGqifOGnvHTzHJBEnyK8Qc6r0RA6XA8zsHIN
+	 LOpaPOmAlSB7Uocl7VxwzJnQs9LkHUeC+tIU/ETOWCCn+xZK1uit5QDD7jIPFA9Lf5zZP
+	 ai9uYigaHPAZ6SZdLuel+N2umOv/tSSs70T/MEprkNof+WjTanf1zZpKmHlSnQBXQ82rF
+	 fIkChPSQ+CaSV0BD9uEYh5+AQdoEAtIYfqyY844SOike7g+q/0Y34pE9nlnYUMpmqirxm
+	 43Rk5Oj5kJOfjq+WR2p+1pTYp1Zh/z94GUOYaGK4ssuxpBJoC+2S6Coopd+/qLhv0yg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=C7ZNm5cq;
-	arc=none smtp.remote-ip=209.85.216.100
-Received: from mail-pj1-f100.google.com (mail-pj1-f100.google.com [209.85.216.100])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=doLcza8A;
+	arc=none smtp.remote-ip=209.85.222.53
+Received: from mail-ua1-f53.google.com (mail-ua1-f53.google.com [209.85.222.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD807606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:56:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD807606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00DA6606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:56:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00DA6606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=C7ZNm5cq
-Received: by mail-pj1-f100.google.com with SMTP id 98e67ed59e1d1-3b3d4d3bba3so2254650a91.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:56:06 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795528566; x=1796133366;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:dkim-signature:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9zxVOJsKSedTB3Xke6VoVHG3BYFHZeRSBMBTl/QPXBE=;
-        b=LECOB5b9ERA9FIyfwP6SgD5QUk40MpLCZIwE3bTurGH5HDaByIuIWFEizUwQ0nW8JH
-         EyrqezxYsvRrfIooIt0ZikIy4JseV4xQ+twUHeEH3WVRA27IQcKhE3U3Z6e0Fbrm+ElB
-         OVV6cmLAv4bU4j68Ue23DSL8wfvIkGkAGvODZcSUynyqrphR0GqEBsFWSb9Shvm9bpYF
-         ZsWtIGjLtWVKO9FDTmkJF0ZzvZetCRBPnvkVrmh0qoVww1LDbgzaFHSNvGMzNtTM/Ecy
-         Bx7hjT7qwLkVB8TvkU+3xsij7roZsyQgs1Wsx1m8hGgxW8+aCd9XjtJHILLCq2bBkE0A
-         ZY8g==
-X-Forwarded-Encrypted: i=1; AL+hErGSeqy6iDYFLnKpoD3zGHpQBQipKsAAiGAPiwS4feN7D4GZxg3qcV+zUhKyUspch7HsDszLCEJieYg/qQA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ZJQbkdaXWw8FahvfTM9ncz8WXCvTDLFqvz1gBwbc+mR3Iwf55
-	n/hUGaiOkHD+/J02pGTvmKlzringiBA8SVUM9pnbBFLYmESqVHkFvsCP5vqR223LxJiPNkMTkJq
-	/U2ywZppL9rD/tR9k8yW2PRMvqpWPjoPpOqtWHE9tQg9fIuSa8LxdTPcWPRDnBWKyXDwbkKtdgF
-	X/ASnxvoDjitGIIpVb1ZtBKzgiiAgZTvwL9VBSwrfJha+4c9M6Q2Fpp5FVFQ/KOi2UG4anSDbm8
-	R48UskdCJfIa5NCbQ==
-X-Gm-Gg: AZFdTZdrP+TphV8UX0gXNnIHzAwrJ+vttx/eUbx+D0NwOkCiAtAgXeYqizUSh1ne1/O
-	sDOycaxyiIy+25DsD7NdfmHRl3j3YQr5UcJ/wxJiCyWZ/uCGPvoLCWXapwzxDq5Z4WED4tCkelS
-	QEOQ3UXSO4SL0LP4gD0Cgx4TrbZV3wsH1OTERz2CqO8yJCKua7318Ee/g+KigGC9xmeO1nB5ZnI
-	+v7+H3YOIdWK0FC/IX566Fo4aA+Lad6Lc4Ol0B+T00LUc0lHVE3k9b8jEnplU7C1yjXeh04uUyo
-	mo22QCsFjiI/WbtYBBKsPQ6+xah3i/F64SdNmZ7iZfgL5Q+mUmXVgeUkOsdln52Xhyk1uLQCVxZ
-	ruiTfC59qGRmwLPwhOr9fx/DkHL/5YHWsGKCwaWMRHvTCCK4tj65O6MpmPLMZeWOcQtBWSaEPwQ
-	wsoQPdp2E7O7VTOyj/Poadj6q8ZgEWwIIBAQ==
-X-Received: by 2002:a17:90b:2e4b:b0:3ad:8a14:bc73 with SMTP id 98e67ed59e1d1-3b41c96ce70mr12522718a91.50.1795528565817;
-        Tue, 24 Nov 2026 05:56:05 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41cfc5245sm3947626a91.0.2026.11.24.05.56.05
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 24 Nov 2026 05:56:05 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-38531c1a566so3889773eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:56:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=doLcza8A
+Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-99e145569c6so971863241.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:56:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795528564; x=1796133364; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9zxVOJsKSedTB3Xke6VoVHG3BYFHZeRSBMBTl/QPXBE=;
-        b=C7ZNm5cqdFN7gW7vdABsAgpXakS5sFMUzgwjhJRneRCazZjTlLtZfesGdp8tf9ivtZ
-         MQYwzIs8yHKmsZoM/qot0LsezYqC4MzaFj/3sdaJT0kBeqxADkxp+S1MPUBeZxHJjpLp
-         3sbKMVJnS2iN+MeQFyZJwGx3gomu7WaDBd0O0=
-X-Forwarded-Encrypted: i=1; AL+hErHAs6KOqJkNuF9CbaFiLxlJof5qUNurSN1L+VJzI+YU+AVPSpRQWn1F7as7P6Szc4Kyb8cecPFA/W+D16c=@vger.kernel.org
-X-Received: by 2002:a05:6102:292a:b0:7c3:9b0c:a75 with SMTP id ada2fe7eead31-7d739696e18mr5490954137.12.1795528221402;
-        Tue, 24 Nov 2026 05:50:21 -0800 (PST)
-X-Received: by 2002:a05:6102:292a:b0:7c3:9b0c:a75 with SMTP id
- ada2fe7eead31-7d739696e18mr5490938137.12.1795528220780; Tue, 24 Nov 2026
- 05:50:20 -0800 (PST)
+        d=gmail.com; s=20260707; t=1795528597; x=1796133397; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=LlmXuALX9mBfGSWiCyUcAzbrnd33DvSWTB08RoMtXac=;
+        b=doLcza8AvU6tbBqYT26ghWAw31oENO7LUs/ktKmL/Mzh6KO4kC41gvbM68BraUdATt
+         jJ1SUbp97nz5OiLCpc1TEy8IDu9QfDiDE93/KJ5EFUkdzVEhj9EDlFx5Dody316kW3q+
+         dCb83xr4+lmA2IGTyVtq6Qke+A3WLPNYRiEv2DMSCHiZ3nY+MWavyaP/FM98/8v1vruD
+         nRerFSW32PiV9mQWDt4zYOvczqMtgbpSwG6QJuKDaZ2Gw1VH334nzthGly5EmyzNsF7I
+         wGL+nais7HRwPzUN2PXTy/JW7/NlqxfsNBJr48yJe2Bvr5EULGc3ALF/U/4fkJfwfXdQ
+         SWtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795528597; x=1796133397;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=LlmXuALX9mBfGSWiCyUcAzbrnd33DvSWTB08RoMtXac=;
+        b=rsgJaSYlDi5cMjd3M6X2KQcBAriGd2F5sJrkqKuCQFm4ndsg+cnpogl6Pv1ELRxKy/
+         1d/ntw9jIQR2otd1DTp2sVCldM7EIsJgO8v7dYQ86Vl2J64ruxi466TO6ciAJWlszLZC
+         f3+4+zYBZRr/QobecDcqAx9vjTvwyy7uh/MAknMyJEHiryzBNDCBZ+AJzHytt6+TPZDb
+         EMs03o0EZdIJTbH84DJ9lAZIPI/sbSNNrtl3brjSO8BB3t32K0NqiMvFwRymsgVJh8mv
+         +ETsCiGTinfnMQMX8Tm5J4Xdb0yAd/g98TfAM486QjMOn6ncGOvldNdlz6JJQOOnEMcU
+         04XA==
+X-Forwarded-Encrypted: i=1; AL+hErE39JMvhyKInbCNopoVV0R7j2JU+PjmfANnd6V09wZRhGhb/gRzj8wPqLmhnBl440lomkgztsBbHvjs8rU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9IRcyH25VOadPUQ1XvhpnuJP11dDupvqDVrLX/zPqgX4F0s7Kd
+	GGhbIlnuKJ62bUn2F8WwQrbMRK6qq9kaZDivoxf1dM3omxqj1JBQt3Ju
+X-Gm-Gg: AZFdTZfHfeOlTcaBRso/j2gssf5cmMQ/LFKXvr7QNI2S1zF+5ORhJ7WR1wVibuGjb/T
+	KnvVNuUtpsfq8sYRVuWE47AE4t2lfcevNl9bjCv7TBV2txGdPD5z6xhhk7PSyl0oDCzMAmIEjM0
+	Yllnoc4tmgAtMUYZhhQ1O7IJ2FsglUM62m56e+rt31UMLsw1invi0aqgdFM1WVIFskqdP5yrwzp
+	MDiEbrCOQ+rpGyulh0VAmaT78XUH1qgKmHWodWmc4Tej/tqDMY7hyXdM+S611limVmD24iGN+kp
+	nzHtRJ8SV3r7o0ZihFM7fSpluF7vucnzlTcQdHvl+vPVKmMHHfN7fGM3xHCN9G8+hxMOh7dMaoZ
+	AMmkXQNpASyimRIDviKv9rjQjOT+KoWzg3cyDqfPngKqpNeeFe97ONwYFGUEmZgoF2Zn5TRQjL+
+	Xq8v0PP+8kugpN35DHbt1TJ1o90zjKc1qTHVXV8UZJC4G9R7YBNS+RnoZYlOC99BMvPCKkavvqE
+	8DFHednpi4/Z5qOi+YwTQ24/vP79kTBig1rVu4dpz1AtF61Q/SQMuWF1OuUG0iSekkfWg3mnKgZ
+	FRctIu5JZKeLdrofS8NVzvMOv8/TNG20iU7wGypjKQ==
+X-Received: by 2002:a05:6102:3712:b0:7b5:4700:3a58 with SMTP id ada2fe7eead31-7d739604ad6mr7044200137.31.1795528596499;
+        Tue, 24 Nov 2026 05:56:36 -0800 (PST)
+Received: from a1-free ([161.33.196.121])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e7fa0467sm15504627137.6.2026.11.24.05.56.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 05:56:35 -0800 (PST)
+From: TAKANO Mitsuhiro <takano32@gmail.com>
+To: linux-perf-users@vger.kernel.org,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>
+Cc: Ian Rogers <irogers@google.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Hang Zhengyang <hang.zhengyang1010@gmail.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-kernel@vger.kernel.org,
+	TAKANO Mitsuhiro <takano32@gmail.com>,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH v5] perf stat: Refuse a group mixing tool and kernel events
+Date: Tue, 24 Nov 2026 13:56:30 +0000
+Message-ID: <20261124135630.1027716-1-takano32@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261122085947.3107661-1-takano32@gmail.com>
+References: <20261122085947.3107661-1-takano32@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,306 +109,493 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123100746.1975030-11-vikas.gupta@broadcom.com> <179551563894.3135.1768774823155933236@kernel.org>
-In-Reply-To: <179551563894.3135.1768774823155933236@kernel.org>
-From: Vikas Gupta <vikas.gupta@broadcom.com>
-Date: Tue, 24 Nov 2026 19:20:08 +0530
-X-Gm-Features: Aa3M54oWXcw2V-nhAo2cI2E4QO87TWcvroRerYEEDkvp4h-XXnBeiP-28s29IZ4
-Message-ID: <CAHLZf_seiXXZEEJ3BXV1hSxnqhxcfamibo-VDnSvj23y4-Dmzg@mail.gmail.com>
-Subject: Re: [PATCH net-next v9 10/10] bnge: add cpu_rmap support for IRQ affinity
-To: netdev-bot+sashiko@kernel.org
-Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org, 
-	pabeni@redhat.com, andrew+netdev@lunn.ch, horms@kernel.org, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	bhargava.marreddy@broadcom.com, rahul-rg.gupta@broadcom.com, 
-	vsrama-krishna.nemani@broadcom.com, rajashekar.hudumula@broadcom.com, 
-	dharmender.garg@broadcom.com, ajit.khaparde@broadcom.com
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
-Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="000000000000435ea406610612c8"
+Content-Transfer-Encoding: 8bit
 
---000000000000435ea406610612c8
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+A tool event has no kernel counterpart: user_time and system_time read
+/proc/stat, or /proc/<pid>/stat for a workload, and duration_time keeps
+its value in perf itself.  perf-list(1) says events from different PMUs
+cannot be grouped except for some software events, and the tool PMU counts
+as software, so a tool event stays in the group the user wrote.
 
-I see a valid comment in this patch and will send out v10.
+The parser splits it from another software PMU's event, such as cpu-clock,
+and evlist__check_cpu_maps() removes members whose CPUs do not match the
+leader under -a or -C.  What is left is a group that cannot be counted.
 
-Thanks,
-Vikas
+With user_time or system_time as the leader, get_group_fd() hands the
+procfs descriptor to the members and the kernel rejects each with EBADF.
+With duration_time as the leader there is no descriptor, so the members get
+-2 and fail with EINVAL, "broken group leader" appearing only in the debug
+log.  Either way perf stat prints the tool event and "<not supported>" for
+the rest of the group:
 
-On Tue, Nov 24, 2026 at 3:50=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
-te:
->
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 1 =C2=B7 Medium: 1 =C2=B7 Low: 0
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [High] Off-by-one between aRFS rmap slots and RX queues: RX ring 0's
->   vector is never added to dev->rx_cpu_rmap, so every rule the kernel=E2=
-=80=A6
-> - [Medium] bnge_free_cpu_rmap() assumes each reader loads
->   dev->rx_cpu_rmap once, but set_rps_cpu() loads it twice.
->
-> --
->
-> bnge: add cpu_rmap support for IRQ affinity
->
-> This patch allocates dev->rx_cpu_rmap when NTUPLE is enabled under
-> CONFIG_RFS_ACCEL. It adds each RX ring's IRQ vector to the rmap when the
-> open-time IRQs are requested, and frees the rmap in bnge_free_irq(). This
-> is the patch that turns on aRFS for bnge.
->
-> > diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c b/drivers=
-/net/ethernet/broadcom/bnge/bnge_netdev.c
-> > index de7320521a3e0..dcd073d8bdfac 100644
-> > --- a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
-> > +++ b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
->
-> [ ... ]
->
-> > @@ -2569,15 +2583,53 @@ static void bnge_nq_free_irq(struct bnge_net *b=
-n, struct bnge_napi *bnapi)
-> >       irq->requested =3D 0;
-> >  }
-> >
-> > +#ifdef CONFIG_RFS_ACCEL
-> > +/* set_rps_cpu() reads rx_cpu_rmap under rcu_read_lock(). Hide the poi=
-nter and
-> > + * wait for readers that already loaded it before the rmap is freed.
-> > + */
-> > +static void bnge_free_cpu_rmap(struct bnge_net *bn)
-> > +{
-> > +     struct cpu_rmap *rmap =3D bn->netdev->rx_cpu_rmap;
-> > +
-> > +     if (!rmap)
-> > +             return;
-> > +
-> > +     WRITE_ONCE(bn->netdev->rx_cpu_rmap, NULL);
-> > +     synchronize_net();
-> > +     free_irq_cpu_rmap(rmap);
-> > +}
->
-> [Severity: Medium]
-> Does this teardown hold up given how set_rps_cpu() reads the pointer? The
-> comment assumes each reader loads dev->rx_cpu_rmap once. set_rps_cpu() in
-> net/core/dev.c loads it twice, both times with plain loads:
->
-> net/core/dev.c:set_rps_cpu() {
->     ...
->         if (!skb_rx_queue_recorded(skb) || !dev->rx_cpu_rmap ||
->             !(dev->features & NETIF_F_NTUPLE))
->                 goto out;
->     ...
->         rxq_index =3D cpu_rmap_lookup_index(dev->rx_cpu_rmap, next_cpu);
->     ...
-> }
->
-> cpu_rmap_lookup_index() dereferences rmap->near[cpu] without checking for
-> NULL.
->
-> Suppose a reader passes the NULL check before the WRITE_ONCE() and does
-> the second load after it. Wouldn't it dereference NULL? synchronize_net()
-> only delays the free, so it can't close that window.
->
-> bnge_close_core() disables NAPI before it calls bnge_free_irq(), so the
-> device's own RX path is quiet by then. But IFF_UP is still set during
-> ndo_stop. A netif_rx() caller can still reach
-> get_rps_cpu()->set_rps_cpu() when RFS is configured, if skb->dev is this
-> netdev and queue_mapping is recorded. One example is multicast loopback
-> of a forwarded packet via dev_loopback_xmit(), which keeps the ingress
-> queue_mapping.
->
-> If such a reader exists, this code turns a use-after-free into a window
-> for a NULL dereference. If no such reader can exist, then the
-> synchronize_net() and the comment aren't needed for the reason the
-> comment gives.
->
-> Could set_rps_cpu() load the pointer once with READ_ONCE(), or use proper
-> RCU annotation? Separately, could the comment here avoid claiming
-> protection it doesn't provide?
->
-> [ ... ]
->
-> >  static int bnge_nq_request_irq(struct bnge_net *bn, struct bnge_napi *=
-bnapi)
-> >  {
-> >       int map_idx =3D bnapi->nq_ring.ring_struct.map_idx;
-> > +     struct cpu_rmap *rmap =3D NULL;
-> >       struct bnge_dev *bd =3D bn->bd;
-> >       struct bnge_irq *irq;
-> >       int rc;
-> >
-> > +#ifdef CONFIG_RFS_ACCEL
-> > +     rmap =3D bn->netdev->rx_cpu_rmap;
-> > +#endif
-> > +
-> >       irq =3D &bd->irq_tbl[map_idx];
-> >
-> > +     if (IS_ENABLED(CONFIG_RFS_ACCEL) &&
-> > +         rmap && bnapi->rx_ring) {
-> > +             rc =3D irq_cpu_rmap_add(rmap, irq->vector);
->
-> [Severity: High]
-> Is RX ring 0's vector ever added to the rmap?
->
-> bnge_alloc_core() makes NQ0 bnapi[0] and binds the RX rings starting at
-> index 0:
->
->         bn->bnapi[0] =3D bn->nq0;
->         ...
->                 bn->bnapi[i]->rx_ring =3D &bn->rx_ring[i];
->
-> So NQ0 (irq_tbl[0]) services RX ring 0.
->
-> NQ0's IRQ is only requested at probe, through
-> bnge_nq0_init()->bnge_nq_request_irq(). At that point dev->rx_cpu_rmap
-> and nq0->rx_ring are both NULL, so this block is skipped.
->
-> At open, bnge_setup_interrupts() allocates an rmap with bd->rx_nr_rings
-> slots. bnge_request_irq() then walks only bnge_for_each_open_nq(), which
-> starts at BNGE_FIRST_OPEN_NQ (1). cpu_rmap_add() hands out the first free
-> slot. RX ring 1's vector gets slot 0, ring 2's gets slot 1, and so on, an=
-d
-> the last slot stays empty.
->
-> Now suppose next_cpu in set_rps_cpu() is the affinity CPU of ring k+1's
-> vector. cpu_rmap_lookup_index() returns k, and bnge_rx_flow_steer()
-> writes:
->
->         new_fltr->base.rxq =3D rxq_index;
->
-> The flow then lands on ring k, whose IRQ is affined to
-> cpumask_local_spread(k) rather than next_cpu. On later packets rxq_index
-> matches skb_get_rx_queue(skb), so set_rps_cpu() leaves the wrong
-> placement in place.
->
-> The commit message says the rmap lets aRFS "correctly map flows to the RX
-> queues serviced by the nearest CPU". It also guards against a later ring
-> taking a free slot and mapping "to the wrong RX queue". Doesn't the
-> missing ring 0 cause that same shift on every open when there is more
-> than one RX ring?
->
-> One possible fix is to add irq_tbl[0]'s vector for RX ring 0 at open
-> time, before the open NQs. NQ0's IRQ stays requested across close, so its
-> affinity notifier would also need to be cleared at close.
->
-> [ ... ]
->
-> --
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20261123100746.1975030-1-vikas.gupta%40broadcom.com
+  $ perf stat -e '{user_time,cycles}' -- sleep 0.05
+                   0      user_time
+     <not supported>      cycles
 
-pw-bot: cr
+With a kernel event as the leader the members do open, but the group read
+comes up short: evsel__group_read_nr_members() counts the tool event, the
+kernel has one entry fewer, and the read fails with ENOSPC, so the events
+come out as "<not counted>".  That is the shape of
+-e '{cycles,instructions,duration_time}', which has not been counted since
+commit 6828d6929b76 ("perf evsel: Refactor tool events").
 
---000000000000435ea406610612c8
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Description: S/MIME Cryptographic Signature
+Counting such a group means moving the leader to a kernel event and
+letting the group read skip the tool members; that is left to a separate
+series.  Splitting the tool event out and warning, as
+evlist__check_cpu_maps() does, would let the kernel events count, but the
+tool event would lose the group's window and the warning is easy to miss
+in a script.  The braces are the user's explicit request, so perf stat
+should not quietly reinterpret them.  Ian's "perf pmu: Don't treat tool
+PMU as a kernel software PMU for event grouping" splits it in the parser
+and this check then has nothing to refuse; Hang's series opens the members
+with group_fd = -1 instead, which this check preempts.  Only one of the
+three should be applied.
 
-MIIVVQYJKoZIhvcNAQcCoIIVRjCCFUICAQExDzANBglghkgBZQMEAgEFADALBgkqhkiG9w0BBwGg
-ghLCMIIGqDCCBJCgAwIBAgIQfofDCS7XZu8vIeKo0KeY9DANBgkqhkiG9w0BAQwFADBMMSAwHgYD
-VQQLExdHbG9iYWxTaWduIFJvb3QgQ0EgLSBSNjETMBEGA1UEChMKR2xvYmFsU2lnbjETMBEGA1UE
-AxMKR2xvYmFsU2lnbjAeFw0yMzA0MTkwMzUzNTNaFw0yOTA0MTkwMDAwMDBaMFIxCzAJBgNVBAYT
-AkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMSgwJgYDVQQDEx9HbG9iYWxTaWduIEdDQyBS
-NiBTTUlNRSBDQSAyMDIzMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAwjAEbSkPcSyn
-26Zn9VtoE/xBvzYmNW29bW1pJZ7jrzKwPJm/GakCvy0IIgObMsx9bpFaq30X1kEJZnLUzuE1/hlc
-hatYqyORVBeHlv5V0QRSXY4faR0dCkIhXhoGknZ2O0bUJithcN1IsEADNizZ1AJIaWsWbQ4tYEYj
-ytEdvfkxz1WtX3SjtecZR+9wLJLt6HNa4sC//QKdjyfr/NhDCzYrdIzAssoXFnp4t+HcMyQTrj0r
-pD8KkPj96sy9axzegLbzte7wgTHbWBeJGp0sKg7BAu+G0Rk6teO1yPd75arbCvfY/NaRRQHk6tmG
-71gpLdB1ZhP9IcNYyeTKXIgfMh2tVK9DnXGaksYCyi6WisJa1Oa+poUroX2ESXO6o03lVxiA1xyf
-G8lUzpUNZonGVrUjhG5+MdY16/6b0uKejZCLbgu6HLPvIyqdTb9XqF4XWWKu+OMDs/rWyQ64v3mv
-Sa0te5Q5tchm4m9K0Pe9LlIKBk/gsgfaOHJDp4hYx4wocDr8DeCZe5d5wCFkxoGc1ckM8ZoMgpUc
-4pgkQE5ShxYMmKbPvNRPa5YFzbFtcFn5RMr1Mju8gt8J0c+dxYco2hi7dEW391KKxGhv7MJBcc+0
-x3FFTnmhU+5t6+CnkKMlrmzyaoeVryRTvOiH4FnTNHtVKUYDsCM0CLDdMNgoxgkCAwEAAaOCAX4w
-ggF6MA4GA1UdDwEB/wQEAwIBhjBMBgNVHSUERTBDBggrBgEFBQcDAgYIKwYBBQUHAwQGCisGAQQB
-gjcUAgIGCisGAQQBgjcKAwwGCisGAQQBgjcKAwQGCSsGAQQBgjcVBjASBgNVHRMBAf8ECDAGAQH/
-AgEAMB0GA1UdDgQWBBQAKTaeXHq6D68tUC3boCOFGLCgkjAfBgNVHSMEGDAWgBSubAWjkxPioufi
-1xzWx/B/yGdToDB7BggrBgEFBQcBAQRvMG0wLgYIKwYBBQUHMAGGImh0dHA6Ly9vY3NwMi5nbG9i
-YWxzaWduLmNvbS9yb290cjYwOwYIKwYBBQUHMAKGL2h0dHA6Ly9zZWN1cmUuZ2xvYmFsc2lnbi5j
-b20vY2FjZXJ0L3Jvb3QtcjYuY3J0MDYGA1UdHwQvMC0wK6ApoCeGJWh0dHA6Ly9jcmwuZ2xvYmFs
-c2lnbi5jb20vcm9vdC1yNi5jcmwwEQYDVR0gBAowCDAGBgRVHSAAMA0GCSqGSIb3DQEBDAUAA4IC
-AQCRkUdr1aIDRmkNI5jx5ggapGUThq0KcM2dzpMu314mJne8yKVXwzfKBtqbBjbUNMODnBkhvZcn
-bHUStur2/nt1tP3ee8KyNhYxzv4DkI0NbV93JChXipfsan7YjdfEk5vI2Fq+wpbGALyyWBgfy79Y
-IgbYWATB158tvEh5UO8kpGpjY95xv+070X3FYuGyeZyIvao26mN872FuxRxYhNLwGHIy38N9ASa1
-Q3BTNKSrHrZngadofHglG5W3TMFR11JOEOAUHhUgpbVVvgCYgGA6dSX0y5z7k3rXVyjFOs7KBSXr
-dJPKadpl4vqYphH7+P40nzBRcxJHrv5FeXlTrb+drjyXNjZSCmzfkOuCqPspBuJ7vab0/9oeNERg
-nz6SLCjLKcDXbMbKcRXgNhFBlzN4OUBqieSBXk80w2Nzx12KvNj758WavxOsXIbX0Zxwo1h3uw75
-AI2v8qwFWXNclO8qW2VXoq6kihWpeiuvDmFfSAwRLxwwIjgUuzG9SaQ+pOomuaC7QTKWMI0hL0b4
-mEPq9GsPPQq1UmwkcYFJ/Z4I93DZuKcXmKMmuANTS6wxwIEw8Q5MQ6y9fbJxGEOgOgYL4QIqNULb
-5CYPnt2LeiIiEnh8Uuh8tawqSjnR0h7Bv5q4mgo3L1Z9QQuexUntWD96t4o0q1jXWLyrpgP7Zcnu
-CzCCBYMwggNroAMCAQICDkXmuwODM8OFZUjm/0VRMA0GCSqGSIb3DQEBDAUAMEwxIDAeBgNVBAsT
-F0dsb2JhbFNpZ24gUm9vdCBDQSAtIFI2MRMwEQYDVQQKEwpHbG9iYWxTaWduMRMwEQYDVQQDEwpH
-bG9iYWxTaWduMB4XDTE0MTIxMDAwMDAwMFoXDTM0MTIxMDAwMDAwMFowTDEgMB4GA1UECxMXR2xv
-YmFsU2lnbiBSb290IENBIC0gUjYxEzARBgNVBAoTCkdsb2JhbFNpZ24xEzARBgNVBAMTCkdsb2Jh
-bFNpZ24wggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCVB+hzymb57BTKezz3DQjxtEUL
-LIK0SMbrWzyug7hBkjMUpG9/6SrMxrCIa8W2idHGsv8UzlEUIexK3RtaxtaH7k06FQbtZGYLkoDK
-RN5zlE7zp4l/T3hjCMgSUG1CZi9NuXkoTVIaihqAtxmBDn7EirxkTCEcQ2jXPTyKxbJm1ZCatzEG
-xb7ibTIGph75ueuqo7i/voJjUNDwGInf5A959eqiHyrScC5757yTu21T4kh8jBAHOP9msndhfuDq
-jDyqtKT285VKEgdt/Yyyic/QoGF3yFh0sNQjOvddOsqi250J3l1ELZDxgc1Xkvp+vFAEYzTfa5MY
-vms2sjnkrCQ2t/DvthwTV5O23rL44oW3c6K4NapF8uCdNqFvVIrxclZuLojFUUJEFZTuo8U4lptO
-TloLR/MGNkl3MLxxN+Wm7CEIdfzmYRY/d9XZkZeECmzUAk10wBTt/Tn7g/JeFKEEsAvp/u6P4W4L
-sgizYWYJarEGOmWWWcDwNf3J2iiNGhGHcIEKqJp1HZ46hgUAntuA1iX53AWeJ1lMdjlb6vmlodiD
-D9H/3zAR+YXPM0j1ym1kFCx6WE/TSwhJxZVkGmMOeT31s4zKWK2cQkV5bg6HGVxUsWW2v4yb3BPp
-DW+4LtxnbsmLEbWEFIoAGXCDeZGXkdQaJ783HjIH2BRjPChMrwIDAQABo2MwYTAOBgNVHQ8BAf8E
-BAMCAQYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUrmwFo5MT4qLn4tcc1sfwf8hnU6AwHwYD
-VR0jBBgwFoAUrmwFo5MT4qLn4tcc1sfwf8hnU6AwDQYJKoZIhvcNAQEMBQADggIBAIMl7ejR/ZVS
-zZ7ABKCRaeZc0ITe3K2iT+hHeNZlmKlbqDyHfAKK0W63FnPmX8BUmNV0vsHN4hGRrSMYPd3hckSW
-tJVewHuOmXgWQxNWV7Oiszu1d9xAcqyj65s1PrEIIaHnxEM3eTK+teecLEy8QymZjjDTrCHg4x36
-2AczdlQAIiq5TSAucGja5VP8g1zTnfL/RAxEZvLS471GABptArolXY2hMVHdVEYcTduZlu8aHARc
-phXveOB5/l3bPqpMVf2aFalv4ab733Aw6cPuQkbtwpMFifp9Y3s/0HGBfADomK4OeDTDJfuvCp8g
-a907E48SjOJBGkh6c6B3ace2XH+CyB7+WBsoK6hsrV5twAXSe7frgP4lN/4Cm2isQl3D7vXM3PBQ
-ddI2aZzmewTfbgZptt4KCUhZh+t7FGB6ZKppQ++Rx0zsGN1s71MtjJnhXvJyPs9UyL1n7KQPTEX/
-07kwIwdMjxC/hpbZmVq0mVccpMy7FYlTuiwFD+TEnhmxGDTVTJ267fcfrySVBHioA7vugeXaX3yL
-SqGQdCWnsz5LyCxWvcfI7zjiXJLwefechLp0LWEBIH5+0fJPB1lfiy1DUutGDJTh9WZHeXfVVFsf
-rSQ3y0VaTqBESMjYsJnFFYQJ9tZJScBluOYacW6gqPGC6EU+bNYC1wpngwVayaQQMIIGizCCBHOg
-AwIBAgIMbfHmsZjcB+HruaVKMA0GCSqGSIb3DQEBCwUAMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQK
-ExBHbG9iYWxTaWduIG52LXNhMSgwJgYDVQQDEx9HbG9iYWxTaWduIEdDQyBSNiBTTUlNRSBDQSAy
-MDIzMB4XDTI1MDYyMDEzNDMzNFoXDTI3MDYyMTEzNDMzNFowgdQxCzAJBgNVBAYTAlVTMRMwEQYD
-VQQIEwpDYWxpZm9ybmlhMREwDwYDVQQHEwhTYW4gSm9zZTEZMBcGA1UEYRMQTlRSVVMrREUtNjYx
-MDExNzEOMAwGA1UEBBMFR3VwdGExDjAMBgNVBCoTBVZpa2FzMRYwFAYDVQQKEw1CUk9BRENPTSBJ
-TkMuMSEwHwYDVQQDDBh2aWthcy5ndXB0YUBicm9hZGNvbS5jb20xJzAlBgkqhkiG9w0BCQEWGHZp
-a2FzLmd1cHRhQGJyb2FkY29tLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANg8
-iuIMIJTRhFElF5kiGA/iibojGqPcfDgZCPyMvuucV7LpWj77dMx05lOtPOr5ol6QoQf3DzLny2Fm
-ZKzsTDzWEhPsCM5DcbMg/B7eD9n+rBWHxsk+yKJKdkLpkpTKdxxTd1Y5Ln+k5KCTjxlCUQQ7Q2Zz
-qYU8bfRq5ZMwUVJD3NZCqEKbEIgSX2vXFS61zdPwnLyHyaC/erAWmgHLu4kzpk/V10NcnUjX9FYK
-f/Ggi9MeMNG20gEIUbCg3RgYf89YLXUJDOuoz/Yajw/VuiVlwS81wF44DmJhAVcGzrI00uydpksG
-oQY2qVlhYsvNTqU2V/uaBrKQnyM0PkU140cCAwEAAaOCAdwwggHYMA4GA1UdDwEB/wQEAwIFoDAM
-BgNVHRMBAf8EAjAAMIGTBggrBgEFBQcBAQSBhjCBgzBGBggrBgEFBQcwAoY6aHR0cDovL3NlY3Vy
-ZS5nbG9iYWxzaWduLmNvbS9jYWNlcnQvZ3NnY2NyNnNtaW1lY2EyMDIzLmNydDA5BggrBgEFBQcw
-AYYtaHR0cDovL29jc3AuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyNnNtaW1lY2EyMDIzMGUGA1UdIARe
-MFwwCQYHZ4EMAQUDAzALBgkrBgEEAaAyASgwQgYKKwYBBAGgMgoDAjA0MDIGCCsGAQUFBwIBFiZo
-dHRwczovL3d3dy5nbG9iYWxzaWduLmNvbS9yZXBvc2l0b3J5LzBBBgNVHR8EOjA4MDagNKAyhjBo
-dHRwOi8vY3JsLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjZzbWltZWNhMjAyMy5jcmwwIwYDVR0RBBww
-GoEYdmlrYXMuZ3VwdGFAYnJvYWRjb20uY29tMBMGA1UdJQQMMAoGCCsGAQUFBwMEMB8GA1UdIwQY
-MBaAFAApNp5ceroPry1QLdugI4UYsKCSMB0GA1UdDgQWBBQI6pBWVwIN47wGrC1m7lYfqN94QjAN
-BgkqhkiG9w0BAQsFAAOCAgEAOdSnSEyuTvTtsnmEilB0JfgRKx1MM7kNdv0pfWcINJhssfHD8Fc5
-wm+JzenYR9yJAkntX0Lr9yv+OG0Jqhvy7u9gKljfI4jXO4qxZ2jf1YvI+fDK29/NV3JAQuipT3Vs
-IxBI73CQO11VwMePOTsUNM1s+9cWT5zLuqOEEu+95jRo5KEtH1/4nahrToLU1Y+flylsBaAUhB72
-KoBBzdewa+psa32lY8X23AWDoczIlUBmPt0hmApBvHOUCYszSiBu4/VhVDuq2iMBtnYAj2j9Q7Ct
-pZHPj6fQv247S9dTDDym05r8arHAsUw7B29KvPfxeaqexL4gwQQjIsfdZeh88XYLXA+mvEej6OlO
-YO3546G7bczFxIjO6V9RrvYEeAb+n7udXYymuIm02XtxIkr/Uk0gRuFoOpG2Dw1OH8xsOUER1+16
-qGb2QKMgaKL/IIM3gXAuCxNVBOT+Fj/wh5hw7MFvTTXPFA8IKusoHZYpxdrr9xjoJ/wt6j4/E6K4
-IO/WuSc4nM6kshiwIu5c6r97213ZtJFOrjoITiBIYFP0WQsTsEbWvaBX/7daT5IVr9rvCOCk2JA8
-bOWwP4OYXCKJY5nZOntb0ECSI7RM0kGelGY4MAD42+OBWHxKU1Qvt5WK4kIXdKpdFp9Drv17PyCU
-dR4AvAJyWnkqZyi5QuRg/hMxggJXMIICUwIBATBiMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBH
-bG9iYWxTaWduIG52LXNhMSgwJgYDVQQDEx9HbG9iYWxTaWduIEdDQyBSNiBTTUlNRSBDQSAyMDIz
-Agxt8eaxmNwH4eu5pUowDQYJYIZIAWUDBAIBBQCggccwLwYJKoZIhvcNAQkEMSIEIDGAFDz70eQN
-TYl395fZMsPKgyHU5CoYQ4j/Lkd6KlADMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZI
-hvcNAQkFMQ8XDTI2MTEyNDEzNTYwNFowXAYJKoZIhvcNAQkPMU8wTTALBglghkgBZQMEASowCwYJ
-YIZIAWUDBAEWMAsGCWCGSAFlAwQBAjAKBggqhkiG9w0DBzALBgkqhkiG9w0BAQcwCwYJYIZIAWUD
-BAIBMA0GCSqGSIb3DQEBAQUABIIBAH3SZhZB/lW4WjsP42PWqtcLbCS6RqhNBHoHANIcn3V9AtcS
-hQF2+L5ZcUrX7OHi6XzOnu5cxd1Sxce4L6DddbW61yNx/0490v/0mMP2c9Fif6P8w3y+LN+t0hC9
-KrInBffGRrQEK/oRX4HtFVUnzAQ5Z79UJTPIq55Rm+U5TC/zhLfWbCqY1d9Jvrkry8hVp+6SCbEJ
-qMTNEQIIVs8NUs9hJ/K38+prTd+fav69vGkLm0AEhWpt/4mJIxxi8dOdmCvRDV5w/MgJjUjPQylC
-JCgt/r78kM0Y8J1HCJTLQ+fwYgfhQJzmtUibjPgC5rXpsVOLrAZ3EfESPPiFPNN2NpI=
---000000000000435ea406610612c8--
+Refuse the group before the workload is started:
+
+  A tool event cannot be grouped with kernel events: user_time
+
+That is followed by "Put it outside the braces", as in
+-e '{cycles,instructions},duration_time'.  perf stat used to leave the rest
+of the group uncounted and exit 0; it now exits 22.  Namhyung Kim preferred
+the refusal to counting the events one by one.  get_group_fd() no longer
+trips its BUG_ON() for a tool event with no descriptor, which is normal for
+duration_time; the BUG_ON() only fired in a DEBUG=1 build.
+
+A group of tool events only is accepted, as before.  A weak group led by a
+tool event is left to the weak group handling, which splits it when the
+members fail with EINVAL or EBADF; any other weak group that mixes them is
+refused like a strong one.  A member that fails with EACCES is not split
+off, so such a group prints the tool event and "<not supported>" for the
+member, as before; the libperf change posted to perf-tools-next keeps it
+from being dereferenced when the group is enabled.
+
+Where the core PMU covers only part of the CPUs (hybrid x86, big.LITTLE
+arm64), evlist__check_cpu_maps() takes the tool event out first under -a,
+so no mixed group is left to refuse.  Sashiko's review of v4 raised this
+and the NULL dereference that the libperf change above prevents.
+
+The code, the test, the man page and this message were written with
+Hermes Agent (deepseek-v4.1-flash); I reviewed the result, built perf, and
+ran tools/perf/tests/shell/stat+tool_group.sh and checkpatch.pl --strict.
+Kernel events cannot be opened here (perf_event_paranoid=4), so the EBADF
+and the group-read failure were not re-observed.
+
+Fixes: 6828d6929b76 ("perf evsel: Refactor tool events")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Link: https://lore.kernel.org/all/sashiko-outbox-227849@kernel.org/
+Reported-by: Hang Zhengyang <hang.zhengyang1010@gmail.com>
+Link: https://lore.kernel.org/all/20261111-tool-pmu-leader-v2-1-3faa0fb98c51@gmail.com/
+Suggested-by: Namhyung Kim <namhyung@kernel.org>
+Link: https://lore.kernel.org/all/awC_aZXD5FBGu4mO@google.com/
+Link: https://lore.kernel.org/all/20261111101625.2204836-1-takano32@gmail.com/
+Link: https://lore.kernel.org/all/awTXdgY38s2bijW5@google.com/
+Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
+---
+v5: Namhyung Kim confirmed on 2026-11-24
+    (https://lore.kernel.org/all/awTXdgY38s2bijW5@google.com/)
+    that the group should be rejected rather than counted event by event,
+    so this keeps the refusal and drops the question from the message.
+
+    The NULL fd dereference that the v4 review found is fixed by the libperf
+    change posted to perf-tools-next
+    (https://lore.kernel.org/all/20261111101625.2204836-1-takano32@gmail.com/),
+    so this version carries no crash fix of its own and goes on top of it.
+    It has its own Link entry now.
+
+    Sashiko's review of v4 raised the NULL dereference and the -a case, so
+    it is credited with Reported-by and a Link.
+
+    A weak group led by any tool event is left to the weak group handling.
+    get_group_fd() sets errno to EINVAL when the tool leader has no
+    descriptor, so the open loop splits that group on EINVAL just as it
+    splits a user_time leader on EBADF; before, the split depended on
+    whatever errno happened to hold.  This also splits
+    -e '{duration_time,cycles:k}:W' before the member with a closed fd is
+    enabled, which measured clean here.  The BUG_ON() no longer fires for
+    that case; it only did in a DEBUG=1 build.  The errno is set in the
+    tool branch only, so a leader that was skipped for other reasons keeps
+    its old behaviour.
+
+    The -a case runs on every machine now and checks the result.  There are
+    two probes: one for a per-thread event and one for -a, because CPU-wide
+    events need root or perf_event_paranoid <= 0 and can fail even when a
+    per-thread event works.  accepted() always fails on <not counted> and
+    only skips on <not supported> when the events cannot be opened.  When
+    -a counts but the probes say full access is not there, the case is
+    reported as skipped instead of passing silently, and a refusal has to
+    name the tool event and carry the hint.
+
+    The group-read paragraph now says the read fails with ENOSPC before
+    evsel__process_group_data() is reached.  Fixes: is at the top of the
+    trailer block, the subject is the same as v4, and Hang's series is
+    named instead of v3 because v2 already opens with group_fd = -1.
+
+    Rebased onto v7.4-rc4.  The perf-tools-next branch fetched here is still
+    at 2026-10-27 and does not carry tools/include/linux/stddef.h, so perf
+    does not build there.
+
+ tools/perf/Documentation/perf-stat.txt    |  14 ++
+ tools/perf/builtin-stat.c                 |  71 ++++++++
+ tools/perf/tests/shell/stat+tool_group.sh | 212 ++++++++++++++++++++++
+ tools/perf/util/evsel.c                   |   9 +
+ 4 files changed, 306 insertions(+)
+ create mode 100755 tools/perf/tests/shell/stat+tool_group.sh
+
+diff --git a/tools/perf/Documentation/perf-stat.txt b/tools/perf/Documentation/perf-stat.txt
+index 8ea17da89976..c5885cf331fa 100644
+--- a/tools/perf/Documentation/perf-stat.txt
++++ b/tools/perf/Documentation/perf-stat.txt
+@@ -65,6 +65,20 @@ report::
+ 	Multiple PMU instances are typical for uncore PMUs, so the prefix
+ 	'uncore_' is also ignored when performing this match.
+ 
++	Tool events such as duration_time and user_time are read by perf
++	itself and have no event in the kernel.  A group of a tool event and
++	an event from a different software PMU, such as cpu-clock, is split by
++	the parser, which warns that events were regrouped; -a and -C split
++	a group whose members do not share the CPUs of the leader in the
++	same way.  A group that is not split and mixes a tool event with an
++	event the kernel opens is refused, as in -e '{user_time,cycles}',
++	instead of printing the tool event and leaving the rest of the group
++	uncounted.  Put the tool event outside the braces instead, as in
++	-e '{cycles,instructions},duration_time'.  A group of tool events
++	only is accepted.  A weak group (:W) led by a tool event is left to
++	the weak group handling, which splits it when the members fail with
++	EINVAL or EBADF; any other weak group that mixes them is refused
++	like a strong group.
+ 
+ -i::
+ --no-inherit::
+diff --git a/tools/perf/builtin-stat.c b/tools/perf/builtin-stat.c
+index 37752d6bfef4..f3d3343d1ef9 100644
+--- a/tools/perf/builtin-stat.c
++++ b/tools/perf/builtin-stat.c
+@@ -2469,6 +2469,72 @@ static int parse_tpebs_mode(const struct option *opt, const char *str,
+ }
+ #endif // HAVE_ARCH_X86_64_SUPPORT
+ 
++/*
++ * A tool event like user_time has no event in the kernel: it reads
++ * /proc/stat, or keeps its value in perf itself.  A group that mixes one
++ * with an event the kernel opens cannot be counted.
++ * get_group_fd() passes the leader's descriptor as the group fd, and the
++ * tool event has a procfs descriptor or none at all, so the kernel rejects
++ * the members with EBADF or perf gives up with "broken group leader"; with
++ * a kernel event as the leader the members do open, but the group read is
++ * rejected as the kernel knows only the members it opened.  perf stat used
++ * to leave the rest of the group uncounted in both cases, when the CPU maps
++ * had not split the group first; refuse the group instead.  A group with no
++ * event the kernel opens is left alone, as perf reads each event in it.  A
++ * weak group led by a tool event is left to the weak group handling in the
++ * open loop, which splits it when a member fails with EINVAL or EBADF; any
++ * other weak group is refused like a strong one.
++ */
++static int check_tool_groups(struct evlist *evlist)
++{
++	struct evsel *leader, *evsel;
++
++	evlist__for_each_entry(evlist, leader) {
++		struct evsel *tool = NULL;
++		bool has_kernel = false, weak = false;
++
++		if (!evsel__is_group_leader(leader) || leader->core.nr_members < 2)
++			continue;
++
++		/*
++		 * The members of a group are not necessarily adjacent in the
++		 * evlist: evlist__check_cpu_maps() makes a removed member a
++		 * leader of its own without moving it.
++		 */
++		evlist__for_each_entry(evlist, evsel) {
++			if (!evsel__has_leader(evsel, leader))
++				continue;
++			if (evsel__is_tool(evsel)) {
++				if (!tool)
++					tool = evsel;
++			} else if (!evsel__is_non_perf_event_open_pmu(evsel)) {
++				has_kernel = true;
++			}
++			weak |= evsel->weak_group;
++		}
++
++		if (!tool || !has_kernel)
++			continue;
++
++		/*
++		 * A weak group led by a tool event is left to the weak group
++		 * handling in the open loop: the members fail the open with
++		 * EBADF when the leader has a procfs descriptor, and with
++		 * EINVAL when it has none, and that is what splits the group.
++		 * Any other weak group does not get that far, so it is
++		 * refused like a strong group.
++		 */
++		if (weak && evsel__is_tool(leader))
++			continue;
++
++		pr_err("A tool event cannot be grouped with kernel events: %s\n",
++		       evsel__name(tool));
++		pr_err("Put it outside the braces, as in -e '{cycles,instructions},duration_time'.\n");
++		return -EINVAL;
++	}
++	return 0;
++}
++
+ int cmd_stat(int argc, const char **argv)
+ {
+ 	struct opt_aggr_mode opt_mode = {};
+@@ -2947,6 +3013,11 @@ int cmd_stat(int argc, const char **argv)
+ 
+ 	evlist__check_cpu_maps(evsel_list);
+ 
++	if (check_tool_groups(evsel_list)) {
++		status = -EINVAL;
++		goto out;
++	}
++
+ 	/*
+ 	 * Initialize thread_map with comm names,
+ 	 * so we could print it out on output.
+diff --git a/tools/perf/tests/shell/stat+tool_group.sh b/tools/perf/tests/shell/stat+tool_group.sh
+new file mode 100755
+index 000000000000..0d630a70f1b5
+--- /dev/null
++++ b/tools/perf/tests/shell/stat+tool_group.sh
+@@ -0,0 +1,212 @@
++#!/bin/bash
++# SPDX-License-Identifier: GPL-2.0
++# perf stat tool events in an event group (no_mlock)
++
++set -e
++
++out=$(mktemp /tmp/__perf_test.stat_tool_group.XXXXXX)
++stderr=$(mktemp /tmp/__perf_test.stat_tool_group.XXXXXX)
++err=0
++skipped=0
++
++cleanup() {
++  rm -f "${out}" "${stderr}"
++
++  trap - EXIT TERM INT
++}
++
++trap_cleanup() {
++  echo "Unexpected signal in ${FUNCNAME[1]}"
++  cleanup
++  exit 1
++}
++trap trap_cleanup EXIT TERM INT
++
++# A tool event reads /proc/stat, or keeps its value in perf itself, so it
++# cannot be a member of a group that is opened with perf_event_open().  Such
++# a group used to print the tool event and leave the rest of the group
++# uncounted, so perf stat has to say what is wrong instead.
++
++# Whether this kernel lets the user open a hardware event decides whether
++# the accepted cases can show a measured value at all.  An event that is
++# not supported prints a "<not supported>" line even when perf stat exits 0.
++kernel_events=1
++if ! perf stat -e cycles -o "${out}" -- true 2> /dev/null ||
++   grep -q "<not supported>" "${out}" ||
++   ! grep -q "cycles" "${out}"; then
++  kernel_events=0
++fi
++
++# CPU-wide events need root or perf_event_paranoid <= 0, so -a can fail even
++# when a per-thread event works.
++syswide=1
++if ! perf stat -a -e cycles -o /dev/null -- true 2> /dev/null; then
++  syswide=0
++fi
++
++refused() {
++  local group="$1" tool="$2" rc=0
++  shift 2
++
++  echo "Testing that perf stat refuses ${group} $*"
++  perf stat "$@" -e "${group}" -o "${out}" -- true 2> "${stderr}" || rc=$?
++
++  if [ "${rc}" = 0 ]; then
++    echo "perf stat accepted ${group}  [Failed]"
++    err=1
++    return
++  fi
++  if [ "${rc}" != 22 ]; then
++    echo "perf stat failed with ${rc}, expected 22  [Failed]"
++    cat "${stderr}"
++    err=1
++  fi
++  if ! grep -qE "A tool event cannot be grouped with kernel events: (${tool})" \
++      "${stderr}"; then
++    echo "perf stat failed without naming ${tool}  [Failed]"
++    cat "${stderr}"
++    err=1
++  fi
++  if ! grep -q "Put it outside the braces" "${stderr}"; then
++    echo "perf stat failed without saying how to write it  [Failed]"
++    cat "${stderr}"
++    err=1
++  fi
++}
++
++# The events named after the group have to show up in the output.
++accepted() {
++  local group="$1" name rc=0
++
++  shift
++  echo "Testing that perf stat accepts ${group}"
++  perf stat -e "${group}" -o "${out}" -- true 2> "${stderr}" || rc=$?
++
++  if [ "${rc}" != 0 ]; then
++    cat "${stderr}"
++    echo "perf stat failed for ${group} (${rc})  [Failed]"
++    err=1
++    return
++  fi
++  if grep -q "cannot be grouped with kernel events" "${stderr}"; then
++    cat "${stderr}"
++    echo "perf stat refused ${group}  [Failed]"
++    err=1
++    return
++  fi
++  for name in "$@"; do
++    if ! grep -q -- "${name}" "${out}"; then
++      echo "perf stat did not print ${name}  [Failed]"
++      cat "${out}"
++      err=1
++    fi
++  done
++  if grep -q "<not counted>" "${out}"; then
++    echo "perf stat did not count an event in ${group}  [Failed]"
++    cat "${out}"
++    err=1
++  elif grep -q "<not supported>" "${out}"; then
++    if [ "${kernel_events}" = 1 ]; then
++      echo "perf stat could not open an event in ${group}  [Failed]"
++      cat "${out}"
++      err=1
++    else
++      echo "perf stat could not open an event in ${group}  [Skipped]"
++      skipped=$((skipped + 1))
++    fi
++  fi
++}
++
++# The tool event as the leader and as a member, a common group that puts
++# the tool event last, and a weak group led by a kernel event (it opens
++# and then fails its group read).
++refused '{user_time,cycles}' user_time
++refused '{cycles,user_time}' user_time
++refused '{duration_time,instructions}' duration_time
++refused '{cycles,instructions,duration_time}' duration_time
++refused '{cycles,user_time}:W' user_time
++
++# The tool event in the middle of a group, and the first of two tool
++# events, which is the one the message names.
++refused '{cycles,user_time,instructions}' user_time
++refused '{user_time,system_time,cycles}' user_time
++
++# evlist__check_cpu_maps() takes duration_time out of this group (it is
++# read on one CPU only), which leaves cycles and user_time apart in the
++# evlist; the tool event has to be found anyway.  On a machine with one
++# CPU there is nothing to split, so either tool event can be the first.
++# When a core PMU covers only part of the CPUs (hybrid x86, big.LITTLE
++# arm64), -a gives the leader a subset of the CPUs and takes the tool
++# event out of the group as well, which leaves no group to refuse.  The
++# command is then counted instead of refused, and either way it must not
++# reach the tool event through a member with no descriptor.
++rc=0
++perf stat -a -e '{cycles,duration_time,user_time}' -o "${out}" -- true \
++  2> "${stderr}" || rc=$?
++if [ "${rc}" -ge 128 ]; then
++  echo "perf stat crashed on -a  [Failed]"
++  err=1
++elif [ "${rc}" -eq 0 ]; then
++  if [ "${syswide}" = 1 ] && [ "${kernel_events}" = 1 ]; then
++    if grep -qE "<not supported>|<not counted>" "${out}"; then
++      echo "perf stat left an event uncounted on -a  [Failed]"
++      cat "${out}"
++      err=1
++    fi
++  else
++    echo "perf stat counted -a without full access  [Skipped]"
++    skipped=$((skipped + 1))
++  fi
++elif [ "${rc}" -eq 22 ]; then
++  if ! grep -qE "A tool event cannot be grouped with kernel events: (user_time|duration_time)" \
++      "${stderr}" ||
++     ! grep -q "Put it outside the braces" "${stderr}"; then
++    echo "perf stat refused -a without the full message  [Failed]"
++    cat "${stderr}"
++    err=1
++  fi
++elif [ "${rc}" -ne 0 ]; then
++  echo "perf stat left -a with ${rc}  [Failed]"
++  cat "${stderr}"
++  err=1
++fi
++
++# A group of tool events only is read by perf itself, a single event in
++# braces is not a group, a tool event outside the braces is not a member,
++# and a weak group led by a tool event is split by the weak group
++# handling.
++accepted '{user_time,system_time}' user_time system_time
++accepted '{duration_time,user_time}' duration_time user_time
++accepted '{user_time}' user_time
++accepted '{cycles,instructions},duration_time' duration_time
++accepted '{user_time,cycles}:W' user_time cycles
++accepted '{system_time,cycles}:W' system_time cycles
++accepted '{duration_time,cycles}:W' duration_time cycles
++
++echo "Testing that a tool event on its own is accepted"
++if ! perf stat -e user_time -o "${out}" -- true; then
++  echo "perf stat rejected a tool event on its own  [Failed]"
++  err=1
++elif ! grep -q "user_time" "${out}"; then
++  echo "perf stat did not print user_time  [Failed]"
++  cat "${out}"
++  err=1
++fi
++
++echo "Testing that the default events still work"
++if ! perf stat -o "${out}" -- true; then
++  echo "perf stat without -e failed  [Failed]"
++  err=1
++fi
++
++cleanup
++
++if [ "${err}" = 0 ] && [ "${skipped}" -gt 0 ]; then
++  echo "perf stat tool event group test [Success] (${skipped} skipped)"
++elif [ "${err}" = 0 ]; then
++  echo "perf stat tool event group test [Success]"
++else
++  echo "perf stat tool event group test [Failed]"
++fi
++
++exit "${err}"
+diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
+index d060fca8090f..ef811b1f1e6a 100644
+--- a/tools/perf/util/evsel.c
++++ b/tools/perf/util/evsel.c
+@@ -2381,6 +2381,15 @@ static int get_group_fd(struct evsel *evsel, int cpu_map_idx, int thread)
+ 		return -1;
+ 
+ 	fd = FD(leader, cpu_map_idx, thread);
++	if (fd == -1 && evsel__is_tool(leader)) {
++		/*
++		 * A tool event has no perf_event_open() descriptor, so -1 is
++		 * normal for it and the members cannot be in the kernel group.
++		 * builtin-stat.c decides on the weak group split from errno.
++		 */
++		errno = EINVAL;
++		return -2;
++	}
+ 	BUG_ON(fd == -1 && leader->supported);
+ 
+ 	/*
+
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+-- 
+2.53.0
+
