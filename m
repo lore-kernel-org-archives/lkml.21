@@ -1,94 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795548132;
-	b=q2iu3sev8iO3AyB46f39F8BkV/X4sPss8ceefHx7UKBcK+GNHFKeLNZ2nZyWKjE0u3Ty
-	 m1blRMJG0VpFKyH3J9jPozIPy1oqtORiLJVs1pKQH0Idc262TenMcXQ/doO7UBQ3ZvOuZ
-	 NysBIQpkCwRjBftuHaNT1cLJeq9Lu553q6z0h1THYyUEFdG8c9k8ThhtTBwVYt90+N/hg
-	 vg9bxgpzcFseQ+1jc1tWT0ZB0rkr5EsXxGJ0guvHti/mR9oDHfBmN772GP/kt53BBt1td
-	 CiLI0rrv0/JOEYBYFPymIkCwV3QZAnvnh0jHsq2o1LBpCPMc+p3RVlwWeGcoylHD1VA==
+	t=1795548143;
+	b=dB91OirAMm8KpHXpYDFwdqBzph+30evoLXJPxyYgxinI8ar6LtBWzwb0ZwjWj6OulFuL
+	 WkO7sWY8r3E1S99Qep/1csZrA279m1DhfwdplULnSzd4tHs3ODvuK6ktz1aLlMBoBJ4ej
+	 E3vBFMXGSkVSDUtVao6B0HgFFvwlXg3YVMl4jSThMSqfpqJSLF8JFFizE45Qb9AjM9ESL
+	 jHsxqpdraN4wXWu6rmh8dVqtxbNNTQA5B0vIW50ajjvjb6LBcpftn3+TpyAwsMwpso8R/
+	 Z7oaK9d7KxLiN4dhEnatQWt0Rb4799N9r65AZuSCAj7XprFWiF+miix1bEjTZK1kM6A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795548132;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795548143;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=LZPiVycm3WyyFUgujH3SAz4SOdP4xReN9+vLGtP0/iQ=;
-	b=Z/Eat/AiV0P0vVpNQMrNMFwjpMzoEXE/PkIqdu/tGDv6hFT9+6wU4wTtfO+k7188kGYW
-	 jY7VIYFAYVnUHEEu5F66vhVpd0TP6dNZYFkRP4jBIOoAAx2BUyMvkmswKQRP7Uxdc0qIB
-	 /vQjHhEAKJq0TIn4JehMRkwZSaIVfQJzEKALaBiXZ0Asr+sC3N5GyMrac3M05JzIfDtac
-	 oNJqS64HgxixX447Vn244Oy3gWPyhuB/BIMtdYvcnxdpis7dle1WmideUXMnXsBpWpUih
-	 egwDSU/meImiU2doay/KmNEhdTZFhKJdpCEOMXzKAIky6oZj2LLalvh/qOGVXdW7IDQ==
+	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=+sqGc9BB0de+o0BtnP9Aq7Fkyx+O52AcgmtWyPr0TiA=;
+	b=W7/yzrb4LRQnscCFBvTAiw1seDzZLbpgJLqfJJbwGDgZ7k2tkjs7nkZ1rDBQFaWJ4e1i
+	 WETBdQzjf4fwHtVK4u+mEQVvgj3VT+KGpt89dcaO2iQbnD/e/fGzFO/GeH2dsAH808NuV
+	 /5U9bwRy19L+cJ7FZSjSyj1gT1w64Yu6lAudIgJc/kdaq8f+eemx/ZODrBvz7sAQZB2a7
+	 dDKNhIoRO4ePPF9i7t02Z5MusJ1XepjnKEzzoHDBhr1h+tJxYVLEUmejitysOjjIIOsOa
+	 jU4t3ZbF8/yrA4zeDZpfheqcxesCHFEjonh+Ml0MB+HiPvW0KA6r8Puux+BqXVwMTfg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Bh50RA56;
-	arc=none smtp.remote-ip=74.125.82.52
-Received: from mail-dl1-f52.google.com (mail-dl1-f52.google.com [74.125.82.52])
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=nMZXZySt;
+	arc=none smtp.remote-ip=209.85.214.175
+Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54ED6606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:22:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54ED6606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECD54606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:22:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ECD54606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Bh50RA56
-Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-1aefd1bf74aso2328715c88.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:22:12 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=nMZXZySt
+Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f05b465cd1so25243285ad.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:22:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795548131; x=1796152931; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LZPiVycm3WyyFUgujH3SAz4SOdP4xReN9+vLGtP0/iQ=;
-        b=Bh50RA56mPo+nTw0xcu6Jaylf7Itkvzq10WEajJrHOjNZTXiIhRGjKRa0xcz0MFUvz
-         hETpIrnyYv1BDtMRHzBaWvui4mRJ+FMjiIak2T/IC2OrWVdD50/IfQVswBJM5mIw5OhN
-         BXVGEkuDN4f4IIwVyQ28/xXpI+uA7989WqnBpeLOsNsHi3sKPkC/92jnB5dP9H318L3j
-         pBX4OXwb/IZig+YtOeAHT5sRO+tmgNJYXiYneeZ/bhZC+W3bfXTZUddQPZVB06bkuFy+
-         gawz2V6v6Gq5s5RUx0/cpHNLhoxGLcaM63mzPwdVL7Uogy9/7A4n3QKkOLUENbqfQlMo
-         j1KA==
+        d=chromium.org; s=google; t=1795548142; x=1796152942; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+sqGc9BB0de+o0BtnP9Aq7Fkyx+O52AcgmtWyPr0TiA=;
+        b=nMZXZySt4kKuUEuezyaFKNG+BAgUNK3SZMQ+nMKDsk8BZHIKZ2NJxetVIz2mjjCPcz
+         949ZO2Du3YGV1JmJksnU4KbmvwPfm7lWkrR2UjC9vzBMOF7gcMQc7cx6wErOu8SaZvmX
+         gbGeOTyv7VU39/DmRGeT4f4zq7WOcyjS71esY=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795548131; x=1796152931;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LZPiVycm3WyyFUgujH3SAz4SOdP4xReN9+vLGtP0/iQ=;
-        b=mvSPhWHt+/F/zOkXxYz5gZOi2ONxIhjg7Hh5jcLbluUHYBWQsZjk8wurv3B5FMfHM4
-         RujxGtJYMeq+UcS2WiUZqq0urMfvphAPFQxSsZvkPvf1I738Dnrnq35L5FEdDP9f2Lsb
-         Xwa1tklXdf/ZpHkC7kbkOFHlud+ZxOsuJMQfI/V3jzqI4LFPgq3SNA2PlW2q2JTeSdig
-         QehoaIUxok+rtvOkGnS21kMsrlbAI0GntpUdN2dgWL1UCkcx1oCQk82ZBBBsu2Ez1sgb
-         USdHRVLhjS662KYCjjHjqmAVk3LlU6tKnvhg5QWOO8z2CT7Fiyyt8K2EXgVqAuDKn2Z/
-         QNTQ==
-X-Forwarded-Encrypted: i=1; AL+hErGF+pIHaj7J2IB5UfwE/9LkGNtnSWWZRVgPa1YCpIFF9qrQ+hgzZQPRL3+wo25t7rJkb/BhWYfwOu8SUQY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/dICX6Jz23WhLTirIy3WFCXfjrQsmDm6oNmMJP+PzS1QeHF+pf
-	7EuyKiKHhkSl4Q8R0GSee7Z32zQqntzh+LbS9jrOqBIR1+1fIA4Q/omW
-X-Gm-Gg: AZFdTZeZcY49hI0afSYysNceNX0FVWmrWTRsscsX0HUDe+ZHeKtyI4/OAYJra223cj9
-	6SkDKu00edHG/1KRibnuCWW7ohupgGI65Zj6+LQfEKHI2PTs58+3bJzuCLFwCkemgyyyiQ0MjOB
-	+QLFzQTYUc19ixyw3vmAwQxfXqiuP93NxPjySFHW3HGjw9KzTHbIvmDpcdC2sulJhU5kvIQwgWE
-	6Pn+ys7y31K858nBFZoJMO7FtIGdzX0tIBtq7cCVgrg/vdeylzu3TLNcxmNjSZBEmAPf2BO2b2k
-	CVFoH0zdNBPo09v8ucXbHgOaQ4V2ozdc7yuyh1zzx5ZmS4PfsqqdAZVMjPn0asztsKB53At5JJJ
-	jnb/kPAAqMNDFyy7wm9tuMJWFM4PvV7YVT5hUhrfqM/sKYhC9HCU9IMiwGR+2Hi2XlQeL7livNN
-	782D0z4F9ieKiU6GotiBrLulXMdYONM1Jt1oGbRpo9WJsnTLIACuNRbXk1AeZY3uBgzGCcKjky9
-	0zfWs7QiD3VOhiY7Q8ibq6DZeD8bPk/e6g9PzWWT7xvorxd9p1b+gsh7pswesp6pqcFLV5Pr+7k
-	IX1og+cPqbE82hSw4E4sK/NHNisZbNUZy/O8zk574A==
-X-Received: by 2002:a05:701b:4346:b0:14b:1ef8:698d with SMTP id a92af1059eb24-1b556900481mr15198374c88.15.1795548131144;
-        Tue, 24 Nov 2026 11:22:11 -0800 (PST)
-Received: from a1-free ([161.33.196.121])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ffa8csm43034793c88.7.2026.11.24.11.22.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 11:22:10 -0800 (PST)
-From: TAKANO Mitsuhiro <takano32@gmail.com>
-To: Kees Cook <kees@kernel.org>,
-	Shuah Khan <shuah@kernel.org>
-Cc: Andy Lutomirski <luto@amacapital.net>,
-	Will Drewry <wad@chromium.org>,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	TAKANO Mitsuhiro <takano32@gmail.com>
-Subject: [PATCH] selftests/seccomp: set no_new_privs after unsharing a user namespace
-Date: Tue, 24 Nov 2026 19:22:08 +0000
-Message-ID: <20261124192208.1234120-1-takano32@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        d=1e100.net; s=20260707; t=1795548142; x=1796152942;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=+sqGc9BB0de+o0BtnP9Aq7Fkyx+O52AcgmtWyPr0TiA=;
+        b=zkPfWfsSRhyvQG01+Aj/ZOYK3D7AN2Q4ocpik0Nocvpv8Z8mCFdrxciv9b+PDuKJZr
+         atdblRv/Eo8l2DtUVqKhNDXSbq5PhHrWvSdlXo1oQpdS4fPmuQzu6mDWy0ah/Qn8j/N1
+         5LisZ9E83YBmSScbdTK7XEjPlmFYR7i2LMdZHQnpG7LlCzbjo0GJxmPLUXIq0dUj5kSg
+         Zq+OKOry0TzvGBuqr6SsS/9KfSb8WT78k4yanK0PI1PBn9gqqaHisvU9qbYE6cHk4kqz
+         TLWnO1J1g5B2GojxiJ+quyV0FPBo/sFZ4a21JE/QKIYoZmUIr5HKSO7rc2HH8ak8+HTS
+         z69w==
+X-Forwarded-Encrypted: i=1; AL+hErGk+7x6uUzrbos1Zq3NfM3P8w18koYTtECTcgkryna1ucRobYmsFpsBnaB5UYRbgFo351z6BXfYEaz3wI0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/GJeqO5kCBPkrrt2KHBEVoBA6kubSIvzkzJZS49oGNEwPrBk9+
+	he/Opw9qKlT45KlY3YqNdx7fYJr9I1UBcwv20/E8LNE2U74gQNB8FqYXf8CWho/T8nEMDeT29mO
+	Pvg4=
+X-Gm-Gg: AZFdTZem3UHT5qHd0s0q5mZihcD4AJUFBjw6L+MyRJHaq7ZRbo/9KR4JFSMbWqnJt4a
+	t0isSHVoqDMRG0KAStietexgoDXJ+pxyVuHxdZ/qKtViUa8gUehM/CbFTgKKSavJiQssGaOOagr
+	GR9lxXD3SClkg5lx1FBA/ORQ5JTwnPT05nGVOwM43HyaB1XlPjnK6paOYm7se8SBbaZq/bCyeJW
+	ItoF2LWIU6ttrMNXAnBREgSi3OYIhfLfSzs5DehJQ9Ndfm9G7GNxrPcJa8iqN6ShSDuJirOFLIi
+	gzIlZS0L4vnCgQqBKQsdm4gzcMPfnnxqBDqxkIfwvpfmIw1uutXDSVrxc0HssS9Q1kjTtra7gbZ
+	jafLIBp/kqraRGVQBYfyniybrM1I/5FlolPscZZSCKEIXZXqYt+AAsYPNCYR5gRCMqB7WDsSwsN
+	p9GlxeeFegVArP8sKM/pyx5+q+MgnrfO7KD18MbKen92PbRRyQI/mjb/MWDztGhnGfmtTW6cljT
+	UFA5ckuWN43hbVEiXZRspysc9y14Uro0WLUWEIBdiEAdGps8X5zHG8dOXtkj9AoU9oYCqjorotU
+	3KJYGxcjhUMXSFKXIKqDGyxvmk7MLsIGnaCMKVDWwl2kZRnVHVf2m1DM3AiY69dpYQ==
+X-Received: by 2002:a17:90b:4ccb:b0:3b0:9183:23ef with SMTP id 98e67ed59e1d1-3b41c7b67femr14659046a91.3.1795548142256;
+        Tue, 24 Nov 2026 11:22:22 -0800 (PST)
+Received: from mail-dl1-f47.google.com (mail-dl1-f47.google.com. [74.125.82.47])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4b3c71192sm7639721a91.5.2026.11.24.11.22.21
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 11:22:21 -0800 (PST)
+Received: by mail-dl1-f47.google.com with SMTP id a92af1059eb24-1a2761c69fbso5280171c88.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:22:21 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEcVz2EAxbYimwuHjInb0ThEHRevd6Ad/ppYoyqTgOm80tVUT7uNgFg4RWmvKNbiYssE1nVDuU7TVxRQbI=@vger.kernel.org
+X-Received: by 2002:a05:7022:b908:b0:1b5:25e:9582 with SMTP id
+ a92af1059eb24-1b55691dbe2mr14081660c88.37.1795548139472; Tue, 24 Nov 2026
+ 11:22:19 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,109 +93,191 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261124100623.2227323-1-chris.bainbridge@canonical.com> <20261124100623.2227323-2-chris.bainbridge@canonical.com>
+In-Reply-To: <20261124100623.2227323-2-chris.bainbridge@canonical.com>
+From: Ricardo Ribalda <ribalda@chromium.org>
+Date: Tue, 24 Nov 2026 20:22:05 +0100
+X-Gmail-Original-Message-ID: <CANiDSCteP85q_nz+-_kG7+h9AkoE+uiVr4VwYHGm8Y+w8vNYKg@mail.gmail.com>
+X-Gm-Features: Aa3M54qZlBqKXV6xMS8voS7QdUfU25qdUIfEGZwbhyuEty5R7NTbFgGEiEWFQUo
+Message-ID: <CANiDSCteP85q_nz+-_kG7+h9AkoE+uiVr4VwYHGm8Y+w8vNYKg@mail.gmail.com>
+Subject: Re: [PATCH 1/3] media: uvcvideo: Report the failing control when
+ restoring controls fails
+To: Chris Bainbridge <chris.bainbridge@canonical.com>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	laurent.pinchart@ideasonboard.com, hansg@kernel.org, mchehab@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Installing a seccomp filter requires CAP_SYS_ADMIN in the caller's user
-namespace unless no_new_privs is set.  Two user notification tests
-create a user namespace and then install a filter with
-SECCOMP_FILTER_FLAG_NEW_LISTENER without setting no_new_privs.
-Creating a user namespace gives the caller a full capability set in the
-new namespace, so the capability check succeeds on a stock kernel.  But
-on a system where an LSM policy denies capabilities in unprivileged user
-namespaces, the check fails and the tests report:
+Hi Chris
 
-  user_notification_child_pid_ns: Expected listener (-1) >= 0 (0)
-  user_notification_fault_recv: Expected listener (-1) >= 0 (0)
+On Tue, 24 Nov 2026 at 11:10, Chris Bainbridge
+<chris.bainbridge@canonical.com> wrote:
+>
+> When uvc_ctrl_commit_entity() fails while restoring the controls after a
+> USB reset_resume, the only message visible at the default loglevel is
+> the generic "reset_resume error -5" from the USB core. The control that
+> caused the failure and the reason for it are only visible with the
+> uvcvideo trace parameter enabled (UVC_DBG_CONTROL), which makes the
+> problem almost impossible to diagnose in the field.
+>
+> On a Logitech C270 (046d:0825, USB_QUIRK_RESET_RESUME), the processing
+> unit restore fails with UVC error code 7 (Invalid Request), mapped to
+> -EIO, and the user only sees "reset_resume error -5". The restore order
+> suggests that WHITE_BALANCE_TEMPERATURE is written while auto white
+> balance is enabled, which the device rejects.
+>
+> Pass the err_ctrl out parameter of uvc_ctrl_commit_entity() and report
+> the name, the selector and the entity id of the failing control,
+> together with the error code, using a ratelimited warning. If the
+> failing control is not known, report the entity and the error code only.
+>
+> Also extend the "Control error %u" debug message in uvc_query_ctrl()
+> with the name of the UVC error code, the name of the request, the
+> selector and the unit, so that the cause of the STALL is visible in the
+> trace log.
+>
+> Signed-off-by: Chris Bainbridge <chris.bainbridge@canonical.com>
+> ---
+>  drivers/media/usb/uvc/uvc_ctrl.c  | 36 +++++++++++++++++++++++++++++--
+>  drivers/media/usb/uvc/uvc_video.c | 31 +++++++++++++++++++++++++-
+>  2 files changed, 64 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/media/usb/uvc/uvc_ctrl.c b/drivers/media/usb/uvc/uvc_ctrl.c
+> index d2f722bc3459..f70fa37800a4 100644
+> --- a/drivers/media/usb/uvc/uvc_ctrl.c
+> +++ b/drivers/media/usb/uvc/uvc_ctrl.c
+> @@ -3199,6 +3199,34 @@ int uvc_xu_ctrl_query(struct uvc_video_chain *chain,
+>   * Suspend/resume
+>   */
+>
+> +/*
+> + * Report a failure to restore the controls of an entity. @err_ctrl points to
+> + * the control that failed, or is NULL if the failing control is not known.
+> + */
+> +static void uvc_ctrl_restore_error(struct uvc_device *dev,
+> +                                  const struct uvc_entity *entity,
+> +                                  struct uvc_control *err_ctrl, int ret)
+> +{
+> +       const struct uvc_control_mapping *mapping;
+> +       const char *name = "Unknown Control";
+> +
+> +       if (!err_ctrl) {
+> +               dev_warn_ratelimited(&dev->intf->dev,
+> +                                    "Failed to restore controls on unit %u: %d\n",
+> +                                    entity->id, ret);
+> +               return;
+> +       }
+Unless I made a mistake there i no case where err_ctrl can be NULL.
 
-Set no_new_privs in both tests, as the other notification tests do.
-Both tests exercise the notification path rather than the capability
-check.  user_notification_child_pid_ns is the only test that covers
-pid translation for a notification from a child pid namespace of the
-listener's, and user_notification_fault_recv is the only test that
-passes a NULL buffer to SECCOMP_IOCTL_NOTIF_RECV.
+> +
+> +       mapping = list_first_entry_or_null(&err_ctrl->info.mappings,
+> +                                          struct uvc_control_mapping, list);
+> +       if (mapping)
+> +               name = uvc_map_get_name(mapping);
 
-This gives up unprivileged coverage of the success path of the
-CAP_SYS_ADMIN check in a non-initial user namespace, which these two
-tests provided only incidentally.  mode_filter_without_nnp still covers
-the check itself in the initial user namespace.
+can you move this into a function uvc_ctrl_get_first_mapping_name(err_ctrl)
 
-Verified on an arm64 guest running a 7.0 distribution kernel with
-Ubuntu's apparmor_restrict_unprivileged_userns=1: seccomp_bpf goes from
-pass:110 fail:17 skip:15 to pass:112 fail:15 skip:15 out of the same 142
-tests.  The remaining failures occur with and without this patch: the
-notification_restart variants that ask for
-SECCOMP_FILTER_FLAG_RESTART_BEFORE_RECV, and
-user_notification_addfd_opath, which need kernel features this 7.0
-kernel does not have.  Not tested as root in the initial user
-namespace, where the capability is present regardless of no_new_privs.
+with that move this function would be so small that it is probably a
+good idea to squash it into uvc_ctrl_restore_values
 
-The code and changelog were written with Hermes Agent, an LLM
-assistant; the author reviewed and tested the change.
+> +
+> +       dev_warn_ratelimited(&dev->intf->dev,
+> +                            "Failed to restore control %s (selector %u on unit %u): %d\n",
+> +                            name, err_ctrl->info.selector, entity->id, ret);
+> +}
+> +
+>  /*
+>   * Restore control values after resume, skipping controls that haven't been
+>   * changed.
+> @@ -3210,6 +3238,7 @@ int uvc_xu_ctrl_query(struct uvc_video_chain *chain,
+>   */
+>  int uvc_ctrl_restore_values(struct uvc_device *dev)
+>  {
+> +       struct uvc_control *err_ctrl;
+please do err_ctrl = NULL here  and not in the loop. We probably do
+not need it here either, but will make the static analyzer happy.
 
-Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
----
- tools/testing/selftests/seccomp/seccomp_bpf.c | 25 +++++++++++++++++++
- 1 file changed, 25 insertions(+)
+>         struct uvc_control *ctrl;
+>         struct uvc_entity *entity;
+>         unsigned int i;
+> @@ -3230,9 +3259,12 @@ int uvc_ctrl_restore_values(struct uvc_device *dev)
+>                         ctrl->dirty = 1;
+>                 }
+>
+> -               ret = uvc_ctrl_commit_entity(dev, NULL, entity, 0, NULL);
+> -               if (ret < 0)
+> +               err_ctrl = NULL;
+> +               ret = uvc_ctrl_commit_entity(dev, NULL, entity, 0, &err_ctrl);
+> +               if (ret < 0) {
+> +                       uvc_ctrl_restore_error(dev, entity, err_ctrl, ret);
+>                         return ret;
+> +               }
+>         }
+>
+>         return 0;
+> diff --git a/drivers/media/usb/uvc/uvc_video.c b/drivers/media/usb/uvc/uvc_video.c
+> index a92a986ab714..b10064defaf4 100644
+> --- a/drivers/media/usb/uvc/uvc_video.c
+> +++ b/drivers/media/usb/uvc/uvc_video.c
+> @@ -68,6 +68,32 @@ static const char *uvc_query_name(u8 query)
+>         }
+>  }
+>
 
-diff --git a/tools/testing/selftests/seccomp/seccomp_bpf.c b/tools/testing/selftests/seccomp/seccomp_bpf.c
-index 66bb53bad93b..584fdd1a4787 100644
---- a/tools/testing/selftests/seccomp/seccomp_bpf.c
-+++ b/tools/testing/selftests/seccomp/seccomp_bpf.c
-@@ -3711,6 +3711,7 @@ TEST(user_notification_child_pid_ns)
- {
- 	pid_t pid;
- 	int status, listener;
-+	long ret;
- 	struct seccomp_notif req = {};
- 	struct seccomp_notif_resp resp = {};
- 
-@@ -3719,6 +3720,18 @@ TEST(user_notification_child_pid_ns)
- 			SKIP(return, "kernel missing CLONE_NEWUSER support");
- 	};
- 
-+	/*
-+	 * Installing a filter requires CAP_SYS_ADMIN in the caller's user
-+	 * namespace unless no_new_privs is set.  This task has that
-+	 * capability in the user namespace created above, but an LSM
-+	 * policy can still deny the check, so ask for no_new_privs first,
-+	 * as the other notification tests do.
-+	 */
-+	ret = prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0);
-+	ASSERT_EQ(0, ret) {
-+		TH_LOG("Kernel does not support PR_SET_NO_NEW_PRIVS!");
-+	}
-+
- 	listener = user_notif_syscall(__NR_getppid,
- 				      SECCOMP_FILTER_FLAG_NEW_LISTENER);
- 	ASSERT_GE(listener, 0);
-@@ -3829,6 +3842,7 @@ TEST(user_notification_fault_recv)
- {
- 	pid_t pid;
- 	int status, listener;
-+	long ret;
- 	struct seccomp_notif req = {};
- 	struct seccomp_notif_resp resp = {};
- 
-@@ -3837,6 +3851,17 @@ TEST(user_notification_fault_recv)
- 			SKIP(return, "kernel missing CLONE_NEWUSER support");
- 	}
- 
-+	/*
-+	 * As in user_notification_child_pid_ns, ask for no_new_privs
-+	 * before installing the filter: the capability check can be
-+	 * denied by an LSM policy even though the task holds
-+	 * CAP_SYS_ADMIN in the user namespace created above.
-+	 */
-+	ret = prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0);
-+	ASSERT_EQ(0, ret) {
-+		TH_LOG("Kernel does not support PR_SET_NO_NEW_PRIVS!");
-+	}
-+
- 	listener = user_notif_syscall(__NR_getppid,
- 				      SECCOMP_FILTER_FLAG_NEW_LISTENER);
- 	ASSERT_GE(listener, 0);
+Maybe you could make a function
 
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+static const char *uvc_ctrl_error_name_code(u8 error, int *code)
+
+and reuse it in uvc_query_ctrl() it is much more nicer to get the
+error name than the code
+
+(sorry to treat you like Santa :P)
+
+> +static const char *uvc_error_code_name(u8 error)
+> +{
+> +       switch (error) {
+> +       case 0:
+> +               return "No error";
+> +       case 1:
+> +               return "Not ready";
+> +       case 2:
+> +               return "Wrong state";
+> +       case 3:
+> +               return "Power";
+> +       case 4:
+> +               return "Out of range";
+> +       case 5:
+> +               return "Invalid unit";
+> +       case 6:
+> +               return "Invalid control";
+> +       case 7:
+> +               return "Invalid request";
+> +       case 8:
+> +               return "Invalid value within range";
+> +       default:
+> +               return "Unknown";
+> +       }
+> +}
+> +
+>  int uvc_query_ctrl(struct uvc_device *dev, u8 query, u8 unit,
+>                         u8 intfnum, u8 cs, void *data, u16 size)
+>  {
+> @@ -125,7 +151,10 @@ int uvc_query_ctrl(struct uvc_device *dev, u8 query, u8 unit,
+>                 return ret < 0 ? ret : -EPIPE;
+>         }
+>
+> -       uvc_dbg(dev, CONTROL, "Control error %u\n", error);
+> +       uvc_dbg(dev, CONTROL,
+> +               "Control error %u (%s) for %s control %u on unit %u\n",
+> +               error, uvc_error_code_name(error), uvc_query_name(query), cs,
+> +               unit);
+>
+>         switch (error) {
+>         case 0:
+> --
+> 2.53.0
+>
+>
+
+
 -- 
-2.53.0
-
+Ricardo Ribalda
