@@ -1,61 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=204.191.154.188
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795543303;
-	b=KcFv/E3k985HApvvdg21clntPzGLMzwzZT4/Mw46ZXDyEms+Mf1K1tUAUhBNP7ixX6kn
-	 ZNP9D3mwsV1KS6hymcoMq6/FgBtLHCKagkBjh9Ie50FHfepQOgYKMq9auupJgnxGiiahr
-	 E0NyvbdbftPFdWpgGSUVdsuM6bdc1kQYziEjROFf0e5yk23qRIT7MQddTchx/B9Y0PYIm
-	 rfGuzLULJplwctxgRQSUzPVvv8h4lUesKlSaHNOkDmEGHqqywReB0PHnhydFgeEDiFVJV
-	 Y+tf6QDx3TLlaNy2/3aRlSLBZ7ySxz2gC4w+tCIdXDceLA/3NwG5oXCmqO2ERgQ3RJA==
+	t=1795543347;
+	b=kLFFgPNiAYrl1Gzg3d8ng2pJyczBclI/5n2c4UDOUbGCaWEBT3nR3KX6tL75HMcPgmwI
+	 JrzKlTSXFvsfh3VS2bjUHTF0d6wHwXuBERPHABSc5r6bSKIXGHywuf0MdGqdT7jG2jqnx
+	 /VLYAlilqkFYQIQRjEli0CcyYIQ2sXg0vUE1AoGTQpT6xNjO64oglHOmCQnwyPqV2ylu0
+	 vHUwAY46YDnpQ3zKHF5Daej30TUwLPX641GrjkUY7IJ8ySdr/Iu54MDhLWuKj9lbCwMFf
+	 W3znjeBVP/tUGpWpzb/TdijKoCdNXDv3TreVwYkk9uZGWSzsOEtGekxQPiIQjvBMASQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795543303;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=V04vAdVpogXa23Aj5LpdDeMbHYFx7Zl+YAyoPUYjQH0=;
-	b=1k4GuH/5V7+ckvF40bMWXadANxy94gUzqO0fj/XsSB/uGrYlLvrYYn7B5nTWKVR/KRyO
-	 +I8esnkeFG1x40JavmGkInP5yK8lx3KLzKiniZucBWDUU2RiVjiBimryMK2YOby1qj/OP
-	 34IWnPwzLaGYB0BdC7HizHRVEEFC5Z7cGvwA5YVEK6Sx4crVWC2A3foaFKj3C5JK3sfob
-	 aJEiVCKIufS8N0yqW0A3yQcEn86hTII1EGXghiJTlR3r7HjRbCQ7v4f4KWijqaGWSasZR
-	 V0Rs2SzvEVjYrLa+hpw8c/viRgjJKIpsH2AukCjbGR6ed04ivuWpIEi+ojzYZjc6o8A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795543347;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
+	 X-Spam-Checker-Version:X-Spam-Level:X-Spam-Status:Subject:
+	 X-SA-Exim-Version:X-SA-Exim-Scanned;
+	bh=snUxLrRTCWFDABwTDHIqq3rcay0pbzbSqD9MkrnptO4=;
+	b=gQwm4sFa0VufEAp54JNPzAxOAZtKttdRMCFQGcABnyZLpterW+o9ldT9LPk/Q3jmxe49
+	 X7zrgaIYwSHPqljRbKJrU9SeAghHenWfHMFU2CNJgNWxNFOQ539ZYGhzBh85Sw+bmqCEz
+	 nF8BL5ammRnaJXb61O+gg33HRy+Kfl/kmi1/+WIj99dHZzl4Qj4AM3219n2HasrlPx3Hp
+	 wXGSjGou+grBbX+qx/l5juTl5MS21ZlHazK4tIWGVFeMT5poWWgbRMV26WuLyMp5aF0sK
+	 Zb+P1SRv9stsUpL4eRzpXTbjnWEgZeoYV5LJylE662dpJl8MrjGQj9G6qV6XgRLwpqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QHUfRB2l;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=deltatee.com;
+	spf=pass smtp.mailfrom=deltatee.com;
+	dkim=pass header.d=deltatee.com header.i=@deltatee.com header.a=rsa-sha256 header.s=20200525 header.b=KqkUmcG0;
+	arc=none smtp.remote-ip=204.191.154.188
+Received: from ale.deltatee.com (ale.deltatee.com [204.191.154.188])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67E41606A330;
-	Tue, 24 Nov 2026 18:01:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B879606A31E;
+	Tue, 24 Nov 2026 18:02:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B879606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=deltatee.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=deltatee.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QHUfRB2l
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 330381F000E6;
-	Tue, 24 Nov 2026 18:01:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795543303;
-	bh=V04vAdVpogXa23Aj5LpdDeMbHYFx7Zl+YAyoPUYjQH0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=QHUfRB2ljJKV9OqLOWISXXxka6hmlIAsHZqSFhMFlHdwtuI9KnDCDRiDSMhjHYVru
-	 SKMRL63Epkpab1uu74IVZoPzgojpqBXYbhXlbLXuY/gUAgIQTrf4fb3ecNqJEUDMGh
-	 n43HJba6o//WPx49XmOXFCTOKXBGAArUCqrZMVzog/G3LEvRK3nonGG5EO3a8TzbXS
-	 AdUUhfpdYx91Ll/ole8OTENsb6hT1o30DeM+fdiCtZONnTY8juOonpMIvFS8XrBS23
-	 O7JL8IoC1znyW8o9vtzoS9D9Q+q5hRvKFh7AxW/rOtbxw93iw/nNBVshZL4xKI94HH
-	 MrjaRbghnekyg==
-Subject:
- Re: [PATCH net] dpll: zl3073x: do not block DPLL callbacks while PTP ops wait
-From: netdev-bot+sashiko@kernel.org
-To: ivecera@redhat.com
-Cc: netdev@vger.kernel.org, min.li@microchip.com, vadim.fedorenko@linux.dev,
- arkadiusz.kubalewski@intel.com, jiri@resnulli.us, richardcochran@gmail.com,
- poros@redhat.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-kernel@vger.kernel.org
-Date: Tue, 24 Nov 2026 18:01:41 +0000
-Message-ID: <179554330175.3135.16771863750850493127@kernel.org>
-In-Reply-To: <20261120171800.327855-1-ivecera@redhat.com>
-References: <20261120171800.327855-1-ivecera@redhat.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=deltatee.com header.i=@deltatee.com header.a=rsa-sha256 header.s=20200525 header.b=KqkUmcG0
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=deltatee.com; s=20200525; h=Subject:MIME-Version:Message-ID:Date:Cc:To:From
+	:references:content-disposition:in-reply-to;
+	bh=snUxLrRTCWFDABwTDHIqq3rcay0pbzbSqD9MkrnptO4=; b=KqkUmcG0y0b0zhUoB5cBOvNefT
+	9pyJ0QSIr1J9h+lJ3pRNK0EymKf2MUyEOjYanCH/4JhByW0PLv54Qx+aP89xYQoaHAhhAfMQEzOjJ
+	AdrkdjgUNc9+/oSbrw0cS3JEWGyIn2/bUwyCT2U49zDNjJ8lE6nEkGRz9DfgJ5aD9chYqa4qsXaqa
+	XbyyvagjehzMlj71jgKwtOUCX5g+6nIf2QAWlg2uJWmznbLi1cpc5oIksv+J6Wc2bGbcNdaSd+gpw
+	2/v2Jh3zQ7sPcb4hzuf45u3nU0en6Qkzs+O8ysDupgp9v92KujC0NN2q01Q4mLC1o5EekPoOFIPuG
+	+x0aL5eQ==;
+Received: from donard.priv.deltatee.com ([172.16.1.31])
+	by ale.deltatee.com with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <logang@deltatee.com>)
+	id 1xVuqW-00000000oKW-3IVM;
+	Tue, 24 Nov 2026 12:02:25 -0600
+Received: from logang by donard.priv.deltatee.com with local (Exim 4.98.2)
+	(envelope-from <logang@deltatee.com>)
+	id 1xVupj-00000003ruw-3WgK;
+	Tue, 24 Nov 2026 12:01:35 -0600
+From: Logan Gunthorpe <logang@deltatee.com>
+To: dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Vinod Koul <vkoul@kernel.org>
+Cc: Frank Li <Frank.li@nxp.com>,
+	Logan Gunthorpe <logang@deltatee.com>
+Date: Tue, 24 Nov 2026 12:01:26 -0600
+Message-ID: <20261124180132.922222-1-logang@deltatee.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,206 +72,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 172.16.1.31
+X-SA-Exim-Rcpt-To: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, vkoul@kernel.org, Frank.li@nxp.com, logang@deltatee.com
+X-SA-Exim-Mail-From: logang@deltatee.com
+X-Spam-Level: 
+Subject: [PATCH v4 0/6] plx_dma fixes
+X-SA-Exim-Version: 4.2.1 (built Sun, 23 Feb 2025 07:57:16 +0000)
+X-SA-Exim-Scanned: Yes (on ale.deltatee.com)
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+This is a rebased version of my plx_dma fixes series with the review
+tags from Frank.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+Also, this series is not a high priority to me, I'm just trying to
+fix Sashiko warnings. If there's spare review bandwidth I'd prefer
+the time spent on my other series[1].
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+This series is based off of v7.4-rc4.
 
-- [Medium] Concurrent mode change can leave a phase step half-applied
-  across synth groups.
-- [Low] zl3073x_dpll_ptp_adjphase() in drivers/dpll/zl3073x/dpll.c no
-  longer checks the TIE-capable mode before touching hardware.
-- [Low] The kernel-doc for struct zl3073x_dpll in
-  drivers/dpll/zl3073x/dpll.h says PTP clock operations take @ptp_lock…
+Thanks,
+
+Logan
+
+[v3] https://lore.kernel.org/all/20261117165135.746241-1-logang@deltatee.com/
+[1]  https://lore.kernel.org/all/20261124155024.920403-1-logang@deltatee.com/
 
 --
 
-dpll: zl3073x: do not block DPLL callbacks while PTP ops wait
+Changes since v3:
+  * Added Frank's Reviewed-by tags (covers all patches)
+  * Rebased on v7.4-rc4
 
-This patch adds a per-channel ptp_lock to serialize the zl3073x PTP clock
-operations. The channel lock is now taken only to read the channel mode and
-the output pins, and to issue a TIE write or a phase step. The waits for a
-previous TIE write or phase step now run outside the channel lock, and the
-mode is checked again under that lock before the hardware operation is
-issued.
+Changes since v2:
+  * Add Fixes tags to the patches that lacked one (per Sashiko)
+  * Reuse plx_dma_free_desc() in the plx_dma_alloc_desc() error path
+    instead of open coding the same cleanup (per Sashiko)
+  * Rebased on v7.4-rc3
 
-> diff --git a/drivers/dpll/zl3073x/dpll.c b/drivers/dpll/zl3073x/dpll.c
-> index 1cdadb8e46fb2..0b605945ee618 100644
-> --- a/drivers/dpll/zl3073x/dpll.c
-> +++ b/drivers/dpll/zl3073x/dpll.c
+Changes since v1:
+  * Serialize descriptor completion with a new complete_lock so
+    callbacks stay in order and can't still be running after
+    plx_dma_free_chan_resources() returns (per Sashiko)
+  * Expand the commit message and comment for the dma_rmb() patch to
+    explain why the barrier is needed (per Frank)
+  * Collect Frank's Reviewed-by tags
+  * Rebased onto v7.4-rc2 (no conflicts)
 
-[ ... ]
+Logan Gunthorpe (6):
+  dmaengine: plx_dma: don't call pci_irq_vector() under rcu_read_lock()
+  dmaengine: plx_dma: fix descriptor ring leak in alloc_chan_resources()
+  dmaengine: plx_dma: use writel() for the 32-bit PLX_REG_CTRL register
+  dmaengine: plx_dma: add dma_rmb() after observing write-back status
+  dmaengine: plx_dma: use spin_lock_bh() in plx_dma_process_desc()
+  dmaengine: plx_dma: don't invoke client callbacks with ring_lock held
 
-> +static int zl3073x_dpll_ptp_phase_step(struct zl3073x_dpll *zldpll,
-> +				       u16 out_mask, s32 step_cycles,
-> +				       bool tod_step)
-> +{
-> +	struct zl3073x_dev *zldev = zldpll->dev;
-> +	const struct zl3073x_chan *chan;
-> +	int rc;
-> +
-> +	rc = zl3073x_chan_phase_step_ready_wait(zldev);
-> +	if (rc)
-> +		return rc;
-> +
-> +	mutex_lock(&zldpll->lock);
-> +	chan = zl3073x_chan_state_get(zldev, zldpll->id);
-> +	if (zl3073x_chan_mode_is_nco(chan))
-> +		rc = zl3073x_chan_phase_step(zldev, zldpll->id, out_mask,
-> +					     step_cycles, tod_step);
-> +	else
-> +		rc = -EOPNOTSUPP;
-> +	mutex_unlock(&zldpll->lock);
-> +
-> +	return rc;
-> +}
+ drivers/dma/plx_dma.c | 98 +++++++++++++++++++++++++++++++------------
+ 1 file changed, 71 insertions(+), 27 deletions(-)
 
-[ ... ]
 
-> @@ -2560,33 +2607,74 @@ static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
->  		/* Safe for s32: max synth freq is 750 MHz */
->  		step_cycles = div_s64(delta * synth_freq, NSEC_PER_SEC);
->  
-> -		rc = zl3073x_chan_phase_step(zldev, zldpll->id,
-> -					     synth_mask[i], step_cycles,
-> -					     !tod_stepped);
-> +		rc = zl3073x_dpll_ptp_phase_step(zldpll, synth_mask[i],
-> +						 step_cycles, !tod_stepped);
->  		if (rc) {
->  			if (tod_stepped) {
->  				dev_warn(zldev->dev,
->  					 "Partial phase step failure\n");
-> -				return 0;
-> +				rc = 0;
->  			}
-> -			return rc;
-> +			goto unlock;
->  		}
->  		tod_stepped = true;
->  	}
-
-[Severity: Medium]
-Can a concurrent mode change leave the phase step applied to only some of
-the synth groups?
-
-Take a channel in NCO mode with stepped outputs on two or more enabled
-synths. The first group is issued with tod_step set, so the ToD and that
-group's outputs are stepped by delta.
-
-For the second group, zl3073x_dpll_ptp_phase_step() calls
-zl3073x_chan_phase_step_ready_wait() without zldpll->lock held. That call
-can wait up to ZL_POLL_PHASE_STEP_TIMEOUT_US (3 s) for the first step to
-finish.
-
-During that window a DPLL callback can take zldpll->lock and move the
-channel out of NCO mode. Examples are zl3073x_dpll_mode_set(),
-zl3073x_dpll_input_pin_state_on_dpll_set() (NCO to REFLOCK) and the NCO pin
-state set (NCO to FREERUN).
-
-The second group's NCO check then returns -EOPNOTSUPP. Because tod_stepped
-is already true, this path logs "Partial phase step failure" and sets
-rc = 0. zl3073x_dpll_ptp_adjtime() then returns success and skips the ToD
-adjust fallback.
-
-Wouldn't the outputs on the first synth then be offset by delta from the
-outputs on the other synths fed by the same DPLL? The PTP servo would also
-be told that the full adjustment was applied.
-
-Before this patch, zldpll->lock was held for the whole adjtime, so the mode
-could not change partway through. This partial path could only be reached
-on a register I/O error.
-
-[ ... ]
-
-> @@ -2747,20 +2845,13 @@ static int zl3073x_dpll_ptp_adjphase(struct ptp_clock_info *info, s32 delta)
->  {
->  	struct zl3073x_dpll *zldpll = container_of(info, struct zl3073x_dpll,
->  						   ptp_info);
-> -	struct zl3073x_dev *zldev = zldpll->dev;
-> -	const struct zl3073x_chan *chan;
->  
->  	if (!delta)
->  		return 0;
->  
-> -	guard(mutex)(&zldpll->lock);
-> -
-> -	chan = zl3073x_chan_state_get(zldev, zldpll->id);
-> -
-> -	if (!zl3073x_chan_mode_supports_tie(chan))
-> -		return -EOPNOTSUPP;
-> +	guard(mutex)(&zldpll->ptp_lock);
->  
-> -	return zl3073x_chan_tie_write(zldev, zldpll->id, delta);
-> +	return zl3073x_dpll_ptp_tie_write(zldpll, delta);
->  }
-
-[Severity: Low]
-Is it intended that adjphase now accesses the hardware before it reports
--EOPNOTSUPP for a mode that does not support TIE?
-
-The old code checked zl3073x_chan_mode_supports_tie() first and returned
-right away. zl3073x_dpll_ptp_tie_write() now takes the device-wide tie_lock
-and polls ZL_REG_DPLL_TIE_CTRL before it checks the mode:
-
-zl3073x_dpll_ptp_tie_write() {
-	mutex_lock(&zldev->tie_lock);
-	rc = zl3073x_chan_tie_ready_wait(zldev);
-	if (rc)
-		goto unlock_tie;
-	...
-}
-
-tie_lock and TIE_CTRL are shared by all channels. So adjphase on a channel
-in NCO, freerun or holdover mode can block behind another channel's pending
-TIE write, for up to about one second per wait.
-
-If the poll times out or the regmap read fails, the caller gets -ETIMEDOUT
-or a bus error. The adjphase kernel-doc still says:
-
- * * %-EOPNOTSUPP	- mode does not support TIE and @delta is non-zero
-
-zl3073x_dpll_ptp_adjtime() avoids this with its is_tie pre-check. Could
-adjphase keep a similar mode check before it calls
-zl3073x_dpll_ptp_tie_write()?
-
-[ ... ]
-
-> diff --git a/drivers/dpll/zl3073x/dpll.h b/drivers/dpll/zl3073x/dpll.h
-> index 993221dc63249..eda37239ef1e3 100644
-> --- a/drivers/dpll/zl3073x/dpll.h
-> +++ b/drivers/dpll/zl3073x/dpll.h
-> @@ -19,10 +19,12 @@
->   * @ops: DPLL device operations for this instance
->   * @dpll_dev: pointer to registered DPLL device
->   * @tracker: tracking object for the acquired reference
-> - * @lock: per-DPLL mutex serializing all operations
-> + * @lock: per-DPLL mutex serializing DPLL operations and channel state access
->   * @type: DPLL type (PPS or EEC)
->   * @lock_status: last saved DPLL lock status
->   * @pins: list of pins
-> + * @ptp_lock: serializes PTP clock operations, taken before @lock, which they
-> + *	      hold only while they use the channel state
-
-[Severity: Low]
-This isn't a bug, but the comment looks incomplete. The PTP ops also hold
-@lock for more than the channel state.
-zl3073x_dpll_ptp_adjtime_phase_step() holds it while it walks zldpll->pins
-and reads the output state through zl3073x_dev_out_is_stepped() and
-zl3073x_dev_out_synth_get():
-
-	mutex_lock(&zldpll->lock);
-	list_for_each_entry(pin, &zldpll->pins, list) {
-
-The commit message says the PTP ops need the channel lock "only for the
-channel mode and the list of output pins". Should the @ptp_lock comment
-mention the pins list too?
-
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120171800.327855-1-ivecera%40redhat.com
+2.47.3
+
