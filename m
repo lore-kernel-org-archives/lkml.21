@@ -1,95 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795504501;
-	b=4rtO984cNEPzAg5IgMj7F8Q8LqCZtySYy7lzC18Wl7aVQS2ut+gY2glAKx7Ccd3CmDBT
-	 P7hIcFoMaYtcHSUW9sxRB9DyVd6yey2mwDQcx3xfD4A2Y9fOwKHjEooHI/c5HmIKqe+Cf
-	 gqy14dou2Jv6ZAobTUfP83BvC1QjLFhQkxxcgSmvHUfPHuzf/vXm5oGP1r6AR5DAeviFK
-	 tIDy1iAgH2ITK84uri2QyHMOoPPK8KdaqkoA1PqhqYzj/AiAvEg1t816tJhy8hVPdCjrU
-	 JJ46PozK3bFu870qa9kwVLMSo/p/tGFa+zgpuZbcHeOttQti0EavXqPxpcmUxhprtXw==
+	t=1795504633;
+	b=BS8L9Ku+6XjynfQI/w32u4P+uynAi5GF4LDp7ESzCEKYcX/mWJWvGr52PXsf8RGuzJkJ
+	 mm0+27iaIBSx/jcrNm45Po9wTHqzegcjYWcLFGUZChbg6z6aQk2yRRN2tFh3nHUe0w6QS
+	 DAlAGdmVYUp1JAhF1SdzWHea1v/daiwN1kx40aMfm0J9iR7xPVAmPSjwGktLr+EXAiPEk
+	 YLJDB5o/E9In27No2PWs4DSlrnpTBFQtCV7j8vdsJ+RzouTQvLO3+3GMuQ5cMS14xjrSv
+	 M0Bb6krveY1gx9k0HO4V6SkxoG30S9wi6KLS+aaw43a+gnI58/RZdpGD8vAOhnuHqwg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795504501;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=XBwqhR3m8bOQBJNfF/ebktnsPnOGA6K0nJo6XELezxM=;
-	b=4WssUrHkk3KGD7HDKkZTR7DRX30xzj+pawqOtmsaard69CrW2igDAROVAflvTFnivGdg
-	 ZOMz66EZ/PVtLweWfR0CEpvDnpHQktEynusd7Ab7oaAjVb/rZqiGBV8dm2LPby0P16DV0
-	 Qqg9X1KXieNxXRPVnR0pWN5GmRP1AeEmyLjxFxDMA/YE+Vjd3rH3Z+NIB5sLgbtKPAMO8
-	 sg382ir9rvfd0WSpi4ExHrC2a5RPB4iPdt29JoZCtc7GvZJYdjMOnbxnYvxKuQamtl/S7
-	 27GZm3C7zBK5tmd17bfQGvVUQk3qfQw5BWsxtVX1z4RQew2KOJ+0kEGY7eMWTCr04kw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795504633;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=RQcDNanpw//dbaaaimKQPYZVp7hL9J0JtvEqkrn+7kE=;
+	b=BOoOZkUcB4o7oH13kqIcdf3JkqZ8WC9tY77Cjyro76y8dvH4MDhClG28olZ96iFYQE7G
+	 1FprZyhCbqhYkD8K7PKv3e+JosrnqBC27Q7+AFGtSD7lalcfrPB3oVpArGOEQSR0dPlx1
+	 zUPNIbGW5vo+VM7ehSz6ZhAwEQnnuP//wuJdV5J2imneoaaLBxvW0zCY1HAql6kZSZArJ
+	 UkXST7Z0Sr42FRBCK9MfkYlvAGED3+RTbChpFiNRqfMeATvxSogUAsSxJHArDsN+QkDgh
+	 1Fz+UbnsWLE/XqEBbuaw0F9Ifx91oLPBwq0JRF1lev828YWAbg25IbUaN5QvzEDcb/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rWSU83+X;
-	arc=none smtp.remote-ip=209.85.210.172
-Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=BwaWYyVN;
+	arc=none smtp.remote-ip=198.175.65.9
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5BEE606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:15:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5BEE606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE250606A31E;
+	Tue, 24 Nov 2026 07:17:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE250606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rWSU83+X
-Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8b32bc605d9so1942779b3a.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:15:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795504500; x=1796109300; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=XBwqhR3m8bOQBJNfF/ebktnsPnOGA6K0nJo6XELezxM=;
-        b=rWSU83+XdpmiYHL38jImZxk8bZbvq4qxdfof1BKQAKv/drMh9RfLj+hG7//4KHbTsI
-         2k9L/f19anOKfkVoYAUTKKpYCi5Rclm4WPIG6QzY3gQ+p33qtF/LPX4SrFW4ZGDATuoT
-         IAuopI/okore7UPXFsmGws9fEvaucv+vylrDJPELK0JY41EdYYYTuw+XvuErdvHl/WDV
-         MP9DzUxIarlv/MNLOppnefOTZLT+n07SBAOihH0JYWUfHjT7H32JNsvuEOA1ceIvA1wX
-         5LiULY414lUvh3otAUp8NlhxuKkxxx2RmaDBdEW+PMgvG8EqweR1QcUO8l8STXwMGljq
-         szOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795504500; x=1796109300;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XBwqhR3m8bOQBJNfF/ebktnsPnOGA6K0nJo6XELezxM=;
-        b=K9PiUHxwV433YqPo8y2Tt/tGbyYyHAGxm5j7z7UUHvfQe9+QnhX9VyOxv/yGdSAx5x
-         rQ9HEL6NFvMLmPhlpzziONrZKcnzvRwWRyxeJiVNBNq8OtaSc7+AGCmmEDp9u60yjMad
-         ItHUUFVW3G43JW7EIsnQm04Em3bzcPu9Rlz8N0r2ekms/3MFiS1tS6vBDxCM6m1edt3H
-         PPKaknDgC2hpCD5q9+AUmhk7CLdKqAbLnURscQvkVIsydZd/Ptv7vlBkCdjW4S6xFm16
-         g7gEEWqvlucOfr9yLCccSR6qa7Um+DsMSeQjYBboJjncq5H5ci7aQc+75t67HnIKkfMI
-         L5AA==
-X-Forwarded-Encrypted: i=1; AL+hErEOdErNHfadyIVDnaxQ95TH/aEyEZnqXj81yJZ4FuLCcMumajLr1cx+Gkux9qEKr3RKKkeG3tTY8/5Q0/4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/JSjb8dMe7bE9Vr9+2HLwGVhIWaYTorDYPpKabPBRxDf8+4oFT
-	GXGp/c9l52l2s1KbRnN2PcTF6/0t2htOVSF1sJe25xUY2GAmtzh6Sd8YCurzFH1l
-X-Gm-Gg: AZFdTZfeHOoZ15C0M73JB+L496Inffwqd9iExJpt3tKIGbkm2bF3c30KKkzj9BVk8Qr
-	AcumOEk8fNBbHtVR2T7Eyprd39AVD+s3W5HUAlbdEku05lIU+kkWAefR9x5u4stumrAM+3R8OAH
-	RBEYmfaZ0lt6mTpAl3XmVWBcpF73umX2k8DKVV36omuFuRm31y9EVDcXD8uGu15sEdGdlvnaPta
-	5bTf+Qko/I0eq55sqlM4utU2j+7pLK+wrkOQddVd090rEoHQVrjp53Mc2/djSmCm9cs94LEH++8
-	NbdOqC48tB7NHK6+dJYgjweqS2FZeEOWGK6OiLieY46izDtmhLM+JzEN9AANaGvwCGl2o7SlT64
-	5rB2JgIaQRZxu/couP+hzZBsBSmfCH1Zy3X2K98bzBEIyf29xawefos3ZB6P/4zVCboLXqhVavp
-	urdRXnnG1sEQxJavLfJLDQdFe0l81tjM7B9CfzMZhJURxIgDqnb1gZwF/yYrNY2XUHnjegDFnsw
-	gvzwKtEu7fx9XqKo4NEkepGjYZo9fpWHNpbTpcm3Kar5qzw10W/yEhONpQd66BYHGwc4gaT8nf7
-	O61ldp4xw4LevVel+WeuC7EWqM7uttiOYbxtBleTc+i5rydeNmHUZIkAa2M+s6IR/M0Ryg==
-X-Received: by 2002:a05:6a21:798c:b0:3e2:117a:62ff with SMTP id adf61e73a8af0-4014c2573d3mr11960703637.61.1795504499863;
-        Mon, 23 Nov 2026 23:14:59 -0800 (PST)
-Received: from embedsky001.tail6d6b2f.ts.net ([183.13.19.200])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfcadffsm6475836a12.9.2026.11.23.23.14.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 23:14:59 -0800 (PST)
-From: Yonghao Zhang <hyz3367@gmail.com>
-To: mathieu.poirier@linaro.org,
-	andersson@kernel.org
-Cc: linux-remoteproc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Yonghao Zhang <hyz3367@gmail.com>
-Subject: [PATCH v2 4/4] remoteproc: core: Clean up after a failed recovery
-Date: Tue, 24 Nov 2026 15:14:09 +0800
-Message-Id: <20261124071409.972-5-hyz3367@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261124071409.972-1-hyz3367@gmail.com>
-References: <20261124071409.972-1-hyz3367@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=BwaWYyVN
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795504633; x=1827040633;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=dugEFlR4OXZrsWQLYSz0uPzA+ZdKgtgmNmQXvziDeew=;
+  b=BwaWYyVNbzgwvkgIbvGE5I+QjCmO4sK6FZu8apeNCrSXP3fSuppyCvML
+   UbhXQE8I2mV0la4KPEcvRAjPm4MXhsw7gibozJdwc8/NJ0+bcNzZlyvBI
+   bwVA+t3qpZd7tNHwTiBEdJrvP+rDPP5eGPUSJTVS9E0yjry5EFwsXQ9dr
+   vRjH9bFzkVijnIJmbCfoPFIHWiotoQHoGDYbgrJTY9oIkgaF9Nfs8AUWR
+   BMNcIwK8GzOfDsCyEBl0embReSxGNilxev9azG+QZ29rc8H7NGHDhv+FQ
+   yPw8c5au9u2Xyqn/M3DWkXFEa6Jq77XJusO3ZNcgLQcmUCg6siUEtfluI
+   A==;
+X-CSE-ConnectionGUID: 9Q2mKrrjQJyvoLDuoe9oVA==
+X-CSE-MsgGUID: ejq79uhrQlK8pCLiCUukkA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4183791"
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="4183791"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 23:10:40 -0800
+X-CSE-ConnectionGUID: QQVnudcPQpGWfCNIBVElPQ==
+X-CSE-MsgGUID: GmZfKkh+SM6bye3Wjh6v/Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="13284049"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 23:10:37 -0800
+Date: Tue, 24 Nov 2026 09:10:34 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Arnd Bergmann <arnd@kernel.org>, Rich Felker <dalias@libc.org>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	linux-sh@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/5] sh: mach-rsk: rsk7203: switch to using static
+ device property, drop legacy gpio API
+Message-ID: <awU4aqWbKEs4Qhyg@ashevche-desk.local>
+References: <20260929-rsk7203-properties-v3-0-02f84aeb8e47@gmail.com>
+ <3a51385d-9649-4bd7-87b3-0caf9e462b2e@app.fastmail.com>
+ <arzKNhmoL6yiGrzH@ashevche-desk.local>
+ <dea00f90c205f8359baca729d8b0f31a@gmail.com>
+ <ce838102be497ee6eab490b4454095b96e16d015.camel@physik.fu-berlin.de>
+ <2e4f0d32c05d841feb367741bf8802fc@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,75 +91,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2e4f0d32c05d841feb367741bf8802fc@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-Release the resources on the failure paths of rproc_boot_recovery(),
-the same way rproc_shutdown() does, and void the power count in
-rproc_trigger_recovery() when a failed recovery leaves the processor
-offline or detached.
+On Mon, Nov 23, 2026 at 03:55:09PM -0800, Dmitry Torokhov wrote:
+> On Mon, Nov 23, 2026 at 09:12:37AM +0100, John Paul Adrian Glaubitz wrote:
+> > I have been super-busy with CVE fixes but I will try to get into kernel
+> > stuff back again later this week. As I mentioned before, kernel maintenance
+> > is not my primary job, so I cannot act as quickly as people who are getting
+> > paid for it.
+> 
+> I completely understand; upstream kernel work is not my main focus
+> either, and I appreciate you keeping sh maintained in your spare time.
+> I did not mean to rush you; I mostly wanted to check how you would like
+> to proceed before the next merge window.
+> 
+> FWIW, I took a closer look at the current state of rsk7203 on mainline
+> prior to this series, and quite a bit of it is already broken:
+> 
+> - Ethernet (smsc911x) has been silently ignoring its platform_data since
+>   v4.13 (commit 3708184afc77) because device_property_read_u32() returns
+>   -EINVAL instead of -ENXIO when there is no fwnode. That drops
+>   SMSC911X_SWAP_FIFO, corrupting TX/RX packet byte order on this
+>   big-endian board.
+> - The RTC (sh-rtc) fails probe unconditionally since commit 689602e0609e
+>   because sh7203 only defines one IRQ resource while sh_rtc_probe() now
+>   requests IRQ index 2.
+> - sh-cpufreq fails init because sh_cpufreq_cpu_init() never populates
+>   the per-CPU clock.
+> - Enabling gpio-keys-polled (disabled in rsk7203_defconfig) clobbers
+>   LAN9118's IRQ0 on PB0.
+> - As Arnd noted, the rsk7203_defconfig kernel no longer fits in the
+>   4 MiB flash, and USB was never wired up for this board.
+> 
+> Given how long some of these regressions have gone unnoticed, it seems
+> extremely unlikely that anyone is actually using mainline kernels on
+> rsk7203.
+> 
+> Rather than worrying about hardware testing here, I think the simplest
+> way forward is to just apply these patches (with Arnd's Kconfig tweak
+> folded in, or I can send a v4 if you prefer) to unblock the legacy GPIO
+> API removal,
 
-Fixes: ba194232edc0 ("remoteproc: Support attach recovery after rproc crash")
-Signed-off-by: Yonghao Zhang <hyz3367@gmail.com>
----
- drivers/remoteproc/remoteproc_core.c | 31 +++++++++++++++++++++++++++-
- 1 file changed, 30 insertions(+), 1 deletion(-)
+I'm agree with this.
 
-diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
-index 8c3fc85b8f04..3e700c94110d 100644
---- a/drivers/remoteproc/remoteproc_core.c
-+++ b/drivers/remoteproc/remoteproc_core.c
-@@ -1800,7 +1800,7 @@ static int rproc_boot_recovery(struct rproc *rproc)
- 	ret = request_firmware(&firmware_p, rproc->firmware, dev);
- 	if (ret < 0) {
- 		dev_err(dev, "request_firmware failed: %d\n", ret);
--		return ret;
-+		goto clean_up_resources;
- 	}
- 
- 	/* boot the remote processor up again */
-@@ -1808,6 +1808,24 @@ static int rproc_boot_recovery(struct rproc *rproc)
- 
- 	release_firmware(firmware_p);
- 
-+	if (ret < 0)
-+		goto clean_up_resources;
-+
-+	return 0;
-+
-+clean_up_resources:
-+	/*
-+	 * rproc_stop() has already switched the remote processor off;
-+	 * release the resources of the boot this recovery was trying to
-+	 * restore.
-+	 */
-+	rproc_resource_cleanup(rproc);
-+	/* release HW resources if needed */
-+	rproc_unprepare_device(rproc);
-+	rproc_disable_iommu(rproc);
-+	kfree(rproc->cached_table);
-+	rproc->cached_table = NULL;
-+	rproc->table_ptr = NULL;
- 	return ret;
- }
- 
-@@ -1848,6 +1866,17 @@ int rproc_trigger_recovery(struct rproc *rproc)
- 	else
- 		ret = rproc_boot_recovery(rproc);
- 
-+	/*
-+	 * A failed recovery leaves the remote processor offline or
-+	 * detached, where rproc_shutdown() cannot release the power
-+	 * references: void them.
-+	 */
-+	if (ret && (rproc->state == RPROC_OFFLINE ||
-+		    rproc->state == RPROC_DETACHED)) {
-+		dev_err(dev, "failed to recover %s: %d\n", rproc->name, ret);
-+		atomic_set(&rproc->power, 0);
-+	}
-+
- unlock_mutex:
- 	mutex_unlock(&rproc->lock);
- 	return ret;
+> and we can resolve any bug reports if they ever arise later.
+
+...or even remove the board support completely (would be interesting
+to see somebody investing time in this HW to fix all what listed and
+not listed above).
+
 -- 
-2.34.1
+With Best Regards,
+Andy Shevchenko
+
 
