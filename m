@@ -1,101 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.48
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795529327;
-	b=BTZcdBtHgPAEmabyeriDvl9z+I+5bMchrOX6IU7XIuzUrXjaFxlfW/mO+JalMrqAWQs8
-	 +nq59MQMeWX551dcnCmw2lLYuqZEJYRK9B/bS/b5aaWruNekkYNTavcmZQYntZvO8QCXr
-	 FzA6ssFD6lDptOPS0q3cUxgkEg8OYBV4sC89cBoZYhNlZjQ00OBCovMcwqLsNSCo0ZZsw
-	 pSYOn5HX6X4CCluQIhw6yugshm0f3DrOT4/RGtc+fdEOflwxYEOSm8T29nxEmqgEiy3Na
-	 wxV5DdDAtrI+ZzzbKnYT5u5/GcZeqpxw41PmWM0bqhWlcugK1SwF8rX5U6A/e8ozWQw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795529327;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=65FN/qF7JYjHCZlAD0W6fGx3RFd9NIZbin1HOjy26OQ=;
-	b=D3C0NlNriXXPXfsaOFJ1W6FSgnaiCyBBQusS8bYhGdK88UDE2WHY9fHnpImOGuCc1emQ
-	 3e2u+41CGmtwoVJqZPHU8ivmFijXO3JZeZJcByG/MkploJHKOvnqkNBO8FNJW+C1dx8mW
-	 VI5ZCOA8YWYe8tgpPiU9REKPY8E/tKnv9TsMEvcntM+meRMbDmcnKV/3AmcvM1wPIgui8
-	 j8AuswWH0ZEN7PUHu4hRQjjmu0CSAhnGJRQ2gHcfJV0sjMO4PlEaVvv+BXmCSy5AVFkAz
-	 exnJW97CArFKZz+voC5pfa3rVjhiKGsXx3WxM6WV+zLmFEEwrtPEAPDfsV5XKG+J/ow==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ytx4DMHc;
-	arc=none smtp.remote-ip=209.85.167.48
-Received: from mail-lf1-f48.google.com (mail-lf1-f48.google.com [209.85.167.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795529375;
+	b=icSZHfq4zAF1gbmWq5pS5YWnFlRiAP/oHPu89oPc63JEP1OJmdEYGNU73WLvolUNQY+Q
+	 LuVo+dVZd07vBz0Oh2BUAALzXpGAJ+frQIPzPKSBkWuJB0dHUdsr0uOWfJche3j4G/zpd
+	 m8fM46UXC4tUrCvU7qG4d4EGH8KXMFh86GzRX7HOProu+JXJJRkbeK/y9K41B1as3Rzfn
+	 msJht+3+XhWHgmHiTVYNQX9H6S2vTZSiO6IGY4DWxJu6rOcup+biUB79vJdN1JpaahUGm
+	 JthmB2XDKhYZ5t0y/nTyUnWLVeGAo7gLXiynW/Dxx3Uxl35bXhRzl21s7rYJ28Z/9zQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795529375;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=DvfoQdX5TAh9acAbfEpdCjhrYNF1g8HYHnrBWffEvp8=;
+	b=LDFOf4zCcuMXhvDeTC1r+LLGpb8INGYfZvtspaTtBhUOFN5O13RMEiSATm1HK391BmRk
+	 U1gYivYmnaSJpfmCyvym3vFRJ6pyG1k63TOKR0WAj4x7c7AjHc1SkDo1Ifi6Bt2E62a55
+	 eOSQROF6yYjNelXF40/BSAWR+joy7utAg0j4/ie6I5+WlYiUgp3LwkEWbZEnY+hE9ctrB
+	 tpAgkUcr/M3PqSa8tfev3Y5Yv+wXhNzelK2I5JlVmkfH+JFeYNhqrS9q6mIU73qDxbskP
+	 ws7zBduOeKJAK6sEpV7gZq8i3iknth5JWt63B6VU5ncnP+KDiRS9GXFTizQKgow6FSQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=foss.st.com;
+	spf=pass smtp.mailfrom=foss.st.com;
+	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=dHecZnux;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.11
+Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11010011.outbound.protection.outlook.com [52.101.69.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C80BB606A338
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:08:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C80BB606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D659F606A331;
+	Tue, 24 Nov 2026 14:09:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D659F606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ytx4DMHc
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5c102ad8420so2404586e87.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:08:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795529325; x=1796134125; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=65FN/qF7JYjHCZlAD0W6fGx3RFd9NIZbin1HOjy26OQ=;
-        b=ytx4DMHcZxycAV+eDJx4Bu9FSJRUaL2hVWbnAhOHg/0jmT0HlixKXzWeppFCO3K0NI
-         GF/XkitXvfRzydG6JXRZEz2FNUyRcRtcctxElaWn1dKBZMkueGuDNQLqASSPVsfmBMCC
-         0XwbgXDIxtqAeFPuUFN+vb4UmhsWVJ4/81jnPLDdPTtoFRIAIZmQLD9JzhFQAa9I/jVE
-         8w13LqtwIkDCcTyZTgzsfjILXw/yaSZDzGspYPS0xKZ5sgDtivgBoKVtzYOCDmD43+Ej
-         eUJ8RVKQVQD2RCQzt5GpNbHz6Sq4DpJsiuNhtAR/LVaeDQ+WDEpbMBtHtp3Kuz2Evkqc
-         Lx3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795529325; x=1796134125;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=65FN/qF7JYjHCZlAD0W6fGx3RFd9NIZbin1HOjy26OQ=;
-        b=qVZ//8i6vB8hdVjhMQ2y8jqeYV7s/3MNqKEUoDSzuCyO7TgbxVG+Z90oNXDDZQZovG
-         bt5HRIjzWDsZOBiR3SSOFbHlRI5+lsYvFEygNYjSiqL91nokIv1m9YE/enNA68mbRFwV
-         LsmgWGbL2fM26v06c9Pb0t0l72VwaGJ1D6brnRFtcKgsLwwUZsWgWVpAOfOpJg3wqK0F
-         hs+kTQyUfSL+NHm5I5MGMkLgqhatcaAfqZznzxP4a94rZlA1i2Krecd//2QAalTXduzS
-         vYYpWzN3lkBpgXHQz7ZF7pU+2N7WD4mmvAx2h6N7ke+D08JYX9wBAC93WhBmJlsuNssm
-         Pu0Q==
-X-Forwarded-Encrypted: i=1; AL+hErH+1SQT9HufwzmoehZ8IVxA5L0LeE4wWiqrtZBoWyZEpVMoLitvlIk/0rM6Bqq9f5FBi5t9kkLVyTFquKM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8psv7wiOf4NfxkQvTgZHCuSQt+rdiIB2EWDl1cF+abiNdh9X6f
-	NvbTfVomyFELnVsF3QoAYbNN9WF7+mgL0vBKRcNO1vtDGS24wjoqgIBl
-X-Gm-Gg: AZFdTZdyWoQHufLSmKNuORcUkv3ZMBbvlFJc0npfuvPJMpqpNgTYthVWQEPzt7M63j/
-	81KHcgIRzZfV0sHlPiGrzMZGy3KdAlwgcyM2IGCO8SeK8PgsQzRX9h2HlmrEMRKgXkDzBZHQ84f
-	9rayfxceKk+50sUdIjJJyS95xJs60BlOROEB+HG+tFVzVR1VmhQuyflZ0CKbVAmvfcShXkuE9kf
-	6mR1Mzeg88TfNi3cmVrPjcx75eb+jqVy3AQApHau5V19/LTJjoNSt5QHxgEXc3aO5/hIvGmpiCp
-	DfdXFau7UNEmeeKtMA8vCcVL2vbShjNqlGT/K+16P8njDQRi2DxhDMg2vtDihEjvhLAIh0JB7jU
-	ke9Isv+FYDZBdUx8hiUrjfSK1mxLAogFOPuax6FdxwHdBx45ROrK/K0xZu9WlujOXrhKMRZxxoU
-	ZB4h+lRMxuBcTmGyBaLlfu/GysrbQsDYxsBO5NO3gaSwZmIcGuvfNywvXG5Rp/xwLQvjnL3EcIu
-	KysVN0EtiG3qD0bJkfV3kkuOPUjpNLqZcdfJmqsYe1NSmzgrbUoFLnhM9AwPD9DFHDhhdhPxgjV
-	NIOdIaZii9nWwuHLDj8JLvL8PNgH/bTrzA9yYXxOH8AWbUzA
-X-Received: by 2002:a05:6512:3983:b0:5c1:5704:e088 with SMTP id 2adb3069b0e04-5c1bc80e60dmr4523995e87.47.1795529324771;
-        Tue, 24 Nov 2026 06:08:44 -0800 (PST)
-Received: from rigel (106-68-220-184.tpgi.com.au. [106.68.220.184])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd0171d7sm3750789e87.30.2026.11.24.06.08.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 06:08:44 -0800 (PST)
-Date: Tue, 24 Nov 2026 22:08:34 +0800
-From: Kent Gibson <warthog618@gmail.com>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Adrian Ambrozewicz <aambrozewicz@nvidia.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Jia Jia <physicalmtea@gmail.com>, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 0/8] gpiolib: fix chip removal with lines still
- requested from user space
-Message-ID: <20261124140834.GC48187@rigel>
-References: <20261124-gpiolib-chip-removal-v8-0-aambrozewicz@nvidia.com>
- <awVfc9xLPXbkAov-@ashevche-desk.local>
- <7mppll7rqj6425pqxktqcve44n6mxwc5rot3nk4njf762csaqf@vbqqnxu5mar3>
+	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=dHecZnux
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YSj0WvZoIDToDfYaeJhmZXKGmsQmy42kt3KaAusVSC7yxGF2jpZW8lOZZjkVvg258ZeiV2Qrh1qGFUxgHSc8YpWU9fecSBFQTpxhe+8qBFDzlxGWHv8TGDGnVTKhouAQ/q/aBkVYxV2mOYZ6oQtMN8Op+X6sJxXBZD2JqHcozZ7ETFTVaWQessg4xmwIPvQcw9lHzZKpl+PcEpVUH+O5OyPvoKy/ScRwCJIPKLrtwLVQai8SF9lfSGTOFQyMGiEfpNSUcrSflw9uGGiwfLDtbFnLiLDQEmCD181vVCoH8o91PKrsubNPl3xHaaRiVE9DGHBs/JbmSyH3cn615iAhuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DvfoQdX5TAh9acAbfEpdCjhrYNF1g8HYHnrBWffEvp8=;
+ b=m7pKOgFncJ9hVH/QljhUtyQBMJE38csc/W0LSY1mXU1hnyc71kSB8+fjuvezNv+72CNVl15kLx080ABmoEdYORz5UIdbs2zTi6rlvpZ6ZOn3os7bg11uCK082JqNpy5VBzEZzvv5Nm49cHhwYkPD/AY0uzVJ5/BgbFVLIyQLidp8ImlQzqulDJM9MV6SrPI1Kbds3TqX1AAsENG6VDjoXrmfnHCaw89pAk3xdtk9oZFBIT0haFSNdHKh10wiLQzhlCM02PzTAe8pk9CSnygVpi1W4vGoIVgIaDtT7KMSpQjUJOsmBdUG5dzlr4IXwnX3Bf8IAxRx0bDkS0O5tKYPFA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=amarulasolutions.com
+ smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
+ header.from=foss.st.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DvfoQdX5TAh9acAbfEpdCjhrYNF1g8HYHnrBWffEvp8=;
+ b=dHecZnuxs8oNjA31B729cK3dcF0kkDkPQN1IIKG2SjNrULGKk01W7hrKzeOJh9GQzEOFfoVDJccqozq+0BFNk9SOGjvvGuJGhP1FsNTzW/Dgq1FHLdx1jjcFw+r6D7Y+bn6aoILYjmHPCFeuGQ5tbDeIIfyiaA04FCkElp7B8E0uK9MGsf0AqkzsXFxp/+LhwdY1NvknVkNxrd7Z1Dvv9TNhwXMpDLg9zj+1cm6lHnYipF0qJ44XgYg+jaF4nCNUfDR7H63ymjt//LU9IxZnx/rzvg5aYDSTedzWEFYxb4YaCafwup/KUICt+pbKiikuq41VzU+JtgQblV2OxbaplQ==
+Received: from DUZP191CA0010.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4f9::27)
+ by AMBPR10MB422559.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:6ed::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
+ 2026 14:09:32 +0000
+Received: from DU2PEPF00028D04.eurprd03.prod.outlook.com
+ (2603:10a6:10:4f9:cafe::a7) by DUZP191CA0010.outlook.office365.com
+ (2603:10a6:10:4f9::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Tue, 24
+ Nov 2026 14:09:32 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DU2PEPF00028D04.mail.protection.outlook.com (10.167.242.164) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Tue, 24 Nov 2026 14:09:32 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 24 Nov
+ 2026 15:10:18 +0100
+Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 24 Nov
+ 2026 15:09:12 +0100
+Message-ID: <f3025431-c426-4c7a-b196-ae09aeb617a0@foss.st.com>
+Date: Tue, 24 Nov 2026 15:09:11 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,52 +104,101 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7mppll7rqj6425pqxktqcve44n6mxwc5rot3nk4njf762csaqf@vbqqnxu5mar3>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: st: add firmware reserved memory to Engicam
+ MicroGEA-STM32MP257
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+CC: <linux-amarula@amarulasolutions.com>, <michael@amarulasolutions.com>,
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Rob Herring <robh@kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>
+References: <20261028105807.2567225-1-dario.binacchi@amarulasolutions.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20261028105807.2567225-1-dario.binacchi@amarulasolutions.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PEPF00028D04:EE_|AMBPR10MB422559:EE_
+X-MS-Office365-Filtering-Correlation-Id: 47e1b695-9623-4582-2bde-08df4a348fdc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|82310400026|36860700016|10067099003|56012099006|11063799006|261026121527099003|261021135927099003|261021121427099003|261102123227099003|261009223027099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	ZbyFuaE3z9mrCtj52TnjUyzNODjq3dPh4tIUGgNsEJYy86wqCt1DCOhc87ZaXoVMp7A67zPMh/y/EWFNal1o5BItP+KfAxMQD0Jq+WcuAZQDZlqxXa8aOkh8Kvo3dpTlO5GvrKIUeEKspRdb1pzZtAKbWSkr90ly4K6iSh47L6AWHJkx527Fyht1yp5sZg+OZicxeyin5FrSUTp8sAWQMebRO+4dG+tPpizr/V7Kuy5VxOHFFtzvi/gMscdBszJcjd87SAN7cr0TQRdAOfL3IybYdHO4qKRJMEDB+Iv8sygTkJhXXjnlkfcvmkkm9H2iEjHd9sNgblbHba8wjJ4sDEg6mz2veiMBdnDOU1TLb/ljVZD5J93cMHzCBjK8ZkRVcxhvGKC/5XPIHT1YcvQK/mlpa24HPTeV5x3qEmsc7LYEwJb71sYZBL4tq8KFzTerbgKPeNzRRc4MHjSCSuvkgQeHdpenCotmYpv5FK/DxdMKmGs2sFtgFIjFU6YSEem/ynNftCXJJPm6OTi1VQXH+5n25QV1GdJIoELGMFHmHJAro9H0eVTAfF86KLcslDqy81tk4Z4qw0jF9UXRYs1gstskjd4rbEP6aqy9kzbeLlR2y4LJzsSM11ylWCbrswiTtXl7rbQcPc9AKfhM1YOHKwVvF05KoT7r5ZptTTT8URHXqvDA0Qwjjnfe3O9HLmBNbV8RWZdLt3+r/0pEQwoigA==
+X-Forefront-Antispam-Report:
+	CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(82310400026)(36860700016)(10067099003)(56012099006)(11063799006)(261026121527099003)(261021135927099003)(261021121427099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	UIweNWCt4vSxo5GbkkKo0rNxOHgrpDr0rUNYv2Uv0liz1W4hCkUJpgSN9mZPNAhxLrT+kAh2WqF9ZUk5ei2smlhvSL48W5YFBnnO2TiIIda6VrFG6i7FyWlCGR7gztOlqDGewFI0EdQ+xpe/RD4iCmWtFqR0O4NEw66XRqdKBtYRMXcVZSdxJ/nuYmPP2ml0/4JjxLBQv0CHqTc5fWTl89HPuY+I0nieksHUS9e72E9rtankmhF499lVmt1XXYV/xwZaUTukDCh/4IdnxPFAGULFRazQ44vSa/IfWzvvYB108d9woAmO05sFFzkVCSwWAIzdiXYUEqYsL1y73SBX7xFJFd7Oq4n34JFBlQ64j4pBJGUxTBl6Y39/+LrEd2HoGMBUlsIUSf2KFlJ4lHt/j6gDgAFyCM+AwrZhyyQAT4amUPnP0UWqdEVrloirCZqN
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 14:09:32.0587
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 47e1b695-9623-4582-2bde-08df4a348fdc
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	DU2PEPF00028D04.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR10MB422559
 
-On Tue, Nov 24, 2026 at 03:02:17PM +0100, Bartosz Golaszewski wrote:
-> On Tue, Nov 24, 2026 at 11:57:07AM +0200, Andy Shevchenko wrote:
-> > On Tue, Nov 24, 2026 at 11:20:31AM +0200, Adrian Ambrozewicz wrote:
-> > > Removing a GPIO chip while user space holds a line request, as when a
-> > > hot-pluggable GPIO controller goes away, leaks the line labels (patch 2)
-> > > and IRQ names (patch 5), frees IRQs twice (patches 3, 7 and 8) and lets
-> > > a blocked read() stall the removal (patch 4). Patch 1 makes
-> > > gpiodev_release() wait for pending label frees; without it,
-> > > cleanup_srcu_struct() can warn, more often with patch 2.
-> > > 
-> > > Patch 7 also affects in-kernel users: their remaining IRQs are freed
-> > > after the chip pointer is cleared, when gpiod_*() calls fail. Patch 6
-> > > drops edge events whose line read fails instead of reporting an edge.
-> > > 
-> > > User-visible change: a read() blocked when the chip is removed returns
-> > > the queued events, then fails with -ENODEV.
-> > > 
-> > > For stable: patch 2 needs 1, 5 needs 3, 7 needs 3, 5 and 6, and 8
-> > > needs 7; patches 3, 5 and 7 fix a 6.13 commit also in 6.12.y, patch 8 a
-> > > 6.19 commit; patch 4 applies to 6.12.y.
-> > > 
-> > > Tested under QEMU (x86_64, arm64) with gpio-sim, a shared gpio-sim line
-> > > and a test chip on the hierarchical irqchip, with lockdep, kmemleak and
-> > > KASAN.
-> > > 
-> > > Prepared with Cursor and Claude Code, using Claude, which helped analyse
-> > > the bugs, write the reproducers and draft the patches; I reviewed and
-> > > tested every change.
-> > 
-> > Bart, this series seems contain two parts, core and cdev fixes, the first
-> > (core) fixes are being reproduced and tested in our lab and they are pretty
-> > much ready to go. Can we at least have them (patches 1 & 2) pulled rather
-> > sooner, please?
-> >
+Hi Dario
+
+On 10/28/26 11:57, Dario Binacchi wrote:
+> The first 64 MiB of the DDR are used by the secure firmware (TF-M,
+> Cortex-M33 firmware, BL31 and OP-TEE) and are protected by the RISAF
+> firewall. Without a reserved-memory node Linux allocates pages there,
+> and the first access triggers an IAC exception and an OP-TEE panic:
 > 
-> Do you have any comments on patches 7/8 or 8/8? This version has no
-> sashiko comments and only the two final patches are not reviewed. If you
-> can leave an R-b under them, I'm fine taking all of them now.
+>    E/TC:0   stm32_iac_itr:197 IAC exception ID: 137
+>    Faulty address (IADDR0): 0x80000060
+>    E/TC:0   Panic at core/drivers/firewall/stm32_iac.c:212 <stm32_iac_itr>
+> 
+> Reserve the region, as done for the stm32mp257f-ev1 board.
+> 
+> Fixes: c5ce8d7bcc78 ("arm64: dts: st: support Engicam MicroGEA-STM32MP257 SoM")
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> 
+> ---
+> 
+>   .../boot/dts/st/stm32mp257-engicam-microgea.dtsi     | 12 ++++++++++++
+>   1 file changed, 12 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi b/arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi
+> index 5b4287e86def..6cd64587ecdc 100644
+> --- a/arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi
+> +++ b/arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi
+> @@ -19,6 +19,18 @@ memory@80000000 {
+>   		device_type = "memory";
+>   		reg = <0x0 0x80000000 0x0 0x80000000>;
+>   	};
+> +
+> +	reserved-memory {
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges;
+> +
+> +		fw@80000000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x0 0x80000000 0x0 0x4000000>;
+> +			no-map;
+> +		};
+> +	};
+>   };
+>   
+>   &scmi_regu {
+> ---
+> base-commit: 65ba8f34ec886ec72b2c07ddc8cf3d815c32869d
+> branch: stm32mp257-engicam-microgea-fw-reserved-memory
 > 
 
-This version addresses the last of my comments, so I'm happy to see the
-whole series applied.
+Applied on stm32-fixes.
 
-Cheers,
-Kent.
+regards
+Alex
