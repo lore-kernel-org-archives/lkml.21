@@ -1,108 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795510627;
-	b=xZ5DMY0PGAZNFh0vCbgI9QhikMY1sn8cesALP9++AVJIcu2q9mrPCNx///wEUV9O2Z7D
-	 zfBRsqyi9gtzoTP/QFuCal0z7x2PwLBPErWpV6kE1E0an/77aqzzAcdDbBKlKMGlXVmIo
-	 QK/RI5XuVyeVZmI0sXKCTNKeCJzUxQSu1AwtsrwTwfxMHIXsbyI1lwuOEbRCqfwB0j7oM
-	 qkOw1SW232q5s15UXbqaYGo/VWivWQjpnPQT+gQOKNFilWpRcOd14Sll1KmNMyBjGAzPD
-	 LH6yxk9MXG/YEwKOVhPZ/jqcaevmA4OvBzNkU6IzEfTp1+CFMqO16vxQkOWZTlFHCZA==
+	t=1795510670;
+	b=gJ1eAgA49Ob1I2rnhHbqIXueczcwKJC/GVa5rSe3Y55vY3WyBhf2iZW52yTvhmOf761l
+	 H79RNJWOCogGr42BsKpezLZVNk0puZyY2ha7n666YJsnsFhTcgzNPkCXtBlsSsl+WSjvU
+	 QznvJ815pZtOaQsTmGTCydeeD1pwcGQ5LSUDv1tOutEbGm9Ox3e64ExpbKsUX7fjnEKtq
+	 +AGN3AtxT0CJDWbGmju1C060rWm1KDyGMmaw/KLVgPIzDP4ZfiG5Bxq/6QdC97HgcVTc5
+	 PKZpn+BdkGF7usHSpFB53XH15ZQ2sHWDa0XiDxm6QI0V48kKm53MQbG3Um6OWX9X1UA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795510627;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=+WBd5f8Kes/3EruJ/MjE9jyR5igXBI9F5RvCiWOQBYI=;
-	b=zX2FeV7e2sBvQ6y0ASb0cqqpqBC/PlC/DIP821KrUbftL5jOh4S+IrHmGHQhxGS1tv1K
-	 qks9hWFZCoScFgOS3+PQxGN8saCG1iyDZK31+hSpo/cNyWC1+Xs+MncNFxLKfrAGiCpSS
-	 HLjynhwJD7j/Xjev0vCmmbGK8K7W2E+Frs+z6quNEimR3OBNWekk4fgod44Sbf+3h4n1c
-	 NjqzG0jJGvZ6TfEGh3JUpSpFiuey3vXNrlgAGGiUmIxdhmolkwwqYzr6RATUuX3peElOf
-	 aLmW6SE3PKQHsh8Cd2D1lJg0wRHIX1K987u35W00BSbFFW07rPrXQFF4/uKXQQFCnuQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795510670;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-ID:References:In-Reply-To:To:CC:X-Mailer;
+	bh=fNOe15mKTrnRw+eIOsPnhzi/WOM197cVj7nMAKCPBuc=;
+	b=fVcypjAj50aRsk0QU813wdnShNLgg+lw8pquIKwuDdnssp3y87CvhcjekMPXZcVxL6ww
+	 /brUvd/WCWFpMHuW4wN7kCd/keD+Fd7dHEkR5ZyDM59JYs/1opn7JasxzHj4QJDzbk+al
+	 c0EFcfviLK26ZyebOAucAmsBWGWDiaScgzqqOXropa5K6l3XlC7ds8BzMtnOd9qfow4A4
+	 N0Ja326IFDAZ7v5h7+7bBksmx2GyYgr4SVNrI+zMSUTFCm01rR9eQABQ9qVxEgS0moeIl
+	 MeN3eH9UJJyD/wmh3Ss1OpUm3LpnXxgXEGXeH5s+TkPI91W7cbEpaGMXgt7dWtYLiNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=av91O9lI;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=LWL0vBZK;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=RmB5WJQK;
+	arc=none smtp.remote-ip=68.232.154.123
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 909EA606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:57:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 909EA606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82C44606A682;
+	Tue, 24 Nov 2026 08:57:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82C44606A682
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=av91O9lI;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=LWL0vBZK
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795510625;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+WBd5f8Kes/3EruJ/MjE9jyR5igXBI9F5RvCiWOQBYI=;
-	b=av91O9lI6AzfkF+umZNx34y0Rd6sT1FN38ledZEN08s4JwCagRsuofQZZ+iPbJF47Jw8An
-	IlAGzT9XQPG84jtVB8bSeJomXwCq4XUr/4jmKJGQW8iJwpiZMwfB90VYGw7G7HH+lSbQRD
-	MPYi5W0twrsDchkmcPXOxu3QlItG15c=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-490-EWJO53xNOsK0f8MfjmcmnA-1; Tue, 24 Nov 2026 08:57:02 +0000
-X-MC-Unique: EWJO53xNOsK0f8MfjmcmnA-1
-X-Mimecast-MFC-AGG-ID: EWJO53xNOsK0f8MfjmcmnA_1795510621
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4903fc8537aso2734784f8f.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:57:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795510621; x=1796115421; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+WBd5f8Kes/3EruJ/MjE9jyR5igXBI9F5RvCiWOQBYI=;
-        b=LWL0vBZKheKhouleQ77PCyfkPF7K6p93c98GCqyNYF0u59d/7+NfJoHUimqlQVCGPF
-         dMo8hg+JGIKGiQoPLesb288qrsRNn+vNmWlGtbcCb+B6DR78JhLcybNnkLjkhdX2WmGF
-         +owQ2tPC/L2Rj0v2TcnTFjU5zDIA8VG8fte57MasWgFvrGZEJheIqaLyBrOoEW/ncJ5b
-         G/S86bSpuZD0V1PH/t2bxCCUYCgJwd+Zub2YkjHPkeCHizBI5fDCCcTKXL6KYCu+kBJD
-         9jYdZbflfJKDes/5YcEixs+ur1zT31MboHE+dO7qBTyaOgodLh+2jaM+NFtPjaK97lRe
-         wmrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795510621; x=1796115421;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+WBd5f8Kes/3EruJ/MjE9jyR5igXBI9F5RvCiWOQBYI=;
-        b=V+C2p0NhZvO5bS2rYqPF6VQ6Lr5KRZouOmHfkHTKSPVxI60bw1gvpaYHJg74UlQh+v
-         gd1qllOJN+Zs1hILkNX7ya6xDJbzif6ECJy0MoXvMzszoILfpltX6VwQbhYun1wqKEot
-         6DtM3x+Hw6zCfdAzu8uCDfOs+PrQMDwyF2Cm6Z+3SfF+GfE27Apjk1keVuFo43HaoCbf
-         3/Qeebmo2bFPqWcCjftLYgOx/rRcE2mMKCEIHjcnypNoc62dmOJrFrUQfY/0BEi/UMo2
-         LWKCCmoS0qVlrQCEQ6q8/kG9tRnzVIrXJuhpdNuGmAOMrv/90hzAXd6KifwI9ejs/Y0v
-         Jggg==
-X-Forwarded-Encrypted: i=1; AL+hErHZUD86uod+TdmhF3DuCMom9bx/3mqoNeVp6uv7GllNebbuh82GgBLObwKV3x5MqNv9gnU87WPDQNjJjJo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z80zysLModSjMSwMYHwFXzeqhUnz8nsaLFc3WikFwOkFESRi7rP
-	kje69T/nCmLGlSKzsrn/SngP9O3K8mZRfBA80Wzj6Qv5GKztc+mSVUy9oN22854Tj64CMydVSkY
-	gj9tmPgz51eIuRaEeBZbSxrLc5A166B9p+GefJCjaaiQMHoteG2+1upF+M8KSvuAuMw==
-X-Gm-Gg: AZFdTZfog/uIkZYrSzMaBu2/Ecm5Kxc8BYv74itgNLjfLUKkBHMT458gEq0Dg3dwgz2
-	rhsFr/GUirrXVoOb5JUWMJO5tIbQl9Mzq2sOcXTXynJFMskaFYedNuM0zUgUEncle50neXummZ4
-	qP2rK8nRTJtGwhU88zzxWdNxl2ksFt5clI1z17KkGd27VEip5BpKsL6xnsV+qp+GyOdtlD4y9aA
-	Xy2JDwP3svomydFUt1IgBfSxRxmoZXBwpFsAy7paDFwdDejpX5dNGKhweZwKA67XCR7vZJO1mPq
-	UbkKeuN+O9ESPPELkwz84/4RDPpsMbAceLbjDGPVeLLnE+cpxHc/DMQnepMvi61x09tb30ZxE8R
-	wua4pthVRo4wFq+nI/5OQgYAcp7VcRNSY6G6gcN5Mo79Xvaq2e+yCtcrhUQz6D8RDEuUOFHuJ/K
-	x+3XWuF01O67I4uYP+X7H54p6TuSzja/2GGV2vWg3GLgia
-X-Received: by 2002:a05:600c:4f4b:b0:49f:fd2d:23c7 with SMTP id 5b1f17b1804b1-4bb888226c0mr341148625e9.27.1795510621204;
-        Tue, 24 Nov 2026 00:57:01 -0800 (PST)
-X-Received: by 2002:a05:600c:4f4b:b0:49f:fd2d:23c7 with SMTP id 5b1f17b1804b1-4bb888226c0mr341148205e9.27.1795510620822;
-        Tue, 24 Nov 2026 00:57:00 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6ae2dcf9sm26574444f8f.32.2026.11.24.00.56.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 00:57:00 -0800 (PST)
-Message-ID: <41103c9d-5c08-495a-b5b1-66fc15e2517e@redhat.com>
-Date: Tue, 24 Nov 2026 09:56:59 +0100
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=RmB5WJQK
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795510666; x=1827046666;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=uCiZHbFs2hmRN4crXTmgz+1DWdsz5idSj2dIrv7sRuI=;
+  b=RmB5WJQKJubfR4bvpkgP4gKthzoSfF3O/M6HMNib5y8OWg9BotGCBPzk
+   TVtW5wp3VkHBNMPefqNCSutea9EpXyAQLCmSfABiZ/14bJMPZoXpB0LLe
+   3D/8yAeT0HAZP8kJvEJ+OrYvDIC9cGNP6jIQLJZ1RyaF88L84LKl0UYz0
+   ilsfHiphNB6VtX0s7W179/zlkWkq+uS96Fp5CLlgN9e33WG4puRmDo5IX
+   vEAxa1vsBbjmrN8DqPnYl49Pe15365MUR7I4fGd+ffe1Z4+G5fYkmXwpP
+   JWVnjgoj8JqMkIgdCrp6AtUFJvfvzdFnynwQHskpQFH32tU0xCp/4emw6
+   Q==;
+X-CSE-ConnectionGUID: 7Qec9wR8RoC03yTFrKIyMg==
+X-CSE-MsgGUID: L3Xe4r7MSXWDZHCedTb5XA==
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="67202056"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 01:57:45 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.56; Tue, 24 Nov 2026 01:57:45 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
+ Transport; Tue, 24 Nov 2026 01:57:43 -0700
+From: =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
+	<jensemil.schulzostergaard@microchip.com>
+Date: Tue, 24 Nov 2026 09:57:07 +0100
+Subject: [PATCH net-next 1/5] net: dsa: lan9645x: add the analyzer event
+ register
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,44 +76,237 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] rtnetlink: fix NULL pointer dereference in
- rtnl_get_link()
-To: mdshahid03@gmail.com
-Cc: Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
- edumazet@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261120134548.214126-1-mdshahid03@gmail.com>
- <20261120100415.363fcb19@kernel.org>
- <179525944307.361783.17801110279499293110.b4-reply@b4>
- <250c2bb2-57d7-4f91-a32c-8f6ac7d55a46@redhat.com>
- <179544969959.175192.4403952228876691788.b4-reply@b4>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <179544969959.175192.4403952228876691788.b4-reply@b4>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-ID: <20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-1-b930a1dae700@microchip.com>
+References: <20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-0-b930a1dae700@microchip.com>
+In-Reply-To: <20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-0-b930a1dae700@microchip.com>
+To: <UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew@lunn.ch>, "Vladimir
+ Oltean" <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>
+CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+	=?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
+	<jensemil.schulzostergaard@microchip.com>
+X-Mailer: b4 0.15-dev
 
-On 11/23/26 17:01, mdshahid03@gmail.com wrote:
-> I think,I may have misunderstood this part from NET documentation guidelines:
-> 
-> "The commit message must disclose whether reproducing the issue required
-> modifying the kernel (e.g. inserting a delay to widen a race, or[[**writing
-> a loadable module to issue the right sequence of calls)**]] or using error injection."
-> 
-> I interpreted this as allowing a out-of-tree test module to produce
-> an issue,provided that it uses legitimate kernel APIs.
+Add ANA_ANEVENTS to the autogenerated register macros. The MAC table
+code uses its CPU_LEARN_FAILED sticky bit to detect a CPU learn that
+did not find a free bucket in the hashed row.
 
-Please do not top post.
+Signed-off-by: Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
+---
+ drivers/net/dsa/microchip/lan9645x/lan9645x_regs.h | 196 +++++++++++++++++++++
+ 1 file changed, 196 insertions(+)
 
-The problematic point is the 'legitimate API'. Adding a delay under
-a lock is legitimate, de-registring core functionalities is not.
+diff --git a/drivers/net/dsa/microchip/lan9645x/lan9645x_regs.h b/drivers/net/dsa/microchip/lan9645x/lan9645x_regs.h
+index 0414c7239103..531dfb789a02 100644
+--- a/drivers/net/dsa/microchip/lan9645x/lan9645x_regs.h
++++ b/drivers/net/dsa/microchip/lan9645x/lan9645x_regs.h
+@@ -83,6 +83,202 @@ enum lan9645x_target {
+ #define ANA_ANAGEFIL_VID_VAL_GET(x)\
+ 	FIELD_GET(ANA_ANAGEFIL_VID_VAL, x)
+ 
++/*      ANA:ANA:ANEVENTS */
++#define ANA_ANEVENTS              __REG(TARGET_ANA,\
++					0, 1, 27136, 0, 1, 284, 20, 0, 1, 4)
++
++#define ANA_ANEVENTS_CHANGE2SW                   BIT(31)
++#define ANA_ANEVENTS_CHANGE2SW_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_CHANGE2SW, x)
++#define ANA_ANEVENTS_CHANGE2SW_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_CHANGE2SW, x)
++
++#define ANA_ANEVENTS_LLCT_PORT_ERR               BIT(30)
++#define ANA_ANEVENTS_LLCT_PORT_ERR_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_LLCT_PORT_ERR, x)
++#define ANA_ANEVENTS_LLCT_PORT_ERR_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_LLCT_PORT_ERR, x)
++
++#define ANA_ANEVENTS_RT_FWD                      BIT(29)
++#define ANA_ANEVENTS_RT_FWD_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_RT_FWD, x)
++#define ANA_ANEVENTS_RT_FWD_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_RT_FWD, x)
++
++#define ANA_ANEVENTS_FLOOD_DISCARD               BIT(28)
++#define ANA_ANEVENTS_FLOOD_DISCARD_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_FLOOD_DISCARD, x)
++#define ANA_ANEVENTS_FLOOD_DISCARD_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_FLOOD_DISCARD, x)
++
++#define ANA_ANEVENTS_MSTI_DROP                   BIT(27)
++#define ANA_ANEVENTS_MSTI_DROP_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_MSTI_DROP, x)
++#define ANA_ANEVENTS_MSTI_DROP_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_MSTI_DROP, x)
++
++#define ANA_ANEVENTS_ACLKILL                     BIT(26)
++#define ANA_ANEVENTS_ACLKILL_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_ACLKILL, x)
++#define ANA_ANEVENTS_ACLKILL_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_ACLKILL, x)
++
++#define ANA_ANEVENTS_ACLUSED                     BIT(25)
++#define ANA_ANEVENTS_ACLUSED_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_ACLUSED, x)
++#define ANA_ANEVENTS_ACLUSED_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_ACLUSED, x)
++
++#define ANA_ANEVENTS_AUTOAGE                     BIT(24)
++#define ANA_ANEVENTS_AUTOAGE_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_AUTOAGE, x)
++#define ANA_ANEVENTS_AUTOAGE_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_AUTOAGE, x)
++
++#define ANA_ANEVENTS_LEARN_DROP                  BIT(23)
++#define ANA_ANEVENTS_LEARN_DROP_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_LEARN_DROP, x)
++#define ANA_ANEVENTS_LEARN_DROP_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_LEARN_DROP, x)
++
++#define ANA_ANEVENTS_AGED_ENTRY                  BIT(22)
++#define ANA_ANEVENTS_AGED_ENTRY_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_AGED_ENTRY, x)
++#define ANA_ANEVENTS_AGED_ENTRY_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_AGED_ENTRY, x)
++
++#define ANA_ANEVENTS_CPU_LEARN_FAILED            BIT(21)
++#define ANA_ANEVENTS_CPU_LEARN_FAILED_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_CPU_LEARN_FAILED, x)
++#define ANA_ANEVENTS_CPU_LEARN_FAILED_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_CPU_LEARN_FAILED, x)
++
++#define ANA_ANEVENTS_AUTO_LEARN_FAILED           BIT(20)
++#define ANA_ANEVENTS_AUTO_LEARN_FAILED_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_AUTO_LEARN_FAILED, x)
++#define ANA_ANEVENTS_AUTO_LEARN_FAILED_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_AUTO_LEARN_FAILED, x)
++
++#define ANA_ANEVENTS_LEARN_REMOVE                BIT(19)
++#define ANA_ANEVENTS_LEARN_REMOVE_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_LEARN_REMOVE, x)
++#define ANA_ANEVENTS_LEARN_REMOVE_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_LEARN_REMOVE, x)
++
++#define ANA_ANEVENTS_AUTO_LEARNED                BIT(18)
++#define ANA_ANEVENTS_AUTO_LEARNED_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_AUTO_LEARNED, x)
++#define ANA_ANEVENTS_AUTO_LEARNED_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_AUTO_LEARNED, x)
++
++#define ANA_ANEVENTS_AUTO_MOVED                  BIT(17)
++#define ANA_ANEVENTS_AUTO_MOVED_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_AUTO_MOVED, x)
++#define ANA_ANEVENTS_AUTO_MOVED_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_AUTO_MOVED, x)
++
++#define ANA_ANEVENTS_DROPPED                     BIT(16)
++#define ANA_ANEVENTS_DROPPED_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_DROPPED, x)
++#define ANA_ANEVENTS_DROPPED_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_DROPPED, x)
++
++#define ANA_ANEVENTS_CLASSIFIED_DROP             BIT(15)
++#define ANA_ANEVENTS_CLASSIFIED_DROP_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_CLASSIFIED_DROP, x)
++#define ANA_ANEVENTS_CLASSIFIED_DROP_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_CLASSIFIED_DROP, x)
++
++#define ANA_ANEVENTS_CLASSIFIED_COPY             BIT(14)
++#define ANA_ANEVENTS_CLASSIFIED_COPY_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_CLASSIFIED_COPY, x)
++#define ANA_ANEVENTS_CLASSIFIED_COPY_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_CLASSIFIED_COPY, x)
++
++#define ANA_ANEVENTS_VLAN_DISCARD                BIT(13)
++#define ANA_ANEVENTS_VLAN_DISCARD_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_VLAN_DISCARD, x)
++#define ANA_ANEVENTS_VLAN_DISCARD_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_VLAN_DISCARD, x)
++
++#define ANA_ANEVENTS_FWD_DISCARD                 BIT(12)
++#define ANA_ANEVENTS_FWD_DISCARD_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_FWD_DISCARD, x)
++#define ANA_ANEVENTS_FWD_DISCARD_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_FWD_DISCARD, x)
++
++#define ANA_ANEVENTS_MULTICAST_FLOOD             BIT(11)
++#define ANA_ANEVENTS_MULTICAST_FLOOD_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_MULTICAST_FLOOD, x)
++#define ANA_ANEVENTS_MULTICAST_FLOOD_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_MULTICAST_FLOOD, x)
++
++#define ANA_ANEVENTS_UNICAST_FLOOD               BIT(10)
++#define ANA_ANEVENTS_UNICAST_FLOOD_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_UNICAST_FLOOD, x)
++#define ANA_ANEVENTS_UNICAST_FLOOD_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_UNICAST_FLOOD, x)
++
++#define ANA_ANEVENTS_DEST_KNOWN                  BIT(9)
++#define ANA_ANEVENTS_DEST_KNOWN_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_DEST_KNOWN, x)
++#define ANA_ANEVENTS_DEST_KNOWN_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_DEST_KNOWN, x)
++
++#define ANA_ANEVENTS_BUCKET3_MATCH               BIT(8)
++#define ANA_ANEVENTS_BUCKET3_MATCH_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_BUCKET3_MATCH, x)
++#define ANA_ANEVENTS_BUCKET3_MATCH_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_BUCKET3_MATCH, x)
++
++#define ANA_ANEVENTS_BUCKET2_MATCH               BIT(7)
++#define ANA_ANEVENTS_BUCKET2_MATCH_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_BUCKET2_MATCH, x)
++#define ANA_ANEVENTS_BUCKET2_MATCH_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_BUCKET2_MATCH, x)
++
++#define ANA_ANEVENTS_BUCKET1_MATCH               BIT(6)
++#define ANA_ANEVENTS_BUCKET1_MATCH_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_BUCKET1_MATCH, x)
++#define ANA_ANEVENTS_BUCKET1_MATCH_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_BUCKET1_MATCH, x)
++
++#define ANA_ANEVENTS_BUCKET0_MATCH               BIT(5)
++#define ANA_ANEVENTS_BUCKET0_MATCH_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_BUCKET0_MATCH, x)
++#define ANA_ANEVENTS_BUCKET0_MATCH_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_BUCKET0_MATCH, x)
++
++#define ANA_ANEVENTS_CPU_OPERATION               BIT(4)
++#define ANA_ANEVENTS_CPU_OPERATION_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_CPU_OPERATION, x)
++#define ANA_ANEVENTS_CPU_OPERATION_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_CPU_OPERATION, x)
++
++#define ANA_ANEVENTS_DMAC_LOOKUP                 BIT(3)
++#define ANA_ANEVENTS_DMAC_LOOKUP_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_DMAC_LOOKUP, x)
++#define ANA_ANEVENTS_DMAC_LOOKUP_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_DMAC_LOOKUP, x)
++
++#define ANA_ANEVENTS_SMAC_LOOKUP                 BIT(2)
++#define ANA_ANEVENTS_SMAC_LOOKUP_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_SMAC_LOOKUP, x)
++#define ANA_ANEVENTS_SMAC_LOOKUP_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_SMAC_LOOKUP, x)
++
++#define ANA_ANEVENTS_SEQ_GEN_ERR_0               BIT(1)
++#define ANA_ANEVENTS_SEQ_GEN_ERR_0_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_SEQ_GEN_ERR_0, x)
++#define ANA_ANEVENTS_SEQ_GEN_ERR_0_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_SEQ_GEN_ERR_0, x)
++
++#define ANA_ANEVENTS_SEQ_GEN_ERR_1               BIT(0)
++#define ANA_ANEVENTS_SEQ_GEN_ERR_1_SET(x)\
++	FIELD_PREP(ANA_ANEVENTS_SEQ_GEN_ERR_1, x)
++#define ANA_ANEVENTS_SEQ_GEN_ERR_1_GET(x)\
++	FIELD_GET(ANA_ANEVENTS_SEQ_GEN_ERR_1, x)
++
+ /*      ANA:ANA:AUTOAGE */
+ #define ANA_AUTOAGE               __REG(TARGET_ANA,\
+ 					0, 1, 27136, 0, 1, 284, 44, 0, 1, 4)
 
-If you want to use a kernel module to demonstrate an 'issue', such module
-must do exclusively things the kernel is already doing, it should just
-enforces specific timing/sequence that must be already possible in vanilla.
-
-And if the race is possible only with such a module, at very best the
-issue will get low priority.
-
-/P
+-- 
+2.52.0
 
