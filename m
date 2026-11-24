@@ -1,54 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795511915;
-	b=yeffHT7nq2zIuqO1CCcaWo184w6sf9+pW8FDM4KmoSO0ql0SgivCjFXa5TVL+fRuKCKR
-	 5O6NsV8Vd674ka5CE16VZWIFSYxfWyd5rqU6P7prEzEEpxaOv/VzOYkYJgQNaYFXJ73mo
-	 bcQsaEQdba2F2jM/DHoFOLKyE8xqxgRiK/g+yjZbmskuzllsQenrMbFKxnAiDivRZNlMJ
-	 nnoWTRGnH+pYL/9DzRad2IftT7gPrWKPlQyjoYy0gRnPtxtOR8XxRFYIpbmmJsxDya8u4
-	 1ihKQ7TkBYZsFtvCIyMqul+DXrrfY+ggGXXMLyIV7094Vt+UbCUgFg3rDp00A4domqQ==
+	t=1795511924;
+	b=gtY68K6wHxnb2z4/jM6ECOYg+oPSv7xauJiM1gTtyuyyCpTKJhlB551PdNYcQuFsiOHQ
+	 DIkiprKX36Z/7NIIJsKPMBYvA6E/GkjDmdNUuKWoRS8Jg2Ho+SHAAt8I2XPAUFmYj9bkW
+	 03hceUt3omaBdl1AzGTy54+T9rq0+tY9h0dt5iXNH3VJQz8AAOhit2Mck3kl1d8xV1dtH
+	 lOhDmwvoIW9CDVlL5IS/M+bbW0tzFgHuM0vneKnN+yv2yKcBz4pt8gsu3x7pujIu+T8xC
+	 sgjrnWktg68NHo0pCgd+UQ/EkJwlWCXFv2G4p99otLFWJi/2QSgR4UEBOF9DNZK2S+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795511915;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795511924;
 	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
 	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
 	 Subject:From:To:Cc:Content-Type;
 	bh=TaIwWCMx9I6oV4SxjMTi3a+08EIvzGByLCSnN8rdvdA=;
-	b=mTUyJ2FaDAbcuuTDQxV98K3vH84N+78UPTJkKUXM5U3DAHCWVns63k/ANWpgOV+W2S79
-	 MTMiTE1bLIys97jAxZZ3gFpPIDpvsEhENtdaJYj3VqrnKKehm3/8VL9C7uDmCJmFVc1SG
-	 HzFiAu48DGQ7tw5yjmbaAcg4lNgk7g6WV8nW4gCqgPKZgjTW8+xYT5NE88yCqt1hCOBTj
-	 bpgKhUkXS3FacbOGI0UD49VGiyDA4E7p94gUgUHlSWZgZh6/Vn1ah+H8JN5+bkJKVJn/T
-	 +3Jg01Kmi9hdxlERlLKrGmBzEYs5Zj0eMgL59UZayv4VGZjXt6Rgyk9/OMuSHhFz3/Q==
+	b=tSxkK41Zs9n+xcmHIaZzPxXK8zGBaPqNy3g0cI1roxJADdNS9SGEgoyF5pETxoIx2VF+
+	 USSRnp1n8AGBVQK8f/4GGMSU+2kqcg/qd3J4cjxPO40yyaNVNJZ3uZJWHsXQGtCketmCv
+	 HcR4XE/kp0I528Flv9d395XHoitcUXcm8mEZLpY0kwNU7cl+CZVET/Lkux3iYXhyQguhp
+	 QPdiFDvJYWxgxCVuFXK7Vn4ziJOfDPToUFbeW9G7hxe/0VUaldL2C8K56+Hcyho1qMA/s
+	 vCmWfZDYAfqXum2Guo9FxCkt47JA+p4mG4QQnAsRwbvGU05balE932lSX126yxxwn4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=fail header.from=syzkaller.appspotmail.com;
 	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.197
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
+	arc=none smtp.remote-ip=209.85.167.199
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57278606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:18:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57278606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEEF4606A327
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:18:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EEEF4606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-5713cd0fb42so6333454b6e.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:18:31 -0800 (PST)
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4b37620eb73so5732096b6e.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:18:38 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795511910; x=1796116710;
+        d=1e100.net; s=20260707; t=1795511918; x=1796116718;
         h=content-type:cc:to:from:subject:message-id:in-reply-to:date
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to:content-type;
         bh=TaIwWCMx9I6oV4SxjMTi3a+08EIvzGByLCSnN8rdvdA=;
-        b=n6n6kHIVMe4e+5d5HBVN8WNwEli+nl2boqQSw5Zc+tBQRQDHmJx5wwDxF0zwHXqqOR
-         Zfv9kjqJ0QXxwRRDBBAG/PjX1mQ+ezHUi+va6N6KKIk16BudJnSIk3TA98ZDciF2s+4s
-         pMfv1YZwtWemjtFqnrlbfGCxJRRCm2pClBKJc9CFsUhS2hSyM0SkwMtKGHQs+HRR8tar
-         DvKYSWohqjgmnwTVhmfS+e600aRoJ/Q41pQlvW5O1aqe7dFKrSI/GCM822qkb9Q4r6LD
-         Fxa4j6y7Us5MZjd2rtDB5OeMb/dl4F4k52Tknb2t2yb3Xp+hoPGWVQhX7fxM5pnqrp9/
-         33Jg==
-X-Forwarded-Encrypted: i=1; AL+hErHSOvrj+DvuAwRPE3yfn/dkJS2R68ZqUrGcVdg62u0K5A15/cXzMx+2GEHvcquU51PJe6QWrVMk8267ZnY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+U9aJxNvOqDatq1cJfzBShu0aFva2HIFPZ9yEhV9sKYKaGluKZ
-	W4JlB9btiuHJWaxJ4NuO1xuet5zR42hi3qiZZiruf04W8U75Z65Xgv8Id4KtsTtWisEKyC7Zcyo
-	yphFe2cGOoNYmGibdN+X4Ol63y9NEQK39nTEos9PntEZxkCAWeAjQ105umxo=
+        b=rH83Ov4guSNXVO8A0TfZwd5KXE1zdAIFSDFt5pD0lMakyqgHY8LtYwFstta3nXE3CF
+         T9IBgE/+a1g0/U0fxA62vJULem2+kye/++eTAQfXVtAgyfkXiu4p3ZJNFfzj0Jsm1P/f
+         YwnKiRy5Dv1fwakZ5kZBS58SqyIkdxSdIbsDZf5LM+0IfPsSbbowcNdPmqoo3PYe2/2l
+         go4j0sqkQnwHnCVv6Aquh3jjFpC3t0HXaziwgkOS+KFhrFTyPNoDGR6DEF/U3SyZgjkX
+         rjxk7v6qcQ0kQTr3Ddmp7gMQ2oeKX98Z/kNz0OpLdawh2o+el9BWJCI+8l9/qnEP3lhT
+         lzTw==
+X-Forwarded-Encrypted: i=1; AL+hErFDF/x5CG/YoK7d/EOOEw+E3s0qoY1X9wmYS8XJAgL/MT30PQOqh+XsyQGrIcQa3pgZyqjWuz5SB4HRx8o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ioL2yYx1OibnhxnKmnH7mnQP8ZX0RQJ6faxWVMDySgcneynHh
+	WnQvuKhuJxgcPcWHn4JEPrbQsawFgV3u7mUb16MCUyDQCTAf2rY+Fgz71fuPyZC+0fQXrzbyHRE
+	QYDutKRG9tdkSt7hOfyluw/34udu5V9vqWdJS9Z4ebmHkw6onB3STW3AdYVw=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,14 +58,14 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:1711:b0:573:8745:a98a with SMTP id
- 5614622812f47-579789ced5amr11430888b6e.1.1795511910410; Tue, 24 Nov 2026
- 01:18:30 -0800 (PST)
-Date: Tue, 24 Nov 2026 01:18:30 -0800
-In-Reply-To: <20261124091825.2275478-1-hanzhijian1991@gmail.com>
+X-Received: by 2002:a05:6808:1310:b0:573:d802:fb0 with SMTP id
+ 5614622812f47-57a09504ab8mr14368983b6e.13.1795511918118; Tue, 24 Nov 2026
+ 01:18:38 -0800 (PST)
+Date: Tue, 24 Nov 2026 01:18:38 -0800
+In-Reply-To: <20261124091833.2275524-1-hanzhijian1991@gmail.com>
 X-Google-Appengine-App-Id: s~syzkaller
 X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b055666.71deaa98.2984e6.0016.GAE@google.com>
+Message-ID: <6b05566e.58b41460.7037.0592.GAE@google.com>
 Subject: Re: [PATCH] usb: gadget: raw_gadget: fix ep0 request leak on unbind
 From: syzbot <syzbot+d83b3c49738aea97c0e5@syzkaller.appspotmail.com>
 To: hanzhijian1991@gmail.com
