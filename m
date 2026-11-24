@@ -1,124 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795522815;
-	b=I0uhEfcWb3CShMaTS7TiRJaYizJOBZ7wYQzivopSE9yUk+yFgd1IS+qI/V91oYWYMPKq
-	 fsGnha8lqbAS24DwAyZz49AVsmLJBJUMJqk+Pz7A8tj/s9HP0JV6CQaRYVYE3x0b8Qrfa
-	 WGDTHpxevBHGRS6s4QLi86uNvkKE0UpFZaeEI5vKo+v1ATmcaZfb/mi3MI99aqORuCvxr
-	 9/rACAi8UE8DBaR1OH2rb/tRGmBz3LGcQfeSJX+Oo903y869wV7Jw2NE9PeXX4IXqppaI
-	 JeWCkH9KBVUG66QdXIsprPvUaAf2VyET4zLhPJchL++BqhE+MxESKca8Qw7uAJ3DJog==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795522815;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
-	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Cc:Content-Type:Content-Transfer-Encoding:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=6w6rwfse9tuUNMr61NQQ8PmXyuTsSpVSaitZotsL9z0=;
-	b=W+BXmxa9ZsRhxNaos216JlPm2z1NnPYvLcIkDs6yd5sRzSOLPX3TmxF6ebHBrCh/GOdL
-	 9nbGbNsr3y5MG76fueXT0qRnLFzSINdmo0V3AThewQkrCGpa8VVrk+SQ9WDNirB3V+dmr
-	 LMAecPu9J2tQQOm6TxnSoLw6Y4Q1cO27uVXuvEm+CNplEu2qCqlysl3+zEd4x4gclLVly
-	 UEUvzBZnjxfK+B/KfUVXxSE3RX2nX01GzWyuTGTy9VQoKsFl9Kh17r0yFFNZiIdwj5Qto
-	 L25BINxZX+tqWPlcFNaZZ1OVXuPPCEC9767jYVwxnjeMGETDXn6dlpyEU4eV8avceBQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Kov+r1Qf;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Uq3T142L;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795522825;
+	b=D5jfuT+9D5LaBXUOkYWI3F0weQBk69Ptr/MYHV5VBhcwt0T6wdO6PZcs43oQg6cHLJuz
+	 fU5TtyWmS8BXp4Bh3oCyKgLLYCFHTf4gPa3LBXPZArGE/WACu28V+prHlpSPiVvAtGLFB
+	 jMarxWjkMlO58hLzSoRtTBbi/OMfW4Zy1y/oIf4PnS7RDP0woEWyidSLmyluWtn3i2xGY
+	 /rKjjyFtegEt5sb3ox6sedF5mA/r13OczPt7WuBOjbnJ6aPm3U44RmXMToXgKstU+Fbxv
+	 j9IJCt+p5qPNBLsLDP2BAQqnPPaQpSnUad21VQqfk8RZBJoY62PpFj1r2WjgWS+vbzg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795522825;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=jRmyV/mgccMwa5dA9dJDObsBJXz4w6vmH9HA/EQIW8s=;
+	b=iuds5o/ySZrN55voNlPBWJi8PcwTgjUfHapOB0xPg0Pway1qR+mkpOsh2fjsqXtRI8Ef
+	 4sMpJf+m59PrD8YGA0Yqa11kBerrRP/Vql59qoaXKesO9N0I3A8C1XBJPjtyYBSr+jIvg
+	 jfYrhKq8AmvGrY0eSkwHKG4LAK6Z0XKRt6GJYtkqwMon/qGhRfuf1riqkyIDmER6WEQT5
+	 o6mmvZtPM0JseXPTKsRZ/iKL0xsgn0mDNJi0Lm3mYvDwQHlSRXq+oUs71vQvsriDrZ/qF
+	 27GWNDq5WBbv+TC2LIFJsF4cfmHBpScKVIhwcaivVHF0SFfgvj2zFItRv05T/iHZp2w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RGVzLAe7;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 946C5606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:20:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 946C5606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5003606A322;
+	Tue, 24 Nov 2026 12:20:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Kov+r1Qf;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Uq3T142L
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOAusSv749660
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:20:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	6w6rwfse9tuUNMr61NQQ8PmXyuTsSpVSaitZotsL9z0=; b=Kov+r1QftyYH8jVC
-	ajyBFw9xfcFUWym0xUhvCQugPqW5GDZBQ4reTqVxtrPbxtaKIINvSY8i99njlFcW
-	5LVYJ6JhL3eQOO2YJ6/mnqS5aSZOIuk9GpdEl40tWAGYCGzuKAzOhNKcWHSo8khg
-	VTLQ/hIT23fABK8PwKqDcvyDnyOmEsRM1WgGFKr+R/62ytzjLgwe4HXL/tlSJ1j6
-	KshTRS1ofmHvR15Sjr8pUsmpbQk9j+8Rj1lmdpEXw9BnxwVs9P/ZTMBor4nVdKoy
-	w3uuBcbZcOHbmz6xGhK3kgmxPrfezM/8CWz0vK+pspCoqcQNxOrIldAlM/wbM3sA
-	HC+KnA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4yvb2nmg-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:20:13 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93f3969a2a7so662970085a.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:20:13 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795522813; cv=none;
-        d=google.com; s=arc-20260327;
-        b=pO+AZz25Q5t69QlZXDaUULpb7Q+tkma51KsVB8wNf7y1nqWcB6bR0WoSOXB02MC+kV
-         t4vTj3pHBf49HwZlRrE2cCNt2UbhWLN8CPEq3uE65IlAdawYbblSeCI7dCXY8Vx/nlWs
-         qOF45nepxBYUIJiOGnB3M9E+UjT2iFK4xoL9KBM0AsUqIoiksyVQ/DxB+6I28kbKMGiZ
-         UN9fJ/hFRHnfoG7p14oOwYzJXgMdQrJQ4k9B/Ao7sxGijCYvW+boHL8gEVGjDlYmEzhO
-         U4TcGEAuje/ri+NpqRyBgoEx6sKiDGrVWxOxKipg1uQajggNJSeCrLP3DpOowGmsoOEs
-         PJIA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=6w6rwfse9tuUNMr61NQQ8PmXyuTsSpVSaitZotsL9z0=;
-        fh=g8MNlH9sk7+QTwGPFBOUwx2zNrcYyz/hma2kpmOM/do=;
-        b=dwHAklDtPowITOW6d/Ud3J8Pvg5FTWu7rIK5wP5dskYNv+33Vd/hmO0D2euXgEadtN
-         FMlIeuEm39N+U6gLx3niICu2lIYtyDwf/ZobBjMNNfAmc0VsKccyg42B5fdObjrZjpEn
-         /XKZ01iE+p7BFV131/3zT+yIl8Ym5BZrj+VMlbY7xxlMZbm8djpKNoa+F0xUsjTqbcqC
-         UpOe9EHKnzFf8xVzdgcORxCM0b9GX1c7YGbe54v+FeC4Ik72rMuor6qbI5x9nKUZ3Is7
-         1ra7EFDmejtifHp284ewHFqKyMEdtGx3ypATkVNa2G8ebvgTyg3uNFIW60Y65e1ndn3k
-         uh+A==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795522813; x=1796127613; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=6w6rwfse9tuUNMr61NQQ8PmXyuTsSpVSaitZotsL9z0=;
-        b=Uq3T142LKQPjbCOfDd1a+BjmbQgQ4kQXDVsgVmy2CSd5ubQX1Ez48OkbtTNIq/0DKU
-         jWyuA13VUhJoJyC6l1QsqDLsimjb5OcmRFwQtNMxHrnU9ZAHwrdIgiby+gWR9OmqaOVv
-         KqL00C4VqSe1/Xbxg/9qZgHFBiv/D6YOkQ8XQ29kmFWS7149Wxqd2D82JV0x1Js1bGm4
-         PGTNu8rd2DiPR3XdgHfaFVAkGzyoAGjkTshnXhShmAa5xmhA6lf+XRZqbC3ocRw/wsfO
-         r3v+Twnlo6Un8B+XRXqnu3IO+4ffamrsUHPYxUjpsRt+ek6tgZIbxL7r5OOSEiWq5i1v
-         hCNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795522813; x=1796127613;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6w6rwfse9tuUNMr61NQQ8PmXyuTsSpVSaitZotsL9z0=;
-        b=D1U/iBRApbADL8B/cSHjgwg+xYi5btyn8hJB2uC6aft2AjXkILMkRNzNZ9DGpNzyd1
-         ea9+mOMnBwVLh7KcIk0q4ZWdg7AJENKPPdi8ZTXJ7Gowu0yCTR3YiZMqJHav/BI0IQ30
-         eS+YdBTLS/1LPiPl4ktL7CKMl1FuA76NKp5jvqmDYYIiJVVUm6DPWRtArmgS9b2Rckw3
-         eMDFANOs/JuFj6rZVpMLzLIV6BVecAFdS+XDv9qoS9ifcQPeMbc0AQAarI2KOnflZ84w
-         gyzMSCsnl2KAG26ejx+2yc2i/t7PZoJY8wUw+RWYcoXMyXm7PUIMsNlOo7DJyl11CiCO
-         oYuQ==
-X-Forwarded-Encrypted: i=1; AL+hErHn5QmBpxZGdANVbJjrxC+VD2LoM+jmuMbydDzKIsVxBCizzvUs2rSZrjliFU8zNQ7hRJxwmk7srKFB8YI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ThQHNxnhlkRwoKWNPFSu8QpwyVJL9tK5EekDCkYANAvUxdXK2
-	id+VKcQ5lsoRe1n2lsVFx3Bvn4m5zRAoETlWxbq9S7+wAiVcC2gF2LeT4hMVDWNrKghf1+diQS2
-	7MeCOmRHzkF1p/7vXNCsxam62F1425grFsnqlPOeh0BtpgWs8QJjB9FCaE+xWskwXDkZ8chOc0O
-	3hsbWUZyk4LSZx8GF3q5RqW3Q1qRTQdpYUjvKxkoczag==
-X-Gm-Gg: AZFdTZfXcZmbhWZLo0aGeNCx6+iTb7yn7pSPP7FzNXwAHqHUOYBblaPnEfy8bLAd9Mz
-	p2EQacHH5LN5J7URqN8/gXSzjoKhXnorwu/gySg76u+rHXKK95s8lR19RB3+idogAuRgWsNcJlk
-	TX45yjKBDy8dQvGHdTX0l4+EcIejZks5gdlMYuUaB1FwTFFzWYYcDIY3UnxzfESF4HzdoScuT1H
-	b3kxzHbLpNPNt7MgodJMzV42R1njwV5HVXU6c722gQII0x8aGa+B/ndMwIeM9tEITe80pUSH5s=
-X-Received: by 2002:a05:620a:6c88:b0:949:3644:edc0 with SMTP id af79cd13be357-949ba9c6825mr2317508085a.17.1795522812716;
-        Tue, 24 Nov 2026 04:20:12 -0800 (PST)
-X-Received: by 2002:a05:620a:6c88:b0:949:3644:edc0 with SMTP id
- af79cd13be357-949ba9c6825mr2317501185a.17.1795522812198; Tue, 24 Nov 2026
- 04:20:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RGVzLAe7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CACC1F000D0;
+	Tue, 24 Nov 2026 12:20:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795522824;
+	bh=jRmyV/mgccMwa5dA9dJDObsBJXz4w6vmH9HA/EQIW8s=;
+	h=From:Subject:Date:To:Cc;
+	b=RGVzLAe7JYRwzPM6fbg+qrWGGBotlHhJgrMb5JBrqTZsNu5Zokba0ewrRkXvc+5qS
+	 z20oAP/FiG1igDusybCgNhFpBNgOjOvI5fV7uv0LUGqmbsmQLZ0e2IMOgpsgAyIQHJ
+	 8ogvhlfq+nrB/W3SYjFHaG89U9P6kEGvn6PHr5G7fMV2AEp0n5X3ujmdJQJFZSwZhB
+	 XCFEeyvmETXSh1dSQXeVimTWIU/E2LckYhgrp1YyXD3IZq5OdJWqg2zKASm6G0ZeGh
+	 0Xaouda7S9cnz23uRbkq6kqaqHiVFOXi/SdJt54c0RTrGznKSqJ7REZocClg0SDJsF
+	 vJyEKlfqswo2g==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Subject: [PATCH v6 0/7] kbuild: significantly speed up kernel builds
+Date: Tue, 24 Nov 2026 12:20:10 +0000
+Message-Id: <20261124-build-speedup-v6-0-141a4f861c67@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,99 +53,499 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123-camss-hw-ts-v1-0-7b62dda6d7a9@oss.qualcomm.com>
- <20261123-camss-hw-ts-v1-3-7b62dda6d7a9@oss.qualcomm.com> <c7fc67a6-e15f-40df-9c0a-7eae54e99d23@linaro.org>
-In-Reply-To: <c7fc67a6-e15f-40df-9c0a-7eae54e99d23@linaro.org>
-From: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Date: Tue, 24 Nov 2026 13:20:00 +0100
-X-Gm-Features: Aa3M54pX1s8pai2gj6XcjiFfq8IfONplkCIxIiTV-7ktwGrAeuzyti2xMDsPav8
-Message-ID: <CAFEp6-1otVCjNJgWLTiOMQpdy1t4qJUP6_NK0CuifrN+cOTTcA@mail.gmail.com>
-Subject: Re: [PATCH 3/6] media: qcom: camss: csid-340: Report the hardware SOF timestamp
-To: "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Authority-Analysis: v=2.4 cv=aJ1lOr9m c=1 sm=1 tr=0 ts=6b0580fd cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=ZpdpYltYx_vBUK5n70dp:22 a=KKAkSRfTAAAA:8 a=ifR-Ftivm_Zkcip0b6QA:9
- a=0bXxn9q0MV6snEgNplNhOjQmxlI=:19 a=QEXdDO2ut3YA:10 a=bTQJ7kPSJx9SKPbeHEYW:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-ORIG-GUID: 5y5a5TJzBTtppSjFoh-LkuMNuS5_nfGK
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA0NyBTYWx0ZWRfX1P0PttMxsurW
- f/p17fShYTAGu8HN1gO1JowEmQ9xAUbBxtLHuy4Umg0XkdmA+nREsbnua4jvW1C8qfJL8FqyDa7
- XyyG9MU7h8cDQlb9SSpkUo1J5upmwhQ=
-X-Proofpoint-GUID: 5y5a5TJzBTtppSjFoh-LkuMNuS5_nfGK
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA0NyBTYWx0ZWRfX4G+Py2Myicyt
- pKPfyjFD8Mv6V+KDf3eWE75xAQeMpjKQGmxC2w0lxezS7GVWd7B9+Gd1GFJNBogmphLbDeKiw7s
- 266JNwd9T1OTKGxPwDugjtucqKthIAPgofcc7AAWnF1aRNwO15nUr3k6l439hQdubTZFPbThFMM
- AlphjoZdG+JifaYdXFWnJTOY5AgUNIgmErxd5kusUgozUdcZakq1uEnwXu9zsiCPoi/eKIsSSdU
- /rRjVLU4+IuSTfMekrmc0Rq9k3pYVrcRTFfhJ0NmQj7VKXDmMaYhot6tO7FVg9cIbfdeZ8rM72e
- lSatO39p+Bo6/mJwARsftcKghWFdeN95AuVg3CYAN5maycQsXTO4bOp8LuOeumbWKF/4Uq/dANz
- YC3gKPqS2PXIttbNakS8l2Y/h4xeXnIGFUKItF8S5z4U7LWms5O4Dl4tST8V0r2dBb/mk7wgrkW
- o3EBnijQ14FJP1ueoog==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_02,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 clxscore=1015 priorityscore=1501 malwarescore=0
- adultscore=0 bulkscore=0 suspectscore=0 impostorscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240047
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/2XQ3W7CMAwF4Fepco2RnaS/V7zHxEWauJANKEvaa
+ BPqu0+l2sTaS0v+jq3zEJGD5yia7CECJx99fxNNVuwyYc/mdmLwTjSZkCgLrFFDO/qLg3hnduM
+ dZM5EBrFVDsUuE/fAnf965r0dlzmO7TvbYQ6ZN84+Dn34fh5MNO/9Zler7ESAkDtLxiIVpXSHD
+ w43vuz7cBJzeJIvnNavJQkIqq6oZJu7VqoNV6+8XHMFCDXbTlOhuk4VG65fuFRrrgGhVCSrCmu
+ jjd7w/I8TbXpNOSBgVyBVLVfO8D8+Lc0G/hx99MNSt2hNZLD99eqHJkvlXkOwJI7T9ANwLVI95
+ QEAAA==
+X-Change-ID: 20260904-build-speedup-25e11a00b3d0
+To: Linus Torvalds <torvalds@linux-foundation.org>, 
+ Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>, 
+ Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
+ Aaron Tomlin <atomlin@atomlin.com>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, 
+ Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Danilo Krummrich <dakr@kernel.org>, 
+ Daniel Almeida <daniel.almeida@collabora.com>, 
+ Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ Nicolas Schier <n.schier@fritz.com>, Kees Cook <kees@kernel.org>
+Cc: ljs@kernel.org, linux-kbuild@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+ linux-m68k@lists.linux-m68k.org, linux-modules@vger.kernel.org, 
+ rust-for-linux@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=21894; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=GSDCYQ1A5TOphcMSv9H3NNiGmykp8rl2SBzBm1wAhTs=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJZG/55Cj4paN7kqBJ9pipwqY9nl3lc+fbIFE/f/EPX5
+ 13+KKjcUcrCIMbFICumyPL8i/j+IJGweZ0X/N1g5rAygQxh4OIUgImUWTAyPPwS4jV3/5lsc5tU
+ O1WLsP9rWXuW2zw6msz3bIZa/CqTF4wM03JXn/qz9uU3jlMbhF4xVBkpiv3YfjTP9KfoeTZXxRo
+ GbgA=
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 
-On Tue, Nov 24, 2026 at 10:57=E2=80=AFAM Bryan O'Donoghue
-<bryan.odonoghue@linaro.org> wrote:
->
-> On 23/11/2026 17:16, Loic Poulain wrote:
-> > +static u64 __csid_sof_timestamp(struct csid_device *csid, enum csid_if=
-ace iface)
-> > +{
-> > +     u32 lo, hi;
-> > +
-> > +     /*
-> > +      * The pair is latched on SOF rather than counting, so it can be =
-read
-> > +      * one word at a time without tearing.
-> > +      */
-> > +     lo =3D readl_relaxed(csid->base + CSID_TIMESTAMP_CURR0_SOF(iface)=
-);
-> > +     hi =3D readl_relaxed(csid->base + CSID_TIMESTAMP_CURR1_SOF(iface)=
-);
-> > +
-> > +     return csid_timestamp_to_monotonic(csid, ((u64)hi << 32) | lo);
-> > +}
-> > +
-> >   static irqreturn_t csid_isr(int irq, void *dev)
-> >   {
-> >       struct csid_device *csid =3D dev;
-> > @@ -207,7 +234,7 @@ static irqreturn_t csid_isr(int irq, void *dev)
-> >               iface_val |=3D status;
-> >
-> >               if (status & CSID_IFACE_IRQ_INFO_INPUT_SOF)
-> > -                     csid_sof_event(csid, i, 0);
-> > +                     csid_sof_event(csid, i, __csid_sof_timestamp(csid=
-, iface));
-> >       }
->
-> I think a callback in csid_sof_event() might be cleaner or some other
-> way to not have to replicate all of __csid_sof_timestamp() for each CSI
-> decoder.
+A typical kernel build consists of a frustratingly large amount of time
+spent stuck in single-threaded bottlenecks.
 
-I added it as a parameter because it is provided in much the same way
-as the sequence number, given that the timestamp is directly related
-to and coupled with it. So it is not clearly obvious why the sequence
-number should be passed as a parameter while the timestamp should not.
+It turns out that there's a lot we can do about this and doing so
+significantly impacts kernel build times.
 
-So yes we could also introduce a hw_ops callback, but that would
-ultimately require replicating the implementation for each CSI decoder
-anyway, or having some semi-shared helpers.
+This series makes allmodconfig builds up to 36% faster, incremental builds
+up to ~70% faster, and noop builds up to ~90% faster.
 
-Regards,
-Loic
+Builds are faster across the board on every device I tested.
 
->
-> ---
-> bod
+Machines used for perf testing:
+
+* Threadripper -   x86, AMD Threadripper 9980X, 64 cores, 128 threads
+* EPYC         -   x86, 2 socket EPYC 9754, 256 cores, 512 threads
+* M2           - arm64, 2022 M2 macbook pro, 8 cores, 8 threads
+                        (4 perf, 4 efficiency)
+
+Cutting to the chase:
+
+		== IMPORTANT NOTE on dependencies/build configuration ==
+
+Performance numbers are based on a build which:
+
+* Is based on v7.4-rc1, which contains the first 11 patches of v4 (see
+  the Patches section).
+* Was measured with these series applied (neither are required, but do
+  shift the numbers by a few seconds):
+	https://lore.kernel.org/linux-modules/20260731-module_ver_remove-v2-0-c9163858f382@linuxfoundation.org/
+	https://lore.kernel.org/all/cover.1788899473.git.jpoimboe@kernel.org/
+* Includes objtool changes from v5 (or equivalent pending rewrites).
+* Runs `make KRUSTFLAGS=-Zthreads=8 -j $(nproc) ...`.
+* Runs with the pigz tool installed locally.
+
+		== allmodconfig FULL build ==
+
+                        before    after     delta
+                      ----------------------------------
+Threadripper, gcc       344.2s   278.6s    -65.6s (-19%)
+Threadripper, clang     342.6s   266.8s    -75.8s (-22%)
+EPYC, gcc               188.0s   121.1s    -66.9s (-36%)
+EPYC, clang             259.5s   184.6s    -74.9s (-29%)
+
+		== allmodconfig INCREMENTAL build ==
+
+                        before    after     delta
+                      ----------------------------------
+Threadripper, gcc        40.1s    15.4s    -24.7s (-62%)
+Threadripper, clang      40.3s    15.6s    -24.8s (-61%)
+EPYC, gcc                70.9s    24.3s    -46.6s (-66%)
+EPYC, clang              70.4s    24.3s    -46.1s (-65%)
+
+		== allmodconfig NO-OP build ==
+
+                        before    after     delta
+                      ----------------------------------
+Threadripper, gcc        15.3s     1.4s    -13.9s (-91%)
+Threadripper, clang      16.2s     1.8s    -14.4s (-89%)
+EPYC, gcc                30.6s     1.5s    -29.1s (-95%)
+EPYC, clang              32.3s     2.2s    -30.1s (-93%)
+
+		== defconfig FULL build ==
+
+                        before    after     delta
+                      ----------------------------------
+Threadripper, gcc        32.5s    26.3s     -6.1s (-19%)
+Threadripper, clang      34.5s    27.2s     -7.3s (-21%)
+EPYC, gcc                28.7s    20.6s     -8.1s (-28%)
+EPYC, clang              39.8s    32.2s     -7.6s (-19%)
+M2, gcc			564.7s   512.1s    -52.6s (-9%)
+M2, clang		615.1s   564.1s    -51.0s (-8%)
+
+		== defconfig INCREMENTAL build ==
+
+                        before    after     delta
+                      ----------------------------------
+Threadripper, gcc        11.2s     6.0s     -5.3s (-47%)
+Threadripper, clang      11.3s     5.4s     -5.9s (-52%)
+EPYC, gcc                18.6s     9.2s     -9.4s (-51%)
+EPYC, clang              19.6s     8.6s    -11.0s (-56%)
+M2, gcc                  18.0s     9.9s     -8.1s (-45%)
+M2, clang                18.1s     8.2s     -9.9s (-55%)
+
+		== defconfig NO-OP build ==
+
+                        before    after     delta
+                      ----------------------------------
+Threadripper, gcc         1.1s    0.60s    -0.50s (-45%)
+Threadripper, clang       1.3s    0.66s    -0.63s (-49%)
+EPYC, gcc                 1.7s    0.66s     -1.0s (-61%)
+EPYC, clang               2.0s    0.80s     -1.2s (-60%)
+M2, gcc                   6.4s     1.7s     -4.7s (-74%)
+M2, clang                 7.1s     1.7s     -5.4s (-76%)
+
+Further performance numbers are provided for each commit giving a sense of
+what each contributes to the final result.
+
+			== Testing ==
+
+Beyond x86, allmodconfig was built with the series for arm64, arm, riscv,
+powerpc64, s390 and loongarch, and for arm64, arm, s390 and loongarch the
+System.map is identical to what the previous shell mksysmap produces for
+the same vmlinux.
+
+Also tested were parisc64 and m68k build as far as mainline lets them
+(a driver's static assertion and an undefined-symbol check on parisc, gcc
+16 internal compiler errors on m68k, none of it from this series).
+
+Kernels for x86, arm64, arm, riscv, loongarch, powerpc64, s390, m68k and
+parisc64 all boot under qemu, every text symbol of System.map is in
+/proc/kallsyms at the relocated address, and a module loads and unloads.
+The s390, arm and loongarch kernels also pass the kallsyms selftest.
+
+An x86 kernel with CONFIG_MODVERSIONS, CONFIG_EXTENDED_MODVERSIONS and
+CONFIG_MODULE_SRCVERSION_ALL boots, loads and unloads modules. External
+modules build against both in-tree and O= builds, and every commit builds
+on x86 defconfig.
+
+Build times are the best of several runs, no unexpected errors or
+warnings were seen.
+
+While some aspects of the build process have been changed, all tooling
+should function identically to before.
+
+			== LLM usage ==
+
+An LLM was used to first determine where the bottlenecks were then to
+figure out how to improve them.
+
+It generated a lot of code, much of it hideous.
+
+I extensively audited and rewrote a lot of it, and heavily edited commit
+messages, the cover letter and comments.
+
+The LLM has also orchestrated build runs, testing, debugging and analysis.
+
+I have manually checked for correctness in both build and running kernels
+generated with this series applied.
+
+Performance improvements were also verified manually.
+
+			== What was changed? ==
+
+Fundamentally the series improves build times by parallelising
+single-threaded tasks as much as possible and improving the efficiency of
+code used in the build process.
+
+kbuild, kallsyms, modpost, mksysmap and the rust build system were all
+updated as part of this change.
+
+Nothing too controversial was included. There are further improvements that
+could be made, but they would either by very invasive (large scale C header
+changes) or generate diminishing returns.
+
+                        == Patches ==
+
+Patches marked [upstream] are already in v7.4-rc1. Those marked [dropped]
+have been taken over by Josh Poimboeuf, who will repost his rewrite.
+
+   kbuild:           [upstream] Make .modinfo an INFO section.
+
+   kallsyms:         [upstream] Some efficiency improvements through use of a
+                     cache.
+
+   sorttable:        [upstream] Parse nm output correctly, for the next patch.
+
+   kbuild:           [upstream] Don't sort nm output unnecessarily, do not
+                     include relocations in the kallsyms trial links.
+
+   elf-parse:        [upstream] Section flags, symbol binding and a read-only
+                     mapping, for the next patch.
+
+   kallsyms:         [upstream] Don't use nm, read the ELF symbol table
+                     directly.
+
+   kbuild (1, 2):    Implement a cache to track objects, check dependency
+                     timestamps more efficiently.
+
+   kbuild:           [upstream] Move the toolchain checks into their own
+                     Kconfig file.
+
+   kbuild:           [upstream] Probe compiler, linker flags once at top of
+                     build.
+
+   modpost (3):      Improve performance through use of a cache.
+
+   modules (4, 5):   Emit module descriptors as assembly (*.mod.S) rather
+                     than C (*.mod.c), reducing CPU seconds taken by 10x to
+                     perform the task. Also shard module finalisation
+                     rather than running 10's of thousands of tiny runs.
+
+   objtool:          [dropped] Replace reloc hash with a per-section index,
+                     size the instruction hash to the code rather than
+                     hard-code it, and decode large objects over multiple
+                     threads.
+
+   rust (6, 7):      Set correct dependencies and build crates in parallel
+                     with C code, retaining the requirement that rust/
+                     crates are built first.
+
+   kbuild:           [upstream] Default to using a parallel implementation of
+                     gzip (pigz) if available on the system.
+
+---
+v6:
+* Dropped the objtool patches (were 6-9/11) as per Josh, he will submit
+  a rewrite.
+* Updated 2/7 to build depcheck after fixdep, which its build rule runs, as
+  per Sashiko and Miguel.
+* Updated 2/7 to write each depcheck run's fragment to its own temporary
+  file, so two make instances in one directory cannot corrupt it, as per
+  Sashiko and Miguel.
+* Updated 2/7 to delete .depcheck.mk files from packaged external module
+  build trees, as per Sashiko.
+* Updated 4/7 to drop the unnecessary .previous directives from the .mod.S
+  output, as per Petr.
+
+v5:
+* Rebased onto v7.4-rc1, which contains the cc-option-str series, so that
+  is no longer a separate prerequisite.
+* Dropped the first 11 patches of v4, taken by Nathan for 7.4-rc1.
+* Dropped the Assisted-by: tags, as the kernel no longer uses them.
+* Updated 3/11 (was 13/22) to keep the section mismatch cache in struct
+  elf_info, alongside the existing symsearch cache, as per Petr.
+* Updated 3/11 (was 13/22) to name the destination section index
+  to_secndx in the cache helpers, as per Petr.
+* Updated 3/11 (was 13/22) to take the elf_info first in
+  get_section_mismatch() like the rest of modpost, as per Petr.
+* Updated 4/11 (was 14/22) to fold the ksymtab string and flag emitters
+  into add_asm_ksymtab(), as per Petr.
+* Updated 4/11 (was 14/22) to inline export_is_kept() at its only call
+  site, as per Petr.
+* Updated 4/11 (was 14/22) to drop a const qualifier on a local, as per
+  Petr.
+* Updated 4/11 (was 14/22) so the extended version name loop uses
+  skip_unversioned() rather than repeating its condition, as per Petr.
+* Updated 4/11 (was 14/22) to shorten the module-offsets.c comment, as per
+  Petr.
+* Updated 4/11 (was 14/22) to remove the now unused MODULE_ARCH_INIT from
+  include/linux/module.h and m68k, as per Petr.
+https://lore.kernel.org/r/20261104-build-speedup-v5-0-0f6018be8dae@kernel.org
+
+v4:
+* Added tags, thanks everybody!
+* Fixed broken m2 numbers in cover letter as per Linus.
+* Rebased onto 36d4a11b56aa as per Nathan, see
+  https://git.kernel.org/pub/scm/linux/kernel/git/kbuild/linux.git/commit/?id=36d4a11b56aa
+* Also rebased onto the cc-option-str series at
+  https://lore.kernel.org/linux-kbuild/20260919005923.i.879-kees@kernel.org/
+  as per Kees (impacts 12/22).
+* Updated cover letter to declare these dependencies.
+* Updated 1/22 to use /dev/null for objcopy output file, as per Kees.
+* Updated 1/22 so the .modinfo dump no longer picks up the arch's image
+  OBJCOPYFLAGS, as per Nicolas.
+* Updated 2/22 to define NR_TOKENS for token count as per Kees.
+* Updated 2/22 to Use ARRAY_SIZE() for token_profit iteration in
+  find_best_token() as per Kees.
+* Updated 2/22 to restore erroneously deleted comments as per Kees.
+* Added 4/22, fixing an already-existing sorttable bug that didn't matter
+  before but which the next patch can trigger in a problematic way, as
+  vaguely kinda-reported by Sashiko (incorrect analysis, but right to query
+  sorttable).
+* Updated 6/22 to add a comment noting that --emit-relocs comes from
+  link-vmlinux.sh, as per Kees.
+* Updated 7/22 to provide elf_open_ro()/elf_close() and struct elf_file, as
+  per Kees.
+* Updated 7/22 to also handle the section 0 overflow case (SHN_XINDEX, zero
+  e_shnum) in elf_open_ro() matching what sorttable does.
+* Updated 8/22 to lay out omit tables one entry per line, resurrecting
+  comments from the old mksysmap script, as per Kees.
+* Updated 8/22 to add sysmap_omit_patterns[] rather than open-coding, as
+  per Kees.
+* Updated 8/22 to check ferror() before closing System.map output,
+  as per Kees.
+* Updated 8/22 to grow the kallsyms table by doubling rather than in fixed
+  steps, as per Kees.
+* Updated 8/22 to use the elf_file helper in elf-parse rather than
+  open-coding it, as per Kees.
+* Updated 9/22 to reword the commit message to say the object state is
+  calculated rather than cached, as per Kees + Nicolas.
+* Updated 10/22 to zero depcheck's dependency entries on allocation, as per
+  Kees.
+* Updated 10/22 to never treat targets in the dependency list as fresh, so
+  that objects including a header regenerated in the same make run are
+  rebuilt in the same run, as per Kees.
+* Updated 10/22 so depcheck is not run for a non-existent directory/one
+  that doesn't have .cmd files. Came up in a private tree kernel robot run
+  for sh allnoconfig, as per kernel robot.
+* Updated 11/22 to put the toolchain Kconfig entries in
+  scripts/Kconfig.toolchain as per Kees, Nathan + Nicolas.
+* Updated 11/22 to add scripts/Kconfig.toolchain to the KCONFIG entry in
+  MAINTAINERS.
+* Updated 12/22 to use Kees's new [cc, ld]-option-str functionality as per
+  Kees and Nathan.
+* Updated 12/22 to check negative options using the positive form, as gcc
+  accepts unknown -Wno-xxx options without complaint, only warning later in
+  the build. Came up in a private tree kernel robot run for arc, parisc
+  randconfig's. As per kernel robot.
+* Updated 14/22 to emit each export's ksymtab entry and CRC in one walk, as
+  per Petr.
+* Updated 14/22 to fold extended version emitters into one function, as per
+  Petr.
+* Updated 14/22 to fold dependency collection into add_asm_depends(), as
+  per Petr.
+* Updated 14/22 to add a weak __this_module symbol to module-common.c so
+  debug info continues to be provided for it, as per Petr.
+* Updated 17/22 to split the DWARF skipping in objtool into its own commit,
+  as per Josh.
+* Updated 17/22 to index out-of-order relocations over a sorted order
+  rather than doing a linear scan, as per Josh.
+* Updated 19/22 to rebuild dropped relocation index under a lock as a
+  belts+braces measure (contention shouldn't actually happen).
+* Updated 21/22 to add rust as a dependency to rustdoc and rusttest, as per
+  kernel robot.
+* Updated 22/22 (was 20/20) to add pigz to scripts/ver_linux as per Manuel
+  (and previously I think Kees suggested it also? :)
+https://lore.kernel.org/r/20260923-build-speedup-v4-0-73128809a4a4@kernel.org
+
+v3:
+* Rebased on Linus's master branch.
+* Fixed link to Josh's series, which was wrongly pointing at a single
+  commit as per Andre (off-list).
+* Fixed typo in 11/20 (+ fixed a couple more), as per John.
+* Hardened depcheck in 9/20 against a .cmd file with an empty name as per
+  Sashiko.
+* Updated 14/20 so only the top-level make instance builds .module-common.o
+  the chunk instances treat it as a plain prerequisite, to prevent a child
+  accidentally building it as per Sashiko.
+* Updated 15/20 to drop the relocation hash altogether, building one
+  section at a time incrementally, falling back to linear scan for anything
+  out of order (not sure that'll ever happen though?) as per Josh, Linus.
+* Updated 17/20 to limit the parallelisation to the --link step only (in
+  practice - objtool's processing of vmlinux.o) + updated commit msg to
+  reflect, as per Kees.
+* Updated the commit message in 14/20 to give clearer rationales for the
+  batching of modfinal instances, as per Kees.
+* Dropped what was 18/21 - the rustc front end threading patch, as the
+  parallel flag name is still uncertain and a user can set
+  KRUSTFLAGS=-Zthreads=8 to get the behaviour without it. Also updated
+  cover letter pre-requisite section to mention this, as per Miguel.
+* Updated 19/20 (was 20/21) so modules_prepare no longer builds rust/
+  when a goal that builds the tree is also given, ensuring duplicate rust/
+  builds do not happen, as per Kees.
+* Updated 20/20 (was 21/21) to remove the reproducible build doc update,
+  as per Kees.
+* Updated 20/20 (was 21/21) to have pigz use the make job server and to
+  define a specific kernel build variable for this - KPGZIP - also fold
+  in a further suggestion which eliminates a wrapper script, as per Kees.
+https://lore.kernel.org/r/20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org
+
+v2:
+* Rebased on Linus's master branch.
+* Removed the first 2 fix patches as they have been taken to upstream in
+  commit 281b61d408d4 ("scripts/mksysmap: drop the MODULE_INFO() symbols
+  from kallsyms") and commit 59351365ac27 ("scripts/mksysmap: fix escape of
+  '$' in the __pi_ pattern") - thanks Nicolas!
+* Fixed patch 3/21 (previously 4/23) to check error on close via ferror()
+  and fclose() as per David Laight.
+* Updated 21/21 to not use threads for modules, only for vmlinux, and
+  updated docs to reflect this.
+* Dropped patches (as was) 13 and 17 as the equivalent work is being
+  performed upstream:
+  https://lore.kernel.org/linux-modules/20260731-module_ver_remove-v2-0-c9163858f382@linuxfoundation.org/
+* Updated the cover letter to mention the dependency on this series for
+  perf numbers.
+* Fixed various typos.
+* Checked all of the hallucinated sashiko reports. Replied inline to emails
+  to keep a record of them but not going to repeat here, unless people want
+  a list.
+* Fixed up 9/21 (was 11/23) to fix the bit of sashiko's report that wasn't
+  hallucinated - check ferror() to bring depcheck in line with fixdep and
+  kallsyms.
+* Fixed up patch 13/21 (was 15/23) to emit the __this_module fields in
+  offset order to handle CONFIG_RANDSTRUCT as per Sashiko.
+* Fixed up patch 19/23 (now 17/21) to resolve various races. Sashiko
+  hallucinated a lot of the report, and missed some stuff thread sanitizer
+  found. Resolve call destinations serially to resolve most of the valid
+  stuff and add a lock around pv_ops, and instruction hash freed
+  properly. Tested and confirmed resolved locally, as per Sashiko.
+* Fixed up patch 20/21 (was 22/23) to only build rust/ when modules_prepare
+  is one of several make goals, rather than the only one. This matches the
+  rest of the Makefile's behaviour on this and ensures rust components are
+  built if multiple build choices are passed to make, as per Sashiko.
+* Fixed up patch 5/21 (was 6/23) to test CONFIG_ARCH_VMLINUX_NEEDS_RELOCS
+  directly in link-vmlinux.sh rather than plumbing a var through, for a far
+  smaller patch as per Nathan.
+* Moved patch 1/21 (was 9/23) to the front of the series and dropped two
+  comments, as per Nathan, so it can go in ahead of the rest.
+* Added patch 10/21 moving the existing toolchain checks out of
+  init/Kconfig into init/Kconfig.toolchain, as per Nathan, with 11/21
+  adding to it.
+* In 11/21 (previously 12/23) Moved -fno-stack-clash-protection back to
+  the Makefile to fix an issue with ppc32 as per Nathan.
+* Updated patch 15/21 (was 18/23) to drop the dead end cache as Josh has
+  one in his noreturn series:
+  https://lore.kernel.org/9d4b8ccfed745ac47a954aa2e1de62a85197122d.1788899473.git.jpoimboe@kernel.org
+* Also updated patch 15/21 (was 18/23) to hash relocation sections objtool
+  creates itself and moved cache-to-hash copy into elf_create_reloc(), as
+  per Josh.
+* Split the instruction hash sizing out of patch 17/21 (was 19/23) into its
+  own patch 16/21, as per Josh.
+* Made the rustc parallel front end opt-in in patch 18/21 (was 20/23) via
+  KBUILD_RUST_THREADS, as its output is not yet reproducible, and dropped
+  the probe for the planned -j flag, as per Björn, Miguel and Nicolas.
+* Tested changes to ensure any flagged issues were resolved and that
+  nothing broke.
+* Did a re-run of profiling numbers to reflect changes and updated cover
+  letter and commit messages.
+https://lore.kernel.org/r/20260914-build-speedup-v2-0-39817ec5db23@kernel.org
+
+v1:
+https://lore.kernel.org/r/20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org
+
+---
+Lorenzo Stoakes (ARM) (7):
+      kbuild: calculate list, composite object state per object
+      kbuild: implement and use depcheck to check dependency timestamps
+      modpost: cache section relocation mismatch state
+      modpost: emit module descriptors as assembly
+      kbuild: batch module finalisation
+      rust: make exports.o depend on the headers generated for it
+      kbuild: build rust crates in parallel with the rest of the build
+
+ .gitignore                           |   1 +
+ Kbuild                               |   5 +
+ Makefile                             |  22 +-
+ arch/m68k/include/asm/module.h       |   6 -
+ include/linux/module.h               |   3 -
+ include/linux/vermagic.h             |   2 +-
+ rust/Makefile                        |   5 +
+ scripts/Makefile.build               |  28 +-
+ scripts/Makefile.lib                 |   7 +-
+ scripts/Makefile.modfinal            |  40 ++-
+ scripts/Makefile.modpost             |   2 +-
+ scripts/basic/.gitignore             |   1 +
+ scripts/basic/Makefile               |   5 +-
+ scripts/basic/depcheck.c             | 492 ++++++++++++++++++++++++++
+ scripts/mod/.gitignore               |   1 +
+ scripts/mod/Makefile                 |   8 +
+ scripts/mod/modpost.c                | 645 ++++++++++++++++++++++++++---------
+ scripts/mod/modpost.h                |   8 +
+ scripts/mod/module-offsets.c         |  32 ++
+ scripts/module-common.c              |   3 +
+ scripts/package/install-extmod-build |   2 +-
+ scripts/tags.sh                      |   5 +-
+ 22 files changed, 1127 insertions(+), 196 deletions(-)
+---
+base-commit: bc71431221f5ba8bb33918399552636e059c2c45
+change-id: 20260904-build-speedup-25e11a00b3d0
+
+Cheers,
+-- 
+Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
