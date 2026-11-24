@@ -1,80 +1,151 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.38
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795540494;
-	b=PzNgrNXHHQpJs1P5oNRiyAUr1PXLvvVSyM+jKfZRApjMoF7S6zIrpEK2PiqBH0NXe7zV
-	 rmiGJIV+/kFxm2c9dJc8KSRjvkOP+UGSnCQ4+gdaXy25itigd2BnPhQpXNzgDhgsvzQSt
-	 9Jq98tc/gmgw3aMSt+hPy2yaEEowmTT6lubOGgNMJDu6cxC+EVcaeqn88pc5X/qB/7BBj
-	 tLPh8rPgjiDuFiGOQ0qnxAvHiaCi23/PeKQX4ldAGyc15g5ARPZpbkD+lBF9gC0QhZbAB
-	 uxPXIQFiql/TUk8FA+Cxw6KXMGS+hyjb5tz0u11yL9OBN3xVpW9uL79Zapm6hyI+PNg==
+	t=1795540569;
+	b=YQnu5KP6Di2QAh7f6WtREf5uU0UVSvj4kwT4ZMbsedWoWUTzPWKLFK0UQG2w7Kp55W+0
+	 lWyIOlQkh+Me9LGiFgON8sXkBp04ti9CF5pXdsZcv6CdcTY0tOhOmgDT/4XNGbwqvyyjk
+	 S3WzG+5gCgVYQbKExnMsa/dJXIw6SZLGL0smECGMbyYjBQIs+A4kcsTAuf2sd16spwITz
+	 SjT6IUTNnr16g1WIxWbsUelgB+mBnmWbAD6iMBSptikUTGzyy8pCSjjKPTxhGQHd+fUaT
+	 BQPTl77yff25JM4atJDguEwhqe1J0DMX1OLcJToGscwXbuzLPFi6bdQBr/RUMQxtyxw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540494;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=zeFv3YDJfMWmLnU3xbVv+JbHwMFIw8/a+m/T2fCIkx8=;
-	b=f8c0QHKISsLGqc/qqHdjYD/X4GYY1v4y0zJ7zxvPXVI4UNgNTkyY0Tj+wr+onA/rpcFX
-	 q+nMv9VQhj2TfG1gpynmUU5e/y/AJ3c+x7gQE+Ic+YzHXbsOSZdlaUBdK7Drfl4iGYx9w
-	 Od/IqvOQ+uOdHQz54i5nrCS/TG6PKPqUH9b2oyHEqeeNjpeyBsvbLRIZlDdm7oGfbjZnl
-	 M5VpZ5ATq8OlO7UWQdKa/lrRzxX2sDYGFymE4ZC6J4NNnQ+eMhnv/Cii8ZSWUvTcT1WNM
-	 KEanX+k7y3+OFxahqSh1E8GstpOJ1qBSm2bSXU9krrlIg/6nGbJZ5pNbaRNm06yavWw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540569;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:
+	 x-ms-exchange-atpmessageproperties:x-etr-sdm:
+	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
+	 x-microsoft-antispam:x-microsoft-antispam-message-info:
+	 x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=cwXxQ7rOxRZ3jme9zJax/5w1jH6p7RkYA3JynHsPBGM=;
+	b=EwFUcc1a4yye0luYJmpMNAsrJO233qbN2UZrl+Hale45YvJhgs5tygwlQViM5wH0d2Lt
+	 qQkeR6QtTqjlPOz/gz9E4KYoxK+mSVZL9w/5J8PQdx926r0UYVTkhhz/m8J5r+AiGxNuj
+	 8nBDfym9+L/SMRwgKdo6q341wjFNZMe8Qhp5m/vwc8SrwcGR0TK+OLrhmF24KcDkTwFi1
+	 1QF/CalYZG8uovaV8D3RNEsvTnIFM7UnieqIBc5oItqeX5vq0/hlZSOzhe6BPE9cvevcc
+	 8l11VKH+QbvsbvBdbRXhjm43zy9S95lgPwTwqdK4A3OD/ZAUWss4zYGdudMwYHhklpQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A7jem7i6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=solidigm.com;
+	spf=fail smtp.mailfrom=solidigm.com;
+	dkim=pass header.d=solidigm.com header.i=@solidigm.com header.a=rsa-sha256 header.s=selector2 header.b=acwE7pRd;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.38
+Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010038.outbound.protection.outlook.com [52.101.85.38])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FA41606A681;
-	Tue, 24 Nov 2026 17:14:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52083606A31E;
+	Tue, 24 Nov 2026 17:16:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52083606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=solidigm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=solidigm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A7jem7i6
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795540493;
-	b=O3hqYPKxcbQXa6WGxVV2B7+ibZX5adpS28gQ8PCQfCOqZlhtixTUi02X0m/mfpOVjyxj
-	 aM0Yt3Kq9whH50YLSF4bAB3aY2OGHACDmquPQn58B2b63+5ktQeo+XP6q0uWStbhyZImS
-	 AFnrWHGIAFqajZcGabtDGm2iEKFX0QTiiz7U3jt30nPF8f2e5bgk9TDvofaeN8N7nVnqg
-	 u2Mch3MvrmKhGHty934cIv44V2V9O04NBV5YZ0xf8JS68AoBhYGi14UxORLDq2oAqCm2P
-	 KweUg9NnKEcTKQjbAPF2j0VHL9Gj67Pe3bgUgfAh75Ed0uM0WHLY66ewyLN7zujqaVQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795540493;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=zeFv3YDJfMWmLnU3xbVv+JbHwMFIw8/a+m/T2fCIkx8=;
-	b=OahNUKNPGvhUVYiRhY4hWIjeSyK0017RdePtabIb7bTsMQBNQKRgBcdtGMXSnHFgUaA4
-	 PXR99LE2izGrm+as/mFn/ft3L2r1vfK9HOgzMIbqr+1VkeBX3gYDE4986q87CDdJn2Y9S
-	 Lg0srKhwhaZBHbkx8BHP6kxaiPpvbycuOjCB3k8QsZ86MGYwbHsdIw0UKqSpJ3jNlzruG
-	 HyQQ9Zgf+bBcyxxiG0K1F9f+egySfaKjb+S3JCkIxhjcsoLXcFmXpdkFEQgU7dDSNFi0V
-	 MO1UNjoMT42wzZ4FXOeqae5qVPOZb7x1ohO8zZZ9XCo+1Wf8V5c9Tx9Lx2eEeg37dbQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 0CB151F0156C;
-	Tue, 24 Nov 2026 17:14:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795540493;
-	bh=zeFv3YDJfMWmLnU3xbVv+JbHwMFIw8/a+m/T2fCIkx8=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=A7jem7i6NptkftQfow6gd6tXMsuMEjy3Antte9+jtomGq1Epd7tsKnkX3ktfT4pt5
-	 nZNknLP0S9lT4GKAlnBWdqAF6uZ+vO/aOs/DqpZcpoIOL/DWf8LPh6lZ07NIN2DBQj
-	 MyIGAzUuMjASxx3+JrgQwgSTQC9bO2IWQtENfU5HMd42in3sUa8JItaUBwiZteziAl
-	 Srhmu56wi8tFNeU5YDmYfnH61nNAXwQmMcgNWr21vzy+kcvdDhP1VKgjEQb5imRhbp
-	 ThjwGN7xpjSypvACTuFXtDAoAKum6uHaeeDhgsSmQCZIHmhpErVBzeXRqS5J6v/nYc
-	 D/K8KNv5YzCZg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 60A524CAFE;
-	Tue, 24 Nov 2026 17:14:35 +0000 (UTC)
-From: Umer Uddin via B4 Relay <devnull+umer.uddin.mentallysanemainliners.org@kernel.org>
-Subject: [PATCH v2 0/2] Add USB support for Exynos7885 and enable USB and
- FG on gta3xllte
-Date: Tue, 24 Nov 2026 17:14:31 +0000
-Message-Id: <20261124-gta3xllte-usb-battery-v2-0-80bdcb1753bb@mentallysanemainliners.org>
+	dkim=pass (2048-bit key, unprotected) header.d=solidigm.com header.i=@solidigm.com header.a=rsa-sha256 header.s=selector2 header.b=acwE7pRd
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aR0x68WXAdTFbQnzVm5jAWpi/Nya7KVpqMjOKdrIp8LtJbHO9LPZjf5Be0QHv30mbleTU5jElKlN7Xz4jplfPRYwMKZPU5OQ9TS4hTlq42DtbEIf+qMjSTfhTCvpbyEoOE0KB5IBTpA6SrCR3GWRt9cMc96kuGyi5vmx6lbu80zd88zdxFHLAEmYyMTMZCWk4/gvPbzfoJl8bp5A4eHsFiigdW1Xz+JnUGnoLiwl+JkuDYxLfNR5Fbr7AIptglnM9Ewpgov0H6pHBpI1oHqN/e2H2twTynoVobbvxdyuyTKM/V2eHI9xuRu10rxKjWXFJLL5uljMAuJw9fMu3fcdCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cwXxQ7rOxRZ3jme9zJax/5w1jH6p7RkYA3JynHsPBGM=;
+ b=clycu7MDyrnmsA5Nkh2KZYtiYRJLqv2c2NvkwnT2JiUyly6+0pIqmBFTSA7l3wUStvzipbrVZlgVNJHxjUzim3kcYWVBkiTBjwlrZSrONHufjawbThxdB7bUtGwZEATaCq3KHFYrejmHMN6prGhFPl66V7JioYsCN0/wIS0ny7Y38Fy2O/6wh1b2snc+A+PtjKt+hzZLnXpWGOtQO21R+CjheEHMpM4R7wT/khnmE0Lr/MyilIlyt/sSKBs0Ubfb5VJnKPC4D9evvN0hK1DlHCQAO0xhh+Xst/cAMJVQ6UIbWkK7xZFNEWlig+wtjJvvgbq68qV1fJhMVu6sBGRqYA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solidigm.com; dmarc=pass action=none header.from=solidigm.com;
+ dkim=pass header.d=solidigm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solidigm.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cwXxQ7rOxRZ3jme9zJax/5w1jH6p7RkYA3JynHsPBGM=;
+ b=acwE7pRdZhp28dKYWEuFPfO6XNuOeXQeLtvuLL7TdiJTXB+lAh2OqCWE8jlGPX1limIoQjQc9iwq2uHJsV32fzEwKsllNypxr90Qo6hWqwfa7PHsiXlU6G0crhdgB1C++nmdtVhBXATsPCgKGnqvXB+456sXcpbzXy/KCOeLQnQb6c/pxt3m+7FFAr8YCm14HUXH5bsnuD8lrr04C/tRRL+j8sV7gPkqhSLns3NjF1EnBK2cSm7qS7P+O2V1sew2DDYaX4okMCMD2CMEYEWu2Pa4vrbwj/WEiNpStbMm3Mbh2DtJ7mJ02Aw/mHpOYRPFplbTTapBR8pgDtikiBQCqQ==
+Received: from LV0PR10MB997684.namprd10.prod.outlook.com
+ (2603:10b6:408:33f::17) by SA1PR10MB6663.namprd10.prod.outlook.com
+ (2603:10b6:806:2ba::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Tue, 24 Nov
+ 2026 17:16:04 +0000
+Received: from LV0PR10MB997684.namprd10.prod.outlook.com
+ ([fe80::2b69:d102:4935:e368]) by LV0PR10MB997684.namprd10.prod.outlook.com
+ ([fe80::2b69:d102:4935:e368%5]) with mapi id 15.21.0662.001; Tue, 24 Nov 2026
+ 17:16:04 +0000
+From: Wayne Gao <Wayne.Gao1@solidigm.com>
+To: Dave Chinner <dgc@kernel.org>
+CC: "cem@kernel.org" <cem@kernel.org>, "linux-xfs@vger.kernel.org"
+	<linux-xfs@vger.kernel.org>, "linux-api@vger.kernel.org"
+	<linux-api@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [RFC PATCH] xfs: add a per-filesystem switch to force atomic CoW
+Thread-Topic: [RFC PATCH] xfs: add a per-filesystem switch to force atomic CoW
+Thread-Index: Ad15z2WocV/7eyH8R22b/KBFBzWDVwBt1w8AACwXo6A=
+Date: Tue, 24 Nov 2026 17:16:03 +0000
+Message-ID:
+ <LV0PR10MB99768487598606BD434E340C7AB9442@LV0PR10MB997684.namprd10.prod.outlook.com>
+References:
+ <LV0PR10MB997684D5CA8A6AC037F6D1CD8AB9472@LV0PR10MB997684.namprd10.prod.outlook.com>
+ <awSd1JEB0F4WeKt0@dread>
+In-Reply-To: <awSd1JEB0F4WeKt0@dread>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+ MSIP_Label_1a4d86c9-6ef8-4c81-b7a9-15a3140c062e_ActionId=13c527f8-8931-4a86-af3a-2a5d24e4f7b1;MSIP_Label_1a4d86c9-6ef8-4c81-b7a9-15a3140c062e_ContentBits=0;MSIP_Label_1a4d86c9-6ef8-4c81-b7a9-15a3140c062e_Enabled=true;MSIP_Label_1a4d86c9-6ef8-4c81-b7a9-15a3140c062e_Method=Standard;MSIP_Label_1a4d86c9-6ef8-4c81-b7a9-15a3140c062e_Name=P2
+ Confidential;MSIP_Label_1a4d86c9-6ef8-4c81-b7a9-15a3140c062e_SetDate=2026-11-24T17:13:30Z;MSIP_Label_1a4d86c9-6ef8-4c81-b7a9-15a3140c062e_SiteId=4bb44aac-867a-4be0-aa34-30794e8470dd;MSIP_Label_1a4d86c9-6ef8-4c81-b7a9-15a3140c062e_Tag=10,
+ 3, 0, 1;
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=solidigm.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: LV0PR10MB997684:EE_|SA1PR10MB6663:EE_
+x-ms-office365-filtering-correlation-id: 46b35d30-5d0f-4598-0ad7-08df4a4e9eb4
+x-ms-exchange-atpmessageproperties: SA
+x-etr-sdm: Outbound Disclaimer
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|38070700021|261028144727099003|261026140227099003|261026121527099003|261102123227099003|261022075727099003|261022105027099003|261022113327099003|5023799004|11063799006|4143699003|10067099003|56012099006|261021123027099003|261021121427099003|22082099003|18002099003|55112099003|261009223027099003|6133799003;
+x-microsoft-antispam-message-info:
+ zymJDN9U22uyV04R+CdLS8/4GMMkrbTnzoiA07KKlhnZmBOVWCpxJA13kCiVWFpv7C9qrDzSRIgp11ekTn5AVzslDvT7jRat5VpEafqocV/X4k4nAA3tUp0Ypz49cMYnQPAAmAzmqc665mAnLz0iU7WBD5SK6BvjvzgNo0Jai4xQyQ+pxdbjwEePHQsahLFiJCXP0vJTmzGdM2tqbUC+jIaITAUERYpjVMiUSK7aqu4TSqY0/r+/XXvsklFD6L2iUO5HGs+iDXmaMZtvNkaXjFG5LowqUrJCZu4NGpQ0n5860ZKjBOTMr8rqCgoJHw5DEtzdJbhRTXFxW4ShS2pC18gVSvWz4jLXkXTZqyO0szZa9Qyuj+g8XngMWgwWoy5b3+gzrMKenxQbJyoUEm0kSua+/ZAhO/qLP725wnvk5buzqYDas7YoYlB0oF03MudwIxHajgUVZJ70IvKsAlkaVKA6fYfx1XQNE9r6bTIx6/QMk454DCysKbGJZke2BGO1rGeDYjGo96id/NM4k11b8xA2qI7B1566dyFC6v7Zi2w3HEvb3K9MrLJhJMdkb6iVga7sj0r92IWqX4d/nSBX2pmFqThgZiyrQT0UQu+MfTqStL8WOr+Gn4Dkac3AEfhzjPoBSDAEGGlOXEYxQsq0ySkKlkwGxmc3yxD9yqXoiG/dZ4tmroyGiao2eU2GZkYPto6eIVEogzu5YdLNb0lzjiH1cEvRf0J8CxMMFkDjVgE=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV0PR10MB997684.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(38070700021)(261028144727099003)(261026140227099003)(261026121527099003)(261102123227099003)(261022075727099003)(261022105027099003)(261022113327099003)(5023799004)(11063799006)(4143699003)(10067099003)(56012099006)(261021123027099003)(261021121427099003)(22082099003)(18002099003)(55112099003)(261009223027099003)(6133799003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?OIbbdEsvN6s680ShE1bqJf8/F2tj4q4JHz7hyhrI70KO1A12l11xGzrcqrjX?=
+ =?us-ascii?Q?0/QCNAXwRve3JFTa8sTRTIi624J7DvaQRXvQBNw/OqGGXN4U4ocvu80xQcPo?=
+ =?us-ascii?Q?1BwHhZrc3H92D7fQk7qYk64KGRK6HGBGF8hlOycMibDLBRk4gaGJlBHm2KZo?=
+ =?us-ascii?Q?YtZN1RDzE/jZ28K/YutcMN+Px+RCTafwlrLmMuRlXqDN+NWLe8dDWd7WeA5z?=
+ =?us-ascii?Q?OvsbbvKJpTi1iF00GOuU8ZBdfFmgci7cqOEurHxonjPz4d/bJx/bD0BI+AyE?=
+ =?us-ascii?Q?tlbsDaaJe+9K6H8w+KknK16AcHjo/ncacDx0wCF1ySYMTs49C5sM3riF8ikX?=
+ =?us-ascii?Q?Eu+79F1P9GvdSfh3u1LUYTqxpDO4Y/VBPeIw8UrUEHJSc+TAIHbd6JafkqWY?=
+ =?us-ascii?Q?l/1aaR3fBg2WE8qSfq41UCgIw9/m/v+gkGUZh613fLaGRgLffizTnEzS+ZIO?=
+ =?us-ascii?Q?D+seFJaZ48qUTP/UOjlC+Axh2g245luvuSoBEjVQfvc5xibT5zejEiCReB5X?=
+ =?us-ascii?Q?dT0v8OS3sDvUqyBCe4GGb2YnupChMozND2NCDY4l+tvaDub/uQjWpa/jDZY7?=
+ =?us-ascii?Q?S0h0AIrS0TygL7AXvtBgPu4Aykh8xK8K1Ds4WKgv3zGkeqjREndYruTz2pYj?=
+ =?us-ascii?Q?EsPkr4aOMbesMavD1RBtjkau+e/neAsiQ5b4LAYB4qyf8Uy24Mh+wNIxg0VG?=
+ =?us-ascii?Q?TMMvbPFKul7ty1obcYFoPYNUlFm3m8v/Q/XjhU8n8lQMN2YjCFPBf/9YpT9c?=
+ =?us-ascii?Q?gFF97/ZgN81HOPbLa/GYXSH8yV4YhtxR/5kLzeIfFFKqpM78vPJy6wzg9Ca+?=
+ =?us-ascii?Q?u6SeqlDshAKY9U4x5/wyHTRGiSpf+lDIdmMeuVnjbaLlkGP5e7dBm0Ejxsnu?=
+ =?us-ascii?Q?dPTGZJYAFCip52c526LvIUq/G6HbSEJ79oiKGNnE6FV/6UWMl5Ar5dTvHMYO?=
+ =?us-ascii?Q?sIQhgAQnYsNS3issB9ApNF3/QCHtbwyFamNNSw2rt4RA4ofD+RO1UuUbV9jp?=
+ =?us-ascii?Q?xM1SY/5usJgyMdNBszeeZIlJwTeAfwpn52YdzVsraPj55dHn2DeoSS1WC5f7?=
+ =?us-ascii?Q?G/j4c9/W3Igyh+rIGjFPb/2YZ0Zhqwak06OKSaZE33ASRl8lOgAw2lrste9s?=
+ =?us-ascii?Q?6gUd464MNia5CQwj0uqvSGNtRLSEXrvAmFO2eC/miUpVssVlMUWPWVz05Haz?=
+ =?us-ascii?Q?nieAmVv7X8PtqS3al1pzs1XaO8Ek5BmSr8R0s+a2n4TO+s5NSJeQ77NcRnNL?=
+ =?us-ascii?Q?h5jGxB42e/HEtx0JEgeiqnqc9GiVfmj1XEpwJPI22VEPir78hgm2D4off3tG?=
+ =?us-ascii?Q?DYABKkjYmTvjQR756wONZJjrumpMwVtNYrFrcpaYixHrXkpGWAzAzDjwNEr4?=
+ =?us-ascii?Q?g0vi3brgLVFLaPVccAquiuVcAxnBYAuAXNzg176QD1gY0vrXkuehaZ8gxeq+?=
+ =?us-ascii?Q?h66LydsK3LK2hfTxfycuMBXsZt0SpXFKFACsIiQ+U6E6OToAvE5OfhP9YDHU?=
+ =?us-ascii?Q?vNXPCj1newVHPmCUVeIeu5RVwe2+a0p5qdyMYjH8nRmRflx+EMS9eBKWgim4?=
+ =?us-ascii?Q?b4+bPRcw8HGXwthKGzD8pA7b4SNf0q0aUpEv20eFxiK74SPGubXrQfwG5rMe?=
+ =?us-ascii?Q?G+k0Z7gYSoMRKG6NezClSqR1yMu53+PoIKVjilpSQdPBjSe3ruApOeJDVaxS?=
+ =?us-ascii?Q?rmbM9QAZVTN0l4k3wBdeStpgNby5abAx0Cod+WY9YpmWzhgZADYBLfe9Du0l?=
+ =?us-ascii?Q?rkwALAFNLaEFx18fSQb0xYlNT4+1nBc=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,84 +155,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNQQ6CMBBFr0K6toYWi+DKexgWLQwwprSmUwiEc
- HcBD+DyJe+/vzKCgEDskawswISE3u0gLwmre+064NjszGQqcyFEybuos9naCHwkw42OEcLCTan
- g1hSlhkKxffsJ0OJ8dl/Vj2k0b6jjETuMHin6sJzHkzi8fx+T4ClP61a19zxTUsJzABe1tQtpB
- 4NGZ9FBoKsPHau2bfsCNwuHCd0AAAA=
-X-Change-ID: 20261119-gta3xllte-usb-battery-b95e4d89ae85
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, Henri Ommer <henri@ommer.net>, 
- David Virag <virag.david003@gmail.com>, 
- Umer Uddin <umer.uddin@mentallysanemainliners.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795540475; l=1538;
- i=umer.uddin@mentallysanemainliners.org; s=20261109;
- h=from:subject:message-id;
- bh=DAbTxT7juIbYgrW7oPFGFfAP35r9haHx3DRvlkx81nY=;
- b=5u5JzQXguPwZgd20NoD1oFChHbxoRiu8ukXHEVrS9kIdvqu3ceo4WL4ihus8l0GK8Uc/SkrDQ
- o2xb7qia5wvAcwqSWIcAXQ1QOgsXH5xF0wwxoGCf+oR6A9REvB8sfqJ
-X-Developer-Key: i=umer.uddin@mentallysanemainliners.org; a=ed25519;
- pk=Hsgrt4A72CFTe27AI1AAWlnLsiQrlb4+T+cbrfWDhUA=
-X-Endpoint-Received: by B4 Relay for
- umer.uddin@mentallysanemainliners.org/20261109 with auth_id=1466
-X-Original-From: Umer Uddin <umer.uddin@mentallysanemainliners.org>
-Reply-To: umer.uddin@mentallysanemainliners.org
+X-OriginatorOrg: solidigm.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: LV0PR10MB997684.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 46b35d30-5d0f-4598-0ad7-08df4a4e9eb4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Nov 2026 17:16:03.9775
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4bb44aac-867a-4be0-aa34-30794e8470dd
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: GkUYBTC3+FnXieyOYBJpj1T/f3EnIg9V1mRMgCdcxH8uGAjdIQparaSD22UPymqqg5jspYdN5IzNOXLev6BXsQBY6WNySG3r4Hm5z+/r4PiAvF8TgJ3bvCSZn6DsKrkF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB6663
 
-Hi guys, this patch series enables USB and FG on gta3xllte. All is tested.
+Hello Dave
+>
+>
+> Hardware-capable devices normally prefer hardware atomic writes,
+> making it difficult to exercise the software CoW path
+> deterministically without changing file layouts or affecting ordinary wri=
+tes.
 
-DT changes were tested with make dtbs_check W=1, and the dt styling check
-scripts with --mode strict flags, both of which returned no warnings.
-
-Please note this patch now depends on David Virag's changes for USB[1].
-
-Best regards,
-Umer
-
-[1] https://lore.kernel.org/linux-samsung-soc/20261123092244.1792040-1-virag.david003@gmail.com/T/#t
-
-Signed-off-by: Umer Uddin <umer.uddin@mentallysanemainliners.org>
----
-Changes in v2:
-- Drop patches that are being picked up updated and corrected by David
-- Link to v1: https://patch.msgid.link/20261119-gta3xllte-usb-battery-v1-0-0cf5f763522e@mentallysanemainliners.org
-
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Peter Griffin <peter.griffin@linaro.org>
-To: Alim Akhtar <alim.akhtar@samsung.com>
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-samsung-soc@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-
----
-Umer Uddin (2):
-      arm64: dts: exynos: exynos7885-gta3xllte: Enable USB support
-      arm64: dts: exynos: exynos7885-gta3xllte: Enable FuelGauge support
-
- .../arm64/boot/dts/exynos/exynos7885-gta3xllte.dts | 50 ++++++++++++++++++++++
- 1 file changed, 50 insertions(+)
----
-base-commit: 9b369f9debe1253032abb90a9469fe44146835d1
-change-id: 20261119-gta3xllte-usb-battery-b95e4d89ae85
-
-Best regards,
---  
-Umer Uddin <umer.uddin@mentallysanemainliners.org>
+Why would we want to do this at runtime on production systems?
+Wayne: Dave, it will be easier for user to compare HW atomic write performa=
+nce vs XFS COW atomic performance. but any suggestion is welcome to make it=
+ easy to try and not impact production system more.
 
 
+-----Original Message-----
+From: Dave Chinner <dgc@kernel.org>
+Sent: Tuesday, November 24, 2026 4:11 AM
+To: Wayne Gao <Wayne.Gao1@solidigm.com>
+Cc: cem@kernel.org; linux-xfs@vger.kernel.org; linux-api@vger.kernel.org; l=
+inux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH] xfs: add a per-filesystem switch to force atomic C=
+oW
+
+[You don't often get email from dgc@kernel.org. Learn why this is important=
+ at https://aka.ms/LearnAboutSenderIdentification ]
+
+Caution: External Email
+
+
+On Sat, Nov 21, 2026 at 03:47:32PM +0000, Wayne Gao wrote:
+>
+>
+> Hardware-capable devices normally prefer hardware atomic writes,
+> making it difficult to exercise the software CoW path
+> deterministically without changing file layouts or affecting ordinary wri=
+tes.
+
+Why would we want to do this at runtime on production systems?
+
+
+....
+
+> The intended use is a controlled comparison of hardware-backed and
+> software-backed RWF_ATOMIC writes on the same hardware, without having
+> to construct misaligned mappings to trigger fallback. The existing
+> DEBUG-only always_cow control also affects ordinary writes, which
+> changes the workload being compared.
+
+Ok, so you want it for your test/dev environment, not production?
+
+I thought we could already change the block device characteristics (i.e. su=
+pport hw atomic wirite or not) at the block device level? If so, why do we =
+need this at the fs level? If not, why isn't it the hardware atomic write b=
+ehaviour configurable at the bdev level?
+
+i.e. I don't understand why 'unmount; change bdev setting; mount' is the ob=
+vious answer for back-to-back behavioural characterisation on the same hard=
+ware and filesystem with different configurations?
+
+Cheers,
+
+Dave.
+--
+Dave Chinner
+dgc@kernel.org
+CONFIDENTIALITY NOTICE: This email and any files attached may contain confi=
+dential information and may be restricted from disclosure by corporate conf=
+identiality guidelines, or applicable state and federal law. It is intended=
+ solely for the use of the person or entity to whom the email was addressed=
+. If you are not the intended recipient of this message, be advised that an=
+y dissemination, distribution, or use of the contents of this message is st=
+rictly prohibited. Please delete this email from your system if you are not=
+ the intended recipient.
