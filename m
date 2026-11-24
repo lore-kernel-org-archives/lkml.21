@@ -1,55 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795542987;
-	b=X4NiWkiCrHMhMtB/6eptU/zLXOz+3orJ2IxH2mAl3N+W1eTDXs0XL4bCmbYYHszmf5SM
-	 74l0hN2ir6fIzL/4bEUD3eAMk08ppz/d7kl/g9oe8JMJkykCdlGgHsVpz9pcK+dgERksn
-	 ogtJt3TXsnIWB6p8jgDrEDxwXX04Nn0Mvk/HbCvjZbMCRPD1LXx0cE0+QFPINurCGvAeR
-	 PDo3GtQXzYrST98Rs9c28K9FZCuDecm6o3fQTxKrEZ1Ob/EozkLR4iqPYr56i0P2VWRj1
-	 Qk3AJbu/bVQ3l9lowMwsAxKi1mGwb5S6i8K0SpvJX6myLZiEA6WnUTvls3HLtLxxmbw==
+	t=1795543028;
+	b=sIbUIg5M0c702S09DS0pyEIFVJFb3D3SFgIZ999iCe8PWDp2g60HnfckbwLWAroud9Wo
+	 hs7wZkLNkZ8av7p560o3KuyVOthN9VvqoKT0L2MGCFQi8bYXQLIaU2P0Op0laBJMlZkkw
+	 B8sdRtIfKVyp1pVW5pCxMkKVQFbdsIy/L9TeX5pHmHzSWouOutGlOAiNQJLDMUlijoWvk
+	 Vz0Ty1Npt0YSKF7B8fVPgoJPrDA/fbwJ2MhqQyW2iIT7Ulr5FuZLGltWBStnCKUfXjx6U
+	 ohFHGo7516AbUmcQ2G4w0DEr3Vxny/O/4RyzDD46YcQ/TLbzQIpIqP8f8fo82F2gNjA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795542987;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=6mQ/VJFURdk1Q4vp5BqueoOJTw6Ujqne9pFP3A2l2Mc=;
-	b=ME+ovajHMdNoJf0pLIp7U0yD0R+WwluLRh3Pr9Gf5TpdBQT+hOH9Jr8o/UZU7PVd4MQf
-	 YHS6ku26yDuAMHvvBmlt6YYsHG+5GWwFaDK8Ym45Mqv0gvDmDrKVQnQfv6Gfo4QNFzH+o
-	 cQDBwZ9ptJXOrgu5QNHZcOTT3OCq46I8scDvg1oLBaTp0IZ18+hmjdVJhyvjzNMXgF2HM
-	 SPuTS/XlPLByDlds4boKzlwI/1fjWFfKHyY5cBaYsG033NT0wiTHkt+uMpCcINvJNgrSc
-	 3zoFBs1xd7WNo9CyGy4TRHc5rFTOwKvQf2ClLTHgN+NpZ3cJcRIzhRCq39zx+0RHGGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795543028;
+	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=OL3gP810bqf0d17gNnBpCny/0hJkDJ4XH0dG+giXl44=;
+	b=B62OwkjqaNzHhLc0moc8RtiOmusJNxHh/ObLp6ViiGDCWIG2eH41yWZwM+5tcdpSdfuC
+	 OWK5Zt3d3tPjGO8h+r66GWJ/PHG+1QqUgzV8e/8qy0qUqEyFGm+lRYSWdU3omruFLH04M
+	 YZfZrS5uZfbNLnXw0dDCNX81/KKtbLEW+jNIgYIKDXfU6S+1zis5m8um2N0Pb21UJtB4N
+	 Oz0fJ7zsGRyu3zxAP0s0B8btjpV3hyzLy5KtDXWaTIQe5szh9ggkn7q7P4H1tPVRnFQIq
+	 Y3QIZNAnuFHYvbCEHnL9KakSQ0FAAH/Zb5EKSlSF2pdAhbluB4CR3QK8qwJRkkGUHFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="P9q/OfKR";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="PCU/pz2T";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04759606A321;
-	Tue, 24 Nov 2026 17:56:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F880606A31E;
+	Tue, 24 Nov 2026 17:57:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P9q/OfKR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 520F31F000C6;
-	Tue, 24 Nov 2026 17:56:25 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PCU/pz2T
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E9851F000D1;
+	Tue, 24 Nov 2026 17:57:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795542986;
-	bh=6mQ/VJFURdk1Q4vp5BqueoOJTw6Ujqne9pFP3A2l2Mc=;
-	h=Date:From:To:Cc:Subject;
-	b=P9q/OfKRq3R5yrdwUaZS2l+7GDqvGQgQJXKq9DxhePTHBQlmh3ZWeMTEYPhPrJlIT
-	 zNK56GTvk0kiD12vgBa1vNRuaYK4+LToXDTaUxw6/V5qXyq4WXGdDLWCugHg9Rv5Mj
-	 Q58nlAw1Szx3pF8eRwhArZL4PbhRX/RKA38wSeN4dSmYUd6fXV+bJCuxt7Zv2/XJsB
-	 2CnZq8Euu6jwCKHVUShx3AgMGL1456K1FDt2Q1dZL91qJJbWTer1zK43BPA1UD5eXL
-	 1eNVD05vTCKgew4PoySGS24OYbDeOUuuLSmJ7mcP0bl9T1VNHXUHU60cO0LmWH8Lba
-	 5TLO8qmCWxhfw==
-Date: Tue, 24 Nov 2026 17:56:22 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Greg KH <greg@kroah.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Rob Herring <robh@kernel.org>
-Subject: linux-next: manual merge of the usb tree with the devictree tree
-Message-ID: <awXPxgFucDwZGns_@sirena.org.uk>
+	s=k20260515; t=1795543027;
+	bh=OL3gP810bqf0d17gNnBpCny/0hJkDJ4XH0dG+giXl44=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=PCU/pz2TQcvmVHlAJDHlOEMXCzkoOGr+tIEkypUmFrNOGd7Xfnq7uDdWmWdmWt7Mn
+	 03Jn+O02p5J1grKA7g4HHU0oRrbzMU1xwhS+Whm/+G70YVxHzWjgRTDS2BveVPf5LN
+	 +BVStqPucXH5K9x2Y+3rwxC9NBkkyBQAg2J73hNSseNmticszsifi/VMEGTyWR64JT
+	 U+6wDZe6cZayYWqEydkiSTAztg7n4AcwYH9IdlSRHe5pdptCOkUWxPR5H1eZ/elYPi
+	 4CXEBQnwAxI+GAFqMQa5LcgcjDSUB3VDrgSZlFLVvwXJh2MEnCZNg4xaxl8uPVdZrw
+	 beLWap/BG0tWw==
+Date: Tue, 24 Nov 2026 07:57:06 -1000
+Message-ID: <cd51ef480bd455b0d1dff7c40d77ccb3@kernel.org>
+From: Tejun Heo <tj@kernel.org>
+To: Sechang Lim <rhkrqnwk98@gmail.com>
+Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>, sched-ext@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] sched_ext: reject oversized exit_dump_len
+In-Reply-To: <20261124161543.1225966-1-rhkrqnwk98@gmail.com>
+References: <20261124161543.1225966-1-rhkrqnwk98@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,70 +57,12 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="QQlFctUlpS8E6PzQ"
-Content-Disposition: inline
-
-
---QQlFctUlpS8E6PzQ
 Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
 
-Hi all,
+Applied to sched_ext/for-7.5 with the Fixes tag dropped.
 
-Today's linux-next merge of the usb tree got a conflict in:
+Thanks.
 
-  Documentation/devicetree/bindings/usb/ti,usb8041.yaml
-
-between commit:
-
-  dfbc74a8d6565 ("dt-bindings: usb: ti,usb8041: Fold in TI USB8020B")
-
-=66rom the devictree tree and commit:
-
-  8823bbefac755 ("dt-bindings: usb: ti,usb8041: document the TUSB8040A hub")
-
-=66rom the usb tree.
-
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-diff --cc Documentation/devicetree/bindings/usb/ti,usb8041.yaml
-index 74021d13a43ac,a7ce487090a2a..0000000000000
---- a/Documentation/devicetree/bindings/usb/ti,usb8041.yaml
-+++ b/Documentation/devicetree/bindings/usb/ti,usb8041.yaml
-@@@ -17,8 -16,10 +17,12 @@@ allOf
-  properties:
-    compatible:
-      enum:
- +      - usb451,8025
- +      - usb451,8027
-+       - usb451,8040
-+       - usb451,8041
-+       - usb451,8042
-+       - usb451,8043
-        - usb451,8140
-        - usb451,8142
-        - usb451,8440
-
---QQlFctUlpS8E6PzQ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsFz8YACgkQJNaLcl1U
-h9CQ9Qf8DFd5QE6pmeCGvovoI9NLEaK+7iOWwjju+Dye6KzyMxBfTaOxb93oLz1i
-VW32O+ZhiT3Fk21skLIbtTUs1vOrJlkItJCy3wzPP/c7l7Ghmr+VpcDJd1xhJbSb
-CA2a4i3LmspObhnDNa23LdYuf0JsaJ5m7Z5g5Q0p584JknSG8CX3OisD+A6bNV76
-JGunIWsn+D75Wm1He4wacP9kcHQJ75aZIAmFjcqUhuPSX9Sd/jWJuMjQ7MHDRNVZ
-sMQ9RmQv/gZwbUwUS5MS9vIe6IdzsA07Syq/vjgGRVhpJtGDYmnJD9Y1pqJylSOZ
-fYMB42SQo5myID8synP+rxhuE2n3JQ==
-=1sDR
------END PGP SIGNATURE-----
-
---QQlFctUlpS8E6PzQ--
+--
+tejun
