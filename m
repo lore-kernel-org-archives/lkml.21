@@ -1,54 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.73
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.38.64.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795495983;
-	b=Ukwza/K4YCKs/JCT5VvEYrgY7/B588PDws8YirdAscXmC+609nPptJHItEoLDC5dl7ge
-	 7M7c0SPHlUFUaHobZ05Tzwn7MpuvMS+KtjzmYBocBKRvLYLgIVs+J0KeSAqgiEGOhirwr
-	 4VSzlB1Cqmje+b0Ad6bvKUIIauGlAJSs49jLifrz5ZOzSsWuty4GUW+rfstcy0TH9SG3w
-	 f2Sdc93AT/RnqZ+HboiXtnbKM1DqlxDoN0uH6b2xl1GzEEm/+nLq3s5X5c24YbQnI5O8p
-	 ilAffBu+DViXIUAnXYYIeoEJu1M6hXHvR7396XXl8PBGFeZ9Ud5G5lLo5EV2hSZZxSg==
+	t=1795496066;
+	b=l6VtvfwWh6Pmc+HbNXWYhXJ/eV5u0i5+F87JiBIpUl7eg61aGYx5LWrUo++2OFy/VRJi
+	 GVgn/04JGer10bm8Auuouoy4llVmyQEDBQcA85OoC7KLv4JZW2Ke7dCaTi9YN6qxY4Nns
+	 m5yq48zmDFdPknnTSJja7Usgr9Kh3z6BWkuvP2LlsmSXIiM/4GDFk2Nppl2jV2pOXHwWS
+	 XbuGFmdH47VpboQS3VGSakiLhZDQ4DNvsFKHfa8PyBKMTiNJkbOSUa9Io+LC7v9zFklip
+	 xHThtCnNorygEU03XaTbPNdcTb/ZF0gvTG1mmsCV0CqXR+MadI9gJmGEdvAzzRQepoA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795495983;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
-	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
-	 To:X-Mailer;
-	bh=OiIzwEHdzzAJR7e70QGL0R+/3Yj1cTamKyRrwNi0fyg=;
-	b=hfezUnet6LBcrfVJ+U3mfCrYX2WT6IEBPSH+OwiAra07hSvU7xLHLXukPxqskRSdXEBK
-	 haJlDC85j+GpSKoaxNx4w8rQVar0Itfuwqc296sth8Ivg5Y+tUNnLEH4zlYcrntkjmnFY
-	 2RfWJJ+u+x5pqUdTjrt7RzhpxGae3s9eZu/QvlT8gflkFGBYRs5ipgpX7Gz1SR8hkVz2P
-	 Qj0wPpkTZ7erFxpokR6IQ8k+ZkMnWLI0tSWRYuB6Kuf8suEpUuubXkxsb3DKV/rT+8qYv
-	 dWMibSUqrEQiXgidXJglilzp20sabryoiHFvXSG76BzmjqokHl0z0gbJYlUnBYDk3ww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795496066;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=lmcKUpb35ZyL107tc2LlJIvptvkEIXtUu3NUrpkThDY=;
+	b=IslOzzUd9ka2NEUSvm0nV5I1u1YSzl74xnJxVoiWZ4D65ZizXSAEs/k9QZehOnJiVhKb
+	 LI3wgjDrla93wB4OtsI5tdZuZuMJrmzFVg0PjGxd5JlxRMQiF+R/TIXQuQHnEJw2UDRgO
+	 DhS4vtSmNX7JJIMMPI2A8eR0nqZTaseUMVu22JaXmOKicreIeYwjGSIQFGkFHYDzb5iKi
+	 TQZZ4Eexn4nqSLVn87VxPdP+GFupxO1GZQm5YHVm3UpoPN/ANqqXDCCTEyO82hWu33jBu
+	 WTjHnQqQxq+SuBda6ZmOsHWpO+dAR74ezZJ8zUcZ7tMZ9B2JsdyViM3397bl/N07aYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=r1e5CRtK;
-	arc=none smtp.remote-ip=95.215.58.73
-Received: from mta1.migadu.com (out-73.mta1.migadu.com [95.215.58.73])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D5A1606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:53:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D5A1606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	dmarc=pass header.from=mail.ustc.edu.cn;
+	spf=pass smtp.mailfrom=mail.ustc.edu.cn;
+	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=ikRd7CHy;
+	arc=none smtp.remote-ip=202.38.64.46
+Received: from ustc.edu.cn (smtp.ustc.edu.cn [202.38.64.46])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4DCA2606A327;
+	Tue, 24 Nov 2026 04:54:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DCA2606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.ustc.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.ustc.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=r1e5CRtK
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=s/slY6o6wSEczfY7MjDTmcG9POL3RXKg4WQAsPd+j7A=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795495980; v=1; x=1796100780;
- b=r1e5CRtKl/EPAtOKOj3DJ1DMGKukAqhyex1TbxxaiNzdZxxU3HVDvqqoFiclT7D+iEUsqXnj
- EDXH52TtiB9Ee+HL55KmQfuKvW4DRTnbU723G8Gedi++KFVbh1k1XlOcecSs/LLUm+OwiAKqArt
- ny/YDiRvcp1MtYCCbkCYJK60=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id ca530465533cab93;
-	Tue, 24 Nov 2026 04:53:00 +0000
-X-Mizu-Trace-ID: ca530465533cab93
-X-Migadu-Flow: FLOW_OUT
-Content-Type: text/plain;
-	charset=us-ascii
+	dkim=pass (1024-bit key) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=ikRd7CHy
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:In-Reply-To:References:MIME-Version:
+	Content-Transfer-Encoding; bh=lmcKUpb35ZyL107tc2LlJIvptvkEIXtUu3
+	NUrpkThDY=; b=ikRd7CHyQYXmn2JpWHFb38Fjxm1V+SDMnmb4Dc6J+KY06ZA/q0
+	0YYpTj6dC/qRcal63RHmevCwUwm0QV/UKxNd2sdx+ve8uFHQ5mbryonK/iT4UncC
+	X4y5APlgbYJ1m6G6BsVqg1rR9GoMrTySK8FKZWJ+nUqLr+LiM5hr+WDkE=
+Received: from xuqianhui.tail7a2807.ts.net (unknown [114.214.185.179])
+	by mailimap2024 (Coremail) with SMTP id 3pYKCgDHU0h8GAVr1xrwAA--.388S2;
+	Tue, 24 Nov 2026 12:54:20 +0800 (CST)
+From: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
+To: dmitry.torokhov@gmail.com
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v14 0/3] usb: dwc3: support two connectors sharing one HS data bus
+Date: Tue, 24 Nov 2026 12:54:20 +0800
+Message-ID: <duplicate-notice-1@local>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261124045220.595001-1-xiaqinghuan@mail.ustc.edu.cn>
+References: <20261124045220.595001-1-xiaqinghuan@mail.ustc.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,74 +64,42 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH] memcg: free the private ID of a memcg that never comes
- online
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <awUTKy9tx8nWJgXf@linux.dev>
-Date: Tue, 24 Nov 2026 12:52:41 +0800
-Cc: Muchun Song <muchun.song@linux.dev>,
- Andrew Morton <akpm@linux-foundation.org>,
- Tejun Heo <tj@kernel.org>,
- Johannes Weiner <hannes@cmpxchg.org>,
- Michal Koutny <mkoutny@suse.com>,
- Michal Hocko <mhocko@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Meta kernel team <kernel-team@meta.com>,
- cgroups@vger.kernel.org,
- linux-mm@kvack.org,
- linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Content-Transfer-Encoding: 7bit
-Message-Id: <2FE2D209-FB57-4191-A324-F179B2394DB1@linux.dev>
-References: <20261124000439.967403-1-shakeel.butt@linux.dev>
- <F39B4A81-BB17-4C5D-851E-2740EBBBBA8B@linux.dev> <awUTKy9tx8nWJgXf@linux.dev>
-To: Shakeel Butt <shakeel.butt@linux.dev>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:3pYKCgDHU0h8GAVr1xrwAA--.388S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrAryfWr1Duw4xAF43JrWxtFb_yoWxGFg_Wr
+	W8AryDCw1DJFsFkanFyr12vanrCw4jkFyYqr92yr12qryxZ393XwnFkw45tr93t3y8WrZa
+	kF1DZayUury7ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbIAYjsxI4VWxJwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
+	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0
+	cI8IcVCY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lc7CjxVAaw2AFwI0_JF0_Jw1l
+	c2xSY4AK67AK6r45MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I
+	0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWU
+	tVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r4j6ryUMIIF0xvE2Ix0cI8IcV
+	CY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE
+	14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyT
+	uYvjxU45rcDUUUU
+X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiAREBB2sElFst2AA7s4
 
+Hi all,
 
+Please ignore this thread.  v14 was already posted earlier today
+(cover <20261124015002.1426767-1-xiaqinghuan@mail.ustc.edu.cn>,
+archived on lore); the copies under
+<20261124045220.595001-1-xiaqinghuan@mail.ustc.edu.cn> are a byte-identical
+accidental re-send caused by an automated local session that misread the
+posting state.  Nothing differs between the two postings; treat the
+earlier thread as the series of record and review that one.
 
-> On Nov 24, 2026, at 12:33, Shakeel Butt <shakeel.butt@linux.dev> wrote:
-> 
-> On Tue, Nov 24, 2026 at 10:50:00AM +0800, Muchun Song wrote:
->> 
->> 
->>> On Nov 24, 2026, at 08:04, Shakeel Butt <shakeel.butt@linux.dev> wrote:
->>> 
-> [...]
->> 
->> The leak analysis and the fix look correct to me. However, using
->> CSS_RELEASED here makes the private ID cleanup depend on a generic CSS
->> teardown state, and adds an accessor solely for this failure path.
->> 
->> The private ID is not needed until mem_cgroup_css_online(), so could we
->> instead reserve it at the beginning of that callback? Failures in
->> css_create() before ->css_online() would then never own a private ID,
->> while failures after the reservation would continue to use the existing
->> mem_cgroup_private_id_remove() cleanup.
->> 
->> This would also make the private ID lifecycle more explicit: reserve and
->> publish it during online, then drop the initial reference during offline.
->> It would avoid both the new css_is_released() helper and special handling
->> in mem_cgroup_css_free().
-> 
-> Thanks Muchun. Nothing needs the private ID before ->css_online(), so
-> reserving it there would work. But it moves the out-of-IDs failure from
-> ->css_alloc() to ->css_online(). By then css_create() has linked the
-> css into the parent's children list and css_idr, so mem_cgroup_iter()
-> can css_tryget() it and cache it in iter->position. A css that fails
-> online is freed without ->css_released(), so
-> invalidate_reclaim_iterators() never runs, and the free does not wait
-> for those references. Today memcg's ->css_online() fails only when a
-> small allocation fails. With the move, every mkdir on a system that is
-> out of IDs would take that path. I would rather keep failing in
-> ->css_alloc(), before anything is visible.
-> 
-> To drop the CSS_RELEASED dependency, I can test the ID's own state:
-> !memcg->private_id_objcg means the ID was never published and the memcg
-> still owns the reservation. Let me know if that works for you.
+Sorry for the noise.
 
-You're right. I missed that the css is visible to mem_cgroup_iter()
-before ->css_online() completes. Using private_id_objcg to track whether
-the reservation was published makes sense to me. Thanks Shakeel!
+Best regards,
+Qianhui Xu
+
+(Prepared with the help of an LLM coding assistant; the author takes
+responsibility for the content.)
 
