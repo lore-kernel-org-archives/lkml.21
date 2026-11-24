@@ -1,69 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795535914;
-	b=bkj0ur0cph+PID/ARW5Z10iBavIngUDYgnX6cK4splcPcRH0ik557mrtRKA3gjs8gENG
-	 nHdlvEj1bJBDZMz1igH4OzF+BHsRQOyDXtXz34VZcjYmwQHQYoskIUE2tvVSNB6nawgFn
-	 nC58iOCubiQynlC5RMrOikBG+S20ORA/+dp9TUdPOKYqDTSFQpwFRcBqoEpaVH7ryOj11
-	 /1KKCWGVJ5MY0uGiJu/qyZljtnn3XgQxcZx92aKa9BVRvoDNgd20pbwGdkaYWlnCGnwF8
-	 4uMaRp8nXPJrMS9FSwMs3vzf6swR48wj/c7q3HKkRziJEeXm56vgkUlDIvQQto3RXIA==
+	t=1795535923;
+	b=xLRzoP3HrvoMiq6xoibjV9awzWQ3ielo/CldBF3C+z3kRcKYNvrx0M2wQahhapwpFJxN
+	 j667kMTW3n6mxEEcSDLEmjuER80yMfAy5yOlqM7I3sIv0kb6/RcA274fGU6PhQjdKpYMT
+	 xETeDeY9LL1ajn1uO490EPX0tEOKeCFxP7pZcgALuGsAnExgGHN8877gE2GJ66ij2UACX
+	 ikmbClsjgqdkzDTpP640j/JNgbzOUC26uSuxxbB3L7Y+4nTRIxq6N/snPS9GOv6QaUIOS
+	 /N26c+TFP+GrkuXpcRhbvFsqqSuKYlyMEdydE78NtHAGnP4+XSS0VmUKIVCnYebzzgQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795535914;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535923;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=OGW1pesUgBXQRVvPeLaAto75CWDUmEXOH2vREiIu1hI=;
-	b=KFpzeBzMjC8FYk5nmCWRZqHGzwER6dVMjKO/kWtdejEmjJ6J16F8Vj5bQvg6yiq5SKKt
-	 /8PmgWknf86vJlamblvvUzLUbfB0PlaP3YLag/oHPa+fY8OGAaR/2gr8tq/N9Ky8fRMnQ
-	 pArEyq8QtVQ/Q402Zt8/oPbK1At6fARt2uyc0dYIIN49vwewHotN+vNKOJ5AMLIzahhAS
-	 9WOKKyFiQC0UFvOpCZI5+SvvIFSW4+fuz4HBC88DH4evNTTeQfsWS7gYI7vzvYBvHsM1k
-	 LU/h0Wel/L/pUXUQw3y4t0zrHN5V9vhXjnGCEon74DaFRxsY13Kd0PVx9DUlvAuvmqA==
+	bh=eDmWsXhPBYZY/Mx/SOcZ92wFv5oQpu2+A0EXYzERrQo=;
+	b=Gc1GawhfgiOcSnXjYp47mjh67QCIYVg/BZkaQYuuY58It/QjKIwgwZ7QJuTHy/2Rbi+C
+	 EnJGYSf/HwkzkdKp8yG6nF+htgoCcLG8iOR3CHZJVmdRpRZrtHl1leu+qYVDlXH82jGu3
+	 KEJ8RlRdU7c/ZYmTNpyR1t5bqAVvDIhK7cEW04fGjMzk+dUoR9pMtcfLaxG4W6bg7ST5E
+	 dsRHOQZgHuFQ/UrK6nupCc/QF8BUtuo32NiwZzMBbPBf1oCHriOLJJFGLrARk4lf4uHpD
+	 uITNP5qk9SE1k3ZXtrBcrNEhPjC4PH8WD5XN0okxxGj7PmHRQR7unshadF0tDmQtcyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cPkqEExz;
-	arc=none smtp.remote-ip=198.175.65.20
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PM0Psqvf;
+	arc=none smtp.remote-ip=209.85.210.41
+Received: from mail-ot1-f41.google.com (mail-ot1-f41.google.com [209.85.210.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3AC7606A31E;
-	Tue, 24 Nov 2026 15:58:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3AC7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F419606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:58:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F419606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cPkqEExz
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795535914; x=1827071914;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=u2cm4iCPSe9XdaKEcS9x2ZNPfXRScR7FSXj0COT09zI=;
-  b=cPkqEExzLtqPiRPPXmYWHwjwOuEphWhQP8TrBE30LyqZt3oDR/qNSWvt
-   onMJ9GZBXcn0pTQ2pi3DfLIMTsVvkSdpGJif1gPoY9lz+lSr1A38zQkzn
-   ksh1xZFD3QA4WnSfzd2OmSAEjSHACWc9fhJ2IaozdCGT8gB10DkqAH84N
-   V3NTBJaDrYlUwIL3kBhHjJG7Ejae/L59FDopTLkrGC54xvDWh9nTpzOw9
-   78ThUaW66lxg8npaeq7vJXSqiVPibQIytDG1o0sFMjBNAOB/VYocFc5Lw
-   FfhgyK3uepYrQNtH3X9gY69BfXFLhyLbfDfT4IvHWZ2QLLI+KJCVbxjE+
-   A==;
-X-CSE-ConnectionGUID: UYjcsCQnTMuP5bg4gY1ENg==
-X-CSE-MsgGUID: hUosqgtwTIe4l9ghTrTeGg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4441248"
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4441248"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 07:58:34 -0800
-X-CSE-ConnectionGUID: 0Htf26JWQYCdoBHrJ102Wg==
-X-CSE-MsgGUID: dXHu2Wf3RyGLbGT7u9pJkQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="11577700"
-Received: from sghuge-mobl2.amr.corp.intel.com (HELO [10.125.110.20]) ([10.125.110.20])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 07:58:32 -0800
-Message-ID: <2dd40d0d-2e1f-4a7f-ba65-2cceccd82028@intel.com>
-Date: Tue, 24 Nov 2026 07:58:31 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PM0Psqvf
+Received: by mail-ot1-f41.google.com with SMTP id 46e09a7af769-86103aaac12so3115681a34.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:58:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795535922; x=1796140722; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=eDmWsXhPBYZY/Mx/SOcZ92wFv5oQpu2+A0EXYzERrQo=;
+        b=PM0PsqvfYDluIDPaRGnjOU10Fe92gpx/pNuoC0DXrzGZgmG3483UoGFlky/KAA6PJg
+         GcJ5DaCAzaSBV2r21eOOCGkBafruYhLDpOyl4DSGjNrrgA/4mKcyT1dkEBTOWCxl7h80
+         ksp8ktatBWFTk6Voc68tyBqwYAo8rUcvoALoja8+NR4iAUDKzbz1xWEQcctaYQi0HpZW
+         IwimJViVMMITpdFbPMHs+BZX/ttgOgLyLjmHHGntY5g3k2iGA1Tvs+pDvjKoyAT1FAPp
+         gly+VC4f7jY6AVCNKqD3jok9z/JkDDUNa/J4FKTCPnmbnPdVFaE49lbKX+yzdVyi3XLR
+         4fQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795535922; x=1796140722;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=eDmWsXhPBYZY/Mx/SOcZ92wFv5oQpu2+A0EXYzERrQo=;
+        b=M5DKdvFw5UtI7mgn468M8CIYnPZyAWRvUSNOWlHF3nDQBKmQsG56oUyJsAgWCDLUdR
+         nm1c4JRXzBT4N+NlS4XQ4s0A5GcICSGzjcR8cYCQMVe+HZcyXy/jrlMEcu+QUu5I4EkP
+         iNXS8MDaGHxuTraAKGHxI68p+6UOfYut80/kHlRx53qMie6ad3Xej+U7vq/R5R1wLpfc
+         WCFFtRWF0sSqxyl+ZvVv4e+se6yIjp9zTludBgBaJrXBjBVsE+cc9sfmeP2U/Pe8eGJG
+         vF0+rQgTRdZyhbCNdmEU1hve7og43YDnI+LwxEpF5tyXvgqzb6BhZqui8h4tgyH0jAlS
+         6p7g==
+X-Forwarded-Encrypted: i=1; AL+hErGi+m3smefgD41j7T6U2kzIKDGVa4on/lNvRCGSHmZX7g1+uWDjLglbxcnNhCxBw666lbI215ZdIdqVTPE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8/qZI7ULDTIzNJI157OsNIHvlupvjxrdJbwj4C15v+n3KrZIgH
+	mIf1Us4/PH5+ouWeNi+StDEeiE6LdGc3EOqqqNtvO3h/I1xaWdvv15Ss
+X-Gm-Gg: AZFdTZfy8Y/Jph3PHdMecuL04s0EbtmULUAPnaTCLYgJjErz0dTuFf+cC3ngDlZOClo
+	thm+JQMBG8HWnOGDm8q41y3dejfBIFB6UgnPMI+fNUuqyNNMqkG/nJ8k677yMkmxMGnwWxH3QS8
+	9kz3bnuwMEaikflpIzsxV7DaGSIZg4db+1Wx7g7HstCwbnUnbp1vsKIWKZsPXLJFwutiLENWIhe
+	dlNQ36oE6VQErHiftm6uoMMJL+DO9QirevqN/2Dsm0Kl/K1ogRIajnm4QVMA7UlPyzFZIe4sPZ9
+	JYRwnonOfm0L901rmAzmOmWAc3B4Z7COrb8MrNwH020FC3LhTalgDCP9weCwfoCkefXDK2rYcR8
+	Lc5pwcU+aOMMxEtyFNv+aGkqrBvfYVjDU5YmyMFq3c2bVC1RClwpKsSOk2njX00HUZOUS1etU2K
+	Zj5sU2Frmhk0fgW+42IbJlceN0HlhoJamP6UE4OTbyKFE5Oia6d2ME4LoO7O1tEVzC3bndFDEHY
+	Y4SHZaghxHPz+ULlNfAgLGc8z9MEN8mQ2p5lSSnFp6L8atM9u3DG5g+rt8Mt/S5kaODeJz+LKEM
+	Uv4lFqvJuY9oeed2LztsZHw8F9tMSbVGZZLfU5RA0qaVQGH0Y6hf52d3bSWskZFAn37ycTuUmlz
+	vea1bIRCMdoGhWSo5KyzGtG2F1s0bM+YXxkVoy3Qz/GEdgeIhDjgMsudztsUTvT3B0NTNzdDVwB
+	yNjIFUZt0kP49i
+X-Received: by 2002:a05:6830:310c:b0:862:8871:5bd3 with SMTP id 46e09a7af769-86309309ab8mr13573667a34.37.1795535922312;
+        Tue, 24 Nov 2026 07:58:42 -0800 (PST)
+Received: from tempest-testimage-cc-centos9-stream-server-1191361818 (chi-dyn-129-114-108-164.tacc.chameleoncloud.org. [129.114.108.164])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168f784fsm11128168a34.16.2026.11.24.07.58.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 07:58:41 -0800 (PST)
+From: Yuho Choi <oss.patchbox@gmail.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Linus Walleij <linusw@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yuho Choi <oss.patchbox@gmail.com>
+Subject: [PATCH] ARM: vexpress: Fix SCU mapping leak in vexpress_smp_dt_prepare_cpus()
+Date: Tue, 24 Nov 2026 15:58:35 +0000
+Message-ID: <20261124155839.388319-2-oss.patchbox@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,81 +101,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 0/3] x86/e820: Ignore memmap= and mem= in confidential
- guests
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Pankaj Gupta <pankaj.gupta@amd.com>, Thomas Gleixner <tglx@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H . Peter Anvin" <hpa@zytor.com>, Tom Lendacky <thomas.lendacky@amd.com>,
- Ard Biesheuvel <ardb@kernel.org>, Kiryl Shutsemau <kas@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, linux-efi@vger.kernel.org,
- Pankaj.gupta.linux@gmail.com
-References: <20261124133241.221719-1-pankaj.gupta@amd.com>
- <e08f2321-749e-40f6-9ed4-3dba8e1625ba@intel.com>
- <awWzrkLxfQ2_ODKe@kernel.org>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <awWzrkLxfQ2_ODKe@kernel.org>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On 11/24/26 07:56, Mike Rapoport wrote:
-> On Tue, Nov 24, 2026 at 07:09:42AM -0800, Dave Hansen wrote:
->> On 11/24/26 05:32, Pankaj Gupta wrote:
->>> In a confidential guest (SEV-SNP, TDX) the EFI stub builds the unaccepted
->>> memory bitmap before the command line is parsed. memmap= and mem= edit
->>> e820_table only afterwards.
->> memmap= and mem= are debugging tools, right? 
-> I wish they were 🙂
-> But AFAIU they are used to carve out "pmem" or PFN-mapped memory.
+vexpress_smp_dt_prepare_cpus() maps the SCU with of_iomap() only to
+pass it to scu_enable(), and never unmaps it. scu_enable() does not
+keep the address, and nothing else in the vexpress SMP code uses the
+SCU, so the mapping is leaked. The function runs once while bringing up
+the secondary CPUs, so a single mapping is leaked at boot.
 
-I've used them that way for development, but production pmem systems
-always had persistent memory in their BIOS-provided memory maps.
+Unmap the SCU after enabling it, as hisi_enable_scu_a9() does. Also
+skip scu_enable() when of_iomap() fails, instead of passing it a NULL
+pointer.
 
-How are folks depending on these in production in confidential guests?
+Fixes: d2606f81d563 ("ARM: vexpress: Simplify SMP operations for DT-powered system")
+Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
+---
+Tested on QEMU vexpress-a9 (-smp 4) with multi_v7_defconfig, on top of
+8dac6df92a2e. Without this patch, /proc/vmallocinfo still lists the SCU
+mapping after boot:
+
+  8192 vexpress_smp_dt_prepare_cpus+0x28/0x54 phys=0x1e000000 ioremap
+
+With it, that entry is gone, and all four CPUs still come online
+("SMP: Total of 4 processors activated").
+
+ arch/arm/mach-versatile/platsmp-vexpress.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/mach-versatile/platsmp-vexpress.c b/arch/arm/mach-versatile/platsmp-vexpress.c
+index b810ad50b98c..e373d75653cf 100644
+--- a/arch/arm/mach-versatile/platsmp-vexpress.c
++++ b/arch/arm/mach-versatile/platsmp-vexpress.c
+@@ -64,8 +64,14 @@ static void __init vexpress_smp_dt_prepare_cpus(unsigned int max_cpus)
+ 	struct device_node *scu __free(device_node) =
+ 		of_find_matching_node(NULL, vexpress_smp_dt_scu_match);
+ 
+-	if (scu)
+-		scu_enable(of_iomap(scu, 0));
++	if (scu) {
++		void __iomem *scu_base = of_iomap(scu, 0);
++
++		if (scu_base) {
++			scu_enable(scu_base);
++			iounmap(scu_base);
++		}
++	}
+ 
+ 	/*
+ 	 * Write the address of secondary startup into the
+
+base-commit: 8dac6df92a2e66e2098bbc69061964cfe7e8375b
+-- 
+2.56.1
+
