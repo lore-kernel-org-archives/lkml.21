@@ -1,48 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795552207;
-	b=2AlmuW2SG3I0UP3Knh5W30EQkb/4JnLpyvpuOvTeiMnqKVU/ObCGe2GIG25MdZg6wfJx
-	 gV3Qr3CP3YbZraUiJ4IqqWLKBq7j6T8qDrUR4lflAlg5vApCxyvUrl2Z4eGhUr2yE2GDI
-	 lcymlTonZachyKkbrcUq2sqqxuIN1RW05Q0YZcBKZMLm+BahMF6BMKXgJAwIo2IbzOjj5
-	 ugFQCgTRjB1eW1S+vZfjMBZKTlFrf8ZgAUrzoWUZQ+QeIjpoUrhkgXB/wPpa/hCfuvsib
-	 AAqGrrQmIIaSYYZJAWB5VS3q5ndHg+wEK2b4zYlhij9WAPRCZ4HGLPGisj0Uu8og/fw==
+	t=1795552266;
+	b=0y3IKiJplA+GJf/KOMUWGNlkv3FsI4beRsCt39ABXS9JsB60ptpyaKBxahiWKqgh9o0d
+	 qxSSqgoiTj+9V0wLFIJem7DiIe3C+UkbZ2frQiDSoX7dNVjd+z8zS9gd857p89zOOGDuN
+	 4Pp3P4hdIpEBvDGHtPV8Uz1sKsrF5qgmeZ8k1GbP0H8TDenVcdSbroYu5b4y07CAXE4gV
+	 VdwcJ/ByevJiJ2x63LtBOJwLco6g0/HuHN3uHEbac2p8wuInWa9jdRK0KralWCVwM6aS+
+	 nKdrpowfT9jZjTzkTtgonvcmt0b+Qugx0DdWi+yyWZjnabjz7yi73oR6rJK6knrVN/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795552207;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=xnyGmrj10J5RwBUAZceA435lNcAGn9y5CnMDripWj1Y=;
-	b=0OUMqz46ztuZhP5IQi3YxFbVyFCbhUegUvSWVfY03d+PxGkfnPM0MYtU1xMzSRlozxm3
-	 enOqYw4h99JkowOik6rco8KTWYOrROzVdvUL2oIB+ogvky3zXMSDk3FlrXUGgB/O3XB6L
-	 0RnmotoMy4p4FxoxMvE5e+90yD/vikkkW8BDSBTcJJ4B5yoOT3RIf0J13QdyRe8hz1qSh
-	 hfMOsW/EdZTIhuc+f4nojBKsqFja7WSicUOiYCAxC/8ujWvoKvNLjg3F6n22OBj+jsYDP
-	 6Qg73AFXDmLUldRcRFxE7UGpJFXeTQk3vAggE/LJ2phlnymK8+R+Ga64ZvByEvmPcMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795552266;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Date:From:To:
+	 CC:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Originating-IP:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-Virus-Version;
+	bh=iswGJYDERYr+zAWg75b8sg5Zn4Dv7nFZ+rihAnJo3tM=;
+	b=SHh8X4VbjZ7qEDrFC1enq7jsHFqJA/te7jwseBeajXLQdGQoLBIa6yQi410ykBMG0iWN
+	 CHBGmw6TEA9j5PVxt625d4JX+n2ku+Qm1fY78vWK09WVI3rdGm31mascgVb+HzRhhzDf5
+	 nC5++hxQavEnVvpbB4rkpDF66xAvqdpALB+EdZYzRylqjwFZohpwJ60VJu3ocJm0HNKYU
+	 7XIKLrJ2+3XOtzayP+Z0VkfiTiRMYtUCMdL26Mm9IJFJfUjmLMcirxqCsv2JD54M4QJqJ
+	 r/iXDr6E8LEGEG7GNkrhGudbn81w2Jd1ZVeKxQ5fc6YLPW/MiNyaDQXcSdPPV4kY3+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SzDkf1fO;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=meta.com;
+	spf=pass smtp.mailfrom=meta.com;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b="gm/dN8cG";
+	arc=none smtp.remote-ip=67.231.153.30
+Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24622606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:30:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCA56606A32A;
+	Tue, 24 Nov 2026 20:31:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCA56606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SzDkf1fO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66DA11F000C6;
-	Tue, 24 Nov 2026 20:30:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795552206;
-	bh=xnyGmrj10J5RwBUAZceA435lNcAGn9y5CnMDripWj1Y=;
-	h=From:Date:Subject:To:Cc;
-	b=SzDkf1fOX+vDOKMcqHW9L3tvttsu1t8y3fiYRmJ+P/ebCuKXSRk+OvhssnbiieMo/
-	 XKyjFV69ejz99n0GjOb6sJRYnLU5DIttUaTa5rw2f89dqm1H8ElARXo15HOCYcvy2n
-	 KrP0sGg+PTvEtVz38/98Gj1y7+WHZz9mEiInCqGvj+ubG/k6QI/SlBt8YhJiUVuTMm
-	 MBH6Qvd6bi1XBCe4DCLV9SmCOngdfKCLv7Vrap0Q0W2RHpqCSiwznPv8Vl7MAJGVhF
-	 zSZkcSGkvye4G5kxFgpH8WnrwkLq/VU9TdYbGcr4daG+Bqxg4gADEP7CTkbYPt23F+
-	 Dh6DaT2iqxJVQ==
-From: Christian Brauner <brauner@kernel.org>
-Date: Tue, 24 Nov 2026 21:29:47 +0100
-Subject: [PATCH] acct: don't take the mmap lock to get the size of the mm
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=gm/dN8cG
+Received: from pps.filterd (m0109332.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOIXVuU977599;
+	Tue, 24 Nov 2026 12:30:38 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pps82601-s2048-2026-q3; bh=iswGJYDERYr
+	+zAWg75b8sg5Zn4Dv7nFZ+rihAnJo3tM=; b=gm/dN8cGjBc4GQMGCJumRi1BZG9
+	YPt9dAnkPwz5EGIZhd5OtTxzIbdPiIjfBr5QY8Mc0xRuqsMMjjkdb/wkRzCZmJiZ
+	vS32Hj6i3Mgu/zflaJpYaKNAS+UOq7iuiLXBLMGfwFp8DJSsJzS/ZtxN6YT6ZaZ4
+	XoRHhdVH3FqtnW/gyGGhqTPk2zc/H6DvMfS8be+ihtke2V9HUhtLQMtY6BKu568v
+	3v6W+d/NsMi3OM10UOoIlPEdj3NGLYArOHcTYfdSK/G++WhQ2HzHC/9xpVKQFf91
+	2BCz+X/VecipzS63oBUO6nRHod4O32AfAmD0t1cQTf+wE6Ypn757uSawtbw==
+Received: from mail.thefacebook.com ([163.114.134.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j5dcn2k71-9
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Tue, 24 Nov 2026 12:30:38 -0800 (PST)
+Received: from localhost (2620:10d:c085:208::f) by mail.thefacebook.com
+ (2620:10d:c08b:78::c78f) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Tue, 24 Nov
+ 2026 20:30:36 +0000
+Date: Tue, 24 Nov 2026 12:30:35 -0800
+From: Bobby Eshleman <bobbyeshleman@meta.com>
+To: Paolo Abeni <pabeni@redhat.com>
+CC: Michal Luczaj <mhal@rbox.co>, Stefano Garzarella <sgarzare@redhat.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Simon Horman <horms@kernel.org>,
+        George
+ Zhang <georgezhang@vmware.com>, Andy King <acking@vmware.com>,
+        Dmitry
+ Torokhov <dtor@vmware.com>, <virtualization@lists.linux.dev>,
+        <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        Kyle Zeng
+	<kylebot@openai.com>
+Subject: Re: [PATCH net v2] vsock: only undo SS_CONNECTING when connect()
+ fails
+Message-ID: <awXz6yo12ZOQPE8E@devvm29614.prn0.facebook.com>
+References: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
+ <ed28d36a-682e-4db5-abf4-1339734e7c57@rbox.co>
+ <awTJ8EOl52W0ph1K@devvm29614.prn0.facebook.com>
+ <ebb9c249-85bf-4737-841f-ab6ddcaab5a9@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,110 +86,201 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-work-acct-mmap_lock-v1-1-e054cc1ac082@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/z3M3QrCMAyG4VsZOTbFFKfDW5EhbcxcnWtHO39g7
- N5tFTx8w5dngSTRSYJjtUCUp0su+By0qYB746+C7pIb9FbvifQOXyEOaJhnHEczne+BBySua9s
- dqCHTQP6conTu/VVP7a/Tw96E50KVhTVJ0EbjuS+ngqqCqj+qygTW9QOLlSrVogAAAA==
-X-Change-ID: 20261124-work-acct-mmap_lock-1c55bf7181a8
-To: linux-mm@kvack.org, David Hildenbrand <david@kernel.org>
-Cc: linux-kernel@vger.kernel.org, 
- "Christian Brauner (Amutable)" <brauner@kernel.org>
-X-Mailer: b4 0.17-dev-04696
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3174; i=brauner@kernel.org;
- h=from:subject:message-id; bh=Y8qOCFZPncHQCacMit2UrGvUoJ8IyiyW5prp746fCkM=;
- b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWSzfj41VzNze31j5g6p3lssrfzPGRLeWPEsi1/6ZaGKk
- oDYlXNvOkpZGMS4GGTFFFkc2k3C5ZbzVGw2ytSAmcPKBDKEgYtTACai8oPhv/91v1Nii+a65Eze
- o3B4G/vMRydeHJIqsiiJifedoVnfps3IcGya/a7s2hX2/DLZb3J4K14H7Nu8Q3Dbnz0rzXg9z0V
- +ZgEA
-X-Developer-Key: i=brauner@kernel.org; a=openpgp;
- fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <ebb9c249-85bf-4737-841f-ab6ddcaab5a9@redhat.com>
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA4MCBTYWx0ZWRfX1XwEk7IFnqVL
+ IsxEauoxA2030kImjzgsVvv73kGtN9s6cXqJh1kqtOM0Ov+1qSRbP4ALaSnNis747jWVFk4/rWf
+ lF2zvnQtTnh6e/5iQKYjYe3ji9lwVe0=
+X-Proofpoint-ORIG-GUID: DpeAX_CIYOBp6U1WXu6qNU39rpokBsXw
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA4MCBTYWx0ZWRfX0lDTlwiTBfL/
+ ZgsfVpoM8ZXQ5vsstvo27BBlhSB9k5MKdGEvIKdzNZiKxuRh8ZQJia9S6wEXd9/fxyczw334iBx
+ XdkXHFBKZDRFRTI3dLSA6j4p/w2BScHptf9iQRnjdWQ4t23+wKBnYwPjXGj4Wh/EVT1AfQq0vP3
+ dDjRVDEcQo34ZXTfBhZx2149bLRvJ/MR64tDyDedgbDT2OUJ9Z54LbxEYVhloEsOb9CHxC34uIh
+ EpaX8F7dkuE7OGHO7AQkrzO62LhSI/yQLxaceUGNsxVdxM3KAQXtGv4pFmlT38NuWtbs91NuVqo
+ suhvJOorO5uhYMQKc4HBHeM67bpkeLGVb1fJ0Lrfsr0r0Kpn5BV+Bd9un8D6JS/iAH57b0zUJBO
+ k2jLQRd5XQJSmLfQIp9CZRCvSaI63a7wakmdASDfi+6WrQht81gsvISHa0wJUwU/bjsSq2/cOZ9
+ Wvz0zeGZAuFFGkH2UNA==
+X-Authority-Analysis: v=2.4 cv=Ku3YSmWN c=1 sm=1 tr=0 ts=6b05f3ee cx=c_pps
+ a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=7x6HtfJdh03M6CCDgxCd:22 a=xtH7KyWI9dI7BmFOsl-x:22 a=4zObMqdbO8GudoyobMYA:9
+ a=CjuIK1q_8ugA:10
+X-Proofpoint-GUID: DpeAX_CIYOBp6U1WXu6qNU39rpokBsXw
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_05,2026-11-23_01,2025-10-01_01
 
-acct_collect() takes the mmap lock of the mm for the last thread of a
-process and walks all of its vmas to add up their sizes. It does that
-for every process that exits on a kernel with CONFIG_BSD_PROCESS_ACCT
-whether anyone accounts or not.
+On Tue, Nov 24, 2026 at 03:39:17PM +0100, Paolo Abeni wrote:
+> On 11/24/26 00:19, Bobby Eshleman wrote:
+> > On Sat, Nov 21, 2026 at 07:32:15PM +0100, Michal Luczaj wrote:
+> > > On 11/18/26 02:34, Bobby Eshleman wrote:
+> > > > vsock_connect() sleeps with the socket unlocked. Meanwhile the transport
+> > > > can complete the handshake, setting sock->state to SS_CONNECTED, and then
+> > > > reset the connection, e.g. in vhost_vsock_reset_orphans(),
+> > > > virtio_vsock_reset_sock() or vmci_transport_handle_detach(). When
+> > > > connect() gets the lock back, it finds sk_err set and moves the socket
+> > > > back to SS_UNCONNECTED. Userspace can then connect() the socket again,
+> > > > and a connect() to a CID on another transport makes
+> > > > vsock_assign_transport() release the transport the socket was connected
+> > > > on.
+> > > > 
+> > > > Only move the socket back to SS_UNCONNECTED if it is still
+> > > > SS_CONNECTING. A socket that got connected stays SS_CONNECTED, and
+> > > > another connect() fails with -EISCONN.
+> > > > 
+> > > > Likewise, only move sk_state to TCP_CLOSE if it is still TCP_SYN_SENT.
+> > > > Otherwise a second thread blocked in connect() on the same socket can
+> > > > time out after the first one failed and called listen(), and overwrite
+> > > > TCP_LISTEN.
+> > > 
+> > > Ohh, this took me a while.
+> > > 
+> > > > +/* Avoid breaking the socket when another thread has changed its state while
+> > > > + * we were asleep.
+> > > > + */
+> > > > +static void vsock_connect_close(struct socket *sock)
+> > > > +{
+> > > > +	struct sock *sk = sock->sk;
+> > > > +
+> > > > +	if (sk->sk_state == TCP_SYN_SENT)
+> > > > +		sk->sk_state = TCP_CLOSE;
+> > > > +	if (sock->state == SS_CONNECTING)
+> > > > +		sock->state = SS_UNCONNECTED;
+> > > > +}
+> > > 
+> > > I was wondering why not
+> > > 
+> > > 	if (sk->sk_state == TCP_SYN_SENT) {
+> > > 		sk->sk_state = TCP_CLOSE;
+> > > 		sock->state = SS_UNCONNECTED;
+> > > 	}
+> > > 
+> > > and I think the only reasons we can't say "SYN_SENT iff CONNECTING" is
+> > > because shutdown() can flip SYN_SENT/CONNECTING to SYN_SENT/DISCONNECTING.
+> > > On connect's failure, the blocking path kinda-ignores such shutdown() and
+> > > resets the socket to UNCONNECTED anyway, while the non-blocking (i.e.
+> > > vsock_connect_timeout()) also consults sk_shutdown != SHUTDOWN_MASK.
+> > > 
+> > > So how about being consistent:
+> > > 
+> > > static void vsock_connect_close(struct socket *sock)
+> > > {
+> > > 	struct sock *sk = sock->sk;
+> > > 
+> > > 	// we follow vsock_connect_timeout():
+> > > 	// TCP_SYN_SENT implies SS_{DIS,}CONNECTING;
+> > > 	// and we do check sk_shutdown
+> > > 	//
+> > > 	// or am I missing something?
+> > > 
+> > > 	if (sk->sk_state == TCP_SYN_SENT &&
+> > > 	    sk->sk_shutdown != SHUTDOWN_MASK) {
+> > > 		sk->sk_state = TCP_CLOSE;
+> > > 		sock->state = SS_UNCONNECTED;
+> > > 	}
+> > > }
+> > > 
+> > > What do you think?
+> > 
+> > I think we could say TCP_SYN_SENT implies SS_{DIS,}CONNECTING, but
+> > probably not the reverse... without a peer on the other end our connect
+> > request gets an RST reply, switching to TCP_CLOSE but leaving untouched
+> > SS_CONNECTING. Using only TCP_SYN_SENT then skips resetting
+> > SS_CONNECTING to SS_UNCONNECTED, and future connect() retries hit
+> > -EALREADY forever.
+> > 
+> > It seems to work for vsock_connect_timeout() because that function only
+> > needs to test if the attempt to connect is still pending (if yes, then
+> > close everything up), but vsock_connect_close() needs to know more
+> > precisely if the socket still holds the state that this current connect
+> > attempt changed... so it separately checks "Did we set TCP_SYN_SENT? if
+> > so, set to TCP_CLOSE.  Did we set SS_CONNECTING?  If so, set to
+> > SS_UNCONNECTED."
+> > 
+> > I think it might even make more sense to consolidate in the other
+> > direction and make vsock_connect_timeout() a caller of the new
+> > vsock_connect_close(), since it appears there is a similar edge case
+> > there...
+> > 
+> > connect(), O_NONBLOCK
+> >    transport->connect()  /* OP_REQUEST */
+> >    mod_delayed_work(connect_work)
+> > 
+> > shutdown(SHUT_RDWR)
+> >    sock->state = SS_DISCONNECTING
+> >    sk_shutdown = SHUTDOWN_MASK
+> > 
+> > vsock_connect_timeout()
+> >    skips the socket because of SHUTDOWN_MASK
+> >    /* still TCP_SYN_SENT / SS_DISCONNECTING */
+> > 
+> > late OP_RESPONSE, virtio_transport_recv_connecting()
+> >    sk_state = TCP_ESTABLISHED
+> >    sock->state = SS_CONNECTED
+> >    vsock_insert_connected()
+> > 
+> > So the attempt never times out, and a late OP_RESPONSE connects a
+> > socket the user already shut down, overwriting SS_DISCONNECTING with
+> > SS_CONNECTED. I think that's a separate bug for a separate patch,
+> > though.
+> > 
+> > Or am I off track / missing something?
+> I have slightly different question: is the 'multiple threads
+> connecting/disconnecting the same socket concurrently' a
+> relevant scenario? Otherwise if final state is self-consistent
+> (i.e. _NOT_ TCP_SYN_SENT + SS_DISCONNECTING) I think there is
+> nothing to fix here.
+> 
+> /P
 
-The mmap lock is taken with mmap_read_lock(). So a task that exits waits
-unkillably (violatin all kinds of grammar here probably) for a writer of
-its mm in acct_collect().
+To your point, the only user-facing issue I can see with
+vsock_connect_timeout() would be seen in pretty rare cases.... Since it
+skips the socket when sk_shutdown == SHUTDOWN_MASK, if the peer never
+responds with RST the connect attempt never times out, the socket sits
+in TCP_SYN_SENT + SS_DISCONNECTING (connect() returning -EINVAL) until
+close(). But I'm pretty sure this could only happen on the vhost side if
+the guest was unresponsive/crashed or on the virtio side if maybe
+vhost's RST dropped during VM migration when vhost's send queue is
+purged. IMHO this should probably be fixed, but I don't think its worth
+turning the code upside down for.
 
-I'm decluttering the exec path and moving all kinds of crap that people
-do under exec_update_lock out of it and shrinking it's very annoying
-existence.
+Looking at this connect()/shutdown() sequence again today... with
+O_NONBLOCK, there is some inconsistent behavior that although is not
+caused by vsock_connect_timeout(), I'd like to mention here since its
+come up. It exists even for a single thread making both calls. Playing
+w/ vsock_loopback and bpftrace, it does end up with SS_DISCONNECTING +
+TCP_SYN_SENT, but I think the most unexpected thing from the user's
+perspective is that it temporarily flips to SS_CONNECTED even after
+shutdown() and a number of syscalls present the socket as connected:
 
-Note that ac_mem can now be off by a mapping if the mm is shared with
-another process that maps or unmaps something right then.
+  repro    connect()     -> -EINPROGRESS  SS_CONNECTING     TCP_SYN_SENT
+  repro    shutdown()    -> 0             SS_DISCONNECTING  TCP_SYN_SENT
+  repro    getpeername() -> -ENOTCONN     SS_DISCONNECTING  TCP_SYN_SENT
+  repro    connect()     -> -EINVAL       SS_DISCONNECTING  TCP_SYN_SENT
+  repro    recv()        -> -ENOTCONN     SS_DISCONNECTING  TCP_SYN_SENT
+  repro    SO_ERROR      =  0
+  repro    poll()        -> IN|HUP|RDHUP  SS_DISCONNECTING  TCP_SYN_SENT
+  kworker  recv_pkt(OP_RESPONSE)          SS_CONNECTED      TCP_ESTABLISHED
+  ^ the switch to connected is here
 
-Luckily, acct() is deprecated and the mm keeps the sum of the sizes of
-its vmas in mm->total_vm. That's what /proc/<pid>/stat reports as the
-size of the mm and it doesn't take the mmap lock for it. So use it.
+  repro    getpeername() -> 0             SS_CONNECTED      TCP_ESTABLISHED
+  repro    connect()     -> -EISCONN      SS_CONNECTED      TCP_ESTABLISHED
+  repro    recv()        -> 0             SS_CONNECTED      TCP_ESTABLISHED
+  repro    SO_ERROR      =  0
+  ^ the socket starts partially acting like it's connected/established
 
-And fsck acct() and nommu, degrade it and use mm->total_vm there as
-well. The total_vm is never lowered when a mapping goes away but who the
-fsck uses acct() on nommu. And if they do, again, this is a deprecated
-api.
+  repro    poll()        -> IN|HUP|RDHUP  SS_CONNECTED      TCP_ESTABLISHED
+  kworker  recv_pkt(OP_RST)               SS_CONNECTED      TCP_CLOSING
+  ^ eventually RST shows up and shuts things down
 
-Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
----
-The quest to reduce the amount of unnecessary stalling that happens to
-the exec codepath continues. Next victim, acct(). It has no maintainers
-and b4 gives me zilch when to Cc so I'll just take the patch.
+TCP handles this better... shutdown() on SYN_SENT socket aborts the
+connect attempt w/ tcp_disconnect() resulting in TCP_CLOSE,
+SS_UNCONNECTED, sk_err = ECONNRESET, and the late SYN-ACK doesn't push
+it into established, and users see POLLERR/SO_ERROR.
 
-This makes acct_collect() get the size of the mm without taking the mmap
-lock. A task that exits waits for that lock on every kernel with
-CONFIG_BSD_PROCESS_ACCT whether anyone accounts or not and it can't be
-killed there.
+I think the TCP approach also fixes that edge case with
+vsock_connect_timeout(), since the user would at least see the errors.
 
-This degrades acct() but it's deprecated so let's do it.
----
- kernel/acct.c | 20 +++++++++-----------
- 1 file changed, 9 insertions(+), 11 deletions(-)
-
-diff --git a/kernel/acct.c b/kernel/acct.c
-index c440d43479ca5..9b99313bcb619 100644
---- a/kernel/acct.c
-+++ b/kernel/acct.c
-@@ -549,6 +549,12 @@ static void do_acct_process(struct bsd_acct_struct *acct)
- 	current->signal->rlim[RLIMIT_FSIZE].rlim_cur = flim;
- }
- 
-+/* The size of the mm in kB. */
-+static unsigned long acct_vsize(struct mm_struct *mm)
-+{
-+	return READ_ONCE(mm->total_vm) << (PAGE_SHIFT - 10);
-+}
-+
- /**
-  * acct_collect - collect accounting information into pacct_struct
-  * @exitcode: task exit code
-@@ -560,20 +566,12 @@ void acct_collect(long exitcode, int group_dead)
- 	u64 utime, stime;
- 	unsigned long vsize = 0;
- 
--	if (group_dead && current->mm) {
--		struct mm_struct *mm = current->mm;
--		VMA_ITERATOR(vmi, mm, 0);
--		struct vm_area_struct *vma;
--
--		mmap_read_lock(mm);
--		for_each_vma(vmi, vma)
--			vsize += vma->vm_end - vma->vm_start;
--		mmap_read_unlock(mm);
--	}
-+	if (group_dead && current->mm)
-+		vsize = acct_vsize(current->mm);
- 
- 	spin_lock_irq(&current->sighand->siglock);
- 	if (group_dead)
--		pacct->ac_mem = vsize / 1024;
-+		pacct->ac_mem = vsize;
- 	if (thread_group_leader(current)) {
- 		pacct->ac_exitcode = exitcode;
- 		if (current->flags & PF_FORKNOEXEC)
-
----
-base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
-change-id: 20261124-work-acct-mmap_lock-1c55bf7181a8
-
+Best,
+Bobby
