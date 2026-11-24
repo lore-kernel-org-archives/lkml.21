@@ -1,56 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=157.90.84.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=204.191.154.188
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795535463;
-	b=oIWFVgT71As+JruqHgZ4jKoqiERTYfmoJF/JDjPJFDn/S0agah9QqFRVsO8yAfr0aIqT
-	 NU5/x2TB4WaM8Yz+tFKR8QCaXwphHmJNgwKY71Gq4bBDe/f0bINgTjc082hu4i7dJhrh+
-	 R8ZRIJaqONneQJrQOJ+jvDJ5Qycalq/zWT3OfhjzaQzXAFFgXuf16hjX5s4JlIh6iJ24b
-	 wiLJGzTUSDgT54zL3gKAV0FNJ1y4qa3US1MdRB6IPnrinCp2tw0xS/ntOyZuVMK5C2bZn
-	 OLvc3wbbxCtgnhn/QzMYM2+jmP+89hPiPyrsDrbZGKhqQPLx55BffgKt8zmWZJFH0Gg==
+	t=1795535508;
+	b=pViWRGzpcjH2lDnIf01lnz5mDE7Wh1egvuaoixpqqV/pNK1WkY7wWYP7WBDNMxR5YXZi
+	 dsz8ebjPRkmSSmjx9YvFjf20/msBGiUKkHEZOkpZePx7Nx/yey7vKBLUE6CbnPEJdFCRr
+	 EnFsonzcoH0k8LJOhQgaa6gWYAr4t+lFoU8hk3A1TDWJw/wiUlbkiisbJ9ICTILn24PxF
+	 d0IWP+EbQ24QOfJgpBXoEzbX5tXTzmkSUl2JpZmp+syF0J9oi3mWv+5u9GJzyIj/H2aCj
+	 oikmDYveAiQkA0uZtCsWY2GQ0tldV4OQCFLCEYmxHJ5pzO9HBE3pz5GgHIXZD7T+XYA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795535463;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=+0+VzjcsKx1nr4LQUxK2fwSRPHTLOPOaso9I8zmCrfk=;
-	b=WXFTTugISSgr4sNsfV6ubt3UH/+qUUBZID4PbUgc9ophp8kW/KNuzzU2OFOchi53D93r
-	 BDYlEPBfO6A4AfFsgECxN94Za6qtSnWKn1xJnnZM4MH3r4raYMJA1GtqG3j+9HCIW5gke
-	 h+xRa9luBovQ0MsIJWOXHDxKfs8sdS3LHk4GW48VuXqQ0nPCKgBLSiaAxwtc/cuBb/M1I
-	 YNzAWJKyB8zGp6mKafe9HmhqksnI34f5b94vKe/uxM3DMinfsKjzm2SgKqq3bxVFRo5+M
-	 RboTH9wcQb742VyCHUclW8xXfFklV27CSg88ri9YKADD0yPGzRHLe+Pk/RJayFSlLJA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535508;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:
+	 X-SA-Exim-Mail-From:X-Spam-Checker-Version:X-Spam-Level:X-Spam-Status:
+	 Subject:X-SA-Exim-Version:X-SA-Exim-Scanned;
+	bh=6baCYTH8I0r8TfwZxiswCXJZqAHcjanXixpDVvV33+k=;
+	b=j7TZ3k0cE1SXlvgPAfa5zW+Wj/6kMJ33vPlXF5LQGla4uZElZ2uCeMAF7yHtcvdIKeWi
+	 G5Mhu2YOzP7ybvVAF8Bjs7u46yE6Tw3JteERAbM++2mMGD6sE76X2IygHSDX3MEuW0i+T
+	 YjcOYUcrOjON5NkOdrrHxdlZ5U47BBhpvbCD/ybe6OtBxbPm8z2txor8+VNmOTRPMUWoG
+	 SYqYGd+V1ag56kTzWuICp+eU2zDq3m5fJajcopebKPJdQ1ReuwukW0wPzBlFnoQzgVqZZ
+	 zDh6bv7caOvBwtwMxD5o5h2Vf7s1DLzQRsIz/fM/g+BplIJogZZwxvt24L30UELJ6lw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=tuxedocomputers.com;
-	spf=pass smtp.mailfrom=tuxedocomputers.com;
-	dkim=pass header.d=tuxedocomputers.com header.i=@tuxedocomputers.com header.a=rsa-sha256 header.s=default header.b=FPF2VsJT;
-	arc=none smtp.remote-ip=157.90.84.7
-Received: from mail.tuxedocomputers.com (mail.tuxedocomputers.com [157.90.84.7])
+	dmarc=pass header.from=deltatee.com;
+	spf=pass smtp.mailfrom=deltatee.com;
+	dkim=pass header.d=deltatee.com header.i=@deltatee.com header.a=rsa-sha256 header.s=20200525 header.b=U7LMJIXp;
+	arc=none smtp.remote-ip=204.191.154.188
+Received: from ale.deltatee.com (ale.deltatee.com [204.191.154.188])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1461A606A31E;
-	Tue, 24 Nov 2026 15:51:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1461A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=tuxedocomputers.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tuxedocomputers.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F6F2606A31E;
+	Tue, 24 Nov 2026 15:51:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F6F2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=deltatee.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=deltatee.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=tuxedocomputers.com header.i=@tuxedocomputers.com header.a=rsa-sha256 header.s=default header.b=FPF2VsJT
-Received: from [10.10.12.8] (business-024-134-105-141.24.134.pools.vodafone-ip.de [24.134.105.141])
-	(Authenticated sender: wse@tuxedocomputers.com)
-	by mail.tuxedocomputers.com (Postfix) with ESMTPSA id 4D6D92FC004A;
-	Tue, 24 Nov 2026 16:50:59 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tuxedocomputers.com;
-	s=default; t=1795535459;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+0+VzjcsKx1nr4LQUxK2fwSRPHTLOPOaso9I8zmCrfk=;
-	b=FPF2VsJTvuwZBocWHuaefCTleLiSgEMgy2QzbgzrdTvws6QgyOFSF6JNPpjbGu+UeLky0q
-	djUELzf30xBDCOMEcFDyShppmuGzkxgh98Yr5Xv+u0ZQdGHAmZt7vzrBD+IPbQJPCRM4Mf
-	gFwL4kFs62u75npFiWgxErabJgzw08U=
-Authentication-Results: mail.tuxedocomputers.com;
-	auth=pass smtp.auth=wse@tuxedocomputers.com smtp.mailfrom=wse@tuxedocomputers.com
-Message-ID: <48e192d6-3c72-49fe-b2a9-ed5dd296d737@tuxedocomputers.com>
-Date: Tue, 24 Nov 2026 16:50:58 +0100
+	dkim=pass (2048-bit key) header.d=deltatee.com header.i=@deltatee.com header.a=rsa-sha256 header.s=20200525 header.b=U7LMJIXp
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=deltatee.com; s=20200525; h=Subject:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Cc:To:From:content-disposition;
+	bh=6baCYTH8I0r8TfwZxiswCXJZqAHcjanXixpDVvV33+k=; b=U7LMJIXpzCnuu0FY49EsAjzOq4
+	Z/2bkjqJa8D4GF0RVBTf1di8U5yFEtVryy6B+LlFlrTvxImKh5ZOjd8pw5NHriCjkKML9v45dw4I6
+	FNeH0Yl4THIeeeGYkbsitIP4OdUmUqg7VArT7AveRf2Aruessxqz/kn6JbPlBw16xgWYxjCiFSZjs
+	5v7jC14jXadWsv7Wgufknt9ic40g1wYcxv3LM2ps8jW2RnSJO/5xdDtjmM8PrMhMDTACwDmXbE3U2
+	ZLkGl1ETyBzweuj6bikXBNiKjK8Z/stBiucgRTAqiWkFqNbk5cmYE8/Tp84a4uRP08dC9y0XNoWI4
+	SII81IyA==;
+Received: from donard.priv.deltatee.com ([172.16.1.31])
+	by ale.deltatee.com with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <logang@deltatee.com>)
+	id 1xVso5-00000000mcH-0nY8;
+	Tue, 24 Nov 2026 09:51:46 -0600
+Received: from logang by donard.priv.deltatee.com with local (Exim 4.98.2)
+	(envelope-from <logang@deltatee.com>)
+	id 1xVsmo-00000003rRh-0lB2;
+	Tue, 24 Nov 2026 09:50:26 -0600
+From: Logan Gunthorpe <logang@deltatee.com>
+To: dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Vinod Koul <vkoul@kernel.org>
+Cc: Frank Li <Frank.li@nxp.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+	Dave Jiang <dave.jiang@intel.com>,
+	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+	Kelvin Cao <kelvin.cao@microchip.com>,
+	Logan Gunthorpe <logang@deltatee.com>,
+	Frank Li <Frank.Li@nxp.com>
+Date: Tue, 24 Nov 2026 09:50:23 -0600
+Message-ID: <20261124155024.920403-5-logang@deltatee.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261124155024.920403-1-logang@deltatee.com>
+References: <20261124155024.920403-1-logang@deltatee.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,137 +80,332 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] platform/x86: uniwill-laptop: Remove cTGP control from
- unsupported devices
-To: Armin Wolf <W_Armin@gmx.de>, Hans de Goede <hansg@kernel.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261124151303.435534-1-wse@tuxedocomputers.com>
- <90a3cf06-ab77-4995-ab27-8e10eb9d8e87@gmx.de>
-Content-Language: en-US
-From: Werner Sembach <wse@tuxedocomputers.com>
-In-Reply-To: <90a3cf06-ab77-4995-ab27-8e10eb9d8e87@gmx.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 172.16.1.31
+X-SA-Exim-Rcpt-To: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, vkoul@kernel.org, hch@infradead.org, christophe.jaillet@wanadoo.fr, dave.jiang@intel.com, linux@weissschuh.net, kelvin.cao@microchip.com, logang@deltatee.com, Frank.li@nxp.com, Frank.Li@nxp.com
+X-SA-Exim-Mail-From: logang@deltatee.com
+X-Spam-Level: 
+Subject: [PATCH v5 4/4] dmaengine: switchtec-dma: add pmon sysfs attributes
+X-SA-Exim-Version: 4.2.1 (built Sun, 23 Feb 2025 07:57:16 +0000)
+X-SA-Exim-Scanned: Yes (on ale.deltatee.com)
 
+Switchtec hardware exposes some performance monitor registers which
+can be used to monitor various statistics of the hardware.
 
-Am 24.11.26 um 16:39 schrieb Armin Wolf:
-> Am 24.11.26 um 16:11 schrieb Werner Sembach:
->> Some devices like the InfinityBook Pro series have Dynamic Boost support,
->> but the cTGP setting is actually ignored.
->>
->> This commit adds the ability to still initialize DB, but hide the noop cTGP
->> sysfs attribute and applies this to the respective devices.
->>
->> Signed-off-by: Werner Sembach <wse@tuxedocomputers.com>
->> ---
->> V2: Fix "force" mode not respecting mutual exclusivity of new feature bit.
->>
->>   drivers/platform/x86/uniwill/uniwill-acpi.c | 30 ++++++++++++++-------
->>   1 file changed, 20 insertions(+), 10 deletions(-)
->>
->> diff --git a/drivers/platform/x86/uniwill/uniwill-acpi.c 
->> b/drivers/platform/x86/uniwill/uniwill-acpi.c
->> index e2a6a704e942e..bef072f9f1b55 100644
->> --- a/drivers/platform/x86/uniwill/uniwill-acpi.c
->> +++ b/drivers/platform/x86/uniwill/uniwill-acpi.c
->> @@ -366,10 +366,12 @@
->>   #define UNIWILL_FEATURE_PRIMARY_FAN        BIT(8)
->>   #define UNIWILL_FEATURE_SECONDARY_FAN        BIT(9)
->>   #define UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL    BIT(10)
->> -#define UNIWILL_FEATURE_USB_C_POWER_PRIORITY    BIT(11)
->> -#define UNIWILL_FEATURE_KEYBOARD_BACKLIGHT    BIT(12)
->> -#define UNIWILL_FEATURE_AC_AUTO_BOOT        BIT(13)
->> -#define UNIWILL_FEATURE_USB_POWERSHARE        BIT(14)
->> +/* Mutually exclusive with the cTGP control feature */
->> +#define UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY    BIT(11)
->
-> Hi,
->
-> i think it would be better to instead split 
-> UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL into UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL 
-> and UNIWILL_FEATURE_NVIDIA_DB_CONTROL.
->
-> Devices that currently support cTGP control just need to also set 
-> UNIWILL_FEATURE_NVIDIA_DB_CONTROL, and devices that only support dynamic boost 
-> only need to set UNIWILL_FEATURE_NVIDIA_DB_CONTROL.
->
-> This way we can avoid having another set of mutally exclusive feature flags.
-ok
->
->> +#define UNIWILL_FEATURE_USB_C_POWER_PRIORITY    BIT(12)
->> +#define UNIWILL_FEATURE_KEYBOARD_BACKLIGHT    BIT(13)
->> +#define UNIWILL_FEATURE_AC_AUTO_BOOT        BIT(14)
->> +#define UNIWILL_FEATURE_USB_POWERSHARE        BIT(15)
->>     enum usb_c_power_priority_options {
->>       USB_C_POWER_PRIORITY_CHARGING = 0,
->> @@ -1004,7 +1006,9 @@ static int uniwill_nvidia_ctgp_init(struct uniwill_data 
->> *data)
->>   {
->>       int ret;
->>   -    if (!uniwill_device_supports(data, UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL))
->> +    if (!uniwill_device_supports_any(data,
->> +                     UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
->> +                     UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY))
->>           return 0;
->
-> Should we still set CTGP_DB_CTGP_ENABLE if cTGP control is not supported? Also 
-> i think we should not touch EC_ADDR_CTGP_DB_CTGP_OFFSET if cTGP support is not 
-> present, the same goes for dynamic boost.
->
-> Thanks,
-> Armin Wolf
->
->>         ret = regmap_write(data->regmap, EC_ADDR_CTGP_DB_CTGP_OFFSET, 0);
->> @@ -2577,7 +2581,9 @@ static int uniwill_suspend_usb_powershare(struct 
->> uniwill_data *data)
->>     static int uniwill_suspend_nvidia_ctgp(struct uniwill_data *data)
->>   {
->> -    if (!uniwill_device_supports(data, UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL))
->> +    if (!uniwill_device_supports_any(data,
->> +                     UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
->> +                     UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY))
->>           return 0;
->>         return regmap_clear_bits(data->regmap, EC_ADDR_CTGP_DB_CTRL,
->> @@ -2686,7 +2692,9 @@ static int uniwill_resume_usb_powershare(struct 
->> uniwill_data *data)
->>     static int uniwill_resume_nvidia_ctgp(struct uniwill_data *data)
->>   {
->> -    if (!uniwill_device_supports(data, UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL))
->> +    if (!uniwill_device_supports_any(data,
->> +                     UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
->> +                     UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY))
->>           return 0;
->>         return regmap_set_bits(data->regmap, EC_ADDR_CTGP_DB_CTRL,
->> @@ -2910,7 +2918,7 @@ static struct uniwill_device_descriptor 
->> phxtqxx_phxagxx_phxaqxx_phxpgxx_descript
->>               UNIWILL_FEATURE_GPU_TEMP |
->>               UNIWILL_FEATURE_PRIMARY_FAN |
->>               UNIWILL_FEATURE_SECONDARY_FAN |
->> -            UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
->> +            UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY |
->>               UNIWILL_FEATURE_USB_C_POWER_PRIORITY |
->>               UNIWILL_FEATURE_KEYBOARD_BACKLIGHT,
->>       .kbd_led_single_color = true,
->> @@ -3106,7 +3114,7 @@ static int phxarxx_phxaqxx_probe(struct uniwill_data 
->> *data)
->>         if (value & HAS_GPU)
->>           data->features |= UNIWILL_FEATURE_GPU_TEMP |
->> -                  UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL;
->> +                  UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY;
->>         return 0;
->>   };
->> @@ -3711,7 +3719,9 @@ static int __init uniwill_init(void)
->>         if (force) {
->>           /* Assume that the device supports all features except the charge 
->> limit */
->> -        device_descriptor.features = UINT_MAX & 
->> ~UNIWILL_FEATURE_BATTERY_CHARGE_LIMIT;
->> +        device_descriptor.features = UINT_MAX &
->> +            ~(UNIWILL_FEATURE_BATTERY_CHARGE_LIMIT |
->> +            UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY);
->>           /* Some models only have a (white) single color keyboard backlight */
->>           device_descriptor.kbd_led_single_color = false;
->>           /* Some models only support 3 brightness levels */
->
+Expose these as a "switchtec-pmon" sysfs attribute group, alongside
+the "switchtec-config" group added previously.
+
+The various registers are read through a small shared pmon_show()
+helper parameterized by a reader function pointer, rather than a
+macro, to avoid generating the whole read + rcu_read_lock/unlock +
+sysfs_emit sequence per attribute.
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
+---
+ drivers/dma/switchtec_dma.c | 273 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 273 insertions(+)
+
+diff --git a/drivers/dma/switchtec_dma.c b/drivers/dma/switchtec_dma.c
+index 1ebe17095c61..774b418330ed 100644
+--- a/drivers/dma/switchtec_dma.c
++++ b/drivers/dma/switchtec_dma.c
+@@ -12,6 +12,7 @@
+ #include <linux/pci.h>
+ #include <linux/delay.h>
+ #include <linux/iopoll.h>
++#include <linux/io-64-nonatomic-lo-hi.h>
+ 
+ #include "dmaengine.h"
+ 
+@@ -91,6 +92,12 @@ struct chan_hw_regs {
+ #define SE_BUF_LEN_MASK		GENMASK_U32(20, 12)
+ #define SE_THRESH_MASK		GENMASK_U32(31, 23)
+ 
++#define SWITCHTEC_LAT_SE_FETCH   BIT(0)
++#define SWITCHTEC_LAT_VDM        BIT(1)
++#define SWITCHTEC_LAT_RD_IMM     BIT(2)
++#define SWITCHTEC_LAT_FW_NP      BIT(3)
++#define SWITCHTEC_LAT_SE_PROCESS BIT(4)
++
+ #define SWITCHTEC_CHAN_ENABLE	BIT(1)
+ 
+ struct chan_fw_regs {
+@@ -1215,8 +1222,274 @@ static const struct attribute_group switchtec_config_group = {
+ 	.attrs = switchtec_config_attrs,
+ };
+ 
++static ssize_t pmon_show(struct device *dev, char *page,
++			 u64 (*reader)(struct chan_fw_regs __iomem *chan_fw))
++{
++	struct switchtec_dma_chan *swdma_chan;
++	u64 val;
++
++	CLASS(dmaengine_chan_from_dev, c)(dev);
++
++	if (!c)
++		return -ENODEV;
++
++	swdma_chan = container_of(c, struct switchtec_dma_chan, dma_chan);
++
++	rcu_read_lock();
++	if (!rcu_dereference(swdma_chan->swdma_dev->pdev)) {
++		rcu_read_unlock();
++		return -ENODEV;
++	}
++
++	val = reader(swdma_chan->mmio_chan_fw);
++	rcu_read_unlock();
++
++	return sysfs_emit(page, "0x%llx\n", val);
++}
++
++static u64 read_se_count(struct chan_fw_regs __iomem *chan_fw)
++{
++	return lo_hi_readq(&chan_fw->perf_fetched_se_cnt_lo);
++}
++
++static ssize_t se_count_show(struct device *dev,
++			     struct device_attribute *attr, char *page)
++{
++	return pmon_show(dev, page, read_se_count);
++}
++static DEVICE_ATTR_RO(se_count);
++
++static u64 read_byte_count(struct chan_fw_regs __iomem *chan_fw)
++{
++	return lo_hi_readq(&chan_fw->perf_byte_cnt_lo);
++}
++
++static ssize_t byte_count_show(struct device *dev,
++			       struct device_attribute *attr, char *page)
++{
++	return pmon_show(dev, page, read_byte_count);
++}
++static DEVICE_ATTR_RO(byte_count);
++
++static u64 read_se_pending(struct chan_fw_regs __iomem *chan_fw)
++{
++	return readw(&chan_fw->perf_se_pending);
++}
++
++static ssize_t se_pending_show(struct device *dev,
++			       struct device_attribute *attr, char *page)
++{
++	return pmon_show(dev, page, read_se_pending);
++}
++static DEVICE_ATTR_RO(se_pending);
++
++static u64 read_se_buf_empty(struct chan_fw_regs __iomem *chan_fw)
++{
++	return readw(&chan_fw->perf_se_buf_empty);
++}
++
++static ssize_t se_buf_empty_show(struct device *dev,
++				 struct device_attribute *attr, char *page)
++{
++	return pmon_show(dev, page, read_se_buf_empty);
++}
++static DEVICE_ATTR_RO(se_buf_empty);
++
++static u64 read_chan_idle(struct chan_fw_regs __iomem *chan_fw)
++{
++	return readl(&chan_fw->perf_chan_idle);
++}
++
++static ssize_t chan_idle_show(struct device *dev,
++			      struct device_attribute *attr, char *page)
++{
++	return pmon_show(dev, page, read_chan_idle);
++}
++static DEVICE_ATTR_RO(chan_idle);
++
++static u64 read_latency_max(struct chan_fw_regs __iomem *chan_fw)
++{
++	return readl(&chan_fw->perf_lat_max);
++}
++
++static ssize_t latency_max_show(struct device *dev,
++				struct device_attribute *attr, char *page)
++{
++	return pmon_show(dev, page, read_latency_max);
++}
++static DEVICE_ATTR_RO(latency_max);
++
++static u64 read_latency_min(struct chan_fw_regs __iomem *chan_fw)
++{
++	return readl(&chan_fw->perf_lat_min);
++}
++
++static ssize_t latency_min_show(struct device *dev,
++				struct device_attribute *attr, char *page)
++{
++	return pmon_show(dev, page, read_latency_min);
++}
++static DEVICE_ATTR_RO(latency_min);
++
++static u64 read_latency_last(struct chan_fw_regs __iomem *chan_fw)
++{
++	return readl(&chan_fw->perf_lat_last);
++}
++
++static ssize_t latency_last_show(struct device *dev,
++				 struct device_attribute *attr, char *page)
++{
++	return pmon_show(dev, page, read_latency_last);
++}
++static DEVICE_ATTR_RO(latency_last);
++
++static ssize_t latency_selector_show(struct device *dev,
++				     struct device_attribute *attr, char *page)
++{
++	struct switchtec_dma_chan *swdma_chan;
++	struct chan_fw_regs __iomem *chan_fw;
++	u32 lat = 0;
++	int len;
++
++	CLASS(dmaengine_chan_from_dev, c)(dev);
++
++	if (!c)
++		return -ENODEV;
++
++	swdma_chan = container_of(c, struct switchtec_dma_chan, dma_chan);
++	chan_fw = swdma_chan->mmio_chan_fw;
++
++	rcu_read_lock();
++	if (!rcu_dereference(swdma_chan->swdma_dev->pdev)) {
++		rcu_read_unlock();
++		return -ENODEV;
++	}
++
++	lat = readl(&chan_fw->perf_latency_selector);
++	rcu_read_unlock();
++
++	len = sysfs_emit(page,
++			 "To select a latency type, write the type number\n");
++	len += sysfs_emit_at(page, len, "(1 ~ 5) to latency_selector\n\n");
++
++	len += sysfs_emit_at(page, len, "Latency Types:\n");
++	len += sysfs_emit_at(page, len, "(1) SE Fetch latency");
++	if (lat & SWITCHTEC_LAT_SE_FETCH)
++		len += sysfs_emit_at(page, len, " (*)\n");
++	else
++		len += sysfs_emit_at(page, len, "\n");
++
++	len += sysfs_emit_at(page, len, "(2) VDM latency");
++	if (lat & SWITCHTEC_LAT_VDM)
++		len += sysfs_emit_at(page, len, " (*)\n");
++	else
++		len += sysfs_emit_at(page, len, "\n");
++
++	len += sysfs_emit_at(page, len, "(3) Read Immediate latency");
++	if (lat & SWITCHTEC_LAT_RD_IMM)
++		len += sysfs_emit_at(page, len, " (*)\n");
++	else
++		len += sysfs_emit_at(page, len, "\n");
++
++	len += sysfs_emit_at(page, len, "(4) SE Processing latency");
++	if (lat & SWITCHTEC_LAT_SE_PROCESS)
++		len += sysfs_emit_at(page, len, " (*)\n");
++	else
++		len += sysfs_emit_at(page, len, "\n");
++
++	len += sysfs_emit_at(page, len, "(5) FW NP TLP latency");
++	if (lat & SWITCHTEC_LAT_FW_NP)
++		len += sysfs_emit_at(page, len, " (*)\n");
++	else
++		len += sysfs_emit_at(page, len, "\n");
++
++	return len;
++}
++
++static ssize_t latency_selector_store(struct device *dev,
++				      struct device_attribute *attr,
++				      const char *page, size_t count)
++{
++	struct switchtec_dma_chan *swdma_chan;
++	struct chan_fw_regs __iomem *chan_fw;
++	ssize_t ret = count;
++	int lat_type;
++
++	CLASS(dmaengine_chan_from_dev, c)(dev);
++
++	if (!c)
++		return -ENODEV;
++
++	swdma_chan = container_of(c, struct switchtec_dma_chan, dma_chan);
++	chan_fw = swdma_chan->mmio_chan_fw;
++
++	if (kstrtoint(page, 0, &lat_type) < 0)
++		return -EINVAL;
++
++	switch (lat_type) {
++	case 1:
++		lat_type = SWITCHTEC_LAT_SE_FETCH;
++		break;
++	case 2:
++		lat_type = SWITCHTEC_LAT_VDM;
++		break;
++	case 3:
++		lat_type = SWITCHTEC_LAT_RD_IMM;
++		break;
++	case 4:
++		lat_type = SWITCHTEC_LAT_SE_PROCESS;
++		break;
++	case 5:
++		lat_type = SWITCHTEC_LAT_FW_NP;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	rcu_read_lock();
++	if (!rcu_dereference(swdma_chan->swdma_dev->pdev)) {
++		ret = -ENODEV;
++		goto err_unlock;
++	}
++
++	spin_lock(&swdma_chan->hw_ctrl_lock);
++	if (swdma_chan->hw_cfg_locked) {
++		spin_unlock(&swdma_chan->hw_ctrl_lock);
++		ret = -EBUSY;
++		goto err_unlock;
++	}
++
++	writel(lat_type, &chan_fw->perf_latency_selector);
++	spin_unlock(&swdma_chan->hw_ctrl_lock);
++
++err_unlock:
++	rcu_read_unlock();
++
++	return ret;
++}
++static DEVICE_ATTR_RW(latency_selector);
++
++static struct attribute *switchtec_pmon_attrs[] = {
++	&dev_attr_se_count.attr,
++	&dev_attr_byte_count.attr,
++	&dev_attr_se_pending.attr,
++	&dev_attr_se_buf_empty.attr,
++	&dev_attr_chan_idle.attr,
++	&dev_attr_latency_max.attr,
++	&dev_attr_latency_min.attr,
++	&dev_attr_latency_last.attr,
++	&dev_attr_latency_selector.attr,
++	NULL,
++};
++
++static const struct attribute_group switchtec_pmon_group = {
++	.name = "switchtec-pmon",
++	.attrs = switchtec_pmon_attrs,
++};
++
+ static const struct attribute_group *switchtec_groups[] = {
+ 	&switchtec_config_group,
++	&switchtec_pmon_group,
+ 	NULL,
+ };
+ 
+-- 
+2.47.3
+
