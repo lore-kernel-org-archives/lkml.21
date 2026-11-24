@@ -1,62 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.97
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795522557;
-	b=dxs3yy2qXupa7JJXB5Qa9W3HbhNcXMwwA4OhZ82r+6DHlzfuzjVBd1PepFufMVQb/GgD
-	 vEce+l6CRXBCd9RarsAwfe7lL0/hzLatlYxpD8DXSNPyJQtAnf0YkC/XN2Tt/0AAGYA3H
-	 BKTlm0lk1d+zaSjYUwHfhBP0n45A1R/gcDB7A999VccpRU6+KJjuQ0+q0dQcjtS7s2yVG
-	 BPrxLpXGSX2OXsP2mSMhZBNVUiUbszjoKKGXIYlfayKgpU+Lgg6rQkBmGLE1Aa0bSTIKU
-	 pH9ebCnLHDGQrFyVOGBNBOLQnUDU68TaxZrEvwms873vO8tKyXQxw0fFttAampOXzQA==
+	t=1795522577;
+	b=JAhYtP58LUnBDu0q9pvmDE6Wwl4WEf3Vl+/0eR4jvCW8gzGI4aylMhxeFkvUgtzSOSNG
+	 vTqbpabekWPU8iffBMjyL/4DY5H2s8459liyhmox6ikKZPbbJQ3ceaGg83wbmhEZSzQY2
+	 v5ZIXpOhE12Bd0WK4WB+MgJdcnjV2rJLMU3mJGmbZMT50XyLlutzafmoO5q7AAlVPBabn
+	 IswjS5TH7YxrRjH35GH0sm9GhLlLJvPi05XkIoRMPwvMGxkIr9n4rnyW1IIFwaw7jlDGF
+	 V0I/SDmOF/ZgqCgzWqiLVp8Bm4aGGYQPnNFoRHIYXQ7QFNuAyatDw8IHivAy6CVttGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795522557;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=dPPgdgJv3p61PHC94G8DwdLAu9SwdqBRTFNPG1gejsg=;
-	b=SuU/Ow6ivHT9d2MU3Z6VzxUH+Wu95VrTwcuiO49JJaJRYrNE/tWJpaEvmlMfI3by2yak
-	 EMvAx3W6BxCihDrnYcsOjDQwp5h7dX7CAuUmSLJpyDteWclNwpQZ5YfxjvZU0tQMonbNA
-	 gOIh5aIP7n4Q/99mCPhVBkIvrh+DKqEx5ctXz5x3Wd8R8y34vM8Fyegm3XyYXXp9W/Z1F
-	 E+Y4upaGixjsJ93TEMq48a4WKUjwX4w736xf6fF5CeS83sFxn6tfARkLZemJwtG/wlpgY
-	 AsAtMDgPQajIH31GRswSxkAkO1Hd99QXoAVBlpvy6gGH83ozrFM3yZJr2gEX5yELeDg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795522577;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=FwhaqWUjSIW6EMpKOPqi42yvxqCff3SEZc5RRREEmFs=;
+	b=msPi8AIwGVTAOmtYb/o8WHmoZ6imStXzx3KMjlBKOUwVvoxWntjfyLcrrdMA6HQBKkZ4
+	 50pV3uUYgjcJsFKlzdKjY6SXGCzNpsffs9920s0k2YhfjSAueRhCKHtvEg3NubIoCQ0wx
+	 oRAR+AnaFyBICCcIL7ApCIABQmAVseLyAq+GHXPt2LNticy2jYtnruhGDN4xCmPCz4WvO
+	 UaclbfOf8BIX4FzNtcepAMOhcwuAaLAwuiQvcuuCA6uCHDTsu6BmHDqqgzwktm9MmG/fs
+	 BMITNaZmPbWg1/kZ0YKJuXaHtkLsWuIp7WpSrOB7V40Y10fmT+wLVre3XbGJdjoSvgQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=oHPM7Xnn;
-	arc=none smtp.remote-ip=115.124.30.97
-Received: from out30-97.freemail.mail.aliyun.com (out30-97.freemail.mail.aliyun.com [115.124.30.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=beagleboard.org;
+	spf=fail smtp.mailfrom=beagleboard.org;
+	dkim=pass header.d=beagleboard.org header.i=@beagleboard.org header.a=rsa-sha256 header.s=google header.b=foML1HiD;
+	arc=none smtp.remote-ip=74.125.82.177
+Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F920606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:15:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F920606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0EC5606A32E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:16:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0EC5606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=beagleboard.org
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=beagleboard.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=oHPM7Xnn
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795522545; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=dPPgdgJv3p61PHC94G8DwdLAu9SwdqBRTFNPG1gejsg=;
-	b=oHPM7XnnhaczaCS3MbCIiUkBw9ktDd+iZs6Vu8WsZiR55YXyjl8D1o8a2EhvZXop+j2TfdnD+MrYHHCmtntQz8AYOmeJDJ23Ce/JQbwtHG59ewOLxDgzgTAtMoQlOC95kAbPks8r7PEGh0UXTZiUJCGZIhGuXwKQ5Uz7qS3ziGQ=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R721e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=8;SR=0;TI=SMTPD_---0XFOXWnb_1795522518;
-Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0XFOXWnb_1795522518 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 24 Nov 2026 20:15:45 +0800
-From: Guanghui Feng <guanghuifeng@linux.alibaba.com>
-To: vasant.hegde@amd.com
-Cc: guanghuifeng@linux.alibaba.com,
-	iommu@lists.linux.dev,
-	joro@8bytes.org,
-	linux-kernel@vger.kernel.org,
-	robin.murphy@arm.com,
-	suravee.suthikulpanit@amd.com,
-	will@kernel.org
-Subject: [PATCH v2] iommu/amd: Reuse device data for IRTE cache invalidation
-Date: Tue, 24 Nov 2026 20:15:18 +0800
-Message-ID: <20261124121518.440906-1-guanghuifeng@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.7
-In-Reply-To: <721a92c6-fbf3-4f92-9812-3765dbe4af6a@amd.com>
-References: <721a92c6-fbf3-4f92-9812-3765dbe4af6a@amd.com>
+	dkim=pass (2048-bit key) header.d=beagleboard.org header.i=@beagleboard.org header.a=rsa-sha256 header.s=google header.b=foML1HiD
+Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-38190551625so9002016eec.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:16:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=beagleboard.org; s=google; t=1795522576; x=1796127376; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=FwhaqWUjSIW6EMpKOPqi42yvxqCff3SEZc5RRREEmFs=;
+        b=foML1HiDg0i2JwV0Ln08y9Bb3PaYElgruBIa33RMSp2PjsLDdEjI3w+MFe/q/lZ1so
+         9nK7n6cMPfPfPKm/SzmCaZMeyigXUtUQnXLnyDInpioR8MGPkXs8nVUxCa6gSC4CTKj2
+         5N3yUtsyrYsV3BvlMRaV+RUOAINtyf40zsJ+aVdrS/gElxAN1m6nazcACJrs0iW2OGsJ
+         q6OzD33oMbkqFRS/ZKdsLvPBkhY/U9GMYwAqAKG1Hx+75MJoUyxmrs4pvCWPLrJWYCJ2
+         CINNCAwm6o1cjZ/nL1LPsj4X1t1TYCUzB8H5mjb4/nME+9yJ8+SJ/Ys3qlf9Dse6rgWO
+         pG/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795522576; x=1796127376;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=FwhaqWUjSIW6EMpKOPqi42yvxqCff3SEZc5RRREEmFs=;
+        b=r1iisWgwErmLS2LfDXn8GD4poVz+E41VydI8w3HV+/IeXb+FG6dlmzf2TXi9IGKhnJ
+         jZSj6SlgLou9sqzormv/vOP/kyc2TwUovdRD4GYMBfS/XuuDsHHgM5Z2lLhS8vG5szoe
+         AP6KvftUj6wV+LqxIQkO3vVBxKDQS/S2WQ0lTPJCiRBin+10cnj9ij/JQbNM+IqrEui6
+         jgQR6QgdOAYm4H62eqUbcWWyor1dNbDZp+KdKYBj/WnecydVOBxE32nPZeIofPJFw7an
+         kbGGIbK3uxpsY1VgE6Ew/PgxuMWfee963c7sdwplx/2fpuV1WZ+UbuLXJ5TK6jAQGOus
+         zsaQ==
+X-Forwarded-Encrypted: i=1; AL+hErEJhunCdye2LqgfQ9wMFNk49xN1WG1fPhAziAnqjrFNZrwJglFerp2geph81EVxAovZJe3voG8S2R/cwzA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+8+d0k0tbDSmMJ+S9/Inow9zn09lnTbYjzHCxsYp9iWIIII4NK
+	ieojiDRbv0diublMEik02q/h4U17I4bJRRLOFnQtShAyWTtenKpSpWBCd/CA+hheKw==
+X-Gm-Gg: AZFdTZcBdO588GQdQ1Ns/dIZ4W0CGW7PMG21R+eJoBELWp7VfkKp0kU2SZ2cZ6Nhxxv
+	iIBBl8MAZXjWboAA/nrimiETpxxKJk6ETtVcgLiF6+Su5XpNCBca73ULyznipMKdhz2qd+ity4M
+	fJTbfZqN7bdzz2/S/1hg0mbvyoSCQPOxCsvr8J06O/5qRq7oRjhwNaKMGi9w8FLECsqCefdPyVz
+	zJfVXE7JjrirHWBGGNZniccWF/E1FmBf4ithMSFr0Gen6/sjJuFpzvLqTx5YoThd6Cwq3JGE2hk
+	CfTmmXTOTbBkv0q5Cr3vh2QQGJqpLLcIaBucpxGQl1kyTnx9tPmVSbTKZMU9kdDiU7pvV1VXWmG
+	yzQdil1LpcU5czqhb05TqFAYfZ66i/hDC7/Y1kplpqFyrhFZxkppmwhntBjQSHGYETs+ZRvRQ5o
+	VFCyP/mNSNUJuO24r0rSYYCs8w0Ak9hl4Kv6GN8JUBJcy4GlinO0wW85bQfLZwPyh6zVYcpa9qZ
+	DROyTRIjKVxD3g51fiQscqKJGCLKVXUXW4C3R0pi8mt6YIXIaWMxKP7jb7GHbVbMj7O8YMTvwhI
+	OCDi+ucrTqbeuQOmv6Jm2Enr5Hg2lGYoeQJc23Y=
+X-Received: by 2002:a05:693c:42da:b0:386:95e7:8497 with SMTP id 5a478bee46e88-38695e790e1mr11295825eec.28.1795522575327;
+        Tue, 24 Nov 2026 04:16:15 -0800 (PST)
+Received: from [192.168.29.131] ([2405:201:4019:32fc:2fd:478e:999:d6fd])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672ce402sm42026281eec.16.2026.11.24.04.16.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 04:16:14 -0800 (PST)
+From: Ayush Singh <ayush@beagleboard.org>
+Date: Tue, 24 Nov 2026 17:45:14 +0530
+Subject: [PATCH] ACPI: power: Add serialize_power_on_quirk
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,337 +91,176 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-ssd-fix-v1-1-ee8ef43190b1@beagleboard.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/x3MQQqAIBAF0KsMf62QBoZeJVpUTjWbCgdCCO8e9
+ A7wXigXYUWiF4UfUblOJHKGsB7zubOVjETwnQ/OeW9Vs92k2rAM8xL6OMSQYQh34U3qP41Tax/
+ DpNu1WQAAAA==
+X-Change-ID: 20261122-ssd-fix-6b7ab639796d
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>
+Cc: linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Ayush Singh <ayush@beagleboard.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5655; i=ayush@beagleboard.org;
+ h=from:subject:message-id; bh=S0z6z4N3ZMIBglxNCwabxNIKv0VTwOKGh+I/Nze3qpw=;
+ b=owEBbQKS/ZANAwAKAQXO9ceJ5Vp0AcsmYgBrBYALgPhdbLsnw4jjC4NJbI51eSG0JOXyuP+Pc
+ Ev+6RXeqXGJAjMEAAEKAB0WIQTfzBMe8k8tZW+lBNYFzvXHieVadAUCawWACwAKCRAFzvXHieVa
+ dO+oD/9m9b0n34IlNsaMtwkxUECuBH7WpIoHV5NraHW9R+A9prza461kxMRJdPUzTIY18xZD7XH
+ hcLz7XdFFkvsQ7fVM07oMoQRf1nmXY+gXgzK3x7UlXb1+gsc8Y9mUunOdL+oWVHP7UfCbNHPNII
+ DkIPoFHlpxNwIYfK9OKhTZB3EDVgi7Ef+JAR4FIuPWk4RKviqLPKROiUagqJLuy2EsLo6I/Zfse
+ hKJ8Zbdq2itjlt6RuzVXe695Orlsc90CsrslF+gwZshkLjFSSr5aaDKJVork6qUEIXYksv+ZZ7K
+ FKShv2LOiPCN+zEsAVCh+dT6QCuGW9iV+lBVx6SJU4+MO4PvsB9aAC4NM+YzRjaUnQaBcp6u7U3
+ TjxKoKptJ3p3PAD7a3Lu5noFiSvOvC1ON9gcbquw4sMkU87nqfJUUm0yS8PBJj6Ix6AINHnggQL
+ ZphQIX1EJFL+lZmlqy3ueW8wuAjTa8uw2m1akNTBB3YW+V1M5kQc9TdMORD2Ne+ZlAjaI6KdZeQ
+ 4rZWr+SIdZaNVfQ0956zn7N8MlMitk+SM9LPefWskkRBsLvl7ZFOyi4lWJlI0usypKjk3i9Iwh3
+ O68hea5Hrz2rxExpUeIEO7s+nOCdhtrEmMXXKVSJ566nwy0CIE19erXZWuev5n4ZRMxtUK3mNZD
+ eheDsQJb3MtrWgw==
+X-Developer-Key: i=ayush@beagleboard.org; a=openpgp;
+ fpr=DFCC131EF24F2D656FA504D605CEF5C789E55A74
 
-The DMA alias invalidation path in iommu_flush_irt_and_complete()
-performs a linear search_dev_data() walk on every IRTE update.  Nested
-VM entry and exit can switch multiple interrupt routes between guest
-and remapping modes, repeating this lookup for each posted interrupt.
-A reported workload with 4334 device entries shows median lookup
-latencies of 22-33 us per invocation, even when IRT caching is
-disabled and the lookup result is unused.
+On the Lenovo Yoga Pro 7 14AKP10 (83KG, AMD Krackan), the NVMe drive in
+the second M.2 slot is frequently lost after resuming from s2idle:
 
-Save the allocation-time device data in struct amd_ir_data and thread
-it through all IRTE update paths:
+  pcieport 0000:00:02.1: broken device, retraining non-functional downstream link at 2.5GT/s
+  pcieport 0000:00:02.1: retraining failed
+  pcieport 0000:00:02.1: Data Link Layer Link Active not set in 100 msec
+  nvme nvme1: Disabling device after reset failure: -19
 
- - iommu_flush_irt_and_complete() accepts a dev_data parameter.  When
-   IRT caching is disabled it returns immediately without any lookup.
-   When dev_data is NULL (IOAPIC/HPET allocated before PCI enumeration)
-   it falls back to search_dev_data() so DMA-alias invalidation still
-   works if the device is later probed.
+The _ON methods of the two M.2 slots' power resources update a clock
+control register shared by both slots without any locking, and sleep in
+the middle of the update. Since the root ports are resumed
+asynchronously, the two methods can run concurrently, and one of them
+can undo the other's change, leaving that slot's reference clock
+disabled. Its link then never trains.
 
- - modify_irte_ga(), modify_irte() and free_irte() accept and forward
-   dev_data.
+Evaluate power resource _ON methods one at a time on this machine.
+With this, 20/20 s2idle cycles succeeded, versus failure within 1-2
+cycles before. Also tested in normal laptop usage for a few days.
 
- - The amd_irte_ops callbacks (activate, deactivate, set_affinity) are
-   extended to carry dev_data so that amd_ir_update_irte() and the
-   irq_remapping activate/deactivate domain callbacks pass the cached
-   pointer.
+The same symptom has been reported on the closely related IdeaPad Pro 5
+14AKP10 (83JL) [0], which may need this quirk as well, but it is not
+included here as it could not be tested.
 
- - amd_iommu_activate_guest_mode() and deactivate_guest_mode() pass
-   ir_data->dev_data directly.
+[0]: https://ratatoskr.run/linux-pci/2026/04/6586201/t
 
- - amd_ir_set_vcpu_affinity() reuses ir_data->dev_data for the vCPU
-   affinity capability check.  This path is only reachable through
-   irq_bypass producers (VFIO-PCI, vhost-vDPA), where device probe
-   always precedes IRQ allocation, so dev_data is guaranteed non-NULL.
-
-Device data is retained in the segment list across unplug and reused on
-reprobe, so the cached pointer remains valid throughout the IRQ
-lifetime.  The PCI device is still resolved through dev_data->dev at
-flush time so that later device association is observed.
-
-DMA-alias invalidation, command ordering, locking and completion waits
-are preserved when IRT caching is enabled.
-
-Fixes: 5aac28784dca ("iommu/amd: Invalidate IRT cache for DMA aliases")
-Reported-by: Yifei Ge <geyifei@linux.alibaba.com>
-Co-developed-by: hr567 <hr567@linux.alibaba.com>
-Signed-off-by: hr567 <hr567@linux.alibaba.com>
-Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
+Assisted-by: claude-opus-5-5
+Signed-off-by: Ayush Singh <ayush@beagleboard.org>
 ---
- drivers/iommu/amd/amd_iommu_types.h | 10 ++--
- drivers/iommu/amd/iommu.c           | 76 +++++++++++++++++------------
- 2 files changed, 51 insertions(+), 35 deletions(-)
+On the Lenovo Yoga Pro 7 14AKP10 (83KG, AMD Krackan, BIOS QFCN29WW),
+the NVMe drive behind root port 00:02.1 (ACPI GPP3) is lost on nearly
+every s2idle resume, while the drive in the other M.2 slot (GP10) always
+comes back. Updating to the latest BIOS did not help, and neither did
+disabling SSD power management via kernel parameters or recovering the
+device from userspace.
 
-diff --git a/drivers/iommu/amd/amd_iommu_types.h b/drivers/iommu/amd/amd_iommu_types.h
-index f98770db0090..da6d90f3a574 100644
---- a/drivers/iommu/amd/amd_iommu_types.h
-+++ b/drivers/iommu/amd/amd_iommu_types.h
-@@ -1029,6 +1029,7 @@ struct irq_2_irte {
+The "broken device, retraining non-functional downstream link at
+2.5GT/s" / "retraining failed" messages come from the Target Speed quirk
+reacting to a link that cannot train at all. The actual cause is a race
+between the two slots' power resource _ON methods in firmware, which
+can leave one slot's reference clock disabled, as described in the
+patch. I can share the relevant AML and debug logs if useful.
+
+Testing: 20/20 s2idle cycles with real S0i3 residency, versus failure
+within 1-2 cycles without the patch. I have also done normal daily use
+testing outside of synthetic suspend.
+
+The IdeaPad Pro 5 14AKP10 (83JL) appears to have the same problem on
+the same root port [0]. I don't have one to test, so it is not in the
+DMI table.
+
+I went with a DMI quirk that serializes power resource _ON methods
+on this machine only. If serializing them unconditionally, or some
+other approach, is preferred, I'm happy to rework it.
+
+[0]: https://ratatoskr.run/linux-pci/2026/04/6586201/t
+---
+ drivers/acpi/power.c | 41 ++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 40 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/acpi/power.c b/drivers/acpi/power.c
+index 23a4e207a01e..b997d98f38c4 100644
+--- a/drivers/acpi/power.c
++++ b/drivers/acpi/power.c
+@@ -64,6 +64,10 @@ struct acpi_power_resource_entry {
  
- struct amd_ir_data {
- 	struct amd_iommu *iommu;
-+	struct iommu_dev_data *dev_data;
- 	struct irq_2_irte irq_2_irte;
- 	struct msi_msg msi_entry;
- 	void *entry;    /* Pointer to union irte or struct irte_ga */
-@@ -1045,9 +1046,12 @@ struct amd_ir_data {
- 
- struct amd_irte_ops {
- 	void (*prepare)(void *, u32, bool, u8, u32, int);
--	void (*activate)(struct amd_iommu *iommu, void *, u16, u16);
--	void (*deactivate)(struct amd_iommu *iommu, void *, u16, u16);
--	void (*set_affinity)(struct amd_iommu *iommu, void *, u16, u16, u8, u32);
-+	void (*activate)(struct amd_iommu *iommu, void *, u16, u16,
-+			 struct iommu_dev_data *dev_data);
-+	void (*deactivate)(struct amd_iommu *iommu, void *, u16, u16,
-+			   struct iommu_dev_data *dev_data);
-+	void (*set_affinity)(struct amd_iommu *iommu, void *, u16, u16, u8,
-+			     u32, struct iommu_dev_data *dev_data);
- 	void *(*get)(struct irq_remap_table *, int);
- 	void (*set_allocated)(struct irq_remap_table *, int);
- 	bool (*is_allocated)(struct irq_remap_table *, int);
-diff --git a/drivers/iommu/amd/iommu.c b/drivers/iommu/amd/iommu.c
-index 41ee4ad1dcf8..d171ccf2eee0 100644
---- a/drivers/iommu/amd/iommu.c
-+++ b/drivers/iommu/amd/iommu.c
-@@ -3291,18 +3291,21 @@ static int iommu_flush_dev_irt(struct pci_dev *unused, u16 devid, void *data)
- 	return ret;
- }
- 
--static void iommu_flush_irt_and_complete(struct amd_iommu *iommu, u16 devid)
-+static void iommu_flush_irt_and_complete(struct amd_iommu *iommu, u16 devid,
-+					 struct iommu_dev_data *dev_data)
- {
- 	int ret;
- 	u64 data;
- 	unsigned long flags;
- 	struct iommu_cmd cmd;
- 	struct pci_dev *pdev = NULL;
--	struct iommu_dev_data *dev_data = search_dev_data(iommu, devid);
- 
- 	if (iommu->irtcachedis_enabled)
- 		return;
- 
-+	if (!dev_data)
-+		dev_data = search_dev_data(iommu, devid);
+ static bool hp_eb_gp12pxp_quirk;
+ static bool unused_power_resources_quirk;
++static bool serialize_power_on_quirk;
 +
- 	if (dev_data && dev_data->dev && dev_is_pci(dev_data->dev))
- 		pdev = to_pci_dev(dev_data->dev);
++/* Serializes _ON evaluation when serialize_power_on_quirk is set */
++static DEFINE_MUTEX(power_on_lock);
  
-@@ -3578,7 +3581,7 @@ static int __modify_irte_ga(struct amd_iommu *iommu, u16 devid, int index,
+ static LIST_HEAD(acpi_power_resource_list);
+ static DEFINE_MUTEX(power_resource_list_lock);
+@@ -362,13 +366,27 @@ void acpi_device_power_remove_dependent(struct acpi_device *adev,
+ 		acpi_power_resource_remove_dependent(entry->resource, dev);
  }
  
- static int modify_irte_ga(struct amd_iommu *iommu, u16 devid, int index,
--			  struct irte_ga *irte)
-+			  struct irte_ga *irte, struct iommu_dev_data *dev_data)
++static acpi_status acpi_power_evaluate_on(acpi_handle handle)
++{
++	acpi_status status;
++
++	if (!serialize_power_on_quirk)
++		return acpi_evaluate_object(handle, "_ON", NULL, NULL);
++
++	mutex_lock(&power_on_lock);
++	status = acpi_evaluate_object(handle, "_ON", NULL, NULL);
++	mutex_unlock(&power_on_lock);
++
++	return status;
++}
++
+ static int __acpi_power_on(struct acpi_power_resource *resource)
  {
- 	int ret;
+ 	acpi_handle handle = resource->device.handle;
+ 	struct acpi_power_dependent_device *dep;
+ 	acpi_status status = AE_OK;
  
-@@ -3586,13 +3589,13 @@ static int modify_irte_ga(struct amd_iommu *iommu, u16 devid, int index,
- 	if (ret)
- 		return ret;
+-	status = acpi_evaluate_object(handle, "_ON", NULL, NULL);
++	status = acpi_power_evaluate_on(handle);
+ 	if (ACPI_FAILURE(status)) {
+ 		resource->state = ACPI_POWER_RESOURCE_STATE_UNKNOWN;
+ 		return -ENODEV;
+@@ -1096,6 +1114,24 @@ static const struct dmi_system_id dmi_hp_elitebook_gp12pxp_quirk[] = {
+ 	{}
+ };
  
--	iommu_flush_irt_and_complete(iommu, devid);
-+	iommu_flush_irt_and_complete(iommu, devid, dev_data);
- 
- 	return 0;
++static const struct dmi_system_id dmi_serialize_power_on[] = {
++	/*
++	 * On the Lenovo Yoga Pro 7 14AKP10, the _ON methods of the M.2 slot
++	 * power resources update a shared clock control register without
++	 * locking and sleep in the middle of the update. When the root ports
++	 * are resumed concurrently, one slot's reference clock can end up
++	 * disabled and its NVMe drive is lost after resume.
++	 */
++	{
++		/* Lenovo Yoga Pro 7 14AKP10 */
++		.matches = {
++			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
++			DMI_MATCH(DMI_PRODUCT_NAME, "83KG"),
++		},
++	},
++	{}
++};
++
+ static const struct dmi_system_id dmi_leave_unused_power_resources_on[] = {
+ 	{
+ 		/*
+@@ -1156,4 +1192,7 @@ void __init acpi_power_resources_init(void)
+ 	hp_eb_gp12pxp_quirk = dmi_check_system(dmi_hp_elitebook_gp12pxp_quirk);
+ 	unused_power_resources_quirk =
+ 		dmi_check_system(dmi_leave_unused_power_resources_on);
++	serialize_power_on_quirk = dmi_check_system(dmi_serialize_power_on);
++	if (serialize_power_on_quirk)
++		pr_info("Serializing power resource _ON methods\n");
  }
- 
--static int modify_irte(struct amd_iommu *iommu,
--		       u16 devid, int index, union irte *irte)
-+static int modify_irte(struct amd_iommu *iommu, u16 devid, int index,
-+		       union irte *irte, struct iommu_dev_data *dev_data)
- {
- 	struct irq_remap_table *table;
- 	unsigned long flags;
-@@ -3605,12 +3608,13 @@ static int modify_irte(struct amd_iommu *iommu,
- 	table->table[index] = irte->val;
- 	raw_spin_unlock_irqrestore(&table->lock, flags);
- 
--	iommu_flush_irt_and_complete(iommu, devid);
-+	iommu_flush_irt_and_complete(iommu, devid, dev_data);
- 
- 	return 0;
- }
- 
--static void free_irte(struct amd_iommu *iommu, u16 devid, int index)
-+static void free_irte(struct amd_iommu *iommu, u16 devid, int index,
-+		      struct iommu_dev_data *dev_data)
- {
- 	struct irq_remap_table *table;
- 	unsigned long flags;
-@@ -3623,7 +3627,7 @@ static void free_irte(struct amd_iommu *iommu, u16 devid, int index)
- 	iommu->irte_ops->clear_allocated(table, index);
- 	raw_spin_unlock_irqrestore(&table->lock, flags);
- 
--	iommu_flush_irt_and_complete(iommu, devid);
-+	iommu_flush_irt_and_complete(iommu, devid, dev_data);
- }
- 
- static void irte_prepare(void *entry,
-@@ -3656,50 +3660,57 @@ static void irte_ga_prepare(void *entry,
- 	irte->lo.fields_remap.valid       = 1;
- }
- 
--static void irte_activate(struct amd_iommu *iommu, void *entry, u16 devid, u16 index)
-+static void irte_activate(struct amd_iommu *iommu, void *entry, u16 devid,
-+			  u16 index, struct iommu_dev_data *dev_data)
- {
- 	union irte *irte = (union irte *) entry;
- 
- 	irte->fields.valid = 1;
--	modify_irte(iommu, devid, index, irte);
-+	modify_irte(iommu, devid, index, irte, dev_data);
- }
- 
--static void irte_ga_activate(struct amd_iommu *iommu, void *entry, u16 devid, u16 index)
-+static void irte_ga_activate(struct amd_iommu *iommu, void *entry, u16 devid,
-+			     u16 index, struct iommu_dev_data *dev_data)
- {
- 	struct irte_ga *irte = (struct irte_ga *) entry;
- 
- 	irte->lo.fields_remap.valid = 1;
--	modify_irte_ga(iommu, devid, index, irte);
-+	modify_irte_ga(iommu, devid, index, irte, dev_data);
- }
- 
--static void irte_deactivate(struct amd_iommu *iommu, void *entry, u16 devid, u16 index)
-+static void irte_deactivate(struct amd_iommu *iommu, void *entry, u16 devid,
-+			    u16 index, struct iommu_dev_data *dev_data)
- {
- 	union irte *irte = (union irte *) entry;
- 
- 	irte->fields.valid = 0;
--	modify_irte(iommu, devid, index, irte);
-+	modify_irte(iommu, devid, index, irte, dev_data);
- }
- 
--static void irte_ga_deactivate(struct amd_iommu *iommu, void *entry, u16 devid, u16 index)
-+static void irte_ga_deactivate(struct amd_iommu *iommu, void *entry, u16 devid,
-+			       u16 index, struct iommu_dev_data *dev_data)
- {
- 	struct irte_ga *irte = (struct irte_ga *) entry;
- 
- 	irte->lo.fields_remap.valid = 0;
--	modify_irte_ga(iommu, devid, index, irte);
-+	modify_irte_ga(iommu, devid, index, irte, dev_data);
- }
- 
--static void irte_set_affinity(struct amd_iommu *iommu, void *entry, u16 devid, u16 index,
--			      u8 vector, u32 dest_apicid)
-+static void irte_set_affinity(struct amd_iommu *iommu, void *entry, u16 devid,
-+			      u16 index, u8 vector, u32 dest_apicid,
-+			      struct iommu_dev_data *dev_data)
- {
- 	union irte *irte = (union irte *) entry;
- 
- 	irte->fields.vector = vector;
- 	irte->fields.destination = dest_apicid;
--	modify_irte(iommu, devid, index, irte);
-+	modify_irte(iommu, devid, index, irte, dev_data);
- }
- 
--static void irte_ga_set_affinity(struct amd_iommu *iommu, void *entry, u16 devid, u16 index,
--				 u8 vector, u32 dest_apicid)
-+static void irte_ga_set_affinity(struct amd_iommu *iommu, void *entry,
-+				 u16 devid, u16 index, u8 vector,
-+				 u32 dest_apicid,
-+				 struct iommu_dev_data *dev_data)
- {
- 	struct irte_ga *irte = (struct irte_ga *) entry;
- 
-@@ -3709,7 +3720,7 @@ static void irte_ga_set_affinity(struct amd_iommu *iommu, void *entry, u16 devid
- 					APICID_TO_IRTE_DEST_LO(dest_apicid);
- 		irte->hi.fields.destination =
- 					APICID_TO_IRTE_DEST_HI(dest_apicid);
--		modify_irte_ga(iommu, devid, index, irte);
-+		modify_irte_ga(iommu, devid, index, irte, dev_data);
- 	}
- }
- 
-@@ -3945,6 +3956,7 @@ static int irq_remapping_alloc(struct irq_domain *domain, unsigned int virq,
- 		}
- 
- 		data->iommu = iommu;
-+		data->dev_data = dev_data;
- 		irq_data->hwirq = (devid << 16) + i;
- 		irq_data->chip_data = data;
- 		irq_data->chip = &amd_ir_chip;
-@@ -3963,7 +3975,7 @@ static int irq_remapping_alloc(struct irq_domain *domain, unsigned int virq,
- 		}
- 	}
- 	for (i = 0; i < nr_irqs; i++)
--		free_irte(iommu, devid, index + i);
-+		free_irte(iommu, devid, index + i, dev_data);
- out_free_parent:
- 	irq_domain_free_irqs_common(domain, virq, nr_irqs);
- 	return ret;
-@@ -3982,7 +3994,8 @@ static void irq_remapping_free(struct irq_domain *domain, unsigned int virq,
- 		if (irq_data && irq_data->chip_data) {
- 			data = irq_data->chip_data;
- 			irte_info = &data->irq_2_irte;
--			free_irte(data->iommu, irte_info->devid, irte_info->index);
-+			free_irte(data->iommu, irte_info->devid,
-+				  irte_info->index, data->dev_data);
- 			kfree(data->entry);
- 			kfree(data);
- 		}
-@@ -4007,7 +4020,7 @@ static int irq_remapping_activate(struct irq_domain *domain,
- 		return 0;
- 
- 	iommu->irte_ops->activate(iommu, data->entry, irte_info->devid,
--				  irte_info->index);
-+				  irte_info->index, data->dev_data);
- 	amd_ir_update_irte(irq_data, iommu, data, irte_info, cfg);
- 	return 0;
- }
-@@ -4021,7 +4034,7 @@ static void irq_remapping_deactivate(struct irq_domain *domain,
- 
- 	if (iommu)
- 		iommu->irte_ops->deactivate(iommu, data->entry, irte_info->devid,
--					    irte_info->index);
-+					    irte_info->index, data->dev_data);
- }
- 
- static int irq_remapping_select(struct irq_domain *d, struct irq_fwspec *fwspec,
-@@ -4133,7 +4146,7 @@ int amd_iommu_activate_guest_mode(void *data, int cpu, bool ga_log_intr)
- 	__amd_iommu_update_ga(entry, cpu, ga_log_intr);
- 
- 	return modify_irte_ga(ir_data->iommu, ir_data->irq_2_irte.devid,
--			      ir_data->irq_2_irte.index, entry);
-+			      ir_data->irq_2_irte.index, entry, ir_data->dev_data);
- }
- EXPORT_SYMBOL(amd_iommu_activate_guest_mode);
- 
-@@ -4165,7 +4178,7 @@ int amd_iommu_deactivate_guest_mode(void *data)
- 				APICID_TO_IRTE_DEST_HI(cfg->dest_apicid);
- 
- 	return modify_irte_ga(ir_data->iommu, ir_data->irq_2_irte.devid,
--			      ir_data->irq_2_irte.index, entry);
-+			      ir_data->irq_2_irte.index, entry, ir_data->dev_data);
- }
- EXPORT_SYMBOL(amd_iommu_deactivate_guest_mode);
- 
-@@ -4174,7 +4187,6 @@ static int amd_ir_set_vcpu_affinity(struct irq_data *data, void *info)
- 	int ret;
- 	struct amd_iommu_pi_data *pi_data = info;
- 	struct amd_ir_data *ir_data = data->chip_data;
--	struct irq_2_irte *irte_info = &ir_data->irq_2_irte;
- 	struct iommu_dev_data *dev_data;
- 
- 	if (WARN_ON_ONCE(!AMD_IOMMU_GUEST_IR_VAPIC(amd_iommu_guest_ir)))
-@@ -4183,7 +4195,7 @@ static int amd_ir_set_vcpu_affinity(struct irq_data *data, void *info)
- 	if (ir_data->iommu == NULL)
- 		return -EINVAL;
- 
--	dev_data = search_dev_data(ir_data->iommu, irte_info->devid);
-+	dev_data = ir_data->dev_data;
- 
- 	/* Note:
- 	 * This device has never been set up for guest mode.
-@@ -4225,7 +4237,7 @@ static void amd_ir_update_irte(struct irq_data *irqd, struct amd_iommu *iommu,
- 	 */
- 	iommu->irte_ops->set_affinity(iommu, ir_data->entry, irte_info->devid,
- 				      irte_info->index, cfg->vector,
--				      cfg->dest_apicid);
-+				      cfg->dest_apicid, ir_data->dev_data);
- }
- 
- static int amd_ir_set_affinity(struct irq_data *data,
 
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+---
+base-commit: 988117cc1bb17338c586a4e21ade88b5397eac33
+change-id: 20261122-ssd-fix-6b7ab639796d
+
+Best regards,
 -- 
-2.43.7
+Ayush Singh <ayush@beagleboard.org>
 
