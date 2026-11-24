@@ -1,120 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795560624;
-	b=g3AkRiph65D++3C+V3ZkAkJfiMobjUCoiOrJgHaD7Y36bWPAfNDf1G939bM5tOZk8QXo
-	 gMpRaJavesMYqq3DljBKJ5us+ctM73COxHzoJaNRBpWYWPXVLmYuyKZJRvs4A9LWBm1xN
-	 4tcE2s/NFiRMtkNKPrbog7UOtQ6Vlfdmkm6a8EAsEBSiUwlaPHkA+4GEyiVXoTFnm6fpg
-	 xgUsxMBqrR/1X1m1TchrSosZwL5rwj/7pTqK97MfGF1+r/NJRQwq+x+xyxvNBeDnwDWZn
-	 ty1lQkXgfTv1bRCa/njR9DReFaeKYBkLCqN0BQC672J5WO4v4M0k+VC5JmMa86OHQFA==
+	t=1795560666;
+	b=2r6x11k0bVc3PlBtmTxVlrZ7CRo1VtagEI1WhWXdAn108G0rfBQNvYslLJAd5E4RdWGe
+	 AeCLHUebWd3MuvnBAz834+bjYI3Q+/0EG2537HHvB//GP2jzxFpgrHiPDIG5dfyfOLeqb
+	 UtbhbH+ouRixMOZk8aScuXI7Osf2mgbwMAQRcpgmAehjU1vL3O9vGAQ34gXEMqJpswiSn
+	 HKovMi+kVI+wmfNhRY+oPBjGgOrUov6iQ1RJ4dT8/BwWs+b93IG1IhqPutPOEfjBFjwhZ
+	 zo3MwBofoLqCxZ5S5zEiEpIK7+9bq4kkixmNod83SnDv/7cXpTgihGEfRUIa7MOEQDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795560624;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
-	 X-Received:X-Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Organization:X-Mailer:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-Proofpoint-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=e93XYvnnmR69yyrZgHmrvJK6riMd1HvvXUQLB/b+Wmo=;
-	b=ZXp4Me4xw5NM6ZHPaMh9T2IjVWs6+DhIlihlehi8PPCoosyOQ7URhQ8ODxISUoGRwnmY
-	 81Pdn9iA4SzegIuY3RhPlAXO8DGrpfxirSpCOkUkgEiV14YkdhZRsr7jts7LVN9uVahch
-	 PsIidu9fszi77C7wwboGYutL0LiFcI7cxMf86sl2CvxjNxdY2MCrxIxXU+3JXKSr9AVNv
-	 DZA2i7Bh3odPqw+H3HaeUMxvgrybRsHgNtAHK6/70hBRn5DNNYIpAqLN+ORSZnq6LKTbi
-	 sIZrux65VitImSSwzy8vtU4rFR/bP5XSWTPmi31mbemHTAvE/0JCPHbAxibmB077H2w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795560666;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=ODGhYIIYNFU8UQMeuzcpsug8h5Njy7gCjB7swzLesxY=;
+	b=x1vY+iB+FJDpoazoshLf+PESTVJjcQNHXbSA3Z5p6e2OnAfCChW/r7WZaeJVUZpLMY0F
+	 oU3phXaHtZ35/ODDVFp4XlJ1ifwr5UxHBwnIinrm7yt3iEmpJWc/jcmtOW8ua9T3D71KK
+	 OUWnT6CCT+pa28bjOf/i4FRkxAdYPZatvJ3hvnqzqn7qruH1gwMdxm7CI7euS+oX57hUo
+	 VvSuHvqmK2rc1Aeg8VI9xaVGLNMcRaZxwk3lqE4K9MBogmJ9T9b2safULuEfRJ1y9d/hx
+	 06o9E8WC7cBjnsXeSZPTjBQaweIyEgRE04CAFBXFMeAnYuQQY0t2+3C3Fr+yjNIyK+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="TzX/Y9Tk";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=XupDSKsX;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="qTp/BsIc";
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90E68606A329
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:50:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90E68606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47324606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:51:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47324606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=TzX/Y9Tk;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=XupDSKsX
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOMadCQ2139911
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:50:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	e93XYvnnmR69yyrZgHmrvJK6riMd1HvvXUQLB/b+Wmo=; b=TzX/Y9TkWw/uOJkZ
-	b1ybUzAde1TA/HmSrnOU6olDuykfTgNFMJiO7/qL4o016GK1BGTw/IU0ltsNc65R
-	DgTHZyAlgwgi3MtQJWTNwP4KpoNDnM453LIEqGEhBPRJHz3LPqAm8kqinHd8zoF5
-	v/TSAMmlGr/KeJ1RkfFKiVp/UCNGR6z1xmNZ9EPEdhjmuXFy5y7Sg/28Zssldfse
-	t13corOqh/ulmWOjQw74JeCk54fByFIpIksno+MoppOs3FORAm7jMFy5TT5W15FO
-	LKj/4wvo6kgSPTem/8JUElunF26eVv60y4WGdW2lE5HZhxfLc3eYdkyf/jaXKpS3
-	PqW6VA==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5gns8pb6-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:50:22 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-30bcb065bfdso5575027eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:50:22 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qTp/BsIc
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb72b44a97so44180315e9.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:51:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795560622; x=1796165422; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=e93XYvnnmR69yyrZgHmrvJK6riMd1HvvXUQLB/b+Wmo=;
-        b=XupDSKsXkN+qJBwREIeVSgDFOU9/TkqbB+jSi6xg9joh8lmSJ5vV/a8Z8AKRjRlYUu
-         F2trWmI1LvlsSBLCy3clQkX25mitmdcyEm6XmbTHWfj1Qx7p1rHe0qsiHPIKKDdgfRRA
-         HS+vdKn7o70eyBl1h6cXGaj/4jery51dQrU3pemHYb01Guvyn/D0jbEp2TCW06JaAP1l
-         GjeCNn0GY67Dc67vO8iKD9bFxZvAGIUB1CPeJ4mLdbfB415gn6+aHx19c5r5FuRZzFgU
-         HZx2VkDEI4wJB8Go6PYvOMxlhsPArd3hnyMkXHbZ2qOaObRDxRYrLPSITK1Y/7sS0uCo
-         JQDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795560622; x=1796165422;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795560665; x=1796165465; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=e93XYvnnmR69yyrZgHmrvJK6riMd1HvvXUQLB/b+Wmo=;
-        b=oA6tUzjveJeeCwlppzeRzNmfJ8c1u/12o0ki9i/HJ1q6py2MgUmg0IrYVtVI02WYjA
-         aiIt7AG8daScArdboiE9/vdvem2qcpMyU3YQLEaAHKLEBHHD4VZAKh7U355jnxZ5om5/
-         Y8xnvt+7amKeh0mrGdESu2hAowrU56BSqNeb0Q3DnYG3pZRQUDUqkq5uxIQhSjlQs0M5
-         zuEAYGIS0ChB9ibshrX83kR7wzm4La4uXWB6Euux9GEu2oOqMVDx7S2ItPDKkJq6EF+a
-         GpVKlrjt5C0DCdutkTZs0GRoCvi6EH8yekQullsYas5JMSrhcbCFdikIK19HhaVYGdUP
-         CxIw==
-X-Gm-Message-State: APuU4Z+coPsfAxXAvksldyiKXBWiKVymr+zWiw6vhtzWpbkEu+w10F6s
-	ywT6ugfr7FV4JWf6NBvSNLSFhUASHzOBY3QhXxFnxa3idkeTI+naT7BNpxtYwCJ35fsJuwoNt02
-	jeWpXGo/mBq11zNc1gfQpAz+zQd4d9mTHrjRK8rAM+X4Hxe117tMWV+JVFxLA8guR2mQ=
-X-Gm-Gg: AZFdTZfdUriMRpFwF5/3u3oh4xMWk7A+prhRL7Y8kOS/HjYdNFYy2aFW6F4hIlkO4wc
-	hFUqsewKu3yTrITdCnkCBE+igIKKkLbbMrlCeiRVeH9hgkYr0LYGElR7Dl2WMIg6vflIMByLagu
-	fcg9J21CozoZYgh9H8JYkHDqt69L2LMIHzw3zqme7grzihTIdsTSAaVcFcU5PDvij+wVoU1Z2h6
-	nD4MKyPvqXpcNLUoLrgZbq039dLSIQDB0f7iNBc8KFWzgwAcM5Simpw+EMEBa//RdfWXkNncWPb
-	nCUa2O1KT83zfJyTJemLYZFzlFdWdyHramWxCA048flJvlNbWGslyEjNZU5Ib8q4wPd6qcKbk+7
-	TRz+wmruQz+hC5eJosIc5DxeOvCQCkJidQLFldGh3P+zRrcBskE4qbBKa1f1QXR7lGz8wGvVYp9
-	rPLXw52ZguU/YSKExmDgeZynxejUQ=
-X-Received: by 2002:a05:7301:6188:10b0:386:9ba8:2864 with SMTP id 5a478bee46e88-3869ba82acfmr11462723eec.0.1795560621895;
-        Tue, 24 Nov 2026 14:50:21 -0800 (PST)
-X-Received: by 2002:a05:7301:6188:10b0:386:9ba8:2864 with SMTP id 5a478bee46e88-3869ba82acfmr11462702eec.0.1795560621322;
-        Tue, 24 Nov 2026 14:50:21 -0800 (PST)
-Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd40c5sm57035445eec.10.2026.11.24.14.50.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 14:50:21 -0800 (PST)
-Date: Tue, 24 Nov 2026 14:50:15 -0800
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        arm-scmi@vger.kernel.org, sudeep.holla@kernel.org,
-        philip.radford@arm.com
-Subject: Re: [PATCH 2/2] firmware: arm_scmi: Refactor protocol allocation
-Message-ID: <20261124145015.0000358e@oss.qualcomm.com>
-In-Reply-To: <20261124185111.1022322-3-cristian.marussi@arm.com>
-References: <20261124185111.1022322-1-cristian.marussi@arm.com>
-	<20261124185111.1022322-3-cristian.marussi@arm.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+        bh=ODGhYIIYNFU8UQMeuzcpsug8h5Njy7gCjB7swzLesxY=;
+        b=qTp/BsIc4HSUr/a/efb4ZfI8s76HJe2q/L3mrsg6HT+xfczyQ422bq9vkIWYaGphRu
+         OEovo9d47tz5RxgXJKea2DfI0kqymDyuRWooJWiJqfUKVJeIvFvkQ5RNIzv/FgyN/kY2
+         MSdpzvEl4WrPPpaJy2oKUviyBM3mFa7DmMcyiak4lN9PkElw/iFlonkEp8uiP2UL+k+s
+         GMyYokK7Murf/aKXahzFTG+Y9TlJajJlOgY+HX8PmmSB8hcB5wpXlLNg4cMdTqe2Nf9W
+         QDeVbdaWbkhsB3ch/LqwHdcKEkdxxvHvmHruhICT9EnPF1D7RwS2w2OoOLjyIWcA352s
+         TmQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795560665; x=1796165465;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ODGhYIIYNFU8UQMeuzcpsug8h5Njy7gCjB7swzLesxY=;
+        b=2aMjVPYNARTFg0prtUAqcPMrTg94lCUhKJzU1cwu+XecbXte+EXitLElSDLm/aZols
+         eZfQLikPR9WDJEXV9NOfTZhl5orcO2IHAteYeAGyVlnmoeVXcygN/NFEMJNk4CHFvtY6
+         V3gOYVPTG8EwfJaRb4V4AbCp1hMBr7TevK/rC9gigwF795AjGPmizIYPF9/QfYO0ncg9
+         HuZIHsq6GlWc+ufeJhGXHpqCu+ZH+nOYiGYLyY1kkqY39rN0beuIATYBvXHMsSveGsng
+         thQqAzMuYhybClYvC+exMsCzZDth+o95m2za9X0RTjn65wvKSUyMbdmhqcaZ8jw2OIXS
+         vtsA==
+X-Forwarded-Encrypted: i=1; AL+hErGtMtG6497GCYw6G8R3ZsG6pwqjg7RQqBRF2jerKlvyTKjpZ+JccR/oBtJU0XskS+A8Cjewz7ol//m8MuY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9NaCnZNhQgAmc4dEMgztwT4TUUvaoUMApOP3woXLug4d+tE55K
+	L1MStGdcDvo4opLF3nfbKvIEhIYzE7HI0zf42T8rA2AA9IgciSWpkO4=
+X-Gm-Gg: AZFdTZdwAVc1knTVw13YWYgpfBW4kt28pAFH+PM776VX/IXlqrqoagcy0oIlN0nARtt
+	OfLSa2E9P8OilMNI1DWFF5RMZU9rduRJCd8rUWvpV0bUBlHj4PKf1xcJaopegHFSUH10xwX2q2H
+	wxfyI839bFlXT9zpeu1Rst+ooBPAh9utnsHeILbi356uTcRNHj/NvOPChJhlVxaEjX8he4X5nXj
+	TPeMRLdjxzzPxkFl04V+vuI8Puwfp8Wm6WdwibIvoAxeJkDKVTrs4emiI7UjkGR2LUB52yyphZB
+	5gO3m5oyaDcjdXUUvhG56OCWAt7zQXB7noIuH+Oxs1I8NqjJhjdfAzAIdKz2V5JygX+gQnpox8u
+	ERA7rB8ILYIz8L4WAKjvNMYwr9duMleD/76oU7i5uiuot9qnrPHNwSXdlYc/BGFf1t2ig+Y5MFX
+	DOFj41zIfu2BZpnhhcsWKCsDt8bZw9xdYFlHvVbXx/sMlKtJqcQNDkLdF0HSpyCGZmXMv4dGkip
+	sY1aCzRnN1pDvJSFkPaycfxEPGJI/eh6GO2z+2KbTL2Sf5g7+6N5jaG/vs6xc7m2vBdal0JzKTA
+	fjrarp9lqZBecTQWacSB6a5yG28+muVA298VkoYWFydf8APgTnMy4iOyyZ3AyU4IF1JLLfW3msL
+	IlIVugBHZuMDwKxUOj62QJFvHZONIUeVlBLMocUBHzmw9NhrBu1SqI6eM836ziSwndnb0QFugH3
+	mNBNXtctRh7eaSNXSpYrK7INiplbH/vRAw
+X-Received: by 2002:a05:600c:848d:b0:4ac:86c9:b09c with SMTP id 5b1f17b1804b1-4bb88811da9mr336204505e9.13.1795560664476;
+        Tue, 24 Nov 2026 14:51:04 -0800 (PST)
+Received: from localhost.localdomain (dynamic-2a02-3100-2ec1-8a00-a10d-4335-1e05-e7ae.310.pool.telefonica.de. [2a02:3100:2ec1:8a00:a10d:4335:1e05:e7ae])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a1e8bsm393839525e9.9.2026.11.24.14.51.01
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 24 Nov 2026 14:51:02 -0800 (PST)
+From: Tobias Philipp <tphilipp@gmail.com>
+To: bpf@vger.kernel.org
+Cc: Tobias Philipp <tphilipp@gmail.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Felix Fietkau <nbd@nbd.name>,
+	=?UTF-8?q?Thibaut=20VAR=C3=88NE?= <hacks@slashdirt.org>,
+	Stijn Tintel <stijn@linux-ipv6.be>,
+	Daniel Mack <daniel@zonque.org>,
+	netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH bpf-next v2 0/4] bpf: Fix 8-byte alignment of map values
+Date: Tue, 24 Nov 2026 23:50:51 +0100
+Message-ID: <20261124225055.87344-1-tphilipp@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -124,113 +120,142 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: nMBPEv17Ljoo0QybnlsPBk0G9lqYI86E
-X-Authority-Analysis: v=2.4 cv=G+SJgNk5 c=1 sm=1 tr=0 ts=6b0614ae cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=dr6W7SPZJ_YoKJA_jgUA:9 a=CjuIK1q_8ugA:10
- a=PxkB5W3o20Ba91AHUih5:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA4OSBTYWx0ZWRfX+Pfy+B4CqkCX
- jhTakXxzZ3TVvgPEch3cxBOrajcZy2pMqUxCYd182ulHGrMc8j29WjURJAsDG3LVg36oz3gm5Dq
- CbFAiZ+y6wLTzNdLRfNLOlt9XMJU3mo=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA4OSBTYWx0ZWRfX0yuNFBJ2Nw4q
- y2Mx2OEafjOv/aFEiDs19FvB+e3ST7f/tvrwvQW6hM2LBjbov/v2B13dCfxUbulOIZ97DYdAv08
- Spjlq9Q0GgK+8nF8GLZJ+uOqrj2JD/6/anoGsPU1y3Mz2l/DzavXl6ENeu9DoHaAsUo2gGSqfa4
- dJwbcKpWP8t4eHNb7p1faL5faxg6tUxNUZlsqAp+evb5PkIgD6fkZhheWBBYCsdL4lgAs9QNfDP
- t4tALe/o3dfztwtO9n5PuwXhUNgbft0/IIwdWbXjXFnLqnicIGeFW4RDKcnsSL3ZusLsgcri5DG
- 5aAZcosC+7mS7SEYzFRAi3kVk4Syyac4QtPY04i/4wLJbHixtS7FXo2igLTC8IeSKQNurnX4j+B
- pzIJ+5/wV94RunzmXSSJrxWPOfNtLbKc70y/VwPFbmZXyvewFmACMyBn0+OfHRV0v+N3vsGuQmA
- l2+iedUHf8JeZAqkszg==
-X-Proofpoint-ORIG-GUID: nMBPEv17Ljoo0QybnlsPBk0G9lqYI86E
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_06,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1015 bulkscore=0 phishscore=0 malwarescore=0
- lowpriorityscore=0 adultscore=0 priorityscore=1501 spamscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240089
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Tue, 24 Nov 2026 18:51:11 +0000
-Cristian Marussi <cristian.marussi@arm.com> wrote:
+The verifier checks the alignment of BPF_DW atomics and 64-bit
+load-acquire/store-release on PTR_TO_MAP_VALUE only against the offset
+within the value. It assumes that the value itself is 8-byte aligned.
+That does not hold for all map types. Address of the value mod 8, as
+measured on bpf-next (see Testing below):
 
-> Simplify protocol initialization and finalization using cleanup handlers.
-> Relocate the protocol put operations out of the setup and cleanup code so
-> as to be executed strictly after the protocol devres groups have been
-> fully released.
-> 
-> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+                                    64-bit    32-bit
+  lpm_trie, key_size 8 (IPv4)          4         0 (by accident)
+  lpm_trie, key_size 20 (IPv6)         0         4
+  hash, rhash (BPF_F_NO_PREALLOC)      0         4
+  devmap, devmap_hash                  4         4 (harmless, see patch 3)
 
-Lol. I should have read on! Nice that you have found the time to look at this.
+On arm64 the JIT emits LSE atomics or LDXR/STXR loops, LDAR and STLR
+for these instructions. All of them fault on misaligned addresses.
+FEAT_LSE2 relaxes that for LSE atomics that stay within a 16-byte
+block, and for LDAR/STLR only if SCTLR_EL1.nAA is set, which Linux
+does not do. On arm32 the interpreter uses atomic64_*(), i.e.
+LDREXD/STREXD, which require 8-byte alignment. On x86-64 a locked
+8-byte access at 4 mod 8 that crosses a cache line is a split lock,
+which is fatal in kernel mode on CPUs with split lock detection. None
+of these faults is fixed up.
 
-> ---
->  drivers/firmware/arm_scmi/driver.c | 53 +++++++++++++-----------------
->  1 file changed, 22 insertions(+), 31 deletions(-)
-> 
-> diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-> index 2c4424aa0d37..199f0a189432 100644
-> --- a/drivers/firmware/arm_scmi/driver.c
-> +++ b/drivers/firmware/arm_scmi/driver.c
-> @@ -2256,24 +2256,21 @@ static void scmi_protocol_version_initialize(struct device *dev,
->   *
->   * Context: Assumes to be called with @protocols_mtx already acquired.
->   * Return: A reference to a freshly allocated and initialized protocol instance
-> - *	   or ERR_PTR on failure. On failure the @proto reference is at first
-> - *	   put using @scmi_protocol_put() before releasing all the devres group.
-> + *	   or ERR_PTR on failure.
->   */
->  static struct scmi_protocol_instance *
->  scmi_alloc_init_protocol_instance(struct scmi_info *info,
->  				  const struct scmi_protocol *proto)
->  {
-> +	const struct scmi_handle *handle = &info->handle;
-> +	struct scmi_protocol_instance *pi;
->  	int ret = -ENOMEM;
->  	void *gid;
-> -	struct scmi_protocol_instance *pi;
-> -	const struct scmi_handle *handle = &info->handle;
->  
->  	/* Protocol specific devres group */
->  	gid = devres_open_group(handle->dev, NULL, GFP_KERNEL);
-> -	if (!gid) {
-> -		scmi_protocol_put(proto);
-> -		goto out;
-> -	}
-> +	if (!gid)
-> +		return ERR_PTR(ret);
->  
->  	pi = devm_kzalloc_obj(handle->dev, *pi);
->  	if (!pi)
-> @@ -2328,10 +2325,7 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
->  	if (pi->proto->instance_deinit)
->  		pi->proto->instance_deinit(&pi->ph);
->  clean:
-> -	/* Take care to put the protocol module's owner before releasing all */
-> -	scmi_protocol_put(proto);
->  	devres_release_group(handle->dev, gid);
-> -out:
->  	return ERR_PTR(ret);
->  }
-Better though the devres group approach works best in my view when it's a wrapper
-around a helper.
+Patch 1 is Felix Fietkau's fix for bpf_mem_alloc on 32-bit [1]. It was
+posted in July and is not applied yet. It is included unchanged apart
+from a rebase, because patch 2 depends on it. It fixes the hash and
+rhash rows and the node alignment of lpm_trie on 32-bit. The Sashiko
+review of that posting points out a pre-existing 8-byte load of the
+4-byte percpu pointer in the bpf_per_cpu_ptr()/bpf_this_cpu_ptr()
+fixup on 32-bit. Patch 1 neither causes nor fixes it, and this series
+does not address it. Among the 32-bit JITs only x86 supports kfuncs,
+so only x86-32 can reach it. Using BPF_SIZEOF(void *) for that load
+would fix it.
 
-	gid = dev_res_open_group(handle->dev, NULL, GFP_KERNEL);
-	pi = __scmi_alloc_init_protocol_instance();
-	if (IS_ERR(pi)) {
-		devres_release_group(handle->dev, gid);	
-		return pi;
-	}
+Patch 2 pads the lpm_trie key to a multiple of 8 bytes, like hashtab
+does.
 
-	devres_close_group(handlde->dev, gid);
-	return pi;
+Patch 3 aligns the devmap value.
 
-Though here you'd have more or less a wrapper surrounding a wrapper, so fine to
-just push this up into scmi_alloc_init_protocol_instance()
+Patch 4 adds a selftest that checks the address of the value returned
+by bpf_map_lookup_elem() for lpm_trie, hash and devmap. It executes no
+instruction that needs alignment, so on an affected kernel it fails
+instead of crashing.
 
-Anyhow even if you leave like you have it this is a great improvement.
-Lifetimes in these calls are now a little less complex to reason about.
+Patches 1 and 2 have to be applied together: on 32-bit, either one
+alone misaligns the IPv4 lpm_trie value (see "arm32 + patch 1" in the
+table below), and both commit messages say so. I kept them separate to
+keep Felix's authorship; they can be squashed if that is preferred.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+The other map types that hand a value pointer to programs return 8-byte
+aligned values. cpumap has its value at offset 20 on 32-bit, but the
+verifier does not let programs look it up.
+
+Testing, in disposable QEMU VMs:
+
+- arm64, defconfig + selftests/bpf config, QEMU with HVF on an Apple
+  M-series host (FEAT_LSE2): map_value_align fails on bpf-next
+  (lpm_value_align: 4, devmap_value_align: 4) and passes with the
+  series. With the series, test_maps passes the lpm_trie basic_ops,
+  batch_ops and get_next_key tests and the hash and array tests, and
+  test_progs passes pinning_devmap_reuse and xdp_devmap_attach
+  subtests 2 and 3.
+
+- arm32, multi_v7_defconfig + BPF_SYSCALL, QEMU virt with Cortex-A15
+  (TCG): test_progs is hard to cross-build for armhf, so a small static
+  program does the same check as the selftest: an XDP program looks up
+  each map and stores the value pointer in an array map. Address mod 8:
+
+                         lpm IPv4  lpm IPv6  hash  rhash  devmap
+    arm32 bpf-next           0         4       4     4      4
+    arm32 + patch 1          4         0       0     0      4
+    arm32 + patches 1-4      0         0       0     0      0
+    arm64 bpf-next           4         0       0     0      4
+    arm64 + patches 1-4      0         0       0     0      0
+
+- pahole matches the layouts in the commit messages: devmap val at
+  offset 52 -> 56 (arm64, size stays 64) and 28 -> 32 (arm32), and
+  lpm_trie_node data[] at 24 (arm64) and 16 (arm32).
+
+- W=1 builds of the four touched kernel files on x86_64, arm64 and
+  arm32 produce no warnings.
+
+Not tested: runtime on x86_64; test_progs on arm32; selftests that need
+CONFIG_FTRACE or bpf_testmod, which my configuration lacked. That
+includes xdp_devmap_attach subtests 1 and 4 and the bpf_obj_new and
+percpu allocation tests; they failed to load in the same way with and
+without the series. Patch 1 does not change anything on 64-bit. The
+LDAR/STLR behaviour with FEAT_LSE2 and the x86 split lock case come
+from the Arm ARM (SCTLR_EL1.nAA) and arch/x86/kernel/traps.c; I did
+not trigger them.
+
+The lpm_trie bug was found with AI assistance while trying to verify
+the correctness of map value accesses with formal methods. Patches 2-4
+and this cover letter were written with the help of an AI coding
+assistant (Claude Opus 5.5).
+
+[1] https://lore.kernel.org/all/20260717183632.99195-1-nbd@nbd.name/
+
+Changes in v2:
+- Target bpf-next (Alexei).
+- Fix the 32-bit node misalignment at its root in bpf_mem_alloc by
+  including Felix's patch. v1 rounded data_size up on top of a node
+  at 4 mod 8 on 32-bit and so misaligned the IPv4 value there, which
+  is aligned today (Alexei).
+- Drop "data[] __aligned(8)". data[] is at offset 24 or 16 already and
+  the annotation changed nothing (Alexei). Add a BUILD_BUG_ON() for
+  that offset instead.
+- Add the devmap fix (Alexei).
+- Add a selftest (Alexei).
+- Correct the commit message, which claimed that the IPv4 value is at
+  4 mod 8 on all architectures.
+
+v1: https://lore.kernel.org/bpf/20261119155317.11469-1-tphilipp@gmail.com/
+
+Felix Fietkau (1):
+  bpf: Fix alignment of memory allocator objects on 32-bit archs
+
+Tobias Philipp (3):
+  bpf: Align lpm_trie map values to 8 bytes
+  bpf: Align devmap values to 8 bytes
+  selftests/bpf: Check that map values are 8-byte aligned
+
+ kernel/bpf/devmap.c                           |  5 +-
+ kernel/bpf/hashtab.c                          |  2 +-
+ kernel/bpf/lpm_trie.c                         | 19 ++++---
+ kernel/bpf/memalloc.c                         |  8 +--
+ .../bpf/prog_tests/map_value_align.c          | 51 +++++++++++++++++++
+ .../selftests/bpf/progs/map_value_align.c     | 48 +++++++++++++++++
+ 6 files changed, 121 insertions(+), 12 deletions(-)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/map_value_align.c
+ create mode 100644 tools/testing/selftests/bpf/progs/map_value_align.c
+
+
+base-commit: a58375b858fac35afb78a3dd68ad6a19c01799eb
+-- 
+2.54.0 (Apple Git-157)
+
