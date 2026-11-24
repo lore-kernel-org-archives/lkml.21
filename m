@@ -1,111 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.226
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795551255;
-	b=0MlkA6CJtkutldyCtYhFfE4+PKWycGKG05aZMMsa3mtgNkNDZt8mSP2bGAPgS7F9Pjk1
-	 K0r14/ZBO3ZEcrXAZ8VLf2tSRekL5mBgC3vddxBzcppDya3Y57GnHQo0J6DXIsBuz4GmE
-	 uIjoczTJR2UgWZJBB/V235OgVrYa/9z4b6HqJ4xsYQ9+zKHPFkoYF2gKz9nllIproq/TW
-	 dzo41QEvBeWi1mMoh13AmZHogwXcS9pve+JJ9JVjYztXJTuRVNW3z1fWyqxNknNhSkpSa
-	 sX4sut0SDBmiGJ29HKLV29d02Y8ZVQ+mpjmMTVSxZDYiqfiI6ZraII2ZAlcOwh1k0nA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795551255;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=rzyNqJtabncqEdEJhW68WGIEMuPJd31vZmYX/unj5Uk=;
-	b=WdvkxHbLuqVxQbT9SF6Vr1aYBirHAeib+BhLdAgqY0kZRoV3YxVcyQ0b+/Bs+j2Yoq5K
-	 +IoUf1smggNkkbGUr3KRTJ3U2I0XAt0dHSJE856L9+x6TeISTpV6VUzD9x0c5rn+ISEYf
-	 UoCemTYvv+oWVyeKHSjNIOxMwq1zJwwuOKSoVfOUd0U/eXsaV/raycf+kzHj86vs+++at
-	 LAX1SG3UN7NEBxKRx3gDZf9oCTOJNy1caWnQsYivIv9hqDffdpWfr6nmiqXOMeWOyFuwz
-	 EsidT0hNmEU1X5mF6HqkCXfQrW1s+3G4keoPT+jaH8xsKVp/j16V1asGbexbNRDsxBg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=DBu4gMcp;
-	arc=none smtp.remote-ip=209.85.214.226
-Received: from mail-pl1-f226.google.com (mail-pl1-f226.google.com [209.85.214.226])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795551307;
+	b=fQr640DcI056hZqJOX8mukCqko+5IbZUfXWxEfEQfuxb+U5PG64Od0ysIcirlVtFd3T5
+	 OurCWwrRSiadLCSZB9VrbRon1iW8Sr8T8As2TcB7W278pvye9G0wr5asK1iVA+B5Iw86w
+	 KcGG8Sc5jM7obrXhLTcz9JGKKTc0GVguCrl4pdPJemgG/OkcgYhRzqZfld2odlhODSt3y
+	 CMvVSSZmAOA2VHimiKfNyja5W0QLzzZ3RtK0MB6keHVInIeG5A1UjSBiCtqi6saBgNbyd
+	 2hms1ovZVtpCkRjpvly4Ag/lGQjDMLPOu26H0tExE6pQslnhIuMHXZAGwAnM9Ekb6+w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795551307;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Pi553oKEuwJxtkzT1XB/uqe+x5Rc2UJPrmYbDOw3Bd8=;
+	b=0TOA2HJJUDCier+W2E0MAOJhXDUGQpOAops1TLT710NwjooLlaEpc2XdWEiDvdi1JdpQ
+	 ZMsLZqsjYAw0tVKSlQ7BzmIhPNcEjanRZJXj0T7rSMQz+usLHQlSUG1zZ+r/r4PIyGX6o
+	 n/TQJcDqEwosmUkgNxeMYaTNpQG6tGUDnlZ3Ub0w0LgZdKVUZW2J54+oP7BgRxGm1tpSP
+	 vLerqrspBoqfwWps/vFz6vLVVXTlk0au+P6L7Rjd5AEMfXZnRH9TZCTo5rjdsUT7Alhb8
+	 4PiG0GSgIrKHV+ji4N70ymfja7jdHzAr8oz6UMhVbiQkm3DKnOg+N5L+Y1y4EHP9rTg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="y2eb5/LZ";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 084E4606A6A5
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:14:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 084E4606A6A5
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F20A1606A338
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:15:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F20A1606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=DBu4gMcp
-Received: by mail-pl1-f226.google.com with SMTP id d9443c01a7336-2f06ff94acfso19125095ad.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:14:14 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=y2eb5/LZ
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso49354065e9.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:15:06 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795551305; cv=none;
+        d=google.com; s=arc-20260327;
+        b=BBalBd7B2i+8/dt3qw3U3PSBYLqSqB9FsjXFC28DlGcTM09+MZbkUpZY536qQF7KlJ
+         TS+I7sdS9kSNbpgPO8VhIcxJ5kXFd2PdQiXVxjlN7tXpn8QIBuXrJz1MPumT+Pbd1VqV
+         3k4sGfiQYnTOV5/tNI3oNFC+AiEZBPlQjQpIyzG5QnuZq3nNOqjWPB9Tl/NLAUJIvLQ4
+         4eknS40Jdfsp+MtwALHbJ62nCAD6v45m2jQemIoDLP78zkTp1yf5UCezCXQv5x61B1M7
+         ST4r4ARehggKTiD6O/AUAtygH8DCLYANpQwfNshwS+VaWy82+/fraoIroRKxrQsNymtz
+         pEag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Pi553oKEuwJxtkzT1XB/uqe+x5Rc2UJPrmYbDOw3Bd8=;
+        fh=CFAo/8hgfoPin5Z6MoIj4J7VbMrQzcyodizNs8MD+tw=;
+        b=q6tuOaLMhyXCPzrLa+JdK6PaElEfbFd+hQN46+rNdeEJ9KLi8V2M274VnQlir7goR+
+         PgSuK/RsG+tMw6sAtbjQ3tovcHRGb0SXZd07akJyc87wrxJdIWAtTD8Hp9WfDDh7IIRe
+         tRJPIpZ3QPKNxHZ6cretUBeSks16rp5OTBUcG0bn49jr9JIQrEVoSOvaBTrJahmqTSEC
+         jUE16JTtndTk6l2RO6nliZYCkNi7zX08NQnhADHSFzDo9FmNcMdx4e6Cm7MqYehncYZQ
+         l5E0irrD/s2soJyqKIz3/0niSssBRNaH4RSdNRoV6W0GZWv3dVEDb2MHQWdGsythEm4D
+         apXA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795551305; x=1796156105; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Pi553oKEuwJxtkzT1XB/uqe+x5Rc2UJPrmYbDOw3Bd8=;
+        b=y2eb5/LZeksmRnb/4Tc2gs3zEYVlgZK6T9qGufOag8Bei+G6Y7t18dJrdfcsvGlTj2
+         6lA8CxMUbCuClMKZB5cGfk34by0jLI0jlg1ITdQuWWaeI9HqWFJM2e6Rfg0ZTvX5bQNz
+         sjLTVmYDhHX7FjEy3iFjcH6ocEmZ8837BGVvoM9kmHUGDUOl2mRex509wcp+CrZiqNzJ
+         4wL56UkWq4ohRa//hvlDtRSTqz1NEniqS2+TrZGYFdakFMsHHsAml5jN5QhVCS+IlyRL
+         AZQCCkyozn8O5IF7E3DA218PR/ku9M+5dQeD6rmVKcdzTqGqk2hVspiW/CAq14t162hF
+         fBZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795551254; x=1796156054;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
+        d=1e100.net; s=20260707; t=1795551305; x=1796156105;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=rzyNqJtabncqEdEJhW68WGIEMuPJd31vZmYX/unj5Uk=;
-        b=1lrNttbWLVnTjR/oaJvORBDKSk6DlAJPfZrBsX1YJk6DMwOJruYbXu97YeS7oXvhia
-         hAO9VflKsjImmBIcz+pqWCSYUTz/annvVo4mBrh2r7cJ5pbJQDFt0367S0+fjP4il5SL
-         G5cKxnYr6gBClxxkCXHZ8bXFJiej34EUqDQbI3f4mAUbSNIPGv3YUjvxfLZ5mBk3kgTl
-         SC01wrBk6O3gRqFhe+iwYRKaVVDFgX7UdXYXk68RZ88MXSj6zeNblR8V0ff8qieQtOjX
-         1fE3sgUvgMn+9+yYQMawKVCGapnfNCzMFrC1u9BWw3l1TD+ALF788KNk4t5FXnHK7eiP
-         Wy/w==
-X-Forwarded-Encrypted: i=1; AL+hErF2pWiN4f76w8vzvBva61GV9WR5hJ4eV+FeqA3cORIyL/EnX7OkIgLtZbV1haPPYTq+Ak/rAjTADxboNtA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+q5Q84KHQZFEB4fOF0S62+pyXLouoA4Z7aMTJ2nUIUMNO+pryx
-	9pGPFdoQXjXeWZ+4uB95bqoUEyVk2WE5qEPQvLeyggUAEK69HIKd7ca6rQQKXRa9gA2eZ8fVlAq
-	vGUtwOpYXENTF+KLzMqUoIoxsDCEa6BBxDtLuT8Q/v11hpoMeobmO9XllZt+htDqn7WbaxFKX1I
-	bqqvuOAw3jmEatwdINt46sorP6sVKEQsEAIekn7gs9xLoh6pnth6b8XXLdmK9JVey7NvZ9VJpsJ
-	TEqQeichoWjc8Vuyujy7YbT3A==
-X-Gm-Gg: AZFdTZfiwZLqktywQwNMCN8ilmSwtlIGF/4D5skvCpTE94SM5b6ovBPfkQAWlUAlbft
-	fc8LkdbyItM5pOgybnM/djeEOs9ygUxeeJTvdBxMnve3ZdTmM//elMV9C4wdG6QZfPMt+py2ene
-	LeDpaqU5UXrSOqhpdhgZpiuDxNa+ZF7/5Oq8gYrB027XBcelanrqcr0fQAZ2V0z0kZxn1PuWlcG
-	qc4A9qkiH/lxoWsSMyoSvr87Vrsx/9Xjrv59KlG22IKv2XGbZuzqQVGPPzxaliaFVUF66CSjFvo
-	4QE/I/gNHf+iMGW6XO+OPX/+t1NBTRN6NKraUlOvzxX/QoZTpOq7ysBYakSmOIxsRY9mTjWUQGa
-	XwYgaqo8BQ1uUl9Ol71mtgT5XlIF7I7de5DnA0f/4TnDS6QEfmNCP8mD+VMQPQofjMcjEgx4HEU
-	OvBvpzXsAgFYtJ8/wB8p8/oa98yTi85JBCBqT5Kxs=
-X-Received: by 2002:a17:90b:5350:b0:3b4:2eb:d9cf with SMTP id 98e67ed59e1d1-3b41c9086d7mr13132249a91.19.1795551254203;
-        Tue, 24 Nov 2026 12:14:14 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41ae532fesm11557926a91.7.2026.11.24.12.14.13
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 24 Nov 2026 12:14:14 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-92106c98714so102346466d6.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:14:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795551253; x=1796156053; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rzyNqJtabncqEdEJhW68WGIEMuPJd31vZmYX/unj5Uk=;
-        b=DBu4gMcppjwDDUbqObiqwpC20dr8D3ByFD6h+B8DiUVeKhu3Z+HifWRYFtEQc44caf
-         TkEKuOwWs0TtA5/wGpH/V7dUrTAHQo5lU72aBZ04mCLTCpkdiYVrxsIadh+KpKrdJYmP
-         NVHOE9xCKpdEWkPcSTOdc4KUj/QVcnIvUEZeU=
-X-Forwarded-Encrypted: i=1; AL+hErFgSjdxlcSVThr4UYr4Eszop+uf/6gEQlEvxDhf1dlSJ59pCRm1iVic1UvA6qsoWZYtX0uiFf3qFj5KrsU=@vger.kernel.org
-X-Received: by 2002:a05:6214:8018:b0:91f:2222:b498 with SMTP id 6a1803df08f44-92134b20d5amr225168136d6.27.1795551252936;
-        Tue, 24 Nov 2026 12:14:12 -0800 (PST)
-X-Received: by 2002:a05:6214:8018:b0:91f:2222:b498 with SMTP id 6a1803df08f44-92134b20d5amr225167466d6.27.1795551252306;
-        Tue, 24 Nov 2026 12:14:12 -0800 (PST)
-Received: from bld-bun-02.bun.broadcom.net ([192.19.176.227])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9213515f467sm141424066d6.41.2026.11.24.12.14.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 12:14:11 -0800 (PST)
-From: Arend van Spriel <arend.vanspriel@broadcom.com>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-wireless@vger.kernel.org,
-	brcm80211@lists.linux.dev,
-	brcm80211-dev-list.pdl@broadcom.com,
-	linux-kernel@vger.kernel.org,
-	Arend van Spriel <arend.vanspriel@broadcom.com>
-Subject: Re: [PATCH wireless-next 6/7] wifi: brcmsmac: embed brcms_core in brcms_c_info
-Date: Tue, 24 Nov 2026 21:14:00 +0100
-Message-ID: <20261124201402.3499613-5-arend.vanspriel@broadcom.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261111042554.232998-7-rosenp@gmail.com>
-References: <20261111042554.232998-7-rosenp@gmail.com>
+        bh=Pi553oKEuwJxtkzT1XB/uqe+x5Rc2UJPrmYbDOw3Bd8=;
+        b=ZDSYo8uKd+NITi6SF4XWNEUSRPYdXJKVJVQW2i4+j52rl7dtySVv0J0jcCNYvT5kZ2
+         jbpGWYsGmadlbDKvanw9+Kj1PiK0GbOgHDQ5pPlMpGwCYRckqZTuU+zgfdWB4TRYRJsL
+         +k9uFyDvdg3y7O1R5eOSFlku+60Q5h8CLXG/GHR9Gc+lw8AkCgvl1HbswfvRR5d5JAHR
+         QqC48DtuMYdanc/0FYHsLqRipesOSUU8CLLqkSImPK2tWnl0mRos+YqRkydMNDLvMbFY
+         NNx3Q9h5uo0eta2Lhs0Pw6wMgKbjx0yBU0j55/OijIPSBz++z3I3hZZJe/Gv868DN8eM
+         vEsg==
+X-Forwarded-Encrypted: i=1; AL+hErGbmH3tCwOjzCrE3XPyaSSuzqYdn3Y54dUinY5Q3Z0sfB9R9C5gf5EOVpOxRQRRTfHHAypnaDqPAbAT1kQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+yCDl1ktC88dkWO8tBcjf+sbg1ftK7E9kHfOuMGMK8MgHtVTlO
+	Oc7s/Vnw+pnchtGWVV48acujZic0oHHkfS05H9TkjKBHlDWszltotW76kF/TW0TTMNlAyYKOPAW
+	GWChttQUzeXfN/mKM34alhRoHGK0g9kY=
+X-Gm-Gg: AZFdTZdmq+TMIz83WEq4E04BJreUWjP3PAoS7kQdrUvjx1TbHDAgKliCb/RNeFByaUD
+	asu65kKvAOJgyKktWxXWp/Jj9p0IOOFrQobeFSjgEOxJd7Ffcc+6UOurCfs4SaQRpKZyAEMcPQT
+	YadgZq0zQGoG/5ySerlSOrOg3vUaDTvjYq+kXz5en9qnttSedMeKd/ATgqEoamFh84wfT8req+R
+	cfGDS68moGoj6v060bLZwkhEo0S3vDFPe3EPb+COgAltg/LYQ2pjUvELcauh3/T7idcWQ6N9SGv
+	vmO3fgu8jvVScTm7jGe+bQArt55+ev+I+yNV3pVFCBi17DT0JI5cyxzlb60bbf/OvMqOyobCpZj
+	ScCKTBPBj566NgImAaC1bKAS0bnckcPTwKUymlPO0cF9EaLauC9zhAZQPl0iGMNHnyFnPohu+Hp
+	uB9mYV+ctlEK5SgHBdWw==
+X-Received: by 2002:a05:600c:1d86:b0:4a1:fa27:df7c with SMTP id
+ 5b1f17b1804b1-4bb88922972mr332691925e9.34.1795551305115; Tue, 24 Nov 2026
+ 12:15:05 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,37 +105,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+References: <20260408100247.2065245-1-keenanat2000@gmail.com>
+ <awRRgnRmeMDUvUWz@redhat.com> <awR4plQC_oIvoc2R@redhat.com>
+In-Reply-To: <awR4plQC_oIvoc2R@redhat.com>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Tue, 24 Nov 2026 12:14:53 -0800
+X-Gm-Features: Aa3M54of-GC7sd-E-HO4C2skMXhoQ64d9-dKg68squRz4l7HKi30ussUDXcU57o
+Message-ID: <CAEf4BzanZC0Zwf2FDVUjv7JxDvL3dQ3MKvJ=_Wz5k1aADD4y+g@mail.gmail.com>
+Subject: Re: [PATCH] uprobes: clear extra_consumers before pooling return instances
+To: Oleg Nesterov <oleg@redhat.com>
+Cc: Keenan Dong <keenanat2000@gmail.com>, Andrii Nakryiko <andrii@kernel.org>, peterz@infradead.org, 
+	mingo@redhat.com, acme@kernel.org, namhyung@kernel.org, mhiramat@kernel.org, 
+	mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org, 
+	irogers@google.com, adrian.hunter@intel.com, james.clark@linaro.org, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org, Keke Ming <ming.jvle@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, 10 Nov 2026 20:25:53 -0800, Rosen Penev <rosenp@gmail.com> wrote:
-> There is only one struct brcms_core and it has the same lifetime as
-> struct brcms_c_info. Embed it directly instead of allocating it
-> separately, removing one kzalloc()/kfree() pair and its OOM error path.
+On Mon, Nov 23, 2026 at 9:32=E2=80=AFAM Oleg Nesterov <oleg@redhat.com> wro=
+te:
 >
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->  drivers/net/wireless/broadcom/brcm80211/brcmsmac/main.c | 9 +--------
->  drivers/net/wireless/broadcom/brcm80211/brcmsmac/main.h | 2 +-
->  2 files changed, 2 insertions(+), 9 deletions(-)
+> On 11/23, Oleg Nesterov wrote:
+> >
+> > Andrii, can you take a look? I never understood this code in details,
+> > and today I forgot everything...
+> >
+> > On 04/08, Keenan Dong wrote:
+> > >
+> > > ri_pool_push() returns a return_instance to the per-task pool for
+> > > later reuse. The pool reset clears cons_cnt, but it leaves
+> > > extra_consumers behind.
+> >
+> > So at first glance this doesn't look right no matter what...
+> >
+> > > A reused return_instance can later grow a fresh extra_consumers
+> > > array and then reach the cleanup path with a stale pointer from its
+> > > previous lifetime, leading to a double free of the recycled object.
+> >
+> > Can you add more details to explain the possible double free?
+> > This is not immediately obvious, at least not to me.
+>
+> May be this has something to do with dup_utask() -> dup_return_instance()=
+ ?
+>
+> If cons_cnt =3D 0 but ri->extra_consumers !=3D NULL, then
+> dup_return_instance() -> kmemdup() will copy old->extra_consumers, but
+> but kmemdup(old->extra_consumers) won't be called?
+>
 
-[...]
+I think all we need this just this:
 
-> @@ -470,7 +470,7 @@ struct brcms_c_info {
->  	/* multiband */
->  	struct brcms_core *core;
->  	struct brcms_band *band;
-> -	struct brcms_core *corestate;
-> +	struct brcms_core corestate;
->  	struct brcms_band bandstate[MAXBANDS];
->  
->  	/* packet queue */
+diff --git a/kernel/events/uprobes.c b/kernel/events/uprobes.c
+index c47b1ee266d5..f265527e6897 100644
+--- a/kernel/events/uprobes.c
++++ b/kernel/events/uprobes.c
+@@ -2118,6 +2118,9 @@ static struct return_instance
+*dup_return_instance(struct return_instance *old)
+                        kfree(ri);
+                        return NULL;
+                }
++       } else {
++               /* old->extra_consumers can be a leftover buffer from
+ri reuse */
++               ri->extra_consumers =3D NULL;
+        }
 
-With the embedded struct there is no need for the separate pointer
-anymore. wlc->core always points at wlc->corestate, so the core pointer
-could be dropped and the users could use &wlc->corestate directly.
+        return ri;
 
-Acked-by: Arend van Spriel <arend.vanspriel@broadcom.com>
+cc'ing Keke Ming who was going to send this as a stand-alone fix
+earlier this summer.
 
-Regards,
-Arend
+
+> Damn this code is too complex for me ;) Anyway, I think the changelog
+> should say more.
+>
+> Oleg.
+>
+> > > --- a/kernel/events/uprobes.c
+> > > +++ b/kernel/events/uprobes.c
+> > > @@ -1945,6 +1945,8 @@ unsigned long uprobe_get_trap_addr(struct pt_re=
+gs *regs)
+> > >
+> > >  static void ri_pool_push(struct uprobe_task *utask, struct return_in=
+stance *ri)
+> > >  {
+> > > +   kfree(ri->extra_consumers);
+> > > +   ri->extra_consumers =3D NULL;
+> > >     ri->cons_cnt =3D 0;
+> > >     ri->next =3D utask->ri_pool;
+> > >     utask->ri_pool =3D ri;
+> > > --
+> > > 2.43.0
+> > >
+>
