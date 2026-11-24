@@ -1,45 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795619335;
-	b=GKNSwMlsQoc3ZGK4KtnIhDLN2FCe0BpHbOv0N5hbFyrvGOasfPTwH3h7YKCJe+1qQyoH
-	 eXmi1a++tl12CLPK+oz8Im68vJgT/G/t9wRxDQ3c9b5unQXJ4f5wd/RJt9Z44OLjHm8ZG
-	 QHSBlm5jTVBZG375GloygpNItXi2g0vqodGLeXd34fTu7jQ68VWBdQ7qY66voNHiaP74S
-	 pU/F0QrE3XcKvYbD9fNZxusI17yxRpIasoCPmTri16EGEadbCABAzXd6QpifHAN4eXEIJ
-	 rpDqUillVEC75+Sqen0+8BuPeVTjitbt5bZMy3WhWmjrNmHiiJo5eGFGZnFFUNsGcKw==
+	t=1795619344;
+	b=3zP7vAhk7LcoFCYQcLgGSiJxBG9dWZrvEGsgRCwESBHNR/BlZSAuHvCzRwZ7WAl3Tdno
+	 gJ811AvCl1Ekc6YZ3icO7ZSN3OA9JZNWAFbYjNI7kvHelz6xmJ5fCHDfLyPp2BbqwPU3g
+	 zEpvUlN8m56di+slwVggi9AxDHPECaTfC7h1kSpb+8ND4psmYYZqh6fCTpNhMsQ6BkdtP
+	 IUBqitY9K3a6MFKwwKz16yiaEenYs4YESBbBZs4lRkxPjQgH8M068WyBUx/MwFU86Nr2w
+	 AN4QufDCAfICUQ+VZ/Av3WcIBSZuvdQ0sV4PsunG2DubwuA4EHyhIeNngDiXVmsUKTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795619335;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=LvgjPvk8DeOlK91/Sosy4546ele2H/cHuJLoH1Ls35Y=;
-	b=MNX5R0Ri+H/mnK5HVdTrHACf3bL2kisHnRJtFd6mgCr5ZeoLs5mZ3gYjYKFbQ0ZVyOSR
-	 SLmRjTUAH1W7FGF62ipt+bcSaN7ovh0ZEr4Kkq6L9vuc7z2vNNy/CmKyY707MmKEvRyy9
-	 f5TJrkZvldiNvfmrpOP9pEGz7SFhQCoMHVafSY2mI4I3fUlB+yMQoE+Jv4CCCbm23iJDD
-	 244XzBkdriuzhn+xwuBVXD5ELUD0immhutKA2zCSBilhB1piAofxHvDPK3/6cCkCCCmEL
-	 g9DANODm2Xr42mmgHlklQNlVNnb7QLx0KyjllN6tN9wWRZUVaYGbCsOwVMEfCAfl3XA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795619344;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=VxkvXx0QISvNLm0dBnZhh05AEh7aJ0O7sxMzdveYPi8=;
+	b=sXh1RM8L7b3of94910jgZA1349bs5A3Hjumb9F+VHy+dIlvHXTAKQ6LwYqg21y80Mqli
+	 AsutZMHhkzD+5wnRGPeN+sRac+nXHKMTKTRLquGhSK5/D1MKYuV6aK6jab4ULzh6FTIro
+	 Wv+9apWLBFdxRVLou9WU3jFQdSqyAq22pTqmTorQ72dpy4lBaVI6llKo9ETIra9KMiDZL
+	 fFrosKHkqVFff90ojt2mXZg1/vKb9YOEQe0IypFAixTD4J4ssKNNDJOTswPtmDD6H5aRe
+	 vBfNHBoPx03N5cKM0qGgNxNrKabV3a7l7UEMITkhWxGRY0SzHiHEOiuYHwFA4RbU3Bg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HcqH3MIv;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I0yyWPWx;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F578606A33D;
-	Wed, 25 Nov 2026 15:08:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 448E6606A335;
+	Wed, 25 Nov 2026 15:09:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HcqH3MIv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D71EA1F000CA;
-	Wed, 25 Nov 2026 15:08:52 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I0yyWPWx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFADE1F000C0;
+	Wed, 25 Nov 2026 15:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795619335;
-	bh=LvgjPvk8DeOlK91/Sosy4546ele2H/cHuJLoH1Ls35Y=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=HcqH3MIvICwcckfWjaghuojxvt5GH/LPUozkye8C/Yo7kgcFMOwHyqR7sXQ5CTWvF
-	 hhwqlZ25IC9v2tk5ulhkqkJm6I018I7XREEdcrIWbKfriLQUd4Ns4ZZhFIBDBNP2uq
-	 Wv2iPOw9d4W9uYTmZV0/A6qd5CKyxXNbiQOF2Maatb8pdvm2YxX/+5weIvHaqSowSj
-	 H4vJxbWODg9ZCRmMwOVjs64N8BYZFkM5v11oO7QbCrHq6kyb2C3dXLEw8EdgqZYkap
-	 D2KbP4SUHYCe7yLdD6xTeIV2oE5QCADg1ip7U4Tepxw98HRfuyyGIUDGwaWufAa8G2
-	 kwDn9oFzSJiRw==
+	s=k20260515; t=1795619343;
+	bh=VxkvXx0QISvNLm0dBnZhh05AEh7aJ0O7sxMzdveYPi8=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=I0yyWPWxPjM27BBLQSDI48fY0YMwGW+didwmG6X8uqGOXsTYKEhOM0L7k2S9pg6qt
+	 GDQnxeuYlM4lOO9oxBBWHQMWkqUKzo42k4lmAmHaBlcZXTxyRXFYS3pX9AVhht1xCu
+	 VqFfybpu84/RtExttjFShAIcxUbaawbFJJ4EKxihEiCV7yf7SWc25Wp11N8gJV6tDm
+	 77NdS2MkzyL+RhD75l+zlhgpv2oieWlIY37VwSkIW9U2OwpBTPBV8AR3qRK7D0646e
+	 hjp2b0PjE5vvcCJ4dt5dh+uhJtn6OF1oDOqTKAQA6+1Z/45OtcUsqp1Vde0Oh6vRBr
+	 lgvddDG1V6fhA==
+From: Mark Brown <broonie@kernel.org>
+To: Richard Fitzgerald <rf@opensource.cirrus.com>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ patches@opensource.cirrus.com
+In-Reply-To: <20261120110441.2163567-1-rf@opensource.cirrus.com>
+References: <20261120110441.2163567-1-rf@opensource.cirrus.com>
+Subject: Re: [PATCH 0/4] ASoC: cs35l56: Prepare for SDCA Companion Amp
+Message-Id: <179554423078.947306.5902845909561904278.b4-ty@b4>
+Date: Tue, 24 Nov 2026 18:17:10 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,136 +60,59 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v5 5/6] media: qcom: camss: Take the link frequency
- from the CSI-2 transmitter
-From: bod@kernel.org
-To: Hitesh Patel <hitesh@ebytelogic.com>
-Cc: linux-media@vger.kernel.org, 
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- Bryan O'Donoghue <bod@kernel.org>, 
- Loic Poulain <loic.poulain@oss.qualcomm.com>, 
- Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>, 
- linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- ravi@ebytelogic.com
-In-Reply-To: <20260928121508.1404808-6-hitesh@ebytelogic.com>
-References: <20260928121508.1404808-1-hitesh@ebytelogic.com>
- <20260928121508.1404808-6-hitesh@ebytelogic.com>
-Date: Wed, 25 Nov 2026 15:08:50 +0000
-Message-Id: <179561933001.462348.7400383859710438706.b4-reply@b4>
-X-Mailer: b4 0.17-dev-cdd92
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4165; i=bod@kernel.org;
- h=from:subject:message-id; bh=Nt58v8O8xLAfhZwvg0hfnojmA4HCD154a8myCxoqgvI=;
- b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBrBvoC54oZwXDhJDhh3DoAK8FnSjrqjj1myGrBj
- LzE0nai5CaJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCawb6AgAKCRAicTuzoY3I
- OhUUD/9G+VNI2Bp4Cs5SkY6DGMLTz9kMgNZWjeql86oLiK0CFyADEjqRUeiCORpsYFNctV3473T
- yTPMRo99I0KIBScH7biT9sRUytWJRoJYYHGVfADHW0yMwCTjUIPdlN+tf1Wf45861UfFmsil4Wm
- Lo+Mor60xxA4GusLLk6E3TBK6h3qYGrRQyTQRQ5PE+UK5oQwz+1e5nrGfqLxtALl3XmkTsgstMf
- /MNk9gUWPFeh67E1DanbszFiyEKolvbOUwGvKRUukOuR62EZHeFXgIC368UzbvUDdDKjtGtBY9f
- YLg/Jz/CpfYsAoA/9jv53MkZuTDVZ4dCH1g3tGuuou9onWRcyWreEJXXLh8Vckjg9pxCNIxFoPy
- rFE/+l2x/frSnlAtkV81xHADwXuXcFSHNM6A1EP/VSaTv/kyuXsGoCCojKY9s1WxOgbu1jmhL57
- fXoOMcecAXbE/Efi2+KrDbefKUX4iiIviMcNwyKOqyuVDkkp60hrpd9MHAnzDeQ8acIlYel3NTf
- 4TExbCGQ1gxxDR4om3ZhGAcdH5VVQaLOqqb9EcoAsx+qyCrlXnz+289bkC1Z5q6N0+Gb38VHBT9
- RNsoSwexPpate+fUiTlkgM3KOCVMacXWhmxBV1/vffVyxt2VNuUrmsdRHMWRteyjn43P0hypDkY
- Xjd402ABYuP/Zow==
-X-Developer-Key: i=bod@kernel.org; a=openpgp;
- fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1791; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=LOlW11XCaReRLoNCyki+m0iMwWty5eLynXbWKztMGuc=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLZfvHESFU8vnV5g4jtlotbl+UYZh7+73h1J2v0Vv8LS
+ UJqThx7OkpZGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjCR0zKMDI/1rEz/3zWYJ1a+
+ yuPrur+rP75rjP2kyxTwbM7Ebfwb0ssY/vBsdj54wXznXJ6XyZyhJh3/vpS5rXlxhlvr9932H0H
+ pE5gA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-On 2026-09-28 17:45 +0530, Hitesh Patel wrote:
-> camss_get_link_freq() walks the pipeline up to an entity with the
-> MEDIA_ENT_F_CAM_SENSOR function and reads the link frequency there.
-> The CSIPHY settle count and the CSID clock are then derived from it.
+On Fri, 20 Nov 2026 11:04:37 +0000, Richard Fitzgerald wrote:
+> ASoC: cs35l56: Prepare for SDCA Companion Amp
 > 
-> The frequency the receiver has to be programmed for is the one on the
-> CSI-2 bus, which belongs to whatever drives that bus. When the sensor
-> is wired straight to the CSIPHY that is the sensor, and the walk gives
-> the right answer. When a CSI-2 to CSI-2 bridge sits in between, such
-> as a GMSL or FPD-Link deserializer, the bridge re-times the data onto
-> its own output at its own rate: it may aggregate several sensors onto
-> one link, forward one sensor at a different rate, or generate a test
-> pattern with no sensor at all. The sensor's rate is then not what
-> arrives at the SoC, and the CSIPHY does not lock.
+> This series removes some unused legacy implementation of the SoundWire DP3
+> port. This old code conflicts with the actual purpose of DP3 as the SDCA
+> Companion Amp output.
 > 
-> The walk can also fail before reaching a sensor. A deserializer has
-> one sink pad per serial link and the walk always follows pad 0; a
-> sensor attached to any other link is never found and streaming is
-> refused with "Cannot get CSI2 transmitter's link frequency".
+> 0001 and 0002 are the two changes to switch the code over to being suitable
+> for Companion Amp.
 > 
-> Add camss_find_transmitter_pad(), which stops at the first entity that
-> is not a CAMSS receiver, i.e. at the external subdev feeding the
-> CSIPHY, and ask that pad with v4l2_get_link_freq(). The helper queries
-> the transmitter through .get_mbus_config first and falls back to its
-> V4L2_CID_LINK_FREQ and V4L2_CID_PIXEL_RATE controls, so a bridge and a
-> bare sensor are both handled by the standard mechanism.
-> 
-> camss_get_pixel_clock() reads V4L2_CID_PIXEL_RATE and describes the
-> same bus, so it uses the transmitter pad as well. For a sensor
-> connected directly to a CSIPHY the transmitter is the sensor, so
-> neither the pad found nor the value returned changes.
-> 
-> camss_find_sensor_pad() stays for the frame skip query in the gen1 VFE,
-> which is a genuine sensor operation and whose result that VFE does
-> program into the hardware.
+> [...]
 
-This commit log is a wall of text. Please whittle it down to a few
-scrutable statements.
+Applied to
 
-The code is straight forward so a commit log as verbose as this smells of
-AI gen. It's filler when what is required is information.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-> Signed-off-by: Hitesh Patel <hitesh@ebytelogic.com>
-> ---
->  drivers/media/platform/qcom/camss/camss.c | 80 +++++++++++++++++++----
->  1 file changed, 69 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-> index 23f3cc30a1..79facd0133 100644
-> --- a/drivers/media/platform/qcom/camss/camss.c
-> +++ b/drivers/media/platform/qcom/camss/camss.c
-> @@ -4619,28 +4619,86 @@ struct media_pad *camss_find_sensor_pad(struct media_entity *entity)
->  	}
->  }
->  
-> +/*
-> + * camss_is_receiver_subdev - Test whether a subdev is a CAMSS CSI-2 receiver
-> + * @camss: CAMSS device
-> + * @sd: Subdevice to test
-> + *
-> + * Return true for a CSIPHY or CSID belonging to @camss, false for anything
-> + * else, in particular for the external subdev transmitting to them.
-> + */
-> +static bool camss_is_receiver_subdev(struct camss *camss,
-> +				     struct v4l2_subdev *sd)
-> +{
-> +	unsigned int i;
-> +
-> +	for (i = 0; i < camss->res->csiphy_num; i++)
-> +		if (sd == &camss->csiphy[i].subdev)
-> +			return true;
+Thanks!
 
-TPG should be included in this disjunction list.
+[1/4] ASoC: cs35l56: Remove SDW1 TX source controls and widgets
+      https://git.kernel.org/broonie/sound/c/f52668f474f1
+[2/4] ASoC: cs35l56: Rename the DP3 DAI to cs35l56-ot127
+      https://git.kernel.org/broonie/sound/c/fc7de4450478
+[3/4] ASoC: cs35l56: Eliminate trivial regmap patch
+      https://git.kernel.org/broonie/sound/c/0c690c80941f
+[4/4] ASoC: cs35l56: Add test that probe() doesn't write SDW mux registers
+      https://git.kernel.org/broonie/sound/c/406541bbf4eb
 
-> +	for (i = 0; i < camss->res->csid_num; i++)
-> +		if (sd == &camss->csid[i].subdev)
-> +			return true;
-> +
-> +	return false;
-> +}
-> +
-> +/*
-> + * camss_find_transmitter_pad - Find the pad of the CSI-2 transmitter
-> + * @entity: Media entity in the current pipeline
-> + *
-> + * Walk the pipeline upstream through the CAMSS receiver subdevs and return the
-> + * source pad of the first entity that is not one of them: the CSI-2
-> + * transmitter driving the SoC.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-This text really reads weirdly - looks like LLMese.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-"Walk the pipeline of CAMSS subdevices. Return the source-pad of the first
-entity that is not a CAMSS subdevice. That entity will be the CSI-2
-trasmitter driving the CSI decoder."
----
-bod
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
