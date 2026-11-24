@@ -1,45 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795525035;
-	b=Y/avzTzKhrJ1+c9nU/+nStqqLa5F8/IHb7CFpWl2oyUiZ4SFAj+yE1Ztd+T+EmU4DUQf
-	 k9GACWlbIAkDMKWYaKiuQgP473sgtf9FygMTPy9duNHOLd1K74FryqqiaV9TsInbXnJGb
-	 OoTWaj6ZQR/ySdSd7vzCcK8Q6jwgfkMpSk3y6j619Nj8E2cepr/aC0S6EuCg370LW/2B+
-	 o5qjujAAGCP2k3hbQjnU3EwvPqpL7wx4zfq+rKnWtEpNAzflGbRI52SPbWuDZ0v3IJeWA
-	 8Zgm67FUG5HhqGpl8yqrodgymT3+s6LU38RleufHQkUJMGm//8sh6jyI5Rh7S86PyDQ==
+	t=1795525060;
+	b=1tGcnqGPRGfWEJmal7R53NUXN5eb9rXDmwmu/vXjRQ33K1j2v7ShcllCrUUr7QfQMptF
+	 8lKvWZeeeYWX2bTbHkY7SugVByt/gbDXblCaTuLtUTb/u10AbGyVRly5x/tKIWFh/FuNx
+	 EjlxprJE3p0PwYETtgWd8k+3tu2ab/NtRsu18HJ3Eb0IrKBhklOFj8x1bA7zMMxj2HiNc
+	 0ei0LLxj4a8Z7Cxmm9lxbz53maTMEflRIDNzwH0f8F4k6W3oMh7cdPFCwA8RToHiO+sao
+	 Fv9UdkG/Nbe0CF1PkCv9OBEEJmwasl5MDQKHvyB2FMPdpf6IBAnLdPN6uudmWHSYAFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795525035;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795525060;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=XvBo39oa7bpeKA03NVP1pIOBu5yhj0WFEtus/hl+7BI=;
-	b=z17phJJrSP2XSFtnNvTRe6dYgn+fHplgSoGFNJXetWfDep4VD0gh4q3zbMH+wEl7NzKu
-	 r4kYPmIyW1h6tLLccaMe2zLCo8UsmVaakrPrL0h6Eho0A8Dr7eLqACnyqSZKV+m5PQ8pa
-	 zae8EWl+cgKhe5Am8USdhUBsNcMNGxwlmDvXjroJK8yShOXK3p8w9DxwLborz68bD0mld
-	 3wqtTePnhF017e9MqUMuVuciZbeGFOTI1gVBNCg7R5JNO5b4olXfKPTS3d3f+5k1c6jki
-	 U4bRYvYPdyLpV8Z7HCwV/8ULvlKPCPuMVAYZPZo7sW0FMkOEmP4HgAVfb3QOn/Nbl8g==
+	bh=0GkGumznK8zhV0Gw0dp3yzsRLkfuWDaqwwEMireqoHU=;
+	b=aXGGyEZHjI1pciSElWW+UHhJJxjbnS4kdyjgA3XIExe0Sj6yqewL+2ZIh6o4hcxr2RjK
+	 Nh+D4usMUeRR/99u79Gbnf7WdA2Z0iK6EWfjWvy2aYxjuZ4M1ZXtZCT+aPTvXZ5vhNVNi
+	 Gu7YZKIa30aLwxDC41OoBRDEkCJFZmESKetQ8j77a6t8AWNkm7Yoj+/csm1a2MUtT8eCB
+	 +l2h5vzrm4VM4OPmvxJAccwW/FEuWC4h/Fgi3YwrMw5ojlZzWwl2APTmrgAM2KuO9WYKS
+	 YBxQBiwzmrEkCFZhLS4qG8DFPqV269E+IS4ch8M9BEjfi76QgqF2y5OgZM7orwQGM/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b8rrhvUi;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m1tVWb1Y;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE18D606A31E;
-	Tue, 24 Nov 2026 12:57:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BDF9606A32D;
+	Tue, 24 Nov 2026 12:57:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b8rrhvUi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 715FE1F000C4;
-	Tue, 24 Nov 2026 12:57:04 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m1tVWb1Y
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79DB01F000C6;
+	Tue, 24 Nov 2026 12:57:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795525035;
-	bh=XvBo39oa7bpeKA03NVP1pIOBu5yhj0WFEtus/hl+7BI=;
+	s=k20260515; t=1795525059;
+	bh=0GkGumznK8zhV0Gw0dp3yzsRLkfuWDaqwwEMireqoHU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=b8rrhvUikY9XPyDwKdD2TMncflHFV8e+wbmxKQ4QphZNP2Jy8JD9raSLZHpmEz87w
-	 pMrrYBdpEQVTqFZGUDWVh4W0hgY67f2uM7pg618hvw1Kd052+gWy5QcJi9w4le2e1j
-	 +EBnfO/uOfUZ+qBakCkEG+YOuc2VXLkWafL2iyWlH8DzCSNBeWBDOqqTuTDR9DAGlD
-	 mhHkY5C5hAEEhv4DBaaUFN4m/Ct6ICFKkc0e352cbU0s9HgZUFuvM7I69GHTmnJ/N7
-	 lQQlJbfexhk+yLLgjzrUklGWTK8HXxqPNMehxV6c8/t3OXjHMACvOgYobee95K/7FB
-	 ep9mRUzvMKasQ==
+	b=m1tVWb1YlZPAg9vs/5tWLbU52TsmcsgTwZKGmKlHIhohsJo4cT2fhBVARxIueoiHy
+	 oHtJ8ip8i46BMF7FOEjdKdIRBV8NmXXzRZETMzrsYJhzKawvs1NxHAFest09dajz0o
+	 ZSsl4bJbUDcY19R3Etz+rpk9UK4VWrDNIIkwxnfIBO47rWPiPMfSaiBpLKPK5nvHUm
+	 q+LDRpjJ/txT8798hH5MDxRISZzjyW/QHen/tZcbyMxTj1cXTFfJOUjFZnp1D+vf92
+	 M5L3Ah6T5zhp8jVOQb+tgBcU0C4Rxerv5CiOKzSuXNxpQMENVNK1pyqabUxPI8odzC
+	 bOyLvSXbN2nvA==
 From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
 To: Magnus Karlsson <magnus.karlsson@intel.com>,
 	Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
@@ -99,9 +99,9 @@ Cc: Stuart Clark <stuclar@meta.com>,
 	linux-kselftest@vger.kernel.org,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next 01/15] xdp: Let memory providers offer XDP a view of their net_iovs
-Date: Tue, 24 Nov 2026 13:56:36 +0100
-Message-ID: <20261124125654.183091-1-bjorn@kernel.org>
+Subject: [PATCH net-next 03/15] net: Add memory providers that only feed XDP
+Date: Tue, 24 Nov 2026 13:56:38 +0100
+Message-ID: <20261124125654.183091-3-bjorn@kernel.org>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261124112707.118678-1-bjorn@kernel.org>
 References: <20261124112707.118678-1-bjorn@kernel.org>
@@ -117,156 +117,279 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Currently, a net_iov is memory that the kernel does not read.
-netmem_address() and skb_frag_address() give NULL for it, and XDP
-code, which takes buffer addresses the same way, cannot read it
-either. Some providers back net_iovs with memory that the CPU can
-reach and XDP must read, such as the UMEM of an AF_XDP socket that
-receives in the device's buffer layout, later in this series. io_uring
-zcrx could do the same.
+Currently, memory providers serve the payload of a header-split queue
+to the stack. The core requires tcp-data-split with a zero threshold
+for them, and refuses native XDP next to them. An AF_XDP socket that
+receives in the device's buffer layout, later in this series, needs a
+provider whose buffers go only to XDP, never to the stack. It backs
+every RX page pool of the queue, so that the device places packets as
+it does in pages, and native XDP must run to steer the packets.
 
-Such memory is net_iov and not pages because it is user memory pinned
-with GUP. mm owns the struct page fields that page_pool takes over
-(lru, where pp_magic and pp live, and mapping), a chunk larger than a
-page lies inside a hugetlb folio instead of being a page of its own,
-and the provider keeps state per chunk. io_uring zcrx wraps pinned
-user pages in net_iovs for the same reasons.
+Let a provider declare itself XDP-only with MP_XDP_ONLY, and spare it
+the checks that only make sense for payload providers.
 
-Let a net_iov area offer an XDP view, an address for each of its
-net_iovs that XDP code may read and write. Add xdp_netmem_address()
-for the head of an XDP buffer and xdp_frag_address() for its
-fragments, and use them in bpf_xdp_pointer(), bpf_xdp_copy_buf(),
-bpf_xdp_pull_data() and the tail growth of bpf_xdp_adjust_tail().
+An XDP-only provider needs no header split and does not block native
+XDP. A page pool takes an XDP-only provider only if the driver opts in
+with PP_FLAG_ALLOW_XDP_ONLY_NETMEM. Otherwise installing the provider
+fails, as for other providers, so neither a driver that did not opt in
+nor a pool that takes unreadable memory gets XDP-only memory by
+accident.
 
-The area keeps the address and size of the view and the log2 of the
-net_iov size, so net_iov i lies at xdp_vaddr + (i << xdp_shift). For
-pages the helpers give page_address(), and for a net_iov without a
-view they give NULL. dmabuf and io_uring zcrx areas are allocated
-zeroed, so they offer no view. AF_XDP sinks are the first to offer
-one.
-
-XDP may read a net_iov only through these helpers, and only if its
-provider offers a view. Such buffers must not become skb frags or
-xdp_frames. For the core and the stack every net_iov stays unreadable,
-netmem_address() and skb_frag_address() still give NULL, and
-skb->unreadable is still set for every net_iov frag. Other readers get
-NULL for a net_iov with a view too, so they fail closed.
-
-The other rules for providers stay. Native XDP runs next to a provider
-only if it opts in, and providers without an XDP view still need
-header split. AF_XDP sinks are exempt from both through MP_XDP_ONLY.
+Like any provider, an XDP-only one is unreadable to
+page_pool_is_unreadable(), as the core and the stack never read its
+memory. netif_rxq_has_unreadable_mp(), which drivers use to turn on
+header split, leaves XDP-only providers out, as they back the headers
+too and header split would only spread packets over more buffers.
+Userspace may write the buffers at any time, so the kernel must keep
+its own data out of them, which the next patches do.
 
 Signed-off-by: Björn Töpel <bjorn@kernel.org>
 ---
- include/net/netmem.h |  8 ++++++++
- include/net/xdp.h    | 34 ++++++++++++++++++++++++++++++++++
- net/core/filter.c    |  8 ++++----
- 3 files changed, 46 insertions(+), 4 deletions(-)
+ include/linux/netdevice.h               |  1 +
+ include/net/page_pool/memory_provider.h | 15 ++++++++++++++
+ include/net/page_pool/types.h           | 14 +++++++++++--
+ net/core/dev.c                          | 21 ++++++++++++++++++--
+ net/core/netdev_rx_queue.c              | 26 +++++++++++++++++--------
+ net/core/page_pool.c                    | 16 ++++++++++++---
+ net/ethtool/rings.c                     |  5 ++++-
+ 7 files changed, 82 insertions(+), 16 deletions(-)
 
-diff --git a/include/net/netmem.h b/include/net/netmem.h
-index fb693bc1702a..4cf4ee1cd55d 100644
---- a/include/net/netmem.h
-+++ b/include/net/netmem.h
-@@ -104,6 +104,14 @@ struct net_iov_area {
- 	/* Array of net_iovs for this area. */
- 	struct net_iov *niovs;
- 	size_t num_niovs;
-+	/* XDP view, see xdp_netmem_address(): XDP may read and write net_iov i
-+	 * at xdp_vaddr + (i << xdp_shift), xdp_vsize bytes in all. NULL if the
-+	 * provider offers none. The core and the stack take every net_iov as
-+	 * unreadable either way.
-+	 */
-+	void *xdp_vaddr;
-+	size_t xdp_vsize;
-+	unsigned int xdp_shift;
+diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
+index 0325c6f2a7d1..5fd2bec1178a 100644
+--- a/include/linux/netdevice.h
++++ b/include/linux/netdevice.h
+@@ -4458,6 +4458,7 @@ u8 dev_xdp_sb_prog_count(struct net_device *dev);
+ u32 dev_xdp_prog_id(struct net_device *dev, enum bpf_xdp_mode mode);
+ 
+ u32 dev_get_min_mp_channel_count(const struct net_device *dev);
++bool dev_mp_blocks_xdp(const struct net_device *dev);
+ 
+ int __dev_forward_skb(struct net_device *dev, struct sk_buff *skb);
+ int dev_forward_skb(struct net_device *dev, struct sk_buff *skb);
+diff --git a/include/net/page_pool/memory_provider.h b/include/net/page_pool/memory_provider.h
+index bceb5f7740e2..d52c7a450c68 100644
+--- a/include/net/page_pool/memory_provider.h
++++ b/include/net/page_pool/memory_provider.h
+@@ -19,6 +19,20 @@ struct sk_buff;
+  * Per-provider custom logic must be delegated to memory_provider_ops rather
+  * than handled directly in page_pool core code.
+  */
++
++/**
++ * enum mp_flags - how a memory provider differs from the default
++ * @MP_XDP_ONLY: Only XDP consumes the buffers: they never reach the stack.
++ *	They back the RX page pools of the queue that set
++ *	%PP_FLAG_ALLOW_XDP_ONLY_NETMEM, so header split is not needed, and
++ *	native XDP may run next to them.
++ *	XDP may read them, but userspace may write them at any time,
++ *	so the kernel must keep its own data out of them.
++ */
++enum mp_flags {
++	MP_XDP_ONLY		= BIT(0),
++};
++
+ struct memory_provider_ops {
+ 	netmem_ref (*alloc_netmems)(struct page_pool *pool, gfp_t gfp);
+ 	bool (*release_netmem)(struct page_pool *pool, netmem_ref netmem);
+@@ -27,6 +41,7 @@ struct memory_provider_ops {
+ 	int (*nl_fill)(void *mp_priv, struct sk_buff *rsp,
+ 		       struct netdev_rx_queue *rxq);
+ 	void (*uninstall)(void *mp_priv, struct netdev_rx_queue *rxq);
++	u32 flags;
  };
  
- static inline struct net_iov_area *net_iov_owner(const struct net_iov *niov)
-diff --git a/include/net/xdp.h b/include/net/xdp.h
-index 07231adfb5f8..1629e347b71f 100644
---- a/include/net/xdp.h
-+++ b/include/net/xdp.h
-@@ -164,6 +164,40 @@ xdp_init_buff(struct xdp_buff *xdp, u32 frame_sz, struct xdp_rxq_info *rxq)
- #endif
+ bool net_mp_niov_set_dma_addr(struct net_iov *niov, dma_addr_t addr);
+diff --git a/include/net/page_pool/types.h b/include/net/page_pool/types.h
+index 6d543076a0c0..35d4dc45db6a 100644
+--- a/include/net/page_pool/types.h
++++ b/include/net/page_pool/types.h
+@@ -31,8 +31,18 @@
+  */
+ #define PP_FLAG_ALLOW_UNREADABLE_NETMEM BIT(3)
+ 
++/*
++ * Allow an XDP-only memory provider of the queue (%MP_XDP_ONLY) to back the
++ * pool. The driver registers the pool as the memory model of the RX queue,
++ * sets up XDP buffers with xdp_prepare_buff() at xdp_netmem_address() of
++ * their head, and puts heads back by netmem, not by address.
++ */
++#define PP_FLAG_ALLOW_XDP_ONLY_NETMEM BIT(4)
++
+ #define PP_FLAG_ALL		(PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV | \
+-				 PP_FLAG_SYSTEM_POOL | PP_FLAG_ALLOW_UNREADABLE_NETMEM)
++				 PP_FLAG_SYSTEM_POOL | \
++				 PP_FLAG_ALLOW_UNREADABLE_NETMEM | \
++				 PP_FLAG_ALLOW_XDP_ONLY_NETMEM)
+ 
+ /* Index limit to stay within PP_DMA_INDEX_BITS for DMA indices */
+ #define PP_DMA_INDEX_LIMIT XA_LIMIT(1, BIT(PP_DMA_INDEX_BITS) - 1)
+@@ -82,7 +92,7 @@ struct pp_alloc_cache {
+  * @netdev:	netdev this pool will serve (leave as NULL if none or multiple)
+  * @queue_idx:	queue idx this page_pool is being created for.
+  * @flags:	PP_FLAG_DMA_MAP, PP_FLAG_DMA_SYNC_DEV, PP_FLAG_SYSTEM_POOL,
+- *		PP_FLAG_ALLOW_UNREADABLE_NETMEM.
++ *		PP_FLAG_ALLOW_UNREADABLE_NETMEM, PP_FLAG_ALLOW_XDP_ONLY_NETMEM.
+  */
+ struct page_pool_params {
+ 	struct_group_tagged(page_pool_params_fast, fast,
+diff --git a/net/core/dev.c b/net/core/dev.c
+index 4ca8a9f5a7a5..8a1d5a284e53 100644
+--- a/net/core/dev.c
++++ b/net/core/dev.c
+@@ -10645,7 +10645,7 @@ int netif_xdp_propagate(struct net_device *dev, struct netdev_bpf *bpf)
+ 			return -EBUSY;
+ 		}
+ 
+-		if (dev_get_min_mp_channel_count(dev)) {
++		if (dev_mp_blocks_xdp(dev)) {
+ 			NL_SET_ERR_MSG(bpf->extack,
+ 				       "unable to propagate XDP to device using memory provider");
+ 			return -EBUSY;
+@@ -10726,7 +10726,7 @@ static int dev_xdp_install(struct net_device *dev, enum bpf_xdp_mode mode,
+ 				       "unable to install XDP to device using tcp-data-split");
+ 			return -EBUSY;
+ 		}
+-		if (dev_get_min_mp_channel_count(dev)) {
++		if (dev_mp_blocks_xdp(dev)) {
+ 			NL_SET_ERR_MSG(extack,
+ 				       "unable to install XDP to device using memory provider");
+ 			return -EBUSY;
+@@ -11146,6 +11146,23 @@ int dev_change_xdp_fd(struct net_device *dev, struct netlink_ext_ack *extack,
+ 	return err;
  }
  
-+/* XDP view of net_iovs: a memory provider may give XDP an address for its
-+ * net_iovs, see &net_iov_area.xdp_vaddr. XDP code may read and write a
-+ * net_iov only through these helpers, and only if its provider offers a
-+ * view; such buffers must not become skb frags or xdp_frames. For the core
-+ * and the stack every net_iov stays unreadable: netmem_address() and
-+ * skb_frag_address() give NULL for it. A net_iov without a view gives NULL
-+ * here too, so a reader that does not use these helpers fails closed.
++/* Native XDP runs next to XDP-only providers only, see %MP_XDP_ONLY */
++bool dev_mp_blocks_xdp(const struct net_device *dev)
++{
++	const struct memory_provider_ops *ops;
++	unsigned int i;
++
++	netdev_assert_locked_ops_compat(dev);
++
++	for (i = 0; i < dev->real_num_rx_queues; i++) {
++		ops = dev->_rx[i].mp_params.mp_ops;
++		if (ops && !(ops->flags & MP_XDP_ONLY))
++			return true;
++	}
++
++	return false;
++}
++
+ u32 dev_get_min_mp_channel_count(const struct net_device *dev)
+ {
+ 	int i;
+diff --git a/net/core/netdev_rx_queue.c b/net/core/netdev_rx_queue.c
+index a7261fedd5e7..2e10201fc0c0 100644
+--- a/net/core/netdev_rx_queue.c
++++ b/net/core/netdev_rx_queue.c
+@@ -79,12 +79,18 @@ __netif_get_rx_queue_lease(struct net_device **dev, unsigned int *rxq_idx,
+ 	return rxq;
+ }
+ 
+-/* See also page_pool_is_unreadable() */
++/* See also page_pool_is_unreadable(). An XDP-only provider backs the headers
++ * too, so its queue needs no header split, see %MP_XDP_ONLY.
 + */
-+static __always_inline void *xdp_net_iov_address(const struct net_iov *niov)
-+{
-+	const struct net_iov_area *area = net_iov_owner(niov);
+ bool netif_rxq_has_unreadable_mp(struct net_device *dev, unsigned int rxq_idx)
+ {
+-	if (rxq_idx < dev->real_num_rx_queues)
+-		return __netif_get_rx_queue(dev, rxq_idx)->mp_params.mp_ops;
+-	return false;
++	const struct memory_provider_ops *ops;
 +
-+	if (!area->xdp_vaddr)
-+		return NULL;
-+	return area->xdp_vaddr +
-+	       ((unsigned long)net_iov_idx(niov) << area->xdp_shift);
-+}
++	if (rxq_idx >= dev->real_num_rx_queues)
++		return false;
 +
-+/* Address of @netmem, which a driver uses as the head of an XDP buffer */
-+static __always_inline void *xdp_netmem_address(netmem_ref netmem)
-+{
-+	if (netmem_is_net_iov(netmem))
-+		return xdp_net_iov_address(netmem_to_net_iov(netmem));
-+	return __netmem_address(netmem);
-+}
-+
-+/* Address of the bytes of @frag of an XDP buffer */
-+static __always_inline void *xdp_frag_address(const skb_frag_t *frag)
-+{
-+	void *addr = xdp_netmem_address(skb_frag_netmem(frag));
-+
-+	return addr ? addr + skb_frag_off(frag) : NULL;
-+}
-+
- static __always_inline void
- xdp_prepare_buff(struct xdp_buff *xdp, unsigned char *hard_start,
- 		 int headroom, int data_len, const bool meta_valid)
-diff --git a/net/core/filter.c b/net/core/filter.c
-index f42ecfb5841f..d5774b2577e7 100644
---- a/net/core/filter.c
-+++ b/net/core/filter.c
-@@ -4310,7 +4310,7 @@ void bpf_xdp_copy_buf(struct xdp_buff *xdp, unsigned long off,
- 			break;
++	ops = __netif_get_rx_queue(dev, rxq_idx)->mp_params.mp_ops;
++	return ops && !(ops->flags & MP_XDP_ONLY);
+ }
+ EXPORT_SYMBOL(netif_rxq_has_unreadable_mp);
  
- 		ptr_off += ptr_len;
--		ptr_buf = skb_frag_address(next_frag);
-+		ptr_buf = xdp_frag_address(next_frag);
- 		ptr_len = skb_frag_size(next_frag);
- 		next_frag++;
- 	}
-@@ -4338,7 +4338,7 @@ void *bpf_xdp_pointer(struct xdp_buff *xdp, u32 offset, u32 len)
- 		u32 frag_size = skb_frag_size(&sinfo->frags[i]);
+@@ -189,6 +195,7 @@ static int __netif_mp_open_rxq(struct net_device *dev, unsigned int rxq_idx,
+ 			       struct netlink_ext_ack *extack)
+ {
+ 	const struct netdev_queue_mgmt_ops *qops = dev->queue_mgmt_ops;
++	bool xdp_only = p->mp_ops->flags & MP_XDP_ONLY;
+ 	struct netdev_queue_config qcfg[2];
+ 	struct netdev_rx_queue *rxq;
+ 	int ret;
+@@ -196,15 +203,17 @@ static int __netif_mp_open_rxq(struct net_device *dev, unsigned int rxq_idx,
+ 	if (!qops)
+ 		return -EOPNOTSUPP;
  
- 		if  (offset < frag_size) {
--			addr = skb_frag_address(&sinfo->frags[i]);
-+			addr = xdp_frag_address(&sinfo->frags[i]);
- 			size = frag_size;
- 			break;
- 		}
-@@ -4429,7 +4429,7 @@ static int bpf_xdp_frags_increase_tail(struct xdp_buff *xdp, int offset)
- 	if (unlikely(offset > tailroom))
+-	if (dev->cfg->hds_config != ETHTOOL_TCP_DATA_SPLIT_ENABLED) {
++	/* An XDP-only provider backs headers too, and runs next to XDP */
++	if (!xdp_only &&
++	    dev->cfg->hds_config != ETHTOOL_TCP_DATA_SPLIT_ENABLED) {
+ 		NL_SET_ERR_MSG(extack, "tcp-data-split is disabled");
  		return -EINVAL;
+ 	}
+-	if (dev->cfg->hds_thresh) {
++	if (!xdp_only && dev->cfg->hds_thresh) {
+ 		NL_SET_ERR_MSG(extack, "hds-thresh is not zero");
+ 		return -EINVAL;
+ 	}
+-	if (dev_xdp_prog_count(dev)) {
++	if (!xdp_only && dev_xdp_prog_count(dev)) {
+ 		NL_SET_ERR_MSG(extack, "unable to custom memory provider to device with XDP program attached");
+ 		return -EEXIST;
+ 	}
+@@ -219,7 +228,8 @@ static int __netif_mp_open_rxq(struct net_device *dev, unsigned int rxq_idx,
+ 		return -EEXIST;
+ 	}
+ #ifdef CONFIG_XDP_SOCKETS
+-	if (rxq->pool) {
++	/* Only the AF_XDP socket of the queue installs an XDP-only provider */
++	if (rxq->pool && !xdp_only) {
+ 		NL_SET_ERR_MSG(extack, "designated queue already in use by AF_XDP");
+ 		return -EBUSY;
+ 	}
+diff --git a/net/core/page_pool.c b/net/core/page_pool.c
+index d7c88c0b67e5..8a1ea21ccdcd 100644
+--- a/net/core/page_pool.c
++++ b/net/core/page_pool.c
+@@ -272,12 +272,22 @@ static int page_pool_init(struct page_pool *pool,
  
--	memset(skb_frag_address(frag) + skb_frag_size(frag), 0, offset);
-+	memset(xdp_frag_address(frag) + skb_frag_size(frag), 0, offset);
- 	skb_frag_size_add(frag, offset);
- 	sinfo->xdp_frags_size += offset;
- 	if (rxq->mem.type == MEM_TYPE_XSK_BUFF_POOL)
-@@ -12835,7 +12835,7 @@ __bpf_kfunc int bpf_xdp_pull_data(struct xdp_md *x, u32 len)
- 		skb_frag_t *frag = &sinfo->frags[i];
- 		u32 shrink = min_t(u32, delta, skb_frag_size(frag));
+ 	xa_init_flags(&pool->dma_mapped, XA_FLAGS_ALLOC1);
  
--		memcpy(xdp->data_end, skb_frag_address(frag), shrink);
-+		memcpy(xdp->data_end, xdp_frag_address(frag), shrink);
+-	if (pool->slow.flags & PP_FLAG_ALLOW_UNREADABLE_NETMEM) {
++	if (pool->slow.flags & (PP_FLAG_ALLOW_UNREADABLE_NETMEM |
++				PP_FLAG_ALLOW_XDP_ONLY_NETMEM)) {
++		const struct memory_provider_ops *ops;
++		u32 allow;
++
+ 		netdev_assert_locked(pool->slow.netdev);
+ 		rxq = __netif_get_rx_queue(pool->slow.netdev,
+ 					   pool->slow.queue_idx);
+-		pool->mp_priv = rxq->mp_params.mp_priv;
+-		pool->mp_ops = rxq->mp_params.mp_ops;
++		ops = rxq->mp_params.mp_ops;
++		allow = ops && ops->flags & MP_XDP_ONLY ?
++			PP_FLAG_ALLOW_XDP_ONLY_NETMEM :
++			PP_FLAG_ALLOW_UNREADABLE_NETMEM;
++		if (pool->slow.flags & allow) {
++			pool->mp_priv = rxq->mp_params.mp_priv;
++			pool->mp_ops = ops;
++		}
+ 	}
  
- 		xdp->data_end += shrink;
- 		sinfo->xdp_frags_size -= shrink;
+ 	if (pool->mp_ops) {
+diff --git a/net/ethtool/rings.c b/net/ethtool/rings.c
+index e3810c0320e3..84ba17412a40 100644
+--- a/net/ethtool/rings.c
++++ b/net/ethtool/rings.c
+@@ -258,7 +258,10 @@ ethnl_set_rings(struct ethnl_req_info *req_info, struct genl_info *info)
+ 		return -EINVAL;
+ 	}
+ 
+-	if (dev_get_min_mp_channel_count(dev)) {
++	/* Providers that take the payload need header split. XDP-only
++	 * providers back whole packets: they neither need it nor block XDP.
++	 */
++	if (dev_mp_blocks_xdp(dev)) {
+ 		if (kernel_ringparam.tcp_data_split !=
+ 		    ETHTOOL_TCP_DATA_SPLIT_ENABLED) {
+ 			NL_SET_ERR_MSG(info->extack,
 -- 
 2.56.1
 
