@@ -1,94 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.43.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795488473;
-	b=Creh1HzYsPdtDH00HNYCIxKBhuaN5GqueN5ksHjL7O58HM65YQp6mmlA8Q//T2roHktQ
-	 avoDGIB11BpxgdS+zxBKIv6vb/jdV01NTRexl1bAtYiC817okWe24PuDmDXG6xTr606QU
-	 42qS9E5CoomRIMs10awd4mUZ5p22JdhCh4kyqlcJE8eFfrnDt9vbHbdKoG9+bdSkMwU6n
-	 yQ2rEwF6quuBmA4nCvrrETXgD2gbUhn5sXupi+mtSImSuVdQEb5p54uEfoGW1gEuDSJaN
-	 0tQjYMTSGMeGtgvZo4x0FItheflBuRwsgICEgK9uQJquSqHmI07Eb/V4pwWQsT4wRmQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795488473;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Subject:
-	 Message-ID:To:Cc:In-Reply-To:References:Date:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:
-	 X-Microsoft-Original-Message-ID:MIME-Version:
-	 X-MS-Exchange-MessageSentRepresentingType:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SLBlob-MailProps:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=qnfBNf4BQ1+7cBAE3/HSb9J+OiqbfMuy9oJqwAUA/Nw=;
-	b=eO04+FGbzItHO2G6H/tMGnlcZtcc+M1bWUPT36xq8XF022eYlv7X8unQQEjbDZrygC2w
-	 CuM6T2Psv9eyYiAOhm1BaRspdtPWaOA5StKUKMXZR7Aq8/00Zuw4zqGqZGx9elepvrkPy
-	 VDpp1W3FhoGApTxsF7/7+xAzVQVXJCDEC+cZlUH6XRO7V+x/5Gx7XVoM4MaGFu/ZWuvP/
-	 MqPqUm5HO1DBVK291SvTyscONZahyQc6OvDD1uG0VPl9nmxTfNogYAyKTJEtaGDgrS7ea
-	 M9mJA8tD7BSaCeMDN+XSael1mKQnf/gbTa4rCz63tmBCTNJChkLzItCRtmWCm84FQEg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hotmail.com;
-	spf=pass smtp.mailfrom=hotmail.com;
-	dkim=pass header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b=TTWnT54c;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.43.18
-Received: from TY3P286CU002.outbound.protection.outlook.com (mail-japaneastazolkn19010018.outbound.protection.outlook.com [52.103.43.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795488501;
+	b=YeimQyFnvbeI6G3F1/i0hgoDLyeDubUJHVm42elZ+WO+ACYkoXItIdK9gSTQrazQVgLZ
+	 fyKtelv3/EoqkBcbxNFFRO7+kI7SIq1GjpO6yyT9HoY0ooAk7MTf5DBmpv/5pFddFEHEf
+	 +B/FoIPCVpgFL5SnyUi9G8OikNmOyLQZEYqctaZkSvcTCjNih+SAvG3F7OeW0jeBq54Qx
+	 lcQR5zPj5OVyUvhbK6RFdPHpjoA63X6L2BSgdAYl7H7ZXiU/kTMLn9g15V8Mvz0W5d2kx
+	 TyPgorwP+cXzIvbmKEAjVuI1NiAKY+0Y5mWzMpS/2YTZHxn8hIkfpnLmDvp2F+LMuNg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795488501;
+	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
+	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=gSlhVMrHKcU/qOQJ0zOmbPCCq8E5yqXKSvaxRXdmCto=;
+	b=sZ9+JdmqZXJxbcNka1krCyqDIGzwexKWt2VE+Vleutjogw2KX2XBip6CvHtA/tbRaeql
+	 scgMYDf1BOthOyrVnZaPw9deEBuNYmZWbGKGQBotUITDAD/qR9Leni8buVt3AJVSUPR7b
+	 odXKi/u/G7Smyyw+cWGTf5Lw2EyEDzsWcVrCjnB7Q3OjcXg17lywuGVJFI9I+EMUHv7r8
+	 8sUvvGBFrKq0uBBX9gRRopI/q8x+HeEQFR5tgVLOxPyVoap4jXty9eH/1+bFurxNhKQi3
+	 aRIBVqWrYfQhZEXkwPx5+/0ALJm8J4cgBwcWAhjLpQuGJtXiuhf7BzN8VBY5oWfiq/A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C970F606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:47:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C970F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hotmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b=TTWnT54c
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ft9cpijhMm/Ghru33uKbtkbZ/B3xzuqtLnjLbmixCrqqyb9qC5PIC1Z9bSI3GhQoMMYAFvzEwdCc7BrcoZfkWWDqgmcE91Z6fDrcqfsOiRL/p9NjmXcB/iLM5Et6+nSfwLNT8J2/GzW6KMwd45N1QZvFJkQZaMGiXsF1wn8La5AUldg6uYcRyJkQ89WcZ7Ns8oObC5YrrQtlImSDcgwqBepQiMcbC1FJjidIaLxnLqXglba7366Zm0Bs5+v35mkBfpLUQOYy8IRp1vx6JvPkPA+LUfebp0wYvjrMjCMvHKlElRinj/H33yArpGdmsSu3v1npW2yroI0fFYFl7v0xew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qnfBNf4BQ1+7cBAE3/HSb9J+OiqbfMuy9oJqwAUA/Nw=;
- b=cu7K1Vcz2Z1Lr43MFBweeXzVAr8jpxUumlTwWJzmOgi/cII9EarGpHewR4qDffoHFxBODgSTaZBIP5Ak7xtb4m5u26CCPltT8LO0Cc+FdVlKg1U+yHhHVicJkQwyzHBHCgYXwCClTJB6+70TXCxG+fI3pT5POs+D+61E8zuZFak2P4ES8UA1+bTVybLLhrciTlz6W1v9TSlSvPkjUuDhc4MOZ+PGK1GV/7e++mYpGmh03tUn9vtnx4moC6gMJHlXc2MMk2aNtIYriH2jqkSFTCbxcLVuGFZFZFVqefU08Pgk7P14On7HDQNeL0OFcIAeHlqYmRb9+xnpPB6CDUmoJg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qnfBNf4BQ1+7cBAE3/HSb9J+OiqbfMuy9oJqwAUA/Nw=;
- b=TTWnT54c11qjIJX2J1avxqHrgEjB/8OgRAkzGvBfYFvuO1A4Gd4lRz60bFBEt0x9XpQB8DKSW8yF1Ymvk3zBgscRZZUj1vVHy3kjCefBse37QvsSIfrsDPm+5DkDakq9OKTPVshlygpxuruKmCd3eLbqSPOMz83J3U7JbUv+BXr9dIfdMvcrBZVwr2d8xuSGOwyBlIy6YL5pLSnDWT8JZFPzjpLNkAgiJamD1C/AecLG6gZa5Z09w5TE1bA8rXqbRfY+QjKO1rQxGCBlIbIZai6OtLQ2fsdWHrgpxbjYrvtrPGDvChNxIJ2jXKkA/vhI2xY3hBWB64O0SQeE5N90+w==
-Received: from OS3PR01MB10251.jpnprd01.prod.outlook.com (2603:1096:604:1e1::9)
- by OSOPR01MB326018.jpnprd01.prod.outlook.com (2603:1096:604:51a::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 02:47:48 +0000
-Received: from OS3PR01MB10251.jpnprd01.prod.outlook.com
- ([fe80::7edc:2a40:7b8f:56f9]) by OS3PR01MB10251.jpnprd01.prod.outlook.com
- ([fe80::7edc:2a40:7b8f:56f9%4]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 02:47:48 +0000
-From: "Jiaming Fan" <fan.jiaming@hotmail.com>
-Subject: Re: [PATCH] virtio_console: drop device reference when DMA allocation
-	 fails
-Message-ID:
- <OS3PR01MB1025140B2F87FABEE5871E39AE7442@OS3PR01MB10251.jpnprd01.prod.outlook.com>
-To: "Ziheng Wei" <zihengw03@163.com>
-Cc: "Amit Shah" <amit@kernel.org>, "Arnd Bergmann" <arnd@arndb.de>, 
-	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, 
-	<virtualization@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-In-Reply-To: <20261123102321.8605-1-zihengw03@163.com>
-References: <20261123102321.8605-1-zihengw03@163.com>
-Date: Tue, 24 Nov 2026 02:47:42 +0000
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-ClientProxiedBy: TP0P295CA0049.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:910:3::20) To OS3PR01MB10251.jpnprd01.prod.outlook.com
- (2603:1096:604:1e1::9)
-X-Microsoft-Original-Message-ID:
- <93fab331-7679-4150-8e7e-3d14a4a47490@milk.local>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C3A2606A31E;
+	Tue, 24 Nov 2026 02:48:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C3A2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: 7ea534c0e7b111f19a56ed5b684f684d-20261124
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:3c093e59-60d6-4673-8742-02a69f15615b,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:20
+X-CID-META: VersionHash:7db8b62,CLOUDID:09287dc18e05006869466b218a6b2857,BulkI
+	D:nil,BulkQuantity:0,SF:102|850|865|898,TC:nil,Content:0|15|50|99,EDM:5,IP
+	:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 7ea534c0e7b111f19a56ed5b684f684d-20261124
+Received: from localhost [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <pengyu@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 499285219; Tue, 24 Nov 2026 10:48:14 +0800
+From: Yu Peng <pengyu@kylinos.cn>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Helge Deller <deller@gmx.de>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>,
+	Nicolas Pitre <nico@fluxnic.net>,
+	Ronan Pigott <ronan@rjp.ie>,
+	linux-serial@vger.kernel.org,
+	linux-fbdev@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	Yu Peng <pengyu@kylinos.cn>
+Subject: [PATCH v2 0/2] vt/vgacon: Skip blanked hardware scroll and fix VESA blanking
+Date: Tue, 24 Nov 2026 10:48:09 +0800
+Message-ID: <20261124024811.305592-1-pengyu@kylinos.cn>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,88 +73,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OS3PR01MB10251:EE_|OSOPR01MB326018:EE_
-X-MS-Office365-Filtering-Correlation-Id: aeba9c69-3d12-4a18-332a-08df49d55305
-X-MS-Exchange-SLBlob-MailProps:
-	5fu/r660v9Mj6U6kz+12O9pZy2TuKGHDY7pKN4DHaSXnZTc1+T8LgiESRmLUy7Z42Yz8GYDKPRdz8FSDhhdfw7sHeRfC4HQ0Na+FXys5iU3XpTFDGfm7RCUr+wWC/3W0s5o+I0f21OOM1YPCv0oWNzcpIQSXMmCU0bXYWLQPAvKGU4vq8dYpyN/N6ri0pvUewjO85tSJnLUoDTp/EWsofSWJfnjhmsRSSEMzQahlVUSVWeGqHNxZaOLwNmlvdpwLOO11lSYtjEBJuKHMjUNg478lVt+xV+j0oy7tFzIonRdaJ/pIaW2A5CqUe7AbN+7Ra9AwbY/wVoDFpTqD9eLhce0AY63BrtW0HjXJG5hIv2kiT9yqE61LozbJmJ8TwM/7LxCQTPcMfFi35OmgIaw3lpOsGUIBflpdnASJZxKnmx7C3BZyq9WvebS0CRxvztBknOm1nJ5ZxxGlUDKrQ8JafEBSDH134JteEaNdwNT4qqcevhMP1Fw9uMYmUqUWjyt73ZLhRhyKl2GJHSOEmHuN4e6ZF6BBk/IA2s3LPLJ4yzCR4Ge4yH12E6NB4phj5rVFr+F08E7tNcko9V59HqfbXeZrPWSkwtI9BodAQL8F2N+crE8CXDxWMYtCRQ5btDWb72RabSm5QDw8Tqp0Ov1r6cFapiMxYPfHRS+qljS/+jx59xbZtlBZSOvUeZI0O6vOsBypmPTPTbNKIEB73eHxTiUBb6WwIYafET6RmGs37Ys=
-X-Microsoft-Antispam:
-	BCL:0;ARA:14566002|25010399006|4140399003|24021099003|6090799003|15080799012|5072599009|55001999006|22091999003|25031999004|24121999003|23021999003|16041099003|19110799012|8060799015|1602099012|10035399007|40105399003|53005399003|4302099013|440099028|3412199025;
-X-Microsoft-Antispam-Message-Info:
-	=?utf-8?B?dEJIWTJTSXNpMTRMT0ZCM2Nmc0R2eUhiSlZxS29yemZmQzlodWVJZzZSQk9U?=
- =?utf-8?B?M2paWGhqcDJHa282MlVqdDdMYmhwd1pZSXNYRXFvWkp2Z0ZBVHI4YTBQMWpq?=
- =?utf-8?B?cGJuZm04aHFqZzYyTlMrUjBKWjFvbmloZ2x2S3pTZVhIYXd6dWE2M0lOcGRj?=
- =?utf-8?B?bmMyVXJKQThKRHhrMitXUWR6V0dGaEdER0x6Uk1pTTlyd0hSR0wreG9IYUJp?=
- =?utf-8?B?aWY5OXpiUkNFeUl1WWJTTkZkQ3ZPZFljWnIvV2Q0S21ZUTdpQlN6YTVFRmdV?=
- =?utf-8?B?cWF1UDM4UEJyVVR2VTRNUThkZlowc1pWd2JsK3Zjd3V3S0lTbkFuNllEQlFp?=
- =?utf-8?B?VXdxOHl5NDhmcWl2VDFuUWFUY1hCbU5odWNkNXVibTFmRUx4RkdPdFc5dEpE?=
- =?utf-8?B?OG9GUk9kQzVRSDQwVUNVQUNGN0ZtSmdicGhKbVhLdmovQ21BaDd4T1Fxb1hT?=
- =?utf-8?B?T0xsZTlsT0M2WjhvVFR3UU1aOUlBRXZpMlNweGNxKzVSSkpEMjNYeC9YbWg5?=
- =?utf-8?B?M1BZbkVYbHJWMFAwVndpUTRPbU9LSE1VNHZNVktXc29JU0FqT3FCa3hHZFZM?=
- =?utf-8?B?anRJSWdMYVptN2pIQnZnTDRrb2FNMjlNd0o2YlF1MHlsMnFDWXJCU3dhTW43?=
- =?utf-8?B?TXdBblZEY29sVU15YWJHTGU0NjVpVnpoQzVYV2R3d0VXbDh5blBkL3BQRFVD?=
- =?utf-8?B?L1BhZzhOY0xib2lENTBQdE5VYy9zSWNTZE1tODY3RnpFK1B6cGs0K05DdWJR?=
- =?utf-8?B?a3RucHhmWm1ZVzZYZ2dxNVdEZkFpalBwaE8velY2QUlmVENONHJHam9DQi9x?=
- =?utf-8?B?aVpRTGtjcExWckFZdllBamUzaTJtdko1VUZuVnlQSWdkdFJQVW5SbHFVUUFH?=
- =?utf-8?B?VjI2Ry9veS81MlN2cGlWMVliMlVTWlZ3V0N4MzNPN253b1JEVW9qVlhGYnYr?=
- =?utf-8?B?allLS3E0VzhSV2N6bzRDTkhXZFlmYW52RmJ4N3dyd0p3b3dJREMvNUIzdXNk?=
- =?utf-8?B?bytIYm5UVjBsWHh0cFpOOVJBNWNOSUJ6bFZWK1ZXUjhkNURYOHR4NktoK1ZM?=
- =?utf-8?B?WCtMRFc1Vi95UTAwRnRVSFBWeVFGMU9iYVlwOEcrZ0h1aDlKd3ZEVndlek5M?=
- =?utf-8?B?UHBERlRsRlRoc0tGU21kUkl1WVhWV3kxL3cwWVVLVDk4SFZidnEzTVRTdzls?=
- =?utf-8?B?aUlhdGRBZXErU3loVlJRd0ViU2owTEJoclVKVGp2d09GWEVjOTg0V2Q4cnB6?=
- =?utf-8?B?TmdLQi9BM2N4RDFDQlJOd1dNanZDZlV5bWRvNjZGUnRCTkVIQ0hUOUJkNFZq?=
- =?utf-8?B?K1NlY25CVG5KeFhSR1V4THcxaWI2eDNMU3M3MnRWS2dQVjVBTWYxb0xNTXgr?=
- =?utf-8?B?M1NPeVN2a3ZGYndzM1YrZnBpVFF4cnpKbk5XT3NpM0VMQkF1SUk5c1lPTUNT?=
- =?utf-8?B?WjA5cTA4WllQSktRYXNzc2xTZ01tMmxDdlE0R01oZmthY0E4eEwvZDZNYnlZ?=
- =?utf-8?B?VlZnRWMxZmp0dFVZK1lRRVBxb1lNRysvbi9nV3JDaTNhTWpCZWdXbUxOVklK?=
- =?utf-8?Q?XIOWmyjz6McJEnkHi4PMFSwik=3D?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?R2c5SUtwZ09WdnYrUngzVzZrcW8yTUJCbnF2TWNrRGYvTjFDeXRVd2lRYUFX?=
- =?utf-8?B?MXpWTXowRTgvaHk3dytjYnV2TGIvUjViWlVQZjEzWW9XSDgyVmZCTndweWZQ?=
- =?utf-8?B?eUkzN2NUVW93bU44d21ieWZkMVUwcGlJSlVFMHBORnNkU1ZyTDVaSXhsMjZj?=
- =?utf-8?B?aTNBRjl4NWs1ZVVsZ3VKM3dBNk9FdytzRVFjL29sbFZlYVdMREZRWmM5MTJC?=
- =?utf-8?B?MlI1M011dm9SWnQ0Z2dlZFplcVNoOGI4OE9JSGd3bUNqR0lSSkpuSElxQSt6?=
- =?utf-8?B?dWtubmVUc2dud1ZuVlcxbkxrZU9qWnBWM2JhT0RscjBVeTE5Tm5SSVdIK3lq?=
- =?utf-8?B?RURaQkt5SzEyb3VvZWIvcGRrWGNtYlZXdFlZS1B1NU5IOExjaGVISDBnRkhE?=
- =?utf-8?B?bUlBOXVhTnlTNlFIcHZxVmgrRTZNL3J3ZUhieVhxVlFWREFsTUF4QlZwbVlu?=
- =?utf-8?B?OC96MVVxOThmQ0hTVW9iQWFMK2NyVDlMUitEQ0srZTNVeFNFS0h3c1hadUkz?=
- =?utf-8?B?NXpqZDVvMkZuekFIaVVjWnNYUm4vQVVGNUZQVkpWSjJYclllT2FDRm1tN0ta?=
- =?utf-8?B?dFJjTHlBQVhlZzZlZURyZnlvVGNLWFFlRU9oTDdRbXNTRFo5SVRXc3poc0hZ?=
- =?utf-8?B?RzNudjYyQWdaNm1ZMEpFU2RLQjg2N01Cc081RE9YSjR2VDZzT1F3TDBBNHF6?=
- =?utf-8?B?NDNLRUpvUUN5aG9zSU1KRjRJcS85TzdpL1pvVHkvTzRGR25ITnJDSGJObHkx?=
- =?utf-8?B?NUpjVUg5QUR3OGZPVUhyWjVRbGNQTDk4bE9BRStjNTRlMUdQOW1rMGVjN1NZ?=
- =?utf-8?B?dklZalVoa1FUejc0UnJjT2lGVmVRN2oyZnR0VHcrMW1IMmdZUDR2b29LWXoy?=
- =?utf-8?B?NXR1ckhiSmZBMkJhRktrZnViYkdnZ3JRVHYzQS9RcWJiRitkUEJCbk9lUVFQ?=
- =?utf-8?B?a0ZTVzkyTXN6T1laZDNNM2x4bjI1OXBWRVpJcklOMjhmL2dWMWFrZlY2U0hY?=
- =?utf-8?B?cXF3RzdJWUtxSFJhYTFIS2wyYklLNndHbjdVZFhiZlp0S1FkQlQrL2pBNlZ6?=
- =?utf-8?B?RDJZN2ZKZGtzSnB4TStINGlBYVBDZFROK0kvVXhJVUl2c1grK0gxMklUcHBM?=
- =?utf-8?B?UTRZOUttU1lrZEJjS3JYSFNsMlQ1Ui9JV1BsQlo1ajNpSmw0bW5JU1pNVnRn?=
- =?utf-8?B?YW9VeE5SWkdMaG1nTmNMdVhaTVk4UEk2R24xTmxJa3ZiU3owU0k3ODlpMXl3?=
- =?utf-8?B?c0labUN5QlRLemlidWk1bTR5OWhTcTBBWmM1OHZjUGJxaU5Dd2NMUmdTMitP?=
- =?utf-8?B?TjVLQ0UzbDVBNEZ3OXJuRzFqWTRJWjYrbSs3d0NuMWlYeXlzTW5YMzJGVVBp?=
- =?utf-8?B?M2dBU3RWYW1uc3dpMUJkbkpHK1V1ZEs4aDBySTJWSjdZNEwva2FsNjVxM2Qv?=
- =?utf-8?B?REN0cTI5a21teG5HaFgwQTZOQmQ0cXdHaE9iMXFrQ3hkSzlwWVRtVzVXSm1a?=
- =?utf-8?B?c3pSTGlMclRiY09wS1R6azMwYVluVitrTEI0UGVFajY0SElaVjJhTTdnUGZ4?=
- =?utf-8?B?ZlE2MktnTExoMVVvcWFsZnR0OXBhS0prTWF2NDQwbFlwcUc0UGRDVEhDcG5q?=
- =?utf-8?B?MnYvQTlzTHd5Z0k3c0RQQnpiMGNzNGRzNkpkalI0eksrTXg2OGNzdE1ZeEJw?=
- =?utf-8?B?S0hNMC9lb2pLQURpVzNYemY1ZU8xVU4zS3R1MXhIcXB2cGxIZHJsdXhMb0Uy?=
- =?utf-8?B?djVPdnA5cll4WFFvNlRzUWZ5VmdMZ2J0WDZ5MGt6RllWMVdpblZ6QXJ4T3k4?=
- =?utf-8?B?WjdnNEtocmtMcmpuck5hWFFrdEM4b1EyazNZN21TblVWS0Jrb0MwRVkrZ2cx?=
- =?utf-8?Q?z4htibPQEaiWm?=
-X-OriginatorOrg: sct-15-20-9412-3-msonline-outlook-b83fc.templateTenant
-X-MS-Exchange-CrossTenant-Network-Message-Id: aeba9c69-3d12-4a18-332a-08df49d55305
-X-MS-Exchange-CrossTenant-AuthSource: OS3PR01MB10251.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 02:47:48.4674
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSOPR01MB326018
+Content-Transfer-Encoding: 8bit
 
-Is this a duplicate of https://lore.kernel.org/all/aoWK_qpSBeO6Bw0M@michali=
-s-linux/?
+Split v1 [1] into two independent patches as requested by Helge Deller,
+ordered so patch 1 fixes blanked scrolling before patch 2 switches
+direct VESA blanking to vc->vc_screenbuf.
+
+[1] https://lore.kernel.org/all/20261123101151.414436-1-pengyu@kylinos.cn/
+
+Yu Peng (2):
+  vt: Skip hardware scrolling while blanked
+  vgacon: Switch to screenbuf on direct VESA blanking
+
+ drivers/tty/vt/vt.c            | 7 ++++---
+ drivers/video/console/vgacon.c | 2 +-
+ 2 files changed, 5 insertions(+), 4 deletions(-)
+
+-- 
+2.43.0
 
