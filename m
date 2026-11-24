@@ -1,100 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795549643;
-	b=TVqxhfz/sYV+kDqm0ewWHmixyYNjwunpsxN+CRgg7dgEM/l2wkAhhnQMYDjGfZkg4PKK
-	 1CYd6GK5dk1BDuazTh6n2E557dy/i4QRpc8t60BSPFfTyQCMK/83Njv4EJKnK55Dx7t6x
-	 ASSRuOgUQx9mSY7167AzEYpYViipWQu58UE1ANwc4UPPfzR8c6wLsp49hWEITuHB4cgpy
-	 kysrUfWAgrpuU1tK6LMU3xZTsd4KGtkVGZXvb5l4fNjegNO+Q3qjqiAU2SRTv+4H0Wt5p
-	 eT0KmnToThko0YL9/EENpeLuzy01k/FajEZK8g9z19mY+t6wKqPuhgZhodEsO+BznEQ==
+	t=1795549669;
+	b=w4hN5FhLciax7B5a9EBR4IqbxfHNwfZTshVVhn4l8X04rbbkTOD7Y4KBjrWfHu08HHVv
+	 DyKREaKdiylLAT3GVGSWocyMafNNWbR3phW16kwT4PVeeuwbUGihWYV4Ept/3Nslacwqm
+	 M0SWlvWj/U8VMG49osAA0WAuEx+x5nAVuC3q8EMuM5qR9zD8KSVi36K6gwuN5DnTHMCFe
+	 s8hcR41kXIt0kfUhMG/0WSyP76oehVd4g+gAiLMaiW+EBQGh9XQytSuPWwHtl2EyklLsC
+	 nn9bZQVZuECFPP44pW5JuX0E7AtQTOmU0ZQ7h+o8oJVVADpHqrMsATSg8v/zDTFOHQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795549643;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:X-ME-Received:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Jb7UacLdyzgROEM6VeFj8C1lCP+Li5b9218DpdLXBEc=;
-	b=4ObEWU6BLwT7uQtikhXKUNNSvntrXsQuP+EUMCht93y6+mhR4MLN64zeQ7CTCiA0v+k6
-	 hCfmqPvmlmv7+8D0IyW0M4zh/paAnurZEMf7EV7L6y3lH0GVaGb8uqAciF6E1ThTMUPEu
-	 gQNnU0v0huRZAtJZRkMU5R+URnKypRitBfSkiNlgVgrZ/2WCCuF7B1w6QM7y2gj+pcgZk
-	 DARLu0VlDjsyTOiC0lHox13e53esG42FzzQVPFT2/xCPDXNAgiEDsIt2XLaxgujQYsnCE
-	 Od+igzvHvAyc/4iR1T3RUxc37+9ZJ2ZsdNIVaFqtIKzu2Tep0aRv+FyNRAKmbt02E2g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795549669;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=lUpe/tRxEZ5NPFIdAznJnUvDVmlMVX6s3wfMo2I3P5U=;
+	b=yRtvklFdsISKzdV1xKp84bBYJKgJCgZxZ2E0ZkBg052zYF7PlfI2WbbtAYTdYpLi7qpZ
+	 TJk20OxOu4XKBQnR/uoIkG4EQ3HNYNVPGM1RI9Nt6kGLl04sghd/KASVA8nL6d3Vqwpbn
+	 X5wyGeP9oHxQR4Z9SoyoaxrMI7RrsGqPMClJoKSijDiLp53Ir4d8IwfnQst1yr1XPDr6g
+	 IGgAK5QU8sRIud0BRnp4nAkuVklZg2vOWCfqz1U2zLKXPQ+p/YdyTzpm4VLrsHWHdmucw
+	 5RNB9GY0hTuyocM5NOyxyyWyjWIpMnpno7O9ZDQXm6nK3y6osok6rWseHpL/DDDGlRg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ke7n9tdz;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hkDQJ8SE;
+	arc=none smtp.remote-ip=209.85.215.169
+Received: from mail-pg1-f169.google.com (mail-pg1-f169.google.com [209.85.215.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB869606A6A9;
-	Tue, 24 Nov 2026 19:47:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84AEF606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:47:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84AEF606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ke7n9tdz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C7AD1F000F4;
-	Tue, 24 Nov 2026 19:47:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795549643;
-	bh=Jb7UacLdyzgROEM6VeFj8C1lCP+Li5b9218DpdLXBEc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Ke7n9tdzmh78RWE/vlZb+cPXV5Am6Cyy+xNXTKld/9H1PgV1OOgytyfroznoOcaiz
-	 nreVQuF0SWmYrfhJ3eVZNIJa71/TNc9hrEixvhfrsI3qLPFOh6JC7PWGrrL73MTtSV
-	 +ZJBzOWmlP1u4KZRdE51Pb+VMqC819ECQWn1y1epSk+lFb0S6wNy8uUC5yNKkLVMHT
-	 eh/3SIUa04c/LLl12Qk7FpZkE7l9m68H4k7FJrz66o3uMcWH8I1+1DQyqWTsXw43CE
-	 foH82+lKPsNhh2cRvQi/eREsWrIBtQh1NqNB30D/1ixITP/pCOc/hH7bYz3u5DJUj0
-	 0rGC7knzTYlxw==
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 5ACE81980047;
-	Tue, 24 Nov 2026 14:47:18 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Tue, 24 Nov 2026 14:47:20 -0500
-X-ME-Sender: <xms:xekFa0cmu2gUb8M5YJxYK7s8sCMxYvibiLGG3W40q2-VN4Jo4GW3rQ>
-    <xme:xekFa0kA-upSFROVy9-3OKa8CkNOj4J6kTWdtM83VLNK7MiQthhOT7d4LN-CWau0B
-    JTPv8jjkWJvO7mxy0beNkQOwY59hgK9IImgBIE6hbL98n4O7CS34UmW2w>
-X-ME-Received: <xmr:xekFaxhua7X7NHCCrwHeXtuMWatqn1SAQaW-Wiv026GNNERfs8Fi3kmtsdI>
-X-ME-Proxy-Cause: dmFkZTF8mK3hTCRd90aqnSvOpCd4gzquwbaRY1ybcFkVdEZH36HujOrk/L6VV6Y1vtNMHJ
-    6VVt7i5u8kMpzFTrCKxhljVCQ0KWilRMz8P/2EHJr4WvH0fuZpYQC7sK293mDxYM5fCpxr
-    1T3W9hf6dB8LZqtzE4IkJAYo0VMIBVV8zOeHK0H62E2wvN3S7anHOZYKNhLPFJ87IUM61S
-    qHy4D0IvnCfOjgesgxbhRacdN4oSj4TucPlCavxmzsp4Gkj0PCKNRZJx/kx70DdCFDXw+q
-    7xJwCo/wVwK7Yl9cyU5U0q9sKTnCGo1ZKourJqEYJheN6vPystHS9LyDe6Aaf2u3+CwkI8
-    K0JxkNkTYnrafKZ/rTj/3+9Cp9lcsGjXEwFv/7cqddgUQW1JxEbcN2FXocQC6sokP77iTz
-    4rFrL77wxX12ppPWSMVZwxp19CXJ0zfLguT3cdPHVkfzezIu+smY5OQy4cfTbZFhJai4jB
-    qioc+3L14it17ZZqJ4ZF6Bnn419bRnXUI5OLbowlPINKMA4fFjOlriEYMVbgvrEMVmIGoe
-    G0Me4uLkDxVpzwekgnG0s9azudRcd/8aoyRo2FA7cagRqEdCXxQUA4Z/C5Q2BrbWG+Nvx/
-    +OoIzYgvtUzHpR22FRjEmXOcLWgi+Kvv0g9Kvv04EWtoKGWbRjR5HU7A/p7Q
-X-ME-Proxy: <xmx:xekFa9EGI9L4ahECNeOKy9PLeZNJLwtB0SeRXNELsui-ZeELFs6Fnw>
-    <xmx:xekFa4zOf4H4XkBgNVEFRyaEqZGefgnS87-IiO3iXpUh-wAp0q-6TQ>
-    <xmx:xekFa8ptG5LFDO8P2LynCZIsBDBtiu_gC354pp1S3Bi3FyMHFmG2dA>
-    <xmx:xekFa7dIQ7vp6XFCWc-hwYoO9-kQslgtqXxz4YU-ZIH-o1qvT7-nJA>
-    <xmx:xekFaygRgIctcxYKCfXNpWhmSCYbso94vTf0CMNuc6xBx11D26g_Z-wE>
-Feedback-ID: i10464835:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 24 Nov 2026 14:47:17 -0500 (EST)
-From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	James Morse <james.morse@arm.com>
-Cc: "Kiryl Shutsemau (Meta)" <kas@kernel.org>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	Vladimir Murzin <vladimir.murzin@arm.com>,
-	Ada Couprie Diaz <ada.coupriediaz@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Liao Chang <liaochang1@huawei.com>,
-	Ashok Raj <ashok.raj@oss.qualcomm.com>,
-	Doug Anderson <dianders@chromium.org>,
-	Yin Fengwei <fengwei_yin@linux.alibaba.com>,
-	Pengjie Zhang <zhangpengjie2@huawei.com>,
-	Cong Wang <cwang@multikernel.io>,
-	kernel-team@meta.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH 2/2] firmware: arm_sdei_nmi: Send the backtrace IPI to CPUs with SDEI masked
-Date: Tue, 24 Nov 2026 19:47:05 +0000
-Message-ID: <20261124194707.1030653-3-kas@kernel.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261124194707.1030653-1-kas@kernel.org>
-References: <20261124194707.1030653-1-kas@kernel.org>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hkDQJ8SE
+Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-cc4be0e5351so3925025a12.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:47:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795549669; x=1796154469; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=lUpe/tRxEZ5NPFIdAznJnUvDVmlMVX6s3wfMo2I3P5U=;
+        b=hkDQJ8SE9T5NTx+bSFOZ+oAkTZjhjNqbr5FwlOIkYHU2pfuWXC4hay2mNhTxK23qcb
+         E8pT2H1fsqK37LeIiSSxX+PRvqqMIlXOGG1K5wMto2pHYRL7DGTrjN32Kxqb5iHlE1CU
+         u8mGCY7DYmYOnknCKDT8FMwDs5wZDo3rUKOjZCq5TlJv7ns4QVJIwOYleRHqUCDxLmbb
+         7YnPGhg7aqE+4Hv3MnHRPSoR4oNT9YVwd86QcqSi2X5nJU1eg+L+AM7gmkVbGnnDdTIi
+         khfGHwB06pBcZLt4VFZZPlFrOhNv9bh5Db3XcBIMRmkCvI+BTRNN1Py8AOJ39USrGJ+v
+         4xPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795549669; x=1796154469;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lUpe/tRxEZ5NPFIdAznJnUvDVmlMVX6s3wfMo2I3P5U=;
+        b=XgOcTZ/cmvkBuiIoXz8/uULBc9H28SH6GFjNmtZRy3bqJzkLMFCmI4WuGISBl4/4M4
+         tksb4eGBt+W58xz+h0AyVDnZ/8pNXovRiVfc/H0cIz3T43mbKaReb1KAmoqEFAsPud/6
+         uuLYPzPAKiNlHpUanIY+7ekpR9A6qdSAMA7HwPrvdMrQgU/cS4jpNaFSr2fwuDM87myk
+         S8UPcv/zMx9F5z/ooTh1W8aksso6PN95Nownm4wylagPjRVKgVzj8H+9rgUODDlkF6a4
+         bwjhUkurnG0pXSuIm74ZgYue3NgdAimp58voPlkzYi97Pklz2+Xf1ZMECHPL9lXgH9hk
+         ogWg==
+X-Forwarded-Encrypted: i=1; AL+hErGNsNFDafdD/oBNjNKtIhCrvTFJP8YiR4ZK5ThofiFOU5A17EPWfTArsFGqjgAA5Hohjh45jybsbTUAFSU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ABRoFMF/s4W7Hg2AD3OxHC1fh2scs9C5cPPU2/9A6CSiPF5E0
+	3O7aGLBkdQb33+W5vSBLwV9Aq5zAEfnqc+KXIUjIIVT96hsgzx3KbXdYqQ9jGQELVQ==
+X-Gm-Gg: AZFdTZcmkzJzCDXJcESo2abR/ElS8qDclNmU5IXJ/ubCf9TKxjPz4pMY/ntvwCsGi3E
+	ZdJAaHNKTXDzz5qniTAXVtT1luDs2/9FHt3uBjYekreklYfudW7qz7V7HLcg8oYMf46Nxjdwyht
+	+RkpWI5pcBDg7sVLvWGCddzhvZxVndTau8R3wTt5IkfE9j3Z/GVROjUWRLg71EDn2e+WUCXlTs9
+	6MTItKFjgoHIRmA4yjLd3qfrLmnndB/muSuf2ONVqajkCl4pK60jDbcDJi7oCQJ44qtm8w3cDgR
+	nFC+WMHNK0uKzJ13IkXsWlFoXdMV7RVVVruTGr8GXiLR3y6ZF9RoKJ+uIFLTSVd/7gxe6pTD31Y
+	Bt77TYcqTpVFGQuZru75kFjTYVOxTnr/5/0mb9PJJcOKpeHDpg5ix7+o5+jY2Vqt5MMW0fsDT45
+	DJycdcVCsh8Wz2NN7rW8DmsXALeKYkuSrlcUTMQ9bFAMr+Na23qdxWMRSqX2XvA30Q1SowsN47Q
+	cZNkDmcsyNG0RT9KS0x6dqjFHgq3lpo947ybmIowIV+jeBg/kE0VIx2OVA3u9Wu5vOMCjpkHLE3
+	luTAVaeTHKsAH2qhyEwjePVa/fx7NcoeqQeQfz52qpdDeR1rXVg1ERrCzFWLjp32
+X-Received: by 2002:a17:90a:e70c:b0:3b0:d551:ab2 with SMTP id 98e67ed59e1d1-3b41c955b0emr14483470a91.51.1795549668300;
+        Tue, 24 Nov 2026 11:47:48 -0800 (PST)
+Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41adcfe23sm23939545a91.15.2026.11.24.11.47.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 11:47:47 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,107 +87,71 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 24 Nov 2026 11:47:47 -0800
+Message-Id: <DN3P8HO01T16.1XHR8MD7J5JSJ@google.com>
+Cc: <linux-pci@vger.kernel.org>, "Bjorn Helgaas" <bhelgaas@google.com>,
+ "Lorenzo Pieralisi" <lorenzo.pieralisi@arm.com>, "Rob Herring"
+ <robh@kernel.org>, =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ "Rafael J. Wysocki (Intel)" <rafael@kernel.org>,
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, "Alex
+ Williamson" <alex@shazbot.org>, "LKML" <linux-kernel@vger.kernel.org>,
+ <stable@vger.kernel.org>
+Subject: Re: [PATCH v2 07/16] PCI: Serialize bridge window sizing and
+ resource assignment
+From: "David Matlack" <dmatlack@google.com>
+To: =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, "David
+ Matlack" <dmatlack@google.com>
+X-Mailer: aerc 0.21.0
+References: <20261120134716.3027-1-ilpo.jarvinen@linux.intel.com>
+ <20261120134716.3027-8-ilpo.jarvinen@linux.intel.com>
+ <DN314UP7ZLCR.39N4XNGLWKR05@google.com>
+ <42d7af61-bf69-b440-8685-5d9cec4863dd@linux.intel.com>
+In-Reply-To: <42d7af61-bf69-b440-8685-5d9cec4863dd@linux.intel.com>
 
-sdei_event_signal() refuses a CPU that has SDEI masked. An NMI
-backtrace then gets nothing from such a CPU and, after 10 seconds,
-reports it as not responding.
+On Tue Nov 24, 2026 at 6:10 AM PST, Ilpo J=C3=A4rvinen wrote:
+> I don't immediately see anything preventing from moving it into the host
+> bridge struct, I'll look into this.
 
-The CPU is in a power-down idle state or going offline, and the regular
-backtrace IPI wakes it. Send that IPI to the CPUs SDEI refused; every
-other CPU still gets event 0.
+Thanks!
 
-A stop needs nothing extra: smp_send_stop() has sent its IPIs before it
-signals SDEI, and a CPU still online after that is reported as not
-stopped.
+> Not sure if it really helps much currently because pci_bus_sem is also
+> held but that might eventually change (there's the series which
+> attempted to split that into a separate lock in each bus, I don't
+> remember why that work stalled).
 
-Fixes: 0c2c56598cc1 ("drivers/firmware: add SDEI cross-CPU NMI service for arm64")
-Cc: stable@vger.kernel.org
-Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
----
- arch/arm64/include/asm/nmi.h    |  7 +++++++
- arch/arm64/kernel/smp.c         |  2 +-
- drivers/firmware/arm_sdei_nmi.c | 21 ++++++++++++++++++---
- 3 files changed, 26 insertions(+), 4 deletions(-)
+A lock per bus seems hard to get right, since a sizing pass or a BAR
+resize can span many buses and you'd have to lock up and down the
+hierarchy. Per host bridge avoids that.
 
-diff --git a/arch/arm64/include/asm/nmi.h b/arch/arm64/include/asm/nmi.h
-index 2e8974ff8d63..447d681a5475 100644
---- a/arch/arm64/include/asm/nmi.h
-+++ b/arch/arm64/include/asm/nmi.h
-@@ -45,4 +45,11 @@ static inline void sdei_nmi_stop_cpus(const cpumask_t *mask) { }
-  */
- void __noreturn arm64_nmi_cpu_stop(struct pt_regs *regs, bool die_on_crash);
- 
-+/*
-+ * Send the regular backtrace IPI (an NMI with pseudo-NMI) to @mask. The
-+ * SDEI provider uses it for the CPUs it cannot signal. Defined in
-+ * arch/arm64/kernel/smp.c.
-+ */
-+void arm64_backtrace_ipi(cpumask_t *mask);
-+
- #endif /* __ASM_NMI_H */
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 014b163ce658..8369a4cd3e32 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -946,7 +946,7 @@ static void arm64_send_ipi(const cpumask_t *mask, unsigned int nr)
- 			__ipi_send_single(get_ipi_desc(cpu, nr), cpu);
- }
- 
--static void arm64_backtrace_ipi(cpumask_t *mask)
-+void arm64_backtrace_ipi(cpumask_t *mask)
- {
- 	arm64_send_ipi(mask, IPI_CPU_BACKTRACE);
- }
-diff --git a/drivers/firmware/arm_sdei_nmi.c b/drivers/firmware/arm_sdei_nmi.c
-index edea68ef881e..b8ebb97caf18 100644
---- a/drivers/firmware/arm_sdei_nmi.c
-+++ b/drivers/firmware/arm_sdei_nmi.c
-@@ -124,7 +124,7 @@ static int sdei_nmi_handler(u32 event, struct pt_regs *regs, void *arg)
- }
- NOKPROBE_SYMBOL(sdei_nmi_handler);
- 
--static void sdei_nmi_fire(unsigned int target_cpu)
-+static int sdei_nmi_fire(unsigned int target_cpu)
- {
- 	int err = sdei_event_signal(SDEI_NMI_EVENT, target_cpu);
- 
-@@ -133,8 +133,13 @@ static void sdei_nmi_fire(unsigned int target_cpu)
- 		pr_warn("SDEI_EVENT_SIGNAL to CPU %u failed: %d\n",
- 			target_cpu, err);
- 	}
-+
-+	return err;
- }
- 
-+/* CPUs to IPI instead; nmi_trigger_cpumask_backtrace() serialises its users */
-+static cpumask_t sdei_nmi_ipi_mask;
-+
- /*
-  * Raise callback for nmi_trigger_cpumask_backtrace(): signal event 0
-  * at every CPU still pending in @mask. The framework excludes the local
-@@ -151,8 +156,18 @@ static void sdei_nmi_raise_backtrace(cpumask_t *mask)
- 	 */
- 	dsb(ishst);
- 
--	for_each_cpu(cpu, mask)
--		sdei_nmi_fire(cpu);
-+	cpumask_clear(&sdei_nmi_ipi_mask);
-+	for_each_cpu(cpu, mask) {
-+		if (sdei_nmi_fire(cpu) == -EAGAIN)
-+			cpumask_set_cpu(cpu, &sdei_nmi_ipi_mask);
-+	}
-+
-+	/*
-+	 * A CPU with SDEI masked is in a power-down idle state or going
-+	 * offline. The IPI wakes it and it reports like any other.
-+	 */
-+	if (!cpumask_empty(&sdei_nmi_ipi_mask))
-+		arm64_backtrace_ipi(&sdei_nmi_ipi_mask);
- }
- 
- /*
--- 
-2.54.0
+> ...I already have another (unsubmitted) series that adds
+> pci_rescan_remove_lock around host bridge setups because they too can rac=
+e
+> with a sysfs /rescan leading to adding devices more than once, etc.
 
+That would have saved me a lot of head scratching. Please Cc me when you
+post it. I'm happy to review it and test it with Live Update.
+
+> Now I actually started to wonder why couldn't pci_rescan_remove_lock also
+> be per host bridge?? (+ a separate lock to protect root buses list)
+
+I've been thinking the same thing. Both pci_bus_sem and
+pci_rescan_remove_lock could move into struct pci_host_bridge, with a
+small global lock for the root buses list as you said.
+
+A big benefit of a per-host-bridge pci_rescan_remove_lock is that it
+makes it obvious which lock to take during boot-time scans: the lock of
+the host bridge being set up, which nothing else can be holding yet. It
+would also solve the re-entrancy problem, at least for VMD.
+vmd_remove() could always take the VMD domain's own lock, which is a
+different lock from the parent domain's, whether or not the caller
+holds the parent's.
+
+Eventually, the per-host-bridge pci_bus_sem and res_setup_lock could be
+merged into a single rwsem, with sizing and assignment taking it for
+write.
+
+Thanks,
+David
