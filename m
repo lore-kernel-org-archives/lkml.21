@@ -1,101 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795528380;
-	b=k8bYn0TNM5m4xTGbl4vuVC5iHOvVkICGw9ydVGJrbaFLwa/nrDpAoGLXkM9XvqhVPolk
-	 XrNpaWvyEpAdQH9Ot9TR67uy02pBpGAXjbYuBnAkOky7uJwOug6vpKqMcwklaXaddM+WJ
-	 uG7tbAYLKMIbDj8lZbLU0kTRhzGzeCWjAm89eM60wNMKFX/POeEGd0f+ZtOMUPdp9C22O
-	 NjUyEX6c62zlkShOtfJg6CCoj/liM+e+XSUGcW+QLMqB5GSlXd8zA/JJv2F2W3t2vYcOY
-	 oNZW1VlGYc1lvyppHA4XaKUmWqONlGpda3mAGqYYP2wiPGxH1c4gkW1IT7Ebqb/eXcw==
+	t=1795528415;
+	b=KrfQnnrtOhIvFSuhkDsYd43FEWn3JpXNOuLv2xEFLWAZKtk/3RtnC28+j7pRmX2dOYWA
+	 P5TGpgM5XYx1QDYxgceWSE6AeTUU4mBjr8rpIT9P/IO10AkvTmRbdV+CCmzQfP6Nn+UcJ
+	 TvAsnn67HcTAhKy7mIt0K2HNan96PQRENX+9YESQdlk+X9c2wUNOfk4ndR8nscHBwwjb9
+	 +PLNqyfdsUGmirgR/e7PSPfYSyH8st4578ik2lAXqdDQUnZRZgrUPwrqTjBuFlaP7OdM9
+	 kC2uFev15+qad9DgAlBsznwViUcUgpXDZVazKL3RUezFYt3NWJMeCNHWgDgcTcHH0mw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795528380;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795528415;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=ervTDQvCqZVrcHY/akwPcAXB3ZloIorGLfgD/yjQ628=;
-	b=sbNfsIj164FwzLJ6DTgaIR8o7pl7Bra4vK5Tqs6YAlsmJ8zFlEQLTsJRMfCOEU8EKWAE
-	 pu1axu1Tf2wCxpSkMfSNsy/DQugK5Ne5aMfyG9UvK1DyFibvTrlKQLA43SucqUm7NgO/C
-	 R5PnsAPCqClsuaYdonZ84rCX6BnkEQfKQgkANF6J4B2tHBeQRt0ZS0refgcZZm1fpbemG
-	 FmpW/SC8LJPdgM62vNWAQ9fOcxIe/GYbGFeUJh1NV2FmPoFR7is/hBDnOK2K74SV5mskw
-	 U+Y6i9jtHZmyQfhsDwwyH/Und4UM3qu2pTt1vtnv7uvGZdiI8GkyZX5abXuEht4zw5Q==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding;
+	bh=q6JmaR/skCNhplZj+MXI58e71T+5r4bXzYFahMOHLqU=;
+	b=WFfx0QtlqTRxcYYCfuZ6XgCeVYZaUkhuf0tTZZeaKT6EWkHtKKfrdxt9MiCiwkeS0ucQ
+	 wfff3TlR/rEjZvAymuCW/rAgH8igb3HC/inBr1tQwM/PQ1js9Riw0LNWi9iY0k/iecFS3
+	 fE0zvXPZmS0GEivoTsEKi9DV/NyxPbSTMGvLyx8EhBSenercQjZNNBqvI5skJFwYlxgEC
+	 k6/rIUiF1rBS45aXYktatg66LyUbE3UezKSctmynRNJB4VZ59Xb+lIH1R7GaeNqei1+ZC
+	 x7UK7Q+gzi/yU26kv6dJveEq/GTneIptbQ/Q+P52nx57MKwLiG+Jud1PCo9hjqHFZvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=kAV8M+WE;
-	arc=none smtp.remote-ip=209.85.219.41
-Received: from mail-qv1-f41.google.com (mail-qv1-f41.google.com [209.85.219.41])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aLN+A24F;
+	arc=none smtp.remote-ip=209.85.208.46
+Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com [209.85.208.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7253E606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:53:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7253E606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D03FE606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:53:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D03FE606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=kAV8M+WE
-Received: by mail-qv1-f41.google.com with SMTP id 6a1803df08f44-921342fae7eso49576986d6.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:53:00 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aLN+A24F
+Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-6b8815693e2so5203382a12.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:53:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1795528379; x=1796133179; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ervTDQvCqZVrcHY/akwPcAXB3ZloIorGLfgD/yjQ628=;
-        b=kAV8M+WE2u1z+iDbpRaYLaa8uAZIhKoPynLBqtU0x6yNPd8+/UrQBkICZIdrw80/N1
-         uymx6XmLYdbrYNuKeDAhPwOyiI7Krg8e3gz/j/5uE/ZqyzLiDGJ2mai5T9ziVaU8Myp2
-         qyTSr8GIk4jYAvQr6LYQP3tas43VCSX89kJcV3C3kYxyP7NfnOETpkRLCB/eDsCVi8/i
-         O+6Fgql9pEzuMdNbB7bDfZtyLrKApScI/SBJ/XvQ4ldfeWNxvFgwTbW3JRJuZNVbSImG
-         /6upRkGe9TbcTavRepmjIAHaFZ/pN6U/gb++Csl9I69uDHjWA5nwM0QFLDP60AS6fhaw
-         cNdQ==
+        d=gmail.com; s=20260707; t=1795528413; x=1796133213; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=q6JmaR/skCNhplZj+MXI58e71T+5r4bXzYFahMOHLqU=;
+        b=aLN+A24FpcTksAvfHE8G0f+UplORhvw8/bXY3U82W2pf+lsZWIWXWX/nafyLTh047G
+         r1onB5x/eH4tSPvpNCASvyFlUYRQp//42ZEhqX4kLhCP/7b6mTxU52rDhsrNv92QNHsK
+         22lGdW0m7GzfIs964YdQNmo4/i5nLQSPWfdE5QkIYGgFoDwusrMDPTIsgk9l/rL8DR03
+         xcyEatZ4m+TH8CaDZWoj5inFyPcaO44w++BTiN0Jhwazt0/1CpVw0OVF5oatqyNsuAfY
+         c/s7CbWVdGlNsO+fq9FdI6skKk76U8kam3euoI+v+LN3tLy7fm66o8SxfO50RuVrGtDD
+         9I/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795528379; x=1796133179;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ervTDQvCqZVrcHY/akwPcAXB3ZloIorGLfgD/yjQ628=;
-        b=HXKvDqlbaOn3hG9bXrJ+xqdf8UGQE6RgaiH4YfIXLPjcAnPvoYAvswylamW/kduKlo
-         2UcGlXKUdYVnvm6IN1cDD46XdJEIRUI7cYSHeg8do0XK21zEn9YeOcXNkfTSOPNJXh5E
-         k0NSFbpVp6J0XAZ3LKklgWBd3o1gkJp7pypXQQaYOGLilLybmOwp9G/MR2jrl2KMGY2o
-         Q9nV9YTg4FjGHC4zOabIIoRI46RMmKrOxn4yW9+2jEHTpvBXEt97kHY0UqCfYdecYyCy
-         f+LORoQE1VOfOOaY8yQK3icrWLi/6XgYWYATqx8QFj9LVKSktHWJaypk2Zx/GXwzwp5x
-         haOw==
-X-Forwarded-Encrypted: i=1; AL+hErGCmLHlGniRhUed0cEsZjl2Kv2Daf8SPWKg02prxnQMFHy44mJaqpuAQ8BtBiix0uWOSwh2KWmBeQlLTYk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8h2xAQQKqu5zfVJG9ZBxvZPD+y/Y7AWDr1gbf/l3Lu03a/AZl6
-	n8EoPBWcgntt/sNaNKvQ0ZVq3LQ1/qNUnXI0ci6Bg0XOMMu94MMCDOwBNNoRDpkQg+s=
-X-Gm-Gg: AZFdTZdQTr8Qx0dok6S5FVbXmaH9XZvSkz//MTTARp8bhajkJ5MtQtokBq9Y0WKctDX
-	FqRGgkkFhlhAwoZ7hy5uqMll8VjAoTZQMewObJDBTKOOzrSqsXaWVo24FbRC/T/okdxALVHWRfe
-	0TJ1NQ1JNWykrZJGm3CxK6ou+RFoegYfEjOi5oApZegeVRwwR1uEbNyBfwdnIt8WRyaJVF/77Sg
-	uw8LPc/kSkCjqmtr8wDGh+L31rVQeWqxdi6trW7F2OATv3OGm9lvC48qnMOYcvcU8GOcHmZeOS6
-	Q/blPMi9LMbX4dI61kB59JJSkh7uEKZH7U2EfjagL7Ri6Xshl7ur+n+Errd99V3uIgXlFKvCfcG
-	bw2flzEz3ZojL2QXqNmwx3mSV6dUl5KmH64DAQfL8h9EQLHtW/edPf79HT8iBL5e2M9STZpZXYw
-	8PDo6HPlyohvMUpe+4baN1fVty32mc3ziNijvT6GSrevxA0MS1vbZ1PukX/gxW9uxQDVK6PDZFf
-	c7gXZlY6SfPyenSxFOFCXefrD0XYwfOy6xvzpvfJGUNh6sBfHcjx0zz7Oi0+pz12hFivBJjJ//5
-	qmazIzEk3lAkIo1/WqJK52kRm2o=
-X-Received: by 2002:a05:6214:1d03:b0:921:4c11:f6ef with SMTP id 6a1803df08f44-9214c11f800mr175124426d6.1.1795528379371;
-        Tue, 24 Nov 2026 05:52:59 -0800 (PST)
-Received: from ziepe.ca ([142.177.118.84])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134796288sm133191406d6.6.2026.11.24.05.52.58
+        d=1e100.net; s=20260707; t=1795528413; x=1796133213;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=q6JmaR/skCNhplZj+MXI58e71T+5r4bXzYFahMOHLqU=;
+        b=ksqIFS5gz2OEplf4Si0l117rVEYp0fVHr1/kBxGYU0eSOSFKAjd/6yg+i5NYXpegtt
+         A0rbtLqM0QRv5JypZ3CwN9Wp6Vue1owLma1s8b/Y/izXrC5vevmqhooS+LG02y5QhyT4
+         M78s+x3oquFZZezfuEJwvEpbU6JMB4ADFEHWdwzst7Xm2O0c5i8K+KeJKX0cXlowDOMC
+         5dXEm9uyzUOsPFz9ZghDYv1Aykbrb0QKLoasVRqsZMs9rSYs89Gf3fVwMbdrWWw7aBPi
+         CcsdPMg/VU7/fJLyJFpfMdu1d84oiPqruABbxVe3TMxtGIeI3zvJrGY/VNXME2Xz6Vga
+         bzog==
+X-Forwarded-Encrypted: i=1; AL+hErF4W7F20mWYrsqyteT5wa5Q3Orfv0A0UynGxMLQwln2IN/P7/5ihQXPp/EBPA9Ao50ynaSJwn3gvWVMwKo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8oZPCR5H7IEXcMQqdVYACjlv92oYls+yJduJV45GXruVsWcWYa
+	VTZHHA+Ju/4W7jQBQkYw22TZqZyCbzNSW81jkvQG9cTLKmyX+PQqA8lw
+X-Gm-Gg: AZFdTZd/0JA1U3RFZCOiuIVY59Lgeb7kQryVb5hDwntFcxy+jGmGV7NRFJw76xntJl/
+	s2cDSYT4wJVR90+umwdTQDdKeRz7brofbYIHNBefU+Y+1sQJfruQGNHY1vYiRHQrYbMSjrUCbwV
+	uFzhf0JZasWYaby1/XD2yEZww9pwX/fZZjPN9n7qwbSJD1FBDLq76Og4zZ9ina0drv/aLtCjiCQ
+	eH+GMrA38n3l+VGMIgiU6MnMglR1+f+h17E2Gz2K9K8gb+PTUEHR5jauIOQZjw74Pth/TolO/M3
+	xgjVk59f6ZqeMb8p/e0Yo4vm72oU4+gfgvVxx801FKD2ufpSA3QS7S7c6K0nqfZ0pk9LPb2RJ0n
+	/2EGB7TdusR3Lcof6tl+CEs7BjtPEvu3WLNeA8NmWY6skYe9IWAf0PrfM1Fon9572cChcu6B8BW
+	ZoNHJclsUHjEsAjThjI+kC+DEYvT9XHgGEtEwcxy9q4gXB2BPkBo8rcZsagBSpNZUtWe7m9vWaU
+	gVWBXC1t9FJgOQfzpEbSVsUfnLs/kLA2jAvYnTxzhV6+RPBJrOjAO/1B/vV+tAwgWyUrRib2DgY
+	M9/UuLDlws/sIR2Z2kKeQTiKPB41S1k=
+X-Received: by 2002:a05:6402:c70c:20b0:6ba:1347:5cd with SMTP id 4fb4d7f45d1cf-6ba37c7ad6bmr7580207a12.2.1795528412985;
+        Tue, 24 Nov 2026 05:53:32 -0800 (PST)
+Received: from ArchOarora ([95.179.249.152])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba36d730d1sm6833598a12.0.2026.11.24.05.53.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 05:52:58 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xVqx8-00000000QWu-1KcY;
-	Tue, 24 Nov 2026 09:52:58 -0400
-Date: Tue, 24 Nov 2026 09:52:58 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Guanghui Feng <guanghuifeng@linux.alibaba.com>, linux-mm@kvack.org,
-	Lorenzo Stoakes <ljs@kernel.org>
-Cc: alex@shazbot.org, alifm@linux.ibm.com, ankita@nvidia.com,
-	dakr@kernel.org, fengchengwen@huawei.com, kevin.tian@intel.com,
-	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, mattev@meta.com,
-	ritesh.list@gmail.com, xinmengs@nvidia.com
-Subject: Re: [PATCH v2 2/2] vfio/pci: Align BAR mappings for huge page support
-Message-ID: <20261124135258.GK9566@ziepe.ca>
-References: <20261124073048.268988-1-guanghuifeng@linux.alibaba.com>
- <20261124124004.457441-1-guanghuifeng@linux.alibaba.com>
- <20261124124004.457441-3-guanghuifeng@linux.alibaba.com>
+        Tue, 24 Nov 2026 05:53:32 -0800 (PST)
+From: Oarora Etimis <oaroraetimis@gmail.com>
+To: Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Melissa Wen <melissa.srw@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	jose.exposito89@gmail.com,
+	Jonathan Corbet <corbet@lwn.net>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Lucas De Marchi <demarchi@kernel.org>,
+	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	sebastian.wick@redhat.com,
+	victoria@system76.com,
+	thomas.petazzoni@bootlin.com,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v6 08/43] drm/drm_color_mgmt: Expose drm_get_color_range_name
+Date: Tue, 24 Nov 2026 14:53:15 +0100
+Message-ID: <awWWuPbKPoIkMxNC@Oarora>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261120-vkms-all-config-v6-8-78ace90f4fc1@bootlin.com>
+References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com> <20261120-vkms-all-config-v6-8-78ace90f4fc1@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,83 +127,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261124124004.457441-3-guanghuifeng@linux.alibaba.com>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 08:40:04PM +0800, Guanghui Feng wrote:
-> +unsigned long vfio_pci_core_get_unmapped_area(struct vfio_device *core_vdev,
-> +					      struct file *filp,
-> +					      unsigned long addr,
-> +					      unsigned long len,
-> +					      unsigned long pgoff,
-> +					      unsigned long flags)
-> +{
-> +	struct vfio_pci_core_device *vdev =
-> +		container_of(core_vdev, struct vfio_pci_core_device, vdev);
-> +	struct pci_dev *pdev = vdev->pdev;
-> +	unsigned long align, off, off_end, off_align, len_align, addr_align;
-> +	unsigned int index;
-> +	u64 bar_len;
-> +
-> +	/* Don't interfere with explicit address requests or fixed mappings */
-> +	if (addr || (flags & (MAP_FIXED | MAP_FIXED_NOREPLACE)))
-> +		goto out;
-> +
-> +	index = pgoff >> (VFIO_PCI_OFFSET_SHIFT - PAGE_SHIFT);
-> +	if (index >= VFIO_PCI_ROM_REGION_INDEX || !vdev->bar_mmap_supported[index])
-> +		goto out;
-> +
-> +	bar_len = pci_resource_len(pdev, index);
-> +	if (!bar_len)
-> +		goto out;
-> +
-> +	/*
-> +	 * Select the largest huge page size that the BAR physical alignment,
-> +	 * mapping length, and arch support can all satisfy.  Only PMD and PUD
-> +	 * orders are supported by vfio_pci_vmf_insert_pfn().
-> +	 */
-> +	if (IS_ENABLED(CONFIG_ARCH_SUPPORTS_PUD_PFNMAP) &&
-> +	    bar_len >= PUD_SIZE && len >= PUD_SIZE)
-> +		align = PUD_SIZE;
-> +	else if (bar_len >= PMD_SIZE && len >= PMD_SIZE)
-> +		align = PMD_SIZE;
-> +	else
-> +		goto out;
-> +
-> +	off = pgoff << PAGE_SHIFT;
-> +	off_end = off + len;
-> +	if (off_end < off)
-> +		goto out;
-> +	off_align = round_up(off, align);
-> +
-> +	/* The mapping has to span at least one fully aligned huge page */
-> +	if (off_end <= off_align || off_end - off_align < align)
-> +		goto out;
-> +
-> +	len_align = len + align;
-> +	if (len_align < len)
-> +		goto out;
-> +
-> +	/*
-> +	 * Find an area that can hold the mapping plus the slack needed to
-> +	 * shift it up to the next aligned address, then apply that shift.
-> +	 * The shift preserves the relative alignment of the file offset,
-> +	 * which is what makes the pfn alignment work out.
-> +	 */
-> +	addr_align = mm_get_unmapped_area(filp, addr, len_align, pgoff, flags);
-> +	if (!IS_ERR_VALUE(addr_align)) {
-> +		addr_align += (off - addr_align) & (align - 1);
-> +		return addr_align;
-
-
-PeterX was working on this previously and last time I was not excited
-to see all this mm logic open coded in drivers.
-
-I was hoping to see that the core mm could provide some helper scheme
-for drivers that already know what they want to map to get a vma
-alignment that is optimal for the architecutre.
-
-Peter had a design that seemed like a good exploration at least..
-
-Jason
+On Fri, Nov 20, 2026 at 06:58:50PM +0100, Louis Chauvet wrote:
+> drm_get_color_range_name can be useful to print debugging information.
+> Export it so it could be used from VKMS.
+> 
+> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+> ---
+>  drivers/gpu/drm/drm_color_mgmt.c    | 2 +-
+>  drivers/gpu/drm/drm_crtc_internal.h | 4 ----
+>  include/drm/drm_color_mgmt.h        | 1 +
+>  3 files changed, 2 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/drm_color_mgmt.c b/drivers/gpu/drm/drm_color_mgmt.c
+> index de219c23322f..a65fef5702ab 100644
+> --- a/drivers/gpu/drm/drm_color_mgmt.c
+> +++ b/drivers/gpu/drm/drm_color_mgmt.c
+> @@ -512,7 +512,7 @@ const char *drm_get_color_range_name(enum drm_color_range range)
+>  
+>  	return color_range_name[range];
+>  }
+> -EXPORT_SYMBOL_IF_KUNIT(drm_get_color_range_name);
+> +EXPORT_SYMBOL(drm_get_color_range_name);
+>  
+>  /**
+>   * drm_plane_create_color_properties - color encoding related plane properties
+> diff --git a/drivers/gpu/drm/drm_crtc_internal.h b/drivers/gpu/drm/drm_crtc_internal.h
+> index f3a3ffd358dc..168799fac7c8 100644
+> --- a/drivers/gpu/drm/drm_crtc_internal.h
+> +++ b/drivers/gpu/drm/drm_crtc_internal.h
+> @@ -38,7 +38,6 @@
+>  #include <linux/err.h>
+>  #include <linux/types.h>
+>  
+> -enum drm_color_range;
+>  enum drm_connector_force;
+>  enum drm_mode_status;
+>  
+> @@ -119,9 +118,6 @@ int drm_mode_mmap_dumb_ioctl(struct drm_device *dev,
+>  int drm_mode_destroy_dumb_ioctl(struct drm_device *dev,
+>  				void *data, struct drm_file *file_priv);
+>  
+> -/* drm_color_mgmt.c */
+> -const char *drm_get_color_range_name(enum drm_color_range range);
+> -
+>  /* IOCTLs */
+>  int drm_mode_gamma_get_ioctl(struct drm_device *dev,
+>  			     void *data, struct drm_file *file_priv);
+> diff --git a/include/drm/drm_color_mgmt.h b/include/drm/drm_color_mgmt.h
+> index 133ca77d91c7..e91f494e5a63 100644
+> --- a/include/drm/drm_color_mgmt.h
+> +++ b/include/drm/drm_color_mgmt.h
+> @@ -114,6 +114,7 @@ enum drm_color_range {
+>  };
+>  
+>  const char *drm_get_color_encoding_name(enum drm_color_encoding encoding);
+> +const char *drm_get_color_range_name(enum drm_color_range range);
+>  
+>  int drm_plane_create_color_properties(struct drm_plane *plane,
+>  				      u32 supported_encodings,
+> 
+> -- 
+> 2.56.0
+ 
+Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
