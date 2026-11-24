@@ -1,63 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=157.90.84.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795539156;
-	b=2U7BZEYAMdLt51X1b2QAen63bBmTwJDXm1jv54rmFMICGSNRMOjM8/kMesl5WP2TxW5j
-	 xXc+MJpWdr0eIxpBPrBXSU9w0W+5H2ZAdcL3A7GwEtouL+IE7NOIV15F/LYG33pTAMvjX
-	 nDx3aZzl5LqkDZeAX1MMD+RDRK3QowlsvO4L8dpU+ZAiz9IfZgMPqlhrdls9nikvM/6Jh
-	 VL88asQ1ozeUqO6vc6hATMeTN2bXBdfQQtBoJP1vhNUXwl6hHffao3WLHPgzCtwrcEKdZ
-	 WD9hYyDie+0CMgQ1PB/9gs941bA4++DAQq5JDJSx1yZGr9cAum/jGaBryVdtzXYkZtw==
+	t=1795539158;
+	b=j/9LtJyk2YbsEz1LNOWp6AJyBfZnPEUyEDHeqxfv1Fd9Y5u5EdsB0EckzSkfc9vxIMdR
+	 cEnQYlec92plne695/l2BPNe2BeS7B+gzPosgbJqdbL/oYyVmX0v1gxpDbz9HgNpSufEe
+	 9ZGpf/MmFiJcJNwS32HRvzEW/wE0ss4I2Ztmn+weezQdaZA78wgedU7+fJg84z16eUN4j
+	 kRXvnncJc48lGb4A4qwf1N54MFHXTZUbxg3a3vJJsvwyZZZ9ujAL+H41fa3NXvt9RbbQJ
+	 AaATMI2cmEcnxJbfV1l261XqWEw2ZHo90QLdOxdt97E9bFYBZAHIuNuKxnHA7hTSNfA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795539156;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=zlFQZbNWBXkQuSHi9548ZAMCS2pLYLACEKhtgNjn0zw=;
-	b=oVnnWz4/bhGqEAgavGJGPmJWbiDTYg3gIEF+t0j1NvYtCKw4TeagPd9f+1u8H3GiYuYP
-	 Nyia44KtoAATWP2msdhUTIWdts+OGBhVy/K8fGFxWzFGv+QRv7/fL/GhFG/30mdXdjKb9
-	 VlBHIYA6++GzZuiYUdnFbqzUNtr7vEilsUapn1/+h0Wf7Oj1C7VAUJi8q9W8zaWt2m2jd
-	 TxM4gWwZPBKtVRNGsVzeEawyKvS0jaYLvyGYJNa3lEwjiSSD/2s6sEnSbdbF4nYDFmN20
-	 VDcxoymOkq1DFzJ1uqAeehfAsWQwgrdIhPtWeBdBm/3ZQ8atU03QoXlw36fDSV5zwXQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795539158;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=YX5ug8o9oJEkL3mWFfI5mjaihVcFO/1ltvUssYFun04=;
+	b=f3zDzRxzpCXoE6qGXf9qit0D06iF/0BxUIx0n7SnHf0I+kcHx35Oi6I5Ht8vv0qi5f/8
+	 JwOnXBl+T5T1vMmY5bglNgvvd6V9eLjOovhJsuaep/J4c/e2lm1+4act8nF7ORMfmzrtR
+	 +QocmLOhDogVCjG2f16BKSgtwMerad7sey7llRWgfGRlKSysF0Jj7+U/qm42biTLEPc5E
+	 xP9F+dHftUse+pMXlfEApmy31FyaARzCFfwXnm4XThq11NQV5WbMN4A8Rn/TlceyoxyR7
+	 zgHfb7R80Q6SCqiELfC0M/5IK7IH8Q33KOaMP4lSfoJPzFPeQEqGXhEVC1/cJHLV1EQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=tuxedocomputers.com;
-	spf=pass smtp.mailfrom=tuxedocomputers.com;
-	dkim=pass header.d=tuxedocomputers.com header.i=@tuxedocomputers.com header.a=rsa-sha256 header.s=default header.b=YqW+lAKK;
-	arc=none smtp.remote-ip=157.90.84.7
-Received: from mail.tuxedocomputers.com (mail.tuxedocomputers.com [157.90.84.7])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=yc80fBvj;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B32B606A33C;
-	Tue, 24 Nov 2026 16:52:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B32B606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=tuxedocomputers.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tuxedocomputers.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46A7D606A687
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:52:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46A7D606A687
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=tuxedocomputers.com header.i=@tuxedocomputers.com header.a=rsa-sha256 header.s=default header.b=YqW+lAKK
-Received: from wsembach-tuxedo.buero.augsburg.tuxedo.de (business-024-134-105-141.24.134.pools.vodafone-ip.de [24.134.105.141])
-	(Authenticated sender: wse@tuxedocomputers.com)
-	by mail.tuxedocomputers.com (Postfix) with ESMTPA id 065C92FC004A;
-	Tue, 24 Nov 2026 17:52:31 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tuxedocomputers.com;
-	s=default; t=1795539152;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=zlFQZbNWBXkQuSHi9548ZAMCS2pLYLACEKhtgNjn0zw=;
-	b=YqW+lAKKuJage7En2KJVCXGyI/bYUi7yjyidTE5D2eJXrYQhD7briW63CnyPKA8S7tp/cK
-	uZljeO1H4hTCMSnNrtmWiINk943dVUqoa3lj37tk+u0HV2E6bcMhxcuupqJfS3qu4RcpeL
-	1kjSTbqXFelWkEjKAJFeu+eKar2+6Gw=
-Authentication-Results: mail.tuxedocomputers.com;
-	auth=pass smtp.auth=wse@tuxedocomputers.com smtp.mailfrom=wse@tuxedocomputers.com
-From: Werner Sembach <wse@tuxedocomputers.com>
-To: Armin Wolf <W_Armin@gmx.de>,
-	Hans de Goede <hansg@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: Werner Sembach <wse@tuxedocomputers.com>,
-	platform-driver-x86@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] platform/x86: uniwill-laptop: Remove cTGP control from unsupported devices
-Date: Tue, 24 Nov 2026 17:39:53 +0100
-Message-ID: <20261124165230.680864-1-wse@tuxedocomputers.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=yc80fBvj
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id F0FD54E41709;
+	Tue, 24 Nov 2026 16:52:35 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id BBE6B601E1;
+	Tue, 24 Nov 2026 16:52:35 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 36E8F11E69A89;
+	Tue, 24 Nov 2026 17:52:26 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795539149; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=YX5ug8o9oJEkL3mWFfI5mjaihVcFO/1ltvUssYFun04=;
+	b=yc80fBvjn9by/yw69+NCrlq8bIFH1UaD2UHYwIl41J1NauPD+1dPjWmGblMT3PmGSFwcPJ
+	xyi6mZuexoiTOoGE5zxwhEAbBM9M+JMW//PDmDA3TavSH+M7rGtAqn7btVlEY8w386BKCD
+	0EH1fIvbqzH8OZ4gFBWOlcPL8nLykTo0u3PST4JTw3p67PQyxEtXDAC1R2wZtAgmlltJSK
+	b9IVsb9lPsP7yskPsT0owJp3ip38tDQDr5wS07PZjJfqSzhPIFITZ83FhIS4+kR9Ahjway
+	m09VRssTWMIW+kBdGMnBnqTKYQpb4YVkdGj2iJUlZDVTeFeHR22njRbyTid4IA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Date: Tue, 24 Nov 2026 17:51:31 +0100
+Subject: [PATCH v13 06/10] clk: nuvoton: ma35d1: Use device managed helpers
+ for fixed rate clocks
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,200 +64,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-perso-ma35d1-upstream-clk-v13-6-c920f4a9f0ce@bootlin.com>
+References: <20261124-perso-ma35d1-upstream-clk-v13-0-c920f4a9f0ce@bootlin.com>
+In-Reply-To: <20261124-perso-ma35d1-upstream-clk-v13-0-c920f4a9f0ce@bootlin.com>
+To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Steam Lin <STLin2@winbond.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
+ openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 
-Some devices like the InfinityBook Pro series have Dynamic Boost support,
-but the cTGP setting is actually ignored.
+Most of the clocks are already registered with device managed helpers,
+except the fixed clocks. Harmonize the driver by using the already
+available managed helper for that.
 
-This commit adds the ability to still initialize DB, but hide the noop cTGP
-sysfs attribute and applies this to the respective devices.
-
-Currently there is no functional difference between setting only
-UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL and UNIWILL_FEATURE_NVIDIA_DB_SUPPORT +
-UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL. In both cases the initialization
-procedure is still the same and UNIWILL_FEATURE_NVIDIA_DB_SUPPORT has no
-sysfs attributes to show or hide. However for the possibillity of this to
-change in the future and semantical reasons, the bits should still be set
-accordingly.
-
-Signed-off-by: Werner Sembach <wse@tuxedocomputers.com>
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
-V2: Fix "force" mode not respecting mutual exclusivity of new feature bit.
-V3: Change semantics from "DB only" to "DB support" undoing V2 changes in
-    the process.
+ drivers/clk/nuvoton/clk-ma35d1.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
- drivers/platform/x86/uniwill/uniwill-acpi.c | 39 +++++++++++++++------
- 1 file changed, 29 insertions(+), 10 deletions(-)
+diff --git a/drivers/clk/nuvoton/clk-ma35d1.c b/drivers/clk/nuvoton/clk-ma35d1.c
+index fbed01b41b0d..69a97aafa80d 100644
+--- a/drivers/clk/nuvoton/clk-ma35d1.c
++++ b/drivers/clk/nuvoton/clk-ma35d1.c
+@@ -139,9 +139,9 @@ static const struct clk_div_table eadc_div_table[] = {
+ 	{13, 28}, {14, 30}, {15, 32}, {0, 0},
+ };
+ 
+-static struct clk_hw *ma35d1_clk_fixed(const char *name, int rate)
++static struct clk_hw *ma35d1_clk_fixed(struct device *dev, const char *name, int rate)
+ {
+-	return clk_hw_register_fixed_rate(NULL, name, NULL, 0, rate);
++	return devm_clk_hw_register_fixed_rate(dev, name, NULL, 0, rate);
+ }
+ 
+ static struct clk_hw *ma35d1_clk_mux(struct device *dev, const char *name,
+@@ -282,24 +282,24 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 	 * purposes.
+ 	 */
+ 	if (num_clks == 1) {
+-		hws[HXT] = ma35d1_clk_fixed("hxt", 24000000);
+-		hws[LXT] = ma35d1_clk_fixed("lxt", 32768);
++		hws[HXT] = ma35d1_clk_fixed(dev, "hxt", 24000000);
++		hws[LXT] = ma35d1_clk_fixed(dev, "lxt", 32768);
+ 	}
+ 
+ 	hws[HXT_GATE] = ma35d1_clk_gate_parent_data(dev, "hxt_gate", hxtg_parent_data,
+ 						    clk_base + REG_CLK_PWRCTL, 0);
+ 	hws[LXT_GATE] = ma35d1_clk_gate_parent_data(dev, "lxt_gate", lxtg_parent_data,
+ 						    clk_base + REG_CLK_PWRCTL, 1);
+-	hws[HIRC] = ma35d1_clk_fixed("hirc", 12000000);
++	hws[HIRC] = ma35d1_clk_fixed(dev, "hirc", 12000000);
+ 	hws[HIRC_GATE] = ma35d1_clk_gate(dev, "hirc_gate", "hirc",
+ 					 clk_base + REG_CLK_PWRCTL, 2);
+-	hws[LIRC] = ma35d1_clk_fixed("lirc", 32000);
++	hws[LIRC] = ma35d1_clk_fixed(dev, "lirc", 32000);
+ 	hws[LIRC_GATE] = ma35d1_clk_gate(dev, "lirc_gate", "lirc",
+ 					 clk_base + REG_CLK_PWRCTL, 3);
+ 
+ 	hws[CAPLL] = ma35d1_reg_clk_pll(dev, CAPLL, pllmode[0], "capll",
+ 					hws[HXT_GATE], clk_base + REG_CLK_PLL0CTL0);
+-	hws[SYSPLL] = ma35d1_clk_fixed("syspll", 180000000);
++	hws[SYSPLL] = ma35d1_clk_fixed(dev, "syspll", 180000000);
+ 	hws[DDRPLL] = ma35d1_reg_clk_pll(dev, DDRPLL, pllmode[1], "ddrpll",
+ 					hws[HXT_GATE], clk_base + REG_CLK_PLL2CTL0);
+ 	hws[APLL] = ma35d1_reg_clk_pll(dev, APLL, pllmode[2], "apll",
+@@ -340,8 +340,8 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 	hws[PCLK3_DIV4096] = ma35d1_clk_fixed_factor(dev, "pclk3_div4096", "pclk3", 1, 4096);
+ 	hws[PCLK4_DIV4096] = ma35d1_clk_fixed_factor(dev, "pclk4_div4096", "pclk4", 1, 4096);
+ 
+-	hws[USBPHY0] = ma35d1_clk_fixed("usbphy0", 480000000);
+-	hws[USBPHY1] = ma35d1_clk_fixed("usbphy1", 480000000);
++	hws[USBPHY0] = ma35d1_clk_fixed(dev, "usbphy0", 480000000);
++	hws[USBPHY1] = ma35d1_clk_fixed(dev, "usbphy1", 480000000);
+ 
+ 	/* DDR */
+ 	hws[DDR0_GATE] = ma35d1_clk_gate(dev, "ddr0_gate", "ddrpll",
 
-diff --git a/drivers/platform/x86/uniwill/uniwill-acpi.c b/drivers/platform/x86/uniwill/uniwill-acpi.c
-index e2a6a704e942e..3d8f40239708c 100644
---- a/drivers/platform/x86/uniwill/uniwill-acpi.c
-+++ b/drivers/platform/x86/uniwill/uniwill-acpi.c
-@@ -365,11 +365,12 @@
- #define UNIWILL_FEATURE_GPU_TEMP		BIT(7)
- #define UNIWILL_FEATURE_PRIMARY_FAN		BIT(8)
- #define UNIWILL_FEATURE_SECONDARY_FAN		BIT(9)
--#define UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL	BIT(10)
--#define UNIWILL_FEATURE_USB_C_POWER_PRIORITY	BIT(11)
--#define UNIWILL_FEATURE_KEYBOARD_BACKLIGHT	BIT(12)
--#define UNIWILL_FEATURE_AC_AUTO_BOOT		BIT(13)
--#define UNIWILL_FEATURE_USB_POWERSHARE		BIT(14)
-+#define UNIWILL_FEATURE_NVIDIA_DB_SUPPORT	BIT(10)
-+#define UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL	BIT(11)
-+#define UNIWILL_FEATURE_USB_C_POWER_PRIORITY	BIT(12)
-+#define UNIWILL_FEATURE_KEYBOARD_BACKLIGHT	BIT(13)
-+#define UNIWILL_FEATURE_AC_AUTO_BOOT		BIT(14)
-+#define UNIWILL_FEATURE_USB_POWERSHARE		BIT(15)
- 
- enum usb_c_power_priority_options {
- 	USB_C_POWER_PRIORITY_CHARGING = 0,
-@@ -1004,7 +1005,9 @@ static int uniwill_nvidia_ctgp_init(struct uniwill_data *data)
- {
- 	int ret;
- 
--	if (!uniwill_device_supports(data, UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL))
-+	if (!uniwill_device_supports_any(data,
-+					 UNIWILL_FEATURE_NVIDIA_DB_SUPPORT |
-+					 UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL))
- 		return 0;
- 
- 	ret = regmap_write(data->regmap, EC_ADDR_CTGP_DB_CTGP_OFFSET, 0);
-@@ -2577,7 +2580,9 @@ static int uniwill_suspend_usb_powershare(struct uniwill_data *data)
- 
- static int uniwill_suspend_nvidia_ctgp(struct uniwill_data *data)
- {
--	if (!uniwill_device_supports(data, UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL))
-+	if (!uniwill_device_supports_any(data,
-+					 UNIWILL_FEATURE_NVIDIA_DB_SUPPORT |
-+					 UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL))
- 		return 0;
- 
- 	return regmap_clear_bits(data->regmap, EC_ADDR_CTGP_DB_CTRL,
-@@ -2686,7 +2691,9 @@ static int uniwill_resume_usb_powershare(struct uniwill_data *data)
- 
- static int uniwill_resume_nvidia_ctgp(struct uniwill_data *data)
- {
--	if (!uniwill_device_supports(data, UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL))
-+	if (!uniwill_device_supports_any(data,
-+					 UNIWILL_FEATURE_NVIDIA_DB_SUPPORT |
-+					 UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL))
- 		return 0;
- 
- 	return regmap_set_bits(data->regmap, EC_ADDR_CTGP_DB_CTRL,
-@@ -2773,6 +2780,7 @@ static struct uniwill_device_descriptor machenike_l16p_descriptor __initdata = {
- 		    UNIWILL_FEATURE_GPU_TEMP |
- 		    UNIWILL_FEATURE_PRIMARY_FAN |
- 		    UNIWILL_FEATURE_SECONDARY_FAN |
-+		    UNIWILL_FEATURE_NVIDIA_DB_SUPPORT |
- 		    UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
- 		    UNIWILL_FEATURE_KEYBOARD_BACKLIGHT |
- 		    UNIWILL_FEATURE_AC_AUTO_BOOT |
-@@ -2789,6 +2797,7 @@ static struct uniwill_device_descriptor mechrevo_yilong15pro_descriptor __initda
- 		    UNIWILL_FEATURE_GPU_TEMP |
- 		    UNIWILL_FEATURE_PRIMARY_FAN |
- 		    UNIWILL_FEATURE_SECONDARY_FAN |
-+		    UNIWILL_FEATURE_NVIDIA_DB_SUPPORT |
- 		    UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
- 		    UNIWILL_FEATURE_KEYBOARD_BACKLIGHT |
- 		    UNIWILL_FEATURE_AC_AUTO_BOOT |
-@@ -2805,6 +2814,7 @@ static struct uniwill_device_descriptor mechrevo_jiaolong_series_x6xr55xk __init
- 		    UNIWILL_FEATURE_GPU_TEMP |
- 		    UNIWILL_FEATURE_PRIMARY_FAN |
- 		    UNIWILL_FEATURE_SECONDARY_FAN |
-+		    UNIWILL_FEATURE_NVIDIA_DB_SUPPORT |
- 		    UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
- 		    UNIWILL_FEATURE_KEYBOARD_BACKLIGHT |
- 		    UNIWILL_FEATURE_AC_AUTO_BOOT |
-@@ -2845,6 +2855,7 @@ static struct uniwill_device_descriptor lapkc71e_descriptor __initdata = {
- 		    UNIWILL_FEATURE_GPU_TEMP |
- 		    UNIWILL_FEATURE_PRIMARY_FAN |
- 		    UNIWILL_FEATURE_SECONDARY_FAN |
-+		    UNIWILL_FEATURE_NVIDIA_DB_SUPPORT |
- 		    UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL,
- 	.lightbar_max_intensity = 200,
- };
-@@ -2910,7 +2921,7 @@ static struct uniwill_device_descriptor phxtqxx_phxagxx_phxaqxx_phxpgxx_descript
- 		    UNIWILL_FEATURE_GPU_TEMP |
- 		    UNIWILL_FEATURE_PRIMARY_FAN |
- 		    UNIWILL_FEATURE_SECONDARY_FAN |
--		    UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
-+		    UNIWILL_FEATURE_NVIDIA_DB_SUPPORT |
- 		    UNIWILL_FEATURE_USB_C_POWER_PRIORITY |
- 		    UNIWILL_FEATURE_KEYBOARD_BACKLIGHT,
- 	.kbd_led_single_color = true,
-@@ -2925,6 +2936,7 @@ static struct uniwill_device_descriptor gmxmgxx_gmxngxx_gmxxgxx_descriptor __ini
- 		    UNIWILL_FEATURE_GPU_TEMP |
- 		    UNIWILL_FEATURE_PRIMARY_FAN |
- 		    UNIWILL_FEATURE_SECONDARY_FAN |
-+		    UNIWILL_FEATURE_NVIDIA_DB_SUPPORT |
- 		    UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
- 		    UNIWILL_FEATURE_USB_C_POWER_PRIORITY |
- 		    UNIWILL_FEATURE_KEYBOARD_BACKLIGHT,
-@@ -2940,6 +2952,7 @@ static struct uniwill_device_descriptor gmxzgxx_gmxtgxx_pol_descriptor __initdat
- 		    UNIWILL_FEATURE_GPU_TEMP |
- 		    UNIWILL_FEATURE_PRIMARY_FAN |
- 		    UNIWILL_FEATURE_SECONDARY_FAN |
-+		    UNIWILL_FEATURE_NVIDIA_DB_SUPPORT |
- 		    UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
- 		    UNIWILL_FEATURE_USB_C_POWER_PRIORITY |
- 		    UNIWILL_FEATURE_KEYBOARD_BACKLIGHT,
-@@ -2956,6 +2969,7 @@ static struct uniwill_device_descriptor gmxzgxx_gmxtgxx_ste_descriptor __initdat
- 		    UNIWILL_FEATURE_GPU_TEMP |
- 		    UNIWILL_FEATURE_PRIMARY_FAN |
- 		    UNIWILL_FEATURE_SECONDARY_FAN |
-+		    UNIWILL_FEATURE_NVIDIA_DB_SUPPORT |
- 		    UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
- 		    UNIWILL_FEATURE_USB_C_POWER_PRIORITY,
- 	.lightbar_max_intensity = 36,
-@@ -2996,6 +3010,7 @@ static struct uniwill_device_descriptor gmxrgxx_descriptor __initdata = {
- 		    UNIWILL_FEATURE_GPU_TEMP |
- 		    UNIWILL_FEATURE_PRIMARY_FAN |
- 		    UNIWILL_FEATURE_SECONDARY_FAN |
-+		    UNIWILL_FEATURE_NVIDIA_DB_SUPPORT |
- 		    UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL,
- 	.probe = gmxrgxx_probe,
- };
-@@ -3009,6 +3024,7 @@ static struct uniwill_device_descriptor gmxagxx_descriptor __initdata = {
- 		    UNIWILL_FEATURE_GPU_TEMP |
- 		    UNIWILL_FEATURE_PRIMARY_FAN |
- 		    UNIWILL_FEATURE_SECONDARY_FAN |
-+		    UNIWILL_FEATURE_NVIDIA_DB_SUPPORT |
- 		    UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL,
- 	.lightbar_max_intensity = 36,
- };
-@@ -3021,6 +3037,7 @@ static struct uniwill_device_descriptor gmxxgxx_gmxpxxx_descriptor __initdata =
- 		    UNIWILL_FEATURE_GPU_TEMP |
- 		    UNIWILL_FEATURE_PRIMARY_FAN |
- 		    UNIWILL_FEATURE_SECONDARY_FAN |
-+		    UNIWILL_FEATURE_NVIDIA_DB_SUPPORT |
- 		    UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL,
- };
- 
-@@ -3046,6 +3063,7 @@ static struct uniwill_device_descriptor gmxhgxx_descriptor __initdata = {
- 		    UNIWILL_FEATURE_GPU_TEMP |
- 		    UNIWILL_FEATURE_PRIMARY_FAN |
- 		    UNIWILL_FEATURE_SECONDARY_FAN |
-+		    UNIWILL_FEATURE_NVIDIA_DB_SUPPORT |
- 		    UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
- 		    UNIWILL_FEATURE_AC_AUTO_BOOT |
- 		    UNIWILL_FEATURE_USB_POWERSHARE |
-@@ -3062,6 +3080,7 @@ static struct uniwill_device_descriptor gmxixxx_xxxx45xx_xxxx55xx_xxxx57xx_descr
- 		    UNIWILL_FEATURE_GPU_TEMP |
- 		    UNIWILL_FEATURE_PRIMARY_FAN |
- 		    UNIWILL_FEATURE_SECONDARY_FAN |
-+		    UNIWILL_FEATURE_NVIDIA_DB_SUPPORT |
- 		    UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
- 		    UNIWILL_FEATURE_AC_AUTO_BOOT |
- 		    UNIWILL_FEATURE_USB_POWERSHARE,
-@@ -3106,7 +3125,7 @@ static int phxarxx_phxaqxx_probe(struct uniwill_data *data)
- 
- 	if (value & HAS_GPU)
- 		data->features |= UNIWILL_FEATURE_GPU_TEMP |
--				  UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL;
-+				  UNIWILL_FEATURE_NVIDIA_DB_SUPPORT;
- 
- 	return 0;
- };
 -- 
-2.43.0
+2.56.0
 
