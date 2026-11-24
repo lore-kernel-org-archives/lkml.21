@@ -1,99 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795497192;
-	b=vmT/7wLfBta0IBABbvODjCo00+KHDFKb8t5ZAlQZ5ktd3Ry1hGo51JW2Gxds1F1h+a49
-	 zTNUZ+7hNHtChGUzHjktKD/b8c9WvW8zkLYPtURXipp4hRkjm6jQb/TcF+uCEXVhT+5vC
-	 DHAWNbIYzp4IdMwrZ3t6GQbPi/zlp0FiRMsJ1CZhqXdiS4Dr9vhHCerb1m9NLTVt5j5Gv
-	 7sRDqaDF9qApvjwT2ZNYUsF9vG5KPAgq8jkbwZNxlaPWW6h7+D7Nnl8RaQczDuAv1aOuh
-	 QWuMfhqsmlrMcCEXAvzXJa2hW/zQnZ+98/akmAKRVfP3TPjgQzzn8Ehc7Y1o41JVhcw==
+	t=1795497337;
+	b=jN1Q0/4NWJRsI93O4YpTXPRqCrZ7Nv76Ot7lFhBI07USHbhOC3MUR5sONkH5FPKev6rt
+	 YBy86vqhLwPDHh8kxVW5mXwSoc9usdPql+RjDa/w1a9QaWV+JCCFoJRI5Fl46hl1BSJ/c
+	 GMWpY14hfpwtvPgo024VzMs7jDyBbK5BC4wyuUkHd7iiQeAvdsTajlsoYiFeFGdijHK04
+	 qr1B/JEzqa8zDEQO+JlSinydAd4C1aj6UxLFj771EjgQXetzcHJORQ5l+8wUUVIWAzifn
+	 RQvbH8qAmV3rr4hFNQqsxJckmKiNwFXi0IL8on7oZIiPSN1p3wFAbxx3bjjCxfq+W+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795497192;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=ChElyjeOV56VhhhS6y+bmoegOQ219Y3F4kqbJHEklmc=;
-	b=Wr7N7Ba+eL1eLdc3GfK3NDVmALhADAQxL0EeAaQghHC0Am/2iLi9ystVwmYNe17sBxA+
-	 L1ZQK9KG2tgdaFkmFIDGKqWn9kDAIZTZ/PXrCYfWxp4UTWvjW6/atMMLRyzw0ctZB6UQB
-	 AICwwnpmh7k3jWQJvVVr0KMJKtWfByUbz9GhTftMOd6Dfd0dMueCJW7UDL5PtyCi9ov5y
-	 B0fIjbgyyx3aVaxIfFp4rVIk5s8+f9fj++iqSGtpe3KfQKluGX4iFfhdWbyzQTZnADKow
-	 ksEsEHJ929oG0IO78QyKggNrPn0V5160w9jXgsVNR3+6oxSZGU8PB8dDzL2QIkMVedg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795497337;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=7vHjvmD/PBQZO1TvMxOYcbhdY53Pzfcnl62FBgloeOM=;
+	b=YxbLyEGl7M7WCE1hXbfDOJIOteTV2oIl+7E1VOTYd5bRYAJj6YjvMr9ncTQynfGW4sTd
+	 3jEL6HcqfOo6edpQIG9hBY/3I7bspMDX8h9zU5U0vEQUR0ZgmCMqNL3CxuYgM67mUJgDp
+	 J+fZPRqHwKPpt73oyZcSkDpct9SEz8rMLTiL2fqmH6cL+ePqe4nilhHHV/bMukywWxDkN
+	 NaKgt4p2N5P7pm1pt7kbbn2wbLjU1HFPSgq1Fe2Qbyd8vOOKi5ozv26Xl4etcWBUdScyA
+	 4ZHJ/m2UpGCYbjVbCQQUNAbA3hmuyGdYN3nJ1MGbQm2X8c69tjDFZ/1nl+WQdmw0eVQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=khgue2PP;
-	arc=none smtp.remote-ip=209.85.216.44
-Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=T7GGqNaf;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E75BA606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:13:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E75BA606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2444606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:15:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2444606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=khgue2PP
-Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3b44bdcea8aso1846025a91.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:13:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795497191; x=1796101991; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ChElyjeOV56VhhhS6y+bmoegOQ219Y3F4kqbJHEklmc=;
-        b=khgue2PPaBrP38DxFon8dyZrSoodrFVtzOFF7wWddeLQdJ7Ue4YQwRyvzkzhw6kf1V
-         GuhObaTkdhOBlgwFkdf1mXMb9aCMDEhqyL4GLaUKCp8ZEzQy8Zw3I3wtEznxAcSyHP49
-         N/T5nX66bQa/ufdmfIAFd6oxBtpTaYCbnfu/XbZd5E0tZjVhhcyX3PUhpUl1JbHzSjBn
-         KsVhp+bCup+IUsOSHtwU05gERVtqQeRUfGyJg0ryVDMZU4kw70dy08UqZsFc/XfqAcZ1
-         WAV5BwAtx2cC8iJxMbx8P4B9k4XXgL8alQT4Ypt5A03RlYKmDgaKWG0yKZtWeibWixhV
-         VMOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795497191; x=1796101991;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ChElyjeOV56VhhhS6y+bmoegOQ219Y3F4kqbJHEklmc=;
-        b=E5117wP6mcp3QG8m3Irt6ni2obL9H/Gv2YCN5vusqWwBfmyoAbsLdqDBQXMr+H8T14
-         sN3+XdZS9ApFT8XZOT2oYnj33iuHc1nFWChZhYrZ0fgMRmOoqRVZIPp9YcRsMRIXqip5
-         7aYKK7Li5LOjXiDMTVIUxoQIofad4lkl843hVp6XAdsnDHFCA3t8J5S9RmJaWsSxoMkZ
-         4QKRQGq148+YrseMwUujtle9VsD5nfNR/Ve0e1/W20xOOh7shZ3+cAC03YvEGDuPCOfL
-         G7E0Hh5KQdWHiBqDdY/XBmjxeR3re+AWUlQwYL6Deeq59KAbg5ZEXZCpazfOIe0B+Mqk
-         9HiA==
-X-Forwarded-Encrypted: i=1; AL+hErF6DYwmiq+/+cF7IoqEMnVxfiljnXJisd/ViTbDIUwRQA5cbDSFzeTbXFMELwpzuGNJ0xKhMXdVLsKZHGc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/BmrAcuo9BltVBUrO6pTTkLCGOxU4Bo/GSd3YEPlZQhwMW8TEq
-	tP7N5RWvTS/52qBzDp3FDU29h5OUvbFeDwrraaJ146i+RRq7E9E09dHh5kTyiPA4
-X-Gm-Gg: AZFdTZfflmLk2i7oPksKXHQS5HPLoMh+aZZO1XlU0u51436hfUrBKyAGv7QnuePrnSa
-	hDordqKl+5oYA6k3lJGYc14FcHdx6AySAAlaJw6pLaAw0XO1n43L0HGe4csElUlqMWJnUqrtrgf
-	Sl6I5hARYK9VqRxO/XoWz9VbNYfCjgcdtQTTfaStXDXcVz5zbdCf5sVmbp3dp3unW6gswd30+Kz
-	YryBomXUIRy9kGd+0Pp0arqJu4omDidcwfbZqZP8Zox/f1TdfvvAYJmvLpMlWGXuGRMlnWsgZr0
-	W6D6rCbplDA99LZap8AwubPvd90B05Gp8iVMbaZTjan3V7xLml2D24JndwV4aLl0AD6vArBDBMj
-	qZCNYTfIufjW2Qsha28K1Ow/gqKscrd3o85XcdeIdqNiGomWCuJ5Cr2jsaagpPqdJijbr6Dshx2
-	6VI62u5B3TYVs3T8YILs6rV6jRB7Q+LnF6rgamBhCU4GRwy7BahFGK2s01Pm2f3orKv7HKA+hvS
-	R+O6qZuVbtru8Dj4EdQ65TCBmvBC/d+Wkugrt0Ptzx/Yw2mId7eUfu6k9sjblhelMiZSZKwEN6y
-	mOVOPYfcFpfs7Il6z3v4jG/si68cDJrqZwL8YKdYXH/oWBNWk79P0LB2xGbzkEQ+3fM=
-X-Received: by 2002:a17:90b:5289:b0:3b0:9bfa:72ac with SMTP id 98e67ed59e1d1-3b41c908147mr9432607a91.21.1795497191050;
-        Mon, 23 Nov 2026 21:13:11 -0800 (PST)
-Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b704cfesm7500992a91.1.2026.11.23.21.13.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 21:13:10 -0800 (PST)
-From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Jay Vosburgh <jv@jvosburgh.net>,
-	Hangbin Liu <hangbin.liu@linux.dev>,
-	Nikolay Aleksandrov <razor@blackwall.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v4 1/1] bonding: keep non-Ethernet slaves out of 802.3ad bonds
-Date: Tue, 24 Nov 2026 14:13:03 +0900
-Message-ID: <179549697473.218888.6814133305133689781@gmail.com>
-In-Reply-To: <179549697473.218888.8044828119056769556@gmail.com>
-References: <179549697473.218888.8044828119056769556@gmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=T7GGqNaf
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795497337; x=1827033337;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=YqOdD8uGwOjh3QOL1+7zMtLz55iOD5EU0eL7Q3rsA9U=;
+  b=T7GGqNafnHMeNsu0kTzS94DxTQskSSWgj9ktZ+ct41ntcX6PoCV3wiDi
+   a6xjVs7HCjpIA2Flb3yPsgw2ufCFkZPeh62qmqoBiZTLXRWwGrIbClZkv
+   8/6U59a+W0lBB8THJ0g8x91N96AVTzjlp78dSWZ0zBkq0xi3ELRb5Vfzh
+   XY/3RSB9pOb1cO/QEan4q9+51bkIYAMeUC4pAH20heLqTrvsI+X6dWkGN
+   QJXjluzIxoP/0DC7XyfhxsTudL892nv2GAEJNyHu5fe2lWHiJ39pBM0OF
+   qobYoOlrJpURH0FMCocjzfAuXlj+GLMySjWsWXNAxu2oXh9gZfCPN5WFY
+   w==;
+X-CSE-ConnectionGUID: Jdp4w5LLQa2xJcADw35oug==
+X-CSE-MsgGUID: Q/DzCTafR52gbGF1Hu0ytw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4209948"
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="4209948"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 21:15:36 -0800
+X-CSE-ConnectionGUID: csY2rVqoSoiH5F/p0ILSUg==
+X-CSE-MsgGUID: jOkqv0guQdKI43BJpjnUBg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="11809953"
+Received: from linux-pnp-gnr-1.sh.intel.com ([10.239.83.186])
+  by fmviesa007.fm.intel.com with ESMTP; 23 Nov 2026 21:15:33 -0800
+From: Jiebin Sun <jiebin.sun@intel.com>
+To: akpm@linux-foundation.org,
+	bigeasy@linutronix.de
+Cc: dennis@kernel.org,
+	tj@kernel.org,
+	cl@gentwo.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	clrkwllms@kernel.org,
+	rostedt@goodmis.org,
+	linux-rt-devel@lists.linux.dev,
+	tim.c.chen@linux.intel.com,
+	tianyou.li@intel.com,
+	wangyang.guo@intel.com
+Subject: [PATCH v2] lib/percpu_counter: allow concurrent sums with an rwlock
+Date: Tue, 24 Nov 2026 13:19:52 +0800
+Message-ID: <20261124051952.1059282-1-jiebin.sun@intel.com>
+X-Mailer: git-send-email 2.52.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,86 +89,310 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-bond_open() adds the 8-byte lacpdu_mcast_addr to every slave of an
-802.3ad bond with dev_mc_add(), which copies the slave's addr_len bytes.
-A slave with a 16-byte address, such as an ip6tnl device, makes it read
-past the array:
+__percpu_counter_sum() holds a raw spinlock while reading the global
+count and per-CPU deltas, serializing concurrent sums of the same
+counter. Since a sum changes neither the global count nor the per-CPU
+deltas, use rwlock_t on !PREEMPT_RT to allow concurrent sums with a
+read lock. Global updates take the write lock. The per-CPU fast path
+remains lockless, so sums keep their existing snapshot semantics.
 
-  BUG: KASAN: global-out-of-bounds in __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
-  Read of size 16 at addr ffffffff878a2940 by task test/114
-  Call Trace:
-   <TASK>
-   __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
-   dev_mc_add (net/core/dev_addr_lists.c:1036 net/core/dev_addr_lists.c:1054)
-   bond_open (drivers/net/bonding/bond_main.c:4405)
-   __dev_open (net/core/dev.c:1762)
-   __dev_change_flags (net/core/dev.c:10022)
-   netif_change_flags (net/core/dev.c:10087)
-   do_setlink.isra.0 (net/core/rtnetlink.c:3294)
-   rtnl_setlink (net/core/rtnetlink.c:3633)
+stress-ng dentry reaches this path through ext4_statfs():
 
-Commit c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet
-devices") rejects such a slave only when enslaving it changes the
-bond's type. A bond keeps the type of its last slave after that slave
-is released, so a bond that once had an ARPHRD_TUNNEL6 slave can be set
-to 802.3ad and take another TUNNEL6 device. A slave that is itself a
-bond can also change its type after it was enslaved, when a
-non-Ethernet device is enslaved to it.
+  statfs -> ext4_statfs -> __percpu_counter_sum
+         -> native_queued_spin_lock_slowpath
 
-Check that an 802.3ad slave is an Ethernet device before the type
-handling, for every slave, and refuse NETDEV_PRE_TYPE_CHANGE for a
-slave of an 802.3ad bond, as team does for its ports. Other modes still
-allow the type change, as bond-eth-type-change.sh expects.
+ext4_statfs() uses percpu_counter_sum_positive(), which calls
+__percpu_counter_sum(). At low writeback thresholds, dirty throttling
+also reaches percpu_counter_sum_positive() through wb_stat_sum().
+Buffered writers sharing a writeback instance can sum the same page
+counters concurrently.
 
-Fixes: c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet devices")
-Suggested-by: Jay Vosburgh <jv@jvosburgh.net>
-Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+Keep the raw spinlock on PREEMPT_RT, where rwlock_t can sleep.
+Global counter updates can run in atomic context and must not sleep.
+
+stress-ng dentry test average throughput change:
+
+  +------------------------+------------+--------------------+
+  | Case                   | Unit       | Average change (%) |
+  +------------------------+------------+--------------------+
+  | Dentry, 64 workers     | bogo ops/s |             +47.34 |
+  +------------------------+------------+--------------------+
+
+Dentry ran on ext4 with 64 workers pinned to physical CPUs:
+
+  stress-ng --dentry 64 --dentries 4096 --timeout 20s
+
+fio results from the review thread (3 x 60 s per batch, vs. mean baseline):
+
+  +------+------------+-----------------+---------+
+  | Test | Throughput | CPU utilization | Cycles  |
+  +------+------------+-----------------+---------+
+  | fio  |     +6.91% |         -40.41% | -40.80% |
+  +------+------------+-----------------+---------+
+
+fio ran on ext4 with 64 buffered jobs, 64 KiB sequential writes,
+a 32 GiB memory limit, and 64/32 MiB dirty/background limits.
+
+Suggested-by: Tim Chen <tim.c.chen@linux.intel.com>
+Reviewed-by: Tianyou Li <tianyou.li@intel.com>
+Reviewed-by: Wangyang Guo <wangyang.guo@intel.com>
+Signed-off-by: Jiebin Sun <jiebin.sun@intel.com>
 ---
- drivers/net/bonding/bond_main.c | 17 +++++++++++------
- 1 file changed, 11 insertions(+), 6 deletions(-)
+Changes in v2:
+- Replace the locking macros with static inline functions.
+- Explain the RT lock choice in struct percpu_counter.
+- Describe the percpu_counter_sum_positive() and dirty-throttling callers.
 
-diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
-index 776afdb9df43..cf67104777d0 100644
---- a/drivers/net/bonding/bond_main.c
-+++ b/drivers/net/bonding/bond_main.c
-@@ -1951,6 +1951,13 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
- 		return -EPERM;
+v1: https://lore.kernel.org/linux-mm/20261116015655.2744577-1-jiebin.sun@intel.com/
+
+ include/linux/percpu_counter.h |   5 ++
+ lib/percpu_counter.c           | 126 ++++++++++++++++++++++++++++-----
+ 2 files changed, 115 insertions(+), 16 deletions(-)
+
+diff --git a/include/linux/percpu_counter.h b/include/linux/percpu_counter.h
+index 3a44dd1e33d2..b3bdae27ece9 100644
+--- a/include/linux/percpu_counter.h
++++ b/include/linux/percpu_counter.h
+@@ -20,7 +20,12 @@
+ #ifdef CONFIG_SMP
+ 
+ struct percpu_counter {
++#ifdef CONFIG_PREEMPT_RT
++	/* Updates can run in atomic context, where an RT rwlock may sleep. */
+ 	raw_spinlock_t lock;
++#else
++	rwlock_t lock;		/* shared for sums, exclusive for updates */
++#endif
+ 	s64 count;
+ #ifdef CONFIG_HOTPLUG_CPU
+ 	struct list_head list;	/* All percpu_counters are on a list */
+diff --git a/lib/percpu_counter.c b/lib/percpu_counter.c
+index 87b261b87b0b..a91d20d73a0b 100644
+--- a/lib/percpu_counter.c
++++ b/lib/percpu_counter.c
+@@ -15,6 +15,101 @@ static LIST_HEAD(percpu_counters);
+ static DEFINE_SPINLOCK(percpu_counters_lock);
+ #endif
+ 
++#ifdef CONFIG_PREEMPT_RT
++static inline void fbc_lock(struct percpu_counter *fbc)
++{
++	raw_spin_lock(&fbc->lock);
++}
++
++static inline void fbc_unlock(struct percpu_counter *fbc)
++{
++	raw_spin_unlock(&fbc->lock);
++}
++
++static inline unsigned long fbc_lock_irqsave(struct percpu_counter *fbc)
++{
++	unsigned long flags;
++
++	raw_spin_lock_irqsave(&fbc->lock, flags);
++	return flags;
++}
++
++static inline void fbc_unlock_irqrestore(struct percpu_counter *fbc,
++					 unsigned long flags)
++{
++	raw_spin_unlock_irqrestore(&fbc->lock, flags);
++}
++
++static inline unsigned long fbc_read_lock_irqsave(struct percpu_counter *fbc)
++{
++	return fbc_lock_irqsave(fbc);
++}
++
++static inline void fbc_read_unlock_irqrestore(struct percpu_counter *fbc,
++					      unsigned long flags)
++{
++	fbc_unlock_irqrestore(fbc, flags);
++}
++
++static inline void fbc_lock_init(struct percpu_counter *fbc,
++				 struct lock_class_key *key)
++{
++	raw_spin_lock_init(&fbc->lock);
++	lockdep_set_class(&fbc->lock, key);
++}
++#else
++static inline void fbc_lock(struct percpu_counter *fbc)
++{
++	write_lock(&fbc->lock);
++}
++
++static inline void fbc_unlock(struct percpu_counter *fbc)
++{
++	write_unlock(&fbc->lock);
++}
++
++static inline unsigned long fbc_lock_irqsave(struct percpu_counter *fbc)
++{
++	unsigned long flags;
++
++	write_lock_irqsave(&fbc->lock, flags);
++	return flags;
++}
++
++static inline void fbc_unlock_irqrestore(struct percpu_counter *fbc,
++					 unsigned long flags)
++{
++	write_unlock_irqrestore(&fbc->lock, flags);
++}
++
++static inline unsigned long fbc_read_lock_irqsave(struct percpu_counter *fbc)
++{
++	unsigned long flags;
++
++	read_lock_irqsave(&fbc->lock, flags);
++	return flags;
++}
++
++static inline void fbc_read_unlock_irqrestore(struct percpu_counter *fbc,
++					      unsigned long flags)
++{
++	read_unlock_irqrestore(&fbc->lock, flags);
++}
++
++static inline void fbc_lock_init(struct percpu_counter *fbc,
++				 struct lock_class_key *key)
++{
++	rwlock_init(&fbc->lock);
++	/*
++	 * rwlock_t normally uses LD_WAIT_CONFIG because it sleeps on RT.
++	 * This counter uses a raw spinlock on RT, so it can be taken under
++	 * raw spinlocks or with IRQs off on every configuration.
++	 */
++	lockdep_init_map_wait(&fbc->lock.dep_map, "&fbc->lock", key, 0,
++			      LD_WAIT_SPIN);
++}
++#endif
++
+ #ifdef CONFIG_DEBUG_OBJECTS_PERCPU_COUNTER
+ 
+ static const struct debug_obj_descr percpu_counter_debug_descr;
+@@ -62,13 +157,13 @@ void percpu_counter_set(struct percpu_counter *fbc, s64 amount)
+ 	int cpu;
+ 	unsigned long flags;
+ 
+-	raw_spin_lock_irqsave(&fbc->lock, flags);
++	flags = fbc_lock_irqsave(fbc);
+ 	for_each_possible_cpu(cpu) {
+ 		s32 *pcount = per_cpu_ptr(fbc->counters, cpu);
+ 		*pcount = 0;
+ 	}
+ 	fbc->count = amount;
+-	raw_spin_unlock_irqrestore(&fbc->lock, flags);
++	fbc_unlock_irqrestore(fbc, flags);
+ }
+ EXPORT_SYMBOL(percpu_counter_set);
+ 
+@@ -98,7 +193,7 @@ void percpu_counter_add_batch(struct percpu_counter *fbc, s64 amount, s32 batch)
+ 	count = this_cpu_read(*fbc->counters);
+ 	do {
+ 		if (unlikely(abs(count + amount) >= batch)) {
+-			raw_spin_lock_irqsave(&fbc->lock, flags);
++			flags = fbc_lock_irqsave(fbc);
+ 			/*
+ 			 * Note: by now we might have migrated to another CPU
+ 			 * or the value might have changed.
+@@ -106,7 +201,7 @@ void percpu_counter_add_batch(struct percpu_counter *fbc, s64 amount, s32 batch)
+ 			count = __this_cpu_read(*fbc->counters);
+ 			fbc->count += count + amount;
+ 			__this_cpu_sub(*fbc->counters, count);
+-			raw_spin_unlock_irqrestore(&fbc->lock, flags);
++			fbc_unlock_irqrestore(fbc, flags);
+ 			return;
+ 		}
+ 	} while (!this_cpu_try_cmpxchg(*fbc->counters, &count, count + amount));
+@@ -125,10 +220,10 @@ void percpu_counter_add_batch(struct percpu_counter *fbc, s64 amount, s32 batch)
+ 	local_irq_save(flags);
+ 	count = __this_cpu_read(*fbc->counters) + amount;
+ 	if (abs(count) >= batch) {
+-		raw_spin_lock(&fbc->lock);
++		fbc_lock(fbc);
+ 		fbc->count += count;
+ 		__this_cpu_sub(*fbc->counters, count - amount);
+-		raw_spin_unlock(&fbc->lock);
++		fbc_unlock(fbc);
+ 	} else {
+ 		this_cpu_add(*fbc->counters, amount);
+ 	}
+@@ -148,11 +243,11 @@ void percpu_counter_sync(struct percpu_counter *fbc)
+ 	unsigned long flags;
+ 	s64 count;
+ 
+-	raw_spin_lock_irqsave(&fbc->lock, flags);
++	flags = fbc_lock_irqsave(fbc);
+ 	count = __this_cpu_read(*fbc->counters);
+ 	fbc->count += count;
+ 	__this_cpu_sub(*fbc->counters, count);
+-	raw_spin_unlock_irqrestore(&fbc->lock, flags);
++	fbc_unlock_irqrestore(fbc, flags);
+ }
+ EXPORT_SYMBOL(percpu_counter_sync);
+ 
+@@ -174,13 +269,13 @@ s64 __percpu_counter_sum(struct percpu_counter *fbc)
+ 	int cpu;
+ 	unsigned long flags;
+ 
+-	raw_spin_lock_irqsave(&fbc->lock, flags);
++	flags = fbc_read_lock_irqsave(fbc);
+ 	ret = fbc->count;
+ 	for_each_cpu_or(cpu, cpu_online_mask, cpu_dying_mask) {
+ 		s32 *pcount = per_cpu_ptr(fbc->counters, cpu);
+ 		ret += *pcount;
+ 	}
+-	raw_spin_unlock_irqrestore(&fbc->lock, flags);
++	fbc_read_unlock_irqrestore(fbc, flags);
+ 	return ret;
+ }
+ EXPORT_SYMBOL(__percpu_counter_sum);
+@@ -203,8 +298,7 @@ int __percpu_counter_init_many(struct percpu_counter *fbc, s64 amount,
  	}
  
-+	if (slave_dev->type != ARPHRD_ETHER &&
-+	    BOND_MODE(bond) == BOND_MODE_8023AD) {
-+		SLAVE_NL_ERR(bond_dev, slave_dev, extack,
-+			     "8023AD mode requires Ethernet devices");
-+		return -EINVAL;
-+	}
-+
- 	/* set bonding device ether type by slave - bonding netdevices are
- 	 * created with ether_setup, so when the slave type is not ARPHRD_ETHER
- 	 * there is a need to override some of the type dependent attribs/funcs.
-@@ -1960,12 +1967,6 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
- 	 */
- 	if (!bond_has_slaves(bond)) {
- 		if (bond_dev->type != slave_dev->type) {
--			if (slave_dev->type != ARPHRD_ETHER &&
--			    BOND_MODE(bond) == BOND_MODE_8023AD) {
--				SLAVE_NL_ERR(bond_dev, slave_dev, extack,
--					     "8023AD mode requires Ethernet devices");
--				return -EINVAL;
--			}
- 			slave_dbg(bond_dev, slave_dev, "change device type from %d to %d\n",
- 				  bond_dev->type, slave_dev->type);
+ 	for (i = 0; i < nr_counters; i++) {
+-		raw_spin_lock_init(&fbc[i].lock);
+-		lockdep_set_class(&fbc[i].lock, key);
++		fbc_lock_init(&fbc[i], key);
+ #ifdef CONFIG_HOTPLUG_CPU
+ 		INIT_LIST_HEAD(&fbc[i].list);
+ #endif
+@@ -274,11 +368,11 @@ static int percpu_counter_cpu_dead(unsigned int cpu)
+ 	list_for_each_entry(fbc, &percpu_counters, list) {
+ 		s32 *pcount;
  
-@@ -3992,6 +3993,10 @@ static int bond_slave_netdev_event(unsigned long event,
- 	slave_dbg(bond_dev, slave_dev, "%s called\n", __func__);
+-		raw_spin_lock(&fbc->lock);
++		fbc_lock(fbc);
+ 		pcount = per_cpu_ptr(fbc->counters, cpu);
+ 		fbc->count += *pcount;
+ 		*pcount = 0;
+-		raw_spin_unlock(&fbc->lock);
++		fbc_unlock(fbc);
+ 	}
+ 	spin_unlock_irq(&percpu_counters_lock);
+ #endif
+@@ -354,7 +448,7 @@ bool __percpu_counter_limited_add(struct percpu_counter *fbc,
+ 		return true;
+ 	}
  
- 	switch (event) {
-+	case NETDEV_PRE_TYPE_CHANGE:
-+		if (BOND_MODE(bond) == BOND_MODE_8023AD)
-+			return NOTIFY_BAD;
-+		break;
- 	case NETDEV_UNREGISTER:
- 		if (bond_dev->type != ARPHRD_ETHER)
- 			bond_release_and_destroy(bond_dev, slave_dev);
+-	raw_spin_lock(&fbc->lock);
++	fbc_lock(fbc);
+ 	count = fbc->count + amount;
+ 
+ 	/* Skip percpu_counter_sum() when safe */
+@@ -392,7 +486,7 @@ bool __percpu_counter_limited_add(struct percpu_counter *fbc,
+ 	fbc->count += count + amount;
+ 	__this_cpu_sub(*fbc->counters, count);
+ out:
+-	raw_spin_unlock(&fbc->lock);
++	fbc_unlock(fbc);
+ 	local_irq_restore(flags);
+ 	return good;
+ }
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
 -- 
-2.43.0
+2.52.0
 
