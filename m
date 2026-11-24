@@ -1,49 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795482816;
-	b=GOzqB5hCrlYvdM/K4ar9J/UtICABfGnDRS4ykNcdXL47EslaI6wiVpx2LLI9Y2+La59u
-	 Ed1VUWsVyBYRgVJHENFthoe1bNSBovTw7tbWKq7ob0GcDFqaVOrs/HyIzmzQE4nBz3Z1t
-	 jgfXsJtkfzqOkeaXsnLCctGcYa2r3zYFa/Dm+xhHEjZkSwesTcixFqQ6FXEul6xAE/5L1
-	 ttZ49ambQHc2j+n5mYMdjsHGCWEnN9/S+ZbgxU8yDszdz2pDZIQ4mrs5L6GdsJc8Tu27M
-	 qJK+ppBG8PBzDniCC6u0emo7m33lSPewVLIsh8KVYVdJ+fMttkx7eaHsI0V6q7/kEgw==
+	t=1795483066;
+	b=VwuqRa1qLpWjZj9xJ4vlMX+JNkaVAOuy/kpluRGXKb0TxOXijA3uatgJlJM4EkAwgl1v
+	 /7m4RCftTxOjBTpfMFYkqV6YpD/Z0SoQCGFSH+MyPcFLT8bxOECyx7AwPrMRgLpbw7bsU
+	 omxCkbJpdWT7+XDwxOdBJULzy1gWtH1zkykb+kVtlhlNWASVevT4waZO4Cl5TGNlcaz/g
+	 IZX6sC9fueCsiFW0pezu5RQA/eySJm95O66FX4gOl4NYWkUcT0YrSs3jniJg8n+CLfKjl
+	 6avxyz2whApx0caZDwTK9VZ1hMAVwYsLWl5NzgifhxFNFv8GFCHyHC/dDS2eoz9dinw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795482816;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
-	 X-Spam-Checker-Version;
-	bh=FX0YJ7jj3NBl5LK+9MORMkD5tTD9X0hq1VShL+NEA2k=;
-	b=etTQ/KCtJEhBA+v8k/M6bHLi1AzZH0Ql52tUJH9eYnl57ITHhHCTposw/SiGZEcBaAPZ
-	 crj4vXeMiBOEgRp996Pa0GZTfIrwtnrjE8dtWb9TwGDm1/vSkhX19DsPPeygLdlbf3QFh
-	 gWbecbadJQxkXCc9gvatLnu+qkaLBkcaDH8JnowulrtKG/XAWWhr5hOcRmAEuYiuND+QT
-	 a+m3t0ullOKB08h1oqCablRmAtbKfO2jwzaTKDPmi2zk+3sbCfIjN9N3oDkyUgkdLPNPq
-	 UnIrV582M0kL6uXHo1HbxABc7F2/AEP5GDswGpeKCA2rWSZXrN8d1BVs0FCaEf0vDGg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795483066;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=itmP4L3DXMSGmXVmoLrQUEVKU8nQc0azolCH6tmT1Xg=;
+	b=JvWnZR67iwl2EiQS0KI6IZgykouv3+thbAM7HNoHVx9eoL3QiE3dSgBfJ7ECh4bvG20p
+	 ldsMVB1swqSkjolZBOlV+L6p86oa07Si1uUK2qwwhYvZiXXDOt7hvz2S3c/G6iaxuOSP0
+	 3Kc+Hi+FIjvrsZxEFrvwH04neuFJnFZKcm+kAVJB79URlzGQRgU+r6wNGNqLICJBWTRX1
+	 CaeCxqI5/5xP/gPPPYnEprQxUMh7okAcraba1OHLqrXBkBJzE2xtI+4ipOzcK8lRJhnNd
+	 zjXKU1wJfteAp5Agdn6XuWt3PDg8f9r0IRt9H5xGGpQUtS/+pESh0COQ907FyXrLBcw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=AJKo5Rxz;
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 91639606A31E;
-	Tue, 24 Nov 2026 01:13:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91639606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i01IyUkS;
+	arc=none smtp.remote-ip=74.125.82.171
+Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8076A606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:17:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8076A606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=AJKo5Rxz
-Received: from [192.168.0.88] (192-184-212-33.fiber.dynamic.sonic.net [192.184.212.33])
-	by linux.microsoft.com (Postfix) with ESMTPSA id B1BA020B7168;
-	Mon, 23 Nov 2026 17:13:30 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B1BA020B7168
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1795482810;
-	bh=FX0YJ7jj3NBl5LK+9MORMkD5tTD9X0hq1VShL+NEA2k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AJKo5RxzCSmm7rDWU3BcWcqYXGcppOIEkOjckGS/qQwcP6+pVreGotZZNBW9yRSB7
-	 YQBs5ZXMi+NpIG813t+ePc70axYjLXdCGlOAGh64I6BNvZxabdtoBs5xjndz8FV/ze
-	 ghF/W8Ucl0mKpOvgdt2HY6LpiotoZ/VSRlXUu3PA=
-Message-ID: <e66367e8-b6d0-b9f2-6e0a-691790c99d27@linux.microsoft.com>
-Date: Mon, 23 Nov 2026 17:13:33 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i01IyUkS
+Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-385d8a00598so5564677eec.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:17:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795483065; x=1796087865; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=itmP4L3DXMSGmXVmoLrQUEVKU8nQc0azolCH6tmT1Xg=;
+        b=i01IyUkS0KDuGi4r0vPByL9Ph/bF+DMoLWNnGC5wDRiYFVB5FX+8LgDdJPGreC/onL
+         GDTZvEtWSXzH9ZWWEGZVQwtuF0FBC8bBMoK2yBz4Wjbc/goC9bv1lq+ijZHB7M6dDyAM
+         Rcuou1wycq3mqkzRV2/+hnCpFTpwUnm6EvVKW4h8IUtWyxYlPS7woChKvYYRu+/+ZZno
+         btkvuAdDEdYbzNFS8Rn0aucLfJiHyLAjBKaiNJpga9ctbDtYN4CALtEC7Ju8mSVpt9m5
+         bvaVQ/i/iiqWwpVU0EXroxtQ/Z3laiFt0iHeNXQNNjiXOnCH7WILCQKbqlrMLlNCKOWl
+         a8hg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795483065; x=1796087865;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=itmP4L3DXMSGmXVmoLrQUEVKU8nQc0azolCH6tmT1Xg=;
+        b=eNv0JVc7DoSV2Rw5FT50oyuzH9jGw4HlLetC4ue8N8bWYia9ghlZ3CizkJogNveo2j
+         2c8TrFPJv1Ka1OXQdDdTuLlutqEdEt6IgQl5V5iUagvyZGvYJhLHjhLd8f0n80p+1nRK
+         Nd1fK0nJrLuq7sXLP0+1L9obH1ATDDmTjE4NS2DgTg43qW3SdjwFPdr2FtIr6lxRJXWu
+         U/vuo/jJqG2VG9Vy0nJ8tDJi2D5YzQIdoVTOX4FWkZPZNGriKc5ntLTiZ42VzXg3YWHZ
+         mGImNq5GVK8iLFK7R9sZ4MyczPLJtJwaRwOXMC2604XcpP0VrsHXRi7SQEQSflc4hSyO
+         JNkA==
+X-Forwarded-Encrypted: i=1; AL+hErHOyqsV47TwG4ivHH8UFqHuh9/TP9z1PYPhRRgVEPI4SnJVzV4tK61D8IpdVQjxGV1EXkUgN+YAmqC1mWk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+sBLdAs8CadFxYPxxgUHhC/EuMDVOx9oz5FQQb/vFIGsVilez+
+	97ix8f0ZcSbcZu/t7zEYtysyGZ2Vrg2PQ6sbdaKhmG+l4EuNAEfv+qSuSwvP/oqf
+X-Gm-Gg: AZFdTZejN8sahSdPe/toTiYkvt7K+6Txef+Iqi0Fun1C43LznjYMg5B/5A6G8e/Ob0x
+	HuUCSTJfRvg1q3BFoMXH5WltC4wljgfA7psNOQjz68jkMnMe01ETqq7AcggquHy++m+Qn8IhH1a
+	KMC2JvWxrHlRJAiWEUrpziiojOUMdtEPg7dFrRoSdxABIridMSeRhKM3VBzhmUbd020/wWDUuEy
+	h0A36qx+cyfLWnFH0Rz+HdDL7kN33LwYzqq8kwckGISNnu8nZf+8+XlQYsqodjgvNvnFZbNwapa
+	sPRSc8ZdhcTjy1f2392mXjlgHBypac0WsTPpWDAKf1WcEsZ17su+Zi3HzuBQVWJSh1VmXyn9J8V
+	IL6LIXI0JzbLLc5q0B3rKC5JgXCd+vCLbHD9ZPtdghZAIeTqXkxF7pAqN5094orLu/lduvfSjdv
+	TCvLnUK3YHfBznXyRi+Yem78o3gjvtximizp2jaPO8yTgbcL87TudvFtJSsNpI1G9Bax/LcBY/8
+	jSfUyonvYgfrbJYY9F9hT/aCcfTjibjsJHhOEHynbU3B+/S7sHTF9mCYK22dVsaTe/iRekZcA3j
+	X8eT3QVjzdM3vt/gJ1TFEelXp4oBDbjnwy7L6VDPt2dHeW7cWcwXMdr3wWIp7v7MeXs9TQKZLpa
+	ysooKO0+5Z/w3THiwknqqh5+QeUJaus88TVa7pkqT
+X-Received: by 2002:a05:7301:4704:b0:383:729:cabe with SMTP id 5a478bee46e88-3856f8519ecmr14464834eec.19.1795483064438;
+        Mon, 23 Nov 2026 17:17:44 -0800 (PST)
+Received: from nugod-NUC15CRHU5.tail9f095a.ts.net ([218.237.104.87])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aa203267sm15112586eec.0.2026.11.23.17.17.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 17:17:43 -0800 (PST)
+From: HyeongJun An <sammiee5311@gmail.com>
+To: Lee Jones <lee@kernel.org>
+Cc: HyeongJun An <sammiee5311@gmail.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 04/10] soundwire: stream: Clean up allocated runtime resources on config failure
+Date: Tue, 24 Nov 2026 10:17:38 +0900
+Message-ID: <20261124011738.395295-1-sammiee5311@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261123075522.405347-5-lee@kernel.org>
+References: <20261123075522.405347-5-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,212 +103,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.13.1
-Subject: Re: [PATCH] mshv: Do not map mmio in map user memory ioctl
-Content-Language: en-US
-To: Michael Kelley <mhklinux@outlook.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Cc: "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>,
- "decui@microsoft.com" <decui@microsoft.com>
-References: <20261113031343.896489-1-mrathor@linux.microsoft.com>
- <MN2PR02MB6863AD86B89C4055793E6724D4452@MN2PR02MB6863.namprd02.prod.outlook.com>
-From: Mukesh R <mrathor@linux.microsoft.com>
-In-Reply-To: <MN2PR02MB6863AD86B89C4055793E6724D4452@MN2PR02MB6863.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/22/26 20:42, Michael Kelley wrote:
-> From: Mukesh R <mrathor@linux.microsoft.com> Sent: Thursday, November 12, 2026 7:14 PM
->>
->> Currently, mshv_map_user_memory() snoops into vma to get the mmio
->> pfn via vm_pgoff. The mmio pfn is no longer stored there and will
-> 
-> Did you identify a specific commit that changed how the mmio pfn
-> is stored? Given that the issue fixed by this patch causes a system
-> crash, it seems like this patch should have a Fixes: tag so it can
-> be backported.
+Hello Lee,
 
-No, because that didn't break it, it was never supposed to be that
-way. vfio folks strongly rejected anyone outside the vfio driver
-snooping into it, but the code to do that here un-intentionally got in
-via initial big driver checkin. The change in vfio happened somewhere
-after 6.6, but like i said, our lookup was illegit to begin with.
+I tested v3 on the same Dell Latitude 9420 as v2 (Tiger Lake, SOF IPC3,
+sof_sdw with rt711-sdca, two aggregated rt1316 and rt714), on soundwire
+next afd88e7ad781 with all ten patches applied. Only the soundwire-bus
+and soundwire-intel modules differed between the runs. Two local changes
+outside SoundWire were loaded in both runs, my SOF control range check
+and a debug print in rt711-sdca.
 
-> Is the mmio pfn now stored someplace else that is accessible?
-> I'm wondering if this patch is a temporary band-aid to prevent the
-> crash, with upfront mapping of MMIO space coming back again
-> later via a more complex/more complete fix.
+With and without the series, all four peripherals attach, and playback
+and capture work on every endpoint. 40 start/stop cycles of the
+multi-link Speaker stream pass, 10 of them after the links had runtime
+suspended. All links stream at the same time, and Jack Out start/stop
+while Speaker is playing passes. ALSA pcm-test shows 24 pass and 0
+fail. There are no SoundWire or SOF errors or warnings in the kernel
+log.
 
-It is stored differently, but the patch to make the lookup vfio
-function public was rejected. Instead, i suppose we will do what
-kvm does which is look up via user address. That will all be
-part of upcoming "guest pci-passthru using iommufd" patches....
+These runs only take the normal stream setup path, so the port and
+stream configuration failures that this patch handles were not hit.
 
->> cause the system to crash. Moreover, it is not legit to obtain
->> mmio pfn via that method. So, remove upfront mmio mappings, just
->> create region and do basic checks. The mmio entries will be populated
->> on demand during intercepts in future.
->>
->> Signed-off-by: Mukesh R <mrathor@linux.microsoft.com>
->> ---
->>   drivers/hv/mshv_root.h         |  1 -
->>   drivers/hv/mshv_root_hv_call.c | 15 ---------------
->>   drivers/hv/mshv_root_main.c    | 28 +++++++++++-----------------
->>   3 files changed, 11 insertions(+), 33 deletions(-)
->>
->> diff --git a/drivers/hv/mshv_root.h b/drivers/hv/mshv_root.h
->> index c61b52db7f00..c0844b28b6a8 100644
->> --- a/drivers/hv/mshv_root.h
->> +++ b/drivers/hv/mshv_root.h
->> @@ -281,7 +281,6 @@ int hv_call_create_partition(u64 flags,
->>   int hv_call_initialize_partition(u64 partition_id);
->>   int hv_call_finalize_partition(u64 partition_id);
->>   int hv_call_delete_partition(u64 partition_id);
->> -int hv_call_map_mmio_pages(u64 partition_id, u64 gfn, u64 mmio_spa, u64 numpgs);
->>   int hv_call_map_gpa_pages(u64 partition_id, u64 gpa_target, u64 page_count,
->>   			  u32 flags, struct page **pages);
->>   int hv_call_unmap_gpa_pages(u64 partition_id, u64 gpa_target, u64 page_count,
->> diff --git a/drivers/hv/mshv_root_hv_call.c b/drivers/hv/mshv_root_hv_call.c
->> index e8485d949951..1287c0a8d118 100644
->> --- a/drivers/hv/mshv_root_hv_call.c
->> +++ b/drivers/hv/mshv_root_hv_call.c
->> @@ -327,21 +327,6 @@ int hv_call_map_gpa_pages(u64 partition_id, u64 gpa_target, u64 page_count,
->>   				   flags, pages, 0);
->>   }
->>
->> -/* Ask the hypervisor to map guest mmio space */
->> -int hv_call_map_mmio_pages(u64 partition_id, u64 gfn, u64 mmio_spa, u64 numpgs)
->> -{
->> -	int i;
->> -	u32 flags = HV_MAP_GPA_READABLE | HV_MAP_GPA_WRITABLE |
->> -		    HV_MAP_GPA_NOT_CACHED;
->> -
->> -	for (i = 0; i < numpgs; i++)
->> -		if (page_is_ram(mmio_spa + i))
->> -			return -EINVAL;
->> -
->> -	return hv_do_map_gpa_hcall(partition_id, gfn, numpgs, flags, NULL,
->> -				   mmio_spa);
->> -}
->> -
-> 
-> With this code removed, hv_call_map_gpa_pages() is now the only caller
-> of hv_do_map_gpa_hcall(), and it is only a wrapper. Is there a reason to not
-> collapse these into one function?  And the last parameter of
-> hv_do_map_gpa_hcall() is "mmio_spa", which becomes never used and could
-> be removed.
+Tested-by: HyeongJun An <sammiee5311@gmail.com>
 
-Actually, the upcoming guest passthru support via iommufd calls
-hv_do_map_gpa_hcall() for mapping mmio pages. so it will be removing
-then adding back in...  so i thought i will leave it there.
+I ran these with Claude Code (Claude Opus 5.5) on the laptop.
 
->>   int hv_call_unmap_gpa_pages(u64 partition_id, u64 gfn, u64 page_count_4k,
->>   			    u32 flags)
->>   {
->> diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
->> index f0bfbbbd7bdd..a11756e5c48d 100644
->> --- a/drivers/hv/mshv_root_main.c
->> +++ b/drivers/hv/mshv_root_main.c
->> @@ -1345,16 +1345,8 @@ static int mshv_prepare_pinned_region(struct mshv_mem_region *region)
->>   }
->>
->>   /*
->> - * This maps two things: guest RAM and for pci passthru mmio space.
->> - *
->> - * mmio:
->> - *  - vfio overloads vm_pgoff to store the mmio start pfn/spa.
->> - *  - Two things need to happen for mapping mmio range:
->> - *	1. mapped in the uaddr so VMM can access it.
->> - *	2. mapped in the hwpt (gfn <-> mmio phys addr) so guest can access it.
->> - *
->> - *   This function takes care of the second. The first one is managed by vfio,
->> - *   and hence is taken care of via vfio_pci_mmap_fault().
->> + * This is called for both user ram and mmio space. The mmio space is not
->> + * mapped here, that should happen later during intercept on demand.
->>    */
->>   static long
->>   mshv_map_user_memory(struct mshv_partition *partition,
->> @@ -1363,7 +1355,7 @@ mshv_map_user_memory(struct mshv_partition *partition,
->>   	struct mshv_mem_region *region;
->>   	struct vm_area_struct *vma;
->>   	bool is_mmio;
->> -	ulong mmio_pfn;
->> +	size_t vma_sz;
->>   	long ret;
->>
->>   	if (mem->flags & BIT(MSHV_SET_MEM_BIT_UNMAP) ||
->> @@ -1373,12 +1365,18 @@ mshv_map_user_memory(struct mshv_partition *partition,
->>   	mmap_read_lock(current->mm);
->>   	vma = vma_lookup(current->mm, mem->userspace_addr);
->>   	is_mmio = vma ? !!(vma->vm_flags & (VM_IO | VM_PFNMAP)) : 0;
->> -	mmio_pfn = is_mmio ? vma->vm_pgoff : 0;
->> +	if (vma && is_mmio)
-> 
-> Just testing is_mmio is sufficient here.  is_mmio can be true only
-> when vma is non-NULL.  Indeed, the existing code uses exactly
-> that dependency when accessing vma->vm_pgoff.
-
-AI was generating comment that vma was not being checked. i could remove
-it and we can just ignore the AI comment..
-
->> +		vma_sz = vma->vm_end - mem->userspace_addr;
->>   	mmap_read_unlock(current->mm);
->>
->>   	if (!vma)
->>   		return -EINVAL;
->>
->> +	if (is_mmio)
->> +		/* Upon mmio intercept, entire region is mapped */
->> +		if (mem->size > vma_sz)
-> 
-> Combine these two tests instead of nesting?  I.e.,
-> 
-> 	if (is_mmio && mem->size > vma_sz)
-
-ok.
-
-
->> +			return -EPERM;
->> +
->>   	ret = mshv_partition_create_region(partition, mem, &region,
->>   					   is_mmio);
->>   	if (ret)
->> @@ -1399,11 +1397,7 @@ mshv_map_user_memory(struct mshv_partition *partition,
->>   					    region->nr_pages,
->>   					    HV_MAP_GPA_NO_ACCESS, NULL);
->>   		break;
->> -	case MSHV_REGION_TYPE_MMIO:
->> -		ret = hv_call_map_mmio_pages(partition->pt_id,
->> -					     region->start_gfn,
->> -					     mmio_pfn,
->> -					     region->nr_pages);
->> +	default:
->>   		break;
-> 
-> A default case with just "break" seems useless. Omitting it
-> entirely produces the same result. The existing code doesn't have
-> a default. If you want to be explicit that no mapping is done for
-> MMIO, perhaps leave the case MSHV_REGION_TYPE_MMIO
-> with just "break".
-
-Yeah, I had MSHV_REGION_TYPE_MMIO with just break, but another
-reviewer internally asked i remove it. i can remove default also,
-not sure if it is there because some tool chain complaining of no
-default..
-
-Thanks,
--Mukesh
-
-
-
-> Michael
-> 
->>   	}
->>
->> --
->> 2.51.2.vfs.0.1
->>
-
+Best regards,
+HyeongJun An
