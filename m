@@ -1,101 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.41
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795537820;
-	b=up5XsMg0aELIyMR9/R6cSgkzwvaAe8MgrgwL6TaNiViBcJ7wCRBNLC0Cg6QNJgdhA271
-	 T0/tMdqaKxMyeAECETwuE/P9EgcHhM9S9WbA7BmSUkE8YaTfIzL115vrxT6lZew6G86pA
-	 HP+BROaHLPqvadbDtjMfOEKhiX3ceLNV4GAY1iOJUkQV5LeVcfjMoW9Gu9IsQppgNf4Ki
-	 GuvKfJMaRHjX7PinCDU/4QkkrUQAOgqQ2v3OBt2N2EcB4fQrNweThyCY80cdd/ldm5UJs
-	 +iOVIVYDugJbR05DOibB9E4p3XRNzhxeHb1GICrJLsHBgCWtSKVs29qRpSvmXbJdP9g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795537820;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=faF1vod1YCIOE6mWZF0dptvadZIAmgUkLf51bGNhat8=;
-	b=Lq79oKzjVNbbZBuut9MoLI/2Ul4ns0WrTHspW3XuPHyybnBWTdcI6WFTEiOVsNB6SlBl
-	 0hSedzmZ/+T64tnK5aJrJ6DAdbU5s56rjrTWUdsFmaF2YyPe+yeenRD1jFkNB6Q7Bhb6V
-	 aTKDDacarpgFAhzDATNFcyNW7DmLEhPmqXAZ2DJ98gpESjKx5WFX3Ok3YtqkgAnF2fxH3
-	 EWfGJL8eG6XClDX01IGkI/zNUpfSXMZdUo7y3JhvmQxA2IEqFaEqQNoNW+GvUw0k/Wgh/
-	 VIiOVW1gXClTf5KG16K3WFUYAiWtd/mmUYbEIoLUOuA4BFYXgdd7VBWhsX/XPDV/kOQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AZa0I7GO;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.41
-Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.155
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795537832;
+	b=4nTYwGxwFyt+x07MG2cHpG22zXawfKkJisavMotGrD2sURlM2I4Ojiif7iLZEQcglrV0
+	 7LqnZCBmTtNF5gu8irOpKblUbV8X8Ip2m7c5lmILkvxaGKJ5KRUdM77GxEoYs3U71quex
+	 b14oy4HyrMGo2XWXuk2TA8g9d8X9vCagUBmcSWAH+7iGgmXvyVxgRzKh4nmo11nmyvmpP
+	 xpK57mX+51C32Jppet7c3xvTylJLlEGMZ1i7pWWVAbi8Dx/U5Hh1KZHZ38YsUF7gf7hy5
+	 pQcdrkbMveQZ15R/+n4P6ZWYESz5MaeEmk/C4fRXxCGf4is81EtdkBhTfaoJHMXxLZg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537832;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=CTbz0+BpeE85Uf+P9q0EUbXcqUPW14MouI7LDRHs9Gc=;
+	b=o/XhICSfUeRSNqsNrOla1CRdddIFevS8LjuFNkVaK79kulb0mkastVbV5H3Op5zaLH4y
+	 JiwBTA+xOCgdaKSL7MWHNYv72WxfmU8ewy9V69RRdKAeF3hgnwhy8+85sekZMfaQR+7/i
+	 wzVgwfUkIIkH1jAT0jfCFxYgbBmDtTDNzijR7fjV50uJoHBRJCdAzAB47USDptkN5F8Kj
+	 93NLiafx19iIs95w8fPqztgEua2ABdpD3NGFBBqT1l6PX5XRyrZFyz0fNp2qVfm0g+T9s
+	 qJQhEPpUx83W/sN929OIlm50sk9iN82WSjFw607mt/uDkXhG0stF9KIC0Baz7rrDWtg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arndb.de;
+	spf=pass smtp.mailfrom=arndb.de;
+	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=KIfB01Wb;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=gz9YzrZN;
+	arc=none smtp.remote-ip=103.168.172.155
+Received: from fhigh-a4-smtp.messagingengine.com (fhigh-a4-smtp.messagingengine.com [103.168.172.155])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59F7A606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:30:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59F7A606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62C20606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:30:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62C20606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AZa0I7GO
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c4203bbb1e9so780420066b.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:30:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795537819; cv=none;
-        d=google.com; s=arc-20260327;
-        b=NtLgeTTmLCaJxREMVMgXm83MIrkMZgUvV3ppKqF4lCXiV9jeQ6q9/eMn4PCVWryuvy
-         9+/OyzH53bUuPmuH4rpregMEXAhM02X1++u66WORthYgg04Pdvz94pI96ukCRxQiGneG
-         8ERTYb8CtY6xWzVel/QTGIieFRKa5aFL7If1yM8Tjms5WuBc3rL19pNwDvkJcP9xCpTn
-         b/8qftAGGRSNXd+xLIzZg2XE+mSPdhU8JJAUjMIb5c+AZ/pJwsdR8dLHYUyuXExbaQ/d
-         rl/qHfRGD6YQfnzx/Q9X5cWVhzKjiOVjvo4lnrdchNl4QcuOhM3VN7ilMxRzL/JM/MrB
-         1KJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=faF1vod1YCIOE6mWZF0dptvadZIAmgUkLf51bGNhat8=;
-        fh=gmlRoOrrMIa1ioQAq1CbmSlDUvmNmTy4ZxAIek0HWkw=;
-        b=LFXOik6mengDsb0x6p9RZDe5SuTsqcp8urzwBJenwvgHPUkCQX4rCosorZtYQie7vp
-         XL3PSYRwRLD9QiG7Dw2L52lvZ29xZ9AKNis9KJIUhFWlO8zuO3N9m7pdphF9kdy/4jil
-         QGxYFGReVWGC2INxEYCpV2YqPj0z5iDhUwAuX6Ig2Ar3RxUL4E+fQ+ltQvHdNrT8iRFi
-         ANGQmQ7T58Xo3uQTuZaDgmIEkd5TxNkRXMcNjl5Z6TaW3bcLcSWc+rD5dW3wiuVOXiut
-         /3xD4jQhuOVGTcEZ6KFUFlFQbj5e4ARCsu2uqH3f9UAoM6eOmpgS9GNJsvfTRSakAJFT
-         O+KQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795537819; x=1796142619; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=faF1vod1YCIOE6mWZF0dptvadZIAmgUkLf51bGNhat8=;
-        b=AZa0I7GORj33xOMt6Fo7yWu+oJZCnux71QHY5qp11msIvAqRa7v+oN0Pk3wEXEK6jM
-         4TVIDXC/eakzT3sB0mwYgxVk+dCMdGnQzQK+TwjNs864iDY8HlQ5OuG4Ky2UernE/Oap
-         yUvyu5JidguVdPfX8iGP8TbDlTRosv/lDX+0S3M4PcSnxzj4+bQv32nwFmdgr1p0erxk
-         kowdDq/wB3g5RLUz/PfAy89txlwyGWVFW7RrY4mBhmF9JnIrtqnAN1itvmLHAIc1fj31
-         52aMLgiAE2j+fkfTh5IFDtPIC+76Gn+EKfVCz0Jb3qXLzkdftAQmqgpXnlWuHEnbXSgE
-         FYpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795537819; x=1796142619;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=faF1vod1YCIOE6mWZF0dptvadZIAmgUkLf51bGNhat8=;
-        b=xJ3Z7DC5v+1DJ0gvDPX51HKPnrepHkDQKY7+6wXXhwXUn/WFS2x5dC/MCUB7OONr+J
-         f1Rm5hmYNbTUiwPPZQRMvRKp2qsRiIdcFk6L+wYcXDs3ct46STXSky9RDhXOfhOk1ups
-         uqOip7DVoR61bB1llwYaf0rwcSv3TznUG/pprSLD7rV9w8nJUkVXSTUYSG2u9fi8k41K
-         LvsnCe/o17RS3C/wFybveFW4gSqbTmuOfFuVNPiL0ZberplLLu54DoB3rLs5qnpVRWtB
-         csw1U2DLQLajEShxfZM3I51D4wkOo3gKGRSBu45+pwDh9kG+Gpn4mH5UDvmvJxpEbNHM
-         cYqw==
-X-Forwarded-Encrypted: i=1; AL+hErHdqk+xbc5ldFQ60aG6qYZPW8R7uQxPUz1mpgXCd+4vdxW5VI+87XJimmrUDnQpu7QOfRAzoRJ8D2f4SFA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/eqHOQghPMZ+ZS9+rEqJga4x/DcDnbPbqDqCgnoxHDWxkqnwDT
-	DcBjZrVel7p97Uv2katPS4cmbW5X2D3yCXVgC2l536MGDMsPIOp8YHqRdoDFF0N2Hbg9d5Ak+Oz
-	3s9e1URZsI0/ll1JjLz9sgcnuTWmCEnsw0bKzcVYz
-X-Gm-Gg: AZFdTZeENQY+jG6tZskO/0lMYf1Oh2QJyMxkWm7cfscjyowKms5X4ZRd+2hnCzVm8Tb
-	ZulNiYNgbN4abDD6iKpag5hIf6BufUKkiWbmvxtfAvYJXRNVGg4ebTgxy9UzlYuW548UCkXlPLU
-	I63I0W9++/UJEhHVJxzKmVbG44XiyI7ebvhHiKmV2DBidbwMquw2Wl41bnbzU50KzieDABJdrSl
-	AYp+oQ2VK4UpU6DGCoLMcEEM+0he868WMHC5GCx8k9D4mh/1jVZfhgYFml+eW757/OJOTBLUYg6
-	VS4iepLiSDQ6DuHpc7nLcJhPj0uMf4UhwsM60a/M0Vv51b989C5YQob7e/N6320F7+BnU3gwejZ
-	j3Ja9nkk0cHHISmv24tQrv1siXAzQ9620ottSVNEs9hOoGWUXoV0n85y1oBVGmvHA6ITlBFd1P6
-	6egJa1Q1kHrl/hibaYJtj+wYqWFSQuJUIrSgdHuObdkWw8s20OJeAC
-X-Received: by 2002:a17:906:2a17:b0:c50:f28a:8407 with SMTP id
- a640c23a62f3a-c513aac6733mr1140653866b.42.1795537818175; Tue, 24 Nov 2026
- 08:30:18 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=KIfB01Wb;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=gz9YzrZN
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 51A6A14002F2
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:30:31 -0500 (EST)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Tue, 24 Nov 2026 11:30:31 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795537822;
+	 x=1795624222; bh=CTbz0+BpeE85Uf+P9q0EUbXcqUPW14MouI7LDRHs9Gc=; b=
+	KIfB01WbbT60QouGgqoyFMo0Dm0qwHukr3dP4zcXigfjqZgWbd1DKTJKgRuYAlUb
+	FDwJmQIXcEjJYHCjCFAufhUYCkzz7R/rQEeQf1qAKyHUYTHAsPPFTIzcbkEnJ7Eo
+	Fxed4Gq2a9TL+ZGD8HIbQIag3u6sM2YmaLN+Pt0XvLlJexhOh3ALXqiqgSpCRiiL
+	qGXt6Vvja2zUGf3Qsy7zqJei6WMA/G7V6Vpav27dI42Jl1E4tuxs5VHr5tIQrtWy
+	T2Gu0+c+GDw22RzdTHVwDfgPCJL1eR/nFuF8vVQI5YJRssVIOs43MtymzpksgB5M
+	xJEcqU9CCnrkMjFyHurNkQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795537822; x=
+	1795624222; bh=CTbz0+BpeE85Uf+P9q0EUbXcqUPW14MouI7LDRHs9Gc=; b=g
+	z9YzrZNNVpmUMo/p2AHRytByCoSNgNktBxJxVzSNCDLwFhR1QczCELoRbMvcQnZp
+	+/cPxVwXmFf17ip6K9oYyc176gZ2bjKgYbnyzcLgNTpnvXxiW6umKS2K75/toKGg
+	N5jt/LGmAMnB9tHIiZAptvis3blCGrLbhtBAqKVfJF9rFme1hV5VaCq6RaXeV4E2
+	MllBvYqxZLoAWioRdV9imMZyHOmGMEkhkqtAg2zCD4YDPdD1ZB0/BAfNcpWyFdcE
+	F8tQHF3bFeK/vZs+ogcyvNHxCjaeQPTO+Bjtz/+1h1Zcgl3XsEt0h9EckTiO1mRo
+	k8u+Rvbmilmwao9EmgSKw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795537822; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:Io1nixeY76YnNeGb4kZkFSkJK+XyYpVjR5zA7pJTbqCyCmI
+	urxpSsmIu0cHpnLEk5fFa/w1ptPljzQH1DXMrc9cTqv+Eq/tMuQklXhOLTBV27ql
+	qtcTborc5nnMWFsWH952cwQgvXPHyB9dsdaMzLtsKd8pyX7rFw8IPHNM+pnv3rj6
+	xITu2la3pl9OaNZm5dD0qbF51wj0cx7OB69CHoB7/3Yd2JudIaSPhA9bWXTxXU2H
+	zvqHnfJ1MHFayDUYjY1RtgDlVfbi3FKMMOjwx8aXVSXPXqt39xNuE9bczSsYTZf/
+	glzBOCecSkWAGxSbHdfA+GppluvrNbwEe0Bn9Xw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:980aYwIJKINX/gz4l3IUqsZXhOnrDZYIdrLIPyVIuzU=:rSduc7uGIjYvoyk/9XoJLPSt+QxsoryMmuCdSICNC+8=;
+X-ME-Sender: <xms:mLsFa0OZcgz8AQcROZxAwwF05_XyiwK3zgbMLTOaUHwSW3LN8NAMVw>
+    <xme:mLsFa1xH0IFO2d1nIyeMXxlpxOsZOLv6L9Z59doZwdIqqVTYKhWUvgPwoxQ9vAAra
+    Q2FssVPyr2IUzhSRtzDjokU2Brb2cRQMHngaXOZ84fFdV_z9QnZvdk>
+X-ME-Proxy-Cause: dmFkZTFfM29LN9oi+uls4uA7bJ82R2voNMmneloS9Yl8C82woxnJ9InPeuZsT75rjx2f/c
+    2S2JVkvyRmwb5Uqq+KHHSX28pU/OSqqhUU2HZPLL9FJxrEffux4ZOs4sbjeS0Gutr6dgSe
+    9u91JVLr9ePCvPxHnG2Vx/y42SYkBfF0FRgHgzaDRgv0Hp5C9UgVUY3PEDzsq0RJd73yzl
+    Fe9dojY9h/SLyOfS19e18yixMp4zKHwYHkc74bA9F7mD6D3D7YQasxuKXHnUiiKIe8otv7
+    qq6Tp+f/OwC8NFGFQO2Uw5MAYlnkSZPdo7VcOnYh/JYMF9F8UXSmFcs318U95styRaVpWf
+    2g9aVDRlXsY2lpadbqWJpAz95It6i/7IVu9SMgPfkHY1Geu9IjfXMOTptCgQZXXEL+f2cP
+    nkzAfTc+8XfQnftNWBA8Wb+BRRpzWigPnbCkKxOfHJ9MTHIM3chUTU4L49QjqICWBh6a5j
+    ngD/St/DVG5TP23SfwImEHI+5pDYsUmwZYPF3sxyNlg66ZcyYQGCLNftBS6FI3FlgcaAK5
+    wy9e9Ig/1u3Kp55vZ0LPwPJbNVPanVj7huTxI1BetZ6M3LCsNh6mN/VD7Sqjd/4cnQFNAF
+    u7mvZ+y4n1Hv/paIpEFyEItxD1oktJiEZiLqADw3BK/Cc+DxD8lLH6x3XAyg
+X-ME-Proxy: <xmx:m7sFa8aFDhAs5k9zrApnb1of7AOg3oVh7WG6YTjexPO0GwFJ8RBHgA>
+    <xmx:m7sFazWYKzK2u0jN4XLUbc6Ed8i-PV4g72xM5vZC48uZ8uDtcKiqMA>
+    <xmx:m7sFa9EIDZHiNxMfx5-dzWOX7PCfpsJVeq2rxasJ6a8TILjXSGme4g>
+    <xmx:m7sFa9BfyvlW6v2H8o8fb-Bx_u8eaZ4Z10q4cZq6NdK1V14gclr_0Q>
+    <xmx:nrsFawCeCB3BEnLU8xQ4H3_Z1Dzvu3HuPYdvUauWcGwGdlhSrLMsaArt>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 885AC32A0099; Tue, 24 Nov 2026 11:30:16 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,69 +115,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122184453.2668189-1-jthoughton@google.com>
- <20261122184453.2668189-5-jthoughton@google.com> <4508589C-2E30-4DAB-9465-73121835D0D8@linux.dev>
- <CADrL8HUstWR2pajfYYzRqL7HziVfzZAXJas6MqJkK6pVxSzXEg@mail.gmail.com> <4A195604-B83B-4608-B32E-5F6CC85AE96F@linux.dev>
-In-Reply-To: <4A195604-B83B-4608-B32E-5F6CC85AE96F@linux.dev>
-From: James Houghton <jthoughton@google.com>
-Date: Tue, 24 Nov 2026 11:29:40 -0500
-X-Gm-Features: Aa3M54oagh8xEkhaXUUOR7MGGzOxphU25lezKmhke56V0En8IXvrXq6W7VgHea4
-Message-ID: <CADrL8HXQShKvEu_6KVq0wZXbPjWMcR73yZ38iuePxPRZMDjXmg@mail.gmail.com>
-Subject: Re: [PATCH v3 04/19] hugetlb_vmemmap: Use try_update_vmemmap_pte to
- update in-use PTEs
-To: Muchun Song <muchun.song@linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Oscar Salvador <osalvador@suse.de>, Andrew Morton <akpm@linux-foundation.org>, 
-	Kefeng Wang <wangkefeng.wang@huawei.com>, Nikos Nikoleris <nikos.nikoleris@arm.com>, 
-	Linu Cherian <linu.cherian@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	David Hildenbrand <david@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Nanyong Sun <sunnanyong@huawei.com>, Yu Zhao <yuzhao@google.com>, 
-	Frank van der Linden <fvdl@google.com>, David Rientjes <rientjes@google.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-ThreadId: Aq77c9iO0VUs
+Date: Tue, 24 Nov 2026 17:29:56 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Nikolay Borisov" <nik.borisov@suse.com>, x86@kernel.org
+Cc: "Michal Hocko" <mhocko@suse.com>, "Kirill A. Shutemov" <kas@kernel.org>,
+ "Lorenzo Stoakes" <ljs@kernel.org>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, "Dan Williams" <dan.j.williams@intel.com>,
+ "Kees Cook" <kees@kernel.org>, "Ingo Molnar" <mingo@kernel.org>,
+ "Vishal Annapurve" <vannapurve@google.com>,
+ "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Suzuki K Poulose" <suzuki.poulose@arm.com>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "Naveen N Rao" <naveen@kernel.org>
+Message-Id: <c6ad8f8e-9dc8-4fdb-968e-107795e2e15f@app.fastmail.com>
+In-Reply-To: <20261124160025.738362-2-nik.borisov@suse.com>
+References: <20261124160025.738362-2-nik.borisov@suse.com>
+Subject: Re: [RESEND PATCH] x86/devmem: Drop /dev/mem access for confidential guests
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-On Mon, Nov 23, 2026 at 9:29=E2=80=AFPM Muchun Song <muchun.song@linux.dev>=
- wrote:
+On Tue, Nov 24, 2026, at 17:00, Nikolay Borisov wrote:
+> From: Dan Williams <dan.j.williams@intel.com>
 >
-> >>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> >>> index bc1353f03b08..ab33df268955 100644
-> >>> --- a/include/linux/pgtable.h
-> >>> +++ b/include/linux/pgtable.h
-> >>> @@ -458,6 +458,28 @@ static inline void set_ptes(struct mm_struct *mm=
-, unsigned long addr,
-> >>> #endif
-> >>> #define set_pte_at(mm, addr, ptep, pte) set_ptes(mm, addr, ptep, pte,=
- 1)
-> >>>
-> >>> +#ifdef ARCH_WANTS_GENERIC_POPULATE_VMEMMAP_PTE
-> >>
-> >> Why not ARCH_WANTS_VMEMMAP_UPDATE_PTE? Then x86, loogarch and RISC-V d=
-o not need define
-> >> this macro in their ptable.h.
-> >
-> > You're basically asking to make this opt-out instead of opt-in, right?
->
-> Yes, exactly.
->
-> >
-> > I like making the different architectures explicitly opt in to the
-> > generic implementation; it forces any new architecture to decide if
-> > the generic implementation is correct for them. But I don't feel
-> > strongly.
->
-> We already have an opt-in config: ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP.
-> It already forces new architectures to pay attention to it.
+> Resending this with the hope of either getting it accepted or arriving 
+> at a consensus
+> what exactly is missing so that I can take it from there and eventually 
+> get something
+> merged. As previously mentioned this results in real problems for 
+> confidential
+> guests both on TDX as well as SEV-SNP.
 
-Right, but that opt-in is different. Requiring architectures to
-manually specify ARCH_WANTS_GENERIC_POPULATE_VMEMMAP_PTE forces them
-to think about whether or not they need their own population routine.
-But yeah, I guess we can just assume that any new architecture
-implementing HVO should have already checked that. Okay.
+I do think we should go further than this, but the patch solves
+a real problem and it doesn't stop us from doing more later, so
 
-> > I'll switch it to opt-out in v4 unless you or someone else tells me oth=
-erwise.
-
-So I'll stick with this; I'll switch it to opt-out.
-
-Thanks, Muchun!
+Acked-by: Arnd Bergmann <arnd@arndb.de>
