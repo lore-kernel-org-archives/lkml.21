@@ -1,113 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.225
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795551227;
-	b=LL8I+WeEI+YgBjEZ0wfJXDLM0glCipumG9S4Bux+5/h0+Lwpi3ygaOdzxRe5TQylk2rI
-	 8noMsGXXEj1u5TXPJB8NGDDYje4j9LTqeXIEB/ksC5TJ4PU5MldSFyQ5HoZoyCgkhRrrw
-	 62+vQarb1cho0ntf9PVVauiCMO24x+gkUEUKRnOHB6NXKj04jwAbs/RPgxye/E4sgjWmI
-	 6OKHXsOckak558EHhqt9noDuowneMBOSykcsS5NVW1UzGCCscZ7SEwBXRmIkskfdyE86o
-	 GGvDeYNSZAfAY8QPnh1tceasPkuXSM0SJ4HsydIqD0dNzsXr7xzXc8NTJ6JKrmU0qzg==
+	t=1795551223;
+	b=fkNsK1kW/6UPMMfhLxiKr7d1LXtpyNrWKIzkH3Eh+22K5STLdwCAvjIjK0/HjqoyfjmB
+	 hCsIx8TYtm7Ih4uBs7IeT/Cy/Ts/cbuNRx93HdU5/K6+nnh195E7k7zt8OhQ2FnYhzEES
+	 bArK1lcRkJtMR7M1aQIjjOCg6rHiByfHJXufUxHI54/V7r+sFeDHUeN/9r6h6wEEfUG66
+	 F6g81hApwJTEaSZCOcLhuhI6vXitt28IalEqopYFT3ZymRFOE7e3achxJfNac4eaqnXyt
+	 WjwCCbVevmlvWQXvYvuJg2v3OXjpv0NFR1FUOVhUo88iFWwdaEw4+0oYe+Ca0R6WZmw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795551227;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=QWZGg1KcN/HvMK5vH3jBf2i0Fk8fFcl7eYzJs1/biAY=;
-	b=Zk6MGLzLpym86uzk1nJ5JETM6HHdiv6gVjkugkPVqb3xLy4CVt0Z8Z54r9fyxcgLU0s2
-	 Q4qZhK5c2wavcNAK9E4VlJCFkuAsJlU2dRnXOuQdVJ1Z/kVraJm6PtvY7EkuLf5FM+rfY
-	 lgsOB8tBt5GP/6Yo5gWWkCnwN0g8gHehBoLw7wqZx3ZnIN5BfEhAruNGzAs5cmVsao7mf
-	 idtF+gWHxjQZqR/Tpv8R5ZkX4QxV7NxdWXpVai6gyBueQE+VCks7YlIM7yxO6FV/XjneY
-	 /cmz2pF05CHrLEX32zCfVQeaw7Qgwl5d9Q25XaBC134i/qd4nVaaL7sg1lk1/0yXAyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795551223;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=8WKbn4TeqqYmpHwpZgCuGW4cCB31ueQLaWCo1miFO6w=;
+	b=J6gDW2yXadoDr4CJHVplmkMk3tC1Tjv19vGNfc2E8/K4vZY1lJWFPwwGzltP+9mC1l29
+	 p2jMeC/J6WDm/Tta2YYOkQMAR34NYGLQF5h7GbQo3fClBdOJbxKog029JcHh+jzmSGThE
+	 Y8c3TJT5vJVxI4Rd8P97juWw4TTm9NiU18greMUsvfYBncp7bepxbiEexnGrjID2SvQfz
+	 BlbC3DsPlSIKMpt/VvDSwILbMSgmoymTD0bjcCX4L5GmxZnymC07Jhbtz8cwNOufh+B1e
+	 L1NhU00d8fQAm0SfUs5e6L58alBDnQ0nx18M5BHMaE5jXWqU2tu3yehRjkYadIc4GFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b="dK9cW/th";
-	arc=none smtp.remote-ip=209.85.160.225
-Received: from mail-qt1-f225.google.com (mail-qt1-f225.google.com [209.85.160.225])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LFjxjvZ4;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0276606A337
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:13:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0276606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF671606A31E;
+	Tue, 24 Nov 2026 20:13:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=dK9cW/th
-Received: by mail-qt1-f225.google.com with SMTP id d75a77b69052e-55d6deecef6so49895461cf.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:13:46 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795551225; x=1796156025;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QWZGg1KcN/HvMK5vH3jBf2i0Fk8fFcl7eYzJs1/biAY=;
-        b=MhAEqroNvc79L49VPaGjFvUI/7S5jRqn6LcEOu5TIkkOIBoz1pVAolHmq9WmFx4v6L
-         kfJmnPsYNUmRixHv23MT/fM7R9QebQV19zmxKpKoC/lrR4UJozeLSHpqC/giyd8U/UFd
-         C2JjF2z8YBVnBlyRwt/iItGWhiat6/mHdbxZyX/SIR46bsFZFJmN4eV9yesg+25QB9dC
-         omDcPbI9l0hlcErp5OBhTCfL6IPR5BhEExspho+8RY75UlAuQsn1xKVqEUbf1PUDUMxV
-         ybvJhZLZJP6oYoFRojMWc/9pGL8dWaH89PxhtCTJYkmU5VWQAEZN0zfj6jWW1VgUwQbS
-         lb6g==
-X-Forwarded-Encrypted: i=1; AL+hErFMrrvH9VCKTm4mDhwt/IulRn+VwiZ2t5b1b37FkLLHZMOfe84UfV3WRXpdfyKELAmnRBZl3g+6g/YZU5o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/6CngpFff/OcC1Bhb1BMUxJsQWA0DlVXfPLy+95OTEMqRl8NQr
-	tZe9Z5O+axOVAidiXQKuCNtGqwmJBg88NBD1O3KFE+jiXupgm+4uj+tLvtzNrKQQAtE5ugSMKL9
-	zrDJ1ECn2GQisi4bF67NQwwBzDccp60dqtuQ01wvDY6H7O5HcwhAi+nl7JEoCAYKr9RnzXU00EC
-	pi8CDgkohpQBIMbv2+LDGpHj7kZpJQC6zIDNkT0RZhC5/TifB/IHWdTe3PjBFBddGCOOM2a9YfD
-	if+a2my967PsC6t2JAVLaC6Wg==
-X-Gm-Gg: AZFdTZeCuyYBOlgOa4koM7iTYI8zc6QBwvlUcpGN9Ytx79yzDJSB05sjDZrjvCXmR2g
-	6IBoQ9D1W7QQbRQ74G/Xc88Gf2eeHtwqH2a4rQfrLDETAgAKK4uYHDFfxKxu+B6tzEz2mlYk1r6
-	bVwqUIcp58ZJ+xeSme4KaqNZzzNLOF1x1I3lGzimwDCVK3534ERt3RMuY1LO8GGUgQlFYfpIZaH
-	Itlzw1CR7um7H7sjHpZaFq03hl/JkEGI0kAQFhM9B2nbiEit2i/tIdB3v0zJq/RC8e/SdGxWbpD
-	jjMaAoPM7rWFqhRXzHFGBOd0XKJ2XfFu7N0PUa9tdPiqigMeOwB+QfPpMBPfYGkuDEN5CMjxBK4
-	XcH/5ad5EMY1ZxJJ4Em8XpB2r0Q1NxhrDoX2Klr4IqqCDOeT+YHe8ugr2eCMehaX6gYQoqKyof+
-	+96/2VAkB+UZFRkzcG+e9JVOmQr+xhBZJ9VJ7JA3hdPg==
-X-Received: by 2002:a05:622a:50d:b0:55b:df9e:368c with SMTP id d75a77b69052e-55d76ae3081mr288576671cf.74.1795551225326;
-        Tue, 24 Nov 2026 12:13:45 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
-        by smtp-relay.gmail.com with ESMTPS id 6a1803df08f44-921349e6683sm1305486d6.13.2026.11.24.12.13.44
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 24 Nov 2026 12:13:45 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-9213237a52eso88267216d6.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:13:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795551224; x=1796156024; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QWZGg1KcN/HvMK5vH3jBf2i0Fk8fFcl7eYzJs1/biAY=;
-        b=dK9cW/thZ4l0hKQLSM+LfgehtNHV+ubyhysybRmvj9CjCApbch93zLCJERNgOSm84C
-         WRjKBK96/P9P/IA2kRU5ZmsT5zmyh91SWOdGwW0WMME7w62pN7knn6A9CtWCZPwSjkdH
-         nZa9PUiXzP7i+/ekD3QopuThZfamyl7eNpnso=
-X-Forwarded-Encrypted: i=1; AL+hErF6QoaTwO+JysYEmajBjgtrvVr6XwGFKzGAvXZxreVfQrSTK47mDUZT7RB6xpJQ+iWNGLlaDfYe4shQqfU=@vger.kernel.org
-X-Received: by 2002:a05:6214:27ec:b0:91c:74ce:a452 with SMTP id 6a1803df08f44-92134b7ec57mr279262746d6.46.1795551224467;
-        Tue, 24 Nov 2026 12:13:44 -0800 (PST)
-X-Received: by 2002:a05:6214:27ec:b0:91c:74ce:a452 with SMTP id 6a1803df08f44-92134b7ec57mr279262316d6.46.1795551224014;
-        Tue, 24 Nov 2026 12:13:44 -0800 (PST)
-Received: from bld-bun-02.bun.broadcom.net ([192.19.176.227])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349b081csm141186546d6.7.2026.11.24.12.13.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 12:13:43 -0800 (PST)
-From: Arend van Spriel <arend.vanspriel@broadcom.com>
-To: Andre Eikmeyer <dev@deq.rocks>
-Cc: linux-wireless@vger.kernel.org,
-	brcm80211@lists.linux.dev,
-	brcm80211-dev-list.pdl@broadcom.com,
-	linux-kernel@vger.kernel.org,
-	Yossef Osman <Yossef.Osman@proton.me>,
-	Aditya Garg <aditya.garg@linux.dev>,
-	Arend van Spriel <arend.vanspriel@broadcom.com>
-Subject: Re: [PATCH wireless-next v2] wifi: brcmfmac: turn off TX beamforming on Apple BCM4364
-Date: Tue, 24 Nov 2026 21:13:40 +0100
-Message-ID: <20261124201340.3494125-1-arend.vanspriel@broadcom.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261118141020.92306-1-dev@deq.rocks>
-References: <20261118141020.92306-1-dev@deq.rocks>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LFjxjvZ4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BADB21F000ED;
+	Tue, 24 Nov 2026 20:13:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795551222;
+	bh=8WKbn4TeqqYmpHwpZgCuGW4cCB31ueQLaWCo1miFO6w=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=LFjxjvZ4Q60U6mgcpBjDltcgaiZ3AU/a0WKDiA+gWTPD1r/iRk97+9N+SbsIEnpC0
+	 dfDCiAufmmnUEROgAzJv3HFqUu6y7OGx99aYjjWpgAfdSj9WHS11zU9bOIX9gYuhbE
+	 /mYQnCBUVYU7RixvacgEFcfJ3aMzlF3Zfd9dyffxFux5ZrFgXkF5huVrlD6HlODpf2
+	 C3i2Egc3rN0DILgQ47sB47QaHy8QRZjmxjT8P69MGZU30xkcHeR2kmhvrPxT9rIYru
+	 1sdwX+fcPgeEl6B+hpk0fN81a/GZ0FKvxgdV2D2bL8VvnOVV1/w1tzv+QPg1di/ut8
+	 0xCkxsgpdT6Zw==
+From: Chuck Lever <cel@kernel.org>
+To: NeilBrown <neil@brown.name>,
+	Olga Kornievskaia <okorniev@redhat.com>,
+	Dai Ngo <Dai.Ngo@oracle.com>,
+	Tom Talpey <tom@talpey.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Jeff Layton <jlayton@kernel.org>
+Cc: =?UTF-8?q?Aur=C3=A9lien=20Couderc?= <aurelien.couderc2002@gmail.com>,
+	linux-nfs@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 00/12] nfsd: various delegated timestamp fixes
+Date: Tue, 24 Nov 2026 15:13:38 -0500
+Message-ID: <179555119841.1515463.4777099034111650338.b4-ty@b4>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
+References: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,27 +65,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-On Wed, 18 Nov 2026 15:10:20 +0100, Andre Eikmeyer <dev@deq.rocks> wrote:
-> brcmfmac sets "txbf" to 1 at init. The Apple firmware for the BCM4364
-> (9.30.514.0.32.5.94 on the MacBookPro15,1) has it on by default as
-> well, and then rate control settles on a single beamformed spatial
-> stream (nrate VHT MCS9 NSS1 TXBF) towards a two stream AP.
+On Tue, 24 Nov 2026 14:48:39 -0500, Jeff Layton wrote:
+> v3 fixes two problems in the v2 freeze protection and SETATTR ctime
+> patches, and adds a patch for the same ctime bug in CB_GETATTR.
+> 
+> While I was reworking NFSD's delegated timestamp support, LLM review
+> found several bugs in the existing code. This series fixes them.
+> 
+> The timestamp rework is still a work in progress. These fixes can go in
+> ahead of it.
+> 
+> [...]
 
-[...]
+Applied to nfsd-testing, thanks!
 
-> Set "txbf" to 0 on the BCM4364 when the board type is an Apple one.
->
-> Tested-by: Yossef Osman <Yossef.Osman@proton.me>
-> Tested-by: Aditya Garg <aditya.garg@linux.dev>
-> Signed-off-by: Andre Eikmeyer <dev@deq.rocks>
-> ---
->  .../wireless/broadcom/brcm80211/brcmfmac/common.c | 15 +++++++++++++--
->  1 file changed, 13 insertions(+), 2 deletions(-)
+[01/12] nfsd: don't hold inode_lock while waiting for a delegation in nfsd_setattr()
+        commit: 6f51f933294bbcff53fb6c7231f356ae8f1a6467
+[02/12] nfsd: take freeze protection before updating delegation timestamps
+        commit: e65caea9feff1cce8a270b518e2f4475d6167423
+[03/12] nfsd: count a delegation in cl_delegs_in_recall only once
+        commit: 266f9a2a591f084149e58e1143374a4d1638a230
+[04/12] nfsd: don't grant write delegations to NFSv4.0 clients on CLAIM_PREVIOUS
+        commit: d4445ca4e442dc09f4eab20afdafb9d8337860ef
+[05/12] nfsd: set ctime when a SETATTR with delegated times changes other attributes
+        commit: 1baa7cda2fba4238c193a5262a97f1dfdbf8d099
+[06/12] nfsd: pin the client while a GETATTR holds a conflicting delegation
+        commit: aa8a7d572d5b9788784038e6a3b7d0bc805e0acf
+[07/12] nfsd: recall when a CB_GETATTR reply omits the size
+        commit: 2b67daa277211096e5c3dbab460b09df89f74f32
+[08/12] nfsd: apply delegated times in a separate times-only setattr
+        commit: 74ca288461569f71b86028e72120f8f2fbabff41
+[09/12] nfsd: grant a plain read delegation when timestamps are wanted on a read open
+        commit: 92a3bf098f0738080cb7869427510364ab6a4d0f
+[10/12] nfsd: check fi_had_conflict under deleg_lock before hashing a delegation
+        commit: 971425a24fe5961611060799392fff93e8c10804
+[11/12] nfsd: take the write delegation grant stat before hashing
+        commit: 68c7e0626beace91513d74c0407264a51a127740
+[12/12] nfsd: move ctime when CB_GETATTR applies a delegated mtime
+        commit: 6f174a0eca19e69a14c34b0ed56b60d484f22fd6
 
-Acked-by: Arend van Spriel <arend.vanspriel@broadcom.com>
+--
+Chuck Lever
 
-Regards,
-Arend
