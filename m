@@ -1,11 +1,11 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795541554;
-	b=f8ilRPwNxlieFKMJx4AXQqHoWhFFiq3illOcFCujGo9mC2oi7FN5V+qJf8BrflDIZuKo
-	 Pp6LDEQljnEBSDooMtgmXX58nb5uSGq7PoMD6RNiZdi7B49hAWKEY1jnbMeMyv4+vsnuV
-	 twdNy1AisjrJfmmJZDN4fDgJONhwM4rNxOF38eK79U9SdClVVPKVjwWyoIBnBHpIjm9mF
-	 nPhnlcyB7MmhgNU1DPgbrs3FUDhm44rjgYqVRO+EtogK27Iw7BRIRugzOk/BR4Cv+L5BO
-	 bsUGpDA5kYFuIDpK0crSL+6j6wlikC3HcGRXV7Tguk75BMN7XAB6cZ5VNTfKiOkzxgw==
+	b=AGoCXeVUh2eh4Y4MrugKJDymG0jud+7KjX6BojDvFTBCizjKCVNHof/9ddSMjQf5sLHP
+	 2UAjVCoovfvAF/mB1r5tCEFQmJY1oyaDc/+SXNg1DFLC+vFszumUzqyl12pcknDnL6UUT
+	 2GoqkVcNZu1WZMg+z+UCexpcm6ycO+8zZ12r5BAppgwKlqCJAfYT4SIPfCXqDkV9bUHjs
+	 ip/PfJcF4CiucK4ch9q9deCO38GAYGdNgWAsXCuXWwXuix07Mf0k215ven7Nu9PxloRjA
+	 8yeU5OsAXpuGmXKkd3mo5NUsJTBNzct/IilpeVt3JOHpM6NEXc8m0knjGyDv5DNIdjg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795541554;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
@@ -13,77 +13,77 @@ ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=4Oh1DyqKmA18yB2cPepTMnYsZR1J1eTBbARcXdSV43M=;
-	b=CU8QBjOfd2ezic0bpLJAgUUMMTYeJtYhsnkQyUnqT/81By1YuTEZSwW8rPGT+zVSVJ9g
-	 Mvrf7YkINyKrSwPm16Fa/IadBR6ckOo7SREzrJL/HIcNaLEVU6eHIWKVVttBejJ+wVOdQ
-	 azzvaRShg/nSySMGepzkFQ2pJwSJLesmn3RQGVhZhmNJDPvpyIX70uy0R900Zh6Og9zA/
-	 UPJrRReGU8IImj9O9fe54IR7uUhQQONVop26CcEigSH24Ge07CytnI8vYhLfEDN9D0fEX
-	 xQF4QvTydHCIaBfHQBQOirvzcEF3O2EAzLB3RSaONbcJZy49zUA5rIQ1JasgTa87hKQ==
+	bh=P6N6ygAF05bd/ckvqZwLOE4OwnPVHmVc1nseSliCSrQ=;
+	b=vtgYp5/M2DQ6Ib+4HsQMVM9jC06W/5gRao+U/XAToQoTIP3HZrIXSAPfbgv4/TIUfH2U
+	 i2v6/tV6x7rG+ufAHt2+GUb3+FgV9OVjOh3vxtlgrkgfiljeC3s42oxpEsMtcTlbZDMVA
+	 5gzswaEiKUsPXliYeYeXV+ffMS6wQ3DW3xr3vEP7D/wdQ5qKpUtxJE42xem2xxpUm/BlQ
+	 V71M0hkWFrZ4Gu1nojZnB36BAdnBluwESFbV8XvDKU9rwfbsi8Ge17LgRgqza5FGs0I/H
+	 vIqpmPYmEHHQSBKWZt/vGjP5kXmEwP632t3XS1R/Ki0OR6xr2HqEP/uqjKhzoTKt/Ng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linaro.org;
 	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=S4PStDRK;
-	arc=none smtp.remote-ip=209.85.221.49
-Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=vbdGCBaq;
+	arc=none smtp.remote-ip=209.85.221.43
+Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7DBE60A5BE0
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:32:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7DBE60A5BE0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAABE60A6F46
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:32:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DAABE60A6F46
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=S4PStDRK
-Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-4ad6219f7d8so4163605f8f.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:32:32 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=vbdGCBaq
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-4a68190a2a7so3953434f8f.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:32:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795541551; x=1796146351; darn=vger.kernel.org;
+        d=linaro.org; s=google; t=1795541552; x=1796146352; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=4Oh1DyqKmA18yB2cPepTMnYsZR1J1eTBbARcXdSV43M=;
-        b=S4PStDRK8rBYc+sFN/fx0kfnBtNfu5JphZh0meOjySoLDRGj6hzwbYEUjtzTQYLygL
-         MId+1dusvvP22bUGVMQTBCgFCenYaa986Ntdg5N21sAiHuiLU0upVg180436iLmjSSos
-         hVzKovoQD12GT1asJVUnA+vSUx8p0X1LHUTUz+gOeRKqvkxxTNO40w+3p4p6XZpehcrQ
-         P0eecfIixhyK26Z5NRNfW2Uldarf43VBEcg9xpKSjaqHDHoMCVGlq9jpfl2wghxWfEo6
-         WLTXv4SRYXxZzhNldlHbvrf+UXloKoyY4zbasWcH4b4laQ7RHSojSPaRh8r26pFdvXS8
-         JSCA==
+        bh=P6N6ygAF05bd/ckvqZwLOE4OwnPVHmVc1nseSliCSrQ=;
+        b=vbdGCBaq1o96l6JE4VOEbTQzlCDUSoOeE5L2vGDLrxjfsVRcPiFx32NBePZ87/PBZ6
+         F7hFDd7nqUBaoi/0SaZ8VoE0RqG7euim01+vN6dRdBSlX67XSWlFyfpq89lYXab4mgZc
+         R7yK4sznw2RL19HrE9spO7kojHq1k9i5YsU6thtiV5bCMwkusYD4iH1b1Db+I0EH35gm
+         YRlaDLYmvX5sFcTexzsM1QrbHNZhvMbWgR8l6PdvEFQbOkJO0D+LGg9cZEZTLcKV6PBX
+         kP0z3QmnmBmiSPdKJA9Leh9X4q5NQxj5BmnEFtUlXeoQZNR2AKk0o5e4GfZaJQMby/dL
+         uodw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795541551; x=1796146351;
+        d=1e100.net; s=20260707; t=1795541552; x=1796146352;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=4Oh1DyqKmA18yB2cPepTMnYsZR1J1eTBbARcXdSV43M=;
-        b=eoMyQoKzKmRhlK8v7CkMDnNIn3UP94RubkuFaAm3/SD8XjAKASCmD3URNIS2ihxgmc
-         He3hNoC/BEIo+YydBqoebyyKq/KuZTpN1Vfvfmwi5AHJINMKNQ3WvW7AbLb8IEMOutbm
-         eJ2pMtrFEdhLF29Ui9Vwg7ro204vaJmT4MDnt+6HZO8OUFbofop+8IOjORCLm19kZMTI
-         tb1dpAmo7JVJnlxi40iVhfwEotQbCQyldfyeKqpbvHk0OA1MYtI0Mn9RKCarJBay3v7+
-         rDcYTrH4mpQhOvzQ2wH3eMLqTIen8jfKCdz7OB+WVqy1uI+2joPji4DgxC+KnWH4ckcq
-         LUMw==
-X-Forwarded-Encrypted: i=1; AL+hErElQNpoRPUKZ+LENBpcHlZS0jOTT1ILs/Jt9i4o25HAyJN4l2vfmyudYslhdxVuJgrz8tjBEDgRjz8Bj84=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/9B+dFoS0NkAegr3A06uddLgSoDPavTI4pcU8T5ixMqYXSiRrM
-	zGDIU7XSUUKUgw06UQoIL4QB2jLeglP+H/zf9dnoo/Ygt4oPb8rEoWwmeTfUQy8UBQM=
-X-Gm-Gg: AZFdTZcdyUlyFOH8jfWI12Jvf5pT06foKV+qz8EHPly9cKitnQT+fjNgh0vn6rXDP99
-	R9xyHxaVslfxmHIqXY4PwE+7P3mNTGc7Y+CqwxTaTAFYaYeuZHyTqtU1EH7jha0BknBoAFUp5Qm
-	OsM9ocItYzZmCjIAO4k3RMtOhIjHJ3uxFSguJ708EVOPqU65W7mdD8jzYHHdmuSwjYBBePbh4HG
-	PIijqj99sxNLQ8F55nBR7uBM68M/k7jGC3G6T8lrAagwdqnPAMuVVc8SPS7tbg0U+qvsMa05Zs9
-	8XvDBJUgFhccED8MaHtT6WYbQ1qn+fTdtqkfKiHKZhJTotSkHankvQIWGrFk9kwFKLBh1zN2w7Z
-	MbQDbDppYIom5g2LlT2+KA+brlhtVLbrtJoFks5E3q6T9RxJRJ8aPLGAfpyvv33VlJxLrLvy1yK
-	gn8x+kRFdsIrYavdAosfS7lxp0ApI75pYQ0W0dk9i/jBBuUNQQE1MKLoWCU9GN29BFcbYuFuB0/
-	1CNCKbiFt+8z9/P3s9X/d0/Xov+81UjrAGIsi1LehIZd4xuo6WH6xStYwZHXFBghIu88v4vZE10
-	xDPgvqSqb8/NnI/ZB5yNE8sT6uIGq5Y0O4CJXwsj38MuOotf4g==
-X-Received: by 2002:a05:6000:2583:b0:4b3:e605:163c with SMTP id ffacd0b85a97d-4b5f5a34f32mr8050530f8f.42.1795541551137;
+        bh=P6N6ygAF05bd/ckvqZwLOE4OwnPVHmVc1nseSliCSrQ=;
+        b=2iHsjwLn8Rc3WOdsc+JUAGbC13kxzphtEzmpQjPwZShLFXgBl8ZKqx3/gml+WtC1tZ
+         Q0DlWA/DcGSw62qkNeGSGLs/eUIvskO4WnlHcy54sieE9F9Lw6DzZSjgpZo2Y/a6TO9o
+         Qi/cqaseob9FvIKNrFShULQg8x32e0LUL2DYRd+nEopZfQ89HC0q6VK4GMmbN1qlgK10
+         zhAEHWtiQ8Kp77KnIRNiZnEDoWVx0HrfxBAb5eeNKLRtnw4I/XhJuhb5UEpCyYk6Z38E
+         i2ArvtemII0TXLMhSTZ8thMosjo4h5JupBrG+LAbsbPP+kHyUCsUAG9RWoiQ0IVbrRPj
+         3diQ==
+X-Forwarded-Encrypted: i=1; AL+hErEfHSeypDzW97bXTwNSbs2z81KEaa50ToZvsiOCKFgCMwRXyo0ZPhrBVSAeMIuf5QByjET7/5kjgKtBO88=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/8lvYZjemqGy34wpfGCbf9pEOaH6sD4f0/53uNU8NGZcNyt903
+	fYjxa/jhxoJiuQ8sqA4/Yvb2BRLywOk/uXTd3RUBygVuHg6ZbZX7V95EYAppU8gEceg=
+X-Gm-Gg: AZFdTZdfuXR5/7kAH/vr/fwJiLitdggiu3OhudirY6z3n230SQ2a2vn0UtbNaMmrOvg
+	4LaAg4D1juoLqHGIINHYgCbxuuV8TpdP8f9qJwKQRtlX37K/UjzXMrkcLc1kTZ3PjU0ohzn1roF
+	IeYVr3gGnsTrp6L3I81WmjexVQgHuNg6biDp7eiUbWA+6NpCv/zfFe7kJ13oOm5r5JAbgKyfBGv
+	5WZVpIsxsTvceQr19JSD7EBoUWAPplWfh3vgHqFsxCbzSQU5JEPDx69jopKhW0RmCvyaRNCezSG
+	mKGccgLPgXBgiXGFOt78yZYI5cqD1jTq39CugyNNtEBjC5LtYsjDemZXxBYee7nJtsMfSaDE6A8
+	QjPCaD/8lZTlvmqmRw+VVcThQOLQFBoBBN1+5cj8bBlZa5Emq65a17g0fBicZB9cqQmkPD9EWIQ
+	km3/Bwr8ibkNXZYVcHZdxG/ntdjjk3U/ACRcu1C18P4QCue2BnrhwWV2qDwLuXm1Z4j1ftvs8Jb
+	Lvf3kpFshgQwdv6/pYpDDoA9U6ZkIqoIn2kHKSpILS57RVDRoo6xBq7rKpvntK1hgOp3NhFxg3m
+	Z9kS5uCZwBiL0rNouvddhcG3UVC1PsAI7fYrcBPDSe78ZguzZA==
+X-Received: by 2002:a05:600c:1d2a:b0:4b7:6942:39bf with SMTP id 5b1f17b1804b1-4bb88814031mr382042025e9.28.1795541551984;
         Tue, 24 Nov 2026 09:32:31 -0800 (PST)
 Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b9add26sm29560057f8f.44.2026.11.24.09.32.30
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b9add26sm29560057f8f.44.2026.11.24.09.32.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 09:32:30 -0800 (PST)
+        Tue, 24 Nov 2026 09:32:31 -0800 (PST)
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Date: Tue, 24 Nov 2026 18:32:19 +0100
-Subject: [PATCH v2 12/19] ASoC: qcom: lpass: add support for MI2S_SENARY &
- MI2S_SEPTENARY
+Date: Tue, 24 Nov 2026 18:32:20 +0100
+Subject: [PATCH v2 13/19] ASoC: qcom: lpass: support mapping I2S ports to
+ multiple LPAIFs
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,7 +95,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-topic-sm8650-el2-v2-12-174e159f0f69@linaro.org>
+Message-Id: <20261124-topic-sm8650-el2-v2-13-174e159f0f69@linaro.org>
 References: <20261124-topic-sm8650-el2-v2-0-174e159f0f69@linaro.org>
 In-Reply-To: <20261124-topic-sm8650-el2-v2-0-174e159f0f69@linaro.org>
 To: Srinivas Kandagatla <srini@kernel.org>, 
@@ -109,149 +109,282 @@ Cc: linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Neil Armstrong <neil.armstrong@linaro.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4946;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8503;
  i=neil.armstrong@linaro.org; h=from:subject:message-id;
- bh=a/a/+f0uzfUCnVpje9Y+IYySPZ1t1Jorb7IHF/ZPQx0=;
- b=owEBbQKS/ZANAwAKAXfc29rIyEnRAcsmYgBrBcog0Ns7v+uwIc5u+U0AO5gB9YvfldNatPBq3SLJ
- Yx/+rD2JAjMEAAEKAB0WIQQ9U8YmyFYF/h30LIt33NvayMhJ0QUCawXKIAAKCRB33NvayMhJ0SK6D/
- 9gbxuhmj5WT54sT/ZAX0xYVwXizDfQ2+wDT06C5ZLbfV1f5ztq10bdLgrzaOHGuIaCT+O3eN5X2RIh
- ZJwPDhfDeTyxlSBJpF0lvXiLaSbt7VIlDEH5sp8WabRqvPvpMt7KuB5EjNEN3uHJ/h8ZOGgQMxcFWG
- ei+lL/sZyIGmbCJtBxO4EO+F6gvcgqQgdx+Wg43g0pqafs3ti476kmXv2bq3pe+k6vOVY44WgP23sE
- /HUQuEaTOTsV4Rpy339e6IO/1FnAJQUS4ppZ0/ll0lS1r/m9V2hvYl12kLDkQ4ym0QgnePenoinLnt
- uKKeVS5BPXYKf0Gs/FVTwu+SFiun6pcwitBbZJDkZStrIhHzVPAWoj3V578rLC8vWRWRF+yzksycvi
- xjOEs7GFzXd0pISZkQ075uNhmb+htYrPsKo0oHNvnz/ZB8sh3FK/L35N2Ufk7qFjZZymwBBThKrTx9
- ITiuqeraLvNDGgFRHtHVrOBJ3pPtZPTaL3Xg0EgMxxuna6551J1MXZoo1zH2dLgdhbTSNLZ6zjLAfD
- YGsTJXqcl2CwmN9+XYr3CpHyI2kqNJPCqx2Yp3wOj32L+OmgTOgynsA5kn8nk0PB49Hrmosnre7YWO
- Aq4snKhdb9T1qjS+JDGe3KDErXzRnTDmnCMj3AdgifaZ0ELAkYXL4JxYjlyw==
+ bh=hUCDddeV1CTw9c7KsqIaVt0dW/noaYzbb49yy8pbzDA=;
+ b=owEBbQKS/ZANAwAKAXfc29rIyEnRAcsmYgBrBcogqM7wSCwumWxNx+x/cqGjZdwLhoPAYi5MAZFn
+ OCjq/HaJAjMEAAEKAB0WIQQ9U8YmyFYF/h30LIt33NvayMhJ0QUCawXKIAAKCRB33NvayMhJ0cF7D/
+ sGYg+JAKhbyxDnMAfQNFL/mmYYW1T8ZOG34uHA2wdpiLS3jRBHEjV0Coa+ojugJnnI7i1dFuFWDN8U
+ dDRGuRjkc4ZqRwKmSHU1gtWmakwr0L9Zn82WIPFdK+t0NmsVQaYwdd9dSytYBvGUbLfzoNUovjgeqw
+ Vsx647+3z1eGGg9MI0ZOI87hs1RkMWKzjXfML0gOK4ATq2fZi372AaHnfe/Xt0m8MkR8FK0HDXhyHX
+ F5EafviHim7MCXt11HKuIpoTad+7h58W9qRHn6TwCEL1/vnO5TvZIlJoLN/lrvk/7bWIqvYuFwK9KA
+ 39fkcENNYIzpjsHSwoeO/tNKQ9YwXzBhtteZ3f72LXrrpjNRZea3aR4L8NcB3g2e7UTeSLPP8PniPS
+ MelAN/pA83eiwPZSFgReCTxIwAba81lMvwkoFpm1ibfYdIF3Ry/EEwh9IihO+ckkjOkanO0T2HmzMm
+ BerczS4mqlVgvQCdIpUYC0RYytZ2vxR4R7hC90PfZzr4NzXDCjo/HbcEwImF6QP0ca5UvoWOdQxb+5
+ OgEF+ufrTL942/xX6z5pQDtCtkA7/4OlSDBuRnouTrvE/pXtYqHnfgupM/Dj2y16cTDHbcOqvdddkm
+ b/EFTzor38G+aZNThMqDk8KuhGEloZ9u/pgddcHV8Y8kEhzB+epexZhIReYA==
 X-Developer-Key: i=neil.armstrong@linaro.org; a=openpgp;
  fpr=89EC3D058446217450F22848169AB7B1A4CFF8AE
 
-Now we use the helper to translate the DAI id into a proper
-MI2S port index, we can add support for the MI2S_SENARY &
-MI2S_SEPTENARY ports.
+Now we have all the plumbing to support multiple MI2S ports
+on multiple LPAIFs, add the optional descriptor and parse it
+to probe the associated LPAIF when defined in the DT node.
+
+When the descriptor is not provided, the behaviour is kept
+as before and the 8 MI2S ports are mapped to the core
+LPAIF.
+
+Since an LPAIF address space can only be mapped by the MI2S
+handling or the VA/RXTX/WSA handlers, if somehow the DT
+declared some invalid setup (I2S port on WSA and WSA codec),
+the probe would fail.
 
 Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
 ---
- sound/soc/qcom/lpass-platform.c | 14 +++++++++++++-
- sound/soc/qcom/lpass.h          |  3 +++
- 2 files changed, 16 insertions(+), 1 deletion(-)
+ sound/soc/qcom/lpass-cpu.c      | 79 +++++++++++++++++++++++++++++++++++++----
+ sound/soc/qcom/lpass-platform.c | 27 +++++++++++---
+ sound/soc/qcom/lpass.h          | 23 +++++++++++-
+ 3 files changed, 116 insertions(+), 13 deletions(-)
 
+diff --git a/sound/soc/qcom/lpass-cpu.c b/sound/soc/qcom/lpass-cpu.c
+index b4620fc99e26..902ad6554510 100644
+--- a/sound/soc/qcom/lpass-cpu.c
++++ b/sound/soc/qcom/lpass-cpu.c
+@@ -436,6 +436,12 @@ static int lpass_cpu_daiops_probe(struct snd_soc_dai *dai)
+ 	struct lpass_lpaif *lpaif = drvdata->mi2s_lpaif[port_id];
+ 	int ret;
+ 
++	/* The LPAIF is only initialized if one of its ports is described in DT */
++	if (!lpaif || !lpaif->drvdata) {
++		dev_err(dai->dev, "LPAIF of this port is not enabled\n");
++		return -ENODEV;
++	}
++
+ 	/* ensure audio hardware is disabled */
+ 	ret = regmap_write(lpaif->map,
+ 			LPAIF_I2SCTL_REG(drvdata->variant, drvdata->mi2s_intf[port_id]), 0);
+@@ -1172,6 +1178,8 @@ static void of_lpass_cpu_parse_dai_data(struct device *dev,
+ 			data->mi2s_capture_sd_mode[port_id] =
+ 				of_lpass_cpu_parse_sd_lines(dev, node,
+ 						    "qcom,capture-sd-lines");
++
++			set_bit(port_id, &data->lpaif_port_enable);
+ 		} else {
+ 			dev_err(dev, "invalid dai id: %d\n", id);
+ 			continue;
+@@ -1214,12 +1222,33 @@ static int lpass_cpu_init_lpaif(struct platform_device *pdev, int idx,
+ 	struct regmap_config cfg = lpass_cpu_regmap_config;
+ 	struct device *dev = &pdev->dev;
+ 	void __iomem *base;
+-	int ret;
++	int ret, i;
++
++	/* Only probe an LPAIF if one of the port is described in DT */
++	if (v->mi2s_desc) {
++		const struct lpaif_mi2s_desc *desc = &v->mi2s_desc[idx];
++		bool enabled = false;
++
++		for (i = 0; i < desc->port_desc_count; ++i) {
++			unsigned int port_id = mi2s_port_id(desc->port_desc[i].id);
++
++			if (test_bit(port_id, &drvdata->lpaif_port_enable)) {
++				enabled = true;
++				break;
++			}
++		}
++
++		if (!enabled)
++			return 0;
++	}
+ 
+ 	base = devm_platform_ioremap_resource_byname(pdev, reg_name);
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
+ 
++	/* Keep the legacy regmap name for the core LPAIF */
++	if (idx)
++		cfg.name = reg_name;
+ 	cfg.max_register = LPAIF_WRDMAPER_REG(v, v->wrdma_channels +
+ 					      v->wrdma_channel_start);
+ 
+@@ -1340,11 +1369,25 @@ int asoc_qcom_lpass_cpu_platform_probe(struct platform_device *pdev)
+ 		drvdata->va_cdc_dma_lpm_buf = res->start;
+ 	}
+ 
+-	drvdata->num_lpaif = 1;
++	if (variant->mi2s_desc) {
++		if (variant->num_mi2s_desc > LPASS_MAX_LPAIF)
++			return -EINVAL;
++
++		drvdata->num_lpaif = variant->num_mi2s_desc;
+ 
+-	ret = lpass_cpu_init_lpaif(pdev, 0, "lpass-lpaif");
+-	if (ret)
+-		return ret;
++		for (i = 0; i < variant->num_mi2s_desc; i++) {
++			ret = lpass_cpu_init_lpaif(pdev, i,
++						   variant->mi2s_desc[i].reg_name);
++			if (ret)
++				return ret;
++		}
++	} else {
++		drvdata->num_lpaif = 1;
++
++		ret = lpass_cpu_init_lpaif(pdev, 0, "lpass-lpaif");
++		if (ret)
++			return ret;
++	}
+ 
+ 	if (drvdata->hdmi_port_enable) {
+ 		drvdata->hdmiif = devm_platform_ioremap_resource_byname(pdev, "lpass-hdmiif");
+@@ -1376,8 +1419,30 @@ int asoc_qcom_lpass_cpu_platform_probe(struct platform_device *pdev)
+ 
+ 		port_id = mi2s_port_id(variant->dai_driver[i].id);
+ 
+-		drvdata->mi2s_lpaif[port_id] = &drvdata->lpaif[0];
+-		drvdata->mi2s_intf[port_id] = port_id;
++		if (variant->mi2s_desc) {
++			unsigned int lpaif_idx, lpaif_port;
++			const struct lpaif_mi2s_desc *desc;
++
++			for (lpaif_idx = 0; lpaif_idx < variant->num_mi2s_desc; ++lpaif_idx) {
++				desc = &variant->mi2s_desc[lpaif_idx];
++
++				for (lpaif_port = 0;
++				     lpaif_port < desc->port_desc_count;
++				     ++lpaif_port) {
++					if (desc->port_desc[lpaif_port].id !=
++							variant->dai_driver[i].id)
++						continue;
++
++					drvdata->mi2s_lpaif[port_id] =
++						&drvdata->lpaif[lpaif_idx];
++					drvdata->mi2s_intf[port_id] =
++						desc->port_desc[lpaif_port].intf;
++				}
++			}
++		} else {
++			drvdata->mi2s_lpaif[port_id] = &drvdata->lpaif[0];
++			drvdata->mi2s_intf[port_id] = port_id;
++		}
+ 
+ 		drvdata->mi2s_osr_clk[port_id] = devm_clk_get_optional(dev,
+ 					     variant->dai_osr_clk_names[i]);
 diff --git a/sound/soc/qcom/lpass-platform.c b/sound/soc/qcom/lpass-platform.c
-index dc7007155e95..48d819356aea 100644
+index 48d819356aea..16a964e1aec1 100644
 --- a/sound/soc/qcom/lpass-platform.c
 +++ b/sound/soc/qcom/lpass-platform.c
-@@ -274,6 +274,7 @@ static int lpass_platform_pcmops_open(struct snd_soc_component *component,
+@@ -1370,6 +1370,8 @@ static int lpass_platform_pcmops_suspend(struct snd_soc_component *component)
+ 	}
  
- 	switch (dai_id) {
- 	case MI2S_PRIMARY ... MI2S_QUINARY:
-+	case MI2S_SENARY ... MI2S_SEPTENARY:
- 		port_id = mi2s_port_id(dai_id);
- 		map = drvdata->mi2s_lpaif[port_id]->map;
- 		drvdata->mi2s_lpaif[port_id]->substream[dma_ch] = substream;
-@@ -303,6 +304,7 @@ static int lpass_platform_pcmops_open(struct snd_soc_component *component,
- 	data->dma_ch = dma_ch;
- 	switch (dai_id) {
- 	case MI2S_PRIMARY ... MI2S_QUINARY:
-+	case MI2S_SENARY ... MI2S_SEPTENARY:
- 	case LPASS_DP_RX:
- 		ret = regmap_write(map, LPAIF_DMACTL_REG(v, dma_ch, dir, data->i2s_port), 0);
- 		if (ret) {
-@@ -361,6 +363,7 @@ static int lpass_platform_pcmops_close(struct snd_soc_component *component,
+ 	for (i = 0; i < drvdata->num_lpaif; i++) {
++		if (!drvdata->lpaif[i].drvdata)
++			continue;
+ 		map = drvdata->lpaif[i].map;
+ 		regcache_cache_only(map, true);
+ 		regcache_mark_dirty(map);
+@@ -1393,6 +1395,8 @@ static int lpass_platform_pcmops_resume(struct snd_soc_component *component)
+ 	}
  
- 	switch (dai_id) {
- 	case MI2S_PRIMARY ... MI2S_QUINARY:
-+	case MI2S_SENARY ... MI2S_SEPTENARY:
- 		port_id = mi2s_port_id(dai_id);
- 		drvdata->mi2s_lpaif[port_id]->substream[data->dma_ch] = NULL;
- 		break;
-@@ -400,6 +403,7 @@ static struct lpaif_dmactl *__lpass_get_dmactl_handle(const struct snd_pcm_subst
+ 	for (i = 0; i < drvdata->num_lpaif; i++) {
++		if (!drvdata->lpaif[i].drvdata)
++			continue;
+ 		map = drvdata->lpaif[i].map;
+ 		regcache_cache_only(map, false);
+ 		ret = regcache_sync(map);
+@@ -1463,6 +1467,10 @@ static int lpass_platform_init_lpaif(struct platform_device *pdev, int idx,
+ 	const struct lpass_variant *v = drvdata->variant;
+ 	int ret;
  
- 	switch (cpu_dai->driver->id) {
- 	case MI2S_PRIMARY ... MI2S_QUINARY:
-+	case MI2S_SENARY ... MI2S_SEPTENARY:
- 		port_id = mi2s_port_id(cpu_dai->driver->id);
- 		if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK)
- 			dmactl = drvdata->mi2s_lpaif[port_id]->rd_dmactl;
-@@ -442,6 +446,7 @@ static int __lpass_get_id(const struct snd_pcm_substream *substream,
++	/* Only continue if already initialized by lpass-cpu */
++	if (!lpaif->drvdata)
++		return 0;
++
+ 	lpaif->irq = platform_get_irq_byname(pdev, irq_name);
+ 	if (lpaif->irq < 0)
+ 		return -ENODEV;
+@@ -1494,12 +1502,21 @@ int asoc_qcom_lpass_platform_register(struct platform_device *pdev)
+ {
+ 	struct lpass_data *drvdata = platform_get_drvdata(pdev);
+ 	const struct lpass_variant *v = drvdata->variant;
+-	int ret;
++	int i, ret;
  
- 	switch (cpu_dai->driver->id) {
- 	case MI2S_PRIMARY ... MI2S_QUINARY:
-+	case MI2S_SENARY ... MI2S_SEPTENARY:
- 		if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK)
- 			id = pcm_data->dma_ch;
- 		else
-@@ -481,6 +486,7 @@ static struct regmap *__lpass_get_regmap_handle(const struct snd_pcm_substream *
+-	ret = lpass_platform_init_lpaif(pdev, 0, "lpass-irq-lpaif",
+-			IRQF_TRIGGER_RISING);
+-	if (ret)
+-		return ret;
++	if (v->mi2s_desc) {
++		for (i = 0; i < v->num_mi2s_desc; i++) {
++			ret = lpass_platform_init_lpaif(pdev, i,
++							v->mi2s_desc[i].irq_name, 0);
++			if (ret)
++				return ret;
++		}
++	} else {
++		ret = lpass_platform_init_lpaif(pdev, 0, "lpass-irq-lpaif",
++						IRQF_TRIGGER_RISING);
++		if (ret)
++			return ret;
++	}
  
- 	switch (cpu_dai->driver->id) {
- 	case MI2S_PRIMARY ... MI2S_QUINARY:
-+	case MI2S_SENARY ... MI2S_SEPTENARY:
- 		port_id = mi2s_port_id(cpu_dai->driver->id);
- 		map = drvdata->mi2s_lpaif[port_id]->map;
- 		break;
-@@ -518,6 +524,7 @@ static int lpass_platform_pcmops_hw_params(struct snd_soc_component *component,
- 	int id;
- 	int bitwidth;
- 	unsigned int dai_id = cpu_dai->driver->id;
-+	unsigned int port_id;
- 	int ret, dma_port;
- 
- 	dmactl = __lpass_get_dmactl_handle(substream, component);
-@@ -568,7 +575,9 @@ static int lpass_platform_pcmops_hw_params(struct snd_soc_component *component,
- 	case MI2S_TERTIARY:
- 	case MI2S_QUATERNARY:
- 	case MI2S_QUINARY:
--		dma_port = drvdata->mi2s_intf[dai_id] + v->dmactl_audif_start;
-+	case MI2S_SENARY ... MI2S_SEPTENARY:
-+		port_id = mi2s_port_id(dai_id);
-+		dma_port = drvdata->mi2s_intf[port_id] + v->dmactl_audif_start;
- 		ret = regmap_fields_write(dmactl->intf, id,
- 						LPAIF_DMACTL_AUDINTF(dma_port));
- 		if (ret) {
-@@ -811,6 +820,7 @@ static int lpass_platform_pcmops_trigger(struct snd_soc_component *component,
- 		case MI2S_TERTIARY:
- 		case MI2S_QUATERNARY:
- 		case MI2S_QUINARY:
-+		case MI2S_SENARY ... MI2S_SEPTENARY:
- 			reg_irqclr = LPAIF_IRQCLEAR_REG(v, LPAIF_IRQ_PORT_HOST);
- 			val_irqclr = LPAIF_IRQ_ALL(ch);
- 
-@@ -910,6 +920,7 @@ static int lpass_platform_pcmops_trigger(struct snd_soc_component *component,
- 		case MI2S_TERTIARY:
- 		case MI2S_QUATERNARY:
- 		case MI2S_QUINARY:
-+		case MI2S_SENARY ... MI2S_SEPTENARY:
- 			reg_irqen = LPAIF_IRQEN_REG(v, LPAIF_IRQ_PORT_HOST);
- 			val_mask = LPAIF_IRQ_ALL(ch);
- 			val_irqen = 0;
-@@ -1064,6 +1075,7 @@ static irqreturn_t lpass_dma_interrupt_handler(
- 	case MI2S_TERTIARY:
- 	case MI2S_QUATERNARY:
- 	case MI2S_QUINARY:
-+	case MI2S_SENARY ... MI2S_SEPTENARY:
- 		port_id = mi2s_port_id(dai_id);
- 		map = drvdata->mi2s_lpaif[port_id]->map;
- 		reg = LPAIF_IRQCLEAR_REG(v, LPAIF_IRQ_PORT_HOST);
+ 	if (drvdata->codec_dma_enable) {
+ 		ret = regmap_write(drvdata->rxtx_lpaif_map,
 diff --git a/sound/soc/qcom/lpass.h b/sound/soc/qcom/lpass.h
-index 78125048b064..4407996fb145 100644
+index 4407996fb145..70d64bf3f073 100644
 --- a/sound/soc/qcom/lpass.h
 +++ b/sound/soc/qcom/lpass.h
-@@ -45,6 +45,7 @@ static inline bool is_mi2s_port_id(int dai_id)
- {
- 	switch (dai_id) {
- 	case MI2S_PRIMARY ... MI2S_QUINARY:
-+	case MI2S_SENARY ... MI2S_SEPTENARY:
- 		return true;
- 	default:
- 		return false;
-@@ -56,6 +57,8 @@ static inline int mi2s_port_id(int dai_id)
- 	switch (dai_id) {
- 	case MI2S_PRIMARY ... MI2S_QUINARY:
- 		return dai_id;
-+	case MI2S_SENARY ... MI2S_SEPTENARY:
-+		return MI2S_QUINARY + (dai_id - MI2S_SENARY) + 1;
- 	default:
- 		return 0;
- 	}
+@@ -20,7 +20,7 @@
+ #define LPASS_AHBIX_CLOCK_FREQUENCY		131072000
+ #define LPASS_MAX_PORTS			(LPASS_MAX_PORT)
+ #define LPASS_MAX_MI2S_PORTS			(8)
+-#define LPASS_MAX_LPAIF				(1)
++#define LPASS_MAX_LPAIF				(7)
+ #define LPASS_MAX_DMA_CHANNELS			(8)
+ #define LPASS_MAX_HDMI_DMA_CHANNELS		(4)
+ #define LPASS_MAX_CDC_DMA_CHANNELS		(8)
+@@ -148,6 +148,19 @@ struct lpass_lpaif {
+ 	struct snd_pcm_substream *substream[LPASS_MAX_DMA_CHANNELS];
+ };
+ 
++struct mi2s_port_desc {
++	unsigned int intf;	/* LPAIF Interface */
++	unsigned int id;	/* DAI ID */
++};
++
++/* Extended LPAIF MI2S layout */
++struct lpaif_mi2s_desc {
++	const char *reg_name;
++	const char *irq_name;
++	struct mi2s_port_desc *port_desc;
++	unsigned int port_desc_count;
++};
++
+ /* Both the CPU DAI and platform drivers will access this data */
+ struct lpass_data {
+ 
+@@ -184,6 +197,7 @@ struct lpass_data {
+ 	/* LPAIF instance and interface index of each MI2S port */
+ 	struct lpass_lpaif *mi2s_lpaif[LPASS_MAX_MI2S_PORTS];
+ 	unsigned int mi2s_intf[LPASS_MAX_MI2S_PORTS];
++	unsigned long lpaif_port_enable;
+ 
+ 	/* low-power audio interface (LPAIF) registers */
+ 	void __iomem *hdmiif;
+@@ -498,6 +512,13 @@ struct lpass_variant {
+ 	const char * const *dai_osr_clk_names;
+ 	const char * const *dai_bit_clk_names;
+ 
++	/*
++	 * Optional LPAIF MI2S instances layout when all the MI2S
++	 * ports are not available on the core LPAIF.
++	 */
++	const struct lpaif_mi2s_desc *mi2s_desc;
++	int num_mi2s_desc;
++
+ 	/* SOC specific clocks configuration */
+ 	const char **clk_name;
+ 	int num_clks;
 
 -- 
 2.34.1
