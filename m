@@ -1,43 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.226.251.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795507004;
-	b=X7vg5huTOnqRJF4DoESpeGtGpiaN7aW01V5iYJONU+BRRQ8h8HuD+vPJ6qhXkuYEbfKw
-	 wkJfsKmVeKuXRwpPuLUHRaPHFVq3RSxoUIWI6dJl/WIq1pDYrkcutlGz2gKaiD6VJqOfz
-	 Wo6q5QM/rionH/4lTqPKnQONf/Qx+LSk+KA6EHSHX2U3vemhIXWj9XbtsNhL+OfYUxS4f
-	 3UzoQzODIvRvC9WsOhfofFJL7/IVr+fM626FMgfnuwEf/hGZcxznRZiGTZ2Pq3XkSUc1f
-	 OUFjX4U6PdZE19newCUBdAHMRy57gytcToP1l133N07ZRVqY+OZ1ZLdKPxffwa7SYVw==
+	t=1795507015;
+	b=rX/XsblCRnxMogRyk2X5vjpGR+kRHB1DPf4DTPTYGBpfbs6W8cVi8W56c75FbcczCHsa
+	 jynx1X/gR4X5U6PMnozEvMNM0xHMoOJdJQ6VfNg8nI2qKf5f+904wIf5p/pSGst6RHw5U
+	 9kTqnGxs2sNPLfq8yJiAav60I5n+MsfibOFcxcrv8urALlmi3N9qZnxGmIS2z4RReGjIk
+	 oB1IykS3luFRc2i197BuAzTmAuHI63rU9Ze2EuSiwxhUweI5PoW4j+vMuohWqxbVc+9X4
+	 A6Vsj+mZ91CkRmP4atnwFoBCdS3yzjYFRT9jrcyzCsUnkbrr/DlcrkpfI7VSsXPQBMQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795507004;
-	h=DMARC-Filter:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:
-	 X-CM-SenderInfo;
-	bh=3dynjHgtfbU1CoSSdK8YrZUn+Q1ba3Jl6tDbp6cDLlE=;
-	b=QpsoPXFcEaOoTsy3eR2GvWVyB/+NCfvYMEySpwZaI5+BPAUo3I4urnkekKohofBC9T8S
-	 c+M+aMdVCaXe2Xz5FkIqdDpsQsojLCod+QG8of29vr4k4cyegK4JsuW6rcROXfezYhcsu
-	 T+HkNNGX/8ROMWMH2/dTfZr750y+FtBLw1FwKWfZNJOVIi0PmvKXL+XaB3KipRAELb0iN
-	 eV6ByHwlYKQc8GDPfKq9h5fI8WcwxwZQGytB9OpOiK5dp26X9VVAaBmUGK00TlnOWvc5S
-	 pW6MSOjR485IYCujeAsZU4m1f3pQSui3vMlezLLUDG08pagXcxNRi86aBPo4pz3vU6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795507015;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=dkoXTcH1JAkjWwF6GsRFSEWSiFpC/R5+hZya15+v0Xk=;
+	b=ar0NGpDtI8paq6jJQWb5s8xlq98imvo8cCikX4sorFzxXKyzFrvuXuDJ3mmR/FuHGQMa
+	 IH3qBQXxl9xv7gA7R3GJ1Dr4YxVf3isdcPuEy9lsMMwE+LLBvQlwazcwfiWnCzPTYu3hd
+	 pCvhZO8z/CRZffQ42N4SXFIGxL1cgs2pFOk0jVGxo5LEY6rrk2gzrqiiEoOt8d00Wv+qI
+	 3m28wPlsXDe4KPKN7cDlq3q49HagmbFPI8S/9J20LVw13UkvdbkXDiRgMs8LIXVyLqvgn
+	 Hhf6FpI+muNK/OGEQWs9pJUJFSpvjFA+CjCmWeYvVL6Xii6BQa5u4p9VYFi1DrPkyxw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iscas.ac.cn;
-	spf=pass smtp.mailfrom=iscas.ac.cn;
-	arc=none smtp.remote-ip=159.226.251.21
-Received: from cstnet.cn (smtp21.cstnet.cn [159.226.251.21])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LokYdQRV;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 931CB606A31E;
-	Tue, 24 Nov 2026 07:56:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 931CB606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iscas.ac.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iscas.ac.cn
-Received: from edelgard.fodlan.icenowy.me (unknown [120.85.97.139])
-	by APP-01 (Coremail) with SMTP id qwCowABHbfcVQwVrAUaUAQ--.8758S3;
-	Tue, 24 Nov 2026 15:56:07 +0800 (CST)
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Date: Tue, 24 Nov 2026 15:56:02 +0800
-Subject: [PATCH v3 1/2] dt-bindings: display: bridge: document TH1520 MIPI
- DSI controller
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96A04606A31E;
+	Tue, 24 Nov 2026 07:56:55 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LokYdQRV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 290CE1F00AD4;
+	Tue, 24 Nov 2026 07:56:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795507015;
+	bh=dkoXTcH1JAkjWwF6GsRFSEWSiFpC/R5+hZya15+v0Xk=;
+	h=From:Subject:Date:To:Cc;
+	b=LokYdQRVeQL9w6siU2QHUOrjlKa5qeLIcwIEfHkEm+Tl+QY5A4isUBqDEYeIIfOyC
+	 ynhYHavHuIYoffgRdyycob+JZxqt+i00MMasjRp5lMD9ht6rgwKeJyquDmBA0gxK3S
+	 9kaEEbWJO+qg/z/yXyZ5zbAOL8SpEC6Z7FJ/0r7iTN+fqPeT79oLQM9WJokQjNlI+i
+	 uP3WtnCDJtbNl53jH6gOFtq5ZXmOM75M7O4IPXoc8G6HL5STelDA2GMFpyfUN5StgL
+	 jY2syRPmIPrQP3j2FlGHbKzubbD/RxWmkn0vJBhnPsUPx2IilBguxapmgjTnza5FjF
+	 Xaef3I//eHBng==
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: [PATCH v2 0/2] mm: fix deadlock on the folio lock when migrating
+ and splitting folios
+Date: Tue, 24 Nov 2026 08:56:42 +0100
+Message-Id: <20261124-migrate_reclaim_deadlock-v2-0-03cc147e1e36@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,167 +56,104 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-th1520-dw-mipi-dsi-v3-1-ffcf2d87971b@iscas.ac.cn>
-References: <20261124-th1520-dw-mipi-dsi-v3-0-ffcf2d87971b@iscas.ac.cn>
-In-Reply-To: <20261124-th1520-dw-mipi-dsi-v3-0-ffcf2d87971b@iscas.ac.cn>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andyshrk@163.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
- Icneowy Zheng <uwu@icenowy.me>, Han Gao <gaohan@iscas.ac.cn>, 
- Icenowy Zheng <zhengxingda@iscas.ac.cn>
-X-Mailer: b4 0.15.0
-X-CM-TRANSID:qwCowABHbfcVQwVrAUaUAQ--.8758S3
-X-Coremail-Antispam: 1UD129KBjvJXoWxXw1DZF4kWF1xur1kKFy7trb_yoW5Cr13pa
-	yfGF4xJF18tFnxuan3Kr10yF43WrsYvFn8Ww17J340yayYg3W2q39IkF1YgFy8JF1xZa43
-	ZF4jvry7Krnavw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmF14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s1l
-	e2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI
-	8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwAC
-	jcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0x
-	kIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_
-	Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1V
-	AY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAI
-	cVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIx
-	AIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2
-	KfnxnUUI43ZEXa7sRiubytUUUUU==
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/3WNywqDMBAAfyXs2RSzVbGe+h9FJCarbn2kJFZax
+ H8vWnrscWCYWSGQZwpQiBU8LRzYTVAIjASYTk8tSbZQCMAYM6VQyZFbr2eqPJlB81hZ0nZwppd
+ JQpgTYlZfLEQCHp4afh3pW/nl8KzvZOa9txsdh9n59/Fe1O79Nvh/sygZy/xs0kzlaR039bUnP
+ 9Fwcr6Fctu2D3h3uTLTAAAA
+X-Change-ID: 20261121-migrate_reclaim_deadlock-44e28e226b9d
+To: Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>, 
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+ Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+ Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+ William Kucharski <william.kucharski@oracle.com>, 
+ Heiko Carstens <hca@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+ Johannes Weiner <hannes@cmpxchg.org>, 
+ "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, 
+ Matthew Brost <matthew.brost@intel.com>, 
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
+ Gregory Price <gourry@gourry.net>, 
+ Ying Huang <ying.huang@linux.alibaba.com>, 
+ Alistair Popple <apopple@nvidia.com>, 
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+ Miklos Szeredi <miklos@szeredi.hu>, Joanne Koong <joannelkoong@gmail.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-fsdevel@vger.kernel.org, "David Hildenbrand (Arm)" <david@kernel.org>, 
+ stable@vger.kernel.org, Chris Mason <mason@kernel.org>, 
+ "Jose A. Perez de Azpillaga" <azpijr@gmail.com>, 
+ Chris Down <chris@chrisdown.name>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2518; i=david@kernel.org;
+ h=from:subject:message-id; bh=MPoyzCuILfG9ldGlrGnz5jnvIuovqvdkY8Yn+Us+N4c=;
+ b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLJZnW2/Rk+Z+sbf8+7ydXGvhUScHu97E99oXHHLs/TcD
+ NGNSp68HaUsDGIcDLJiiixBwfcNXr5cV1vtxscMM4eVCWQIAxenAEykfgYjwxaG2IO7A3fOM3Wc
+ uapiI7vcmYVyJ//zZKX+3Mn+Rt6h7RzDf+fuf46KJ19db9M/0bm+4IsspyxHUV0S13x5cZXW7uk
+ 17AA=
+X-Developer-Key: i=david@kernel.org; a=openpgp;
+ fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
 
-T-Head TH1520 SoC contains two DesignWare MIPI DSI host controllers.
+Whenever we allocate memory with __GFP_FS while holding folio locks, we
+can deadlock on the folio lock when triggering direct reclaim or
+compaction.
 
-Add a binding document for them, referencing the common dw-mipi-dsi
-binding file.
+For example, evicting inodes with a populated page cache takes folio
+locks, and if we happen to need one of the folio locks we already hold,
+we'll deadlock.
 
-Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+FUSE makes this example easier to trigger, because it evicts inodes on
+the last reference. A similar deadlock with FUSE was recently fixed in
+FUSE [1].
+
+Let's handle folio splitting by simply running in NOFS context. We only
+perform small allocations, so it doesn't really make a difference.
+Interestingly, this also fixes one of a handful of possible memcg v1
+deadlocks.
+
+For page migration, change the code to allocate destination folios
+without holding folio locks, which is in any case the right thing to do
+to reduce folio lock holding times.
+
+Some of this might also be fixable using Jan's work on deferred inode
+reclaim [2]. However, that is not stable material, and not allocating
+folios while holding other folio locks is an improvement on its own.
+
+Unprivileged users can trigger this deadlock with FUSE and
+mbind()/migrate_pages(); however, it requires multiple NUMA nodes and
+quite some luck.
+
+I reproduced the original deadlocks with FUSE and made sure they can no
+longer be triggered with these fixes. Further, I ran the usual migration
+and folio splitting selftests.
+
+[1] https://lore.kernel.org/all/20250925224404.2058035-1-joannelkoong@gmail.com/
+[2] https://lore.kernel.org/all/20261009133253.20102-1-jack@suse.cz/
+
+Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 ---
- .../display/bridge/thead,th1520-dw-mipi-dsi.yaml   | 103 +++++++++++++++++++++
- 1 file changed, 103 insertions(+)
+Changes in v2:
+- Adjust cover letter (incl. subject), the patch descriptions and code
+  comments: allocating with __GFP_FS while holding folio locks can
+  deadlock also through compaction, independent of inode references
+- Collect tags
+- Link to v1: https://patch.msgid.link/20261122-migrate_reclaim_deadlock-v1-0-83c56185b0fb@kernel.org
 
-diff --git a/Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-mipi-dsi.yaml b/Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-mipi-dsi.yaml
-new file mode 100644
-index 0000000000000..c12afde5fc26b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-mipi-dsi.yaml
-@@ -0,0 +1,103 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/bridge/thead,th1520-dw-mipi-dsi.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: T-Head TH1520 DesignWare MIPI DSI Host Controller
-+
-+maintainers:
-+  - Icenowy Zheng <zhengxingda@iscas.ac.cn>
-+
-+description:
-+  The MIPI DSI host controller in TH1520 is a Synopsys DesignWare MIPI DSI
-+  host controller paired with an integrated Synopsys MIPI D-PHY.
-+
-+allOf:
-+  - $ref: snps,dw-mipi-dsi.yaml#
-+
-+properties:
-+  compatible:
-+    const: thead,th1520-dw-mipi-dsi
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: DSI controller APB clock
-+      - description: PHY configuration clock
-+      - description: PHY reference clock
-+      - description: DSI controller input pixel clock gate
-+
-+  clock-names:
-+    items:
-+      - const: pclk
-+      - const: phy_cfg
-+      - const: ref
-+      - const: pixel
-+
-+  thead,vo-syscon:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Phandle to the VO_SUBSYS system controller for accessing D-PHY sideband
-+      signals.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - resets
-+  - reset-names
-+  - interrupts
-+  - thead,vo-syscon
-+  - ports
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/thead,th1520-clk-ap.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/reset/thead,th1520-reset.h>
-+
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      dsi0: dsi@ffef500000 {
-+        compatible = "thead,th1520-dw-mipi-dsi";
-+        reg = <0xff 0xef500000 0x0 0x1000>;
-+        interrupts = <119 IRQ_TYPE_LEVEL_HIGH>;
-+        clocks = <&clk_vo CLK_MIPI_DSI0_PCLK>,
-+                 <&clk_vo CLK_MIPI_DSI0_CFG>,
-+                 <&clk_vo CLK_MIPI_DSI0_REFCLK>,
-+                 <&clk_vo CLK_MIPIDSI0_PIXCLK>;
-+        clock-names = "pclk", "phy_cfg", "ref", "pixel";
-+        resets = <&rst TH1520_RESET_ID_DSI0_APB>;
-+        reset-names = "apb";
-+        thead,vo-syscon = <&syscon_vo>;
-+
-+        ports {
-+          #address-cells = <1>;
-+          #size-cells = <0>;
-+
-+          port@0 {
-+            reg = <0>;
-+
-+            dsi0_in: endpoint {
-+              remote-endpoint = <&dpu_out_dpi0>;
-+            };
-+          };
-+
-+          dsi0_out_port: port@1 {
-+            reg = <1>;
-+
-+            dsi0_out_panel: endpoint {
-+              remote-endpoint = <&panel_in>;
-+            };
-+          };
-+        };
-+      };
-+    };
+---
+David Hildenbrand (Arm) (2):
+      mm/huge_memory: use NOFS when allocating while splitting folios
+      mm/migrate: allocate destination folios before locking a batch
 
--- 
-2.56.0
+ mm/huge_memory.c |  10 +++++
+ mm/migrate.c     | 133 +++++++++++++++++++++++++++++++++++++++----------------
+ 2 files changed, 106 insertions(+), 37 deletions(-)
+---
+base-commit: eb01811cc3713af1f78dfe18fa89c5270ebfc767
+change-id: 20261121-migrate_reclaim_deadlock-44e28e226b9d
+
+Best regards,
+--  
+David Hildenbrand (Arm) <david@kernel.org>
 
