@@ -1,75 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795551461;
-	b=SwPhS1iwOIEYBeyMre231ftN+sgErQVP9tCHwavZjRD1h50r3HxrYJrU77GBCJiaXRJ6
-	 Jrg30q77d7FX9aFgqYB3C3ElCkrVtg7bDpiHIjZIk0HGFj4h/1T3J1vAY16ctNZUekDnG
-	 uPWbZKckuqjMPpm8SH6kOMsZ6q4q9TUNTeD0nPAVAr44saJk/0FnVg7pvF3oo+riweNP3
-	 BufNbuE1zuI42b+ezTRhTW3ktXlosoxT4Dnq8tiwaq/+SRPdY0TKBP//+yulfI8TGb69k
-	 URsDhrbarxGKri7tBTL87loGvpdBCDan5ls7IopxKyw1ARmUGmd8LXM26Txv2ubuuTQ==
+	t=1795551456;
+	b=UwsUQF2CoQ47m+VoxvVhuQufoKADN/ys/NDwcm+DRqogYJS/00vK73MDUaGKSqr7TYSZ
+	 fonHxTxtFRU5CFfnbsaLap+skucLcEad729T8MlN+gJo/Zjhnhe+TYXNSQPlcxImTxGNU
+	 GfcP4HHcsuboAtQS/z2vjQzC4LWPDCrhtxATgNDI8NVzU8HA0IdSTIjZ5NLQ0i+HEnfhY
+	 wjwks4VLZEV2cPCDnWPUinMqWC2XpWfXtKlxCHdM+YGmlJOhq9AbQ5M9jUNOTBsxRD0C5
+	 l0QLcNvnJk5EMorMAAMRT1ZXp0fItdWxx5WMkjWxsbKAnWxoBshKlBw51YW66Pfsy7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795551461;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=7tEIWHNr59KovVpk7gJw0JqnDAdNK2se9vPrBzQVaug=;
-	b=o4v3P+n0Bskb+0uG7o8khIxkliQVRCa+HbCpETEocKR2os5hc3eTRjajViU66XY6i79A
-	 Pq1u5hWtM4Hqtmb7FRw28cRr3MeCkUoVtVmWc7DHfTX2vK8jtxm8ECQF26O+OYty1wgj8
-	 Fol6bru3cCZR2oHfiSpmU+RsA0DgKR0YpolrREama9bKtp2+y+6q1ksJRIXSKepT+bQgt
-	 EwwRyIpDfwVmS3PJGOi+4lwY1vaHX58zVDyaRbsefbqq9857ftpw/wOUTL8te9pZHYX3T
-	 oNoZXKGFjzxqA9TjVEcRhNBZrGp5k72mcl9WeKhDLfwTxVp5TyPmRFeXxvhRDhoIv9A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795551456;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 Organization;
+	bh=O+rpuV/3Cdeqi3olBPq3dLsHItggXZ3BKkKR1WXWVLM=;
+	b=Py/2xKCW6pklpXXduXIZELhFbkTYTlin5wy2czeZdYyxNY9FdSADVsjwHm3CE4quM+SJ
+	 2/RinCH9/VLqD8kpAsqPhHsCQ08Y0WXaJ5Jbgyftdphc6LjsDlOHz+rXudEjFwUoBv9Zl
+	 imF79kX0hHKshRUnZbytQO7uihNDkvW9KYEAv4B4iF0CKAKUlUJnFKkQ2gM2hQG9tu/4S
+	 6SIoDIWZRquwF3BWiRGS+72wMzywcREhDNsK00TL72ZWGclkHogRG8jPIlSktNUlsk2fk
+	 4zGZuR6kRVrLRBFdi5VZlXyt8NTAPz2DRLYFVxm4p9ceNV9x6KoF0KxRZSpHD6EnU+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--pratmal.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nb2pv8VD;
-	arc=none smtp.remote-ip=74.125.82.198
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="aMIcin/J";
+	arc=none smtp.remote-ip=198.175.65.15
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0753606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:17:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0753606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--pratmal.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9E1A606A326;
+	Tue, 24 Nov 2026 20:17:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9E1A606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nb2pv8VD
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-382af5cfc58so4462883eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:17:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795551460; x=1796156260; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7tEIWHNr59KovVpk7gJw0JqnDAdNK2se9vPrBzQVaug=;
-        b=nb2pv8VDMR/0XDeskST2FUtXZhaXaTz6VBDhVSf8jygStpkJ3cnOAMj7Gs67q163AV
-         HRgJdegg8TDsLIhudxJXdJllEjVFfK8qjPl5iQS7ttQJjzmZRQNLIufeSg+1SVVGoraE
-         zEAw9HDigrqDdqzHWHeEEOrPov3ipXQf4hPCethwDGUGzBmdfxGMNVEJjmOpqocy9M2Q
-         xdpmDoxnLOh0lam003V5Gp2r/03bxUOu9ORIGPTGipo8RaxMTma4KxqI7xP78vEC20HT
-         KAaCtvcyAWFrrQE0YyBViAWKA0aR8gYxmzHgmj3KhLYUhWNrbGBAXo3kY5vsxUqefhdO
-         OLEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795551460; x=1796156260;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=7tEIWHNr59KovVpk7gJw0JqnDAdNK2se9vPrBzQVaug=;
-        b=HUBnxsSgdCbnEbp3LgvFTkBdh2hnCgjngrENkyOCJY7Wvuu2o5FFK/gtwyrD837Ynf
-         /ylpVxM4ZSGk4Y3KVqaPKyPLTmCpp0C+kniY2jdeOHp4/Ypzt+6WdSba0+D+UpHZGtra
-         UYNZuVpqdcLy6hex3OzYUQTJc5BwzhiCEm5ch7YuT8PhPb9L1nbSA4/quBqjE67hcQTs
-         +HpY8qz0Gs5cJbbYwJC6CY1RC3SU1YktO1JxJnBkj0wsp7eOusoWyZs+LbJ4LrAt2/h+
-         RlE6f68Z30A4P1jkIFFxrB56Qk0K18VOyoWgrbOiD9TQrZGVFvyFLRDzIM+kqndjohUe
-         uTVQ==
-X-Forwarded-Encrypted: i=1; AL+hErGv5uK7W3e24T0Fc0QqJ34bfSN5FpWgzN13F8BwbX7ry/QQA0DbE2aMEL0+GipE+VxeuD8q4NzJXY2X8rY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/egHnRvIQSz/GZ1768K1LP8Eg8cjdKmSlrzhF2BXbOU4OsuhyV
-	xa1KdAXHPk11j0CAnMmC2w6ghS1cPwhCMLHaQtdlo685u6b3AHLvUvEiGFuMGTe67clpY+JllNu
-	NWalPDIGrRA==
-X-Received: from dyblz33.prod.google.com ([2002:a05:7301:1621:b0:34c:9660:9612])
- (user=pratmal job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:20ce:20b0:37a:a9db:6bd2
- with SMTP id 5a478bee46e88-3856e63b064mr17431781eec.11.1795551459435; Tue, 24
- Nov 2026 12:17:39 -0800 (PST)
-Date: Tue, 24 Nov 2026 20:17:35 +0000
-In-Reply-To: <2d518dd7b8f7be147b9a957ad94f6c6641e4b5ef.1795089715.git.mst@redhat.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aMIcin/J
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795551456; x=1827087456;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=vemVSTIihOUQsSm9fN9JJKFg/NjYffet9HHWmoPjrPI=;
+  b=aMIcin/JqBMkc8hYc2uIhgaONMKKZ1lh8gpdnGxxyRVrhms8c56prgfO
+   hqB0xSEX4QWdiWIKH/QmOJNkFcxPjOgpPTfnpCvbhhrW4kkzutnNj8vnm
+   NHcOG10C+X+YPDCglyejN/QJduGUsCcHHwidRFVXHIhigK+cnYvEVLeLg
+   nE5P53S8P4xlAUOUQ9lNMccfF4ZqmPvyJcFssE3kn1iK1vM/jQOtB5lak
+   ht2oOhozJEnoYogJr/xscjkU+q5D8XVt+/By0a/U/Kqt16SMDHivg4jOc
+   BmSDQF7JOi8+AHLP8of2hWYiqPZhNvw+tvq4GeGcL24wwxz+3kluJpY1T
+   g==;
+X-CSE-ConnectionGUID: ST2IZpvdSuK1rFvzz8GaKg==
+X-CSE-MsgGUID: BNkXQjLKTT+2wJijJEx98g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4413222"
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="4413222"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 12:17:31 -0800
+X-CSE-ConnectionGUID: fpE7LlwrSku8z6M0OuQLOw==
+X-CSE-MsgGUID: 4ohg0cV2Q7uBUThxTfPeUA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="11648580"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 12:17:25 -0800
+Date: Tue, 24 Nov 2026 22:17:23 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+	Arnd Bergmann <arnd@arndb.de>, bui duc phuc <phucduc.bui@gmail.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Joe Damato <joe@dama.to>,
+	Julia Lawall <julia.lawall@inria.fr>,
+	Li Youhong <liyouhong@kylinos.cn>,
+	Maxime Ripard <maxime.ripard@free-electrons.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Samuel Holland <samuel@sholland.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	kernel-janitors@vger.kernel.org,
+	Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+	Florian Fainelli <f.fainelli@gmail.com>
+Subject: Re: [PATCH] net: allwinner: Use devm_clk_get_enabled() in
+ emac_probe()
+Message-ID: <awXw07bDd0bX4Mas@ashevche-desk.local>
+References: <780975ed-825f-4f9b-8ac2-67664a7a2a2f@web.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,52 +95,33 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <2d518dd7b8f7be147b9a957ad94f6c6641e4b5ef.1795089715.git.mst@redhat.com>
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261124201735.1311047-1-pratmal@google.com>
-Subject: Re: [PATCH v11 7/7] mm: page_reporting: add flush parameter with page budget
-From: Pratyush Mallick <pratmal@google.com>
-To: mst@redhat.com
-Cc: pratmal@google.com, aarcange@redhat.com, akpm@linux-foundation.org, 
-	brendan.jackman@linux.dev, david@kernel.org, dev.jain@arm.com, 
-	geert@linux-m68k.org, gerg@linux-m68k.org, gourry@gourry.net, 
-	hannes@cmpxchg.org, jasowang@redhat.com, lance.yang@linux.dev, 
-	linmag7@gmail.com, linmiaohe@huawei.com, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, ljs@kernel.org, mhocko@suse.com, surenb@google.com, 
-	vbabka@kernel.org, virtualization@lists.linux.dev, willy@infradead.org, 
-	ying.huang@linux.alibaba.com, ziy@nvidia.com
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <780975ed-825f-4f9b-8ac2-67664a7a2a2f@web.de>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Thu, Nov 19, 2026 at 07:03:00AM -0500, Michael S. Tsirkin wrote:
-> Add a write-only module parameter "flush" that triggers immediate
-> page reporting.  The value specifies approximately how many pages
-> (at page_reporting_order) to report.  And I mean, very approximately.
+On Tue, Nov 24, 2026 at 06:19:54PM +0100, Markus Elfring wrote:
+> 
+> * Reuse existing functionality from devm_clk_get_enabled() instead of
+>   keeping duplicate source code.
+> 
+> * Delete a clk_disable_unprepare() call on an error handling path
+>   and in the implementation of the function “emac_remove”.
+> 
+> * Omit the label “out_clk_disable_unprepare”.
+> 
+> This issue was detected by using the Coccinelle software.
 
-[...]
+This breaks the order at remove and probe error path cases.
+Note, devm_*() at this case will keep just a clk object, but
+the actual enabling is done explicitly. W/o testing on real
+HW it's hard to say if this order is strict or not.
 
-> +	if (prdev) {
-> +		while (budget) {
-> +			budget -= min(budget, PAGE_REPORTING_CAPACITY);
-> +			flush_delayed_work(&prdev->work);
-> +			__page_reporting_request(prdev);
-> +			flush_delayed_work(&prdev->work);
-> +			if (atomic_read(&prdev->state) == PAGE_REPORTING_IDLE)
-> +				break;
-> +			if (signal_pending(current))
-> +				break;
-> +		}
-> +	}
+-- 
+With Best Regards,
+Andy Shevchenko
 
-I think the amount subtracted from budget here doesn't reflect how many
-pages actually get reported in that iteration.
 
-Each iteration runs at least one full page_reporting_process() pass,
-which walks every zone, migrate type and every order from
-page_reporting_order through MAX_PAGE_ORDER. How much a pass reports
-depends on how much unreported free memory there is.
-So even "echo 1 > flush" can report far more pages than requested.
-
-Could we use this flush as a trigger to start free page reporting right
-away rather than waiting for the delay, and flush whatever unreported
-free memory is there?
