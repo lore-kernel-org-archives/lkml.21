@@ -1,54 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795488622;
-	b=XaAjBhbkeqqABCEj9/TsXYBix3dtmAjEuL0oHxe80x+sJxtfiGrAc7GjFZneIU3ZTlY1
-	 Tm8viYv5fj9E/d0Ld8xPoeM7LhBb1MokJ/Leed4fuAOg0OJaoQSF7wSdKRhKvuj5FgSIT
-	 LMvNgjERc40Enr6sGoWPWdaafnFct1apJn05BNmk6ABDtUc7fmCaKLajAxA8KiUQOsqUr
-	 mVzvVsL0KsBqNwjZoZzzRJ1xff5FC+WCcL5WZZdLwIXMJ6VpIxYfzSVF448zjyUow4kcf
-	 d46Yqjqk2j6Q6zKm6Xi5dShgoAUFx+CZTuprGPvwQfvVAF/lXPbhXPSpgjOVrpzLH5g==
+	t=1795488849;
+	b=PwZJTw6TbiTWSYP+PF4HT9RxdaEsefZlFEjlrIN0xoTGG6qRKm+lnrSsyL9UXpvvNUl2
+	 c1wpA8CfuCte1fHChc9W8uEWbcJI1XP/trK1/HQ4Z87ps7dXU3SjlH8m3tgEyHYM9A7Yo
+	 gQ2iXsjltekpJVzi4DYkKm5pR3rzKvwVJbJHDun47NJmlfP192giaS0bPTbB+LawSzOpl
+	 hXoVUAIJ9seV9F5Ot7rJ8Y/ELgtIbnZaoVJmxueG8OXbfj/uxmyDEnC382hho9eeldwT2
+	 +hieclBsedevDFrVIr+HX1BHLJwbn2NAYdetLvSmXGLmyCig3JcHsrxoltyETVsTiHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795488622;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
-	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
-	 To:X-Mailer;
-	bh=FF+rLemNvQli8Y0SC/xA9vPWVsbRgVrCInJrQ5eKDu4=;
-	b=1tS+L6Hm53Vgze8xu/uom9EGcCSQxE4n5vrigSHJXDWlr71Fg+e5WNbK14GXY4s+y6Un
-	 hzXp9eaRtfHt66Wf5j+BYJROfs/mmJMtRwFOt1F34gvv/g24neLUiT4PuCmCmCvYw+bmA
-	 /dAA29ZI8xhp7jxKlowQ/pMRJyfNDw7M1kQM8oitb+RjBQ1zPhYEU8fnjyQDWmqQhJn4J
-	 5Tf7SmhVBsCyLFFH0Dr0ksLBi3SzSUr3p8oCsll2Vk/7/IccA1S5NmdxRSFLs5E2fEUrU
-	 V06zFHuQp7rN4kZr6wOWxGx1A5DuCqS9IPsQFz3d5woQJBafRMrMJsMauIKvz7DtomQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795488849;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=A9OByVhcaPMdclXsC8d0WeifEVYMp3QOb8HdzPBzqso=;
+	b=zrIggl4xkl/8cX3jmS5sytsKXQp2QxqarDiRcK8aU0GnhLdv26xP5s9OBZuucT+542nk
+	 G9QyUVG7AZe10h8sO2I5GmcSr2DIz8ZdyQl+zT05Wkx9h0dGGrtyRflY3ek9+PkOLCeW3
+	 Ir8QGFNOaS9/DE7i3DRiPpxfBKyE2kq49I4sadp0Ys6OPV6YuuNM5RG9jpQHkqQtNxV4b
+	 U6mY5tjoDS+CwF+yz9hhy6OD3TrXns92XHgxjgk2P87SvqmR6RnCDXC9cVe92HecCkvIj
+	 4U6Kxnq9gl9MhfA+BwGRQLgzF6G0Ypihhcz2Ntci5ygEhhRxdC5TkOz2U8iK/QZ921w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HeJxvI1c;
-	arc=none smtp.remote-ip=91.218.175.177
-Received: from mta0.migadu.com (out-177.mta0.migadu.com [91.218.175.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D555C606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:50:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D555C606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=WfMsfyur;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id C8973606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:54:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8973606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HeJxvI1c
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=czFmZtebk+h8PB2klgzex5BMJY4BT8CV+nACYRQTDOo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795488619; v=1; x=1796093419;
- b=HeJxvI1cZ2wtHMS3o/BQsChKQVcXS9w8/EbKIcXEtW2rwMONJuEk9KLtUkhkkxtKBsD4S5qs
- SmVyaoUeaZKXHe6sUDpas8eqpiA/4dtzEQ5EFrzLVyE+xUAHcc54aa5HSZuUvMIuTJbN0s9odwA
- s1InIO7EZYASZJvrWPp8VhLk=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 41f9a57973e118ef;
-	Tue, 24 Nov 2026 02:50:18 +0000
-X-Mizu-Trace-ID: 41f9a57973e118ef
-X-Migadu-Flow: FLOW_OUT
-Content-Type: text/plain;
-	charset=us-ascii
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=WfMsfyur
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A089D339;
+	Mon, 23 Nov 2026 18:54:03 -0800 (PST)
+Received: from entos-yitian-01.Arm.com (unknown [10.168.196.233])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2E3393F632;
+	Mon, 23 Nov 2026 18:54:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795488846; bh=OCAouA1Xia+mH8/32AybCEr2idz9JsmsWi8UEsWGjAY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=WfMsfyurppnScpgzrRuAQDxtwfLeJxMOqnQyduHu9KXI5PsXzcBnbigTUKzOQplUV
+	 Cn5LzsAJcwUAp+VEdUSJvXnTqBNrBtaur+38URkHGw9HJBpY9CNLIzuFY49SypqTLb
+	 QKZCTzNc+2OqlGEwnq/fpNnES6SsUo8yqZFJmHMs=
+From: Jia He <justin.he@arm.com>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	fuad.tabba@linux.dev,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Jia He <justin.he@arm.com>
+Subject: [PATCH] KVM: arm64: nv: Allow the L1 VNCR page in cacheable PFNMAP memory
+Date: Tue, 24 Nov 2026 02:53:36 +0000
+Message-Id: <20261124025336.4107575-1-justin.he@arm.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,124 +68,123 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH] memcg: free the private ID of a memcg that never comes
- online
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <20261124000439.967403-1-shakeel.butt@linux.dev>
-Date: Tue, 24 Nov 2026 10:50:00 +0800
-Cc: Muchun Song <muchun.song@linux.dev>,
- Andrew Morton <akpm@linux-foundation.org>,
- Tejun Heo <tj@kernel.org>,
- Johannes Weiner <hannes@cmpxchg.org>,
- Michal Koutny <mkoutny@suse.com>,
- Michal Hocko <mhocko@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Meta kernel team <kernel-team@meta.com>,
- cgroups@vger.kernel.org,
- linux-mm@kvack.org,
- linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <F39B4A81-BB17-4C5D-851E-2740EBBBBA8B@linux.dev>
-References: <20261124000439.967403-1-shakeel.butt@linux.dev>
-To: Shakeel Butt <shakeel.butt@linux.dev>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
+kvm_translate_vncr() refuses any PFN that isn't memory and injects an
+SEA into the guest hypervisor. That is stricter than what the stage-2
+fault path allows (kvm_s2_fault_pin_pfn()): a VM_PFNMAP or VM_MIXEDMAP
+VMA whose host stage-1 attributes are cacheable is mapped cacheable at
+stage-2 when FWB and DIC are present, and the guest can use such memory
+as RAM (e.g. device memory that it onlines as a NUMA node). If the guest
+then picks a page of that memory as the VNCR page of one of its own
+guests, it takes an SEA as soon as it enters that guest.
 
+Relax the check to match the stage-2 fault path, addressing the FIXME
+added by commit 4bd7dbe0b224 ("KVM: arm64: nv: Inject SEA if guest VNCR
+isn't normal memory"): look up the VMA, and allow the PFN if the VMA is
+a cacheable VM_PFNMAP or VM_MIXEDMAP one and the system supports
+cacheable PFNMAP at stage-2. No linear mapping is required, as VNCR
+accesses use the EL2 fixmap and require no cache maintenance.
+mmu_invalidate_seq is sampled before the PFN is faulted in, so a VMA
+change after the lookup is caught by the mmu_invalidate_retry() check
+that follows, as for the PFN itself.
 
-> On Nov 24, 2026, at 08:04, Shakeel Butt <shakeel.butt@linux.dev> =
-wrote:
->=20
-> mem_cgroup_alloc() reserves the private ID of a memcg when its css is
-> allocated. The ID is erased when the last reference to it is put, and
-> that reference is first taken in mem_cgroup_css_online(). The failure
-> paths of mem_cgroup_alloc() and mem_cgroup_css_online() erase the ID
-> themselves.
->=20
-> But css_create() can also fail after css_alloc() and before
-> online_css(): in percpu_ref_init(), cgroup_idr_alloc() or
-> css_rstat_init(). The memcg is then freed through =
-mem_cgroup_css_free()
-> without ever coming online, and nothing erases its ID. The reserved
-> entry stays in mem_cgroup_private_ids for good, and each such failure
-> takes one of the 65,535 IDs away. With failslab failing radix tree =
-node
-> allocations during mkdir, 1,500 mkdirs leaked 6 IDs this way.
->=20
-> Erase the ID in mem_cgroup_css_free() if the memcg never came online,
-> which is when (memcg->css.flags & CSS_RELEASED) will be false: it is
-> only set when an fully onlined memcg is released.
->=20
-> Fixes: 73f576c04b94 ("mm: memcontrol: fix cgroup creation failure =
-after many small jobs")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Shakeel Butt <shakeel.butt@linux.dev>
-> ---
-> include/linux/cgroup.h | 5 +++++
-> mm/memcontrol.c        | 7 +++++++
-> 2 files changed, 12 insertions(+)
->=20
-> diff --git a/include/linux/cgroup.h b/include/linux/cgroup.h
-> index 2afb4cb2bb4f..123c713dcc91 100644
-> --- a/include/linux/cgroup.h
-> +++ b/include/linux/cgroup.h
-> @@ -449,6 +449,11 @@ static inline bool css_is_online(struct =
-cgroup_subsys_state *css)
-> 	return css->flags & CSS_ONLINE;
-> }
->=20
-> +static inline bool css_is_released(struct cgroup_subsys_state *css)
-> +{
-> +	return css->flags & CSS_RELEASED;
-> +}
-> +
-> static inline bool css_is_self(struct cgroup_subsys_state *css)
-> {
-> 	if (css =3D=3D &css->cgroup->self) {
-> diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-> index 091401cecf39..e7dfc96fd1b9 100644
-> --- a/mm/memcontrol.c
-> +++ b/mm/memcontrol.c
-> @@ -4545,6 +4545,13 @@ static void mem_cgroup_css_free(struct =
-cgroup_subsys_state *css)
-> 	irq_work_sync(&memcg->high_irq_work);
-> 	cancel_work_sync(&memcg->high_work);
-> 	free_shrinker_info(memcg);
-> +
-> +	/*
-> +	 * The css_create() error path bypasses normal CSS release, =
-leaving
-> +	 * CSS_RELEASED clear. Drop any private ID that is still =
-reserved.
-> +	 */
-> +	if (!css_is_released(css))
+Tested on a host with FEAT_FGT, FWB and DIC, with an L1 whose whole RAM
+is a cacheable PFNMAP (host RAM withheld with mem= and handed to the VMM
+by a test driver with remap_pfn_range()) starting an L2 guest
+hypervisor. Without the patch, L2 repeatedly takes an SEA at the same PC
+and fails to boot. With the patch, L2 boots successfully.
 
-The leak analysis and the fix look correct to me. However, using
-CSS_RELEASED here makes the private ID cleanup depend on a generic CSS
-teardown state, and adds an accessor solely for this failure path.
+Signed-off-by: Jia He <justin.he@arm.com>
+---
+ arch/arm64/include/asm/kvm_mmu.h |  2 ++
+ arch/arm64/kvm/mmu.c             |  2 +-
+ arch/arm64/kvm/nested.c          | 37 ++++++++++++++++++++++++++------
+ 3 files changed, 34 insertions(+), 7 deletions(-)
 
-The private ID is not needed until mem_cgroup_css_online(), so could we
-instead reserve it at the beginning of that callback? Failures in
-css_create() before ->css_online() would then never own a private ID,
-while failures after the reservation would continue to use the existing
-mem_cgroup_private_id_remove() cleanup.
+diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
+index 32392abf2e21..e59c6603b137 100644
+--- a/arch/arm64/include/asm/kvm_mmu.h
++++ b/arch/arm64/include/asm/kvm_mmu.h
+@@ -385,6 +385,8 @@ static inline void kvm_fault_unlock(struct kvm *kvm)
+ 		read_unlock(&kvm->mmu_lock);
+ }
+ 
++bool kvm_vma_is_cacheable(struct vm_area_struct *vma);
++
+ /*
+  * ARM64 KVM relies on a simple conversion from physaddr to a kernel
+  * virtual address (KVA) when it does cache maintenance as the CMO
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 1db10d8d6db7..cbd563ba4dd9 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1639,7 +1639,7 @@ static bool kvm_vma_mte_allowed(struct vm_area_struct *vma)
+ 	return vma->vm_flags & VM_MTE_ALLOWED;
+ }
+ 
+-static bool kvm_vma_is_cacheable(struct vm_area_struct *vma)
++bool kvm_vma_is_cacheable(struct vm_area_struct *vma)
+ {
+ 	switch (FIELD_GET(PTE_ATTRINDX_MASK, pgprot_val(vma->vm_page_prot))) {
+ 	case MT_NORMAL_NC:
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 4d83281a7a28..87f5a3a2b119 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1553,6 +1553,36 @@ static u64 read_vncr_el2(struct kvm_vcpu *vcpu)
+ 	return (u64)sign_extend64(__vcpu_sys_reg(vcpu, VNCR_EL2), 48);
+ }
+ 
++/*
++ * Allow a non-memory PFN only if it comes from a cacheable VM_PFNMAP or
++ * VM_MIXEDMAP VMA, as for a stage-2 mapping. The VMA is looked up after the
++ * PFN has been faulted in: the caller must check mmu_invalidate_retry()
++ * against a sequence count sampled before the fault-in.
++ */
++static bool vncr_pfn_is_cacheable(struct kvm_memory_slot *memslot, gfn_t gfn,
++				  kvm_pfn_t pfn)
++{
++	struct vm_area_struct *vma;
++	unsigned long hva;
++	bool ret = false;
++
++	if (pfn_is_map_memory(pfn))
++		return true;
++
++	if (!kvm_supports_cacheable_pfnmap())
++		return false;
++
++	hva = gfn_to_hva_memslot(memslot, gfn);
++
++	mmap_read_lock(current->mm);
++	vma = vma_lookup(current->mm, hva);
++	if (vma && (vma->vm_flags & (VM_PFNMAP | VM_MIXEDMAP)))
++		ret = kvm_vma_is_cacheable(vma);
++	mmap_read_unlock(current->mm);
++
++	return ret;
++}
++
+ static int kvm_translate_vncr(struct kvm_vcpu *vcpu, bool *is_gmem)
+ {
+ 	struct kvm_memory_slot *memslot;
+@@ -1625,12 +1655,7 @@ static int kvm_translate_vncr(struct kvm_vcpu *vcpu, bool *is_gmem)
+ 		writable = !(memslot->flags & KVM_MEM_READONLY);
+ 	}
+ 
+-	/*
+-	 * FIXME: This check is too restrictive as KVM allows cacheable memory
+-	 * attributes for PFNMAP VMAs that have cacheable attributes in host
+-	 * stage-1.
+-	 */
+-	if (!pfn_is_map_memory(pfn)) {
++	if (!vncr_pfn_is_cacheable(memslot, gfn, pfn)) {
+ 		kvm_release_faultin_page(vcpu->kvm, page, true, false);
+ 		fail_s1_walk(&vt->wr, ESR_ELx_FSC_EXTABT, false);
+ 		return -EINVAL;
 
-This would also make the private ID lifecycle more explicit: reserve and
-publish it during online, then drop the initial reference during =
-offline.
-It would avoid both the new css_is_released() helper and special =
-handling
-in mem_cgroup_css_free().
-
-Thanks,
-Muchun
-
-> +		mem_cgroup_private_id_remove(memcg);
-> 	mem_cgroup_free(memcg);
-> }
->=20
-> --=20
-> 2.53.1-Meta
->=20
+-- 
+2.34.1
 
