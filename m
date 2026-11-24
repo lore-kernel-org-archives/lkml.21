@@ -1,64 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.97.179.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795536810;
-	b=aq+6otKwSuabhawNwkrfqVHOBp8P6OnCGEx09blR+CTgjzHert+8Az/bpUapPfqsst8C
-	 uwYozOGpw0CNOzN7Fz9h33Hp6SeJ/dpyCR4vK6O9YoZFniMQkGGvGQJCG+RtTv8BV2wrg
-	 eFPU18GOtFuz0l3gdFLVk0/aavw/n21gA25B8eve2eEW1SmD8sCoQZgEBXiheb9lPEa/Z
-	 W2sp+AVSYGqQHJ9CpacCBv0NoFZD2TI1z8EoOGoA9UPk8dyOuhNyVNIGRnzRX1s31+4l3
-	 TH3zR7ogTOHPOfFll3fhTGemD0JDq5s4QxJ/HIVqWAR1ln0UeleoYTIXGXss7787NiA==
+	t=1795536814;
+	b=zT5HGIhXQuBFOEwv0Xh2Qam449vhSa6BgVKt9G6gzFpfyxdQd1I4vgBFDaZlnO0o390B
+	 4fz/MczrkLDVpJ15sNnAOd7v4XFEKPaKFvEI3+7fWFmlLYQznd5c/M/gpwn57y2lWFgcF
+	 kQkY+PjqkdQYXDctn759WyUIwI4gJX79FIumOVnxxxhkJtpk+r7WyZXJtika5b7bZlBiQ
+	 RGM4NmE3wPhncONlnDjnd43kdVnA5+WFQv2kYSazZ8R3KP3vQN5NrQj67mEUhoLzWCtDY
+	 BchPHNdhjf9YsqX0a1mTaZLn0Pdjdfoj3rUqOQtMOUl4nENiBJG77CwFrixnHacIaJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795536810;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:In-Reply-To:
-	 References:Date:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=9Yy6grSCr+u8lAghLloqJJERK2XEpnnBGJ2Uw0VUpVM=;
-	b=QPZ0QEFTD+YcYqQ82mMccj8YSN3rTGrOqIZOZhUWC52OpFdqMmwVPvydCyD1A1GflUt5
-	 RZmVAfotNPHBOGM1xqK2TQpmdxojH26zLw5HO77ArYZ8PnmupoBDW2lWKxnVsV6vj3JRG
-	 9Tdc7f2mUqy9itCP9YaUr/yhrzWeNzn6sI+JNW1Ic+LPAX20KdUhYsQEkg8XvrkVKICy2
-	 egUarDZG8IEO/QTyXhXyP/TiS64xG2tV8nLYnfWBOqyp+SLBR3+2EqN2I72tZFOcS6K15
-	 1Izav4HGO7bwRsdWgrE1jZsyy77Z8F9MerQBtNi34NugnboKjb7XmuN748zCrCyN2KQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795536814;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=vdCo0UPiHVvtDq50IVyFL+40qQBKUtfSFNF6n7Jf57E=;
+	b=ixADCVW2uoMbk+m/UmNqaSFnKwYRvXgBRvurO0K4e38D42eVgLawXzJYp95WOnUmXKcD
+	 gyjSMMkGdXzDGqERg7pIJyS+XyrtazlAZi3TOUqJ6rrj1W1IlTk2hDgkIeYn7rRPnT68V
+	 noydq517dbbGn57viydptF9EgLNNmqEl/KW/Oq6uorxOdNu5AnwT1doLAm89mVsajWXsz
+	 4fRzVZCEebpW6lKaDGvHkf4k4dTBShqdAlD6mdpgHkzYjRB8e38yJctX1qrLtB4VU/kRD
+	 pjOGsO3UwAmRj39b5+ywi0WS5y19CkthM4DwN7CY/RrfqOyUs7YJCOTjSatPNkfts4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=igalia.com;
-	spf=pass smtp.mailfrom=igalia.com;
-	dkim=pass header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=oj5sRO0x;
-	arc=none smtp.remote-ip=213.97.179.56
-Received: from fanzine2.igalia.com (fanzine2.igalia.com [213.97.179.56])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=euYrScPo;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 159D0606A68D;
-	Tue, 24 Nov 2026 16:13:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 159D0606A68D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=igalia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=igalia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EB68606A335
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:13:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=oj5sRO0x
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:
-	Date:Subject:Cc:To:From:From:Reply-To;
-	bh=9Yy6grSCr+u8lAghLloqJJERK2XEpnnBGJ2Uw0VUpVM=; t=1795536809; x=2110896809; 
-	b=oj5sRO0xxkA6BisA81n2Z/+2j9cOdVjjLzi0FWZK+6ecdrSuyLXnMee0KAf0ytdU6FoE6a7oD/7
-	A7qZ2ZgTrEfMjrXy7WsgaHN31e8iaZAkgVarn1DvND/fCGNdV/IEVAsAhhQVPZS6oq6y2ajZyoMc4
-	PgHIJL4QxGKEWom+kmj1aWVF5rM2RTYQ0qQjmmBWQNwt40fRFGb3Niu4g/q+fq2ClcBWG6Wk/dUp9
-	kFEWxK47MuaEASUNQFTbwhWhQFlfk5DMQyzjfpS18BwFkqSME/Qq/TogUdfiSVo/4mdo5jwG9rzy1
-	F964EsjOKeeHSBII37pCs6SF3uD0DiEmAK5w==;
-Received: from bl17-56-70.dsl.telepac.pt ([188.82.56.70] helo=localhost)
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1xVt8z-00000003Y4b-3vgI;
-	Tue, 24 Nov 2026 17:13:22 +0100
-From: Luis Henriques <luis@igalia.com>
-To: koraynilay <koray.fra@gmail.com>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>,  Christian Brauner
- <brauner@kernel.org>,  Jan Kara <jack@suse.cz>,  Edward Adam Davis
- <eadavis@qq.com>,  Amir Goldstein <amir73il@gmail.com>,  Miklos Szeredi
- <miklos@szeredi.hu>,  linux-kernel@vger.kernel.org,
-  linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH] vfs: fix file_getattr hint to request xflags
-In-Reply-To: <20261124150108.189282-1-koray.fra@gmail.com>
-References: <20261124150108.189282-1-koray.fra@gmail.com>
-Date: Tue, 24 Nov 2026 16:13:18 +0000
-Message-ID: <87se0qb42p.fsf@igalia.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=euYrScPo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 616D01F000D1
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:13:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795536813;
+	bh=vdCo0UPiHVvtDq50IVyFL+40qQBKUtfSFNF6n7Jf57E=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=euYrScPoGwKBn9kxYe3Rz7+LWXXM5vmANqAOQVU442FGTEjAYlBCmWPw3l5JVX58B
+	 VYfXN9kXOzbwS7VaKrTc/pA1rXadnkJ16DIHW9fWZVekVb8I6PB0rxnQHi4zntBIBZ
+	 8L8rZuVIxPFI0exqymgAEeJXPUDMwPbI3DHmOfPTkIWGN0b6lMFo9Gd4FhoBpL2ZMD
+	 SaQs4QOCDLxkk2B6XN0QL1B7FflA6RE0+azh+BnnSshMNZfkhKdT8pfmZ5ooeeL7Bk
+	 6Jx6pF+kgqvfLSrCtxRvPtY7TdZUBToC5yER507CykS+BHCidkimJczyOsGyTZzwls
+	 3BKAl8l+o60sw==
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5bfbc67991cso3173351e87.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:13:33 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEATntDVhf/JlPT7UUeCeuPZUvYe0Xoc/lxOPkKSRaWZZUwnlo073x/8jLsjVhbJkiwhg74uJqZ+FddKgw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+hE5Y/KQCLiWcgWsBp4fAz+l5U4btANqaV1hCLR2pC3S/jznIV
+	ZwuA/cY0XgmgTSmy3XWRJLJWdCPTxeO1mM2EhC165sc9h/IwyFePd6utLfpzXxx8+Nzb4t8BdWN
+	PIBeMDk5sP4eBlBYxXjsaJSUZn4xawVk=
+X-Received: by 2002:a05:6512:4014:b0:5c1:56f5:45c4 with SMTP id
+ 2adb3069b0e04-5c1bc865243mr4426851e87.63.1795536811652; Tue, 24 Nov 2026
+ 08:13:31 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,195 +59,730 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+References: <awW15Y9UfTqy_AyB@sirena.org.uk>
+In-Reply-To: <awW15Y9UfTqy_AyB@sirena.org.uk>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Tue, 24 Nov 2026 17:13:18 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0g7b43zsOFGXtzPMBe+in4QF0udj8+t=TXi3SJ+kKMOAw@mail.gmail.com>
+X-Gm-Features: Aa3M54pq6MFyC4FOl26fvqnBf_upn4vkZ3V6p6UiHki6QbwX2syyUH5qZvNr7sw
+Message-ID: <CAJZ5v0g7b43zsOFGXtzPMBe+in4QF0udj8+t=TXi3SJ+kKMOAw@mail.gmail.com>
+Subject: Re: linux-next: manual merge of the tip tree with the pm tree
+To: Mark Brown <broonie@kernel.org>
+Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Juergen Gross <jgross@suse.com>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	Linux Next Mailing List <linux-next@vger.kernel.org>, 
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Ricardo Neri <ricardo.neri-calderon@linux.intel.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 24 2026, koraynilay wrote:
+On Tue, Nov 24, 2026 at 5:06=E2=80=AFPM Mark Brown <broonie@kernel.org> wro=
+te:
+>
+> Hi all,
+>
+> Today's linux-next merge of the tip tree got a conflict in:
+>
+>   drivers/thermal/intel/therm_throt.c
+>
+> between commit:
+>
+>   47b5cb24866c0 ("thermal: intel: Move the sysfs device helpers next to t=
+heir callers")
+>
+> from the pm tree and commit:
+>
+>   e7f9f17e00130 ("treewide: Convert rdmsrq() from a macro to an inline fu=
+nction")
+>
+> from the tip tree.
+>
+> I fixed it up (see below) and can carry the fix as necessary. This
+> is now fixed as far as linux-next is concerned, but any non trivial
+> conflicts should be mentioned to your upstream maintainer when your tree
+> is submitted for merging.  You may also want to consider cooperating
+> with the maintainer of the conflicting tree to minimise any particularly
+> complex conflicts.
 
-> When using a FUSE mount over an underlying filesystem that supports
-> xflags, querying them from userspace with file_getattr() strips them
-> because file_getattr sets flags_valid =3D true so FUSE uses
-> FS_IOC_GETFLAGS instead of FS_IOC_FSGETXATTR.
+Thanks for taking care of this, the resolution looks good to me.
+
+> diff --cc drivers/thermal/intel/therm_throt.c
+> index 1688f6362f6f5,6f86eb0231321..0000000000000
+> --- a/drivers/thermal/intel/therm_throt.c
+> +++ b/drivers/thermal/intel/therm_throt.c
+> @@@ -480,613 -474,6 +480,613 @@@ static int __init int_pln_enable_setup(
+>   __setup("int_pln_enable", int_pln_enable_setup);
 >
-> Fix it by setting fsx_valid =3D true instead.
->
-> Output when using a simple FUSE mount that simply forwards the ioctls to
-> the underlying fs:
->
-> before the fix:
->
->   /xfs/file: FS_IOC_FSGETXATTR: ret=3D0, projid=3D69
->   /xfs/file: file_getattr:      ret=3D0, projid=3D0
->   /ext4/file: FS_IOC_FSGETXATTR: ret=3D0, projid=3D42
->   /ext4/file: file_getattr:      ret=3D0, projid=3D0
->
-> after the fix:
->
->   /xfs/file: FS_IOC_FSGETXATTR: ret=3D0, projid=3D69
->   /xfs/file: file_getattr:      ret=3D0, projid=3D69
->   /ext4/file: FS_IOC_FSGETXATTR: ret=3D0, projid=3D42
->   /ext4/file: file_getattr:      ret=3D0, projid=3D42
->
-> Fixes: cb184dd19154 ("fs: init flags_valid before calling vfs_fileattr_ge=
-t")
-> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.11
-> Signed-off-by: koraynilay <koray.fra@gmail.com>
-> ---
-> Hi, I found this issue while working on the v2 of [1], here is the
-> reproducer, not in the commit message because of the size.
->
-> script:
->
->   #!/bin/bash
->   truncate -s 100M xfs.img
->   truncate -s 100M ext4.img
->   mkfs.xfs xfs.img
->   mkfs.ext4 -O project ext4.img
->   mkdir xfs ext4
->=20=20=20
->   mount xfs.img xfs
->   mount ext4.img ext4
->   touch {xfs,ext4}/file
->=20=20=20
->   chattr -p 69 xfs/file
->   chattr -p 42 ext4/file
->=20=20=20
->   mkdir fuse
->   ./repro_fuse_getattr fuse "$PWD"/xfs/file
->   ./repro_fuse_getattr fuse "$PWD"/ext4/file
->=20=20=20
->   umount xfs ext4
->
-> where repro_fuse_getattr is a simple fuse mount, compiled with:
->
->   gcc repro_fuse_getattr.c -o repro_fuse_getattr $(pkg-config fuse3 --cfl=
-ags --libs)
->
-> and used like:
->
->   ./repro_fuse_getattr <fuse_mount_dir> <full_path_to_real_file>
->
-> repro_fuse_getattr.c:
->
->   #define _GNU_SOURCE
->   #define FUSE_USE_VERSION 35
->   #include <fuse3/fuse.h>
->   #include <stdio.h>
->   #include <string.h>
->   #include <errno.h>
->   #include <fcntl.h>
->   #include <unistd.h>
->   #include <sys/syscall.h>
->   #include <sys/ioctl.h>
->   #include <sys/mount.h>
->   #include <linux/fs.h>
->=20=20=20
->   /* needed to get the file's file descriptor for the ioctl */
->   static int my_getattr(const char *path, struct stat *st, struct fuse_fi=
-le_info *fi)
+>   #ifdef CONFIG_SYSFS
+>  +static int dpti_wait_for_ack(void)
+>  +{
+>  +      unsigned int count =3D 15000;
+>  +      u64 msr_val;
+>  +
+>  +      /*
+>  +       * Hardware acknowledges the directed interrupt setup in 10ms or =
+less.
+>  +       * Wait 15ms to be safe.
+>  +       */
+>  +      do {
+> -               rdmsrq(MSR_IA32_PACKAGE_THERM_STATUS, msr_val);
+> ++              msr_val =3D rdmsrq(MSR_IA32_PACKAGE_THERM_STATUS);
+>  +              udelay(1);
+>  +      } while (!(msr_val & PACKAGE_THERM_STATUS_DPTI_ACK) && --count);
+>  +
+>  +      if (!count)
+>  +              return -ETIMEDOUT;
+>  +
+>  +      thermal_clear_package_intr_status(PACKAGE_LEVEL,
+>  +                                        PACKAGE_THERM_STATUS_DPTI_ACK);
+>  +
+>  +      return 0;
+>  +}
+>  +
+>  +static void dpti_config_this_cpu(bool enable)
+>  +{
+>  +      u64 msr_val;
+>  +
+> -       rdmsrq(MSR_IA32_THERM_INTERRUPT, msr_val);
+> ++      msr_val =3D rdmsrq(MSR_IA32_THERM_INTERRUPT);
+>  +
+>  +      if (enable)
+>  +              msr_val |=3D THERM_INT_DPTI_ENABLE;
+>  +      else
+>  +              msr_val &=3D ~THERM_INT_DPTI_ENABLE;
+>  +
+>  +      wrmsrq(MSR_IA32_THERM_INTERRUPT, msr_val);
+>  +}
+>  +
+>  +static void dpti_clear_ipi(void *unused)
+>  +{
+>  +      dpti_config_this_cpu(false);
+>  +}
+>  +
+>  +static void dpti_clear_on_cpu(unsigned int cpu)
+>  +{
+>  +      smp_call_function_single(cpu, dpti_clear_ipi, NULL, true);
+>  +}
+>  +
+>  +/* The unused argument matches the smp_call_on_cpu() callback signature=
+. */
+>  +static int dpti_program_this_cpu(void *unused)
+>  +{
+>  +      int ret;
+>  +
+>  +      thermal_clear_package_intr_status(PACKAGE_LEVEL,
+>  +                                        PACKAGE_THERM_STATUS_DPTI_ACK);
+>  +
+>  +      dpti_config_this_cpu(true);
+>  +      ret =3D dpti_wait_for_ack();
+>  +      if (!ret)
+>  +              return 0;
+>  +
+>  +      /* Undo the enable on failure, leaving the package as it was befo=
+re. */
+>  +      dpti_config_this_cpu(false);
+>  +
+>  +      return ret;
+>  +}
+>  +
+>  +/*
+>  + * MSR_IA32_PACKAGE_THERM_STATUS is package-scoped, so the acknowledgme=
+nt must
+>  + * be polled on the same package. Run a worker bound to @cpu: it cannot=
+ be
+>  + * migrated and may wait for the acknowledgment for as long as 15ms.
+>  + */
+>  +static int dpti_program_on_cpu(unsigned int cpu)
+>  +{
+>  +      lockdep_assert_cpus_held();
+>  +
+>  +      return smp_call_on_cpu(cpu, dpti_program_this_cpu, NULL, false);
+>  +}
+>  +
+>  +/**
+>  + * struct dpti_pkg - Per-package DPTI state
+>  + * @owner:    CPU currently programmed to receive the package-level
+>  + *            interrupt, or nr_cpu_ids when the package has no owner.
+>  + * @pin:      CPU the user requested as the owner, or nr_cpu_ids for
+>  + *            automatic selection. A pinned CPU overrides the automatic
+>  + *            selection whenever it is online.
+>  + */
+>  +struct dpti_pkg {
+>  +      unsigned int owner;
+>  +      unsigned int pin;
+>  +};
+>  +
+>  +/*
+>  + * Serializes updates to dpti_pkgs[] and dpti_shut_down. To avoid deadl=
+ock, a
+>  + * path that needs both this mutex and the CPU hotplug lock always take=
+s the
+>  + * hotplug lock first.
+>  + */
+>  +static DEFINE_MUTEX(dpti_mutex);
+>  +
+>  +static struct dpti_pkg *dpti_pkgs;
+>  +
+>  +/*
+>  + * Set under dpti_mutex by the syscore shutdown callback before it disa=
+bles
+>  + * DPTI, so that no owner update enables it again on the way to kexec.
+>  + */
+>  +static bool dpti_shut_down;
+>  +
+>  +/*
+>  + * Cleared once the hotplug callbacks are registered: at least one CPU
+>  + * attempted the setup by then, and the hardware is assumed sane from t=
+hat
+>  + * point on.
+>  + */
+>  +static bool dpti_in_boot __ro_after_init =3D true;
+>  +
+>  +static bool dpti_supported(void)
+>  +{
+>  +      if (!boot_cpu_has(X86_FEATURE_DPTI))
+>  +              return false;
+>  +
+>  +      if (!dpti_pkgs)
+>  +              return false;
+>  +
+>  +      return true;
+>  +}
+>  +
+>  +/* @pkg_id may be NULL for a caller that only validates @cpu. */
+>  +static int dpti_lookup_pkg_id(unsigned int cpu, u16 *pkg_id)
+>  +{
+>  +      u16 id;
+>  +
+>  +      if (!dpti_supported())
+>  +              return -ENODEV;
+>  +
+>  +      id =3D topology_logical_package_id(cpu);
+>  +      if (id >=3D topology_max_packages())
+>  +              return -ENODEV;
+>  +
+>  +      if (pkg_id)
+>  +              *pkg_id =3D id;
+>  +
+>  +      return 0;
+>  +}
+>  +
+>  +/* For callers already past dpti_lookup_pkg_id(). */
+>  +static struct dpti_pkg *dpti_pkg_of_cpu_nocheck(unsigned int cpu)
+>  +{
+>  +      return &dpti_pkgs[topology_logical_package_id(cpu)];
+>  +}
+>  +
+>  +/*
+>  + * Reads dpti_pkgs[] without dpti_mutex: the syscore callers run with
+>  + * interrupts disabled on the only online CPU.
+>  + */
+>  +static bool dpti_cpu_is_owner(unsigned int cpu)
+>  +{
+>  +      u16 pkg_id;
+>  +
+>  +      if (dpti_lookup_pkg_id(cpu, &pkg_id))
+>  +              return false;
+>  +
+>  +      return dpti_pkgs[pkg_id].owner =3D=3D cpu;
+>  +}
+>  +
+>  +/*
+>  + * Must be called with cpu_hotplug_lock held to prevent CPUs from going=
+ offline
+>  + * while iterating through packages and interrupts must be enabled to a=
+void
+>  + * deadlocks in SMP function calls. The syscore shutdown callback also =
+calls
+>  + * this function, but runs with CPU hotplug disabled (and interrupts en=
+abled).
+>  + */
+>  +static void dpti_clear_all(void)
+>  +{
+>  +      int i;
+>  +
+>  +      if (!dpti_supported())
+>  +              return;
+>  +
+>  +      guard(mutex)(&dpti_mutex);
+>  +
+>  +      /*
+>  +       * No need to reset the owners: callers free dpti_pkgs[] or have =
+shut
+>  +       * DPTI down.
+>  +       */
+>  +      for (i =3D 0; i < topology_max_packages(); i++) {
+>  +              unsigned int owner =3D dpti_pkgs[i].owner;
+>  +
+>  +              if (owner =3D=3D nr_cpu_ids)
+>  +                      continue;
+>  +
+>  +              dpti_clear_on_cpu(owner);
+>  +      }
+>  +}
+>  +
+>  +/**
+>  + * enum dpti_rank - How suitable a CPU is as a DPTI owner
+>  + * @DPTI_RANK_NONE:           No eligible CPU.
+>  + * @DPTI_RANK_ISOLATED:               nohz_full-isolated (last resort).
+>  + * @DPTI_RANK_HOUSEKEEPING:   Not isolated (ideal automatic choice).
+>  + * @DPTI_RANK_PINNED:         Explicitly requested by the user; overrid=
+es any
+>  + *                            automatic choice.
+>  + *
+>  + * Higher is better; the selection picks the highest-ranked online CPU =
+in the
+>  + * package.
+>  + */
+>  +enum dpti_rank {
+>  +      DPTI_RANK_NONE,
+>  +      DPTI_RANK_ISOLATED,
+>  +      DPTI_RANK_HOUSEKEEPING,
+>  +      DPTI_RANK_PINNED,
+>  +};
+>  +
+>  +static enum dpti_rank dpti_cpu_rank(unsigned int cpu)
+>  +{
+>  +      /*
+>  +       * Prefer a HK_TYPE_KERNEL_NOISE CPU to avoid disturbing nohz_ful=
+l
+>  +       * isolated CPUs. The mask is boot-static. No locking needed.
+>  +       */
+>  +      if (housekeeping_cpu(cpu, HK_TYPE_KERNEL_NOISE))
+>  +              return DPTI_RANK_HOUSEKEEPING;
+>  +
+>  +      return DPTI_RANK_ISOLATED;
+>  +}
+>  +
+>  +/*
+>  + * Select the owner of the package-level thermal interrupt for @pkg_cpu=
+'s
+>  + * package. @skip is excluded from the selection (e.g., if it is going =
+offline).
+>  + * @rank receives the rank of the selected CPU.
+>  + *
+>  + * A user-pinned CPU takes precedence whenever it is online; otherwise =
+the best
+>  + * ranked CPU in the package is chosen.
+>  + */
+>  +static unsigned int dpti_select_cpu(unsigned int pkg_cpu, unsigned int =
+skip,
+>  +                                  enum dpti_rank *rank)
+>  +{
+>  +      const struct cpumask *pkg_mask =3D topology_core_cpumask(pkg_cpu)=
+;
+>  +      enum dpti_rank best_rank =3D DPTI_RANK_NONE;
+>  +      unsigned int cpu, pin, best =3D nr_cpu_ids;
+>  +
+>  +      lockdep_assert_cpus_held();
+>  +      lockdep_assert_held(&dpti_mutex);
+>  +
+>  +      /*
+>  +       * Choose the user-pinned CPU if available: it is online and not =
+going
+>  +       * offline (as indicated by @skip).
+>  +       */
+>  +      pin =3D dpti_pkg_of_cpu_nocheck(pkg_cpu)->pin;
+>  +      if (pin < nr_cpu_ids && pin !=3D skip &&
+>  +          cpumask_test_cpu(pin, pkg_mask)) {
+>  +              *rank =3D DPTI_RANK_PINNED;
+>  +              return pin;
+>  +      }
+>  +
+>  +      for_each_cpu(cpu, pkg_mask) {
+>  +              enum dpti_rank cpu_rank;
+>  +
+>  +              if (cpu =3D=3D skip)
+>  +                      continue;
+>  +
+>  +              cpu_rank =3D dpti_cpu_rank(cpu);
+>  +              if (cpu_rank > best_rank) {
+>  +                      best_rank =3D cpu_rank;
+>  +                      best =3D cpu;
+>  +                      /*
+>  +                       * Nothing outranks a housekeeping CPU in automat=
+ic
+>  +                       * selection.
+>  +                       */
+>  +                      if (best_rank =3D=3D DPTI_RANK_HOUSEKEEPING)
+>  +                              break;
+>  +              }
+>  +      }
+>  +
+>  +      *rank =3D best_rank;
+>  +
+>  +      return best;
+>  +}
+>  +
+>  +static void dpti_warn_if_isolated(unsigned int cpu, enum dpti_rank rank=
+)
+>  +{
+>  +      if (rank =3D=3D DPTI_RANK_ISOLATED)
+>  +              pr_warn_once("Package %u thermal interrupt directed to no=
+hz_full-isolated CPU%u; no housekeeping CPU available\n",
+>  +                           topology_logical_package_id(cpu), cpu);
+>  +}
+>  +
+>  +static void dpti_warn_if_pinned_isolated(unsigned int cpu)
+>  +{
+>  +      if (dpti_cpu_rank(cpu) =3D=3D DPTI_RANK_ISOLATED)
+>  +              pr_warn_ratelimited("Package %u thermal interrupt pinned =
+to nohz_full-isolated CPU%u\n",
+>  +                                  topology_logical_package_id(cpu), cpu=
+);
+>  +}
+>  +
+>  +/*
+>  + * Reselect the owner for @cpu's package and migrate to it, but only on=
+ a
+>  + * strict rank improvement.
+>  + */
+>  +static int dpti_update_owner(unsigned int cpu)
+>  +{
+>  +      struct dpti_pkg *pkg =3D dpti_pkg_of_cpu_nocheck(cpu);
+>  +      enum dpti_rank new_rank, old_rank;
+>  +      unsigned int new_cpu, old_cpu;
+>  +      int ret;
+>  +
+>  +      lockdep_assert_held(&dpti_mutex);
+>  +
+>  +      if (dpti_shut_down)
+>  +              return 0;
+>  +
+>  +      old_cpu =3D pkg->owner;
+>  +      new_cpu =3D dpti_select_cpu(cpu, nr_cpu_ids, &new_rank);
+>  +      if (new_cpu =3D=3D old_cpu)
+>  +              return 0;
+>  +
+>  +      old_rank =3D DPTI_RANK_NONE;
+>  +      if (old_cpu < nr_cpu_ids)
+>  +              old_rank =3D dpti_cpu_rank(old_cpu);
+>  +      if (new_rank <=3D old_rank)
+>  +              return 0;
+>  +
+>  +      ret =3D dpti_program_on_cpu(new_cpu);
+>  +      if (ret) {
+>  +              if (old_cpu < nr_cpu_ids)
+>  +                      pr_warn_once("Failed to redirect package thermal =
+interrupt from CPU%u to CPU%u; keeping CPU%u\n",
+>  +                                   old_cpu, new_cpu, old_cpu);
+>  +              return ret;
+>  +      }
+>  +
+>  +      if (old_cpu < nr_cpu_ids)
+>  +              dpti_clear_on_cpu(old_cpu);
+>  +
+>  +      pkg->owner =3D new_cpu;
+>  +      dpti_warn_if_isolated(new_cpu, new_rank);
+>  +
+>  +      return 0;
+>  +}
+>  +
+>  +static int dpti_online(unsigned int cpu)
+>  +{
+>  +      int ret;
+>  +
+>  +      if (!dpti_supported())
+>  +              return 0;
+>  +
+>  +      /*
+>  +       * Validate @cpu's package id on behalf of dpti_update_owner(), w=
+hich
+>  +       * indexes dpti_pkgs[] based on @cpu.
+>  +       */
+>  +      ret =3D dpti_lookup_pkg_id(cpu, NULL);
+>  +      if (ret)
+>  +              return ret;
+>  +
+>  +      guard(mutex)(&dpti_mutex);
+>  +
+>  +      /*
+>  +       * A CPU coming online may be a better owner than the one current=
+ly
+>  +       * programmed. If the hardware does not acknowledge it, the curre=
+nt
+>  +       * owner keeps the interrupt: a valid outcome, already reported.
+>  +       */
+>  +      ret =3D dpti_update_owner(cpu);
+>  +      if (ret && dpti_pkg_of_cpu_nocheck(cpu)->owner < nr_cpu_ids)
+>  +              return 0;
+>  +
+>  +      return ret;
+>  +}
+>  +
+>  +static void dpti_offline(unsigned int cpu)
+>  +{
+>  +      enum dpti_rank new_rank;
+>  +      unsigned int new_cpu;
+>  +      u16 pkg_id;
+>  +
+>  +      if (dpti_lookup_pkg_id(cpu, &pkg_id))
+>  +              return;
+>  +
+>  +      guard(mutex)(&dpti_mutex);
+>  +
+>  +      if (dpti_shut_down)
+>  +              return;
+>  +
+>  +      /* Not the owner of the directed interrupt. */
+>  +      if (dpti_pkgs[pkg_id].owner !=3D cpu)
+>  +              return;
+>  +
+>  +      /*
+>  +       * The package-level interrupt must remain directed after this CP=
+U goes
+>  +       * offline.
+>  +       */
+>  +      new_cpu =3D dpti_select_cpu(cpu, cpu, &new_rank);
+>  +
+>  +      /*
+>  +       * dpti_program_on_cpu() undoes a setup that the hardware does no=
+t
+>  +       * acknowledge on @new_cpu. With @cpu cleared below, no CPU is th=
+en
+>  +       * configured to receive the package-level interrupt: all CPUs in=
+ the
+>  +       * package receive it.
+>  +       */
+>  +      if (new_cpu < nr_cpu_ids && dpti_program_on_cpu(new_cpu)) {
+>  +              pr_warn_once("Failed to redirect package thermal interrup=
+t from CPU%u to CPU%u; reverting to broadcast\n",
+>  +                           cpu, new_cpu);
+>  +
+>  +              new_cpu =3D nr_cpu_ids;
+>  +              new_rank =3D DPTI_RANK_NONE;
+>  +      }
+>  +
+>  +      /*
+>  +       * Clear the directed interrupt on @cpu. Hardware acknowledgment =
+can be
+>  +       * ignored since @cpu is going offline.
+>  +       */
+>  +      dpti_config_this_cpu(false);
+>  +
+>  +      dpti_pkgs[pkg_id].owner =3D new_cpu;
+>  +      dpti_warn_if_isolated(new_cpu, new_rank);
+>  +}
+>  +
+>  +/*
+>  + * The DPTI owner is a per-package property, but it is exposed through =
+the
+>  + * existing per-CPU thermal_throttle sysfs group.
+>  + *
+>  + * Reading reports whether @cpu is the owner programmed in hardware, no=
+t
+>  + * whether it is pinned. A released pin therefore still reads 1 until t=
+he
+>  + * placement changes, and while a pinned CPU is offline the remaining C=
+PUs
+>  + * report the automatically chosen fallback.
+>  + */
+>  +static ssize_t package_interrupt_owner_show(struct device *dev,
+>  +                                          struct device_attribute *attr=
+,
+>  +                                          char *buf)
+>  +{
+>  +      unsigned int cpu =3D dev->id;
+>  +      bool is_owner;
+>  +      u16 pkg_id;
+>  +      int ret;
+>  +
+>  +      ret =3D dpti_lookup_pkg_id(cpu, &pkg_id);
+>  +      if (ret)
+>  +              return ret;
+>  +
+>  +      scoped_guard(mutex, &dpti_mutex)
+>  +              is_owner =3D dpti_pkgs[pkg_id].owner =3D=3D cpu;
+>  +
+>  +      return sysfs_emit(buf, "%u\n", is_owner);
+>  +}
+>  +
+>  +static int dpti_pin_owner(unsigned int cpu)
+>  +{
+>  +      struct dpti_pkg *pkg =3D dpti_pkg_of_cpu_nocheck(cpu);
+>  +      unsigned int old_pin;
+>  +      int ret;
+>  +
+>  +      guard(mutex)(&dpti_mutex);
+>  +
+>  +      /* The pin outranks every automatic choice, so it always migrates=
+. */
+>  +      old_pin =3D pkg->pin;
+>  +      pkg->pin =3D cpu;
+>  +
+>  +      /*
+>  +       * A failed write must not change policy or get silently retried =
+on the
+>  +       * next hotplug event.
+>  +       */
+>  +      ret =3D dpti_update_owner(cpu);
+>  +      if (ret)
+>  +              pkg->pin =3D old_pin;
+>  +      else
+>  +              dpti_warn_if_pinned_isolated(cpu);
+>  +
+>  +      return ret;
+>  +}
+>  +
+>  +static void dpti_unpin_owner(unsigned int cpu)
+>  +{
+>  +      struct dpti_pkg *pkg =3D dpti_pkg_of_cpu_nocheck(cpu);
+>  +
+>  +      guard(mutex)(&dpti_mutex);
+>  +
+>  +      if (pkg->pin !=3D cpu)
+>  +              return;
+>  +
+>  +      pkg->pin =3D nr_cpu_ids;
+>  +
+>  +      /*
+>  +       * Without the pin, a housekeeping CPU of the package outranks an
+>  +       * isolated owner. Migrate rather than wait for a re-evaluation t=
+hat may
+>  +       * never come. A hardware acknowledgment failure leaves the inter=
+rupt in
+>  +       * place, which is still a valid outcome of releasing a pin.
+>  +       */
+>  +      dpti_update_owner(cpu);
+>  +}
+>  +
+>  +static ssize_t package_interrupt_owner_store(struct device *dev,
+>  +                                           struct device_attribute *att=
+r,
+>  +                                           const char *buf, size_t coun=
+t)
+>  +{
+>  +      unsigned int cpu =3D dev->id;
+>  +      bool want_pin;
+>  +      int ret;
+>  +
+>  +      ret =3D dpti_lookup_pkg_id(cpu, NULL);
+>  +      if (ret)
+>  +              return ret;
+>  +
+>  +      ret =3D kstrtobool(buf, &want_pin);
+>  +      if (ret)
+>  +              return ret;
+>  +
+>  +      /*
+>  +       * The selection reads the package's online CPUs; the programming=
+ runs
+>  +       * remotely on the CPU it picks. Both need the CPU hotplug lock, =
+which
+>  +       * this write cannot block on: offlining @cpu holds it while
+>  +       * sysfs_remove_group() waits for this write to release its refer=
+ence on
+>  +       * the attribute. Restart the syscall instead, which drops that
+>  +       * reference and lets the offline proceed. Avoid busy looping wit=
+h a 5ms
+>  +       * sleep between tries. lock_device_hotplug_sysfs() follows the s=
+ame
+>  +       * approach.
+>  +       */
+>  +      if (!cpus_read_trylock()) {
+>  +              msleep(5);
+>  +              return restart_syscall();
+>  +      }
+>  +
+>  +      if (want_pin)
+>  +              ret =3D dpti_pin_owner(cpu);
+>  +      else
+>  +              dpti_unpin_owner(cpu);
+>  +
+>  +      cpus_read_unlock();
+>  +
+>  +      return ret ? ret : count;
+>  +}
+>  +static DEVICE_ATTR_RW(package_interrupt_owner);
+>  +
+>  +/*
+>  + * CPU0 may own the directed interrupt, but the CPU hotplug callbacks a=
+re not
+>  + * called for CPU0 during suspend and resume.
+>  + */
+>  +static void dpti_syscore_resume(void *data)
+>  +{
+>  +      if (!dpti_cpu_is_owner(0))
+>  +              return;
+>  +
+>  +      if (!dpti_program_this_cpu(NULL))
+>  +              return;
+>  +
+>  +      /*
+>  +       * Let another CPU take over via CPU hotplug. No lock is needed h=
+ere:
+>  +       * only CPU0 is online and interrupts are disabled.
+>  +       */
+>  +      dpti_pkg_of_cpu_nocheck(0)->owner =3D nr_cpu_ids;
+>  +}
+>  +
+>  +static int dpti_syscore_suspend(void *data)
+>  +{
+>  +      if (dpti_cpu_is_owner(0))
+>  +              dpti_config_this_cpu(false);
+>  +
+>  +      return 0;
+>  +}
+>  +
+>  +static void dpti_syscore_shutdown(void *data)
+>  +{
+>  +      scoped_guard(mutex, &dpti_mutex)
+>  +              dpti_shut_down =3D true;
+>  +
+>  +      dpti_clear_all();
+>  +}
+>  +
+>  +static const struct syscore_ops dpti_syscore_ops =3D {
+>  +      .resume =3D dpti_syscore_resume,
+>  +      .suspend =3D dpti_syscore_suspend,
+>  +      .shutdown =3D dpti_syscore_shutdown,
+>  +};
+>  +
+>  +static struct syscore dpti_syscore =3D {
+>  +      .ops =3D &dpti_syscore_ops,
+>  +};
+>  +
+>  +static __init void dpti_init(void)
+>  +{
+>  +      int i;
+>  +
+>  +      if (!boot_cpu_has(X86_FEATURE_DPTI))
+>  +              return;
+>  +
+>  +      dpti_pkgs =3D kmalloc_objs(*dpti_pkgs, topology_max_packages());
+>  +      if (!dpti_pkgs)
+>  +              return;
+>  +
+>  +      for (i =3D 0; i < topology_max_packages(); i++) {
+>  +              dpti_pkgs[i].owner =3D nr_cpu_ids;
+>  +              dpti_pkgs[i].pin =3D nr_cpu_ids;
+>  +      }
+>  +
+>  +      register_syscore(&dpti_syscore);
+>  +}
+>  +
+>  +static void dpti_cleanup(void)
+>  +{
+>  +      unsigned int cpu;
+>  +
+>  +      if (!dpti_supported())
+>  +              return;
+>  +
+>  +      /* The attribute must not outlive the per-package state. */
+>  +      for_each_online_cpu(cpu)
+>  +              sysfs_remove_file_from_group(&get_cpu_device(cpu)->kobj,
+>  +                                           &dev_attr_package_interrupt_=
+owner.attr,
+>  +                                           thermal_attr_group.name);
+>  +
+>  +      unregister_syscore(&dpti_syscore);
+>  +      dpti_clear_all();
+>  +      kfree(dpti_pkgs);
+>  +      dpti_pkgs =3D NULL;
+>  +}
+>  +
+>   /* Add/Remove thermal_throttle interface for CPU device: */
+>   static int thermal_throttle_add_dev(struct device *dev, unsigned int cp=
+u)
 >   {
->   	memset(st, 0, sizeof(*st));
->   	if (!strcmp(path, "/")) {
->   		st->st_mode =3D S_IFDIR | 0755;
->   		st->st_nlink =3D 2;
->   		return 0;
->   	}
->   	return stat(fuse_get_context()->private_data, st) < 0 ? -errno : 0;
->   }
->=20=20=20
->   /* pass down the ioctl to the fs */
->   static int my_ioctl(const char *path, unsigned int cmd, void *arg,
->   		    struct fuse_file_info *fi, unsigned int flags, void *data)
->   {
->   	int fd =3D open(fuse_get_context()->private_data, O_RDONLY);
->   	int ret =3D ioctl(fd, cmd, data);
->   	close(fd);
->   	return ret < 0 ? -errno : 0;
->   }
->=20=20=20
->   static const struct fuse_operations ops =3D {
->   	.getattr =3D my_getattr,
->   	.ioctl   =3D my_ioctl,
->   };
->=20=20=20
->   int main(int argc, char *argv[])
->   {
->   	const char *mnt =3D argv[1]; /* FUSE mount point */
->   	const char *real_file =3D argv[2]; // full path of the file on the
->   					 // underlying fs
->=20=20=20
->   	/* start FUSE */
->   	pid_t pid =3D fork();
->   	if (pid =3D=3D 0) {
->   		char *fuse_argv[] =3D { "fuse", "-f", (char *)mnt, NULL };
->   		return fuse_main(3, fuse_argv, &ops, (void *)real_file);
->   	}
->=20=20=20
->   	usleep(300000); /* wait for FUSE mount */
->=20=20=20
->   	/* Query the file attributes through FUSE mount */
->   	char fuse_file[4096];
->   	snprintf(fuse_file, sizeof(fuse_file), "%s/file", mnt);
->=20=20=20
->   	int fd =3D open(fuse_file, O_RDONLY);
->=20=20=20
->   	struct fsxattr x =3D {};
->   	int ret_fsget =3D ioctl(fd, FS_IOC_FSGETXATTR, &x);
->=20=20=20
->   	struct file_attr fa =3D {};
->   	long ret_sys =3D syscall(SYS_file_getattr, -100, fuse_file, &fa, sizeo=
-f(fa), 0);
->=20=20=20
->   	close(fd);
->=20=20=20
->   	printf("%s: FS_IOC_FSGETXATTR: ret=3D%d, projid=3D%u\n",
->   	       real_file, ret_fsget, x.fsx_projid);
->   	printf("%s: file_getattr:      ret=3D%ld, projid=3D%llu\n",
->   	       real_file, ret_sys, (unsigned long long)fa.fa_projid);
->=20=20=20
->   	umount(mnt);
->   	return 0;
->   }
->
-> Thanks,
-> koraynilay
->
-> [1]: https://lore.kernel.org/all/DN2YMTH77KWE.3IPE9OG8377X0@gmail.com/T/#t
->
->  fs/file_attr.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/fs/file_attr.c b/fs/file_attr.c
-> index 833e03810b24..3b249a0a6b36 100644
-> --- a/fs/file_attr.c
-> +++ b/fs/file_attr.c
-> @@ -383,7 +383,7 @@ SYSCALL_DEFINE5(file_getattr, int, dfd, const char __=
-user *, filename,
->  	struct path filepath __free(path_put) =3D {};
->  	unsigned int lookup_flags =3D 0;
->  	struct file_attr fattr;
-> -	struct file_kattr fa =3D { .flags_valid =3D true }; /* hint only */
-> +	struct file_kattr fa =3D { .fsx_valid =3D true }; /* hint only */
-
-Isn't this reintroducing the bug that was fixed by commit
-
-cb184dd19154 ("fs: init flags_valid before calling vfs_fileattr_get") ?
-
-Maybe fuse_fileattr_get() shouldn't be handling FS_IOC_FSGETXATTR at all,
-and FS_IOC_FSGETXATTR handling should be moved into fuse_do_ioctl()
-instead?  (Or, more likely, I'm missing something!)
-
-Cheers,
---=20
-Lu=C3=ADs
-
->  	int error;
->=20=20
->  	BUILD_BUG_ON(sizeof(struct file_attr) < FILE_ATTR_SIZE_VER0);
->
-> base-commit: 3857587d9d6fa44d40d1c73bde6a39f6f7a5216c
-> --=20
-> 2.56.0
->
->
-
