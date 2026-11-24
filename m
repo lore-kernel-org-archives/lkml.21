@@ -1,96 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795539423;
-	b=l/hQ5ztxRxEJy7+sArxmOQa0epSQR9nVZ1tWeX3tf82+DoU5OglrTuVw0yCmOmaGW2b7
-	 5A/nGPLyGuHr7K9MvRJ+Hz3QK8/S3WmXqU+xqDb7dh5i7+TcS3db4v02wteL44DLzqlQS
-	 HFxOaR4qz0H2UghaRtEfkDBugfkR6atOY3nU4Y4N1oc8vzAhKK0pH+xwFAgtCaagO5X6H
-	 4g6CTSUg4b19S9RzkzotC+EST3Xj01yuaanF1ZHsAL5WSbYkNrkEY/Tffhcgqv/IaIay+
-	 bUQZpN/RVlds1GeIiPX3HVaAxV10NPAVqDKPwX69js/eF7jXcZhabbcaEIO4P8n6vQQ==
+	t=1795539453;
+	b=oDCfuXtlKki3Lq3Al8EmYWta+viEhfzlWLpJ6Tg7dSxp3Ufrsb45oLY4wypT87mfyhgC
+	 MHX9z8inNx0VpTHRRPOr3eJbY3768KB87UHHccnEyE626nQMWG13EMMDSWl51ofUpmrgx
+	 dSmgmCUkdmYqxelLe/DNkOa9gXxGnnhk1wGqCHs3bsZgkBw0qca9583/AcGfDOtvBol7i
+	 cBbBPchOZmt4+dSmziMnnbeVUhJ3PbbghTd+gR49+KgDdceSQR2iGFNmOGPZqA0a6KiVM
+	 YHRCQ4AoGOHl/D+5cZoGLE+VKD2jsX/kSdBCXRnWQl1g44PvjtM4Vat8+COYzB1xpQA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795539423;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795539453;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Q6S+C9lbO9lL4PpPSoKibQFJs/OKawueyScWrx79ojU=;
-	b=acJVUET2HGcYiOEHHuiK1g/aYd9vPM93vyiXqhyNDsQL/0wsu2Jb1p3pyACUR7lgLuFs
-	 6XEKJa3czbiB20k3KOO8MtFAxqFkcaUhf0fjJJzeb2T5Sdf3PyPcUhSsXGP1p5dRU8kP9
-	 8LnuYZJMq5Xr5q9rXkyzhP+ObtZPZ9XGesjScaaxgA7yQLyHmmUrd9Y8csva3v5YaV3tP
-	 bbCemDqbods2z/K4Lgsw/jObWyX1MWCjksPKjuYKDg6vUIKk/EMkp6dN8nn4atvWFlVtR
-	 5TlT7x/umyhYj84sC5ugsybsFImphXxZfAtgW/m0JhAoCMFpE6nxzr1Oj5pC2E2Fk0g==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=9Nt89NySweTcsDeqx2ZV30b/bI7m+hN29lQwSVv8iTc=;
+	b=2leLOtwcND/au3jj+QnJALHUqj6Y1QkRm0As021Fp7pFvwXm0jpHZLn46nl0S/uErrVM
+	 ik1/ZViESIJn2mjWEz+c7487ziPfdht6ki/37bhUewl0tZqO/QmvyBagMHsvS5o64+Tia
+	 6vUHdTCrQ4JN4oYpH7KtWiUekfl4vdsv+fKAV6ID18q1PnYyWlCZVlMiwFADe4Pq4Po1y
+	 L496zJKCrGVK/LVCBGeqGpau3/Rd/VsrUaiuQT9Yl7hOMm7rwKCOdELAEw40OrVzAaiR1
+	 W6upM//a4wHslKQlbkD2hDT4bVx2l8hu44JAXlsr62Leoj5aiWeaurF5bmQ76/mP7tQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eN9AKtwR;
-	arc=none smtp.remote-ip=209.85.219.52
-Received: from mail-qv1-f52.google.com (mail-qv1-f52.google.com [209.85.219.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=t6OmpsiC;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2ECB0606A329
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:57:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2ECB0606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D579606A32D
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:57:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D579606A32D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eN9AKtwR
-Received: by mail-qv1-f52.google.com with SMTP id 6a1803df08f44-92107df3f13so46442816d6.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:57:03 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=t6OmpsiC
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-386c4d2e2ccso1385288eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:57:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795539422; x=1796144222; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795539452; x=1796144252; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Q6S+C9lbO9lL4PpPSoKibQFJs/OKawueyScWrx79ojU=;
-        b=eN9AKtwRofP4yFvYfSB3nQYJlR2sd2N4zkA/z4xpQkwXpoERzr2vqheisg+3SCIgfX
-         RKn9tLpAYs8qUCdx0YsW5aHSxIMbRFDBmAvCk3M7/dQk+EyqhCBU8BsGD5i2MTtc8swJ
-         Oq2SGbs8OSaTnBH7VEOV18LNbaOee8WO1NW3DB18NgpFxrtobgF8Yd1pBxPllfBJLH6g
-         u2kqY/86tDmtzFHTBLiW+6GfelSF9inpTyOsd5+VdL3rCBmLZiESyfKIAvTff1SP2Q7l
-         UlZYIN7E61YweLQ4Br5n3NV89WSY0GVLAH+s6aBWfx82lv9mK1GvVBa202+EwHgT/FAI
-         r/MQ==
+        bh=9Nt89NySweTcsDeqx2ZV30b/bI7m+hN29lQwSVv8iTc=;
+        b=t6OmpsiCyA0xoZyXsCUjF8NlDIKxiYTplEm7NxXVZqSOh1wEcxC6gIm9qSdSG6q9lG
+         8Ri2P5Mrxe5wR00d9m4bPxlfIpUa4eer5mD5E6npR5UkKSmdN3PbggKEmRt3VZE/oFXZ
+         qBbTOCIOjIntIQczm7tvFAZBIU95RY/I2XPA93zRmSZllAC4kKFeD0TmmcfPSW+Iy21P
+         KWYdLevQNJBNc/9c/fvu1VWPNm7zVJvsDlW/YzwtdwRU/qeMLnMlvmwzQGSE+phI966a
+         I6QdMJra46HZ9ecxLqRntzPhFs//aw9pKb5eNjQegaC+D0vu9yN9/0SUoXv6VZFu5+Fh
+         Xabg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795539422; x=1796144222;
+        d=1e100.net; s=20260707; t=1795539452; x=1796144252;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Q6S+C9lbO9lL4PpPSoKibQFJs/OKawueyScWrx79ojU=;
-        b=M4L7Ch373iswfGZLV4DHgMwtX14u/gde8H7vu5/XDTRLSi7teQShTnw63G+3RcZ1mR
-         WXj0cUh88p/2eHgvl7s394fG0kC4l3uK4zOtlUk9o2Fa/QPgVk8enfsbXMcy5n79Oe9K
-         gBn/25JR8rAPc7NWkxTf4L1Kqa60Yi+WNG0mTSnEY09ko5DtryKXa/fpwM6JgkjZah3g
-         mVcitTK/yb85NvvTj3H1ylcCsYR6k8VQNnwdQt74mv5hvJmV8UgNEIlKzUfwOUdeZUma
-         Lw1/U1ASH0PABfC0v0jg1ehgpFLITJW7vfjjhEEeWw1lTQ8PWVfFxxQociC0F3z7YiXk
-         WaEw==
-X-Forwarded-Encrypted: i=1; AL+hErGripnI/RB0xe8EkP8chVtJpPBEHYrUQ2kkPKcdwoS0WYjTtOTX+/1Ud/U3Ot+FMgBy+NgfXX1xpCVXcJQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9zG+uEJq2zUNMo5UD1icnqld0vSNqMe56pTSRS/gvZNcooYRik
-	f+yhiui1Rdbmwgk3FbzEYyhTPQesaG9oEIiGEVW1WQTpExSUIKbd52ci
-X-Gm-Gg: AZFdTZfpSppK/69ye0tSn1UVxJ8nuVf7694B5iMgNlOJRTJdd1XYjvMuqTYXbznQX0e
-	856e3sxajGM8V+4lrw1fLR0Lnr9kXqEGe/gojLQsHhBePGybNcoeaua4bheBBOuw+ZYp8sk/23G
-	ftw1vEYUTH35lBKIdTRpYCu69ITPgt9z64bMiFZW2i5vtzP1HkI3QhsPHrGgTtQwL+ZdrRaPQPM
-	b/iDGbsMhXyKLbJ4orowqWM/N2LmNMDl76eeksU2rKPBzo7vr0+8v2y2cnUbrX2nx6hqdzsTsNU
-	zdYBeY6qaW8xZi51Ye1kysJ+8A6y+a2vhkDGJSnTJs4b2nZOi8YAb6liRdSOE+pzuEVeip/pGup
-	qQRM6a58IYQxqnKoEeuAVDPcva/cjOc5MEEICLC6djCQ1APEP3yvCRrfHHISrZl7n5DEpy8XlCv
-	A0ZIRoBTPQJMklaxiHPJCwAAjqtlOHQNbw7vAU0rP+mBJhl+yHO/4BpxDaIscEn/4XE3y2tJrHR
-	iZXItH89vy+UG9yx7qAUd7jPNJuuTs9pjhejZzGPvX2yg4X/GTaxAt7QpWndDBKn3Wi4CXpCKfA
-	HDsf8ha+nCppZi+gO/Q8l4I6I4KoK7ZvXnQ=
-X-Received: by 2002:a05:6214:4108:b0:91f:10b6:2743 with SMTP id 6a1803df08f44-92134b3ef75mr274765416d6.36.1795539422157;
-        Tue, 24 Nov 2026 08:57:02 -0800 (PST)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349ee175sm142108796d6.26.2026.11.24.08.57.00
+        bh=9Nt89NySweTcsDeqx2ZV30b/bI7m+hN29lQwSVv8iTc=;
+        b=K+xlyfQTofT+F33L/YqJH45JyiRghypi5nEy1rbKhNStb/wLLuwSiPN6REp9y5r+dp
+         8kIAe6/FwxYJ91ZjNsAVzNqDvXi31wgdN8QpfNT5VMaefrU/qFyvsOuZRWwVnRKwzz5N
+         qpvbARIALG0es/JzPS9ghAemxL4jgB9yPkC0ZdDevDbVrmd6sCH4mGNAGEIbiZisaFa5
+         1uEWK4M1swn7LQlTmKNsshqB2HTUKD2VoOmBKCOUHxaHLBxt3WdFJWTuNbATEO1BrjID
+         htoT+EklyeBg6EjVFGCsdKsLGH26F1y+70pLzn+wddawKiKnbqxbHFU/bAvXyztnDGhh
+         zm1A==
+X-Gm-Message-State: APuU4Z/ZguTCIwSEqK2E4UNEDniIxo7CrbgE4bAZj5FLLEyenXMJpzCm
+	zoMTS+ZKPgiu859rj43UDGe8OSanu/v9ZrPu0YLs12Y0mFKnL40TgZkx
+X-Gm-Gg: AZFdTZcFmdaQoTzNklROa/rdgsU6/4GV/ixJ3GOI88iRNsOr2VHIRnLCP2SauaDD9Du
+	LxXJ6gwOoGAL2CkLV7nX1eopXjlXjy0zh+38vIdJklg9WuY6zl8Fbg6SEkOO0PwU4XehFawiFiq
+	p20oQxqvIAwzuIXBnO1WnM7o6HJD9ZCaafXI3oSVTHCIdHDQiEfh0zzI/HEj14TGdsyQ5Yidgxe
+	vW7f3ijfe9jLcJkEcr1Ho28sGbrNA+1V2Y1kaibO220F0LWk2ZMPR3hjxwMLU8D44p1PWOnt7rY
+	J1PqPAbFYHzL+DnAVC3rtlg9x54mN6/g64J2EaINgYJje0+UT9HgfogmAN7t+bbcmgNerw9KY5b
+	BI7leAYayRTo3fZt/ILTA/ITsd3T6jb17yltn3TPWD4V2Jc8Zy6+IxhEmlzNUCCZlzigj8yNXo7
+	pj5EXCiSxkgSvnAdfL4TJasCikykIyI3Mg4kicXnQucm9b988gi11matkkB8QxAoRrGf78yW9rY
+	Ml5mCHFZUXyJU3xTfEak8YmX/pKxAbJHY8ToCoM6/ONWcwoDbLhO5ljdbPEq6SwRk6qrGrQmdUp
+	zPKtnm3saNELPWbqcbdaccgFbGUxG4VVB/uZrfxH24OyaqHeRl/i
+X-Received: by 2002:a05:7300:6da7:b0:384:5885:2f81 with SMTP id 5a478bee46e88-3856c0c7c05mr21825030eec.5.1795539452370;
+        Tue, 24 Nov 2026 08:57:32 -0800 (PST)
+Received: from localhost.localdomain ([103.178.205.105])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm82259395eec.3.2026.11.24.08.57.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 08:57:01 -0800 (PST)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: Johannes Berg <johannes@sipsolutions.net>
-Cc: Simon Wunderlich <sw@simonwunderlich.de>,
-	=?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mehmet.fide@screeningeagle.com
-Subject: Re: [PATCH wireless-next] wifi: mac80211: replace the CSA beacon before clearing csa_active
-Date: Tue, 24 Nov 2026 17:56:58 +0100
-Message-ID: <20261124165658.266252-1-mehmet.fide@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <26593ae869ed222980ac78ac869bc2745d2c282a.camel@sipsolutions.net>
-References: 
+        Tue, 24 Nov 2026 08:57:31 -0800 (PST)
+From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+To: o-takashi@sakamocchi.jp
+Cc: linux-kernel@vger.kernel.org,
+	linux1394-devel@lists.sourceforge.net,
+	sreekuttan2156239@gmail.com
+Subject: Re: [PATCH v2 0/2] firewire: Fix out-of-bounds access in CSR iterator
+Date: Tue, 24 Nov 2026 16:57:01 +0000
+Message-ID: <20261124165701.2780-1-sreekuttan2156239@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261122134947.GB503983@sakamocchi.jp>
+References: <20261122134947.GB503983@sakamocchi.jp>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,23 +99,16 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi Johannes,
+Hi Takashi,
 
-> > Fixes: e487eaeb076a ("cfg80211/mac80211/ath6kl: acquire wdev lock outside ch_switch_notify")
->
-> I don't see why it would be that?? Please explain that.
+Thank you for the explanation and feedback.
 
-That commit is where the clear moved ahead of the beacon replacement.
-Before it, ieee80211_csa_finalize_work() assigned next_beacon first and
-cleared csa_active only after the switch statement. e487eaeb076a added
-the "goto unlock" error paths and moved the clear up, just before the
-switch, so ieee80211_assign_beacon() now runs with csa_active already
-false. 66199506fb91 ("mac80211: split CSA finalize function") and
-1a96bb4e8a79 ("wifi: mac80211: start and finalize channel switch on
-link basis") kept that order.
+I understand your points and agree with your suggestion to document the 
+preconditions of the iterator instead of adding extra checks.
 
-ath9k already tested csa_active before the countdown since d074e8d54785
-("ath9k: enable CSA functionality in ath9k"), so the window opened for
-it with e487eaeb076a.
+I will drop this patchset.
 
-Mehmet
+Thank you for your time and review.
+
+Regards,
+Sreeraj
