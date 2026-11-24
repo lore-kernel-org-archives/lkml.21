@@ -1,87 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795533200;
-	b=lkqZrtSA+SODTFkqps/GIkpPDEL3YssNMNB04xzDhou+Ue1DPNF6JP4j01cnFMwVcanv
-	 G7LOVtZFSWXn+UZ/rs3prPMv3cArcwsGYUcySFJ2io7LrFxPpDQ8b0X0hzsJbI1bQWUE5
-	 QF4UDd93zz0qbfT9HwJe8P8zCpjyfQu6Ug9wHfyaVm6f4Lmf/wuyev6POpIWgADNBc1+H
-	 3vobGtjUm78KsXvMPsDiL9aSVNE5VoKe05Lyd57tb1OGukBDDP1gyy9MA78bJyKAf38J4
-	 vih6YpGSP3dhIKJ29SwafkEJKju/zp4sJfpvMYR4PYHWSXQy/6JGGSj9Ehmwqi1n2Ag==
+	t=1795533201;
+	b=X3Lvcfh+UbCrJhWN77857zXfqqMjrUHc1PH1IWirQSChnMjMnC8SgYp5ng/H3a5+27iW
+	 egFlcl2eeiDhDlITTHXbZIJG5XICgjewIa2uwAdvTgxNvNXRSRoJelonLYEY/7ouU9n/y
+	 88gfUPahrYWsvf3vv0/RIqGY9CU2V5Or3dnL8+zVNIC7lyozqet0ae+YYXDUFDpcFy2Ff
+	 IKrNdia+l55I9FTswTkE4JLbnS34amQbeLIsRSJ94J/Ec7BBI2G3VbPxaMmsTPHY2ucaP
+	 782BrPl3mYyR5f+wnymxaYNtxxqYnAoRbg5ihBtIRQbo0bcogpZ87IaXFrgwzYZpYzQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795533200;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type;
-	bh=OavKAVZv+OA0pfYHqsDmPh81k4IRaCsSuMGSaPHhIPw=;
-	b=3mtIGexy8Pxb28/vQobecE/XCU1cW+C2fi5yulmhtVvzm9JlNuVu2Pt+EV1RVQBiXzJb
-	 Mv03ggpuivxEP1qj6TObc1JM20QQGc80kBSaZBsFtNI7Ma/KxMj/tsrLUfkp1lXUjptpo
-	 ZPrXPNliPlzrBDwBFS7o23QqyZ/8JDP8LpDwh1tUlM0L5oUp9uxTKLbsxG7LW8InzLRLz
-	 e/eFdOTTr3+dj0r7yQdLpv5kbQNbO4wEqsMXzDFFH0UOLhzyJIVGAjZrbhPbK2TokDqol
-	 Mby6xYii5oX9qpp1PdhnlJ3+bakhJL5YJPmXGxBjbEPXwkBgM6HutoSu/N6e/xsUDzw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795533201;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=1RAyfKzTUoNGYA0NO90ipE3cGbzZg8HPabSURud3e60=;
+	b=06NjzKBmi3cyythXzrrObnp4vU4H5fidCHH+Dry1MKHBJv24FMjQIDfQpQ/sXFjhX9DL
+	 WjcLRYmKxLswZ3rAzeB1P7W1iwRbsj2GODm+wWpQjv0PxwcJjrRiCRzrVVocTO2H2fn85
+	 4rjVEQSaqM9Vl4Syl2OZ8hRKq7wyUr/zI9Gw/578LEYu1l6kZ2d+I7caha0GOtTPPrnMj
+	 W3fQwowpbYaVbluoCBNcU7NcxZRc9vkxAtPVa856KuN5YKrsRKPXf7pSsOYppctY1V9BU
+	 vHwJGirzEQmcXTMp0GdWjUWMAC6CH5XTS19fB2Ao2eG3EYeoB3GCWZp9tGV6tz1fovQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=bB0gXxT5;
-	arc=none smtp.remote-ip=209.85.218.50
-Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com [209.85.218.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XX1V7NUD;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75BDE606A330
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:13:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75BDE606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22B3D606A32E;
+	Tue, 24 Nov 2026 15:13:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=bB0gXxT5
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-c5118deebcfso684765066b.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:13:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795533198; x=1796137998; darn=vger.kernel.org;
-        h=content-type:in-reply-to:autocrypt:from:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=OavKAVZv+OA0pfYHqsDmPh81k4IRaCsSuMGSaPHhIPw=;
-        b=bB0gXxT5Q8JH/1W/OdI0h97Qt3d4ySyODEfnz6xoARA7SA4/X3lTaCmWMaZ1fCMX8s
-         JnioO/vI7K/nhE6XtL/vBilK1zeV1MYlabhR0b7QWwxkxoB5jfT+vRdm1Mqv7QvPtoSf
-         lKK+GJYxGSvU+jZoDadaxjWl6qt9Umrc3u9FTw1k9yBnz8JglaXClP/Ia1gp562FNVJV
-         LcAQwYtC6mnaW+4x+3kSsqUDbJKYWUav7glSYpTmp6Jl386wc2F6I2xTELMmWDlwXaum
-         708AY6VmbTAgyqfTAzX8cWEx+CAGoECgrYqzQIIa8HR0lBgBKqEBYw2EE7tjPP8Fi2Lr
-         vcQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795533198; x=1796137998;
-        h=content-type:in-reply-to:autocrypt:from:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OavKAVZv+OA0pfYHqsDmPh81k4IRaCsSuMGSaPHhIPw=;
-        b=p/A1XOCVpoB7gnrl4IIicqfARDvCTLv5DbcQPu39cxa5IKt35vkxeLVJHrqwUl/n5g
-         UQabncI+xpUsR3gxVsy3Rg0RkuJ6wm8Mya00pqpYzioPb4uUA8Nj4j9oe/Gdat1zyo7T
-         ISaXXnezLSun/DzJyN05+59cNHyjNz0QMw/MiQVBieJhg2H46Wh4zaWBAGaaeRt4bqlQ
-         kRSbem6QZ/BFiPQTXJ4fRxPmzrgItmHFu6yq6oDX2YMDF64crQ4YeqJ83w/pP6BiWyh5
-         9lMaDz/4dRdma/gYCniRBapqwks/DB1zYSm406EwgHVWugQhIqUo236uK1dF/zRYNsSL
-         x4LQ==
-X-Forwarded-Encrypted: i=1; AL+hErHT+cAMnCg8sGL0k4rDzjIJSYfFcB1tt2UY6VAdfSgsfWl1i8C6/dRGG0jmNRKjBRG2quwA+GEvNudNmSc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/+hG5KE7rn4V2b6l64t9OGsizfuJ72zl4KOQkRs602+3PNPYka
-	EqqdqCEaQ8WGB7hZqPRMVcPdUfKRyhr8cZYxJDQ2ckdx560Vj6l4GaFXsF2QnggrMgA=
-X-Gm-Gg: AZFdTZewFz4akDAW6CJj6Yg1c3U0easewvXGogCth9FloNMjZno9+rDDkBYZma3mzY3
-	L5LSyvmA0ligJx0/g1kkV2rG6jHpG8KNyl7if6dsiP23f11Kw/xKhVCib5YTKr0HX6HBMg20/VW
-	YFAlnZ3lFioLcvdekCm+Ue/b9kfoVXIvp1OJ+JDlCm+p2IBlQ5whUZ0Tt1QUkIMZZ4RlXC/WTzL
-	yfNq79i+f6/kC6RRso0QcmuhJyPzsNGkz7h+fGNpgC22gfLPHcZbhq8+bk6jtspjFuLFbYJa+S5
-	pqJ3ZjPsUVSHt6bnkyU5imZJCcAcmLDTEpHaWLLHKwKjOi9QFBEDvRp0xQLNNy0hCtX+KmnW097
-	cfysGUvfiGQSahYjbBzFmMzekC+8vxPxEY92l5Xo0yq/t+1QG5pqhSal6bwR9vn0KnpY1hhTf5v
-	Jx7lKOLTwm5T4HTrSikRRvKUYMJovu6dJEYuabHdoPbo9I9fGJ7VtNypxxu1IfmpJsKa0wS5Kbw
-	GV+3R2ew/ixHdg2BjrcCYJcHdS2wfwPI02mugNlflOI67zS+i+qFNzG2FAC/bb1Xl4fj8Yy9FZL
-	tgPAE76pEQOtIZHZc0cJAI2aLlISstQIUnMt0YAGrJGp/pEQw3jWRVOI2acBqj24CZxD+G0Q1rS
-	hdpTiMzPG8fIguy3kQCpFBYTaS7kNWYdd2HS8pYS5LUxPxVGaEvo=
-X-Received: by 2002:a17:907:e00b:20b0:c4d:22e2:1a2b with SMTP id a640c23a62f3a-c513a47e2ffmr818303866b.1.1795533197737;
-        Tue, 24 Nov 2026 07:13:17 -0800 (PST)
-Received: from ?IPV6:2a00:12d0:afa3:c01:92cc:e257:77ba:97a1? (2a00-12d0-afa3-c01-92cc-e257-77ba-97a1.ip.tng.de. [2a00:12d0:afa3:c01:92cc:e257:77ba:97a1])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae8d0dbsm543097066b.31.2026.11.24.07.13.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 07:13:17 -0800 (PST)
-Message-ID: <f9ddfaa9-9a78-4fcb-a142-6c466d215492@suse.com>
-Date: Tue, 24 Nov 2026 16:13:16 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XX1V7NUD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 396E81F0089E;
+	Tue, 24 Nov 2026 15:13:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795533200;
+	bh=1RAyfKzTUoNGYA0NO90ipE3cGbzZg8HPabSURud3e60=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=XX1V7NUD8JeYCW7LQvOcfIluFiPHGc8HY1ikXgQzknHbPRB2wT4j8g6d0h1xeYuRb
+	 056kxfrXi3LapGzGowR3eOlcjMmyibd2Bk6EmvwmsXvLHf2QsTSI3Hf32UPcG1+Jt9
+	 kWftxGudK+EigdNC+HdJEIGeBJx0crQO63rSGr+ENHSMWoAh0SjXc+7ktHqrtbPk46
+	 Rorbt7jht0kTwBiLc6rMoNIEdk1EOvHEK/J5DNKePLWftjxHwzuuNAy7E5rnVWiYN3
+	 V2jS+rNRQ+MElmhywWl+4vbMNLJZy2KgJfSDoeqoscdJ8aB4+JYEqIUyfeR1VvS29v
+	 7lLMQW9Md+8Sw==
+Date: Tue, 24 Nov 2026 09:13:18 -0600
+From: Rob Herring <robh@kernel.org>
+To: "H. Nikolaus Schaller" <hns@goldelico.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+	Daniel Thompson <danielt@kernel.org>,
+	Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Helge Deller <deller@gmx.de>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
+	Jarkko Nikula <jarkko.nikula@bitmer.com>,
+	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-leds@vger.kernel.org, linux-sound@vger.kernel.org,
+	linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pwm@vger.kernel.org, linux-fbdev@vger.kernel.org,
+	letux-kernel@openphoenux.org, kernel@pyra-handheld.com
+Subject: Re: [PATCH v2 00/20] ARM: omap3: pandora: Modernize audio and
+ backlight to use Device Tree to finally remove pdata-quirks
+Message-ID: <20261124151318.GA536798-robh@kernel.org>
+References: <cover.1795505160.git.hns@goldelico.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,189 +86,171 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/13] xen/privcmd: convert mmap hook to mmap_prepare
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Stefano Stabellini <sstabellini@kernel.org>,
- Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, "Michael S. Tsirkin" <mst@redhat.com>,
- Jason Wang <jasowangio@gmail.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
- <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
- Jarkko Sakkinen <jarkko@kernel.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner
- <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Jan Kara <jack@suse.com>,
- Paul Moore <paul@paul-moore.com>,
- Stephen Smalley <stephen.smalley.work@gmail.com>,
- =?UTF-8?B?T25kcmVqIE1vc27DocSNZWs=?= <omosnacek@gmail.com>,
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
- Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai
- <billy_tsai@aspeedtech.com>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
- Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
- Scott Branden <scott.branden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Richard Cochran <richardcochran@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: xen-devel@lists.xenproject.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
- linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev,
- linux-sgx@vger.kernel.org, selinux@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-arm-msm@vger.kernel.org, op-tee@lists.trustedfirmware.org,
- netdev@vger.kernel.org, linux-mm@kvack.org
-References: <20261124-late-2026-mmap_prepare-v2-0-0b0d99d655f9@kernel.org>
- <20261124-late-2026-mmap_prepare-v2-1-0b0d99d655f9@kernel.org>
-Content-Language: en-US
-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-Autocrypt: addr=jgross@suse.com; keydata=
- xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
- ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
- dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
- NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
- XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
- AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
- CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
- mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
- G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
- kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
- Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
- RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
- vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
- sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
- aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
- w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
- auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
- 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
- fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
- HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
- QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
- ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
-In-Reply-To: <20261124-late-2026-mmap_prepare-v2-1-0b0d99d655f9@kernel.org>
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------q205G5Arex3sh2KHaxisqvnr"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <cover.1795505160.git.hns@goldelico.com>
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------q205G5Arex3sh2KHaxisqvnr
-Content-Type: multipart/mixed; boundary="------------AjT5XFhC0OM07fDCW0uVTora";
- protected-headers="v1"; hp="clear"
-Message-ID: <f9ddfaa9-9a78-4fcb-a142-6c466d215492@suse.com>
-Date: Tue, 24 Nov 2026 16:13:16 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/13] xen/privcmd: convert mmap hook to mmap_prepare
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Stefano Stabellini <sstabellini@kernel.org>,
- Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, "Michael S. Tsirkin" <mst@redhat.com>,
- Jason Wang <jasowangio@gmail.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
- <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
- Jarkko Sakkinen <jarkko@kernel.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner
- <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Jan Kara <jack@suse.com>,
- Paul Moore <paul@paul-moore.com>,
- Stephen Smalley <stephen.smalley.work@gmail.com>,
- =?UTF-8?B?T25kcmVqIE1vc27DocSNZWs=?= <omosnacek@gmail.com>,
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
- Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai
- <billy_tsai@aspeedtech.com>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
- Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
- Scott Branden <scott.branden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Richard Cochran <richardcochran@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: xen-devel@lists.xenproject.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
- linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev,
- linux-sgx@vger.kernel.org, selinux@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-arm-msm@vger.kernel.org, op-tee@lists.trustedfirmware.org,
- netdev@vger.kernel.org, linux-mm@kvack.org
-References: <20261124-late-2026-mmap_prepare-v2-0-0b0d99d655f9@kernel.org>
- <20261124-late-2026-mmap_prepare-v2-1-0b0d99d655f9@kernel.org>
-Content-Language: en-US
-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-Autocrypt: addr=jgross@suse.com; keydata=
- xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
- ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
- dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
- NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
- XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
- AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
- CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
- mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
- G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
- kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
- Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
- RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
- vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
- sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
- aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
- w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
- auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
- 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
- fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
- HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
- QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
- ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
-In-Reply-To: <20261124-late-2026-mmap_prepare-v2-1-0b0d99d655f9@kernel.org>
+On Tue, Nov 24, 2026 at 08:25:40AM +0100, H. Nikolaus Schaller wrote:
+> PATCH V2 2026-11-24 08:26:00:
+> Changes in V2:
+> The series has been reworked and expanded from 16 to 20 patches,
+> addressing review feedback and issues identified during hardware testing.
+> 
+> Audio and power management:
+> ===========================
+> * Replace the TWL4030 REGEN regulator implementation with an optional
+>   GPIO and a fixed regulator described in Device Tree.
+> * Extend the existing PCM1754 codec driver to support the PCM1773
+>   instead of introducing a separate codec driver.
+> * Add power supply and power-down GPIO support to the codec driver.
+> * Improve error handling, resource management and power sequencing
+>   in the codec and sound card drivers.
+> * Update the sound card and codec bindings and Device Tree nodes.
+> 
+> PWM and backlight:
+> ==================
+> * Add optional 64-cycle frame support to the TWL4030 PWM driver.
+> * Add an optional enable guard period to the generic pwm-backlight
+>   driver to prevent the TPS61161 from inadvertently entering
+>   EasyScale mode.
+> * Adjust the Pandora PWM backlight configuration accordingly.
+> * Remove the obsolete CONFIG_BACKLIGHT_PANDORA option from
+>   omap2plus_defconfig.
+> 
+> Device Tree and general cleanup:
+> ================================
+> * Correct and validate the affected Device Tree bindings.
+> * Reorder the series so that bindings and supporting drivers
+>   precede their Device Tree users.
+> * Improve commit messages and fix coding style issues.
+> * Clarify the original authorship and take responsibility for
+>   contributions previously signed off under a pseudonym.
+> 
+> Review feedback addressed:
+> ==========================
+> * Mark Brown suggested representing TWL4030 REGEN as a GPIO rather
+>   than a regulator and reviewed the original standalone PCM1773
+>   driver, which has been replaced by extending the PCM1754 driver.
+> * Krzysztof Kozlowski requested corrections to the Device Tree
+>   bindings, proper schema validation, improved commit messages and
+>   clarification of the original contributor's authorship.
+> * Andreas Kemnade suggested handling the TPS61161 initialization
+>   in the backlight layer. V2 implements this through a generic
+>   pwm-backlight enable guard period. His comments on clock modeling
+>   and patch bisectability were also considered.
+> * Daniel Thompson provided Reviewed-by for the original removal
+>   of the Pandora backlight driver.
+> * Issues identified by Sashiko and Rob Herring's automated DT
+>  validation were reviewed and addressed as applicable.
+> 
+> Many thanks to everyone who reviewed V1.
+> 
+> Validation and testing:
+> =======================
+> * Based on Linux v7.4-rc4.
+> * All 20 patches checked with checkpatch.pl.
+> * Remaining checkpatch warnings and intentional deviations have
+>   been reviewed. In particular, ENOTSUPP must be retained in the
+>   GPIO set_config callback because gpiolib handles it differently
+>   from EOPNOTSUPP.
+> * dt_binding_check and dtbs_check passed for all five affected
+>   Device Tree bindings.
+> * The complete series has been successfully built and tested on
+>   real OpenPandora hardware.
+> * LCD operation, PWM backlight brightness control including
+>   brightness zero and power-down, and audio playback through the
+>   internal speakers and headset have been verified.
+> * Audio capture was not tested.
+> 
+> PATCH V1 2026-07-11 08:02:02:
+> This series modernizes the OpenPandora handheld support by converting the 
+> sound subsystem and backlight control to proper platform drivers and Device 
+> Tree definitions.
+> 
+> The primary goal is the complete removal of omap3_pandora_legacy_init() 
+> and the elimination of the last remaining user of machine_is_omap3_pandora().
+> 
+> History and Context
+> ===================
+> The necessity of this cleanup was highlighted in several recent discussions:
+> 
+> 1. Tony Lindgren noted that machine_is_omap3_pandora() checks never succeed 
+>    on Device Tree-booted machines, leaving the audio subsystem functionally 
+>    broken since the DT conversion years ago:
+>    https://marc.info/?l=alsa-devel&m=165632351319716&w=2
+> 
+> 2. Ethan Nelson-Moore submitted a patch to replace the macro with DT 
+>    compatibility checks (accepted as commit 45efb8fbdae3 in v7.2-rc1):
+>    https://marc.info/?l=linux-omap&m=177841578110704&w=2
+> 
+> 3. Sascha Hauer pointed out that the entire omap3pandora driver fundamentally 
+>    depended on this broken machine ID check:
+>    https://marc.info/?l=linux-omap&m=178048982272252&w=2
+> 
+> Design Choices and Implementation
+> =================================
+> Based on these discussions and a long-standing and working out-of-tree solution,
+> we initially attempted a migration to generic frameworks like simple-audio-card 
+> or audio-graph-card. However, the hardware routing peculiarities of the 
+> OpenPandora introduced too many functional gaps. Replacing omap3pandora.c 
+> entirely with pure DT definitions proved unfeasible. 
+> 
+> Therefore, we opted to base a new proposal on the out-of-tree rewrite of
+> the old-style sound board file kernel driver (sound/soc/ti/omap3pandora.c)
+> into a proper platform driver that cleanly fetches its resources from the
+> Device Tree, while adding specific handling for the twl4030-regen output
+> and adapting the pandora device tree files.
+> 
+> Series Structure
+> ================
+> * Patches 01–06 (Preparation): Move highly specific legacy code to its proper 
+>   infrastructure (TWL4030 regulator regeneration and codec handling).
+> * Patch 07-08 (New Driver): Introduce a dedicated platform driver for the 
+>   PCM1773 audio DAC.
+> * Patches 09-14 (Audio Core): Rewrite the omap3pandora ASoC fabric driver 
+>   and update the respective Device Tree nodes.
+> * Patches 14–15 (Backlight): Remove the custom, legacy Pandora backlight driver,
+>   convert it to generic Device Tree nodes
+> * Patch 16: (Cleanup) safely delete the obsolete omap3_pandora_legacy_init().
+> 
+> Notes & Testing
+> ===============
+> * Testing: This series has been tested on real OpenPandora hardware.
+> 
+> Credits
+> =======
+> This work is a collaborative effort by multiple authors over several years:
+> * Grond <grond66@riseup.net>
+> * Stefan Leichter <sle85276@gmx.de>
+> * H. Nikolaus Schaller <hns@goldelico.com>
+> 
+> 
+> H. Nikolaus Schaller (17):
+>   dt-bindings: gpio: twl4030: Document REGEN GPIO
+>   gpio: twl4030: Support REGEN GPIO
+>   ASoC: twl4030: Allow APLL rate selection through set_sysclk()
+>   dt-bindings: sound: pcm1754: Describe PCM1773
+>   ASoC: codecs: pcm1754: Add PCM1773 support
+>   dt-bindings: sound: Document OpenPandora sound card
+>   dt-bindings: mfd: twl4030: Document 64-cycle PWM
+>   pwm: twl: Support 64-cycle PWM frame
+>   dt-bindings: backlight: pwm: Document enable guard
+>   backlight: pwm: Support enable guard period
+>   drm/panel: td043mtea1: Attach DT backlight
+>   ARM: dts: omap3pandora: Disable unused DMA channels
+>   ARM: dts: omap3-pandora: Model LCD power enable dependencies
+>   ARM: dts: omap3pandora: Describe PCM1773
+>   ARM: dts: omap3pandora: Switch backlight to PWM
+>   backlight: Remove legacy Pandora driver
+>   ARM: OMAP2+: Remove Pandora platform-data quirks
+> 
+> Stefan Leichter (3):
+>   ASoC: ti: omap3pandora: Convert sound card to DT
+>   ARM: dts: omap3pandora: Enable audio interfaces
+>   ARM: dts: omap3pandora: Describe sound card
 
---------------AjT5XFhC0OM07fDCW0uVTora
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: base64
+Which of the 7 maintainers do you expect to take this series? Surely 
+this can be broken up into smaller series?
 
-T24gMjQuMTEuMjYgMTU6MDIsIExvcmVuem8gU3RvYWtlcyAoQVJNKSB3cm90ZToNCj4gTW92
-ZSBmcm9tIHRoZSBkZXByZWNhdGVkIG1tYXAgaG9vayB0byB0aGUgbmV3IG1tYXBfcHJlcGFy
-ZSBob29rLg0KPiANCj4gVGhlIGhvb2sgb25seSBzZXRzIFZNQSBmbGFncyBhbmQgb3BlcmF0
-aW9ucy4gVGhlIFZNQSBwcml2YXRlIGRhdGEgaXMNCj4gYWxyZWFkeSBOVUxMIGF0IHRoaXMg
-cG9pbnQsIHNvIHdlIG5vIGxvbmdlciBleHBsaWNpdGx5IGNsZWFyIGl0Lg0KPiANCj4gU2ln
-bmVkLW9mZi1ieTogTG9yZW56byBTdG9ha2VzIChBUk0pIDxsanNAa2VybmVsLm9yZz4NCkFj
-a2VkLWJ5OiBKdWVyZ2VuIEdyb3NzIDxqZ3Jvc3NAc3VzZS5jb20+DQoNCg0KSnVlcmdlbg0K
-
-
---------------AjT5XFhC0OM07fDCW0uVTora--
-
---------------q205G5Arex3sh2KHaxisqvnr
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmsFqYwFAwAAAAAACgkQsN6d1ii/Ey9P
-6wgAhB7FWWxaGPhKVeHejmUgx+jnN5sGJc29B5zeOJ/udOQfrpojRJR0JMaTJNeJ8g/QXkTWmCZt
-Zd6lRhkVQVMmVrlatIREKD6+lx0mr154pd31nTm9ffbjdyAK9RPk6czEHFUxkktbU/9vv+pBcZEa
-4SaEbJuidUtK7Vgek2j0JKYNWpqv8R80d+nRsMU+RX0YbRKCuT8Jtt3uB/TLb76UL/eK81vzE7j3
-bGBh83GA0cSOumIzSg72te0PCuz4U9UgccJbDbwLIPRkV2Gx83sLPaLOj5968cz/vyT0qZwJ5LfI
-2oGgirhriBPAdLJrm4WtpkDGIWO5CaJWyZf5I3zVZQ==
-=Eyqx
------END PGP SIGNATURE-----
-
---------------q205G5Arex3sh2KHaxisqvnr--
+Rob
