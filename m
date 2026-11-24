@@ -1,70 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=147.229.8.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.120
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795556478;
-	b=LmoRT2ccFizxqgO8259NGdYVo6pJMsFIWP6XSpGBTQsFJ2IwAZUt/8OMHXAxkR2uC/7B
-	 09CJovv99jtA/E22ouuzK7YOJfV8vGZTl1aqJTH7Ce0p2a9KVcuMj8YdFO1Jc9z1rBONG
-	 xYZktBZMffChiDPFuURUhmM2VUD9CPBKiKA7+IaKAaGiJpMspdep4QwdLTnSqL478YyJs
-	 yGHm5XcSqALyvDM2rkztAicMJmYajBwcNuZLxs/G4hg0rr2iUcBtf0SkWmUUgtFisP44s
-	 GBodbmRvkheEgy/DCBeHc1KmLDtszYZk8LH7IM8jZTPPOd2d9k6dPcU2fscz3NXnPCw==
+	t=1795556513;
+	b=YT07t+E1iEGVWsM6pWKTufJpyKs+r11t89Qkdgzvb+OMtuB6H/XZ9qL4d75z1onoND82
+	 Z3TG70cp3t9TxZrZruTEit+6VlD5tuN6qv24xgPO8lkl65TmvkEP3Xgwl2OplH+a5ocTf
+	 pw1WDV50t0PS2UZbrq7OZQ+rYELGupWnzk571tOEWcfDiXSReKk61ZokQVeNaZMKpE7rm
+	 4wGOglUg8D/kJY7xBaTJ/B/bFqmI5pAffMwBOCLcH+3C7vuDYfRErhrLphuUOprXLJXqS
+	 gavGQzCxVceUQYGs4sj5XjDDmQozufVrWNouDZlSdjgbDMEPJ1Jz1tlYFlTCwSa3iAw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795556478;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Virus-Scanned:X-Virus-Status:
-	 X-Spam-Status:X-Spam-Checker-Version;
-	bh=JFkV9bS+mP1vS5f3erLfexbBA3iVAFLmlh9l+XmII+A=;
-	b=rQJxHy6RQKSjzL4K00cvV0nC/P4ndslTMk3QfJsgziPg2LGL9E3/9q3r7l86A7jISWu6
-	 Una//Dh61J/KVa+e9SdraSvW/v/ArlKxaCiqX3AAAzk2xSJkTM/4otjX1rQ+uWIi/I3gZ
-	 g+BJg4jnyHEcg2AwCpg3idUlwAjm2Orta4PrW6ruoV6uWAlf3DLomkazSwq91yzkZepne
-	 SNgVR1n+2K0x8pAxZGPwdjQTrgFPiYKkcRLssew6dpFqEx5PADbaPjM9P3m1MSfMrQijN
-	 K2KtNyAa123vgXZTqFYJzMbMiWLuouaUn+kCT08k3un12DOS09IgayuzSKWAarcp0QQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795556513;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=fBw34VjXI6FKTwxvy5vlUkGqsFf2i9HgNV7OD3Q/bFw=;
+	b=ocvNVbH4mNsBEJkGw2r1DalVZfqEFRCe+z/5d+TadPE2PV3C1n773FxYJxNtjTU+AVka
+	 p3BuCy1voldo/HPhiDoCkEpkgmDElsObw0NUIE8MzMr3gYIxWMHE90xRdnCOXF0FgR2Mh
+	 qA/YM9/bLjpRGYFhHuKeDnMUNENiHMlEhyoejG2dhBIY5jMWhul3oxIIUqnRFcvnz4wpA
+	 JBNgaMqcVtPqFkRjeKZGYGri4X4LstyjKgIEmZ7pmmssKDAkQs4vtgs0vBC/lki4YxgDL
+	 Zl62DHCJbBPLRCapFJqULN6eZmKBs3M9PldKteWqV9HhYQpgfXYlFu/Dtan3eaMWJSQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fit.vut.cz;
-	spf=pass smtp.mailfrom=fit.vut.cz;
-	dkim=pass header.d=fit.vut.cz header.i=@fit.vut.cz header.a=rsa-sha256 header.s=a2025 header.b=PzTFvfpQ;
-	arc=none smtp.remote-ip=147.229.8.13
-Received: from adela.fit.vutbr.cz (adela.fit.vutbr.cz [147.229.8.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=p1P+u2VA;
+	arc=none smtp.remote-ip=91.218.175.120
+Received: from mta0.migadu.com (out-120.mta0.migadu.com [91.218.175.120])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BC72606A31E;
-	Tue, 24 Nov 2026 21:41:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8BC72606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fit.vut.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fit.vut.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18B43606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:41:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18B43606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=fit.vut.cz header.i=@fit.vut.cz header.a=rsa-sha256 header.s=a2025 header.b=PzTFvfpQ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=fit.vut.cz; s=a2025;
-	t=1795556474; bh=JFkV9bS+mP1vS5f3erLfexbBA3iVAFLmlh9l+XmII+A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PzTFvfpQ2nZKR0AdCY2mJeaOL3S3u7fphgL252imlmM4YG7hmk9kOhVikZc+++RcE
-	 kwOpgEAM5XXI02gggupvkxjjlOmz11Lcwo+BQnRIijFYut0Iy0rcfJVAxLcJdyfj4c
-	 k+fQclWG3YnFPq9hoK3c1fa4s2jkPD/DLjN0SiaYVZqfvdQpN9wGiY4O50GJpRvG32
-	 fFuDJTnMxnjPkAyuiGMYwJEv4EWZHZkLSHbP42gXjQQic4mm6aRolXtxixRdZXtobo
-	 ziSSoTQe9q5/p6lwdtIKbB6Coa9aNgs3XOOYCpsqBSXQfkfT90wo/S/dci50hKOX+o
-	 RF0o400SSlFoQ==
-Received: from tomoka (unknown [100.72.76.61])
-	(Authenticated sender: inguyen)
-	by adela.fit.vutbr.cz (Postfix) with ESMTPSA id 6A4B1260127;
-	Tue, 24 Nov 2026 22:41:14 +0100 (CET)
-From: Nguyen Le Duy <inguyen@fit.vut.cz>
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Nguyen Le Duy <inguyen@fit.vut.cz>,
-	gregkh@linuxfoundation.org,
-	arve@android.com,
-	tkjos@android.com,
-	brauner@kernel.org,
-	cmllamas@google.com,
-	ojeda@kernel.org,
-	linux-kernel@vger.kernel.org,
-	rust-for-linux@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] rust_binder: only remove a node from the tree if it is still there
-Date: Tue, 24 Nov 2026 22:39:36 +0100
-Message-ID: <20261124213936.3708259-1-inguyen@fit.vut.cz>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261124121328.3253693-1-aliceryhl@google.com>
-References: <20261122191322.929005-1-inguyen@fit.vut.cz> <20261124121328.3253693-1-aliceryhl@google.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=p1P+u2VA
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=pG0pbDPXEhb0Uhnakajn47AzZb55mJKGr0OFmmS5OzE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795556510; v=1; x=1796161310;
+ b=p1P+u2VATRwgRgeGPdN/T4L65GhO+KXASRlFnAJHxZGoRcnQh7BoHo6fZFq8cr/hB/Sw/zGW
+ f2au4ccDguJj2DXcySz/qJf0gtEALrvcsPoDFwF5HSVeRX9uqNF6kqpwTP92ARPzXOJTCgONblp
+ W3kuuFp1y17okGB9F7Floxb4=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id cbd3aa9428031233;
+	Tue, 24 Nov 2026 21:41:49 +0000
+X-Mizu-Trace-ID: cbd3aa9428031233
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <cc93cdad-7458-488f-9a29-de24f364f1b1@linux.dev>
+Date: Tue, 24 Nov 2026 13:41:42 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,39 +58,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH rdma-rc] RDMA/rxe: Zero struct rxe_mmap_info on allocation
+To: Andrew Stellman <astellman@stellman-greene.com>,
+ Zhu Yanjun <zyjzyj2000@gmail.com>,
+ "yanjun.zhu@linux.dev" <yanjun.zhu@linux.dev>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>,
+ linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261123140620.64393-1-astellman@stellman-greene.com>
+From: Zhu Yanjun <yanjun.zhu@linux.dev>
+In-Reply-To: <20261123140620.64393-1-astellman@stellman-greene.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: clamav-milter 1.4.6 at adela
-X-Virus-Status: Clean
 
-(Resending with everyone in Cc. My first reply went only to Alice by mistake...)
+在 2026/11/23 6:06, Andrew Stellman 写道:
+> rxe_create_mmap_info() allocates the structure with kmalloc_obj() and
+> does not set info.pad. do_mmap_info() copies ip->info to userspace with
+> copy_to_user(), so the 4 pad bytes of struct mminfo come from
+> uninitialized kernel heap memory.
+> 
+> On x86_64 v7.4-rc3 under QEMU with init_on_alloc=0, an unprivileged
+> user (CapEff 0) issued 300 CQ_CREATE ioctls on rxe0 and read the driver
+> response. After the guest had run ls -lR on /proc and /sys and read
+> /proc/*/status and /proc/*/stat, 101 of the 300 pads were nonzero. In a
+> separate boot with slub_debug=P, all 300 pads were 0x6b6b6b6b. With
+> this patch, all 300 pads were zero in both configurations.
+> 
+> Allocate the structure with kzalloc_obj() so the pad is zero.
+> 
+> The issue was found by Claude Opus 5.5 running Quality Playbook, an LLM-driven code review tool:
+> https://github.com/andrewstellman/quality-playbook
+> The fix and this changelog were drafted with Claude Sonnet 5.5 and reviewed by me.
+> 
+> Fixes: 8700e3e7c485 ("Soft RoCE driver")
+> Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
+> ---
+> A reproducer is available on request.
+> 
+>   drivers/infiniband/sw/rxe/rxe_mmap.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/infiniband/sw/rxe/rxe_mmap.c b/drivers/infiniband/sw/rxe/rxe_mmap.c
+> index a4ead89cc..ac851f245 100644
+> --- a/drivers/infiniband/sw/rxe/rxe_mmap.c
+> +++ b/drivers/infiniband/sw/rxe/rxe_mmap.c
+> @@ -102,7 +102,7 @@ struct rxe_mmap_info *rxe_create_mmap_info(struct rxe_dev *rxe, u32 size,
+>   	if (!udata)
+>   		return ERR_PTR(-EINVAL);
+>   
+> -	ip = kmalloc_obj(*ip);
+> +	ip = kzalloc_obj(*ip);
 
-On Tue, Nov 24, 2026 at 12:13:27PM +0000, Alice Ryhl wrote:
-> Nice catch, thanks for tracking this down!
->
-> Instead of still running `do_work_locked()` on a node that was already
-> deleted and checking the tree in `remove_node()`, perhaps `Node::do_work()`
-> should simply be a no-op if the node has been deleted?
->
-> If we track `is_deleted: bool` in `NodeInner` (set when `do_work_locked()`
-> removes the node from `ProcessInner::nodes`), then when the stale `Node`
-> work item later runs `Node::do_work()`, it can clear the `delivery_state`
-> flags and return `Ok(true)` early without entering `do_work_locked()` or
-> touching `nodes` at all (and `Node::cancel()` can skip re-queueing a
-> deleted node as well).
->
-> Since `do_work_locked()` only removes the node when `active_inc_refs == 0`
-> and `!weak`, any required `BR_RELEASE`/`BR_DECREFS` was already sent when
-> the node was deleted, and no new references can be acquired afterward.
->
-> What do you think?
+Nice catch, thanks a lot. Could you also check for other unzeroed memory 
+allocations like this and fix them?
 
-Thank you for the review. I agree that this way is cleaner. I have sent a v2 that does it this way, with a Suggested-by tag for you.
+Reviewed-by: Zhu Yanjun <yanjun.zhu@linux.dev>
 
-There are two details in the patch, in case you see them differently:
-- `Node::cancel()` also clears the three delivery_state flags of a deleted node before it drops the work item, as `Node::do_work()` does. Otherwise has_pushed_node would stay set without a work item behind it.
-- `NodeWrapper::do_work()` has no `is_deleted` check. `Node::do_work()` does not delete the node while the wrapper is queued, and a wrapper that deletes the node is no longer queued itself, so a wrapper never runs for a deleted node.
+Zhu Yanjun
 
-I checked again with the Kani harnesses that found the bug, and with the reproducer in QEMU. No problems were found.
+>   	if (!ip)
+>   		return ERR_PTR(-ENOMEM);
+>   
 
-Thanks,
-Nguyen Le Duy
