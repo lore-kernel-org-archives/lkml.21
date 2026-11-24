@@ -1,87 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.61.82.184
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795501225;
-	b=gUh6Kg0/1nrX6gGvk9QSXCg+4GCfqN841Cnz15v/1tE9kJNhpxp3ckcsoRAzcRcjtOjT
-	 IxhF8qoJLHr4XElG7j0ASX9TRrza6hHZY4vPspCsg4oD5TNvelehI+gOLK3wIT1RTJBjG
-	 VSmCAwiGlPwoi8DgeOgX4VZJp07EW7oG433NBulAmVe/9iW4LL4VaE9gH75n5zcMaajHq
-	 AzTExlUlDWJk/suy5sAGR5iOr6uQM5u151U9TDgOGuBfqnksY2BKMvQSAuSi3mY+nx9H2
-	 ASRXgc/sbIvdPk9fGmNhy97ytSEDo4NOjLv6J/unqSVWNZFC/58Gqy/HoYe/MGDQ1eA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795501225;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
-	 Received:Received:Message-ID:Subject:From:To:CC:Date:In-Reply-To:
-	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
-	 MIME-Version:X-MTK;
-	bh=pFydmauB6ggL5C9+bC/CYNxk+CX+tmvYGSas2+jHwA8=;
-	b=HMY3mnwVckOqYQ36ML5rXJ3rfHmK5pvvPcKfIqV7d62fvTgjsD5OrsgazGWF2Ip8ysUG
-	 05gpjVHsjym1scLFVvU4NiyqVeUVEkMFDpfn0E07i30xtQgAuSh6nE1U6bF0vSsNnPs/x
-	 QCEOpwcYgetqHMrE5FZfIjIT+zSE/61FQdS0ABD0kSpK7pnFRzEp58GkHipBvlLyvSTAH
-	 eHVN8bRufj47EQQrbUTzfU8kdw78iKzli+wRIi5IYX6qXJGBcdZYHYdUIejqHDMaccpt5
-	 ibCLGxlGSFM4FxJUhGCrroERTWuaHiih1fVpwMY/MBwyFytTYJj7Hv+eJOAWRlzhzVw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mediatek.com;
-	spf=pass smtp.mailfrom=mediatek.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=p304Nbaa;
-	arc=none smtp.remote-ip=210.61.82.184
-Received: from mailgw02.mediatek.com (unknown [210.61.82.184])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.126.140
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795501251;
+	b=YpkI8cU5xWFgi7UJ/d5SaaNGkOyVMbFMsXnP8YU195Uovxli0xfWaMRJZ0xReXifW0qX
+	 2+btZfuXfSVBcoxNhRTq1ztSOIX5GP8evCazq3HHr+dsyfWjoc4Pr8gCQW/Uvey7ab/NO
+	 tXzxavRm6GLMU/+x0UJXEPc2h01ctwp+zz3LmWKi5yx1ldnCPEwjPfor6W9jUdfjn9zFJ
+	 fSBfZlwWHs99PJuGAwfzne31VZTrO58ZTZ3iA+gJ44QGcxxo7J+m5LYTeugDfWvr8Jd1f
+	 d+eqQz16LbOLUXgbKpX4u7M53DSybHCRmdGj1gCoBxfmdzLn+3qS8h0rywat6mLaRJg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795501251;
+	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
+	 Received-SPF:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=iJ2NeUROqKIM1qkArGoQxaXUmesQVvge98lKAIja628=;
+	b=2K8d6wrWFMid7ZVomWoW9/k4hhlWraJZROUWKjsgIA/MGNZyOWBfwPXhE8uIU4y19Ptw
+	 G71TwD2Vv6RS32fqGN2uSoI8OfSHlOv6qTSHEH0sgY8reAzdi5neclmxZENr1+vTGYo6j
+	 UIQBZZOCiI/9rFBLCFxEADT4LbyMOIr6zYCi2tZqP2F7MvhS7anxt+S59USmXw8O1xGkG
+	 cZFAkT5B/VM3b8nr+CGaeXzhBwpwBMH89Ba316mWJAc9LT1Ak6RszjpoKRu0nbuT2jgnW
+	 tyMIaPkIaJUPLR4q7B8t3f1FL66UFXVD4R4klIO8uO0vjO2PbSDWZAnzqL0umsDnbGQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=cixtech.com;
+	spf=pass smtp.mailfrom=cixtech.com;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.126.140
+Received: from TYPPR03CU001.outbound.protection.outlook.com (mail-japaneastazon11022140.outbound.protection.outlook.com [52.101.126.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA37A606A31E;
-	Tue, 24 Nov 2026 06:20:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA37A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=p304Nbaa
-X-UUID: 1d60dfcae7cf11f18dc8c9802ae25ab1-20261124
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=pFydmauB6ggL5C9+bC/CYNxk+CX+tmvYGSas2+jHwA8=;
-	b=p304NbaaddcDYoRBhdxU1ymOoCdA/hUxJctsFG5xi717iYW0zuDpPPWHif0w2N1QNnBX61wJUfTpet56C/KWmHHewzLHitQmka6Nvm6OOtGGwzVft/RoZdocOYEMYPZvfglUZn+4Tg0xwUjfFyrb7eDVLmQMu6eNQfSjizYLqM8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:140a6d9d-5db2-49c8-bec5-dfb0396119c0,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0318ac,CLOUDID:644412ed-0ff0-4c47-975b-86f238fbd439,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|136|836|865|888|898,TC:-5,Cont
-	ent:0|15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:
-	nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 1d60dfcae7cf11f18dc8c9802ae25ab1-20261124
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
-	(envelope-from <peter.wang@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1688684968; Tue, 24 Nov 2026 14:20:16 +0800
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 24 Nov 2026 14:20:14 +0800
-Received: from [10.233.130.16] (10.233.130.16) by mtkmbs11n2.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.56 via Frontend
- Transport; Tue, 24 Nov 2026 14:20:14 +0800
-Message-ID: <25172401d7a116a37df7eaf5c7ba06c10abb89d8.camel@mediatek.com>
-Subject: Re: [PATCH v2 2/2] scsi: ufs: core: Add debugfs for PA TFS/FEC
- error counters
-From: Peter Wang <peter.wang@mediatek.com>
-To: Po-Wen Kao <powenkao@google.com>, <linux-scsi@vger.kernel.org>
-CC: Konstantin Vyshetsky <vkon@google.com>, Alim Akhtar
-	<alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, Bean Huo
-	<beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, "James E . J .
- Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K . Petersen"
-	<mkp@kernel.org>, Can Guo <can.guo@oss.qualcomm.com>,
-	<linux-kernel@vger.kernel.org>, John Garry <john.garry@linux.dev>, Li Qiang
-	<liqiang01@kylinos.cn>
-Date: Tue, 24 Nov 2026 14:20:14 +0800
-In-Reply-To: <20261124012951.3143833-3-powenkao@google.com>
-References: <20261124012951.3143833-1-powenkao@google.com>
-	 <20261124012951.3143833-3-powenkao@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1209E606A321;
+	Tue, 24 Nov 2026 06:20:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1209E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ikkxp3ME74nPMIN0yL+sf8xKXjKuFANgA+lLp9iOS9Kd1gzs83rFiXkH0YX/dARS5xHiufS+QLaFioN+HvpbeAx6rbrKFFB7FpXOf14lvEmXTjwevy8EKh6bP+PnmzSaPfwRwWxnvVJMOZcJgJytDITDaxzr/0pd31RZzMJ5dvKpw6ukxm8niQxYC/eMRQfzGKrM1JKONzdcFGp5gKMxg/C4sjZhFZhhXx4Ki+ZzDpUxuXWyMmp16YQyU4+aSs/XnzlIe4eSeBTIZzKHGRjXhH4Boa3/naRehd8CUBcF4TRWVdPizcXujnh5DVVVTY6t2pw0t5Ta/g15w7U1ZlYrHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iJ2NeUROqKIM1qkArGoQxaXUmesQVvge98lKAIja628=;
+ b=bwKstWJvSPfKwVMeFFvlGE5DAX5+I7LSJFOe5z1kdoe+Woi6SRoM7X3BbGJA9kV+zkvTzvAOI4F5abQwL2YculR+rNmZHjV/Y0m9rRGdaGzuhTo+m5RxDwKUfaz9Lb3HfW8G0wvAV7M6GLMX2lENtH7Vop1chI3kw4J4+NdlwegLczdOCsK+EDZBAq67tsBwjJw+ep7gdFVupMYka+HnZOLXD3qxlRs9h6dO0VZPhzpT98Z4wou2k5d8wwj6LKOFoY94QmmRH/HSnB2FkaDJKUO5xxA7RCjF0XNraer++9wHU+WUZazweK1MgBxGUk7aUUC13EHtUjkt1MdaX9WNjg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI3PR03CA0014.apcprd03.prod.outlook.com (2603:1096:4:297::15)
+ by SEZPR06MB5342.apcprd06.prod.outlook.com (2603:1096:101:7e::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
+ 2026 06:20:47 +0000
+Received: from SG1PEPF000082E8.apcprd02.prod.outlook.com
+ (2603:1096:4:297:cafe::2b) by SI3PR03CA0014.outlook.office365.com
+ (2603:1096:4:297::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Tue, 24
+ Nov 2026 06:20:47 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG1PEPF000082E8.mail.protection.outlook.com (10.167.240.9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 06:20:46 +0000
+Received: from cix (unknown [172.16.64.42])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 0347C427EFC6;
+	Tue, 24 Nov 2026 14:20:45 +0800 (CST)
+Date: Tue, 24 Nov 2026 14:20:43 +0800
+From: Cunyuan Liu <cunyuan.liu@cixtech.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: boris.brezillon@collabora.com, steven.price@arm.com,
+	liviu.dudau@arm.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, gary.yang@cixtech.com, fugang.duan@cixtech.com,
+	daniel.almeida@collabora.com, aliceryhl@google.com,
+	p.zabel@pengutronix.de, daniel@fooishbar.org,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	rust-for-linux@vger.kernel.org, cix-kernel-upstream@cixtech.com,
+	robin.wang@cixtech.com
+Subject: Re: [PATCH v3 5/7] dt-bindings: gpu: Add CIX Sky1 Mali support
+Message-ID: <awUsu8VCu9HdzSLe@cix>
+References: <20261119123850.2994625-1-cunyuan.liu@cixtech.com>
+ <20261119123850.2994625-6-cunyuan.liu@cixtech.com>
+ <20261122-efficient-lobster-of-foundation-abd517@quoll>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,47 +104,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MTK: N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261122-efficient-lobster-of-foundation-abd517@quoll>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG1PEPF000082E8:EE_|SEZPR06MB5342:EE_
+X-MS-Office365-Filtering-Correlation-Id: b9b6f106-91fc-4ddd-cbac-08df49f313c6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|7416014|376014|36860700016|23010399003|1800799024|18002099003|22082099003|56012099006|4143699003|261028144727099003|261026140227099003|261022105027099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	dKSOuN17JmoKfTBpdyzCTMPcf6s1k6oZmK1428VjX5ZKTOjVI08pFUgRXTmfEsRmsaO7jZEzSBkd6h+ALxXD6sLsAimaImyDI9AJ6ylgX+5pTIULRCip6EDAPpa3+NDLC363QWP6cZkXJ0UOGt6kMOJqjC3bQ6N0CN4t46yIoYR7dwYAxiAvQyjq+1vPutxNembZ1zC+esUwgKCA8B7jMXgdZddKl5SzrjvbSKno4zXO1fGzLeNiVjoORatz2AsICJHF9ytf6DtzyEfc0KSFcX35VDrAc1krlrXrmXwTIDU9ytb2fxSVEm4tcyHRKM+VhWAhpz0g/RjNmwkJ+Q+4E5ZSt42qKaEXiAOykbrhs6jkbGT/yP7vV03ZKi433O185hEUODcFxZQodjkkWgDG+Pw4104gqCBjP6Vwgb+3g+dgbNXynhfjY0sq05OFeEzTSWQykdMjzosnaI85ZLEybXKvAjJVRXhEZovAz3NUhiNowOJpGWROL4MGxH0izawTlxPKJ4ZjdAtLbE0rEs1jpZoem95Sk9PH9PqlaTpCOIi5tmLxEDNNfZ/YzynLfZHXBtytjSE43IusluTP4adob5+anQnlORaHph2HO8lPd4A/bQdzVST2MB64P8qzFdAvQjKJnPKVZOGU+WVL5v6Aoa4FsclDHn3e1aTbUdzD1qI86NBKWm58D57H3oEsUvU/xuSqv+F4JklYDnGXq3RNRQ==
+X-Forefront-Antispam-Report:
+	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700016)(23010399003)(1800799024)(18002099003)(22082099003)(56012099006)(4143699003)(261028144727099003)(261026140227099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	Eivp4tG8gbPEfbi0Rf21LjkQ73w6fpg82OT+xj83CNWxb8bbonoY8LQJYW057RI/Zz35NamkF+gyLrgA1j9GotPF2wZD4mE+WlPQGnMCUtIcWFYdzOPZeC6MPqzhqR7iEPMvphCLNez8euZKpEqycfZj0zK3i1tIYhID76s3L9t2eJDOekcMMdPJH+kWnUvdWJUauWBAnWACOM5ZIVbcwlifwHIdYDYyCglIxVTfFsjNKeeAGD0FaHiE092vnk5B0GVoElPH4Kt6HFLd59xB4OsDFHQeWz9AXGFoH/rcu/9hKQAv+eZt3lGKhLCLLP2Xa11YrnKSeuM1UmL63yOXAyOslpbMR7GR08aQufjjSNe57stjjQKvr9rJNf2/ViHZ7stfeY2cziLilWQdRci535emmDYua1kdIHHHspB48dsg0awOEXvZ8KyVVv7ahykP
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 06:20:46.5732
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b9b6f106-91fc-4ddd-cbac-08df49f313c6
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	SG1PEPF000082E8.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB5342
 
-On Tue, 2026-11-24 at 09:29 +0800, Po-Wen Kao wrote:
-> From: Brian Kao <powenkao@google.com>
->=20
-> MIPI UniPro v3.0 introduces the Transport Framing Structure (TFS)
-> with
-> Reed-Solomon Forward Error Correction (FEC) in the Physical Adapter
-> (PA) layer, along with five PA MIB attributes (0x15C3-0x15C7) that
-> count TFS frames with uncorrectable FEC errors, TFS CRC errors, TFS
-> format errors, and 64-bit corrected FEC symbols. Exposing these
-> counters allows observing pre-FEC symbol correction and framing
-> errors
-> for HS-G6 (1b1b) link-margin diagnostics without dropping the link.
->=20
-> Define the PA_TFS_* attributes in include/ufs/unipro.h and expose
-> them
-> under debugfs:
->=20
-> =C2=A0 /sys/kernel/debug/ufshcd/<dev>/pa_err_stats/{host,device}/
-> =C2=A0=C2=A0=C2=A0 - fec_err_cnt
-> =C2=A0=C2=A0=C2=A0 - crc_err_cnt
-> =C2=A0=C2=A0=C2=A0 - format_err_cnt
-> =C2=A0=C2=A0=C2=A0 - recovered_fec_symbols
->=20
-> Skip creation entirely on hosts setting UFSHCD_QUIRK_BROKEN_UIC_CMD.
-> Otherwise gate each subdirectory independently: host/ is created when
-> UFSHCI >=3D 5.0, and device/ is created when wSpecVersion >=3D 0x0500
-> (the
-> pa_err_stats parent directory is omitted if neither is supported).
->=20
-> Each file reads the local (host) or peer (device) PA attribute and
-> resets it to 0 when '0' is written. Writing PA_TFS_RecErrorCountL
-> clears the full 64-bit PA_TFS_RecErrorCount counter per MIPI UniPro
-> v3.0 Section 5.6.7, and reads sample the high/low words with a
-> bounded
-> hi-lo-hi retry loop to avoid 32-bit rollover tearing. Positive UIC
-> command result codes are translated to standard negative errno
-> values.
->=20
-> Signed-off-by: Brian Kao <powenkao@google.com>
-> ---
+Hi Krzysztof,
 
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+On 2026-11-22 18:01:46 +0100, Krzysztof Kozlowski wrote:
+> So what changed here exactly that you decided to drop review? I run b4
+> diff and there is no relevant difference.
+
+Sorry for not noting this in the changelog. Compared to v2, I added
+"arm,sysc-alloc" to the required list and example for "cix,sky1-mali",
+so I dropped Conor's Acked-by out of caution (I noted this in the
+cover letter, not in this patch's changelog).
+
+If we decide in patch 3/7 to drop the "arm,sysc-alloc" DT property,
+this patch will match v2 again and I will restore Conor's Acked-by in
+the next version.
+
+Best regards,
+Cunyuan
