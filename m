@@ -1,112 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795549004;
-	b=lQs/nm1Yc36cD7u/186axoAl6Etz3qrnVKNpZGlNVgmY9Hv8KlteWiknkVcsQsutUg2m
-	 7S9AIXVMsqSjqYD7hig25guYnJBqEICILINpirvQFZpViPqKoum/U3H4jNAJBYvP5PJS8
-	 uS1ERkPCajJAqfURVCfiHbF5M7m6Yas7uQKEO45TJrKrAQ0PWLIzhk3Bqjyy4Yiy4gXxO
-	 QWr+0xR++hGkZxreCWJzLHbmYVS2XJlrRR7lSBJ5o1RtW0AJdZS98Vb/1WD4WRFtmclM+
-	 tGZ1OHCjx3HCfEzVl25c2eqTHIewoT+qolDAxXuFwJVCFbhkVa8KbmbJQKiduenMqMg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795549004;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:From:To:Cc:Subject:In-Reply-To:
-	 Organization:References:Date:Message-ID:MIME-Version:Content-Type:
-	 X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
-	bh=rbfQPnb/bGQ2Gkjp6lt26EZDU8eKMGkAA4M/WWEU8/c=;
-	b=P5agDRGtnIhmISK6QgNlS4lkgC6Vjok+l92dlCg6TWDXDE56N/gLfJ3uJywbwC1F72e7
-	 kJzqSZwzbSKdvQSZFlmmhSSLb81uGIzsw4DwCBjqJow1+yVAJlt7yJAZZzDuGJImgclXq
-	 7u1uxPWph2wldTFHaCiZqQKChnMz6Ut4W6zYcxp1c45Hz73xDRnoC9XrzgOwONCHBhIlH
-	 U6CLqW+VIXH27YSblaf+4IQSiGJUN1r37kyZosO2TQ63l0StiZpN2wGiIcY+sX8rhuVju
-	 lbtv8ryXXM1LU+Pa/A+Nwufkithioz2vJ1XH30JhPQMIoHnDg9YO8KeearF8DMtx4kA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b="wiT8Ya5/";
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=dk5YjynB;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b="h2LQ/IDI";
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Sa6ZruAS;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.66
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795549010;
+	b=5TOjiJmohbHAXvfBNSh0w0dDa50x/OpLSaL8Xts0q3MjAtivNaEPiIfQh4NhrSc/szal
+	 cZQ5sw5HRw/l4BVVOek76mTnfUwu5AZetiRFPOesub1o0pvRKRuzgf1HzGL1pJa4I5lvH
+	 IKBNlGfwORyvYohWbnS2gERIweKCuWAdj5QY4KKo83KotoeiSgNJhPQ+0uqJoclyUVZad
+	 Q4pPhY30NwLLKLdmQVA3EW6mf4gPv1mX1F1F//qHMgYv8wHge4DcXW923SU8mgj7P3CnF
+	 71nMm+GfLlH5r08N7xb5612+3KYewtGsHf4Np/+0TfltssYIkIpaDYNiqAIzQgBlPNA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795549010;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=vUaR03SIHLPKcRnW08Ff3waJd3HTaW4Ofhq+LbICp7A=;
+	b=nW2lRuyEcF/IAlp0hyskIArth4QCAVRkQvwbrDsYsXa8HCwBeOyc3tFL84/BjpQiDFPN
+	 ya7107bVd3jcXG4Pb0vy50rG0K3HpkLJrcRmKSd03Jele/vw8rjTTEJQ8IhpodI5+f+b7
+	 CP6RxoUUI6LoOT1Ct/tGQj0oIJcHBBgU3OFF542SG3DQUo0GanporAz3Rh61FozbkpV09
+	 4jjI5WCz3Ztl182UhfCnUwaY3vKts26OqCKBbjMM2OrBjb2OyqoCpcu+PupAPmunFGmlw
+	 bauJ4N9NPtMiiRWRiP1PDQAB9/J2CAneApDPQF40juAPlHwcyJ7I2Td/WRQsGWC4tnA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=b1Rv6veu;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.66
+Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazon11013066.outbound.protection.outlook.com [40.107.162.66])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 405D6606A31E;
-	Tue, 24 Nov 2026 19:36:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 405D6606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DF46606A323;
+	Tue, 24 Nov 2026 19:36:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3DF46606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=wiT8Ya5/;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=dk5YjynB;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=h2LQ/IDI;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Sa6ZruAS
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 478C6223AC;
-	Tue, 24 Nov 2026 19:36:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795549001; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rbfQPnb/bGQ2Gkjp6lt26EZDU8eKMGkAA4M/WWEU8/c=;
-	b=wiT8Ya5/HG/DD7Q5wA50FeGnqRAYEFpM2ufxuc+W83Q6gRGxfoIYZsDrPVVbICmn2yN0jR
-	zFQD1oULjCblWWQrr4MdUF9IJU0wupvY9z9oPW49UQ8qXuHoODMBmcEwPuLzHxTUJJWuic
-	k7io5RDNUB4iTiKm0l2npXMZ9qLa0po=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795549001;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rbfQPnb/bGQ2Gkjp6lt26EZDU8eKMGkAA4M/WWEU8/c=;
-	b=dk5YjynBJCrj49GitF84RZJ2dgPePHqam+YuV+QitmjE0rZOV8sppZVHzD3Btg3owvQ2To
-	8SM1E9W+dG+2yLDA==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795549000; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rbfQPnb/bGQ2Gkjp6lt26EZDU8eKMGkAA4M/WWEU8/c=;
-	b=h2LQ/IDI9VLQ3E7Tws5WfCPIkt0HGGmYoA6Xu62TnhdKBtRQ2fD/djQW0dwzL5JR2J9j1j
-	pdDK/TBHwSkSZJ3/qN7t5zHtiihHkeJx8/b2AbVB0RzV7/090vvuDXmQMqGEA8QXYJQyqD
-	9NdTAtzQceGIwZ8JCBlpSqI3QJlb49Y=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795549000;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rbfQPnb/bGQ2Gkjp6lt26EZDU8eKMGkAA4M/WWEU8/c=;
-	b=Sa6ZruAStbYSh68HiIXKLUc20jCF9BCiQzCoDpqGZbSNX4Y9yzhFNZQxtV9YnS6mNixIuB
-	86j1GlyndVGeVaCQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CE3181339F;
-	Tue, 24 Nov 2026 19:36:39 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id VZNQJUfnBWs1aQAAD6G6ig
-	(envelope-from <krisman@suse.de>); Tue, 24 Nov 2026 19:36:39 +0000
-From: Gabriel Krisman Bertazi <krisman@suse.de>
-To: Sarthak Kukreti via Linux-f2fs-devel
- <linux-f2fs-devel@lists.sourceforge.net>, Theodore Ts'o <tytso@mit.edu>,
- Jaegeuk Kim <jaegeuk@kernel.org>, Chao Yu <chao@kernel.org>, Al Viro
- <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>
-Cc: Sarthak Kukreti <sarthakkukreti@google.com>,
- linux-kernel@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net, Eric
- Biggers <ebiggers@kernel.org>, linux-fsdevel@vger.kernel.org,
- linux-ext4@vger.kernel.org, Dmitry Torokhov <dtor@google.com>
-Subject: Re: [f2fs-dev] [PATCH v2 1/3] libfs: reject casefolded names that
- fold to ".", "..", or empty
-In-Reply-To: <20261119214944.1480596-2-sarthakkukreti@google.com>
-Organization: SUSE
-References: <20261119214944.1480596-1-sarthakkukreti@google.com>
- <20261119214944.1480596-2-sarthakkukreti@google.com>
-Date: Tue, 24 Nov 2026 14:36:38 -0500
-Message-ID: <87pkvuc989.fsf@cartola>
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=b1Rv6veu
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aCoCsUfxDIkg5/WG/8/QdeeBnsMPj2Sx0XRmjtlMSRioiFAd94Uxdwj0RI7IcBh/IF9zTSXzSfRg2lRG45gIh1BLfO/o+dzWgIALZihUhwxDaJBZhs7YFa4sNEWwWWXgsVpc0nofttW/gBJ6NTBJc6AsWaxVtove+n1bn9VTuGYFqKSvCjPxYPRn3EhJA1edGxRTgCv1797RrNWtiFHaaxtD/KRnUH5o4PlWkgNowUdCc0Wem2zOjJyk1SPspV/dJ5XM2brzCTQbvn/TJZWeenW0QPOMendXLI3I+GOYpvpd+bRtdNKjCARlTbqLRccArPhjqFaJznA+bOUy8S1snQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vUaR03SIHLPKcRnW08Ff3waJd3HTaW4Ofhq+LbICp7A=;
+ b=Qj1MuAgW6jCoCkhdJjtjhIuD5hgu/rq2PzOPJCHTdKRxipKOSKZceLez2zXIBP2t25JSNFOrCeMQI54xhi6GXQSHgNnLc3fMbV6rogfisaaLEaME+FJq7ukQZYNe5FqykuyGuYGiKvtCnWxj6xFNTUs/M6IPKkcE+/kYRem68mlbHZjcmA+FjDCd8LkVet4ljTa/h6epNzbQVygwPuVZOEm0m4forg2HX7OH1qTejnQ3Pd248bHM8ymRRWHuth91dZZkJNLZ3zHVMhz95dlutDTsnnY2AVkgPYbq4LOUKpn77xVYcjW1Gt4iKsKqdLjXJrNjUAlFJNLpXcH8Vx2Jeg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vUaR03SIHLPKcRnW08Ff3waJd3HTaW4Ofhq+LbICp7A=;
+ b=b1Rv6veuKQoebcXjw7ygQXoIpEQGZHkfXi1zRPIfy8njUxecg8l5+veeiju5cUSpZfZkfJiuabUwEJw5mEoiy5pmNhPd7kI6M+w7Ev2OyaDIC5kBrtAH7GGV4nwSKtCw3SMcz5iXMf/M5hk0SKwStcctPlHZof+Fa1ENIADWTchjkwtCVRP/96AJ5hBbcVgqqYSt8xO4RrJNlOWQtAHmwvuVUDQV1uofZo/Hsq1urXUtrPw4+EscKVnHGIwB/JfnjACOO0IYKL0XVYms5KafJF5qvtFjTPTvSKAaRc9EXDeyG/2JumNQLj0x1l8ZpRZWdP0XlAw1Dp+3p+MP1IXMow==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by AS4PR04MB9363.eurprd04.prod.outlook.com (2603:10a6:20b:4e8::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
+ 2026 19:36:46 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0662.004; Tue, 24 Nov 2026
+ 19:36:46 +0000
+Date: Tue, 24 Nov 2026 14:36:39 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	dmaengine@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Saenz Julienne <nsaenz@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Dom Cobley <popcornmix@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 06/28] dt-bindings: dma: brcm,bcm2835-dma: Document
+ dma-channel-mask and DREQ flags
+Message-ID: <awXnR8jz-Nd4QLJ_@lizhi-Precision-Tower-5810>
+References: <20261123145728.29082-1-andrea.porta@suse.com>
+ <20261123145728.29082-7-andrea.porta@suse.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123145728.29082-7-andrea.porta@suse.com>
+X-ClientProxiedBy: CPBP307CA0022.DNKP307.PROD.OUTLOOK.COM
+ (2603:10a6:380:2::11) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,190 +111,143 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Spam-Flag: NO
-X-Spam-Level: 
-X-Spamd-Result: default: False [-12.80 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MISSING_XM_UA(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	HAS_ORG_HEADER(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[13];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,dirent.name:url,decrypted_name.name:url]
-X-Spam-Score: -12.80
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AS4PR04MB9363:EE_
+X-MS-Office365-Filtering-Correlation-Id: 43f8bbb1-1211-4fe3-5768-08df4a6246ad
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|376014|7416014|366016|1800799024|19092799006|10067099003|4143699003|11063799006|56012099006|261021135927099003|261022105027099003|261022075727099003|261026121527099003|261021123027099003|261021121427099003|261022113327099003|261028144727099003|261026140227099003|261009223027099003|261102123227099003|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	I63TC6/JB2Fiys7cJGsWgZ+VPaTwPQdTFNL+1ObCBIFyYFLJi1sfN8KkhUpbE67GyF567TujRGnze9jCOs4GkjfWsBfHG96D9z6MnNRNrH8b3Ebnu3N9t4/uiT/gdXg05RPSlKJKhF3bh33NTPqdYcjXwnPvnhGpbnDSZ3p+luGXzrwdKbssIpgwHpNr39KoQwKOTO8Z1BNnjudoO+9eGQeEEusm5M2I6Z2GBq0EGoVqFli1NA5kpk/q4m5IWmp10wmfnY2Ys3r1yE/dkf5rgOxmzJ05WZcK0VtWnH/aJwXWG8SI11ybDcpZjY3ab3dIU58iowTi2HZ9eW1bhNzcx0P2J7DyHlWMeRLeeyn/yxHNFlS6j6D3nMAEp2mOdfrZ8UJPleC7IzwwnKuXKxMqaGsKWI3OebPGKPVeWM+1t0/rMy11KfepIAnyv+/YQGsZp73JpipEJdk/gP5fxTQYVhcPpAqFpBQhACt7MMTxiw2nXP4BUrd8H2cfUEsOaIs8aY7Qo2CT1hMLBuspLEBooW2DdJ5IcEc/TrCXfGV0NG3ZLUd8HDJcQ3psQY58SmBfg8jAGXuRCAH8usJuSRFKvtZgarnHiDl/+9Y4Y4asulolDJxMJXTjoxU0IkR/GfBysW2zWPdkkVK1IzKzPCTC2agp6upj9ChE99N7uF9vhLI=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(1800799024)(19092799006)(10067099003)(4143699003)(11063799006)(56012099006)(261021135927099003)(261022105027099003)(261022075727099003)(261026121527099003)(261021123027099003)(261021121427099003)(261022113327099003)(261028144727099003)(261026140227099003)(261009223027099003)(261102123227099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?091b6C1e4d1dILCNvf1wIe11/Ux1Qhk2Cz7V6wABBUrDkLfNLWpsKPfXsaoZ?=
+ =?us-ascii?Q?NhoJjhBYlps3MCSuwQhIhgp9HAbGceEVJpCnFwur36DxI44BEwliAnzRuM1L?=
+ =?us-ascii?Q?7U4Pldyh5WfDbQWjtUn3bdWgiYAZvqJbwlyH9rIYyqsJx676nOO37z19LXYV?=
+ =?us-ascii?Q?8wQW7OQBlr1aOugjWdUFHwe7iRoD1fy8j3jJweG782BBMeKSnkVBycTRfXef?=
+ =?us-ascii?Q?C8i9EsBZdm5FospKmwAE/oMd64MlS4O5o5M3b48udJ25wp61IO04aP/YjWRD?=
+ =?us-ascii?Q?UQfQjopV42CmMB5TP92ykRsqqvn6jkAETn8j590zx2tKbLllnJhP+9e1Kvpr?=
+ =?us-ascii?Q?G1ZxvsR6W0ao49GmqBEmEsATSMYVkkLJZ1EuWpXfNBiRcGuvpK99fNAiqzkr?=
+ =?us-ascii?Q?Dc66+wo/Ru4Nc6h3ufPL+0Y0wwwTvHGXgFdsR1vR00FabxEiYHe66t7Stwj4?=
+ =?us-ascii?Q?yBaB9mOlUoB0RygDX7uuMggGvnJK28dH0KDWSVquUp+8Qm0nLybX+LqQvBtN?=
+ =?us-ascii?Q?r5mAl4Lc0mGfmJUlX+75n9GNp87cbnWNB9oUIKDytIXiWW2NRuWtJozX+qQ2?=
+ =?us-ascii?Q?ALGvG35Smy7Ac8PMBonO2S1RFHp8MTa8p7yEvratULG0oCVOU7VwZ2xt5phv?=
+ =?us-ascii?Q?+X0E5yauR5/Kl0p5RaprF4KYbHBE0geCUaEw/jFxQNR1nSlDFldl/HGgFdGa?=
+ =?us-ascii?Q?yjmG18a2iEt7dxt27qF7uMKnsxEAbNl+MTxyZKiY6SJBSY2llOCQw0WAj8oL?=
+ =?us-ascii?Q?ELGNOeR03wZE6vda7Lfbyy/W5HUMnXS40ihOJ8p5pZlgzA8DXgc7Y31lLUB0?=
+ =?us-ascii?Q?QlxWxwEc8cHkVfzflYxUGDzYK+JABPXtgjPvaQsf6a40gWREgcqp167cl0bL?=
+ =?us-ascii?Q?ex4Kksk5QV/oin5kJ+mkNaKpBf35i72ua/eSYfR0Mx7eK/SRL/LftnQZb97r?=
+ =?us-ascii?Q?SBr3iNOmlUc17KJbIkSNv6AffGLS+Di9/4NBDG7CS48Wt43s3iFPY7kPbQzV?=
+ =?us-ascii?Q?YZYAxsXnb2RGHdMgg2O2ZqvRMtAfCXG0NOkUw6GN+jXcd5wuG+YroQZGbXXV?=
+ =?us-ascii?Q?Fvv30goiuepj6ZhoNjdNVUowFr/S/K4a0XFUX27rzFzKcarJP8XbIbwbXehu?=
+ =?us-ascii?Q?LSd33dGoMjGOX4qy5Cae2BmY4PxX0cQiXZ3zYiqczNocNTQkEfX5i8+ptFau?=
+ =?us-ascii?Q?81YcKJZa+Kiz+ujtnZgLJF7Ba84yadPnlHfhjkWQtc8PCOMrYU0b7FQA0bmI?=
+ =?us-ascii?Q?6EqWhAsFXxaIj7t4fUXIiF+6+c+giwsSqzRfozGgZ04K+FcASNLhJIG2IUJV?=
+ =?us-ascii?Q?R/dCEQKSq7PyaKzcOc1sPuj47HR5roI3qsIWl4mjW8LICs57BezB8SfCVVEI?=
+ =?us-ascii?Q?5XXwoEFnbI+ESLzgNSgWdj1es4wmc/TsHDN//xeq7agBZyOvgMaq5DyO2DSm?=
+ =?us-ascii?Q?ILGmCJXP8s258E6HxEEyHYIEFHxVblou2WGKxDUh2pmcBys5uuyDyz7MR82q?=
+ =?us-ascii?Q?KgURADpF3a+8Owb884YpZ+OObmEGQ5dh+fSrdBdQuDgLknIfUeiYoAT3awP9?=
+ =?us-ascii?Q?4yV7fBUVvMx0w+qgH5M8WwLtBMA1yAMHzJ+5vb2oezo6uKvtOsLM1+45ARvY?=
+ =?us-ascii?Q?djAAjn3qdwvQXtXn3yaHN4D4Bb26Nx9k0j9kaAVL9mKvTflJtP88X9vb7m5M?=
+ =?us-ascii?Q?rQVjl6TEl3DHGoQvUlRBud/LMknZb7uF93aFuEhk0xX84uxDH6FS5/oH0PTT?=
+ =?us-ascii?Q?OK6ZuEgV/G419izH7avEnZQzTNsCul9FnC/Mu/dFQo59lx5Tm8jV?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 43f8bbb1-1211-4fe3-5768-08df4a6246ad
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 19:36:46.3550
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YyuZYiHfV7QJGadnomvW4M6VOF7z0laidAchmQTEqJuxWpr4hH6LugQLTaKKxH0cxcffKHfqL4AxR4IAJkOQmnyg2j7mTcQcr7sH/hS/o818dEIAtfaGuGeg3J+a8q/B
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9363
 
-Sarthak Kukreti via Linux-f2fs-devel
-<linux-f2fs-devel@lists.sourceforge.net> writes:
+On Mon, Nov 23, 2026 at 03:56:44PM +0100, Andrea della Porta wrote:
+> The available channels are currently described by the vendor specific
+> brcm,dma-channel-mask property, while the generic dma-channel-mask
+> property from dma-common.yaml carries exactly the same information.
+> Allow the generic property and mark the vendor one as deprecated,
+> requiring at least one of them, so that device trees can provide both
+> for compatibility with older kernels.
+>
+> The single specifier cell is also not limited to the DREQ number: the
+> driver interprets some of the upper bits as per-channel flags (AXI
+> priorities, wide accesses, burst and write-response handling). Document
+> the meaning of those bits.
+>
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> ---
+>  .../bindings/dma/brcm,bcm2835-dma.yaml        | 26 ++++++++++++++++---
+>  1 file changed, 23 insertions(+), 3 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml b/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
+> index c9b9a5490826..f619e395cf0d 100644
+> --- a/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
+> +++ b/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
+> @@ -37,15 +37,30 @@ properties:
+>      maxItems: 16
+>
+>    '#dma-cells':
+> -    description: The single cell represents the DREQ number.
+> +    description: |
+> +      The single cell contains the DREQ number in bits 0-4, optionally
+> +      combined with the following per-channel flags:
+> +        bits 16-19: AXI priority
+> +        bits 20-23: AXI panic priority
+> +        bit 24: use wide (128-bit) source reads
+> +        bit 25: use wide (128-bit) destination writes
+> +        bit 27: do not wait for AXI write responses
+> +        bit 28: wait for outstanding writes before signalling completion
+> +        bit 29: do not pause the channel when the debug signal is asserted
+> +        bit 30: use multi-beat bursts
 
-> diff --git a/fs/libfs.c b/fs/libfs.c
-> index 46e0205154e7..77997f88e475 100644
-> --- a/fs/libfs.c
-> +++ b/fs/libfs.c
-> @@ -1828,13 +1828,21 @@ int generic_ci_d_hash(const struct dentry *dentry, struct qstr *str)
->  	const struct inode *dir = READ_ONCE(dentry->d_inode);
->  	struct super_block *sb = dentry->d_sb;
->  	const struct unicode_map *um = sb->s_encoding;
-> +	unsigned char buf[3];
->  	int ret;
->  
->  	if (!dir || !IS_CASEFOLDED(dir))
->  		return 0;
->  
->  	ret = utf8_casefold_hash(um, dentry, str);
-> -	if (ret < 0 && sb_has_strict_encoding(sb))
-> +	if (ret < 0) {
-> +		if (sb_has_strict_encoding(sb))
-> +			return -EINVAL;
-> +		return 0;
-> +	}
+Add header file for such defination.
+
+Frank
+
+>      const: 1
+>
+> +  dma-channel-mask:
+> +    maxItems: 1
 > +
-> +	ret = utf8_casefold(um, str, buf, sizeof(buf));
-> +	if (ret == 0 || (ret > 0 && name_is_dot_dotdot(buf, ret)))
->  		return -EINVAL;
-
-I really dislike the idea of doing utf8_casefold here. even on a
-small substring.  We are walking down the trie a second time just to do it
-again in ->d_compare.
-
-Consider we don't have negative dentries for casefolded directories.  Is
-there a case where variants of '.' or '..' are ever cached if ->lookup
-rejects them?  I don't think so.  By rejecting the creation of
-'.<empty>' ..<empty> we can guarantee there aren't any variants either.
-
-Assuming these don't exist in the dcache, why not let utf8_casefold_hash
-hash to a non-existing dentry?  d_compare will not find it, go to
-->lookup and only the filesystem needs special handling to reject
-invalid names.  The vast majority of real lookups will hit the dcache
-and never pay the cost of this check.
-
-If we *must* check the dcache for some reason I miss, can we do it
-*only* in d_compare?  There, we are doing some kind of utf8_casefold
-anyway.  We can modify utf8_strncasecmp to return the casefolded string,
-which we can byte compare for dotdot, avoiding multiple walks over the
-trie.
-
->  	return 0;
->  }
-> @@ -1907,10 +1915,28 @@ int generic_ci_match(const struct inode *parent,
->  	    !memcmp(name->name, dirent.name, dirent.len))
->  		goto out;
->  
-> -	if (folded_name->name)
-> +	if (name_is_dot_dotdot(dirent.name, dirent.len) ||
-> +	    name_is_dot_dotdot(name->name, name->len) ||
-> +	    (folded_name->name &&
-> +	     (!folded_name->len ||
-> +	      name_is_dot_dotdot(folded_name->name, folded_name->len))))
-> {
-
-Most of these checks seems unnecessary.
-
-First, if name_is_dot_dotdot(dirent.name) is true, which I'm not sure
-can really happen, it only matters if name_is_dot_dotdot(name->name) or
-name_is_dot_dotdot(folded_name->name) is also true, because then we have
-a match.  Otherwise, there's no match.  Checking both seems redundant.
-
-But also, if name_is_dot_dotdot(name->name) is true, that means we are
-doing an exact search for '.' or '..', which, IIUC, the VFS will handle
-specially and not call this code?
-
-I think the only thing you need to check here is:
-
-name_is_dot_dotdot(folded_name->name, folded_name->len)
-
-if folded_name exists.  If it doesn't, that's because the cached name
-initialization failed and you might need to do the utf8_casefold +
-name_is_dot_dotdot() dance you do in the hunk below:
-
-
+>    brcm,dma-channel-mask:
+>      $ref: /schemas/types.yaml#/definitions/uint32
+> +    deprecated: true
+>      description:
+>        Bitmask of available DMA channels in ascending order that are
+>        not reserved by firmware and are available to the
+>        kernel. i.e. first channel corresponds to LSB.
+> +      Use the generic dma-channel-mask property instead.
+>
+>  unevaluatedProperties: false
+>
+> @@ -54,7 +69,12 @@ required:
+>    - reg
+>    - interrupts
+>    - "#dma-cells"
+> -  - brcm,dma-channel-mask
 > +
-> +	if (folded_name->name) {
->  		res = utf8_strncasecmp_folded(um, folded_name, &dirent);
-> -	else
-> +	} else {
-> +		unsigned char buf[3];
-> +		int cf_len = utf8_casefold(um, name, buf, sizeof(buf));
-> +
-> +		if (cf_len == 0 ||
-> +		    (cf_len > 0 && name_is_dot_dotdot(buf, cf_len))) {
-> +			res = 1;
-> +			goto out;
-> +		}
->  		res = utf8_strncasecmp(um, name, &dirent);
-> +	}
->  
->  out:
->  	kfree(decrypted_name.name);
-> diff --git a/include/linux/fs.h b/include/linux/fs.h
-> index 5b3a100aba77..22c411e046ce 100644
-> --- a/include/linux/fs.h
-> +++ b/include/linux/fs.h
-> @@ -3368,28 +3368,26 @@ int generic_ci_d_compare(const struct dentry *dentry, unsigned int len,
->   * generic_ci_validate_strict_name - Check if a given name is suitable
->   * for a directory
->   *
-> - * This functions checks if the proposed filename is valid for the
-> - * parent directory. That means that only valid UTF-8 filenames will be
-> - * accepted for casefold directories from filesystems created with the
-> - * strict encoding flag.  That also means that any name will be
-> - * accepted for directories that doesn't have casefold enabled, or
-> - * aren't being strict with the encoding.
-> + * This function checks if the proposed filename is valid for the
-> + * parent directory. Names that casefold to "", ".", or ".." are
-> + * rejected for all casefolded directories. When the filesystem is
-> + * created with the strict encoding flag, only valid UTF-8 filenames
-> + * are accepted for casefolded directories.
->   *
->   * @dir: inode of the directory where the new file will be created
->   * @name: name of the new file
->   *
->   * Return:
-> - * * True: if the filename is suitable for this directory. It can be
-> - *   true if a given name is not suitable for a strict encoding
-> - *   directory, but the directory being used isn't strict
-> - * * False if the filename isn't suitable for this directory. This only
-> - *   happens when a directory is casefolded and the filesystem is strict
-> - *   about its encoding.
-> + * * True: if the filename is suitable for this directory.
-> + * * False: if the filename isn't suitable for this directory.
->   */
->  static inline bool generic_ci_validate_strict_name(struct inode *dir,
->  						   const struct qstr *name)
->  {
-> -	if (!IS_CASEFOLDED(dir) || !sb_has_strict_encoding(dir->i_sb))
-> +	unsigned char buf[3];
-> +	int len;
-> +
-> +	if (!IS_CASEFOLDED(dir))
->  		return true;
->  
->  	/*
-> @@ -3399,6 +3397,13 @@ static inline bool generic_ci_validate_strict_name(struct inode *dir,
->  	if (WARN_ON_ONCE(!dir->i_sb->s_encoding))
->  		return true;
->  
-> +	len = utf8_casefold(dir->i_sb->s_encoding, name, buf, sizeof(buf));
-> +	if (len == 0 || (len > 0 && name_is_dot_dotdot(buf, len)))
-> +		return false;
-> +
-
-With this in place we should not be creating new files that turn into '.'
-and '..'.  If we also reject to create them during a lookup, I think it
-is enough to drop the dcache callback changes.
-
--- 
-Gabriel Krisman Bertazi
+> +anyOf:
+> +  - required:
+> +      - dma-channel-mask
+> +  - required:
+> +      - brcm,dma-channel-mask
+>
+>  examples:
+>    - |
+> @@ -96,7 +116,7 @@ examples:
+>                          "dma14",
+>                          "dma-shared-all";
+>          #dma-cells = <1>;
+> -        brcm,dma-channel-mask = <0x7f35>;
+> +        dma-channel-mask = <0x7f35>;
+>      };
+>
+>  ...
+> --
+> 2.51.0
+>
