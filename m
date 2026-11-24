@@ -1,96 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.179
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795480279;
-	b=j+gmSW7KpIjyuEBpQ+REpPKJ/J/lhKwleYYr8U5Tu4sq0bqLGWJTM5rk68/U0G1SXA3/
-	 qoKeZ8n9fA6Khwqc5tV/xxxW+Hi8dFaFkZVuh2RSsHh9tjXoJyZhJ0pELv/XFbhhP53w/
-	 yfsFqHEOvRC0ofFjHTD0ms54pCGFBHNmihXD61BGsQazKPQ9BpF89yZCLWCTHBH/pdsyM
-	 gmtx5KK0pSy85PzrR/cY/uV1jn501ZtmiTi4TTrBtbhoTra9xL6HlzoOd/xUnqgNArmhb
-	 hv1F5sKhJCEOnfOO1pMvlb0I+61WBLdOVuY7bVqkhZ2VqLCWPJ1Y7wTjxs+4q1U+5iQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795480279;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=XBBRJhlZK91IRv9lRpTyJCctT8RJXhFRC51jo1VlnUo=;
-	b=Dlo6J/7Bwx4EFQedtxM+bK44odUfYeQm9rtIeEEhexrSPdaNUwKsCFiNWKqSg9cTgmUA
-	 oUsWA5io2qQzFHXEBmaoM8CT0Gk646BuMOqymTmASSuJeWCpA4eNVFBbTsyAqnWLI66MZ
-	 n5paGN15DukKYDE1T+JjwOv5NlTalzd+sto1SDwZHYuqelawpmLHUs+Mfu3uxGmBIk6fi
-	 cMDGaGCxljt61cAqkBpKH3Yh3388krT302DQGx2UZ8UjQ2OHLyGMTzQhD1O9oGm66re+q
-	 /Sa400Pl6/xoxDQyOA3tQtpyu97tYVm4MJmMmOJJal80CJVwVaV98LzgNRW5v3sHNag==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uber.com;
-	spf=fail smtp.mailfrom=uber.com;
-	dkim=pass header.d=uber.com header.i=@uber.com header.a=rsa-sha256 header.s=google header.b=LBFiC2j+;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.179
-Received: from mail-yw1-f179.google.com (mail-yw1-f179.google.com [209.85.128.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795480298;
+	b=xKnKxRQrNtTYqbcHp+Wnf5BrbsAfY4+Pr7Zc9PXTyNPPCixL+VALqK3lt6BFlZXvBZmw
+	 cNNjT3ua66tji/90odz9q7BuftRziWTyDC4smIGuy5+Y96VIS88gYtLecP5weBCmJ8JNz
+	 DIHsjIx8hLDQElFgDY7AQtS54IIntoF4J2aFYS+V/0HwiLQOBzWEaYYyrA65/xHg2Dd/h
+	 QxbuZSZFwcK07mkJ2+cwulhRaeRC2stSd3KpaQFDBEzZ8/QCasNSyJbfO2szzMd8P+qn7
+	 ytCIywkrMW1R4StFbwUuMz7H1nChxDtIDHO+cmCK0R5aJBAZnN+bMiH+Isn0qz2RwHA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795480298;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=7IpkPkVFHEadLY409nUalcnMRClqdAQR7VTRSz1ZcO8=;
+	b=qyQrjrFNCFCUO1ils7QTCM4/OtYxZQivJ8O8SAR0WfzPkWscH3JswLQeY6XRJG0DQ6K3
+	 Vc5b2RYdAecBiRmbNxfF64NE91nf6H0bbwqCUADycWpgHE7ml+zgmBq6hlorRCm1u/f9Q
+	 2HHE2OWLG/4JEo/NPjENJd14/lvcW0fl2OtivjTOr8My6bdCgQk4X1s6HMBWbengobAUD
+	 VI1S/sgQXWotlrVnma3fB5EcNDOMh5vv+dPxgOF+9AwxXuWJ7xoZjjJ5sPBCszHAtb7C4
+	 vqr4dv6zprS1xPYES8elUNfVE60Xr1dQcMOL/fgk/zonMi3eDEVpWGFNemPLPoTmd3g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=alien8.de;
+	spf=pass smtp.mailfrom=alien8.de;
+	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=dxtTMzrI;
+	arc=none smtp.remote-ip=65.109.113.108
+Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C71B4606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:31:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C71B4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=uber.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=uber.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C3F4606A321;
+	Tue, 24 Nov 2026 00:31:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C3F4606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=uber.com header.i=@uber.com header.a=rsa-sha256 header.s=google header.b=LBFiC2j+
-Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-8b503e2a87bso41115217b3.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:31:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795480278; cv=none;
-        d=google.com; s=arc-20260327;
-        b=MIB7CxdkjaPmBhyKFFuQXnYd8OB7UDZ/+yvauIuj5fZtKr2Qn+4RTnyE3ZD5M3rab+
-         uxkJwucCPa0HuHd9PKhx0qnmiBwWBLMhGyJw5Gmlvg9K5LAUvFORKCC2/YRFBFqLjK7X
-         2lyfVekJbms1uNgYLVpxZ37XAmDfa7bLS8tATC8GVJc9tA3K2+eDfKECL8pgb+XAJX1S
-         V1Pc2Qj2mwvPFDvAkI7NW5DcjjbV3JkQcANz1d1pwGPYlNXpCs56uboPj6Xj7P8cqqtt
-         fTVIwphGbqMM+06Y2YRqCz/Wj6VZ1yK5Q9AIJ3jdfterLeYhO37Zko9rS7DotyhJELaY
-         /s5Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=XBBRJhlZK91IRv9lRpTyJCctT8RJXhFRC51jo1VlnUo=;
-        fh=JGEvnYTVthfb7R8eT0f7fxDAFCfG3ceSZRo+ApLzv0Y=;
-        b=Vpgse+/EPSpFC4nWGL13dQj5kfNscc4RvGrGNUGdOuoS46hrwLj+oMFcBVY3M33tfe
-         iqsS1cbc9OdCtclTIA2dvzb7+U4MtM2vu0nSmT2FbVTt4jHUeK1xfWs/StVF5mzxoEXj
-         VrmJR9pfO/m9us+emTKLqrpVW5+XW8V2KKeaChVJGtdD8Q+9A5vPAq+KntxYVB05x4E9
-         zMxISoK3w9BI54URV42j7O9eQeP0xDRNcapxtAjPu0u8dqxnPInR7ID0hA1FAbZjZo7r
-         td+xV4Z2kXRjAHo1yUup5XlACsS88RA4MWC+NCxFdf+SbRw9WDsUOvyChjaNL7SjEXk7
-         tv8Q==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=uber.com; s=google; t=1795480278; x=1796085078; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=XBBRJhlZK91IRv9lRpTyJCctT8RJXhFRC51jo1VlnUo=;
-        b=LBFiC2j+bNqRr3AUvQgWzHe6jh7NRWpzgANTRV07wFyXobIXgKJT1JpIDGXsR7QRxX
-         VE1zxJGgxZCSIv2v94gOuosdIk8+h8j4wA1bPDY9Ch4uq0GUd8u6Yd6qCzO61Bw6+7PQ
-         s1AUw2pli8iaYqsrheSREKpuPrGMY2Ewek/bY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795480278; x=1796085078;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=XBBRJhlZK91IRv9lRpTyJCctT8RJXhFRC51jo1VlnUo=;
-        b=gpG73jYLPgYQla9H1p/F7lfJdUDU64qG4xu49iuNYQWsxjvYzwKkN91GZtwFDFk1Mc
-         8skPv5mD1upf1O/rU+cbvGHf61Fx9+7hPOZ97kfzoEqM4+upSwUPq/ZU4kFxcq+oJcIl
-         h8zGycK0bxvYlf/9H9W6qwvex//JORFQX+XEX48wuSELhIF68z9TLBI13vizyv3N8Kl2
-         WsOQpV5rmhSo8lo5F8v1XYeI6/oypolXiw0UVYGHXwPsrK5SH89mZ3LP1IJPauAIJtBX
-         BWn6tqZfZYoGq9dVcknVQhojlBqk3HoBO5sCV13V5RpQ2OVL416QuonO7v+lcFyoJU6f
-         HoLQ==
-X-Forwarded-Encrypted: i=1; AL+hErFRPVfbd/U3HH1ivy3MGUm4DRZKRZmI6/hMKerYOIhLiaQl12DHkHU4Gq16FsIDpovnpIsLXIwv7+CuDIM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+mP/SXzsYx/NvYlypmAzZ0zcc6YyRymt31H+/dw2wYTlXmahfL
-	ObWMnkss7efjXSLWUy3uJPdTxAV24fFxi9jt6JkRw63U6bNFts0bpHiw+moMRb5d/m7PwoPViMa
-	emZziN+ce22fIm6SGYiOuh6+j4PbwkchF5Muqze8V0g==
-X-Gm-Gg: AZFdTZcGchoxR9tl5vkn92N9YU/vvn6kpUODIMI6dsI3f7bonHwz6+iMJfVQZrVxks5
-	Vx1qGumt8jWJjX7jtQfHnbgAXXDNr0fEzKkS2aj7FYMLIeY1loYuFclrk1810xHeNFVwsw22BlG
-	0gbA6Pevc9NQR2JgeqPwKwJcWNm+jc9PKNQNtpngOj9aThcDxbCtw8UevdB35fhk9yq1mUK7iDh
-	sO0zmLNXiMnvT/cD5UUAdR636aBBDzJhxexkigxQv/Hg76go0e6JJfFvL5HkeuS5Wnoqomf95Ot
-	80vr6fQPwBATEOTKWStV2anGE3709jlLL/nEBgm5uoTtkGUSkDEglEky3s1kaccfGpS4uK8g/6y
-	9pO5LhzHBikpTjUVTuZEoiEk/AsZtEyBnyBO2F8zYhAH+kTmanNlOaNRfKB0vjhQV+o8Mkg==
-X-Received: by 2002:a05:690c:6a86:b0:87e:2404:6b45 with SMTP id
- 00721157ae682-8b5204ecb30mr59678307b3.53.1795480277123; Mon, 23 Nov 2026
- 16:31:17 -0800 (PST)
+	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=dxtTMzrI
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 025B340E02AA;
+	Tue, 24 Nov 2026 00:31:35 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id xKx_-KTIfSpn; Tue, 24 Nov 2026 00:31:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1795480289; bh=7IpkPkVFHEadLY409nUalcnMRClqdAQR7VTRSz1ZcO8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dxtTMzrIL2fiuW2uuAg3o2TZ7OmmjPyRs4XTm6+40JI43cDYin4TG1Ke8hvvdeOE3
+	 6VG7vmghoywou2l3QfBlsSZU5jaKZwecLlfOjb/FNHgxaYyBvWTRdNjlBqQlNXBn0f
+	 V6QGk4z05IY5zZMYcoWYkMnjBmIXdyoCoJ7DYF2R7rPJY7QSObTY5zBZigUEH203Ys
+	 tXd5zqDVZA5syLn/Zh3fu+xApkDk1GBT5soKeVyvicfMGZ3RqLZhpkf8DSGmgWhzqg
+	 RwDFltz3o9zqd2Jt1MlK/Bqm/OlH1BZ0ZAkIzIcEUMjaf0j+fSsmEufdA1a2qG74fl
+	 SPKkcYEOplQX7bntkepvRlsTHKrYWUGIxh86h69Zjb0olSEsXO8M1BLxnpbqtQNOjt
+	 qvpnfeWTlaYTckcl1ggafe8aCh9mMzbf3/+etfuyv9BhcvUaK3gHV2KA49g2cV/A5Z
+	 rlZx9W+idJ2eEFHHWOWSo+13fZM+3L0F4+Zm43SI/6RTzonngU4uZxRKoCHjgjt+4k
+	 2avTfLz7xn0sKUaTteGBWjNYj8INDKK9ddwqE3Y5xZdNCZ1u+JT4D7saRDTkjIaGJ6
+	 AHYoXdF9Rrqdu6xQtkEKC7XeRX3ZMCt0Dlp0bijOwauJ2ycqiAq3+BJWSH6FGnNxH3
+	 wetm2jf087EkhHzioUWE3XQw=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id E18E140E0240;
+	Tue, 24 Nov 2026 00:31:13 +0000 (UTC)
+Date: Mon, 23 Nov 2026 16:31:10 -0800
+From: Borislav Petkov <bp@alien8.de>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: Stefan Schaeckeler <sschaeck@cisco.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Tony Luck <tony.luck@intel.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org, linux-edac@vger.kernel.org,
+	Borislav Petkov <bp@suse.de>
+Subject: Re: [PATCH v6 0/4] Add Aspeed AST2700 SDRAM EDAC support
+Message-ID: <20261124003110.GHawTazmnfEiwzjh-0@fat_crate.local>
+References: <20261117-edac-v6-0-a2a747b95c3f@aspeedtech.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,50 +86,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122050405.80335-1-irogers@google.com> <awS0QkL6JuMfC7Z0@google.com>
- <CAP-5=fX4-HqRbB8zWNSUFyCc4Lzz44iNmok5HJVj5O1+oqoWOA@mail.gmail.com>
-In-Reply-To: <CAP-5=fX4-HqRbB8zWNSUFyCc4Lzz44iNmok5HJVj5O1+oqoWOA@mail.gmail.com>
-From: Alireza Haghdoost <haghdoost@uber.com>
-Date: Mon, 23 Nov 2026 16:31:01 -0800
-X-Gm-Features: Aa3M54qz5MWiuh12iW5spvHAu_-ZVuYeTacDOMGL10nwbT3pFevtztiRCbhiN5M
-Message-ID: <CA+w=M=TtEOjHR83QWYknCdSxAPxMNSmQ8yHdVJOXcecRgNEJNA@mail.gmail.com>
-Subject: Re: [PATCH v8 00/10] perf symbol: Sorted arrays, DSO-owned lifetimes,
- and memory shrinking
-To: Ian Rogers <irogers@google.com>
-Cc: Namhyung Kim <namhyung@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261117-edac-v6-0-a2a747b95c3f@aspeedtech.com>
 
-Hi Ian, Namhyung,
+On Tue, Nov 17, 2026 at 05:26:37PM +0800, Ryan Chen wrote:
+> Add ECC error reporting for the Aspeed AST2700 SoC to the existing
+> aspeed_edac driver.
 
-> >
-> > I've applied the first 6 patches to perf-tools-next.
-> >
-> > The patch 7 was bigger than I expected.  Can you simplify it more?
-> >
-> > Also I don't plan to merge the rest patches as of now.  Let's wait for
-> > the lazy loading and try that for a while.
->
-> Thanks for merging those ones. I will split patch 7 and rebase. Patch
-> 8, shrinking DSOs, etc. is kind of the whole point of the series.
->
-> Thanks,
-> Ian
->
+Ok, I thought I can fix up small things while applying but there are waaay too
+many issues.
 
-The lazy loading v9 is rebased onto perf-tools-next with the first six
-patches, so it now works on the sorted symbol array instead of the
-rb-tree. I'm going through review fixes and should post it later this
-week.
+1. Split the biggish patches - a patch should do one logical change but yours
+   are doing more. Do not do any drive-by changes while adding driver support
+   for some new chip. They need to be in a separate patch. If not sure, refer
+   to the documentation I pointed you to.
 
-Ian, it uses symbols__visit(), symbols__sort_read_lock() and the
-symbols array directly, so if the split of patch 7 changes those, I'll
-rebase on whichever lands first. I'm also happy to run your remaining
-patches on top of v9 against the same profile as in the cover letter
-and send the numbers, since the two should save memory in different
-places.
+2. Write your commit messages in English do not use made up terms like "DRAMC"
+   and "isr()" and so on. Those should be readable by humans.
 
-Thanks,
-Alireza
+3. Do not explain the code in your commit messages - only the non-obvious
+   stuff.
+
+4. Do not put in the commit message how a patch has been tested - that goes
+   below the "---" line. I think I mentioned that to you already.
+
+5. Drop the "aspeed_" prefix from all static functions - they don't need it.
+   That can be a final patch ontop if it is easier. One logical thing per
+   patch.
+
+In any case, tell your Claude to do those things because there's a human on
+the other end reading and human does not like it when Claude does a stinking
+pile.
+
+:)
+
+Thx.
+
+-- 
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
