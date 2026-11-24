@@ -1,103 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795501587;
-	b=3b/aqyVk5olVvJabw3n4N0iGZccOgU25CS2zJ9XF3tQhivS4B2bmzVhART4ApeFV2kvf
-	 1dqflGvj88+k1FP302bY5q5yElyExLjyxWlbBpdsYwYZMWi09Kv2sC4eAl+PQXhVQrEK5
-	 WP6XKYX6XpzVE3b5eYBUeXCcCocCkaAbBDHQw0NuDc3EbTMwYnicr3Obznq84Ju9yZkA4
-	 0tU/COV+Ib5uVf9Qqdg7oFhP0GELt9M3nJ//RH2rmrULuNwZXryqwhhQnb6ofRmQfA4AY
-	 OG5ImUfAuMXWasYa+HR8ePjXMD2waIeJ5L+/2FzEDqJRo2FD1SpnuemQectM1xjFLRw==
+	t=1795501596;
+	b=ZKy4xYvUsLl+j5urjSxJBypWT41kY4BamhivT8F4J3lpo/2SbEI6J9lU0OQ2xijTwQf7
+	 BZ6PHrEmyBJZ8a5MH+uMi0KuDYEOoJl7XElwqlq4/lw2K0yU24E5bLM6XEzKMaYyqCfmF
+	 cHfbEXX8+tY3wyPtywJ7qP1ubEqorVbNoFTTc6Bslrv99tO4u5FyYYjICHJXibdLLCz9E
+	 RH6GZqENponNhmC4m5ke6dBUE1fgwcSYhCjlbGfLoBjR5AX4aBh6Nr0mSC4n/p4G3aSTO
+	 Zl3g7aRBHIYeYiHiMmkoEyw3kDdSy3j/KCooNZrXZMlD8MsbokYiYYaPBIMK0i9WD0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795501587;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=k13cl8AnOgXOYxh9rMCZd+VqMKK57TsIjB6ASgYtOw4=;
-	b=JsAzFxiT3duwwwgQJQm+umpfBRftD6JKYL+8MnYpd1X1nIA1xDp+CPwq2HdsD2Fps0o3
-	 IXQ5yJjmoiCZkTeMEWkF21izX5FCvujZ2At1WCFNjMdER7XzO0Jk52yBuczL0iqGsdJ/c
-	 JApKCsuwjXGeA1x+e8rpapVc+D1c3z70+iVeOJRtxHn7u/86le2PBV+A91cu4K2MsGSFm
-	 rzV+QufMQ6mFPWOIdplFsSGJBjouJGRcYrO+9pIcM7r6BJv0WG3HBecQBH/d6te6p4slt
-	 3ad3ATL3OZ7+aDr47eB7cAKElAaUxW8JS7sqVc5uTQwIWNyEnOT0VbZAqp5vDdF3TyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795501596;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=UToQbuNcK5DCGtMPsmz26BXf75Fd4f2y7nwL39lM1lI=;
+	b=oJHGbEhU+fkV3KeY1XVVOzJ9EU+Gf9K4gpeX9hfLTRbxGYQdbuuizSEF50sJp2LRRirG
+	 p+lXpw0NzEoqrAfo/0ID8vdzb+aXd6rr410e3y44ORxGlFtgHyMCT0tER0+Jxz0mHPpmo
+	 x3Wn9ohIAi9jVeQ/nMbq5jXjhtCtz8lwjcT5qbebQHEHhWWzK+nq4yVRtX6baUtYu8ZjM
+	 TA3CZn+4NT0p7uqT1DlSzRDQMEaTye205Y6Cx0Df7udxtkVGoFVV+J5uATCmCsFf8Hdv/
+	 0E5i/Z2dfg51Oo2LzBOI6bfzvSsMrNq2zzDU0hoWA5oDlvQeUvcvII4Gqi0CgYbh+iw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aw2NmU5m;
-	arc=none smtp.remote-ip=74.125.82.172
-Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=VYsPcOyA;
+	arc=none smtp.remote-ip=95.215.58.4
+Received: from mta1.migadu.com (out-4.mta1.migadu.com [95.215.58.4])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70F42606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:26:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70F42606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEC18606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:26:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CEC18606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aw2NmU5m
-Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-380c28f9e35so5318761eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:26:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795501587; x=1796106387; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=k13cl8AnOgXOYxh9rMCZd+VqMKK57TsIjB6ASgYtOw4=;
-        b=aw2NmU5mXIfml8zWv2yXkgGBsdqu0t1jHUU7WofPUO5XM93i9Id2hMdudHcF3xP4Bt
-         gndhdLLj6iSmZdDlUp8knzGn+AjdVC04G8TCXIkouk7gAtkgCiqZjbo9rb7A+4YpLG9i
-         DTFhf1W20CWS11DtXdXNq2spKqNYuLnRGnvSO8k3QBpTskFPW+4BL4gYYq/jVZut+zKY
-         cabPckCi3C55CjRPgcVnzV+du220fYI7mjU3ydGU0p741gRVqGFIapvLGQURFOOfv3o2
-         4906pe2WYq0QGwkqb83H1VMVThVX/wRgSWBrTpCk8CI/c7B1BGVD2WNXvBPsmK2Kc3jr
-         bIdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795501587; x=1796106387;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=k13cl8AnOgXOYxh9rMCZd+VqMKK57TsIjB6ASgYtOw4=;
-        b=GFz+TDTQsMTxVxRbY5K1/m4ct9CkvKJxjxe9nr7De0m0BU2wEwO+Do4ZcPMJ6aDGhr
-         CSIaIia7VqJjUCM4kNi9w8wzKiBO2KvJq7lMQwd82jsBXv6YyjLMI6tSsoq/64NTJGCj
-         QuY38wZIo5ZxFlQHB0UhRRmF8+jOXHqGQ3g/zJxrMfY4WPxJtLks9056mRfBxHykW9RL
-         ljy2Yj1zZzKVR0+4gfAU4dTOw9fWY7wZZFM9uLvjLLhJv0jO2IQAGMPdnrV6LQCP5ufI
-         eldX4FVZ8I/CeGrfspVGjXI/lJqRyKeYtrR1QndbHK7//rCFHUI9mhrwQJSh/joGAsLj
-         z6yA==
-X-Forwarded-Encrypted: i=1; AL+hErEi8JLTFDSVR/6jyeByuJQ1QUftetBCTL2qirLbLYsuaIAz8nQwhc/paK6azkGkJRLQ3vuMPsPtEWehkX4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+/NcRL6lHw97U8AYk0SjyR6hASNbwm1zntNRy6acYlb2kV8l20
-	sFxYGhbHognLl8PlI+7Hej36p7hRtNG8fBfULAN3x+fKD3e0L7EKIKur
-X-Gm-Gg: AZFdTZeybmG9TaLZNw1FJYZuwcD6zczfwadvHIKcdih6MO6eNbx5DUge8Cdpd9JSTlG
-	A4X4Ee30cABmjEpMYP3pjXtvkehfibTvh4TIzGChDT50achMSDo6JqlLFztmUR1fEPR31t6LJpE
-	9VEOk4/F17th4X5x8Vb//1Dj3ig3lTAaBU6DlxYW3OSKHZm+6lTRfaAAvJn1EAQGo7EdmIHWph0
-	fQkR9hNy99ZB6tHPi/HXRqxhZhZNQZuTPR1d9E3IVY7K8EU821UWlMZEXgZpkOACg7wyODFuYbO
-	DLObDPhkXjb/jH6PyZiwbhWnTi4ZzJjq9ZRqGZS6z05+tSxe7O5FwvYuetRf1vzXNEdqrC/Cw/D
-	iMmDJxjyysD6Y30+MQ+2LxEcsesY2jaNORhkDPuB/RR4txdtjkOJotUfiuH1oGO0A3L0LJrAHLt
-	huwzwpnHw17SM/I0++rap8K7VwHtkhbZVb7AX2JxoO0BE1bW08NQ4buC1HqN0jFB21A3SSVmJ+6
-	YePApMcuFog4XMcgG4cpr9+zcRNXEI8EQdfOBwjS3LrWuj9iv9S4BucNTne73OWXq0M4kVyCRIO
-	CwjI4LeRof7391ugAx+mqaeFsJHfkReqIZ1yBF1D+WgKFiHZ1H9bnbWWMxaG/52ZRZlXTCK7
-X-Received: by 2002:a05:693c:880c:20b0:386:ab85:a011 with SMTP id 5a478bee46e88-386ab85a718mr6427409eec.27.1795501586545;
-        Mon, 23 Nov 2026 22:26:26 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:ee3b:b892:771b:3bc7])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm72739389eec.3.2026.11.23.22.26.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 22:26:25 -0800 (PST)
-Date: Mon, 23 Nov 2026 22:26:22 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Alexander Letuchiy <asalde.le1@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@mediatek.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Mattijs Korpershoek <mkorpershoek@kernel.org>, Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-serial@vger.kernel.org, 
-	linux-input@vger.kernel.org, phone-devel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v3 4/7] dt-bindings: input: mediatek,mt6779-keypad: Add
- compatible for MT6895
-Message-ID: <awUuAzGu3ZoADKyB@google.com>
-References: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
- <20261123-initial-mt6895-v3-4-95c46597e63d@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=VYsPcOyA
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=r2VL/0aEgO4eKDKOiYsncvbfGzRHrO9uCcvMnl2AXpw=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795501594; v=1; x=1796106394;
+ b=VYsPcOyASWC1hjVAfqlqtYh14koqDGckaS/VCIzA2YZevvL9G2OsybrzLTatnjxEyUhGIkPF
+ FYLzhZQQuM3BBZHTzoJOEs4Jl8goRv4s1nVmPxVVfzZ5gRHMeEXoliDIIArYT0LkDU6EDuW3xlx
+ ihXQ0jfLkC2EunF+fLoxENlc=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 734e0f106dabc218;
+	Tue, 24 Nov 2026 06:26:33 +0000
+X-Mizu-Trace-ID: 734e0f106dabc218
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: netdev@vger.kernel.org
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Neal Cardwell <ncardwell@google.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Florian Westphal <fw@strlen.de>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org
+Subject: [PATCH net] tcp: fix CA module refcount underflow in tcp_v4_syn_recv_sock()
+Date: Tue, 24 Nov 2026 14:26:24 +0800
+Message-ID: <20261124062625.264148-1-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,21 +73,148 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123-initial-mt6895-v3-4-95c46597e63d@gmail.com>
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 02:18:37PM +0300, Alexander Letuchiy wrote:
-> Add a compatible string for the keypad of the MediaTek MT6895 (Dimensity
-> 8000/8100) SoC. Its registers are the same as on MT6779, so it works
-> with the existing driver through the mediatek,mt6779-keypad fallback.
-> 
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Reviewed-by: Mattijs Korpershoek <mkorpershoek@kernel.org>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Alexander Letuchiy <asalde.le1@gmail.com>
+Issue found by sashiko [1].
 
-Applied, thank you.
+tcp_v4_syn_recv_sock() creates the child with tcp_create_openreq_child(),
+which inherits icsk->icsk_ca_ops from the listener without taking a
+reference. The reference is only taken later in tcp_ca_openreq_child().
+If inet_csk_route_child_sock() fails in between, we go to put_and_exit
+and tcp_done() ends up in tcp_cleanup_congestion_control(), which puts
+the reference unconditionally. The one dropped belongs to the listener.
 
+Seen with a listener using bbr (built as a module) and TCP_DEFER_ACCEPT:
+make the route to the client prohibited once the handshake is done, then
+let the client send data.
+
+  WARNING: kernel/module/main.c:969 at module_put.part.0+0x97/0x160, CPU#1: swapper/1/0
+  Modules linked in: tcp_bbr(OE)
+  RIP: 0010:module_put.part.0+0x97/0x160
+  Call Trace:
+   <IRQ>
+   module_put+0x13/0x30
+   tcp_cleanup_congestion_control+0xae/0xe0
+   tcp_v4_destroy_sock+0x103/0x360
+   inet_csk_destroy_sock+0xb7/0x1e0
+   tcp_done+0x146/0x1e0
+   tcp_v4_syn_recv_sock+0x73a/0x9f0
+   tcp_check_req+0x351/0x1130
+   tcp_v4_rcv+0xe82/0x22e0
+   ip_protocol_deliver_rcu+0x5f/0x340
+   ip_local_deliver_finish+0x19f/0x3a0
+   ip_local_deliver+0xc9/0xf0
+   ip_rcv+0x1b1/0x1c0
+   __netif_receive_skb_one_core+0xc4/0xe0
+   __netif_receive_skb+0x23/0xb0
+   process_backlog+0x27a/0x950
+   __napi_poll.constprop.0+0x61/0x2c0
+   net_rx_action+0x372/0x800
+   handle_softirqs+0x109/0x570
+   </IRQ>
+
+Options considered:
+ 1. Take the reference in tcp_create_openreq_child(), see the diff below
+    the "---". It adds a get/put pair on the passive open path.
+ 2. Point the child at tcp_reno (built in, no owner) on this error path,
+    so the put becomes a no-op. It works but looks odd.
+
+Instead, clear icsk_ca_ops on this error path and make
+tcp_cleanup_congestion_control() skip a socket without a CA.
+
+[1] https://sashiko.dev/#/message/20260606095014.2531B1F00893%40smtp.kernel.org
+
+Fixes: 81164413ad09 ("net: tcp: add per route congestion control")
+Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+---
+security_inet_csk_clone() -> bpf_setsockopt(TCP_CONGESTION) from a
+lsm_cgroup prog has a similar problem, the child puts a reference it
+never took. That one is being fixed in the bpf tree.
+
+The root cause can be fixed as below instead, but I am worried that the
+extra refcounting may hurt performance (not tested):
+
+    diff --git a/net/ipv4/tcp_minisocks.c b/net/ipv4/tcp_minisocks.c
+    --- a/net/ipv4/tcp_minisocks.c
+    +++ b/net/ipv4/tcp_minisocks.c
+    @@ -506,6 +506,8 @@ void tcp_ca_openreq_child(struct sock *sk, const struct dst_entry *dst)
+     		rcu_read_lock();
+     		ca = tcp_ca_find_key(ca_key);
+     		if (likely(ca && bpf_try_module_get(ca, ca->owner))) {
+    +			bpf_module_put(icsk->icsk_ca_ops,
+    +				       icsk->icsk_ca_ops->owner);
+     			icsk->icsk_ca_dst_locked = tcp_ca_dst_locked(dst);
+     			WRITE_ONCE(icsk->icsk_ca_ops, ca);
+     			ca_got_dst = true;
+    @@ -514,10 +516,10 @@ void tcp_ca_openreq_child(struct sock *sk, const struct dst_entry *dst)
+     	}
+
+     	/* If no valid choice made yet, assign current system default ca. */
+    -	if (!ca_got_dst &&
+    -	    (!icsk->icsk_ca_setsockopt ||
+    -	     !bpf_try_module_get(icsk->icsk_ca_ops, icsk->icsk_ca_ops->owner)))
+    +	if (!ca_got_dst && !icsk->icsk_ca_setsockopt) {
+    +		bpf_module_put(icsk->icsk_ca_ops, icsk->icsk_ca_ops->owner);
+     		tcp_assign_congestion_control(sk);
+    +	}
+
+     	tcp_set_ca_state(sk, TCP_CA_Open);
+     }
+    @@ -590,6 +592,13 @@ struct sock *tcp_create_openreq_child(const struct sock *sk,
+     	newsk->sk_txhash = READ_ONCE(treq->txhash);
+     	newtp->total_retrans = req->num_retrans;
+
+    +	/* Hold the inherited CA until tcp_ca_openreq_child() makes the choice. */
+    +	if (!bpf_try_module_get(newicsk->icsk_ca_ops,
+    +				newicsk->icsk_ca_ops->owner)) {
+    +		WRITE_ONCE(newicsk->icsk_ca_ops, &tcp_reno);
+    +		newicsk->icsk_ca_setsockopt = 0;
+    +	}
+    +
+     	tcp_init_xmit_timers(newsk);
+     	WRITE_ONCE(newtp->write_seq, newtp->pushed_seq = treq->snt_isn + 1);
+---
+ net/ipv4/tcp_cong.c | 3 +++
+ net/ipv4/tcp_ipv4.c | 5 ++++-
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/net/ipv4/tcp_cong.c b/net/ipv4/tcp_cong.c
+index e3f462f161dd..0f99405a78b1 100644
+--- a/net/ipv4/tcp_cong.c
++++ b/net/ipv4/tcp_cong.c
+@@ -271,6 +271,9 @@ void tcp_cleanup_congestion_control(struct sock *sk)
+ {
+ 	struct inet_connection_sock *icsk = inet_csk(sk);
+ 
++	if (!icsk->icsk_ca_ops)
++		return;
++
+ 	if (icsk->icsk_ca_initialized && icsk->icsk_ca_ops->release)
+ 		icsk->icsk_ca_ops->release(sk);
+ 	icsk->icsk_ca_initialized = 0;
+diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
+index f2a5c8f3bf9d..991fb249323e 100644
+--- a/net/ipv4/tcp_ipv4.c
++++ b/net/ipv4/tcp_ipv4.c
+@@ -1732,7 +1732,7 @@ struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,
+ 	if (!dst) {
+ 		dst = inet_csk_route_child_sock(sk, newsk, req);
+ 		if (!dst)
+-			goto put_and_exit;
++			goto clear_ca_and_exit;
+ 	} else {
+ 		/* syncookie case : see end of cookie_v4_check() */
+ 	}
+@@ -1790,6 +1790,9 @@ struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,
+ exit:
+ 	tcp_listendrop(sk);
+ 	return NULL;
++clear_ca_and_exit:
++	/* newsk holds no reference on the inherited CA yet. */
++	inet_csk(newsk)->icsk_ca_ops = NULL;
+ put_and_exit:
+ 	newinet->inet_opt = NULL;
+ 	inet_csk_prepare_forced_close(newsk);
 -- 
-Dmitry
+2.43.0
+
