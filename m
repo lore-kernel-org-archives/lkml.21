@@ -1,66 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.226.251.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.7
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795509599;
-	b=LbhPJA5JvlMIDFSq9QDKSACIGVG7N53bwmcSEa0tnt075Y8fV7rJqQIbLpwDgs6drDo/
-	 +6ZgT6XMei7Ddau4ZB3MmxITae3XZjn7r9IoKqPOrfK0c0vpmmT6hJtZyx3dj0FxopAt/
-	 U4XFWVIEaPCZ78c1C/daCfcZWZ2ti6t28qomi98hlTMMtsUjR59vHTE7QMArPqooW4NMD
-	 s+vXyjav9PU2bAwcvFxmF9SfHfL3CZkn29j864j7FpVgKnf+l7i/SprnDGGvgNt/nqQA/
-	 KqxBPyxIyXbR4/Jv8U0bgkY1d0yCQ6J9qPl1YJajZnYZQ5wCPJTTbmawr3GpxfRT55Q==
+	t=1795509652;
+	b=awbBUYl1WjZSFNc2EFRAa0lKsMmkLLBDW0jR3ZJLWxNR9DPKeHCnGMXv3jAiXnmaFHIq
+	 ZYcaV9NNhaOPgemXY15ujUpnQ8B3HsjdC5UUdVHYdZfpAvQpCV5kfHILYcy4nqAZ250Xr
+	 n+Nixa2XwaSoW2Ief1bTwY2HqTnjR2966kVt+frV4GBzUj6SghjtFyx8Lzta5dfG8mJhm
+	 cqIznfjZZ7BUYcrNSCUr6zujJ4D+k6b1o0ZneSHWfS5B9MWKyvapYlICd4Szw9r5/DVmP
+	 oVYYl1xnFomMVq72/VowCZ/aFFomH6X5r6I7UAV4VNPRvhZ2JL1o7Nd8db2mdEQbEAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795509599;
-	h=DMARC-Filter:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
-	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
-	 MIME-Version:X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795509652;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-CM-SenderInfo;
-	bh=nNq6TWbysgOa1vqC3EQFS0jj416q5gx+MqMAuTR/X8A=;
-	b=j82rhifJKTnr4lO7u0CVqzMXTV+Sb4RJ2uDoKOXYHTiHkGAo7EiVw0N98KYIO1cYD7ZP
-	 SIxXthlcrx1oSEduYqKRKL3TO7Lhb/1QELnbh0Rz6xnxs7gQdakmcAvNoFQpxn036ZnHy
-	 F3tIJBTXkvTMPOcfJSrZK1YnUupgf7qbVKwGbuoqlJFkFtTMOFEoHf91Tqt5oVVo36j1l
-	 26X8BP4/ujr6f5JitVjuKula0LOLHWikNVnm+B+w5Fw4GwuQCn1v7FsnPkSxovWr53+Dx
-	 ZaieWRHiunzJDDB+gPgq/Z2i8edbAyskXuUIleeIE+Ebz2seNTVoveuhjQ/ds7auPxQ==
+	bh=yBAvRyWbL7QUO9pLfGWUQb/VkfBPAgOVLK0jSI/x4B0=;
+	b=TwnnrdYDcPYm8tSaW3o4yoYe4QVBGEcv5lGFC3fkepIYkvhHRD4nBL9we0XJ3EM8TqYs
+	 53A3mcRi4CNn4hO8cBGrty53O57w8fl9pirVz6/o8vtwmEc/tT5mxOTTPhBK3yfEk1JZj
+	 ZV5flpKScWUdLOV0vO4MO09QtLvD+vw9xF4m6M4DuAOBva+re3/7q0gbbIJs4SH61qUAF
+	 pmMAOFco/NWzhQfGIIqsZaNPsNDIBFrC/5Nu2pVJxHdUmW9ZxHhKllr7NWAdAKuavp0HX
+	 BdzZG7u36frHCVL4sHv9vKrncyitiVXUWO3tHyHv19jjeWDVPwRMc/HpBZw//f5GbvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iscas.ac.cn;
-	spf=pass smtp.mailfrom=iscas.ac.cn;
-	arc=none smtp.remote-ip=159.226.251.21
-Received: from cstnet.cn (smtp21.cstnet.cn [159.226.251.21])
+	dmarc=pass header.from=126.com;
+	spf=pass smtp.mailfrom=126.com;
+	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=mlAKOURw;
+	arc=none smtp.remote-ip=220.197.31.7
+Received: from m16.mail.126.com (m16.mail.126.com [220.197.31.7])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75EFC606A32A;
-	Tue, 24 Nov 2026 08:39:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75EFC606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iscas.ac.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iscas.ac.cn
-Received: from edelgard.fodlan.icenowy.me (unknown [120.85.97.139])
-	by APP-01 (Coremail) with SMTP id qwCowADnDfhFTQVrj+mUAQ--.9372S2;
-	Tue, 24 Nov 2026 16:39:34 +0800 (CST)
-Message-ID: <6fd9adfbb46959316ea18581513e21a71732df80.camel@iscas.ac.cn>
-Subject: Re: [PATCH v3 0/2] drm/bridge: add glue driver for T-Head TH1520 DW
- MIPI DSI
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong	
- <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
- Pinchart	 <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Maarten Lankhorst	
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Rob Herring	 <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley	 <conor+dt@kernel.org>, Sandy
- Huang <hjc@rock-chips.com>, Heiko =?ISO-8859-1?Q?St=FCbner?=	
- <heiko@sntech.de>, Andy Yan <andyshrk@163.com>,
- dri-devel@lists.freedesktop.org, 	devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, 	linux-riscv@lists.infradead.org, Han
- Gao <gaohan@iscas.ac.cn>
-Date: Tue, 24 Nov 2026 16:39:33 +0800
-In-Reply-To: <c89271be-85f9-41ba-9c19-c78743d212c8@rock-chips.com>
-References: <20261124-th1520-dw-mipi-dsi-v3-0-ffcf2d87971b@iscas.ac.cn>
-	 <c89271be-85f9-41ba-9c19-c78743d212c8@rock-chips.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E480606A334;
+	Tue, 24 Nov 2026 08:40:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E480606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=mlAKOURw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=yB
+	AvRyWbL7QUO9pLfGWUQb/VkfBPAgOVLK0jSI/x4B0=; b=mlAKOURwjdkYdHmb4C
+	V5KSIpAysT9gwBPfcYINCZOLAIuVoU1bbiwtB7WLp/cxNYauEIxkJJTCq9UPD5Ca
+	yfmZzXaEpmto3g8T2IxGXznnnhFeAoLS50dkfNccFhb0SdmVZWhJxJZLHsSzj2WD
+	So9rYMF0Ky+6v6if7UspVbO6M=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PykvCgDnz8ZaTQVrdmcGEA--.40280S2;
+	Tue, 24 Nov 2026 16:39:55 +0800 (CST)
+From: Linkui Xiao <xiaolinkui@126.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	rosenp@gmail.com,
+	jacob.e.keller@intel.com,
+	daniel.machon@microchip.com,
+	chunkeey@gmail.com,
+	kees+treewide@kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Linkui Xiao <xiaolinkui@kylinos.cn>
+Subject: Re: [PATCH net v2 2/2] net: ibm: emac: read the fixed-link status before adjusting the link
+Date: Tue, 24 Nov 2026 16:39:52 +0800
+Message-Id: <20261124083952.2480442-1-xiaolinkui@126.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <e20245d2-f771-4708-89f3-46c9de1d2d81@lunn.ch>
+References: <20261123093201.770552-1-xiaolinkui@126.com> <20261123093201.770552-3-xiaolinkui@126.com> <e20245d2-f771-4708-89f3-46c9de1d2d81@lunn.ch>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,95 +73,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-CM-TRANSID:qwCowADnDfhFTQVrj+mUAQ--.9372S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXw4fCr1rGry5Xw4DtF47Arb_yoW5Xr43pa
-	17GFy3AFWDJrn2gF97tw1rXFW5Xws5JFyvgrW5tw1fZws8Wa4xXF9Fkrs8WFy8Xr1fuF12
-	vF40g34fWrnFvaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvGb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
-	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa
-	73UjIFyTuYvjxUVuWlDUUUU
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:PykvCgDnz8ZaTQVrdmcGEA--.40280S2
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU05rcDUUUU
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBlRuFXGsFTVthlgAA3Y
 
-=E5=9C=A8 2026-11-24=E4=BA=8C=E7=9A=84 16:24 +0800=EF=BC=8CChaoyi Chen=E5=
-=86=99=E9=81=93=EF=BC=9A
-> Hi Icenowy,
->=20
-> On 11/24/2026 3:56 PM, Icenowy Zheng wrote:
-> > T-Head TH1520 contains a DesignWare MIPI DSI host controller paired wit=
-h
-> > an internal DesignWare PHY, as a similar design (but with a different
-> > PHY) with the Rockchip DW MIPI DSI.
-> >=20
-> > The functionality to write to the PHY is shared between these two
-> > implementations of DW MIPI DSI, so it's extracted from the Rockchip
-> > driver to the common code. (The same sequence could be seen in the
-> > HiSilicon Kirin DRM driver, but that one hasn't been converted to commo=
-n
-> > DW MIPI DSI.)
-> >=20
-> > Tested on a Lichee Console 4A (with a Mingjun MJ070BI30IA2 panel) with
-> > further pending DT patches.
-> >=20
-> > One question remains: I have to copy the extra lane bandwidth headroom
-> > from the Rockchip driver, otherwise the Mingjun panel cannot keep sync
-> > to the display signal; from my testing, changing the hardcoded
-> > PHY_STOP_WAIT_TIME from 0x20 to 0x2 (which is written by the vendor
-> > driver) can also make this panel to work w/o the extra headroom. I want
-> > some advice on whether to keep the extra headroom or changing the commo=
-n
-> > code to make the PHY_STOP_WAIT_TIME parameter adjustable.
-> >=20
->=20
-> Does the DesignWare PHY databook describe about PHY_STOP_WAIT_TIME?
+Hi Andrew,
 
-Unfortunately I don't have the databook for this specific PHY, and I don't
-know whether this field is a PHY-specific value.
+Thanks for the review. Both of your mails arrived after v2 went out, so
+2/2 still carried the phy_read_status() that the other one rules out.
+
+> As i said in the comments to the previous version, this is wrong.
+
+2/2 is dropped in v3 and the series is one patch again, keeping the
+phy_disconnect() / of_phy_deregister_fixed_link() teardown from v2 1/2.
+The link status is now read by the phylib state machine rather than by
+the driver.
+
+Answered in more detail in my reply to your other mail.
 
 Thanks,
-Icenowy
-
->  =20
-> > Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-> > ---
-> > Changes in v3:
-> > - Fixed a remaining `syscon` in the DT binding.
-> > - Link to v2: https://patch.msgid.link/20261119-th1520-dw-mipi-dsi-v2-0=
--9ab5f9808f87@iscas.ac.cn
-> >=20
-> > Changes in v2:
-> > - Changed `syscon` to `thead,vo-syscon` in the DT binding.
-> > - Dropped the patch moving common PHY write routine to dw-mipi-dsi
-> >   common code.
-> > - Fixed a few problems pointed out by Sashiko in v1.
-> > - Link to v1: https://patch.msgid.link/20261030-th1520-dw-mipi-dsi-v1-0=
--753f34fd304f@iscas.ac.cn
-> >=20
-> > ---
-> > Icenowy Zheng (2):
-> >       dt-bindings: display: bridge: document TH1520 MIPI DSI controller
-> >       drm/bridge: add TH1520 DesignWare MIPI DSI host controller
-> >=20
-> >  .../display/bridge/thead,th1520-dw-mipi-dsi.yaml   | 103 ++++
-> >  drivers/gpu/drm/bridge/Kconfig                     |  12 +
-> >  drivers/gpu/drm/bridge/Makefile                    |   1 +
-> >  drivers/gpu/drm/bridge/th1520-dw-mipi-dsi.c        | 570 +++++++++++++=
-++++++++
-> >  4 files changed, 686 insertions(+)
-> > ---
-> > base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-> > change-id: 20261030-th1520-dw-mipi-dsi-580d5b2792f9
-> >=20
-> > Best regards,
-> > -- =20
-> > Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Linkui
 
