@@ -1,112 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795524998;
-	b=5m45jrSDJFT1Pv7OhzMbo9OXGMZF81YOF/8jBKHGR+a76EMpebLRXAk7ASyZAfK1dB3W
-	 nZ+Z/UFoE7JhpdoUmml+3THfLE/KEWXXExsNWXCUrRf7cFJMaD04jsDFfHQJ2bycpks4M
-	 ApW6AO2CzcCx7wt9GzMRm112otQA8RKEhRQ/wErY4j2CA7+ewmWiwp9vmlUnVGJ2yTYKI
-	 t59racq+WVFjH4zLmcSR2m0Yn9BI7+Oigc8RpVTdGgWIc4qy7lCD7i4r3MKrePLCG8WJ6
-	 PMHj6uWmQOhCstYQF81x6dOTwrTade5JKox4kACj708PuXGfaZVGTjDir1OhgycQPyQ==
+	t=1795525035;
+	b=Y/avzTzKhrJ1+c9nU/+nStqqLa5F8/IHb7CFpWl2oyUiZ4SFAj+yE1Ztd+T+EmU4DUQf
+	 k9GACWlbIAkDMKWYaKiuQgP473sgtf9FygMTPy9duNHOLd1K74FryqqiaV9TsInbXnJGb
+	 OoTWaj6ZQR/ySdSd7vzCcK8Q6jwgfkMpSk3y6j619Nj8E2cepr/aC0S6EuCg370LW/2B+
+	 o5qjujAAGCP2k3hbQjnU3EwvPqpL7wx4zfq+rKnWtEpNAzflGbRI52SPbWuDZ0v3IJeWA
+	 8Zgm67FUG5HhqGpl8yqrodgymT3+s6LU38RleufHQkUJMGm//8sh6jyI5Rh7S86PyDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795524998;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=9oES+zTBCcykoKXXZVrUciLOTnpuEmEfvSoDUlTPuAk=;
-	b=uwJ5I7H+xSK3JdyJ7q1L8c+gLcdzwHaxTeQyDxymSgUJ0hBB5XqqTxMf1JkZNj2I/XtW
-	 XdH5tpLLaB8F1RQGrhOkerK0PTb1YDrloWnLQMqhxxQzBUUzTtxBp11rQb7MFO1lQZq3l
-	 SkJIlXoQlxbaFcqXILI9A/YzJsrNrCDVPDaZ8EqOfvV4601bJ6jS3lbF/CYYB5OUQnPy3
-	 2h/b3yYLDDYFMw3+bsqTEaMNvROFEi+1MwHw8NFusou73PGyVeiPzhrV/dJe/zxJyrSXl
-	 WWJE8Zdb/znrj2jdm6dM61uc1H4rocSxyje0Pcpu3xsJWSGUX98tM6ZcnuBr++FCVnQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795525035;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=XvBo39oa7bpeKA03NVP1pIOBu5yhj0WFEtus/hl+7BI=;
+	b=z17phJJrSP2XSFtnNvTRe6dYgn+fHplgSoGFNJXetWfDep4VD0gh4q3zbMH+wEl7NzKu
+	 r4kYPmIyW1h6tLLccaMe2zLCo8UsmVaakrPrL0h6Eho0A8Dr7eLqACnyqSZKV+m5PQ8pa
+	 zae8EWl+cgKhe5Am8USdhUBsNcMNGxwlmDvXjroJK8yShOXK3p8w9DxwLborz68bD0mld
+	 3wqtTePnhF017e9MqUMuVuciZbeGFOTI1gVBNCg7R5JNO5b4olXfKPTS3d3f+5k1c6jki
+	 U4bRYvYPdyLpV8Z7HCwV/8ULvlKPCPuMVAYZPZo7sW0FMkOEmP4HgAVfb3QOn/Nbl8g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=DF9l6fBh;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=U6sVP8mx;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b8rrhvUi;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 464CE606A32D
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:56:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 464CE606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE18D606A31E;
+	Tue, 24 Nov 2026 12:57:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=DF9l6fBh;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=U6sVP8mx
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOAuVB51736780
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:56:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	9oES+zTBCcykoKXXZVrUciLOTnpuEmEfvSoDUlTPuAk=; b=DF9l6fBhukovloIC
-	lPAH3FWFLecA/J39y/gmIcTRUZ4Lq6KdDnf7flVguXLxS98olplmggiZUXMdOIB1
-	+JlpZBE+CaOqvVWntozlbjrGn6AftMMOpc8LyhzNuhibzbGLIz0/Zt9nW3v8RW5q
-	w/F/ZoQAYlFQNrSu/yZ8aeWv5iZjgv2EJPhYqJCjy00T79DfpxAfSxSM/SNeXj4M
-	rQcE5pKEZCYXh9LTd81L8LsMXbMw0XKfa5vyEiCfqs64YvY18Y82JnqGBgB2n4Iv
-	GiiS60bcEkckNkgC3aYBeqNE2JmW8vKrZuL4Bv2vZ3Wrm5hTNG1EJJRis2JmeqdY
-	NcTLZA==
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4yvd2sur-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:56:37 +0000 (GMT)
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-8aa185840bdso3147979b3a.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:56:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795524996; x=1796129796; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9oES+zTBCcykoKXXZVrUciLOTnpuEmEfvSoDUlTPuAk=;
-        b=U6sVP8mxSKlvEm/EudUn3ZAej40wOKduQD5NpBGJqkNLRX9WC0UvxxQ2E1Xjep/O2x
-         Idkq77kpvilQ+6Loj8UnNwkOSwR9qp0RmjsPDZgNzXmzvC76q/Tlqt/inVbcIQMFOgNe
-         Eq1beSkFD+isz/6vWfBm5YYBBh8KZsRBvCxSzE+sFXWQJQLuyfedCmfjEyVy1Gteb2Nj
-         K1q9JNsitszecM573L/j4MG2cCjUTDMDid5Ct/LOyS7tIf8eUTVl/RbsoL/w5kMLHTRi
-         CQAGsXsAeEG8xgv1NGvVQ+MJS/4TknMKpwh2p2JPhqqXyaUWKk2Qa3ofPCW/JChA8KnE
-         DYBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795524996; x=1796129796;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9oES+zTBCcykoKXXZVrUciLOTnpuEmEfvSoDUlTPuAk=;
-        b=B7ETwOVtPvSyBaqQfWpylYykr1bZBdQ5flWo/GBcXDzmWmEIxCYbHiZVsGHM9+NwXp
-         Sr+iwA/+V7dOgCrqtlf3IpdkLLCZ1/Gx4tuNdIsxGp5Wgip89iOZyf9j5KRq4kSQFsyn
-         CN3IJetJiWd+74hZeznbHhsmNk386Onp+nhf2/te1SSph7JcnpwOgUBZzmeUADq4Z+K7
-         CpwOnD3NzigKLBwry67VfvdqdzUaJckV8UT8/MesNXHgi1iPYyRCkZbn9nRNVmtfHjGX
-         PGKGpT+VEryyA1BvXdD2fMcy3F2w/rYlGxHTIylAdeGV7jtyCoWfZTxi8ibxtAvO804o
-         MnQA==
-X-Forwarded-Encrypted: i=1; AL+hErELVK33HC5DhQ140A5Kir1QyMRKiqLPBLRZk4hXMCiplTLKJCIvIccRWI1oB0hbfWvRuWT3vLgUKWTGiq0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9lNP953giOhJ9ji3Q+Iy00pl8kFWVxFR2GyhIW0ZWYTY/tGYNP
-	IwPffiqWO9NVwZ3/lmHc82vBdmMA318eEuZebk0vckABZaisSrkMZP8C9XUEwcapRn1wlf5B8yt
-	cs21fMufTc/UlJJTpobTzsM3iw/th7ruEOGG4/Y0rykqC26btUT7LSofuhmBwSqryuKc=
-X-Gm-Gg: AZFdTZeLd2YGgYLI/j8bUpiym8enZfEhj29IlHdRaJt+BruG6oaRDKSpCZR39TH9WQy
-	aBtTU2zV5w7V3Mth8Vk0n9fjposq5KEdmhiwvuoHhEC4CDXG07Zww/H3Mo91dgW9lqYe2/Xcm7O
-	WhiqsMz8l/wB3Gs+JmPPp4UlLAIEVMR3Dx0cJs9gmP2/v6KprImfSABunf2ZgXX7kCVv8UecyBQ
-	oloIHFnoFHKr4BogQsxffYdkjkg+d0iKuicoYEl+wEfQMEgSftaLJJ/gbMRDRZoIIAFMDYXXUpw
-	pGa9/C2mQKREo3/c4K5yIjrQ9r3U+SgPzzKF/aDB+yb8LVEoAav3vOZeTfCcT4FgPPiZouxztYw
-	JRynUwexW424b0nsk4rkSrij720jKJpELA5cjqDfkqXfsNXM6zFZePcthRXj5rSepc6J/RUDr1+
-	OdFQ==
-X-Received: by 2002:a05:6a00:4c19:b0:8b5:f313:9f54 with SMTP id d2e1a72fcca58-8c87d32b35cmr12156939b3a.56.1795524996079;
-        Tue, 24 Nov 2026 04:56:36 -0800 (PST)
-X-Received: by 2002:a05:6a00:4c19:b0:8b5:f313:9f54 with SMTP id d2e1a72fcca58-8c87d32b35cmr12156914b3a.56.1795524995577;
-        Tue, 24 Nov 2026 04:56:35 -0800 (PST)
-Received: from [10.204.78.119] ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285c263sm7146216b3a.11.2026.11.24.04.56.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 04:56:34 -0800 (PST)
-Message-ID: <0747efbf-c712-4185-b08a-82c82a49b4a2@oss.qualcomm.com>
-Date: Tue, 24 Nov 2026 18:26:27 +0530
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b8rrhvUi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 715FE1F000C4;
+	Tue, 24 Nov 2026 12:57:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795525035;
+	bh=XvBo39oa7bpeKA03NVP1pIOBu5yhj0WFEtus/hl+7BI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=b8rrhvUikY9XPyDwKdD2TMncflHFV8e+wbmxKQ4QphZNP2Jy8JD9raSLZHpmEz87w
+	 pMrrYBdpEQVTqFZGUDWVh4W0hgY67f2uM7pg618hvw1Kd052+gWy5QcJi9w4le2e1j
+	 +EBnfO/uOfUZ+qBakCkEG+YOuc2VXLkWafL2iyWlH8DzCSNBeWBDOqqTuTDR9DAGlD
+	 mhHkY5C5hAEEhv4DBaaUFN4m/Ct6ICFKkc0e352cbU0s9HgZUFuvM7I69GHTmnJ/N7
+	 lQQlJbfexhk+yLLgjzrUklGWTK8HXxqPNMehxV6c8/t3OXjHMACvOgYobee95K/7FB
+	 ep9mRUzvMKasQ==
+From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
+To: Magnus Karlsson <magnus.karlsson@intel.com>,
+	Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Alexander Duyck <alexanderduyck@fb.com>,
+	Saeed Mahameed <saeedm@nvidia.com>,
+	Tariq Toukan <tariqt@nvidia.com>,
+	Mark Bloch <mbloch@nvidia.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Michael Chan <michael.chan@broadcom.com>,
+	Pavan Chebbi <pavan.chebbi@broadcom.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>,
+	bpf@vger.kernel.org,
+	netdev@vger.kernel.org
+Cc: Stuart Clark <stuclar@meta.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Simon Horman <horms@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Mina Almasry <almasrymina@google.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	kernel-team@meta.com,
+	Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>,
+	Bobby Eshleman <bobbyeshleman@meta.com>,
+	Mohsin Bashir <mohsin.bashr@gmail.com>,
+	Kees Cook <kees@kernel.org>,
+	Breno Leitao <leitao@debian.org>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Tao Cui <cuitao@kylinos.cn>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	"Mike Marciniszyn (Meta)" <mike.marciniszyn@gmail.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Martin Karsten <mkarsten@uwaterloo.ca>,
+	Nikolay Aleksandrov <razor@blackwall.org>,
+	David Wei <dw@davidwei.uk>,
+	Pavel Begunkov <asml.silence@gmail.com>,
+	linux-rdma@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next 01/15] xdp: Let memory providers offer XDP a view of their net_iovs
+Date: Tue, 24 Nov 2026 13:56:36 +0100
+Message-ID: <20261124125654.183091-1-bjorn@kernel.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261124112707.118678-1-bjorn@kernel.org>
+References: <20261124112707.118678-1-bjorn@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,92 +114,159 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] Add Parade PS195 bridge support to enable HDMI on
- Glymur/Mahua/Kalambo CRDs
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-        Mahadevan P <mahadevan.p@oss.qualcomm.com>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Luca Ceresoli <luca.ceresoli@bootlin.com>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-References: <20261116-mahua-hdmi-v2-0-0b5af6bf9e70@oss.qualcomm.com>
- <357f0fcb-792b-4b40-84d2-cdfd05ca05eb@kernel.org>
-Content-Language: en-GB
-From: Nabige Aala <nabige.aala@oss.qualcomm.com>
-In-Reply-To: <357f0fcb-792b-4b40-84d2-cdfd05ca05eb@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=ZYeIpcVA c=1 sm=1 tr=0 ts=6b058985 cx=c_pps
- a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=p1ES9sUSU55KWy82zVEA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=2VI0MkxyNR6bbpdq8BZq:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA1MCBTYWx0ZWRfX4+2u0wP9rF5p
- DpYFjc+N6C+dnNKprHKVayFGq9bndgBGks71D/rMKgrEEXa+KyVHTTxGkBBYqlG7DThkeWoURbC
- fXKoDojXIAK4Opaxa+5pgWKeh7bhx5v6HGwFXkI4dmMnF/1qxMTm7ZUnJk0cCwndfk9l7loRL6w
- f2omnB+2biKX2dhuWxWKIf8H9SX/UZ5wIfbFBhMkSfrBXUNcEnbUZUxAdc0/6mtODxLu7vwPUzd
- 8WbTLo7V7aZ5Bwm7koCThPbuE4AKbrq5yKrucxVQZg9ck51dQ5WfPjhvkENJFUCMJdyIpAp+zoT
- FNFzgGGN27P8toKeJrOvHiwJCFolR+o4OPVnfdYh3zjZ9BGTmmbQxc6NveyEVxSsnbMud/jmPoj
- KP7aGRV7m/qFXRY7+WZKq5vJoLq4gkC60k2tE7I2naYz49vyC/cPRKkiihW0veqBwtD5nmjrxw0
- 69+qPZiEOLCvodUWnFw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA1MCBTYWx0ZWRfX9jlQRikPKtSY
- atYNNMkKGyNIAu8dJDhTNWHf+gP0ckBUsWfd9+0cwjUBS5xdtxycQvxtpdTnDn9Ihy1CN9lvmF5
- xSlEp70l53fqcolLYAwqIwcBRzhoci0=
-X-Proofpoint-ORIG-GUID: LTxF1OzOm7G5XAh3hiPAAlY6B5vKl1rU
-X-Proofpoint-GUID: LTxF1OzOm7G5XAh3hiPAAlY6B5vKl1rU
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_02,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 suspectscore=0 adultscore=0 priorityscore=1501
- lowpriorityscore=0 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240050
 
+Currently, a net_iov is memory that the kernel does not read.
+netmem_address() and skb_frag_address() give NULL for it, and XDP
+code, which takes buffer addresses the same way, cannot read it
+either. Some providers back net_iovs with memory that the CPU can
+reach and XDP must read, such as the UMEM of an AF_XDP socket that
+receives in the device's buffer layout, later in this series. io_uring
+zcrx could do the same.
 
-On 11/17/2026 3:54 PM, Krzysztof Kozlowski wrote:
-> On 16/11/2026 12:34, Nabige Aala wrote:
->> This series adds initial Linux support for the Parade PS195 DP-to-HDMI
->> bridge and uses it to enable HDMI on the Qualcomm Glymur CRD family
->> (Glymur CoB/SiP, Mahua, and Kalambo).
->>
->> The PS195 operates autonomously using firmware loaded from external
->> SPI flash — it handles link training, EDID access, and hotplug detection
->> without host register intervention at runtime, so no existing bridge
->> driver fits its power-sequencing and reset model.
->>
->> It introduces:
->>
->> - a DT binding for PS195 (supplies, optional reset GPIO, and port graph),
->> - a DRM bridge driver that implements PS195 power sequencing and PM handling, and
->> - arm64 integration (defconfig + shared glymur-crd.dtsi wiring) so all three
->>    variants can route DP over USB2 QMP combo PHY to HDMI through PS195.
->>
->> Deps:
->> PHY PLL change: https://lore.kernel.org/all/20261028-glymur-phy-v3-v6-0-1f1d2e565a66@oss.qualcomm.com/
->> Glymur commonize change for regulator: https://lore.kernel.org/all/20261106-topic-sip_cob-v3-0-52cd3826ab49@oss.qualcomm.com/
-> So this cannot be merged. DTS cannot depend on drivers patchset. We
-> talked about this multiple times already, please do not couple
-> unnecessary dependencies.
-Ack, I'll remove the PHY driver dependency in the next revision.
+Such memory is net_iov and not pages because it is user memory pinned
+with GUP. mm owns the struct page fields that page_pool takes over
+(lru, where pp_magic and pp live, and mapping), a chunk larger than a
+page lies inside a hugetlb folio instead of being a page of its own,
+and the provider keeps state per chunk. io_uring zcrx wraps pinned
+user pages in net_iovs for the same reasons.
 
-Thanks,
-Nabige
-> Best regards,
-> Krzysztof
+Let a net_iov area offer an XDP view, an address for each of its
+net_iovs that XDP code may read and write. Add xdp_netmem_address()
+for the head of an XDP buffer and xdp_frag_address() for its
+fragments, and use them in bpf_xdp_pointer(), bpf_xdp_copy_buf(),
+bpf_xdp_pull_data() and the tail growth of bpf_xdp_adjust_tail().
+
+The area keeps the address and size of the view and the log2 of the
+net_iov size, so net_iov i lies at xdp_vaddr + (i << xdp_shift). For
+pages the helpers give page_address(), and for a net_iov without a
+view they give NULL. dmabuf and io_uring zcrx areas are allocated
+zeroed, so they offer no view. AF_XDP sinks are the first to offer
+one.
+
+XDP may read a net_iov only through these helpers, and only if its
+provider offers a view. Such buffers must not become skb frags or
+xdp_frames. For the core and the stack every net_iov stays unreadable,
+netmem_address() and skb_frag_address() still give NULL, and
+skb->unreadable is still set for every net_iov frag. Other readers get
+NULL for a net_iov with a view too, so they fail closed.
+
+The other rules for providers stay. Native XDP runs next to a provider
+only if it opts in, and providers without an XDP view still need
+header split. AF_XDP sinks are exempt from both through MP_XDP_ONLY.
+
+Signed-off-by: Björn Töpel <bjorn@kernel.org>
+---
+ include/net/netmem.h |  8 ++++++++
+ include/net/xdp.h    | 34 ++++++++++++++++++++++++++++++++++
+ net/core/filter.c    |  8 ++++----
+ 3 files changed, 46 insertions(+), 4 deletions(-)
+
+diff --git a/include/net/netmem.h b/include/net/netmem.h
+index fb693bc1702a..4cf4ee1cd55d 100644
+--- a/include/net/netmem.h
++++ b/include/net/netmem.h
+@@ -104,6 +104,14 @@ struct net_iov_area {
+ 	/* Array of net_iovs for this area. */
+ 	struct net_iov *niovs;
+ 	size_t num_niovs;
++	/* XDP view, see xdp_netmem_address(): XDP may read and write net_iov i
++	 * at xdp_vaddr + (i << xdp_shift), xdp_vsize bytes in all. NULL if the
++	 * provider offers none. The core and the stack take every net_iov as
++	 * unreadable either way.
++	 */
++	void *xdp_vaddr;
++	size_t xdp_vsize;
++	unsigned int xdp_shift;
+ };
+ 
+ static inline struct net_iov_area *net_iov_owner(const struct net_iov *niov)
+diff --git a/include/net/xdp.h b/include/net/xdp.h
+index 07231adfb5f8..1629e347b71f 100644
+--- a/include/net/xdp.h
++++ b/include/net/xdp.h
+@@ -164,6 +164,40 @@ xdp_init_buff(struct xdp_buff *xdp, u32 frame_sz, struct xdp_rxq_info *rxq)
+ #endif
+ }
+ 
++/* XDP view of net_iovs: a memory provider may give XDP an address for its
++ * net_iovs, see &net_iov_area.xdp_vaddr. XDP code may read and write a
++ * net_iov only through these helpers, and only if its provider offers a
++ * view; such buffers must not become skb frags or xdp_frames. For the core
++ * and the stack every net_iov stays unreadable: netmem_address() and
++ * skb_frag_address() give NULL for it. A net_iov without a view gives NULL
++ * here too, so a reader that does not use these helpers fails closed.
++ */
++static __always_inline void *xdp_net_iov_address(const struct net_iov *niov)
++{
++	const struct net_iov_area *area = net_iov_owner(niov);
++
++	if (!area->xdp_vaddr)
++		return NULL;
++	return area->xdp_vaddr +
++	       ((unsigned long)net_iov_idx(niov) << area->xdp_shift);
++}
++
++/* Address of @netmem, which a driver uses as the head of an XDP buffer */
++static __always_inline void *xdp_netmem_address(netmem_ref netmem)
++{
++	if (netmem_is_net_iov(netmem))
++		return xdp_net_iov_address(netmem_to_net_iov(netmem));
++	return __netmem_address(netmem);
++}
++
++/* Address of the bytes of @frag of an XDP buffer */
++static __always_inline void *xdp_frag_address(const skb_frag_t *frag)
++{
++	void *addr = xdp_netmem_address(skb_frag_netmem(frag));
++
++	return addr ? addr + skb_frag_off(frag) : NULL;
++}
++
+ static __always_inline void
+ xdp_prepare_buff(struct xdp_buff *xdp, unsigned char *hard_start,
+ 		 int headroom, int data_len, const bool meta_valid)
+diff --git a/net/core/filter.c b/net/core/filter.c
+index f42ecfb5841f..d5774b2577e7 100644
+--- a/net/core/filter.c
++++ b/net/core/filter.c
+@@ -4310,7 +4310,7 @@ void bpf_xdp_copy_buf(struct xdp_buff *xdp, unsigned long off,
+ 			break;
+ 
+ 		ptr_off += ptr_len;
+-		ptr_buf = skb_frag_address(next_frag);
++		ptr_buf = xdp_frag_address(next_frag);
+ 		ptr_len = skb_frag_size(next_frag);
+ 		next_frag++;
+ 	}
+@@ -4338,7 +4338,7 @@ void *bpf_xdp_pointer(struct xdp_buff *xdp, u32 offset, u32 len)
+ 		u32 frag_size = skb_frag_size(&sinfo->frags[i]);
+ 
+ 		if  (offset < frag_size) {
+-			addr = skb_frag_address(&sinfo->frags[i]);
++			addr = xdp_frag_address(&sinfo->frags[i]);
+ 			size = frag_size;
+ 			break;
+ 		}
+@@ -4429,7 +4429,7 @@ static int bpf_xdp_frags_increase_tail(struct xdp_buff *xdp, int offset)
+ 	if (unlikely(offset > tailroom))
+ 		return -EINVAL;
+ 
+-	memset(skb_frag_address(frag) + skb_frag_size(frag), 0, offset);
++	memset(xdp_frag_address(frag) + skb_frag_size(frag), 0, offset);
+ 	skb_frag_size_add(frag, offset);
+ 	sinfo->xdp_frags_size += offset;
+ 	if (rxq->mem.type == MEM_TYPE_XSK_BUFF_POOL)
+@@ -12835,7 +12835,7 @@ __bpf_kfunc int bpf_xdp_pull_data(struct xdp_md *x, u32 len)
+ 		skb_frag_t *frag = &sinfo->frags[i];
+ 		u32 shrink = min_t(u32, delta, skb_frag_size(frag));
+ 
+-		memcpy(xdp->data_end, skb_frag_address(frag), shrink);
++		memcpy(xdp->data_end, xdp_frag_address(frag), shrink);
+ 
+ 		xdp->data_end += shrink;
+ 		sinfo->xdp_frags_size -= shrink;
+-- 
+2.56.1
+
