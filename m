@@ -1,54 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795528719;
-	b=4SaPTIneJGIs5gQRfej/2icxOMuaq88TzmC6ftmi2ueE2JRye/VBjG6sSYdCke3pzf7R
-	 WsiZ3Nn+RtFRQD3RHm8H1LP2im9DU/T5NaZXvK0pi7xeeTmt/i7ECCFiUPSRH5vvpoMBH
-	 SxtP+7EOlNTAeDKh+lDcX8aZx5cnwn5FLpL2TMF+Q1rOsrwz77Juh/6KC3ZLzrSUoe0eS
-	 yz9LGUBqz/+CVCGf+V2h74CZYY7NLbJvQ1DQAt84nDNj2q7r8xxBwBbdY8sVQYiTp11B7
-	 +C429jvVO7NmDFiMRmx6qJQcvuaOgpXCAS/fX3/LfDKGkr/1r7AC877vAkyowH9QNnw==
+	t=1795528725;
+	b=e0d0aAo3TBh+4/SvyjLqPu6Re79QCfg3I8uhsxzD3FvQKkRHcYM+QM99wDBrvgXGunyh
+	 qQfOJXJsm5c2dYhITC7FC98Svr9aHcW5CK5y6wkbO33zWRtmX7+pcpu9deFDYFpbBxO49
+	 ICoGsThBAjArek8zVhRNraBQ6/f/Wmb92uE8bnrq2fcY3bSn43QN3OommIkuULEBhD1oR
+	 MQ085VAK8ZvVjk7/I6fqB7zsjqX/8EdZQ5HwE0OSnDNLr35g+iJS5G58gP9nPi/bz26SK
+	 5cz6RHEvJ6uqb8MVPcivWannRsSOCOqTTcZuP+5H69pS3p9shomW0JzOU+yMgMT76rQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795528719;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=JbC4PGXeNQYt83pxY8JXiDjUk4U9HQ0DbJyhggtLv2o=;
-	b=Gc85hKnyh/U954aQKI8ZK7Qwv6xA9Kk10SJMxmQx2W98Vl/3jx+x3uH7Lalv7nWCxZvw
-	 dG7WgkDelT9ZaeSL9UOl+2yY6fwVs9fpEgFSE3lTOPKAB1wAdi8CZ2GqMn6SMi3gwJvTH
-	 QLye9uVlIZqCq10az2ZMAGhfcI6HNFjHfF1GjfOQ9pQ13EEkl4o3tx7qbLDoOEVu/k37H
-	 s7t24zGnVWE3wLRznqRgrlNC3qkEdirXfX+wqRSEw5GvtSxBz4XMjj9bFDHXSXjjCHEPQ
-	 GpF9J3JuOKByeYFBxBxfsLToa47Gcs3uxu+7Bo+DZ5NdFUFurSGZ3nh1CB4AXKht77Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795528725;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=UWV/2wtSmri4o3sL0eBk9QAtoQv6kUUvklQ+1DmEMto=;
+	b=sD8dw1hCyJXhD73bkmKAMTbVBFhRGVwiaEXksbLh6YmsYwH4rMf1aztdkGOFunQ+au62
+	 LJROFeHZyKGb0OYdE0sl3wKfoMnFfiwuty135X+s6Shmnl9rMDrStxvYGGVtDqy+wxz9f
+	 G5S00yFCC4rRzt0g+r4ASFq/3AcytLiDevu0beaPImrUTks15cbyvM8wBbQWJfaHQp3r+
+	 Sl7KowTAjLHODJPJiTz3jo6wfRjbi9SYpU0Z0Nno+rfXxDWxfwO2Mi8JbSiF04WBvHhN/
+	 eZZnWqtTvTWgcPaZgc1XzJlOsrRWWbXkWkcT0WoIQnSo/oa9lNJyeX3HrE8V3h1xmhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.sdu.edu.cn;
-	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
-	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=NeTFzsPL;
-	arc=none smtp.remote-ip=45.254.49.197
-Received: from mail-m49197.qiye.163.com (mail-m49197.qiye.163.com [45.254.49.197])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dlWMaQ10;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEEFC606A31E;
-	Tue, 24 Nov 2026 13:58:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BEEFC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20C4B606A32C;
+	Tue, 24 Nov 2026 13:58:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=NeTFzsPL
-Received: from lgs.. (unknown [101.76.249.61])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 55d4cdb99;
-	Tue, 24 Nov 2026 21:58:31 +0800 (GMT+08:00)
-From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-To: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	=?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>
-Cc: linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Andy Shevchenko <andriy.shevchenko@intel.com>
-Subject: [PATCH v2] iio: adc: ti_am335x_adc: Fix potential use-after-free on DMA unbind
-Date: Tue, 24 Nov 2026 21:58:28 +0800
-Message-ID: <20261124135828.2274815-1-liguangshuo@mail.sdu.edu.cn>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dlWMaQ10
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFF491F000C0;
+	Tue, 24 Nov 2026 13:58:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795528724;
+	bh=UWV/2wtSmri4o3sL0eBk9QAtoQv6kUUvklQ+1DmEMto=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=dlWMaQ10wlbTGUugt+naZw+NKoidgo0O2J7/km+IWB1cK3dvXlh0FnAlk6HAlhVep
+	 GSiP7huMz9AsrbrZGxqAdzxYJhqOuoBTrGKVhr9ulspjW+DH48zz5r+0G87BWWeHsB
+	 MymjlqFa3iKKZ1DIPLWOsTIKj9aYGzeaHVLp9frLZluCqOQ4w7jxBOTJPC4+IBoaYs
+	 YOJ+O3X5LU4k8AFn9yfImeeMJwLbwR67sZEZp5NBsVx6T6bsiraLursJAP2BurDtfc
+	 EdWWOluQD8hiePgIbXxAFgakvTJUn0ItlfE069e1hS0jIU2DTGHPwhrmgvvzhRAuQ6
+	 KmsFXrnYFd26w==
+Subject:
+ Re: [PATCH] rtnetlink: fix NULL pointer dereference in rtnl_get_link()
+From: netdev-bot+sashiko@kernel.org
+To: mdshahid03@gmail.com
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Tue, 24 Nov 2026 13:58:43 +0000
+Message-ID: <179552872338.3135.1493919120916016303@kernel.org>
+In-Reply-To: <20261120134548.214126-1-mdshahid03@gmail.com>
+References: <20261120134548.214126-1-mdshahid03@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,58 +62,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa20dd9dcc803a1kunmcddb6b51342489
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZHUNNVkIaSkJCHRoZGEJDGlYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
-	NMVUpLS1VLWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=NeTFzsPL8Zf+hyGjMSnEq77JuiyIi6oknvOZrAk5Ulb1zoWYs/Dh5i2CHZkvRnetknfFMuo6+/CTc+74o/Shcz1tfttNDnoXCkjjnFfdcMz29eO5QRp7tUj9b6Il+sFkIPROFMdKG6ZVXvMBlHEzsGqpV8KDgXKj+vWSR7mnfOA=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
-	bh=JbC4PGXeNQYt83pxY8JXiDjUk4U9HQ0DbJyhggtLv2o=;
-	h=date:mime-version:subject:message-id:from;
 
-A channel reference does not keep the DMA provider bound. If the EDMA
-provider is unbound first, ADC removal accesses the freed channel when
-freeing its DMA buffer and releasing the channel.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Link the ADC platform device to the provider so the ADC is removed first,
-including when firmware device links are disabled. The driver core drops
-the link on probe failure or ADC removal.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-This issue was found by our static analysis tool under development.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Fixes: f438b9da75eb ("drivers: iio: ti_am335x_adc: add dma support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
----
-Changes in v2:
-  - Use dmaengine_get_provider_device() to obtain the supplier device.
+- [Medium] The commit message describes a crash that cannot happen.
 
-  Backports need 61527d7e6998 ("dmaengine: add dmaengine_get_provider_device() API").
+--
 
- drivers/iio/adc/ti_am335x_adc.c | 5 +++++
- 1 file changed, 5 insertions(+)
+rtnetlink: fix NULL pointer dereference in rtnl_get_link()
 
-diff --git a/drivers/iio/adc/ti_am335x_adc.c b/drivers/iio/adc/ti_am335x_adc.c
-index 0c3e0e9e8364..c7f8bafe0f4a 100644
---- a/drivers/iio/adc/ti_am335x_adc.c
-+++ b/drivers/iio/adc/ti_am335x_adc.c
-@@ -546,6 +546,11 @@ static int tiadc_request_dma(struct platform_device *pdev,
- 		return ret;
- 	}
- 
-+	if (!device_link_add(&pdev->dev,
-+			     dmaengine_get_provider_device(dma->chan),
-+			     DL_FLAG_AUTOREMOVE_CONSUMER))
-+		goto err;
-+
- 	/* RX buffer */
- 	dma->buf = dma_alloc_coherent(dmaengine_get_dma_device(dma->chan), DMA_BUFFER_SIZE,
- 				      &dma->addr, GFP_KERNEL);
+This patch adds a NULL check in rtnl_get_link(). The check covers the case
+where the PF_UNSPEC fallback handler table is also NULL, so the function
+returns NULL instead of dereferencing tab[msgtype].
 
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+> However, the fallback table can also be NULL,for example
+> after rtnl_unregister_all(PF_UNSPEC) clears it.
+>
+> In that cass, dereferencing tab[msgtyp] results in a NULL
+> pointer dereference.
+
+[Severity: Medium]
+Can rtnl_msg_handlers[PF_UNSPEC] actually become NULL at runtime? Nothing
+in the tree seems to call rtnl_unregister_all(PF_UNSPEC). Its callers all
+pass a specific family:
+
+  net/can/gw.c:        rtnl_unregister_all(PF_CAN);
+  net/ipv6/addrconf.c: rtnl_unregister_all(PF_INET6);
+  net/ipv6/af_inet6.c: rtnl_unregister_all(PF_INET6);
+  net/ipv6/route.c:    rtnl_unregister_all(PF_INET6);
+  net/mpls/af_mpls.c:  rtnl_unregister_all(PF_MPLS);
+  net/phonet/pn_dev.c: rtnl_unregister_all(PF_PHONET);
+
+The PF_UNSPEC table is allocated at boot in the __init function
+rtnetlink_init():
+
+	rtnl_register_many(rtnetlink_rtnl_msg_handlers);
+
+Nothing frees that table afterwards.
+
+Modules that remove PF_UNSPEC handlers do it through
+rtnl_unregister()/rtnl_unregister_many(). Those only clear individual slots:
+
+net/core/rtnetlink.c:rtnl_unregister() {
+    ...
+	link = rcu_replace_pointer_rtnl(tab[msgindex], NULL);
+    ...
+}
+
+They never set rtnl_msg_handlers[PF_UNSPEC] to NULL.
+
+The callers in rtnetlink_rcv_msg() already handle a NULL link:
+
+	link = rtnl_get_link(family, type);
+	if (!link || !link->doit) {
+
+So the new check looks like harmless defensive code, not a fix for a crash
+anyone can reach. Could the commit message say that, or show the real
+trigger, with a reproducer or oops trace if there is one? As written, the
+subject and body read like a reachable NULL dereference fix, and stable
+backport tooling might pick it up as one.
+
+There are also some typos: "cass" should be "case", "msgtyp" should be
+"msgtype", and "NULL,for" is missing a space.
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120134548.214126-1-mdshahid03%40gmail.com
