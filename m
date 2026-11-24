@@ -1,79 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795540980;
-	b=1di0upwxuCs764Mh501ixuXIqd/4ePRWkf1F2QyygsmD7Ph12wVi00kLHYIxJRRDqxYY
-	 KkUCyVHRARhK4AcpF+7gANSyRgz5uG7PzehbHj4ArvoQbXJtQSZvOdSAiE5XoxQIbTcL5
-	 pqv0ql+4/NNrwk6UDIi/nP9FXwBxshm52PmR65YstiKL6Z1DzNAoKq4ySMZqpKAyy+5dZ
-	 gR/1yTe8n1Oiemmsk2QlIfCwQRjad1SSKF4gHDzpb+svj3xvNa9AT0NtG8wIKWfJ6/jFK
-	 swlrt/dU8EcZ1M+jhnTqYf8uVYOhxF6Fqu6NFwaswJjt+6fGV2fHqFsLYfl1h9u783A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540980;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=b8ZLLnYaqHLGaBzaZoD6higfVTAqlS3NyUpOKVoiu/Q=;
-	b=YXqVEpoa8mfI/iaToEXTtr0L8KrQsl/KqhOimUCm6o7eGIA2G2KPG6uncQepaQYN9Szc
-	 OXakj5Iyix2tUIXoNh+JOhW0FVEduC2qvOSyr20ib90I0RxPoyznqhBJ6Y0W14VcQnbBe
-	 K5niJPcaGxGcoTon5+YOZFKXdled7ZMfPE/Sxx5M4Sffxhb6cK/hp0cs3AqwO0YkWO+LL
-	 XKj239pad3oZZebQRuoiJecbfNE/jFN2kT19gpgME8Aw5Offh/0BZODPUP/U4LcEZfqOl
-	 BySsZgNl2Pv4QRIP8r3aQj80LZDcnqdXGxWFkMaJsgUylOwOMkuSuqbu/hydJjL6GbQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NIjntsdD;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795540990;
+	b=QSxmyq07i1Zpkl0fcBFETtNH7hJ2iEcMUz0ELzObYVoH0i2Kod9+zvu9RXnVsJKnoL1Z
+	 RK1ZL6oez/BnHqdXlszDZkf5Hhj9NGbnq4ErqW+7UoFGv17YYv+cwL1ooD8dDz3a9JV+O
+	 EKQGKqTd2+tYto6PKMch7EJ4N5tEsuXUQ8lPC40xTIxq3zoV34uLUCdllNBngMlfRTsCE
+	 BSVLd7tZDrodMH8GlJxV+HQ/k/RK9aaXE5jBOPUrLTTaa5Gsosv2VLfdNqjOg1FFXhygS
+	 BkuqyHpbqiCFarikHct902NI31i7ZPi+84q4UbyzFkHNb44vnNNid1MCZoazil6UK/Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540990;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ISLuAv+WyTAin19m+4GFCxS3knd9KXbnCR1jZVMEmIk=;
+	b=A8xBYpksxUg37J57RJj/97KIGd1pU4wFCwS3V0DIJjVnP87iFVdrJGK5+igYfAR9zNBs
+	 IQf7eWPlr1+GNyrZqsY6supyUEEwDTcTVJp+M/kNyceOG8gQxcqu5scR70p/Slzojb6pe
+	 dnmnoKeblI7tp/sb2yOEVs0VxuMZYbcnM3bDJ4x4VwWjmSmtiu8BafiNR5Uiws/m7cS2w
+	 OypkRn38UVxsV2nDTR5im71voG8hu9Px9Z446oMntiNjA43+hPY7LB39pC9o9AGOhplTH
+	 9waX7349juMHKkQ9SSt85jsBnYmhj1TTuaBkuBfienUe8GnY+d6EDEInTDw6cPcSBcg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q3hqHcR6;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE68E606A31E;
-	Tue, 24 Nov 2026 17:22:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66137606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:23:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NIjntsdD
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795540979;
-	b=SPfhxD7kDzjKdbnESFF1zgHGnR9A8TZCY/D5u0faWuADKb+n4otJ9GC7twSbGf6qNjrz
-	 SZt8u2dELYKa129seNz32Fg8TVEYrpc++wDv81DkLKLFBPZvX8WzsNPo4d76mfpH1OxjZ
-	 k73rT0DnuSKRWX3IWwyR9Hg527eRgbW6PNne6jxs+/++OFvBr4NtYvqXLHhKxmZRP6xRO
-	 nlnsiBjfGsKHmeWzpn1Gccv30Js/BRQO0JlaT3UiQz85KB3hA0dpnYPdHxo/klDk2nyPL
-	 8u2p/U2W79ykESb82Rw7mOO0+Xf/AaSaTHaeO9PLLQaAa6IAkWjRtenpi+/ggzlyWxQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795540979;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=b8ZLLnYaqHLGaBzaZoD6higfVTAqlS3NyUpOKVoiu/Q=;
-	b=VdH+CTsgLGTxZxhX8gTqAmzOQKw/gZkQMsDYVR6Tpf8ENiPDTKS14C0C6CuEHs650p+W
-	 WK4XGpUaIpGFepIhVVvTlOjs9mT43AnbeRHVylRouuqARwW3E1de9fp/f2OIaI1+DpoR3
-	 HQpPXifX8sycyxabwSlVHEXUAbPlAh4RM7sdHDH2dsV8wvcklc8b73iU1vuZt7sxEIrhy
-	 zXCeSyKO0AIezzCZDOZifQDHqoLrj+uV7qIOhVHGrRdyOOIoXaJwKLQIiXHVm6QOc6NN/
-	 HflXjN8by8KjHVlfv1iEwcmRS3yZ+TKgar5Mw0Gt2TchfyIwypVGG1ZeVwZlgNODXLA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 774301F000C4;
-	Tue, 24 Nov 2026 17:22:52 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q3hqHcR6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5869D1F000CA;
+	Tue, 24 Nov 2026 17:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795540979;
-	bh=b8ZLLnYaqHLGaBzaZoD6higfVTAqlS3NyUpOKVoiu/Q=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=NIjntsdDG/Snd2rrZiIOGvftQVgvfDAjkWKKCbLwS2J6udDPvvUZAalBLjBbiEKjR
-	 zsdX0K9si0H9rSJ4ki5giVxoIv0p3k9P3Za+ppka2gGz1lfgNSPBxlsFLk3Mx3sj2K
-	 QBnoKE2ieEbmFZq0btVajMF4bjHr9rjBnsCIk19O6j/vHUKdxrWMba242tjnLvoZra
-	 +zDzpyLeQpwo3ywkW4O5m085eufBe1QJ9wxpKOYkaPMw/nnswg1VhcGWeBw6hs4pT1
-	 FxmpyFQAOrHcTK7QZiczU+Yq0JsSfIvqVcFkCH3Z8iim4C6yX6Bcfp1hyCiMQS/faO
-	 seLufbq6FMiIA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id CF3424CAFE;
-	Tue, 24 Nov 2026 17:22:51 +0000 (UTC)
-From: Sai Sree Kartheek Adivi via B4 Relay <devnull+s-adivi.ti.com@kernel.org>
-Date: Tue, 24 Nov 2026 22:52:40 +0530
-Subject: [PATCH v2] arm64: dts: ti: k3-am625-sk-common: Add TPIC2810 LED
- expander support
+	s=k20260515; t=1795540990;
+	bh=ISLuAv+WyTAin19m+4GFCxS3knd9KXbnCR1jZVMEmIk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Q3hqHcR6IyvIp3CIR96l6pe8MvRJ3w0NF8ApqhHrGE5UhwGDcSCGwCPTwfhhV/DUn
+	 cycehnC4syzJ5mQmbeQkV58eWYwLaK/bb2aU5siZBLS+qPiyEboe9O4tXe29PGjViE
+	 yVSpXf5NEOGWEB4Tf5JIPNBzsGB/0Ai564nTTb4DoLO2HprRIb3TrUEFDe5ks6Q5D6
+	 QVSjYu/XiMzGTQ31qeoa96QytvhqZgKqFPEqOTvAve95oyvpE2zIrPHyM8qurkaCFh
+	 umTXf2tiIA/CQzLCtUNK1NRmuDUDVUOHzFNPg1b7+sINbpues4iksrmE8TEDclplbg
+	 ++ZFYLW4FcLiw==
+Date: Tue, 24 Nov 2026 18:23:04 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Sascha Bischoff <sascha.bischoff@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 04/14] irqchip/gic-v5: Retain the L2 IST when mapping
+ times out
+Message-ID: <awXH-Is5s6eqx8mT@red-moon>
+References: <20261118-host_gicv5_fixes-v3-0-13c1859e8aa3@arm.com>
+ <20261118-host_gicv5_fixes-v3-4-13c1859e8aa3@arm.com>
+ <CA+EHjTzPFjUOXCiccswH2xGvbiqgXPbSihov7MA0WuXn-SmrEg@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,193 +65,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-am62x-tpic2810-v2-1-91115ba8e2dd@ti.com>
-X-B4-Tracking: v=1; b=H4sIAN/HBWsC/3XMQQ7CIBCF4as0s3ZMmSqiK+9hugBK7SxaGiCkp
- uHuYvcu/5e8b4foArsIj2aH4DJH9ksNOjVgJ728HfJQG6glKQRdUM+SNkwrW1KixatWxplBGq0
- k1NMa3MjbAb762hPH5MPn8LP4rX+pLFAgmftozU3qznbPxGfrZ+hLKV8nbhlFqQAAAA==
-X-Change-ID: 20261124-am62x-tpic2810-5a8bebd6ba86
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Sebin Francis <sebin.francis@ti.com>, 
- Sai Sree Kartheek Adivi <s-adivi@ti.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795540969; l=4368;
- i=s-adivi@ti.com; s=20261124; h=from:subject:message-id;
- bh=ehVtq9ntD1a3UcuBE08CQeJf9PzsTkL2oMpSs6MAAtc=;
- b=tBbLfdDuHaobWR9sYvDmPJd8Y0sruMmEsKnGSRj8AH65Ihz+nauwVaoUUMNTGZFUQQ9JIYtpa
- tpTkypliMtoBqF47rJgMoM2WVdVm6nxrVC1vaP7NCsByHSaOXW5a29G
-X-Developer-Key: i=s-adivi@ti.com; a=ed25519;
- pk=EtOwVxmXDuYMgw3DqFtPDBpf8ZvbO89w1fJm4w5yPI8=
-X-Endpoint-Received: by B4 Relay for s-adivi@ti.com/20261124 with
- auth_id=1627
-X-Original-From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-Reply-To: s-adivi@ti.com
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTzPFjUOXCiccswH2xGvbiqgXPbSihov7MA0WuXn-SmrEg@mail.gmail.com>
 
-From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+On Thu, Nov 19, 2026 at 12:00:15PM +0000, Fuad Tabba wrote:
+> Hi Sascha,
+> 
+> On Wed, 18 Nov 2026 17:35:33 +0000, Sascha Bischoff
+> <sascha.bischoff@arm.com> wrote:
+> [...]
+> > diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
+> [...]
+> > @@ -217,6 +217,10 @@ int gicv5_irs_iste_alloc(const u32 lpi)
+> >          if (FIELD_GET(GICV5_ISTL1E_VALID, le64_to_cpu(l1ist[index])))
+> >                  return 0;
+> >
+> > +        /* A previous map timed out; do not overwrite its pending L1 entry. */
+> > +        if (READ_ONCE(l1ist[index]))
+> > +                return -EBUSY;
+> 
+> Sashiko's review [1] didn't go on the list, in case you missed it.
+> Sashiko found that l1ist[index] is read twice, and that on a
+> non-coherent IRS a map completing after the timeout leaves a stale
+> copy of the L1 entry in the cache for later allocations. Invalidating
+> the entry before it's first read would fix the latter. Invalidating it
+> on the timeout path wouldn't, since a later read can refill the line
+> before the map completes.
+> 
+> With those fixed:
+> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+> 
+> Cheers,
+> /fuad
+> 
+> [1] https://sashiko.dev/#/patchset/20261118-host_gicv5_fixes-v3-0-13c1859e8aa3%40arm.com
 
-The AM625 SK and AM62x SIP SK EVMs both have a TPIC2810 I2C GPIO
-expander at address 0x60 on WKUP_I2C0, driving 8 user LEDs. Describe it
-in the shared k3-am625-sk-common.dtsi, mirroring the AM642 SK support:
+Hi Sascha,
 
-- add the WKUP_I2C0 pinmux
-- enable wkup_i2c0 with the TPIC2810 node
-- add a gpio-leds node for the 8 outputs
+I am taking some time to revamp the current approach because as a fix
+it is getting complicated and there are corner cases that I don't think
+are fully covered.
 
-CONFIG_GPIO_TPIC2810 is already enabled in the arm64 defconfig.
+I suggest we drop this patch from this series for now so that it does
+not hold off the other patches that I believe are ready to be merged
+with very minor tweaks.
 
-Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
----
-Changes in v2:
-- Fix dt-check-style warnings: move led-controller before opp-table,
-  reorder properties, fix alignment
-- Pinmux alignment/line-length warning left as is, to match the existing
-  style of the file
-- Link to v1: https://serenity.dal.design.ti.com/lore/linux-patch-review/20261124-am62x-tpic2810-v1-1-2b9fcb76a3c3@ti.com
-
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-To: Nishanth Menon <nm@ti.com>
-To: Vignesh Raghavendra <vigneshr@ti.com>
-To: Tero Kristo <kristo@kernel.org>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
----
- arch/arm64/boot/dts/ti/k3-am625-sk-common.dtsi | 94 ++++++++++++++++++++++++++
- 1 file changed, 94 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am625-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am625-sk-common.dtsi
-index 8e07d2c2e62fd..2d2b82b0de8ad 100644
---- a/arch/arm64/boot/dts/ti/k3-am625-sk-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am625-sk-common.dtsi
-@@ -8,6 +8,74 @@
- #include "k3-am62x-sk-common.dtsi"
- 
- / {
-+	led-controller {
-+		compatible = "gpio-leds";
-+
-+		led-0 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_INDICATOR;
-+			function-enumerator = <1>;
-+			gpios = <&exp2 0 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-1 {
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_INDICATOR;
-+			function-enumerator = <2>;
-+			gpios = <&exp2 1 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-2 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_INDICATOR;
-+			function-enumerator = <3>;
-+			gpios = <&exp2 2 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-3 {
-+			color = <LED_COLOR_ID_AMBER>;
-+			function = LED_FUNCTION_INDICATOR;
-+			function-enumerator = <4>;
-+			gpios = <&exp2 3 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-4 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_INDICATOR;
-+			function-enumerator = <5>;
-+			gpios = <&exp2 4 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-5 {
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_INDICATOR;
-+			function-enumerator = <6>;
-+			gpios = <&exp2 5 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-6 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_INDICATOR;
-+			function-enumerator = <7>;
-+			gpios = <&exp2 6 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-7 {
-+			color = <LED_COLOR_ID_AMBER>;
-+			function = LED_FUNCTION_HEARTBEAT;
-+			function-enumerator = <8>;
-+			gpios = <&exp2 7 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+	};
-+
- 	opp-table {
- 		/* Add 1.4GHz OPP for am625-sk board. Requires VDD_CORE to be at 0.85V */
- 		opp-1400000000 {
-@@ -160,6 +228,15 @@ AM62X_IOPAD(0x01d4, PIN_INPUT, 7) /* (B15) UART0_RTSn.GPIO1_23 */
- 	};
- };
- 
-+&mcu_pmx0 {
-+	tpic_pins_default: tpic-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_MCU_IOPAD(0x004c, PIN_INPUT, 0) /* (B9) WKUP_I2C0_SCL */
-+			AM62X_MCU_IOPAD(0x0050, PIN_INPUT, 0) /* (A9) WKUP_I2C0_SDA */
-+		>;
-+	};
-+};
-+
- &main_gpio0 {
- 	bootph-all;
- };
-@@ -196,6 +273,23 @@ exp1: gpio@22 {
- 	};
- };
- 
-+&wkup_i2c0 {
-+	clock-frequency = <400000>;
-+	pinctrl-0 = <&tpic_pins_default>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+
-+	exp2: gpio@60 {
-+		compatible = "ti,tpic2810";
-+		reg = <0x60>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		gpio-line-names = "LED0", "LED1", "LED2", "LED3",
-+				  "LED4", "LED5", "LED6", "LED7";
-+	};
-+};
-+
- &sdhci0 {
- 	bootph-all;
- 	non-removable;
-
----
-base-commit: 566085204d669ed4bd0d8d230b10f94f963e2481
-change-id: 20261124-am62x-tpic2810-5a8bebd6ba86
-
-Best regards,
---  
-Sai Sree Kartheek Adivi <s-adivi@ti.com>
-
-
+Thanks,
+Lorenzo
