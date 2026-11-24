@@ -1,62 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795516012;
-	b=ssZW5gc/7Hi5MIv8iOFcyTkTN8MGyiqYdxAfcygduL4U4TkoNVlKtQww+RZG9veoO2eC
-	 +u0/i5U9fKqEbqVavFsdLZKVxoZy2gF3m+8XMFIl8Y+BIz3iNFZme4T39j355YTXE67Ma
-	 +2EV4YzhkyUtIlsvyAlDNEdBz1yDyYNGoL03BYb+Mn2c29OPrw7hjn7ewjv3yoYbWQbWI
-	 24BQHExkX3WHflufUghNvT7D4rfUx5ci/ZxvIfCpDPAagbvYfsf+hh1E6vfjT7uFr5OiM
-	 bNc3AvCmp5d5dXJ3KZ/CZRFdNm3xBKcKZfj7UtqQ6fFdyJb5b7RzePNmJPgWiUaVnrg==
+	t=1795516042;
+	b=aS+nddnN2Hav3PxGEGpnFuDACfJBvlebUiHfUX0pakdAHThl1ydeHJjrmSx2fe3dH6XI
+	 O6GPHehkt1marmB4OoANXfNjFtlUKUrN5080NlmhrJTlU/bnWitOUjcC3hmm25mM7XQAX
+	 7j2XD1WS+moPssDlhxVtzcpUzhD0V/kzCVIGBVJIKF345US8RDvSacK/7pRFssqvUEe0a
+	 LwKTQmKew2nXrzLPs/+oQ8vL0eYtHenny94CboqniVj7zxioMAjj5ooS2V9j29WbsxSI/
+	 ZbJmJsoeEhTNxRrKlN9t161o8uLltp7RpcLt8GZKU5qJavYiHkvr2bw1i+Z45X4p8Rg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795516012;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=HnrGYXuG6KO9wQGzYBGIZMUrCQTMR5ZPPuGjWtonSXY=;
-	b=qnWLFcObLo9+PbISnvvKI8xaSyik7Kvn1HiEkZQ/4l4OcLOuANGNRvWi0jufSemYscT3
-	 6j4yNHTRNO5/Gr9oZRRF5TUpTaiUCYf+lgGGVRQHeTGMGuiWILaI3s6pd4OMs8CGxERu0
-	 FdBHZ8YdrxV2973qbKkHgJNOIDV22LlDisF+H4TLXhooUprTVKa23mXRAZcopixeq4e4q
-	 IkGxhFzR0z2WTmmxcOSldACwEAYa6xMYqCbYUdeI2O/9IO5iyAPgi+h84wk4yfwHDoCeR
-	 v2jd80vsXvEKjDWw97a5WmPw4ZgXafVAz8G8010ndlO4zDbZI4+5Tngc1itqs0iM2pg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795516042;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=bv3MYp50cO6JG3wyY7QdIPoIXH9KstB0wwFIT4JfjgA=;
+	b=KoOLgeid/V2V/xA9K3KpeDkp/6ez6d17ZxZayy8C8pBh76qFr6iEIpqCiGKvHjiH4sn5
+	 i3YhPj0MREHz0OVS1F8ma15vVuDcCNJfidcLsND3Ws5JMFpXoRZC+56hxAsDf8VAjpN35
+	 m9kj+KN/vb1bUcw809zxe8HqC+fGfYZ12XKzegWizyB5ht6ykliBl13zcEHVz+uBObFkd
+	 KKFH4h2f6tTmNzA+B0E2MIrqUy40wZZOu59q3L/Tqbw8vj9c0/biB+bhhHQ0m6zq3wydh
+	 tfHebHy0mqy2Zh+dhpH5qL+7exn/Ic4o9ofcP3sNvvpjgnn6wF2I5I4Vu6gMFDbb2hQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FqBp9jyx;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=b9ixxqam;
+	arc=none smtp.remote-ip=198.175.65.17
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA590606A31E;
-	Tue, 24 Nov 2026 10:26:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F164606A31E;
+	Tue, 24 Nov 2026 10:27:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F164606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FqBp9jyx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 868031F000C0;
-	Tue, 24 Nov 2026 10:26:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795516012;
-	bh=HnrGYXuG6KO9wQGzYBGIZMUrCQTMR5ZPPuGjWtonSXY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=FqBp9jyxqVIqq+DQaQFjqfl03yLSdZ1mYChCD4+5Ko4klrA9XRGWLS1P7fXO1KHrW
-	 i0et1eXProQgUEGLhpXcCW3fpt4WS+3vKWUvmBXslup8xZz3WPRxPADyEwenoxBQOi
-	 ugOA4g2XaTjIdUgEQvrHJhwvpM/qy2LUUIROlLpIPIspB0Hbh8sUk/yk/cTaCnw++p
-	 KBBQVp5j67N3ARIlr36TEHB0WjdDk68wzu2BGGBOgwWF5cpEcNQLqXfMIKuyNstw21
-	 Btv3/cuDL9k1ULaT25mdGDuTyp8KB8CyCtfXmOhsnvZEyvemQBi2BcjHwNIPphxRWW
-	 y9qIr1hTIVVGw==
-Subject: Re: [PATCH net-next v4 1/5] ipv6: stamp the default route node with a
- fresh serial on link failure
-From: netdev-bot+sashiko@kernel.org
-To: ralf@mandelbit.com
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, ncardwell@google.com, kuniyu@google.com,
- steffen.klassert@secunet.com, herbert@gondor.apana.org.au, fw@strlen.de,
- yanxia@cmss.chinamobile.com, sd@queasysnail.net, antonio@mandelbit.com,
- linux-kernel@vger.kernel.org
-Date: Tue, 24 Nov 2026 10:26:51 +0000
-Message-ID: <179551601105.3135.14543779680619984305@kernel.org>
-In-Reply-To: <79fea581787dd175005d81090d246e982a07cc51.1795166508.git.ralf@mandelbit.com>
-References: <79fea581787dd175005d81090d246e982a07cc51.1795166508.git.ralf@mandelbit.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=b9ixxqam
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795516042; x=1827052042;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=TnAVW8znwYMhZ6U0JVzDhzcJhGdWbZqAFm6lyt6LM5I=;
+  b=b9ixxqamrN7xhW/FyBIrUAjL/bWFTeuBBAHaYtJQjZRGWDrlOORICYd+
+   F3tj+DMi/FTCCxrhotdjRY8p/3u7d4+8ZsdZPpesRB/RbNQng22wYyL9c
+   28HfJcBqjSdwv5Rc85en7ubm2wb4YHI2ETk2j3rE3ohdZaC0adDjjR2xL
+   Bh6YyIB385bbkAfAVb3c8Qq8vGTBATGSzHXlyRmFXqXIvR0iSKCCABcZl
+   yE/yPblRDWPl1Uyyqs6R1xoCp6LDpLQ6LOa1L/QegKi5mnulyUFeelwWy
+   jumZAb/A5f4GNV9nLgQIbhAktF68p9x9jzmsv67CiPurOqtlCaazveYTM
+   g==;
+X-CSE-ConnectionGUID: ynme8IBOR1ye5GknncrsHQ==
+X-CSE-MsgGUID: 4MQiwO2CRayvHOqkgWe0Yw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4364343"
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="4364343"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 02:22:57 -0800
+X-CSE-ConnectionGUID: YxJJb1eYTLaL61vC8MchUA==
+X-CSE-MsgGUID: Gz0SA2SJTM2R4qiA71kRAw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="11442732"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 02:22:53 -0800
+Date: Tue, 24 Nov 2026 12:22:51 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Gerard Marull-Paretas <gerard@teslabs.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Frank Li <Frank.li@nxp.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 3/4] iio: magnetometer: mmc5633: Enable the VDD supply
+Message-ID: <awVle8CFVrYHkih1@ashevche-desk.local>
+References: <20261124094632.8879-1-gerard@teslabs.com>
+ <20261124094632.8879-4-gerard@teslabs.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,115 +85,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124094632.8879-4-gerard@teslabs.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+On Tue, Nov 24, 2026 at 10:46:31AM +0100, Gerard Marull-Paretas wrote:
+> Boards may switch the supply of the sensor, so get and enable it before
+> initialising the chip, and wait the 5 ms both parts need after VDD is
+> valid before they can be operated.
 
-Low priority / nit picks for your consideration:
-
-- [Low] The patch makes ip6_link_failure() (net/ipv6/route.c) do much
-  more work for an RTF_DEFAULT, non-RTF_CACHE dst.
-
---
-
-ipv6: stamp the default route node with a fresh serial on link failure
-
-This commit changes ip6_link_failure() so that it no longer writes -1 into
-fn_sernum of an RTF_DEFAULT route's node. It now calls fib6_update_sernum()
-under tb6_lock, which allocates a fresh serial and advances the netns-wide
-fib6_sernum generation. The changelog says the extra cost happens once per
-queued skb when the neighbour of the default router fails.
-
-> diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-> index 4a4c5ace63c54..bbe6d67bb6964 100644
-> --- a/net/ipv6/route.c
-> +++ b/net/ipv6/route.c
-
-[ ... ]
-
-> @@ -2873,13 +2875,13 @@ static void ip6_link_failure(struct sk_buff *skb)
->  			rt6_remove_exception_rt(rt);
->  		} else {
->  			struct fib6_info *from;
-> -			struct fib6_node *fn;
->  
->  			from = rcu_dereference(rt->from);
-> -			if (from) {
-> -				fn = rcu_dereference(from->fib6_node);
-> -				if (fn && (rt->rt6i_flags & RTF_DEFAULT))
-> -					WRITE_ONCE(fn->fn_sernum, -1);
-> +			if (from && from->fib6_table &&
-> +			    (rt->rt6i_flags & RTF_DEFAULT)) {
-> +				spin_lock_bh(&from->fib6_table->tb6_lock);
-> +				fib6_update_sernum(rt6_exception_net(rt), from);
-> +				spin_unlock_bh(&from->fib6_table->tb6_lock);
-
-[Severity: Low]
-Is the cost of this path limited to neighbour failure, as the commit
-message says?
-
-  This happens once per ip6_link_failure call, so once per queued skb
-  when the neighbour of the default router fails.
-
-Several tunnel transmit error paths call dst_link_failure(skb) once per
-packet. For an IPv6 inner packet the inner route's dst is still attached,
-so they reach ip6_link_failure():
-
-  ipip6_tunnel_xmit() in net/ipv6/sit.c:
-  tx_error_icmp:
-	dst_link_failure(skb);
-
-This one is taken when ip_route_output_flow() fails or when the underlay
-route is not unicast or local.
-
-  ip6_tnl_xmit() in net/ipv6/ip6_tunnel.c:
-  tx_err_link_failure:
-	DEV_STATS_INC(dev, tx_carrier_errors);
-	dst_link_failure(skb);
-
-This one is taken when ip6_route_output() returns dst->error, when
-xfrm_lookup() fails, or when ip6_tnl_xmit_ctl() fails. skb_dst_set() runs
-later than this, so skb_dst is still the inner IPv6 route here.
-
-ip_tunnel_xmit() in net/ipv4/ip_tunnel.c also reaches tx_error_icmp in the
-NBMA case when the IPv6 next hop is not v4-compatible.
-
-There are also the err_count paths in ip_tunnel_xmit(),
-ipip6_tunnel_xmit() and ip6_tnl_xmit():
-
-	WRITE_ONCE(tunnel->err_count, err_count - 1);
-	dst_link_failure(skb);
-
-These run once per ICMP error received for the tunnel, so a remote host
-can drive them.
-
-RA-learned default routes carry RTF_DEFAULT, for example a default router
-learned over ISATAP/sit, gretap or ip6gretap. pcpu copies keep the flag
-through ip6_rt_copy_init().
-
-While the underlay is broken, wouldn't every IPv6 packet sent through
-such a route take tb6_lock with BH disabled? Each one would also run
-fib6_new_sernum()'s atomic_try_cmpxchg on net->ipv6.fib6_sernum.
-
-tb6_lock is the same lock that route insert/delete, GC and PMTU exception
-insertion use. Each generation bump also invalidates every nexthop-object
-dst in the netns, because rt6_is_valid() checks those against the netns
-generation. Later in the series, ip6_dst_lookup_flow_cookie() returns
-cookie 0 to socket lookups that race with a bump.
-
-These are error paths where the traffic is already being dropped. Also,
-rt6_insert_exception() already takes tb6_lock and bumps the generation on
-remotely triggered PMTU exceptions. Still, the cost here seems to scale
-with packets on these tunnel paths, not with neighbour queue length.
-
-Could the changelog mention these callers? Would it be worth
-rate-limiting the bump, or skipping it when the node's serial has already
-moved past the one the dst cached?
-
->  			}
->  		}
->  		rcu_read_unlock();
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795166508.git.ralf%40mandelbit.com
+With Best Regards,
+Andy Shevchenko
+
+
