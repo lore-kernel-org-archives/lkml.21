@@ -1,53 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795526555;
-	b=LGegQ/Of2E9k/CfReX8ZAj5Gw0HY0DQiwDtYBherHcVPsUZupXvGNaZtD/sCfOLno6sR
-	 qGrSilsIndy28DsoxDvHpgoGDw+6ZAI+g2xHyJIhgSsr2EaIFkx9NjyUMBuhAm17K5LuT
-	 mDkPv2noU1bZZhjBOxo62j1iXGNv4BILHXVnbJHWVJXHzPtBH+Ro3csUDnsfCzuNoek7M
-	 vYhXmMUjVZOy/+mFhdLD634ZpLmloZyxILRgiPxhZbRtqlATUBXK9zVWi/FtLHkaakxM1
-	 veCRSoOYqwOWmg6hC6h4zSA64/7HFtbVUIdmbtO4fcQ/ArQH0XRZUqVnvN99CnN7EBQ==
+	t=1795526666;
+	b=s4tFQP3kDdmVODXjq+zgDy/uL7JGhiKq3Am1z1Hxcx3PjGJJgh8VqddEO3Hgud99tF2e
+	 hUJirZyErNABpfXyg6ZjdVYD/ZcvIiqfYfkZ+zZEAdVU1Xx+3qvseyaPfngNpugQAQ+GK
+	 SaKT8PIN9LNxUICiuqkvjCaaywKOrs7EvC447Lbg2D0461mgacPDZxnU2GtkwIgjqZ4Lc
+	 V7YqFlaNsbhCbSPRAP/g/CLSgU8WPbnyhfhx5MgMiV9Qru2MWH9xXSoXazIY7ExJIlBXr
+	 pgdtMPggkYfDpADgwovZEr7hYPbXRAPqyZmqxiWwXxjVZHjntnVeh2Uwn4goyZgZWTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795526555;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=U7T0S/zSnHw0AiIgcNjbTiMnKLishIj+Ufyy+y3cviA=;
-	b=sPiszaxP43iDofRy8xc77VXbe4o6kpTH/W7IhW5mXzvdrseJO2Jnixp6p9PwI5mKAtnh
-	 BvEYtWqaev85mf2rOZUkuykC+CW2xOsx4V5Xz+lh03uJ8NpiNimL59h86aKyg7SNSLB2c
-	 Qin3VnA6rmElSmj7KFSALPCmjBVbUXdnqhvYnz/FOiJ2DXoTRH8u45CSXbCUBkllpuH1y
-	 EwWYCG7oTzIrNBvNca4Mytcw8nyNjWGBSMQfPSeWgLOJY+sYxOKt7CIWGbf5UagqpV2jI
-	 fYCRnQw7fuQKcqqGibXb5p4s2r2u1vcGTkRGwqFhRmcG+eO1gDkyI+rjxatqXUxbOPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795526666;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=j2lGOfpuqWA9c5CeS3NsQ/3TJJfRuyj6wTBADsS42iU=;
+	b=3G7TgscTCKe22M/vpLxDOtlxDGFs2Kx5SwD0uuPHMOXpMBsSIZhigbiTmOvU4C5bpXuD
+	 F2lgpSBwj1XjLp8dd/eSuQcr23xI2LhMcRMEF7WehqaVVchWlNJQJiU0/LA4xX74xMiD5
+	 0IPOR2IerMxLwB9LsejxLi0ools7yFanxAMgCJsziYtxgfeIJ+UrJoDilsOHqcsZEEdkb
+	 +uYF0L650i9mTHCZ/pei4hXlj2afH1pEaBEj7xuYUP+ci5Ko0Zsn5kMPYMx1YiReweu8p
+	 IsimjUjE2IU5kxotBnbeEzySgn552nJeHQo7L1bYubjrAoszoEggt2MoUk2Cm6tIu+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BTGqKfmD;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="e2qVYdC/";
+	arc=none smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 958F8606A31E;
-	Tue, 24 Nov 2026 13:22:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A59D7606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:24:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A59D7606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BTGqKfmD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14E291F000C6;
-	Tue, 24 Nov 2026 13:22:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795526555;
-	bh=U7T0S/zSnHw0AiIgcNjbTiMnKLishIj+Ufyy+y3cviA=;
-	h=Date:From:To:Cc:Subject;
-	b=BTGqKfmD4dWqfi5mhLB1k6yDvP59Iioolz0BYIqmaX4ETXLZ9APy0l9dPiCwSNkFD
-	 YJHWoQXnN89NVePoddaLqSFQAh16BNDVhx8tRktyV0Me0PA2XvaF545d4w5yI/5l1k
-	 H1+t4JYqQNvGjPu5dwV2AAJ8k9lTaTJ/6bTJWKpXEKwtTMLi7amF3tYjqNM68cwsAE
-	 WwRCamKGxBQhQIX8zZD2ZvBSkRVaG8XuQsTSRGXfr6QcyEsx/A1QgFa2hTrq1PQzDo
-	 /7xeyLx7UYxwUmoxfW2st/iWtKvD4Li3T1pfxKP9XePq+S8F1zpUIgJ7w72gln5e7t
-	 2P0Xa1mleSkaw==
-Date: Tue, 24 Nov 2026 13:22:31 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Theodore Ts'o <tytso@mit.edu>
-Cc: Christian Brauner <brauner@kernel.org>,
-	Joanne Koong <joannelkoong@gmail.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>
-Subject: linux-next: manual merge of the ext4 tree with the origin tree
-Message-ID: <awWPl-g8O7lOErwL@sirena.org.uk>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e2qVYdC/
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso54918055e9.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:24:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795526664; x=1796131464; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=j2lGOfpuqWA9c5CeS3NsQ/3TJJfRuyj6wTBADsS42iU=;
+        b=e2qVYdC/mXdjFACrZz+884sYdtZuVnERtWgcQhcsucfmOtRPjnYpcroO1cl9kYtRrz
+         Ipz+u4I+zinaMDaKG9o+E5noYTt992UI3Ana8d998e3XOlokRkou7fZ4YKzI+NvFFgvJ
+         ASYWizXvFH2Lu0l3xKj/mpyg9xKlN/tOvjqKNh/0CBlOpFU4EgIKn9guL186RrGdMWwn
+         HDkLXY1jUcMNWSZDxI+xwV1UQ022sX1aX3eigoLqFxqR67l/iUKRPgVZNsap7uuOrrVa
+         4vN8Gw8pKQMm+mEP/GB4J3/mlMyYNCZehrYM+9PNIwihO8Abe6FaR/dLZbGVXccuFaLd
+         yL3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795526664; x=1796131464;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=j2lGOfpuqWA9c5CeS3NsQ/3TJJfRuyj6wTBADsS42iU=;
+        b=fBS66uqwIhFn4YCWDeumcE88eZBqz55Kqhh0wvTtiZbxtb1I/U7zZq6ZEctdbqjtvd
+         N+6lY3y7+YJOj7DH7iWdtQwBcQ999oji3PWEIGiZC/U3H4zDc6uAjvJEWAbuTk+lh0d3
+         nwh99+CxGxjmOXS+mn94AWgnpqPho4ZujhtcafC8npHjYfn940A6PSiR/h+vHc7pG/x+
+         HYXiYzYni9Q7HJHNmRraD2LHdX8d/dJmKGwa0dC/ezZU7VuJJsjhHstXlm7JuQfCVvq/
+         TG6HvIHDYNoP32RBW3uoRiCL34bkk6KOEpAoycBbTXCxAbHmRDtYR2U0hQ6JvZUXuQv+
+         BMYg==
+X-Forwarded-Encrypted: i=1; AL+hErG+aRvoKl5AMJuDY6sI23seS4bO+ciD2/59AYhF16yfuyegRJLOyYOr8l1GJNd/pI54MUdz+Bv56qPX5tU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z88bUZCfn9KspJ1ycs3vckXiRKguAmwEbJqhH1iMnqNB4HvhKfX
+	wMfhHj509BI+GzEWfEqkt2tSNvvDntInZ65dxNWFhlXxangp0ZrwtoKu
+X-Gm-Gg: AZFdTZdLR5U9sfUxiLEdfZ4OLxu25vH3cyTW5dewtHDgzg+K265g1vVIpAVT1J63iGQ
+	iOMUxfog/8VJGF/ljG/3eeEMR7HjJyUs/CCUCrVxYXTrBoIrJCz6zB9X3nzR46oGnt1FbN/R3BO
+	bRneg+glPm0WR3lVJWGOLDoQ3G/TD0oK3KAnVu8bv3shGAPvqCY1QmALQhpT7bmuh0DYoapnlna
+	9oG+00WcHy4yEhR2JJPZMJvGuo+kYQ3/GbFsPiCOQWx9IGG4Ttd4jejPlUDwDS9SKkPYkd8aqM3
+	OsKxASL5vh7Je4abSjWpp5/t5K16QFG+K3qDIyfnKWZqaeyAVtzhed7poj5zX2LlbssZQDCOnHy
+	ButR/XqrLkAOyhZ/+AkHmjiwzIX+n1qrk5RPSb16mJGOhdzUROFYs9r+6ij8b/xwVq6+Jii1ZGt
+	hd2kvCFyrnCLZiJj8fsg+LxcenTQsI9iBLjzT5NIge61xdOc/KLBggaWWrsf66vYK1+bh/sP12U
+	7gGAQ+R67QvgItEFEAqOH0us7Bd/5QxaV1f1nW3+JQUrSkqG1ZKg1dnaiC3NTFBeEEpIYZEi1EP
+	nlsb3f/uPLCBVgoBdWOxQWHeu3vQ/00b4M8L0Or1KxDicw==
+X-Received: by 2002:a05:600c:64c6:b0:4a3:598e:e7a8 with SMTP id 5b1f17b1804b1-4bb887c2c98mr274938815e9.4.1795526663725;
+        Tue, 24 Nov 2026 05:24:23 -0800 (PST)
+Received: from [192.168.1.22] ([83.231.69.9])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f281sm26298695f8f.22.2026.11.24.05.24.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 05:24:23 -0800 (PST)
+Message-ID: <7465de57-8d97-4952-9daf-d95bdb4b7e78@gmail.com>
+Date: Tue, 24 Nov 2026 14:24:20 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,226 +92,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Z7hV9Kl1koG5X2Qa"
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/2] mm: fix deadlock on the folio lock when migrating
+ and splitting folios
+To: "David Hildenbrand (Arm)" <david@kernel.org>, Zi Yan <ziy@nvidia.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>,
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
+ Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ William Kucharski <william.kucharski@oracle.com>,
+ Heiko Carstens <hca@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ Johannes Weiner <hannes@cmpxchg.org>, "Lorenzo Stoakes (ARM)"
+ <ljs@kernel.org>, Matthew Brost <matthew.brost@intel.com>,
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
+ Gregory Price <gourry@gourry.net>, Ying Huang
+ <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ Miklos Szeredi <miklos@szeredi.hu>, Joanne Koong <joannelkoong@gmail.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, stable@vger.kernel.org,
+ Chris Mason <mason@kernel.org>, Chris Down <chris@chrisdown.name>
+References: <20261124-migrate_reclaim_deadlock-v2-0-03cc147e1e36@kernel.org>
+ <66e5f9e3-17d4-4635-8919-c67ed562f9f0@kernel.org>
+Content-Language: en-US
+From: "Jose A. Perez de Azpillaga" <azpijr@gmail.com>
+In-Reply-To: <66e5f9e3-17d4-4635-8919-c67ed562f9f0@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
+On 11/24/26 10:47 AM, David Hildenbrand (Arm) wrote:
+> On 11/24/26 08:56, David Hildenbrand (Arm) wrote:
+>> Whenever we allocate memory with __GFP_FS while holding folio locks, we
+>> can deadlock on the folio lock when triggering direct reclaim or
+>> compaction.
+>>
+>> For example, evicting inodes with a populated page cache takes folio
+>> locks, and if we happen to need one of the folio locks we already hold,
+>> we'll deadlock.
+>>
+>> FUSE makes this example easier to trigger, because it evicts inodes on
+>> the last reference. A similar deadlock with FUSE was recently fixed in
+>> FUSE [1].
+>>
+>> Let's handle folio splitting by simply running in NOFS context. We only
+>> perform small allocations, so it doesn't really make a difference.
+>> Interestingly, this also fixes one of a handful of possible memcg v1
+>> deadlocks.
+>>
+>> For page migration, change the code to allocate destination folios
+>> without holding folio locks, which is in any case the right thing to do
+>> to reduce folio lock holding times.
+>>
+>> Some of this might also be fixable using Jan's work on deferred inode
+>> reclaim [2]. However, that is not stable material, and not allocating
+>> folios while holding other folio locks is an improvement on its own.
+>>
+>> Unprivileged users can trigger this deadlock with FUSE and
+>> mbind()/migrate_pages(); however, it requires multiple NUMA nodes and
+>> quite some luck.
+>>
+>> I reproduced the original deadlocks with FUSE and made sure they can no
+>> longer be triggered with these fixes. Further, I ran the usual migration
+>> and folio splitting selftests.
+> 
+> @Jose, could you find and fix other cases where we allocate under the folio lock
+> with __GFP_FS (and direct reclaim enabled?).
+> 
+> I think at least do_set_pmd() might have a problem when allocating a page table
+> through pte_alloc_one(). And I'm sure there's more.
+> 
 
---Z7hV9Kl1koG5X2Qa
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+sure, I'll look into it :)
 
-Hi all,
-
-Today's linux-next merge of the ext4 tree got a conflict in:
-
-  fs/ext4/inode.c
-
-between commit:
-
-  9e8fc16dc6b47 ("iomap: pass iomap_iter_next_fn directly instead of struct=
- iomap_ops")
-  d25c14b2d79e4 ("ext4: use sb_find_get_block_nonatomic() in ext4_get_inode=
-_loc_noio()")
-
-=66rom the origin tree and commit:
-
-  3ca8192f79504 ("ext4: expand KUnit tests for fs/ext4/inode.c")
-
-=66rom the ext4 tree.
-
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-diff --cc fs/ext4/inode.c
-index e3129353d4edb,9368a68db2894..0000000000000
---- a/fs/ext4/inode.c
-+++ b/fs/ext4/inode.c
-@@@ -1091,6 -1117,29 +1112,37 @@@ EXPORT_SYMBOL_FOR_EXT4_TEST(ext4_get_bl
-  /* Maximum number of blocks we map for direct IO at once. */
-  #define DIO_MAX_BLOCKS 4096
- =20
-+ struct buffer_head *ext4_sb_getblk(struct super_block *sb, ext4_fsblk_t b=
-lock)
-+ {
-+ 	KUNIT_STATIC_STUB_REDIRECT(ext4_sb_getblk, sb, block);
-+ 	return sb_getblk(sb, block);
-+ }
-+ EXPORT_SYMBOL_FOR_EXT4_TEST(ext4_sb_getblk);
-+=20
-+ struct buffer_head *ext4_sb_find_get_block(struct super_block *sb,
-+ 					   ext4_fsblk_t block)
-+ {
-+ 	KUNIT_STATIC_STUB_REDIRECT(ext4_sb_find_get_block, sb, block);
-+ 	return sb_find_get_block(sb, block);
-+ }
-+ EXPORT_SYMBOL_FOR_EXT4_TEST(ext4_sb_find_get_block);
-+=20
-++struct buffer_head *ext4_sb_find_get_block_nonatomic(struct super_block *=
-sb,
-++						  ext4_fsblk_t block)
-++{
-++	KUNIT_STATIC_STUB_REDIRECT(ext4_sb_find_get_block_nonatomic, sb, block);
-++	return sb_find_get_block_nonatomic(sb, block);
-++}
-++EXPORT_SYMBOL_FOR_EXT4_TEST(ext4_sb_find_get_block_nonatomic);
-++
-+ struct buffer_head *ext4_sb_getblk_unmovable(struct super_block *sb,
-+ 					     ext4_fsblk_t block)
-+ {
-+ 	KUNIT_STATIC_STUB_REDIRECT(ext4_sb_getblk_unmovable, sb, block);
-+ 	return getblk_unmovable(sb->s_bdev, block, sb->s_blocksize);
-+ }
-+ EXPORT_SYMBOL_FOR_EXT4_TEST(ext4_sb_getblk_unmovable);
-+=20
-  /*
-   * `handle' can be NULL if create is zero
-   */
-@@@ -3988,8 -4088,14 +4091,10 @@@ out
- =20
-  	return 0;
-  }
-+ EXPORT_SYMBOL_FOR_EXT4_TEST(ext4_iomap_begin);
- =20
- -static DEFINE_IOMAP_ITER_NEXT(ext4_iomap_next, ext4_iomap_begin);
- -
- -const struct iomap_ops ext4_iomap_ops =3D {
- -	.iomap_next		=3D ext4_iomap_next,
- -};
- -EXPORT_SYMBOL_FOR_EXT4_TEST(ext4_iomap_ops);
- +DEFINE_IOMAP_ITER_NEXT(ext4_iomap_next, ext4_iomap_begin);
-++EXPORT_SYMBOL_FOR_EXT4_TEST(ext4_iomap_next);
- =20
-  static int ext4_iomap_begin_report(struct inode *inode, loff_t offset,
-  				   loff_t length, unsigned int flags,
-@@@ -4042,7 -4148,12 +4147,8 @@@ set_iomap
-  	return 0;
-  }
- =20
- -static DEFINE_IOMAP_ITER_NEXT(ext4_iomap_next_report, ext4_iomap_begin_re=
-port);
- -
- -const struct iomap_ops ext4_iomap_report_ops =3D {
- -	.iomap_next =3D ext4_iomap_next_report,
- -};
- -EXPORT_SYMBOL_FOR_EXT4_TEST(ext4_iomap_report_ops);
- +DEFINE_IOMAP_ITER_NEXT(ext4_iomap_next_report, ext4_iomap_begin_report);
-++EXPORT_SYMBOL_FOR_EXT4_TEST(ext4_iomap_next_report);
- =20
-  static int ext4_iomap_map_blocks(struct inode *inode, loff_t offset,
-  				 loff_t length, struct ext4_map_blocks *map,
-@@@ -5884,7 -6032,7 +6012,7 @@@ int ext4_get_inode_loc_noio(struct inod
-  	}
-  	block +=3D inode_offset / inodes_per_block;
- =20
-- 	bh =3D sb_find_get_block_nonatomic(sb, block);
- -	bh =3D ext4_sb_find_get_block(sb, block);
-++	bh =3D ext4_sb_find_get_block_nonatomic(sb, block);
-  	if (!bh)
-  		return -EAGAIN;
-  	if (!ext4_buffer_uptodate(bh)) {
-diff --git a/fs/ext4/ext4.h b/fs/ext4/ext4.h
-index bda50753b1236..5f1d452604ce2 100644
---- a/fs/ext4/ext4.h
-+++ b/fs/ext4/ext4.h
-@@ -3335,6 +3335,8 @@ extern int ext4_issue_zeroout(handle_t *handle, struc=
-t inode *inode,
- struct buffer_head *ext4_sb_getblk(struct super_block *sb, ext4_fsblk_t bl=
-ock);
- struct buffer_head *ext4_sb_find_get_block(struct super_block *sb,
- 					   ext4_fsblk_t block);
-+struct buffer_head *ext4_sb_find_get_block_nonatomic(struct super_block *s=
-b,
-+						  ext4_fsblk_t block);
- struct buffer_head *ext4_sb_getblk_unmovable(struct super_block *sb,
- 					     ext4_fsblk_t block);
- #if IS_ENABLED(CONFIG_EXT4_KUNIT_TESTS)
-diff --git a/fs/ext4/inode-test.c b/fs/ext4/inode-test.c
-index 8a3d753b7079b..18e4595b032c7 100644
---- a/fs/ext4/inode-test.c
-+++ b/fs/ext4/inode-test.c
-@@ -1149,6 +1149,8 @@ static struct inode_test_ctx *inode_test_setup(struct=
- kunit *test)
- 				   inode_test_sb_getblk_stub);
- 	kunit_activate_static_stub(test, ext4_sb_find_get_block,
- 				   inode_test_sb_find_get_block_stub);
-+	kunit_activate_static_stub(test, ext4_sb_find_get_block_nonatomic,
-+				   inode_test_sb_find_get_block_stub);
- 	kunit_activate_static_stub(test, ext4_sb_getblk_unmovable,
- 				   inode_test_sb_getblk_unmovable_stub);
- 	kunit_activate_static_stub(test, ext4_ext_getblk,
-@@ -2893,7 +2895,7 @@ static void inode_test_get_block_bread_and_walk_buffe=
-rs(struct kunit *test)
- }
-=20
- /* -----------------------------------------------------------------------=
---
-- * 17. ext4_iomap_begin, ext4_iomap_report_ops, and Atomic Writes Tests
-+ * 17. ext4_iomap_begin, ext4_iomap_next_report, and Atomic Writes Tests
-  * -----------------------------------------------------------------------=
---
-  */
-=20
-@@ -2928,16 +2930,14 @@ static void inode_test_iomap_and_atomic_writes(stru=
-ct kunit *test)
- 	iter =3D (struct iomap_iter){
- 		.inode =3D inode, .pos =3D 0, .len =3D 24, .flags =3D IOMAP_REPORT,
- 	};
--	err =3D ext4_iomap_report_ops.iomap_next(&iter, &iter.iomap,
--					       &iter.srcmap);
-+	err =3D ext4_iomap_next_report(&iter, &iter.iomap, &iter.srcmap);
- 	KUNIT_EXPECT_GT(test, err, 0);
- 	KUNIT_EXPECT_EQ(test, iter.iomap.type, (u16)IOMAP_INLINE);
-=20
- 	iter =3D (struct iomap_iter){
- 		.inode =3D inode, .pos =3D 60, .len =3D 24, .flags =3D IOMAP_REPORT,
- 	};
--	err =3D ext4_iomap_report_ops.iomap_next(&iter, &iter.iomap,
--					       &iter.srcmap);
-+	err =3D ext4_iomap_next_report(&iter, &iter.iomap, &iter.srcmap);
- 	KUNIT_EXPECT_EQ(test, err, -ENOENT);
-=20
- 	/* 3. Indirect report past s_bitmap_maxbytes returns IOMAP_HOLE */
-@@ -2950,8 +2950,7 @@ static void inode_test_iomap_and_atomic_writes(struct=
- kunit *test)
- 		.len =3D 4096,
- 		.flags =3D IOMAP_REPORT,
- 	};
--	err =3D ext4_iomap_report_ops.iomap_next(&iter, &iter.iomap,
--					       &iter.srcmap);
-+	err =3D ext4_iomap_next_report(&iter, &iter.iomap, &iter.srcmap);
- 	KUNIT_EXPECT_GT(test, err, 0);
- 	KUNIT_EXPECT_EQ(test, iter.iomap.type, (u16)IOMAP_HOLE);
-=20
-@@ -3001,7 +3000,7 @@ static void inode_test_iomap_and_atomic_writes(struct=
- kunit *test)
- 	iter =3D (struct iomap_iter){
- 		.inode =3D inode, .pos =3D 0, .len =3D 4096, .flags =3D 0,
- 	};
--	err =3D ext4_iomap_ops.iomap_next(&iter, &iter.iomap, &iter.srcmap);
-+	err =3D ext4_iomap_next(&iter, &iter.iomap, &iter.srcmap);
- 	KUNIT_EXPECT_GT(test, err, 0);
- 	KUNIT_EXPECT_EQ(test, iter.iomap.type, (u16)IOMAP_MAPPED);
- 	KUNIT_EXPECT_EQ(test, iter.iomap.addr,
-
---Z7hV9Kl1koG5X2Qa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsFj5YACgkQJNaLcl1U
-h9DnkQf/R7/LJkoWW/0O2sr4pmI7ciNIrdi+XlKo5nRXeGf/gUdqjeHBuqVTgVc0
-LgpxI95PC7qsxZsW8sVK6UsL7dZX3H5XkEehEJp6RKQNc6JX+CAIDhpEheZOFKOa
-uamyhYTr7o5V3iOKORGiF+4a/I2CASMgCJ93zreIP7kvYtr578KWGBaMdhBXrjKH
-WipSsRm3ngCw2idgZUQxHMih8ONDn8jcFm25MpMDxThKmq3Agn+ExiQ8HvLH5Md/
-QHef+39Dz6NLPW1GFr9V2Lqx5sszOSfNdAzV/7CeSp4aMjenXrEOoiecoLkFOaRd
-MYNtUiYfJBtg4TDMjyJfypCWXMe5Vg==
-=OtDY
------END PGP SIGNATURE-----
-
---Z7hV9Kl1koG5X2Qa--
+-- 
+cheers,
+jose a. p-a
