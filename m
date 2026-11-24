@@ -1,96 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795509119;
-	b=LuXP9EwijMlQxC25k2FQkM0Zh/hhtl9ywmPSlAeZVSts24gM13RiqnZdYqw//9sgWSIA
-	 ni0Wvvmm27mzmrRzn09G9fyWGfzV24uBR1zHVcJtVBrdp6fglurmzdRDKni90RniQaLxZ
-	 GvS4aRA3peYwxllQvTcz7h41gQ2oyBfAv2uExJkXMVq30ZBF14ZQJj8vDosp/JwjnW/0e
-	 tIlZth/dbgpMccXaGa6ddYrGo3+V6xbcBTdWoSEUDEt/aQnGUa8lwGvv1QlqRR2B9hvpI
-	 KRBgDeDRYamZ1fGWdpMH5C2Q59HHF8hPCU+T/xg37L+qNVNbCedspo9TVBhF82ldOhA==
+	t=1795509121;
+	b=1uhtys6P4V1vKtaxQ+ZMeemb8LyDV+9LyrqzB5smZR4LYiuNMK+VI6Sdl5qFpVg0DAqR
+	 olb+xvHOVqNZcvO/BzdFgGOC9vg0l77OcbIzFTbDsK6aFFUHwkoKicZr6434FWksyv0xS
+	 ha/iPZzD6OfWLfht5heONfsGCxanSAJFV8o7n7jUBdlfdd84q2fXU92wwQ129xw5riozg
+	 4AcW9w8ZxrYSYf2Wj5YyvvSDKP+nDlCkZwzEeL4crGBt8eWCbYXgX1cVhPTrrpLgCdCw6
+	 8+rBVaTzGVU2tl6qDAFe/vvzKMSENhKdXrTqpc+zRzoH6RnVx56YKhfcVZfFr4XR03g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795509119;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=wgNX0IE7lrAHlNokQcYly2H9sy8SXHVjq0j4actrlb4=;
-	b=Z4lTig6f0nTOe4wgZT/C0Hs3cM+WXRXs+cl2F/cok67zgV+DPco8U4hdzW4IlaI2xvVL
-	 iYxE6bxT8rhdlzrKLstQBCrpDA17f7+V0OHTStuKBza2y/Ohg5y2qsiMy7e5Q08CFkslG
-	 +HEQ+yf9jhOCOEXNvJLCGWzURJvD+T0XxtLLkITz0afmhRj+cASmkQrCG3PffjyHM3mzq
-	 2Oj/j7toficI7V9nozpq0+rJsEd0TaZq0IYq5kLS/VTFpmuqm3qaNLuXFf3O34payX83d
-	 8G0q5WTjpdeYZU//Uow4KhIQYjttapLLNQI7m1fOWNp5LUxH/KW3b9lZv/sSsaIq6qA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795509121;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=i4PkAEHGCosxapS1OsCglkmN36mrS0bA4EvMEUyaMYs=;
+	b=TzvYmA7eFv1jCNkl7JfJ6JjA6j8U4ROewKAsSMrYaCXmKTEuRZTmyhriPwVCoNO9WgZY
+	 PBT+Aha9c/2mF833HL0EF+evSFNgkxwsmRreXkAWCrvtAWTd1gsZ7NqgDmtwEE0o+ZYEM
+	 V/rvXaoQ6Id2TeES0M1SUMlU5d/C1TWDmyxSjN3Q/4qCmVYXIlQR1E/j8aRw70B4TlDGr
+	 Id/1hXEX5LwNQyHn2SJbtftq2uklohkUWE/TON+IbY1B7rYqPK9UuG97zuGmw4qgfmf/9
+	 /sx94FXRzsNL/9S0tjR85S+zh5uWpFZPKJepmyP2PscbOuOclSGUaGk3HqGLXerrGmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NH6JinNx;
-	arc=none smtp.remote-ip=209.85.221.50
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hYBBi8F2;
+	arc=none smtp.remote-ip=198.175.65.19
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 564F9606A699
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:31:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 564F9606A699
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0942E606A692;
+	Tue, 24 Nov 2026 08:31:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0942E606A692
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NH6JinNx
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-492690dd5daso3184779f8f.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:31:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795509118; x=1796113918; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=wgNX0IE7lrAHlNokQcYly2H9sy8SXHVjq0j4actrlb4=;
-        b=NH6JinNxaWm/M6cjlCkLE8VSCVC2k0dlsVonkb4Pd+T3o8IKDWpbMdRKBGVUnQR4vP
-         fDTH+16uF6lCUAeAqA+48pMS+rbKY0J/NyqdMUwUa6jCfSX8VMMQ+0cKJTyuqCehBrqu
-         vcccjQQ1HGBzAQIgLsVDW80K27vwOjW36vKkGPSIKiN+T4QOYYa7zYgegUu01nX50eN8
-         +f1Cq4W380ZYuXtZjzd25+7y50pWEOPPUnSvnSE5BNpZYRBGiydfnPJj8zFuS1jQWcxV
-         U5CwaZWVMvehUkw8TSfglibHwmUP4fUztWtKKkXg/i+Of2qlHKQ69nw1quZcEpULfruz
-         Y37w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795509118; x=1796113918;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wgNX0IE7lrAHlNokQcYly2H9sy8SXHVjq0j4actrlb4=;
-        b=v+9xO3m3xA9N07SGsLqA+iY/vvn5TxFzcp0zzBJ78eIfPvoN/SLxzat+rvq5W0LrdH
-         +xlbmNcCqdyAsCxn4efe2axy53qVoMW/F3bhv6lQQXXDCNCNv2RUl3SYjlnSUNQQvrYd
-         Tr4t/BOfmHRLU4BYKL02vg/w9GKDy1cqJd/jfa281I5DdBk83x/LmBWCTlI9sxfBYhEY
-         cxDKzzEumg9oy+OhMVeL6LTh+T9cX8aDw+2vTCziqWiK0H2UclQC1CQiSouqcPlOYpNc
-         cx5ASKfz6Vfde96Gdx3oKMeS2YtW8TfTUIiKxPXroBubGFKoNEtkinnqG0xMJUEn+Okc
-         igtA==
-X-Forwarded-Encrypted: i=1; AL+hErExult/HTAIH9RibvLbTcDxKjCLxlS0NAC6mRUwGgCVdjM1ehxr7l94T61WNTPvwpZnUzc29L0stbq/0as=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/oo4eA9YXf6IP68uyx4gg1cIUwQ96VEPXQlmibzClzl8pf7Ryj
-	RZXH8kFgfXVHIS/M3qNns2QiVN8ifudHl8+MJECc2Hge1MFR23cqeWARHebuWbW8
-X-Gm-Gg: AZFdTZfMtK82+ytsrzmCw61H2oiydO6OWVyGRW48SsV5U/g49nbQ/WX/03VzNYaX+vT
-	aUZhmRhDgaV73Ch0PJ7HA9hoe+xwgAcpeoz+AkFIU4d3JzQfrQkIrsONkluFJS5nhyz11YXA/vR
-	heDW3wVnAymq8KlzjBKCYA5bB2WSuBXotpKCOaFh49TmxymtZ5bs9CnRXjtVuu4QHFAbJam2MRx
-	Vke1rG34KZrHuO6NorM0uScI3PKRATy1HY03fU/8K8bgAO4jLAfpLuJLRZQbYhYkazyd5r6rANz
-	sphNwn/t9+XfArvLJ8tYGb3vKHbzEJtxDfgyGccD1aVHSPe5TLUGgJ1PZWmCc+KVZ70z+n3+g/8
-	0qi17y1ZLxo2UUM/fI8Pl6INXN/Dr8Tg2R9k9P9wTqwXrny7tJktKAo/LtQMHTOa0BE8TTC2tfE
-	g9HuywVV372cZa3msvJgUFo044betKw+epn/6xuQVD7xfKJsXvtugTHgkblRRWm5oZvsxciBeRt
-	5SuUG5c52WjVf0XryFdw0/nCvQhrk+8fHDYJbypdy0SkobDXpUkwhWc41DeNTV7BT9kONhRQxaA
-	1rXMzCcZXDU8Tize1ybKZy3SSF1Ux3iMGEM=
-X-Received: by 2002:adf:e19b:0:b0:49e:f905:4698 with SMTP id ffacd0b85a97d-4abab6de682mr26643613f8f.2.1795509117340;
-        Tue, 24 Nov 2026 00:31:57 -0800 (PST)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c4353d6sm25681121f8f.56.2026.11.24.00.31.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 00:31:56 -0800 (PST)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: Luka Gejak <luka.gejak@linux.dev>,
-	Ping-Ke Shih <pkshih@realtek.com>
-Cc: Bitterblue Smith <rtl8821cerfe2@gmail.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mehmet.fide@screeningeagle.com
-Subject: Re: [PATCH rtw-next v14 3/3] wifi: rtw88: time the countdown downloads from the TBTT
-Date: Tue, 24 Nov 2026 09:31:56 +0100
-Message-ID: <20261124083156.206506-1-mehmet.fide@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261124002437.213112-2-luka.gejak@linux.dev>
-References: 
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hYBBi8F2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795509119; x=1827045119;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=FwQQJhdrq5aK4sLPsiCZvZvHWEMaIusJ1o57s2gXOQc=;
+  b=hYBBi8F2nFK8HoVGwrn4l0GqrIL/+L9JHZJbDZEAYU7SpR6ecS/jYCiP
+   CN9li6OPEubCfnr97S+BOmT5wXPKPXuQ3hnHlRTODjjxes7/32xQFJRPT
+   MENHzy3fA5XI6OYYh+VUnFDDjk00eIoJYBj7KyquW8X45S2hARvbKc+3K
+   Rbj8To8fpVNMyhAwAGCw1zcGIcFhJo3lxiiKlDLUKysQzrpN/if/QiQg6
+   aQwWflH0IGQVQ1P2ceKMVKwKh2p9CSgpD7Z9JwjMpDVIlLFFCi2mVoWKX
+   H+zCc+kcqnNq7nRUa5c8G6sxE1lvxW0iDa3TqEVoT87k9ELsvJ3MTVrzP
+   w==;
+X-CSE-ConnectionGUID: evsjJ89ET2Ssc31M1cih0Q==
+X-CSE-MsgGUID: KwYWjuGrRYWQpHjL2+vcXw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4385205"
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="4385205"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:31:58 -0800
+X-CSE-ConnectionGUID: V8hKemf1TcqUZYJ8kkX3Yw==
+X-CSE-MsgGUID: 7ZRJavP3QsWcibVFhspBAg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="11381833"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:31:56 -0800
+Date: Tue, 24 Nov 2026 10:31:53 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Rupesh Majhi <zoone.rupert@gmail.com>
+Cc: Andy Shevchenko <andy@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Eddie James <eajames@linux.ibm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 6/7] iio: pressure: dps310: drop the unused
+ i2c_set_clientdata()
+Message-ID: <awVLeeD55OAcwOtX@ashevche-desk.local>
+References: <20261123220649.36887-1-zoone.rupert@gmail.com>
+ <20261123220649.36887-7-zoone.rupert@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,16 +84,19 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123220649.36887-7-zoone.rupert@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-Hi Luka,
+On Tue, Nov 24, 2026 at 12:06:48AM +0200, Rupesh Majhi wrote:
+> Nothing reads the client data back.
 
-> Could the wait for the safe part of the interval use a finer timer, or
-> could we limit CSA to intervals the timer can reliably handle?
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 
-Agreed for short intervals with HZ=100. A finer timer would not help
-much on USB, where the download itself takes 6 to 17 ms. At 100 TU no
-count repeats (model with HZ=100, rig with HZ=250). If Ping-Ke wants, a
-minimum interval check can be a separate patch.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Mehmet
+
