@@ -1,104 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514982;
-	b=Wi4lZr6+kJ4wifSQrRo0y7Y8Q6bIlY/l11eQ+FUsFCkdyGLTh+dRVFP/TQ/XaJF4Cyyz
-	 Ooq8kbtuyHhtDgEBAC/sovM62rHjoseQ48kJPEelIOd3cc7cN2F5ny1QGfAU58K3Gv3tk
-	 L8fgl2ZRDBMAg1jeZSnqEYuOhBH6s6yGynnSBnwD0mVby2p9gvlFdVDGPDRUTAdThwC/D
-	 kbn78Iy7SclspTInwAmAaPwlLI14jNCCpgm1PHqnT6E2xFbNqWwPLSrwD0wNI0WQLRNR3
-	 gJkW8nYUs4UecAGx4YEK/6YpL8s3Nx7LuhZv1Tqb195YnLozJP5hVY/7BvB8h2QDyYQ==
+	t=1795515070;
+	b=sKBjjhtEw7kixBKZgP2NLgasBUgDp2gyuAoJFiqas6SrvkKvWQkvr5NwM2yBeaDoyy7H
+	 8OLpiNwpBlxPvLctSwoceNqqffv8qYN/qdcoxng7zUH9nFUnwALUqiMN6h17cRoWgxOli
+	 CPkOk84gH5jT4mCSMsHwjDNBek/g2bjG43C9SOH6Iuv+KWCHYQQ/Cc+EthZb7qCoOXBig
+	 WM8NnAT7mL6bnMuWVEmd5rM35YEryEbqPJogDLH9D48CWGnyILn5ADk/qnRv9CGxWd5Da
+	 /Xm7x4KKGn+2Xj2HgmNY7f4oUmO1nC5QoINBkDoVizusJpn4J1K5WP26pl3ghjohGnw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514982;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Rspamd-Queue-Id:X-Spam-Level:
-	 X-Rspamd-Server:X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:
-	 X-Spam-Score;
-	bh=FoH+HnMKY1OyhcxViZQNcp66Y4tDpPSKEgZ8SD+Muo8=;
-	b=DP1nnnlxg/PkgpY//+cxbyn5Tc/WgnswAtHlQZREsSg8yULVmaETJFa7JsKmqjqPEj6f
-	 y/WnTiTPDMzXuXwt95yyzMwngGU11NQ6S4WLNBxkjrZi6Obj/uanmsl9UHgXGTGeBNhof
-	 AbarT0cRZPKbOwmz7kg7FF6g5KPnH6KLjth2tYNo8xqlgPYCE1OajjtBCP4IbM6sfWlRN
-	 36UfrK/AC9uTPCatbapZ3tK57dlFbTFkRwNpJivqja6sxi7Vc7TFCki+c5Qj/Sd4w1LWi
-	 ldFB0QbGVQPcMKf4gqoPYOopfGrbXl5ngFZWi8MJfGDPaO2dTXmrXKu1gmpriFmkv0w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795515070;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=8LzBCOLhNJ/F4/5I+BBpSJLxAOQbmQSfZhjMSBmDwl0=;
+	b=Gne52S/GoZ6ulCN6bxzUQY0PW3zJ4mG1TJtVh9i7kmyYXN05ewCo+LUJH1awd9irEhcA
+	 vo6CVKZ7YITJBJYN+iRy+Z0rN5CLCwv6dKOo0uqWMRIHgvwjaokjpnk1V2gSYLMkGkdY0
+	 a4A9E+DMeHJb1FxcVCsahUGY5w+cPocMg63IwHEsLtrOpK/wMl5dcHXkRJ7O16NT822sL
+	 AMiQKpxfJ4sjLYPB5rITQv4bgLqgsUUwqJFpGjCDKN7eZO3PL5ay4xh46GmtyB8Wbv57b
+	 OMcb3rf/8B+DgT0cRhdLnNknvK+Pv3ooj8Sj5IvIh7Pk/5hXeQe5daV20vfeNjLxgrA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=fhP8ddEB;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="9Kr6M/Mc";
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=fhP8ddEB;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="9Kr6M/Mc";
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Lny6vb5w;
+	arc=none smtp.remote-ip=209.85.214.172
+Received: from mail-pl1-f172.google.com (mail-pl1-f172.google.com [209.85.214.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F2BF606A31E;
-	Tue, 24 Nov 2026 10:09:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F2BF606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88606606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:11:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88606606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=fhP8ddEB;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=9Kr6M/Mc;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=fhP8ddEB;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=9Kr6M/Mc
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 2B6291F388;
-	Tue, 24 Nov 2026 10:09:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795514974; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FoH+HnMKY1OyhcxViZQNcp66Y4tDpPSKEgZ8SD+Muo8=;
-	b=fhP8ddEBhmpvsSVU29zqCyS7ocOLUWM/r3cqwbMCAa2oolWLNS2yHX3MaEh6m2tyfWIAge
-	L9bGN0FH0+5yLsaf+OXTmJbRpJSiv7kkKfi7iQ0/qNgrnN9+CJyXh2AawAE4o+PpTrHys0
-	qlazJz/764U5IAo53ndRN9isJZh7+uc=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795514974;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FoH+HnMKY1OyhcxViZQNcp66Y4tDpPSKEgZ8SD+Muo8=;
-	b=9Kr6M/Mc1uklFdTIVjQsf5tQ2M4if+BlMj1/GYZ1+lnJRBZiPzD7e6yhpsMp/ctmqvfqUc
-	bEehWeG8IlUro3Cg==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=fhP8ddEB;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="9Kr6M/Mc"
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795514974; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FoH+HnMKY1OyhcxViZQNcp66Y4tDpPSKEgZ8SD+Muo8=;
-	b=fhP8ddEBhmpvsSVU29zqCyS7ocOLUWM/r3cqwbMCAa2oolWLNS2yHX3MaEh6m2tyfWIAge
-	L9bGN0FH0+5yLsaf+OXTmJbRpJSiv7kkKfi7iQ0/qNgrnN9+CJyXh2AawAE4o+PpTrHys0
-	qlazJz/764U5IAo53ndRN9isJZh7+uc=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795514974;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FoH+HnMKY1OyhcxViZQNcp66Y4tDpPSKEgZ8SD+Muo8=;
-	b=9Kr6M/Mc1uklFdTIVjQsf5tQ2M4if+BlMj1/GYZ1+lnJRBZiPzD7e6yhpsMp/ctmqvfqUc
-	bEehWeG8IlUro3Cg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 93E871339F;
-	Tue, 24 Nov 2026 10:09:33 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id gOqUGV1iBWsLcgAAD6G6ig
-	(envelope-from <fmancera@suse.de>); Tue, 24 Nov 2026 10:09:33 +0000
-Message-ID: <79156f22-a378-487e-8a52-0013367ef293@suse.de>
-Date: Tue, 24 Nov 2026 11:08:07 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Lny6vb5w
+Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-2f0918f9e6cso7999005ad.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:11:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795515070; x=1796119870; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8LzBCOLhNJ/F4/5I+BBpSJLxAOQbmQSfZhjMSBmDwl0=;
+        b=Lny6vb5wrWwMhZUdnN8hlCF8ORcEMD85thGQm2nYx/wH94Q96b13rnVRmOaCgtmzma
+         +OhNchu9zljtD1f9WIH7Roi5sZ513hx6PJr6J9p9VaokRB0BPCYEUSRWujNivnQ80qqu
+         vb5ppEbk7seUA/0bQnw1FIjHgBMvr2EoMHqv90TLbSesyd8ihvsRj2w52lWtIZP8qoUX
+         PPACXh8NB/5R19HqP5uCmtnzgAdvZWWGdNsimnBVeq9Dyk+OaMETDHyDX8Ywg0VpsLc7
+         cBKxj5hPv1XST6cFOS+ZQK6ko8Aq1nj/QcalUSKHzf4wgvJ87id6m2q139orUnoebmj5
+         wBGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795515070; x=1796119870;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8LzBCOLhNJ/F4/5I+BBpSJLxAOQbmQSfZhjMSBmDwl0=;
+        b=io2z0s3vDSr7D8Eptnq/Af1Gm7YzUzI/9ZQToewv+N5BCo1Un9/Lfo8qcDqdn0sUhW
+         5kWzFs3nY+048hf/lutzRfgRdvIVqink2xdmr5fmpzkdOvRgj4ThhxbeNWAqRXu4m+7M
+         5IrpLHJqwFE8QzWDfLhHj6eQ1jw552A5UHLNwd2lRXJ6IavcW4CHb3PLVAm29N80wHqH
+         63ex4/1yOFSaD+p9JaksderISQ+OC4b/hdi0kvZ/CgPYM9psfAekFCEtKDGeJ1H/iGRO
+         VzkdoA1qKkVxeqjn9dlR+ZhEAv22BIn9eOvyjujWD4Jh+0xv5rlQpYYUJzGHJCyV97f7
+         Aurw==
+X-Forwarded-Encrypted: i=1; AL+hErFisYc5xTLy5Wup3NtGORRzEMUX2PR9RnN38u9k7L1x3Za/BgQrVdasPcpddLJIX0dh8JJjAsaQrLDB8bo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9NBltUiKpHKOXkqcsSiRLN/17iEKdW37p02PNLmRFtrFdfj5Cf
+	H7dkCqmn1zxand3S9FcO5auJmeNFDE6ANEAXymR/8NVeIBxovYFkTkqz
+X-Gm-Gg: AZFdTZf3ds31tAqzltxckbI2rxkAamm9z8i095LBHF6J7meTO284TiQrCguZl950O2D
+	WT3oTbaBpHYmyU2iM2htEhlEZWPun5YyEDC1Jge6lo8h7++sZZRDpSkKRapKqKyD+zUorMrPS2z
+	GFDRS7dF4a0b5TtuGWU8jMiSgDlLc+YtYNxO5/8pioajtbEOUO4lTX7KJHyGH5gP3Mj5M5ALaGh
+	x0em4FtTkaYP7P1UdMMycOXg0ST0AHh2MEKwGwsaryha1WFv3KpEIr7Ai1mgPs8b0aWfaveZYEw
+	FYihJPFYAf4rSFu1kpUmOTc6GemmdnBV4RFGrf3i0bNo7m/XQa5gbCUMzcvIBtu7ApjJzJakoFH
+	wUdph7+6Djb2sWBn8WXLXAjjsOmh6Ea8ukXvMEwvmCtYJorbUFJrK/c26L3KHKn0cXFndHXCkQV
+	EP6zmA21SVZDRbMbTGzPnMIGkU1iPEc1nhWHq9oQbuBdeJ+KfyFcj/z1lQCWYxjJ8mni8zbivoR
+	6vPeci95tW+x20eMjq2pajTSF7ebyAzb7u/yfuzO7kvtZF68gsiQXnnQQQq85LO4FrBl2auWsCT
+	XXd5EatsfFtIG5qkNwPch8ghSUd32/Mmv4BtBnHyronBXs4=
+X-Received: by 2002:a17:903:acb:b0:2f0:25ea:8fb7 with SMTP id d9443c01a7336-2f03f0c19f1mr124505295ad.3.1795515069885;
+        Tue, 24 Nov 2026 02:11:09 -0800 (PST)
+Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f102fc4sm66693175ad.43.2026.11.24.02.11.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 02:11:09 -0800 (PST)
+From: Cong Nguyen <congnt264@gmail.com>
+To: Matthias Fend <matthias.fend@emfend.at>,
+	Lee Jones <lee@kernel.org>,
+	Pavel Machek <pavel@kernel.org>
+Cc: linux-leds@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] leds: flash: tps6131x: put the LED child node reference
+Date: Tue, 24 Nov 2026 17:11:02 +0700
+Message-Id: <20261124101102.3884922-1-congnt264@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,81 +96,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH nf] netfilter: bpf: reject a repeated
- bpf_ct_set_nat_info()
-To: Andrey Misiurov <amisiurov@cloudlinux.com>,
- Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>
-Cc: Jozsef Kadlecsik <kadlec@netfilter.org>, Phil Sutter <phil@nwl.cc>,
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
- linux-kernel@vger.kernel.org
-References: <20261120171325.2721546-1-amisiurov@cloudlinux.com>
-Content-Language: en-US
-From: Fernando Fernandez Mancera <fmancera@suse.de>
-In-Reply-To: <20261120171325.2721546-1-amisiurov@cloudlinux.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: 2B6291F388
-X-Spam-Level: 
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spamd-Result: default: False [-13.50 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	XM_UA_NO_VERSION(0.01)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCPT_COUNT_SEVEN(0.00)[8];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,suse.de:email]
-X-Spam-Score: -13.50
+Content-Transfer-Encoding: 8bit
 
-On 11/20/26 6:13 PM, Andrey Misiurov wrote:
-> bpf_ct_set_nat_info() checks the l3 protocol and the manip type and then
-> calls nf_nat_setup_info(). It does not check whether NAT for that manip was
-> already set up.
-> 
-> A BPF program holding an unconfirmed nf_conn___init can call it twice with
-> the same manip. The first call sets IPS_SRC_NAT_DONE (or IPS_DST_NAT_DONE).
-> On the second call nf_nat_setup_info() hits WARN_ON(nf_nat_initialized()):
-> 
->    WARNING: CPU: 1 PID: 21673 at net/netfilter/nf_nat_core.c:674 nf_nat_setup_info+0x251/0x2b0 [nf_nat]
->    CPU: 1 PID: 21673 Comm: loader
->    RIP: 0010:nf_nat_setup_info+0x251/0x2b0 [nf_nat]
->    Call Trace:
->     bpf_ct_set_nat_info+0x81/0xb0 [nf_nat]
->     bpf_prog_e4b00ba35d2f7a6b_nf_skb_ct_nat_twice+0x110/0x13f
->     bpf_test_run+0x172/0x2e0
->     bpf_prog_test_run_skb+0x2e5/0x4f0
->     __sys_bpf+0x7f8/0xe90
->     __x64_sys_bpf+0x1a/0x30
->     do_syscall_64+0x5f/0xe0
->     entry_SYSCALL_64_after_hwframe+0x76/0x7e
-> 
-> With panic_on_warn this is a DoS.
-> 
-> Reject the call with -EEXIST when NAT for that manip is already initialised,
-> before nf_nat_setup_info() is reached.
-> 
-> Fixes: 0fabd2aa199f ("net: netfilter: add bpf_ct_set_nat_info kfunc helper")
-> Signed-off-by: Andrey Misiurov <amisiurov@cloudlinux.com>
-Reviewed-by: Fernando Fernandez Mancera <fmancera@suse.de>
+tps6131x_parse_node() gets the LED child node with
+device_get_next_child_node(), which takes a reference. The driver never
+drops it, so the reference is leaked on every probe error and after
+remove().
 
-Thanks!
+Drop it with a device managed action registered right after the node is
+taken, as leds-tps6105x does.
+
+This issue was found by auditing the driver with an LLM coding assistant.
+
+Fixes: b338a2ae9b31 ("leds: tps6131x: Add support for Texas Instruments TPS6131X flash LED driver")
+Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+---
+ drivers/leds/flash/leds-tps6131x.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/drivers/leds/flash/leds-tps6131x.c b/drivers/leds/flash/leds-tps6131x.c
+index 7f2c3895e6e9..56de7a1cf9a7 100644
+--- a/drivers/leds/flash/leds-tps6131x.c
++++ b/drivers/leds/flash/leds-tps6131x.c
+@@ -529,6 +529,11 @@ static const struct led_flash_ops flash_ops = {
+ 	.fault_get = tps6131x_flash_fault_get,
+ };
+ 
++static void tps6131x_led_node_put(void *data)
++{
++	fwnode_handle_put(data);
++}
++
+ static int tps6131x_parse_node(struct tps6131x *tps6131x)
+ {
+ 	const struct tps6131x_timer_config *timer_config;
+@@ -550,6 +555,10 @@ static int tps6131x_parse_node(struct tps6131x *tps6131x)
+ 		return -EINVAL;
+ 	}
+ 
++	ret = devm_add_action_or_reset(dev, tps6131x_led_node_put, tps6131x->led_node);
++	if (ret)
++		return ret;
++
+ 	num_channels = fwnode_property_count_u32(tps6131x->led_node, "led-sources");
+ 	if (num_channels <= 0) {
+ 		dev_err(dev, "Failed to read led-sources property\n");
+-- 
+2.25.1
+
