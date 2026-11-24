@@ -1,100 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.173
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795556328;
-	b=R4Fx2WeEwBgAk9EqLx/+bxDx/uaLv/tjsPenZTIRsoUNFlCCGw+04FFpFb9mD5tBfXoi
-	 E1UQLrIP5uLD/GsPiWUOQWBGq3d4251FUwBAKVeBD7Y/iRchnTSMXKC3R9d+P+7I5m7rY
-	 2Mxrrrn3H9VxWJfiq+XLmTS0IDgPLgM8FeF0L6vSspHktexocCLCBIAxz+hCnxWCs4sI+
-	 g6giOSGQ7p2EPbm0sNEK8S3Z2jjIClc57Pk7C3XItA/o3htg7BRT1044p4oGjehbqnxkh
-	 xjDtvXieE+oBkv3IrfvpLqXwRu0iZAboLIfeqxT62DHTVx/eDYrF7Tgb8mT7dhEfcIg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	b=2gG/XHRbV60A27ukXPMUe8AlcZ5DQHpLjH+km89ZrEVR/F1qGRyyVqy2mIIQsEJOWbSi
+	 5Tdj3XNkZOohH754rp6AvDswYZD/eXvNbijlNetwONMpULOSHz3QhBXCj3vN8CKeT0PV7
+	 UmSt/OjRm7PwhqIBddjTJEzRp2s9MR9eH9EDR8fQ/JqyQ0+lwbcxzRBtaVg2FbcdbJvV/
+	 cMWf/ZiVYmQXPHDvLhpYJly0t7sE4gUcz9P4v5snRRo7Q+Nc3trDYNkqfxTeM1qn8R4TT
+	 Y3EvGUcGJkEe0zVuRIwDimuN+rVHAHdzrYZQwMlfQ9s/14o0MFPJvjcF4HpTk6xh1Uw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795556328;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=+yhNDtVkGsB34hsrY/DrTfudZWn+Znetsqsket55Xcc=;
-	b=2FQbr9/5bx5F0E0s/mmtdrDBCuhb4uR5/nkMH67F7kVeyVLjx9OEvmbQBS+GzsOq4MrF
-	 bguldjNupcrXGbP0PVJC1U0Q1GvZrwtt/rt06fQraDWTKrakDa6TI9nOciiVmAMGNCYzr
-	 Tk1GzYy7pHYJQpfgElOzx66Bsg6jSmVJaKVqRjguo3KzDhqYK8wQaNvHDgX7mNs1QJYT8
-	 kHtOE1uSBpiE1O0MutqIYHziwSWHVSdrITHteuCCuvADu5f9GQgIwK/0xb50oG1u60lF9
-	 3MUbHD29VF7Wrt4HbNGFEOUu6Ue9/QwNp8j7YsvXJC5W93bst4v2BqzoQzS4P3q3+Ew==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=googlemail.com;
-	spf=pass smtp.mailfrom=googlemail.com;
-	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=MRQzwtKc;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.173
-Received: from mail-yw1-f173.google.com (mail-yw1-f173.google.com [209.85.128.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=UDznTv7tvXw7e6fmTZhMJ4Cm4gT1kF7rLrwjGIShnwY=;
+	b=vmWgnrC6BNb9RVSwmu0k1OoTltjbnEQ/gC1STR2vfuDzCEeN305Dcf7vvuCUceh0S+w/
+	 3ij+43yUlcnEMkNiUKU4LoVJ556p8HmBXRuVgnI9Y8uGK4KZ1DjgR2tkDBl4lmyHTznqw
+	 7xKxaj+aJChvPPqR3LA7f50fvHD6WXPBe28EseiuJC26OIEinGrAjgXM4qo3hRYjXkLR9
+	 DoprE99MR60B2yahbaex0BrRecbhTn75BtteYxLh4SVQTUxuIYzsW0d7kB1hv/rIIKO0j
+	 CAuizvM/fUYbzBIePpJvr69j0x6+BD/c7zt0FmF+jCpDv7plLnGWaNQXx3oFN1IdwvQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aucOB2zf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CAAF1606A698
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:38:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CAAF1606A698
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4E6E606A691;
+	Tue, 24 Nov 2026 21:38:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=MRQzwtKc
-Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-8b30cbfa628so37609007b3.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:38:47 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795556327; cv=none;
-        d=google.com; s=arc-20260327;
-        b=P8ZoEpeCYteZZ0HTPiOTKDME+0OsR2CxLW8jCh+k9qEquc/VFzBgzYFefDT8If2YpR
-         bpUO5+cktD6OZpEz6BJhs0XA/oRddYg63uQbdHnsyk6tAHXhXoxznT4JagWKvXU66YjE
-         +s3HCWeoaDCAlL/zbpqbtwp+DBxmz02Mei+zsq4mNDb65vJ5bUEqTJm+lGV4BtkyuXq8
-         0P0nOKE7R1/R4tJI2UdCp7JfRFbX3hSjFU24U63k+AZGlv6I58c5vY2V4VwH3qGsYfef
-         KTeQxlXVcOeyVa41AeAjSys+H/paolUObyKoyKJDzL5ZJfPJSMaQR+SwnxMdloGqH7n9
-         wHoA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=+yhNDtVkGsB34hsrY/DrTfudZWn+Znetsqsket55Xcc=;
-        fh=cCvi6m236uzm+BseLOADHgdrPHC/kNY8RJPHITubGj0=;
-        b=GbQKU+0z7a7iUfmWfS6cdR1p/MnZMZ34DsYQuBIjcJH+xgbO5yp7jTIF/yCmhtP5iM
-         xk1skmgVX1ab1LeiepNejeyW0BleIGIxdHlAOGTS5PCifWRMuP++bRS4Y355YnRDi/um
-         KyHZDiY8G6VIV//+MjwKMR3oTf9xU4L7rEMmXcxolnH+6RRKeEdBmYYmv6zVnMU71LlQ
-         T828n2CrWzDmLsDkYR7rNleVeVDhOoQ7DxyIMJH4AdwQ+ow76UQ3rE79Chw1kgN5Vq6Y
-         BcDedgA9WCElRcKxdVpk3DnyH2CPcB5Mcg/G1SYvh5WwvEo4QH81N73qzcPVDs2BQZxQ
-         D7Ig==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20260707; t=1795556327; x=1796161127; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=+yhNDtVkGsB34hsrY/DrTfudZWn+Znetsqsket55Xcc=;
-        b=MRQzwtKcpvuLUX7gVFRmvaBf8z7TwF++fqSkjnaqL1tkiZF2n360rRhGPODzSqMsnz
-         zS37yyGaj2vH/anO7WJ+uamepQe28WsybHNyBjInK1z3ONzdi2zK1+uppWvMUg7wik0m
-         gcJBvoj3c5yvQ34d0DjEotBoOJUdjYa8+PP5o5lvgotgvWd9/6I1uk+Ii284UD6vy2cB
-         w4mqTszc8iSfhtwpprCcjmziMe72Tivt6bN/SKVnsWn4GLlcPszevwZc2jygNhGIO8D3
-         CzuSGzzrhmPt9HboLdYrw/LCjRk/imUgqoxKarwk38lmHJ13AjqTP3iCI/G96LY6lW2H
-         Weaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795556327; x=1796161127;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+yhNDtVkGsB34hsrY/DrTfudZWn+Znetsqsket55Xcc=;
-        b=kBoU78sp3uGnN6K50SFxAWb2pfKWZWkNom0ODm7uYfvBgx3N2R8oWoWlAx/1HYg/EQ
-         hDdxmopsHbqTgdWDSy/HW5aVoMuUzVF95idaGbfs1VWoenEpPqugtkWBfrHJy+QVUYIY
-         2xVTo2sYPI3pCwf/kyHh4rseiWfXjLMg4o+p63QMfhIkMLFDqbyQgtkoyLrWrlNv0Aye
-         GY8ESjzAvcIVCdqKXlqHTUT0iGOJ+BVor+TrOdt464fA/bqDSwl+krQxMOKMMXJtnTha
-         jixQHqThdFYD8wAeSEL+NfTaWHFY4xCLIMitCH2YxbPiyh0rRcI0tfpVy5pfABRo1slB
-         70Vw==
-X-Forwarded-Encrypted: i=1; AL+hErGK4WIaKGM5bHD00+yQ0B6GB0U2m/56xsDEbfRKM8nlC2p7vFHSYpAQuGHIMX06V3zHNiu1X0UqOBYgC4U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9a8Xa9MRZ0TZrCAk1u5GCsP1obaz0LXjb+ZOWeTkdZqrm/xNoB
-	+Jw43eXxh6Oc85Xsx/SaLMRqxAFYX2L1RtjpRaFGdDL32iKJQ0/MSD+FW2npX/P+59jSiVA7ccB
-	l9rKl8xAeNTEth6jy+mCxCifTS3FkXUw=
-X-Gm-Gg: AZFdTZffJ/FOXVlFrnfjaihDVIQKxCSIxgHFpRtwRQB1EdWEOg5EdtYJ7NZJ1e2OY6n
-	48I0AuBQ63JvZHIiVPoyuzIzgNH4wqWwtUKhI2rPjbdZv2TkH8sy1lWJqbkK8e07eeLyhuhXxEc
-	Xsm9KdZaNDatNTzepquzQKfk4LU58UShxAJmQQcQXbzSAR8ITUTZLREdEbOckGnYbYRZMz3b0a0
-	lYQhmBKxcXGBGg6Ruirrv8qBM9wptnPdul+cZ5ah8tOqwP4LpXwSbINrehb7Ob7zomBd9nBxtF4
-	20Np3d+0cw6qPQSXB4LromvlYtyPVcIKmOjDf+5x3qzzL5Dd0AfxqKkM8hcOrCHSnUuNbNXY9V0
-	/3aH8odcG+rNjKxDeTNA34YMxDOdQnqiDv9DDD9K4iS99b7o8DbF69dYDcA24sebaR230yw==
-X-Received: by 2002:a05:690c:a89:b0:8b4:c1ef:db88 with SMTP id
- 00721157ae682-8b5204dc558mr63502567b3.40.1795556326911; Tue, 24 Nov 2026
- 13:38:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aucOB2zf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C97231F0089E;
+	Tue, 24 Nov 2026 21:38:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795556328;
+	bh=UDznTv7tvXw7e6fmTZhMJ4Cm4gT1kF7rLrwjGIShnwY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=aucOB2zfnLBk8rLtyw/N5Epc20E2KqRxx+ZKX47RHV/9XWcFgAWwS8sD7BtrLr/8F
+	 HAZKdXCwENrM4q0q4cw2tDPw6nf/2MTzYo1eWPsJnKvMUMRIKrJ3x2wsrqzdppNHs7
+	 IqRWTY1IfX8UGVl2KSpmGYRRUoUmlznIuKexnSWhH967yb15jFrP+Q48UWL55kTIkC
+	 Q60imLaVhJdxKonCtFb1iPw3gFJ5Psw63EuSG9LTSAhP1n8D2pnQzgVbTbMUP48Mfq
+	 Ov3mj+Ja1ER1DBPvDe7zvqGj72+sKcQJx7Ksk1Z2EnEFp42LYPKhWkDC2RRISSX4oe
+	 eH+kKc9jkDzTw==
+Subject:
+ Re: [PATCH net v4 4/4] igb: only allow runtime PM if the device can wake up
+From: netdev-bot+sashiko@kernel.org
+To: antonio@mandelbit.com
+Cc: intel-wired-lan@lists.osuosl.org, anthony.l.nguyen@intel.com,
+ przemyslaw.kitszel@intel.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ janislacis06@gmail.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Date: Tue, 24 Nov 2026 21:38:47 +0000
+Message-ID: <179555632736.3135.1658046091917963917@kernel.org>
+In-Reply-To: <20261120210134.133238-5-antonio@mandelbit.com>
+References: <20261120210134.133238-5-antonio@mandelbit.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,38 +65,143 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261121213102.143130-1-tanure@linux.com> <20261121213102.143130-4-tanure@linux.com>
- <CAFBinCAzSgCGfXb_Q3FuwEmPAEiHSxzVR_ceyqMNp+LEZ18u1g@mail.gmail.com>
-In-Reply-To: <CAFBinCAzSgCGfXb_Q3FuwEmPAEiHSxzVR_ceyqMNp+LEZ18u1g@mail.gmail.com>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Tue, 24 Nov 2026 22:38:36 +0100
-X-Gm-Features: Aa3M54pH5ipmAt51OQad9aGPrJTAjEJ236HllU0tqVNlknXoe88HjErnJUF6ArA
-Message-ID: <CAFBinCD+JwU4mdgE54r0_XT8K5eMt2rjKQ9+3Pnt9V2nviH-fw@mail.gmail.com>
-Subject: Re: [PATCH v8 3/4] arm64: dts: amlogic: t7: add the ethernet controller
-To: Lucas Tanure <tanure@linux.com>
-Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, iav@iav.lv
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 24, 2026 at 10:37=E2=80=AFPM Martin Blumenstingl
-<martin.blumenstingl@googlemail.com> wrote:
->
-> On Sat, Nov 21, 2026 at 10:31=E2=80=AFPM Lucas Tanure <tanure@linux.com> =
-wrote:
-> [...]
-> > +                               int_mdio: mdio@1 {
-> > +                                       reg =3D <1>;
-> > +                                       #address-cells =3D <1>;
-> > +                                       #size-cells =3D <0>;
-> > +                                       status =3D "disabled";
-> Lucas, Igor (+Cc) has taken a closer look at the MDIO mux, see [0]
-Sorry, I forgot to Cc him :-(
-Now he's actually looped in
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
+
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] The runtime PM usage count can end up unbalanced, because the
+  same decision is made twice.
+
+--
+
+igb: only allow runtime PM if the device can wake up
+
+With this patch, igb_probe() drops the runtime PM reference taken by
+local_pci_probe() only when pci_dev_run_wake() is true. Devices that
+can't signal a wake-up from D3 are therefore never runtime suspended.
+igb_remove() takes the reference back under the same condition.
+
+Closes: https://bugzilla.ipfire.org/show_bug.cgi?id=13562
+
+> diff --git a/drivers/net/ethernet/intel/igb/igb_main.c b/drivers/net/ethernet/intel/igb/igb_main.c
+> index 4617aba5759d2..36bd395e36dab 100644
+> --- a/drivers/net/ethernet/intel/igb/igb_main.c
+> +++ b/drivers/net/ethernet/intel/igb/igb_main.c
+> @@ -3654,7 +3654,11 @@ static int igb_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
+>  
+>  	dev_pm_set_driver_flags(&pdev->dev, DPM_FLAG_NO_DIRECT_COMPLETE);
+>  
+> -	pm_runtime_put_noidle(&pdev->dev);
+> +	/* A device that can't wake up wouldn't notice the link coming back
+> +	 * while runtime suspended
+> +	 */
+> +	if (pci_dev_run_wake(pdev))
+> +		pm_runtime_put_noidle(&pdev->dev);
+>  	return 0;
+>  
+>  err_register:
+> @@ -3876,7 +3880,8 @@ static void igb_remove(struct pci_dev *pdev)
+>  	struct igb_adapter *adapter = netdev_priv(netdev);
+>  	struct e1000_hw *hw = &adapter->hw;
+>  
+> -	pm_runtime_get_noresume(&pdev->dev);
+> +	if (pci_dev_run_wake(pdev))
+> +		pm_runtime_get_noresume(&pdev->dev);
+
+[Severity: Medium]
+
+Can the runtime PM usage count get out of balance here?
+
+pci_dev_run_wake() runs once in igb_probe() and again in igb_remove(),
+and the first result isn't stored. pci_device_remove() then always ends
+with a put:
+
+drivers/pci/pci-driver.c:pci_device_remove() {
+    ...
+	/* Undo the runtime PM settings in local_pci_probe() */
+	pm_runtime_put_sync(dev);
+    ...
+}
+
+The count only balances if both pci_dev_run_wake() calls return the
+same value.
+
+It looks like the result can change while the driver is bound.
+pci_dev_run_wake() checks pci_pme_capable(dev, pci_target_state(dev,
+true)). On ACPI-managed devices, acpi_pci_choose_state() caps the target
+state using a flag that root can change through sysfs:
+
+drivers/pci/pci-acpi.c:acpi_pci_choose_state() {
+    ...
+	if (pdev->no_d3cold || !pdev->d3cold_allowed)
+		d_max = ACPI_STATE_D3_HOT;
+	else
+		d_max = ACPI_STATE_D3_COLD;
+    ...
+}
+
+d3cold_allowed_store() writes pdev->d3cold_allowed, and nothing
+serializes that write against probe or remove. On a device that can
+raise PME from D3hot but not from D3cold, toggling the attribute flips
+the result of pci_dev_run_wake().
+
+A second case is a device not managed by the platform, for example an
+igb NIC behind a Thunderbolt or USB4 dock. If it is surprise-removed
+while runtime suspended, the result also seems to change.
+pm_runtime_get_sync() in pci_device_remove() resumes the device, and
+pci_power_up() does:
+
+drivers/pci/pci.c:pci_power_up() {
+    ...
+	if (pci_dev_is_disconnected(dev)) {
+		dev->current_state = PCI_D3cold;
+		return -EIO;
+	}
+    ...
+}
+
+After that, pci_target_state() returns D3cold:
+
+drivers/pci/pci.c:pci_target_state() {
+    ...
+	if (dev->current_state == PCI_D3cold)
+		return PCI_D3cold;
+    ...
+}
+
+So igb_remove() tests the PME-from-D3cold bit, while igb_probe() tested
+the D3hot bit.
+
+If the call returns false at probe and true at remove, igb_remove()
+does an extra pm_runtime_get_noresume(). One usage count then leaks on
+each bind/unbind cycle. The device can't runtime suspend again, even
+after the driver is rebound.
+
+If it returns true at probe and false at remove, the final
+pm_runtime_put_sync() in pci_device_remove() underflows and logs
+"Runtime PM usage count underflow!". With power/control set to on, the
+extra put uses up the pm_runtime_forbid() reference instead, and a
+later pm_runtime_allow() underflows.
+
+Would it be safer to call pci_dev_run_wake() once in igb_probe(), store
+the result (for example as a bool in struct igb_adapter), and test that
+stored value in igb_remove()?
+
+e1000e and r8169 call pci_dev_run_wake() again at remove in the same
+way, so this pattern already exists in the tree. In igb, though, this
+would be a new imbalance, added by a fix that is tagged for stable.
+
+>  #ifdef CONFIG_IGB_HWMON
+>  	igb_sysfs_exit(adapter);
+>  #endif
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120210134.133238-1-antonio%40mandelbit.com
